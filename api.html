@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Pokemon Champions Battle Data API documentation for public use." />
+  <meta name="theme-color" content="#080d16" />
+  <title>API · Pokemon Champions Battle Data</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-api">
+  <a class="skip-link" href="#apiContent">Skip to API content</a>
+
+  <header class="site-header" aria-label="Site header">
+    <nav class="nav-shell">
+      <a class="brand" href="index.html" aria-label="pokemonbattledata.com home">
+        <img class="brand-logo" src="favicon.svg" alt="" aria-hidden="true" />
+        <span>
+          <strong>Pokemon Champions Battle Data</strong>
+          <small>pokemonbattledata.com</small>
+        </span>
+      </a>
+      <div class="nav-actions">
+        <a class="ghost-button" href="index.html">Explorer</a>
+        <a class="ghost-button" href="api.html" aria-current="page">API</a>
+        <a class="discord-button" href="https://discord.gg/pokemonchampions" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="apiContent" class="api-main section-shell">
+    <section class="api-hero api-hero-compact">
+      <div class="api-panel">
+        <p class="eyebrow">Public API</p>
+        <h1>Build with Pokémon Champions battle data</h1>
+        <p>Use the JSON index for fast discovery, then request the raw CSV tables when your app needs complete move, item, teammate, nature, stat-spread, and ability rankings.</p>
+      </div>
+      <aside class="api-side-card" aria-label="Community">
+        <span class="stat-label">Community</span>
+        <h2>Need help using the API?</h2>
+        <p>Join the Discord for questions, updates, and integration ideas.</p>
+        <a class="discord-button discord-button-large" href="https://discord.gg/pokemonchampions" target="_blank" rel="noopener">Join Discord</a>
+      </aside>
+    </section>
+
+    <section class="endpoint-grid" aria-label="API endpoints">
+      <article class="endpoint-card">
+        <h2>Pokémon index</h2>
+        <p>The index is the fastest starting point. It contains searchable Pokémon metadata, sprite paths, type data, available formats, and precomputed battle summaries.</p>
+        <pre><code>GET /data/pokemon-index.json</code></pre>
+        <table class="api-table">
+          <tbody>
+            <tr><td>pokemon</td><td>Array of Pokémon records.</td></tr>
+            <tr><td>name</td><td>Display name used by the Explorer.</td></tr>
+            <tr><td>types</td><td>Primary type list, for example Dragon and Ground.</td></tr>
+            <tr><td>forms</td><td>Metadata rows with form names, abilities, hidden ability, and base stats.</td></tr>
+            <tr><td>summariesByFormat</td><td>Small battle-data summaries for Singles and Doubles when available.</td></tr>
+            <tr><td>battleDataCsvs</td><td>CSV file paths for complete ranked battle data tables.</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="endpoint-card">
+        <h2>Battle data CSV</h2>
+        <p>Fetch one Pokémon and one format to read the complete ranked battle table.</p>
+        <pre><code>GET /pokemon_champions_assets/battle_data/Doubles/garchomp.csv
+GET /pokemon_champions_assets/battle_data/Singles/garchomp.csv</code></pre>
+        <p>Rows are grouped by category: moves, held items, teammates, stat alignments, stat spreads, and abilities.</p>
+        <pre><code>pokemon,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds</code></pre>
+      </article>
+
+      <article class="endpoint-card">
+        <h2>Metadata CSV</h2>
+        <p>Fetch form data, dex number, typing, abilities, base stats, and sprite reference for a Pokémon.</p>
+        <pre><code>GET /pokemon_champions_assets/metadata/Garchomp.csv</code></pre>
+        <pre><code>pokemon_name,dex_number,base_dex_url,image_path,form_name,form_kind,types,abilities,hidden_ability,hp,attack,defense,sp_attack,sp_defense,speed,base_stat_total</code></pre>
+      </article>
+
+      <article class="endpoint-card">
+        <h2>Sprites and type icons</h2>
+        <p>Images can be used directly in websites, dashboards, Discord bots, and analysis tools.</p>
+        <pre><code>GET /pokemon_champions_assets/pokemon/Garchomp.png
+GET /pokemon_champions_assets/types/Dragon.png</code></pre>
+      </article>
+
+      <article class="endpoint-card">
+        <h2>JavaScript example</h2>
+        <pre><code>const index = await fetch('/data/pokemon-index.json').then(response =&gt; response.json());
+const pokemon = index.pokemon.find(entry =&gt; entry.name === 'Garchomp');
+const csv = pokemon.battleDataCsvs.find(file =&gt; file.format === 'Doubles');
+const battleData = await fetch(csv.path).then(response =&gt; response.text());</code></pre>
+      </article>
+
+      <article class="endpoint-card">
+        <h2>Common use cases</h2>
+        <ul>
+          <li>Show the most common moves and items for a Pokémon.</li>
+          <li>Find Pokémon by type, ability, or stat profile.</li>
+          <li>Compare Singles and Doubles usage data.</li>
+          <li>Power team builders, matchup pages, or metagame dashboards.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

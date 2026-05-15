@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Search, filter, and review Pokemon Champions competitive battle data." />
+  <meta name="theme-color" content="#080d16" />
+  <title>Pokemon Champions Battle Data</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-explorer">
+  <a class="skip-link" href="#results">Skip to results</a>
+
+  <header class="site-header" aria-label="Site header">
+    <nav class="nav-shell">
+      <a class="brand" href="/" aria-label="pokemonbattledata.com home">
+        <img class="brand-logo" src="favicon.svg" alt="" aria-hidden="true" />
+        <span>
+          <strong>Pokemon Champions Battle Data</strong>
+          <small>pokemonbattledata.com</small>
+        </span>
+      </a>
+      <div class="nav-actions">
+        <div class="format-switch" role="group" aria-label="Battle format">
+          <button class="format-toggle active" id="formatToggleDoubles" type="button" aria-pressed="true" data-format="Doubles">Doubles</button>
+          <button class="format-toggle" id="formatToggleSingles" type="button" aria-pressed="false" data-format="Singles">Singles</button>
+        </div>
+        <a class="ghost-button" href="api.html">API</a>
+        <a class="discord-button" href="https://discord.gg/pokemonchampions" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-shell" aria-labelledby="pageTitle">
+      <div class="hero-copy">
+        <p class="eyebrow">Pokemon Champions Competitive Data Explorer</p>
+        <h1 id="pageTitle">Pokemon Champions Battle Data database + API</h1>
+        <p class="hero-text">Search by Pokémon name or use advanced filters for stats, type, items, moves, abilities, and teammates. Review ranked usage data with fast profile cards, a compact Battle Data list, and detailed build tables.</p>
+      </div>
+
+      <aside class="hero-card battle-entry-panel" aria-label="Battle data entries">
+        <div class="entry-panel-header">
+          <div>
+            <span class="stat-label">Battle Data</span>
+            <strong id="datasetStatus">Loading CSV data…</strong>
+          </div>
+          <span class="entry-count" id="pokemonCount">0</span>
+        </div>
+        <div class="entry-list" id="battleEntryList" role="list" aria-label="Loaded battle data entries"></div>
+      </aside>
+    </section>
+
+    <section class="controls section-shell" aria-label="Search and filters">
+      <div class="search-panel">
+        <div class="search-label-row">
+          <label for="searchInput">Search database</label>
+          <div class="search-help">
+            <button class="search-help-button" id="searchHelpButton" type="button" aria-label="Show advanced search options">?</button>
+            <div class="search-help-popover" id="searchHelpPopover" role="tooltip">
+              <strong>Advanced search</strong>
+              <p>Plain text searches only Pokémon names. Use field operators for precise filters. Chain filters with spaces or commas.</p>
+              <dl>
+                <dt>Name search</dt><dd>Simply type the name, e.g. Garchomp to search by name.</dd>
+                <dt>Stats</dt><dd><code>spe&gt;=120</code>, <code>atk&gt;100</code>, <code>stats&gt;=600</code></dd>
+                <dt>Types</dt><dd><code>type=Ground</code>, <code>type=Dragon</code></dd>
+                <dt>Battle data</dt><dd><code>item=Choice Scarf</code>, <code>move=Earthquake</code>, <code>ability=Rough Skin</code></dd>
+                <dt>Other fields</dt><dd><code>teammate=Sneasler</code>, <code>nature=Jolly</code>, <code>dex=445</code></dd>
+                <dt>Rank Filter</dt><dd><span class="rank-help"><span class="plain-code">move&lt;=5=Earthquake</span> shows all Pokémon that have Earthquake in their Top 5 moves. <span class="plain-code">item&lt;=3=Choice Scarf</span> finds Pokémon with Choice Scarf in their Top 3 items.</span></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="search-action-row">
+          <div class="search-box">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10.8 18.1a7.3 7.3 0 1 1 5.1-2.1l4 4a1.3 1.3 0 0 1-1.9 1.8l-3.9-4a7.1 7.1 0 0 1-3.3.3Zm0-2.5a4.8 4.8 0 1 0 0-9.6 4.8 4.8 0 0 0 0 9.6Z"/></svg>
+            <input id="searchInput" type="search" placeholder="Search database, press Enter to save search" autocomplete="off" />
+          </div>
+        </div>
+      </div>
+      <div class="filter-grid">
+        <label>Type
+          <select id="typeFilter"><option value="all">All types</option></select>
+        </label>
+        <label>Sort by
+          <select id="sortFilter">
+            <option value="name">A–Z</option>
+            <option value="dex">Dex Number</option>
+            <option value="bst">Total Stats</option>
+            <option value="hp">Health</option>
+            <option value="attack">Attack</option>
+            <option value="defense">Defense</option>
+            <option value="sp_attack">Special Attack</option>
+            <option value="sp_defense">Special Defense</option>
+            <option value="speed">Speed</option>
+          </select>
+        </label>
+        <label>Order
+          <select id="orderFilter">
+            <option value="desc" selected>Descending</option>
+            <option value="asc">Ascending</option>
+          </select>
+        </label>
+        <label class="checkbox-label">
+          <input id="favoritesOnly" type="checkbox" />
+          Favorites only
+        </label>
+      </div>
+    </section>
+
+    <section class="section-shell layout" id="results">
+      <aside class="sidebar" aria-label="Pokémon roster">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Search history</p>
+            <h2>Recent searches</h2>
+          </div>
+          <span class="pill" id="resultCount">0 shown</span>
+        </div>
+        <div class="roster-list" id="rosterList" role="list"></div>
+      </aside>
+
+      <section class="content-area" aria-live="polite">
+        <div class="panel-heading desktop-heading">
+          <div>
+            <p class="eyebrow">Overview</p>
+            <h2>Search results</h2>
+          </div>
+          <button class="ghost-button compact" id="clearFiltersButton" type="button">Clear filters</button>
+        </div>
+        <div class="card-grid" id="pokemonGrid"></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <strong>No Pokémon matched your filters.</strong>
+          <p>Try a Pokémon name, clear the type filter, or use an advanced query such as spe&gt;=120 or type=Ground.</p>
+          <button class="primary-button" type="button" id="emptyClearButton">Reset filters</button>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <dialog class="detail-dialog" id="detailDialog" aria-labelledby="detailTitle">
+    <div class="dialog-inner">
+      <button class="close-button" type="button" id="closeDialogButton" aria-label="Close profile">×</button>
+      <div class="detail-content" id="detailContent"></div>
+    </div>
+  </dialog>
+
+  <template id="pokemonCardTemplate">
+    <article class="pokemon-card">
+      <button class="favorite-button" type="button" aria-label="Toggle favorite">☆</button>
+      <div class="pokemon-art"></div>
+      <div class="pokemon-card-body">
+        <div class="card-title-row">
+          <div>
+            <span class="dex-number"></span>
+            <h3></h3>
+          </div>
+        </div>
+        <div class="type-row"></div>
+        <div class="quick-facts"></div>
+        <button class="primary-button open-profile" type="button">Open profile</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

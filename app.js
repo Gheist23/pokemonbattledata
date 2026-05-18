@@ -1131,14 +1131,17 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
   }
 
   function formsTable(forms) {
-    const wrap = document.createElement("div");
-    wrap.className = "data-table-wrap";
+    const outer = document.createElement("div");
+    outer.className = "forms-metadata-block";
     if (!forms.length) {
-      wrap.textContent = "No form metadata available.";
-      return wrap;
+      outer.textContent = "No form metadata available.";
+      return outer;
     }
+
+    const desktopWrap = document.createElement("div");
+    desktopWrap.className = "data-table-wrap forms-desktop-wrap";
     const labels = ["Form", "Types", "Abilities", "Stats"];
-    wrap.innerHTML = `
+    desktopWrap.innerHTML = `
       <table class="responsive-data-table forms-table">
         ${tableHeader(labels)}
         <tbody>
@@ -1153,7 +1156,32 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
           }).join("")}
         </tbody>
       </table>`;
-    return wrap;
+
+    const mobileCards = document.createElement("div");
+    mobileCards.className = "forms-mobile-panels";
+    mobileCards.innerHTML = forms.map((form) => {
+      const abilities = combinedAbilityLabel(form);
+      const formName = form.saved_name || form.form_name || "—";
+      const types = form.types.join(" / ") || "—";
+      const stats = FORM_STATS.map(([key, label]) => `
+        <span class="form-stat-pill"><b>${escapeHtml(label)}</b><strong>${escapeHtml(metadataStatValue(form, key) ?? "—")}</strong></span>
+      `).join("");
+      return `
+        <article class="form-mobile-card">
+          <div class="form-mobile-main">
+            <div class="form-mobile-row"><span>Form</span><strong>${escapeHtml(formName)}</strong></div>
+            <div class="form-mobile-row"><span>Types</span><strong>${escapeHtml(types)}</strong></div>
+            <div class="form-mobile-row"><span>Abilities</span><strong>${escapeHtml(abilities || "—")}</strong></div>
+          </div>
+          <div class="form-mobile-stats">
+            <h4>Stats</h4>
+            <div class="form-stat-grid">${stats}</div>
+          </div>
+        </article>`;
+    }).join("");
+
+    outer.append(desktopWrap, mobileCards);
+    return outer;
   }
 
   function natureChangeMarkup(natureName) {

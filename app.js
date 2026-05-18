@@ -63,10 +63,10 @@ Garchomp,Garchomp,Garchomp,Dragon/Ground,Sand Veil|Rough Skin,pokemon_champions_
 Garchomp [Mega Garchomp],Garchomp,Mega Garchomp,Dragon/Ground,Sand Force,pokemon_champions_assets\\pokemon\\Mega Garchomp.png,Mega,108,170,115,120,95,92,700
 Garchomp [Mega Garchomp Z],Garchomp,Mega Garchomp Z,Dragon,Sand Force,pokemon_champions_assets\\pokemon\\Mega Garchomp Z.png,Mega,108,130,85,141,85,151,700`;
 
-  const SAMPLE_BATTLE = `pokemon,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Garchomp,move,1,Earthquake,90.3%,,,,,,,,,108.13
-Garchomp,held_item,1,Choice Scarf,24.2%,,,,,,,,,118.13
-Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
+  const SAMPLE_BATTLE = `pokemon,position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Garchomp,1,move,1,Earthquake,90.3%,,,,,,,,
+Garchomp,2,held_item,1,Choice Scarf,24.2%,,,,,,,,
+Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
 
   const state = {
     pokemon: [],
@@ -1336,13 +1336,14 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
   function normalizeBattleRow(row) {
     const normalized = { ...row };
     normalized.category = row.category || "";
+    normalized.position = numberOrNull(row.position);
     normalized.rank = numberOrNull(row.rank);
     normalized.name = row.name || "";
     normalized.percentage = row.percentage || "";
     normalized.percentage_value = parsePercent(row.percentage);
     normalized.stat_up = row.stat_up || "";
     normalized.stat_down = row.stat_down || "";
-    normalized.source_time_seconds = numberOrNull(row.source_time_seconds);
+    if (row.source_time_seconds !== undefined) normalized.source_time_seconds = numberOrNull(row.source_time_seconds);
     normalized.format = titleCase(row._battle_format || row.format || row.battle_format || detectFormatFromPath(row._source_path || "") || "Battle");
     for (const [key] of STAT_COLUMNS) normalized[key] = numberOrNull(row[key]);
     return normalized;

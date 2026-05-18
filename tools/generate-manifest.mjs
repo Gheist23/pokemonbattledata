@@ -192,15 +192,17 @@ function normalizeMetadataRow(row) {
 
 function normalizeBattleRow(row) {
   const normalized = {
-    category: row.category || "",
-    rank: numberOrNull(row.rank),
-    name: row.name || "",
-    percentage: row.percentage || "",
-    percentage_value: parsePercent(row.percentage),
-    stat_up: row.stat_up || "",
-    stat_down: row.stat_down || ""
+    pokemon: readField(row, ["pokemon"]) || "",
+    position: numberOrNull(readField(row, ["position", "pos"])),
+    category: readField(row, ["category"]) || "",
+    rank: numberOrNull(readField(row, ["rank"])),
+    name: readField(row, ["name"]) || "",
+    percentage: readField(row, ["percentage"]) || "",
+    percentage_value: parsePercent(readField(row, ["percentage"])),
+    stat_up: readField(row, ["stat_up"]) || "",
+    stat_down: readField(row, ["stat_down"]) || ""
   };
-  for (const key of statColumns) normalized[key] = numberOrNull(row[key]);
+  for (const key of statColumns) normalized[key] = numberOrNull(readField(row, [key]));
   return normalized;
 }
 
@@ -216,6 +218,8 @@ function rowLabel(row) {
 
 function compactBattleRow(row) {
   const compact = {
+    pokemon: row.pokemon,
+    position: row.position,
     category: row.category,
     rank: row.rank,
     name: row.name,

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-15T15:46:46.108Z",
+  "generatedAt": "2026-05-18T07:39:38.374Z",
   "assetRoot": "pokemon_champions_assets",
   "pokemon": [
     {
@@ -28489,92 +28489,117 @@
         {
           "format": "Doubles",
           "path": "pokemon_champions_assets/battle_data/Doubles/Garchomp.csv"
+        },
+        {
+          "format": "Singles",
+          "path": "pokemon_champions_assets/battle_data/Singles/Garchomp.csv"
         }
       ],
       "summary": {
-        "dex": null,
+        "dex": 445,
         "sprite": "pokemon_champions_assets/pokemon/Garchomp.png",
         "types": [
           "Dragon",
           "Ground"
         ],
         "primary": {
-          "pokemon_name": "",
-          "dex_number": null,
-          "base_dex_url": "",
+          "pokemon_name": "Garchomp",
+          "dex_number": 445,
+          "base_dex_url": "https://pokemondb.net/pokedex/garchomp",
           "image_path": "pokemon_champions_assets/pokemon/Garchomp.png",
-          "form_name": "Unknown form",
-          "form_kind": "Form",
+          "form_name": "Garchomp",
+          "form_kind": "Base",
           "types": [
             "Dragon",
             "Ground"
           ],
-          "types_raw": "Dragon/Ground",
-          "abilities": "Sand Veil|Rough Skin",
-          "hidden_ability": "",
-          "hp": 183,
-          "attack": null,
-          "defense": null,
-          "sp_attack": null,
-          "sp_defense": null,
-          "speed": null,
-          "base_stat_total": null
+          "types_raw": "DRAGON/GROUND",
+          "abilities": "Sand Veil",
+          "hidden_ability": "Rough Skin",
+          "hp": 108,
+          "attack": 130,
+          "defense": 95,
+          "sp_attack": 80,
+          "sp_defense": 85,
+          "speed": 102,
+          "base_stat_total": 600
         },
         "forms": [
           {
-            "pokemon_name": "",
-            "dex_number": null,
-            "base_dex_url": "",
+            "pokemon_name": "Garchomp",
+            "dex_number": 445,
+            "base_dex_url": "https://pokemondb.net/pokedex/garchomp",
             "image_path": "pokemon_champions_assets/pokemon/Garchomp.png",
-            "form_name": "Unknown form",
-            "form_kind": "Form",
+            "form_name": "Garchomp",
+            "form_kind": "Base",
             "types": [
               "Dragon",
               "Ground"
             ],
-            "types_raw": "Dragon/Ground",
-            "abilities": "Sand Veil|Rough Skin",
-            "hidden_ability": "",
-            "hp": 183,
-            "attack": null,
-            "defense": null,
-            "sp_attack": null,
-            "sp_defense": null,
-            "speed": null,
-            "base_stat_total": null
+            "types_raw": "DRAGON/GROUND",
+            "abilities": "Sand Veil",
+            "hidden_ability": "Rough Skin",
+            "hp": 108,
+            "attack": 130,
+            "defense": 95,
+            "sp_attack": 80,
+            "sp_defense": 85,
+            "speed": 102,
+            "base_stat_total": 600
           },
           {
-            "pokemon_name": "",
-            "dex_number": null,
-            "base_dex_url": "",
+            "pokemon_name": "Garchomp",
+            "dex_number": 445,
+            "base_dex_url": "https://pokemondb.net/pokedex/garchomp",
             "image_path": "pokemon_champions_assets/pokemon/Mega Garchomp.png",
-            "form_name": "Unknown form",
-            "form_kind": "Form",
+            "form_name": "Mega Garchomp",
+            "form_kind": "Mega",
             "types": [
               "Dragon",
               "Ground"
             ],
-            "types_raw": "Dragon/Ground",
+            "types_raw": "DRAGON/GROUND",
             "abilities": "Sand Force",
             "hidden_ability": "",
-            "hp": 183,
-            "attack": null,
-            "defense": null,
-            "sp_attack": null,
-            "sp_defense": null,
-            "speed": null,
-            "base_stat_total": null
+            "hp": 108,
+            "attack": 170,
+            "defense": 115,
+            "sp_attack": 120,
+            "sp_defense": 95,
+            "speed": 92,
+            "base_stat_total": 700
+          },
+          {
+            "pokemon_name": "Garchomp",
+            "dex_number": 445,
+            "base_dex_url": "https://pokemondb.net/pokedex/garchomp",
+            "image_path": "pokemon_champions_assets/pokemon/Mega Garchomp Z.png",
+            "form_name": "Mega Garchomp Z",
+            "form_kind": "Mega",
+            "types": [
+              "Dragon"
+            ],
+            "types_raw": "DRAGON",
+            "abilities": "Sand Force",
+            "hidden_ability": "",
+            "hp": 108,
+            "attack": 130,
+            "defense": 85,
+            "sp_attack": 141,
+            "sp_defense": 85,
+            "speed": 151,
+            "base_stat_total": 700
           }
         ],
         "baseStats": {
-          "hp": 183,
-          "attack": null,
-          "defense": null,
-          "sp_attack": null,
-          "sp_defense": null,
-          "speed": null
+          "hp": 108,
+          "attack": 130,
+          "defense": 95,
+          "sp_attack": 80,
+          "sp_defense": 85,
+          "speed": 102
         },
-        "baseStatTotal": null,
+        "baseStatTotal": 600,
         "battleSummary": {
           "Doubles": {
             "top": {
@@ -28591,8 +28616,8 @@
                 "category": "held_item",
                 "rank": 1,
                 "name": "Choice Scarf",
-                "percentage": "24.3%",
-                "percentage_value": 24.3,
+                "percentage": "24.2%",
+                "percentage_value": 24.2,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28609,10 +28634,10 @@
                 "category": "stat_alignment",
                 "rank": 1,
                 "name": "Adamant",
-                "percentage": "57.1%",
-                "percentage_value": 57.1,
-                "stat_up": "Attack",
-                "stat_down": "Sp. Atk"
+                "percentage": "57%",
+                "percentage_value": 57,
+                "stat_up": "Sp. Atk",
+                "stat_down": ""
               },
               "stat_points": {
                 "category": "stat_points",
@@ -28633,8 +28658,8 @@
                 "category": "ability",
                 "rank": 1,
                 "name": "Rough Skin",
-                "percentage": "94.1%",
-                "percentage_value": 94.1,
+                "percentage": "94%",
+                "percentage_value": 94,
                 "stat_up": "",
                 "stat_down": ""
               }
@@ -28690,11 +28715,11 @@
               ],
               "stat_points": [
                 "HP 2 / Atk 32 / Def 9 / SpA 9 / SpD 9 / Spe 32",
-                "HP 8 / Atk 32 / Def 9 / SpA 9 / SpD 2 / Spe 32",
-                "HP 8 / Atk 32 / Def 2 / SpA 8 / SpD 8 / Spe 32",
+                "HP 8 / Atk 32 / Def 8 / SpA 8 / SpD 2 / Spe 32",
+                "HP 0 / Atk 32 / Def 2 / SpA 0 / SpD 0 / Spe 32",
                 "HP 1 / Atk 32 / Def 1 / SpA 9 / SpD 9 / Spe 32",
-                "HP 8 / Atk 32 / Def 1 / SpA 9 / SpD 1 / Spe 32",
-                "HP 24 / Atk 19 / Def 0 / SpA 0 / SpD 1 / Spe 22",
+                "HP 8 / Atk 32 / Def 1 / SpA 8 / SpD 1 / Spe 32",
+                "HP 24 / Atk 10 / Def 0 / SpA 0 / SpD 1 / Spe 22",
                 "HP 28 / Atk 28 / Def 8 / SpA 8 / SpD 1 / Spe 25",
                 "HP 4 / Atk 38 / Def 18 / SpA 8 / SpD 8 / Spe 18",
                 "HP 32 / Atk 7 / Def 1 / SpA 0 / SpD 1 / Spe 25",
@@ -28721,8 +28746,8 @@
                 "category": "move",
                 "rank": 2,
                 "name": "Rock Slide",
-                "percentage": "83.3%",
-                "percentage_value": 83.3,
+                "percentage": "83.5%",
+                "percentage_value": 83.5,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28730,8 +28755,8 @@
                 "category": "move",
                 "rank": 3,
                 "name": "Dragon Claw",
-                "percentage": "79.1%",
-                "percentage_value": 79.1,
+                "percentage": "79.2%",
+                "percentage_value": 79.2,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28739,8 +28764,8 @@
                 "category": "move",
                 "rank": 4,
                 "name": "Protect",
-                "percentage": "69.5%",
-                "percentage_value": 69.5,
+                "percentage": "69.6%",
+                "percentage_value": 69.6,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28748,8 +28773,8 @@
                 "category": "move",
                 "rank": 5,
                 "name": "Stomping Tantrum",
-                "percentage": "33.6%",
-                "percentage_value": 33.6,
+                "percentage": "33.5%",
+                "percentage_value": 33.5,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28757,8 +28782,8 @@
                 "category": "move",
                 "rank": 6,
                 "name": "Scale Shot",
-                "percentage": "1.1%",
-                "percentage_value": 1.1,
+                "percentage": "7.6%",
+                "percentage_value": 7.6,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28793,8 +28818,8 @@
                 "category": "move",
                 "rank": 10,
                 "name": "Rock Tomb",
-                "percentage": "37%",
-                "percentage_value": 37,
+                "percentage": "35%",
+                "percentage_value": 35,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28802,8 +28827,8 @@
                 "category": "held_item",
                 "rank": 1,
                 "name": "Choice Scarf",
-                "percentage": "24.3%",
-                "percentage_value": 24.3,
+                "percentage": "24.2%",
+                "percentage_value": 24.2,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28811,8 +28836,8 @@
                 "category": "held_item",
                 "rank": 2,
                 "name": "Sitrus Berry",
-                "percentage": "14.8%",
-                "percentage_value": 14.8,
+                "percentage": "14.6%",
+                "percentage_value": 14.6,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28820,8 +28845,8 @@
                 "category": "held_item",
                 "rank": 3,
                 "name": "Soft Sand",
-                "percentage": "10.7%",
-                "percentage_value": 10.7,
+                "percentage": "10.8%",
+                "percentage_value": 10.8,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28829,8 +28854,8 @@
                 "category": "held_item",
                 "rank": 4,
                 "name": "White Herb",
-                "percentage": "10.6%",
-                "percentage_value": 10.6,
+                "percentage": "10.7%",
+                "percentage_value": 10.7,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28838,8 +28863,8 @@
                 "category": "held_item",
                 "rank": 5,
                 "name": "Haban Berry",
-                "percentage": "8.6%",
-                "percentage_value": 8.6,
+                "percentage": "8.7%",
+                "percentage_value": 8.7,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28856,8 +28881,8 @@
                 "category": "held_item",
                 "rank": 7,
                 "name": "Dragon Fang",
-                "percentage": "4.8%",
-                "percentage_value": 4.8,
+                "percentage": "4.7%",
+                "percentage_value": 4.7,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -28982,19 +29007,19 @@
                 "category": "stat_alignment",
                 "rank": 1,
                 "name": "Adamant",
-                "percentage": "57.1%",
-                "percentage_value": 57.1,
-                "stat_up": "Attack",
-                "stat_down": "Sp. Atk"
+                "percentage": "57%",
+                "percentage_value": 57,
+                "stat_up": "Sp. Atk",
+                "stat_down": ""
               },
               {
                 "category": "stat_alignment",
                 "rank": 2,
                 "name": "Jolly",
-                "percentage": "40.7%",
-                "percentage_value": 40.7,
+                "percentage": "40.9%",
+                "percentage_value": 40.9,
                 "stat_up": "Speed",
-                "stat_down": "Sp. Atk"
+                "stat_down": ""
               },
               {
                 "category": "stat_alignment",
@@ -29003,7 +29028,7 @@
                 "percentage": "0.4%",
                 "percentage_value": 0.4,
                 "stat_up": "Attack",
-                "stat_down": "Speed"
+                "stat_down": ""
               },
               {
                 "category": "stat_alignment",
@@ -29012,7 +29037,7 @@
                 "percentage": "0.3%",
                 "percentage_value": 0.3,
                 "stat_up": "Defense",
-                "stat_down": "Sp. Atk"
+                "stat_down": ""
               },
               {
                 "category": "stat_alignment",
@@ -29020,8 +29045,8 @@
                 "name": "Careful",
                 "percentage": "0.2%",
                 "percentage_value": 0.2,
-                "stat_up": "Sp. Def",
-                "stat_down": "Sp. Atk"
+                "stat_up": "Sp. Atk",
+                "stat_down": ""
               },
               {
                 "category": "stat_alignment",
@@ -29030,7 +29055,7 @@
                 "percentage": "0.2%",
                 "percentage_value": 0.2,
                 "stat_up": "Attack",
-                "stat_down": "Sp. Def"
+                "stat_down": ""
               },
               {
                 "category": "stat_alignment",
@@ -29039,7 +29064,7 @@
                 "percentage": "0.2%",
                 "percentage_value": 0.2,
                 "stat_up": "Speed",
-                "stat_down": "Sp. Def"
+                "stat_down": ""
               },
               {
                 "category": "stat_alignment",
@@ -29048,7 +29073,7 @@
                 "percentage": "0.2%",
                 "percentage_value": 0.2,
                 "stat_up": "Sp. Atk",
-                "stat_down": "Attack"
+                "stat_down": ""
               },
               {
                 "category": "stat_alignment",
@@ -29057,7 +29082,7 @@
                 "percentage": "0.2%",
                 "percentage_value": 0.2,
                 "stat_up": "Attack",
-                "stat_down": "Defense"
+                "stat_down": ""
               },
               {
                 "category": "stat_alignment",
@@ -29065,8 +29090,8 @@
                 "name": "Hasty",
                 "percentage": "0.1%",
                 "percentage_value": 0.1,
-                "stat_up": "Speed",
-                "stat_down": "Defense"
+                "stat_up": "Defense",
+                "stat_down": ""
               },
               {
                 "category": "stat_points",
@@ -29093,8 +29118,8 @@
                 "stat_down": "",
                 "hp_points": 8,
                 "attack_points": 32,
-                "defense_points": 9,
-                "sp_atk_points": 9,
+                "defense_points": 8,
+                "sp_atk_points": 8,
                 "sp_def_points": 2,
                 "speed_points": 32
               },
@@ -29106,19 +29131,19 @@
                 "percentage_value": 3.6,
                 "stat_up": "",
                 "stat_down": "",
-                "hp_points": 8,
+                "hp_points": 0,
                 "attack_points": 32,
                 "defense_points": 2,
-                "sp_atk_points": 8,
-                "sp_def_points": 8,
+                "sp_atk_points": 0,
+                "sp_def_points": 0,
                 "speed_points": 32
               },
               {
                 "category": "stat_points",
                 "rank": 4,
                 "name": "",
-                "percentage": "3.1%",
-                "percentage_value": 3.1,
+                "percentage": "3.2%",
+                "percentage_value": 3.2,
                 "stat_up": "",
                 "stat_down": "",
                 "hp_points": 1,
@@ -29139,7 +29164,7 @@
                 "hp_points": 8,
                 "attack_points": 32,
                 "defense_points": 1,
-                "sp_atk_points": 9,
+                "sp_atk_points": 8,
                 "sp_def_points": 1,
                 "speed_points": 32
               },
@@ -29152,7 +29177,7 @@
                 "stat_up": "",
                 "stat_down": "",
                 "hp_points": 24,
-                "attack_points": 19,
+                "attack_points": 10,
                 "defense_points": 0,
                 "sp_atk_points": 0,
                 "sp_def_points": 1,
@@ -29177,8 +29202,8 @@
                 "category": "stat_points",
                 "rank": 8,
                 "name": "",
-                "percentage": "2.3%",
-                "percentage_value": 2.3,
+                "percentage": "2.2%",
+                "percentage_value": 2.2,
                 "stat_up": "",
                 "stat_down": "",
                 "hp_points": 4,
@@ -29207,8 +29232,8 @@
                 "category": "stat_points",
                 "rank": 10,
                 "name": "",
-                "percentage": "1.6%",
-                "percentage_value": 1.6,
+                "percentage": "1.7%",
+                "percentage_value": 1.7,
                 "stat_up": "",
                 "stat_down": "",
                 "hp_points": 24,
@@ -29252,8 +29277,8 @@
                 "category": "ability",
                 "rank": 1,
                 "name": "Rough Skin",
-                "percentage": "94.1%",
-                "percentage_value": 94.1,
+                "percentage": "94%",
+                "percentage_value": 94,
                 "stat_up": "",
                 "stat_down": ""
               },
@@ -29261,8 +29286,700 @@
                 "category": "ability",
                 "rank": 2,
                 "name": "Sand Veil",
-                "percentage": "5.9%",
-                "percentage_value": 5.9,
+                "percentage": "6%",
+                "percentage_value": 6,
+                "stat_up": "",
+                "stat_down": ""
+              }
+            ]
+          },
+          "Singles": {
+            "top": {
+              "move": {
+                "category": "move",
+                "rank": 1,
+                "name": "Earthquake",
+                "percentage": "90.3%",
+                "percentage_value": 90.3,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              "held_item": {
+                "category": "held_item",
+                "rank": 1,
+                "name": "Choice Scarf",
+                "percentage": "24.2%",
+                "percentage_value": 24.2,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              "teammate": {
+                "category": "teammate",
+                "rank": 1,
+                "name": "Sneasler",
+                "percentage": "",
+                "percentage_value": null,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              "stat_alignment": {
+                "category": "stat_alignment",
+                "rank": 1,
+                "name": "Adamant",
+                "percentage": "57%",
+                "percentage_value": 57,
+                "stat_up": "Sp. Atk",
+                "stat_down": ""
+              },
+              "stat_points": {
+                "category": "stat_points",
+                "rank": 1,
+                "name": "",
+                "percentage": "36.5%",
+                "percentage_value": 36.5,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 2,
+                "attack_points": 32,
+                "defense_points": 9,
+                "sp_atk_points": 9,
+                "sp_def_points": 9,
+                "speed_points": 32
+              },
+              "ability": {
+                "category": "ability",
+                "rank": 1,
+                "name": "Rough Skin",
+                "percentage": "94%",
+                "percentage_value": 94,
+                "stat_up": "",
+                "stat_down": ""
+              }
+            },
+            "values": {
+              "move": [
+                "Earthquake",
+                "Rock Slide",
+                "Dragon Claw",
+                "Protect",
+                "Stomping Tantrum",
+                "Scale Shot",
+                "Poison Jab",
+                "lron Head",
+                "Swords Dance",
+                "Rock Tomb"
+              ],
+              "held_item": [
+                "Choice Scarf",
+                "Sitrus Berry",
+                "Soft Sand",
+                "White Herb",
+                "Haban Berry",
+                "Lum Berry",
+                "Dragon Fang",
+                "Focus Sash",
+                "Yache Berry",
+                "Garchompite"
+              ],
+              "teammate": [
+                "Sneasler",
+                "Charizard",
+                "Kingambit",
+                "Incineroar",
+                "Basculegion",
+                "Aerodacty",
+                "Rotom",
+                "Floette",
+                "Whimsicott",
+                "Venusaur"
+              ],
+              "stat_alignment": [
+                "Adamant",
+                "Jolly",
+                "Brave",
+                "Impish",
+                "Careful",
+                "Naughty",
+                "Naive",
+                "Modest",
+                "Lonely",
+                "Hasty"
+              ],
+              "stat_points": [
+                "HP 2 / Atk 32 / Def 9 / SpA 9 / SpD 9 / Spe 32",
+                "HP 8 / Atk 32 / Def 8 / SpA 8 / SpD 2 / Spe 32",
+                "HP 0 / Atk 32 / Def 2 / SpA 0 / SpD 0 / Spe 32",
+                "HP 1 / Atk 32 / Def 1 / SpA 9 / SpD 9 / Spe 32",
+                "HP 8 / Atk 32 / Def 1 / SpA 8 / SpD 1 / Spe 32",
+                "HP 24 / Atk 10 / Def 0 / SpA 0 / SpD 1 / Spe 22",
+                "HP 28 / Atk 28 / Def 8 / SpA 8 / SpD 1 / Spe 25",
+                "HP 4 / Atk 38 / Def 18 / SpA 8 / SpD 8 / Spe 18",
+                "HP 32 / Atk 7 / Def 1 / SpA 0 / SpD 1 / Spe 25",
+                "HP 24 / Atk 20 / Def 0 / SpA 0 / SpD 1 / Spe 21",
+                "HP 32 / Atk 20 / Def 1 / SpA 0 / SpD 1 / Spe 12",
+                "HP 0 / Atk 32 / Def 0 / SpA 0 / SpD 0 / Spe 32"
+              ],
+              "ability": [
+                "Rough Skin",
+                "Sand Veil"
+              ]
+            },
+            "rows": [
+              {
+                "category": "move",
+                "rank": 1,
+                "name": "Earthquake",
+                "percentage": "90.3%",
+                "percentage_value": 90.3,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "move",
+                "rank": 2,
+                "name": "Rock Slide",
+                "percentage": "83.5%",
+                "percentage_value": 83.5,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "move",
+                "rank": 3,
+                "name": "Dragon Claw",
+                "percentage": "79.2%",
+                "percentage_value": 79.2,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "move",
+                "rank": 4,
+                "name": "Protect",
+                "percentage": "69.6%",
+                "percentage_value": 69.6,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "move",
+                "rank": 5,
+                "name": "Stomping Tantrum",
+                "percentage": "33.5%",
+                "percentage_value": 33.5,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "move",
+                "rank": 6,
+                "name": "Scale Shot",
+                "percentage": "7.6%",
+                "percentage_value": 7.6,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "move",
+                "rank": 7,
+                "name": "Poison Jab",
+                "percentage": "5.7%",
+                "percentage_value": 5.7,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "move",
+                "rank": 8,
+                "name": "lron Head",
+                "percentage": "54%",
+                "percentage_value": 54,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "move",
+                "rank": 9,
+                "name": "Swords Dance",
+                "percentage": "4%",
+                "percentage_value": 4,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "move",
+                "rank": 10,
+                "name": "Rock Tomb",
+                "percentage": "35%",
+                "percentage_value": 35,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "held_item",
+                "rank": 1,
+                "name": "Choice Scarf",
+                "percentage": "24.2%",
+                "percentage_value": 24.2,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "held_item",
+                "rank": 2,
+                "name": "Sitrus Berry",
+                "percentage": "14.6%",
+                "percentage_value": 14.6,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "held_item",
+                "rank": 3,
+                "name": "Soft Sand",
+                "percentage": "10.8%",
+                "percentage_value": 10.8,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "held_item",
+                "rank": 4,
+                "name": "White Herb",
+                "percentage": "10.7%",
+                "percentage_value": 10.7,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "held_item",
+                "rank": 5,
+                "name": "Haban Berry",
+                "percentage": "8.7%",
+                "percentage_value": 8.7,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "held_item",
+                "rank": 6,
+                "name": "Lum Berry",
+                "percentage": "5.8%",
+                "percentage_value": 5.8,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "held_item",
+                "rank": 7,
+                "name": "Dragon Fang",
+                "percentage": "4.7%",
+                "percentage_value": 4.7,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "held_item",
+                "rank": 8,
+                "name": "Focus Sash",
+                "percentage": "4.3%",
+                "percentage_value": 4.3,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "held_item",
+                "rank": 9,
+                "name": "Yache Berry",
+                "percentage": "3.5%",
+                "percentage_value": 3.5,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "held_item",
+                "rank": 10,
+                "name": "Garchompite",
+                "percentage": "3.3%",
+                "percentage_value": 3.3,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "teammate",
+                "rank": 1,
+                "name": "Sneasler",
+                "percentage": "",
+                "percentage_value": null,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "teammate",
+                "rank": 2,
+                "name": "Charizard",
+                "percentage": "",
+                "percentage_value": null,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "teammate",
+                "rank": 3,
+                "name": "Kingambit",
+                "percentage": "",
+                "percentage_value": null,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "teammate",
+                "rank": 4,
+                "name": "Incineroar",
+                "percentage": "",
+                "percentage_value": null,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "teammate",
+                "rank": 5,
+                "name": "Basculegion",
+                "percentage": "",
+                "percentage_value": null,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "teammate",
+                "rank": 6,
+                "name": "Aerodacty",
+                "percentage": "",
+                "percentage_value": null,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "teammate",
+                "rank": 7,
+                "name": "Rotom",
+                "percentage": "",
+                "percentage_value": null,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "teammate",
+                "rank": 8,
+                "name": "Floette",
+                "percentage": "",
+                "percentage_value": null,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "teammate",
+                "rank": 9,
+                "name": "Whimsicott",
+                "percentage": "",
+                "percentage_value": null,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "teammate",
+                "rank": 10,
+                "name": "Venusaur",
+                "percentage": "",
+                "percentage_value": null,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "stat_alignment",
+                "rank": 1,
+                "name": "Adamant",
+                "percentage": "57%",
+                "percentage_value": 57,
+                "stat_up": "Sp. Atk",
+                "stat_down": ""
+              },
+              {
+                "category": "stat_alignment",
+                "rank": 2,
+                "name": "Jolly",
+                "percentage": "40.9%",
+                "percentage_value": 40.9,
+                "stat_up": "Speed",
+                "stat_down": ""
+              },
+              {
+                "category": "stat_alignment",
+                "rank": 3,
+                "name": "Brave",
+                "percentage": "0.4%",
+                "percentage_value": 0.4,
+                "stat_up": "Attack",
+                "stat_down": ""
+              },
+              {
+                "category": "stat_alignment",
+                "rank": 4,
+                "name": "Impish",
+                "percentage": "0.3%",
+                "percentage_value": 0.3,
+                "stat_up": "Defense",
+                "stat_down": ""
+              },
+              {
+                "category": "stat_alignment",
+                "rank": 5,
+                "name": "Careful",
+                "percentage": "0.2%",
+                "percentage_value": 0.2,
+                "stat_up": "Sp. Atk",
+                "stat_down": ""
+              },
+              {
+                "category": "stat_alignment",
+                "rank": 6,
+                "name": "Naughty",
+                "percentage": "0.2%",
+                "percentage_value": 0.2,
+                "stat_up": "Attack",
+                "stat_down": ""
+              },
+              {
+                "category": "stat_alignment",
+                "rank": 7,
+                "name": "Naive",
+                "percentage": "0.2%",
+                "percentage_value": 0.2,
+                "stat_up": "Speed",
+                "stat_down": ""
+              },
+              {
+                "category": "stat_alignment",
+                "rank": 8,
+                "name": "Modest",
+                "percentage": "0.2%",
+                "percentage_value": 0.2,
+                "stat_up": "Sp. Atk",
+                "stat_down": ""
+              },
+              {
+                "category": "stat_alignment",
+                "rank": 9,
+                "name": "Lonely",
+                "percentage": "0.2%",
+                "percentage_value": 0.2,
+                "stat_up": "Attack",
+                "stat_down": ""
+              },
+              {
+                "category": "stat_alignment",
+                "rank": 10,
+                "name": "Hasty",
+                "percentage": "0.1%",
+                "percentage_value": 0.1,
+                "stat_up": "Defense",
+                "stat_down": ""
+              },
+              {
+                "category": "stat_points",
+                "rank": 1,
+                "name": "",
+                "percentage": "36.5%",
+                "percentage_value": 36.5,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 2,
+                "attack_points": 32,
+                "defense_points": 9,
+                "sp_atk_points": 9,
+                "sp_def_points": 9,
+                "speed_points": 32
+              },
+              {
+                "category": "stat_points",
+                "rank": 2,
+                "name": "",
+                "percentage": "4.6%",
+                "percentage_value": 4.6,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 8,
+                "attack_points": 32,
+                "defense_points": 8,
+                "sp_atk_points": 8,
+                "sp_def_points": 2,
+                "speed_points": 32
+              },
+              {
+                "category": "stat_points",
+                "rank": 3,
+                "name": "",
+                "percentage": "3.6%",
+                "percentage_value": 3.6,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 0,
+                "attack_points": 32,
+                "defense_points": 2,
+                "sp_atk_points": 0,
+                "sp_def_points": 0,
+                "speed_points": 32
+              },
+              {
+                "category": "stat_points",
+                "rank": 4,
+                "name": "",
+                "percentage": "3.2%",
+                "percentage_value": 3.2,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 1,
+                "attack_points": 32,
+                "defense_points": 1,
+                "sp_atk_points": 9,
+                "sp_def_points": 9,
+                "speed_points": 32
+              },
+              {
+                "category": "stat_points",
+                "rank": 5,
+                "name": "",
+                "percentage": "2.5%",
+                "percentage_value": 2.5,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 8,
+                "attack_points": 32,
+                "defense_points": 1,
+                "sp_atk_points": 8,
+                "sp_def_points": 1,
+                "speed_points": 32
+              },
+              {
+                "category": "stat_points",
+                "rank": 6,
+                "name": "",
+                "percentage": "2.3%",
+                "percentage_value": 2.3,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 24,
+                "attack_points": 10,
+                "defense_points": 0,
+                "sp_atk_points": 0,
+                "sp_def_points": 1,
+                "speed_points": 22
+              },
+              {
+                "category": "stat_points",
+                "rank": 7,
+                "name": "",
+                "percentage": "2.3%",
+                "percentage_value": 2.3,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 28,
+                "attack_points": 28,
+                "defense_points": 8,
+                "sp_atk_points": 8,
+                "sp_def_points": 1,
+                "speed_points": 25
+              },
+              {
+                "category": "stat_points",
+                "rank": 8,
+                "name": "",
+                "percentage": "2.2%",
+                "percentage_value": 2.2,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 4,
+                "attack_points": 38,
+                "defense_points": 18,
+                "sp_atk_points": 8,
+                "sp_def_points": 8,
+                "speed_points": 18
+              },
+              {
+                "category": "stat_points",
+                "rank": 9,
+                "name": "",
+                "percentage": "1.7%",
+                "percentage_value": 1.7,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 32,
+                "attack_points": 7,
+                "defense_points": 1,
+                "sp_atk_points": 0,
+                "sp_def_points": 1,
+                "speed_points": 25
+              },
+              {
+                "category": "stat_points",
+                "rank": 10,
+                "name": "",
+                "percentage": "1.7%",
+                "percentage_value": 1.7,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 24,
+                "attack_points": 20,
+                "defense_points": 0,
+                "sp_atk_points": 0,
+                "sp_def_points": 1,
+                "speed_points": 21
+              },
+              {
+                "category": "stat_points",
+                "rank": 11,
+                "name": "",
+                "percentage": "1.3%",
+                "percentage_value": 1.3,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 32,
+                "attack_points": 20,
+                "defense_points": 1,
+                "sp_atk_points": 0,
+                "sp_def_points": 1,
+                "speed_points": 12
+              },
+              {
+                "category": "stat_points",
+                "rank": 12,
+                "name": "",
+                "percentage": "1.2%",
+                "percentage_value": 1.2,
+                "stat_up": "",
+                "stat_down": "",
+                "hp_points": 0,
+                "attack_points": 32,
+                "defense_points": 0,
+                "sp_atk_points": 0,
+                "sp_def_points": 0,
+                "speed_points": 32
+              },
+              {
+                "category": "ability",
+                "rank": 1,
+                "name": "Rough Skin",
+                "percentage": "94%",
+                "percentage_value": 94,
+                "stat_up": "",
+                "stat_down": ""
+              },
+              {
+                "category": "ability",
+                "rank": 2,
+                "name": "Sand Veil",
+                "percentage": "6%",
+                "percentage_value": 6,
                 "stat_up": "",
                 "stat_down": ""
               }

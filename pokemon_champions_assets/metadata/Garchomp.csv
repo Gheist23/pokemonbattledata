@@ -1,3 +1,4 @@
-title,base_name,saved_name,types,abilities,image_path,form,hp,atk,def,spa,spd,spe,total
-Garchomp,Garchomp,Garchomp,Dragon/Ground,Sand Veil|Rough Skin,pokemon_champions_assets\pokemon\Garchomp.png,,183,150,115,100,105,122,720
-Garchomp [Mega Garchomp],Garchomp,Mega Garchomp,Dragon/Ground,Sand Force,pokemon_champions_assets\pokemon\Mega Garchomp.png,Mega,183,190,135,140,115,112,820
+pokemon_name,dex_number,base_dex_url,image_path,form_name,form_kind,types,abilities,hidden_ability,hp,attack,defense,sp_attack,sp_defense,speed,base_stat_total
+Garchomp,445,https://pokemondb.net/pokedex/garchomp,pokemon_champions_assets\pokemon\Garchomp.png,Garchomp,Base,DRAGON/GROUND,Sand Veil,Rough Skin,108,130,95,80,85,102,600
+Garchomp,445,https://pokemondb.net/pokedex/garchomp,pokemon_champions_assets\pokemon\Mega Garchomp.png,Mega Garchomp,Mega,DRAGON/GROUND,Sand Force,,108,170,115,120,95,92,700
+Garchomp,445,https://pokemondb.net/pokedex/garchomp,pokemon_champions_assets\pokemon\Mega Garchomp Z.png,Mega Garchomp Z,Mega,DRAGON,Sand Force,,108,130,85,141,85,151,700

@@ -28,6 +28,7 @@
   const RECENT_KEY = "pokemonBattleDataRecentSearches";
   const FAVORITES_KEY = "pokemonBattleDataFavorites";
   let searchHelpHideTimer = null;
+  const mobileResultsQuery = window.matchMedia("(max-width: 760px)");
 
   const SAMPLE_METADATA = `pokemon_name,dex_number,base_dex_url,image_path,form_name,form_kind,types,abilities,hidden_ability,hp,attack,defense,sp_attack,sp_defense,speed,base_stat_total
 Garchomp,445,https://pokemondb.net/pokedex/garchomp,pokemon_champions_assets\\pokemon\\Garchomp.png,Garchomp,Base,DRAGON/GROUND,Sand Veil,Rough Skin,108,130,95,80,85,102,600
@@ -106,7 +107,8 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") hideSearchHelp();
     });
-    window.addEventListener("resize", () => updateSearchHelpPosition(), { passive: true });
+    window.addEventListener("resize", () => { updateSearchHelpPosition(); renderBattleEntries(); }, { passive: true });
+    mobileResultsQuery?.addEventListener?.("change", () => { renderBattleEntries(); renderCards(); });
     window.addEventListener("scroll", () => updateSearchHelpPosition(), { passive: true });
     els.typeFilter.addEventListener("change", applyFiltersAndRender);
     els.sortFilter.addEventListener("change", applyFiltersAndRender);
@@ -372,6 +374,7 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
 
     filtered = sortPokemon(filtered, els.sortFilter.value, els.orderFilter?.value || "desc", format);
     state.filtered = filtered;
+    renderBattleEntries();
     renderRecentSearches();
     renderCards();
   }
@@ -667,7 +670,7 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
   }
 
   function updateSummary() {
-    const entries = battleEntries();
+    const entries = formatBattleEntries();
     els.pokemonCount.textContent = entries.length.toLocaleString();
     setDatasetStatus(`${entries.length.toLocaleString()} Pokémon`);
   }
@@ -676,16 +679,40 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
     els.datasetStatus.textContent = text;
   }
 
-  function battleEntries() {
+  function isMobileResultsMode() {
+    return Boolean(mobileResultsQuery?.matches);
+  }
+
+  function hasActiveSearchOrFilters() {
+    return Boolean(String(els.searchInput?.value || "").trim()) ||
+      els.typeFilter?.value !== "all" ||
+      Boolean(els.favoritesOnly?.checked);
+  }
+
+  function formatBattleEntries() {
     return state.pokemon
       .filter((record) => record.formats.includes(state.selectedFormat))
       .sort(compareByName);
   }
 
+  function battleEntries() {
+    if (isMobileResultsMode() && Array.isArray(state.filtered)) {
+      return [...state.filtered];
+    }
+    return formatBattleEntries();
+  }
+
   function renderBattleEntries() {
+    if (!els.battleEntryList) return;
+    const entries = battleEntries();
+    const mobileMode = isMobileResultsMode();
+    if (mobileMode) {
+      els.pokemonCount.textContent = entries.length.toLocaleString();
+      setDatasetStatus(hasActiveSearchOrFilters() ? `${entries.length.toLocaleString()} matches` : `${entries.length.toLocaleString()} Pokémon`);
+    }
     els.battleEntryList.innerHTML = "";
     const fragment = document.createDocumentFragment();
-    battleEntries().forEach((record, index) => {
+    entries.forEach((record, index) => {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "entry-item";
@@ -715,7 +742,7 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
     if (!fragment.childNodes.length) {
       const empty = document.createElement("p");
       empty.className = "entry-empty";
-      empty.textContent = "No entries loaded for this selection.";
+      empty.textContent = isMobileResultsMode() ? "No Pokémon matched your search." : "No entries loaded for this selection.";
       fragment.append(empty);
     }
     els.battleEntryList.append(fragment);
@@ -826,6 +853,11 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
   }
 
   function renderCards() {
+    if (isMobileResultsMode()) {
+      els.pokemonGrid.innerHTML = "";
+      els.emptyState.hidden = true;
+      return;
+    }
     els.pokemonGrid.innerHTML = "";
     els.emptyState.hidden = state.filtered.length !== 0;
     const fragment = document.createDocumentFragment();

@@ -2755,3 +2755,73 @@ body { animation: page-fade-in 180ms ease-out both; }
     font-size: clamp(0.56rem, 2.08vw, 0.68rem) !important;
   }
 }
+
+/* v22 metadata + mobile table refinements */
+.nature-change {
+  display: inline-grid;
+  gap: 0.12rem;
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+.nature-change .nature-up { color: #71f0cf; }
+.nature-change .nature-down { color: #f6a8b5; }
+.nature-neutral { color: #b7c4d4; }
+.forms-table th:nth-child(1),
+.forms-table td:nth-child(1) { width: 18% !important; }
+.forms-table th:nth-child(2),
+.forms-table td:nth-child(2) { width: 18% !important; }
+.forms-table th:nth-child(3),
+.forms-table td:nth-child(3) { width: 26% !important; }
+.forms-table th:nth-child(4),
+.forms-table td:nth-child(4) { width: 38% !important; }
+.form-stat-line span strong,
+.form-stat-line span:last-child { color: #f8fbff; }
+
+@media (max-width: 760px) {
+  .data-table-wrap th:first-child,
+  .data-table-wrap td:first-child {
+    padding-left: 0.92rem !important;
+  }
+
+  .teammate-table th:nth-child(2),
+  .teammate-table td:nth-child(2) {
+    padding-left: 1.05rem !important;
+    width: 88% !important;
+  }
+
+  .nature-table th:nth-child(1),
+  .nature-table td:nth-child(1) { width: 11% !important; }
+  .nature-table th:nth-child(2),
+  .nature-table td:nth-child(2) { width: 27% !important; }
+  .nature-table th:nth-child(3),
+  .nature-table td:nth-child(3) { width: 36% !important; }
+  .nature-table th:nth-child(4),
+  .nature-table td:nth-child(4) { width: 26% !important; }
+
+  .nature-change {
+    font-size: 0.8rem;
+    min-width: 2.8rem;
+  }
+
+  .forms-table th:nth-child(1),
+  .forms-table td:nth-child(1) { width: 22% !important; }
+  .forms-table th:nth-child(2),
+  .forms-table td:nth-child(2) { width: 20% !important; }
+  .forms-table th:nth-child(3),
+  .forms-table td:nth-child(3) { width: 25% !important; }
+  .forms-table th:nth-child(4),
+  .forms-table td:nth-child(4) { width: 33% !important; }
+
+  .forms-table .form-stat-line {
+    line-height: 1.42 !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .teammate-table th:nth-child(2),
+  .teammate-table td:nth-child(2) {
+    padding-left: 0.9rem !important;
+  }
+  .nature-change { font-size: 0.74rem; }
+}

@@ -20,7 +20,7 @@ if (!existsSync(battleDir)) {
 }
 
 function normalizePath(path) {
-  return path.split(sep).join("/");
+  return String(path || "").replace(/\\/g, "/").split(sep).join("/").replace(/\/+/g, "/");
 }
 
 function titleCase(value) {
@@ -122,24 +122,28 @@ function formatFromBattlePath(fullPath) {
 
 function normalizeMetadataRow(row) {
   const types = splitTypes(row.types);
+  const baseName = row.base_name || row.pokemon_name || row.title || "";
+  const savedName = row.saved_name || row.form_name || row.title || baseName || "Unknown form";
+  const formKind = row.form_kind ?? row.form ?? "";
   return {
-    pokemon_name: row.pokemon_name || "",
-    dex_number: numberOrNull(row.dex_number),
+    pokemon_name: baseName,
+    dex_number: numberOrNull(row.dex_number || row.dex),
     base_dex_url: row.base_dex_url || "",
     image_path: normalizePath(row.image_path || ""),
-    form_name: row.form_name || row.pokemon_name || "Unknown form",
-    form_kind: row.form_kind || "Form",
+    form_name: savedName,
+    saved_name: savedName,
+    form_kind: formKind || (savedName === baseName ? "Base" : "Form"),
     types,
     types_raw: row.types || "",
     abilities: row.abilities || "",
     hidden_ability: row.hidden_ability || "",
     hp: numberOrNull(row.hp),
-    attack: numberOrNull(row.attack),
-    defense: numberOrNull(row.defense),
-    sp_attack: numberOrNull(row.sp_attack),
-    sp_defense: numberOrNull(row.sp_defense),
-    speed: numberOrNull(row.speed),
-    base_stat_total: numberOrNull(row.base_stat_total)
+    attack: numberOrNull(row.attack ?? row.atk),
+    defense: numberOrNull(row.defense ?? row.def),
+    sp_attack: numberOrNull(row.sp_attack ?? row.spa),
+    sp_defense: numberOrNull(row.sp_defense ?? row.spd),
+    speed: numberOrNull(row.speed ?? row.spe),
+    base_stat_total: numberOrNull(row.base_stat_total ?? row.total)
   };
 }
 
@@ -220,7 +224,7 @@ function ensureRecord(key, fallbackName = "") {
 
 for (const file of csvFilesRecursive(metadataDir)) {
   const rows = parseCSV(readFileSync(file, "utf8"));
-  const inferredName = rows[0]?.pokemon_name || basename(file, ".csv");
+  const inferredName = rows[0]?.base_name || rows[0]?.pokemon_name || rows[0]?.title || basename(file, ".csv");
   const key = recordKey(inferredName || basename(file, ".csv"));
   const record = ensureRecord(key, inferredName);
   record.metadataCsv = normalizePath(relative(cwd, file));
@@ -241,7 +245,7 @@ for (const file of csvFilesRecursive(battleDir)) {
 const pokemon = [...records.values()]
   .filter((record) => record.battleDataCsvs.length)
   .map((record) => {
-    const primary = record.metadataRows.find((form) => /base/i.test(form.form_kind)) || record.metadataRows[0] || {};
+    const primary = record.metadataRows.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === record.name) || record.metadataRows[0] || {};
     const allTypes = unique(record.metadataRows.flatMap((form) => form.types || []));
     const sprite = primary.image_path || `${assetRoot}/pokemon/${record.name}.png`;
     return {

@@ -25,15 +25,23 @@
     ["sp_defense", "SpD"],
     ["speed", "Spe"]
   ];
+  const FORM_STATS = [...BASE_STATS, ["base_stat_total", "Total"]];
+  const NATURE_CHANGES = {
+    hardy: ["", ""], lonely: ["ATK", "DEF"], brave: ["ATK", "SPE"], adamant: ["ATK", "SPA"], naughty: ["ATK", "SPD"],
+    bold: ["DEF", "ATK"], docile: ["", ""], relaxed: ["DEF", "SPE"], impish: ["DEF", "SPA"], lax: ["DEF", "SPD"],
+    timid: ["SPE", "ATK"], hasty: ["SPE", "DEF"], serious: ["", ""], jolly: ["SPE", "SPA"], naive: ["SPE", "SPD"],
+    modest: ["SPA", "ATK"], mild: ["SPA", "DEF"], quiet: ["SPA", "SPE"], bashful: ["", ""], rash: ["SPA", "SPD"],
+    calm: ["SPD", "ATK"], gentle: ["SPD", "DEF"], sassy: ["SPD", "SPE"], careful: ["SPD", "SPA"], quirky: ["", ""]
+  };
   const RECENT_KEY = "pokemonBattleDataRecentSearches";
   const FAVORITES_KEY = "pokemonBattleDataFavorites";
   let searchHelpHideTimer = null;
   const mobileResultsQuery = window.matchMedia("(max-width: 760px)");
 
-  const SAMPLE_METADATA = `pokemon_name,dex_number,base_dex_url,image_path,form_name,form_kind,types,abilities,hidden_ability,hp,attack,defense,sp_attack,sp_defense,speed,base_stat_total
-Garchomp,445,https://pokemondb.net/pokedex/garchomp,pokemon_champions_assets\\pokemon\\Garchomp.png,Garchomp,Base,DRAGON/GROUND,Sand Veil,Rough Skin,108,130,95,80,85,102,600
-Garchomp,445,https://pokemondb.net/pokedex/garchomp,pokemon_champions_assets\\pokemon\\Mega Garchomp.png,Mega Garchomp,Mega,DRAGON/GROUND,Sand Force,,108,170,115,120,95,92,700
-Garchomp,445,https://pokemondb.net/pokedex/garchomp,pokemon_champions_assets\\pokemon\\Mega Garchomp Z.png,Mega Garchomp Z,Mega,DRAGON,Sand Force,,108,130,85,141,85,151,700`;
+  const SAMPLE_METADATA = `title,base_name,saved_name,types,abilities,image_path,form,hp,atk,def,spa,spd,spe,total
+Garchomp,Garchomp,Garchomp,Dragon/Ground,Sand Veil|Rough Skin,pokemon_champions_assets\\pokemon\\Garchomp.png,,108,130,95,80,85,102,600
+Garchomp [Mega Garchomp],Garchomp,Mega Garchomp,Dragon/Ground,Sand Force,pokemon_champions_assets\\pokemon\\Mega Garchomp.png,Mega,108,170,115,120,95,92,700
+Garchomp [Mega Garchomp Z],Garchomp,Mega Garchomp Z,Dragon,Sand Force,pokemon_champions_assets\\pokemon\\Mega Garchomp Z.png,Mega,108,130,85,141,85,151,700`;
 
   const SAMPLE_BATTLE = `pokemon,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
 Garchomp,move,1,Earthquake,90.3%,,,,,,,,,108.13
@@ -190,7 +198,7 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
     const name = entry.name || summary.name || "Unknown";
     const formats = sortFormats(unique((entry.battleDataCsvs || entry.battleData || []).map((source) => source.format || detectFormatFromPath(source.path || source.csv || source)).filter(Boolean)));
     const forms = Array.isArray(summary.forms) ? summary.forms.map(normalizeSummaryForm) : [];
-    const primary = normalizeSummaryForm(summary.primary || forms.find((form) => /base/i.test(form.form_kind)) || forms[0] || {});
+    const primary = normalizeSummaryForm(summary.primary || forms.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === name) || forms[0] || {});
     const types = unique((summary.types || primary.types || []).map(titleCase));
     const baseStats = summary.baseStats || {};
     Object.assign(primary, {
@@ -257,24 +265,27 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
 
   function normalizeSummaryForm(form) {
     const types = Array.isArray(form.types) ? form.types.map(titleCase) : splitTypes(form.types || form.types_raw || "");
+    const savedName = form.saved_name || form.form_name || form.title || form.name || form.pokemon_name || form.base_name || "Base";
+    const formKind = form.form_kind ?? form.form ?? form.kind ?? "";
     return {
-      pokemon_name: form.pokemon_name || form.name || "",
+      pokemon_name: form.pokemon_name || form.base_name || form.title || form.name || "",
       dex_number: form.dex_number ?? form.dex ?? "",
       base_dex_url: form.base_dex_url || "",
       image_path: normalizePath(form.image_path || form.sprite || ""),
-      form_name: form.form_name || form.name || "Base",
-      form_kind: form.form_kind || form.kind || "Form",
+      form_name: savedName,
+      saved_name: savedName,
+      form_kind: formKind || (savedName === (form.base_name || form.pokemon_name) ? "Base" : "Form"),
       types,
       types_raw: form.types_raw || types.join("/"),
       abilities: form.abilities || "",
       hidden_ability: form.hidden_ability || "",
       hp: numberOrNull(form.hp),
-      attack: numberOrNull(form.attack),
-      defense: numberOrNull(form.defense),
-      sp_attack: numberOrNull(form.sp_attack),
-      sp_defense: numberOrNull(form.sp_defense),
-      speed: numberOrNull(form.speed),
-      base_stat_total: numberOrNull(form.base_stat_total ?? form.baseStatTotal)
+      attack: numberOrNull(form.attack ?? form.atk),
+      defense: numberOrNull(form.defense ?? form.def),
+      sp_attack: numberOrNull(form.sp_attack ?? form.spa),
+      sp_defense: numberOrNull(form.sp_defense ?? form.spd),
+      speed: numberOrNull(form.speed ?? form.spe),
+      base_stat_total: numberOrNull(form.base_stat_total ?? form.baseStatTotal ?? form.total)
     };
   }
 
@@ -331,7 +342,7 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
     const rows = parseCSV(await fetchText(record.metadataCsv));
     const forms = rows.map(normalizeMetadataRow);
     record.forms = forms;
-    record.primary = forms.find((form) => /base/i.test(form.form_kind)) || forms[0] || record.primary;
+    record.primary = forms.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === record.name) || forms[0] || record.primary;
     record.types = unique(forms.flatMap((form) => form.types));
     record.dex = numberOrNull(record.primary.dex_number);
     record.imageCandidates = pokemonImageCandidates(record.primary.image_path, record.name, record.primary.form_name);
@@ -1040,7 +1051,7 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
     }
 
     if (category === "stat_alignment") {
-      const labels = ["#", "Nature", "Usage", "Reduced stat"];
+      const labels = ["#", "Nature", "Usage", "Stat Change"];
       wrap.innerHTML = `
         <table class="responsive-data-table nature-table">
           ${tableHeader(labels)}
@@ -1048,7 +1059,7 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
             ${tableCell("#", escapeHtml(row.rank ?? "—"))}
             ${tableCell("Nature", escapeHtml(row.name || "—"))}
             ${tableCell("Usage", percentBar(row.percentage_value, row.percentage))}
-            ${tableCell("Reduced stat", escapeHtml(row.stat_up || row.stat_down || "—"))}
+            ${tableCell("Stat Change", natureChangeMarkup(row.name))}
           </tr>`).join("")}</tbody>
         </table>`;
       return wrap;
@@ -1108,7 +1119,7 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
       wrap.textContent = "No form metadata available.";
       return wrap;
     }
-    const labels = ["Form", "Types", "Abilities", "Stats", "Total"];
+    const labels = ["Form", "Types", "Abilities", "Stats"];
     wrap.innerHTML = `
       <table class="responsive-data-table forms-table">
         ${tableHeader(labels)}
@@ -1116,16 +1127,21 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
           ${forms.map((form) => {
             const abilities = combinedAbilityLabel(form);
             return `<tr>
-              ${tableCell("Form", escapeHtml(form.form_name))}
+              ${tableCell("Form", escapeHtml(form.saved_name || form.form_name || "—"))}
               ${tableCell("Types", escapeHtml(form.types.join(" / ") || "—"))}
               ${tableCell("Abilities", escapeHtml(abilities || "—"))}
-              ${tableCell("Stats", `<span class="form-stat-line">${BASE_STATS.map(([key, label]) => `<span>${escapeHtml(label)} ${escapeHtml(form[key] ?? "—")}</span>`).join("")}</span>`)}
-              ${tableCell("Total", `<strong>${escapeHtml(form.base_stat_total ?? "—")}</strong>`)}
+              ${tableCell("Stats", `<span class="form-stat-line">${FORM_STATS.map(([key, label]) => `<span>${escapeHtml(label)} ${escapeHtml(form[key] ?? "—")}</span>`).join("")}</span>`)}
             </tr>`;
           }).join("")}
         </tbody>
       </table>`;
     return wrap;
+  }
+
+  function natureChangeMarkup(natureName) {
+    const [boosted, lowered] = NATURE_CHANGES[normalizeForSearch(natureName).trim()] || ["", ""];
+    if (!boosted || !lowered) return `<span class="nature-change nature-neutral">Neutral</span>`;
+    return `<span class="nature-change"><span class="nature-up">+${escapeHtml(boosted)}</span><span class="nature-down">-${escapeHtml(lowered)}</span></span>`;
   }
 
   function combinedAbilityLabel(form) {
@@ -1244,24 +1260,28 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
 
   function normalizeMetadataRow(row) {
     const types = splitTypes(row.types);
+    const baseName = row.base_name || row.pokemon_name || row.title || "";
+    const savedName = row.saved_name || row.form_name || row.title || baseName || "Unknown form";
+    const formKind = row.form_kind ?? row.form ?? "";
     return {
-      pokemon_name: row.pokemon_name || "",
-      dex_number: row.dex_number || "",
+      pokemon_name: baseName,
+      dex_number: row.dex_number || row.dex || "",
       base_dex_url: row.base_dex_url || "",
       image_path: normalizePath(row.image_path || ""),
-      form_name: row.form_name || row.pokemon_name || "Unknown form",
-      form_kind: row.form_kind || "Form",
+      form_name: savedName,
+      saved_name: savedName,
+      form_kind: formKind || (savedName === baseName ? "Base" : "Form"),
       types,
       types_raw: row.types || "",
       abilities: row.abilities || "",
       hidden_ability: row.hidden_ability || "",
       hp: numberOrNull(row.hp),
-      attack: numberOrNull(row.attack),
-      defense: numberOrNull(row.defense),
-      sp_attack: numberOrNull(row.sp_attack),
-      sp_defense: numberOrNull(row.sp_defense),
-      speed: numberOrNull(row.speed),
-      base_stat_total: numberOrNull(row.base_stat_total)
+      attack: numberOrNull(row.attack ?? row.atk),
+      defense: numberOrNull(row.defense ?? row.def),
+      sp_attack: numberOrNull(row.sp_attack ?? row.spa),
+      sp_defense: numberOrNull(row.sp_defense ?? row.spd),
+      speed: numberOrNull(row.speed ?? row.spe),
+      base_stat_total: numberOrNull(row.base_stat_total ?? row.total)
     };
   }
 

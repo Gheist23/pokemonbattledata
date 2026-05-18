@@ -85,3 +85,10 @@ GET /api/metadata/garchomp
 ```
 
 The `_headers` file enables CORS for static JSON, CSV, and image assets.
+
+
+## API guide route
+
+`/api_guide` is served by `functions/api_guide.js`, which returns the static `api_guide.html` page without redirecting to it. This avoids redirect loops on Cloudflare Pages while keeping `/api` reserved for the JSON API manifest.
+
+If the browser still shows “redirected too many times” after deploying this version, clear the browser cache for the site or open the URL in a private window, because the old permanent redirect may have been cached.

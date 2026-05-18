@@ -1108,23 +1108,32 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
       wrap.textContent = "No form metadata available.";
       return wrap;
     }
-    const labels = ["Form", "Kind", "Types", "Abilities", "Hidden", "Stats", "Total"];
+    const labels = ["Form", "Types", "Abilities", "Stats", "Total"];
     wrap.innerHTML = `
       <table class="responsive-data-table forms-table">
         ${tableHeader(labels)}
         <tbody>
-          ${forms.map((form) => `<tr>
-            ${tableCell("Form", escapeHtml(form.form_name))}
-            ${tableCell("Kind", escapeHtml(form.form_kind))}
-            ${tableCell("Types", escapeHtml(form.types.join(" / ") || "—"))}
-            ${tableCell("Abilities", escapeHtml(form.abilities || "—"))}
-            ${tableCell("Hidden", escapeHtml(form.hidden_ability || "—"))}
-            ${tableCell("Stats", `<span class="form-stat-line">${BASE_STATS.map(([key, label]) => `<span>${escapeHtml(label)} ${escapeHtml(form[key] ?? "—")}</span>`).join("")}</span>`)}
-            ${tableCell("Total", `<strong>${escapeHtml(form.base_stat_total ?? "—")}</strong>`)}
-          </tr>`).join("")}
+          ${forms.map((form) => {
+            const abilities = combinedAbilityLabel(form);
+            return `<tr>
+              ${tableCell("Form", escapeHtml(form.form_name))}
+              ${tableCell("Types", escapeHtml(form.types.join(" / ") || "—"))}
+              ${tableCell("Abilities", escapeHtml(abilities || "—"))}
+              ${tableCell("Stats", `<span class="form-stat-line">${BASE_STATS.map(([key, label]) => `<span>${escapeHtml(label)} ${escapeHtml(form[key] ?? "—")}</span>`).join("")}</span>`)}
+              ${tableCell("Total", `<strong>${escapeHtml(form.base_stat_total ?? "—")}</strong>`)}
+            </tr>`;
+          }).join("")}
         </tbody>
       </table>`;
     return wrap;
+  }
+
+  function combinedAbilityLabel(form) {
+    const baseAbilities = splitListValue(form.abilities);
+    const hiddenAbilities = splitListValue(form.hidden_ability);
+    const hiddenSet = new Set(hiddenAbilities.map((ability) => ability.toLowerCase()));
+    const merged = unique([...baseAbilities, ...hiddenAbilities]);
+    return merged.map((ability) => hiddenSet.has(ability.toLowerCase()) ? `${ability} (Hidden)` : ability).join(" / ");
   }
 
   function typeChip(type) {

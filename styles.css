@@ -2447,3 +2447,311 @@ body { animation: page-fade-in 180ms ease-out both; }
     width: min(48px, 100%) !important;
   }
 }
+
+/* v21 profile/table polish */
+.detail-dialog {
+  width: min(1240px, calc(100% - 28px)) !important;
+}
+.detail-dialog .dialog-inner,
+.dialog-inner {
+  max-width: 100%;
+}
+.detail-section {
+  overflow: hidden;
+}
+.data-table-wrap {
+  width: 100%;
+}
+.data-table-wrap table {
+  font-size: 0.9rem;
+}
+.data-table-wrap th,
+.data-table-wrap td {
+  padding: 0.72rem 0.68rem;
+  line-height: 1.35;
+}
+.data-table-wrap th:first-child,
+.data-table-wrap td:first-child {
+  padding-left: 0.9rem;
+}
+.percent-bar {
+  width: 150px;
+  min-width: 136px;
+  height: 34px;
+}
+.percent-bar b {
+  font-size: 0.84rem;
+}
+.battle-table th:nth-child(1),
+.battle-table td:nth-child(1),
+.teammate-table th:nth-child(1),
+.teammate-table td:nth-child(1),
+.nature-table th:nth-child(1),
+.nature-table td:nth-child(1) {
+  width: 12%;
+}
+.battle-table th:nth-child(2),
+.battle-table td:nth-child(2) {
+  width: 46%;
+}
+.battle-table th:nth-child(3),
+.battle-table td:nth-child(3) {
+  width: 42%;
+}
+.teammate-table th:nth-child(2),
+.teammate-table td:nth-child(2) {
+  width: 88%;
+}
+.forms-table th:nth-child(1),
+.forms-table td:nth-child(1) { width: 16%; }
+.forms-table th:nth-child(2),
+.forms-table td:nth-child(2) { width: 16%; }
+.forms-table th:nth-child(3),
+.forms-table td:nth-child(3) { width: 24%; }
+.forms-table th:nth-child(4),
+.forms-table td:nth-child(4) { width: 34%; }
+.forms-table th:nth-child(5),
+.forms-table td:nth-child(5) { width: 10%; text-align: center; }
+.forms-table .form-stat-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+}
+.forms-table .form-stat-line span {
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .page-explorer .nav-shell {
+    padding-block: 1rem !important;
+    gap: 1rem !important;
+  }
+
+  .page-explorer .nav-actions {
+    gap: 0.72rem !important;
+  }
+
+  .page-explorer main {
+    gap: 1.08rem !important;
+    padding-bottom: calc(1.55rem + env(safe-area-inset-bottom)) !important;
+  }
+
+  .page-explorer .section-shell,
+  .page-explorer .hero-copy,
+  .page-explorer .battle-entry-panel {
+    width: min(calc(100% - 28px), var(--max-width)) !important;
+  }
+
+  .page-explorer .hero-copy {
+    padding-top: 1.28rem !important;
+  }
+
+  .page-explorer .controls,
+  .page-explorer .battle-entry-panel {
+    padding: 1.04rem !important;
+  }
+
+  .page-explorer .entry-item {
+    min-height: 72px;
+  }
+
+  .detail-dialog {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+  }
+
+  .detail-dialog .dialog-inner,
+  .dialog-inner {
+    padding-left: max(0.64rem, env(safe-area-inset-left)) !important;
+    padding-right: max(0.64rem, env(safe-area-inset-right)) !important;
+    overflow-x: hidden !important;
+  }
+
+  .detail-section {
+    padding: 0.9rem 0.58rem !important;
+  }
+
+  .detail-section h3 {
+    padding-inline: 0.16rem;
+    font-size: 1.08rem !important;
+  }
+
+  .data-table-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .data-table-wrap table.responsive-data-table,
+  .data-table-wrap table,
+  table.responsive-data-table {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    table-layout: fixed !important;
+    font-size: clamp(0.76rem, 2.42vw, 0.9rem) !important;
+  }
+
+  .data-table-wrap th,
+  .data-table-wrap td {
+    padding: 0.62rem 0.32rem !important;
+    line-height: 1.38 !important;
+  }
+
+  .data-table-wrap th:first-child,
+  .data-table-wrap td:first-child {
+    padding-left: 0.72rem !important;
+  }
+
+  .data-table-wrap th {
+    font-size: clamp(0.68rem, 2.15vw, 0.78rem) !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .battle-table th:nth-child(1),
+  .battle-table td:nth-child(1),
+  .teammate-table th:nth-child(1),
+  .teammate-table td:nth-child(1),
+  .nature-table th:nth-child(1),
+  .nature-table td:nth-child(1) {
+    width: 11% !important;
+  }
+
+  .battle-table th:nth-child(2),
+  .battle-table td:nth-child(2) {
+    width: 43% !important;
+  }
+
+  .battle-table th:nth-child(3),
+  .battle-table td:nth-child(3) {
+    width: 46% !important;
+  }
+
+  .teammate-table th:nth-child(2),
+  .teammate-table td:nth-child(2) {
+    width: 89% !important;
+  }
+
+  .nature-table th:nth-child(2),
+  .nature-table td:nth-child(2) { width: 28% !important; }
+  .nature-table th:nth-child(3),
+  .nature-table td:nth-child(3) { width: 34% !important; }
+  .nature-table th:nth-child(4),
+  .nature-table td:nth-child(4) { width: 27% !important; }
+
+  .battle-table .percent-bar,
+  .nature-table .percent-bar,
+  .data-table-wrap .percent-bar,
+  .percent-bar {
+    width: min(122px, 100%) !important;
+    min-width: 0 !important;
+    height: 30px !important;
+  }
+
+  .battle-table .percent-bar b,
+  .nature-table .percent-bar b,
+  .data-table-wrap .percent-bar b,
+  .percent-bar b {
+    font-size: 0.76rem !important;
+  }
+
+  .stat-points-table {
+    font-size: clamp(0.58rem, 1.92vw, 0.7rem) !important;
+  }
+
+  .stat-points-table th,
+  .stat-points-table td {
+    padding: 0.48rem 0.14rem !important;
+  }
+
+  .stat-points-table th:first-child,
+  .stat-points-table td:first-child {
+    padding-left: 0.44rem !important;
+  }
+
+  .stat-points-table th:nth-child(1),
+  .stat-points-table td:nth-child(1) { width: 8% !important; }
+  .stat-points-table th:nth-child(2),
+  .stat-points-table td:nth-child(2) { width: 20% !important; }
+  .stat-points-table th:nth-child(n+3),
+  .stat-points-table td:nth-child(n+3) { width: 12% !important; text-align: center !important; }
+
+  .stat-points-table .percent-bar {
+    width: min(72px, 100%) !important;
+    height: 24px !important;
+  }
+
+  .stat-points-table .percent-bar b {
+    font-size: 0.6rem !important;
+  }
+
+  .forms-table {
+    font-size: clamp(0.62rem, 1.98vw, 0.74rem) !important;
+  }
+
+  .forms-table th,
+  .forms-table td {
+    padding: 0.5rem 0.18rem !important;
+    vertical-align: top !important;
+  }
+
+  .forms-table th:first-child,
+  .forms-table td:first-child {
+    padding-left: 0.46rem !important;
+  }
+
+  .forms-table th:nth-child(1),
+  .forms-table td:nth-child(1) { width: 18% !important; }
+  .forms-table th:nth-child(2),
+  .forms-table td:nth-child(2) { width: 17% !important; }
+  .forms-table th:nth-child(3),
+  .forms-table td:nth-child(3) { width: 25% !important; }
+  .forms-table th:nth-child(4),
+  .forms-table td:nth-child(4) { width: 30% !important; }
+  .forms-table th:nth-child(5),
+  .forms-table td:nth-child(5) { width: 10% !important; text-align: center !important; }
+
+  .forms-table .form-stat-line {
+    display: block !important;
+    line-height: 1.34 !important;
+  }
+
+  .forms-table .form-stat-line span {
+    display: inline !important;
+    white-space: normal !important;
+    font-weight: 760 !important;
+  }
+
+  .forms-table .form-stat-line span + span::before {
+    content: " · ";
+    color: rgba(238,245,251,0.52);
+  }
+}
+
+@media (max-width: 390px) {
+  .data-table-wrap table.responsive-data-table,
+  .data-table-wrap table,
+  table.responsive-data-table {
+    font-size: clamp(0.7rem, 2.55vw, 0.82rem) !important;
+  }
+
+  .data-table-wrap th,
+  .data-table-wrap td {
+    padding: 0.56rem 0.24rem !important;
+  }
+
+  .battle-table .percent-bar,
+  .nature-table .percent-bar,
+  .data-table-wrap .percent-bar,
+  .percent-bar {
+    width: min(104px, 100%) !important;
+    height: 28px !important;
+  }
+
+  .forms-table,
+  .stat-points-table {
+    font-size: clamp(0.56rem, 2.08vw, 0.68rem) !important;
+  }
+}

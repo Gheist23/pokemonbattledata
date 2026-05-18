@@ -55,7 +55,7 @@
             <tr><td>pokemon</td><td>Array of Pokémon records.</td></tr>
             <tr><td>name</td><td>Display name used by the Explorer.</td></tr>
             <tr><td>types</td><td>Primary type list, for example Dragon and Ground.</td></tr>
-            <tr><td>forms</td><td>Metadata rows with form names, abilities, hidden ability, and base stats.</td></tr>
+            <tr><td>forms</td><td>Metadata rows with form, types, combined abilities, base stats, and total stats.</td></tr>
             <tr><td>summariesByFormat</td><td>Small battle-data summaries for Singles and Doubles when available.</td></tr>
             <tr><td>battleDataCsvs</td><td>CSV file paths for complete ranked battle data tables.</td></tr>
           </tbody>
@@ -73,7 +73,7 @@ GET /pokemon_champions_assets/battle_data/Singles/garchomp.csv</code></pre>
 
       <article class="endpoint-card">
         <h2>Metadata CSV</h2>
-        <p>Fetch form data, dex number, typing, abilities, base stats, and sprite reference for a Pokémon.</p>
+        <p>Fetch form, typing, abilities including hidden abilities, base stats, total stats, and sprite reference for a Pokémon.</p>
         <pre><code>GET /pokemon_champions_assets/metadata/Garchomp.csv</code></pre>
         <pre><code>pokemon_name,dex_number,base_dex_url,image_path,form_name,form_kind,types,abilities,hidden_ability,hp,attack,defense,sp_attack,sp_defense,speed,base_stat_total</code></pre>
       </article>

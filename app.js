@@ -829,7 +829,7 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
     const buttonRect = els.searchHelpButton.getBoundingClientRect();
     const margin = 14;
     const gap = 12;
-    const width = Math.min(560, Math.max(300, window.innerWidth - margin * 2));
+    const width = Math.max(240, Math.min(560, window.innerWidth - margin * 2));
 
     els.searchHelpPopover.style.setProperty("--help-width", `${width}px`);
 
@@ -1010,37 +1010,69 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
     return container;
   }
 
+  function tableCell(label, value) {
+    return `<td data-label="${escapeHtml(label)}">${value}</td>`;
+  }
+
+  function tableHeader(labels) {
+    return `<thead><tr>${labels.map((label) => `<th>${escapeHtml(label)}</th>`).join("")}</tr></thead>`;
+  }
+
   function categoryTable(category, rows) {
     const wrap = document.createElement("div");
     wrap.className = "data-table-wrap";
+
     if (category === "stat_points") {
+      const labels = ["#", "Usage", ...STAT_COLUMNS.map(([, label]) => label)];
       wrap.innerHTML = `
-        <table>
-          <thead><tr><th>#</th><th>Usage</th>${STAT_COLUMNS.map(([, label]) => `<th>${label}</th>`).join("")}</tr></thead>
-          <tbody>${rows.map((row) => `<tr><td>${row.rank ?? "—"}</td><td>${percentBar(row.percentage_value, row.percentage)}</td>${STAT_COLUMNS.map(([key]) => `<td>${row[key] ?? "—"}</td>`).join("")}</tr>`).join("")}</tbody>
+        <table class="responsive-data-table stat-points-table">
+          ${tableHeader(labels)}
+          <tbody>${rows.map((row) => `<tr>
+            ${tableCell("#", escapeHtml(row.rank ?? "—"))}
+            ${tableCell("Usage", percentBar(row.percentage_value, row.percentage))}
+            ${STAT_COLUMNS.map(([key, label]) => tableCell(label, escapeHtml(row[key] ?? "—"))).join("")}
+          </tr>`).join("")}</tbody>
         </table>`;
       return wrap;
     }
+
     if (category === "stat_alignment") {
+      const labels = ["#", "Nature", "Usage", "Reduced stat"];
       wrap.innerHTML = `
-        <table>
-          <thead><tr><th>#</th><th>Nature</th><th>Usage</th><th>Reduced stat</th></tr></thead>
-          <tbody>${rows.map((row) => `<tr><td>${row.rank ?? "—"}</td><td>${escapeHtml(row.name || "—")}</td><td>${percentBar(row.percentage_value, row.percentage)}</td><td>${escapeHtml(row.stat_up || row.stat_down || "—")}</td></tr>`).join("")}</tbody>
+        <table class="responsive-data-table nature-table">
+          ${tableHeader(labels)}
+          <tbody>${rows.map((row) => `<tr>
+            ${tableCell("#", escapeHtml(row.rank ?? "—"))}
+            ${tableCell("Nature", escapeHtml(row.name || "—"))}
+            ${tableCell("Usage", percentBar(row.percentage_value, row.percentage))}
+            ${tableCell("Reduced stat", escapeHtml(row.stat_up || row.stat_down || "—"))}
+          </tr>`).join("")}</tbody>
         </table>`;
       return wrap;
     }
+
     if (category === "teammate") {
+      const labels = ["#", "Name"];
       wrap.innerHTML = `
-        <table class="teammate-table">
-          <thead><tr><th>#</th><th>Name</th></tr></thead>
-          <tbody>${rows.map((row) => `<tr><td>${row.rank ?? "—"}</td><td>${escapeHtml(row.name || "—")}</td></tr>`).join("")}</tbody>
+        <table class="responsive-data-table teammate-table">
+          ${tableHeader(labels)}
+          <tbody>${rows.map((row) => `<tr>
+            ${tableCell("#", escapeHtml(row.rank ?? "—"))}
+            ${tableCell("Name", escapeHtml(row.name || "—"))}
+          </tr>`).join("")}</tbody>
         </table>`;
       return wrap;
     }
+
+    const labels = ["#", "Name", "Usage"];
     wrap.innerHTML = `
-      <table>
-        <thead><tr><th>#</th><th>Name</th><th>Usage</th></tr></thead>
-        <tbody>${rows.map((row) => `<tr><td>${row.rank ?? "—"}</td><td>${escapeHtml(row.name || "—")}</td><td>${row.percentage ? percentBar(row.percentage_value, row.percentage) : "—"}</td></tr>`).join("")}</tbody>
+      <table class="responsive-data-table battle-table">
+        ${tableHeader(labels)}
+        <tbody>${rows.map((row) => `<tr>
+          ${tableCell("#", escapeHtml(row.rank ?? "—"))}
+          ${tableCell("Name", escapeHtml(row.name || "—"))}
+          ${tableCell("Usage", row.percentage ? percentBar(row.percentage_value, row.percentage) : "—")}
+        </tr>`).join("")}</tbody>
       </table>`;
     return wrap;
   }
@@ -1073,18 +1105,19 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
       wrap.textContent = "No form metadata available.";
       return wrap;
     }
+    const labels = ["Form", "Kind", "Types", "Abilities", "Hidden", "Stats", "Total"];
     wrap.innerHTML = `
-      <table>
-        <thead><tr><th>Form</th><th>Kind</th><th>Types</th><th>Abilities</th><th>Hidden</th><th>Stats</th><th>Total</th></tr></thead>
+      <table class="responsive-data-table forms-table">
+        ${tableHeader(labels)}
         <tbody>
           ${forms.map((form) => `<tr>
-            <td>${escapeHtml(form.form_name)}</td>
-            <td>${escapeHtml(form.form_kind)}</td>
-            <td>${escapeHtml(form.types.join(" / ") || "—")}</td>
-            <td>${escapeHtml(form.abilities || "—")}</td>
-            <td>${escapeHtml(form.hidden_ability || "—")}</td>
-            <td>${BASE_STATS.map(([key, label]) => `${label} ${form[key] ?? "—"}`).join(" · ")}</td>
-            <td><strong>${form.base_stat_total ?? "—"}</strong></td>
+            ${tableCell("Form", escapeHtml(form.form_name))}
+            ${tableCell("Kind", escapeHtml(form.form_kind))}
+            ${tableCell("Types", escapeHtml(form.types.join(" / ") || "—"))}
+            ${tableCell("Abilities", escapeHtml(form.abilities || "—"))}
+            ${tableCell("Hidden", escapeHtml(form.hidden_ability || "—"))}
+            ${tableCell("Stats", `<span class="form-stat-line">${BASE_STATS.map(([key, label]) => `<span>${escapeHtml(label)} ${escapeHtml(form[key] ?? "—")}</span>`).join("")}</span>`)}
+            ${tableCell("Total", `<strong>${escapeHtml(form.base_stat_total ?? "—")}</strong>`)}
           </tr>`).join("")}
         </tbody>
       </table>`;

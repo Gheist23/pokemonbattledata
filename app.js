@@ -26,6 +26,26 @@
     ["speed", "Spe"]
   ];
   const FORM_STATS = [...BASE_STATS, ["base_stat_total", "Total"]];
+  const STAT_ALIASES = {
+    hp: ["hp", "health"],
+    attack: ["attack", "atk"],
+    defense: ["defense", "def"],
+    sp_attack: ["sp_attack", "spattack", "sp_atk", "spa", "spatk", "special_attack"],
+    sp_defense: ["sp_defense", "spdefense", "sp_def", "spd", "spdef", "special_defense"],
+    speed: ["speed", "spe"],
+    base_stat_total: ["base_stat_total", "baseStatTotal", "bst", "total", "stats"]
+  };
+  const METADATA_ALIASES = {
+    pokemon_name: ["pokemon_name", "base_name", "title", "name", "pokemon"],
+    dex_number: ["dex_number", "dex", "national_dex"],
+    base_dex_url: ["base_dex_url", "dex_url", "url"],
+    image_path: ["image_path", "sprite", "sprite_path", "image"],
+    form_name: ["saved_name", "form_name", "title", "name"],
+    form_kind: ["form_kind", "form"],
+    types: ["types", "type"],
+    abilities: ["abilities", "ability"],
+    hidden_ability: ["hidden_ability", "hidden", "hidden_abilities"]
+  };
   const NATURE_CHANGES = {
     hardy: ["", ""], lonely: ["ATK", "DEF"], brave: ["ATK", "SPE"], adamant: ["ATK", "SPA"], naughty: ["ATK", "SPD"],
     bold: ["DEF", "ATK"], docile: ["", ""], relaxed: ["DEF", "SPE"], impish: ["DEF", "SPA"], lax: ["DEF", "SPD"],
@@ -202,13 +222,13 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
     const types = unique((summary.types || primary.types || []).map(titleCase));
     const baseStats = summary.baseStats || {};
     Object.assign(primary, {
-      hp: numberOrNull(primary.hp ?? baseStats.hp),
-      attack: numberOrNull(primary.attack ?? baseStats.attack),
-      defense: numberOrNull(primary.defense ?? baseStats.defense),
-      sp_attack: numberOrNull(primary.sp_attack ?? baseStats.sp_attack),
-      sp_defense: numberOrNull(primary.sp_defense ?? baseStats.sp_defense),
-      speed: numberOrNull(primary.speed ?? baseStats.speed),
-      base_stat_total: numberOrNull(primary.base_stat_total ?? summary.baseStatTotal)
+      hp: metadataStatValue(primary, "hp") ?? metadataStatValue(baseStats, "hp"),
+      attack: metadataStatValue(primary, "attack") ?? metadataStatValue(baseStats, "attack"),
+      defense: metadataStatValue(primary, "defense") ?? metadataStatValue(baseStats, "defense"),
+      sp_attack: metadataStatValue(primary, "sp_attack") ?? metadataStatValue(baseStats, "sp_attack"),
+      sp_defense: metadataStatValue(primary, "sp_defense") ?? metadataStatValue(baseStats, "sp_defense"),
+      speed: metadataStatValue(primary, "speed") ?? metadataStatValue(baseStats, "speed"),
+      base_stat_total: metadataStatValue(primary, "base_stat_total") ?? metadataStatValue(summary, "base_stat_total")
     });
     return {
       name,
@@ -264,29 +284,27 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
   }
 
   function normalizeSummaryForm(form) {
-    const types = Array.isArray(form.types) ? form.types.map(titleCase) : splitTypes(form.types || form.types_raw || "");
-    const savedName = form.saved_name || form.form_name || form.title || form.name || form.pokemon_name || form.base_name || "Base";
-    const formKind = form.form_kind ?? form.form ?? form.kind ?? "";
-    return {
-      pokemon_name: form.pokemon_name || form.base_name || form.title || form.name || "",
-      dex_number: form.dex_number ?? form.dex ?? "",
-      base_dex_url: form.base_dex_url || "",
-      image_path: normalizePath(form.image_path || form.sprite || ""),
+    const types = Array.isArray(form.types) ? form.types.map(titleCase) : splitTypes(readField(form, METADATA_ALIASES.types) || form.types_raw || "");
+    const baseName = readField(form, ["base_name", "pokemon_name", "pokemon", "base", "name"]) || "";
+    const savedName = readField(form, ["saved_name", "form_name", "title", "name"]) || baseName || "Base";
+    const formKind = readField(form, METADATA_ALIASES.form_kind) || "";
+    const normalized = {
+      pokemon_name: baseName || readField(form, METADATA_ALIASES.pokemon_name) || "",
+      dex_number: metadataNumber(form, "dex_number", METADATA_ALIASES.dex_number),
+      base_dex_url: readField(form, METADATA_ALIASES.base_dex_url) || "",
+      image_path: normalizePath(readField(form, METADATA_ALIASES.image_path) || ""),
       form_name: savedName,
       saved_name: savedName,
-      form_kind: formKind || (savedName === (form.base_name || form.pokemon_name) ? "Base" : "Form"),
+      form_kind: formKind || (savedName === baseName ? "Base" : "Form"),
       types,
-      types_raw: form.types_raw || types.join("/"),
-      abilities: form.abilities || "",
-      hidden_ability: form.hidden_ability || "",
-      hp: numberOrNull(form.hp),
-      attack: numberOrNull(form.attack ?? form.atk),
-      defense: numberOrNull(form.defense ?? form.def),
-      sp_attack: numberOrNull(form.sp_attack ?? form.spa),
-      sp_defense: numberOrNull(form.sp_defense ?? form.spd),
-      speed: numberOrNull(form.speed ?? form.spe),
-      base_stat_total: numberOrNull(form.base_stat_total ?? form.baseStatTotal ?? form.total)
+      types_raw: readField(form, ["types_raw", ...METADATA_ALIASES.types]) || types.join("/"),
+      abilities: readField(form, METADATA_ALIASES.abilities) || "",
+      hidden_ability: readField(form, METADATA_ALIASES.hidden_ability) || ""
     };
+    Object.keys(STAT_ALIASES).forEach((key) => {
+      normalized[key] = metadataStatValue(form, key);
+    });
+    return normalized;
   }
 
   function normalizeBattleSummary(raw) {
@@ -463,25 +481,25 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
 
     const numericFields = {
       dex: record.dex,
-      hp: record.primary?.hp,
-      atk: record.primary?.attack,
-      attack: record.primary?.attack,
-      def: record.primary?.defense,
-      defense: record.primary?.defense,
-      spa: record.primary?.sp_attack,
-      spatk: record.primary?.sp_attack,
-      spattack: record.primary?.sp_attack,
-      sp_atk: record.primary?.sp_attack,
-      spd: record.primary?.sp_defense,
-      spdef: record.primary?.sp_defense,
-      spdefense: record.primary?.sp_defense,
-      sp_def: record.primary?.sp_defense,
-      spe: record.primary?.speed,
-      speed: record.primary?.speed,
-      bst: record.primary?.base_stat_total,
-      stats: record.primary?.base_stat_total,
-      totalstats: record.primary?.base_stat_total,
-      total: record.primary?.base_stat_total
+      hp: metadataStatValue(record.primary, "hp"),
+      atk: metadataStatValue(record.primary, "attack"),
+      attack: metadataStatValue(record.primary, "attack"),
+      def: metadataStatValue(record.primary, "defense"),
+      defense: metadataStatValue(record.primary, "defense"),
+      spa: metadataStatValue(record.primary, "sp_attack"),
+      spatk: metadataStatValue(record.primary, "sp_attack"),
+      spattack: metadataStatValue(record.primary, "sp_attack"),
+      sp_atk: metadataStatValue(record.primary, "sp_attack"),
+      spd: metadataStatValue(record.primary, "sp_defense"),
+      spdef: metadataStatValue(record.primary, "sp_defense"),
+      spdefense: metadataStatValue(record.primary, "sp_defense"),
+      sp_def: metadataStatValue(record.primary, "sp_defense"),
+      spe: metadataStatValue(record.primary, "speed"),
+      speed: metadataStatValue(record.primary, "speed"),
+      bst: metadataStatValue(record.primary, "base_stat_total"),
+      stats: metadataStatValue(record.primary, "base_stat_total"),
+      totalstats: metadataStatValue(record.primary, "base_stat_total"),
+      total: metadataStatValue(record.primary, "base_stat_total")
     };
     if (Object.prototype.hasOwnProperty.call(numericFields, field)) {
       return compareNumeric(numberOrZero(numericFields[field]), clause.op, Number(value));
@@ -665,13 +683,13 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
     const sorters = {
       name: byName,
       dex: byNumber((record) => record.dex),
-      bst: byNumber((record) => record.primary?.base_stat_total),
-      hp: byNumber((record) => record.primary?.hp),
-      attack: byNumber((record) => record.primary?.attack),
-      defense: byNumber((record) => record.primary?.defense),
-      sp_attack: byNumber((record) => record.primary?.sp_attack),
-      sp_defense: byNumber((record) => record.primary?.sp_defense),
-      speed: byNumber((record) => record.primary?.speed)
+      bst: byNumber((record) => metadataStatValue(record.primary, "base_stat_total")),
+      hp: byNumber((record) => metadataStatValue(record.primary, "hp")),
+      attack: byNumber((record) => metadataStatValue(record.primary, "attack")),
+      defense: byNumber((record) => metadataStatValue(record.primary, "defense")),
+      sp_attack: byNumber((record) => metadataStatValue(record.primary, "sp_attack")),
+      sp_defense: byNumber((record) => metadataStatValue(record.primary, "sp_defense")),
+      speed: byNumber((record) => metadataStatValue(record.primary, "speed"))
     };
     return copy.sort(sorters[mode] || byName);
   }
@@ -1094,12 +1112,12 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
   function baseStatsBlock(form) {
     const wrap = document.createElement("div");
     wrap.className = "stat-bars";
-    if (!form || !BASE_STATS.some(([key]) => form[key] !== null && form[key] !== undefined)) {
+    if (!form || !BASE_STATS.some(([key]) => metadataStatValue(form, key) !== null && metadataStatValue(form, key) !== undefined)) {
       wrap.textContent = "No base-stat metadata available.";
       return wrap;
     }
     BASE_STATS.forEach(([key, label]) => {
-      const value = numberOrZero(form[key]);
+      const value = numberOrZero(metadataStatValue(form, key));
       const row = document.createElement("div");
       row.className = "stat-row";
       row.innerHTML = `
@@ -1130,7 +1148,7 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
               ${tableCell("Form", escapeHtml(form.saved_name || form.form_name || "—"))}
               ${tableCell("Types", escapeHtml(form.types.join(" / ") || "—"))}
               ${tableCell("Abilities", escapeHtml(abilities || "—"))}
-              ${tableCell("Stats", `<span class="form-stat-line">${FORM_STATS.map(([key, label]) => `<span>${escapeHtml(label)} ${escapeHtml(form[key] ?? "—")}</span>`).join("")}</span>`)}
+              ${tableCell("Stats", `<span class="form-stat-line">${FORM_STATS.map(([key, label]) => `<span>${escapeHtml(label)} ${escapeHtml(metadataStatValue(form, key) ?? "—")}</span>`).join("")}</span>`)}
             </tr>`;
           }).join("")}
         </tbody>
@@ -1259,30 +1277,27 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
   }
 
   function normalizeMetadataRow(row) {
-    const types = splitTypes(row.types);
-    const baseName = row.base_name || row.pokemon_name || row.title || "";
-    const savedName = row.saved_name || row.form_name || row.title || baseName || "Unknown form";
-    const formKind = row.form_kind ?? row.form ?? "";
-    return {
+    const types = splitTypes(readField(row, METADATA_ALIASES.types));
+    const baseName = readField(row, ["base_name", "pokemon_name", "pokemon", "title", "name"]) || "";
+    const savedName = readField(row, ["saved_name", "form_name", "title", "name"]) || baseName || "Unknown form";
+    const formKind = readField(row, METADATA_ALIASES.form_kind) || "";
+    const normalized = {
       pokemon_name: baseName,
-      dex_number: row.dex_number || row.dex || "",
-      base_dex_url: row.base_dex_url || "",
-      image_path: normalizePath(row.image_path || ""),
+      dex_number: metadataNumber(row, "dex_number", METADATA_ALIASES.dex_number),
+      base_dex_url: readField(row, METADATA_ALIASES.base_dex_url) || "",
+      image_path: normalizePath(readField(row, METADATA_ALIASES.image_path) || ""),
       form_name: savedName,
       saved_name: savedName,
       form_kind: formKind || (savedName === baseName ? "Base" : "Form"),
       types,
-      types_raw: row.types || "",
-      abilities: row.abilities || "",
-      hidden_ability: row.hidden_ability || "",
-      hp: numberOrNull(row.hp),
-      attack: numberOrNull(row.attack ?? row.atk),
-      defense: numberOrNull(row.defense ?? row.def),
-      sp_attack: numberOrNull(row.sp_attack ?? row.spa),
-      sp_defense: numberOrNull(row.sp_defense ?? row.spd),
-      speed: numberOrNull(row.speed ?? row.spe),
-      base_stat_total: numberOrNull(row.base_stat_total ?? row.total)
+      types_raw: readField(row, METADATA_ALIASES.types) || "",
+      abilities: readField(row, METADATA_ALIASES.abilities) || "",
+      hidden_ability: readField(row, METADATA_ALIASES.hidden_ability) || ""
     };
+    Object.keys(STAT_ALIASES).forEach((key) => {
+      normalized[key] = metadataStatValue(row, key);
+    });
+    return normalized;
   }
 
   function normalizeBattleRow(row) {
@@ -1426,6 +1441,32 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
       if (ai !== -1 || bi !== -1) return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
       return String(a).localeCompare(String(b));
     });
+  }
+
+  function readField(row, aliases) {
+    if (!row) return "";
+    const keys = Array.isArray(aliases) ? aliases : [aliases];
+    for (const key of keys) {
+      if (Object.prototype.hasOwnProperty.call(row, key) && row[key] !== null && row[key] !== undefined && row[key] !== "") return row[key];
+    }
+    const normalized = new Map(Object.entries(row).map(([key, value]) => [normalizeHeader(key), value]));
+    for (const key of keys) {
+      const value = normalized.get(normalizeHeader(key));
+      if (value !== null && value !== undefined && value !== "") return value;
+    }
+    return "";
+  }
+
+  function normalizeHeader(value) {
+    return String(value || "").replace(/^\uFEFF/, "").trim().toLowerCase().replace(/[\s-]+/g, "_");
+  }
+
+  function metadataNumber(row, canonicalKey, aliases = []) {
+    return numberOrNull(readField(row, [canonicalKey, ...(aliases || [])]));
+  }
+
+  function metadataStatValue(row, canonicalKey) {
+    return metadataNumber(row, canonicalKey, STAT_ALIASES[canonicalKey] || [canonicalKey]);
   }
 
   function splitTypes(value) {

@@ -9,6 +9,26 @@ const metadataDir = join(assetRootPath, "metadata");
 const preferredFormatOrder = ["Doubles", "Singles"];
 const statColumns = ["hp_points", "attack_points", "defense_points", "sp_atk_points", "sp_def_points", "speed_points"];
 const categories = ["move", "held_item", "teammate", "stat_alignment", "stat_points", "ability"];
+const statAliases = {
+  hp: ["hp", "health"],
+  attack: ["attack", "atk"],
+  defense: ["defense", "def"],
+  sp_attack: ["sp_attack", "spattack", "sp_atk", "spa", "spatk", "special_attack"],
+  sp_defense: ["sp_defense", "spdefense", "sp_def", "spd", "spdef", "special_defense"],
+  speed: ["speed", "spe"],
+  base_stat_total: ["base_stat_total", "baseStatTotal", "bst", "total", "stats"]
+};
+const metadataAliases = {
+  pokemon_name: ["pokemon_name", "base_name", "title", "name", "pokemon"],
+  dex_number: ["dex_number", "dex", "national_dex"],
+  base_dex_url: ["base_dex_url", "dex_url", "url"],
+  image_path: ["image_path", "sprite", "sprite_path", "image"],
+  form_name: ["saved_name", "form_name", "title", "name"],
+  form_kind: ["form_kind", "form"],
+  types: ["types", "type"],
+  abilities: ["abilities", "ability"],
+  hidden_ability: ["hidden_ability", "hidden", "hidden_abilities"]
+};
 
 if (!existsSync(assetRootPath)) {
   console.error("Could not find pokemon_champions_assets/ in the current directory.");
@@ -85,8 +105,34 @@ function parseCSV(text) {
     if (row.some(Boolean)) rows.push(row);
   }
   if (!rows.length) return [];
-  const headers = rows.shift().map((header) => header.trim());
+  const headers = rows.shift().map((header) => header.replace(/^\uFEFF/, "").trim());
   return rows.map((values) => Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""])));
+}
+
+function normalizeHeader(value) {
+  return String(value || "").replace(/^\uFEFF/, "").trim().toLowerCase().replace(/[\s-]+/g, "_");
+}
+
+function readField(row, aliases) {
+  if (!row) return "";
+  const keys = Array.isArray(aliases) ? aliases : [aliases];
+  for (const key of keys) {
+    if (Object.prototype.hasOwnProperty.call(row, key) && row[key] !== null && row[key] !== undefined && row[key] !== "") return row[key];
+  }
+  const normalized = new Map(Object.entries(row).map(([key, value]) => [normalizeHeader(key), value]));
+  for (const key of keys) {
+    const value = normalized.get(normalizeHeader(key));
+    if (value !== null && value !== undefined && value !== "") return value;
+  }
+  return "";
+}
+
+function metadataNumber(row, canonicalKey, aliases = []) {
+  return numberOrNull(readField(row, [canonicalKey, ...(aliases || [])]));
+}
+
+function metadataStatValue(row, canonicalKey) {
+  return metadataNumber(row, canonicalKey, statAliases[canonicalKey] || [canonicalKey]);
 }
 
 function splitTypes(value) {
@@ -121,30 +167,27 @@ function formatFromBattlePath(fullPath) {
 }
 
 function normalizeMetadataRow(row) {
-  const types = splitTypes(row.types);
-  const baseName = row.base_name || row.pokemon_name || row.title || "";
-  const savedName = row.saved_name || row.form_name || row.title || baseName || "Unknown form";
-  const formKind = row.form_kind ?? row.form ?? "";
-  return {
+  const types = splitTypes(readField(row, metadataAliases.types));
+  const baseName = readField(row, ["base_name", "pokemon_name", "pokemon", "title", "name"]) || "";
+  const savedName = readField(row, ["saved_name", "form_name", "title", "name"]) || baseName || "Unknown form";
+  const formKind = readField(row, metadataAliases.form_kind) || "";
+  const normalized = {
     pokemon_name: baseName,
-    dex_number: numberOrNull(row.dex_number || row.dex),
-    base_dex_url: row.base_dex_url || "",
-    image_path: normalizePath(row.image_path || ""),
+    dex_number: metadataNumber(row, "dex_number", metadataAliases.dex_number),
+    base_dex_url: readField(row, metadataAliases.base_dex_url) || "",
+    image_path: normalizePath(readField(row, metadataAliases.image_path) || ""),
     form_name: savedName,
     saved_name: savedName,
     form_kind: formKind || (savedName === baseName ? "Base" : "Form"),
     types,
-    types_raw: row.types || "",
-    abilities: row.abilities || "",
-    hidden_ability: row.hidden_ability || "",
-    hp: numberOrNull(row.hp),
-    attack: numberOrNull(row.attack ?? row.atk),
-    defense: numberOrNull(row.defense ?? row.def),
-    sp_attack: numberOrNull(row.sp_attack ?? row.spa),
-    sp_defense: numberOrNull(row.sp_defense ?? row.spd),
-    speed: numberOrNull(row.speed ?? row.spe),
-    base_stat_total: numberOrNull(row.base_stat_total ?? row.total)
+    types_raw: readField(row, metadataAliases.types) || "",
+    abilities: readField(row, metadataAliases.abilities) || "",
+    hidden_ability: readField(row, metadataAliases.hidden_ability) || ""
   };
+  Object.keys(statAliases).forEach((key) => {
+    normalized[key] = metadataStatValue(row, key);
+  });
+  return normalized;
 }
 
 function normalizeBattleRow(row) {
@@ -224,7 +267,7 @@ function ensureRecord(key, fallbackName = "") {
 
 for (const file of csvFilesRecursive(metadataDir)) {
   const rows = parseCSV(readFileSync(file, "utf8"));
-  const inferredName = rows[0]?.base_name || rows[0]?.pokemon_name || rows[0]?.title || basename(file, ".csv");
+  const inferredName = readField(rows[0], ["base_name", "pokemon_name", "pokemon", "title", "name"]) || basename(file, ".csv");
   const key = recordKey(inferredName || basename(file, ".csv"));
   const record = ensureRecord(key, inferredName);
   record.metadataCsv = normalizePath(relative(cwd, file));
@@ -245,7 +288,7 @@ for (const file of csvFilesRecursive(battleDir)) {
 const pokemon = [...records.values()]
   .filter((record) => record.battleDataCsvs.length)
   .map((record) => {
-    const primary = record.metadataRows.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === record.name) || record.metadataRows[0] || {};
+    const primary = record.metadataRows.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === record.name || form.saved_name === record.name) || record.metadataRows[0] || {};
     const allTypes = unique(record.metadataRows.flatMap((form) => form.types || []));
     const sprite = primary.image_path || `${assetRoot}/pokemon/${record.name}.png`;
     return {
@@ -259,14 +302,14 @@ const pokemon = [...records.values()]
         primary,
         forms: record.metadataRows,
         baseStats: {
-          hp: primary.hp ?? null,
-          attack: primary.attack ?? null,
-          defense: primary.defense ?? null,
-          sp_attack: primary.sp_attack ?? null,
-          sp_defense: primary.sp_defense ?? null,
-          speed: primary.speed ?? null
+          hp: metadataStatValue(primary, "hp") ?? null,
+          attack: metadataStatValue(primary, "attack") ?? null,
+          defense: metadataStatValue(primary, "defense") ?? null,
+          sp_attack: metadataStatValue(primary, "sp_attack") ?? null,
+          sp_defense: metadataStatValue(primary, "sp_defense") ?? null,
+          speed: metadataStatValue(primary, "speed") ?? null
         },
-        baseStatTotal: primary.base_stat_total ?? null,
+        baseStatTotal: metadataStatValue(primary, "base_stat_total") ?? null,
         battleSummary: record.battleSummary
       }
     };

@@ -767,7 +767,12 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
       meta.innerHTML = `<strong>${escapeHtml(record.name)}</strong>`;
       meta.append(types);
 
-      button.append(order, thumb, meta);
+      const action = document.createElement("span");
+      action.className = "entry-action";
+      action.setAttribute("aria-hidden", "true");
+      action.textContent = "View";
+
+      button.append(order, thumb, meta, action);
       fragment.append(button);
     });
 

@@ -74,9 +74,10 @@ GET /pokemon_champions_assets/battle_data/Doubles/garchomp.csv
 GET /pokemon_champions_assets/metadata/Garchomp.csv
 ```
 
-Cloudflare Pages Functions add JSON endpoints:
+Cloudflare Pages Functions add JSON endpoints. The user-facing guide is available at `/api_guide`; `/api` is the JSON manifest endpoint:
 
 ```text
+GET /api
 GET /api/index
 GET /api/pokemon/garchomp?format=Doubles
 GET /api/battle/Doubles/garchomp

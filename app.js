@@ -72,7 +72,8 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
     detailContent: document.getElementById("detailContent"),
     closeDialogButton: document.getElementById("closeDialogButton"),
     searchHelpButton: document.getElementById("searchHelpButton"),
-    searchHelpPopover: document.getElementById("searchHelpPopover")
+    searchHelpPopover: document.getElementById("searchHelpPopover"),
+    searchHelpClose: document.getElementById("searchHelpClose")
   };
 
   document.addEventListener("DOMContentLoaded", init);
@@ -92,17 +93,19 @@ Garchomp,ability,1,Rough Skin,94%,,,,,,,,,169.17`;
         performSearch();
       }
     });
-    els.searchHelpButton?.addEventListener("pointerenter", showSearchHelp);
-    els.searchHelpButton?.addEventListener("focus", showSearchHelp);
     els.searchHelpButton?.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
-      showSearchHelp(event);
+      toggleSearchHelp(event);
     });
-    els.searchHelpButton?.addEventListener("pointerleave", hideSearchHelp);
-    els.searchHelpButton?.addEventListener("blur", hideSearchHelp);
+    els.searchHelpClose?.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      hideSearchHelp();
+      els.searchHelpButton?.focus();
+    });
     document.addEventListener("click", (event) => {
-      if (!event.target.closest("#searchHelpButton")) hideSearchHelp();
+      if (!event.target.closest(".search-help")) hideSearchHelp();
     });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") hideSearchHelp();

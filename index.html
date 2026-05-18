@@ -58,9 +58,9 @@
         <div class="search-label-row">
           <label for="searchInput">Search database</label>
           <div class="search-help">
-            <button class="search-help-button" id="searchHelpButton" type="button" aria-label="Show advanced search options">?</button>
-            <div class="search-help-popover" id="searchHelpPopover" role="tooltip">
-              <strong>Advanced search</strong>
+            <button class="search-help-button" id="searchHelpButton" type="button" aria-expanded="false" aria-controls="searchHelpPopover" aria-label="Toggle advanced search options">?</button>
+            <div class="search-help-popover" id="searchHelpPopover" role="dialog" aria-label="Advanced search help">
+              <div class="search-help-header"><strong>Advanced search</strong><button class="search-help-close" id="searchHelpClose" type="button" aria-label="Close advanced search help">×</button></div>
               <p>Plain text searches only Pokémon names. Use field operators for precise filters. Chain filters with spaces or commas.</p>
               <dl>
                 <dt>Name search</dt><dd>Simply type the name, e.g. Garchomp to search by name.</dd>

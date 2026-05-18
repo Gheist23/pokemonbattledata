@@ -35,7 +35,7 @@
       <div class="api-panel">
         <p class="eyebrow">Public API</p>
         <h1>Build with Pokémon Champions battle data</h1>
-        <p>Use the JSON index for fast discovery, then request the raw CSV tables when your app needs complete move, item, teammate, nature, stat-spread, and ability rankings.</p>
+        <p>Use the indexed JSON endpoint for fast discovery, then request structured battle rows, metadata rows, or raw CSV files when your app needs the complete ranked data.</p>
       </div>
       <aside class="api-side-card" aria-label="Community">
         <span class="stat-label">Community</span>
@@ -47,59 +47,155 @@
 
     <section class="endpoint-grid" aria-label="API endpoints">
       <article class="endpoint-card">
-        <h2>Pokémon index</h2>
-        <p>The index is the fastest starting point. It contains searchable Pokémon metadata, sprite paths, type data, available formats, and precomputed battle summaries.</p>
-        <pre><code>GET /data/pokemon-index.json</code></pre>
+        <h2>Quick start</h2>
+        <p>The easiest way to build with the database is to start with the index, pick a Pokémon, then fetch its battle data or metadata.</p>
+        <pre><code>const index = await fetch('/api/index').then(r =&gt; r.json());
+const garchomp = await fetch('/api/pokemon/garchomp?format=Doubles').then(r =&gt; r.json());
+const battle = await fetch('/api/battle/Doubles/garchomp').then(r =&gt; r.json());</code></pre>
+      </article>
+
+      <article class="endpoint-card">
+        <h2>Index endpoint</h2>
+        <p>Returns the generated manifest used by the Explorer. This is the fastest endpoint for listing Pokémon, filtering by stats or type, and discovering available CSV files.</p>
+        <pre><code>GET /api/index
+GET /data/pokemon-index.json</code></pre>
         <table class="api-table">
           <tbody>
-            <tr><td>pokemon</td><td>Array of Pokémon records.</td></tr>
-            <tr><td>name</td><td>Display name used by the Explorer.</td></tr>
-            <tr><td>types</td><td>Primary type list, for example Dragon and Ground.</td></tr>
-            <tr><td>forms</td><td>Metadata rows with form, types, combined abilities, base stats, and total stats.</td></tr>
-            <tr><td>summariesByFormat</td><td>Small battle-data summaries for Singles and Doubles when available.</td></tr>
-            <tr><td>battleDataCsvs</td><td>CSV file paths for complete ranked battle data tables.</td></tr>
+            <tr><td>generatedAt</td><td>Build time for the generated index.</td></tr>
+            <tr><td>assetRoot</td><td>Root asset folder, usually pokemon_champions_assets.</td></tr>
+            <tr><td>pokemon</td><td>Array of indexed Pokémon entries.</td></tr>
+            <tr><td>metadataCsv</td><td>Path to that Pokémon's metadata CSV.</td></tr>
+            <tr><td>battleDataCsvs</td><td>Available Singles and Doubles battle-data CSV paths.</td></tr>
+            <tr><td>summary</td><td>Sprite, types, forms, stats, and precomputed battle summaries.</td></tr>
           </tbody>
         </table>
       </article>
 
       <article class="endpoint-card">
-        <h2>Battle data CSV</h2>
-        <p>Fetch one Pokémon and one format to read the complete ranked battle table.</p>
-        <pre><code>GET /pokemon_champions_assets/battle_data/Doubles/garchomp.csv
-GET /pokemon_champions_assets/battle_data/Singles/garchomp.csv</code></pre>
-        <p>Rows are grouped by category: moves, held items, teammates, stat alignments, stat spreads, and abilities.</p>
-        <pre><code>pokemon,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds</code></pre>
+        <h2>Manifest shape</h2>
+        <p>The index is optimized for speed, so it contains summaries and the static file paths needed for deeper requests.</p>
+        <pre><code>{
+  "generatedAt": "2026-05-18T09:01:00.000Z",
+  "assetRoot": "pokemon_champions_assets",
+  "pokemon": [
+    {
+      "name": "Garchomp",
+      "metadataCsv": "pokemon_champions_assets/metadata/Garchomp.csv",
+      "battleDataCsvs": [
+        { "format": "Doubles", "path": "pokemon_champions_assets/battle_data/Doubles/Garchomp.csv" },
+        { "format": "Singles", "path": "pokemon_champions_assets/battle_data/Singles/Garchomp.csv" }
+      ],
+      "summary": {
+        "sprite": "pokemon_champions_assets/pokemon/Garchomp.png",
+        "types": ["Dragon", "Ground"],
+        "forms": [],
+        "baseStats": { "hp": 108, "attack": 130, "defense": 95, "sp_attack": 80, "sp_defense": 85, "speed": 102 },
+        "baseStatTotal": 600,
+        "battleSummary": {
+          "Doubles": { "top": {}, "values": {}, "rows": [] },
+          "Singles": { "top": {}, "values": {}, "rows": [] }
+        }
+      }
+    }
+  ]
+}</code></pre>
       </article>
 
       <article class="endpoint-card">
-        <h2>Metadata CSV</h2>
-        <p>Fetch form name, typing, combined abilities, base stats, total stats, and sprite reference for a Pokémon.</p>
+        <h2>Pokémon endpoint</h2>
+        <p>Returns one indexed Pokémon record. Add a format query to include the selected format summary and direct battle-data CSV path at the top level.</p>
+        <pre><code>GET /api/pokemon/garchomp
+GET /api/pokemon/garchomp?format=Doubles
+GET /api/pokemon/vaporeon?format=Singles</code></pre>
+      </article>
+
+      <article class="endpoint-card">
+        <h2>Battle data endpoint</h2>
+        <p>Returns parsed JSON rows for one Pokémon and one format. Rows include a source position plus ranked categories such as move, held item, teammate, stat alignment, stat points, and ability.</p>
+        <pre><code>GET /api/battle/Doubles/garchomp
+GET /api/battle/Singles/garchomp</code></pre>
+        <pre><code>{
+  "pokemon": "Garchomp",
+  "format": "Doubles",
+  "source": "pokemon_champions_assets/battle_data/Doubles/Garchomp.csv",
+  "columns": ["pokemon", "position", "category", "rank", "name", "percentage"],
+  "rows": [
+    { "pokemon": "Garchomp", "position": 1, "category": "move", "rank": 1, "name": "Earthquake", "percentage": "90.3%" }
+  ]
+}</code></pre>
+      </article>
+
+      <article class="endpoint-card">
+        <h2>Battle CSV format</h2>
+        <p>The raw battle data is also available as CSV for users who prefer direct downloads, notebooks, spreadsheets, or custom parsers.</p>
+        <pre><code>GET /pokemon_champions_assets/battle_data/Doubles/garchomp.csv
+GET /pokemon_champions_assets/battle_data/Singles/garchomp.csv</code></pre>
+        <pre><code>pokemon,position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points</code></pre>
+      </article>
+
+      <article class="endpoint-card">
+        <h2>Metadata endpoint</h2>
+        <p>Returns parsed metadata rows for one Pokémon, including each saved form, typing, abilities, image path, stats, and total stats.</p>
+        <pre><code>GET /api/metadata/garchomp
+GET /api/metadata/abomasnow</code></pre>
+        <pre><code>{
+  "pokemon": "Abomasnow",
+  "source": "pokemon_champions_assets/metadata/Abomasnow.csv",
+  "rows": [
+    {
+      "title": "Abomasnow",
+      "base_name": "Abomasnow",
+      "saved_name": "Abomasnow",
+      "types": "Grass/Ice",
+      "abilities": "Snow Warning|Soundproof",
+      "image_path": "pokemon_champions_assets/pokemon/Abomasnow.png",
+      "form": "",
+      "hp": 165,
+      "atk": 112,
+      "def": 95,
+      "spa": 112,
+      "spd": 105,
+      "spe": 80,
+      "total": 614
+    }
+  ]
+}</code></pre>
+      </article>
+
+      <article class="endpoint-card">
+        <h2>Metadata CSV format</h2>
+        <p>The raw metadata CSV uses the current compact stat headers used by the website.</p>
         <pre><code>GET /pokemon_champions_assets/metadata/Garchomp.csv</code></pre>
         <pre><code>title,base_name,saved_name,types,abilities,image_path,form,hp,atk,def,spa,spd,spe,total</code></pre>
       </article>
 
       <article class="endpoint-card">
         <h2>Sprites and type icons</h2>
-        <p>Images can be used directly in websites, dashboards, Discord bots, and analysis tools.</p>
+        <p>Use image paths from the index or metadata rows. Type icons are stored by display type name.</p>
         <pre><code>GET /pokemon_champions_assets/pokemon/Garchomp.png
-GET /pokemon_champions_assets/types/Dragon.png</code></pre>
+GET /pokemon_champions_assets/types/Dragon.png
+GET /pokemon_champions_assets/types/Ground.png</code></pre>
       </article>
 
       <article class="endpoint-card">
-        <h2>JavaScript example</h2>
-        <pre><code>const index = await fetch('/data/pokemon-index.json').then(response =&gt; response.json());
-const pokemon = index.pokemon.find(entry =&gt; entry.name === 'Garchomp');
-const csv = pokemon.battleDataCsvs.find(file =&gt; file.format === 'Doubles');
-const battleData = await fetch(csv.path).then(response =&gt; response.text());</code></pre>
+        <h2>Filtering example</h2>
+        <p>For client-side filtering, load the index and filter the summary data before requesting full battle rows.</p>
+        <pre><code>const index = await fetch('/api/index').then(r =&gt; r.json());
+
+const fastGroundTypes = index.pokemon.filter(entry =&gt; {
+  const stats = entry.summary?.baseStats ?? {};
+  const types = entry.summary?.types ?? [];
+  return types.includes('Ground') &amp;&amp; Number(stats.speed ?? 0) &gt;= 100;
+});</code></pre>
       </article>
 
       <article class="endpoint-card">
-        <h2>Common use cases</h2>
+        <h2>Response behavior</h2>
         <ul>
-          <li>Show the most common moves and items for a Pokémon.</li>
-          <li>Find Pokémon by type, ability, or stat profile.</li>
-          <li>Compare Singles and Doubles usage data.</li>
-          <li>Power team builders, matchup pages, or metagame dashboards.</li>
+          <li>All public API responses are JSON.</li>
+          <li>Raw CSV and image assets remain available at their static paths.</li>
+          <li>Names are matched case-insensitively in API routes.</li>
+          <li>CORS is enabled so browser apps on other domains can request the data.</li>
         </ul>
       </article>
     </section>

@@ -10,13 +10,17 @@ export async function onRequestGet({ env, request, params }) {
 
     const url = new URL(request.url);
     const requestedFormat = normalizeFormat(url.searchParams.get('format'));
+    const requestedSeason = url.searchParams.get('season') || undefined;
     const payload = { ...entry };
 
     if (requestedFormat) {
-      const battleDataCsv = getFormatPath(entry, requestedFormat);
+      const battleDataCsv = getFormatPath(entry, requestedFormat, requestedSeason);
       payload.requestedFormat = requestedFormat;
+      payload.requestedSeason = battleDataCsv?.season || requestedSeason || 'Season M-2';
       payload.battleDataCsv = battleDataCsv;
-      payload.battleSummary = entry.summary?.battleSummary?.[requestedFormat] || null;
+      payload.battleSummary = entry.summary?.battleSummary?.[payload.requestedSeason]?.[requestedFormat] ||
+        entry.summary?.battleSummary?.[requestedFormat] ||
+        null;
     }
 
     return jsonResponse(payload);

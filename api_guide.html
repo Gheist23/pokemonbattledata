@@ -3,11 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Pokemon Champions Battle Data API documentation for public use." />
-  <meta name="theme-color" content="#080d16" />
-  <title>API Guide · Pokemon Champions Battle Data</title>
+  <meta name="description" content="Pokemon Champions Battle Data API guide for online database access, battle data CSV files, stats, and stats lists." />
+  <meta name="keywords" content="Pokemon Champions API, Pokemon Champions battle data API, battle data, online database, stats, stats list, Pokemon Champions database" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#050c08" />
+  <link rel="canonical" href="https://championsbattledata.com/api_guide" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://championsbattledata.com/api_guide" />
+  <meta property="og:title" content="API Guide - Pokemon Champions Battle Data" />
+  <meta property="og:description" content="Use the Pokemon Champions Battle Data API for online database access, stats lists, battle data, and direct CSV assets." />
+  <meta property="og:site_name" content="Pokemon Champions Battle Data" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="API Guide - Pokemon Champions Battle Data" />
+  <meta name="twitter:description" content="Pokemon Champions battle data API documentation for database access, stats, stats lists, and CSV assets." />
+  <title>API Guide - Pokemon Champions Battle Data</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="site.webmanifest" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://championsbattledata.com/api_guide#api-guide",
+    "url": "https://championsbattledata.com/api_guide",
+    "headline": "API Guide - Pokemon Champions Battle Data",
+    "name": "Pokemon Champions Battle Data API Guide",
+    "description": "Pokemon Champions Battle Data API documentation for online database access, battle data, stats, stats lists, and CSV assets.",
+    "inLanguage": "en",
+    "keywords": [
+      "Pokemon Champions API",
+      "Pokemon Champions battle data",
+      "online database",
+      "stats",
+      "stats list",
+      "battle data API"
+    ]
+  }
+  </script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="page-api">
@@ -15,191 +46,281 @@
 
   <header class="site-header" aria-label="Site header">
     <nav class="nav-shell">
-      <a class="brand" href="index.html" aria-label="pokemonbattledata.com home">
+      <a class="brand" href="index.html" aria-label="championsbattledata.com home">
         <img class="brand-logo" src="favicon.svg" alt="" aria-hidden="true" />
         <span>
           <strong>Pokemon Champions Battle Data</strong>
-          <small>pokemonbattledata.com</small>
+          <small>championsbattledata.com</small>
         </span>
       </a>
       <div class="nav-actions">
         <a class="ghost-button" href="index.html">Explorer</a>
+        <a class="ghost-button download-link" href="pokemon_champions_assets/battle_data.zip" download>Download Battle Data</a>
         <a class="ghost-button" href="/api_guide" aria-current="page">API</a>
-        <a class="discord-button" href="https://discord.gg/pokemonchampions" target="_blank" rel="noopener">Discord</a>
+        <a class="discord-button" href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">Discord</a>
       </div>
     </nav>
   </header>
 
-  <main id="apiContent" class="api-main section-shell">
-    <section class="api-hero api-hero-compact">
+  <main id="apiContent" class="api-main section-shell api-readable api-doc-page">
+    <section class="api-doc-hero" aria-labelledby="apiTitle">
       <div class="api-panel">
         <p class="eyebrow">API Guide</p>
-        <h1>Build with Pokémon Champions battle data</h1>
-        <p>Use the indexed JSON endpoint for fast discovery, then request structured battle rows, metadata rows, or raw CSV files when your app needs the complete ranked data.</p>
+        <h1 id="apiTitle">Build with Pokemon Champions battle data</h1>
+        <p>Use one index endpoint to discover Pokemon and available season folders, then fetch parsed JSON or direct CSV assets for your app.</p>
+        <div class="api-hero-actions" aria-label="Primary API paths">
+          <span>/api</span>
+          <span>/api/pokemon/:name</span>
+          <span>/api/battle/:format/:name</span>
+        </div>
       </div>
-      <aside class="api-side-card" aria-label="Community">
-        <span class="stat-label">Community</span>
-        <h2>Need help using the API?</h2>
-        <p>Join the Discord for questions, updates, and integration ideas.</p>
-        <a class="discord-button discord-button-large" href="https://discord.gg/pokemonchampions" target="_blank" rel="noopener">Join Discord</a>
+
+      <aside class="api-side-card api-facts" aria-label="API facts">
+        <span class="stat-label">Defaults</span>
+        <dl>
+          <div><dt>Season</dt><dd>Season M-3</dd></div>
+          <div><dt>Formats</dt><dd>Doubles, Singles</dd></div>
+          <div><dt>Assets</dt><dd>Static CSV, JSON, PNG</dd></div>
+        </dl>
+        <a class="discord-button discord-button-large" href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">Join Discord</a>
       </aside>
     </section>
 
-    <section class="endpoint-grid" aria-label="API endpoints">
-      <article class="endpoint-card">
-        <h2>Quick start</h2>
-        <p>The easiest way to build with the database is to start with the index, pick a Pokémon, then fetch its battle data or metadata.</p>
-        <pre><code>const index = await fetch('/api').then(r =&gt; r.json());
-const garchomp = await fetch('/api/pokemon/garchomp?format=Doubles').then(r =&gt; r.json());
-const battle = await fetch('/api/battle/Doubles/garchomp').then(r =&gt; r.json());</code></pre>
-      </article>
+    <div class="api-doc-layout">
+      <aside class="api-toc" aria-label="API sections">
+        <strong>On This Page</strong>
+        <a href="#quick-start">Quick start</a>
+        <a href="#folder-structure">Folder structure</a>
+        <a href="#index-endpoint">Index</a>
+        <a href="#pokemon-endpoint">Pokemon record</a>
+        <a href="#battle-endpoint">Battle rows</a>
+        <a href="#metadata-endpoint">Metadata rows</a>
+        <a href="#static-assets">Raw assets</a>
+        <a href="#filtering-example">Filtering</a>
+      </aside>
 
-      <article class="endpoint-card">
-        <h2>Main API endpoint</h2>
-        <p><code>/api</code> returns the generated manifest used by the Explorer. This is the fastest endpoint for listing Pokémon, filtering by stats or type, and discovering available CSV files.</p>
-        <pre><code>GET /api
-GET /api/index
-GET /data/pokemon-index.json</code></pre>
-        <table class="api-table">
-          <tbody>
-            <tr><td>generatedAt</td><td>Build time for the generated index.</td></tr>
-            <tr><td>assetRoot</td><td>Root asset folder, usually pokemon_champions_assets.</td></tr>
-            <tr><td>pokemon</td><td>Array of indexed Pokémon entries.</td></tr>
-            <tr><td>metadataCsv</td><td>Path to that Pokémon's metadata CSV.</td></tr>
-            <tr><td>battleDataCsvs</td><td>Available Singles and Doubles battle-data CSV paths.</td></tr>
-            <tr><td>summary</td><td>Sprite, types, forms, stats, and precomputed battle summaries.</td></tr>
-          </tbody>
-        </table>
-      </article>
+      <section class="api-docs" aria-label="API documentation">
+        <article class="api-section" id="quick-start">
+          <div class="api-section-heading">
+            <span>Start Here</span>
+            <h2>Quick start</h2>
+            <p>Load the index, pick a season, then fetch one Pokemon and its battle rows.</p>
+          </div>
+          <pre><code>const season = "Season M-3";
 
-      <article class="endpoint-card">
-        <h2>Manifest shape</h2>
-        <p>The index is optimized for speed, so it contains summaries and the static file paths needed for deeper requests.</p>
-        <pre><code>{
-  "generatedAt": "2026-05-18T09:01:00.000Z",
-  "assetRoot": "pokemon_champions_assets",
-  "pokemon": [
-    {
-      "name": "Garchomp",
-      "metadataCsv": "pokemon_champions_assets/metadata/Garchomp.csv",
-      "battleDataCsvs": [
-        { "format": "Doubles", "path": "pokemon_champions_assets/battle_data/Doubles/Garchomp.csv" },
-        { "format": "Singles", "path": "pokemon_champions_assets/battle_data/Singles/Garchomp.csv" }
-      ],
-      "summary": {
-        "sprite": "pokemon_champions_assets/pokemon/Garchomp.png",
-        "types": ["Dragon", "Ground"],
-        "forms": [],
-        "baseStats": { "hp": 108, "attack": 130, "defense": 95, "sp_attack": 80, "sp_defense": 85, "speed": 102 },
-        "baseStatTotal": 600,
-        "battleSummary": {
-          "Doubles": { "top": {}, "values": {}, "rows": [] },
-          "Singles": { "top": {}, "values": {}, "rows": [] }
-        }
-      }
-    }
-  ]
+const index = await fetch("/api")
+  .then((response) =&gt; response.json());
+
+const params = new URLSearchParams({
+  format: "Doubles",
+  season
+});
+
+const garchomp = await fetch(
+  `/api/pokemon/garchomp?${params}`
+).then((response) =&gt; response.json());
+
+const battleRows = await fetch(
+  `/api/battle/Doubles/garchomp?season=${encodeURIComponent(season)}`
+).then((response) =&gt; response.json());</code></pre>
+        </article>
+
+        <article class="api-section" id="folder-structure">
+          <div class="api-section-heading">
+            <span>Static Assets</span>
+            <h2>Folder structure</h2>
+            <p>The season dropdown uses the folder names inside <code>battle_data</code>. These paths are also directly requestable.</p>
+            <p>Battle data files, sprites, and metadata rows all use the <strong>form-specific name</strong> (<code>saved_name</code>). A single metadata file, named after the <strong>base Pokémon</strong> (<code>base_name</code>), contains rows for every form.</p>
+          </div>
+          <pre><code>pokemon_champions_assets/
+  battle_data/
+    Season M-3/
+      Doubles/
+        Tauros.csv                        ← base form
+        Paldean Tauros Aqua Breed.csv     ← form-specific
+        Paldean Tauros Blaze Breed.csv
+        Paldean Tauros Combat Breed.csv
+      Singles/
+        …
+  metadata/
+    Tauros.csv   ← one file, all four forms as separate rows
+  pokemon/
+    Tauros.png
+    Paldean Tauros Aqua Breed.png         ← form-specific sprite
+  types/
+    Dragon.png</code></pre>
+        </article>
+
+        <article class="api-section" id="index-endpoint">
+          <div class="api-section-heading">
+            <span>Endpoint 01</span>
+            <h2>Index</h2>
+            <p>Use the index first. It lists Pokemon, seasons, formats, file paths, sprites, typing, stats, and summaries.</p>
+          </div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api</code></div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/index</code></div>
+          <div class="api-endpoint-line"><b>GET</b><code>/data/pokemon-index.json</code></div>
+          <dl class="api-kv-list">
+            <div><dt>battleDataFolders</dt><dd>Folder names under battle_data.</dd></div>
+            <div><dt>seasons</dt><dd>Season folders available in the Explorer.</dd></div>
+            <div><dt>defaultSeason</dt><dd>The default folder, currently Season M-3.</dd></div>
+            <div><dt>pokemon</dt><dd>All indexed Pokemon records.</dd></div>
+          </dl>
+        </article>
+
+        <article class="api-section" id="pokemon-endpoint">
+          <div class="api-section-heading">
+            <span>Endpoint 02</span>
+            <h2>Pokemon record</h2>
+            <p>Returns one indexed Pokemon. Add <code>format</code> and <code>season</code> to include the matching summary and CSV path.</p>
+          </div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/pokemon/garchomp?format=Doubles&amp;season=Season%20M-2</code></div>
+          <pre><code>{
+  "name": "Garchomp",
+  "requestedFormat": "Doubles",
+  "requestedSeason": "Season M-3",
+  "battleDataCsv": {
+    "path": "pokemon_champions_assets/battle_data/Season M-3/Doubles/Garchomp.csv"
+  }
 }</code></pre>
-      </article>
+        </article>
 
-      <article class="endpoint-card">
-        <h2>Pokémon endpoint</h2>
-        <p>Returns one indexed Pokémon record. Add a format query to include the selected format summary and direct battle-data CSV path at the top level.</p>
-        <pre><code>GET /api/pokemon/garchomp
-GET /api/pokemon/garchomp?format=Doubles
-GET /api/pokemon/vaporeon?format=Singles</code></pre>
-      </article>
-
-      <article class="endpoint-card">
-        <h2>Battle data endpoint</h2>
-        <p>Returns parsed JSON rows for one Pokémon and one format. Rows include a source position plus ranked categories such as move, held item, teammate, stat alignment, stat points, and ability.</p>
-        <pre><code>GET /api/battle/Doubles/garchomp
-GET /api/battle/Singles/garchomp</code></pre>
-        <pre><code>{
+        <article class="api-section" id="battle-endpoint">
+          <div class="api-section-heading">
+            <span>Endpoint 03</span>
+            <h2>Battle rows</h2>
+            <p>Returns parsed rows from one battle-data CSV. Use this for moves, items, teammates, natures, spreads, and abilities.</p>
+          </div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/battle/Doubles/garchomp?season=Season%20M-2</code></div>
+          <pre><code>{
   "pokemon": "Garchomp",
   "format": "Doubles",
-  "source": "pokemon_champions_assets/battle_data/Doubles/Garchomp.csv",
-  "columns": ["pokemon", "position", "category", "rank", "name", "percentage"],
-  "rows": [
-    { "pokemon": "Garchomp", "position": 1, "category": "move", "rank": 1, "name": "Earthquake", "percentage": "90.3%" }
-  ]
-}</code></pre>
-      </article>
-
-      <article class="endpoint-card">
-        <h2>Battle CSV format</h2>
-        <p>The raw battle data is also available as CSV for users who prefer direct downloads, notebooks, spreadsheets, or custom parsers.</p>
-        <pre><code>GET /pokemon_champions_assets/battle_data/Doubles/garchomp.csv
-GET /pokemon_champions_assets/battle_data/Singles/garchomp.csv</code></pre>
-        <pre><code>pokemon,position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points</code></pre>
-      </article>
-
-      <article class="endpoint-card">
-        <h2>Metadata endpoint</h2>
-        <p>Returns parsed metadata rows for one Pokémon, including each saved form, typing, abilities, image path, stats, and total stats.</p>
-        <pre><code>GET /api/metadata/garchomp
-GET /api/metadata/abomasnow</code></pre>
-        <pre><code>{
-  "pokemon": "Abomasnow",
-  "source": "pokemon_champions_assets/metadata/Abomasnow.csv",
+  "season": "Season M-3",
+  "source": "pokemon_champions_assets/battle_data/Season M-3/Doubles/Garchomp.csv",
   "rows": [
     {
-      "title": "Abomasnow",
-      "base_name": "Abomasnow",
-      "saved_name": "Abomasnow",
-      "types": "Grass/Ice",
-      "abilities": "Snow Warning|Soundproof",
-      "image_path": "pokemon_champions_assets/pokemon/Abomasnow.png",
-      "form": "",
-      "hp": 165,
-      "atk": 112,
-      "def": 95,
-      "spa": 112,
-      "spd": 105,
-      "spe": 80,
-      "total": 614
+      "position": 1,
+      "category": "move",
+      "rank": 1,
+      "name": "Earthquake",
+      "percentage": "90.3%"
     }
   ]
 }</code></pre>
-      </article>
+        </article>
 
-      <article class="endpoint-card">
-        <h2>Metadata CSV format</h2>
-        <p>The raw metadata CSV uses the current compact stat headers used by the website.</p>
-        <pre><code>GET /pokemon_champions_assets/metadata/Garchomp.csv</code></pre>
-        <pre><code>title,base_name,saved_name,types,abilities,image_path,form,hp,atk,def,spa,spd,spe,total</code></pre>
-      </article>
+        <article class="api-section" id="metadata-endpoint">
+          <div class="api-section-heading">
+            <span>Endpoint 04</span>
+            <h2>Metadata rows</h2>
+            <p>Returns all forms for a Pokémon from a single metadata file. Request by <strong>base name</strong> (e.g. <code>tauros</code>) — the response contains one row per form, each identified by its <strong>form-specific</strong> <code>saved_name</code>.</p>
+            <p>Use <code>saved_name</code> to build paths to sprites and battle data. Use <code>base_name</code> to group forms together.</p>
+          </div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/metadata/tauros</code></div>
+          <pre><code>{
+  "pokemon": "Tauros",
+  "source": "pokemon_champions_assets/metadata/Tauros.csv",
+  "rows": [
+    {
+      "title": "Tauros [Paldean Form (Aqua Breed)]",
+      "base_name": "Tauros",
+      "saved_name": "Paldean Tauros Aqua Breed",
+      "types": "Fighting/Water",
+      "abilities": "Intimidate|Anger Point|Cud Chew",
+      "image_path": "pokemon_champions_assets/pokemon/Paldean Tauros Aqua Breed.png",
+      "form": "Paldean Aqua Breed",
+      "hp": 150, "atk": 130, "def": 125,
+      "spa": 50, "spd": 90, "spe": 120, "total": 610
+    },
+    {
+      "title": "Tauros [Paldean Form (Blaze Breed)]",
+      "base_name": "Tauros",
+      "saved_name": "Paldean Tauros Blaze Breed",
+      "types": "Fighting/Fire",
+      "abilities": "Intimidate|Anger Point|Cud Chew",
+      "image_path": "pokemon_champions_assets/pokemon/Paldean Tauros Blaze Breed.png",
+      "form": "Paldean Blaze Breed",
+      "hp": 150, "atk": 130, "def": 125,
+      "spa": 50, "spd": 90, "spe": 120, "total": 610
+    },
+    {
+      "title": "Tauros",
+      "base_name": "Tauros",
+      "saved_name": "Tauros",
+      "types": "Normal",
+      "abilities": "Intimidate|Anger Point|Sheer Force",
+      "image_path": "pokemon_champions_assets/pokemon/Tauros.png",
+      "form": "",
+      "hp": 150, "atk": 120, "def": 115,
+      "spa": 60, "spd": 90, "spe": 130, "total": 610
+    }
+  ]
+}</code></pre>
+          <dl class="api-kv-list">
+            <div><dt>base_name</dt><dd>The shared Pokémon name. Matches the metadata filename and the <code>/api/metadata/:name</code> route parameter.</dd></div>
+            <div><dt>saved_name</dt><dd>The form-specific name used for battle data CSVs, sprites, and the <code>/api/battle/:format/:name</code> route.</dd></div>
+            <div><dt>form</dt><dd>Human-readable form label. Empty string for the base form.</dd></div>
+            <div><dt>abilities</dt><dd>Pipe-separated list of all abilities for this form.</dd></div>
+          </dl>
+        </article>
 
-      <article class="endpoint-card">
-        <h2>Sprites and type icons</h2>
-        <p>Use image paths from the index or metadata rows. Type icons are stored by display type name.</p>
-        <pre><code>GET /pokemon_champions_assets/pokemon/Garchomp.png
-GET /pokemon_champions_assets/types/Dragon.png
-GET /pokemon_champions_assets/types/Ground.png</code></pre>
-      </article>
+        <article class="api-section" id="static-assets">
+          <div class="api-section-heading">
+            <span>Direct Files</span>
+            <h2>Raw CSV and images</h2>
+            <p>Use static paths for downloads, spreadsheet imports, notebooks, sprites, and type icons. Battle data and sprites use the form-specific <code>saved_name</code>. Metadata uses the <code>base_name</code>.</p>
+          </div>
+          <pre><code><!-- Battle data: use saved_name (form-specific) -->
+GET /pokemon_champions_assets/battle_data/Season%20M-2/Doubles/Tauros.csv
+GET /pokemon_champions_assets/battle_data/Season%20M-2/Doubles/Paldean%20Tauros%20Aqua%20Breed.csv
 
-      <article class="endpoint-card">
-        <h2>Filtering example</h2>
-        <p>For client-side filtering, load the index and filter the summary data before requesting full battle rows.</p>
-        <pre><code>const index = await fetch('/api').then(r =&gt; r.json());
+<!-- Metadata: use base_name (one file, all forms) -->
+GET /pokemon_champions_assets/metadata/Tauros.csv
 
-const fastGroundTypes = index.pokemon.filter(entry =&gt; {
+<!-- Sprites: use saved_name (form-specific) -->
+GET /pokemon_champions_assets/pokemon/Tauros.png
+GET /pokemon_champions_assets/pokemon/Paldean%20Tauros%20Aqua%20Breed.png
+
+<!-- Type icons -->
+GET /pokemon_champions_assets/types/Dragon.png</code></pre>
+        </article>
+
+        <article class="api-section" id="filtering-example">
+          <div class="api-section-heading">
+            <span>Client Example</span>
+            <h2>Filtering with the index</h2>
+            <p>For client-side tools, load the index once and filter summary data before requesting full rows.</p>
+          </div>
+          <pre><code>const index = await fetch("/api")
+  .then((response) =&gt; response.json());
+
+const fastGroundTypes = index.pokemon.filter((entry) =&gt; {
   const stats = entry.summary?.baseStats ?? {};
   const types = entry.summary?.types ?? [];
-  return types.includes('Ground') &amp;&amp; Number(stats.speed ?? 0) &gt;= 100;
-});</code></pre>
-      </article>
 
-      <article class="endpoint-card">
-        <h2>Response behavior</h2>
-        <ul>
-          <li>All public API responses are JSON.</li>
-          <li>Raw CSV and image assets remain available at their static paths.</li>
-          <li>Names are matched case-insensitively in API routes.</li>
-          <li>CORS is enabled so browser apps on other domains can request the data.</li>
-        </ul>
-      </article>
-    </section>
+  return types.includes("Ground")
+    &amp;&amp; Number(stats.speed ?? 0) &gt;= 100;
+});</code></pre>
+        </article>
+
+        <article class="api-section api-section-compact">
+          <div class="api-section-heading">
+            <span>Behavior</span>
+            <h2>Response behavior</h2>
+          </div>
+          <ul class="api-notes">
+            <li>API endpoints return JSON.</li>
+            <li>CSV files and images remain available as static assets.</li>
+            <li>Pokemon names are matched case-insensitively.</li>
+            <li>The <code>season</code> query must match a battle-data folder.</li>
+            <li>CORS is enabled for browser apps on other domains.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
   </main>
+  <footer class="site-footer section-shell" aria-label="Site notice">
+    <p>This fan-made project is not affiliated with, endorsed by, or sponsored by Pokemon, Nintendo, Game Freak, or Creatures Inc.</p>
+  </footer>
 </body>
 </html>

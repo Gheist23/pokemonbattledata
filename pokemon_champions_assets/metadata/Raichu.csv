@@ -1,3 +1,5 @@
-title,base_name,saved_name,types,abilities,image_path,form,hp,atk,def,spa,spd,spe,total
-Raichu,Raichu,Raichu,Electric,Static|Lightning Rod,pokemon_champions_assets\pokemon\Raichu.png,,135,110,75,110,100,130,605
-Raichu [Alolan Form],Raichu,Alolan Raichu,Electric/Psychic,Surge Surfer,pokemon_champions_assets\pokemon\Alolan Raichu.png,Alolan,135,105,70,115,105,130,605
+title,base_name,saved_name,types,abilities,weight,image_path,form,hp,atk,def,spa,spd,spe,total
+Raichu,Raichu,Raichu,Electric,Static|Lightning Rod,,pokemon_champions_assets\pokemon\Raichu.png,,135,110,75,110,100,130,605
+Raichu [Alolan Form],Raichu,Alolan Raichu,Electric/Psychic,Surge Surfer,,pokemon_champions_assets\pokemon\Alolan Raichu.png,Alolan,135,105,70,115,105,130,605
+Mega Raichu X,Raichu,Mega Raichu X,Electric,Electric Surge,66.1 lbs.,pokemon_champions_assets\pokemon\Mega Raichu X.png,Mega X,135,155,115,110,115,130,705
+Mega Raichu Y,Raichu,Mega Raichu Y,Electric,No Guard,66.1 lbs.,pokemon_champions_assets\pokemon\Mega Raichu Y.png,Mega Y,135,120,75,180,100,150,705

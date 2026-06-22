@@ -1,5 +1,6 @@
 (() => {
   const ROOT = "pokemon_champions_assets";
+  const DEFAULT_SEASON = "Season M-3";
   const PREFERRED_FORMAT_ORDER = ["Doubles", "Singles"];
   const CATEGORY_LABELS = {
     move: "Moves",
@@ -26,6 +27,7 @@
     ["speed", "Spe"]
   ];
   const FORM_STATS = [...BASE_STATS, ["base_stat_total", "Total"]];
+  const REGIONAL_FORM_PATTERN = /\b(hisuian|alolan|galarian|paldean)\b/i;
   const STAT_ALIASES = {
     hp: ["hp", "health"],
     attack: ["attack", "atk"],
@@ -63,18 +65,23 @@ Garchomp,Garchomp,Garchomp,Dragon/Ground,Sand Veil|Rough Skin,pokemon_champions_
 Garchomp [Mega Garchomp],Garchomp,Mega Garchomp,Dragon/Ground,Sand Force,pokemon_champions_assets\\pokemon\\Mega Garchomp.png,Mega,108,170,115,120,95,92,700
 Garchomp [Mega Garchomp Z],Garchomp,Mega Garchomp Z,Dragon,Sand Force,pokemon_champions_assets\\pokemon\\Mega Garchomp Z.png,Mega,108,130,85,141,85,151,700`;
 
-  const SAMPLE_BATTLE = `pokemon,position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+  const SAMPLE_BATTLE = `pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Garchomp,1,move,1,Earthquake,90.3%,,,,,,,,
-Garchomp,2,held_item,1,Choice Scarf,24.2%,,,,,,,,
-Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
+Garchomp,1,held_item,1,Choice Scarf,24.2%,,,,,,,,
+Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   const state = {
     pokemon: [],
     filtered: [],
+    availableSeasons: [],
+    selectedSeason: DEFAULT_SEASON,
     selectedFormat: "Doubles",
     favorites: new Set(readArray(FAVORITES_KEY)),
     recentSearches: readArray(RECENT_KEY),
+    learnableMovesCache: new Map(),
+    moveDescriptionCache: new Map(),
     failedAssetUrls: new Set(),
+    learnableSearchReady: false,
     sourceLabel: "Manifest"
   };
 
@@ -153,6 +160,7 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     els.detailDialog.addEventListener("click", (event) => {
       if (event.target === els.detailDialog) closeDetail();
     });
+    els.detailDialog.addEventListener("close", () => document.body.classList.remove("profile-open"));
   }
 
   async function loadManifestDataset() {
@@ -161,10 +169,11 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
       if (!manifest || !Array.isArray(manifest.pokemon) || !manifest.pokemon.length) return false;
       const records = manifest.pokemon.map((entry) => recordFromManifestEntry(entry)).filter(Boolean).sort(compareByName);
       const label = manifest.generatedAt ? `Manifest • ${shortDate(manifest.generatedAt)}` : "Manifest";
-      hydrateDataset(records, label);
+      hydrateDataset(records, label, manifest);
       quietlyEnrichLegacyManifest(records);
       return true;
     } catch (error) {
+      delete els.detailContent.dataset.recordKey;
       console.info("Manifest loading skipped:", error.message);
       return false;
     }
@@ -187,9 +196,16 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     applyFiltersAndRender();
   }
 
-  function hydrateDataset(records, sourceLabel) {
+  function hydrateDataset(records, sourceLabel, manifest = {}) {
     state.pokemon = records;
     state.sourceLabel = sourceLabel;
+    state.availableSeasons = sortSeasons(unique([
+      ...(manifest.seasons || []),
+      ...(manifest.battleDataFolders || []),
+      ...records.flatMap((record) => record.seasons || [])
+    ]));
+    const seasons = availableSeasons();
+    state.selectedSeason = seasons.includes(DEFAULT_SEASON) ? DEFAULT_SEASON : seasons[0] || DEFAULT_SEASON;
     if (!availableFormats().includes(state.selectedFormat)) state.selectedFormat = availableFormats()[0] || "Doubles";
     updateTypeFilter();
     updateFormatToggle();
@@ -197,6 +213,7 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     renderBattleEntries();
     renderRecentSearches();
     applyFiltersAndRender();
+    preloadLearnableMovesForSearch(records);
   }
 
   function renderLoadingState() {
@@ -216,10 +233,21 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
   function recordFromManifestEntry(entry) {
     const summary = entry.summary || {};
     const name = entry.name || summary.name || "Unknown";
-    const formats = sortFormats(unique((entry.battleDataCsvs || entry.battleData || []).map((source) => source.format || detectFormatFromPath(source.path || source.csv || source)).filter(Boolean)));
+    const battleName = entry.battleName || entry.saved_name || name;
+    const battleSources = normalizeBattleSources(entry);
+    const seasons = sortSeasons(unique(battleSources.map((source) => source.season).filter(Boolean)));
+    const formats = sortFormats(unique(battleSources.map((source) => source.format).filter(Boolean)));
     const forms = Array.isArray(summary.forms) ? summary.forms.map(normalizeSummaryForm) : [];
-    const primary = normalizeSummaryForm(summary.primary || forms.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === name) || forms[0] || {});
-    const types = unique((summary.types || primary.types || []).map(titleCase));
+    const matchedForm = findMetadataFormForBattleName(forms, battleName);
+    const resolvedPrimary = normalizeSummaryForm(
+      matchedForm ||
+      summary.primary ||
+      forms.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === battleName) ||
+      forms[0] || {}
+    );
+    const displayName = displayNameForBattleName(battleName, resolvedPrimary);
+    const primary = resolvedPrimary;
+    const types = unique(((primary.types && primary.types.length ? primary.types : summary.types) || []).map(titleCase));
     const baseStats = summary.baseStats || {};
     Object.assign(primary, {
       hp: metadataStatValue(primary, "hp") ?? metadataStatValue(baseStats, "hp"),
@@ -231,18 +259,23 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
       base_stat_total: metadataStatValue(primary, "base_stat_total") ?? metadataStatValue(summary, "base_stat_total")
     });
     return {
-      name,
-      key: recordKey(name),
+      name: displayName,
+      battleName,
+      key: recordKey(battleName),
       dex: numberOrNull(summary.dex ?? primary.dex_number),
       metadataCsv: entry.metadataCsv || "",
-      battleSources: normalizeBattleSources(entry),
+      battleSources,
+      seasons: seasons.length ? seasons : [DEFAULT_SEASON],
       formats: formats.length ? formats : ["Doubles"],
       forms,
       primary,
       types: types.length ? types : splitTypes(primary.types_raw || ""),
-      imageCandidates: pokemonImageCandidates(summary.sprite || primary.image_path, name, primary.form_name),
-      summariesByFormat: normalizeBattleSummary(summary.battleSummary || {}),
-      battleByFormat: new Map(),
+      imageCandidates: pokemonImageCandidates(summary.sprite || primary.image_path, battleName, primary.form_name),
+      summariesBySeason: normalizeBattleSummaryBySeason(summary.battleSummary || {}, battleSources),
+      battleBySelection: new Map(),
+      learnableMoveNames: Array.isArray(entry.learnableMoveNames) ? entry.learnableMoveNames : [],
+      learnableMoves: [],
+      learnableMovesLoaded: false,
       metadataLoaded: Boolean(forms.length),
       hasManifestSummary: Boolean(entry.summary)
     };
@@ -251,24 +284,29 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
   function buildSampleDataset() {
     const metadataRows = parseCSV(SAMPLE_METADATA);
     const forms = metadataRows.map(normalizeMetadataRow);
-    const battleRows = withFormat(parseCSV(SAMPLE_BATTLE), "Doubles").map(normalizeBattleRow);
+    const battleRows = withFormat(parseCSV(SAMPLE_BATTLE), "Doubles", "pokemon_champions_assets/battle_data/Season M-3/Doubles/Garchomp.csv", DEFAULT_SEASON).map(normalizeBattleRow);
     const primary = forms[0];
     return [{
       name: "Garchomp",
+      battleName: "Garchomp",
       key: "garchomp",
       dex: 445,
       metadataCsv: "pokemon_champions_assets/metadata/Garchomp.csv",
       battleSources: [
-        { format: "Doubles", path: "pokemon_champions_assets/battle_data/Doubles/Garchomp.csv" },
-        { format: "Singles", path: "pokemon_champions_assets/battle_data/Singles/Garchomp.csv" }
+        { season: DEFAULT_SEASON, format: "Doubles", path: "pokemon_champions_assets/battle_data/Season M-3/Doubles/Garchomp.csv" },
+        { season: DEFAULT_SEASON, format: "Singles", path: "pokemon_champions_assets/battle_data/Season M-3/Singles/Garchomp.csv" }
       ],
+      seasons: [DEFAULT_SEASON],
       formats: ["Doubles", "Singles"],
       forms,
       primary,
       types: primary.types,
       imageCandidates: pokemonImageCandidates(primary.image_path, "Garchomp", primary.form_name),
-      summariesByFormat: { Doubles: summaryFromRows(battleRows), Singles: summaryFromRows(battleRows.map((row) => ({ ...row, format: "Singles" }))) },
-      battleByFormat: new Map([["Doubles", battleRows]]),
+      summariesBySeason: { [DEFAULT_SEASON]: { Doubles: summaryFromRows(battleRows), Singles: summaryFromRows(battleRows.map((row) => ({ ...row, format: "Singles" }))) } },
+      battleBySelection: new Map([[battleSelectionKey(DEFAULT_SEASON, "Doubles"), battleRows]]),
+      learnableMoveNames: [],
+      learnableMoves: [],
+      learnableMovesLoaded: false,
       metadataLoaded: true,
       hasManifestSummary: true
     }];
@@ -276,20 +314,32 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
 
   function normalizeBattleSources(entry) {
     const sources = Array.isArray(entry.battleDataCsvs) ? entry.battleDataCsvs : (Array.isArray(entry.battleData) ? entry.battleData : []);
-    return sources.map((source) => {
-      if (typeof source === "string") return { path: source, format: detectFormatFromPath(source) };
+    const normalizedSources = sources.map((source) => {
+      if (typeof source === "string") {
+        const info = battleInfoFromPath(source);
+        return { path: source, season: info.season, format: info.format };
+      }
       const path = source.path || source.csv || source.battleDataCsv || "";
-      return { path, format: source.format || detectFormatFromPath(path) };
+      const info = battleInfoFromPath(path);
+      return { path, season: source.season || info.season, format: source.format || info.format };
     }).filter((source) => source.path);
+    if (normalizedSources.some((source) => source.season !== "Current")) return normalizedSources;
+    return normalizedSources.map((source) => ({
+      ...source,
+      season: DEFAULT_SEASON,
+      path: pathForSeason(source.path, DEFAULT_SEASON)
+    }));
   }
 
   function normalizeSummaryForm(form) {
     const types = Array.isArray(form.types) ? form.types.map(titleCase) : splitTypes(readField(form, METADATA_ALIASES.types) || form.types_raw || "");
     const baseName = readField(form, ["base_name", "pokemon_name", "pokemon", "base", "name"]) || "";
-    const savedName = readField(form, ["saved_name", "form_name", "title", "name"]) || baseName || "Base";
+    const savedName = readField(form, ["saved_name", "form_name"]) || readField(form, ["title", "name"]) || baseName || "Base";
+    const titleField = readField(form, ["title"]) || savedName;
     const formKind = readField(form, METADATA_ALIASES.form_kind) || "";
     const normalized = {
       pokemon_name: baseName || readField(form, METADATA_ALIASES.pokemon_name) || "",
+      title: titleField,
       dex_number: metadataNumber(form, "dex_number", METADATA_ALIASES.dex_number),
       base_dex_url: readField(form, METADATA_ALIASES.base_dex_url) || "",
       image_path: normalizePath(readField(form, METADATA_ALIASES.image_path) || ""),
@@ -307,16 +357,34 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     return normalized;
   }
 
-  function normalizeBattleSummary(raw) {
+  function normalizeBattleSummaryBySeason(raw, sources = []) {
     const out = {};
-    Object.entries(raw || {}).forEach(([format, summary]) => {
-      out[titleCase(format)] = {
-        top: summary.top || {},
-        values: summary.values || {},
-        rows: normalizeSummaryRows(summary)
-      };
+    const fallbackSeason = sortSeasons(unique(sources.map((source) => source.season).filter(Boolean)))[0] || DEFAULT_SEASON;
+    Object.entries(raw || {}).forEach(([key, value]) => {
+      if (isBattleSummary(value)) {
+        const format = titleCase(key);
+        const season = sources.find((source) => source.format === format)?.season || fallbackSeason;
+        setSeasonSummary(out, season, format, value);
+        return;
+      }
+      Object.entries(value || {}).forEach(([format, summary]) => {
+        if (isBattleSummary(summary)) setSeasonSummary(out, key, titleCase(format), summary);
+      });
     });
     return out;
+  }
+
+  function isBattleSummary(value) {
+    return Boolean(value && typeof value === "object" && ("top" in value || "values" in value || "rows" in value || "rowsByCategory" in value));
+  }
+
+  function setSeasonSummary(target, season, format, summary) {
+    target[season] ||= {};
+    target[season][format] = {
+      top: summary.top || {},
+      values: summary.values || {},
+      rows: normalizeSummaryRows(summary)
+    };
   }
 
   function normalizeSummaryRows(summary) {
@@ -342,8 +410,11 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
   }
 
   function normalizeSummaryBattleRow(row) {
+    const columnPosition = numberOrNull(row?.column_position);
     const normalized = {
       category: row?.category || "",
+      column_position: columnPosition,
+      position: columnPosition ?? numberOrNull(row?.position),
       rank: numberOrNull(row?.rank),
       name: row?.name || "",
       percentage: row?.percentage || "",
@@ -359,22 +430,112 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     if (record.metadataLoaded || !record.metadataCsv) return;
     const rows = parseCSV(await fetchText(record.metadataCsv));
     const forms = rows.map(normalizeMetadataRow);
+    const battleName = battleDataName(record);
+    const matchedForm = findMetadataFormForBattleName(forms, battleName);
     record.forms = forms;
-    record.primary = forms.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === record.name) || forms[0] || record.primary;
-    record.types = unique(forms.flatMap((form) => form.types));
+    record.primary = matchedForm ||
+      forms.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === battleName) ||
+      forms[0] || record.primary;
+    record.types = unique(((matchedForm || record.primary)?.types?.length ? (matchedForm || record.primary).types : forms.flatMap((form) => form.types)));
     record.dex = numberOrNull(record.primary.dex_number);
-    record.imageCandidates = pokemonImageCandidates(record.primary.image_path, record.name, record.primary.form_name);
+    record.name = displayNameForBattleName(battleName, record.primary);
+    record.key = recordKey(battleName || record.name);
+    record.imageCandidates = pokemonImageCandidates(record.primary.image_path, battleName, record.primary.form_name);
     record.metadataLoaded = true;
   }
 
-  async function ensureBattleData(record, format = state.selectedFormat) {
+  async function ensureLearnableMoves(record) {
+    if (record.learnableMovesLoaded) return record.learnableMoves || [];
+    const candidates = learnableMovePathCandidates(record);
+    for (const path of candidates) {
+      if (state.learnableMovesCache.has(path)) {
+        record.learnableMoves = state.learnableMovesCache.get(path);
+        record.learnableMoveNames = unique([...(record.learnableMoveNames || []), ...record.learnableMoves.map((row) => row.move_name)]);
+        record.learnableMovesLoaded = true;
+        return record.learnableMoves;
+      }
+      try {
+        const rows = parseCSV(await fetchText(path)).map(normalizeLearnableMove).filter((row) => row.move_name);
+        state.learnableMovesCache.set(path, rows);
+        record.learnableMoves = rows;
+        record.learnableMoveNames = unique([...(record.learnableMoveNames || []), ...rows.map((row) => row.move_name)]);
+        record.learnableMovesLoaded = true;
+        return rows;
+      } catch {
+        state.learnableMovesCache.set(path, []);
+      }
+    }
+    record.learnableMoves = [];
+    record.learnableMovesLoaded = true;
+    return [];
+  }
+
+  async function hydrateLearnableMoveDescriptions(record) {
+    const moves = Array.isArray(record.learnableMoves) ? record.learnableMoves : [];
+    if (!moves.length) return;
+    await Promise.allSettled(moves.map(async (move) => {
+      const description = await ensureMoveDescription(move.move_name);
+      move.short_description = description;
+      if (els.detailContent?.dataset?.recordKey !== record.key) return;
+      updateMoveDescriptionCells(move.move_name, description);
+    }));
+  }
+
+  async function preloadLearnableMovesForSearch(records) {
+    if (state.learnableSearchReady) return;
+    const targets = Array.isArray(records) ? records : [];
+    for (let index = 0; index < targets.length; index += 18) {
+      await Promise.allSettled(targets.slice(index, index + 18).map((record) => ensureLearnableMoves(record)));
+    }
+    state.learnableSearchReady = true;
+    if (els.searchInput?.value?.trim()) applyFiltersAndRender();
+  }
+
+  async function ensureMoveDescription(moveName) {
+    const key = recordKey(moveName);
+    if (!key) return "";
+    if (state.moveDescriptionCache.has(key)) return state.moveDescriptionCache.get(key);
+    const request = loadMoveDescription(moveName).catch(() => "");
+    state.moveDescriptionCache.set(key, request);
+    const description = await request;
+    state.moveDescriptionCache.set(key, description);
+    return description;
+  }
+
+  async function loadMoveDescription(moveName) {
+    const candidates = moveDescriptionPathCandidates(moveName);
+    for (const path of candidates) {
+      try {
+        return moveShortDescription(parseCSV(await fetchText(path)), moveName);
+      } catch {
+        continue;
+      }
+    }
+    return "";
+  }
+
+  function updateMoveDescriptionCells(moveName, description) {
+    const key = recordKey(moveName);
+    const label = description || "-";
+    els.detailContent.querySelectorAll("[data-move-description-key]").forEach((node) => {
+      if (node.dataset.moveDescriptionKey !== key) return;
+      node.textContent = label;
+      node.classList.toggle("missing", !description);
+      node.classList.remove("loading");
+    });
+  }
+
+  async function ensureBattleData(record, format = state.selectedFormat, season = state.selectedSeason) {
     const normalizedFormat = titleCase(format);
-    if (record.battleByFormat.has(normalizedFormat)) return record.battleByFormat.get(normalizedFormat);
-    const source = record.battleSources.find((item) => item.format === normalizedFormat) || record.battleSources[0];
+    const normalizedSeason = season || DEFAULT_SEASON;
+    const key = battleSelectionKey(normalizedSeason, normalizedFormat);
+    if (record.battleBySelection.has(key)) return record.battleBySelection.get(key);
+    const source = findBattleSource(record, normalizedSeason, normalizedFormat) || record.battleSources[0];
     if (!source) return [];
-    const rows = withFormat(parseCSV(await fetchText(source.path)), normalizedFormat, source.path).map(normalizeBattleRow).filter((row) => row.category);
-    record.battleByFormat.set(normalizedFormat, rows);
-    record.summariesByFormat[normalizedFormat] = summaryFromRows(rows);
+    const rows = withFormat(parseCSV(await fetchText(source.path)), normalizedFormat, source.path, source.season || normalizedSeason).map(normalizeBattleRow).filter((row) => row.category);
+    record.battleBySelection.set(key, rows);
+    record.summariesBySeason[normalizedSeason] ||= {};
+    record.summariesBySeason[normalizedSeason][normalizedFormat] = summaryFromRows(rows);
     return rows;
   }
 
@@ -394,17 +555,18 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     const queryPlan = parseSearchQuery(els.searchInput.value);
     const type = els.typeFilter.value;
     const favoritesOnly = els.favoritesOnly.checked;
+    const season = state.selectedSeason;
     const format = state.selectedFormat;
 
     let filtered = state.pokemon.filter((record) => {
-      const matchesFormat = record.formats.includes(format);
+      const matchesFormat = recordHasBattleSelection(record, season, format);
       const matchesType = type === "all" || record.types.includes(type);
       const matchesFavorite = !favoritesOnly || state.favorites.has(record.key);
-      const matchesSearch = matchesQuery(record, queryPlan, format);
+      const matchesSearch = matchesQuery(record, queryPlan, format, season);
       return matchesFormat && matchesType && matchesFavorite && matchesSearch;
     });
 
-    filtered = sortPokemon(filtered, els.sortFilter.value, els.orderFilter?.value || "desc", format);
+    filtered = sortPokemon(filtered, els.sortFilter.value, els.orderFilter?.value || "desc", format, season);
     state.filtered = filtered;
     renderBattleEntries();
     renderRecentSearches();
@@ -467,13 +629,13 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     return Boolean(categoryForSearchField(normalizeField(field)));
   }
 
-  function matchesQuery(record, plan, format) {
+  function matchesQuery(record, plan, format, season) {
     if (plan.mode === "empty") return true;
-    if (plan.mode === "name") return normalizeForSearch(record.name).includes(plan.text);
-    return plan.clauses.every((clause) => matchClause(record, clause, format));
+    if (plan.mode === "name") return searchablePokemonTextValues(record, format, season).some((value) => normalizeForSearch(value).includes(plan.text));
+    return plan.clauses.every((clause) => matchClause(record, clause, format, season));
   }
 
-  function matchClause(record, clause, format) {
+  function matchClause(record, clause, format, season) {
     const value = clause.value;
     const query = normalizeForSearch(value);
     const field = clause.field;
@@ -505,40 +667,44 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
       return compareNumeric(numberOrZero(numericFields[field]), clause.op, Number(value));
     }
 
-    if (field === "name" || field === "pokemon") return matchTextValues([record.name], clause.op, query);
+    if (field === "name" || field === "pokemon") return matchTextValues(searchablePokemonNames(record), clause.op, query);
     if (field === "type" || field === "types") return matchTextValues(record.types, clause.op, query);
 
     const battleNumericField = battleNumericFieldName(field);
     if (battleNumericField) {
       const target = Number(value);
       if (!Number.isFinite(target)) return false;
-      return battleRowsForSearch(record, format).some((row) => compareNumeric(numberOrZero(row[battleNumericField]), clause.op, target));
+      return battleRowsForSearch(record, format, season).some((row) => compareNumeric(numberOrZero(row[battleNumericField]), clause.op, target));
     }
 
     if (field === "usage" || field === "percent" || field === "percentage") {
       const target = Number(String(value).replace("%", ""));
       if (!Number.isFinite(target)) return false;
-      return battleRowsForSearch(record, format).some((row) => compareNumeric(numberOrZero(row.percentage_value), clause.op, target));
+      return battleRowsForSearch(record, format, season).some((row) => compareNumeric(numberOrZero(row.percentage_value), clause.op, target));
     }
 
     if (field === "rank") {
       const target = Number(value);
       if (!Number.isFinite(target)) return false;
-      return battleRowsForSearch(record, format).some((row) => compareNumeric(numberOrZero(row.rank), clause.op, target));
+      return battleRowsForSearch(record, format, season).some((row) => compareNumeric(numberOrZero(row.rank), clause.op, target));
     }
 
-    if (field === "statup") return matchTextValues(battleRowsForSearch(record, format).map((row) => row.stat_up), clause.op, query);
-    if (field === "statdown" || field === "reducedstat") return matchTextValues(battleRowsForSearch(record, format).map((row) => row.stat_down), clause.op, query);
+    if (field === "statup") return matchTextValues(battleRowsForSearch(record, format, season).map((row) => row.stat_up), clause.op, query);
+    if (field === "statdown" || field === "reducedstat") return matchTextValues(battleRowsForSearch(record, format, season).map((row) => row.stat_down), clause.op, query);
 
     const category = categoryForSearchField(field);
     if (!category) return false;
 
-    let rows = battleRowsForSearch(record, format).filter((row) => row.category === category);
+    let rows = battleRowsForSearch(record, format, season).filter((row) => row.category === category);
     if (field.startsWith("top")) rows = rows.filter((row) => numberOrZero(row.rank) === 1);
     if (clause.rankOp) rows = rows.filter((row) => compareNumeric(numberOrZero(row.rank), clause.rankOp, clause.rankValue));
 
     const battleMatch = rows.some((row) => matchBattleRowName(row, clause.op, query));
     if (battleMatch) return true;
+
+    if (category === "move" && !clause.rankOp && !field.startsWith("top")) {
+      return matchTextValues(learnableMoveValues(record), clause.op, query);
+    }
 
     if (category === "ability" && !clause.rankOp && !field.startsWith("top")) {
       return matchTextValues(metadataAbilityValues(record), clause.op, query);
@@ -562,6 +728,13 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     splitListValue(record.primary?.abilities).forEach((value) => values.push(value));
     splitListValue(record.primary?.hidden_ability).forEach((value) => values.push(value));
     return unique(values);
+  }
+
+  function learnableMoveValues(record) {
+    return unique([
+      ...(record?.learnableMoveNames || []),
+      ...(record?.learnableMoves || []).map((move) => move?.move_name)
+    ].filter(Boolean));
   }
 
   function splitListValue(value) {
@@ -631,12 +804,31 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     return aliases[field] || "";
   }
 
-  function battleRowsForSearch(record, format) {
-    const liveRows = record.battleByFormat?.get(format);
+  function battleRowsForSearch(record, format, season = state.selectedSeason) {
+    const liveRows = record.battleBySelection?.get(battleSelectionKey(season, format));
     if (Array.isArray(liveRows) && liveRows.length) return liveRows;
-    const summary = getSummary(record, format);
+    const summary = getSummary(record, format, season);
     if (Array.isArray(summary.rows) && summary.rows.length) return summary.rows;
     return normalizeSummaryRows(summary);
+  }
+
+  function battlePosition(record, season = state.selectedSeason, format = state.selectedFormat) {
+    const positions = battleRowsForSearch(record, format, season)
+      .map((row) => numberOrNull(row.column_position ?? row.position))
+      .filter((value) => Number.isFinite(value));
+    return positions.length ? Math.min(...positions) : Number.POSITIVE_INFINITY;
+  }
+
+  function sortByBattlePosition(records) {
+    return [...records].sort((a, b) => {
+      const aPosition = battlePosition(a);
+      const bPosition = battlePosition(b);
+      const aHasPosition = Number.isFinite(aPosition);
+      const bHasPosition = Number.isFinite(bPosition);
+      if (aHasPosition && bHasPosition && aPosition !== bPosition) return aPosition - bPosition;
+      if (aHasPosition !== bHasPosition) return aHasPosition ? -1 : 1;
+      return compareByName(a, b);
+    });
   }
 
   function normalizeField(field) {
@@ -652,8 +844,13 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     return candidate === target;
   }
 
-  function getSummary(record, format) {
-    return record.summariesByFormat?.[format] || record.summariesByFormat?.[record.formats[0]] || { top: {}, values: {} };
+  function getSummary(record, format, season = state.selectedSeason) {
+    const normalizedFormat = titleCase(format || state.selectedFormat);
+    const seasonSummaries = record.summariesBySeason || {};
+    return seasonSummaries[season]?.[normalizedFormat] ||
+      seasonSummaries[record.seasons?.[0]]?.[normalizedFormat] ||
+      Object.values(seasonSummaries).find((formats) => formats?.[normalizedFormat])?.[normalizedFormat] ||
+      { top: {}, values: {}, rows: [] };
   }
 
   function valuesForCategory(summary, category) {
@@ -722,14 +919,13 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
   }
 
   function formatBattleEntries() {
-    return state.pokemon
-      .filter((record) => record.formats.includes(state.selectedFormat))
-      .sort(compareByName);
+    return sortByBattlePosition(state.pokemon
+      .filter((record) => recordHasBattleSelection(record, state.selectedSeason, state.selectedFormat)));
   }
 
   function battleEntries() {
     if (isMobileResultsMode() && Array.isArray(state.filtered)) {
-      return [...state.filtered];
+      return sortByBattlePosition(state.filtered);
     }
     return formatBattleEntries();
   }
@@ -753,7 +949,8 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
 
       const order = document.createElement("span");
       order.className = "entry-index";
-      order.textContent = String(index + 1);
+      const position = battlePosition(record);
+      order.textContent = Number.isFinite(position) ? String(position) : String(index + 1);
 
       const thumb = document.createElement("span");
       thumb.className = "entry-thumb";
@@ -835,6 +1032,7 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     updateSearchHelpPosition(event);
     els.searchHelpPopover.classList.add("is-visible");
     els.searchHelpButton.setAttribute("aria-expanded", "true");
+    window.requestAnimationFrame(updateSearchHelpPosition);
   }
 
   function hideSearchHelp() {
@@ -864,26 +1062,30 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     if (!els.searchHelpButton || !els.searchHelpPopover) return;
 
     const buttonRect = els.searchHelpButton.getBoundingClientRect();
-    const margin = 14;
+    const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+    const viewportHeight = document.documentElement.clientHeight || window.innerHeight;
+    const margin = Math.min(14, Math.max(8, Math.floor(Math.min(viewportWidth, viewportHeight) * 0.04)));
     const gap = 12;
-    const width = Math.max(240, Math.min(560, window.innerWidth - margin * 2));
+    const width = Math.min(560, Math.max(0, viewportWidth - margin * 2));
+    const maxHeight = Math.max(0, viewportHeight - margin * 2);
 
     els.searchHelpPopover.style.setProperty("--help-width", `${width}px`);
+    els.searchHelpPopover.style.setProperty("--help-max-height", `${maxHeight}px`);
 
     const popoverHeight = Math.min(
       els.searchHelpPopover.scrollHeight || 520,
-      Math.max(280, window.innerHeight - margin * 2)
+      maxHeight
     );
 
     let left = buttonRect.right - width;
     if (left < margin) left = buttonRect.left;
-    left = Math.max(margin, Math.min(left, window.innerWidth - width - margin));
+    left = Math.max(margin, Math.min(left, viewportWidth - width - margin));
 
     let top = buttonRect.bottom + gap;
-    if (top + popoverHeight > window.innerHeight - margin) {
+    if (top + popoverHeight > viewportHeight - margin) {
       top = buttonRect.top - popoverHeight - gap;
     }
-    top = Math.max(margin, Math.min(top, window.innerHeight - popoverHeight - margin));
+    top = Math.max(margin, Math.min(top, viewportHeight - popoverHeight - margin));
 
     els.searchHelpPopover.style.setProperty("--help-left", `${Math.round(left)}px`);
     els.searchHelpPopover.style.setProperty("--help-top", `${Math.round(top)}px`);
@@ -905,11 +1107,10 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
       const favoriteButton = card.querySelector(".favorite-button");
       const art = card.querySelector(".pokemon-art");
       const title = card.querySelector("h3");
-      const dex = card.querySelector(".dex-number");
       const typeRow = card.querySelector(".type-row");
       const facts = card.querySelector(".quick-facts");
       const openButton = card.querySelector(".open-profile");
-      const summary = getSummary(record, format);
+      const summary = getSummary(record, format, state.selectedSeason);
 
       favoriteButton.textContent = state.favorites.has(record.key) ? "★" : "☆";
       favoriteButton.classList.toggle("active", state.favorites.has(record.key));
@@ -920,7 +1121,6 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
       });
 
       appendImageOrFallback(art, record.imageCandidates, record.name, initials(record.name));
-      dex.textContent = record.dex ? `National Dex #${String(record.dex).padStart(3, "0")}` : "Dex data unavailable";
       title.textContent = record.name;
       if (record.types.length) typeRow.append(...record.types.map(typeChip));
       facts.append(
@@ -938,15 +1138,20 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
 
   async function openDetail(record) {
     rememberSearch(els.searchInput.value);
+    document.body.classList.add("profile-open");
     els.detailContent.innerHTML = `<div class="detail-loading">Loading profile…</div>`;
     if (typeof els.detailDialog.showModal === "function" && !els.detailDialog.open) els.detailDialog.showModal();
     else els.detailDialog.setAttribute("open", "");
     try {
       await ensureMetadata(record);
-      await ensureBattleData(record, state.selectedFormat);
+      await ensureBattleData(record, state.selectedFormat, state.selectedSeason);
+      await ensureLearnableMoves(record);
       els.detailContent.innerHTML = "";
+      els.detailContent.dataset.recordKey = record.key;
       els.detailContent.append(detailHero(record), detailSections(record));
+      hydrateLearnableMoveDescriptions(record);
     } catch (error) {
+      delete els.detailContent.dataset.recordKey;
       els.detailContent.innerHTML = `<div class="detail-loading"><strong>Profile data unavailable.</strong><p>${escapeHtml(error.message || "Could not load this Pokémon profile.")}</p></div>`;
     }
   }
@@ -954,6 +1159,7 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
   function closeDetail() {
     if (typeof els.detailDialog.close === "function") els.detailDialog.close();
     else els.detailDialog.removeAttribute("open");
+    document.body.classList.remove("profile-open");
   }
 
   function detailHero(record) {
@@ -967,14 +1173,14 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     const copy = document.createElement("div");
     copy.className = "detail-title";
     copy.innerHTML = `
-      <p class="eyebrow">${record.dex ? `National Dex #${String(record.dex).padStart(3, "0")}` : "Pokémon profile"}</p>
+      <p class="eyebrow">Pokémon profile</p>
       <h2 id="detailTitle">${escapeHtml(record.name)}</h2>
     `;
     const typeRow = document.createElement("div");
     typeRow.className = "type-row";
     typeRow.append(...record.types.map(typeChip));
 
-    const summary = getSummary(record, state.selectedFormat);
+    const summary = getSummary(record, state.selectedFormat, state.selectedSeason);
     const metrics = document.createElement("div");
     metrics.className = "detail-metrics";
     metrics.append(
@@ -993,8 +1199,9 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     wrapper.className = "detail-sections";
     wrapper.append(
       section("Base stats", baseStatsBlock(record.primary)),
-      section("Forms and metadata", formsTable(record.forms)),
-      section("Battle data", battleDataBlock(record))
+      section("Forms and metadata", formsTable(record)),
+      section("Battle data", battleDataBlock(record)),
+      section("Learnable moves", learnableMovesBlock(record))
     );
     return wrapper;
   }
@@ -1009,7 +1216,7 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
   }
 
   function battleDataBlock(record) {
-    const rows = record.battleByFormat.get(state.selectedFormat) || [];
+    const rows = record.battleBySelection.get(battleSelectionKey(state.selectedSeason, state.selectedFormat)) || [];
     const wrapper = document.createElement("div");
     wrapper.className = "battle-grid battle-grid-columns";
     if (!rows.length) {
@@ -1135,7 +1342,8 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     return wrap;
   }
 
-  function formsTable(forms) {
+  function formsTable(record) {
+    const forms = Array.isArray(record?.forms) ? record.forms : [];
     const outer = document.createElement("div");
     outer.className = "forms-metadata-block";
     if (!forms.length) {
@@ -1185,8 +1393,98 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
         </article>`;
     }).join("");
 
+    wireFormProfileLinks(forms, record, desktopWrap, mobileCards);
     outer.append(desktopWrap, mobileCards);
     return outer;
+  }
+
+  function wireFormProfileLinks(forms, currentRecord, desktopWrap, mobileCards) {
+    const desktopRows = Array.from(desktopWrap.querySelectorAll("tbody tr"));
+    const mobileNames = Array.from(mobileCards.querySelectorAll(".form-mobile-row:first-child strong"));
+    forms.forEach((form, index) => {
+      const targetRecord = formProfileRecord(form, currentRecord);
+      if (!targetRecord) return;
+      const label = form.saved_name || form.form_name || targetRecord.name;
+      const desktopCell = desktopRows[index]?.querySelector('[data-label="Form"]');
+      const mobileCell = mobileNames[index];
+      [desktopCell, mobileCell].forEach((cell) => {
+        if (!cell) return;
+        cell.textContent = "";
+        cell.append(formProfileButton(label, targetRecord));
+      });
+    });
+  }
+
+  function formProfileButton(label, targetRecord) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "form-profile-link";
+    button.textContent = label || targetRecord.name || "Open profile";
+    button.addEventListener("click", () => openDetail(targetRecord));
+    return button;
+  }
+
+  function formProfileRecord(form, currentRecord) {
+    const currentKey = currentRecord?.key;
+    const candidates = unique([form?.saved_name, form?.form_name, form?.title].filter(Boolean)).map(recordKey);
+    return state.pokemon.find((record) => {
+      if (!record || record.key === currentKey) return false;
+      const keys = unique([record.key, recordKey(battleDataName(record)), recordKey(record.name)]);
+      return candidates.some((candidate) => keys.includes(candidate));
+    }) || null;
+  }
+
+  function learnableMovesBlock(record) {
+    const moves = Array.isArray(record.learnableMoves) ? record.learnableMoves : [];
+    if (!moves.length) {
+      const wrap = document.createElement("div");
+      wrap.className = "data-table-wrap learnable-moves-wrap";
+      wrap.textContent = "No learnable moves available.";
+      return wrap;
+    }
+    const panel = document.createElement("div");
+    panel.className = "learnable-moves-panel";
+    const search = document.createElement("input");
+    search.type = "search";
+    search.className = "learnable-moves-search";
+    search.placeholder = "Search moves";
+    search.setAttribute("aria-label", "Search learnable moves");
+    const searchShell = document.createElement("div");
+    searchShell.className = "learnable-moves-search-shell";
+    searchShell.append(search);
+    const wrap = document.createElement("div");
+    wrap.className = "data-table-wrap learnable-moves-wrap";
+    const labels = ["Move", "Type", "Category", "Power", "Accuracy", "PP", "Description"];
+    wrap.innerHTML = `
+      <table class="responsive-data-table learnable-moves-table">
+        ${tableHeader(labels)}
+        <tbody>${moves.map((move) => `<tr>
+          ${tableCell("Move", escapeHtml(move.move_name || "—"))}
+          ${tableCell("Type", moveTypeMarkup(move.type))}
+          ${tableCell("Category", `<span class="move-category ${escapeHtml(normalizeForSearch(move.category || ""))}">${escapeHtml(move.category || "—")}</span>`)}
+          ${tableCell("Power", escapeHtml(move.power || "—"))}
+          ${tableCell("Accuracy", escapeHtml(move.accuracy || "—"))}
+          ${tableCell("PP", escapeHtml(move.pp || "—"))}
+          ${tableCell("Description", `<span class="move-description${move.short_description ? "" : " loading"}" data-move-description-key="${escapeHtml(recordKey(move.move_name))}">${escapeHtml(move.short_description || "Loading effect...")}</span>`)}
+        </tr>`).join("")}</tbody>
+      </table>`;
+    const empty = document.createElement("div");
+    empty.className = "learnable-moves-empty";
+    empty.textContent = "No matching moves.";
+    empty.hidden = true;
+    const rows = Array.from(wrap.querySelectorAll("tbody tr"));
+    search.addEventListener("input", () => {
+      const query = normalizeForSearch(search.value).trim();
+      let shown = 0;
+      rows.forEach((row) => {
+        const matches = !query || normalizeForSearch(row.textContent).includes(query);
+        row.hidden = !matches;
+        if (matches) shown += 1;
+      });
+      empty.hidden = shown !== 0;
+    });
+    panel.append(searchShell, wrap, empty);
+    return panel;
   }
 
   function natureChangeMarkup(natureName) {
@@ -1225,6 +1523,13 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     return chip;
   }
 
+  function moveTypeMarkup(type) {
+    const label = type || "—";
+    const icon = type ? resolveAssetCandidate(typeImageCandidates(type)[0]) : "";
+    const iconMarkup = icon ? `<img src="${escapeHtml(icon)}" alt="" loading="lazy" decoding="async">` : "";
+    return `<span class="move-type-label">${iconMarkup}<span>${escapeHtml(label)}</span></span>`;
+  }
+
   function fact(label, value) {
     const item = document.createElement("div");
     item.className = "fact";
@@ -1241,7 +1546,8 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
 
   function percentBar(value, label) {
     const safe = Math.max(0, Math.min(100, numberOrZero(value)));
-    return `<div class="percent-bar" aria-label="${escapeHtml(label || `${safe}%`)}"><span style="--value:${safe}%"></span><b>${escapeHtml(label || "—")}</b></div>`;
+    const fillWidth = (safe * 1.2).toFixed(2);
+    return `<span class="usage-meter" aria-label="${escapeHtml(label || `${safe}%`)}"><svg class="usage-svg" viewBox="0 0 120 10" width="120" height="10" aria-hidden="true" focusable="false"><rect class="usage-svg-track" x="0" y="0" width="120" height="10" rx="5"></rect><rect class="usage-svg-fill" x="0" y="0" width="${fillWidth}" height="10" rx="5" style="fill:${usageColor(safe)}"></rect></svg><b class="usage-value">${escapeHtml(label || "?")}</b></span>`;
   }
 
   function setActiveFormat(format) {
@@ -1256,6 +1562,7 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     for (const button of [els.formatToggleDoubles, els.formatToggleSingles]) {
       if (!button) continue;
       const isActive = button.dataset.format === state.selectedFormat;
+      button.disabled = !availableFormats().includes(button.dataset.format);
       button.classList.toggle("active", isActive);
       button.setAttribute("aria-pressed", String(isActive));
     }
@@ -1305,17 +1612,19 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     return rows.map((values) => Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""])));
   }
 
-  function withFormat(rows, format, sourcePath = "") {
-    return rows.map((row) => ({ ...row, _battle_format: format || detectFormatFromPath(sourcePath), _source_path: sourcePath }));
+  function withFormat(rows, format, sourcePath = "", season = detectSeasonFromPath(sourcePath)) {
+    return rows.map((row) => ({ ...row, _battle_format: format || detectFormatFromPath(sourcePath), _battle_season: season, _source_path: sourcePath }));
   }
 
   function normalizeMetadataRow(row) {
     const types = splitTypes(readField(row, METADATA_ALIASES.types));
-    const baseName = readField(row, ["base_name", "pokemon_name", "pokemon", "title", "name"]) || "";
-    const savedName = readField(row, ["saved_name", "form_name", "title", "name"]) || baseName || "Unknown form";
+    const baseName = readField(row, ["base_name"]) || readField(row, ["pokemon_name", "pokemon", "name"]) || "";
+    const savedName = readField(row, ["saved_name", "form_name"]) || baseName || "Unknown form";
+    const titleField = readField(row, ["title"]) || savedName;
     const formKind = readField(row, METADATA_ALIASES.form_kind) || "";
     const normalized = {
       pokemon_name: baseName,
+      title: titleField,
       dex_number: metadataNumber(row, "dex_number", METADATA_ALIASES.dex_number),
       base_dex_url: readField(row, METADATA_ALIASES.base_dex_url) || "",
       image_path: normalizePath(readField(row, METADATA_ALIASES.image_path) || ""),
@@ -1336,7 +1645,8 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
   function normalizeBattleRow(row) {
     const normalized = { ...row };
     normalized.category = row.category || "";
-    normalized.position = numberOrNull(row.position);
+    normalized.column_position = numberOrNull(row.column_position);
+    normalized.position = normalized.column_position ?? numberOrNull(row.position);
     normalized.rank = numberOrNull(row.rank);
     normalized.name = row.name || "";
     normalized.percentage = row.percentage || "";
@@ -1345,6 +1655,7 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     normalized.stat_down = row.stat_down || "";
     if (row.source_time_seconds !== undefined) normalized.source_time_seconds = numberOrNull(row.source_time_seconds);
     normalized.format = titleCase(row._battle_format || row.format || row.battle_format || detectFormatFromPath(row._source_path || "") || "Battle");
+    normalized.season = row._battle_season || row.season || detectSeasonFromPath(row._source_path || "") || DEFAULT_SEASON;
     for (const [key] of STAT_COLUMNS) normalized[key] = numberOrNull(row[key]);
     return normalized;
   }
@@ -1372,6 +1683,8 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
   function compactBattleRow(row) {
     const compact = {
       category: row.category,
+      column_position: row.column_position,
+      position: row.position,
       rank: row.rank,
       name: row.name,
       percentage: row.percentage,
@@ -1426,6 +1739,93 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     ].filter(Boolean).map(normalizePath));
   }
 
+  function battleDataName(record) {
+    return String(record?.battleName || record?.saved_name || record?.primary?.saved_name || record?.name || "").trim();
+  }
+
+  function displayNameForBattleName(battleName, form) {
+    const rawName = String(battleName || "").trim();
+    const baseName = String(form?.pokemon_name || form?.base_name || "").trim();
+    return (!REGIONAL_FORM_PATTERN.test(rawName) && baseName) ? baseName : rawName;
+  }
+
+  function findMetadataFormForBattleName(forms, battleName) {
+    const target = normalizeForSearch(battleName);
+    return (forms || []).find((form) => normalizeForSearch(form?.saved_name || form?.form_name) === target) || null;
+  }
+
+  function searchablePokemonNames(record) {
+    return unique([
+      record?.name,
+      battleDataName(record),
+      record?.primary?.pokemon_name,
+      record?.primary?.saved_name,
+      record?.primary?.form_name
+    ].filter(Boolean));
+  }
+
+  function searchablePokemonTextValues(record, format = state.selectedFormat, season = state.selectedSeason) {
+    const values = [
+      ...searchablePokemonNames(record),
+      ...(record?.types || []),
+      ...metadataAbilityValues(record)
+    ];
+    (record?.forms || []).forEach((form) => {
+      values.push(form?.pokemon_name, form?.saved_name, form?.form_name, form?.form_kind);
+      values.push(...(form?.types || []));
+    });
+    battleRowsForSearch(record, format, season).forEach((row) => {
+      values.push(rowLabel(row), row?.name, row?.category, row?.stat_up, row?.stat_down);
+    });
+    (record?.learnableMoves || []).forEach((move) => {
+      values.push(move?.move_name, move?.type, move?.category);
+    });
+    values.push(...(record?.learnableMoveNames || []));
+    return unique(values.filter(Boolean));
+  }
+
+  function learnableMovePathCandidates(record) {
+    const names = unique([
+      record?.primary?.saved_name,
+      record?.primary?.form_name,
+      battleDataName(record)
+    ].filter(Boolean));
+    return names.map((name) => `${ROOT}/learnable_moves/${name}.csv`);
+  }
+
+  function moveDescriptionPathCandidates(moveName) {
+    const name = String(moveName || "").trim();
+    if (!name) return [];
+    return unique([
+      name.replace(/\s+/g, "_"),
+      titleCase(name).replace(/\s+/g, "_")
+    ]).map((fileName) => `${ROOT}/all_moves/${fileName}.csv`);
+  }
+
+  function moveShortDescription(rows, moveName) {
+    const moveKey = normalizeForSearch(moveName).trim();
+    for (let index = rows.length - 1; index >= 0; index -= 1) {
+      const text = String(readField(rows[index], ["text"]) || "").replace(/\s+/g, " ").trim();
+      if (!text) continue;
+      const normalized = normalizeForSearch(text).trim();
+      if (normalized === moveKey) continue;
+      if (/^(power|accuracy|pp)\s+/i.test(text)) continue;
+      return text;
+    }
+    return "";
+  }
+
+  function normalizeLearnableMove(row) {
+    return {
+      move_name: readField(row, ["move_name", "move", "name"]) || "",
+      type: titleCase(readField(row, ["type"]) || ""),
+      category: titleCase(readField(row, ["category", "damage_class"]) || ""),
+      power: readField(row, ["power", "base_power"]) || "",
+      accuracy: readField(row, ["accuracy", "acc"]) || "",
+      pp: readField(row, ["pp"]) || ""
+    };
+  }
+
   function typeImageCandidates(type) {
     const title = titleCase(type);
     const lower = String(type || "").toLowerCase();
@@ -1433,18 +1833,48 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
     return [`${ROOT}/types/${title}.png`, `${ROOT}/types/${lower}.png`, `${ROOT}/types/${upper}.png`, `${ROOT}/types/${title}.webp`, `${ROOT}/types/${lower}.webp`];
   }
 
+  function availableSeasons() {
+    return state.availableSeasons.length ? state.availableSeasons : sortSeasons(unique(state.pokemon.flatMap((record) => record.seasons || [])));
+  }
+
   function availableFormats() {
-    return sortFormats(unique(state.pokemon.flatMap((record) => record.formats)));
+    return sortFormats(unique(state.pokemon.flatMap((record) =>
+      (record.battleSources || [])
+        .filter((source) => sourceMatchesSeason(source, state.selectedSeason))
+        .map((source) => source.format)
+    )));
+  }
+
+  function recordHasBattleSelection(record, season, format) {
+    return (record.battleSources || []).some((source) => sourceMatchesSeason(source, season) && source.format === format);
+  }
+
+  function findBattleSource(record, season, format) {
+    return (record.battleSources || []).find((source) => sourceMatchesSeason(source, season) && source.format === format);
+  }
+
+  function sourceMatchesSeason(source, season) {
+    return normalizeForSearch(source?.season) === normalizeForSearch(season);
+  }
+
+  function battleSelectionKey(season, format) {
+    return `${season || "Current"}::${titleCase(format || "Battle")}`;
   }
 
   function statColor(value) {
     const numeric = numberOrZero(value);
-    if (numeric < 40) return "#ff3a3a";
-    if (numeric < 70) return "#ff8c2a";
-    if (numeric < 90) return "#ffdd57";
-    if (numeric < 120) return "#a8e65a";
-    if (numeric < 150) return "#45d97a";
-    return "#4fd6ff";
+    if (numeric >= 120) return "var(--stat-great)";
+    if (numeric >= 90) return "var(--stat-good)";
+    if (numeric >= 60) return "var(--stat-mid)";
+    return "var(--stat-bad)";
+  }
+
+  function usageColor(value) {
+    const numeric = numberOrZero(value);
+    if (numeric >= 75) return "var(--stat-great)";
+    if (numeric >= 50) return "var(--stat-good)";
+    if (numeric >= 25) return "var(--stat-mid)";
+    return "var(--stat-bad)";
   }
 
   function rowLabel(row) {
@@ -1474,6 +1904,17 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
       const bi = PREFERRED_FORMAT_ORDER.indexOf(b);
       if (ai !== -1 || bi !== -1) return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
       return String(a).localeCompare(String(b));
+    });
+  }
+
+  function sortSeasons(seasons) {
+    return [...seasons].sort((a, b) => {
+      if (a === DEFAULT_SEASON) return -1;
+      if (b === DEFAULT_SEASON) return 1;
+      const am = String(a || "").match(/M-(\d+)/i);
+      const bm = String(b || "").match(/M-(\d+)/i);
+      if (am && bm) return Number(bm[1]) - Number(am[1]);
+      return String(a).localeCompare(String(b), undefined, { numeric: true, sensitivity: "base" });
     });
   }
 
@@ -1508,10 +1949,31 @@ Garchomp,3,ability,1,Rough Skin,94%,,,,,,,,`;
   }
 
   function detectFormatFromPath(path) {
+    return battleInfoFromPath(path).format;
+  }
+
+  function detectSeasonFromPath(path) {
+    return battleInfoFromPath(path).season;
+  }
+
+  function pathForSeason(path, season) {
     const parts = normalizePath(path).split("/").filter(Boolean);
     const index = parts.findIndex((part) => normalizeForSearch(part) === "battle_data");
-    if (index !== -1 && parts[index + 1] && !parts[index + 1].toLowerCase().endsWith(".csv")) return titleCase(parts[index + 1].replace(/[_-]/g, " "));
-    return "Battle";
+    if (index === -1 || !parts[index + 1] || /^season\b/i.test(parts[index + 1])) return normalizePath(path);
+    parts.splice(index + 1, 0, season);
+    return parts.join("/");
+  }
+
+  function battleInfoFromPath(path) {
+    const parts = normalizePath(path).split("/").filter(Boolean);
+    const index = parts.findIndex((part) => normalizeForSearch(part) === "battle_data");
+    if (index !== -1 && parts[index + 1] && parts[index + 2] && /^season\b/i.test(parts[index + 1])) {
+      return { season: parts[index + 1], format: titleCase(parts[index + 2].replace(/[_-]/g, " ")) };
+    }
+    if (index !== -1 && parts[index + 1] && !parts[index + 1].toLowerCase().endsWith(".csv")) {
+      return { season: "Current", format: titleCase(parts[index + 1].replace(/[_-]/g, " ")) };
+    }
+    return { season: DEFAULT_SEASON, format: "Battle" };
   }
 
   function parsePercent(value) {

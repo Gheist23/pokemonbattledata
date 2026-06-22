@@ -6,6 +6,8 @@ const cwd = process.cwd();
 const assetRootPath = join(cwd, assetRoot);
 const battleDir = join(assetRootPath, "battle_data");
 const metadataDir = join(assetRootPath, "metadata");
+const learnableMovesDir = join(assetRootPath, "learnable_moves");
+const defaultSeason = "Season M-3";
 const preferredFormatOrder = ["Doubles", "Singles"];
 const statColumns = ["hp_points", "attack_points", "defense_points", "sp_atk_points", "sp_def_points", "speed_points"];
 const categories = ["move", "held_item", "teammate", "stat_alignment", "stat_points", "ability"];
@@ -159,20 +161,34 @@ function parsePercent(value) {
   return Number.isFinite(parsed) ? parsed : null;
 }
 
-function formatFromBattlePath(fullPath) {
+function battleInfoFromPath(fullPath) {
   const rel = normalizePath(relative(battleDir, fullPath));
-  const parts = rel.split("/");
-  if (parts.length > 1) return titleCase(parts[0]);
-  return "Battle";
+  const parts = rel.split("/").filter(Boolean);
+  if (parts.length >= 3 && /^season\b/i.test(parts[0])) {
+    return { season: parts[0], format: titleCase(parts[1]) };
+  }
+  if (parts.length > 1) return { season: "Current", format: titleCase(parts[0]) };
+  return { season: "Current", format: "Battle" };
+}
+
+function compareSeason(a, b) {
+  if (a === defaultSeason) return -1;
+  if (b === defaultSeason) return 1;
+  const am = String(a || "").match(/M-(\d+)/i);
+  const bm = String(b || "").match(/M-(\d+)/i);
+  if (am && bm) return Number(bm[1]) - Number(am[1]);
+  return String(a || "").localeCompare(String(b || ""), undefined, { numeric: true, sensitivity: "base" });
 }
 
 function normalizeMetadataRow(row) {
   const types = splitTypes(readField(row, metadataAliases.types));
   const baseName = readField(row, ["base_name", "pokemon_name", "pokemon", "title", "name"]) || "";
   const savedName = readField(row, ["saved_name", "form_name", "title", "name"]) || baseName || "Unknown form";
+  const title = readField(row, ["title"]) || savedName;
   const formKind = readField(row, metadataAliases.form_kind) || "";
   const normalized = {
     pokemon_name: baseName,
+    title,
     dex_number: metadataNumber(row, "dex_number", metadataAliases.dex_number),
     base_dex_url: readField(row, metadataAliases.base_dex_url) || "",
     image_path: normalizePath(readField(row, metadataAliases.image_path) || ""),
@@ -191,9 +207,11 @@ function normalizeMetadataRow(row) {
 }
 
 function normalizeBattleRow(row) {
+  const columnPosition = numberOrNull(readField(row, ["column_position", "columnPosition", "columnposition"]));
   const normalized = {
     pokemon: readField(row, ["pokemon"]) || "",
-    position: numberOrNull(readField(row, ["position", "pos"])),
+    column_position: columnPosition,
+    position: columnPosition ?? numberOrNull(readField(row, ["position", "pos"])),
     category: readField(row, ["category"]) || "",
     rank: numberOrNull(readField(row, ["rank"])),
     name: readField(row, ["name"]) || "",
@@ -219,6 +237,7 @@ function rowLabel(row) {
 function compactBattleRow(row) {
   const compact = {
     pokemon: row.pokemon,
+    column_position: row.column_position,
     position: row.position,
     category: row.category,
     rank: row.rank,
@@ -262,8 +281,9 @@ function compareFormat(a, b) {
 }
 
 const records = new Map();
+const metadataBySavedName = new Map();
 function ensureRecord(key, fallbackName = "") {
-  if (!records.has(key)) records.set(key, { key, name: titleCase(fallbackName || key), metadataCsv: null, metadataRows: [], battleDataCsvs: [], battleSummary: {} });
+  if (!records.has(key)) records.set(key, { key, name: titleCase(fallbackName || key), metadataCsv: null, metadataRows: [], battleDataCsvs: [], battleSummary: {}, learnableMoveNames: [] });
   const record = records.get(key);
   if (fallbackName && (!record.name || record.name === titleCase(key))) record.name = titleCase(fallbackName);
   return record;
@@ -276,6 +296,25 @@ for (const file of csvFilesRecursive(metadataDir)) {
   const record = ensureRecord(key, inferredName);
   record.metadataCsv = normalizePath(relative(cwd, file));
   record.metadataRows = rows.map(normalizeMetadataRow);
+  for (const row of record.metadataRows) {
+    const savedKey = recordKey(row.saved_name || row.form_name);
+    if (savedKey) {
+      metadataBySavedName.set(savedKey, {
+        metadataCsv: record.metadataCsv,
+        metadataRows: record.metadataRows
+      });
+    }
+  }
+}
+
+if (existsSync(learnableMovesDir)) {
+  for (const file of csvFilesRecursive(learnableMovesDir)) {
+    const inferredName = basename(file, ".csv");
+    const key = recordKey(inferredName);
+    const rows = parseCSV(readFileSync(file, "utf8"));
+    const moveNames = unique(rows.map((row) => readField(row, ["move_name", "move", "name"])).filter(Boolean));
+    ensureRecord(key, inferredName).learnableMoveNames = moveNames;
+  }
 }
 
 for (const file of csvFilesRecursive(battleDir)) {
@@ -283,22 +322,44 @@ for (const file of csvFilesRecursive(battleDir)) {
   const inferredName = rows[0]?.pokemon || basename(file, ".csv");
   const key = recordKey(inferredName || basename(file, ".csv"));
   const record = ensureRecord(key, inferredName);
-  const format = formatFromBattlePath(file);
+  if (inferredName) record.name = inferredName;
+  const metadataMatch = metadataBySavedName.get(recordKey(inferredName));
+  if (metadataMatch) {
+    record.metadataCsv = metadataMatch.metadataCsv;
+    record.metadataRows = metadataMatch.metadataRows;
+  }
+  const { season, format } = battleInfoFromPath(file);
   const normalizedRows = rows.map(normalizeBattleRow).filter((row) => row.category);
-  record.battleDataCsvs.push({ format, path: normalizePath(relative(cwd, file)) });
-  record.battleSummary[format] = battleSummary(normalizedRows);
+  record.battleDataCsvs.push({ season, format, path: normalizePath(relative(cwd, file)) });
+  record.battleSummary[season] ||= {};
+  record.battleSummary[season][format] = battleSummary(normalizedRows);
 }
+
+const battleDataFolders = existsSync(battleDir)
+  ? readdirSync(battleDir)
+    .filter((entry) => statSync(join(battleDir, entry)).isDirectory())
+    .sort(compareSeason)
+  : [];
+const availableSeasons = [...new Set([
+  ...battleDataFolders,
+  ...[...records.values()].flatMap((record) => record.battleDataCsvs.map((source) => source.season))
+])].sort(compareSeason);
 
 const pokemon = [...records.values()]
   .filter((record) => record.battleDataCsvs.length)
   .map((record) => {
-    const primary = record.metadataRows.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === record.name || form.saved_name === record.name) || record.metadataRows[0] || {};
-    const allTypes = unique(record.metadataRows.flatMap((form) => form.types || []));
+    const recordNameKey = recordKey(record.name);
+    const primary = record.metadataRows.find((form) => recordKey(form.saved_name || form.form_name) === recordNameKey) ||
+      record.metadataRows.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === record.name || form.saved_name === record.name) ||
+      record.metadataRows[0] || {};
+    const allTypes = unique((primary.types && primary.types.length ? primary.types : record.metadataRows.flatMap((form) => form.types || [])));
     const sprite = primary.image_path || `${assetRoot}/pokemon/${record.name}.png`;
     return {
       name: record.name,
+      battleName: record.name,
       metadataCsv: record.metadataCsv,
-      battleDataCsvs: record.battleDataCsvs.sort(compareFormat),
+      battleDataCsvs: record.battleDataCsvs.sort((a, b) => compareSeason(a.season, b.season) || compareFormat(a, b)),
+      learnableMoveNames: record.learnableMoveNames,
       summary: {
         dex: primary.dex_number ?? null,
         sprite,
@@ -326,6 +387,9 @@ mkdirSync(join(cwd, "data"), { recursive: true });
 writeFileSync(join(cwd, "data", "pokemon-index.json"), `${JSON.stringify({
   generatedAt: new Date().toISOString(),
   assetRoot,
+  battleDataFolders,
+  seasons: availableSeasons,
+  defaultSeason: availableSeasons.includes(defaultSeason) ? defaultSeason : availableSeasons[0] || "Current",
   pokemon
 }, null, 2)}\n`);
 

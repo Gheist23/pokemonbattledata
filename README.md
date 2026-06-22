@@ -70,7 +70,7 @@ Static files work on any static host:
 
 ```text
 GET /data/pokemon-index.json
-GET /pokemon_champions_assets/battle_data/Doubles/garchomp.csv
+GET /pokemon_champions_assets/battle_data/Season%20M-2/Doubles/Garchomp.csv
 GET /pokemon_champions_assets/metadata/Garchomp.csv
 ```
 
@@ -79,8 +79,8 @@ Cloudflare Pages Functions add JSON endpoints. The user-facing guide is availabl
 ```text
 GET /api
 GET /api/index
-GET /api/pokemon/garchomp?format=Doubles
-GET /api/battle/Doubles/garchomp
+GET /api/pokemon/garchomp?format=Doubles&season=Season%20M-2
+GET /api/battle/Doubles/garchomp?season=Season%20M-2
 GET /api/metadata/garchomp
 ```
 

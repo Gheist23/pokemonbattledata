@@ -6,13 +6,14 @@ export async function onRequestGet({ env, request, params }) {
   try {
     const format = normalizeFormat(params.format);
     if (!format) return errorResponse('Unknown format. Use Singles or Doubles.', 400, { format: params.format });
+    const season = new URL(request.url).searchParams.get('season') || undefined;
 
     const index = await fetchIndex(env, request);
     const entry = findPokemon(index, params.name);
     if (!entry) return errorResponse('Pokemon not found.', 404, { name: params.name });
 
-    const battleDataCsv = getFormatPath(entry, format);
-    if (!battleDataCsv) return errorResponse('Battle data not found for this format.', 404, { name: entry.name, format });
+    const battleDataCsv = getFormatPath(entry, format, season);
+    if (!battleDataCsv) return errorResponse('Battle data not found for this format.', 404, { name: entry.name, format, season });
 
     const text = await fetchAssetText(env, request, battleDataCsv.path);
     const parsed = parseCsv(text);
@@ -28,6 +29,7 @@ export async function onRequestGet({ env, request, params }) {
     return jsonResponse({
       pokemon: entry.name,
       format,
+      season: battleDataCsv.season,
       source: battleDataCsv.path,
       columns: parsed.columns,
       rows

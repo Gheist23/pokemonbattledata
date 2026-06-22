@@ -4,6 +4,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': '*',
   'Access-Control-Max-Age': '86400'
 };
+const defaultSeason = 'Season M-2';
 
 export function optionsResponse() {
   return new Response(null, { status: 204, headers: corsHeaders });
@@ -42,6 +43,11 @@ export function normalizeFormat(value) {
   return null;
 }
 
+export function normalizeSeason(value) {
+  const raw = String(value || '').trim();
+  return raw || defaultSeason;
+}
+
 export async function fetchAssetText(env, request, path) {
   const cleanPath = String(path || '').replace(/\\/g, '/').replace(/^\/+/, '');
   const assetUrl = new URL(`/${cleanPath}`, request.url);
@@ -75,10 +81,26 @@ export function findPokemon(index, rawName) {
   }) || null;
 }
 
-export function getFormatPath(entry, format) {
+export function getFormatPath(entry, format, season) {
   const cleanFormat = normalizeFormat(format);
   if (!cleanFormat) return null;
-  return (entry.battleDataCsvs || []).find((item) => normalizeFormat(item.format) === cleanFormat) || null;
+  const hasExplicitSeason = season !== undefined && season !== null && String(season).trim() !== '';
+  const cleanSeason = normalizeSeason(season);
+  const sources = entry.battleDataCsvs || [];
+  const exact = sources.find((item) => normalizeFormat(item.format) === cleanFormat && normalize(item.season) === normalize(cleanSeason));
+  if (exact) return exact;
+  if (hasExplicitSeason) return null;
+  const legacy = sources.find((item) => normalizeFormat(item.format) === cleanFormat && !item.season);
+  if (legacy) return { ...legacy, season: cleanSeason, path: pathForSeason(legacy.path, cleanSeason) };
+  return sources.find((item) => normalizeFormat(item.format) === cleanFormat) || null;
+}
+
+function pathForSeason(path, season) {
+  const parts = String(path || '').replace(/\\/g, '/').split('/').filter(Boolean);
+  const index = parts.findIndex((part) => normalize(part) === 'battledata');
+  if (index === -1 || !parts[index + 1] || /^season\b/i.test(parts[index + 1])) return parts.join('/');
+  parts.splice(index + 1, 0, season);
+  return parts.join('/');
 }
 
 function splitCsvLine(line) {
@@ -109,7 +131,7 @@ function coerceValue(key, value) {
   const trimmed = String(value ?? '').trim();
   if (trimmed === '') return '';
   const numericKeys = new Set([
-    'position', 'rank', 'hp', 'atk', 'def', 'spa', 'spd', 'spe', 'total',
+    'column_position', 'position', 'rank', 'hp', 'atk', 'def', 'spa', 'spd', 'spe', 'total',
     'hp_points', 'attack_points', 'defense_points', 'sp_atk_points',
     'sp_def_points', 'speed_points', 'source_time_seconds'
   ]);

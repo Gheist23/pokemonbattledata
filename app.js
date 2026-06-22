@@ -57,6 +57,8 @@
   };
   const RECENT_KEY = "pokemonBattleDataRecentSearches";
   const FAVORITES_KEY = "pokemonBattleDataFavorites";
+  const DESKTOP_SEARCH_PLACEHOLDER = "Search database, press Enter to save search";
+  const MOBILE_SEARCH_PLACEHOLDER = "Search...";
   let searchHelpHideTimer = null;
   const mobileResultsQuery = window.matchMedia("(max-width: 760px)");
 
@@ -108,7 +110,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     closeDialogButton: document.getElementById("closeDialogButton"),
     searchHelpButton: document.getElementById("searchHelpButton"),
     searchHelpPopover: document.getElementById("searchHelpPopover"),
-    searchHelpClose: document.getElementById("searchHelpClose")
+    searchHelpClose: document.getElementById("searchHelpClose"),
+    controls: document.querySelector(".controls"),
+    mobileFilterToggle: document.getElementById("mobileFilterToggle")
   };
 
   document.addEventListener("DOMContentLoaded", init);
@@ -146,7 +150,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       if (event.key === "Escape") hideSearchHelp();
     });
     window.addEventListener("resize", () => { updateSearchHelpPosition(); renderBattleEntries(); }, { passive: true });
-    mobileResultsQuery?.addEventListener?.("change", () => { renderBattleEntries(); renderCards(); });
+    mobileResultsQuery?.addEventListener?.("change", () => { updateMobileSearchUi(); renderBattleEntries(); renderCards(); });
     window.addEventListener("scroll", () => updateSearchHelpPosition(), { passive: true });
     els.typeFilter.addEventListener("change", applyFiltersAndRender);
     els.sortFilter.addEventListener("change", applyFiltersAndRender);
@@ -156,11 +160,31 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     els.emptyClearButton.addEventListener("click", clearFilters);
     els.formatToggleDoubles?.addEventListener("click", () => setActiveFormat("Doubles"));
     els.formatToggleSingles?.addEventListener("click", () => setActiveFormat("Singles"));
+    els.mobileFilterToggle?.addEventListener("click", toggleMobileFilters);
     els.closeDialogButton.addEventListener("click", closeDetail);
     els.detailDialog.addEventListener("click", (event) => {
       if (event.target === els.detailDialog) closeDetail();
     });
     els.detailDialog.addEventListener("close", () => document.body.classList.remove("profile-open"));
+    updateMobileSearchUi();
+  }
+
+  function toggleMobileFilters() {
+    const expanded = !els.controls?.classList.contains("filters-expanded");
+    setMobileFiltersExpanded(expanded);
+  }
+
+  function setMobileFiltersExpanded(expanded) {
+    els.controls?.classList.toggle("filters-expanded", expanded);
+    els.mobileFilterToggle?.setAttribute("aria-expanded", String(expanded));
+  }
+
+  function updateMobileSearchUi() {
+    if (els.searchInput) {
+      els.searchInput.placeholder = isMobileResultsMode() ? MOBILE_SEARCH_PLACEHOLDER : DESKTOP_SEARCH_PLACEHOLDER;
+    }
+    if (!isMobileResultsMode()) setMobileFiltersExpanded(true);
+    else if (!els.controls?.classList.contains("filters-expanded")) setMobileFiltersExpanded(false);
   }
 
   async function loadManifestDataset() {
@@ -567,6 +591,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     });
 
     filtered = sortPokemon(filtered, els.sortFilter.value, els.orderFilter?.value || "desc", format, season);
+    filtered = prioritizeSearchResults(filtered, queryPlan, format, season);
     state.filtered = filtered;
     renderBattleEntries();
     renderRecentSearches();
@@ -631,8 +656,54 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   function matchesQuery(record, plan, format, season) {
     if (plan.mode === "empty") return true;
-    if (plan.mode === "name") return searchablePokemonTextValues(record, format, season).some((value) => normalizeForSearch(value).includes(plan.text));
+    if (plan.mode === "name") return quickSearchScore(record, plan.text, format, season) !== Number.POSITIVE_INFINITY;
     return plan.clauses.every((clause) => matchClause(record, clause, format, season));
+  }
+
+  function prioritizeSearchResults(records, plan, format, season) {
+    if (plan.mode !== "name" || !plan.text) return records;
+    return [...records].sort((a, b) => {
+      const scoreDiff = quickSearchScore(a, plan.text, format, season) - quickSearchScore(b, plan.text, format, season);
+      return scoreDiff || 0;
+    });
+  }
+
+  function quickSearchScore(record, query, format, season) {
+    const text = normalizeForSearch(query).trim();
+    if (!text) return 0;
+    const nameScore = bestTextMatchScore(searchablePokemonNames(record), text);
+    if (nameScore !== Number.POSITIVE_INFINITY) return nameScore;
+
+    const metadataScore = bestTextMatchScore([
+      ...(record?.types || []),
+      ...metadataAbilityValues(record),
+      ...(record?.forms || []).flatMap((form) => [
+        form?.pokemon_name,
+        form?.saved_name,
+        form?.form_name,
+        form?.form_kind,
+        ...(form?.types || [])
+      ])
+    ], text);
+    if (metadataScore !== Number.POSITIVE_INFINITY) return metadataScore + 10;
+
+    const battleScore = bestTextMatchScore(searchableBattleTextValues(record, format, season), text);
+    if (battleScore !== Number.POSITIVE_INFINITY) return battleScore + 20;
+
+    return bestTextMatchScore(learnableMoveSearchValues(record), text) + 30;
+  }
+
+  function bestTextMatchScore(values, query) {
+    let best = Number.POSITIVE_INFINITY;
+    (values || []).forEach((value) => {
+      const candidate = normalizeForSearch(value).trim();
+      if (!candidate || !candidate.includes(query)) return;
+      if (candidate === query) best = Math.min(best, 0);
+      else if (candidate.startsWith(query)) best = Math.min(best, 1);
+      else if (candidate.split(" ").some((part) => part.startsWith(query))) best = Math.min(best, 2);
+      else best = Math.min(best, 3);
+    });
+    return best;
   }
 
   function matchClause(record, clause, format, season) {
@@ -763,9 +834,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       ability: "ability",
       abilities: "ability",
       topability: "ability",
-      teammate: "teammate",
-      teammates: "teammate",
-      topteammate: "teammate",
       nature: "stat_alignment",
       natures: "stat_alignment",
       statalignment: "stat_alignment",
@@ -954,13 +1022,13 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
       const thumb = document.createElement("span");
       thumb.className = "entry-thumb";
-      appendImageOrFallback(thumb, record.imageCandidates, record.name, initials(record.name));
+      appendImageOrFallback(thumb, record.imageCandidates, record.name, initials(record.name), { loading: "eager" });
 
       const meta = document.createElement("span");
       meta.className = "entry-meta";
       const types = document.createElement("span");
       types.className = "entry-types";
-      types.append(...record.types.map(typeChip));
+      types.append(...record.types.map((type) => typeChip(type, "eager")));
       meta.innerHTML = `<strong>${escapeHtml(record.name)}</strong>`;
       meta.append(types);
 
@@ -1501,14 +1569,14 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return merged.map((ability) => hiddenSet.has(ability.toLowerCase()) ? `${ability} (Hidden)` : ability).join(" / ");
   }
 
-  function typeChip(type) {
+  function typeChip(type, loading = "lazy") {
     const chip = document.createElement("span");
     chip.className = "type-chip";
     const candidates = typeImageCandidates(type).map(resolveAssetCandidate).filter(Boolean);
     if (candidates.length) {
       const img = document.createElement("img");
       img.alt = "";
-      img.loading = "lazy";
+      img.loading = loading;
       img.decoding = "async";
       let index = 0;
       img.onerror = () => {
@@ -1696,7 +1764,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return compact;
   }
 
-  function appendImageOrFallback(target, candidates, alt, fallbackText) {
+  function appendImageOrFallback(target, candidates, alt, fallbackText, options = {}) {
     const resolved = unique((candidates || []).map(resolveAssetCandidate).filter(Boolean));
     if (!resolved.length) {
       target.append(fallbackNode(fallbackText));
@@ -1705,7 +1773,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     let index = 0;
     const img = document.createElement("img");
     img.alt = alt;
-    img.loading = "lazy";
+    img.loading = options.loading || "lazy";
     img.decoding = "async";
     img.addEventListener("error", () => {
       state.failedAssetUrls.add(resolved[index] || img.src);
@@ -1774,14 +1842,28 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       values.push(form?.pokemon_name, form?.saved_name, form?.form_name, form?.form_kind);
       values.push(...(form?.types || []));
     });
-    battleRowsForSearch(record, format, season).forEach((row) => {
-      values.push(rowLabel(row), row?.name, row?.category, row?.stat_up, row?.stat_down);
-    });
+    values.push(...searchableBattleTextValues(record, format, season));
+    values.push(...learnableMoveSearchValues(record));
+    return unique(values.filter(Boolean));
+  }
+
+  function searchableBattleTextValues(record, format = state.selectedFormat, season = state.selectedSeason) {
+    const values = [];
+    battleRowsForSearch(record, format, season)
+      .filter((row) => row?.category !== "teammate")
+      .forEach((row) => {
+        values.push(rowLabel(row), row?.name, row?.category, row?.stat_up, row?.stat_down);
+      });
+    return values;
+  }
+
+  function learnableMoveSearchValues(record) {
+    const values = [];
     (record?.learnableMoves || []).forEach((move) => {
       values.push(move?.move_name, move?.type, move?.category);
     });
     values.push(...(record?.learnableMoveNames || []));
-    return unique(values.filter(Boolean));
+    return values;
   }
 
   function learnableMovePathCandidates(record) {

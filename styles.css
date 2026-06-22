@@ -5431,6 +5431,201 @@ body.page-api::before {
   }
 }
 
+/* v42 mobile expandable search and profile table breathing room */
+.mobile-filter-toggle {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .page-explorer .search-action-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 0.52rem !important;
+    align-items: stretch !important;
+  }
+
+  .page-explorer .mobile-filter-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 86px !important;
+    min-height: 48px !important;
+    padding: 0 0.84rem !important;
+    border: 1px solid rgba(114, 255, 171, 0.22) !important;
+    border-radius: 14px !important;
+    color: var(--text) !important;
+    background: rgba(7, 17, 11, 0.96) !important;
+    font-weight: 850 !important;
+    cursor: pointer !important;
+  }
+
+  .page-explorer .mobile-filter-toggle[aria-expanded="true"] {
+    color: #041008 !important;
+    background: linear-gradient(180deg, #98ffc4 0%, #55d986 100%) !important;
+    border-color: rgba(152, 255, 196, 0.72) !important;
+  }
+
+  .page-explorer .controls:not(.filters-expanded) .filter-grid {
+    display: none !important;
+  }
+
+  .page-explorer .controls.filters-expanded .filter-grid {
+    display: grid !important;
+  }
+
+  .battle-table,
+  .nature-table,
+  .stat-points-table,
+  .teammate-table,
+  .learnable-moves-table,
+  .battle-table tbody,
+  .nature-table tbody,
+  .stat-points-table tbody,
+  .teammate-table tbody,
+  .learnable-moves-table tbody {
+    display: grid !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    gap: 0.58rem !important;
+    table-layout: auto !important;
+  }
+
+  .battle-table thead,
+  .nature-table thead,
+  .stat-points-table thead,
+  .teammate-table thead,
+  .learnable-moves-table thead {
+    display: none !important;
+  }
+
+  .battle-table tr,
+  .nature-table tr,
+  .stat-points-table tr,
+  .teammate-table tr,
+  .learnable-moves-table tr {
+    display: grid !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    gap: 0.34rem !important;
+    padding: 0.68rem !important;
+    border: 1px solid rgba(114, 255, 171, 0.16) !important;
+    border-radius: 12px !important;
+    background: rgba(4, 10, 7, 0.42) !important;
+  }
+
+  .battle-table td,
+  .nature-table td,
+  .stat-points-table td,
+  .teammate-table td,
+  .learnable-moves-table td {
+    display: grid !important;
+    grid-template-columns: minmax(5.2rem, 0.38fr) minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 0.54rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0.1rem 0 !important;
+    border: 0 !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .battle-table td::before,
+  .nature-table td::before,
+  .stat-points-table td::before,
+  .teammate-table td::before,
+  .learnable-moves-table td::before {
+    content: attr(data-label) !important;
+    display: block !important;
+    color: var(--soft) !important;
+    font-size: 0.66rem !important;
+    font-weight: 950 !important;
+    letter-spacing: 0.06em !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+  }
+
+  .battle-table td > *,
+  .nature-table td > *,
+  .stat-points-table td > *,
+  .teammate-table td > *,
+  .learnable-moves-table td > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    justify-self: stretch !important;
+  }
+
+  .battle-table td[data-label="Usage"],
+  .nature-table td[data-label="Usage"],
+  .stat-points-table td[data-label="Usage"] {
+    grid-template-columns: 1fr !important;
+    gap: 0.26rem !important;
+  }
+
+  .battle-table td[data-label="Usage"]::before,
+  .nature-table td[data-label="Usage"]::before,
+  .stat-points-table td[data-label="Usage"]::before {
+    margin-bottom: 0.05rem !important;
+  }
+
+  .data-table-wrap .usage-meter,
+  .stat-points-table .usage-meter {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.24rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .data-table-wrap .usage-value,
+  .stat-points-table .usage-value {
+    order: -1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    color: #eff8ee !important;
+    font-size: 0.76rem !important;
+    line-height: 1.1 !important;
+    text-align: left !important;
+  }
+
+  .data-table-wrap .usage-svg,
+  .stat-points-table .usage-svg {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 10px !important;
+    flex: none !important;
+  }
+
+  .learnable-moves-table td[data-label="Move"] {
+    order: 1 !important;
+  }
+
+  .learnable-moves-table td[data-label="Description"] {
+    order: 2 !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.24rem !important;
+    margin: 0.16rem 0 0.18rem !important;
+    padding-top: 0.46rem !important;
+    border-top: 1px solid rgba(114, 255, 171, 0.12) !important;
+  }
+
+  .learnable-moves-table td[data-label="Type"] { order: 3 !important; }
+  .learnable-moves-table td[data-label="Category"] { order: 4 !important; }
+  .learnable-moves-table td[data-label="Power"] { order: 5 !important; }
+  .learnable-moves-table td[data-label="Accuracy"] { order: 6 !important; }
+  .learnable-moves-table td[data-label="PP"] { order: 7 !important; }
+
+  .learnable-moves-table td[data-label="Description"] .move-description {
+    justify-self: stretch !important;
+    max-width: 100% !important;
+    font-size: 0.76rem !important;
+    line-height: 1.45 !important;
+    text-align: left !important;
+  }
+}
+
 /* v41 small project affiliation notice */
 .site-footer {
   padding: 0.55rem 0 1.2rem;
@@ -5592,4 +5787,119 @@ body.page-api::before {
 .stat-points-table .usage-value {
   min-width: 2.8rem;
   font-size: 0.68rem;
+}
+
+/* v41 mobile header, search order, and Battle Data list corrections */
+.page-explorer .entry-index {
+  width: 34px !important;
+  min-width: 34px !important;
+  height: 34px !important;
+  aspect-ratio: 1 / 1 !important;
+  padding: 0 !important;
+  border-radius: 7px !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 760px) {
+  .page-explorer main {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .page-explorer .controls {
+    order: 1 !important;
+  }
+
+  .page-explorer .hero {
+    order: 2 !important;
+    display: block !important;
+  }
+
+  .page-explorer .hero-copy,
+  .page-explorer .hero-copy .eyebrow {
+    display: none !important;
+  }
+
+  .page-explorer .nav-shell {
+    align-items: stretch !important;
+    gap: 0.62rem !important;
+  }
+
+  .page-explorer .brand {
+    width: 100% !important;
+    align-items: flex-start !important;
+  }
+
+  .page-explorer .brand strong {
+    max-width: none !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+    font-size: 0.86rem !important;
+    line-height: 1.14 !important;
+  }
+
+  .page-explorer .nav-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
+  }
+
+  .page-explorer .format-switch {
+    grid-column: 1 / -1 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+  }
+
+  .page-explorer .format-toggle,
+  .page-explorer .ghost-button,
+  .page-explorer .discord-button {
+    width: 100% !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding-block: 0 !important;
+    border-radius: 8px !important;
+    line-height: 1 !important;
+  }
+
+  .page-explorer .battle-entry-panel {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  .page-explorer .entry-list {
+    max-height: none !important;
+    overflow: visible !important;
+    content-visibility: visible !important;
+    contain: none !important;
+  }
+
+  .page-explorer .entry-item {
+    grid-template-columns: 34px 50px minmax(0, 1fr) 28px !important;
+  }
+
+  .page-explorer .entry-index {
+    width: 34px !important;
+    min-width: 34px !important;
+    height: 34px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .page-explorer .search-help-popover {
+    border: 2px solid rgba(196, 247, 189, 0.58) !important;
+    background:
+      linear-gradient(180deg, rgba(9, 21, 13, 0.99), rgba(3, 9, 5, 0.99)) !important;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 22px 70px rgba(0, 0, 0, 0.82),
+      0 0 0 999px rgba(0, 0, 0, 0.28) !important;
+  }
 }

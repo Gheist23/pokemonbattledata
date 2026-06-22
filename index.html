@@ -118,7 +118,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Pokemon Champions Competitive Data Explorer</p>
         <h1 id="pageTitle">Pokemon Champions Battle Data database + API</h1>
-        <p class="hero-text">Search by Pokémon name or use advanced filters for stats, type, items, moves, abilities, and teammates. Review ranked usage data with fast profile cards, a compact Battle Data list, and detailed build tables.</p>
+        <p class="hero-text">Search by Pokémon name or use advanced filters for stats, type, items, moves, and abilities. Review ranked usage data with fast profile cards, a compact Battle Data list, and detailed build tables.</p>
       </div>
 
       <aside class="hero-card battle-entry-panel" aria-label="Battle data entries">
@@ -143,11 +143,11 @@
               <div class="search-help-header"><strong>Advanced search</strong><button class="search-help-close" id="searchHelpClose" type="button" aria-label="Close advanced search help">×</button></div>
               <p>Use field operators for precise filters. Chain filters with spaces or commas. For example: <code>ability=Mold Breaker</code>, <code>move=Fake Out</code> shows all Pokémon with the Ability Mold Breaker and Fake Out as learnable move.</p>
               <dl>
-                <dt>Quick search</dt><dd>Simply type a name, type, ability, move, item, teammate, or nature.</dd>
+                <dt>Quick search</dt><dd>Simply type a name, type, ability, move, item, or nature.</dd>
                 <dt>Stats</dt><dd><code>spe&gt;=120</code>, <code>atk&gt;100</code>, <code>stats&gt;=600</code></dd>
                 <dt>Types</dt><dd><code>type=Ground</code>, <code>type=Dragon</code></dd>
                 <dt>Battle data</dt><dd><code>item=Choice Scarf</code>, <code>move=Earthquake</code>, <code>ability=Rough Skin</code></dd>
-                <dt>Other fields</dt><dd><code>teammate=Sneasler</code>, <code>nature=Jolly</code></dd>
+                <dt>Other fields</dt><dd><code>nature=Jolly</code></dd>
                 <dt>Rank Filter</dt><dd><span class="rank-help"><span class="plain-code">move&lt;=5=Earthquake</span> shows all Pokémon that have Earthquake in their Top 5 moves. <span class="plain-code">item&lt;=3=Choice Scarf</span> finds Pokémon with Choice Scarf in their Top 3 items.</span></dd>
               </dl>
             </div>
@@ -158,9 +158,10 @@
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10.8 18.1a7.3 7.3 0 1 1 5.1-2.1l4 4a1.3 1.3 0 0 1-1.9 1.8l-3.9-4a7.1 7.1 0 0 1-3.3.3Zm0-2.5a4.8 4.8 0 1 0 0-9.6 4.8 4.8 0 0 0 0 9.6Z"/></svg>
             <input id="searchInput" type="search" placeholder="Search database, press Enter to save search" autocomplete="off" />
           </div>
+          <button class="mobile-filter-toggle" id="mobileFilterToggle" type="button" aria-expanded="false" aria-controls="filterGrid">Filters</button>
         </div>
       </div>
-      <div class="filter-grid">
+      <div class="filter-grid" id="filterGrid">
         <label>Type
           <select id="typeFilter"><option value="all">All types</option></select>
         </label>

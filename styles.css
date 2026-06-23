@@ -7720,3 +7720,308 @@ body.page-api::before {
     display: none !important;
   }
 }
+
+/* Final visual direction: compact field-terminal theme */
+:root {
+  --bg: #080907;
+  --bg-elevated: #0d100c;
+  --panel: #11150f;
+  --panel-2: #171b13;
+  --panel-3: #0b0e0a;
+  --line: rgba(214, 195, 132, 0.26);
+  --line-strong: rgba(214, 195, 132, 0.44);
+  --text: #f0ead8;
+  --muted: #b9b099;
+  --soft: #8f8874;
+  --brand: #d6b35a;
+  --brand-strong: #a4d65e;
+  --gold: #d08c45;
+  --blue: #7aa2a6;
+  --red: #d56a55;
+  --control-surface: #0b0e0a;
+  --panel-surface: #11150f;
+  --panel-surface-deep: #090c08;
+  --shadow: 8px 8px 0 rgba(0, 0, 0, 0.42);
+  --shadow-soft: 5px 5px 0 rgba(0, 0, 0, 0.32);
+  --radius-xl: 8px;
+  --radius-lg: 7px;
+  --radius-md: 6px;
+}
+
+body.page-explorer,
+body.page-api {
+  color: var(--text) !important;
+  background: #080907 !important;
+}
+
+body.page-explorer::before,
+body.page-api::before,
+body::before {
+  display: none !important;
+  content: none !important;
+}
+
+.site-header,
+body.page-api .site-header {
+  background: #080907 !important;
+  border-bottom: 1px solid var(--line) !important;
+  backdrop-filter: none !important;
+}
+
+.brand-logo,
+.pokemon-art,
+.detail-art,
+.entry-thumb,
+.roster-thumb {
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+.hero-card,
+.controls,
+.sidebar,
+.content-area,
+.battle-entry-panel,
+.pokemon-card,
+.detail-section,
+.detail-dialog .dialog-inner,
+.metric,
+.data-table-wrap,
+.search-help-popover,
+.empty-state,
+.entry-item,
+.recent-item,
+.api-panel,
+.endpoint-card,
+.api-side-card,
+.api-readable .endpoint-card,
+.api-readable .api-panel,
+.api-readable .api-side-card,
+.api-doc-hero .api-panel,
+.api-doc-hero .api-side-card {
+  border: 1px solid var(--line) !important;
+  border-radius: 7px !important;
+  color: var(--text) !important;
+  background: var(--panel-surface) !important;
+  box-shadow: var(--shadow-soft) !important;
+  backdrop-filter: none !important;
+}
+
+.sidebar,
+.content-area,
+.detail-dialog .dialog-inner,
+.page-explorer .battle-entry-panel,
+.page-explorer .entry-panel-header,
+.page-explorer .pokemon-card,
+.page-explorer .detail-section {
+  background: var(--panel-surface) !important;
+}
+
+.hero-card,
+.battle-entry-panel,
+.content-area,
+.sidebar,
+.api-panel,
+.endpoint-card,
+.api-side-card {
+  box-shadow: var(--shadow) !important;
+}
+
+.pokemon-card:hover,
+.entry-item:hover,
+.entry-item:focus-visible,
+.recent-item.active,
+.roster-item.active {
+  transform: none !important;
+  border-color: var(--line-strong) !important;
+  background: #171b13 !important;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.44) !important;
+}
+
+.hero h1,
+.api-panel h1,
+.brand strong,
+.panel-heading h2,
+.detail-section > h3,
+.search-label-row label,
+.stat-label {
+  color: var(--text) !important;
+  text-shadow: none !important;
+}
+
+.eyebrow,
+.stat-label,
+.search-help-popover dt,
+.detail-section > h3,
+.detail-section.nested > h3,
+.entry-index,
+code,
+.plain-code {
+  color: var(--brand) !important;
+}
+
+.search-box,
+.search-box input,
+.page-explorer .filter-grid select,
+.season-picker select,
+.format-switch,
+.ghost-button,
+.discord-button,
+.search-help-button,
+.search-help-close,
+.favorite-button,
+.entry-action,
+.form-stat-line,
+.nature-change,
+.page-explorer .mobile-filter-toggle,
+.detail-section .learnable-moves-search {
+  border-color: var(--line) !important;
+  border-radius: 6px !important;
+  color: var(--text) !important;
+  background: var(--control-surface) !important;
+  box-shadow: none !important;
+}
+
+.search-box:focus-within,
+.page-explorer .filter-grid select:focus-visible,
+.detail-section .learnable-moves-search:focus,
+button:focus-visible,
+a:focus-visible {
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 2px rgba(214, 179, 90, 0.24) !important;
+  outline: 0 !important;
+}
+
+.format-toggle.active,
+.primary-button,
+.search-submit,
+.page-explorer .mobile-filter-toggle[aria-expanded="true"] {
+  color: #080907 !important;
+  background: var(--brand) !important;
+  border-color: var(--brand) !important;
+  box-shadow: none !important;
+}
+
+.ghost-button,
+.discord-button,
+.format-switch,
+.type-chip,
+code,
+.plain-code,
+.fact,
+.metric,
+.percent-bar,
+.stat-track,
+.usage-svg,
+.learnable-move-row,
+.move-category {
+  border-radius: 6px !important;
+}
+
+.type-chip,
+.form-type-chip,
+code,
+.plain-code,
+.format-badge.other {
+  color: #f5df99 !important;
+  background: #151911 !important;
+  border-color: rgba(214, 195, 132, 0.28) !important;
+  box-shadow: none !important;
+}
+
+.format-badge.doubles,
+.detail-format-chip.doubles {
+  color: #080907 !important;
+  background: #d6b35a !important;
+}
+
+.format-badge.singles,
+.detail-format-chip.singles {
+  color: #080907 !important;
+  background: #7aa2a6 !important;
+}
+
+.page-explorer .pokemon-art,
+.page-explorer .detail-art,
+.page-explorer .entry-thumb,
+.pokemon-art,
+.detail-art,
+.entry-thumb {
+  background: #0b0e0a !important;
+  border-color: var(--line) !important;
+}
+
+.entry-index,
+.pill,
+.entry-count,
+.dex-badge,
+.position-badge,
+.favorite-button.active {
+  border-color: rgba(214, 179, 90, 0.38) !important;
+  background: #1a170e !important;
+  color: var(--brand) !important;
+  box-shadow: none !important;
+}
+
+.percent-bar span,
+.usage-svg-fill,
+.stat-fill,
+.stat-track span {
+  background: var(--bar-color, var(--brand-strong)) !important;
+  box-shadow: none !important;
+}
+
+.usage-meter,
+.percent-bar,
+.stat-track {
+  background: #090c08 !important;
+  border-color: rgba(214, 195, 132, 0.22) !important;
+  box-shadow: none !important;
+}
+
+th,
+.data-table-wrap thead,
+.entry-panel-header,
+.content-area .panel-heading,
+.sidebar .panel-heading {
+  background: #0b0e0a !important;
+  border-color: rgba(214, 195, 132, 0.22) !important;
+}
+
+.search-help-popover {
+  border-width: 1px !important;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.54) !important;
+}
+
+.detail-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.72) !important;
+  backdrop-filter: none !important;
+}
+
+.page-explorer input[type="search"]::-webkit-search-cancel-button {
+  border-radius: 4px !important;
+  background:
+    linear-gradient(45deg, transparent 44%, var(--brand) 45%, var(--brand) 55%, transparent 56%),
+    linear-gradient(-45deg, transparent 44%, var(--brand) 45%, var(--brand) 55%, transparent 56%),
+    #151911 !important;
+}
+
+@media (max-width: 760px) {
+  .page-explorer .format-switch,
+  .page-explorer .format-toggle,
+  .page-explorer .ghost-button,
+  .page-explorer .discord-button,
+  .page-explorer .mobile-filter-toggle,
+  .page-explorer .detail-section,
+  .page-explorer .battle-entry-panel,
+  .page-explorer .entry-item,
+  .page-explorer .data-table-wrap {
+    border-radius: 6px !important;
+  }
+
+  .page-explorer .search-help-popover {
+    border: 1px solid var(--line-strong) !important;
+    background: var(--panel-surface-deep) !important;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.62) !important;
+  }
+}

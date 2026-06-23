@@ -7378,8 +7378,8 @@ body.page-api::before {
   }
 
   .page-explorer .stat-track {
-    width: calc(100% + 1.15rem) !important;
-    margin-left: -1.15rem !important;
+    width: calc(100% + 0.72rem) !important;
+    margin-left: -0.72rem !important;
   }
 
   .page-explorer .detail-section.nested.category-held-item {
@@ -7408,10 +7408,12 @@ body.page-api::before {
   .page-explorer .stat-points-table .usage-meter {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    width: 160px !important;
-    max-width: 160px !important;
+    grid-template-rows: auto auto !important;
+    row-gap: 0.18rem !important;
+    width: 176px !important;
+    max-width: 176px !important;
     margin-left: auto !important;
-    margin-right: 48px !important;
+    margin-right: 0 !important;
     transform: none !important;
     justify-items: end !important;
   }
@@ -7419,11 +7421,14 @@ body.page-api::before {
   .page-explorer .stat-points-table .usage-value {
     width: 100% !important;
     text-align: right !important;
+    order: 2 !important;
+    line-height: 1 !important;
   }
 
   .page-explorer .stat-points-table .usage-svg {
-    width: 160px !important;
-    max-width: 160px !important;
+    order: 1 !important;
+    width: 176px !important;
+    max-width: 176px !important;
     transform: none !important;
   }
 
@@ -7576,6 +7581,14 @@ body.page-api::before {
     height: 42px !important;
     margin: 0 !important;
     border-radius: 10px !important;
+  }
+
+  .page-explorer .dialog-actions .profile-favorite-button {
+    width: 40px !important;
+    height: 34px !important;
+    align-self: center !important;
+    font-size: 1.06rem !important;
+    line-height: 1 !important;
   }
 
   .page-explorer .detail-art {

@@ -5660,52 +5660,16 @@ body.page-api::before {
   }
 }
 
-/* v44 phone-first profile layout */
+/* v44 mobile profile: copy-site profile with right-side art */
 @media (max-width: 760px) {
-  .page-explorer .detail-dialog {
-    width: 100dvw !important;
-    max-width: 100dvw !important;
-    height: 100dvh !important;
-    max-height: 100dvh !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-  }
-
-  .page-explorer .detail-dialog .dialog-inner,
-  .page-explorer .dialog-inner {
-    max-height: 100dvh !important;
-    padding: max(3.35rem, env(safe-area-inset-top)) max(0.72rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(0.72rem, env(safe-area-inset-left)) !important;
-    overflow-x: hidden !important;
-  }
-
-  .page-explorer .close-button {
-    top: max(0.62rem, env(safe-area-inset-top)) !important;
-    right: max(0.72rem, env(safe-area-inset-right)) !important;
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 10px !important;
-  }
-
-  .page-explorer .detail-content {
-    display: grid !important;
-    gap: 0.72rem !important;
-    width: 100% !important;
-    min-width: 0 !important;
-  }
-
   .page-explorer .detail-hero {
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) clamp(94px, 29vw, 118px) !important;
+    grid-template-columns: minmax(0, 1fr) 104px !important;
     grid-template-areas: "copy art" !important;
-    align-items: start !important;
-    gap: 0.68rem !important;
+    align-items: center !important;
+    gap: 0.76rem !important;
     min-width: 0 !important;
-    padding: 0.82rem !important;
-    border: 1px solid rgba(114, 255, 171, 0.16) !important;
-    border-radius: 16px !important;
-    background:
-      linear-gradient(180deg, rgba(18, 35, 22, 0.98), rgba(6, 15, 9, 0.98)) !important;
-    box-shadow: var(--shadow-soft) !important;
+    padding-right: 0 !important;
   }
 
   .page-explorer .detail-title {
@@ -5715,63 +5679,26 @@ body.page-api::before {
   }
 
   .page-explorer .detail-title .eyebrow {
-    margin: 0 0 0.26rem !important;
-    font-size: 0.58rem !important;
-    line-height: 1.1 !important;
+    text-align: left !important;
   }
 
   .page-explorer .detail-title h2 {
-    margin: 0 !important;
-    max-width: 100% !important;
-    font-size: clamp(1.34rem, 7vw, 1.9rem) !important;
-    line-height: 1.03 !important;
     overflow-wrap: anywhere !important;
     text-align: left !important;
   }
 
   .page-explorer .detail-title .type-row {
     justify-content: flex-start !important;
-    gap: 0.34rem !important;
-    margin-top: 0.48rem !important;
-  }
-
-  .page-explorer .detail-title .type-chip {
-    min-height: 28px !important;
-    padding: 0.26rem 0.42rem !important;
-    font-size: 0.66rem !important;
   }
 
   .page-explorer .detail-art {
     grid-area: art !important;
-    align-self: start !important;
+    align-self: center !important;
     width: 100% !important;
-    min-height: clamp(94px, 29vw, 118px) !important;
-    aspect-ratio: 1 / 1 !important;
-    border-radius: 14px !important;
-  }
-
-  .page-explorer .detail-art img {
-    width: min(88px, 82%) !important;
-    height: min(88px, 82%) !important;
-  }
-
-  .page-explorer .detail-art .pokemon-fallback {
-    width: 76px !important;
-    height: 76px !important;
   }
 
   .page-explorer .detail-metrics {
-    display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 0.4rem !important;
-    margin-top: 0.64rem !important;
-    text-align: left !important;
-  }
-
-  .page-explorer .metric {
-    min-width: 0 !important;
-    padding: 0.52rem 0.56rem !important;
-    border-radius: 10px !important;
     text-align: left !important;
   }
 
@@ -5779,57 +5706,12 @@ body.page-api::before {
   .page-explorer .metric strong {
     text-align: left !important;
   }
-
-  .page-explorer .metric span {
-    font-size: 0.58rem !important;
-    line-height: 1.15 !important;
-  }
-
-  .page-explorer .metric strong {
-    margin-top: 0.2rem !important;
-    font-size: 0.78rem !important;
-    line-height: 1.24 !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  .page-explorer .detail-sections {
-    gap: 0.68rem !important;
-    margin-top: 0 !important;
-  }
-
-  .page-explorer .detail-section {
-    padding: 0.74rem !important;
-    border-radius: 14px !important;
-  }
-
-  .page-explorer .detail-section h3 {
-    margin-bottom: 0.62rem !important;
-    font-size: 0.92rem !important;
-    line-height: 1.2 !important;
-  }
 }
 
-@media (max-width: 370px) {
+@media (max-width: 390px) {
   .page-explorer .detail-hero {
-    grid-template-columns: minmax(0, 1fr) 86px !important;
-    gap: 0.56rem !important;
-    padding: 0.68rem !important;
-  }
-
-  .page-explorer .detail-title h2 {
-    font-size: clamp(1.22rem, 6.8vw, 1.6rem) !important;
-  }
-
-  .page-explorer .detail-art {
-    min-height: 86px !important;
-  }
-
-  .page-explorer .detail-art img {
-    width: 72px !important;
-    height: 72px !important;
-  }
-
-  .page-explorer .metric {
-    padding: 0.46rem 0.5rem !important;
+    grid-template-columns: minmax(0, 1fr) 76px !important;
+    gap: 0.62rem !important;
+    padding-right: 0 !important;
   }
 }

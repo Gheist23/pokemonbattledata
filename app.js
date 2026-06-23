@@ -12,11 +12,11 @@
   };
   const STAT_COLUMNS = [
     ["hp_points", "HP"],
-    ["attack_points", "Atk"],
-    ["defense_points", "Def"],
+    ["attack_points", "ATK"],
+    ["defense_points", "DEF"],
     ["sp_atk_points", "SpA"],
     ["sp_def_points", "SpD"],
-    ["speed_points", "Spe"]
+    ["speed_points", "SPE"]
   ];
   const BASE_STATS = [
     ["hp", "HP"],
@@ -81,6 +81,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     favorites: new Set(readArray(FAVORITES_KEY)),
     recentSearches: readArray(RECENT_KEY),
     learnableMovesCache: new Map(),
+    moveDescriptionCache: new Map(),
     failedAssetUrls: new Set(),
     learnableSearchReady: false,
     sourceLabel: "Manifest"
@@ -491,6 +492,36 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     record.learnableMoves = [];
     record.learnableMovesLoaded = true;
     return [];
+  }
+
+  async function prepareProfileMoveDescriptions(record, battleRows = []) {
+    const profileMoves = Array.isArray(record.learnableMoves) ? record.learnableMoves : [];
+    const battleMoveNames = (battleRows || [])
+      .filter((row) => row?.category === "move")
+      .map((row) => row.name);
+    const moveNames = unique([...profileMoves.map((move) => move.move_name), ...battleMoveNames].filter(Boolean));
+    await Promise.allSettled(moveNames.map((moveName) => ensureMoveDescription(moveName)));
+    profileMoves.forEach((move) => {
+      move.description = state.moveDescriptionCache.get(recordKey(move.move_name)) || "";
+    });
+  }
+
+  async function ensureMoveDescription(moveName) {
+    const key = recordKey(moveName);
+    if (!key) return "";
+    if (state.moveDescriptionCache.has(key)) return state.moveDescriptionCache.get(key);
+    for (const path of moveDescriptionPathCandidates(moveName)) {
+      try {
+        const rows = parseCSV(await fetchText(path));
+        const description = extractMoveDescription(rows, moveName);
+        state.moveDescriptionCache.set(key, description);
+        return description;
+      } catch {
+        // Try the next filename candidate.
+      }
+    }
+    state.moveDescriptionCache.set(key, "");
+    return "";
   }
 
   async function preloadLearnableMovesForSearch(records) {
@@ -1167,7 +1198,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     else els.detailDialog.setAttribute("open", "");
     try {
       await ensureMetadata(record);
-      await ensureBattleData(record, state.selectedFormat, state.selectedSeason);
+      const battleRows = await ensureBattleData(record, state.selectedFormat, state.selectedSeason);
+      await ensureLearnableMoves(record);
+      await prepareProfileMoveDescriptions(record, battleRows);
       els.detailContent.innerHTML = "";
       els.detailContent.dataset.recordKey = record.key;
       els.detailContent.append(detailHero(record), detailSections(record));
@@ -1221,7 +1254,8 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     wrapper.append(
       section("Base stats", baseStatsBlock(record.primary)),
       section("Forms and metadata", formsTable(record)),
-      section("Battle data", battleDataBlock(record))
+      section("Battle data", battleDataBlock(record)),
+      section("Learnable moves", learnableMovesBlock(record))
     );
     return wrapper;
   }
@@ -1252,25 +1286,25 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     const leftCategories = ["move", "teammate", "stat_points"];
     const rightCategories = ["held_item", "stat_alignment", "ability"];
 
-    leftCategories.forEach((category) => appendBattleCategory(leftColumn, rows, category));
-    rightCategories.forEach((category) => appendBattleCategory(rightColumn, rows, category));
+    leftCategories.forEach((category) => appendBattleCategory(leftColumn, rows, category, record));
+    rightCategories.forEach((category) => appendBattleCategory(rightColumn, rows, category, record));
 
     if (leftColumn.childNodes.length) wrapper.append(leftColumn);
     if (rightColumn.childNodes.length) wrapper.append(rightColumn);
     return wrapper;
   }
 
-  function appendBattleCategory(parent, rows, category) {
+  function appendBattleCategory(parent, rows, category, record) {
     const categoryRows = rows.filter((row) => row.category === category).sort(compareRank);
-    if (categoryRows.length) parent.append(categorySection(category, categoryRows));
+    if (categoryRows.length) parent.append(categorySection(category, categoryRows, record));
   }
 
-  function categorySection(category, rows) {
+  function categorySection(category, rows, record) {
     const container = document.createElement("section");
     container.className = "detail-section nested";
     const heading = document.createElement("h3");
     heading.textContent = CATEGORY_LABELS[category] || titleCase(category);
-    container.append(heading, categoryTable(category, rows));
+    container.append(heading, categoryTable(category, rows, record));
     return container;
   }
 
@@ -1282,7 +1316,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return `<thead><tr>${labels.map((label) => `<th>${escapeHtml(label)}</th>`).join("")}</tr></thead>`;
   }
 
-  function categoryTable(category, rows) {
+  function categoryTable(category, rows, record) {
     const wrap = document.createElement("div");
     wrap.className = "data-table-wrap";
 
@@ -1301,30 +1335,56 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     }
 
     if (category === "stat_alignment") {
-      const labels = ["#", "Nature", "Usage", "Stat Change"];
+      const labels = ["#", "Nature", "Usage"];
       wrap.innerHTML = `
         <table class="responsive-data-table nature-table">
           ${tableHeader(labels)}
           <tbody>${rows.map((row) => `<tr>
             ${tableCell("#", escapeHtml(row.rank ?? "—"))}
-            ${tableCell("Nature", escapeHtml(row.name || "—"))}
+            ${tableCell("Nature", natureLabelMarkup(row.name))}
             ${tableCell("Usage", percentBar(row.percentage_value, row.percentage))}
-            ${tableCell("Stat Change", natureChangeMarkup(row.name))}
           </tr>`).join("")}</tbody>
         </table>`;
       return wrap;
     }
 
+    if (category === "move") {
+      const { table, tbody } = createResponsiveTable(["#", "Name", "Type", "Usage"], "battle-table moves-table");
+      rows.forEach((row) => {
+        const tr = document.createElement("tr");
+        const moveMeta = moveMetaForName(record, row.name);
+        appendDataCell(tr, "#", escapeHtml(row.rank ?? "—"));
+        appendDataCell(tr, "Name", escapeHtml(row.name || "—"));
+        appendDataCell(tr, "Type", moveTypeMarkup(moveMeta?.type || ""));
+        appendDataCell(tr, "Usage", row.percentage ? percentBar(row.percentage_value, row.percentage) : "—");
+        tbody.append(tr);
+      });
+      wrap.append(table);
+      return wrap;
+    }
+
+    if (category === "held_item") {
+      const { table, tbody } = createResponsiveTable(["#", "Name", "Usage"], "battle-table held-item-table");
+      rows.forEach((row) => {
+        const tr = document.createElement("tr");
+        appendDataCell(tr, "#", escapeHtml(row.rank ?? "—"));
+        appendDataCell(tr, "Name", assetLabel(row.name || "—", itemImageCandidates(row.name), "item-label"));
+        appendDataCell(tr, "Usage", row.percentage ? percentBar(row.percentage_value, row.percentage) : "—");
+        tbody.append(tr);
+      });
+      wrap.append(table);
+      return wrap;
+    }
+
     if (category === "teammate") {
-      const labels = ["#", "Name"];
-      wrap.innerHTML = `
-        <table class="responsive-data-table teammate-table">
-          ${tableHeader(labels)}
-          <tbody>${rows.map((row) => `<tr>
-            ${tableCell("#", escapeHtml(row.rank ?? "—"))}
-            ${tableCell("Name", escapeHtml(row.name || "—"))}
-          </tr>`).join("")}</tbody>
-        </table>`;
+      const { table, tbody } = createResponsiveTable(["#", "Name"], "teammate-table");
+      rows.forEach((row) => {
+        const tr = document.createElement("tr");
+        appendDataCell(tr, "#", escapeHtml(row.rank ?? "—"));
+        appendDataCell(tr, "Name", assetLabel(row.name || "—", teammateImageCandidates(row.name), "teammate-label"));
+        tbody.append(tr);
+      });
+      wrap.append(table);
       return wrap;
     }
 
@@ -1339,6 +1399,44 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
         </tr>`).join("")}</tbody>
       </table>`;
     return wrap;
+  }
+
+  function learnableMovesBlock(record) {
+    const moves = Array.isArray(record.learnableMoves) ? record.learnableMoves : [];
+    const wrapper = document.createElement("div");
+    wrapper.className = "learnable-moves-block";
+    if (!moves.length) {
+      wrapper.textContent = "No learnable moves available.";
+      return wrapper;
+    }
+
+    const searchShell = document.createElement("div");
+    searchShell.className = "learnable-moves-search-shell";
+    const search = document.createElement("input");
+    search.className = "learnable-moves-search";
+    search.type = "search";
+    search.placeholder = "Search moves";
+    search.setAttribute("aria-label", "Search learnable moves");
+    searchShell.append(search);
+
+    const tableWrap = document.createElement("div");
+    tableWrap.className = "data-table-wrap learnable-moves-wrap";
+
+    const renderRows = () => {
+      const query = search.value.trim();
+      const filtered = moves.filter((move) => learnableMoveMatches(move, query));
+      if (!filtered.length) {
+        tableWrap.innerHTML = `<div class="detail-empty">No matching moves.</div>`;
+        return;
+      }
+      tableWrap.innerHTML = "";
+      tableWrap.append(buildLearnableMovesTable(filtered));
+    };
+
+    search.addEventListener("input", renderRows);
+    renderRows();
+    wrapper.append(searchShell, tableWrap);
+    return wrapper;
   }
 
   function baseStatsBlock(form) {
@@ -1397,7 +1495,12 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   function natureChangeMarkup(natureName) {
     const [boosted, lowered] = NATURE_CHANGES[normalizeForSearch(natureName).trim()] || ["", ""];
     if (!boosted || !lowered) return `<span class="nature-change nature-neutral">Neutral</span>`;
-    return `<span class="nature-change"><span class="nature-up">+${escapeHtml(boosted)}</span><span class="nature-down">-${escapeHtml(lowered)}</span></span>`;
+    return `<span class="nature-change"><span class="nature-up">+${escapeHtml(boosted)}</span><span class="nature-separator">/</span><span class="nature-down">- ${escapeHtml(lowered)}</span></span>`;
+  }
+
+  function natureLabelMarkup(natureName) {
+    const name = escapeHtml(natureName || "—");
+    return `<span class="nature-label"><span>${name}</span>${natureName ? natureChangeMarkup(natureName) : ""}</span>`;
   }
 
   function combinedAbilityLabel(form) {
@@ -1428,6 +1531,116 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     }
     chip.append(document.createTextNode(type));
     return chip;
+  }
+
+  function buildLearnableMovesTable(moves) {
+    const table = document.createElement("table");
+    table.className = "responsive-data-table learnable-moves-table";
+    table.innerHTML = `
+      ${tableHeader(["Move", "Type", "Category", "Power", "Accuracy", "PP", "Description"])}
+      <tbody>${moves.map((move) => `<tr>
+        ${tableCell("Move", escapeHtml(move.move_name || "—"))}
+        ${tableCell("Type", moveTypeMarkup(move.type))}
+        ${tableCell("Category", moveCategoryMarkup(move.category))}
+        ${tableCell("Power", escapeHtml(move.power || "—"))}
+        ${tableCell("Accuracy", escapeHtml(move.accuracy || "—"))}
+        ${tableCell("PP", escapeHtml(move.pp || "—"))}
+        ${tableCell("Description", `<span class="move-description">${escapeHtml(move.description || "—")}</span>`)}
+      </tr>`).join("")}</tbody>`;
+    return table;
+  }
+
+  function createResponsiveTable(labels, className) {
+    const table = document.createElement("table");
+    table.className = `responsive-data-table ${className}`;
+    const thead = document.createElement("thead");
+    const headRow = document.createElement("tr");
+    labels.forEach((label) => {
+      const th = document.createElement("th");
+      th.textContent = label;
+      headRow.append(th);
+    });
+    thead.append(headRow);
+    const tbody = document.createElement("tbody");
+    table.append(thead, tbody);
+    return { table, tbody };
+  }
+
+  function appendDataCell(row, label, content) {
+    const cell = document.createElement("td");
+    cell.dataset.label = label;
+    if (content instanceof Node) cell.append(content);
+    else cell.innerHTML = content || "—";
+    row.append(cell);
+    return cell;
+  }
+
+  function assetLabel(name, candidates, className) {
+    const label = document.createElement("span");
+    label.className = `asset-label ${className}`;
+    const icon = document.createElement("span");
+    icon.className = "asset-icon";
+    appendAssetIconOrFallback(icon, candidates, name, initials(name));
+    const text = document.createElement("span");
+    text.className = "asset-label-text";
+    text.textContent = name || "—";
+    label.append(icon, text);
+    return label;
+  }
+
+  function appendAssetIconOrFallback(target, candidates, alt, fallbackText) {
+    const resolved = unique((candidates || []).map(resolveAssetCandidate).filter(Boolean));
+    if (!resolved.length) {
+      target.append(assetIconFallback(fallbackText));
+      return;
+    }
+    let index = 0;
+    const img = document.createElement("img");
+    img.alt = "";
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.addEventListener("error", () => {
+      state.failedAssetUrls.add(resolved[index] || img.src);
+      index += 1;
+      if (index < resolved.length) img.src = resolved[index];
+      else { img.remove(); target.append(assetIconFallback(fallbackText)); }
+    });
+    img.src = resolved[index];
+    target.append(img);
+  }
+
+  function assetIconFallback(text) {
+    const fallback = document.createElement("span");
+    fallback.className = "asset-icon-fallback";
+    fallback.textContent = initials(text);
+    return fallback;
+  }
+
+  function moveTypeMarkup(type) {
+    const label = titleCase(type || "");
+    if (!label) return "—";
+    const src = resolveAssetCandidate(typeImageCandidates(label)[0]);
+    const image = src ? `<img src="${escapeHtml(src)}" alt="" loading="lazy" decoding="async">` : "";
+    return `<span class="move-type-label">${image}<span>${escapeHtml(label)}</span></span>`;
+  }
+
+  function moveCategoryMarkup(category) {
+    const label = titleCase(category || "");
+    if (!label) return "—";
+    const className = normalizeForSearch(label).replace(/[^a-z0-9]+/g, "-");
+    return `<span class="move-category ${escapeHtml(className)}">${escapeHtml(label)}</span>`;
+  }
+
+  function moveMetaForName(record, moveName) {
+    const key = recordKey(moveName);
+    return (record?.learnableMoves || []).find((move) => recordKey(move.move_name) === key) || null;
+  }
+
+  function learnableMoveMatches(move, query) {
+    if (!query) return true;
+    const needle = normalizeForSearch(query);
+    return [move.move_name, move.type, move.category, move.power, move.accuracy, move.pp, move.description]
+      .some((value) => normalizeForSearch(value).includes(needle));
   }
 
   function fact(label, value) {
@@ -1708,6 +1921,25 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return names.map((name) => `${ROOT}/learnable_moves/${name}.csv`);
   }
 
+  function moveDescriptionPathCandidates(moveName) {
+    const cleanName = String(moveName || "").trim();
+    const underscoredName = cleanName.replace(/\s+/g, "_");
+    return unique([underscoredName, cleanName].filter(Boolean))
+      .map((name) => `${ROOT}/all_moves/${name}.csv`);
+  }
+
+  function extractMoveDescription(rows, moveName) {
+    const moveKey = recordKey(moveName);
+    const textRows = (rows || [])
+      .map((row) => String(readField(row, ["text", "description"]) || "").trim())
+      .filter(Boolean);
+    const descriptionRows = textRows.filter((text) => {
+      const normalized = recordKey(text.replace(/\s+/g, " "));
+      return normalized !== moveKey && !/^(power|accuracy|pp)(\s*\n|\s+\d|$)/i.test(text);
+    });
+    return compactText(descriptionRows.at(-1) || "");
+  }
+
   function normalizeLearnableMove(row) {
     return {
       move_name: readField(row, ["move_name", "move", "name"]) || "",
@@ -1715,7 +1947,8 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       category: titleCase(readField(row, ["category", "damage_class"]) || ""),
       power: readField(row, ["power", "base_power"]) || "",
       accuracy: readField(row, ["accuracy", "acc"]) || "",
-      pp: readField(row, ["pp"]) || ""
+      pp: readField(row, ["pp"]) || "",
+      description: ""
     };
   }
 
@@ -1724,6 +1957,29 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     const lower = String(type || "").toLowerCase();
     const upper = String(type || "").toUpperCase();
     return [`${ROOT}/types/${title}.png`, `${ROOT}/types/${lower}.png`, `${ROOT}/types/${upper}.png`, `${ROOT}/types/${title}.webp`, `${ROOT}/types/${lower}.webp`];
+  }
+
+  function itemImageCandidates(itemName) {
+    const name = String(itemName || "").trim();
+    return name ? [`${ROOT}/items/${name}.png`, `${ROOT}/items/${name}.webp`] : [];
+  }
+
+  function teammateImageCandidates(name) {
+    const key = recordKey(name);
+    const matched = state.pokemon.find((record) => {
+      const names = [
+        record.name,
+        battleDataName(record),
+        record.primary?.pokemon_name,
+        record.primary?.saved_name,
+        record.primary?.form_name
+      ];
+      return names.some((candidate) => recordKey(candidate) === key);
+    });
+    return unique([
+      ...(matched?.imageCandidates || []),
+      ...pokemonImageCandidates("", name)
+    ]);
   }
 
   function availableSeasons() {
@@ -1883,6 +2139,10 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   function numberOrZero(value) {
     return Number.isFinite(Number(value)) ? Number(value) : 0;
+  }
+
+  function compactText(value) {
+    return String(value || "").replace(/\s+/g, " ").trim();
   }
 
   function normalizePath(path) {

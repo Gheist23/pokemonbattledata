@@ -5715,3 +5715,95 @@ body.page-api::before {
     padding-right: 0 !important;
   }
 }
+
+/* v45 mobile profile tables: one row, labels above values */
+@media (max-width: 760px) {
+  .page-explorer .battle-table tr {
+    grid-template-columns: minmax(2rem, 0.45fr) minmax(7rem, 1.35fr) minmax(7.5rem, 1.2fr) !important;
+    align-items: stretch !important;
+    gap: 0.48rem !important;
+    overflow-x: auto !important;
+  }
+
+  .page-explorer .teammate-table tr {
+    grid-template-columns: minmax(2rem, 0.35fr) minmax(9rem, 1fr) !important;
+    align-items: stretch !important;
+    gap: 0.48rem !important;
+  }
+
+  .page-explorer .nature-table tr {
+    grid-template-columns: minmax(2rem, 0.35fr) minmax(5.2rem, 0.8fr) minmax(7.5rem, 1.1fr) minmax(6.8rem, 1fr) !important;
+    align-items: stretch !important;
+    gap: 0.48rem !important;
+    overflow-x: auto !important;
+  }
+
+  .page-explorer .stat-points-table tr {
+    grid-template-columns: minmax(7.5rem, 1.05fr) repeat(6, minmax(2.65rem, 0.48fr)) !important;
+    align-items: stretch !important;
+    gap: 0.42rem !important;
+    overflow-x: auto !important;
+  }
+
+  .page-explorer .battle-table td,
+  .page-explorer .nature-table td,
+  .page-explorer .stat-points-table td,
+  .page-explorer .teammate-table td {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 0.24rem !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+
+  .page-explorer .battle-table td::before,
+  .page-explorer .nature-table td::before,
+  .page-explorer .stat-points-table td::before,
+  .page-explorer .teammate-table td::before {
+    margin: 0 !important;
+    line-height: 1.05 !important;
+    white-space: nowrap !important;
+  }
+
+  .page-explorer .battle-table td[data-label="Usage"],
+  .page-explorer .nature-table td[data-label="Usage"],
+  .page-explorer .stat-points-table td[data-label="Usage"] {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto minmax(0, 1fr) !important;
+    gap: 0.24rem !important;
+  }
+
+  .page-explorer .data-table-wrap .usage-meter,
+  .page-explorer .stat-points-table .usage-meter {
+    display: inline-flex !important;
+    grid-template-columns: none !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.34rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .data-table-wrap .usage-value,
+  .page-explorer .stat-points-table .usage-value {
+    order: 0 !important;
+    width: auto !important;
+    min-width: 2.4rem !important;
+    font-size: 0.68rem !important;
+    line-height: 1 !important;
+    text-align: right !important;
+  }
+
+  .page-explorer .data-table-wrap .usage-svg,
+  .page-explorer .stat-points-table .usage-svg {
+    flex: 1 1 3.4rem !important;
+    width: auto !important;
+    min-width: 2.8rem !important;
+    max-width: none !important;
+    height: 8px !important;
+  }
+}

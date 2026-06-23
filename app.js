@@ -364,8 +364,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     if (normalizedSources.some((source) => source.season !== "Current")) return normalizedSources;
     return normalizedSources.map((source) => ({
       ...source,
-      season: DEFAULT_SEASON,
-      path: pathForSeason(source.path, DEFAULT_SEASON)
+      season: DEFAULT_SEASON
     }));
   }
 

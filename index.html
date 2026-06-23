@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Explore Pokemon Champions battle data, usage stats, ranked battle data, meta rankings, singles and doubles meta, movesets, items, teammates, and team-building data." />
+  <meta name="description" content="Explore Pokemon Champions battle data with usage stats, Singles and Doubles meta rankings, movesets, held items, abilities, teammates, stat spreads, learnable moves, and API access." />
   <meta name="keywords" content="Pokemon Champions, Pokemon Champions battle data, battle data, stats, usage stats, ranked battle data, Pokemon Champions meta, most used Pokemon, best Pokemon, Pokemon Champions singles meta, Pokemon Champions doubles meta, Pokemon moveset, Pokemon best item, Pokemon teammates, Pokemon Champions team builder, best team, competitive team, Pokemon Champions API, Pokemon Champions database, stats list" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#050c08" />
@@ -11,11 +11,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://championsbattledata.com/" />
   <meta property="og:title" content="Pokemon Champions Battle Data" />
-  <meta property="og:description" content="Online Pokemon Champions battle data database with usage stats, ranked battle data, singles and doubles meta, movesets, items, teammates, and team-building data." />
+  <meta property="og:description" content="Pokemon Champions battle data with usage stats, Singles and Doubles meta rankings, movesets, held items, abilities, teammates, stat spreads, learnable moves, and API access." />
   <meta property="og:site_name" content="Pokemon Champions Battle Data" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Pokemon Champions Battle Data" />
-  <meta name="twitter:description" content="Search Pokemon Champions battle data, usage stats, ranked battle data, meta rankings, movesets, items, teammates, and team-building data." />
+  <meta name="twitter:description" content="Search Pokemon Champions battle data, usage stats, Singles and Doubles meta rankings, movesets, held items, abilities, teammates, stat spreads, learnable moves, and API access." />
   <title>Pokemon Champions Battle Data</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="site.webmanifest" />
@@ -28,7 +28,7 @@
         "@id": "https://championsbattledata.com/#website",
         "url": "https://championsbattledata.com/",
         "name": "Pokemon Champions Battle Data",
-        "description": "Online Pokemon Champions battle data database with usage stats, ranked battle data, meta rankings, singles and doubles meta, movesets, teammates, and team-building data.",
+        "description": "Pokemon Champions battle data with usage stats, Singles and Doubles meta rankings, movesets, held items, abilities, teammates, stat spreads, learnable moves, and API access.",
         "inLanguage": "en",
         "keywords": [
           "Pokemon Champions",
@@ -58,14 +58,14 @@
         "name": "Pokemon Champions Battle Data",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Any",
-        "description": "Search Pokemon Champions battle data online with usage stats, ranked battle data, singles and doubles meta, Pokemon movesets, best items, teammates, team-building data, and API access."
+        "description": "Search Pokemon Champions battle data online with usage stats, Singles and Doubles meta rankings, Pokemon movesets, best held items, abilities, teammates, stat spreads, learnable moves, team-building data, and API access."
       },
       {
         "@type": "Dataset",
         "@id": "https://championsbattledata.com/#dataset",
         "url": "https://championsbattledata.com/",
         "name": "Pokemon Champions Battle Data",
-        "description": "Pokemon Champions battle data with usage stats, ranked battle data, meta rankings, moves, items, abilities, teammates, stats lists, and competitive team-building data.",
+        "description": "Pokemon Champions battle data with usage stats, Singles and Doubles meta rankings, movesets, held items, abilities, teammates, stat spreads, learnable moves, and competitive team-building data.",
         "keywords": [
           "Pokemon Champions battle data",
           "usage stats",
@@ -117,8 +117,8 @@
     <section class="hero section-shell" aria-labelledby="pageTitle">
       <div class="hero-copy">
         <p class="eyebrow">Pokemon Champions Competitive Data Explorer</p>
-        <h1 id="pageTitle">Pokemon Champions Battle Data database + API</h1>
-        <p class="hero-text">Search by Pokémon name or use advanced filters for stats, type, items, moves, and abilities. Review ranked usage data with fast profile cards, a compact Battle Data list, and detailed build tables.</p>
+        <h1 id="pageTitle">Pokemon Champions Battle Data + API</h1>
+        <p class="hero-text">Explore Pokemon Champions battle data with usage stats, ranked meta trends, Singles and Doubles movesets, best held items, abilities, teammates, stat spreads, learnable moves, and API access for competitive team building.</p>
       </div>
 
       <aside class="hero-card battle-entry-panel" aria-label="Battle data entries">
@@ -139,15 +139,15 @@
           <label for="searchInput">Search database</label>
           <div class="search-help">
             <button class="search-help-button" id="searchHelpButton" type="button" aria-expanded="false" aria-controls="searchHelpPopover" aria-label="Toggle advanced search options">?</button>
-            <div class="search-help-popover" id="searchHelpPopover" role="dialog" aria-label="Advanced search help">
-              <div class="search-help-header"><strong>Advanced search</strong><button class="search-help-close" id="searchHelpClose" type="button" aria-label="Close advanced search help">×</button></div>
-              <p>Use field operators for precise filters. Chain filters with spaces or commas. For example: <code>ability=Mold Breaker</code>, <code>move=Fake Out</code> shows all Pokémon with the Ability Mold Breaker and Fake Out as learnable move.</p>
+            <div class="search-help-popover" id="searchHelpPopover" role="dialog" aria-label="Advanced Search help">
+              <div class="search-help-header"><strong>Advanced Search</strong><button class="search-help-close" id="searchHelpClose" type="button" aria-label="Close Advanced Search help">×</button></div>
+              <p>Chain filters with spaces or commas. For example: <code>Fake Out, spe&gt;=100</code> shows all Pokemon that can learn Fake Out and have a Speed stat of 100 or higher.</p>
               <dl>
                 <dt>Quick search</dt><dd>Simply type a name, type, ability, move, item, or nature.</dd>
                 <dt>Stats</dt><dd><code>spe&gt;=120</code>, <code>atk&gt;100</code>, <code>stats&gt;=600</code></dd>
                 <dt>Types</dt><dd><code>type=Ground</code>, <code>type=Dragon</code></dd>
                 <dt>Battle data</dt><dd><code>item=Choice Scarf</code>, <code>move=Earthquake</code>, <code>ability=Rough Skin</code></dd>
-                <dt>Other fields</dt><dd><code>nature=Jolly</code></dd>
+                <dt>Other Fields</dt><dd><code>nature=Jolly</code>, <code>teammate=Garchomp</code></dd>
                 <dt>Rank Filter</dt><dd><span class="rank-help"><span class="plain-code">move&lt;=5=Earthquake</span> shows all Pokémon that have Earthquake in their Top 5 moves. <span class="plain-code">item&lt;=3=Choice Scarf</span> finds Pokémon with Choice Scarf in their Top 3 items.</span></dd>
               </dl>
             </div>
@@ -227,7 +227,10 @@
 
   <dialog class="detail-dialog" id="detailDialog" aria-labelledby="detailTitle">
     <div class="dialog-inner">
-      <button class="close-button" type="button" id="closeDialogButton" aria-label="Close profile">×</button>
+      <div class="dialog-actions" aria-label="Profile actions">
+        <button class="profile-favorite-button close-button" type="button" id="profileFavoriteButton" aria-label="Toggle favorite" aria-pressed="false">&#9825;</button>
+        <button class="close-button" type="button" id="closeDialogButton" aria-label="Close profile">×</button>
+      </div>
       <div class="detail-content" id="detailContent"></div>
     </div>
   </dialog>

@@ -83,6 +83,8 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     learnableMovesCache: new Map(),
     moveDescriptionCache: new Map(),
     failedAssetUrls: new Set(),
+    activeDetailRecord: null,
+    activeMoveButton: null,
     learnableSearchReady: false,
     sourceLabel: "Manifest"
   };
@@ -107,7 +109,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     cardTemplate: document.getElementById("pokemonCardTemplate"),
     detailDialog: document.getElementById("detailDialog"),
     detailContent: document.getElementById("detailContent"),
+    dialogInner: document.querySelector("#detailDialog .dialog-inner"),
     closeDialogButton: document.getElementById("closeDialogButton"),
+    profileFavoriteButton: document.getElementById("profileFavoriteButton"),
     searchHelpButton: document.getElementById("searchHelpButton"),
     searchHelpPopover: document.getElementById("searchHelpPopover"),
     searchHelpClose: document.getElementById("searchHelpClose"),
@@ -145,11 +149,15 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     });
     document.addEventListener("click", (event) => {
       if (!event.target.closest(".search-help")) hideSearchHelp();
+      if (!event.target.closest(".move-info-button") && !event.target.closest(".move-info-popover")) hideMoveInfoPopover();
     });
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") hideSearchHelp();
+      if (event.key === "Escape") {
+        hideSearchHelp();
+        hideMoveInfoPopover();
+      }
     });
-    window.addEventListener("resize", () => { updateSearchHelpPosition(); renderBattleEntries(); }, { passive: true });
+    window.addEventListener("resize", () => { updateSearchHelpPosition(); positionMoveInfoPopover(); renderBattleEntries(); }, { passive: true });
     mobileResultsQuery?.addEventListener?.("change", () => { updateMobileSearchUi(); renderBattleEntries(); renderCards(); });
     window.addEventListener("scroll", () => updateSearchHelpPosition(), { passive: true });
     els.typeFilter.addEventListener("change", applyFiltersAndRender);
@@ -161,11 +169,17 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     els.formatToggleDoubles?.addEventListener("click", () => setActiveFormat("Doubles"));
     els.formatToggleSingles?.addEventListener("click", () => setActiveFormat("Singles"));
     els.mobileFilterToggle?.addEventListener("click", toggleMobileFilters);
+    els.profileFavoriteButton?.addEventListener("click", toggleProfileFavorite);
     els.closeDialogButton.addEventListener("click", closeDetail);
     els.detailDialog.addEventListener("click", (event) => {
       if (event.target === els.detailDialog) closeDetail();
     });
-    els.detailDialog.addEventListener("close", () => document.body.classList.remove("profile-open"));
+    els.dialogInner?.addEventListener("scroll", () => positionMoveInfoPopover(), { passive: true });
+    els.detailDialog.addEventListener("close", () => {
+      document.body.classList.remove("profile-open");
+      hideMoveInfoPopover();
+      state.activeDetailRecord = null;
+    });
     updateMobileSearchUi();
   }
 
@@ -823,6 +837,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       natures: "stat_alignment",
       statalignment: "stat_alignment",
       alignment: "stat_alignment",
+      teammate: "teammate",
+      teammates: "teammate",
+      topteammate: "teammate",
       statspread: "stat_points",
       statspreads: "stat_points",
       statpoints: "stat_points",
@@ -1063,7 +1080,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   }
 
   function searchHintLabel(query) {
-    return parseSearchQuery(query).mode === "advanced" ? "Advanced search" : "Name search";
+    return parseSearchQuery(query).mode === "advanced" ? "Advanced Search" : "Quick Search";
   }
 
   function rememberSearch(value) {
@@ -1192,8 +1209,11 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   async function openDetail(record) {
     rememberSearch(els.searchInput.value);
+    state.activeDetailRecord = record;
+    updateProfileFavoriteButton(record);
     document.body.classList.add("profile-open");
     els.detailContent.innerHTML = `<div class="detail-loading">Loading profile…</div>`;
+    resetDetailScroll();
     if (typeof els.detailDialog.showModal === "function" && !els.detailDialog.open) els.detailDialog.showModal();
     else els.detailDialog.setAttribute("open", "");
     try {
@@ -1203,7 +1223,11 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       await prepareProfileMoveDescriptions(record, battleRows);
       els.detailContent.innerHTML = "";
       els.detailContent.dataset.recordKey = record.key;
+      state.activeDetailRecord = record;
+      updateProfileFavoriteButton(record);
       els.detailContent.append(detailHero(record), detailSections(record));
+      resetDetailScroll();
+      requestAnimationFrame(resetDetailScroll);
     } catch (error) {
       delete els.detailContent.dataset.recordKey;
       els.detailContent.innerHTML = `<div class="detail-loading"><strong>Profile data unavailable.</strong><p>${escapeHtml(error.message || "Could not load this Pokémon profile.")}</p></div>`;
@@ -1214,6 +1238,13 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     if (typeof els.detailDialog.close === "function") els.detailDialog.close();
     else els.detailDialog.removeAttribute("open");
     document.body.classList.remove("profile-open");
+    hideMoveInfoPopover();
+    state.activeDetailRecord = null;
+  }
+
+  function resetDetailScroll() {
+    if (els.dialogInner) els.dialogInner.scrollTop = 0;
+    if (els.detailDialog) els.detailDialog.scrollTop = 0;
   }
 
   function detailHero(record) {
@@ -1253,7 +1284,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     wrapper.className = "detail-sections";
     wrapper.append(
       section("Base stats", baseStatsBlock(record.primary)),
-      section("Forms and metadata", formsTable(record)),
+      section("Forms", formsTable(record)),
       section("Battle data", battleDataBlock(record)),
       section("Learnable moves", learnableMovesBlock(record))
     );
@@ -1302,6 +1333,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   function categorySection(category, rows, record) {
     const container = document.createElement("section");
     container.className = "detail-section nested";
+    container.classList.add(`category-${String(category || "").replace(/_/g, "-")}`);
     const heading = document.createElement("h3");
     heading.textContent = CATEGORY_LABELS[category] || titleCase(category);
     container.append(heading, categoryTable(category, rows, record));
@@ -1353,8 +1385,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       rows.forEach((row) => {
         const tr = document.createElement("tr");
         const moveMeta = moveMetaForName(record, row.name);
+        const moveDescription = moveDescriptionForName(record, row.name);
         appendDataCell(tr, "#", escapeHtml(row.rank ?? "—"));
-        appendDataCell(tr, "Name", escapeHtml(row.name || "—"));
+        appendDataCell(tr, "Name", moveInfoButton(row.name || "—", moveDescription));
         appendDataCell(tr, "Type", moveTypeMarkup(moveMeta?.type || ""));
         appendDataCell(tr, "Usage", row.percentage ? percentBar(row.percentage_value, row.percentage) : "—");
         tbody.append(tr);
@@ -1424,13 +1457,23 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
     const renderRows = () => {
       const query = search.value.trim();
+      const scroller = els.dialogInner;
+      const anchorTop = search.getBoundingClientRect().top;
+      if (query && scroller) {
+        const neededHeight = scroller.scrollTop + scroller.clientHeight - tableWrap.offsetTop + 24;
+        tableWrap.style.minHeight = `${Math.max(260, Math.ceil(neededHeight))}px`;
+      } else {
+        tableWrap.style.minHeight = "";
+      }
       const filtered = moves.filter((move) => learnableMoveMatches(move, query));
       if (!filtered.length) {
         tableWrap.innerHTML = `<div class="detail-empty">No matching moves.</div>`;
+        if (scroller) requestAnimationFrame(() => { scroller.scrollTop += search.getBoundingClientRect().top - anchorTop; });
         return;
       }
       tableWrap.innerHTML = "";
       tableWrap.append(buildLearnableMovesTable(filtered));
+      if (scroller) requestAnimationFrame(() => { scroller.scrollTop += search.getBoundingClientRect().top - anchorTop; });
     };
 
     search.addEventListener("input", renderRows);
@@ -1482,7 +1525,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
             const targetKind = findRecordByBattleName(formName) ? "exact" : "base";
             return `<tr>
               ${tableCell("Form", `<button class="form-profile-button" type="button" data-form-name="${escapeHtml(formName)}" data-battle-source="${escapeHtml(targetKind)}">${escapeHtml(formName || "—")}</button>`)}
-              ${tableCell("Types", escapeHtml(form.types.join(" / ") || "—"))}
+              ${tableCell("Types", typeListMarkup(form.types))}
               ${tableCell("Abilities", escapeHtml(abilities || "—"))}
               ${tableCell("Stats", `<span class="form-stat-line">${FORM_STATS.map(([key, label]) => `<span>${escapeHtml(label)} ${escapeHtml(metadataStatValue(form, key) ?? "—")}</span>`).join("")}</span>`)}
             </tr>`;
@@ -1524,6 +1567,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       name: formName || sourceRecord.name,
       battleName,
       key: `${sourceRecord.key || recordKey(battleName)}::form::${recordKey(formName || sourceRecord.name)}`,
+      favoriteKey: sourceRecord.key || recordKey(battleName || sourceRecord.name),
       primary: selectedForm,
       types: selectedForm?.types?.length ? selectedForm.types : sourceRecord.types,
       imageCandidates: pokemonImageCandidates(selectedForm?.image_path, formName, selectedForm?.form_name),
@@ -1589,6 +1633,20 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return chip;
   }
 
+  function typeListMarkup(types) {
+    const labels = unique((types || []).map(titleCase).filter(Boolean));
+    if (!labels.length) return "—";
+    return `<span class="form-type-list">${labels.map(typeChipMarkup).join("")}</span>`;
+  }
+
+  function typeChipMarkup(type) {
+    const label = titleCase(type || "");
+    if (!label) return "";
+    const src = resolveAssetCandidate(typeImageCandidates(label)[0]);
+    const image = src ? `<img src="${escapeHtml(src)}" alt="" loading="lazy" decoding="async">` : "";
+    return `<span class="type-chip form-type-chip">${image}${escapeHtml(label)}</span>`;
+  }
+
   function buildLearnableMovesTable(moves) {
     const table = document.createElement("table");
     table.className = "responsive-data-table learnable-moves-table";
@@ -1629,6 +1687,93 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     else cell.innerHTML = content || "—";
     row.append(cell);
     return cell;
+  }
+
+  function moveInfoButton(moveName, description) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "move-info-button";
+    button.textContent = moveName || "—";
+    button.dataset.moveName = moveName || "";
+    button.dataset.moveDescription = description || "No short description available.";
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-label", `${moveName || "Move"} description`);
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      toggleMoveInfoPopover(button);
+    });
+    return button;
+  }
+
+  function toggleMoveInfoPopover(button) {
+    if (state.activeMoveButton === button && !moveInfoPopover().hidden) {
+      hideMoveInfoPopover();
+      return;
+    }
+    showMoveInfoPopover(button);
+  }
+
+  function showMoveInfoPopover(button) {
+    const popover = moveInfoPopover();
+    const moveName = button.dataset.moveName || "Move";
+    const description = button.dataset.moveDescription || "No short description available.";
+    if (state.activeMoveButton) {
+      state.activeMoveButton.classList.remove("active");
+      state.activeMoveButton.setAttribute("aria-expanded", "false");
+    }
+    state.activeMoveButton = button;
+    button.classList.add("active");
+    button.setAttribute("aria-expanded", "true");
+    popover.innerHTML = `<strong>${escapeHtml(moveName)}</strong><span>${escapeHtml(description)}</span>`;
+    popover.hidden = false;
+    requestAnimationFrame(() => positionMoveInfoPopover());
+  }
+
+  function hideMoveInfoPopover() {
+    const popover = document.getElementById("moveInfoPopover");
+    if (state.activeMoveButton) {
+      state.activeMoveButton.classList.remove("active");
+      state.activeMoveButton.setAttribute("aria-expanded", "false");
+    }
+    state.activeMoveButton = null;
+    if (popover) popover.hidden = true;
+  }
+
+  function moveInfoPopover() {
+    let popover = document.getElementById("moveInfoPopover");
+    if (!popover) {
+      popover = document.createElement("div");
+      popover.id = "moveInfoPopover";
+      popover.className = "move-info-popover";
+      popover.setAttribute("role", "tooltip");
+      popover.hidden = true;
+      els.detailDialog.append(popover);
+    }
+    return popover;
+  }
+
+  function positionMoveInfoPopover() {
+    const button = state.activeMoveButton;
+    const popover = document.getElementById("moveInfoPopover");
+    if (!button || !popover || popover.hidden) return;
+    const buttonRect = button.getBoundingClientRect();
+    const popoverRect = popover.getBoundingClientRect();
+    const margin = 12;
+    let left = buttonRect.left;
+    let top = buttonRect.bottom + 8;
+
+    if (left + popoverRect.width > window.innerWidth - margin) {
+      left = window.innerWidth - popoverRect.width - margin;
+    }
+    if (top + popoverRect.height > window.innerHeight - margin) {
+      top = buttonRect.top - popoverRect.height - 8;
+    }
+    left = Math.max(margin, left);
+    top = Math.max(margin, top);
+
+    popover.style.left = `${Math.round(left)}px`;
+    popover.style.top = `${Math.round(top)}px`;
   }
 
   function assetLabel(name, candidates, className) {
@@ -1694,6 +1839,12 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return (record?.learnableMoves || []).find((move) => recordKey(move.move_name) === key) || null;
   }
 
+  function moveDescriptionForName(record, moveName) {
+    const key = recordKey(moveName);
+    const moveMeta = moveMetaForName(record, moveName);
+    return compactText(moveMeta?.description || state.moveDescriptionCache.get(key) || "");
+  }
+
   function learnableMoveMatches(move, query) {
     if (!query) return true;
     const needle = normalizeForSearch(query);
@@ -1748,7 +1899,36 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     applyFiltersAndRender();
   }
 
+  function favoriteKeyForRecord(record) {
+    return String(record?.favoriteKey || record?.key || "").trim();
+  }
+
+  function updateProfileFavoriteButton(record = state.activeDetailRecord) {
+    const button = els.profileFavoriteButton;
+    if (!button) return;
+    const key = favoriteKeyForRecord(record);
+    button.hidden = !key;
+    if (!key) return;
+    const active = state.favorites.has(key);
+    button.innerHTML = active ? "&#9829;" : "&#9825;";
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+    button.setAttribute("aria-label", active ? "Remove favorite" : "Add favorite");
+    button.title = active ? "Remove favorite" : "Add favorite";
+  }
+
+  function toggleProfileFavorite(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const key = favoriteKeyForRecord(state.activeDetailRecord);
+    if (!key) return;
+    toggleFavorite(key);
+    updateProfileFavoriteButton();
+    applyFiltersAndRender();
+  }
+
   function toggleFavorite(key) {
+    if (!key) return;
     if (state.favorites.has(key)) state.favorites.delete(key);
     else state.favorites.add(key);
     localStorage.setItem(FAVORITES_KEY, JSON.stringify([...state.favorites]));

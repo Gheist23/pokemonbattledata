@@ -1628,7 +1628,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     const label = titleCase(category || "");
     if (!label) return "—";
     const className = normalizeForSearch(label).replace(/[^a-z0-9]+/g, "-");
-    return `<span class="move-category ${escapeHtml(className)}">${escapeHtml(label)}</span>`;
+    const shortLabels = { physical: "PHY", special: "SPE", status: "STA" };
+    const shortLabel = shortLabels[className] || label.slice(0, 3).toUpperCase();
+    return `<span class="move-category ${escapeHtml(className)}"><span class="move-category-full">${escapeHtml(label)}</span><span class="move-category-short">${escapeHtml(shortLabel)}</span></span>`;
   }
 
   function moveMetaForName(record, moveName) {

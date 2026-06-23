@@ -7720,3 +7720,35 @@ body.page-api::before {
     display: none !important;
   }
 }
+
+/* Final profile table typography alignment */
+.page-explorer .moves-table td[data-label="Name"],
+.page-explorer .moves-table td[data-label="Type"] {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
+}
+
+.page-explorer .moves-table .move-info-button,
+.page-explorer .moves-table .move-type-label,
+.page-explorer .moves-table .move-type-label span {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  letter-spacing: inherit !important;
+  text-transform: inherit !important;
+}
+
+@media (max-width: 760px) {
+  .page-explorer .moves-table td[data-label="Name"],
+  .page-explorer .moves-table td[data-label="Type"] {
+    font-size: 0.85rem !important;
+    font-weight: 650 !important;
+    color: var(--text) !important;
+  }
+}

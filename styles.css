@@ -5870,16 +5870,22 @@ body.page-api::before {
   }
 
   .page-explorer .battle-entry-panel {
-    height: auto !important;
+    width: 100% !important;
+    height: clamp(460px, 72dvh, 700px) !important;
     min-height: 0 !important;
     max-height: none !important;
+    display: grid !important;
+    grid-template-rows: auto minmax(0, 1fr) !important;
   }
 
   .page-explorer .entry-list {
     max-height: none !important;
-    overflow: visible !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
     content-visibility: visible !important;
     contain: none !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   .page-explorer .entry-item {

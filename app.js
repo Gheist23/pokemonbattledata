@@ -1630,7 +1630,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     for (const button of [els.formatToggleDoubles, els.formatToggleSingles]) {
       if (!button) continue;
       const isActive = button.dataset.format === state.selectedFormat;
-      button.disabled = !availableFormats().includes(button.dataset.format);
+      button.disabled = false;
       button.classList.toggle("active", isActive);
       button.setAttribute("aria-pressed", String(isActive));
     }

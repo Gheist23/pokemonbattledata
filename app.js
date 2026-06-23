@@ -1913,7 +1913,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     button.hidden = !key;
     if (!key) return;
     const active = state.favorites.has(key);
-    button.innerHTML = active ? "&#9829;" : "&#9825;";
+    button.innerHTML = `<span class="favorite-heart-glyph" aria-hidden="true">${active ? "&#9829;" : "&#9825;"}</span>`;
     button.classList.toggle("active", active);
     button.setAttribute("aria-pressed", String(active));
     button.setAttribute("aria-label", active ? "Remove favorite" : "Add favorite");

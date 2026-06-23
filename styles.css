@@ -7621,3 +7621,92 @@ body.page-api::before {
     overflow-anchor: none !important;
   }
 }
+
+/* Final API/mobile alignment refinements */
+.favorite-heart-glyph {
+  display: inline-block;
+  color: #ff7ab8;
+  line-height: 1;
+  transform: scaleX(1.24) scaleY(0.94);
+  transform-origin: center;
+}
+
+.page-explorer input[type="search"]::-webkit-search-cancel-button {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 7px !important;
+  background:
+    linear-gradient(45deg, transparent 45%, #f7f9fc 46%, #f7f9fc 54%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, #f7f9fc 46%, #f7f9fc 54%, transparent 55%),
+    rgba(255,255,255,0.08) !important;
+}
+
+.page-api .nav-shell,
+.page-api .api-doc-page.api-main.section-shell {
+  width: min(calc(100% - 28px), 1180px) !important;
+}
+
+.page-api .api-doc-hero .api-panel h1 {
+  max-width: 900px !important;
+  font-size: clamp(3rem, 5vw, 4.75rem) !important;
+  line-height: 0.96 !important;
+  letter-spacing: -0.075em !important;
+}
+
+@media (max-width: 760px) {
+  .page-explorer .stat-points-table td[data-label="Usage"] {
+    justify-content: flex-end !important;
+    justify-self: end !important;
+    text-align: right !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  .page-explorer .stat-points-table .usage-meter {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0.2rem !important;
+    width: 80px !important;
+    min-width: 0 !important;
+    max-width: 80px !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    transform: none !important;
+  }
+
+  .page-explorer .stat-points-table .usage-value {
+    order: initial !important;
+    width: auto !important;
+    min-width: 0 !important;
+    color: var(--brand) !important;
+    font-size: 0.74rem !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    text-align: right !important;
+  }
+
+  .page-explorer .stat-points-table .usage-svg {
+    order: initial !important;
+    width: 80px !important;
+    min-width: 0 !important;
+    max-width: 80px !important;
+    height: 7px !important;
+    flex: none !important;
+    margin-left: auto !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .page-api .nav-shell,
+  .page-api .api-doc-page.api-main.section-shell {
+    width: min(calc(100% - 24px), 1180px) !important;
+  }
+
+  .page-api .api-doc-hero .api-panel h1 {
+    font-size: clamp(2.45rem, 12.4vw, 3.9rem) !important;
+    line-height: 0.96 !important;
+    letter-spacing: -0.075em !important;
+  }
+}

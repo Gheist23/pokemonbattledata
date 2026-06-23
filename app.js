@@ -81,7 +81,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     favorites: new Set(readArray(FAVORITES_KEY)),
     recentSearches: readArray(RECENT_KEY),
     learnableMovesCache: new Map(),
-    moveDescriptionCache: new Map(),
     failedAssetUrls: new Set(),
     learnableSearchReady: false,
     sourceLabel: "Manifest"
@@ -494,17 +493,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return [];
   }
 
-  async function hydrateLearnableMoveDescriptions(record) {
-    const moves = Array.isArray(record.learnableMoves) ? record.learnableMoves : [];
-    if (!moves.length) return;
-    await Promise.allSettled(moves.map(async (move) => {
-      const description = await ensureMoveDescription(move.move_name);
-      move.short_description = description;
-      if (els.detailContent?.dataset?.recordKey !== record.key) return;
-      updateMoveDescriptionCells(move.move_name, description);
-    }));
-  }
-
   async function preloadLearnableMovesForSearch(records) {
     if (state.learnableSearchReady) return;
     const targets = Array.isArray(records) ? records : [];
@@ -513,40 +501,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     }
     state.learnableSearchReady = true;
     if (els.searchInput?.value?.trim()) applyFiltersAndRender();
-  }
-
-  async function ensureMoveDescription(moveName) {
-    const key = recordKey(moveName);
-    if (!key) return "";
-    if (state.moveDescriptionCache.has(key)) return state.moveDescriptionCache.get(key);
-    const request = loadMoveDescription(moveName).catch(() => "");
-    state.moveDescriptionCache.set(key, request);
-    const description = await request;
-    state.moveDescriptionCache.set(key, description);
-    return description;
-  }
-
-  async function loadMoveDescription(moveName) {
-    const candidates = moveDescriptionPathCandidates(moveName);
-    for (const path of candidates) {
-      try {
-        return moveShortDescription(parseCSV(await fetchText(path)), moveName);
-      } catch {
-        continue;
-      }
-    }
-    return "";
-  }
-
-  function updateMoveDescriptionCells(moveName, description) {
-    const key = recordKey(moveName);
-    const label = description || "-";
-    els.detailContent.querySelectorAll("[data-move-description-key]").forEach((node) => {
-      if (node.dataset.moveDescriptionKey !== key) return;
-      node.textContent = label;
-      node.classList.toggle("missing", !description);
-      node.classList.remove("loading");
-    });
   }
 
   async function ensureBattleData(record, format = state.selectedFormat, season = state.selectedSeason) {
@@ -1213,11 +1167,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     try {
       await ensureMetadata(record);
       await ensureBattleData(record, state.selectedFormat, state.selectedSeason);
-      await ensureLearnableMoves(record);
       els.detailContent.innerHTML = "";
       els.detailContent.dataset.recordKey = record.key;
       els.detailContent.append(detailHero(record), detailSections(record));
-      hydrateLearnableMoveDescriptions(record);
     } catch (error) {
       delete els.detailContent.dataset.recordKey;
       els.detailContent.innerHTML = `<div class="detail-loading"><strong>Profile data unavailable.</strong><p>${escapeHtml(error.message || "Could not load this Pokémon profile.")}</p></div>`;
@@ -1268,8 +1220,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     wrapper.append(
       section("Base stats", baseStatsBlock(record.primary)),
       section("Forms and metadata", formsTable(record)),
-      section("Battle data", battleDataBlock(record)),
-      section("Learnable moves", learnableMovesBlock(record))
+      section("Battle data", battleDataBlock(record))
     );
     return wrapper;
   }
@@ -1438,121 +1389,8 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
         </tbody>
       </table>`;
 
-    const mobileCards = document.createElement("div");
-    mobileCards.className = "forms-mobile-panels";
-    mobileCards.innerHTML = forms.map((form) => {
-      const abilities = combinedAbilityLabel(form);
-      const formName = form.saved_name || form.form_name || "—";
-      const types = form.types.join(" / ") || "—";
-      const stats = FORM_STATS.map(([key, label]) => `
-        <span class="form-stat-pill"><b>${escapeHtml(label)}</b><strong>${escapeHtml(metadataStatValue(form, key) ?? "—")}</strong></span>
-      `).join("");
-      return `
-        <article class="form-mobile-card">
-          <div class="form-mobile-main">
-            <div class="form-mobile-row"><span>Form</span><strong>${escapeHtml(formName)}</strong></div>
-            <div class="form-mobile-row"><span>Types</span><strong>${escapeHtml(types)}</strong></div>
-            <div class="form-mobile-row"><span>Abilities</span><strong>${escapeHtml(abilities || "—")}</strong></div>
-          </div>
-          <div class="form-mobile-stats">
-            <h4>Stats</h4>
-            <div class="form-stat-grid">${stats}</div>
-          </div>
-        </article>`;
-    }).join("");
-
-    wireFormProfileLinks(forms, record, desktopWrap, mobileCards);
-    outer.append(desktopWrap, mobileCards);
+    outer.append(desktopWrap);
     return outer;
-  }
-
-  function wireFormProfileLinks(forms, currentRecord, desktopWrap, mobileCards) {
-    const desktopRows = Array.from(desktopWrap.querySelectorAll("tbody tr"));
-    const mobileNames = Array.from(mobileCards.querySelectorAll(".form-mobile-row:first-child strong"));
-    forms.forEach((form, index) => {
-      const targetRecord = formProfileRecord(form, currentRecord);
-      if (!targetRecord) return;
-      const label = form.saved_name || form.form_name || targetRecord.name;
-      const desktopCell = desktopRows[index]?.querySelector('[data-label="Form"]');
-      const mobileCell = mobileNames[index];
-      [desktopCell, mobileCell].forEach((cell) => {
-        if (!cell) return;
-        cell.textContent = "";
-        cell.append(formProfileButton(label, targetRecord));
-      });
-    });
-  }
-
-  function formProfileButton(label, targetRecord) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "form-profile-link";
-    button.textContent = label || targetRecord.name || "Open profile";
-    button.addEventListener("click", () => openDetail(targetRecord));
-    return button;
-  }
-
-  function formProfileRecord(form, currentRecord) {
-    const currentKey = currentRecord?.key;
-    const candidates = unique([form?.saved_name, form?.form_name, form?.title].filter(Boolean)).map(recordKey);
-    return state.pokemon.find((record) => {
-      if (!record || record.key === currentKey) return false;
-      const keys = unique([record.key, recordKey(battleDataName(record)), recordKey(record.name)]);
-      return candidates.some((candidate) => keys.includes(candidate));
-    }) || null;
-  }
-
-  function learnableMovesBlock(record) {
-    const moves = Array.isArray(record.learnableMoves) ? record.learnableMoves : [];
-    if (!moves.length) {
-      const wrap = document.createElement("div");
-      wrap.className = "data-table-wrap learnable-moves-wrap";
-      wrap.textContent = "No learnable moves available.";
-      return wrap;
-    }
-    const panel = document.createElement("div");
-    panel.className = "learnable-moves-panel";
-    const search = document.createElement("input");
-    search.type = "search";
-    search.className = "learnable-moves-search";
-    search.placeholder = "Search moves";
-    search.setAttribute("aria-label", "Search learnable moves");
-    const searchShell = document.createElement("div");
-    searchShell.className = "learnable-moves-search-shell";
-    searchShell.append(search);
-    const wrap = document.createElement("div");
-    wrap.className = "data-table-wrap learnable-moves-wrap";
-    const labels = ["Move", "Type", "Category", "Power", "Accuracy", "PP", "Description"];
-    wrap.innerHTML = `
-      <table class="responsive-data-table learnable-moves-table">
-        ${tableHeader(labels)}
-        <tbody>${moves.map((move) => `<tr>
-          ${tableCell("Move", escapeHtml(move.move_name || "—"))}
-          ${tableCell("Type", moveTypeMarkup(move.type))}
-          ${tableCell("Category", `<span class="move-category ${escapeHtml(normalizeForSearch(move.category || ""))}">${escapeHtml(move.category || "—")}</span>`)}
-          ${tableCell("Power", escapeHtml(move.power || "—"))}
-          ${tableCell("Accuracy", escapeHtml(move.accuracy || "—"))}
-          ${tableCell("PP", escapeHtml(move.pp || "—"))}
-          ${tableCell("Description", `<span class="move-description${move.short_description ? "" : " loading"}" data-move-description-key="${escapeHtml(recordKey(move.move_name))}">${escapeHtml(move.short_description || "Loading effect...")}</span>`)}
-        </tr>`).join("")}</tbody>
-      </table>`;
-    const empty = document.createElement("div");
-    empty.className = "learnable-moves-empty";
-    empty.textContent = "No matching moves.";
-    empty.hidden = true;
-    const rows = Array.from(wrap.querySelectorAll("tbody tr"));
-    search.addEventListener("input", () => {
-      const query = normalizeForSearch(search.value).trim();
-      let shown = 0;
-      rows.forEach((row) => {
-        const matches = !query || normalizeForSearch(row.textContent).includes(query);
-        row.hidden = !matches;
-        if (matches) shown += 1;
-      });
-      empty.hidden = shown !== 0;
-    });
-    panel.append(searchShell, wrap, empty);
-    return panel;
   }
 
   function natureChangeMarkup(natureName) {
@@ -1589,13 +1427,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     }
     chip.append(document.createTextNode(type));
     return chip;
-  }
-
-  function moveTypeMarkup(type) {
-    const label = type || "—";
-    const icon = type ? resolveAssetCandidate(typeImageCandidates(type)[0]) : "";
-    const iconMarkup = icon ? `<img src="${escapeHtml(icon)}" alt="" loading="lazy" decoding="async">` : "";
-    return `<span class="move-type-label">${iconMarkup}<span>${escapeHtml(label)}</span></span>`;
   }
 
   function fact(label, value) {
@@ -1873,28 +1704,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       battleDataName(record)
     ].filter(Boolean));
     return names.map((name) => `${ROOT}/learnable_moves/${name}.csv`);
-  }
-
-  function moveDescriptionPathCandidates(moveName) {
-    const name = String(moveName || "").trim();
-    if (!name) return [];
-    return unique([
-      name.replace(/\s+/g, "_"),
-      titleCase(name).replace(/\s+/g, "_")
-    ]).map((fileName) => `${ROOT}/all_moves/${fileName}.csv`);
-  }
-
-  function moveShortDescription(rows, moveName) {
-    const moveKey = normalizeForSearch(moveName).trim();
-    for (let index = rows.length - 1; index >= 0; index -= 1) {
-      const text = String(readField(rows[index], ["text"]) || "").replace(/\s+/g, " ").trim();
-      if (!text) continue;
-      const normalized = normalizeForSearch(text).trim();
-      if (normalized === moveKey) continue;
-      if (/^(power|accuracy|pp)\s+/i.test(text)) continue;
-      return text;
-    }
-    return "";
   }
 
   function normalizeLearnableMove(row) {

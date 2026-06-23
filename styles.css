@@ -7710,3 +7710,8 @@ body.page-api::before {
     letter-spacing: -0.075em !important;
   }
 }
+@media (max-width: 760px) {
+  .page-api .brand small {
+    display: none !important;
+  }
+}

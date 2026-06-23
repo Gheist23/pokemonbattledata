@@ -615,11 +615,11 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     }
     addNameSegments(raw.slice(cursor), nameParts);
 
-    nameParts.forEach((part) => clauses.unshift({ field: "name", op: ":", value: part }));
+    nameParts.forEach((part) => clauses.unshift({ field: "quick", op: ":", value: part }));
 
     if (!clauses.length) return { mode: "name", text: normalizeForSearch(raw), clauses: [] };
-    const hasOnlyName = clauses.every((clause) => clause.field === "name");
-    if (hasOnlyName && clauses.length === 1) return { mode: "name", text: normalizeForSearch(clauses[0].value), clauses };
+    const hasOnlyQuick = clauses.every((clause) => clause.field === "quick");
+    if (hasOnlyQuick && clauses.length === 1) return { mode: "name", text: normalizeForSearch(clauses[0].value), clauses };
     return { mode: "advanced", text: "", clauses };
   }
 
@@ -710,6 +710,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     const query = normalizeForSearch(value);
     const field = clause.field;
     if (!field) return true;
+    if (field === "quick") return quickSearchScore(record, query, format, season) !== Number.POSITIVE_INFINITY;
 
     const numericFields = {
       dex: record.dex,
@@ -1080,7 +1081,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   }
 
   function searchHintLabel(query) {
-    return parseSearchQuery(query).mode === "advanced" ? "Advanced Search" : "Quick Search";
+    const plan = parseSearchQuery(query);
+    const allQuickClauses = plan.clauses?.length && plan.clauses.every((clause) => clause.field === "quick");
+    return plan.mode === "advanced" && !allQuickClauses ? "Advanced Search" : "Quick Search";
   }
 
   function rememberSearch(value) {

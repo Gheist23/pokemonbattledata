@@ -7388,7 +7388,7 @@ body.page-api::before {
   }
 
   .page-explorer .stat-points-table td[data-label="Usage"] {
-    justify-content: flex-start !important;
+    justify-content: flex-end !important;
     justify-self: stretch !important;
     margin-left: 0 !important;
   }
@@ -7584,10 +7584,13 @@ body.page-api::before {
   }
 
   .page-explorer .dialog-actions .profile-favorite-button {
-    width: 40px !important;
-    height: 34px !important;
+    width: 42px !important;
+    height: 42px !important;
     align-self: center !important;
-    font-size: 1.06rem !important;
+    display: grid !important;
+    place-items: center !important;
+    color: #ff7ab8 !important;
+    font-size: 1.02rem !important;
     line-height: 1 !important;
   }
 

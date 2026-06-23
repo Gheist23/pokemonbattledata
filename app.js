@@ -963,6 +963,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     els.battleEntryList.innerHTML = "";
     const fragment = document.createDocumentFragment();
     entries.forEach((record, index) => {
+      const priorityLoading = index < 6 ? "eager" : "lazy";
       const button = document.createElement("button");
       button.type = "button";
       button.className = "entry-item";
@@ -976,13 +977,13 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
       const thumb = document.createElement("span");
       thumb.className = "entry-thumb";
-      appendImageOrFallback(thumb, record.imageCandidates, record.name, initials(record.name), { loading: "eager" });
+      appendImageOrFallback(thumb, record.imageCandidates, record.name, initials(record.name), { loading: priorityLoading, fetchPriority: index < 6 ? "high" : "auto" });
 
       const meta = document.createElement("span");
       meta.className = "entry-meta";
       const types = document.createElement("span");
       types.className = "entry-types";
-      types.append(...record.types.map((type) => typeChip(type, "eager")));
+      types.append(...record.types.map((type) => typeChip(type, priorityLoading)));
       meta.innerHTML = `<strong>${escapeHtml(record.name)}</strong>`;
       meta.append(types);
 
@@ -1605,6 +1606,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     const img = document.createElement("img");
     img.alt = alt;
     img.loading = options.loading || "lazy";
+    if (options.fetchPriority) img.fetchPriority = options.fetchPriority;
     img.decoding = "async";
     img.addEventListener("error", () => {
       state.failedAssetUrls.add(resolved[index] || img.src);

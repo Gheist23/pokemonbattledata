@@ -7752,3 +7752,31 @@ body.page-api::before {
     color: var(--text) !important;
   }
 }
+
+/* Final mobile search/filter control alignment */
+@media (max-width: 760px) {
+  .page-explorer .search-action-row {
+    align-items: stretch !important;
+  }
+
+  .page-explorer .search-action-row .search-box,
+  .page-explorer .mobile-filter-toggle {
+    height: 54px !important;
+    min-height: 54px !important;
+    max-height: 54px !important;
+    box-sizing: border-box !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 16px !important;
+  }
+
+  .page-explorer .mobile-filter-toggle {
+    align-self: stretch !important;
+    background: var(--control-surface) !important;
+    box-shadow: none !important;
+  }
+
+  .page-explorer .mobile-filter-toggle[aria-expanded="true"] {
+    border-color: var(--line) !important;
+    border-radius: 16px !important;
+  }
+}

@@ -5807,3 +5807,855 @@ body.page-api::before {
     height: 8px !important;
   }
 }
+
+/* ============================================================
+   v46 — Mobile profile: full layout rework
+   ============================================================
+   Goals:
+   - Sprite on the right of name + typings in the hero
+   - Forms & Metadata: card-per-form layout, no horizontal scroll
+   - Battle Data: single-column, readable cards with label-value pairs
+   - Learnable Moves: compact card grid, fully accessible
+   - Generous padding, no overlapping or bunched elements
+   ============================================================ */
+
+@media (max-width: 760px) {
+
+  /* ── Dialog shell ── */
+  .page-explorer .detail-dialog {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    height: 100dvh !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+  }
+
+  .page-explorer .dialog-inner {
+    max-height: 100dvh !important;
+    height: 100dvh !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Scrollable content area inside the dialog */
+  .page-explorer .detail-content {
+    padding: 1rem 1rem 2.5rem !important;
+    display: grid !important;
+    gap: 0.85rem !important;
+    min-width: 0 !important;
+  }
+
+  /* ── Close button: bigger tap target, sticky to top-right ── */
+  .page-explorer .detail-dialog .close-button {
+    position: sticky !important;
+    top: 0.6rem !important;
+    float: right !important;
+    z-index: 10 !important;
+    width: 42px !important;
+    height: 42px !important;
+    margin: 0.6rem 0 -42px auto !important;
+    border-radius: 10px !important;
+    background: rgba(15, 22, 14, 0.96) !important;
+    border-color: rgba(141, 232, 114, 0.28) !important;
+    font-size: 1.35rem !important;
+  }
+
+  /* ── Hero: sprite RIGHT of name + types ── */
+  .page-explorer .detail-hero {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 110px !important;
+    grid-template-rows: auto !important;
+    grid-template-areas: "copy art" !important;
+    align-items: start !important;
+    gap: 0.75rem !important;
+    padding: 0 !important;
+    padding-top: 0.15rem !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .detail-art {
+    grid-area: art !important;
+    min-height: 0 !important;
+    width: 110px !important;
+    height: 110px !important;
+    border-radius: 12px !important;
+    border-color: rgba(141, 232, 114, 0.18) !important;
+    background: rgba(8, 17, 10, 0.72) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+  }
+
+  .page-explorer .detail-art img {
+    width: 96px !important;
+    height: 96px !important;
+    max-width: 100% !important;
+  }
+
+  .page-explorer .detail-art .pokemon-fallback {
+    width: 68px !important;
+    height: 68px !important;
+    font-size: 1.05rem !important;
+  }
+
+  .page-explorer .detail-title {
+    grid-area: copy !important;
+    min-width: 0 !important;
+    text-align: left !important;
+    padding-top: 0.1rem !important;
+  }
+
+  .page-explorer .detail-title .eyebrow {
+    text-align: left !important;
+    margin-bottom: 0.38rem !important;
+    font-size: 0.66rem !important;
+  }
+
+  .page-explorer .detail-title h2 {
+    margin: 0 0 0.42rem !important;
+    font-size: clamp(1.55rem, 7.5vw, 2.15rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.03em !important;
+    text-align: left !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .page-explorer .detail-title .type-row {
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+    gap: 0.32rem !important;
+    margin-bottom: 0.38rem !important;
+  }
+
+  /* ── Detail metrics below the hero (top move / item / ability) ── */
+  .page-explorer .detail-metrics {
+    grid-column: 1 / -1 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+    margin-top: 0.62rem !important;
+  }
+
+  .page-explorer .metric {
+    padding: 0.58rem 0.62rem !important;
+    border-radius: 8px !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .metric span {
+    font-size: 0.6rem !important;
+    letter-spacing: 0.06em !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    text-align: left !important;
+  }
+
+  .page-explorer .metric strong {
+    font-size: 0.78rem !important;
+    line-height: 1.22 !important;
+    margin-top: 0.22rem !important;
+    overflow-wrap: anywhere !important;
+    text-align: left !important;
+  }
+
+  /* ── Section cards ── */
+  .page-explorer .detail-sections {
+    display: grid !important;
+    gap: 0.72rem !important;
+    margin-top: 0 !important;
+  }
+
+  .page-explorer .detail-section {
+    padding: 0.88rem !important;
+    border-radius: 10px !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .page-explorer .detail-section > h3 {
+    margin: 0 0 0.72rem !important;
+    font-size: 0.88rem !important;
+    font-weight: 720 !important;
+    letter-spacing: 0.03em !important;
+    text-transform: uppercase !important;
+    color: var(--brand) !important;
+  }
+
+  /* ── Base stats ── */
+  .page-explorer .stat-bars {
+    gap: 0.5rem !important;
+  }
+
+  .page-explorer .stat-row {
+    grid-template-columns: 2.6rem 1fr 2.4rem !important;
+    gap: 0.52rem !important;
+    font-size: 0.78rem !important;
+    align-items: center !important;
+  }
+
+  .page-explorer .stat-track {
+    height: 8px !important;
+  }
+
+  /* ── Forms and Metadata: card-per-form, no scrolling table ── */
+  .page-explorer .forms-metadata-block {
+    min-width: 0 !important;
+  }
+
+  /* Hide the horizontal-scroll desktop table */
+  .page-explorer .forms-desktop-wrap {
+    display: none !important;
+  }
+
+  /* Inject mobile form cards via a new element created below OR
+     we use a ::after pseudo trick — but since JS generates the DOM,
+     we handle this by overriding .forms-metadata-block children.
+     The JS renders a single .forms-desktop-wrap; we re-render it
+     as stacked cards using CSS display tricks on the table. */
+
+  /* Make the table act like stacked cards */
+  .page-explorer .forms-table {
+    display: block !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+  }
+
+  .page-explorer .forms-table thead {
+    display: none !important;
+  }
+
+  .page-explorer .forms-table tbody {
+    display: grid !important;
+    gap: 0.62rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .forms-table tr {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 0.5rem 0.75rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0.72rem !important;
+    border: 1px solid rgba(141, 232, 114, 0.15) !important;
+    border-radius: 9px !important;
+    background: rgba(8, 16, 10, 0.52) !important;
+  }
+
+  /* Form name: spans full width on top */
+  .page-explorer .forms-table td[data-label="Form"] {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    display: block !important;
+    padding: 0 0 0.38rem !important;
+    border-bottom: 1px solid rgba(141, 232, 114, 0.1) !important;
+    font-size: 0.86rem !important;
+    font-weight: 720 !important;
+    color: var(--text) !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .page-explorer .forms-table td[data-label="Form"]::before {
+    content: "Form: " !important;
+    color: var(--soft) !important;
+    font-size: 0.65rem !important;
+    font-weight: 950 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.07em !important;
+    display: block !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  /* Types: bottom-left */
+  .page-explorer .forms-table td[data-label="Types"] {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    display: block !important;
+    padding: 0 !important;
+    font-size: 0.78rem !important;
+    color: var(--muted) !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .forms-table td[data-label="Types"]::before {
+    content: "Types" !important;
+    display: block !important;
+    color: var(--soft) !important;
+    font-size: 0.62rem !important;
+    font-weight: 950 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.07em !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  /* Abilities: bottom-right */
+  .page-explorer .forms-table td[data-label="Abilities"] {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    display: block !important;
+    padding: 0 !important;
+    font-size: 0.78rem !important;
+    color: var(--muted) !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .forms-table td[data-label="Abilities"]::before {
+    content: "Abilities" !important;
+    display: block !important;
+    color: var(--soft) !important;
+    font-size: 0.62rem !important;
+    font-weight: 950 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.07em !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  /* Stats: spans full width below types/abilities */
+  .page-explorer .forms-table td[data-label="Stats"] {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    display: block !important;
+    padding: 0.38rem 0 0 !important;
+    border-top: 1px solid rgba(141, 232, 114, 0.1) !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .forms-table td[data-label="Stats"]::before {
+    content: "Stats" !important;
+    display: block !important;
+    color: var(--soft) !important;
+    font-size: 0.62rem !important;
+    font-weight: 950 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.07em !important;
+    margin-bottom: 0.32rem !important;
+  }
+
+  .page-explorer .form-stat-line {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.28rem 0.55rem !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .form-stat-line span {
+    display: inline-block !important;
+    padding: 0.2rem 0.46rem !important;
+    border: 1px solid rgba(141, 232, 114, 0.14) !important;
+    border-radius: 6px !important;
+    background: rgba(141, 232, 114, 0.055) !important;
+    color: var(--text) !important;
+    font-size: 0.72rem !important;
+    font-weight: 720 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Also reveal the forms table inside the desktop wrap */
+  .page-explorer .forms-desktop-wrap {
+    display: block !important;
+    overflow: visible !important;
+    border: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+  }
+
+  /* ── Battle Data: single column, card rows ── */
+  .page-explorer .battle-grid-columns {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
+  }
+
+  .page-explorer .battle-column {
+    gap: 0.6rem !important;
+  }
+
+  .page-explorer .detail-section.nested {
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  .page-explorer .detail-section.nested > h3 {
+    padding: 0 0.1rem !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: var(--brand) !important;
+    font-weight: 850 !important;
+  }
+
+  /* Battle data table rows as cards */
+  .page-explorer .battle-table,
+  .page-explorer .nature-table,
+  .page-explorer .stat-points-table,
+  .page-explorer .teammate-table {
+    display: block !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .page-explorer .battle-table thead,
+  .page-explorer .nature-table thead,
+  .page-explorer .stat-points-table thead,
+  .page-explorer .teammate-table thead {
+    display: none !important;
+  }
+
+  .page-explorer .battle-table tbody,
+  .page-explorer .nature-table tbody,
+  .page-explorer .stat-points-table tbody,
+  .page-explorer .teammate-table tbody {
+    display: grid !important;
+    gap: 0.42rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Each row = horizontal label-value card */
+  .page-explorer .battle-table tr,
+  .page-explorer .nature-table tr,
+  .page-explorer .stat-points-table tr,
+  .page-explorer .teammate-table tr {
+    display: grid !important;
+    grid-template-columns: 1.6rem minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: 0.46rem 0.6rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0.52rem 0.66rem !important;
+    border: 1px solid rgba(141, 232, 114, 0.13) !important;
+    border-radius: 8px !important;
+    background: rgba(6, 13, 8, 0.5) !important;
+    overflow: hidden !important;
+  }
+
+  /* Rank cell (#) */
+  .page-explorer .battle-table td[data-label="#"],
+  .page-explorer .nature-table td[data-label="#"],
+  .page-explorer .stat-points-table td[data-label="#"],
+  .page-explorer .teammate-table td[data-label="#"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 1.6rem !important;
+    min-width: 1.6rem !important;
+    height: 1.6rem !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 5px !important;
+    background: rgba(141, 232, 114, 0.09) !important;
+    color: var(--brand) !important;
+    font-size: 0.66rem !important;
+    font-weight: 950 !important;
+    white-space: nowrap !important;
+  }
+
+  .page-explorer .battle-table td[data-label="#"]::before,
+  .page-explorer .nature-table td[data-label="#"]::before,
+  .page-explorer .stat-points-table td[data-label="#"]::before,
+  .page-explorer .teammate-table td[data-label="#"]::before {
+    display: none !important;
+  }
+
+  /* Name cell */
+  .page-explorer .battle-table td[data-label="Name"],
+  .page-explorer .nature-table td[data-label="Nature"],
+  .page-explorer .teammate-table td[data-label="Name"] {
+    display: block !important;
+    padding: 0 !important;
+    border: 0 !important;
+    font-size: 0.85rem !important;
+    font-weight: 650 !important;
+    color: var(--text) !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .battle-table td[data-label="Name"]::before,
+  .page-explorer .nature-table td[data-label="Nature"]::before,
+  .page-explorer .teammate-table td[data-label="Name"]::before {
+    display: none !important;
+  }
+
+  /* Usage cell: right-aligned, compact */
+  .page-explorer .battle-table td[data-label="Usage"],
+  .page-explorer .nature-table td[data-label="Usage"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0.26rem !important;
+    padding: 0 !important;
+    border: 0 !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .battle-table td[data-label="Usage"]::before,
+  .page-explorer .nature-table td[data-label="Usage"]::before {
+    display: none !important;
+  }
+
+  .page-explorer .battle-table .usage-meter,
+  .page-explorer .nature-table .usage-meter {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0.2rem !important;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .battle-table .usage-value,
+  .page-explorer .nature-table .usage-value {
+    font-size: 0.74rem !important;
+    font-weight: 900 !important;
+    color: var(--brand) !important;
+    min-width: 0 !important;
+    text-align: right !important;
+    line-height: 1 !important;
+  }
+
+  .page-explorer .battle-table .usage-svg,
+  .page-explorer .nature-table .usage-svg {
+    width: 64px !important;
+    min-width: 0 !important;
+    max-width: 64px !important;
+    height: 7px !important;
+    flex: none !important;
+  }
+
+  /* Stat Change cell in nature table */
+  .page-explorer .nature-table td[data-label="Stat Change"] {
+    grid-column: 2 / -1 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.36rem !important;
+    padding: 0.26rem 0 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(141, 232, 114, 0.08) !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .nature-table td[data-label="Stat Change"]::before {
+    display: none !important;
+  }
+
+  /* Stat Spreads: compact chip layout */
+  .page-explorer .stat-points-table tr {
+    grid-template-columns: 1.6rem 1fr !important;
+    grid-template-rows: auto auto !important;
+  }
+
+  .page-explorer .stat-points-table td[data-label="Usage"] {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    border: 0 !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .stat-points-table td[data-label="Usage"]::before {
+    display: none !important;
+  }
+
+  .page-explorer .stat-points-table .usage-meter {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .stat-points-table .usage-value {
+    font-size: 0.72rem !important;
+    min-width: 2.6rem !important;
+    text-align: left !important;
+    color: var(--brand) !important;
+    font-weight: 900 !important;
+    order: -1 !important;
+  }
+
+  .page-explorer .stat-points-table .usage-svg {
+    width: 56px !important;
+    height: 7px !important;
+    flex: none !important;
+  }
+
+  /* EV stat cells in spread table: wrap into chip row */
+  .page-explorer .stat-points-table td[data-label="HP"],
+  .page-explorer .stat-points-table td[data-label="Atk"],
+  .page-explorer .stat-points-table td[data-label="Def"],
+  .page-explorer .stat-points-table td[data-label="SpA"],
+  .page-explorer .stat-points-table td[data-label="SpD"],
+  .page-explorer .stat-points-table td[data-label="Spe"] {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    gap: 0.22rem !important;
+    padding: 0.18rem 0.38rem !important;
+    border: 1px solid rgba(141, 232, 114, 0.14) !important;
+    border-radius: 5px !important;
+    background: rgba(141, 232, 114, 0.055) !important;
+    font-size: 0.7rem !important;
+    white-space: nowrap !important;
+    min-width: 0 !important;
+  }
+
+  /* Trick: stat cells share the second row in the grid,
+     so we make tbody for stat-points use flex wrapping */
+  .page-explorer .stat-points-table tbody {
+    display: grid !important;
+    gap: 0.48rem !important;
+  }
+
+  .page-explorer .stat-points-table tr {
+    display: grid !important;
+    grid-template-columns: 1.6rem auto 1fr !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.4rem !important;
+    overflow: hidden !important;
+  }
+
+  /* Slot the stat chips into a flex row spanning col 3 */
+  .page-explorer .stat-points-table td[data-label="HP"] { order: 10 !important; }
+  .page-explorer .stat-points-table td[data-label="Atk"] { order: 11 !important; }
+  .page-explorer .stat-points-table td[data-label="Def"] { order: 12 !important; }
+  .page-explorer .stat-points-table td[data-label="SpA"] { order: 13 !important; }
+  .page-explorer .stat-points-table td[data-label="SpD"] { order: 14 !important; }
+  .page-explorer .stat-points-table td[data-label="Spe"] { order: 15 !important; }
+  .page-explorer .stat-points-table td[data-label="Usage"] { order: 2 !important; }
+  .page-explorer .stat-points-table td[data-label="#"] { order: 1 !important; }
+
+  .page-explorer .stat-points-table td[data-label="HP"],
+  .page-explorer .stat-points-table td[data-label="Atk"],
+  .page-explorer .stat-points-table td[data-label="Def"],
+  .page-explorer .stat-points-table td[data-label="SpA"],
+  .page-explorer .stat-points-table td[data-label="SpD"],
+  .page-explorer .stat-points-table td[data-label="Spe"] {
+    grid-column: unset !important;
+  }
+
+  /* Make the spread row use flex so chips wrap naturally */
+  .page-explorer .stat-points-table tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+  }
+
+  .page-explorer .stat-points-table td[data-label="#"]::before {
+    display: none !important;
+  }
+
+  .page-explorer .stat-points-table td[data-label="HP"]::before,
+  .page-explorer .stat-points-table td[data-label="Atk"]::before,
+  .page-explorer .stat-points-table td[data-label="Def"]::before,
+  .page-explorer .stat-points-table td[data-label="SpA"]::before,
+  .page-explorer .stat-points-table td[data-label="SpD"]::before,
+  .page-explorer .stat-points-table td[data-label="Spe"]::before {
+    content: attr(data-label) !important;
+    font-size: 0.58rem !important;
+    font-weight: 950 !important;
+    color: var(--soft) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    display: block !important;
+    line-height: 1 !important;
+    margin-bottom: 0.1rem !important;
+  }
+
+  /* data-table-wrap: no overflow scroll on mobile */
+  .page-explorer .data-table-wrap {
+    overflow: visible !important;
+    border: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+  }
+
+  /* ── Learnable Moves: accessible card grid ── */
+  .page-explorer .learnable-moves-table {
+    display: block !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .page-explorer .learnable-moves-table thead {
+    display: none !important;
+  }
+
+  .page-explorer .learnable-moves-table tbody {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.48rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .learnable-moves-table tr {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.28rem !important;
+    padding: 0.6rem 0.7rem !important;
+    border: 1px solid rgba(141, 232, 114, 0.14) !important;
+    border-radius: 9px !important;
+    background: rgba(7, 15, 9, 0.55) !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Move name: prominent */
+  .page-explorer .learnable-moves-table td[data-label="Move"] {
+    display: block !important;
+    padding: 0 !important;
+    border: 0 !important;
+    font-size: 0.82rem !important;
+    font-weight: 780 !important;
+    color: var(--text) !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    line-height: 1.2 !important;
+    order: 1 !important;
+  }
+
+  .page-explorer .learnable-moves-table td[data-label="Move"]::before {
+    display: none !important;
+  }
+
+  /* Type: inline chip */
+  .page-explorer .learnable-moves-table td[data-label="Type"] {
+    display: block !important;
+    padding: 0 !important;
+    border: 0 !important;
+    order: 2 !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .learnable-moves-table td[data-label="Type"]::before {
+    display: none !important;
+  }
+
+  /* Category, Power, Accuracy, PP: small metadata row */
+  .page-explorer .learnable-moves-table td[data-label="Category"] {
+    order: 3 !important;
+  }
+
+  .page-explorer .learnable-moves-table td[data-label="Power"],
+  .page-explorer .learnable-moves-table td[data-label="Accuracy"],
+  .page-explorer .learnable-moves-table td[data-label="PP"] {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    gap: 0.2rem !important;
+    padding: 0 !important;
+    border: 0 !important;
+    font-size: 0.7rem !important;
+    color: var(--muted) !important;
+    white-space: nowrap !important;
+    min-width: 0 !important;
+  }
+
+  .page-explorer .learnable-moves-table td[data-label="Power"] { order: 4 !important; }
+  .page-explorer .learnable-moves-table td[data-label="Accuracy"] { order: 5 !important; }
+  .page-explorer .learnable-moves-table td[data-label="PP"] { order: 6 !important; }
+
+  .page-explorer .learnable-moves-table td[data-label="Category"]::before,
+  .page-explorer .learnable-moves-table td[data-label="Power"]::before,
+  .page-explorer .learnable-moves-table td[data-label="Accuracy"]::before,
+  .page-explorer .learnable-moves-table td[data-label="PP"]::before {
+    content: attr(data-label) ": " !important;
+    font-size: 0.62rem !important;
+    font-weight: 950 !important;
+    color: var(--soft) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  /* Description: full-width below all metadata */
+  .page-explorer .learnable-moves-table td[data-label="Description"] {
+    display: block !important;
+    padding: 0.34rem 0 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(141, 232, 114, 0.09) !important;
+    font-size: 0.72rem !important;
+    color: var(--muted) !important;
+    line-height: 1.45 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    order: 8 !important;
+    grid-column: 1 / -1 !important;
+  }
+
+  .page-explorer .learnable-moves-table td[data-label="Description"]::before {
+    display: none !important;
+  }
+
+  /* Category pill stays readable */
+  .page-explorer .learnable-moves-table .move-category {
+    font-size: 0.62rem !important;
+    padding: 0.1rem 0.34rem !important;
+    min-width: 0 !important;
+  }
+
+  /* Type chip in moves table */
+  .page-explorer .learnable-moves-table .move-type-label {
+    font-size: 0.7rem !important;
+    white-space: nowrap !important;
+  }
+
+  .page-explorer .learnable-moves-table .move-type-label img {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+/* ── Very small screens (≤390px): tighten further ── */
+@media (max-width: 390px) {
+  .page-explorer .detail-hero {
+    grid-template-columns: minmax(0, 1fr) 88px !important;
+  }
+
+  .page-explorer .detail-art {
+    width: 88px !important;
+    height: 88px !important;
+  }
+
+  .page-explorer .detail-art img {
+    width: 76px !important;
+    height: 76px !important;
+  }
+
+  .page-explorer .detail-metrics {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+
+  .page-explorer .learnable-moves-table tbody {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page-explorer .forms-table td[data-label="Stats"] .form-stat-line {
+    gap: 0.22rem 0.4rem !important;
+  }
+}

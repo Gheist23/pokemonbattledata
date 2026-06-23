@@ -1478,8 +1478,10 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
         <tbody>
           ${forms.map((form) => {
             const abilities = combinedAbilityLabel(form);
+            const formName = formProfileName(form);
+            const targetKind = findRecordByBattleName(formName) ? "exact" : "base";
             return `<tr>
-              ${tableCell("Form", escapeHtml(form.saved_name || form.form_name || "—"))}
+              ${tableCell("Form", `<button class="form-profile-button" type="button" data-form-name="${escapeHtml(formName)}" data-battle-source="${escapeHtml(targetKind)}">${escapeHtml(formName || "—")}</button>`)}
               ${tableCell("Types", escapeHtml(form.types.join(" / ") || "—"))}
               ${tableCell("Abilities", escapeHtml(abilities || "—"))}
               ${tableCell("Stats", `<span class="form-stat-line">${FORM_STATS.map(([key, label]) => `<span>${escapeHtml(label)} ${escapeHtml(metadataStatValue(form, key) ?? "—")}</span>`).join("")}</span>`)}
@@ -1489,7 +1491,61 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       </table>`;
 
     outer.append(desktopWrap);
+    desktopWrap.querySelectorAll(".forms-table tbody tr").forEach((row, index) => {
+      const form = forms[index];
+      row.classList.add("form-profile-row");
+      row.tabIndex = 0;
+      row.setAttribute("role", "button");
+      row.setAttribute("aria-label", `Open ${formProfileName(form)} profile`);
+      row.addEventListener("click", () => openDetail(formProfileRecord(record, form)));
+      row.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        openDetail(formProfileRecord(record, form));
+      });
+    });
     return outer;
+  }
+
+  function formProfileName(form) {
+    return String(form?.saved_name || form?.form_name || form?.title || form?.pokemon_name || "").trim();
+  }
+
+  function formProfileRecord(currentRecord, form) {
+    const formName = formProfileName(form);
+    const exactRecord = findRecordByBattleName(formName);
+    const baseName = String(form?.pokemon_name || form?.base_name || currentRecord?.primary?.pokemon_name || "").trim();
+    const baseRecord = findRecordByBattleName(baseName) || currentRecord;
+    const sourceRecord = exactRecord || baseRecord;
+    const battleName = exactRecord ? battleDataName(exactRecord) : battleDataName(baseRecord);
+    const selectedForm = form || sourceRecord.primary;
+    return {
+      ...sourceRecord,
+      name: formName || sourceRecord.name,
+      battleName,
+      key: `${sourceRecord.key || recordKey(battleName)}::form::${recordKey(formName || sourceRecord.name)}`,
+      primary: selectedForm,
+      types: selectedForm?.types?.length ? selectedForm.types : sourceRecord.types,
+      imageCandidates: pokemonImageCandidates(selectedForm?.image_path, formName, selectedForm?.form_name),
+      forms: currentRecord?.forms?.length ? currentRecord.forms : sourceRecord.forms,
+      metadataCsv: currentRecord?.metadataCsv || sourceRecord.metadataCsv,
+      battleSources: sourceRecord.battleSources || [],
+      seasons: sourceRecord.seasons || [],
+      formats: sourceRecord.formats || [],
+      summariesBySeason: sourceRecord.summariesBySeason || {},
+      battleBySelection: sourceRecord.battleBySelection || new Map(),
+      learnableMoveNames: [],
+      learnableMoves: [],
+      learnableMovesLoaded: false,
+      metadataLoaded: true,
+      formProfileBattleSource: exactRecord ? "exact" : "base"
+    };
+  }
+
+  function findRecordByBattleName(name) {
+    const target = recordKey(name);
+    if (!target) return null;
+    return state.pokemon.find((record) => recordKey(battleDataName(record)) === target) || null;
   }
 
   function natureChangeMarkup(natureName) {

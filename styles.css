@@ -7257,3 +7257,116 @@ body.page-api::before {
     height: 12px !important;
   }
 }
+
+.form-profile-row {
+  cursor: pointer;
+}
+
+.form-profile-row:hover,
+.form-profile-row:focus-visible {
+  background: rgba(141, 232, 114, 0.06);
+}
+
+.form-profile-button {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  color: var(--text);
+  background: transparent;
+  font: inherit;
+  font-weight: 850;
+  text-align: left;
+  cursor: pointer;
+}
+
+.form-profile-button:hover,
+.form-profile-row:focus-visible .form-profile-button {
+  color: var(--brand);
+}
+
+@media (max-width: 760px) {
+  .page-explorer .detail-art {
+    margin-top: 1rem !important;
+  }
+
+  .page-explorer .battle-column {
+    gap: 1.35rem !important;
+  }
+
+  .page-explorer .detail-section.nested + .detail-section.nested {
+    margin-top: 0.35rem !important;
+    padding-top: 0.85rem !important;
+    border-top: 1px solid rgba(141, 232, 114, 0.11) !important;
+  }
+
+  .page-explorer .moves-table tr {
+    grid-template-columns: 1.6rem auto minmax(0, 1fr) auto !important;
+    grid-template-areas: "rank type move usage" !important;
+    gap: 0.42rem 0.44rem !important;
+  }
+
+  .page-explorer .moves-table td[data-label="Type"] {
+    width: 18px !important;
+    min-width: 18px !important;
+    justify-content: center !important;
+  }
+
+  .page-explorer .moves-table .move-type-label {
+    width: 18px !important;
+    gap: 0 !important;
+  }
+
+  .page-explorer .moves-table .move-type-label span {
+    display: none !important;
+  }
+
+  .page-explorer .moves-table .move-type-label img {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .page-explorer .battle-table td[data-label="Usage"],
+  .page-explorer .nature-table td[data-label="Usage"],
+  .page-explorer .stat-points-table td[data-label="Usage"] {
+    justify-self: end !important;
+    margin-left: auto !important;
+  }
+
+  .page-explorer .stat-points-table td[data-label="Usage"] {
+    flex: 1 1 calc(100% - 2rem) !important;
+  }
+
+  .page-explorer .stat-points-table .usage-meter {
+    width: 128px !important;
+    max-width: 128px !important;
+  }
+
+  .page-explorer .stat-points-table .usage-svg {
+    width: 128px !important;
+    max-width: 128px !important;
+  }
+
+  .page-explorer .learnable-moves-table .move-category {
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: var(--text) !important;
+    font-size: 0.68rem !important;
+    font-weight: 850 !important;
+  }
+
+  .page-explorer .learnable-moves-table .move-category-full {
+    display: none !important;
+  }
+
+  .page-explorer .learnable-moves-table .move-category-short {
+    display: inline !important;
+  }
+
+  .page-explorer .form-profile-button {
+    width: 100% !important;
+  }
+}

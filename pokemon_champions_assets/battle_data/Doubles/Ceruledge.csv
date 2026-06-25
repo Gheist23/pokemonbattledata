@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Ceruledge,63,move,1,Bitter Blade,99.7%,,,,,,,,,4170.23
-Ceruledge,63,move,2,Shadow Sneak,85.9%,,,,,,,,,4170.23
-Ceruledge,63,move,3,Protect,79.0%,,,,,,,,,4170.23
-Ceruledge,63,move,4,Bulk Up,53.9%,,,,,,,,,4170.23
-Ceruledge,63,move,5,Swords Dance,20.6%,,,,,,,,,4170.23
-Ceruledge,63,move,6,Poltergeist,20.2%,,,,,,,,,4176.23
-Ceruledge,63,move,7,Close Combat,8.2%,,,,,,,,,4176.23
-Ceruledge,63,move,8,Shadow Claw,4.6%,,,,,,,,,4176.23
-Ceruledge,63,move,9,Solar Blade,3.1%,,,,,,,,,4176.23
-Ceruledge,63,move,10,Psych Up,2.8%,,,,,,,,,4176.23
-Ceruledge,63,held_item,1,Colbur Berry,28.8%,,,,,,,,,4179.73
-Ceruledge,63,held_item,2,Focus Sash,13.6%,,,,,,,,,4179.73
-Ceruledge,63,held_item,3,Life Orb,12.3%,,,,,,,,,4179.73
-Ceruledge,63,held_item,4,Sitrus Berry,11.2%,,,,,,,,,4179.73
-Ceruledge,63,held_item,5,Leftovers,10.6%,,,,,,,,,4179.73
-Ceruledge,63,held_item,6,Charcoal,8.0%,,,,,,,,,4184.73
-Ceruledge,63,held_item,7,Choice Scarf,2.3%,,,,,,,,,4184.73
-Ceruledge,63,held_item,8,Kasib Berry,2.1%,,,,,,,,,4184.73
-Ceruledge,63,held_item,9,White Herb,1.6%,,,,,,,,,4184.73
-Ceruledge,63,held_item,10,Big Root,1.5%,,,,,,,,,4184.73
-Ceruledge,63,teammate,1,Sinistcha,,,,,,,,,,4188.23
-Ceruledge,63,teammate,2,Whimsicott,,,,,,,,,,4188.23
-Ceruledge,63,teammate,3,Garchomp,,,,,,,,,,4188.23
-Ceruledge,63,teammate,4,Milotic,,,,,,,,,,4188.23
-Ceruledge,63,teammate,5,Raichu,,,,,,,,,,4188.23
-Ceruledge,63,teammate,6,Staraptor,,,,,,,,,,4193.23
-Ceruledge,63,teammate,7,Incineroar,,,,,,,,,,4193.23
-Ceruledge,63,teammate,8,Sneasler,,,,,,,,,,4193.23
-Ceruledge,63,teammate,9,Metagross,,,,,,,,,,4193.23
-Ceruledge,63,teammate,10,Alolan Ninetales,,,,,,,,,,4193.23
-Ceruledge,63,stat_alignment,1,Adamant,77.9%,Attack,Sp. Atk,,,,,,,4196.73
-Ceruledge,63,stat_alignment,2,Jolly,12.4%,Speed,Sp. Atk,,,,,,,4196.73
-Ceruledge,63,stat_alignment,3,Careful,2.8%,Sp. Def,Sp. Atk,,,,,,,4196.73
-Ceruledge,63,stat_alignment,4,Brave,2.6%,Attack,Speed,,,,,,,4196.73
-Ceruledge,63,stat_alignment,5,Impish,2.0%,Defense,Sp. Atk,,,,,,,4196.73
-Ceruledge,63,stat_alignment,6,Naughty,0.5%,Attack,Sp. Def,,,,,,,4201.73
-Ceruledge,63,stat_alignment,7,Relaxed,0.4%,Defense,Speed,,,,,,,4201.73
-Ceruledge,63,stat_alignment,8,Naive,0.3%,Speed,Sp. Def,,,,,,,4201.73
-Ceruledge,63,stat_alignment,9,Lonely,0.3%,Attack,Defense,,,,,,,4201.73
-Ceruledge,63,stat_alignment,10,Sassy,0.2%,Sp. Def,Speed,,,,,,,4201.73
-Ceruledge,63,stat_points,1,,12.6%,,,2,32,0,0,0,32,4205.23
-Ceruledge,63,stat_points,2,,7.0%,,,3,1,26,0,0,8,4208.23
-Ceruledge,63,stat_points,3,,6.6%,,,27,20,18,0,1,0,4205.23
-Ceruledge,63,stat_points,4,,6.3%,,,32,32,2,0,0,0,4205.23
-Ceruledge,63,stat_points,5,,4.5%,,,32,32,0,0,0,2,4205.23
-Ceruledge,63,stat_points,8,,3.4%,,,0,32,2,0,0,32,4217.23
-Ceruledge,63,stat_points,9,,2.5%,,,18,15,7,0,2,24,4217.23
-Ceruledge,63,stat_points,10,,1.7%,,,1,32,1,0,0,32,4217.23
-Ceruledge,63,stat_points,11,,1.5%,,,30,32,0,0,0,4,4217.23
-Ceruledge,63,stat_points,12,,0.9%,,,1,32,0,0,1,32,4217.23
-Ceruledge,63,ability,1,Flash Fire,88.9%,,,,,,,,,4224.73
-Ceruledge,63,ability,2,Weak Armor,11.1%,,,,,,,,,4224.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Ceruledge,58,move,1,Bitter Blade,99.7%,,,,,,,,
+Ceruledge,58,move,2,Shadow Sneak,85.8%,,,,,,,,
+Ceruledge,58,move,3,Protect,,,,,,,,,
+Ceruledge,58,move,4,Bulk Up,56.4%,,,,,,,,
+Ceruledge,58,move,5,Swords Dance,18.9%,,,,,,,,
+Ceruledge,58,move,6,Poltergeist,18.4%,,,,,,,,
+Ceruledge,58,move,7,Close Combat,8.5%,,,,,,,,
+Ceruledge,58,move,8,Shadow Claw,4.0%,,,,,,,,
+Ceruledge,58,move,9,Phantom Force,3.8%,,,,,,,,
+Ceruledge,58,move,10,Solar Blade,3.1%,,,,,,,,
+Ceruledge,58,held_item,1,Colbur Berry,32.7%,,,,,,,,
+Ceruledge,58,held_item,2,Focus Sash,13.6%,,,,,,,,
+Ceruledge,58,held_item,3,Life Orb,11.2%,,,,,,,,
+Ceruledge,58,held_item,4,Sitrus Berry,10.5%,,,,,,,,
+Ceruledge,58,held_item,5,Leftovers,9.4%,,,,,,,,
+Ceruledge,58,held_item,6,Charcoal,2.7%,,,,,,,,
+Ceruledge,58,held_item,7,Kasib Berry,2.1%,,,,,,,,
+Ceruledge,58,held_item,8,Choice Scarf,1.9%,,,,,,,,
+Ceruledge,58,held_item,9,White Herb,1.6%,,,,,,,,
+Ceruledge,58,held_item,10,Big Root,1.4%,,,,,,,,
+Ceruledge,58,teammate,1,Sinistcha,,,,,,,,,
+Ceruledge,58,teammate,2,Milotic,,,,,,,,,
+Ceruledge,58,teammate,3,Raichu,,,,,,,,,
+Ceruledge,58,teammate,4,Incineroar,,,,,,,,,
+Ceruledge,58,teammate,5,Whimsicott,,,,,,,,,
+Ceruledge,58,teammate,6,Garchomp,,,,,,,,,
+Ceruledge,58,teammate,7,Sneasler,,,,,,,,,
+Ceruledge,58,teammate,8,Floette,,,,,,,,,
+Ceruledge,58,teammate,9,Metagross,,,,,,,,,
+Ceruledge,58,teammate,10,Alolan Ninetales,,,,,,,,,
+Ceruledge,58,stat_alignment,1,Adamant,79.6%,Attack,Sp. Atk,,,,,,
+Ceruledge,58,stat_alignment,2,Jolly,11.7%,Speed,Sp. Atk,,,,,,
+Ceruledge,58,stat_alignment,3,Brave,2.4%,Attack,Speed,,,,,,
+Ceruledge,58,stat_alignment,4,Careful,2.1%,Sp. Def,Sp. Atk,,,,,,
+Ceruledge,58,stat_alignment,5,Impish,2.0%,Defense,Sp. Atk,,,,,,
+Ceruledge,58,stat_alignment,6,Naughty,0.6%,Attack,Sp. Def,,,,,,
+Ceruledge,58,stat_alignment,7,Relaxed,0.3%,Defense,Speed,,,,,,
+Ceruledge,58,stat_alignment,8,Lonely,0.3%,Attack,Defense,,,,,,
+Ceruledge,58,stat_alignment,9,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Ceruledge,58,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
+Ceruledge,58,stat_points,1,,12.9%,,,2,32,0,0,0,32
+Ceruledge,58,stat_points,2,,8.6%,,,31,25,10,0,0,0
+Ceruledge,58,stat_points,3,,5.9%,,,32,32,2,0,0,0
+Ceruledge,58,stat_points,4,,5.8%,,,27,20,18,0,1,0
+Ceruledge,58,stat_points,5,,5.5%,,,31,1,26,0,0,8
+Ceruledge,58,stat_points,6,,3.7%,,,32,32,0,0,0,2
+Ceruledge,58,stat_points,7,,3.5%,,,0,32,2,0,0,32
+Ceruledge,58,stat_points,8,,3.2%,,,18,15,7,0,2,24
+Ceruledge,58,stat_points,9,,3.2%,,,0,32,0,0,2,32
+Ceruledge,58,stat_points,10,,2.8%,,,32,32,0,0,2,0
+Ceruledge,58,stat_points,11,,1.9%,,,1,32,1,0,0,32
+Ceruledge,58,stat_points,12,,1.7%,,,30,32,0,0,0,4
+Ceruledge,58,ability,1,Flash Fire,88.5%,,,,,,,,
+Ceruledge,58,ability,2,Weak Armor,11.5%,,,,,,,,

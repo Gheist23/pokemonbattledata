@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Volcarona,76,move,1,Quiver Dance,59.9%,,,,,,,,,5044.23
-Volcarona,76,move,2,Protect,58.0%,,,,,,,,,5044.23
-Volcarona,76,move,3,Heat Wave,57.0%,,,,,,,,,5044.23
-Volcarona,76,move,4,Giga Drain,42.2%,,,,,,,,,5044.23
-Volcarona,76,move,5,Rage Powder,39.5%,,,,,,,,,5044.23
-Volcarona,76,move,6,Fiery Dance,36.4%,,,,,,,,,5049.73
-Volcarona,76,move,7,Bug Buzz,33.4%,,,,,,,,,5049.73
-Volcarona,76,move,8,Tailwind,19.6%,,,,,,,,,5049.73
-Volcarona,76,move,9,Struggle Bug,15.1%,,,,,,,,,5049.73
-Volcarona,76,move,10,Will-O-Wisp,7.7%,,,,,,,,,5049.73
-Volcarona,76,held_item,1,Leftovers,27.3%,,,,,,,,,5053.23
-Volcarona,76,held_item,2,Sitrus Berry,26.1%,,,,,,,,,5053.23
-Volcarona,76,held_item,3,Focus Sash,10.1%,,,,,,,,,5053.23
-Volcarona,76,held_item,4,Charti Berry,9.2%,,,,,,,,,5053.23
-Volcarona,76,held_item,5,Life Orb,7.8%,,,,,,,,,5053.23
-Volcarona,76,held_item,6,Charcoal,3.8%,,,,,,,,,5058.23
-Volcarona,76,held_item,7,Choice Scarf,2.1%,,,,,,,,,5058.23
-Volcarona,76,held_item,8,Passho Berry,1.9%,,,,,,,,,5058.23
-Volcarona,76,held_item,9,Silver Powder,1.5%,,,,,,,,,5058.23
-Volcarona,76,held_item,10,Bright Powder,1.2%,,,,,,,,,5058.23
-Volcarona,76,teammate,1,Whimsicott,,,,,,,,,,5061.73
-Volcarona,76,teammate,2,Garchomp,,,,,,,,,,5061.73
-Volcarona,76,teammate,3,Sinistcha,,,,,,,,,,5061.73
-Volcarona,76,teammate,4,Staraptor,,,,,,,,,,5061.73
-Volcarona,76,teammate,5,Sneasler,,,,,,,,,,5061.73
-Volcarona,76,teammate,6,Raichu,,,,,,,,,,5066.73
-Volcarona,76,teammate,7,Basculegion,,,,,,,,,,5066.73
-Volcarona,76,teammate,8,Grimmsnarl,,,,,,,,,,5066.73
-Volcarona,76,teammate,9,Metagross,,,,,,,,,,5066.73
-Volcarona,76,teammate,10,Sylveon,,,,,,,,,,5066.73
-Volcarona,76,stat_alignment,1,Modest,43.7%,Sp. Atk,Attack,,,,,,,5070.23
-Volcarona,76,stat_alignment,2,Bold,27.7%,Defense,Attack,,,,,,,5070.23
-Volcarona,76,stat_alignment,3,Timid,21.2%,Speed,Attack,,,,,,,5070.23
-Volcarona,76,stat_alignment,4,Calm,4.5%,Sp. Def,Attack,,,,,,,5070.23
-Volcarona,76,stat_alignment,5,Mild,1.0%,Sp. Atk,Defense,,,,,,,5070.23
-Volcarona,76,stat_alignment,6,Quiet,0.9%,Sp. Atk,Speed,,,,,,,5075.23
-Volcarona,76,stat_alignment,7,Hasty,0.4%,Speed,Defense,,,,,,,5075.23
-Volcarona,76,stat_alignment,8,Relaxed,0.4%,Defense,Speed,,,,,,,5075.23
-Volcarona,76,stat_alignment,9,Sassy,0.2%,Sp. Def,Speed,,,,,,,5075.23
-Volcarona,76,stat_alignment,10,Serious,0.0%,,,,,,,,,5075.23
-Volcarona,76,stat_points,1,,9.7%,,,2,0,0,32,0,32,5078.73
-Volcarona,76,stat_points,2,,6.9%,,,32,0,32,0,2,0,5078.73
-Volcarona,76,stat_points,3,,4.5%,,,0,0,2,32,0,32,5078.73
-Volcarona,76,stat_points,4,,4.4%,,,0,0,0,32,2,32,5078.73
-Volcarona,76,stat_points,5,,3.1%,,,32,0,32,2,0,0,5078.73
-Volcarona,76,stat_points,8,,2.1%,,,32,0,0,32,0,2,5090.73
-Volcarona,76,stat_points,9,,2.0%,,,2,0,32,32,0,0,5090.73
-Volcarona,76,stat_points,10,,1.5%,,,32,0,0,32,2,0,5090.73
-Volcarona,76,stat_points,11,,1.2%,,,32,0,32,1,1,0,5090.73
-Volcarona,76,stat_points,12,,1.0%,,,32,0,29,5,0,0,5090.73
-Volcarona,76,ability,1,Flame Body,97.4%,,,,,,,,,5098.23
-Volcarona,76,ability,2,Swarm,2.6%,,,,,,,,,5098.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Volcarona,78,move,1,Quiver Dance,59.1%,,,,,,,,
+Volcarona,78,move,2,Protect,57.2%,,,,,,,,
+Volcarona,78,move,3,Heat Wave,56.4%,,,,,,,,
+Volcarona,78,move,4,Giga Drain,44.0%,,,,,,,,
+Volcarona,78,move,5,Rage Powder,37.9%,,,,,,,,
+Volcarona,78,move,6,Fiery Dance,36.3%,,,,,,,,
+Volcarona,78,move,7,Bug Buzz,34.2%,,,,,,,,
+Volcarona,78,move,8,Tailwind,21.1%,,,,,,,,
+Volcarona,78,move,9,Struggle Bug,14.1%,,,,,,,,
+Volcarona,78,move,10,Will-O-Wisp,7.7%,,,,,,,,
+Volcarona,78,held_item,1,Sitrus Berry,24.9%,,,,,,,,
+Volcarona,78,held_item,2,Leftovers,24.7%,,,,,,,,
+Volcarona,78,held_item,3,Focus Sash,11.3%,,,,,,,,
+Volcarona,78,held_item,4,Charti Berry,9.7%,,,,,,,,
+Volcarona,78,held_item,5,Life Orb,8.5%,,,,,,,,
+Volcarona,78,held_item,6,Charcoal,4.4%,,,,,,,,
+Volcarona,78,held_item,7,Choice Scarf,2.4%,,,,,,,,
+Volcarona,78,held_item,8,Passho Berry,1.8%,,,,,,,,
+Volcarona,78,held_item,9,Wise Glasses,1.8%,,,,,,,,
+Volcarona,78,held_item,10,Bright Powder,1.6%,,,,,,,,
+Volcarona,78,teammate,1,Whimsicott,,,,,,,,,
+Volcarona,78,teammate,2,Garchomp,,,,,,,,,
+Volcarona,78,teammate,3,Sinistcha,,,,,,,,,
+Volcarona,78,teammate,4,Raichu,,,,,,,,,
+Volcarona,78,teammate,5,Sneasler,,,,,,,,,
+Volcarona,78,teammate,6,Basculegion Male,,,,,,,,,
+Volcarona,78,teammate,7,Staraptor,,,,,,,,,
+Volcarona,78,teammate,8,Grimmsnarl,,,,,,,,,
+Volcarona,78,teammate,9,Sylveon,,,,,,,,,
+Volcarona,78,teammate,10,Kingambit,,,,,,,,,
+Volcarona,78,stat_alignment,1,Modest,43.8%,Sp. Atk,Attack,,,,,,
+Volcarona,78,stat_alignment,2,Bold,26.5%,Defense,Attack,,,,,,
+Volcarona,78,stat_alignment,3,Timid,22.3%,Speed,Attack,,,,,,
+Volcarona,78,stat_alignment,4,Calm,4.1%,Sp. Def,Attack,,,,,,
+Volcarona,78,stat_alignment,5,Mild,1.2%,Sp. Atk,Defense,,,,,,
+Volcarona,78,stat_alignment,6,Quiet,0.8%,Sp. Atk,Speed,,,,,,
+Volcarona,78,stat_alignment,7,Relaxed,0.5%,Defense,Speed,,,,,,
+Volcarona,78,stat_alignment,8,Hasty,0.5%,Speed,Defense,,,,,,
+Volcarona,78,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Volcarona,78,stat_alignment,10,Bashful,0.1%,,,,,,,,
+Volcarona,78,stat_points,1,,11.9%,,,2,0,0,32,0,32
+Volcarona,78,stat_points,2,,6.9%,,,32,0,32,0,2,0
+Volcarona,78,stat_points,3,,4.8%,,,0,0,0,32,2,32
+Volcarona,78,stat_points,4,,4.3%,,,0,0,2,32,0,32
+Volcarona,78,stat_points,5,,3.6%,,,32,0,32,2,0,0
+Volcarona,78,stat_points,6,,2.7%,,,32,0,0,32,0,2
+Volcarona,78,stat_points,7,,2.3%,,,32,0,32,0,0,2
+Volcarona,78,stat_points,8,,2.2%,,,32,0,2,32,0,0
+Volcarona,78,stat_points,9,,1.7%,,,2,0,32,32,0,0
+Volcarona,78,stat_points,10,,1.6%,,,32,0,0,32,2,0
+Volcarona,78,stat_points,11,,0.9%,,,32,0,32,1,1,0
+Volcarona,78,stat_points,12,,0.9%,,,1,0,0,32,1,32
+Volcarona,78,ability,1,Flame Body,97.0%,,,,,,,,
+Volcarona,78,ability,2,Swarm,3.0%,,,,,,,,

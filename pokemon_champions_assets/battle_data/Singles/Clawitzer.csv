@@ -1,52 +1,54 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Clawitzer,156,move,1,Aura Sphere,93.2%,,,,,,,,,4977.23
-Clawitzer,156,move,2,Water Pulse,90.1%,,,,,,,,,4977.23
-Clawitzer,156,move,3,Dark Pulse,69.8%,,,,,,,,,4977.23
-Clawitzer,156,move,4,Aqua Jet,51.8%,,,,,,,,,4977.23
-Clawitzer,156,move,5,Ice Beam,40.9%,,,,,,,,,4977.23
-Clawitzer,156,move,6,Dragon Pulse,26.9%,,,,,,,,,4982.73
-Clawitzer,156,move,7,Sludge Wave,8.8%,,,,,,,,,4982.73
-Clawitzer,156,move,8,Hydro Pump,4.1%,,,,,,,,,4982.73
-Clawitzer,156,move,9,Flip Turn,3.8%,,,,,,,,,4982.73
-Clawitzer,156,move,10,Terrain Pulse,2.7%,,,,,,,,,4982.73
-Clawitzer,156,held_item,1,Life Orb,26.9%,,,,,,,,,4986.23
-Clawitzer,156,held_item,2,Sitrus Berry,20.9%,,,,,,,,,4986.23
-Clawitzer,156,held_item,3,Expert Belt,10.0%,,,,,,,,,4986.23
-Clawitzer,156,held_item,4,Quick Claw,8.9%,,,,,,,,,4986.23
-Clawitzer,156,held_item,5,Focus Sash,8.8%,,,,,,,,,4986.23
-Clawitzer,156,held_item,6,Choice Scarf,7.2%,,,,,,,,,4991.23
-Clawitzer,156,held_item,7,Mystic Water,6.5%,,,,,,,,,4991.23
-Clawitzer,156,held_item,8,Wise Glasses,2.2%,,,,,,,,,4991.23
-Clawitzer,156,held_item,9,Wacan Berry,1.4%,,,,,,,,,4991.23
-Clawitzer,156,held_item,10,Lum Berry,1.4%,,,,,,,,,4991.23
-Clawitzer,156,teammate,1,Garchomp,,,,,,,,,,4994.73
-Clawitzer,156,teammate,2,Raichu,,,,,,,,,,4994.73
-Clawitzer,156,teammate,3,Staraptor,,,,,,,,,,4994.73
-Clawitzer,156,teammate,4,Meowscarada,,,,,,,,,,4994.73
-Clawitzer,156,teammate,5,Mimikyu,,,,,,,,,,4994.73
-Clawitzer,156,teammate,6,Dragonite,,,,,,,,,,4999.73
-Clawitzer,156,teammate,7,Blaziken,,,,,,,,,,4999.73
-Clawitzer,156,teammate,8,Charizard,,,,,,,,,,4999.73
-Clawitzer,156,teammate,9,Mawile,,,,,,,,,,4999.73
-Clawitzer,156,teammate,10,Metagross,,,,,,,,,,4999.73
-Clawitzer,156,stat_alignment,1,Modest,68.8%,Sp. Atk,Attack,,,,,,,5003.23
-Clawitzer,156,stat_alignment,2,Quiet,15.8%,Sp. Atk,Speed,,,,,,,5003.23
-Clawitzer,156,stat_alignment,3,Timid,8.9%,Speed,Attack,,,,,,,5003.23
-Clawitzer,156,stat_alignment,4,Relaxed,2.4%,Defense,Speed,,,,,,,5003.23
-Clawitzer,156,stat_alignment,5,Bold,1.4%,Defense,Attack,,,,,,,5003.23
-Clawitzer,156,stat_alignment,6,Mild,1.3%,Sp. Atk,Defense,,,,,,,5008.23
-Clawitzer,156,stat_alignment,7,Calm,0.6%,Sp. Def,Attack,,,,,,,5008.23
-Clawitzer,156,stat_alignment,8,Naughty,0.2%,Attack,Sp. Def,,,,,,,5008.23
-Clawitzer,156,stat_alignment,9,Sassy,0.2%,Sp. Def,Speed,,,,,,,5008.23
-Clawitzer,156,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,,5008.23
-Clawitzer,156,stat_points,1,,15.4%,,,32,0,2,32,0,0,5011.73
-Clawitzer,156,stat_points,2,,10.1%,,,32,0,1,32,1,0,5011.73
-Clawitzer,156,stat_points,3,,9.5%,,,32,0,0,32,2,0,5011.73
-Clawitzer,156,stat_points,4,,7.3%,,,32,0,0,32,0,2,5011.73
-Clawitzer,156,stat_points,5,,6.0%,,,2,0,0,32,0,32,5011.73
-Clawitzer,156,stat_points,8,,2.0%,,,0,0,0,32,2,32,5023.73
-Clawitzer,156,stat_points,9,,2.0%,,,27,0,0,32,0,7,5023.73
-Clawitzer,156,stat_points,10,,1.6%,,,32,0,17,17,0,0,5023.73
-Clawitzer,156,stat_points,11,,1.5%,,,32,0,1,32,0,1,5023.73
-Clawitzer,156,stat_points,12,,1.5%,,,3,0,2,32,1,0,5023.73
-Clawitzer,156,ability,1,Mega Launcher,100.0%,,,,,,,,,5031.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Clawitzer,158,move,1,Aura Sphere,93.1%,,,,,,,,
+Clawitzer,158,move,2,Water Pulse,90.2%,,,,,,,,
+Clawitzer,158,move,3,Dark Pulse,70.2%,,,,,,,,
+Clawitzer,158,move,4,Aqua Jet,49.2%,,,,,,,,
+Clawitzer,158,move,5,Ice Beam,39.9%,,,,,,,,
+Clawitzer,158,move,6,Dragon Pulse,30.4%,,,,,,,,
+Clawitzer,158,move,7,Sludge Wave,7.8%,,,,,,,,
+Clawitzer,158,move,8,Flip Turn,3.9%,,,,,,,,
+Clawitzer,158,move,9,Hydro Pump,3.5%,,,,,,,,
+Clawitzer,158,move,10,Terrain Pulse,3.1%,,,,,,,,
+Clawitzer,158,held_item,1,Life Orb,27.3%,,,,,,,,
+Clawitzer,158,held_item,2,Sitrus Berry,20.0%,,,,,,,,
+Clawitzer,158,held_item,3,Expert Belt,9.7%,,,,,,,,
+Clawitzer,158,held_item,4,Quick Claw,9.2%,,,,,,,,
+Clawitzer,158,held_item,5,Choice Scarf,8.5%,,,,,,,,
+Clawitzer,158,held_item,6,Focus Sash,8.4%,,,,,,,,
+Clawitzer,158,held_item,7,Mystic Water,6.1%,,,,,,,,
+Clawitzer,158,held_item,8,Wise Glasses,2.9%,,,,,,,,
+Clawitzer,158,held_item,9,Wacan Berry,1.9%,,,,,,,,
+Clawitzer,158,held_item,10,Lum Berry,1.2%,,,,,,,,
+Clawitzer,158,teammate,1,Garchomp,,,,,,,,,
+Clawitzer,158,teammate,2,Raichu,,,,,,,,,
+Clawitzer,158,teammate,3,Staraptor,,,,,,,,,
+Clawitzer,158,teammate,4,Meowscarada,,,,,,,,,
+Clawitzer,158,teammate,5,Mimikyu,,,,,,,,,
+Clawitzer,158,teammate,6,Dragonite,,,,,,,,,
+Clawitzer,158,teammate,7,Blaziken,,,,,,,,,
+Clawitzer,158,teammate,8,Metagross,,,,,,,,,
+Clawitzer,158,teammate,9,Mawile,,,,,,,,,
+Clawitzer,158,teammate,10,Charizard,,,,,,,,,
+Clawitzer,158,stat_alignment,1,Modest,67.7%,Sp. Atk,Attack,,,,,,
+Clawitzer,158,stat_alignment,2,Quiet,15.6%,Sp. Atk,Speed,,,,,,
+Clawitzer,158,stat_alignment,3,Timid,9.9%,Speed,Attack,,,,,,
+Clawitzer,158,stat_alignment,4,Relaxed,2.0%,Defense,Speed,,,,,,
+Clawitzer,158,stat_alignment,5,Bold,1.2%,Defense,Attack,,,,,,
+Clawitzer,158,stat_alignment,6,Mild,1.2%,Sp. Atk,Defense,,,,,,
+Clawitzer,158,stat_alignment,7,Calm,0.8%,Sp. Def,Attack,,,,,,
+Clawitzer,158,stat_alignment,8,Hasty,0.7%,Speed,Defense,,,,,,
+Clawitzer,158,stat_alignment,9,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Clawitzer,158,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
+Clawitzer,158,stat_points,1,,17.0%,,,32,0,2,32,0,0
+Clawitzer,158,stat_points,2,,9.0%,,,32,0,1,32,1,0
+Clawitzer,158,stat_points,3,,7.8%,,,32,0,0,32,2,0
+Clawitzer,158,stat_points,4,,7.1%,,,2,0,0,32,0,32
+Clawitzer,158,stat_points,5,,6.5%,,,32,0,0,32,0,2
+Clawitzer,158,stat_points,6,,3.6%,,,1,0,1,32,0,32
+Clawitzer,158,stat_points,7,,2.5%,,,0,0,0,32,2,32
+Clawitzer,158,stat_points,8,,2.1%,,,27,0,0,32,0,7
+Clawitzer,158,stat_points,9,,1.9%,,,0,0,2,32,0,32
+Clawitzer,158,stat_points,10,,1.8%,,,31,0,3,32,0,0
+Clawitzer,158,stat_points,11,,1.3%,,,31,0,0,32,0,3
+Clawitzer,158,stat_points,12,,1.3%,,,31,0,2,32,1,0
+Clawitzer,158,ability,1,Mega Launcher,100.0%,,,,,,,,

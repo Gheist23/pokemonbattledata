@@ -1,51 +1,54 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Rotom Fan,210,move,1,Air Slash,80.2%,,,,,,,,,6852.23
-Rotom Fan,210,move,2,Thunderbolt,46.8%,,,,,,,,,6852.23
-Rotom Fan,210,move,3,Volt Switch,45.4%,,,,,,,,,6852.23
-Rotom Fan,210,move,4,Discharge,37.2%,,,,,,,,,6852.23
-Rotom Fan,210,move,5,Will-O-Wisp,36.3%,,,,,,,,,6852.23
-Rotom Fan,210,move,6,Protect,34.1%,,,,,,,,,6858.23
-Rotom Fan,210,move,7,Shadow Ball,20.3%,,,,,,,,,6858.23
-Rotom Fan,210,move,8,Electroweb,17.0%,,,,,,,,,6858.23
-Rotom Fan,210,move,9,Thunder,10.4%,,,,,,,,,6858.23
-Rotom Fan,210,move,10,Trick,10.3%,,,,,,,,,6858.23
-Rotom Fan,210,held_item,1,Choice Scarf,35.2%,,,,,,,,,6861.73
-Rotom Fan,210,held_item,2,Sitrus Berry,18.5%,,,,,,,,,6861.73
-Rotom Fan,210,held_item,3,Leftovers,10.1%,,,,,,,,,6861.73
-Rotom Fan,210,held_item,4,Quick Claw,7.2%,,,,,,,,,6861.73
-Rotom Fan,210,held_item,5,Expert Belt,6.5%,,,,,,,,,6861.73
-Rotom Fan,210,held_item,6,Life Orb,6.2%,,,,,,,,,6866.73
-Rotom Fan,210,held_item,7,Wise Glasses,4.1%,,,,,,,,,6866.73
-Rotom Fan,210,held_item,8,Focus Sash,3.5%,,,,,,,,,6866.73
-Rotom Fan,210,held_item,9,Magnet,2.2%,,,,,,,,,6866.73
-Rotom Fan,210,held_item,10,Muscle Band,2.2%,,,,,,,,,6866.73
-Rotom Fan,210,teammate,1,Garchomp,,,,,,,,,,6870.23
-Rotom Fan,210,teammate,2,Sceptile,,,,,,,,,,6870.23
-Rotom Fan,210,teammate,3,Whimsicott,,,,,,,,,,6870.23
-Rotom Fan,210,teammate,4,Basculegion,,,,,,,,,,6870.23
-Rotom Fan,210,teammate,5,Sneasler,,,,,,,,,,6870.23
-Rotom Fan,210,teammate,6,Swampert,,,,,,,,,,6875.23
-Rotom Fan,210,teammate,7,Archaludon,,,,,,,,,,6875.23
-Rotom Fan,210,teammate,8,Pelipper,,,,,,,,,,6875.23
-Rotom Fan,210,teammate,9,Incineroar,,,,,,,,,,6875.23
-Rotom Fan,210,teammate,10,Tyranitar,,,,,,,,,,6875.23
-Rotom Fan,210,stat_alignment,1,Timid,41.8%,Speed,Attack,,,,,,,6878.73
-Rotom Fan,210,stat_alignment,2,Modest,40.7%,Sp. Atk,Attack,,,,,,,6878.73
-Rotom Fan,210,stat_alignment,3,Bold,7.1%,Defense,Attack,,,,,,,6878.73
-Rotom Fan,210,stat_alignment,4,Calm,5.8%,Sp. Def,Attack,,,,,,,6878.73
-Rotom Fan,210,stat_alignment,5,Sassy,1.9%,Sp. Def,Speed,,,,,,,6878.73
-Rotom Fan,210,stat_alignment,6,Quiet,1.1%,Sp. Atk,Speed,,,,,,,6883.23
-Rotom Fan,210,stat_alignment,7,Relaxed,0.7%,Defense,Speed,,,,,,,6883.23
-Rotom Fan,210,stat_alignment,8,Hasty,0.6%,Speed,Defense,,,,,,,6883.23
-Rotom Fan,210,stat_alignment,9,Mild,0.4%,Sp. Atk,Defense,,,,,,,6883.23
-Rotom Fan,210,stat_points,1,,23.6%,,,2,0,0,32,0,32,6887.23
-Rotom Fan,210,stat_points,2,,7.9%,,,0,0,0,32,2,32,6887.23
-Rotom Fan,210,stat_points,3,,6.7%,,,0,0,2,0,32,32,6887.23
-Rotom Fan,210,stat_points,4,,4.8%,,,32,0,0,32,0,2,6887.23
-Rotom Fan,210,stat_points,5,,4.2%,,,0,0,2,32,0,32,6887.23
-Rotom Fan,210,stat_points,8,,3.7%,,,32,0,1,32,1,0,6899.23
-Rotom Fan,210,stat_points,9,,3.0%,,,1,0,1,32,0,32,6899.23
-Rotom Fan,210,stat_points,10,,2.6%,,,32,0,19,15,0,0,6899.23
-Rotom Fan,210,stat_points,11,,2.4%,,,27,0,0,16,23,0,6899.23
-Rotom Fan,210,stat_points,12,,2.3%,,,32,0,0,2,0,32,6899.23
-Rotom Fan,210,ability,1,Levitate,100.0%,,,,,,,,,6906.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Rotom Fan,211,move,1,Air Slash,90.3%,,,,,,,,
+Rotom Fan,211,move,2,Will-O-Wisp,68.2%,,,,,,,,
+Rotom Fan,211,move,3,Thunderbolt,61.9%,,,,,,,,
+Rotom Fan,211,move,4,Volt Switch,61.1%,,,,,,,,
+Rotom Fan,211,move,5,Pain Split,25.1%,,,,,,,,
+Rotom Fan,211,move,6,Trick,19.1%,,,,,,,,
+Rotom Fan,211,move,7,Nasty Plot,14.0%,,,,,,,,
+Rotom Fan,211,move,8,Hex,7.3%,,,,,,,,
+Rotom Fan,211,move,9,Thunder Wave,6.9%,,,,,,,,
+Rotom Fan,211,move,10,Discharge,6.2%,,,,,,,,
+Rotom Fan,211,held_item,1,Sitrus Berry,35.0%,,,,,,,,
+Rotom Fan,211,held_item,2,Leftovers,18.7%,,,,,,,,
+Rotom Fan,211,held_item,3,Choice Scarf,18.4%,,,,,,,,
+Rotom Fan,211,held_item,4,Focus Sash,4.0%,,,,,,,,
+Rotom Fan,211,held_item,5,Wide Lens,2.6%,,,,,,,,
+Rotom Fan,211,held_item,6,Light Clay,2.4%,,,,,,,,
+Rotom Fan,211,held_item,7,Magnet,2.2%,,,,,,,,
+Rotom Fan,211,held_item,8,Bright Powder,2.1%,,,,,,,,
+Rotom Fan,211,held_item,9,Life Orb,2.1%,,,,,,,,
+Rotom Fan,211,held_item,10,Expert Belt,1.7%,,,,,,,,
+Rotom Fan,211,teammate,1,Garchomp,,,,,,,,,
+Rotom Fan,211,teammate,2,Blaziken,,,,,,,,,
+Rotom Fan,211,teammate,3,Mimikyu,,,,,,,,,
+Rotom Fan,211,teammate,4,Greninja,,,,,,,,,
+Rotom Fan,211,teammate,5,Meowscarada,,,,,,,,,
+Rotom Fan,211,teammate,6,Charizard,,,,,,,,,
+Rotom Fan,211,teammate,7,Staraptor,,,,,,,,,
+Rotom Fan,211,teammate,8,Venusaur,,,,,,,,,
+Rotom Fan,211,teammate,9,Archaludon,,,,,,,,,
+Rotom Fan,211,teammate,10,Scizor,,,,,,,,,
+Rotom Fan,211,stat_alignment,1,Bold,37.1%,Defense,Attack,,,,,,
+Rotom Fan,211,stat_alignment,2,Modest,37.1%,Sp. Atk,Attack,,,,,,
+Rotom Fan,211,stat_alignment,3,Timid,19.6%,Speed,Attack,,,,,,
+Rotom Fan,211,stat_alignment,4,Calm,3.6%,Sp. Def,Attack,,,,,,
+Rotom Fan,211,stat_alignment,5,Quiet,1.0%,Sp. Atk,Speed,,,,,,
+Rotom Fan,211,stat_alignment,6,Naive,0.6%,Speed,Sp. Def,,,,,,
+Rotom Fan,211,stat_alignment,7,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Rotom Fan,211,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Rotom Fan,211,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,
+Rotom Fan,211,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
+Rotom Fan,211,stat_points,1,,12.7%,,,2,0,0,32,0,32
+Rotom Fan,211,stat_points,2,,11.7%,,,32,0,32,0,2,0
+Rotom Fan,211,stat_points,3,,7.8%,,,32,0,32,2,0,0
+Rotom Fan,211,stat_points,4,,6.6%,,,32,0,2,32,0,0
+Rotom Fan,211,stat_points,5,,6.5%,,,32,0,0,32,0,2
+Rotom Fan,211,stat_points,6,,4.6%,,,15,0,31,5,15,0
+Rotom Fan,211,stat_points,7,,3.6%,,,32,0,32,0,0,2
+Rotom Fan,211,stat_points,8,,3.6%,,,0,0,32,32,0,2
+Rotom Fan,211,stat_points,9,,2.5%,,,0,0,32,32,2,0
+Rotom Fan,211,stat_points,10,,1.9%,,,1,0,0,32,0,32
+Rotom Fan,211,stat_points,11,,1.6%,,,0,0,2,32,0,32
+Rotom Fan,211,stat_points,12,,1.5%,,,0,0,0,32,2,32
+Rotom Fan,211,ability,1,Levitate,100.0%,,,,,,,,

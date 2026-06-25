@@ -1,54 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Glalie,153,move,1,Protect,89.7%,,,,,,,,,4776.23
-Glalie,153,move,2,Substitute,73.6%,,,,,,,,,4776.23
-Glalie,153,move,3,Freeze-Dry,73.6%,,,,,,,,,4776.23
-Glalie,153,move,4,Sheer Cold,59.2%,,,,,,,,,4776.23
-Glalie,153,move,5,Earthquake,17.6%,,,,,,,,,4776.23
-Glalie,153,move,6,Explosion,17.6%,,,,,,,,,4781.73
-Glalie,153,move,7,Ice Shard,14.4%,,,,,,,,,4781.73
-Glalie,153,move,8,Double Team,7.6%,,,,,,,,,4781.73
-Glalie,153,move,9,Frost Breath,6.6%,,,,,,,,,4781.73
-Glalie,153,move,10,Body Slam,5.2%,,,,,,,,,4781.73
-Glalie,153,held_item,1,Leftovers,70.0%,,,,,,,,,4785.23
-Glalie,153,held_item,2,Glalitite,18.6%,,,,,,,,,4785.23
-Glalie,153,held_item,3,Sitrus Berry,1.7%,,,,,,,,,4785.23
-Glalie,153,held_item,4,Focus Sash,1.5%,,,,,,,,,4785.23
-Glalie,153,held_item,5,Bright Powder,1.4%,,,,,,,,,4785.23
-Glalie,153,held_item,6,Quick Claw,1.2%,,,,,,,,,4790.23
-Glalie,153,held_item,7,Choice Scarf,1.0%,,,,,,,,,4790.23
-Glalie,153,held_item,8,White Herb,0.9%,,,,,,,,,4790.23
-Glalie,153,held_item,9,Life Orb,0.7%,,,,,,,,,4790.23
-Glalie,153,held_item,10,Lum Berry,0.5%,,,,,,,,,4790.23
-Glalie,153,teammate,1,Garchomp,,,,,,,,,,4793.73
-Glalie,153,teammate,2,Raichu,,,,,,,,,,4793.73
-Glalie,153,teammate,3,Mimikyu,,,,,,,,,,4793.73
-Glalie,153,teammate,4,Blaziken,,,,,,,,,,4793.73
-Glalie,153,teammate,5,Archaludon,,,,,,,,,,4793.73
-Glalie,153,teammate,6,Basculegion,,,,,,,,,,4798.73
-Glalie,153,teammate,7,Gengar,,,,,,,,,,4798.73
-Glalie,153,teammate,8,Staraptor,,,,,,,,,,4798.73
-Glalie,153,teammate,9,Meowscarada,,,,,,,,,,4798.73
-Glalie,153,teammate,10,Gyarados,,,,,,,,,,4798.73
-Glalie,153,stat_alignment,1,Timid,44.9%,Speed,Attack,,,,,,,4802.23
-Glalie,153,stat_alignment,2,Bold,15.7%,Defense,Attack,,,,,,,4802.23
-Glalie,153,stat_alignment,3,Jolly,9.3%,Speed,Sp. Atk,,,,,,,4802.23
-Glalie,153,stat_alignment,4,Modest,6.6%,Sp. Atk,Attack,,,,,,,4802.23
-Glalie,153,stat_alignment,5,Adamant,5.3%,Attack,Sp. Atk,,,,,,,4802.23
-Glalie,153,stat_alignment,6,Calm,4.6%,Sp. Def,Attack,,,,,,,4807.23
-Glalie,153,stat_alignment,7,Naive,4.5%,Speed,Sp. Def,,,,,,,4807.23
-Glalie,153,stat_alignment,8,Relaxed,2.0%,Defense,Speed,,,,,,,4807.23
-Glalie,153,stat_alignment,9,Serious,1.2%,,,,,,,,,4807.23
-Glalie,153,stat_alignment,10,Impish,1.0%,Defense,Sp. Atk,,,,,,,4807.23
-Glalie,153,stat_points,1,,7.8%,,,32,0,2,0,0,32,4810.73
-Glalie,153,stat_points,2,,6.7%,,,2,32,0,0,0,32,4810.73
-Glalie,153,stat_points,3,,6.7%,,,22,0,0,12,0,32,4810.73
-Glalie,153,stat_points,4,,4.3%,,,22,0,8,0,10,26,4810.73
-Glalie,153,stat_points,5,,4.1%,,,22,0,26,0,0,18,4810.73
-Glalie,153,stat_points,8,,3.1%,,,2,0,0,32,0,32,4822.73
-Glalie,153,stat_points,9,,3.0%,,,32,0,32,0,2,0,4822.73
-Glalie,153,stat_points,10,,2.5%,,,22,0,12,0,0,32,4822.73
-Glalie,153,stat_points,11,,1.8%,,,32,0,0,0,2,32,4822.73
-Glalie,153,stat_points,12,,1.8%,,,32,0,32,0,0,2,4822.73
-Glalie,153,ability,1,Moody,94.2%,,,,,,,,,4830.23
-Glalie,153,ability,2,Inner Focus,4.5%,,,,,,,,,4830.23
-Glalie,153,ability,3,Ice Body,1.2%,,,,,,,,,4830.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Glalie,160,move,1,Protect,88.1%,,,,,,,,
+Glalie,160,move,2,Substitute,72.6%,,,,,,,,
+Glalie,160,move,3,Freeze-Dry,72.5%,,,,,,,,
+Glalie,160,move,4,Sheer Cold,57.9%,,,,,,,,
+Glalie,160,move,5,Earthquake,19.7%,,,,,,,,
+Glalie,160,move,6,Explosion,18.4%,,,,,,,,
+Glalie,160,move,7,Ice Shard,14.9%,,,,,,,,
+Glalie,160,move,8,Double Team,7.3%,,,,,,,,
+Glalie,160,move,9,Body Slam,6.2%,,,,,,,,
+Glalie,160,move,10,Frost Breath,5.8%,,,,,,,,
+Glalie,160,held_item,1,Leftovers,67.7%,,,,,,,,
+Glalie,160,held_item,2,Glalitite,19.2%,,,,,,,,
+Glalie,160,held_item,3,Bright Powder,1.9%,,,,,,,,
+Glalie,160,held_item,4,Sitrus Berry,1.9%,,,,,,,,
+Glalie,160,held_item,5,Choice Scarf,1.8%,,,,,,,,
+Glalie,160,held_item,6,Focus Sash,1.7%,,,,,,,,
+Glalie,160,held_item,7,Quick Claw,1.2%,,,,,,,,
+Glalie,160,held_item,8,White Herb,0.7%,,,,,,,,
+Glalie,160,held_item,9,Life Orb,0.6%,,,,,,,,
+Glalie,160,held_item,10,Lum Berry,0.5%,,,,,,,,
+Glalie,160,teammate,1,Garchomp,,,,,,,,,
+Glalie,160,teammate,2,Mimikyu,,,,,,,,,
+Glalie,160,teammate,3,Raichu,,,,,,,,,
+Glalie,160,teammate,4,Blaziken,,,,,,,,,
+Glalie,160,teammate,5,Basculegion Male,,,,,,,,,
+Glalie,160,teammate,6,Staraptor,,,,,,,,,
+Glalie,160,teammate,7,Archaludon,,,,,,,,,
+Glalie,160,teammate,8,Gengar,,,,,,,,,
+Glalie,160,teammate,9,Meowscarada,,,,,,,,,
+Glalie,160,teammate,10,Metagross,,,,,,,,,
+Glalie,160,stat_alignment,1,Timid,43.7%,Speed,Attack,,,,,,
+Glalie,160,stat_alignment,2,Bold,13.6%,Defense,Attack,,,,,,
+Glalie,160,stat_alignment,3,Jolly,10.2%,Speed,Sp. Atk,,,,,,
+Glalie,160,stat_alignment,4,Modest,7.2%,Sp. Atk,Attack,,,,,,
+Glalie,160,stat_alignment,5,Adamant,5.7%,Attack,Sp. Atk,,,,,,
+Glalie,160,stat_alignment,6,Naive,5.1%,Speed,Sp. Def,,,,,,
+Glalie,160,stat_alignment,7,Calm,4.8%,Sp. Def,Attack,,,,,,
+Glalie,160,stat_alignment,8,Serious,1.6%,,,,,,,,
+Glalie,160,stat_alignment,9,Relaxed,1.4%,Defense,Speed,,,,,,
+Glalie,160,stat_alignment,10,Careful,1.0%,Sp. Def,Sp. Atk,,,,,,
+Glalie,160,stat_points,1,,8.8%,,,2,32,0,0,0,32
+Glalie,160,stat_points,2,,7.7%,,,32,0,2,0,0,32
+Glalie,160,stat_points,3,,6.9%,,,22,0,0,12,0,32
+Glalie,160,stat_points,4,,4.9%,,,32,0,0,2,0,32
+Glalie,160,stat_points,5,,3.5%,,,22,0,26,0,0,18
+Glalie,160,stat_points,6,,3.5%,,,22,0,8,0,10,26
+Glalie,160,stat_points,7,,3.4%,,,2,0,0,32,0,32
+Glalie,160,stat_points,8,,2.6%,,,32,0,32,0,2,0
+Glalie,160,stat_points,9,,2.6%,,,32,0,0,0,0,32
+Glalie,160,stat_points,10,,2.1%,,,22,0,12,0,0,32
+Glalie,160,stat_points,11,,1.9%,,,32,0,0,0,2,32
+Glalie,160,ability,1,Moody,93.0%,,,,,,,,
+Glalie,160,ability,2,Inner Focus,5.8%,,,,,,,,
+Glalie,160,ability,3,Ice Body,1.2%,,,,,,,,

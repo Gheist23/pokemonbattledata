@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Pangoro,194,move,1,Darkest Lariat,45.0%,,,,,,,,,5646.23
-Pangoro,194,move,2,Knock Off,38.3%,,,,,,,,,5646.23
-Pangoro,194,move,3,Protect,37.9%,,,,,,,,,5646.23
-Pangoro,194,move,4,Close Combat,34.1%,,,,,,,,,5646.23
-Pangoro,194,move,5,Drain Punch,32.2%,,,,,,,,,5646.23
-Pangoro,194,move,6,Bullet Punch,30.3%,,,,,,,,,5651.73
-Pangoro,194,move,7,Ice Punch,24.6%,,,,,,,,,5651.73
-Pangoro,194,move,8,Parting Shot,18.8%,,,,,,,,,5651.73
-Pangoro,194,move,9,Storm Throw,17.5%,,,,,,,,,5651.73
-Pangoro,194,move,10,Detect,15.5%,,,,,,,,,5651.73
-Pangoro,194,held_item,1,Life Orb,22.5%,,,,,,,,,5655.23
-Pangoro,194,held_item,2,Focus Sash,13.1%,,,,,,,,,5655.23
-Pangoro,194,held_item,3,Black Belt,11.6%,,,,,,,,,5655.23
-Pangoro,194,held_item,4,Roseli Berry,10.8%,,,,,,,,,5655.23
-Pangoro,194,held_item,5,Expert Belt,7.9%,,,,,,,,,5655.23
-Pangoro,194,held_item,6,Big Root,5.9%,,,,,,,,,5660.23
-Pangoro,194,held_item,7,Quick Claw,5.7%,,,,,,,,,5660.23
-Pangoro,194,held_item,8,Chople Berry,,,,,,,,,,5660.23
-Pangoro,194,held_item,9,Sitrus Berry,4.1%,,,,,,,,,5660.23
-Pangoro,194,held_item,10,Muscle Band,4.1%,,,,,,,,,5660.23
-Pangoro,194,teammate,1,Farigiraf,,,,,,,,,,5663.73
-Pangoro,194,teammate,2,Sinistcha,,,,,,,,,,5663.73
-Pangoro,194,teammate,3,Mawile,,,,,,,,,,5663.73
-Pangoro,194,teammate,4,Torkoal,,,,,,,,,,5663.73
-Pangoro,194,teammate,5,Empoleon,,,,,,,,,,5663.73
-Pangoro,194,teammate,6,Incineroar,,,,,,,,,,5668.73
-Pangoro,194,teammate,7,Galarian Slowking,,,,,,,,,,5668.73
-Pangoro,194,teammate,8,Milotic,,,,,,,,,,5668.73
-Pangoro,194,teammate,9,Cofagrigus,,,,,,,,,,5668.73
-Pangoro,194,teammate,10,Hatterene,,,,,,,,,,5668.73
-Pangoro,194,stat_alignment,1,Adamant,50.2%,Attack,Sp. Atk,,,,,,,5672.23
-Pangoro,194,stat_alignment,2,Brave,44.9%,Attack,Speed,,,,,,,5672.23
-Pangoro,194,stat_alignment,3,Naughty,1.8%,Attack,Sp. Def,,,,,,,5672.23
-Pangoro,194,stat_alignment,4,Careful,1.3%,Sp. Def,Sp. Atk,,,,,,,5672.23
-Pangoro,194,stat_alignment,5,Jolly,0.6%,Speed,Sp. Atk,,,,,,,5672.23
-Pangoro,194,stat_alignment,6,Sassy,0.4%,Sp. Def,Speed,,,,,,,5677.23
-Pangoro,194,stat_alignment,7,Lonely,0.3%,Attack,Defense,,,,,,,5677.23
-Pangoro,194,stat_alignment,8,Serious,0.2%,,,,,,,,,5677.23
-Pangoro,194,stat_alignment,9,Gentle,0.1%,Sp. Def,Defense,,,,,,,5677.23
-Pangoro,194,stat_alignment,10,Relaxed,0.0%,Defense,Speed,,,,,,,5677.23
-Pangoro,194,stat_points,1,,15.4%,,,32,32,0,0,2,0,5680.73
-Pangoro,194,stat_points,2,,15.4%,,,32,32,2,0,0,0,5680.73
-Pangoro,194,stat_points,3,,7.5%,,,0,32,2,0,32,0,5680.73
-Pangoro,194,stat_points,4,,6.6%,,,32,32,0,0,0,0,5680.73
-Pangoro,194,stat_points,5,,6.0%,,,20,32,5,0,9,0,5680.73
-Pangoro,194,stat_points,8,,3.3%,,,0,32,14,0,20,0,5692.73
-Pangoro,194,stat_points,9,,3.0%,,,2,32,32,0,0,0,5692.73
-Pangoro,194,stat_points,10,,2.9%,,,2,32,0,0,0,32,5692.73
-Pangoro,194,stat_points,11,,2.6%,,,8,30,14,0,14,0,5692.73
-Pangoro,194,stat_points,12,,2.4%,,,30,32,0,0,0,4,5692.73
-Pangoro,194,ability,1,scrappy,66.5%,,,,,,,,,5700.23
-Pangoro,194,ability,2,lron Fist,27.3%,,,,,,,,,5700.23
-Pangoro,194,ability,3,Mold Breaker,6.2%,,,,,,,,,5700.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Pangoro,195,move,1,Darkest Lariat,45.6%,,,,,,,,
+Pangoro,195,move,2,Knock Off,42.6%,,,,,,,,
+Pangoro,195,move,3,Protect,39.1%,,,,,,,,
+Pangoro,195,move,4,Close Combat,38.8%,,,,,,,,
+Pangoro,195,move,5,Drain Punch,30.3%,,,,,,,,
+Pangoro,195,move,6,Bullet Punch,29.3%,,,,,,,,
+Pangoro,195,move,7,Ice Punch,24.3%,,,,,,,,
+Pangoro,195,move,8,Storm Throw,16.7%,,,,,,,,
+Pangoro,195,move,9,Parting Shot,16.7%,,,,,,,,
+Pangoro,195,move,10,Thunder Punch,16.6%,,,,,,,,
+Pangoro,195,held_item,1,Life Orb,24.0%,,,,,,,,
+Pangoro,195,held_item,2,Focus Sash,15.7%,,,,,,,,
+Pangoro,195,held_item,3,Expert Belt,10.6%,,,,,,,,
+Pangoro,195,held_item,4,Black Belt,9.7%,,,,,,,,
+Pangoro,195,held_item,5,Roseli Berry,7.9%,,,,,,,,
+Pangoro,195,held_item,6,Muscle Band,5.8%,,,,,,,,
+Pangoro,195,held_item,7,Chople Berry,3.9%,,,,,,,,
+Pangoro,195,held_item,8,Quick Claw,3.8%,,,,,,,,
+Pangoro,195,held_item,9,Big Root,3.4%,,,,,,,,
+Pangoro,195,held_item,10,Sitrus Berry,2.8%,,,,,,,,
+Pangoro,195,teammate,1,Farigiraf,,,,,,,,,
+Pangoro,195,teammate,2,Sinistcha,,,,,,,,,
+Pangoro,195,teammate,3,Mawile,,,,,,,,,
+Pangoro,195,teammate,4,Incineroar,,,,,,,,,
+Pangoro,195,teammate,5,Milotic,,,,,,,,,
+Pangoro,195,teammate,6,Torkoal,,,,,,,,,
+Pangoro,195,teammate,7,Whimsicott,,,,,,,,,
+Pangoro,195,teammate,8,Charizard,,,,,,,,,
+Pangoro,195,teammate,9,Hatterene,,,,,,,,,
+Pangoro,195,teammate,10,Galarian Slowking,,,,,,,,,
+Pangoro,195,stat_alignment,1,Adamant,45.3%,Attack,Sp. Atk,,,,,,
+Pangoro,195,stat_alignment,2,Brave,44.0%,Attack,Speed,,,,,,
+Pangoro,195,stat_alignment,3,Naughty,3.3%,Attack,Sp. Def,,,,,,
+Pangoro,195,stat_alignment,4,Jolly,2.4%,Speed,Sp. Atk,,,,,,
+Pangoro,195,stat_alignment,5,Careful,2.2%,Sp. Def,Sp. Atk,,,,,,
+Pangoro,195,stat_alignment,6,Impish,1.7%,Defense,Sp. Atk,,,,,,
+Pangoro,195,stat_alignment,7,Lonely,0.3%,Attack,Defense,,,,,,
+Pangoro,195,stat_alignment,8,Serious,0.3%,,,,,,,,
+Pangoro,195,stat_alignment,9,Sassy,0.3%,Sp. Def,Speed,,,,,,
+Pangoro,195,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
+Pangoro,195,stat_points,1,,15.9%,,,32,32,2,0,0,0
+Pangoro,195,stat_points,2,,14.7%,,,32,32,0,0,2,0
+Pangoro,195,stat_points,3,,5.7%,,,2,32,0,0,0,32
+Pangoro,195,stat_points,4,,5.2%,,,32,32,0,0,0,0
+Pangoro,195,stat_points,5,,4.7%,,,2,32,32,0,0,0
+Pangoro,195,stat_points,6,,4.1%,,,0,32,2,0,32,0
+Pangoro,195,stat_points,7,,3.5%,,,30,32,0,0,0,4
+Pangoro,195,stat_points,8,,2.9%,,,20,32,5,0,9,0
+Pangoro,195,stat_points,9,,2.6%,,,0,32,1,0,0,32
+Pangoro,195,stat_points,10,,1.9%,,,0,32,0,0,2,32
+Pangoro,195,stat_points,11,,1.8%,,,23,32,2,0,9,0
+Pangoro,195,stat_points,12,,1.7%,,,2,32,0,0,32,0
+Pangoro,195,ability,1,scrappy,66.1%,,,,,,,,
+Pangoro,195,ability,2,lron Fist,26.9%,,,,,,,,
+Pangoro,195,ability,3,Mold Breaker,7.0%,,,,,,,,

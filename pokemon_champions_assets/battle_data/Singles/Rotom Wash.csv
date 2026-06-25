@@ -1,53 +1,54 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Rotom Wash,22,move,1,Hydro Pump,98.8%,,,,,,,,,9817.23
-Rotom Wash,22,move,2,Volt Switch,91.6%,,,,,,,,,9817.23
-Rotom Wash,22,move,3,Will-O-Wisp,87.4%,,,,,,,,,9817.23
-Rotom Wash,22,move,4,Thunderbolt,31.7%,,,,,,,,,9817.23
-Rotom Wash,22,move,5,Pain Split,27.6%,,,,,,,,,9817.23
-Rotom Wash,22,move,6,Trick,13.6%,,,,,,,,,9822.73
-Rotom Wash,22,move,7,Discharge,3.1%,,,,,,,,,9822.73
-Rotom Wash,22,move,8,Nasty Plot,3.0%,,,,,,,,,9822.73
-Rotom Wash,22,move,9,Light Screen,2.9%,,,,,,,,,9822.73
-Rotom Wash,22,move,10,Foul Play,2.7%,,,,,,,,,9822.73
-Rotom Wash,22,held_item,1,Sitrus Berry,45.5%,,,,,,,,,9826.23
-Rotom Wash,22,held_item,2,Leftovers,30.7%,,,,,,,,,9826.23
-Rotom Wash,22,held_item,3,Choice Scarf,15.0%,,,,,,,,,9826.23
-Rotom Wash,22,held_item,4,Wide Lens,1.5%,,,,,,,,,9826.23
-Rotom Wash,22,held_item,5,Lum Berry,1.1%,,,,,,,,,9826.23
-Rotom Wash,22,held_item,6,Chesto Berry,0.9%,,,,,,,,,9831.23
-Rotom Wash,22,held_item,7,Light Clay,0.9%,,,,,,,,,9831.23
-Rotom Wash,22,held_item,8,Life Orb,0.8%,,,,,,,,,9831.23
-Rotom Wash,22,held_item,9,Rindo Berry,0.5%,,,,,,,,,9831.23
-Rotom Wash,22,held_item,10,Quick Claw,0.5%,,,,,,,,,9831.23
-Rotom Wash,22,teammate,1,Garchomp,,,,,,,,,,9834.73
-Rotom Wash,22,teammate,2,Mimikyu,,,,,,,,,,9834.73
-Rotom Wash,22,teammate,3,Metagross,,,,,,,,,,9834.73
-Rotom Wash,22,teammate,4,Meowscarada,,,,,,,,,,9834.73
-Rotom Wash,22,teammate,5,Blaziken,,,,,,,,,,9834.73
-Rotom Wash,22,teammate,6,Staraptor,,,,,,,,,,9839.73
-Rotom Wash,22,teammate,7,Charizard,,,,,,,,,,9839.73
-Rotom Wash,22,teammate,8,Hippowdon,,,,,,,,,,9839.73
-Rotom Wash,22,teammate,9,Hydreigon,,,,,,,,,,9839.73
-Rotom Wash,22,teammate,10,Mawile,,,,,,,,,,9839.73
-Rotom Wash,22,stat_alignment,1,Bold,49.5%,Defense,Attack,,,,,,,9843.23
-Rotom Wash,22,stat_alignment,2,Modest,23.3%,Sp. Atk,Attack,,,,,,,9843.23
-Rotom Wash,22,stat_alignment,3,Calm,10.1%,Sp. Def,Attack,,,,,,,9843.23
-Rotom Wash,22,stat_alignment,4,Timid,9.8%,Speed,Attack,,,,,,,9843.23
-Rotom Wash,22,stat_alignment,5,Sassy,4.3%,Sp. Def,Speed,,,,,,,9843.23
-Rotom Wash,22,stat_alignment,6,Relaxed,1.7%,Defense,Speed,,,,,,,9848.23
-Rotom Wash,22,stat_alignment,7,Quiet,0.6%,Sp. Atk,Speed,,,,,,,9848.23
-Rotom Wash,22,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,,9848.23
-Rotom Wash,22,stat_alignment,9,Impish,0.2%,Defense,Sp. Atk,,,,,,,9848.23
-Rotom Wash,22,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,,9848.23
-Rotom Wash,22,stat_points,1,,12.7%,,,32,0,32,0,2,0,9851.73
-Rotom Wash,22,stat_points,2,,12.0%,,,32,0,10,0,24,0,9851.73
-Rotom Wash,22,stat_points,3,,7.8%,,,32,0,32,2,0,0,9851.73
-Rotom Wash,22,stat_points,4,,7.0%,,,32,0,32,1,1,0,9851.73
-Rotom Wash,22,stat_points,5,,5.9%,,,2,0,0,32,0,32,9851.73
-Rotom Wash,22,stat_points,6,,4.1%,,,32,0,32,0,0,2,9857.73
-Rotom Wash,22,stat_points,8,,2.1%,,,32,0,2,32,0,0,9863.73
-Rotom Wash,22,stat_points,9,,1.9%,,,32,0,0,9,0,25,9863.73
-Rotom Wash,22,stat_points,10,,1.5%,,,32,0,0,32,2,0,9863.73
-Rotom Wash,22,stat_points,11,,1.4%,,,32,0,2,0,32,0,9863.73
-Rotom Wash,22,stat_points,12,,1.4%,,,32,0,13,0,14,7,9863.73
-Rotom Wash,22,ability,1,Levitate,100.0%,,,,,,,,,9871.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Rotom Wash,21,move,1,Hydro Pump,98.8%,,,,,,,,
+Rotom Wash,21,move,2,Volt Switch,91.2%,,,,,,,,
+Rotom Wash,21,move,3,Will-O-Wisp,87.6%,,,,,,,,
+Rotom Wash,21,move,4,Thunderbolt,52.1%,,,,,,,,
+Rotom Wash,21,move,5,Pain Split,27.1%,,,,,,,,
+Rotom Wash,21,move,6,Trick,13.9%,,,,,,,,
+Rotom Wash,21,move,7,Discharge,5.6%,,,,,,,,
+Rotom Wash,21,move,8,Light Screen,3.0%,,,,,,,,
+Rotom Wash,21,move,9,Nasty Plot,2.9%,,,,,,,,
+Rotom Wash,21,move,10,Foul Play,2.7%,,,,,,,,
+Rotom Wash,21,held_item,1,Sitrus Berry,44.7%,,,,,,,,
+Rotom Wash,21,held_item,2,Leftovers,31.2%,,,,,,,,
+Rotom Wash,21,held_item,3,Choice Scarf,15.2%,,,,,,,,
+Rotom Wash,21,held_item,4,Wide Lens,1.6%,,,,,,,,
+Rotom Wash,21,held_item,5,Lum Berry,1.1%,,,,,,,,
+Rotom Wash,21,held_item,6,Chesto Berry,0.9%,,,,,,,,
+Rotom Wash,21,held_item,7,Life Orb,0.8%,,,,,,,,
+Rotom Wash,21,held_item,8,Light Clay,0.7%,,,,,,,,
+Rotom Wash,21,held_item,9,Quick Claw,0.5%,,,,,,,,
+Rotom Wash,21,held_item,10,Focus Sash,0.5%,,,,,,,,
+Rotom Wash,21,teammate,1,Garchomp,,,,,,,,,
+Rotom Wash,21,teammate,2,Metagross,,,,,,,,,
+Rotom Wash,21,teammate,3,Mimikyu,,,,,,,,,
+Rotom Wash,21,teammate,4,Meowscarada,,,,,,,,,
+Rotom Wash,21,teammate,5,Blaziken,,,,,,,,,
+Rotom Wash,21,teammate,6,Hydreigon,,,,,,,,,
+Rotom Wash,21,teammate,7,Charizard,,,,,,,,,
+Rotom Wash,21,teammate,8,Hippowdon,,,,,,,,,
+Rotom Wash,21,teammate,9,Staraptor,,,,,,,,,
+Rotom Wash,21,teammate,10,Alolan Ninetales,,,,,,,,,
+Rotom Wash,21,stat_alignment,1,Bold,50.1%,Defense,Attack,,,,,,
+Rotom Wash,21,stat_alignment,2,Modest,22.6%,Sp. Atk,Attack,,,,,,
+Rotom Wash,21,stat_alignment,3,Calm,10.5%,Sp. Def,Attack,,,,,,
+Rotom Wash,21,stat_alignment,4,Timid,9.9%,Speed,Attack,,,,,,
+Rotom Wash,21,stat_alignment,5,Sassy,3.9%,Sp. Def,Speed,,,,,,
+Rotom Wash,21,stat_alignment,6,Relaxed,1.7%,Defense,Speed,,,,,,
+Rotom Wash,21,stat_alignment,7,Quiet,0.6%,Sp. Atk,Speed,,,,,,
+Rotom Wash,21,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Rotom Wash,21,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Rotom Wash,21,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
+Rotom Wash,21,stat_points,1,,13.2%,,,32,0,32,0,2,0
+Rotom Wash,21,stat_points,2,,11.8%,,,32,0,10,0,24,0
+Rotom Wash,21,stat_points,3,,7.7%,,,32,0,32,1,1,0
+Rotom Wash,21,stat_points,4,,7.5%,,,32,0,32,2,0,0
+Rotom Wash,21,stat_points,5,,5.8%,,,2,0,0,32,0,32
+Rotom Wash,21,stat_points,6,,4.0%,,,32,0,32,0,0,2
+Rotom Wash,21,stat_points,7,,2.9%,,,32,0,0,32,0,2
+Rotom Wash,21,stat_points,8,,2.1%,,,32,0,0,9,0,25
+Rotom Wash,21,stat_points,9,,1.9%,,,32,0,2,32,0,0
+Rotom Wash,21,stat_points,10,,1.4%,,,32,0,0,32,2,0
+Rotom Wash,21,stat_points,11,,1.4%,,,32,0,2,0,32,0
+Rotom Wash,21,stat_points,12,,1.4%,,,32,0,23,0,11,0
+Rotom Wash,21,ability,1,Levitate,100.0%,,,,,,,,

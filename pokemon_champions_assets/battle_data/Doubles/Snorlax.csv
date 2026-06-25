@@ -1,54 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Snorlax,90,move,1,Protect,72.0%,,,,,,,,,5982.73
-Snorlax,90,move,2,Fissure,42.0%,,,,,,,,,5982.73
-Snorlax,90,move,3,Stockpile,34.2%,,,,,,,,,5982.73
-Snorlax,90,move,4,Body Press,25.3%,,,,,,,,,5982.73
-Snorlax,90,move,5,Belly Drum,22.1%,,,,,,,,,5982.73
-Snorlax,90,move,6,Body Slam,20.5%,,,,,,,,,5988.23
-Snorlax,90,move,7,Rock Slide,17.8%,,,,,,,,,5988.23
-Snorlax,90,move,8,High Horsepower,14.9%,,,,,,,,,5988.23
-Snorlax,90,move,9,Earthquake,14.5%,,,,,,,,,5988.23
-Snorlax,90,move,10,Yawn,12.1%,,,,,,,,,5988.23
-Snorlax,90,held_item,1,Leftovers,53.8%,,,,,,,,,5991.73
-Snorlax,90,held_item,2,Sitrus Berry,26.4%,,,,,,,,,5991.73
-Snorlax,90,held_item,3,Chople Berry,6.1%,,,,,,,,,5991.73
-Snorlax,90,held_item,4,Life Orb,3.0%,,,,,,,,,5991.73
-Snorlax,90,held_item,5,Chesto Berry,2.5%,,,,,,,,,5991.73
-Snorlax,90,held_item,6,Lum Berry,2.2%,,,,,,,,,5996.73
-Snorlax,90,held_item,7,Silk Scarf,1.8%,,,,,,,,,5996.73
-Snorlax,90,held_item,8,Scope Lens,1.1%,,,,,,,,,5996.73
-Snorlax,90,held_item,9,Expert Belt,0.7%,,,,,,,,,5996.73
-Snorlax,90,held_item,10,Quick Claw,0.7%,,,,,,,,,5996.73
-Snorlax,90,teammate,1,Sinistcha,,,,,,,,,,6000.23
-Snorlax,90,teammate,2,Hawlucha,,,,,,,,,,6000.23
-Snorlax,90,teammate,3,Incineroar,,,,,,,,,,6000.23
-Snorlax,90,teammate,4,Farigiraf,,,,,,,,,,6000.23
-Snorlax,90,teammate,5,Gengar,,,,,,,,,,6000.23
-Snorlax,90,teammate,6,Politoed,,,,,,,,,,6005.23
-Snorlax,90,teammate,7,Torkoal,,,,,,,,,,6005.23
-Snorlax,90,teammate,8,Staraptor,,,,,,,,,,6005.23
-Snorlax,90,teammate,9,Kingambit,,,,,,,,,,6005.23
-Snorlax,90,teammate,10,Sylveon,,,,,,,,,,6005.23
-Snorlax,90,stat_alignment,1,Relaxed,31.6%,Defense,Speed,,,,,,,6008.73
-Snorlax,90,stat_alignment,2,Impish,18.4%,Defense,Sp. Atk,,,,,,,6008.73
-Snorlax,90,stat_alignment,3,Brave,18.1%,Attack,Speed,,,,,,,6008.73
-Snorlax,90,stat_alignment,4,Adamant,10.8%,Attack,Sp. Atk,,,,,,,6008.73
-Snorlax,90,stat_alignment,5,Careful,10.4%,Sp. Def,Sp. Atk,,,,,,,6008.73
-Snorlax,90,stat_alignment,6,Sassy,6.6%,Sp. Def,Speed,,,,,,,6013.73
-Snorlax,90,stat_alignment,7,Bold,1.9%,Defense,Attack,,,,,,,6013.73
-Snorlax,90,stat_alignment,8,Gentle,0.5%,Sp. Def,Defense,,,,,,,6013.73
-Snorlax,90,stat_alignment,9,Lonely,0.5%,Attack,Defense,,,,,,,6013.73
-Snorlax,90,stat_alignment,10,Jolly,0.4%,Speed,Sp. Atk,,,,,,,6013.73
-Snorlax,90,stat_points,1,,26.4%,,,32,0,32,0,2,0,6017.23
-Snorlax,90,stat_points,2,,4.4%,,,2,32,32,0,0,0,6017.23
-Snorlax,90,stat_points,3,,4.2%,,,0,32,32,0,2,0,6017.23
-Snorlax,90,stat_points,4,,3.4%,,,32,32,0,0,2,0,6017.23
-Snorlax,90,stat_points,5,,3.4%,,,2,32,0,0,32,0,6017.23
-Snorlax,90,stat_points,8,,3.0%,,,32,32,2,0,0,0,6029.23
-Snorlax,90,stat_points,9,,2.4%,,,2,0,32,0,13,0,6029.23
-Snorlax,90,stat_points,10,,2.2%,,,13,20,32,0,1,0,6029.23
-Snorlax,90,stat_points,11,,2.1%,,,32,0,2,0,32,0,6029.23
-Snorlax,90,stat_points,12,,2.0%,,,32,2,32,0,0,0,6029.23
-Snorlax,90,ability,1,Thick Fat,89.7%,,,,,,,,,6036.73
-Snorlax,90,ability,2,Gluttony,6.2%,,,,,,,,,6036.73
-Snorlax,90,ability,3,Immunity,4.2%,,,,,,,,,6036.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Snorlax,87,move,1,Protect,70.1%,,,,,,,,
+Snorlax,87,move,2,Fissure,44.7%,,,,,,,,
+Snorlax,87,move,3,Stockpile,34.9%,,,,,,,,
+Snorlax,87,move,4,Body Press,26.1%,,,,,,,,
+Snorlax,87,move,5,Body Slam,21.0%,,,,,,,,
+Snorlax,87,move,6,Belly Drum,19.8%,,,,,,,,
+Snorlax,87,move,7,Rock Slide,16.3%,,,,,,,,
+Snorlax,87,move,8,Earthquake,14.9%,,,,,,,,
+Snorlax,87,move,9,High Horsepower,12.7%,,,,,,,,
+Snorlax,87,move,10,Yawn,11.3%,,,,,,,,
+Snorlax,87,held_item,1,Leftovers,54.5%,,,,,,,,
+Snorlax,87,held_item,2,Sitrus Berry,25.3%,,,,,,,,
+Snorlax,87,held_item,3,Chople Berry,4.9%,,,,,,,,
+Snorlax,87,held_item,4,Chesto Berry,3.2%,,,,,,,,
+Snorlax,87,held_item,5,Life Orb,2.8%,,,,,,,,
+Snorlax,87,held_item,6,Lum Berry,2.3%,,,,,,,,
+Snorlax,87,held_item,7,Silk Scarf,2.0%,,,,,,,,
+Snorlax,87,held_item,8,Quick Claw,1.0%,,,,,,,,
+Snorlax,87,held_item,9,Scope Lens,0.7%,,,,,,,,
+Snorlax,87,held_item,10,Expert Belt,0.7%,,,,,,,,
+Snorlax,87,teammate,1,Sinistcha,,,,,,,,,
+Snorlax,87,teammate,2,Hawlucha,,,,,,,,,
+Snorlax,87,teammate,3,Incineroar,,,,,,,,,
+Snorlax,87,teammate,4,Farigiraf,,,,,,,,,
+Snorlax,87,teammate,5,Gengar,,,,,,,,,
+Snorlax,87,teammate,6,Politoed,,,,,,,,,
+Snorlax,87,teammate,7,Torkoal,,,,,,,,,
+Snorlax,87,teammate,8,Kingambit,,,,,,,,,
+Snorlax,87,teammate,9,Staraptor,,,,,,,,,
+Snorlax,87,teammate,10,Sylveon,,,,,,,,,
+Snorlax,87,stat_alignment,1,Relaxed,31.2%,Defense,Speed,,,,,,
+Snorlax,87,stat_alignment,2,Impish,18.4%,Defense,Sp. Atk,,,,,,
+Snorlax,87,stat_alignment,3,Brave,16.2%,Attack,Speed,,,,,,
+Snorlax,87,stat_alignment,4,Careful,12.5%,Sp. Def,Sp. Atk,,,,,,
+Snorlax,87,stat_alignment,5,Adamant,10.7%,Attack,Sp. Atk,,,,,,
+Snorlax,87,stat_alignment,6,Sassy,6.5%,Sp. Def,Speed,,,,,,
+Snorlax,87,stat_alignment,7,Bold,2.2%,Defense,Attack,,,,,,
+Snorlax,87,stat_alignment,8,Lonely,0.5%,Attack,Defense,,,,,,
+Snorlax,87,stat_alignment,9,Jolly,0.4%,Speed,Sp. Atk,,,,,,
+Snorlax,87,stat_alignment,10,Gentle,0.3%,Sp. Def,Defense,,,,,,
+Snorlax,87,stat_points,1,,29.6%,,,32,0,32,0,2,0
+Snorlax,87,stat_points,2,,4.9%,,,2,32,32,0,0,0
+Snorlax,87,stat_points,3,,3.9%,,,2,32,0,0,32,0
+Snorlax,87,stat_points,4,,3.5%,,,32,32,2,0,0,0
+Snorlax,87,stat_points,5,,3.4%,,,32,32,0,0,2,0
+Snorlax,87,stat_points,6,,3.4%,,,0,32,32,0,2,0
+Snorlax,87,stat_points,7,,3.0%,,,2,0,32,0,32,0
+Snorlax,87,stat_points,8,,2.2%,,,32,0,25,0,9,0
+Snorlax,87,stat_points,9,,2.2%,,,32,2,32,0,0,0
+Snorlax,87,stat_points,10,,2.1%,,,32,0,2,0,32,0
+Snorlax,87,stat_points,11,,1.7%,,,1,0,32,0,13,0
+Snorlax,87,ability,1,Thick Fat,89.3%,,,,,,,,
+Snorlax,87,ability,2,Gluttony,6.4%,,,,,,,,
+Snorlax,87,ability,3,Immunity,4.3%,,,,,,,,

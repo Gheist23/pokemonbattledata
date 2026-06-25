@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Greninja,81,move,1,Dark Pulse,71.4%,,,,,,,,,5379.73
-Greninja,81,move,2,Ice Beam,52.4%,,,,,,,,,5379.73
-Greninja,81,move,3,Protect,49.6%,,,,,,,,,5379.73
-Greninja,81,move,4,Water Shuriken,32.5%,,,,,,,,,5379.73
-Greninja,81,move,5,Blizzard,29.1%,,,,,,,,,5379.73
-Greninja,81,move,6,Hydro Pump,24.6%,,,,,,,,,5385.23
-Greninja,81,move,7,Grass Knot,18.9%,,,,,,,,,5385.23
-Greninja,81,move,8,Sludge Wave,18.7%,,,,,,,,,5385.23
-Greninja,81,move,9,Extrasensory,12.7%,,,,,,,,,5385.23
-Greninja,81,move,10,Surf,10.4%,,,,,,,,,5385.23
-Greninja,81,held_item,1,Greninjite,55.6%,,,,,,,,,5388.73
-Greninja,81,held_item,2,Focus Sash,13.3%,,,,,,,,,5388.73
-Greninja,81,held_item,3,Life Orb,12.4%,,,,,,,,,5388.73
-Greninja,81,held_item,4,Choice Scarf,7.0%,,,,,,,,,5388.73
-Greninja,81,held_item,5,Expert Belt,3.4%,,,,,,,,,5388.73
-Greninja,81,held_item,6,Wise Glasses,1.1%,,,,,,,,,5393.73
-Greninja,81,held_item,7,Never-Melt Ice,1.0%,,,,,,,,,5393.73
-Greninja,81,held_item,8,King's Rock,0.7%,,,,,,,,,5393.73
-Greninja,81,held_item,9,Black Glasses,0.5%,,,,,,,,,5393.73
-Greninja,81,held_item,10,Sitrus Berry,0.5%,,,,,,,,,5393.73
-Greninja,81,teammate,1,Garchomp,,,,,,,,,,5397.23
-Greninja,81,teammate,2,Whimsicott,,,,,,,,,,5397.23
-Greninja,81,teammate,3,Sneasler,,,,,,,,,,5397.23
-Greninja,81,teammate,4,Incineroar,,,,,,,,,,5397.23
-Greninja,81,teammate,5,Pelipper,,,,,,,,,,5397.23
-Greninja,81,teammate,6,Raichu,,,,,,,,,,5402.23
-Greninja,81,teammate,7,Sinistcha,,,,,,,,,,5402.23
-Greninja,81,teammate,8,Archaludon,,,,,,,,,,5402.23
-Greninja,81,teammate,9,Alolan Ninetales,,,,,,,,,,5402.23
-Greninja,81,teammate,10,Kingambit,,,,,,,,,,5402.23
-Greninja,81,stat_alignment,1,Timid,48.2%,Speed,Attack,,,,,,,5405.73
-Greninja,81,stat_alignment,2,Modest,28.7%,Sp. Atk,Attack,,,,,,,5405.73
-Greninja,81,stat_alignment,3,Naive,7.1%,Speed,Sp. Def,,,,,,,5405.73
-Greninja,81,stat_alignment,4,Hasty,7.0%,Speed,Defense,,,,,,,5405.73
-Greninja,81,stat_alignment,5,Jolly,2.8%,Speed,Sp. Atk,,,,,,,5405.73
-Greninja,81,stat_alignment,6,Mild,2.0%,Sp. Atk,Defense,,,,,,,5410.73
-Greninja,81,stat_alignment,7,Adamant,2.0%,Attack,Sp. Atk,,,,,,,5410.73
-Greninja,81,stat_alignment,8,Rash,1.3%,Sp. Atk,Sp. Def,,,,,,,5410.73
-Greninja,81,stat_alignment,9,Bold,0.2%,Defense,Attack,,,,,,,5410.73
-Greninja,81,stat_alignment,10,Quiet,0.2%,Sp. Atk,Speed,,,,,,,5410.73
-Greninja,81,stat_points,1,,45.7%,,,2,0,0,32,0,32,5414.23
-Greninja,81,stat_points,2,,9.9%,,,0,0,0,32,2,32,5414.23
-Greninja,81,stat_points,3,,8.3%,,,0,0,2,32,0,32,5414.23
-Greninja,81,stat_points,4,,5.3%,,,0,2,0,32,0,32,5414.23
-Greninja,81,stat_points,5,,3.8%,,,0,0,0,32,0,32,5414.23
-Greninja,81,stat_points,8,,1.6%,,,3,0,0,32,0,31,5426.23
-Greninja,81,stat_points,9,,0.9%,,,0,9,0,32,0,25,5426.23
-Greninja,81,stat_points,10,,0.7%,,,9,0,0,32,0,25,5426.23
-Greninja,81,stat_points,11,,0.7%,,,1,0,0,32,0,32,5426.23
-Greninja,81,stat_points,12,,0.6%,,,6,0,0,32,0,28,5426.23
-Greninja,81,ability,1,Protean,91.0%,,,,,,,,,5433.73
-Greninja,81,ability,2,Torrent,9.0%,,,,,,,,,5433.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Greninja,81,move,1,Dark Pulse,71.8%,,,,,,,,
+Greninja,81,move,2,Ice Beam,54.1%,,,,,,,,
+Greninja,81,move,3,Protect,50.2%,,,,,,,,
+Greninja,81,move,4,Water Shuriken,31.6%,,,,,,,,
+Greninja,81,move,5,Blizzard,28.6%,,,,,,,,
+Greninja,81,move,6,Hydro Pump,25.0%,,,,,,,,
+Greninja,81,move,7,Sludge Wave,18.7%,,,,,,,,
+Greninja,81,move,8,Grass Knot,18.3%,,,,,,,,
+Greninja,81,move,9,Extrasensory,12.1%,,,,,,,,
+Greninja,81,move,10,Surf,11.3%,,,,,,,,
+Greninja,81,held_item,1,Greninjite,56.1%,,,,,,,,
+Greninja,81,held_item,2,Life Orb,12.2%,,,,,,,,
+Greninja,81,held_item,3,Focus Sash,12.0%,,,,,,,,
+Greninja,81,held_item,4,Choice Scarf,7.3%,,,,,,,,
+Greninja,81,held_item,5,Expert Belt,4.3%,,,,,,,,
+Greninja,81,held_item,6,Wise Glasses,1.2%,,,,,,,,
+Greninja,81,held_item,7,Sitrus Berry,0.8%,,,,,,,,
+Greninja,81,held_item,8,King's Rock,0.8%,,,,,,,,
+Greninja,81,held_item,9,Never-Melt Ice,0.7%,,,,,,,,
+Greninja,81,held_item,10,Wide Lens,0.6%,,,,,,,,
+Greninja,81,teammate,1,Garchomp,,,,,,,,,
+Greninja,81,teammate,2,Whimsicott,,,,,,,,,
+Greninja,81,teammate,3,Sneasler,,,,,,,,,
+Greninja,81,teammate,4,Incineroar,,,,,,,,,
+Greninja,81,teammate,5,Pelipper,,,,,,,,,
+Greninja,81,teammate,6,Raichu,,,,,,,,,
+Greninja,81,teammate,7,Sinistcha,,,,,,,,,
+Greninja,81,teammate,8,Alolan Ninetales,,,,,,,,,
+Greninja,81,teammate,9,Archaludon,,,,,,,,,
+Greninja,81,teammate,10,Kingambit,,,,,,,,,
+Greninja,81,stat_alignment,1,Timid,49.4%,Speed,Attack,,,,,,
+Greninja,81,stat_alignment,2,Modest,28.1%,Sp. Atk,Attack,,,,,,
+Greninja,81,stat_alignment,3,Hasty,6.8%,Speed,Defense,,,,,,
+Greninja,81,stat_alignment,4,Naive,5.8%,Speed,Sp. Def,,,,,,
+Greninja,81,stat_alignment,5,Jolly,3.0%,Speed,Sp. Atk,,,,,,
+Greninja,81,stat_alignment,6,Mild,2.2%,Sp. Atk,Defense,,,,,,
+Greninja,81,stat_alignment,7,Adamant,1.9%,Attack,Sp. Atk,,,,,,
+Greninja,81,stat_alignment,8,Rash,1.4%,Sp. Atk,Sp. Def,,,,,,
+Greninja,81,stat_alignment,9,Bold,0.3%,Defense,Attack,,,,,,
+Greninja,81,stat_alignment,10,Lonely,0.3%,Attack,Defense,,,,,,
+Greninja,81,stat_points,1,,44.5%,,,2,0,0,32,0,32
+Greninja,81,stat_points,2,,9.1%,,,0,0,0,32,2,32
+Greninja,81,stat_points,3,,8.3%,,,0,0,2,32,0,32
+Greninja,81,stat_points,4,,5.2%,,,0,2,0,32,0,32
+Greninja,81,stat_points,5,,4.3%,,,8,0,0,32,0,26
+Greninja,81,stat_points,6,,3.8%,,,0,0,0,32,0,32
+Greninja,81,stat_points,7,,3.1%,,,2,32,0,0,0,32
+Greninja,81,stat_points,8,,1.3%,,,3,0,0,32,0,31
+Greninja,81,stat_points,9,,0.9%,,,1,0,0,32,0,32
+Greninja,81,stat_points,10,,0.7%,,,1,0,1,32,0,32
+Greninja,81,stat_points,11,,0.5%,,,0,9,0,32,0,25
+Greninja,81,stat_points,12,,0.5%,,,0,32,0,0,2,32
+Greninja,81,ability,1,Protean,91.6%,,,,,,,,
+Greninja,81,ability,2,Torrent,8.4%,,,,,,,,

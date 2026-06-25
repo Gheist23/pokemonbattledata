@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Pidgeot,165,move,1,Hurricane,99.1%,,,,,,,,,5580.23
-Pidgeot,165,move,2,Heat Wave,96.6%,,,,,,,,,5580.23
-Pidgeot,165,move,3,Hyper Beam,68.8%,,,,,,,,,5580.23
-Pidgeot,165,move,4,Substitute,30.1%,,,,,,,,,5580.23
-Pidgeot,165,move,5,Quick Attack,25.7%,,,,,,,,,5580.23
-Pidgeot,165,move,6,Roost,19.5%,,,,,,,,,5585.73
-Pidgeot,165,move,7,U-turn,16.3%,,,,,,,,,5585.73
-Pidgeot,165,move,8,Tailwind,9.2%,,,,,,,,,5585.73
-Pidgeot,165,move,9,Whirlwind,8.1%,,,,,,,,,5585.73
-Pidgeot,165,move,10,Air Slash,5.6%,,,,,,,,,5585.73
-Pidgeot,165,held_item,1,Pidgeotite,98.0%,,,,,,,,,5589.23
-Pidgeot,165,held_item,2,Focus Band,0.5%,,,,,,,,,5589.23
-Pidgeot,165,held_item,3,Damp Rock,0.3%,,,,,,,,,5589.23
-Pidgeot,165,held_item,4,Choice Scarf,0.1%,,,,,,,,,5589.23
-Pidgeot,165,held_item,5,Expert Belt,0.1%,,,,,,,,,5589.23
-Pidgeot,165,held_item,6,Bright Powder,0.1%,,,,,,,,,5594.23
-Pidgeot,165,held_item,7,Quick Claw,0.1%,,,,,,,,,5594.23
-Pidgeot,165,held_item,8,Life Orb,0.1%,,,,,,,,,5594.23
-Pidgeot,165,held_item,9,Silk Scarf,0.1%,,,,,,,,,5594.23
-Pidgeot,165,held_item,10,Focus Sash,0.1%,,,,,,,,,5594.23
-Pidgeot,165,teammate,1,Garchomp,,,,,,,,,,5597.73
-Pidgeot,165,teammate,2,Mimikyu,,,,,,,,,,5597.73
-Pidgeot,165,teammate,3,Raichu,,,,,,,,,,5597.73
-Pidgeot,165,teammate,4,Blaziken,,,,,,,,,,5597.73
-Pidgeot,165,teammate,5,Meowscarada,,,,,,,,,,5597.73
-Pidgeot,165,teammate,6,Archaludon,,,,,,,,,,5602.73
-Pidgeot,165,teammate,7,Metagross,,,,,,,,,,5602.73
-Pidgeot,165,teammate,8,Swampert,,,,,,,,,,5602.73
-Pidgeot,165,teammate,9,Basculegion,,,,,,,,,,5602.73
-Pidgeot,165,teammate,10,Rotom Wash,,,,,,,,,,5602.73
-Pidgeot,165,stat_alignment,1,Timid,63.7%,Speed,Attack,,,,,,,5606.23
-Pidgeot,165,stat_alignment,2,Modest,32.2%,Sp. Atk,Attack,,,,,,,5606.23
-Pidgeot,165,stat_alignment,3,Hasty,1.5%,Speed,Defense,,,,,,,5606.23
-Pidgeot,165,stat_alignment,4,Bold,1.1%,Defense,Attack,,,,,,,5606.23
-Pidgeot,165,stat_alignment,5,Mild,0.5%,Sp. Atk,Defense,,,,,,,5606.23
-Pidgeot,165,stat_alignment,6,Jolly,0.3%,Speed,Sp. Atk,,,,,,,5611.23
-Pidgeot,165,stat_alignment,7,Adamant,0.2%,Attack,Sp. Atk,,,,,,,5611.23
-Pidgeot,165,stat_alignment,8,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,,5611.23
-Pidgeot,165,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,,5611.23
-Pidgeot,165,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,,5611.23
-Pidgeot,165,stat_points,1,,35.0%,,,2,0,0,32,0,32,5614.73
-Pidgeot,165,stat_points,2,,18.6%,,,1,0,1,32,0,32,5614.73
-Pidgeot,165,stat_points,3,,7.7%,,,0,0,2,32,0,32,5614.73
-Pidgeot,165,stat_points,4,,5.9%,,,1,0,0,32,1,32,5614.73
-Pidgeot,165,stat_points,5,,3.5%,,,32,0,2,32,0,0,5614.73
-Pidgeot,165,stat_points,8,,2.1%,,,27,0,1,3,1,32,5626.73
-Pidgeot,165,stat_points,9,,1.9%,,,3,0,0,31,0,32,5626.73
-Pidgeot,165,stat_points,10,,1.2%,,,1,0,0,32,0,32,5626.73
-Pidgeot,165,stat_points,11,,1.2%,,,5,0,0,32,0,29,5626.73
-Pidgeot,165,stat_points,12,,1.1%,,,12,0,0,32,0,22,5626.73
-Pidgeot,165,ability,1,Big Pecks,58.6%,,,,,,,,,5634.23
-Pidgeot,165,ability,2,Keen Eye,30.1%,,,,,,,,,5634.23
-Pidgeot,165,ability,3,Tangled Feet,11.3%,,,,,,,,,5634.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Pidgeot,154,move,1,Hurricane,99.0%,,,,,,,,
+Pidgeot,154,move,2,Heat Wave,95.7%,,,,,,,,
+Pidgeot,154,move,3,Hyper Beam,67.0%,,,,,,,,
+Pidgeot,154,move,4,Substitute,28.6%,,,,,,,,
+Pidgeot,154,move,5,Quick Attack,26.0%,,,,,,,,
+Pidgeot,154,move,6,Roost,21.3%,,,,,,,,
+Pidgeot,154,move,7,U-turn,19.1%,,,,,,,,
+Pidgeot,154,move,8,Tailwind,10.6%,,,,,,,,
+Pidgeot,154,move,9,Whirlwind,8.4%,,,,,,,,
+Pidgeot,154,move,10,Feather Dance,5.5%,,,,,,,,
+Pidgeot,154,held_item,1,Pidgeotite,97.9%,,,,,,,,
+Pidgeot,154,held_item,2,Focus Band,0.4%,,,,,,,,
+Pidgeot,154,held_item,3,Choice Scarf,0.2%,,,,,,,,
+Pidgeot,154,held_item,4,Damp Rock,0.2%,,,,,,,,
+Pidgeot,154,held_item,5,Focus Sash,0.1%,,,,,,,,
+Pidgeot,154,held_item,6,Silk Scarf,0.1%,,,,,,,,
+Pidgeot,154,held_item,7,Bright Powder,0.1%,,,,,,,,
+Pidgeot,154,held_item,8,Quick Claw,0.1%,,,,,,,,
+Pidgeot,154,held_item,9,Expert Belt,0.1%,,,,,,,,
+Pidgeot,154,held_item,10,Lum Berry,0.1%,,,,,,,,
+Pidgeot,154,teammate,1,Garchomp,,,,,,,,,
+Pidgeot,154,teammate,2,Mimikyu,,,,,,,,,
+Pidgeot,154,teammate,3,Archaludon,,,,,,,,,
+Pidgeot,154,teammate,4,Meowscarada,,,,,,,,,
+Pidgeot,154,teammate,5,Blaziken,,,,,,,,,
+Pidgeot,154,teammate,6,Metagross,,,,,,,,,
+Pidgeot,154,teammate,7,Raichu,,,,,,,,,
+Pidgeot,154,teammate,8,Swampert,,,,,,,,,
+Pidgeot,154,teammate,9,Alolan Ninetales,,,,,,,,,
+Pidgeot,154,teammate,10,Rotom Wash,,,,,,,,,
+Pidgeot,154,stat_alignment,1,Timid,64.8%,Speed,Attack,,,,,,
+Pidgeot,154,stat_alignment,2,Modest,31.2%,Sp. Atk,Attack,,,,,,
+Pidgeot,154,stat_alignment,3,Hasty,1.1%,Speed,Defense,,,,,,
+Pidgeot,154,stat_alignment,4,Bold,1.0%,Defense,Attack,,,,,,
+Pidgeot,154,stat_alignment,5,Mild,0.7%,Sp. Atk,Defense,,,,,,
+Pidgeot,154,stat_alignment,6,Jolly,0.3%,Speed,Sp. Atk,,,,,,
+Pidgeot,154,stat_alignment,7,Naive,0.3%,Speed,Sp. Def,,,,,,
+Pidgeot,154,stat_alignment,8,Adamant,0.2%,Attack,Sp. Atk,,,,,,
+Pidgeot,154,stat_alignment,9,Rash,0.2%,Sp. Atk,Sp. Def,,,,,,
+Pidgeot,154,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
+Pidgeot,154,stat_points,1,,35.4%,,,2,0,0,32,0,32
+Pidgeot,154,stat_points,2,,18.8%,,,1,0,1,32,0,32
+Pidgeot,154,stat_points,3,,9.1%,,,0,0,2,32,0,32
+Pidgeot,154,stat_points,4,,5.2%,,,1,0,0,32,1,32
+Pidgeot,154,stat_points,5,,2.8%,,,32,0,2,32,0,0
+Pidgeot,154,stat_points,6,,2.1%,,,0,0,0,32,2,32
+Pidgeot,154,stat_points,7,,1.6%,,,32,0,0,32,0,2
+Pidgeot,154,stat_points,8,,1.5%,,,3,0,0,31,0,32
+Pidgeot,154,stat_points,9,,1.5%,,,27,0,1,5,1,32
+Pidgeot,154,stat_points,10,,1.2%,,,1,0,0,32,0,32
+Pidgeot,154,stat_points,11,,1.1%,,,0,0,0,32,0,32
+Pidgeot,154,stat_points,12,,1.1%,,,12,0,0,32,0,22
+Pidgeot,154,ability,1,Big Pecks,61.7%,,,,,,,,
+Pidgeot,154,ability,2,Keen Eye,28.5%,,,,,,,,
+Pidgeot,154,ability,3,Tangled Feet,9.8%,,,,,,,,

@@ -1,41 +1,54 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Watchog,234,move,1,Ice Punch,88.7%,,,,,,,,,16.1
-Watchog,234,move,2,Hypnosis,88.7%,,,,,,,,,16.1
-Watchog,234,move,3,Low Kick,85.7%,,,,,,,,,16.1
-Watchog,234,move,4,Detect,57.9%,,,,,,,,,16.1
-Watchog,234,move,5,Crunch,27.8%,,,,,,,,,16.1
-Watchog,234,move,6,Super Fang,21.8%,,,,,,,,,22.6
-Watchog,234,move,7,Bullet Seed,12.0%,,,,,,,,,22.6
-Watchog,234,move,8,Dig,9.0%,,,,,,,,,22.6
-Watchog,234,move,9,Double-Edge,2.3%,,,,,,,,,22.6
-Watchog,234,move,10,Swords Dance,1.5%,,,,,,,,,22.6
-Watchog,234,held_item,1,Chople Berry,57.9%,,,,,,,,,25.6
-Watchog,234,held_item,2,Focus Sash,19.5%,,,,,,,,,25.6
-Watchog,234,held_item,3,Focus Sash,19.5%,,,,,,,,,97.13
-Watchog,234,held_item,4,Poison Barb,12.0%,,,,,,,,,97.13
-Watchog,234,held_item,5,Poison Barb,0.8%,,,,,,,,,97.13
-Watchog,234,held_item,6,Quick Claw,0.8%,,,,,,,,,30.1
-Watchog,234,held_item,7,Choice Scarf,0.8%,,,,,,,,,30.1
-Watchog,234,teammate,1,Farigiraf,,,,,,,,,,34.6
-Watchog,234,teammate,2,Garchomp,,,,,,,,,,34.6
-Watchog,234,teammate,3,Whimsicott,,,,,,,,,,34.6
-Watchog,234,teammate,4,Charizard,,,,,,,,,,34.6
-Watchog,234,teammate,5,Froslass,,,,,,,,,,34.6
-Watchog,234,teammate,6,Raichu,,,,,,,,,,39.6
-Watchog,234,teammate,7,Sinistcha,,,,,,,,,,39.6
-Watchog,234,teammate,8,Ariados,,,,,,,,,,39.6
-Watchog,234,teammate,9,Emboar,,,,,,,,,,39.6
-Watchog,234,teammate,10,Drampa,,,,,,,,,,39.6
-Watchog,234,stat_alignment,1,Relaxed,57.9%,Defense,Speed,,,,,,,43.1
-Watchog,234,stat_alignment,2,Adamant,18.8%,Attack,Sp. Atk,,,,,,,43.1
-Watchog,234,stat_alignment,3,Brave,13.5%,Attack,Speed,,,,,,,43.1
-Watchog,234,stat_alignment,4,Impish,9.0%,Defense,Sp. Atk,,,,,,,43.1
-Watchog,234,stat_alignment,5,Jolly,0.8%,Speed,Sp. Atk,,,,,,,43.1
-Watchog,234,stat_points,1,,57.9%,,,32,2,32,0,0,0,51.6
-Watchog,234,stat_points,2,,25.6%,,,0,32,32,0,0,2,51.6
-Watchog,234,stat_points,3,,12.8%,,,32,32,0,0,2,0,51.6
-Watchog,234,stat_points,4,,1.5%,,,0,32,32,0,2,0,51.6
-Watchog,234,stat_points,5,,1.5%,,,32,32,0,0,0,0,51.6
-Watchog,234,stat_points,6,,0.8%,,,2,32,0,0,0,32,58.1
-Watchog,234,ability,1,Analytic,99.2%,,,,,,,,,70.13
-Watchog,234,ability,2,Keen Eye,0.8%,,,,,,,,,70.13
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Watchog,234,move,1,Low Kick,61.1%,,,,,,,,
+Watchog,234,move,2,Ice Punch,60.7%,,,,,,,,
+Watchog,234,move,3,Hypnosis,57.9%,,,,,,,,
+Watchog,234,move,4,Detect,44.8%,,,,,,,,
+Watchog,234,move,5,Super Fang,29.0%,,,,,,,,
+Watchog,234,move,6,Sunny Day,21.4%,,,,,,,,
+Watchog,234,move,7,Crunch,16.7%,,,,,,,,
+Watchog,234,move,8,Helping Hand,13.9%,,,,,,,,
+Watchog,234,move,9,Rain Dance,13.1%,,,,,,,,
+Watchog,234,move,10,Mud Shot,13.1%,,,,,,,,
+Watchog,234,held_item,1,Chople Berry,41.7%,,,,,,,,
+Watchog,234,held_item,2,Focus Sash,29.8%,,,,,,,,
+Watchog,234,held_item,3,Choice Scarf,13.5%,,,,,,,,
+Watchog,234,held_item,4,Never-Melt Ice,6.3%,,,,,,,,
+Watchog,234,held_item,5,Poison Barb,4.8%,,,,,,,,
+Watchog,234,held_item,6,Life Orb,1.6%,,,,,,,,
+Watchog,234,held_item,7,Sitrus Berry,0.4%,,,,,,,,
+Watchog,234,held_item,8,Quick Claw,0.4%,,,,,,,,
+Watchog,234,held_item,9,Floettite,0.4%,,,,,,,,
+Watchog,234,held_item,10,Wide Lens,0.4%,,,,,,,,
+Watchog,234,teammate,1,Farigiraf,,,,,,,,,
+Watchog,234,teammate,2,Whimsicott,,,,,,,,,
+Watchog,234,teammate,3,Garchomp,,,,,,,,,
+Watchog,234,teammate,4,Charizard,,,,,,,,,
+Watchog,234,teammate,5,Raichu,,,,,,,,,
+Watchog,234,teammate,6,Froslass,,,,,,,,,
+Watchog,234,teammate,7,Sinistcha,,,,,,,,,
+Watchog,234,teammate,8,Mamoswine,,,,,,,,,
+Watchog,234,teammate,9,Castform,,,,,,,,,
+Watchog,234,teammate,10,Falinks,,,,,,,,,
+Watchog,234,stat_alignment,1,Relaxed,46.8%,Defense,Speed,,,,,,
+Watchog,234,stat_alignment,2,Adamant,21.0%,Attack,Sp. Atk,,,,,,
+Watchog,234,stat_alignment,3,Jolly,15.5%,Speed,Sp. Atk,,,,,,
+Watchog,234,stat_alignment,4,Brave,9.1%,Attack,Speed,,,,,,
+Watchog,234,stat_alignment,5,Brave,9.1%,Attack,Speed,,,,,,
+Watchog,234,stat_alignment,6,Impish,4.8%,Defense,Sp. Atk,,,,,,
+Watchog,234,stat_alignment,7,Timid,2.4%,Speed,Attack,,,,,,
+Watchog,234,stat_alignment,8,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
+Watchog,234,stat_points,1,,40.1%,,,32,2,32,0,0,0
+Watchog,234,stat_points,2,,14.7%,,,0,32,32,0,0,2
+Watchog,234,stat_points,3,,13.1%,,,0,0,15,0,19,32
+Watchog,234,stat_points,4,,7.5%,,,0,32,10,0,9,15
+Watchog,234,stat_points,5,,6.7%,,,32,32,0,0,2,0
+Watchog,234,stat_points,6,,6.0%,,,32,0,31,0,3,0
+Watchog,234,stat_points,7,,2.4%,,,2,0,0,32,0,32
+Watchog,234,stat_points,8,,2.4%,,,30,32,0,0,0,4
+Watchog,234,stat_points,9,,1.6%,,,31,32,3,0,0,0
+Watchog,234,stat_points,10,,0.8%,,,0,32,32,0,2,0
+Watchog,234,stat_points,11,,0.8%,,,29,0,0,0,5,32
+Watchog,234,stat_points,12,,0.8%,,,32,0,19,0,15,0
+Watchog,234,ability,1,Analytic,83.3%,,,,,,,,
+Watchog,234,ability,2,Illuminate,13.9%,,,,,,,,
+Watchog,234,ability,3,Keen Eye,2.8%,,,,,,,,

@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Avalugg,208,move,1,Body Press,66.7%,,,,,,,,,6584.73
-Avalugg,208,move,2,Wide Guard,62.4%,,,,,,,,,6584.73
-Avalugg,208,move,3,Protect,34.5%,,,,,,,,,6584.73
-Avalugg,208,move,4,Recover,30.8%,,,,,,,,,6584.73
-Avalugg,208,move,5,Ice Spinner,29.9%,,,,,,,,,6584.73
-Avalugg,208,move,6,Avalanche,19.9%,,,,,,,,,6590.23
-Avalugg,208,move,7,lron,17.5%,,,,,,,,,6590.23
-Avalugg,208,move,8,Icicle Spear,15.6%,,,,,,,,,6590.23
-Avalugg,208,move,9,Rock Slide,15.2%,,,,,,,,,6590.23
-Avalugg,208,move,10,Frost Breath,14.8%,,,,,,,,,6590.23
-Avalugg,208,held_item,1,Leftovers,39.5%,,,,,,,,,6593.73
-Avalugg,208,held_item,2,Quick Claw,17.1%,,,,,,,,,6593.73
-Avalugg,208,held_item,3,Sitrus Berry,16.3%,,,,,,,,,6593.73
-Avalugg,208,held_item,4,Focus Sash,4.8%,,,,,,,,,6593.73
-Avalugg,208,held_item,5,Chople Berry,3.3%,,,,,,,,,6593.73
-Avalugg,208,held_item,6,Life Orb,3.3%,,,,,,,,,6598.73
-Avalugg,208,held_item,7,Never-Melt Ice,2.8%,,,,,,,,,6598.73
-Avalugg,208,held_item,8,Wide Lens,2.0%,,,,,,,,,6598.73
-Avalugg,208,held_item,9,Occa Berry,1.9%,,,,,,,,,6598.73
-Avalugg,208,held_item,10,Mental Herb,,,,,,,,,,6598.73
-Avalugg,208,teammate,1,Froslass,,,,,,,,,,6602.23
-Avalugg,208,teammate,2,Farigiraf,,,,,,,,,,6602.23
-Avalugg,208,teammate,3,Crabominable,,,,,,,,,,6602.23
-Avalugg,208,teammate,4,Galarian Slowking,,,,,,,,,,6602.23
-Avalugg,208,teammate,5,Sinistcha,,,,,,,,,,6602.23
-Avalugg,208,teammate,6,Ceruledge,,,,,,,,,,6607.23
-Avalugg,208,teammate,7,Torkoal,,,,,,,,,,6607.23
-Avalugg,208,teammate,8,Hisuian Goodra,,,,,,,,,,6607.23
-Avalugg,208,teammate,9,Alolan Ninetales,,,,,,,,,,6607.23
-Avalugg,208,teammate,10,Dragonite,,,,,,,,,,6607.23
-Avalugg,208,stat_alignment,1,Impish,34.0%,Defense,Sp. Atk,,,,,,,6610.73
-Avalugg,208,stat_alignment,2,Relaxed,24.8%,Defense,Speed,,,,,,,6610.73
-Avalugg,208,stat_alignment,3,Brave,14.9%,Attack,Speed,,,,,,,6610.73
-Avalugg,208,stat_alignment,4,Careful,11.8%,Sp. Def,Sp. Atk,,,,,,,6610.73
-Avalugg,208,stat_alignment,5,Adamant,9.1%,Attack,Sp. Atk,,,,,,,6610.73
-Avalugg,208,stat_alignment,6,Sassy,3.9%,Sp. Def,Speed,,,,,,,6615.73
-Avalugg,208,stat_alignment,7,Lax,0.9%,Defense,Sp. Def,,,,,,,6615.73
-Avalugg,208,stat_alignment,8,Calm,0.3%,Sp. Def,Attack,,,,,,,6615.73
-Avalugg,208,stat_alignment,9,Lonely,0.2%,Attack,Defense,,,,,,,6615.73
-Avalugg,208,stat_alignment,10,Bold,0.1%,Defense,Attack,,,,,,,6615.73
-Avalugg,208,stat_points,1,,20.4%,,,32,0,2,0,32,0,6619.23
-Avalugg,208,stat_points,2,,10.3%,,,32,0,32,0,2,0,6619.23
-Avalugg,208,stat_points,3,,7.6%,,,2,32,32,0,0,0,6619.23
-Avalugg,208,stat_points,4,,7.0%,,,32,2,32,0,0,0,6619.23
-Avalugg,208,stat_points,5,,6.7%,,,32,0,6,0,28,0,6619.23
-Avalugg,208,stat_points,8,,4.1%,,,32,32,2,0,0,0,6631.23
-Avalugg,208,stat_points,9,,2.8%,,,30,0,4,0,32,0,6631.23
-Avalugg,208,stat_points,10,,2.6%,,,1,32,32,0,0,0,6631.23
-Avalugg,208,stat_points,11,,2.3%,,,32,2,0,0,32,0,6631.23
-Avalugg,208,stat_points,12,,2.2%,,,16,32,0,0,18,0,6631.23
-Avalugg,208,ability,1,Sturdy,61.0%,,,,,,,,,6638.73
-Avalugg,208,ability,2,Ice Body,20.5%,,,,,,,,,6638.73
-Avalugg,208,ability,3,Own Tempo,18.5%,,,,,,,,,6638.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Avalugg,211,move,1,Body Press,74.6%,,,,,,,,
+Avalugg,211,move,2,Wide Guard,55.8%,,,,,,,,
+Avalugg,211,move,3,Protect,30.7%,,,,,,,,
+Avalugg,211,move,4,Ice Spinner,29.1%,,,,,,,,
+Avalugg,211,move,5,Recover,26.2%,,,,,,,,
+Avalugg,211,move,6,Iron Defense,20.0%,,,,,,,,
+Avalugg,211,move,7,Icicle Spear,16.5%,,,,,,,,
+Avalugg,211,move,8,Icicle Crash,15.6%,,,,,,,,
+Avalugg,211,move,9,Rock Slide,15.5%,,,,,,,,
+Avalugg,211,move,10,Avalanche,14.0%,,,,,,,,
+Avalugg,211,held_item,1,Leftovers,42.8%,,,,,,,,
+Avalugg,211,held_item,2,Sitrus Berry,12.4%,,,,,,,,
+Avalugg,211,held_item,3,Quick Claw,12.2%,,,,,,,,
+Avalugg,211,held_item,4,Life Orb,5.3%,,,,,,,,
+Avalugg,211,held_item,5,Focus Sash,4.0%,,,,,,,,
+Avalugg,211,held_item,6,Never-Melt Ice,3.8%,,,,,,,,
+Avalugg,211,held_item,7,Chople Berry,3.2%,,,,,,,,
+Avalugg,211,held_item,8,Occa Berry,2.1%,,,,,,,,
+Avalugg,211,held_item,9,Wide Lens,2.1%,,,,,,,,
+Avalugg,211,held_item,10,King's Rock,1.7%,,,,,,,,
+Avalugg,211,teammate,1,Froslass,,,,,,,,,
+Avalugg,211,teammate,2,Farigiraf,,,,,,,,,
+Avalugg,211,teammate,3,Crabominable,,,,,,,,,
+Avalugg,211,teammate,4,Galarian Slowking,,,,,,,,,
+Avalugg,211,teammate,5,Sinistcha,,,,,,,,,
+Avalugg,211,teammate,6,Torkoal,,,,,,,,,
+Avalugg,211,teammate,7,Incineroar,,,,,,,,,
+Avalugg,211,teammate,8,Abomasnow,,,,,,,,,
+Avalugg,211,teammate,9,Kingambit,,,,,,,,,
+Avalugg,211,teammate,10,Camerupt,,,,,,,,,
+Avalugg,211,stat_alignment,1,Impish,29.1%,Defense,Sp. Atk,,,,,,
+Avalugg,211,stat_alignment,2,Relaxed,26.0%,Defense,Speed,,,,,,
+Avalugg,211,stat_alignment,3,Brave,17.7%,Attack,Speed,,,,,,
+Avalugg,211,stat_alignment,4,Adamant,11.2%,Attack,Sp. Atk,,,,,,
+Avalugg,211,stat_alignment,5,Careful,10.0%,Sp. Def,Sp. Atk,,,,,,
+Avalugg,211,stat_alignment,6,Sassy,3.7%,Sp. Def,Speed,,,,,,
+Avalugg,211,stat_alignment,7,Naughty,1.0%,Attack,Sp. Def,,,,,,
+Avalugg,211,stat_alignment,8,Lax,0.6%,Defense,Sp. Def,,,,,,
+Avalugg,211,stat_alignment,9,Lonely,0.4%,Attack,Defense,,,,,,
+Avalugg,211,stat_alignment,10,Calm,0.2%,Sp. Def,Attack,,,,,,
+Avalugg,211,stat_points,1,,14.5%,,,32,0,2,0,32,0
+Avalugg,211,stat_points,2,,12.9%,,,32,0,32,0,2,0
+Avalugg,211,stat_points,3,,10.1%,,,2,32,32,0,0,0
+Avalugg,211,stat_points,4,,6.7%,,,32,2,32,0,0,0
+Avalugg,211,stat_points,5,,6.3%,,,32,32,2,0,0,0
+Avalugg,211,stat_points,6,,4.9%,,,0,32,32,0,2,0
+Avalugg,211,stat_points,7,,4.9%,,,32,32,0,0,2,0
+Avalugg,211,stat_points,8,,4.0%,,,32,0,6,0,28,0
+Avalugg,211,stat_points,9,,3.3%,,,0,32,2,0,32,0
+Avalugg,211,stat_points,10,,2.8%,,,2,32,0,0,32,0
+Avalugg,211,stat_points,11,,2.8%,,,16,32,0,0,18,0
+Avalugg,211,stat_points,12,,2.6%,,,2,32,8,0,24,0
+Avalugg,211,ability,1,Sturdy,58.2%,,,,,,,,
+Avalugg,211,ability,2,Ice Body,23.7%,,,,,,,,
+Avalugg,211,ability,3,Own Tempo,18.1%,,,,,,,,

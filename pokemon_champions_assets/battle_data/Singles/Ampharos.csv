@@ -1,54 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Ampharos,161,move,1,Dragon Pulse,81.5%,,,,,,,,,5312.23
-Ampharos,161,move,2,Cotton Guard,62.1%,,,,,,,,,5312.23
-Ampharos,161,move,3,Parabolic Charge,51.0%,,,,,,,,,5312.23
-Ampharos,161,move,4,Thunderbolt,47.4%,,,,,,,,,5312.23
-Ampharos,161,move,5,Focus Blast,30.7%,,,,,,,,,5312.23
-Ampharos,161,move,6,Power Gem,29.9%,,,,,,,,,5317.73
-Ampharos,161,move,7,Charge,21.6%,,,,,,,,,5317.73
-Ampharos,161,move,8,Dazzling Gleam,18.8%,,,,,,,,,5317.73
-Ampharos,161,move,9,Volt Switch,11.2%,,,,,,,,,5317.73
-Ampharos,161,move,10,Discharge,6.7%,,,,,,,,,5317.73
-Ampharos,161,held_item,1,Ampharosite,80.3%,,,,,,,,,5321.23
-Ampharos,161,held_item,2,Leftovers,5.4%,,,,,,,,,5324.23
-Ampharos,161,held_item,3,Sitrus Berry,3.5%,,,,,,,,,5321.23
-Ampharos,161,held_item,4,Shuca Berry,1.4%,,,,,,,,,5321.23
-Ampharos,161,held_item,5,Life Orb,0.8%,,,,,,,,,5321.23
-Ampharos,161,held_item,6,Light Clay,0.8%,,,,,,,,,5326.23
-Ampharos,161,held_item,7,Light Ball,0.5%,,,,,,,,,5326.23
-Ampharos,161,held_item,8,Chesto Berry,0.4%,,,,,,,,,5326.23
-Ampharos,161,held_item,9,Magnet,0.3%,,,,,,,,,5326.23
-Ampharos,161,held_item,10,Wise Glasses,0.3%,,,,,,,,,5326.23
-Ampharos,161,teammate,1,Mimikyu,,,,,,,,,,5329.73
-Ampharos,161,teammate,2,Meowscarada,,,,,,,,,,5329.73
-Ampharos,161,teammate,3,Garchomp,,,,,,,,,,5329.73
-Ampharos,161,teammate,4,Corviknight,,,,,,,,,,5329.73
-Ampharos,161,teammate,5,Hatterene,,,,,,,,,,5329.73
-Ampharos,161,teammate,6,Mawile,,,,,,,,,,5334.73
-Ampharos,161,teammate,7,Basculegion,,,,,,,,,,5334.73
-Ampharos,161,teammate,8,Charizard,,,,,,,,,,5334.73
-Ampharos,161,teammate,9,Archaludon,,,,,,,,,,5334.73
-Ampharos,161,teammate,10,Staraptor,,,,,,,,,,5334.73
-Ampharos,161,stat_alignment,1,Modest,54.0%,Sp. Atk,Attack,,,,,,,5338.23
-Ampharos,161,stat_alignment,2,Quiet,23.7%,Sp. Atk,Speed,,,,,,,5338.23
-Ampharos,161,stat_alignment,3,Bold,8.5%,Defense,Attack,,,,,,,5338.23
-Ampharos,161,stat_alignment,4,Calm,6.6%,Sp. Def,Attack,,,,,,,5338.23
-Ampharos,161,stat_alignment,5,Timid,2.9%,Speed,Attack,,,,,,,5338.23
-Ampharos,161,stat_alignment,6,Sassy,2.8%,Sp. Def,Speed,,,,,,,5343.23
-Ampharos,161,stat_alignment,7,Relaxed,0.6%,Defense,Speed,,,,,,,5343.23
-Ampharos,161,stat_alignment,8,Mild,0.5%,Sp. Atk,Defense,,,,,,,5343.23
-Ampharos,161,stat_alignment,9,Naive,0.3%,Speed,Sp. Def,,,,,,,5343.23
-Ampharos,161,stat_alignment,10,Jolly,0.0%,Speed,Sp. Atk,,,,,,,5343.23
-Ampharos,161,stat_points,1,,30.2%,,,32,0,2,32,0,0,5346.73
-Ampharos,161,stat_points,2,,11.6%,,,32,0,0,32,2,0,5346.73
-Ampharos,161,stat_points,3,,5.9%,,,32,0,0,32,0,2,5346.73
-Ampharos,161,stat_points,4,,4.5%,,,24,5,7,19,2,8,5346.73
-Ampharos,161,stat_points,5,,3.4%,,,32,0,1,32,1,0,5346.73
-Ampharos,161,stat_points,6,,2.1%,,,2,0,0,32,32,0,5352.73
-Ampharos,161,stat_points,8,,2.1%,,,32,0,19,15,0,0,5358.73
-Ampharos,161,stat_points,9,,1.8%,,,32,0,32,2,0,0,5358.73
-Ampharos,161,stat_points,10,,1.6%,,,2,0,32,0,32,0,5358.73
-Ampharos,161,stat_points,11,,1.5%,,,0,0,32,32,2,0,5358.73
-Ampharos,161,stat_points,12,,1.4%,,,32,0,0,2,32,0,5358.73
-Ampharos,161,ability,1,Static,98.2%,,,,,,,,,5365.73
-Ampharos,161,ability,2,Plus,1.8%,,,,,,,,,5365.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Ampharos,163,move,1,Dragon Pulse,80.0%,,,,,,,,
+Ampharos,163,move,2,Cotton Guard,60.8%,,,,,,,,
+Ampharos,163,move,3,Parabolic Charge,50.9%,,,,,,,,
+Ampharos,163,move,4,Thunderbolt,49.0%,,,,,,,,
+Ampharos,163,move,5,Power Gem,30.0%,,,,,,,,
+Ampharos,163,move,6,Focus Blast,30.0%,,,,,,,,
+Ampharos,163,move,7,Dazzling Gleam,21.1%,,,,,,,,
+Ampharos,163,move,8,Discharge,20.0%,,,,,,,,
+Ampharos,163,move,9,Volt Switch,11.2%,,,,,,,,
+Ampharos,163,move,10,Discharge,6.3%,,,,,,,,
+Ampharos,163,held_item,1,Ampharosite,79.2%,,,,,,,,
+Ampharos,163,held_item,2,Leftovers,4.8%,,,,,,,,
+Ampharos,163,held_item,3,Sitrus Berry,4.0%,,,,,,,,
+Ampharos,163,held_item,4,Quick Claw,1.7%,,,,,,,,
+Ampharos,163,held_item,5,Shuca Berry,1.6%,,,,,,,,
+Ampharos,163,held_item,6,Life Orb,0.8%,,,,,,,,
+Ampharos,163,held_item,7,Light Clay,0.8%,,,,,,,,
+Ampharos,163,held_item,8,Magnet,0.5%,,,,,,,,
+Ampharos,163,held_item,9,Wise Glasses,0.4%,,,,,,,,
+Ampharos,163,held_item,10,Light Ball,0.4%,,,,,,,,
+Ampharos,163,teammate,1,Mimikyu,,,,,,,,,
+Ampharos,163,teammate,2,Garchomp,,,,,,,,,
+Ampharos,163,teammate,3,Meowscarada,,,,,,,,,
+Ampharos,163,teammate,4,Charizard,,,,,,,,,
+Ampharos,163,teammate,5,Basculegion Male,,,,,,,,,
+Ampharos,163,teammate,6,Corviknight,,,,,,,,,
+Ampharos,163,teammate,7,Hatterene,,,,,,,,,
+Ampharos,163,teammate,8,Mawile,,,,,,,,,
+Ampharos,163,teammate,9,Archaludon,,,,,,,,,
+Ampharos,163,teammate,10,Staraptor,,,,,,,,,
+Ampharos,163,stat_alignment,1,Modest,57.2%,Sp. Atk,Attack,,,,,,
+Ampharos,163,stat_alignment,2,Quiet,21.9%,Sp. Atk,Speed,,,,,,
+Ampharos,163,stat_alignment,3,Bold,8.2%,Defense,Attack,,,,,,
+Ampharos,163,stat_alignment,4,Calm,3.7%,Sp. Def,Attack,,,,,,
+Ampharos,163,stat_alignment,5,Timid,2.6%,Speed,Attack,,,,,,
+Ampharos,163,stat_alignment,6,Sassy,2.0%,Sp. Def,Speed,,,,,,
+Ampharos,163,stat_alignment,7,Mild,0.8%,Sp. Atk,Defense,,,,,,
+Ampharos,163,stat_alignment,8,Relaxed,0.6%,Defense,Speed,,,,,,
+Ampharos,163,stat_alignment,9,Naive,0.4%,Speed,Sp. Def,,,,,,
+Ampharos,163,stat_alignment,10,Jolly,0.4%,Speed,Sp. Atk,,,,,,
+Ampharos,163,stat_points,1,,29.8%,,,32,0,2,32,0,0
+Ampharos,163,stat_points,2,,12.2%,,,32,0,0,32,2,0
+Ampharos,163,stat_points,3,,4.2%,,,32,0,0,32,0,2
+Ampharos,163,stat_points,4,,3.9%,,,24,5,7,19,2,8
+Ampharos,163,stat_points,5,,3.9%,,,32,0,1,32,1,0
+Ampharos,163,stat_points,6,,2.5%,,,2,0,0,32,32,0
+Ampharos,163,stat_points,7,,2.1%,,,2,0,0,32,0,32
+Ampharos,163,stat_points,8,,2.0%,,,2,0,32,32,0,0
+Ampharos,163,stat_points,9,,1.7%,,,32,0,19,15,0,0
+Ampharos,163,stat_points,10,,1.5%,,,0,0,32,32,2,0
+Ampharos,163,stat_points,11,,1.5%,,,2,0,32,0,32,0
+Ampharos,163,stat_points,12,,1.4%,,,32,0,32,2,0,0
+Ampharos,163,ability,1,Static,97.4%,,,,,,,,
+Ampharos,163,ability,2,Plus,2.6%,,,,,,,,

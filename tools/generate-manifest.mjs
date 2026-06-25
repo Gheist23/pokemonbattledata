@@ -383,9 +383,13 @@ const pokemon = [...records.values()]
 
 const skippedMetadataOnly = [...records.values()].filter((record) => !record.battleDataCsvs.length).map((record) => record.name);
 
+const generatedAt = new Date().toISOString();
+const dataVersion = generatedAt.replace(/\D/g, "");
+
 mkdirSync(join(cwd, "data"), { recursive: true });
 writeFileSync(join(cwd, "data", "pokemon-index.json"), `${JSON.stringify({
-  generatedAt: new Date().toISOString(),
+  generatedAt,
+  dataVersion,
   assetRoot,
   battleDataFolders,
   seasons: availableSeasons,

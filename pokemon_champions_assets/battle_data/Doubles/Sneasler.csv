@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Sneasler,8,move,1,Close Combat,98.9%,,,,,,,,,482.17
-Sneasler,8,move,2,Dire Claw,95.3%,,,,,,,,,482.17
-Sneasler,8,move,3,Fake Out,94.8%,,,,,,,,,482.17
-Sneasler,8,move,4,Protect,62.7%,,,,,,,,,482.17
-Sneasler,8,move,5,Coaching,16.4%,,,,,,,,,482.17
-Sneasler,8,move,6,Rock Slide,7.2%,,,,,,,,,487.67
-Sneasler,8,move,7,Throat Chop,4.3%,,,,,,,,,487.67
-Sneasler,8,move,8,Poison Jab,2.4%,,,,,,,,,487.67
-Sneasler,8,move,9,U-turn,2.4%,,,,,,,,,487.67
-Sneasler,8,move,10,Taunt,2.1%,,,,,,,,,487.67
-Sneasler,8,held_item,1,White Herb,77.6%,,,,,,,,,491.17
-Sneasler,8,held_item,2,Focus Sash,18.4%,,,,,,,,,491.17
-Sneasler,8,held_item,3,Life Orb,0.8%,,,,,,,,,491.17
-Sneasler,8,held_item,4,Lum Berry,0.5%,,,,,,,,,491.17
-Sneasler,8,held_item,5,Sitrus Berry,0.4%,,,,,,,,,491.17
-Sneasler,8,held_item,6,Mental Herb,0.3%,,,,,,,,,496.17
-Sneasler,8,held_item,7,King's Rock,0.3%,,,,,,,,,496.17
-Sneasler,8,held_item,8,lron Ball,0.2%,,,,,,,,,496.17
-Sneasler,8,held_item,9,Expert Belt,0.2%,,,,,,,,,496.17
-Sneasler,8,held_item,10,Black Belt,0.1%,,,,,,,,,496.17
-Sneasler,8,teammate,1,Garchomp,,,,,,,,,,499.67
-Sneasler,8,teammate,2,Basculegion,,,,,,,,,,499.67
-Sneasler,8,teammate,3,Whimsicott,,,,,,,,,,499.67
-Sneasler,8,teammate,4,Incineroar,,,,,,,,,,499.67
-Sneasler,8,teammate,5,Sinistcha,,,,,,,,,,499.67
-Sneasler,8,teammate,6,Kingambit,,,,,,,,,,504.67
-Sneasler,8,teammate,7,Charizard,,,,,,,,,,504.67
-Sneasler,8,teammate,8,Pelipper,,,,,,,,,,504.67
-Sneasler,8,teammate,9,Metagross,,,,,,,,,,504.67
-Sneasler,8,teammate,10,Archaludon,,,,,,,,,,504.67
-Sneasler,8,stat_alignment,1,Jolly,59.0%,Speed,Sp. Atk,,,,,,,508.17
-Sneasler,8,stat_alignment,2,Adamant,36.3%,Attack,Sp. Atk,,,,,,,508.17
-Sneasler,8,stat_alignment,3,Naive,1.2%,Speed,Sp. Def,,,,,,,508.17
-Sneasler,8,stat_alignment,4,Naughty,0.8%,Attack,Sp. Def,,,,,,,508.17
-Sneasler,8,stat_alignment,5,Lonely,0.7%,Attack,Defense,,,,,,,508.17
-Sneasler,8,stat_alignment,6,Hasty,0.5%,Speed,Defense,,,,,,,513.2
-Sneasler,8,stat_alignment,7,Impish,0.4%,Defense,Sp. Atk,,,,,,,513.2
-Sneasler,8,stat_alignment,8,Brave,0.4%,Attack,Speed,,,,,,,513.2
-Sneasler,8,stat_alignment,9,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,,513.2
-Sneasler,8,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,,513.2
-Sneasler,8,stat_points,1,,49.6%,,,2,32,0,0,0,32,516.7
-Sneasler,8,stat_points,2,,11.8%,,,0,32,2,0,0,32,516.7
-Sneasler,8,stat_points,3,,7.9%,,,0,32,0,0,2,32,516.7
-Sneasler,8,stat_points,4,,3.5%,,,4,16,23,0,0,23,516.7
-Sneasler,8,stat_points,5,,3.5%,,,1,32,1,0,0,32,516.7
-Sneasler,8,stat_points,8,,0.8%,,,32,32,0,0,0,2,528.7
-Sneasler,8,stat_points,9,,0.7%,,,0,32,1,0,1,32,528.7
-Sneasler,8,stat_points,10,,0.6%,,,32,32,2,0,0,0,528.7
-Sneasler,8,stat_points,11,,0.6%,,,20,0,31,0,0,15,528.7
-Sneasler,8,stat_points,12,,0.5%,,,4,32,0,0,0,30,528.7
-Sneasler,8,ability,1,Unburden,86.8%,,,,,,,,,536.2
-Sneasler,8,ability,2,Poison Touch,12.6%,,,,,,,,,536.2
-Sneasler,8,ability,3,Pressure,0.6%,,,,,,,,,536.2
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Sneasler,8,move,1,Close Combat,98.8%,,,,,,,,
+Sneasler,8,move,2,Dire Claw,95.1%,,,,,,,,
+Sneasler,8,move,3,Fake Out,94.5%,,,,,,,,
+Sneasler,8,move,4,Protect,62.9%,,,,,,,,
+Sneasler,8,move,5,Coaching,14.8%,,,,,,,,
+Sneasler,8,move,6,Rock Slide,7.0%,,,,,,,,
+Sneasler,8,move,7,Throat Chop,4.6%,,,,,,,,
+Sneasler,8,move,8,U-turn,2.7%,,,,,,,,
+Sneasler,8,move,9,Poison Jab,2.5%,,,,,,,,
+Sneasler,8,move,10,Taunt,2.3%,,,,,,,,
+Sneasler,8,held_item,1,White Herb,,,,,,,,,
+Sneasler,8,held_item,2,Focus Sash,18.0%,,,,,,,,
+Sneasler,8,held_item,3,Life Orb,0.9%,,,,,,,,
+Sneasler,8,held_item,4,Lum Berry,0.6%,,,,,,,,
+Sneasler,8,held_item,5,Sitrus Berry,0.4%,,,,,,,,
+Sneasler,8,held_item,6,Iron Ball,0.4%,,,,,,,,
+Sneasler,8,held_item,7,Mental Herb,0.3%,,,,,,,,
+Sneasler,8,held_item,8,King's Rock,0.3%,,,,,,,,
+Sneasler,8,held_item,9,Quick Claw,0.2%,,,,,,,,
+Sneasler,8,held_item,10,Expert Belt,0.2%,,,,,,,,
+Sneasler,8,teammate,1,Garchomp,,,,,,,,,
+Sneasler,8,teammate,2,Whimsicott,,,,,,,,,
+Sneasler,8,teammate,3,Basculegion Male,,,,,,,,,
+Sneasler,8,teammate,4,Incineroar,,,,,,,,,
+Sneasler,8,teammate,5,Sinistcha,,,,,,,,,
+Sneasler,8,teammate,6,Kingambit,,,,,,,,,
+Sneasler,8,teammate,7,Charizard,,,,,,,,,
+Sneasler,8,teammate,8,Pelipper,,,,,,,,,
+Sneasler,8,teammate,9,Metagross,,,,,,,,,
+Sneasler,8,teammate,10,Archaludon,,,,,,,,,
+Sneasler,8,stat_alignment,1,Jolly,58.5%,Speed,Sp. Atk,,,,,,
+Sneasler,8,stat_alignment,2,Adamant,36.3%,Attack,Sp. Atk,,,,,,
+Sneasler,8,stat_alignment,3,Naive,1.2%,Speed,Sp. Def,,,,,,
+Sneasler,8,stat_alignment,4,Naughty,0.9%,Attack,Sp. Def,,,,,,
+Sneasler,8,stat_alignment,5,Lonely,0.8%,Attack,Defense,,,,,,
+Sneasler,8,stat_alignment,6,Hasty,0.7%,Speed,Defense,,,,,,
+Sneasler,8,stat_alignment,7,Brave,0.5%,Attack,Speed,,,,,,
+Sneasler,8,stat_alignment,8,Impish,0.4%,Defense,Sp. Atk,,,,,,
+Sneasler,8,stat_alignment,9,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Sneasler,8,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
+Sneasler,8,stat_points,1,,49.8%,,,2,32,0,0,0,32
+Sneasler,8,stat_points,2,,12.1%,,,0,32,2,0,0,32
+Sneasler,8,stat_points,3,,8.1%,,,0,32,0,0,2,32
+Sneasler,8,stat_points,4,,3.3%,,,1,32,1,0,0,32
+Sneasler,8,stat_points,5,,3.0%,,,4,16,23,0,0,23
+Sneasler,8,stat_points,6,,2.8%,,,0,32,0,0,0,32
+Sneasler,8,stat_points,7,,0.9%,,,32,32,0,0,0,2
+Sneasler,8,stat_points,8,,0.8%,,,1,32,0,0,0,32
+Sneasler,8,stat_points,9,,0.7%,,,32,32,2,0,0,0
+Sneasler,8,stat_points,10,,0.7%,,,0,32,1,0,1,32
+Sneasler,8,stat_points,11,,0.5%,,,20,0,31,0,0,15
+Sneasler,8,stat_points,12,,0.5%,,,4,32,0,0,0,30
+Sneasler,8,ability,1,Unburden,86.1%,,,,,,,,
+Sneasler,8,ability,2,Poison Touch,13.2%,,,,,,,,
+Sneasler,8,ability,3,Pressure,0.7%,,,,,,,,

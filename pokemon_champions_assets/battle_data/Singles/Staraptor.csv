@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Staraptor,6,move,1,Close Combat,98.6%,,,,,,,,,8744.23
-Staraptor,6,move,2,Brave Bird,91.3%,,,,,,,,,8744.23
-Staraptor,6,move,3,Roost,91.2%,,,,,,,,,8744.23
-Staraptor,6,move,4,Blaze Kick,53.1%,,,,,,,,,8744.23
-Staraptor,6,move,5,Whirlwind,16.9%,,,,,,,,,8744.23
-Staraptor,6,move,6,U-turn,15.1%,,,,,,,,,8749.73
-Staraptor,6,move,7,Substitute,6.6%,,,,,,,,,8749.73
-Staraptor,6,move,8,Quick Attack,6.0%,,,,,,,,,8749.73
-Staraptor,6,move,9,Dual Wingbeat,5.9%,,,,,,,,,8749.73
-Staraptor,6,move,10,Final Gambit,4.1%,,,,,,,,,8749.73
-Staraptor,6,held_item,1,Staraptite,95.5%,,,,,,,,,8753.23
-Staraptor,6,held_item,2,Choice Scarf,3.7%,,,,,,,,,8753.23
-Staraptor,6,held_item,3,Life Orb,0.1%,,,,,,,,,8753.23
-Staraptor,6,held_item,4,Focus Sash,0.1%,,,,,,,,,8753.23
-Staraptor,6,held_item,5,Sitrus Berry,0.1%,,,,,,,,,8753.23
-Staraptor,6,held_item,6,Leftovers,0.0%,,,,,,,,,8758.23
-Staraptor,6,held_item,7,Quick Claw,0.0%,,,,,,,,,8758.23
-Staraptor,6,held_item,8,Sharp Beak,0.0%,,,,,,,,,8758.23
-Staraptor,6,held_item,9,Muscle Band,0.0%,,,,,,,,,8758.23
-Staraptor,6,held_item,10,Lum Berry,0.0%,,,,,,,,,8758.23
-Staraptor,6,teammate,1,Garchomp,,,,,,,,,,8761.73
-Staraptor,6,teammate,2,Meowscarada,,,,,,,,,,8761.73
-Staraptor,6,teammate,3,Archaludon,,,,,,,,,,8761.73
-Staraptor,6,teammate,4,Mimikyu,,,,,,,,,,8761.73
-Staraptor,6,teammate,5,Raichu,,,,,,,,,,8761.73
-Staraptor,6,teammate,6,Gholdengo,,,,,,,,,,8766.73
-Staraptor,6,teammate,7,Basculegion,,,,,,,,,,8766.73
-Staraptor,6,teammate,8,Glimmora,,,,,,,,,,8766.73
-Staraptor,6,teammate,9,Alolan Ninetales,,,,,,,,,,8766.73
-Staraptor,6,teammate,10,Primarina,,,,,,,,,,8766.73
-Staraptor,6,stat_alignment,1,Jolly,77.6%,Speed,Sp. Atk,,,,,,,8770.23
-Staraptor,6,stat_alignment,2,Adamant,17.4%,Attack,Sp. Atk,,,,,,,8770.23
-Staraptor,6,stat_alignment,3,Careful,1.8%,Sp. Def,Sp. Atk,,,,,,,8770.23
-Staraptor,6,stat_alignment,4,Impish,1.8%,Defense,Sp. Atk,,,,,,,8770.23
-Staraptor,6,stat_alignment,5,Naive,0.3%,Speed,Sp. Def,,,,,,,8770.23
-Staraptor,6,stat_alignment,6,Naughty,0.3%,Attack,Sp. Def,,,,,,,8775.23
-Staraptor,6,stat_alignment,7,Lonely,0.2%,Attack,Defense,,,,,,,8775.23
-Staraptor,6,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,,8775.23
-Staraptor,6,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,,8775.23
-Staraptor,6,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,,8775.23
-Staraptor,6,stat_points,1,,30.7%,,,2,32,0,0,0,32,8778.73
-Staraptor,6,stat_points,2,,10.1%,,,1,32,1,0,0,32,8778.73
-Staraptor,6,stat_points,3,,9.4%,,,32,2,0,0,0,32,8778.73
-Staraptor,6,stat_points,4,,8.5%,,,31,3,0,0,0,32,8778.73
-Staraptor,6,stat_points,5,,3.3%,,,0,32,2,0,0,32,8778.73
-Staraptor,6,stat_points,8,,1.9%,,,32,32,0,0,0,2,8790.73
-Staraptor,6,stat_points,9,,1.5%,,,9,32,0,0,0,25,8790.73
-Staraptor,6,stat_points,10,,1.2%,,,32,0,2,0,0,32,8790.73
-Staraptor,6,stat_points,11,,1.2%,,,0,32,0,0,0,32,8790.73
-Staraptor,6,stat_points,12,,1.2%,,,3,0,3,0,0,32,8790.73
-Staraptor,6,ability,1,Intimidate,97.1%,,,,,,,,,8798.23
-Staraptor,6,ability,2,Reckless,2.9%,,,,,,,,,8798.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Staraptor,7,move,1,Close Combat,98.4%,,,,,,,,
+Staraptor,7,move,2,Brave Bird,91.4%,,,,,,,,
+Staraptor,7,move,3,Roost,90.8%,,,,,,,,
+Staraptor,7,move,4,Blaze Kick,53.7%,,,,,,,,
+Staraptor,7,move,5,Whirlwind,16.7%,,,,,,,,
+Staraptor,7,move,6,U-turn,14.9%,,,,,,,,
+Staraptor,7,move,7,Substitute,6.0%,,,,,,,,
+Staraptor,7,move,8,Quick Attack,6.0%,,,,,,,,
+Staraptor,7,move,9,Dual Wingbeat,5.8%,,,,,,,,
+Staraptor,7,move,10,Final Gambit,4.4%,,,,,,,,
+Staraptor,7,held_item,1,Staraptite,95.2%,,,,,,,,
+Staraptor,7,held_item,2,Choice Scarf,4.0%,,,,,,,,
+Staraptor,7,held_item,3,Life Orb,0.1%,,,,,,,,
+Staraptor,7,held_item,4,Focus Sash,0.1%,,,,,,,,
+Staraptor,7,held_item,5,Sitrus Berry,0.1%,,,,,,,,
+Staraptor,7,held_item,6,Quick Claw,0.1%,,,,,,,,
+Staraptor,7,held_item,7,Leftovers,0.0%,,,,,,,,
+Staraptor,7,held_item,8,Muscle Band,0.0%,,,,,,,,
+Staraptor,7,held_item,9,Sharp Beak,0.0%,,,,,,,,
+Staraptor,7,held_item,10,White Herb,0.0%,,,,,,,,
+Staraptor,7,teammate,1,Garchomp,,,,,,,,,
+Staraptor,7,teammate,2,Meowscarada,,,,,,,,,
+Staraptor,7,teammate,3,Archaludon,,,,,,,,,
+Staraptor,7,teammate,4,Mimikyu,,,,,,,,,
+Staraptor,7,teammate,5,Raichu,,,,,,,,,
+Staraptor,7,teammate,6,Alolan Ninetales,,,,,,,,,
+Staraptor,7,teammate,7,Basculegion Male,,,,,,,,,
+Staraptor,7,teammate,8,Gholdengo,,,,,,,,,
+Staraptor,7,teammate,9,Glimmora,,,,,,,,,
+Staraptor,7,teammate,10,Primarina,,,,,,,,,
+Staraptor,7,stat_alignment,1,Jolly,77.8%,Speed,Sp. Atk,,,,,,
+Staraptor,7,stat_alignment,2,Adamant,17.2%,Attack,Sp. Atk,,,,,,
+Staraptor,7,stat_alignment,3,Impish,1.7%,Defense,Sp. Atk,,,,,,
+Staraptor,7,stat_alignment,4,Careful,1.6%,Sp. Def,Sp. Atk,,,,,,
+Staraptor,7,stat_alignment,5,Naive,0.4%,Speed,Sp. Def,,,,,,
+Staraptor,7,stat_alignment,6,Naughty,0.3%,Attack,Sp. Def,,,,,,
+Staraptor,7,stat_alignment,7,Lonely,0.2%,Attack,Defense,,,,,,
+Staraptor,7,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,
+Staraptor,7,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
+Staraptor,7,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
+Staraptor,7,stat_points,1,,31.8%,,,2,32,0,0,0,32
+Staraptor,7,stat_points,2,,10.0%,,,1,32,1,0,0,32
+Staraptor,7,stat_points,3,,9.3%,,,32,2,0,0,0,32
+Staraptor,7,stat_points,4,,8.2%,,,31,3,0,0,0,32
+Staraptor,7,stat_points,5,,3.5%,,,0,32,2,0,0,32
+Staraptor,7,stat_points,6,,2.8%,,,0,32,0,0,2,32
+Staraptor,7,stat_points,7,,2.4%,,,1,32,0,0,1,32
+Staraptor,7,stat_points,8,,1.9%,,,32,32,0,0,0,2
+Staraptor,7,stat_points,9,,1.3%,,,9,32,0,0,0,25
+Staraptor,7,stat_points,10,,1.3%,,,31,0,3,0,0,32
+Staraptor,7,stat_points,11,,1.2%,,,0,32,0,0,0,32
+Staraptor,7,stat_points,12,,1.2%,,,32,0,2,0,0,32
+Staraptor,7,ability,1,Intimidate,96.7%,,,,,,,,
+Staraptor,7,ability,2,Reckless,3.3%,,,,,,,,

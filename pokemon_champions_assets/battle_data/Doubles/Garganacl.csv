@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Garganacl,171,move,1,Salt Cure,80.7%,,,,,,,,,4103.73
-Garganacl,171,move,2,Wide Guard,52.3%,,,,,,,,,4103.73
-Garganacl,171,move,3,Recover,32.2%,,,,,,,,,4103.73
-Garganacl,171,move,4,Protect,51.2%,,,,,,,,,4103.73
-Garganacl,171,move,5,Body Press,36.4%,,,,,,,,,4103.73
-Garganacl,171,move,6,Rock Slide,23.2%,,,,,,,,,4109.23
-Garganacl,171,move,7,lron,22.9%,,,,,,,,,4109.23
-Garganacl,171,move,8,Stealth Rock,17.2%,,,,,,,,,4109.23
-Garganacl,171,move,9,Explosion,14.0%,,,,,,,,,4109.23
-Garganacl,171,move,10,Fissure,5.6%,,,,,,,,,4109.23
-Garganacl,171,held_item,1,Leftovers,50.1%,,,,,,,,,4112.73
-Garganacl,171,held_item,2,Sitrus Berry,16.8%,,,,,,,,,4112.73
-Garganacl,171,held_item,3,Silk Scarf,8.9%,,,,,,,,,4112.73
-Garganacl,171,held_item,4,Life Orb,4.3%,,,,,,,,,4112.73
-Garganacl,171,held_item,5,Quick Claw,3.0%,,,,,,,,,4112.73
-Garganacl,171,held_item,6,Chople Berry,2.3%,,,,,,,,,4117.73
-Garganacl,171,held_item,7,Rindo Berry,1.8%,,,,,,,,,4117.73
-Garganacl,171,held_item,8,Hard Stone,1.7%,,,,,,,,,4117.73
-Garganacl,171,held_item,9,Focus Sash,1.6%,,,,,,,,,4117.73
-Garganacl,171,held_item,10,Expert Belt,1.2%,,,,,,,,,4117.73
-Garganacl,171,teammate,1,Farigiraf,,,,,,,,,,4121.23
-Garganacl,171,teammate,2,Sinistcha,,,,,,,,,,4121.23
-Garganacl,171,teammate,3,Whimsicott,,,,,,,,,,4121.23
-Garganacl,171,teammate,4,Staraptor,,,,,,,,,,4121.23
-Garganacl,171,teammate,5,Torkoal,,,,,,,,,,4121.23
-Garganacl,171,teammate,6,Incineroar,,,,,,,,,,4126.23
-Garganacl,171,teammate,7,Sylveon,,,,,,,,,,4126.23
-Garganacl,171,teammate,8,Kingambit,,,,,,,,,,4126.23
-Garganacl,171,teammate,9,Raichu,,,,,,,,,,4126.23
-Garganacl,171,teammate,10,Mawile,,,,,,,,,,4126.23
-Garganacl,171,stat_alignment,1,Careful,25.2%,Sp. Def,Sp. Atk,,,,,,,4129.73
-Garganacl,171,stat_alignment,2,Impish,22.4%,Defense,Sp. Atk,,,,,,,4129.73
-Garganacl,171,stat_alignment,3,Adamant,13.7%,Attack,Sp. Atk,,,,,,,4129.73
-Garganacl,171,stat_alignment,4,Relaxed,11.4%,Defense,Speed,,,,,,,4129.73
-Garganacl,171,stat_alignment,5,Sassy,10.9%,Sp. Def,Speed,,,,,,,4129.73
-Garganacl,171,stat_alignment,6,Brave,8.0%,Attack,Speed,,,,,,,4134.73
-Garganacl,171,stat_alignment,7,Jolly,3.2%,Speed,Sp. Atk,,,,,,,4134.73
-Garganacl,171,stat_alignment,8,Naughty,1.2%,Attack,Sp. Def,,,,,,,4134.73
-Garganacl,171,stat_alignment,9,Gentle,0.5%,Sp. Def,Defense,,,,,,,4134.73
-Garganacl,171,stat_alignment,10,Bold,0.4%,Defense,Attack,,,,,,,4134.73
-Garganacl,171,stat_points,1,,14.5%,,,32,0,2,0,32,0,4138.23
-Garganacl,171,stat_points,2,,8.2%,,,2,0,32,0,32,0,4138.23
-Garganacl,171,stat_points,3,,8.0%,,,2,32,0,0,0,32,4138.23
-Garganacl,171,stat_points,4,,8.0%,,,32,0,32,0,2,0,4138.23
-Garganacl,171,stat_points,5,,4.7%,,,32,2,32,0,0,0,4138.23
-Garganacl,171,stat_points,8,,2.9%,,,0,32,32,0,2,0,4150.23
-Garganacl,171,stat_points,9,,2.9%,,,32,0,4,0,30,0,4150.23
-Garganacl,171,stat_points,10,,2.9%,,,32,24,0,0,10,0,4150.23
-Garganacl,171,stat_points,11,,2.8%,,,0,32,2,0,32,0,4150.23
-Garganacl,171,stat_points,12,,2.1%,,,32,0,9,0,25,0,4150.23
-Garganacl,171,ability,1,Purifying Salt,63.4%,,,,,,,,,4157.73
-Garganacl,171,ability,2,Clear Body,19.2%,,,,,,,,,4157.73
-Garganacl,171,ability,3,Sturdy,17.4%,,,,,,,,,4157.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Garganacl,171,move,1,Salt Cure,81.8%,,,,,,,,
+Garganacl,171,move,2,Recover,53.8%,,,,,,,,
+Garganacl,171,move,3,Protect,51.6%,,,,,,,,
+Garganacl,171,move,4,Wide Guard,46.1%,,,,,,,,
+Garganacl,171,move,5,Body Press,36.1%,,,,,,,,
+Garganacl,171,move,6,Rock Slide,25.0%,,,,,,,,
+Garganacl,171,move,7,Iron Defense,21.6%,,,,,,,,
+Garganacl,171,move,8,Stealth Rock,17.8%,,,,,,,,
+Garganacl,171,move,9,Explosion,12.4%,,,,,,,,
+Garganacl,171,move,10,Fissure,5.5%,,,,,,,,
+Garganacl,171,held_item,1,Leftovers,51.5%,,,,,,,,
+Garganacl,171,held_item,2,Sitrus Berry,15.0%,,,,,,,,
+Garganacl,171,held_item,3,Silk Scarf,7.3%,,,,,,,,
+Garganacl,171,held_item,4,Life Orb,4.5%,,,,,,,,
+Garganacl,171,held_item,5,Quick Claw,2.1%,,,,,,,,
+Garganacl,171,held_item,6,Chople Berry,2.1%,,,,,,,,
+Garganacl,171,held_item,7,Hard Stone,2.1%,,,,,,,,
+Garganacl,171,held_item,8,Focus Sash,1.9%,,,,,,,,
+Garganacl,171,held_item,9,Bright Powder,1.5%,,,,,,,,
+Garganacl,171,held_item,10,Rindo Berry,1.0%,,,,,,,,
+Garganacl,171,teammate,1,Farigiraf,,,,,,,,,
+Garganacl,171,teammate,2,Sinistcha,,,,,,,,,
+Garganacl,171,teammate,3,Whimsicott,,,,,,,,,
+Garganacl,171,teammate,4,Torkoal,,,,,,,,,
+Garganacl,171,teammate,5,Incineroar,,,,,,,,,
+Garganacl,171,teammate,6,Kingambit,,,,,,,,,
+Garganacl,171,teammate,7,Sylveon,,,,,,,,,
+Garganacl,171,teammate,8,Staraptor,,,,,,,,,
+Garganacl,171,teammate,9,Grimmsnarl,,,,,,,,,
+Garganacl,171,teammate,10,Garchomp,,,,,,,,,
+Garganacl,171,stat_alignment,1,Careful,24.9%,Sp. Def,Sp. Atk,,,,,,
+Garganacl,171,stat_alignment,2,Impish,22.2%,Defense,Sp. Atk,,,,,,
+Garganacl,171,stat_alignment,3,Relaxed,12.6%,Defense,Speed,,,,,,
+Garganacl,171,stat_alignment,4,Adamant,12.0%,Attack,Sp. Atk,,,,,,
+Garganacl,171,stat_alignment,5,Sassy,11.4%,Sp. Def,Speed,,,,,,
+Garganacl,171,stat_alignment,6,Brave,6.7%,Attack,Speed,,,,,,
+Garganacl,171,stat_alignment,7,Jolly,5.8%,Speed,Sp. Atk,,,,,,
+Garganacl,171,stat_alignment,8,Naughty,1.5%,Attack,Sp. Def,,,,,,
+Garganacl,171,stat_alignment,9,Bold,0.5%,Defense,Attack,,,,,,
+Garganacl,171,stat_alignment,10,Calm,0.4%,Sp. Def,Attack,,,,,,
+Garganacl,171,stat_points,1,,14.6%,,,32,0,2,0,32,0
+Garganacl,171,stat_points,2,,8.3%,,,32,0,32,0,2,0
+Garganacl,171,stat_points,3,,6.5%,,,2,32,0,0,0,32
+Garganacl,171,stat_points,4,,6.4%,,,2,0,32,0,32,0
+Garganacl,171,stat_points,5,,4.1%,,,2,32,32,0,0,0
+Garganacl,171,stat_points,6,,4.0%,,,0,32,32,0,2,0
+Garganacl,171,stat_points,7,,3.5%,,,32,32,2,0,0,0
+Garganacl,171,stat_points,8,,3.5%,,,32,32,0,0,2,0
+Garganacl,171,stat_points,9,,3.4%,,,32,2,32,0,0,0
+Garganacl,171,stat_points,10,,3.4%,,,32,1,0,0,29,0
+Garganacl,171,stat_points,11,,2.8%,,,0,32,2,0,32,0
+Garganacl,171,stat_points,12,,2.1%,,,32,24,0,0,10,0
+Garganacl,171,ability,1,Purifying Salt,64.5%,,,,,,,,
+Garganacl,171,ability,2,Clear Body,19.8%,,,,,,,,
+Garganacl,171,ability,3,Sturdy,15.7%,,,,,,,,

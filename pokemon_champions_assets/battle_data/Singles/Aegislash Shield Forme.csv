@@ -1,52 +1,54 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Aegislash Shield Forme,27,move,1,Shadow Sneak,95.1%,,,,,,,,,10152.23
-Aegislash Shield Forme,27,move,2,King's Shield,82.9%,,,,,,,,,10152.23
-Aegislash Shield Forme,27,move,3,Poltergeist,69.9%,,,,,,,,,10152.23
-Aegislash Shield Forme,27,move,4,Sacred Sword,41.9%,,,,,,,,,10152.23
-Aegislash Shield Forme,27,move,5,Swords Dance,30.2%,,,,,,,,,10152.23
-Aegislash Shield Forme,27,move,6,Iron Head,28.3%,,,,,,,,,10158.73
-Aegislash Shield Forme,27,move,7,Shadow Ball,21.7%,,,,,,,,,10158.73
-Aegislash Shield Forme,27,move,8,Close Combat,13.5%,,,,,,,,,10158.73
-Aegislash Shield Forme,27,move,9,Flash Cannon,9.5%,,,,,,,,,10158.73
-Aegislash Shield Forme,27,move,10,Brick Break,2.1%,,,,,,,,,10158.73
-Aegislash Shield Forme,27,held_item,1,Leftovers,51.7%,,,,,,,,,10161.73
-Aegislash Shield Forme,27,held_item,2,Spell Tag,23.6%,,,,,,,,,10161.73
-Aegislash Shield Forme,27,held_item,3,Life Orb,12.7%,,,,,,,,,10161.73
-Aegislash Shield Forme,27,held_item,4,Focus Sash,5.3%,,,,,,,,,10161.73
-Aegislash Shield Forme,27,held_item,5,Sitrus Berry,3.0%,,,,,,,,,10161.73
-Aegislash Shield Forme,27,held_item,6,Lum Berry,1.0%,,,,,,,,,10166.73
-Aegislash Shield Forme,27,held_item,7,Shuca Berry,0.4%,,,,,,,,,10166.73
-Aegislash Shield Forme,27,held_item,8,Muscle Band,0.3%,,,,,,,,,10166.73
-Aegislash Shield Forme,27,held_item,9,Expert Belt,0.3%,,,,,,,,,10166.73
-Aegislash Shield Forme,27,held_item,10,Quick Claw,0.2%,,,,,,,,,10166.73
-Aegislash Shield Forme,27,teammate,1,Garchomp,,,,,,,,,,10170.23
-Aegislash Shield Forme,27,teammate,2,Meowscarada,,,,,,,,,,10170.23
-Aegislash Shield Forme,27,teammate,3,Staraptor,,,,,,,,,,10170.23
-Aegislash Shield Forme,27,teammate,4,Archaludon,,,,,,,,,,10170.23
-Aegislash Shield Forme,27,teammate,5,Raichu,,,,,,,,,,10170.23
-Aegislash Shield Forme,27,teammate,6,Hippowdon,,,,,,,,,,10175.73
-Aegislash Shield Forme,27,teammate,7,Charizard,,,,,,,,,,10175.73
-Aegislash Shield Forme,27,teammate,8,Dragonite,,,,,,,,,,10175.73
-Aegislash Shield Forme,27,teammate,9,Hydreigon,,,,,,,,,,10175.73
-Aegislash Shield Forme,27,teammate,10,Swampert,,,,,,,,,,10175.73
-Aegislash Shield Forme,27,stat_alignment,1,Adamant,56.4%,Attack,Sp. Atk,,,,,,,10179.23
-Aegislash Shield Forme,27,stat_alignment,2,Brave,18.8%,Attack,Speed,,,,,,,10179.23
-Aegislash Shield Forme,27,stat_alignment,3,Quiet,13.7%,Sp. Atk,Speed,,,,,,,10179.23
-Aegislash Shield Forme,27,stat_alignment,4,Sassy,3.4%,Sp. Def,Speed,,,,,,,10179.23
-Aegislash Shield Forme,27,stat_alignment,5,Relaxed,1.6%,Defense,Speed,,,,,,,10179.23
-Aegislash Shield Forme,27,stat_alignment,6,Modest,1.6%,Sp. Atk,Attack,,,,,,,10184.23
-Aegislash Shield Forme,27,stat_alignment,7,Impish,1.4%,Defense,Sp. Atk,,,,,,,10184.23
-Aegislash Shield Forme,27,stat_alignment,8,Careful,1.2%,Sp. Def,Sp. Atk,,,,,,,10184.23
-Aegislash Shield Forme,27,stat_alignment,9,Jolly,0.7%,Speed,Sp. Atk,,,,,,,10184.23
-Aegislash Shield Forme,27,stat_alignment,10,Naughty,0.4%,Attack,Sp. Def,,,,,,,10184.23
-Aegislash Shield Forme,27,stat_points,1,,16.7%,,,32,32,1,0,1,0,10187.73
-Aegislash Shield Forme,27,stat_points,2,,9.6%,,,32,32,2,0,0,0,10187.73
-Aegislash Shield Forme,27,stat_points,3,,7.5%,,,32,32,0,0,0,2,10187.73
-Aegislash Shield Forme,27,stat_points,4,,6.6%,,,32,32,0,0,2,0,10187.73
-Aegislash Shield Forme,27,stat_points,5,,4.3%,,,32,0,0,32,2,0,10187.73
-Aegislash Shield Forme,27,stat_points,8,,2.6%,,,32,30,1,0,1,2,10199.73
-Aegislash Shield Forme,27,stat_points,9,,2.4%,,,32,26,0,0,0,8,10199.73
-Aegislash Shield Forme,27,stat_points,10,,2.3%,,,32,0,3,11,20,0,10199.73
-Aegislash Shield Forme,27,stat_points,11,,2.3%,,,32,30,4,0,0,0,10199.73
-Aegislash Shield Forme,27,stat_points,12,,1.6%,,,32,0,1,32,1,0,10199.73
-Aegislash Shield Forme,27,ability,1,Stance Change,100.0%,,,,,,,,,10207.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Aegislash Shield Forme,28,move,1,Shadow Sneak,94.8%,,,,,,,,
+Aegislash Shield Forme,28,move,2,King's Shield,82.7%,,,,,,,,
+Aegislash Shield Forme,28,move,3,Poltergeist,69.1%,,,,,,,,
+Aegislash Shield Forme,28,move,4,Sacred Sword,42.2%,,,,,,,,
+Aegislash Shield Forme,28,move,5,Swords Dance,30.2%,,,,,,,,
+Aegislash Shield Forme,28,move,6,Iron Head,28.3%,,,,,,,,
+Aegislash Shield Forme,28,move,7,Shadow Ball,21.7%,,,,,,,,
+Aegislash Shield Forme,28,move,8,Close Combat,12.9%,,,,,,,,
+Aegislash Shield Forme,28,move,9,Flash Cannon,10.2%,,,,,,,,
+Aegislash Shield Forme,28,move,10,Brick Break,2.7%,,,,,,,,
+Aegislash Shield Forme,28,held_item,1,Leftovers,50.1%,,,,,,,,
+Aegislash Shield Forme,28,held_item,2,Spell Tag,24.2%,,,,,,,,
+Aegislash Shield Forme,28,held_item,3,Life Orb,13.1%,,,,,,,,
+Aegislash Shield Forme,28,held_item,4,Focus Sash,9.2%,,,,,,,,
+Aegislash Shield Forme,28,held_item,5,Sitrus Berry,3.3%,,,,,,,,
+Aegislash Shield Forme,28,held_item,6,Lum Berry,1.0%,,,,,,,,
+Aegislash Shield Forme,28,held_item,7,Shuca Berry,0.4%,,,,,,,,
+Aegislash Shield Forme,28,held_item,8,Muscle Band,0.3%,,,,,,,,
+Aegislash Shield Forme,28,held_item,9,Expert Belt,0.3%,,,,,,,,
+Aegislash Shield Forme,28,held_item,10,Quick Claw,0.2%,,,,,,,,
+Aegislash Shield Forme,28,teammate,1,Garchomp,,,,,,,,,
+Aegislash Shield Forme,28,teammate,2,Meowscarada,,,,,,,,,
+Aegislash Shield Forme,28,teammate,3,Staraptor,,,,,,,,,
+Aegislash Shield Forme,28,teammate,4,Archaludon,,,,,,,,,
+Aegislash Shield Forme,28,teammate,5,Hippowdon,,,,,,,,,
+Aegislash Shield Forme,28,teammate,6,Raichu,,,,,,,,,
+Aegislash Shield Forme,28,teammate,7,Charizard,,,,,,,,,
+Aegislash Shield Forme,28,teammate,8,Hydreigon,,,,,,,,,
+Aegislash Shield Forme,28,teammate,9,Dragonite,,,,,,,,,
+Aegislash Shield Forme,28,teammate,10,Gyarados,,,,,,,,,
+Aegislash Shield Forme,28,stat_alignment,1,Adamant,56.0%,Attack,Sp. Atk,,,,,,
+Aegislash Shield Forme,28,stat_alignment,2,Brave,18.3%,Attack,Speed,,,,,,
+Aegislash Shield Forme,28,stat_alignment,3,Quiet,14.1%,Sp. Atk,Speed,,,,,,
+Aegislash Shield Forme,28,stat_alignment,4,Sassy,3.3%,Sp. Def,Speed,,,,,,
+Aegislash Shield Forme,28,stat_alignment,5,Modest,1.6%,Sp. Atk,Attack,,,,,,
+Aegislash Shield Forme,28,stat_alignment,6,Relaxed,1.6%,Defense,Speed,,,,,,
+Aegislash Shield Forme,28,stat_alignment,7,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,
+Aegislash Shield Forme,28,stat_alignment,8,Impish,1.4%,Defense,Sp. Atk,,,,,,
+Aegislash Shield Forme,28,stat_alignment,9,Jolly,0.7%,Speed,Sp. Atk,,,,,,
+Aegislash Shield Forme,28,stat_alignment,10,Naughty,0.5%,Attack,Sp. Def,,,,,,
+Aegislash Shield Forme,28,stat_points,1,,17.4%,,,32,32,1,0,1,0
+Aegislash Shield Forme,28,stat_points,2,,9.5%,,,32,32,2,0,0,0
+Aegislash Shield Forme,28,stat_points,3,,7.4%,,,32,32,0,0,0,2
+Aegislash Shield Forme,28,stat_points,4,,6.8%,,,32,32,0,0,2,0
+Aegislash Shield Forme,28,stat_points,5,,4.7%,,,32,0,0,32,2,0
+Aegislash Shield Forme,28,stat_points,6,,3.7%,,,32,2,0,32,0,0
+Aegislash Shield Forme,28,stat_points,7,,2.7%,,,2,32,0,0,0,32
+Aegislash Shield Forme,28,stat_points,8,,2.5%,,,32,30,1,0,1,2
+Aegislash Shield Forme,28,stat_points,9,,2.5%,,,32,26,0,0,0,8
+Aegislash Shield Forme,28,stat_points,10,,2.0%,,,32,0,3,1,20,0
+Aegislash Shield Forme,28,stat_points,11,,1.8%,,,32,30,4,0,0,0
+Aegislash Shield Forme,28,stat_points,12,,1.6%,,,32,0,1,32,1,0
+Aegislash Shield Forme,28,ability,1,Stance Change,100.0%,,,,,,,,

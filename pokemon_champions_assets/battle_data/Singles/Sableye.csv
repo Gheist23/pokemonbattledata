@@ -1,55 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Sableye,76,move,1,Will-O-Wisp,81.0%,,,,,,,,,13437.73
-Sableye,76,move,2,Foul Play,61.3%,,,,,,,,,13437.73
-Sableye,76,move,3,Recover,53.6%,,,,,,,,,13437.73
-Sableye,76,move,4,Encore,31.5%,,,,,,,,,13437.73
-Sableye,76,move,5,Light Screen,30.5%,,,,,,,,,13437.73
-Sableye,76,move,6,Reflect,26.2%,,,,,,,,,13443.23
-Sableye,76,move,7,Calm Mind,13.2%,,,,,,,,,13443.23
-Sableye,76,move,8,Taunt,12.0%,,,,,,,,,13443.23
-Sableye,76,move,9,Metal Burst,9.7%,,,,,,,,,13443.23
-Sableye,76,move,10,Disable,1.5%,,,,,,,,,13443.23
-Sableye,76,held_item,1,Sablenite,33.3%,,,,,,,,,13446.73
-Sableye,76,held_item,2,Light Clay,25.7%,,,,,,,,,13446.73
-Sableye,76,held_item,3,Leftovers,15.3%,,,,,,,,,13446.73
-Sableye,76,held_item,4,Focus Sash,7.1%,,,,,,,,,13446.73
-Sableye,76,held_item,5,Sitrus Berry,5.9%,,,,,,,,,13446.73
-Sableye,76,held_item,6,Damp Rock,2.3%,,,,,,,,,13451.73
-Sableye,76,held_item,7,Wide Lens,2.2%,,,,,,,,,13451.73
-Sableye,76,held_item,8,Bright Powder,1.8%,,,,,,,,,13451.73
-Sableye,76,held_item,9,Roseli Berry,1.7%,,,,,,,,,13451.73
-Sableye,76,held_item,10,Mental Herb,0.8%,,,,,,,,,13451.73
-Sableye,76,teammate,1,Garchomp,,,,,,,,,,13455.23
-Sableye,76,teammate,2,Staraptor,,,,,,,,,,13455.23
-Sableye,76,teammate,3,Archaludon,,,,,,,,,,13455.23
-Sableye,76,teammate,4,Blaziken,,,,,,,,,,13455.23
-Sableye,76,teammate,5,Meowscarada,,,,,,,,,,13455.23
-Sableye,76,teammate,6,Raichu,,,,,,,,,,13460.23
-Sableye,76,teammate,7,Swampert,,,,,,,,,,13460.23
-Sableye,76,teammate,8,Mimikyu,,,,,,,,,,13460.23
-Sableye,76,teammate,9,Corviknight,,,,,,,,,,13460.23
-Sableye,76,teammate,10,Metagross,,,,,,,,,,13460.23
-Sableye,76,stat_alignment,1,Bold,40.9%,Defense,Attack,,,,,,,13463.73
-Sableye,76,stat_alignment,2,Impish,26.5%,Defense,Sp. Atk,,,,,,,13463.73
-Sableye,76,stat_alignment,3,Careful,9.4%,Sp. Def,Sp. Atk,,,,,,,13463.73
-Sableye,76,stat_alignment,4,Calm,7.9%,Sp. Def,Attack,,,,,,,13463.73
-Sableye,76,stat_alignment,5,Relaxed,5.6%,Defense,Speed,,,,,,,13463.73
-Sableye,76,stat_alignment,6,Sassy,3.7%,Sp. Def,Speed,,,,,,,13468.73
-Sableye,76,stat_alignment,7,Brave,2.1%,Attack,Speed,,,,,,,13468.73
-Sableye,76,stat_alignment,8,Adamant,1.5%,Attack,Sp. Atk,,,,,,,13468.73
-Sableye,76,stat_alignment,9,Lonely,0.6%,Attack,Defense,,,,,,,13468.73
-Sableye,76,stat_alignment,10,Jolly,0.6%,Speed,Sp. Atk,,,,,,,13468.73
-Sableye,76,stat_points,1,,39.9%,,,32,0,32,0,2,0,13472.23
-Sableye,76,stat_points,2,,8.4%,,,32,0,18,0,16,0,13472.23
-Sableye,76,stat_points,3,,8.4%,,,32,0,2,0,32,0,13472.23
-Sableye,76,stat_points,4,,4.7%,,,32,0,25,0,9,0,13472.23
-Sableye,76,stat_points,5,,2.1%,,,32,0,15,0,19,0,13472.23
-Sableye,76,stat_points,6,,2.5%,,,2,0,32,0,32,0,13478.23
-Sableye,76,stat_points,8,,2.3%,,,32,0,32,0,0,0,13484.23
-Sableye,76,stat_points,9,,1.6%,,,32,0,32,0,0,2,13484.23
-Sableye,76,stat_points,10,,1.5%,,,32,0,17,0,17,0,13484.23
-Sableye,76,stat_points,11,,1.2%,,,32,2,32,0,0,0,13484.23
-Sableye,76,stat_points,12,,1.2%,,,32,0,19,0,15,0,13484.23
-Sableye,76,ability,1,Prankster,98.9%,,,,,,,,,13491.73
-Sableye,76,ability,2,Stall,0.7%,,,,,,,,,13491.73
-Sableye,76,ability,3,Keen Eye,0.4%,,,,,,,,,13491.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Sableye,74,move,1,Will-O-Wisp,80.9%,,,,,,,,
+Sableye,74,move,2,Foul Play,60.3%,,,,,,,,
+Sableye,74,move,3,Recover,52.7%,,,,,,,,
+Sableye,74,move,4,Encore,52.2%,,,,,,,,
+Sableye,74,move,5,Light Screen,32.3%,,,,,,,,
+Sableye,74,move,6,Reflect,27.7%,,,,,,,,
+Sableye,74,move,7,Calm Mind,12.8%,,,,,,,,
+Sableye,74,move,8,Taunt,12.1%,,,,,,,,
+Sableye,74,move,9,Disable,8.4%,,,,,,,,
+Sableye,74,move,10,Metal Burst,8.4%,,,,,,,,
+Sableye,74,held_item,1,Sablenite,32.2%,,,,,,,,
+Sableye,74,held_item,2,Light Clay,27.2%,,,,,,,,
+Sableye,74,held_item,3,Leftovers,15.3%,,,,,,,,
+Sableye,74,held_item,4,Focus Sash,6.4%,,,,,,,,
+Sableye,74,held_item,5,Sitrus Berry,6.1%,,,,,,,,
+Sableye,74,held_item,6,Wide Lens,2.3%,,,,,,,,
+Sableye,74,held_item,7,Damp Rock,2.0%,,,,,,,,
+Sableye,74,held_item,8,Bright Powder,1.9%,,,,,,,,
+Sableye,74,held_item,9,Roseli Berry,1.8%,,,,,,,,
+Sableye,74,held_item,10,Mental Herb,0.8%,,,,,,,,
+Sableye,74,teammate,1,Garchomp,,,,,,,,,
+Sableye,74,teammate,2,Staraptor,,,,,,,,,
+Sableye,74,teammate,3,Blaziken,,,,,,,,,
+Sableye,74,teammate,4,Archaludon,,,,,,,,,
+Sableye,74,teammate,5,Meowscarada,,,,,,,,,
+Sableye,74,teammate,6,Raichu,,,,,,,,,
+Sableye,74,teammate,7,Mimikyu,,,,,,,,,
+Sableye,74,teammate,8,Corviknight,,,,,,,,,
+Sableye,74,teammate,9,Swampert,,,,,,,,,
+Sableye,74,teammate,10,Metagross,,,,,,,,,
+Sableye,74,stat_alignment,1,Bold,41.1%,Defense,Attack,,,,,,
+Sableye,74,stat_alignment,2,Impish,26.1%,Defense,Sp. Atk,,,,,,
+Sableye,74,stat_alignment,3,Careful,10.0%,Sp. Def,Sp. Atk,,,,,,
+Sableye,74,stat_alignment,4,Calm,7.9%,Sp. Def,Attack,,,,,,
+Sableye,74,stat_alignment,5,Relaxed,5.9%,Defense,Speed,,,,,,
+Sableye,74,stat_alignment,6,Sassy,3.8%,Sp. Def,Speed,,,,,,
+Sableye,74,stat_alignment,7,Brave,1.6%,Attack,Speed,,,,,,
+Sableye,74,stat_alignment,8,Adamant,1.6%,Attack,Sp. Atk,,,,,,
+Sableye,74,stat_alignment,9,Jolly,0.7%,Speed,Sp. Atk,,,,,,
+Sableye,74,stat_alignment,10,Lonely,0.4%,Attack,Defense,,,,,,
+Sableye,74,stat_points,1,,40.6%,,,32,0,32,0,2,0
+Sableye,74,stat_points,2,,8.9%,,,32,0,2,0,32,0
+Sableye,74,stat_points,3,,7.7%,,,32,0,18,0,16,0
+Sableye,74,stat_points,4,,4.3%,,,32,0,25,0,9,0
+Sableye,74,stat_points,5,,2.9%,,,2,0,32,0,32,0
+Sableye,74,stat_points,6,,2.5%,,,32,0,15,0,19,0
+Sableye,74,stat_points,7,,2.4%,,,32,0,32,0,0,0
+Sableye,74,stat_points,8,,2.3%,,,32,0,9,0,25,0
+Sableye,74,stat_points,9,,1.9%,,,32,0,17,0,17,0
+Sableye,74,stat_points,10,,1.5%,,,32,0,32,0,0,2
+Sableye,74,stat_points,11,,1.3%,,,32,0,19,0,15,0
+Sableye,74,stat_points,12,,1.1%,,,32,2,32,0,0,0
+Sableye,74,ability,1,Prankster,99.1%,,,,,,,,
+Sableye,74,ability,2,Stall,0.5%,,,,,,,,
+Sableye,74,ability,3,Keen Eye,0.4%,,,,,,,,

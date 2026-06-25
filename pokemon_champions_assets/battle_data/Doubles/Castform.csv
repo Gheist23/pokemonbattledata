@@ -1,50 +1,44 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Castform,221,move,1,Weather Ball,93.3%,,,,,,,,,355.67
-Castform,221,move,2,Blizzard,63.0%,,,,,,,,,355.67
-Castform,221,move,3,Protect,52.3%,,,,,,,,,355.67
-Castform,221,move,4,Attract,39.1%,,,,,,,,,355.67
-Castform,221,move,5,Thunder,36.8%,,,,,,,,,355.67
-Castform,221,move,6,Solar Beam,30.7%,,,,,,,,,361.17
-Castform,221,move,7,Icy Wind,22.3%,,,,,,,,,361.17
-Castform,221,move,8,Hurricane,13.9%,,,,,,,,,361.17
-Castform,221,move,9,Rain Dance,10.2%,,,,,,,,,361.17
-Castform,221,move,10,Thunderbolt,8.2%,,,,,,,,,361.17
-Castform,221,held_item,1,Quick Claw,41.9%,,,,,,,,,364.67
-Castform,221,held_item,2,Choice Scarf,15.7%,,,,,,,,,364.67
-Castform,221,held_item,3,Bright Powder,12.1%,,,,,,,,,364.67
-Castform,221,held_item,4,Focus Sash,11.9%,,,,,,,,,364.67
-Castform,221,held_item,5,Leftovers,6.3%,,,,,,,,,364.67
-Castform,221,held_item,6,Life Orb,5.9%,,,,,,,,,369.67
-Castform,221,held_item,7,Expert Belt,2.5%,,,,,,,,,369.67
-Castform,221,held_item,8,Focus Band,2.3%,,,,,,,,,369.67
-Castform,221,held_item,9,Scope Lens,0.6%,,,,,,,,,369.67
-Castform,221,held_item,10,Wise Glasses,0.6%,,,,,,,,,369.67
-Castform,221,teammate,1,Charizard,,,,,,,,,,373.17
-Castform,221,teammate,2,Staraptor,,,,,,,,,,373.17
-Castform,221,teammate,3,Whimsicott,,,,,,,,,,373.17
-Castform,221,teammate,4,Pelipper,,,,,,,,,,373.17
-Castform,221,teammate,5,Furfrou,,,,,,,,,,373.17
-Castform,221,teammate,6,Forretress,,,,,,,,,,378.17
-Castform,221,teammate,7,Sableye,,,,,,,,,,378.17
-Castform,221,teammate,8,Swampert,,,,,,,,,,378.17
-Castform,221,teammate,9,Medicham,,,,,,,,,,378.17
-Castform,221,teammate,10,Manectric,,,,,,,,,,378.17
-Castform,221,stat_alignment,1,Modest,64.4%,Sp. Atk,Attack,,,,,,,381.67
-Castform,221,stat_alignment,2,Timid,29.2%,Speed,Attack,,,,,,,381.67
-Castform,221,stat_alignment,3,Quiet,2.5%,Sp. Atk,Speed,,,,,,,381.67
-Castform,221,stat_alignment,4,Quiet,2.0%,Sp. Atk,Speed,,,,,,,386.17
-Castform,221,stat_alignment,5,Mild,2.0%,Sp. Atk,Defense,,,,,,,386.17
-Castform,221,stat_alignment,6,Sassy,1.0%,Sp. Def,Speed,,,,,,,386.17
-Castform,221,stat_alignment,7,Calm,0.8%,Sp. Def,Attack,,,,,,,386.17
-Castform,221,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,,386.17
-Castform,221,stat_points,1,,41.3%,,,32,0,1,32,1,0,390.17
-Castform,221,stat_points,2,,30.7%,,,2,0,0,32,0,32,393.17
-Castform,221,stat_points,3,,5.9%,,,32,0,0,32,2,0,390.17
-Castform,221,stat_points,4,,5.9%,,,32,0,0,32,0,0,390.17
-Castform,221,stat_points,5,,4.5%,,,32,0,0,32,0,2,390.17
-Castform,221,stat_points,8,,1.8%,,,32,0,2,32,0,0,402.17
-Castform,221,stat_points,9,,1.0%,,,29,0,17,0,20,0,402.17
-Castform,221,stat_points,10,,0.8%,,,0,0,2,32,32,0,402.17
-Castform,221,stat_points,11,,0.8%,,,16,0,0,32,16,0,402.17
-Castform,221,stat_points,12,,0.4%,,,0,0,32,32,2,0,402.17
-Castform,221,ability,1,Forecast,100.0%,,,,,,,,,409.67
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Castform,224,move,1,Weather Ball,93.4%,,,,,,,,
+Castform,224,move,2,Blizzard,51.2%,,,,,,,,
+Castform,224,move,3,Protect,36.9%,,,,,,,,
+Castform,224,move,4,Thunder,31.4%,,,,,,,,
+Castform,224,move,5,Solar Beam,31.1%,,,,,,,,
+Castform,224,move,6,Icy Wind,26.9%,,,,,,,,
+Castform,224,move,7,Attract,21.9%,,,,,,,,
+Castform,224,move,8,Rain Dance,19.4%,,,,,,,,
+Castform,224,move,9,Hurricane,17.4%,,,,,,,,
+Castform,224,move,10,Sunny Day,12.3%,,,,,,,,
+Castform,224,held_item,1,Quick Claw,23.9%,,,,,,,,
+Castform,224,held_item,2,Choice Scarf,21.4%,,,,,,,,
+Castform,224,held_item,3,Focus Sash,20.1%,,,,,,,,
+Castform,224,held_item,4,Bright Powder,7.6%,,,,,,,,
+Castform,224,held_item,5,Life Orb,5.8%,,,,,,,,
+Castform,224,held_item,6,King's Rock,4.5%,,,,,,,,
+Castform,224,held_item,7,Leftovers,3.8%,,,,,,,,
+Castform,224,held_item,8,Wise Glasses,2.6%,,,,,,,,
+Castform,224,held_item,9,Focus Band,2.1%,,,,,,,,
+Castform,224,held_item,10,Shell Bell,2.0%,,,,,,,,
+Castform,224,teammate,1,Charizard,,,,,,,,,
+Castform,224,teammate,2,Whimsicott,,,,,,,,,
+Castform,224,teammate,3,Pelipper,,,,,,,,,
+Castform,224,teammate,4,Sableye,,,,,,,,,
+Castform,224,teammate,5,Staraptor,,,,,,,,,
+Castform,224,stat_alignment,1,Modest,58.2%,Sp. Atk,Attack,,,,,,
+Castform,224,stat_alignment,2,Timid,30.2%,Speed,Attack,,,,,,
+Castform,224,stat_alignment,3,Calm,4.9%,Sp. Def,Attack,,,,,,
+Castform,224,stat_alignment,4,Quiet,2.8%,Sp. Atk,Speed,,,,,,
+Castform,224,stat_alignment,5,Mild,2.1%,Sp. Atk,Defense,,,,,,
+Castform,224,stat_points,1,,34.7%,,,2,0,0,32,0,32
+Castform,224,stat_points,2,,23.6%,,,32,0,1,32,1,0
+Castform,224,stat_points,3,,4.2%,,,2,0,32,32,0,0
+Castform,224,stat_points,4,,4.0%,,,32,0,2,32,0,0
+Castform,224,stat_points,5,,3.8%,,,32,0,0,32,0,2
+Castform,224,stat_points,6,,3.3%,,,32,0,0,32,2,0
+Castform,224,stat_points,7,,3.0%,,,0,0,19,32,5,10
+Castform,224,stat_points,8,,3.0%,,,32,0,0,32,0,0
+Castform,224,stat_points,9,,2.6%,,,0,0,2,32,0,32
+Castform,224,stat_points,10,,2.5%,,,0,0,0,32,0,32
+Castform,224,stat_points,11,,2.5%,,,0,0,0,32,2,32
+Castform,224,stat_points,12,,2.2%,,,0,0,20,32,10,4
+Castform,224,ability,1,Forecast,100.0%,,,,,,,,

@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Galarian Slowking,104,move,1,Trick Room,82.5%,,,,,,,,,6920.23
-Galarian Slowking,104,move,2,Sludge Bomb,53.0%,,,,,,,,,6920.23
-Galarian Slowking,104,move,3,Psychic,52.2%,,,,,,,,,6920.23
-Galarian Slowking,104,move,4,Chilly Reception,34.5%,,,,,,,,,6920.23
-Galarian Slowking,104,move,5,Protect,27.5%,,,,,,,,,6920.23
-Galarian Slowking,104,move,6,Heal Pulse,27.0%,,,,,,,,,6926.23
-Galarian Slowking,104,move,7,Acid Spray,17.6%,,,,,,,,,6926.23
-Galarian Slowking,104,move,8,Rain Dance,9.8%,,,,,,,,,6926.23
-Galarian Slowking,104,move,9,Ice Beam,9.1%,,,,,,,,,6926.23
-Galarian Slowking,104,move,10,Flamethrower,7.4%,,,,,,,,,6926.23
-Galarian Slowking,104,held_item,1,Sitrus Berry,24.7%,,,,,,,,,6929.73
-Galarian Slowking,104,held_item,2,Mental Herb,19.0%,,,,,,,,,6929.73
-Galarian Slowking,104,held_item,3,Leftovers,16.4%,,,,,,,,,6929.73
-Galarian Slowking,104,held_item,4,Colbur Berry,11.5%,,,,,,,,,6929.73
-Galarian Slowking,104,held_item,5,Shuca Berry,6.8%,,,,,,,,,6929.73
-Galarian Slowking,104,held_item,6,Life Orb,5.4%,,,,,,,,,6934.73
-Galarian Slowking,104,held_item,7,Kasib Berry,2.9%,,,,,,,,,6934.73
-Galarian Slowking,104,held_item,8,Focus Sash,2.8%,,,,,,,,,6934.73
-Galarian Slowking,104,held_item,9,Bright Powder,1.6%,,,,,,,,,6934.73
-Galarian Slowking,104,held_item,10,Quick Claw,1.3%,,,,,,,,,6934.73
-Galarian Slowking,104,teammate,1,Sinistcha,,,,,,,,,,6938.23
-Galarian Slowking,104,teammate,2,Sylveon,,,,,,,,,,6938.23
-Galarian Slowking,104,teammate,3,Incineroar,,,,,,,,,,6938.23
-Galarian Slowking,104,teammate,4,Kingambit,,,,,,,,,,6938.23
-Galarian Slowking,104,teammate,5,Farigiraf,,,,,,,,,,6938.23
-Galarian Slowking,104,teammate,6,Torkoal,,,,,,,,,,6943.23
-Galarian Slowking,104,teammate,7,Blastoise,,,,,,,,,,6943.23
-Galarian Slowking,104,teammate,8,Pelipper,,,,,,,,,,6943.23
-Galarian Slowking,104,teammate,9,Archaludon,,,,,,,,,,6943.23
-Galarian Slowking,104,teammate,10,Mawile,,,,,,,,,,6943.23
-Galarian Slowking,104,stat_alignment,1,Relaxed,37.4%,Defense,Speed,,,,,,,6946.73
-Galarian Slowking,104,stat_alignment,2,Quiet,24.0%,Sp. Atk,Speed,,,,,,,6946.73
-Galarian Slowking,104,stat_alignment,3,Sassy,14.8%,Sp. Def,Speed,,,,,,,6946.73
-Galarian Slowking,104,stat_alignment,4,Modest,9.5%,Sp. Atk,Attack,,,,,,,6946.73
-Galarian Slowking,104,stat_alignment,5,Bold,8.6%,Defense,Attack,,,,,,,6946.73
-Galarian Slowking,104,stat_alignment,6,Calm,4.6%,Sp. Def,Attack,,,,,,,6951.73
-Galarian Slowking,104,stat_alignment,7,Timid,0.6%,Speed,Attack,,,,,,,6951.73
-Galarian Slowking,104,stat_alignment,8,Mild,0.3%,Sp. Atk,Defense,,,,,,,6951.73
-Galarian Slowking,104,stat_alignment,9,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,,6951.73
-Galarian Slowking,104,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,,6951.73
-Galarian Slowking,104,stat_points,1,,11.1%,,,32,0,2,32,0,0,6955.23
-Galarian Slowking,104,stat_points,2,,8.7%,,,32,0,32,0,2,0,6955.23
-Galarian Slowking,104,stat_points,3,,7.3%,,,32,0,31,0,3,0,6955.23
-Galarian Slowking,104,stat_points,4,,5.8%,,,32,0,0,32,2,0,6955.23
-Galarian Slowking,104,stat_points,5,,3.6%,,,2,0,32,32,0,0,6955.23
-Galarian Slowking,104,stat_points,8,,3.0%,,,32,0,19,0,15,0,6967.23
-Galarian Slowking,104,stat_points,9,,2.8%,,,32,0,32,2,0,0,6967.23
-Galarian Slowking,104,stat_points,10,,1.9%,,,0,0,32,32,2,0,6967.23
-Galarian Slowking,104,stat_points,11,,1.9%,,,32,0,2,0,32,0,6967.23
-Galarian Slowking,104,stat_points,12,,1.8%,,,32,0,17,0,17,0,6967.23
-Galarian Slowking,104,ability,1,Regenerator,86.3%,,,,,,,,,6974.73
-Galarian Slowking,104,ability,2,Curious Medicine,9.7%,,,,,,,,,6974.73
-Galarian Slowking,104,ability,3,Own Tempo,4.0%,,,,,,,,,6974.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Galarian Slowking,105,move,1,Trick Room,80.6%,,,,,,,,
+Galarian Slowking,105,move,2,Sludge Bomb,53.6%,,,,,,,,
+Galarian Slowking,105,move,3,Psychic,51.2%,,,,,,,,
+Galarian Slowking,105,move,4,Chilly Reception,34.7%,,,,,,,,
+Galarian Slowking,105,move,5,Protect,27.4%,,,,,,,,
+Galarian Slowking,105,move,6,Heal Pulse,25.3%,,,,,,,,
+Galarian Slowking,105,move,7,Acid Spray,14.5%,,,,,,,,
+Galarian Slowking,105,move,8,Ice Beam,8.5%,,,,,,,,
+Galarian Slowking,105,move,9,Rain Dance,8.2%,,,,,,,,
+Galarian Slowking,105,move,10,Flamethrower,8.0%,,,,,,,,
+Galarian Slowking,105,held_item,1,Sitrus Berry,24.9%,,,,,,,,
+Galarian Slowking,105,held_item,2,Leftovers,18.9%,,,,,,,,
+Galarian Slowking,105,held_item,3,Mental Herb,16.5%,,,,,,,,
+Galarian Slowking,105,held_item,4,Colbur Berry,10.3%,,,,,,,,
+Galarian Slowking,105,held_item,5,Shuca Berry,6.5%,,,,,,,,
+Galarian Slowking,105,held_item,6,Life Orb,5.0%,,,,,,,,
+Galarian Slowking,105,held_item,7,Focus Sash,3.6%,,,,,,,,
+Galarian Slowking,105,held_item,8,Kasib Berry,2.5%,,,,,,,,
+Galarian Slowking,105,held_item,9,Bright Powder,1.8%,,,,,,,,
+Galarian Slowking,105,held_item,10,Quick Claw,1.6%,,,,,,,,
+Galarian Slowking,105,teammate,1,Incineroar,,,,,,,,,
+Galarian Slowking,105,teammate,2,Sinistcha,,,,,,,,,
+Galarian Slowking,105,teammate,3,Sylveon,,,,,,,,,
+Galarian Slowking,105,teammate,4,Kingambit,,,,,,,,,
+Galarian Slowking,105,teammate,5,Farigiraf,,,,,,,,,
+Galarian Slowking,105,teammate,6,Torkoal,,,,,,,,,
+Galarian Slowking,105,teammate,7,Blastoise,,,,,,,,,
+Galarian Slowking,105,teammate,8,Mawile,,,,,,,,,
+Galarian Slowking,105,teammate,9,Pelipper,,,,,,,,,
+Galarian Slowking,105,teammate,10,Archaludon,,,,,,,,,
+Galarian Slowking,105,stat_alignment,1,Relaxed,35.0%,Defense,Speed,,,,,,
+Galarian Slowking,105,stat_alignment,2,Quiet,25.4%,Sp. Atk,Speed,,,,,,
+Galarian Slowking,105,stat_alignment,3,Sassy,14.0%,Sp. Def,Speed,,,,,,
+Galarian Slowking,105,stat_alignment,4,Modest,10.8%,Sp. Atk,Attack,,,,,,
+Galarian Slowking,105,stat_alignment,5,Bold,9.0%,Defense,Attack,,,,,,
+Galarian Slowking,105,stat_alignment,6,Calm,4.8%,Sp. Def,Attack,,,,,,
+Galarian Slowking,105,stat_alignment,7,Timid,0.4%,Speed,Attack,,,,,,
+Galarian Slowking,105,stat_alignment,8,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Galarian Slowking,105,stat_alignment,9,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Galarian Slowking,105,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Galarian Slowking,105,stat_points,1,,11.3%,,,32,0,2,32,0,0
+Galarian Slowking,105,stat_points,2,,8.8%,,,32,0,32,0,2,0
+Galarian Slowking,105,stat_points,3,,5.7%,,,32,0,31,0,3,0
+Galarian Slowking,105,stat_points,4,,5.5%,,,32,0,0,32,2,0
+Galarian Slowking,105,stat_points,5,,3.4%,,,2,0,32,32,0,0
+Galarian Slowking,105,stat_points,6,,2.8%,,,2,0,32,0,32,0
+Galarian Slowking,105,stat_points,7,,2.7%,,,32,0,2,0,32,0
+Galarian Slowking,105,stat_points,8,,2.7%,,,32,0,19,0,15,0
+Galarian Slowking,105,stat_points,9,,2.4%,,,32,0,32,2,0,0
+Galarian Slowking,105,stat_points,10,,2.4%,,,2,0,0,32,32,0
+Galarian Slowking,105,stat_points,11,,2.3%,,,32,0,28,0,6,0
+Galarian Slowking,105,stat_points,12,,2.1%,,,0,0,32,32,2,0
+Galarian Slowking,105,ability,1,Regenerator,84.1%,,,,,,,,
+Galarian Slowking,105,ability,2,Curious Medicine,11.5%,,,,,,,,
+Galarian Slowking,105,ability,3,Own Tempo,4.3%,,,,,,,,

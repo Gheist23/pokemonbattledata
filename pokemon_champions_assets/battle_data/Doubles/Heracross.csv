@@ -1,54 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Heracross,157,move,1,Close Combat,83.3%,,,,,,,,,3164.23
-Heracross,157,move,2,Rock Blast,79.5%,,,,,,,,,3164.23
-Heracross,157,move,3,Pin Missile,73.4%,,,,,,,,,3164.23
-Heracross,157,move,4,Protect,46.3%,,,,,,,,,3164.23
-Heracross,157,move,5,Bullet Seed,44.4%,,,,,,,,,3164.23
-Heracross,157,move,6,Detect,25.2%,,,,,,,,,3170.73
-Heracross,157,move,7,Rock Slide,8.6%,,,,,,,,,3170.73
-Heracross,157,move,8,Megahorn,8.1%,,,,,,,,,3170.73
-Heracross,157,move,9,Brick Break,6.3%,,,,,,,,,3170.73
-Heracross,157,move,10,High Horsepower,5.1%,,,,,,,,,3170.73
-Heracross,157,held_item,1,Heracronite,89.0%,,,,,,,,,3173.73
-Heracross,157,held_item,2,Choice Scarf,3.2%,,,,,,,,,3173.73
-Heracross,157,held_item,3,Wide Lens,2.1%,,,,,,,,,3173.73
-Heracross,157,held_item,4,Life Orb,1.4%,,,,,,,,,3173.73
-Heracross,157,held_item,5,White Herb,1.2%,,,,,,,,,3173.73
-Heracross,157,held_item,6,Focus Sash,0.7%,,,,,,,,,3178.73
-Heracross,157,held_item,7,Black Belt,0.4%,,,,,,,,,3178.73
-Heracross,157,held_item,8,Muscle Band,0.3%,,,,,,,,,3178.73
-Heracross,157,held_item,9,King's Rock,0.3%,,,,,,,,,3178.73
-Heracross,157,held_item,10,Sitrus Berry,0.1%,,,,,,,,,3178.73
-Heracross,157,teammate,1,Farigiraf,,,,,,,,,,3182.23
-Heracross,157,teammate,2,Sylveon,,,,,,,,,,3182.23
-Heracross,157,teammate,3,Whimsicott,,,,,,,,,,3182.23
-Heracross,157,teammate,4,Kingambit,,,,,,,,,,3182.23
-Heracross,157,teammate,5,Torkoal,,,,,,,,,,3182.23
-Heracross,157,teammate,6,Basculegion,,,,,,,,,,3187.73
-Heracross,157,teammate,7,Sinistcha,,,,,,,,,,3187.73
-Heracross,157,teammate,8,Incineroar,,,,,,,,,,3187.73
-Heracross,157,teammate,9,Archaludon,,,,,,,,,,3187.73
-Heracross,157,teammate,10,Talonflame,,,,,,,,,,3187.73
-Heracross,157,stat_alignment,1,Adamant,18.7%,Attack,Sp. Atk,,,,,,,3191.23
-Heracross,157,stat_alignment,2,Brave,36.0%,Attack,Speed,,,,,,,3191.23
-Heracross,157,stat_alignment,3,Jolly,13.3%,Speed,Sp. Atk,,,,,,,3191.23
-Heracross,157,stat_alignment,4,Relaxed,0.4%,Defense,Speed,,,,,,,3191.23
-Heracross,157,stat_alignment,5,Naive,0.4%,Speed,Sp. Def,,,,,,,3191.23
-Heracross,157,stat_alignment,6,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,,3196.23
-Heracross,157,stat_alignment,7,Naughty,0.2%,Attack,Sp. Def,,,,,,,3196.23
-Heracross,157,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,,3196.23
-Heracross,157,stat_alignment,9,Modest,0.2%,Sp. Atk,Attack,,,,,,,3196.23
-Heracross,157,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,,3196.23
-Heracross,157,stat_points,1,,19.7%,,,2,32,0,0,0,32,3199.73
-Heracross,157,stat_points,2,,17.4%,,,32,32,0,0,2,0,3199.73
-Heracross,157,stat_points,3,,13.5%,,,32,32,2,0,0,0,3199.73
-Heracross,157,stat_points,4,,3.3%,,,0,32,0,0,2,32,3199.73
-Heracross,157,stat_points,5,,3.1%,,,0,32,2,0,0,32,3199.73
-Heracross,157,stat_points,8,,2.4%,,,2,32,32,0,0,0,3211.73
-Heracross,157,stat_points,9,,2.4%,,,32,32,0,0,0,2,3211.73
-Heracross,157,stat_points,10,,2.0%,,,29,32,0,0,0,5,3211.73
-Heracross,157,stat_points,11,,1.9%,,,17,32,0,0,0,17,3211.73
-Heracross,157,stat_points,12,,1.7%,,,25,32,0,0,0,9,3211.73
-Heracross,157,ability,1,Moxie,62.6%,,,,,,,,,3218.73
-Heracross,157,ability,2,Guts,34.3%,,,,,,,,,3218.73
-Heracross,157,ability,3,Swarm,3.1%,,,,,,,,,3218.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Heracross,157,move,1,Close Combat,85.9%,,,,,,,,
+Heracross,157,move,2,Rock Blast,78.4%,,,,,,,,
+Heracross,157,move,3,Pin Missile,74.3%,,,,,,,,
+Heracross,157,move,4,Protect,41.5%,,,,,,,,
+Heracross,157,move,5,Bullet Seed,41.0%,,,,,,,,
+Heracross,157,move,6,Detect,27.2%,,,,,,,,
+Heracross,157,move,7,Rock Slide,9.1%,,,,,,,,
+Heracross,157,move,8,Megahorn,8.4%,,,,,,,,
+Heracross,157,move,9,Brick Break,6.1%,,,,,,,,
+Heracross,157,move,10,High Horsepower,4.8%,,,,,,,,
+Heracross,157,held_item,1,Heracronite,87.2%,,,,,,,,
+Heracross,157,held_item,2,Choice Scarf,4.1%,,,,,,,,
+Heracross,157,held_item,3,Life Orb,2.5%,,,,,,,,
+Heracross,157,held_item,4,White Herb,1.4%,,,,,,,,
+Heracross,157,held_item,5,Wide Lens,1.1%,,,,,,,,
+Heracross,157,held_item,6,Focus Sash,0.7%,,,,,,,,
+Heracross,157,held_item,7,Muscle Band,0.6%,,,,,,,,
+Heracross,157,held_item,8,Expert Belt,0.5%,,,,,,,,
+Heracross,157,held_item,9,Black Belt,0.3%,,,,,,,,
+Heracross,157,held_item,10,Quick Claw,0.2%,,,,,,,,
+Heracross,157,teammate,1,Farigiraf,,,,,,,,,
+Heracross,157,teammate,2,Sylveon,,,,,,,,,
+Heracross,157,teammate,3,Whimsicott,,,,,,,,,
+Heracross,157,teammate,4,Kingambit,,,,,,,,,
+Heracross,157,teammate,5,Torkoal,,,,,,,,,
+Heracross,157,teammate,6,Sinistcha,,,,,,,,,
+Heracross,157,teammate,7,Incineroar,,,,,,,,,
+Heracross,157,teammate,8,Basculegion Male,,,,,,,,,
+Heracross,157,teammate,9,Garchomp,,,,,,,,,
+Heracross,157,teammate,10,Archaludon,,,,,,,,,
+Heracross,157,stat_alignment,1,Adamant,51.3%,Attack,Sp. Atk,,,,,,
+Heracross,157,stat_alignment,2,Brave,32.8%,Attack,Speed,,,,,,
+Heracross,157,stat_alignment,3,Jolly,13.3%,Speed,Sp. Atk,,,,,,
+Heracross,157,stat_alignment,4,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Heracross,157,stat_alignment,5,Hasty,0.5%,Speed,Defense,,,,,,
+Heracross,157,stat_alignment,6,Modest,0.3%,Sp. Atk,Attack,,,,,,
+Heracross,157,stat_alignment,7,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Heracross,157,stat_alignment,8,Naive,0.3%,Speed,Sp. Def,,,,,,
+Heracross,157,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,
+Heracross,157,stat_alignment,10,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Heracross,157,stat_points,1,,20.8%,,,2,32,0,0,0,32
+Heracross,157,stat_points,2,,17.4%,,,32,32,0,0,2,0
+Heracross,157,stat_points,3,,14.1%,,,32,32,2,0,0,0
+Heracross,157,stat_points,4,,4.7%,,,0,32,0,0,2,32
+Heracross,157,stat_points,5,,2.7%,,,0,32,2,0,0,32
+Heracross,157,stat_points,6,,2.6%,,,32,32,0,0,0,2
+Heracross,157,stat_points,7,,2.4%,,,0,32,0,0,0,32
+Heracross,157,stat_points,8,,2.0%,,,32,32,0,0,0,0
+Heracross,157,stat_points,9,,1.8%,,,7,32,0,0,0,17
+Heracross,157,stat_points,10,,1.4%,,,28,32,0,0,0,6
+Heracross,157,stat_points,11,,1.4%,,,2,32,32,0,0,0
+Heracross,157,ability,1,Moxie,64.9%,,,,,,,,
+Heracross,157,ability,2,Guts,30.6%,,,,,,,,
+Heracross,157,ability,3,Swarm,4.6%,,,,,,,,

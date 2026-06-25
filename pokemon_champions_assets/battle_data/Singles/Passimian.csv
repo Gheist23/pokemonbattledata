@@ -1,53 +1,53 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Passimian,235,move,1,Close Combat,59.4%,,,,,,,,,3101.73
-Passimian,235,move,2,Drain Punch,46.4%,,,,,,,,,3101.73
-Passimian,235,move,3,Gunk Shot,33.9%,,,,,,,,,3101.73
-Passimian,235,move,4,Knock Off,26.7%,,,,,,,,,3101.73
-Passimian,235,move,5,Earthquake,24.7%,,,,,,,,,3101.73
-Passimian,235,move,6,U-turn,24.2%,,,,,,,,,3107.73
-Passimian,235,move,7,Fling,23.6%,,,,,,,,,3107.73
-Passimian,235,move,8,Rock Slide,21.1%,,,,,,,,,3107.73
-Passimian,235,move,9,Acrobatics,18.2%,,,,,,,,,3107.73
-Passimian,235,move,10,Bulk Up,17.9%,,,,,,,,,3107.73
-Passimian,235,held_item,1,Choice Scarf,22.3%,,,,,,,,,3111.23
-Passimian,235,held_item,2,Light Ball,11.1%,,,,,,,,,3111.23
-Passimian,235,held_item,3,Focus Sash,10.3%,,,,,,,,,3111.23
-Passimian,235,held_item,4,Sitrus Berry,8.5%,,,,,,,,,3111.23
-Passimian,235,held_item,5,Hard Stone,7.9%,,,,,,,,,3111.23
-Passimian,235,held_item,6,Black Belt,7.6%,,,,,,,,,3116.23
-Passimian,235,held_item,7,Quick Claw,5.9%,,,,,,,,,3116.23
-Passimian,235,held_item,8,Life Orb,3.8%,,,,,,,,,3116.23
-Passimian,235,held_item,9,Lum Berry,3.2%,,,,,,,,,3116.23
-Passimian,235,held_item,10,Muscle Band,1.0%,,,,,,,,,3116.23
-Passimian,235,teammate,1,Garchomp,,,,,,,,,,3119.73
-Passimian,235,teammate,2,Charizard,,,,,,,,,,3119.73
-Passimian,235,teammate,3,Metagross,,,,,,,,,,3119.73
-Passimian,235,teammate,4,Watchog,,,,,,,,,,3119.73
-Passimian,235,teammate,5,Dragonite,,,,,,,,,,3119.73
-Passimian,235,teammate,6,Scolipede,,,,,,,,,,3124.73
-Passimian,235,teammate,7,Mawile,,,,,,,,,,3124.73
-Passimian,235,teammate,8,Basculegion,,,,,,,,,,3124.73
-Passimian,235,teammate,9,Hatterene,,,,,,,,,,3124.73
-Passimian,235,teammate,10,Raichu,,,,,,,,,,3124.73
-Passimian,235,stat_alignment,1,Adamant,56.2%,Attack,Sp. Atk,,,,,,,3128.23
-Passimian,235,stat_alignment,2,Jolly,19.5%,Speed,Sp. Atk,,,,,,,3128.23
-Passimian,235,stat_alignment,3,Impish,8.6%,Defense,Sp. Atk,,,,,,,3128.23
-Passimian,235,stat_alignment,4,Naughty,7.1%,Attack,Sp. Def,,,,,,,3128.23
-Passimian,235,stat_alignment,5,Sassy,2.4%,Sp. Def,Speed,,,,,,,3128.23
-Passimian,235,stat_alignment,6,Brave,2.1%,Attack,Speed,,,,,,,3133.23
-Passimian,235,stat_alignment,7,Lonely,2.0%,Attack,Defense,,,,,,,3133.23
-Passimian,235,stat_alignment,8,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,,3133.23
-Passimian,235,stat_alignment,9,Serious,0.6%,,,,,,,,,3133.23
-Passimian,235,stat_alignment,10,Modest,0.3%,Sp. Atk,Attack,,,,,,,3133.23
-Passimian,235,stat_points,1,,33.3%,,,2,32,0,0,0,32,3136.73
-Passimian,235,stat_points,2,,13.0%,,,0,32,2,0,0,32,3136.73
-Passimian,235,stat_points,3,,7.9%,,,0,32,0,0,2,32,3136.73
-Passimian,235,stat_points,4,,7.6%,,,0,32,0,0,32,2,3136.73
-Passimian,235,stat_points,5,,7.3%,,,32,32,0,0,0,2,3136.73
-Passimian,235,stat_points,8,,2.6%,,,32,2,32,0,0,0,3148.73
-Passimian,235,stat_points,9,,2.1%,,,32,0,7,0,27,0,3148.73
-Passimian,235,stat_points,10,,2.0%,,,20,32,0,0,13,1,3148.73
-Passimian,235,stat_points,11,,2.0%,,,32,32,0,0,0,0,3148.73
-Passimian,235,stat_points,12,,1.8%,,,32,0,31,0,0,3,3148.73
-Passimian,235,ability,1,Defiant,88.5%,,,,,,,,,3156.23
-Passimian,235,ability,2,Receiver,11.5%,,,,,,,,,3156.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Passimian,233,move,1,Drain Punch,53.4%,,,,,,,,
+Passimian,233,move,2,Close Combat,52.4%,,,,,,,,
+Passimian,233,move,3,Gunk Shot,36.3%,,,,,,,,
+Passimian,233,move,4,Knock Off,33.1%,,,,,,,,
+Passimian,233,move,5,Earthquake,30.5%,,,,,,,,
+Passimian,233,move,6,Bulk Up,22.0%,,,,,,,,
+Passimian,233,move,7,U-turn,20.6%,,,,,,,,
+Passimian,233,move,8,Fling,17.5%,,,,,,,,
+Passimian,233,move,9,Rock Slide,16.4%,,,,,,,,
+Passimian,233,move,10,Seed Bomb,15.3%,,,,,,,,
+Passimian,233,held_item,1,Choice Scarf,9.9%,,,,,,,,
+Passimian,233,held_item,2,Light Ball,9.7%,,,,,,,,
+Passimian,233,held_item,3,Quick Claw,9.7%,,,,,,,,
+Passimian,233,held_item,4,Focus Sash,9.3%,,,,,,,,
+Passimian,233,held_item,5,Leftovers,8.8%,,,,,,,,
+Passimian,233,held_item,6,Sitrus Berry,7.0%,,,,,,,,
+Passimian,233,held_item,7,Black Belt,5.9%,,,,,,,,
+Passimian,233,held_item,8,Hard Stone,4.8%,,,,,,,,
+Passimian,233,held_item,9,Wide Lens,4.4%,,,,,,,,
+Passimian,233,held_item,10,Muscle Band,1.3%,,,,,,,,
+Passimian,233,teammate,1,Garchomp,,,,,,,,,
+Passimian,233,teammate,2,Metagross,,,,,,,,,
+Passimian,233,teammate,3,Charizard,,,,,,,,,
+Passimian,233,teammate,4,Dragonite,,,,,,,,,
+Passimian,233,teammate,5,Raichu,,,,,,,,,
+Passimian,233,teammate,6,Scizor,,,,,,,,,
+Passimian,233,teammate,7,Annihilape,,,,,,,,,
+Passimian,233,teammate,8,Hisuian Zoroark,,,,,,,,,
+Passimian,233,teammate,9,Watchog,,,,,,,,,
+Passimian,233,teammate,10,Mawile,,,,,,,,,
+Passimian,233,stat_alignment,1,Adamant,50.4%,Attack,Sp. Atk,,,,,,
+Passimian,233,stat_alignment,2,Jolly,24.3%,Speed,Sp. Atk,,,,,,
+Passimian,233,stat_alignment,3,Impish,11.4%,Defense,Sp. Atk,,,,,,
+Passimian,233,stat_alignment,4,Modest,4.4%,Sp. Atk,Attack,,,,,,
+Passimian,233,stat_alignment,5,Naughty,4.1%,Attack,Sp. Def,,,,,,
+Passimian,233,stat_alignment,6,Brave,1.7%,Attack,Speed,,,,,,
+Passimian,233,stat_alignment,7,Sassy,1.3%,Sp. Def,Speed,,,,,,
+Passimian,233,stat_alignment,8,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
+Passimian,233,stat_alignment,9,Lonely,0.8%,Attack,Defense,,,,,,
+Passimian,233,stat_alignment,10,Hasty,0.4%,Speed,Defense,,,,,,
+Passimian,233,stat_points,1,,32.0%,,,2,32,0,0,0,32
+Passimian,233,stat_points,2,,8.5%,,,0,32,2,0,0,32
+Passimian,233,stat_points,3,,7.1%,,,32,32,2,0,0,0
+Passimian,233,stat_points,4,,7.0%,,,32,2,32,0,0,0
+Passimian,233,stat_points,5,,6.5%,,,32,32,0,0,0,2
+Passimian,233,stat_points,6,,5.7%,,,0,32,0,0,2,32
+Passimian,233,stat_points,7,,4.4%,,,0,0,4,32,30,0
+Passimian,233,stat_points,8,,4.1%,,,0,32,0,0,32,2
+Passimian,233,stat_points,9,,2.7%,,,32,32,0,0,2,0
+Passimian,233,stat_points,10,,1.9%,,,20,32,0,0,13,1
+Passimian,233,ability,1,Defiant,78.2%,,,,,,,,
+Passimian,233,ability,2,Receiver,21.8%,,,,,,,,

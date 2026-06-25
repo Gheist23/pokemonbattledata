@@ -1,53 +1,54 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Falinks,145,move,1,No Retreat,86.7%,,,,,,,,,2360.73
-Falinks,145,move,2,Close Combat,78.9%,,,,,,,,,2360.73
-Falinks,145,move,3,Protect,69.3%,,,,,,,,,2360.73
-Falinks,145,move,4,Rock Slide,50.1%,,,,,,,,,2360.73
-Falinks,145,move,5,Knock Off,23.6%,,,,,,,,,2360.73
-Falinks,145,move,6,Iron Head,21.3%,,,,,,,,,2366.23
-Falinks,145,move,7,Brick Break,15.2%,,,,,,,,,2366.23
-Falinks,145,move,8,Throat Chop,9.5%,,,,,,,,,2366.23
-Falinks,145,move,9,High Horsepower,7.6%,,,,,,,,,2366.23
-Falinks,145,move,10,First Impression,7.6%,,,,,,,,,2366.23
-Falinks,145,held_item,1,Falinksite,95.7%,,,,,,,,,2369.73
-Falinks,145,held_item,2,Leftovers,0.8%,,,,,,,,,2369.73
-Falinks,145,held_item,3,Life Orb,0.8%,,,,,,,,,2369.73
-Falinks,145,held_item,4,Sitrus Berry,0.6%,,,,,,,,,2369.73
-Falinks,145,held_item,5,Focus Sash,0.4%,,,,,,,,,2369.73
-Falinks,145,held_item,6,Choice Scarf,0.3%,,,,,,,,,2374.73
-Falinks,145,held_item,7,Muscle Band,0.3%,,,,,,,,,2374.73
-Falinks,145,held_item,8,White Herb,0.2%,,,,,,,,,2374.73
-Falinks,145,held_item,9,King's Rock,0.2%,,,,,,,,,2374.73
-Falinks,145,held_item,10,Roseli Berry,0.2%,,,,,,,,,2374.73
-Falinks,145,teammate,1,Sinistcha,,,,,,,,,,2378.23
-Falinks,145,teammate,2,Incineroar,,,,,,,,,,2378.23
-Falinks,145,teammate,3,Grimmsnarl,,,,,,,,,,2378.23
-Falinks,145,teammate,4,Farigiraf,,,,,,,,,,2378.23
-Falinks,145,teammate,5,Whimsicott,,,,,,,,,,2378.23
-Falinks,145,teammate,6,Gholdengo,,,,,,,,,,2383.23
-Falinks,145,teammate,7,Garchomp,,,,,,,,,,2383.23
-Falinks,145,teammate,8,Sneasler,,,,,,,,,,2383.23
-Falinks,145,teammate,9,Basculegion,,,,,,,,,,2383.23
-Falinks,145,teammate,10,Sylveon,,,,,,,,,,2383.23
-Falinks,145,stat_alignment,1,Adamant,61.0%,Attack,Sp. Atk,,,,,,,2386.73
-Falinks,145,stat_alignment,2,Jolly,22.3%,Speed,Sp. Atk,,,,,,,2386.73
-Falinks,145,stat_alignment,3,Impish,5.9%,Defense,Sp. Atk,,,,,,,2386.73
-Falinks,145,stat_alignment,4,Brave,4.8%,Attack,Speed,,,,,,,2386.73
-Falinks,145,stat_alignment,5,Careful,4.4%,Sp. Def,Sp. Atk,,,,,,,2386.73
-Falinks,145,stat_alignment,6,Naughty,0.4%,Attack,Sp. Def,,,,,,,2391.73
-Falinks,145,stat_alignment,7,Sassy,0.2%,Sp. Def,Speed,,,,,,,2391.73
-Falinks,145,stat_alignment,8,Relaxed,0.2%,Defense,Speed,,,,,,,2391.73
-Falinks,145,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,,2391.73
-Falinks,145,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,,2391.73
-Falinks,145,stat_points,1,,19.8%,,,2,32,0,0,0,32,2395.23
-Falinks,145,stat_points,2,,4.9%,,,0,32,0,0,2,32,2395.23
-Falinks,145,stat_points,3,,3.8%,,,0,32,2,0,0,32,2395.23
-Falinks,145,stat_points,4,,3.6%,,,32,32,0,0,2,0,2395.23
-Falinks,145,stat_points,5,,3.2%,,,32,32,2,0,0,0,2395.23
-Falinks,145,stat_points,8,,2.6%,,,32,20,0,0,0,14,2407.23
-Falinks,145,stat_points,9,,1.8%,,,10,20,14,0,14,8,2407.23
-Falinks,145,stat_points,10,,1.6%,,,32,17,0,0,0,17,2407.23
-Falinks,145,stat_points,11,,1.5%,,,0,32,2,0,32,0,2407.23
-Falinks,145,stat_points,12,,1.4%,,,32,2,0,0,32,0,2407.23
-Falinks,145,ability,1,Defiant,96.9%,,,,,,,,,2414.73
-Falinks,145,ability,2,Battle Armor,3.1%,,,,,,,,,2414.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Falinks,151,move,1,No Retreat,85.5%,,,,,,,,
+Falinks,151,move,2,Close Combat,79.4%,,,,,,,,
+Falinks,151,move,3,Protect,70.3%,,,,,,,,
+Falinks,151,move,4,Rock Slide,31.1%,,,,,,,,
+Falinks,151,move,5,Knock Off,22.0%,,,,,,,,
+Falinks,151,move,6,Iron Head,20.1%,,,,,,,,
+Falinks,151,move,7,Brick Break,14.1%,,,,,,,,
+Falinks,151,move,8,Throat Chop,9.3%,,,,,,,,
+Falinks,151,move,9,Poison Jab,7.8%,,,,,,,,
+Falinks,151,move,10,First Impression,1.5%,,,,,,,,
+Falinks,151,held_item,1,Falinksite,94.3%,,,,,,,,
+Falinks,151,held_item,2,Focus Sash,1.7%,,,,,,,,
+Falinks,151,held_item,3,Life Orb,1.0%,,,,,,,,
+Falinks,151,held_item,4,Leftovers,0.5%,,,,,,,,
+Falinks,151,held_item,5,Choice Scarf,0.5%,,,,,,,,
+Falinks,151,held_item,6,Sitrus Berry,0.4%,,,,,,,,
+Falinks,151,held_item,7,Muscle Band,0.3%,,,,,,,,
+Falinks,151,held_item,8,White Herb,0.2%,,,,,,,,
+Falinks,151,held_item,9,Quick Claw,0.2%,,,,,,,,
+Falinks,151,held_item,10,Black Belt,0.1%,,,,,,,,
+Falinks,151,teammate,1,Sinistcha,,,,,,,,,
+Falinks,151,teammate,2,Incineroar,,,,,,,,,
+Falinks,151,teammate,3,Whimsicott,,,,,,,,,
+Falinks,151,teammate,4,Farigiraf,,,,,,,,,
+Falinks,151,teammate,6,Gholdengo,,,,,,,,,
+Falinks,151,teammate,7,Garchomp,,,,,,,,,
+Falinks,151,teammate,8,Basculegion Male,,,,,,,,,
+Falinks,151,teammate,9,Sneasler,,,,,,,,,
+Falinks,151,teammate,10,Sylveon,,,,,,,,,
+Falinks,151,stat_alignment,1,Adamant,60.3%,Attack,Sp. Atk,,,,,,
+Falinks,151,stat_alignment,2,Jolly,22.8%,Speed,Sp. Atk,,,,,,
+Falinks,151,stat_alignment,3,Impish,6.3%,Defense,Sp. Atk,,,,,,
+Falinks,151,stat_alignment,4,Careful,4.2%,Sp. Def,Sp. Atk,,,,,,
+Falinks,151,stat_alignment,5,Brave,4.2%,Attack,Speed,,,,,,
+Falinks,151,stat_alignment,6,Naughty,0.9%,Attack,Sp. Def,,,,,,
+Falinks,151,stat_alignment,7,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Falinks,151,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,
+Falinks,151,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,
+Falinks,151,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
+Falinks,151,stat_points,1,,21.7%,,,2,32,0,0,0,32
+Falinks,151,stat_points,2,,4.9%,,,0,32,0,0,2,32
+Falinks,151,stat_points,3,,4.7%,,,32,32,0,0,2,0
+Falinks,151,stat_points,4,,4.4%,,,0,32,2,0,0,32
+Falinks,151,stat_points,5,,2.9%,,,32,32,0,0,0,2
+Falinks,151,stat_points,6,,2.8%,,,32,32,2,0,0,0
+Falinks,151,stat_points,7,,2.0%,,,0,32,0,0,0,32
+Falinks,151,stat_points,8,,1.8%,,,32,20,0,0,0,14
+Falinks,151,stat_points,9,,1.3%,,,2,32,32,0,0,0
+Falinks,151,stat_points,10,,1.2%,,,2,32,0,0,32,0
+Falinks,151,stat_points,11,,1.1%,,,0,32,2,0,32,0
+Falinks,151,stat_points,12,,1.1%,,,32,17,0,0,0,17
+Falinks,151,ability,1,Defiant,96.7%,,,,,,,,
+Falinks,151,ability,2,Battle Armor,3.3%,,,,,,,,

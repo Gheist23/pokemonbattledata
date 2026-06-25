@@ -1,52 +1,53 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Glimmora,18,move,1,Power Gem,85.3%,,,,,,,,,9549.23
-Glimmora,18,move,2,Earth Power,59.7%,,,,,,,,,9549.23
-Glimmora,18,move,3,Stealth Rock,55.7%,,,,,,,,,9549.23
-Glimmora,18,move,4,Sludge Wave,52.3%,,,,,,,,,9549.23
-Glimmora,18,move,5,Energy Ball,45.9%,,,,,,,,,9549.23
-Glimmora,18,move,6,Mud Shot,24.7%,,,,,,,,,9554.73
-Glimmora,18,move,7,Mortal Spin,23.2%,,,,,,,,,9554.73
-Glimmora,18,move,8,Spiky Shield,11.9%,,,,,,,,,9554.73
-Glimmora,18,move,9,Sludge Bomb,9.4%,,,,,,,,,9554.73
-Glimmora,18,move,10,Toxic,8.1%,,,,,,,,,9554.73
-Glimmora,18,held_item,1,Focus Sash,70.6%,,,,,,,,,9558.23
-Glimmora,18,held_item,2,Glimmoranite,22.3%,,,,,,,,,9558.23
-Glimmora,18,held_item,3,Leftovers,3.5%,,,,,,,,,9558.23
-Glimmora,18,held_item,4,Sitrus Berry,1.0%,,,,,,,,,9558.23
-Glimmora,18,held_item,5,Choice Scarf,0.7%,,,,,,,,,9558.23
-Glimmora,18,held_item,6,Shuca Berry,0.5%,,,,,,,,,9563.23
-Glimmora,18,held_item,7,Quick Claw,0.2%,,,,,,,,,9563.23
-Glimmora,18,held_item,8,Life Orb,0.2%,,,,,,,,,9563.23
-Glimmora,18,held_item,9,Bright Powder,0.1%,,,,,,,,,9563.23
-Glimmora,18,held_item,10,Light Clay,0.1%,,,,,,,,,9563.23
-Glimmora,18,teammate,1,Garchomp,,,,,,,,,,9566.73
-Glimmora,18,teammate,2,Mimikyu,,,,,,,,,,9566.73
-Glimmora,18,teammate,3,Staraptor,,,,,,,,,,9566.73
-Glimmora,18,teammate,5,Meowscarada,,,,,,,,,,9566.73
-Glimmora,18,teammate,6,Archaludon,,,,,,,,,,9571.73
-Glimmora,18,teammate,7,Metagross,,,,,,,,,,9571.73
-Glimmora,18,teammate,8,Gyarados,,,,,,,,,,9571.73
-Glimmora,18,teammate,9,Corviknight,,,,,,,,,,9571.73
-Glimmora,18,teammate,10,Mawile,,,,,,,,,,9571.73
-Glimmora,18,stat_alignment,1,Timid,53.5%,Speed,Attack,,,,,,,9575.23
-Glimmora,18,stat_alignment,2,Modest,38.0%,Sp. Atk,Attack,,,,,,,9575.23
-Glimmora,18,stat_alignment,3,Calm,4.0%,Sp. Def,Attack,,,,,,,9575.23
-Glimmora,18,stat_alignment,4,Bold,1.9%,Defense,Attack,,,,,,,9575.23
-Glimmora,18,stat_alignment,5,Jolly,0.5%,Speed,Sp. Atk,,,,,,,9575.23
-Glimmora,18,stat_alignment,6,Naive,0.4%,Speed,Sp. Def,,,,,,,9580.23
-Glimmora,18,stat_alignment,7,Adamant,0.3%,Attack,Sp. Atk,,,,,,,9580.23
-Glimmora,18,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,,9580.23
-Glimmora,18,stat_alignment,9,Impish,0.2%,Defense,Sp. Atk,,,,,,,9580.23
-Glimmora,18,stat_alignment,10,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,,9580.23
-Glimmora,18,stat_points,1,,42.5%,,,1,0,1,32,0,32,9583.73
-Glimmora,18,stat_points,2,,21.1%,,,2,0,0,32,0,32,9583.73
-Glimmora,18,stat_points,3,,9.3%,,,1,0,0,32,1,32,9583.73
-Glimmora,18,stat_points,4,,2.8%,,,0,0,2,32,0,32,9583.73
-Glimmora,18,stat_points,5,,2.5%,,,0,0,0,32,2,32,9583.73
-Glimmora,18,stat_points,8,,1.0%,,,0,0,1,32,1,32,9595.73
-Glimmora,18,stat_points,9,,0.7%,,,32,0,2,0,32,0,9595.73
-Glimmora,18,stat_points,10,,0.7%,,,32,0,2,0,0,32,9595.73
-Glimmora,18,stat_points,11,,0.6%,,,31,0,0,0,30,5,9595.73
-Glimmora,18,stat_points,12,,0.5%,,,32,0,0,0,2,32,9595.73
-Glimmora,18,ability,1,Toxic Debris,93.8%,,,,,,,,,9603.23
-Glimmora,18,ability,2,Corrosion,6.2%,,,,,,,,,9603.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Glimmora,17,move,1,Power Gem,86.4%,,,,,,,,
+Glimmora,17,move,2,Earth Power,60.3%,,,,,,,,
+Glimmora,17,move,3,Stealth Rock,54.8%,,,,,,,,
+Glimmora,17,move,4,Sludge Wave,53.0%,,,,,,,,
+Glimmora,17,move,5,Energy Ball,47.9%,,,,,,,,
+Glimmora,17,move,6,Mud Shot,24.1%,,,,,,,,
+Glimmora,17,move,7,Mortal Spin,22.4%,,,,,,,,
+Glimmora,17,move,8,Spiky Shield,11.5%,,,,,,,,
+Glimmora,17,move,9,Sludge Bomb,9.2%,,,,,,,,
+Glimmora,17,move,10,Toxic,7.5%,,,,,,,,
+Glimmora,17,held_item,1,Focus Sash,70.8%,,,,,,,,
+Glimmora,17,held_item,2,Glimmoranite,22.2%,,,,,,,,
+Glimmora,17,held_item,3,Leftovers,3.2%,,,,,,,,
+Glimmora,17,held_item,4,Sitrus Berry,1.1%,,,,,,,,
+Glimmora,17,held_item,5,Choice Scarf,0.7%,,,,,,,,
+Glimmora,17,held_item,6,Shuca Berry,0.6%,,,,,,,,
+Glimmora,17,held_item,7,Quick Claw,0.3%,,,,,,,,
+Glimmora,17,held_item,8,Life Orb,0.2%,,,,,,,,
+Glimmora,17,held_item,9,Bright Powder,0.1%,,,,,,,,
+Glimmora,17,held_item,10,Focus Band,0.1%,,,,,,,,
+Glimmora,17,teammate,1,Garchomp,,,,,,,,,
+Glimmora,17,teammate,2,Mimikyu,,,,,,,,,
+Glimmora,17,teammate,3,Staraptor,,,,,,,,,
+Glimmora,17,teammate,5,Meowscarada,,,,,,,,,
+Glimmora,17,teammate,6,Archaludon,,,,,,,,,
+Glimmora,17,teammate,7,Metagross,,,,,,,,,
+Glimmora,17,teammate,8,Gyarados,,,,,,,,,
+Glimmora,17,teammate,9,Corviknight,,,,,,,,,
+Glimmora,17,teammate,10,Blaziken,,,,,,,,,
+Glimmora,17,stat_alignment,1,Timid,54.2%,Speed,Attack,,,,,,
+Glimmora,17,stat_alignment,2,Modest,37.4%,Sp. Atk,Attack,,,,,,
+Glimmora,17,stat_alignment,3,Calm,3.8%,Sp. Def,Attack,,,,,,
+Glimmora,17,stat_alignment,4,Bold,1.9%,Defense,Attack,,,,,,
+Glimmora,17,stat_alignment,5,Jolly,0.6%,Speed,Sp. Atk,,,,,,
+Glimmora,17,stat_alignment,6,Naive,0.3%,Speed,Sp. Def,,,,,,
+Glimmora,17,stat_alignment,7,Adamant,0.3%,Attack,Sp. Atk,,,,,,
+Glimmora,17,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,
+Glimmora,17,stat_alignment,9,Impish,0.2%,Defense,Sp. Atk,,,,,,
+Glimmora,17,stat_alignment,10,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Glimmora,17,stat_points,1,,43.3%,,,1,0,1,32,0,32
+Glimmora,17,stat_points,2,,20.8%,,,2,0,0,32,0,32
+Glimmora,17,stat_points,3,,9.3%,,,1,0,0,32,1,32
+Glimmora,17,stat_points,4,,2.9%,,,0,0,2,32,0,32
+Glimmora,17,stat_points,5,,2.4%,,,0,0,0,32,2,32
+Glimmora,17,stat_points,6,,1.9%,,,0,0,0,32,0,32
+Glimmora,17,stat_points,7,,1.0%,,,1,0,0,32,0,32
+Glimmora,17,stat_points,8,,0.9%,,,0,0,1,32,1,32
+Glimmora,17,stat_points,9,,0.7%,,,32,0,2,0,32,0
+Glimmora,17,stat_points,10,,0.7%,,,32,0,2,0,0,32
+Glimmora,17,stat_points,11,,0.5%,,,32,0,0,2,0,32
+Glimmora,17,ability,1,Toxic Debris,94.2%,,,,,,,,
+Glimmora,17,ability,2,Corrosion,5.8%,,,,,,,,

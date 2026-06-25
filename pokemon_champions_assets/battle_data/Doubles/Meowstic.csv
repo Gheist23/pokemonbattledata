@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Meowstic,85,move,1,Fake Out,49.1%,,,,,,,,,5647.73
-Meowstic,85,move,2,Psychic Terrain,38.1%,,,,,,,,,5647.73
-Meowstic,85,move,3,Light Screen,35.2%,,,,,,,,,5647.73
-Meowstic,85,move,4,Reflect,34.8%,,,,,,,,,5647.73
-Meowstic,85,move,5,Expanding Force,29.7%,,,,,,,,,5647.73
-Meowstic,85,move,6,Rain Dance,23.6%,,,,,,,,,5653.23
-Meowstic,85,move,7,Psychic,22.7%,,,,,,,,,5653.23
-Meowstic,85,move,8,Trick Room,21.6%,,,,,,,,,5653.23
-Meowstic,85,move,9,Charm,17.2%,,,,,,,,,5653.23
-Meowstic,85,move,10,Thunder Wave,15.8%,,,,,,,,,5653.23
-Meowstic,85,held_item,1,Light Clay,26.3%,,,,,,,,,5656.73
-Meowstic,85,held_item,2,Focus Sash,16.7%,,,,,,,,,5656.73
-Meowstic,85,held_item,3,Sitrus Berry,15.5%,,,,,,,,,5656.73
-Meowstic,85,held_item,4,Mental Herb,14.5%,,,,,,,,,5656.73
-Meowstic,85,held_item,5,Colbur Berry,8.8%,,,,,,,,,5656.73
-Meowstic,85,held_item,6,Meowsticite,4.5%,,,,,,,,,5661.73
-Meowstic,85,held_item,7,Leftovers,4.3%,,,,,,,,,5661.73
-Meowstic,85,held_item,8,Kasib Berry,2.2%,,,,,,,,,5661.73
-Meowstic,85,held_item,9,Twisted Spoon,2.1%,,,,,,,,,5661.73
-Meowstic,85,held_item,10,Bright Powder,1.4%,,,,,,,,,5661.73
-Meowstic,85,teammate,1,Sinistcha,,,,,,,,,,5665.23
-Meowstic,85,teammate,2,Staraptor,,,,,,,,,,5665.23
-Meowstic,85,teammate,3,Archaludon,,,,,,,,,,5665.23
-Meowstic,85,teammate,4,Garchomp,,,,,,,,,,5665.23
-Meowstic,85,teammate,5,Kingambit,,,,,,,,,,5665.23
-Meowstic,85,teammate,6,Basculegion,,,,,,,,,,5670.23
-Meowstic,85,teammate,7,Pelipper,,,,,,,,,,5670.23
-Meowstic,85,teammate,8,Swampert,,,,,,,,,,5670.23
-Meowstic,85,teammate,9,Raichu,,,,,,,,,,5670.23
-Meowstic,85,teammate,10,Incineroar,,,,,,,,,,5670.23
-Meowstic,85,stat_alignment,1,Bold,37.3%,Defense,Attack,,,,,,,5673.73
-Meowstic,85,stat_alignment,2,Calm,17.9%,Sp. Def,Attack,,,,,,,5673.73
-Meowstic,85,stat_alignment,3,Timid,17.6%,Speed,Attack,,,,,,,5673.73
-Meowstic,85,stat_alignment,4,Modest,15.2%,Sp. Atk,Attack,,,,,,,5673.73
-Meowstic,85,stat_alignment,5,Quiet,3.7%,Sp. Atk,Speed,,,,,,,5673.73
-Meowstic,85,stat_alignment,6,Relaxed,2.1%,Defense,Speed,,,,,,,5678.73
-Meowstic,85,stat_alignment,7,Impish,1.9%,Defense,Sp. Atk,,,,,,,5678.73
-Meowstic,85,stat_alignment,8,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,,5678.73
-Meowstic,85,stat_alignment,9,Sassy,0.9%,Sp. Def,Speed,,,,,,,5678.73
-Meowstic,85,stat_alignment,10,Jolly,0.9%,Speed,Sp. Atk,,,,,,,5678.73
-Meowstic,85,stat_points,1,,11.4%,,,32,0,32,0,2,0,5685.23
-Meowstic,85,stat_points,2,,10.0%,,,2,0,0,32,0,32,5685.23
-Meowstic,85,stat_points,3,,9.4%,,,32,0,14,0,20,0,5682.23
-Meowstic,85,stat_points,4,,3.6%,,,32,0,25,0,9,0,5682.23
-Meowstic,85,stat_points,5,,3.2%,,,32,0,2,0,32,0,5682.23
-Meowstic,85,stat_points,8,,2.6%,,,32,0,23,0,1,0,5694.23
-Meowstic,85,stat_points,9,,2.4%,,,32,0,15,0,19,0,5694.23
-Meowstic,85,stat_points,10,,2.0%,,,32,0,2,0,0,32,5694.23
-Meowstic,85,stat_points,11,,1.9%,,,2,0,32,0,32,0,5694.23
-Meowstic,85,stat_points,12,,1.7%,,,0,0,0,32,2,32,5694.23
-Meowstic,85,ability,1,Prankster,99.6%,,,,,,,,,5701.73
-Meowstic,85,ability,2,Keen Eye,0.2%,,,,,,,,,5701.73
-Meowstic,85,ability,3,Infiltrator,0.2%,,,,,,,,,5701.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Meowstic,86,move,1,Fake Out,47.9%,,,,,,,,
+Meowstic,86,move,2,Psychic Terrain,39.2%,,,,,,,,
+Meowstic,86,move,3,Light Screen,34.4%,,,,,,,,
+Meowstic,86,move,4,Reflect,33.7%,,,,,,,,
+Meowstic,86,move,5,Expanding Force,29.0%,,,,,,,,
+Meowstic,86,move,6,Trick Room,23.0%,,,,,,,,
+Meowstic,86,move,7,Psychic,22.5%,,,,,,,,
+Meowstic,86,move,8,Rain Dance,21.6%,,,,,,,,
+Meowstic,86,move,9,Charm,16.2%,,,,,,,,
+Meowstic,86,move,10,Thunder Wave,15.1%,,,,,,,,
+Meowstic,86,held_item,1,Light Clay,25.2%,,,,,,,,
+Meowstic,86,held_item,2,Focus Sash,18.0%,,,,,,,,
+Meowstic,86,held_item,3,Sitrus Berry,15.6%,,,,,,,,
+Meowstic,86,held_item,4,Mental Herb,13.9%,,,,,,,,
+Meowstic,86,held_item,5,Colbur Berry,8.1%,,,,,,,,
+Meowstic,86,held_item,6,Meowsticite,5.0%,,,,,,,,
+Meowstic,86,held_item,7,Leftovers,4.4%,,,,,,,,
+Meowstic,86,held_item,8,Bright Powder,1.9%,,,,,,,,
+Meowstic,86,held_item,9,Twisted Spoon,1.7%,,,,,,,,
+Meowstic,86,held_item,10,Kasib Berry,1.7%,,,,,,,,
+Meowstic,86,teammate,1,Sinistcha,,,,,,,,,
+Meowstic,86,teammate,2,Staraptor,,,,,,,,,
+Meowstic,86,teammate,3,Garchomp,,,,,,,,,
+Meowstic,86,teammate,4,Archaludon,,,,,,,,,
+Meowstic,86,teammate,5,Kingambit,,,,,,,,,
+Meowstic,86,teammate,6,Basculegion Male,,,,,,,,,
+Meowstic,86,teammate,7,Pelipper,,,,,,,,,
+Meowstic,86,teammate,8,Sneasler,,,,,,,,,
+Meowstic,86,teammate,9,Whimsicott,,,,,,,,,
+Meowstic,86,teammate,10,Incineroar,,,,,,,,,
+Meowstic,86,stat_alignment,1,Bold,36.8%,Defense,Attack,,,,,,
+Meowstic,86,stat_alignment,2,Timid,18.3%,Speed,Attack,,,,,,
+Meowstic,86,stat_alignment,3,Calm,18.0%,Sp. Def,Attack,,,,,,
+Meowstic,86,stat_alignment,4,Modest,14.7%,Sp. Atk,Attack,,,,,,
+Meowstic,86,stat_alignment,5,Quiet,3.4%,Sp. Atk,Speed,,,,,,
+Meowstic,86,stat_alignment,6,Relaxed,2.4%,Defense,Speed,,,,,,
+Meowstic,86,stat_alignment,7,Impish,1.6%,Defense,Sp. Atk,,,,,,
+Meowstic,86,stat_alignment,8,Sassy,1.4%,Sp. Def,Speed,,,,,,
+Meowstic,86,stat_alignment,9,Jolly,1.1%,Speed,Sp. Atk,,,,,,
+Meowstic,86,stat_alignment,10,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
+Meowstic,86,stat_points,1,,11.0%,,,32,0,32,0,2,0
+Meowstic,86,stat_points,2,,9.5%,,,2,0,0,32,0,32
+Meowstic,86,stat_points,3,,8.4%,,,32,0,14,0,20,0
+Meowstic,86,stat_points,4,,3.6%,,,32,0,2,0,32,0
+Meowstic,86,stat_points,5,,3.4%,,,32,0,24,0,10,0
+Meowstic,86,stat_points,6,,3.1%,,,32,0,25,0,9,0
+Meowstic,86,stat_points,7,,2.6%,,,32,0,2,32,0,0
+Meowstic,86,stat_points,8,,2.5%,,,2,0,32,0,32,0
+Meowstic,86,stat_points,9,,2.2%,,,32,0,15,0,19,0
+Meowstic,86,stat_points,10,,2.2%,,,32,0,2,0,0,32
+Meowstic,86,stat_points,11,,2.1%,,,32,0,23,0,11,0
+Meowstic,86,stat_points,12,,2.0%,,,0,0,0,32,2,32
+Meowstic,86,ability,1,Prankster,99.4%,,,,,,,,
+Meowstic,86,ability,2,Infiltrator,0.3%,,,,,,,,
+Meowstic,86,ability,3,Keen Eye,0.3%,,,,,,,,

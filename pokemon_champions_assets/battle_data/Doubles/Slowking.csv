@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Slowking,162,move,1,Trick Room,84.6%,,,,,,,,,3500.73
-Slowking,162,move,2,Scald,56.8%,,,,,,,,,3500.73
-Slowking,162,move,3,Chilly Reception,49.9%,,,,,,,,,3500.73
-Slowking,162,move,4,Psychic,47.0%,,,,,,,,,3500.73
-Slowking,162,move,5,Protect,28.5%,,,,,,,,,3500.73
-Slowking,162,move,6,Heal Pulse,18.9%,,,,,,,,,3506.23
-Slowking,162,move,7,Muddy Water,12.0%,,,,,,,,,3506.23
-Slowking,162,move,8,Psychic Noise,11.0%,,,,,,,,,3506.23
-Slowking,162,move,9,Ice Beam,9.6%,,,,,,,,,3506.23
-Slowking,162,move,10,Surf,7.2%,,,,,,,,,3506.23
-Slowking,162,held_item,1,Leftovers,25.9%,,,,,,,,,3509.73
-Slowking,162,held_item,2,Sitrus Berry,19.9%,,,,,,,,,3509.73
-Slowking,162,held_item,3,Colbur Berry,15.4%,,,,,,,,,3509.73
-Slowking,162,held_item,4,Mental Herb,6.8%,,,,,,,,,3509.73
-Slowking,162,held_item,5,Focus Sash,6.0%,,,,,,,,,3509.73
-Slowking,162,held_item,6,lron Ball,4.9%,,,,,,,,,3514.73
-Slowking,162,held_item,7,Life Orb,3.5%,,,,,,,,,3514.73
-Slowking,162,held_item,8,Lum Berry,1.9%,,,,,,,,,3514.73
-Slowking,162,held_item,9,Bright Powder,1.8%,,,,,,,,,3514.73
-Slowking,162,held_item,10,Wacan Berry,1.7%,,,,,,,,,3514.73
-Slowking,162,teammate,1,Incineroar,,,,,,,,,,3518.23
-Slowking,162,teammate,2,Sinistcha,,,,,,,,,,3518.23
-Slowking,162,teammate,3,Torkoal,,,,,,,,,,3518.23
-Slowking,162,teammate,4,Sylveon,,,,,,,,,,3518.23
-Slowking,162,teammate,5,Crabominable,,,,,,,,,,3518.23
-Slowking,162,teammate,6,Kingambit,,,,,,,,,,3523.23
-Slowking,162,teammate,7,Farigiraf,,,,,,,,,,3523.23
-Slowking,162,teammate,8,Dragalge,,,,,,,,,,3523.23
-Slowking,162,teammate,9,Tyranitar,,,,,,,,,,3523.23
-Slowking,162,teammate,10,Mawile,,,,,,,,,,3523.23
-Slowking,162,stat_alignment,1,Sassy,26.5%,Sp. Def,Speed,,,,,,,3526.73
-Slowking,162,stat_alignment,2,Relaxed,23.1%,Defense,Speed,,,,,,,3526.73
-Slowking,162,stat_alignment,3,Quiet,21.8%,Sp. Atk,Speed,,,,,,,3526.73
-Slowking,162,stat_alignment,4,Bold,13.7%,Defense,Attack,,,,,,,3526.73
-Slowking,162,stat_alignment,5,Modest,7.1%,Sp. Atk,Attack,,,,,,,3526.73
-Slowking,162,stat_alignment,6,Calm,6.8%,Sp. Def,Attack,,,,,,,3531.73
-Slowking,162,stat_alignment,7,Timid,0.4%,Speed,Attack,,,,,,,3531.73
-Slowking,162,stat_alignment,8,Adamant,0.2%,Attack,Sp. Atk,,,,,,,3531.73
-Slowking,162,stat_alignment,9,Mild,0.2%,Sp. Atk,Defense,,,,,,,3531.73
-Slowking,162,stat_alignment,10,Impish,0.2%,Defense,Sp. Atk,,,,,,,3531.73
-Slowking,162,stat_points,1,,14.9%,,,32,0,32,0,2,0,3535.23
-Slowking,162,stat_points,2,,9.8%,,,32,0,2,0,32,0,3535.23
-Slowking,162,stat_points,3,,7.2%,,,32,0,0,32,2,0,3535.23
-Slowking,162,stat_points,4,,6.9%,,,32,0,2,32,0,0,3535.23
-Slowking,162,stat_points,5,,4.5%,,,32,0,32,2,0,0,3535.23
-Slowking,162,stat_points,8,,2.8%,,,0,0,2,32,32,0,3547.23
-Slowking,162,stat_points,9,,2.7%,,,2,0,0,32,32,0,3547.23
-Slowking,162,stat_points,10,,2.4%,,,0,0,32,32,2,0,3547.23
-Slowking,162,stat_points,11,,1.7%,,,2,0,32,32,0,0,3547.23
-Slowking,162,stat_points,12,,1.7%,,,32,0,30,4,0,0,3547.23
-Slowking,162,ability,1,Regenerator,79.7%,,,,,,,,,3554.73
-Slowking,162,ability,2,Oblivious,19.5%,,,,,,,,,3554.73
-Slowking,162,ability,3,Own Tempo,0.8%,,,,,,,,,3554.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Slowking,161,move,1,Trick Room,85.0%,,,,,,,,
+Slowking,161,move,2,Scald,52.5%,,,,,,,,
+Slowking,161,move,3,Chilly Reception,47.8%,,,,,,,,
+Slowking,161,move,4,Psychic,46.9%,,,,,,,,
+Slowking,161,move,5,Protect,26.4%,,,,,,,,
+Slowking,161,move,6,Heal Pulse,18.0%,,,,,,,,
+Slowking,161,move,7,Muddy Water,14.5%,,,,,,,,
+Slowking,161,move,8,Ice Beam,11.4%,,,,,,,,
+Slowking,161,move,9,Psychic Noise,9.0%,,,,,,,,
+Slowking,161,move,10,Yawn,7.4%,,,,,,,,
+Slowking,161,held_item,1,Leftovers,25.2%,,,,,,,,
+Slowking,161,held_item,2,Sitrus Berry,22.1%,,,,,,,,
+Slowking,161,held_item,3,Colbur Berry,14.2%,,,,,,,,
+Slowking,161,held_item,4,Mental Herb,6.5%,,,,,,,,
+Slowking,161,held_item,5,Focus Sash,6.1%,,,,,,,,
+Slowking,161,held_item,6,Life Orb,3.8%,,,,,,,,
+Slowking,161,held_item,7,Iron Ball,3.2%,,,,,,,,
+Slowking,161,held_item,8,Quick Claw,2.2%,,,,,,,,
+Slowking,161,held_item,9,Mystic Water,2.2%,,,,,,,,
+Slowking,161,held_item,10,Wacan Berry,1.9%,,,,,,,,
+Slowking,161,teammate,1,Incineroar,,,,,,,,,
+Slowking,161,teammate,2,Torkoal,,,,,,,,,
+Slowking,161,teammate,3,Sinistcha,,,,,,,,,
+Slowking,161,teammate,4,Crabominable,,,,,,,,,
+Slowking,161,teammate,5,Farigiraf,,,,,,,,,
+Slowking,161,teammate,6,Kingambit,,,,,,,,,
+Slowking,161,teammate,7,Sylveon,,,,,,,,,
+Slowking,161,teammate,8,Mawile,,,,,,,,,
+Slowking,161,teammate,9,Hatterene,,,,,,,,,
+Slowking,161,teammate,10,Dragalge,,,,,,,,,
+Slowking,161,stat_alignment,1,Sassy,26.0%,Sp. Def,Speed,,,,,,
+Slowking,161,stat_alignment,2,Quiet,23.1%,Sp. Atk,Speed,,,,,,
+Slowking,161,stat_alignment,3,Relaxed,22.1%,Defense,Speed,,,,,,
+Slowking,161,stat_alignment,4,Bold,11.5%,Defense,Attack,,,,,,
+Slowking,161,stat_alignment,5,Modest,9.0%,Sp. Atk,Attack,,,,,,
+Slowking,161,stat_alignment,6,Calm,7.2%,Sp. Def,Attack,,,,,,
+Slowking,161,stat_alignment,7,Timid,0.4%,Speed,Attack,,,,,,
+Slowking,161,stat_alignment,8,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Slowking,161,stat_alignment,9,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Slowking,161,stat_alignment,10,Adamant,0.1%,Attack,Sp. Atk,,,,,,
+Slowking,161,stat_points,1,,13.8%,,,32,0,32,0,2,0
+Slowking,161,stat_points,2,,6.8%,,,32,0,0,32,2,0
+Slowking,161,stat_points,3,,6.8%,,,32,0,2,0,32,0
+Slowking,161,stat_points,4,,6.5%,,,32,0,2,32,0,0
+Slowking,161,stat_points,5,,4.0%,,,0,0,2,32,32,0
+Slowking,161,stat_points,6,,3.6%,,,2,0,0,32,32,0
+Slowking,161,stat_points,7,,3.3%,,,32,0,24,0,10,0
+Slowking,161,stat_points,8,,3.2%,,,32,0,32,2,0,0
+Slowking,161,stat_points,9,,2.1%,,,0,0,32,32,2,0
+Slowking,161,stat_points,10,,2.0%,,,2,0,32,32,0,0
+Slowking,161,stat_points,11,,1.8%,,,32,0,30,0,4,0
+Slowking,161,stat_points,12,,1.6%,,,32,0,0,2,32,0
+Slowking,161,ability,1,Regenerator,75.4%,,,,,,,,
+Slowking,161,ability,2,Oblivious,23.1%,,,,,,,,
+Slowking,161,ability,3,Own Tempo,1.5%,,,,,,,,

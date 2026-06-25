@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Infernape,153,move,1,Fake Out,66.8%,,,,,,,,,2896.23
-Infernape,153,move,2,Close Combat,39.9%,,,,,,,,,2896.23
-Infernape,153,move,3,Fire Punch,32.4%,,,,,,,,,2896.23
-Infernape,153,move,4,Protect,30.5%,,,,,,,,,2896.23
-Infernape,153,move,5,Flare Blitz,27.8%,,,,,,,,,2896.23
-Infernape,153,move,6,Thunder Punch,26.5%,,,,,,,,,2902.23
-Infernape,153,move,7,Drain Punch,22.7%,,,,,,,,,2902.23
-Infernape,153,move,8,Mach Punch,21.1%,,,,,,,,,2902.23
-Infernape,153,move,9,Aura Sphere,17.9%,,,,,,,,,2902.23
-Infernape,153,move,10,Heat Wave,17.4%,,,,,,,,,2902.23
-Infernape,153,held_item,1,Focus Sash,29.8%,,,,,,,,,2905.73
-Infernape,153,held_item,2,Life Orb,26.9%,,,,,,,,,2905.73
-Infernape,153,held_item,3,Black Belt,6.1%,,,,,,,,,2905.73
-Infernape,153,held_item,4,Muscle Band,5.8%,,,,,,,,,2905.73
-Infernape,153,held_item,5,Expert Belt,5.1%,,,,,,,,,2905.73
-Infernape,153,held_item,6,Wide Lens,4.8%,,,,,,,,,2910.73
-Infernape,153,held_item,7,White Herb,3.8%,,,,,,,,,2910.73
-Infernape,153,held_item,8,Charcoal,3.7%,,,,,,,,,2910.73
-Infernape,153,held_item,9,Quick Claw,2.4%,,,,,,,,,2910.73
-Infernape,153,held_item,10,Choice Scarf,2.3%,,,,,,,,,2910.73
-Infernape,153,teammate,1,Whimsicott,,,,,,,,,,2914.23
-Infernape,153,teammate,2,Garchomp,,,,,,,,,,2914.23
-Infernape,153,teammate,3,Raichu,,,,,,,,,,2914.23
-Infernape,153,teammate,4,Staraptor,,,,,,,,,,2914.23
-Infernape,153,teammate,5,Metagross,,,,,,,,,,2914.23
-Infernape,153,teammate,6,Farigiraf,,,,,,,,,,2919.23
-Infernape,153,teammate,7,Kingambit,,,,,,,,,,2919.23
-Infernape,153,teammate,8,Basculegion,,,,,,,,,,2919.23
-Infernape,153,teammate,9,Gengar,,,,,,,,,,2919.23
-Infernape,153,teammate,10,Sylveon,,,,,,,,,,2919.23
-Infernape,153,stat_alignment,1,Jolly,35.7%,Speed,Sp. Atk,,,,,,,2922.73
-Infernape,153,stat_alignment,2,Adamant,22.7%,Attack,Sp. Atk,,,,,,,2922.73
-Infernape,153,stat_alignment,3,Modest,13.3%,Sp. Atk,Attack,,,,,,,2922.73
-Infernape,153,stat_alignment,4,Timid,11.3%,Speed,Attack,,,,,,,2922.73
-Infernape,153,stat_alignment,5,Naive,7.1%,Speed,Sp. Def,,,,,,,2922.73
-Infernape,153,stat_alignment,6,Hasty,5.1%,Speed,Defense,,,,,,,2927.73
-Infernape,153,stat_alignment,7,Lax,1.9%,Defense,Sp. Def,,,,,,,2927.73
-Infernape,153,stat_alignment,8,Lonely,1.7%,Attack,Defense,,,,,,,2927.73
-Infernape,153,stat_alignment,9,Brave,0.4%,Attack,Speed,,,,,,,2927.73
-Infernape,153,stat_alignment,10,Naughty,0.2%,Attack,Sp. Def,,,,,,,2927.73
-Infernape,153,stat_points,1,,31.8%,,,2,32,0,0,0,32,2931.23
-Infernape,153,stat_points,2,,17.3%,,,2,0,0,32,0,32,2934.23
-Infernape,153,stat_points,3,,7.9%,,,0,32,2,0,0,32,2931.23
-Infernape,153,stat_points,4,,6.9%,,,0,32,0,0,2,32,2931.23
-Infernape,153,stat_points,5,,4.6%,,,0,2,0,32,0,32,2931.23
-Infernape,153,stat_points,8,,2.1%,,,0,0,0,32,0,32,2943.23
-Infernape,153,stat_points,9,,1.9%,,,4,20,9,0,1,32,2943.23
-Infernape,153,stat_points,10,,1.9%,,,1,32,0,0,0,32,2943.23
-Infernape,153,stat_points,11,,1.7%,,,5,16,9,0,9,2,2943.23
-Infernape,153,stat_points,12,,1.4%,,,2,32,2,0,0,30,2943.23
-Infernape,153,ability,1,lron Fist,54.6%,,,,,,,,,2950.73
-Infernape,153,ability,2,Blaze,45.4%,,,,,,,,,2950.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Infernape,148,move,1,Fake Out,66.4%,,,,,,,,
+Infernape,148,move,2,Close Combat,40.5%,,,,,,,,
+Infernape,148,move,3,Fire Punch,33.7%,,,,,,,,
+Infernape,148,move,4,Flare Blitz,30.6%,,,,,,,,
+Infernape,148,move,5,Protect,29.0%,,,,,,,,
+Infernape,148,move,6,Thunder Punch,28.7%,,,,,,,,
+Infernape,148,move,7,Drain Punch,25.9%,,,,,,,,
+Infernape,148,move,8,Mach Punch,20.1%,,,,,,,,
+Infernape,148,move,9,Aura Sphere,15.8%,,,,,,,,
+Infernape,148,move,10,Heat Wave,13.5%,,,,,,,,
+Infernape,148,held_item,1,Focus Sash,29.9%,,,,,,,,
+Infernape,148,held_item,2,Life Orb,26.1%,,,,,,,,
+Infernape,148,held_item,3,Expert Belt,6.8%,,,,,,,,
+Infernape,148,held_item,4,Muscle Band,5.9%,,,,,,,,
+Infernape,148,held_item,5,Black Belt,4.8%,,,,,,,,
+Infernape,148,held_item,6,White Herb,4.6%,,,,,,,,
+Infernape,148,held_item,7,Charcoal,3.9%,,,,,,,,
+Infernape,148,held_item,8,Wide Lens,3.3%,,,,,,,,
+Infernape,148,held_item,9,Sitrus Berry,2.9%,,,,,,,,
+Infernape,148,held_item,10,Choice Scarf,2.9%,,,,,,,,
+Infernape,148,teammate,1,Whimsicott,,,,,,,,,
+Infernape,148,teammate,2,Garchomp,,,,,,,,,
+Infernape,148,teammate,3,Raichu,,,,,,,,,
+Infernape,148,teammate,4,Staraptor,,,,,,,,,
+Infernape,148,teammate,5,Metagross,,,,,,,,,
+Infernape,148,teammate,6,Farigiraf,,,,,,,,,
+Infernape,148,teammate,7,Sinistcha,,,,,,,,,
+Infernape,148,teammate,8,Tyranitar,,,,,,,,,
+Infernape,148,teammate,9,Sylveon,,,,,,,,,
+Infernape,148,teammate,10,Kingambit,,,,,,,,,
+Infernape,148,stat_alignment,1,Jolly,38.7%,Speed,Sp. Atk,,,,,,
+Infernape,148,stat_alignment,2,Adamant,23.3%,Attack,Sp. Atk,,,,,,
+Infernape,148,stat_alignment,3,Modest,10.6%,Sp. Atk,Attack,,,,,,
+Infernape,148,stat_alignment,4,Timid,9.7%,Speed,Attack,,,,,,
+Infernape,148,stat_alignment,5,Naive,7.2%,Speed,Sp. Def,,,,,,
+Infernape,148,stat_alignment,6,Hasty,3.8%,Speed,Defense,,,,,,
+Infernape,148,stat_alignment,7,Lonely,1.5%,Attack,Defense,,,,,,
+Infernape,148,stat_alignment,8,Naughty,1.4%,Attack,Sp. Def,,,,,,
+Infernape,148,stat_alignment,9,Lax,1.2%,Defense,Sp. Def,,,,,,
+Infernape,148,stat_alignment,10,Brave,0.6%,Attack,Speed,,,,,,
+Infernape,148,stat_points,1,,34.1%,,,2,32,0,0,0,32
+Infernape,148,stat_points,2,,14.3%,,,2,0,0,32,0,32
+Infernape,148,stat_points,3,,8.2%,,,0,32,2,0,0,32
+Infernape,148,stat_points,4,,6.0%,,,0,32,0,0,2,32
+Infernape,148,stat_points,5,,3.7%,,,0,32,0,0,0,32
+Infernape,148,stat_points,6,,3.6%,,,0,2,0,32,0,32
+Infernape,148,stat_points,7,,1.4%,,,0,0,0,32,0,32
+Infernape,148,stat_points,8,,1.4%,,,0,0,0,32,2,32
+Infernape,148,stat_points,9,,1.3%,,,0,32,0,2,0,32
+Infernape,148,stat_points,10,,1.2%,,,2,32,2,0,0,30
+Infernape,148,stat_points,11,,1.2%,,,4,20,9,0,1,32
+Infernape,148,stat_points,12,,1.1%,,,0,0,2,32,0,32
+Infernape,148,ability,1,lron Fist,57.6%,,,,,,,,
+Infernape,148,ability,2,Blaze,42.4%,,,,,,,,

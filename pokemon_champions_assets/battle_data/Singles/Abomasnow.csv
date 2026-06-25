@@ -1,55 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Abomasnow,81,move,1,Blizzard,94.8%,,,,,,,,,13772.73
-Abomasnow,81,move,2,Ice Shard,59.1%,,,,,,,,,13772.73
-Abomasnow,81,move,3,Giga Drain,56.8%,,,,,,,,,13772.73
-Abomasnow,81,move,4,Earth Power,48.6%,,,,,,,,,13772.73
-Abomasnow,81,move,5,Aurora Veil,40.6%,,,,,,,,,13772.73
-Abomasnow,81,move,6,Leech Seed,19.7%,,,,,,,,,13778.23
-Abomasnow,81,move,7,Energy Ball,18.7%,,,,,,,,,13778.23
-Abomasnow,81,move,8,Leaf Storm,16.0%,,,,,,,,,13778.23
-Abomasnow,81,move,9,Rock Slide,7.9%,,,,,,,,,13778.23
-Abomasnow,81,move,10,Focus Blast,7.9%,,,,,,,,,13778.23
-Abomasnow,81,held_item,1,Abomasite,54.2%,,,,,,,,,13781.73
-Abomasnow,81,held_item,2,Light Clay,21.7%,,,,,,,,,13781.73
-Abomasnow,81,held_item,3,Focus Sash,7.0%,,,,,,,,,13781.73
-Abomasnow,81,held_item,4,Leftovers,5.1%,,,,,,,,,13781.73
-Abomasnow,81,held_item,5,Sitrus Berry,3.0%,,,,,,,,,13781.73
-Abomasnow,81,held_item,6,Quick Claw,1.4%,,,,,,,,,13786.73
-Abomasnow,81,held_item,7,Life Orb,1.0%,,,,,,,,,13786.73
-Abomasnow,81,held_item,8,Never-Melt Ice,0.9%,,,,,,,,,13786.73
-Abomasnow,81,held_item,9,Expert Belt,0.8%,,,,,,,,,13786.73
-Abomasnow,81,held_item,10,Icy Rock,0.6%,,,,,,,,,13786.73
-Abomasnow,81,teammate,1,Garchomp,,,,,,,,,,13790.23
-Abomasnow,81,teammate,2,Metagross,,,,,,,,,,13790.23
-Abomasnow,81,teammate,3,Mimikyu,,,,,,,,,,13790.23
-Abomasnow,81,teammate,4,Hydreigon,,,,,,,,,,13790.23
-Abomasnow,81,teammate,5,Gyarados,,,,,,,,,,13790.23
-Abomasnow,81,teammate,6,Raichu,,,,,,,,,,13795.23
-Abomasnow,81,teammate,7,Basculegion,,,,,,,,,,13795.23
-Abomasnow,81,teammate,8,Mawile,,,,,,,,,,13795.23
-Abomasnow,81,teammate,9,Skeledirge,,,,,,,,,,13795.23
-Abomasnow,81,teammate,10,Staraptor,,,,,,,,,,13795.23
-Abomasnow,81,stat_alignment,1,Quiet,48.2%,Sp. Atk,Speed,,,,,,,13798.73
-Abomasnow,81,stat_alignment,2,Modest,24.9%,Sp. Atk,Attack,,,,,,,13798.73
-Abomasnow,81,stat_alignment,3,Bold,8.7%,Defense,Attack,,,,,,,13798.73
-Abomasnow,81,stat_alignment,4,Relaxed,6.4%,Defense,Speed,,,,,,,13798.73
-Abomasnow,81,stat_alignment,5,Calm,3.5%,Sp. Def,Attack,,,,,,,13798.73
-Abomasnow,81,stat_alignment,6,Sassy,2.0%,Sp. Def,Speed,,,,,,,13803.73
-Abomasnow,81,stat_alignment,7,Brave,1.9%,Attack,Speed,,,,,,,13803.73
-Abomasnow,81,stat_alignment,8,Adamant,1.2%,Attack,Sp. Atk,,,,,,,13803.73
-Abomasnow,81,stat_alignment,9,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,,13803.73
-Abomasnow,81,stat_alignment,10,Timid,0.8%,Speed,Attack,,,,,,,13803.73
-Abomasnow,81,stat_points,1,,25.9%,,,32,0,2,32,0,0,13807.23
-Abomasnow,81,stat_points,2,,7.5%,,,32,0,0,32,0,2,13807.23
-Abomasnow,81,stat_points,3,,7.3%,,,32,0,1,32,1,0,13807.23
-Abomasnow,81,stat_points,4,,6.6%,,,32,0,0,32,2,0,13807.23
-Abomasnow,81,stat_points,5,,4.6%,,,32,2,0,32,0,0,13807.23
-Abomasnow,81,stat_points,6,,4.1%,,,32,0,32,0,2,0,13816.73
-Abomasnow,81,stat_points,7,,3.4%,,,32,0,32,2,0,0,13816.73
-Abomasnow,81,stat_points,8,,2.4%,,,2,0,32,32,0,0,13816.73
-Abomasnow,81,stat_points,9,,1.8%,,,32,0,2,0,32,0,13816.73
-Abomasnow,81,stat_points,10,,1.3%,,,32,0,32,0,0,2,13816.73
-Abomasnow,81,stat_points,11,,1.1%,,,2,32,0,32,0,0,13818.73
-Abomasnow,81,stat_points,12,,1.1%,,,32,0,0,32,0,0,13818.73
-Abomasnow,81,ability,1,Snow Warning,98.6%,,,,,,,,,13826.23
-Abomasnow,81,ability,2,Soundproof,1.4%,,,,,,,,,13826.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Abomasnow,83,move,1,Blizzard,94.7%,,,,,,,,
+Abomasnow,83,move,2,Ice Shard,57.8%,,,,,,,,
+Abomasnow,83,move,3,Giga Drain,54.7%,,,,,,,,
+Abomasnow,83,move,4,Earth Power,49.2%,,,,,,,,
+Abomasnow,83,move,5,Aurora Veil,41.3%,,,,,,,,
+Abomasnow,83,move,6,Energy Ball,19.8%,,,,,,,,
+Abomasnow,83,move,7,Leech Seed,18.5%,,,,,,,,
+Abomasnow,83,move,8,Leaf Storm,16.3%,,,,,,,,
+Abomasnow,83,move,9,Rock Slide,8.5%,,,,,,,,
+Abomasnow,83,move,10,Focus Blast,8.0%,,,,,,,,
+Abomasnow,83,held_item,1,Abomasite,53.4%,,,,,,,,
+Abomasnow,83,held_item,2,Light Clay,22.8%,,,,,,,,
+Abomasnow,83,held_item,3,Focus Sash,7.3%,,,,,,,,
+Abomasnow,83,held_item,4,Leftovers,4.5%,,,,,,,,
+Abomasnow,83,held_item,5,Sitrus Berry,3.1%,,,,,,,,
+Abomasnow,83,held_item,6,Quick Claw,1.4%,,,,,,,,
+Abomasnow,83,held_item,7,Life Orb,0.9%,,,,,,,,
+Abomasnow,83,held_item,8,Never-Melt Ice,0.9%,,,,,,,,
+Abomasnow,83,held_item,9,Expert Belt,0.9%,,,,,,,,
+Abomasnow,83,held_item,10,Big Root,0.6%,,,,,,,,
+Abomasnow,83,teammate,1,Garchomp,,,,,,,,,
+Abomasnow,83,teammate,2,Metagross,,,,,,,,,
+Abomasnow,83,teammate,3,Mimikyu,,,,,,,,,
+Abomasnow,83,teammate,4,Hydreigon,,,,,,,,,
+Abomasnow,83,teammate,5,Gyarados,,,,,,,,,
+Abomasnow,83,teammate,6,Raichu,,,,,,,,,
+Abomasnow,83,teammate,7,Basculegion Male,,,,,,,,,
+Abomasnow,83,teammate,8,Mawile,,,,,,,,,
+Abomasnow,83,teammate,9,Skeledirge,,,,,,,,,
+Abomasnow,83,teammate,10,Ceruledge,,,,,,,,,
+Abomasnow,83,stat_alignment,1,Quiet,48.7%,Sp. Atk,Speed,,,,,,
+Abomasnow,83,stat_alignment,2,Modest,25.1%,Sp. Atk,Attack,,,,,,
+Abomasnow,83,stat_alignment,3,Bold,8.4%,Defense,Attack,,,,,,
+Abomasnow,83,stat_alignment,4,Relaxed,5.9%,Defense,Speed,,,,,,
+Abomasnow,83,stat_alignment,5,Calm,3.3%,Sp. Def,Attack,,,,,,
+Abomasnow,83,stat_alignment,6,Sassy,2.1%,Sp. Def,Speed,,,,,,
+Abomasnow,83,stat_alignment,7,Brave,1.9%,Attack,Speed,,,,,,
+Abomasnow,83,stat_alignment,8,Adamant,1.1%,Attack,Sp. Atk,,,,,,
+Abomasnow,83,stat_alignment,9,Timid,0.9%,Speed,Attack,,,,,,
+Abomasnow,83,stat_alignment,10,Rash,0.8%,Sp. Atk,Sp. Def,,,,,,
+Abomasnow,83,stat_points,1,,26.7%,,,32,0,2,32,0,0
+Abomasnow,83,stat_points,2,,7.7%,,,32,0,0,32,0,2
+Abomasnow,83,stat_points,3,,7.6%,,,32,0,1,32,1,0
+Abomasnow,83,stat_points,4,,6.3%,,,32,0,0,32,2,0
+Abomasnow,83,stat_points,5,,4.4%,,,32,2,0,32,0,0
+Abomasnow,83,stat_points,6,,3.7%,,,32,0,32,0,2,0
+Abomasnow,83,stat_points,7,,3.4%,,,32,0,32,2,0,0
+Abomasnow,83,stat_points,8,,2.2%,,,2,0,32,32,0,0
+Abomasnow,83,stat_points,9,,1.7%,,,32,0,2,0,32,0
+Abomasnow,83,stat_points,10,,1.2%,,,32,0,32,0,0,2
+Abomasnow,83,stat_points,11,,1.1%,,,2,32,0,32,0,0
+Abomasnow,83,stat_points,12,,1.1%,,,32,0,0,32,0,0
+Abomasnow,83,ability,1,Snow Warning,98.3%,,,,,,,,
+Abomasnow,83,ability,2,Soundproof,1.7%,,,,,,,,

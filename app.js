@@ -86,7 +86,8 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     activeDetailRecord: null,
     activeMoveButton: null,
     learnableSearchReady: false,
-    sourceLabel: "Manifest"
+    sourceLabel: "Manifest",
+    dataVersion: ""
   };
 
   const els = {
@@ -203,8 +204,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   async function loadManifestDataset() {
     try {
-      const manifest = await fetchJson("data/pokemon-index.json");
+      const manifest = await fetchJson("data/pokemon-index.json", { cache: "no-store", version: Date.now() });
       if (!manifest || !Array.isArray(manifest.pokemon) || !manifest.pokemon.length) return false;
+      state.dataVersion = manifest.dataVersion || manifest.generatedAt || "";
       const records = manifest.pokemon.map((entry) => recordFromManifestEntry(entry)).filter(Boolean).sort(compareByName);
       const label = manifest.generatedAt ? `Manifest • ${shortDate(manifest.generatedAt)}` : "Manifest";
       hydrateDataset(records, label, manifest);
@@ -561,14 +563,21 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return rows;
   }
 
-  async function fetchJson(path) {
-    const response = await fetch(path, { cache: "force-cache" });
+  function versionedPath(path, version) {
+    const normalized = normalizePath(path);
+    if (!version) return normalized;
+    const separator = normalized.includes("?") ? "&" : "?";
+    return `${normalized}${separator}v=${encodeURIComponent(version)}`;
+  }
+
+  async function fetchJson(path, options = {}) {
+    const response = await fetch(encodeURI(versionedPath(path, options.version)), { cache: options.cache || "force-cache" });
     if (!response.ok) throw new Error(`${path} returned ${response.status}`);
     return response.json();
   }
 
   async function fetchText(path) {
-    const response = await fetch(encodeURI(normalizePath(path)), { cache: "force-cache" });
+    const response = await fetch(encodeURI(versionedPath(path, state.dataVersion)), { cache: "force-cache" });
     if (!response.ok) throw new Error(`${path} returned ${response.status}`);
     return response.text();
   }

@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Trevenant,181,move,1,Protect,59.2%,,,,,,,,,4773.23
-Trevenant,181,move,2,Trick Room,53.7%,,,,,,,,,4773.23
-Trevenant,181,move,3,Horn Leech,52.7%,,,,,,,,,4773.23
-Trevenant,181,move,4,Will-O-Wisp,42.3%,,,,,,,,,4773.23
-Trevenant,181,move,5,Wood Hammer,34.7%,,,,,,,,,4773.23
-Trevenant,181,move,6,Poltergeist,32.8%,,,,,,,,,4779.23
-Trevenant,181,move,7,Ally Switch,27.6%,,,,,,,,,4779.23
-Trevenant,181,move,8,Leech Seed,16.5%,,,,,,,,,4779.23
-Trevenant,181,move,9,Curse,7.8%,,,,,,,,,4779.23
-Trevenant,181,move,10,Sucker Punch,7.4%,,,,,,,,,4779.23
-Trevenant,181,held_item,1,Sitrus Berry,77.0%,,,,,,,,,4782.73
-Trevenant,181,held_item,2,Focus Sash,8.4%,,,,,,,,,4782.73
-Trevenant,181,held_item,3,Leftovers,2.5%,,,,,,,,,4782.73
-Trevenant,181,held_item,4,Big Root,2.2%,,,,,,,,,4782.73
-Trevenant,181,held_item,5,Kasib Berry,1.7%,,,,,,,,,4782.73
-Trevenant,181,held_item,6,Muscle Band,1.2%,,,,,,,,,4787.73
-Trevenant,181,held_item,7,Occa Berry,1.1%,,,,,,,,,4787.73
-Trevenant,181,held_item,8,Life Orb,0.9%,,,,,,,,,4787.73
-Trevenant,181,held_item,9,Mental Herb,0.8%,,,,,,,,,4787.73
-Trevenant,181,held_item,10,Colbur Berry,0.7%,,,,,,,,,4787.73
-Trevenant,181,teammate,1,Torkoal,,,,,,,,,,4791.23
-Trevenant,181,teammate,2,Tyranitar,,,,,,,,,,4791.23
-Trevenant,181,teammate,3,Staraptor,,,,,,,,,,4791.23
-Trevenant,181,teammate,4,Farigiraf,,,,,,,,,,4791.23
-Trevenant,181,teammate,5,Excadrill,,,,,,,,,,4791.23
-Trevenant,181,teammate,6,Houndstone,,,,,,,,,,4796.73
-Trevenant,181,teammate,7,Krookodile,,,,,,,,,,4796.73
-Trevenant,181,teammate,8,Mawile,,,,,,,,,,4796.73
-Trevenant,181,teammate,9,Scrafty,,,,,,,,,,4796.73
-Trevenant,181,teammate,10,Kingambit,,,,,,,,,,4796.73
-Trevenant,181,stat_alignment,1,Brave,28.2%,Attack,Speed,,,,,,,4799.73
-Trevenant,181,stat_alignment,2,Careful,21.8%,Sp. Def,Sp. Atk,,,,,,,4799.73
-Trevenant,181,stat_alignment,3,Relaxed,13.8%,Defense,Speed,,,,,,,4799.73
-Trevenant,181,stat_alignment,4,Sassy,13.8%,Sp. Def,Speed,,,,,,,4799.73
-Trevenant,181,stat_alignment,5,Adamant,9.8%,Attack,Sp. Atk,,,,,,,4799.73
-Trevenant,181,stat_alignment,6,Impish,8.2%,Defense,Sp. Atk,,,,,,,4805.23
-Trevenant,181,stat_alignment,7,Naughty,2.4%,Attack,Sp. Def,,,,,,,4805.23
-Trevenant,181,stat_alignment,8,Bashful,1.0%,,,,,,,,,4805.23
-Trevenant,181,stat_alignment,9,Bold,0.7%,Defense,Attack,,,,,,,4805.23
-Trevenant,181,stat_alignment,10,Jolly,0.1%,Speed,Sp. Atk,,,,,,,4805.23
-Trevenant,181,stat_points,1,,17.2%,,,32,10,15,0,9,0,4808.73
-Trevenant,181,stat_points,2,,8.7%,,,32,32,2,0,0,0,4808.73
-Trevenant,181,stat_points,3,,7.6%,,,32,0,16,0,18,0,4808.73
-Trevenant,181,stat_points,4,,5.6%,,,32,32,0,0,2,0,4808.73
-Trevenant,181,stat_points,5,,5.5%,,,30,0,22,0,14,0,4808.73
-Trevenant,181,stat_points,8,,2.6%,,,32,0,14,0,20,0,4820.73
-Trevenant,181,stat_points,9,,2.3%,,,0,0,32,0,32,0,4820.73
-Trevenant,181,stat_points,10,,2.1%,,,20,32,12,0,2,0,4820.73
-Trevenant,181,stat_points,11,,2.0%,,,32,0,28,0,6,0,4820.73
-Trevenant,181,stat_points,12,,1.9%,,,32,0,32,0,2,0,4820.73
-Trevenant,181,ability,1,Harvest,81.3%,,,,,,,,,4828.23
-Trevenant,181,ability,2,Frisk,12.8%,,,,,,,,,4828.23
-Trevenant,181,ability,3,Natural Cure,6.0%,,,,,,,,,4828.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Trevenant,178,move,1,Protect,60.4%,,,,,,,,
+Trevenant,178,move,2,Will-O-Wisp,47.6%,,,,,,,,
+Trevenant,178,move,3,Horn Leech,47.5%,,,,,,,,
+Trevenant,178,move,4,Trick Room,46.8%,,,,,,,,
+Trevenant,178,move,5,Wood Hammer,40.3%,,,,,,,,
+Trevenant,178,move,6,Ally Switch,36.4%,,,,,,,,
+Trevenant,178,move,7,Poltergeist,28.2%,,,,,,,,
+Trevenant,178,move,8,Leech Seed,14.8%,,,,,,,,
+Trevenant,178,move,9,Phantom Force,8.4%,,,,,,,,
+Trevenant,178,move,10,Sucker Punch,8.2%,,,,,,,,
+Trevenant,178,held_item,1,Sitrus Berry,77.8%,,,,,,,,
+Trevenant,178,held_item,2,Focus Sash,7.1%,,,,,,,,
+Trevenant,178,held_item,3,Leftovers,3.9%,,,,,,,,
+Trevenant,178,held_item,4,Big Root,2.0%,,,,,,,,
+Trevenant,178,held_item,5,Occa Berry,1.4%,,,,,,,,
+Trevenant,178,held_item,6,Kasib Berry,1.1%,,,,,,,,
+Trevenant,178,held_item,7,Iron Ball,0.8%,,,,,,,,
+Trevenant,178,held_item,8,Muscle Band,0.7%,,,,,,,,
+Trevenant,178,held_item,9,Life Orb,0.7%,,,,,,,,
+Trevenant,178,held_item,10,Mental Herb,0.6%,,,,,,,,
+Trevenant,178,teammate,1,Tyranitar,,,,,,,,,
+Trevenant,178,teammate,2,Staraptor,,,,,,,,,
+Trevenant,178,teammate,3,Houndstone,,,,,,,,,
+Trevenant,178,teammate,4,Excadrill,,,,,,,,,
+Trevenant,178,teammate,5,Torkoal,,,,,,,,,
+Trevenant,178,teammate,6,Krookodile,,,,,,,,,
+Trevenant,178,teammate,7,Farigiraf,,,,,,,,,
+Trevenant,178,teammate,8,Mawile,,,,,,,,,
+Trevenant,178,teammate,9,Incineroar,,,,,,,,,
+Trevenant,178,teammate,10,Kingambit,,,,,,,,,
+Trevenant,178,stat_alignment,1,Careful,30.2%,Sp. Def,Sp. Atk,,,,,,
+Trevenant,178,stat_alignment,2,Brave,22.7%,Attack,Speed,,,,,,
+Trevenant,178,stat_alignment,3,Adamant,12.8%,Attack,Sp. Atk,,,,,,
+Trevenant,178,stat_alignment,4,Sassy,12.0%,Sp. Def,Speed,,,,,,
+Trevenant,178,stat_alignment,5,Relaxed,10.2%,Defense,Speed,,,,,,
+Trevenant,178,stat_alignment,6,Impish,8.2%,Defense,Sp. Atk,,,,,,
+Trevenant,178,stat_alignment,7,Naughty,1.2%,Attack,Sp. Def,,,,,,
+Trevenant,178,stat_alignment,8,Jolly,1.0%,Speed,Sp. Atk,,,,,,
+Trevenant,178,stat_alignment,9,Bold,0.7%,Defense,Attack,,,,,,
+Trevenant,178,stat_alignment,10,Bashful,0.4%,,,,,,,,
+Trevenant,178,stat_points,1,,24.1%,,,32,10,15,0,9,0
+Trevenant,178,stat_points,2,,7.6%,,,32,32,2,0,0,0
+Trevenant,178,stat_points,3,,6.2%,,,32,0,16,0,18,0
+Trevenant,178,stat_points,4,,5.9%,,,32,32,0,0,2,0
+Trevenant,178,stat_points,5,,3.3%,,,32,0,32,0,2,0
+Trevenant,178,stat_points,6,,3.2%,,,30,0,22,0,14,0
+Trevenant,178,stat_points,7,,1.9%,,,32,0,6,0,28,0
+Trevenant,178,stat_points,8,,1.8%,,,32,0,14,0,20,0
+Trevenant,178,stat_points,9,,1.8%,,,32,0,2,0,32,0
+Trevenant,178,stat_points,10,,1.8%,,,32,32,0,0,0,2
+Trevenant,178,stat_points,11,,1.7%,,,0,32,2,0,32,0
+Trevenant,178,stat_points,12,,1.6%,,,32,0,15,0,19,0
+Trevenant,178,ability,1,Harvest,81.3%,,,,,,,,
+Trevenant,178,ability,2,Frisk,14.2%,,,,,,,,
+Trevenant,178,ability,3,Natural Cure,4.5%,,,,,,,,

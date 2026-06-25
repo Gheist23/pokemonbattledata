@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Malamar,139,move,1,Superpower,94.5%,,,,,,,,,3838.73
-Malamar,139,move,2,Knock Off,65.6%,,,,,,,,,3838.73
-Malamar,139,move,3,Topsy-Turvy,38.1%,,,,,,,,,3838.73
-Malamar,139,move,4,Psycho Cut,34.1%,,,,,,,,,3838.73
-Malamar,139,move,5,Baton Pass,33.3%,,,,,,,,,3838.73
-Malamar,139,move,6,Destiny Bond,13.9%,,,,,,,,,3843.23
-Malamar,139,move,7,Trick Room,13.7%,,,,,,,,,3843.23
-Malamar,139,move,8,Taunt,13.5%,,,,,,,,,3843.23
-Malamar,139,move,9,Throat Chop,9.2%,,,,,,,,,3843.23
-Malamar,139,move,10,Zen Headbutt,8.4%,,,,,,,,,3843.23
-Malamar,139,held_item,1,Malamarite,58.7%,,,,,,,,,3846.73
-Malamar,139,held_item,2,Sitrus Berry,14.2%,,,,,,,,,3846.73
-Malamar,139,held_item,3,Leftovers,9.8%,,,,,,,,,3846.73
-Malamar,139,held_item,4,Focus Sash,3.3%,,,,,,,,,3846.73
-Malamar,139,held_item,5,Choice Scarf,3.0%,,,,,,,,,3846.73
-Malamar,139,held_item,6,Quick Claw,1.6%,,,,,,,,,3851.73
-Malamar,139,held_item,7,Lum Berry,1.4%,,,,,,,,,3851.73
-Malamar,139,held_item,8,Tanga Berry,1.2%,,,,,,,,,3851.73
-Malamar,139,held_item,9,Chesto Berry,0.9%,,,,,,,,,3851.73
-Malamar,139,held_item,10,Metronome,0.8%,,,,,,,,,3851.73
-Malamar,139,teammate,1,Garchomp,,,,,,,,,,3855.23
-Malamar,139,teammate,2,Raichu,,,,,,,,,,3855.23
-Malamar,139,teammate,3,Alolan Ninetales,,,,,,,,,,3855.23
-Malamar,139,teammate,4,Grimmsnarl,,,,,,,,,,3855.23
-Malamar,139,teammate,5,Archaludon,,,,,,,,,,3855.23
-Malamar,139,teammate,6,Blaziken,,,,,,,,,,3860.23
-Malamar,139,teammate,7,Meowscarada,,,,,,,,,,3860.23
-Malamar,139,teammate,8,Mimikyu,,,,,,,,,,3860.23
-Malamar,139,teammate,9,Staraptor,,,,,,,,,,3860.23
-Malamar,139,teammate,10,Mawile,,,,,,,,,,3860.23
-Malamar,139,stat_alignment,1,Adamant,33.2%,Attack,Sp. Atk,,,,,,,3863.73
-Malamar,139,stat_alignment,2,Careful,18.4%,Sp. Def,Sp. Atk,,,,,,,3863.73
-Malamar,139,stat_alignment,3,Impish,16.5%,Defense,Sp. Atk,,,,,,,3863.73
-Malamar,139,stat_alignment,4,Jolly,13.0%,Speed,Sp. Atk,,,,,,,3863.73
-Malamar,139,stat_alignment,5,Brave,3.7%,Attack,Speed,,,,,,,3863.73
-Malamar,139,stat_alignment,6,Relaxed,3.0%,Defense,Speed,,,,,,,3868.73
-Malamar,139,stat_alignment,7,Sassy,2.1%,Sp. Def,Speed,,,,,,,3868.73
-Malamar,139,stat_alignment,8,Calm,1.6%,Sp. Def,Attack,,,,,,,3868.73
-Malamar,139,stat_alignment,9,Bold,1.1%,Defense,Attack,,,,,,,3868.73
-Malamar,139,stat_alignment,10,Quiet,1.0%,Sp. Atk,Speed,,,,,,,3868.73
-Malamar,139,stat_points,1,,14.1%,,,32,32,2,0,0,0,3872.23
-Malamar,139,stat_points,2,,10.7%,,,32,0,2,0,32,0,3872.23
-Malamar,139,stat_points,3,,7.0%,,,32,0,32,0,2,0,3872.23
-Malamar,139,stat_points,4,,4.6%,,,32,32,0,0,2,0,3872.23
-Malamar,139,stat_points,5,,3.6%,,,32,2,32,0,0,0,3872.23
-Malamar,139,stat_points,8,,2.2%,,,32,0,0,0,32,2,3884.23
-Malamar,139,stat_points,9,,2.0%,,,0,32,2,0,0,32,3884.23
-Malamar,139,stat_points,10,,1.8%,,,2,32,32,0,0,0,3884.23
-Malamar,139,stat_points,11,,1.4%,,,32,2,0,0,32,0,3884.23
-Malamar,139,stat_points,12,,1.4%,,,0,32,0,0,2,32,3884.23
-Malamar,139,ability,1,Contrary,86.0%,,,,,,,,,3891.73
-Malamar,139,ability,2,Suction Cups,9.8%,,,,,,,,,3891.73
-Malamar,139,ability,3,Infiltrator,4.2%,,,,,,,,,3891.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Malamar,141,move,1,Superpower,94.3%,,,,,,,,
+Malamar,141,move,2,Knock Off,63.3%,,,,,,,,
+Malamar,141,move,3,Topsy-Turvy,38.1%,,,,,,,,
+Malamar,141,move,4,Baton Pass,37.3%,,,,,,,,
+Malamar,141,move,5,Psycho Cut,32.7%,,,,,,,,
+Malamar,141,move,6,Trick Room,14.3%,,,,,,,,
+Malamar,141,move,7,Destiny Bond,13.2%,,,,,,,,
+Malamar,141,move,8,Taunt,13.0%,,,,,,,,
+Malamar,141,move,9,Throat Chop,10.1%,,,,,,,,
+Malamar,141,move,10,Stored Power,7.9%,,,,,,,,
+Malamar,141,held_item,1,Malamarite,55.7%,,,,,,,,
+Malamar,141,held_item,2,Sitrus Berry,14.8%,,,,,,,,
+Malamar,141,held_item,3,Leftovers,10.6%,,,,,,,,
+Malamar,141,held_item,4,Focus Sash,3.4%,,,,,,,,
+Malamar,141,held_item,5,Choice Scarf,3.1%,,,,,,,,
+Malamar,141,held_item,6,Quick Claw,2.2%,,,,,,,,
+Malamar,141,held_item,7,Lum Berry,1.8%,,,,,,,,
+Malamar,141,held_item,8,Tanga Berry,1.0%,,,,,,,,
+Malamar,141,held_item,9,Chesto Berry,1.0%,,,,,,,,
+Malamar,141,held_item,10,Metronome,0.8%,,,,,,,,
+Malamar,141,teammate,1,Garchomp,,,,,,,,,
+Malamar,141,teammate,2,Raichu,,,,,,,,,
+Malamar,141,teammate,3,Alolan Ninetales,,,,,,,,,
+Malamar,141,teammate,4,Meowscarada,,,,,,,,,
+Malamar,141,teammate,5,Mimikyu,,,,,,,,,
+Malamar,141,teammate,6,Blaziken,,,,,,,,,
+Malamar,141,teammate,7,Archaludon,,,,,,,,,
+Malamar,141,teammate,8,Grimmsnarl,,,,,,,,,
+Malamar,141,teammate,9,Staraptor,,,,,,,,,
+Malamar,141,teammate,10,Mawile,,,,,,,,,
+Malamar,141,stat_alignment,1,Adamant,32.1%,Attack,Sp. Atk,,,,,,
+Malamar,141,stat_alignment,2,Careful,18.2%,Sp. Def,Sp. Atk,,,,,,
+Malamar,141,stat_alignment,3,Impish,16.2%,Defense,Sp. Atk,,,,,,
+Malamar,141,stat_alignment,4,Jolly,13.8%,Speed,Sp. Atk,,,,,,
+Malamar,141,stat_alignment,5,Brave,6.2%,Attack,Speed,,,,,,
+Malamar,141,stat_alignment,6,Relaxed,3.2%,Defense,Speed,,,,,,
+Malamar,141,stat_alignment,7,Sassy,2.1%,Sp. Def,Speed,,,,,,
+Malamar,141,stat_alignment,8,Calm,1.8%,Sp. Def,Attack,,,,,,
+Malamar,141,stat_alignment,9,Bold,1.1%,Defense,Attack,,,,,,
+Malamar,141,stat_alignment,10,Serious,1.0%,,,,,,,,
+Malamar,141,stat_points,1,,12.5%,,,32,32,2,0,0,0
+Malamar,141,stat_points,2,,10.4%,,,32,0,2,0,32,0
+Malamar,141,stat_points,3,,6.6%,,,32,0,32,0,2,0
+Malamar,141,stat_points,4,,5.1%,,,32,32,0,0,2,0
+Malamar,141,stat_points,5,,3.8%,,,32,2,32,0,0,0
+Malamar,141,stat_points,6,,3.3%,,,2,32,0,0,0,32
+Malamar,141,stat_points,7,,2.9%,,,32,32,0,0,0,2
+Malamar,141,stat_points,8,,2.2%,,,32,0,0,0,32,2
+Malamar,141,stat_points,9,,2.0%,,,2,32,32,0,0,0
+Malamar,141,stat_points,10,,1.8%,,,0,32,2,0,0,32
+Malamar,141,stat_points,11,,1.7%,,,32,0,4,0,0,30
+Malamar,141,stat_points,12,,1.7%,,,32,0,32,0,0,2
+Malamar,141,ability,1,Contrary,86.2%,,,,,,,,
+Malamar,141,ability,2,Suction Cups,10.0%,,,,,,,,
+Malamar,141,ability,3,Infiltrator,3.9%,,,,,,,,

@@ -1,52 +1,54 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Mimikyu,72,move,1,Play Rough,89.3%,,,,,,,,,4774.23
-Mimikyu,72,move,2,Shadow Sneak,67.8%,,,,,,,,,4774.23
-Mimikyu,72,move,3,Trick Room,62.6%,,,,,,,,,4774.23
-Mimikyu,72,move,4,Shadow Claw,38.0%,,,,,,,,,4774.23
-Mimikyu,72,move,5,Swords Dance,29.0%,,,,,,,,,4774.23
-Mimikyu,72,move,6,Protect,24.8%,,,,,,,,,4780.73
-Mimikyu,72,move,7,Will-O-Wisp,20.0%,,,,,,,,,4780.73
-Mimikyu,72,move,8,Wood Hammer,11.9%,,,,,,,,,4780.73
-Mimikyu,72,move,9,Drain Punch,11.7%,,,,,,,,,4780.73
-Mimikyu,72,move,10,Curse,7.4%,,,,,,,,,4780.73
-Mimikyu,72,held_item,1,Life Orb,32.0%,,,,,,,,,4783.73
-Mimikyu,72,held_item,2,Mental Herb,17.4%,,,,,,,,,4783.73
-Mimikyu,72,held_item,3,Sitrus Berry,9.6%,,,,,,,,,4783.73
-Mimikyu,72,held_item,4,Spell Tag,7.1%,,,,,,,,,4783.73
-Mimikyu,72,held_item,5,Leftovers,5.0%,,,,,,,,,4783.73
-Mimikyu,72,held_item,6,Lum Berry,4.4%,,,,,,,,,4788.73
-Mimikyu,72,held_item,7,Fairy Feather,4.4%,,,,,,,,,4788.73
-Mimikyu,72,held_item,8,Bright Powder,4.2%,,,,,,,,,4788.73
-Mimikyu,72,held_item,9,White Herb,2.2%,,,,,,,,,4788.73
-Mimikyu,72,held_item,10,Expert Belt,1.8%,,,,,,,,,4788.73
-Mimikyu,72,teammate,1,Torkoal,,,,,,,,,,4792.23
-Mimikyu,72,teammate,2,Incineroar,,,,,,,,,,4792.23
-Mimikyu,72,teammate,3,Kingambit,,,,,,,,,,4792.23
-Mimikyu,72,teammate,4,Sinistcha,,,,,,,,,,4792.23
-Mimikyu,72,teammate,5,Garchomp,,,,,,,,,,4792.23
-Mimikyu,72,teammate,6,Mawile,,,,,,,,,,4797.73
-Mimikyu,72,teammate,7,Whimsicott,,,,,,,,,,4797.73
-Mimikyu,72,teammate,8,Farigiraf,,,,,,,,,,4797.73
-Mimikyu,72,teammate,9,Tyranitar,,,,,,,,,,4797.73
-Mimikyu,72,teammate,10,Sneasler,,,,,,,,,,4797.73
-Mimikyu,72,stat_alignment,1,Adamant,46.0%,Attack,Sp. Atk,,,,,,,4801.23
-Mimikyu,72,stat_alignment,2,Brave,27.6%,Attack,Speed,,,,,,,4801.23
-Mimikyu,72,stat_alignment,3,Jolly,9.6%,Speed,Sp. Atk,,,,,,,4801.23
-Mimikyu,72,stat_alignment,4,Relaxed,4.5%,Defense,Speed,,,,,,,4801.23
-Mimikyu,72,stat_alignment,5,Sassy,4.0%,Sp. Def,Speed,,,,,,,4801.23
-Mimikyu,72,stat_alignment,6,Impish,3.2%,Defense,Sp. Atk,,,,,,,4806.23
-Mimikyu,72,stat_alignment,7,Careful,2.0%,Sp. Def,Sp. Atk,,,,,,,4806.23
-Mimikyu,72,stat_alignment,8,Naughty,0.7%,Attack,Sp. Def,,,,,,,4806.23
-Mimikyu,72,stat_alignment,9,Lonely,0.6%,Attack,Defense,,,,,,,4806.23
-Mimikyu,72,stat_alignment,10,Hasty,0.4%,Speed,Defense,,,,,,,4806.23
-Mimikyu,72,stat_points,1,,18.8%,,,32,32,2,0,0,0,4812.73
-Mimikyu,72,stat_points,2,,11.9%,,,2,32,0,0,0,32,4809.73
-Mimikyu,72,stat_points,3,,6.9%,,,32,32,0,0,2,0,4809.73
-Mimikyu,72,stat_points,4,,6.3%,,,1,32,1,0,0,32,4809.73
-Mimikyu,72,stat_points,5,,4.6%,,,32,32,0,0,0,2,4809.73
-Mimikyu,72,stat_points,8,,2.9%,,,0,32,2,0,0,32,4821.73
-Mimikyu,72,stat_points,9,,2.1%,,,0,32,32,0,2,0,4821.73
-Mimikyu,72,stat_points,10,,1.9%,,,2,32,0,0,32,0,4821.73
-Mimikyu,72,stat_points,11,,1.9%,,,31,32,0,0,3,0,4821.73
-Mimikyu,72,stat_points,12,,1.5%,,,2,32,32,0,0,0,4821.73
-Mimikyu,72,ability,1,Disguise,100.0%,,,,,,,,,4829.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Mimikyu,69,move,1,Play Rough,88.5%,,,,,,,,
+Mimikyu,69,move,2,Shadow Sneak,67.8%,,,,,,,,
+Mimikyu,69,move,3,Trick Room,60.7%,,,,,,,,
+Mimikyu,69,move,4,Shadow Claw,36.2%,,,,,,,,
+Mimikyu,69,move,5,Swords Dance,30.2%,,,,,,,,
+Mimikyu,69,move,6,Protect,24.4%,,,,,,,,
+Mimikyu,69,move,7,Will-O-Wisp,19.1%,,,,,,,,
+Mimikyu,69,move,8,Wood Hammer,13.0%,,,,,,,,
+Mimikyu,69,move,9,Drain Punch,12.3%,,,,,,,,
+Mimikyu,69,move,10,Curse,7.8%,,,,,,,,
+Mimikyu,69,held_item,1,Life Orb,31.9%,,,,,,,,
+Mimikyu,69,held_item,2,Mental Herb,16.4%,,,,,,,,
+Mimikyu,69,held_item,3,Sitrus Berry,9.4%,,,,,,,,
+Mimikyu,69,held_item,4,Spell Tag,7.2%,,,,,,,,
+Mimikyu,69,held_item,5,Leftovers,5.8%,,,,,,,,
+Mimikyu,69,held_item,6,Fairy Feather,4.3%,,,,,,,,
+Mimikyu,69,held_item,7,Lum Berry,4.0%,,,,,,,,
+Mimikyu,69,held_item,8,Bright Powder,3.9%,,,,,,,,
+Mimikyu,69,held_item,9,White Herb,2.2%,,,,,,,,
+Mimikyu,69,held_item,10,Expert Belt,2.0%,,,,,,,,
+Mimikyu,69,teammate,1,Torkoal,,,,,,,,,
+Mimikyu,69,teammate,2,Garchomp,,,,,,,,,
+Mimikyu,69,teammate,3,Incineroar,,,,,,,,,
+Mimikyu,69,teammate,4,Sinistcha,,,,,,,,,
+Mimikyu,69,teammate,5,Whimsicott,,,,,,,,,
+Mimikyu,69,teammate,6,Kingambit,,,,,,,,,
+Mimikyu,69,teammate,7,Farigiraf,,,,,,,,,
+Mimikyu,69,teammate,8,Mawile,,,,,,,,,
+Mimikyu,69,teammate,9,Tyranitar,,,,,,,,,
+Mimikyu,69,teammate,10,Sylveon,,,,,,,,,
+Mimikyu,69,stat_alignment,1,Adamant,46.3%,Attack,Sp. Atk,,,,,,
+Mimikyu,69,stat_alignment,2,Brave,26.1%,Attack,Speed,,,,,,
+Mimikyu,69,stat_alignment,3,Jolly,10.3%,Speed,Sp. Atk,,,,,,
+Mimikyu,69,stat_alignment,4,Relaxed,4.4%,Defense,Speed,,,,,,
+Mimikyu,69,stat_alignment,5,Sassy,3.6%,Sp. Def,Speed,,,,,,
+Mimikyu,69,stat_alignment,6,Impish,3.4%,Defense,Sp. Atk,,,,,,
+Mimikyu,69,stat_alignment,7,Careful,2.1%,Sp. Def,Sp. Atk,,,,,,
+Mimikyu,69,stat_alignment,8,Lonely,0.9%,Attack,Defense,,,,,,
+Mimikyu,69,stat_alignment,9,Naughty,0.8%,Attack,Sp. Def,,,,,,
+Mimikyu,69,stat_alignment,10,Hasty,0.5%,Speed,Defense,,,,,,
+Mimikyu,69,stat_points,1,,18.9%,,,32,32,2,0,0,0
+Mimikyu,69,stat_points,2,,12.0%,,,2,32,0,0,0,32
+Mimikyu,69,stat_points,3,,7.0%,,,32,32,0,0,2,0
+Mimikyu,69,stat_points,4,,6.1%,,,1,32,1,0,0,32
+Mimikyu,69,stat_points,5,,3.9%,,,0,32,0,0,2,32
+Mimikyu,69,stat_points,6,,3.6%,,,32,32,0,0,0,2
+Mimikyu,69,stat_points,7,,3.3%,,,0,32,2,0,0,32
+Mimikyu,69,stat_points,8,,2.5%,,,32,0,32,0,2,0
+Mimikyu,69,stat_points,9,,2.3%,,,0,32,32,0,2,0
+Mimikyu,69,stat_points,10,,1.8%,,,2,32,0,0,32,0
+Mimikyu,69,stat_points,11,,1.8%,,,2,32,32,0,0,0
+Mimikyu,69,stat_points,12,,1.5%,,,32,32,0,0,0,0
+Mimikyu,69,ability,1,Disguise,100.0%,,,,,,,,

@@ -1,54 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Heliolisk,100,move,1,Thunderbolt,75.6%,,,,,,,,,1221.2
-Heliolisk,100,move,2,Grass Knot,56.5%,,,,,,,,,1221.2
-Heliolisk,100,move,3,Shed Tail,55.2%,,,,,,,,,1221.2
-Heliolisk,100,move,4,Volt Switch,41.9%,,,,,,,,,1221.2
-Heliolisk,100,move,5,Glare,40.4%,,,,,,,,,1221.2
-Heliolisk,100,move,6,Focus Blast,28.0%,,,,,,,,,1226.7
-Heliolisk,100,move,7,Hyper Voice,16.2%,,,,,,,,,1226.7
-Heliolisk,100,move,8,Surf,13.2%,,,,,,,,,1226.7
-Heliolisk,100,move,9,Dragon Pulse,9.0%,,,,,,,,,1226.7
-Heliolisk,100,move,10,Hyper Beam,8.3%,,,,,,,,,1226.7
-Heliolisk,100,held_item,1,Focus Sash,42.7%,,,,,,,,,1230.2
-Heliolisk,100,held_item,2,Choice Scarf,22.1%,,,,,,,,,1230.2
-Heliolisk,100,held_item,3,Sitrus Berry,12.7%,,,,,,,,,1230.2
-Heliolisk,100,held_item,4,Life Orb,7.6%,,,,,,,,,1230.2
-Heliolisk,100,held_item,5,Expert Belt,3.2%,,,,,,,,,1230.2
-Heliolisk,100,held_item,6,Leftovers,2.6%,,,,,,,,,1235.2
-Heliolisk,100,held_item,7,Shuca Berry,2.1%,,,,,,,,,1235.2
-Heliolisk,100,held_item,8,Magnet,1.7%,,,,,,,,,1235.2
-Heliolisk,100,held_item,9,Bright Powder,1.0%,,,,,,,,,1235.2
-Heliolisk,100,held_item,10,Quick Claw,0.9%,,,,,,,,,1235.2
-Heliolisk,100,teammate,1,Garchomp,,,,,,,,,,1238.7
-Heliolisk,100,teammate,2,Staraptor,,,,,,,,,,1238.7
-Heliolisk,100,teammate,3,Metagross,,,,,,,,,,1238.7
-Heliolisk,100,teammate,4,Swampert,,,,,,,,,,1238.7
-Heliolisk,100,teammate,5,Charizard,,,,,,,,,,1238.7
-Heliolisk,100,teammate,6,Blaziken,,,,,,,,,,1243.7
-Heliolisk,100,teammate,7,Archaludon,,,,,,,,,,1243.7
-Heliolisk,100,teammate,8,Mimikyu,,,,,,,,,,1243.7
-Heliolisk,100,teammate,9,Corviknight,,,,,,,,,,1243.7
-Heliolisk,100,teammate,10,Meowscarada,,,,,,,,,,1243.7
-Heliolisk,100,stat_alignment,1,Timid,74.4%,Speed,Attack,,,,,,,1247.2
-Heliolisk,100,stat_alignment,2,Modest,20.3%,Sp. Atk,Attack,,,,,,,1247.2
-Heliolisk,100,stat_alignment,3,Hasty,1.6%,Speed,Defense,,,,,,,1247.2
-Heliolisk,100,stat_alignment,4,Bold,1.2%,Defense,Attack,,,,,,,1247.2
-Heliolisk,100,stat_alignment,5,Calm,1.0%,Sp. Def,Attack,,,,,,,1247.2
-Heliolisk,100,stat_alignment,6,Mild,0.5%,Sp. Atk,Defense,,,,,,,1252.2
-Heliolisk,100,stat_alignment,7,Jolly,0.3%,Speed,Sp. Atk,,,,,,,1252.2
-Heliolisk,100,stat_alignment,8,Naive,0.2%,Speed,Sp. Def,,,,,,,1252.2
-Heliolisk,100,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,,1252.2
-Heliolisk,100,stat_alignment,10,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,,1252.2
-Heliolisk,100,stat_points,1,,50.6%,,,2,0,0,32,0,32,1255.7
-Heliolisk,100,stat_points,2,,8.1%,,,0,0,0,32,2,32,1255.7
-Heliolisk,100,stat_points,3,,7.0%,,,0,0,2,32,0,32,1255.7
-Heliolisk,100,stat_points,4,,3.1%,,,1,0,0,32,1,32,1255.7
-Heliolisk,100,stat_points,5,,2.1%,,,0,0,0,32,0,32,1255.7
-Heliolisk,100,stat_points,8,,1.3%,,,2,0,0,32,3,29,1267.7
-Heliolisk,100,stat_points,9,,1.0%,,,32,0,0,32,0,2,1267.7
-Heliolisk,100,stat_points,10,,1.0%,,,1,0,1,32,0,32,1267.7
-Heliolisk,100,stat_points,11,,1.0%,,,4,0,0,30,0,32,1267.7
-Heliolisk,100,stat_points,12,,0.9%,,,1,0,0,32,0,32,1267.7
-Heliolisk,100,ability,1,Dry Skin,94.6%,,,,,,,,,1275.2
-Heliolisk,100,ability,2,Solar Power,4.3%,,,,,,,,,1275.2
-Heliolisk,100,ability,3,Sand Veil,1.1%,,,,,,,,,1275.2
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Heliolisk,101,move,1,Thunderbolt,75.1%,,,,,,,,
+Heliolisk,101,move,2,Grass Knot,55.7%,,,,,,,,
+Heliolisk,101,move,3,Shed Tail,54.6%,,,,,,,,
+Heliolisk,101,move,4,Volt Switch,41.3%,,,,,,,,
+Heliolisk,101,move,5,Glare,40.0%,,,,,,,,
+Heliolisk,101,move,6,Focus Blast,26.2%,,,,,,,,
+Heliolisk,101,move,7,Hyper Voice,16.5%,,,,,,,,
+Heliolisk,101,move,8,Surf,14.6%,,,,,,,,
+Heliolisk,101,move,9,Dragon Pulse,9.9%,,,,,,,,
+Heliolisk,101,move,10,Thunder,8.6%,,,,,,,,
+Heliolisk,101,held_item,1,Focus Sash,41.8%,,,,,,,,
+Heliolisk,101,held_item,2,Choice Scarf,22.3%,,,,,,,,
+Heliolisk,101,held_item,3,Sitrus Berry,13.1%,,,,,,,,
+Heliolisk,101,held_item,4,Life Orb,7.1%,,,,,,,,
+Heliolisk,101,held_item,5,Expert Belt,3.0%,,,,,,,,
+Heliolisk,101,held_item,6,Shuca Berry,2.4%,,,,,,,,
+Heliolisk,101,held_item,7,Leftovers,2.3%,,,,,,,,
+Heliolisk,101,held_item,8,Magnet,1.7%,,,,,,,,
+Heliolisk,101,held_item,9,Bright Powder,1.3%,,,,,,,,
+Heliolisk,101,held_item,10,Quick Claw,1.0%,,,,,,,,
+Heliolisk,101,teammate,1,Garchomp,,,,,,,,,
+Heliolisk,101,teammate,2,Staraptor,,,,,,,,,
+Heliolisk,101,teammate,3,Metagross,,,,,,,,,
+Heliolisk,101,teammate,4,Swampert,,,,,,,,,
+Heliolisk,101,teammate,5,Charizard,,,,,,,,,
+Heliolisk,101,teammate,6,Mimikyu,,,,,,,,,
+Heliolisk,101,teammate,7,Blaziken,,,,,,,,,
+Heliolisk,101,teammate,8,Archaludon,,,,,,,,,
+Heliolisk,101,teammate,9,Meowscarada,,,,,,,,,
+Heliolisk,101,teammate,10,Skeledirge,,,,,,,,,
+Heliolisk,101,stat_alignment,1,Timid,74.4%,Speed,Attack,,,,,,
+Heliolisk,101,stat_alignment,2,Modest,20.2%,Sp. Atk,Attack,,,,,,
+Heliolisk,101,stat_alignment,3,Hasty,1.5%,Speed,Defense,,,,,,
+Heliolisk,101,stat_alignment,4,Bold,1.3%,Defense,Attack,,,,,,
+Heliolisk,101,stat_alignment,5,Calm,0.9%,Sp. Def,Attack,,,,,,
+Heliolisk,101,stat_alignment,6,Mild,0.6%,Sp. Atk,Defense,,,,,,
+Heliolisk,101,stat_alignment,7,Jolly,0.5%,Speed,Sp. Atk,,,,,,
+Heliolisk,101,stat_alignment,8,Relaxed,0.2%,Defense,Speed,,,,,,
+Heliolisk,101,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,
+Heliolisk,101,stat_alignment,10,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
+Heliolisk,101,stat_points,1,,31.4%,,,2,0,0,32,0,32
+Heliolisk,101,stat_points,2,,7.9%,,,0,0,0,32,2,32
+Heliolisk,101,stat_points,3,,6.7%,,,0,0,2,32,0,32
+Heliolisk,101,stat_points,4,,3.0%,,,1,0,0,32,1,32
+Heliolisk,101,stat_points,5,,2.6%,,,0,0,0,32,0,32
+Heliolisk,101,stat_points,6,,1.8%,,,32,0,0,2,0,32
+Heliolisk,101,stat_points,7,,1.2%,,,8,0,0,32,0,26
+Heliolisk,101,stat_points,8,,1.1%,,,2,0,0,32,3,29
+Heliolisk,101,stat_points,9,,1.1%,,,4,0,0,30,0,32
+Heliolisk,101,stat_points,10,,1.0%,,,1,0,1,32,0,32
+Heliolisk,101,stat_points,11,,1.0%,,,32,0,0,32,0,2
+Heliolisk,101,ability,1,Dry Skin,94.4%,,,,,,,,
+Heliolisk,101,ability,2,Solar Power,4.3%,,,,,,,,
+Heliolisk,101,ability,3,Sand Veil,1.3%,,,,,,,,

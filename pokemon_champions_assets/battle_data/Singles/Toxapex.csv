@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Toxapex,59,move,1,Recover,95.4%,,,,,,,,,12298.23
-Toxapex,59,move,2,Toxic,92.0%,,,,,,,,,12298.23
-Toxapex,59,move,3,Baneful Bunker,67.0%,,,,,,,,,12298.23
-Toxapex,59,move,4,Infestation,57.3%,,,,,,,,,12298.23
-Toxapex,59,move,5,Haze,35.3%,,,,,,,,,12298.23
-Toxapex,59,move,6,Toxic Spikes,11.8%,,,,,,,,,12303.73
-Toxapex,59,move,7,Chilling Water,8.3%,,,,,,,,,12303.73
-Toxapex,59,move,8,Payback,4.8%,,,,,,,,,12303.73
-Toxapex,59,move,9,Liquidation,4.8%,,,,,,,,,12303.73
-Toxapex,59,move,10,Protect,3.0%,,,,,,,,,12303.73
-Toxapex,59,held_item,1,Leftovers,70.8%,,,,,,,,,12307.23
-Toxapex,59,held_item,2,Sitrus Berry,11.9%,,,,,,,,,12307.23
-Toxapex,59,held_item,3,Mental Herb,4.2%,,,,,,,,,12307.23
-Toxapex,59,held_item,4,Bright Powder,2.1%,,,,,,,,,12307.23
-Toxapex,59,held_item,5,Shuca Berry,1.6%,,,,,,,,,12307.23
-Toxapex,59,held_item,6,Lum Berry,0.7%,,,,,,,,,12312.23
-Toxapex,59,held_item,7,Quick Claw,0.7%,,,,,,,,,12312.23
-Toxapex,59,held_item,8,White Herb,0.4%,,,,,,,,,12312.23
-Toxapex,59,held_item,9,Shed Shell,0.4%,,,,,,,,,12312.23
-Toxapex,59,held_item,10,Wacan Berry,0.3%,,,,,,,,,12312.23
-Toxapex,59,teammate,1,Garchomp,,,,,,,,,,12315.73
-Toxapex,59,teammate,2,Meowscarada,,,,,,,,,,12315.73
-Toxapex,59,teammate,3,Raichu,,,,,,,,,,12315.73
-Toxapex,59,teammate,4,Corviknight,,,,,,,,,,12315.73
-Toxapex,59,teammate,5,Staraptor,,,,,,,,,,12315.73
-Toxapex,59,teammate,6,Charizard,,,,,,,,,,12320.73
-Toxapex,59,teammate,7,Mimikyu,,,,,,,,,,12320.73
-Toxapex,59,teammate,8,Archaludon,,,,,,,,,,12320.73
-Toxapex,59,teammate,9,Metagross,,,,,,,,,,12320.73
-Toxapex,59,teammate,10,Hippowdon,,,,,,,,,,12320.73
-Toxapex,59,stat_alignment,1,Bold,36.4%,Defense,Attack,,,,,,,12324.23
-Toxapex,59,stat_alignment,2,Calm,22.4%,Sp. Def,Attack,,,,,,,12324.23
-Toxapex,59,stat_alignment,3,Impish,12.7%,Defense,Sp. Atk,,,,,,,12324.23
-Toxapex,59,stat_alignment,4,Careful,12.2%,Sp. Def,Sp. Atk,,,,,,,12324.23
-Toxapex,59,stat_alignment,5,Sassy,7.9%,Sp. Def,Speed,,,,,,,12324.23
-Toxapex,59,stat_alignment,6,Relaxed,6.6%,Defense,Speed,,,,,,,12329.23
-Toxapex,59,stat_alignment,7,Adamant,0.4%,Attack,Sp. Atk,,,,,,,12329.23
-Toxapex,59,stat_alignment,8,Modest,0.3%,Sp. Atk,Attack,,,,,,,12329.23
-Toxapex,59,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,,12329.23
-Toxapex,59,stat_alignment,10,Quiet,0.2%,Sp. Atk,Speed,,,,,,,12329.23
-Toxapex,59,stat_points,1,,29.5%,,,32,0,2,0,32,0,12332.73
-Toxapex,59,stat_points,2,,26.5%,,,32,0,32,0,2,0,12332.73
-Toxapex,59,stat_points,3,,4.8%,,,2,0,32,0,32,0,12332.73
-Toxapex,59,stat_points,4,,3.5%,,,32,0,18,0,16,0,12332.73
-Toxapex,59,stat_points,5,,2.2%,,,32,0,28,0,6,0,12332.73
-Toxapex,59,stat_points,8,,1.7%,,,32,0,0,0,32,0,12344.73
-Toxapex,59,stat_points,9,,1.4%,,,32,0,20,0,14,0,12344.73
-Toxapex,59,stat_points,10,,1.3%,,,32,0,8,0,26,0,12344.73
-Toxapex,59,stat_points,11,,1.3%,,,32,0,32,0,0,0,12344.73
-Toxapex,59,stat_points,12,,1.1%,,,32,0,32,2,0,0,12344.73
-Toxapex,59,ability,1,Regenerator,96.2%,,,,,,,,,12352.23
-Toxapex,59,ability,2,Merciless,2.9%,,,,,,,,,12352.23
-Toxapex,59,ability,3,Limber,0.9%,,,,,,,,,12352.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Toxapex,56,move,1,Recover,94.9%,,,,,,,,
+Toxapex,56,move,2,Toxic,91.8%,,,,,,,,
+Toxapex,56,move,3,Baneful Bunker,68.4%,,,,,,,,
+Toxapex,56,move,4,Infestation,57.1%,,,,,,,,
+Toxapex,56,move,5,Haze,33.9%,,,,,,,,
+Toxapex,56,move,6,Toxic Spikes,11.4%,,,,,,,,
+Toxapex,56,move,7,Chilling Water,7.8%,,,,,,,,
+Toxapex,56,move,8,Liquidation,5.1%,,,,,,,,
+Toxapex,56,move,9,Payback,4.2%,,,,,,,,
+Toxapex,56,move,10,Protect,3.1%,,,,,,,,
+Toxapex,56,held_item,1,Leftovers,70.7%,,,,,,,,
+Toxapex,56,held_item,2,Sitrus Berry,12.1%,,,,,,,,
+Toxapex,56,held_item,3,Mental Herb,4.5%,,,,,,,,
+Toxapex,56,held_item,4,Bright Powder,2.6%,,,,,,,,
+Toxapex,56,held_item,5,Shuca Berry,1.6%,,,,,,,,
+Toxapex,56,held_item,6,Quick Claw,0.8%,,,,,,,,
+Toxapex,56,held_item,7,Lum Berry,0.8%,,,,,,,,
+Toxapex,56,held_item,8,Wacan Berry,0.4%,,,,,,,,
+Toxapex,56,held_item,9,White Herb,0.3%,,,,,,,,
+Toxapex,56,held_item,10,Shed Shell,0.3%,,,,,,,,
+Toxapex,56,teammate,1,Garchomp,,,,,,,,,
+Toxapex,56,teammate,2,Meowscarada,,,,,,,,,
+Toxapex,56,teammate,3,Raichu,,,,,,,,,
+Toxapex,56,teammate,4,Corviknight,,,,,,,,,
+Toxapex,56,teammate,5,Mimikyu,,,,,,,,,
+Toxapex,56,teammate,6,Staraptor,,,,,,,,,
+Toxapex,56,teammate,7,Charizard,,,,,,,,,
+Toxapex,56,teammate,8,Metagross,,,,,,,,,
+Toxapex,56,teammate,9,Archaludon,,,,,,,,,
+Toxapex,56,teammate,10,Hippowdon,,,,,,,,,
+Toxapex,56,stat_alignment,1,Bold,37.5%,Defense,Attack,,,,,,
+Toxapex,56,stat_alignment,2,Calm,21.6%,Sp. Def,Attack,,,,,,
+Toxapex,56,stat_alignment,3,Impish,12.6%,Defense,Sp. Atk,,,,,,
+Toxapex,56,stat_alignment,4,Careful,11.4%,Sp. Def,Sp. Atk,,,,,,
+Toxapex,56,stat_alignment,5,Sassy,7.9%,Sp. Def,Speed,,,,,,
+Toxapex,56,stat_alignment,6,Relaxed,6.8%,Defense,Speed,,,,,,
+Toxapex,56,stat_alignment,7,Modest,0.5%,Sp. Atk,Attack,,,,,,
+Toxapex,56,stat_alignment,8,Adamant,0.4%,Attack,Sp. Atk,,,,,,
+Toxapex,56,stat_alignment,9,Quiet,0.4%,Sp. Atk,Speed,,,,,,
+Toxapex,56,stat_alignment,10,Brave,0.3%,Attack,Speed,,,,,,
+Toxapex,56,stat_points,1,,28.2%,,,32,0,2,0,32,0
+Toxapex,56,stat_points,2,,26.0%,,,32,0,32,0,2,0
+Toxapex,56,stat_points,3,,5.3%,,,2,0,32,0,32,0
+Toxapex,56,stat_points,4,,3.8%,,,32,0,18,0,16,0
+Toxapex,56,stat_points,5,,2.2%,,,32,0,28,0,6,0
+Toxapex,56,stat_points,6,,1.9%,,,32,0,16,0,18,0
+Toxapex,56,stat_points,7,,1.8%,,,32,0,0,0,32,0
+Toxapex,56,stat_points,8,,1.6%,,,32,0,6,0,28,0
+Toxapex,56,stat_points,9,,1.4%,,,32,0,20,0,14,0
+Toxapex,56,stat_points,10,,1.3%,,,32,0,32,0,0,0
+Toxapex,56,stat_points,11,,1.2%,,,32,0,32,2,0,0
+Toxapex,56,stat_points,12,,1.1%,,,32,0,8,0,26,0
+Toxapex,56,ability,1,Regenerator,95.2%,,,,,,,,
+Toxapex,56,ability,2,Merciless,3.7%,,,,,,,,
+Toxapex,56,ability,3,Limber,1.1%,,,,,,,,

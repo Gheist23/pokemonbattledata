@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Conkeldurr,117,move,1,Drain Punch,74.6%,,,,,,,,,483.67
-Conkeldurr,117,move,2,Ice Punch,59.0%,,,,,,,,,483.67
-Conkeldurr,117,move,3,Mach Punch,57.5%,,,,,,,,,483.67
-Conkeldurr,117,move,4,Thunder Punch,49.0%,,,,,,,,,483.67
-Conkeldurr,117,move,5,Protect,28.4%,,,,,,,,,483.67
-Conkeldurr,117,move,6,Wide Guard,23.0%,,,,,,,,,489.17
-Conkeldurr,117,move,7,Rock Slide,22.2%,,,,,,,,,489.17
-Conkeldurr,117,move,8,Knock Off,14.3%,,,,,,,,,489.17
-Conkeldurr,117,move,9,Close Combat,13.4%,,,,,,,,,489.17
-Conkeldurr,117,move,10,Poison Jab,12.2%,,,,,,,,,489.17
-Conkeldurr,117,held_item,1,Life Orb,50.9%,,,,,,,,,492.67
-Conkeldurr,117,held_item,2,Black Belt,12.9%,,,,,,,,,492.67
-Conkeldurr,117,held_item,3,Leftovers,7.2%,,,,,,,,,492.67
-Conkeldurr,117,held_item,4,Expert Belt,6.5%,,,,,,,,,492.67
-Conkeldurr,117,held_item,5,Sitrus Berry,4.7%,,,,,,,,,492.67
-Conkeldurr,117,held_item,6,Muscle Band,4.0%,,,,,,,,,497.67
-Conkeldurr,117,held_item,7,White Herb,2.5%,,,,,,,,,497.67
-Conkeldurr,117,held_item,8,Roseli Berry,2.2%,,,,,,,,,497.67
-Conkeldurr,117,held_item,9,Focus Sash,2.1%,,,,,,,,,497.67
-Conkeldurr,117,held_item,10,Coba Berry,1.3%,,,,,,,,,497.67
-Conkeldurr,117,teammate,1,Farigiraf,,,,,,,,,,501.17
-Conkeldurr,117,teammate,2,Torkoal,,,,,,,,,,501.17
-Conkeldurr,117,teammate,3,Mawile,,,,,,,,,,501.17
-Conkeldurr,117,teammate,4,Incineroar,,,,,,,,,,501.17
-Conkeldurr,117,teammate,5,Sinistcha,,,,,,,,,,501.17
-Conkeldurr,117,teammate,6,Kingambit,,,,,,,,,,506.17
-Conkeldurr,117,teammate,7,Sylveon,,,,,,,,,,506.17
-Conkeldurr,117,teammate,8,Hatterene,,,,,,,,,,506.17
-Conkeldurr,117,teammate,9,Kangaskhan,,,,,,,,,,506.17
-Conkeldurr,117,teammate,10,Camerupt,,,,,,,,,,506.17
-Conkeldurr,117,stat_alignment,1,Brave,69.5%,Attack,Speed,,,,,,,509.67
-Conkeldurr,117,stat_alignment,2,Adamant,24.7%,Attack,Sp. Atk,,,,,,,509.67
-Conkeldurr,117,stat_alignment,3,Sassy,2.1%,Sp. Def,Speed,,,,,,,509.67
-Conkeldurr,117,stat_alignment,4,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,,509.67
-Conkeldurr,117,stat_alignment,5,Relaxed,0.5%,Defense,Speed,,,,,,,509.67
-Conkeldurr,117,stat_alignment,6,Jolly,0.4%,Speed,Sp. Atk,,,,,,,514.7
-Conkeldurr,117,stat_alignment,7,Quiet,0.4%,Sp. Atk,Speed,,,,,,,514.7
-Conkeldurr,117,stat_alignment,8,Impish,0.4%,Defense,Sp. Atk,,,,,,,514.7
-Conkeldurr,117,stat_alignment,9,Lonely,0.3%,Attack,Defense,,,,,,,514.7
-Conkeldurr,117,stat_alignment,10,Naughty,0.2%,Attack,Sp. Def,,,,,,,514.7
-Conkeldurr,117,stat_points,1,,28.4%,,,32,32,0,0,2,0,518.2
-Conkeldurr,117,stat_points,2,,12.8%,,,32,32,2,0,0,0,518.2
-Conkeldurr,117,stat_points,3,,3.7%,,,2,32,0,0,32,0,518.2
-Conkeldurr,117,stat_points,4,,3.7%,,,0,32,2,0,32,0,518.2
-Conkeldurr,117,stat_points,5,,2.1%,,,32,30,0,0,4,0,518.2
-Conkeldurr,117,stat_points,8,,1.8%,,,2,32,32,0,0,0,530.2
-Conkeldurr,117,stat_points,9,,1.6%,,,20,32,0,0,14,0,530.2
-Conkeldurr,117,stat_points,10,,1.6%,,,29,32,0,0,5,0,530.2
-Conkeldurr,117,stat_points,11,,1.5%,,,27,32,0,0,7,0,530.2
-Conkeldurr,117,stat_points,12,,1.2%,,,19,32,0,0,15,0,530.2
-Conkeldurr,117,ability,1,lron Fist,65.8%,,,,,,,,,537.7
-Conkeldurr,117,ability,2,Sheer Force,25.1%,,,,,,,,,537.7
-Conkeldurr,117,ability,3,Guts,9.1%,,,,,,,,,537.7
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Conkeldurr,117,move,1,Drain Punch,75.6%,,,,,,,,
+Conkeldurr,117,move,2,Ice Punch,58.3%,,,,,,,,
+Conkeldurr,117,move,3,Mach Punch,57.4%,,,,,,,,
+Conkeldurr,117,move,4,Thunder Punch,45.4%,,,,,,,,
+Conkeldurr,117,move,5,Protect,27.8%,,,,,,,,
+Conkeldurr,117,move,6,Wide Guard,22.6%,,,,,,,,
+Conkeldurr,117,move,7,Rock Slide,20.5%,,,,,,,,
+Conkeldurr,117,move,8,Knock Off,17.8%,,,,,,,,
+Conkeldurr,117,move,9,Close Combat,13.1%,,,,,,,,
+Conkeldurr,117,move,10,Poison Jab,11.6%,,,,,,,,
+Conkeldurr,117,held_item,1,Life Orb,48.2%,,,,,,,,
+Conkeldurr,117,held_item,2,Black Belt,13.6%,,,,,,,,
+Conkeldurr,117,held_item,3,Expert Belt,7.1%,,,,,,,,
+Conkeldurr,117,held_item,4,Leftovers,7.0%,,,,,,,,
+Conkeldurr,117,held_item,5,Sitrus Berry,5.2%,,,,,,,,
+Conkeldurr,117,held_item,6,Muscle Band,4.5%,,,,,,,,
+Conkeldurr,117,held_item,7,White Herb,2.5%,,,,,,,,
+Conkeldurr,117,held_item,8,Roseli Berry,2.0%,,,,,,,,
+Conkeldurr,117,held_item,9,Focus Sash,1.7%,,,,,,,,
+Conkeldurr,117,held_item,10,Quick Claw,1.3%,,,,,,,,
+Conkeldurr,117,teammate,1,Farigiraf,,,,,,,,,
+Conkeldurr,117,teammate,2,Torkoal,,,,,,,,,
+Conkeldurr,117,teammate,3,Mawile,,,,,,,,,
+Conkeldurr,117,teammate,4,Incineroar,,,,,,,,,
+Conkeldurr,117,teammate,5,Sinistcha,,,,,,,,,
+Conkeldurr,117,teammate,6,Kingambit,,,,,,,,,
+Conkeldurr,117,teammate,7,Hatterene,,,,,,,,,
+Conkeldurr,117,teammate,8,Sylveon,,,,,,,,,
+Conkeldurr,117,teammate,9,Oranguru,,,,,,,,,
+Conkeldurr,117,teammate,10,Camerupt,,,,,,,,,
+Conkeldurr,117,stat_alignment,1,Brave,67.2%,Attack,Speed,,,,,,
+Conkeldurr,117,stat_alignment,2,Adamant,24.8%,Attack,Sp. Atk,,,,,,
+Conkeldurr,117,stat_alignment,3,Sassy,3.0%,Sp. Def,Speed,,,,,,
+Conkeldurr,117,stat_alignment,4,Careful,1.6%,Sp. Def,Sp. Atk,,,,,,
+Conkeldurr,117,stat_alignment,5,Lax,0.8%,Defense,Sp. Def,,,,,,
+Conkeldurr,117,stat_alignment,6,Relaxed,0.6%,Defense,Speed,,,,,,
+Conkeldurr,117,stat_alignment,7,Naughty,0.6%,Attack,Sp. Def,,,,,,
+Conkeldurr,117,stat_alignment,8,Impish,0.5%,Defense,Sp. Atk,,,,,,
+Conkeldurr,117,stat_alignment,9,Lonely,0.3%,Attack,Defense,,,,,,
+Conkeldurr,117,stat_alignment,10,Quiet,0.2%,Sp. Atk,Speed,,,,,,
+Conkeldurr,117,stat_points,1,,29.4%,,,32,32,0,0,2,0
+Conkeldurr,117,stat_points,2,,15.4%,,,32,32,2,0,0,0
+Conkeldurr,117,stat_points,3,,5.3%,,,2,32,0,0,32,0
+Conkeldurr,117,stat_points,4,,4.0%,,,0,32,2,0,32,0
+Conkeldurr,117,stat_points,5,,2.4%,,,2,32,32,0,0,0
+Conkeldurr,117,stat_points,6,,1.8%,,,20,32,0,0,14,0
+Conkeldurr,117,stat_points,7,,1.5%,,,32,30,0,0,4,0
+Conkeldurr,117,stat_points,8,,1.4%,,,32,32,0,0,1,0
+Conkeldurr,117,stat_points,9,,1.4%,,,32,32,0,0,0,0
+Conkeldurr,117,stat_points,10,,1.2%,,,29,32,0,0,5,0
+Conkeldurr,117,stat_points,11,,1.2%,,,32,32,1,0,1,0
+Conkeldurr,117,stat_points,12,,0.9%,,,27,32,0,0,7,0
+Conkeldurr,117,ability,1,lron Fist,65.9%,,,,,,,,
+Conkeldurr,117,ability,2,Sheer Force,24.1%,,,,,,,,
+Conkeldurr,117,ability,3,Guts,10.1%,,,,,,,,

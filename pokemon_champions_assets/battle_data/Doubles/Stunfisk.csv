@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Stunfisk,204,move,1,Thunderbolt,86.1%,,,,,,,,,899.2
-Stunfisk,204,move,2,Earth Power,78.7%,,,,,,,,,899.2
-Stunfisk,204,move,3,Protect,51.6%,,,,,,,,,899.2
-Stunfisk,204,move,4,Sludge Bomb,36.0%,,,,,,,,,899.2
-Stunfisk,204,move,5,Yawn,21.4%,,,,,,,,,899.2
-Stunfisk,204,move,6,Rain Dance,15.6%,,,,,,,,,905.2
-Stunfisk,204,move,7,Stealth Rock,14.2%,,,,,,,,,905.2
-Stunfisk,204,move,8,Foul Play,14.2%,,,,,,,,,905.2
-Stunfisk,204,move,9,Electroweb,12.4%,,,,,,,,,905.2
-Stunfisk,204,move,10,Sucker Punch,9.8%,,,,,,,,,905.2
-Stunfisk,204,held_item,1,Focus Sash,18.3%,,,,,,,,,908.7
-Stunfisk,204,held_item,2,Leftovers,18.2%,,,,,,,,,908.7
-Stunfisk,204,held_item,3,Sitrus Berry,16.7%,,,,,,,,,908.7
-Stunfisk,204,held_item,4,Expert Belt,12.0%,,,,,,,,,908.7
-Stunfisk,204,held_item,5,Quick Claw,11.5%,,,,,,,,,908.7
-Stunfisk,204,held_item,6,Bright Powder,10.1%,,,,,,,,,913.7
-Stunfisk,204,held_item,7,Life Orb,4.2%,,,,,,,,,913.7
-Stunfisk,204,held_item,8,Passho Berry,3.4%,,,,,,,,,913.7
-Stunfisk,204,held_item,9,Wise Glasses,1.2%,,,,,,,,,913.7
-Stunfisk,204,held_item,10,Rindo Berry,1.1%,,,,,,,,,913.7
-Stunfisk,204,teammate,1,Farigiraf,,,,,,,,,,917.2
-Stunfisk,204,teammate,2,Sinistcha,,,,,,,,,,917.2
-Stunfisk,204,teammate,3,Scrafty,,,,,,,,,,917.2
-Stunfisk,204,teammate,4,Archaludon,,,,,,,,,,917.2
-Stunfisk,204,teammate,5,Weavile,,,,,,,,,,917.2
-Stunfisk,204,teammate,6,Sableye,,,,,,,,,,922.2
-Stunfisk,204,teammate,7,Tyranitar,,,,,,,,,,922.2
-Stunfisk,204,teammate,8,Kingambit,,,,,,,,,,922.2
-Stunfisk,204,teammate,9,Mawile,,,,,,,,,,922.2
-Stunfisk,204,teammate,10,Whimsicott,,,,,,,,,,922.2
-Stunfisk,204,stat_alignment,1,Modest,39.0%,Sp. Atk,Attack,,,,,,,925.7
-Stunfisk,204,stat_alignment,2,Quiet,35.5%,Sp. Atk,Speed,,,,,,,925.7
-Stunfisk,204,stat_alignment,3,Relaxed,12.0%,Defense,Speed,,,,,,,925.7
-Stunfisk,204,stat_alignment,4,Timid,4.9%,Speed,Attack,,,,,,,925.7
-Stunfisk,204,stat_alignment,5,Sassy,4.5%,Sp. Def,Speed,,,,,,,925.7
-Stunfisk,204,stat_alignment,6,Sassy,4.5%,Sp. Def,Speed,,,,,,,930.2
-Stunfisk,204,stat_alignment,7,Bold,3.1%,Defense,Attack,,,,,,,930.2
-Stunfisk,204,stat_alignment,8,Calm,0.6%,Sp. Def,Attack,,,,,,,930.2
-Stunfisk,204,stat_alignment,9,Mild,0.3%,Sp. Atk,Defense,,,,,,,930.2
-Stunfisk,204,stat_points,1,,26.2%,,,32,0,2,32,0,0,934.2
-Stunfisk,204,stat_points,2,,12.8%,,,32,0,0,32,0,2,934.2
-Stunfisk,204,stat_points,3,,5.9%,,,2,0,32,32,0,0,934.2
-Stunfisk,204,stat_points,4,,5.9%,,,30,0,4,32,0,0,934.2
-Stunfisk,204,stat_points,5,,5.4%,,,32,0,0,2,32,0,934.2
-Stunfisk,204,stat_points,8,,4.2%,,,0,0,32,32,2,0,946.2
-Stunfisk,204,stat_points,9,,3.5%,,,32,0,32,2,0,0,946.2
-Stunfisk,204,stat_points,10,,3.3%,,,32,0,0,32,2,0,946.2
-Stunfisk,204,stat_points,11,,3.2%,,,13,0,21,32,0,0,946.2
-Stunfisk,204,stat_points,12,,2.9%,,,2,0,0,32,32,0,946.2
-Stunfisk,204,ability,1,Static,65.7%,,,,,,,,,953.7
-Stunfisk,204,ability,2,Limber,18.3%,,,,,,,,,953.7
-Stunfisk,204,ability,3,Sand Veil,16.0%,,,,,,,,,953.7
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Stunfisk,205,move,1,Earth Power,82.4%,,,,,,,,
+Stunfisk,205,move,2,Thunderbolt,82.2%,,,,,,,,
+Stunfisk,205,move,3,Protect,62.1%,,,,,,,,
+Stunfisk,205,move,4,Sludge Bomb,39.0%,,,,,,,,
+Stunfisk,205,move,5,Yawn,16.2%,,,,,,,,
+Stunfisk,205,move,6,Rain Dance,11.8%,,,,,,,,
+Stunfisk,205,move,7,Foul Play,11.8%,,,,,,,,
+Stunfisk,205,move,8,Muddy Water,11.4%,,,,,,,,
+Stunfisk,205,move,9,Discharge,11.1%,,,,,,,,
+Stunfisk,205,move,10,Electroweb,10.1%,,,,,,,,
+Stunfisk,205,held_item,1,Focus Sash,17.2%,,,,,,,,
+Stunfisk,205,held_item,2,Leftovers,16.1%,,,,,,,,
+Stunfisk,205,held_item,3,Sitrus Berry,15.2%,,,,,,,,
+Stunfisk,205,held_item,4,Expert Belt,13.3%,,,,,,,,
+Stunfisk,205,held_item,5,Quick Claw,11.1%,,,,,,,,
+Stunfisk,205,held_item,6,Life Orb,6.5%,,,,,,,,
+Stunfisk,205,held_item,7,Bright Powder,5.5%,,,,,,,,
+Stunfisk,205,held_item,8,Passho Berry,3.3%,,,,,,,,
+Stunfisk,205,held_item,9,Soft Sand,2.7%,,,,,,,,
+Stunfisk,205,held_item,10,Magnet,1.8%,,,,,,,,
+Stunfisk,205,teammate,1,Farigiraf,,,,,,,,,
+Stunfisk,205,teammate,2,Sinistcha,,,,,,,,,
+Stunfisk,205,teammate,3,Tyranitar,,,,,,,,,
+Stunfisk,205,teammate,4,Scrafty,,,,,,,,,
+Stunfisk,205,teammate,5,Sableye,,,,,,,,,
+Stunfisk,205,teammate,6,Incineroar,,,,,,,,,
+Stunfisk,205,teammate,7,Vanilluxe,,,,,,,,,
+Stunfisk,205,teammate,8,Mawile,,,,,,,,,
+Stunfisk,205,teammate,9,Kingambit,,,,,,,,,
+Stunfisk,205,teammate,10,Archaludon,,,,,,,,,
+Stunfisk,205,stat_alignment,1,Modest,41.1%,Sp. Atk,Attack,,,,,,
+Stunfisk,205,stat_alignment,2,Quiet,38.7%,Sp. Atk,Speed,,,,,,
+Stunfisk,205,stat_alignment,3,Relaxed,6.8%,Defense,Speed,,,,,,
+Stunfisk,205,stat_alignment,4,Timid,4.2%,Speed,Attack,,,,,,
+Stunfisk,205,stat_alignment,5,Bold,3.7%,Defense,Attack,,,,,,
+Stunfisk,205,stat_alignment,6,Sassy,3.2%,Sp. Def,Speed,,,,,,
+Stunfisk,205,stat_alignment,7,Calm,1.8%,Sp. Def,Attack,,,,,,
+Stunfisk,205,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Stunfisk,205,stat_alignment,9,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Stunfisk,205,stat_alignment,10,Jolly,0.0%,Speed,Sp. Atk,,,,,,
+Stunfisk,205,stat_points,1,,24.9%,,,32,0,2,32,0,0
+Stunfisk,205,stat_points,2,,12.5%,,,32,0,0,32,2,0
+Stunfisk,205,stat_points,3,,10.1%,,,32,0,0,32,0,2
+Stunfisk,205,stat_points,4,,9.4%,,,13,0,21,32,0,0
+Stunfisk,205,stat_points,5,,4.2%,,,32,0,0,32,0,0
+Stunfisk,205,stat_points,6,,4.0%,,,2,0,0,32,0,32
+Stunfisk,205,stat_points,7,,3.3%,,,30,0,4,32,0,0
+Stunfisk,205,stat_points,8,,3.3%,,,2,0,32,32,0,0
+Stunfisk,205,stat_points,9,,2.5%,,,0,0,32,32,2,0
+Stunfisk,205,stat_points,10,,2.4%,,,2,0,0,32,32,0
+Stunfisk,205,stat_points,11,,2.4%,,,32,0,0,2,32,0
+Stunfisk,205,ability,1,Static,66.8%,,,,,,,,
+Stunfisk,205,ability,2,Sand Veil,17.6%,,,,,,,,
+Stunfisk,205,ability,3,Limber,15.5%,,,,,,,,

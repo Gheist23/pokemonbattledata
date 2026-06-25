@@ -1,52 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Tyrantrum,193,move,1,Rock Slide,57.7%,,,,,,,,,5579.23
-Tyrantrum,193,move,2,Head Smash,51.7%,,,,,,,,,5579.23
-Tyrantrum,193,move,3,Ice Fang,39.7%,,,,,,,,,5579.23
-Tyrantrum,193,move,4,Psychic Fangs,37.2%,,,,,,,,,5579.23
-Tyrantrum,193,move,5,Protect,33.7%,,,,,,,,,5579.23
-Tyrantrum,193,move,6,Dragon Claw,28.7%,,,,,,,,,5584.73
-Tyrantrum,193,move,7,Earthquake,25.1%,,,,,,,,,5584.73
-Tyrantrum,193,move,8,Crunch,24.8%,,,,,,,,,5584.73
-Tyrantrum,193,move,9,Thunder Fang,16.7%,,,,,,,,,5584.73
-Tyrantrum,193,move,10,Close Combat,16.6%,,,,,,,,,5584.73
-Tyrantrum,193,held_item,1,Choice Scarf,36.2%,,,,,,,,,5588.23
-Tyrantrum,193,held_item,2,Life Orb,19.1%,,,,,,,,,5588.23
-Tyrantrum,193,held_item,3,Focus Sash,7.0%,,,,,,,,,5588.23
-Tyrantrum,193,held_item,4,Wide Lens,4.6%,,,,,,,,,5588.23
-Tyrantrum,193,held_item,5,Chople Berry,4.5%,,,,,,,,,5588.23
-Tyrantrum,193,held_item,6,Expert Belt,4.1%,,,,,,,,,5593.23
-Tyrantrum,193,held_item,7,Muscle Band,3.4%,,,,,,,,,5593.23
-Tyrantrum,193,held_item,8,Shuca Berry,2.7%,,,,,,,,,5593.23
-Tyrantrum,193,held_item,9,Roseli Berry,2.2%,,,,,,,,,5593.23
-Tyrantrum,193,held_item,10,Sitrus Berry,2.1%,,,,,,,,,5593.23
-Tyrantrum,193,teammate,1,Farigiraf,,,,,,,,,,5596.73
-Tyrantrum,193,teammate,2,Sinistcha,,,,,,,,,,5596.73
-Tyrantrum,193,teammate,3,Gholdengo,,,,,,,,,,5596.73
-Tyrantrum,193,teammate,4,Whimsicott,,,,,,,,,,5596.73
-Tyrantrum,193,teammate,5,Swampert,,,,,,,,,,5596.73
-Tyrantrum,193,teammate,6,Raichu,,,,,,,,,,5601.73
-Tyrantrum,193,teammate,7,Pelipper,,,,,,,,,,5601.73
-Tyrantrum,193,teammate,8,Houndstone,,,,,,,,,,5601.73
-Tyrantrum,193,teammate,9,Sylveon,,,,,,,,,,5601.73
-Tyrantrum,193,teammate,10,Sandaconda,,,,,,,,,,5601.73
-Tyrantrum,193,stat_alignment,1,Jolly,36.5%,Speed,Sp. Atk,,,,,,,5605.23
-Tyrantrum,193,stat_alignment,2,Brave,31.1%,Attack,Speed,,,,,,,5605.23
-Tyrantrum,193,stat_alignment,3,Adamant,29.3%,Attack,Sp. Atk,,,,,,,5605.23
-Tyrantrum,193,stat_alignment,4,Relaxed,1.4%,Defense,Speed,,,,,,,5605.23
-Tyrantrum,193,stat_alignment,5,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,,5605.23
-Tyrantrum,193,stat_alignment,6,Impish,0.4%,Defense,Sp. Atk,,,,,,,5610.23
-Tyrantrum,193,stat_alignment,7,Lax,0.2%,Defense,Sp. Def,,,,,,,5610.23
-Tyrantrum,193,stat_alignment,8,Gentle,0.1%,Sp. Def,Defense,,,,,,,5610.23
-Tyrantrum,193,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,,5610.23
-Tyrantrum,193,stat_points,1,,36.2%,,,2,32,0,0,0,32,5613.73
-Tyrantrum,193,stat_points,2,,9.5%,,,0,32,2,0,32,0,5613.73
-Tyrantrum,193,stat_points,3,,8.2%,,,32,32,0,0,2,0,5613.73
-Tyrantrum,193,stat_points,4,,6.6%,,,32,32,2,0,0,0,5613.73
-Tyrantrum,193,stat_points,5,,5.8%,,,0,32,0,0,2,32,5613.73
-Tyrantrum,193,stat_points,8,,2.9%,,,2,32,32,0,0,0,5625.73
-Tyrantrum,193,stat_points,9,,2.4%,,,4,26,2,1,1,32,5625.73
-Tyrantrum,193,stat_points,10,,2.0%,,,12,32,0,0,22,0,5625.73
-Tyrantrum,193,stat_points,11,,1.3%,,,15,32,0,0,0,19,5625.73
-Tyrantrum,193,stat_points,12,,1.2%,,,0,32,32,0,2,0,5625.73
-Tyrantrum,193,ability,1,Strong Jaw,56.6%,,,,,,,,,5633.23
-Tyrantrum,193,ability,2,Rock Head,43.4%,,,,,,,,,5633.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Tyrantrum,194,move,1,Head Smash,54.5%,,,,,,,,
+Tyrantrum,194,move,2,Rock Slide,49.0%,,,,,,,,
+Tyrantrum,194,move,3,Psychic Fangs,38.7%,,,,,,,,
+Tyrantrum,194,move,4,Ice Fang,37.6%,,,,,,,,
+Tyrantrum,194,move,5,Protect,35.4%,,,,,,,,
+Tyrantrum,194,move,6,Dragon Claw,25.9%,,,,,,,,
+Tyrantrum,194,move,7,Crunch,25.1%,,,,,,,,
+Tyrantrum,194,move,8,Close Combat,19.4%,,,,,,,,
+Tyrantrum,194,move,9,Earthquake,18.9%,,,,,,,,
+Tyrantrum,194,move,10,Thunder Fang,14.1%,,,,,,,,
+Tyrantrum,194,held_item,1,Choice Scarf,34.4%,,,,,,,,
+Tyrantrum,194,held_item,2,Life Orb,20.9%,,,,,,,,
+Tyrantrum,194,held_item,3,Focus Sash,7.6%,,,,,,,,
+Tyrantrum,194,held_item,4,Expert Belt,4.6%,,,,,,,,
+Tyrantrum,194,held_item,5,Quick Claw,4.2%,,,,,,,,
+Tyrantrum,194,held_item,6,Chople Berry,4.0%,,,,,,,,
+Tyrantrum,194,held_item,7,Wide Lens,3.5%,,,,,,,,
+Tyrantrum,194,held_item,8,Sitrus Berry,2.6%,,,,,,,,
+Tyrantrum,194,held_item,9,Muscle Band,2.2%,,,,,,,,
+Tyrantrum,194,held_item,10,Iron Ball,2.1%,,,,,,,,
+Tyrantrum,194,teammate,1,Farigiraf,,,,,,,,,
+Tyrantrum,194,teammate,2,Sinistcha,,,,,,,,,
+Tyrantrum,194,teammate,3,Whimsicott,,,,,,,,,
+Tyrantrum,194,teammate,4,Raichu,,,,,,,,,
+Tyrantrum,194,teammate,5,Sylveon,,,,,,,,,
+Tyrantrum,194,teammate,6,Tyranitar,,,,,,,,,
+Tyrantrum,194,teammate,7,Charizard,,,,,,,,,
+Tyrantrum,194,teammate,8,Gholdengo,,,,,,,,,
+Tyrantrum,194,teammate,9,Swampert,,,,,,,,,
+Tyrantrum,194,teammate,10,Sneasler,,,,,,,,,
+Tyrantrum,194,stat_alignment,1,Jolly,33.9%,Speed,Sp. Atk,,,,,,
+Tyrantrum,194,stat_alignment,2,Adamant,33.8%,Attack,Sp. Atk,,,,,,
+Tyrantrum,194,stat_alignment,3,Brave,25.9%,Attack,Speed,,,,,,
+Tyrantrum,194,stat_alignment,4,Careful,1.9%,Sp. Def,Sp. Atk,,,,,,
+Tyrantrum,194,stat_alignment,5,Sassy,1.7%,Sp. Def,Speed,,,,,,
+Tyrantrum,194,stat_alignment,6,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Tyrantrum,194,stat_alignment,7,Relaxed,0.7%,Defense,Speed,,,,,,
+Tyrantrum,194,stat_alignment,8,Lonely,0.6%,Attack,Defense,,,,,,
+Tyrantrum,194,stat_alignment,9,Naughty,0.4%,Attack,Sp. Def,,,,,,
+Tyrantrum,194,stat_alignment,10,Lax,0.1%,Defense,Sp. Def,,,,,,
+Tyrantrum,194,stat_points,1,,31.3%,,,2,32,0,0,0,32
+Tyrantrum,194,stat_points,2,,8.0%,,,32,32,0,0,2,0
+Tyrantrum,194,stat_points,3,,7.1%,,,32,32,2,0,0,0
+Tyrantrum,194,stat_points,4,,5.8%,,,0,32,0,0,2,32
+Tyrantrum,194,stat_points,5,,5.7%,,,0,32,2,0,32,0
+Tyrantrum,194,stat_points,6,,5.0%,,,0,32,2,0,0,32
+Tyrantrum,194,stat_points,7,,2.2%,,,14,27,0,0,0,25
+Tyrantrum,194,stat_points,8,,2.1%,,,9,32,0,0,0,25
+Tyrantrum,194,stat_points,9,,2.1%,,,32,32,1,0,1,0
+Tyrantrum,194,stat_points,10,,1.9%,,,2,32,0,0,32,0
+Tyrantrum,194,stat_points,11,,1.8%,,,2,32,32,0,0,0
+Tyrantrum,194,stat_points,12,,1.7%,,,4,26,2,1,1,32
+Tyrantrum,194,ability,1,Strong Jaw,52.2%,,,,,,,,
+Tyrantrum,194,ability,2,Rock Head,47.9%,,,,,,,,

@@ -1,53 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Castform,232,move,1,Leaf Storm,54.0%,,,,,,,,,2968.23
-Castform,232,move,2,Leech Seed,48.9%,,,,,,,,,2968.23
-Castform,232,move,3,Fake Out,37.1%,,,,,,,,,2968.23
-Castform,232,move,4,Seed Bomb,32.9%,,,,,,,,,2968.23
-Castform,232,move,5,Rock Slide,31.3%,,,,,,,,,2968.23
-Castform,232,move,6,Icy Wind,28.5%,,,,,,,,,2973.73
-Castform,232,move,7,Substitute,28.1%,,,,,,,,,2973.73
-Castform,232,move,8,Superpower,26.2%,,,,,,,,,2973.73
-Castform,232,move,9,Rain Dance,20.3%,,,,,,,,,2906.73
-Castform,232,move,10,Taunt,17.6%,,,,,,,,,2973.73
-Castform,232,held_item,1,Focus Sash,31.0%,,,,,,,,,2909.73
-Castform,232,held_item,2,Light Ball,13.6%,,,,,,,,,2977.23
-Castform,232,held_item,3,Expert Belt,6.5%,,,,,,,,,2977.23
-Castform,232,held_item,4,Miracle Seed,6.3%,,,,,,,,,2977.23
-Castform,232,held_item,5,Leftovers,2.0%,,,,,,,,,2977.23
-Castform,232,held_item,6,Bright Powder,1.3%,,,,,,,,,2982.23
-Castform,232,held_item,7,Garchompite,0.9%,,,,,,,,,2982.23
-Castform,232,held_item,8,Quick Claw,0.8%,,,,,,,,,2982.23
-Castform,232,held_item,9,Damp Rock,0.24%,,,,,,,,,2914.73
-Castform,232,held_item,10,Mental Herb,0.2%,,,,,,,,,2982.23
-Castform,232,teammate,1,Clawitzer,,,,,,,,,,2985.73
-Castform,232,teammate,2,Tyrantrum,,,,,,,,,,2985.73
-Castform,232,teammate,3,Glalie,,,,,,,,,,2918.73
-Castform,232,teammate,4,Emolga,,,,,,,,,,2985.73
-Castform,232,teammate,5,Salazzle,,,,,,,,,,2985.73
-Castform,232,teammate,6,Emboar,,,,,,,,,,2990.73
-Castform,232,teammate,7,Archaludon,,,,,,,,,,2923.73
-Castform,232,teammate,8,Morpeko,,,,,,,,,,2990.73
-Castform,232,teammate,9,Charizard,,,,,,,,,,2923.73
-Castform,232,teammate,10,Watchog,,,,,,,,,,2990.73
-Castform,232,stat_alignment,1,Timid,40.8%,Speed,Attack,,,,,,,2927.23
-Castform,232,stat_alignment,2,Timid,39.3%,Speed,Attack,,,,,,,2994.23
-Castform,232,stat_alignment,3,Bold,10.0%,Defense,Attack,,,,,,,2994.23
-Castform,232,stat_alignment,4,Modest,10.8%,Sp. Def,Attack,,,,,,,2994.23
-Castform,232,stat_alignment,5,Quiet,3.6%,Sp. Atk,Speed,,,,,,,2994.23
-Castform,232,stat_alignment,6,Quiet,2.0%,Sp. Atk,Speed,,,,,,,2999.23
-Castform,232,stat_alignment,7,Impish,2.0%,Defense,Sp. Atk,,,,,,,2999.23
-Castform,232,stat_alignment,8,Adamant,1.8%,Attack,Sp. Atk,,,,,,,2999.23
-Castform,232,stat_alignment,9,Mild,0.2%,Sp. Atk,Defense,,,,,,,2999.23
-Castform,232,stat_alignment,10,Calm,0.1%,Sp. Def,Attack,,,,,,,2999.23
-Castform,232,stat_points,1,,34.1%,,,2,0,0,32,0,32,2935.73
-Castform,232,stat_points,2,,10.1%,,,32,0,1,32,1,0,2935.73
-Castform,232,stat_points,3,,8.2%,,,0,0,0,32,0,32,2935.73
-Castform,232,stat_points,4,,7.1%,,,0,0,2,32,0,32,2935.73
-Castform,232,stat_points,5,,6.3%,,,32,0,14,5,0,15,2935.73
-Castform,232,stat_points,8,,2.0%,,,0,0,2,0,32,32,3014.73
-Castform,232,stat_points,9,,2.1%,,,32,2,0,0,0,32,3014.73
-Castform,232,stat_points,10,,2.0%,,,32,0,2,32,0,0,3014.73
-Castform,232,stat_points,11,,1.9%,,,0,0,2,32,2,32,3014.73
-Castform,232,stat_points,12,,1.1%,,,24,3,32,0,0,0,3014.73
-Castform,232,ability,1,Forecast,100.0%,,,,,,,,,2955.23
-Castform,232,ability,2,Gluttony,5.2%,,,,,,,,,3022.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Castform,230,move,1,Weather Ball,57.2%,,,,,,,,
+Castform,230,move,2,Sunny Day,39.9%,,,,,,,,
+Castform,230,move,3,Thunder,34.9%,,,,,,,,
+Castform,230,move,4,Solar Beam,25.8%,,,,,,,,
+Castform,230,move,5,Thunderbolt,25.5%,,,,,,,,
+Castform,230,move,6,Thunder Wave,23.6%,,,,,,,,
+Castform,230,move,7,Energy Ball,23.0%,,,,,,,,
+Castform,230,move,8,Flamethrower,19.3%,,,,,,,,
+Castform,230,move,9,Icy Wind,18.7%,,,,,,,,
+Castform,230,move,10,Ice Beam,15.7%,,,,,,,,
+Castform,230,held_item,1,Focus Sash,22.0%,,,,,,,,
+Castform,230,held_item,2,Choice Scarf,16.8%,,,,,,,,
+Castform,230,held_item,3,Expert Belt,14.0%,,,,,,,,
+Castform,230,held_item,4,Life Orb,11.4%,,,,,,,,
+Castform,230,held_item,5,Sitrus Berry,9.2%,,,,,,,,
+Castform,230,held_item,6,Bright Powder,4.8%,,,,,,,,
+Castform,230,held_item,7,Quick Claw,4.2%,,,,,,,,
+Castform,230,held_item,8,Damp Rock,2.9%,,,,,,,,
+Castform,230,held_item,9,Miracle Seed,2.2%,,,,,,,,
+Castform,230,held_item,10,Garchompite,1.9%,,,,,,,,
+Castform,230,teammate,1,Swampert,,,,,,,,,
+Castform,230,teammate,2,Charizard,,,,,,,,,
+Castform,230,teammate,3,Staraptor,,,,,,,,,
+Castform,230,teammate,4,Mimikyu,,,,,,,,,
+Castform,230,teammate,5,Abomasnow,,,,,,,,,
+Castform,230,teammate,6,Meowscarada,,,,,,,,,
+Castform,230,teammate,7,Kingambit,,,,,,,,,
+Castform,230,teammate,8,Corviknight,,,,,,,,,
+Castform,230,teammate,9,Archaludon,,,,,,,,,
+Castform,230,teammate,10,Raichu,,,,,,,,,
+Castform,230,stat_alignment,1,Timid,43.7%,Speed,Attack,,,,,,
+Castform,230,stat_alignment,2,Modest,40.2%,Sp. Atk,Attack,,,,,,
+Castform,230,stat_alignment,3,Calm,7.2%,Sp. Def,Attack,,,,,,
+Castform,230,stat_alignment,4,Serious,1.9%,,,,,,,,
+Castform,230,stat_alignment,5,Sassy,1.9%,Sp. Def,Speed,,,,,,
+Castform,230,stat_alignment,6,Quiet,1.7%,Sp. Atk,Speed,,,,,,
+Castform,230,stat_alignment,7,Bold,1.6%,Defense,Attack,,,,,,
+Castform,230,stat_alignment,8,Brave,0.6%,Attack,Speed,,,,,,
+Castform,230,stat_alignment,9,Mild,0.4%,Sp. Atk,Defense,,,,,,
+Castform,230,stat_alignment,10,Relaxed,0.4%,Defense,Speed,,,,,,
+Castform,230,stat_points,1,,38.7%,,,2,0,0,32,0,32
+Castform,230,stat_points,2,,8.1%,,,0,0,2,32,0,32
+Castform,230,stat_points,3,,8.0%,,,32,0,1,32,1,0
+Castform,230,stat_points,4,,4.7%,,,21,0,8,5,0,32
+Castform,230,stat_points,5,,4.6%,,,0,0,0,32,0,32
+Castform,230,stat_points,6,,4.1%,,,32,0,0,0,32,2
+Castform,230,stat_points,7,,3.7%,,,0,0,13,30,0,23
+Castform,230,stat_points,8,,3.3%,,,32,0,14,5,0,15
+Castform,230,stat_points,9,,2.7%,,,32,0,4,1,27,2
+Castform,230,stat_points,10,,2.4%,,,30,0,0,32,0,4
+Castform,230,ability,1,Forecast,100.0%,,,,,,,,

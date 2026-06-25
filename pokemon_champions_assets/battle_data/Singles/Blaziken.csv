@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Blaziken,13,move,1,Flare Blitz,82.5%,,,,,,,,,9213.23
-Blaziken,13,move,2,Close Combat,63.9%,,,,,,,,,9213.23
-Blaziken,13,move,3,Swords Dance,54.8%,,,,,,,,,9213.23
-Blaziken,13,move,4,Protect,53.5%,,,,,,,,,9213.23
-Blaziken,13,move,5,Thunder Punch,41.9%,,,,,,,,,9213.23
-Blaziken,13,move,6,High Jump Kick,21.6%,,,,,,,,,9219.73
-Blaziken,13,move,7,Detect,18.7%,,,,,,,,,9219.73
-Blaziken,13,move,8,Baton Pass,16.2%,,,,,,,,,9219.73
-Blaziken,13,move,9,Earthquake,7.0%,,,,,,,,,9219.73
-Blaziken,13,move,10,Bulk Up,5.4%,,,,,,,,,9219.73
-Blaziken,13,held_item,1,Blazikenite,74.2%,,,,,,,,,9222.73
-Blaziken,13,held_item,2,Focus Sash,16.0%,,,,,,,,,9222.73
-Blaziken,13,held_item,3,Life Orb,4.2%,,,,,,,,,9222.73
-Blaziken,13,held_item,4,Sitrus Berry,2.1%,,,,,,,,,9222.73
-Blaziken,13,held_item,5,Leftovers,0.8%,,,,,,,,,9222.73
-Blaziken,13,held_item,6,Shuca Berry,0.5%,,,,,,,,,9227.73
-Blaziken,13,held_item,7,Lum Berry,0.3%,,,,,,,,,9227.73
-Blaziken,13,held_item,8,Mental Herb,0.3%,,,,,,,,,9227.73
-Blaziken,13,held_item,9,White Herb,0.2%,,,,,,,,,9227.73
-Blaziken,13,held_item,10,Bright Powder,0.2%,,,,,,,,,9227.73
-Blaziken,13,teammate,1,Garchomp,,,,,,,,,,9231.73
-Blaziken,13,teammate,2,Mimikyu,,,,,,,,,,9231.73
-Blaziken,13,teammate,3,Meowscarada,,,,,,,,,,9231.73
-Blaziken,13,teammate,4,Alolan Ninetales,,,,,,,,,,9231.73
-Blaziken,13,teammate,5,Archaludon,,,,,,,,,,9231.73
-Blaziken,13,teammate,6,Raichu,,,,,,,,,,9236.73
-Blaziken,13,teammate,7,Metagross,,,,,,,,,,9236.73
-Blaziken,13,teammate,8,Gyarados,,,,,,,,,,9236.73
-Blaziken,13,teammate,9,Corviknight,,,,,,,,,,9236.73
-Blaziken,13,teammate,10,Rotom Wash,,,,,,,,,,9236.73
-Blaziken,13,stat_alignment,1,Adamant,73.1%,Attack,Sp. Atk,,,,,,,9240.23
-Blaziken,13,stat_alignment,2,Jolly,19.3%,Speed,Sp. Atk,,,,,,,9240.23
-Blaziken,13,stat_alignment,3,Impish,2.4%,Defense,Sp. Atk,,,,,,,9240.23
-Blaziken,13,stat_alignment,4,Naughty,1.0%,Attack,Sp. Def,,,,,,,9240.23
-Blaziken,13,stat_alignment,5,Naive,0.7%,Speed,Sp. Def,,,,,,,9240.23
-Blaziken,13,stat_alignment,6,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,,9245.23
-Blaziken,13,stat_alignment,7,Timid,0.5%,Speed,Attack,,,,,,,9245.23
-Blaziken,13,stat_alignment,8,Modest,0.5%,Sp. Atk,Attack,,,,,,,9245.23
-Blaziken,13,stat_alignment,9,Lonely,0.5%,Attack,Defense,,,,,,,9245.23
-Blaziken,13,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,,9245.23
-Blaziken,13,stat_points,1,,47.0%,,,2,32,0,0,0,32,9248.73
-Blaziken,13,stat_points,2,,6.6%,,,16,32,0,0,0,18,9248.73
-Blaziken,13,stat_points,3,,6.4%,,,10,32,0,0,0,24,9248.73
-Blaziken,13,stat_points,4,,4.7%,,,0,32,2,0,0,32,9248.73
-Blaziken,13,stat_points,5,,2.1%,,,0,32,0,0,2,32,9248.73
-Blaziken,13,stat_points,8,,1.1%,,,18,32,1,0,1,14,9260.73
-Blaziken,13,stat_points,9,,1.0%,,,32,32,0,0,0,2,9260.73
-Blaziken,13,stat_points,10,,0.8%,,,32,0,2,0,0,32,9260.73
-Blaziken,13,stat_points,11,,0.6%,,,32,2,0,0,0,32,9260.73
-Blaziken,13,stat_points,12,,0.5%,,,20,32,0,0,0,14,9260.73
-Blaziken,13,ability,1,Boost,97.6%,,,,,,,,,9268.23
-Blaziken,13,ability,2,Blaze,2.4%,,,,,,,,,9268.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Blaziken,11,move,1,Flare Blitz,84.1%,,,,,,,,
+Blaziken,11,move,2,Close Combat,63.2%,,,,,,,,
+Blaziken,11,move,3,Swords Dance,56.4%,,,,,,,,
+Blaziken,11,move,4,Protect,51.8%,,,,,,,,
+Blaziken,11,move,5,Thunder Punch,41.6%,,,,,,,,
+Blaziken,11,move,6,High Jump Kick,23.1%,,,,,,,,
+Blaziken,11,move,7,Detect,21.1%,,,,,,,,
+Blaziken,11,move,8,Baton Pass,15.7%,,,,,,,,
+Blaziken,11,move,9,Earthquake,7.0%,,,,,,,,
+Blaziken,11,move,10,Bulk Up,1.9%,,,,,,,,
+Blaziken,11,held_item,1,Blazikenite,76.5%,,,,,,,,
+Blaziken,11,held_item,2,Focus Sash,14.6%,,,,,,,,
+Blaziken,11,held_item,3,Life Orb,3.6%,,,,,,,,
+Blaziken,11,held_item,4,Sitrus Berry,2.0%,,,,,,,,
+Blaziken,11,held_item,5,Leftovers,0.7%,,,,,,,,
+Blaziken,11,held_item,6,Shuca Berry,0.4%,,,,,,,,
+Blaziken,11,held_item,7,Lum Berry,0.3%,,,,,,,,
+Blaziken,11,held_item,8,Mental Herb,0.2%,,,,,,,,
+Blaziken,11,held_item,9,White Herb,0.2%,,,,,,,,
+Blaziken,11,held_item,10,Bright Powder,0.2%,,,,,,,,
+Blaziken,11,teammate,1,Garchomp,,,,,,,,,
+Blaziken,11,teammate,2,Mimikyu,,,,,,,,,
+Blaziken,11,teammate,3,Alolan Ninetales,,,,,,,,,
+Blaziken,11,teammate,4,Meowscarada,,,,,,,,,
+Blaziken,11,teammate,5,Metagross,,,,,,,,,
+Blaziken,11,teammate,6,Archaludon,,,,,,,,,
+Blaziken,11,teammate,7,Gyarados,,,,,,,,,
+Blaziken,11,teammate,8,Raichu,,,,,,,,,
+Blaziken,11,teammate,9,Corviknight,,,,,,,,,
+Blaziken,11,teammate,10,Gholdengo,,,,,,,,,
+Blaziken,11,stat_alignment,1,Adamant,74.8%,Attack,Sp. Atk,,,,,,
+Blaziken,11,stat_alignment,2,Jolly,18.0%,Speed,Sp. Atk,,,,,,
+Blaziken,11,stat_alignment,3,Impish,2.2%,Defense,Sp. Atk,,,,,,
+Blaziken,11,stat_alignment,4,Naughty,1.0%,Attack,Sp. Def,,,,,,
+Blaziken,11,stat_alignment,5,Naive,0.7%,Speed,Sp. Def,,,,,,
+Blaziken,11,stat_alignment,6,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
+Blaziken,11,stat_alignment,7,Lonely,0.5%,Attack,Defense,,,,,,
+Blaziken,11,stat_alignment,8,Timid,0.5%,Speed,Attack,,,,,,
+Blaziken,11,stat_alignment,9,Modest,0.5%,Sp. Atk,Attack,,,,,,
+Blaziken,11,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,
+Blaziken,11,stat_points,1,,45.1%,,,2,32,0,0,0,32
+Blaziken,11,stat_points,2,,7.9%,,,16,32,0,0,0,18
+Blaziken,11,stat_points,3,,7.1%,,,10,32,0,0,0,24
+Blaziken,11,stat_points,4,,4.4%,,,0,32,2,0,0,32
+Blaziken,11,stat_points,5,,2.6%,,,0,32,0,0,2,32
+Blaziken,11,stat_points,6,,1.9%,,,0,32,0,0,0,32
+Blaziken,11,stat_points,7,,1.8%,,,0,32,1,0,1,32
+Blaziken,11,stat_points,8,,1.2%,,,18,32,1,0,1,14
+Blaziken,11,stat_points,9,,1.0%,,,32,32,0,0,0,2
+Blaziken,11,stat_points,10,,0.9%,,,20,20,0,0,1,25
+Blaziken,11,stat_points,11,,0.7%,,,32,0,2,0,0,32
+Blaziken,11,stat_points,12,,0.7%,,,1,32,0,0,0,20
+Blaziken,11,ability,1,Boost,97.5%,,,,,,,,
+Blaziken,11,ability,2,Blaze,2.5%,,,,,,,,

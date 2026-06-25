@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Alolan Ninetales,32,move,1,Blizzard,93.9%,,,,,,,,,2090.73
-Alolan Ninetales,32,move,2,Aurora Veil,69.9%,,,,,,,,,2090.73
-Alolan Ninetales,32,move,3,Protect,64.6%,,,,,,,,,2090.73
-Alolan Ninetales,32,move,4,Freeze-Dry,59.1%,,,,,,,,,2090.73
-Alolan Ninetales,32,move,5,Moonblast,41.7%,,,,,,,,,2090.73
-Alolan Ninetales,32,move,6,Encore,23.8%,,,,,,,,,2096.73
-Alolan Ninetales,32,move,7,Icy Wind,14.7%,,,,,,,,,2096.73
-Alolan Ninetales,32,move,8,Dazzling Gleam,11.3%,,,,,,,,,2096.73
-Alolan Ninetales,32,move,9,Disable,9.4%,,,,,,,,,2096.73
-Alolan Ninetales,32,move,10,Charm,2.4%,,,,,,,,,2096.73
-Alolan Ninetales,32,held_item,1,Light Clay,36.5%,,,,,,,,,2100.23
-Alolan Ninetales,32,held_item,2,Focus Sash,20.6%,,,,,,,,,2100.23
-Alolan Ninetales,32,held_item,3,Never-Melt Ice,18.9%,,,,,,,,,2100.23
-Alolan Ninetales,32,held_item,4,Choice Scarf,10.2%,,,,,,,,,2100.23
-Alolan Ninetales,32,held_item,5,Life Orb,6.1%,,,,,,,,,2100.23
-Alolan Ninetales,32,held_item,6,Sitrus Berry,1.6%,,,,,,,,,2105.23
-Alolan Ninetales,32,held_item,7,Icy Rock,1.4%,,,,,,,,,2105.23
-Alolan Ninetales,32,held_item,8,Babiri Berry,0.7%,,,,,,,,,2105.23
-Alolan Ninetales,32,held_item,9,Leftovers,0.7%,,,,,,,,,2105.23
-Alolan Ninetales,32,held_item,10,Bright Powder,0.5%,,,,,,,,,2105.23
-Alolan Ninetales,32,teammate,1,Garchomp,,,,,,,,,,2108.73
-Alolan Ninetales,32,teammate,2,Raichu,,,,,,,,,,2108.73
-Alolan Ninetales,32,teammate,3,Incineroar,,,,,,,,,,2108.73
-Alolan Ninetales,32,teammate,4,Whimsicott,,,,,,,,,,2108.73
-Alolan Ninetales,32,teammate,5,Sneasler,,,,,,,,,,2108.73
-Alolan Ninetales,32,teammate,6,Kingambit,,,,,,,,,,2113.73
-Alolan Ninetales,32,teammate,7,Basculegion,,,,,,,,,,2113.73
-Alolan Ninetales,32,teammate,8,Sinistcha,,,,,,,,,,2113.73
-Alolan Ninetales,32,teammate,9,Metagross,,,,,,,,,,2113.73
-Alolan Ninetales,32,teammate,10,Staraptor,,,,,,,,,,2113.73
-Alolan Ninetales,32,stat_alignment,1,Timid,81.7%,Speed,Attack,,,,,,,2117.23
-Alolan Ninetales,32,stat_alignment,2,Modest,14.8%,Sp. Atk,Attack,,,,,,,2117.23
-Alolan Ninetales,32,stat_alignment,3,Bold,1.2%,Defense,Attack,,,,,,,2117.23
-Alolan Ninetales,32,stat_alignment,4,Calm,0.7%,Sp. Def,Attack,,,,,,,2117.23
-Alolan Ninetales,32,stat_alignment,5,Quiet,0.5%,Sp. Atk,Speed,,,,,,,2117.23
-Alolan Ninetales,32,stat_alignment,6,Mild,0.3%,Sp. Atk,Defense,,,,,,,2122.23
-Alolan Ninetales,32,stat_alignment,7,Hasty,0.3%,Speed,Defense,,,,,,,2122.23
-Alolan Ninetales,32,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,,2122.23
-Alolan Ninetales,32,stat_alignment,9,Gentle,0.1%,Sp. Def,Defense,,,,,,,2122.23
-Alolan Ninetales,32,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,,2122.23
-Alolan Ninetales,32,stat_points,1,,35.1%,,,2,0,0,32,0,32,2125.73
-Alolan Ninetales,32,stat_points,2,,8.0%,,,0,0,2,32,0,32,2125.73
-Alolan Ninetales,32,stat_points,3,,6.4%,,,1,0,1,32,0,32,2125.73
-Alolan Ninetales,32,stat_points,4,,4.8%,,,0,0,0,32,2,32,2125.73
-Alolan Ninetales,32,stat_points,5,,2.9%,,,1,0,3,20,0,32,2125.73
-Alolan Ninetales,32,stat_points,8,,1.5%,,,0,0,0,32,0,32,2137.73
-Alolan Ninetales,32,stat_points,9,,1.4%,,,17,0,1,15,1,32,2137.73
-Alolan Ninetales,32,stat_points,10,,1.3%,,,32,0,2,0,0,32,2137.73
-Alolan Ninetales,32,stat_points,11,,1.1%,,,1,0,1,25,1,28,2137.73
-Alolan Ninetales,32,stat_points,12,,1.1%,,,13,0,3,18,0,32,2137.73
-Alolan Ninetales,32,ability,1,Snow Warning,99.2%,,,,,,,,,2145.23
-Alolan Ninetales,32,ability,2,Snow Cloak,0.8%,,,,,,,,,2145.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Alolan Ninetales,32,move,1,Blizzard,93.9%,,,,,,,,
+Alolan Ninetales,32,move,2,Aurora Veil,69.1%,,,,,,,,
+Alolan Ninetales,32,move,3,Protect,63.4%,,,,,,,,
+Alolan Ninetales,32,move,4,Freeze-Dry,59.8%,,,,,,,,
+Alolan Ninetales,32,move,5,Moonblast,41.7%,,,,,,,,
+Alolan Ninetales,32,move,6,Encore,23.6%,,,,,,,,
+Alolan Ninetales,32,move,7,Icy Wind,13.3%,,,,,,,,
+Alolan Ninetales,32,move,8,Dazzling Gleam,12.2%,,,,,,,,
+Alolan Ninetales,32,move,9,Disable,5.1%,,,,,,,,
+Alolan Ninetales,32,move,10,Psyshock,2.4%,,,,,,,,
+Alolan Ninetales,32,held_item,1,Light Clay,35.7%,,,,,,,,
+Alolan Ninetales,32,held_item,2,Focus Sash,20.0%,,,,,,,,
+Alolan Ninetales,32,held_item,3,Never-Melt Ice,19.3%,,,,,,,,
+Alolan Ninetales,32,held_item,4,Choice Scarf,10.8%,,,,,,,,
+Alolan Ninetales,32,held_item,5,Life Orb,6.1%,,,,,,,,
+Alolan Ninetales,32,held_item,6,Sitrus Berry,1.7%,,,,,,,,
+Alolan Ninetales,32,held_item,7,Icy Rock,1.4%,,,,,,,,
+Alolan Ninetales,32,held_item,8,Leftovers,0.8%,,,,,,,,
+Alolan Ninetales,32,held_item,9,Babiri Berry,0.7%,,,,,,,,
+Alolan Ninetales,32,held_item,10,Bright Powder,0.5%,,,,,,,,
+Alolan Ninetales,32,teammate,1,Garchomp,,,,,,,,,
+Alolan Ninetales,32,teammate,2,Raichu,,,,,,,,,
+Alolan Ninetales,32,teammate,3,Incineroar,,,,,,,,,
+Alolan Ninetales,32,teammate,4,Kingambit,,,,,,,,,
+Alolan Ninetales,32,teammate,5,Basculegion Male,,,,,,,,,
+Alolan Ninetales,32,teammate,6,Whimsicott,,,,,,,,,
+Alolan Ninetales,32,teammate,7,Sneasler,,,,,,,,,
+Alolan Ninetales,32,teammate,8,Sinistcha,,,,,,,,,
+Alolan Ninetales,32,teammate,9,Metagross,,,,,,,,,
+Alolan Ninetales,32,teammate,10,Staraptor,,,,,,,,,
+Alolan Ninetales,32,stat_alignment,1,Timid,80.8%,Speed,Attack,,,,,,
+Alolan Ninetales,32,stat_alignment,2,Modest,15.1%,Sp. Atk,Attack,,,,,,
+Alolan Ninetales,32,stat_alignment,3,Bold,1.3%,Defense,Attack,,,,,,
+Alolan Ninetales,32,stat_alignment,4,Calm,0.9%,Sp. Def,Attack,,,,,,
+Alolan Ninetales,32,stat_alignment,5,Quiet,0.6%,Sp. Atk,Speed,,,,,,
+Alolan Ninetales,32,stat_alignment,6,Mild,0.5%,Sp. Atk,Defense,,,,,,
+Alolan Ninetales,32,stat_alignment,7,Hasty,0.4%,Speed,Defense,,,,,,
+Alolan Ninetales,32,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Alolan Ninetales,32,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Alolan Ninetales,32,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
+Alolan Ninetales,32,stat_points,1,,36.0%,,,2,0,0,32,0,32
+Alolan Ninetales,32,stat_points,2,,8.2%,,,0,0,2,32,0,32
+Alolan Ninetales,32,stat_points,3,,6.0%,,,1,0,1,32,0,32
+Alolan Ninetales,32,stat_points,4,,5.0%,,,0,0,0,32,2,32
+Alolan Ninetales,32,stat_points,5,,2.6%,,,1,0,3,20,0,32
+Alolan Ninetales,32,stat_points,6,,1.9%,,,32,0,0,2,0,32
+Alolan Ninetales,32,stat_points,7,,1.6%,,,0,0,0,32,0,32
+Alolan Ninetales,32,stat_points,8,,1.5%,,,21,0,1,15,0,29
+Alolan Ninetales,32,stat_points,9,,1.3%,,,32,0,2,0,0,32
+Alolan Ninetales,32,stat_points,10,,1.3%,,,17,0,1,15,1,32
+Alolan Ninetales,32,stat_points,11,,1.0%,,,8,0,0,32,0,26
+Alolan Ninetales,32,stat_points,12,,1.0%,,,1,0,0,32,1,32
+Alolan Ninetales,32,ability,1,Snow Warning,98.9%,,,,,,,,
+Alolan Ninetales,32,ability,2,Snow Cloak,1.1%,,,,,,,,

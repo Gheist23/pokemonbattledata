@@ -1,50 +1,54 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Slurpuff,227,move,1,Dazzling Gleam,,,,,,,,,,7856.73
-Slurpuff,227,move,2,Draining Kiss,40.9%,,,,,,,,,7856.73
-Slurpuff,227,move,3,Cotton Guard,36.6%,,,,,,,,,7856.73
-Slurpuff,227,move,4,Calm Mind,33.6%,,,,,,,,,7856.73
-Slurpuff,227,move,5,Thunderbolt,30.4%,,,,,,,,,7856.73
-Slurpuff,227,move,6,Energy Ball,20.2%,,,,,,,,,7862.73
-Slurpuff,227,move,7,Fake Tears,18.5%,,,,,,,,,7862.73
-Slurpuff,227,move,8,Charm,16.9%,,,,,,,,,7862.73
-Slurpuff,227,move,9,Rain Dance,16.4%,,,,,,,,,7862.73
-Slurpuff,227,move,10,Copycat,16.1%,,,,,,,,,7862.73
-Slurpuff,227,held_item,1,Sitrus Berry,56.2%,,,,,,,,,7866.23
-Slurpuff,227,held_item,2,White Herb,16.9%,,,,,,,,,7866.23
-Slurpuff,227,held_item,3,Leftovers,8.1%,,,,,,,,,7866.23
-Slurpuff,227,held_item,4,Fairy Feather,5.1%,,,,,,,,,7866.23
-Slurpuff,227,held_item,5,Lum Berry,4.6%,,,,,,,,,7866.23
-Slurpuff,227,held_item,6,Focus Sash,3.0%,,,,,,,,,7871.23
-Slurpuff,227,held_item,7,Chesto Berry,2.4%,,,,,,,,,7871.23
-Slurpuff,227,held_item,8,Mental Herb,2.4%,,,,,,,,,7871.23
-Slurpuff,227,held_item,9,Life Orb,0.8%,,,,,,,,,7871.23
-Slurpuff,227,held_item,10,Metronome,0.5%,,,,,,,,,7871.23
-Slurpuff,227,teammate,1,Sableye,,,,,,,,,,7874.73
-Slurpuff,227,teammate,2,Kingambit,,,,,,,,,,7874.73
-Slurpuff,227,teammate,3,Torkoal,,,,,,,,,,7874.73
-Slurpuff,227,teammate,4,Swampert,,,,,,,,,,7874.73
-Slurpuff,227,teammate,5,Basculegion,,,,,,,,,,7874.73
-Slurpuff,227,teammate,6,Malamar,,,,,,,,,,7879.73
-Slurpuff,227,teammate,7,Glimmora,,,,,,,,,,7879.73
-Slurpuff,227,teammate,8,Audino,,,,,,,,,,7879.73
-Slurpuff,227,teammate,10,Metagross,,,,,,,,,,7879.73
-Slurpuff,227,stat_alignment,1,Bold,31.7%,Defense,Attack,,,,,,,7883.23
-Slurpuff,227,stat_alignment,2,Calm,26.9%,Sp. Def,Attack,,,,,,,7883.23
-Slurpuff,227,stat_alignment,3,Modest,25.8%,Sp. Atk,Attack,,,,,,,7883.23
-Slurpuff,227,stat_alignment,4,Modest,10.5%,Sp. Atk,Attack,,,,,,,7888.23
-Slurpuff,227,stat_alignment,5,Timid,10.5%,Speed,Attack,,,,,,,7888.23
-Slurpuff,227,stat_alignment,6,Jolly,2.4%,Speed,Sp. Atk,,,,,,,7888.23
-Slurpuff,227,stat_alignment,7,Relaxed,2.4%,Defense,Speed,,,,,,,7888.23
-Slurpuff,227,stat_alignment,8,Quiet,0.3%,Sp. Atk,Speed,,,,,,,7888.23
-Slurpuff,227,stat_points,1,,23.9%,,,2,0,0,32,0,32,7892.23
-Slurpuff,227,stat_points,2,,15.3%,,,32,0,19,0,0,15,7892.23
-Slurpuff,227,stat_points,3,,7.5%,,,32,0,2,0,32,0,7892.23
-Slurpuff,227,stat_points,4,,6.7%,,,32,0,0,8,15,1,7892.23
-Slurpuff,227,stat_points,5,,5.6%,,,22,0,32,12,0,0,7892.23
-Slurpuff,227,stat_points,8,,4.3%,,,32,0,4,0,30,0,7904.23
-Slurpuff,227,stat_points,9,,3.5%,,,2,0,32,0,32,0,7904.23
-Slurpuff,227,stat_points,10,,3.2%,,,32,0,22,0,12,0,7904.23
-Slurpuff,227,stat_points,11,,3.0%,,,32,0,32,0,2,0,7904.23
-Slurpuff,227,stat_points,12,,1.9%,,,32,0,0,0,32,2,7904.23
-Slurpuff,227,ability,1,Unburden,71.0%,,,,,,,,,7911.73
-Slurpuff,227,ability,2,Sweet Veil,29.0%,,,,,,,,,7911.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Slurpuff,223,move,1,Draining Kiss,52.1%,,,,,,,,
+Slurpuff,223,move,2,Dazzling Gleam,37.7%,,,,,,,,
+Slurpuff,223,move,3,Thunderbolt,34.6%,,,,,,,,
+Slurpuff,223,move,4,Cotton Guard,32.0%,,,,,,,,
+Slurpuff,223,move,5,Energy Ball,30.9%,,,,,,,,
+Slurpuff,223,move,6,Calm Mind,30.2%,,,,,,,,
+Slurpuff,223,move,7,Flamethrower,27.5%,,,,,,,,
+Slurpuff,223,move,8,Fake Tears,16.6%,,,,,,,,
+Slurpuff,223,move,9,Rain Dance,15.9%,,,,,,,,
+Slurpuff,223,move,10,Charm,12.3%,,,,,,,,
+Slurpuff,223,held_item,1,Sitrus Berry,46.1%,,,,,,,,
+Slurpuff,223,held_item,2,Metronome,17.0%,,,,,,,,
+Slurpuff,223,held_item,3,White Herb,9.6%,,,,,,,,
+Slurpuff,223,held_item,4,Fairy Feather,6.4%,,,,,,,,
+Slurpuff,223,held_item,5,Leftovers,5.9%,,,,,,,,
+Slurpuff,223,held_item,6,Expert Belt,2.6%,,,,,,,,
+Slurpuff,223,held_item,7,Life Orb,2.5%,,,,,,,,
+Slurpuff,223,held_item,8,Lum Berry,2.3%,,,,,,,,
+Slurpuff,223,held_item,9,Focus Sash,2.2%,,,,,,,,
+Slurpuff,223,held_item,10,Chesto Berry,1.6%,,,,,,,,
+Slurpuff,223,teammate,1,Kingambit,,,,,,,,,
+Slurpuff,223,teammate,2,Torkoal,,,,,,,,,
+Slurpuff,223,teammate,3,Hisuian Typhlosion,,,,,,,,,
+Slurpuff,223,teammate,4,Swampert,,,,,,,,,
+Slurpuff,223,teammate,5,Sableye,,,,,,,,,
+Slurpuff,223,teammate,6,Dragalge,,,,,,,,,
+Slurpuff,223,teammate,7,Slowking,,,,,,,,,
+Slurpuff,223,teammate,8,Basculegion Male,,,,,,,,,
+Slurpuff,223,teammate,9,Sinistcha,,,,,,,,,
+Slurpuff,223,teammate,10,Incineroar,,,,,,,,,
+Slurpuff,223,stat_alignment,1,Modest,37.2%,Sp. Atk,Attack,,,,,,
+Slurpuff,223,stat_alignment,2,Calm,24.5%,Sp. Def,Attack,,,,,,
+Slurpuff,223,stat_alignment,3,Bold,17.8%,Defense,Attack,,,,,,
+Slurpuff,223,stat_alignment,4,Timid,5.9%,Speed,Attack,,,,,,
+Slurpuff,223,stat_alignment,5,Sassy,4.6%,Sp. Def,Speed,,,,,,
+Slurpuff,223,stat_alignment,6,Relaxed,3.9%,Defense,Speed,,,,,,
+Slurpuff,223,stat_alignment,7,Jolly,3.4%,Speed,Sp. Atk,,,,,,
+Slurpuff,223,stat_alignment,8,Quiet,1.4%,Sp. Atk,Speed,,,,,,
+Slurpuff,223,stat_alignment,9,Adamant,1.4%,Attack,Sp. Atk,,,,,,
+Slurpuff,223,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
+Slurpuff,223,stat_points,1,,19.2%,,,32,0,2,32,0,0
+Slurpuff,223,stat_points,2,,13.0%,,,2,0,0,32,0,32
+Slurpuff,223,stat_points,3,,11.4%,,,32,0,0,8,15,1
+Slurpuff,223,stat_points,4,,5.8%,,,32,0,19,0,0,15
+Slurpuff,223,stat_points,5,,4.7%,,,32,0,2,0,32,0
+Slurpuff,223,stat_points,6,,4.1%,,,32,0,22,0,12,0
+Slurpuff,223,stat_points,7,,3.7%,,,2,32,0,0,0,32
+Slurpuff,223,stat_points,8,,3.4%,,,22,0,32,12,0,0
+Slurpuff,223,stat_points,9,,3.3%,,,20,0,16,12,18,0
+Slurpuff,223,stat_points,10,,3.0%,,,32,0,4,0,30,0
+Slurpuff,223,stat_points,11,,2.2%,,,32,0,0,0,2,32
+Slurpuff,223,ability,1,Unburden,58.8%,,,,,,,,
+Slurpuff,223,ability,2,Sweet Veil,41.2%,,,,,,,,

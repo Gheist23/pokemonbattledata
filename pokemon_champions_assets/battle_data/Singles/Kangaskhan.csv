@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Kangaskhan,73,move,1,Ice Punch,64.8%,,,,,,,,,13236.73
-Kangaskhan,73,move,2,Earthquake,64.5%,,,,,,,,,13236.73
-Kangaskhan,73,move,3,Fake Out,64.5%,,,,,,,,,13236.73
-Kangaskhan,73,move,4,Sucker Punch,60.6%,,,,,,,,,13236.73
-Kangaskhan,73,move,5,Double-Edge,48.5%,,,,,,,,,13236.73
-Kangaskhan,73,move,6,Body Slam,16.5%,,,,,,,,,13242.23
-Kangaskhan,73,move,7,Ice Punch,16.4%,,,,,,,,,13242.23
-Kangaskhan,73,move,8,Drain Punch,13.7%,,,,,,,,,13242.23
-Kangaskhan,73,move,9,Thunder Punch,7.8%,,,,,,,,,13242.23
-Kangaskhan,73,move,10,Last Resort,7.2%,,,,,,,,,13242.23
-Kangaskhan,73,held_item,1,Kangaskhanite,90.7%,,,,,,,,,13245.73
-Kangaskhan,73,held_item,2,Silk Scarf,4.3%,,,,,,,,,13245.73
-Kangaskhan,73,held_item,3,Life Orb,1.3%,,,,,,,,,13245.73
-Kangaskhan,73,held_item,4,Chople Berry,0.8%,,,,,,,,,13245.73
-Kangaskhan,73,held_item,5,Focus Sash,0.4%,,,,,,,,,13245.73
-Kangaskhan,73,held_item,6,Sitrus Berry,0.3%,,,,,,,,,13250.73
-Kangaskhan,73,held_item,7,Leftovers,0.3%,,,,,,,,,13250.73
-Kangaskhan,73,held_item,8,Muscle Band,0.3%,,,,,,,,,13250.73
-Kangaskhan,73,held_item,9,Quick Claw,0.2%,,,,,,,,,13250.73
-Kangaskhan,73,held_item,10,Metronome,0.2%,,,,,,,,,13250.73
-Kangaskhan,73,teammate,1,Garchomp,,,,,,,,,,13254.23
-Kangaskhan,73,teammate,2,Primarina,,,,,,,,,,13254.23
-Kangaskhan,73,teammate,3,Archaludon,,,,,,,,,,13254.23
-Kangaskhan,73,teammate,4,Mimikyu,,,,,,,,,,13254.23
-Kangaskhan,73,teammate,5,Corviknight,,,,,,,,,,13254.23
-Kangaskhan,73,teammate,6,Gengar,,,,,,,,,,13259.23
-Kangaskhan,73,teammate,7,Meowscarada,,,,,,,,,,13259.23
-Kangaskhan,73,teammate,8,Basculegion,,,,,,,,,,13259.23
-Kangaskhan,73,teammate,9,Charizard,,,,,,,,,,13259.23
-Kangaskhan,73,teammate,10,Raichu,,,,,,,,,,13259.23
-Kangaskhan,73,stat_alignment,1,Adamant,85.2%,Attack,Sp. Atk,,,,,,,13262.73
-Kangaskhan,73,stat_alignment,2,Jolly,9.4%,Speed,Sp. Atk,,,,,,,13262.73
-Kangaskhan,73,stat_alignment,3,Impish,1.7%,Defense,Sp. Atk,,,,,,,13262.73
-Kangaskhan,73,stat_alignment,4,Naughty,0.9%,Attack,Sp. Def,,,,,,,13262.73
-Kangaskhan,73,stat_alignment,5,Brave,0.9%,Attack,Speed,,,,,,,13262.73
-Kangaskhan,73,stat_alignment,6,Naive,0.5%,Speed,Sp. Def,,,,,,,13267.73
-Kangaskhan,73,stat_alignment,7,Lonely,0.4%,Attack,Defense,,,,,,,13267.73
-Kangaskhan,73,stat_alignment,8,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,,13267.73
-Kangaskhan,73,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,,13267.73
-Kangaskhan,73,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,,13267.73
-Kangaskhan,73,stat_points,1,,18.9%,,,2,32,0,0,0,32,13274.23
-Kangaskhan,73,stat_points,2,,11.0%,,,32,32,0,0,0,2,13271.23
-Kangaskhan,73,stat_points,3,,9.9%,,,1,32,1,0,0,32,13271.23
-Kangaskhan,73,stat_points,4,,5.8%,,,32,32,2,0,0,0,13271.23
-Kangaskhan,73,stat_points,5,,5.0%,,,27,32,5,0,1,1,13271.23
-Kangaskhan,73,stat_points,8,,2.7%,,,32,32,0,0,2,0,13283.23
-Kangaskhan,73,stat_points,9,,2.2%,,,2,32,0,0,0,13,13283.23
-Kangaskhan,73,stat_points,10,,2.0%,,,32,32,1,0,1,0,13283.23
-Kangaskhan,73,stat_points,11,,2.0%,,,1,32,0,0,1,32,13283.23
-Kangaskhan,73,stat_points,12,,1.9%,,,0,32,0,0,2,32,13283.23
-Kangaskhan,73,ability,1,scrappy,87.2%,,,,,,,,,13290.73
-Kangaskhan,73,ability,2,Inner Focus,10.3%,,,,,,,,,13290.73
-Kangaskhan,73,ability,3,Early Bird,2.5%,,,,,,,,,13290.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Kangaskhan,72,move,1,Fake Out,66.6%,,,,,,,,
+Kangaskhan,72,move,2,Earthquake,63.6%,,,,,,,,
+Kangaskhan,72,move,3,Ice Punch,63.1%,,,,,,,,
+Kangaskhan,72,move,4,Sucker Punch,60.7%,,,,,,,,
+Kangaskhan,72,move,5,Double-Edge,45.0%,,,,,,,,
+Kangaskhan,72,move,6,Body Slam,16.0%,,,,,,,,
+Kangaskhan,72,move,7,Fire Punch,15.4%,,,,,,,,
+Kangaskhan,72,move,8,Drain Punch,14.8%,,,,,,,,
+Kangaskhan,72,move,9,Thunder Punch,8.6%,,,,,,,,
+Kangaskhan,72,move,10,Last Resort,8.1%,,,,,,,,
+Kangaskhan,72,held_item,1,Kangaskhanite,90.1%,,,,,,,,
+Kangaskhan,72,held_item,2,Silk Scarf,4.5%,,,,,,,,
+Kangaskhan,72,held_item,3,Life Orb,1.3%,,,,,,,,
+Kangaskhan,72,held_item,4,Chople Berry,0.7%,,,,,,,,
+Kangaskhan,72,held_item,5,Sitrus Berry,0.5%,,,,,,,,
+Kangaskhan,72,held_item,6,Focus Sash,0.4%,,,,,,,,
+Kangaskhan,72,held_item,7,Muscle Band,0.4%,,,,,,,,
+Kangaskhan,72,held_item,8,Leftovers,0.3%,,,,,,,,
+Kangaskhan,72,held_item,9,Metronome,0.3%,,,,,,,,
+Kangaskhan,72,held_item,10,Expert Belt,0.2%,,,,,,,,
+Kangaskhan,72,teammate,1,Garchomp,,,,,,,,,
+Kangaskhan,72,teammate,2,Primarina,,,,,,,,,
+Kangaskhan,72,teammate,3,Archaludon,,,,,,,,,
+Kangaskhan,72,teammate,4,Mimikyu,,,,,,,,,
+Kangaskhan,72,teammate,5,Corviknight,,,,,,,,,
+Kangaskhan,72,teammate,6,Meowscarada,,,,,,,,,
+Kangaskhan,72,teammate,7,Gengar,,,,,,,,,
+Kangaskhan,72,teammate,8,Basculegion Male,,,,,,,,,
+Kangaskhan,72,teammate,9,Charizard,,,,,,,,,
+Kangaskhan,72,teammate,10,Raichu,,,,,,,,,
+Kangaskhan,72,stat_alignment,1,Adamant,85.4%,Attack,Sp. Atk,,,,,,
+Kangaskhan,72,stat_alignment,2,Jolly,9.2%,Speed,Sp. Atk,,,,,,
+Kangaskhan,72,stat_alignment,3,Impish,1.7%,Defense,Sp. Atk,,,,,,
+Kangaskhan,72,stat_alignment,4,Naughty,0.9%,Attack,Sp. Def,,,,,,
+Kangaskhan,72,stat_alignment,5,Brave,0.8%,Attack,Speed,,,,,,
+Kangaskhan,72,stat_alignment,6,Lonely,0.5%,Attack,Defense,,,,,,
+Kangaskhan,72,stat_alignment,7,Naive,0.5%,Speed,Sp. Def,,,,,,
+Kangaskhan,72,stat_alignment,8,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Kangaskhan,72,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
+Kangaskhan,72,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Kangaskhan,72,stat_points,1,,19.0%,,,2,32,0,0,0,32
+Kangaskhan,72,stat_points,2,,11.5%,,,32,32,0,0,0,2
+Kangaskhan,72,stat_points,3,,9.4%,,,1,32,1,0,0,32
+Kangaskhan,72,stat_points,4,,5.8%,,,32,32,2,0,0,0
+Kangaskhan,72,stat_points,5,,5.0%,,,27,32,5,0,1,1
+Kangaskhan,72,stat_points,6,,4.7%,,,27,32,0,0,0,7
+Kangaskhan,72,stat_points,7,,2.9%,,,0,32,2,0,0,32
+Kangaskhan,72,stat_points,8,,2.8%,,,32,32,0,0,2,0
+Kangaskhan,72,stat_points,9,,2.1%,,,0,32,0,0,2,32
+Kangaskhan,72,stat_points,10,,2.0%,,,21,32,0,0,0,13
+Kangaskhan,72,stat_points,11,,2.0%,,,32,32,1,0,1,0
+Kangaskhan,72,stat_points,12,,1.9%,,,27,32,1,0,1,5
+Kangaskhan,72,ability,1,scrappy,87.7%,,,,,,,,
+Kangaskhan,72,ability,2,Inner Focus,10.0%,,,,,,,,
+Kangaskhan,72,ability,3,Early Bird,2.4%,,,,,,,,

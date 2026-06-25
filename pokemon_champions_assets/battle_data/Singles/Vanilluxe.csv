@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Vanilluxe,34,move,1,Freeze-Dry,98.1%,,,,,,,,,10622.23
-Vanilluxe,34,move,2,Blizzard,91.0%,,,,,,,,,10622.23
-Vanilluxe,34,move,3,Ice Shard,79.0%,,,,,,,,,10622.23
-Vanilluxe,34,move,4,Aurora Veil,60.7%,,,,,,,,,10622.23
-Vanilluxe,34,move,5,Taunt,31.2%,,,,,,,,,10622.23
-Vanilluxe,34,move,6,Sheer Cold,17.4%,,,,,,,,,10627.73
-Vanilluxe,34,move,7,Mirror Coat,6.5%,,,,,,,,,10627.73
-Vanilluxe,34,move,8,Frost Breath,5.5%,,,,,,,,,10627.73
-Vanilluxe,34,move,9,Flash Cannon,2.8%,,,,,,,,,10627.73
-Vanilluxe,34,move,10,Explosion,2.6%,,,,,,,,,10627.73
-Vanilluxe,34,held_item,1,Never-Melt Ice,48.4%,,,,,,,,,10631.23
-Vanilluxe,34,held_item,2,Light Clay,30.0%,,,,,,,,,10631.23
-Vanilluxe,34,held_item,3,Choice Scarf,6.7%,,,,,,,,,10631.23
-Vanilluxe,34,held_item,4,Focus Sash,5.9%,,,,,,,,,10631.23
-Vanilluxe,34,held_item,5,Sitrus Berry,4.1%,,,,,,,,,10631.23
-Vanilluxe,34,held_item,6,Leftovers,1.6%,,,,,,,,,10636.23
-Vanilluxe,34,held_item,7,Icy Rock,0.9%,,,,,,,,,10636.23
-Vanilluxe,34,held_item,8,Life Orb,0.7%,,,,,,,,,10636.23
-Vanilluxe,34,held_item,9,Chople Berry,0.6%,,,,,,,,,10636.23
-Vanilluxe,34,held_item,10,Quick Claw,0.3%,,,,,,,,,10636.23
-Vanilluxe,34,teammate,1,Garchomp,,,,,,,,,,10639.73
-Vanilluxe,34,teammate,2,Mimikyu,,,,,,,,,,10639.73
-Vanilluxe,34,teammate,3,Staraptor,,,,,,,,,,10639.73
-Vanilluxe,34,teammate,4,Raichu,,,,,,,,,,10639.73
-Vanilluxe,34,teammate,5,Metagross,,,,,,,,,,10639.73
-Vanilluxe,34,teammate,6,Archaludon,,,,,,,,,,10644.73
-Vanilluxe,34,teammate,7,Blaziken,,,,,,,,,,10644.73
-Vanilluxe,34,teammate,8,Corviknight,,,,,,,,,,10644.73
-Vanilluxe,34,teammate,9,Meowscarada,,,,,,,,,,10644.73
-Vanilluxe,34,teammate,10,Charizard,,,,,,,,,,10644.73
-Vanilluxe,34,stat_alignment,1,Modest,67.1%,Sp. Atk,Attack,,,,,,,10648.23
-Vanilluxe,34,stat_alignment,2,Timid,13.8%,Speed,Attack,,,,,,,10648.23
-Vanilluxe,34,stat_alignment,3,Bold,8.5%,Defense,Attack,,,,,,,10648.23
-Vanilluxe,34,stat_alignment,4,Quiet,3.6%,Sp. Atk,Speed,,,,,,,10648.23
-Vanilluxe,34,stat_alignment,5,Calm,2.5%,Sp. Def,Attack,,,,,,,10648.23
-Vanilluxe,34,stat_alignment,6,Relaxed,1.5%,Defense,Speed,,,,,,,10653.23
-Vanilluxe,34,stat_alignment,7,Sassy,0.8%,Sp. Def,Speed,,,,,,,10653.23
-Vanilluxe,34,stat_alignment,8,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,,10653.23
-Vanilluxe,34,stat_alignment,9,Naive,0.5%,Speed,Sp. Def,,,,,,,10653.23
-Vanilluxe,34,stat_alignment,10,Mild,0.2%,Sp. Atk,Defense,,,,,,,10653.23
-Vanilluxe,34,stat_points,1,,12.6%,,,25,0,0,32,1,8,10656.73
-Vanilluxe,34,stat_points,2,,7.0%,,,2,0,0,32,0,32,10656.73
-Vanilluxe,34,stat_points,3,,5.6%,,,25,0,0,32,2,7,10656.73
-Vanilluxe,34,stat_points,4,,4.4%,,,32,0,2,32,0,0,10656.73
-Vanilluxe,34,stat_points,5,,3.7%,,,31,0,3,32,0,0,10656.73
-Vanilluxe,34,stat_points,8,,2.5%,,,32,0,0,32,0,2,10668.73
-Vanilluxe,34,stat_points,9,,2.3%,,,31,0,0,23,3,9,10668.73
-Vanilluxe,34,stat_points,10,,1.9%,,,1,0,1,32,0,32,10668.73
-Vanilluxe,34,stat_points,11,,1.8%,,,32,0,5,20,0,9,10668.73
-Vanilluxe,34,stat_points,12,,1.7%,,,29,0,5,32,0,0,10668.73
-Vanilluxe,34,ability,1,Snow Warning,99.3%,,,,,,,,,10676.23
-Vanilluxe,34,ability,2,Weak Armor,0.5%,,,,,,,,,10676.23
-Vanilluxe,34,ability,3,Ice Body,0.2%,,,,,,,,,10676.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Vanilluxe,35,move,1,Freeze-Dry,97.8%,,,,,,,,
+Vanilluxe,35,move,2,Blizzard,90.5%,,,,,,,,
+Vanilluxe,35,move,3,Ice Shard,74.3%,,,,,,,,
+Vanilluxe,35,move,4,Aurora Veil,60.1%,,,,,,,,
+Vanilluxe,35,move,5,Taunt,27.5%,,,,,,,,
+Vanilluxe,35,move,6,Sheer Cold,21.9%,,,,,,,,
+Vanilluxe,35,move,7,Frost Breath,9.9%,,,,,,,,
+Vanilluxe,35,move,8,Mirror Coat,6.7%,,,,,,,,
+Vanilluxe,35,move,9,Flash Cannon,3.1%,,,,,,,,
+Vanilluxe,35,move,10,Explosion,2.8%,,,,,,,,
+Vanilluxe,35,held_item,1,Never-Melt Ice,44.4%,,,,,,,,
+Vanilluxe,35,held_item,2,Light Clay,29.9%,,,,,,,,
+Vanilluxe,35,held_item,3,Choice Scarf,11.4%,,,,,,,,
+Vanilluxe,35,held_item,4,Focus Sash,9.4%,,,,,,,,
+Vanilluxe,35,held_item,5,Sitrus Berry,3.6%,,,,,,,,
+Vanilluxe,35,held_item,6,Leftovers,1.6%,,,,,,,,
+Vanilluxe,35,held_item,7,Icy Rock,0.9%,,,,,,,,
+Vanilluxe,35,held_item,8,Life Orb,0.6%,,,,,,,,
+Vanilluxe,35,held_item,9,Chople Berry,0.5%,,,,,,,,
+Vanilluxe,35,held_item,10,Quick Claw,0.3%,,,,,,,,
+Vanilluxe,35,teammate,1,Garchomp,,,,,,,,,
+Vanilluxe,35,teammate,2,Mimikyu,,,,,,,,,
+Vanilluxe,35,teammate,3,Metagross,,,,,,,,,
+Vanilluxe,35,teammate,4,Staraptor,,,,,,,,,
+Vanilluxe,35,teammate,5,Raichu,,,,,,,,,
+Vanilluxe,35,teammate,6,Archaludon,,,,,,,,,
+Vanilluxe,35,teammate,7,Blaziken,,,,,,,,,
+Vanilluxe,35,teammate,8,Corviknight,,,,,,,,,
+Vanilluxe,35,teammate,9,Meowscarada,,,,,,,,,
+Vanilluxe,35,teammate,10,Charizard,,,,,,,,,
+Vanilluxe,35,stat_alignment,1,Modest,62.3%,Sp. Atk,Attack,,,,,,
+Vanilluxe,35,stat_alignment,2,Timid,18.8%,Speed,Attack,,,,,,
+Vanilluxe,35,stat_alignment,3,Bold,8.2%,Defense,Attack,,,,,,
+Vanilluxe,35,stat_alignment,4,Quiet,3.5%,Sp. Atk,Speed,,,,,,
+Vanilluxe,35,stat_alignment,5,Calm,2.6%,Sp. Def,Attack,,,,,,
+Vanilluxe,35,stat_alignment,6,Relaxed,1.5%,Defense,Speed,,,,,,
+Vanilluxe,35,stat_alignment,7,Sassy,0.8%,Sp. Def,Speed,,,,,,
+Vanilluxe,35,stat_alignment,8,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,
+Vanilluxe,35,stat_alignment,9,Naive,0.4%,Speed,Sp. Def,,,,,,
+Vanilluxe,35,stat_alignment,10,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Vanilluxe,35,stat_points,1,,11.6%,,,25,0,0,32,1,8
+Vanilluxe,35,stat_points,2,,11.1%,,,2,0,0,32,0,32
+Vanilluxe,35,stat_points,3,,4.9%,,,25,0,0,32,2,7
+Vanilluxe,35,stat_points,4,,4.1%,,,32,0,2,32,0,0
+Vanilluxe,35,stat_points,5,,3.5%,,,31,0,3,32,0,0
+Vanilluxe,35,stat_points,6,,2.8%,,,25,0,0,32,0,9
+Vanilluxe,35,stat_points,7,,2.3%,,,32,0,0,32,0,2
+Vanilluxe,35,stat_points,8,,2.2%,,,29,0,4,32,1,0
+Vanilluxe,35,stat_points,9,,2.1%,,,31,0,0,23,3,9
+Vanilluxe,35,stat_points,10,,2.0%,,,1,0,1,32,0,32
+Vanilluxe,35,stat_points,11,,1.7%,,,32,0,5,20,0,9
+Vanilluxe,35,stat_points,12,,1.6%,,,29,0,5,32,0,0
+Vanilluxe,35,ability,1,Snow Warning,99.1%,,,,,,,,
+Vanilluxe,35,ability,2,Weak Armor,0.6%,,,,,,,,
+Vanilluxe,35,ability,3,Ice Body,0.2%,,,,,,,,

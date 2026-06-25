@@ -1,52 +1,53 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Chimecho,169,move,1,Flash Cannon,64.0%,,,,,,,,,3969.73
-Chimecho,169,move,2,Psychic,63.5%,,,,,,,,,3969.73
-Chimecho,169,move,3,Trick Room,60.0%,,,,,,,,,3969.73
-Chimecho,169,move,4,Protect,37.0%,,,,,,,,,3969.73
-Chimecho,169,move,5,Calm Mind,22.8%,,,,,,,,,3969.73
-Chimecho,169,move,6,Recover,18.6%,,,,,,,,,3975.23
-Chimecho,169,move,7,Boomburst,17.4%,,,,,,,,,3975.23
-Chimecho,169,move,8,Stored Power,14.9%,,,,,,,,,3975.23
-Chimecho,169,move,9,Cosmic Power,13.8%,,,,,,,,,3975.23
-Chimecho,169,move,10,Helping Hand,9.5%,,,,,,,,,3975.23
-Chimecho,169,held_item,1,Chimechite,89.1%,,,,,,,,,3978.73
-Chimecho,169,held_item,2,Sitrus Berry,2.2%,,,,,,,,,3978.73
-Chimecho,169,held_item,3,Leftovers,1.8%,,,,,,,,,3978.73
-Chimecho,169,held_item,4,Focus Sash,1.8%,,,,,,,,,3978.73
-Chimecho,169,held_item,5,Light Clay,1.5%,,,,,,,,,3978.73
-Chimecho,169,held_item,6,Mental Herb,0.9%,,,,,,,,,3983.73
-Chimecho,169,held_item,7,Zoom Lens,0.5%,,,,,,,,,3983.73
-Chimecho,169,held_item,8,Kasib Berry,0.4%,,,,,,,,,3983.73
-Chimecho,169,held_item,9,Bright Powder,0.3%,,,,,,,,,3983.73
-Chimecho,169,held_item,10,Colbur Berry,0.3%,,,,,,,,,3983.73
-Chimecho,169,teammate,1,Incineroar,,,,,,,,,,3987.23
-Chimecho,169,teammate,2,Sylveon,,,,,,,,,,3987.23
-Chimecho,169,teammate,3,Sinistcha,,,,,,,,,,3987.23
-Chimecho,169,teammate,4,Tyranitar,,,,,,,,,,3987.23
-Chimecho,169,teammate,5,Garchomp,,,,,,,,,,3987.23
-Chimecho,169,teammate,6,Excadrill,,,,,,,,,,3992.23
-Chimecho,169,teammate,7,Pelipper,,,,,,,,,,3992.23
-Chimecho,169,teammate,8,Kingambit,,,,,,,,,,3992.23
-Chimecho,169,teammate,9,Staraptor,,,,,,,,,,3992.23
-Chimecho,169,teammate,10,Farigiraf,,,,,,,,,,3992.23
-Chimecho,169,stat_alignment,1,Quiet,36.9%,Sp. Atk,Speed,,,,,,,3995.73
-Chimecho,169,stat_alignment,2,Modest,29.0%,Sp. Atk,Attack,,,,,,,3995.73
-Chimecho,169,stat_alignment,3,Relaxed,11.3%,Defense,Speed,,,,,,,3995.73
-Chimecho,169,stat_alignment,4,Bold,10.4%,Defense,Attack,,,,,,,3995.73
-Chimecho,169,stat_alignment,5,Calm,7.9%,Sp. Def,Attack,,,,,,,3995.73
-Chimecho,169,stat_alignment,6,Sassy,3.3%,Sp. Def,Speed,,,,,,,4000.73
-Chimecho,169,stat_alignment,7,Mild,0.7%,Sp. Atk,Defense,,,,,,,4000.73
-Chimecho,169,stat_alignment,8,Timid,0.3%,Speed,Attack,,,,,,,4000.73
-Chimecho,169,stat_alignment,9,Serious,0.1%,,,,,,,,,4000.73
-Chimecho,169,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,,4000.73
-Chimecho,169,stat_points,1,,27.5%,,,32,0,2,32,0,0,4004.23
-Chimecho,169,stat_points,2,,4.4%,,,32,0,0,22,12,0,4004.23
-Chimecho,169,stat_points,3,,4.3%,,,32,0,0,32,2,0,4004.23
-Chimecho,169,stat_points,4,,3.6%,,,10,0,21,24,1,0,4004.23
-Chimecho,169,stat_points,5,,3.6%,,,32,0,17,0,17,0,4004.23
-Chimecho,169,stat_points,8,,1.8%,,,32,0,32,0,2,0,4016.23
-Chimecho,169,stat_points,9,,1.8%,,,32,0,19,15,0,0,4016.23
-Chimecho,169,stat_points,10,,1.7%,,,0,0,32,32,2,0,4016.23
-Chimecho,169,stat_points,11,,1.6%,,,2,0,0,32,32,0,4016.23
-Chimecho,169,stat_points,12,,1.6%,,,24,0,10,32,0,0,4016.23
-Chimecho,169,ability,1,Levitate,100.0%,,,,,,,,,4023.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Chimecho,173,move,1,Flash Cannon,64.3%,,,,,,,,
+Chimecho,173,move,2,Psychic,60.1%,,,,,,,,
+Chimecho,173,move,3,Trick Room,56.1%,,,,,,,,
+Chimecho,173,move,4,Protect,33.7%,,,,,,,,
+Chimecho,173,move,5,Calm Mind,22.5%,,,,,,,,
+Chimecho,173,move,6,Recover,21.8%,,,,,,,,
+Chimecho,173,move,7,Boomburst,19.8%,,,,,,,,
+Chimecho,173,move,8,Stored Power,14.9%,,,,,,,,
+Chimecho,173,move,9,Cosmic Power,13.9%,,,,,,,,
+Chimecho,173,move,10,Helping Hand,0.3%,,,,,,,,
+Chimecho,173,held_item,1,Chimechite,89.8%,,,,,,,,
+Chimecho,173,held_item,2,Focus Sash,2.4%,,,,,,,,
+Chimecho,173,held_item,3,Sitrus Berry,2.0%,,,,,,,,
+Chimecho,173,held_item,4,Leftovers,1.5%,,,,,,,,
+Chimecho,173,held_item,5,Light Clay,0.8%,,,,,,,,
+Chimecho,173,held_item,6,Mental Herb,0.7%,,,,,,,,
+Chimecho,173,held_item,7,Quick Claw,0.6%,,,,,,,,
+Chimecho,173,held_item,8,Zoom Lens,0.4%,,,,,,,,
+Chimecho,173,held_item,9,Kasib Berry,0.2%,,,,,,,,
+Chimecho,173,held_item,10,Colbur Berry,0.2%,,,,,,,,
+Chimecho,173,teammate,1,Sinistcha,,,,,,,,,
+Chimecho,173,teammate,2,Incineroar,,,,,,,,,
+Chimecho,173,teammate,3,Sylveon,,,,,,,,,
+Chimecho,173,teammate,4,Garchomp,,,,,,,,,
+Chimecho,173,teammate,5,Tyranitar,,,,,,,,,
+Chimecho,173,teammate,6,Kingambit,,,,,,,,,
+Chimecho,173,teammate,7,Farigiraf,,,,,,,,,
+Chimecho,173,teammate,8,Torkoal,,,,,,,,,
+Chimecho,173,teammate,9,Pelipper,,,,,,,,,
+Chimecho,173,teammate,10,Primarina,,,,,,,,,
+Chimecho,173,stat_alignment,1,Quiet,34.5%,Sp. Atk,Speed,,,,,,
+Chimecho,173,stat_alignment,2,Modest,29.1%,Sp. Atk,Attack,,,,,,
+Chimecho,173,stat_alignment,3,Relaxed,11.1%,Defense,Speed,,,,,,
+Chimecho,173,stat_alignment,4,Bold,11.0%,Defense,Attack,,,,,,
+Chimecho,173,stat_alignment,5,Calm,9.3%,Sp. Def,Attack,,,,,,
+Chimecho,173,stat_alignment,6,Sassy,3.1%,Sp. Def,Speed,,,,,,
+Chimecho,173,stat_alignment,7,Timid,0.8%,Speed,Attack,,,,,,
+Chimecho,173,stat_alignment,8,Mild,0.7%,Sp. Atk,Defense,,,,,,
+Chimecho,173,stat_alignment,9,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
+Chimecho,173,stat_alignment,10,Serious,0.1%,,,,,,,,
+Chimecho,173,stat_points,1,,25.0%,,,32,0,2,32,0,0
+Chimecho,173,stat_points,2,,5.7%,,,32,0,0,32,2,0
+Chimecho,173,stat_points,3,,3.2%,,,32,0,17,0,17,0
+Chimecho,173,stat_points,4,,3.1%,,,32,0,32,0,2,0
+Chimecho,173,stat_points,5,,3.1%,,,10,0,21,24,11,0
+Chimecho,173,stat_points,6,,2.7%,,,2,0,32,32,0,0
+Chimecho,173,stat_points,7,,2.5%,,,32,0,0,22,12,0
+Chimecho,173,stat_points,8,,2.3%,,,32,0,0,32,0,0
+Chimecho,173,stat_points,9,,1.7%,,,32,0,19,15,0,0
+Chimecho,173,stat_points,10,,1.7%,,,0,0,32,32,2,0
+Chimecho,173,stat_points,11,,1.6%,,,2,0,0,32,32,0
+Chimecho,173,ability,1,Levitate,100.0%,,,,,,,,

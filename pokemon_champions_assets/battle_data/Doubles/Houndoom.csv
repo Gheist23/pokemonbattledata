@@ -1,53 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Houndoom,177,move,1,Protect,91.0%,,,,,,,,,4505.73
-Houndoom,177,move,2,Heat Wave,87.8%,,,,,,,,,4505.73
-Houndoom,177,move,3,Dark Pulse,81.6%,,,,,,,,,4505.73
-Houndoom,177,move,4,Solar Beam,37.9%,,,,,,,,,4505.73
-Houndoom,177,move,5,Nasty Plot,17.9%,,,,,,,,,4505.73
-Houndoom,177,move,6,Snarl,16.4%,,,,,,,,,4511.23
-Houndoom,177,move,7,Scorching Sands,12.4%,,,,,,,,,4511.23
-Houndoom,177,move,8,Sucker Punch,10.5%,,,,,,,,,4511.23
-Houndoom,177,move,9,Flamethrower,10.3%,,,,,,,,,4511.23
-Houndoom,177,move,10,Sludge Bomb,8.0%,,,,,,,,,4511.23
-Houndoom,177,held_item,1,Houndoominite,75.9%,,,,,,,,,4514.73
-Houndoom,177,held_item,2,Focus Sash,13.7%,,,,,,,,,4514.73
-Houndoom,177,held_item,3,Charcoal,2.7%,,,,,,,,,4514.73
-Houndoom,177,held_item,4,Life Orb,2.2%,,,,,,,,,4514.73
-Houndoom,177,held_item,5,Choice Scarf,1.4%,,,,,,,,,4514.73
-Houndoom,177,held_item,6,Black Glasses,1.2%,,,,,,,,,4519.73
-Houndoom,177,held_item,7,Chople Berry,0.6%,,,,,,,,,4519.73
-Houndoom,177,held_item,8,Passho Berry,0.5%,,,,,,,,,4519.73
-Houndoom,177,held_item,9,Quick Claw,0.3%,,,,,,,,,4519.73
-Houndoom,177,held_item,10,Expert Belt,0.2%,,,,,,,,,4519.73
-Houndoom,177,teammate,1,Whimsicott,,,,,,,,,,4523.23
-Houndoom,177,teammate,2,Garchomp,,,,,,,,,,4523.23
-Houndoom,177,teammate,3,Torkoal,,,,,,,,,,4523.23
-Houndoom,177,teammate,4,Staraptor,,,,,,,,,,4523.23
-Houndoom,177,teammate,5,Sableye,,,,,,,,,,4523.23
-Houndoom,177,teammate,7,Sinistcha,,,,,,,,,,4528.23
-Houndoom,177,teammate,8,Basculegion,,,,,,,,,,4528.23
-Houndoom,177,teammate,9,Kingambit,,,,,,,,,,4528.23
-Houndoom,177,teammate,10,Farigiraf,,,,,,,,,,4528.23
-Houndoom,177,stat_alignment,1,Timid,67.9%,Speed,Attack,,,,,,,4531.73
-Houndoom,177,stat_alignment,2,Modest,15.9%,Sp. Atk,Attack,,,,,,,4531.73
-Houndoom,177,stat_alignment,3,Hasty,9.1%,Speed,Defense,,,,,,,4531.73
-Houndoom,177,stat_alignment,4,Mild,3.3%,Sp. Atk,Defense,,,,,,,4531.73
-Houndoom,177,stat_alignment,5,Calm,2.4%,Sp. Def,Attack,,,,,,,4531.73
-Houndoom,177,stat_alignment,6,Quiet,0.6%,Sp. Atk,Speed,,,,,,,4536.73
-Houndoom,177,stat_alignment,7,Gentle,0.3%,Sp. Def,Defense,,,,,,,4536.73
-Houndoom,177,stat_alignment,8,Bold,0.2%,Defense,Attack,,,,,,,4536.73
-Houndoom,177,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,,4536.73
-Houndoom,177,stat_alignment,10,Quirky,0.1%,,,,,,,,,4536.73
-Houndoom,177,stat_points,1,,43.7%,,,2,0,0,32,0,32,4540.23
-Houndoom,177,stat_points,2,,7.2%,,,0,0,2,32,0,32,4540.23
-Houndoom,177,stat_points,3,,6.7%,,,1,0,1,32,0,32,4540.23
-Houndoom,177,stat_points,4,,5.7%,,,1,1,0,32,0,32,4540.23
-Houndoom,177,stat_points,5,,3.8%,,,0,0,0,32,2,32,4540.23
-Houndoom,177,stat_points,8,,3.3%,,,15,0,0,20,0,31,4552.23
-Houndoom,177,stat_points,9,,2.4%,,,1,0,8,25,12,20,4552.23
-Houndoom,177,stat_points,10,,1.7%,,,0,0,1,32,1,32,4552.23
-Houndoom,177,stat_points,11,,1.5%,,,17,0,7,14,0,28,4552.23
-Houndoom,177,stat_points,12,,1.2%,,,0,0,0,25,9,32,4552.23
-Houndoom,177,ability,1,Flash Fire,87.7%,,,,,,,,,4559.73
-Houndoom,177,ability,2,Unnerve,6.5%,,,,,,,,,4559.73
-Houndoom,177,ability,3,Early Bird,5.8%,,,,,,,,,4559.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Houndoom,181,move,1,Protect,87.5%,,,,,,,,
+Houndoom,181,move,2,Heat Wave,85.0%,,,,,,,,
+Houndoom,181,move,3,Dark Pulse,82.3%,,,,,,,,
+Houndoom,181,move,4,Solar Beam,38.7%,,,,,,,,
+Houndoom,181,move,5,Nasty Plot,15.5%,,,,,,,,
+Houndoom,181,move,6,Snarl,14.0%,,,,,,,,
+Houndoom,181,move,7,Flamethrower,12.4%,,,,,,,,
+Houndoom,181,move,8,Scorching Sands,11.8%,,,,,,,,
+Houndoom,181,move,9,Sucker Punch,9.4%,,,,,,,,
+Houndoom,181,move,10,Sludge Bomb,0.3%,,,,,,,,
+Houndoom,181,held_item,1,Houndoominite,76.4%,,,,,,,,
+Houndoom,181,held_item,2,Focus Sash,12.2%,,,,,,,,
+Houndoom,181,held_item,3,Life Orb,2.5%,,,,,,,,
+Houndoom,181,held_item,4,Charcoal,2.2%,,,,,,,,
+Houndoom,181,held_item,5,Choice Scarf,1.9%,,,,,,,,
+Houndoom,181,held_item,6,Black Glasses,1.6%,,,,,,,,
+Houndoom,181,held_item,7,Chople Berry,0.4%,,,,,,,,
+Houndoom,181,held_item,8,Expert Belt,0.3%,,,,,,,,
+Houndoom,181,held_item,9,Quick Claw,0.3%,,,,,,,,
+Houndoom,181,held_item,10,Passho Berry,0.2%,,,,,,,,
+Houndoom,181,teammate,1,Whimsicott,,,,,,,,,
+Houndoom,181,teammate,2,Garchomp,,,,,,,,,
+Houndoom,181,teammate,3,Torkoal,,,,,,,,,
+Houndoom,181,teammate,4,Staraptor,,,,,,,,,
+Houndoom,181,teammate,5,Basculegion Male,,,,,,,,,
+Houndoom,181,teammate,6,Sableye,,,,,,,,,
+Houndoom,181,teammate,7,Farigiraf,,,,,,,,,
+Houndoom,181,teammate,8,Ninetales,,,,,,,,,
+Houndoom,181,teammate,9,Sinistcha,,,,,,,,,
+Houndoom,181,teammate,10,Venusaur,,,,,,,,,
+Houndoom,181,stat_alignment,1,Timid,68.7%,Speed,Attack,,,,,,
+Houndoom,181,stat_alignment,2,Modest,18.3%,Sp. Atk,Attack,,,,,,
+Houndoom,181,stat_alignment,3,Hasty,7.3%,Speed,Defense,,,,,,
+Houndoom,181,stat_alignment,4,Mild,2.3%,Sp. Atk,Defense,,,,,,
+Houndoom,181,stat_alignment,5,Calm,1.6%,Sp. Def,Attack,,,,,,
+Houndoom,181,stat_alignment,6,Quiet,0.6%,Sp. Atk,Speed,,,,,,
+Houndoom,181,stat_alignment,7,Jolly,0.3%,Speed,Sp. Atk,,,,,,
+Houndoom,181,stat_alignment,8,Bold,0.2%,Defense,Attack,,,,,,
+Houndoom,181,stat_alignment,9,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Houndoom,181,stat_alignment,10,Serious,0.2%,,,,,,,,
+Houndoom,181,stat_points,1,,46.2%,,,2,0,0,32,0,32
+Houndoom,181,stat_points,2,,8.2%,,,0,0,2,32,0,32
+Houndoom,181,stat_points,3,,5.9%,,,0,0,0,32,2,32
+Houndoom,181,stat_points,4,,5.7%,,,1,0,1,32,0,32
+Houndoom,181,stat_points,5,,4.7%,,,1,1,0,32,0,32
+Houndoom,181,stat_points,6,,2.5%,,,0,2,0,32,0,32
+Houndoom,181,stat_points,7,,2.4%,,,0,0,0,32,0,32
+Houndoom,181,stat_points,8,,2.2%,,,0,0,1,32,1,32
+Houndoom,181,stat_points,9,,1.7%,,,15,0,0,20,0,31
+Houndoom,181,stat_points,10,,1.6%,,,1,0,8,25,12,20
+Houndoom,181,stat_points,11,,1.0%,,,23,0,0,21,0,22
+Houndoom,181,stat_points,12,,1.0%,,,32,0,0,32,0,1
+Houndoom,181,ability,1,Flash Fire,84.7%,,,,,,,,
+Houndoom,181,ability,2,Unnerve,10.7%,,,,,,,,
+Houndoom,181,ability,3,Early Bird,4.6%,,,,,,,,

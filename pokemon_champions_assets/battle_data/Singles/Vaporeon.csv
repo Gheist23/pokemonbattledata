@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Vaporeon,102,move,1,Wish,68.7%,,,,,,,,,1355.2
-Vaporeon,102,move,2,Scald,61.1%,,,,,,,,,1355.2
-Vaporeon,102,move,3,Protect,55.4%,,,,,,,,,1355.2
-Vaporeon,102,move,4,Yawn,51.7%,,,,,,,,,1355.2
-Vaporeon,102,move,5,Flip Turn,49.8%,,,,,,,,,1355.2
-Vaporeon,102,move,6,Ice Beam,23.7%,,,,,,,,,1361.2
-Vaporeon,102,move,7,Calm Mind,19.6%,,,,,,,,,1361.2
-Vaporeon,102,move,8,Acid Armor,19.1%,,,,,,,,,1361.2
-Vaporeon,102,move,9,Baton Pass,11.5%,,,,,,,,,1361.2
-Vaporeon,102,move,10,Rest,5.6%,,,,,,,,,1361.2
-Vaporeon,102,held_item,1,Leftovers,72.6%,,,,,,,,,1364.2
-Vaporeon,102,held_item,2,Sitrus Berry,15.3%,,,,,,,,,1364.2
-Vaporeon,102,held_item,3,Chesto Berry,4.0%,,,,,,,,,1364.2
-Vaporeon,102,held_item,4,Lum Berry,1.7%,,,,,,,,,1364.2
-Vaporeon,102,held_item,5,Mystic Water,1.0%,,,,,,,,,1364.2
-Vaporeon,102,held_item,6,Bright Powder,0.8%,,,,,,,,,1369.7
-Vaporeon,102,held_item,7,Wacan Berry,0.7%,,,,,,,,,1369.7
-Vaporeon,102,held_item,8,Quick Claw,0.6%,,,,,,,,,1369.7
-Vaporeon,102,held_item,9,Expert Belt,0.5%,,,,,,,,,1369.7
-Vaporeon,102,held_item,10,Never-Melt Ice,0.4%,,,,,,,,,1369.7
-Vaporeon,102,teammate,1,Garchomp,,,,,,,,,,1373.2
-Vaporeon,102,teammate,2,Meowscarada,,,,,,,,,,1373.2
-Vaporeon,102,teammate,3,Blaziken,,,,,,,,,,1373.2
-Vaporeon,102,teammate,4,Raichu,,,,,,,,,,1373.2
-Vaporeon,102,teammate,5,Staraptor,,,,,,,,,,1373.2
-Vaporeon,102,teammate,6,Mimikyu,,,,,,,,,,1378.2
-Vaporeon,102,teammate,7,Delphox,,,,,,,,,,1378.2
-Vaporeon,102,teammate,8,Metagross,,,,,,,,,,1378.2
-Vaporeon,102,teammate,9,Glimmora,,,,,,,,,,1378.2
-Vaporeon,102,teammate,10,Archaludon,,,,,,,,,,1378.2
-Vaporeon,102,stat_alignment,1,Bold,50.5%,Defense,Attack,,,,,,,1381.7
-Vaporeon,102,stat_alignment,2,Relaxed,26.8%,Defense,Speed,,,,,,,1381.7
-Vaporeon,102,stat_alignment,3,Calm,8.2%,Sp. Def,Attack,,,,,,,1381.7
-Vaporeon,102,stat_alignment,4,Modest,4.9%,Sp. Atk,Attack,,,,,,,1381.7
-Vaporeon,102,stat_alignment,5,Impish,3.9%,Defense,Sp. Atk,,,,,,,1381.7
-Vaporeon,102,stat_alignment,6,Sassy,3.8%,Sp. Def,Speed,,,,,,,1386.7
-Vaporeon,102,stat_alignment,7,Quiet,0.7%,Sp. Atk,Speed,,,,,,,1386.7
-Vaporeon,102,stat_alignment,8,Timid,0.4%,Speed,Attack,,,,,,,1386.7
-Vaporeon,102,stat_alignment,9,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,,1386.7
-Vaporeon,102,stat_alignment,10,Serious,0.1%,,,,,,,,,1386.7
-Vaporeon,102,stat_points,1,,47.9%,,,32,0,32,0,2,0,1390.2
-Vaporeon,102,stat_points,2,,6.2%,,,32,0,32,2,0,0,1390.2
-Vaporeon,102,stat_points,3,,4.7%,,,32,0,32,0,0,2,1390.2
-Vaporeon,102,stat_points,4,,4.4%,,,32,0,30,0,4,0,1390.2
-Vaporeon,102,stat_points,5,,3.9%,,,32,0,2,0,32,0,1390.2
-Vaporeon,102,stat_points,8,,1.0%,,,20,0,32,0,14,0,1402.2
-Vaporeon,102,stat_points,9,,0.7%,,,32,0,0,2,32,0,1402.2
-Vaporeon,102,stat_points,10,,0.7%,,,32,0,20,0,14,0,1402.2
-Vaporeon,102,stat_points,11,,0.7%,,,32,0,2,32,0,0,1402.2
-Vaporeon,102,stat_points,12,,0.6%,,,2,0,32,32,0,0,1402.2
-Vaporeon,102,ability,1,Water Absorb,98.1%,,,,,,,,,1409.7
-Vaporeon,102,ability,2,Hydration,1.9%,,,,,,,,,1409.7
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Vaporeon,99,move,1,Wish,68.6%,,,,,,,,
+Vaporeon,99,move,2,Scald,63.1%,,,,,,,,
+Vaporeon,99,move,3,Protect,54.2%,,,,,,,,
+Vaporeon,99,move,4,Yawn,50.5%,,,,,,,,
+Vaporeon,99,move,5,Flip Turn,46.4%,,,,,,,,
+Vaporeon,99,move,6,Ice Beam,24.3%,,,,,,,,
+Vaporeon,99,move,7,Calm Mind,20.6%,,,,,,,,
+Vaporeon,99,move,8,Acid Armor,20.1%,,,,,,,,
+Vaporeon,99,move,9,Baton Pass,11.8%,,,,,,,,
+Vaporeon,99,move,10,Rest,5.9%,,,,,,,,
+Vaporeon,99,held_item,1,Leftovers,72.3%,,,,,,,,
+Vaporeon,99,held_item,2,Sitrus Berry,15.6%,,,,,,,,
+Vaporeon,99,held_item,3,Chesto Berry,4.3%,,,,,,,,
+Vaporeon,99,held_item,4,Lum Berry,1.4%,,,,,,,,
+Vaporeon,99,held_item,5,Mystic Water,1.0%,,,,,,,,
+Vaporeon,99,held_item,6,Bright Powder,0.9%,,,,,,,,
+Vaporeon,99,held_item,7,Quick Claw,0.7%,,,,,,,,
+Vaporeon,99,held_item,8,Wacan Berry,0.6%,,,,,,,,
+Vaporeon,99,held_item,9,Mental Herb,0.4%,,,,,,,,
+Vaporeon,99,held_item,10,Expert Belt,0.3%,,,,,,,,
+Vaporeon,99,teammate,1,Garchomp,,,,,,,,,
+Vaporeon,99,teammate,2,Meowscarada,,,,,,,,,
+Vaporeon,99,teammate,3,Delphox,,,,,,,,,
+Vaporeon,99,teammate,4,Blaziken,,,,,,,,,
+Vaporeon,99,teammate,5,Raichu,,,,,,,,,
+Vaporeon,99,teammate,6,Mimikyu,,,,,,,,,
+Vaporeon,99,teammate,7,Staraptor,,,,,,,,,
+Vaporeon,99,teammate,8,Metagross,,,,,,,,,
+Vaporeon,99,teammate,9,Archaludon,,,,,,,,,
+Vaporeon,99,teammate,10,Glimmora,,,,,,,,,
+Vaporeon,99,stat_alignment,1,Bold,50.9%,Defense,Attack,,,,,,
+Vaporeon,99,stat_alignment,2,Relaxed,25.9%,Defense,Speed,,,,,,
+Vaporeon,99,stat_alignment,3,Calm,8.5%,Sp. Def,Attack,,,,,,
+Vaporeon,99,stat_alignment,4,Modest,5.6%,Sp. Atk,Attack,,,,,,
+Vaporeon,99,stat_alignment,5,Impish,3.6%,Defense,Sp. Atk,,,,,,
+Vaporeon,99,stat_alignment,6,Sassy,3.3%,Sp. Def,Speed,,,,,,
+Vaporeon,99,stat_alignment,7,Quiet,0.8%,Sp. Atk,Speed,,,,,,
+Vaporeon,99,stat_alignment,8,Timid,0.5%,Speed,Attack,,,,,,
+Vaporeon,99,stat_alignment,9,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
+Vaporeon,99,stat_alignment,10,Serious,0.1%,,,,,,,,
+Vaporeon,99,stat_points,1,,47.1%,,,32,0,32,0,2,0
+Vaporeon,99,stat_points,2,,5.9%,,,32,0,32,2,0,0
+Vaporeon,99,stat_points,3,,4.7%,,,32,0,32,0,0,2
+Vaporeon,99,stat_points,4,,4.6%,,,32,0,30,0,4,0
+Vaporeon,99,stat_points,5,,3.9%,,,32,0,2,0,32,0
+Vaporeon,99,stat_points,6,,2.2%,,,32,0,32,0,0,0
+Vaporeon,99,stat_points,7,,1.9%,,,2,0,32,0,32,0
+Vaporeon,99,stat_points,8,,0.8%,,,20,0,32,0,14,0
+Vaporeon,99,stat_points,9,,0.8%,,,32,0,0,2,32,0
+Vaporeon,99,stat_points,10,,0.7%,,,32,0,20,0,14,0
+Vaporeon,99,stat_points,11,,0.7%,,,22,0,30,0,1,13
+Vaporeon,99,stat_points,12,,0.7%,,,32,0,2,32,0,0
+Vaporeon,99,ability,1,Water Absorb,97.9%,,,,,,,,
+Vaporeon,99,ability,2,Hydration,2.1%,,,,,,,,

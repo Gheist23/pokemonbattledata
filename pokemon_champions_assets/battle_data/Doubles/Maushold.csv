@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Maushold,25,move,1,Follow Me,92.4%,,,,,,,,,1621.7
-Maushold,25,move,2,Protect,80.7%,,,,,,,,,1621.7
-Maushold,25,move,3,Population Bomb,43.4%,,,,,,,,,1621.7
-Maushold,25,move,4,Super Fang,41.9%,,,,,,,,,1621.7
-Maushold,25,move,5,Encore,23.5%,,,,,,,,,1621.7
-Maushold,25,move,6,Beat Up,21.5%,,,,,,,,,1627.7
-Maushold,25,move,7,Taunt,18.1%,,,,,,,,,1627.7
-Maushold,25,move,8,Feint,17.1%,,,,,,,,,1627.7
-Maushold,25,move,9,Helping Hand,13.3%,,,,,,,,,1627.7
-Maushold,25,move,10,Charm,10.7%,,,,,,,,,1627.7
-Maushold,25,held_item,1,Wide Lens,35.2%,,,,,,,,,1631.2
-Maushold,25,held_item,2,Chople Berry,31.1%,,,,,,,,,1631.2
-Maushold,25,held_item,3,Focus Sash,20.5%,,,,,,,,,1631.2
-Maushold,25,held_item,4,Sitrus Berry,7.0%,,,,,,,,,1631.2
-Maushold,25,held_item,5,King's Rock,1.4%,,,,,,,,,1631.2
-Maushold,25,held_item,6,Leftovers,1.0%,,,,,,,,,1636.2
-Maushold,25,held_item,7,Mental Herb,1.0%,,,,,,,,,1636.2
-Maushold,25,held_item,8,Bright Powder,0.6%,,,,,,,,,1636.2
-Maushold,25,held_item,9,Choice Scarf,0.6%,,,,,,,,,1636.2
-Maushold,25,held_item,10,Silk Scarf,0.5%,,,,,,,,,1636.2
-Maushold,25,teammate,1,Sinistcha,,,,,,,,,,1639.7
-Maushold,25,teammate,2,Staraptor,,,,,,,,,,1639.7
-Maushold,25,teammate,3,Incineroar,,,,,,,,,,1639.7
-Maushold,25,teammate,4,Garchomp,,,,,,,,,,1639.7
-Maushold,25,teammate,5,Annihilape,,,,,,,,,,1639.7
-Maushold,25,teammate,6,Whimsicott,,,,,,,,,,1644.7
-Maushold,25,teammate,7,Basculegion,,,,,,,,,,1644.7
-Maushold,25,teammate,8,Farigiraf,,,,,,,,,,1644.7
-Maushold,25,teammate,9,Kingambit,,,,,,,,,,1644.7
-Maushold,25,teammate,10,Grimmsnarl,,,,,,,,,,1644.7
-Maushold,25,stat_alignment,1,Jolly,59.8%,Speed,Sp. Atk,,,,,,,1648.2
-Maushold,25,stat_alignment,2,Timid,13.5%,Speed,Attack,,,,,,,1648.2
-Maushold,25,stat_alignment,3,Impish,11.0%,Defense,Sp. Atk,,,,,,,1648.2
-Maushold,25,stat_alignment,4,Adamant,6.2%,Attack,Sp. Atk,,,,,,,1648.2
-Maushold,25,stat_alignment,5,Bold,3.2%,Defense,Attack,,,,,,,1648.2
-Maushold,25,stat_alignment,6,Careful,3.2%,Sp. Def,Sp. Atk,,,,,,,1653.2
-Maushold,25,stat_alignment,7,Calm,1.3%,Sp. Def,Attack,,,,,,,1653.2
-Maushold,25,stat_alignment,8,Naive,0.4%,Speed,Sp. Def,,,,,,,1653.2
-Maushold,25,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,,1653.2
-Maushold,25,stat_alignment,10,Relaxed,0.3%,Defense,Speed,,,,,,,1653.2
-Maushold,25,stat_points,1,,23.0%,,,2,32,0,0,0,32,1656.7
-Maushold,25,stat_points,2,,17.3%,,,32,0,2,0,0,32,1656.7
-Maushold,25,stat_points,3,,4.9%,,,32,0,1,0,1,32,1656.7
-Maushold,25,stat_points,4,,4.3%,,,32,0,20,0,14,0,1656.7
-Maushold,25,stat_points,5,,3.1%,,,0,32,2,0,0,32,1656.7
-Maushold,25,stat_points,8,,1.4%,,,0,32,0,0,0,32,1668.7
-Maushold,25,stat_points,9,,1.4%,,,32,0,32,0,2,0,1668.7
-Maushold,25,stat_points,10,,1.4%,,,0,32,1,0,1,32,1668.7
-Maushold,25,stat_points,11,,1.3%,,,30,0,1,0,0,25,1668.7
-Maushold,25,stat_points,12,,1.3%,,,32,2,0,0,0,32,1668.7
-Maushold,25,ability,1,Friend Guard,66.9%,,,,,,,,,1676.2
-Maushold,25,ability,2,Technician,32.6%,,,,,,,,,1676.2
-Maushold,25,ability,3,Cheek Pouch,0.5%,,,,,,,,,1676.2
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Maushold,26,move,1,Follow Me,91.7%,,,,,,,,
+Maushold,26,move,2,Protect,79.9%,,,,,,,,
+Maushold,26,move,3,Population Bomb,46.9%,,,,,,,,
+Maushold,26,move,4,Super Fang,40.6%,,,,,,,,
+Maushold,26,move,5,Encore,23.4%,,,,,,,,
+Maushold,26,move,6,Beat Up,19.1%,,,,,,,,
+Maushold,26,move,7,Taunt,17.8%,,,,,,,,
+Maushold,26,move,8,Feint,17.4%,,,,,,,,
+Maushold,26,move,9,Helping Hand,13.8%,,,,,,,,
+Maushold,26,move,10,After You,10.2%,,,,,,,,
+Maushold,26,held_item,1,Wide Lens,37.2%,,,,,,,,
+Maushold,26,held_item,2,Chople Berry,29.7%,,,,,,,,
+Maushold,26,held_item,3,Focus Sash,19.0%,,,,,,,,
+Maushold,26,held_item,4,Sitrus Berry,7.1%,,,,,,,,
+Maushold,26,held_item,5,King's Rock,1.8%,,,,,,,,
+Maushold,26,held_item,6,Leftovers,1.1%,,,,,,,,
+Maushold,26,held_item,7,Mental Herb,0.8%,,,,,,,,
+Maushold,26,held_item,8,Choice Scarf,0.7%,,,,,,,,
+Maushold,26,held_item,9,Silk Scarf,0.6%,,,,,,,,
+Maushold,26,held_item,10,Bright Powder,0.6%,,,,,,,,
+Maushold,26,teammate,1,Sinistcha,,,,,,,,,
+Maushold,26,teammate,2,Staraptor,,,,,,,,,
+Maushold,26,teammate,3,Garchomp,,,,,,,,,
+Maushold,26,teammate,4,Incineroar,,,,,,,,,
+Maushold,26,teammate,5,Whimsicott,,,,,,,,,
+Maushold,26,teammate,6,Annihilape,,,,,,,,,
+Maushold,26,teammate,7,Basculegion Male,,,,,,,,,
+Maushold,26,teammate,8,Farigiraf,,,,,,,,,
+Maushold,26,teammate,9,Kingambit,,,,,,,,,
+Maushold,26,teammate,10,Charizard,,,,,,,,,
+Maushold,26,stat_alignment,1,Jolly,60.6%,Speed,Sp. Atk,,,,,,
+Maushold,26,stat_alignment,2,Timid,12.4%,Speed,Attack,,,,,,
+Maushold,26,stat_alignment,3,Impish,11.1%,Defense,Sp. Atk,,,,,,
+Maushold,26,stat_alignment,4,Adamant,6.7%,Attack,Sp. Atk,,,,,,
+Maushold,26,stat_alignment,5,Bold,3.0%,Defense,Attack,,,,,,
+Maushold,26,stat_alignment,6,Careful,3.0%,Sp. Def,Sp. Atk,,,,,,
+Maushold,26,stat_alignment,7,Calm,1.1%,Sp. Def,Attack,,,,,,
+Maushold,26,stat_alignment,8,Naive,0.4%,Speed,Sp. Def,,,,,,
+Maushold,26,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,
+Maushold,26,stat_alignment,10,Lonely,0.3%,Attack,Defense,,,,,,
+Maushold,26,stat_points,1,,24.2%,,,2,32,0,0,0,32
+Maushold,26,stat_points,2,,15.9%,,,32,0,2,0,0,32
+Maushold,26,stat_points,3,,5.0%,,,32,0,1,0,1,32
+Maushold,26,stat_points,4,,4.6%,,,32,0,20,0,14,0
+Maushold,26,stat_points,5,,3.6%,,,0,32,2,0,0,32
+Maushold,26,stat_points,6,,2.9%,,,32,0,0,0,2,32
+Maushold,26,stat_points,7,,2.0%,,,0,32,0,0,2,32
+Maushold,26,stat_points,8,,1.9%,,,0,32,1,0,1,32
+Maushold,26,stat_points,9,,1.5%,,,0,32,0,0,0,32
+Maushold,26,stat_points,10,,1.4%,,,32,0,32,0,2,0
+Maushold,26,stat_points,11,,1.4%,,,30,0,11,0,0,25
+Maushold,26,stat_points,12,,1.2%,,,32,2,0,0,0,32
+Maushold,26,ability,1,Friend Guard,64.4%,,,,,,,,
+Maushold,26,ability,2,Technician,34.9%,,,,,,,,
+Maushold,26,ability,3,Cheek Pouch,0.7%,,,,,,,,

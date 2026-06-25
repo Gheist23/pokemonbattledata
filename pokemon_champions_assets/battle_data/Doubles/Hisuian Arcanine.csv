@@ -1,54 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Hisuian Arcanine,66,move,1,Flare Blitz,97.9%,,,,,,,,,4371.23
-Hisuian Arcanine,66,move,2,Protect,67.8%,,,,,,,,,4371.23
-Hisuian Arcanine,66,move,3,Head Smash,67.1%,,,,,,,,,4371.23
-Hisuian Arcanine,66,move,4,Extreme Speed,64.5%,,,,,,,,,4371.23
-Hisuian Arcanine,66,move,5,Rock Slide,50.3%,,,,,,,,,4371.23
-Hisuian Arcanine,66,move,6,Wild Charge,14.9%,,,,,,,,,4377.23
-Hisuian Arcanine,66,move,7,Close Combat,11.8%,,,,,,,,,4377.23
-Hisuian Arcanine,66,move,8,Psychic Fangs,6.6%,,,,,,,,,4377.23
-Hisuian Arcanine,66,move,9,Will-O-Wisp,3.6%,,,,,,,,,4377.23
-Hisuian Arcanine,66,move,10,Iron Head,2.7%,,,,,,,,,4377.23
-Hisuian Arcanine,66,held_item,1,Focus Sash,,,,,,,,,,4380.73
-Hisuian Arcanine,66,held_item,2,Choice Scarf,20.5%,,,,,,,,,4380.73
-Hisuian Arcanine,66,held_item,3,Life Orb,8.8%,,,,,,,,,4380.73
-Hisuian Arcanine,66,held_item,4,Sitrus Berry,5.9%,,,,,,,,,4380.73
-Hisuian Arcanine,66,held_item,5,Wide Lens,2.0%,,,,,,,,,4380.73
-Hisuian Arcanine,66,held_item,6,Chople Berry,1.6%,,,,,,,,,4385.73
-Hisuian Arcanine,66,held_item,7,Charcoal,1.5%,,,,,,,,,4385.73
-Hisuian Arcanine,66,held_item,8,Hard Stone,1.5%,,,,,,,,,4385.73
-Hisuian Arcanine,66,held_item,9,White Herb,1.5%,,,,,,,,,4385.73
-Hisuian Arcanine,66,held_item,10,Leftovers,1.3%,,,,,,,,,4385.73
-Hisuian Arcanine,66,teammate,1,Whimsicott,,,,,,,,,,4389.23
-Hisuian Arcanine,66,teammate,2,Froslass,,,,,,,,,,4389.23
-Hisuian Arcanine,66,teammate,3,Garchomp,,,,,,,,,,4389.23
-Hisuian Arcanine,66,teammate,4,Sneasler,,,,,,,,,,4389.23
-Hisuian Arcanine,66,teammate,5,Kingambit,,,,,,,,,,4389.23
-Hisuian Arcanine,66,teammate,6,Sinistcha,,,,,,,,,,4394.23
-Hisuian Arcanine,66,teammate,7,Staraptor,,,,,,,,,,4394.23
-Hisuian Arcanine,66,teammate,8,Gholdengo,,,,,,,,,,4394.23
-Hisuian Arcanine,66,teammate,9,Grimmsnarl,,,,,,,,,,4394.23
-Hisuian Arcanine,66,teammate,10,Basculegion,,,,,,,,,,4394.23
-Hisuian Arcanine,66,stat_alignment,1,Jolly,51.6%,Speed,Sp. Atk,,,,,,,4397.73
-Hisuian Arcanine,66,stat_alignment,2,Adamant,42.3%,Attack,Sp. Atk,,,,,,,4397.73
-Hisuian Arcanine,66,stat_alignment,3,Brave,1.5%,Attack,Speed,,,,,,,4397.73
-Hisuian Arcanine,66,stat_alignment,4,Naughty,1.2%,Attack,Sp. Def,,,,,,,4397.73
-Hisuian Arcanine,66,stat_alignment,5,Impish,0.7%,Defense,Sp. Atk,,,,,,,4397.73
-Hisuian Arcanine,66,stat_alignment,6,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,,4402.73
-Hisuian Arcanine,66,stat_alignment,7,Lonely,0.5%,Attack,Defense,,,,,,,4402.73
-Hisuian Arcanine,66,stat_alignment,8,Hasty,0.4%,Speed,Defense,,,,,,,4402.73
-Hisuian Arcanine,66,stat_alignment,9,Naive,0.4%,Speed,Sp. Def,,,,,,,4402.73
-Hisuian Arcanine,66,stat_alignment,10,Modest,0.2%,Sp. Atk,Attack,,,,,,,4402.73
-Hisuian Arcanine,66,stat_points,1,,51.9%,,,2,32,0,0,0,32,4406.23
-Hisuian Arcanine,66,stat_points,2,,6.3%,,,0,32,2,0,0,32,4406.23
-Hisuian Arcanine,66,stat_points,3,,6.3%,,,1,32,1,0,0,32,4406.23
-Hisuian Arcanine,66,stat_points,4,,4.7%,,,0,32,0,0,2,32,4406.23
-Hisuian Arcanine,66,stat_points,5,,3.2%,,,0,32,0,0,0,32,4406.23
-Hisuian Arcanine,66,stat_points,8,,1.4%,,,32,32,2,0,0,0,4418.23
-Hisuian Arcanine,66,stat_points,9,,1.2%,,,32,32,0,0,2,0,4418.23
-Hisuian Arcanine,66,stat_points,10,,1.1%,,,0,32,1,0,1,32,4418.23
-Hisuian Arcanine,66,stat_points,11,,0.9%,,,1,32,0,0,0,32,4418.23
-Hisuian Arcanine,66,stat_points,12,,0.6%,,,0,32,2,0,32,0,4418.23
-Hisuian Arcanine,66,ability,1,Rock Head,74.2%,,,,,,,,,4425.73
-Hisuian Arcanine,66,ability,2,Intimidate,23.6%,,,,,,,,,4425.73
-Hisuian Arcanine,66,ability,3,Flash Fire,2.2%,,,,,,,,,4425.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Hisuian Arcanine,71,move,1,Flare Blitz,97.6%,,,,,,,,
+Hisuian Arcanine,71,move,2,Protect,66.8%,,,,,,,,
+Hisuian Arcanine,71,move,3,Head Smash,65.5%,,,,,,,,
+Hisuian Arcanine,71,move,4,Extreme Speed,65.2%,,,,,,,,
+Hisuian Arcanine,71,move,5,Rock Slide,49.0%,,,,,,,,
+Hisuian Arcanine,71,move,6,Wild Charge,16.0%,,,,,,,,
+Hisuian Arcanine,71,move,7,Close Combat,12.7%,,,,,,,,
+Hisuian Arcanine,71,move,8,Psychic Fangs,7.0%,,,,,,,,
+Hisuian Arcanine,71,move,9,Will-O-Wisp,3.7%,,,,,,,,
+Hisuian Arcanine,71,move,10,Iron Head,2.4%,,,,,,,,
+Hisuian Arcanine,71,held_item,1,Focus Sash,45.5%,,,,,,,,
+Hisuian Arcanine,71,held_item,2,Choice Scarf,20.5%,,,,,,,,
+Hisuian Arcanine,71,held_item,3,Life Orb,10.2%,,,,,,,,
+Hisuian Arcanine,71,held_item,4,Sitrus Berry,6.0%,,,,,,,,
+Hisuian Arcanine,71,held_item,5,Wide Lens,1.9%,,,,,,,,
+Hisuian Arcanine,71,held_item,6,Chople Berry,1.7%,,,,,,,,
+Hisuian Arcanine,71,held_item,7,Hard Stone,1.6%,,,,,,,,
+Hisuian Arcanine,71,held_item,8,Charcoal,1.4%,,,,,,,,
+Hisuian Arcanine,71,held_item,9,Muscle Band,1.4%,,,,,,,,
+Hisuian Arcanine,71,held_item,10,White Herb,1.4%,,,,,,,,
+Hisuian Arcanine,71,teammate,1,Whimsicott,,,,,,,,,
+Hisuian Arcanine,71,teammate,2,Froslass,,,,,,,,,
+Hisuian Arcanine,71,teammate,3,Sneasler,,,,,,,,,
+Hisuian Arcanine,71,teammate,4,Kingambit,,,,,,,,,
+Hisuian Arcanine,71,teammate,5,Garchomp,,,,,,,,,
+Hisuian Arcanine,71,teammate,6,Sinistcha,,,,,,,,,
+Hisuian Arcanine,71,teammate,7,Staraptor,,,,,,,,,
+Hisuian Arcanine,71,teammate,8,Basculegion Male,,,,,,,,,
+Hisuian Arcanine,71,teammate,9,Gholdengo,,,,,,,,,
+Hisuian Arcanine,71,teammate,10,Raichu,,,,,,,,,
+Hisuian Arcanine,71,stat_alignment,1,Jolly,49.0%,Speed,Sp. Atk,,,,,,
+Hisuian Arcanine,71,stat_alignment,2,Adamant,44.4%,Attack,Sp. Atk,,,,,,
+Hisuian Arcanine,71,stat_alignment,3,Brave,1.7%,Attack,Speed,,,,,,
+Hisuian Arcanine,71,stat_alignment,4,Naughty,1.1%,Attack,Sp. Def,,,,,,
+Hisuian Arcanine,71,stat_alignment,5,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
+Hisuian Arcanine,71,stat_alignment,6,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Hisuian Arcanine,71,stat_alignment,7,Lonely,0.6%,Attack,Defense,,,,,,
+Hisuian Arcanine,71,stat_alignment,8,Hasty,0.4%,Speed,Defense,,,,,,
+Hisuian Arcanine,71,stat_alignment,9,Naive,0.3%,Speed,Sp. Def,,,,,,
+Hisuian Arcanine,71,stat_alignment,10,Modest,0.2%,Sp. Atk,Attack,,,,,,
+Hisuian Arcanine,71,stat_points,1,,31.4%,,,2,32,0,0,0,32
+Hisuian Arcanine,71,stat_points,2,,6.3%,,,0,32,2,0,0,32
+Hisuian Arcanine,71,stat_points,3,,5.2%,,,0,32,0,0,2,32
+Hisuian Arcanine,71,stat_points,4,,4.9%,,,1,32,1,0,0,32
+Hisuian Arcanine,71,stat_points,5,,3.1%,,,0,32,0,0,0,32
+Hisuian Arcanine,71,stat_points,6,,2.1%,,,1,32,0,0,1,32
+Hisuian Arcanine,71,stat_points,7,,1.9%,,,32,32,0,0,0,2
+Hisuian Arcanine,71,stat_points,8,,1.9%,,,32,32,2,0,0,0
+Hisuian Arcanine,71,stat_points,9,,1.5%,,,32,32,0,0,2,0
+Hisuian Arcanine,71,stat_points,10,,1.4%,,,0,32,1,0,1,32
+Hisuian Arcanine,71,stat_points,11,,0.8%,,,9,32,1,0,1,23
+Hisuian Arcanine,71,ability,1,Rock Head,72.8%,,,,,,,,
+Hisuian Arcanine,71,ability,2,Intimidate,24.7%,,,,,,,,
+Hisuian Arcanine,71,ability,3,Flash Fire,2.5%,,,,,,,,

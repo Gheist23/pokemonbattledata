@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Jolteon,157,move,1,Thunderbolt,79.4%,,,,,,,,,5044.23
-Jolteon,157,move,2,Volt Switch,60.0%,,,,,,,,,5044.23
-Jolteon,157,move,3,Alluring Voice,54.7%,,,,,,,,,5044.23
-Jolteon,157,move,4,Shadow Ball,47.4%,,,,,,,,,5044.23
-Jolteon,157,move,5,Yawn,28.3%,,,,,,,,,5044.23
-Jolteon,157,move,6,Thunder,13.8%,,,,,,,,,5049.73
-Jolteon,157,move,7,Thunder Wave,11.4%,,,,,,,,,5049.73
-Jolteon,157,move,8,Calm Mind,10.5%,,,,,,,,,5049.73
-Jolteon,157,move,9,Weather Ball,9.7%,,,,,,,,,5049.73
-Jolteon,157,move,10,Copycat,8.0%,,,,,,,,,5049.73
-Jolteon,157,held_item,1,Focus Sash,33.8%,,,,,,,,,5053.23
-Jolteon,157,held_item,2,Life Orb,22.1%,,,,,,,,,5053.23
-Jolteon,157,held_item,3,Magnet,12.7%,,,,,,,,,5053.23
-Jolteon,157,held_item,4,Choice Scarf,9.5%,,,,,,,,,5053.23
-Jolteon,157,held_item,5,Leftovers,3.2%,,,,,,,,,5053.23
-Jolteon,157,held_item,6,Bright Powder,3.1%,,,,,,,,,5058.23
-Jolteon,157,held_item,7,Shuca Berry,2.6%,,,,,,,,,5058.23
-Jolteon,157,held_item,8,Sitrus Berry,2.0%,,,,,,,,,5058.23
-Jolteon,157,held_item,9,Wise Glasses,1.9%,,,,,,,,,5058.23
-Jolteon,157,held_item,10,Light Clay,1.3%,,,,,,,,,5058.23
-Jolteon,157,teammate,1,Garchomp,,,,,,,,,,5061.73
-Jolteon,157,teammate,2,Umbreon,,,,,,,,,,5061.73
-Jolteon,157,teammate,3,Sylveon,,,,,,,,,,5061.73
-Jolteon,157,teammate,4,Charizard,,,,,,,,,,5061.73
-Jolteon,157,teammate,5,Meowscarada,,,,,,,,,,5061.73
-Jolteon,157,teammate,6,Espeon,,,,,,,,,,5066.73
-Jolteon,157,teammate,7,Vaporeon,,,,,,,,,,5066.73
-Jolteon,157,teammate,8,Staraptor,,,,,,,,,,5066.73
-Jolteon,157,teammate,9,Dragonite,,,,,,,,,,5066.73
-Jolteon,157,teammate,10,Gyarados,,,,,,,,,,5066.73
-Jolteon,157,stat_alignment,1,Timid,68.0%,Speed,Attack,,,,,,,5070.23
-Jolteon,157,stat_alignment,2,Modest,22.2%,Sp. Atk,Attack,,,,,,,5070.23
-Jolteon,157,stat_alignment,3,Hasty,5.3%,Speed,Defense,,,,,,,5070.23
-Jolteon,157,stat_alignment,4,Bold,1.9%,Defense,Attack,,,,,,,5070.23
-Jolteon,157,stat_alignment,5,Naive,0.8%,Speed,Sp. Def,,,,,,,5070.23
-Jolteon,157,stat_alignment,6,Calm,0.8%,Sp. Def,Attack,,,,,,,5075.23
-Jolteon,157,stat_alignment,7,Mild,0.6%,Sp. Atk,Defense,,,,,,,5075.23
-Jolteon,157,stat_alignment,8,Sassy,0.1%,Sp. Def,Speed,,,,,,,5075.23
-Jolteon,157,stat_alignment,9,Gentle,0.1%,Sp. Def,Defense,,,,,,,5075.23
-Jolteon,157,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,,5075.23
-Jolteon,157,stat_points,1,,39.9%,,,2,0,0,32,0,32,5078.73
-Jolteon,157,stat_points,2,,10.5%,,,0,0,2,32,0,32,5078.73
-Jolteon,157,stat_points,3,,10.4%,,,0,0,0,32,2,32,5078.73
-Jolteon,157,stat_points,4,,7.7%,,,1,0,0,32,1,32,5078.73
-Jolteon,157,stat_points,5,,7.6%,,,1,0,1,32,0,32,5078.73
-Jolteon,157,stat_points,8,,1.3%,,,0,2,0,32,0,32,5090.73
-Jolteon,157,stat_points,9,,0.8%,,,4,0,0,30,0,32,5090.73
-Jolteon,157,stat_points,10,,0.7%,,,2,0,0,32,2,30,5090.73
-Jolteon,157,stat_points,11,,0.6%,,,32,0,32,0,2,0,5090.73
-Jolteon,157,stat_points,12,,0.6%,,,32,0,0,32,0,2,5090.73
-Jolteon,157,ability,1,Volt Absorb,92.3%,,,,,,,,,5098.23
-Jolteon,157,ability,2,Quick Feet,7.7%,,,,,,,,,5098.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Jolteon,148,move,1,Thunderbolt,78.5%,,,,,,,,
+Jolteon,148,move,2,Volt Switch,59.2%,,,,,,,,
+Jolteon,148,move,3,Alluring Voice,57.6%,,,,,,,,
+Jolteon,148,move,4,Shadow Ball,45.4%,,,,,,,,
+Jolteon,148,move,5,Yawn,28.2%,,,,,,,,
+Jolteon,148,move,6,Thunder,13.0%,,,,,,,,
+Jolteon,148,move,7,Thunder Wave,11.8%,,,,,,,,
+Jolteon,148,move,8,Weather Ball,9.9%,,,,,,,,
+Jolteon,148,move,9,Calm Mind,9.0%,,,,,,,,
+Jolteon,148,move,10,Quick Attack,1.5%,,,,,,,,
+Jolteon,148,held_item,1,Focus Sash,32.3%,,,,,,,,
+Jolteon,148,held_item,2,Life Orb,20.0%,,,,,,,,
+Jolteon,148,held_item,3,Magnet,13.6%,,,,,,,,
+Jolteon,148,held_item,4,Choice Scarf,9.1%,,,,,,,,
+Jolteon,148,held_item,5,Bright Powder,3.8%,,,,,,,,
+Jolteon,148,held_item,6,Shuca Berry,3.3%,,,,,,,,
+Jolteon,148,held_item,7,Leftovers,2.6%,,,,,,,,
+Jolteon,148,held_item,8,Sitrus Berry,2.6%,,,,,,,,
+Jolteon,148,held_item,9,Wise Glasses,2.6%,,,,,,,,
+Jolteon,148,held_item,10,Expert Belt,1.4%,,,,,,,,
+Jolteon,148,teammate,1,Umbreon,,,,,,,,,
+Jolteon,148,teammate,2,Sylveon,,,,,,,,,
+Jolteon,148,teammate,3,Garchomp,,,,,,,,,
+Jolteon,148,teammate,4,Charizard,,,,,,,,,
+Jolteon,148,teammate,5,Espeon,,,,,,,,,
+Jolteon,148,teammate,6,Meowscarada,,,,,,,,,
+Jolteon,148,teammate,7,Vaporeon,,,,,,,,,
+Jolteon,148,teammate,8,Glaceon,,,,,,,,,
+Jolteon,148,teammate,9,Staraptor,,,,,,,,,
+Jolteon,148,teammate,10,Flareon,,,,,,,,,
+Jolteon,148,stat_alignment,1,Timid,67.0%,Speed,Attack,,,,,,
+Jolteon,148,stat_alignment,2,Modest,22.6%,Sp. Atk,Attack,,,,,,
+Jolteon,148,stat_alignment,3,Hasty,4.3%,Speed,Defense,,,,,,
+Jolteon,148,stat_alignment,4,Bold,1.5%,Defense,Attack,,,,,,
+Jolteon,148,stat_alignment,5,Mild,1.3%,Sp. Atk,Defense,,,,,,
+Jolteon,148,stat_alignment,6,Gentle,1.0%,Sp. Def,Defense,,,,,,
+Jolteon,148,stat_alignment,7,Calm,0.9%,Sp. Def,Attack,,,,,,
+Jolteon,148,stat_alignment,8,Naive,0.8%,Speed,Sp. Def,,,,,,
+Jolteon,148,stat_alignment,9,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Jolteon,148,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Jolteon,148,stat_points,1,,38.1%,,,2,0,0,32,0,32
+Jolteon,148,stat_points,2,,12.5%,,,0,0,0,32,2,32
+Jolteon,148,stat_points,3,,11.4%,,,0,0,2,32,0,32
+Jolteon,148,stat_points,4,,7.6%,,,1,0,0,32,1,32
+Jolteon,148,stat_points,5,,6.3%,,,1,0,1,32,0,32
+Jolteon,148,stat_points,6,,2.9%,,,0,0,0,32,0,32
+Jolteon,148,stat_points,7,,1.3%,,,0,0,0,32,32,2
+Jolteon,148,stat_points,8,,1.0%,,,1,0,0,32,0,32
+Jolteon,148,stat_points,9,,0.8%,,,0,2,0,32,0,32
+Jolteon,148,stat_points,10,,0.7%,,,11,0,0,32,0,23
+Jolteon,148,stat_points,11,,0.5%,,,32,0,0,32,0,2
+Jolteon,148,stat_points,12,,0.5%,,,2,0,32,32,0,0
+Jolteon,148,ability,1,Volt Absorb,89.6%,,,,,,,,
+Jolteon,148,ability,2,Quick Feet,10.4%,,,,,,,,

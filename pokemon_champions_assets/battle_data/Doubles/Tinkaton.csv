@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Tinkaton,97,move,1,Gigaton Hammer,98.4%,,,,,,,,,6451.23
-Tinkaton,97,move,2,Fake Out,93.0%,,,,,,,,,6451.23
-Tinkaton,97,move,3,Play Rough,56.3%,,,,,,,,,6451.23
-Tinkaton,97,move,4,Protect,52.6%,,,,,,,,,6451.23
-Tinkaton,97,move,5,Encore,28.2%,,,,,,,,,6451.23
-Tinkaton,97,move,6,Feint,10.3%,,,,,,,,,6457.23
-Tinkaton,97,move,7,Knock Off,10.0%,,,,,,,,,6457.23
-Tinkaton,97,move,8,Brick Break,6.4%,,,,,,,,,6457.23
-Tinkaton,97,move,9,Ice Hammer,5.9%,,,,,,,,,6457.23
-Tinkaton,97,move,10,Helping Hand,1.9%,,,,,,,,,6457.23
-Tinkaton,97,held_item,1,Shuca Berry,19.9%,,,,,,,,,6460.73
-Tinkaton,97,held_item,2,Sitrus Berry,17.4%,,,,,,,,,6460.73
-Tinkaton,97,held_item,3,Leftovers,15.0%,,,,,,,,,6460.73
-Tinkaton,97,held_item,4,Occa Berry,10.0%,,,,,,,,,6460.73
-Tinkaton,97,held_item,5,Metal Coat,9.2%,,,,,,,,,6460.73
-Tinkaton,97,held_item,6,Life Orb,7.0%,,,,,,,,,6465.73
-Tinkaton,97,held_item,7,Focus Sash,4.7%,,,,,,,,,6465.73
-Tinkaton,97,held_item,8,Expert Belt,2.0%,,,,,,,,,6465.73
-Tinkaton,97,held_item,9,Quick Claw,1.8%,,,,,,,,,6465.73
-Tinkaton,97,held_item,10,White Herb,,,,,,,,,,6465.73
-Tinkaton,97,teammate,1,Sinistcha,,,,,,,,,,6469.23
-Tinkaton,97,teammate,2,Incineroar,,,,,,,,,,6469.23
-Tinkaton,97,teammate,3,Whimsicott,,,,,,,,,,6469.23
-Tinkaton,97,teammate,4,Garchomp,,,,,,,,,,6469.23
-Tinkaton,97,teammate,5,Gengar,,,,,,,,,,6469.23
-Tinkaton,97,teammate,6,Staraptor,,,,,,,,,,6474.23
-Tinkaton,97,teammate,7,Raichu,,,,,,,,,,6474.23
-Tinkaton,97,teammate,8,Basculegion,,,,,,,,,,6474.23
-Tinkaton,97,teammate,9,Sableye,,,,,,,,,,6474.23
-Tinkaton,97,teammate,10,Politoed,,,,,,,,,,6474.23
-Tinkaton,97,stat_alignment,1,Adamant,44.3%,Attack,Sp. Atk,,,,,,,6477.73
-Tinkaton,97,stat_alignment,2,Jolly,37.1%,Speed,Sp. Atk,,,,,,,6477.73
-Tinkaton,97,stat_alignment,3,Impish,5.1%,Defense,Sp. Atk,,,,,,,6477.73
-Tinkaton,97,stat_alignment,4,Careful,4.8%,Sp. Def,Sp. Atk,,,,,,,6477.73
-Tinkaton,97,stat_alignment,5,Brave,4.4%,Attack,Speed,,,,,,,6477.73
-Tinkaton,97,stat_alignment,6,Lonely,1.2%,Attack,Defense,,,,,,,6482.73
-Tinkaton,97,stat_alignment,7,Sassy,0.6%,Sp. Def,Speed,,,,,,,6482.73
-Tinkaton,97,stat_alignment,8,Naive,0.6%,Speed,Sp. Def,,,,,,,6482.73
-Tinkaton,97,stat_alignment,9,Naughty,0.5%,Attack,Sp. Def,,,,,,,6482.73
-Tinkaton,97,stat_alignment,10,Modest,0.3%,Sp. Atk,Attack,,,,,,,6482.73
-Tinkaton,97,stat_points,1,,12.2%,,,2,32,0,0,0,32,6486.23
-Tinkaton,97,stat_points,2,,7.4%,,,23,8,7,0,0,28,6489.23
-Tinkaton,97,stat_points,3,,6.2%,,,0,32,2,0,0,32,6486.23
-Tinkaton,97,stat_points,4,,5.5%,,,32,32,2,0,0,0,6486.23
-Tinkaton,97,stat_points,5,,5.4%,,,32,23,1,0,0,0,6486.23
-Tinkaton,97,stat_points,8,,3.0%,,,32,32,0,0,0,2,6498.23
-Tinkaton,97,stat_points,9,,1.8%,,,0,32,0,0,0,32,6498.23
-Tinkaton,97,stat_points,10,,1.4%,,,19,32,15,0,0,0,6498.23
-Tinkaton,97,stat_points,11,,1.3%,,,2,32,0,0,32,0,6498.23
-Tinkaton,97,stat_points,12,,1.1%,,,32,2,0,0,0,32,6498.23
-Tinkaton,97,ability,1,Mold Breaker,70.7%,,,,,,,,,6505.73
-Tinkaton,97,ability,2,Own Tempo,26.4%,,,,,,,,,6505.73
-Tinkaton,97,ability,3,Pickpocket,2.9%,,,,,,,,,6505.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Tinkaton,93,move,1,Gigaton Hammer,98.3%,,,,,,,,
+Tinkaton,93,move,2,Fake Out,90.2%,,,,,,,,
+Tinkaton,93,move,3,Play Rough,57.6%,,,,,,,,
+Tinkaton,93,move,4,Protect,50.9%,,,,,,,,
+Tinkaton,93,move,5,Encore,26.4%,,,,,,,,
+Tinkaton,93,move,6,Knock Off,10.3%,,,,,,,,
+Tinkaton,93,move,7,Feint,9.2%,,,,,,,,
+Tinkaton,93,move,8,Ice Hammer,7.9%,,,,,,,,
+Tinkaton,93,move,9,Brick Break,7.0%,,,,,,,,
+Tinkaton,93,move,10,Wood Hammer,6.1%,,,,,,,,
+Tinkaton,93,held_item,1,Shuca Berry,17.9%,,,,,,,,
+Tinkaton,93,held_item,2,Sitrus Berry,16.3%,,,,,,,,
+Tinkaton,93,held_item,3,Leftovers,14.6%,,,,,,,,
+Tinkaton,93,held_item,4,Occa Berry,9.2%,,,,,,,,
+Tinkaton,93,held_item,5,Metal Coat,9.0%,,,,,,,,
+Tinkaton,93,held_item,6,Life Orb,7.9%,,,,,,,,
+Tinkaton,93,held_item,7,Focus Sash,6.6%,,,,,,,,
+Tinkaton,93,held_item,8,Quick Claw,2.1%,,,,,,,,
+Tinkaton,93,held_item,9,Expert Belt,1.9%,,,,,,,,
+Tinkaton,93,held_item,10,White Herb,1.9%,,,,,,,,
+Tinkaton,93,teammate,1,Sinistcha,,,,,,,,,
+Tinkaton,93,teammate,2,Garchomp,,,,,,,,,
+Tinkaton,93,teammate,3,Incineroar,,,,,,,,,
+Tinkaton,93,teammate,4,Whimsicott,,,,,,,,,
+Tinkaton,93,teammate,5,Gengar,,,,,,,,,
+Tinkaton,93,teammate,6,Raichu,,,,,,,,,
+Tinkaton,93,teammate,7,Sableye,,,,,,,,,
+Tinkaton,93,teammate,8,Basculegion Male,,,,,,,,,
+Tinkaton,93,teammate,9,Staraptor,,,,,,,,,
+Tinkaton,93,teammate,10,Farigiraf,,,,,,,,,
+Tinkaton,93,stat_alignment,1,Adamant,45.1%,Attack,Sp. Atk,,,,,,
+Tinkaton,93,stat_alignment,2,Jolly,34.7%,Speed,Sp. Atk,,,,,,
+Tinkaton,93,stat_alignment,3,Careful,5.0%,Sp. Def,Sp. Atk,,,,,,
+Tinkaton,93,stat_alignment,4,Impish,5.0%,Defense,Sp. Atk,,,,,,
+Tinkaton,93,stat_alignment,5,Brave,4.7%,Attack,Speed,,,,,,
+Tinkaton,93,stat_alignment,6,Lonely,1.1%,Attack,Defense,,,,,,
+Tinkaton,93,stat_alignment,7,Naughty,0.9%,Attack,Sp. Def,,,,,,
+Tinkaton,93,stat_alignment,8,Naive,0.8%,Speed,Sp. Def,,,,,,
+Tinkaton,93,stat_alignment,9,Sassy,0.7%,Sp. Def,Speed,,,,,,
+Tinkaton,93,stat_alignment,10,Relaxed,0.5%,Defense,Speed,,,,,,
+Tinkaton,93,stat_points,1,,13.8%,,,2,32,0,0,0,32
+Tinkaton,93,stat_points,2,,6.0%,,,23,8,7,0,0,28
+Tinkaton,93,stat_points,3,,6.0%,,,32,32,2,0,0,0
+Tinkaton,93,stat_points,4,,5.8%,,,0,32,2,0,0,32
+Tinkaton,93,stat_points,5,,4.4%,,,32,23,11,0,0,0
+Tinkaton,93,stat_points,6,,4.4%,,,0,32,0,0,2,32
+Tinkaton,93,stat_points,7,,3.5%,,,32,32,0,0,2,0
+Tinkaton,93,stat_points,8,,2.7%,,,32,32,0,0,0,2
+Tinkaton,93,stat_points,9,,1.6%,,,0,32,0,0,0,32
+Tinkaton,93,stat_points,10,,1.6%,,,0,32,2,0,32,0
+Tinkaton,93,stat_points,11,,1.4%,,,2,32,32,0,0,0
+Tinkaton,93,stat_points,12,,1.3%,,,0,32,32,0,2,0
+Tinkaton,93,ability,1,Mold Breaker,69.3%,,,,,,,,
+Tinkaton,93,ability,2,Own Tempo,27.3%,,,,,,,,
+Tinkaton,93,ability,3,Pickpocket,3.4%,,,,,,,,

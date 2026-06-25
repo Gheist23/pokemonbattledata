@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Camerupt,194,move,1,Earth Power,91.7%,,,,,,,,,7525.23
-Camerupt,194,move,2,Ancient Power,59.0%,,,,,,,,,7525.23
-Camerupt,194,move,3,Flamethrower,49.6%,,,,,,,,,7525.23
-Camerupt,194,move,4,Eruption,48.0%,,,,,,,,,7525.23
-Camerupt,194,move,5,Flash Cannon,35.4%,,,,,,,,,7525.23
-Camerupt,194,move,6,Fire Blast,25.1%,,,,,,,,,7529.73
-Camerupt,194,move,7,Yawn,9.3%,,,,,,,,,7529.73
-Camerupt,194,move,8,Rock Slide,7.6%,,,,,,,,,7529.73
-Camerupt,194,move,9,Overheat,7.2%,,,,,,,,,7529.73
-Camerupt,194,move,10,Stealth Rock,6.9%,,,,,,,,,7529.73
-Camerupt,194,held_item,1,Cameruptite,83.3%,,,,,,,,,7533.23
-Camerupt,194,held_item,2,Sitrus Berry,3.9%,,,,,,,,,7533.23
-Camerupt,194,held_item,3,Quick Claw,1.8%,,,,,,,,,7533.23
-Camerupt,194,held_item,4,Focus Sash,1.6%,,,,,,,,,7533.23
-Camerupt,194,held_item,5,Expert Belt,1.5%,,,,,,,,,7533.23
-Camerupt,194,held_item,6,Leftovers,1.3%,,,,,,,,,7538.23
-Camerupt,194,held_item,7,Soft Sand,0.9%,,,,,,,,,7538.23
-Camerupt,194,held_item,8,Passho Berry,0.7%,,,,,,,,,7538.23
-Camerupt,194,held_item,9,Zoom Lens,0.7%,,,,,,,,,7538.23
-Camerupt,194,held_item,10,Wide Lens,0.6%,,,,,,,,,7538.23
-Camerupt,194,teammate,1,Hatterene,,,,,,,,,,7541.73
-Camerupt,194,teammate,2,Mimikyu,,,,,,,,,,7541.73
-Camerupt,194,teammate,3,Mawile,,,,,,,,,,7541.73
-Camerupt,194,teammate,4,Meowscarada,,,,,,,,,,7541.73
-Camerupt,194,teammate,5,Basculegion,,,,,,,,,,7541.73
-Camerupt,194,teammate,6,Kingambit,,,,,,,,,,7546.73
-Camerupt,194,teammate,7,Garchomp,,,,,,,,,,7546.73
-Camerupt,194,teammate,8,Crabominable,,,,,,,,,,7546.73
-Camerupt,194,teammate,9,Staraptor,,,,,,,,,,7546.73
-Camerupt,194,teammate,10,Abomasnow,,,,,,,,,,7546.73
-Camerupt,194,stat_alignment,1,Quiet,66.7%,Sp. Atk,Speed,,,,,,,7550.23
-Camerupt,194,stat_alignment,2,Modest,21.7%,Sp. Atk,Attack,,,,,,,7550.23
-Camerupt,194,stat_alignment,3,Bold,2.6%,Defense,Attack,,,,,,,7550.23
-Camerupt,194,stat_alignment,4,Calm,2.5%,Sp. Def,Attack,,,,,,,7550.23
-Camerupt,194,stat_alignment,5,Sassy,2.2%,Sp. Def,Speed,,,,,,,7550.23
-Camerupt,194,stat_alignment,6,Brave,1.3%,Attack,Speed,,,,,,,7555.23
-Camerupt,194,stat_alignment,7,Relaxed,1.0%,Defense,Speed,,,,,,,7555.23
-Camerupt,194,stat_alignment,8,Timid,0.9%,Speed,Attack,,,,,,,7555.23
-Camerupt,194,stat_alignment,9,Mild,0.4%,Sp. Atk,Defense,,,,,,,7555.23
-Camerupt,194,stat_alignment,10,Adamant,0.2%,Attack,Sp. Atk,,,,,,,7555.23
-Camerupt,194,stat_points,1,,36.6%,,,32,0,2,32,0,0,7558.73
-Camerupt,194,stat_points,2,,12.8%,,,32,0,0,32,2,0,7558.73
-Camerupt,194,stat_points,3,,3.1%,,,32,0,0,32,0,0,7558.73
-Camerupt,194,stat_points,4,,3.0%,,,32,2,0,32,0,0,7558.73
-Camerupt,194,stat_points,5,,2.9%,,,2,0,32,32,0,0,7558.73
-Camerupt,194,stat_points,8,,2.1%,,,0,0,2,32,32,0,7570.73
-Camerupt,194,stat_points,9,,1.9%,,,32,0,0,2,32,0,7570.73
-Camerupt,194,stat_points,10,,1.8%,,,2,0,0,32,0,32,7570.73
-Camerupt,194,stat_points,11,,1.4%,,,2,0,0,32,32,0,7570.73
-Camerupt,194,stat_points,12,,1.2%,,,2,32,0,32,0,0,7570.73
-Camerupt,194,ability,1,Solid Rock,89.6%,,,,,,,,,7578.23
-Camerupt,194,ability,2,Anger Point,7.7%,,,,,,,,,7578.23
-Camerupt,194,ability,3,Magma Armor,2.7%,,,,,,,,,7578.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Camerupt,194,move,1,Earth Power,92.6%,,,,,,,,
+Camerupt,194,move,2,Ancient Power,59.9%,,,,,,,,
+Camerupt,194,move,3,Flamethrower,52.4%,,,,,,,,
+Camerupt,194,move,4,Eruption,49.4%,,,,,,,,
+Camerupt,194,move,5,Flash Cannon,34.2%,,,,,,,,
+Camerupt,194,move,6,Fire Blast,23.1%,,,,,,,,
+Camerupt,194,move,7,Yawn,10.8%,,,,,,,,
+Camerupt,194,move,8,Rock Slide,7.0%,,,,,,,,
+Camerupt,194,move,9,Overheat,6.3%,,,,,,,,
+Camerupt,194,move,10,Stealth Rock,6.3%,,,,,,,,
+Camerupt,194,held_item,1,Cameruptite,84.6%,,,,,,,,
+Camerupt,194,held_item,2,Sitrus Berry,3.2%,,,,,,,,
+Camerupt,194,held_item,3,Quick Claw,1.6%,,,,,,,,
+Camerupt,194,held_item,4,Leftovers,1.4%,,,,,,,,
+Camerupt,194,held_item,5,Focus Sash,1.3%,,,,,,,,
+Camerupt,194,held_item,6,Expert Belt,1.2%,,,,,,,,
+Camerupt,194,held_item,7,Charcoal,0.9%,,,,,,,,
+Camerupt,194,held_item,8,Life Orb,0.8%,,,,,,,,
+Camerupt,194,held_item,9,Passho Berry,0.7%,,,,,,,,
+Camerupt,194,held_item,10,Soft Sand,0.7%,,,,,,,,
+Camerupt,194,teammate,1,Hatterene,,,,,,,,,
+Camerupt,194,teammate,2,Mimikyu,,,,,,,,,
+Camerupt,194,teammate,3,Mawile,,,,,,,,,
+Camerupt,194,teammate,4,Meowscarada,,,,,,,,,
+Camerupt,194,teammate,5,Basculegion Male,,,,,,,,,
+Camerupt,194,teammate,6,Kingambit,,,,,,,,,
+Camerupt,194,teammate,7,Garchomp,,,,,,,,,
+Camerupt,194,teammate,8,Crabominable,,,,,,,,,
+Camerupt,194,teammate,9,Staraptor,,,,,,,,,
+Camerupt,194,teammate,10,Archaludon,,,,,,,,,
+Camerupt,194,stat_alignment,1,Quiet,65.9%,Sp. Atk,Speed,,,,,,
+Camerupt,194,stat_alignment,2,Modest,21.8%,Sp. Atk,Attack,,,,,,
+Camerupt,194,stat_alignment,3,Bold,2.9%,Defense,Attack,,,,,,
+Camerupt,194,stat_alignment,4,Calm,2.5%,Sp. Def,Attack,,,,,,
+Camerupt,194,stat_alignment,5,Sassy,2.0%,Sp. Def,Speed,,,,,,
+Camerupt,194,stat_alignment,6,Relaxed,1.1%,Defense,Speed,,,,,,
+Camerupt,194,stat_alignment,7,Brave,1.0%,Attack,Speed,,,,,,
+Camerupt,194,stat_alignment,8,Timid,0.8%,Speed,Attack,,,,,,
+Camerupt,194,stat_alignment,9,Adamant,0.6%,Attack,Sp. Atk,,,,,,
+Camerupt,194,stat_alignment,10,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
+Camerupt,194,stat_points,1,,40.7%,,,32,0,2,32,0,0
+Camerupt,194,stat_points,2,,12.1%,,,32,0,0,32,2,0
+Camerupt,194,stat_points,3,,3.5%,,,2,0,32,32,0,0
+Camerupt,194,stat_points,4,,2.6%,,,32,0,0,32,0,0
+Camerupt,194,stat_points,5,,2.4%,,,0,0,2,32,32,0
+Camerupt,194,stat_points,6,,2.3%,,,32,0,1,32,1,0
+Camerupt,194,stat_points,7,,2.0%,,,30,0,4,32,0,0
+Camerupt,194,stat_points,8,,1.9%,,,32,2,0,32,0,0
+Camerupt,194,stat_points,9,,1.5%,,,32,0,2,0,32,0
+Camerupt,194,stat_points,10,,1.5%,,,2,0,0,32,0,32
+Camerupt,194,stat_points,11,,1.4%,,,32,0,0,2,32,0
+Camerupt,194,stat_points,12,,1.4%,,,2,32,0,32,0,0
+Camerupt,194,ability,1,Solid Rock,90.8%,,,,,,,,
+Camerupt,194,ability,2,Anger Point,6.3%,,,,,,,,
+Camerupt,194,ability,3,Magma Armor,2.9%,,,,,,,,

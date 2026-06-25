@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Meganium,60,move,1,Solar Beam,98.0%,,,,,,,,,3969.23
-Meganium,60,move,2,Dazzling Gleam,90.6%,,,,,,,,,3969.23
-Meganium,60,move,3,Weather Ball,89.3%,,,,,,,,,3969.23
-Meganium,60,move,4,Protect,19.9%,,,,,,,,,3969.23
-Meganium,60,move,5,Synthesis,17.6%,,,,,,,,,3969.23
-Meganium,60,move,6,Earth Power,15.5%,,,,,,,,,3975.23
-Meganium,60,move,7,Giga Drain,2.1%,,,,,,,,,3975.23
-Meganium,60,move,8,Ancient Power,1.3%,,,,,,,,,3975.23
-Meganium,60,move,9,Leech Seed,0.8%,,,,,,,,,3975.23
-Meganium,60,move,10,Pollen Puff,0.7%,,,,,,,,,3975.23
-Meganium,60,held_item,1,Meganiumite,98.0%,,,,,,,,,3978.73
-Meganium,60,held_item,2,Leftovers,0.2%,,,,,,,,,3978.73
-Meganium,60,held_item,3,Life Orb,0.1%,,,,,,,,,3978.73
-Meganium,60,held_item,4,Choice Scarf,0.1%,,,,,,,,,3978.73
-Meganium,60,held_item,5,Focus Sash,0.1%,,,,,,,,,3978.73
-Meganium,60,held_item,6,lron Ball,0.0%,,,,,,,,,3983.73
-Meganium,60,held_item,7,Wise Glasses,0.0%,,,,,,,,,3983.73
-Meganium,60,held_item,8,Sitrus Berry,0.0%,,,,,,,,,3983.73
-Meganium,60,held_item,9,Miracle Seed,0.0%,,,,,,,,,3983.73
-Meganium,60,held_item,10,Venusaurite,0.0%,,,,,,,,,3983.73
-Meganium,60,teammate,1,Pelipper,,,,,,,,,,3987.23
-Meganium,60,teammate,2,Archaludon,,,,,,,,,,3987.23
-Meganium,60,teammate,3,Basculegion,,,,,,,,,,3987.23
-Meganium,60,teammate,4,Sneasler,,,,,,,,,,3987.23
-Meganium,60,teammate,5,Swampert,,,,,,,,,,3987.23
-Meganium,60,teammate,6,Garchomp,,,,,,,,,,3992.23
-Meganium,60,teammate,7,Incineroar,,,,,,,,,,3992.23
-Meganium,60,teammate,8,Farigiraf,,,,,,,,,,3992.23
-Meganium,60,teammate,9,Sableye,,,,,,,,,,3992.23
-Meganium,60,teammate,10,Whimsicott,,,,,,,,,,3992.23
-Meganium,60,stat_alignment,1,Modest,82.8%,Sp. Atk,Attack,,,,,,,3995.23
-Meganium,60,stat_alignment,2,Quiet,7.5%,Sp. Atk,Speed,,,,,,,3995.23
-Meganium,60,stat_alignment,3,Timid,5.9%,Speed,Attack,,,,,,,3995.23
-Meganium,60,stat_alignment,4,Calm,1.6%,Sp. Def,Attack,,,,,,,3995.23
-Meganium,60,stat_alignment,5,Bold,1.3%,Defense,Attack,,,,,,,3995.23
-Meganium,60,stat_alignment,6,Mild,0.5%,Sp. Atk,Defense,,,,,,,4000.73
-Meganium,60,stat_alignment,7,Relaxed,0.3%,Defense,Speed,,,,,,,4000.73
-Meganium,60,stat_alignment,8,Sassy,0.2%,Sp. Def,Speed,,,,,,,4000.73
-Meganium,60,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,,4000.73
-Meganium,60,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,,4000.73
-Meganium,60,stat_points,1,,26.5%,,,32,0,0,32,0,2,4004.23
-Meganium,60,stat_points,2,,9.6%,,,32,0,0,32,2,0,4004.23
-Meganium,60,stat_points,3,,7.9%,,,32,0,2,32,0,0,4004.23
-Meganium,60,stat_points,4,,7.8%,,,2,0,0,32,0,32,4004.23
-Meganium,60,stat_points,5,,2.2%,,,32,0,0,27,0,7,4004.23
-Meganium,60,stat_points,8,,1.5%,,,32,0,4,27,3,0,4016.23
-Meganium,60,stat_points,9,,1.4%,,,0,0,0,32,2,32,4016.23
-Meganium,60,stat_points,10,,1.4%,,,26,0,0,32,0,8,4016.23
-Meganium,60,stat_points,11,,1.2%,,,32,0,0,32,0,0,4016.23
-Meganium,60,stat_points,12,,1.0%,,,0,0,2,32,0,32,4016.23
-Meganium,60,ability,1,Overgrow,58.3%,,,,,,,,,4023.73
-Meganium,60,ability,2,Leat Guard,41.7%,,,,,,,,,4023.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Meganium,60,move,1,Solar Beam,97.3%,,,,,,,,
+Meganium,60,move,2,Dazzling Gleam,90.2%,,,,,,,,
+Meganium,60,move,3,Weather Ball,88.4%,,,,,,,,
+Meganium,60,move,4,Protect,79.1%,,,,,,,,
+Meganium,60,move,5,Synthesis,18.0%,,,,,,,,
+Meganium,60,move,6,Earth Power,15.9%,,,,,,,,
+Meganium,60,move,7,Giga Drain,2.4%,,,,,,,,
+Meganium,60,move,8,Ancient Power,1.3%,,,,,,,,
+Meganium,60,move,9,Pollen Puff,1.2%,,,,,,,,
+Meganium,60,move,10,Leech Seed,0.8%,,,,,,,,
+Meganium,60,held_item,1,Meganiumite,97.8%,,,,,,,,
+Meganium,60,held_item,2,Leftovers,0.3%,,,,,,,,
+Meganium,60,held_item,3,Iron Ball,0.1%,,,,,,,,
+Meganium,60,held_item,4,Life Orb,0.1%,,,,,,,,
+Meganium,60,held_item,5,Choice Scarf,0.1%,,,,,,,,
+Meganium,60,held_item,6,Big Root,0.1%,,,,,,,,
+Meganium,60,held_item,7,Focus Sash,0.0%,,,,,,,,
+Meganium,60,held_item,8,Wise Glasses,0.0%,,,,,,,,
+Meganium,60,held_item,9,Sitrus Berry,0.0%,,,,,,,,
+Meganium,60,held_item,10,White Herb,0.0%,,,,,,,,
+Meganium,60,teammate,1,Pelipper,,,,,,,,,
+Meganium,60,teammate,2,Archaludon,,,,,,,,,
+Meganium,60,teammate,3,Basculegion Male,,,,,,,,,
+Meganium,60,teammate,4,Sneasler,,,,,,,,,
+Meganium,60,teammate,5,Garchomp,,,,,,,,,
+Meganium,60,teammate,6,Swampert,,,,,,,,,
+Meganium,60,teammate,7,Farigiraf,,,,,,,,,
+Meganium,60,teammate,8,Incineroar,,,,,,,,,
+Meganium,60,teammate,9,Whimsicott,,,,,,,,,
+Meganium,60,teammate,10,Sableye,,,,,,,,,
+Meganium,60,stat_alignment,1,Modest,82.4%,Sp. Atk,Attack,,,,,,
+Meganium,60,stat_alignment,2,Quiet,7.8%,Sp. Atk,Speed,,,,,,
+Meganium,60,stat_alignment,3,Timid,5.9%,Speed,Attack,,,,,,
+Meganium,60,stat_alignment,4,Calm,1.6%,Sp. Def,Attack,,,,,,
+Meganium,60,stat_alignment,5,Bold,1.3%,Defense,Attack,,,,,,
+Meganium,60,stat_alignment,6,Mild,0.4%,Sp. Atk,Defense,,,,,,
+Meganium,60,stat_alignment,7,Sassy,0.3%,Sp. Def,Speed,,,,,,
+Meganium,60,stat_alignment,8,Relaxed,0.3%,Defense,Speed,,,,,,
+Meganium,60,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
+Meganium,60,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
+Meganium,60,stat_points,1,,25.8%,,,32,0,0,32,0,2
+Meganium,60,stat_points,2,,9.3%,,,32,0,0,32,2,0
+Meganium,60,stat_points,3,,8.3%,,,32,0,2,32,0,0
+Meganium,60,stat_points,4,,8.0%,,,2,0,0,32,0,32
+Meganium,60,stat_points,5,,2.2%,,,28,0,0,32,0,6
+Meganium,60,stat_points,6,,2.0%,,,32,0,0,27,0,7
+Meganium,60,stat_points,7,,2.0%,,,32,0,1,32,1,0
+Meganium,60,stat_points,8,,1.7%,,,0,0,0,32,2,32
+Meganium,60,stat_points,9,,1.5%,,,32,0,4,27,3,0
+Meganium,60,stat_points,10,,1.4%,,,26,0,0,32,0,8
+Meganium,60,stat_points,11,,1.3%,,,32,0,0,32,0,0
+Meganium,60,stat_points,12,,1.1%,,,0,0,2,32,0,32
+Meganium,60,ability,1,Overgrow,57.4%,,,,,,,,
+Meganium,60,ability,2,Leat Guard,42.6%,,,,,,,,

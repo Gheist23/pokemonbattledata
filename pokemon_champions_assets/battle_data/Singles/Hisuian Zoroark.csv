@@ -1,53 +1,54 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Hisuian Zoroark,61,move,1,Bitter Malice,66.4%,,,,,,,,,12432.23
-Hisuian Zoroark,61,move,2,Icy Wind,51.5%,,,,,,,,,12432.23
-Hisuian Zoroark,61,move,3,Flamethrower,39.3%,,,,,,,,,12432.23
-Hisuian Zoroark,61,move,4,Shadow Ball,29.6%,,,,,,,,,12432.23
-Hisuian Zoroark,61,move,5,Focus Blast,25.9%,,,,,,,,,12432.23
-Hisuian Zoroark,61,move,6,Memento,19.6%,,,,,,,,,12437.73
-Hisuian Zoroark,61,move,7,Will-O-Wisp,18.7%,,,,,,,,,12437.73
-Hisuian Zoroark,61,move,8,Hyper Voice,18.6%,,,,,,,,,12437.73
-Hisuian Zoroark,61,move,9,Taunt,18.3%,,,,,,,,,12437.73
-Hisuian Zoroark,61,move,10,Nasty Plot,15.9%,,,,,,,,,12437.73
-Hisuian Zoroark,61,held_item,1,Focus Sash,69.9%,,,,,,,,,12441.23
-Hisuian Zoroark,61,held_item,2,Choice Scarf,11.3%,,,,,,,,,12441.23
-Hisuian Zoroark,61,held_item,3,Life Orb,7.7%,,,,,,,,,12441.23
-Hisuian Zoroark,61,held_item,4,Bright Powder,2.0%,,,,,,,,,12441.23
-Hisuian Zoroark,61,held_item,5,Spell Tag,1.2%,,,,,,,,,12441.23
-Hisuian Zoroark,61,held_item,6,Sitrus Berry,0.8%,,,,,,,,,12446.23
-Hisuian Zoroark,61,held_item,7,Expert Belt,0.8%,,,,,,,,,12446.23
-Hisuian Zoroark,61,held_item,8,Quick Claw,0.7%,,,,,,,,,12446.23
-Hisuian Zoroark,61,held_item,9,Wise Glasses,0.6%,,,,,,,,,12446.23
-Hisuian Zoroark,61,held_item,10,Colbur Berry,0.6%,,,,,,,,,12446.23
-Hisuian Zoroark,61,teammate,1,Garchomp,,,,,,,,,,12449.73
-Hisuian Zoroark,61,teammate,2,Raichu,,,,,,,,,,12449.73
-Hisuian Zoroark,61,teammate,3,Staraptor,,,,,,,,,,12449.73
-Hisuian Zoroark,61,teammate,4,Archaludon,,,,,,,,,,12449.73
-Hisuian Zoroark,61,teammate,5,Meowscarada,,,,,,,,,,12449.73
-Hisuian Zoroark,61,teammate,6,Metagross,,,,,,,,,,12454.73
-Hisuian Zoroark,61,teammate,7,Charizard,,,,,,,,,,12454.73
-Hisuian Zoroark,61,teammate,8,Mimikyu,,,,,,,,,,12454.73
-Hisuian Zoroark,61,teammate,9,Corviknight,,,,,,,,,,12454.73
-Hisuian Zoroark,61,teammate,10,Kingambit,,,,,,,,,,12454.73
-Hisuian Zoroark,61,stat_alignment,1,Timid,69.8%,Speed,Attack,,,,,,,12458.23
-Hisuian Zoroark,61,stat_alignment,2,Modest,17.9%,Sp. Atk,Attack,,,,,,,12458.23
-Hisuian Zoroark,61,stat_alignment,3,Naive,4.0%,Speed,Sp. Def,,,,,,,12458.23
-Hisuian Zoroark,61,stat_alignment,4,Hasty,3.1%,Speed,Defense,,,,,,,12458.23
-Hisuian Zoroark,61,stat_alignment,5,Mild,1.6%,Sp. Atk,Defense,,,,,,,12458.23
-Hisuian Zoroark,61,stat_alignment,6,Rash,1.1%,Sp. Atk,Sp. Def,,,,,,,12463.23
-Hisuian Zoroark,61,stat_alignment,7,Jolly,0.8%,Speed,Sp. Atk,,,,,,,12463.23
-Hisuian Zoroark,61,stat_alignment,8,Quiet,0.5%,Sp. Atk,Speed,,,,,,,12463.23
-Hisuian Zoroark,61,stat_alignment,9,Bold,0.3%,Defense,Attack,,,,,,,12463.23
-Hisuian Zoroark,61,stat_alignment,10,Calm,0.3%,Sp. Def,Attack,,,,,,,12463.23
-Hisuian Zoroark,61,stat_points,1,,43.6%,,,2,0,0,32,0,32,12466.73
-Hisuian Zoroark,61,stat_points,2,,15.9%,,,1,0,1,32,0,32,12466.73
-Hisuian Zoroark,61,stat_points,3,,8.1%,,,0,0,2,32,0,32,12466.73
-Hisuian Zoroark,61,stat_points,4,,7.1%,,,0,0,0,32,2,32,12466.73
-Hisuian Zoroark,61,stat_points,5,,3.9%,,,1,0,0,32,1,32,12466.73
-Hisuian Zoroark,61,stat_points,6,,3.9%,,,0,2,0,32,0,32,12472.73
-Hisuian Zoroark,61,stat_points,8,,1.3%,,,1,0,0,32,0,32,12478.73
-Hisuian Zoroark,61,stat_points,9,,1.1%,,,0,0,1,32,1,32,12478.73
-Hisuian Zoroark,61,stat_points,10,,0.9%,,,1,1,0,32,0,32,12478.73
-Hisuian Zoroark,61,stat_points,11,,0.5%,,,3,0,32,0,3,28,12478.73
-Hisuian Zoroark,61,stat_points,12,,0.5%,,,32,0,0,32,0,2,12478.73
-Hisuian Zoroark,61,ability,1,Illusion,100.0%,,,,,,,,,12486.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Hisuian Zoroark,59,move,1,Bitter Malice,67.6%,,,,,,,,
+Hisuian Zoroark,59,move,2,Icy Wind,49.2%,,,,,,,,
+Hisuian Zoroark,59,move,3,Flamethrower,40.1%,,,,,,,,
+Hisuian Zoroark,59,move,4,Shadow Ball,28.8%,,,,,,,,
+Hisuian Zoroark,59,move,5,Focus Blast,25.0%,,,,,,,,
+Hisuian Zoroark,59,move,6,Hyper Voice,19.1%,,,,,,,,
+Hisuian Zoroark,59,move,7,Will-O-Wisp,19.0%,,,,,,,,
+Hisuian Zoroark,59,move,8,Taunt,18.9%,,,,,,,,
+Hisuian Zoroark,59,move,9,Memento,17.7%,,,,,,,,
+Hisuian Zoroark,59,move,10,Nasty Plot,16.5%,,,,,,,,
+Hisuian Zoroark,59,held_item,1,Focus Sash,68.6%,,,,,,,,
+Hisuian Zoroark,59,held_item,2,Choice Scarf,11.2%,,,,,,,,
+Hisuian Zoroark,59,held_item,3,Life Orb,8.2%,,,,,,,,
+Hisuian Zoroark,59,held_item,4,Bright Powder,2.1%,,,,,,,,
+Hisuian Zoroark,59,held_item,5,Spell Tag,1.3%,,,,,,,,
+Hisuian Zoroark,59,held_item,6,Sitrus Berry,1.2%,,,,,,,,
+Hisuian Zoroark,59,held_item,7,Expert Belt,1.0%,,,,,,,,
+Hisuian Zoroark,59,held_item,8,Quick Claw,0.8%,,,,,,,,
+Hisuian Zoroark,59,held_item,9,Wise Glasses,0.7%,,,,,,,,
+Hisuian Zoroark,59,held_item,10,Colbur Berry,0.6%,,,,,,,,
+Hisuian Zoroark,59,teammate,1,Garchomp,,,,,,,,,
+Hisuian Zoroark,59,teammate,2,Raichu,,,,,,,,,
+Hisuian Zoroark,59,teammate,3,Meowscarada,,,,,,,,,
+Hisuian Zoroark,59,teammate,4,Staraptor,,,,,,,,,
+Hisuian Zoroark,59,teammate,5,Archaludon,,,,,,,,,
+Hisuian Zoroark,59,teammate,6,Metagross,,,,,,,,,
+Hisuian Zoroark,59,teammate,7,Mimikyu,,,,,,,,,
+Hisuian Zoroark,59,teammate,8,Charizard,,,,,,,,,
+Hisuian Zoroark,59,teammate,9,Corviknight,,,,,,,,,
+Hisuian Zoroark,59,teammate,10,Blaziken,,,,,,,,,
+Hisuian Zoroark,59,stat_alignment,1,Timid,69.6%,Speed,Attack,,,,,,
+Hisuian Zoroark,59,stat_alignment,2,Modest,18.0%,Sp. Atk,Attack,,,,,,
+Hisuian Zoroark,59,stat_alignment,3,Naive,3.9%,Speed,Sp. Def,,,,,,
+Hisuian Zoroark,59,stat_alignment,4,Hasty,3.1%,Speed,Defense,,,,,,
+Hisuian Zoroark,59,stat_alignment,5,Mild,1.7%,Sp. Atk,Defense,,,,,,
+Hisuian Zoroark,59,stat_alignment,6,Rash,1.0%,Sp. Atk,Sp. Def,,,,,,
+Hisuian Zoroark,59,stat_alignment,7,Jolly,0.7%,Speed,Sp. Atk,,,,,,
+Hisuian Zoroark,59,stat_alignment,8,Quiet,0.5%,Sp. Atk,Speed,,,,,,
+Hisuian Zoroark,59,stat_alignment,9,Bold,0.4%,Defense,Attack,,,,,,
+Hisuian Zoroark,59,stat_alignment,10,Calm,0.3%,Sp. Def,Attack,,,,,,
+Hisuian Zoroark,59,stat_points,1,,45.2%,,,2,0,0,32,0,32
+Hisuian Zoroark,59,stat_points,2,,15.0%,,,1,0,1,32,0,32
+Hisuian Zoroark,59,stat_points,3,,8.4%,,,0,0,2,32,0,32
+Hisuian Zoroark,59,stat_points,4,,6.9%,,,0,0,0,32,2,32
+Hisuian Zoroark,59,stat_points,5,,3.8%,,,1,0,0,32,1,32
+Hisuian Zoroark,59,stat_points,6,,3.5%,,,0,2,0,32,0,32
+Hisuian Zoroark,59,stat_points,7,,3.0%,,,0,0,0,32,0,32
+Hisuian Zoroark,59,stat_points,8,,1.3%,,,1,0,0,32,0,32
+Hisuian Zoroark,59,stat_points,9,,1.2%,,,0,0,1,32,1,32
+Hisuian Zoroark,59,stat_points,10,,0.8%,,,1,1,0,32,0,32
+Hisuian Zoroark,59,stat_points,11,,0.6%,,,32,0,0,32,0,2
+Hisuian Zoroark,59,stat_points,12,,0.4%,,,0,0,32,32,0,2
+Hisuian Zoroark,59,ability,1,Illusion,100.0%,,,,,,,,

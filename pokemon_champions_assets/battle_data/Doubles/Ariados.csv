@@ -1,54 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Ariados,196,move,1,Rage Powder,90.6%,,,,,,,,,5780.23
-Ariados,196,move,2,Protect,54.4%,,,,,,,,,5780.23
-Ariados,196,move,3,String Shot,39.7%,,,,,,,,,5780.23
-Ariados,196,move,4,Knock Off,33.3%,,,,,,,,,5780.23
-Ariados,196,move,5,Poison Jab,30.6%,,,,,,,,,5780.23
-Ariados,196,move,6,Toxic Thread,19.5%,,,,,,,,,5785.73
-Ariados,196,move,7,Sucker Punch,19.0%,,,,,,,,,5785.73
-Ariados,196,move,8,Cross Poison,14.2%,,,,,,,,,5785.73
-Ariados,196,move,9,First Impression,13.9%,,,,,,,,,5785.73
-Ariados,196,move,10,Leech Life,11.9%,,,,,,,,,5785.73
-Ariados,196,held_item,1,Sitrus Berry,40.4%,,,,,,,,,5789.23
-Ariados,196,held_item,2,Focus Sash,17.5%,,,,,,,,,5789.23
-Ariados,196,held_item,3,Scope Lens,8.9%,,,,,,,,,5789.23
-Ariados,196,held_item,4,Bright Powder,6.0%,,,,,,,,,5789.23
-Ariados,196,held_item,5,Mental Herb,3.7%,,,,,,,,,5789.23
-Ariados,196,held_item,6,Leftovers,4.7%,,,,,,,,,5794.23
-Ariados,196,held_item,7,Life Orb,4.6%,,,,,,,,,5794.23
-Ariados,196,held_item,8,Expert Belt,2.4%,,,,,,,,,5794.23
-Ariados,196,held_item,9,Quick Claw,1.7%,,,,,,,,,5794.23
-Ariados,196,held_item,10,Big Root,1.7%,,,,,,,,,5794.23
-Ariados,196,teammate,1,Basculegion,,,,,,,,,,5797.73
-Ariados,196,teammate,2,Garchomp,,,,,,,,,,5797.73
-Ariados,196,teammate,3,Sylveon,,,,,,,,,,5797.73
-Ariados,196,teammate,5,Charizard,,,,,,,,,,5797.73
-Ariados,196,teammate,6,Farigiraf,,,,,,,,,,5802.73
-Ariados,196,teammate,7,Raichu,,,,,,,,,,5802.73
-Ariados,196,teammate,8,Incineroar,,,,,,,,,,5802.73
-Ariados,196,teammate,9,Staraptor,,,,,,,,,,5802.73
-Ariados,196,teammate,10,Drampa,,,,,,,,,,5802.73
-Ariados,196,stat_alignment,1,Impish,43.1%,Defense,Sp. Atk,,,,,,,5806.23
-Ariados,196,stat_alignment,2,Brave,19.1%,Attack,Speed,,,,,,,5806.23
-Ariados,196,stat_alignment,3,Adamant,14.0%,Attack,Sp. Atk,,,,,,,5806.23
-Ariados,196,stat_alignment,4,Bold,6.0%,Defense,Attack,,,,,,,5806.23
-Ariados,196,stat_alignment,5,Relaxed,5.9%,Defense,Speed,,,,,,,5806.23
-Ariados,196,stat_alignment,6,Careful,5.6%,Sp. Def,Sp. Atk,,,,,,,5811.23
-Ariados,196,stat_alignment,7,Sassy,3.5%,Sp. Def,Speed,,,,,,,5811.23
-Ariados,196,stat_alignment,8,Jolly,1.4%,Speed,Sp. Atk,,,,,,,5811.23
-Ariados,196,stat_alignment,9,Timid,0.4%,Speed,Attack,,,,,,,5811.23
-Ariados,196,stat_alignment,10,Naughty,0.4%,Attack,Sp. Def,,,,,,,5811.23
-Ariados,196,stat_points,1,,24.1%,,,31,0,20,0,15,0,5814.73
-Ariados,196,stat_points,2,,11.4%,,,32,32,2,0,0,0,5814.73
-Ariados,196,stat_points,3,,5.1%,,,2,32,0,0,32,0,5814.73
-Ariados,196,stat_points,4,,5.1%,,,32,0,32,0,2,0,5814.73
-Ariados,196,stat_points,5,,4.9%,,,32,0,30,0,4,0,5814.73
-Ariados,196,stat_points,6,,4.7%,,,32,32,0,0,0,2,5820.73
-Ariados,196,stat_points,8,,2.4%,,,5,32,29,0,0,0,5826.73
-Ariados,196,stat_points,9,,2.4%,,,32,14,10,0,10,0,5826.73
-Ariados,196,stat_points,10,,2.0%,,,32,32,0,0,2,0,5826.73
-Ariados,196,stat_points,11,,2.0%,,,2,32,32,0,0,0,5826.73
-Ariados,196,stat_points,12,,2.0%,,,32,32,1,0,1,0,5826.73
-Ariados,196,ability,1,Insomnia,75.0%,,,,,,,,,5834.23
-Ariados,196,ability,2,Sniper,18.8%,,,,,,,,,5834.23
-Ariados,196,ability,3,Swarm,6.2%,,,,,,,,,5834.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Ariados,200,move,1,Rage Powder,89.2%,,,,,,,,
+Ariados,200,move,2,Protect,57.8%,,,,,,,,
+Ariados,200,move,3,String Shot,40.0%,,,,,,,,
+Ariados,200,move,4,Knock Off,38.2%,,,,,,,,
+Ariados,200,move,5,Poison Jab,29.7%,,,,,,,,
+Ariados,200,move,6,Toxic Thread,18.0%,,,,,,,,
+Ariados,200,move,7,Sucker Punch,16.6%,,,,,,,,
+Ariados,200,move,8,First Impression,14.3%,,,,,,,,
+Ariados,200,move,9,Cross Poison,13.6%,,,,,,,,
+Ariados,200,move,10,Leech Life,10.1%,,,,,,,,
+Ariados,200,held_item,1,Sitrus Berry,41.6%,,,,,,,,
+Ariados,200,held_item,2,Focus Sash,21.4%,,,,,,,,
+Ariados,200,held_item,3,Scope Lens,7.2%,,,,,,,,
+Ariados,200,held_item,4,Leftovers,4.3%,,,,,,,,
+Ariados,200,held_item,5,Life Orb,3.9%,,,,,,,,
+Ariados,200,held_item,6,Bright Powder,3.8%,,,,,,,,
+Ariados,200,held_item,7,Mental Herb,3.5%,,,,,,,,
+Ariados,200,held_item,8,Expert Belt,3.0%,,,,,,,,
+Ariados,200,held_item,9,Quick Claw,2.2%,,,,,,,,
+Ariados,200,held_item,10,Coba Berry,1.4%,,,,,,,,
+Ariados,200,teammate,1,Basculegion Male,,,,,,,,,
+Ariados,200,teammate,2,Garchomp,,,,,,,,,
+Ariados,200,teammate,3,Sylveon,,,,,,,,,
+Ariados,200,teammate,5,Charizard,,,,,,,,,
+Ariados,200,teammate,6,Farigiraf,,,,,,,,,
+Ariados,200,teammate,7,Incineroar,,,,,,,,,
+Ariados,200,teammate,8,Raichu,,,,,,,,,
+Ariados,200,teammate,9,Staraptor,,,,,,,,,
+Ariados,200,teammate,10,Whimsicott,,,,,,,,,
+Ariados,200,stat_alignment,1,Impish,42.9%,Defense,Sp. Atk,,,,,,
+Ariados,200,stat_alignment,2,Brave,18.1%,Attack,Speed,,,,,,
+Ariados,200,stat_alignment,3,Adamant,14.7%,Attack,Sp. Atk,,,,,,
+Ariados,200,stat_alignment,4,Relaxed,6.4%,Defense,Speed,,,,,,
+Ariados,200,stat_alignment,5,Careful,6.2%,Sp. Def,Sp. Atk,,,,,,
+Ariados,200,stat_alignment,6,Bold,4.9%,Defense,Attack,,,,,,
+Ariados,200,stat_alignment,7,Sassy,2.7%,Sp. Def,Speed,,,,,,
+Ariados,200,stat_alignment,8,Jolly,2.2%,Speed,Sp. Atk,,,,,,
+Ariados,200,stat_alignment,9,Timid,0.5%,Speed,Attack,,,,,,
+Ariados,200,stat_alignment,10,Gentle,0.5%,Sp. Def,Defense,,,,,,
+Ariados,200,stat_points,1,,27.4%,,,31,0,20,0,15,0
+Ariados,200,stat_points,2,,9.3%,,,32,32,2,0,0,0
+Ariados,200,stat_points,3,,7.0%,,,32,0,32,0,2,0
+Ariados,200,stat_points,4,,4.0%,,,2,32,0,0,32,0
+Ariados,200,stat_points,5,,3.4%,,,32,32,0,0,0,2
+Ariados,200,stat_points,6,,3.3%,,,32,32,0,0,2,0
+Ariados,200,stat_points,7,,3.3%,,,32,0,30,0,4,0
+Ariados,200,stat_points,8,,2.9%,,,32,32,1,0,1,0
+Ariados,200,stat_points,9,,2.7%,,,5,32,29,0,0,0
+Ariados,200,stat_points,10,,2.2%,,,32,0,24,0,10,0
+Ariados,200,stat_points,11,,1.6%,,,2,32,32,0,0,0
+Ariados,200,stat_points,12,,1.5%,,,25,0,1,0,20,0
+Ariados,200,ability,1,Insomnia,74.8%,,,,,,,,
+Ariados,200,ability,2,Sniper,18.2%,,,,,,,,
+Ariados,200,ability,3,Swarm,7.0%,,,,,,,,

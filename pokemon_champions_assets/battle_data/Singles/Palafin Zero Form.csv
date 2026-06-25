@@ -1,52 +1,54 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Palafin Zero Form,103,move,1,Jet Punch,82.8%,,,,,,,,,25.6
-Palafin Zero Form,103,move,2,Flip Turn,78.8%,,,,,,,,,25.6
-Palafin Zero Form,103,move,3,Wave Crash,75.4%,,,,,,,,,25.6
-Palafin Zero Form,103,move,4,Close Combat,56.2%,,,,,,,,,25.6
-Palafin Zero Form,103,move,5,Ice Punch,43.6%,,,,,,,,,25.6
-Palafin Zero Form,103,move,6,Drain Punch,24.1%,,,,,,,,,31.6
-Palafin Zero Form,103,move,7,Bulk Up,13.6%,,,,,,,,,31.6
-Palafin Zero Form,103,move,8,Encore,3.5%,,,,,,,,,31.6
-Palafin Zero Form,103,move,9,Taunt,2.5%,,,,,,,,,31.6
-Palafin Zero Form,103,move,10,Iron Head,2.0%,,,,,,,,,31.6
-Palafin Zero Form,103,held_item,1,Choice Scarf,31.1%,,,,,,,,,35.1
-Palafin Zero Form,103,held_item,2,Mystic Water,28.6%,,,,,,,,,35.1
-Palafin Zero Form,103,held_item,3,Life Orb,13.7%,,,,,,,,,35.1
-Palafin Zero Form,103,held_item,4,Sitrus Berry,9.0%,,,,,,,,,35.1
-Palafin Zero Form,103,held_item,5,Leftovers,5.9%,,,,,,,,,35.1
-Palafin Zero Form,103,held_item,6,Lum Berry,2.9%,,,,,,,,,40.1
-Palafin Zero Form,103,held_item,7,Muscle Band,1.8%,,,,,,,,,40.1
-Palafin Zero Form,103,held_item,8,Focus Sash,1.3%,,,,,,,,,40.1
-Palafin Zero Form,103,held_item,9,Quick Claw,0.8%,,,,,,,,,40.1
-Palafin Zero Form,103,held_item,10,Metronome,0.6%,,,,,,,,,40.1
-Palafin Zero Form,103,teammate,1,Garchomp,,,,,,,,,,43.6
-Palafin Zero Form,103,teammate,2,Raichu,,,,,,,,,,43.6
-Palafin Zero Form,103,teammate,3,Corviknight,,,,,,,,,,43.6
-Palafin Zero Form,103,teammate,4,Dragonite,,,,,,,,,,43.6
-Palafin Zero Form,103,teammate,5,Dragalge,,,,,,,,,,43.6
-Palafin Zero Form,103,teammate,6,Archaludon,,,,,,,,,,48.6
-Palafin Zero Form,103,teammate,7,Staraptor,,,,,,,,,,48.6
-Palafin Zero Form,103,teammate,8,Meowscarada,,,,,,,,,,48.6
-Palafin Zero Form,103,teammate,9,Mimikyu,,,,,,,,,,48.6
-Palafin Zero Form,103,teammate,10,Gengar,,,,,,,,,,48.6
-Palafin Zero Form,103,stat_alignment,1,Adamant,79.1%,Attack,Sp. Atk,,,,,,,52.1
-Palafin Zero Form,103,stat_alignment,2,Jolly,15.1%,Speed,Sp. Atk,,,,,,,52.1
-Palafin Zero Form,103,stat_alignment,3,Impish,1.8%,Defense,Sp. Atk,,,,,,,52.1
-Palafin Zero Form,103,stat_alignment,4,Naughty,1.0%,Attack,Sp. Def,,,,,,,52.1
-Palafin Zero Form,103,stat_alignment,5,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,,52.1
-Palafin Zero Form,103,stat_alignment,6,Lonely,0.7%,Attack,Defense,,,,,,,57.1
-Palafin Zero Form,103,stat_alignment,7,Brave,0.6%,Attack,Speed,,,,,,,57.1
-Palafin Zero Form,103,stat_alignment,8,Serious,0.3%,,,,,,,,,57.1
-Palafin Zero Form,103,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,,57.1
-Palafin Zero Form,103,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,,57.1
-Palafin Zero Form,103,stat_points,1,,36.0%,,,2,32,0,0,0,32,60.6
-Palafin Zero Form,103,stat_points,2,,20.3%,,,32,32,0,0,0,2,60.6
-Palafin Zero Form,103,stat_points,3,,5.3%,,,0,32,2,0,0,32,60.6
-Palafin Zero Form,103,stat_points,4,,3.9%,,,0,32,0,0,2,32,60.6
-Palafin Zero Form,103,stat_points,5,,3.6%,,,0,32,0,0,0,32,60.6
-Palafin Zero Form,103,stat_points,8,,1.9%,,,3,32,0,0,0,31,72.63
-Palafin Zero Form,103,stat_points,9,,1.8%,,,32,32,0,0,2,0,72.63
-Palafin Zero Form,103,stat_points,10,,1.0%,,,0,32,1,0,1,32,72.63
-Palafin Zero Form,103,stat_points,11,,1.0%,,,30,0,32,0,0,4,72.63
-Palafin Zero Form,103,stat_points,12,,0.7%,,,20,32,0,0,0,14,72.63
-Palafin Zero Form,103,ability,1,Zero to Hero,100.0%,,,,,,,,,80.13
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Palafin Zero Form,102,move,1,Jet Punch,83.2%,,,,,,,,
+Palafin Zero Form,102,move,2,Flip Turn,79.5%,,,,,,,,
+Palafin Zero Form,102,move,3,Wave Crash,74.3%,,,,,,,,
+Palafin Zero Form,102,move,4,Close Combat,55.5%,,,,,,,,
+Palafin Zero Form,102,move,5,Ice Punch,45.0%,,,,,,,,
+Palafin Zero Form,102,move,6,Drain Punch,23.4%,,,,,,,,
+Palafin Zero Form,102,move,7,Bulk Up,13.0%,,,,,,,,
+Palafin Zero Form,102,move,8,Encore,3.2%,,,,,,,,
+Palafin Zero Form,102,move,9,Taunt,2.6%,,,,,,,,
+Palafin Zero Form,102,move,10,Throat Chop,2.4%,,,,,,,,
+Palafin Zero Form,102,held_item,1,Choice Scarf,32.4%,,,,,,,,
+Palafin Zero Form,102,held_item,2,Mystic Water,28.0%,,,,,,,,
+Palafin Zero Form,102,held_item,3,Life Orb,13.0%,,,,,,,,
+Palafin Zero Form,102,held_item,4,Sitrus Berry,8.7%,,,,,,,,
+Palafin Zero Form,102,held_item,5,Leftovers,5.9%,,,,,,,,
+Palafin Zero Form,102,held_item,6,Lum Berry,2.9%,,,,,,,,
+Palafin Zero Form,102,held_item,7,Muscle Band,1.8%,,,,,,,,
+Palafin Zero Form,102,held_item,8,Focus Sash,1.5%,,,,,,,,
+Palafin Zero Form,102,held_item,9,Quick Claw,0.8%,,,,,,,,
+Palafin Zero Form,102,held_item,10,Metronome,0.6%,,,,,,,,
+Palafin Zero Form,102,teammate,1,Garchomp,,,,,,,,,
+Palafin Zero Form,102,teammate,2,Raichu,,,,,,,,,
+Palafin Zero Form,102,teammate,3,Corviknight,,,,,,,,,
+Palafin Zero Form,102,teammate,4,Dragonite,,,,,,,,,
+Palafin Zero Form,102,teammate,5,Dragalge,,,,,,,,,
+Palafin Zero Form,102,teammate,6,Meowscarada,,,,,,,,,
+Palafin Zero Form,102,teammate,7,Archaludon,,,,,,,,,
+Palafin Zero Form,102,teammate,8,Mimikyu,,,,,,,,,
+Palafin Zero Form,102,teammate,9,Staraptor,,,,,,,,,
+Palafin Zero Form,102,teammate,10,Gengar,,,,,,,,,
+Palafin Zero Form,102,stat_alignment,1,Adamant,79.4%,Attack,Sp. Atk,,,,,,
+Palafin Zero Form,102,stat_alignment,2,Jolly,15.1%,Speed,Sp. Atk,,,,,,
+Palafin Zero Form,102,stat_alignment,3,Impish,1.6%,Defense,Sp. Atk,,,,,,
+Palafin Zero Form,102,stat_alignment,4,Naughty,0.9%,Attack,Sp. Def,,,,,,
+Palafin Zero Form,102,stat_alignment,5,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
+Palafin Zero Form,102,stat_alignment,6,Lonely,0.6%,Attack,Defense,,,,,,
+Palafin Zero Form,102,stat_alignment,7,Brave,0.4%,Attack,Speed,,,,,,
+Palafin Zero Form,102,stat_alignment,8,Naive,0.4%,Speed,Sp. Def,,,,,,
+Palafin Zero Form,102,stat_alignment,9,Serious,0.2%,,,,,,,,
+Palafin Zero Form,102,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,
+Palafin Zero Form,102,stat_points,1,,36.9%,,,2,32,0,0,0,32
+Palafin Zero Form,102,stat_points,2,,19.4%,,,32,32,0,0,0,2
+Palafin Zero Form,102,stat_points,3,,5.3%,,,0,32,2,0,0,32
+Palafin Zero Form,102,stat_points,4,,3.9%,,,0,32,0,0,0,32
+Palafin Zero Form,102,stat_points,5,,3.7%,,,0,32,0,0,2,32
+Palafin Zero Form,102,stat_points,6,,3.4%,,,32,32,2,0,0,0
+Palafin Zero Form,102,stat_points,7,,2.4%,,,16,32,0,0,0,18
+Palafin Zero Form,102,stat_points,8,,2.1%,,,3,32,0,0,0,31
+Palafin Zero Form,102,stat_points,9,,2.0%,,,32,32,0,0,2,0
+Palafin Zero Form,102,stat_points,10,,1.0%,,,0,32,1,0,1,32
+Palafin Zero Form,102,stat_points,11,,1.0%,,,30,0,32,0,0,4
+Palafin Zero Form,102,stat_points,12,,0.6%,,,32,32,0,0,0,0
+Palafin Zero Form,102,ability,1,Zero to Hero,100.0%,,,,,,,,

@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Forretress,1711,move,1,Stealth Rock,69.6%,,,,,,,,,5982.23
-Forretress,171,move,2,Body Press,41.1%,,,,,,,,,5982.23
-Forretress,171,move,3,Volt Switch,35.4%,,,,,,,,,5982.23
-Forretress,171,move,4,Rapid Spin,34.5%,,,,,,,,,5982.23
-Forretress,171,move,5,Explosion,30.2%,,,,,,,,,5982.23
-Forretress,171,move,6,Toxic Spikes,19.2%,,,,,,,,,5987.73
-Forretress,171,move,7,lron,18.4%,,,,,,,,,5987.73
-Forretress,171,move,8,Gyro Ball,17.3%,,,,,,,,,5987.73
-Forretress,171,move,9,Spikes,15.0%,,,,,,,,,5987.73
-Forretress,171,move,10,Counter,14.7%,,,,,,,,,5987.73
-Forretress,171,held_item,1,Leftovers,30.0%,,,,,,,,,5991.23
-Forretress,171,held_item,2,Sitrus Berry,15.9%,,,,,,,,,5991.23
-Forretress,171,held_item,3,Mental Herb,10.2%,,,,,,,,,5991.23
-Forretress,171,held_item,4,Quick Claw,8.3%,,,,,,,,,5991.23
-Forretress,171,held_item,5,Light Clay,5.1%,,,,,,,,,5991.23
-Forretress,171,held_item,6,Silk Scarf,4.3%,,,,,,,,,5996.23
-Forretress,171,held_item,7,Expert Belt,4.0%,,,,,,,,,5996.23
-Forretress,171,held_item,8,Bright Powder,3.3%,,,,,,,,,5996.23
-Forretress,171,held_item,9,Lum Berry,2.9%,,,,,,,,,5996.23
-Forretress,171,held_item,10,Focus Sash,2.3%,,,,,,,,,5996.23
-Forretress,171,teammate,1,Garchomp,,,,,,,,,,5999.73
-Forretress,171,teammate,2,Raichu,,,,,,,,,,5999.73
-Forretress,171,teammate,3,Araquanid,,,,,,,,,,5999.73
-Forretress,171,teammate,4,Volcarona,,,,,,,,,,5999.73
-Forretress,171,teammate,5,Charizard,,,,,,,,,,5999.73
-Forretress,171,teammate,6,Scizor,,,,,,,,,,6004.73
-Forretress,171,teammate,7,Staraptor,,,,,,,,,,6004.73
-Forretress,171,teammate,8,Kleavor,,,,,,,,,,6004.73
-Forretress,171,teammate,9,Meowscarada,,,,,,,,,,6004.73
-Forretress,171,teammate,10,Dragonite,,,,,,,,,,6004.73
-Forretress,171,stat_alignment,1,Relaxed,34.2%,Defense,Speed,,,,,,,6008.23
-Forretress,171,stat_alignment,2,Impish,23.4%,Defense,Sp. Atk,,,,,,,6008.23
-Forretress,171,stat_alignment,3,Adamant,14.7%,Attack,Sp. Atk,,,,,,,6008.23
-Forretress,171,stat_alignment,4,Careful,6.6%,Sp. Def,Sp. Atk,,,,,,,6008.23
-Forretress,171,stat_alignment,5,Sassy,6.2%,Sp. Def,Speed,,,,,,,6008.23
-Forretress,171,stat_alignment,6,Brave,6.1%,Attack,Speed,,,,,,,6013.23
-Forretress,171,stat_alignment,7,Bold,3.4%,Defense,Attack,,,,,,,6013.23
-Forretress,171,stat_alignment,8,Calm,2.0%,Sp. Def,Attack,,,,,,,6013.23
-Forretress,171,stat_alignment,9,Quiet,0.9%,Sp. Atk,Speed,,,,,,,6013.23
-Forretress,171,stat_alignment,10,Lonely,0.5%,Attack,Defense,,,,,,,6013.23
-Forretress,171,stat_points,1,,27.5%,,,32,0,32,0,2,0,6016.73
-Forretress,171,stat_points,2,,7.9%,,,32,0,2,0,32,0,6016.73
-Forretress,171,stat_points,3,,5.9%,,,32,0,32,0,1,0,6016.73
-Forretress,171,stat_points,4,,4.9%,,,32,32,2,0,0,0,6016.73
-Forretress,171,stat_points,5,,4.7%,,,2,32,32,0,0,0,6016.73
-Forretress,171,stat_points,8,,2.5%,,,32,32,0,0,2,0,6028.73
-Forretress,171,stat_points,9,,2.2%,,,2,0,32,0,32,0,6028.73
-Forretress,171,stat_points,10,,2.2%,,,32,0,32,0,0,0,6028.73
-Forretress,171,stat_points,11,,2.0%,,,0,32,0,0,32,2,6028.73
-Forretress,171,stat_points,12,,1.6%,,,3,0,3,0,32,0,6028.73
-Forretress,171,ability,1,Sturdy,93.3%,,,,,,,,,6036.23
-Forretress,171,ability,2,Overcoat,6.7%,,,,,,,,,6036.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Forretress,171,move,1,Stealth Rock,69.5%,,,,,,,,
+Forretress,171,move,2,Body Press,39.1%,,,,,,,,
+Forretress,171,move,3,Rapid Spin,36.3%,,,,,,,,
+Forretress,171,move,4,Volt Switch,34.4%,,,,,,,,
+Forretress,171,move,5,Explosion,30.6%,,,,,,,,
+Forretress,171,move,6,Toxic Spikes,19.9%,,,,,,,,
+Forretress,171,move,7,Gyro Ball,19.2%,,,,,,,,
+Forretress,171,move,8,Iron Defense,17.1%,,,,,,,,
+Forretress,171,move,9,Counter,14.1%,,,,,,,,
+Forretress,171,move,10,Spikes,13.8%,,,,,,,,
+Forretress,171,held_item,1,Leftovers,28.2%,,,,,,,,
+Forretress,171,held_item,2,Sitrus Berry,17.4%,,,,,,,,
+Forretress,171,held_item,3,Mental Herb,10.2%,,,,,,,,
+Forretress,171,held_item,4,Quick Claw,7.9%,,,,,,,,
+Forretress,171,held_item,5,Silk Scarf,5.8%,,,,,,,,
+Forretress,171,held_item,6,Light Clay,5.1%,,,,,,,,
+Forretress,171,held_item,7,Bright Powder,3.3%,,,,,,,,
+Forretress,171,held_item,8,Expert Belt,3.3%,,,,,,,,
+Forretress,171,held_item,9,Lum Berry,2.7%,,,,,,,,
+Forretress,171,held_item,10,Life Orb,2.1%,,,,,,,,
+Forretress,171,teammate,1,Garchomp,,,,,,,,,
+Forretress,171,teammate,2,Raichu,,,,,,,,,
+Forretress,171,teammate,3,Araquanid,,,,,,,,,
+Forretress,171,teammate,4,Volcarona,,,,,,,,,
+Forretress,171,teammate,5,Charizard,,,,,,,,,
+Forretress,171,teammate,6,Scizor,,,,,,,,,
+Forretress,171,teammate,7,Meowscarada,,,,,,,,,
+Forretress,171,teammate,8,Kleavor,,,,,,,,,
+Forretress,171,teammate,9,Staraptor,,,,,,,,,
+Forretress,171,teammate,10,Dragonite,,,,,,,,,
+Forretress,171,stat_alignment,1,Relaxed,35.4%,Defense,Speed,,,,,,
+Forretress,171,stat_alignment,2,Impish,21.8%,Defense,Sp. Atk,,,,,,
+Forretress,171,stat_alignment,3,Adamant,12.8%,Attack,Sp. Atk,,,,,,
+Forretress,171,stat_alignment,4,Careful,7.6%,Sp. Def,Sp. Atk,,,,,,
+Forretress,171,stat_alignment,5,Brave,7.3%,Attack,Speed,,,,,,
+Forretress,171,stat_alignment,6,Sassy,6.2%,Sp. Def,Speed,,,,,,
+Forretress,171,stat_alignment,7,Bold,3.5%,Defense,Attack,,,,,,
+Forretress,171,stat_alignment,8,Calm,1.7%,Sp. Def,Attack,,,,,,
+Forretress,171,stat_alignment,9,Quiet,0.8%,Sp. Atk,Speed,,,,,,
+Forretress,171,stat_alignment,10,Naughty,0.6%,Attack,Sp. Def,,,,,,
+Forretress,171,stat_points,1,,26.9%,,,32,0,32,0,2,0
+Forretress,171,stat_points,2,,7.3%,,,32,0,2,0,32,0
+Forretress,171,stat_points,3,,5.4%,,,2,32,32,0,0,0
+Forretress,171,stat_points,4,,5.2%,,,32,32,2,0,0,0
+Forretress,171,stat_points,5,,5.0%,,,32,2,32,0,0,0
+Forretress,171,stat_points,6,,4.0%,,,32,0,32,0,1,0
+Forretress,171,stat_points,7,,3.5%,,,31,0,32,0,3,0
+Forretress,171,stat_points,8,,2.5%,,,2,0,32,0,32,0
+Forretress,171,stat_points,9,,2.4%,,,32,32,0,0,2,0
+Forretress,171,stat_points,10,,2.2%,,,32,0,32,0,0,0
+Forretress,171,stat_points,11,,1.9%,,,0,32,32,0,2,0
+Forretress,171,stat_points,12,,1.8%,,,32,0,0,0,32,0
+Forretress,171,ability,1,Sturdy,93.9%,,,,,,,,
+Forretress,171,ability,2,Overcoat,6.1%,,,,,,,,

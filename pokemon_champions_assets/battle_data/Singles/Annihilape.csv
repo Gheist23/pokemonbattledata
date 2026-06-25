@@ -1,54 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Annihilape,47,move,1,Rage Fist,98.1%,,,,,,,,,11492.73
-Annihilape,47,move,2,Drain Punch,89.3%,,,,,,,,,11492.73
-Annihilape,47,move,3,Bulk Up,78.5%,,,,,,,,,11492.73
-Annihilape,47,move,4,Taunt,59.0%,,,,,,,,,11492.73
-Annihilape,47,move,5,Stealth Rock,14.9%,,,,,,,,,11492.73
-Annihilape,47,move,6,Ice Punch,10.5%,,,,,,,,,11499.23
-Annihilape,47,move,7,Encore,8.2%,,,,,,,,,11499.23
-Annihilape,47,move,8,Close Combat,4.8%,,,,,,,,,11499.23
-Annihilape,47,move,9,Rock Tomb,3.7%,,,,,,,,,11499.23
-Annihilape,47,move,10,Thunder Punch,3.4%,,,,,,,,,11499.23
-Annihilape,47,held_item,1,Leftovers,51.1%,,,,,,,,,11502.23
-Annihilape,47,held_item,2,Sitrus Berry,28.4%,,,,,,,,,11502.23
-Annihilape,47,held_item,3,Focus Sash,3.8%,,,,,,,,,11502.23
-Annihilape,47,held_item,4,Lum Berry,3.6%,,,,,,,,,11502.23
-Annihilape,47,held_item,5,Life Orb,2.4%,,,,,,,,,11502.23
-Annihilape,47,held_item,6,Light Ball,2.1%,,,,,,,,,11507.23
-Annihilape,47,held_item,7,Chesto Berry,1.1%,,,,,,,,,11507.23
-Annihilape,47,held_item,8,Choice Scarf,1.0%,,,,,,,,,11507.23
-Annihilape,47,held_item,9,Kasib Berry,0.8%,,,,,,,,,11507.23
-Annihilape,47,held_item,10,Big Root,0.7%,,,,,,,,,11507.23
-Annihilape,47,teammate,1,Garchomp,,,,,,,,,,11510.73
-Annihilape,47,teammate,2,Raichu,,,,,,,,,,11510.73
-Annihilape,47,teammate,3,Grimmsnarl,,,,,,,,,,11510.73
-Annihilape,47,teammate,4,Metagross,,,,,,,,,,11510.73
-Annihilape,47,teammate,5,Meowscarada,,,,,,,,,,11510.73
-Annihilape,47,teammate,6,Alolan Ninetales,,,,,,,,,,11516.23
-Annihilape,47,teammate,7,Staraptor,,,,,,,,,,11516.23
-Annihilape,47,teammate,8,Archaludon,,,,,,,,,,11516.23
-Annihilape,47,teammate,9,Mimikyu,,,,,,,,,,11516.23
-Annihilape,47,teammate,10,Charizard,,,,,,,,,,11516.23
-Annihilape,47,stat_alignment,1,Adamant,43.4%,Attack,Sp. Atk,,,,,,,11519.73
-Annihilape,47,stat_alignment,2,Jolly,31.7%,Speed,Sp. Atk,,,,,,,11519.73
-Annihilape,47,stat_alignment,3,Impish,13.8%,Defense,Sp. Atk,,,,,,,11519.73
-Annihilape,47,stat_alignment,4,Careful,9.1%,Sp. Def,Sp. Atk,,,,,,,11519.73
-Annihilape,47,stat_alignment,5,Brave,0.5%,Attack,Speed,,,,,,,11519.73
-Annihilape,47,stat_alignment,6,Naughty,0.4%,Attack,Sp. Def,,,,,,,11524.73
-Annihilape,47,stat_alignment,7,Naive,0.2%,Speed,Sp. Def,,,,,,,11524.73
-Annihilape,47,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,,11524.73
-Annihilape,47,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,,11524.73
-Annihilape,47,stat_alignment,10,Bold,0.1%,Defense,Attack,,,,,,,11524.73
-Annihilape,47,stat_points,1,,19%,,,32,32,2,0,0,0,11528.23
-Annihilape,47,stat_points,2,,8.2%,,,32,2,0,0,0,32,11531.23
-Annihilape,47,stat_points,3,,6.0%,,,32,32,0,0,0,2,11528.23
-Annihilape,47,stat_points,4,,4.4%,,,2,32,0,0,0,32,11528.23
-Annihilape,47,stat_points,5,,2.9%,,,32,2,32,0,0,0,11528.23
-Annihilape,47,stat_points,8,,2.1%,,,32,0,32,0,2,0,11540.23
-Annihilape,47,stat_points,9,,1.8%,,,32,0,2,0,32,0,11540.23
-Annihilape,47,stat_points,10,,1.3%,,,32,3,1,0,23,5,11540.23
-Annihilape,47,stat_points,11,,1.3%,,,0,32,2,0,0,32,11540.23
-Annihilape,47,stat_points,12,,1.3%,,,32,0,32,0,0,2,11540.23
-Annihilape,47,ability,1,Defiant,62.5%,,,,,,,,,11547.73
-Annihilape,47,ability,2,Vital Spirit,32.4%,,,,,,,,,11547.73
-Annihilape,47,ability,3,Inner Focus,5.1%,,,,,,,,,11547.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Annihilape,44,move,1,Rage Fist,98.3%,,,,,,,,
+Annihilape,44,move,2,Drain Punch,90.4%,,,,,,,,
+Annihilape,44,move,3,Bulk Up,81.1%,,,,,,,,
+Annihilape,44,move,4,Taunt,62.0%,,,,,,,,
+Annihilape,44,move,5,Stealth Rock,12.3%,,,,,,,,
+Annihilape,44,move,6,Ice Punch,10.6%,,,,,,,,
+Annihilape,44,move,7,Encore,6.8%,,,,,,,,
+Annihilape,44,move,8,Close Combat,4.2%,,,,,,,,
+Annihilape,44,move,9,Earthquake,3.3%,,,,,,,,
+Annihilape,44,move,10,Rock Tomb,3.0%,,,,,,,,
+Annihilape,44,held_item,1,Leftovers,55.6%,,,,,,,,
+Annihilape,44,held_item,2,Sitrus Berry,25.5%,,,,,,,,
+Annihilape,44,held_item,3,Focus Sash,3.3%,,,,,,,,
+Annihilape,44,held_item,4,Lum Berry,3.3%,,,,,,,,
+Annihilape,44,held_item,5,Life Orb,2.2%,,,,,,,,
+Annihilape,44,held_item,6,Light Ball,1.8%,,,,,,,,
+Annihilape,44,held_item,7,Chesto Berry,1.0%,,,,,,,,
+Annihilape,44,held_item,8,Choice Scarf,0.9%,,,,,,,,
+Annihilape,44,held_item,9,Muscle Band,0.7%,,,,,,,,
+Annihilape,44,held_item,10,Big Root,0.7%,,,,,,,,
+Annihilape,44,teammate,1,Garchomp,,,,,,,,,
+Annihilape,44,teammate,2,Metagross,,,,,,,,,
+Annihilape,44,teammate,3,Alolan Ninetales,,,,,,,,,
+Annihilape,44,teammate,4,Raichu,,,,,,,,,
+Annihilape,44,teammate,6,Meowscarada,,,,,,,,,
+Annihilape,44,teammate,7,Archaludon,,,,,,,,,
+Annihilape,44,teammate,8,Staraptor,,,,,,,,,
+Annihilape,44,teammate,9,Mimikyu,,,,,,,,,
+Annihilape,44,teammate,10,Gyarados,,,,,,,,,
+Annihilape,44,stat_alignment,1,Adamant,45.7%,Attack,Sp. Atk,,,,,,
+Annihilape,44,stat_alignment,2,Jolly,28.5%,Speed,Sp. Atk,,,,,,
+Annihilape,44,stat_alignment,3,Impish,14.8%,Defense,Sp. Atk,,,,,,
+Annihilape,44,stat_alignment,4,Careful,8.7%,Sp. Def,Sp. Atk,,,,,,
+Annihilape,44,stat_alignment,5,Brave,0.6%,Attack,Speed,,,,,,
+Annihilape,44,stat_alignment,6,Naughty,0.4%,Attack,Sp. Def,,,,,,
+Annihilape,44,stat_alignment,7,Lonely,0.2%,Attack,Defense,,,,,,
+Annihilape,44,stat_alignment,8,Naive,0.2%,Speed,Sp. Def,,,,,,
+Annihilape,44,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,
+Annihilape,44,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
+Annihilape,44,stat_points,1,,11.1%,,,32,32,2,0,0,0
+Annihilape,44,stat_points,2,,7.2%,,,32,2,0,0,0,32
+Annihilape,44,stat_points,3,,5.6%,,,32,32,0,0,0,2
+Annihilape,44,stat_points,4,,5.0%,,,32,5,1,0,23,5
+Annihilape,44,stat_points,5,,3.9%,,,2,32,0,0,0,32
+Annihilape,44,stat_points,6,,3.4%,,,24,3,11,0,0,28
+Annihilape,44,stat_points,7,,2.5%,,,32,2,32,0,0,0
+Annihilape,44,stat_points,8,,2.3%,,,32,32,0,0,2,0
+Annihilape,44,stat_points,9,,2.0%,,,32,0,32,0,2,0
+Annihilape,44,stat_points,10,,2.0%,,,32,0,2,0,0,32
+Annihilape,44,stat_points,11,,1.8%,,,32,0,2,0,32,0
+Annihilape,44,stat_points,12,,1.3%,,,0,32,2,0,0,32
+Annihilape,44,ability,1,Defiant,68.0%,,,,,,,,
+Annihilape,44,ability,2,Vital Spirit,27.5%,,,,,,,,
+Annihilape,44,ability,3,Inner Focus,4.6%,,,,,,,,

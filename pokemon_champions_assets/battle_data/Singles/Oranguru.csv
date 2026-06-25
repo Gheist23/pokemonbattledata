@@ -1,54 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Oranguru,226,move,1,Psychic,62.0%,,,,,,,,,2498.23
-Oranguru,226,move,2,Trick Room,37.0%,,,,,,,,,2498.23
-Oranguru,226,move,3,Thunderbolt,30.5%,,,,,,,,,2498.23
-Oranguru,226,move,4,Focus Blast,30.0%,,,,,,,,,2498.23
-Oranguru,226,move,5,Reflect,29.7%,,,,,,,,,2498.23
-Oranguru,226,move,6,Encore,28.0%,,,,,,,,,2503.73
-Oranguru,226,move,7,Foul Play,23.9%,,,,,,,,,2503.73
-Oranguru,226,move,8,Light Screen,22.0%,,,,,,,,,2503.73
-Oranguru,226,move,9,Yawn,20.8%,,,,,,,,,2503.73
-Oranguru,226,move,10,Instruct,16.0%,,,,,,,,,2503.73
-Oranguru,226,held_item,1,Sitrus Berry,21.3%,,,,,,,,,2507.23
-Oranguru,226,held_item,2,Light Clay,17.5%,,,,,,,,,2507.23
-Oranguru,226,held_item,3,Expert Belt,13.1%,,,,,,,,,2507.23
-Oranguru,226,held_item,4,Focus Sash,11.0%,,,,,,,,,2507.23
-Oranguru,226,held_item,5,Leftovers,9.0%,,,,,,,,,2507.23
-Oranguru,226,held_item,6,Mental Herb,6.3%,,,,,,,,,2512.23
-Oranguru,226,held_item,7,Colbur Berry,4.3%,,,,,,,,,2512.23
-Oranguru,226,held_item,8,Quick Claw,2.9%,,,,,,,,,2512.23
-Oranguru,226,held_item,9,Metronome,2.8%,,,,,,,,,2512.23
-Oranguru,226,held_item,10,Lum Berry,2.4%,,,,,,,,,2512.23
-Oranguru,226,teammate,1,Mimikyu,,,,,,,,,,2515.73
-Oranguru,226,teammate,2,Archaludon,,,,,,,,,,2515.73
-Oranguru,226,teammate,3,Staraptor,,,,,,,,,,2515.73
-Oranguru,226,teammate,4,Slowbro,,,,,,,,,,2515.73
-Oranguru,226,teammate,5,Mawile,,,,,,,,,,2515.73
-Oranguru,226,teammate,6,Garchomp,,,,,,,,,,2520.73
-Oranguru,226,teammate,7,Pelipper,,,,,,,,,,2520.73
-Oranguru,226,teammate,8,Metagross,,,,,,,,,,2520.73
-Oranguru,226,teammate,9,Simipour,,,,,,,,,,2520.73
-Oranguru,226,teammate,10,Gengar,,,,,,,,,,2520.73
-Oranguru,226,stat_alignment,1,Modest,35.2%,Sp. Atk,Attack,,,,,,,2524.23
-Oranguru,226,stat_alignment,2,Relaxed,17.7%,Defense,Speed,,,,,,,2524.23
-Oranguru,226,stat_alignment,3,Calm,17.3%,Sp. Def,Attack,,,,,,,2524.23
-Oranguru,226,stat_alignment,4,Bold,13.6%,Defense,Attack,,,,,,,2524.23
-Oranguru,226,stat_alignment,5,Sassy,8.6%,Sp. Def,Speed,,,,,,,2524.23
-Oranguru,226,stat_alignment,6,Quiet,4.6%,Sp. Atk,Speed,,,,,,,2529.23
-Oranguru,226,stat_alignment,7,Timid,1.7%,Speed,Attack,,,,,,,2529.23
-Oranguru,226,stat_alignment,8,Mild,0.6%,Sp. Atk,Defense,,,,,,,2529.23
-Oranguru,226,stat_alignment,9,Hasty,0.4%,Speed,Defense,,,,,,,2529.23
-Oranguru,226,stat_alignment,10,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,,2529.23
-Oranguru,226,stat_points,1,,20.2%,,,32,0,0,32,2,0,2532.73
-Oranguru,226,stat_points,2,,13.9%,,,2,0,32,0,32,0,2532.73
-Oranguru,226,stat_points,3,,12.9%,,,32,0,32,0,2,0,2532.73
-Oranguru,226,stat_points,4,,8.7%,,,26,0,0,32,0,8,2532.73
-Oranguru,226,stat_points,5,,5.3%,,,26,0,32,0,0,8,2532.73
-Oranguru,226,stat_points,8,,2.9%,,,2,0,0,32,32,0,2544.73
-Oranguru,226,stat_points,9,,2.8%,,,32,0,2,32,0,0,2544.73
-Oranguru,226,stat_points,10,,2.1%,,,32,0,2,0,32,0,2544.73
-Oranguru,226,stat_points,11,,2.1%,,,32,0,0,0,32,0,2544.73
-Oranguru,226,stat_points,12,,1.4%,,,2,0,16,32,16,0,2544.73
-Oranguru,226,ability,1,Inner Focus,83.8%,,,,,,,,,2552.23
-Oranguru,226,ability,2,Telepathy,11.3%,,,,,,,,,2552.23
-Oranguru,226,ability,3,Symbiosis,4.9%,,,,,,,,,2552.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Oranguru,225,move,1,Psychic,61.9%,,,,,,,,
+Oranguru,225,move,2,Trick Room,39.8%,,,,,,,,
+Oranguru,225,move,3,Thunderbolt,29.5%,,,,,,,,
+Oranguru,225,move,4,Focus Blast,26.1%,,,,,,,,
+Oranguru,225,move,5,Reflect,25.0%,,,,,,,,
+Oranguru,225,move,6,Encore,23.9%,,,,,,,,
+Oranguru,225,move,7,Yawn,23.1%,,,,,,,,
+Oranguru,225,move,8,Foul Play,21.3%,,,,,,,,
+Oranguru,225,move,9,Light Screen,19.5%,,,,,,,,
+Oranguru,225,move,10,Energy Ball,16.7%,,,,,,,,
+Oranguru,225,held_item,1,Sitrus Berry,22.2%,,,,,,,,
+Oranguru,225,held_item,2,Light Clay,15.7%,,,,,,,,
+Oranguru,225,held_item,3,Leftovers,12.2%,,,,,,,,
+Oranguru,225,held_item,4,Focus Sash,10.9%,,,,,,,,
+Oranguru,225,held_item,5,Expert Belt,8.4%,,,,,,,,
+Oranguru,225,held_item,6,Mental Herb,,,,,,,,,
+Oranguru,225,held_item,7,Colbur Berry,3.1%,,,,,,,,
+Oranguru,225,held_item,8,Quick Claw,2.4%,,,,,,,,
+Oranguru,225,held_item,9,Bright Powder,2.2%,,,,,,,,
+Oranguru,225,held_item,10,Lum Berry,2.1%,,,,,,,,
+Oranguru,225,teammate,1,Archaludon,,,,,,,,,
+Oranguru,225,teammate,2,Garchomp,,,,,,,,,
+Oranguru,225,teammate,3,Snorlax,,,,,,,,,
+Oranguru,225,teammate,4,Mimikyu,,,,,,,,,
+Oranguru,225,teammate,5,Staraptor,,,,,,,,,
+Oranguru,225,teammate,6,Excadrill,,,,,,,,,
+Oranguru,225,teammate,7,Mawile,,,,,,,,,
+Oranguru,225,teammate,8,Pelipper,,,,,,,,,
+Oranguru,225,teammate,9,Basculegion Male,,,,,,,,,
+Oranguru,225,teammate,10,Metagross,,,,,,,,,
+Oranguru,225,stat_alignment,1,Modest,34.6%,Sp. Atk,Attack,,,,,,
+Oranguru,225,stat_alignment,2,Relaxed,19.0%,Defense,Speed,,,,,,
+Oranguru,225,stat_alignment,3,Bold,14.8%,Defense,Attack,,,,,,
+Oranguru,225,stat_alignment,4,Calm,14.6%,Sp. Def,Attack,,,,,,
+Oranguru,225,stat_alignment,5,Sassy,7.8%,Sp. Def,Speed,,,,,,
+Oranguru,225,stat_alignment,6,Quiet,5.4%,Sp. Atk,Speed,,,,,,
+Oranguru,225,stat_alignment,7,Mild,1.6%,Sp. Atk,Defense,,,,,,
+Oranguru,225,stat_alignment,8,Timid,1.6%,Speed,Attack,,,,,,
+Oranguru,225,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
+Oranguru,225,stat_alignment,10,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Oranguru,225,stat_points,1,,15.0%,,,32,0,0,32,2,0
+Oranguru,225,stat_points,2,,12.1%,,,2,0,32,0,32,0
+Oranguru,225,stat_points,3,,10.0%,,,32,0,32,0,2,0
+Oranguru,225,stat_points,4,,9.5%,,,26,0,0,32,0,8
+Oranguru,225,stat_points,5,,4.9%,,,32,0,2,0,32,0
+Oranguru,225,stat_points,6,,4.7%,,,26,0,32,0,0,8
+Oranguru,225,stat_points,7,,3.2%,,,2,0,0,32,32,0
+Oranguru,225,stat_points,8,,2.9%,,,32,0,0,0,32,0
+Oranguru,225,stat_points,9,,2.9%,,,32,0,2,32,0,0
+Oranguru,225,stat_points,10,,2.4%,,,32,0,32,0,0,0
+Oranguru,225,stat_points,11,,1.9%,,,0,0,32,32,2,0
+Oranguru,225,ability,1,Inner Focus,80.7%,,,,,,,,
+Oranguru,225,ability,2,Telepathy,14.3%,,,,,,,,
+Oranguru,225,ability,3,Symbiosis,5.1%,,,,,,,,

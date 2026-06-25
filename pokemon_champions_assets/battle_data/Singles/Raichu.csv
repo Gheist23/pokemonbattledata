@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Raichu,5,move,1,Zap Cannon,96.0%,,,,,,,,,8676.23
-Raichu,5,move,2,Focus Blast,95.4%,,,,,,,,,8676.23
-Raichu,5,move,3,Grass Knot,74.5%,,,,,,,,,8676.23
-Raichu,5,move,4,Volt Switch,27.6%,,,,,,,,,8676.23
-Raichu,5,move,5,Substitute,20.7%,,,,,,,,,8676.23
-Raichu,5,move,6,Alluring Voice,14.6%,,,,,,,,,8682.73
-Raichu,5,move,7,Fake Out,11.5%,,,,,,,,,8682.73
-Raichu,5,move,8,Encore,10.1%,,,,,,,,,8682.73
-Raichu,5,move,9,Nasty Plot,8.8%,,,,,,,,,8682.73
-Raichu,5,move,10,Dazzling Gleam,7.8%,,,,,,,,,8682.73
-Raichu,5,held_item,1,Raichunite,96.4%,,,,,,,,,8685.73
-Raichu,5,held_item,2,Raichunite,2.8%,,,,,,,,,8685.73
-Raichu,5,held_item,3,Focus Sash,0.3%,,,,,,,,,8685.73
-Raichu,5,held_item,4,Choice Scarf,0.0%,,,,,,,,,8685.73
-Raichu,5,held_item,5,Life Orb,0.0%,,,,,,,,,8685.73
-Raichu,5,held_item,6,Light Clay,0.0%,,,,,,,,,8690.73
-Raichu,5,held_item,7,Sitrus Berry,0.0%,,,,,,,,,8690.73
-Raichu,5,held_item,8,Focus Band,0.0%,,,,,,,,,8690.73
-Raichu,5,held_item,9,Quick Claw,0.0%,,,,,,,,,8690.73
-Raichu,5,held_item,10,Charizardite,0.0%,,,,,,,,,8690.73
-Raichu,5,teammate,1,Garchomp,,,,,,,,,,8694.23
-Raichu,5,teammate,2,Meowscarada,,,,,,,,,,8694.23
-Raichu,5,teammate,3,Mimikyu,,,,,,,,,,8694.23
-Raichu,5,teammate,4,Archaludon,,,,,,,,,,8694.23
-Raichu,5,teammate,5,Corviknight,,,,,,,,,,8694.23
-Raichu,5,teammate,6,Staraptor,,,,,,,,,,8699.73
-Raichu,5,teammate,7,Basculegion,,,,,,,,,,8699.73
-Raichu,5,teammate,8,Primarina,,,,,,,,,,8699.73
-Raichu,5,teammate,9,Hippowdon,,,,,,,,,,8699.73
-Raichu,5,teammate,10,Metagross,,,,,,,,,,8699.73
-Raichu,5,stat_alignment,1,Timid,76.4%,Speed,Attack,,,,,,,8703.23
-Raichu,5,stat_alignment,2,Modest,17.1%,Sp. Atk,Attack,,,,,,,8703.23
-Raichu,5,stat_alignment,3,Jolly,4.2%,Speed,Sp. Atk,,,,,,,8703.23
-Raichu,5,stat_alignment,4,Hasty,0.8%,Speed,Defense,,,,,,,8703.23
-Raichu,5,stat_alignment,5,Naive,0.5%,Speed,Sp. Def,,,,,,,8703.23
-Raichu,5,stat_alignment,6,Adamant,0.3%,Attack,Sp. Atk,,,,,,,8708.23
-Raichu,5,stat_alignment,7,Mild,0.3%,Sp. Atk,Defense,,,,,,,8708.23
-Raichu,5,stat_alignment,8,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,,8708.23
-Raichu,5,stat_alignment,9,Bold,0.1%,Defense,Attack,,,,,,,8708.23
-Raichu,5,stat_alignment,10,Calm,0.0%,Sp. Def,Attack,,,,,,,8708.23
-Raichu,5,stat_points,1,,77.6%,,,2,0,0,32,0,32,8711.73
-Raichu,5,stat_points,2,,4.9%,,,2,32,0,0,0,32,8711.73
-Raichu,5,stat_points,3,,4.2%,,,0,0,2,32,0,32,8711.73
-Raichu,5,stat_points,4,,1.6%,,,0,0,0,32,2,32,8711.73
-Raichu,5,stat_points,5,,0.9%,,,0,0,0,32,0,32,8711.73
-Raichu,5,stat_points,8,,0.5%,,,0,2,0,32,0,32,8723.73
-Raichu,5,stat_points,9,,0.4%,,,32,0,1,12,1,20,8723.73
-Raichu,5,stat_points,10,,0.3%,,,32,0,0,2,0,32,8723.73
-Raichu,5,stat_points,11,,0.3%,,,20,0,0,14,0,32,8723.73
-Raichu,5,stat_points,12,,0.2%,,,1,0,0,32,0,32,8723.73
-Raichu,5,ability,1,Lightning Rod,87.4%,,,,,,,,,8731.23
-Raichu,5,ability,2,Static,12.6%,,,,,,,,,8731.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Raichu,5,move,1,Zap Cannon,96.0%,,,,,,,,
+Raichu,5,move,2,Focus Blast,95.4%,,,,,,,,
+Raichu,5,move,3,Grass Knot,74.1%,,,,,,,,
+Raichu,5,move,4,Volt Switch,28.3%,,,,,,,,
+Raichu,5,move,5,Substitute,20.8%,,,,,,,,
+Raichu,5,move,6,Alluring Voice,14.7%,,,,,,,,
+Raichu,5,move,7,Fake Out,11.7%,,,,,,,,
+Raichu,5,move,8,Encore,9.4%,,,,,,,,
+Raichu,5,move,9,Nasty Plot,8.2%,,,,,,,,
+Raichu,5,move,10,Trailblaze,7.6%,,,,,,,,
+Raichu,5,held_item,1,Raichunite Y,96.4%,,,,,,,,
+Raichu,5,held_item,2,Raichunite X,2.8%,,,,,,,,
+Raichu,5,held_item,3,Focus Sash,0.3%,,,,,,,,
+Raichu,5,held_item,4,Life Orb,0.0%,,,,,,,,
+Raichu,5,held_item,5,Choice Scarf,0.0%,,,,,,,,
+Raichu,5,held_item,6,Light Clay,0.0%,,,,,,,,
+Raichu,5,held_item,7,Sitrus Berry,0.0%,,,,,,,,
+Raichu,5,held_item,8,Magnet,0.0%,,,,,,,,
+Raichu,5,held_item,9,Quick Claw,0.0%,,,,,,,,
+Raichu,5,held_item,10,Focus Band,0.0%,,,,,,,,
+Raichu,5,teammate,1,Garchomp,,,,,,,,,
+Raichu,5,teammate,2,Meowscarada,,,,,,,,,
+Raichu,5,teammate,3,Mimikyu,,,,,,,,,
+Raichu,5,teammate,4,Corviknight,,,,,,,,,
+Raichu,5,teammate,5,Archaludon,,,,,,,,,
+Raichu,5,teammate,6,Staraptor,,,,,,,,,
+Raichu,5,teammate,7,Basculegion Male,,,,,,,,,
+Raichu,5,teammate,8,Primarina,,,,,,,,,
+Raichu,5,teammate,9,Metagross,,,,,,,,,
+Raichu,5,teammate,10,Alolan Ninetales,,,,,,,,,
+Raichu,5,stat_alignment,1,Timid,76.7%,Speed,Attack,,,,,,
+Raichu,5,stat_alignment,2,Modest,16.5%,Sp. Atk,Attack,,,,,,
+Raichu,5,stat_alignment,3,Jolly,4.4%,Speed,Sp. Atk,,,,,,
+Raichu,5,stat_alignment,4,Hasty,0.9%,Speed,Defense,,,,,,
+Raichu,5,stat_alignment,5,Naive,0.6%,Speed,Sp. Def,,,,,,
+Raichu,5,stat_alignment,6,Adamant,0.3%,Attack,Sp. Atk,,,,,,
+Raichu,5,stat_alignment,7,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Raichu,5,stat_alignment,8,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
+Raichu,5,stat_alignment,9,Bold,0.1%,Defense,Attack,,,,,,
+Raichu,5,stat_alignment,10,Calm,0.0%,Sp. Def,Attack,,,,,,
+Raichu,5,stat_points,1,,77.8%,,,2,0,0,32,0,32
+Raichu,5,stat_points,2,,5.3%,,,2,32,0,0,0,32
+Raichu,5,stat_points,3,,4.0%,,,0,0,2,32,0,32
+Raichu,5,stat_points,4,,1.6%,,,0,0,0,32,2,32
+Raichu,5,stat_points,5,,0.9%,,,0,0,0,32,0,32
+Raichu,5,stat_points,6,,0.5%,,,1,0,1,32,0,32
+Raichu,5,stat_points,7,,0.5%,,,0,0,1,32,1,32
+Raichu,5,stat_points,8,,0.5%,,,0,2,0,32,0,32
+Raichu,5,stat_points,9,,0.3%,,,32,0,0,2,0,32
+Raichu,5,stat_points,10,,0.3%,,,20,0,0,14,0,32
+Raichu,5,stat_points,11,,0.3%,,,32,0,1,12,1,20
+Raichu,5,stat_points,12,,0.2%,,,1,0,0,32,0,32
+Raichu,5,ability,1,Lightning Rod,87.2%,,,,,,,,
+Raichu,5,ability,2,Static,12.8%,,,,,,,,

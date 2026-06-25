@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Orthworm,140,move,1,Body Press,85.9%,,,,,,,,,2025.7
-Orthworm,140,move,2,Shed Tail,83.6%,,,,,,,,,2025.7
-Orthworm,140,move,3,Heavy Slam,69.1%,,,,,,,,,2025.7
-Orthworm,140,move,4,lron,45.7%,,,,,,,,,2025.7
-Orthworm,140,move,5,Protect,42.1%,,,,,,,,,2025.7
-Orthworm,140,move,6,Helping Hand,15.1%,,,,,,,,,2031.2
-Orthworm,140,move,7,Iron Head,12.0%,,,,,,,,,2031.2
-Orthworm,140,move,8,Coil,5.6%,,,,,,,,,2031.2
-Orthworm,140,move,9,Rock Slide,5.5%,,,,,,,,,2031.2
-Orthworm,140,move,10,Metal Burst,4.1%,,,,,,,,,2031.2
-Orthworm,140,held_item,1,Sitrus Berry,71.2%,,,,,,,,,2034.7
-Orthworm,140,held_item,2,Leftovers,15.5%,,,,,,,,,2034.7
-Orthworm,140,held_item,3,Chople Berry,4.7%,,,,,,,,,2034.7
-Orthworm,140,held_item,4,Occa Berry,2.2%,,,,,,,,,2034.7
-Orthworm,140,held_item,5,Life Orb,1.4%,,,,,,,,,2034.7
-Orthworm,140,held_item,6,Choice Scarf,1.4%,,,,,,,,,2039.7
-Orthworm,140,held_item,7,Bright Powder,0.8%,,,,,,,,,2039.7
-Orthworm,140,held_item,8,Quick Claw,0.7%,,,,,,,,,2039.7
-Orthworm,140,held_item,9,Focus Sash,0.7%,,,,,,,,,2039.7
-Orthworm,140,held_item,10,Lum Berry,0.3%,,,,,,,,,2039.7
-Orthworm,140,teammate,1,Garchomp,,,,,,,,,,2043.2
-Orthworm,140,teammate,2,Incineroar,,,,,,,,,,2043.2
-Orthworm,140,teammate,3,Raichu,,,,,,,,,,2043.2
-Orthworm,140,teammate,4,Sinistcha,,,,,,,,,,2043.2
-Orthworm,140,teammate,5,Basculegion,,,,,,,,,,2043.2
-Orthworm,140,teammate,6,Whimsicott,,,,,,,,,,2048.23
-Orthworm,140,teammate,7,Froslass,,,,,,,,,,2048.23
-Orthworm,140,teammate,8,Tyranitar,,,,,,,,,,2048.23
-Orthworm,140,teammate,9,Sylveon,,,,,,,,,,2048.23
-Orthworm,140,teammate,10,Sneasler,,,,,,,,,,2048.23
-Orthworm,140,stat_alignment,1,Impish,36.8%,Defense,Sp. Atk,,,,,,,2051.73
-Orthworm,140,stat_alignment,2,Relaxed,24.0%,Defense,Speed,,,,,,,2051.73
-Orthworm,140,stat_alignment,3,Careful,16.2%,Sp. Def,Sp. Atk,,,,,,,2051.73
-Orthworm,140,stat_alignment,4,Sassy,9.6%,Sp. Def,Speed,,,,,,,2051.73
-Orthworm,140,stat_alignment,5,Adamant,4.2%,Attack,Sp. Atk,,,,,,,2051.73
-Orthworm,140,stat_alignment,6,Jolly,2.0%,Speed,Sp. Atk,,,,,,,2056.73
-Orthworm,140,stat_alignment,7,Brave,1.9%,Attack,Speed,,,,,,,2056.73
-Orthworm,140,stat_alignment,8,Bold,1.5%,Defense,Attack,,,,,,,2056.73
-Orthworm,140,stat_alignment,9,Calm,1.2%,Sp. Def,Attack,,,,,,,2056.73
-Orthworm,140,stat_alignment,10,Timid,1.1%,Speed,Attack,,,,,,,2056.73
-Orthworm,140,stat_points,1,,14.3%,,,32,0,5,0,29,0,2060.23
-Orthworm,140,stat_points,2,,11.6%,,,32,0,32,0,2,0,2060.23
-Orthworm,140,stat_points,3,,10.9%,,,32,0,2,0,32,0,2060.23
-Orthworm,140,stat_points,4,,4.0%,,,0,32,2,0,32,0,2060.23
-Orthworm,140,stat_points,5,,3.8%,,,32,0,32,0,0,2,2060.23
-Orthworm,140,stat_points,8,,1.9%,,,31,0,5,0,30,0,2072.23
-Orthworm,140,stat_points,9,,1.6%,,,31,0,15,0,20,0,2072.23
-Orthworm,140,stat_points,10,,1.5%,,,2,32,32,0,0,0,2072.23
-Orthworm,140,stat_points,11,,1.4%,,,32,0,32,0,0,0,2072.23
-Orthworm,140,stat_points,12,,1.4%,,,32,0,17,0,17,0,2072.23
-Orthworm,140,ability,1,Earth Eater,99.9%,,,,,,,,,2079.73
-Orthworm,140,ability,2,Sand Veil,0.1%,,,,,,,,,2079.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Orthworm,141,move,1,Body Press,87.0%,,,,,,,,
+Orthworm,141,move,2,Shed Tail,81.9%,,,,,,,,
+Orthworm,141,move,3,Heavy Slam,67.2%,,,,,,,,
+Orthworm,141,move,4,Iron Defense,48.3%,,,,,,,,
+Orthworm,141,move,5,Protect,41.5%,,,,,,,,
+Orthworm,141,move,6,Helping Hand,15.0%,,,,,,,,
+Orthworm,141,move,7,Iron Head,13.6%,,,,,,,,
+Orthworm,141,move,8,Rock Slide,5.5%,,,,,,,,
+Orthworm,141,move,9,Stealth Rock,4.9%,,,,,,,,
+Orthworm,141,move,10,Coil,4.8%,,,,,,,,
+Orthworm,141,held_item,1,Sitrus Berry,68.6%,,,,,,,,
+Orthworm,141,held_item,2,Leftovers,18.0%,,,,,,,,
+Orthworm,141,held_item,3,Chople Berry,4.5%,,,,,,,,
+Orthworm,141,held_item,4,Occa Berry,2.1%,,,,,,,,
+Orthworm,141,held_item,5,Life Orb,1.4%,,,,,,,,
+Orthworm,141,held_item,6,Quick Claw,1.1%,,,,,,,,
+Orthworm,141,held_item,7,Choice Scarf,0.8%,,,,,,,,
+Orthworm,141,held_item,8,Focus Sash,0.7%,,,,,,,,
+Orthworm,141,held_item,9,Bright Powder,0.6%,,,,,,,,
+Orthworm,141,held_item,10,Lum Berry,0.4%,,,,,,,,
+Orthworm,141,teammate,1,Garchomp,,,,,,,,,
+Orthworm,141,teammate,2,Incineroar,,,,,,,,,
+Orthworm,141,teammate,3,Sinistcha,,,,,,,,,
+Orthworm,141,teammate,4,Basculegion Male,,,,,,,,,
+Orthworm,141,teammate,5,Froslass,,,,,,,,,
+Orthworm,141,teammate,6,Whimsicott,,,,,,,,,
+Orthworm,141,teammate,7,Raichu,,,,,,,,,
+Orthworm,141,teammate,8,Tyranitar,,,,,,,,,
+Orthworm,141,teammate,9,Sneasler,,,,,,,,,
+Orthworm,141,teammate,10,Sableye,,,,,,,,,
+Orthworm,141,stat_alignment,1,Impish,37.3%,Defense,Sp. Atk,,,,,,
+Orthworm,141,stat_alignment,2,Relaxed,24.4%,Defense,Speed,,,,,,
+Orthworm,141,stat_alignment,3,Careful,17.2%,Sp. Def,Sp. Atk,,,,,,
+Orthworm,141,stat_alignment,4,Sassy,8.1%,Sp. Def,Speed,,,,,,
+Orthworm,141,stat_alignment,5,Adamant,4.3%,Attack,Sp. Atk,,,,,,
+Orthworm,141,stat_alignment,6,Brave,2.2%,Attack,Speed,,,,,,
+Orthworm,141,stat_alignment,7,Jolly,2.0%,Speed,Sp. Atk,,,,,,
+Orthworm,141,stat_alignment,8,Bold,1.2%,Defense,Attack,,,,,,
+Orthworm,141,stat_alignment,9,Gentle,0.9%,Sp. Def,Defense,,,,,,
+Orthworm,141,stat_alignment,10,Calm,0.9%,Sp. Def,Attack,,,,,,
+Orthworm,141,stat_points,1,,15.7%,,,32,0,5,0,29,0
+Orthworm,141,stat_points,2,,12.7%,,,32,0,32,0,2,0
+Orthworm,141,stat_points,3,,10.4%,,,32,0,2,0,32,0
+Orthworm,141,stat_points,4,,2.9%,,,2,0,32,0,32,0
+Orthworm,141,stat_points,5,,2.9%,,,32,0,32,0,0,2
+Orthworm,141,stat_points,6,,2.8%,,,32,2,32,0,0,0
+Orthworm,141,stat_points,7,,2.3%,,,0,32,2,0,32,0
+Orthworm,141,stat_points,8,,1.8%,,,32,0,32,0,0,0
+Orthworm,141,stat_points,9,,1.8%,,,2,32,32,0,0,0
+Orthworm,141,stat_points,10,,1.7%,,,31,0,3,0,32,0
+Orthworm,141,stat_points,11,,1.5%,,,32,2,0,0,32,0
+Orthworm,141,stat_points,12,,1.4%,,,31,0,15,0,20,0
+Orthworm,141,ability,1,Earth Eater,99.7%,,,,,,,,
+Orthworm,141,ability,2,Sand Veil,0.3%,,,,,,,,

@@ -1,51 +1,34 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Simisage,232,move,1,Fake Out,78.1%,,,,,,,,,292.67
-Simisage,232,move,2,Taunt,53.8%,,,,,,,,,292.67
-Simisage,232,move,3,Helping Hand,46.2%,,,,,,,,,292.67
-Simisage,232,move,4,Rock Tomb,45.6%,,,,,,,,,292.67
-Simisage,232,move,5,Seed Bomb,23.1%,,,,,,,,,292.67
-Simisage,232,move,6,Leaf Storm,22.5%,,,,,,,,,298.17
-Simisage,232,move,7,Rock Slide,21.3%,,,,,,,,,298.17
-Simisage,232,move,8,Focus Blast,19.5%,,,,,,,,,298.17
-Simisage,232,move,9,Crunch,18.9%,,,,,,,,,298.17
-Simisage,232,move,10,Leech Seed,18.3%,,,,,,,,,298.17
-Simisage,232,held_item,1,Focus Sash,62.7%,,,,,,,,,301.67
-Simisage,232,held_item,2,Miracle Seed,17.8%,,,,,,,,,301.67
-Simisage,232,held_item,3,King's Rock,7.1%,,,,,,,,,301.67
-Simisage,232,held_item,4,Hard Stone,4.7%,,,,,,,,,301.67
-Simisage,232,held_item,5,Sitrus Berry,2.4%,,,,,,,,,301.67
-Simisage,232,held_item,6,Occa Berry,2.4%,,,,,,,,,306.67
-Simisage,232,held_item,7,Black Belt,0.6%,,,,,,,,,306.67
-Simisage,232,held_item,8,Wide Lens,0.6%,,,,,,,,,306.67
-Simisage,232,held_item,9,Expert Belt,0.6%,,,,,,,,,306.67
-Simisage,232,held_item,10,Choice Scarf,0.6%,,,,,,,,,306.67
-Simisage,232,teammate,1,Sylveon,,,,,,,,,,310.17
-Simisage,232,teammate,2,Raichu,,,,,,,,,,310.17
-Simisage,232,teammate,3,Torkoal,,,,,,,,,,310.17
-Simisage,232,teammate,4,Crabominable,,,,,,,,,,310.17
-Simisage,232,teammate,5,Farigiraf,,,,,,,,,,310.17
-Simisage,232,teammate,6,Talonflame,,,,,,,,,,315.17
-Simisage,232,teammate,7,Camerupt,,,,,,,,,,315.17
-Simisage,232,teammate,8,Spiritomb,,,,,,,,,,315.17
-Simisage,232,teammate,9,Mamoswine,,,,,,,,,,315.17
-Simisage,232,teammate,10,Morpeko,,,,,,,,,,315.17
-Simisage,232,stat_alignment,1,Jolly,66.3%,Speed,Sp. Atk,,,,,,,318.67
-Simisage,232,stat_alignment,2,Calm,18.3%,Sp. Def,Attack,,,,,,,318.67
-Simisage,232,stat_alignment,3,Timid,7.1%,Speed,Attack,,,,,,,318.67
-Simisage,232,stat_alignment,4,Adamant,4.1%,Attack,Sp. Atk,,,,,,,318.67
-Simisage,232,stat_alignment,5,Naive,1.8%,Speed,Sp. Def,,,,,,,318.67
-Simisage,232,stat_alignment,6,Naive,1.8%,Speed,Sp. Def,,,,,,,323.17
-Simisage,232,stat_alignment,7,Modest,1.8%,Sp. Atk,Attack,,,,,,,323.17
-Simisage,232,stat_alignment,8,Mild,0.6%,Sp. Atk,Defense,,,,,,,323.17
-Simisage,232,stat_points,1,,45.0%,,,1,0,1,0,32,32,327.17
-Simisage,232,stat_points,2,,17.8%,,,0,0,0,32,32,2,327.17
-Simisage,232,stat_points,3,,10.7%,,,0,32,2,0,0,32,327.17
-Simisage,232,stat_points,4,,5.9%,,,20,0,0,14,0,32,327.17
-Simisage,232,stat_points,5,,5.3%,,,1,32,1,0,0,32,327.17
-Simisage,232,stat_points,8,,1.8%,,,2,20,10,0,2,32,339.17
-Simisage,232,stat_points,9,,1.8%,,,10,9,3,12,0,32,339.17
-Simisage,232,stat_points,10,,1.2%,,,2,0,0,32,0,32,339.17
-Simisage,232,stat_points,11,,1.2%,,,32,0,2,0,0,32,339.17
-Simisage,232,stat_points,12,,0.6%,,,2,0,32,0,32,0,339.17
-Simisage,232,ability,1,Overgrow,72.2%,,,,,,,,,346.17
-Simisage,232,ability,2,Gluttony,27.8%,,,,,,,,,346.17
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Simisage,232,move,1,Fake Out,84.7%,,,,,,,,
+Simisage,232,move,2,Seed Bomb,40.9%,,,,,,,,
+Simisage,232,move,3,Taunt,40.3%,,,,,,,,
+Simisage,232,move,4,Protect,33.4%,,,,,,,,
+Simisage,232,move,5,Rock Slide,32.9%,,,,,,,,
+Simisage,232,held_item,1,Focus Sash,54.8%,,,,,,,,
+Simisage,232,held_item,2,Miracle Seed,11.0%,,,,,,,,
+Simisage,232,held_item,3,Sitrus Berry,6.6%,,,,,,,,
+Simisage,232,held_item,4,Occa Berry,6.1%,,,,,,,,
+Simisage,232,held_item,5,King's Rock,6.1%,,,,,,,,
+Simisage,232,teammate,1,Sylveon,,,,,,,,,
+Simisage,232,teammate,2,Raichu,,,,,,,,,
+Simisage,232,teammate,3,Annihilape,,,,,,,,,
+Simisage,232,teammate,4,Torkoal,,,,,,,,,
+Simisage,232,teammate,5,Talonflame,,,,,,,,,
+Simisage,232,stat_alignment,1,Jolly,59.4%,Speed,Sp. Atk,,,,,,
+Simisage,232,stat_alignment,2,Adamant,13.0%,Attack,Sp. Atk,,,,,,
+Simisage,232,stat_alignment,3,Calm,8.9%,Sp. Def,Attack,,,,,,
+Simisage,232,stat_alignment,4,Timid,8.1%,Speed,Attack,,,,,,
+Simisage,232,stat_alignment,5,Modest,5.8%,Sp. Atk,Attack,,,,,,
+Simisage,232,stat_points,1,,28.2%,,,2,32,0,0,0,32
+Simisage,232,stat_points,2,,21.9%,,,1,0,1,0,32,32
+Simisage,232,stat_points,3,,10.4%,,,0,0,0,32,32,2
+Simisage,232,stat_points,4,,8.4%,,,0,32,2,0,0,32
+Simisage,232,stat_points,5,,4.3%,,,2,0,0,32,0,32
+Simisage,232,stat_points,6,,4.3%,,,4,32,0,0,0,20
+Simisage,232,stat_points,7,,2.9%,,,0,32,0,0,2,32
+Simisage,232,stat_points,8,,2.9%,,,20,0,0,14,0,32
+Simisage,232,stat_points,9,,2.6%,,,1,32,1,0,0,32
+Simisage,232,stat_points,10,,2.3%,,,0,0,0,32,2,32
+Simisage,232,stat_points,11,,1.7%,,,0,32,17,0,0,17
+Simisage,232,ability,1,Overgrow,78.7%,,,,,,,,
+Simisage,232,ability,2,Gluttony,21.3%,,,,,,,,

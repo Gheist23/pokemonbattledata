@@ -1,54 +1,56 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Audino,213,move,1,Trick Room,66.5%,,,,,,,,,1694.7
-Audino,213,move,2,Healing Wish,64.5%,,,,,,,,,1694.7
-Audino,213,move,3,Yawn,57.4%,,,,,,,,,1694.7
-Audino,213,move,4,Encore,40.2%,,,,,,,,,1694.7
-Audino,213,move,5,Ice Beam,24.8%,,,,,,,,,1694.7
-Audino,213,move,6,Wish,16.3%,,,,,,,,,1699.2
-Audino,213,move,7,Draining Kiss,15.3%,,,,,,,,,1699.2
-Audino,213,move,8,Calm Mind,14.9%,,,,,,,,,1699.2
-Audino,213,move,9,Flamethrower,13.3%,,,,,,,,,1699.2
-Audino,213,move,10,Reflect,0.9%,,,,,,,,,1699.2
-Audino,213,held_item,1,Chople Berry,27.9%,,,,,,,,,1702.7
-Audino,213,held_item,2,Sitrus Berry,24.3%,,,,,,,,,1702.7
-Audino,213,held_item,3,Audinite,23.6%,,,,,,,,,1702.7
-Audino,213,held_item,4,Leftovers,7.3%,,,,,,,,,1702.7
-Audino,213,held_item,5,Mental Herb,5.9%,,,,,,,,,1702.7
-Audino,213,held_item,6,Light Clay,3.9%,,,,,,,,,1707.7
-Audino,213,held_item,7,Focus Sash,1.4%,,,,,,,,,1707.7
-Audino,213,held_item,8,Quick Claw,1.2%,,,,,,,,,1707.7
-Audino,213,held_item,9,White Herb,0.7%,,,,,,,,,1707.7
-Audino,213,held_item,10,Light Ball,0.7%,,,,,,,,,1707.7
-Audino,213,teammate,1,Mawile,,,,,,,,,,1711.2
-Audino,213,teammate,2,Garchomp,,,,,,,,,,1711.2
-Audino,213,teammate,3,Mimikyu,,,,,,,,,,1711.2
-Audino,213,teammate,4,Raichu,,,,,,,,,,1711.2
-Audino,213,teammate,5,Dragalge,,,,,,,,,,1711.2
-Audino,213,teammate,6,Blastoise,,,,,,,,,,1716.2
-Audino,213,teammate,7,Rotom Heat,,,,,,,,,,1716.2
-Audino,213,teammate,8,Hydreigon,,,,,,,,,,1716.2
-Audino,213,teammate,9,Archaludon,,,,,,,,,,1716.2
-Audino,213,teammate,10,Starmie,,,,,,,,,,1716.2
-Audino,213,stat_alignment,1,Relaxed,41.6%,Defense,Speed,,,,,,,1719.7
-Audino,213,stat_alignment,2,Bold,24.9%,Defense,Attack,,,,,,,1719.7
-Audino,213,stat_alignment,3,Calm,13.1%,Sp. Def,Attack,,,,,,,1719.7
-Audino,213,stat_alignment,4,Modest,8.7%,Sp. Atk,Attack,,,,,,,1719.7
-Audino,213,stat_alignment,5,Sassy,6.8%,Sp. Def,Speed,,,,,,,1719.7
-Audino,213,stat_alignment,6,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,,1724.7
-Audino,213,stat_alignment,7,Impish,1.4%,Defense,Sp. Atk,,,,,,,1724.7
-Audino,213,stat_alignment,8,Quiet,0.8%,Sp. Atk,Speed,,,,,,,1724.7
-Audino,213,stat_alignment,9,Timid,0.5%,Speed,Attack,,,,,,,1724.7
-Audino,213,stat_alignment,10,Jolly,0.3%,Speed,Sp. Atk,,,,,,,1724.7
-Audino,213,stat_points,1,,29.2%,,,32,0,32,0,2,0,1728.2
-Audino,213,stat_points,2,,11.1%,,,32,0,24,0,10,0,1728.2
-Audino,213,stat_points,3,,9.7%,,,32,0,2,0,32,0,1728.2
-Audino,213,stat_points,4,,7.2%,,,31,0,32,0,3,0,1728.2
-Audino,213,stat_points,5,,2.8%,,,29,0,32,0,5,0,1728.2
-Audino,213,stat_points,8,,2.1%,,,32,0,22,0,12,0,1740.2
-Audino,213,stat_points,9,,2.0%,,,10,0,32,0,24,0,1740.2
-Audino,213,stat_points,10,,1.7%,,,32,0,0,32,2,0,1740.2
-Audino,213,stat_points,11,,1.5%,,,32,0,0,0,32,0,1740.2
-Audino,213,stat_points,12,,1.4%,,,32,0,1,32,1,0,1740.2
-Audino,213,ability,1,Regenerator,89.7%,,,,,,,,,1747.7
-Audino,213,ability,2,Healer,7.9%,,,,,,,,,1747.7
-Audino,213,ability,3,Klutz,2.4%,,,,,,,,,1747.7
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Audino,206,move,1,Healing Wish,68.0%,,,,,,,,
+Audino,206,move,2,Trick Room,64.4%,,,,,,,,
+Audino,206,move,3,Yawn,59.8%,,,,,,,,
+Audino,206,move,4,Encore,45.0%,,,,,,,,
+Audino,206,move,5,Ice Beam,22.4%,,,,,,,,
+Audino,206,move,6,Wish,17.5%,,,,,,,,
+Audino,206,move,7,Calm Mind,16.0%,,,,,,,,
+Audino,206,move,8,Draining Kiss,15.6%,,,,,,,,
+Audino,206,move,9,Flamethrower,12.6%,,,,,,,,
+Audino,206,move,10,Reflect,8.4%,,,,,,,,
+Audino,206,held_item,1,Sitrus Berry,32.4%,,,,,,,,
+Audino,206,held_item,2,Audinite,24.2%,,,,,,,,
+Audino,206,held_item,3,Chople Berry,21.5%,,,,,,,,
+Audino,206,held_item,4,Leftovers,6.4%,,,,,,,,
+Audino,206,held_item,5,Mental Herb,4.2%,,,,,,,,
+Audino,206,held_item,6,Light Clay,3.4%,,,,,,,,
+Audino,206,held_item,7,Focus Sash,1.9%,,,,,,,,
+Audino,206,held_item,8,Quick Claw,1.6%,,,,,,,,
+Audino,206,held_item,9,Chesto Berry,1.0%,,,,,,,,
+Audino,206,held_item,10,Bright Powder,0.5%,,,,,,,,
+Audino,206,teammate,1,Mawile,,,,,,,,,
+Audino,206,teammate,2,Garchomp,,,,,,,,,
+Audino,206,teammate,3,Mimikyu,,,,,,,,,
+Audino,206,teammate,4,Rotom Heat,,,,,,,,,
+Audino,206,teammate,5,Archaludon,,,,,,,,,
+Audino,206,teammate,6,Delphox,,,,,,,,,
+Audino,206,teammate,7,Sinistcha,,,,,,,,,
+Audino,206,teammate,8,Starmie,,,,,,,,,
+Audino,206,teammate,9,Meowscarada,,,,,,,,,
+Audino,206,teammate,10,Gyarados,,,,,,,,,
+Audino,206,stat_alignment,1,Relaxed,37.1%,Defense,Speed,,,,,,
+Audino,206,stat_alignment,2,Bold,29.4%,Defense,Attack,,,,,,
+Audino,206,stat_alignment,3,Calm,12.1%,Sp. Def,Attack,,,,,,
+Audino,206,stat_alignment,4,Modest,8.1%,Sp. Atk,Attack,,,,,,
+Audino,206,stat_alignment,5,Sassy,7.5%,Sp. Def,Speed,,,,,,
+Audino,206,stat_alignment,6,Quiet,2.4%,Sp. Atk,Speed,,,,,,
+Audino,206,stat_alignment,7,Careful,1.2%,Sp. Def,Sp. Atk,,,,,,
+Audino,206,stat_alignment,8,Impish,1.0%,Defense,Sp. Atk,,,,,,
+Audino,206,stat_alignment,9,Timid,0.4%,Speed,Attack,,,,,,
+Audino,206,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
+Audino,206,stat_points,1,,24.0%,,,32,0,32,0,2,0
+Audino,206,stat_points,2,,18.3%,,,32,0,24,0,10,0
+Audino,206,stat_points,3,,7.7%,,,32,0,2,0,32,0
+Audino,206,stat_points,4,,6.6%,,,31,0,32,0,3,0
+Audino,206,stat_points,5,,2.4%,,,32,0,2,32,0,0
+Audino,206,stat_points,6,,2.3%,,,32,0,0,0,32,0
+Audino,206,stat_points,7,,2.3%,,,32,0,14,0,20,0
+Audino,206,stat_points,8,,2.0%,,,32,0,22,0,12,0
+Audino,206,stat_points,9,,2.0%,,,29,0,32,0,5,0
+Audino,206,stat_points,10,,1.4%,,,32,0,0,32,2,0
+Audino,206,stat_points,11,,1.4%,,,32,0,1,32,1,0
+Audino,206,stat_points,12,,1.1%,,,2,0,32,0,32,0
+Audino,206,ability,1,Regenerator,92.6%,,,,,,,,
+Audino,206,ability,2,Healer,5.5%,,,,,,,,
+Audino,206,ability,3,Klutz,1.9%,,,,,,,,

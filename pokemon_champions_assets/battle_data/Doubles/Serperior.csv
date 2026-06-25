@@ -1,53 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Serperior,108,move,1,Leaf Storm,99.2%,,,,,,,,,7188.73
-Serperior,108,move,2,Protect,71.9%,,,,,,,,,7188.73
-Serperior,108,move,3,Dragon Pulse,63.6%,,,,,,,,,7188.73
-Serperior,108,move,4,Glare,33.8%,,,,,,,,,7188.73
-Serperior,108,move,5,Giga Drain,32.6%,,,,,,,,,7188.73
-Serperior,108,move,6,Reflect,15.0%,,,,,,,,,7195.23
-Serperior,108,move,7,Taunt,14.1%,,,,,,,,,7195.23
-Serperior,108,move,8,Light Screen,13.9%,,,,,,,,,7195.23
-Serperior,108,move,9,Leech Seed,9.6%,,,,,,,,,7195.23
-Serperior,108,move,10,Synthesis,7.4%,,,,,,,,,7195.23
-Serperior,108,held_item,1,Leftovers,19.3%,,,,,,,,,7198.23
-Serperior,108,held_item,2,Sitrus Berry,12.7%,,,,,,,,,7198.23
-Serperior,108,held_item,3,Miracle Seed,11.7%,,,,,,,,,7198.23
-Serperior,108,held_item,4,Focus Sash,9.8%,,,,,,,,,7198.23
-Serperior,108,held_item,5,Choice Scarf,8.2%,,,,,,,,,7198.23
-Serperior,108,held_item,6,Life Orb,6.8%,,,,,,,,,7203.23
-Serperior,108,held_item,7,Wide Lens,6.4%,,,,,,,,,7203.23
-Serperior,108,held_item,8,Light Clay,5.8%,,,,,,,,,7203.23
-Serperior,108,held_item,9,Wise Glasses,2.7%,,,,,,,,,7203.23
-Serperior,108,held_item,10,Metronome,2.4%,,,,,,,,,7203.23
-Serperior,108,teammate,1,Whimsicott,,,,,,,,,,7207.23
-Serperior,108,teammate,2,Garchomp,,,,,,,,,,7207.23
-Serperior,108,teammate,3,Staraptor,,,,,,,,,,7207.23
-Serperior,108,teammate,4,Incineroar,,,,,,,,,,7207.23
-Serperior,108,teammate,5,Raichu,,,,,,,,,,7207.23
-Serperior,108,teammate,6,Milotic,,,,,,,,,,7212.23
-Serperior,108,teammate,7,Grimmsnarl,,,,,,,,,,7212.23
-Serperior,108,teammate,8,Sylveon,,,,,,,,,,7212.23
-Serperior,108,teammate,9,Sneasler,,,,,,,,,,7212.23
-Serperior,108,teammate,10,Charizard,,,,,,,,,,7212.23
-Serperior,108,stat_alignment,1,Timid,62.0%,Speed,Attack,,,,,,,7215.73
-Serperior,108,stat_alignment,2,Modest,30.0%,Sp. Atk,Attack,,,,,,,7215.73
-Serperior,108,stat_alignment,3,Calm,2.6%,Sp. Def,Attack,,,,,,,7215.73
-Serperior,108,stat_alignment,4,Bold,2.3%,Defense,Attack,,,,,,,7215.73
-Serperior,108,stat_alignment,5,Hasty,0.8%,Speed,Defense,,,,,,,7215.73
-Serperior,108,stat_alignment,6,Quiet,0.7%,Sp. Atk,Speed,,,,,,,7220.73
-Serperior,108,stat_alignment,7,Mild,0.4%,Sp. Atk,Defense,,,,,,,7220.73
-Serperior,108,stat_alignment,8,Jolly,0.3%,Speed,Sp. Atk,,,,,,,7220.73
-Serperior,108,stat_alignment,9,Sassy,0.3%,Sp. Def,Speed,,,,,,,7220.73
-Serperior,108,stat_alignment,10,Relaxed,0.2%,Defense,Speed,,,,,,,7220.73
-Serperior,108,stat_points,1,,24.3%,,,2,0,0,32,0,32,7224.23
-Serperior,108,stat_points,2,,7.2%,,,0,0,2,32,0,32,7224.23
-Serperior,108,stat_points,3,,5.7%,,,32,0,5,1,2,26,7224.23
-Serperior,108,stat_points,4,,5.0%,,,0,0,0,32,2,32,7224.23
-Serperior,108,stat_points,5,,2.8%,,,32,0,0,2,0,32,7224.23
-Serperior,108,stat_points,8,,1.9%,,,32,0,0,32,0,2,7236.23
-Serperior,108,stat_points,9,,1.8%,,,31,0,1,11,0,23,7236.23
-Serperior,108,stat_points,10,,1.5%,,,30,0,0,32,0,4,7236.23
-Serperior,108,stat_points,11,,1.2%,,,1,0,0,32,0,32,7236.23
-Serperior,108,stat_points,12,,1.2%,,,32,0,0,32,2,0,7236.23
-Serperior,108,ability,1,Contrary,99.4%,,,,,,,,,7243.73
-Serperior,108,ability,2,Overgrow,0.6%,,,,,,,,,7243.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Serperior,109,move,1,Leaf Storm,99.2%,,,,,,,,
+Serperior,109,move,2,Protect,71.0%,,,,,,,,
+Serperior,109,move,3,Dragon Pulse,65.1%,,,,,,,,
+Serperior,109,move,4,Giga Drain,34.6%,,,,,,,,
+Serperior,109,move,5,Glare,32.8%,,,,,,,,
+Serperior,109,move,6,Taunt,13.1%,,,,,,,,
+Serperior,109,move,7,Light Screen,12.5%,,,,,,,,
+Serperior,109,move,8,Reflect,12.4%,,,,,,,,
+Serperior,109,move,9,Leech Seed,9.4%,,,,,,,,
+Serperior,109,move,10,Synthesis,7.8%,,,,,,,,
+Serperior,109,held_item,1,Leftovers,17.9%,,,,,,,,
+Serperior,109,held_item,2,Sitrus Berry,13.6%,,,,,,,,
+Serperior,109,held_item,3,Miracle Seed,12.3%,,,,,,,,
+Serperior,109,held_item,4,Choice Scarf,9.8%,,,,,,,,
+Serperior,109,held_item,5,Focus Sash,9.2%,,,,,,,,
+Serperior,109,held_item,6,Life Orb,7.0%,,,,,,,,
+Serperior,109,held_item,7,Wide Lens,6.1%,,,,,,,,
+Serperior,109,held_item,8,Light Clay,5.2%,,,,,,,,
+Serperior,109,held_item,9,Wise Glasses,2.6%,,,,,,,,
+Serperior,109,held_item,10,Occa Berry,2.1%,,,,,,,,
+Serperior,109,teammate,1,Whimsicott,,,,,,,,,
+Serperior,109,teammate,2,Garchomp,,,,,,,,,
+Serperior,109,teammate,3,Incineroar,,,,,,,,,
+Serperior,109,teammate,4,Staraptor,,,,,,,,,
+Serperior,109,teammate,5,Milotic,,,,,,,,,
+Serperior,109,teammate,6,Raichu,,,,,,,,,
+Serperior,109,teammate,7,Grimmsnarl,,,,,,,,,
+Serperior,109,teammate,8,Sylveon,,,,,,,,,
+Serperior,109,teammate,9,Sneasler,,,,,,,,,
+Serperior,109,teammate,10,Metagross,,,,,,,,,
+Serperior,109,stat_alignment,1,Timid,61.4%,Speed,Attack,,,,,,
+Serperior,109,stat_alignment,2,Modest,29.4%,Sp. Atk,Attack,,,,,,
+Serperior,109,stat_alignment,3,Calm,2.6%,Sp. Def,Attack,,,,,,
+Serperior,109,stat_alignment,4,Bold,2.5%,Defense,Attack,,,,,,
+Serperior,109,stat_alignment,5,Quiet,1.0%,Sp. Atk,Speed,,,,,,
+Serperior,109,stat_alignment,6,Mild,0.7%,Sp. Atk,Defense,,,,,,
+Serperior,109,stat_alignment,7,Hasty,0.7%,Speed,Defense,,,,,,
+Serperior,109,stat_alignment,8,Jolly,0.4%,Speed,Sp. Atk,,,,,,
+Serperior,109,stat_alignment,9,Serious,0.2%,,,,,,,,
+Serperior,109,stat_alignment,10,Relaxed,0.2%,Defense,Speed,,,,,,
+Serperior,109,stat_points,1,,25.2%,,,2,0,0,32,0,32
+Serperior,109,stat_points,2,,7.7%,,,0,0,2,32,0,32
+Serperior,109,stat_points,3,,5.9%,,,0,0,0,32,2,32
+Serperior,109,stat_points,4,,4.7%,,,32,0,5,1,2,26
+Serperior,109,stat_points,5,,2.8%,,,32,0,0,2,0,32
+Serperior,109,stat_points,6,,2.3%,,,0,0,0,32,0,32
+Serperior,109,stat_points,7,,2.0%,,,32,0,0,32,0,2
+Serperior,109,stat_points,8,,1.6%,,,32,0,0,32,2,0
+Serperior,109,stat_points,9,,1.3%,,,31,0,1,11,0,23
+Serperior,109,stat_points,10,,1.2%,,,28,0,3,0,3,32
+Serperior,109,stat_points,11,,1.1%,,,1,0,0,32,0,32
+Serperior,109,stat_points,12,,1.1%,,,0,0,32,32,2,0
+Serperior,109,ability,1,Contrary,99.2%,,,,,,,,
+Serperior,109,ability,2,Overgrow,0.8%,,,,,,,,

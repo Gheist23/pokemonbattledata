@@ -1,55 +1,55 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Diggersby,191,move,1,Earthquake,70.8%,,,,,,,,,5713.23
-Diggersby,191,move,2,Ice Punch,56.7%,,,,,,,,,5713.23
-Diggersby,191,move,3,Quick Attack,73.9%,,,,,,,,,13705.73
-Diggersby,191,move,4,Thunder Punch,45.7%,,,,,,,,,13705.73
-Diggersby,191,move,5,U-turn,14.1%,,,,,,,,,13705.73
-Diggersby,191,move,6,Rock Tomb,30.4%,,,,,,,,,13711.23
-Diggersby,191,move,7,Wild Charge,9.3%,,,,,,,,,13711.23
-Diggersby,191,move,8,Rock Slide,13.4%,,,,,,,,,13711.23
-Diggersby,191,move,9,Swords Dance,6.7%,,,,,,,,,13711.23
-Diggersby,191,move,10,Wild Charge,6.4%,,,,,,,,,13711.23
-Diggersby,191,held_item,1,Choice Scarf,45.2%,,,,,,,,,5722.23
-Diggersby,191,held_item,2,Life Orb,26.1%,,,,,,,,,5722.23
-Diggersby,191,held_item,3,Focus Sash,13.9%,,,,,,,,,5722.23
-Diggersby,191,held_item,4,Chople Berry,2.5%,,,,,,,,,5722.23
-Diggersby,191,held_item,5,Expert Belt,1.7%,,,,,,,,,5722.23
-Diggersby,191,held_item,6,Chople Berry,0.6%,,,,,,,,,13719.73
-Diggersby,191,held_item,7,Expert Belt,0.5%,,,,,,,,,13719.73
-Diggersby,191,held_item,8,Muscle Band,0.4%,,,,,,,,,13719.73
-Diggersby,191,held_item,9,Quick Claw,0.3%,,,,,,,,,13719.73
-Diggersby,191,held_item,10,Focus Band,0.1%,,,,,,,,,13719.73
-Diggersby,191,teammate,1,Eelektross,,,,,,,,,,5730.73
-Diggersby,191,teammate,2,Metagross,,,,,,,,,,5730.73
-Diggersby,191,teammate,3,Whimsicott,,,,,,,,,,5730.73
-Diggersby,191,teammate,4,Grimmsnarl,,,,,,,,,,5730.73
-Diggersby,191,teammate,5,Noivern,,,,,,,,,,5730.73
-Diggersby,191,teammate,6,Sneasler,,,,,,,,,,5735.73
-Diggersby,191,teammate,7,Gyarados,,,,,,,,,,13728.23
-Diggersby,191,teammate,8,Charizard,,,,,,,,,,13728.23
-Diggersby,191,teammate,9,Incineroar,,,,,,,,,,5735.73
-Diggersby,191,teammate,10,Charizard,,,,,,,,,,5735.73
-Diggersby,191,stat_alignment,1,Adamant,70.4%,Attack,Sp. Atk,,,,,,,13731.73
-Diggersby,191,stat_alignment,2,Jolly,32.7%,Speed,Sp. Atk,,,,,,,5739.23
-Diggersby,191,stat_alignment,3,Brave,0.8%,Attack,Speed,,,,,,,13731.73
-Diggersby,191,stat_alignment,4,Brave,0.4%,Attack,Defense,,,,,,,13731.73
-Diggersby,191,stat_alignment,5,Hasty,0.4%,Sp. Def,Defense,,,,,,,13731.73
-Diggersby,191,stat_alignment,6,Naughty,0.3%,Attack,Sp. Def,,,,,,,13736.73
-Diggersby,191,stat_alignment,7,Naughty,0.2%,Attack,Sp. Def,,,,,,,13736.73
-Diggersby,191,stat_alignment,8,Lonely,0.1%,Attack,Defense,,,,,,,5743.73
-Diggersby,191,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,,13736.73
-Diggersby,191,stat_alignment,10,Timid,0.0%,Speed,Attack,,,,,,,13736.73
-Diggersby,191,stat_points,1,,40.7%,,,2,32,0,0,0,32,5747.73
-Diggersby,191,stat_points,2,,6.2%,,,0,32,0,0,2,32,5747.73
-Diggersby,191,stat_points,3,,5.9%,,,32,32,0,0,0,2,5747.73
-Diggersby,191,stat_points,4,,5.6%,,,32,32,1,0,1,0,5747.73
-Diggersby,191,stat_points,5,,4.9%,,,1,32,1,0,0,32,5747.73
-Diggersby,191,stat_points,6,,4.4%,,,1,32,0,0,1,32,5753.73
-Diggersby,191,stat_points,8,,1.4%,,,0,32,0,0,2,32,13752.23
-Diggersby,191,stat_points,9,,1.2%,,,0,32,2,0,0,0,13752.23
-Diggersby,191,stat_points,10,,1.1%,,,32,24,3,0,2,0,13752.23
-Diggersby,191,stat_points,11,,1.0%,,,0,32,0,0,0,32,13752.23
-Diggersby,191,stat_points,12,,0.21%,,,10,32,0,0,0,24,13752.23
-Diggersby,191,ability,1,Huge Power,99.6%,,,,,,,,,13759.73
-Diggersby,191,ability,2,Cheek Pouch,0.2%,,,,,,,,,13759.73
-Diggersby,191,ability,3,Pickup,0.1%,,,,,,,,,13759.73
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Diggersby,198,move,1,Earthquake,74.4%,,,,,,,,
+Diggersby,198,move,2,Ice Punch,53.7%,,,,,,,,
+Diggersby,198,move,3,High Horsepower,42.1%,,,,,,,,
+Diggersby,198,move,4,Rock Slide,35.9%,,,,,,,,
+Diggersby,198,move,5,Protect,32.4%,,,,,,,,
+Diggersby,198,move,6,Body Slam,26.5%,,,,,,,,
+Diggersby,198,move,7,Quick Attack,25.8%,,,,,,,,
+Diggersby,198,move,8,Stomping Tantrum,13.4%,,,,,,,,
+Diggersby,198,move,9,U-turn,9.7%,,,,,,,,
+Diggersby,198,move,10,Wild Charge,9.5%,,,,,,,,
+Diggersby,198,held_item,1,Choice Scarf,42.3%,,,,,,,,
+Diggersby,198,held_item,2,Life Orb,21.5%,,,,,,,,
+Diggersby,198,held_item,3,Focus Sash,16.5%,,,,,,,,
+Diggersby,198,held_item,4,Sitrus Berry,2.5%,,,,,,,,
+Diggersby,198,held_item,5,Quick Claw,2.3%,,,,,,,,
+Diggersby,198,held_item,6,Chople Berry,2.2%,,,,,,,,
+Diggersby,198,held_item,7,Expert Belt,2.1%,,,,,,,,
+Diggersby,198,held_item,8,Soft Sand,2.0%,,,,,,,,
+Diggersby,198,held_item,9,Wide Lens,1.4%,,,,,,,,
+Diggersby,198,held_item,10,Passho Berry,1.1%,,,,,,,,
+Diggersby,198,teammate,1,Eelektross,,,,,,,,,
+Diggersby,198,teammate,2,Whimsicott,,,,,,,,,
+Diggersby,198,teammate,3,Charizard,,,,,,,,,
+Diggersby,198,teammate,4,Metagross,,,,,,,,,
+Diggersby,198,teammate,6,Staraptor,,,,,,,,,
+Diggersby,198,teammate,7,Sneasler,,,,,,,,,
+Diggersby,198,teammate,8,Noivern,,,,,,,,,
+Diggersby,198,teammate,9,Sinistcha,,,,,,,,,
+Diggersby,198,teammate,10,Farigiraf,,,,,,,,,
+Diggersby,198,stat_alignment,1,Adamant,48.9%,Attack,Sp. Atk,,,,,,
+Diggersby,198,stat_alignment,2,Jolly,30.9%,Speed,Sp. Atk,,,,,,
+Diggersby,198,stat_alignment,3,Brave,12.4%,Attack,Speed,,,,,,
+Diggersby,198,stat_alignment,4,Naive,5.9%,Speed,Sp. Def,,,,,,
+Diggersby,198,stat_alignment,5,Hasty,1.1%,Speed,Defense,,,,,,
+Diggersby,198,stat_alignment,6,Naughty,0.8%,Attack,Sp. Def,,,,,,
+Diggersby,198,stat_alignment,7,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Diggersby,198,stat_alignment,8,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Diggersby,198,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Diggersby,198,stat_alignment,10,Bashful,0.1%,,,,,,,,
+Diggersby,198,stat_points,1,,42.2%,,,2,32,0,0,0,32
+Diggersby,198,stat_points,2,,5.9%,,,0,32,0,0,2,32
+Diggersby,198,stat_points,3,,5.2%,,,32,32,0,0,0,2
+Diggersby,198,stat_points,4,,5.0%,,,32,32,2,0,0,0
+Diggersby,198,stat_points,5,,4.4%,,,1,32,1,0,0,32
+Diggersby,198,stat_points,6,,3.8%,,,32,32,1,0,1,0
+Diggersby,198,stat_points,7,,3.6%,,,1,32,0,0,1,32
+Diggersby,198,stat_points,8,,3.1%,,,0,32,2,0,0,32
+Diggersby,198,stat_points,9,,2.7%,,,0,32,1,0,1,32
+Diggersby,198,stat_points,10,,2.5%,,,32,32,0,0,2,0
+Diggersby,198,stat_points,11,,2.3%,,,0,32,0,0,0,32
+Diggersby,198,stat_points,12,,1.7%,,,31,32,0,0,0,3
+Diggersby,198,ability,1,Huge Power,98.9%,,,,,,,,
+Diggersby,198,ability,2,Cheek Pouch,0.8%,,,,,,,,
+Diggersby,198,ability,3,Pickup,0.3%,,,,,,,,

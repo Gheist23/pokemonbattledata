@@ -1,52 +1,54 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Zoroark,201,move,1,Night Daze,60.7%,,,,,,,,,6115.23
-Zoroark,201,move,2,Sludge Bomb,40.5%,,,,,,,,,6115.23
-Zoroark,201,move,3,Flamethrower,40.2%,,,,,,,,,6115.23
-Zoroark,201,move,4,Protect,29.4%,,,,,,,,,6115.23
-Zoroark,201,move,5,Sucker Punch,22.9%,,,,,,,,,6115.23
-Zoroark,201,move,6,Psychic,21.1%,,,,,,,,,6120.73
-Zoroark,201,move,7,U-turn,18.4%,,,,,,,,,6120.73
-Zoroark,201,move,8,Taunt,16.1%,,,,,,,,,6120.73
-Zoroark,201,move,9,Focus Blast,14.2%,,,,,,,,,6120.73
-Zoroark,201,move,10,Grass Knot,13.7%,,,,,,,,,6120.73
-Zoroark,201,held_item,1,Focus Sash,35.2%,,,,,,,,,6124.23
-Zoroark,201,held_item,2,Life Orb,14.3%,,,,,,,,,6124.23
-Zoroark,201,held_item,3,Choice Scarf,13.8%,,,,,,,,,6124.23
-Zoroark,201,held_item,4,Black Glasses,13.7%,,,,,,,,,6124.23
-Zoroark,201,held_item,5,Sitrus Berry,8.4%,,,,,,,,,6124.23
-Zoroark,201,held_item,6,Quick Claw,3.8%,,,,,,,,,6129.23
-Zoroark,201,held_item,7,Lum Berry,1.7%,,,,,,,,,6129.23
-Zoroark,201,held_item,8,Bright Powder,1.0%,,,,,,,,,6129.23
-Zoroark,201,held_item,9,Focus Band,0.7%,,,,,,,,,6129.23
-Zoroark,201,held_item,10,Metronome,0.7%,,,,,,,,,6129.23
-Zoroark,201,teammate,1,Staraptor,,,,,,,,,,6132.73
-Zoroark,201,teammate,2,Whimsicott,,,,,,,,,,6132.73
-Zoroark,201,teammate,3,Farigiraf,,,,,,,,,,6132.73
-Zoroark,201,teammate,4,Garchomp,,,,,,,,,,6132.73
-Zoroark,201,teammate,5,Basculegion,,,,,,,,,,6132.73
-Zoroark,201,teammate,6,Incineroar,,,,,,,,,,6137.73
-Zoroark,201,teammate,7,Sneasler,,,,,,,,,,6137.73
-Zoroark,201,teammate,8,Dragonite,,,,,,,,,,6137.73
-Zoroark,201,teammate,9,Sylveon,,,,,,,,,,6137.73
-Zoroark,201,teammate,10,Sinistcha,,,,,,,,,,6137.73
-Zoroark,201,stat_alignment,1,Modest,36.3%,Sp. Atk,Attack,,,,,,,6141.23
-Zoroark,201,stat_alignment,2,Timid,35.6%,Speed,Attack,,,,,,,6141.23
-Zoroark,201,stat_alignment,3,Sassy,8.7%,Sp. Def,Speed,,,,,,,6141.23
-Zoroark,201,stat_alignment,4,Brave,5.6%,Attack,Speed,,,,,,,6141.23
-Zoroark,201,stat_alignment,5,Hasty,4.7%,Speed,Defense,,,,,,,6141.23
-Zoroark,201,stat_alignment,6,Mild,2.4%,Sp. Atk,Defense,,,,,,,6146.23
-Zoroark,201,stat_alignment,7,Quiet,2.3%,Sp. Atk,Speed,,,,,,,6146.23
-Zoroark,201,stat_alignment,8,Jolly,1.5%,Speed,Sp. Atk,,,,,,,6146.23
-Zoroark,201,stat_alignment,9,Relaxed,0.8%,Defense,Speed,,,,,,,6146.23
-Zoroark,201,stat_alignment,10,Gentle,0.6%,Sp. Def,Defense,,,,,,,6146.23
-Zoroark,201,stat_points,1,,33.4%,,,2,0,0,32,0,32,6149.73
-Zoroark,201,stat_points,2,,15.4%,,,0,0,2,32,0,32,6149.73
-Zoroark,201,stat_points,3,,10.9%,,,0,0,0,32,2,32,6149.73
-Zoroark,201,stat_points,4,,8.5%,,,5,21,8,9,8,15,6149.73
-Zoroark,201,stat_points,5,,5.6%,,,0,32,17,0,17,0,6149.73
-Zoroark,201,stat_points,8,,2.9%,,,8,0,0,32,0,26,6161.73
-Zoroark,201,stat_points,9,,1.7%,,,0,0,32,32,0,2,6161.73
-Zoroark,201,stat_points,10,,1.3%,,,32,0,0,32,0,2,6161.73
-Zoroark,201,stat_points,11,,1.2%,,,0,0,32,32,2,0,6161.73
-Zoroark,201,stat_points,12,,1.0%,,,0,32,0,0,2,32,6161.73
-Zoroark,201,ability,1,Illusion,100.0%,,,,,,,,,6169.23
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Zoroark,202,move,1,Night Daze,70.5%,,,,,,,,
+Zoroark,202,move,2,Sludge Bomb,48.7%,,,,,,,,
+Zoroark,202,move,3,Flamethrower,38.5%,,,,,,,,
+Zoroark,202,move,4,Protect,37.3%,,,,,,,,
+Zoroark,202,move,5,Psychic,20.4%,,,,,,,,
+Zoroark,202,move,6,Sucker Punch,16.1%,,,,,,,,
+Zoroark,202,move,7,Dark Pulse,16.1%,,,,,,,,
+Zoroark,202,move,8,Focus Blast,13.9%,,,,,,,,
+Zoroark,202,move,9,U-turn,13.5%,,,,,,,,
+Zoroark,202,move,10,Taunt,13.4%,,,,,,,,
+Zoroark,202,held_item,1,Focus Sash,37.5%,,,,,,,,
+Zoroark,202,held_item,2,Choice Scarf,16.2%,,,,,,,,
+Zoroark,202,held_item,3,Life Orb,12.3%,,,,,,,,
+Zoroark,202,held_item,4,Black Glasses,10.3%,,,,,,,,
+Zoroark,202,held_item,5,Sitrus Berry,8.0%,,,,,,,,
+Zoroark,202,held_item,6,Quick Claw,2.7%,,,,,,,,
+Zoroark,202,held_item,7,Expert Belt,2.4%,,,,,,,,
+Zoroark,202,held_item,8,Bright Powder,1.7%,,,,,,,,
+Zoroark,202,held_item,9,Chople Berry,1.3%,,,,,,,,
+Zoroark,202,held_item,10,Wise Glasses,1.2%,,,,,,,,
+Zoroark,202,teammate,1,Whimsicott,,,,,,,,,
+Zoroark,202,teammate,2,Staraptor,,,,,,,,,
+Zoroark,202,teammate,3,Farigiraf,,,,,,,,,
+Zoroark,202,teammate,4,Sneasler,,,,,,,,,
+Zoroark,202,teammate,5,Dragonite,,,,,,,,,
+Zoroark,202,teammate,6,Basculegion Male,,,,,,,,,
+Zoroark,202,teammate,7,Sylveon,,,,,,,,,
+Zoroark,202,teammate,8,Garchomp,,,,,,,,,
+Zoroark,202,teammate,9,Charizard,,,,,,,,,
+Zoroark,202,teammate,10,Raichu,,,,,,,,,
+Zoroark,202,stat_alignment,1,Modest,46.5%,Sp. Atk,Attack,,,,,,
+Zoroark,202,stat_alignment,2,Timid,32.6%,Speed,Attack,,,,,,
+Zoroark,202,stat_alignment,3,Sassy,4.8%,Sp. Def,Speed,,,,,,
+Zoroark,202,stat_alignment,4,Hasty,3.3%,Speed,Defense,,,,,,
+Zoroark,202,stat_alignment,5,Quiet,2.6%,Sp. Atk,Speed,,,,,,
+Zoroark,202,stat_alignment,6,Brave,2.5%,Attack,Speed,,,,,,
+Zoroark,202,stat_alignment,7,Jolly,2.5%,Speed,Sp. Atk,,,,,,
+Zoroark,202,stat_alignment,8,Mild,1.7%,Sp. Atk,Defense,,,,,,
+Zoroark,202,stat_alignment,9,Bold,0.6%,Defense,Attack,,,,,,
+Zoroark,202,stat_alignment,10,Adamant,0.6%,Attack,Sp. Atk,,,,,,
+Zoroark,202,stat_points,1,,45.2%,,,2,0,0,32,0,32
+Zoroark,202,stat_points,2,,14.7%,,,0,0,2,32,0,32
+Zoroark,202,stat_points,3,,9.6%,,,0,0,0,32,2,32
+Zoroark,202,stat_points,4,,4.7%,,,5,21,8,9,8,15
+Zoroark,202,stat_points,5,,3.7%,,,0,0,0,32,0,32
+Zoroark,202,stat_points,6,,2.5%,,,0,32,17,0,17,0
+Zoroark,202,stat_points,7,,1.9%,,,32,0,0,0,2,32
+Zoroark,202,stat_points,8,,1.7%,,,0,0,2,32,32,0
+Zoroark,202,stat_points,9,,1.3%,,,0,32,2,0,0,32
+Zoroark,202,stat_points,10,,1.3%,,,8,0,0,32,0,26
+Zoroark,202,stat_points,11,,1.3%,,,28,0,0,32,0,6
+Zoroark,202,stat_points,12,,1.0%,,,0,0,0,32,32,2
+Zoroark,202,ability,1,Illusion,100.0%,,,,,,,,

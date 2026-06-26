@@ -573,7 +573,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   }
 
   function versionedPath(path, version) {
-    const normalized = normalizePath(path);
+    const normalized = rootRelativePath(path);
     if (!version) return normalized;
     const separator = normalized.includes("?") ? "&" : "?";
     return `${normalized}${separator}v=${encodeURIComponent(version)}`;
@@ -2165,7 +2165,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   function resolveAssetCandidate(path) {
     if (!path) return "";
-    const encoded = encodeURI(normalizePath(path));
+    const encoded = encodeURI(rootRelativePath(path));
     if (state.failedAssetUrls.has(encoded)) return "";
     return encoded;
   }
@@ -2472,6 +2472,14 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   function normalizePath(path) {
     return String(path || "").replace(/\\/g, "/").replace(/^\.\//, "").replace(/\/+/g, "/");
+  }
+
+  function rootRelativePath(path) {
+    const raw = String(path || "").trim();
+    if (!raw) return "";
+    if (/^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i.test(raw)) return raw;
+    const normalized = normalizePath(raw);
+    return normalized.startsWith("/") ? normalized : `/${normalized}`;
   }
 
   function recordKey(value) {

@@ -7,6 +7,12 @@
 /styles.css
   Cache-Control: no-cache, max-age=0, must-revalidate
 
+/license.html
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/pokemon/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
 /data/*
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET, OPTIONS

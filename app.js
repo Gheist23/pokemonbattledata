@@ -87,7 +87,8 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     activeMoveButton: null,
     learnableSearchReady: false,
     sourceLabel: "Manifest",
-    dataVersion: ""
+    dataVersion: "",
+    activeRouteSlug: ""
   };
 
   const els = {
@@ -127,6 +128,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     renderLoadingState();
     const loaded = await loadManifestDataset();
     if (!loaded) hydrateDataset(buildSampleDataset(), "Sample dataset");
+    openRouteProfileFromLocation();
   }
 
   function bindEvents() {
@@ -158,6 +160,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
         hideMoveInfoPopover();
       }
     });
+    window.addEventListener("popstate", () => openRouteProfileFromLocation());
     window.addEventListener("resize", () => { updateSearchHelpPosition(); positionMoveInfoPopover(); renderBattleEntries(); }, { passive: true });
     mobileResultsQuery?.addEventListener?.("change", () => { updateMobileSearchUi(); renderBattleEntries(); renderCards(); });
     window.addEventListener("scroll", () => updateSearchHelpPosition(), { passive: true });
@@ -175,11 +178,13 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     els.detailDialog.addEventListener("click", (event) => {
       if (event.target === els.detailDialog) closeDetail();
     });
+    els.detailDialog.addEventListener("cancel", () => updateExplorerRoute());
     els.dialogInner?.addEventListener("scroll", () => positionMoveInfoPopover(), { passive: true });
     els.detailDialog.addEventListener("close", () => {
       document.body.classList.remove("profile-open");
       hideMoveInfoPopover();
       state.activeDetailRecord = null;
+      state.activeRouteSlug = "";
     });
     updateMobileSearchUi();
   }
@@ -301,6 +306,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return {
       name: displayName,
       battleName,
+      slug: entry.slug || slugify(battleName),
       key: recordKey(battleName),
       dex: numberOrNull(summary.dex ?? primary.dex_number),
       metadataCsv: entry.metadataCsv || "",
@@ -329,6 +335,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return [{
       name: "Garchomp",
       battleName: "Garchomp",
+      slug: "garchomp",
       key: "garchomp",
       dex: 445,
       metadataCsv: "pokemon_champions_assets/metadata/Garchomp.csv",
@@ -384,6 +391,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       image_path: normalizePath(readField(form, METADATA_ALIASES.image_path) || ""),
       form_name: savedName,
       saved_name: savedName,
+      slug: form.slug || slugify(savedName),
       form_kind: formKind || (savedName === baseName ? "Base" : "Form"),
       types,
       types_raw: readField(form, ["types_raw", ...METADATA_ALIASES.types]) || types.join("/"),
@@ -479,6 +487,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     record.dex = numberOrNull(record.primary.dex_number);
     record.name = displayNameForBattleName(battleName, record.primary);
     record.key = recordKey(battleName || record.name);
+    record.slug = record.slug || slugify(battleName || record.name);
     record.imageCandidates = pokemonImageCandidates(record.primary.image_path, battleName, record.primary.form_name);
     record.metadataLoaded = true;
   }
@@ -1218,8 +1227,10 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     els.pokemonGrid.append(fragment);
   }
 
-  async function openDetail(record) {
-    rememberSearch(els.searchInput.value);
+  async function openDetail(record, options = {}) {
+    if (options.rememberSearch !== false) rememberSearch(els.searchInput.value);
+    if (options.updateRoute !== false) updateProfileRoute(record, options.routeAction);
+    state.activeRouteSlug = profileSlug(record);
     state.activeDetailRecord = record;
     updateProfileFavoriteButton(record);
     document.body.classList.add("profile-open");
@@ -1245,12 +1256,14 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     }
   }
 
-  function closeDetail() {
+  function closeDetail(options = {}) {
+    if (options.updateRoute !== false) updateExplorerRoute(options.routeAction);
     if (typeof els.detailDialog.close === "function") els.detailDialog.close();
     else els.detailDialog.removeAttribute("open");
     document.body.classList.remove("profile-open");
     hideMoveInfoPopover();
     state.activeDetailRecord = null;
+    state.activeRouteSlug = "";
   }
 
   function resetDetailScroll() {
@@ -1577,6 +1590,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       ...sourceRecord,
       name: formName || sourceRecord.name,
       battleName,
+      slug: form?.slug || slugify(formName || sourceRecord.name),
       key: `${sourceRecord.key || recordKey(battleName)}::form::${recordKey(formName || sourceRecord.name)}`,
       favoriteKey: sourceRecord.key || recordKey(battleName || sourceRecord.name),
       primary: selectedForm,
@@ -1601,6 +1615,67 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     const target = recordKey(name);
     if (!target) return null;
     return state.pokemon.find((record) => recordKey(battleDataName(record)) === target) || null;
+  }
+
+  function routeSlugFromLocation() {
+    const match = window.location.pathname.match(/^\/pokemon\/([^/?#]+)\/?$/i);
+    if (!match) return "";
+    try {
+      return slugify(decodeURIComponent(match[1]));
+    } catch {
+      return slugify(match[1]);
+    }
+  }
+
+  function profileSlug(record) {
+    return record?.slug || slugify(record?.primary?.saved_name || record?.primary?.form_name || battleDataName(record) || record?.name);
+  }
+
+  function profilePath(record) {
+    const slug = profileSlug(record);
+    return slug ? `/pokemon/${slug}/` : "";
+  }
+
+  function updateProfileRoute(record, routeAction = "push") {
+    if (!window.history || typeof window.history.pushState !== "function") return;
+    const path = profilePath(record);
+    if (!path || window.location.pathname === path) return;
+    const method = routeAction === "replace" ? "replaceState" : "pushState";
+    window.history[method]({}, "", path);
+  }
+
+  function updateExplorerRoute(routeAction = "push") {
+    if (!window.history || typeof window.history.pushState !== "function" || !routeSlugFromLocation()) return;
+    const method = routeAction === "replace" ? "replaceState" : "pushState";
+    window.history[method]({}, "", "/");
+  }
+
+  function findProfileRecordBySlug(slug) {
+    const target = slugify(slug);
+    if (!target) return null;
+    for (const record of state.pokemon) {
+      if (profileSlug(record) === target) return record;
+    }
+    for (const record of state.pokemon) {
+      for (const form of record.forms || []) {
+        const formSlug = form?.slug || slugify(formProfileName(form));
+        if (formSlug === target) return formProfileRecord(record, form);
+      }
+    }
+    return null;
+  }
+
+  async function openRouteProfileFromLocation() {
+    const slug = routeSlugFromLocation();
+    if (!slug) {
+      if (els.detailDialog?.open) closeDetail({ updateRoute: false });
+      return false;
+    }
+    const record = findProfileRecordBySlug(slug);
+    if (!record) return false;
+    if (els.detailDialog?.open && profileSlug(state.activeDetailRecord) === profileSlug(record)) return true;
+    await openDetail(record, { updateRoute: false, rememberSearch: false });
+    return true;
   }
 
   function natureChangeMarkup(natureName) {
@@ -1992,6 +2067,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       image_path: normalizePath(readField(row, METADATA_ALIASES.image_path) || ""),
       form_name: savedName,
       saved_name: savedName,
+      slug: slugify(savedName),
       form_kind: formKind || (savedName === baseName ? "Base" : "Form"),
       types,
       types_raw: readField(row, METADATA_ALIASES.types) || "",
@@ -2400,6 +2476,12 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   function recordKey(value) {
     return normalizeForSearch(String(value || "")).replace(/\s+/g, " ").trim();
+  }
+
+  function slugify(value) {
+    return normalizeForSearch(value)
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
   }
 
   function normalizeForSearch(value) {

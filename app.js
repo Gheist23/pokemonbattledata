@@ -1193,8 +1193,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     const fragment = document.createDocumentFragment();
     const format = state.selectedFormat;
 
-    state.filtered.forEach((record) => {
+    state.filtered.forEach((record, index) => {
       const card = els.cardTemplate.content.firstElementChild.cloneNode(true);
+      const position = card.querySelector(".result-position");
       const favoriteButton = card.querySelector(".favorite-button");
       const art = card.querySelector(".pokemon-art");
       const title = card.querySelector("h3");
@@ -1202,6 +1203,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       const facts = card.querySelector(".quick-facts");
       const openButton = card.querySelector(".open-profile");
       const summary = getSummary(record, format, state.selectedSeason);
+
+      position.textContent = `#${index + 1}`;
+      position.setAttribute("aria-label", `Search result position ${index + 1}`);
 
       favoriteButton.textContent = state.favorites.has(record.key) ? "★" : "☆";
       favoriteButton.classList.toggle("active", state.favorites.has(record.key));

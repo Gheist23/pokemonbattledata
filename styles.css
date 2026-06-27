@@ -463,6 +463,26 @@ select:focus-visible { border-color: rgba(88,220,196,0.66); box-shadow: 0 0 0 4p
   transition: transform 170ms ease, box-shadow 170ms ease, border-color 170ms ease;
 }
 .pokemon-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: rgba(88,220,196,0.30); }
+.result-position {
+  position: absolute;
+  z-index: 2;
+  top: 0.85rem;
+  left: 0.85rem;
+  min-width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.55rem;
+  border: 1px solid rgba(114, 255, 171, 0.24);
+  border-radius: 6px;
+  color: var(--text);
+  background: rgba(7, 17, 11, 0.92);
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
 .favorite-button {
   position: absolute;
   z-index: 2;

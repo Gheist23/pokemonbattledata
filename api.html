@@ -174,7 +174,7 @@ const battleRows = await fetch(
             <h2>Pokemon record</h2>
             <p>Returns one indexed Pokemon. Add <code>format</code> and <code>season</code> to include the matching summary and CSV path.</p>
           </div>
-          <div class="api-endpoint-line"><b>GET</b><code>/api/pokemon/garchomp?format=Doubles&amp;season=Season%20M-2</code></div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/pokemon/garchomp?format=Doubles&amp;season=Season%20M-3</code></div>
           <pre><code>{
   "name": "Garchomp",
   "requestedFormat": "Doubles",
@@ -191,7 +191,7 @@ const battleRows = await fetch(
             <h2>Battle rows</h2>
             <p>Returns parsed rows from one battle-data CSV. Use this for moves, items, teammates, natures, spreads, and abilities.</p>
           </div>
-          <div class="api-endpoint-line"><b>GET</b><code>/api/battle/Doubles/garchomp?season=Season%20M-2</code></div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/battle/Doubles/garchomp?season=Season%20M-3</code></div>
           <pre><code>{
   "pokemon": "Garchomp",
   "format": "Doubles",
@@ -271,8 +271,8 @@ const battleRows = await fetch(
             <p>Use static paths for downloads, spreadsheet imports, notebooks, sprites, and type icons. Battle data and sprites use the form-specific <code>saved_name</code>. Metadata uses the <code>base_name</code>.</p>
           </div>
           <pre><code><!-- Battle data: use saved_name (form-specific) -->
-GET /pokemon_champions_assets/battle_data/Season%20M-2/Doubles/Tauros.csv
-GET /pokemon_champions_assets/battle_data/Season%20M-2/Doubles/Paldean%20Tauros%20Aqua%20Breed.csv
+GET /pokemon_champions_assets/battle_data/Season%20M-3/Doubles/Tauros.csv
+GET /pokemon_champions_assets/battle_data/Season%20M-3/Doubles/Paldean%20Tauros%20Aqua%20Breed.csv
 
 <!-- Metadata: use base_name (one file, all forms) -->
 GET /pokemon_champions_assets/metadata/Tauros.csv

@@ -1,4 +1,4 @@
-import { fetchIndex, findPokemon, getFormatPath, normalizeFormat, fetchAssetText, parseCsv, jsonResponse, optionsResponse, errorResponse } from '../../_common.js';
+import { fetchPokemonEntry, getFormatPath, normalizeFormat, fetchAssetText, parseCsv, jsonResponse, optionsResponse, errorResponse } from '../../_common.js';
 
 export const onRequestOptions = () => optionsResponse();
 
@@ -8,8 +8,7 @@ export async function onRequestGet({ env, request, params }) {
     if (!format) return errorResponse('Unknown format. Use Singles or Doubles.', 400, { format: params.format });
     const season = new URL(request.url).searchParams.get('season') || undefined;
 
-    const index = await fetchIndex(env, request);
-    const entry = findPokemon(index, params.name);
+    const entry = await fetchPokemonEntry(env, request, params.name);
     if (!entry) return errorResponse('Pokemon not found.', 404, { name: params.name });
 
     const battleDataCsv = getFormatPath(entry, format, season);

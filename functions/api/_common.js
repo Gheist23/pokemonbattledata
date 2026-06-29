@@ -4,14 +4,14 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': '*',
   'Access-Control-Max-Age': '86400'
 };
-const defaultSeason = 'Season M-2';
+const defaultSeason = 'Season M-3';
 
 export function optionsResponse() {
   return new Response(null, { status: 204, headers: corsHeaders });
 }
 
 export function jsonResponse(payload, status = 200, extraHeaders = {}) {
-  return new Response(JSON.stringify(payload, null, 2), {
+  return new Response(JSON.stringify(payload), {
     status,
     headers: {
       ...corsHeaders,
@@ -58,28 +58,35 @@ export async function fetchAssetText(env, request, path) {
   return response.text();
 }
 
-export async function fetchIndex(env, request) {
-  const text = await fetchAssetText(env, request, 'data/pokemon-index.json');
-  return JSON.parse(text);
+export async function fetchAssetJson(env, request, path) {
+  return JSON.parse(await fetchAssetText(env, request, path));
 }
 
-export function findPokemon(index, rawName) {
+export async function jsonAssetResponse(env, request, path, extraHeaders = {}) {
+  const cleanPath = String(path || '').replace(/\\/g, '/').replace(/^\/+/, '');
+  const assetUrl = new URL(`/${cleanPath}`, request.url);
+  const response = await env.ASSETS.fetch(assetUrl.toString());
+  if (!response.ok) throw new Error(`Asset not found: ${cleanPath}`);
+  const headers = new Headers(response.headers);
+  Object.entries({
+    ...corsHeaders,
+    'Content-Type': 'application/json; charset=utf-8',
+    'Cache-Control': 'public, max-age=120, s-maxage=1800',
+    ...extraHeaders
+  }).forEach(([key, value]) => headers.set(key, value));
+  return new Response(response.body, { status: response.status, headers });
+}
+
+
+export async function fetchPokemonEntry(env, request, rawName) {
   const wanted = normalize(decodeURIComponent(rawName || ''));
   if (!wanted) return null;
-  return (index.pokemon || []).find((entry) => {
-    if (normalize(entry.name) === wanted) return true;
-    const summary = entry.summary || {};
-    if (normalize(summary.primary?.pokemon_name) === wanted) return true;
-    if (normalize(summary.primary?.base_name) === wanted) return true;
-    return (summary.forms || []).some((form) => (
-      normalize(form.saved_name) === wanted ||
-      normalize(form.form_name) === wanted ||
-      normalize(form.pokemon_name) === wanted ||
-      normalize(form.base_name) === wanted ||
-      normalize(form.title) === wanted
-    ));
-  }) || null;
+  const lookup = await fetchAssetJson(env, request, 'data/api/lookup.json');
+  const slug = lookup.aliases?.[wanted];
+  if (!slug) return null;
+  return fetchAssetJson(env, request, `data/api/pokemon/${slug}.json`);
 }
+
 
 export function getFormatPath(entry, format, season) {
   const cleanFormat = normalizeFormat(format);
@@ -87,21 +94,18 @@ export function getFormatPath(entry, format, season) {
   const hasExplicitSeason = season !== undefined && season !== null && String(season).trim() !== '';
   const cleanSeason = normalizeSeason(season);
   const sources = entry.battleDataCsvs || [];
-  const exact = sources.find((item) => normalizeFormat(item.format) === cleanFormat && normalize(item.season) === normalize(cleanSeason));
-  if (exact) return exact;
+  const exact = sources.find((item) => {
+    if (normalizeFormat(item.format) !== cleanFormat) return false;
+    if (normalize(item.season) === normalize(cleanSeason)) return true;
+    return normalize(item.season) === 'current' && normalize(cleanSeason) === normalize(defaultSeason);
+  });
+  if (exact) return normalize(exact.season) === 'current' ? { ...exact, season: defaultSeason } : exact;
   if (hasExplicitSeason) return null;
-  const legacy = sources.find((item) => normalizeFormat(item.format) === cleanFormat && !item.season);
-  if (legacy) return { ...legacy, season: cleanSeason, path: pathForSeason(legacy.path, cleanSeason) };
+  const legacy = sources.find((item) => normalizeFormat(item.format) === cleanFormat && (!item.season || normalize(item.season) === 'current'));
+  if (legacy) return { ...legacy, season: defaultSeason };
   return sources.find((item) => normalizeFormat(item.format) === cleanFormat) || null;
 }
 
-function pathForSeason(path, season) {
-  const parts = String(path || '').replace(/\\/g, '/').split('/').filter(Boolean);
-  const index = parts.findIndex((part) => normalize(part) === 'battledata');
-  if (index === -1 || !parts[index + 1] || /^season\b/i.test(parts[index + 1])) return parts.join('/');
-  parts.splice(index + 1, 0, season);
-  return parts.join('/');
-}
 
 function splitCsvLine(line) {
   const cells = [];

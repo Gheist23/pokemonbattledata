@@ -59,7 +59,10 @@
   const FAVORITES_KEY = "pokemonBattleDataFavorites";
   const DESKTOP_SEARCH_PLACEHOLDER = "Search database, press Enter to save search";
   const MOBILE_SEARCH_PLACEHOLDER = "Search...";
+  const SEARCH_DEBOUNCE_MS = 120;
+  const RESULT_PAGE_SIZE = 48;
   let searchHelpHideTimer = null;
+  let searchInputTimer = null;
   const mobileResultsQuery = window.matchMedia("(max-width: 760px)");
 
   const SAMPLE_METADATA = `title,base_name,saved_name,types,abilities,image_path,form,hp,atk,def,spa,spd,spe,total
@@ -85,7 +88,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     failedAssetUrls: new Set(),
     activeDetailRecord: null,
     activeMoveButton: null,
-    learnableSearchReady: false,
+    visibleResults: RESULT_PAGE_SIZE,
     sourceLabel: "Manifest",
     dataVersion: "",
     activeRouteSlug: ""
@@ -132,7 +135,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   }
 
   function bindEvents() {
-    els.searchInput.addEventListener("input", applyFiltersAndRender);
+    els.searchInput.addEventListener("input", queueFilterRender);
     els.searchInput.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         event.preventDefault();
@@ -209,7 +212,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   async function loadManifestDataset() {
     try {
-      const manifest = await fetchJson("data/pokemon-index.json", { cache: "no-store", version: Date.now() });
+      const manifest = await fetchJson("data/pokemon-index.json", { cache: "no-cache" });
       if (!manifest || !Array.isArray(manifest.pokemon) || !manifest.pokemon.length) return false;
       state.dataVersion = manifest.dataVersion || manifest.generatedAt || "";
       const records = manifest.pokemon.map((entry) => recordFromManifestEntry(entry)).filter(Boolean).sort(compareByName);
@@ -258,7 +261,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     renderBattleEntries();
     renderRecentSearches();
     applyFiltersAndRender();
-    preloadLearnableMovesForSearch(records);
   }
 
   function renderLoadingState() {
@@ -430,6 +432,8 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     target[season][format] = {
       top: summary.top || {},
       values: summary.values || {},
+      position: numberOrNull(summary.position),
+      statChanges: summary.statChanges || {},
       rows: normalizeSummaryRows(summary)
     };
   }
@@ -443,7 +447,20 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     }
     const rows = [];
     Object.entries(summary?.values || {}).forEach(([category, values]) => {
-      (values || []).forEach((value, index) => rows.push({ category, rank: index + 1, name: value, percentage: "", percentage_value: null }));
+      (values || []).forEach((value, index) => {
+        const natureChange = category === "stat_alignment" ? (summary?.statChanges?.[value] || NATURE_CHANGES[normalizeForSearch(value)]) : null;
+        rows.push({
+          category,
+          column_position: numberOrNull(summary?.position),
+          position: numberOrNull(summary?.position),
+          rank: index + 1,
+          name: value,
+          percentage: "",
+          percentage_value: null,
+          stat_up: natureChange?.stat_up || natureChange?.[0] || "",
+          stat_down: natureChange?.stat_down || natureChange?.[1] || ""
+        });
+      });
     });
     Object.values(summary?.top || {}).forEach((row) => {
       const normalized = normalizeSummaryBattleRow(row);
@@ -548,15 +565,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return "";
   }
 
-  async function preloadLearnableMovesForSearch(records) {
-    if (state.learnableSearchReady) return;
-    const targets = Array.isArray(records) ? records : [];
-    for (let index = 0; index < targets.length; index += 18) {
-      await Promise.allSettled(targets.slice(index, index + 18).map((record) => ensureLearnableMoves(record)));
-    }
-    state.learnableSearchReady = true;
-    if (els.searchInput?.value?.trim()) applyFiltersAndRender();
-  }
 
   async function ensureBattleData(record, format = state.selectedFormat, season = state.selectedSeason) {
     const normalizedFormat = titleCase(format);
@@ -609,6 +617,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     filtered = sortPokemon(filtered, els.sortFilter.value, els.orderFilter?.value || "desc", format, season);
     filtered = prioritizeSearchResults(filtered, queryPlan, format, season);
     state.filtered = filtered;
+    state.visibleResults = RESULT_PAGE_SIZE;
     renderBattleEntries();
     renderRecentSearches();
     renderCards();
@@ -901,10 +910,11 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   }
 
   function battlePosition(record, season = state.selectedSeason, format = state.selectedFormat) {
+    const summaryPosition = numberOrNull(getSummary(record, format, season).position);
     const positions = battleRowsForSearch(record, format, season)
       .map((row) => numberOrNull(row.column_position ?? row.position))
       .filter((value) => Number.isFinite(value));
-    return positions.length ? Math.min(...positions) : Number.POSITIVE_INFINITY;
+    return positions.length ? Math.min(...positions) : summaryPosition ?? Number.POSITIVE_INFINITY;
   }
 
   function sortByBattlePosition(records) {
@@ -1112,8 +1122,18 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   }
 
   function performSearch() {
+    window.clearTimeout(searchInputTimer);
+    searchInputTimer = null;
     applyFiltersAndRender();
     rememberSearch(els.searchInput.value);
+  }
+
+  function queueFilterRender() {
+    window.clearTimeout(searchInputTimer);
+    searchInputTimer = window.setTimeout(() => {
+      searchInputTimer = null;
+      applyFiltersAndRender();
+    }, SEARCH_DEBOUNCE_MS);
   }
 
 
@@ -1193,7 +1213,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     const fragment = document.createDocumentFragment();
     const format = state.selectedFormat;
 
-    state.filtered.forEach((record, index) => {
+    state.filtered.slice(0, state.visibleResults).forEach((record, index) => {
       const card = els.cardTemplate.content.firstElementChild.cloneNode(true);
       const position = card.querySelector(".result-position");
       const favoriteButton = card.querySelector(".favorite-button");
@@ -1228,6 +1248,18 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       card.addEventListener("dblclick", () => openDetail(record));
       fragment.append(card);
     });
+    if (state.visibleResults < state.filtered.length) {
+      const remaining = state.filtered.length - state.visibleResults;
+      const loadMore = document.createElement("button");
+      loadMore.className = "primary-button load-more-results";
+      loadMore.type = "button";
+      loadMore.textContent = `Show ${Math.min(RESULT_PAGE_SIZE, remaining)} more`;
+      loadMore.addEventListener("click", () => {
+        state.visibleResults += RESULT_PAGE_SIZE;
+        renderCards();
+      });
+      fragment.append(loadMore);
+    }
     els.pokemonGrid.append(fragment);
   }
 

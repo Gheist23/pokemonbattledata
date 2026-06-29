@@ -47,7 +47,13 @@ http://127.0.0.1:5500
 
 ## Deployment
 
-Commit the generated index and all public assets:
+The generator produces a lightweight browser index and static API records:
+
+- `data/pokemon-index.json` is the lightweight browser/search index.
+- `data/api/index.json` is the complete API dataset streamed by `/api`.
+- `data/api/lookup.json` and `data/api/pokemon/*.json` keep individual API requests small.
+
+Commit the generated files and public assets:
 
 ```powershell
 node tools/generate-manifest.mjs
@@ -70,7 +76,7 @@ Static files work on any static host:
 
 ```text
 GET /data/pokemon-index.json
-GET /pokemon_champions_assets/battle_data/Season%20M-2/Doubles/Garchomp.csv
+GET /pokemon_champions_assets/battle_data/Doubles/Garchomp.csv
 GET /pokemon_champions_assets/metadata/Garchomp.csv
 ```
 
@@ -79,8 +85,8 @@ Cloudflare Pages Functions add JSON endpoints. The user-facing guide is availabl
 ```text
 GET /api
 GET /api/index
-GET /api/pokemon/garchomp?format=Doubles&season=Season%20M-2
-GET /api/battle/Doubles/garchomp?season=Season%20M-2
+GET /api/pokemon/garchomp?format=Doubles&season=Season%20M-3
+GET /api/battle/Doubles/garchomp?season=Season%20M-3
 GET /api/metadata/garchomp
 ```
 

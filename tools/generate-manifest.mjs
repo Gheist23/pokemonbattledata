@@ -71,6 +71,14 @@ function slugify(value) {
     .replace(/^-+|-+$/g, "");
 }
 
+function apiNameKey(value) {
+  return String(value || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
 function csvFilesRecursive(dir) {
   const files = [];
   if (!existsSync(dir)) return files;
@@ -281,6 +289,85 @@ function battleSummary(rows) {
     summary.rows.push(...ranked.map(compactBattleRow));
   }
   return summary;
+}
+
+function lightweightBattleSummary(summary) {
+  const rows = summary?.rows || [];
+  const positions = rows
+    .map((row) => numberOrNull(row.column_position ?? row.position))
+    .filter((value) => Number.isFinite(value));
+  const statChanges = Object.fromEntries(rows
+    .filter((row) => row.category === "stat_alignment" && row.name)
+    .map((row) => [row.name, { stat_up: row.stat_up || "", stat_down: row.stat_down || "" }]));
+  return {
+    top: summary?.top || {},
+    values: summary?.values || {},
+    position: positions.length ? Math.min(...positions) : null,
+    statChanges
+  };
+}
+
+function lightweightPokemonRecord(record) {
+  const battleSummaryBySeason = {};
+  for (const [season, formats] of Object.entries(record.summary?.battleSummary || {})) {
+    battleSummaryBySeason[season] = {};
+    for (const [format, summary] of Object.entries(formats || {})) {
+      battleSummaryBySeason[season][format] = lightweightBattleSummary(summary);
+    }
+  }
+  return {
+    ...record,
+    summary: {
+      ...record.summary,
+      battleSummary: battleSummaryBySeason
+    }
+  };
+}
+
+function apiAliases(record) {
+  const primary = record.summary?.primary || {};
+  return unique([
+    record.name,
+    record.battleName,
+    record.slug,
+    primary.pokemon_name,
+    primary.base_name,
+    primary.saved_name,
+    primary.form_name,
+    primary.title,
+    ...(record.summary?.forms || []).flatMap((form) => [
+      form.pokemon_name,
+      form.base_name,
+      form.saved_name,
+      form.form_name,
+      form.title,
+      form.slug
+    ])
+  ]);
+}
+
+function writeApiData(manifest) {
+  const apiDir = join(cwd, "data", "api");
+  const pokemonDir = join(apiDir, "pokemon");
+  if (existsSync(apiDir)) rmSync(apiDir, { recursive: true, force: true });
+  mkdirSync(pokemonDir, { recursive: true });
+
+  const aliases = {};
+  for (const record of manifest.pokemon) {
+    const slug = record.slug || slugify(record.battleName || record.name);
+    writeFileSync(join(pokemonDir, `${slug}.json`), `${JSON.stringify(record)}\n`);
+    for (const alias of apiAliases(record)) {
+      const key = apiNameKey(alias);
+      if (key && !aliases[key]) aliases[key] = slug;
+    }
+  }
+
+  writeFileSync(join(apiDir, "lookup.json"), `${JSON.stringify({
+    generatedAt: manifest.generatedAt,
+    dataVersion: manifest.dataVersion,
+    aliases
+  })}\n`);
+  writeFileSync(join(apiDir, "index.json"), `${JSON.stringify(manifest)}\n`);
 }
 
 function compareFormat(a, b) {
@@ -888,7 +975,7 @@ const pokemonPages = buildPokemonPages(pokemon);
 const topicPages = buildTopicPages();
 
 mkdirSync(join(cwd, "data"), { recursive: true });
-writeFileSync(join(cwd, "data", "pokemon-index.json"), `${JSON.stringify({
+const manifest = {
   generatedAt,
   dataVersion,
   assetRoot,
@@ -898,7 +985,12 @@ writeFileSync(join(cwd, "data", "pokemon-index.json"), `${JSON.stringify({
   topicPages: topicPages.map(({ title, slug, url, query }) => ({ title, slug, url, query })),
   pokemonPages: pokemonPages.map(({ name, slug, url, battleName, baseName, isForm }) => ({ name, slug, url, battleName, baseName, isForm })),
   pokemon
-}, null, 2)}\n`);
+};
+writeFileSync(join(cwd, "data", "pokemon-index.json"), `${JSON.stringify({
+  ...manifest,
+  pokemon: pokemon.map(lightweightPokemonRecord)
+})}\n`);
+writeApiData(manifest);
 writePokemonPages(pokemonPages);
 writeTopicPages(topicPages);
 writeSitemap(pokemonPages, topicPages, generatedAt);

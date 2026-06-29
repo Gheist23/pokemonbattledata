@@ -1,11 +1,10 @@
-import { fetchIndex, findPokemon, fetchAssetText, parseCsv, jsonResponse, optionsResponse, errorResponse } from '../_common.js';
+import { fetchPokemonEntry, fetchAssetText, parseCsv, jsonResponse, optionsResponse, errorResponse } from '../_common.js';
 
 export const onRequestOptions = () => optionsResponse();
 
 export async function onRequestGet({ env, request, params }) {
   try {
-    const index = await fetchIndex(env, request);
-    const entry = findPokemon(index, params.name);
+    const entry = await fetchPokemonEntry(env, request, params.name);
     if (!entry) return errorResponse('Pokemon not found.', 404, { name: params.name });
     if (!entry.metadataCsv) return errorResponse('Metadata CSV not found for this Pokemon.', 404, { name: entry.name });
 

@@ -359,12 +359,18 @@ function writeApiData(manifest) {
     }
   }
 
+  const secondaryAliasTargets = new Map();
   for (const record of manifest.pokemon) {
     const slug = record.slug || slugify(record.battleName || record.name);
     for (const alias of apiSecondaryAliases(record)) {
       const key = apiNameKey(alias);
-      if (key && !aliases[key]) aliases[key] = slug;
+      if (!key || aliases[key]) continue;
+      if (!secondaryAliasTargets.has(key)) secondaryAliasTargets.set(key, new Set());
+      secondaryAliasTargets.get(key).add(slug);
     }
+  }
+  for (const [key, slugs] of secondaryAliasTargets) {
+    if (slugs.size === 1) aliases[key] = [...slugs][0];
   }
 
   writeFileSync(join(apiDir, "lookup.json"), `${JSON.stringify({

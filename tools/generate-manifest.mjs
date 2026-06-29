@@ -324,12 +324,9 @@ function lightweightPokemonRecord(record) {
   };
 }
 
-function apiAliases(record) {
+function apiSecondaryAliases(record) {
   const primary = record.summary?.primary || {};
   return unique([
-    record.name,
-    record.battleName,
-    record.slug,
     primary.pokemon_name,
     primary.base_name,
     primary.saved_name,
@@ -356,7 +353,15 @@ function writeApiData(manifest) {
   for (const record of manifest.pokemon) {
     const slug = record.slug || slugify(record.battleName || record.name);
     writeFileSync(join(pokemonDir, `${slug}.json`), `${JSON.stringify(record)}\n`);
-    for (const alias of apiAliases(record)) {
+    for (const alias of unique([record.name, record.battleName, record.slug, slug])) {
+      const key = apiNameKey(alias);
+      if (key) aliases[key] = slug;
+    }
+  }
+
+  for (const record of manifest.pokemon) {
+    const slug = record.slug || slugify(record.battleName || record.name);
+    for (const alias of apiSecondaryAliases(record)) {
       const key = apiNameKey(alias);
       if (key && !aliases[key]) aliases[key] = slug;
     }

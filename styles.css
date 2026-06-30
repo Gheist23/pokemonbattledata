@@ -7853,3 +7853,11 @@ body.page-api::before {
   color: var(--brand);
   font-weight: 780;
 }
+.page-api .api-rules-attribution {
+  margin: 0.8rem 0 1rem;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid var(--brand);
+  color: var(--text);
+  background: rgba(114, 255, 171, 0.06);
+  font-weight: 700;
+}

@@ -970,6 +970,7 @@ function writeSitemap(pokemonPages, topicPages, generatedAt) {
   const urls = [
     `${siteUrl}/`,
     `${siteUrl}/api_guide`,
+    `${siteUrl}/api-rules/`,
     licenseUrl,
     ...topicPages.map((page) => page.url),
     ...pokemonPages.map((page) => page.url)

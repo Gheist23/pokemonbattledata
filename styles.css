@@ -7770,6 +7770,28 @@ body.page-api::before {
   }
 }
 
+/* Desktop profile viewport fit */
+@media (min-width: 761px) {
+  .page-explorer .detail-dialog {
+    --profile-dialog-y-gap: clamp(24px, 4.2dvh, 72px);
+    position: fixed !important;
+    top: var(--profile-dialog-y-gap) !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: 50% !important;
+    width: min(1180px, calc(100vw - 48px)) !important;
+    max-height: calc(100dvh - (var(--profile-dialog-y-gap) * 2)) !important;
+    margin: 0 !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .page-explorer .detail-dialog .dialog-inner,
+  .page-explorer .dialog-inner {
+    max-height: calc(100dvh - (var(--profile-dialog-y-gap) * 2)) !important;
+    overflow-y: auto !important;
+  }
+}
+
 /* Final mobile search/filter control alignment */
 @media (max-width: 760px) {
   .page-explorer .search-action-row {

@@ -66,9 +66,13 @@ Cloudflare Pages should use:
 
 ```text
 Build command: node tools/generate-manifest.mjs
+Deploy command: npx wrangler pages deploy . --project-name pokemonbattledata
 Build output directory: .
 Root directory: /
 ```
+
+Do not use `npx wrangler deploy` for this project. This site uses Cloudflare Pages
+with a `functions` directory, so the deploy command must use `wrangler pages deploy`.
 
 ## Public API
 

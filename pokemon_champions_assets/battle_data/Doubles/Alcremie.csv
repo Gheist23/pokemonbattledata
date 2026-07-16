@@ -1,54 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Alcremie,153,move,1,Decorate,91.5%,,,,,,,,
-Alcremie,153,move,2,Dazzling Gleam,63.4%,,,,,,,,
-Alcremie,153,move,3,Protect,56.1%,,,,,,,,
-Alcremie,153,move,4,Helping Hand,28.4%,,,,,,,,
-Alcremie,153,move,5,Encore,15.6%,,,,,,,,
-Alcremie,153,move,6,Light Screen,14.9%,,,,,,,,
-Alcremie,153,move,7,Mystical Fire,13.1%,,,,,,,,
-Alcremie,153,move,8,Baby-Doll Eyes,12.4%,,,,,,,,
-Alcremie,153,move,9,Alluring Voice,12.3%,,,,,,,,
-Alcremie,153,move,10,Psych Up,12.0%,,,,,,,,
-Alcremie,153,held_item,1,Sitrus Berry,25.8%,,,,,,,,
-Alcremie,153,held_item,2,Leftovers,19.0%,,,,,,,,
-Alcremie,153,held_item,3,Choice Scarf,11.2%,,,,,,,,
-Alcremie,153,held_item,4,Focus Sash,7.9%,,,,,,,,
-Alcremie,153,held_item,5,Babiri Berry,7.1%,,,,,,,,
-Alcremie,153,held_item,6,Quick Claw,6.6%,,,,,,,,
-Alcremie,153,held_item,7,Fairy Feather,5.8%,,,,,,,,
-Alcremie,153,held_item,8,Kebia Berry,4.7%,,,,,,,,
-Alcremie,153,held_item,9,Iron Ball,4.0%,,,,,,,,
-Alcremie,153,held_item,10,Bright Powder,2.6%,,,,,,,,
-Alcremie,153,teammate,1,Sinistcha,,,,,,,,,
-Alcremie,153,teammate,2,Farigiraf,,,,,,,,,
-Alcremie,153,teammate,3,Incineroar,,,,,,,,,
-Alcremie,153,teammate,4,Garchomp,,,,,,,,,
-Alcremie,153,teammate,5,Mawile,,,,,,,,,
-Alcremie,153,teammate,6,Whimsicott,,,,,,,,,
-Alcremie,153,teammate,7,Sneasler,,,,,,,,,
-Alcremie,153,teammate,8,Torkoal,,,,,,,,,
-Alcremie,153,teammate,9,Pelipper,,,,,,,,,
-Alcremie,153,teammate,10,Basculegion Male,,,,,,,,,
-Alcremie,153,stat_alignment,1,Bold,39.1%,Defense,Attack,,,,,,
-Alcremie,153,stat_alignment,2,Relaxed,18.7%,Defense,Speed,,,,,,
-Alcremie,153,stat_alignment,3,Timid,16.6%,Speed,Attack,,,,,,
-Alcremie,153,stat_alignment,4,Modest,9.7%,Sp. Atk,Attack,,,,,,
-Alcremie,153,stat_alignment,5,Calm,7.6%,Sp. Def,Attack,,,,,,
-Alcremie,153,stat_alignment,6,Quiet,4.4%,Sp. Atk,Speed,,,,,,
-Alcremie,153,stat_alignment,7,Sassy,2.9%,Sp. Def,Speed,,,,,,
-Alcremie,153,stat_alignment,8,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Alcremie,153,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
-Alcremie,153,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Alcremie,153,stat_points,1,,19.8%,,,32,0,32,0,2,0
-Alcremie,153,stat_points,2,,6.2%,,,32,0,2,0,0,32
-Alcremie,153,stat_points,3,,5.2%,,,32,0,32,2,0,0
-Alcremie,153,stat_points,4,,3.5%,,,32,0,32,0,0,0
-Alcremie,153,stat_points,5,,3.0%,,,32,0,25,0,9,0
-Alcremie,153,stat_points,6,,2.4%,,,32,0,17,0,16,1
-Alcremie,153,stat_points,7,,2.3%,,,2,0,32,0,32,0
-Alcremie,153,stat_points,8,,2.1%,,,32,0,2,0,32,0
-Alcremie,153,stat_points,9,,1.8%,,,32,0,0,32,2,0
-Alcremie,153,stat_points,10,,1.6%,,,21,0,32,0,13,0
-Alcremie,153,stat_points,11,,1.5%,,,32,0,2,32,0,0
-Alcremie,153,ability,1,Aroma Veil,90.6%,,,,,,,,
-Alcremie,153,ability,2,Sweet Veil,9.4%,,,,,,,,
+Alcremie,142,move,1,Decorate,93.6%,,,,,,,,
+Alcremie,142,move,2,Dazzling Gleam,61.1%,,,,,,,,
+Alcremie,142,move,3,Protect,55.7%,,,,,,,,
+Alcremie,142,move,4,Helping Hand,30.5%,,,,,,,,
+Alcremie,142,move,5,Mystical Fire,16.8%,,,,,,,,
+Alcremie,142,move,6,Draining Kiss,15.8%,,,,,,,,
+Alcremie,142,move,7,Encore,14.8%,,,,,,,,
+Alcremie,142,move,8,Baby-Doll Eyes,11.1%,,,,,,,,
+Alcremie,142,move,9,Alluring Voice,10.1%,,,,,,,,
+Alcremie,142,move,10,Recover,10.0%,,,,,,,,
+Alcremie,142,held_item,1,Sitrus Berry,26.7%,,,,,,,,
+Alcremie,142,held_item,2,Leftovers,19.4%,,,,,,,,
+Alcremie,142,held_item,3,Choice Scarf,11.6%,,,,,,,,
+Alcremie,142,held_item,4,Focus Sash,9.2%,,,,,,,,
+Alcremie,142,held_item,5,Babiri Berry,8.7%,,,,,,,,
+Alcremie,142,held_item,6,Kebia Berry,5.6%,,,,,,,,
+Alcremie,142,held_item,7,Quick Claw,5.0%,,,,,,,,
+Alcremie,142,held_item,8,Fairy Feather,4.6%,,,,,,,,
+Alcremie,142,held_item,9,Iron Ball,1.8%,,,,,,,,
+Alcremie,142,held_item,10,Bright Powder,1.2%,,,,,,,,
+Alcremie,142,teammate,1,Sinistcha,,,,,,,,,
+Alcremie,142,teammate,2,Farigiraf,,,,,,,,,
+Alcremie,142,teammate,3,Incineroar,,,,,,,,,
+Alcremie,142,teammate,4,Garchomp,,,,,,,,,
+Alcremie,142,teammate,5,Mawile,,,,,,,,,
+Alcremie,142,teammate,6,Pelipper,,,,,,,,,
+Alcremie,142,teammate,7,Sneasler,,,,,,,,,
+Alcremie,142,teammate,8,Kingambit,,,,,,,,,
+Alcremie,142,teammate,9,Archaludon,,,,,,,,,
+Alcremie,142,teammate,10,Sableye,,,,,,,,,
+Alcremie,142,stat_alignment,1,Bold,40.7%,Defense,Attack,,,,,,
+Alcremie,142,stat_alignment,2,Timid,17.7%,Speed,Attack,,,,,,
+Alcremie,142,stat_alignment,3,Relaxed,12.8%,Defense,Speed,,,,,,
+Alcremie,142,stat_alignment,4,Calm,9.0%,Sp. Def,Attack,,,,,,
+Alcremie,142,stat_alignment,5,Modest,7.5%,Sp. Atk,Attack,,,,,,
+Alcremie,142,stat_alignment,6,Sassy,7.1%,Sp. Def,Speed,,,,,,
+Alcremie,142,stat_alignment,7,Quiet,4.0%,Sp. Atk,Speed,,,,,,
+Alcremie,142,stat_alignment,8,Brave,0.8%,Attack,Speed,,,,,,
+Alcremie,142,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Alcremie,142,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Alcremie,142,stat_points,1,,27.7%,,,32,0,32,0,2,0
+Alcremie,142,stat_points,2,,5.5%,,,32,0,2,0,0,32
+Alcremie,142,stat_points,3,,4.6%,,,32,0,25,0,9,0
+Alcremie,142,stat_points,4,,3.3%,,,32,0,32,2,0,0
+Alcremie,142,stat_points,5,,2.8%,,,32,0,23,0,10,1
+Alcremie,142,stat_points,6,,2.3%,,,31,0,32,0,3,0
+Alcremie,142,stat_points,7,,2.1%,,,32,0,32,0,0,0
+Alcremie,142,stat_points,8,,1.9%,,,32,0,2,0,32,0
+Alcremie,142,ability,1,Aroma Veil,84.4%,,,,,,,,
+Alcremie,142,ability,2,Sweet Veil,15.6%,,,,,,,,

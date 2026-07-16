@@ -1,55 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Hippowdon,10,move,1,Earthquake,97.8%,,,,,,,,
-Hippowdon,10,move,2,Yawn,93.9%,,,,,,,,
-Hippowdon,10,move,3,Stealth Rock,88.4%,,,,,,,,
-Hippowdon,10,move,4,Slack Off,57.2%,,,,,,,,
-Hippowdon,10,move,5,Whirlwind,38.9%,,,,,,,,
-Hippowdon,10,move,6,Protect,8.7%,,,,,,,,
-Hippowdon,10,move,7,Roar,6.3%,,,,,,,,
-Hippowdon,10,move,8,Rock Tomb,1.8%,,,,,,,,
-Hippowdon,10,move,9,Ice Fang,1.8%,,,,,,,,
-Hippowdon,10,move,10,Fissure,1.0%,,,,,,,,
-Hippowdon,10,held_item,1,Sitrus Berry,65.7%,,,,,,,,
-Hippowdon,10,held_item,2,Leftovers,29.8%,,,,,,,,
-Hippowdon,10,held_item,3,Smooth Rock,1.7%,,,,,,,,
-Hippowdon,10,held_item,4,Lum Berry,0.5%,,,,,,,,
-Hippowdon,10,held_item,5,Mental Herb,0.4%,,,,,,,,
-Hippowdon,10,held_item,6,Quick Claw,0.3%,,,,,,,,
-Hippowdon,10,held_item,7,Focus Sash,0.2%,,,,,,,,
-Hippowdon,10,held_item,8,Rindo Berry,0.2%,,,,,,,,
-Hippowdon,10,held_item,9,Bright Powder,0.2%,,,,,,,,
-Hippowdon,10,held_item,10,Passho Berry,0.2%,,,,,,,,
-Hippowdon,10,teammate,1,Mimikyu,,,,,,,,,
-Hippowdon,10,teammate,2,Meowscarada,,,,,,,,,
-Hippowdon,10,teammate,3,Garchomp,,,,,,,,,
-Hippowdon,10,teammate,4,Metagross,,,,,,,,,
-Hippowdon,10,teammate,5,Hydreigon,,,,,,,,,
-Hippowdon,10,teammate,6,Charizard,,,,,,,,,
-Hippowdon,10,teammate,7,Raichu,,,,,,,,,
-Hippowdon,10,teammate,8,Gyarados,,,,,,,,,
-Hippowdon,10,teammate,9,Archaludon,,,,,,,,,
-Hippowdon,10,teammate,10,Glimmora,,,,,,,,,
-Hippowdon,10,stat_alignment,1,Impish,69.2%,Defense,Sp. Atk,,,,,,
-Hippowdon,10,stat_alignment,2,Careful,17.9%,Sp. Def,Sp. Atk,,,,,,
-Hippowdon,10,stat_alignment,3,Relaxed,7.3%,Defense,Speed,,,,,,
-Hippowdon,10,stat_alignment,4,Sassy,1.8%,Sp. Def,Speed,,,,,,
-Hippowdon,10,stat_alignment,5,Adamant,1.4%,Attack,Sp. Atk,,,,,,
-Hippowdon,10,stat_alignment,6,Bold,0.8%,Defense,Attack,,,,,,
-Hippowdon,10,stat_alignment,7,Brave,0.5%,Attack,Speed,,,,,,
-Hippowdon,10,stat_alignment,8,Calm,0.4%,Sp. Def,Attack,,,,,,
-Hippowdon,10,stat_alignment,9,Naughty,0.2%,Attack,Sp. Def,,,,,,
-Hippowdon,10,stat_alignment,10,Lax,0.1%,Defense,Sp. Def,,,,,,
-Hippowdon,10,stat_points,1,,28.7%,,,32,0,2,0,32,0
-Hippowdon,10,stat_points,2,,19.2%,,,32,0,32,0,2,0
-Hippowdon,10,stat_points,3,,6.6%,,,32,0,12,0,22,0
-Hippowdon,10,stat_points,4,,4.7%,,,32,0,15,0,19,0
-Hippowdon,10,stat_points,5,,4.2%,,,32,0,22,0,12,0
-Hippowdon,10,stat_points,6,,3.9%,,,32,0,18,0,16,0
-Hippowdon,10,stat_points,7,,2.6%,,,32,2,32,0,0,0
-Hippowdon,10,stat_points,8,,1.7%,,,32,0,13,0,21,0
-Hippowdon,10,stat_points,9,,1.6%,,,32,0,20,0,14,0
-Hippowdon,10,stat_points,10,,1.2%,,,32,0,0,0,32,0
-Hippowdon,10,stat_points,11,,1.2%,,,32,0,32,0,0,0
-Hippowdon,10,stat_points,12,,1.0%,,,32,0,32,0,0,2
-Hippowdon,10,ability,1,Sand Stream,99.5%,,,,,,,,
-Hippowdon,10,ability,2,Sand Force,0.5%,,,,,,,,
+Hippowdon,3,move,1,Earthquake,98.3%,,,,,,,,
+Hippowdon,3,move,2,Yawn,93.9%,,,,,,,,
+Hippowdon,3,move,3,Stealth Rock,76.4%,,,,,,,,
+Hippowdon,3,move,4,Slack Off,59.6%,,,,,,,,
+Hippowdon,3,move,5,Whirlwind,49.5%,,,,,,,,
+Hippowdon,3,move,6,Protect,12.8%,,,,,,,,
+Hippowdon,3,move,7,Roar,4.3%,,,,,,,,
+Hippowdon,3,move,8,Ice Fang,0.9%,,,,,,,,
+Hippowdon,3,move,9,Rock Tomb,0.8%,,,,,,,,
+Hippowdon,3,move,10,Fissure,0.8%,,,,,,,,
+Hippowdon,3,held_item,1,Sitrus Berry,63.0%,,,,,,,,
+Hippowdon,3,held_item,2,Leftovers,34.3%,,,,,,,,
+Hippowdon,3,held_item,3,Smooth Rock,0.7%,,,,,,,,
+Hippowdon,3,held_item,4,Lum Berry,0.5%,,,,,,,,
+Hippowdon,3,held_item,5,Mental Herb,0.3%,,,,,,,,
+Hippowdon,3,held_item,6,Quick Claw,0.2%,,,,,,,,
+Hippowdon,3,held_item,7,Bright Powder,0.1%,,,,,,,,
+Hippowdon,3,held_item,8,Focus Sash,0.1%,,,,,,,,
+Hippowdon,3,held_item,9,Life Orb,0.1%,,,,,,,,
+Hippowdon,3,held_item,10,Rindo Berry,0.1%,,,,,,,,
+Hippowdon,3,teammate,1,Mimikyu,,,,,,,,,
+Hippowdon,3,teammate,2,Metagross,,,,,,,,,
+Hippowdon,3,teammate,3,Primarina,,,,,,,,,
+Hippowdon,3,teammate,4,Meowscarada,,,,,,,,,
+Hippowdon,3,teammate,5,Archaludon,,,,,,,,,
+Hippowdon,3,teammate,6,Dragonite,,,,,,,,,
+Hippowdon,3,teammate,7,Gyarados,,,,,,,,,
+Hippowdon,3,teammate,8,Hydreigon,,,,,,,,,
+Hippowdon,3,teammate,9,Garchomp,,,,,,,,,
+Hippowdon,3,teammate,10,Delphox,,,,,,,,,
+Hippowdon,3,stat_alignment,1,Impish,71.5%,Defense,Sp. Atk,,,,,,
+Hippowdon,3,stat_alignment,2,Careful,17.0%,Sp. Def,Sp. Atk,,,,,,
+Hippowdon,3,stat_alignment,3,Relaxed,6.7%,Defense,Speed,,,,,,
+Hippowdon,3,stat_alignment,4,Sassy,1.9%,Sp. Def,Speed,,,,,,
+Hippowdon,3,stat_alignment,5,Adamant,0.9%,Attack,Sp. Atk,,,,,,
+Hippowdon,3,stat_alignment,6,Bold,0.9%,Defense,Attack,,,,,,
+Hippowdon,3,stat_alignment,7,Brave,0.3%,Attack,Speed,,,,,,
+Hippowdon,3,stat_alignment,8,Calm,0.3%,Sp. Def,Attack,,,,,,
+Hippowdon,3,stat_alignment,9,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Hippowdon,3,stat_alignment,10,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Hippowdon,3,stat_points,1,,21.3%,,,32,0,32,0,2,0
+Hippowdon,3,stat_points,2,,19.2%,,,32,0,2,0,32,0
+Hippowdon,3,stat_points,3,,8.1%,,,32,0,22,0,10,2
+Hippowdon,3,stat_points,4,,6.8%,,,32,0,22,0,12,0
+Hippowdon,3,stat_points,5,,3.1%,,,32,0,15,0,19,0
+Hippowdon,3,stat_points,6,,2.4%,,,32,0,6,0,28,0
+Hippowdon,3,stat_points,7,,2.1%,,,32,0,32,0,0,2
+Hippowdon,3,stat_points,8,,1.8%,,,32,0,5,0,28,1
+Hippowdon,3,ability,1,Sand Stream,99.8%,,,,,,,,
+Hippowdon,3,ability,2,Sand Force,0.2%,,,,,,,,

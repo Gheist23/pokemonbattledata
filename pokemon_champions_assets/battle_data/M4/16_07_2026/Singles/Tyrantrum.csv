@@ -1,51 +1,51 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Tyrantrum,195,move,1,Head Smash,77.9%,,,,,,,,,31289.23
-Tyrantrum,195,move,2,Earthquake,45.1%,,,,,,,,,31289.23
-Tyrantrum,195,move,3,Outrage,40.9%,,,,,,,,,31289.23
-Tyrantrum,195,move,4,Close Combat,29.3%,,,,,,,,,31289.23
-Tyrantrum,195,move,5,Psychic Fangs,26.5%,,,,,,,,,31289.23
-Tyrantrum,195,move,6,Dragon Dance,23.4%,,,,,,,,,31293.57
-Tyrantrum,195,move,7,Crunch,23.3%,,,,,,,,,31293.57
-Tyrantrum,195,move,8,Ice Fang,22.8%,,,,,,,,,31293.57
-Tyrantrum,195,move,9,Fire Fang,16.5%,,,,,,,,,31293.57
-Tyrantrum,195,move,10,Thunder Fang,14.2%,,,,,,,,,31293.57
-Tyrantrum,195,held_item,1,Choice Scarf,40.7%,,,,,,,,,31296.98
-Tyrantrum,195,held_item,2,Focus Sash,15.3%,,,,,,,,,31296.98
-Tyrantrum,195,held_item,3,Life Orb,12.3%,,,,,,,,,31296.98
-Tyrantrum,195,held_item,4,Quick Claw,5.4%,,,,,,,,,31296.98
-Tyrantrum,195,held_item,5,Hard Stone,5.3%,,,,,,,,,31296.98
-Tyrantrum,195,held_item,6,Sitrus Berry,4.8%,,,,,,,,,31304.25
-Tyrantrum,195,held_item,7,Expert Belt,4.2%,,,,,,,,,31304.25
-Tyrantrum,195,held_item,8,Lum Berry,2.7%,,,,,,,,,31304.25
-Tyrantrum,195,held_item,9,Wide Lens,1.9%,,,,,,,,,31304.25
-Tyrantrum,195,held_item,10,Muscle Band,1.5%,,,,,,,,,31304.25
-Tyrantrum,195,teammate,1,Garchomp,,,,,,,,,,31310.67
-Tyrantrum,195,teammate,2,Blaziken,,,,,,,,,,31310.67
-Tyrantrum,195,teammate,3,Delphox,,,,,,,,,,31310.67
-Tyrantrum,195,teammate,4,Charizard,,,,,,,,,,31310.67
-Tyrantrum,195,teammate,5,Archaludon,,,,,,,,,,31310.67
-Tyrantrum,195,teammate,6,Meowscarada,,,,,,,,,,31313.62
-Tyrantrum,195,teammate,7,Metagross,,,,,,,,,,31313.62
-Tyrantrum,195,teammate,8,Starmie,,,,,,,,,,31313.62
-Tyrantrum,195,teammate,9,Mimikyu,,,,,,,,,,31313.62
-Tyrantrum,195,teammate,10,Volcarona,,,,,,,,,,31313.62
-Tyrantrum,195,stat_alignment,1,Adamant,47.2%,Attack,Sp. Atk,,,,,,,31315.72
-Tyrantrum,195,stat_alignment,2,Jolly,40.0%,Speed,Sp. Atk,,,,,,,31315.72
-Tyrantrum,195,stat_alignment,3,Brave,3.9%,Attack,Speed,,,,,,,31315.72
-Tyrantrum,195,stat_alignment,4,Impish,2.9%,Defense,Sp. Atk,,,,,,,31315.72
-Tyrantrum,195,stat_alignment,5,Careful,1.6%,Sp. Def,Sp. Atk,,,,,,,31315.72
-Tyrantrum,195,stat_alignment,6,Lax,1.5%,Defense,Sp. Def,,,,,,,31318.80
-Tyrantrum,195,stat_alignment,7,Naughty,1.1%,Attack,Sp. Def,,,,,,,31318.80
-Tyrantrum,195,stat_alignment,8,Lonely,0.6%,Attack,Defense,,,,,,,31318.80
-Tyrantrum,195,stat_alignment,9,Naive,0.5%,Speed,Sp. Def,,,,,,,31318.80
-Tyrantrum,195,stat_alignment,10,Relaxed,0.4%,Defense,Speed,,,,,,,31318.80
-Tyrantrum,195,stat_points,1,,36.8%,,,2,32,0,0,0,32,31321.05
-Tyrantrum,195,stat_points,2,,14.2%,,,0,32,2,0,0,32,31321.05
-Tyrantrum,195,stat_points,3,,6.1%,,,32,32,0,0,2,0,31321.05
-Tyrantrum,195,stat_points,4,,3.6%,,,0,32,0,0,2,32,31321.05
-Tyrantrum,195,stat_points,5,,3.6%,,,0,32,0,0,0,32,31321.05
-Tyrantrum,195,stat_points,6,,2.3%,,,2,32,32,0,0,0,31343.10
-Tyrantrum,195,stat_points,7,,1.9%,,,0,32,2,0,32,0,31343.10
-Tyrantrum,195,stat_points,8,,1.5%,,,32,32,0,0,0,2,31343.10
-Tyrantrum,195,ability,1,Rock Head,69.5%,,,,,,,,,31356.96
-Tyrantrum,195,ability,2,Strong Jaw,30.5%,,,,,,,,,31356.96
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Tyrantrum,195,move,1,Head Smash,77.9%,,,,,,,,
+Tyrantrum,195,move,2,Earthquake,45.1%,,,,,,,,
+Tyrantrum,195,move,3,Outrage,40.9%,,,,,,,,
+Tyrantrum,195,move,4,Close Combat,29.3%,,,,,,,,
+Tyrantrum,195,move,5,Psychic Fangs,26.5%,,,,,,,,
+Tyrantrum,195,move,6,Dragon Dance,23.4%,,,,,,,,
+Tyrantrum,195,move,7,Crunch,23.3%,,,,,,,,
+Tyrantrum,195,move,8,Ice Fang,22.8%,,,,,,,,
+Tyrantrum,195,move,9,Fire Fang,16.5%,,,,,,,,
+Tyrantrum,195,move,10,Thunder Fang,14.2%,,,,,,,,
+Tyrantrum,195,held_item,1,Choice Scarf,40.7%,,,,,,,,
+Tyrantrum,195,held_item,2,Focus Sash,15.3%,,,,,,,,
+Tyrantrum,195,held_item,3,Life Orb,12.3%,,,,,,,,
+Tyrantrum,195,held_item,4,Quick Claw,5.4%,,,,,,,,
+Tyrantrum,195,held_item,5,Hard Stone,5.3%,,,,,,,,
+Tyrantrum,195,held_item,6,Sitrus Berry,4.8%,,,,,,,,
+Tyrantrum,195,held_item,7,Expert Belt,4.2%,,,,,,,,
+Tyrantrum,195,held_item,8,Lum Berry,2.7%,,,,,,,,
+Tyrantrum,195,held_item,9,Wide Lens,1.9%,,,,,,,,
+Tyrantrum,195,held_item,10,Muscle Band,1.5%,,,,,,,,
+Tyrantrum,195,teammate,1,Garchomp,,,,,,,,,
+Tyrantrum,195,teammate,2,Blaziken,,,,,,,,,
+Tyrantrum,195,teammate,3,Delphox,,,,,,,,,
+Tyrantrum,195,teammate,4,Charizard,,,,,,,,,
+Tyrantrum,195,teammate,5,Archaludon,,,,,,,,,
+Tyrantrum,195,teammate,6,Meowscarada,,,,,,,,,
+Tyrantrum,195,teammate,7,Metagross,,,,,,,,,
+Tyrantrum,195,teammate,8,Starmie,,,,,,,,,
+Tyrantrum,195,teammate,9,Mimikyu,,,,,,,,,
+Tyrantrum,195,teammate,10,Volcarona,,,,,,,,,
+Tyrantrum,195,stat_alignment,1,Adamant,47.2%,Attack,Sp. Atk,,,,,,
+Tyrantrum,195,stat_alignment,2,Jolly,40.0%,Speed,Sp. Atk,,,,,,
+Tyrantrum,195,stat_alignment,3,Brave,3.9%,Attack,Speed,,,,,,
+Tyrantrum,195,stat_alignment,4,Impish,2.9%,Defense,Sp. Atk,,,,,,
+Tyrantrum,195,stat_alignment,5,Careful,1.6%,Sp. Def,Sp. Atk,,,,,,
+Tyrantrum,195,stat_alignment,6,Lax,1.5%,Defense,Sp. Def,,,,,,
+Tyrantrum,195,stat_alignment,7,Naughty,1.1%,Attack,Sp. Def,,,,,,
+Tyrantrum,195,stat_alignment,8,Lonely,0.6%,Attack,Defense,,,,,,
+Tyrantrum,195,stat_alignment,9,Naive,0.5%,Speed,Sp. Def,,,,,,
+Tyrantrum,195,stat_alignment,10,Relaxed,0.4%,Defense,Speed,,,,,,
+Tyrantrum,195,stat_points,1,,36.8%,,,2,32,0,0,0,32
+Tyrantrum,195,stat_points,2,,14.2%,,,0,32,2,0,0,32
+Tyrantrum,195,stat_points,3,,6.1%,,,32,32,0,0,2,0
+Tyrantrum,195,stat_points,4,,3.6%,,,0,32,0,0,2,32
+Tyrantrum,195,stat_points,5,,3.6%,,,0,32,0,0,0,32
+Tyrantrum,195,stat_points,6,,2.3%,,,2,32,32,0,0,0
+Tyrantrum,195,stat_points,7,,1.9%,,,0,32,2,0,32,0
+Tyrantrum,195,stat_points,8,,1.5%,,,32,32,0,0,0,2
+Tyrantrum,195,ability,1,Rock Head,69.5%,,,,,,,,
+Tyrantrum,195,ability,2,Strong Jaw,30.5%,,,,,,,,

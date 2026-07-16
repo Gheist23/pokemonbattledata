@@ -1,54 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Abomasnow,99,move,1,Blizzard,96.9%,,,,,,,,
-Abomasnow,99,move,2,Protect,66.7%,,,,,,,,
-Abomasnow,99,move,3,Earth Power,52.8%,,,,,,,,
-Abomasnow,99,move,4,Giga Drain,50.0%,,,,,,,,
-Abomasnow,99,move,5,Energy Ball,38.8%,,,,,,,,
-Abomasnow,99,move,6,Aurora Veil,28.9%,,,,,,,,
-Abomasnow,99,move,7,Ice Shard,26.1%,,,,,,,,
-Abomasnow,99,move,8,Leaf Storm,4.3%,,,,,,,,
-Abomasnow,99,move,9,Leech Seed,4.1%,,,,,,,,
-Abomasnow,99,move,10,Focus Blast,3.9%,,,,,,,,
-Abomasnow,99,held_item,1,Abomasite,75.8%,,,,,,,,
-Abomasnow,99,held_item,2,Focus Sash,6.9%,,,,,,,,
-Abomasnow,99,held_item,3,Light Clay,4.3%,,,,,,,,
-Abomasnow,99,held_item,4,Life Orb,1.9%,,,,,,,,
-Abomasnow,99,held_item,5,Choice Scarf,1.8%,,,,,,,,
-Abomasnow,99,held_item,6,Never-Melt Ice,1.6%,,,,,,,,
-Abomasnow,99,held_item,7,Quick Claw,1.6%,,,,,,,,
-Abomasnow,99,held_item,8,Leftovers,1.2%,,,,,,,,
-Abomasnow,99,held_item,9,Sitrus Berry,1.1%,,,,,,,,
-Abomasnow,99,held_item,10,Occa Berry,0.9%,,,,,,,,
-Abomasnow,99,teammate,1,Farigiraf,,,,,,,,,
-Abomasnow,99,teammate,2,Incineroar,,,,,,,,,
-Abomasnow,99,teammate,3,Torkoal,,,,,,,,,
-Abomasnow,99,teammate,4,Basculegion Male,,,,,,,,,
-Abomasnow,99,teammate,5,Kingambit,,,,,,,,,
-Abomasnow,99,teammate,6,Mawile,,,,,,,,,
-Abomasnow,99,teammate,7,Camerupt,,,,,,,,,
-Abomasnow,99,teammate,8,Sinistcha,,,,,,,,,
-Abomasnow,99,teammate,9,Oranguru,,,,,,,,,
-Abomasnow,99,teammate,10,Staraptor,,,,,,,,,
-Abomasnow,99,stat_alignment,1,Quiet,66.7%,Sp. Atk,Speed,,,,,,
-Abomasnow,99,stat_alignment,2,Modest,22.6%,Sp. Atk,Attack,,,,,,
-Abomasnow,99,stat_alignment,3,Timid,1.9%,Speed,Attack,,,,,,
-Abomasnow,99,stat_alignment,4,Relaxed,1.8%,Defense,Speed,,,,,,
-Abomasnow,99,stat_alignment,5,Bold,1.6%,Defense,Attack,,,,,,
-Abomasnow,99,stat_alignment,6,Brave,1.1%,Attack,Speed,,,,,,
-Abomasnow,99,stat_alignment,7,Calm,1.1%,Sp. Def,Attack,,,,,,
-Abomasnow,99,stat_alignment,8,Mild,1.0%,Sp. Atk,Defense,,,,,,
-Abomasnow,99,stat_alignment,9,Sassy,0.9%,Sp. Def,Speed,,,,,,
-Abomasnow,99,stat_alignment,10,Adamant,0.5%,Attack,Sp. Atk,,,,,,
-Abomasnow,99,stat_points,1,,31.4%,,,32,0,2,32,0,0
-Abomasnow,99,stat_points,2,,11.5%,,,32,2,0,32,0,0
-Abomasnow,99,stat_points,3,,11.2%,,,32,0,0,32,2,0
-Abomasnow,99,stat_points,4,,8.0%,,,32,0,0,32,0,2
-Abomasnow,99,stat_points,5,,2.7%,,,32,0,1,32,1,0
-Abomasnow,99,stat_points,6,,2.6%,,,32,0,0,32,0,0
-Abomasnow,99,stat_points,7,,1.5%,,,2,0,32,32,0,0
-Abomasnow,99,stat_points,8,,1.1%,,,0,0,2,32,32,0
-Abomasnow,99,stat_points,9,,1.0%,,,2,0,0,32,0,32
-Abomasnow,99,stat_points,10,,0.8%,,,24,0,5,32,5,0
-Abomasnow,99,stat_points,11,,0.8%,,,2,0,0,32,32,0
-Abomasnow,99,ability,1,Snow Warning,97.5%,,,,,,,,
-Abomasnow,99,ability,2,Soundproof,2.5%,,,,,,,,
+Abomasnow,103,move,1,Blizzard,97.7%,,,,,,,,
+Abomasnow,103,move,2,Earth Power,63.6%,,,,,,,,
+Abomasnow,103,move,3,Protect,60.9%,,,,,,,,
+Abomasnow,103,move,4,Giga Drain,43.8%,,,,,,,,
+Abomasnow,103,move,5,Ice Shard,34.9%,,,,,,,,
+Abomasnow,103,move,6,Energy Ball,31.3%,,,,,,,,
+Abomasnow,103,move,7,Aurora Veil,18.0%,,,,,,,,
+Abomasnow,103,move,8,Grass Knot,14.6%,,,,,,,,
+Abomasnow,103,move,9,Leaf Storm,3.5%,,,,,,,,
+Abomasnow,103,move,10,Rock Slide,3.5%,,,,,,,,
+Abomasnow,103,held_item,1,Abomasite,81.7%,,,,,,,,
+Abomasnow,103,held_item,2,Focus Sash,4.1%,,,,,,,,
+Abomasnow,103,held_item,3,Light Clay,2.3%,,,,,,,,
+Abomasnow,103,held_item,4,Quick Claw,2.1%,,,,,,,,
+Abomasnow,103,held_item,5,Life Orb,1.7%,,,,,,,,
+Abomasnow,103,held_item,6,Choice Scarf,1.6%,,,,,,,,
+Abomasnow,103,held_item,7,Leftovers,1.5%,,,,,,,,
+Abomasnow,103,held_item,8,Sitrus Berry,1.3%,,,,,,,,
+Abomasnow,103,held_item,9,Occa Berry,0.8%,,,,,,,,
+Abomasnow,103,held_item,10,Never-Melt Ice,0.6%,,,,,,,,
+Abomasnow,103,teammate,1,Farigiraf,,,,,,,,,
+Abomasnow,103,teammate,2,Incineroar,,,,,,,,,
+Abomasnow,103,teammate,3,Kingambit,,,,,,,,,
+Abomasnow,103,teammate,4,Camerupt,,,,,,,,,
+Abomasnow,103,teammate,5,Torkoal,,,,,,,,,
+Abomasnow,103,teammate,6,Vivillon Fancy Pattern,,,,,,,,,
+Abomasnow,103,teammate,7,Basculegion Male,,,,,,,,,
+Abomasnow,103,teammate,8,Oranguru,,,,,,,,,
+Abomasnow,103,teammate,9,Sneasler,,,,,,,,,
+Abomasnow,103,teammate,10,Sylveon,,,,,,,,,
+Abomasnow,103,stat_alignment,1,Quiet,72.6%,Sp. Atk,Speed,,,,,,
+Abomasnow,103,stat_alignment,2,Modest,18.4%,Sp. Atk,Attack,,,,,,
+Abomasnow,103,stat_alignment,3,Timid,2.4%,Speed,Attack,,,,,,
+Abomasnow,103,stat_alignment,4,Brave,1.7%,Attack,Speed,,,,,,
+Abomasnow,103,stat_alignment,5,Calm,1.5%,Sp. Def,Attack,,,,,,
+Abomasnow,103,stat_alignment,6,Relaxed,0.9%,Defense,Speed,,,,,,
+Abomasnow,103,stat_alignment,7,Bold,0.9%,Defense,Attack,,,,,,
+Abomasnow,103,stat_alignment,8,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Abomasnow,103,stat_alignment,9,Mild,0.4%,Sp. Atk,Defense,,,,,,
+Abomasnow,103,stat_alignment,10,Rash,0.2%,Sp. Atk,Sp. Def,,,,,,
+Abomasnow,103,stat_points,1,,32.4%,,,32,0,2,32,0,0
+Abomasnow,103,stat_points,2,,13.1%,,,32,2,0,32,0,0
+Abomasnow,103,stat_points,3,,10.7%,,,32,0,0,32,2,0
+Abomasnow,103,stat_points,4,,6.2%,,,32,0,0,32,0,2
+Abomasnow,103,stat_points,5,,2.9%,,,32,0,1,32,1,0
+Abomasnow,103,stat_points,6,,1.4%,,,32,0,0,32,0,0
+Abomasnow,103,stat_points,7,,1.2%,,,2,32,0,32,0,0
+Abomasnow,103,stat_points,8,,1.0%,,,2,0,0,32,32,0
+Abomasnow,103,ability,1,Snow Warning,97.4%,,,,,,,,
+Abomasnow,103,ability,2,Soundproof,2.6%,,,,,,,,

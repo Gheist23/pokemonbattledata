@@ -1,55 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Quaquaval,119,move,1,Aqua Step,96.2%,,,,,,,,
-Quaquaval,119,move,2,Close Combat,80.8%,,,,,,,,
-Quaquaval,119,move,3,Triple Axel,49.1%,,,,,,,,
-Quaquaval,119,move,4,Aqua Jet,37.4%,,,,,,,,
-Quaquaval,119,move,5,Ice Spinner,23.1%,,,,,,,,
-Quaquaval,119,move,6,Swords Dance,17.4%,,,,,,,,
-Quaquaval,119,move,7,Encore,13.8%,,,,,,,,
-Quaquaval,119,move,8,Knock Off,10.3%,,,,,,,,
-Quaquaval,119,move,9,Baton Pass,9.0%,,,,,,,,
-Quaquaval,119,move,10,Brave Bird,8.4%,,,,,,,,
-Quaquaval,119,held_item,1,Focus Sash,44.1%,,,,,,,,
-Quaquaval,119,held_item,2,Life Orb,13.8%,,,,,,,,
-Quaquaval,119,held_item,3,Lum Berry,9.9%,,,,,,,,
-Quaquaval,119,held_item,4,Choice Scarf,5.7%,,,,,,,,
-Quaquaval,119,held_item,5,Mystic Water,4.7%,,,,,,,,
-Quaquaval,119,held_item,6,Sitrus Berry,4.3%,,,,,,,,
-Quaquaval,119,held_item,7,White Herb,2.5%,,,,,,,,
-Quaquaval,119,held_item,8,Muscle Band,2.4%,,,,,,,,
-Quaquaval,119,held_item,9,Leftovers,2.0%,,,,,,,,
-Quaquaval,119,held_item,10,Quick Claw,1.9%,,,,,,,,
-Quaquaval,119,teammate,1,Garchomp,,,,,,,,,
-Quaquaval,119,teammate,2,Raichu,,,,,,,,,
-Quaquaval,119,teammate,3,Charizard,,,,,,,,,
-Quaquaval,119,teammate,4,Meowscarada,,,,,,,,,
-Quaquaval,119,teammate,5,Metagross,,,,,,,,,
-Quaquaval,119,teammate,6,Mimikyu,,,,,,,,,
-Quaquaval,119,teammate,7,Staraptor,,,,,,,,,
-Quaquaval,119,teammate,8,Archaludon,,,,,,,,,
-Quaquaval,119,teammate,9,Dragonite,,,,,,,,,
-Quaquaval,119,teammate,10,Skeledirge,,,,,,,,,
-Quaquaval,119,stat_alignment,1,Jolly,50.1%,Speed,Sp. Atk,,,,,,
-Quaquaval,119,stat_alignment,2,Adamant,42.7%,Attack,Sp. Atk,,,,,,
-Quaquaval,119,stat_alignment,3,Naughty,2.1%,Attack,Sp. Def,,,,,,
-Quaquaval,119,stat_alignment,4,Impish,1.9%,Defense,Sp. Atk,,,,,,
-Quaquaval,119,stat_alignment,5,Lonely,0.6%,Attack,Defense,,,,,,
-Quaquaval,119,stat_alignment,6,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
-Quaquaval,119,stat_alignment,7,Naive,0.5%,Speed,Sp. Def,,,,,,
-Quaquaval,119,stat_alignment,8,Hasty,0.4%,Speed,Defense,,,,,,
-Quaquaval,119,stat_alignment,9,Relaxed,0.3%,Defense,Speed,,,,,,
-Quaquaval,119,stat_alignment,10,Brave,0.2%,Attack,Speed,,,,,,
-Quaquaval,119,stat_points,1,,44.1%,,,2,32,0,0,0,32
-Quaquaval,119,stat_points,2,,8.9%,,,1,32,1,0,0,32
-Quaquaval,119,stat_points,3,,8.1%,,,0,32,2,0,0,32
-Quaquaval,119,stat_points,4,,7.2%,,,0,32,0,0,2,32
-Quaquaval,119,stat_points,5,,4.2%,,,1,32,0,0,1,32
-Quaquaval,119,stat_points,6,,3.1%,,,0,32,0,0,0,32
-Quaquaval,119,stat_points,7,,1.2%,,,1,32,0,0,0,32
-Quaquaval,119,stat_points,8,,0.9%,,,32,32,0,0,0,2
-Quaquaval,119,stat_points,9,,0.8%,,,32,32,0,0,2,0
-Quaquaval,119,stat_points,10,,0.8%,,,2,32,32,0,0,0
-Quaquaval,119,stat_points,11,,0.7%,,,0,32,1,0,1,32
-Quaquaval,119,stat_points,12,,0.7%,,,10,32,0,0,5,19
-Quaquaval,119,ability,1,Moxie,94.9%,,,,,,,,
-Quaquaval,119,ability,2,Torrent,5.1%,,,,,,,,
+Quaquaval,112,move,1,Aqua Step,97.0%,,,,,,,,
+Quaquaval,112,move,2,Close Combat,80.3%,,,,,,,,
+Quaquaval,112,move,3,Triple Axel,51.6%,,,,,,,,
+Quaquaval,112,move,4,Aqua Jet,45.3%,,,,,,,,
+Quaquaval,112,move,5,Ice Spinner,21.1%,,,,,,,,
+Quaquaval,112,move,6,Swords Dance,15.8%,,,,,,,,
+Quaquaval,112,move,7,Encore,13.6%,,,,,,,,
+Quaquaval,112,move,8,Rapid Spin,7.9%,,,,,,,,
+Quaquaval,112,move,9,Baton Pass,7.8%,,,,,,,,
+Quaquaval,112,move,10,Knock Off,6.9%,,,,,,,,
+Quaquaval,112,held_item,1,Focus Sash,41.8%,,,,,,,,
+Quaquaval,112,held_item,2,Lum Berry,14.5%,,,,,,,,
+Quaquaval,112,held_item,3,Life Orb,11.3%,,,,,,,,
+Quaquaval,112,held_item,4,Mystic Water,8.7%,,,,,,,,
+Quaquaval,112,held_item,5,Sitrus Berry,6.4%,,,,,,,,
+Quaquaval,112,held_item,6,Choice Scarf,2.8%,,,,,,,,
+Quaquaval,112,held_item,7,Expert Belt,2.3%,,,,,,,,
+Quaquaval,112,held_item,8,Leftovers,1.8%,,,,,,,,
+Quaquaval,112,held_item,9,Metronome,1.8%,,,,,,,,
+Quaquaval,112,held_item,10,White Herb,1.7%,,,,,,,,
+Quaquaval,112,teammate,1,Garchomp,,,,,,,,,
+Quaquaval,112,teammate,2,Charizard,,,,,,,,,
+Quaquaval,112,teammate,3,Raichu,,,,,,,,,
+Quaquaval,112,teammate,4,Meowscarada,,,,,,,,,
+Quaquaval,112,teammate,5,Metagross,,,,,,,,,
+Quaquaval,112,teammate,6,Mimikyu,,,,,,,,,
+Quaquaval,112,teammate,7,Archaludon,,,,,,,,,
+Quaquaval,112,teammate,8,Delphox,,,,,,,,,
+Quaquaval,112,teammate,9,Skeledirge,,,,,,,,,
+Quaquaval,112,teammate,10,Blaziken,,,,,,,,,
+Quaquaval,112,stat_alignment,1,Jolly,52.0%,Speed,Sp. Atk,,,,,,
+Quaquaval,112,stat_alignment,2,Adamant,42.6%,Attack,Sp. Atk,,,,,,
+Quaquaval,112,stat_alignment,3,Impish,1.4%,Defense,Sp. Atk,,,,,,
+Quaquaval,112,stat_alignment,4,Naughty,1.1%,Attack,Sp. Def,,,,,,
+Quaquaval,112,stat_alignment,5,Lonely,0.6%,Attack,Defense,,,,,,
+Quaquaval,112,stat_alignment,6,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
+Quaquaval,112,stat_alignment,7,Hasty,0.6%,Speed,Defense,,,,,,
+Quaquaval,112,stat_alignment,8,Naive,0.4%,Speed,Sp. Def,,,,,,
+Quaquaval,112,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,
+Quaquaval,112,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
+Quaquaval,112,stat_points,1,,42.3%,,,2,32,0,0,0,32
+Quaquaval,112,stat_points,2,,8.4%,,,0,32,2,0,0,32
+Quaquaval,112,stat_points,3,,8.3%,,,1,32,1,0,0,32
+Quaquaval,112,stat_points,4,,6.1%,,,0,32,0,0,2,32
+Quaquaval,112,stat_points,5,,5.6%,,,1,32,0,0,1,32
+Quaquaval,112,stat_points,6,,1.7%,,,1,32,0,0,0,32
+Quaquaval,112,stat_points,7,,1.0%,,,32,32,0,0,2,0
+Quaquaval,112,stat_points,8,,0.9%,,,32,32,2,0,0,0
+Quaquaval,112,ability,1,Moxie,95.4%,,,,,,,,
+Quaquaval,112,ability,2,Torrent,4.6%,,,,,,,,

@@ -1,51 +1,51 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Ninetales,156,move,1,Encore,56.4%,,,,,,,,,27895.83
-Ninetales,156,move,2,Will-O-Wisp,50.4%,,,,,,,,,27895.83
-Ninetales,156,move,3,Solar Beam,42.1%,,,,,,,,,27895.83
-Ninetales,156,move,4,Memento,41.0%,,,,,,,,,27895.83
-Ninetales,156,move,5,Flamethrower,39.7%,,,,,,,,,27895.83
-Ninetales,156,move,6,Mystical Fire,24.2%,,,,,,,,,27899.63
-Ninetales,156,move,7,Nasty Plot,19.2%,,,,,,,,,27899.63
-Ninetales,156,move,8,Overheat,18.6%,,,,,,,,,27899.63
-Ninetales,156,move,9,Baton Pass,16.4%,,,,,,,,,27899.63
-Ninetales,156,move,10,Weather Ball,10.3%,,,,,,,,,27899.63
-Ninetales,156,held_item,1,Heat Rock,63.4%,,,,,,,,,27902.58
-Ninetales,156,held_item,2,Focus Sash,6.4%,,,,,,,,,27902.58
-Ninetales,156,held_item,3,Choice Scarf,5.7%,,,,,,,,,27902.58
-Ninetales,156,held_item,4,Sitrus Berry,4.5%,,,,,,,,,27902.58
-Ninetales,156,held_item,5,Life Orb,3.7%,,,,,,,,,27902.58
-Ninetales,156,held_item,6,Shuca Berry,3.5%,,,,,,,,,27909.86
-Ninetales,156,held_item,7,Charcoal,3.5%,,,,,,,,,27909.86
-Ninetales,156,held_item,8,Chesto Berry,1.5%,,,,,,,,,27909.86
-Ninetales,156,held_item,9,Leftovers,1.3%,,,,,,,,,27909.86
-Ninetales,156,held_item,10,Wide Lens,1.3%,,,,,,,,,27909.86
-Ninetales,156,teammate,1,Venusaur,,,,,,,,,,27916.30
-Ninetales,156,teammate,2,Garchomp,,,,,,,,,,27916.30
-Ninetales,156,teammate,3,Pyroar,,,,,,,,,,27916.30
-Ninetales,156,teammate,4,Dragonite,,,,,,,,,,27916.30
-Ninetales,156,teammate,5,Greninja,,,,,,,,,,27916.30
-Ninetales,156,teammate,6,Whimsicott,,,,,,,,,,27919.20
-Ninetales,156,teammate,7,Charizard,,,,,,,,,,27919.20
-Ninetales,156,teammate,8,Metagross,,,,,,,,,,27919.20
-Ninetales,156,teammate,9,Meowscarada,,,,,,,,,,27919.20
-Ninetales,156,teammate,10,Gyarados,,,,,,,,,,27919.20
-Ninetales,156,stat_alignment,1,Timid,70.4%,Speed,Attack,,,,,,,27921.29
-Ninetales,156,stat_alignment,2,Modest,15.3%,Sp. Atk,Attack,,,,,,,27921.29
-Ninetales,156,stat_alignment,3,Bold,6.0%,Defense,Attack,,,,,,,27921.29
-Ninetales,156,stat_alignment,4,Calm,4.9%,Sp. Def,Attack,,,,,,,27921.29
-Ninetales,156,stat_alignment,5,Jolly,1.5%,Speed,Sp. Atk,,,,,,,27921.29
-Ninetales,156,stat_alignment,6,Mild,0.5%,Sp. Atk,Defense,,,,,,,27924.31
-Ninetales,156,stat_alignment,7,Quiet,0.4%,Sp. Atk,Speed,,,,,,,27924.31
-Ninetales,156,stat_alignment,8,Gentle,0.3%,Sp. Def,Defense,,,,,,,27924.31
-Ninetales,156,stat_alignment,9,Sassy,0.3%,Sp. Def,Speed,,,,,,,27924.31
-Ninetales,156,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,,27924.31
-Ninetales,156,stat_points,1,,20.5%,,,2,0,0,32,0,32,27926.52
-Ninetales,156,stat_points,2,,10.0%,,,31,0,0,0,14,21,27926.52
-Ninetales,156,stat_points,3,,8.8%,,,27,0,1,5,1,32,27926.52
-Ninetales,156,stat_points,4,,4.1%,,,1,0,1,32,0,32,27926.52
-Ninetales,156,stat_points,5,,4.1%,,,0,0,2,32,0,32,27926.52
-Ninetales,156,stat_points,6,,3.0%,,,32,0,2,0,0,32,27948.32
-Ninetales,156,stat_points,7,,2.3%,,,32,0,0,0,2,32,27948.32
-Ninetales,156,stat_points,8,,2.2%,,,32,0,0,0,32,2,27948.32
-Ninetales,156,ability,1,Drought,95.6%,,,,,,,,,27962.09
-Ninetales,156,ability,2,Flash Fire,4.4%,,,,,,,,,27962.09
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Ninetales,156,move,1,Encore,56.4%,,,,,,,,
+Ninetales,156,move,2,Will-O-Wisp,50.4%,,,,,,,,
+Ninetales,156,move,3,Solar Beam,42.1%,,,,,,,,
+Ninetales,156,move,4,Memento,41.0%,,,,,,,,
+Ninetales,156,move,5,Flamethrower,39.7%,,,,,,,,
+Ninetales,156,move,6,Mystical Fire,24.2%,,,,,,,,
+Ninetales,156,move,7,Nasty Plot,19.2%,,,,,,,,
+Ninetales,156,move,8,Overheat,18.6%,,,,,,,,
+Ninetales,156,move,9,Baton Pass,16.4%,,,,,,,,
+Ninetales,156,move,10,Weather Ball,10.3%,,,,,,,,
+Ninetales,156,held_item,1,Heat Rock,63.4%,,,,,,,,
+Ninetales,156,held_item,2,Focus Sash,6.4%,,,,,,,,
+Ninetales,156,held_item,3,Choice Scarf,5.7%,,,,,,,,
+Ninetales,156,held_item,4,Sitrus Berry,4.5%,,,,,,,,
+Ninetales,156,held_item,5,Life Orb,3.7%,,,,,,,,
+Ninetales,156,held_item,6,Shuca Berry,3.5%,,,,,,,,
+Ninetales,156,held_item,7,Charcoal,3.5%,,,,,,,,
+Ninetales,156,held_item,8,Chesto Berry,1.5%,,,,,,,,
+Ninetales,156,held_item,9,Leftovers,1.3%,,,,,,,,
+Ninetales,156,held_item,10,Wide Lens,1.3%,,,,,,,,
+Ninetales,156,teammate,1,Venusaur,,,,,,,,,
+Ninetales,156,teammate,2,Garchomp,,,,,,,,,
+Ninetales,156,teammate,3,Pyroar,,,,,,,,,
+Ninetales,156,teammate,4,Dragonite,,,,,,,,,
+Ninetales,156,teammate,5,Greninja,,,,,,,,,
+Ninetales,156,teammate,6,Whimsicott,,,,,,,,,
+Ninetales,156,teammate,7,Charizard,,,,,,,,,
+Ninetales,156,teammate,8,Metagross,,,,,,,,,
+Ninetales,156,teammate,9,Meowscarada,,,,,,,,,
+Ninetales,156,teammate,10,Gyarados,,,,,,,,,
+Ninetales,156,stat_alignment,1,Timid,70.4%,Speed,Attack,,,,,,
+Ninetales,156,stat_alignment,2,Modest,15.3%,Sp. Atk,Attack,,,,,,
+Ninetales,156,stat_alignment,3,Bold,6.0%,Defense,Attack,,,,,,
+Ninetales,156,stat_alignment,4,Calm,4.9%,Sp. Def,Attack,,,,,,
+Ninetales,156,stat_alignment,5,Jolly,1.5%,Speed,Sp. Atk,,,,,,
+Ninetales,156,stat_alignment,6,Mild,0.5%,Sp. Atk,Defense,,,,,,
+Ninetales,156,stat_alignment,7,Quiet,0.4%,Sp. Atk,Speed,,,,,,
+Ninetales,156,stat_alignment,8,Gentle,0.3%,Sp. Def,Defense,,,,,,
+Ninetales,156,stat_alignment,9,Sassy,0.3%,Sp. Def,Speed,,,,,,
+Ninetales,156,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,
+Ninetales,156,stat_points,1,,20.5%,,,2,0,0,32,0,32
+Ninetales,156,stat_points,2,,10.0%,,,31,0,0,0,14,21
+Ninetales,156,stat_points,3,,8.8%,,,27,0,1,5,1,32
+Ninetales,156,stat_points,4,,4.1%,,,1,0,1,32,0,32
+Ninetales,156,stat_points,5,,4.1%,,,0,0,2,32,0,32
+Ninetales,156,stat_points,6,,3.0%,,,32,0,2,0,0,32
+Ninetales,156,stat_points,7,,2.3%,,,32,0,0,0,2,32
+Ninetales,156,stat_points,8,,2.2%,,,32,0,0,0,32,2
+Ninetales,156,ability,1,Drought,95.6%,,,,,,,,
+Ninetales,156,ability,2,Flash Fire,4.4%,,,,,,,,

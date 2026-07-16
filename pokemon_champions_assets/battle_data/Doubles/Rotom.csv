@@ -1,54 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom,210,move,1,Volt Switch,57.5%,,,,,,,,
-Rotom,210,move,2,Shadow Ball,55.7%,,,,,,,,
-Rotom,210,move,3,Discharge,51.6%,,,,,,,,
-Rotom,210,move,4,Will-O-Wisp,45.0%,,,,,,,,
-Rotom,210,move,5,Thunderbolt,36.6%,,,,,,,,
-Rotom,210,move,6,Trick,35.7%,,,,,,,,
-Rotom,210,move,7,Protect,20.7%,,,,,,,,
-Rotom,210,move,8,Electroweb,20.3%,,,,,,,,
-Rotom,210,move,9,Hex,18.5%,,,,,,,,
-Rotom,210,move,10,Light Screen,1.1%,,,,,,,,
-Rotom,210,held_item,1,Choice Scarf,49.3%,,,,,,,,
-Rotom,210,held_item,2,Sitrus Berry,7.9%,,,,,,,,
-Rotom,210,held_item,3,Magnet,7.1%,,,,,,,,
-Rotom,210,held_item,4,Wide Lens,6.5%,,,,,,,,
-Rotom,210,held_item,5,Focus Sash,6.3%,,,,,,,,
-Rotom,210,held_item,6,Light Clay,5.7%,,,,,,,,
-Rotom,210,held_item,7,Quick Claw,3.7%,,,,,,,,
-Rotom,210,held_item,8,Life Orb,3.3%,,,,,,,,
-Rotom,210,held_item,9,Leftovers,3.1%,,,,,,,,
-Rotom,210,held_item,10,King's Rock,1.1%,,,,,,,,
-Rotom,210,teammate,1,Sceptile,,,,,,,,,
-Rotom,210,teammate,2,Garchomp,,,,,,,,,
-Rotom,210,teammate,3,Raichu,,,,,,,,,
-Rotom,210,teammate,4,Incineroar,,,,,,,,,
-Rotom,210,teammate,5,Talonflame,,,,,,,,,
-Rotom,210,teammate,6,Whimsicott,,,,,,,,,
-Rotom,210,teammate,7,Charizard,,,,,,,,,
-Rotom,210,teammate,8,Sneasler,,,,,,,,,
-Rotom,210,teammate,9,Basculegion Male,,,,,,,,,
-Rotom,210,teammate,10,Pelipper,,,,,,,,,
-Rotom,210,stat_alignment,1,Timid,66.8%,Speed,Attack,,,,,,
-Rotom,210,stat_alignment,2,Modest,23.2%,Sp. Atk,Attack,,,,,,
-Rotom,210,stat_alignment,3,Bold,9.4%,Defense,Attack,,,,,,
-Rotom,210,stat_alignment,4,Calm,3.0%,Sp. Def,Attack,,,,,,
-Rotom,210,stat_alignment,5,Hasty,0.5%,Speed,Defense,,,,,,
-Rotom,210,stat_alignment,6,Quiet,0.5%,Sp. Atk,Speed,,,,,,
-Rotom,210,stat_alignment,7,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Rotom,210,stat_alignment,8,Jolly,0.0%,Speed,Sp. Atk,,,,,,
-Rotom,210,stat_alignment,9,Gentle,0.0%,Sp. Def,Defense,,,,,,
-Rotom,210,stat_alignment,10,Relaxed,0.0%,Defense,Speed,,,,,,
-Rotom,210,stat_points,1,,31.0%,,,2,0,0,32,0,32
-Rotom,210,stat_points,2,,8.5%,,,0,0,0,32,2,32
-Rotom,210,stat_points,3,,5.7%,,,7,0,0,32,0,27
-Rotom,210,stat_points,4,,4.8%,,,32,0,7,0,0,27
-Rotom,210,stat_points,5,,4.4%,,,0,0,2,32,0,32
-Rotom,210,stat_points,6,,3.6%,,,0,0,2,32,32,0
-Rotom,210,stat_points,7,,3.1%,,,11,0,0,32,0,23
-Rotom,210,stat_points,8,,2.2%,,,26,0,0,28,0,12
-Rotom,210,stat_points,9,,2.2%,,,32,0,2,0,0,32
-Rotom,210,stat_points,10,,2.0%,,,6,0,3,26,3,28
-Rotom,210,stat_points,11,,2.0%,,,32,0,32,0,2,0
-Rotom,210,stat_points,12,,1.9%,,,32,0,0,2,0,32
-Rotom,210,ability,1,Levitate,100.0%,,,,,,,,
+Rotom,216,move,1,Will-O-Wisp,65.9%,,,,,,,,
+Rotom,216,move,2,Discharge,56.4%,,,,,,,,
+Rotom,216,move,3,Shadow Ball,48.1%,,,,,,,,
+Rotom,216,move,4,Trick,46.5%,,,,,,,,
+Rotom,216,move,5,Volt Switch,40.9%,,,,,,,,
+Rotom,216,move,6,Thunderbolt,31.2%,,,,,,,,
+Rotom,216,move,7,Electroweb,29.2%,,,,,,,,
+Rotom,216,move,8,Foul Play,20.2%,,,,,,,,
+Rotom,216,move,9,Protect,18.7%,,,,,,,,
+Rotom,216,move,10,Hex,10.5%,,,,,,,,
+Rotom,216,held_item,1,Choice Scarf,63.9%,,,,,,,,
+Rotom,216,held_item,2,Focus Sash,5.0%,,,,,,,,
+Rotom,216,held_item,3,Wide Lens,4.6%,,,,,,,,
+Rotom,216,held_item,4,Magnet,4.2%,,,,,,,,
+Rotom,216,held_item,5,Sitrus Berry,4.1%,,,,,,,,
+Rotom,216,held_item,6,Colbur Berry,4.0%,,,,,,,,
+Rotom,216,held_item,7,Life Orb,3.0%,,,,,,,,
+Rotom,216,held_item,8,Light Clay,1.9%,,,,,,,,
+Rotom,216,held_item,9,Quick Claw,1.8%,,,,,,,,
+Rotom,216,held_item,10,Wise Glasses,1.7%,,,,,,,,
+Rotom,216,teammate,1,Garchomp,,,,,,,,,
+Rotom,216,teammate,2,Sceptile,,,,,,,,,
+Rotom,216,teammate,3,Raichu,,,,,,,,,
+Rotom,216,teammate,4,Talonflame,,,,,,,,,
+Rotom,216,teammate,5,Kingambit,,,,,,,,,
+Rotom,216,teammate,6,Aerodactyl,,,,,,,,,
+Rotom,216,teammate,7,Sinistcha,,,,,,,,,
+Rotom,216,teammate,8,Froslass,,,,,,,,,
+Rotom,216,teammate,9,Tyranitar,,,,,,,,,
+Rotom,216,teammate,10,Incineroar,,,,,,,,,
+Rotom,216,stat_alignment,1,Timid,67.2%,Speed,Attack,,,,,,
+Rotom,216,stat_alignment,2,Modest,13.2%,Sp. Atk,Attack,,,,,,
+Rotom,216,stat_alignment,3,Mild,7.8%,Sp. Atk,Defense,,,,,,
+Rotom,216,stat_alignment,4,Bold,7.3%,Defense,Attack,,,,,,
+Rotom,216,stat_alignment,5,Bold,2.2%,Defense,Attack,,,,,,
+Rotom,216,stat_alignment,6,Quiet,2.2%,Sp. Atk,Speed,,,,,,
+Rotom,216,stat_alignment,7,Naive,1.2%,Speed,Sp. Def,,,,,,
+Rotom,216,stat_alignment,8,Calm,0.9%,Sp. Def,Attack,,,,,,
+Rotom,216,stat_alignment,9,Hasty,0.3%,Speed,Defense,,,,,,
+Rotom,216,stat_points,1,,29.1%,,,2,0,0,32,0,32
+Rotom,216,stat_points,2,,16.1%,,,21,0,0,13,0,32
+Rotom,216,stat_points,3,,11.3%,,,0,0,0,32,2,32
+Rotom,216,stat_points,4,,7.1%,,,0,0,2,32,0,32
+Rotom,216,stat_points,5,,3.5%,,,28,0,9,19,10,0
+Rotom,216,stat_points,6,,2.2%,,,28,0,0,32,0,6
+Rotom,216,stat_points,7,,2.1%,,,32,0,32,0,0,2
+Rotom,216,stat_points,8,,2.0%,,,22,0,11,22,11,0
+Rotom,216,ability,1,Levitate,100.0%,,,,,,,,

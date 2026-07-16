@@ -1,37 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Toucannon,190,move,1,Rock Blast,89.5%,,,,,,,,
-Toucannon,190,move,2,Bullet Seed,85.0%,,,,,,,,
-Toucannon,190,move,3,Beak Blast,73.1%,,,,,,,,
-Toucannon,190,move,4,Protect,59.8%,,,,,,,,
-Toucannon,190,move,5,Tailwind,11.8%,,,,,,,,
-Toucannon,190,move,6,Dual Wingbeat,10.5%,,,,,,,,
-Toucannon,190,move,7,Roost,8.0%,,,,,,,,
-Toucannon,190,move,8,Brave Bird,7.0%,,,,,,,,
-Toucannon,190,move,9,U-turn,6.8%,,,,,,,,
-Toucannon,190,move,10,Knock Off,5.5%,,,,,,,,
-Toucannon,190,held_item,1,Focus Sash,15.9%,,,,,,,,
-Toucannon,190,held_item,2,Sitrus Berry,15.5%,,,,,,,,
-Toucannon,190,held_item,3,Life Orb,15.5%,,,,,,,,
-Toucannon,190,held_item,4,King's Rock,14.9%,,,,,,,,
-Toucannon,190,held_item,5,Muscle Band,6.7%,,,,,,,,
-Toucannon,190,held_item,6,Expert Belt,5.7%,,,,,,,,
-Toucannon,190,held_item,7,Sharp Beak,4.3%,,,,,,,,
-Toucannon,190,held_item,8,Quick Claw,3.8%,,,,,,,,
-Toucannon,190,held_item,9,Choice Scarf,2.9%,,,,,,,,
-Toucannon,190,held_item,10,Leftovers,2.7%,,,,,,,,
-Toucannon,190,teammate,1,Raichu,,,,,,,,,
-Toucannon,190,teammate,2,Farigiraf,,,,,,,,,
-Toucannon,190,teammate,3,Kingambit,,,,,,,,,
-Toucannon,190,teammate,4,Whimsicott,,,,,,,,,
-Toucannon,190,teammate,5,Sinistcha,,,,,,,,,
-Toucannon,190,stat_points,5,,4.1%,,,0,32,32,0,2,0
-Toucannon,190,stat_points,6,,4.0%,,,21,32,13,0,0,0
-Toucannon,190,stat_points,7,,3.7%,,,32,32,1,0,1,0
-Toucannon,190,stat_points,8,,3.0%,,,0,32,2,0,32,0
-Toucannon,190,stat_points,9,,2.6%,,,2,32,32,0,0,0
-Toucannon,190,stat_points,10,,1.7%,,,0,32,2,0,0,32
-Toucannon,190,stat_points,11,,1.6%,,,0,32,0,0,2,32
-Toucannon,190,stat_points,12,,1.5%,,,32,29,5,0,0,0
-Toucannon,190,ability,1,Skill Link,94.3%,,,,,,,,
-Toucannon,190,ability,2,Sheer Force,3.8%,,,,,,,,
-Toucannon,190,ability,3,Keen Eye,1.9%,,,,,,,,
+Toucannon,194,move,1,Rock Blast,90.4%,,,,,,,,
+Toucannon,194,move,2,Bullet Seed,88.7%,,,,,,,,
+Toucannon,194,move,3,Beak Blast,71.8%,,,,,,,,
+Toucannon,194,move,4,Protect,56.3%,,,,,,,,
+Toucannon,194,move,5,Tailwind,18.1%,,,,,,,,
+Toucannon,194,move,6,Brave Bird,12.4%,,,,,,,,
+Toucannon,194,move,7,Dual Wingbeat,9.4%,,,,,,,,
+Toucannon,194,move,8,Roost,6.5%,,,,,,,,
+Toucannon,194,move,9,Gunk Shot,5.0%,,,,,,,,
+Toucannon,194,move,10,Drill Peck,4.3%,,,,,,,,
+Toucannon,194,held_item,1,King's Rock,28.0%,,,,,,,,
+Toucannon,194,held_item,2,Life Orb,16.3%,,,,,,,,
+Toucannon,194,held_item,3,Sitrus Berry,11.4%,,,,,,,,
+Toucannon,194,held_item,4,Focus Sash,11.1%,,,,,,,,
+Toucannon,194,held_item,5,Expert Belt,5.0%,,,,,,,,
+Toucannon,194,held_item,6,White Herb,4.6%,,,,,,,,
+Toucannon,194,held_item,7,Muscle Band,3.9%,,,,,,,,
+Toucannon,194,held_item,8,Choice Scarf,3.6%,,,,,,,,
+Toucannon,194,held_item,9,Charti Berry,3.1%,,,,,,,,
+Toucannon,194,held_item,10,Wide Lens,2.6%,,,,,,,,
+Toucannon,194,teammate,1,Farigiraf,,,,,,,,,
+Toucannon,194,teammate,2,Torkoal,,,,,,,,,
+Toucannon,194,teammate,3,Whimsicott,,,,,,,,,
+Toucannon,194,teammate,4,Sylveon,,,,,,,,,
+Toucannon,194,teammate,5,Drampa,,,,,,,,,
+Toucannon,194,teammate,6,Runerigus,,,,,,,,,
+Toucannon,194,teammate,7,Gholdengo,,,,,,,,,
+Toucannon,194,teammate,8,Kingambit,,,,,,,,,
+Toucannon,194,teammate,9,Garchomp,,,,,,,,,
+Toucannon,194,teammate,10,Medicham,,,,,,,,,
+Toucannon,194,stat_alignment,1,Adamant,50.4%,Attack,Sp. Atk,,,,,,
+Toucannon,194,stat_alignment,2,Brave,27.1%,Attack,Speed,,,,,,
+Toucannon,194,stat_alignment,3,Jolly,10.1%,Speed,Sp. Atk,,,,,,
+Toucannon,194,stat_alignment,4,Impish,6.5%,Defense,Sp. Atk,,,,,,
+Toucannon,194,stat_alignment,5,Serious,2.3%,,,,,,,,
+Toucannon,194,stat_alignment,6,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
+Toucannon,194,stat_alignment,7,Relaxed,0.8%,Defense,Speed,,,,,,
+Toucannon,194,stat_alignment,8,Hasty,0.5%,Speed,Defense,,,,,,
+Toucannon,194,stat_alignment,9,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Toucannon,194,stat_alignment,10,Modest,0.3%,Sp. Atk,Attack,,,,,,
+Toucannon,194,stat_points,1,,15.4%,,,2,32,0,0,0,32
+Toucannon,194,stat_points,2,,10.1%,,,32,32,2,0,0,0
+Toucannon,194,stat_points,3,,9.1%,,,32,32,0,0,2,0
+Toucannon,194,stat_points,4,,7.2%,,,32,32,1,0,1,0
+Toucannon,194,stat_points,5,,4.0%,,,0,32,17,0,17,0
+Toucannon,194,stat_points,6,,3.2%,,,32,2,32,0,0,0
+Toucannon,194,stat_points,7,,2.5%,,,2,32,32,0,0,0
+Toucannon,194,stat_points,8,,2.4%,,,32,32,0,0,0,2
+Toucannon,194,ability,1,Skill Link,93.7%,,,,,,,,
+Toucannon,194,ability,2,Sheer Force,4.2%,,,,,,,,
+Toucannon,194,ability,3,Keen Eye,2.1%,,,,,,,,

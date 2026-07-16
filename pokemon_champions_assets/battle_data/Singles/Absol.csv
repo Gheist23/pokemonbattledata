@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Absol,177,move,1,Sucker Punch,87.3%,,,,,,,,
-Absol,177,move,2,Close Combat,58.6%,,,,,,,,
-Absol,177,move,3,Knock Off,50.3%,,,,,,,,
-Absol,177,move,4,Swords Dance,44.9%,,,,,,,,
-Absol,177,move,5,Night Slash,22.6%,,,,,,,,
-Absol,177,move,6,Play Rough,21.4%,,,,,,,,
-Absol,177,move,7,Ice Beam,20.2%,,,,,,,,
-Absol,177,move,8,Psycho Cut,16.9%,,,,,,,,
-Absol,177,move,9,Stone Edge,11.9%,,,,,,,,
-Absol,177,move,10,Will-O-Wisp,8.4%,,,,,,,,
-Absol,177,held_item,1,Absolite,67.6%,,,,,,,,
-Absol,177,held_item,2,Scope Lens,12.6%,,,,,,,,
-Absol,177,held_item,3,Focus Sash,11.3%,,,,,,,,
-Absol,177,held_item,4,Life Orb,3.6%,,,,,,,,
-Absol,177,held_item,5,Black Glasses,0.7%,,,,,,,,
-Absol,177,held_item,6,Choice Scarf,0.7%,,,,,,,,
-Absol,177,held_item,7,Zoom Lens,0.6%,,,,,,,,
-Absol,177,held_item,8,Quick Claw,0.5%,,,,,,,,
-Absol,177,held_item,9,Leftovers,0.3%,,,,,,,,
-Absol,177,held_item,10,Oran Berry,0.3%,,,,,,,,
-Absol,177,teammate,1,Garchomp,,,,,,,,,
-Absol,177,teammate,2,Corviknight,,,,,,,,,
-Absol,177,teammate,3,Raichu,,,,,,,,,
-Absol,177,teammate,4,Alolan Ninetales,,,,,,,,,
-Absol,177,teammate,5,Mimikyu,,,,,,,,,
-Absol,177,teammate,6,Dragonite,,,,,,,,,
-Absol,177,teammate,7,Meowscarada,,,,,,,,,
-Absol,177,teammate,8,Froslass,,,,,,,,,
-Absol,177,teammate,9,Primarina,,,,,,,,,
-Absol,177,teammate,10,Archaludon,,,,,,,,,
-Absol,177,stat_alignment,1,Adamant,39.1%,Attack,Sp. Atk,,,,,,
-Absol,177,stat_alignment,2,Jolly,34.9%,Speed,Sp. Atk,,,,,,
-Absol,177,stat_alignment,3,Naive,12.4%,Speed,Sp. Def,,,,,,
-Absol,177,stat_alignment,4,Naughty,4.2%,Attack,Sp. Def,,,,,,
-Absol,177,stat_alignment,5,Hasty,2.5%,Speed,Defense,,,,,,
-Absol,177,stat_alignment,6,Impish,1.9%,Defense,Sp. Atk,,,,,,
-Absol,177,stat_alignment,7,Timid,1.7%,Speed,Attack,,,,,,
-Absol,177,stat_alignment,8,Brave,1.0%,Attack,Speed,,,,,,
-Absol,177,stat_alignment,9,Lonely,0.8%,Attack,Defense,,,,,,
-Absol,177,stat_alignment,10,Modest,0.3%,Sp. Atk,Attack,,,,,,
-Absol,177,stat_points,1,,46.3%,,,2,32,0,0,0,32
-Absol,177,stat_points,2,,6.6%,,,0,32,2,0,0,32
-Absol,177,stat_points,3,,3.5%,,,1,32,1,0,0,32
-Absol,177,stat_points,4,,3.0%,,,0,32,0,2,0,32
-Absol,177,stat_points,5,,2.1%,,,0,5,0,32,0,29
-Absol,177,stat_points,6,,1.8%,,,0,32,0,0,2,32
-Absol,177,stat_points,7,,1.6%,,,0,32,0,0,0,32
-Absol,177,stat_points,8,,1.4%,,,32,32,0,0,0,2
-Absol,177,stat_points,9,,1.2%,,,32,2,32,0,0,0
-Absol,177,stat_points,10,,1.1%,,,32,0,14,0,0,20
-Absol,177,stat_points,11,,1.0%,,,1,32,0,0,1,32
-Absol,177,stat_points,12,,1.0%,,,7,32,0,0,0,17
-Absol,177,ability,1,Super Luck,70.1%,,,,,,,,
-Absol,177,ability,2,Justified,23.9%,,,,,,,,
-Absol,177,ability,3,Pressure,5.9%,,,,,,,,
+Absol,174,move,1,Sucker Punch,81.4%,,,,,,,,
+Absol,174,move,2,Close Combat,55.5%,,,,,,,,
+Absol,174,move,3,Swords Dance,42.6%,,,,,,,,
+Absol,174,move,4,Knock Off,42.6%,,,,,,,,
+Absol,174,move,5,Night Slash,29.3%,,,,,,,,
+Absol,174,move,6,Play Rough,21.1%,,,,,,,,
+Absol,174,move,7,Ice Beam,20.2%,,,,,,,,
+Absol,174,move,8,Psycho Cut,19.8%,,,,,,,,
+Absol,174,move,9,Stone Edge,15.1%,,,,,,,,
+Absol,174,move,10,Will-O-Wisp,6.5%,,,,,,,,
+Absol,174,held_item,1,Absolite,64.7%,,,,,,,,
+Absol,174,held_item,2,Scope Lens,19.4%,,,,,,,,
+Absol,174,held_item,3,Focus Sash,7.4%,,,,,,,,
+Absol,174,held_item,4,Bright Powder,1.6%,,,,,,,,
+Absol,174,held_item,5,Life Orb,1.6%,,,,,,,,
+Absol,174,held_item,6,Choice Scarf,0.6%,,,,,,,,
+Absol,174,held_item,7,Oran Berry,0.6%,,,,,,,,
+Absol,174,held_item,8,King's Rock,0.6%,,,,,,,,
+Absol,174,held_item,9,Quick Claw,0.5%,,,,,,,,
+Absol,174,held_item,10,Black Glasses,0.5%,,,,,,,,
+Absol,174,teammate,1,Garchomp,,,,,,,,,
+Absol,174,teammate,2,Corviknight,,,,,,,,,
+Absol,174,teammate,3,Alolan Ninetales,,,,,,,,,
+Absol,174,teammate,4,Mimikyu,,,,,,,,,
+Absol,174,teammate,5,Primarina,,,,,,,,,
+Absol,174,teammate,6,Charizard,,,,,,,,,
+Absol,174,teammate,7,Meowscarada,,,,,,,,,
+Absol,174,teammate,8,Metagross,,,,,,,,,
+Absol,174,teammate,9,Dragonite,,,,,,,,,
+Absol,174,teammate,10,Archaludon,,,,,,,,,
+Absol,174,stat_alignment,1,Adamant,39.7%,Attack,Sp. Atk,,,,,,
+Absol,174,stat_alignment,2,Jolly,33.7%,Speed,Sp. Atk,,,,,,
+Absol,174,stat_alignment,3,Naive,15.9%,Speed,Sp. Def,,,,,,
+Absol,174,stat_alignment,4,Timid,2.3%,Speed,Attack,,,,,,
+Absol,174,stat_alignment,5,Naughty,2.2%,Attack,Sp. Def,,,,,,
+Absol,174,stat_alignment,6,Hasty,2.0%,Speed,Defense,,,,,,
+Absol,174,stat_alignment,7,Impish,1.6%,Defense,Sp. Atk,,,,,,
+Absol,174,stat_alignment,8,Brave,1.0%,Attack,Speed,,,,,,
+Absol,174,stat_alignment,9,Lonely,0.4%,Attack,Defense,,,,,,
+Absol,174,stat_alignment,10,Bold,0.3%,Defense,Attack,,,,,,
+Absol,174,stat_points,1,,43.1%,,,2,32,0,0,0,32
+Absol,174,stat_points,2,,6.7%,,,1,32,1,0,0,32
+Absol,174,stat_points,3,,3.6%,,,1,32,0,0,1,32
+Absol,174,stat_points,4,,3.1%,,,32,32,1,0,1,0
+Absol,174,stat_points,5,,2.2%,,,32,32,2,0,0,0
+Absol,174,stat_points,6,,1.8%,,,0,32,2,0,0,32
+Absol,174,stat_points,7,,1.7%,,,32,32,0,0,0,2
+Absol,174,stat_points,8,,1.4%,,,25,0,4,0,0,27
+Absol,174,ability,1,Super Luck,64.9%,,,,,,,,
+Absol,174,ability,2,Justified,27.0%,,,,,,,,
+Absol,174,ability,3,Pressure,8.1%,,,,,,,,

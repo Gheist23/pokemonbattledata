@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slowking,159,move,1,Chilly Reception,66.9%,,,,,,,,
-Slowking,159,move,2,Scald,64.1%,,,,,,,,
-Slowking,159,move,3,Trick Room,44.7%,,,,,,,,
-Slowking,159,move,4,Yawn,32.7%,,,,,,,,
-Slowking,159,move,5,Slack Off,25.4%,,,,,,,,
-Slowking,159,move,6,Psychic,24.9%,,,,,,,,
-Slowking,159,move,7,Ice Beam,22.8%,,,,,,,,
-Slowking,159,move,8,Surf,16.7%,,,,,,,,
-Slowking,159,move,9,Flamethrower,11.8%,,,,,,,,
-Slowking,159,move,10,Psychic Noise,9.7%,,,,,,,,
-Slowking,159,held_item,1,Sitrus Berry,37.0%,,,,,,,,
-Slowking,159,held_item,2,Leftovers,30.3%,,,,,,,,
-Slowking,159,held_item,3,Bright Powder,4.2%,,,,,,,,
-Slowking,159,held_item,4,Focus Sash,3.1%,,,,,,,,
-Slowking,159,held_item,5,Mental Herb,2.8%,,,,,,,,
-Slowking,159,held_item,6,Icy Rock,2.8%,,,,,,,,
-Slowking,159,held_item,7,Light Clay,2.7%,,,,,,,,
-Slowking,159,held_item,8,Wacan Berry,2.3%,,,,,,,,
-Slowking,159,held_item,9,Lum Berry,2.2%,,,,,,,,
-Slowking,159,held_item,10,Quick Claw,2.1%,,,,,,,,
-Slowking,159,teammate,1,Garchomp,,,,,,,,,
-Slowking,159,teammate,2,Dragalge,,,,,,,,,
-Slowking,159,teammate,3,Corviknight,,,,,,,,,
-Slowking,159,teammate,4,Mawile,,,,,,,,,
-Slowking,159,teammate,5,Raichu,,,,,,,,,
-Slowking,159,teammate,6,Crabominable,,,,,,,,,
-Slowking,159,teammate,7,Meowscarada,,,,,,,,,
-Slowking,159,teammate,8,Mimikyu,,,,,,,,,
-Slowking,159,teammate,9,Charizard,,,,,,,,,
-Slowking,159,teammate,10,Grimmsnarl,,,,,,,,,
-Slowking,159,stat_alignment,1,Bold,28.9%,Defense,Attack,,,,,,
-Slowking,159,stat_alignment,2,Calm,19.3%,Sp. Def,Attack,,,,,,
-Slowking,159,stat_alignment,3,Relaxed,18.6%,Defense,Speed,,,,,,
-Slowking,159,stat_alignment,4,Modest,10.9%,Sp. Atk,Attack,,,,,,
-Slowking,159,stat_alignment,5,Sassy,10.7%,Sp. Def,Speed,,,,,,
-Slowking,159,stat_alignment,6,Quiet,9.7%,Sp. Atk,Speed,,,,,,
-Slowking,159,stat_alignment,7,Brave,0.6%,Attack,Speed,,,,,,
-Slowking,159,stat_alignment,8,Gentle,0.4%,Sp. Def,Defense,,,,,,
-Slowking,159,stat_alignment,9,Timid,0.3%,Speed,Attack,,,,,,
-Slowking,159,stat_alignment,10,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Slowking,159,stat_points,1,,22.1%,,,32,0,32,0,2,0
-Slowking,159,stat_points,2,,7.2%,,,32,0,2,0,32,0
-Slowking,159,stat_points,3,,6.0%,,,32,0,32,2,0,0
-Slowking,159,stat_points,4,,4.1%,,,32,0,0,2,32,0
-Slowking,159,stat_points,5,,3.9%,,,31,0,32,0,3,0
-Slowking,159,stat_points,6,,3.7%,,,32,0,0,32,2,0
-Slowking,159,stat_points,7,,3.1%,,,32,0,2,32,0,0
-Slowking,159,stat_points,8,,2.4%,,,2,0,0,32,32,0
-Slowking,159,stat_points,9,,2.2%,,,2,0,32,0,32,0
-Slowking,159,stat_points,10,,1.7%,,,2,0,32,32,0,0
-Slowking,159,stat_points,11,,1.6%,,,32,0,32,0,0,0
-Slowking,159,stat_points,12,,1.6%,,,32,0,30,0,4,0
-Slowking,159,ability,1,Regenerator,91.0%,,,,,,,,
-Slowking,159,ability,2,Oblivious,7.9%,,,,,,,,
-Slowking,159,ability,3,Own Tempo,1.0%,,,,,,,,
+Slowking,161,move,1,Scald,63.0%,,,,,,,,
+Slowking,161,move,2,Chilly Reception,57.1%,,,,,,,,
+Slowking,161,move,3,Trick Room,37.4%,,,,,,,,
+Slowking,161,move,4,Slack Off,32.2%,,,,,,,,
+Slowking,161,move,5,Yawn,31.5%,,,,,,,,
+Slowking,161,move,6,Ice Beam,26.3%,,,,,,,,
+Slowking,161,move,7,Psychic,24.4%,,,,,,,,
+Slowking,161,move,8,Surf,19.4%,,,,,,,,
+Slowking,161,move,9,Flamethrower,15.9%,,,,,,,,
+Slowking,161,move,10,Psychic Noise,11.0%,,,,,,,,
+Slowking,161,held_item,1,Sitrus Berry,36.9%,,,,,,,,
+Slowking,161,held_item,2,Leftovers,27.8%,,,,,,,,
+Slowking,161,held_item,3,Expert Belt,4.5%,,,,,,,,
+Slowking,161,held_item,4,Lum Berry,4.5%,,,,,,,,
+Slowking,161,held_item,5,Focus Sash,2.8%,,,,,,,,
+Slowking,161,held_item,6,Life Orb,2.8%,,,,,,,,
+Slowking,161,held_item,7,Mental Herb,2.4%,,,,,,,,
+Slowking,161,held_item,8,Bright Powder,2.3%,,,,,,,,
+Slowking,161,held_item,9,Light Clay,2.1%,,,,,,,,
+Slowking,161,held_item,10,Quick Claw,1.9%,,,,,,,,
+Slowking,161,teammate,1,Garchomp,,,,,,,,,
+Slowking,161,teammate,2,Mawile,,,,,,,,,
+Slowking,161,teammate,3,Meowscarada,,,,,,,,,
+Slowking,161,teammate,4,Mimikyu,,,,,,,,,
+Slowking,161,teammate,5,Corviknight,,,,,,,,,
+Slowking,161,teammate,6,Crabominable,,,,,,,,,
+Slowking,161,teammate,7,Dragalge,,,,,,,,,
+Slowking,161,teammate,8,Raichu,,,,,,,,,
+Slowking,161,teammate,9,Blaziken,,,,,,,,,
+Slowking,161,teammate,10,Scizor,,,,,,,,,
+Slowking,161,stat_alignment,1,Calm,32.3%,Sp. Def,Attack,,,,,,
+Slowking,161,stat_alignment,2,Bold,22.6%,Defense,Attack,,,,,,
+Slowking,161,stat_alignment,3,Relaxed,14.1%,Defense,Speed,,,,,,
+Slowking,161,stat_alignment,4,Modest,10.9%,Sp. Atk,Attack,,,,,,
+Slowking,161,stat_alignment,5,Quiet,10.2%,Sp. Atk,Speed,,,,,,
+Slowking,161,stat_alignment,6,Sassy,8.5%,Sp. Def,Speed,,,,,,
+Slowking,161,stat_alignment,7,Mild,1.0%,Sp. Atk,Defense,,,,,,
+Slowking,161,stat_alignment,8,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Slowking,161,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
+Slowking,161,stat_alignment,10,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Slowking,161,stat_points,1,,15.4%,,,32,0,2,0,32,0
+Slowking,161,stat_points,2,,14.1%,,,32,0,32,0,2,0
+Slowking,161,stat_points,3,,4.6%,,,32,0,0,32,2,0
+Slowking,161,stat_points,4,,3.7%,,,32,0,0,2,32,0
+Slowking,161,stat_points,5,,3.5%,,,31,0,32,0,3,0
+Slowking,161,stat_points,6,,2.4%,,,32,0,32,2,0,0
+Slowking,161,stat_points,7,,2.3%,,,31,0,3,0,32,0
+Slowking,161,stat_points,8,,2.1%,,,32,0,32,0,0,0
+Slowking,161,ability,1,Regenerator,91.1%,,,,,,,,
+Slowking,161,ability,2,Oblivious,8.3%,,,,,,,,
+Slowking,161,ability,3,Own Tempo,0.6%,,,,,,,,

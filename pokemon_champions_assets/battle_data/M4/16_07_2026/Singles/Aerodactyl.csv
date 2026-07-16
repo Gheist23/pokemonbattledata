@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Aerodactyl,113,move,1,Dual Wingbeat,77.8%,,,,,,,,,23858.27
-Aerodactyl,113,move,2,Rock Slide,55.2%,,,,,,,,,23858.27
-Aerodactyl,113,move,3,Earthquake,54.3%,,,,,,,,,23858.27
-Aerodactyl,113,move,4,Ice Fang,46.9%,,,,,,,,,23858.27
-Aerodactyl,113,move,5,Dragon Dance,24.2%,,,,,,,,,23858.27
-Aerodactyl,113,move,6,Taunt,20.7%,,,,,,,,,23862.70
-Aerodactyl,113,move,7,Stone Edge,18.2%,,,,,,,,,23862.70
-Aerodactyl,113,move,8,Iron Head,14.7%,,,,,,,,,23862.70
-Aerodactyl,113,move,9,Tailwind,12.1%,,,,,,,,,23862.70
-Aerodactyl,113,move,10,Stealth Rock,11.3%,,,,,,,,,23862.70
-Aerodactyl,113,held_item,1,Aerodactylite,71.8%,,,,,,,,,23866.51
-Aerodactyl,113,held_item,2,Focus Sash,11.4%,,,,,,,,,23866.51
-Aerodactyl,113,held_item,3,Life Orb,2.7%,,,,,,,,,23866.51
-Aerodactyl,113,held_item,4,Choice Scarf,1.9%,,,,,,,,,23866.51
-Aerodactyl,113,held_item,5,Sitrus Berry,1.1%,,,,,,,,,23866.51
-Aerodactyl,113,held_item,6,King's Rock,1.0%,,,,,,,,,23873.75
-Aerodactyl,113,held_item,7,Wide Lens,0.9%,,,,,,,,,23873.75
-Aerodactyl,113,held_item,8,Bright Powder,0.8%,,,,,,,,,23873.75
-Aerodactyl,113,held_item,9,Leftovers,0.7%,,,,,,,,,23873.75
-Aerodactyl,113,held_item,10,Expert Belt,0.6%,,,,,,,,,23873.75
-Aerodactyl,113,teammate,1,Garchomp,,,,,,,,,,23880.19
-Aerodactyl,113,teammate,2,Archaludon,,,,,,,,,,23880.19
-Aerodactyl,113,teammate,3,Meowscarada,,,,,,,,,,23880.19
-Aerodactyl,113,teammate,4,Charizard,,,,,,,,,,23880.19
-Aerodactyl,113,teammate,5,Basculegion Male,,,,,,,,,,23880.19
-Aerodactyl,113,teammate,6,Mimikyu,,,,,,,,,,23883.12
-Aerodactyl,113,teammate,7,Blaziken,,,,,,,,,,23883.12
-Aerodactyl,113,teammate,8,Primarina,,,,,,,,,,23883.12
-Aerodactyl,113,teammate,9,Kingambit,,,,,,,,,,23883.12
-Aerodactyl,113,teammate,10,Gengar,,,,,,,,,,23883.12
-Aerodactyl,113,stat_alignment,1,Jolly,62.7%,Speed,Sp. Atk,,,,,,,23885.12
-Aerodactyl,113,stat_alignment,2,Adamant,31.7%,Attack,Sp. Atk,,,,,,,23885.12
-Aerodactyl,113,stat_alignment,3,Naughty,1.2%,Attack,Sp. Def,,,,,,,23885.12
-Aerodactyl,113,stat_alignment,4,Hasty,1.2%,Speed,Defense,,,,,,,23885.12
-Aerodactyl,113,stat_alignment,5,Naive,1.1%,Speed,Sp. Def,,,,,,,23885.12
-Aerodactyl,113,stat_alignment,6,Lonely,0.7%,Attack,Defense,,,,,,,23888.15
-Aerodactyl,113,stat_alignment,7,Impish,0.5%,Defense,Sp. Atk,,,,,,,23888.15
-Aerodactyl,113,stat_alignment,8,Timid,0.2%,Speed,Attack,,,,,,,23888.15
-Aerodactyl,113,stat_alignment,9,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,,23888.15
-Aerodactyl,113,stat_alignment,10,Lax,0.2%,Defense,Sp. Def,,,,,,,23888.15
-Aerodactyl,113,stat_points,1,,49.5%,,,2,32,0,0,0,32,23890.36
-Aerodactyl,113,stat_points,2,,10.2%,,,0,32,2,0,0,32,23890.36
-Aerodactyl,113,stat_points,3,,7.2%,,,0,32,0,0,2,32,23890.36
-Aerodactyl,113,stat_points,4,,4.3%,,,0,32,0,0,0,32,23890.36
-Aerodactyl,113,stat_points,5,,3.3%,,,0,32,32,0,0,2,23890.36
-Aerodactyl,113,stat_points,6,,1.1%,,,10,32,1,0,0,23,23912.13
-Aerodactyl,113,stat_points,7,,0.7%,,,14,32,0,0,0,20,23912.13
-Aerodactyl,113,stat_points,8,,0.7%,,,4,32,0,0,0,30,23912.13
-Aerodactyl,113,ability,1,Unnerve,63.8%,,,,,,,,,23925.90
-Aerodactyl,113,ability,2,Pressure,23.9%,,,,,,,,,23925.90
-Aerodactyl,113,ability,3,Rock Head,12.3%,,,,,,,,,23925.90
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Aerodactyl,113,move,1,Dual Wingbeat,77.8%,,,,,,,,
+Aerodactyl,113,move,2,Rock Slide,55.2%,,,,,,,,
+Aerodactyl,113,move,3,Earthquake,54.3%,,,,,,,,
+Aerodactyl,113,move,4,Ice Fang,46.9%,,,,,,,,
+Aerodactyl,113,move,5,Dragon Dance,24.2%,,,,,,,,
+Aerodactyl,113,move,6,Taunt,20.7%,,,,,,,,
+Aerodactyl,113,move,7,Stone Edge,18.2%,,,,,,,,
+Aerodactyl,113,move,8,Iron Head,14.7%,,,,,,,,
+Aerodactyl,113,move,9,Tailwind,12.1%,,,,,,,,
+Aerodactyl,113,move,10,Stealth Rock,11.3%,,,,,,,,
+Aerodactyl,113,held_item,1,Aerodactylite,71.8%,,,,,,,,
+Aerodactyl,113,held_item,2,Focus Sash,11.4%,,,,,,,,
+Aerodactyl,113,held_item,3,Life Orb,2.7%,,,,,,,,
+Aerodactyl,113,held_item,4,Choice Scarf,1.9%,,,,,,,,
+Aerodactyl,113,held_item,5,Sitrus Berry,1.1%,,,,,,,,
+Aerodactyl,113,held_item,6,King's Rock,1.0%,,,,,,,,
+Aerodactyl,113,held_item,7,Wide Lens,0.9%,,,,,,,,
+Aerodactyl,113,held_item,8,Bright Powder,0.8%,,,,,,,,
+Aerodactyl,113,held_item,9,Leftovers,0.7%,,,,,,,,
+Aerodactyl,113,held_item,10,Expert Belt,0.6%,,,,,,,,
+Aerodactyl,113,teammate,1,Garchomp,,,,,,,,,
+Aerodactyl,113,teammate,2,Archaludon,,,,,,,,,
+Aerodactyl,113,teammate,3,Meowscarada,,,,,,,,,
+Aerodactyl,113,teammate,4,Charizard,,,,,,,,,
+Aerodactyl,113,teammate,5,Basculegion Male,,,,,,,,,
+Aerodactyl,113,teammate,6,Mimikyu,,,,,,,,,
+Aerodactyl,113,teammate,7,Blaziken,,,,,,,,,
+Aerodactyl,113,teammate,8,Primarina,,,,,,,,,
+Aerodactyl,113,teammate,9,Kingambit,,,,,,,,,
+Aerodactyl,113,teammate,10,Gengar,,,,,,,,,
+Aerodactyl,113,stat_alignment,1,Jolly,62.7%,Speed,Sp. Atk,,,,,,
+Aerodactyl,113,stat_alignment,2,Adamant,31.7%,Attack,Sp. Atk,,,,,,
+Aerodactyl,113,stat_alignment,3,Naughty,1.2%,Attack,Sp. Def,,,,,,
+Aerodactyl,113,stat_alignment,4,Hasty,1.2%,Speed,Defense,,,,,,
+Aerodactyl,113,stat_alignment,5,Naive,1.1%,Speed,Sp. Def,,,,,,
+Aerodactyl,113,stat_alignment,6,Lonely,0.7%,Attack,Defense,,,,,,
+Aerodactyl,113,stat_alignment,7,Impish,0.5%,Defense,Sp. Atk,,,,,,
+Aerodactyl,113,stat_alignment,8,Timid,0.2%,Speed,Attack,,,,,,
+Aerodactyl,113,stat_alignment,9,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
+Aerodactyl,113,stat_alignment,10,Lax,0.2%,Defense,Sp. Def,,,,,,
+Aerodactyl,113,stat_points,1,,49.5%,,,2,32,0,0,0,32
+Aerodactyl,113,stat_points,2,,10.2%,,,0,32,2,0,0,32
+Aerodactyl,113,stat_points,3,,7.2%,,,0,32,0,0,2,32
+Aerodactyl,113,stat_points,4,,4.3%,,,0,32,0,0,0,32
+Aerodactyl,113,stat_points,5,,3.3%,,,0,32,32,0,0,2
+Aerodactyl,113,stat_points,6,,1.1%,,,10,32,1,0,0,23
+Aerodactyl,113,stat_points,7,,0.7%,,,14,32,0,0,0,20
+Aerodactyl,113,stat_points,8,,0.7%,,,4,32,0,0,0,30
+Aerodactyl,113,ability,1,Unnerve,63.8%,,,,,,,,
+Aerodactyl,113,ability,2,Pressure,23.9%,,,,,,,,
+Aerodactyl,113,ability,3,Rock Head,12.3%,,,,,,,,

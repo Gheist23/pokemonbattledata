@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Lopunny,33,move,1,Fake Out,76.1%,,,,,,,,
-Lopunny,33,move,2,Close Combat,61.3%,,,,,,,,
-Lopunny,33,move,3,Triple Axel,60.8%,,,,,,,,
-Lopunny,33,move,4,High Jump Kick,34.8%,,,,,,,,
-Lopunny,33,move,5,U-turn,33.5%,,,,,,,,
-Lopunny,33,move,6,Swords Dance,29.1%,,,,,,,,
-Lopunny,33,move,7,Mach Punch,28.4%,,,,,,,,
-Lopunny,33,move,8,Mega Kick,14.5%,,,,,,,,
-Lopunny,33,move,9,Ice Punch,12.5%,,,,,,,,
-Lopunny,33,move,10,Thunder Punch,11.0%,,,,,,,,
-Lopunny,33,held_item,1,Lopunnite,97.2%,,,,,,,,
-Lopunny,33,held_item,2,Sitrus Berry,0.8%,,,,,,,,
-Lopunny,33,held_item,3,Mental Herb,0.5%,,,,,,,,
-Lopunny,33,held_item,4,Choice Scarf,0.2%,,,,,,,,
-Lopunny,33,held_item,5,Chople Berry,0.2%,,,,,,,,
-Lopunny,33,held_item,6,Focus Sash,0.2%,,,,,,,,
-Lopunny,33,held_item,7,Leftovers,0.1%,,,,,,,,
-Lopunny,33,held_item,8,Lum Berry,0.1%,,,,,,,,
-Lopunny,33,held_item,9,Bright Powder,0.1%,,,,,,,,
-Lopunny,33,held_item,10,Life Orb,0.0%,,,,,,,,
-Lopunny,33,teammate,1,Garchomp,,,,,,,,,
-Lopunny,33,teammate,2,Archaludon,,,,,,,,,
-Lopunny,33,teammate,3,Meowscarada,,,,,,,,,
-Lopunny,33,teammate,4,Corviknight,,,,,,,,,
-Lopunny,33,teammate,5,Mimikyu,,,,,,,,,
-Lopunny,33,teammate,6,Primarina,,,,,,,,,
-Lopunny,33,teammate,7,Charizard,,,,,,,,,
-Lopunny,33,teammate,8,Basculegion Male,,,,,,,,,
-Lopunny,33,teammate,9,Hippowdon,,,,,,,,,
-Lopunny,33,teammate,10,Raichu,,,,,,,,,
-Lopunny,33,stat_alignment,1,Jolly,73.3%,Speed,Sp. Atk,,,,,,
-Lopunny,33,stat_alignment,2,Adamant,24.3%,Attack,Sp. Atk,,,,,,
-Lopunny,33,stat_alignment,3,Timid,0.5%,Speed,Attack,,,,,,
-Lopunny,33,stat_alignment,4,Impish,0.4%,Defense,Sp. Atk,,,,,,
-Lopunny,33,stat_alignment,5,Naive,0.3%,Speed,Sp. Def,,,,,,
-Lopunny,33,stat_alignment,6,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Lopunny,33,stat_alignment,7,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
-Lopunny,33,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,
-Lopunny,33,stat_alignment,9,Lonely,0.2%,Attack,Defense,,,,,,
-Lopunny,33,stat_alignment,10,Bold,0.1%,Defense,Attack,,,,,,
-Lopunny,33,stat_points,1,,35.4%,,,2,32,0,0,0,32
-Lopunny,33,stat_points,2,,27.9%,,,1,32,1,0,0,32
-Lopunny,33,stat_points,3,,6.7%,,,0,32,2,0,0,32
-Lopunny,33,stat_points,4,,4.0%,,,1,32,0,0,1,32
-Lopunny,33,stat_points,5,,3.5%,,,0,32,0,0,2,32
-Lopunny,33,stat_points,6,,2.1%,,,9,24,0,0,1,32
-Lopunny,33,stat_points,7,,1.6%,,,0,32,0,0,0,32
-Lopunny,33,stat_points,8,,1.5%,,,7,32,1,0,0,26
-Lopunny,33,stat_points,9,,1.0%,,,1,32,5,0,0,28
-Lopunny,33,stat_points,10,,0.9%,,,1,32,0,0,0,32
-Lopunny,33,stat_points,11,,0.7%,,,11,27,0,0,0,28
-Lopunny,33,stat_points,12,,0.7%,,,0,32,1,0,1,32
-Lopunny,33,ability,1,Limber,73.1%,,,,,,,,
-Lopunny,33,ability,2,Cute Charm,22.9%,,,,,,,,
-Lopunny,33,ability,3,Klutz,4.0%,,,,,,,,
+Lopunny,43,move,1,Fake Out,69.6%,,,,,,,,
+Lopunny,43,move,2,Triple Axel,63.1%,,,,,,,,
+Lopunny,43,move,3,Close Combat,57.6%,,,,,,,,
+Lopunny,43,move,4,Mach Punch,46.3%,,,,,,,,
+Lopunny,43,move,5,High Jump Kick,36.5%,,,,,,,,
+Lopunny,43,move,6,Swords Dance,30.0%,,,,,,,,
+Lopunny,43,move,7,U-turn,26.9%,,,,,,,,
+Lopunny,43,move,8,Thunder Punch,10.6%,,,,,,,,
+Lopunny,43,move,9,Mega Kick,10.3%,,,,,,,,
+Lopunny,43,move,10,Ice Punch,8.0%,,,,,,,,
+Lopunny,43,held_item,1,Lopunnite,96.1%,,,,,,,,
+Lopunny,43,held_item,2,Sitrus Berry,1.2%,,,,,,,,
+Lopunny,43,held_item,3,Mental Herb,0.9%,,,,,,,,
+Lopunny,43,held_item,4,Choice Scarf,0.4%,,,,,,,,
+Lopunny,43,held_item,5,Focus Sash,0.3%,,,,,,,,
+Lopunny,43,held_item,6,Chople Berry,0.2%,,,,,,,,
+Lopunny,43,held_item,7,Leftovers,0.1%,,,,,,,,
+Lopunny,43,held_item,8,Lum Berry,0.1%,,,,,,,,
+Lopunny,43,held_item,9,Iron Ball,0.1%,,,,,,,,
+Lopunny,43,held_item,10,Silk Scarf,0.0%,,,,,,,,
+Lopunny,43,teammate,1,Garchomp,,,,,,,,,
+Lopunny,43,teammate,2,Archaludon,,,,,,,,,
+Lopunny,43,teammate,3,Mimikyu,,,,,,,,,
+Lopunny,43,teammate,4,Meowscarada,,,,,,,,,
+Lopunny,43,teammate,5,Primarina,,,,,,,,,
+Lopunny,43,teammate,6,Hippowdon,,,,,,,,,
+Lopunny,43,teammate,7,Corviknight,,,,,,,,,
+Lopunny,43,teammate,8,Basculegion Male,,,,,,,,,
+Lopunny,43,teammate,9,Greninja,,,,,,,,,
+Lopunny,43,teammate,10,Delphox,,,,,,,,,
+Lopunny,43,stat_alignment,1,Jolly,62.0%,Speed,Sp. Atk,,,,,,
+Lopunny,43,stat_alignment,2,Adamant,35.4%,Attack,Sp. Atk,,,,,,
+Lopunny,43,stat_alignment,3,Timid,0.6%,Speed,Attack,,,,,,
+Lopunny,43,stat_alignment,4,Impish,0.4%,Defense,Sp. Atk,,,,,,
+Lopunny,43,stat_alignment,5,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
+Lopunny,43,stat_alignment,6,Hasty,0.2%,Speed,Defense,,,,,,
+Lopunny,43,stat_alignment,7,Naive,0.2%,Speed,Sp. Def,,,,,,
+Lopunny,43,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,
+Lopunny,43,stat_alignment,9,Serious,0.1%,,,,,,,,
+Lopunny,43,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Lopunny,43,stat_points,1,,36.1%,,,1,32,1,0,0,32
+Lopunny,43,stat_points,2,,30.8%,,,2,32,0,0,0,32
+Lopunny,43,stat_points,3,,5.0%,,,0,32,2,0,0,32
+Lopunny,43,stat_points,4,,4.6%,,,1,32,0,0,1,32
+Lopunny,43,stat_points,5,,2.7%,,,0,32,0,0,2,32
+Lopunny,43,stat_points,6,,1.2%,,,7,32,1,0,0,26
+Lopunny,43,stat_points,7,,1.0%,,,32,0,2,0,0,32
+Lopunny,43,stat_points,8,,0.8%,,,0,32,1,0,1,32
+Lopunny,43,ability,1,Limber,74.6%,,,,,,,,
+Lopunny,43,ability,2,Cute Charm,22.0%,,,,,,,,
+Lopunny,43,ability,3,Klutz,3.3%,,,,,,,,

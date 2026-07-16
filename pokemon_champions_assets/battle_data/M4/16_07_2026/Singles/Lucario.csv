@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Lucario,31,move,1,Close Combat,52.3%,,,,,,,,,16200.50
-Lucario,31,move,2,Vacuum Wave,43.2%,,,,,,,,,16200.50
-Lucario,31,move,3,Swords Dance,43.0%,,,,,,,,,16200.50
-Lucario,31,move,4,Flash Cannon,39.9%,,,,,,,,,16200.50
-Lucario,31,move,5,Meteor Mash,37.4%,,,,,,,,,16200.50
-Lucario,31,move,6,Extreme Speed,32.6%,,,,,,,,,16205.59
-Lucario,31,move,7,Nasty Plot,30.5%,,,,,,,,,16205.59
-Lucario,31,move,8,Aura Sphere,30.2%,,,,,,,,,16205.59
-Lucario,31,move,9,Bullet Punch,28.8%,,,,,,,,,16205.59
-Lucario,31,move,10,Focus Blast,14.7%,,,,,,,,,16205.59
-Lucario,31,held_item,1,Lucarionite,97.0%,,,,,,,,,16209.07
-Lucario,31,held_item,2,Focus Sash,1.8%,,,,,,,,,16209.07
-Lucario,31,held_item,3,Choice Scarf,0.4%,,,,,,,,,16209.07
-Lucario,31,held_item,4,Life Orb,0.3%,,,,,,,,,16209.07
-Lucario,31,held_item,5,Quick Claw,0.1%,,,,,,,,,16209.07
-Lucario,31,held_item,6,Expert Belt,0.0%,,,,,,,,,16216.57
-Lucario,31,held_item,7,Lum Berry,0.0%,,,,,,,,,16216.57
-Lucario,31,held_item,8,Black Belt,0.0%,,,,,,,,,16216.57
-Lucario,31,held_item,9,Sitrus Berry,0.0%,,,,,,,,,16216.57
-Lucario,31,held_item,10,Shuca Berry,0.0%,,,,,,,,,16216.57
-Lucario,31,teammate,1,Hippowdon,,,,,,,,,,16223.23
-Lucario,31,teammate,2,Mimikyu,,,,,,,,,,16223.23
-Lucario,31,teammate,3,Garchomp,,,,,,,,,,16223.23
-Lucario,31,teammate,4,Rotom Wash,,,,,,,,,,16223.23
-Lucario,31,teammate,5,Dragonite,,,,,,,,,,16223.23
-Lucario,31,teammate,6,Meowscarada,,,,,,,,,,16226.14
-Lucario,31,teammate,7,Primarina,,,,,,,,,,16226.14
-Lucario,31,teammate,8,Basculegion Male,,,,,,,,,,16226.14
-Lucario,31,teammate,9,Gyarados,,,,,,,,,,16226.14
-Lucario,31,teammate,10,Alolan Ninetales,,,,,,,,,,16226.14
-Lucario,31,stat_alignment,1,Timid,33.9%,Speed,Attack,,,,,,,16228.27
-Lucario,31,stat_alignment,2,Jolly,33.7%,Speed,Sp. Atk,,,,,,,16228.27
-Lucario,31,stat_alignment,3,Adamant,18.7%,Attack,Sp. Atk,,,,,,,16228.27
-Lucario,31,stat_alignment,4,Modest,9.6%,Sp. Atk,Attack,,,,,,,16228.27
-Lucario,31,stat_alignment,5,Naive,2.5%,Speed,Sp. Def,,,,,,,16228.27
-Lucario,31,stat_alignment,6,Hasty,0.6%,Speed,Defense,,,,,,,16231.34
-Lucario,31,stat_alignment,7,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,,16231.34
-Lucario,31,stat_alignment,8,Naughty,0.2%,Attack,Sp. Def,,,,,,,16231.34
-Lucario,31,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,,16231.34
-Lucario,31,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,,16231.34
-Lucario,31,stat_points,1,,42.1%,,,2,32,0,0,0,32,16233.51
-Lucario,31,stat_points,2,,33.1%,,,2,0,0,32,0,32,16233.51
-Lucario,31,stat_points,3,,3.6%,,,8,0,10,16,0,32,16233.51
-Lucario,31,stat_points,4,,2.7%,,,0,32,2,0,0,32,16233.51
-Lucario,31,stat_points,5,,2.1%,,,0,0,2,32,0,32,16233.51
-Lucario,31,stat_points,6,,0.9%,,,0,32,0,0,2,32,16256.08
-Lucario,31,stat_points,7,,0.8%,,,0,0,0,32,0,32,16256.08
-Lucario,31,stat_points,8,,0.8%,,,0,0,0,32,2,32,16256.08
-Lucario,31,ability,1,Inner Focus,82.6%,,,,,,,,,16270.31
-Lucario,31,ability,2,Steadfast,10.3%,,,,,,,,,16270.31
-Lucario,31,ability,3,Justified,7.1%,,,,,,,,,16270.31
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Lucario,31,move,1,Close Combat,52.3%,,,,,,,,
+Lucario,31,move,2,Vacuum Wave,43.2%,,,,,,,,
+Lucario,31,move,3,Swords Dance,43.0%,,,,,,,,
+Lucario,31,move,4,Flash Cannon,39.9%,,,,,,,,
+Lucario,31,move,5,Meteor Mash,37.4%,,,,,,,,
+Lucario,31,move,6,Extreme Speed,32.6%,,,,,,,,
+Lucario,31,move,7,Nasty Plot,30.5%,,,,,,,,
+Lucario,31,move,8,Aura Sphere,30.2%,,,,,,,,
+Lucario,31,move,9,Bullet Punch,28.8%,,,,,,,,
+Lucario,31,move,10,Focus Blast,14.7%,,,,,,,,
+Lucario,31,held_item,1,Lucarionite,97.0%,,,,,,,,
+Lucario,31,held_item,2,Focus Sash,1.8%,,,,,,,,
+Lucario,31,held_item,3,Choice Scarf,0.4%,,,,,,,,
+Lucario,31,held_item,4,Life Orb,0.3%,,,,,,,,
+Lucario,31,held_item,5,Quick Claw,0.1%,,,,,,,,
+Lucario,31,held_item,6,Expert Belt,0.0%,,,,,,,,
+Lucario,31,held_item,7,Lum Berry,0.0%,,,,,,,,
+Lucario,31,held_item,8,Black Belt,0.0%,,,,,,,,
+Lucario,31,held_item,9,Sitrus Berry,0.0%,,,,,,,,
+Lucario,31,held_item,10,Shuca Berry,0.0%,,,,,,,,
+Lucario,31,teammate,1,Hippowdon,,,,,,,,,
+Lucario,31,teammate,2,Mimikyu,,,,,,,,,
+Lucario,31,teammate,3,Garchomp,,,,,,,,,
+Lucario,31,teammate,4,Rotom Wash,,,,,,,,,
+Lucario,31,teammate,5,Dragonite,,,,,,,,,
+Lucario,31,teammate,6,Meowscarada,,,,,,,,,
+Lucario,31,teammate,7,Primarina,,,,,,,,,
+Lucario,31,teammate,8,Basculegion Male,,,,,,,,,
+Lucario,31,teammate,9,Gyarados,,,,,,,,,
+Lucario,31,teammate,10,Alolan Ninetales,,,,,,,,,
+Lucario,31,stat_alignment,1,Timid,33.9%,Speed,Attack,,,,,,
+Lucario,31,stat_alignment,2,Jolly,33.7%,Speed,Sp. Atk,,,,,,
+Lucario,31,stat_alignment,3,Adamant,18.7%,Attack,Sp. Atk,,,,,,
+Lucario,31,stat_alignment,4,Modest,9.6%,Sp. Atk,Attack,,,,,,
+Lucario,31,stat_alignment,5,Naive,2.5%,Speed,Sp. Def,,,,,,
+Lucario,31,stat_alignment,6,Hasty,0.6%,Speed,Defense,,,,,,
+Lucario,31,stat_alignment,7,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
+Lucario,31,stat_alignment,8,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Lucario,31,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,
+Lucario,31,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Lucario,31,stat_points,1,,42.1%,,,2,32,0,0,0,32
+Lucario,31,stat_points,2,,33.1%,,,2,0,0,32,0,32
+Lucario,31,stat_points,3,,3.6%,,,8,0,10,16,0,32
+Lucario,31,stat_points,4,,2.7%,,,0,32,2,0,0,32
+Lucario,31,stat_points,5,,2.1%,,,0,0,2,32,0,32
+Lucario,31,stat_points,6,,0.9%,,,0,32,0,0,2,32
+Lucario,31,stat_points,7,,0.8%,,,0,0,0,32,0,32
+Lucario,31,stat_points,8,,0.8%,,,0,0,0,32,2,32
+Lucario,31,ability,1,Inner Focus,82.6%,,,,,,,,
+Lucario,31,ability,2,Steadfast,10.3%,,,,,,,,
+Lucario,31,ability,3,Justified,7.1%,,,,,,,,

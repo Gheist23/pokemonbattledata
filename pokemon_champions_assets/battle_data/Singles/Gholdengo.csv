@@ -1,54 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gholdengo,23,move,1,Shadow Ball,97.4%,,,,,,,,
-Gholdengo,23,move,2,Make It Rain,84.8%,,,,,,,,
-Gholdengo,23,move,3,Nasty Plot,49.1%,,,,,,,,
-Gholdengo,23,move,4,Recover,47.7%,,,,,,,,
-Gholdengo,23,move,5,Trick,35.9%,,,,,,,,
-Gholdengo,23,move,6,Thunderbolt,32.6%,,,,,,,,
-Gholdengo,23,move,7,Focus Blast,12.1%,,,,,,,,
-Gholdengo,23,move,8,Power Gem,11.5%,,,,,,,,
-Gholdengo,23,move,9,Flash Cannon,5.9%,,,,,,,,
-Gholdengo,23,move,10,Dazzling Gleam,5.1%,,,,,,,,
-Gholdengo,23,held_item,1,Choice Scarf,41.4%,,,,,,,,
-Gholdengo,23,held_item,2,Leftovers,27.4%,,,,,,,,
-Gholdengo,23,held_item,3,Life Orb,8.1%,,,,,,,,
-Gholdengo,23,held_item,4,Sitrus Berry,5.0%,,,,,,,,
-Gholdengo,23,held_item,5,Shuca Berry,4.3%,,,,,,,,
-Gholdengo,23,held_item,6,White Herb,3.7%,,,,,,,,
-Gholdengo,23,held_item,7,Focus Sash,3.4%,,,,,,,,
-Gholdengo,23,held_item,8,Wise Glasses,1.3%,,,,,,,,
-Gholdengo,23,held_item,9,Spell Tag,0.8%,,,,,,,,
-Gholdengo,23,held_item,10,Expert Belt,0.7%,,,,,,,,
-Gholdengo,23,teammate,1,Garchomp,,,,,,,,,
-Gholdengo,23,teammate,2,Staraptor,,,,,,,,,
-Gholdengo,23,teammate,3,Blaziken,,,,,,,,,
-Gholdengo,23,teammate,4,Alolan Ninetales,,,,,,,,,
-Gholdengo,23,teammate,5,Meowscarada,,,,,,,,,
-Gholdengo,23,teammate,6,Gyarados,,,,,,,,,
-Gholdengo,23,teammate,7,Mimikyu,,,,,,,,,
-Gholdengo,23,teammate,8,Grimmsnarl,,,,,,,,,
-Gholdengo,23,teammate,9,Hippowdon,,,,,,,,,
-Gholdengo,23,teammate,10,Raichu,,,,,,,,,
-Gholdengo,23,stat_alignment,1,Modest,48.1%,Sp. Atk,Attack,,,,,,
-Gholdengo,23,stat_alignment,2,Timid,34.0%,Speed,Attack,,,,,,
-Gholdengo,23,stat_alignment,3,Bold,14.0%,Defense,Attack,,,,,,
-Gholdengo,23,stat_alignment,4,Calm,2.9%,Sp. Def,Attack,,,,,,
-Gholdengo,23,stat_alignment,5,Quiet,0.3%,Sp. Atk,Speed,,,,,,
-Gholdengo,23,stat_alignment,6,Mild,0.3%,Sp. Atk,Defense,,,,,,
-Gholdengo,23,stat_alignment,7,Hasty,0.1%,Speed,Defense,,,,,,
-Gholdengo,23,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Gholdengo,23,stat_alignment,9,Relaxed,0.1%,Defense,Speed,,,,,,
-Gholdengo,23,stat_alignment,10,Gentle,0.0%,Sp. Def,Defense,,,,,,
-Gholdengo,23,stat_points,1,,25.1%,,,2,0,0,32,0,32
-Gholdengo,23,stat_points,2,,10.3%,,,1,0,1,32,0,32
-Gholdengo,23,stat_points,3,,4.8%,,,32,0,0,32,0,2
-Gholdengo,23,stat_points,4,,3.6%,,,1,0,0,32,1,32
-Gholdengo,23,stat_points,5,,3.5%,,,31,0,25,0,0,10
-Gholdengo,23,stat_points,6,,2.9%,,,0,0,2,32,0,32
-Gholdengo,23,stat_points,7,,2.1%,,,0,0,0,32,2,32
-Gholdengo,23,stat_points,8,,1.8%,,,7,0,0,32,0,27
-Gholdengo,23,stat_points,9,,1.7%,,,32,0,2,32,0,0
-Gholdengo,23,stat_points,10,,1.6%,,,32,0,0,32,2,0
-Gholdengo,23,stat_points,11,,1.5%,,,29,0,0,7,0,30
-Gholdengo,23,stat_points,12,,1.2%,,,0,0,0,32,0,32
-Gholdengo,23,ability,1,Good as Gold,100.0%,,,,,,,,
+Gholdengo,28,move,1,Shadow Ball,97.8%,,,,,,,,
+Gholdengo,28,move,2,Make It Rain,89.0%,,,,,,,,
+Gholdengo,28,move,3,Nasty Plot,50.8%,,,,,,,,
+Gholdengo,28,move,4,Recover,48.0%,,,,,,,,
+Gholdengo,28,move,5,Trick,37.6%,,,,,,,,
+Gholdengo,28,move,6,Thunderbolt,35.7%,,,,,,,,
+Gholdengo,28,move,7,Power Gem,8.6%,,,,,,,,
+Gholdengo,28,move,8,Focus Blast,8.0%,,,,,,,,
+Gholdengo,28,move,9,Flash Cannon,4.9%,,,,,,,,
+Gholdengo,28,move,10,Dazzling Gleam,4.8%,,,,,,,,
+Gholdengo,28,held_item,1,Choice Scarf,41.9%,,,,,,,,
+Gholdengo,28,held_item,2,Leftovers,24.4%,,,,,,,,
+Gholdengo,28,held_item,3,Shuca Berry,9.9%,,,,,,,,
+Gholdengo,28,held_item,4,Life Orb,7.7%,,,,,,,,
+Gholdengo,28,held_item,5,Sitrus Berry,4.6%,,,,,,,,
+Gholdengo,28,held_item,6,Focus Sash,2.5%,,,,,,,,
+Gholdengo,28,held_item,7,White Herb,2.5%,,,,,,,,
+Gholdengo,28,held_item,8,Spell Tag,1.1%,,,,,,,,
+Gholdengo,28,held_item,9,Wise Glasses,0.9%,,,,,,,,
+Gholdengo,28,held_item,10,Expert Belt,0.7%,,,,,,,,
+Gholdengo,28,teammate,1,Garchomp,,,,,,,,,
+Gholdengo,28,teammate,2,Gyarados,,,,,,,,,
+Gholdengo,28,teammate,3,Hippowdon,,,,,,,,,
+Gholdengo,28,teammate,4,Mimikyu,,,,,,,,,
+Gholdengo,28,teammate,5,Delphox,,,,,,,,,
+Gholdengo,28,teammate,6,Blaziken,,,,,,,,,
+Gholdengo,28,teammate,7,Meowscarada,,,,,,,,,
+Gholdengo,28,teammate,8,Primarina,,,,,,,,,
+Gholdengo,28,teammate,9,Sylveon,,,,,,,,,
+Gholdengo,28,teammate,10,Alolan Ninetales,,,,,,,,,
+Gholdengo,28,stat_alignment,1,Modest,41.0%,Sp. Atk,Attack,,,,,,
+Gholdengo,28,stat_alignment,2,Timid,37.3%,Speed,Attack,,,,,,
+Gholdengo,28,stat_alignment,3,Bold,17.9%,Defense,Attack,,,,,,
+Gholdengo,28,stat_alignment,4,Calm,2.9%,Sp. Def,Attack,,,,,,
+Gholdengo,28,stat_alignment,5,Quiet,0.3%,Sp. Atk,Speed,,,,,,
+Gholdengo,28,stat_alignment,6,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Gholdengo,28,stat_alignment,7,Hasty,0.1%,Speed,Defense,,,,,,
+Gholdengo,28,stat_alignment,8,Relaxed,0.1%,Defense,Speed,,,,,,
+Gholdengo,28,stat_alignment,9,Jolly,0.0%,Speed,Sp. Atk,,,,,,
+Gholdengo,28,stat_alignment,10,Adamant,0.0%,Attack,Sp. Atk,,,,,,
+Gholdengo,28,stat_points,1,,19.7%,,,2,0,0,32,0,32
+Gholdengo,28,stat_points,2,,9.2%,,,1,0,0,32,1,32
+Gholdengo,28,stat_points,3,,7.9%,,,1,0,1,32,0,32
+Gholdengo,28,stat_points,4,,4.5%,,,31,0,32,0,0,3
+Gholdengo,28,stat_points,5,,3.3%,,,12,0,0,32,0,22
+Gholdengo,28,stat_points,6,,2.2%,,,32,0,0,32,0,2
+Gholdengo,28,stat_points,7,,2.0%,,,0,0,2,32,0,32
+Gholdengo,28,stat_points,8,,1.8%,,,0,0,0,32,2,32
+Gholdengo,28,ability,1,Good as Gold,100.0%,,,,,,,,

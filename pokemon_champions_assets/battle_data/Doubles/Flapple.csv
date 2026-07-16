@@ -1,55 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Flapple,235,move,1,Grav Apple,99.9%,,,,,,,,
-Flapple,235,move,2,Dragon Rush,79.4%,,,,,,,,
-Flapple,235,move,3,Protect,69.2%,,,,,,,,
-Flapple,235,move,4,Sucker Punch,52.1%,,,,,,,,
-Flapple,235,move,5,Dual Wingbeat,28.8%,,,,,,,,
-Flapple,235,move,6,U-turn,22.0%,,,,,,,,
-Flapple,235,move,7,Dragon Dance,19.1%,,,,,,,,
-Flapple,235,move,8,Outrage,8.9%,,,,,,,,
-Flapple,235,move,9,Giga Impact,2.9%,,,,,,,,
-Flapple,235,move,10,Draco Meteor,2.4%,,,,,,,,
-Flapple,235,held_item,1,Focus Sash,25.1%,,,,,,,,
-Flapple,235,held_item,2,Choice Scarf,19.5%,,,,,,,,
-Flapple,235,held_item,3,Miracle Seed,19.3%,,,,,,,,
-Flapple,235,held_item,4,Life Orb,15.4%,,,,,,,,
-Flapple,235,held_item,5,Wide Lens,5.3%,,,,,,,,
-Flapple,235,held_item,6,Sitrus Berry,4.2%,,,,,,,,
-Flapple,235,held_item,7,Yache Berry,3.9%,,,,,,,,
-Flapple,235,held_item,8,White Herb,1.1%,,,,,,,,
-Flapple,235,held_item,9,Roseli Berry,0.9%,,,,,,,,
-Flapple,235,held_item,10,Expert Belt,0.8%,,,,,,,,
-Flapple,235,teammate,1,Sableye,,,,,,,,,
-Flapple,235,teammate,2,Farigiraf,,,,,,,,,
-Flapple,235,teammate,3,Milotic,,,,,,,,,
-Flapple,235,teammate,4,Maushold Family of Four,,,,,,,,,
-Flapple,235,teammate,5,Meowstic,,,,,,,,,
-Flapple,235,teammate,6,Kingambit,,,,,,,,,
-Flapple,235,teammate,7,Camerupt,,,,,,,,,
-Flapple,235,teammate,8,Raichu,,,,,,,,,
-Flapple,235,teammate,9,Gengar,,,,,,,,,
-Flapple,235,teammate,10,Delphox,,,,,,,,,
-Flapple,235,stat_alignment,1,Jolly,37.0%,Speed,Sp. Atk,,,,,,
-Flapple,235,stat_alignment,2,Adamant,36.4%,Attack,Sp. Atk,,,,,,
-Flapple,235,stat_alignment,3,Brave,16.9%,Attack,Speed,,,,,,
-Flapple,235,stat_alignment,4,Sassy,3.9%,Sp. Def,Speed,,,,,,
-Flapple,235,stat_alignment,5,Naive,1.9%,Speed,Sp. Def,,,,,,
-Flapple,235,stat_alignment,6,Hasty,1.4%,Speed,Defense,,,,,,
-Flapple,235,stat_alignment,7,Impish,1.0%,Defense,Sp. Atk,,,,,,
-Flapple,235,stat_alignment,8,Relaxed,0.4%,Defense,Speed,,,,,,
-Flapple,235,stat_alignment,9,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Flapple,235,stat_alignment,10,Serious,0.2%,,,,,,,,
-Flapple,235,stat_points,1,,31.6%,,,2,32,0,0,0,32
-Flapple,235,stat_points,2,,10.4%,,,0,32,0,0,2,32
-Flapple,235,stat_points,3,,8.6%,,,32,32,2,0,0,0
-Flapple,235,stat_points,4,,8.1%,,,0,32,2,0,0,32
-Flapple,235,stat_points,5,,4.6%,,,32,32,0,0,0,2
-Flapple,235,stat_points,6,,4.2%,,,32,32,0,0,2,0
-Flapple,235,stat_points,7,,3.5%,,,0,32,2,0,32,0
-Flapple,235,stat_points,8,,3.4%,,,14,32,0,0,20,0
-Flapple,235,stat_points,9,,2.4%,,,0,25,9,0,0,32
-Flapple,235,stat_points,10,,2.0%,,,2,32,32,0,0,0
-Flapple,235,stat_points,11,,1.8%,,,24,32,0,0,10,0
-Flapple,235,ability,1,Hustle,89.7%,,,,,,,,
-Flapple,235,ability,2,Ripen,7.6%,,,,,,,,
-Flapple,235,ability,3,Gluttony,2.7%,,,,,,,,
+Flapple,206,move,1,Grav Apple,98.7%,,,,,,,,
+Flapple,206,move,2,Protect,78.3%,,,,,,,,
+Flapple,206,move,3,Dragon Rush,77.5%,,,,,,,,
+Flapple,206,move,4,Sucker Punch,49.8%,,,,,,,,
+Flapple,206,move,5,Dragon Dance,26.0%,,,,,,,,
+Flapple,206,move,6,U-turn,23.3%,,,,,,,,
+Flapple,206,move,7,Dual Wingbeat,18.2%,,,,,,,,
+Flapple,206,move,8,Outrage,4.7%,,,,,,,,
+Flapple,206,move,9,Leech Seed,4.2%,,,,,,,,
+Flapple,206,move,10,Acrobatics,3.1%,,,,,,,,
+Flapple,206,held_item,1,Focus Sash,25.3%,,,,,,,,
+Flapple,206,held_item,2,Life Orb,22.7%,,,,,,,,
+Flapple,206,held_item,3,Choice Scarf,18.3%,,,,,,,,
+Flapple,206,held_item,4,Miracle Seed,17.7%,,,,,,,,
+Flapple,206,held_item,5,Wide Lens,3.9%,,,,,,,,
+Flapple,206,held_item,6,Quick Claw,2.0%,,,,,,,,
+Flapple,206,held_item,7,Sitrus Berry,1.9%,,,,,,,,
+Flapple,206,held_item,8,Muscle Band,1.8%,,,,,,,,
+Flapple,206,held_item,9,Yache Berry,1.2%,,,,,,,,
+Flapple,206,held_item,10,Lum Berry,1.0%,,,,,,,,
+Flapple,206,teammate,1,Sableye,,,,,,,,,
+Flapple,206,teammate,2,Milotic,,,,,,,,,
+Flapple,206,teammate,3,Farigiraf,,,,,,,,,
+Flapple,206,teammate,4,Maushold Family of Four,,,,,,,,,
+Flapple,206,teammate,5,Gengar,,,,,,,,,
+Flapple,206,teammate,6,Sneasler,,,,,,,,,
+Flapple,206,teammate,7,Meowstic,,,,,,,,,
+Flapple,206,teammate,8,Aerodactyl,,,,,,,,,
+Flapple,206,teammate,9,Torkoal,,,,,,,,,
+Flapple,206,teammate,10,Incineroar,,,,,,,,,
+Flapple,206,stat_alignment,1,Adamant,37.9%,Attack,Sp. Atk,,,,,,
+Flapple,206,stat_alignment,2,Jolly,35.1%,Speed,Sp. Atk,,,,,,
+Flapple,206,stat_alignment,3,Brave,20.5%,Attack,Speed,,,,,,
+Flapple,206,stat_alignment,4,Naive,1.4%,Speed,Sp. Def,,,,,,
+Flapple,206,stat_alignment,5,Quiet,1.4%,Sp. Atk,Speed,,,,,,
+Flapple,206,stat_alignment,6,Naughty,1.2%,Attack,Sp. Def,,,,,,
+Flapple,206,stat_alignment,7,Impish,0.6%,Defense,Sp. Atk,,,,,,
+Flapple,206,stat_alignment,8,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
+Flapple,206,stat_alignment,9,Hasty,0.3%,Speed,Defense,,,,,,
+Flapple,206,stat_alignment,10,Bashful,0.3%,,,,,,,,
+Flapple,206,stat_points,1,,29.1%,,,2,32,0,0,0,32
+Flapple,206,stat_points,2,,14.9%,,,0,32,0,0,2,32
+Flapple,206,stat_points,3,,11.8%,,,32,32,0,0,2,0
+Flapple,206,stat_points,4,,6.9%,,,32,32,2,0,0,0
+Flapple,206,stat_points,5,,6.8%,,,0,32,2,0,0,32
+Flapple,206,stat_points,6,,1.6%,,,32,19,15,0,0,0
+Flapple,206,stat_points,7,,1.4%,,,32,32,0,0,0,0
+Flapple,206,stat_points,8,,1.0%,,,11,0,2,32,21,0
+Flapple,206,ability,1,Hustle,94.2%,,,,,,,,
+Flapple,206,ability,2,Ripen,3.6%,,,,,,,,
+Flapple,206,ability,3,Gluttony,2.2%,,,,,,,,

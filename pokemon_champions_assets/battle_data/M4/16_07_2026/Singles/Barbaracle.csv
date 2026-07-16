@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Barbaracle,137,move,1,Shell Smash,89.2%,,,,,,,,,26087.01
-Barbaracle,137,move,2,Close Combat,85.9%,,,,,,,,,26087.01
-Barbaracle,137,move,3,Rock Blast,64.9%,,,,,,,,,26087.01
-Barbaracle,137,move,4,Earthquake,38.8%,,,,,,,,,26087.01
-Barbaracle,137,move,5,Liquidation,30.3%,,,,,,,,,26087.01
-Barbaracle,137,move,6,Stone Edge,17.5%,,,,,,,,,26091.37
-Barbaracle,137,move,7,Shadow Claw,14.9%,,,,,,,,,26091.37
-Barbaracle,137,move,8,Poison Jab,12.0%,,,,,,,,,26091.37
-Barbaracle,137,move,9,Aqua Cutter,9.4%,,,,,,,,,26091.37
-Barbaracle,137,move,10,Night Slash,9.3%,,,,,,,,,26091.37
-Barbaracle,137,held_item,1,Barbaracite,83.0%,,,,,,,,,26095.25
-Barbaracle,137,held_item,2,Life Orb,5.9%,,,,,,,,,26095.25
-Barbaracle,137,held_item,3,Focus Sash,4.0%,,,,,,,,,26095.25
-Barbaracle,137,held_item,4,Scope Lens,2.9%,,,,,,,,,26095.25
-Barbaracle,137,held_item,5,White Herb,1.6%,,,,,,,,,26095.25
-Barbaracle,137,held_item,6,Choice Scarf,0.7%,,,,,,,,,26102.51
-Barbaracle,137,held_item,7,Lum Berry,0.5%,,,,,,,,,26102.51
-Barbaracle,137,held_item,8,Sitrus Berry,0.4%,,,,,,,,,26102.51
-Barbaracle,137,held_item,9,Wide Lens,0.4%,,,,,,,,,26102.51
-Barbaracle,137,held_item,10,Expert Belt,0.2%,,,,,,,,,26102.51
-Barbaracle,137,teammate,1,Hippowdon,,,,,,,,,,26108.97
-Barbaracle,137,teammate,2,Garchomp,,,,,,,,,,26108.97
-Barbaracle,137,teammate,3,Orthworm,,,,,,,,,,26108.97
-Barbaracle,137,teammate,4,Alolan Ninetales,,,,,,,,,,26108.97
-Barbaracle,137,teammate,5,Blaziken,,,,,,,,,,26108.97
-Barbaracle,137,teammate,6,Archaludon,,,,,,,,,,26111.92
-Barbaracle,137,teammate,7,Grimmsnarl,,,,,,,,,,26111.92
-Barbaracle,137,teammate,8,Mimikyu,,,,,,,,,,26111.92
-Barbaracle,137,teammate,9,Meowscarada,,,,,,,,,,26111.92
-Barbaracle,137,teammate,10,Basculegion Male,,,,,,,,,,26111.92
-Barbaracle,137,stat_alignment,1,Jolly,55.4%,Speed,Sp. Atk,,,,,,,26114.02
-Barbaracle,137,stat_alignment,2,Adamant,41.1%,Attack,Sp. Atk,,,,,,,26114.02
-Barbaracle,137,stat_alignment,3,Impish,0.9%,Defense,Sp. Atk,,,,,,,26114.02
-Barbaracle,137,stat_alignment,4,Naive,0.6%,Speed,Sp. Def,,,,,,,26114.02
-Barbaracle,137,stat_alignment,5,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,,26114.02
-Barbaracle,137,stat_alignment,6,Naughty,0.5%,Attack,Sp. Def,,,,,,,26117.08
-Barbaracle,137,stat_alignment,7,Brave,0.4%,Attack,Speed,,,,,,,26117.08
-Barbaracle,137,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,,26117.08
-Barbaracle,137,stat_alignment,9,Serious,0.1%,,,,,,,,,26117.08
-Barbaracle,137,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,,26117.08
-Barbaracle,137,stat_points,1,,47.9%,,,2,32,0,0,0,32,26119.28
-Barbaracle,137,stat_points,2,,15.0%,,,10,32,0,0,0,24,26119.28
-Barbaracle,137,stat_points,3,,3.9%,,,0,32,2,0,0,32,26119.28
-Barbaracle,137,stat_points,4,,3.0%,,,0,32,0,0,2,32,26119.28
-Barbaracle,137,stat_points,5,,1.8%,,,4,32,0,0,0,30,26119.28
-Barbaracle,137,stat_points,6,,1.2%,,,0,32,0,0,0,32,26141.15
-Barbaracle,137,stat_points,7,,1.1%,,,8,32,0,0,0,26,26141.15
-Barbaracle,137,stat_points,8,,1.0%,,,32,32,0,0,0,2,26141.15
-Barbaracle,137,ability,1,Tough Claws,83.4%,,,,,,,,,26154.95
-Barbaracle,137,ability,2,Sniper,14.7%,,,,,,,,,26154.95
-Barbaracle,137,ability,3,Pickpocket,2.0%,,,,,,,,,26154.95
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Barbaracle,137,move,1,Shell Smash,89.2%,,,,,,,,
+Barbaracle,137,move,2,Close Combat,85.9%,,,,,,,,
+Barbaracle,137,move,3,Rock Blast,64.9%,,,,,,,,
+Barbaracle,137,move,4,Earthquake,38.8%,,,,,,,,
+Barbaracle,137,move,5,Liquidation,30.3%,,,,,,,,
+Barbaracle,137,move,6,Stone Edge,17.5%,,,,,,,,
+Barbaracle,137,move,7,Shadow Claw,14.9%,,,,,,,,
+Barbaracle,137,move,8,Poison Jab,12.0%,,,,,,,,
+Barbaracle,137,move,9,Aqua Cutter,9.4%,,,,,,,,
+Barbaracle,137,move,10,Night Slash,9.3%,,,,,,,,
+Barbaracle,137,held_item,1,Barbaracite,83.0%,,,,,,,,
+Barbaracle,137,held_item,2,Life Orb,5.9%,,,,,,,,
+Barbaracle,137,held_item,3,Focus Sash,4.0%,,,,,,,,
+Barbaracle,137,held_item,4,Scope Lens,2.9%,,,,,,,,
+Barbaracle,137,held_item,5,White Herb,1.6%,,,,,,,,
+Barbaracle,137,held_item,6,Choice Scarf,0.7%,,,,,,,,
+Barbaracle,137,held_item,7,Lum Berry,0.5%,,,,,,,,
+Barbaracle,137,held_item,8,Sitrus Berry,0.4%,,,,,,,,
+Barbaracle,137,held_item,9,Wide Lens,0.4%,,,,,,,,
+Barbaracle,137,held_item,10,Expert Belt,0.2%,,,,,,,,
+Barbaracle,137,teammate,1,Hippowdon,,,,,,,,,
+Barbaracle,137,teammate,2,Garchomp,,,,,,,,,
+Barbaracle,137,teammate,3,Orthworm,,,,,,,,,
+Barbaracle,137,teammate,4,Alolan Ninetales,,,,,,,,,
+Barbaracle,137,teammate,5,Blaziken,,,,,,,,,
+Barbaracle,137,teammate,6,Archaludon,,,,,,,,,
+Barbaracle,137,teammate,7,Grimmsnarl,,,,,,,,,
+Barbaracle,137,teammate,8,Mimikyu,,,,,,,,,
+Barbaracle,137,teammate,9,Meowscarada,,,,,,,,,
+Barbaracle,137,teammate,10,Basculegion Male,,,,,,,,,
+Barbaracle,137,stat_alignment,1,Jolly,55.4%,Speed,Sp. Atk,,,,,,
+Barbaracle,137,stat_alignment,2,Adamant,41.1%,Attack,Sp. Atk,,,,,,
+Barbaracle,137,stat_alignment,3,Impish,0.9%,Defense,Sp. Atk,,,,,,
+Barbaracle,137,stat_alignment,4,Naive,0.6%,Speed,Sp. Def,,,,,,
+Barbaracle,137,stat_alignment,5,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
+Barbaracle,137,stat_alignment,6,Naughty,0.5%,Attack,Sp. Def,,,,,,
+Barbaracle,137,stat_alignment,7,Brave,0.4%,Attack,Speed,,,,,,
+Barbaracle,137,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,
+Barbaracle,137,stat_alignment,9,Serious,0.1%,,,,,,,,
+Barbaracle,137,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
+Barbaracle,137,stat_points,1,,47.9%,,,2,32,0,0,0,32
+Barbaracle,137,stat_points,2,,15.0%,,,10,32,0,0,0,24
+Barbaracle,137,stat_points,3,,3.9%,,,0,32,2,0,0,32
+Barbaracle,137,stat_points,4,,3.0%,,,0,32,0,0,2,32
+Barbaracle,137,stat_points,5,,1.8%,,,4,32,0,0,0,30
+Barbaracle,137,stat_points,6,,1.2%,,,0,32,0,0,0,32
+Barbaracle,137,stat_points,7,,1.1%,,,8,32,0,0,0,26
+Barbaracle,137,stat_points,8,,1.0%,,,32,32,0,0,0,2
+Barbaracle,137,ability,1,Tough Claws,83.4%,,,,,,,,
+Barbaracle,137,ability,2,Sniper,14.7%,,,,,,,,
+Barbaracle,137,ability,3,Pickpocket,2.0%,,,,,,,,

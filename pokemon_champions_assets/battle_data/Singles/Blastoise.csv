@@ -1,55 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Blastoise,45,move,1,Aura Sphere,88.3%,,,,,,,,
-Blastoise,45,move,2,Shell Smash,87.4%,,,,,,,,
-Blastoise,45,move,3,Water Pulse,83.5%,,,,,,,,
-Blastoise,45,move,4,Dark Pulse,80.0%,,,,,,,,
-Blastoise,45,move,5,Ice Beam,20.0%,,,,,,,,
-Blastoise,45,move,6,Aqua Jet,9.0%,,,,,,,,
-Blastoise,45,move,7,Dragon Pulse,7.5%,,,,,,,,
-Blastoise,45,move,8,Surf,6.4%,,,,,,,,
-Blastoise,45,move,9,Hydro Pump,4.3%,,,,,,,,
-Blastoise,45,move,10,Water Spout,2.1%,,,,,,,,
-Blastoise,45,held_item,1,Blastoisinite,91.9%,,,,,,,,
-Blastoise,45,held_item,2,White Herb,5.2%,,,,,,,,
-Blastoise,45,held_item,3,Sitrus Berry,0.6%,,,,,,,,
-Blastoise,45,held_item,4,Focus Sash,0.5%,,,,,,,,
-Blastoise,45,held_item,5,Leftovers,0.3%,,,,,,,,
-Blastoise,45,held_item,6,Lum Berry,0.2%,,,,,,,,
-Blastoise,45,held_item,7,Life Orb,0.2%,,,,,,,,
-Blastoise,45,held_item,8,Mystic Water,0.1%,,,,,,,,
-Blastoise,45,held_item,9,Choice Scarf,0.1%,,,,,,,,
-Blastoise,45,held_item,10,Expert Belt,0.1%,,,,,,,,
-Blastoise,45,teammate,1,Garchomp,,,,,,,,,
-Blastoise,45,teammate,2,Metagross,,,,,,,,,
-Blastoise,45,teammate,3,Hydreigon,,,,,,,,,
-Blastoise,45,teammate,4,Mimikyu,,,,,,,,,
-Blastoise,45,teammate,5,Alolan Ninetales,,,,,,,,,
-Blastoise,45,teammate,6,Grimmsnarl,,,,,,,,,
-Blastoise,45,teammate,7,Hippowdon,,,,,,,,,
-Blastoise,45,teammate,8,Archaludon,,,,,,,,,
-Blastoise,45,teammate,9,Meowscarada,,,,,,,,,
-Blastoise,45,teammate,10,Blaziken,,,,,,,,,
-Blastoise,45,stat_alignment,1,Modest,74.1%,Sp. Atk,Attack,,,,,,
-Blastoise,45,stat_alignment,2,Timid,21.7%,Speed,Attack,,,,,,
-Blastoise,45,stat_alignment,3,Bold,0.9%,Defense,Attack,,,,,,
-Blastoise,45,stat_alignment,4,Quiet,0.8%,Sp. Atk,Speed,,,,,,
-Blastoise,45,stat_alignment,5,Adamant,0.6%,Attack,Sp. Atk,,,,,,
-Blastoise,45,stat_alignment,6,Calm,0.5%,Sp. Def,Attack,,,,,,
-Blastoise,45,stat_alignment,7,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Blastoise,45,stat_alignment,8,Relaxed,0.2%,Defense,Speed,,,,,,
-Blastoise,45,stat_alignment,9,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Blastoise,45,stat_alignment,10,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Blastoise,45,stat_points,1,,21.4%,,,5,0,0,32,0,29
-Blastoise,45,stat_points,2,,11.0%,,,2,0,0,32,0,32
-Blastoise,45,stat_points,3,,5.2%,,,11,0,1,32,0,22
-Blastoise,45,stat_points,4,,4.7%,,,17,0,1,19,0,29
-Blastoise,45,stat_points,5,,4.1%,,,9,0,0,32,0,25
-Blastoise,45,stat_points,6,,3.3%,,,1,0,1,32,0,32
-Blastoise,45,stat_points,7,,3.2%,,,19,0,5,25,0,17
-Blastoise,45,stat_points,8,,2.3%,,,32,0,0,32,0,2
-Blastoise,45,stat_points,9,,1.9%,,,32,0,0,25,0,9
-Blastoise,45,stat_points,10,,1.8%,,,32,0,2,32,0,0
-Blastoise,45,stat_points,11,,1.6%,,,0,0,2,32,0,32
-Blastoise,45,stat_points,12,,1.5%,,,31,0,0,32,0,3
-Blastoise,45,ability,1,Torrent,71.3%,,,,,,,,
-Blastoise,45,ability,2,Rain Dish,28.7%,,,,,,,,
+Blastoise,49,move,1,Aura Sphere,87.6%,,,,,,,,
+Blastoise,49,move,2,Shell Smash,83.9%,,,,,,,,
+Blastoise,49,move,3,Dark Pulse,82.1%,,,,,,,,
+Blastoise,49,move,4,Water Pulse,65.0%,,,,,,,,
+Blastoise,49,move,5,Ice Beam,31.9%,,,,,,,,
+Blastoise,49,move,6,Aqua Jet,11.3%,,,,,,,,
+Blastoise,49,move,7,Dragon Pulse,6.8%,,,,,,,,
+Blastoise,49,move,8,Surf,6.6%,,,,,,,,
+Blastoise,49,move,9,Mirror Coat,5.3%,,,,,,,,
+Blastoise,49,move,10,Water Spout,4.2%,,,,,,,,
+Blastoise,49,held_item,1,Blastoisinite,91.3%,,,,,,,,
+Blastoise,49,held_item,2,White Herb,5.3%,,,,,,,,
+Blastoise,49,held_item,3,Sitrus Berry,0.7%,,,,,,,,
+Blastoise,49,held_item,4,Focus Sash,0.6%,,,,,,,,
+Blastoise,49,held_item,5,Leftovers,0.5%,,,,,,,,
+Blastoise,49,held_item,6,Lum Berry,0.4%,,,,,,,,
+Blastoise,49,held_item,7,Mystic Water,0.2%,,,,,,,,
+Blastoise,49,held_item,8,Life Orb,0.2%,,,,,,,,
+Blastoise,49,held_item,9,Choice Scarf,0.1%,,,,,,,,
+Blastoise,49,held_item,10,Rindo Berry,0.1%,,,,,,,,
+Blastoise,49,teammate,1,Garchomp,,,,,,,,,
+Blastoise,49,teammate,2,Mimikyu,,,,,,,,,
+Blastoise,49,teammate,3,Hippowdon,,,,,,,,,
+Blastoise,49,teammate,4,Alolan Ninetales,,,,,,,,,
+Blastoise,49,teammate,5,Blaziken,,,,,,,,,
+Blastoise,49,teammate,6,Archaludon,,,,,,,,,
+Blastoise,49,teammate,7,Meowscarada,,,,,,,,,
+Blastoise,49,teammate,8,Gholdengo,,,,,,,,,
+Blastoise,49,teammate,9,Meganium,,,,,,,,,
+Blastoise,49,teammate,10,Hisuian Goodra,,,,,,,,,
+Blastoise,49,stat_alignment,1,Modest,19.1%,Sp. Atk,Attack,,,,,,
+Blastoise,49,stat_alignment,2,Timid,16.3%,Speed,Attack,,,,,,
+Blastoise,49,stat_alignment,3,Bold,1.3%,Defense,Attack,,,,,,
+Blastoise,49,stat_alignment,4,Quiet,0.8%,Sp. Atk,Speed,,,,,,
+Blastoise,49,stat_alignment,5,Adamant,0.7%,Attack,Sp. Atk,,,,,,
+Blastoise,49,stat_alignment,6,Calm,0.6%,Sp. Def,Attack,,,,,,
+Blastoise,49,stat_alignment,7,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Blastoise,49,stat_alignment,8,Relaxed,0.2%,Defense,Speed,,,,,,
+Blastoise,49,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
+Blastoise,49,stat_alignment,10,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Blastoise,49,stat_points,1,,14.0%,,,19,0,0,18,0,29
+Blastoise,49,stat_points,2,,12.0%,,,5,0,0,32,0,29
+Blastoise,49,stat_points,3,,9.7%,,,2,0,0,32,0,32
+Blastoise,49,stat_points,4,,4.4%,,,9,0,0,32,0,25
+Blastoise,49,stat_points,5,,4.3%,,,31,0,3,32,0,0
+Blastoise,49,stat_points,6,,2.3%,,,32,0,0,32,0,2
+Blastoise,49,stat_points,7,,2.3%,,,11,0,1,32,0,22
+Blastoise,49,stat_points,8,,2.3%,,,32,0,0,25,0,9
+Blastoise,49,ability,1,Torrent,70.0%,,,,,,,,
+Blastoise,49,ability,2,Rain Dish,30.0%,,,,,,,,

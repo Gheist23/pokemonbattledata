@@ -1,55 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aromatisse,160,move,1,Trick Room,93.9%,,,,,,,,
-Aromatisse,160,move,2,Moonblast,72.6%,,,,,,,,
-Aromatisse,160,move,3,Heal Pulse,32.2%,,,,,,,,
-Aromatisse,160,move,4,Fake Tears,25.0%,,,,,,,,
-Aromatisse,160,move,5,Protect,23.8%,,,,,,,,
-Aromatisse,160,move,6,Sunny Day,23.5%,,,,,,,,
-Aromatisse,160,move,7,Dazzling Gleam,21.0%,,,,,,,,
-Aromatisse,160,move,8,Encore,16.7%,,,,,,,,
-Aromatisse,160,move,9,Ally Switch,13.9%,,,,,,,,
-Aromatisse,160,move,10,Helping Hand,12.5%,,,,,,,,
-Aromatisse,160,held_item,1,Babiri Berry,32.5%,,,,,,,,
-Aromatisse,160,held_item,2,Sitrus Berry,27.3%,,,,,,,,
-Aromatisse,160,held_item,3,Leftovers,13.3%,,,,,,,,
-Aromatisse,160,held_item,4,Focus Sash,10.2%,,,,,,,,
-Aromatisse,160,held_item,5,Fairy Feather,4.6%,,,,,,,,
-Aromatisse,160,held_item,6,Kebia Berry,2.7%,,,,,,,,
-Aromatisse,160,held_item,7,Light Clay,2.6%,,,,,,,,
-Aromatisse,160,held_item,8,Bright Powder,1.8%,,,,,,,,
-Aromatisse,160,held_item,9,Lum Berry,0.8%,,,,,,,,
-Aromatisse,160,held_item,10,Life Orb,0.6%,,,,,,,,
-Aromatisse,160,teammate,1,Farigiraf,,,,,,,,,
-Aromatisse,160,teammate,2,Camerupt,,,,,,,,,
-Aromatisse,160,teammate,3,Gallade,,,,,,,,,
-Aromatisse,160,teammate,4,Torkoal,,,,,,,,,
-Aromatisse,160,teammate,5,Kangaskhan,,,,,,,,,
-Aromatisse,160,teammate,6,Sinistcha,,,,,,,,,
-Aromatisse,160,teammate,7,Hisuian Avalugg,,,,,,,,,
-Aromatisse,160,teammate,8,Incineroar,,,,,,,,,
-Aromatisse,160,teammate,9,Kingambit,,,,,,,,,
-Aromatisse,160,teammate,10,Staraptor,,,,,,,,,
-Aromatisse,160,stat_alignment,1,Relaxed,38.2%,Defense,Speed,,,,,,
-Aromatisse,160,stat_alignment,2,Quiet,34.1%,Sp. Atk,Speed,,,,,,
-Aromatisse,160,stat_alignment,3,Sassy,10.1%,Sp. Def,Speed,,,,,,
-Aromatisse,160,stat_alignment,4,Bold,6.3%,Defense,Attack,,,,,,
-Aromatisse,160,stat_alignment,5,Modest,3.7%,Sp. Atk,Attack,,,,,,
-Aromatisse,160,stat_alignment,6,Calm,3.0%,Sp. Def,Attack,,,,,,
-Aromatisse,160,stat_alignment,7,Timid,0.3%,Speed,Attack,,,,,,
-Aromatisse,160,stat_alignment,8,Adamant,0.1%,Attack,Sp. Atk,,,,,,
-Aromatisse,160,stat_alignment,9,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Aromatisse,160,stat_alignment,10,Mild,0.0%,Sp. Atk,Defense,,,,,,
-Aromatisse,160,stat_points,1,,18.9%,,,32,0,0,31,3,0
-Aromatisse,160,stat_points,2,,8.7%,,,32,0,32,0,2,0
-Aromatisse,160,stat_points,3,,5.9%,,,32,0,20,0,14,0
-Aromatisse,160,stat_points,4,,4.4%,,,32,0,0,32,2,0
-Aromatisse,160,stat_points,5,,4.2%,,,32,0,2,32,0,0
-Aromatisse,160,stat_points,6,,4.0%,,,32,0,18,0,16,0
-Aromatisse,160,stat_points,7,,2.9%,,,32,0,28,0,6,0
-Aromatisse,160,stat_points,8,,2.5%,,,32,0,23,0,11,0
-Aromatisse,160,stat_points,9,,2.5%,,,0,0,2,32,32,0
-Aromatisse,160,stat_points,10,,2.1%,,,32,0,2,0,32,0
-Aromatisse,160,stat_points,11,,2.1%,,,32,0,6,0,28,0
-Aromatisse,160,stat_points,12,,1.8%,,,2,0,32,0,32,0
-Aromatisse,160,ability,1,Aroma Veil,96.3%,,,,,,,,
-Aromatisse,160,ability,2,Healer,3.7%,,,,,,,,
+Aromatisse,148,move,1,Trick Room,90.5%,,,,,,,,
+Aromatisse,148,move,2,Moonblast,67.6%,,,,,,,,
+Aromatisse,148,move,3,Heal Pulse,28.2%,,,,,,,,
+Aromatisse,148,move,4,Sunny Day,25.9%,,,,,,,,
+Aromatisse,148,move,5,Encore,25.4%,,,,,,,,
+Aromatisse,148,move,6,Fake Tears,24.7%,,,,,,,,
+Aromatisse,148,move,7,Dazzling Gleam,20.3%,,,,,,,,
+Aromatisse,148,move,8,Protect,18.5%,,,,,,,,
+Aromatisse,148,move,9,Ally Switch,15.6%,,,,,,,,
+Aromatisse,148,move,10,Helping Hand,10.3%,,,,,,,,
+Aromatisse,148,held_item,1,Babiri Berry,32.4%,,,,,,,,
+Aromatisse,148,held_item,2,Sitrus Berry,28.9%,,,,,,,,
+Aromatisse,148,held_item,3,Leftovers,8.9%,,,,,,,,
+Aromatisse,148,held_item,4,Focus Sash,5.7%,,,,,,,,
+Aromatisse,148,held_item,5,Fairy Feather,5.6%,,,,,,,,
+Aromatisse,148,held_item,6,Kebia Berry,4.8%,,,,,,,,
+Aromatisse,148,held_item,7,Bright Powder,3.5%,,,,,,,,
+Aromatisse,148,held_item,8,Light Clay,2.2%,,,,,,,,
+Aromatisse,148,held_item,9,Quick Claw,2.1%,,,,,,,,
+Aromatisse,148,held_item,10,Life Orb,1.6%,,,,,,,,
+Aromatisse,148,teammate,1,Farigiraf,,,,,,,,,
+Aromatisse,148,teammate,2,Camerupt,,,,,,,,,
+Aromatisse,148,teammate,3,Gallade,,,,,,,,,
+Aromatisse,148,teammate,4,Kangaskhan,,,,,,,,,
+Aromatisse,148,teammate,5,Hisuian Avalugg,,,,,,,,,
+Aromatisse,148,teammate,6,Torkoal,,,,,,,,,
+Aromatisse,148,teammate,7,Sinistcha,,,,,,,,,
+Aromatisse,148,teammate,8,Kingambit,,,,,,,,,
+Aromatisse,148,teammate,9,Incineroar,,,,,,,,,
+Aromatisse,148,teammate,10,Blastoise,,,,,,,,,
+Aromatisse,148,stat_alignment,1,Quiet,39.2%,Sp. Atk,Speed,,,,,,
+Aromatisse,148,stat_alignment,2,Relaxed,26.9%,Defense,Speed,,,,,,
+Aromatisse,148,stat_alignment,3,Sassy,13.2%,Sp. Def,Speed,,,,,,
+Aromatisse,148,stat_alignment,4,Calm,7.7%,Sp. Def,Attack,,,,,,
+Aromatisse,148,stat_alignment,5,Modest,5.2%,Sp. Atk,Attack,,,,,,
+Aromatisse,148,stat_alignment,6,Bold,4.9%,Defense,Attack,,,,,,
+Aromatisse,148,stat_alignment,7,Gentle,2.5%,Sp. Def,Defense,,,,,,
+Aromatisse,148,stat_alignment,8,Brave,0.4%,Attack,Speed,,,,,,
+Aromatisse,148,stat_alignment,9,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Aromatisse,148,stat_alignment,10,Impish,0.0%,Defense,Sp. Atk,,,,,,
+Aromatisse,148,stat_points,1,,17.7%,,,32,0,0,31,3,0
+Aromatisse,148,stat_points,2,,7.5%,,,32,0,0,32,2,0
+Aromatisse,148,stat_points,3,,6.7%,,,32,0,32,0,2,0
+Aromatisse,148,stat_points,4,,5.7%,,,32,0,18,0,16,0
+Aromatisse,148,stat_points,5,,4.2%,,,32,0,2,32,0,0
+Aromatisse,148,stat_points,6,,2.6%,,,2,0,0,32,32,0
+Aromatisse,148,stat_points,7,,2.5%,,,0,0,32,32,2,0
+Aromatisse,148,stat_points,8,,2.3%,,,32,0,20,0,14,0
+Aromatisse,148,ability,1,Aroma Veil,93.5%,,,,,,,,
+Aromatisse,148,ability,2,Healer,6.5%,,,,,,,,

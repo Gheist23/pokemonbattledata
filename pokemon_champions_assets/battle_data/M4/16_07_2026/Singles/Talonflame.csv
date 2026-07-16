@@ -1,51 +1,51 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Talonflame,117,move,1,Flare Blitz,61.1%,,,,,,,,,24221.60
-Talonflame,117,move,2,Brave Bird,60.1%,,,,,,,,,24221.60
-Talonflame,117,move,3,Will-O-Wisp,54.9%,,,,,,,,,24221.60
-Talonflame,117,move,4,Taunt,45.0%,,,,,,,,,24221.60
-Talonflame,117,move,5,Roost,40.4%,,,,,,,,,24221.60
-Talonflame,117,move,6,Acrobatics,20.1%,,,,,,,,,24226.52
-Talonflame,117,move,7,U-turn,18.7%,,,,,,,,,24226.52
-Talonflame,117,move,8,Tailwind,18.1%,,,,,,,,,24226.52
-Talonflame,117,move,9,Dual Wingbeat,8.4%,,,,,,,,,24226.52
-Talonflame,117,move,10,Swords Dance,7.8%,,,,,,,,,24226.52
-Talonflame,117,held_item,1,Leftovers,18.3%,,,,,,,,,24230.30
-Talonflame,117,held_item,2,Sharp Beak,17.6%,,,,,,,,,24230.30
-Talonflame,117,held_item,3,Life Orb,12.9%,,,,,,,,,24230.30
-Talonflame,117,held_item,4,Sitrus Berry,10.2%,,,,,,,,,24230.30
-Talonflame,117,held_item,5,Focus Sash,4.8%,,,,,,,,,24230.30
-Talonflame,117,held_item,6,Wide Lens,2.6%,,,,,,,,,24237.50
-Talonflame,117,held_item,7,Scope Lens,2.4%,,,,,,,,,24237.50
-Talonflame,117,held_item,8,Choice Scarf,2.3%,,,,,,,,,24237.50
-Talonflame,117,held_item,9,Expert Belt,1.8%,,,,,,,,,24237.50
-Talonflame,117,held_item,10,Muscle Band,1.6%,,,,,,,,,24237.50
-Talonflame,117,teammate,1,Garchomp,,,,,,,,,,24243.91
-Talonflame,117,teammate,2,Raichu,,,,,,,,,,24243.91
-Talonflame,117,teammate,3,Meowscarada,,,,,,,,,,24243.91
-Talonflame,117,teammate,4,Greninja,,,,,,,,,,24243.91
-Talonflame,117,teammate,5,Metagross,,,,,,,,,,24243.91
-Talonflame,117,teammate,6,Mimikyu,,,,,,,,,,24246.86
-Talonflame,117,teammate,7,Primarina,,,,,,,,,,24246.86
-Talonflame,117,teammate,8,Gyarados,,,,,,,,,,24246.86
-Talonflame,117,teammate,9,Archaludon,,,,,,,,,,24246.86
-Talonflame,117,teammate,10,Rotom Wash,,,,,,,,,,24246.86
-Talonflame,117,stat_alignment,1,Jolly,43.7%,Speed,Sp. Atk,,,,,,,24248.89
-Talonflame,117,stat_alignment,2,Adamant,30.7%,Attack,Sp. Atk,,,,,,,24248.89
-Talonflame,117,stat_alignment,3,Impish,6.3%,Defense,Sp. Atk,,,,,,,24248.89
-Talonflame,117,stat_alignment,4,Timid,4.5%,Speed,Attack,,,,,,,24248.89
-Talonflame,117,stat_alignment,5,Bold,3.6%,Defense,Attack,,,,,,,24248.89
-Talonflame,117,stat_alignment,6,Naive,3.3%,Speed,Sp. Def,,,,,,,24251.92
-Talonflame,117,stat_alignment,7,Modest,2.3%,Sp. Atk,Attack,,,,,,,24251.92
-Talonflame,117,stat_alignment,8,Naughty,2.2%,Attack,Sp. Def,,,,,,,24251.92
-Talonflame,117,stat_alignment,9,Lonely,1.0%,Attack,Defense,,,,,,,24251.92
-Talonflame,117,stat_alignment,10,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,,24251.92
-Talonflame,117,stat_points,1,,34.1%,,,2,32,0,0,0,32,24254.09
-Talonflame,117,stat_points,2,,8.7%,,,32,15,2,0,0,17,24254.09
-Talonflame,117,stat_points,3,,7.2%,,,0,32,2,0,0,32,24254.09
-Talonflame,117,stat_points,4,,4.7%,,,0,32,0,0,2,32,24254.09
-Talonflame,117,stat_points,5,,2.3%,,,0,32,0,0,0,32,24254.09
-Talonflame,117,stat_points,6,,1.7%,,,25,0,32,0,0,9,24275.81
-Talonflame,117,stat_points,7,,1.6%,,,32,0,32,0,2,0,24275.81
-Talonflame,117,stat_points,8,,1.0%,,,32,0,17,0,0,17,24275.81
-Talonflame,117,ability,1,Gale Wings,75.9%,,,,,,,,,24289.57
-Talonflame,117,ability,2,Flame Body,24.1%,,,,,,,,,24289.57
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Talonflame,117,move,1,Flare Blitz,61.1%,,,,,,,,
+Talonflame,117,move,2,Brave Bird,60.1%,,,,,,,,
+Talonflame,117,move,3,Will-O-Wisp,54.9%,,,,,,,,
+Talonflame,117,move,4,Taunt,45.0%,,,,,,,,
+Talonflame,117,move,5,Roost,40.4%,,,,,,,,
+Talonflame,117,move,6,Acrobatics,20.1%,,,,,,,,
+Talonflame,117,move,7,U-turn,18.7%,,,,,,,,
+Talonflame,117,move,8,Tailwind,18.1%,,,,,,,,
+Talonflame,117,move,9,Dual Wingbeat,8.4%,,,,,,,,
+Talonflame,117,move,10,Swords Dance,7.8%,,,,,,,,
+Talonflame,117,held_item,1,Leftovers,18.3%,,,,,,,,
+Talonflame,117,held_item,2,Sharp Beak,17.6%,,,,,,,,
+Talonflame,117,held_item,3,Life Orb,12.9%,,,,,,,,
+Talonflame,117,held_item,4,Sitrus Berry,10.2%,,,,,,,,
+Talonflame,117,held_item,5,Focus Sash,4.8%,,,,,,,,
+Talonflame,117,held_item,6,Wide Lens,2.6%,,,,,,,,
+Talonflame,117,held_item,7,Scope Lens,2.4%,,,,,,,,
+Talonflame,117,held_item,8,Choice Scarf,2.3%,,,,,,,,
+Talonflame,117,held_item,9,Expert Belt,1.8%,,,,,,,,
+Talonflame,117,held_item,10,Muscle Band,1.6%,,,,,,,,
+Talonflame,117,teammate,1,Garchomp,,,,,,,,,
+Talonflame,117,teammate,2,Raichu,,,,,,,,,
+Talonflame,117,teammate,3,Meowscarada,,,,,,,,,
+Talonflame,117,teammate,4,Greninja,,,,,,,,,
+Talonflame,117,teammate,5,Metagross,,,,,,,,,
+Talonflame,117,teammate,6,Mimikyu,,,,,,,,,
+Talonflame,117,teammate,7,Primarina,,,,,,,,,
+Talonflame,117,teammate,8,Gyarados,,,,,,,,,
+Talonflame,117,teammate,9,Archaludon,,,,,,,,,
+Talonflame,117,teammate,10,Rotom Wash,,,,,,,,,
+Talonflame,117,stat_alignment,1,Jolly,43.7%,Speed,Sp. Atk,,,,,,
+Talonflame,117,stat_alignment,2,Adamant,30.7%,Attack,Sp. Atk,,,,,,
+Talonflame,117,stat_alignment,3,Impish,6.3%,Defense,Sp. Atk,,,,,,
+Talonflame,117,stat_alignment,4,Timid,4.5%,Speed,Attack,,,,,,
+Talonflame,117,stat_alignment,5,Bold,3.6%,Defense,Attack,,,,,,
+Talonflame,117,stat_alignment,6,Naive,3.3%,Speed,Sp. Def,,,,,,
+Talonflame,117,stat_alignment,7,Modest,2.3%,Sp. Atk,Attack,,,,,,
+Talonflame,117,stat_alignment,8,Naughty,2.2%,Attack,Sp. Def,,,,,,
+Talonflame,117,stat_alignment,9,Lonely,1.0%,Attack,Defense,,,,,,
+Talonflame,117,stat_alignment,10,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
+Talonflame,117,stat_points,1,,34.1%,,,2,32,0,0,0,32
+Talonflame,117,stat_points,2,,8.7%,,,32,15,2,0,0,17
+Talonflame,117,stat_points,3,,7.2%,,,0,32,2,0,0,32
+Talonflame,117,stat_points,4,,4.7%,,,0,32,0,0,2,32
+Talonflame,117,stat_points,5,,2.3%,,,0,32,0,0,0,32
+Talonflame,117,stat_points,6,,1.7%,,,25,0,32,0,0,9
+Talonflame,117,stat_points,7,,1.6%,,,32,0,32,0,2,0
+Talonflame,117,stat_points,8,,1.0%,,,32,0,17,0,0,17
+Talonflame,117,ability,1,Gale Wings,75.9%,,,,,,,,
+Talonflame,117,ability,2,Flame Body,24.1%,,,,,,,,

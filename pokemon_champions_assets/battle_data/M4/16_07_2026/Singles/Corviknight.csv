@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Corviknight,14,move,1,Roost,98.3%,,,,,,,,,14275.66
-Corviknight,14,move,2,Body Press,67.1%,,,,,,,,,14275.66
-Corviknight,14,move,3,U-turn,65.7%,,,,,,,,,14275.66
-Corviknight,14,move,4,Iron Defense,64.0%,,,,,,,,,14275.66
-Corviknight,14,move,5,Iron Head,45.5%,,,,,,,,,14275.66
-Corviknight,14,move,6,Bulk Up,26.3%,,,,,,,,,14281.07
-Corviknight,14,move,7,Brave Bird,9.9%,,,,,,,,,14281.07
-Corviknight,14,move,8,Taunt,6.7%,,,,,,,,,14281.07
-Corviknight,14,move,9,Defog,6.5%,,,,,,,,,14281.07
-Corviknight,14,move,10,Power Trip,3.2%,,,,,,,,,14281.07
-Corviknight,14,held_item,1,Leftovers,50.9%,,,,,,,,,14286.41
-Corviknight,14,held_item,2,Sitrus Berry,43.0%,,,,,,,,,14286.41
-Corviknight,14,held_item,3,Bright Powder,1.6%,,,,,,,,,14286.41
-Corviknight,14,held_item,4,Lum Berry,1.4%,,,,,,,,,14286.41
-Corviknight,14,held_item,5,Occa Berry,0.6%,,,,,,,,,14286.41
-Corviknight,14,held_item,6,Quick Claw,0.4%,,,,,,,,,14293.62
-Corviknight,14,held_item,7,Mental Herb,0.3%,,,,,,,,,14293.62
-Corviknight,14,held_item,8,Wacan Berry,0.2%,,,,,,,,,14293.62
-Corviknight,14,held_item,9,Light Clay,0.1%,,,,,,,,,14293.62
-Corviknight,14,held_item,10,Scope Lens,0.1%,,,,,,,,,14293.62
-Corviknight,14,teammate,1,Garchomp,,,,,,,,,,14299.99
-Corviknight,14,teammate,2,Bellibolt,,,,,,,,,,14299.99
-Corviknight,14,teammate,3,Starmie,,,,,,,,,,14299.99
-Corviknight,14,teammate,4,Gengar,,,,,,,,,,14299.99
-Corviknight,14,teammate,5,Hisuian Samurott,,,,,,,,,,14299.99
-Corviknight,14,teammate,6,Meowscarada,,,,,,,,,,14302.82
-Corviknight,14,teammate,7,Mimikyu,,,,,,,,,,14302.82
-Corviknight,14,teammate,8,Primarina,,,,,,,,,,14302.82
-Corviknight,14,teammate,9,Whimsicott,,,,,,,,,,14302.82
-Corviknight,14,teammate,10,Blaziken,,,,,,,,,,14302.82
-Corviknight,14,stat_alignment,1,Impish,73.2%,Defense,Sp. Atk,,,,,,,14304.87
-Corviknight,14,stat_alignment,2,Relaxed,15.6%,Defense,Speed,,,,,,,14304.87
-Corviknight,14,stat_alignment,3,Careful,6.3%,Sp. Def,Sp. Atk,,,,,,,14304.87
-Corviknight,14,stat_alignment,4,Sassy,1.3%,Sp. Def,Speed,,,,,,,14304.87
-Corviknight,14,stat_alignment,5,Bold,1.3%,Defense,Attack,,,,,,,14304.87
-Corviknight,14,stat_alignment,6,Adamant,1.1%,Attack,Sp. Atk,,,,,,,14307.85
-Corviknight,14,stat_alignment,7,Jolly,0.3%,Speed,Sp. Atk,,,,,,,14307.85
-Corviknight,14,stat_alignment,8,Brave,0.2%,Attack,Speed,,,,,,,14307.85
-Corviknight,14,stat_alignment,9,Calm,0.1%,Sp. Def,Attack,,,,,,,14307.85
-Corviknight,14,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,,14307.85
-Corviknight,14,stat_points,1,,13.4%,,,32,0,32,0,2,0,14309.98
-Corviknight,14,stat_points,2,,13.4%,,,32,1,30,0,2,1,14309.98
-Corviknight,14,stat_points,3,,8.2%,,,32,0,32,0,0,2,14309.98
-Corviknight,14,stat_points,4,,2.9%,,,32,2,32,0,0,0,14309.98
-Corviknight,14,stat_points,5,,2.6%,,,32,0,2,0,32,0,14309.98
-Corviknight,14,stat_points,6,,1.5%,,,32,0,25,0,9,0,14331.85
-Corviknight,14,stat_points,7,,1.4%,,,32,0,32,0,1,1,14331.85
-Corviknight,14,stat_points,8,,0.8%,,,2,0,32,0,32,0,14331.85
-Corviknight,14,ability,1,Pressure,64.6%,,,,,,,,,14345.58
-Corviknight,14,ability,2,Mirror Armor,33.8%,,,,,,,,,14345.58
-Corviknight,14,ability,3,Unnerve,1.5%,,,,,,,,,14345.58
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Corviknight,14,move,1,Roost,98.3%,,,,,,,,
+Corviknight,14,move,2,Body Press,67.1%,,,,,,,,
+Corviknight,14,move,3,U-turn,65.7%,,,,,,,,
+Corviknight,14,move,4,Iron Defense,64.0%,,,,,,,,
+Corviknight,14,move,5,Iron Head,45.5%,,,,,,,,
+Corviknight,14,move,6,Bulk Up,26.3%,,,,,,,,
+Corviknight,14,move,7,Brave Bird,9.9%,,,,,,,,
+Corviknight,14,move,8,Taunt,6.7%,,,,,,,,
+Corviknight,14,move,9,Defog,6.5%,,,,,,,,
+Corviknight,14,move,10,Power Trip,3.2%,,,,,,,,
+Corviknight,14,held_item,1,Leftovers,50.9%,,,,,,,,
+Corviknight,14,held_item,2,Sitrus Berry,43.0%,,,,,,,,
+Corviknight,14,held_item,3,Bright Powder,1.6%,,,,,,,,
+Corviknight,14,held_item,4,Lum Berry,1.4%,,,,,,,,
+Corviknight,14,held_item,5,Occa Berry,0.6%,,,,,,,,
+Corviknight,14,held_item,6,Quick Claw,0.4%,,,,,,,,
+Corviknight,14,held_item,7,Mental Herb,0.3%,,,,,,,,
+Corviknight,14,held_item,8,Wacan Berry,0.2%,,,,,,,,
+Corviknight,14,held_item,9,Light Clay,0.1%,,,,,,,,
+Corviknight,14,held_item,10,Scope Lens,0.1%,,,,,,,,
+Corviknight,14,teammate,1,Garchomp,,,,,,,,,
+Corviknight,14,teammate,2,Bellibolt,,,,,,,,,
+Corviknight,14,teammate,3,Starmie,,,,,,,,,
+Corviknight,14,teammate,4,Gengar,,,,,,,,,
+Corviknight,14,teammate,5,Hisuian Samurott,,,,,,,,,
+Corviknight,14,teammate,6,Meowscarada,,,,,,,,,
+Corviknight,14,teammate,7,Mimikyu,,,,,,,,,
+Corviknight,14,teammate,8,Primarina,,,,,,,,,
+Corviknight,14,teammate,9,Whimsicott,,,,,,,,,
+Corviknight,14,teammate,10,Blaziken,,,,,,,,,
+Corviknight,14,stat_alignment,1,Impish,73.2%,Defense,Sp. Atk,,,,,,
+Corviknight,14,stat_alignment,2,Relaxed,15.6%,Defense,Speed,,,,,,
+Corviknight,14,stat_alignment,3,Careful,6.3%,Sp. Def,Sp. Atk,,,,,,
+Corviknight,14,stat_alignment,4,Sassy,1.3%,Sp. Def,Speed,,,,,,
+Corviknight,14,stat_alignment,5,Bold,1.3%,Defense,Attack,,,,,,
+Corviknight,14,stat_alignment,6,Adamant,1.1%,Attack,Sp. Atk,,,,,,
+Corviknight,14,stat_alignment,7,Jolly,0.3%,Speed,Sp. Atk,,,,,,
+Corviknight,14,stat_alignment,8,Brave,0.2%,Attack,Speed,,,,,,
+Corviknight,14,stat_alignment,9,Calm,0.1%,Sp. Def,Attack,,,,,,
+Corviknight,14,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
+Corviknight,14,stat_points,1,,13.4%,,,32,0,32,0,2,0
+Corviknight,14,stat_points,2,,13.4%,,,32,1,30,0,2,1
+Corviknight,14,stat_points,3,,8.2%,,,32,0,32,0,0,2
+Corviknight,14,stat_points,4,,2.9%,,,32,2,32,0,0,0
+Corviknight,14,stat_points,5,,2.6%,,,32,0,2,0,32,0
+Corviknight,14,stat_points,6,,1.5%,,,32,0,25,0,9,0
+Corviknight,14,stat_points,7,,1.4%,,,32,0,32,0,1,1
+Corviknight,14,stat_points,8,,0.8%,,,2,0,32,0,32,0
+Corviknight,14,ability,1,Pressure,64.6%,,,,,,,,
+Corviknight,14,ability,2,Mirror Armor,33.8%,,,,,,,,
+Corviknight,14,ability,3,Unnerve,1.5%,,,,,,,,

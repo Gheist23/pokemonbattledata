@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Kingambit,30,move,1,Sucker Punch,99.1%,,,,,,,,,16052.72
-Kingambit,30,move,2,Kowtow Cleave,96.0%,,,,,,,,,16052.72
-Kingambit,30,move,3,Iron Head,89.4%,,,,,,,,,16052.72
-Kingambit,30,move,4,Swords Dance,16.7%,,,,,,,,,16052.72
-Kingambit,30,move,5,Brick Break,11.5%,,,,,,,,,16052.72
-Kingambit,30,move,6,Low Kick,6.5%,,,,,,,,,16057.10
-Kingambit,30,move,7,Guillotine,6.3%,,,,,,,,,16057.10
-Kingambit,30,move,8,Metal Burst,5.6%,,,,,,,,,16057.10
-Kingambit,30,move,9,Protect,2.3%,,,,,,,,,16057.10
-Kingambit,30,move,10,Taunt,0.8%,,,,,,,,,16057.10
-Kingambit,30,held_item,1,Black Glasses,33.2%,,,,,,,,,16060.34
-Kingambit,30,held_item,2,Lum Berry,14.1%,,,,,,,,,16060.34
-Kingambit,30,held_item,3,Life Orb,9.9%,,,,,,,,,16060.34
-Kingambit,30,held_item,4,Focus Sash,8.8%,,,,,,,,,16060.34
-Kingambit,30,held_item,5,Sitrus Berry,3.9%,,,,,,,,,16060.34
-Kingambit,30,held_item,6,Chople Berry,3.7%,,,,,,,,,16067.59
-Kingambit,30,held_item,7,Leftovers,1.9%,,,,,,,,,16067.59
-Kingambit,30,held_item,8,Quick Claw,1.0%,,,,,,,,,16067.59
-Kingambit,30,held_item,9,Shuca Berry,0.6%,,,,,,,,,16067.59
-Kingambit,30,held_item,10,Muscle Band,0.6%,,,,,,,,,16067.59
-Kingambit,30,teammate,1,Garchomp,,,,,,,,,,16074.15
-Kingambit,30,teammate,2,Primarina,,,,,,,,,,16074.15
-Kingambit,30,teammate,3,Hippowdon,,,,,,,,,,16074.15
-Kingambit,30,teammate,4,Gyarados,,,,,,,,,,16074.15
-Kingambit,30,teammate,5,Delphox,,,,,,,,,,16074.15
-Kingambit,30,teammate,6,Metagross,,,,,,,,,,16077.06
-Kingambit,30,teammate,7,Mimikyu,,,,,,,,,,16077.06
-Kingambit,30,teammate,8,Meowscarada,,,,,,,,,,16077.06
-Kingambit,30,teammate,9,Archaludon,,,,,,,,,,16077.06
-Kingambit,30,teammate,10,Charizard,,,,,,,,,,16077.06
-Kingambit,30,stat_alignment,1,Adamant,90.3%,Attack,Sp. Atk,,,,,,,16079.12
-Kingambit,30,stat_alignment,2,Brave,5.8%,Attack,Speed,,,,,,,16079.12
-Kingambit,30,stat_alignment,3,Impish,1.0%,Defense,Sp. Atk,,,,,,,16079.12
-Kingambit,30,stat_alignment,4,Jolly,0.9%,Speed,Sp. Atk,,,,,,,16079.12
-Kingambit,30,stat_alignment,5,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,,16079.12
-Kingambit,30,stat_alignment,6,Naughty,0.4%,Attack,Sp. Def,,,,,,,16082.15
-Kingambit,30,stat_alignment,7,Relaxed,0.3%,Defense,Speed,,,,,,,16082.15
-Kingambit,30,stat_alignment,8,Sassy,0.2%,Sp. Def,Speed,,,,,,,16082.15
-Kingambit,30,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,,16082.15
-Kingambit,30,stat_alignment,10,Hasty,0.0%,Speed,Defense,,,,,,,16082.15
-Kingambit,30,stat_points,1,,29.1%,,,32,32,0,0,0,2,16084.30
-Kingambit,30,stat_points,2,,13.6%,,,32,32,2,0,0,0,16084.30
-Kingambit,30,stat_points,3,,9.2%,,,32,32,0,0,2,0,16084.30
-Kingambit,30,stat_points,4,,6.7%,,,8,32,2,0,0,24,16084.30
-Kingambit,30,stat_points,5,,4.1%,,,10,32,0,0,0,24,16084.30
-Kingambit,30,stat_points,6,,1.6%,,,32,32,1,0,1,0,16106.96
-Kingambit,30,stat_points,7,,1.6%,,,2,32,32,0,0,0,16106.96
-Kingambit,30,stat_points,8,,1.2%,,,30,32,0,0,0,4,16106.96
-Kingambit,30,ability,1,Supreme Overlord,87.8%,,,,,,,,,16121.49
-Kingambit,30,ability,2,Defiant,11.9%,,,,,,,,,16121.49
-Kingambit,30,ability,3,Pressure,0.3%,,,,,,,,,16121.49
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Kingambit,30,move,1,Sucker Punch,99.1%,,,,,,,,
+Kingambit,30,move,2,Kowtow Cleave,96.0%,,,,,,,,
+Kingambit,30,move,3,Iron Head,89.4%,,,,,,,,
+Kingambit,30,move,4,Swords Dance,16.7%,,,,,,,,
+Kingambit,30,move,5,Brick Break,11.5%,,,,,,,,
+Kingambit,30,move,6,Low Kick,6.5%,,,,,,,,
+Kingambit,30,move,7,Guillotine,6.3%,,,,,,,,
+Kingambit,30,move,8,Metal Burst,5.6%,,,,,,,,
+Kingambit,30,move,9,Protect,2.3%,,,,,,,,
+Kingambit,30,move,10,Taunt,0.8%,,,,,,,,
+Kingambit,30,held_item,1,Black Glasses,33.2%,,,,,,,,
+Kingambit,30,held_item,2,Lum Berry,14.1%,,,,,,,,
+Kingambit,30,held_item,3,Life Orb,9.9%,,,,,,,,
+Kingambit,30,held_item,4,Focus Sash,8.8%,,,,,,,,
+Kingambit,30,held_item,5,Sitrus Berry,3.9%,,,,,,,,
+Kingambit,30,held_item,6,Chople Berry,3.7%,,,,,,,,
+Kingambit,30,held_item,7,Leftovers,1.9%,,,,,,,,
+Kingambit,30,held_item,8,Quick Claw,1.0%,,,,,,,,
+Kingambit,30,held_item,9,Shuca Berry,0.6%,,,,,,,,
+Kingambit,30,held_item,10,Muscle Band,0.6%,,,,,,,,
+Kingambit,30,teammate,1,Garchomp,,,,,,,,,
+Kingambit,30,teammate,2,Primarina,,,,,,,,,
+Kingambit,30,teammate,3,Hippowdon,,,,,,,,,
+Kingambit,30,teammate,4,Gyarados,,,,,,,,,
+Kingambit,30,teammate,5,Delphox,,,,,,,,,
+Kingambit,30,teammate,6,Metagross,,,,,,,,,
+Kingambit,30,teammate,7,Mimikyu,,,,,,,,,
+Kingambit,30,teammate,8,Meowscarada,,,,,,,,,
+Kingambit,30,teammate,9,Archaludon,,,,,,,,,
+Kingambit,30,teammate,10,Charizard,,,,,,,,,
+Kingambit,30,stat_alignment,1,Adamant,90.3%,Attack,Sp. Atk,,,,,,
+Kingambit,30,stat_alignment,2,Brave,5.8%,Attack,Speed,,,,,,
+Kingambit,30,stat_alignment,3,Impish,1.0%,Defense,Sp. Atk,,,,,,
+Kingambit,30,stat_alignment,4,Jolly,0.9%,Speed,Sp. Atk,,,,,,
+Kingambit,30,stat_alignment,5,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
+Kingambit,30,stat_alignment,6,Naughty,0.4%,Attack,Sp. Def,,,,,,
+Kingambit,30,stat_alignment,7,Relaxed,0.3%,Defense,Speed,,,,,,
+Kingambit,30,stat_alignment,8,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Kingambit,30,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,
+Kingambit,30,stat_alignment,10,Hasty,0.0%,Speed,Defense,,,,,,
+Kingambit,30,stat_points,1,,29.1%,,,32,32,0,0,0,2
+Kingambit,30,stat_points,2,,13.6%,,,32,32,2,0,0,0
+Kingambit,30,stat_points,3,,9.2%,,,32,32,0,0,2,0
+Kingambit,30,stat_points,4,,6.7%,,,8,32,2,0,0,24
+Kingambit,30,stat_points,5,,4.1%,,,10,32,0,0,0,24
+Kingambit,30,stat_points,6,,1.6%,,,32,32,1,0,1,0
+Kingambit,30,stat_points,7,,1.6%,,,2,32,32,0,0,0
+Kingambit,30,stat_points,8,,1.2%,,,30,32,0,0,0,4
+Kingambit,30,ability,1,Supreme Overlord,87.8%,,,,,,,,
+Kingambit,30,ability,2,Defiant,11.9%,,,,,,,,
+Kingambit,30,ability,3,Pressure,0.3%,,,,,,,,

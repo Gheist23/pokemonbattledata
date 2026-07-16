@@ -1,55 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Weavile,115,move,1,Knock Off,77.8%,,,,,,,,
-Weavile,115,move,2,Triple Axel,71.3%,,,,,,,,
-Weavile,115,move,3,Ice Shard,60.6%,,,,,,,,
-Weavile,115,move,4,Fake Out,28.9%,,,,,,,,
-Weavile,115,move,5,Brick Break,20.9%,,,,,,,,
-Weavile,115,move,6,Low Kick,19.5%,,,,,,,,
-Weavile,115,move,7,Icicle Crash,14.5%,,,,,,,,
-Weavile,115,move,8,Poison Jab,14.3%,,,,,,,,
-Weavile,115,move,9,Counter,13.3%,,,,,,,,
-Weavile,115,move,10,Swords Dance,12.5%,,,,,,,,
-Weavile,115,held_item,1,Focus Sash,55.8%,,,,,,,,
-Weavile,115,held_item,2,Life Orb,17.8%,,,,,,,,
-Weavile,115,held_item,3,Choice Scarf,11.4%,,,,,,,,
-Weavile,115,held_item,4,King's Rock,2.3%,,,,,,,,
-Weavile,115,held_item,5,Muscle Band,1.6%,,,,,,,,
-Weavile,115,held_item,6,Expert Belt,1.5%,,,,,,,,
-Weavile,115,held_item,7,Wide Lens,1.5%,,,,,,,,
-Weavile,115,held_item,8,Never-Melt Ice,1.5%,,,,,,,,
-Weavile,115,held_item,9,Sitrus Berry,0.7%,,,,,,,,
-Weavile,115,held_item,10,Quick Claw,0.7%,,,,,,,,
-Weavile,115,teammate,1,Garchomp,,,,,,,,,
-Weavile,115,teammate,2,Raichu,,,,,,,,,
-Weavile,115,teammate,3,Charizard,,,,,,,,,
-Weavile,115,teammate,4,Staraptor,,,,,,,,,
-Weavile,115,teammate,5,Metagross,,,,,,,,,
-Weavile,115,teammate,6,Dragonite,,,,,,,,,
-Weavile,115,teammate,7,Mimikyu,,,,,,,,,
-Weavile,115,teammate,8,Blaziken,,,,,,,,,
-Weavile,115,teammate,9,Archaludon,,,,,,,,,
-Weavile,115,teammate,10,Meowscarada,,,,,,,,,
-Weavile,115,stat_alignment,1,Jolly,70.6%,Speed,Sp. Atk,,,,,,
-Weavile,115,stat_alignment,2,Adamant,23.4%,Attack,Sp. Atk,,,,,,
-Weavile,115,stat_alignment,3,Hasty,2.1%,Speed,Defense,,,,,,
-Weavile,115,stat_alignment,4,Naive,1.1%,Speed,Sp. Def,,,,,,
-Weavile,115,stat_alignment,5,Lonely,0.9%,Attack,Defense,,,,,,
-Weavile,115,stat_alignment,6,Naughty,0.8%,Attack,Sp. Def,,,,,,
-Weavile,115,stat_alignment,7,Impish,0.3%,Defense,Sp. Atk,,,,,,
-Weavile,115,stat_alignment,8,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
-Weavile,115,stat_alignment,9,Gentle,0.2%,Sp. Def,Defense,,,,,,
-Weavile,115,stat_alignment,10,Modest,0.1%,Sp. Atk,Attack,,,,,,
-Weavile,115,stat_points,1,,57.6%,,,2,32,0,0,0,32
-Weavile,115,stat_points,2,,14.3%,,,0,32,2,0,0,32
-Weavile,115,stat_points,3,,12.1%,,,0,32,0,0,2,32
-Weavile,115,stat_points,4,,4.7%,,,0,32,0,0,0,32
-Weavile,115,stat_points,5,,1.4%,,,1,32,0,0,0,32
-Weavile,115,stat_points,6,,0.8%,,,0,32,0,0,1,32
-Weavile,115,stat_points,7,,0.8%,,,3,32,0,0,0,31
-Weavile,115,stat_points,8,,0.7%,,,0,32,1,0,1,32
-Weavile,115,stat_points,9,,0.4%,,,1,32,0,0,1,32
-Weavile,115,stat_points,10,,0.4%,,,6,32,0,0,0,28
-Weavile,115,stat_points,11,,0.4%,,,1,32,1,0,0,32
-Weavile,115,stat_points,12,,0.3%,,,2,32,32,0,0,0
-Weavile,115,ability,1,Pressure,56.3%,,,,,,,,
-Weavile,115,ability,2,Pickpocket,43.7%,,,,,,,,
+Weavile,120,move,1,Knock Off,75.3%,,,,,,,,
+Weavile,120,move,2,Triple Axel,73.9%,,,,,,,,
+Weavile,120,move,3,Ice Shard,61.8%,,,,,,,,
+Weavile,120,move,4,Fake Out,34.4%,,,,,,,,
+Weavile,120,move,5,Brick Break,17.7%,,,,,,,,
+Weavile,120,move,6,Counter,16.6%,,,,,,,,
+Weavile,120,move,7,Low Kick,13.9%,,,,,,,,
+Weavile,120,move,8,Icicle Crash,13.3%,,,,,,,,
+Weavile,120,move,9,Poison Jab,13.2%,,,,,,,,
+Weavile,120,move,10,Throat Chop,12.0%,,,,,,,,
+Weavile,120,held_item,1,Focus Sash,56.3%,,,,,,,,
+Weavile,120,held_item,2,Life Orb,16.6%,,,,,,,,
+Weavile,120,held_item,3,Choice Scarf,9.2%,,,,,,,,
+Weavile,120,held_item,4,Wide Lens,3.9%,,,,,,,,
+Weavile,120,held_item,5,King's Rock,3.0%,,,,,,,,
+Weavile,120,held_item,6,Muscle Band,1.5%,,,,,,,,
+Weavile,120,held_item,7,Sitrus Berry,1.5%,,,,,,,,
+Weavile,120,held_item,8,Expert Belt,1.4%,,,,,,,,
+Weavile,120,held_item,9,Never-Melt Ice,1.3%,,,,,,,,
+Weavile,120,held_item,10,Lum Berry,0.8%,,,,,,,,
+Weavile,120,teammate,1,Garchomp,,,,,,,,,
+Weavile,120,teammate,2,Mimikyu,,,,,,,,,
+Weavile,120,teammate,3,Raichu,,,,,,,,,
+Weavile,120,teammate,4,Dragonite,,,,,,,,,
+Weavile,120,teammate,5,Charizard,,,,,,,,,
+Weavile,120,teammate,6,Blaziken,,,,,,,,,
+Weavile,120,teammate,7,Metagross,,,,,,,,,
+Weavile,120,teammate,8,Gyarados,,,,,,,,,
+Weavile,120,teammate,9,Archaludon,,,,,,,,,
+Weavile,120,teammate,10,Rotom Wash,,,,,,,,,
+Weavile,120,stat_alignment,1,Jolly,71.0%,Speed,Sp. Atk,,,,,,
+Weavile,120,stat_alignment,2,Adamant,22.7%,Attack,Sp. Atk,,,,,,
+Weavile,120,stat_alignment,3,Hasty,2.1%,Speed,Defense,,,,,,
+Weavile,120,stat_alignment,4,Naughty,1.7%,Attack,Sp. Def,,,,,,
+Weavile,120,stat_alignment,5,Lonely,1.0%,Attack,Defense,,,,,,
+Weavile,120,stat_alignment,6,Naive,0.7%,Speed,Sp. Def,,,,,,
+Weavile,120,stat_alignment,7,Timid,0.3%,Speed,Attack,,,,,,
+Weavile,120,stat_alignment,8,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Weavile,120,stat_alignment,9,Impish,0.2%,Defense,Sp. Atk,,,,,,
+Weavile,120,stat_alignment,10,Brave,0.0%,Attack,Speed,,,,,,
+Weavile,120,stat_points,1,,62.1%,,,2,32,0,0,0,32
+Weavile,120,stat_points,2,,12.8%,,,0,32,2,0,0,32
+Weavile,120,stat_points,3,,10.7%,,,0,32,0,0,2,32
+Weavile,120,stat_points,4,,3.2%,,,0,32,0,0,0,32
+Weavile,120,stat_points,5,,0.8%,,,3,32,0,0,0,31
+Weavile,120,stat_points,6,,0.6%,,,1,32,0,0,0,32
+Weavile,120,stat_points,7,,0.5%,,,0,32,32,0,0,2
+Weavile,120,stat_points,8,,0.5%,,,0,32,2,0,32,0
+Weavile,120,ability,1,Pressure,58.5%,,,,,,,,
+Weavile,120,ability,2,Pickpocket,41.5%,,,,,,,,

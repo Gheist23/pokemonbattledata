@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Garbodor,127,move,1,Protect,64.4%,,,,,,,,,11957.92
-Garbodor,127,move,2,Explosion,59.3%,,,,,,,,,11957.92
-Garbodor,127,move,3,Poison Jab,47.9%,,,,,,,,,11957.92
-Garbodor,127,move,4,Gunk Shot,38.7%,,,,,,,,,11957.92
-Garbodor,127,move,5,Drain Punch,27.5%,,,,,,,,,11957.92
-Garbodor,127,move,6,Toxic,17.0%,,,,,,,,,11962.93
-Garbodor,127,move,7,Haze,16.5%,,,,,,,,,11962.93
-Garbodor,127,move,8,Attract,16.3%,,,,,,,,,11962.93
-Garbodor,127,move,9,Stomping Tantrum,16.1%,,,,,,,,,11962.93
-Garbodor,127,move,10,Seed Bomb,15.1%,,,,,,,,,11962.93
-Garbodor,127,held_item,1,Sitrus Berry,21.1%,,,,,,,,,11966.32
-Garbodor,127,held_item,2,Focus Sash,18.5%,,,,,,,,,11966.32
-Garbodor,127,held_item,3,Life Orb,18.4%,,,,,,,,,11966.32
-Garbodor,127,held_item,4,Leftovers,8.8%,,,,,,,,,11966.32
-Garbodor,127,held_item,5,White Herb,6.4%,,,,,,,,,11966.32
-Garbodor,127,held_item,6,King's Rock,5.4%,,,,,,,,,11973.64
-Garbodor,127,held_item,7,Poison Barb,5.0%,,,,,,,,,11973.64
-Garbodor,127,held_item,8,Choice Scarf,4.5%,,,,,,,,,11973.64
-Garbodor,127,held_item,9,Quick Claw,4.1%,,,,,,,,,11973.64
-Garbodor,127,held_item,10,Silk Scarf,2.4%,,,,,,,,,11973.64
-Garbodor,127,teammate,1,Metagross,,,,,,,,,,11980.16
-Garbodor,127,teammate,2,Maushold Family of Four,,,,,,,,,,11980.16
-Garbodor,127,teammate,3,Glalie,,,,,,,,,,11980.16
-Garbodor,127,teammate,4,Garganacl,,,,,,,,,,11980.16
-Garbodor,127,teammate,5,Gourgeist Jumbo Variety,,,,,,,,,,11980.16
-Garbodor,127,teammate,6,Froslass,,,,,,,,,,11983.08
-Garbodor,127,teammate,7,Snorlax,,,,,,,,,,11983.08
-Garbodor,127,teammate,8,Toxapex,,,,,,,,,,11983.08
-Garbodor,127,teammate,9,Bellibolt,,,,,,,,,,11983.08
-Garbodor,127,teammate,10,Chesnaught,,,,,,,,,,11983.08
-Garbodor,127,stat_alignment,1,Adamant,52.1%,Attack,Sp. Atk,,,,,,,11985.11
-Garbodor,127,stat_alignment,2,Jolly,22.7%,Speed,Sp. Atk,,,,,,,11985.11
-Garbodor,127,stat_alignment,3,Brave,7.1%,Attack,Speed,,,,,,,11985.11
-Garbodor,127,stat_alignment,4,Impish,6.9%,Defense,Sp. Atk,,,,,,,11985.11
-Garbodor,127,stat_alignment,5,Bold,3.1%,Defense,Attack,,,,,,,11985.11
-Garbodor,127,stat_alignment,6,Sassy,2.8%,Sp. Def,Speed,,,,,,,11988.15
-Garbodor,127,stat_alignment,7,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,,11988.15
-Garbodor,127,stat_alignment,8,Naughty,1.0%,Attack,Sp. Def,,,,,,,11988.15
-Garbodor,127,stat_alignment,9,Timid,0.6%,Speed,Attack,,,,,,,11988.15
-Garbodor,127,stat_alignment,10,Lax,0.6%,Defense,Sp. Def,,,,,,,11988.15
-Garbodor,127,stat_points,1,,22.0%,,,32,32,0,0,2,0,11990.35
-Garbodor,127,stat_points,2,,19.4%,,,0,32,2,0,0,32,11990.35
-Garbodor,127,stat_points,3,,10.7%,,,32,32,2,0,0,0,11990.35
-Garbodor,127,stat_points,4,,5.9%,,,2,32,0,0,0,32,11990.35
-Garbodor,127,stat_points,5,,5.0%,,,32,32,1,0,1,0,11990.35
-Garbodor,127,stat_points,6,,3.6%,,,2,32,0,0,32,0,12012.63
-Garbodor,127,stat_points,7,,2.8%,,,32,0,32,0,2,0,12012.63
-Garbodor,127,stat_points,8,,2.8%,,,32,25,1,0,8,0,12012.63
-Garbodor,127,ability,1,Aftermath,54.2%,,,,,,,,,12026.74
-Garbodor,127,ability,2,Weak Armor,32.8%,,,,,,,,,12026.74
-Garbodor,127,ability,3,Stench,13.0%,,,,,,,,,12026.74
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Garbodor,224,move,1,Protect,64.4%,,,,,,,,
+Garbodor,224,move,2,Explosion,59.3%,,,,,,,,
+Garbodor,224,move,3,Poison Jab,47.9%,,,,,,,,
+Garbodor,224,move,4,Gunk Shot,38.7%,,,,,,,,
+Garbodor,224,move,5,Drain Punch,27.5%,,,,,,,,
+Garbodor,224,move,6,Toxic,17.0%,,,,,,,,
+Garbodor,224,move,7,Haze,16.5%,,,,,,,,
+Garbodor,224,move,8,Attract,16.3%,,,,,,,,
+Garbodor,224,move,9,Stomping Tantrum,16.1%,,,,,,,,
+Garbodor,224,move,10,Seed Bomb,15.1%,,,,,,,,
+Garbodor,224,held_item,1,Sitrus Berry,21.1%,,,,,,,,
+Garbodor,224,held_item,2,Focus Sash,18.5%,,,,,,,,
+Garbodor,224,held_item,3,Life Orb,18.4%,,,,,,,,
+Garbodor,224,held_item,4,Leftovers,8.8%,,,,,,,,
+Garbodor,224,held_item,5,White Herb,6.4%,,,,,,,,
+Garbodor,224,held_item,6,King's Rock,5.4%,,,,,,,,
+Garbodor,224,held_item,7,Poison Barb,5.0%,,,,,,,,
+Garbodor,224,held_item,8,Choice Scarf,4.5%,,,,,,,,
+Garbodor,224,held_item,9,Quick Claw,4.1%,,,,,,,,
+Garbodor,224,held_item,10,Silk Scarf,2.4%,,,,,,,,
+Garbodor,224,teammate,1,Metagross,,,,,,,,,
+Garbodor,224,teammate,2,Maushold Family of Four,,,,,,,,,
+Garbodor,224,teammate,3,Glalie,,,,,,,,,
+Garbodor,224,teammate,4,Garganacl,,,,,,,,,
+Garbodor,224,teammate,5,Gourgeist Jumbo Variety,,,,,,,,,
+Garbodor,224,teammate,6,Froslass,,,,,,,,,
+Garbodor,224,teammate,7,Snorlax,,,,,,,,,
+Garbodor,224,teammate,8,Toxapex,,,,,,,,,
+Garbodor,224,teammate,9,Bellibolt,,,,,,,,,
+Garbodor,224,teammate,10,Chesnaught,,,,,,,,,
+Garbodor,224,stat_alignment,1,Adamant,52.1%,Attack,Sp. Atk,,,,,,
+Garbodor,224,stat_alignment,2,Jolly,22.7%,Speed,Sp. Atk,,,,,,
+Garbodor,224,stat_alignment,3,Brave,7.1%,Attack,Speed,,,,,,
+Garbodor,224,stat_alignment,4,Impish,6.9%,Defense,Sp. Atk,,,,,,
+Garbodor,224,stat_alignment,5,Bold,3.1%,Defense,Attack,,,,,,
+Garbodor,224,stat_alignment,6,Sassy,2.8%,Sp. Def,Speed,,,,,,
+Garbodor,224,stat_alignment,7,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,
+Garbodor,224,stat_alignment,8,Naughty,1.0%,Attack,Sp. Def,,,,,,
+Garbodor,224,stat_alignment,9,Timid,0.6%,Speed,Attack,,,,,,
+Garbodor,224,stat_alignment,10,Lax,0.6%,Defense,Sp. Def,,,,,,
+Garbodor,224,stat_points,1,,22.0%,,,32,32,0,0,2,0
+Garbodor,224,stat_points,2,,19.4%,,,0,32,2,0,0,32
+Garbodor,224,stat_points,3,,10.7%,,,32,32,2,0,0,0
+Garbodor,224,stat_points,4,,5.9%,,,2,32,0,0,0,32
+Garbodor,224,stat_points,5,,5.0%,,,32,32,1,0,1,0
+Garbodor,224,stat_points,6,,3.6%,,,2,32,0,0,32,0
+Garbodor,224,stat_points,7,,2.8%,,,32,0,32,0,2,0
+Garbodor,224,stat_points,8,,2.8%,,,32,25,1,0,8,0
+Garbodor,224,ability,1,Aftermath,54.2%,,,,,,,,
+Garbodor,224,ability,2,Weak Armor,32.8%,,,,,,,,
+Garbodor,224,ability,3,Stench,13.0%,,,,,,,,

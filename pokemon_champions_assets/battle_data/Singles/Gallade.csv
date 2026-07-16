@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gallade,69,move,1,Sacred Sword,94.1%,,,,,,,,
-Gallade,69,move,2,Leaf Blade,78.3%,,,,,,,,
-Gallade,69,move,3,Psycho Cut,77.2%,,,,,,,,
-Gallade,69,move,4,Shadow Sneak,51.7%,,,,,,,,
-Gallade,69,move,5,Night Slash,18.7%,,,,,,,,
-Gallade,69,move,6,Triple Axel,17.6%,,,,,,,,
-Gallade,69,move,7,Thunder Punch,13.2%,,,,,,,,
-Gallade,69,move,8,Shadow Claw,7.0%,,,,,,,,
-Gallade,69,move,9,Swords Dance,5.1%,,,,,,,,
-Gallade,69,move,10,Close Combat,3.7%,,,,,,,,
-Gallade,69,held_item,1,Focus Sash,45.8%,,,,,,,,
-Gallade,69,held_item,2,Choice Scarf,24.9%,,,,,,,,
-Gallade,69,held_item,3,Galladite,11.9%,,,,,,,,
-Gallade,69,held_item,4,Scope Lens,5.3%,,,,,,,,
-Gallade,69,held_item,5,Life Orb,3.9%,,,,,,,,
-Gallade,69,held_item,6,Expert Belt,1.9%,,,,,,,,
-Gallade,69,held_item,7,Lum Berry,1.6%,,,,,,,,
-Gallade,69,held_item,8,Sitrus Berry,1.3%,,,,,,,,
-Gallade,69,held_item,9,Quick Claw,1.0%,,,,,,,,
-Gallade,69,held_item,10,Muscle Band,0.5%,,,,,,,,
-Gallade,69,teammate,1,Garchomp,,,,,,,,,
-Gallade,69,teammate,2,Mimikyu,,,,,,,,,
-Gallade,69,teammate,3,Mawile,,,,,,,,,
-Gallade,69,teammate,4,Dragonite,,,,,,,,,
-Gallade,69,teammate,5,Archaludon,,,,,,,,,
-Gallade,69,teammate,6,Basculegion Male,,,,,,,,,
-Gallade,69,teammate,7,Raichu,,,,,,,,,
-Gallade,69,teammate,8,Metagross,,,,,,,,,
-Gallade,69,teammate,9,Charizard,,,,,,,,,
-Gallade,69,teammate,10,Meowscarada,,,,,,,,,
-Gallade,69,stat_alignment,1,Adamant,52.4%,Attack,Sp. Atk,,,,,,
-Gallade,69,stat_alignment,2,Jolly,44.0%,Speed,Sp. Atk,,,,,,
-Gallade,69,stat_alignment,3,Brave,0.8%,Attack,Speed,,,,,,
-Gallade,69,stat_alignment,4,Impish,0.7%,Defense,Sp. Atk,,,,,,
-Gallade,69,stat_alignment,5,Lonely,0.4%,Attack,Defense,,,,,,
-Gallade,69,stat_alignment,6,Hasty,0.3%,Speed,Defense,,,,,,
-Gallade,69,stat_alignment,7,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
-Gallade,69,stat_alignment,8,Sassy,0.2%,Sp. Def,Speed,,,,,,
-Gallade,69,stat_alignment,9,Naughty,0.2%,Attack,Sp. Def,,,,,,
-Gallade,69,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
-Gallade,69,stat_points,1,,47.4%,,,2,32,0,0,0,32
-Gallade,69,stat_points,2,,21.9%,,,0,32,2,0,0,32
-Gallade,69,stat_points,3,,5.6%,,,0,32,0,0,2,32
-Gallade,69,stat_points,4,,2.2%,,,0,32,0,0,0,32
-Gallade,69,stat_points,5,,1.7%,,,32,32,2,0,0,0
-Gallade,69,stat_points,6,,1.2%,,,32,32,0,0,0,2
-Gallade,69,stat_points,7,,0.7%,,,32,2,0,0,0,32
-Gallade,69,stat_points,8,,0.7%,,,3,32,0,0,0,31
-Gallade,69,stat_points,9,,0.7%,,,0,32,1,0,1,32
-Gallade,69,stat_points,10,,0.5%,,,28,32,0,0,0,6
-Gallade,69,stat_points,11,,0.5%,,,32,32,0,0,2,0
-Gallade,69,stat_points,12,,0.5%,,,2,32,0,0,32,0
-Gallade,69,ability,1,Sharpness,95.2%,,,,,,,,
-Gallade,69,ability,2,Justified,2.8%,,,,,,,,
-Gallade,69,ability,3,Steadfast,2.0%,,,,,,,,
+Gallade,80,move,1,Sacred Sword,93.1%,,,,,,,,
+Gallade,80,move,2,Psycho Cut,79.7%,,,,,,,,
+Gallade,80,move,3,Leaf Blade,73.8%,,,,,,,,
+Gallade,80,move,4,Shadow Sneak,48.2%,,,,,,,,
+Gallade,80,move,5,Night Slash,20.4%,,,,,,,,
+Gallade,80,move,6,Triple Axel,19.7%,,,,,,,,
+Gallade,80,move,7,Shadow Claw,10.4%,,,,,,,,
+Gallade,80,move,8,Swords Dance,6.0%,,,,,,,,
+Gallade,80,move,9,Aqua Cutter,4.1%,,,,,,,,
+Gallade,80,move,10,Destiny Bond,4.0%,,,,,,,,
+Gallade,80,held_item,1,Focus Sash,32.9%,,,,,,,,
+Gallade,80,held_item,2,Choice Scarf,24.7%,,,,,,,,
+Gallade,80,held_item,3,Galladite,15.0%,,,,,,,,
+Gallade,80,held_item,4,Scope Lens,8.0%,,,,,,,,
+Gallade,80,held_item,5,Life Orb,3.9%,,,,,,,,
+Gallade,80,held_item,6,Lum Berry,3.4%,,,,,,,,
+Gallade,80,held_item,7,Expert Belt,2.6%,,,,,,,,
+Gallade,80,held_item,8,Sitrus Berry,1.4%,,,,,,,,
+Gallade,80,held_item,9,Black Belt,0.9%,,,,,,,,
+Gallade,80,held_item,10,Muscle Band,0.9%,,,,,,,,
+Gallade,80,teammate,1,Garchomp,,,,,,,,,
+Gallade,80,teammate,2,Primarina,,,,,,,,,
+Gallade,80,teammate,3,Archaludon,,,,,,,,,
+Gallade,80,teammate,4,Mimikyu,,,,,,,,,
+Gallade,80,teammate,5,Gyarados,,,,,,,,,
+Gallade,80,teammate,6,Charizard,,,,,,,,,
+Gallade,80,teammate,7,Metagross,,,,,,,,,
+Gallade,80,teammate,8,Meowscarada,,,,,,,,,
+Gallade,80,teammate,9,Greninja,,,,,,,,,
+Gallade,80,teammate,10,Scizor,,,,,,,,,
+Gallade,80,stat_alignment,1,Adamant,53.0%,Attack,Sp. Atk,,,,,,
+Gallade,80,stat_alignment,2,Jolly,42.8%,Speed,Sp. Atk,,,,,,
+Gallade,80,stat_alignment,3,Brave,1.2%,Attack,Speed,,,,,,
+Gallade,80,stat_alignment,4,Impish,0.9%,Defense,Sp. Atk,,,,,,
+Gallade,80,stat_alignment,5,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
+Gallade,80,stat_alignment,6,Lonely,0.4%,Attack,Defense,,,,,,
+Gallade,80,stat_alignment,7,Hasty,0.3%,Speed,Defense,,,,,,
+Gallade,80,stat_alignment,8,Naive,0.2%,Speed,Sp. Def,,,,,,
+Gallade,80,stat_alignment,9,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Gallade,80,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Gallade,80,stat_points,1,,49.4%,,,2,32,0,0,0,32
+Gallade,80,stat_points,2,,11.1%,,,0,32,2,0,0,32
+Gallade,80,stat_points,3,,5.0%,,,0,32,0,0,2,32
+Gallade,80,stat_points,4,,2.5%,,,32,32,2,0,0,0
+Gallade,80,stat_points,5,,2.5%,,,0,32,0,0,0,32
+Gallade,80,stat_points,6,,1.1%,,,28,32,0,0,0,6
+Gallade,80,stat_points,7,,0.8%,,,32,2,0,0,0,32
+Gallade,80,stat_points,8,,0.8%,,,2,32,32,0,0,0
+Gallade,80,ability,1,Sharpness,93.9%,,,,,,,,
+Gallade,80,ability,2,Justified,3.7%,,,,,,,,
+Gallade,80,ability,3,Steadfast,2.4%,,,,,,,,

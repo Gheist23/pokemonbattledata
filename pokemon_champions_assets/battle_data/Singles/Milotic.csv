@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Milotic,65,move,1,Scald,94.3%,,,,,,,,
-Milotic,65,move,2,Recover,91.6%,,,,,,,,
-Milotic,65,move,3,Ice Beam,67.5%,,,,,,,,
-Milotic,65,move,4,Mirror Coat,60.6%,,,,,,,,
-Milotic,65,move,5,Haze,28.4%,,,,,,,,
-Milotic,65,move,6,Flip Turn,7.1%,,,,,,,,
-Milotic,65,move,7,Coil,5.2%,,,,,,,,
-Milotic,65,move,8,Icy Wind,4.8%,,,,,,,,
-Milotic,65,move,9,Protect,4.4%,,,,,,,,
-Milotic,65,move,10,Hypnosis,4.4%,,,,,,,,
-Milotic,65,held_item,1,Leftovers,65.0%,,,,,,,,
-Milotic,65,held_item,2,Sitrus Berry,20.3%,,,,,,,,
-Milotic,65,held_item,3,Lum Berry,9.4%,,,,,,,,
-Milotic,65,held_item,4,Wacan Berry,1.3%,,,,,,,,
-Milotic,65,held_item,5,Mystic Water,1.1%,,,,,,,,
-Milotic,65,held_item,6,Bright Powder,1.0%,,,,,,,,
-Milotic,65,held_item,7,Quick Claw,0.7%,,,,,,,,
-Milotic,65,held_item,8,Life Orb,0.6%,,,,,,,,
-Milotic,65,held_item,9,Shell Bell,0.6%,,,,,,,,
-Milotic,65,held_item,10,Focus Sash,0.5%,,,,,,,,
-Milotic,65,teammate,1,Garchomp,,,,,,,,,
-Milotic,65,teammate,2,Mimikyu,,,,,,,,,
-Milotic,65,teammate,3,Metagross,,,,,,,,,
-Milotic,65,teammate,4,Meowscarada,,,,,,,,,
-Milotic,65,teammate,5,Raichu,,,,,,,,,
-Milotic,65,teammate,6,Mawile,,,,,,,,,
-Milotic,65,teammate,7,Charizard,,,,,,,,,
-Milotic,65,teammate,8,Staraptor,,,,,,,,,
-Milotic,65,teammate,9,Blaziken,,,,,,,,,
-Milotic,65,teammate,10,Hydreigon,,,,,,,,,
-Milotic,65,stat_alignment,1,Bold,60.1%,Defense,Attack,,,,,,
-Milotic,65,stat_alignment,2,Calm,19.0%,Sp. Def,Attack,,,,,,
-Milotic,65,stat_alignment,3,Modest,12.4%,Sp. Atk,Attack,,,,,,
-Milotic,65,stat_alignment,4,Relaxed,3.0%,Defense,Speed,,,,,,
-Milotic,65,stat_alignment,5,Sassy,1.3%,Sp. Def,Speed,,,,,,
-Milotic,65,stat_alignment,6,Timid,1.2%,Speed,Attack,,,,,,
-Milotic,65,stat_alignment,7,Quiet,1.0%,Sp. Atk,Speed,,,,,,
-Milotic,65,stat_alignment,8,Impish,0.5%,Defense,Sp. Atk,,,,,,
-Milotic,65,stat_alignment,9,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
-Milotic,65,stat_alignment,10,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Milotic,65,stat_points,1,,30.9%,,,32,0,32,0,2,0
-Milotic,65,stat_points,2,,5.8%,,,32,0,2,0,32,0
-Milotic,65,stat_points,3,,4.9%,,,32,0,27,0,0,7
-Milotic,65,stat_points,4,,4.2%,,,32,0,32,2,0,0
-Milotic,65,stat_points,5,,3.5%,,,31,0,32,0,3,0
-Milotic,65,stat_points,6,,3.0%,,,32,0,32,0,0,2
-Milotic,65,stat_points,7,,2.1%,,,32,0,0,2,32,0
-Milotic,65,stat_points,8,,1.9%,,,32,0,2,32,0,0
-Milotic,65,stat_points,9,,1.7%,,,32,0,32,0,0,0
-Milotic,65,stat_points,10,,1.4%,,,32,0,0,32,0,2
-Milotic,65,stat_points,11,,1.2%,,,32,0,0,32,2,0
-Milotic,65,stat_points,12,,1.2%,,,0,0,32,32,2,0
-Milotic,65,ability,1,Competitive,61.9%,,,,,,,,
-Milotic,65,ability,2,Marvel Scale,20.4%,,,,,,,,
-Milotic,65,ability,3,Cute Charm,17.7%,,,,,,,,
+Milotic,61,move,1,Scald,94.0%,,,,,,,,
+Milotic,61,move,2,Recover,93.0%,,,,,,,,
+Milotic,61,move,3,Mirror Coat,64.9%,,,,,,,,
+Milotic,61,move,4,Ice Beam,63.0%,,,,,,,,
+Milotic,61,move,5,Haze,30.3%,,,,,,,,
+Milotic,61,move,6,Flip Turn,6.2%,,,,,,,,
+Milotic,61,move,7,Coil,5.2%,,,,,,,,
+Milotic,61,move,8,Alluring Voice,5.1%,,,,,,,,
+Milotic,61,move,9,Hypnosis,4.9%,,,,,,,,
+Milotic,61,move,10,Icy Wind,3.9%,,,,,,,,
+Milotic,61,held_item,1,Leftovers,64.7%,,,,,,,,
+Milotic,61,held_item,2,Sitrus Berry,20.4%,,,,,,,,
+Milotic,61,held_item,3,Lum Berry,4.6%,,,,,,,,
+Milotic,61,held_item,4,Mystic Water,1.5%,,,,,,,,
+Milotic,61,held_item,5,Focus Sash,1.4%,,,,,,,,
+Milotic,61,held_item,6,Bright Powder,0.9%,,,,,,,,
+Milotic,61,held_item,7,Wacan Berry,0.9%,,,,,,,,
+Milotic,61,held_item,8,Quick Claw,0.8%,,,,,,,,
+Milotic,61,held_item,9,Shell Bell,0.7%,,,,,,,,
+Milotic,61,held_item,10,Chesto Berry,0.5%,,,,,,,,
+Milotic,61,teammate,1,Garchomp,,,,,,,,,
+Milotic,61,teammate,2,Mimikyu,,,,,,,,,
+Milotic,61,teammate,3,Meowscarada,,,,,,,,,
+Milotic,61,teammate,4,Metagross,,,,,,,,,
+Milotic,61,teammate,5,Charizard,,,,,,,,,
+Milotic,61,teammate,6,Blaziken,,,,,,,,,
+Milotic,61,teammate,7,Hydreigon,,,,,,,,,
+Milotic,61,teammate,8,Delphox,,,,,,,,,
+Milotic,61,teammate,9,Mawile,,,,,,,,,
+Milotic,61,teammate,10,Gengar,,,,,,,,,
+Milotic,61,stat_alignment,1,Bold,37.4%,Defense,Attack,,,,,,
+Milotic,61,stat_alignment,2,Calm,24.9%,Sp. Def,Attack,,,,,,
+Milotic,61,stat_alignment,3,Modest,10.2%,Sp. Atk,Attack,,,,,,
+Milotic,61,stat_alignment,4,Relaxed,2.8%,Defense,Speed,,,,,,
+Milotic,61,stat_alignment,5,Sassy,1.4%,Sp. Def,Speed,,,,,,
+Milotic,61,stat_alignment,6,Timid,1.0%,Speed,Attack,,,,,,
+Milotic,61,stat_alignment,7,Quiet,0.7%,Sp. Atk,Speed,,,,,,
+Milotic,61,stat_alignment,8,Impish,0.5%,Defense,Sp. Atk,,,,,,
+Milotic,61,stat_alignment,9,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Milotic,61,stat_alignment,10,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Milotic,61,stat_points,1,,26.4%,,,32,0,32,0,2,0
+Milotic,61,stat_points,2,,6.7%,,,32,0,2,0,32,0
+Milotic,61,stat_points,3,,4.3%,,,32,0,32,2,0,0
+Milotic,61,stat_points,4,,4.0%,,,31,0,32,0,3,0
+Milotic,61,stat_points,5,,3.9%,,,32,0,32,1,1,0
+Milotic,61,stat_points,6,,2.4%,,,32,0,27,0,0,7
+Milotic,61,stat_points,7,,1.5%,,,32,0,2,32,0,0
+Milotic,61,stat_points,8,,1.5%,,,32,0,32,0,0,0
+Milotic,61,ability,1,Competitive,68.0%,,,,,,,,
+Milotic,61,ability,2,Marvel Scale,21.0%,,,,,,,,
+Milotic,61,ability,3,Cute Charm,11.0%,,,,,,,,

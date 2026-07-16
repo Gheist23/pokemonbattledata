@@ -1,51 +1,51 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Hisuian Decidueye,118,move,1,Triple Arrows,99.6%,,,,,,,,,24305.96
-Hisuian Decidueye,118,move,2,Leaf Blade,92.1%,,,,,,,,,24305.96
-Hisuian Decidueye,118,move,3,Sucker Punch,64.2%,,,,,,,,,24305.96
-Hisuian Decidueye,118,move,4,U-turn,29.4%,,,,,,,,,24305.96
-Hisuian Decidueye,118,move,5,Swords Dance,15.9%,,,,,,,,,24305.96
-Hisuian Decidueye,118,move,6,Rock Tomb,14.8%,,,,,,,,,24309.72
-Hisuian Decidueye,118,move,7,Shadow Sneak,14.2%,,,,,,,,,24309.72
-Hisuian Decidueye,118,move,8,Brave Bird,10.2%,,,,,,,,,24309.72
-Hisuian Decidueye,118,move,9,Taunt,6.8%,,,,,,,,,24309.72
-Hisuian Decidueye,118,move,10,Knock Off,6.1%,,,,,,,,,24309.72
-Hisuian Decidueye,118,held_item,1,Scope Lens,37.4%,,,,,,,,,24313.07
-Hisuian Decidueye,118,held_item,2,Focus Sash,19.4%,,,,,,,,,24313.07
-Hisuian Decidueye,118,held_item,3,Choice Scarf,17.0%,,,,,,,,,24313.07
-Hisuian Decidueye,118,held_item,4,Life Orb,5.3%,,,,,,,,,24313.07
-Hisuian Decidueye,118,held_item,5,Sitrus Berry,4.3%,,,,,,,,,24313.07
-Hisuian Decidueye,118,held_item,6,Lum Berry,3.2%,,,,,,,,,24320.29
-Hisuian Decidueye,118,held_item,7,Quick Claw,3.0%,,,,,,,,,24320.29
-Hisuian Decidueye,118,held_item,8,Leftovers,2.3%,,,,,,,,,24320.29
-Hisuian Decidueye,118,held_item,9,King's Rock,2.2%,,,,,,,,,24320.29
-Hisuian Decidueye,118,held_item,10,Muscle Band,1.1%,,,,,,,,,24320.29
-Hisuian Decidueye,118,teammate,1,Garchomp,,,,,,,,,,24326.67
-Hisuian Decidueye,118,teammate,2,Metagross,,,,,,,,,,24326.67
-Hisuian Decidueye,118,teammate,3,Mimikyu,,,,,,,,,,24326.67
-Hisuian Decidueye,118,teammate,4,Delphox,,,,,,,,,,24326.67
-Hisuian Decidueye,118,teammate,5,Charizard,,,,,,,,,,24326.67
-Hisuian Decidueye,118,teammate,6,Archaludon,,,,,,,,,,24329.59
-Hisuian Decidueye,118,teammate,7,Greninja,,,,,,,,,,24329.59
-Hisuian Decidueye,118,teammate,8,Gyarados,,,,,,,,,,24329.59
-Hisuian Decidueye,118,teammate,9,Primarina,,,,,,,,,,24329.59
-Hisuian Decidueye,118,teammate,10,Blaziken,,,,,,,,,,24329.59
-Hisuian Decidueye,118,stat_alignment,1,Adamant,65.6%,Attack,Sp. Atk,,,,,,,24331.65
-Hisuian Decidueye,118,stat_alignment,2,Jolly,26.3%,Speed,Sp. Atk,,,,,,,24331.65
-Hisuian Decidueye,118,stat_alignment,3,Brave,3.4%,Attack,Speed,,,,,,,24331.65
-Hisuian Decidueye,118,stat_alignment,4,Impish,1.4%,Defense,Sp. Atk,,,,,,,24331.65
-Hisuian Decidueye,118,stat_alignment,5,Naughty,1.2%,Attack,Sp. Def,,,,,,,24331.65
-Hisuian Decidueye,118,stat_alignment,6,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,,24334.65
-Hisuian Decidueye,118,stat_alignment,7,Lonely,0.5%,Attack,Defense,,,,,,,24334.65
-Hisuian Decidueye,118,stat_alignment,8,Timid,0.2%,Speed,Attack,,,,,,,24334.65
-Hisuian Decidueye,118,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,,24334.65
-Hisuian Decidueye,118,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,,24334.65
-Hisuian Decidueye,118,stat_points,1,,45.4%,,,2,32,0,0,0,32,24336.86
-Hisuian Decidueye,118,stat_points,2,,8.1%,,,32,32,2,0,0,0,24336.86
-Hisuian Decidueye,118,stat_points,3,,6.2%,,,0,32,2,0,0,32,24336.86
-Hisuian Decidueye,118,stat_points,4,,4.5%,,,32,32,0,0,0,2,24336.86
-Hisuian Decidueye,118,stat_points,5,,2.5%,,,28,18,12,0,0,8,24336.86
-Hisuian Decidueye,118,stat_points,6,,1.5%,,,0,32,0,0,0,32,24358.74
-Hisuian Decidueye,118,stat_points,7,,0.9%,,,0,32,1,0,1,32,24358.74
-Hisuian Decidueye,118,stat_points,8,,0.9%,,,8,32,0,0,0,26,24358.74
-Hisuian Decidueye,118,ability,1,Scrappy,98.4%,,,,,,,,,24372.44
-Hisuian Decidueye,118,ability,2,Overgrow,1.6%,,,,,,,,,24372.44
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Hisuian Decidueye,118,move,1,Triple Arrows,99.6%,,,,,,,,
+Hisuian Decidueye,118,move,2,Leaf Blade,92.1%,,,,,,,,
+Hisuian Decidueye,118,move,3,Sucker Punch,64.2%,,,,,,,,
+Hisuian Decidueye,118,move,4,U-turn,29.4%,,,,,,,,
+Hisuian Decidueye,118,move,5,Swords Dance,15.9%,,,,,,,,
+Hisuian Decidueye,118,move,6,Rock Tomb,14.8%,,,,,,,,
+Hisuian Decidueye,118,move,7,Shadow Sneak,14.2%,,,,,,,,
+Hisuian Decidueye,118,move,8,Brave Bird,10.2%,,,,,,,,
+Hisuian Decidueye,118,move,9,Taunt,6.8%,,,,,,,,
+Hisuian Decidueye,118,move,10,Knock Off,6.1%,,,,,,,,
+Hisuian Decidueye,118,held_item,1,Scope Lens,37.4%,,,,,,,,
+Hisuian Decidueye,118,held_item,2,Focus Sash,19.4%,,,,,,,,
+Hisuian Decidueye,118,held_item,3,Choice Scarf,17.0%,,,,,,,,
+Hisuian Decidueye,118,held_item,4,Life Orb,5.3%,,,,,,,,
+Hisuian Decidueye,118,held_item,5,Sitrus Berry,4.3%,,,,,,,,
+Hisuian Decidueye,118,held_item,6,Lum Berry,3.2%,,,,,,,,
+Hisuian Decidueye,118,held_item,7,Quick Claw,3.0%,,,,,,,,
+Hisuian Decidueye,118,held_item,8,Leftovers,2.3%,,,,,,,,
+Hisuian Decidueye,118,held_item,9,King's Rock,2.2%,,,,,,,,
+Hisuian Decidueye,118,held_item,10,Muscle Band,1.1%,,,,,,,,
+Hisuian Decidueye,118,teammate,1,Garchomp,,,,,,,,,
+Hisuian Decidueye,118,teammate,2,Metagross,,,,,,,,,
+Hisuian Decidueye,118,teammate,3,Mimikyu,,,,,,,,,
+Hisuian Decidueye,118,teammate,4,Delphox,,,,,,,,,
+Hisuian Decidueye,118,teammate,5,Charizard,,,,,,,,,
+Hisuian Decidueye,118,teammate,6,Archaludon,,,,,,,,,
+Hisuian Decidueye,118,teammate,7,Greninja,,,,,,,,,
+Hisuian Decidueye,118,teammate,8,Gyarados,,,,,,,,,
+Hisuian Decidueye,118,teammate,9,Primarina,,,,,,,,,
+Hisuian Decidueye,118,teammate,10,Blaziken,,,,,,,,,
+Hisuian Decidueye,118,stat_alignment,1,Adamant,65.6%,Attack,Sp. Atk,,,,,,
+Hisuian Decidueye,118,stat_alignment,2,Jolly,26.3%,Speed,Sp. Atk,,,,,,
+Hisuian Decidueye,118,stat_alignment,3,Brave,3.4%,Attack,Speed,,,,,,
+Hisuian Decidueye,118,stat_alignment,4,Impish,1.4%,Defense,Sp. Atk,,,,,,
+Hisuian Decidueye,118,stat_alignment,5,Naughty,1.2%,Attack,Sp. Def,,,,,,
+Hisuian Decidueye,118,stat_alignment,6,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
+Hisuian Decidueye,118,stat_alignment,7,Lonely,0.5%,Attack,Defense,,,,,,
+Hisuian Decidueye,118,stat_alignment,8,Timid,0.2%,Speed,Attack,,,,,,
+Hisuian Decidueye,118,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
+Hisuian Decidueye,118,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
+Hisuian Decidueye,118,stat_points,1,,45.4%,,,2,32,0,0,0,32
+Hisuian Decidueye,118,stat_points,2,,8.1%,,,32,32,2,0,0,0
+Hisuian Decidueye,118,stat_points,3,,6.2%,,,0,32,2,0,0,32
+Hisuian Decidueye,118,stat_points,4,,4.5%,,,32,32,0,0,0,2
+Hisuian Decidueye,118,stat_points,5,,2.5%,,,28,18,12,0,0,8
+Hisuian Decidueye,118,stat_points,6,,1.5%,,,0,32,0,0,0,32
+Hisuian Decidueye,118,stat_points,7,,0.9%,,,0,32,1,0,1,32
+Hisuian Decidueye,118,stat_points,8,,0.9%,,,8,32,0,0,0,26
+Hisuian Decidueye,118,ability,1,Scrappy,98.4%,,,,,,,,
+Hisuian Decidueye,118,ability,2,Overgrow,1.6%,,,,,,,,

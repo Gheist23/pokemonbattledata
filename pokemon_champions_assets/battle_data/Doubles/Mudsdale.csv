@@ -1,53 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mudsdale,119,move,1,Rock Slide,76.5%,,,,,,,,
-Mudsdale,119,move,2,High Horsepower,70.9%,,,,,,,,
-Mudsdale,119,move,3,Protect,69.4%,,,,,,,,
-Mudsdale,119,move,4,Earthquake,59.4%,,,,,,,,
-Mudsdale,119,move,5,Heavy Slam,44.7%,,,,,,,,
-Mudsdale,119,move,6,Body Press,33.3%,,,,,,,,
-Mudsdale,119,move,7,Close Combat,9.7%,,,,,,,,
-Mudsdale,119,move,8,Iron Defense,4.4%,,,,,,,,
-Mudsdale,119,move,9,Iron Head,4.3%,,,,,,,,
-Mudsdale,119,move,10,Stone Edge,3.9%,,,,,,,,
-Mudsdale,119,held_item,1,Life Orb,28.8%,,,,,,,,
-Mudsdale,119,held_item,2,Leftovers,27.6%,,,,,,,,
-Mudsdale,119,held_item,3,Soft Sand,18.7%,,,,,,,,
-Mudsdale,119,held_item,4,Sitrus Berry,3.7%,,,,,,,,
-Mudsdale,119,held_item,5,Expert Belt,3.0%,,,,,,,,
-Mudsdale,119,held_item,6,Quick Claw,2.5%,,,,,,,,
-Mudsdale,119,held_item,7,Muscle Band,2.4%,,,,,,,,
-Mudsdale,119,held_item,8,Rindo Berry,2.0%,,,,,,,,
-Mudsdale,119,held_item,9,Chesto Berry,1.4%,,,,,,,,
-Mudsdale,119,held_item,10,Shell Bell,1.3%,,,,,,,,
-Mudsdale,119,teammate,1,Torkoal,,,,,,,,,
-Mudsdale,119,teammate,2,Farigiraf,,,,,,,,,
-Mudsdale,119,teammate,3,Sylveon,,,,,,,,,
-Mudsdale,119,teammate,4,Oranguru,,,,,,,,,
-Mudsdale,119,teammate,5,Sinistcha,,,,,,,,,
-Mudsdale,119,teammate,6,Glalie,,,,,,,,,
-Mudsdale,119,teammate,7,Incineroar,,,,,,,,,
-Mudsdale,119,teammate,8,Clefable,,,,,,,,,
-Mudsdale,119,teammate,9,Mawile,,,,,,,,,
-Mudsdale,119,teammate,10,Staraptor,,,,,,,,,
-Mudsdale,119,stat_alignment,1,Brave,60.4%,Attack,Speed,,,,,,
-Mudsdale,119,stat_alignment,2,Adamant,15.2%,Attack,Sp. Atk,,,,,,
-Mudsdale,119,stat_alignment,3,Impish,7.0%,Defense,Sp. Atk,,,,,,
-Mudsdale,119,stat_alignment,4,Sassy,5.9%,Sp. Def,Speed,,,,,,
-Mudsdale,119,stat_alignment,5,Relaxed,5.3%,Defense,Speed,,,,,,
-Mudsdale,119,stat_alignment,6,Careful,4.4%,Sp. Def,Sp. Atk,,,,,,
-Mudsdale,119,stat_alignment,7,Serious,1.4%,,,,,,,,
-Mudsdale,119,stat_alignment,8,Naughty,0.4%,Attack,Sp. Def,,,,,,
-Mudsdale,119,stat_alignment,9,Quiet,0.3%,Sp. Atk,Speed,,,,,,
-Mudsdale,119,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
-Mudsdale,119,stat_points,1,,38.0%,,,32,32,0,0,2,0
-Mudsdale,119,stat_points,2,,10.6%,,,32,32,2,0,0,0
-Mudsdale,119,stat_points,3,,3.3%,,,2,32,32,0,0,0
-Mudsdale,119,stat_points,4,,3.0%,,,0,32,32,0,2,0
-Mudsdale,119,stat_points,5,,2.8%,,,2,32,0,0,32,0
-Mudsdale,119,stat_points,6,,2.6%,,,32,0,32,0,2,0
-Mudsdale,119,stat_points,7,,2.4%,,,32,0,2,0,32,0
-Mudsdale,119,stat_points,8,,1.8%,,,2,0,32,0,32,0
-Mudsdale,119,stat_points,9,,1.6%,,,32,2,32,0,0,0
-Mudsdale,119,stat_points,10,,1.4%,,,0,32,2,0,32,0
-Mudsdale,119,stat_points,11,,1.4%,,,8,16,27,0,15,0
-Mudsdale,119,stat_points,12,,1.3%,,,32,32,0,0,1,0
+Mudsdale,101,move,1,Protect,84.0%,,,,,,,,
+Mudsdale,101,move,2,Heavy Slam,75.3%,,,,,,,,
+Mudsdale,101,move,3,Earthquake,73.5%,,,,,,,,
+Mudsdale,101,move,4,Curse,50.4%,,,,,,,,
+Mudsdale,101,move,5,Rock Slide,38.6%,,,,,,,,
+Mudsdale,101,move,6,High Horsepower,38.2%,,,,,,,,
+Mudsdale,101,move,7,Body Press,15.1%,,,,,,,,
+Mudsdale,101,move,8,Close Combat,3.7%,,,,,,,,
+Mudsdale,101,move,9,Iron Head,2.6%,,,,,,,,
+Mudsdale,101,move,10,Iron Defense,2.1%,,,,,,,,
+Mudsdale,101,held_item,1,Sitrus Berry,50.3%,,,,,,,,
+Mudsdale,101,held_item,2,Life Orb,15.7%,,,,,,,,
+Mudsdale,101,held_item,3,Leftovers,14.8%,,,,,,,,
+Mudsdale,101,held_item,4,Soft Sand,6.4%,,,,,,,,
+Mudsdale,101,held_item,5,Expert Belt,2.4%,,,,,,,,
+Mudsdale,101,held_item,6,Passho Berry,1.3%,,,,,,,,
+Mudsdale,101,held_item,7,Quick Claw,1.3%,,,,,,,,
+Mudsdale,101,held_item,8,Rindo Berry,1.1%,,,,,,,,
+Mudsdale,101,held_item,9,Lum Berry,1.1%,,,,,,,,
+Mudsdale,101,held_item,10,King's Rock,0.9%,,,,,,,,
+Mudsdale,101,teammate,1,Sylveon,,,,,,,,,
+Mudsdale,101,teammate,2,Dragonite,,,,,,,,,
+Mudsdale,101,teammate,3,Blaziken,,,,,,,,,
+Mudsdale,101,teammate,4,Gholdengo,,,,,,,,,
+Mudsdale,101,teammate,5,Meowscarada,,,,,,,,,
+Mudsdale,101,teammate,6,Farigiraf,,,,,,,,,
+Mudsdale,101,teammate,7,Torkoal,,,,,,,,,
+Mudsdale,101,teammate,8,Sinistcha,,,,,,,,,
+Mudsdale,101,teammate,9,Incineroar,,,,,,,,,
+Mudsdale,101,teammate,10,Oranguru,,,,,,,,,
+Mudsdale,101,stat_alignment,1,Brave,17.0%,Attack,Speed,,,,,,
+Mudsdale,101,stat_alignment,2,Adamant,11.5%,Attack,Sp. Atk,,,,,,
+Mudsdale,101,stat_alignment,3,Impish,3.9%,Defense,Sp. Atk,,,,,,
+Mudsdale,101,stat_alignment,4,Careful,2.8%,Sp. Def,Sp. Atk,,,,,,
+Mudsdale,101,stat_alignment,5,Sassy,2.3%,Sp. Def,Speed,,,,,,
+Mudsdale,101,stat_alignment,6,Relaxed,1.7%,Defense,Speed,,,,,,
+Mudsdale,101,stat_alignment,7,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Mudsdale,101,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Mudsdale,101,stat_alignment,9,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Mudsdale,101,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
+Mudsdale,101,stat_points,1,,41.4%,,,31,32,0,0,3,0
+Mudsdale,101,stat_points,2,,17.7%,,,32,32,0,0,2,0
+Mudsdale,101,stat_points,3,,7.2%,,,32,32,2,0,0,0
+Mudsdale,101,stat_points,4,,1.9%,,,2,32,0,0,32,0
+Mudsdale,101,stat_points,5,,1.6%,,,0,32,32,0,2,0
+Mudsdale,101,stat_points,6,,1.0%,,,32,0,2,0,32,0
+Mudsdale,101,stat_points,7,,0.9%,,,0,32,2,0,32,0
+Mudsdale,101,stat_points,8,,0.9%,,,32,32,0,0,0,0
+Mudsdale,101,ability,1,Inner Focus,71.4%,,,,,,,,
+Mudsdale,101,ability,2,Stamina,25.9%,,,,,,,,
+Mudsdale,101,ability,3,Own Tempo,2.7%,,,,,,,,

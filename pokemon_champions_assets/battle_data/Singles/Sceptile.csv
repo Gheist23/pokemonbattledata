@@ -1,55 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sceptile,68,move,1,Earth Power,86.0%,,,,,,,,
-Sceptile,68,move,2,Dragon Pulse,78.6%,,,,,,,,
-Sceptile,68,move,3,Leaf Storm,75.0%,,,,,,,,
-Sceptile,68,move,4,Shed Tail,48.0%,,,,,,,,
-Sceptile,68,move,5,Vacuum Wave,29.4%,,,,,,,,
-Sceptile,68,move,6,Energy Ball,21.2%,,,,,,,,
-Sceptile,68,move,7,Focus Blast,10.1%,,,,,,,,
-Sceptile,68,move,8,Endeavor,7.0%,,,,,,,,
-Sceptile,68,move,9,Giga Drain,7.0%,,,,,,,,
-Sceptile,68,move,10,Rock Slide,3.9%,,,,,,,,
-Sceptile,68,held_item,1,Sceptilite,78.4%,,,,,,,,
-Sceptile,68,held_item,2,Focus Sash,7.4%,,,,,,,,
-Sceptile,68,held_item,3,White Herb,4.8%,,,,,,,,
-Sceptile,68,held_item,4,Sitrus Berry,4.3%,,,,,,,,
-Sceptile,68,held_item,5,Choice Scarf,1.4%,,,,,,,,
-Sceptile,68,held_item,6,Life Orb,0.8%,,,,,,,,
-Sceptile,68,held_item,7,Light Ball,0.3%,,,,,,,,
-Sceptile,68,held_item,8,Yache Berry,0.3%,,,,,,,,
-Sceptile,68,held_item,9,Leftovers,0.2%,,,,,,,,
-Sceptile,68,held_item,10,Wide Lens,0.2%,,,,,,,,
-Sceptile,68,teammate,1,Garchomp,,,,,,,,,
-Sceptile,68,teammate,2,Mimikyu,,,,,,,,,
-Sceptile,68,teammate,3,Blaziken,,,,,,,,,
-Sceptile,68,teammate,4,Metagross,,,,,,,,,
-Sceptile,68,teammate,5,Archaludon,,,,,,,,,
-Sceptile,68,teammate,6,Staraptor,,,,,,,,,
-Sceptile,68,teammate,7,Corviknight,,,,,,,,,
-Sceptile,68,teammate,8,Swampert,,,,,,,,,
-Sceptile,68,teammate,9,Raichu,,,,,,,,,
-Sceptile,68,teammate,10,Alolan Ninetales,,,,,,,,,
-Sceptile,68,stat_alignment,1,Timid,71.7%,Speed,Attack,,,,,,
-Sceptile,68,stat_alignment,2,Modest,15.7%,Sp. Atk,Attack,,,,,,
-Sceptile,68,stat_alignment,3,Naive,2.6%,Speed,Sp. Def,,,,,,
-Sceptile,68,stat_alignment,4,Hasty,2.3%,Speed,Defense,,,,,,
-Sceptile,68,stat_alignment,5,Adamant,1.9%,Attack,Sp. Atk,,,,,,
-Sceptile,68,stat_alignment,6,Mild,1.5%,Sp. Atk,Defense,,,,,,
-Sceptile,68,stat_alignment,7,Jolly,1.4%,Speed,Sp. Atk,,,,,,
-Sceptile,68,stat_alignment,8,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,
-Sceptile,68,stat_alignment,9,Calm,0.4%,Sp. Def,Attack,,,,,,
-Sceptile,68,stat_alignment,10,Bold,0.4%,Defense,Attack,,,,,,
-Sceptile,68,stat_points,1,,58.6%,,,2,0,0,32,0,32
-Sceptile,68,stat_points,2,,7.9%,,,0,0,2,32,0,32
-Sceptile,68,stat_points,3,,6.1%,,,0,0,0,32,2,32
-Sceptile,68,stat_points,4,,2.1%,,,0,0,0,32,0,32
-Sceptile,68,stat_points,5,,1.8%,,,1,0,1,32,0,32
-Sceptile,68,stat_points,6,,1.6%,,,2,32,0,0,0,32
-Sceptile,68,stat_points,7,,1.6%,,,0,2,0,32,0,32
-Sceptile,68,stat_points,8,,1.2%,,,0,0,1,32,1,32
-Sceptile,68,stat_points,9,,1.0%,,,1,0,0,32,1,32
-Sceptile,68,stat_points,10,,0.8%,,,3,0,0,32,0,31
-Sceptile,68,stat_points,11,,0.6%,,,2,0,1,32,0,31
-Sceptile,68,stat_points,12,,0.4%,,,1,0,0,32,0,32
-Sceptile,68,ability,1,Overgrow,72.1%,,,,,,,,
-Sceptile,68,ability,2,Unburden,27.9%,,,,,,,,
+Sceptile,59,move,1,Dragon Pulse,85.5%,,,,,,,,
+Sceptile,59,move,2,Earth Power,80.6%,,,,,,,,
+Sceptile,59,move,3,Leaf Storm,76.1%,,,,,,,,
+Sceptile,59,move,4,Shed Tail,59.7%,,,,,,,,
+Sceptile,59,move,5,Energy Ball,18.1%,,,,,,,,
+Sceptile,59,move,6,Vacuum Wave,16.2%,,,,,,,,
+Sceptile,59,move,7,Substitute,14.4%,,,,,,,,
+Sceptile,59,move,8,Focus Blast,14.4%,,,,,,,,
+Sceptile,59,move,9,Giga Drain,5.6%,,,,,,,,
+Sceptile,59,move,10,Endeavor,5.3%,,,,,,,,
+Sceptile,59,held_item,1,Sceptilite,17.4%,,,,,,,,
+Sceptile,59,held_item,2,Focus Sash,7.0%,,,,,,,,
+Sceptile,59,held_item,3,Sitrus Berry,5.6%,,,,,,,,
+Sceptile,59,held_item,4,White Herb,3.7%,,,,,,,,
+Sceptile,59,held_item,5,Choice Scarf,1.7%,,,,,,,,
+Sceptile,59,held_item,6,Life Orb,0.7%,,,,,,,,
+Sceptile,59,held_item,7,Leftovers,0.3%,,,,,,,,
+Sceptile,59,held_item,8,Lum Berry,0.3%,,,,,,,,
+Sceptile,59,held_item,9,King's Rock,0.3%,,,,,,,,
+Sceptile,59,held_item,10,Oran Berry,0.2%,,,,,,,,
+Sceptile,59,teammate,1,Garchomp,,,,,,,,,
+Sceptile,59,teammate,2,Mimikyu,,,,,,,,,
+Sceptile,59,teammate,3,Hippowdon,,,,,,,,,
+Sceptile,59,teammate,4,Primarina,,,,,,,,,
+Sceptile,59,teammate,5,Archaludon,,,,,,,,,
+Sceptile,59,teammate,6,Blaziken,,,,,,,,,
+Sceptile,59,teammate,7,Metagross,,,,,,,,,
+Sceptile,59,teammate,8,Ceruledge,,,,,,,,,
+Sceptile,59,teammate,9,Gyarados,,,,,,,,,
+Sceptile,59,teammate,10,Delphox,,,,,,,,,
+Sceptile,59,stat_alignment,1,Timid,81.8%,Speed,Attack,,,,,,
+Sceptile,59,stat_alignment,2,Modest,10.2%,Sp. Atk,Attack,,,,,,
+Sceptile,59,stat_alignment,3,Naive,1.7%,Speed,Sp. Def,,,,,,
+Sceptile,59,stat_alignment,4,Hasty,1.5%,Speed,Defense,,,,,,
+Sceptile,59,stat_alignment,5,Adamant,1.2%,Attack,Sp. Atk,,,,,,
+Sceptile,59,stat_alignment,6,Jolly,1.1%,Speed,Sp. Atk,,,,,,
+Sceptile,59,stat_alignment,7,Rash,0.7%,Sp. Atk,Sp. Def,,,,,,
+Sceptile,59,stat_alignment,8,Mild,0.6%,Sp. Atk,Defense,,,,,,
+Sceptile,59,stat_alignment,9,Bold,0.4%,Defense,Attack,,,,,,
+Sceptile,59,stat_alignment,10,Calm,0.2%,Sp. Def,Attack,,,,,,
+Sceptile,59,stat_points,1,,68.6%,,,2,0,0,32,0,32
+Sceptile,59,stat_points,2,,6.1%,,,0,0,2,32,0,32
+Sceptile,59,stat_points,3,,4.0%,,,1,0,1,32,0,32
+Sceptile,59,stat_points,4,,3.2%,,,0,0,0,32,2,32
+Sceptile,59,stat_points,5,,2.6%,,,2,0,1,32,0,31
+Sceptile,59,stat_points,6,,1.0%,,,0,0,0,32,0,32
+Sceptile,59,stat_points,7,,0.6%,,,1,0,0,32,1,32
+Sceptile,59,stat_points,8,,0.5%,,,4,0,0,32,0,30
+Sceptile,59,ability,1,Overgrow,80.5%,,,,,,,,
+Sceptile,59,ability,2,Unburden,19.5%,,,,,,,,

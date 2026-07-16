@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Overqwil,90,move,1,Minimize,63.4%,,,,,,,,,21653.59
-Overqwil,90,move,2,Throat Chop,58.1%,,,,,,,,,21653.59
-Overqwil,90,move,3,Substitute,50.5%,,,,,,,,,21653.59
-Overqwil,90,move,4,Barb Barrage,47.0%,,,,,,,,,21653.59
-Overqwil,90,move,5,Swords Dance,37.1%,,,,,,,,,21653.59
-Overqwil,90,move,6,Crunch,25.2%,,,,,,,,,21657.92
-Overqwil,90,move,7,Toxic Spikes,20.3%,,,,,,,,,21657.92
-Overqwil,90,move,8,Toxic,15.7%,,,,,,,,,21657.92
-Overqwil,90,move,9,Destiny Bond,10.8%,,,,,,,,,21657.92
-Overqwil,90,move,10,Taunt,9.3%,,,,,,,,,21657.92
-Overqwil,90,held_item,1,Leftovers,62.0%,,,,,,,,,21661.68
-Overqwil,90,held_item,2,Sitrus Berry,13.5%,,,,,,,,,21661.68
-Overqwil,90,held_item,3,Bright Powder,5.7%,,,,,,,,,21661.68
-Overqwil,90,held_item,4,Shuca Berry,4.9%,,,,,,,,,21661.68
-Overqwil,90,held_item,5,Life Orb,4.1%,,,,,,,,,21661.68
-Overqwil,90,held_item,6,Focus Sash,2.6%,,,,,,,,,21668.92
-Overqwil,90,held_item,7,Quick Claw,1.2%,,,,,,,,,21668.92
-Overqwil,90,held_item,8,Damp Rock,1.0%,,,,,,,,,21668.92
-Overqwil,90,held_item,9,Lum Berry,0.7%,,,,,,,,,21668.92
-Overqwil,90,held_item,10,Mental Herb,0.7%,,,,,,,,,21668.92
-Overqwil,90,teammate,1,Garchomp,,,,,,,,,,21675.35
-Overqwil,90,teammate,2,Gengar,,,,,,,,,,21675.35
-Overqwil,90,teammate,3,Mimikyu,,,,,,,,,,21675.35
-Overqwil,90,teammate,4,Starmie,,,,,,,,,,21675.35
-Overqwil,90,teammate,5,Delphox,,,,,,,,,,21675.35
-Overqwil,90,teammate,6,Archaludon,,,,,,,,,,21678.24
-Overqwil,90,teammate,7,Gyarados,,,,,,,,,,21678.24
-Overqwil,90,teammate,8,Meowscarada,,,,,,,,,,21678.24
-Overqwil,90,teammate,9,Staraptor,,,,,,,,,,21678.24
-Overqwil,90,teammate,10,Venusaur,,,,,,,,,,21678.24
-Overqwil,90,stat_alignment,1,Jolly,41.5%,Speed,Sp. Atk,,,,,,,21680.33
-Overqwil,90,stat_alignment,2,Impish,28.4%,Defense,Sp. Atk,,,,,,,21680.33
-Overqwil,90,stat_alignment,3,Careful,12.7%,Sp. Def,Sp. Atk,,,,,,,21680.33
-Overqwil,90,stat_alignment,4,Adamant,12.5%,Attack,Sp. Atk,,,,,,,21680.33
-Overqwil,90,stat_alignment,5,Bold,0.7%,Defense,Attack,,,,,,,21680.33
-Overqwil,90,stat_alignment,6,Relaxed,0.6%,Defense,Speed,,,,,,,21683.36
-Overqwil,90,stat_alignment,7,Timid,0.6%,Speed,Attack,,,,,,,21683.36
-Overqwil,90,stat_alignment,8,Calm,0.5%,Sp. Def,Attack,,,,,,,21683.36
-Overqwil,90,stat_alignment,9,Naive,0.4%,Speed,Sp. Def,,,,,,,21683.36
-Overqwil,90,stat_alignment,10,Sassy,0.4%,Sp. Def,Speed,,,,,,,21683.36
-Overqwil,90,stat_points,1,,14.2%,,,17,0,17,0,0,32,21685.57
-Overqwil,90,stat_points,2,,8.8%,,,32,0,32,0,2,0,21685.57
-Overqwil,90,stat_points,3,,5.6%,,,32,0,2,0,32,0,21685.57
-Overqwil,90,stat_points,4,,5.5%,,,2,32,0,0,0,32,21685.57
-Overqwil,90,stat_points,5,,4.6%,,,32,0,2,0,0,32,21685.57
-Overqwil,90,stat_points,6,,1.6%,,,31,0,32,0,3,0,21707.98
-Overqwil,90,stat_points,7,,1.6%,,,32,2,32,0,0,0,21707.98
-Overqwil,90,stat_points,8,,1.6%,,,32,0,0,0,2,32,21707.98
-Overqwil,90,ability,1,Intimidate,85.8%,,,,,,,,,21721.89
-Overqwil,90,ability,2,Swift Swim,8.9%,,,,,,,,,21721.89
-Overqwil,90,ability,3,Poison Point,5.2%,,,,,,,,,21721.89
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Overqwil,90,move,1,Minimize,63.4%,,,,,,,,
+Overqwil,90,move,2,Throat Chop,58.1%,,,,,,,,
+Overqwil,90,move,3,Substitute,50.5%,,,,,,,,
+Overqwil,90,move,4,Barb Barrage,47.0%,,,,,,,,
+Overqwil,90,move,5,Swords Dance,37.1%,,,,,,,,
+Overqwil,90,move,6,Crunch,25.2%,,,,,,,,
+Overqwil,90,move,7,Toxic Spikes,20.3%,,,,,,,,
+Overqwil,90,move,8,Toxic,15.7%,,,,,,,,
+Overqwil,90,move,9,Destiny Bond,10.8%,,,,,,,,
+Overqwil,90,move,10,Taunt,9.3%,,,,,,,,
+Overqwil,90,held_item,1,Leftovers,62.0%,,,,,,,,
+Overqwil,90,held_item,2,Sitrus Berry,13.5%,,,,,,,,
+Overqwil,90,held_item,3,Bright Powder,5.7%,,,,,,,,
+Overqwil,90,held_item,4,Shuca Berry,4.9%,,,,,,,,
+Overqwil,90,held_item,5,Life Orb,4.1%,,,,,,,,
+Overqwil,90,held_item,6,Focus Sash,2.6%,,,,,,,,
+Overqwil,90,held_item,7,Quick Claw,1.2%,,,,,,,,
+Overqwil,90,held_item,8,Damp Rock,1.0%,,,,,,,,
+Overqwil,90,held_item,9,Lum Berry,0.7%,,,,,,,,
+Overqwil,90,held_item,10,Mental Herb,0.7%,,,,,,,,
+Overqwil,90,teammate,1,Garchomp,,,,,,,,,
+Overqwil,90,teammate,2,Gengar,,,,,,,,,
+Overqwil,90,teammate,3,Mimikyu,,,,,,,,,
+Overqwil,90,teammate,4,Starmie,,,,,,,,,
+Overqwil,90,teammate,5,Delphox,,,,,,,,,
+Overqwil,90,teammate,6,Archaludon,,,,,,,,,
+Overqwil,90,teammate,7,Gyarados,,,,,,,,,
+Overqwil,90,teammate,8,Meowscarada,,,,,,,,,
+Overqwil,90,teammate,9,Staraptor,,,,,,,,,
+Overqwil,90,teammate,10,Venusaur,,,,,,,,,
+Overqwil,90,stat_alignment,1,Jolly,41.5%,Speed,Sp. Atk,,,,,,
+Overqwil,90,stat_alignment,2,Impish,28.4%,Defense,Sp. Atk,,,,,,
+Overqwil,90,stat_alignment,3,Careful,12.7%,Sp. Def,Sp. Atk,,,,,,
+Overqwil,90,stat_alignment,4,Adamant,12.5%,Attack,Sp. Atk,,,,,,
+Overqwil,90,stat_alignment,5,Bold,0.7%,Defense,Attack,,,,,,
+Overqwil,90,stat_alignment,6,Relaxed,0.6%,Defense,Speed,,,,,,
+Overqwil,90,stat_alignment,7,Timid,0.6%,Speed,Attack,,,,,,
+Overqwil,90,stat_alignment,8,Calm,0.5%,Sp. Def,Attack,,,,,,
+Overqwil,90,stat_alignment,9,Naive,0.4%,Speed,Sp. Def,,,,,,
+Overqwil,90,stat_alignment,10,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Overqwil,90,stat_points,1,,14.2%,,,17,0,17,0,0,32
+Overqwil,90,stat_points,2,,8.8%,,,32,0,32,0,2,0
+Overqwil,90,stat_points,3,,5.6%,,,32,0,2,0,32,0
+Overqwil,90,stat_points,4,,5.5%,,,2,32,0,0,0,32
+Overqwil,90,stat_points,5,,4.6%,,,32,0,2,0,0,32
+Overqwil,90,stat_points,6,,1.6%,,,31,0,32,0,3,0
+Overqwil,90,stat_points,7,,1.6%,,,32,2,32,0,0,0
+Overqwil,90,stat_points,8,,1.6%,,,32,0,0,0,2,32
+Overqwil,90,ability,1,Intimidate,85.8%,,,,,,,,
+Overqwil,90,ability,2,Swift Swim,8.9%,,,,,,,,
+Overqwil,90,ability,3,Poison Point,5.2%,,,,,,,,

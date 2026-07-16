@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Manectric,186,move,1,Volt Switch,89.7%,,,,,,,,
-Manectric,186,move,2,Thunderbolt,89.2%,,,,,,,,
-Manectric,186,move,3,Overheat,69.9%,,,,,,,,
-Manectric,186,move,4,Snarl,48.2%,,,,,,,,
-Manectric,186,move,5,Flamethrower,28.3%,,,,,,,,
-Manectric,186,move,6,Hyper Voice,7.8%,,,,,,,,
-Manectric,186,move,7,Thunder,7.0%,,,,,,,,
-Manectric,186,move,8,Ice Fang,6.7%,,,,,,,,
-Manectric,186,move,9,Light Screen,6.2%,,,,,,,,
-Manectric,186,move,10,Hyper Beam,5.2%,,,,,,,,
-Manectric,186,held_item,1,Manectite,79.5%,,,,,,,,
-Manectric,186,held_item,2,Choice Scarf,8.4%,,,,,,,,
-Manectric,186,held_item,3,Focus Sash,4.0%,,,,,,,,
-Manectric,186,held_item,4,Life Orb,2.6%,,,,,,,,
-Manectric,186,held_item,5,Quick Claw,1.8%,,,,,,,,
-Manectric,186,held_item,6,Leftovers,0.5%,,,,,,,,
-Manectric,186,held_item,7,White Herb,0.5%,,,,,,,,
-Manectric,186,held_item,8,Magnet,0.4%,,,,,,,,
-Manectric,186,held_item,9,Shuca Berry,0.3%,,,,,,,,
-Manectric,186,held_item,10,Expert Belt,0.3%,,,,,,,,
-Manectric,186,teammate,1,Garchomp,,,,,,,,,
-Manectric,186,teammate,2,Gyarados,,,,,,,,,
-Manectric,186,teammate,3,Meowscarada,,,,,,,,,
-Manectric,186,teammate,4,Corviknight,,,,,,,,,
-Manectric,186,teammate,5,Hydreigon,,,,,,,,,
-Manectric,186,teammate,6,Primarina,,,,,,,,,
-Manectric,186,teammate,7,Mimikyu,,,,,,,,,
-Manectric,186,teammate,8,Dragonite,,,,,,,,,
-Manectric,186,teammate,9,Alolan Ninetales,,,,,,,,,
-Manectric,186,teammate,10,Swampert,,,,,,,,,
-Manectric,186,stat_alignment,1,Timid,81.2%,Speed,Attack,,,,,,
-Manectric,186,stat_alignment,2,Modest,12.4%,Sp. Atk,Attack,,,,,,
-Manectric,186,stat_alignment,3,Naive,2.6%,Speed,Sp. Def,,,,,,
-Manectric,186,stat_alignment,4,Hasty,1.2%,Speed,Defense,,,,,,
-Manectric,186,stat_alignment,5,Rash,0.7%,Sp. Atk,Sp. Def,,,,,,
-Manectric,186,stat_alignment,6,Mild,0.7%,Sp. Atk,Defense,,,,,,
-Manectric,186,stat_alignment,7,Bold,0.3%,Defense,Attack,,,,,,
-Manectric,186,stat_alignment,8,Impish,0.2%,Defense,Sp. Atk,,,,,,
-Manectric,186,stat_alignment,9,Naughty,0.2%,Attack,Sp. Def,,,,,,
-Manectric,186,stat_alignment,10,Adamant,0.2%,Attack,Sp. Atk,,,,,,
-Manectric,186,stat_points,1,,72.9%,,,2,0,0,32,0,32
-Manectric,186,stat_points,2,,4.6%,,,0,0,2,32,0,32
-Manectric,186,stat_points,3,,4.5%,,,0,0,0,32,2,32
-Manectric,186,stat_points,4,,1.9%,,,1,0,0,32,0,32
-Manectric,186,stat_points,5,,1.8%,,,0,0,1,32,1,32
-Manectric,186,stat_points,6,,1.5%,,,0,0,0,32,0,32
-Manectric,186,stat_points,7,,1.1%,,,0,2,0,32,0,32
-Manectric,186,stat_points,8,,1.0%,,,0,0,20,26,0,20
-Manectric,186,stat_points,9,,0.9%,,,2,0,0,32,0,30
-Manectric,186,stat_points,10,,0.5%,,,0,0,0,32,1,32
-Manectric,186,stat_points,11,,0.5%,,,2,0,0,32,10,22
-Manectric,186,stat_points,12,,0.4%,,,6,0,0,32,0,28
-Manectric,186,ability,1,Lightning Rod,85.4%,,,,,,,,
-Manectric,186,ability,2,Static,13.4%,,,,,,,,
-Manectric,186,ability,3,Minus,1.1%,,,,,,,,
+Manectric,190,move,1,Volt Switch,90.8%,,,,,,,,
+Manectric,190,move,2,Thunderbolt,87.0%,,,,,,,,
+Manectric,190,move,3,Overheat,78.3%,,,,,,,,
+Manectric,190,move,4,Snarl,43.8%,,,,,,,,
+Manectric,190,move,5,Flamethrower,19.1%,,,,,,,,
+Manectric,190,move,6,Thunder,8.9%,,,,,,,,
+Manectric,190,move,7,Quick Attack,7.4%,,,,,,,,
+Manectric,190,move,8,Ice Fang,7.2%,,,,,,,,
+Manectric,190,move,9,Substitute,6.8%,,,,,,,,
+Manectric,190,move,10,Roar,6.1%,,,,,,,,
+Manectric,190,held_item,1,Manectite,84.8%,,,,,,,,
+Manectric,190,held_item,2,Choice Scarf,3.0%,,,,,,,,
+Manectric,190,held_item,3,Focus Sash,1.7%,,,,,,,,
+Manectric,190,held_item,4,Magnet,1.1%,,,,,,,,
+Manectric,190,held_item,5,Life Orb,0.7%,,,,,,,,
+Manectric,190,held_item,6,Sitrus Berry,0.6%,,,,,,,,
+Manectric,190,held_item,7,Leftovers,0.5%,,,,,,,,
+Manectric,190,held_item,8,Quick Claw,0.4%,,,,,,,,
+Manectric,190,held_item,9,Bright Powder,0.3%,,,,,,,,
+Manectric,190,held_item,10,Charcoal,0.2%,,,,,,,,
+Manectric,190,teammate,1,Garchomp,,,,,,,,,
+Manectric,190,teammate,2,Mimikyu,,,,,,,,,
+Manectric,190,teammate,3,Gyarados,,,,,,,,,
+Manectric,190,teammate,4,Meowscarada,,,,,,,,,
+Manectric,190,teammate,5,Corviknight,,,,,,,,,
+Manectric,190,teammate,6,Dragonite,,,,,,,,,
+Manectric,190,teammate,7,Primarina,,,,,,,,,
+Manectric,190,teammate,8,Hydreigon,,,,,,,,,
+Manectric,190,teammate,9,Basculegion Male,,,,,,,,,
+Manectric,190,teammate,10,Armarouge,,,,,,,,,
+Manectric,190,stat_alignment,1,Timid,82.1%,Speed,Attack,,,,,,
+Manectric,190,stat_alignment,2,Modest,10.2%,Sp. Atk,Attack,,,,,,
+Manectric,190,stat_alignment,3,Hasty,3.0%,Speed,Defense,,,,,,
+Manectric,190,stat_alignment,4,Naive,2.2%,Speed,Sp. Def,,,,,,
+Manectric,190,stat_alignment,5,Adamant,1.1%,Attack,Sp. Atk,,,,,,
+Manectric,190,stat_alignment,6,Rash,0.4%,Sp. Atk,Sp. Def,,,,,,
+Manectric,190,stat_alignment,7,Bold,0.3%,Defense,Attack,,,,,,
+Manectric,190,stat_alignment,8,Calm,0.2%,Sp. Def,Attack,,,,,,
+Manectric,190,stat_alignment,9,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Manectric,190,stat_alignment,10,Lax,0.1%,Defense,Sp. Def,,,,,,
+Manectric,190,stat_points,1,,72.5%,,,2,0,0,32,0,32
+Manectric,190,stat_points,2,,5.8%,,,0,0,0,32,2,32
+Manectric,190,stat_points,3,,5.4%,,,0,0,2,32,0,32
+Manectric,190,stat_points,4,,1.8%,,,0,0,1,32,1,32
+Manectric,190,stat_points,5,,1.6%,,,4,0,0,30,0,32
+Manectric,190,stat_points,6,,0.7%,,,4,0,0,32,0,30
+Manectric,190,stat_points,7,,0.7%,,,24,0,0,10,0,32
+Manectric,190,stat_points,8,,0.7%,,,14,0,0,20,0,32
+Manectric,190,ability,1,Lightning Rod,91.4%,,,,,,,,
+Manectric,190,ability,2,Static,8.3%,,,,,,,,
+Manectric,190,ability,3,Minus,0.3%,,,,,,,,

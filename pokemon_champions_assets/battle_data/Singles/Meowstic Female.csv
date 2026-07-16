@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Meowstic Female,201,move,1,Thunderbolt,71.3%,,,,,,,,
-Meowstic Female,201,move,2,Psychic,69.2%,,,,,,,,
-Meowstic Female,201,move,3,Alluring Voice,53.7%,,,,,,,,
-Meowstic Female,201,move,4,Energy Ball,49.3%,,,,,,,,
-Meowstic Female,201,move,5,Nasty Plot,24.7%,,,,,,,,
-Meowstic Female,201,move,6,Dark Pulse,17.6%,,,,,,,,
-Meowstic Female,201,move,7,Shadow Ball,15.2%,,,,,,,,
-Meowstic Female,201,move,8,Calm Mind,13.6%,,,,,,,,
-Meowstic Female,201,move,9,Psyshock,11.6%,,,,,,,,
-Meowstic Female,201,move,10,Protect,8.9%,,,,,,,,
-Meowstic Female,201,held_item,1,Meowsticite,87.2%,,,,,,,,
-Meowstic Female,201,held_item,2,Focus Sash,2.9%,,,,,,,,
-Meowstic Female,201,held_item,3,Light Clay,2.1%,,,,,,,,
-Meowstic Female,201,held_item,4,Choice Scarf,1.2%,,,,,,,,
-Meowstic Female,201,held_item,5,Sitrus Berry,1.1%,,,,,,,,
-Meowstic Female,201,held_item,6,Leftovers,0.6%,,,,,,,,
-Meowstic Female,201,held_item,7,Expert Belt,0.6%,,,,,,,,
-Meowstic Female,201,held_item,8,Bright Powder,0.5%,,,,,,,,
-Meowstic Female,201,held_item,9,Lum Berry,0.4%,,,,,,,,
-Meowstic Female,201,held_item,10,Quick Claw,0.3%,,,,,,,,
-Meowstic Female,201,teammate,1,Meowscarada,,,,,,,,,
-Meowstic Female,201,teammate,2,Garchomp,,,,,,,,,
-Meowstic Female,201,teammate,3,Mimikyu,,,,,,,,,
-Meowstic Female,201,teammate,4,Archaludon,,,,,,,,,
-Meowstic Female,201,teammate,5,Dragapult,,,,,,,,,
-Meowstic Female,201,teammate,6,Kingambit,,,,,,,,,
-Meowstic Female,201,teammate,7,Staraptor,,,,,,,,,
-Meowstic Female,201,teammate,8,Corviknight,,,,,,,,,
-Meowstic Female,201,teammate,9,Primarina,,,,,,,,,
-Meowstic Female,201,teammate,10,Basculegion Male,,,,,,,,,
-Meowstic Female,201,stat_alignment,1,Timid,71.3%,Speed,Attack,,,,,,
-Meowstic Female,201,stat_alignment,2,Modest,21.1%,Sp. Atk,Attack,,,,,,
-Meowstic Female,201,stat_alignment,3,Bold,2.4%,Defense,Attack,,,,,,
-Meowstic Female,201,stat_alignment,4,Quiet,1.4%,Sp. Atk,Speed,,,,,,
-Meowstic Female,201,stat_alignment,5,Hasty,1.2%,Speed,Defense,,,,,,
-Meowstic Female,201,stat_alignment,6,Calm,1.0%,Sp. Def,Attack,,,,,,
-Meowstic Female,201,stat_alignment,7,Naive,0.8%,Speed,Sp. Def,,,,,,
-Meowstic Female,201,stat_alignment,8,Mild,0.3%,Sp. Atk,Defense,,,,,,
-Meowstic Female,201,stat_alignment,9,Jolly,0.2%,Speed,Sp. Atk,,,,,,
-Meowstic Female,201,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
-Meowstic Female,201,stat_points,1,,50.7%,,,2,0,0,32,0,32
-Meowstic Female,201,stat_points,2,,6.6%,,,0,0,0,32,2,32
-Meowstic Female,201,stat_points,3,,5.8%,,,0,0,2,32,0,32
-Meowstic Female,201,stat_points,4,,1.8%,,,32,0,0,0,13,21
-Meowstic Female,201,stat_points,5,,1.6%,,,0,0,19,0,15,32
-Meowstic Female,201,stat_points,6,,1.4%,,,0,0,0,32,0,32
-Meowstic Female,201,stat_points,7,,1.4%,,,32,0,32,2,0,0
-Meowstic Female,201,stat_points,8,,1.3%,,,0,0,1,32,1,32
-Meowstic Female,201,stat_points,9,,1.2%,,,16,0,4,6,8,32
-Meowstic Female,201,stat_points,10,,1.2%,,,32,0,23,0,0,11
-Meowstic Female,201,stat_points,11,,1.1%,,,0,0,2,32,32,0
-Meowstic Female,201,stat_points,12,,1.0%,,,1,0,0,32,2,31
-Meowstic Female,201,ability,1,Competitive,81.3%,,,,,,,,
-Meowstic Female,201,ability,2,Infiltrator,16.7%,,,,,,,,
-Meowstic Female,201,ability,3,Keen Eye,2.0%,,,,,,,,
+Meowstic Female,206,move,1,Alluring Voice,70.0%,,,,,,,,
+Meowstic Female,206,move,2,Psychic,67.7%,,,,,,,,
+Meowstic Female,206,move,3,Thunderbolt,61.9%,,,,,,,,
+Meowstic Female,206,move,4,Energy Ball,32.5%,,,,,,,,
+Meowstic Female,206,move,5,Psyshock,27.4%,,,,,,,,
+Meowstic Female,206,move,6,Nasty Plot,24.9%,,,,,,,,
+Meowstic Female,206,move,7,Dark Pulse,24.7%,,,,,,,,
+Meowstic Female,206,move,8,Calm Mind,18.4%,,,,,,,,
+Meowstic Female,206,move,9,Shadow Ball,14.5%,,,,,,,,
+Meowstic Female,206,move,10,Fake Out,9.0%,,,,,,,,
+Meowstic Female,206,held_item,1,Meowsticite,88.2%,,,,,,,,
+Meowstic Female,206,held_item,2,Choice Scarf,2.1%,,,,,,,,
+Meowstic Female,206,held_item,3,Focus Sash,2.0%,,,,,,,,
+Meowstic Female,206,held_item,4,Light Clay,1.7%,,,,,,,,
+Meowstic Female,206,held_item,5,Life Orb,1.3%,,,,,,,,
+Meowstic Female,206,held_item,6,Sitrus Berry,1.1%,,,,,,,,
+Meowstic Female,206,held_item,7,Wise Glasses,0.9%,,,,,,,,
+Meowstic Female,206,held_item,8,Quick Claw,0.7%,,,,,,,,
+Meowstic Female,206,held_item,9,Leftovers,0.5%,,,,,,,,
+Meowstic Female,206,held_item,10,Expert Belt,0.4%,,,,,,,,
+Meowstic Female,206,teammate,1,Meowscarada,,,,,,,,,
+Meowstic Female,206,teammate,2,Garchomp,,,,,,,,,
+Meowstic Female,206,teammate,3,Mimikyu,,,,,,,,,
+Meowstic Female,206,teammate,4,Corviknight,,,,,,,,,
+Meowstic Female,206,teammate,5,Blaziken,,,,,,,,,
+Meowstic Female,206,teammate,6,Kingambit,,,,,,,,,
+Meowstic Female,206,teammate,7,Archaludon,,,,,,,,,
+Meowstic Female,206,teammate,8,Sneasler,,,,,,,,,
+Meowstic Female,206,teammate,9,Gyarados,,,,,,,,,
+Meowstic Female,206,teammate,10,Primarina,,,,,,,,,
+Meowstic Female,206,stat_alignment,1,Timid,74.2%,Speed,Attack,,,,,,
+Meowstic Female,206,stat_alignment,2,Modest,22.0%,Sp. Atk,Attack,,,,,,
+Meowstic Female,206,stat_alignment,3,Bold,1.1%,Defense,Attack,,,,,,
+Meowstic Female,206,stat_alignment,4,Naive,0.8%,Speed,Sp. Def,,,,,,
+Meowstic Female,206,stat_alignment,5,Hasty,0.7%,Speed,Defense,,,,,,
+Meowstic Female,206,stat_alignment,6,Mild,0.6%,Sp. Atk,Defense,,,,,,
+Meowstic Female,206,stat_alignment,7,Calm,0.4%,Sp. Def,Attack,,,,,,
+Meowstic Female,206,stat_alignment,8,Relaxed,0.1%,Defense,Speed,,,,,,
+Meowstic Female,206,stat_alignment,9,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Meowstic Female,206,stat_alignment,10,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Meowstic Female,206,stat_points,1,,52.0%,,,2,0,0,32,0,32
+Meowstic Female,206,stat_points,2,,5.7%,,,0,0,0,32,2,32
+Meowstic Female,206,stat_points,3,,5.0%,,,14,0,0,32,0,20
+Meowstic Female,206,stat_points,4,,3.9%,,,32,0,7,17,10,0
+Meowstic Female,206,stat_points,5,,2.9%,,,0,0,2,32,0,32
+Meowstic Female,206,stat_points,6,,1.2%,,,8,0,0,32,0,26
+Meowstic Female,206,stat_points,7,,1.1%,,,30,0,17,0,0,19
+Meowstic Female,206,stat_points,8,,1.1%,,,0,0,7,18,9,32
+Meowstic Female,206,ability,1,Competitive,86.5%,,,,,,,,
+Meowstic Female,206,ability,2,Infiltrator,12.2%,,,,,,,,
+Meowstic Female,206,ability,3,Keen Eye,1.4%,,,,,,,,

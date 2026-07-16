@@ -1,50 +1,50 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Gengar,18,move,1,Shadow Ball,87.4%,,,,,,,,,14668.08
-Gengar,18,move,2,Destiny Bond,65.0%,,,,,,,,,14668.08
-Gengar,18,move,3,Sludge Wave,56.3%,,,,,,,,,14668.08
-Gengar,18,move,4,Protect,47.8%,,,,,,,,,14668.08
-Gengar,18,move,5,Perish Song,39.5%,,,,,,,,,14668.08
-Gengar,18,move,6,Icy Wind,23.4%,,,,,,,,,14672.32
-Gengar,18,move,7,Will-O-Wisp,11.3%,,,,,,,,,14672.32
-Gengar,18,move,8,Focus Blast,10.6%,,,,,,,,,14672.32
-Gengar,18,move,9,Hex,9.3%,,,,,,,,,14672.32
-Gengar,18,move,10,Sludge Bomb,7.5%,,,,,,,,,14672.32
-Gengar,18,held_item,1,Gengarite,76.3%,,,,,,,,,14675.63
-Gengar,18,held_item,2,Focus Sash,20.7%,,,,,,,,,14675.63
-Gengar,18,held_item,3,Choice Scarf,1.1%,,,,,,,,,14675.63
-Gengar,18,held_item,4,Life Orb,0.5%,,,,,,,,,14675.63
-Gengar,18,held_item,5,Quick Claw,0.2%,,,,,,,,,14675.63
-Gengar,18,held_item,6,Spell Tag,0.1%,,,,,,,,,14682.75
-Gengar,18,held_item,7,Sitrus Berry,0.1%,,,,,,,,,14682.75
-Gengar,18,held_item,8,Wide Lens,0.1%,,,,,,,,,14682.75
-Gengar,18,held_item,9,Wise Glasses,0.1%,,,,,,,,,14682.75
-Gengar,18,held_item,10,Expert Belt,0.1%,,,,,,,,,14682.75
-Gengar,18,teammate,1,Garchomp,,,,,,,,,,14689.13
-Gengar,18,teammate,2,Corviknight,,,,,,,,,,14689.13
-Gengar,18,teammate,3,Primarina,,,,,,,,,,14689.13
-Gengar,18,teammate,4,Bellibolt,,,,,,,,,,14689.13
-Gengar,18,teammate,5,Hippowdon,,,,,,,,,,14689.13
-Gengar,18,teammate,6,Hisuian Samurott,,,,,,,,,,14692.00
-Gengar,18,teammate,7,Meowscarada,,,,,,,,,,14692.00
-Gengar,18,teammate,8,Starmie,,,,,,,,,,14692.00
-Gengar,18,teammate,9,Metagross,,,,,,,,,,14692.00
-Gengar,18,teammate,10,Mimikyu,,,,,,,,,,14692.00
-Gengar,18,stat_alignment,1,Timid,84.0%,Speed,Attack,,,,,,,14694.01
-Gengar,18,stat_alignment,2,Modest,14.3%,Sp. Atk,Attack,,,,,,,14694.01
-Gengar,18,stat_alignment,3,Hasty,0.4%,Speed,Defense,,,,,,,14694.01
-Gengar,18,stat_alignment,4,Naive,0.4%,Speed,Sp. Def,,,,,,,14694.01
-Gengar,18,stat_alignment,5,Bold,0.3%,Defense,Attack,,,,,,,14694.01
-Gengar,18,stat_alignment,6,Calm,0.2%,Sp. Def,Attack,,,,,,,14696.98
-Gengar,18,stat_alignment,7,Mild,0.1%,Sp. Atk,Defense,,,,,,,14696.98
-Gengar,18,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,,14696.98
-Gengar,18,stat_alignment,9,Rash,0.0%,Sp. Atk,Sp. Def,,,,,,,14696.98
-Gengar,18,stat_alignment,10,Serious,0.0%,,,,,,,,,14696.98
-Gengar,18,stat_points,1,,42.5%,,,2,0,0,32,0,32,14699.09
-Gengar,18,stat_points,2,,19.0%,,,18,0,0,13,3,32,14699.09
-Gengar,18,stat_points,3,,3.7%,,,0,0,2,32,0,32,14699.09
-Gengar,18,stat_points,4,,3.6%,,,32,0,2,0,0,32,14699.09
-Gengar,18,stat_points,5,,2.7%,,,16,0,0,21,0,29,14699.09
-Gengar,18,stat_points,6,,2.1%,,,32,0,0,2,0,32,14720.78
-Gengar,18,stat_points,7,,1.9%,,,0,0,0,32,2,32,14720.78
-Gengar,18,stat_points,8,,1.4%,,,24,0,0,16,0,26,14720.78
-Gengar,18,ability,1,Cursed Body,100.0%,,,,,,,,,14734.38
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Gengar,18,move,1,Shadow Ball,87.4%,,,,,,,,
+Gengar,18,move,2,Destiny Bond,65.0%,,,,,,,,
+Gengar,18,move,3,Sludge Wave,56.3%,,,,,,,,
+Gengar,18,move,4,Protect,47.8%,,,,,,,,
+Gengar,18,move,5,Perish Song,39.5%,,,,,,,,
+Gengar,18,move,6,Icy Wind,23.4%,,,,,,,,
+Gengar,18,move,7,Will-O-Wisp,11.3%,,,,,,,,
+Gengar,18,move,8,Focus Blast,10.6%,,,,,,,,
+Gengar,18,move,9,Hex,9.3%,,,,,,,,
+Gengar,18,move,10,Sludge Bomb,7.5%,,,,,,,,
+Gengar,18,held_item,1,Gengarite,76.3%,,,,,,,,
+Gengar,18,held_item,2,Focus Sash,20.7%,,,,,,,,
+Gengar,18,held_item,3,Choice Scarf,1.1%,,,,,,,,
+Gengar,18,held_item,4,Life Orb,0.5%,,,,,,,,
+Gengar,18,held_item,5,Quick Claw,0.2%,,,,,,,,
+Gengar,18,held_item,6,Spell Tag,0.1%,,,,,,,,
+Gengar,18,held_item,7,Sitrus Berry,0.1%,,,,,,,,
+Gengar,18,held_item,8,Wide Lens,0.1%,,,,,,,,
+Gengar,18,held_item,9,Wise Glasses,0.1%,,,,,,,,
+Gengar,18,held_item,10,Expert Belt,0.1%,,,,,,,,
+Gengar,18,teammate,1,Garchomp,,,,,,,,,
+Gengar,18,teammate,2,Corviknight,,,,,,,,,
+Gengar,18,teammate,3,Primarina,,,,,,,,,
+Gengar,18,teammate,4,Bellibolt,,,,,,,,,
+Gengar,18,teammate,5,Hippowdon,,,,,,,,,
+Gengar,18,teammate,6,Hisuian Samurott,,,,,,,,,
+Gengar,18,teammate,7,Meowscarada,,,,,,,,,
+Gengar,18,teammate,8,Starmie,,,,,,,,,
+Gengar,18,teammate,9,Metagross,,,,,,,,,
+Gengar,18,teammate,10,Mimikyu,,,,,,,,,
+Gengar,18,stat_alignment,1,Timid,84.0%,Speed,Attack,,,,,,
+Gengar,18,stat_alignment,2,Modest,14.3%,Sp. Atk,Attack,,,,,,
+Gengar,18,stat_alignment,3,Hasty,0.4%,Speed,Defense,,,,,,
+Gengar,18,stat_alignment,4,Naive,0.4%,Speed,Sp. Def,,,,,,
+Gengar,18,stat_alignment,5,Bold,0.3%,Defense,Attack,,,,,,
+Gengar,18,stat_alignment,6,Calm,0.2%,Sp. Def,Attack,,,,,,
+Gengar,18,stat_alignment,7,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Gengar,18,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Gengar,18,stat_alignment,9,Rash,0.0%,Sp. Atk,Sp. Def,,,,,,
+Gengar,18,stat_alignment,10,Serious,0.0%,,,,,,,,
+Gengar,18,stat_points,1,,42.5%,,,2,0,0,32,0,32
+Gengar,18,stat_points,2,,19.0%,,,18,0,0,13,3,32
+Gengar,18,stat_points,3,,3.7%,,,0,0,2,32,0,32
+Gengar,18,stat_points,4,,3.6%,,,32,0,2,0,0,32
+Gengar,18,stat_points,5,,2.7%,,,16,0,0,21,0,29
+Gengar,18,stat_points,6,,2.1%,,,32,0,0,2,0,32
+Gengar,18,stat_points,7,,1.9%,,,0,0,0,32,2,32
+Gengar,18,stat_points,8,,1.4%,,,24,0,0,16,0,26
+Gengar,18,ability,1,Cursed Body,100.0%,,,,,,,,

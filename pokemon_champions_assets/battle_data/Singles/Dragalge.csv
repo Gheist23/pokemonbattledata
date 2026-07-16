@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dragalge,29,move,1,Flip Turn,92.1%,,,,,,,,
-Dragalge,29,move,2,Draco Meteor,89.6%,,,,,,,,
-Dragalge,29,move,3,Toxic,58.3%,,,,,,,,
-Dragalge,29,move,4,Toxic Spikes,44.8%,,,,,,,,
-Dragalge,29,move,5,Thunderbolt,33.7%,,,,,,,,
-Dragalge,29,move,6,Sludge Wave,26.2%,,,,,,,,
-Dragalge,29,move,7,Sludge Bomb,19.1%,,,,,,,,
-Dragalge,29,move,8,Scald,10.0%,,,,,,,,
-Dragalge,29,move,9,Shadow Ball,4.1%,,,,,,,,
-Dragalge,29,move,10,Dragon Tail,3.6%,,,,,,,,
-Dragalge,29,held_item,1,Dragalgite,98.4%,,,,,,,,
-Dragalge,29,held_item,2,Life Orb,0.4%,,,,,,,,
-Dragalge,29,held_item,3,Leftovers,0.2%,,,,,,,,
-Dragalge,29,held_item,4,Sitrus Berry,0.2%,,,,,,,,
-Dragalge,29,held_item,5,Dragon Fang,0.2%,,,,,,,,
-Dragalge,29,held_item,6,White Herb,0.1%,,,,,,,,
-Dragalge,29,held_item,7,Focus Sash,0.1%,,,,,,,,
-Dragalge,29,held_item,8,Wise Glasses,0.0%,,,,,,,,
-Dragalge,29,held_item,9,Shuca Berry,0.0%,,,,,,,,
-Dragalge,29,held_item,10,Expert Belt,0.0%,,,,,,,,
-Dragalge,29,teammate,1,Corviknight,,,,,,,,,
-Dragalge,29,teammate,2,Grimmsnarl,,,,,,,,,
-Dragalge,29,teammate,3,Garchomp,,,,,,,,,
-Dragalge,29,teammate,4,Meowscarada,,,,,,,,,
-Dragalge,29,teammate,5,Skeledirge,,,,,,,,,
-Dragalge,29,teammate,6,Hippowdon,,,,,,,,,
-Dragalge,29,teammate,7,Gholdengo,,,,,,,,,
-Dragalge,29,teammate,8,Mimikyu,,,,,,,,,
-Dragalge,29,teammate,9,Blaziken,,,,,,,,,
-Dragalge,29,teammate,10,Archaludon,,,,,,,,,
-Dragalge,29,stat_alignment,1,Sassy,41.8%,Sp. Def,Speed,,,,,,
-Dragalge,29,stat_alignment,2,Calm,20.1%,Sp. Def,Attack,,,,,,
-Dragalge,29,stat_alignment,3,Quiet,13.7%,Sp. Atk,Speed,,,,,,
-Dragalge,29,stat_alignment,4,Modest,10.6%,Sp. Atk,Attack,,,,,,
-Dragalge,29,stat_alignment,5,Bold,7.6%,Defense,Attack,,,,,,
-Dragalge,29,stat_alignment,6,Relaxed,5.4%,Defense,Speed,,,,,,
-Dragalge,29,stat_alignment,7,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
-Dragalge,29,stat_alignment,8,Timid,0.2%,Speed,Attack,,,,,,
-Dragalge,29,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Dragalge,29,stat_alignment,10,Gentle,0.0%,Sp. Def,Defense,,,,,,
-Dragalge,29,stat_points,1,,19.5%,,,32,0,2,0,32,0
-Dragalge,29,stat_points,2,,8.6%,,,32,0,17,0,17,0
-Dragalge,29,stat_points,3,,6.1%,,,32,0,2,32,0,0
-Dragalge,29,stat_points,4,,6.0%,,,32,0,0,2,32,0
-Dragalge,29,stat_points,5,,4.8%,,,32,0,32,0,2,0
-Dragalge,29,stat_points,6,,3.5%,,,32,0,0,32,2,0
-Dragalge,29,stat_points,7,,3.5%,,,31,0,18,0,17,0
-Dragalge,29,stat_points,8,,2.8%,,,31,0,3,0,32,0
-Dragalge,29,stat_points,9,,2.4%,,,3,0,32,3,0,0
-Dragalge,29,stat_points,10,,2.2%,,,32,0,32,2,0,0
-Dragalge,29,stat_points,11,,1.9%,,,32,0,1,32,1,0
-Dragalge,29,stat_points,12,,1.7%,,,32,0,19,0,11,4
-Dragalge,29,ability,1,Adaptability,64.9%,,,,,,,,
-Dragalge,29,ability,2,Poison Point,30.0%,,,,,,,,
-Dragalge,29,ability,3,Poison Touch,5.1%,,,,,,,,
+Dragalge,53,move,1,Flip Turn,90.1%,,,,,,,,
+Dragalge,53,move,2,Draco Meteor,90.0%,,,,,,,,
+Dragalge,53,move,3,Toxic,66.7%,,,,,,,,
+Dragalge,53,move,4,Toxic Spikes,33.6%,,,,,,,,
+Dragalge,53,move,5,Sludge Wave,28.4%,,,,,,,,
+Dragalge,53,move,6,Thunderbolt,26.6%,,,,,,,,
+Dragalge,53,move,7,Sludge Bomb,19.0%,,,,,,,,
+Dragalge,53,move,8,Scald,10.5%,,,,,,,,
+Dragalge,53,move,9,Shadow Ball,3.7%,,,,,,,,
+Dragalge,53,move,10,Protect,3.0%,,,,,,,,
+Dragalge,53,held_item,1,Dragalgite,96.2%,,,,,,,,
+Dragalge,53,held_item,2,Life Orb,0.9%,,,,,,,,
+Dragalge,53,held_item,3,Leftovers,0.4%,,,,,,,,
+Dragalge,53,held_item,4,White Herb,0.3%,,,,,,,,
+Dragalge,53,held_item,5,Sitrus Berry,0.3%,,,,,,,,
+Dragalge,53,held_item,6,Dragon Fang,0.3%,,,,,,,,
+Dragalge,53,held_item,7,Shuca Berry,0.2%,,,,,,,,
+Dragalge,53,held_item,8,Focus Sash,0.1%,,,,,,,,
+Dragalge,53,held_item,9,Quick Claw,0.1%,,,,,,,,
+Dragalge,53,held_item,10,Expert Belt,0.1%,,,,,,,,
+Dragalge,53,teammate,1,Corviknight,,,,,,,,,
+Dragalge,53,teammate,2,Grimmsnarl,,,,,,,,,
+Dragalge,53,teammate,3,Garchomp,,,,,,,,,
+Dragalge,53,teammate,4,Umbreon,,,,,,,,,
+Dragalge,53,teammate,5,Skeledirge,,,,,,,,,
+Dragalge,53,teammate,6,Meowscarada,,,,,,,,,
+Dragalge,53,teammate,7,Mimikyu,,,,,,,,,
+Dragalge,53,teammate,8,Hippowdon,,,,,,,,,
+Dragalge,53,teammate,9,Blaziken,,,,,,,,,
+Dragalge,53,teammate,10,Delphox,,,,,,,,,
+Dragalge,53,stat_alignment,1,Sassy,44.1%,Sp. Def,Speed,,,,,,
+Dragalge,53,stat_alignment,2,Calm,22.4%,Sp. Def,Attack,,,,,,
+Dragalge,53,stat_alignment,3,Modest,10.1%,Sp. Atk,Attack,,,,,,
+Dragalge,53,stat_alignment,4,Quiet,9.1%,Sp. Atk,Speed,,,,,,
+Dragalge,53,stat_alignment,5,Bold,7.1%,Defense,Attack,,,,,,
+Dragalge,53,stat_alignment,6,Relaxed,6.2%,Defense,Speed,,,,,,
+Dragalge,53,stat_alignment,7,Timid,0.3%,Speed,Attack,,,,,,
+Dragalge,53,stat_alignment,8,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
+Dragalge,53,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Dragalge,53,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Dragalge,53,stat_points,1,,20.5%,,,32,0,2,0,32,0
+Dragalge,53,stat_points,2,,7.6%,,,32,0,17,0,17,0
+Dragalge,53,stat_points,3,,6.2%,,,32,0,0,2,32,0
+Dragalge,53,stat_points,4,,4.8%,,,32,0,32,0,2,0
+Dragalge,53,stat_points,5,,4.2%,,,31,0,18,0,17,0
+Dragalge,53,stat_points,6,,2.8%,,,32,0,0,32,2,0
+Dragalge,53,stat_points,7,,2.6%,,,31,0,32,0,3,0
+Dragalge,53,stat_points,8,,2.3%,,,31,0,32,3,0,0
+Dragalge,53,ability,1,Adaptability,65.2%,,,,,,,,
+Dragalge,53,ability,2,Poison Point,29.7%,,,,,,,,
+Dragalge,53,ability,3,Poison Touch,5.1%,,,,,,,,

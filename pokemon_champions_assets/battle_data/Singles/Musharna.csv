@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Musharna,167,move,1,Trick Room,82.5%,,,,,,,,
-Musharna,167,move,2,Healing Wish,75.7%,,,,,,,,
-Musharna,167,move,3,Yawn,62.4%,,,,,,,,
-Musharna,167,move,4,Psychic,44.3%,,,,,,,,
-Musharna,167,move,5,Misty Explosion,30.7%,,,,,,,,
-Musharna,167,move,6,Moonblast,27.9%,,,,,,,,
-Musharna,167,move,7,Moonlight,16.6%,,,,,,,,
-Musharna,167,move,8,Future Sight,9.3%,,,,,,,,
-Musharna,167,move,9,Calm Mind,7.0%,,,,,,,,
-Musharna,167,move,10,Energy Ball,6.6%,,,,,,,,
-Musharna,167,held_item,1,Sitrus Berry,40.9%,,,,,,,,
-Musharna,167,held_item,2,Mental Herb,25.9%,,,,,,,,
-Musharna,167,held_item,3,Leftovers,13.7%,,,,,,,,
-Musharna,167,held_item,4,Kasib Berry,3.2%,,,,,,,,
-Musharna,167,held_item,5,Light Clay,3.0%,,,,,,,,
-Musharna,167,held_item,6,Focus Sash,2.1%,,,,,,,,
-Musharna,167,held_item,7,Colbur Berry,1.7%,,,,,,,,
-Musharna,167,held_item,8,Bright Powder,1.4%,,,,,,,,
-Musharna,167,held_item,9,Lum Berry,1.3%,,,,,,,,
-Musharna,167,held_item,10,Damp Rock,1.0%,,,,,,,,
-Musharna,167,teammate,1,Mawile,,,,,,,,,
-Musharna,167,teammate,2,Garchomp,,,,,,,,,
-Musharna,167,teammate,3,Archaludon,,,,,,,,,
-Musharna,167,teammate,4,Swampert,,,,,,,,,
-Musharna,167,teammate,5,Pelipper,,,,,,,,,
-Musharna,167,teammate,6,Meowscarada,,,,,,,,,
-Musharna,167,teammate,7,Rotom Wash,,,,,,,,,
-Musharna,167,teammate,8,Charizard,,,,,,,,,
-Musharna,167,teammate,9,Incineroar,,,,,,,,,
-Musharna,167,teammate,10,Mimikyu,,,,,,,,,
-Musharna,167,stat_alignment,1,Relaxed,34.6%,Defense,Speed,,,,,,
-Musharna,167,stat_alignment,2,Bold,34.0%,Defense,Attack,,,,,,
-Musharna,167,stat_alignment,3,Calm,12.0%,Sp. Def,Attack,,,,,,
-Musharna,167,stat_alignment,4,Sassy,6.5%,Sp. Def,Speed,,,,,,
-Musharna,167,stat_alignment,5,Quiet,6.2%,Sp. Atk,Speed,,,,,,
-Musharna,167,stat_alignment,6,Modest,5.3%,Sp. Atk,Attack,,,,,,
-Musharna,167,stat_alignment,7,Impish,0.5%,Defense,Sp. Atk,,,,,,
-Musharna,167,stat_alignment,8,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
-Musharna,167,stat_alignment,9,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Musharna,167,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,
-Musharna,167,stat_points,1,,24.4%,,,32,0,32,0,2,0
-Musharna,167,stat_points,2,,19.5%,,,32,0,22,0,12,0
-Musharna,167,stat_points,3,,5.2%,,,32,0,25,0,9,0
-Musharna,167,stat_points,4,,4.6%,,,32,0,2,0,32,0
-Musharna,167,stat_points,5,,3.1%,,,2,0,32,0,32,0
-Musharna,167,stat_points,6,,2.3%,,,32,0,2,32,0,0
-Musharna,167,stat_points,7,,2.0%,,,32,0,32,2,0,0
-Musharna,167,stat_points,8,,1.5%,,,32,0,10,18,6,0
-Musharna,167,stat_points,9,,1.5%,,,2,0,32,32,0,0
-Musharna,167,stat_points,10,,1.5%,,,32,0,18,0,16,0
-Musharna,167,stat_points,11,,1.2%,,,32,0,16,0,18,0
-Musharna,167,stat_points,12,,1.2%,,,32,0,19,0,15,0
-Musharna,167,ability,1,Synchronize,53.1%,,,,,,,,
-Musharna,167,ability,2,Forewarn,44.8%,,,,,,,,
-Musharna,167,ability,3,Telepathy,2.1%,,,,,,,,
+Musharna,147,move,1,Trick Room,91.7%,,,,,,,,
+Musharna,147,move,2,Healing Wish,86.6%,,,,,,,,
+Musharna,147,move,3,Yawn,71.5%,,,,,,,,
+Musharna,147,move,4,Psychic,41.2%,,,,,,,,
+Musharna,147,move,5,Misty Explosion,35.7%,,,,,,,,
+Musharna,147,move,6,Moonblast,23.7%,,,,,,,,
+Musharna,147,move,7,Moonlight,9.4%,,,,,,,,
+Musharna,147,move,8,Light Screen,5.0%,,,,,,,,
+Musharna,147,move,9,Calm Mind,4.0%,,,,,,,,
+Musharna,147,move,10,Shadow Ball,4.0%,,,,,,,,
+Musharna,147,held_item,1,Mental Herb,52.1%,,,,,,,,
+Musharna,147,held_item,2,Sitrus Berry,21.7%,,,,,,,,
+Musharna,147,held_item,3,Leftovers,8.6%,,,,,,,,
+Musharna,147,held_item,4,Kasib Berry,3.9%,,,,,,,,
+Musharna,147,held_item,5,Light Clay,2.3%,,,,,,,,
+Musharna,147,held_item,6,Focus Sash,2.3%,,,,,,,,
+Musharna,147,held_item,7,Colbur Berry,2.0%,,,,,,,,
+Musharna,147,held_item,8,Lum Berry,1.8%,,,,,,,,
+Musharna,147,held_item,9,White Herb,1.1%,,,,,,,,
+Musharna,147,held_item,10,Bright Powder,0.7%,,,,,,,,
+Musharna,147,teammate,1,Mawile,,,,,,,,,
+Musharna,147,teammate,2,Archaludon,,,,,,,,,
+Musharna,147,teammate,3,Garchomp,,,,,,,,,
+Musharna,147,teammate,4,Swampert,,,,,,,,,
+Musharna,147,teammate,5,Pelipper,,,,,,,,,
+Musharna,147,teammate,6,Mimikyu,,,,,,,,,
+Musharna,147,teammate,7,Hippowdon,,,,,,,,,
+Musharna,147,teammate,8,Incineroar,,,,,,,,,
+Musharna,147,teammate,9,Meowscarada,,,,,,,,,
+Musharna,147,teammate,10,Hydreigon,,,,,,,,,
+Musharna,147,stat_alignment,1,Relaxed,55.6%,Defense,Speed,,,,,,
+Musharna,147,stat_alignment,2,Bold,22.0%,Defense,Attack,,,,,,
+Musharna,147,stat_alignment,3,Calm,7.9%,Sp. Def,Attack,,,,,,
+Musharna,147,stat_alignment,4,Sassy,7.4%,Sp. Def,Speed,,,,,,
+Musharna,147,stat_alignment,5,Quiet,3.2%,Sp. Atk,Speed,,,,,,
+Musharna,147,stat_alignment,6,Modest,2.6%,Sp. Atk,Attack,,,,,,
+Musharna,147,stat_alignment,7,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
+Musharna,147,stat_alignment,8,Impish,0.2%,Defense,Sp. Atk,,,,,,
+Musharna,147,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
+Musharna,147,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Musharna,147,stat_points,1,,33.5%,,,32,0,32,0,2,0
+Musharna,147,stat_points,2,,24.3%,,,32,0,22,0,12,0
+Musharna,147,stat_points,3,,3.5%,,,32,0,16,0,18,0
+Musharna,147,stat_points,4,,3.2%,,,32,0,2,0,32,0
+Musharna,147,stat_points,5,,3.1%,,,2,0,32,0,32,0
+Musharna,147,stat_points,6,,1.7%,,,32,0,32,2,0,0
+Musharna,147,stat_points,7,,1.6%,,,30,0,32,4,0,0
+Musharna,147,stat_points,8,,1.6%,,,32,0,32,0,0,0
+Musharna,147,ability,1,Forewarn,64.8%,,,,,,,,
+Musharna,147,ability,2,Synchronize,33.7%,,,,,,,,
+Musharna,147,ability,3,Telepathy,1.5%,,,,,,,,

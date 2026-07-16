@@ -1,54 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom Frost,125,move,1,Blizzard,98.3%,,,,,,,,
-Rotom Frost,125,move,2,Thunderbolt,62.1%,,,,,,,,
-Rotom Frost,125,move,3,Volt Switch,60.3%,,,,,,,,
-Rotom Frost,125,move,4,Electroweb,38.3%,,,,,,,,
-Rotom Frost,125,move,5,Protect,32.7%,,,,,,,,
-Rotom Frost,125,move,6,Discharge,23.0%,,,,,,,,
-Rotom Frost,125,move,7,Will-O-Wisp,21.1%,,,,,,,,
-Rotom Frost,125,move,8,Trick,17.1%,,,,,,,,
-Rotom Frost,125,move,9,Shadow Ball,9.2%,,,,,,,,
-Rotom Frost,125,move,10,Helping Hand,7.8%,,,,,,,,
-Rotom Frost,125,held_item,1,Choice Scarf,53.5%,,,,,,,,
-Rotom Frost,125,held_item,2,Never-Melt Ice,9.3%,,,,,,,,
-Rotom Frost,125,held_item,3,Sitrus Berry,8.0%,,,,,,,,
-Rotom Frost,125,held_item,4,Leftovers,5.7%,,,,,,,,
-Rotom Frost,125,held_item,5,Focus Sash,5.0%,,,,,,,,
-Rotom Frost,125,held_item,6,Life Orb,4.3%,,,,,,,,
-Rotom Frost,125,held_item,7,Magnet,2.8%,,,,,,,,
-Rotom Frost,125,held_item,8,Quick Claw,2.8%,,,,,,,,
-Rotom Frost,125,held_item,9,Wise Glasses,1.3%,,,,,,,,
-Rotom Frost,125,held_item,10,Wide Lens,1.1%,,,,,,,,
-Rotom Frost,125,teammate,1,Froslass,,,,,,,,,
-Rotom Frost,125,teammate,2,Garchomp,,,,,,,,,
-Rotom Frost,125,teammate,3,Sneasler,,,,,,,,,
-Rotom Frost,125,teammate,4,Kingambit,,,,,,,,,
-Rotom Frost,125,teammate,5,Incineroar,,,,,,,,,
-Rotom Frost,125,teammate,6,Whimsicott,,,,,,,,,
-Rotom Frost,125,teammate,7,Basculegion Male,,,,,,,,,
-Rotom Frost,125,teammate,8,Talonflame,,,,,,,,,
-Rotom Frost,125,teammate,9,Milotic,,,,,,,,,
-Rotom Frost,125,teammate,10,Sceptile,,,,,,,,,
-Rotom Frost,125,stat_alignment,1,Timid,48.7%,Speed,Attack,,,,,,
-Rotom Frost,125,stat_alignment,2,Modest,42.0%,Sp. Atk,Attack,,,,,,
-Rotom Frost,125,stat_alignment,3,Calm,2.9%,Sp. Def,Attack,,,,,,
-Rotom Frost,125,stat_alignment,4,Quiet,2.6%,Sp. Atk,Speed,,,,,,
-Rotom Frost,125,stat_alignment,5,Bold,1.6%,Defense,Attack,,,,,,
-Rotom Frost,125,stat_alignment,6,Relaxed,0.6%,Defense,Speed,,,,,,
-Rotom Frost,125,stat_alignment,7,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Rotom Frost,125,stat_alignment,8,Gentle,0.4%,Sp. Def,Defense,,,,,,
-Rotom Frost,125,stat_alignment,9,Hasty,0.4%,Speed,Defense,,,,,,
-Rotom Frost,125,stat_alignment,10,Sassy,0.3%,Sp. Def,Speed,,,,,,
-Rotom Frost,125,stat_points,1,,42.0%,,,2,0,0,32,0,32
-Rotom Frost,125,stat_points,2,,8.3%,,,0,0,0,32,2,32
-Rotom Frost,125,stat_points,3,,6.8%,,,0,0,2,32,0,32
-Rotom Frost,125,stat_points,4,,4.5%,,,32,0,9,25,0,0
-Rotom Frost,125,stat_points,5,,2.9%,,,32,0,2,32,0,0
-Rotom Frost,125,stat_points,6,,2.3%,,,32,0,0,32,0,2
-Rotom Frost,125,stat_points,7,,2.3%,,,32,0,0,32,2,0
-Rotom Frost,125,stat_points,8,,1.9%,,,0,0,0,32,0,32
-Rotom Frost,125,stat_points,9,,1.4%,,,0,0,32,32,2,0
-Rotom Frost,125,stat_points,10,,1.3%,,,32,0,0,0,2,32
-Rotom Frost,125,stat_points,11,,1.3%,,,2,0,32,32,0,0
-Rotom Frost,125,stat_points,12,,1.2%,,,0,0,0,32,32,2
-Rotom Frost,125,ability,1,Levitate,100.0%,,,,,,,,
+Rotom Frost,162,move,1,Blizzard,98.3%,,,,,,,,
+Rotom Frost,162,move,2,Thunderbolt,63.6%,,,,,,,,
+Rotom Frost,162,move,3,Volt Switch,59.9%,,,,,,,,
+Rotom Frost,162,move,4,Electroweb,38.4%,,,,,,,,
+Rotom Frost,162,move,5,Protect,28.6%,,,,,,,,
+Rotom Frost,162,move,6,Discharge,22.5%,,,,,,,,
+Rotom Frost,162,move,7,Trick,20.9%,,,,,,,,
+Rotom Frost,162,move,8,Will-O-Wisp,18.4%,,,,,,,,
+Rotom Frost,162,move,9,Dark Pulse,8.2%,,,,,,,,
+Rotom Frost,162,move,10,Helping Hand,7.7%,,,,,,,,
+Rotom Frost,162,held_item,1,Choice Scarf,55.7%,,,,,,,,
+Rotom Frost,162,held_item,2,Never-Melt Ice,11.1%,,,,,,,,
+Rotom Frost,162,held_item,3,Leftovers,7.2%,,,,,,,,
+Rotom Frost,162,held_item,4,Sitrus Berry,6.0%,,,,,,,,
+Rotom Frost,162,held_item,5,Quick Claw,3.5%,,,,,,,,
+Rotom Frost,162,held_item,6,Wide Lens,2.9%,,,,,,,,
+Rotom Frost,162,held_item,7,Life Orb,2.8%,,,,,,,,
+Rotom Frost,162,held_item,8,Focus Sash,2.6%,,,,,,,,
+Rotom Frost,162,held_item,9,Magnet,1.5%,,,,,,,,
+Rotom Frost,162,held_item,10,Bright Powder,1.4%,,,,,,,,
+Rotom Frost,162,teammate,1,Froslass,,,,,,,,,
+Rotom Frost,162,teammate,2,Garchomp,,,,,,,,,
+Rotom Frost,162,teammate,3,Sneasler,,,,,,,,,
+Rotom Frost,162,teammate,4,Kingambit,,,,,,,,,
+Rotom Frost,162,teammate,5,Incineroar,,,,,,,,,
+Rotom Frost,162,teammate,6,Whimsicott,,,,,,,,,
+Rotom Frost,162,teammate,7,Alolan Ninetales,,,,,,,,,
+Rotom Frost,162,teammate,8,Basculegion Male,,,,,,,,,
+Rotom Frost,162,teammate,9,Talonflame,,,,,,,,,
+Rotom Frost,162,teammate,10,Sinistcha,,,,,,,,,
+Rotom Frost,162,stat_alignment,1,Modest,52.4%,Sp. Atk,Attack,,,,,,
+Rotom Frost,162,stat_alignment,2,Timid,40.1%,Speed,Attack,,,,,,
+Rotom Frost,162,stat_alignment,3,Quiet,2.7%,Sp. Atk,Speed,,,,,,
+Rotom Frost,162,stat_alignment,4,Bold,1.9%,Defense,Attack,,,,,,
+Rotom Frost,162,stat_alignment,5,Calm,1.7%,Sp. Def,Attack,,,,,,
+Rotom Frost,162,stat_alignment,6,Relaxed,0.5%,Defense,Speed,,,,,,
+Rotom Frost,162,stat_alignment,7,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Rotom Frost,162,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Rotom Frost,162,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Rotom Frost,162,stat_alignment,10,Brave,0.1%,Attack,Speed,,,,,,
+Rotom Frost,162,stat_points,1,,44.5%,,,2,0,0,32,0,32
+Rotom Frost,162,stat_points,2,,7.6%,,,0,0,2,32,0,32
+Rotom Frost,162,stat_points,3,,6.2%,,,0,0,0,32,2,32
+Rotom Frost,162,stat_points,4,,5.0%,,,32,0,9,25,0,0
+Rotom Frost,162,stat_points,5,,3.1%,,,0,0,32,32,2,0
+Rotom Frost,162,stat_points,6,,1.9%,,,0,0,32,32,0,2
+Rotom Frost,162,stat_points,7,,1.2%,,,0,0,2,32,32,0
+Rotom Frost,162,stat_points,8,,1.2%,,,32,0,0,32,2,0
+Rotom Frost,162,ability,1,Levitate,100.0%,,,,,,,,

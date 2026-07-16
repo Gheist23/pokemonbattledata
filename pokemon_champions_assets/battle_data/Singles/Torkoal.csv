@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Torkoal,118,move,1,Stealth Rock,62.0%,,,,,,,,
-Torkoal,118,move,2,Yawn,58.9%,,,,,,,,
-Torkoal,118,move,3,Solar Beam,43.3%,,,,,,,,
-Torkoal,118,move,4,Eruption,26.7%,,,,,,,,
-Torkoal,118,move,5,Flamethrower,20.5%,,,,,,,,
-Torkoal,118,move,6,Overheat,19.8%,,,,,,,,
-Torkoal,118,move,7,Will-O-Wisp,18.8%,,,,,,,,
-Torkoal,118,move,8,Earth Power,17.9%,,,,,,,,
-Torkoal,118,move,9,Lava Plume,15.1%,,,,,,,,
-Torkoal,118,move,10,Rapid Spin,13.7%,,,,,,,,
-Torkoal,118,held_item,1,Heat Rock,42.0%,,,,,,,,
-Torkoal,118,held_item,2,Sitrus Berry,15.6%,,,,,,,,
-Torkoal,118,held_item,3,Charcoal,14.9%,,,,,,,,
-Torkoal,118,held_item,4,Leftovers,8.8%,,,,,,,,
-Torkoal,118,held_item,5,Quick Claw,3.3%,,,,,,,,
-Torkoal,118,held_item,6,Shuca Berry,2.8%,,,,,,,,
-Torkoal,118,held_item,7,Life Orb,2.2%,,,,,,,,
-Torkoal,118,held_item,8,White Herb,2.0%,,,,,,,,
-Torkoal,118,held_item,9,Focus Sash,1.7%,,,,,,,,
-Torkoal,118,held_item,10,Bright Powder,0.9%,,,,,,,,
-Torkoal,118,teammate,1,Garchomp,,,,,,,,,
-Torkoal,118,teammate,2,Venusaur,,,,,,,,,
-Torkoal,118,teammate,3,Charizard,,,,,,,,,
-Torkoal,118,teammate,4,Mimikyu,,,,,,,,,
-Torkoal,118,teammate,5,Blaziken,,,,,,,,,
-Torkoal,118,teammate,6,Staraptor,,,,,,,,,
-Torkoal,118,teammate,7,Raichu,,,,,,,,,
-Torkoal,118,teammate,8,Pyroar,,,,,,,,,
-Torkoal,118,teammate,9,Meowscarada,,,,,,,,,
-Torkoal,118,teammate,10,Hatterene,,,,,,,,,
-Torkoal,118,stat_alignment,1,Quiet,27.7%,Sp. Atk,Speed,,,,,,
-Torkoal,118,stat_alignment,2,Bold,20.5%,Defense,Attack,,,,,,
-Torkoal,118,stat_alignment,3,Relaxed,18.7%,Defense,Speed,,,,,,
-Torkoal,118,stat_alignment,4,Modest,11.5%,Sp. Atk,Attack,,,,,,
-Torkoal,118,stat_alignment,5,Calm,8.2%,Sp. Def,Attack,,,,,,
-Torkoal,118,stat_alignment,6,Sassy,2.9%,Sp. Def,Speed,,,,,,
-Torkoal,118,stat_alignment,7,Impish,2.0%,Defense,Sp. Atk,,,,,,
-Torkoal,118,stat_alignment,8,Brave,0.8%,Attack,Speed,,,,,,
-Torkoal,118,stat_alignment,9,Mild,0.6%,Sp. Atk,Defense,,,,,,
-Torkoal,118,stat_alignment,10,Adamant,0.6%,Attack,Sp. Atk,,,,,,
-Torkoal,118,stat_points,1,,14.3%,,,32,0,2,0,32,0
-Torkoal,118,stat_points,2,,13.2%,,,32,0,32,0,2,0
-Torkoal,118,stat_points,3,,11.0%,,,32,0,2,32,0,0
-Torkoal,118,stat_points,4,,9.6%,,,32,0,0,32,2,0
-Torkoal,118,stat_points,5,,4.2%,,,32,0,32,2,0,0
-Torkoal,118,stat_points,6,,3.6%,,,2,0,32,32,0,0
-Torkoal,118,stat_points,7,,3.3%,,,0,0,32,32,2,0
-Torkoal,118,stat_points,8,,3.0%,,,2,0,0,32,32,0
-Torkoal,118,stat_points,9,,1.6%,,,32,0,0,2,32,0
-Torkoal,118,stat_points,10,,1.5%,,,32,0,32,0,0,0
-Torkoal,118,stat_points,11,,1.2%,,,32,0,0,0,32,0
-Torkoal,118,stat_points,12,,1.2%,,,0,0,2,32,32,0
-Torkoal,118,ability,1,Drought,96.8%,,,,,,,,
-Torkoal,118,ability,2,Shell Armor,2.4%,,,,,,,,
-Torkoal,118,ability,3,White Smoke,0.8%,,,,,,,,
+Torkoal,123,move,1,Stealth Rock,62.2%,,,,,,,,
+Torkoal,123,move,2,Yawn,58.3%,,,,,,,,
+Torkoal,123,move,3,Solar Beam,40.3%,,,,,,,,
+Torkoal,123,move,4,Eruption,24.2%,,,,,,,,
+Torkoal,123,move,5,Overheat,20.9%,,,,,,,,
+Torkoal,123,move,6,Flamethrower,19.0%,,,,,,,,
+Torkoal,123,move,7,Will-O-Wisp,17.9%,,,,,,,,
+Torkoal,123,move,8,Lava Plume,17.7%,,,,,,,,
+Torkoal,123,move,9,Earth Power,14.2%,,,,,,,,
+Torkoal,123,move,10,Weather Ball,13.6%,,,,,,,,
+Torkoal,123,held_item,1,Heat Rock,49.1%,,,,,,,,
+Torkoal,123,held_item,2,Charcoal,13.0%,,,,,,,,
+Torkoal,123,held_item,3,Sitrus Berry,12.9%,,,,,,,,
+Torkoal,123,held_item,4,Leftovers,8.9%,,,,,,,,
+Torkoal,123,held_item,5,Quick Claw,3.5%,,,,,,,,
+Torkoal,123,held_item,6,Shuca Berry,2.4%,,,,,,,,
+Torkoal,123,held_item,7,White Herb,1.8%,,,,,,,,
+Torkoal,123,held_item,8,Life Orb,1.8%,,,,,,,,
+Torkoal,123,held_item,9,Lum Berry,1.0%,,,,,,,,
+Torkoal,123,held_item,10,Focus Sash,0.7%,,,,,,,,
+Torkoal,123,teammate,1,Venusaur,,,,,,,,,
+Torkoal,123,teammate,2,Garchomp,,,,,,,,,
+Torkoal,123,teammate,3,Mimikyu,,,,,,,,,
+Torkoal,123,teammate,4,Charizard,,,,,,,,,
+Torkoal,123,teammate,5,Blaziken,,,,,,,,,
+Torkoal,123,teammate,6,Pyroar,,,,,,,,,
+Torkoal,123,teammate,7,Meowscarada,,,,,,,,,
+Torkoal,123,teammate,8,Metagross,,,,,,,,,
+Torkoal,123,teammate,9,Swampert,,,,,,,,,
+Torkoal,123,teammate,10,Gyarados,,,,,,,,,
+Torkoal,123,stat_alignment,1,Quiet,25.4%,Sp. Atk,Speed,,,,,,
+Torkoal,123,stat_alignment,2,Bold,19.4%,Defense,Attack,,,,,,
+Torkoal,123,stat_alignment,3,Relaxed,18.2%,Defense,Speed,,,,,,
+Torkoal,123,stat_alignment,4,Modest,13.6%,Sp. Atk,Attack,,,,,,
+Torkoal,123,stat_alignment,5,Sassy,11.1%,Sp. Def,Speed,,,,,,
+Torkoal,123,stat_alignment,6,Calm,7.0%,Sp. Def,Attack,,,,,,
+Torkoal,123,stat_alignment,7,Impish,2.4%,Defense,Sp. Atk,,,,,,
+Torkoal,123,stat_alignment,8,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
+Torkoal,123,stat_alignment,9,Adamant,0.6%,Attack,Sp. Atk,,,,,,
+Torkoal,123,stat_alignment,10,Timid,0.5%,Speed,Attack,,,,,,
+Torkoal,123,stat_points,1,,14.5%,,,32,0,32,0,2,0
+Torkoal,123,stat_points,2,,13.6%,,,32,0,2,0,32,0
+Torkoal,123,stat_points,3,,10.8%,,,32,0,2,32,0,0
+Torkoal,123,stat_points,4,,9.9%,,,32,0,0,32,2,0
+Torkoal,123,stat_points,5,,4.1%,,,32,0,32,2,0,0
+Torkoal,123,stat_points,6,,1.9%,,,32,0,32,0,0,0
+Torkoal,123,stat_points,7,,1.9%,,,32,0,0,2,32,0
+Torkoal,123,stat_points,8,,1.9%,,,2,0,0,32,32,0
+Torkoal,123,ability,1,Drought,97.1%,,,,,,,,
+Torkoal,123,ability,2,Shell Armor,2.5%,,,,,,,,
+Torkoal,123,ability,3,White Smoke,0.4%,,,,,,,,

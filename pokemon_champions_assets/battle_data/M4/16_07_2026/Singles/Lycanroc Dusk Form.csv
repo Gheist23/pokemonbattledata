@@ -1,50 +1,50 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Lycanroc Dusk Form,131,move,1,Accelerock,95.4%,,,,,,,,,25433.79
-Lycanroc Dusk Form,131,move,2,Close Combat,64.2%,,,,,,,,,25433.79
-Lycanroc Dusk Form,131,move,3,Stealth Rock,32.0%,,,,,,,,,25433.79
-Lycanroc Dusk Form,131,move,4,Endeavor,31.2%,,,,,,,,,25433.79
-Lycanroc Dusk Form,131,move,5,Counter,28.0%,,,,,,,,,25433.79
-Lycanroc Dusk Form,131,move,6,Drill Run,18.9%,,,,,,,,,25437.50
-Lycanroc Dusk Form,131,move,7,Psychic Fangs,17.6%,,,,,,,,,25437.50
-Lycanroc Dusk Form,131,move,8,Swords Dance,15.4%,,,,,,,,,25437.50
-Lycanroc Dusk Form,131,move,9,Play Rough,13.2%,,,,,,,,,25437.50
-Lycanroc Dusk Form,131,move,10,Taunt,13.1%,,,,,,,,,25437.50
-Lycanroc Dusk Form,131,held_item,1,Focus Sash,84.3%,,,,,,,,,25440.40
-Lycanroc Dusk Form,131,held_item,2,Life Orb,7.2%,,,,,,,,,25440.40
-Lycanroc Dusk Form,131,held_item,3,Expert Belt,1.5%,,,,,,,,,25440.40
-Lycanroc Dusk Form,131,held_item,4,Hard Stone,1.4%,,,,,,,,,25440.40
-Lycanroc Dusk Form,131,held_item,5,Muscle Band,1.1%,,,,,,,,,25440.40
-Lycanroc Dusk Form,131,held_item,6,Shell Bell,1.1%,,,,,,,,,25447.61
-Lycanroc Dusk Form,131,held_item,7,Choice Scarf,0.9%,,,,,,,,,25447.61
-Lycanroc Dusk Form,131,held_item,8,Scope Lens,0.5%,,,,,,,,,25447.61
-Lycanroc Dusk Form,131,held_item,9,White Herb,0.3%,,,,,,,,,25447.61
-Lycanroc Dusk Form,131,held_item,10,Lum Berry,0.2%,,,,,,,,,25447.61
-Lycanroc Dusk Form,131,teammate,1,Meowscarada,,,,,,,,,,25453.99
-Lycanroc Dusk Form,131,teammate,2,Charizard,,,,,,,,,,25453.99
-Lycanroc Dusk Form,131,teammate,3,Garchomp,,,,,,,,,,25453.99
-Lycanroc Dusk Form,131,teammate,4,Mimikyu,,,,,,,,,,25453.99
-Lycanroc Dusk Form,131,teammate,5,Primarina,,,,,,,,,,25453.99
-Lycanroc Dusk Form,131,teammate,6,Metagross,,,,,,,,,,25456.90
-Lycanroc Dusk Form,131,teammate,7,Greninja,,,,,,,,,,25456.90
-Lycanroc Dusk Form,131,teammate,8,Alolan Ninetales,,,,,,,,,,25456.90
-Lycanroc Dusk Form,131,teammate,9,Hydreigon,,,,,,,,,,25456.90
-Lycanroc Dusk Form,131,teammate,10,Archaludon,,,,,,,,,,25456.90
-Lycanroc Dusk Form,131,stat_alignment,1,Jolly,60.8%,Speed,Sp. Atk,,,,,,,25458.96
-Lycanroc Dusk Form,131,stat_alignment,2,Adamant,33.1%,Attack,Sp. Atk,,,,,,,25458.96
-Lycanroc Dusk Form,131,stat_alignment,3,Hasty,3.1%,Speed,Defense,,,,,,,25458.96
-Lycanroc Dusk Form,131,stat_alignment,4,Lonely,1.4%,Attack,Defense,,,,,,,25458.96
-Lycanroc Dusk Form,131,stat_alignment,5,Naive,0.7%,Speed,Sp. Def,,,,,,,25458.96
-Lycanroc Dusk Form,131,stat_alignment,6,Naughty,0.4%,Attack,Sp. Def,,,,,,,25461.98
-Lycanroc Dusk Form,131,stat_alignment,7,Impish,0.2%,Defense,Sp. Atk,,,,,,,25461.98
-Lycanroc Dusk Form,131,stat_alignment,8,Timid,0.1%,Speed,Attack,,,,,,,25461.98
-Lycanroc Dusk Form,131,stat_alignment,9,Brave,0.0%,Attack,Speed,,,,,,,25461.98
-Lycanroc Dusk Form,131,stat_alignment,10,Careful,0.0%,Sp. Def,Sp. Atk,,,,,,,25461.98
-Lycanroc Dusk Form,131,stat_points,1,,56.6%,,,2,32,0,0,0,32,25464.15
-Lycanroc Dusk Form,131,stat_points,2,,12.0%,,,1,32,1,0,0,32,25464.15
-Lycanroc Dusk Form,131,stat_points,3,,7.2%,,,0,32,2,0,0,32,25464.15
-Lycanroc Dusk Form,131,stat_points,4,,5.1%,,,0,32,0,0,0,32,25464.15
-Lycanroc Dusk Form,131,stat_points,5,,5.0%,,,0,32,0,0,2,32,25464.15
-Lycanroc Dusk Form,131,stat_points,6,,2.1%,,,0,32,1,0,1,32,25485.91
-Lycanroc Dusk Form,131,stat_points,7,,0.6%,,,0,32,0,2,0,32,25485.91
-Lycanroc Dusk Form,131,stat_points,8,,0.6%,,,32,32,0,0,0,2,25485.91
-Lycanroc Dusk Form,131,ability,1,Tough Claws,100.0%,,,,,,,,,25499.70
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Lycanroc Dusk Form,131,move,1,Accelerock,95.4%,,,,,,,,
+Lycanroc Dusk Form,131,move,2,Close Combat,64.2%,,,,,,,,
+Lycanroc Dusk Form,131,move,3,Stealth Rock,32.0%,,,,,,,,
+Lycanroc Dusk Form,131,move,4,Endeavor,31.2%,,,,,,,,
+Lycanroc Dusk Form,131,move,5,Counter,28.0%,,,,,,,,
+Lycanroc Dusk Form,131,move,6,Drill Run,18.9%,,,,,,,,
+Lycanroc Dusk Form,131,move,7,Psychic Fangs,17.6%,,,,,,,,
+Lycanroc Dusk Form,131,move,8,Swords Dance,15.4%,,,,,,,,
+Lycanroc Dusk Form,131,move,9,Play Rough,13.2%,,,,,,,,
+Lycanroc Dusk Form,131,move,10,Taunt,13.1%,,,,,,,,
+Lycanroc Dusk Form,131,held_item,1,Focus Sash,84.3%,,,,,,,,
+Lycanroc Dusk Form,131,held_item,2,Life Orb,7.2%,,,,,,,,
+Lycanroc Dusk Form,131,held_item,3,Expert Belt,1.5%,,,,,,,,
+Lycanroc Dusk Form,131,held_item,4,Hard Stone,1.4%,,,,,,,,
+Lycanroc Dusk Form,131,held_item,5,Muscle Band,1.1%,,,,,,,,
+Lycanroc Dusk Form,131,held_item,6,Shell Bell,1.1%,,,,,,,,
+Lycanroc Dusk Form,131,held_item,7,Choice Scarf,0.9%,,,,,,,,
+Lycanroc Dusk Form,131,held_item,8,Scope Lens,0.5%,,,,,,,,
+Lycanroc Dusk Form,131,held_item,9,White Herb,0.3%,,,,,,,,
+Lycanroc Dusk Form,131,held_item,10,Lum Berry,0.2%,,,,,,,,
+Lycanroc Dusk Form,131,teammate,1,Meowscarada,,,,,,,,,
+Lycanroc Dusk Form,131,teammate,2,Charizard,,,,,,,,,
+Lycanroc Dusk Form,131,teammate,3,Garchomp,,,,,,,,,
+Lycanroc Dusk Form,131,teammate,4,Mimikyu,,,,,,,,,
+Lycanroc Dusk Form,131,teammate,5,Primarina,,,,,,,,,
+Lycanroc Dusk Form,131,teammate,6,Metagross,,,,,,,,,
+Lycanroc Dusk Form,131,teammate,7,Greninja,,,,,,,,,
+Lycanroc Dusk Form,131,teammate,8,Alolan Ninetales,,,,,,,,,
+Lycanroc Dusk Form,131,teammate,9,Hydreigon,,,,,,,,,
+Lycanroc Dusk Form,131,teammate,10,Archaludon,,,,,,,,,
+Lycanroc Dusk Form,131,stat_alignment,1,Jolly,60.8%,Speed,Sp. Atk,,,,,,
+Lycanroc Dusk Form,131,stat_alignment,2,Adamant,33.1%,Attack,Sp. Atk,,,,,,
+Lycanroc Dusk Form,131,stat_alignment,3,Hasty,3.1%,Speed,Defense,,,,,,
+Lycanroc Dusk Form,131,stat_alignment,4,Lonely,1.4%,Attack,Defense,,,,,,
+Lycanroc Dusk Form,131,stat_alignment,5,Naive,0.7%,Speed,Sp. Def,,,,,,
+Lycanroc Dusk Form,131,stat_alignment,6,Naughty,0.4%,Attack,Sp. Def,,,,,,
+Lycanroc Dusk Form,131,stat_alignment,7,Impish,0.2%,Defense,Sp. Atk,,,,,,
+Lycanroc Dusk Form,131,stat_alignment,8,Timid,0.1%,Speed,Attack,,,,,,
+Lycanroc Dusk Form,131,stat_alignment,9,Brave,0.0%,Attack,Speed,,,,,,
+Lycanroc Dusk Form,131,stat_alignment,10,Careful,0.0%,Sp. Def,Sp. Atk,,,,,,
+Lycanroc Dusk Form,131,stat_points,1,,56.6%,,,2,32,0,0,0,32
+Lycanroc Dusk Form,131,stat_points,2,,12.0%,,,1,32,1,0,0,32
+Lycanroc Dusk Form,131,stat_points,3,,7.2%,,,0,32,2,0,0,32
+Lycanroc Dusk Form,131,stat_points,4,,5.1%,,,0,32,0,0,0,32
+Lycanroc Dusk Form,131,stat_points,5,,5.0%,,,0,32,0,0,2,32
+Lycanroc Dusk Form,131,stat_points,6,,2.1%,,,0,32,1,0,1,32
+Lycanroc Dusk Form,131,stat_points,7,,0.6%,,,0,32,0,2,0,32
+Lycanroc Dusk Form,131,stat_points,8,,0.6%,,,32,32,0,0,0,2
+Lycanroc Dusk Form,131,ability,1,Tough Claws,100.0%,,,,,,,,

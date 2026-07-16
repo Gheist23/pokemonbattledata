@@ -1,51 +1,51 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Gyarados,8,move,1,Dragon Dance,85.6%,,,,,,,,,13790.14
-Gyarados,8,move,2,Earthquake,76.8%,,,,,,,,,13790.14
-Gyarados,8,move,3,Waterfall,76.1%,,,,,,,,,13790.14
-Gyarados,8,move,4,Power Whip,47.8%,,,,,,,,,13790.14
-Gyarados,8,move,5,Ice Fang,45.8%,,,,,,,,,13790.14
-Gyarados,8,move,6,Crunch,28.0%,,,,,,,,,13794.82
-Gyarados,8,move,7,Taunt,19.7%,,,,,,,,,13794.82
-Gyarados,8,move,8,Avalanche,9.4%,,,,,,,,,13794.82
-Gyarados,8,move,9,Temper Flare,2.2%,,,,,,,,,13794.82
-Gyarados,8,move,10,Aqua Tail,1.6%,,,,,,,,,13794.82
-Gyarados,8,held_item,1,Gyaradosite,81.3%,,,,,,,,,13798.15
-Gyarados,8,held_item,2,Leftovers,9.1%,,,,,,,,,13798.15
-Gyarados,8,held_item,3,Sitrus Berry,3.8%,,,,,,,,,13798.15
-Gyarados,8,held_item,4,Lum Berry,2.4%,,,,,,,,,13798.15
-Gyarados,8,held_item,5,Expert Belt,1.0%,,,,,,,,,13798.15
-Gyarados,8,held_item,6,Life Orb,0.6%,,,,,,,,,13805.32
-Gyarados,8,held_item,7,Focus Sash,0.3%,,,,,,,,,13805.32
-Gyarados,8,held_item,8,Wacan Berry,0.3%,,,,,,,,,13805.32
-Gyarados,8,held_item,9,Choice Scarf,0.2%,,,,,,,,,13805.32
-Gyarados,8,held_item,10,Chesto Berry,0.2%,,,,,,,,,13805.32
-Gyarados,8,teammate,1,Garchomp,,,,,,,,,,13811.67
-Gyarados,8,teammate,2,Hippowdon,,,,,,,,,,13811.67
-Gyarados,8,teammate,3,Mimikyu,,,,,,,,,,13811.67
-Gyarados,8,teammate,4,Archaludon,,,,,,,,,,13811.67
-Gyarados,8,teammate,5,Delphox,,,,,,,,,,13811.67
-Gyarados,8,teammate,6,Meowscarada,,,,,,,,,,13814.53
-Gyarados,8,teammate,7,Blaziken,,,,,,,,,,13814.53
-Gyarados,8,teammate,8,Metagross,,,,,,,,,,13814.53
-Gyarados,8,teammate,9,Alolan Ninetales,,,,,,,,,,13814.53
-Gyarados,8,teammate,10,Primarina,,,,,,,,,,13814.53
-Gyarados,8,stat_alignment,1,Jolly,48.1%,Speed,Sp. Atk,,,,,,,13816.57
-Gyarados,8,stat_alignment,2,Adamant,45.2%,Attack,Sp. Atk,,,,,,,13816.57
-Gyarados,8,stat_alignment,3,Impish,5.3%,Defense,Sp. Atk,,,,,,,13816.57
-Gyarados,8,stat_alignment,4,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,,13816.57
-Gyarados,8,stat_alignment,5,Naughty,0.1%,Attack,Sp. Def,,,,,,,13816.57
-Gyarados,8,stat_alignment,6,Lonely,0.1%,Attack,Defense,,,,,,,13819.55
-Gyarados,8,stat_alignment,7,Brave,0.1%,Attack,Speed,,,,,,,13819.55
-Gyarados,8,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,,13819.55
-Gyarados,8,stat_alignment,9,Modest,0.1%,Sp. Atk,Attack,,,,,,,13819.55
-Gyarados,8,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,,13819.55
-Gyarados,8,stat_points,1,,26.5%,,,1,32,1,0,0,32,13821.70
-Gyarados,8,stat_points,2,,21.6%,,,2,32,0,0,0,32,13821.70
-Gyarados,8,stat_points,3,,3.5%,,,3,31,0,0,0,32,13821.70
-Gyarados,8,stat_points,4,,2.8%,,,1,32,0,0,1,32,13821.70
-Gyarados,8,stat_points,5,,2.5%,,,0,32,2,0,0,32,13821.70
-Gyarados,8,stat_points,6,,1.0%,,,3,32,0,0,0,31,13843.34
-Gyarados,8,stat_points,7,,1.0%,,,31,11,21,0,1,2,13843.34
-Gyarados,8,stat_points,8,,1.0%,,,7,32,1,0,0,26,13843.34
-Gyarados,8,ability,1,Intimidate,99.1%,,,,,,,,,13857.10
-Gyarados,8,ability,2,Moxie,0.9%,,,,,,,,,13857.10
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Gyarados,8,move,1,Dragon Dance,85.6%,,,,,,,,
+Gyarados,8,move,2,Earthquake,76.8%,,,,,,,,
+Gyarados,8,move,3,Waterfall,76.1%,,,,,,,,
+Gyarados,8,move,4,Power Whip,47.8%,,,,,,,,
+Gyarados,8,move,5,Ice Fang,45.8%,,,,,,,,
+Gyarados,8,move,6,Crunch,28.0%,,,,,,,,
+Gyarados,8,move,7,Taunt,19.7%,,,,,,,,
+Gyarados,8,move,8,Avalanche,9.4%,,,,,,,,
+Gyarados,8,move,9,Temper Flare,2.2%,,,,,,,,
+Gyarados,8,move,10,Aqua Tail,1.6%,,,,,,,,
+Gyarados,8,held_item,1,Gyaradosite,81.3%,,,,,,,,
+Gyarados,8,held_item,2,Leftovers,9.1%,,,,,,,,
+Gyarados,8,held_item,3,Sitrus Berry,3.8%,,,,,,,,
+Gyarados,8,held_item,4,Lum Berry,2.4%,,,,,,,,
+Gyarados,8,held_item,5,Expert Belt,1.0%,,,,,,,,
+Gyarados,8,held_item,6,Life Orb,0.6%,,,,,,,,
+Gyarados,8,held_item,7,Focus Sash,0.3%,,,,,,,,
+Gyarados,8,held_item,8,Wacan Berry,0.3%,,,,,,,,
+Gyarados,8,held_item,9,Choice Scarf,0.2%,,,,,,,,
+Gyarados,8,held_item,10,Chesto Berry,0.2%,,,,,,,,
+Gyarados,8,teammate,1,Garchomp,,,,,,,,,
+Gyarados,8,teammate,2,Hippowdon,,,,,,,,,
+Gyarados,8,teammate,3,Mimikyu,,,,,,,,,
+Gyarados,8,teammate,4,Archaludon,,,,,,,,,
+Gyarados,8,teammate,5,Delphox,,,,,,,,,
+Gyarados,8,teammate,6,Meowscarada,,,,,,,,,
+Gyarados,8,teammate,7,Blaziken,,,,,,,,,
+Gyarados,8,teammate,8,Metagross,,,,,,,,,
+Gyarados,8,teammate,9,Alolan Ninetales,,,,,,,,,
+Gyarados,8,teammate,10,Primarina,,,,,,,,,
+Gyarados,8,stat_alignment,1,Jolly,48.1%,Speed,Sp. Atk,,,,,,
+Gyarados,8,stat_alignment,2,Adamant,45.2%,Attack,Sp. Atk,,,,,,
+Gyarados,8,stat_alignment,3,Impish,5.3%,Defense,Sp. Atk,,,,,,
+Gyarados,8,stat_alignment,4,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
+Gyarados,8,stat_alignment,5,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Gyarados,8,stat_alignment,6,Lonely,0.1%,Attack,Defense,,,,,,
+Gyarados,8,stat_alignment,7,Brave,0.1%,Attack,Speed,,,,,,
+Gyarados,8,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
+Gyarados,8,stat_alignment,9,Modest,0.1%,Sp. Atk,Attack,,,,,,
+Gyarados,8,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
+Gyarados,8,stat_points,1,,26.5%,,,1,32,1,0,0,32
+Gyarados,8,stat_points,2,,21.6%,,,2,32,0,0,0,32
+Gyarados,8,stat_points,3,,3.5%,,,3,31,0,0,0,32
+Gyarados,8,stat_points,4,,2.8%,,,1,32,0,0,1,32
+Gyarados,8,stat_points,5,,2.5%,,,0,32,2,0,0,32
+Gyarados,8,stat_points,6,,1.0%,,,3,32,0,0,0,31
+Gyarados,8,stat_points,7,,1.0%,,,31,11,21,0,1,2
+Gyarados,8,stat_points,8,,1.0%,,,7,32,1,0,0,26
+Gyarados,8,ability,1,Intimidate,99.1%,,,,,,,,
+Gyarados,8,ability,2,Moxie,0.9%,,,,,,,,

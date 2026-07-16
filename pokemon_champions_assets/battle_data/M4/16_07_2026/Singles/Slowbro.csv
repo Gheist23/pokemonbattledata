@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Slowbro,65,move,1,Slack Off,88.8%,,,,,,,,,19453.73
-Slowbro,65,move,2,Scald,85.5%,,,,,,,,,19453.73
-Slowbro,65,move,3,Iron Defense,66.9%,,,,,,,,,19453.73
-Slowbro,65,move,4,Ice Beam,39.0%,,,,,,,,,19453.73
-Slowbro,65,move,5,Body Press,32.9%,,,,,,,,,19453.73
-Slowbro,65,move,6,Calm Mind,19.0%,,,,,,,,,19461.36
-Slowbro,65,move,7,Flamethrower,10.0%,,,,,,,,,19461.36
-Slowbro,65,move,8,Psychic,8.5%,,,,,,,,,19461.36
-Slowbro,65,move,9,Trick Room,7.2%,,,,,,,,,19461.36
-Slowbro,65,move,10,Amnesia,6.3%,,,,,,,,,19461.36
-Slowbro,65,held_item,1,Slowbronite,19.8%,,,,,,,,,19464.31
-Slowbro,65,held_item,2,Sitrus Berry,7.3%,,,,,,,,,19464.31
-Slowbro,65,held_item,3,Leftovers,3.4%,,,,,,,,,19464.31
-Slowbro,65,held_item,4,Expert Belt,1.9%,,,,,,,,,19464.31
-Slowbro,65,held_item,5,Life Orb,0.9%,,,,,,,,,19464.31
-Slowbro,65,held_item,6,Bright Powder,0.9%,,,,,,,,,19471.82
-Slowbro,65,held_item,7,Quick Claw,0.6%,,,,,,,,,19471.82
-Slowbro,65,held_item,8,Lum Berry,0.6%,,,,,,,,,19471.82
-Slowbro,65,held_item,9,Kasib Berry,0.4%,,,,,,,,,19471.82
-Slowbro,65,held_item,10,Rindo Berry,0.2%,,,,,,,,,19471.82
-Slowbro,65,teammate,1,Snorlax,,,,,,,,,,19478.51
-Slowbro,65,teammate,2,Toxapex,,,,,,,,,,19478.51
-Slowbro,65,teammate,3,Clefable,,,,,,,,,,19478.51
-Slowbro,65,teammate,4,Hisuian Samurott,,,,,,,,,,19478.51
-Slowbro,65,teammate,5,Garchomp,,,,,,,,,,19478.51
-Slowbro,65,teammate,6,Meganium,,,,,,,,,,19481.46
-Slowbro,65,teammate,7,Mimikyu,,,,,,,,,,19481.46
-Slowbro,65,teammate,8,Tyranitar,,,,,,,,,,19481.46
-Slowbro,65,teammate,9,Skeledirge,,,,,,,,,,19481.46
-Slowbro,65,teammate,10,Corviknight,,,,,,,,,,19481.46
-Slowbro,65,stat_alignment,1,Bold,72.1%,Defense,Attack,,,,,,,19483.54
-Slowbro,65,stat_alignment,2,Calm,10.7%,Sp. Def,Attack,,,,,,,19483.54
-Slowbro,65,stat_alignment,3,Modest,8.8%,Sp. Atk,Attack,,,,,,,19483.54
-Slowbro,65,stat_alignment,4,Relaxed,4.2%,Defense,Speed,,,,,,,19483.54
-Slowbro,65,stat_alignment,5,Quiet,2.2%,Sp. Atk,Speed,,,,,,,19483.54
-Slowbro,65,stat_alignment,6,Sassy,1.5%,Sp. Def,Speed,,,,,,,19486.66
-Slowbro,65,stat_alignment,7,Impish,0.2%,Defense,Sp. Atk,,,,,,,19486.66
-Slowbro,65,stat_alignment,8,Timid,0.1%,Speed,Attack,,,,,,,19486.66
-Slowbro,65,stat_alignment,9,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,,19486.66
-Slowbro,65,stat_alignment,10,Mild,0.0%,Sp. Atk,Defense,,,,,,,19486.66
-Slowbro,65,stat_points,1,,37.8%,,,32,0,32,0,2,0,19488.89
-Slowbro,65,stat_points,2,,7.1%,,,31,0,32,0,3,0,19488.89
-Slowbro,65,stat_points,3,,7.0%,,,32,0,32,2,0,0,19488.89
-Slowbro,65,stat_points,4,,5.8%,,,32,0,2,0,32,0,19488.89
-Slowbro,65,stat_points,5,,2.7%,,,31,0,32,3,0,0,19488.89
-Slowbro,65,stat_points,6,,1.7%,,,32,0,2,32,0,0,19512.14
-Slowbro,65,stat_points,7,,1.6%,,,31,0,3,0,32,0,19512.14
-Slowbro,65,stat_points,8,,1.5%,,,32,0,32,0,0,0,19512.14
-Slowbro,65,ability,1,Regenerator,91.1%,,,,,,,,,19527.08
-Slowbro,65,ability,2,Oblivious,7.8%,,,,,,,,,19527.08
-Slowbro,65,ability,3,Own Tempo,1.0%,,,,,,,,,19527.08
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Slowbro,65,move,1,Slack Off,88.8%,,,,,,,,
+Slowbro,65,move,2,Scald,85.5%,,,,,,,,
+Slowbro,65,move,3,Iron Defense,66.9%,,,,,,,,
+Slowbro,65,move,4,Ice Beam,39.0%,,,,,,,,
+Slowbro,65,move,5,Body Press,32.9%,,,,,,,,
+Slowbro,65,move,6,Calm Mind,19.0%,,,,,,,,
+Slowbro,65,move,7,Flamethrower,10.0%,,,,,,,,
+Slowbro,65,move,8,Psychic,8.5%,,,,,,,,
+Slowbro,65,move,9,Trick Room,7.2%,,,,,,,,
+Slowbro,65,move,10,Amnesia,6.3%,,,,,,,,
+Slowbro,65,held_item,1,Slowbronite,19.8%,,,,,,,,
+Slowbro,65,held_item,2,Sitrus Berry,7.3%,,,,,,,,
+Slowbro,65,held_item,3,Leftovers,3.4%,,,,,,,,
+Slowbro,65,held_item,4,Expert Belt,1.9%,,,,,,,,
+Slowbro,65,held_item,5,Life Orb,0.9%,,,,,,,,
+Slowbro,65,held_item,6,Bright Powder,0.9%,,,,,,,,
+Slowbro,65,held_item,7,Quick Claw,0.6%,,,,,,,,
+Slowbro,65,held_item,8,Lum Berry,0.6%,,,,,,,,
+Slowbro,65,held_item,9,Kasib Berry,0.4%,,,,,,,,
+Slowbro,65,held_item,10,Rindo Berry,0.2%,,,,,,,,
+Slowbro,65,teammate,1,Snorlax,,,,,,,,,
+Slowbro,65,teammate,2,Toxapex,,,,,,,,,
+Slowbro,65,teammate,3,Clefable,,,,,,,,,
+Slowbro,65,teammate,4,Hisuian Samurott,,,,,,,,,
+Slowbro,65,teammate,5,Garchomp,,,,,,,,,
+Slowbro,65,teammate,6,Meganium,,,,,,,,,
+Slowbro,65,teammate,7,Mimikyu,,,,,,,,,
+Slowbro,65,teammate,8,Tyranitar,,,,,,,,,
+Slowbro,65,teammate,9,Skeledirge,,,,,,,,,
+Slowbro,65,teammate,10,Corviknight,,,,,,,,,
+Slowbro,65,stat_alignment,1,Bold,72.1%,Defense,Attack,,,,,,
+Slowbro,65,stat_alignment,2,Calm,10.7%,Sp. Def,Attack,,,,,,
+Slowbro,65,stat_alignment,3,Modest,8.8%,Sp. Atk,Attack,,,,,,
+Slowbro,65,stat_alignment,4,Relaxed,4.2%,Defense,Speed,,,,,,
+Slowbro,65,stat_alignment,5,Quiet,2.2%,Sp. Atk,Speed,,,,,,
+Slowbro,65,stat_alignment,6,Sassy,1.5%,Sp. Def,Speed,,,,,,
+Slowbro,65,stat_alignment,7,Impish,0.2%,Defense,Sp. Atk,,,,,,
+Slowbro,65,stat_alignment,8,Timid,0.1%,Speed,Attack,,,,,,
+Slowbro,65,stat_alignment,9,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Slowbro,65,stat_alignment,10,Mild,0.0%,Sp. Atk,Defense,,,,,,
+Slowbro,65,stat_points,1,,37.8%,,,32,0,32,0,2,0
+Slowbro,65,stat_points,2,,7.1%,,,31,0,32,0,3,0
+Slowbro,65,stat_points,3,,7.0%,,,32,0,32,2,0,0
+Slowbro,65,stat_points,4,,5.8%,,,32,0,2,0,32,0
+Slowbro,65,stat_points,5,,2.7%,,,31,0,32,3,0,0
+Slowbro,65,stat_points,6,,1.7%,,,32,0,2,32,0,0
+Slowbro,65,stat_points,7,,1.6%,,,31,0,3,0,32,0
+Slowbro,65,stat_points,8,,1.5%,,,32,0,32,0,0,0
+Slowbro,65,ability,1,Regenerator,91.1%,,,,,,,,
+Slowbro,65,ability,2,Oblivious,7.8%,,,,,,,,
+Slowbro,65,ability,3,Own Tempo,1.0%,,,,,,,,

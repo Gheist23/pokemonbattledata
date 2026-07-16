@@ -1,41 +1,41 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Ditto,37,held_item,1,Choice Scarf,32.5%,,,,,,,,,3831.76
-Ditto,37,held_item,2,Sitrus Berry,17.0%,,,,,,,,,3831.76
-Ditto,37,held_item,3,Quick Claw,16.3%,,,,,,,,,3831.76
-Ditto,37,held_item,4,Focus Sash,11.4%,,,,,,,,,3831.76
-Ditto,37,held_item,5,Life Orb,6.4%,,,,,,,,,3831.76
-Ditto,37,held_item,6,Leftovers,4.8%,,,,,,,,,3839.34
-Ditto,37,held_item,7,Bright Powder,4.7%,,,,,,,,,3839.34
-Ditto,37,held_item,8,lron Ball,1.7%,,,,,,,,,3839.34
-Ditto,37,held_item,9,Shell Bell,1.2%,,,,,,,,,3839.34
-Ditto,37,held_item,10,Expert Belt,1.1%,,,,,,,,,3839.34
-Ditto,37,teammate,1,Whimsicott,,,,,,,,,,3846.23
-Ditto,37,teammate,2,Garchomp,,,,,,,,,,3846.23
-Ditto,37,teammate,3,Charizard,,,,,,,,,,3846.23
-Ditto,37,teammate,4,Sinistcha,,,,,,,,,,3846.23
-Ditto,37,teammate,5,Staraptor,,,,,,,,,,3846.23
-Ditto,37,teammate,6,Incineroar,,,,,,,,,,3849.17
-Ditto,37,teammate,7,Sneasler,,,,,,,,,,3849.17
-Ditto,37,teammate,8,Farigiraf,,,,,,,,,,3849.17
-Ditto,37,teammate,9,Raichu,,,,,,,,,,3849.17
-Ditto,37,teammate,10,Sableye,,,,,,,,,,3849.17
-Ditto,37,stat_alignment,1,Timid,23.0%,Speed,Attack,,,,,,,3851.24
-Ditto,37,stat_alignment,2,Relaxed,10.2%,Defense,Speed,,,,,,,3851.24
-Ditto,37,stat_alignment,3,Jolly,9.3%,Speed,Sp. Atk,,,,,,,3851.24
-Ditto,37,stat_alignment,4,Naive,8.9%,Speed,Sp. Def,,,,,,,3851.24
-Ditto,37,stat_alignment,5,Serious,7.7%,,,,,,,,,3851.24
-Ditto,37,stat_alignment,6,Hasty,5.1%,Speed,Defense,,,,,,,3854.29
-Ditto,37,stat_alignment,7,Quiet,5.0%,Sp. Atk,Speed,,,,,,,3854.29
-Ditto,37,stat_alignment,8,Sassy,4.7%,Sp. Def,Speed,,,,,,,3854.29
-Ditto,37,stat_alignment,9,Modest,3.0%,Sp. Atk,Attack,,,,,,,3854.29
-Ditto,37,stat_alignment,10,Adamant,2.8%,Attack,Sp. Atk,,,,,,,3854.29
-Ditto,37,stat_points,1,,18.2%,,,32,0,0,0,2,32,3856.55
-Ditto,37,stat_points,2,,9.5%,,,32,0,2,0,0,32,3856.55
-Ditto,37,stat_points,3,,7.2%,,,32,0,32,0,2,0,3856.55
-Ditto,37,stat_points,4,,6.5%,,,32,2,0,0,0,32,3856.55
-Ditto,37,stat_points,5,,5.1%,,,32,0,0,0,0,32,3856.55
-Ditto,37,stat_points,6,,2.9%,,,32,0,0,32,2,0,3880.49
-Ditto,37,stat_points,7,,2.8%,,,32,0,2,0,32,0,3880.49
-Ditto,37,stat_points,8,,2.6%,,,32,0,0,2,0,32,3880.49
-Ditto,37,ability,1,Imposter,95.2%,,,,,,,,,3895.37
-Ditto,37,ability,2,Limber,4.8%,,,,,,,,,3895.37
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Ditto,134,held_item,1,Choice Scarf,32.5%,,,,,,,,
+Ditto,134,held_item,2,Sitrus Berry,17.0%,,,,,,,,
+Ditto,134,held_item,3,Quick Claw,16.3%,,,,,,,,
+Ditto,134,held_item,4,Focus Sash,11.4%,,,,,,,,
+Ditto,134,held_item,5,Life Orb,6.4%,,,,,,,,
+Ditto,134,held_item,6,Leftovers,4.8%,,,,,,,,
+Ditto,134,held_item,7,Bright Powder,4.7%,,,,,,,,
+Ditto,134,held_item,8,Iron Ball,1.7%,,,,,,,,
+Ditto,134,held_item,9,Shell Bell,1.2%,,,,,,,,
+Ditto,134,held_item,10,Expert Belt,1.1%,,,,,,,,
+Ditto,134,teammate,1,Whimsicott,,,,,,,,,
+Ditto,134,teammate,2,Garchomp,,,,,,,,,
+Ditto,134,teammate,3,Charizard,,,,,,,,,
+Ditto,134,teammate,4,Sinistcha,,,,,,,,,
+Ditto,134,teammate,5,Staraptor,,,,,,,,,
+Ditto,134,teammate,6,Incineroar,,,,,,,,,
+Ditto,134,teammate,7,Sneasler,,,,,,,,,
+Ditto,134,teammate,8,Farigiraf,,,,,,,,,
+Ditto,134,teammate,9,Raichu,,,,,,,,,
+Ditto,134,teammate,10,Sableye,,,,,,,,,
+Ditto,134,stat_alignment,1,Timid,23.0%,Speed,Attack,,,,,,
+Ditto,134,stat_alignment,2,Relaxed,10.2%,Defense,Speed,,,,,,
+Ditto,134,stat_alignment,3,Jolly,9.3%,Speed,Sp. Atk,,,,,,
+Ditto,134,stat_alignment,4,Naive,8.9%,Speed,Sp. Def,,,,,,
+Ditto,134,stat_alignment,5,Serious,7.7%,,,,,,,,
+Ditto,134,stat_alignment,6,Hasty,5.1%,Speed,Defense,,,,,,
+Ditto,134,stat_alignment,7,Quiet,5.0%,Sp. Atk,Speed,,,,,,
+Ditto,134,stat_alignment,8,Sassy,4.7%,Sp. Def,Speed,,,,,,
+Ditto,134,stat_alignment,9,Modest,3.0%,Sp. Atk,Attack,,,,,,
+Ditto,134,stat_alignment,10,Adamant,2.8%,Attack,Sp. Atk,,,,,,
+Ditto,134,stat_points,1,,18.2%,,,32,0,0,0,2,32
+Ditto,134,stat_points,2,,9.5%,,,32,0,2,0,0,32
+Ditto,134,stat_points,3,,7.2%,,,32,0,32,0,2,0
+Ditto,134,stat_points,4,,6.5%,,,32,2,0,0,0,32
+Ditto,134,stat_points,5,,5.1%,,,32,0,0,0,0,32
+Ditto,134,stat_points,6,,2.9%,,,32,0,0,32,2,0
+Ditto,134,stat_points,7,,2.8%,,,32,0,2,0,32,0
+Ditto,134,stat_points,8,,2.6%,,,32,0,0,2,0,32
+Ditto,134,ability,1,Imposter,95.2%,,,,,,,,
+Ditto,134,ability,2,Limber,4.8%,,,,,,,,

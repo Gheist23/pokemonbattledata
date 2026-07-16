@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Watchog,235,move,1,Super Fang,64.5%,,,,,,,,
-Watchog,235,move,2,Ice Punch,37.1%,,,,,,,,
-Watchog,235,move,3,Giga Impact,37.0%,,,,,,,,
-Watchog,235,move,4,Double-Edge,29.4%,,,,,,,,
-Watchog,235,move,5,Hypnosis,25.1%,,,,,,,,
-Watchog,235,move,6,Crunch,23.9%,,,,,,,,
-Watchog,235,move,7,Thunder Wave,21.8%,,,,,,,,
-Watchog,235,move,8,Fling,13.4%,,,,,,,,
-Watchog,235,move,9,Confuse Ray,13.3%,,,,,,,,
-Watchog,235,move,10,Swords Dance,1.4%,,,,,,,,
-Watchog,235,held_item,1,Focus Sash,25.2%,,,,,,,,
-Watchog,235,held_item,2,Silk Scarf,22.2%,,,,,,,,
-Watchog,235,held_item,3,Light Ball,11.0%,,,,,,,,
-Watchog,235,held_item,4,Zoom Lens,9.1%,,,,,,,,
-Watchog,235,held_item,5,Life Orb,8.0%,,,,,,,,
-Watchog,235,held_item,6,Sitrus Berry,6.0%,,,,,,,,
-Watchog,235,held_item,7,Chople Berry,3.9%,,,,,,,,
-Watchog,235,held_item,8,Focus Band,2.8%,,,,,,,,
-Watchog,235,held_item,9,Expert Belt,2.7%,,,,,,,,
-Watchog,235,held_item,10,Iron Ball,1.8%,,,,,,,,
-Watchog,235,teammate,1,Garchomp,,,,,,,,,
-Watchog,235,teammate,2,Starmie,,,,,,,,,
-Watchog,235,teammate,3,Raichu,,,,,,,,,
-Watchog,235,teammate,4,Corviknight,,,,,,,,,
-Watchog,235,teammate,5,Vanilluxe,,,,,,,,,
-Watchog,235,teammate,6,Staraptor,,,,,,,,,
-Watchog,235,teammate,7,Simisage,,,,,,,,,
-Watchog,235,teammate,8,Alolan Ninetales,,,,,,,,,
-Watchog,235,teammate,9,Lopunny,,,,,,,,,
-Watchog,235,teammate,10,Absol,,,,,,,,,
-Watchog,235,stat_alignment,1,Adamant,41.6%,Attack,Sp. Atk,,,,,,
-Watchog,235,stat_alignment,2,Brave,18.0%,Attack,Speed,,,,,,
-Watchog,235,stat_alignment,3,Impish,13.0%,Defense,Sp. Atk,,,,,,
-Watchog,235,stat_alignment,4,Jolly,9.6%,Speed,Sp. Atk,,,,,,
-Watchog,235,stat_alignment,5,Modest,7.6%,Sp. Atk,Attack,,,,,,
-Watchog,235,stat_alignment,6,Relaxed,3.1%,Defense,Speed,,,,,,
-Watchog,235,stat_alignment,7,Bold,2.2%,Defense,Attack,,,,,,
-Watchog,235,stat_alignment,8,Calm,2.0%,Sp. Def,Attack,,,,,,
-Watchog,235,stat_alignment,9,Timid,1.3%,Speed,Attack,,,,,,
-Watchog,235,stat_alignment,10,Quiet,0.4%,Sp. Atk,Speed,,,,,,
-Watchog,235,stat_points,1,,13.7%,,,2,32,0,0,32,0
-Watchog,235,stat_points,2,,11.6%,,,32,0,32,0,2,0
-Watchog,235,stat_points,3,,9.2%,,,32,32,1,0,1,0
-Watchog,235,stat_points,4,,9.2%,,,32,32,2,0,0,0
-Watchog,235,stat_points,5,,6.9%,,,25,6,0,0,31,4
-Watchog,235,stat_points,6,,6.7%,,,32,2,32,0,0,0
-Watchog,235,stat_points,7,,6.6%,,,0,32,0,0,0,32
-Watchog,235,stat_points,8,,6.5%,,,2,0,0,32,0,32
-Watchog,235,stat_points,9,,3.7%,,,2,32,0,0,0,32
-Watchog,235,stat_points,10,,3.1%,,,32,32,0,0,0,0
-Watchog,235,stat_points,11,,2.7%,,,32,32,0,0,2,0
-Watchog,235,stat_points,12,,2.2%,,,2,32,32,0,0,0
-Watchog,235,ability,1,Analytic,87.1%,,,,,,,,
-Watchog,235,ability,2,Illuminate,10.1%,,,,,,,,
-Watchog,235,ability,3,Keen Eye,2.8%,,,,,,,,
+Watchog,231,move,1,Super Fang,60.8%,,,,,,,,
+Watchog,231,move,2,Ice Punch,46.7%,,,,,,,,
+Watchog,231,move,3,Double-Edge,40.3%,,,,,,,,
+Watchog,231,move,4,Hypnosis,36.0%,,,,,,,,
+Watchog,231,move,5,Giga Impact,28.5%,,,,,,,,
+Watchog,231,move,6,Crunch,26.9%,,,,,,,,
+Watchog,231,move,7,Thunder Wave,25.7%,,,,,,,,
+Watchog,231,move,8,Swords Dance,17.2%,,,,,,,,
+Watchog,231,move,9,Gunk Shot,12.4%,,,,,,,,
+Watchog,231,move,10,Stomping Tantrum,12.2%,,,,,,,,
+Watchog,231,held_item,1,Focus Sash,34.7%,,,,,,,,
+Watchog,231,held_item,2,Zoom Lens,21.0%,,,,,,,,
+Watchog,231,held_item,3,Life Orb,10.8%,,,,,,,,
+Watchog,231,held_item,4,Sitrus Berry,7.8%,,,,,,,,
+Watchog,231,held_item,5,Silk Scarf,5.3%,,,,,,,,
+Watchog,231,held_item,6,Heat Rock,3.1%,,,,,,,,
+Watchog,231,held_item,7,Iron Ball,3.0%,,,,,,,,
+Watchog,231,held_item,8,Choice Scarf,2.5%,,,,,,,,
+Watchog,231,held_item,9,Leftovers,1.8%,,,,,,,,
+Watchog,231,held_item,10,Chople Berry,1.2%,,,,,,,,
+Watchog,231,teammate,1,Garchomp,,,,,,,,,
+Watchog,231,teammate,2,Hydreigon,,,,,,,,,
+Watchog,231,teammate,3,Reuniclus,,,,,,,,,
+Watchog,231,teammate,4,Maushold Family of Four,,,,,,,,,
+Watchog,231,teammate,5,Serperior,,,,,,,,,
+Watchog,231,teammate,6,Mimikyu,,,,,,,,,
+Watchog,231,teammate,7,Raichu,,,,,,,,,
+Watchog,231,teammate,8,Emboar,,,,,,,,,
+Watchog,231,teammate,9,Eelektross,,,,,,,,,
+Watchog,231,teammate,10,Simisage,,,,,,,,,
+Watchog,231,stat_alignment,1,Brave,36.9%,Attack,Speed,,,,,,
+Watchog,231,stat_alignment,2,Adamant,36.2%,Attack,Sp. Atk,,,,,,
+Watchog,231,stat_alignment,3,Impish,8.7%,Defense,Sp. Atk,,,,,,
+Watchog,231,stat_alignment,4,Jolly,6.6%,Speed,Sp. Atk,,,,,,
+Watchog,231,stat_alignment,5,Timid,3.7%,Speed,Attack,,,,,,
+Watchog,231,stat_alignment,6,Bold,1.9%,Defense,Attack,,,,,,
+Watchog,231,stat_alignment,7,Modest,1.4%,Sp. Atk,Attack,,,,,,
+Watchog,231,stat_alignment,8,Calm,1.3%,Sp. Def,Attack,,,,,,
+Watchog,231,stat_alignment,9,Lonely,0.9%,Attack,Defense,,,,,,
+Watchog,231,stat_alignment,10,Naive,0.8%,Speed,Sp. Def,,,,,,
+Watchog,231,stat_points,1,,16.9%,,,32,32,2,0,0,0
+Watchog,231,stat_points,2,,16.1%,,,2,32,0,0,0,32
+Watchog,231,stat_points,3,,10.0%,,,32,32,1,0,1,0
+Watchog,231,stat_points,4,,6.1%,,,32,32,0,0,2,0
+Watchog,231,stat_points,5,,5.8%,,,32,17,17,0,0,0
+Watchog,231,stat_points,6,,4.1%,,,0,26,16,0,0,24
+Watchog,231,stat_points,7,,3.2%,,,32,0,0,2,0,32
+Watchog,231,stat_points,8,,2.9%,,,32,0,32,0,2,0
+Watchog,231,ability,1,Analytic,86.2%,,,,,,,,
+Watchog,231,ability,2,Illuminate,8.6%,,,,,,,,
+Watchog,231,ability,3,Keen Eye,5.2%,,,,,,,,

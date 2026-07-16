@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Bellibolt,25,move,1,Soak,93.6%,,,,,,,,,15601.80
-Bellibolt,25,move,2,Slack Off,92.6%,,,,,,,,,15601.80
-Bellibolt,25,move,3,Toxic,85.4%,,,,,,,,,15601.80
-Bellibolt,25,move,4,Volt Switch,71.4%,,,,,,,,,15601.80
-Bellibolt,25,move,5,Parabolic Charge,47.0%,,,,,,,,,15601.80
-Bellibolt,25,move,6,Protect,1.8%,,,,,,,,,15606.37
-Bellibolt,25,move,7,Acid Spray,1.7%,,,,,,,,,15606.37
-Bellibolt,25,move,8,Sucker Punch,1.4%,,,,,,,,,15606.37
-Bellibolt,25,move,9,Thunderbolt,0.9%,,,,,,,,,15606.37
-Bellibolt,25,move,10,Reflect,0.5%,,,,,,,,,15606.37
-Bellibolt,25,held_item,1,Leftovers,68.8%,,,,,,,,,15609.68
-Bellibolt,25,held_item,2,Sitrus Berry,22.5%,,,,,,,,,15609.68
-Bellibolt,25,held_item,3,Shuca Berry,3.5%,,,,,,,,,15609.68
-Bellibolt,25,held_item,4,Magnet,1.9%,,,,,,,,,15609.68
-Bellibolt,25,held_item,5,Big Root,0.6%,,,,,,,,,15609.68
-Bellibolt,25,held_item,6,Lum Berry,0.5%,,,,,,,,,15616.84
-Bellibolt,25,held_item,7,Life Orb,0.5%,,,,,,,,,15616.84
-Bellibolt,25,held_item,8,Bright Powder,0.3%,,,,,,,,,15616.84
-Bellibolt,25,held_item,9,Quick Claw,0.3%,,,,,,,,,15616.84
-Bellibolt,25,held_item,10,Shell Bell,0.3%,,,,,,,,,15616.84
-Bellibolt,25,teammate,1,Corviknight,,,,,,,,,,15623.15
-Bellibolt,25,teammate,2,Starmie,,,,,,,,,,15623.15
-Bellibolt,25,teammate,3,Hisuian Samurott,,,,,,,,,,15623.15
-Bellibolt,25,teammate,4,Gengar,,,,,,,,,,15623.15
-Bellibolt,25,teammate,5,Garchomp,,,,,,,,,,15623.15
-Bellibolt,25,teammate,6,Whimsicott,,,,,,,,,,15625.97
-Bellibolt,25,teammate,7,Meowscarada,,,,,,,,,,15625.97
-Bellibolt,25,teammate,8,Mimikyu,,,,,,,,,,15625.97
-Bellibolt,25,teammate,9,Hippowdon,,,,,,,,,,15625.97
-Bellibolt,25,teammate,10,Metagross,,,,,,,,,,15625.97
-Bellibolt,25,stat_alignment,1,Calm,75.7%,Sp. Def,Attack,,,,,,,15628.00
-Bellibolt,25,stat_alignment,2,Bold,10.1%,Defense,Attack,,,,,,,15628.00
-Bellibolt,25,stat_alignment,3,Sassy,7.0%,Sp. Def,Speed,,,,,,,15628.00
-Bellibolt,25,stat_alignment,4,Modest,4.1%,Sp. Atk,Attack,,,,,,,15628.00
-Bellibolt,25,stat_alignment,5,Relaxed,1.1%,Defense,Speed,,,,,,,15628.00
-Bellibolt,25,stat_alignment,6,Quiet,1.0%,Sp. Atk,Speed,,,,,,,15632.02
-Bellibolt,25,stat_alignment,7,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,,15632.02
-Bellibolt,25,stat_alignment,8,Timid,0.2%,Speed,Attack,,,,,,,15632.02
-Bellibolt,25,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,,15632.02
-Bellibolt,25,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,,15632.02
-Bellibolt,25,stat_points,1,,33.0%,,,31,0,4,0,28,3,15634.16
-Bellibolt,25,stat_points,2,,8.1%,,,32,0,2,0,32,0,15634.16
-Bellibolt,25,stat_points,3,,6.2%,,,31,0,4,0,31,0,15634.16
-Bellibolt,25,stat_points,4,,3.8%,,,31,0,0,0,32,3,15634.16
-Bellibolt,25,stat_points,5,,3.7%,,,31,0,3,0,32,0,15634.16
-Bellibolt,25,stat_points,6,,1.3%,,,32,0,14,0,17,3,15655.84
-Bellibolt,25,stat_points,7,,1.3%,,,32,0,0,9,22,3,15655.84
-Bellibolt,25,stat_points,8,,1.1%,,,32,0,0,0,31,3,15655.84
-Bellibolt,25,ability,1,Electromorphosis,97.9%,,,,,,,,,15669.50
-Bellibolt,25,ability,2,Static,1.8%,,,,,,,,,15669.50
-Bellibolt,25,ability,3,Damp,0.3%,,,,,,,,,15669.50
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Bellibolt,25,move,1,Soak,93.6%,,,,,,,,
+Bellibolt,25,move,2,Slack Off,92.6%,,,,,,,,
+Bellibolt,25,move,3,Toxic,85.4%,,,,,,,,
+Bellibolt,25,move,4,Volt Switch,71.4%,,,,,,,,
+Bellibolt,25,move,5,Parabolic Charge,47.0%,,,,,,,,
+Bellibolt,25,move,6,Protect,1.8%,,,,,,,,
+Bellibolt,25,move,7,Acid Spray,1.7%,,,,,,,,
+Bellibolt,25,move,8,Sucker Punch,1.4%,,,,,,,,
+Bellibolt,25,move,9,Thunderbolt,0.9%,,,,,,,,
+Bellibolt,25,move,10,Reflect,0.5%,,,,,,,,
+Bellibolt,25,held_item,1,Leftovers,68.8%,,,,,,,,
+Bellibolt,25,held_item,2,Sitrus Berry,22.5%,,,,,,,,
+Bellibolt,25,held_item,3,Shuca Berry,3.5%,,,,,,,,
+Bellibolt,25,held_item,4,Magnet,1.9%,,,,,,,,
+Bellibolt,25,held_item,5,Big Root,0.6%,,,,,,,,
+Bellibolt,25,held_item,6,Lum Berry,0.5%,,,,,,,,
+Bellibolt,25,held_item,7,Life Orb,0.5%,,,,,,,,
+Bellibolt,25,held_item,8,Bright Powder,0.3%,,,,,,,,
+Bellibolt,25,held_item,9,Quick Claw,0.3%,,,,,,,,
+Bellibolt,25,held_item,10,Shell Bell,0.3%,,,,,,,,
+Bellibolt,25,teammate,1,Corviknight,,,,,,,,,
+Bellibolt,25,teammate,2,Starmie,,,,,,,,,
+Bellibolt,25,teammate,3,Hisuian Samurott,,,,,,,,,
+Bellibolt,25,teammate,4,Gengar,,,,,,,,,
+Bellibolt,25,teammate,5,Garchomp,,,,,,,,,
+Bellibolt,25,teammate,6,Whimsicott,,,,,,,,,
+Bellibolt,25,teammate,7,Meowscarada,,,,,,,,,
+Bellibolt,25,teammate,8,Mimikyu,,,,,,,,,
+Bellibolt,25,teammate,9,Hippowdon,,,,,,,,,
+Bellibolt,25,teammate,10,Metagross,,,,,,,,,
+Bellibolt,25,stat_alignment,1,Calm,75.7%,Sp. Def,Attack,,,,,,
+Bellibolt,25,stat_alignment,2,Bold,10.1%,Defense,Attack,,,,,,
+Bellibolt,25,stat_alignment,3,Sassy,7.0%,Sp. Def,Speed,,,,,,
+Bellibolt,25,stat_alignment,4,Modest,4.1%,Sp. Atk,Attack,,,,,,
+Bellibolt,25,stat_alignment,5,Relaxed,1.1%,Defense,Speed,,,,,,
+Bellibolt,25,stat_alignment,6,Quiet,1.0%,Sp. Atk,Speed,,,,,,
+Bellibolt,25,stat_alignment,7,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Bellibolt,25,stat_alignment,8,Timid,0.2%,Speed,Attack,,,,,,
+Bellibolt,25,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Bellibolt,25,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Bellibolt,25,stat_points,1,,33.0%,,,31,0,4,0,28,3
+Bellibolt,25,stat_points,2,,8.1%,,,32,0,2,0,32,0
+Bellibolt,25,stat_points,3,,6.2%,,,31,0,4,0,31,0
+Bellibolt,25,stat_points,4,,3.8%,,,31,0,0,0,32,3
+Bellibolt,25,stat_points,5,,3.7%,,,31,0,3,0,32,0
+Bellibolt,25,stat_points,6,,1.3%,,,32,0,14,0,17,3
+Bellibolt,25,stat_points,7,,1.3%,,,32,0,0,9,22,3
+Bellibolt,25,stat_points,8,,1.1%,,,32,0,0,0,31,3
+Bellibolt,25,ability,1,Electromorphosis,97.9%,,,,,,,,
+Bellibolt,25,ability,2,Static,1.8%,,,,,,,,
+Bellibolt,25,ability,3,Damp,0.3%,,,,,,,,

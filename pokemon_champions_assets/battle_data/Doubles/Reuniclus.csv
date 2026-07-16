@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Reuniclus,122,move,1,Trick Room,80.4%,,,,,,,,
-Reuniclus,122,move,2,Psychic,62.6%,,,,,,,,
-Reuniclus,122,move,3,Protect,48.5%,,,,,,,,
-Reuniclus,122,move,4,Focus Blast,41.4%,,,,,,,,
-Reuniclus,122,move,5,Shadow Ball,35.0%,,,,,,,,
-Reuniclus,122,move,6,Expanding Force,28.5%,,,,,,,,
-Reuniclus,122,move,7,Energy Ball,19.4%,,,,,,,,
-Reuniclus,122,move,8,Recover,11.4%,,,,,,,,
-Reuniclus,122,move,9,Flash Cannon,8.6%,,,,,,,,
-Reuniclus,122,move,10,Psychic Terrain,7.8%,,,,,,,,
-Reuniclus,122,held_item,1,Life Orb,63.0%,,,,,,,,
-Reuniclus,122,held_item,2,Leftovers,10.2%,,,,,,,,
-Reuniclus,122,held_item,3,Sitrus Berry,8.2%,,,,,,,,
-Reuniclus,122,held_item,4,Focus Sash,4.5%,,,,,,,,
-Reuniclus,122,held_item,5,Colbur Berry,3.1%,,,,,,,,
-Reuniclus,122,held_item,6,Mental Herb,3.0%,,,,,,,,
-Reuniclus,122,held_item,7,Quick Claw,1.6%,,,,,,,,
-Reuniclus,122,held_item,8,Twisted Spoon,1.1%,,,,,,,,
-Reuniclus,122,held_item,9,Bright Powder,0.9%,,,,,,,,
-Reuniclus,122,held_item,10,Light Clay,0.8%,,,,,,,,
-Reuniclus,122,teammate,1,Farigiraf,,,,,,,,,
-Reuniclus,122,teammate,2,Mawile,,,,,,,,,
-Reuniclus,122,teammate,3,Torkoal,,,,,,,,,
-Reuniclus,122,teammate,4,Sinistcha,,,,,,,,,
-Reuniclus,122,teammate,5,Incineroar,,,,,,,,,
-Reuniclus,122,teammate,6,Sylveon,,,,,,,,,
-Reuniclus,122,teammate,7,Kingambit,,,,,,,,,
-Reuniclus,122,teammate,8,Tyranitar,,,,,,,,,
-Reuniclus,122,teammate,9,Primarina,,,,,,,,,
-Reuniclus,122,teammate,10,Scrafty,,,,,,,,,
-Reuniclus,122,stat_alignment,1,Quiet,37.7%,Sp. Atk,Speed,,,,,,
-Reuniclus,122,stat_alignment,2,Modest,21.7%,Sp. Atk,Attack,,,,,,
-Reuniclus,122,stat_alignment,3,Relaxed,5.7%,Defense,Speed,,,,,,
-Reuniclus,122,stat_alignment,4,Bold,5.4%,Defense,Attack,,,,,,
-Reuniclus,122,stat_alignment,5,Sassy,4.6%,Sp. Def,Speed,,,,,,
-Reuniclus,122,stat_alignment,6,Calm,2.0%,Sp. Def,Attack,,,,,,
-Reuniclus,122,stat_alignment,7,Mild,0.5%,Sp. Atk,Defense,,,,,,
-Reuniclus,122,stat_alignment,8,Serious,0.1%,,,,,,,,
-Reuniclus,122,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
-Reuniclus,122,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
-Reuniclus,122,stat_points,1,,25.1%,,,32,0,2,32,0,0
-Reuniclus,122,stat_points,2,,11.1%,,,32,0,0,32,2,0
-Reuniclus,122,stat_points,3,,3.5%,,,2,0,32,32,0,0
-Reuniclus,122,stat_points,4,,3.3%,,,0,0,32,32,2,0
-Reuniclus,122,stat_points,5,,2.8%,,,27,0,7,32,0,0
-Reuniclus,122,stat_points,6,,2.2%,,,2,0,0,32,32,0
-Reuniclus,122,stat_points,7,,1.8%,,,32,0,32,0,2,0
-Reuniclus,122,stat_points,8,,1.7%,,,0,0,2,32,32,0
-Reuniclus,122,stat_points,9,,1.7%,,,32,0,0,32,0,0
-Reuniclus,122,stat_points,10,,1.5%,,,2,0,32,0,32,0
-Reuniclus,122,stat_points,11,,1.5%,,,32,0,9,25,0,0
-Reuniclus,122,stat_points,12,,1.4%,,,32,0,15,19,0,0
-Reuniclus,122,ability,1,Magic Guard,73.2%,,,,,,,,
-Reuniclus,122,ability,2,Regenerator,19.5%,,,,,,,,
-Reuniclus,122,ability,3,Overcoat,7.3%,,,,,,,,
+Reuniclus,141,move,1,Trick Room,72.1%,,,,,,,,
+Reuniclus,141,move,2,Psychic,55.4%,,,,,,,,
+Reuniclus,141,move,3,Protect,52.7%,,,,,,,,
+Reuniclus,141,move,4,Focus Blast,44.1%,,,,,,,,
+Reuniclus,141,move,5,Expanding Force,31.4%,,,,,,,,
+Reuniclus,141,move,6,Energy Ball,24.2%,,,,,,,,
+Reuniclus,141,move,7,Shadow Ball,23.9%,,,,,,,,
+Reuniclus,141,move,8,Psychic Terrain,12.5%,,,,,,,,
+Reuniclus,141,move,9,Recover,11.5%,,,,,,,,
+Reuniclus,141,move,10,Thunder,9.6%,,,,,,,,
+Reuniclus,141,held_item,1,Life Orb,58.6%,,,,,,,,
+Reuniclus,141,held_item,2,Sitrus Berry,9.4%,,,,,,,,
+Reuniclus,141,held_item,3,Colbur Berry,7.6%,,,,,,,,
+Reuniclus,141,held_item,4,Leftovers,6.9%,,,,,,,,
+Reuniclus,141,held_item,5,Twisted Spoon,3.6%,,,,,,,,
+Reuniclus,141,held_item,6,Focus Sash,3.5%,,,,,,,,
+Reuniclus,141,held_item,7,Mental Herb,3.1%,,,,,,,,
+Reuniclus,141,held_item,8,Choice Scarf,2.7%,,,,,,,,
+Reuniclus,141,held_item,9,Wise Glasses,1.1%,,,,,,,,
+Reuniclus,141,held_item,10,Quick Claw,0.8%,,,,,,,,
+Reuniclus,141,teammate,1,Farigiraf,,,,,,,,,
+Reuniclus,141,teammate,2,Tyranitar,,,,,,,,,
+Reuniclus,141,teammate,3,Mawile,,,,,,,,,
+Reuniclus,141,teammate,4,Incineroar,,,,,,,,,
+Reuniclus,141,teammate,5,Torkoal,,,,,,,,,
+Reuniclus,141,teammate,6,Sinistcha,,,,,,,,,
+Reuniclus,141,teammate,7,Kingambit,,,,,,,,,
+Reuniclus,141,teammate,8,Sylveon,,,,,,,,,
+Reuniclus,141,teammate,9,Milotic,,,,,,,,,
+Reuniclus,141,teammate,10,Scrafty,,,,,,,,,
+Reuniclus,141,stat_alignment,1,Quiet,56.9%,Sp. Atk,Speed,,,,,,
+Reuniclus,141,stat_alignment,2,Modest,19.6%,Sp. Atk,Attack,,,,,,
+Reuniclus,141,stat_alignment,3,Relaxed,10.2%,Defense,Speed,,,,,,
+Reuniclus,141,stat_alignment,4,Sassy,6.4%,Sp. Def,Speed,,,,,,
+Reuniclus,141,stat_alignment,5,Bold,3.4%,Defense,Attack,,,,,,
+Reuniclus,141,stat_alignment,6,Calm,2.1%,Sp. Def,Attack,,,,,,
+Reuniclus,141,stat_alignment,7,Mild,0.9%,Sp. Atk,Defense,,,,,,
+Reuniclus,141,stat_alignment,8,Timid,0.3%,Speed,Attack,,,,,,
+Reuniclus,141,stat_alignment,9,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Reuniclus,141,stat_alignment,10,Hardy,0.0%,,,,,,,,
+Reuniclus,141,stat_points,1,,21.6%,,,32,0,2,32,0,0
+Reuniclus,141,stat_points,2,,14.7%,,,32,0,0,32,2,0
+Reuniclus,141,stat_points,3,,4.6%,,,2,0,0,32,32,0
+Reuniclus,141,stat_points,4,,3.9%,,,2,0,32,32,0,0
+Reuniclus,141,stat_points,5,,2.9%,,,24,0,10,32,0,0
+Reuniclus,141,stat_points,6,,1.2%,,,32,0,2,0,32,0
+Reuniclus,141,stat_points,7,,1.1%,,,0,0,2,32,32,0
+Reuniclus,141,stat_points,8,,1.1%,,,27,0,7,32,0,0
+Reuniclus,141,ability,1,Magic Guard,75.4%,,,,,,,,
+Reuniclus,141,ability,2,Regenerator,16.9%,,,,,,,,
+Reuniclus,141,ability,3,Overcoat,7.7%,,,,,,,,

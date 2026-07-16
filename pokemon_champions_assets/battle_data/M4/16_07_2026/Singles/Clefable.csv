@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Clefable,47,move,1,Moonlight,89.3%,,,,,,,,,17659.52
-Clefable,47,move,2,Moonblast,77.0%,,,,,,,,,17659.52
-Clefable,47,move,3,Cosmic Power,75.8%,,,,,,,,,17659.52
-Clefable,47,move,4,Stored Power,49.1%,,,,,,,,,17659.52
-Clefable,47,move,5,Calm Mind,24.1%,,,,,,,,,17659.52
-Clefable,47,move,6,Flamethrower,22.4%,,,,,,,,,17663.26
-Clefable,47,move,7,Baton Pass,14.7%,,,,,,,,,17663.26
-Clefable,47,move,8,Mystical Fire,5.9%,,,,,,,,,17663.26
-Clefable,47,move,9,Charge Beam,4.9%,,,,,,,,,17663.26
-Clefable,47,move,10,Stealth Rock,4.4%,,,,,,,,,17663.26
-Clefable,47,held_item,1,Clefablite,79.0%,,,,,,,,,17748.98
-Clefable,47,held_item,2,Leftovers,11.3%,,,,,,,,,17748.98
-Clefable,47,held_item,3,Sitrus Berry,4.9%,,,,,,,,,17748.98
-Clefable,47,held_item,4,Life Orb,1.6%,,,,,,,,,17748.98
-Clefable,47,held_item,5,Lum Berry,0.5%,,,,,,,,,17748.98
-Clefable,47,held_item,6,Bright Powder,0.5%,,,,,,,,,17756.27
-Clefable,47,held_item,7,Babiri Berry,0.3%,,,,,,,,,17756.27
-Clefable,47,held_item,8,Mental Herb,0.3%,,,,,,,,,17756.27
-Clefable,47,held_item,9,Quick Claw,0.2%,,,,,,,,,17756.27
-Clefable,47,held_item,10,Fairy Feather,0.2%,,,,,,,,,17756.27
-Clefable,47,teammate,1,Garchomp,,,,,,,,,,17762.81
-Clefable,47,teammate,2,Archaludon,,,,,,,,,,17762.81
-Clefable,47,teammate,3,Gyarados,,,,,,,,,,17762.81
-Clefable,47,teammate,4,Espathra,,,,,,,,,,17762.81
-Clefable,47,teammate,5,Blaziken,,,,,,,,,,17762.81
-Clefable,47,teammate,6,Glimmora,,,,,,,,,,17765.70
-Clefable,47,teammate,7,Snorlax,,,,,,,,,,17765.70
-Clefable,47,teammate,8,Meowscarada,,,,,,,,,,17765.70
-Clefable,47,teammate,9,Toxapex,,,,,,,,,,17765.70
-Clefable,47,teammate,10,Mimikyu,,,,,,,,,,17765.70
-Clefable,47,stat_alignment,1,Bold,72.3%,Defense,Attack,,,,,,,17767.68
-Clefable,47,stat_alignment,2,Calm,16.0%,Sp. Def,Attack,,,,,,,17767.68
-Clefable,47,stat_alignment,3,Modest,8.2%,Sp. Atk,Attack,,,,,,,17767.68
-Clefable,47,stat_alignment,4,Timid,1.6%,Speed,Attack,,,,,,,17767.68
-Clefable,47,stat_alignment,5,Relaxed,0.6%,Defense,Speed,,,,,,,17767.68
-Clefable,47,stat_alignment,6,Quiet,0.3%,Sp. Atk,Speed,,,,,,,17770.69
-Clefable,47,stat_alignment,7,Sassy,0.2%,Sp. Def,Speed,,,,,,,17770.69
-Clefable,47,stat_alignment,8,Gentle,0.2%,Sp. Def,Defense,,,,,,,17770.69
-Clefable,47,stat_alignment,9,Mild,0.1%,Sp. Atk,Defense,,,,,,,17770.69
-Clefable,47,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,,17770.69
-Clefable,47,stat_points,1,,26.6%,,,32,0,32,0,2,0,17772.87
-Clefable,47,stat_points,2,,6.4%,,,32,0,20,0,0,14,17772.87
-Clefable,47,stat_points,3,,4.6%,,,31,0,32,0,3,0,17772.87
-Clefable,47,stat_points,4,,4.4%,,,32,0,32,0,0,2,17772.87
-Clefable,47,stat_points,5,,3.6%,,,32,0,2,0,32,0,17772.87
-Clefable,47,stat_points,6,,1.9%,,,31,0,32,0,0,3,17795.04
-Clefable,47,stat_points,7,,1.4%,,,32,0,21,0,0,13,17795.04
-Clefable,47,stat_points,8,,1.4%,,,2,0,32,0,32,0,17795.04
-Clefable,47,ability,1,Unaware,86.5%,,,,,,,,,17809.09
-Clefable,47,ability,2,Magic Guard,12.6%,,,,,,,,,17809.09
-Clefable,47,ability,3,Cute Charm,0.9%,,,,,,,,,17809.09
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Clefable,47,move,1,Moonlight,89.3%,,,,,,,,
+Clefable,47,move,2,Moonblast,77.0%,,,,,,,,
+Clefable,47,move,3,Cosmic Power,75.8%,,,,,,,,
+Clefable,47,move,4,Stored Power,49.1%,,,,,,,,
+Clefable,47,move,5,Calm Mind,24.1%,,,,,,,,
+Clefable,47,move,6,Flamethrower,22.4%,,,,,,,,
+Clefable,47,move,7,Baton Pass,14.7%,,,,,,,,
+Clefable,47,move,8,Mystical Fire,5.9%,,,,,,,,
+Clefable,47,move,9,Charge Beam,4.9%,,,,,,,,
+Clefable,47,move,10,Stealth Rock,4.4%,,,,,,,,
+Clefable,47,held_item,1,Clefablite,79.0%,,,,,,,,
+Clefable,47,held_item,2,Leftovers,11.3%,,,,,,,,
+Clefable,47,held_item,3,Sitrus Berry,4.9%,,,,,,,,
+Clefable,47,held_item,4,Life Orb,1.6%,,,,,,,,
+Clefable,47,held_item,5,Lum Berry,0.5%,,,,,,,,
+Clefable,47,held_item,6,Bright Powder,0.5%,,,,,,,,
+Clefable,47,held_item,7,Babiri Berry,0.3%,,,,,,,,
+Clefable,47,held_item,8,Mental Herb,0.3%,,,,,,,,
+Clefable,47,held_item,9,Quick Claw,0.2%,,,,,,,,
+Clefable,47,held_item,10,Fairy Feather,0.2%,,,,,,,,
+Clefable,47,teammate,1,Garchomp,,,,,,,,,
+Clefable,47,teammate,2,Archaludon,,,,,,,,,
+Clefable,47,teammate,3,Gyarados,,,,,,,,,
+Clefable,47,teammate,4,Espathra,,,,,,,,,
+Clefable,47,teammate,5,Blaziken,,,,,,,,,
+Clefable,47,teammate,6,Glimmora,,,,,,,,,
+Clefable,47,teammate,7,Snorlax,,,,,,,,,
+Clefable,47,teammate,8,Meowscarada,,,,,,,,,
+Clefable,47,teammate,9,Toxapex,,,,,,,,,
+Clefable,47,teammate,10,Mimikyu,,,,,,,,,
+Clefable,47,stat_alignment,1,Bold,72.3%,Defense,Attack,,,,,,
+Clefable,47,stat_alignment,2,Calm,16.0%,Sp. Def,Attack,,,,,,
+Clefable,47,stat_alignment,3,Modest,8.2%,Sp. Atk,Attack,,,,,,
+Clefable,47,stat_alignment,4,Timid,1.6%,Speed,Attack,,,,,,
+Clefable,47,stat_alignment,5,Relaxed,0.6%,Defense,Speed,,,,,,
+Clefable,47,stat_alignment,6,Quiet,0.3%,Sp. Atk,Speed,,,,,,
+Clefable,47,stat_alignment,7,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Clefable,47,stat_alignment,8,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Clefable,47,stat_alignment,9,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Clefable,47,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Clefable,47,stat_points,1,,26.6%,,,32,0,32,0,2,0
+Clefable,47,stat_points,2,,6.4%,,,32,0,20,0,0,14
+Clefable,47,stat_points,3,,4.6%,,,31,0,32,0,3,0
+Clefable,47,stat_points,4,,4.4%,,,32,0,32,0,0,2
+Clefable,47,stat_points,5,,3.6%,,,32,0,2,0,32,0
+Clefable,47,stat_points,6,,1.9%,,,31,0,32,0,0,3
+Clefable,47,stat_points,7,,1.4%,,,32,0,21,0,0,13
+Clefable,47,stat_points,8,,1.4%,,,2,0,32,0,32,0
+Clefable,47,ability,1,Unaware,86.5%,,,,,,,,
+Clefable,47,ability,2,Magic Guard,12.6%,,,,,,,,
+Clefable,47,ability,3,Cute Charm,0.9%,,,,,,,,

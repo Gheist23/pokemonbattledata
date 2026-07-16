@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Gourgeist Small Variety,225,move,1,Will-O-Wisp,78.7%,,,,,,,,,33945.87
-Gourgeist Small Variety,225,move,2,Leech Seed,77.7%,,,,,,,,,33945.87
-Gourgeist Small Variety,225,move,3,Protect,53.8%,,,,,,,,,33945.87
-Gourgeist Small Variety,225,move,4,Power Whip,49.4%,,,,,,,,,33945.87
-Gourgeist Small Variety,225,move,5,Poltergeist,27.4%,,,,,,,,,33945.87
-Gourgeist Small Variety,225,move,6,Trick Room,19.5%,,,,,,,,,33949.61
-Gourgeist Small Variety,225,move,7,Explosion,15.8%,,,,,,,,,33949.61
-Gourgeist Small Variety,225,move,8,Destiny Bond,12.6%,,,,,,,,,33949.61
-Gourgeist Small Variety,225,move,9,Foul Play,11.5%,,,,,,,,,33949.61
-Gourgeist Small Variety,225,move,10,Curse,8.9%,,,,,,,,,33949.61
-Gourgeist Small Variety,225,held_item,1,Leftovers,50.8%,,,,,,,,,33952.56
-Gourgeist Small Variety,225,held_item,2,Sitrus Berry,14.5%,,,,,,,,,33952.56
-Gourgeist Small Variety,225,held_item,3,Focus Sash,8.8%,,,,,,,,,33952.56
-Gourgeist Small Variety,225,held_item,4,Big Root,3.6%,,,,,,,,,33952.56
-Gourgeist Small Variety,225,held_item,5,Silk Scarf,3.3%,,,,,,,,,33952.56
-Gourgeist Small Variety,225,held_item,6,Coba Berry,2.8%,,,,,,,,,33959.81
-Gourgeist Small Variety,225,held_item,7,Choice Scarf,1.9%,,,,,,,,,33959.81
-Gourgeist Small Variety,225,held_item,8,Colbur Berry,1.9%,,,,,,,,,33959.81
-Gourgeist Small Variety,225,held_item,9,Bright Powder,1.8%,,,,,,,,,33959.81
-Gourgeist Small Variety,225,held_item,10,Quick Claw,1.6%,,,,,,,,,33959.81
-Gourgeist Small Variety,225,teammate,1,Garchomp,,,,,,,,,,33966.25
-Gourgeist Small Variety,225,teammate,2,Gyarados,,,,,,,,,,33966.25
-Gourgeist Small Variety,225,teammate,3,Primarina,,,,,,,,,,33966.25
-Gourgeist Small Variety,225,teammate,4,Floette,,,,,,,,,,33966.25
-Gourgeist Small Variety,225,teammate,5,Excadrill,,,,,,,,,,33966.25
-Gourgeist Small Variety,225,teammate,6,Dragonite,,,,,,,,,,33969.13
-Gourgeist Small Variety,225,teammate,7,Kingambit,,,,,,,,,,33969.13
-Gourgeist Small Variety,225,teammate,8,Mimikyu,,,,,,,,,,33969.13
-Gourgeist Small Variety,225,teammate,9,Greninja,,,,,,,,,,33969.13
-Gourgeist Small Variety,225,teammate,10,Mawile,,,,,,,,,,33969.13
-Gourgeist Small Variety,225,stat_alignment,1,Impish,60.0%,Defense,Sp. Atk,,,,,,,33971.22
-Gourgeist Small Variety,225,stat_alignment,2,Adamant,8.9%,Attack,Sp. Atk,,,,,,,33971.22
-Gourgeist Small Variety,225,stat_alignment,3,Brave,6.5%,Attack,Speed,,,,,,,33971.22
-Gourgeist Small Variety,225,stat_alignment,4,Careful,6.2%,Sp. Def,Sp. Atk,,,,,,,33971.22
-Gourgeist Small Variety,225,stat_alignment,5,Sassy,6.0%,Sp. Def,Speed,,,,,,,33971.22
-Gourgeist Small Variety,225,stat_alignment,6,Relaxed,5.6%,Defense,Speed,,,,,,,33974.28
-Gourgeist Small Variety,225,stat_alignment,7,Bold,4.2%,Defense,Attack,,,,,,,33974.28
-Gourgeist Small Variety,225,stat_alignment,8,Naughty,1.2%,Attack,Sp. Def,,,,,,,33974.28
-Gourgeist Small Variety,225,stat_alignment,9,Calm,0.7%,Sp. Def,Attack,,,,,,,33974.28
-Gourgeist Small Variety,225,stat_alignment,10,Jolly,0.6%,Speed,Sp. Atk,,,,,,,33974.28
-Gourgeist Small Variety,225,stat_points,1,,22.4%,,,32,0,29,0,0,5,33976.53
-Gourgeist Small Variety,225,stat_points,2,,15.3%,,,32,0,32,0,2,0,33976.53
-Gourgeist Small Variety,225,stat_points,3,,4.7%,,,32,2,0,0,32,0,33976.53
-Gourgeist Small Variety,225,stat_points,4,,4.2%,,,32,4,30,0,0,0,33976.53
-Gourgeist Small Variety,225,stat_points,5,,4.0%,,,32,0,2,0,32,0,33976.53
-Gourgeist Small Variety,225,stat_points,6,,3.1%,,,32,2,32,0,0,0,33998.46
-Gourgeist Small Variety,225,stat_points,7,,3.0%,,,32,0,32,0,0,2,33998.46
-Gourgeist Small Variety,225,stat_points,8,,3.0%,,,27,0,29,0,10,0,33998.46
-Gourgeist Small Variety,225,ability,1,Insomnia,71.4%,,,,,,,,,34012.30
-Gourgeist Small Variety,225,ability,2,Frisk,25.9%,,,,,,,,,34012.30
-Gourgeist Small Variety,225,ability,3,Pickup,2.7%,,,,,,,,,34012.30
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Gourgeist Small Variety,226,move,1,Will-O-Wisp,78.7%,,,,,,,,
+Gourgeist Small Variety,226,move,2,Leech Seed,77.7%,,,,,,,,
+Gourgeist Small Variety,226,move,3,Protect,53.8%,,,,,,,,
+Gourgeist Small Variety,226,move,4,Power Whip,49.4%,,,,,,,,
+Gourgeist Small Variety,226,move,5,Poltergeist,27.4%,,,,,,,,
+Gourgeist Small Variety,226,move,6,Trick Room,19.5%,,,,,,,,
+Gourgeist Small Variety,226,move,7,Explosion,15.8%,,,,,,,,
+Gourgeist Small Variety,226,move,8,Destiny Bond,12.6%,,,,,,,,
+Gourgeist Small Variety,226,move,9,Foul Play,11.5%,,,,,,,,
+Gourgeist Small Variety,226,move,10,Curse,8.9%,,,,,,,,
+Gourgeist Small Variety,226,held_item,1,Leftovers,50.8%,,,,,,,,
+Gourgeist Small Variety,226,held_item,2,Sitrus Berry,14.5%,,,,,,,,
+Gourgeist Small Variety,226,held_item,3,Focus Sash,8.8%,,,,,,,,
+Gourgeist Small Variety,226,held_item,4,Big Root,3.6%,,,,,,,,
+Gourgeist Small Variety,226,held_item,5,Silk Scarf,3.3%,,,,,,,,
+Gourgeist Small Variety,226,held_item,6,Coba Berry,2.8%,,,,,,,,
+Gourgeist Small Variety,226,held_item,7,Choice Scarf,1.9%,,,,,,,,
+Gourgeist Small Variety,226,held_item,8,Colbur Berry,1.9%,,,,,,,,
+Gourgeist Small Variety,226,held_item,9,Bright Powder,1.8%,,,,,,,,
+Gourgeist Small Variety,226,held_item,10,Quick Claw,1.6%,,,,,,,,
+Gourgeist Small Variety,226,teammate,1,Garchomp,,,,,,,,,
+Gourgeist Small Variety,226,teammate,2,Gyarados,,,,,,,,,
+Gourgeist Small Variety,226,teammate,3,Primarina,,,,,,,,,
+Gourgeist Small Variety,226,teammate,4,Floette,,,,,,,,,
+Gourgeist Small Variety,226,teammate,5,Excadrill,,,,,,,,,
+Gourgeist Small Variety,226,teammate,6,Dragonite,,,,,,,,,
+Gourgeist Small Variety,226,teammate,7,Kingambit,,,,,,,,,
+Gourgeist Small Variety,226,teammate,8,Mimikyu,,,,,,,,,
+Gourgeist Small Variety,226,teammate,9,Greninja,,,,,,,,,
+Gourgeist Small Variety,226,teammate,10,Mawile,,,,,,,,,
+Gourgeist Small Variety,226,stat_alignment,1,Impish,60.0%,Defense,Sp. Atk,,,,,,
+Gourgeist Small Variety,226,stat_alignment,2,Adamant,8.9%,Attack,Sp. Atk,,,,,,
+Gourgeist Small Variety,226,stat_alignment,3,Brave,6.5%,Attack,Speed,,,,,,
+Gourgeist Small Variety,226,stat_alignment,4,Careful,6.2%,Sp. Def,Sp. Atk,,,,,,
+Gourgeist Small Variety,226,stat_alignment,5,Sassy,6.0%,Sp. Def,Speed,,,,,,
+Gourgeist Small Variety,226,stat_alignment,6,Relaxed,5.6%,Defense,Speed,,,,,,
+Gourgeist Small Variety,226,stat_alignment,7,Bold,4.2%,Defense,Attack,,,,,,
+Gourgeist Small Variety,226,stat_alignment,8,Naughty,1.2%,Attack,Sp. Def,,,,,,
+Gourgeist Small Variety,226,stat_alignment,9,Calm,0.7%,Sp. Def,Attack,,,,,,
+Gourgeist Small Variety,226,stat_alignment,10,Jolly,0.6%,Speed,Sp. Atk,,,,,,
+Gourgeist Small Variety,226,stat_points,1,,22.4%,,,32,0,29,0,0,5
+Gourgeist Small Variety,226,stat_points,2,,15.3%,,,32,0,32,0,2,0
+Gourgeist Small Variety,226,stat_points,3,,4.7%,,,32,2,0,0,32,0
+Gourgeist Small Variety,226,stat_points,4,,4.2%,,,32,4,30,0,0,0
+Gourgeist Small Variety,226,stat_points,5,,4.0%,,,32,0,2,0,32,0
+Gourgeist Small Variety,226,stat_points,6,,3.1%,,,32,2,32,0,0,0
+Gourgeist Small Variety,226,stat_points,7,,3.0%,,,32,0,32,0,0,2
+Gourgeist Small Variety,226,stat_points,8,,3.0%,,,27,0,29,0,10,0
+Gourgeist Small Variety,226,ability,1,Insomnia,71.4%,,,,,,,,
+Gourgeist Small Variety,226,ability,2,Frisk,25.9%,,,,,,,,
+Gourgeist Small Variety,226,ability,3,Pickup,2.7%,,,,,,,,

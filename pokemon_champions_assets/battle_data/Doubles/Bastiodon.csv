@@ -1,55 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Bastiodon,214,move,1,Body Press,68.3%,,,,,,,,
-Bastiodon,214,move,2,Wide Guard,62.5%,,,,,,,,
-Bastiodon,214,move,3,Heavy Slam,29.9%,,,,,,,,
-Bastiodon,214,move,4,Iron Defense,27.9%,,,,,,,,
-Bastiodon,214,move,5,Protect,26.3%,,,,,,,,
-Bastiodon,214,move,6,Metal Burst,25.5%,,,,,,,,
-Bastiodon,214,move,7,Rock Slide,22.9%,,,,,,,,
-Bastiodon,214,move,8,Foul Play,20.5%,,,,,,,,
-Bastiodon,214,move,9,Guard Split,12.3%,,,,,,,,
-Bastiodon,214,move,10,Stealth Rock,9.7%,,,,,,,,
-Bastiodon,214,held_item,1,Leftovers,29.7%,,,,,,,,
-Bastiodon,214,held_item,2,Sitrus Berry,14.4%,,,,,,,,
-Bastiodon,214,held_item,3,Chople Berry,9.9%,,,,,,,,
-Bastiodon,214,held_item,4,Focus Sash,6.5%,,,,,,,,
-Bastiodon,214,held_item,5,Quick Claw,4.9%,,,,,,,,
-Bastiodon,214,held_item,6,Shell Bell,4.9%,,,,,,,,
-Bastiodon,214,held_item,7,Shuca Berry,3.5%,,,,,,,,
-Bastiodon,214,held_item,8,Lum Berry,3.4%,,,,,,,,
-Bastiodon,214,held_item,9,Mental Herb,2.7%,,,,,,,,
-Bastiodon,214,held_item,10,Metal Coat,2.6%,,,,,,,,
-Bastiodon,214,teammate,1,Farigiraf,,,,,,,,,
-Bastiodon,214,teammate,2,Sinistcha,,,,,,,,,
-Bastiodon,214,teammate,3,Incineroar,,,,,,,,,
-Bastiodon,214,teammate,4,Malamar,,,,,,,,,
-Bastiodon,214,teammate,5,Raichu,,,,,,,,,
-Bastiodon,214,teammate,6,Grimmsnarl,,,,,,,,,
-Bastiodon,214,teammate,7,Basculegion Male,,,,,,,,,
-Bastiodon,214,teammate,8,Tyranitar,,,,,,,,,
-Bastiodon,214,teammate,9,Staraptor,,,,,,,,,
-Bastiodon,214,teammate,10,Torkoal,,,,,,,,,
-Bastiodon,214,stat_alignment,1,Impish,25.8%,Defense,Sp. Atk,,,,,,
-Bastiodon,214,stat_alignment,2,Relaxed,19.8%,Defense,Speed,,,,,,
-Bastiodon,214,stat_alignment,3,Careful,14.7%,Sp. Def,Sp. Atk,,,,,,
-Bastiodon,214,stat_alignment,4,Adamant,12.4%,Attack,Sp. Atk,,,,,,
-Bastiodon,214,stat_alignment,5,Sassy,10.2%,Sp. Def,Speed,,,,,,
-Bastiodon,214,stat_alignment,6,Brave,7.6%,Attack,Speed,,,,,,
-Bastiodon,214,stat_alignment,7,Quiet,3.4%,Sp. Atk,Speed,,,,,,
-Bastiodon,214,stat_alignment,8,Bold,3.2%,Defense,Attack,,,,,,
-Bastiodon,214,stat_alignment,9,Calm,2.1%,Sp. Def,Attack,,,,,,
-Bastiodon,214,stat_alignment,10,Modest,0.5%,Sp. Atk,Attack,,,,,,
-Bastiodon,214,stat_points,1,,16.8%,,,32,0,32,0,2,0
-Bastiodon,214,stat_points,2,,11.6%,,,2,0,32,0,32,0
-Bastiodon,214,stat_points,3,,7.8%,,,32,0,2,0,32,0
-Bastiodon,214,stat_points,4,,5.6%,,,0,32,32,0,2,0
-Bastiodon,214,stat_points,5,,5.1%,,,0,32,2,0,32,0
-Bastiodon,214,stat_points,6,,3.9%,,,32,32,0,0,0,2
-Bastiodon,214,stat_points,7,,3.5%,,,32,0,2,32,0,0
-Bastiodon,214,stat_points,8,,3.0%,,,2,32,32,0,0,0
-Bastiodon,214,stat_points,9,,2.2%,,,0,0,32,0,32,2
-Bastiodon,214,stat_points,10,,2.0%,,,32,32,0,0,2,0
-Bastiodon,214,stat_points,11,,2.0%,,,11,32,3,0,0,20
-Bastiodon,214,stat_points,12,,2.0%,,,22,0,32,0,12,0
-Bastiodon,214,ability,1,Sturdy,66.7%,,,,,,,,
-Bastiodon,214,ability,2,Soundproof,33.3%,,,,,,,,
+Bastiodon,208,move,1,Body Press,71.7%,,,,,,,,
+Bastiodon,208,move,2,Wide Guard,58.9%,,,,,,,,
+Bastiodon,208,move,3,Protect,38.5%,,,,,,,,
+Bastiodon,208,move,4,Iron Defense,35.2%,,,,,,,,
+Bastiodon,208,move,5,Metal Burst,34.7%,,,,,,,,
+Bastiodon,208,move,6,Heavy Slam,28.9%,,,,,,,,
+Bastiodon,208,move,7,Foul Play,15.6%,,,,,,,,
+Bastiodon,208,move,8,Rock Slide,11.4%,,,,,,,,
+Bastiodon,208,move,9,Fissure,11.4%,,,,,,,,
+Bastiodon,208,move,10,Sand Tomb,10.8%,,,,,,,,
+Bastiodon,208,held_item,1,Leftovers,37.0%,,,,,,,,
+Bastiodon,208,held_item,2,Shuca Berry,17.0%,,,,,,,,
+Bastiodon,208,held_item,3,Sitrus Berry,12.9%,,,,,,,,
+Bastiodon,208,held_item,4,Chople Berry,7.6%,,,,,,,,
+Bastiodon,208,held_item,5,Focus Sash,5.0%,,,,,,,,
+Bastiodon,208,held_item,6,Quick Claw,4.3%,,,,,,,,
+Bastiodon,208,held_item,7,Mental Herb,3.4%,,,,,,,,
+Bastiodon,208,held_item,8,Hard Stone,1.9%,,,,,,,,
+Bastiodon,208,held_item,9,Bright Powder,1.6%,,,,,,,,
+Bastiodon,208,held_item,10,Metal Coat,1.6%,,,,,,,,
+Bastiodon,208,teammate,1,Incineroar,,,,,,,,,
+Bastiodon,208,teammate,2,Whimsicott,,,,,,,,,
+Bastiodon,208,teammate,3,Sinistcha,,,,,,,,,
+Bastiodon,208,teammate,4,Tyranitar,,,,,,,,,
+Bastiodon,208,teammate,5,Farigiraf,,,,,,,,,
+Bastiodon,208,teammate,6,Gengar,,,,,,,,,
+Bastiodon,208,teammate,7,Altaria,,,,,,,,,
+Bastiodon,208,teammate,8,Sneasler,,,,,,,,,
+Bastiodon,208,teammate,9,Garchomp,,,,,,,,,
+Bastiodon,208,teammate,10,Chandelure,,,,,,,,,
+Bastiodon,208,stat_alignment,1,Relaxed,44.8%,Defense,Speed,,,,,,
+Bastiodon,208,stat_alignment,2,Impish,19.5%,Defense,Sp. Atk,,,,,,
+Bastiodon,208,stat_alignment,3,Sassy,12.9%,Sp. Def,Speed,,,,,,
+Bastiodon,208,stat_alignment,4,Careful,8.9%,Sp. Def,Sp. Atk,,,,,,
+Bastiodon,208,stat_alignment,5,Adamant,6.7%,Attack,Sp. Atk,,,,,,
+Bastiodon,208,stat_alignment,6,Brave,3.6%,Attack,Speed,,,,,,
+Bastiodon,208,stat_alignment,7,Naughty,1.1%,Attack,Sp. Def,,,,,,
+Bastiodon,208,stat_alignment,8,Calm,0.9%,Sp. Def,Attack,,,,,,
+Bastiodon,208,stat_alignment,9,Bold,0.7%,Defense,Attack,,,,,,
+Bastiodon,208,stat_alignment,10,Modest,0.5%,Sp. Atk,Attack,,,,,,
+Bastiodon,208,stat_points,1,,25.8%,,,32,0,32,0,2,0
+Bastiodon,208,stat_points,2,,18.3%,,,32,0,2,0,32,0
+Bastiodon,208,stat_points,3,,11.9%,,,2,0,32,0,32,0
+Bastiodon,208,stat_points,4,,4.0%,,,0,32,2,0,32,0
+Bastiodon,208,stat_points,5,,3.7%,,,32,0,22,0,12,0
+Bastiodon,208,stat_points,6,,2.6%,,,32,32,0,0,2,0
+Bastiodon,208,stat_points,7,,2.3%,,,0,0,32,0,32,0
+Bastiodon,208,stat_points,8,,2.1%,,,2,32,32,0,0,0
+Bastiodon,208,ability,1,Sturdy,66.6%,,,,,,,,
+Bastiodon,208,ability,2,Soundproof,33.4%,,,,,,,,

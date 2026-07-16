@@ -1,54 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Altaria,131,move,1,Roost,88.1%,,,,,,,,
-Altaria,131,move,2,Cotton Guard,73.1%,,,,,,,,
-Altaria,131,move,3,Hyper Voice,63.7%,,,,,,,,
-Altaria,131,move,4,Flamethrower,35.7%,,,,,,,,
-Altaria,131,move,5,Dragon Dance,18.6%,,,,,,,,
-Altaria,131,move,6,Fire Blast,16.0%,,,,,,,,
-Altaria,131,move,7,Body Slam,12.9%,,,,,,,,
-Altaria,131,move,8,Earthquake,11.5%,,,,,,,,
-Altaria,131,move,9,Fire Spin,9.8%,,,,,,,,
-Altaria,131,move,10,Will-O-Wisp,0.4%,,,,,,,,
-Altaria,131,held_item,1,Altarianite,93.8%,,,,,,,,
-Altaria,131,held_item,2,Sitrus Berry,1.7%,,,,,,,,
-Altaria,131,held_item,3,Leftovers,1.6%,,,,,,,,
-Altaria,131,held_item,4,Lum Berry,0.4%,,,,,,,,
-Altaria,131,held_item,5,Bright Powder,0.3%,,,,,,,,
-Altaria,131,held_item,6,Focus Sash,0.3%,,,,,,,,
-Altaria,131,held_item,7,Quick Claw,0.3%,,,,,,,,
-Altaria,131,held_item,8,Yache Berry,0.2%,,,,,,,,
-Altaria,131,held_item,9,Life Orb,0.1%,,,,,,,,
-Altaria,131,held_item,10,Haban Berry,0.1%,,,,,,,,
-Altaria,131,teammate,1,Garchomp,,,,,,,,,
-Altaria,131,teammate,2,Meowscarada,,,,,,,,,
-Altaria,131,teammate,3,Archaludon,,,,,,,,,
-Altaria,131,teammate,4,Kingambit,,,,,,,,,
-Altaria,131,teammate,5,Metagross,,,,,,,,,
-Altaria,131,teammate,6,Mimikyu,,,,,,,,,
-Altaria,131,teammate,7,Blaziken,,,,,,,,,
-Altaria,131,teammate,8,Corviknight,,,,,,,,,
-Altaria,131,teammate,9,Raichu,,,,,,,,,
-Altaria,131,teammate,10,Rotom Wash,,,,,,,,,
-Altaria,131,stat_alignment,1,Modest,34.5%,Sp. Atk,Attack,,,,,,
-Altaria,131,stat_alignment,2,Calm,22.5%,Sp. Def,Attack,,,,,,
-Altaria,131,stat_alignment,3,Bold,14.1%,Defense,Attack,,,,,,
-Altaria,131,stat_alignment,4,Adamant,6.9%,Attack,Sp. Atk,,,,,,
-Altaria,131,stat_alignment,5,Careful,6.3%,Sp. Def,Sp. Atk,,,,,,
-Altaria,131,stat_alignment,6,Jolly,5.9%,Speed,Sp. Atk,,,,,,
-Altaria,131,stat_alignment,7,Impish,3.5%,Defense,Sp. Atk,,,,,,
-Altaria,131,stat_alignment,8,Timid,2.9%,Speed,Attack,,,,,,
-Altaria,131,stat_alignment,9,Sassy,1.2%,Sp. Def,Speed,,,,,,
-Altaria,131,stat_alignment,10,Relaxed,0.6%,Defense,Speed,,,,,,
-Altaria,131,stat_points,1,,10.5%,,,32,0,0,32,0,2
-Altaria,131,stat_points,2,,9.4%,,,32,0,2,0,32,0
-Altaria,131,stat_points,3,,6.3%,,,31,0,10,0,25,0
-Altaria,131,stat_points,4,,3.3%,,,32,0,2,32,0,0
-Altaria,131,stat_points,5,,2.5%,,,32,0,32,0,2,0
-Altaria,131,stat_points,6,,2.5%,,,32,0,0,32,2,0
-Altaria,131,stat_points,7,,2.2%,,,2,32,0,0,0,32
-Altaria,131,stat_points,8,,1.8%,,,32,0,0,0,32,2
-Altaria,131,stat_points,9,,1.8%,,,32,0,0,2,32,0
-Altaria,131,stat_points,10,,1.4%,,,31,0,7,20,8,0
-Altaria,131,stat_points,11,,1.4%,,,1,32,1,0,0,32
-Altaria,131,ability,1,Cloud Nine,64.6%,,,,,,,,
-Altaria,131,ability,2,Natural Cure,35.4%,,,,,,,,
+Altaria,124,move,1,Roost,87.4%,,,,,,,,
+Altaria,124,move,2,Cotton Guard,74.2%,,,,,,,,
+Altaria,124,move,3,Hyper Voice,60.3%,,,,,,,,
+Altaria,124,move,4,Flamethrower,39.4%,,,,,,,,
+Altaria,124,move,5,Dragon Dance,24.4%,,,,,,,,
+Altaria,124,move,6,Body Slam,20.4%,,,,,,,,
+Altaria,124,move,7,Fire Spin,10.9%,,,,,,,,
+Altaria,124,move,8,Fire Blast,10.6%,,,,,,,,
+Altaria,124,move,9,Earthquake,9.5%,,,,,,,,
+Altaria,124,move,10,Will-O-Wisp,7.7%,,,,,,,,
+Altaria,124,held_item,1,Altarianite,95.0%,,,,,,,,
+Altaria,124,held_item,2,Leftovers,1.5%,,,,,,,,
+Altaria,124,held_item,3,Sitrus Berry,1.1%,,,,,,,,
+Altaria,124,held_item,4,Metronome,0.7%,,,,,,,,
+Altaria,124,held_item,5,Lum Berry,0.3%,,,,,,,,
+Altaria,124,held_item,6,Quick Claw,0.2%,,,,,,,,
+Altaria,124,held_item,7,Wide Lens,0.2%,,,,,,,,
+Altaria,124,held_item,8,Bright Powder,0.1%,,,,,,,,
+Altaria,124,held_item,9,Mental Herb,0.1%,,,,,,,,
+Altaria,124,held_item,10,Chesto Berry,0.1%,,,,,,,,
+Altaria,124,teammate,1,Garchomp,,,,,,,,,
+Altaria,124,teammate,2,Excadrill,,,,,,,,,
+Altaria,124,teammate,3,Meowscarada,,,,,,,,,
+Altaria,124,teammate,4,Skeledirge,,,,,,,,,
+Altaria,124,teammate,5,Archaludon,,,,,,,,,
+Altaria,124,teammate,6,Mimikyu,,,,,,,,,
+Altaria,124,teammate,7,Metagross,,,,,,,,,
+Altaria,124,teammate,8,Blaziken,,,,,,,,,
+Altaria,124,teammate,9,Hisuian Samurott,,,,,,,,,
+Altaria,124,teammate,10,Rotom Wash,,,,,,,,,
+Altaria,124,stat_alignment,1,Modest,29.0%,Sp. Atk,Attack,,,,,,
+Altaria,124,stat_alignment,2,Bold,19.2%,Defense,Attack,,,,,,
+Altaria,124,stat_alignment,3,Calm,18.7%,Sp. Def,Attack,,,,,,
+Altaria,124,stat_alignment,4,Careful,12.9%,Sp. Def,Sp. Atk,,,,,,
+Altaria,124,stat_alignment,5,Adamant,6.7%,Attack,Sp. Atk,,,,,,
+Altaria,124,stat_alignment,6,Jolly,3.1%,Speed,Sp. Atk,,,,,,
+Altaria,124,stat_alignment,7,Impish,2.8%,Defense,Sp. Atk,,,,,,
+Altaria,124,stat_alignment,8,Timid,1.5%,Speed,Attack,,,,,,
+Altaria,124,stat_alignment,9,Sassy,1.1%,Sp. Def,Speed,,,,,,
+Altaria,124,stat_alignment,10,Hasty,0.8%,Speed,Defense,,,,,,
+Altaria,124,stat_points,1,,12.7%,,,32,0,2,0,32,0
+Altaria,124,stat_points,2,,5.4%,,,32,0,0,32,0,2
+Altaria,124,stat_points,3,,3.0%,,,32,0,32,0,2,0
+Altaria,124,stat_points,4,,2.2%,,,32,0,0,0,14,20
+Altaria,124,stat_points,5,,2.2%,,,31,0,10,0,25,0
+Altaria,124,stat_points,6,,2.0%,,,32,0,2,32,0,0
+Altaria,124,stat_points,7,,1.9%,,,32,0,32,2,0,0
+Altaria,124,stat_points,8,,1.9%,,,32,0,16,0,18,0
+Altaria,124,ability,1,Cloud Nine,60.5%,,,,,,,,
+Altaria,124,ability,2,Natural Cure,39.5%,,,,,,,,

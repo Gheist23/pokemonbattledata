@@ -1,51 +1,51 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Umbreon,35,move,1,Foul Play,96.0%,,,,,,,,,16540.23
-Umbreon,35,move,2,Protect,83.2%,,,,,,,,,16540.23
-Umbreon,35,move,3,Wish,83.0%,,,,,,,,,16540.23
-Umbreon,35,move,4,Toxic,61.6%,,,,,,,,,16540.23
-Umbreon,35,move,5,Yawn,37.1%,,,,,,,,,16540.23
-Umbreon,35,move,6,Moonlight,15.4%,,,,,,,,,16544.42
-Umbreon,35,move,7,Detect,5.3%,,,,,,,,,16544.42
-Umbreon,35,move,8,Taunt,3.3%,,,,,,,,,16544.42
-Umbreon,35,move,9,Baton Pass,2.1%,,,,,,,,,16544.42
-Umbreon,35,move,10,Snarl,2.0%,,,,,,,,,16544.42
-Umbreon,35,held_item,1,Leftovers,88.5%,,,,,,,,,16549.39
-Umbreon,35,held_item,2,Sitrus Berry,5.9%,,,,,,,,,16549.39
-Umbreon,35,held_item,3,Lum Berry,1.4%,,,,,,,,,16549.39
-Umbreon,35,held_item,4,Bright Powder,1.3%,,,,,,,,,16549.39
-Umbreon,35,held_item,5,Chople Berry,0.5%,,,,,,,,,16549.39
-Umbreon,35,held_item,6,Mental Herb,0.5%,,,,,,,,,16556.69
-Umbreon,35,held_item,7,Black Glasses,0.4%,,,,,,,,,16556.69
-Umbreon,35,held_item,8,Light Clay,0.4%,,,,,,,,,16556.69
-Umbreon,35,held_item,9,Quick Claw,0.3%,,,,,,,,,16556.69
-Umbreon,35,held_item,10,Roseli Berry,0.2%,,,,,,,,,16556.69
-Umbreon,35,teammate,1,Garchomp,,,,,,,,,,16563.21
-Umbreon,35,teammate,2,Delphox,,,,,,,,,,16563.21
-Umbreon,35,teammate,3,Mimikyu,,,,,,,,,,16563.21
-Umbreon,35,teammate,4,Metagross,,,,,,,,,,16563.21
-Umbreon,35,teammate,5,Skeledirge,,,,,,,,,,16563.21
-Umbreon,35,teammate,6,Primarina,,,,,,,,,,16566.13
-Umbreon,35,teammate,7,Venusaur,,,,,,,,,,16566.13
-Umbreon,35,teammate,8,Meowscarada,,,,,,,,,,16566.13
-Umbreon,35,teammate,9,Glimmora,,,,,,,,,,16566.13
-Umbreon,35,teammate,10,Gengar,,,,,,,,,,16566.13
-Umbreon,35,stat_alignment,1,Bold,31.5%,Defense,Attack,,,,,,,16568.19
-Umbreon,35,stat_alignment,2,Impish,23.2%,Defense,Sp. Atk,,,,,,,16568.19
-Umbreon,35,stat_alignment,3,Calm,10.5%,Sp. Def,Attack,,,,,,,16568.19
-Umbreon,35,stat_alignment,4,Careful,9.5%,Sp. Def,Sp. Atk,,,,,,,16568.19
-Umbreon,35,stat_alignment,5,Relaxed,2.7%,Defense,Speed,,,,,,,16568.19
-Umbreon,35,stat_alignment,6,Sassy,1.3%,Sp. Def,Speed,,,,,,,16571.20
-Umbreon,35,stat_alignment,7,Adamant,0.4%,Attack,Sp. Atk,,,,,,,16571.20
-Umbreon,35,stat_alignment,8,Brave,0.2%,Attack,Speed,,,,,,,16571.20
-Umbreon,35,stat_alignment,9,Jolly,0.2%,Speed,Sp. Atk,,,,,,,16571.20
-Umbreon,35,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,,16571.20
-Umbreon,35,stat_points,1,,44.9%,,,32,0,32,0,2,0,16573.39
-Umbreon,35,stat_points,2,,8.3%,,,32,0,2,0,32,0,16573.39
-Umbreon,35,stat_points,3,,5.3%,,,31,0,32,0,3,0,16573.39
-Umbreon,35,stat_points,4,,3.8%,,,32,0,20,0,14,0,16573.39
-Umbreon,35,stat_points,5,,3.4%,,,32,0,32,0,0,2,16573.39
-Umbreon,35,stat_points,6,,2.1%,,,32,0,32,0,0,0,16595.83
-Umbreon,35,stat_points,7,,1.6%,,,32,0,30,0,4,0,16595.83
-Umbreon,35,stat_points,8,,1.0%,,,31,0,3,0,32,0,16595.83
-Umbreon,35,ability,1,Inner Focus,63.5%,,,,,,,,,16609.83
-Umbreon,35,ability,2,Synchronize,36.5%,,,,,,,,,16609.83
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Umbreon,35,move,1,Foul Play,96.0%,,,,,,,,
+Umbreon,35,move,2,Protect,83.2%,,,,,,,,
+Umbreon,35,move,3,Wish,83.0%,,,,,,,,
+Umbreon,35,move,4,Toxic,61.6%,,,,,,,,
+Umbreon,35,move,5,Yawn,37.1%,,,,,,,,
+Umbreon,35,move,6,Moonlight,15.4%,,,,,,,,
+Umbreon,35,move,7,Detect,5.3%,,,,,,,,
+Umbreon,35,move,8,Taunt,3.3%,,,,,,,,
+Umbreon,35,move,9,Baton Pass,2.1%,,,,,,,,
+Umbreon,35,move,10,Snarl,2.0%,,,,,,,,
+Umbreon,35,held_item,1,Leftovers,88.5%,,,,,,,,
+Umbreon,35,held_item,2,Sitrus Berry,5.9%,,,,,,,,
+Umbreon,35,held_item,3,Lum Berry,1.4%,,,,,,,,
+Umbreon,35,held_item,4,Bright Powder,1.3%,,,,,,,,
+Umbreon,35,held_item,5,Chople Berry,0.5%,,,,,,,,
+Umbreon,35,held_item,6,Mental Herb,0.5%,,,,,,,,
+Umbreon,35,held_item,7,Black Glasses,0.4%,,,,,,,,
+Umbreon,35,held_item,8,Light Clay,0.4%,,,,,,,,
+Umbreon,35,held_item,9,Quick Claw,0.3%,,,,,,,,
+Umbreon,35,held_item,10,Roseli Berry,0.2%,,,,,,,,
+Umbreon,35,teammate,1,Garchomp,,,,,,,,,
+Umbreon,35,teammate,2,Delphox,,,,,,,,,
+Umbreon,35,teammate,3,Mimikyu,,,,,,,,,
+Umbreon,35,teammate,4,Metagross,,,,,,,,,
+Umbreon,35,teammate,5,Skeledirge,,,,,,,,,
+Umbreon,35,teammate,6,Primarina,,,,,,,,,
+Umbreon,35,teammate,7,Venusaur,,,,,,,,,
+Umbreon,35,teammate,8,Meowscarada,,,,,,,,,
+Umbreon,35,teammate,9,Glimmora,,,,,,,,,
+Umbreon,35,teammate,10,Gengar,,,,,,,,,
+Umbreon,35,stat_alignment,1,Bold,31.5%,Defense,Attack,,,,,,
+Umbreon,35,stat_alignment,2,Impish,23.2%,Defense,Sp. Atk,,,,,,
+Umbreon,35,stat_alignment,3,Calm,10.5%,Sp. Def,Attack,,,,,,
+Umbreon,35,stat_alignment,4,Careful,9.5%,Sp. Def,Sp. Atk,,,,,,
+Umbreon,35,stat_alignment,5,Relaxed,2.7%,Defense,Speed,,,,,,
+Umbreon,35,stat_alignment,6,Sassy,1.3%,Sp. Def,Speed,,,,,,
+Umbreon,35,stat_alignment,7,Adamant,0.4%,Attack,Sp. Atk,,,,,,
+Umbreon,35,stat_alignment,8,Brave,0.2%,Attack,Speed,,,,,,
+Umbreon,35,stat_alignment,9,Jolly,0.2%,Speed,Sp. Atk,,,,,,
+Umbreon,35,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
+Umbreon,35,stat_points,1,,44.9%,,,32,0,32,0,2,0
+Umbreon,35,stat_points,2,,8.3%,,,32,0,2,0,32,0
+Umbreon,35,stat_points,3,,5.3%,,,31,0,32,0,3,0
+Umbreon,35,stat_points,4,,3.8%,,,32,0,20,0,14,0
+Umbreon,35,stat_points,5,,3.4%,,,32,0,32,0,0,2
+Umbreon,35,stat_points,6,,2.1%,,,32,0,32,0,0,0
+Umbreon,35,stat_points,7,,1.6%,,,32,0,30,0,4,0
+Umbreon,35,stat_points,8,,1.0%,,,31,0,3,0,32,0
+Umbreon,35,ability,1,Inner Focus,63.5%,,,,,,,,
+Umbreon,35,ability,2,Synchronize,36.5%,,,,,,,,

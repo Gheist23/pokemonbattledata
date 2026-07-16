@@ -1,54 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom Heat,49,move,1,Overheat,97.8%,,,,,,,,
-Rotom Heat,49,move,2,Volt Switch,84.6%,,,,,,,,
-Rotom Heat,49,move,3,Will-O-Wisp,74.7%,,,,,,,,
-Rotom Heat,49,move,4,Thunderbolt,52.3%,,,,,,,,
-Rotom Heat,49,move,5,Trick,27.6%,,,,,,,,
-Rotom Heat,49,move,6,Pain Split,10.7%,,,,,,,,
-Rotom Heat,49,move,7,Discharge,8.1%,,,,,,,,
-Rotom Heat,49,move,8,Nasty Plot,6.6%,,,,,,,,
-Rotom Heat,49,move,9,Hex,5.9%,,,,,,,,
-Rotom Heat,49,move,10,Foul Play,5.4%,,,,,,,,
-Rotom Heat,49,held_item,1,Choice Scarf,32.6%,,,,,,,,
-Rotom Heat,49,held_item,2,Sitrus Berry,32.0%,,,,,,,,
-Rotom Heat,49,held_item,3,Leftovers,18.4%,,,,,,,,
-Rotom Heat,49,held_item,4,White Herb,3.7%,,,,,,,,
-Rotom Heat,49,held_item,5,Life Orb,2.0%,,,,,,,,
-Rotom Heat,49,held_item,6,Focus Sash,1.5%,,,,,,,,
-Rotom Heat,49,held_item,7,Light Clay,1.0%,,,,,,,,
-Rotom Heat,49,held_item,8,Wide Lens,0.9%,,,,,,,,
-Rotom Heat,49,held_item,9,Passho Berry,0.8%,,,,,,,,
-Rotom Heat,49,held_item,10,Lum Berry,0.7%,,,,,,,,
-Rotom Heat,49,teammate,1,Garchomp,,,,,,,,,
-Rotom Heat,49,teammate,2,Mimikyu,,,,,,,,,
-Rotom Heat,49,teammate,3,Meowscarada,,,,,,,,,
-Rotom Heat,49,teammate,4,Metagross,,,,,,,,,
-Rotom Heat,49,teammate,5,Staraptor,,,,,,,,,
-Rotom Heat,49,teammate,6,Gyarados,,,,,,,,,
-Rotom Heat,49,teammate,7,Primarina,,,,,,,,,
-Rotom Heat,49,teammate,8,Archaludon,,,,,,,,,
-Rotom Heat,49,teammate,9,Mawile,,,,,,,,,
-Rotom Heat,49,teammate,10,Raichu,,,,,,,,,
-Rotom Heat,49,stat_alignment,1,Modest,44.5%,Sp. Atk,Attack,,,,,,
-Rotom Heat,49,stat_alignment,2,Timid,24.5%,Speed,Attack,,,,,,
-Rotom Heat,49,stat_alignment,3,Bold,19.4%,Defense,Attack,,,,,,
-Rotom Heat,49,stat_alignment,4,Calm,8.6%,Sp. Def,Attack,,,,,,
-Rotom Heat,49,stat_alignment,5,Sassy,0.9%,Sp. Def,Speed,,,,,,
-Rotom Heat,49,stat_alignment,6,Quiet,0.7%,Sp. Atk,Speed,,,,,,
-Rotom Heat,49,stat_alignment,7,Relaxed,0.6%,Defense,Speed,,,,,,
-Rotom Heat,49,stat_alignment,8,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Rotom Heat,49,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
-Rotom Heat,49,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Rotom Heat,49,stat_points,1,,24.2%,,,2,0,0,32,0,32
-Rotom Heat,49,stat_points,2,,6.2%,,,32,0,32,0,2,0
-Rotom Heat,49,stat_points,3,,5.4%,,,32,0,0,32,0,2
-Rotom Heat,49,stat_points,4,,3.7%,,,32,0,0,32,2,0
-Rotom Heat,49,stat_points,5,,3.5%,,,32,0,32,2,0,0
-Rotom Heat,49,stat_points,6,,3.2%,,,32,0,2,32,0,0
-Rotom Heat,49,stat_points,7,,2.7%,,,0,0,2,32,0,32
-Rotom Heat,49,stat_points,8,,2.6%,,,0,0,0,32,2,32
-Rotom Heat,49,stat_points,9,,2.0%,,,32,0,32,0,0,2
-Rotom Heat,49,stat_points,10,,1.9%,,,32,0,1,25,1,7
-Rotom Heat,49,stat_points,11,,1.7%,,,32,0,1,32,1,0
-Rotom Heat,49,stat_points,12,,1.7%,,,32,0,2,0,32,0
-Rotom Heat,49,ability,1,Levitate,100.0%,,,,,,,,
+Rotom Heat,57,move,1,Overheat,98.0%,,,,,,,,
+Rotom Heat,57,move,2,Volt Switch,88.0%,,,,,,,,
+Rotom Heat,57,move,3,Will-O-Wisp,67.0%,,,,,,,,
+Rotom Heat,57,move,4,Thunderbolt,50.6%,,,,,,,,
+Rotom Heat,57,move,5,Trick,37.8%,,,,,,,,
+Rotom Heat,57,move,6,Pain Split,11.2%,,,,,,,,
+Rotom Heat,57,move,7,Light Screen,7.7%,,,,,,,,
+Rotom Heat,57,move,8,Discharge,6.4%,,,,,,,,
+Rotom Heat,57,move,9,Shadow Ball,5.3%,,,,,,,,
+Rotom Heat,57,move,10,Nasty Plot,4.9%,,,,,,,,
+Rotom Heat,57,held_item,1,Choice Scarf,41.5%,,,,,,,,
+Rotom Heat,57,held_item,2,Sitrus Berry,24.3%,,,,,,,,
+Rotom Heat,57,held_item,3,Leftovers,19.5%,,,,,,,,
+Rotom Heat,57,held_item,4,White Herb,4.6%,,,,,,,,
+Rotom Heat,57,held_item,5,Life Orb,1.5%,,,,,,,,
+Rotom Heat,57,held_item,6,Wide Lens,1.1%,,,,,,,,
+Rotom Heat,57,held_item,7,Lum Berry,1.0%,,,,,,,,
+Rotom Heat,57,held_item,8,Passho Berry,0.9%,,,,,,,,
+Rotom Heat,57,held_item,9,Focus Sash,0.9%,,,,,,,,
+Rotom Heat,57,held_item,10,Light Clay,0.8%,,,,,,,,
+Rotom Heat,57,teammate,1,Garchomp,,,,,,,,,
+Rotom Heat,57,teammate,2,Primarina,,,,,,,,,
+Rotom Heat,57,teammate,3,Metagross,,,,,,,,,
+Rotom Heat,57,teammate,4,Mimikyu,,,,,,,,,
+Rotom Heat,57,teammate,5,Hippowdon,,,,,,,,,
+Rotom Heat,57,teammate,6,Gyarados,,,,,,,,,
+Rotom Heat,57,teammate,7,Meowscarada,,,,,,,,,
+Rotom Heat,57,teammate,8,Starmie,,,,,,,,,
+Rotom Heat,57,teammate,9,Hydreigon,,,,,,,,,
+Rotom Heat,57,teammate,10,Archaludon,,,,,,,,,
+Rotom Heat,57,stat_alignment,1,Modest,47.2%,Sp. Atk,Attack,,,,,,
+Rotom Heat,57,stat_alignment,2,Timid,23.6%,Speed,Attack,,,,,,
+Rotom Heat,57,stat_alignment,3,Bold,17.3%,Defense,Attack,,,,,,
+Rotom Heat,57,stat_alignment,4,Calm,9.8%,Sp. Def,Attack,,,,,,
+Rotom Heat,57,stat_alignment,5,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Rotom Heat,57,stat_alignment,6,Mild,0.4%,Sp. Atk,Defense,,,,,,
+Rotom Heat,57,stat_alignment,7,Relaxed,0.4%,Defense,Speed,,,,,,
+Rotom Heat,57,stat_alignment,8,Quiet,0.4%,Sp. Atk,Speed,,,,,,
+Rotom Heat,57,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
+Rotom Heat,57,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Rotom Heat,57,stat_points,1,,29.2%,,,2,0,0,32,0,32
+Rotom Heat,57,stat_points,2,,5.3%,,,32,0,0,5,29,0
+Rotom Heat,57,stat_points,3,,4.8%,,,32,0,32,0,2,0
+Rotom Heat,57,stat_points,4,,4.3%,,,32,0,0,32,0,2
+Rotom Heat,57,stat_points,5,,3.3%,,,32,0,32,2,0,0
+Rotom Heat,57,stat_points,6,,2.2%,,,32,0,2,32,0,0
+Rotom Heat,57,stat_points,7,,2.1%,,,0,0,0,32,2,32
+Rotom Heat,57,stat_points,8,,1.9%,,,32,0,2,0,32,0
+Rotom Heat,57,ability,1,Levitate,100.0%,,,,,,,,

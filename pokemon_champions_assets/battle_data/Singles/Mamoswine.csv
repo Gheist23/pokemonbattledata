@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mamoswine,50,move,1,Earthquake,98.8%,,,,,,,,
-Mamoswine,50,move,2,Ice Shard,95.1%,,,,,,,,
-Mamoswine,50,move,3,Icicle Spear,45.9%,,,,,,,,
-Mamoswine,50,move,4,Stealth Rock,32.0%,,,,,,,,
-Mamoswine,50,move,5,Icicle Crash,30.2%,,,,,,,,
-Mamoswine,50,move,6,Endeavor,23.7%,,,,,,,,
-Mamoswine,50,move,7,Freeze-Dry,23.5%,,,,,,,,
-Mamoswine,50,move,8,Rock Tomb,19.2%,,,,,,,,
-Mamoswine,50,move,9,Rock Slide,5.7%,,,,,,,,
-Mamoswine,50,move,10,Stone Edge,4.9%,,,,,,,,
-Mamoswine,50,held_item,1,Focus Sash,84.1%,,,,,,,,
-Mamoswine,50,held_item,2,Choice Scarf,4.3%,,,,,,,,
-Mamoswine,50,held_item,3,Life Orb,3.3%,,,,,,,,
-Mamoswine,50,held_item,4,Sitrus Berry,2.6%,,,,,,,,
-Mamoswine,50,held_item,5,Chople Berry,1.0%,,,,,,,,
-Mamoswine,50,held_item,6,Never-Melt Ice,0.8%,,,,,,,,
-Mamoswine,50,held_item,7,Leftovers,0.7%,,,,,,,,
-Mamoswine,50,held_item,8,Lum Berry,0.6%,,,,,,,,
-Mamoswine,50,held_item,9,Quick Claw,0.6%,,,,,,,,
-Mamoswine,50,held_item,10,Expert Belt,0.4%,,,,,,,,
-Mamoswine,50,teammate,1,Mimikyu,,,,,,,,,
-Mamoswine,50,teammate,2,Metagross,,,,,,,,,
-Mamoswine,50,teammate,3,Raichu,,,,,,,,,
-Mamoswine,50,teammate,4,Dragonite,,,,,,,,,
-Mamoswine,50,teammate,5,Mawile,,,,,,,,,
-Mamoswine,50,teammate,6,Archaludon,,,,,,,,,
-Mamoswine,50,teammate,7,Meowscarada,,,,,,,,,
-Mamoswine,50,teammate,8,Charizard,,,,,,,,,
-Mamoswine,50,teammate,9,Staraptor,,,,,,,,,
-Mamoswine,50,teammate,10,Garchomp,,,,,,,,,
-Mamoswine,50,stat_alignment,1,Adamant,58.9%,Attack,Sp. Atk,,,,,,
-Mamoswine,50,stat_alignment,2,Naughty,17.7%,Attack,Sp. Def,,,,,,
-Mamoswine,50,stat_alignment,3,Jolly,15.8%,Speed,Sp. Atk,,,,,,
-Mamoswine,50,stat_alignment,4,Naive,2.3%,Speed,Sp. Def,,,,,,
-Mamoswine,50,stat_alignment,5,Lonely,1.1%,Attack,Defense,,,,,,
-Mamoswine,50,stat_alignment,6,Impish,0.9%,Defense,Sp. Atk,,,,,,
-Mamoswine,50,stat_alignment,7,Rash,0.8%,Sp. Atk,Sp. Def,,,,,,
-Mamoswine,50,stat_alignment,8,Brave,0.8%,Attack,Speed,,,,,,
-Mamoswine,50,stat_alignment,9,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
-Mamoswine,50,stat_alignment,10,Hasty,0.3%,Speed,Defense,,,,,,
-Mamoswine,50,stat_points,1,,39.1%,,,2,32,0,0,0,32
-Mamoswine,50,stat_points,2,,11.7%,,,0,32,2,0,0,32
-Mamoswine,50,stat_points,3,,6.3%,,,0,32,0,8,0,26
-Mamoswine,50,stat_points,4,,6.1%,,,0,32,0,0,2,32
-Mamoswine,50,stat_points,5,,5.2%,,,0,32,0,2,0,32
-Mamoswine,50,stat_points,6,,3.3%,,,32,32,0,0,0,2
-Mamoswine,50,stat_points,7,,2.2%,,,0,32,0,0,0,32
-Mamoswine,50,stat_points,8,,2.1%,,,32,32,2,0,0,0
-Mamoswine,50,stat_points,9,,1.6%,,,0,32,1,0,1,32
-Mamoswine,50,stat_points,10,,1.5%,,,0,32,0,3,0,31
-Mamoswine,50,stat_points,11,,1.4%,,,32,32,0,0,2,0
-Mamoswine,50,stat_points,12,,1.0%,,,2,32,32,0,0,0
-Mamoswine,50,ability,1,Thick Fat,58.3%,,,,,,,,
-Mamoswine,50,ability,2,Oblivious,40.3%,,,,,,,,
-Mamoswine,50,ability,3,Snow Cloak,1.4%,,,,,,,,
+Mamoswine,58,move,1,Earthquake,99.2%,,,,,,,,
+Mamoswine,58,move,2,Ice Shard,95.6%,,,,,,,,
+Mamoswine,58,move,3,Icicle Spear,49.5%,,,,,,,,
+Mamoswine,58,move,4,Icicle Crash,35.1%,,,,,,,,
+Mamoswine,58,move,5,Stealth Rock,28.8%,,,,,,,,
+Mamoswine,58,move,6,Endeavor,27.6%,,,,,,,,
+Mamoswine,58,move,7,Rock Tomb,23.2%,,,,,,,,
+Mamoswine,58,move,8,Stone Edge,6.6%,,,,,,,,
+Mamoswine,58,move,9,Rock Slide,5.8%,,,,,,,,
+Mamoswine,58,move,10,Freeze-Dry,3.9%,,,,,,,,
+Mamoswine,58,held_item,1,Focus Sash,81.7%,,,,,,,,
+Mamoswine,58,held_item,2,Life Orb,3.9%,,,,,,,,
+Mamoswine,58,held_item,3,Choice Scarf,3.8%,,,,,,,,
+Mamoswine,58,held_item,4,Sitrus Berry,3.1%,,,,,,,,
+Mamoswine,58,held_item,5,Babiri Berry,1.6%,,,,,,,,
+Mamoswine,58,held_item,6,Never-Melt Ice,1.1%,,,,,,,,
+Mamoswine,58,held_item,7,Lum Berry,0.9%,,,,,,,,
+Mamoswine,58,held_item,8,Expert Belt,0.7%,,,,,,,,
+Mamoswine,58,held_item,9,Quick Claw,0.7%,,,,,,,,
+Mamoswine,58,held_item,10,Chople Berry,0.6%,,,,,,,,
+Mamoswine,58,teammate,1,Mimikyu,,,,,,,,,
+Mamoswine,58,teammate,2,Primarina,,,,,,,,,
+Mamoswine,58,teammate,3,Metagross,,,,,,,,,
+Mamoswine,58,teammate,4,Meowscarada,,,,,,,,,
+Mamoswine,58,teammate,5,Archaludon,,,,,,,,,
+Mamoswine,58,teammate,6,Hydreigon,,,,,,,,,
+Mamoswine,58,teammate,7,Charizard,,,,,,,,,
+Mamoswine,58,teammate,8,Gyarados,,,,,,,,,
+Mamoswine,58,teammate,9,Blaziken,,,,,,,,,
+Mamoswine,58,teammate,10,Dragonite,,,,,,,,,
+Mamoswine,58,stat_alignment,1,Adamant,75.0%,Attack,Sp. Atk,,,,,,
+Mamoswine,58,stat_alignment,2,Jolly,15.9%,Speed,Sp. Atk,,,,,,
+Mamoswine,58,stat_alignment,3,Naughty,3.8%,Attack,Sp. Def,,,,,,
+Mamoswine,58,stat_alignment,4,Naive,1.0%,Speed,Sp. Def,,,,,,
+Mamoswine,58,stat_alignment,5,Impish,1.0%,Defense,Sp. Atk,,,,,,
+Mamoswine,58,stat_alignment,6,Brave,0.9%,Attack,Speed,,,,,,
+Mamoswine,58,stat_alignment,7,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
+Mamoswine,58,stat_alignment,8,Lonely,0.7%,Attack,Defense,,,,,,
+Mamoswine,58,stat_alignment,9,Hasty,0.3%,Speed,Defense,,,,,,
+Mamoswine,58,stat_alignment,10,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
+Mamoswine,58,stat_points,1,,46.3%,,,2,32,0,0,0,32
+Mamoswine,58,stat_points,2,,13.8%,,,0,32,2,0,0,32
+Mamoswine,58,stat_points,3,,10.4%,,,0,32,0,0,2,32
+Mamoswine,58,stat_points,4,,3.1%,,,32,32,0,0,0,2
+Mamoswine,58,stat_points,5,,2.9%,,,0,32,0,0,0,32
+Mamoswine,58,stat_points,6,,1.7%,,,32,32,0,0,2,0
+Mamoswine,58,stat_points,7,,1.5%,,,0,32,0,2,0,32
+Mamoswine,58,stat_points,8,,1.1%,,,2,32,32,0,0,0
+Mamoswine,58,ability,1,Thick Fat,59.1%,,,,,,,,
+Mamoswine,58,ability,2,Oblivious,39.5%,,,,,,,,
+Mamoswine,58,ability,3,Snow Cloak,1.4%,,,,,,,,

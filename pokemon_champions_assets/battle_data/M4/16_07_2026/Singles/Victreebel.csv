@@ -1,51 +1,51 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Victreebel,87,move,1,Strength Sap,95.1%,,,,,,,,,21404.25
-Victreebel,87,move,2,Giga Drain,69.5%,,,,,,,,,21404.25
-Victreebel,87,move,3,Sucker Punch,35.5%,,,,,,,,,21404.25
-Victreebel,87,move,4,Sludge Bomb,35.2%,,,,,,,,,21404.25
-Victreebel,87,move,5,Encore,30.8%,,,,,,,,,21404.25
-Victreebel,87,move,6,Sludge Wave,18.0%,,,,,,,,,21408.70
-Victreebel,87,move,7,Toxic Spikes,14.3%,,,,,,,,,21408.70
-Victreebel,87,move,8,Poison Jab,12.3%,,,,,,,,,21408.70
-Victreebel,87,move,9,Knock Off,12.2%,,,,,,,,,21408.70
-Victreebel,87,move,10,Toxic,11.1%,,,,,,,,,21408.70
-Victreebel,87,held_item,1,Victreebelite,97.0%,,,,,,,,,21413.37
-Victreebel,87,held_item,2,Focus Sash,0.8%,,,,,,,,,21413.37
-Victreebel,87,held_item,3,Miracle Seed,0.3%,,,,,,,,,21413.37
-Victreebel,87,held_item,4,Sitrus Berry,0.3%,,,,,,,,,21413.37
-Victreebel,87,held_item,5,Life Orb,0.3%,,,,,,,,,21413.37
-Victreebel,87,held_item,6,Leftovers,0.3%,,,,,,,,,21420.64
-Victreebel,87,held_item,7,Big Root,0.2%,,,,,,,,,21420.64
-Victreebel,87,held_item,8,Quick Claw,0.2%,,,,,,,,,21420.64
-Victreebel,87,held_item,9,Wide Lens,0.1%,,,,,,,,,21420.64
-Victreebel,87,held_item,10,Heat Rock,0.1%,,,,,,,,,21420.64
-Victreebel,87,teammate,1,Mimikyu,,,,,,,,,,21427.04
-Victreebel,87,teammate,2,Basculegion Male,,,,,,,,,,21427.04
-Victreebel,87,teammate,3,Kingambit,,,,,,,,,,21427.04
-Victreebel,87,teammate,4,Blaziken,,,,,,,,,,21427.04
-Victreebel,87,teammate,5,Garchomp,,,,,,,,,,21427.04
-Victreebel,87,teammate,6,Blastoise,,,,,,,,,,21429.94
-Victreebel,87,teammate,7,Archaludon,,,,,,,,,,21429.94
-Victreebel,87,teammate,8,Primarina,,,,,,,,,,21429.94
-Victreebel,87,teammate,9,Bellibolt,,,,,,,,,,21429.94
-Victreebel,87,teammate,10,Skeledirge,,,,,,,,,,21429.94
-Victreebel,87,stat_alignment,1,Modest,23.7%,Sp. Atk,Attack,,,,,,,21431.98
-Victreebel,87,stat_alignment,2,Quiet,18.7%,Sp. Atk,Speed,,,,,,,21431.98
-Victreebel,87,stat_alignment,3,Rash,12.7%,Sp. Atk,Sp. Def,,,,,,,21431.98
-Victreebel,87,stat_alignment,4,Adamant,12.0%,Attack,Sp. Atk,,,,,,,21431.98
-Victreebel,87,stat_alignment,5,Bold,8.5%,Defense,Attack,,,,,,,21431.98
-Victreebel,87,stat_alignment,6,Impish,6.8%,Defense,Sp. Atk,,,,,,,21435.01
-Victreebel,87,stat_alignment,7,Naughty,3.2%,Attack,Sp. Def,,,,,,,21435.01
-Victreebel,87,stat_alignment,8,Relaxed,2.9%,Defense,Speed,,,,,,,21435.01
-Victreebel,87,stat_alignment,9,Timid,2.8%,Speed,Attack,,,,,,,21435.01
-Victreebel,87,stat_alignment,10,Calm,1.4%,Sp. Def,Attack,,,,,,,21435.01
-Victreebel,87,stat_points,1,,24.3%,,,32,2,0,32,0,0,21437.18
-Victreebel,87,stat_points,2,,11.8%,,,32,0,0,32,0,2,21437.18
-Victreebel,87,stat_points,3,,7.1%,,,32,0,2,32,0,0,21437.18
-Victreebel,87,stat_points,4,,6.8%,,,32,32,0,0,0,2,21437.18
-Victreebel,87,stat_points,5,,4.4%,,,32,0,32,0,2,0,21437.18
-Victreebel,87,stat_points,6,,2.6%,,,32,0,32,2,0,0,21459.05
-Victreebel,87,stat_points,7,,2.2%,,,32,0,30,0,0,4,21459.05
-Victreebel,87,stat_points,8,,1.8%,,,32,25,0,0,0,9,21459.05
-Victreebel,87,ability,1,Chlorophyll,92.5%,,,,,,,,,21472.67
-Victreebel,87,ability,2,Gluttony,7.5%,,,,,,,,,21472.67
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Victreebel,87,move,1,Strength Sap,95.1%,,,,,,,,
+Victreebel,87,move,2,Giga Drain,69.5%,,,,,,,,
+Victreebel,87,move,3,Sucker Punch,35.5%,,,,,,,,
+Victreebel,87,move,4,Sludge Bomb,35.2%,,,,,,,,
+Victreebel,87,move,5,Encore,30.8%,,,,,,,,
+Victreebel,87,move,6,Sludge Wave,18.0%,,,,,,,,
+Victreebel,87,move,7,Toxic Spikes,14.3%,,,,,,,,
+Victreebel,87,move,8,Poison Jab,12.3%,,,,,,,,
+Victreebel,87,move,9,Knock Off,12.2%,,,,,,,,
+Victreebel,87,move,10,Toxic,11.1%,,,,,,,,
+Victreebel,87,held_item,1,Victreebelite,97.0%,,,,,,,,
+Victreebel,87,held_item,2,Focus Sash,0.8%,,,,,,,,
+Victreebel,87,held_item,3,Miracle Seed,0.3%,,,,,,,,
+Victreebel,87,held_item,4,Sitrus Berry,0.3%,,,,,,,,
+Victreebel,87,held_item,5,Life Orb,0.3%,,,,,,,,
+Victreebel,87,held_item,6,Leftovers,0.3%,,,,,,,,
+Victreebel,87,held_item,7,Big Root,0.2%,,,,,,,,
+Victreebel,87,held_item,8,Quick Claw,0.2%,,,,,,,,
+Victreebel,87,held_item,9,Wide Lens,0.1%,,,,,,,,
+Victreebel,87,held_item,10,Heat Rock,0.1%,,,,,,,,
+Victreebel,87,teammate,1,Mimikyu,,,,,,,,,
+Victreebel,87,teammate,2,Basculegion Male,,,,,,,,,
+Victreebel,87,teammate,3,Kingambit,,,,,,,,,
+Victreebel,87,teammate,4,Blaziken,,,,,,,,,
+Victreebel,87,teammate,5,Garchomp,,,,,,,,,
+Victreebel,87,teammate,6,Blastoise,,,,,,,,,
+Victreebel,87,teammate,7,Archaludon,,,,,,,,,
+Victreebel,87,teammate,8,Primarina,,,,,,,,,
+Victreebel,87,teammate,9,Bellibolt,,,,,,,,,
+Victreebel,87,teammate,10,Skeledirge,,,,,,,,,
+Victreebel,87,stat_alignment,1,Modest,23.7%,Sp. Atk,Attack,,,,,,
+Victreebel,87,stat_alignment,2,Quiet,18.7%,Sp. Atk,Speed,,,,,,
+Victreebel,87,stat_alignment,3,Rash,12.7%,Sp. Atk,Sp. Def,,,,,,
+Victreebel,87,stat_alignment,4,Adamant,12.0%,Attack,Sp. Atk,,,,,,
+Victreebel,87,stat_alignment,5,Bold,8.5%,Defense,Attack,,,,,,
+Victreebel,87,stat_alignment,6,Impish,6.8%,Defense,Sp. Atk,,,,,,
+Victreebel,87,stat_alignment,7,Naughty,3.2%,Attack,Sp. Def,,,,,,
+Victreebel,87,stat_alignment,8,Relaxed,2.9%,Defense,Speed,,,,,,
+Victreebel,87,stat_alignment,9,Timid,2.8%,Speed,Attack,,,,,,
+Victreebel,87,stat_alignment,10,Calm,1.4%,Sp. Def,Attack,,,,,,
+Victreebel,87,stat_points,1,,24.3%,,,32,2,0,32,0,0
+Victreebel,87,stat_points,2,,11.8%,,,32,0,0,32,0,2
+Victreebel,87,stat_points,3,,7.1%,,,32,0,2,32,0,0
+Victreebel,87,stat_points,4,,6.8%,,,32,32,0,0,0,2
+Victreebel,87,stat_points,5,,4.4%,,,32,0,32,0,2,0
+Victreebel,87,stat_points,6,,2.6%,,,32,0,32,2,0,0
+Victreebel,87,stat_points,7,,2.2%,,,32,0,30,0,0,4
+Victreebel,87,stat_points,8,,1.8%,,,32,25,0,0,0,9
+Victreebel,87,ability,1,Chlorophyll,92.5%,,,,,,,,
+Victreebel,87,ability,2,Gluttony,7.5%,,,,,,,,

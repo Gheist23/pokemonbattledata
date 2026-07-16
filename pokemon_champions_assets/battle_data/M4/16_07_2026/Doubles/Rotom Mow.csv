@@ -1,50 +1,50 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Rotom Mow,64,move,1,Leaf Storm,97.6%,,,,,,,,,6255.44
-Rotom Mow,64,move,2,Thunderbolt,64.5%,,,,,,,,,6255.44
-Rotom Mow,64,move,3,Volt Switch,53.3%,,,,,,,,,6255.44
-Rotom Mow,64,move,4,Protect,40.2%,,,,,,,,,6255.44
-Rotom Mow,64,move,5,Will-O-Wisp,39.6%,,,,,,,,,6255.44
-Rotom Mow,64,move,6,Electroweb,23.2%,,,,,,,,,6259.19
-Rotom Mow,64,move,7,Trick,18.5%,,,,,,,,,6259.19
-Rotom Mow,64,move,8,Discharge,16.3%,,,,,,,,,6259.19
-Rotom Mow,64,move,9,Thunder,11.2%,,,,,,,,,6259.19
-Rotom Mow,64,move,10,Dark Pulse,5.2%,,,,,,,,,6259.19
-Rotom Mow,64,held_item,1,Choice Scarf,35.4%,,,,,,,,,6262.05
-Rotom Mow,64,held_item,2,Sitrus Berry,16.7%,,,,,,,,,6262.05
-Rotom Mow,64,held_item,3,Leftovers,12.4%,,,,,,,,,6262.05
-Rotom Mow,64,held_item,4,White Herb,8.6%,,,,,,,,,6262.05
-Rotom Mow,64,held_item,5,Magnet,7.1%,,,,,,,,,6262.05
-Rotom Mow,64,held_item,6,Focus Sash,4.7%,,,,,,,,,6269.25
-Rotom Mow,64,held_item,7,Life Orb,3.2%,,,,,,,,,6269.25
-Rotom Mow,64,held_item,8,Yache Berry,2.8%,,,,,,,,,6269.25
-Rotom Mow,64,held_item,9,Wide Lens,2.6%,,,,,,,,,6269.25
-Rotom Mow,64,held_item,10,Occa Berry,2.1%,,,,,,,,,6269.25
-Rotom Mow,64,teammate,1,Garchomp,,,,,,,,,,6275.62
-Rotom Mow,64,teammate,2,Tyranitar,,,,,,,,,,6275.62
-Rotom Mow,64,teammate,3,Incineroar,,,,,,,,,,6275.62
-Rotom Mow,64,teammate,4,Whimsicott,,,,,,,,,,6275.62
-Rotom Mow,64,teammate,5,Basculegion Male,,,,,,,,,,6275.62
-Rotom Mow,64,teammate,6,Pelipper,,,,,,,,,,6278.55
-Rotom Mow,64,teammate,7,Sneasler,,,,,,,,,,6278.55
-Rotom Mow,64,teammate,8,Milotic,,,,,,,,,,6278.55
-Rotom Mow,64,teammate,9,Kingambit,,,,,,,,,,6278.55
-Rotom Mow,64,teammate,10,Aerodactyl,,,,,,,,,,6278.55
-Rotom Mow,64,stat_alignment,1,Modest,43.8%,Sp. Atk,Attack,,,,,,,6280.55
-Rotom Mow,64,stat_alignment,2,Timid,37.3%,Speed,Attack,,,,,,,6280.55
-Rotom Mow,64,stat_alignment,3,Bold,11.0%,Defense,Attack,,,,,,,6280.55
-Rotom Mow,64,stat_alignment,4,Calm,3.2%,Sp. Def,Attack,,,,,,,6280.55
-Rotom Mow,64,stat_alignment,5,Quiet,2.6%,Sp. Atk,Speed,,,,,,,6280.55
-Rotom Mow,64,stat_alignment,6,Mild,0.6%,Sp. Atk,Defense,,,,,,,6283.53
-Rotom Mow,64,stat_alignment,7,Relaxed,0.5%,Defense,Speed,,,,,,,6283.53
-Rotom Mow,64,stat_alignment,8,Hasty,0.3%,Speed,Defense,,,,,,,6283.53
-Rotom Mow,64,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,,6283.53
-Rotom Mow,64,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,,6283.53
-Rotom Mow,64,stat_points,1,,24.5%,,,2,0,0,32,0,32,6285.70
-Rotom Mow,64,stat_points,2,,6.0%,,,0,0,2,32,0,32,6285.70
-Rotom Mow,64,stat_points,3,,3.7%,,,0,0,0,32,2,32,6285.70
-Rotom Mow,64,stat_points,4,,3.7%,,,32,0,0,32,0,2,6285.70
-Rotom Mow,64,stat_points,5,,2.6%,,,31,0,13,9,13,0,6285.70
-Rotom Mow,64,stat_points,6,,1.9%,,,32,0,2,0,0,32,6307.56
-Rotom Mow,64,stat_points,7,,1.7%,,,0,0,0,32,0,32,6307.56
-Rotom Mow,64,stat_points,8,,1.4%,,,26,0,0,15,0,25,6307.56
-Rotom Mow,64,ability,1,Levitate,100.0%,,,,,,,,,6321.30
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Rotom Mow,161,move,1,Leaf Storm,97.6%,,,,,,,,
+Rotom Mow,161,move,2,Thunderbolt,64.5%,,,,,,,,
+Rotom Mow,161,move,3,Volt Switch,53.3%,,,,,,,,
+Rotom Mow,161,move,4,Protect,40.2%,,,,,,,,
+Rotom Mow,161,move,5,Will-O-Wisp,39.6%,,,,,,,,
+Rotom Mow,161,move,6,Electroweb,23.2%,,,,,,,,
+Rotom Mow,161,move,7,Trick,18.5%,,,,,,,,
+Rotom Mow,161,move,8,Discharge,16.3%,,,,,,,,
+Rotom Mow,161,move,9,Thunder,11.2%,,,,,,,,
+Rotom Mow,161,move,10,Dark Pulse,5.2%,,,,,,,,
+Rotom Mow,161,held_item,1,Choice Scarf,35.4%,,,,,,,,
+Rotom Mow,161,held_item,2,Sitrus Berry,16.7%,,,,,,,,
+Rotom Mow,161,held_item,3,Leftovers,12.4%,,,,,,,,
+Rotom Mow,161,held_item,4,White Herb,8.6%,,,,,,,,
+Rotom Mow,161,held_item,5,Magnet,7.1%,,,,,,,,
+Rotom Mow,161,held_item,6,Focus Sash,4.7%,,,,,,,,
+Rotom Mow,161,held_item,7,Life Orb,3.2%,,,,,,,,
+Rotom Mow,161,held_item,8,Yache Berry,2.8%,,,,,,,,
+Rotom Mow,161,held_item,9,Wide Lens,2.6%,,,,,,,,
+Rotom Mow,161,held_item,10,Occa Berry,2.1%,,,,,,,,
+Rotom Mow,161,teammate,1,Garchomp,,,,,,,,,
+Rotom Mow,161,teammate,2,Tyranitar,,,,,,,,,
+Rotom Mow,161,teammate,3,Incineroar,,,,,,,,,
+Rotom Mow,161,teammate,4,Whimsicott,,,,,,,,,
+Rotom Mow,161,teammate,5,Basculegion Male,,,,,,,,,
+Rotom Mow,161,teammate,6,Pelipper,,,,,,,,,
+Rotom Mow,161,teammate,7,Sneasler,,,,,,,,,
+Rotom Mow,161,teammate,8,Milotic,,,,,,,,,
+Rotom Mow,161,teammate,9,Kingambit,,,,,,,,,
+Rotom Mow,161,teammate,10,Aerodactyl,,,,,,,,,
+Rotom Mow,161,stat_alignment,1,Modest,43.8%,Sp. Atk,Attack,,,,,,
+Rotom Mow,161,stat_alignment,2,Timid,37.3%,Speed,Attack,,,,,,
+Rotom Mow,161,stat_alignment,3,Bold,11.0%,Defense,Attack,,,,,,
+Rotom Mow,161,stat_alignment,4,Calm,3.2%,Sp. Def,Attack,,,,,,
+Rotom Mow,161,stat_alignment,5,Quiet,2.6%,Sp. Atk,Speed,,,,,,
+Rotom Mow,161,stat_alignment,6,Mild,0.6%,Sp. Atk,Defense,,,,,,
+Rotom Mow,161,stat_alignment,7,Relaxed,0.5%,Defense,Speed,,,,,,
+Rotom Mow,161,stat_alignment,8,Hasty,0.3%,Speed,Defense,,,,,,
+Rotom Mow,161,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,
+Rotom Mow,161,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Rotom Mow,161,stat_points,1,,24.5%,,,2,0,0,32,0,32
+Rotom Mow,161,stat_points,2,,6.0%,,,0,0,2,32,0,32
+Rotom Mow,161,stat_points,3,,3.7%,,,0,0,0,32,2,32
+Rotom Mow,161,stat_points,4,,3.7%,,,32,0,0,32,0,2
+Rotom Mow,161,stat_points,5,,2.6%,,,31,0,13,9,13,0
+Rotom Mow,161,stat_points,6,,1.9%,,,32,0,2,0,0,32
+Rotom Mow,161,stat_points,7,,1.7%,,,0,0,0,32,0,32
+Rotom Mow,161,stat_points,8,,1.4%,,,26,0,0,15,0,25
+Rotom Mow,161,ability,1,Levitate,100.0%,,,,,,,,

@@ -1,51 +1,51 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Froslass,81,move,1,Blizzard,94.4%,,,,,,,,,20866.19
-Froslass,81,move,2,Shadow Ball,82.1%,,,,,,,,,20866.19
-Froslass,81,move,3,Aurora Veil,59.3%,,,,,,,,,20866.19
-Froslass,81,move,4,Thunderbolt,49.4%,,,,,,,,,20866.19
-Froslass,81,move,5,Destiny Bond,28.3%,,,,,,,,,20866.19
-Froslass,81,move,6,Taunt,14.0%,,,,,,,,,20869.91
-Froslass,81,move,7,Will-O-Wisp,13.5%,,,,,,,,,20869.91
-Froslass,81,move,8,Nasty Plot,9.9%,,,,,,,,,20869.91
-Froslass,81,move,9,Ice Shard,8.8%,,,,,,,,,20869.91
-Froslass,81,move,10,Hex,6.5%,,,,,,,,,20869.91
-Froslass,81,held_item,1,Froslassite,93.6%,,,,,,,,,20874.88
-Froslass,81,held_item,2,Focus Sash,2.2%,,,,,,,,,20874.88
-Froslass,81,held_item,3,Choice Scarf,0.9%,,,,,,,,,20874.88
-Froslass,81,held_item,4,Quick Claw,0.2%,,,,,,,,,20874.88
-Froslass,81,held_item,5,Light Clay,0.2%,,,,,,,,,20874.88
-Froslass,81,held_item,6,Wide Lens,0.2%,,,,,,,,,20882.10
-Froslass,81,held_item,7,Never-Melt Ice,0.1%,,,,,,,,,20882.10
-Froslass,81,held_item,8,Bright Powder,0.1%,,,,,,,,,20882.10
-Froslass,81,held_item,9,Focus Band,0.1%,,,,,,,,,20882.10
-Froslass,81,held_item,10,Life Orb,0.1%,,,,,,,,,20882.10
-Froslass,81,teammate,1,Garchomp,,,,,,,,,,20888.50
-Froslass,81,teammate,2,Mimikyu,,,,,,,,,,20888.50
-Froslass,81,teammate,3,Meowscarada,,,,,,,,,,20888.50
-Froslass,81,teammate,4,Primarina,,,,,,,,,,20888.50
-Froslass,81,teammate,5,Kingambit,,,,,,,,,,20888.50
-Froslass,81,teammate,6,Archaludon,,,,,,,,,,20891.42
-Froslass,81,teammate,7,Blaziken,,,,,,,,,,20891.42
-Froslass,81,teammate,8,Basculegion Male,,,,,,,,,,20891.42
-Froslass,81,teammate,9,Glimmora,,,,,,,,,,20891.42
-Froslass,81,teammate,10,Gyarados,,,,,,,,,,20891.42
-Froslass,81,stat_alignment,1,Timid,76.5%,Speed,Attack,,,,,,,20893.49
-Froslass,81,stat_alignment,2,Modest,18.6%,Sp. Atk,Attack,,,,,,,20893.49
-Froslass,81,stat_alignment,3,Bold,1.1%,Defense,Attack,,,,,,,20893.49
-Froslass,81,stat_alignment,4,Naive,1.1%,Speed,Sp. Def,,,,,,,20893.49
-Froslass,81,stat_alignment,5,Jolly,0.8%,Speed,Sp. Atk,,,,,,,20893.49
-Froslass,81,stat_alignment,6,Calm,0.5%,Sp. Def,Attack,,,,,,,20896.52
-Froslass,81,stat_alignment,7,Hasty,0.5%,Speed,Defense,,,,,,,20896.52
-Froslass,81,stat_alignment,8,Mild,0.4%,Sp. Atk,Defense,,,,,,,20896.52
-Froslass,81,stat_alignment,9,Adamant,0.2%,Attack,Sp. Atk,,,,,,,20896.52
-Froslass,81,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,,20896.52
-Froslass,81,stat_points,1,,45.3%,,,2,0,0,32,0,32,20898.69
-Froslass,81,stat_points,2,,7.9%,,,0,0,2,32,0,32,20898.69
-Froslass,81,stat_points,3,,4.3%,,,0,0,0,32,2,32,20898.69
-Froslass,81,stat_points,4,,3.4%,,,10,0,0,31,0,25,20898.69
-Froslass,81,stat_points,5,,3.4%,,,14,0,0,20,0,32,20898.69
-Froslass,81,stat_points,6,,1.6%,,,0,0,0,32,0,32,20920.48
-Froslass,81,stat_points,7,,0.9%,,,4,0,0,32,0,30,20920.48
-Froslass,81,stat_points,8,,0.7%,,,11,0,0,32,0,23,20920.48
-Froslass,81,ability,1,Cursed Body,74.9%,,,,,,,,,20934.35
-Froslass,81,ability,2,Snow Cloak,25.1%,,,,,,,,,20934.35
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Froslass,81,move,1,Blizzard,94.4%,,,,,,,,
+Froslass,81,move,2,Shadow Ball,82.1%,,,,,,,,
+Froslass,81,move,3,Aurora Veil,59.3%,,,,,,,,
+Froslass,81,move,4,Thunderbolt,49.4%,,,,,,,,
+Froslass,81,move,5,Destiny Bond,28.3%,,,,,,,,
+Froslass,81,move,6,Taunt,14.0%,,,,,,,,
+Froslass,81,move,7,Will-O-Wisp,13.5%,,,,,,,,
+Froslass,81,move,8,Nasty Plot,9.9%,,,,,,,,
+Froslass,81,move,9,Ice Shard,8.8%,,,,,,,,
+Froslass,81,move,10,Hex,6.5%,,,,,,,,
+Froslass,81,held_item,1,Froslassite,93.6%,,,,,,,,
+Froslass,81,held_item,2,Focus Sash,2.2%,,,,,,,,
+Froslass,81,held_item,3,Choice Scarf,0.9%,,,,,,,,
+Froslass,81,held_item,4,Quick Claw,0.2%,,,,,,,,
+Froslass,81,held_item,5,Light Clay,0.2%,,,,,,,,
+Froslass,81,held_item,6,Wide Lens,0.2%,,,,,,,,
+Froslass,81,held_item,7,Never-Melt Ice,0.1%,,,,,,,,
+Froslass,81,held_item,8,Bright Powder,0.1%,,,,,,,,
+Froslass,81,held_item,9,Focus Band,0.1%,,,,,,,,
+Froslass,81,held_item,10,Life Orb,0.1%,,,,,,,,
+Froslass,81,teammate,1,Garchomp,,,,,,,,,
+Froslass,81,teammate,2,Mimikyu,,,,,,,,,
+Froslass,81,teammate,3,Meowscarada,,,,,,,,,
+Froslass,81,teammate,4,Primarina,,,,,,,,,
+Froslass,81,teammate,5,Kingambit,,,,,,,,,
+Froslass,81,teammate,6,Archaludon,,,,,,,,,
+Froslass,81,teammate,7,Blaziken,,,,,,,,,
+Froslass,81,teammate,8,Basculegion Male,,,,,,,,,
+Froslass,81,teammate,9,Glimmora,,,,,,,,,
+Froslass,81,teammate,10,Gyarados,,,,,,,,,
+Froslass,81,stat_alignment,1,Timid,76.5%,Speed,Attack,,,,,,
+Froslass,81,stat_alignment,2,Modest,18.6%,Sp. Atk,Attack,,,,,,
+Froslass,81,stat_alignment,3,Bold,1.1%,Defense,Attack,,,,,,
+Froslass,81,stat_alignment,4,Naive,1.1%,Speed,Sp. Def,,,,,,
+Froslass,81,stat_alignment,5,Jolly,0.8%,Speed,Sp. Atk,,,,,,
+Froslass,81,stat_alignment,6,Calm,0.5%,Sp. Def,Attack,,,,,,
+Froslass,81,stat_alignment,7,Hasty,0.5%,Speed,Defense,,,,,,
+Froslass,81,stat_alignment,8,Mild,0.4%,Sp. Atk,Defense,,,,,,
+Froslass,81,stat_alignment,9,Adamant,0.2%,Attack,Sp. Atk,,,,,,
+Froslass,81,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Froslass,81,stat_points,1,,45.3%,,,2,0,0,32,0,32
+Froslass,81,stat_points,2,,7.9%,,,0,0,2,32,0,32
+Froslass,81,stat_points,3,,4.3%,,,0,0,0,32,2,32
+Froslass,81,stat_points,4,,3.4%,,,10,0,0,31,0,25
+Froslass,81,stat_points,5,,3.4%,,,14,0,0,20,0,32
+Froslass,81,stat_points,6,,1.6%,,,0,0,0,32,0,32
+Froslass,81,stat_points,7,,0.9%,,,4,0,0,32,0,30
+Froslass,81,stat_points,8,,0.7%,,,11,0,0,32,0,23
+Froslass,81,ability,1,Cursed Body,74.9%,,,,,,,,
+Froslass,81,ability,2,Snow Cloak,25.1%,,,,,,,,

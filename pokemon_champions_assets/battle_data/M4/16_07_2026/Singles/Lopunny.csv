@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Lopunny,43,move,1,Fake Out,69.6%,,,,,,,,,17265.59
-Lopunny,43,move,2,Triple Axel,63.1%,,,,,,,,,17265.59
-Lopunny,43,move,3,Close Combat,57.6%,,,,,,,,,17265.59
-Lopunny,43,move,4,Mach Punch,46.3%,,,,,,,,,17265.59
-Lopunny,43,move,5,High Jump Kick,36.5%,,,,,,,,,17265.59
-Lopunny,43,move,6,Swords Dance,30.0%,,,,,,,,,17269.36
-Lopunny,43,move,7,U-turn,26.9%,,,,,,,,,17269.36
-Lopunny,43,move,8,Thunder Punch,10.6%,,,,,,,,,17269.36
-Lopunny,43,move,9,Mega Kick,10.3%,,,,,,,,,17269.36
-Lopunny,43,move,10,Ice Punch,8.0%,,,,,,,,,17269.36
-Lopunny,43,held_item,1,Lopunnite,96.1%,,,,,,,,,17274.30
-Lopunny,43,held_item,2,Sitrus Berry,1.2%,,,,,,,,,17274.30
-Lopunny,43,held_item,3,Mental Herb,0.9%,,,,,,,,,17274.30
-Lopunny,43,held_item,4,Choice Scarf,0.4%,,,,,,,,,17274.30
-Lopunny,43,held_item,5,Focus Sash,0.3%,,,,,,,,,17274.30
-Lopunny,43,held_item,6,Chople Berry,0.2%,,,,,,,,,17281.64
-Lopunny,43,held_item,7,Leftovers,0.1%,,,,,,,,,17281.64
-Lopunny,43,held_item,8,Lum Berry,0.1%,,,,,,,,,17281.64
-Lopunny,43,held_item,9,lron Ball,0.1%,,,,,,,,,17281.64
-Lopunny,43,held_item,10,Silk Scarf,0.0%,,,,,,,,,17281.64
-Lopunny,43,teammate,1,Garchomp,,,,,,,,,,17288.09
-Lopunny,43,teammate,2,Archaludon,,,,,,,,,,17288.09
-Lopunny,43,teammate,3,Mimikyu,,,,,,,,,,17288.09
-Lopunny,43,teammate,4,Meowscarada,,,,,,,,,,17288.09
-Lopunny,43,teammate,5,Primarina,,,,,,,,,,17288.09
-Lopunny,43,teammate,6,Hippowdon,,,,,,,,,,17291.03
-Lopunny,43,teammate,7,Corviknight,,,,,,,,,,17291.03
-Lopunny,43,teammate,8,Basculegion Male,,,,,,,,,,17291.03
-Lopunny,43,teammate,9,Greninja,,,,,,,,,,17291.03
-Lopunny,43,teammate,10,Delphox,,,,,,,,,,17291.03
-Lopunny,43,stat_alignment,1,Jolly,62.0%,Speed,Sp. Atk,,,,,,,17293.06
-Lopunny,43,stat_alignment,2,Adamant,35.4%,Attack,Sp. Atk,,,,,,,17293.06
-Lopunny,43,stat_alignment,3,Timid,0.6%,Speed,Attack,,,,,,,17293.06
-Lopunny,43,stat_alignment,4,Impish,0.4%,Defense,Sp. Atk,,,,,,,17293.06
-Lopunny,43,stat_alignment,5,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,,17293.06
-Lopunny,43,stat_alignment,6,Hasty,0.2%,Speed,Defense,,,,,,,17296.09
-Lopunny,43,stat_alignment,7,Naive,0.2%,Speed,Sp. Def,,,,,,,17296.09
-Lopunny,43,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,,17296.09
-Lopunny,43,stat_alignment,9,Serious,0.1%,,,,,,,,,17296.09
-Lopunny,43,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,,17296.09
-Lopunny,43,stat_points,1,,36.1%,,,1,32,1,0,0,32,17298.26
-Lopunny,43,stat_points,2,,30.8%,,,2,32,0,0,0,32,17298.26
-Lopunny,43,stat_points,3,,5.0%,,,0,32,2,0,0,32,17298.26
-Lopunny,43,stat_points,4,,4.6%,,,1,32,0,0,1,32,17298.26
-Lopunny,43,stat_points,5,,2.7%,,,0,32,0,0,2,32,17298.26
-Lopunny,43,stat_points,6,,1.2%,,,7,32,1,0,0,26,17320.53
-Lopunny,43,stat_points,7,,1.0%,,,32,0,2,0,0,32,17320.53
-Lopunny,43,stat_points,8,,0.8%,,,0,32,1,0,1,32,17320.53
-Lopunny,43,ability,1,Limber,74.6%,,,,,,,,,17334.48
-Lopunny,43,ability,2,Cute Charm,22.0%,,,,,,,,,17334.48
-Lopunny,43,ability,3,Klutz,3.3%,,,,,,,,,17334.48
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Lopunny,43,move,1,Fake Out,69.6%,,,,,,,,
+Lopunny,43,move,2,Triple Axel,63.1%,,,,,,,,
+Lopunny,43,move,3,Close Combat,57.6%,,,,,,,,
+Lopunny,43,move,4,Mach Punch,46.3%,,,,,,,,
+Lopunny,43,move,5,High Jump Kick,36.5%,,,,,,,,
+Lopunny,43,move,6,Swords Dance,30.0%,,,,,,,,
+Lopunny,43,move,7,U-turn,26.9%,,,,,,,,
+Lopunny,43,move,8,Thunder Punch,10.6%,,,,,,,,
+Lopunny,43,move,9,Mega Kick,10.3%,,,,,,,,
+Lopunny,43,move,10,Ice Punch,8.0%,,,,,,,,
+Lopunny,43,held_item,1,Lopunnite,96.1%,,,,,,,,
+Lopunny,43,held_item,2,Sitrus Berry,1.2%,,,,,,,,
+Lopunny,43,held_item,3,Mental Herb,0.9%,,,,,,,,
+Lopunny,43,held_item,4,Choice Scarf,0.4%,,,,,,,,
+Lopunny,43,held_item,5,Focus Sash,0.3%,,,,,,,,
+Lopunny,43,held_item,6,Chople Berry,0.2%,,,,,,,,
+Lopunny,43,held_item,7,Leftovers,0.1%,,,,,,,,
+Lopunny,43,held_item,8,Lum Berry,0.1%,,,,,,,,
+Lopunny,43,held_item,9,Iron Ball,0.1%,,,,,,,,
+Lopunny,43,held_item,10,Silk Scarf,0.0%,,,,,,,,
+Lopunny,43,teammate,1,Garchomp,,,,,,,,,
+Lopunny,43,teammate,2,Archaludon,,,,,,,,,
+Lopunny,43,teammate,3,Mimikyu,,,,,,,,,
+Lopunny,43,teammate,4,Meowscarada,,,,,,,,,
+Lopunny,43,teammate,5,Primarina,,,,,,,,,
+Lopunny,43,teammate,6,Hippowdon,,,,,,,,,
+Lopunny,43,teammate,7,Corviknight,,,,,,,,,
+Lopunny,43,teammate,8,Basculegion Male,,,,,,,,,
+Lopunny,43,teammate,9,Greninja,,,,,,,,,
+Lopunny,43,teammate,10,Delphox,,,,,,,,,
+Lopunny,43,stat_alignment,1,Jolly,62.0%,Speed,Sp. Atk,,,,,,
+Lopunny,43,stat_alignment,2,Adamant,35.4%,Attack,Sp. Atk,,,,,,
+Lopunny,43,stat_alignment,3,Timid,0.6%,Speed,Attack,,,,,,
+Lopunny,43,stat_alignment,4,Impish,0.4%,Defense,Sp. Atk,,,,,,
+Lopunny,43,stat_alignment,5,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
+Lopunny,43,stat_alignment,6,Hasty,0.2%,Speed,Defense,,,,,,
+Lopunny,43,stat_alignment,7,Naive,0.2%,Speed,Sp. Def,,,,,,
+Lopunny,43,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,
+Lopunny,43,stat_alignment,9,Serious,0.1%,,,,,,,,
+Lopunny,43,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Lopunny,43,stat_points,1,,36.1%,,,1,32,1,0,0,32
+Lopunny,43,stat_points,2,,30.8%,,,2,32,0,0,0,32
+Lopunny,43,stat_points,3,,5.0%,,,0,32,2,0,0,32
+Lopunny,43,stat_points,4,,4.6%,,,1,32,0,0,1,32
+Lopunny,43,stat_points,5,,2.7%,,,0,32,0,0,2,32
+Lopunny,43,stat_points,6,,1.2%,,,7,32,1,0,0,26
+Lopunny,43,stat_points,7,,1.0%,,,32,0,2,0,0,32
+Lopunny,43,stat_points,8,,0.8%,,,0,32,1,0,1,32
+Lopunny,43,ability,1,Limber,74.6%,,,,,,,,
+Lopunny,43,ability,2,Cute Charm,22.0%,,,,,,,,
+Lopunny,43,ability,3,Klutz,3.3%,,,,,,,,

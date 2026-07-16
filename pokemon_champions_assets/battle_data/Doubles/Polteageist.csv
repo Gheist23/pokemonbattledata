@@ -1,54 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Polteageist,204,move,1,Shadow Ball,87.5%,,,,,,,,
-Polteageist,204,move,2,Shell Smash,59.1%,,,,,,,,
-Polteageist,204,move,3,Protect,39.9%,,,,,,,,
-Polteageist,204,move,4,Baton Pass,32.9%,,,,,,,,
-Polteageist,204,move,5,Trick Room,26.8%,,,,,,,,
-Polteageist,204,move,6,Strength Sap,24.6%,,,,,,,,
-Polteageist,204,move,7,Stored Power,24.1%,,,,,,,,
-Polteageist,204,move,8,Giga Drain,23.0%,,,,,,,,
-Polteageist,204,move,9,Ally Switch,17.4%,,,,,,,,
-Polteageist,204,move,10,Psychic,11.9%,,,,,,,,
-Polteageist,204,held_item,1,White Herb,34.2%,,,,,,,,
-Polteageist,204,held_item,2,Focus Sash,25.4%,,,,,,,,
-Polteageist,204,held_item,3,Bright Powder,8.2%,,,,,,,,
-Polteageist,204,held_item,4,Colbur Berry,5.8%,,,,,,,,
-Polteageist,204,held_item,5,Spell Tag,4.3%,,,,,,,,
-Polteageist,204,held_item,6,Leftovers,3.9%,,,,,,,,
-Polteageist,204,held_item,7,Sitrus Berry,2.7%,,,,,,,,
-Polteageist,204,held_item,8,Mental Herb,2.6%,,,,,,,,
-Polteageist,204,held_item,9,Life Orb,2.3%,,,,,,,,
-Polteageist,204,held_item,10,Focus Band,2.1%,,,,,,,,
-Polteageist,204,teammate,1,Sinistcha,,,,,,,,,
-Polteageist,204,teammate,2,Sylveon,,,,,,,,,
-Polteageist,204,teammate,3,Staraptor,,,,,,,,,
-Polteageist,204,teammate,4,Raichu,,,,,,,,,
-Polteageist,204,teammate,5,Farigiraf,,,,,,,,,
-Polteageist,204,teammate,6,Whimsicott,,,,,,,,,
-Polteageist,204,teammate,7,Maushold Family of Four,,,,,,,,,
-Polteageist,204,teammate,8,Incineroar,,,,,,,,,
-Polteageist,204,teammate,9,Talonflame,,,,,,,,,
-Polteageist,204,teammate,10,Charizard,,,,,,,,,
-Polteageist,204,stat_alignment,1,Modest,36.2%,Sp. Atk,Attack,,,,,,
-Polteageist,204,stat_alignment,2,Bold,18.5%,Defense,Attack,,,,,,
-Polteageist,204,stat_alignment,3,Timid,13.4%,Speed,Attack,,,,,,
-Polteageist,204,stat_alignment,4,Quiet,11.2%,Sp. Atk,Speed,,,,,,
-Polteageist,204,stat_alignment,5,Relaxed,7.9%,Defense,Speed,,,,,,
-Polteageist,204,stat_alignment,6,Calm,4.9%,Sp. Def,Attack,,,,,,
-Polteageist,204,stat_alignment,7,Sassy,4.7%,Sp. Def,Speed,,,,,,
-Polteageist,204,stat_alignment,8,Mild,2.4%,Sp. Atk,Defense,,,,,,
-Polteageist,204,stat_alignment,9,Hasty,0.5%,Speed,Defense,,,,,,
-Polteageist,204,stat_alignment,10,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Polteageist,204,stat_points,1,,19.6%,,,2,0,0,32,0,32
-Polteageist,204,stat_points,2,,7.5%,,,32,0,32,0,2,0
-Polteageist,204,stat_points,3,,7.4%,,,24,0,24,0,0,18
-Polteageist,204,stat_points,4,,7.0%,,,32,0,1,32,0,1
-Polteageist,204,stat_points,5,,6.2%,,,2,0,32,32,0,0
-Polteageist,204,stat_points,6,,4.0%,,,32,0,32,0,0,0
-Polteageist,204,stat_points,7,,3.8%,,,0,0,2,32,32,0
-Polteageist,204,stat_points,8,,3.0%,,,1,0,0,32,1,32
-Polteageist,204,stat_points,9,,2.7%,,,32,0,0,32,2,0
-Polteageist,204,stat_points,10,,2.7%,,,0,0,32,32,2,0
-Polteageist,204,stat_points,11,,2.5%,,,0,0,0,32,2,32
-Polteageist,204,ability,1,Cursed Body,66.9%,,,,,,,,
-Polteageist,204,ability,2,Weak Armor,33.1%,,,,,,,,
+Polteageist,203,move,1,Shadow Ball,85.7%,,,,,,,,
+Polteageist,203,move,2,Shell Smash,62.4%,,,,,,,,
+Polteageist,203,move,3,Baton Pass,31.8%,,,,,,,,
+Polteageist,203,move,4,Trick Room,31.2%,,,,,,,,
+Polteageist,203,move,5,Giga Drain,31.0%,,,,,,,,
+Polteageist,203,move,6,Stored Power,28.9%,,,,,,,,
+Polteageist,203,move,7,Protect,28.8%,,,,,,,,
+Polteageist,203,move,8,Strength Sap,21.0%,,,,,,,,
+Polteageist,203,move,9,Will-O-Wisp,15.1%,,,,,,,,
+Polteageist,203,move,10,Psychic,10.5%,,,,,,,,
+Polteageist,203,held_item,1,Focus Sash,37.5%,,,,,,,,
+Polteageist,203,held_item,2,White Herb,36.9%,,,,,,,,
+Polteageist,203,held_item,3,Colbur Berry,5.0%,,,,,,,,
+Polteageist,203,held_item,4,Spell Tag,4.1%,,,,,,,,
+Polteageist,203,held_item,5,Quick Claw,3.6%,,,,,,,,
+Polteageist,203,held_item,6,Sitrus Berry,2.6%,,,,,,,,
+Polteageist,203,held_item,7,Big Root,1.5%,,,,,,,,
+Polteageist,203,held_item,8,Leftovers,1.4%,,,,,,,,
+Polteageist,203,held_item,9,Mental Herb,1.1%,,,,,,,,
+Polteageist,203,held_item,10,Life Orb,1.0%,,,,,,,,
+Polteageist,203,teammate,1,Sinistcha,,,,,,,,,
+Polteageist,203,teammate,2,Maushold Family of Four,,,,,,,,,
+Polteageist,203,teammate,3,Whimsicott,,,,,,,,,
+Polteageist,203,teammate,4,Farigiraf,,,,,,,,,
+Polteageist,203,teammate,5,Aegislash Shield Forme,,,,,,,,,
+Polteageist,203,teammate,6,Incineroar,,,,,,,,,
+Polteageist,203,teammate,7,Sneasler,,,,,,,,,
+Polteageist,203,teammate,8,Meganium,,,,,,,,,
+Polteageist,203,teammate,9,Musharna,,,,,,,,,
+Polteageist,203,teammate,10,Toxicroak,,,,,,,,,
+Polteageist,203,stat_alignment,1,Modest,29.9%,Sp. Atk,Attack,,,,,,
+Polteageist,203,stat_alignment,2,Bold,16.6%,Defense,Attack,,,,,,
+Polteageist,203,stat_alignment,3,Timid,15.9%,Speed,Attack,,,,,,
+Polteageist,203,stat_alignment,4,Mild,12.6%,Sp. Atk,Defense,,,,,,
+Polteageist,203,stat_alignment,5,Calm,9.8%,Sp. Def,Attack,,,,,,
+Polteageist,203,stat_alignment,6,Quiet,6.3%,Sp. Atk,Speed,,,,,,
+Polteageist,203,stat_alignment,7,Relaxed,5.3%,Defense,Speed,,,,,,
+Polteageist,203,stat_alignment,8,Sassy,1.9%,Sp. Def,Speed,,,,,,
+Polteageist,203,stat_alignment,9,Hasty,0.8%,Speed,Defense,,,,,,
+Polteageist,203,stat_alignment,10,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Polteageist,203,stat_points,1,,14.0%,,,0,0,0,32,2,32
+Polteageist,203,stat_points,2,,13.5%,,,2,0,0,32,0,32
+Polteageist,203,stat_points,3,,6.4%,,,0,0,2,32,32,0
+Polteageist,203,stat_points,4,,3.6%,,,0,0,2,32,0,32
+Polteageist,203,stat_points,5,,3.5%,,,32,0,32,0,2,0
+Polteageist,203,stat_points,6,,2.8%,,,0,0,32,32,2,0
+Polteageist,203,stat_points,7,,2.8%,,,2,0,32,32,0,0
+Polteageist,203,stat_points,8,,2.7%,,,0,0,32,32,0,2
+Polteageist,203,ability,1,Cursed Body,55.6%,,,,,,,,
+Polteageist,203,ability,2,Weak Armor,44.4%,,,,,,,,

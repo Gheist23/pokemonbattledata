@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Grimmsnarl,33,move,1,Reflect,80.6%,,,,,,,,,16370.89
-Grimmsnarl,33,move,2,Light Screen,78.9%,,,,,,,,,16370.89
-Grimmsnarl,33,move,3,Spirit Break,75.9%,,,,,,,,,16370.89
-Grimmsnarl,33,move,4,Parting Shot,63.8%,,,,,,,,,16370.89
-Grimmsnarl,33,move,5,Taunt,41.5%,,,,,,,,,16370.89
-Grimmsnarl,33,move,6,Foul Play,18.1%,,,,,,,,,16374.61
-Grimmsnarl,33,move,7,Fake Out,14.8%,,,,,,,,,16374.61
-Grimmsnarl,33,move,8,Sucker Punch,13.3%,,,,,,,,,16374.61
-Grimmsnarl,33,move,9,Play Rough,4.2%,,,,,,,,,16374.61
-Grimmsnarl,33,move,10,Bulk Up,1.1%,,,,,,,,,16374.61
-Grimmsnarl,33,held_item,1,Light Clay,78.0%,,,,,,,,,16377.48
-Grimmsnarl,33,held_item,2,Leftovers,8.1%,,,,,,,,,16377.48
-Grimmsnarl,33,held_item,3,Sitrus Berry,3.0%,,,,,,,,,16377.48
-Grimmsnarl,33,held_item,4,Expert Belt,2.7%,,,,,,,,,16377.48
-Grimmsnarl,33,held_item,5,Black Glasses,2.0%,,,,,,,,,16377.48
-Grimmsnarl,33,held_item,6,Life Orb,1.5%,,,,,,,,,16384.81
-Grimmsnarl,33,held_item,7,Focus Sash,0.6%,,,,,,,,,16384.81
-Grimmsnarl,33,held_item,8,Fairy Feather,0.5%,,,,,,,,,16384.81
-Grimmsnarl,33,held_item,9,Lum Berry,0.4%,,,,,,,,,16384.81
-Grimmsnarl,33,held_item,10,Bright Powder,0.4%,,,,,,,,,16384.81
-Grimmsnarl,33,teammate,1,Garchomp,,,,,,,,,,16391.26
-Grimmsnarl,33,teammate,2,Gyarados,,,,,,,,,,16391.26
-Grimmsnarl,33,teammate,3,Delphox,,,,,,,,,,16391.26
-Grimmsnarl,33,teammate,4,Corviknight,,,,,,,,,,16391.26
-Grimmsnarl,33,teammate,5,Archaludon,,,,,,,,,,16391.26
-Grimmsnarl,33,teammate,6,Mimikyu,,,,,,,,,,16394.18
-Grimmsnarl,33,teammate,7,Dragalge,,,,,,,,,,16394.18
-Grimmsnarl,33,teammate,8,Blaziken,,,,,,,,,,16394.18
-Grimmsnarl,33,teammate,9,Charizard,,,,,,,,,,16394.18
-Grimmsnarl,33,teammate,10,Metagross,,,,,,,,,,16394.18
-Grimmsnarl,33,stat_alignment,1,Impish,59.1%,Defense,Sp. Atk,,,,,,,16396.16
-Grimmsnarl,33,stat_alignment,2,Adamant,18.2%,Attack,Sp. Atk,,,,,,,16396.16
-Grimmsnarl,33,stat_alignment,3,Careful,13.8%,Sp. Def,Sp. Atk,,,,,,,16396.16
-Grimmsnarl,33,stat_alignment,4,Bold,2.3%,Defense,Attack,,,,,,,16396.16
-Grimmsnarl,33,stat_alignment,5,Relaxed,1.4%,Defense,Speed,,,,,,,16396.16
-Grimmsnarl,33,stat_alignment,6,Calm,1.4%,Sp. Def,Attack,,,,,,,16399.19
-Grimmsnarl,33,stat_alignment,7,Jolly,1.0%,Speed,Sp. Atk,,,,,,,16399.19
-Grimmsnarl,33,stat_alignment,8,Brave,0.9%,Attack,Speed,,,,,,,16399.19
-Grimmsnarl,33,stat_alignment,9,Sassy,0.7%,Sp. Def,Speed,,,,,,,16399.19
-Grimmsnarl,33,stat_alignment,10,Naughty,0.3%,Attack,Sp. Def,,,,,,,16399.19
-Grimmsnarl,33,stat_points,1,,26.8%,,,32,0,32,0,2,0,16401.30
-Grimmsnarl,33,stat_points,2,,4.0%,,,31,0,25,0,10,0,16401.30
-Grimmsnarl,33,stat_points,3,,3.1%,,,31,0,32,0,3,0,16401.30
-Grimmsnarl,33,stat_points,4,,2.8%,,,32,32,2,0,0,0,16401.30
-Grimmsnarl,33,stat_points,5,,2.6%,,,32,0,19,0,15,0,16401.30
-Grimmsnarl,33,stat_points,6,,1.9%,,,32,0,2,0,32,0,16423.37
-Grimmsnarl,33,stat_points,7,,1.9%,,,32,0,32,0,0,2,16423.37
-Grimmsnarl,33,stat_points,8,,1.8%,,,2,0,32,0,32,0,16423.37
-Grimmsnarl,33,ability,1,Prankster,99.1%,,,,,,,,,16437.24
-Grimmsnarl,33,ability,2,Pickpocket,0.5%,,,,,,,,,16437.24
-Grimmsnarl,33,ability,3,Frisk,0.4%,,,,,,,,,16437.24
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Grimmsnarl,33,move,1,Reflect,80.6%,,,,,,,,
+Grimmsnarl,33,move,2,Light Screen,78.9%,,,,,,,,
+Grimmsnarl,33,move,3,Spirit Break,75.9%,,,,,,,,
+Grimmsnarl,33,move,4,Parting Shot,63.8%,,,,,,,,
+Grimmsnarl,33,move,5,Taunt,41.5%,,,,,,,,
+Grimmsnarl,33,move,6,Foul Play,18.1%,,,,,,,,
+Grimmsnarl,33,move,7,Fake Out,14.8%,,,,,,,,
+Grimmsnarl,33,move,8,Sucker Punch,13.3%,,,,,,,,
+Grimmsnarl,33,move,9,Play Rough,4.2%,,,,,,,,
+Grimmsnarl,33,move,10,Bulk Up,1.1%,,,,,,,,
+Grimmsnarl,33,held_item,1,Light Clay,78.0%,,,,,,,,
+Grimmsnarl,33,held_item,2,Leftovers,8.1%,,,,,,,,
+Grimmsnarl,33,held_item,3,Sitrus Berry,3.0%,,,,,,,,
+Grimmsnarl,33,held_item,4,Expert Belt,2.7%,,,,,,,,
+Grimmsnarl,33,held_item,5,Black Glasses,2.0%,,,,,,,,
+Grimmsnarl,33,held_item,6,Life Orb,1.5%,,,,,,,,
+Grimmsnarl,33,held_item,7,Focus Sash,0.6%,,,,,,,,
+Grimmsnarl,33,held_item,8,Fairy Feather,0.5%,,,,,,,,
+Grimmsnarl,33,held_item,9,Lum Berry,0.4%,,,,,,,,
+Grimmsnarl,33,held_item,10,Bright Powder,0.4%,,,,,,,,
+Grimmsnarl,33,teammate,1,Garchomp,,,,,,,,,
+Grimmsnarl,33,teammate,2,Gyarados,,,,,,,,,
+Grimmsnarl,33,teammate,3,Delphox,,,,,,,,,
+Grimmsnarl,33,teammate,4,Corviknight,,,,,,,,,
+Grimmsnarl,33,teammate,5,Archaludon,,,,,,,,,
+Grimmsnarl,33,teammate,6,Mimikyu,,,,,,,,,
+Grimmsnarl,33,teammate,7,Dragalge,,,,,,,,,
+Grimmsnarl,33,teammate,8,Blaziken,,,,,,,,,
+Grimmsnarl,33,teammate,9,Charizard,,,,,,,,,
+Grimmsnarl,33,teammate,10,Metagross,,,,,,,,,
+Grimmsnarl,33,stat_alignment,1,Impish,59.1%,Defense,Sp. Atk,,,,,,
+Grimmsnarl,33,stat_alignment,2,Adamant,18.2%,Attack,Sp. Atk,,,,,,
+Grimmsnarl,33,stat_alignment,3,Careful,13.8%,Sp. Def,Sp. Atk,,,,,,
+Grimmsnarl,33,stat_alignment,4,Bold,2.3%,Defense,Attack,,,,,,
+Grimmsnarl,33,stat_alignment,5,Relaxed,1.4%,Defense,Speed,,,,,,
+Grimmsnarl,33,stat_alignment,6,Calm,1.4%,Sp. Def,Attack,,,,,,
+Grimmsnarl,33,stat_alignment,7,Jolly,1.0%,Speed,Sp. Atk,,,,,,
+Grimmsnarl,33,stat_alignment,8,Brave,0.9%,Attack,Speed,,,,,,
+Grimmsnarl,33,stat_alignment,9,Sassy,0.7%,Sp. Def,Speed,,,,,,
+Grimmsnarl,33,stat_alignment,10,Naughty,0.3%,Attack,Sp. Def,,,,,,
+Grimmsnarl,33,stat_points,1,,26.8%,,,32,0,32,0,2,0
+Grimmsnarl,33,stat_points,2,,4.0%,,,31,0,25,0,10,0
+Grimmsnarl,33,stat_points,3,,3.1%,,,31,0,32,0,3,0
+Grimmsnarl,33,stat_points,4,,2.8%,,,32,32,2,0,0,0
+Grimmsnarl,33,stat_points,5,,2.6%,,,32,0,19,0,15,0
+Grimmsnarl,33,stat_points,6,,1.9%,,,32,0,2,0,32,0
+Grimmsnarl,33,stat_points,7,,1.9%,,,32,0,32,0,0,2
+Grimmsnarl,33,stat_points,8,,1.8%,,,2,0,32,0,32,0
+Grimmsnarl,33,ability,1,Prankster,99.1%,,,,,,,,
+Grimmsnarl,33,ability,2,Pickpocket,0.5%,,,,,,,,
+Grimmsnarl,33,ability,3,Frisk,0.4%,,,,,,,,

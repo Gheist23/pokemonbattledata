@@ -1,51 +1,51 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Polteageist,95,move,1,Shell Smash,97.8%,,,,,,,,,22144.46
-Polteageist,95,move,2,Shadow Ball,84.0%,,,,,,,,,22144.46
-Polteageist,95,move,3,Baton Pass,76.5%,,,,,,,,,22144.46
-Polteageist,95,move,4,Strength Sap,57.0%,,,,,,,,,22144.46
-Polteageist,95,move,5,Stored Power,43.6%,,,,,,,,,22144.46
-Polteageist,95,move,6,Giga Drain,13.2%,,,,,,,,,22148.28
-Polteageist,95,move,7,Substitute,5.6%,,,,,,,,,22148.28
-Polteageist,95,move,8,Sucker Punch,5.0%,,,,,,,,,22148.28
-Polteageist,95,move,9,Will-O-Wisp,4.2%,,,,,,,,,22148.28
-Polteageist,95,move,10,Dark Pulse,2.1%,,,,,,,,,22148.28
-Polteageist,95,held_item,1,White Herb,77.8%,,,,,,,,,22151.17
-Polteageist,95,held_item,2,Focus Sash,18.4%,,,,,,,,,22151.17
-Polteageist,95,held_item,3,Sitrus Berry,0.8%,,,,,,,,,22151.17
-Polteageist,95,held_item,4,Mental Herb,0.4%,,,,,,,,,22151.17
-Polteageist,95,held_item,5,Choice Scarf,0.4%,,,,,,,,,22151.17
-Polteageist,95,held_item,6,Leftovers,0.4%,,,,,,,,,22158.63
-Polteageist,95,held_item,7,Quick Claw,0.4%,,,,,,,,,22158.63
-Polteageist,95,held_item,8,Lum Berry,0.3%,,,,,,,,,22158.63
-Polteageist,95,held_item,9,Kasib Berry,0.3%,,,,,,,,,22158.63
-Polteageist,95,held_item,10,Big Root,0.1%,,,,,,,,,22158.63
-Polteageist,95,teammate,1,Gyarados,,,,,,,,,,22165.14
-Polteageist,95,teammate,2,Garchomp,,,,,,,,,,22165.14
-Polteageist,95,teammate,3,Archaludon,,,,,,,,,,22165.14
-Polteageist,95,teammate,4,Grimmsnarl,,,,,,,,,,22165.14
-Polteageist,95,teammate,5,Metagross,,,,,,,,,,22165.14
-Polteageist,95,teammate,6,Blaziken,,,,,,,,,,22168.04
-Polteageist,95,teammate,7,Mimikyu,,,,,,,,,,22168.04
-Polteageist,95,teammate,8,Clefable,,,,,,,,,,22168.04
-Polteageist,95,teammate,9,Meowscarada,,,,,,,,,,22168.04
-Polteageist,95,teammate,10,Staraptor,,,,,,,,,,22168.04
-Polteageist,95,stat_alignment,1,Bold,50.6%,Defense,Attack,,,,,,,22170.14
-Polteageist,95,stat_alignment,2,Timid,25.5%,Speed,Attack,,,,,,,22170.14
-Polteageist,95,stat_alignment,3,Modest,15.3%,Sp. Atk,Attack,,,,,,,22170.14
-Polteageist,95,stat_alignment,4,Calm,4.9%,Sp. Def,Attack,,,,,,,22170.14
-Polteageist,95,stat_alignment,5,Mild,1.2%,Sp. Atk,Defense,,,,,,,22170.14
-Polteageist,95,stat_alignment,6,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,,22173.18
-Polteageist,95,stat_alignment,7,Hasty,0.5%,Speed,Defense,,,,,,,22173.18
-Polteageist,95,stat_alignment,8,Quiet,0.4%,Sp. Atk,Speed,,,,,,,22173.18
-Polteageist,95,stat_alignment,9,Relaxed,0.3%,Defense,Speed,,,,,,,22173.18
-Polteageist,95,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,,22173.18
-Polteageist,95,stat_points,1,,14.6%,,,24,0,24,0,0,18,22175.35
-Polteageist,95,stat_points,2,,10.0%,,,2,0,0,32,0,32,22175.35
-Polteageist,95,stat_points,3,,6.5%,,,32,0,32,0,2,0,22175.35
-Polteageist,95,stat_points,4,,3.7%,,,0,0,0,32,2,32,22175.35
-Polteageist,95,stat_points,5,,3.2%,,,32,0,32,0,0,2,22175.35
-Polteageist,95,stat_points,6,,2.3%,,,14,0,26,0,0,26,22198.38
-Polteageist,95,stat_points,7,,2.1%,,,16,0,32,0,0,18,22198.38
-Polteageist,95,stat_points,8,,2.0%,,,0,0,2,32,0,32,22198.38
-Polteageist,95,ability,1,Cursed Body,72.8%,,,,,,,,,22212.77
-Polteageist,95,ability,2,Weak Armor,27.2%,,,,,,,,,22212.77
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Polteageist,95,move,1,Shell Smash,97.8%,,,,,,,,
+Polteageist,95,move,2,Shadow Ball,84.0%,,,,,,,,
+Polteageist,95,move,3,Baton Pass,76.5%,,,,,,,,
+Polteageist,95,move,4,Strength Sap,57.0%,,,,,,,,
+Polteageist,95,move,5,Stored Power,43.6%,,,,,,,,
+Polteageist,95,move,6,Giga Drain,13.2%,,,,,,,,
+Polteageist,95,move,7,Substitute,5.6%,,,,,,,,
+Polteageist,95,move,8,Sucker Punch,5.0%,,,,,,,,
+Polteageist,95,move,9,Will-O-Wisp,4.2%,,,,,,,,
+Polteageist,95,move,10,Dark Pulse,2.1%,,,,,,,,
+Polteageist,95,held_item,1,White Herb,77.8%,,,,,,,,
+Polteageist,95,held_item,2,Focus Sash,18.4%,,,,,,,,
+Polteageist,95,held_item,3,Sitrus Berry,0.8%,,,,,,,,
+Polteageist,95,held_item,4,Mental Herb,0.4%,,,,,,,,
+Polteageist,95,held_item,5,Choice Scarf,0.4%,,,,,,,,
+Polteageist,95,held_item,6,Leftovers,0.4%,,,,,,,,
+Polteageist,95,held_item,7,Quick Claw,0.4%,,,,,,,,
+Polteageist,95,held_item,8,Lum Berry,0.3%,,,,,,,,
+Polteageist,95,held_item,9,Kasib Berry,0.3%,,,,,,,,
+Polteageist,95,held_item,10,Big Root,0.1%,,,,,,,,
+Polteageist,95,teammate,1,Gyarados,,,,,,,,,
+Polteageist,95,teammate,2,Garchomp,,,,,,,,,
+Polteageist,95,teammate,3,Archaludon,,,,,,,,,
+Polteageist,95,teammate,4,Grimmsnarl,,,,,,,,,
+Polteageist,95,teammate,5,Metagross,,,,,,,,,
+Polteageist,95,teammate,6,Blaziken,,,,,,,,,
+Polteageist,95,teammate,7,Mimikyu,,,,,,,,,
+Polteageist,95,teammate,8,Clefable,,,,,,,,,
+Polteageist,95,teammate,9,Meowscarada,,,,,,,,,
+Polteageist,95,teammate,10,Staraptor,,,,,,,,,
+Polteageist,95,stat_alignment,1,Bold,50.6%,Defense,Attack,,,,,,
+Polteageist,95,stat_alignment,2,Timid,25.5%,Speed,Attack,,,,,,
+Polteageist,95,stat_alignment,3,Modest,15.3%,Sp. Atk,Attack,,,,,,
+Polteageist,95,stat_alignment,4,Calm,4.9%,Sp. Def,Attack,,,,,,
+Polteageist,95,stat_alignment,5,Mild,1.2%,Sp. Atk,Defense,,,,,,
+Polteageist,95,stat_alignment,6,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,
+Polteageist,95,stat_alignment,7,Hasty,0.5%,Speed,Defense,,,,,,
+Polteageist,95,stat_alignment,8,Quiet,0.4%,Sp. Atk,Speed,,,,,,
+Polteageist,95,stat_alignment,9,Relaxed,0.3%,Defense,Speed,,,,,,
+Polteageist,95,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Polteageist,95,stat_points,1,,14.6%,,,24,0,24,0,0,18
+Polteageist,95,stat_points,2,,10.0%,,,2,0,0,32,0,32
+Polteageist,95,stat_points,3,,6.5%,,,32,0,32,0,2,0
+Polteageist,95,stat_points,4,,3.7%,,,0,0,0,32,2,32
+Polteageist,95,stat_points,5,,3.2%,,,32,0,32,0,0,2
+Polteageist,95,stat_points,6,,2.3%,,,14,0,26,0,0,26
+Polteageist,95,stat_points,7,,2.1%,,,16,0,32,0,0,18
+Polteageist,95,stat_points,8,,2.0%,,,0,0,2,32,0,32
+Polteageist,95,ability,1,Cursed Body,72.8%,,,,,,,,
+Polteageist,95,ability,2,Weak Armor,27.2%,,,,,,,,

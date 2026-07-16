@@ -1,52 +1,52 @@
-pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points,source_time_seconds
-Chandelure,91,move,1,Shadow Ball,91.6%,,,,,,,,,21738.01
-Chandelure,91,move,2,Flamethrower,62.6%,,,,,,,,,21738.01
-Chandelure,91,move,3,Energy Ball,61.8%,,,,,,,,,21738.01
-Chandelure,91,move,4,Overheat,31.4%,,,,,,,,,21738.01
-Chandelure,91,move,5,Psychic,24.6%,,,,,,,,,21738.01
-Chandelure,91,move,6,Trick,20.3%,,,,,,,,,21741.87
-Chandelure,91,move,7,Minimize,14.5%,,,,,,,,,21741.87
-Chandelure,91,move,8,Will-O-Wisp,12.8%,,,,,,,,,21741.87
-Chandelure,91,move,9,Calm Mind,10.2%,,,,,,,,,21741.87
-Chandelure,91,move,10,Fire Blast,9.0%,,,,,,,,,21741.87
-Chandelure,91,held_item,1,Chandelurite,40.0%,,,,,,,,,21744.79
-Chandelure,91,held_item,2,Choice Scarf,33.1%,,,,,,,,,21744.79
-Chandelure,91,held_item,3,Focus Sash,10.4%,,,,,,,,,21744.79
-Chandelure,91,held_item,4,Leftovers,3.8%,,,,,,,,,21744.79
-Chandelure,91,held_item,5,Bright Powder,2.7%,,,,,,,,,21744.79
-Chandelure,91,held_item,6,Life Orb,2.0%,,,,,,,,,21752.36
-Chandelure,91,held_item,7,Sitrus Berry,1.5%,,,,,,,,,21752.36
-Chandelure,91,held_item,8,Kasib Berry,0.9%,,,,,,,,,21752.36
-Chandelure,91,held_item,9,Shuca Berry,0.8%,,,,,,,,,21752.36
-Chandelure,91,held_item,10,Charcoal,0.7%,,,,,,,,,21752.36
-Chandelure,91,teammate,1,Garchomp,,,,,,,,,,21759.13
-Chandelure,91,teammate,2,Meowscarada,,,,,,,,,,21759.13
-Chandelure,91,teammate,3,Mimikyu,,,,,,,,,,21759.13
-Chandelure,91,teammate,4,Scizor,,,,,,,,,,21759.13
-Chandelure,91,teammate,5,Gyarados,,,,,,,,,,21759.13
-Chandelure,91,teammate,6,Primarina,,,,,,,,,,21762.12
-Chandelure,91,teammate,7,Archaludon,,,,,,,,,,21762.12
-Chandelure,91,teammate,8,Metagross,,,,,,,,,,21762.12
-Chandelure,91,teammate,9,Hydreigon,,,,,,,,,,21762.12
-Chandelure,91,teammate,10,Alolan Ninetales,,,,,,,,,,21762.12
-Chandelure,91,stat_alignment,1,Timid,47.4%,Speed,Attack,,,,,,,21764.22
-Chandelure,91,stat_alignment,2,Modest,41.1%,Sp. Atk,Attack,,,,,,,21764.22
-Chandelure,91,stat_alignment,3,Bold,4.8%,Defense,Attack,,,,,,,21764.22
-Chandelure,91,stat_alignment,4,Quiet,3.2%,Sp. Atk,Speed,,,,,,,21764.22
-Chandelure,91,stat_alignment,5,Calm,2.2%,Sp. Def,Attack,,,,,,,21764.22
-Chandelure,91,stat_alignment,6,Mild,0.4%,Sp. Atk,Defense,,,,,,,21768.45
-Chandelure,91,stat_alignment,7,Relaxed,0.3%,Defense,Speed,,,,,,,21768.45
-Chandelure,91,stat_alignment,8,Hasty,0.3%,Speed,Defense,,,,,,,21768.45
-Chandelure,91,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,,21768.45
-Chandelure,91,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,,21768.45
-Chandelure,91,stat_points,1,,41.3%,,,2,0,0,32,0,32,21770.68
-Chandelure,91,stat_points,2,,5.7%,,,0,0,0,32,2,32,21770.68
-Chandelure,91,stat_points,3,,5.6%,,,32,0,2,32,0,0,21770.68
-Chandelure,91,stat_points,4,,4.6%,,,0,0,2,32,0,32,21770.68
-Chandelure,91,stat_points,5,,2.9%,,,32,0,0,32,0,2,21770.68
-Chandelure,91,stat_points,6,,2.4%,,,0,0,0,32,0,32,21792.67
-Chandelure,91,stat_points,7,,1.6%,,,0,0,1,32,1,32,21792.67
-Chandelure,91,stat_points,8,,1.2%,,,32,0,32,0,2,0,21792.67
-Chandelure,91,ability,1,Flash Fire,63.3%,,,,,,,,,21806.56
-Chandelure,91,ability,2,Infiltrator,29.5%,,,,,,,,,21806.56
-Chandelure,91,ability,3,Flame Body,7.2%,,,,,,,,,21806.56
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Chandelure,91,move,1,Shadow Ball,91.6%,,,,,,,,
+Chandelure,91,move,2,Flamethrower,62.6%,,,,,,,,
+Chandelure,91,move,3,Energy Ball,61.8%,,,,,,,,
+Chandelure,91,move,4,Overheat,31.4%,,,,,,,,
+Chandelure,91,move,5,Psychic,24.6%,,,,,,,,
+Chandelure,91,move,6,Trick,20.3%,,,,,,,,
+Chandelure,91,move,7,Minimize,14.5%,,,,,,,,
+Chandelure,91,move,8,Will-O-Wisp,12.8%,,,,,,,,
+Chandelure,91,move,9,Calm Mind,10.2%,,,,,,,,
+Chandelure,91,move,10,Fire Blast,9.0%,,,,,,,,
+Chandelure,91,held_item,1,Chandelurite,40.0%,,,,,,,,
+Chandelure,91,held_item,2,Choice Scarf,33.1%,,,,,,,,
+Chandelure,91,held_item,3,Focus Sash,10.4%,,,,,,,,
+Chandelure,91,held_item,4,Leftovers,3.8%,,,,,,,,
+Chandelure,91,held_item,5,Bright Powder,2.7%,,,,,,,,
+Chandelure,91,held_item,6,Life Orb,2.0%,,,,,,,,
+Chandelure,91,held_item,7,Sitrus Berry,1.5%,,,,,,,,
+Chandelure,91,held_item,8,Kasib Berry,0.9%,,,,,,,,
+Chandelure,91,held_item,9,Shuca Berry,0.8%,,,,,,,,
+Chandelure,91,held_item,10,Charcoal,0.7%,,,,,,,,
+Chandelure,91,teammate,1,Garchomp,,,,,,,,,
+Chandelure,91,teammate,2,Meowscarada,,,,,,,,,
+Chandelure,91,teammate,3,Mimikyu,,,,,,,,,
+Chandelure,91,teammate,4,Scizor,,,,,,,,,
+Chandelure,91,teammate,5,Gyarados,,,,,,,,,
+Chandelure,91,teammate,6,Primarina,,,,,,,,,
+Chandelure,91,teammate,7,Archaludon,,,,,,,,,
+Chandelure,91,teammate,8,Metagross,,,,,,,,,
+Chandelure,91,teammate,9,Hydreigon,,,,,,,,,
+Chandelure,91,teammate,10,Alolan Ninetales,,,,,,,,,
+Chandelure,91,stat_alignment,1,Timid,47.4%,Speed,Attack,,,,,,
+Chandelure,91,stat_alignment,2,Modest,41.1%,Sp. Atk,Attack,,,,,,
+Chandelure,91,stat_alignment,3,Bold,4.8%,Defense,Attack,,,,,,
+Chandelure,91,stat_alignment,4,Quiet,3.2%,Sp. Atk,Speed,,,,,,
+Chandelure,91,stat_alignment,5,Calm,2.2%,Sp. Def,Attack,,,,,,
+Chandelure,91,stat_alignment,6,Mild,0.4%,Sp. Atk,Defense,,,,,,
+Chandelure,91,stat_alignment,7,Relaxed,0.3%,Defense,Speed,,,,,,
+Chandelure,91,stat_alignment,8,Hasty,0.3%,Speed,Defense,,,,,,
+Chandelure,91,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Chandelure,91,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
+Chandelure,91,stat_points,1,,41.3%,,,2,0,0,32,0,32
+Chandelure,91,stat_points,2,,5.7%,,,0,0,0,32,2,32
+Chandelure,91,stat_points,3,,5.6%,,,32,0,2,32,0,0
+Chandelure,91,stat_points,4,,4.6%,,,0,0,2,32,0,32
+Chandelure,91,stat_points,5,,2.9%,,,32,0,0,32,0,2
+Chandelure,91,stat_points,6,,2.4%,,,0,0,0,32,0,32
+Chandelure,91,stat_points,7,,1.6%,,,0,0,1,32,1,32
+Chandelure,91,stat_points,8,,1.2%,,,32,0,32,0,2,0
+Chandelure,91,ability,1,Flash Fire,63.3%,,,,,,,,
+Chandelure,91,ability,2,Infiltrator,29.5%,,,,,,,,
+Chandelure,91,ability,3,Flame Body,7.2%,,,,,,,,

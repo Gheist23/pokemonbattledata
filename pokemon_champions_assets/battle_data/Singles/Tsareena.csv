@@ -1,56 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tsareena,157,move,1,Triple Axel,87.7%,,,,,,,,
-Tsareena,157,move,2,High Jump Kick,76.3%,,,,,,,,
-Tsareena,157,move,3,Trop Kick,69.5%,,,,,,,,
-Tsareena,157,move,4,Rapid Spin,37.4%,,,,,,,,
-Tsareena,157,move,5,U-turn,29.3%,,,,,,,,
-Tsareena,157,move,6,Power Whip,26.8%,,,,,,,,
-Tsareena,157,move,7,Knock Off,18.0%,,,,,,,,
-Tsareena,157,move,8,Synthesis,8.8%,,,,,,,,
-Tsareena,157,move,9,Play Rough,8.3%,,,,,,,,
-Tsareena,157,move,10,Taunt,6.4%,,,,,,,,
-Tsareena,157,held_item,1,Sitrus Berry,25.4%,,,,,,,,
-Tsareena,157,held_item,2,Choice Scarf,16.5%,,,,,,,,
-Tsareena,157,held_item,3,Wide Lens,12.4%,,,,,,,,
-Tsareena,157,held_item,4,Focus Sash,8.1%,,,,,,,,
-Tsareena,157,held_item,5,Life Orb,6.5%,,,,,,,,
-Tsareena,157,held_item,6,Expert Belt,4.9%,,,,,,,,
-Tsareena,157,held_item,7,Leftovers,4.1%,,,,,,,,
-Tsareena,157,held_item,8,Quick Claw,3.8%,,,,,,,,
-Tsareena,157,held_item,9,Lum Berry,3.7%,,,,,,,,
-Tsareena,157,held_item,10,Coba Berry,1.8%,,,,,,,,
-Tsareena,157,teammate,1,Garchomp,,,,,,,,,
-Tsareena,157,teammate,2,Raichu,,,,,,,,,
-Tsareena,157,teammate,3,Mimikyu,,,,,,,,,
-Tsareena,157,teammate,4,Charizard,,,,,,,,,
-Tsareena,157,teammate,5,Primarina,,,,,,,,,
-Tsareena,157,teammate,6,Kingambit,,,,,,,,,
-Tsareena,157,teammate,7,Metagross,,,,,,,,,
-Tsareena,157,teammate,8,Mawile,,,,,,,,,
-Tsareena,157,teammate,9,Archaludon,,,,,,,,,
-Tsareena,157,teammate,10,Delphox,,,,,,,,,
-Tsareena,157,stat_alignment,1,Adamant,56.8%,Attack,Sp. Atk,,,,,,
-Tsareena,157,stat_alignment,2,Jolly,31.8%,Speed,Sp. Atk,,,,,,
-Tsareena,157,stat_alignment,3,Impish,8.5%,Defense,Sp. Atk,,,,,,
-Tsareena,157,stat_alignment,4,Careful,1.0%,Sp. Def,Sp. Atk,,,,,,
-Tsareena,157,stat_alignment,5,Brave,0.9%,Attack,Speed,,,,,,
-Tsareena,157,stat_alignment,6,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Tsareena,157,stat_alignment,7,Lonely,0.2%,Attack,Defense,,,,,,
-Tsareena,157,stat_alignment,8,Lax,0.2%,Defense,Sp. Def,,,,,,
-Tsareena,157,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Tsareena,157,stat_alignment,10,Serious,0.1%,,,,,,,,
-Tsareena,157,stat_points,1,,29.1%,,,2,32,0,0,0,32
-Tsareena,157,stat_points,2,,12.7%,,,32,10,22,0,0,2
-Tsareena,157,stat_points,3,,4.8%,,,32,32,2,0,0,0
-Tsareena,157,stat_points,4,,3.4%,,,4,10,20,0,1,31
-Tsareena,157,stat_points,5,,3.2%,,,0,32,2,0,0,32
-Tsareena,157,stat_points,6,,2.7%,,,32,32,0,0,0,2
-Tsareena,157,stat_points,7,,2.4%,,,0,32,0,0,2,32
-Tsareena,157,stat_points,8,,1.7%,,,32,2,32,0,0,0
-Tsareena,157,stat_points,9,,1.6%,,,14,30,0,0,0,22
-Tsareena,157,stat_points,10,,1.6%,,,0,32,1,0,1,32
-Tsareena,157,stat_points,11,,1.4%,,,32,0,32,0,2,0
-Tsareena,157,stat_points,12,,1.2%,,,0,32,0,0,0,32
-Tsareena,157,ability,1,Queenly Majesty,89.0%,,,,,,,,
-Tsareena,157,ability,2,Sweet Veil,10.1%,,,,,,,,
-Tsareena,157,ability,3,Leaf Guard,1.0%,,,,,,,,
+Tsareena,151,move,1,Triple Axel,85.8%,,,,,,,,
+Tsareena,151,move,2,High Jump Kick,70.4%,,,,,,,,
+Tsareena,151,move,3,Trop Kick,67.3%,,,,,,,,
+Tsareena,151,move,4,Rapid Spin,32.3%,,,,,,,,
+Tsareena,151,move,5,Power Whip,28.3%,,,,,,,,
+Tsareena,151,move,6,Knock Off,26.7%,,,,,,,,
+Tsareena,151,move,7,U-turn,24.1%,,,,,,,,
+Tsareena,151,move,8,Taunt,10.8%,,,,,,,,
+Tsareena,151,move,9,Play Rough,9.9%,,,,,,,,
+Tsareena,151,move,10,Synthesis,9.9%,,,,,,,,
+Tsareena,151,held_item,1,Wide Lens,21.7%,,,,,,,,
+Tsareena,151,held_item,2,Sitrus Berry,19.1%,,,,,,,,
+Tsareena,151,held_item,3,Choice Scarf,13.5%,,,,,,,,
+Tsareena,151,held_item,4,Focus Sash,9.5%,,,,,,,,
+Tsareena,151,held_item,5,Life Orb,7.5%,,,,,,,,
+Tsareena,151,held_item,6,Lum Berry,6.1%,,,,,,,,
+Tsareena,151,held_item,7,Expert Belt,4.4%,,,,,,,,
+Tsareena,151,held_item,8,Quick Claw,3.1%,,,,,,,,
+Tsareena,151,held_item,9,Leftovers,2.6%,,,,,,,,
+Tsareena,151,held_item,10,Light Clay,2.0%,,,,,,,,
+Tsareena,151,teammate,1,Garchomp,,,,,,,,,
+Tsareena,151,teammate,2,Charizard,,,,,,,,,
+Tsareena,151,teammate,3,Primarina,,,,,,,,,
+Tsareena,151,teammate,4,Mimikyu,,,,,,,,,
+Tsareena,151,teammate,5,Delphox,,,,,,,,,
+Tsareena,151,teammate,6,Blaziken,,,,,,,,,
+Tsareena,151,teammate,7,Metagross,,,,,,,,,
+Tsareena,151,teammate,8,Archaludon,,,,,,,,,
+Tsareena,151,teammate,9,Skeledirge,,,,,,,,,
+Tsareena,151,teammate,10,Gyarados,,,,,,,,,
+Tsareena,151,stat_alignment,1,Adamant,35.9%,Attack,Sp. Atk,,,,,,
+Tsareena,151,stat_alignment,2,Jolly,29.3%,Speed,Sp. Atk,,,,,,
+Tsareena,151,stat_alignment,3,Impish,10.1%,Defense,Sp. Atk,,,,,,
+Tsareena,151,stat_alignment,4,Brave,1.3%,Attack,Speed,,,,,,
+Tsareena,151,stat_alignment,5,Careful,1.2%,Sp. Def,Sp. Atk,,,,,,
+Tsareena,151,stat_alignment,6,Naughty,1.0%,Attack,Sp. Def,,,,,,
+Tsareena,151,stat_alignment,7,Lax,0.4%,Defense,Sp. Def,,,,,,
+Tsareena,151,stat_alignment,8,Modest,0.2%,Sp. Atk,Attack,,,,,,
+Tsareena,151,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Tsareena,151,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
+Tsareena,151,stat_points,1,,28.3%,,,2,32,0,0,0,32
+Tsareena,151,stat_points,2,,5.5%,,,0,32,2,0,0,32
+Tsareena,151,stat_points,3,,4.2%,,,32,32,2,0,0,0
+Tsareena,151,stat_points,4,,4.2%,,,0,32,0,0,2,32
+Tsareena,151,stat_points,5,,3.7%,,,32,10,22,0,0,2
+Tsareena,151,stat_points,6,,2.5%,,,32,0,32,0,2,0
+Tsareena,151,stat_points,7,,2.2%,,,1,32,0,0,1,32
+Tsareena,151,stat_points,8,,2.1%,,,32,32,1,0,1,0
+Tsareena,151,ability,1,Queenly Majesty,82.3%,,,,,,,,
+Tsareena,151,ability,2,Sweet Veil,16.8%,,,,,,,,
+Tsareena,151,ability,3,Leaf Guard,0.8%,,,,,,,,

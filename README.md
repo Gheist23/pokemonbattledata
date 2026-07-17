@@ -89,8 +89,9 @@ Cloudflare Pages Functions add JSON endpoints. The user-facing guide is availabl
 ```text
 GET /api
 GET /api/index
-GET /api/pokemon/garchomp?format=Doubles&season=Season%20M-3
-GET /api/battle/Doubles/garchomp?season=Season%20M-3
+GET /api/pokemon/garchomp?format=Doubles
+GET /api/battle/Doubles/garchomp
+GET /api/battle/Doubles/garchomp?season=M4&days=7
 GET /api/metadata/garchomp
 ```
 

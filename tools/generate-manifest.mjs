@@ -487,15 +487,7 @@ function apiSecondaryAliases(record) {
     primary.base_name,
     primary.saved_name,
     primary.form_name,
-    primary.title,
-    ...(record.summary?.forms || []).flatMap((form) => [
-      form.pokemon_name,
-      form.base_name,
-      form.saved_name,
-      form.form_name,
-      form.title,
-      form.slug
-    ])
+    primary.title
   ]);
 }
 
@@ -713,7 +705,7 @@ function categoryRows(summary, category) {
 
 function summaryFor(record, format = "Doubles") {
   const bySeason = record.summary?.battleSummary || {};
-  const current = bySeason.Current?.[format] || bySeason["Season M-3"]?.[format];
+  const current = bySeason.Current?.[format];
   if (current) return current;
   for (const season of Object.keys(bySeason)) {
     if (bySeason[season]?.[format]) return bySeason[season][format];

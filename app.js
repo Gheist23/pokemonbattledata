@@ -1,6 +1,6 @@
 (() => {
   const ROOT = "pokemon_champions_assets";
-  const DEFAULT_SEASON = "Season M-3";
+  const DEFAULT_SEASON = "Current";
   const PREFERRED_FORMAT_ORDER = ["Doubles", "Singles"];
   const CATEGORY_LABELS = {
     move: "Moves",
@@ -332,7 +332,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   function buildSampleDataset() {
     const metadataRows = parseCSV(SAMPLE_METADATA);
     const forms = metadataRows.map(normalizeMetadataRow);
-    const battleRows = withFormat(parseCSV(SAMPLE_BATTLE), "Doubles", "pokemon_champions_assets/battle_data/Season M-3/Doubles/Garchomp.csv", DEFAULT_SEASON).map(normalizeBattleRow);
+    const battleRows = withFormat(parseCSV(SAMPLE_BATTLE), "Doubles", "pokemon_champions_assets/battle_data/Doubles/Garchomp.csv", DEFAULT_SEASON).map(normalizeBattleRow);
     const primary = forms[0];
     return [{
       name: "Garchomp",
@@ -342,8 +342,8 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       dex: 445,
       metadataCsv: "pokemon_champions_assets/metadata/Garchomp.csv",
       battleSources: [
-        { season: DEFAULT_SEASON, format: "Doubles", path: "pokemon_champions_assets/battle_data/Season M-3/Doubles/Garchomp.csv" },
-        { season: DEFAULT_SEASON, format: "Singles", path: "pokemon_champions_assets/battle_data/Season M-3/Singles/Garchomp.csv" }
+        { season: DEFAULT_SEASON, format: "Doubles", path: "pokemon_champions_assets/battle_data/Doubles/Garchomp.csv" },
+        { season: DEFAULT_SEASON, format: "Singles", path: "pokemon_champions_assets/battle_data/Singles/Garchomp.csv" }
       ],
       seasons: [DEFAULT_SEASON],
       formats: ["Doubles", "Singles"],
@@ -2477,7 +2477,10 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   function battleInfoFromPath(path) {
     const parts = normalizePath(path).split("/").filter(Boolean);
     const index = parts.findIndex((part) => normalizeForSearch(part) === "battle_data");
-    if (index !== -1 && parts[index + 1] && parts[index + 2] && /^season\b/i.test(parts[index + 1])) {
+    if (index !== -1 && parts[index + 1] && parts[index + 2] && parts[index + 3] && /^\d{2}_\d{2}_\d{4}$/.test(parts[index + 2])) {
+      return { season: parts[index + 1], date: parts[index + 2], format: titleCase(parts[index + 3].replace(/[_-]/g, " ")), daily: true };
+    }
+    if (index !== -1 && parts[index + 1] && parts[index + 2] && !["doubles", "singles"].includes(normalizeForSearch(parts[index + 1]))) {
       return { season: parts[index + 1], format: titleCase(parts[index + 2].replace(/[_-]/g, " ")) };
     }
     if (index !== -1 && parts[index + 1] && !parts[index + 1].toLowerCase().endsWith(".csv")) {

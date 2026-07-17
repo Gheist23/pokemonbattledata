@@ -66,8 +66,8 @@
     <section class="api-doc-hero" aria-labelledby="apiTitle">
       <div class="api-panel">
         <p class="eyebrow">API Guide</p>
-        <h1 id="apiTitle">Pokemon Champions Battle Data + API</h1>
-        <p>Use one index endpoint to discover Pokemon and available season folders, then fetch parsed JSON or direct CSV assets for your app.</p>
+        <h1 id="apiTitle">Pokemon Champions Battle Data API</h1>
+        <p>Use Showdown internal names to fetch current battle data, dated daily snapshots, metadata, and direct CSV assets for your app.</p>
         <div class="api-hero-actions" aria-label="Primary API paths">
           <span>/api</span>
           <span>/api/pokemon/:name</span>
@@ -78,8 +78,9 @@
       <aside class="api-side-card api-facts" aria-label="API facts">
         <span class="stat-label">Defaults</span>
         <dl>
-          <div><dt>Season</dt><dd>Season M-3</dd></div>
+          <div><dt>Default</dt><dd>Current data</dd></div>
           <div><dt>Formats</dt><dd>Doubles, Singles</dd></div>
+          <div><dt>Names</dt><dd>Pokemon Showdown IDs</dd></div>
           <div><dt>Assets</dt><dd>Static CSV, JSON, PNG</dd></div>
         </dl>
         <a class="discord-button discord-button-large" href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">Join Discord</a>
@@ -91,9 +92,11 @@
         <strong>On This Page</strong>
         <a href="#quick-start">Quick start</a>
         <a href="#folder-structure">Folder structure</a>
+        <a href="#showdown-names">Showdown names</a>
         <a href="#index-endpoint">Index</a>
         <a href="#pokemon-endpoint">Pokemon record</a>
         <a href="#battle-endpoint">Battle rows</a>
+        <a href="#daily-data">Daily data</a>
         <a href="#metadata-endpoint">Metadata rows</a>
         <a href="#static-assets">Raw assets</a>
         <a href="#filtering-example">Filtering</a>
@@ -104,24 +107,17 @@
           <div class="api-section-heading">
             <span>Start Here</span>
             <h2>Quick start</h2>
-            <p>Load the index, pick a season, then fetch one Pokemon and its battle rows.</p>
+            <p>Use Showdown internal names in API routes. Without a <code>season</code> or <code>days</code> query, battle rows come from the current root folders.</p>
           </div>
-          <pre><code>const season = "Season M-3";
-
-const index = await fetch("/api")
+          <pre><code>const index = await fetch("https://championsbattledata.com/api")
   .then((response) =&gt; response.json());
 
-const params = new URLSearchParams({
-  format: "Doubles",
-  season
-});
-
 const garchomp = await fetch(
-  `/api/pokemon/garchomp?${params}`
+  "https://championsbattledata.com/api/pokemon/garchomp?format=Doubles"
 ).then((response) =&gt; response.json());
 
-const battleRows = await fetch(
-  `/api/battle/Doubles/garchomp?season=${encodeURIComponent(season)}`
+const dailyRows = await fetch(
+  "https://championsbattledata.com/api/battle/Doubles/garchomp?season=M4&amp;days=7"
 ).then((response) =&gt; response.json());</code></pre>
         </article>
 
@@ -129,42 +125,64 @@ const battleRows = await fetch(
           <div class="api-section-heading">
             <span>Static Assets</span>
             <h2>Folder structure</h2>
-            <p>The season dropdown uses the folder names inside <code>battle_data</code>. These paths are also directly requestable.</p>
-            <p>Battle data files, sprites, and metadata rows all use the <strong>form-specific name</strong> (<code>saved_name</code>). A single metadata file, named after the <strong>base Pokémon</strong> (<code>base_name</code>), contains rows for every form.</p>
+            <p>The root <code>Doubles</code> and <code>Singles</code> folders contain the current/latest data. Dated folders contain daily snapshots grouped by season and date.</p>
+            <p>API route names accept Pokemon Showdown internal IDs such as <code>garchomp</code>, <code>raichualola</code>, and <code>taurospaldeaaqua</code>.</p>
           </div>
           <pre><code>pokemon_champions_assets/
   battle_data/
-    Season M-3/
-      Doubles/
-        Tauros.csv                        ← base form
-        Paldean Tauros Aqua Breed.csv     ← form-specific
-        Paldean Tauros Blaze Breed.csv
-        Paldean Tauros Combat Breed.csv
-      Singles/
-        …
+    Doubles/
+      Garchomp.csv                    &lt;- current Doubles data
+      Alolan Raichu.csv
+    Singles/
+      Garchomp.csv                    &lt;- current Singles data
+    M4/
+      16_07_2026/
+        Doubles/
+          Garchomp.csv                &lt;- daily Doubles snapshot
+        Singles/
+          Garchomp.csv                &lt;- daily Singles snapshot
   metadata/
-    Tauros.csv   ← one file, all four forms as separate rows
+    Tauros.csv                        &lt;- one file with all Tauros forms
   pokemon/
     Tauros.png
-    Paldean Tauros Aqua Breed.png         ← form-specific sprite
+    Paldean Tauros Aqua Breed.png
   types/
     Dragon.png</code></pre>
+        </article>
+
+        <article class="api-section" id="showdown-names">
+          <div class="api-section-heading">
+            <span>Name Matching</span>
+            <h2>Pokemon Showdown internal names</h2>
+            <p>Use standard Pokemon Showdown IDs in JSON API routes. Human-readable names and site slugs still work, but Showdown IDs are the easiest option for API users.</p>
+          </div>
+          <pre><code>GET /api/battle/Doubles/garchomp
+GET /api/battle/Doubles/rotomwash
+GET /api/battle/Doubles/taurospaldeaaqua
+GET /api/battle/Singles/raichualola
+GET /api/battle/Singles/taurospaldeaaqua
+GET /api/battle/Singles/basculegionf</code></pre>
+          <dl class="api-kv-list">
+            <div><dt>showdownId</dt><dd>The matched Pokemon Showdown internal ID, for example <code>raichualola</code>.</dd></div>
+            <div><dt>showdownName</dt><dd>The standardized Showdown species name, for example <code>Raichu-Alola</code>.</dd></div>
+            <div><dt>saved_name</dt><dd>The form-specific site/file name still used by raw CSV and sprite assets.</dd></div>
+          </dl>
         </article>
 
         <article class="api-section" id="index-endpoint">
           <div class="api-section-heading">
             <span>Endpoint 01</span>
             <h2>Index</h2>
-            <p>Use the index first. It lists Pokemon, seasons, formats, file paths, sprites, typing, stats, and summaries.</p>
+            <p>Use the index first. It lists Pokemon, Showdown IDs, available current and daily data folders, formats, file paths, sprites, typing, stats, and summaries.</p>
           </div>
           <div class="api-endpoint-line"><b>GET</b><code>/api</code></div>
           <div class="api-endpoint-line"><b>GET</b><code>/api/index</code></div>
           <div class="api-endpoint-line"><b>GET</b><code>/data/pokemon-index.json</code></div>
           <dl class="api-kv-list">
-            <div><dt>battleDataFolders</dt><dd>Folder names under battle_data.</dd></div>
-            <div><dt>seasons</dt><dd>Season folders available in the Explorer.</dd></div>
-            <div><dt>defaultSeason</dt><dd>The default folder, currently Season M-3.</dd></div>
-            <div><dt>pokemon</dt><dd>All indexed Pokemon records.</dd></div>
+            <div><dt>defaultSeason</dt><dd><code>Current</code>, backed by <code>battle_data/Doubles</code> and <code>battle_data/Singles</code>.</dd></div>
+            <div><dt>dailyDataFolders</dt><dd>Dated snapshot folders such as <code>M4/16_07_2026</code>.</dd></div>
+            <div><dt>pokemon[].showdownId</dt><dd>The Pokemon Showdown internal ID accepted by API routes.</dd></div>
+            <div><dt>pokemon[].battleDataCsvs</dt><dd>Current and daily source CSV paths for that Pokemon.</dd></div>
           </dl>
         </article>
 
@@ -172,16 +190,28 @@ const battleRows = await fetch(
           <div class="api-section-heading">
             <span>Endpoint 02</span>
             <h2>Pokemon record</h2>
-            <p>Returns one indexed Pokemon. Add <code>format</code> and <code>season</code> to include the matching summary and CSV path.</p>
+            <p>Returns one indexed Pokemon. Add <code>format</code> to include the current matching summary and CSV path. Add <code>days</code> to list recent daily CSVs for that format.</p>
           </div>
-          <div class="api-endpoint-line"><b>GET</b><code>/api/pokemon/garchomp?format=Doubles&amp;season=Season%20M-3</code></div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/pokemon/garchomp?format=Doubles</code></div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/pokemon/taurospaldeaaqua?format=Doubles&amp;season=M4&amp;days=7</code></div>
           <pre><code>{
   "name": "Garchomp",
+  "showdownId": "garchomp",
   "requestedFormat": "Doubles",
-  "requestedSeason": "Season M-3",
+  "requestedSeason": "Current",
   "battleDataCsv": {
-    "path": "pokemon_champions_assets/battle_data/Season M-3/Doubles/Garchomp.csv"
-  }
+    "season": "Current",
+    "format": "Doubles",
+    "path": "pokemon_champions_assets/battle_data/Doubles/Garchomp.csv"
+  },
+  "dailyBattleDataCsvs": [
+    {
+      "season": "M4",
+      "date": "16_07_2026",
+      "format": "Doubles",
+      "path": "pokemon_champions_assets/battle_data/M4/16_07_2026/Doubles/Garchomp.csv"
+    }
+  ]
 }</code></pre>
         </article>
 
@@ -189,24 +219,58 @@ const battleRows = await fetch(
           <div class="api-section-heading">
             <span>Endpoint 03</span>
             <h2>Battle rows</h2>
-            <p>Returns parsed rows from one battle-data CSV. Use this for moves, items, teammates, natures, spreads, and abilities.</p>
+            <p>Returns parsed rows from the current battle-data CSV by default. Use this for moves, items, teammates, natures, spreads, and abilities.</p>
           </div>
-          <div class="api-endpoint-line"><b>GET</b><code>/api/battle/Doubles/garchomp?season=Season%20M-3</code></div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/battle/Doubles/garchomp</code></div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/battle/Singles/raichualola</code></div>
           <pre><code>{
   "pokemon": "Garchomp",
+  "showdownId": "garchomp",
   "format": "Doubles",
-  "season": "Season M-3",
-  "source": "pokemon_champions_assets/battle_data/Season M-3/Doubles/Garchomp.csv",
+  "season": "Current",
+  "source": "pokemon_champions_assets/battle_data/Doubles/Garchomp.csv",
   "rows": [
     {
       "position": 1,
       "category": "move",
       "rank": 1,
       "name": "Earthquake",
-      "percentage": "90.3%"
+      "percentage": "90.3%",
+      "percentage_value": 90.3
     }
   ]
 }</code></pre>
+        </article>
+
+        <article class="api-section" id="daily-data">
+          <div class="api-section-heading">
+            <span>Daily Snapshots</span>
+            <h2>Last x days of daily data</h2>
+            <p>Add <code>days=</code> to the battle endpoint to fetch the most recent dated snapshots for one Pokemon and format. Add <code>season=M4</code> to limit the daily search to a season folder.</p>
+          </div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/battle/Doubles/garchomp?days=7</code></div>
+          <div class="api-endpoint-line"><b>GET</b><code>/api/battle/Doubles/garchomp?season=M4&amp;days=7</code></div>
+          <pre><code>{
+  "pokemon": "Garchomp",
+  "showdownId": "garchomp",
+  "format": "Doubles",
+  "requestedDays": 7,
+  "season": "M4",
+  "daily": [
+    {
+      "season": "M4",
+      "date": "16_07_2026",
+      "source": "pokemon_champions_assets/battle_data/M4/16_07_2026/Doubles/Garchomp.csv",
+      "columns": ["pokemon", "column_position", "category", "rank", "name", "percentage"],
+      "rows": []
+    }
+  ]
+}</code></pre>
+          <dl class="api-kv-list">
+            <div><dt>days</dt><dd>Integer from <code>1</code> to <code>31</code>.</dd></div>
+            <div><dt>season</dt><dd>Optional season folder such as <code>M4</code>. If omitted, the newest daily snapshots across seasons are used.</dd></div>
+            <div><dt>daily[].date</dt><dd>Date folder in <code>DD_MM_YYYY</code> format.</dd></div>
+          </dl>
         </article>
 
         <article class="api-section" id="metadata-endpoint">
@@ -268,16 +332,20 @@ const battleRows = await fetch(
           <div class="api-section-heading">
             <span>Direct Files</span>
             <h2>Raw CSV and images</h2>
-            <p>Use static paths for downloads, spreadsheet imports, notebooks, sprites, and type icons. Battle data and sprites use the form-specific <code>saved_name</code>. Metadata uses the <code>base_name</code>.</p>
+            <p>Use static paths for downloads, spreadsheet imports, notebooks, sprites, and type icons. Raw CSV and sprite paths still use the site/file name, while JSON API routes accept Showdown IDs.</p>
           </div>
-          <pre><code><!-- Battle data: use saved_name (form-specific) -->
-GET /pokemon_champions_assets/battle_data/Season%20M-3/Doubles/Tauros.csv
-GET /pokemon_champions_assets/battle_data/Season%20M-3/Doubles/Paldean%20Tauros%20Aqua%20Breed.csv
+          <pre><code><!-- Current battle data -->
+GET /pokemon_champions_assets/battle_data/Doubles/Garchomp.csv
+GET /pokemon_champions_assets/battle_data/Singles/Garchomp.csv
 
-<!-- Metadata: use base_name (one file, all forms) -->
+<!-- Dated daily battle data -->
+GET /pokemon_champions_assets/battle_data/M4/16_07_2026/Doubles/Garchomp.csv
+GET /pokemon_champions_assets/battle_data/M4/16_07_2026/Singles/Garchomp.csv
+
+<!-- Metadata: use base_name, one file with all forms -->
 GET /pokemon_champions_assets/metadata/Tauros.csv
 
-<!-- Sprites: use saved_name (form-specific) -->
+<!-- Sprites: use saved_name / file name -->
 GET /pokemon_champions_assets/pokemon/Tauros.png
 GET /pokemon_champions_assets/pokemon/Paldean%20Tauros%20Aqua%20Breed.png
 
@@ -311,8 +379,9 @@ const fastGroundTypes = index.pokemon.filter((entry) =&gt; {
           <ul class="api-notes">
             <li>API endpoints return JSON.</li>
             <li>CSV files and images remain available as static assets.</li>
-            <li>Pokemon names are matched case-insensitively.</li>
-            <li>The <code>season</code> query must match a battle-data folder.</li>
+            <li>Pokemon route names are matched case-insensitively and accept Pokemon Showdown internal IDs.</li>
+            <li>Without <code>days</code>, battle endpoints use the current root <code>Doubles</code> or <code>Singles</code> folder.</li>
+            <li>With <code>days</code>, battle endpoints return recent dated daily snapshots from folders like <code>M4/16_07_2026</code>.</li>
             <li>CORS is enabled for browser apps on other domains.</li>
           </ul>
         </article>

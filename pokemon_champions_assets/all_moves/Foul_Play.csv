@@ -6,5 +6,5 @@ span_index,text
 4,"Accuracy
 100%"
 5,"PP
-24"
-6,Uses target's Attack stat in damage calculation.
+16"
+6,The damage dealt by this move is calculated using the target's Attack stat instead of the user's Attack stat.

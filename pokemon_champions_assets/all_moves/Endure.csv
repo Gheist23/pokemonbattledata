@@ -5,5 +5,5 @@ span_index,text
 4,"Accuracy
 —"
 5,"PP
-16"
-6,User survives attacks this turn with at least 1 HP.
+12"
+6,During the turn this move is used if the user takes damage from a move that would knock it out it will endure the hit with 1 HP. With each consecutive use this move's chance of success becomes 1/3 of what it was before.

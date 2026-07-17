@@ -4,7 +4,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': '*',
   'Access-Control-Max-Age': '86400'
 };
-const defaultSeason = 'Season M-3';
+const defaultSeason = 'Current';
 
 export function optionsResponse() {
   return new Response(null, { status: 204, headers: corsHeaders });
@@ -48,6 +48,13 @@ export function normalizeSeason(value) {
   return raw || defaultSeason;
 }
 
+export function parseDaysParam(value, maxDays = 31) {
+  if (value === null || value === undefined || value === '') return null;
+  const days = Number(value);
+  if (!Number.isInteger(days) || days < 1 || days > maxDays) return null;
+  return days;
+}
+
 export async function fetchAssetText(env, request, path) {
   const cleanPath = String(path || '').replace(/\\/g, '/').replace(/^\/+/, '');
   const assetUrl = new URL(`/${cleanPath}`, request.url);
@@ -87,6 +94,32 @@ export async function fetchPokemonEntry(env, request, rawName) {
   return fetchAssetJson(env, request, `data/api/pokemon/${slug}.json`);
 }
 
+function parseDailyDate(value) {
+  const match = String(value || '').match(/^(\d{2})_(\d{2})_(\d{4})$/);
+  if (!match) return null;
+  const [, day, month, year] = match;
+  return Date.UTC(Number(year), Number(month) - 1, Number(day));
+}
+
+function compareDailySource(a, b) {
+  const ad = parseDailyDate(a.date);
+  const bd = parseDailyDate(b.date);
+  if (ad !== null && bd !== null && ad !== bd) return bd - ad;
+  if (ad !== null && bd === null) return -1;
+  if (ad === null && bd !== null) return 1;
+  return String(b.season || '').localeCompare(String(a.season || ''), undefined, { numeric: true, sensitivity: 'base' });
+}
+
+export function getDailyFormatPaths(entry, format, { season, days } = {}) {
+  const cleanFormat = normalizeFormat(format);
+  if (!cleanFormat) return [];
+  const cleanSeason = season ? normalize(season) : '';
+  const sources = (entry.battleDataCsvs || [])
+    .filter((item) => item?.daily && item?.date && normalizeFormat(item.format) === cleanFormat)
+    .filter((item) => !cleanSeason || normalize(item.season) === cleanSeason)
+    .sort(compareDailySource);
+  return Number.isInteger(days) ? sources.slice(0, days) : sources;
+}
 
 export function getFormatPath(entry, format, season) {
   const cleanFormat = normalizeFormat(format);
@@ -95,15 +128,19 @@ export function getFormatPath(entry, format, season) {
   const cleanSeason = normalizeSeason(season);
   const sources = entry.battleDataCsvs || [];
   const exact = sources.find((item) => {
+    if (item.daily) return false;
     if (normalizeFormat(item.format) !== cleanFormat) return false;
     if (normalize(item.season) === normalize(cleanSeason)) return true;
     return normalize(item.season) === 'current' && normalize(cleanSeason) === normalize(defaultSeason);
   });
   if (exact) return normalize(exact.season) === 'current' ? { ...exact, season: defaultSeason } : exact;
-  if (hasExplicitSeason) return null;
-  const legacy = sources.find((item) => normalizeFormat(item.format) === cleanFormat && (!item.season || normalize(item.season) === 'current'));
+  if (hasExplicitSeason) {
+    const daily = getDailyFormatPaths(entry, cleanFormat, { season: cleanSeason, days: 1 })[0];
+    return daily || null;
+  }
+  const legacy = sources.find((item) => !item.daily && normalizeFormat(item.format) === cleanFormat && (!item.season || normalize(item.season) === 'current'));
   if (legacy) return { ...legacy, season: defaultSeason };
-  return sources.find((item) => normalizeFormat(item.format) === cleanFormat) || null;
+  return sources.find((item) => !item.daily && normalizeFormat(item.format) === cleanFormat) || null;
 }
 
 

@@ -7,4 +7,4 @@ span_index,text
 100%"
 5,"PP
 8"
-6,Fails if there is no terrain active. Ends the terrain.
+6,Removes any terrain. This move fails if there is no terrain on the field.

@@ -6,4 +6,4 @@ span_index,text
 —"
 5,"PP
 8"
-6,Heals the user by a weather-dependent amount.
+6,Restores 1/2 of the user's max HP. In harsh sunlight 2/3 of its max HP will be restored instead. In all other weather conditions 1/4 of its max HP will be restored instead.

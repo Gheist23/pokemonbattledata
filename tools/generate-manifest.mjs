@@ -7,7 +7,9 @@ const assetRootPath = join(cwd, assetRoot);
 const battleDir = join(assetRootPath, "battle_data");
 const metadataDir = join(assetRootPath, "metadata");
 const learnableMovesDir = join(assetRootPath, "learnable_moves");
-const defaultSeason = "Season M-3";
+const showdownSpeciesPath = join(cwd, "tools", "showdown-species.json");
+const defaultSeason = "Current";
+const validFormats = new Set(["Doubles", "Singles"]);
 const preferredFormatOrder = ["Doubles", "Singles"];
 const siteUrl = "https://championsbattledata.com";
 const siteName = "Pokemon Champions Battle Data";
@@ -33,6 +35,12 @@ const metadataAliases = {
   types: ["types", "type"],
   abilities: ["abilities", "ability"],
   hidden_ability: ["hidden_ability", "hidden", "hidden_abilities"]
+};
+const showdownRegionNames = {
+  alolan: "Alola",
+  galarian: "Galar",
+  hisuian: "Hisui",
+  paldean: "Paldea"
 };
 
 if (!existsSync(assetRootPath)) {
@@ -77,6 +85,124 @@ function apiNameKey(value) {
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "");
+}
+
+function loadShowdownSpecies() {
+  if (!existsSync(showdownSpeciesPath)) return [];
+  try {
+    const raw = JSON.parse(readFileSync(showdownSpeciesPath, "utf8"));
+    return Object.entries(raw || {}).map(([id, species]) => ({
+      id,
+      name: species?.name || id,
+      baseSpecies: species?.baseSpecies || "",
+      forme: species?.forme || ""
+    }));
+  } catch (error) {
+    console.warn(`Could not read tools/showdown-species.json: ${error.message}`);
+    return [];
+  }
+}
+
+const showdownSpecies = loadShowdownSpecies();
+const showdownByKey = new Map();
+for (const species of showdownSpecies) {
+  for (const alias of [species.id, species.name]) {
+    const key = apiNameKey(alias);
+    if (key && !showdownByKey.has(key)) showdownByKey.set(key, species);
+  }
+}
+
+function showdownSuffix(value) {
+  return titleCase(value)
+    .replace(/\bForme?\b/gi, "")
+    .replace(/\bMode\b/gi, "")
+    .replace(/\bPattern\b/gi, "")
+    .replace(/\bFlower\b/gi, "")
+    .replace(/\bBreed\b/gi, "")
+    .replace(/\bVariety\b/gi, "")
+    .replace(/\bOf\b/gi, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/Poke-Ball/gi, "Pokeball");
+}
+
+function showdownNameCandidates(name) {
+  const raw = String(name || "").trim();
+  if (!raw) return [];
+  const candidates = [raw, raw.replace(/\s+/g, "-")];
+  const add = (value) => {
+    if (value) candidates.push(value);
+  };
+
+  let match = raw.match(/^Mega\s+(.+?)(?:\s+([XYZ]))?$/i);
+  if (match) add(`${titleCase(match[1])}-Mega${match[2] ? `-${match[2].toUpperCase()}` : ""}`);
+
+  match = raw.match(/^(Alolan|Galarian|Hisuian|Paldean)\s+(.+)$/i);
+  if (match) add(`${titleCase(match[2])}-${showdownRegionNames[match[1].toLowerCase()] || titleCase(match[1])}`);
+
+  match = raw.match(/^Paldean\s+Tauros\s+(.+?)\s+Breed$/i);
+  if (match) add(`Tauros-Paldea-${showdownSuffix(match[1])}`);
+
+  match = raw.match(/^(.+?)\s+(Male|Female)$/i);
+  if (match) add(match[2].toLowerCase() === "female" ? `${titleCase(match[1])}-F` : titleCase(match[1]));
+
+  match = raw.match(/^(Fan|Frost|Heat|Mow|Wash)\s+Rotom$/i);
+  if (match) add(`Rotom-${titleCase(match[1])}`);
+
+  match = raw.match(/^(.+?)\s+(Rainy|Snowy|Sunny)\s+Form$/i);
+  if (match) add(`${titleCase(match[1])}-${titleCase(match[2])}`);
+
+  match = raw.match(/^Aegislash\s+(Blade|Shield)\s+Forme$/i);
+  if (match) add(match[1].toLowerCase() === "blade" ? "Aegislash-Blade" : "Aegislash");
+
+  match = raw.match(/^(.+?)\s+Busted\s+Form$/i);
+  if (match) add(`${titleCase(match[1])}-Busted`);
+
+  match = raw.match(/^(.+?)\s+Hangry\s+Mode$/i);
+  if (match) add(`${titleCase(match[1])}-Hangry`);
+
+  match = raw.match(/^Palafin\s+(Hero|Zero)\s+Form$/i);
+  if (match) add(match[1].toLowerCase() === "hero" ? "Palafin-Hero" : "Palafin");
+
+  match = raw.match(/^(Polteageist|Sinistcha)\s+(.+?)\s+Form$/i);
+  if (match) add(`${titleCase(match[1])}-${showdownSuffix(match[2])}`);
+
+  match = raw.match(/^Gourgeist\s+(.+?)\s+Variety$/i);
+  if (match) add(`Gourgeist-${showdownSuffix(match[1]).replace(/^Jumbo$/i, "Super")}`);
+
+  match = raw.match(/^Lycanroc\s+(.+?)\s+Form$/i);
+  if (match) add(`Lycanroc-${showdownSuffix(match[1])}`);
+
+  match = raw.match(/^Vivillon\s+(.+?)\s+Pattern$/i);
+  if (match) add(`Vivillon-${showdownSuffix(match[1])}`);
+
+  match = raw.match(/^Florges\s+(.+?)\s+Flower$/i);
+  if (match) add(match[1].toLowerCase() === "red" ? "Florges" : `Florges-${showdownSuffix(match[1])}`);
+
+  match = raw.match(/^Furfrou\s+Natural\s+Form$/i);
+  if (match) add("Furfrou");
+
+  match = raw.match(/^Maushold\s+Family\s+Of\s+(Three|Four)$/i);
+  if (match) add(match[1].toLowerCase() === "four" ? "Maushold-Four" : "Maushold");
+
+  match = raw.match(/^Alcremie\s+(.+)$/i);
+  if (match && raw.toLowerCase() !== "alcremie") add(`Alcremie-${showdownSuffix(match[1])}`);
+
+  match = raw.match(/^(.+?)\s+(Antique|Masterpiece)\s+Form$/i);
+  if (match) add(`${titleCase(match[1])}-${showdownSuffix(match[2])}`);
+
+  return unique(candidates);
+}
+
+function resolveShowdownSpecies(names) {
+  for (const name of names) {
+    for (const candidate of showdownNameCandidates(name)) {
+      const match = showdownByKey.get(apiNameKey(candidate));
+      if (match) return match;
+    }
+  }
+  return null;
 }
 
 function csvFilesRecursive(dir) {
@@ -181,20 +307,48 @@ function parsePercent(value) {
 function battleInfoFromPath(fullPath) {
   const rel = normalizePath(relative(battleDir, fullPath));
   const parts = rel.split("/").filter(Boolean);
-  if (parts.length >= 3 && /^season\b/i.test(parts[0])) {
+  if (parts.length >= 4 && /^\d{2}_\d{2}_\d{4}$/.test(parts[1]) && validFormats.has(titleCase(parts[2]))) {
+    return { season: parts[0], date: parts[1], format: titleCase(parts[2]), daily: true };
+  }
+  if (parts.length >= 3 && validFormats.has(titleCase(parts[1]))) {
     return { season: parts[0], format: titleCase(parts[1]) };
   }
-  if (parts.length > 1) return { season: "Current", format: titleCase(parts[0]) };
+  if (parts.length > 1 && validFormats.has(titleCase(parts[0]))) return { season: "Current", format: titleCase(parts[0]) };
   return { season: "Current", format: "Battle" };
 }
 
+function seasonNumber(value) {
+  const match = String(value || "").match(/\bM-?(\d+)\b/i);
+  return match ? Number(match[1]) : null;
+}
+
 function compareSeason(a, b) {
+  if (a === "Current") return -1;
+  if (b === "Current") return 1;
   if (a === defaultSeason) return -1;
   if (b === defaultSeason) return 1;
-  const am = String(a || "").match(/M-(\d+)/i);
-  const bm = String(b || "").match(/M-(\d+)/i);
-  if (am && bm) return Number(bm[1]) - Number(am[1]);
+  const an = seasonNumber(a);
+  const bn = seasonNumber(b);
+  if (an !== null && bn !== null) return bn - an;
+  if (an !== null) return -1;
+  if (bn !== null) return 1;
   return String(a || "").localeCompare(String(b || ""), undefined, { numeric: true, sensitivity: "base" });
+}
+
+function parseDailyDate(value) {
+  const match = String(value || "").match(/^(\d{2})_(\d{2})_(\d{4})$/);
+  if (!match) return null;
+  const [, day, month, year] = match;
+  return Date.UTC(Number(year), Number(month) - 1, Number(day));
+}
+
+function compareDailySource(a, b) {
+  const ad = parseDailyDate(a.date);
+  const bd = parseDailyDate(b.date);
+  if (ad !== null && bd !== null && ad !== bd) return bd - ad;
+  if (ad !== null && bd === null) return -1;
+  if (ad === null && bd !== null) return 1;
+  return compareSeason(a.season, b.season) || compareFormat(a, b);
 }
 
 function normalizeMetadataRow(row) {
@@ -315,10 +469,11 @@ function lightweightPokemonRecord(record) {
       battleSummaryBySeason[season][format] = lightweightBattleSummary(summary);
     }
   }
+  const { dailyBattleSummary, ...summary } = record.summary || {};
   return {
     ...record,
     summary: {
-      ...record.summary,
+      ...summary,
       battleSummary: battleSummaryBySeason
     }
   };
@@ -327,6 +482,7 @@ function lightweightPokemonRecord(record) {
 function apiSecondaryAliases(record) {
   const primary = record.summary?.primary || {};
   return unique([
+    record.showdownName,
     primary.pokemon_name,
     primary.base_name,
     primary.saved_name,
@@ -353,7 +509,7 @@ function writeApiData(manifest) {
   for (const record of manifest.pokemon) {
     const slug = record.slug || slugify(record.battleName || record.name);
     writeFileSync(join(pokemonDir, `${slug}.json`), `${JSON.stringify(record)}\n`);
-    for (const alias of unique([record.name, record.battleName, record.slug, slug])) {
+    for (const alias of unique([record.name, record.battleName, record.slug, slug, record.showdownId, record.showdownName])) {
       const key = apiNameKey(alias);
       if (key) aliases[key] = slug;
     }
@@ -391,7 +547,7 @@ function compareFormat(a, b) {
 const records = new Map();
 const metadataBySavedName = new Map();
 function ensureRecord(key, fallbackName = "") {
-  if (!records.has(key)) records.set(key, { key, name: titleCase(fallbackName || key), metadataCsv: null, metadataRows: [], battleDataCsvs: [], battleSummary: {}, learnableMoveNames: [] });
+  if (!records.has(key)) records.set(key, { key, name: titleCase(fallbackName || key), metadataCsv: null, metadataRows: [], battleDataCsvs: [], battleSummary: {}, dailyBattleSummary: {}, learnableMoveNames: [] });
   const record = records.get(key);
   if (fallbackName && (!record.name || record.name === titleCase(key))) record.name = titleCase(fallbackName);
   return record;
@@ -436,22 +592,41 @@ for (const file of csvFilesRecursive(battleDir)) {
     record.metadataCsv = metadataMatch.metadataCsv;
     record.metadataRows = metadataMatch.metadataRows;
   }
-  const { season, format } = battleInfoFromPath(file);
+  const { season, date, format, daily } = battleInfoFromPath(file);
   const normalizedRows = rows.map(normalizeBattleRow).filter((row) => row.category);
-  record.battleDataCsvs.push({ season, format, path: normalizePath(relative(cwd, file)) });
-  record.battleSummary[season] ||= {};
-  record.battleSummary[season][format] = battleSummary(normalizedRows);
+  const source = { season, format, path: normalizePath(relative(cwd, file)) };
+  if (daily && date) {
+    source.date = date;
+    source.daily = true;
+  }
+  record.battleDataCsvs.push(source);
+  if (daily && date) {
+    record.dailyBattleSummary[season] ||= {};
+    record.dailyBattleSummary[season][date] ||= {};
+    record.dailyBattleSummary[season][date][format] = battleSummary(normalizedRows);
+  } else {
+    record.battleSummary[season] ||= {};
+    record.battleSummary[season][format] = battleSummary(normalizedRows);
+  }
 }
 
 const battleDataFolders = existsSync(battleDir)
   ? readdirSync(battleDir)
-    .filter((entry) => statSync(join(battleDir, entry)).isDirectory())
+    .filter((entry) => statSync(join(battleDir, entry)).isDirectory() && !validFormats.has(titleCase(entry)))
     .sort(compareSeason)
   : [];
 const availableSeasons = [...new Set([
-  ...battleDataFolders,
   ...[...records.values()].flatMap((record) => record.battleDataCsvs.map((source) => source.season))
 ])].sort(compareSeason);
+const dailyData = [...records.values()].flatMap((record) => record.battleDataCsvs
+  .filter((source) => source.daily && source.date)
+  .map((source) => ({ season: source.season, date: source.date, format: source.format })));
+const dailyDataFolders = unique(dailyData.map((source) => `${source.season}/${source.date}`))
+  .sort((a, b) => {
+    const [as, ad] = a.split("/");
+    const [bs, bd] = b.split("/");
+    return compareDailySource({ season: as, date: ad }, { season: bs, date: bd });
+  });
 
 const pokemon = [...records.values()]
   .filter((record) => record.battleDataCsvs.length)
@@ -460,14 +635,26 @@ const pokemon = [...records.values()]
     const primary = record.metadataRows.find((form) => recordKey(form.saved_name || form.form_name) === recordNameKey) ||
       record.metadataRows.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === record.name || form.saved_name === record.name) ||
       record.metadataRows[0] || {};
+    const showdownMatch = resolveShowdownSpecies(unique([
+      record.name,
+      primary.saved_name,
+      primary.form_name,
+      primary.title,
+      ...record.metadataRows.flatMap((form) => [form.saved_name, form.form_name, form.title])
+    ]));
     const allTypes = unique((primary.types && primary.types.length ? primary.types : record.metadataRows.flatMap((form) => form.types || [])));
     const sprite = primary.image_path || `${assetRoot}/pokemon/${record.name}.png`;
     return {
       name: record.name,
       battleName: record.name,
       slug: slugify(record.name),
+      showdownId: showdownMatch?.id || null,
+      showdownName: showdownMatch?.name || null,
       metadataCsv: record.metadataCsv,
-      battleDataCsvs: record.battleDataCsvs.sort((a, b) => compareSeason(a.season, b.season) || compareFormat(a, b)),
+      battleDataCsvs: record.battleDataCsvs.sort((a, b) => {
+        if (a.daily || b.daily) return compareDailySource(a, b);
+        return compareSeason(a.season, b.season) || compareFormat(a, b);
+      }),
       learnableMoveNames: record.learnableMoveNames,
       summary: {
         dex: primary.dex_number ?? null,
@@ -484,7 +671,8 @@ const pokemon = [...records.values()]
           speed: metadataStatValue(primary, "speed") ?? null
         },
         baseStatTotal: metadataStatValue(primary, "base_stat_total") ?? null,
-        battleSummary: record.battleSummary
+        battleSummary: record.battleSummary,
+        dailyBattleSummary: record.dailyBattleSummary
       }
     };
   })
@@ -992,6 +1180,7 @@ const manifest = {
   dataVersion,
   assetRoot,
   battleDataFolders,
+  dailyDataFolders,
   seasons: availableSeasons,
   defaultSeason: availableSeasons.includes(defaultSeason) ? defaultSeason : availableSeasons[0] || "Current",
   topicPages: topicPages.map(({ title, slug, url, query }) => ({ title, slug, url, query })),

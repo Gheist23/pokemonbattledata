@@ -5,5 +5,5 @@ span_index,text
 4,"Accuracy
 —"
 5,"PP
-16"
-6,"Curses if Ghost, else -1 Spe, +1 Atk, +1 Def."
+12"
+6,Ghost-type: The user loses 1/2 of its max HP to give the target the Cursed status.Non-Ghost-type: Lowers the user's Speed stat by 1 stage and boosts its Attack and Defense stats by 1 stage.

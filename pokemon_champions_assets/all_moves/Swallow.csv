@@ -5,5 +5,5 @@ span_index,text
 4,"Accuracy
 —"
 5,"PP
-16"
-6,Heals the user based on uses of Stockpile.
+12"
+6,The higher the user's Stockpiling level the more HP the user restores. Level 1 1/4 of the user's max HP is restored. Level 2 1/2 of the user's max HP is restored. Level 3 The user's HP is fully restored. This move fails unless the user has the Stockpiling status.

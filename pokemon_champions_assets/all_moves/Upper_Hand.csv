@@ -6,5 +6,5 @@ span_index,text
 4,"Accuracy
 100%"
 5,"PP
-24"
-6,100% flinch. Fails unless target using priority.
+16"
+6,Makes the target flinch. This move fails if the target isn't about to use a priority move.

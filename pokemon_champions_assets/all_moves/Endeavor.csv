@@ -7,4 +7,4 @@ span_index,text
 100%"
 5,"PP
 8"
-6,Lowers the target's HP to the user's HP.
+6,Deals damage to the target equal to its remaining HP minus the user's remaining HP. This move fails if the target's HP is the same as or lower than the user's.

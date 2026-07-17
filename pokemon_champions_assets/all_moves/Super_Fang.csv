@@ -6,5 +6,5 @@ span_index,text
 4,"Accuracy
 90%"
 5,"PP
-16"
-6,Does damage equal to 1/2 target's current HP.
+12"
+6,Deals damage to the target equal to 1/2 of its remaining HP. Deals 1 HP of damage to a target that has only 1 HP left.

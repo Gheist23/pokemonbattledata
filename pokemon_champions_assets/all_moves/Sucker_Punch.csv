@@ -7,4 +7,4 @@ span_index,text
 100%"
 5,"PP
 8"
-6,Usually goes first. Fails if target is not attacking.
+6,This move fails unless the target has chosen an attack and has not yet attacked during the turn this move is used.

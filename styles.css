@@ -7772,21 +7772,23 @@ body.page-api::before {
 
 /* Softer profile names for forms, moves, and types */
 .page-explorer .detail-dialog .form-profile-button,
+.page-explorer .detail-dialog .metric strong,
 .page-explorer .detail-dialog .moves-table td[data-label="Name"],
 .page-explorer .detail-dialog .moves-table .move-info-button,
 .page-explorer .detail-dialog .learnable-moves-table td[data-label="Move"] {
-  font-weight: 600 !important;
+  font-weight: 400 !important;
   letter-spacing: 0 !important;
 }
 
 .page-explorer .detail-dialog .type-chip,
+.page-explorer .detail-dialog .form-type-chip,
 .page-explorer .detail-dialog .moves-table td[data-label="Type"],
 .page-explorer .detail-dialog .moves-table .move-type-label,
 .page-explorer .detail-dialog .moves-table .move-type-label span,
 .page-explorer .detail-dialog .learnable-moves-table td[data-label="Type"],
 .page-explorer .detail-dialog .learnable-moves-table .move-type-label,
 .page-explorer .detail-dialog .learnable-moves-table .move-type-label span {
-  font-weight: 560 !important;
+  font-weight: 400 !important;
   letter-spacing: 0 !important;
 }
 

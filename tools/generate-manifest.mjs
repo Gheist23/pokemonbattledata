@@ -526,7 +526,10 @@ function writeApiData(manifest) {
     dataVersion: manifest.dataVersion,
     aliases
   })}\n`);
-  writeFileSync(join(apiDir, "index.json"), `${JSON.stringify(manifest)}\n`);
+  writeFileSync(join(apiDir, "index.json"), `${JSON.stringify({
+    ...manifest,
+    pokemon: manifest.pokemon.map(lightweightPokemonRecord)
+  })}\n`);
 }
 
 function compareFormat(a, b) {

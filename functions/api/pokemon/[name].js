@@ -1,4 +1,4 @@
-import { fetchPokemonEntry, getFormatPath, getDailyFormatPaths, normalizeFormat, parseDaysParam, jsonResponse, optionsResponse, errorResponse } from '../_common.js';
+import { fetchPokemonEntry, getFormatPath, getDailyFormatPaths, getDailyFormatSummaries, normalizeFormat, parseDaysParam, jsonResponse, optionsResponse, errorResponse } from '../_common.js';
 
 export const onRequestOptions = () => optionsResponse();
 
@@ -17,15 +17,23 @@ export async function onRequestGet({ env, request, params }) {
 
     if (requestedFormat) {
       const battleDataCsv = getFormatPath(entry, requestedFormat, requestedSeason);
+      const battleDataSummary = battleDataCsv?.daily
+        ? entry.summary?.dailyBattleSummary?.[battleDataCsv.season]?.[battleDataCsv.date]?.[requestedFormat]
+        : entry.summary?.battleSummary?.[battleDataCsv?.season]?.[requestedFormat];
       payload.requestedFormat = requestedFormat;
       payload.requestedSeason = battleDataCsv?.season || requestedSeason || 'Current';
       payload.battleDataCsv = battleDataCsv;
-      payload.battleSummary = entry.summary?.battleSummary?.[payload.requestedSeason]?.[requestedFormat] ||
+      payload.battleSummary = battleDataSummary ||
+        entry.summary?.battleSummary?.[payload.requestedSeason]?.[requestedFormat] ||
         entry.summary?.battleSummary?.[requestedFormat] ||
+        entry.summary?.battleSummary?.Current?.[requestedFormat] ||
         null;
       if (requestedDays !== null) {
+        const dailyBattleSummary = getDailyFormatSummaries(entry, requestedFormat, { season: requestedSeason, days: requestedDays });
         payload.requestedDays = requestedDays;
         payload.dailyBattleDataCsvs = getDailyFormatPaths(entry, requestedFormat, { season: requestedSeason, days: requestedDays });
+        payload.dailyBattleSummary = dailyBattleSummary;
+        payload.battleSummary = dailyBattleSummary.find((item) => item.summary)?.summary || payload.battleSummary;
       }
     }
 

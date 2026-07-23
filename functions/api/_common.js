@@ -121,6 +121,18 @@ export function getDailyFormatPaths(entry, format, { season, days } = {}) {
   return Number.isInteger(days) ? sources.slice(0, days) : sources;
 }
 
+export function getDailyFormatSummaries(entry, format, { season, days } = {}) {
+  const cleanFormat = normalizeFormat(format);
+  if (!cleanFormat) return [];
+  return getDailyFormatPaths(entry, cleanFormat, { season, days }).map((source) => ({
+    season: source.season,
+    date: source.date,
+    format: cleanFormat,
+    source: source.path,
+    summary: entry.summary?.dailyBattleSummary?.[source.season]?.[source.date]?.[cleanFormat] || null
+  }));
+}
+
 export function getFormatPath(entry, format, season) {
   const cleanFormat = normalizeFormat(format);
   if (!cleanFormat) return null;

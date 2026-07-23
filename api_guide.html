@@ -190,7 +190,7 @@ GET /api/battle/Singles/basculegionf</code></pre>
           <div class="api-section-heading">
             <span>Endpoint 02</span>
             <h2>Pokemon record</h2>
-            <p>Returns one indexed Pokemon. Add <code>format</code> to include the current matching summary and CSV path. Add <code>days</code> to list recent daily CSVs for that format.</p>
+            <p>Returns one indexed Pokemon. Add <code>format</code> to include the matching summary and CSV path. Add <code>days</code> to include newest-first recent daily CSVs and summaries for that format.</p>
           </div>
           <div class="api-endpoint-line"><b>GET</b><code>/api/pokemon/garchomp?format=Doubles</code></div>
           <div class="api-endpoint-line"><b>GET</b><code>/api/pokemon/taurospaldeaaqua?format=Doubles&amp;season=M4&amp;days=7</code></div>
@@ -207,9 +207,18 @@ GET /api/battle/Singles/basculegionf</code></pre>
   "dailyBattleDataCsvs": [
     {
       "season": "M4",
-      "date": "16_07_2026",
+      "date": "23_07_2026",
       "format": "Doubles",
-      "path": "pokemon_champions_assets/battle_data/M4/16_07_2026/Doubles/Garchomp.csv"
+      "path": "pokemon_champions_assets/battle_data/M4/23_07_2026/Doubles/Garchomp.csv"
+    }
+  ],
+  "dailyBattleSummary": [
+    {
+      "season": "M4",
+      "date": "23_07_2026",
+      "format": "Doubles",
+      "source": "pokemon_champions_assets/battle_data/M4/23_07_2026/Doubles/Garchomp.csv",
+      "summary": { "top": { "move": { "name": "Dragon Claw" } } }
     }
   ]
 }</code></pre>
@@ -246,7 +255,7 @@ GET /api/battle/Singles/basculegionf</code></pre>
           <div class="api-section-heading">
             <span>Daily Snapshots</span>
             <h2>Last x days of daily data</h2>
-            <p>Add <code>days=</code> to the battle endpoint to fetch the most recent dated snapshots for one Pokemon and format. Add <code>season=M4</code> to limit the daily search to a season folder.</p>
+            <p>Add <code>days=</code> to the battle endpoint to fetch the most recent dated snapshots for one Pokemon and format, returned newest first. Add <code>season=M4</code> to limit the daily search to a season folder.</p>
           </div>
           <div class="api-endpoint-line"><b>GET</b><code>/api/battle/Doubles/garchomp?days=7</code></div>
           <div class="api-endpoint-line"><b>GET</b><code>/api/battle/Doubles/garchomp?season=M4&amp;days=7</code></div>
@@ -259,8 +268,8 @@ GET /api/battle/Singles/basculegionf</code></pre>
   "daily": [
     {
       "season": "M4",
-      "date": "16_07_2026",
-      "source": "pokemon_champions_assets/battle_data/M4/16_07_2026/Doubles/Garchomp.csv",
+      "date": "23_07_2026",
+      "source": "pokemon_champions_assets/battle_data/M4/23_07_2026/Doubles/Garchomp.csv",
       "columns": ["pokemon", "column_position", "category", "rank", "name", "percentage"],
       "rows": []
     }

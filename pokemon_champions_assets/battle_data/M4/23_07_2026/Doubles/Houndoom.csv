@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Houndoom,124,move,1,Heat Wave,93.5%,,,,,,,,
-Houndoom,124,move,2,Protect,89.8%,,,,,,,,
-Houndoom,124,move,3,Dark Pulse,54.3%,,,,,,,,
-Houndoom,124,move,4,Snarl,46.2%,,,,,,,,
-Houndoom,124,move,5,Sucker Punch,40.8%,,,,,,,,
-Houndoom,124,move,6,Overheat,20.8%,,,,,,,,
+Houndoom,124,move,1,Heat Wave,93.3%,,,,,,,,
+Houndoom,124,move,2,Protect,89.7%,,,,,,,,
+Houndoom,124,move,3,Dark Pulse,55.3%,,,,,,,,
+Houndoom,124,move,4,Snarl,45.0%,,,,,,,,
+Houndoom,124,move,5,Sucker Punch,39.6%,,,,,,,,
+Houndoom,124,move,6,Overheat,21.7%,,,,,,,,
 Houndoom,124,move,7,Solar Beam,15.7%,,,,,,,,
-Houndoom,124,move,8,Scorching Sands,6.4%,,,,,,,,
+Houndoom,124,move,8,Sludge Bomb,6.4%,,,,,,,,
 Houndoom,124,move,9,Nasty Plot,6.4%,,,,,,,,
-Houndoom,124,move,10,Sludge Bomb,6.3%,,,,,,,,
-Houndoom,124,held_item,1,Houndoominite,52.3%,,,,,,,,
-Houndoom,124,held_item,2,Focus Sash,39.4%,,,,,,,,
+Houndoom,124,move,10,Scorching Sands,6.3%,,,,,,,,
+Houndoom,124,held_item,1,Houndoominite,53.2%,,,,,,,,
+Houndoom,124,held_item,2,Focus Sash,38.5%,,,,,,,,
 Houndoom,124,held_item,3,Life Orb,1.6%,,,,,,,,
-Houndoom,124,held_item,4,Choice Scarf,1.6%,,,,,,,,
+Houndoom,124,held_item,4,Choice Scarf,1.5%,,,,,,,,
 Houndoom,124,held_item,5,Charcoal,1.5%,,,,,,,,
 Houndoom,124,held_item,6,Chople Berry,0.9%,,,,,,,,
 Houndoom,124,held_item,7,Black Glasses,0.8%,,,,,,,,
-Houndoom,124,held_item,8,Expert Belt,0.3%,,,,,,,,
+Houndoom,124,held_item,8,Expert Belt,0.4%,,,,,,,,
 Houndoom,124,held_item,9,Bright Powder,0.3%,,,,,,,,
 Houndoom,124,held_item,10,Wise Glasses,0.2%,,,,,,,,
 Houndoom,124,teammate,1,Staraptor,,,,,,,,,
@@ -24,29 +24,29 @@ Houndoom,124,teammate,2,Gholdengo,,,,,,,,,
 Houndoom,124,teammate,3,Feraligatr,,,,,,,,,
 Houndoom,124,teammate,4,Vileplume,,,,,,,,,
 Houndoom,124,teammate,5,Torkoal,,,,,,,,,
-Houndoom,124,teammate,6,Sceptile,,,,,,,,,
-Houndoom,124,teammate,7,Farigiraf,,,,,,,,,
+Houndoom,124,teammate,6,Farigiraf,,,,,,,,,
+Houndoom,124,teammate,7,Sceptile,,,,,,,,,
 Houndoom,124,teammate,8,Venusaur,,,,,,,,,
 Houndoom,124,teammate,9,Annihilape,,,,,,,,,
 Houndoom,124,teammate,10,Kangaskhan,,,,,,,,,
-Houndoom,124,stat_alignment,1,Timid,45.1%,Speed,Attack,,,,,,
-Houndoom,124,stat_alignment,2,Hasty,36.4%,Speed,Defense,,,,,,
-Houndoom,124,stat_alignment,3,Modest,12.8%,Sp. Atk,Attack,,,,,,
+Houndoom,124,stat_alignment,1,Timid,46.1%,Speed,Attack,,,,,,
+Houndoom,124,stat_alignment,2,Hasty,35.2%,Speed,Defense,,,,,,
+Houndoom,124,stat_alignment,3,Modest,13.0%,Sp. Atk,Attack,,,,,,
 Houndoom,124,stat_alignment,4,Mild,2.0%,Sp. Atk,Defense,,,,,,
-Houndoom,124,stat_alignment,5,Naive,0.8%,Speed,Sp. Def,,,,,,
-Houndoom,124,stat_alignment,6,Quiet,0.7%,Sp. Atk,Speed,,,,,,
-Houndoom,124,stat_alignment,7,Calm,0.5%,Sp. Def,Attack,,,,,,
+Houndoom,124,stat_alignment,5,Quiet,0.8%,Sp. Atk,Speed,,,,,,
+Houndoom,124,stat_alignment,6,Naive,0.8%,Speed,Sp. Def,,,,,,
+Houndoom,124,stat_alignment,7,Calm,0.4%,Sp. Def,Attack,,,,,,
 Houndoom,124,stat_alignment,8,Rash,0.4%,Sp. Atk,Sp. Def,,,,,,
 Houndoom,124,stat_alignment,9,Bold,0.3%,Defense,Attack,,,,,,
 Houndoom,124,stat_alignment,10,Lonely,0.2%,Attack,Defense,,,,,,
-Houndoom,124,stat_points,1,,32.7%,,,1,1,0,32,0,32
-Houndoom,124,stat_points,2,,21.3%,,,2,0,0,32,0,32
-Houndoom,124,stat_points,3,,19.1%,,,1,0,1,32,0,32
-Houndoom,124,stat_points,4,,5.0%,,,0,0,0,32,2,32
-Houndoom,124,stat_points,5,,5.0%,,,0,0,2,32,0,32
+Houndoom,124,stat_points,1,,31.7%,,,1,1,0,32,0,32
+Houndoom,124,stat_points,2,,21.4%,,,2,0,0,32,0,32
+Houndoom,124,stat_points,3,,19.8%,,,1,0,1,32,0,32
+Houndoom,124,stat_points,4,,5.2%,,,0,0,2,32,0,32
+Houndoom,124,stat_points,5,,5.0%,,,0,0,0,32,2,32
 Houndoom,124,stat_points,6,,1.0%,,,32,0,2,32,0,0
-Houndoom,124,stat_points,7,,0.9%,,,32,0,0,32,2,0
+Houndoom,124,stat_points,7,,0.8%,,,32,0,0,32,2,0
 Houndoom,124,stat_points,8,,0.7%,,,1,0,0,32,1,32
-Houndoom,124,ability,1,Flash Fire,93.3%,,,,,,,,
-Houndoom,124,ability,2,Unnerve,5.5%,,,,,,,,
+Houndoom,124,ability,1,Flash Fire,93.1%,,,,,,,,
+Houndoom,124,ability,2,Unnerve,5.7%,,,,,,,,
 Houndoom,124,ability,3,Early Bird,1.2%,,,,,,,,

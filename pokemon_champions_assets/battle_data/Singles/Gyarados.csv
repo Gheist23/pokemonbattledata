@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gyarados,8,move,1,Dragon Dance,85.9%,,,,,,,,
 Gyarados,8,move,2,Earthquake,75.5%,,,,,,,,
-Gyarados,8,move,3,Waterfall,73.8%,,,,,,,,
-Gyarados,8,move,4,Power Whip,49.6%,,,,,,,,
+Gyarados,8,move,3,Waterfall,73.7%,,,,,,,,
+Gyarados,8,move,4,Power Whip,49.7%,,,,,,,,
 Gyarados,8,move,5,Ice Fang,46.3%,,,,,,,,
-Gyarados,8,move,6,Crunch,30.5%,,,,,,,,
-Gyarados,8,move,7,Taunt,18.2%,,,,,,,,
+Gyarados,8,move,6,Crunch,30.6%,,,,,,,,
+Gyarados,8,move,7,Taunt,18.1%,,,,,,,,
 Gyarados,8,move,8,Avalanche,8.7%,,,,,,,,
 Gyarados,8,move,9,Temper Flare,2.2%,,,,,,,,
-Gyarados,8,move,10,Aqua Tail,1.6%,,,,,,,,
+Gyarados,8,move,10,Aqua Tail,1.5%,,,,,,,,
 Gyarados,8,held_item,1,Gyaradosite,81.4%,,,,,,,,
 Gyarados,8,held_item,2,Leftovers,8.4%,,,,,,,,
-Gyarados,8,held_item,3,Sitrus Berry,4.0%,,,,,,,,
+Gyarados,8,held_item,3,Sitrus Berry,4.1%,,,,,,,,
 Gyarados,8,held_item,4,Lum Berry,2.5%,,,,,,,,
 Gyarados,8,held_item,5,Expert Belt,1.1%,,,,,,,,
 Gyarados,8,held_item,6,Life Orb,0.7%,,,,,,,,
@@ -29,7 +29,7 @@ Gyarados,8,teammate,7,Metagross,,,,,,,,,
 Gyarados,8,teammate,8,Blaziken,,,,,,,,,
 Gyarados,8,teammate,9,Primarina,,,,,,,,,
 Gyarados,8,teammate,10,Gholdengo,,,,,,,,,
-Gyarados,8,stat_alignment,1,Jolly,46.7%,Speed,Sp. Atk,,,,,,
+Gyarados,8,stat_alignment,1,Jolly,46.6%,Speed,Sp. Atk,,,,,,
 Gyarados,8,stat_alignment,2,Adamant,46.6%,Attack,Sp. Atk,,,,,,
 Gyarados,8,stat_alignment,3,Impish,3.2%,Defense,Sp. Atk,,,,,,
 Gyarados,8,stat_alignment,4,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
@@ -39,8 +39,8 @@ Gyarados,8,stat_alignment,7,Brave,0.1%,Attack,Speed,,,,,,
 Gyarados,8,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
 Gyarados,8,stat_alignment,9,Modest,0.1%,Sp. Atk,Attack,,,,,,
 Gyarados,8,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
-Gyarados,8,stat_points,1,,26.1%,,,1,32,1,0,0,32
-Gyarados,8,stat_points,2,,22.4%,,,2,32,0,0,0,32
+Gyarados,8,stat_points,1,,26.0%,,,1,32,1,0,0,32
+Gyarados,8,stat_points,2,,22.5%,,,2,32,0,0,0,32
 Gyarados,8,stat_points,3,,4.1%,,,3,31,0,0,0,32
 Gyarados,8,stat_points,4,,2.9%,,,1,32,0,0,1,32
 Gyarados,8,stat_points,5,,2.6%,,,0,32,2,0,0,32

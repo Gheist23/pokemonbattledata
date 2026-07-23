@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gyarados,69,move,1,Waterfall,91.0%,,,,,,,,
-Gyarados,69,move,2,Protect,63.9%,,,,,,,,
-Gyarados,69,move,3,Dragon Dance,39.9%,,,,,,,,
-Gyarados,69,move,4,Crunch,39.0%,,,,,,,,
-Gyarados,69,move,5,Ice Fang,34.2%,,,,,,,,
-Gyarados,69,move,6,Power Whip,28.2%,,,,,,,,
-Gyarados,69,move,7,Earthquake,20.4%,,,,,,,,
-Gyarados,69,move,8,Taunt,10.5%,,,,,,,,
-Gyarados,69,move,9,Lash Out,7.9%,,,,,,,,
-Gyarados,69,move,10,Stone Edge,7.3%,,,,,,,,
-Gyarados,69,held_item,1,Gyaradosite,31.1%,,,,,,,,
-Gyarados,69,held_item,2,Sitrus Berry,14.6%,,,,,,,,
+Gyarados,69,move,2,Protect,63.7%,,,,,,,,
+Gyarados,69,move,3,Dragon Dance,55.6%,,,,,,,,
+Gyarados,69,move,4,Crunch,39.2%,,,,,,,,
+Gyarados,69,move,5,Ice Fang,34.0%,,,,,,,,
+Gyarados,69,move,6,Power Whip,28.0%,,,,,,,,
+Gyarados,69,move,7,Earthquake,20.7%,,,,,,,,
+Gyarados,69,move,8,Taunt,10.4%,,,,,,,,
+Gyarados,69,move,9,Lash Out,8.0%,,,,,,,,
+Gyarados,69,move,10,Stone Edge,7.2%,,,,,,,,
+Gyarados,69,held_item,1,Gyaradosite,31.3%,,,,,,,,
+Gyarados,69,held_item,2,Sitrus Berry,14.3%,,,,,,,,
 Gyarados,69,held_item,3,Leftovers,11.8%,,,,,,,,
 Gyarados,69,held_item,4,Life Orb,4.1%,,,,,,,,
 Gyarados,69,held_item,5,Expert Belt,3.4%,,,,,,,,
-Gyarados,69,held_item,6,Wacan Berry,1.9%,,,,,,,,
-Gyarados,69,held_item,7,Focus Sash,1.7%,,,,,,,,
+Gyarados,69,held_item,6,Wacan Berry,2.0%,,,,,,,,
+Gyarados,69,held_item,7,Focus Sash,1.8%,,,,,,,,
 Gyarados,69,held_item,8,Wide Lens,1.6%,,,,,,,,
 Gyarados,69,held_item,9,Mystic Water,1.6%,,,,,,,,
 Gyarados,69,held_item,10,Lum Berry,1.4%,,,,,,,,
@@ -29,7 +29,7 @@ Gyarados,69,teammate,7,Sylveon,,,,,,,,,
 Gyarados,69,teammate,8,Incineroar,,,,,,,,,
 Gyarados,69,teammate,9,Farigiraf,,,,,,,,,
 Gyarados,69,teammate,10,Alolan Ninetales,,,,,,,,,
-Gyarados,69,stat_alignment,1,Adamant,61.3%,Attack,Sp. Atk,,,,,,
+Gyarados,69,stat_alignment,1,Adamant,61.2%,Attack,Sp. Atk,,,,,,
 Gyarados,69,stat_alignment,2,Jolly,26.2%,Speed,Sp. Atk,,,,,,
 Gyarados,69,stat_alignment,3,Careful,4.0%,Sp. Def,Sp. Atk,,,,,,
 Gyarados,69,stat_alignment,4,Impish,3.1%,Defense,Sp. Atk,,,,,,
@@ -39,12 +39,12 @@ Gyarados,69,stat_alignment,7,Naughty,0.4%,Attack,Sp. Def,,,,,,
 Gyarados,69,stat_alignment,8,Lonely,0.4%,Attack,Defense,,,,,,
 Gyarados,69,stat_alignment,9,Naive,0.3%,Speed,Sp. Def,,,,,,
 Gyarados,69,stat_alignment,10,Relaxed,0.2%,Defense,Speed,,,,,,
-Gyarados,69,stat_points,1,,20.2%,,,2,32,0,0,0,32
-Gyarados,69,stat_points,2,,7.8%,,,11,25,0,0,0,30
-Gyarados,69,stat_points,3,,4.3%,,,32,32,2,0,0,0
-Gyarados,69,stat_points,4,,4.1%,,,0,32,2,0,0,32
+Gyarados,69,stat_points,1,,20.3%,,,2,32,0,0,0,32
+Gyarados,69,stat_points,2,,7.1%,,,11,25,0,0,0,30
+Gyarados,69,stat_points,3,,4.2%,,,32,32,2,0,0,0
+Gyarados,69,stat_points,4,,4.2%,,,0,32,2,0,0,32
 Gyarados,69,stat_points,5,,3.1%,,,32,32,0,0,0,2
-Gyarados,69,stat_points,6,,1.9%,,,32,15,0,0,0,19
+Gyarados,69,stat_points,6,,2.0%,,,32,15,0,0,0,19
 Gyarados,69,stat_points,7,,1.9%,,,0,32,0,0,2,32
 Gyarados,69,stat_points,8,,1.5%,,,32,32,0,0,2,0
 Gyarados,69,ability,1,Intimidate,95.4%,,,,,,,,

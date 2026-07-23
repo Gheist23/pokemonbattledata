@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mamoswine,56,move,1,Ice Shard,90.2%,,,,,,,,
-Mamoswine,56,move,2,Protect,83.1%,,,,,,,,
-Mamoswine,56,move,3,High Horsepower,68.7%,,,,,,,,
-Mamoswine,56,move,4,Icicle Crash,45.2%,,,,,,,,
+Mamoswine,56,move,1,Ice Shard,90.1%,,,,,,,,
+Mamoswine,56,move,2,Protect,82.9%,,,,,,,,
+Mamoswine,56,move,3,High Horsepower,68.4%,,,,,,,,
+Mamoswine,56,move,4,Icicle Crash,45.5%,,,,,,,,
 Mamoswine,56,move,5,Rock Slide,33.7%,,,,,,,,
-Mamoswine,56,move,6,Earthquake,32.4%,,,,,,,,
-Mamoswine,56,move,7,Rock Tomb,18.1%,,,,,,,,
+Mamoswine,56,move,6,Earthquake,32.6%,,,,,,,,
+Mamoswine,56,move,7,Rock Tomb,17.8%,,,,,,,,
 Mamoswine,56,move,8,Icicle Spear,6.5%,,,,,,,,
 Mamoswine,56,move,9,Knock Off,3.0%,,,,,,,,
 Mamoswine,56,move,10,Stomping Tantrum,2.2%,,,,,,,,
-Mamoswine,56,held_item,1,Focus Sash,52.1%,,,,,,,,
-Mamoswine,56,held_item,2,Life Orb,28.3%,,,,,,,,
-Mamoswine,56,held_item,3,Choice Scarf,5.8%,,,,,,,,
+Mamoswine,56,held_item,1,Focus Sash,31.4%,,,,,,,,
+Mamoswine,56,held_item,2,Life Orb,28.8%,,,,,,,,
+Mamoswine,56,held_item,3,Choice Scarf,5.9%,,,,,,,,
 Mamoswine,56,held_item,4,Never-Melt Ice,3.0%,,,,,,,,
 Mamoswine,56,held_item,5,Expert Belt,2.6%,,,,,,,,
 Mamoswine,56,held_item,6,Sitrus Berry,2.5%,,,,,,,,
 Mamoswine,56,held_item,7,Leftovers,1.2%,,,,,,,,
 Mamoswine,56,held_item,8,Chople Berry,0.7%,,,,,,,,
 Mamoswine,56,held_item,9,Occa Berry,0.6%,,,,,,,,
-Mamoswine,56,held_item,10,Quick Claw,0.5%,,,,,,,,
+Mamoswine,56,held_item,10,Quick Claw,0.6%,,,,,,,,
 Mamoswine,56,teammate,1,Venusaur,,,,,,,,,
 Mamoswine,56,teammate,2,Charizard,,,,,,,,,
 Mamoswine,56,teammate,3,Incineroar,,,,,,,,,
@@ -29,9 +29,9 @@ Mamoswine,56,teammate,7,Raichu,,,,,,,,,
 Mamoswine,56,teammate,8,Sylveon,,,,,,,,,
 Mamoswine,56,teammate,9,Torkoal,,,,,,,,,
 Mamoswine,56,teammate,10,Sneasler,,,,,,,,,
-Mamoswine,56,stat_alignment,1,Adamant,55.2%,Attack,Sp. Atk,,,,,,
-Mamoswine,56,stat_alignment,2,Jolly,38.6%,Speed,Sp. Atk,,,,,,
-Mamoswine,56,stat_alignment,3,Brave,2.8%,Attack,Speed,,,,,,
+Mamoswine,56,stat_alignment,1,Adamant,55.6%,Attack,Sp. Atk,,,,,,
+Mamoswine,56,stat_alignment,2,Jolly,38.1%,Speed,Sp. Atk,,,,,,
+Mamoswine,56,stat_alignment,3,Brave,2.9%,Attack,Speed,,,,,,
 Mamoswine,56,stat_alignment,4,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
 Mamoswine,56,stat_alignment,5,Impish,0.5%,Defense,Sp. Atk,,,,,,
 Mamoswine,56,stat_alignment,6,Naughty,0.5%,Attack,Sp. Def,,,,,,
@@ -39,14 +39,14 @@ Mamoswine,56,stat_alignment,7,Lonely,0.5%,Attack,Defense,,,,,,
 Mamoswine,56,stat_alignment,8,Sassy,0.3%,Sp. Def,Speed,,,,,,
 Mamoswine,56,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,
 Mamoswine,56,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
-Mamoswine,56,stat_points,1,,44.0%,,,2,32,0,0,0,32
-Mamoswine,56,stat_points,2,,17.8%,,,0,32,0,0,2,32
-Mamoswine,56,stat_points,3,,6.0%,,,0,32,2,0,0,32
-Mamoswine,56,stat_points,4,,2.8%,,,32,32,2,0,0,0
+Mamoswine,56,stat_points,1,,13.8%,,,2,32,0,0,0,32
+Mamoswine,56,stat_points,2,,11.5%,,,0,32,0,0,2,32
+Mamoswine,56,stat_points,3,,6.1%,,,0,32,2,0,0,32
+Mamoswine,56,stat_points,4,,2.9%,,,32,32,2,0,0,0
 Mamoswine,56,stat_points,5,,2.6%,,,32,32,0,0,2,0
-Mamoswine,56,stat_points,6,,1.7%,,,4,30,1,0,2,29
+Mamoswine,56,stat_points,6,,1.6%,,,4,30,1,0,2,29
 Mamoswine,56,stat_points,7,,1.6%,,,0,32,0,0,0,32
 Mamoswine,56,stat_points,8,,1.0%,,,2,32,32,0,0,0
-Mamoswine,56,ability,1,Oblivious,79.6%,,,,,,,,
-Mamoswine,56,ability,2,Thick Fat,18.4%,,,,,,,,
+Mamoswine,56,ability,1,Oblivious,79.3%,,,,,,,,
+Mamoswine,56,ability,2,Thick Fat,18.6%,,,,,,,,
 Mamoswine,56,ability,3,Snow Cloak,2.1%,,,,,,,,

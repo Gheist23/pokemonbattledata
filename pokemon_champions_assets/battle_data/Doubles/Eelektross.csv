@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Eelektross,78,move,1,Protect,77.9%,,,,,,,,
-Eelektross,78,move,2,Flamethrower,57.0%,,,,,,,,
+Eelektross,78,move,1,Protect,77.6%,,,,,,,,
+Eelektross,78,move,2,Flamethrower,56.9%,,,,,,,,
 Eelektross,78,move,3,Giga Drain,56.6%,,,,,,,,
-Eelektross,78,move,4,Thunderbolt,53.2%,,,,,,,,
-Eelektross,78,move,5,Discharge,27.3%,,,,,,,,
+Eelektross,78,move,4,Thunderbolt,53.1%,,,,,,,,
+Eelektross,78,move,5,Discharge,27.2%,,,,,,,,
 Eelektross,78,move,6,Drain Punch,14.5%,,,,,,,,
 Eelektross,78,move,7,Dragon Pulse,14.0%,,,,,,,,
-Eelektross,78,move,8,Supercell Slam,13.4%,,,,,,,,
+Eelektross,78,move,8,Supercell Slam,13.6%,,,,,,,,
 Eelektross,78,move,9,Grass Knot,9.9%,,,,,,,,
-Eelektross,78,move,10,Coil,8.3%,,,,,,,,
+Eelektross,78,move,10,Coil,8.4%,,,,,,,,
 Eelektross,78,held_item,1,Eelektrossite,91.5%,,,,,,,,
 Eelektross,78,held_item,2,Life Orb,1.6%,,,,,,,,
-Eelektross,78,held_item,3,Expert Belt,1.4%,,,,,,,,
+Eelektross,78,held_item,3,Expert Belt,1.3%,,,,,,,,
 Eelektross,78,held_item,4,Leftovers,1.1%,,,,,,,,
 Eelektross,78,held_item,5,Sitrus Berry,1.0%,,,,,,,,
 Eelektross,78,held_item,6,Magnet,0.7%,,,,,,,,
 Eelektross,78,held_item,7,Quick Claw,0.7%,,,,,,,,
-Eelektross,78,held_item,8,Bright Powder,0.3%,,,,,,,,
-Eelektross,78,held_item,9,Wise Glasses,0.3%,,,,,,,,
+Eelektross,78,held_item,8,Wise Glasses,0.3%,,,,,,,,
+Eelektross,78,held_item,9,Bright Powder,0.3%,,,,,,,,
 Eelektross,78,held_item,10,Shell Bell,0.2%,,,,,,,,
 Eelektross,78,teammate,1,Garchomp,,,,,,,,,
 Eelektross,78,teammate,2,Whimsicott,,,,,,,,,
@@ -29,22 +29,22 @@ Eelektross,78,teammate,7,Kingambit,,,,,,,,,
 Eelektross,78,teammate,8,Sylveon,,,,,,,,,
 Eelektross,78,teammate,9,Sneasler,,,,,,,,,
 Eelektross,78,teammate,10,Grimmsnarl,,,,,,,,,
-Eelektross,78,stat_alignment,1,Modest,54.3%,Sp. Atk,Attack,,,,,,
-Eelektross,78,stat_alignment,2,Quiet,13.5%,Sp. Atk,Speed,,,,,,
-Eelektross,78,stat_alignment,3,Adamant,11.5%,Attack,Sp. Atk,,,,,,
+Eelektross,78,stat_alignment,1,Modest,54.2%,Sp. Atk,Attack,,,,,,
+Eelektross,78,stat_alignment,2,Quiet,13.4%,Sp. Atk,Speed,,,,,,
+Eelektross,78,stat_alignment,3,Adamant,11.6%,Attack,Sp. Atk,,,,,,
 Eelektross,78,stat_alignment,4,Timid,7.6%,Speed,Attack,,,,,,
 Eelektross,78,stat_alignment,5,Brave,6.2%,Attack,Speed,,,,,,
 Eelektross,78,stat_alignment,6,Jolly,1.4%,Speed,Sp. Atk,,,,,,
-Eelektross,78,stat_alignment,7,Relaxed,1.0%,Defense,Speed,,,,,,
-Eelektross,78,stat_alignment,8,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
-Eelektross,78,stat_alignment,9,Bold,0.6%,Defense,Attack,,,,,,
-Eelektross,78,stat_alignment,10,Impish,0.5%,Defense,Sp. Atk,,,,,,
-Eelektross,78,stat_points,1,,13.4%,,,2,0,0,32,0,32
-Eelektross,78,stat_points,2,,11.6%,,,32,0,2,32,0,0
-Eelektross,78,stat_points,3,,5.0%,,,32,0,0,32,2,0
-Eelektross,78,stat_points,4,,4.5%,,,32,0,1,32,1,0
+Eelektross,78,stat_alignment,7,Careful,1.0%,Sp. Def,Sp. Atk,,,,,,
+Eelektross,78,stat_alignment,8,Relaxed,1.0%,Defense,Speed,,,,,,
+Eelektross,78,stat_alignment,9,Impish,0.6%,Defense,Sp. Atk,,,,,,
+Eelektross,78,stat_alignment,10,Bold,0.6%,Defense,Attack,,,,,,
+Eelektross,78,stat_points,1,,13.5%,,,2,0,0,32,0,32
+Eelektross,78,stat_points,2,,11.8%,,,32,0,2,32,0,0
+Eelektross,78,stat_points,3,,4.9%,,,32,0,0,32,2,0
+Eelektross,78,stat_points,4,,4.4%,,,32,0,1,32,1,0
 Eelektross,78,stat_points,5,,4.4%,,,32,0,0,32,0,2
-Eelektross,78,stat_points,6,,2.0%,,,32,32,0,0,2,0
+Eelektross,78,stat_points,6,,2.1%,,,32,32,0,0,2,0
 Eelektross,78,stat_points,7,,1.6%,,,32,32,0,0,0,2
 Eelektross,78,stat_points,8,,1.4%,,,32,0,0,32,0,0
 Eelektross,78,ability,1,Levitate,100.0%,,,,,,,,

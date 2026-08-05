@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Flareon,210,move,1,Flare Blitz,80.5%,,,,,,,,
-Flareon,210,move,2,Superpower,56.0%,,,,,,,,
-Flareon,210,move,3,Quick Attack,35.8%,,,,,,,,
-Flareon,210,move,4,Protect,33.0%,,,,,,,,
-Flareon,210,move,5,Detect,29.5%,,,,,,,,
-Flareon,210,move,6,Flame Charge,16.6%,,,,,,,,
+Flareon,210,move,2,Superpower,55.4%,,,,,,,,
+Flareon,210,move,3,Quick Attack,36.1%,,,,,,,,
+Flareon,210,move,4,Protect,33.6%,,,,,,,,
+Flareon,210,move,5,Detect,29.9%,,,,,,,,
+Flareon,210,move,6,Flame Charge,16.2%,,,,,,,,
 Flareon,210,move,7,Will-O-Wisp,11.9%,,,,,,,,
-Flareon,210,move,8,Heat Wave,10.8%,,,,,,,,
-Flareon,210,move,9,Trailblaze,10.6%,,,,,,,,
-Flareon,210,move,10,Bite,8.6%,,,,,,,,
+Flareon,210,move,8,Heat Wave,10.9%,,,,,,,,
+Flareon,210,move,9,Trailblaze,10.2%,,,,,,,,
+Flareon,210,move,10,Helping Hand,9.0%,,,,,,,,
 Flareon,210,held_item,1,Charcoal,36.1%,,,,,,,,
-Flareon,210,held_item,2,White Herb,16.8%,,,,,,,,
-Flareon,210,held_item,3,Sitrus Berry,9.3%,,,,,,,,
-Flareon,210,held_item,4,Life Orb,8.9%,,,,,,,,
-Flareon,210,held_item,5,Focus Sash,5.9%,,,,,,,,
-Flareon,210,held_item,6,Leftovers,5.8%,,,,,,,,
-Flareon,210,held_item,7,Choice Scarf,4.6%,,,,,,,,
-Flareon,210,held_item,8,Quick Claw,4.5%,,,,,,,,
+Flareon,210,held_item,2,White Herb,17.4%,,,,,,,,
+Flareon,210,held_item,3,Sitrus Berry,9.8%,,,,,,,,
+Flareon,210,held_item,4,Life Orb,9.1%,,,,,,,,
+Flareon,210,held_item,5,Leftovers,5.8%,,,,,,,,
+Flareon,210,held_item,6,Choice Scarf,5.0%,,,,,,,,
+Flareon,210,held_item,7,Focus Sash,4.9%,,,,,,,,
+Flareon,210,held_item,8,Quick Claw,4.0%,,,,,,,,
 Flareon,210,held_item,9,Muscle Band,3.7%,,,,,,,,
-Flareon,210,held_item,10,Shuca Berry,2.1%,,,,,,,,
+Flareon,210,held_item,10,Shuca Berry,1.9%,,,,,,,,
 Flareon,210,teammate,1,Sylveon,,,,,,,,,
 Flareon,210,teammate,2,Vaporeon,,,,,,,,,
 Flareon,210,teammate,3,Umbreon,,,,,,,,,
@@ -28,24 +28,24 @@ Flareon,210,teammate,6,Leafeon,,,,,,,,,
 Flareon,210,teammate,7,Glaceon,,,,,,,,,
 Flareon,210,teammate,8,Farigiraf,,,,,,,,,
 Flareon,210,teammate,9,Whimsicott,,,,,,,,,
-Flareon,210,teammate,10,Charizard,,,,,,,,,
-Flareon,210,stat_alignment,1,Adamant,41.5%,Attack,Sp. Atk,,,,,,
-Flareon,210,stat_alignment,2,Jolly,17.0%,Speed,Sp. Atk,,,,,,
+Flareon,210,teammate,10,Basculegion Male,,,,,,,,,
+Flareon,210,stat_alignment,1,Adamant,41.7%,Attack,Sp. Atk,,,,,,
+Flareon,210,stat_alignment,2,Jolly,16.8%,Speed,Sp. Atk,,,,,,
 Flareon,210,stat_alignment,3,Brave,13.9%,Attack,Speed,,,,,,
-Flareon,210,stat_alignment,4,Impish,8.4%,Defense,Sp. Atk,,,,,,
-Flareon,210,stat_alignment,5,Modest,3.5%,Sp. Atk,Attack,,,,,,
-Flareon,210,stat_alignment,6,Careful,2.5%,Sp. Def,Sp. Atk,,,,,,
-Flareon,210,stat_alignment,7,Relaxed,2.3%,Defense,Speed,,,,,,
-Flareon,210,stat_alignment,8,Quiet,2.1%,Sp. Atk,Speed,,,,,,
-Flareon,210,stat_alignment,9,Timid,2.0%,Speed,Attack,,,,,,
-Flareon,210,stat_alignment,10,Lonely,2.0%,Attack,Defense,,,,,,
-Flareon,210,stat_points,1,,21.5%,,,2,32,0,0,0,32
-Flareon,210,stat_points,2,,12.9%,,,32,32,2,0,0,0
+Flareon,210,stat_alignment,4,Impish,8.9%,Defense,Sp. Atk,,,,,,
+Flareon,210,stat_alignment,5,Modest,3.8%,Sp. Atk,Attack,,,,,,
+Flareon,210,stat_alignment,6,Careful,2.3%,Sp. Def,Sp. Atk,,,,,,
+Flareon,210,stat_alignment,7,Timid,2.2%,Speed,Attack,,,,,,
+Flareon,210,stat_alignment,8,Relaxed,2.1%,Defense,Speed,,,,,,
+Flareon,210,stat_alignment,9,Quiet,1.9%,Sp. Atk,Speed,,,,,,
+Flareon,210,stat_alignment,10,Lonely,1.8%,Attack,Defense,,,,,,
+Flareon,210,stat_points,1,,21.2%,,,2,32,0,0,0,32
+Flareon,210,stat_points,2,,13.1%,,,32,32,2,0,0,0
 Flareon,210,stat_points,3,,6.1%,,,2,32,32,0,0,0
-Flareon,210,stat_points,4,,4.6%,,,32,32,0,0,2,0
-Flareon,210,stat_points,5,,4.1%,,,32,32,0,0,0,2
-Flareon,210,stat_points,6,,2.4%,,,0,32,32,0,2,0
-Flareon,210,stat_points,7,,2.0%,,,11,23,32,0,0,0
-Flareon,210,stat_points,8,,1.9%,,,2,32,0,0,32,0
-Flareon,210,ability,1,Flash Fire,86.8%,,,,,,,,
-Flareon,210,ability,2,Guts,13.2%,,,,,,,,
+Flareon,210,stat_points,4,,4.4%,,,32,32,0,0,2,0
+Flareon,210,stat_points,5,,4.0%,,,32,32,0,0,0,2
+Flareon,210,stat_points,6,,2.5%,,,0,32,32,0,2,0
+Flareon,210,stat_points,7,,2.2%,,,11,23,32,0,0,0
+Flareon,210,stat_points,8,,2.1%,,,0,16,15,0,32,3
+Flareon,210,ability,1,Flash Fire,86.5%,,,,,,,,
+Flareon,210,ability,2,Guts,13.5%,,,,,,,,

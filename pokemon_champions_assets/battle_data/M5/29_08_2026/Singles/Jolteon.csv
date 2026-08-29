@@ -1,17 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Jolteon,130,move,1,Thunderbolt,74.8%,,,,,,,,
+Jolteon,130,move,2,Alluring Voice,62.1%,,,,,,,,
+Jolteon,130,move,3,Shadow Ball,52.3%,,,,,,,,
+Jolteon,130,move,4,Volt Switch,49.5%,,,,,,,,
+Jolteon,130,move,5,Yawn,19.3%,,,,,,,,
 Jolteon,130,move,6,Thunder,13.5%,,,,,,,,
 Jolteon,130,move,7,Thunder Wave,11.2%,,,,,,,,
 Jolteon,130,move,8,Calm Mind,9.1%,,,,,,,,
 Jolteon,130,move,9,Mud-Slap,8.7%,,,,,,,,
 Jolteon,130,move,10,Weather Ball,8.5%,,,,,,,,
-Jolteon,130,held_item,1,Focus Sash,41.7%,,,,,,,,
-Jolteon,130,held_item,2,Life Orb,18.8%,,,,,,,,
-Jolteon,130,held_item,3,Magnet,13.8%,,,,,,,,
+Jolteon,130,held_item,1,Focus Sash,41.6%,,,,,,,,
+Jolteon,130,held_item,2,Life Orb,18.7%,,,,,,,,
+Jolteon,130,held_item,3,Magnet,14.0%,,,,,,,,
 Jolteon,130,held_item,4,Choice Scarf,7.8%,,,,,,,,
 Jolteon,130,held_item,5,Bright Powder,5.6%,,,,,,,,
 Jolteon,130,held_item,6,Sitrus Berry,3.9%,,,,,,,,
 Jolteon,130,held_item,7,Expert Belt,3.0%,,,,,,,,
-Jolteon,130,held_item,8,Shuca Berry,2.7%,,,,,,,,
+Jolteon,130,held_item,8,Shuca Berry,2.8%,,,,,,,,
 Jolteon,130,held_item,9,Leftovers,2.6%,,,,,,,,
 Jolteon,130,held_item,10,Wise Glasses,1.8%,,,,,,,,
 Jolteon,130,teammate,1,Umbreon,,,,,,,,,
@@ -34,7 +39,7 @@ Jolteon,130,stat_alignment,7,Jolly,0.4%,Speed,Sp. Atk,,,,,,
 Jolteon,130,stat_alignment,8,Naive,0.3%,Speed,Sp. Def,,,,,,
 Jolteon,130,stat_alignment,9,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Jolteon,130,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Jolteon,130,stat_points,1,,38.8%,,,2,0,0,32,0,32
+Jolteon,130,stat_points,1,,39.1%,,,2,0,0,32,0,32
 Jolteon,130,stat_points,2,,13.1%,,,0,0,0,32,2,32
 Jolteon,130,stat_points,3,,9.1%,,,0,0,2,32,0,32
 Jolteon,130,stat_points,4,,7.1%,,,1,0,1,32,0,32
@@ -42,7 +47,7 @@ Jolteon,130,stat_points,5,,4.8%,,,1,0,0,32,1,32
 Jolteon,130,stat_points,6,,1.0%,,,0,0,1,32,1,32
 Jolteon,130,stat_points,7,,0.7%,,,1,0,0,32,0,32
 Jolteon,130,stat_points,8,,0.7%,,,0,0,0,32,32,2
-Jolteon,130,stat_points,9,,0.6%,,,2,0,0,32,32,0
-Jolteon,130,stat_points,10,,0.6%,,,32,0,0,32,0,2
+Jolteon,130,stat_points,9,,0.6%,,,32,0,0,32,0,2
+Jolteon,130,stat_points,10,,0.6%,,,2,0,0,32,32,0
 Jolteon,130,ability,1,Volt Absorb,84.0%,,,,,,,,
 Jolteon,130,ability,2,Quick Feet,16.0%,,,,,,,,

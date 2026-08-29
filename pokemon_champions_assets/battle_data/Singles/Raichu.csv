@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Raichu,16,move,1,Zap Cannon,96.5%,,,,,,,,
+Raichu,16,move,1,Zap Cannon,96.4%,,,,,,,,
 Raichu,16,move,2,Focus Blast,96.1%,,,,,,,,
-Raichu,16,move,3,Grass Knot,69.0%,,,,,,,,
-Raichu,16,move,4,Nasty Plot,27.0%,,,,,,,,
-Raichu,16,move,5,Substitute,23.5%,,,,,,,,
+Raichu,16,move,3,Grass Knot,68.9%,,,,,,,,
+Raichu,16,move,4,Nasty Plot,26.9%,,,,,,,,
+Raichu,16,move,5,Substitute,23.4%,,,,,,,,
 Raichu,16,move,6,Volt Switch,20.7%,,,,,,,,
-Raichu,16,move,7,Fake Out,14.0%,,,,,,,,
+Raichu,16,move,7,Fake Out,14.1%,,,,,,,,
 Raichu,16,move,8,Alluring Voice,13.1%,,,,,,,,
 Raichu,16,move,9,Encore,8.1%,,,,,,,,
 Raichu,16,move,10,Dazzling Gleam,4.8%,,,,,,,,
 Raichu,16,held_item,1,Raichunite Y,96.5%,,,,,,,,
-Raichu,16,held_item,2,Raichunite X,2.2%,,,,,,,,
+Raichu,16,held_item,2,Raichunite X,2.3%,,,,,,,,
 Raichu,16,held_item,3,Focus Sash,0.2%,,,,,,,,
 Raichu,16,held_item,4,Choice Scarf,0.1%,,,,,,,,
 Raichu,16,held_item,5,Light Clay,0.0%,,,,,,,,
@@ -30,23 +30,23 @@ Raichu,16,teammate,8,Archaludon,,,,,,,,,
 Raichu,16,teammate,9,Gyarados,,,,,,,,,
 Raichu,16,teammate,10,Charizard,,,,,,,,,
 Raichu,16,stat_alignment,1,Timid,75.7%,Speed,Attack,,,,,,
-Raichu,16,stat_alignment,2,Modest,11.7%,Sp. Atk,Attack,,,,,,
+Raichu,16,stat_alignment,2,Modest,11.6%,Sp. Atk,Attack,,,,,,
 Raichu,16,stat_alignment,3,Jolly,3.1%,Speed,Sp. Atk,,,,,,
 Raichu,16,stat_alignment,4,Hasty,0.9%,Speed,Defense,,,,,,
 Raichu,16,stat_alignment,5,Naive,0.8%,Speed,Sp. Def,,,,,,
-Raichu,16,stat_alignment,6,Bold,0.7%,Defense,Attack,,,,,,
+Raichu,16,stat_alignment,6,Bold,1.0%,Defense,Attack,,,,,,
 Raichu,16,stat_alignment,7,Adamant,0.4%,Attack,Sp. Atk,,,,,,
 Raichu,16,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Raichu,16,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
 Raichu,16,stat_alignment,10,Calm,0.1%,Sp. Def,Attack,,,,,,
 Raichu,16,stat_points,1,,31.7%,,,2,0,0,32,0,32
-Raichu,16,stat_points,2,,11.7%,,,30,0,31,0,0,5
+Raichu,16,stat_points,2,,11.6%,,,30,0,31,0,0,5
 Raichu,16,stat_points,3,,3.6%,,,2,32,0,0,0,32
 Raichu,16,stat_points,4,,3.4%,,,0,0,2,32,0,32
 Raichu,16,stat_points,5,,1.8%,,,32,0,0,0,5,29
 Raichu,16,stat_points,6,,1.4%,,,32,0,29,0,0,5
-Raichu,16,stat_points,7,,1.1%,,,24,0,2,2,6,32
-Raichu,16,stat_points,8,,0.8%,,,0,0,0,32,0,32
+Raichu,16,stat_points,7,,1.0%,,,24,0,2,2,6,32
+Raichu,16,stat_points,8,,0.9%,,,0,0,0,32,0,32
 Raichu,16,stat_points,9,,0.7%,,,32,0,0,2,0,32
 Raichu,16,stat_points,10,,0.6%,,,14,0,1,22,0,29
 Raichu,16,ability,1,Lightning Rod,88.0%,,,,,,,,

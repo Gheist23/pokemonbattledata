@@ -1,20 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gliscor,103,move,1,Tailwind,51.3%,,,,,,,,
-Gliscor,103,move,2,Protect,49.7%,,,,,,,,
-Gliscor,103,move,3,Earthquake,48.5%,,,,,,,,
-Gliscor,103,move,4,Dual Wingbeat,47.8%,,,,,,,,
-Gliscor,103,move,5,High Horsepower,43.2%,,,,,,,,
-Gliscor,103,move,6,Rock Slide,31.7%,,,,,,,,
-Gliscor,103,move,7,Acrobatics,12.1%,,,,,,,,
+Gliscor,103,move,6,Rock Slide,31.5%,,,,,,,,
+Gliscor,103,move,7,Acrobatics,12.0%,,,,,,,,
 Gliscor,103,move,8,Ice Fang,10.7%,,,,,,,,
-Gliscor,103,move,9,Swords Dance,9.7%,,,,,,,,
+Gliscor,103,move,9,Swords Dance,10.0%,,,,,,,,
 Gliscor,103,move,10,Knock Off,9.3%,,,,,,,,
-Gliscor,103,held_item,1,Sitrus Berry,35.3%,,,,,,,,
-Gliscor,103,held_item,2,Life Orb,13.9%,,,,,,,,
-Gliscor,103,held_item,3,Leftovers,12.8%,,,,,,,,
+Gliscor,103,held_item,1,Sitrus Berry,35.2%,,,,,,,,
+Gliscor,103,held_item,2,Life Orb,13.8%,,,,,,,,
+Gliscor,103,held_item,3,Leftovers,13.0%,,,,,,,,
 Gliscor,103,held_item,4,Focus Sash,9.0%,,,,,,,,
-Gliscor,103,held_item,5,Expert Belt,8.0%,,,,,,,,
-Gliscor,103,held_item,6,Bright Powder,7.5%,,,,,,,,
+Gliscor,103,held_item,5,Expert Belt,7.9%,,,,,,,,
+Gliscor,103,held_item,6,Bright Powder,7.6%,,,,,,,,
 Gliscor,103,held_item,7,Yache Berry,6.0%,,,,,,,,
 Gliscor,103,held_item,8,Quick Claw,4.3%,,,,,,,,
 Gliscor,103,held_item,9,Wide Lens,3.7%,,,,,,,,
@@ -23,32 +18,32 @@ Gliscor,103,teammate,1,Tyranitar,,,,,,,,,
 Gliscor,103,teammate,2,Sinistcha,,,,,,,,,
 Gliscor,103,teammate,3,Tsareena,,,,,,,,,
 Gliscor,103,teammate,4,Whimsicott,,,,,,,,,
-Gliscor,103,teammate,5,Alolan Ninetales,,,,,,,,,
-Gliscor,103,teammate,6,Delphox,,,,,,,,,
+Gliscor,103,teammate,5,Delphox,,,,,,,,,
+Gliscor,103,teammate,6,Alolan Ninetales,,,,,,,,,
 Gliscor,103,teammate,7,Milotic,,,,,,,,,
 Gliscor,103,teammate,8,Raichu,,,,,,,,,
 Gliscor,103,teammate,9,Sneasler,,,,,,,,,
 Gliscor,103,teammate,10,Incineroar,,,,,,,,,
-Gliscor,103,stat_alignment,1,Adamant,52.1%,Attack,Sp. Atk,,,,,,
-Gliscor,103,stat_alignment,2,Jolly,25.2%,Speed,Sp. Atk,,,,,,
+Gliscor,103,stat_alignment,1,Adamant,51.9%,Attack,Sp. Atk,,,,,,
+Gliscor,103,stat_alignment,2,Jolly,25.4%,Speed,Sp. Atk,,,,,,
 Gliscor,103,stat_alignment,3,Careful,9.0%,Sp. Def,Sp. Atk,,,,,,
-Gliscor,103,stat_alignment,4,Impish,6.3%,Defense,Sp. Atk,,,,,,
-Gliscor,103,stat_alignment,5,Brave,2.5%,Attack,Speed,,,,,,
-Gliscor,103,stat_alignment,6,Naive,1.1%,Speed,Sp. Def,,,,,,
+Gliscor,103,stat_alignment,4,Impish,6.5%,Defense,Sp. Atk,,,,,,
+Gliscor,103,stat_alignment,5,Brave,2.4%,Attack,Speed,,,,,,
+Gliscor,103,stat_alignment,6,Naive,1.0%,Speed,Sp. Def,,,,,,
 Gliscor,103,stat_alignment,7,Naughty,1.0%,Attack,Sp. Def,,,,,,
-Gliscor,103,stat_alignment,8,Relaxed,0.5%,Defense,Speed,,,,,,
+Gliscor,103,stat_alignment,8,Relaxed,1.0%,Defense,Speed,,,,,,
 Gliscor,103,stat_alignment,9,Hasty,0.5%,Speed,Defense,,,,,,
-Gliscor,103,stat_alignment,10,Sassy,0.0%,Sp. Def,Speed,,,,,,
-Gliscor,103,stat_points,1,,19.1%,,,2,32,0,0,0,32
+Gliscor,103,stat_alignment,10,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Gliscor,103,stat_points,1,,18.9%,,,2,32,0,0,0,32
 Gliscor,103,stat_points,2,,6.3%,,,0,32,0,0,2,32
-Gliscor,103,stat_points,3,,5.3%,,,0,32,2,0,0,32
+Gliscor,103,stat_points,3,,5.4%,,,0,32,2,0,0,32
 Gliscor,103,stat_points,4,,3.9%,,,0,32,15,0,19,0
 Gliscor,103,stat_points,5,,3.7%,,,32,32,0,0,2,0
-Gliscor,103,stat_points,6,,2.6%,,,2,32,0,0,32,0
+Gliscor,103,stat_points,6,,2.7%,,,2,32,0,0,32,0
 Gliscor,103,stat_points,7,,1.9%,,,0,32,32,0,0,2
-Gliscor,103,stat_points,8,,1.8%,,,0,32,2,0,32,0
+Gliscor,103,stat_points,8,,1.8%,,,2,32,32,0,0,0
 Gliscor,103,stat_points,9,,1.8%,,,0,32,0,0,0,32
-Gliscor,103,stat_points,10,,1.7%,,,2,32,32,0,0,0
-Gliscor,103,ability,1,Hyper Cutter,68.4%,,,,,,,,
-Gliscor,103,ability,2,Sand Veil,16.1%,,,,,,,,
-Gliscor,103,ability,3,Poison Heal,15.5%,,,,,,,,
+Gliscor,103,stat_points,10,,1.8%,,,0,32,2,0,32,0
+Gliscor,103,ability,1,Hyper Cutter,68.0%,,,,,,,,
+Gliscor,103,ability,2,Sand Veil,16.2%,,,,,,,,
+Gliscor,103,ability,3,Poison Heal,15.8%,,,,,,,,

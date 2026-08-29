@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tyrantrum,141,move,1,Rock Slide,72.6%,,,,,,,,
-Tyrantrum,141,move,2,Psychic Fangs,72.3%,,,,,,,,
-Tyrantrum,141,move,3,Ice Fang,71.6%,,,,,,,,
-Tyrantrum,141,move,4,High Horsepower,53.9%,,,,,,,,
-Tyrantrum,141,move,5,Head Smash,22.3%,,,,,,,,
-Tyrantrum,141,move,6,Protect,16.9%,,,,,,,,
-Tyrantrum,141,move,7,Crunch,15.2%,,,,,,,,
-Tyrantrum,141,move,8,Close Combat,8.8%,,,,,,,,
-Tyrantrum,141,move,9,Dragon Claw,8.7%,,,,,,,,
-Tyrantrum,141,move,10,Thunder Fang,7.4%,,,,,,,,
-Tyrantrum,141,held_item,1,Choice Scarf,66.3%,,,,,,,,
-Tyrantrum,141,held_item,2,Life Orb,9.2%,,,,,,,,
-Tyrantrum,141,held_item,3,Focus Sash,4.8%,,,,,,,,
+Tyrantrum,141,move,1,Rock Slide,72.1%,,,,,,,,
+Tyrantrum,141,move,2,Psychic Fangs,71.8%,,,,,,,,
+Tyrantrum,141,move,3,Ice Fang,71.2%,,,,,,,,
+Tyrantrum,141,move,4,High Horsepower,53.4%,,,,,,,,
+Tyrantrum,141,move,5,Head Smash,22.6%,,,,,,,,
+Tyrantrum,141,move,6,Protect,17.1%,,,,,,,,
+Tyrantrum,141,move,7,Crunch,15.4%,,,,,,,,
+Tyrantrum,141,move,8,Dragon Claw,8.9%,,,,,,,,
+Tyrantrum,141,move,9,Close Combat,8.9%,,,,,,,,
+Tyrantrum,141,move,10,Thunder Fang,7.6%,,,,,,,,
+Tyrantrum,141,held_item,1,Choice Scarf,65.7%,,,,,,,,
+Tyrantrum,141,held_item,2,Life Orb,9.3%,,,,,,,,
+Tyrantrum,141,held_item,3,Focus Sash,4.9%,,,,,,,,
 Tyrantrum,141,held_item,4,Expert Belt,8.7%,,,,,,,,
 Tyrantrum,141,held_item,5,Quick Claw,2.5%,,,,,,,,
-Tyrantrum,141,held_item,6,Wide Lens,2.4%,,,,,,,,
-Tyrantrum,141,held_item,7,Sitrus Berry,2.2%,,,,,,,,
+Tyrantrum,141,held_item,6,Wide Lens,2.5%,,,,,,,,
+Tyrantrum,141,held_item,7,Sitrus Berry,2.3%,,,,,,,,
 Tyrantrum,141,held_item,8,Muscle Band,1.7%,,,,,,,,
 Tyrantrum,141,held_item,9,Hard Stone,1.4%,,,,,,,,
 Tyrantrum,141,held_item,10,Leftovers,1.1%,,,,,,,,
@@ -29,25 +29,25 @@ Tyrantrum,141,teammate,7,Farigiraf,,,,,,,,,
 Tyrantrum,141,teammate,8,Sinistcha,,,,,,,,,
 Tyrantrum,141,teammate,9,Whimsicott,,,,,,,,,
 Tyrantrum,141,teammate,10,Aerodactyl,,,,,,,,,
-Tyrantrum,141,stat_alignment,1,Jolly,65.6%,Speed,Sp. Atk,,,,,,
-Tyrantrum,141,stat_alignment,2,Adamant,21.9%,Attack,Sp. Atk,,,,,,
+Tyrantrum,141,stat_alignment,1,Jolly,65.1%,Speed,Sp. Atk,,,,,,
+Tyrantrum,141,stat_alignment,2,Adamant,22.3%,Attack,Sp. Atk,,,,,,
 Tyrantrum,141,stat_alignment,3,Brave,5.8%,Attack,Speed,,,,,,
 Tyrantrum,141,stat_alignment,4,Careful,1.8%,Sp. Def,Sp. Atk,,,,,,
-Tyrantrum,141,stat_alignment,5,Sassy,0.0%,Sp. Def,Speed,,,,,,
-Tyrantrum,141,stat_alignment,6,Impish,2.0%,Defense,Sp. Atk,,,,,,
-Tyrantrum,141,stat_alignment,7,Naive,0.7%,Speed,Sp. Def,,,,,,
-Tyrantrum,141,stat_alignment,8,Naughty,0.7%,Attack,Sp. Def,,,,,,
+Tyrantrum,141,stat_alignment,5,Sassy,0.8%,Sp. Def,Speed,,,,,,
+Tyrantrum,141,stat_alignment,6,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Tyrantrum,141,stat_alignment,7,Naughty,0.7%,Attack,Sp. Def,,,,,,
+Tyrantrum,141,stat_alignment,8,Naive,0.7%,Speed,Sp. Def,,,,,,
 Tyrantrum,141,stat_alignment,9,Relaxed,0.4%,Defense,Speed,,,,,,
 Tyrantrum,141,stat_alignment,10,Lonely,0.0%,Attack,Defense,,,,,,
-Tyrantrum,141,stat_points,1,,48.6%,,,16,18,0,0,0,32
-Tyrantrum,141,stat_points,2,,11.6%,,,2,32,0,0,0,32
-Tyrantrum,141,stat_points,3,,4.2%,,,0,32,0,0,2,32
+Tyrantrum,141,stat_points,1,,48.0%,,,16,18,0,0,0,32
+Tyrantrum,141,stat_points,2,,11.7%,,,2,32,0,0,0,32
+Tyrantrum,141,stat_points,3,,4.3%,,,0,32,0,0,2,32
 Tyrantrum,141,stat_points,4,,3.7%,,,0,32,2,0,0,32
 Tyrantrum,141,stat_points,5,,3.0%,,,32,32,0,0,2,0
 Tyrantrum,141,stat_points,6,,1.5%,,,2,32,32,0,0,0
-Tyrantrum,141,stat_points,7,,1.1%,,,2,32,0,0,32,0
-Tyrantrum,141,stat_points,8,,1.0%,,,0,32,32,0,2,0
-Tyrantrum,141,stat_points,9,,1.0%,,,0,32,2,0,32,0
-Tyrantrum,141,stat_points,10,,0.7%,,,1,32,0,0,1,32
-Tyrantrum,141,ability,1,Strong Jaw,80.8%,,,,,,,,
-Tyrantrum,141,ability,2,Rock Head,19.2%,,,,,,,,
+Tyrantrum,141,stat_points,7,,1.2%,,,2,32,0,0,32,0
+Tyrantrum,141,stat_points,8,,1.1%,,,0,32,2,0,32,0
+Tyrantrum,141,stat_points,9,,1.0%,,,0,32,32,0,2,0
+Tyrantrum,141,stat_points,10,,0.7%,,,0,32,32,0,0,2
+Tyrantrum,141,ability,1,Strong Jaw,80.5%,,,,,,,,
+Tyrantrum,141,ability,2,Rock Head,19.5%,,,,,,,,

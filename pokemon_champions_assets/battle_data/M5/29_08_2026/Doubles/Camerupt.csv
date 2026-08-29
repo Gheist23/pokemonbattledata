@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Camerupt,59,move,1,Earth Power,96.4%,,,,,,,,
 Camerupt,59,move,2,Protect,88.5%,,,,,,,,
-Camerupt,59,move,3,Heat Wave,81.6%,,,,,,,,
+Camerupt,59,move,3,Heat Wave,81.5%,,,,,,,,
 Camerupt,59,move,4,Ancient Power,72.7%,,,,,,,,
 Camerupt,59,move,5,Eruption,36.6%,,,,,,,,
 Camerupt,59,move,6,Flamethrower,3.7%,,,,,,,,
-Camerupt,59,move,7,Flash Cannon,3.5%,,,,,,,,
+Camerupt,59,move,7,Flash Cannon,3.6%,,,,,,,,
 Camerupt,59,move,8,Rock Slide,3.2%,,,,,,,,
 Camerupt,59,move,9,Solar Beam,2.6%,,,,,,,,
 Camerupt,59,move,10,Earthquake,1.4%,,,,,,,,
-Camerupt,59,held_item,1,Cameruptite,96.1%,,,,,,,,
+Camerupt,59,held_item,1,Cameruptite,96.0%,,,,,,,,
 Camerupt,59,held_item,2,Charcoal,0.8%,,,,,,,,
 Camerupt,59,held_item,3,Quick Claw,0.4%,,,,,,,,
 Camerupt,59,held_item,4,Life Orb,0.4%,,,,,,,,
@@ -29,19 +29,19 @@ Camerupt,59,teammate,7,Sinistcha,,,,,,,,,
 Camerupt,59,teammate,8,Sneasler,,,,,,,,,
 Camerupt,59,teammate,9,Incineroar,,,,,,,,,
 Camerupt,59,teammate,10,Torkoal,,,,,,,,,
-Camerupt,59,stat_alignment,1,Quiet,88.0%,Sp. Atk,Speed,,,,,,
-Camerupt,59,stat_alignment,2,Modest,7.6%,Sp. Atk,Attack,,,,,,
+Camerupt,59,stat_alignment,1,Quiet,87.9%,Sp. Atk,Speed,,,,,,
+Camerupt,59,stat_alignment,2,Modest,7.1%,Sp. Atk,Attack,,,,,,
 Camerupt,59,stat_alignment,3,Relaxed,1.0%,Defense,Speed,,,,,,
 Camerupt,59,stat_alignment,4,Calm,0.8%,Sp. Def,Attack,,,,,,
 Camerupt,59,stat_alignment,5,Sassy,0.7%,Sp. Def,Speed,,,,,,
-Camerupt,59,stat_alignment,6,Brave,6.0%,Attack,Speed,,,,,,
-Camerupt,59,stat_alignment,7,Jolly,0.4%,Speed,Sp. Atk,,,,,,
-Camerupt,59,stat_alignment,8,Bold,0.3%,Defense,Attack,,,,,,
-Camerupt,59,stat_alignment,9,Mild,0.3%,Sp. Atk,Defense,,,,,,
-Camerupt,59,stat_alignment,10,Adamant,0.3%,Attack,Sp. Atk,,,,,,
-Camerupt,59,stat_points,1,,40.1%,,,32,0,2,32,0,0
-Camerupt,59,stat_points,2,,30.3%,,,32,0,0,32,2,0
-Camerupt,59,stat_points,3,,3.0%,,,32,0,1,32,1,0
+Camerupt,59,stat_alignment,6,Jolly,0.4%,Speed,Sp. Atk,,,,,,
+Camerupt,59,stat_alignment,7,Brave,0.4%,Attack,Speed,,,,,,
+Camerupt,59,stat_alignment,8,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Camerupt,59,stat_alignment,9,Bold,0.3%,Defense,Attack,,,,,,
+Camerupt,59,stat_alignment,10,Adamant,0.2%,Attack,Sp. Atk,,,,,,
+Camerupt,59,stat_points,1,,40.2%,,,32,0,2,32,0,0
+Camerupt,59,stat_points,2,,30.2%,,,32,0,0,32,2,0
+Camerupt,59,stat_points,3,,2.9%,,,32,0,1,32,1,0
 Camerupt,59,stat_points,4,,2.2%,,,32,0,0,32,0,0
 Camerupt,59,stat_points,5,,1.4%,,,29,0,0,32,0,5
 Camerupt,59,stat_points,6,,1.0%,,,0,0,32,32,2,0
@@ -49,6 +49,6 @@ Camerupt,59,stat_points,7,,1.0%,,,30,0,4,32,0,0
 Camerupt,59,stat_points,8,,1.0%,,,0,0,2,32,32,0
 Camerupt,59,stat_points,9,,0.8%,,,19,0,10,32,5,0
 Camerupt,59,stat_points,10,,0.7%,,,32,0,0,32,0,2
-Camerupt,59,ability,1,Solid Rock,91.4%,,,,,,,,
-Camerupt,59,ability,2,Magma Armor,4.3%,,,,,,,,
-Camerupt,59,ability,3,Anger Point,4.3%,,,,,,,,
+Camerupt,59,ability,1,Solid Rock,91.3%,,,,,,,,
+Camerupt,59,ability,2,Anger Point,4.4%,,,,,,,,
+Camerupt,59,ability,3,Magma Armor,4.3%,,,,,,,,

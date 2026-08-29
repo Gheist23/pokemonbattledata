@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dragonite,9,move,1,Flamethrower,61.3%,,,,,,,,
-Dragonite,9,move,2,Draco Meteor,53.8%,,,,,,,,
-Dragonite,9,move,3,Roost,46.6%,,,,,,,,
-Dragonite,9,move,4,Air Slash,43.7%,,,,,,,,
-Dragonite,9,move,5,Extreme Speed,43.3%,,,,,,,,
+Dragonite,9,move,1,Flamethrower,61.1%,,,,,,,,
+Dragonite,9,move,2,Draco Meteor,53.7%,,,,,,,,
+Dragonite,9,move,3,Roost,46.4%,,,,,,,,
+Dragonite,9,move,4,Air Slash,43.6%,,,,,,,,
+Dragonite,9,move,5,Extreme Speed,43.4%,,,,,,,,
 Dragonite,9,move,6,Thunderbolt,38.3%,,,,,,,,
 Dragonite,9,move,7,Dragon Pulse,23.2%,,,,,,,,
-Dragonite,9,move,8,Earthquake,16.8%,,,,,,,,
+Dragonite,9,move,8,Earthquake,16.9%,,,,,,,,
 Dragonite,9,move,9,Dragon Dance,14.2%,,,,,,,,
-Dragonite,9,move,10,Outrage,10.3%,,,,,,,,
-Dragonite,9,held_item,1,Dragoninite,77.4%,,,,,,,,
-Dragonite,9,held_item,2,Lum Berry,6.6%,,,,,,,,
+Dragonite,9,move,10,Outrage,10.4%,,,,,,,,
+Dragonite,9,held_item,1,Dragoninite,77.3%,,,,,,,,
+Dragonite,9,held_item,2,Lum Berry,6.7%,,,,,,,,
 Dragonite,9,held_item,3,Expert Belt,4.0%,,,,,,,,
 Dragonite,9,held_item,4,Life Orb,3.9%,,,,,,,,
-Dragonite,9,held_item,5,Leftovers,2.3%,,,,,,,,
+Dragonite,9,held_item,5,Leftovers,2.2%,,,,,,,,
 Dragonite,9,held_item,6,White Herb,1.1%,,,,,,,,
 Dragonite,9,held_item,7,Sitrus Berry,0.9%,,,,,,,,
 Dragonite,9,held_item,8,Choice Scarf,0.6%,,,,,,,,
@@ -30,7 +30,7 @@ Dragonite,9,teammate,8,Archaludon,,,,,,,,,
 Dragonite,9,teammate,9,Aegislash Shield Forme,,,,,,,,,
 Dragonite,9,teammate,10,Hydreigon,,,,,,,,,
 Dragonite,9,stat_alignment,1,Modest,41.7%,Sp. Atk,Attack,,,,,,
-Dragonite,9,stat_alignment,2,Timid,34.8%,Speed,Attack,,,,,,
+Dragonite,9,stat_alignment,2,Timid,34.7%,Speed,Attack,,,,,,
 Dragonite,9,stat_alignment,3,Adamant,10.4%,Attack,Sp. Atk,,,,,,
 Dragonite,9,stat_alignment,4,Jolly,7.3%,Speed,Sp. Atk,,,,,,
 Dragonite,9,stat_alignment,5,Quiet,2.0%,Sp. Atk,Speed,,,,,,
@@ -38,12 +38,12 @@ Dragonite,9,stat_alignment,6,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,
 Dragonite,9,stat_alignment,7,Naive,0.4%,Speed,Sp. Def,,,,,,
 Dragonite,9,stat_alignment,8,Mild,0.4%,Sp. Atk,Defense,,,,,,
 Dragonite,9,stat_alignment,9,Hasty,0.4%,Speed,Defense,,,,,,
-Dragonite,9,stat_alignment,10,Calm,0.4%,Sp. Def,Attack,,,,,,
+Dragonite,9,stat_alignment,10,Calm,0.0%,Sp. Def,Attack,,,,,,
 Dragonite,9,stat_points,1,,23.1%,,,2,0,0,32,0,32
-Dragonite,9,stat_points,2,,19.1%,,,1,0,1,32,0,32
-Dragonite,9,stat_points,3,,6.6%,,,1,0,0,32,1,32
+Dragonite,9,stat_points,2,,19.0%,,,1,0,1,32,0,32
+Dragonite,9,stat_points,3,,6.5%,,,1,0,0,32,1,32
 Dragonite,9,stat_points,4,,6.1%,,,2,32,0,0,0,32
-Dragonite,9,stat_points,5,,4.0%,,,1,32,1,0,0,32
+Dragonite,9,stat_points,5,,4.1%,,,1,32,1,0,0,32
 Dragonite,9,stat_points,6,,1.4%,,,17,0,1,24,1,23
 Dragonite,9,stat_points,7,,1.4%,,,1,32,0,0,1,32
 Dragonite,9,stat_points,8,,1.3%,,,9,0,0,25,0,32

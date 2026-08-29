@@ -1,49 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gourgeist,230,move,6,Ally Switch,20.6%,,,,,,,,
+Gourgeist,230,move,1,Trick-or-Treat,63.7%,,,,,,,,
+Gourgeist,230,move,2,Poltergeist,51.0%,,,,,,,,
+Gourgeist,230,move,3,Trick Room,43.2%,,,,,,,,
+Gourgeist,230,move,4,Will-O-Wisp,38.6%,,,,,,,,
+Gourgeist,230,move,5,Protect,25.4%,,,,,,,,
+Gourgeist,230,move,6,Ally Switch,20.0%,,,,,,,,
 Gourgeist,230,move,7,Power Whip,19.2%,,,,,,,,
-Gourgeist,230,move,8,Leech Seed,18.3%,,,,,,,,
-Gourgeist,230,move,9,Explosion,16.3%,,,,,,,,
-Gourgeist,230,move,10,Trick,14.5%,,,,,,,,
-Gourgeist,230,held_item,1,Choice Scarf,38.5%,,,,,,,,
-Gourgeist,230,held_item,2,Focus Sash,13.8%,,,,,,,,
-Gourgeist,230,held_item,3,Sitrus Berry,12.5%,,,,,,,,
-Gourgeist,230,held_item,4,Leftovers,12.2%,,,,,,,,
-Gourgeist,230,held_item,5,Life Orb,4.2%,,,,,,,,
-Gourgeist,230,held_item,6,Occa Berry,4.1%,,,,,,,,
-Gourgeist,230,held_item,7,Coba Berry,3.1%,,,,,,,,
-Gourgeist,230,held_item,8,Quick Claw,3.0%,,,,,,,,
-Gourgeist,230,held_item,9,Big Root,2.9%,,,,,,,,
-Gourgeist,230,held_item,10,Wide Lens,1.0%,,,,,,,,
+Gourgeist,230,move,8,Leech Seed,18.1%,,,,,,,,
+Gourgeist,230,move,9,Explosion,17.2%,,,,,,,,
+Gourgeist,230,move,10,Trick,14.6%,,,,,,,,
+Gourgeist,230,held_item,1,Choice Scarf,38.3%,,,,,,,,
+Gourgeist,230,held_item,2,Focus Sash,14.7%,,,,,,,,
+Gourgeist,230,held_item,3,Leftovers,12.3%,,,,,,,,
+Gourgeist,230,held_item,4,Sitrus Berry,12.1%,,,,,,,,
+Gourgeist,230,held_item,5,Life Orb,4.4%,,,,,,,,
+Gourgeist,230,held_item,6,Occa Berry,4.0%,,,,,,,,
+Gourgeist,230,held_item,7,Quick Claw,3.2%,,,,,,,,
+Gourgeist,230,held_item,8,Coba Berry,3.0%,,,,,,,,
+Gourgeist,230,held_item,9,Big Root,2.7%,,,,,,,,
+Gourgeist,230,held_item,10,Wide Lens,2.6%,,,,,,,,
 Gourgeist,230,teammate,1,Tyranitar,,,,,,,,,
 Gourgeist,230,teammate,2,Whimsicott,,,,,,,,,
 Gourgeist,230,teammate,3,Kingambit,,,,,,,,,
 Gourgeist,230,teammate,4,Sinistcha,,,,,,,,,
 Gourgeist,230,teammate,5,Garchomp,,,,,,,,,
-Gourgeist,230,teammate,6,Basculegion Male,,,,,,,,,
-Gourgeist,230,teammate,7,Sneasler,,,,,,,,,
+Gourgeist,230,teammate,6,Sneasler,,,,,,,,,
+Gourgeist,230,teammate,7,Basculegion Male,,,,,,,,,
 Gourgeist,230,teammate,8,Excadrill,,,,,,,,,
 Gourgeist,230,teammate,9,Farigiraf,,,,,,,,,
-Gourgeist,230,teammate,10,Incineroar,,,,,,,,,
-Gourgeist,230,stat_alignment,1,Jolly,26.4%,Speed,Sp. Atk,,,,,,
-Gourgeist,230,stat_alignment,2,Adamant,17.7%,Attack,Sp. Atk,,,,,,
+Gourgeist,230,teammate,10,Metagross,,,,,,,,,
+Gourgeist,230,stat_alignment,1,Jolly,26.5%,Speed,Sp. Atk,,,,,,
+Gourgeist,230,stat_alignment,2,Adamant,18.3%,Attack,Sp. Atk,,,,,,
 Gourgeist,230,stat_alignment,3,Sassy,10.7%,Sp. Def,Speed,,,,,,
-Gourgeist,230,stat_alignment,4,Relaxed,9.9%,Defense,Speed,,,,,,
-Gourgeist,230,stat_alignment,5,Impish,8.7%,Defense,Sp. Atk,,,,,,
-Gourgeist,230,stat_alignment,6,Brave,8.4%,Attack,Speed,,,,,,
-Gourgeist,230,stat_alignment,7,Careful,6.8%,Sp. Def,Sp. Atk,,,,,,
+Gourgeist,230,stat_alignment,4,Relaxed,9.4%,Defense,Speed,,,,,,
+Gourgeist,230,stat_alignment,5,Impish,8.6%,Defense,Sp. Atk,,,,,,
+Gourgeist,230,stat_alignment,6,Brave,8.5%,Attack,Speed,,,,,,
+Gourgeist,230,stat_alignment,7,Careful,6.6%,Sp. Def,Sp. Atk,,,,,,
 Gourgeist,230,stat_alignment,8,Timid,3.3%,Speed,Attack,,,,,,
 Gourgeist,230,stat_alignment,9,Hasty,2.0%,Speed,Defense,,,,,,
 Gourgeist,230,stat_alignment,10,Naughty,1.0%,Attack,Sp. Def,,,,,,
-Gourgeist,230,stat_points,1,,11.1%,,,32,0,0,0,2,32
-Gourgeist,230,stat_points,2,,10.1%,,,2,32,0,0,0,32
-Gourgeist,230,stat_points,3,,7.1%,,,32,0,2,0,32,0
-Gourgeist,230,stat_points,4,,4.8%,,,32,0,2,0,0,32
+Gourgeist,230,stat_points,1,,10.9%,,,2,32,0,0,0,32
+Gourgeist,230,stat_points,2,,10.9%,,,32,0,0,0,2,32
+Gourgeist,230,stat_points,3,,7.0%,,,32,0,2,0,32,0
+Gourgeist,230,stat_points,4,,4.9%,,,32,0,2,0,0,32
 Gourgeist,230,stat_points,5,,3.6%,,,32,0,0,0,0,32
-Gourgeist,230,stat_points,6,,2.7%,,,2,31,13,0,20,0
-Gourgeist,230,stat_points,7,,2.6%,,,32,0,32,0,0,0
-Gourgeist,230,stat_points,8,,2.6%,,,12,3,19,0,32,0
-Gourgeist,230,stat_points,9,,2.6%,,,0,32,0,0,32,2
-Gourgeist,230,stat_points,10,,2.4%,,,21,13,32,0,0,0
-Gourgeist,230,ability,1,Frisk,69.3%,,,,,,,,
+Gourgeist,230,stat_points,6,,2.8%,,,32,0,32,0,0,0
+Gourgeist,230,stat_points,7,,2.7%,,,2,31,13,0,20,0
+Gourgeist,230,stat_points,8,,2.5%,,,0,32,0,0,32,2
+Gourgeist,230,stat_points,9,,2.4%,,,12,3,19,0,32,0
+Gourgeist,230,stat_points,10,,2.3%,,,21,13,32,0,0,0
+Gourgeist,230,ability,1,Frisk,69.8%,,,,,,,,
 Gourgeist,230,ability,2,Insomnia,16.6%,,,,,,,,
-Gourgeist,230,ability,3,Pickup,14.1%,,,,,,,,
+Gourgeist,230,ability,3,Pickup,13.6%,,,,,,,,

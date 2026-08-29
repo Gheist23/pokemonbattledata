@@ -1,15 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Floette,28,move,1,Protect,97.3%,,,,,,,,
-Floette,28,move,2,Dazzling Gleam,95.4%,,,,,,,,
-Floette,28,move,3,Moonblast,66.3%,,,,,,,,
-Floette,28,move,4,Light of Ruin,49.6%,,,,,,,,
-Floette,28,move,5,Calm Mind,47.6%,,,,,,,,
 Floette,28,move,6,Draining Kiss,30.0%,,,,,,,,
 Floette,28,move,7,Psychic,4.3%,,,,,,,,
 Floette,28,move,8,Helping Hand,2.8%,,,,,,,,
 Floette,28,move,9,Giga Drain,1.8%,,,,,,,,
 Floette,28,move,10,Energy Ball,1.1%,,,,,,,,
-Floette,28,held_item,1,Floettite,98.9%,,,,,,,,
+Floette,28,held_item,1,Floettite,99.0%,,,,,,,,
 Floette,28,held_item,2,Choice Scarf,0.5%,,,,,,,,
 Floette,28,held_item,3,Fairy Feather,0.2%,,,,,,,,
 Floette,28,held_item,4,Life Orb,0.0%,,,,,,,,
@@ -29,9 +24,9 @@ Floette,28,teammate,7,Sinistcha,,,,,,,,,
 Floette,28,teammate,8,Sneasler,,,,,,,,,
 Floette,28,teammate,9,Delphox,,,,,,,,,
 Floette,28,teammate,10,Farigiraf,,,,,,,,,
-Floette,28,stat_alignment,1,Modest,57.2%,Sp. Atk,Attack,,,,,,
-Floette,28,stat_alignment,2,Timid,40.1%,Speed,Attack,,,,,,
-Floette,28,stat_alignment,3,Bold,2.0%,Defense,Attack,,,,,,
+Floette,28,stat_alignment,1,Modest,57.3%,Sp. Atk,Attack,,,,,,
+Floette,28,stat_alignment,2,Timid,40.0%,Speed,Attack,,,,,,
+Floette,28,stat_alignment,3,Bold,2.1%,Defense,Attack,,,,,,
 Floette,28,stat_alignment,4,Quiet,0.5%,Sp. Atk,Speed,,,,,,
 Floette,28,stat_alignment,5,Calm,0.0%,Sp. Def,Attack,,,,,,
 Floette,28,stat_alignment,6,Brave,0.0%,Attack,Speed,,,,,,
@@ -39,7 +34,7 @@ Floette,28,stat_alignment,7,Relaxed,0.0%,Defense,Speed,,,,,,
 Floette,28,stat_alignment,8,Jolly,0.0%,Speed,Sp. Atk,,,,,,
 Floette,28,stat_alignment,9,Adamant,0.0%,Attack,Sp. Atk,,,,,,
 Floette,28,stat_alignment,10,Mild,0.0%,Sp. Atk,Defense,,,,,,
-Floette,28,stat_points,1,,25.8%,,,2,0,0,32,0,32
+Floette,28,stat_points,1,,25.9%,,,2,0,0,32,0,32
 Floette,28,stat_points,2,,7.2%,,,1,0,1,32,0,32
 Floette,28,stat_points,3,,6.2%,,,10,0,23,1,0,32
 Floette,28,stat_points,4,,3.6%,,,8,0,1,25,0,32

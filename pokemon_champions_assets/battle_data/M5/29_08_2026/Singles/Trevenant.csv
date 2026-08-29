@@ -1,49 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Trevenant,169,move,1,Leech Seed,77.2%,,,,,,,,
+Trevenant,169,move,2,Horn Leech,59.7%,,,,,,,,
+Trevenant,169,move,3,Protect,55.7%,,,,,,,,
+Trevenant,169,move,4,Will-O-Wisp,55.3%,,,,,,,,
+Trevenant,169,move,5,Curse,32.7%,,,,,,,,
 Trevenant,169,move,6,Poltergeist,19.1%,,,,,,,,
-Trevenant,169,move,7,Substitute,14.8%,,,,,,,,
+Trevenant,169,move,7,Substitute,14.6%,,,,,,,,
 Trevenant,169,move,8,Toxic,9.9%,,,,,,,,
 Trevenant,169,move,9,Rest,7.2%,,,,,,,,
-Trevenant,169,move,10,Phantom Force,6.4%,,,,,,,,
-Trevenant,169,held_item,1,Sitrus Berry,85.3%,,,,,,,,
-Trevenant,169,held_item,2,Chesto Berry,4.4%,,,,,,,,
-Trevenant,169,held_item,3,Lum Berry,3.1%,,,,,,,,
-Trevenant,169,held_item,4,Focus Sash,1.4%,,,,,,,,
+Trevenant,169,move,10,Phantom Force,6.3%,,,,,,,,
+Trevenant,169,held_item,1,Sitrus Berry,85.4%,,,,,,,,
+Trevenant,169,held_item,2,Chesto Berry,4.3%,,,,,,,,
+Trevenant,169,held_item,3,Lum Berry,3.2%,,,,,,,,
+Trevenant,169,held_item,4,Focus Sash,1.5%,,,,,,,,
 Trevenant,169,held_item,5,Leftovers,1.3%,,,,,,,,
 Trevenant,169,held_item,6,Spell Tag,0.8%,,,,,,,,
 Trevenant,169,held_item,7,Quick Claw,0.6%,,,,,,,,
-Trevenant,169,held_item,8,Occa Berry,0.5%,,,,,,,,
-Trevenant,169,held_item,9,Muscle Band,0.5%,,,,,,,,
+Trevenant,169,held_item,8,Muscle Band,0.5%,,,,,,,,
+Trevenant,169,held_item,9,Occa Berry,0.5%,,,,,,,,
 Trevenant,169,held_item,10,Big Root,0.5%,,,,,,,,
 Trevenant,169,teammate,1,Garchomp,,,,,,,,,
 Trevenant,169,teammate,2,Charizard,,,,,,,,,
 Trevenant,169,teammate,3,Mimikyu,,,,,,,,,
 Trevenant,169,teammate,4,Gyarados,,,,,,,,,
 Trevenant,169,teammate,5,Toxapex,,,,,,,,,
-Trevenant,169,teammate,6,Tyranitar,,,,,,,,,
-Trevenant,169,teammate,7,Raichu,,,,,,,,,
+Trevenant,169,teammate,6,Raichu,,,,,,,,,
+Trevenant,169,teammate,7,Tyranitar,,,,,,,,,
 Trevenant,169,teammate,8,Archaludon,,,,,,,,,
 Trevenant,169,teammate,9,Basculegion Male,,,,,,,,,
 Trevenant,169,teammate,10,Greninja,,,,,,,,,
-Trevenant,169,stat_alignment,1,Impish,48.4%,Defense,Sp. Atk,,,,,,
-Trevenant,169,stat_alignment,2,Careful,19.3%,Sp. Def,Sp. Atk,,,,,,
-Trevenant,169,stat_alignment,3,Bold,9.3%,Defense,Attack,,,,,,
+Trevenant,169,stat_alignment,1,Impish,48.5%,Defense,Sp. Atk,,,,,,
+Trevenant,169,stat_alignment,2,Careful,19.4%,Sp. Def,Sp. Atk,,,,,,
+Trevenant,169,stat_alignment,3,Bold,9.2%,Defense,Attack,,,,,,
 Trevenant,169,stat_alignment,4,Adamant,9.0%,Attack,Sp. Atk,,,,,,
-Trevenant,169,stat_alignment,5,Relaxed,4.1%,Defense,Speed,,,,,,
+Trevenant,169,stat_alignment,5,Relaxed,4.0%,Defense,Speed,,,,,,
 Trevenant,169,stat_alignment,6,Calm,2.5%,Sp. Def,Attack,,,,,,
 Trevenant,169,stat_alignment,7,Brave,2.1%,Attack,Speed,,,,,,
 Trevenant,169,stat_alignment,8,Sassy,2.0%,Sp. Def,Speed,,,,,,
-Trevenant,169,stat_alignment,9,Jolly,2.0%,Speed,Sp. Atk,,,,,,
-Trevenant,169,stat_alignment,10,Timid,1.0%,Speed,Attack,,,,,,
-Trevenant,169,stat_points,1,,30.0%,,,32,0,32,0,2,0
-Trevenant,169,stat_points,2,,7.0%,,,32,0,2,0,32,0
+Trevenant,169,stat_alignment,9,Jolly,1.0%,Speed,Sp. Atk,,,,,,
+Trevenant,169,stat_alignment,10,Timid,0.4%,Speed,Attack,,,,,,
+Trevenant,169,stat_points,1,,30.2%,,,32,0,32,0,2,0
+Trevenant,169,stat_points,2,,7.1%,,,32,0,2,0,32,0
 Trevenant,169,stat_points,3,,3.6%,,,2,0,32,0,32,0
 Trevenant,169,stat_points,4,,3.2%,,,32,0,24,0,10,0
-Trevenant,169,stat_points,5,,2.8%,,,32,0,32,0,0,0
+Trevenant,169,stat_points,5,,2.7%,,,32,32,0,0,2,0
 Trevenant,169,stat_points,6,,2.5%,,,32,32,2,0,0,0
 Trevenant,169,stat_points,7,,2.4%,,,32,2,32,0,0,0
 Trevenant,169,stat_points,8,,1.4%,,,32,0,14,0,20,0
 Trevenant,169,stat_points,9,,1.4%,,,2,32,32,0,0,0
-Trevenant,169,stat_points,10,,1.2%,,,32,0,0,0,32,0
+Trevenant,169,stat_points,10,,1.3%,,,32,0,0,0,32,0
 Trevenant,169,ability,1,Harvest,94.5%,,,,,,,,
-Trevenant,169,ability,2,Frisk,2.8%,,,,,,,,
-Trevenant,169,ability,3,Natural Cure,2.7%,,,,,,,,
+Trevenant,169,ability,2,Frisk,2.9%,,,,,,,,
+Trevenant,169,ability,3,Natural Cure,2.6%,,,,,,,,

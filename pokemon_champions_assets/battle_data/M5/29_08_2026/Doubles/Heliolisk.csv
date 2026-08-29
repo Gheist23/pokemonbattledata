@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Heliolisk,92,move,1,Thunderbolt,68.7%,,,,,,,,
-Heliolisk,92,move,2,Hyper Voice,42.7%,,,,,,,,
-Heliolisk,92,move,3,Protect,38.8%,,,,,,,,
-Heliolisk,92,move,4,Shed Tail,33.7%,,,,,,,,
+Heliolisk,92,move,1,Thunderbolt,68.5%,,,,,,,,
+Heliolisk,92,move,2,Hyper Voice,42.6%,,,,,,,,
+Heliolisk,92,move,3,Protect,39.0%,,,,,,,,
+Heliolisk,92,move,4,Shed Tail,33.5%,,,,,,,,
 Heliolisk,92,move,5,Grass Knot,29.0%,,,,,,,,
-Heliolisk,92,move,6,Surf,24.1%,,,,,,,,
-Heliolisk,92,move,7,Ally Switch,20.6%,,,,,,,,
+Heliolisk,92,move,6,Surf,23.8%,,,,,,,,
+Heliolisk,92,move,7,Ally Switch,20.7%,,,,,,,,
 Heliolisk,92,move,8,Volt Switch,20.5%,,,,,,,,
-Heliolisk,92,move,9,Thunder,13.6%,,,,,,,,
-Heliolisk,92,move,10,Dragon Pulse,13.4%,,,,,,,,
-Heliolisk,92,held_item,1,Choice Scarf,34.1%,,,,,,,,
+Heliolisk,92,move,9,Thunder,13.7%,,,,,,,,
+Heliolisk,92,move,10,Dragon Pulse,13.3%,,,,,,,,
+Heliolisk,92,held_item,1,Choice Scarf,33.8%,,,,,,,,
 Heliolisk,92,held_item,2,Life Orb,16.6%,,,,,,,,
-Heliolisk,92,held_item,3,Focus Sash,15.7%,,,,,,,,
+Heliolisk,92,held_item,3,Focus Sash,15.8%,,,,,,,,
 Heliolisk,92,held_item,4,Magnet,7.6%,,,,,,,,
 Heliolisk,92,held_item,5,Sitrus Berry,7.4%,,,,,,,,
-Heliolisk,92,held_item,6,Leftovers,9.9%,,,,,,,,
-Heliolisk,92,held_item,7,Expert Belt,2.5%,,,,,,,,
+Heliolisk,92,held_item,6,Leftovers,3.0%,,,,,,,,
+Heliolisk,92,held_item,7,Expert Belt,9.5%,,,,,,,,
 Heliolisk,92,held_item,8,Wise Glasses,2.2%,,,,,,,,
 Heliolisk,92,held_item,9,Bright Powder,2.1%,,,,,,,,
 Heliolisk,92,held_item,10,Quick Claw,1.9%,,,,,,,,
@@ -26,12 +26,12 @@ Heliolisk,92,teammate,4,Toxicroak,,,,,,,,,
 Heliolisk,92,teammate,5,Scovillain,,,,,,,,,
 Heliolisk,92,teammate,6,Pelipper,,,,,,,,,
 Heliolisk,92,teammate,7,Whimsicott,,,,,,,,,
-Heliolisk,92,teammate,8,Tsareena,,,,,,,,,
-Heliolisk,92,teammate,9,Garchomp,,,,,,,,,
+Heliolisk,92,teammate,8,Garchomp,,,,,,,,,
+Heliolisk,92,teammate,9,Tsareena,,,,,,,,,
 Heliolisk,92,teammate,10,Delphox,,,,,,,,,
-Heliolisk,92,stat_alignment,1,Timid,69.2%,Speed,Attack,,,,,,
-Heliolisk,92,stat_alignment,2,Modest,24.3%,Sp. Atk,Attack,,,,,,
-Heliolisk,92,stat_alignment,3,Bold,1.6%,Defense,Attack,,,,,,
+Heliolisk,92,stat_alignment,1,Timid,69.1%,Speed,Attack,,,,,,
+Heliolisk,92,stat_alignment,2,Modest,24.4%,Sp. Atk,Attack,,,,,,
+Heliolisk,92,stat_alignment,3,Bold,1.7%,Defense,Attack,,,,,,
 Heliolisk,92,stat_alignment,4,Mild,1.4%,Sp. Atk,Defense,,,,,,
 Heliolisk,92,stat_alignment,5,Quiet,0.9%,Sp. Atk,Speed,,,,,,
 Heliolisk,92,stat_alignment,6,Hasty,0.8%,Speed,Defense,,,,,,
@@ -39,16 +39,16 @@ Heliolisk,92,stat_alignment,7,Calm,0.6%,Sp. Def,Attack,,,,,,
 Heliolisk,92,stat_alignment,8,Naive,0.3%,Speed,Sp. Def,,,,,,
 Heliolisk,92,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,
 Heliolisk,92,stat_alignment,10,Jolly,0.2%,Speed,Sp. Atk,,,,,,
-Heliolisk,92,stat_points,1,,54.8%,,,2,0,0,32,0,32
-Heliolisk,92,stat_points,2,,8.6%,,,0,0,0,32,2,32
-Heliolisk,92,stat_points,3,,7.6%,,,0,0,2,32,0,32
-Heliolisk,92,stat_points,4,,2.3%,,,0,0,0,32,0,32
+Heliolisk,92,stat_points,1,,54.6%,,,2,0,0,32,0,32
+Heliolisk,92,stat_points,2,,8.7%,,,0,0,0,32,2,32
+Heliolisk,92,stat_points,3,,7.7%,,,0,0,2,32,0,32
+Heliolisk,92,stat_points,4,,2.4%,,,0,0,0,32,0,32
 Heliolisk,92,stat_points,5,,1.2%,,,13,0,0,32,0,21
-Heliolisk,92,stat_points,6,,0.8%,,,3,0,0,32,0,31
+Heliolisk,92,stat_points,6,,0.8%,,,8,0,0,32,0,26
 Heliolisk,92,stat_points,7,,0.7%,,,3,0,0,31,0,32
 Heliolisk,92,stat_points,8,,0.7%,,,32,0,0,2,0,32
 Heliolisk,92,stat_points,9,,0.7%,,,32,0,2,32,0,0
-Heliolisk,92,stat_points,10,,0.7%,,,6,0,0,32,2,26
+Heliolisk,92,stat_points,10,,0.7%,,,32,0,0,32,2,0
 Heliolisk,92,ability,1,Dry Skin,81.1%,,,,,,,,
 Heliolisk,92,ability,2,Solar Power,14.3%,,,,,,,,
 Heliolisk,92,ability,3,Sand Veil,4.6%,,,,,,,,

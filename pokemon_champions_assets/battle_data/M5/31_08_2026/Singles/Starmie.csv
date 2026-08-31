@@ -1,4 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Starmie,35,move,1,Aqua Jet,87.4%,,,,,,,,
+Starmie,35,move,2,Liquidation,81.9%,,,,,,,,
+Starmie,35,move,3,Ice Spinner,71.9%,,,,,,,,
+Starmie,35,move,4,Flip Turn,61.9%,,,,,,,,
+Starmie,35,move,5,Zen Headbutt,28.3%,,,,,,,,
 Starmie,35,move,6,Psycho Cut,24.7%,,,,,,,,
 Starmie,35,move,7,Waterfall,5.4%,,,,,,,,
 Starmie,35,move,8,Minimize,5.1%,,,,,,,,
@@ -25,7 +30,7 @@ Starmie,35,teammate,8,Hippowdon,,,,,,,,,
 Starmie,35,teammate,9,Mimikyu,,,,,,,,,
 Starmie,35,teammate,10,Volcarona,,,,,,,,,
 Starmie,35,stat_alignment,1,Adamant,47.6%,Attack,Sp. Atk,,,,,,
-Starmie,35,stat_alignment,2,Jolly,45.7%,Speed,Sp. Atk,,,,,,
+Starmie,35,stat_alignment,2,Jolly,45.6%,Speed,Sp. Atk,,,,,,
 Starmie,35,stat_alignment,3,Timid,2.8%,Speed,Attack,,,,,,
 Starmie,35,stat_alignment,4,Modest,1.4%,Sp. Atk,Attack,,,,,,
 Starmie,35,stat_alignment,5,Naive,0.8%,Speed,Sp. Def,,,,,,
@@ -36,14 +41,14 @@ Starmie,35,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
 Starmie,35,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Starmie,35,stat_points,1,,55.2%,,,2,32,0,0,0,32
 Starmie,35,stat_points,2,,10.5%,,,8,32,1,0,0,25
-Starmie,35,stat_points,3,,2.1%,,,0,32,2,0,0,32
+Starmie,35,stat_points,3,,2.2%,,,0,32,2,0,0,32
 Starmie,35,stat_points,4,,2.1%,,,2,0,0,32,0,32
-Starmie,35,stat_points,5,,2.1%,,,4,32,0,0,0,30
+Starmie,35,stat_points,5,,2.0%,,,4,32,0,0,0,30
 Starmie,35,stat_points,6,,1.1%,,,24,24,0,0,18,0
 Starmie,35,stat_points,7,,1.1%,,,0,32,0,0,0,32
 Starmie,35,stat_points,8,,1.1%,,,8,32,0,0,0,26
 Starmie,35,stat_points,9,,1.1%,,,0,32,0,0,2,32
 Starmie,35,stat_points,10,,0.7%,,,24,11,0,0,1,30
-Starmie,35,ability,1,Natural Cure,90.4%,,,,,,,,
-Starmie,35,ability,2,Illuminate,6.4%,,,,,,,,
+Starmie,35,ability,1,Natural Cure,90.3%,,,,,,,,
+Starmie,35,ability,2,Illuminate,6.5%,,,,,,,,
 Starmie,35,ability,3,Analytic,3.2%,,,,,,,,

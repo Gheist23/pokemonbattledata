@@ -1,53 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Medicham,137,move,1,Fake Out,69.0%,,,,,,,,
-Medicham,137,move,2,Close Combat,68.2%,,,,,,,,
-Medicham,137,move,3,Rock Slide,36.4%,,,,,,,,
-Medicham,137,move,4,Psycho Cut,27.1%,,,,,,,,
-Medicham,137,move,5,Zen Headbutt,21.5%,,,,,,,,
-Medicham,137,move,6,Poison Jab,21.4%,,,,,,,,
-Medicham,137,move,7,Ice Punch,16.0%,,,,,,,,
-Medicham,137,move,8,Drain Punch,14.1%,,,,,,,,
+Medicham,137,move,1,Fake Out,68.7%,,,,,,,,
+Medicham,137,move,2,Close Combat,68.0%,,,,,,,,
+Medicham,137,move,3,Rock Slide,36.2%,,,,,,,,
+Medicham,137,move,4,Psycho Cut,27.0%,,,,,,,,
+Medicham,137,move,5,Zen Headbutt,21.7%,,,,,,,,
+Medicham,137,move,6,Poison Jab,21.2%,,,,,,,,
+Medicham,137,move,7,Ice Punch,16.1%,,,,,,,,
+Medicham,137,move,8,Drain Punch,14.3%,,,,,,,,
 Medicham,137,move,9,Bullet Punch,14.0%,,,,,,,,
-Medicham,137,move,10,Protect,13.3%,,,,,,,,
+Medicham,137,move,10,Protect,13.2%,,,,,,,,
 Medicham,137,held_item,1,Medichamite,60.5%,,,,,,,,
-Medicham,137,held_item,2,Focus Sash,19.9%,,,,,,,,
-Medicham,137,held_item,3,Life Orb,3.7%,,,,,,,,
+Medicham,137,held_item,2,Focus Sash,19.8%,,,,,,,,
+Medicham,137,held_item,3,Life Orb,5.6%,,,,,,,,
 Medicham,137,held_item,4,Choice Scarf,3.1%,,,,,,,,
 Medicham,137,held_item,5,Sitrus Berry,2.8%,,,,,,,,
-Medicham,137,held_item,6,Iron Ball,2.8%,,,,,,,,
-Medicham,137,held_item,7,White Herb,2.1%,,,,,,,,
+Medicham,137,held_item,6,White Herb,2.7%,,,,,,,,
+Medicham,137,held_item,7,Iron Ball,2.7%,,,,,,,,
 Medicham,137,held_item,8,Expert Belt,1.5%,,,,,,,,
 Medicham,137,held_item,9,Quick Claw,1.3%,,,,,,,,
-Medicham,137,held_item,10,Muscle Band,0.0%,,,,,,,,
+Medicham,137,held_item,10,Muscle Band,1.2%,,,,,,,,
 Medicham,137,teammate,1,Farigiraf,,,,,,,,,
 Medicham,137,teammate,2,Torkoal,,,,,,,,,
 Medicham,137,teammate,3,Sylveon,,,,,,,,,
 Medicham,137,teammate,4,Basculegion Male,,,,,,,,,
-Medicham,137,teammate,5,Kingambit,,,,,,,,,
-Medicham,137,teammate,6,Whimsicott,,,,,,,,,
+Medicham,137,teammate,5,Whimsicott,,,,,,,,,
+Medicham,137,teammate,6,Kingambit,,,,,,,,,
 Medicham,137,teammate,7,Oranguru,,,,,,,,,
 Medicham,137,teammate,8,Charizard,,,,,,,,,
 Medicham,137,teammate,9,Sinistcha,,,,,,,,,
 Medicham,137,teammate,10,Mawile,,,,,,,,,
-Medicham,137,stat_alignment,1,Adamant,36.7%,Attack,Sp. Atk,,,,,,
+Medicham,137,stat_alignment,1,Adamant,36.8%,Attack,Sp. Atk,,,,,,
 Medicham,137,stat_alignment,2,Jolly,35.6%,Speed,Sp. Atk,,,,,,
 Medicham,137,stat_alignment,3,Brave,15.9%,Attack,Speed,,,,,,
-Medicham,137,stat_alignment,4,Relaxed,1.7%,Defense,Speed,,,,,,
-Medicham,137,stat_alignment,5,Sassy,1.6%,Sp. Def,Speed,,,,,,
-Medicham,137,stat_alignment,6,Careful,1.6%,Sp. Def,Sp. Atk,,,,,,
-Medicham,137,stat_alignment,7,Impish,1.3%,Defense,Sp. Atk,,,,,,
-Medicham,137,stat_alignment,8,Lonely,1.2%,Attack,Defense,,,,,,
-Medicham,137,stat_alignment,9,Naughty,1.0%,Attack,Sp. Def,,,,,,
-Medicham,137,stat_alignment,10,Timid,0.9%,Speed,Attack,,,,,,
-Medicham,137,stat_points,1,,33.6%,,,2,32,0,0,0,32
-Medicham,137,stat_points,2,,8.3%,,,32,32,2,0,0,0
-Medicham,137,stat_points,3,,5.2%,,,32,32,1,0,1,0
+Medicham,137,stat_alignment,4,Relaxed,7.7%,Defense,Speed,,,,,,
+Medicham,137,stat_alignment,5,Sassy,7.6%,Sp. Def,Speed,,,,,,
+Medicham,137,stat_alignment,6,Careful,7.6%,Sp. Def,Sp. Atk,,,,,,
+Medicham,137,stat_alignment,7,Lonely,7.2%,Attack,Defense,,,,,,
+Medicham,137,stat_alignment,8,Impish,7.2%,Defense,Sp. Atk,,,,,,
+Medicham,137,stat_alignment,9,Naughty,2.0%,Attack,Sp. Def,,,,,,
+Medicham,137,stat_alignment,10,Naive,0.0%,Speed,Sp. Def,,,,,,
+Medicham,137,stat_points,1,,33.5%,,,2,32,0,0,0,32
+Medicham,137,stat_points,2,,8.5%,,,32,32,2,0,0,0
+Medicham,137,stat_points,3,,5.1%,,,32,32,1,0,1,0
 Medicham,137,stat_points,4,,4.5%,,,0,32,0,0,2,32
 Medicham,137,stat_points,5,,4.4%,,,0,32,2,0,0,32
-Medicham,137,stat_points,6,,2.3%,,,0,32,0,0,0,32
-Medicham,137,stat_points,7,,1.6%,,,32,32,0,0,0,2
-Medicham,137,stat_points,8,,1.5%,,,0,32,1,0,1,32
+Medicham,137,stat_points,6,,2.2%,,,0,32,0,0,0,32
+Medicham,137,stat_points,7,,1.7%,,,32,32,0,0,0,2
+Medicham,137,stat_points,8,,1.4%,,,0,32,1,0,1,32
 Medicham,137,stat_points,9,,1.2%,,,32,0,0,0,0,32
 Medicham,137,stat_points,10,,1.0%,,,2,32,32,0,0,0
-Medicham,137,ability,1,Pure Power,91.1%,,,,,,,,
-Medicham,137,ability,2,Telepathy,8.9%,,,,,,,,
+Medicham,137,ability,1,Pure Power,91.0%,,,,,,,,
+Medicham,137,ability,2,Telepathy,9.0%,,,,,,,,

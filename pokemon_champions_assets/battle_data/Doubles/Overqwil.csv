@@ -1,49 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Overqwil,85,move,6,Protect,35.5%,,,,,,,,
-Overqwil,85,move,7,Poison Jab,12.3%,,,,,,,,
-Overqwil,85,move,8,Crunch,11.5%,,,,,,,,
-Overqwil,85,move,9,Toxic,9.0%,,,,,,,,
-Overqwil,85,move,10,Liquidation,8.6%,,,,,,,,
-Overqwil,85,held_item,1,Leftovers,63.5%,,,,,,,,
-Overqwil,85,held_item,2,Life Orb,11.5%,,,,,,,,
-Overqwil,85,held_item,3,Bright Powder,3.3%,,,,,,,,
-Overqwil,85,held_item,4,Sitrus Berry,3.1%,,,,,,,,
-Overqwil,85,held_item,5,Shuca Berry,2.4%,,,,,,,,
-Overqwil,85,held_item,6,Expert Belt,2.1%,,,,,,,,
-Overqwil,85,held_item,7,Poison Barb,1.8%,,,,,,,,
-Overqwil,85,held_item,8,Focus Sash,1.5%,,,,,,,,
-Overqwil,85,held_item,9,Quick Claw,1.4%,,,,,,,,
-Overqwil,85,held_item,10,Black Glasses,9.9%,,,,,,,,
-Overqwil,85,teammate,1,Audino,,,,,,,,,
-Overqwil,85,teammate,2,Sableye,,,,,,,,,
-Overqwil,85,teammate,3,Whimsicott,,,,,,,,,
-Overqwil,85,teammate,4,Hisuian Zoroark,,,,,,,,,
-Overqwil,85,teammate,5,Malamar,,,,,,,,,
-Overqwil,85,teammate,6,Pelipper,,,,,,,,,
-Overqwil,85,teammate,7,Meowstic,,,,,,,,,
-Overqwil,85,teammate,8,Sneasler,,,,,,,,,
-Overqwil,85,teammate,9,Klefki,,,,,,,,,
-Overqwil,85,teammate,10,Sinistcha,,,,,,,,,
-Overqwil,85,stat_alignment,1,Adamant,23.7%,Attack,Sp. Atk,,,,,,
-Overqwil,85,stat_alignment,2,Relaxed,22.2%,Defense,Speed,,,,,,
-Overqwil,85,stat_alignment,3,Careful,16.5%,Sp. Def,Sp. Atk,,,,,,
-Overqwil,85,stat_alignment,4,Impish,12.1%,Defense,Sp. Atk,,,,,,
-Overqwil,85,stat_alignment,5,Sassy,9.9%,Sp. Def,Speed,,,,,,
-Overqwil,85,stat_alignment,6,Jolly,7.9%,Speed,Sp. Atk,,,,,,
-Overqwil,85,stat_alignment,7,Brave,2.4%,Attack,Speed,,,,,,
-Overqwil,85,stat_alignment,8,Calm,1.1%,Sp. Def,Attack,,,,,,
-Overqwil,85,stat_alignment,9,Bold,0.8%,Defense,Attack,,,,,,
-Overqwil,85,stat_alignment,10,Naughty,0.7%,Attack,Sp. Def,,,,,,
-Overqwil,85,stat_points,1,,26.4%,,,32,0,2,0,32,0
-Overqwil,85,stat_points,2,,6.4%,,,32,0,5,0,29,0
-Overqwil,85,stat_points,3,,5.3%,,,2,32,0,0,0,32
-Overqwil,85,stat_points,4,,2.7%,,,32,0,9,0,25,0
-Overqwil,85,stat_points,5,,2.3%,,,0,32,2,0,0,32
-Overqwil,85,stat_points,6,,2.1%,,,0,32,0,0,2,32
-Overqwil,85,stat_points,7,,2.1%,,,2,0,32,0,32,0
-Overqwil,85,stat_points,8,,2.0%,,,32,0,15,0,19,0
-Overqwil,85,stat_points,9,,2.0%,,,32,32,2,0,0,0
-Overqwil,85,stat_points,10,,1.5%,,,32,0,32,0,2,0
-Overqwil,85,ability,1,Intimidate,58.1%,,,,,,,,
-Overqwil,85,ability,2,Swift Swim,21.2%,,,,,,,,
-Overqwil,85,ability,3,Poison Point,20.7%,,,,,,,,
+Overqwil,86,move,1,Minimize,71.4%,,,,,,,,
+Overqwil,86,move,2,Stockpile,58.0%,,,,,,,,
+Overqwil,86,move,3,Throat Chop,57.6%,,,,,,,,
+Overqwil,86,move,4,Barb Barrage,41.1%,,,,,,,,
+Overqwil,86,move,5,Swords Dance,37.2%,,,,,,,,
+Overqwil,86,move,6,Protect,35.6%,,,,,,,,
+Overqwil,86,move,7,Poison Jab,12.4%,,,,,,,,
+Overqwil,86,move,8,Crunch,11.6%,,,,,,,,
+Overqwil,86,move,9,Toxic,9.0%,,,,,,,,
+Overqwil,86,move,10,Liquidation,8.8%,,,,,,,,
+Overqwil,86,held_item,1,Leftovers,63.2%,,,,,,,,
+Overqwil,86,held_item,2,Life Orb,11.5%,,,,,,,,
+Overqwil,86,held_item,3,Bright Powder,3.3%,,,,,,,,
+Overqwil,86,held_item,4,Sitrus Berry,3.1%,,,,,,,,
+Overqwil,86,held_item,5,Shuca Berry,2.5%,,,,,,,,
+Overqwil,86,held_item,6,Expert Belt,2.1%,,,,,,,,
+Overqwil,86,held_item,7,Poison Barb,1.8%,,,,,,,,
+Overqwil,86,held_item,8,Focus Sash,1.5%,,,,,,,,
+Overqwil,86,held_item,9,Quick Claw,1.4%,,,,,,,,
+Overqwil,86,held_item,10,Black Glasses,10.0%,,,,,,,,
+Overqwil,86,teammate,1,Audino,,,,,,,,,
+Overqwil,86,teammate,2,Sableye,,,,,,,,,
+Overqwil,86,teammate,3,Whimsicott,,,,,,,,,
+Overqwil,86,teammate,4,Hisuian Zoroark,,,,,,,,,
+Overqwil,86,teammate,5,Malamar,,,,,,,,,
+Overqwil,86,teammate,6,Pelipper,,,,,,,,,
+Overqwil,86,teammate,7,Meowstic,,,,,,,,,
+Overqwil,86,teammate,8,Sneasler,,,,,,,,,
+Overqwil,86,teammate,9,Sinistcha,,,,,,,,,
+Overqwil,86,teammate,10,Klefki,,,,,,,,,
+Overqwil,86,stat_alignment,1,Adamant,23.9%,Attack,Sp. Atk,,,,,,
+Overqwil,86,stat_alignment,2,Relaxed,22.0%,Defense,Speed,,,,,,
+Overqwil,86,stat_alignment,3,Careful,16.5%,Sp. Def,Sp. Atk,,,,,,
+Overqwil,86,stat_alignment,4,Impish,12.1%,Defense,Sp. Atk,,,,,,
+Overqwil,86,stat_alignment,5,Sassy,9.8%,Sp. Def,Speed,,,,,,
+Overqwil,86,stat_alignment,6,Jolly,8.0%,Speed,Sp. Atk,,,,,,
+Overqwil,86,stat_alignment,7,Brave,2.4%,Attack,Speed,,,,,,
+Overqwil,86,stat_alignment,8,Calm,1.0%,Sp. Def,Attack,,,,,,
+Overqwil,86,stat_alignment,9,Bold,0.8%,Defense,Attack,,,,,,
+Overqwil,86,stat_alignment,10,Naughty,0.0%,Attack,Sp. Def,,,,,,
+Overqwil,86,stat_points,1,,26.2%,,,32,0,2,0,32,0
+Overqwil,86,stat_points,2,,6.4%,,,32,0,5,0,29,0
+Overqwil,86,stat_points,3,,5.3%,,,2,32,0,0,0,32
+Overqwil,86,stat_points,4,,2.7%,,,32,0,9,0,25,0
+Overqwil,86,stat_points,5,,2.3%,,,0,32,2,0,0,32
+Overqwil,86,stat_points,6,,2.1%,,,0,32,0,0,2,32
+Overqwil,86,stat_points,7,,2.0%,,,2,0,32,0,32,0
+Overqwil,86,stat_points,8,,2.0%,,,32,32,2,0,0,0
+Overqwil,86,stat_points,9,,2.0%,,,32,0,15,0,19,0
+Overqwil,86,stat_points,10,,1.5%,,,32,0,32,0,2,0
+Overqwil,86,ability,1,Intimidate,58.0%,,,,,,,,
+Overqwil,86,ability,2,Swift Swim,21.5%,,,,,,,,
+Overqwil,86,ability,3,Poison Point,20.5%,,,,,,,,

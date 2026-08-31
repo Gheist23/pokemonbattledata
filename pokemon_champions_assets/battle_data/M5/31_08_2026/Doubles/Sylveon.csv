@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sylveon,11,move,1,Hyper Voice,99.6%,,,,,,,,
 Sylveon,11,move,2,Quick Attack,77.6%,,,,,,,,
-Sylveon,11,move,3,Hyper Beam,71.5%,,,,,,,,
-Sylveon,11,move,4,Detect,67.1%,,,,,,,,
-Sylveon,11,move,5,Protect,27.9%,,,,,,,,
+Sylveon,11,move,3,Hyper Beam,71.4%,,,,,,,,
+Sylveon,11,move,4,Detect,67.0%,,,,,,,,
+Sylveon,11,move,5,Protect,28.0%,,,,,,,,
 Sylveon,11,move,6,Yawn,14.0%,,,,,,,,
 Sylveon,11,move,7,Moonblast,9.0%,,,,,,,,
-Sylveon,11,move,8,Calm Mind,5.9%,,,,,,,,
-Sylveon,11,move,9,Mystical Fire,5.9%,,,,,,,,
+Sylveon,11,move,8,Mystical Fire,5.9%,,,,,,,,
+Sylveon,11,move,9,Calm Mind,5.9%,,,,,,,,
 Sylveon,11,move,10,Shadow Ball,3.7%,,,,,,,,
 Sylveon,11,held_item,1,Fairy Feather,87.6%,,,,,,,,
 Sylveon,11,held_item,2,Life Orb,4.0%,,,,,,,,
@@ -29,7 +29,7 @@ Sylveon,11,teammate,7,Aerodactyl,,,,,,,,,
 Sylveon,11,teammate,8,Incineroar,,,,,,,,,
 Sylveon,11,teammate,9,Hisuian Arcanine,,,,,,,,,
 Sylveon,11,teammate,10,Basculegion Male,,,,,,,,,
-Sylveon,11,stat_alignment,1,Modest,18.9%,Sp. Atk,Attack,,,,,,
+Sylveon,11,stat_alignment,1,Modest,18.8%,Sp. Atk,Attack,,,,,,
 Sylveon,11,stat_alignment,2,Quiet,14.1%,Sp. Atk,Speed,,,,,,
 Sylveon,11,stat_alignment,3,Timid,2.8%,Speed,Attack,,,,,,
 Sylveon,11,stat_alignment,4,Bold,1.9%,Defense,Attack,,,,,,
@@ -39,7 +39,7 @@ Sylveon,11,stat_alignment,7,Mild,0.4%,Sp. Atk,Defense,,,,,,
 Sylveon,11,stat_alignment,8,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Sylveon,11,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
 Sylveon,11,stat_alignment,10,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
-Sylveon,11,stat_points,1,,11.3%,,,13,0,22,23,0,8
+Sylveon,11,stat_points,1,,11.2%,,,13,0,22,23,0,8
 Sylveon,11,stat_points,2,,10.0%,,,32,0,2,32,0,0
 Sylveon,11,stat_points,3,,5.6%,,,32,0,0,32,0,2
 Sylveon,11,stat_points,4,,2.9%,,,32,0,0,32,2,0

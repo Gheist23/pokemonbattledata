@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gyarados,7,move,6,Crunch,21.4%,,,,,,,,
 Gyarados,7,move,7,Taunt,19.2%,,,,,,,,
-Gyarados,7,move,8,Avalanche,13.1%,,,,,,,,
+Gyarados,7,move,8,Avalanche,13.2%,,,,,,,,
 Gyarados,7,move,9,Temper Flare,6.3%,,,,,,,,
 Gyarados,7,move,10,Dragon Tail,2.1%,,,,,,,,
-Gyarados,7,held_item,1,Gyaradosite,74.4%,,,,,,,,
+Gyarados,7,held_item,1,Gyaradosite,74.3%,,,,,,,,
 Gyarados,7,held_item,2,Leftovers,14.2%,,,,,,,,
 Gyarados,7,held_item,3,Sitrus Berry,3.9%,,,,,,,,
 Gyarados,7,held_item,4,Lum Berry,2.9%,,,,,,,,
@@ -19,8 +19,8 @@ Gyarados,7,teammate,2,Mimikyu,,,,,,,,,
 Gyarados,7,teammate,3,Archaludon,,,,,,,,,
 Gyarados,7,teammate,4,Hippowdon,,,,,,,,,
 Gyarados,7,teammate,5,Meowscarada,,,,,,,,,
-Gyarados,7,teammate,6,Delphox,,,,,,,,,
-Gyarados,7,teammate,7,Sylveon,,,,,,,,,
+Gyarados,7,teammate,6,Sylveon,,,,,,,,,
+Gyarados,7,teammate,7,Delphox,,,,,,,,,
 Gyarados,7,teammate,8,Volcarona,,,,,,,,,
 Gyarados,7,teammate,9,Lucario,,,,,,,,,
 Gyarados,7,teammate,10,Primarina,,,,,,,,,
@@ -35,7 +35,7 @@ Gyarados,7,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
 Gyarados,7,stat_alignment,9,Bold,0.1%,Defense,Attack,,,,,,
 Gyarados,7,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
 Gyarados,7,stat_points,1,,22.8%,,,1,32,1,0,0,32
-Gyarados,7,stat_points,2,,19.3%,,,2,32,0,0,0,32
+Gyarados,7,stat_points,2,,19.2%,,,2,32,0,0,0,32
 Gyarados,7,stat_points,3,,5.3%,,,1,31,3,0,0,31
 Gyarados,7,stat_points,4,,3.0%,,,0,32,2,0,0,32
 Gyarados,7,stat_points,5,,2.5%,,,1,32,0,0,1,32

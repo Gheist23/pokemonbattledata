@@ -1,11 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Aerodactyl,103,move,1,Dual Wingbeat,77.0%,,,,,,,,
+Aerodactyl,103,move,2,Earthquake,55.7%,,,,,,,,
+Aerodactyl,103,move,3,Ice Fang,54.2%,,,,,,,,
+Aerodactyl,103,move,4,Rock Slide,32.5%,,,,,,,,
+Aerodactyl,103,move,5,Taunt,22.2%,,,,,,,,
 Aerodactyl,103,move,6,Dragon Dance,20.7%,,,,,,,,
 Aerodactyl,103,move,7,Stone Edge,18.0%,,,,,,,,
 Aerodactyl,103,move,8,Iron Head,11.9%,,,,,,,,
 Aerodactyl,103,move,9,Crunch,11.8%,,,,,,,,
-Aerodactyl,103,move,10,Stealth Rock,9.9%,,,,,,,,
-Aerodactyl,103,held_item,1,Aerodactylite,74.5%,,,,,,,,
-Aerodactyl,103,held_item,2,Focus Sash,12.3%,,,,,,,,
+Aerodactyl,103,move,10,Stealth Rock,10.2%,,,,,,,,
+Aerodactyl,103,held_item,1,Aerodactylite,74.4%,,,,,,,,
+Aerodactyl,103,held_item,2,Focus Sash,12.4%,,,,,,,,
 Aerodactyl,103,held_item,3,Life Orb,2.6%,,,,,,,,
 Aerodactyl,103,held_item,4,Choice Scarf,1.4%,,,,,,,,
 Aerodactyl,103,held_item,5,King's Rock,1.3%,,,,,,,,
@@ -24,9 +29,9 @@ Aerodactyl,103,teammate,7,Basculegion Male,,,,,,,,,
 Aerodactyl,103,teammate,8,Mimikyu,,,,,,,,,
 Aerodactyl,103,teammate,9,Volcarona,,,,,,,,,
 Aerodactyl,103,teammate,10,Sneasler,,,,,,,,,
-Aerodactyl,103,stat_alignment,1,Jolly,63.4%,Speed,Sp. Atk,,,,,,
-Aerodactyl,103,stat_alignment,2,Adamant,29.9%,Attack,Sp. Atk,,,,,,
-Aerodactyl,103,stat_alignment,3,Naive,1.3%,Speed,Sp. Def,,,,,,
+Aerodactyl,103,stat_alignment,1,Jolly,63.5%,Speed,Sp. Atk,,,,,,
+Aerodactyl,103,stat_alignment,2,Adamant,29.8%,Attack,Sp. Atk,,,,,,
+Aerodactyl,103,stat_alignment,3,Naive,1.4%,Speed,Sp. Def,,,,,,
 Aerodactyl,103,stat_alignment,4,Naughty,1.2%,Attack,Sp. Def,,,,,,
 Aerodactyl,103,stat_alignment,5,Lonely,1.0%,Attack,Defense,,,,,,
 Aerodactyl,103,stat_alignment,6,Hasty,1.0%,Speed,Defense,,,,,,
@@ -35,7 +40,7 @@ Aerodactyl,103,stat_alignment,8,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
 Aerodactyl,103,stat_alignment,9,Timid,0.2%,Speed,Attack,,,,,,
 Aerodactyl,103,stat_alignment,10,Brave,0.2%,Attack,Speed,,,,,,
 Aerodactyl,103,stat_points,1,,52.5%,,,2,32,0,0,0,32
-Aerodactyl,103,stat_points,2,,11.0%,,,0,32,2,0,0,32
+Aerodactyl,103,stat_points,2,,10.9%,,,0,32,2,0,0,32
 Aerodactyl,103,stat_points,3,,8.2%,,,0,32,0,0,2,32
 Aerodactyl,103,stat_points,4,,3.5%,,,0,32,0,0,0,32
 Aerodactyl,103,stat_points,5,,1.6%,,,8,32,0,0,0,26

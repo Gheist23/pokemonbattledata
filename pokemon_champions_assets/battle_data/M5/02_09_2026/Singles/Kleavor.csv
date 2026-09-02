@@ -1,8 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Kleavor,65,move,1,Stone Axe,99.7%,,,,,,,,
+Kleavor,65,move,2,X-Scissor,76.4%,,,,,,,,
+Kleavor,65,move,3,Close Combat,52.1%,,,,,,,,
+Kleavor,65,move,4,Night Slash,31.8%,,,,,,,,
+Kleavor,65,move,5,U-turn,25.8%,,,,,,,,
 Kleavor,65,move,6,Feint,16.0%,,,,,,,,
 Kleavor,65,move,7,Quick Attack,13.8%,,,,,,,,
 Kleavor,65,move,8,Tailwind,13.1%,,,,,,,,
-Kleavor,65,move,9,Brick Break,8.4%,,,,,,,,
+Kleavor,65,move,9,Brick Break,8.3%,,,,,,,,
 Kleavor,65,move,10,Aerial Ace,7.4%,,,,,,,,
 Kleavor,65,held_item,1,Focus Sash,56.0%,,,,,,,,
 Kleavor,65,held_item,2,Choice Scarf,29.6%,,,,,,,,
@@ -24,17 +29,17 @@ Kleavor,65,teammate,7,Archaludon,,,,,,,,,
 Kleavor,65,teammate,8,Basculegion Male,,,,,,,,,
 Kleavor,65,teammate,9,Mimikyu,,,,,,,,,
 Kleavor,65,teammate,10,Charizard,,,,,,,,,
-Kleavor,65,stat_alignment,1,Adamant,52.4%,Attack,Sp. Atk,,,,,,
+Kleavor,65,stat_alignment,1,Adamant,52.5%,Attack,Sp. Atk,,,,,,
 Kleavor,65,stat_alignment,2,Jolly,41.3%,Speed,Sp. Atk,,,,,,
 Kleavor,65,stat_alignment,3,Impish,1.1%,Defense,Sp. Atk,,,,,,
 Kleavor,65,stat_alignment,4,Naughty,1.0%,Attack,Sp. Def,,,,,,
 Kleavor,65,stat_alignment,5,Brave,0.8%,Attack,Speed,,,,,,
-Kleavor,65,stat_alignment,6,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
+Kleavor,65,stat_alignment,6,Careful,1.0%,Sp. Def,Sp. Atk,,,,,,
 Kleavor,65,stat_alignment,7,Naive,0.7%,Speed,Sp. Def,,,,,,
 Kleavor,65,stat_alignment,8,Lonely,0.7%,Attack,Defense,,,,,,
 Kleavor,65,stat_alignment,9,Hasty,0.4%,Speed,Defense,,,,,,
 Kleavor,65,stat_alignment,10,Relaxed,0.2%,Defense,Speed,,,,,,
-Kleavor,65,stat_points,1,,58.4%,,,2,32,0,0,0,32
+Kleavor,65,stat_points,1,,58.3%,,,2,32,0,0,0,32
 Kleavor,65,stat_points,2,,10.1%,,,0,32,2,0,0,32
 Kleavor,65,stat_points,3,,6.8%,,,0,32,0,0,2,32
 Kleavor,65,stat_points,4,,3.2%,,,0,32,0,0,0,32

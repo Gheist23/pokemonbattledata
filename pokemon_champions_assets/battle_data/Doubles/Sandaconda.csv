@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sandaconda,206,move,1,Minimize,57.0%,,,,,,,,
-Sandaconda,206,move,2,Body Press,40.1%,,,,,,,,
-Sandaconda,206,move,3,Rock Slide,37.4%,,,,,,,,
+Sandaconda,206,move,1,Minimize,57.1%,,,,,,,,
+Sandaconda,206,move,2,Body Press,40.4%,,,,,,,,
+Sandaconda,206,move,3,Rock Slide,37.6%,,,,,,,,
 Sandaconda,206,move,4,Coil,33.9%,,,,,,,,
-Sandaconda,206,move,5,High Horsepower,31.4%,,,,,,,,
-Sandaconda,206,move,6,Earthquake,30.9%,,,,,,,,
-Sandaconda,206,move,7,Protect,30.2%,,,,,,,,
-Sandaconda,206,move,8,Iron Defense,24.9%,,,,,,,,
-Sandaconda,206,move,9,Glare,19.0%,,,,,,,,
-Sandaconda,206,move,10,Drill Run,9.0%,,,,,,,,
-Sandaconda,206,held_item,1,Bright Powder,34.3%,,,,,,,,
+Sandaconda,206,move,5,Earthquake,31.0%,,,,,,,,
+Sandaconda,206,move,6,High Horsepower,31.0%,,,,,,,,
+Sandaconda,206,move,7,Protect,30.1%,,,,,,,,
+Sandaconda,206,move,8,Iron Defense,25.2%,,,,,,,,
+Sandaconda,206,move,9,Glare,18.8%,,,,,,,,
+Sandaconda,206,move,10,Drill Run,9.3%,,,,,,,,
+Sandaconda,206,held_item,1,Bright Powder,34.4%,,,,,,,,
 Sandaconda,206,held_item,2,Leftovers,24.9%,,,,,,,,
-Sandaconda,206,held_item,3,Sitrus Berry,17.3%,,,,,,,,
+Sandaconda,206,held_item,3,Sitrus Berry,17.4%,,,,,,,,
 Sandaconda,206,held_item,4,Smooth Rock,8.1%,,,,,,,,
-Sandaconda,206,held_item,5,Quick Claw,4.2%,,,,,,,,
-Sandaconda,206,held_item,6,Focus Sash,4.0%,,,,,,,,
-Sandaconda,206,held_item,7,Choice Scarf,3.5%,,,,,,,,
+Sandaconda,206,held_item,5,Quick Claw,4.1%,,,,,,,,
+Sandaconda,206,held_item,6,Focus Sash,3.9%,,,,,,,,
+Sandaconda,206,held_item,7,Choice Scarf,3.4%,,,,,,,,
 Sandaconda,206,held_item,8,Life Orb,1.7%,,,,,,,,
-Sandaconda,206,held_item,9,Shell Bell,1.2%,,,,,,,,
+Sandaconda,206,held_item,9,Shell Bell,1.1%,,,,,,,,
 Sandaconda,206,held_item,10,Passho Berry,1.1%,,,,,,,,
 Sandaconda,206,teammate,1,Tyranitar,,,,,,,,,
 Sandaconda,206,teammate,2,Sinistcha,,,,,,,,,
@@ -28,27 +28,27 @@ Sandaconda,206,teammate,6,Houndstone,,,,,,,,,
 Sandaconda,206,teammate,7,Glimmora,,,,,,,,,
 Sandaconda,206,teammate,8,Steelix,,,,,,,,,
 Sandaconda,206,teammate,9,Sableye,,,,,,,,,
-Sandaconda,206,teammate,10,Swampert,,,,,,,,,
+Sandaconda,206,teammate,10,Basculegion Male,,,,,,,,,
 Sandaconda,206,stat_alignment,1,Careful,25.6%,Sp. Def,Sp. Atk,,,,,,
 Sandaconda,206,stat_alignment,2,Impish,23.4%,Defense,Sp. Atk,,,,,,
-Sandaconda,206,stat_alignment,3,Jolly,15.8%,Speed,Sp. Atk,,,,,,
-Sandaconda,206,stat_alignment,4,Adamant,15.3%,Attack,Sp. Atk,,,,,,
+Sandaconda,206,stat_alignment,3,Jolly,15.6%,Speed,Sp. Atk,,,,,,
+Sandaconda,206,stat_alignment,4,Adamant,15.4%,Attack,Sp. Atk,,,,,,
 Sandaconda,206,stat_alignment,5,Sassy,5.9%,Sp. Def,Speed,,,,,,
-Sandaconda,206,stat_alignment,6,Brave,5.3%,Attack,Speed,,,,,,
+Sandaconda,206,stat_alignment,6,Brave,5.2%,Attack,Speed,,,,,,
 Sandaconda,206,stat_alignment,7,Relaxed,3.9%,Defense,Speed,,,,,,
-Sandaconda,206,stat_alignment,8,Calm,2.0%,Sp. Def,Attack,,,,,,
-Sandaconda,206,stat_alignment,9,Naive,0.9%,Speed,Sp. Def,,,,,,
+Sandaconda,206,stat_alignment,8,Calm,1.7%,Sp. Def,Attack,,,,,,
+Sandaconda,206,stat_alignment,9,Naive,0.8%,Speed,Sp. Def,,,,,,
 Sandaconda,206,stat_alignment,10,Naughty,0.7%,Attack,Sp. Def,,,,,,
-Sandaconda,206,stat_points,1,,11.9%,,,32,0,2,0,32,0
-Sandaconda,206,stat_points,2,,8.6%,,,32,0,32,0,2,0
-Sandaconda,206,stat_points,3,,5.3%,,,2,32,0,0,0,32
-Sandaconda,206,stat_points,4,,4.8%,,,2,0,32,0,32,0
+Sandaconda,206,stat_points,1,,12.0%,,,32,0,2,0,32,0
+Sandaconda,206,stat_points,2,,8.3%,,,32,0,32,0,2,0
+Sandaconda,206,stat_points,3,,5.2%,,,2,32,0,0,0,32
+Sandaconda,206,stat_points,4,,5.1%,,,2,0,32,0,32,0
 Sandaconda,206,stat_points,5,,3.7%,,,0,32,2,0,32,0
-Sandaconda,206,stat_points,6,,2.9%,,,2,32,32,0,0,0
-Sandaconda,206,stat_points,7,,2.6%,,,32,32,2,0,0,0
-Sandaconda,206,stat_points,8,,2.5%,,,32,32,0,0,0,0
-Sandaconda,206,stat_points,9,,2.2%,,,2,32,0,0,32,0
-Sandaconda,206,stat_points,10,,2.2%,,,32,32,0,0,2,0
+Sandaconda,206,stat_points,6,,3.0%,,,2,32,32,0,0,0
+Sandaconda,206,stat_points,7,,2.5%,,,32,32,2,0,0,0
+Sandaconda,206,stat_points,8,,2.4%,,,32,32,0,0,0,0
+Sandaconda,206,stat_points,9,,2.2%,,,32,32,0,0,2,0
+Sandaconda,206,stat_points,10,,2.2%,,,2,32,0,0,32,0
 Sandaconda,206,ability,1,Sand Veil,46.7%,,,,,,,,
-Sandaconda,206,ability,2,Sand Spit,45.0%,,,,,,,,
-Sandaconda,206,ability,3,Shed Skin,8.3%,,,,,,,,
+Sandaconda,206,ability,2,Sand Spit,44.8%,,,,,,,,
+Sandaconda,206,ability,3,Shed Skin,8.5%,,,,,,,,

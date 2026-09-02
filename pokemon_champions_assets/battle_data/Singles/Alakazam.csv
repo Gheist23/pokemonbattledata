@@ -1,11 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Alakazam,121,move,6,Nasty Plot,23.3%,,,,,,,,
+Alakazam,121,move,1,Psychic,86.2%,,,,,,,,
+Alakazam,121,move,2,Shadow Ball,63.4%,,,,,,,,
+Alakazam,121,move,3,Dazzling Gleam,52.1%,,,,,,,,
+Alakazam,121,move,4,Focus Blast,47.3%,,,,,,,,
+Alakazam,121,move,5,Energy Ball,34.2%,,,,,,,,
+Alakazam,121,move,6,Nasty Plot,23.2%,,,,,,,,
 Alakazam,121,move,7,Encore,20.1%,,,,,,,,
-Alakazam,121,move,8,Expanding Force,8.7%,,,,,,,,
+Alakazam,121,move,8,Expanding Force,8.8%,,,,,,,,
 Alakazam,121,move,9,Grass Knot,7.0%,,,,,,,,
 Alakazam,121,move,10,Protect,6.9%,,,,,,,,
-Alakazam,121,held_item,1,Alakazite,68.4%,,,,,,,,
-Alakazam,121,held_item,2,Focus Sash,17.0%,,,,,,,,
+Alakazam,121,held_item,1,Alakazite,68.3%,,,,,,,,
+Alakazam,121,held_item,2,Focus Sash,17.1%,,,,,,,,
 Alakazam,121,held_item,3,Life Orb,7.0%,,,,,,,,
 Alakazam,121,held_item,4,Choice Scarf,1.9%,,,,,,,,
 Alakazam,121,held_item,5,Twisted Spoon,1.0%,,,,,,,,
@@ -24,26 +29,26 @@ Alakazam,121,teammate,7,Archaludon,,,,,,,,,
 Alakazam,121,teammate,8,Blaziken,,,,,,,,,
 Alakazam,121,teammate,9,Kingambit,,,,,,,,,
 Alakazam,121,teammate,10,Scizor,,,,,,,,,
-Alakazam,121,stat_alignment,1,Timid,67.7%,Speed,Attack,,,,,,
+Alakazam,121,stat_alignment,1,Timid,67.6%,Speed,Attack,,,,,,
 Alakazam,121,stat_alignment,2,Modest,24.7%,Sp. Atk,Attack,,,,,,
 Alakazam,121,stat_alignment,3,Mild,2.3%,Sp. Atk,Defense,,,,,,
 Alakazam,121,stat_alignment,4,Hasty,2.0%,Speed,Defense,,,,,,
-Alakazam,121,stat_alignment,5,Bold,1.0%,Defense,Attack,,,,,,
-Alakazam,121,stat_alignment,6,Calm,1.0%,Sp. Def,Attack,,,,,,
-Alakazam,121,stat_alignment,7,Naive,0.5%,Speed,Sp. Def,,,,,,
-Alakazam,121,stat_alignment,8,Quiet,0.3%,Sp. Atk,Speed,,,,,,
-Alakazam,121,stat_alignment,9,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Alakazam,121,stat_alignment,5,Bold,7.0%,Defense,Attack,,,,,,
+Alakazam,121,stat_alignment,6,Calm,6.0%,Sp. Def,Attack,,,,,,
+Alakazam,121,stat_alignment,7,Naive,0.6%,Speed,Sp. Def,,,,,,
+Alakazam,121,stat_alignment,8,Quiet,0.5%,Sp. Atk,Speed,,,,,,
+Alakazam,121,stat_alignment,9,Gentle,0.3%,Sp. Def,Defense,,,,,,
 Alakazam,121,stat_alignment,10,Jolly,0.2%,Speed,Sp. Atk,,,,,,
 Alakazam,121,stat_points,1,,41.1%,,,2,0,0,32,0,32
 Alakazam,121,stat_points,2,,15.5%,,,0,0,0,32,2,32
-Alakazam,121,stat_points,3,,10.1%,,,0,0,2,32,0,32
-Alakazam,121,stat_points,4,,4.0%,,,1,0,1,32,0,32
+Alakazam,121,stat_points,3,,10.0%,,,0,0,2,32,0,32
+Alakazam,121,stat_points,4,,4.1%,,,1,0,1,32,0,32
 Alakazam,121,stat_points,5,,4.0%,,,0,0,0,32,0,32
 Alakazam,121,stat_points,6,,0.7%,,,1,0,0,32,0,32
 Alakazam,121,stat_points,7,,0.6%,,,13,0,24,2,2,25
-Alakazam,121,stat_points,8,,0.5%,,,32,0,0,32,0,2
+Alakazam,121,stat_points,8,,0.6%,,,32,0,0,32,0,2
 Alakazam,121,stat_points,9,,0.4%,,,0,0,32,32,0,2
 Alakazam,121,stat_points,10,,0.4%,,,2,0,0,32,32,0
-Alakazam,121,ability,1,Magic Guard,79.4%,,,,,,,,
-Alakazam,121,ability,2,Synchronize,11.0%,,,,,,,,
+Alakazam,121,ability,1,Magic Guard,79.5%,,,,,,,,
+Alakazam,121,ability,2,Synchronize,10.9%,,,,,,,,
 Alakazam,121,ability,3,Inner Focus,9.6%,,,,,,,,

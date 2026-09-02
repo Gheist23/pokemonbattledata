@@ -1,14 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Basculegion Male,4,move,6,Liquidation,8.7%,,,,,,,,
+Basculegion Male,4,move,1,Last Respects,99.8%,,,,,,,,
+Basculegion Male,4,move,2,Aqua Jet,91.8%,,,,,,,,
+Basculegion Male,4,move,3,Wave Crash,89.8%,,,,,,,,
+Basculegion Male,4,move,4,Protect,57.5%,,,,,,,,
+Basculegion Male,4,move,5,Flip Turn,39.6%,,,,,,,,
+Basculegion Male,4,move,6,Liquidation,8.6%,,,,,,,,
 Basculegion Male,4,move,7,Psychic Fangs,3.8%,,,,,,,,
 Basculegion Male,4,move,8,Ice Fang,2.1%,,,,,,,,
 Basculegion Male,4,move,9,Head Smash,1.1%,,,,,,,,
 Basculegion Male,4,move,10,Phantom Force,0.9%,,,,,,,,
-Basculegion Male,4,held_item,1,Choice Scarf,39.7%,,,,,,,,
-Basculegion Male,4,held_item,2,Mystic Water,21.1%,,,,,,,,
-Basculegion Male,4,held_item,3,Life Orb,17.1%,,,,,,,,
-Basculegion Male,4,held_item,4,Focus Sash,10.1%,,,,,,,,
-Basculegion Male,4,held_item,5,Sitrus Berry,8.5%,,,,,,,,
+Basculegion Male,4,held_item,1,Choice Scarf,39.3%,,,,,,,,
+Basculegion Male,4,held_item,2,Mystic Water,21.0%,,,,,,,,
+Basculegion Male,4,held_item,3,Life Orb,17.8%,,,,,,,,
+Basculegion Male,4,held_item,4,Focus Sash,9.9%,,,,,,,,
+Basculegion Male,4,held_item,5,Sitrus Berry,8.4%,,,,,,,,
 Basculegion Male,4,held_item,6,Colbur Berry,0.9%,,,,,,,,
 Basculegion Male,4,held_item,7,Quick Claw,0.5%,,,,,,,,
 Basculegion Male,4,held_item,8,Spell Tag,0.5%,,,,,,,,
@@ -20,12 +25,12 @@ Basculegion Male,4,teammate,3,Whimsicott,,,,,,,,,
 Basculegion Male,4,teammate,4,Sneasler,,,,,,,,,
 Basculegion Male,4,teammate,5,Charizard,,,,,,,,,
 Basculegion Male,4,teammate,6,Froslass,,,,,,,,,
-Basculegion Male,4,teammate,7,Staraptor,,,,,,,,,
-Basculegion Male,4,teammate,8,Pelipper,,,,,,,,,
-Basculegion Male,4,teammate,9,Floette,,,,,,,,,
+Basculegion Male,4,teammate,7,Floette,,,,,,,,,
+Basculegion Male,4,teammate,8,Staraptor,,,,,,,,,
+Basculegion Male,4,teammate,9,Pelipper,,,,,,,,,
 Basculegion Male,4,teammate,10,Farigiraf,,,,,,,,,
-Basculegion Male,4,stat_alignment,1,Adamant,55.2%,Attack,Sp. Atk,,,,,,
-Basculegion Male,4,stat_alignment,2,Jolly,41.2%,Speed,Sp. Atk,,,,,,
+Basculegion Male,4,stat_alignment,1,Adamant,55.5%,Attack,Sp. Atk,,,,,,
+Basculegion Male,4,stat_alignment,2,Jolly,40.9%,Speed,Sp. Atk,,,,,,
 Basculegion Male,4,stat_alignment,3,Brave,1.5%,Attack,Speed,,,,,,
 Basculegion Male,4,stat_alignment,4,Naughty,0.5%,Attack,Sp. Def,,,,,,
 Basculegion Male,4,stat_alignment,5,Lonely,0.4%,Attack,Defense,,,,,,
@@ -35,14 +40,14 @@ Basculegion Male,4,stat_alignment,8,Impish,0.2%,Defense,Sp. Atk,,,,,,
 Basculegion Male,4,stat_alignment,9,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
 Basculegion Male,4,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
 Basculegion Male,4,stat_points,1,,32.4%,,,2,32,0,0,0,32
-Basculegion Male,4,stat_points,2,,16.5%,,,0,32,2,0,0,32
-Basculegion Male,4,stat_points,3,,6.9%,,,12,20,4,0,12,18
+Basculegion Male,4,stat_points,2,,16.4%,,,0,32,2,0,0,32
+Basculegion Male,4,stat_points,3,,6.7%,,,12,20,4,0,12,18
 Basculegion Male,4,stat_points,4,,3.2%,,,0,32,0,0,2,32
 Basculegion Male,4,stat_points,5,,2.4%,,,1,28,10,0,0,27
 Basculegion Male,4,stat_points,6,,1.5%,,,0,32,0,0,0,32
 Basculegion Male,4,stat_points,7,,1.4%,,,32,32,2,0,0,0
 Basculegion Male,4,stat_points,8,,1.2%,,,0,28,14,0,0,24
-Basculegion Male,4,stat_points,9,,1.0%,,,0,20,14,0,0,32
+Basculegion Male,4,stat_points,9,,0.9%,,,0,20,14,0,0,32
 Basculegion Male,4,stat_points,10,,0.8%,,,24,28,0,0,6,8
 Basculegion Male,4,ability,1,Adaptability,93.9%,,,,,,,,
 Basculegion Male,4,ability,2,Swift Swim,5.7%,,,,,,,,

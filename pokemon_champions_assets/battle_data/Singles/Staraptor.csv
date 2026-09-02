@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Staraptor,28,move,1,Close Combat,95.3%,,,,,,,,
-Staraptor,28,move,2,Brave Bird,91.4%,,,,,,,,
+Staraptor,28,move,2,Brave Bird,91.3%,,,,,,,,
 Staraptor,28,move,3,Roost,80.4%,,,,,,,,
 Staraptor,28,move,4,Blaze Kick,37.2%,,,,,,,,
 Staraptor,28,move,5,U-turn,22.3%,,,,,,,,
-Staraptor,28,move,6,Bulk Up,11.6%,,,,,,,,
+Staraptor,28,move,6,Bulk Up,11.5%,,,,,,,,
 Staraptor,28,move,7,Final Gambit,11.5%,,,,,,,,
 Staraptor,28,move,8,Whirlwind,9.0%,,,,,,,,
 Staraptor,28,move,9,Substitute,7.1%,,,,,,,,
-Staraptor,28,move,10,Double-Edge,6.7%,,,,,,,,
-Staraptor,28,held_item,1,Staraptite,84.6%,,,,,,,,
-Staraptor,28,held_item,2,Choice Scarf,13.5%,,,,,,,,
+Staraptor,28,move,10,Dual Wingbeat,1.0%,,,,,,,,
+Staraptor,28,held_item,1,Staraptite,84.7%,,,,,,,,
+Staraptor,28,held_item,2,Choice Scarf,13.4%,,,,,,,,
 Staraptor,28,held_item,3,Life Orb,0.4%,,,,,,,,
 Staraptor,28,held_item,4,Focus Sash,0.2%,,,,,,,,
 Staraptor,28,held_item,5,Sharp Beak,0.2%,,,,,,,,
@@ -39,7 +39,7 @@ Staraptor,28,stat_alignment,7,Hasty,0.5%,Speed,Defense,,,,,,
 Staraptor,28,stat_alignment,8,Lonely,0.4%,Attack,Defense,,,,,,
 Staraptor,28,stat_alignment,9,Brave,0.2%,Attack,Speed,,,,,,
 Staraptor,28,stat_alignment,10,Timid,0.2%,Speed,Attack,,,,,,
-Staraptor,28,stat_points,1,,31.0%,,,2,32,0,0,0,32
+Staraptor,28,stat_points,1,,31.2%,,,2,32,0,0,0,32
 Staraptor,28,stat_points,2,,8.6%,,,32,2,0,0,0,32
 Staraptor,28,stat_points,3,,6.9%,,,1,32,1,0,0,32
 Staraptor,28,stat_points,4,,4.3%,,,15,16,2,0,1,32

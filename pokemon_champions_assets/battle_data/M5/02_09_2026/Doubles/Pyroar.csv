@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pyroar,84,move,1,Heat Wave,97.2%,,,,,,,,
 Pyroar,84,move,2,Protect,95.4%,,,,,,,,
-Pyroar,84,move,3,Overheat,64.9%,,,,,,,,
-Pyroar,84,move,4,Solar Beam,46.4%,,,,,,,,
-Pyroar,84,move,5,Hyper Voice,23.5%,,,,,,,,
+Pyroar,84,move,3,Overheat,64.8%,,,,,,,,
+Pyroar,84,move,4,Solar Beam,46.3%,,,,,,,,
+Pyroar,84,move,5,Hyper Voice,23.7%,,,,,,,,
 Pyroar,84,move,6,Scorching Sands,20.0%,,,,,,,,
 Pyroar,84,move,7,Flamethrower,13.1%,,,,,,,,
 Pyroar,84,move,8,Dark Pulse,6.8%,,,,,,,,
 Pyroar,84,move,9,Yawn,3.2%,,,,,,,,
-Pyroar,84,move,10,Round,0.0%,,,,,,,,
+Pyroar,84,move,10,Round,1.0%,,,,,,,,
 Pyroar,84,held_item,1,Pyroarite,96.1%,,,,,,,,
 Pyroar,84,held_item,2,Charcoal,0.9%,,,,,,,,
 Pyroar,84,held_item,3,Focus Sash,0.6%,,,,,,,,
@@ -29,7 +29,7 @@ Pyroar,84,teammate,7,Sylveon,,,,,,,,,
 Pyroar,84,teammate,8,Garchomp,,,,,,,,,
 Pyroar,84,teammate,9,Sneasler,,,,,,,,,
 Pyroar,84,teammate,10,Ninetales,,,,,,,,,
-Pyroar,84,stat_alignment,1,Timid,76.5%,Speed,Attack,,,,,,
+Pyroar,84,stat_alignment,1,Timid,76.6%,Speed,Attack,,,,,,
 Pyroar,84,stat_alignment,2,Modest,21.1%,Sp. Atk,Attack,,,,,,
 Pyroar,84,stat_alignment,3,Mild,0.5%,Sp. Atk,Defense,,,,,,
 Pyroar,84,stat_alignment,4,Quiet,0.4%,Sp. Atk,Speed,,,,,,
@@ -39,16 +39,16 @@ Pyroar,84,stat_alignment,7,Hasty,0.3%,Speed,Defense,,,,,,
 Pyroar,84,stat_alignment,8,Gentle,0.2%,Sp. Def,Defense,,,,,,
 Pyroar,84,stat_alignment,9,Bold,0.2%,Defense,Attack,,,,,,
 Pyroar,84,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Pyroar,84,stat_points,1,,63.8%,,,2,0,0,32,0,32
+Pyroar,84,stat_points,1,,63.9%,,,2,0,0,32,0,32
 Pyroar,84,stat_points,2,,5.2%,,,0,0,2,32,0,32
 Pyroar,84,stat_points,3,,4.4%,,,0,0,7,32,0,27
 Pyroar,84,stat_points,4,,4.0%,,,0,0,0,32,2,32
-Pyroar,84,stat_points,5,,2.2%,,,7,0,0,32,0,27
+Pyroar,84,stat_points,5,,2.1%,,,7,0,0,32,0,27
 Pyroar,84,stat_points,6,,0.9%,,,4,0,0,32,0,30
 Pyroar,84,stat_points,7,,0.9%,,,14,0,2,23,0,27
-Pyroar,84,stat_points,8,,0.5%,,,5,0,0,32,0,29
-Pyroar,84,stat_points,9,,0.5%,,,3,0,0,32,2,29
-Pyroar,84,stat_points,10,,0.5%,,,6,0,0,32,0,28
-Pyroar,84,ability,1,Unnerve,82.1%,,,,,,,,
-Pyroar,84,ability,2,Moxie,9.1%,,,,,,,,
+Pyroar,84,stat_points,8,,0.5%,,,6,0,0,32,0,28
+Pyroar,84,stat_points,9,,0.5%,,,5,0,0,32,0,29
+Pyroar,84,stat_points,10,,0.5%,,,3,0,0,32,2,29
+Pyroar,84,ability,1,Unnerve,82.0%,,,,,,,,
+Pyroar,84,ability,2,Moxie,9.2%,,,,,,,,
 Pyroar,84,ability,3,Rivalry,8.8%,,,,,,,,

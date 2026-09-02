@@ -1,15 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Whimsicott,53,move,1,Moonblast,88.2%,,,,,,,,
-Whimsicott,53,move,2,Encore,67.1%,,,,,,,,
-Whimsicott,53,move,3,Tailwind,50.9%,,,,,,,,
-Whimsicott,53,move,4,Leech Seed,42.1%,,,,,,,,
-Whimsicott,53,move,5,Endeavor,32.3%,,,,,,,,
 Whimsicott,53,move,6,Substitute,26.4%,,,,,,,,
 Whimsicott,53,move,7,Cotton Guard,19.8%,,,,,,,,
 Whimsicott,53,move,8,Memento,18.3%,,,,,,,,
 Whimsicott,53,move,9,Taunt,10.7%,,,,,,,,
-Whimsicott,53,move,10,Giga Drain,1.0%,,,,,,,,
-Whimsicott,53,held_item,1,Focus Sash,51.9%,,,,,,,,
+Whimsicott,53,move,10,Giga Drain,8.8%,,,,,,,,
+Whimsicott,53,held_item,1,Focus Sash,51.8%,,,,,,,,
 Whimsicott,53,held_item,2,Leftovers,29.3%,,,,,,,,
 Whimsicott,53,held_item,3,Sitrus Berry,4.0%,,,,,,,,
 Whimsicott,53,held_item,4,Life Orb,2.8%,,,,,,,,
@@ -29,9 +24,9 @@ Whimsicott,53,teammate,7,Charizard,,,,,,,,,
 Whimsicott,53,teammate,8,Archaludon,,,,,,,,,
 Whimsicott,53,teammate,9,Gyarados,,,,,,,,,
 Whimsicott,53,teammate,10,Basculegion Male,,,,,,,,,
-Whimsicott,53,stat_alignment,1,Modest,35.0%,Sp. Atk,Attack,,,,,,
+Whimsicott,53,stat_alignment,1,Modest,34.9%,Sp. Atk,Attack,,,,,,
 Whimsicott,53,stat_alignment,2,Timid,30.7%,Speed,Attack,,,,,,
-Whimsicott,53,stat_alignment,3,Bold,25.5%,Defense,Attack,,,,,,
+Whimsicott,53,stat_alignment,3,Bold,25.6%,Defense,Attack,,,,,,
 Whimsicott,53,stat_alignment,4,Calm,6.4%,Sp. Def,Attack,,,,,,
 Whimsicott,53,stat_alignment,5,Mild,0.5%,Sp. Atk,Defense,,,,,,
 Whimsicott,53,stat_alignment,6,Hasty,0.3%,Speed,Defense,,,,,,
@@ -40,7 +35,7 @@ Whimsicott,53,stat_alignment,8,Impish,0.3%,Defense,Sp. Atk,,,,,,
 Whimsicott,53,stat_alignment,9,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Whimsicott,53,stat_alignment,10,Relaxed,0.2%,Defense,Speed,,,,,,
 Whimsicott,53,stat_points,1,,31.0%,,,2,0,0,32,0,32
-Whimsicott,53,stat_points,2,,15.1%,,,0,0,2,32,0,32
+Whimsicott,53,stat_points,2,,15.0%,,,0,0,2,32,0,32
 Whimsicott,53,stat_points,3,,10.1%,,,32,0,32,0,2,0
 Whimsicott,53,stat_points,4,,3.3%,,,32,0,32,0,0,2
 Whimsicott,53,stat_points,5,,2.8%,,,0,0,0,32,2,32

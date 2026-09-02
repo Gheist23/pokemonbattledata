@@ -1,16 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gyarados,7,move,1,Dragon Dance,79.7%,,,,,,,,
-Gyarados,7,move,2,Earthquake,74.0%,,,,,,,,
-Gyarados,7,move,3,Waterfall,65.0%,,,,,,,,
-Gyarados,7,move,4,Power Whip,60.7%,,,,,,,,
-Gyarados,7,move,5,Ice Fang,48.7%,,,,,,,,
 Gyarados,7,move,6,Crunch,21.3%,,,,,,,,
 Gyarados,7,move,7,Taunt,19.2%,,,,,,,,
 Gyarados,7,move,8,Avalanche,13.2%,,,,,,,,
 Gyarados,7,move,9,Temper Flare,6.3%,,,,,,,,
 Gyarados,7,move,10,Dragon Tail,2.1%,,,,,,,,
 Gyarados,7,held_item,1,Gyaradosite,74.3%,,,,,,,,
-Gyarados,7,held_item,2,Leftovers,14.2%,,,,,,,,
+Gyarados,7,held_item,2,Leftovers,14.3%,,,,,,,,
 Gyarados,7,held_item,3,Sitrus Berry,3.9%,,,,,,,,
 Gyarados,7,held_item,4,Lum Berry,2.9%,,,,,,,,
 Gyarados,7,held_item,5,Expert Belt,1.5%,,,,,,,,
@@ -29,16 +24,16 @@ Gyarados,7,teammate,7,Delphox,,,,,,,,,
 Gyarados,7,teammate,8,Volcarona,,,,,,,,,
 Gyarados,7,teammate,9,Lucario,,,,,,,,,
 Gyarados,7,teammate,10,Primarina,,,,,,,,,
-Gyarados,7,stat_alignment,1,Jolly,48.1%,Speed,Sp. Atk,,,,,,
+Gyarados,7,stat_alignment,1,Jolly,48.2%,Speed,Sp. Atk,,,,,,
 Gyarados,7,stat_alignment,2,Adamant,43.1%,Attack,Sp. Atk,,,,,,
 Gyarados,7,stat_alignment,3,Impish,6.9%,Defense,Sp. Atk,,,,,,
 Gyarados,7,stat_alignment,4,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
 Gyarados,7,stat_alignment,5,Naughty,0.2%,Attack,Sp. Def,,,,,,
-Gyarados,7,stat_alignment,6,Lonely,0.1%,Attack,Defense,,,,,,
+Gyarados,7,stat_alignment,6,Lonely,2.0%,Attack,Defense,,,,,,
 Gyarados,7,stat_alignment,7,Brave,0.1%,Attack,Speed,,,,,,
 Gyarados,7,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
 Gyarados,7,stat_alignment,9,Bold,0.1%,Defense,Attack,,,,,,
-Gyarados,7,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
+Gyarados,7,stat_alignment,10,Hasty,0.0%,Speed,Defense,,,,,,
 Gyarados,7,stat_points,1,,22.8%,,,1,32,1,0,0,32
 Gyarados,7,stat_points,2,,19.3%,,,2,32,0,0,0,32
 Gyarados,7,stat_points,3,,5.3%,,,1,31,3,0,0,31
@@ -49,5 +44,5 @@ Gyarados,7,stat_points,7,,1.1%,,,0,32,0,0,2,32
 Gyarados,7,stat_points,8,,1.1%,,,5,32,0,0,0,29
 Gyarados,7,stat_points,9,,1.0%,,,31,10,20,0,0,5
 Gyarados,7,stat_points,10,,1.0%,,,32,32,2,0,0,0
-Gyarados,7,ability,1,Intimidate,98.8%,,,,,,,,
-Gyarados,7,ability,2,Moxie,1.2%,,,,,,,,
+Gyarados,7,ability,1,Intimidate,98.7%,,,,,,,,
+Gyarados,7,ability,2,Moxie,1.3%,,,,,,,,

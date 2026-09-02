@@ -1,12 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gallade,68,move,6,Night Slash,15.6%,,,,,,,,
+Gallade,68,move,1,Sacred Sword,93.0%,,,,,,,,
+Gallade,68,move,2,Psycho Cut,82.3%,,,,,,,,
+Gallade,68,move,3,Leaf Blade,74.0%,,,,,,,,
+Gallade,68,move,4,Shadow Sneak,35.5%,,,,,,,,
+Gallade,68,move,5,Triple Axel,22.7%,,,,,,,,
+Gallade,68,move,6,Night Slash,15.5%,,,,,,,,
 Gallade,68,move,7,Shadow Claw,7.7%,,,,,,,,
 Gallade,68,move,8,Swords Dance,6.0%,,,,,,,,
 Gallade,68,move,9,Close Combat,3.6%,,,,,,,,
-Gallade,68,move,10,Aqua Cutter,3.4%,,,,,,,,
+Gallade,68,move,10,Rock Tomb,3.4%,,,,,,,,
 Gallade,68,held_item,1,Life Orb,25.5%,,,,,,,,
 Gallade,68,held_item,2,Focus Sash,20.0%,,,,,,,,
-Gallade,68,held_item,3,Galladite,18.1%,,,,,,,,
+Gallade,68,held_item,3,Galladite,18.2%,,,,,,,,
 Gallade,68,held_item,4,Choice Scarf,17.5%,,,,,,,,
 Gallade,68,held_item,5,Scope Lens,6.5%,,,,,,,,
 Gallade,68,held_item,6,Lum Berry,4.0%,,,,,,,,
@@ -25,7 +30,7 @@ Gallade,68,teammate,8,Gyarados,,,,,,,,,
 Gallade,68,teammate,9,Scizor,,,,,,,,,
 Gallade,68,teammate,10,Dragonite,,,,,,,,,
 Gallade,68,stat_alignment,1,Adamant,59.6%,Attack,Sp. Atk,,,,,,
-Gallade,68,stat_alignment,2,Jolly,36.3%,Speed,Sp. Atk,,,,,,
+Gallade,68,stat_alignment,2,Jolly,36.4%,Speed,Sp. Atk,,,,,,
 Gallade,68,stat_alignment,3,Impish,1.0%,Defense,Sp. Atk,,,,,,
 Gallade,68,stat_alignment,4,Brave,1.0%,Attack,Speed,,,,,,
 Gallade,68,stat_alignment,5,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
@@ -34,15 +39,15 @@ Gallade,68,stat_alignment,7,Lonely,0.3%,Attack,Defense,,,,,,
 Gallade,68,stat_alignment,8,Naughty,0.2%,Attack,Sp. Def,,,,,,
 Gallade,68,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,
 Gallade,68,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
-Gallade,68,stat_points,1,,39.8%,,,2,32,0,0,0,32
-Gallade,68,stat_points,2,,13.0%,,,32,25,9,0,0,0
+Gallade,68,stat_points,1,,39.9%,,,2,32,0,0,0,32
+Gallade,68,stat_points,2,,12.9%,,,32,25,9,0,0,0
 Gallade,68,stat_points,3,,8.5%,,,0,32,2,0,0,32
 Gallade,68,stat_points,4,,4.7%,,,0,32,0,0,2,32
 Gallade,68,stat_points,5,,2.1%,,,32,32,2,0,0,0
 Gallade,68,stat_points,6,,1.1%,,,32,25,0,0,0,9
 Gallade,68,stat_points,7,,0.9%,,,32,32,0,0,2,0
-Gallade,68,stat_points,8,,0.7%,,,26,32,0,0,0,8
-Gallade,68,stat_points,9,,0.7%,,,2,32,32,0,0,0
+Gallade,68,stat_points,8,,0.7%,,,2,32,32,0,0,0
+Gallade,68,stat_points,9,,0.7%,,,26,32,0,0,0,8
 Gallade,68,stat_points,10,,0.6%,,,32,2,0,0,0,32
 Gallade,68,ability,1,Sharpness,94.3%,,,,,,,,
 Gallade,68,ability,2,Justified,3.5%,,,,,,,,

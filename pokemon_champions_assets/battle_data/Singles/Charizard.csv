@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Charizard,11,move,1,Solar Beam,60.1%,,,,,,,,
-Charizard,11,move,2,Flamethrower,41.7%,,,,,,,,
+Charizard,11,move,1,Solar Beam,60.2%,,,,,,,,
+Charizard,11,move,2,Flamethrower,41.6%,,,,,,,,
 Charizard,11,move,3,Air Slash,39.4%,,,,,,,,
-Charizard,11,move,4,Flare Blitz,36.7%,,,,,,,,
+Charizard,11,move,4,Flare Blitz,36.6%,,,,,,,,
 Charizard,11,move,5,Flame Charge,28.6%,,,,,,,,
 Charizard,11,move,6,Outrage,21.3%,,,,,,,,
 Charizard,11,move,7,Dragon Dance,20.8%,,,,,,,,
 Charizard,11,move,8,Overheat,17.7%,,,,,,,,
 Charizard,11,move,9,Thunder Punch,17.4%,,,,,,,,
 Charizard,11,move,10,Roost,17.0%,,,,,,,,
-Charizard,11,held_item,1,Charizardite Y,60.8%,,,,,,,,
-Charizard,11,held_item,2,Charizardite X,37.9%,,,,,,,,
+Charizard,11,held_item,1,Charizardite Y,60.9%,,,,,,,,
+Charizard,11,held_item,2,Charizardite X,37.8%,,,,,,,,
 Charizard,11,held_item,3,Choice Scarf,0.2%,,,,,,,,
 Charizard,11,held_item,4,Sitrus Berry,0.1%,,,,,,,,
 Charizard,11,held_item,5,Life Orb,0.1%,,,,,,,,
@@ -39,7 +39,7 @@ Charizard,11,stat_alignment,7,Hasty,0.3%,Speed,Defense,,,,,,
 Charizard,11,stat_alignment,8,Impish,0.3%,Defense,Sp. Atk,,,,,,
 Charizard,11,stat_alignment,9,Naive,0.3%,Speed,Sp. Def,,,,,,
 Charizard,11,stat_alignment,10,Calm,0.2%,Sp. Def,Attack,,,,,,
-Charizard,11,stat_points,1,,28.4%,,,2,0,0,32,0,32
+Charizard,11,stat_points,1,,28.5%,,,2,0,0,32,0,32
 Charizard,11,stat_points,2,,20.0%,,,2,32,0,0,0,32
 Charizard,11,stat_points,3,,4.7%,,,4,30,0,0,0,32
 Charizard,11,stat_points,4,,4.1%,,,0,0,2,32,0,32
@@ -49,5 +49,5 @@ Charizard,11,stat_points,7,,1.2%,,,32,0,20,11,0,3
 Charizard,11,stat_points,8,,1.1%,,,22,0,17,5,0,22
 Charizard,11,stat_points,9,,1.0%,,,10,0,14,21,0,21
 Charizard,11,stat_points,10,,0.9%,,,0,0,0,32,0,32
-Charizard,11,ability,1,Blaze,86.3%,,,,,,,,
-Charizard,11,ability,2,Solar Power,13.7%,,,,,,,,
+Charizard,11,ability,1,Blaze,86.2%,,,,,,,,
+Charizard,11,ability,2,Solar Power,13.8%,,,,,,,,

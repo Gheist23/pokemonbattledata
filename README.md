@@ -52,6 +52,11 @@ The generator produces a lightweight browser index and static API records:
 - `data/pokemon-index.json` is the lightweight browser/search index.
 - `data/api/index.json` is the complete API dataset streamed by `/api`.
 - `data/api/lookup.json` and `data/api/pokemon/*.json` keep individual API requests small.
+- `data/meta/index.json` and `data/meta/<season>/<date>/<Doubles|Singles>.json` are the daily
+  ranked-usage snapshots the `/meta/` page diffs to show rank and usage-percentage changes. They
+  only cover season folders with dated subfolders (e.g. `M5/03_09_2026/`) -- an undated season
+  has no history to diff. If Node isn't available, `python tools/build_meta_trends.py` produces
+  the same files from the same `pokemon_champions_assets/battle_data/` layout.
 
 Commit the generated files and public assets:
 

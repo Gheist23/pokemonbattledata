@@ -532,6 +532,104 @@ function writeApiData(manifest) {
   })}\n`);
 }
 
+const regionalFormPattern = /\b(hisuian|alolan|galarian|paldean)\b/i;
+
+/** Mirrors app.js displayNameForBattleName -- the label the explorer shows.
+ *  Kept only as a secondary label in the meta lookup: it collapses forms
+ *  (four Rotom entries all become "Rotom"), which a ranking table cannot
+ *  afford, so /meta/ labels rows with the battle name instead. */
+function baseDisplayName(battleName, primary) {
+  const baseName = String(primary?.pokemon_name || primary?.base_name || "").trim();
+  if (baseName && !regionalFormPattern.test(battleName || "")) return baseName;
+  return battleName;
+}
+
+/** One ranked day of one format, keyed by the battle name used in the CSVs.
+ *  Every row keeps the rank it was captured at as its trailing element --
+ *  see the "partial" comment below for why /meta/ needs that. */
+function snapshotFromFolder(folder) {
+  const pokemon = {};
+  for (const file of readdirSync(folder).filter((name) => extname(name).toLowerCase() === ".csv").sort()) {
+    const rows = parseCSV(readFileSync(join(folder, file), "utf8")).map(normalizeBattleRow).filter((row) => row.category);
+    if (!rows.length) continue;
+    rows.sort((a, b) => numberOrZero(a.rank) - numberOrZero(b.rank));
+    const entry = { position: rows[0].column_position };
+    const ranksByCategory = {};
+    for (const row of rows) {
+      const category = row.category;
+      (ranksByCategory[category] ||= []).push(row.rank);
+      let cells;
+      if (category === "stat_points") cells = [row.percentage_value, ...statColumns.map((key) => row[key] ?? null)];
+      else if (category === "stat_alignment") cells = [row.name, row.percentage_value, row.stat_up || "", row.stat_down || ""];
+      else if (category === "teammate") cells = [row.name];
+      else cells = [row.name, row.percentage_value];
+      (entry[category] ||= []).push([...cells, row.rank]);
+    }
+    // A snapshot row's ranks should run 1..N; when they don't (about one in six
+    // daily move lists is missing its opening ranks), flag the category so
+    // /meta/ can tell "this entry left the top 10" apart from "this day never
+    // captured it" instead of reading a missing rank 1 as a 99% collapse.
+    const partial = Object.keys(ranksByCategory).filter((category) => {
+      const captured = ranksByCategory[category].filter((rank) => rank !== null && rank !== undefined);
+      return captured.length !== ranksByCategory[category].length ||
+        !captured.every((rank, index) => rank === index + 1);
+    }).sort();
+    if (partial.length) entry.partial = partial;
+    pokemon[rows[0].pokemon || basename(file, ".csv")] = entry;
+  }
+  return pokemon;
+}
+
+/** Daily meta-trend snapshots for /meta/ -- the historical counterpart to
+ *  battleSummary/dailyBattleSummary above, which only ever compare against
+ *  "the current day". Keep tools/build_meta_trends.py (the no-Node fallback
+ *  used when this can't run) producing the same shape if either changes. */
+function writeMetaTrends(pokemonRecords) {
+  const metaDir = join(cwd, "data", "meta");
+  if (existsSync(metaDir)) rmSync(metaDir, { recursive: true, force: true });
+  mkdirSync(metaDir, { recursive: true });
+
+  const lookup = {};
+  for (const record of pokemonRecords) {
+    const battleName = record.battleName || record.name;
+    const primary = record.summary?.primary || {};
+    lookup[battleName] = {
+      name: battleName,
+      baseName: baseDisplayName(battleName, primary),
+      slug: record.slug || "",
+      sprite: record.summary?.sprite || primary.image_path || "",
+      types: record.summary?.types || primary.types || []
+    };
+  }
+
+  const seasons = [];
+  let written = 0;
+  for (const season of battleDataFolders) {
+    const seasonDir = join(battleDir, season);
+    const dates = readdirSync(seasonDir)
+      .filter((name) => /^\d{2}_\d{2}_\d{4}$/.test(name) && statSync(join(seasonDir, name)).isDirectory())
+      .sort((a, b) => (parseDailyDate(b) ?? 0) - (parseDailyDate(a) ?? 0));
+    const formats = [];
+    for (const date of dates) {
+      for (const format of preferredFormatOrder) {
+        const folder = join(seasonDir, date, format);
+        if (!existsSync(folder)) continue;
+        const snapshot = snapshotFromFolder(folder);
+        if (!Object.keys(snapshot).length) continue;
+        const outDir = join(metaDir, season, date);
+        mkdirSync(outDir, { recursive: true });
+        writeFileSync(join(outDir, `${format}.json`), `${JSON.stringify({ season, date, format, generatedAt, pokemon: snapshot })}\n`);
+        written += 1;
+        if (!formats.includes(format)) formats.push(format);
+      }
+    }
+    if (dates.length && formats.length) seasons.push({ season, dates, formats });
+  }
+
+  writeFileSync(join(metaDir, "index.json"), `${JSON.stringify({ generatedAt, dataVersion, assetRoot, seasons, pokemon: lookup })}\n`);
+  console.log(`Wrote ${written} meta snapshot(s) across ${seasons.length} season(s) to data/meta/.`);
+}
+
 function compareFormat(a, b) {
   const ai = preferredFormatOrder.indexOf(a.format || a);
   const bi = preferredFormatOrder.indexOf(b.format || b);
@@ -1187,6 +1285,7 @@ writeFileSync(join(cwd, "data", "pokemon-index.json"), `${JSON.stringify({
   pokemon: pokemon.map(lightweightPokemonRecord)
 })}\n`);
 writeApiData(manifest);
+writeMetaTrends(pokemon);
 writePokemonPages(pokemonPages);
 writeTopicPages(topicPages);
 writeSitemap(pokemonPages, topicPages, generatedAt);

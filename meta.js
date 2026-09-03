@@ -56,11 +56,9 @@
     rankPill: document.getElementById("metaRankPill"),
     rankWinners: document.getElementById("rankWinners"),
     rankLosers: document.getElementById("rankLosers"),
-    entrants: document.getElementById("metaEntrants"),
     usageRising: document.getElementById("usageRising"),
     usageFalling: document.getElementById("usageFalling"),
     usageMoreButton: document.getElementById("usageMoreButton"),
-    partialNote: document.getElementById("metaPartialNote"),
     tabs: [...document.querySelectorAll(".meta-tab")],
     formatToggleDoubles: document.getElementById("formatToggleDoubles"),
     formatToggleSingles: document.getElementById("formatToggleSingles"),
@@ -452,56 +450,17 @@
     fillList(els.rankWinners, winners.map((row) => rankRow(row)), emptyUp);
     fillList(els.rankLosers, losers.map((row) => rankRow(row)), emptyDown);
     if (els.rankPill) els.rankPill.textContent = `Top ${LIST_LIMIT}`;
-    renderEntrants(entered, left);
-  }
-
-  function renderEntrants(entered, left) {
-    if (!els.entrants) return;
-    els.entrants.innerHTML = "";
-    const groups = [
-      ["Newly ranked", entered.map((row) => ({ name: row.name, note: `#${row.to}` }))],
-      ["No longer ranked", left.map((row) => ({ name: row.name, note: row.from ? `was #${row.from}` : "" }))]
-    ].filter(([, items]) => items.length);
-    groups.forEach(([label, items]) => {
-      const group = document.createElement("div");
-      group.className = "meta-chip-group";
-      const heading = document.createElement("span");
-      heading.className = "meta-chip-label";
-      heading.textContent = label;
-      group.append(heading);
-      items.forEach((item) => {
-        const chip = document.createElement("button");
-        chip.type = "button";
-        chip.className = "meta-chip";
-        chip.innerHTML = `${escapeHtml(displayName(item.name))}${item.note ? ` <small>${escapeHtml(item.note)}</small>` : ""}`;
-        chip.addEventListener("click", () => openChanges(item.name));
-        group.append(chip);
-      });
-      els.entrants.append(group);
-    });
   }
 
   function renderUsageChanges() {
     if (!state.latest || !state.baseline) return;
     const limit = state.usageExpanded ? LIST_LIMIT_EXPANDED : LIST_LIMIT;
-    const { changes, partialCount } = usageChanges(state.category);
+    const { changes } = usageChanges(state.category);
     const rising = changes.filter((row) => row.delta > 0).sort((a, b) => b.delta - a.delta).slice(0, limit);
     const falling = changes.filter((row) => row.delta < 0).sort((a, b) => a.delta - b.delta).slice(0, limit);
     const noun = CATEGORY_SINGULAR[state.category] || "entry";
     fillList(els.usageRising, rising.map((row) => usageRow(row)), `No ${noun} usage gains in this window.`);
     fillList(els.usageFalling, falling.map((row) => usageRow(row)), `No ${noun} usage drops in this window.`);
-    renderPartialNote(partialCount);
-  }
-
-  function renderPartialNote(partialCount) {
-    if (!els.partialNote) return;
-    if (!partialCount) {
-      els.partialNote.hidden = true;
-      return;
-    }
-    const label = CATEGORY_LABELS[state.category].toLowerCase();
-    els.partialNote.hidden = false;
-    els.partialNote.textContent = `${partialCount} Pokemon in scope had an incomplete ${label} capture on one of the two days. For those, only entries recorded on both days are compared.`;
   }
 
   function renderScopeNote() {
@@ -671,13 +630,6 @@
       empty.textContent = "Nothing changed for this Pokemon in the selected window.";
       wrapper.append(empty);
     }
-    const partial = partialCategories(name);
-    if (partial.length) {
-      const note = document.createElement("p");
-      note.className = "meta-note meta-detail-note";
-      note.textContent = `One of the two days captured an incomplete ${partial.map((category) => CATEGORY_LABELS[category].toLowerCase()).join(" and ")} list, so only entries recorded on both days are listed there.`;
-      wrapper.append(note);
-    }
     return wrapper;
   }
 
@@ -722,19 +674,11 @@
         present: nowMap.has(entry),
         rank: nowMap.get(entry)?.rank ?? wasMap.get(entry)?.rank ?? null
       };
-    }).sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta) || b.now - a.now);
+    }).sort((a, b) => b.was - a.was || Math.abs(b.delta) - Math.abs(a.delta));
   }
 
   function rankSortValue(row) {
     return row.nowRank ?? 900 + (row.wasRank ?? 0);
-  }
-
-  function partialCategories(name) {
-    const flagged = unique([
-      ...(state.latest?.pokemon?.[name]?.partial || []),
-      ...(state.baseline?.pokemon?.[name]?.partial || [])
-    ]);
-    return flagged.filter((category) => DIALOG_CATEGORIES.includes(category));
   }
 
   function changeTable(category, rows, moveTypes) {

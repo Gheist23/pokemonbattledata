@@ -46,11 +46,8 @@
     window: document.getElementById("metaWindow"),
     formatLabel: document.getElementById("metaFormatLabel"),
     pokemonCount: document.getElementById("metaPokemonCount"),
-    seasonField: document.getElementById("metaSeasonField"),
-    season: document.getElementById("metaSeason"),
     range: document.getElementById("metaRange"),
     scope: document.getElementById("metaScope"),
-    scopeNote: document.getElementById("metaScopeNote"),
     results: document.getElementById("metaResults"),
     status: document.getElementById("metaStatus"),
     rankPill: document.getElementById("metaRankPill"),
@@ -80,7 +77,7 @@
       return;
     }
     state.lookup = state.index.pokemon || {};
-    setupSeasons();
+    resolveDefaultSeason();
     syncControls();
     await refresh();
     openRouteProfileFromLocation();
@@ -89,11 +86,6 @@
   function bindEvents() {
     els.formatToggleDoubles?.addEventListener("click", () => setFormat("Doubles"));
     els.formatToggleSingles?.addEventListener("click", () => setFormat("Singles"));
-    els.season?.addEventListener("change", () => {
-      state.season = els.season.value;
-      writeStateToLocation();
-      refresh();
-    });
     els.range?.addEventListener("change", () => {
       state.rangeDays = Number(els.range.value) || 7;
       writeStateToLocation();
@@ -103,7 +95,6 @@
       state.scope = els.scope.value === "all" ? "all" : Number(els.scope.value) || 30;
       writeStateToLocation();
       renderUsageChanges();
-      renderScopeNote();
     });
     els.tabs.forEach((tab) => tab.addEventListener("click", () => setCategory(tab.dataset.category)));
     els.usageMoreButton?.addEventListener("click", () => {
@@ -123,7 +114,6 @@
     });
     window.addEventListener("popstate", () => {
       readStateFromLocation();
-      setupSeasons();
       syncControls();
       refresh().then(openRouteProfileFromLocation);
     });
@@ -148,22 +138,13 @@
     syncControls();
     writeStateToLocation();
     renderUsageChanges();
-    renderScopeNote();
   }
 
-  function setupSeasons() {
+  /** There is no season picker in the UI -- always resolve to the most
+   *  recent season (state.index.seasons is ordered newest first). */
+  function resolveDefaultSeason() {
     const seasons = state.index?.seasons || [];
-    if (!els.season) return;
-    els.season.innerHTML = "";
-    seasons.forEach((entry) => {
-      const option = document.createElement("option");
-      option.value = entry.season;
-      option.textContent = entry.season;
-      els.season.append(option);
-    });
     if (!seasons.some((entry) => entry.season === state.season)) state.season = seasons[0]?.season || "";
-    els.season.value = state.season;
-    els.seasonField.hidden = seasons.length < 2;
   }
 
   function syncControls() {
@@ -174,7 +155,6 @@
     if (els.formatLabel) els.formatLabel.textContent = state.format;
     if (els.range) els.range.value = String(state.rangeDays);
     if (els.scope) els.scope.value = String(state.scope);
-    if (els.season) els.season.value = state.season;
     els.tabs.forEach((tab) => {
       const active = tab.dataset.category === state.category;
       tab.classList.toggle("active", active);
@@ -190,11 +170,9 @@
     if ([1, 3, 7, 14, 30].includes(range)) state.rangeDays = range;
     const scope = params.get("scope");
     if (scope === "all") state.scope = "all";
-    else if ([10, 30, 50, 100].includes(Number(scope))) state.scope = Number(scope);
+    else if ([10, 20, 30, 40, 50, 100].includes(Number(scope))) state.scope = Number(scope);
     const category = params.get("category");
     if (category && CATEGORY_SINGULAR[category]) state.category = category;
-    const season = params.get("season");
-    if (season) state.season = season;
   }
 
   function writeStateToLocation(extra = {}) {
@@ -203,7 +181,6 @@
     params.set("range", String(state.rangeDays));
     params.set("scope", String(state.scope));
     params.set("category", state.category);
-    if ((state.index?.seasons || []).length > 1 && state.season) params.set("season", state.season);
     const pokemon = "pokemon" in extra ? extra.pokemon : state.activeName;
     if (pokemon) params.set("pokemon", pokemon);
     const url = `${window.location.pathname}?${params.toString()}`;
@@ -410,7 +387,6 @@
     renderWindowLine();
     renderRankMovers();
     renderUsageChanges();
-    renderScopeNote();
     if (els.pokemonCount) els.pokemonCount.textContent = Object.keys(state.latest?.pokemon || {}).length.toLocaleString();
   }
 
@@ -445,7 +421,7 @@
       ? `Both snapshots report identical usage ranks, so there is nothing to compare.`
       : "No Pokemon climbed in this window.";
     const emptyDown = flat
-      ? `Try a different season or a wider time range.`
+      ? `Try a wider time range.`
       : "No Pokemon dropped in this window.";
     fillList(els.rankWinners, winners.map((row) => rankRow(row)), emptyUp);
     fillList(els.rankLosers, losers.map((row) => rankRow(row)), emptyDown);
@@ -463,11 +439,6 @@
     fillList(els.usageFalling, falling.map((row) => usageRow(row)), `No ${noun} usage drops in this window.`);
   }
 
-  function renderScopeNote() {
-    if (!els.scopeNote) return;
-    const scopeText = state.scope === "all" ? "all ranked Pokemon" : `the Top ${state.scope} Pokemon by current rank`;
-    els.scopeNote.textContent = `${CATEGORY_LABELS[state.category]} changes are measured across ${scopeText}.`;
-  }
 
   function fillList(target, nodes, emptyText) {
     if (!target) return;

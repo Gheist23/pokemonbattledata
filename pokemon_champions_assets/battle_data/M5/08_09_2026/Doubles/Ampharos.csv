@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ampharos,101,move,1,Protect,79.9%,,,,,,,,
-Ampharos,101,move,2,Thunderbolt,75.0%,,,,,,,,
-Ampharos,101,move,3,Dragon Pulse,69.4%,,,,,,,,
-Ampharos,101,move,4,Dazzling Gleam,32.9%,,,,,,,,
-Ampharos,101,move,5,Parabolic Charge,29.7%,,,,,,,,
-Ampharos,101,move,6,Cotton Guard,24.1%,,,,,,,,
-Ampharos,101,move,7,Rising Voltage,20.4%,,,,,,,,
-Ampharos,101,move,8,Power Gem,16.6%,,,,,,,,
+Ampharos,101,move,1,Protect,79.8%,,,,,,,,
+Ampharos,101,move,2,Thunderbolt,74.9%,,,,,,,,
+Ampharos,101,move,3,Dragon Pulse,69.3%,,,,,,,,
+Ampharos,101,move,4,Dazzling Gleam,33.0%,,,,,,,,
+Ampharos,101,move,5,Parabolic Charge,29.8%,,,,,,,,
+Ampharos,101,move,6,Cotton Guard,24.2%,,,,,,,,
+Ampharos,101,move,7,Rising Voltage,20.3%,,,,,,,,
+Ampharos,101,move,8,Power Gem,16.7%,,,,,,,,
 Ampharos,101,move,9,Focus Blast,15.8%,,,,,,,,
-Ampharos,101,move,10,Thunder,6.9%,,,,,,,,
+Ampharos,101,move,10,Thunder,6.8%,,,,,,,,
 Ampharos,101,held_item,1,Ampharosite,68.7%,,,,,,,,
 Ampharos,101,held_item,2,Magnet,19.7%,,,,,,,,
 Ampharos,101,held_item,3,Leftovers,2.4%,,,,,,,,
@@ -29,18 +29,18 @@ Ampharos,101,teammate,7,Araquanid,,,,,,,,,
 Ampharos,101,teammate,8,Torkoal,,,,,,,,,
 Ampharos,101,teammate,9,Mawile,,,,,,,,,
 Ampharos,101,teammate,10,Staraptor,,,,,,,,,
-Ampharos,101,stat_alignment,1,Quiet,67.3%,Sp. Atk,Speed,,,,,,
-Ampharos,101,stat_alignment,2,Modest,22.6%,Sp. Atk,Attack,,,,,,
+Ampharos,101,stat_alignment,1,Quiet,67.2%,Sp. Atk,Speed,,,,,,
+Ampharos,101,stat_alignment,2,Modest,22.7%,Sp. Atk,Attack,,,,,,
 Ampharos,101,stat_alignment,3,Calm,3.0%,Sp. Def,Attack,,,,,,
-Ampharos,101,stat_alignment,4,Bold,1.8%,Defense,Attack,,,,,,
-Ampharos,101,stat_alignment,5,Sassy,1.6%,Sp. Def,Speed,,,,,,
-Ampharos,101,stat_alignment,6,Timid,2.0%,Speed,Attack,,,,,,
+Ampharos,101,stat_alignment,4,Bold,1.9%,Defense,Attack,,,,,,
+Ampharos,101,stat_alignment,5,Sassy,7.6%,Sp. Def,Speed,,,,,,
+Ampharos,101,stat_alignment,6,Timid,7.0%,Speed,Attack,,,,,,
 Ampharos,101,stat_alignment,7,Relaxed,1.1%,Defense,Speed,,,,,,
-Ampharos,101,stat_alignment,8,Mild,0.7%,Sp. Atk,Defense,,,,,,
+Ampharos,101,stat_alignment,8,Mild,1.0%,Sp. Atk,Defense,,,,,,
 Ampharos,101,stat_alignment,9,Jolly,0.2%,Speed,Sp. Atk,,,,,,
 Ampharos,101,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
-Ampharos,101,stat_points,1,,51.4%,,,32,0,2,32,0,0
-Ampharos,101,stat_points,2,,9.4%,,,32,0,0,32,2,0
+Ampharos,101,stat_points,1,,51.3%,,,32,0,2,32,0,0
+Ampharos,101,stat_points,2,,9.5%,,,32,0,0,32,2,0
 Ampharos,101,stat_points,3,,2.7%,,,2,0,0,32,32,0
 Ampharos,101,stat_points,4,,2.0%,,,0,0,2,32,32,0
 Ampharos,101,stat_points,5,,1.6%,,,2,0,32,32,0,0
@@ -49,5 +49,5 @@ Ampharos,101,stat_points,7,,1.1%,,,32,0,0,32,0,2
 Ampharos,101,stat_points,8,,0.9%,,,2,0,0,32,0,32
 Ampharos,101,stat_points,9,,0.7%,,,32,0,1,32,1,0
 Ampharos,101,stat_points,10,,0.6%,,,29,0,5,32,0,0
-Ampharos,101,ability,1,Static,80.1%,,,,,,,,
-Ampharos,101,ability,2,Plus,19.9%,,,,,,,,
+Ampharos,101,ability,1,Static,80.2%,,,,,,,,
+Ampharos,101,ability,2,Plus,19.8%,,,,,,,,

@@ -1,5 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gengar,17,move,6,Icy Wind,18.8%,,,,,,,,
+Gengar,17,move,1,Shadow Ball,86.7%,,,,,,,,
+Gengar,17,move,2,Sludge Wave,73.5%,,,,,,,,
+Gengar,17,move,3,Destiny Bond,58.1%,,,,,,,,
+Gengar,17,move,4,Protect,49.7%,,,,,,,,
+Gengar,17,move,5,Perish Song,27.6%,,,,,,,,
+Gengar,17,move,6,Icy Wind,18.9%,,,,,,,,
 Gengar,17,move,7,Focus Blast,10.7%,,,,,,,,
 Gengar,17,move,8,Hex,9.9%,,,,,,,,
 Gengar,17,move,9,Will-O-Wisp,9.2%,,,,,,,,
@@ -36,9 +41,9 @@ Gengar,17,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
 Gengar,17,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
 Gengar,17,stat_points,1,,42.0%,,,2,0,0,32,0,32
 Gengar,17,stat_points,2,,6.8%,,,12,0,0,22,0,32
-Gengar,17,stat_points,3,,4.8%,,,12,0,4,21,0,29
-Gengar,17,stat_points,4,,4.2%,,,18,0,0,13,3,32
-Gengar,17,stat_points,5,,4.2%,,,0,0,2,32,0,32
+Gengar,17,stat_points,3,,4.7%,,,12,0,4,21,0,29
+Gengar,17,stat_points,4,,4.2%,,,0,0,2,32,0,32
+Gengar,17,stat_points,5,,4.1%,,,18,0,0,13,3,32
 Gengar,17,stat_points,6,,2.3%,,,0,0,0,32,2,32
 Gengar,17,stat_points,7,,1.8%,,,18,0,0,16,0,32
 Gengar,17,stat_points,8,,1.7%,,,32,0,0,2,0,32

@@ -1,49 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Krookodile,141,move,6,Crunch,19.7%,,,,,,,,
-Krookodile,141,move,7,Taunt,19.0%,,,,,,,,
-Krookodile,141,move,8,Rock Slide,17.5%,,,,,,,,
-Krookodile,141,move,9,Scale Shot,12.6%,,,,,,,,
-Krookodile,141,move,10,Stone Edge,12.4%,,,,,,,,
-Krookodile,141,held_item,1,Choice Scarf,47.1%,,,,,,,,
-Krookodile,141,held_item,2,Focus Sash,22.0%,,,,,,,,
-Krookodile,141,held_item,3,Sitrus Berry,11.9%,,,,,,,,
-Krookodile,141,held_item,4,Life Orb,8.2%,,,,,,,,
-Krookodile,141,held_item,5,Leftovers,2.8%,,,,,,,,
-Krookodile,141,held_item,6,Quick Claw,2.3%,,,,,,,,
-Krookodile,141,held_item,7,Lum Berry,2.0%,,,,,,,,
-Krookodile,141,held_item,8,Expert Belt,1.9%,,,,,,,,
-Krookodile,141,held_item,9,Muscle Band,1.4%,,,,,,,,
-Krookodile,141,held_item,10,Chople Berry,0.0%,,,,,,,,
-Krookodile,141,teammate,1,Charizard,,,,,,,,,
-Krookodile,141,teammate,2,Gyarados,,,,,,,,,
-Krookodile,141,teammate,3,Raichu,,,,,,,,,
-Krookodile,141,teammate,4,Greninja,,,,,,,,,
-Krookodile,141,teammate,5,Primarina,,,,,,,,,
-Krookodile,141,teammate,6,Meowscarada,,,,,,,,,
-Krookodile,141,teammate,7,Dragonite,,,,,,,,,
-Krookodile,141,teammate,8,Volcarona,,,,,,,,,
-Krookodile,141,teammate,9,Archaludon,,,,,,,,,
-Krookodile,141,teammate,10,Staraptor,,,,,,,,,
-Krookodile,141,stat_alignment,1,Adamant,53.9%,Attack,Sp. Atk,,,,,,
-Krookodile,141,stat_alignment,2,Jolly,29.7%,Speed,Sp. Atk,,,,,,
-Krookodile,141,stat_alignment,3,Impish,6.9%,Defense,Sp. Atk,,,,,,
-Krookodile,141,stat_alignment,4,Careful,3.1%,Sp. Def,Sp. Atk,,,,,,
-Krookodile,141,stat_alignment,5,Naughty,1.0%,Attack,Sp. Def,,,,,,
-Krookodile,141,stat_alignment,6,Hasty,0.9%,Speed,Defense,,,,,,
-Krookodile,141,stat_alignment,7,Brave,0.9%,Attack,Speed,,,,,,
-Krookodile,141,stat_alignment,8,Lonely,0.7%,Attack,Defense,,,,,,
-Krookodile,141,stat_alignment,9,Gentle,0.6%,Sp. Def,Defense,,,,,,
-Krookodile,141,stat_alignment,10,Naive,0.5%,Speed,Sp. Def,,,,,,
-Krookodile,141,stat_points,1,,33.9%,,,2,32,0,0,0,32
-Krookodile,141,stat_points,2,,10.1%,,,1,32,1,0,0,32
-Krookodile,141,stat_points,3,,6.6%,,,0,32,2,0,0,32
-Krookodile,141,stat_points,4,,5.6%,,,0,32,0,0,2,32
-Krookodile,141,stat_points,5,,3.9%,,,1,32,0,0,1,32
-Krookodile,141,stat_points,6,,1.4%,,,32,32,2,0,0,0
-Krookodile,141,stat_points,7,,1.3%,,,32,0,32,0,2,0
-Krookodile,141,stat_points,8,,1.3%,,,32,32,0,0,2,0
-Krookodile,141,stat_points,9,,1.1%,,,31,0,32,0,1,2
-Krookodile,141,stat_points,10,,1.0%,,,0,32,0,0,32,2
-Krookodile,141,ability,1,Intimidate,62.1%,,,,,,,,
-Krookodile,141,ability,2,Moxie,35.0%,,,,,,,,
-Krookodile,141,ability,3,Anger Point,2.9%,,,,,,,,
+Krookodile,142,move,1,Earthquake,94.7%,,,,,,,,
+Krookodile,142,move,2,Knock Off,56.0%,,,,,,,,
+Krookodile,142,move,3,Close Combat,36.5%,,,,,,,,
+Krookodile,142,move,4,Stealth Rock,26.2%,,,,,,,,
+Krookodile,142,move,5,Gunk Shot,22.4%,,,,,,,,
+Krookodile,142,move,6,Crunch,19.8%,,,,,,,,
+Krookodile,142,move,7,Taunt,19.1%,,,,,,,,
+Krookodile,142,move,8,Rock Slide,17.5%,,,,,,,,
+Krookodile,142,move,9,Scale Shot,12.6%,,,,,,,,
+Krookodile,142,move,10,Stone Edge,12.3%,,,,,,,,
+Krookodile,142,held_item,1,Choice Scarf,47.0%,,,,,,,,
+Krookodile,142,held_item,2,Focus Sash,22.0%,,,,,,,,
+Krookodile,142,held_item,3,Sitrus Berry,10.9%,,,,,,,,
+Krookodile,142,held_item,4,Life Orb,8.2%,,,,,,,,
+Krookodile,142,held_item,5,Leftovers,2.8%,,,,,,,,
+Krookodile,142,held_item,6,Quick Claw,2.3%,,,,,,,,
+Krookodile,142,held_item,7,Lum Berry,2.0%,,,,,,,,
+Krookodile,142,held_item,8,Expert Belt,2.0%,,,,,,,,
+Krookodile,142,held_item,9,Muscle Band,1.4%,,,,,,,,
+Krookodile,142,held_item,10,Chople Berry,1.2%,,,,,,,,
+Krookodile,142,teammate,1,Charizard,,,,,,,,,
+Krookodile,142,teammate,2,Gyarados,,,,,,,,,
+Krookodile,142,teammate,3,Raichu,,,,,,,,,
+Krookodile,142,teammate,4,Greninja,,,,,,,,,
+Krookodile,142,teammate,5,Primarina,,,,,,,,,
+Krookodile,142,teammate,6,Meowscarada,,,,,,,,,
+Krookodile,142,teammate,7,Dragonite,,,,,,,,,
+Krookodile,142,teammate,8,Volcarona,,,,,,,,,
+Krookodile,142,teammate,9,Archaludon,,,,,,,,,
+Krookodile,142,teammate,10,Staraptor,,,,,,,,,
+Krookodile,142,stat_alignment,1,Adamant,53.8%,Attack,Sp. Atk,,,,,,
+Krookodile,142,stat_alignment,2,Jolly,29.7%,Speed,Sp. Atk,,,,,,
+Krookodile,142,stat_alignment,3,Impish,6.9%,Defense,Sp. Atk,,,,,,
+Krookodile,142,stat_alignment,4,Careful,3.1%,Sp. Def,Sp. Atk,,,,,,
+Krookodile,142,stat_alignment,5,Naughty,1.0%,Attack,Sp. Def,,,,,,
+Krookodile,142,stat_alignment,6,Brave,0.9%,Attack,Speed,,,,,,
+Krookodile,142,stat_alignment,7,Hasty,0.9%,Speed,Defense,,,,,,
+Krookodile,142,stat_alignment,8,Lonely,0.7%,Attack,Defense,,,,,,
+Krookodile,142,stat_alignment,9,Gentle,0.6%,Sp. Def,Defense,,,,,,
+Krookodile,142,stat_alignment,10,Naive,0.5%,Speed,Sp. Def,,,,,,
+Krookodile,142,stat_points,1,,33.8%,,,2,32,0,0,0,32
+Krookodile,142,stat_points,2,,10.1%,,,1,32,1,0,0,32
+Krookodile,142,stat_points,3,,6.6%,,,0,32,2,0,0,32
+Krookodile,142,stat_points,4,,5.6%,,,0,32,0,0,2,32
+Krookodile,142,stat_points,5,,3.9%,,,1,32,0,0,1,32
+Krookodile,142,stat_points,6,,1.4%,,,32,0,32,0,2,0
+Krookodile,142,stat_points,7,,1.4%,,,32,32,2,0,0,0
+Krookodile,142,stat_points,8,,1.3%,,,32,32,0,0,2,0
+Krookodile,142,stat_points,9,,1.1%,,,31,0,32,0,1,2
+Krookodile,142,stat_points,10,,1.0%,,,0,32,0,0,32,2
+Krookodile,142,ability,1,Intimidate,62.3%,,,,,,,,
+Krookodile,142,ability,2,Moxie,34.8%,,,,,,,,
+Krookodile,142,ability,3,Anger Point,2.9%,,,,,,,,

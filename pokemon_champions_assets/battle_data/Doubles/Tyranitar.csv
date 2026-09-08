@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Tyranitar,15,move,1,Rock Slide,94.9%,,,,,,,,
 Tyranitar,15,move,2,Knock Off,92.3%,,,,,,,,
-Tyranitar,15,move,3,Protect,72.9%,,,,,,,,
+Tyranitar,15,move,3,Protect,73.0%,,,,,,,,
 Tyranitar,15,move,4,Low Kick,35.5%,,,,,,,,
-Tyranitar,15,move,5,Ice Punch,32.2%,,,,,,,,
-Tyranitar,15,move,6,Dragon Dance,16.1%,,,,,,,,
+Tyranitar,15,move,5,Ice Punch,32.1%,,,,,,,,
+Tyranitar,15,move,6,Dragon Dance,16.2%,,,,,,,,
 Tyranitar,15,move,7,Superpower,12.0%,,,,,,,,
 Tyranitar,15,move,8,High Horsepower,10.7%,,,,,,,,
 Tyranitar,15,move,9,Earthquake,6.7%,,,,,,,,
 Tyranitar,15,move,10,Brick Break,3.9%,,,,,,,,
-Tyranitar,15,held_item,1,Tyra nitarite,57.4%,,,,,,,,
-Tyranitar,15,held_item,2,Choice Scarf,20.6%,,,,,,,,
-Tyranitar,15,held_item,3,Chople Berry,8.4%,,,,,,,,
+Tyranitar,15,held_item,1,Tyra nitarite,57.5%,,,,,,,,
+Tyranitar,15,held_item,2,Choice Scarf,20.4%,,,,,,,,
+Tyranitar,15,held_item,3,Chople Berry,8.5%,,,,,,,,
 Tyranitar,15,held_item,4,Focus Sash,3.3%,,,,,,,,
 Tyranitar,15,held_item,5,Life Orb,2.1%,,,,,,,,
 Tyranitar,15,held_item,6,Sitrus Berry,1.5%,,,,,,,,
@@ -29,15 +29,15 @@ Tyranitar,15,teammate,7,Garchomp,,,,,,,,,
 Tyranitar,15,teammate,8,Whimsicott,,,,,,,,,
 Tyranitar,15,teammate,9,Farigiraf,,,,,,,,,
 Tyranitar,15,teammate,10,Corviknight,,,,,,,,,
-Tyranitar,15,stat_alignment,1,Jolly,45.7%,Speed,Sp. Atk,,,,,,
-Tyranitar,15,stat_alignment,2,Adamant,40.7%,Attack,Sp. Atk,,,,,,
+Tyranitar,15,stat_alignment,1,Jolly,45.6%,Speed,Sp. Atk,,,,,,
+Tyranitar,15,stat_alignment,2,Adamant,40.8%,Attack,Sp. Atk,,,,,,
 Tyranitar,15,stat_alignment,3,Brave,6.6%,Attack,Speed,,,,,,
 Tyranitar,15,stat_alignment,4,Impish,2.5%,Defense,Sp. Atk,,,,,,
-Tyranitar,15,stat_alignment,5,Careful,1.9%,Sp. Def,Sp. Atk,,,,,,
-Tyranitar,15,stat_alignment,6,Relaxed,1.0%,Defense,Speed,,,,,,
-Tyranitar,15,stat_alignment,7,Sassy,0.5%,Sp. Def,Speed,,,,,,
-Tyranitar,15,stat_alignment,8,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Tyranitar,15,stat_alignment,9,Modest,0.3%,Sp. Atk,Attack,,,,,,
+Tyranitar,15,stat_alignment,5,Careful,7.9%,Sp. Def,Sp. Atk,,,,,,
+Tyranitar,15,stat_alignment,6,Relaxed,7.0%,Defense,Speed,,,,,,
+Tyranitar,15,stat_alignment,7,Sassy,5.0%,Sp. Def,Speed,,,,,,
+Tyranitar,15,stat_alignment,8,Naughty,1.3%,Attack,Sp. Def,,,,,,
+Tyranitar,15,stat_alignment,9,Modest,1.0%,Sp. Atk,Attack,,,,,,
 Tyranitar,15,stat_alignment,10,Quiet,0.2%,Sp. Atk,Speed,,,,,,
 Tyranitar,15,stat_points,1,,25.0%,,,2,32,0,0,0,32
 Tyranitar,15,stat_points,2,,9.3%,,,0,32,2,0,0,32
@@ -45,7 +45,7 @@ Tyranitar,15,stat_points,3,,6.9%,,,32,32,0,0,2,0
 Tyranitar,15,stat_points,4,,5.7%,,,17,18,0,0,0,31
 Tyranitar,15,stat_points,5,,5.5%,,,32,32,2,0,0,0
 Tyranitar,15,stat_points,6,,1.6%,,,0,32,0,0,2,32
-Tyranitar,15,stat_points,7,,1.4%,,,9,25,0,0,0,32
+Tyranitar,15,stat_points,7,,1.3%,,,9,25,0,0,0,32
 Tyranitar,15,stat_points,8,,1.2%,,,2,32,32,0,0,0
 Tyranitar,15,stat_points,9,,1.0%,,,18,16,0,0,0,32
 Tyranitar,15,stat_points,10,,0.8%,,,0,32,0,0,0,32

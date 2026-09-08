@@ -1,22 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Vaporeon,126,move,1,Ice Beam,63.8%,,,,,,,,
-Vaporeon,126,move,2,Calm Mind,55.7%,,,,,,,,
-Vaporeon,126,move,3,Protect,52.6%,,,,,,,,
-Vaporeon,126,move,4,Surf,41.4%,,,,,,,,
-Vaporeon,126,move,5,Scald,37.4%,,,,,,,,
-Vaporeon,126,move,6,Muddy Water,20.6%,,,,,,,,
+Vaporeon,126,move,2,Calm Mind,55.1%,,,,,,,,
+Vaporeon,126,move,3,Protect,52.3%,,,,,,,,
+Vaporeon,126,move,4,Surf,41.0%,,,,,,,,
+Vaporeon,126,move,5,Scald,37.6%,,,,,,,,
+Vaporeon,126,move,6,Muddy Water,20.8%,,,,,,,,
 Vaporeon,126,move,7,Detect,16.3%,,,,,,,,
 Vaporeon,126,move,8,Acid Armor,15.4%,,,,,,,,
-Vaporeon,126,move,9,Icy Wind,10.3%,,,,,,,,
-Vaporeon,126,move,10,Yawn,9.9%,,,,,,,,
-Vaporeon,126,held_item,1,Leftovers,69.6%,,,,,,,,
+Vaporeon,126,move,9,Icy Wind,10.5%,,,,,,,,
+Vaporeon,126,move,10,Yawn,9.8%,,,,,,,,
+Vaporeon,126,held_item,1,Leftovers,69.0%,,,,,,,,
 Vaporeon,126,held_item,2,Sitrus Berry,13.4%,,,,,,,,
-Vaporeon,126,held_item,3,Mystic Water,8.1%,,,,,,,,
+Vaporeon,126,held_item,3,Mystic Water,8.2%,,,,,,,,
 Vaporeon,126,held_item,4,Quick Claw,2.0%,,,,,,,,
-Vaporeon,126,held_item,5,Life Orb,1.6%,,,,,,,,
-Vaporeon,126,held_item,6,Shell Bell,1.4%,,,,,,,,
-Vaporeon,126,held_item,7,Wacan Berry,1.2%,,,,,,,,
-Vaporeon,126,held_item,8,Bright Powder,1.1%,,,,,,,,
+Vaporeon,126,held_item,5,Life Orb,1.7%,,,,,,,,
+Vaporeon,126,held_item,6,Shell Bell,1.5%,,,,,,,,
+Vaporeon,126,held_item,7,Bright Powder,1.2%,,,,,,,,
+Vaporeon,126,held_item,8,Wacan Berry,1.2%,,,,,,,,
 Vaporeon,126,held_item,9,Wide Lens,1.0%,,,,,,,,
 Vaporeon,126,held_item,10,Lum Berry,0.8%,,,,,,,,
 Vaporeon,126,teammate,1,Politoed,,,,,,,,,
@@ -29,25 +28,25 @@ Vaporeon,126,teammate,7,Pelipper,,,,,,,,,
 Vaporeon,126,teammate,8,Raichu,,,,,,,,,
 Vaporeon,126,teammate,9,Umbreon,,,,,,,,,
 Vaporeon,126,teammate,10,Jolteon,,,,,,,,,
-Vaporeon,126,stat_alignment,1,Modest,49.0%,Sp. Atk,Attack,,,,,,
+Vaporeon,126,stat_alignment,1,Modest,48.7%,Sp. Atk,Attack,,,,,,
 Vaporeon,126,stat_alignment,2,Bold,22.1%,Defense,Attack,,,,,,
-Vaporeon,126,stat_alignment,3,Calm,8.8%,Sp. Def,Attack,,,,,,
+Vaporeon,126,stat_alignment,3,Calm,8.9%,Sp. Def,Attack,,,,,,
 Vaporeon,126,stat_alignment,4,Quiet,5.4%,Sp. Atk,Speed,,,,,,
 Vaporeon,126,stat_alignment,5,Relaxed,5.1%,Defense,Speed,,,,,,
-Vaporeon,126,stat_alignment,6,Timid,5.0%,Speed,Attack,,,,,,
-Vaporeon,126,stat_alignment,7,Sassy,5.0%,Sp. Def,Speed,,,,,,
+Vaporeon,126,stat_alignment,6,Timid,3.0%,Speed,Attack,,,,,,
+Vaporeon,126,stat_alignment,7,Sassy,1.0%,Sp. Def,Speed,,,,,,
 Vaporeon,126,stat_alignment,8,Mild,1.0%,Sp. Atk,Defense,,,,,,
-Vaporeon,126,stat_alignment,9,Serious,1.0%,,,,,,,,
-Vaporeon,126,stat_alignment,10,Hasty,1.0%,Speed,Defense,,,,,,
-Vaporeon,126,stat_points,1,,22.4%,,,19,0,17,10,11,9
+Vaporeon,126,stat_alignment,9,Serious,0.5%,,,,,,,,
+Vaporeon,126,stat_alignment,10,Hasty,0.3%,Speed,Defense,,,,,,
+Vaporeon,126,stat_points,1,,21.9%,,,19,0,17,10,11,9
 Vaporeon,126,stat_points,2,,6.6%,,,32,0,32,0,2,0
-Vaporeon,126,stat_points,3,,3.9%,,,32,0,2,32,0,0
+Vaporeon,126,stat_points,3,,4.0%,,,32,0,2,32,0,0
 Vaporeon,126,stat_points,4,,3.7%,,,32,0,0,32,2,0
-Vaporeon,126,stat_points,5,,2.8%,,,2,0,32,32,0,0
+Vaporeon,126,stat_points,5,,2.9%,,,2,0,32,32,0,0
 Vaporeon,126,stat_points,6,,2.0%,,,2,0,0,32,32,0
 Vaporeon,126,stat_points,7,,1.9%,,,32,0,32,2,0,0
-Vaporeon,126,stat_points,8,,1.6%,,,0,0,32,32,2,0
-Vaporeon,126,stat_points,9,,1.6%,,,2,0,0,32,0,32
+Vaporeon,126,stat_points,8,,1.7%,,,2,0,0,32,0,32
+Vaporeon,126,stat_points,9,,1.6%,,,0,0,32,32,2,0
 Vaporeon,126,stat_points,10,,1.4%,,,32,0,2,0,32,0
-Vaporeon,126,ability,1,Water Absorb,95.2%,,,,,,,,
-Vaporeon,126,ability,2,Hydration,4.8%,,,,,,,,
+Vaporeon,126,ability,1,Water Absorb,95.1%,,,,,,,,
+Vaporeon,126,ability,2,Hydration,4.9%,,,,,,,,

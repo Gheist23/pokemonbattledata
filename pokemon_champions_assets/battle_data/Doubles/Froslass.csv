@@ -1,9 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Froslass,20,move,6,Thunderbolt,8.9%,,,,,,,,
+Froslass,20,move,1,Blizzard,99.2%,,,,,,,,
+Froslass,20,move,2,Shadow Ball,92.5%,,,,,,,,
+Froslass,20,move,3,Protect,91.8%,,,,,,,,
+Froslass,20,move,4,Aurora Veil,69.1%,,,,,,,,
+Froslass,20,move,5,Taunt,12.3%,,,,,,,,
+Froslass,20,move,6,Thunderbolt,9.0%,,,,,,,,
 Froslass,20,move,7,Destiny Bond,4.7%,,,,,,,,
 Froslass,20,move,8,Nasty Plot,3.0%,,,,,,,,
 Froslass,20,move,9,Rain Dance,2.5%,,,,,,,,
-Froslass,20,move,10,Frost Breath,1.7%,,,,,,,,
+Froslass,20,move,10,Frost Breath,1.8%,,,,,,,,
 Froslass,20,held_item,1,Froslassite,98.8%,,,,,,,,
 Froslass,20,held_item,2,Focus Sash,0.5%,,,,,,,,
 Froslass,20,held_item,3,Bright Powder,0.1%,,,,,,,,
@@ -24,8 +29,8 @@ Froslass,20,teammate,7,Lycanroc Dusk Form,,,,,,,,,
 Froslass,20,teammate,8,Incineroar,,,,,,,,,
 Froslass,20,teammate,9,Sinistcha,,,,,,,,,
 Froslass,20,teammate,10,Whimsicott,,,,,,,,,
-Froslass,20,stat_alignment,1,Timid,49.4%,Speed,Attack,,,,,,
-Froslass,20,stat_alignment,2,Modest,47.9%,Sp. Atk,Attack,,,,,,
+Froslass,20,stat_alignment,1,Timid,49.5%,Speed,Attack,,,,,,
+Froslass,20,stat_alignment,2,Modest,47.8%,Sp. Atk,Attack,,,,,,
 Froslass,20,stat_alignment,3,Hasty,0.5%,Speed,Defense,,,,,,
 Froslass,20,stat_alignment,4,Mild,0.5%,Sp. Atk,Defense,,,,,,
 Froslass,20,stat_alignment,5,Calm,0.4%,Sp. Def,Attack,,,,,,
@@ -34,8 +39,8 @@ Froslass,20,stat_alignment,7,Bold,0.3%,Defense,Attack,,,,,,
 Froslass,20,stat_alignment,8,Jolly,0.2%,Speed,Sp. Atk,,,,,,
 Froslass,20,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,
 Froslass,20,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
-Froslass,20,stat_points,1,,27.3%,,,2,0,0,32,0,32
-Froslass,20,stat_points,2,,18.6%,,,12,0,1,20,1,32
+Froslass,20,stat_points,1,,27.4%,,,2,0,0,32,0,32
+Froslass,20,stat_points,2,,18.5%,,,12,0,1,20,1,32
 Froslass,20,stat_points,3,,7.1%,,,24,0,0,10,0,32
 Froslass,20,stat_points,4,,3.6%,,,0,0,2,32,0,32
 Froslass,20,stat_points,5,,3.5%,,,0,0,0,32,2,32

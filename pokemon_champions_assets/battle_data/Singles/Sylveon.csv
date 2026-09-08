@@ -1,9 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Sylveon,28,move,1,Hyper Voice,97.7%,,,,,,,,
+Sylveon,28,move,2,Yawn,87.0%,,,,,,,,
+Sylveon,28,move,3,Wish,73.7%,,,,,,,,
+Sylveon,28,move,4,Protect,68.5%,,,,,,,,
+Sylveon,28,move,5,Mystical Fire,18.2%,,,,,,,,
 Sylveon,28,move,6,Quick Attack,18.1%,,,,,,,,
 Sylveon,28,move,7,Calm Mind,7.1%,,,,,,,,
 Sylveon,28,move,8,Detect,5.9%,,,,,,,,
-Sylveon,28,move,9,Hyper Beam,5.2%,,,,,,,,
-Sylveon,28,move,10,Shadow Ball,4.9%,,,,,,,,
+Sylveon,28,move,9,Hyper Beam,3.4%,,,,,,,,
+Sylveon,28,move,10,Shadow Ball,4.0%,,,,,,,,
 Sylveon,28,held_item,1,Leftovers,72.4%,,,,,,,,
 Sylveon,28,held_item,2,Fairy Feather,14.8%,,,,,,,,
 Sylveon,28,held_item,3,Sitrus Berry,6.6%,,,,,,,,
@@ -26,16 +31,16 @@ Sylveon,28,teammate,9,Basculegion Male,,,,,,,,,
 Sylveon,28,teammate,10,Dragonite,,,,,,,,,
 Sylveon,28,stat_alignment,1,Bold,66.7%,Defense,Attack,,,,,,
 Sylveon,28,stat_alignment,2,Modest,22.1%,Sp. Atk,Attack,,,,,,
-Sylveon,28,stat_alignment,3,Calm,5.4%,Sp. Def,Attack,,,,,,
+Sylveon,28,stat_alignment,3,Calm,5.5%,Sp. Def,Attack,,,,,,
 Sylveon,28,stat_alignment,4,Quiet,2.4%,Sp. Atk,Speed,,,,,,
 Sylveon,28,stat_alignment,5,Relaxed,1.5%,Defense,Speed,,,,,,
 Sylveon,28,stat_alignment,6,Timid,0.7%,Speed,Attack,,,,,,
 Sylveon,28,stat_alignment,7,Sassy,0.3%,Sp. Def,Speed,,,,,,
 Sylveon,28,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Sylveon,28,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Sylveon,28,stat_alignment,10,Hasty,0.0%,Speed,Defense,,,,,,
-Sylveon,28,stat_points,1,,19.6%,,,32,0,32,0,2,0
-Sylveon,28,stat_points,2,,15.0%,,,32,0,32,0,1,1
+Sylveon,28,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
+Sylveon,28,stat_points,1,,19.7%,,,32,0,32,0,2,0
+Sylveon,28,stat_points,2,,14.9%,,,32,0,32,0,1,1
 Sylveon,28,stat_points,3,,12.1%,,,32,0,32,0,0,2
 Sylveon,28,stat_points,4,,4.5%,,,32,0,32,2,0,0
 Sylveon,28,stat_points,5,,4.3%,,,32,0,0,32,0,2

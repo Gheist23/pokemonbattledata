@@ -1,48 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Espeon,146,move,6,Detect,24.7%,,,,,,,,
-Espeon,146,move,7,Shadow Ball,23.4%,,,,,,,,
-Espeon,146,move,8,Trick Room,18.6%,,,,,,,,
-Espeon,146,move,9,Psychic Terrain,18.1%,,,,,,,,
-Espeon,146,move,10,Grass Knot,12.3%,,,,,,,,
-Espeon,146,held_item,1,Focus Sash,38.3%,,,,,,,,
-Espeon,146,held_item,2,Life Orb,13.1%,,,,,,,,
-Espeon,146,held_item,3,Choice Scarf,10.0%,,,,,,,,
-Espeon,146,held_item,4,Twisted Spoon,9.5%,,,,,,,,
-Espeon,146,held_item,5,Expert Belt,7.5%,,,,,,,,
-Espeon,146,held_item,6,Sitrus Berry,6.0%,,,,,,,,
-Espeon,146,held_item,7,Colbur Berry,5.2%,,,,,,,,
-Espeon,146,held_item,8,Wise Glasses,4.8%,,,,,,,,
-Espeon,146,held_item,9,Quick Claw,3.4%,,,,,,,,
-Espeon,146,held_item,10,Leftovers,2.7%,,,,,,,,
-Espeon,146,teammate,1,Sylveon,,,,,,,,,
-Espeon,146,teammate,2,Umbreon,,,,,,,,,
-Espeon,146,teammate,3,Vaporeon,,,,,,,,,
-Espeon,146,teammate,4,Whimsicott,,,,,,,,,
-Espeon,146,teammate,5,Jolteon,,,,,,,,,
-Espeon,146,teammate,6,Charizard,,,,,,,,,
-Espeon,146,teammate,7,Milotic,,,,,,,,,
-Espeon,146,teammate,8,Sneasler,,,,,,,,,
-Espeon,146,teammate,9,Garchomp,,,,,,,,,
-Espeon,146,teammate,10,Farigiraf,,,,,,,,,
-Espeon,146,stat_alignment,1,Timid,54.2%,Speed,Attack,,,,,,
-Espeon,146,stat_alignment,2,Modest,29.3%,Sp. Atk,Attack,,,,,,
-Espeon,146,stat_alignment,3,Quiet,3.3%,Sp. Atk,Speed,,,,,,
-Espeon,146,stat_alignment,4,Bold,3.2%,Defense,Attack,,,,,,
-Espeon,146,stat_alignment,5,Mild,2.4%,Sp. Atk,Defense,,,,,,
-Espeon,146,stat_alignment,6,Calm,2.0%,Sp. Def,Attack,,,,,,
-Espeon,146,stat_alignment,7,Hasty,1.6%,Speed,Defense,,,,,,
-Espeon,146,stat_alignment,8,Sassy,1.4%,Sp. Def,Speed,,,,,,
-Espeon,146,stat_alignment,9,Relaxed,0.9%,Defense,Speed,,,,,,
-Espeon,146,stat_alignment,10,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,
-Espeon,146,stat_points,1,,34.1%,,,2,0,0,32,0,32
-Espeon,146,stat_points,2,,11.2%,,,0,0,0,32,2,32
-Espeon,146,stat_points,3,,10.7%,,,0,0,2,32,0,32
-Espeon,146,stat_points,4,,3.2%,,,0,0,0,32,0,32
-Espeon,146,stat_points,5,,2.0%,,,32,0,0,32,2,0
-Espeon,146,stat_points,6,,1.5%,,,0,0,32,32,2,0
-Espeon,146,stat_points,7,,1.2%,,,0,0,0,32,32,2
-Espeon,146,stat_points,8,,1.2%,,,32,0,0,32,0,2
-Espeon,146,stat_points,9,,1.1%,,,32,0,2,32,0,0
-Espeon,146,stat_points,10,,1.0%,,,2,0,32,32,0,0
-Espeon,146,ability,1,Magic Bounce,96.7%,,,,,,,,
-Espeon,146,ability,2,Synchronize,3.3%,,,,,,,,
+Espeon,150,move,1,Psychic,64.0%,,,,,,,,
+Espeon,150,move,2,Power Gem,35.9%,,,,,,,,
+Espeon,150,move,3,Dazzling Gleam,31.1%,,,,,,,,
+Espeon,150,move,4,Expanding Force,27.5%,,,,,,,,
+Espeon,150,move,5,Protect,27.5%,,,,,,,,
+Espeon,150,move,6,Detect,24.7%,,,,,,,,
+Espeon,150,move,7,Shadow Ball,23.7%,,,,,,,,
+Espeon,150,move,8,Trick Room,18.5%,,,,,,,,
+Espeon,150,move,9,Psychic Terrain,17.9%,,,,,,,,
+Espeon,150,move,10,Grass Knot,12.4%,,,,,,,,
+Espeon,150,held_item,1,Focus Sash,38.6%,,,,,,,,
+Espeon,150,held_item,2,Life Orb,12.9%,,,,,,,,
+Espeon,150,held_item,3,Choice Scarf,10.0%,,,,,,,,
+Espeon,150,held_item,4,Twisted Spoon,9.5%,,,,,,,,
+Espeon,150,held_item,5,Expert Belt,7.4%,,,,,,,,
+Espeon,150,held_item,6,Sitrus Berry,6.1%,,,,,,,,
+Espeon,150,held_item,7,Colbur Berry,5.2%,,,,,,,,
+Espeon,150,held_item,8,Wise Glasses,4.7%,,,,,,,,
+Espeon,150,held_item,9,Quick Claw,3.4%,,,,,,,,
+Espeon,150,held_item,10,Leftovers,2.1%,,,,,,,,
+Espeon,150,teammate,1,Sylveon,,,,,,,,,
+Espeon,150,teammate,2,Umbreon,,,,,,,,,
+Espeon,150,teammate,3,Vaporeon,,,,,,,,,
+Espeon,150,teammate,4,Whimsicott,,,,,,,,,
+Espeon,150,teammate,5,Jolteon,,,,,,,,,
+Espeon,150,teammate,6,Charizard,,,,,,,,,
+Espeon,150,teammate,7,Milotic,,,,,,,,,
+Espeon,150,teammate,8,Sneasler,,,,,,,,,
+Espeon,150,teammate,9,Farigiraf,,,,,,,,,
+Espeon,150,teammate,10,Garchomp,,,,,,,,,
+Espeon,150,stat_alignment,1,Timid,54.1%,Speed,Attack,,,,,,
+Espeon,150,stat_alignment,2,Modest,29.1%,Sp. Atk,Attack,,,,,,
+Espeon,150,stat_alignment,3,Quiet,3.4%,Sp. Atk,Speed,,,,,,
+Espeon,150,stat_alignment,4,Bold,3.3%,Defense,Attack,,,,,,
+Espeon,150,stat_alignment,5,Mild,2.5%,Sp. Atk,Defense,,,,,,
+Espeon,150,stat_alignment,6,Calm,2.0%,Sp. Def,Attack,,,,,,
+Espeon,150,stat_alignment,7,Hasty,1.6%,Speed,Defense,,,,,,
+Espeon,150,stat_alignment,8,Sassy,1.5%,Sp. Def,Speed,,,,,,
+Espeon,150,stat_alignment,9,Relaxed,0.9%,Defense,Speed,,,,,,
+Espeon,150,stat_alignment,10,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,
+Espeon,150,stat_points,1,,34.1%,,,2,0,0,32,0,32
+Espeon,150,stat_points,2,,11.3%,,,0,0,0,32,2,32
+Espeon,150,stat_points,3,,10.7%,,,0,0,2,32,0,32
+Espeon,150,stat_points,4,,3.2%,,,0,0,0,32,0,32
+Espeon,150,stat_points,5,,2.1%,,,32,0,0,32,2,0
+Espeon,150,stat_points,6,,1.5%,,,0,0,32,32,2,0
+Espeon,150,stat_points,7,,1.2%,,,0,0,0,32,32,2
+Espeon,150,stat_points,8,,1.2%,,,32,0,0,32,0,2
+Espeon,150,stat_points,9,,1.1%,,,32,0,2,32,0,0
+Espeon,150,stat_points,10,,1.0%,,,2,0,32,32,0,0
+Espeon,150,ability,1,Magic Bounce,96.8%,,,,,,,,
+Espeon,150,ability,2,Synchronize,3.2%,,,,,,,,

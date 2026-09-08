@@ -2,7 +2,7 @@ pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_point
 Hydreigon,16,move,1,Dark Pulse,98.9%,,,,,,,,
 Hydreigon,16,move,2,Draco Meteor,93.2%,,,,,,,,
 Hydreigon,16,move,3,U-turn,77.9%,,,,,,,,
-Hydreigon,16,move,4,Flamethrower,66.4%,,,,,,,,
+Hydreigon,16,move,4,Flamethrower,66.5%,,,,,,,,
 Hydreigon,16,move,5,Fire Blast,20.7%,,,,,,,,
 Hydreigon,16,move,6,Flash Cannon,8.7%,,,,,,,,
 Hydreigon,16,move,7,Earth Power,7.1%,,,,,,,,
@@ -34,12 +34,12 @@ Hydreigon,16,stat_alignment,2,Timid,23.7%,Speed,Attack,,,,,,
 Hydreigon,16,stat_alignment,3,Mild,0.5%,Sp. Atk,Defense,,,,,,
 Hydreigon,16,stat_alignment,4,Hasty,0.3%,Speed,Defense,,,,,,
 Hydreigon,16,stat_alignment,5,Bold,0.2%,Defense,Attack,,,,,,
-Hydreigon,16,stat_alignment,6,Rash,0.2%,Sp. Atk,Sp. Def,,,,,,
-Hydreigon,16,stat_alignment,7,Calm,0.2%,Sp. Def,Attack,,,,,,
-Hydreigon,16,stat_alignment,8,Quiet,0.2%,Sp. Atk,Speed,,,,,,
+Hydreigon,16,stat_alignment,6,Rash,7.0%,Sp. Atk,Sp. Def,,,,,,
+Hydreigon,16,stat_alignment,7,Calm,3.0%,Sp. Def,Attack,,,,,,
+Hydreigon,16,stat_alignment,8,Quiet,1.0%,Sp. Atk,Speed,,,,,,
 Hydreigon,16,stat_alignment,9,Adamant,0.2%,Attack,Sp. Atk,,,,,,
 Hydreigon,16,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
-Hydreigon,16,stat_points,1,,75.5%,,,2,0,0,32,0,32
+Hydreigon,16,stat_points,1,,75.4%,,,2,0,0,32,0,32
 Hydreigon,16,stat_points,2,,4.9%,,,0,0,2,32,0,32
 Hydreigon,16,stat_points,3,,3.2%,,,0,0,0,32,2,32
 Hydreigon,16,stat_points,4,,2.9%,,,0,0,1,32,1,32

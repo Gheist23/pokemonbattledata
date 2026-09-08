@@ -1,8 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Volcarona,20,move,1,Quiver Dance,97.7%,,,,,,,,
+Volcarona,20,move,2,Giga Drain,80.0%,,,,,,,,
+Volcarona,20,move,3,Fiery Dance,74.5%,,,,,,,,
+Volcarona,20,move,4,Morning Sun,50.8%,,,,,,,,
+Volcarona,20,move,5,Bug Buzz,30.9%,,,,,,,,
 Volcarona,20,move,6,Psychic,20.0%,,,,,,,,
 Volcarona,20,move,7,Flamethrower,15.3%,,,,,,,,
 Volcarona,20,move,8,Will-O-Wisp,10.7%,,,,,,,,
-Volcarona,20,move,9,Mystical Fire,8.7%,,,,,,,,
+Volcarona,20,move,9,Mystical Fire,8.8%,,,,,,,,
 Volcarona,20,move,10,Substitute,2.3%,,,,,,,,
 Volcarona,20,held_item,1,Sitrus Berry,44.0%,,,,,,,,
 Volcarona,20,held_item,2,Lum Berry,25.1%,,,,,,,,
@@ -26,16 +31,16 @@ Volcarona,20,teammate,9,Primarina,,,,,,,,,
 Volcarona,20,teammate,10,Basculegion Male,,,,,,,,,
 Volcarona,20,stat_alignment,1,Modest,44.2%,Sp. Atk,Attack,,,,,,
 Volcarona,20,stat_alignment,2,Bold,30.9%,Defense,Attack,,,,,,
-Volcarona,20,stat_alignment,3,Timid,20.2%,Speed,Attack,,,,,,
+Volcarona,20,stat_alignment,3,Timid,20.1%,Speed,Attack,,,,,,
 Volcarona,20,stat_alignment,4,Calm,3.5%,Sp. Def,Attack,,,,,,
 Volcarona,20,stat_alignment,5,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Volcarona,20,stat_alignment,6,Quiet,0.2%,Sp. Atk,Speed,,,,,,
-Volcarona,20,stat_alignment,7,Hasty,0.2%,Speed,Defense,,,,,,
-Volcarona,20,stat_alignment,8,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Volcarona,20,stat_alignment,9,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Volcarona,20,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
+Volcarona,20,stat_alignment,6,Quiet,7.0%,Sp. Atk,Speed,,,,,,
+Volcarona,20,stat_alignment,7,Hasty,3.0%,Speed,Defense,,,,,,
+Volcarona,20,stat_alignment,8,Gentle,1.0%,Sp. Def,Defense,,,,,,
+Volcarona,20,stat_alignment,9,Jolly,1.0%,Speed,Sp. Atk,,,,,,
+Volcarona,20,stat_alignment,10,Relaxed,0.0%,Defense,Speed,,,,,,
 Volcarona,20,stat_points,1,,17.5%,,,1,0,1,32,0,32
-Volcarona,20,stat_points,2,,12.9%,,,32,0,32,0,0,2
+Volcarona,20,stat_points,2,,13.0%,,,32,0,32,0,0,2
 Volcarona,20,stat_points,3,,7.9%,,,2,0,0,32,0,32
 Volcarona,20,stat_points,4,,3.2%,,,32,0,32,0,2,0
 Volcarona,20,stat_points,5,,2.8%,,,32,0,28,0,0,6

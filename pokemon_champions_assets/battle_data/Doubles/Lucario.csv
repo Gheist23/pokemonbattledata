@@ -1,6 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Lucario,83,move,6,Protect,31.0%,,,,,,,,
-Lucario,83,move,7,Detect,28.5%,,,,,,,,
+Lucario,83,move,1,Close Combat,43.0%,,,,,,,,
+Lucario,83,move,2,Aura Sphere,39.2%,,,,,,,,
+Lucario,83,move,3,Meteor Mash,36.7%,,,,,,,,
+Lucario,83,move,4,Bullet Punch,33.3%,,,,,,,,
+Lucario,83,move,5,Flash Cannon,31.6%,,,,,,,,
+Lucario,83,move,6,Protect,30.9%,,,,,,,,
+Lucario,83,move,7,Detect,28.6%,,,,,,,,
 Lucario,83,move,8,Vacuum Wave,18.5%,,,,,,,,
 Lucario,83,move,9,Extreme Speed,14.4%,,,,,,,,
 Lucario,83,move,10,Drain Punch,12.0%,,,,,,,,
@@ -27,13 +32,13 @@ Lucario,83,teammate,10,Charizard,,,,,,,,,
 Lucario,83,stat_alignment,1,Jolly,31.7%,Speed,Sp. Atk,,,,,,
 Lucario,83,stat_alignment,2,Adamant,19.5%,Attack,Sp. Atk,,,,,,
 Lucario,83,stat_alignment,3,Timid,17.6%,Speed,Attack,,,,,,
-Lucario,83,stat_alignment,4,Modest,14.7%,Sp. Atk,Attack,,,,,,
+Lucario,83,stat_alignment,4,Modest,14.8%,Sp. Atk,Attack,,,,,,
 Lucario,83,stat_alignment,5,Hasty,4.3%,Speed,Defense,,,,,,
-Lucario,83,stat_alignment,6,Naive,3.4%,Speed,Sp. Def,,,,,,
-Lucario,83,stat_alignment,7,Brave,1.6%,Attack,Speed,,,,,,
+Lucario,83,stat_alignment,6,Naive,3.0%,Speed,Sp. Def,,,,,,
+Lucario,83,stat_alignment,7,Brave,1.5%,Attack,Speed,,,,,,
 Lucario,83,stat_alignment,8,Naughty,1.2%,Attack,Sp. Def,,,,,,
 Lucario,83,stat_alignment,9,Quiet,1.0%,Sp. Atk,Speed,,,,,,
-Lucario,83,stat_alignment,10,Lonely,0.0%,Attack,Defense,,,,,,
+Lucario,83,stat_alignment,10,Lonely,0.9%,Attack,Defense,,,,,,
 Lucario,83,stat_points,1,,26.7%,,,2,32,0,0,0,32
 Lucario,83,stat_points,2,,20.4%,,,2,0,0,32,0,32
 Lucario,83,stat_points,3,,4.2%,,,0,32,0,0,2,32
@@ -44,6 +49,6 @@ Lucario,83,stat_points,7,,1.4%,,,0,32,0,0,0,32
 Lucario,83,stat_points,8,,1.4%,,,0,0,0,32,0,32
 Lucario,83,stat_points,9,,1.3%,,,32,32,0,0,0,2
 Lucario,83,stat_points,10,,1.0%,,,0,2,0,32,0,32
-Lucario,83,ability,1,Inner Focus,82.8%,,,,,,,,
-Lucario,83,ability,2,Justified,12.2%,,,,,,,,
-Lucario,83,ability,3,Steadfast,5.0%,,,,,,,,
+Lucario,83,ability,1,Inner Focus,84.4%,,,,,,,,
+Lucario,83,ability,2,Justified,12.4%,,,,,,,,
+Lucario,83,ability,3,Steadfast,3.2%,,,,,,,,

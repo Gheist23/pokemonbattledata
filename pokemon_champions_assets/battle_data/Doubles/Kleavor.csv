@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Kleavor,70,move,1,Stone Axe,97.8%,,,,,,,,
-Kleavor,70,move,2,X-Scissor,85.5%,,,,,,,,
-Kleavor,70,move,3,Protect,48.5%,,,,,,,,
-Kleavor,70,move,4,Night Slash,37.4%,,,,,,,,
-Kleavor,70,move,5,Close Combat,34.0%,,,,,,,,
+Kleavor,70,move,2,X-Scissor,85.6%,,,,,,,,
+Kleavor,70,move,3,Protect,48.7%,,,,,,,,
+Kleavor,70,move,4,Night Slash,37.2%,,,,,,,,
+Kleavor,70,move,5,Close Combat,33.9%,,,,,,,,
 Kleavor,70,move,6,Tailwind,19.3%,,,,,,,,
-Kleavor,70,move,7,U-turn,16.2%,,,,,,,,
-Kleavor,70,move,8,Feint,15.4%,,,,,,,,
-Kleavor,70,move,9,Aerial Ace,12.6%,,,,,,,,
-Kleavor,70,move,10,Rock Slide,7.4%,,,,,,,,
-Kleavor,70,held_item,1,Focus Sash,37.4%,,,,,,,,
-Kleavor,70,held_item,2,Choice Scarf,27.3%,,,,,,,,
+Kleavor,70,move,7,U-turn,16.1%,,,,,,,,
+Kleavor,70,move,8,Feint,15.8%,,,,,,,,
+Kleavor,70,move,9,Aerial Ace,12.5%,,,,,,,,
+Kleavor,70,move,10,Rock Slide,7.3%,,,,,,,,
+Kleavor,70,held_item,1,Focus Sash,37.6%,,,,,,,,
+Kleavor,70,held_item,2,Choice Scarf,27.2%,,,,,,,,
 Kleavor,70,held_item,3,Life Orb,17.9%,,,,,,,,
 Kleavor,70,held_item,4,Sitrus Berry,3.5%,,,,,,,,
 Kleavor,70,held_item,5,Expert Belt,3.0%,,,,,,,,
@@ -28,9 +28,9 @@ Kleavor,70,teammate,6,Sneasler,,,,,,,,,
 Kleavor,70,teammate,7,Garchomp,,,,,,,,,
 Kleavor,70,teammate,8,Farigiraf,,,,,,,,,
 Kleavor,70,teammate,9,Charizard,,,,,,,,,
-Kleavor,70,teammate,10,Incineroar,,,,,,,,,
-Kleavor,70,stat_alignment,1,Adamant,58.8%,Attack,Sp. Atk,,,,,,
-Kleavor,70,stat_alignment,2,Jolly,32.0%,Speed,Sp. Atk,,,,,,
+Kleavor,70,teammate,10,Sinistcha,,,,,,,,,
+Kleavor,70,stat_alignment,1,Adamant,58.9%,Attack,Sp. Atk,,,,,,
+Kleavor,70,stat_alignment,2,Jolly,31.9%,Speed,Sp. Atk,,,,,,
 Kleavor,70,stat_alignment,3,Brave,2.5%,Attack,Speed,,,,,,
 Kleavor,70,stat_alignment,4,Careful,1.4%,Sp. Def,Sp. Atk,,,,,,
 Kleavor,70,stat_alignment,5,Impish,1.3%,Defense,Sp. Atk,,,,,,
@@ -38,17 +38,17 @@ Kleavor,70,stat_alignment,6,Naughty,1.1%,Attack,Sp. Def,,,,,,
 Kleavor,70,stat_alignment,7,Lonely,0.8%,Attack,Defense,,,,,,
 Kleavor,70,stat_alignment,8,Naive,0.7%,Speed,Sp. Def,,,,,,
 Kleavor,70,stat_alignment,9,Hasty,0.6%,Speed,Defense,,,,,,
-Kleavor,70,stat_alignment,10,Relaxed,0.2%,Defense,Speed,,,,,,
-Kleavor,70,stat_points,1,,45.1%,,,2,32,0,0,0,32
-Kleavor,70,stat_points,2,,13.2%,,,0,32,2,0,0,32
-Kleavor,70,stat_points,3,,9.1%,,,0,32,0,0,2,32
+Kleavor,70,stat_alignment,10,Relaxed,0.0%,Defense,Speed,,,,,,
+Kleavor,70,stat_points,1,,44.9%,,,2,32,0,0,0,32
+Kleavor,70,stat_points,2,,13.4%,,,0,32,2,0,0,32
+Kleavor,70,stat_points,3,,9.0%,,,0,32,0,0,2,32
 Kleavor,70,stat_points,4,,3.5%,,,0,32,0,0,0,32
 Kleavor,70,stat_points,5,,2.3%,,,32,32,0,0,2,0
 Kleavor,70,stat_points,6,,1.1%,,,2,32,32,0,0,0
 Kleavor,70,stat_points,7,,0.9%,,,0,32,2,0,32,0
-Kleavor,70,stat_points,8,,0.7%,,,0,32,0,0,32,2
-Kleavor,70,stat_points,9,,0.7%,,,0,32,32,0,2,0
-Kleavor,70,stat_points,10,,0.6%,,,0,32,32,0,0,2
+Kleavor,70,stat_points,8,,0.7%,,,0,32,32,0,2,0
+Kleavor,70,stat_points,9,,0.7%,,,0,32,32,0,0,2
+Kleavor,70,stat_points,10,,0.7%,,,0,32,0,0,32,2
 Kleavor,70,ability,1,Sharpness,96.8%,,,,,,,,
 Kleavor,70,ability,2,Sheer Force,2.2%,,,,,,,,
 Kleavor,70,ability,3,Swarm,1.0%,,,,,,,,

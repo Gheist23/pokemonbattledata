@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, readSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { basename, extname, join, relative, sep } from "node:path";
 import { writeSeoPages, REGULATION_KEYWORDS } from "./seo-pages.mjs";
 import { isArchivedSeason } from "./archived-seasons.mjs";
@@ -893,15 +893,150 @@ function pageKeywords(page) {
   ]);
 }
 
+/* ------------------------------------------------------------------ sprites */
+
+// Every <img> on a generated page is resolved against the files actually on
+// disk, and carries the real pixel size read from the PNG header, so a page can
+// never link a missing sprite and never reflows while images load.
+function readPngSize(file) {
+  try {
+    const header = Buffer.alloc(24);
+    const handle = openSync(file, "r");
+    try {
+      readSync(handle, header, 0, 24, 0);
+    } finally {
+      closeSync(handle);
+    }
+    if (header.toString("ascii", 1, 4) !== "PNG") return null;
+    return { width: header.readUInt32BE(16), height: header.readUInt32BE(20) };
+  } catch {
+    return null;
+  }
+}
+
+function indexSpriteDir(dirName) {
+  const index = new Map();
+  const dir = join(assetRootPath, dirName);
+  if (!existsSync(dir)) return index;
+  for (const file of readdirSync(dir)) {
+    if (!file.toLowerCase().endsWith(".png")) continue;
+    const name = basename(file, ".png");
+    const size = readPngSize(join(dir, file)) || { width: 0, height: 0 };
+    // Keyed loosely so a battle-data spelling still finds its sprite.
+    index.set(spriteKey(name), { name, src: `/${assetRoot}/${dirName}/${encodeURIComponent(file)}`, ...size });
+  }
+  return index;
+}
+
+/** Display names of every sprite of one kind, for pages built from the asset folder. */
+function spriteNames(kind) {
+  return [...spriteIndexes[kind].values()].map((sprite) => sprite.name).sort((a, b) => a.localeCompare(b));
+}
+
+function spriteKey(value) {
+  return String(value || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "");
+}
+
+const spriteIndexes = {
+  mini: indexSpriteDir("pokemon_mini"),
+  full: indexSpriteDir("pokemon"),
+  item: indexSpriteDir("items"),
+  type: indexSpriteDir("types")
+};
+
+function lookupSprite(kind, ...names) {
+  for (const name of names) {
+    const found = name ? spriteIndexes[kind].get(spriteKey(name)) : null;
+    if (found) return found;
+  }
+  return null;
+}
+
+function pokemonSprite(recordOrPage, kind = "mini") {
+  const page = recordOrPage || {};
+  const record = page.sourceRecord || page;
+  const form = page.form || record.summary?.primary || {};
+  return lookupSprite(
+    kind,
+    page.name,
+    page.battleName,
+    record.name,
+    record.battleName,
+    form.saved_name,
+    form.form_name,
+    form.pokemon_name
+  );
+}
+
+function spriteImg(sprite, { alt, className = "", eager = false } = {}) {
+  if (!sprite) return "";
+  const size = sprite.width && sprite.height ? ` width="${sprite.width}" height="${sprite.height}"` : "";
+  const loading = eager ? "" : ` loading="lazy" decoding="async"`;
+  const classAttr = className ? ` class="${escapeHtml(className)}"` : "";
+  // alt="" on decorative sprites: the name is always beside them as real text,
+  // so announcing it twice only makes the table noisier for screen readers.
+  return `<img${classAttr} src="${escapeHtml(sprite.src)}" alt="${escapeHtml(alt || "")}"${size}${loading} />`;
+}
+
+function typeChip(type) {
+  const clean = String(type || "").trim();
+  if (!clean) return "";
+  const icon = spriteImg(lookupSprite("type", clean), { className: "static-type-icon" });
+  return `<span class="static-type-chip">${icon}${escapeHtml(clean)}</span>`;
+}
+
+function typeChips(types) {
+  const list = (Array.isArray(types) ? types : String(types || "").split(/[\/,|]/))
+    .map((type) => String(type).trim())
+    .filter(Boolean);
+  return list.length ? `<span class="static-type-chips">${list.map(typeChip).join("")}</span>` : "-";
+}
+
+function itemImg(name) {
+  return spriteImg(lookupSprite("item", name), { className: "static-item-icon" });
+}
+
+/** Name cell used across the generated tables: mini sprite plus the linked name. */
+function pokemonCell(recordOrPage) {
+  const sprite = pokemonSprite(recordOrPage, "mini");
+  const icon = spriteImg(sprite, { className: "static-mini-sprite" });
+  return `<span class="static-name-cell">${icon}${pokemonLink(recordOrPage)}</span>`;
+}
+
+function itemCell(name) {
+  const clean = String(name || "").trim();
+  if (!clean) return "-";
+  return `<span class="static-name-cell">${itemImg(clean)}${escapeHtml(clean)}</span>`;
+}
+
 function pokemonLink(recordOrPage) {
   const slug = recordOrPage.slug || slugify(recordOrPage.name || recordOrPage.battleName);
   const label = recordOrPage.name || recordOrPage.battleName || slug;
   return `<a href="/pokemon/${escapeHtml(slug)}/">${escapeHtml(label)}</a>`;
 }
 
+/** Stamp each cell with its column heading.
+ *
+ * Below 760px styles.css turns every .data-table-wrap table into a card list:
+ * the header row is hidden and each cell prints its own label from
+ * `content: attr(data-label)`. Without the attribute the label is blank and the
+ * cell is squeezed into a sliver of the card, so a wide table becomes one
+ * letter per line on a phone. */
+function withDataLabels(row, headers) {
+  let column = 0;
+  return row.replace(/<td(\s|>)/g, (match, next) => {
+    const label = headers[column++] ?? "";
+    return `<td data-label="${escapeHtml(label)}"${next}`;
+  });
+}
+
 function simpleTable(headers, rows) {
   if (!rows.length) return `<p>No ranked data is available yet.</p>`;
-  return `<div class="data-table-wrap static-table-wrap"><table class="data-table static-seo-table"><thead><tr>${headers.map((header) => `<th>${escapeHtml(header)}</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody></table></div>`;
+  const body = rows.map((row) => withDataLabels(row, headers)).join("");
+  // Two columns already fit a phone, and turning a key/value table into cards
+  // would just repeat "Field"/"Value" above every pair.
+  const narrow = headers.length <= 2 ? " static-narrow-table" : "";
+  return `<div class="data-table-wrap static-table-wrap${narrow}"><table class="data-table static-seo-table"><thead><tr>${headers.map((header) => `<th>${escapeHtml(header)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
 function rankedPokemonTable(format, limit = 20) {
@@ -1052,12 +1187,18 @@ function pokemonStaticContent(page) {
       <p class="eyebrow">Pokemon Champions profile</p>
       <h1>${escapeHtml(page.name)} Pokemon Champions Battle Data</h1>
       <p>${escapeHtml(page.description)}</p>
-      <div class="static-seo-grid">
-        ${simpleTable(["Field", "Value"], rows.map(([label, value]) => `<tr><td>${escapeHtml(label)}</td><td>${escapeHtml(value)}</td></tr>`))}
-        ${simpleTable(["Move", "Usage"], topMoves.map((row) => `<tr><td>${escapeHtml(rowName(row))}</td><td>${escapeHtml(row.percentage || "-")}</td></tr>`))}
-        ${simpleTable(["Held item", "Usage"], topItems.map((row) => `<tr><td>${escapeHtml(rowName(row))}</td><td>${escapeHtml(row.percentage || "-")}</td></tr>`))}
+      <div class="static-hero">
+        ${spriteImg(pokemonSprite(page, "full"), { alt: page.name, className: "static-hero-sprite", eager: true })}
+        <div>
+          <p class="static-hero-types">${typeChips(page.types || [])}</p>
+          ${simpleTable(["Field", "Value"], rows.map(([label, value]) => `<tr><td>${escapeHtml(label)}</td><td>${escapeHtml(value)}</td></tr>`))}
+        </div>
       </div>
-      ${forms.length ? `<h2>Related forms</h2><ul class="static-link-list">${forms.map((form) => `<li><a href="/pokemon/${escapeHtml(form.slug)}/">${escapeHtml(form.name)}</a></li>`).join("")}</ul>` : ""}
+      <div class="static-seo-grid">
+        ${simpleTable(["Move", "Usage"], topMoves.map((row) => `<tr><td>${escapeHtml(rowName(row))}</td><td>${escapeHtml(row.percentage || "-")}</td></tr>`))}
+        ${simpleTable(["Held item", "Usage"], topItems.map((row) => `<tr><td>${itemCell(rowName(row))}</td><td>${escapeHtml(row.percentage || "-")}</td></tr>`))}
+      </div>
+      ${forms.length ? `<h2>Related forms</h2><ul class="static-sprite-list">${forms.map((form) => `<li><span class="static-name-cell">${spriteImg(lookupSprite("mini", form.name), { className: "static-mini-sprite" })}<a href="/pokemon/${escapeHtml(form.slug)}/">${escapeHtml(form.name)}</a></span></li>`).join("")}</ul>` : ""}
       <h2>More ${escapeHtml(page.name)} data</h2>
       <ul class="static-link-list">
         <li><a href="/pokemon/${escapeHtml(page.slug)}/moves/">${escapeHtml(page.name)} moves and usage</a></li>
@@ -1366,7 +1507,16 @@ const seo = writeSeoPages({
     metadataStatValue,
     basePageHtml,
     simpleTable,
-    pokemonLink
+    pokemonLink,
+    pokemonSprite,
+    spriteImg,
+    pokemonCell,
+    itemCell,
+    itemImg,
+    lookupSprite,
+    spriteNames,
+    typeChip,
+    typeChips
   }
 });
 

@@ -88,7 +88,9 @@ export function writeSeoPages(ctx) {
   const {
     escapeHtml, slugify, unique, numberOrZero, numberOrNull,
     percentNumber, rowName, categoryRows, summaryFor, battlePositionFor,
-    metadataStatValue, basePageHtml, simpleTable, pokemonLink
+    metadataStatValue, basePageHtml, simpleTable,
+    pokemonSprite, spriteImg, pokemonCell, itemCell, itemImg, lookupSprite,
+    spriteNames, typeChip, typeChips
   } = helpers;
 
   const urls = [];
@@ -307,9 +309,30 @@ export function writeSeoPages(ctx) {
 
   function usageTable(entries, limit = 25) {
     return simpleTable(["Pokemon", "Usage", "Slot", "Rank"], entries.slice(0, limit).map((entry) => (
-      `<tr><td>${pokemonLink(entry.record)}</td><td>${escapeHtml(entry.percent ? `${entry.percent}%` : "-")}</td>` +
+      `<tr><td>${pokemonCell(entry.record)}</td><td>${usageBar(entry.percent)}</td>` +
       `<td>${escapeHtml(entry.rank || "-")}</td><td>${escapeHtml(entry.position ?? "-")}</td></tr>`
     )));
+  }
+
+  /** Usage percentages read far faster as a bar than as bare numbers. */
+  function usageBar(percent) {
+    const value = Number(percent);
+    if (!Number.isFinite(value) || value <= 0) return "-";
+    const width = Math.max(2, Math.min(100, value));
+    return `<span class="static-usage"><span class="static-usage-track">` +
+      `<span class="static-usage-fill" style="width:${width}%"></span></span>` +
+      `<b>${escapeHtml(`${value}%`)}</b></span>`;
+  }
+
+  /** Fact rows accept a pre-rendered HTML value as the third element. */
+  function factTable(rows) {
+    return simpleTable(["Field", "Value"], rows.map(([label, value, html]) =>
+      `<tr><td>${escapeHtml(label)}</td><td>${html || escapeHtml(value)}</td></tr>`));
+  }
+
+  function pokemonNameList(records, limit = 60) {
+    return `<ul class="static-sprite-list">${records.slice(0, limit)
+      .map((record) => `<li>${pokemonCell(record)}</li>`).join("")}</ul>`;
   }
 
   function statRow(record, key) {
@@ -335,7 +358,7 @@ export function writeSeoPages(ctx) {
 
       const factRows = [];
       if (facts) {
-        if (facts.type) factRows.push(["Type", facts.type]);
+        if (facts.type) factRows.push(["Type", facts.type, typeChip(facts.type)]);
         if (facts.category) factRows.push(["Category", facts.category]);
         if (facts.power) factRows.push(["Power", facts.power]);
         if (facts.accuracy) factRows.push(["Accuracy", facts.accuracy]);
@@ -344,8 +367,13 @@ export function writeSeoPages(ctx) {
       }
       if (owners.length) factRows.push(["Pokemon with this ability", String(owners.length)]);
       factRows.push(["Pokemon using it in ranked play", String(users)]);
-      if (doubles[0]) factRows.push(["Most common user (Doubles)", `${doubles[0].record.name} (${doubles[0].percent}%)`]);
-      if (singles[0]) factRows.push(["Most common user (Singles)", `${singles[0].record.name} (${singles[0].percent}%)`]);
+      const topUser = (label, best) => best && factRows.push([
+        label,
+        `${best.record.name} (${best.percent}%)`,
+        `${pokemonCell(best.record)} <span class="static-muted">${escapeHtml(`${best.percent}%`)}</span>`
+      ]);
+      topUser("Most common user (Doubles)", doubles[0]);
+      topUser("Most common user (Singles)", singles[0]);
 
       const lead = category === "move"
         ? `${entry.name} usage in Pokemon Champions: which Pokemon run ${entry.name}, how often they carry it, and the move's type, power and accuracy.`
@@ -353,16 +381,21 @@ export function writeSeoPages(ctx) {
           ? `${entry.name} usage in Pokemon Champions: every Pokemon that commonly holds ${entry.name} in ranked Doubles and Singles, with usage percentages.`
           : `${entry.name} usage in Pokemon Champions: which Pokemon run ${entry.name} in ranked play and how often, plus every species that can have the ability.`;
 
+      // Items have their own artwork; a move leads with its type icon instead.
+      const artwork = category === "held_item"
+        ? spriteImg(lookupSprite("item", entry.name), { alt: `${entry.name} icon`, className: "static-hero-item", eager: true })
+        : "";
+      const hero = artwork
+        ? `<div class="static-hero">${artwork}<div><h2>${escapeHtml(entry.name)} at a glance</h2>${factTable(factRows)}</div></div>`
+        : `<h2>${escapeHtml(entry.name)} at a glance</h2>${factTable(factRows)}`;
+
       const body = [
         description ? `<p class="static-seo-lead">${escapeHtml(description)}</p>` : "",
-        `<h2>${escapeHtml(entry.name)} at a glance</h2>`,
-        simpleTable(["Field", "Value"], factRows.map(([label, value]) =>
-          `<tr><td>${escapeHtml(label)}</td><td>${escapeHtml(value)}</td></tr>`)),
+        hero,
         doubles.length ? `<h2>Doubles usage</h2>${usageTable(doubles)}` : "",
         singles.length ? `<h2>Singles usage</h2>${usageTable(singles)}` : "",
         owners.length
-          ? `<h2>Pokemon with ${escapeHtml(entry.name)}</h2><ul class="static-link-list">${owners
-              .slice(0, 60).map((record) => `<li>${pokemonLink(record)}</li>`).join("")}</ul>`
+          ? `<h2>Pokemon with ${escapeHtml(entry.name)}</h2>${pokemonNameList(owners)}`
           : ""
       ].join("");
 
@@ -416,7 +449,57 @@ export function writeSeoPages(ctx) {
           lead, body, related
         })
       });
-      written.push({ name: entry.name, slug, url, users, facts, entry });
+      written.push({
+        name: entry.name, slug, url, users, facts, entry,
+        topRecord: doubles[0]?.record || singles[0]?.record || null
+      });
+    }
+
+    // Items ship as artwork before anyone runs them on the ladder. Those still
+    // deserve a page: the item is real, people search for it, and the page can
+    // say plainly that no ranked usage has been recorded yet.
+    if (category === "held_item" && typeof spriteNames === "function") {
+      for (const name of spriteNames("item")) {
+        if (byName.has(name)) continue;
+        const slug = entitySlug(dirName, name);
+        const url = `${siteUrl}/${dirName}/${slug}/`;
+        const lead = `${name} in Pokemon Champions. This held item is in the game, but no ranked Doubles or Singles usage has been recorded for it yet.`;
+        const jsonLd = collectionJsonLd({
+          url, title: `${name} - Pokemon Champions Item`, description: lead,
+          keywords: [name, `${name} Pokemon Champions`, `${name} pokemon champions item`]
+        });
+        jsonLd["@graph"].push(breadcrumbJsonLd([
+          { name: "Home", url: `${siteUrl}/` },
+          { name: "Items", url: `${siteUrl}/${dirName}/` },
+          { name, url }
+        ]));
+        writePage({
+          dir: [dirName, slug], url,
+          title: `${name} - Pokemon Champions Item`,
+          description: lead,
+          keywords: [name, `${name} Pokemon Champions`, `${name} pokemon champions`, `${name} usage`, "Pokemon Champions held items"],
+          jsonLd,
+          staticContent: shell({
+            eyebrow: "Pokemon Champions Item",
+            h1: `${name} - Pokemon Champions Item`,
+            lead,
+            body: `<div class="static-hero">${spriteImg(lookupSprite("item", name), { alt: `${name} icon`, className: "static-hero-item", eager: true })}` +
+              `<div><h2>${escapeHtml(name)} at a glance</h2>` +
+              factTable([
+                ["Item", name],
+                ["Pokemon using it in ranked play", "0 so far"],
+                ["Tracked in", "Doubles and Singles ranked battle data"]
+              ]) + "</div></div>" +
+              `<p>Usage is rebuilt from ladder snapshots every day. As soon as a ranked Pokemon is recorded holding ${escapeHtml(name)}, it will appear here.</p>`,
+            related: linkList("Pokemon Champions items", [
+              { href: `/${dirName}/`, label: "All held items" },
+              { href: "/rankings/most-used-items/", label: "Most used items" },
+              { href: "/meta/doubles/", label: "Doubles meta" }
+            ])
+          })
+        });
+        written.push({ name, slug, url, users: 0, facts: null, entry: { Doubles: [], Singles: [] }, topRecord: null });
+      }
     }
 
     written.sort((a, b) => b.users - a.users || a.name.localeCompare(b.name));
@@ -425,15 +508,19 @@ export function writeSeoPages(ctx) {
     const hubUrl = `${siteUrl}/${dirName}/`;
     const hubTitle = `Pokemon Champions ${plural.replace(/^\w/, (c) => c.toUpperCase())} - Usage Index`;
     const hubLead = `Every ${singular.toLowerCase()} tracked in Pokemon Champions ranked battle data, ordered by how many Pokemon use it.`;
+    const hubLink = (item) => {
+      const icon = category === "held_item" ? itemImg(item.name) : "";
+      return `<span class="static-name-cell">${icon}<a href="/${dirName}/${escapeHtml(item.slug)}/">${escapeHtml(item.name)}</a></span>`;
+    };
     const hubBody = simpleTable(
       category === "move" ? ["Move", "Type", "Category", "Power", "Pokemon using it"] : [singular, "Pokemon using it", "Top user"],
       written.map((item) => (category === "move"
-        ? `<tr><td><a href="/${dirName}/${escapeHtml(item.slug)}/">${escapeHtml(item.name)}</a></td>` +
-          `<td>${escapeHtml(item.facts?.type || "-")}</td><td>${escapeHtml(item.facts?.category || "-")}</td>` +
+        ? `<tr><td>${hubLink(item)}</td>` +
+          `<td>${item.facts?.type ? typeChip(item.facts.type) : "-"}</td><td>${escapeHtml(item.facts?.category || "-")}</td>` +
           `<td>${escapeHtml(item.facts?.power || "-")}</td><td>${escapeHtml(item.users)}</td></tr>`
-        : `<tr><td><a href="/${dirName}/${escapeHtml(item.slug)}/">${escapeHtml(item.name)}</a></td>` +
+        : `<tr><td>${hubLink(item)}</td>` +
           `<td>${escapeHtml(item.users)}</td>` +
-          `<td>${escapeHtml(item.entry.Doubles[0]?.record.name || item.entry.Singles[0]?.record.name || "-")}</td></tr>`))
+          `<td>${item.topRecord ? pokemonCell(item.topRecord) : "-"}</td></tr>`))
     );
     writePage({
       dir: [dirName], url: hubUrl, title: hubTitle, description: hubLead,
@@ -489,6 +576,23 @@ export function writeSeoPages(ctx) {
       lead: (name) => `The Pokemon most often paired with ${name} in Pokemon Champions ranked teams.` }
   ];
 
+  /** Artwork + identity strip that opens every page about one Pokemon. */
+  function pokemonHero(record, extraRows = []) {
+    const art = spriteImg(pokemonSprite(record, "full"), {
+      alt: record.name, className: "static-hero-sprite", eager: true
+    });
+    const rows = [
+      ["Types", "", typeChips(record.summary?.types || [])],
+      ["Doubles rank", String(battlePositionFor(record, "Doubles") ?? "-")],
+      ["Singles rank", String(battlePositionFor(record, "Singles") ?? "-")],
+      ...extraRows
+    ];
+    const facts = factTable(rows);
+    return art
+      ? `<div class="static-hero">${art}<div>${facts}</div></div>`
+      : facts;
+  }
+
   for (const record of pokemon) {
     for (const sub of SUBPAGES) {
       const tables = [];
@@ -503,13 +607,16 @@ export function writeSeoPages(ctx) {
             const name = rowName(row);
             if (sub.category === "teammate") {
               const partner = pokemon.find((candidate) => candidate.name === name);
-              return `<tr><td>${escapeHtml(row.rank ?? "-")}</td><td>${partner ? pokemonLink(partner) : escapeHtml(name)}</td></tr>`;
+              return `<tr><td>${escapeHtml(row.rank ?? "-")}</td><td>${partner ? pokemonCell(partner) : escapeHtml(name)}</td></tr>`;
             }
             const dirName = sub.category === "move" ? "moves" : "items";
             const slugMap = uniqueSlugs.get(dirName);
             const entrySlug = slugMap?.get(name);
-            const label = entrySlug ? `<a href="/${dirName}/${escapeHtml(entrySlug)}/">${escapeHtml(name)}</a>` : escapeHtml(name);
-            return `<tr><td>${escapeHtml(row.rank ?? "-")}</td><td>${label}</td><td>${escapeHtml(row.percentage || "-")}</td></tr>`;
+            const linked = entrySlug ? `<a href="/${dirName}/${escapeHtml(entrySlug)}/">${escapeHtml(name)}</a>` : escapeHtml(name);
+            const label = sub.category === "held_item"
+              ? `<span class="static-name-cell">${itemImg(name)}${linked}</span>`
+              : linked;
+            return `<tr><td>${escapeHtml(row.rank ?? "-")}</td><td>${label}</td><td>${usageBar(percentNumber(row.percentage))}</td></tr>`;
           })
         ));
       }
@@ -544,7 +651,7 @@ export function writeSeoPages(ctx) {
           eyebrow: `${record.name} ${sub.label}`,
           h1: title,
           lead,
-          body: tables.join(""),
+          body: pokemonHero(record) + tables.join(""),
           related: linkList(`More ${record.name} data`, [
             { href: `/pokemon/${record.slug}/`, label: `${record.name} profile` },
             ...SUBPAGES.filter((other) => other.segment !== sub.segment)
@@ -593,14 +700,23 @@ export function writeSeoPages(ctx) {
         return `<tr><td>${escapeHtml(label)}</td><td>${mark(av, bv)}</td><td>${mark(bv, av)}</td></tr>`;
       }));
 
+      // The fourth element marks a row whose values are already HTML.
       const metaTable = simpleTable(["Field", a.name, b.name], [
-        ["Types", (a.summary?.types || []).join(" / ") || "-", (b.summary?.types || []).join(" / ") || "-"],
+        ["Types", typeChips(a.summary?.types || []), typeChips(b.summary?.types || []), true],
         ["Doubles rank", aRank ?? "-", bRank ?? "-"],
         ["Singles rank", battlePositionFor(a, "Singles") ?? "-", battlePositionFor(b, "Singles") ?? "-"],
         ["Top move", rowName(summaryFor(a, "Doubles").top?.move) || "-", rowName(summaryFor(b, "Doubles").top?.move) || "-"],
-        ["Top item", rowName(summaryFor(a, "Doubles").top?.held_item) || "-", rowName(summaryFor(b, "Doubles").top?.held_item) || "-"],
+        ["Top item", itemCell(rowName(summaryFor(a, "Doubles").top?.held_item)), itemCell(rowName(summaryFor(b, "Doubles").top?.held_item)), true],
         ["Top ability", rowName(summaryFor(a, "Doubles").top?.ability) || "-", rowName(summaryFor(b, "Doubles").top?.ability) || "-"]
-      ].map(([label, av, bv]) => `<tr><td>${escapeHtml(label)}</td><td>${escapeHtml(av)}</td><td>${escapeHtml(bv)}</td></tr>`));
+      ].map(([label, av, bv, isHtml]) => `<tr><td>${escapeHtml(label)}</td>` +
+        `<td>${isHtml ? av : escapeHtml(av)}</td><td>${isHtml ? bv : escapeHtml(bv)}</td></tr>`));
+
+      // Both contenders lead the page with their full artwork.
+      const versusArt = `<div class="static-versus">` +
+        `<figure>${spriteImg(pokemonSprite(a, "full"), { alt: a.name, className: "static-hero-sprite", eager: true })}<figcaption>${escapeHtml(a.name)}</figcaption></figure>` +
+        `<span class="static-versus-vs" aria-hidden="true">vs</span>` +
+        `<figure>${spriteImg(pokemonSprite(b, "full"), { alt: b.name, className: "static-hero-sprite", eager: true })}<figcaption>${escapeHtml(b.name)}</figcaption></figure>` +
+        `</div>`;
 
       const verdict = `${faster} (${aSpeed} vs ${bSpeed} base Speed). ` +
         (Number.isFinite(aRank) && Number.isFinite(bRank)
@@ -640,7 +756,7 @@ export function writeSeoPages(ctx) {
           eyebrow: "Pokemon Champions comparison",
           h1: title,
           lead,
-          body: `<h2>Base stats</h2>${statTable}<h2>Ranked profile</h2>${metaTable}<h2>Verdict</h2><p>${escapeHtml(verdict)}</p>`,
+          body: `${versusArt}<h2>Base stats</h2>${statTable}<h2>Ranked profile</h2>${metaTable}<h2>Verdict</h2><p>${escapeHtml(verdict)}</p>`,
           related: linkList("Full profiles", [
             { href: `/pokemon/${a.slug}/`, label: `${a.name} profile` },
             { href: `/pokemon/${b.slug}/`, label: `${b.name} profile` },
@@ -673,7 +789,7 @@ export function writeSeoPages(ctx) {
       ? `<h2>${escapeHtml(format)} teammates</h2>` + simpleTable(["#", "Teammate", "Doubles rank"], list.map((row) => {
           const name = rowName(row);
           const partner = pokemon.find((candidate) => candidate.name === name);
-          return `<tr><td>${escapeHtml(row.rank ?? "-")}</td><td>${partner ? pokemonLink(partner) : escapeHtml(name)}</td>` +
+          return `<tr><td>${escapeHtml(row.rank ?? "-")}</td><td>${partner ? pokemonCell(partner) : escapeHtml(name)}</td>` +
             `<td>${escapeHtml(partner ? (battlePositionFor(partner, "Doubles") ?? "-") : "-")}</td></tr>`;
         }))
       : "";
@@ -700,7 +816,10 @@ export function writeSeoPages(ctx) {
         eyebrow: "Pokemon Champions teams",
         h1: title,
         lead,
-        body: partnersTable(rows, "Doubles") + partnersTable(singlesRows, "Singles"),
+        body: pokemonHero(record, [
+          ["Top Doubles move", rowName(summaryFor(record, "Doubles").top?.move) || "-"],
+          ["Top Doubles item", "", itemCell(rowName(summaryFor(record, "Doubles").top?.held_item))]
+        ]) + partnersTable(rows, "Doubles") + partnersTable(singlesRows, "Singles"),
         related: linkList(`More ${record.name} data`, [
           { href: `/pokemon/${record.slug}/`, label: `${record.name} profile` },
           { href: `/pokemon/${record.slug}/moves/`, label: `${record.name} moves` },
@@ -736,7 +855,7 @@ export function writeSeoPages(ctx) {
     const lead = `${archetype.blurb} These are the Pokemon that actually run ${archetype.name.toLowerCase()} tools in Pokemon Champions ranked Doubles, ordered by how often they carry them.`;
     const table = simpleTable(["Pokemon", "Doubles rank", "Signal", "Usage"], members.slice(0, 40).map((entry) => {
       const signal = [...entry.moves, ...entry.abilities][0];
-      return `<tr><td>${pokemonLink(entry.record)}</td><td>${escapeHtml(battlePositionFor(entry.record, "Doubles") ?? "-")}</td>` +
+      return `<tr><td>${pokemonCell(entry.record)}</td><td>${escapeHtml(battlePositionFor(entry.record, "Doubles") ?? "-")}</td>` +
         `<td>${escapeHtml(rowName(signal) || "-")}</td><td>${escapeHtml(signal?.percentage || "-")}</td></tr>`;
     }));
 
@@ -809,10 +928,10 @@ export function writeSeoPages(ctx) {
     const lead = `The Pokemon Champions ${format} meta by ranked usage: the most used Pokemon, their top moves, held items and abilities, updated from daily ladder snapshots.`;
     const table = simpleTable(["Rank", "Pokemon", "Types", "Top move", "Top item", "Top ability"], ranked.map(({ record, position }) => {
       const summary = summaryFor(record, format);
-      return `<tr><td>${escapeHtml(position)}</td><td>${pokemonLink(record)}</td>` +
-        `<td>${escapeHtml((record.summary?.types || []).join(" / ") || "-")}</td>` +
+      return `<tr><td>${escapeHtml(position)}</td><td>${pokemonCell(record)}</td>` +
+        `<td>${typeChips(record.summary?.types || [])}</td>` +
         `<td>${escapeHtml(rowName(summary.top?.move) || "-")}</td>` +
-        `<td>${escapeHtml(rowName(summary.top?.held_item) || "-")}</td>` +
+        `<td>${itemCell(rowName(summary.top?.held_item))}</td>` +
         `<td>${escapeHtml(rowName(summary.top?.ability) || "-")}</td></tr>`;
     }));
 
@@ -901,10 +1020,10 @@ export function writeSeoPages(ctx) {
       lead = `The 100 most used Pokemon in Pokemon Champions ranked ${page.format}, ordered by ladder usage with their most common move, item and ability.`;
       body = simpleTable(["Rank", "Pokemon", "Types", "Top move", "Top item", "Top ability"], ranked.map(({ record, position }) => {
         const summary = summaryFor(record, page.format);
-        return `<tr><td>${escapeHtml(position)}</td><td>${pokemonLink(record)}</td>` +
-          `<td>${escapeHtml((record.summary?.types || []).join(" / ") || "-")}</td>` +
+        return `<tr><td>${escapeHtml(position)}</td><td>${pokemonCell(record)}</td>` +
+          `<td>${typeChips(record.summary?.types || [])}</td>` +
           `<td>${escapeHtml(rowName(summary.top?.move) || "-")}</td>` +
-          `<td>${escapeHtml(rowName(summary.top?.held_item) || "-")}</td>` +
+          `<td>${itemCell(rowName(summary.top?.held_item))}</td>` +
           `<td>${escapeHtml(rowName(summary.top?.ability) || "-")}</td></tr>`;
       }));
       items = ranked.map(({ record }) => ({ name: record.name, url: `${siteUrl}/pokemon/${record.slug}/` }));
@@ -916,8 +1035,8 @@ export function writeSeoPages(ctx) {
         .slice(0, 100);
       lead = "Pokemon Champions speed tiers: the fastest Pokemon by base Speed, with their ranked usage in Doubles and Singles.";
       body = simpleTable(["Base Speed", "Pokemon", "Types", "Doubles rank", "Singles rank"], fastest.map(({ record, speed }) =>
-        `<tr><td>${escapeHtml(speed)}</td><td>${pokemonLink(record)}</td>` +
-        `<td>${escapeHtml((record.summary?.types || []).join(" / ") || "-")}</td>` +
+        `<tr><td>${escapeHtml(speed)}</td><td>${pokemonCell(record)}</td>` +
+        `<td>${typeChips(record.summary?.types || [])}</td>` +
         `<td>${escapeHtml(battlePositionFor(record, "Doubles") ?? "-")}</td>` +
         `<td>${escapeHtml(battlePositionFor(record, "Singles") ?? "-")}</td></tr>`));
       items = fastest.map(({ record }) => ({ name: record.name, url: `${siteUrl}/pokemon/${record.slug}/` }));
@@ -929,7 +1048,7 @@ export function writeSeoPages(ctx) {
         .slice(0, 100);
       lead = "Pokemon Champions base stat totals: the highest raw stat pools in the game, next to how much ranked play actually uses them.";
       body = simpleTable(["Total", "Pokemon", "HP", "Atk", "Def", "SpA", "SpD", "Spe", "Doubles rank"], strongest.map(({ record, total }) =>
-        `<tr><td>${escapeHtml(total)}</td><td>${pokemonLink(record)}</td>` +
+        `<tr><td>${escapeHtml(total)}</td><td>${pokemonCell(record)}</td>` +
         ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"].map((key) => `<td>${escapeHtml(statRow(record, key) || "-")}</td>`).join("") +
         `<td>${escapeHtml(battlePositionFor(record, "Doubles") ?? "-")}</td></tr>`));
       items = strongest.map(({ record }) => ({ name: record.name, url: `${siteUrl}/pokemon/${record.slug}/` }));
@@ -1003,8 +1122,8 @@ export function writeSeoPages(ctx) {
       return ap - bp || a.name.localeCompare(b.name);
     });
     const table = simpleTable(["Doubles rank", "Pokemon", "Types", "Singles rank", "Data"], ordered.map((record) =>
-      `<tr><td>${escapeHtml(battlePositionFor(record, "Doubles") ?? "-")}</td><td>${pokemonLink(record)}</td>` +
-      `<td>${escapeHtml((record.summary?.types || []).join(" / ") || "-")}</td>` +
+      `<tr><td>${escapeHtml(battlePositionFor(record, "Doubles") ?? "-")}</td><td>${pokemonCell(record)}</td>` +
+      `<td>${typeChips(record.summary?.types || [])}</td>` +
       `<td>${escapeHtml(battlePositionFor(record, "Singles") ?? "-")}</td>` +
       `<td><a href="/pokemon/${escapeHtml(record.slug)}/moves/">moves</a> · ` +
       `<a href="/pokemon/${escapeHtml(record.slug)}/items/">items</a> · ` +

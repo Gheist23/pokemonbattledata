@@ -7945,6 +7945,253 @@ body.page-api::before {
   color: var(--brand);
   font-weight: 780;
 }
+
+/* --- sprites on the generated pages ------------------------------------- */
+
+/* Every sprite is a pixel-art PNG shown at or near its native size, so it must
+   not be smoothed by the browser's default scaling. */
+.static-mini-sprite,
+.static-item-icon,
+.static-type-icon,
+.static-hero-item,
+.static-hero-sprite {
+  image-rendering: pixelated;
+  flex: none;
+}
+
+.static-name-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.static-mini-sprite {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.static-item-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.static-type-chips {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.static-type-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.12rem 0.5rem 0.12rem 0.28rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.static-type-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.static-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  margin-block: 1rem;
+}
+
+.static-hero > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.static-hero-sprite {
+  width: 128px;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.18);
+  padding: 0.4rem;
+}
+
+.static-hero-item {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.static-hero-types {
+  margin: 0 0 0.6rem;
+}
+
+.static-versus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  margin-block: 1rem;
+  text-align: center;
+}
+
+.static-versus figure {
+  margin: 0;
+}
+
+.static-versus figcaption {
+  margin-top: 0.4rem;
+  font-weight: 780;
+}
+
+.static-versus-vs {
+  color: var(--muted);
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.static-sprite-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 0.35rem 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.static-usage {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.static-usage-track {
+  flex: 1 1 auto;
+  height: 8px;
+  min-width: 44px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+  overflow: hidden;
+}
+
+.static-usage-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--brand), var(--gold));
+}
+
+.static-usage b {
+  font-variant-numeric: tabular-nums;
+}
+
+.static-muted {
+  color: var(--muted);
+}
+
+/* Two mobile table strategies already exist above: a card layout, then a
+   later block that squeezes every table into a fixed-layout grid. The second
+   one wins, and it cannot fit the six-column generated tables -- a phone ends
+   up rendering one letter per line. These tables now carry data-label on every
+   cell, so opt just them back into the card layout. Scoped to
+   .static-table-wrap so the explorer's own tables keep the behaviour they were
+   tuned for. */
+@media (max-width: 760px) {
+  .static-table-wrap:not(.static-narrow-table) {
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  .static-table-wrap:not(.static-narrow-table) table {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: auto !important;
+    border-collapse: separate !important;
+    font-size: 0.8rem !important;
+  }
+
+  .static-table-wrap:not(.static-narrow-table) thead {
+    display: none !important;
+  }
+
+  .static-table-wrap:not(.static-narrow-table) tbody {
+    display: grid !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  .static-table-wrap:not(.static-narrow-table) tr {
+    display: grid !important;
+    width: 100% !important;
+    gap: 0.3rem !important;
+    padding: 0.62rem !important;
+    border: 1px solid rgba(148, 163, 184, 0.16) !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.036) !important;
+  }
+
+  .static-table-wrap:not(.static-narrow-table) td {
+    display: grid !important;
+    grid-template-columns: minmax(84px, 0.42fr) minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 0.64rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0.14rem 0 !important;
+    border: 0 !important;
+    text-align: right !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  /* A rule above turns these labels off with content: none !important for the
+     squeezed-table layout, so re-enabling them needs !important too. */
+  .static-table-wrap:not(.static-narrow-table) td::before {
+    content: attr(data-label) !important;
+    display: block !important;
+    color: var(--soft) !important;
+    font-size: 0.67rem;
+    font-weight: 950;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .static-table-wrap:not(.static-narrow-table) td > * {
+    justify-self: end;
+  }
+
+  .static-table-wrap:not(.static-narrow-table) .static-type-chips {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 560px) {
+  .static-hero {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .static-versus {
+    gap: 0.7rem;
+  }
+
+  .static-usage {
+    min-width: 92px;
+  }
+}
+
 .page-api .api-rules-attribution {
   margin: 0.8rem 0 1rem;
   padding: 0.8rem 1rem;

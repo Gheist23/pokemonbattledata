@@ -1,3 +1,4 @@
-title,base_name,saved_name,types,abilities,image_path,form,hp,atk,def,spa,spd,spe,total
-Lucario,Lucario,Lucario,Fighting/Steel,Steadfast|Inner Focus|Justified,pokemon_champions_assets\pokemon\Lucario.png,,145,130,90,135,90,110,700
-Lucario [Mega Lucario],Lucario,Mega Lucario,Fighting/Steel,Adaptability,pokemon_champions_assets\pokemon\Mega Lucario.png,Mega,145,165,108,160,90,132,800
+title,base_name,saved_name,types,abilities,weight,image_path,form,hp,atk,def,spa,spd,spe,total
+Lucario,Lucario,Lucario,Fighting/Steel,Steadfast|Inner Focus|Justified,119 lbs.,pokemon_champions_assets\pokemon\Lucario.png,,145,130,90,135,90,110,645
+Mega Lucario,Lucario,Mega Lucario,Fighting/Steel,Adaptability,126.8 lbs.,pokemon_champions_assets\pokemon\Mega Lucario.png,Mega,145,165,108,160,90,132,745
+Mega Lucario Z,Lucario Z,Mega Lucario Z,Fighting/Steel,Aura Guard,108.9 lbs.,pokemon_champions_assets\pokemon\Mega Lucario Z.png,Mega,145,120,90,184,90,171,745

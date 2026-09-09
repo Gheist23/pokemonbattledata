@@ -1,3 +1,4 @@
-title,base_name,saved_name,types,abilities,image_path,form,hp,atk,def,spa,spd,spe,total
-Garchomp,Garchomp,Garchomp,Dragon/Ground,Sand Veil|Rough Skin,pokemon_champions_assets\\pokemon\\Garchomp.png,,183,150,115,100,105,122,775
-Garchomp [Mega Garchomp],Garchomp,Mega Garchomp,Dragon/Ground,Sand Force,pokemon_champions_assets\\pokemon\\Mega Garchomp.png,Mega,183,190,135,140,115,112,875
+title,base_name,saved_name,types,abilities,weight,image_path,form,hp,atk,def,spa,spd,spe,total
+Garchomp,Garchomp,Garchomp,Dragon/Ground,Sand Veil|Rough Skin,209.4 lbs.,pokemon_champions_assets\pokemon\Garchomp.png,,183,150,115,100,105,122,720
+Mega Garchomp,Garchomp,Mega Garchomp,Dragon/Ground,Sand Force,209.4 lbs.,pokemon_champions_assets\pokemon\Mega Garchomp.png,Mega,183,190,135,140,115,112,820
+Mega Garchomp Z,Garchomp Z,Mega Garchomp Z,Dragon,Levitate,218.3 lbs.,pokemon_champions_assets\pokemon\Mega Garchomp Z.png,Mega,183,150,105,161,105,171,820

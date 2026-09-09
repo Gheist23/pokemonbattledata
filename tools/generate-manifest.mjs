@@ -1,5 +1,7 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { basename, extname, join, relative, sep } from "node:path";
+import { writeSeoPages, REGULATION_KEYWORDS } from "./seo-pages.mjs";
+import { isArchivedSeason } from "./archived-seasons.mjs";
 
 const assetRoot = "pokemon_champions_assets";
 const cwd = process.cwd();
@@ -691,6 +693,10 @@ for (const file of csvFilesRecursive(battleDir)) {
   if (daily && date) {
     source.date = date;
     source.daily = true;
+    // The path stays as the row's provenance, but an archived season's CSV is
+    // no longer hosted; the flag tells API consumers to read the rows from the
+    // JSON endpoints instead of following the path.
+    if (isArchivedSeason(season)) source.archived = true;
   }
   record.battleDataCsvs.push(source);
   if (daily && date) {
@@ -863,15 +869,26 @@ function pageDescription(page) {
 }
 
 function pageKeywords(page) {
+  // The head terms people actually search are "<name> pokemon champions" and
+  // the "<name> pokemon champions <facet>" variants, so those are spelled out
+  // per facet rather than left to the generic site-wide terms.
   return unique([
     page.name,
     `${page.name} Pokemon Champions`,
+    `${page.name} pokemon champions`,
+    `${page.name} pokemon champions moves`,
+    `${page.name} pokemon champions build`,
+    `${page.name} pokemon champions stats`,
+    `${page.name} pokemon champions item`,
+    `${page.name} pokemon champions teammates`,
+    `${page.name} pokemon champions ability`,
     `${page.name} moveset`,
     `${page.name} best item`,
     `${page.name} usage stats`,
     "Pokemon Champions battle data",
     "Pokemon Champions meta",
     "Pokemon Champions API",
+    ...REGULATION_KEYWORDS,
     ...(page.types || []).map((type) => `${type} Pokemon Champions`)
   ]);
 }
@@ -1041,6 +1058,15 @@ function pokemonStaticContent(page) {
         ${simpleTable(["Held item", "Usage"], topItems.map((row) => `<tr><td>${escapeHtml(rowName(row))}</td><td>${escapeHtml(row.percentage || "-")}</td></tr>`))}
       </div>
       ${forms.length ? `<h2>Related forms</h2><ul class="static-link-list">${forms.map((form) => `<li><a href="/pokemon/${escapeHtml(form.slug)}/">${escapeHtml(form.name)}</a></li>`).join("")}</ul>` : ""}
+      <h2>More ${escapeHtml(page.name)} data</h2>
+      <ul class="static-link-list">
+        <li><a href="/pokemon/${escapeHtml(page.slug)}/moves/">${escapeHtml(page.name)} moves and usage</a></li>
+        <li><a href="/pokemon/${escapeHtml(page.slug)}/items/">${escapeHtml(page.name)} held items</a></li>
+        <li><a href="/pokemon/${escapeHtml(page.slug)}/teammates/">${escapeHtml(page.name)} teammates</a></li>
+        <li><a href="/teams/${escapeHtml(page.slug)}/">${escapeHtml(page.name)} team building</a></li>
+        <li><a href="/rankings/most-used/">Most used Pokemon Champions Pokemon</a></li>
+        <li><a href="/meta/doubles/">Pokemon Champions Doubles meta</a></li>
+      </ul>
     </div>
   </section>`;
 }
@@ -1226,7 +1252,17 @@ function buildTopicPages() {
   return topicPageDefinitions.map((definition) => ({
     ...definition,
     url: `${siteUrl}/${definition.slug}/`,
-    keywords: unique([definition.query, definition.title, "Pokemon Champions", "Pokemon Champions battle data", "Pokemon Champions ranked usage"])
+    keywords: unique([
+      definition.query,
+      definition.title,
+      "Pokemon Champions",
+      "Pokemon Champions battle data",
+      "Pokemon Champions ranked usage",
+      "Pokemon Champions usage stats",
+      "Pokemon Champions tier list",
+      "Pokemon Champions M5",
+      ...REGULATION_KEYWORDS
+    ])
   }));
 }
 
@@ -1246,18 +1282,33 @@ function writeTopicPages(pages) {
   }
 }
 
-function writeSitemap(pokemonPages, topicPages, generatedAt) {
+function writeSitemap(pokemonPages, topicPages, generatedAt, extraUrls = []) {
   const lastmod = generatedAt.slice(0, 10);
-  const urls = [
+  const urls = unique([
     `${siteUrl}/`,
+    `${siteUrl}/meta/`,
     `${siteUrl}/api_guide`,
     `${siteUrl}/api-rules/`,
     licenseUrl,
     ...topicPages.map((page) => page.url),
-    ...pokemonPages.map((page) => page.url)
-  ];
-  const entries = urls.map((url) => `  <url>\n    <loc>${escapeXml(url)}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`).join("\n");
+    ...pokemonPages.map((page) => page.url),
+    ...extraUrls
+  ]);
+  // Hubs and meta pages get a higher priority than the long tail so crawl
+  // budget lands on the pages that link everything else together.
+  const priorityFor = (url) => {
+    const path = url.replace(siteUrl, "");
+    if (path === "/") return "1.0";
+    if (/^\/(meta|rankings|pokemon|moves|items|abilities|teams)\/$/.test(path)) return "0.9";
+    if (/^\/(meta|rankings)\//.test(path)) return "0.8";
+    if (/-vs-/.test(path)) return "0.5";
+    return "0.7";
+  };
+  const entries = urls.map((url) =>
+    `  <url>\n    <loc>${escapeXml(url)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priorityFor(url)}</priority>\n  </url>`
+  ).join("\n");
   writeFileSync(join(cwd, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`);
+  return urls.length;
 }
 
 const skippedMetadataOnly = [...records.values()].filter((record) => !record.battleDataCsvs.length).map((record) => record.name);
@@ -1288,7 +1339,40 @@ writeApiData(manifest);
 writeMetaTrends(pokemon);
 writePokemonPages(pokemonPages);
 writeTopicPages(topicPages);
-writeSitemap(pokemonPages, topicPages, generatedAt);
+
+// Must run after writePokemonPages(): that call wipes the whole pokemon/
+// directory, which is also where the per-Pokemon subpages and the head-to-head
+// comparison pages live.
+const seo = writeSeoPages({
+  cwd,
+  siteUrl,
+  siteName,
+  licenseUrl,
+  assetRoot,
+  generatedAt,
+  pokemon,
+  parseCSV,
+  helpers: {
+    escapeHtml,
+    slugify,
+    unique,
+    numberOrZero,
+    numberOrNull,
+    percentNumber,
+    rowName,
+    categoryRows,
+    summaryFor,
+    battlePositionFor,
+    metadataStatValue,
+    basePageHtml,
+    simpleTable,
+    pokemonLink
+  }
+});
+
+const sitemapCount = writeSitemap(pokemonPages, topicPages, generatedAt, seo.urls);
 
 console.log(`Generated data/pokemon-index.json with ${pokemon.length} Pokemon, ${pokemonPages.length} profile page(s), and ${topicPages.length} topic page(s).`);
+console.log(`Generated ${seo.counts.total} SEO page(s): ${seo.counts.moves} move, ${seo.counts.items} item, ${seo.counts.abilities} ability, plus per-Pokemon, comparison, team, meta and ranking pages.`);
+console.log(`Sitemap lists ${sitemapCount} URL(s).`);
 if (skippedMetadataOnly.length) console.warn(`Skipped ${skippedMetadataOnly.length} metadata-only name(s): ${skippedMetadataOnly.join(", ")}`);

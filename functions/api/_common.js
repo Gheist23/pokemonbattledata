@@ -129,8 +129,34 @@ export function getDailyFormatSummaries(entry, format, { season, days } = {}) {
     date: source.date,
     format: cleanFormat,
     source: source.path,
+    archived: Boolean(source.archived),
     summary: entry.summary?.dailyBattleSummary?.[source.season]?.[source.date]?.[cleanFormat] || null
   }));
+}
+
+export const battleCsvColumns = [
+  'pokemon', 'column_position', 'category', 'rank', 'name', 'percentage',
+  'stat_up', 'stat_down', 'hp_points', 'attack_points', 'defense_points',
+  'sp_atk_points', 'sp_def_points', 'speed_points'
+];
+
+// Every daily CSV row is mirrored inside the Pokemon entry JSON, so a dated
+// request can be answered from the entry that was already fetched. That keeps
+// finished seasons queryable after their raw CSVs stop being deployed
+// (Cloudflare Pages caps a deployment at 20,000 files) and spares the runtime
+// one subrequest per requested day. Returns null when a day is not mirrored,
+// which leaves the caller to read the CSV asset as before.
+export function getEmbeddedDailyRows(entry, source, format) {
+  const cleanFormat = normalizeFormat(format);
+  if (!cleanFormat || !source?.daily || !source?.date) return null;
+  const rows = entry?.summary?.dailyBattleSummary?.[source.season]?.[source.date]?.[cleanFormat]?.rows;
+  if (!Array.isArray(rows) || !rows.length) return null;
+  return rows.map((row) => {
+    const record = {};
+    for (const column of battleCsvColumns) record[column] = row[column] ?? '';
+    record.percentage_value = Number.isFinite(row.percentage_value) ? row.percentage_value : null;
+    return record;
+  });
 }
 
 export function getFormatPath(entry, format, season) {

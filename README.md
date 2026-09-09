@@ -71,13 +71,24 @@ Cloudflare Pages should use:
 
 ```text
 Build command: node tools/generate-manifest.mjs
-Deploy command: npx wrangler pages deploy . --project-name pokemonbattledata
+Deploy command: node tools/deploy.mjs
 Build output directory: .
 Root directory: /
 ```
 
 Do not use `npx wrangler deploy` for this project. This site uses Cloudflare Pages
 with a `functions` directory, so the deploy command must use `wrangler pages deploy`.
+
+Deploy through `node tools/deploy.mjs` rather than calling `wrangler pages deploy`
+directly. Pages rejects any deployment holding more than 20,000 files, and the raw
+dated CSVs of every past season together cross that line. The wrapper moves the
+seasons listed in `tools/archived-seasons.mjs` into `.wrangler/` for the duration
+of the upload and moves them straight back afterwards, so local builds still read
+them; it also prints the file count and refuses to upload when the tree is still
+over the limit. An archived season's rows stay fully available through the JSON
+API, which reads them from `data/api/pokemon/<slug>.json`, and its sources are
+marked `"archived": true`. When the count creeps back up, add the next finished
+season to `tools/archived-seasons.mjs`.
 
 ## Public API
 

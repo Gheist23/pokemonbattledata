@@ -127,6 +127,7 @@ const dailyRows = await fetch(
             <span>Static Assets</span>
             <h2>Folder structure</h2>
             <p>The root <code>Doubles</code> and <code>Singles</code> folders contain the current/latest data. Dated folders contain daily snapshots grouped by season and date.</p>
+            <p>Raw dated CSVs are served for the season currently being collected. Finished seasons such as <code>M4</code> are archived: their CSV files are no longer hosted individually, but every one of their daily rows stays available through the JSON API, which returns exactly the same values. Sources for an archived season are flagged with <code>"archived": true</code>.</p>
             <p>API route names accept Pokemon Showdown internal IDs such as <code>garchomp</code>, <code>raichualola</code>, and <code>taurospaldeaaqua</code>.</p>
           </div>
           <pre><code>pokemon_champions_assets/
@@ -136,12 +137,13 @@ const dailyRows = await fetch(
       Alolan Raichu.csv
     Singles/
       Garchomp.csv                    &lt;- current Singles data
-    M4/
-      16_07_2026/
+    M5/
+      08_09_2026/
         Doubles/
           Garchomp.csv                &lt;- daily Doubles snapshot
         Singles/
           Garchomp.csv                &lt;- daily Singles snapshot
+    M4/                               &lt;- finished season, JSON API only
   metadata/
     Tauros.csv                        &lt;- one file with all Tauros forms
   pokemon/
@@ -343,14 +345,15 @@ GET /api/battle/Singles/basculegionf</code></pre>
             <span>Direct Files</span>
             <h2>Raw CSV and images</h2>
             <p>Use static paths for downloads, spreadsheet imports, notebooks, sprites, and type icons. Raw CSV and sprite paths still use the site/file name, while JSON API routes accept Showdown IDs.</p>
+            <p>Dated CSVs are hosted for the season being collected right now. For an archived season such as <code>M4</code>, read the same daily rows from <code>/api/battle/&lt;format&gt;/&lt;name&gt;?season=M4&amp;days=</code> instead.</p>
           </div>
           <pre><code><!-- Current battle data -->
 GET /pokemon_champions_assets/battle_data/Doubles/Garchomp.csv
 GET /pokemon_champions_assets/battle_data/Singles/Garchomp.csv
 
-<!-- Dated daily battle data -->
-GET /pokemon_champions_assets/battle_data/M4/16_07_2026/Doubles/Garchomp.csv
-GET /pokemon_champions_assets/battle_data/M4/16_07_2026/Singles/Garchomp.csv
+<!-- Dated daily battle data, current season -->
+GET /pokemon_champions_assets/battle_data/M5/08_09_2026/Doubles/Garchomp.csv
+GET /pokemon_champions_assets/battle_data/M5/08_09_2026/Singles/Garchomp.csv
 
 <!-- Metadata: use base_name, one file with all forms -->
 GET /pokemon_champions_assets/metadata/Tauros.csv

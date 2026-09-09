@@ -1,4 +1,4 @@
-import { fetchPokemonEntry, getFormatPath, getDailyFormatPaths, normalizeFormat, fetchAssetText, parseCsv, parseDaysParam, jsonResponse, optionsResponse, errorResponse } from '../../_common.js';
+import { fetchPokemonEntry, getFormatPath, getDailyFormatPaths, getEmbeddedDailyRows, battleCsvColumns, normalizeFormat, fetchAssetText, parseCsv, parseDaysParam, jsonResponse, optionsResponse, errorResponse } from '../../_common.js';
 
 export const onRequestOptions = () => optionsResponse();
 
@@ -11,6 +11,15 @@ function rowsWithPercentages(parsed) {
       percentage_value: Number.isFinite(percentageValue) ? percentageValue : null
     };
   });
+}
+
+// Dated rows come from the entry JSON when it mirrors them; only the current
+// season's aggregate CSVs, which are not mirrored, are fetched as assets.
+async function loadRows(env, request, entry, source, format) {
+  const embedded = getEmbeddedDailyRows(entry, source, format);
+  if (embedded) return { columns: battleCsvColumns, rows: embedded };
+  const parsed = parseCsv(await fetchAssetText(env, request, source.path));
+  return { columns: parsed.columns, rows: rowsWithPercentages(parsed) };
 }
 
 export async function onRequestGet({ env, request, params }) {
@@ -30,14 +39,13 @@ export async function onRequestGet({ env, request, params }) {
       const dailySources = getDailyFormatPaths(entry, format, { season, days });
       if (!dailySources.length) return errorResponse('Daily battle data not found for this request.', 404, { name: entry.name, format, season, days });
       const daily = await Promise.all(dailySources.map(async (source) => {
-        const text = await fetchAssetText(env, request, source.path);
-        const parsed = parseCsv(text);
+        const { columns, rows } = await loadRows(env, request, entry, source, format);
         return {
           season: source.season,
           date: source.date,
           source: source.path,
-          columns: parsed.columns,
-          rows: rowsWithPercentages(parsed)
+          columns,
+          rows
         };
       }));
       return jsonResponse({
@@ -53,9 +61,7 @@ export async function onRequestGet({ env, request, params }) {
     const battleDataCsv = getFormatPath(entry, format, season);
     if (!battleDataCsv) return errorResponse('Battle data not found for this format.', 404, { name: entry.name, format, season });
 
-    const text = await fetchAssetText(env, request, battleDataCsv.path);
-    const parsed = parseCsv(text);
-    const rows = rowsWithPercentages(parsed);
+    const { columns, rows } = await loadRows(env, request, entry, battleDataCsv, format);
 
     return jsonResponse({
       pokemon: entry.name,
@@ -64,7 +70,7 @@ export async function onRequestGet({ env, request, params }) {
       season: battleDataCsv.season,
       date: battleDataCsv.date || null,
       source: battleDataCsv.path,
-      columns: parsed.columns,
+      columns,
       rows
     });
   } catch (error) {

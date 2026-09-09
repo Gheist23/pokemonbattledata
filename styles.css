@@ -1847,9 +1847,14 @@ code,
     height: 14px;
   }
 
+  /* The desktop explorer layout collapses here in favour of the mobile list.
+     The static SEO panel only borrows .content-area for its styling and is the
+     whole point of a /moves/, /items/, /rankings/ or /teams/ page, so it must
+     stay: search engines index on the mobile viewport, and hiding it here
+     would hide it from them and from every phone visitor. */
   .page-explorer .layout,
   .page-explorer .sidebar,
-  .page-explorer .content-area,
+  .page-explorer .content-area:not(.static-seo-panel),
   .page-explorer .pokemon-grid,
   .page-explorer #pokemonGrid,
   .page-explorer #emptyState {
@@ -5372,6 +5377,49 @@ body.page-api::before {
   font-size: 0.68rem;
   line-height: 1.45;
   opacity: 0.72;
+}
+
+.site-footer p + p {
+  margin-top: 0.35rem;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.9rem 1.4rem;
+  margin: 0.4rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer-links h2 {
+  margin: 0 0 0.42rem;
+  color: var(--soft);
+  font-size: 0.68rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.footer-links ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.28rem;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--text);
+  text-decoration: underline;
 }
 
 .page-api .site-footer {

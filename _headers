@@ -13,6 +13,27 @@
 /pokemon/*
   Cache-Control: no-cache, max-age=0, must-revalidate
 
+/moves/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/items/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/abilities/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/rankings/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/teams/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/meta/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/sitemap.xml
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
 /data/*
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET, OPTIONS

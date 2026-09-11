@@ -1428,6 +1428,8 @@ function writeSitemap(pokemonPages, topicPages, generatedAt, extraUrls = []) {
   const urls = unique([
     `${siteUrl}/`,
     `${siteUrl}/meta/`,
+    `${siteUrl}/pro-tool/`,
+    `${siteUrl}/pro-tool/plans/`,
     `${siteUrl}/api_guide`,
     `${siteUrl}/api-rules/`,
     licenseUrl,
@@ -1440,7 +1442,9 @@ function writeSitemap(pokemonPages, topicPages, generatedAt, extraUrls = []) {
   const priorityFor = (url) => {
     const path = url.replace(siteUrl, "");
     if (path === "/") return "1.0";
+    if (path === "/pro-tool/") return "0.9";
     if (/^\/(meta|rankings|pokemon|moves|items|abilities|teams)\/$/.test(path)) return "0.9";
+    if (path.startsWith("/pro-tool/")) return "0.8";
     if (/^\/(meta|rankings)\//.test(path)) return "0.8";
     if (/-vs-/.test(path)) return "0.5";
     return "0.7";

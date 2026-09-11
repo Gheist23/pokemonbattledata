@@ -8200,3 +8200,446 @@ body.page-api::before {
   background: rgba(114, 255, 171, 0.06);
   font-weight: 700;
 }
+
+/* =======================================================================
+   Champions Battle Data Tool pages (/pro-tool/, /pro-tool/plans/)
+   ======================================================================= */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.page-tool main {
+  display: block;
+}
+
+.tool-hero {
+  display: block;
+}
+
+.tool-hero .hero-copy {
+  max-width: 780px;
+}
+
+.tool-back {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.tool-back:hover {
+  color: var(--brand);
+}
+
+.tool-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+}
+
+.tool-cta-row-center {
+  justify-content: center;
+  margin-top: 1.8rem;
+}
+
+/* .primary-button is full-width by default for the explorer panels. */
+.tool-cta-row .primary-button,
+.plan-button.primary-button {
+  width: auto;
+  padding-inline: 1.6rem;
+}
+
+.tool-cta-note {
+  margin-top: 0.85rem;
+  color: var(--soft);
+  font-size: 0.86rem;
+}
+
+.tool-cta-note-center {
+  text-align: center;
+}
+
+.tool-lead {
+  max-width: 780px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.tool-section {
+  padding-block: 1.4rem;
+}
+
+/* Screenshots carry the page, so they get room and a frame that matches
+   the app's own chrome rather than floating on the background. */
+.tool-shot-wide figure,
+.tool-feature-shot {
+  margin: 0;
+}
+
+.tool-shot-wide img,
+.tool-feature-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
+}
+
+.tool-shot-wide figcaption {
+  margin-top: 0.7rem;
+  color: var(--soft);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.tool-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: 1.8rem;
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.tool-feature:first-of-type {
+  border-top: 0;
+}
+
+/* Alternating sides stop five stacked features reading as one long column.
+   The column widths flip with them, so the screenshot keeps the wider half on
+   every row instead of shrinking on every other one. */
+.tool-feature-flip {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+}
+
+.tool-feature-flip .tool-feature-copy {
+  order: 2;
+}
+
+.tool-feature-copy h2 {
+  margin: 0.3rem 0 0.7rem;
+  font-size: clamp(1.25rem, 2.1vw, 1.7rem);
+  letter-spacing: -0.03em;
+}
+
+.tool-feature-copy p {
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.eyebrow-free {
+  color: var(--brand);
+}
+
+.eyebrow-pro {
+  color: var(--gold);
+}
+
+.tool-table-wrap {
+  margin-top: 1.2rem;
+}
+
+.tool-table td.tool-yes {
+  color: var(--brand);
+  font-weight: 800;
+}
+
+.tool-table td.tool-no {
+  color: var(--soft);
+}
+
+.tool-support p {
+  max-width: 820px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.tool-faq {
+  margin: 0.6rem 0 0;
+  max-width: 820px;
+}
+
+.tool-faq dt {
+  margin-top: 1.1rem;
+  font-weight: 820;
+}
+
+.tool-faq dd {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* --- plan cards ------------------------------------------------------- */
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+  align-items: start;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.plan-card-featured {
+  border-color: rgba(240, 207, 115, 0.5);
+  background: rgba(240, 207, 115, 0.06);
+}
+
+.plan-flag {
+  position: absolute;
+  top: -0.72rem;
+  left: 1.3rem;
+  margin: 0;
+  padding: 0.16rem 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--brand), var(--gold));
+  color: #061018;
+  font-size: 0.68rem;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.plan-card header {
+  display: block;
+}
+
+.plan-price {
+  margin: 0.35rem 0 0.2rem;
+}
+
+.plan-amount {
+  font-size: 2.3rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.plan-period {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.plan-price-note {
+  margin: 0;
+  color: var(--soft);
+  font-size: 0.82rem;
+}
+
+.plan-list {
+  flex: 1 1 auto;
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.plan-list li {
+  margin-bottom: 0.32rem;
+}
+
+.plan-button {
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.plan-foot {
+  margin: 0;
+  color: var(--soft);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 900px) {
+  .tool-feature {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  /* Stacked, the picture belongs under the text it illustrates. */
+  .tool-feature-flip .tool-feature-copy {
+    order: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .tool-table-wrap {
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  .tool-table-wrap table {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: auto !important;
+    border-collapse: separate !important;
+    font-size: 0.8rem !important;
+  }
+
+  .tool-table-wrap thead {
+    display: none !important;
+  }
+
+  .tool-table-wrap tbody {
+    display: grid !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  .tool-table-wrap tr {
+    display: grid !important;
+    width: 100% !important;
+    gap: 0.3rem !important;
+    padding: 0.62rem !important;
+    border: 1px solid rgba(148, 163, 184, 0.16) !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.036) !important;
+  }
+
+  .tool-table-wrap td {
+    display: grid !important;
+    grid-template-columns: minmax(84px, 0.5fr) minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 0.64rem !important;
+    width: 100% !important;
+    padding: 0.14rem 0 !important;
+    border: 0 !important;
+    text-align: right !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .tool-table-wrap td::before {
+    content: attr(data-label) !important;
+    display: block !important;
+    color: var(--soft) !important;
+    font-size: 0.67rem;
+    font-weight: 950;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+}
+
+/* A feature that spans both tiers labels both in one eyebrow. */
+.eyebrow-split {
+  color: var(--soft);
+}
+
+.tool-feature-shot figcaption {
+  margin-top: 0.6rem;
+  color: var(--soft);
+  font-size: 0.82rem;
+}
+
+/* Comparison table: symbols carry the answer, so they need to be large,
+   colour-coded and centred. The aria-label on each one keeps the meaning
+   available to screen readers, which cannot see a tick. */
+.tool-cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tick,
+.cross {
+  display: inline-block;
+  font-size: 1.15rem;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.tick {
+  color: var(--brand);
+}
+
+.cross {
+  color: rgba(148, 163, 184, 0.55);
+}
+
+.plan-count {
+  font-weight: 850;
+}
+
+.tool-table th:nth-child(2),
+.tool-table th:nth-child(3) {
+  text-align: center;
+  width: 6.5rem;
+}
+
+/* The closing feature block is a list with no screenshot beside it. */
+.tool-feature-solo {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.tool-list {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.72;
+  columns: 2;
+  column-gap: 2rem;
+}
+
+.tool-list li {
+  margin-bottom: 0.6rem;
+  break-inside: avoid;
+}
+
+.tool-list strong {
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .tool-list {
+    columns: 1;
+  }
+
+  /* Cards stack label over value; centring the symbol would strand it. */
+  .tool-table-wrap .tool-cell {
+    text-align: right !important;
+  }
+}
+
+/* These lists now sit in the narrower copy column beside a screenshot, so the
+   two-column variant would leave slivers. */
+.tool-list-single {
+  columns: 1;
+}
+
+.tool-feature-copy h3 {
+  margin: 1.3rem 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+/* Flame on the Companion nav button. Sits on the text baseline and follows the
+   button colour, so it works on the ghost button in both themes. */
+.nav-icon {
+  flex: none;
+  margin-right: 0.35rem;
+  vertical-align: -0.12em;
+}

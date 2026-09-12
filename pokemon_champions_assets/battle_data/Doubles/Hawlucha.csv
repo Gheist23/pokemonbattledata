@@ -1,54 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Hawlucha,115,move,1,Entrainment,69.4%,,,,,,,,
-Hawlucha,115,move,2,Brave Bird,50.7%,,,,,,,,
-Hawlucha,115,move,3,Detect,42.3%,,,,,,,,
-Hawlucha,115,move,4,Close Combat,39.5%,,,,,,,,
-Hawlucha,115,move,5,Protect,26.4%,,,,,,,,
-Hawlucha,115,move,6,High Jump Kick,24.3%,,,,,,,,
-Hawlucha,115,move,7,Stone Edge,17.5%,,,,,,,,
-Hawlucha,115,move,8,Flying Press,16.4%,,,,,,,,
-Hawlucha,115,move,9,Dual Wingbeat,15.0%,,,,,,,,
-Hawlucha,115,move,10,Rock Slide,11.3%,,,,,,,,
-Hawlucha,115,held_item,1,Hawluchanite,81.7%,,,,,,,,
-Hawlucha,115,held_item,2,White Herb,6.0%,,,,,,,,
-Hawlucha,115,held_item,3,Focus Sash,2.9%,,,,,,,,
-Hawlucha,115,held_item,4,Lum Berry,2.3%,,,,,,,,
-Hawlucha,115,held_item,5,Sitrus Berry,1.5%,,,,,,,,
-Hawlucha,115,held_item,6,Persim Berry,0.8%,,,,,,,,
-Hawlucha,115,held_item,7,Life Orb,0.7%,,,,,,,,
-Hawlucha,115,held_item,8,Muscle Band,0.4%,,,,,,,,
-Hawlucha,115,held_item,9,Quick Claw,0.4%,,,,,,,,
-Hawlucha,115,held_item,10,Choice Scarf,0.4%,,,,,,,,
-Hawlucha,115,teammate,1,Snorlax,,,,,,,,,
-Hawlucha,115,teammate,2,Sinistcha,,,,,,,,,
-Hawlucha,115,teammate,3,Incineroar,,,,,,,,,
-Hawlucha,115,teammate,4,Gengar,,,,,,,,,
-Hawlucha,115,teammate,5,Farigiraf,,,,,,,,,
-Hawlucha,115,teammate,6,Excadrill,,,,,,,,,
-Hawlucha,115,teammate,7,Kingambit,,,,,,,,,
-Hawlucha,115,teammate,8,Politoed,,,,,,,,,
-Hawlucha,115,teammate,9,Whimsicott,,,,,,,,,
-Hawlucha,115,teammate,10,Garchomp,,,,,,,,,
-Hawlucha,115,stat_alignment,1,Jolly,68.5%,Speed,Sp. Atk,,,,,,
-Hawlucha,115,stat_alignment,2,Adamant,20.7%,Attack,Sp. Atk,,,,,,
-Hawlucha,115,stat_alignment,3,Careful,2.0%,Sp. Def,Sp. Atk,,,,,,
-Hawlucha,115,stat_alignment,4,Naive,1.6%,Speed,Sp. Def,,,,,,
-Hawlucha,115,stat_alignment,5,Hasty,1.6%,Speed,Defense,,,,,,
-Hawlucha,115,stat_alignment,6,Lonely,1.1%,Attack,Defense,,,,,,
-Hawlucha,115,stat_alignment,7,Timid,1.0%,Speed,Attack,,,,,,
-Hawlucha,115,stat_alignment,8,Impish,1.0%,Defense,Sp. Atk,,,,,,
-Hawlucha,115,stat_alignment,9,Brave,0.8%,Attack,Speed,,,,,,
-Hawlucha,115,stat_alignment,10,Naughty,0.0%,Attack,Sp. Def,,,,,,
-Hawlucha,115,stat_points,1,,33.3%,,,2,32,0,0,0,32
-Hawlucha,115,stat_points,2,,15.4%,,,32,0,0,0,2,32
-Hawlucha,115,stat_points,3,,5.6%,,,32,2,0,0,0,32
-Hawlucha,115,stat_points,4,,5.1%,,,0,32,0,0,2,32
-Hawlucha,115,stat_points,5,,4.4%,,,0,32,2,0,0,32
-Hawlucha,115,stat_points,6,,1.5%,,,32,0,0,0,0,32
-Hawlucha,115,stat_points,7,,1.0%,,,32,32,0,0,2,0
-Hawlucha,115,stat_points,8,,1.0%,,,32,32,0,0,0,2
-Hawlucha,115,stat_points,9,,0.9%,,,32,32,2,0,0,0
-Hawlucha,115,stat_points,10,,0.8%,,,0,32,32,0,0,2
-Hawlucha,115,ability,1,Mold Breaker,43.4%,,,,,,,,
-Hawlucha,115,ability,2,Limber,29.8%,,,,,,,,
-Hawlucha,115,ability,3,Unburden,26.8%,,,,,,,,
+Hawlucha,140,move,1,Close Combat,43.6%,,,,,,,,
+Hawlucha,140,move,2,Detect,47.1%,,,,,,,,
+Hawlucha,140,move,3,Entrainment,71.1%,,,,,,,,
+Hawlucha,140,move,4,Acrobatics,41.9%,,,,,,,,
+Hawlucha,140,move,5,Brave Bird,51.3%,,,,,,,,
+Hawlucha,140,move,6,Protect,30.0%,,,,,,,,
+Hawlucha,140,move,7,High Jump Kick,26.2%,,,,,,,,
+Hawlucha,140,move,8,Swords Dance,14.5%,,,,,,,,
+Hawlucha,140,move,9,Rock Slide,12.2%,,,,,,,,
+Hawlucha,140,move,10,Dual Wingbeat,10.2%,,,,,,,,
+Hawlucha,140,held_item,1,Hawluchanite,84.4%,,,,,,,,
+Hawlucha,140,held_item,2,Lopunnite,2.4%,,,,,,,,
+Hawlucha,140,held_item,3,Houndoominite,1.1%,,,,,,,,
+Hawlucha,140,held_item,4,Lucarionite,8.1%,,,,,,,,
+Hawlucha,140,held_item,5,White Herb,1.7%,,,,,,,,
+Hawlucha,140,held_item,6,Focus Sash,1.1%,,,,,,,,
+Hawlucha,140,held_item,7,Lum Berry,0.9%,,,,,,,,
+Hawlucha,140,held_item,8,Choice Scarf,0.1%,,,,,,,,
+Hawlucha,140,teammate,1,Snorlax,,,,,,,,,
+Hawlucha,140,teammate,2,Incineroar,,,,,,,,,
+Hawlucha,140,teammate,3,Rillaboom,,,,,,,,,
+Hawlucha,140,teammate,4,Indeedee Female,,,,,,,,,
+Hawlucha,140,teammate,5,Sinistcha,,,,,,,,,
+Hawlucha,140,teammate,6,Gengar,,,,,,,,,
+Hawlucha,140,teammate,7,Golisopod,,,,,,,,,
+Hawlucha,140,teammate,8,Politoed,,,,,,,,,
+Hawlucha,140,teammate,9,Blastoise,,,,,,,,,
+Hawlucha,140,teammate,10,Raichu,,,,,,,,,
+Hawlucha,140,stat_alignment,1,Jolly,66.0%,Speed,Sp. Atk,,,,,,
+Hawlucha,140,stat_alignment,2,Adamant,22.8%,Attack,Sp. Atk,,,,,,
+Hawlucha,140,stat_alignment,3,Impish,0.6%,Defense,Sp. Atk,,,,,,
+Hawlucha,140,stat_alignment,4,Mild,0.5%,Sp. Atk,Defense,,,,,,
+Hawlucha,140,stat_points,1,,33.5%,,,2,32,0,0,0,32
+Hawlucha,140,stat_points,2,,18.6%,,,32,0,2,0,0,32
+Hawlucha,140,stat_points,3,,10.3%,,,32,0,0,0,2,32
+Hawlucha,140,stat_points,4,,4.3%,,,32,2,0,0,0,32
+Hawlucha,140,stat_points,5,,4.0%,,,0,32,2,0,0,32
+Hawlucha,140,stat_points,6,,3.5%,,,12,0,5,0,17,32
+Hawlucha,140,stat_points,7,,3.5%,,,17,32,0,0,0,17
+Hawlucha,140,stat_points,8,,3.1%,,,32,7,0,0,0,27
+Hawlucha,140,stat_points,9,,2.4%,,,32,32,0,0,0,2
+Hawlucha,140,stat_points,10,,1.9%,,,0,32,0,0,0,32
+Hawlucha,140,ability,1,Mold Breaker,41.9%,,,,,,,,
+Hawlucha,140,ability,2,Unburden,29.9%,,,,,,,,
+Hawlucha,140,ability,3,Limber,28.2%,,,,,,,,

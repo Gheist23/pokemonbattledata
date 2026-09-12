@@ -1,48 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Swampert,21,move,6,Flip Turn,11.3%,,,,,,,,
-Swampert,21,move,7,Liquidation,7.8%,,,,,,,,
-Swampert,21,move,8,Yawn,6.9%,,,,,,,,
-Swampert,21,move,9,Rock Slide,6.5%,,,,,,,,
-Swampert,21,move,10,Knock Off,3.8%,,,,,,,,
-Swampert,21,held_item,1,Swampertite,87.2%,,,,,,,,
-Swampert,21,held_item,2,Leftovers,6.3%,,,,,,,,
-Swampert,21,held_item,3,Sitrus Berry,2.2%,,,,,,,,
-Swampert,21,held_item,4,Life Orb,0.9%,,,,,,,,
-Swampert,21,held_item,5,Rindo Berry,0.8%,,,,,,,,
-Swampert,21,held_item,6,Expert Belt,0.4%,,,,,,,,
-Swampert,21,held_item,7,Quick Claw,0.3%,,,,,,,,
-Swampert,21,held_item,8,Focus Sash,0.3%,,,,,,,,
-Swampert,21,held_item,9,Mystic Water,0.3%,,,,,,,,
-Swampert,21,held_item,10,Choice Scarf,0.2%,,,,,,,,
-Swampert,21,teammate,1,Pelipper,,,,,,,,,
-Swampert,21,teammate,2,Archaludon,,,,,,,,,
-Swampert,21,teammate,3,Sinistcha,,,,,,,,,
-Swampert,21,teammate,4,Grimmsnarl,,,,,,,,,
-Swampert,21,teammate,5,Incineroar,,,,,,,,,
-Swampert,21,teammate,6,Venusaur,,,,,,,,,
-Swampert,21,teammate,7,Charizard,,,,,,,,,
-Swampert,21,teammate,8,Sableye,,,,,,,,,
-Swampert,21,teammate,9,Sneasler,,,,,,,,,
-Swampert,21,teammate,10,Basculegion Male,,,,,,,,,
-Swampert,21,stat_alignment,1,Adamant,80.6%,Attack,Sp. Atk,,,,,,
-Swampert,21,stat_alignment,2,Jolly,7.0%,Speed,Sp. Atk,,,,,,
-Swampert,21,stat_alignment,3,Brave,6.4%,Attack,Speed,,,,,,
-Swampert,21,stat_alignment,4,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
-Swampert,21,stat_alignment,5,Impish,0.9%,Defense,Sp. Atk,,,,,,
-Swampert,21,stat_alignment,6,Modest,1.0%,Sp. Atk,Attack,,,,,,
-Swampert,21,stat_alignment,7,Naughty,0.6%,Attack,Sp. Def,,,,,,
-Swampert,21,stat_alignment,8,Relaxed,0.6%,Defense,Speed,,,,,,
-Swampert,21,stat_alignment,9,Lonely,0.6%,Attack,Defense,,,,,,
-Swampert,21,stat_alignment,10,Sassy,0.4%,Sp. Def,Speed,,,,,,
-Swampert,21,stat_points,1,,29.8%,,,2,32,0,0,0,32
-Swampert,21,stat_points,2,,5.3%,,,18,30,0,0,0,18
-Swampert,21,stat_points,3,,3.8%,,,12,32,0,0,0,22
-Swampert,21,stat_points,4,,2.9%,,,32,32,2,0,0,0
-Swampert,21,stat_points,5,,2.4%,,,0,32,2,0,0,32
-Swampert,21,stat_points,6,,2.1%,,,32,32,0,0,2,0
-Swampert,21,stat_points,7,,1.7%,,,32,21,12,0,1,0
-Swampert,21,stat_points,8,,1.7%,,,5,32,0,0,1,28
-Swampert,21,stat_points,9,,1.3%,,,14,32,0,0,0,20
-Swampert,21,stat_points,10,,0.9%,,,1,32,0,0,0,23
-Swampert,21,ability,1,Torrent,69.2%,,,,,,,,
-Swampert,21,ability,2,Damp,30.8%,,,,,,,,
+Swampert,34,move,1,Protect,93.3%,,,,,,,,
+Swampert,34,move,2,Wave Crash,90.6%,,,,,,,,
+Swampert,34,move,3,Ice Punch,84.3%,,,,,,,,
+Swampert,34,move,4,Earthquake,67.5%,,,,,,,,
+Swampert,34,move,5,High Horsepower,30.9%,,,,,,,,
+Swampert,34,move,6,Flip Turn,5.3%,,,,,,,,
+Swampert,34,move,7,Wide Guard,4.2%,,,,,,,,
+Swampert,34,move,8,Liquidation,4.0%,,,,,,,,
+Swampert,34,move,9,Rock Slide,2.8%,,,,,,,,
+Swampert,34,move,10,Yawn,2.5%,,,,,,,,
+Swampert,34,held_item,1,Swampertite,92.0%,,,,,,,,
+Swampert,34,held_item,2,Sitrus Berry,2.2%,,,,,,,,
+Swampert,34,held_item,3,Leftovers,2.2%,,,,,,,,
+Swampert,34,held_item,4,Expert Belt,1.0%,,,,,,,,
+Swampert,34,held_item,5,Life Orb,0.7%,,,,,,,,
+Swampert,34,held_item,6,Lopunnite,0.4%,,,,,,,,
+Swampert,34,held_item,7,Houndoominite,0.3%,,,,,,,,
+Swampert,34,held_item,8,Quick Claw,0.2%,,,,,,,,
+Swampert,34,held_item,9,Mystic Water,0.2%,,,,,,,,
+Swampert,34,held_item,10,Focus Sash,0.2%,,,,,,,,
+Swampert,34,teammate,1,Pelipper,,,,,,,,,
+Swampert,34,teammate,2,Archaludon,,,,,,,,,
+Swampert,34,teammate,3,Golisopod,,,,,,,,,
+Swampert,34,teammate,4,Grimmsnarl,,,,,,,,,
+Swampert,34,teammate,5,Sinistcha,,,,,,,,,
+Swampert,34,teammate,6,Rillaboom,,,,,,,,,
+Swampert,34,teammate,7,Sneasler,,,,,,,,,
+Swampert,34,teammate,8,Charizard,,,,,,,,,
+Swampert,34,teammate,9,Farigiraf,,,,,,,,,
+Swampert,34,teammate,10,Incineroar,,,,,,,,,
+Swampert,34,stat_alignment,1,Adamant,87.6%,Attack,Sp. Atk,,,,,,
+Swampert,34,stat_alignment,2,Jolly,6.8%,Speed,Sp. Atk,,,,,,
+Swampert,34,stat_alignment,3,Modest,1.6%,Sp. Atk,Attack,,,,,,
+Swampert,34,stat_alignment,4,Brave,1.5%,Attack,Speed,,,,,,
+Swampert,34,stat_alignment,5,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
+Swampert,34,stat_alignment,6,Quiet,0.4%,Sp. Atk,Speed,,,,,,
+Swampert,34,stat_alignment,7,Relaxed,0.3%,Defense,Speed,,,,,,
+Swampert,34,stat_alignment,8,Impish,0.3%,Defense,Sp. Atk,,,,,,
+Swampert,34,stat_alignment,9,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Swampert,34,stat_alignment,10,Lonely,0.2%,Attack,Defense,,,,,,
+Swampert,34,stat_points,1,,28.8%,,,2,32,0,0,0,32
+Swampert,34,stat_points,2,,6.3%,,,12,32,0,0,0,22
+Swampert,34,stat_points,3,,5.4%,,,18,30,0,0,0,18
+Swampert,34,stat_points,4,,3.4%,,,11,32,0,0,0,23
+Swampert,34,stat_points,5,,3.0%,,,32,16,5,0,0,13
+Swampert,34,stat_points,6,,2.1%,,,32,32,2,0,0,0
+Swampert,34,stat_points,7,,2.0%,,,14,30,0,0,0,22
+Swampert,34,stat_points,8,,1.7%,,,0,32,0,0,2,32
+Swampert,34,stat_points,9,,1.7%,,,0,32,2,0,0,32
+Swampert,34,stat_points,10,,1.7%,,,5,32,0,0,1,28
+Swampert,34,ability,1,Torrent,64.3%,,,,,,,,
+Swampert,34,ability,2,Damp,35.7%,,,,,,,,

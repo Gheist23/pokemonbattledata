@@ -1,54 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pyroar,90,move,1,Flamethrower,90.2%,,,,,,,,
-Pyroar,90,move,2,Overheat,77.2%,,,,,,,,
-Pyroar,90,move,3,Hyper Voice,43.4%,,,,,,,,
-Pyroar,90,move,4,Yawn,36.6%,,,,,,,,
-Pyroar,90,move,5,Scorching Sands,31.0%,,,,,,,,
-Pyroar,90,move,6,Substitute,17.7%,,,,,,,,
-Pyroar,90,move,7,Flame Charge,15.1%,,,,,,,,
-Pyroar,90,move,8,Solar Beam,14.1%,,,,,,,,
-Pyroar,90,move,9,Dark Pulse,12.5%,,,,,,,,
-Pyroar,90,move,10,Sunny Day,11.0%,,,,,,,,
-Pyroar,90,held_item,1,Pyroarite,97.0%,,,,,,,,
-Pyroar,90,held_item,2,Focus Sash,0.6%,,,,,,,,
-Pyroar,90,held_item,3,Life Orb,0.4%,,,,,,,,
-Pyroar,90,held_item,4,Charcoal,0.3%,,,,,,,,
-Pyroar,90,held_item,5,Sitrus Berry,0.2%,,,,,,,,
-Pyroar,90,held_item,6,Choice Scarf,0.2%,,,,,,,,
-Pyroar,90,held_item,7,Leftovers,0.2%,,,,,,,,
-Pyroar,90,held_item,8,White Herb,0.1%,,,,,,,,
-Pyroar,90,held_item,9,Quick Claw,0.1%,,,,,,,,
-Pyroar,90,held_item,10,Expert Belt,0.1%,,,,,,,,
-Pyroar,90,teammate,1,Garchomp,,,,,,,,,
-Pyroar,90,teammate,2,Meowscarada,,,,,,,,,
-Pyroar,90,teammate,3,Mimikyu,,,,,,,,,
-Pyroar,90,teammate,4,Primarina,,,,,,,,,
-Pyroar,90,teammate,5,Basculegion Male,,,,,,,,,
-Pyroar,90,teammate,6,Gyarados,,,,,,,,,
-Pyroar,90,teammate,7,Archaludon,,,,,,,,,
-Pyroar,90,teammate,8,Sylveon,,,,,,,,,
-Pyroar,90,teammate,9,Corviknight,,,,,,,,,
-Pyroar,90,teammate,10,Staraptor,,,,,,,,,
-Pyroar,90,stat_alignment,1,Timid,75.0%,Speed,Attack,,,,,,
-Pyroar,90,stat_alignment,2,Modest,22.9%,Sp. Atk,Attack,,,,,,
-Pyroar,90,stat_alignment,3,Hasty,0.4%,Speed,Defense,,,,,,
-Pyroar,90,stat_alignment,4,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Pyroar,90,stat_alignment,5,Naive,0.3%,Speed,Sp. Def,,,,,,
-Pyroar,90,stat_alignment,6,Bold,0.3%,Defense,Attack,,,,,,
-Pyroar,90,stat_alignment,7,Calm,0.1%,Sp. Def,Attack,,,,,,
-Pyroar,90,stat_alignment,8,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Pyroar,90,stat_alignment,9,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Pyroar,90,stat_alignment,10,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
-Pyroar,90,stat_points,1,,54.0%,,,2,0,0,32,0,32
-Pyroar,90,stat_points,2,,6.6%,,,0,0,2,32,0,32
-Pyroar,90,stat_points,3,,6.6%,,,4,0,0,32,0,30
-Pyroar,90,stat_points,4,,5.0%,,,0,0,0,32,2,32
-Pyroar,90,stat_points,5,,4.3%,,,14,0,1,32,0,19
-Pyroar,90,stat_points,6,,1.4%,,,0,0,1,32,1,32
-Pyroar,90,stat_points,7,,1.1%,,,0,0,0,32,0,32
-Pyroar,90,stat_points,8,,1.0%,,,12,0,0,32,0,22
-Pyroar,90,stat_points,9,,0.9%,,,8,0,0,31,0,27
-Pyroar,90,stat_points,10,,0.9%,,,1,0,1,32,0,32
-Pyroar,90,ability,1,Unnerve,77.5%,,,,,,,,
-Pyroar,90,ability,2,Moxie,13.4%,,,,,,,,
-Pyroar,90,ability,3,Rivalry,9.1%,,,,,,,,
+Pyroar,92,move,1,Flamethrower,96.4%,,,,,,,,
+Pyroar,92,move,2,Overheat,75.9%,,,,,,,,
+Pyroar,92,move,3,Yawn,36.2%,,,,,,,,
+Pyroar,92,move,4,Protect,40.9%,,,,,,,,
+Pyroar,92,move,5,Hyper Voice,38.8%,,,,,,,,
+Pyroar,92,move,6,Substitute,13.3%,,,,,,,,
+Pyroar,92,move,7,Scorching Sands,32.5%,,,,,,,,
+Pyroar,92,move,8,Flame Charge,9.5%,,,,,,,,
+Pyroar,92,move,9,Will-O-Wisp,7.4%,,,,,,,,
+Pyroar,92,move,10,Taunt,7.3%,,,,,,,,
+Pyroar,92,held_item,1,Pyroarite,97.4%,,,,,,,,
+Pyroar,92,held_item,2,Sitrus Berry,0.6%,,,,,,,,
+Pyroar,92,held_item,3,Focus Sash,0.6%,,,,,,,,
+Pyroar,92,held_item,4,Charcoal,0.4%,,,,,,,,
+Pyroar,92,held_item,5,Shuca Berry,0.3%,,,,,,,,
+Pyroar,92,held_item,6,Lum Berry,0.2%,,,,,,,,
+Pyroar,92,held_item,7,Life Orb,0.2%,,,,,,,,
+Pyroar,92,held_item,8,Bright Powder,0.2%,,,,,,,,
+Pyroar,92,held_item,9,Choice Scarf,0.1%,,,,,,,,
+Pyroar,92,held_item,10,Leftovers,0.0%,,,,,,,,
+Pyroar,92,teammate,1,Garchomp,,,,,,,,,
+Pyroar,92,teammate,2,Primarina,,,,,,,,,
+Pyroar,92,teammate,3,Salamence,,,,,,,,,
+Pyroar,92,teammate,4,Rillaboom,,,,,,,,,
+Pyroar,92,teammate,5,Baxcalibur,,,,,,,,,
+Pyroar,92,teammate,6,Corviknight,,,,,,,,,
+Pyroar,92,teammate,7,Hippowdon,,,,,,,,,
+Pyroar,92,teammate,8,Golisopod,,,,,,,,,
+Pyroar,92,teammate,9,Gholdengo,,,,,,,,,
+Pyroar,92,teammate,10,Archaludon,,,,,,,,,
+Pyroar,92,stat_alignment,1,Timid,71.0%,Speed,Attack,,,,,,
+Pyroar,92,stat_alignment,2,Modest,27.9%,Sp. Atk,Attack,,,,,,
+Pyroar,92,stat_alignment,3,Bold,0.3%,Defense,Attack,,,,,,
+Pyroar,92,stat_alignment,4,Hasty,0.3%,Speed,Defense,,,,,,
+Pyroar,92,stat_alignment,5,Naive,0.2%,Speed,Sp. Def,,,,,,
+Pyroar,92,stat_alignment,6,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Pyroar,92,stat_alignment,7,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Pyroar,92,stat_alignment,8,Adamant,0.1%,Attack,Sp. Atk,,,,,,
+Pyroar,92,stat_alignment,9,Jolly,0.0%,Speed,Sp. Atk,,,,,,
+Pyroar,92,stat_points,1,,58.5%,,,2,0,0,32,0,32
+Pyroar,92,stat_points,2,,6.7%,,,10,0,0,32,0,24
+Pyroar,92,stat_points,3,,5.8%,,,0,0,2,32,0,32
+Pyroar,92,stat_points,4,,4.9%,,,4,0,0,32,0,30
+Pyroar,92,stat_points,5,,4.5%,,,0,0,0,32,2,32
+Pyroar,92,stat_points,6,,2.5%,,,7,0,0,32,0,27
+Pyroar,92,stat_points,7,,1.6%,,,14,0,1,32,0,19
+Pyroar,92,stat_points,8,,1.4%,,,32,0,2,32,0,0
+Pyroar,92,stat_points,9,,1.3%,,,0,0,1,32,1,32
+Pyroar,92,stat_points,10,,1.1%,,,4,0,1,32,0,29
+Pyroar,92,ability,1,Unnerve,83.7%,,,,,,,,
+Pyroar,92,ability,2,Moxie,11.9%,,,,,,,,
+Pyroar,92,ability,3,Rivalry,4.4%,,,,,,,,

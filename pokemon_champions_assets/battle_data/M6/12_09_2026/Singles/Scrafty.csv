@@ -1,54 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scrafty,101,move,1,Drain Punch,88.4%,,,,,,,,
-Scrafty,101,move,2,Knock Off,74.8%,,,,,,,,
-Scrafty,101,move,3,Dragon Dance,49.5%,,,,,,,,
-Scrafty,101,move,4,Ice Punch,28.6%,,,,,,,,
-Scrafty,101,move,5,Bulk Up,27.9%,,,,,,,,
-Scrafty,101,move,6,Poison Jab,22.7%,,,,,,,,
-Scrafty,101,move,7,Taunt,21.1%,,,,,,,,
-Scrafty,101,move,8,Throat Chop,11.6%,,,,,,,,
-Scrafty,101,move,9,Thunder Punch,9.1%,,,,,,,,
-Scrafty,101,move,10,Crunch,8.7%,,,,,,,,
-Scrafty,101,held_item,1,Scraftinite,94.4%,,,,,,,,
-Scrafty,101,held_item,2,Sitrus Berry,1.2%,,,,,,,,
-Scrafty,101,held_item,3,Leftovers,1.1%,,,,,,,,
-Scrafty,101,held_item,4,Lum Berry,0.4%,,,,,,,,
-Scrafty,101,held_item,5,Life Orb,0.4%,,,,,,,,
-Scrafty,101,held_item,6,Quick Claw,0.3%,,,,,,,,
-Scrafty,101,held_item,7,Focus Sash,0.3%,,,,,,,,
-Scrafty,101,held_item,8,Expert Belt,0.2%,,,,,,,,
-Scrafty,101,held_item,9,Roseli Berry,0.2%,,,,,,,,
-Scrafty,101,held_item,10,Big Root,0.2%,,,,,,,,
-Scrafty,101,teammate,1,Garchomp,,,,,,,,,
-Scrafty,101,teammate,2,Primarina,,,,,,,,,
-Scrafty,101,teammate,3,Meowscarada,,,,,,,,,
-Scrafty,101,teammate,4,Volcarona,,,,,,,,,
-Scrafty,101,teammate,5,Gholdengo,,,,,,,,,
-Scrafty,101,teammate,6,Mimikyu,,,,,,,,,
-Scrafty,101,teammate,7,Archaludon,,,,,,,,,
-Scrafty,101,teammate,8,Alolan Ninetales,,,,,,,,,
-Scrafty,101,teammate,9,Basculegion Male,,,,,,,,,
-Scrafty,101,teammate,10,Excadrill,,,,,,,,,
-Scrafty,101,stat_alignment,1,Adamant,59.2%,Attack,Sp. Atk,,,,,,
-Scrafty,101,stat_alignment,2,Jolly,20.7%,Speed,Sp. Atk,,,,,,
-Scrafty,101,stat_alignment,3,Impish,9.6%,Defense,Sp. Atk,,,,,,
-Scrafty,101,stat_alignment,4,Careful,7.3%,Sp. Def,Sp. Atk,,,,,,
-Scrafty,101,stat_alignment,5,Brave,1.5%,Attack,Speed,,,,,,
-Scrafty,101,stat_alignment,6,Sassy,0.5%,Sp. Def,Speed,,,,,,
-Scrafty,101,stat_alignment,7,Relaxed,0.4%,Defense,Speed,,,,,,
-Scrafty,101,stat_alignment,8,Naughty,0.2%,Attack,Sp. Def,,,,,,
-Scrafty,101,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,
-Scrafty,101,stat_alignment,10,Lax,0.1%,Defense,Sp. Def,,,,,,
-Scrafty,101,stat_points,1,,13.3%,,,2,32,0,0,0,32
-Scrafty,101,stat_points,2,,9.9%,,,32,32,2,0,0,0
-Scrafty,101,stat_points,3,,6.1%,,,32,32,0,0,0,2
-Scrafty,101,stat_points,4,,4.0%,,,32,32,0,0,2,0
-Scrafty,101,stat_points,5,,3.9%,,,31,32,0,0,0,3
-Scrafty,101,stat_points,6,,1.7%,,,31,32,3,0,0,0
-Scrafty,101,stat_points,7,,1.5%,,,32,32,1,0,1,0
-Scrafty,101,stat_points,8,,1.5%,,,0,32,2,0,0,32
-Scrafty,101,stat_points,9,,1.4%,,,0,32,0,0,2,32
-Scrafty,101,stat_points,10,,1.3%,,,19,21,0,0,0,26
-Scrafty,101,ability,1,Intimidate,95.8%,,,,,,,,
-Scrafty,101,ability,2,Moxie,2.3%,,,,,,,,
-Scrafty,101,ability,3,Shed Skin,1.9%,,,,,,,,
+Scrafty,154,move,1,Drain Punch,88.8%,,,,,,,,
+Scrafty,154,move,2,Knock Off,78.5%,,,,,,,,
+Scrafty,154,move,3,Dragon Dance,51.8%,,,,,,,,
+Scrafty,154,move,4,Ice Punch,31.5%,,,,,,,,
+Scrafty,154,move,5,Poison Jab,24.9%,,,,,,,,
+Scrafty,154,move,6,Bulk Up,21.7%,,,,,,,,
+Scrafty,154,move,7,Taunt,15.2%,,,,,,,,
+Scrafty,154,move,8,Fire Punch,13.8%,,,,,,,,
+Scrafty,154,move,9,High Jump Kick,7.6%,,,,,,,,
+Scrafty,154,move,10,Fake Out,6.9%,,,,,,,,
+Scrafty,154,held_item,1,Scraftinite,96.8%,,,,,,,,
+Scrafty,154,held_item,2,Sitrus Berry,1.4%,,,,,,,,
+Scrafty,154,held_item,3,Lum Berry,1.3%,,,,,,,,
+Scrafty,154,held_item,4,Lopunnite,0.2%,,,,,,,,
+Scrafty,154,held_item,5,Chesto Berry,0.1%,,,,,,,,
+Scrafty,154,held_item,6,Leftovers,0.1%,,,,,,,,
+Scrafty,154,teammate,1,Garchomp,,,,,,,,,
+Scrafty,154,teammate,2,Glimmora,,,,,,,,,
+Scrafty,154,teammate,3,Golisopod,,,,,,,,,
+Scrafty,154,teammate,4,Mimikyu,,,,,,,,,
+Scrafty,154,teammate,5,Gholdengo,,,,,,,,,
+Scrafty,154,teammate,6,Salamence,,,,,,,,,
+Scrafty,154,teammate,7,Cinderace,,,,,,,,,
+Scrafty,154,teammate,8,Primarina,,,,,,,,,
+Scrafty,154,teammate,9,Greninja,,,,,,,,,
+Scrafty,154,teammate,10,Lucario,,,,,,,,,
+Scrafty,154,stat_alignment,1,Adamant,56.7%,Attack,Sp. Atk,,,,,,
+Scrafty,154,stat_alignment,2,Jolly,27.8%,Speed,Sp. Atk,,,,,,
+Scrafty,154,stat_alignment,3,Impish,5.9%,Defense,Sp. Atk,,,,,,
+Scrafty,154,stat_alignment,4,Careful,5.8%,Sp. Def,Sp. Atk,,,,,,
+Scrafty,154,stat_alignment,5,Hasty,1.9%,Speed,Defense,,,,,,
+Scrafty,154,stat_alignment,6,Brave,1.1%,Attack,Speed,,,,,,
+Scrafty,154,stat_alignment,7,Bold,0.4%,Defense,Attack,,,,,,
+Scrafty,154,stat_alignment,8,Relaxed,0.2%,Defense,Speed,,,,,,
+Scrafty,154,stat_alignment,9,Calm,0.2%,Sp. Def,Attack,,,,,,
+Scrafty,154,stat_points,1,,15.9%,,,2,32,0,0,0,32
+Scrafty,154,stat_points,2,,10.7%,,,31,32,0,0,0,3
+Scrafty,154,stat_points,3,,6.3%,,,32,32,0,0,0,2
+Scrafty,154,stat_points,4,,6.1%,,,32,32,2,0,0,0
+Scrafty,154,stat_points,5,,5.6%,,,25,32,0,0,0,9
+Scrafty,154,stat_points,6,,5.1%,,,25,32,0,0,9,0
+Scrafty,154,stat_points,7,,3.7%,,,19,21,0,0,0,26
+Scrafty,154,stat_points,8,,2.7%,,,1,32,1,0,0,32
+Scrafty,154,stat_points,9,,2.4%,,,0,32,2,0,0,32
+Scrafty,154,stat_points,10,,2.4%,,,31,26,0,0,0,9
+Scrafty,154,ability,1,Intimidate,96.7%,,,,,,,,
+Scrafty,154,ability,2,Shed Skin,2.4%,,,,,,,,
+Scrafty,154,ability,3,Moxie,0.9%,,,,,,,,

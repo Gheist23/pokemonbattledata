@@ -1,53 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tyrantrum,188,move,1,Head Smash,78.8%,,,,,,,,
-Tyrantrum,188,move,2,Earthquake,46.8%,,,,,,,,
-Tyrantrum,188,move,3,Outrage,36.7%,,,,,,,,
-Tyrantrum,188,move,4,Dragon Dance,30.4%,,,,,,,,
-Tyrantrum,188,move,5,Ice Fang,25.7%,,,,,,,,
-Tyrantrum,188,move,6,Psychic Fangs,22.7%,,,,,,,,
-Tyrantrum,188,move,7,Close Combat,19.9%,,,,,,,,
-Tyrantrum,188,move,8,Crunch,15.3%,,,,,,,,
-Tyrantrum,188,move,9,Fire Fang,13.7%,,,,,,,,
-Tyrantrum,188,move,10,Thunder Fang,13.6%,,,,,,,,
-Tyrantrum,188,held_item,1,Choice Scarf,33.8%,,,,,,,,
-Tyrantrum,188,held_item,2,Focus Sash,19.0%,,,,,,,,
-Tyrantrum,188,held_item,3,Life Orb,13.8%,,,,,,,,
-Tyrantrum,188,held_item,4,Quick Claw,5.2%,,,,,,,,
-Tyrantrum,188,held_item,5,Sitrus Berry,4.9%,,,,,,,,
-Tyrantrum,188,held_item,6,Hard Stone,4.7%,,,,,,,,
-Tyrantrum,188,held_item,7,Lum Berry,2.8%,,,,,,,,
-Tyrantrum,188,held_item,8,Wide Lens,2.5%,,,,,,,,
-Tyrantrum,188,held_item,9,Expert Belt,2.3%,,,,,,,,
-Tyrantrum,188,held_item,10,Leftovers,9.7%,,,,,,,,
-Tyrantrum,188,teammate,1,Charizard,,,,,,,,,
-Tyrantrum,188,teammate,2,Garchomp,,,,,,,,,
-Tyrantrum,188,teammate,3,Archaludon,,,,,,,,,
-Tyrantrum,188,teammate,4,Dragonite,,,,,,,,,
-Tyrantrum,188,teammate,5,Meowscarada,,,,,,,,,
-Tyrantrum,188,teammate,6,Hippowdon,,,,,,,,,
-Tyrantrum,188,teammate,7,Staraptor,,,,,,,,,
-Tyrantrum,188,teammate,8,Raichu,,,,,,,,,
-Tyrantrum,188,teammate,9,Basculegion Male,,,,,,,,,
-Tyrantrum,188,teammate,10,Mimikyu,,,,,,,,,
-Tyrantrum,188,stat_alignment,1,Jolly,45.3%,Speed,Sp. Atk,,,,,,
-Tyrantrum,188,stat_alignment,2,Adamant,40.1%,Attack,Sp. Atk,,,,,,
-Tyrantrum,188,stat_alignment,3,Impish,3.1%,Defense,Sp. Atk,,,,,,
-Tyrantrum,188,stat_alignment,4,Brave,2.9%,Attack,Speed,,,,,,
-Tyrantrum,188,stat_alignment,5,Naughty,2.6%,Attack,Sp. Def,,,,,,
-Tyrantrum,188,stat_alignment,6,Careful,1.0%,Sp. Def,Sp. Atk,,,,,,
-Tyrantrum,188,stat_alignment,7,Naive,1.0%,Speed,Sp. Def,,,,,,
-Tyrantrum,188,stat_alignment,8,Lonely,1.0%,Attack,Defense,,,,,,
-Tyrantrum,188,stat_alignment,9,Hasty,1.0%,Speed,Defense,,,,,,
-Tyrantrum,188,stat_alignment,10,Relaxed,1.0%,Defense,Speed,,,,,,
-Tyrantrum,188,stat_points,1,,45.1%,,,2,32,0,0,0,32
-Tyrantrum,188,stat_points,2,,8.8%,,,0,32,2,0,0,32
-Tyrantrum,188,stat_points,3,,5.4%,,,0,32,0,0,2,32
-Tyrantrum,188,stat_points,4,,3.6%,,,0,32,0,0,0,32
-Tyrantrum,188,stat_points,5,,3.5%,,,32,32,2,0,0,0
-Tyrantrum,188,stat_points,6,,1.9%,,,32,32,0,0,0,2
-Tyrantrum,188,stat_points,7,,1.7%,,,0,32,1,0,1,32
-Tyrantrum,188,stat_points,8,,1.5%,,,0,32,32,0,0,2
-Tyrantrum,188,stat_points,9,,1.3%,,,0,32,32,0,2,0
-Tyrantrum,188,stat_points,10,,1.1%,,,16,18,0,0,0,32
-Tyrantrum,188,ability,1,Rock Head,68.5%,,,,,,,,
-Tyrantrum,188,ability,2,Strong Jaw,31.5%,,,,,,,,
+Tyrantrum,219,move,1,Head Smash,76.6%,,,,,,,,
+Tyrantrum,219,move,2,Earthquake,46.7%,,,,,,,,
+Tyrantrum,219,move,3,Dragon Dance,30.0%,,,,,,,,
+Tyrantrum,219,move,4,Outrage,29.6%,,,,,,,,
+Tyrantrum,219,move,5,Fire Fang,12.4%,,,,,,,,
+Tyrantrum,219,move,6,Close Combat,22.0%,,,,,,,,
+Tyrantrum,219,move,7,High Horsepower,19.3%,,,,,,,,
+Tyrantrum,219,move,8,Scale Shot,18.4%,,,,,,,,
+Tyrantrum,219,move,9,Iron Tail,18.2%,,,,,,,,
+Tyrantrum,219,move,10,Brutal Swing,18.2%,,,,,,,,
+Tyrantrum,219,held_item,1,Choice Scarf,30.9%,,,,,,,,
+Tyrantrum,219,held_item,2,Lopunnite,10.2%,,,,,,,,
+Tyrantrum,219,held_item,3,Focus Sash,13.5%,,,,,,,,
+Tyrantrum,219,held_item,4,Life Orb,12.6%,,,,,,,,
+Tyrantrum,219,held_item,5,Sitrus Berry,11.2%,,,,,,,,
+Tyrantrum,219,held_item,6,Wide Lens,9.9%,,,,,,,,
+Tyrantrum,219,held_item,7,Houndoominite,1.6%,,,,,,,,
+Tyrantrum,219,held_item,8,Leftovers,9.3%,,,,,,,,
+Tyrantrum,219,held_item,9,Lum Berry,0.7%,,,,,,,,
+Tyrantrum,219,held_item,10,Expert Belt,0.2%,,,,,,,,
+Tyrantrum,219,teammate,1,Charizard,,,,,,,,,
+Tyrantrum,219,teammate,2,Lucario,,,,,,,,,
+Tyrantrum,219,teammate,3,Rillaboom,,,,,,,,,
+Tyrantrum,219,teammate,4,Gengar,,,,,,,,,
+Tyrantrum,219,teammate,5,Archaludon,,,,,,,,,
+Tyrantrum,219,teammate,6,Zoroark,,,,,,,,,
+Tyrantrum,219,teammate,7,Grimmsnarl,,,,,,,,,
+Tyrantrum,219,teammate,8,Salamence,,,,,,,,,
+Tyrantrum,219,teammate,9,Greninja,,,,,,,,,
+Tyrantrum,219,teammate,10,Meowscarada,,,,,,,,,
+Tyrantrum,219,stat_alignment,1,Jolly,42.8%,Speed,Sp. Atk,,,,,,
+Tyrantrum,219,stat_alignment,2,Adamant,37.0%,Attack,Sp. Atk,,,,,,
+Tyrantrum,219,stat_alignment,3,Relaxed,1.8%,Defense,Speed,,,,,,
+Tyrantrum,219,stat_alignment,4,Impish,1.8%,Defense,Sp. Atk,,,,,,
+Tyrantrum,219,stat_alignment,5,Lonely,0.2%,Attack,Defense,,,,,,
+Tyrantrum,219,stat_points,1,,43.9%,,,2,32,0,0,0,32
+Tyrantrum,219,stat_points,2,,8.2%,,,0,32,32,0,2,0
+Tyrantrum,219,stat_points,3,,12.3%,,,32,32,0,0,0,2
+Tyrantrum,219,stat_points,4,,10.8%,,,32,32,0,0,2,0
+Tyrantrum,219,stat_points,5,,7.6%,,,0,32,0,0,0,32
+Tyrantrum,219,stat_points,6,,4.3%,,,2,0,0,32,0,32
+Tyrantrum,219,stat_points,7,,4.0%,,,0,32,1,0,1,32
+Tyrantrum,219,stat_points,8,,2.0%,,,0,32,2,0,0,32
+Tyrantrum,219,stat_points,9,,1.8%,,,2,32,32,0,0,0
+Tyrantrum,219,stat_points,10,,1.8%,,,32,32,2,0,0,0
+Tyrantrum,219,ability,1,Rock Head,67.4%,,,,,,,,
+Tyrantrum,219,ability,2,Strong Jaw,32.6%,,,,,,,,

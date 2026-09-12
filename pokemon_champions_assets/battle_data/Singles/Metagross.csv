@@ -1,48 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Metagross,10,move,6,Hammer Arm,20.9%,,,,,,,,
-Metagross,10,move,7,Body Press,20.7%,,,,,,,,
-Metagross,10,move,8,Iron Defense,19.2%,,,,,,,,
-Metagross,10,move,9,Iron Head,17.3%,,,,,,,,
-Metagross,10,move,10,Meteor Mash,9.7%,,,,,,,,
-Metagross,10,held_item,1,Metagrossite,97.1%,,,,,,,,
-Metagross,10,held_item,2,Life Orb,0.5%,,,,,,,,
-Metagross,10,held_item,3,Sitrus Berry,0.4%,,,,,,,,
-Metagross,10,held_item,4,Choice Scarf,0.3%,,,,,,,,
-Metagross,10,held_item,5,Leftovers,0.2%,,,,,,,,
-Metagross,10,held_item,6,Shuca Berry,0.2%,,,,,,,,
-Metagross,10,held_item,7,Quick Claw,0.2%,,,,,,,,
-Metagross,10,held_item,8,Focus Sash,0.1%,,,,,,,,
-Metagross,10,held_item,9,Light Clay,0.1%,,,,,,,,
-Metagross,10,held_item,10,Expert Belt,0.1%,,,,,,,,
-Metagross,10,teammate,1,Primarina,,,,,,,,,
-Metagross,10,teammate,2,Garchomp,,,,,,,,,
-Metagross,10,teammate,3,Hydreigon,,,,,,,,,
-Metagross,10,teammate,4,Hippowdon,,,,,,,,,
-Metagross,10,teammate,5,Meowscarada,,,,,,,,,
-Metagross,10,teammate,6,Mimikyu,,,,,,,,,
-Metagross,10,teammate,7,Archaludon,,,,,,,,,
-Metagross,10,teammate,8,Gengar,,,,,,,,,
-Metagross,10,teammate,9,Dragonite,,,,,,,,,
-Metagross,10,teammate,10,Charizard,,,,,,,,,
-Metagross,10,stat_alignment,1,Adamant,52.4%,Attack,Sp. Atk,,,,,,
-Metagross,10,stat_alignment,2,Jolly,30.5%,Speed,Sp. Atk,,,,,,
-Metagross,10,stat_alignment,3,Impish,14.3%,Defense,Sp. Atk,,,,,,
-Metagross,10,stat_alignment,4,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
-Metagross,10,stat_alignment,5,Brave,0.5%,Attack,Speed,,,,,,
-Metagross,10,stat_alignment,6,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Metagross,10,stat_alignment,7,Naive,0.2%,Speed,Sp. Def,,,,,,
-Metagross,10,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,
-Metagross,10,stat_alignment,9,Relaxed,0.1%,Defense,Speed,,,,,,
-Metagross,10,stat_alignment,10,Hasty,0.0%,Speed,Defense,,,,,,
-Metagross,10,stat_points,1,,26.2%,,,2,32,0,0,0,32
-Metagross,10,stat_points,2,,8.7%,,,32,32,0,0,0,2
-Metagross,10,stat_points,3,,5.6%,,,8,32,0,0,0,26
-Metagross,10,stat_points,4,,4.1%,,,20,0,20,0,0,26
-Metagross,10,stat_points,5,,2.6%,,,8,32,1,0,0,25
-Metagross,10,stat_points,6,,1.9%,,,16,25,0,0,0,25
-Metagross,10,stat_points,7,,1.6%,,,0,32,0,0,2,32
-Metagross,10,stat_points,8,,1.6%,,,32,32,2,0,0,0
-Metagross,10,stat_points,9,,1.3%,,,32,32,0,0,2,0
-Metagross,10,stat_points,10,,1.2%,,,25,32,0,0,0,9
-Metagross,10,ability,1,Clear Body,99.1%,,,,,,,,
-Metagross,10,ability,2,Light Metal,0.9%,,,,,,,,
+Metagross,31,move,1,Bullet Punch,89.9%,,,,,,,,
+Metagross,31,move,2,Psychic Fangs,78.8%,,,,,,,,
+Metagross,31,move,3,Ice Punch,64.9%,,,,,,,,
+Metagross,31,move,4,Earthquake,48.9%,,,,,,,,
+Metagross,31,move,5,Thunder Punch,26.5%,,,,,,,,
+Metagross,31,move,6,Iron Head,19.5%,,,,,,,,
+Metagross,31,move,7,Body Press,16.6%,,,,,,,,
+Metagross,31,move,8,Iron Defense,15.2%,,,,,,,,
+Metagross,31,move,9,Hammer Arm,13.5%,,,,,,,,
+Metagross,31,move,10,Meteor Mash,9.6%,,,,,,,,
+Metagross,31,held_item,1,Metagrossite,95.4%,,,,,,,,
+Metagross,31,held_item,2,Life Orb,0.8%,,,,,,,,
+Metagross,31,held_item,3,Lopunnite,0.7%,,,,,,,,
+Metagross,31,held_item,4,Shuca Berry,0.6%,,,,,,,,
+Metagross,31,held_item,5,Sitrus Berry,0.3%,,,,,,,,
+Metagross,31,held_item,6,Light Clay,0.3%,,,,,,,,
+Metagross,31,held_item,7,Quick Claw,0.3%,,,,,,,,
+Metagross,31,held_item,8,Expert Belt,0.2%,,,,,,,,
+Metagross,31,held_item,9,Choice Scarf,0.2%,,,,,,,,
+Metagross,31,held_item,10,Houndoominite,0.2%,,,,,,,,
+Metagross,31,teammate,1,Primarina,,,,,,,,,
+Metagross,31,teammate,2,Garchomp,,,,,,,,,
+Metagross,31,teammate,3,Salamence,,,,,,,,,
+Metagross,31,teammate,4,Hippowdon,,,,,,,,,
+Metagross,31,teammate,5,Hydreigon,,,,,,,,,
+Metagross,31,teammate,6,Archaludon,,,,,,,,,
+Metagross,31,teammate,7,Mimikyu,,,,,,,,,
+Metagross,31,teammate,8,Meowscarada,,,,,,,,,
+Metagross,31,teammate,9,Rillaboom,,,,,,,,,
+Metagross,31,teammate,10,Aegislash Shield Forme,,,,,,,,,
+Metagross,31,stat_alignment,1,Adamant,58.2%,Attack,Sp. Atk,,,,,,
+Metagross,31,stat_alignment,2,Jolly,27.6%,Speed,Sp. Atk,,,,,,
+Metagross,31,stat_alignment,3,Impish,12.8%,Defense,Sp. Atk,,,,,,
+Metagross,31,stat_alignment,4,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
+Metagross,31,stat_alignment,5,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Metagross,31,stat_alignment,6,Naive,0.1%,Speed,Sp. Def,,,,,,
+Metagross,31,stat_alignment,7,Bold,0.1%,Defense,Attack,,,,,,
+Metagross,31,stat_alignment,8,Relaxed,0.1%,Defense,Speed,,,,,,
+Metagross,31,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
+Metagross,31,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
+Metagross,31,stat_points,1,,22.8%,,,2,32,0,0,0,32
+Metagross,31,stat_points,2,,8.4%,,,32,32,0,0,0,2
+Metagross,31,stat_points,3,,4.8%,,,8,32,0,0,0,26
+Metagross,31,stat_points,4,,3.1%,,,32,32,2,0,0,0
+Metagross,31,stat_points,5,,2.9%,,,32,32,0,0,2,0
+Metagross,31,stat_points,6,,2.5%,,,20,0,20,0,0,26
+Metagross,31,stat_points,7,,2.3%,,,16,25,0,0,0,25
+Metagross,31,stat_points,8,,1.9%,,,8,32,1,0,0,25
+Metagross,31,stat_points,9,,1.9%,,,0,32,2,0,0,32
+Metagross,31,stat_points,10,,1.6%,,,9,32,0,0,0,25
+Metagross,31,ability,1,Clear Body,99.5%,,,,,,,,
+Metagross,31,ability,2,Light Metal,0.5%,,,,,,,,

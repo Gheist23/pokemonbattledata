@@ -1,52 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Empoleon,108,move,1,Flash Cannon,82.1%,,,,,,,,
-Empoleon,108,move,2,Protect,68.8%,,,,,,,,
-Empoleon,108,move,4,Surf,42.4%,,,,,,,,
-Empoleon,108,move,5,Hydro Pump,39.9%,,,,,,,,
-Empoleon,108,move,6,Vacuum Wave,22.2%,,,,,,,,
-Empoleon,108,move,7,Grass Knot,9.3%,,,,,,,,
-Empoleon,108,move,8,Blizzard,7.9%,,,,,,,,
-Empoleon,108,move,9,Icy Wind,7.8%,,,,,,,,
-Empoleon,108,move,10,Roost,6.9%,,,,,,,,
-Empoleon,108,held_item,1,Leftovers,30.7%,,,,,,,,
-Empoleon,108,held_item,2,Sitrus Berry,13.0%,,,,,,,,
-Empoleon,108,held_item,3,Chople Berry,12.5%,,,,,,,,
-Empoleon,108,held_item,4,Life Orb,11.5%,,,,,,,,
-Empoleon,108,held_item,5,Shuca Berry,7.6%,,,,,,,,
-Empoleon,108,held_item,6,Mystic Water,6.3%,,,,,,,,
-Empoleon,108,held_item,7,Focus Sash,4.9%,,,,,,,,
-Empoleon,108,held_item,8,Quick Claw,4.2%,,,,,,,,
-Empoleon,108,held_item,9,Expert Belt,3.4%,,,,,,,,
-Empoleon,108,held_item,10,Wide Lens,3.0%,,,,,,,,
-Empoleon,108,teammate,1,Garchomp,,,,,,,,,
-Empoleon,108,teammate,2,Tyranitar,,,,,,,,,
-Empoleon,108,teammate,3,Sinistcha,,,,,,,,,
-Empoleon,108,teammate,4,Farigiraf,,,,,,,,,
-Empoleon,108,teammate,5,Whimsicott,,,,,,,,,
-Empoleon,108,teammate,6,Staraptor,,,,,,,,,
-Empoleon,108,teammate,7,Incineroar,,,,,,,,,
-Empoleon,108,teammate,8,Raichu,,,,,,,,,
-Empoleon,108,teammate,9,Sylveon,,,,,,,,,
-Empoleon,108,teammate,10,Charizard,,,,,,,,,
-Empoleon,108,stat_alignment,1,Modest,56.8%,Sp. Atk,Attack,,,,,,
-Empoleon,108,stat_alignment,2,Quiet,17.2%,Sp. Atk,Speed,,,,,,
-Empoleon,108,stat_alignment,3,Bold,6.9%,Defense,Attack,,,,,,
-Empoleon,108,stat_alignment,4,Timid,5.9%,Speed,Attack,,,,,,
-Empoleon,108,stat_alignment,5,Calm,5.1%,Sp. Def,Attack,,,,,,
-Empoleon,108,stat_alignment,6,Relaxed,3.0%,Defense,Speed,,,,,,
-Empoleon,108,stat_alignment,7,Sassy,2.0%,Sp. Def,Speed,,,,,,
-Empoleon,108,stat_alignment,8,Mild,0.6%,Sp. Atk,Defense,,,,,,
-Empoleon,108,stat_alignment,9,Adamant,0.4%,Attack,Sp. Atk,,,,,,
-Empoleon,108,stat_alignment,10,Impish,0.4%,Defense,Sp. Atk,,,,,,
-Empoleon,108,stat_points,1,,19.9%,,,32,0,2,32,0,0
-Empoleon,108,stat_points,2,,6.1%,,,32,0,0,32,2,0
-Empoleon,108,stat_points,3,,4.5%,,,2,0,0,32,0,32
-Empoleon,108,stat_points,4,,2.9%,,,2,0,32,32,0,0
-Empoleon,108,stat_points,5,,2.8%,,,2,0,0,32,32,0
-Empoleon,108,stat_points,6,,2.6%,,,0,0,2,32,32,0
-Empoleon,108,stat_points,7,,2.3%,,,0,0,32,32,2,0
-Empoleon,108,stat_points,8,,1.2%,,,0,0,0,32,2,32
-Empoleon,108,stat_points,9,,1.0%,,,21,0,13,32,0,0
-Empoleon,108,stat_points,10,,1.0%,,,32,0,2,0,32,0
-Empoleon,108,ability,1,Competitive,96.3%,,,,,,,,
-Empoleon,108,ability,2,Torrent,3.7%,,,,,,,,
+Empoleon,83,move,1,Protect,69.7%,,,,,,,,
+Empoleon,83,move,2,Flash Cannon,84.3%,,,,,,,,
+Empoleon,83,move,3,Ice Beam,72.0%,,,,,,,,
+Empoleon,83,move,4,Hydro Pump,38.3%,,,,,,,,
+Empoleon,83,move,5,Surf,40.5%,,,,,,,,
+Empoleon,83,move,6,Vacuum Wave,16.9%,,,,,,,,
+Empoleon,83,move,7,Icy Wind,11.2%,,,,,,,,
+Empoleon,83,move,8,Yawn,8.2%,,,,,,,,
+Empoleon,83,move,9,Roost,6.1%,,,,,,,,
+Empoleon,83,move,10,Water Pulse,5.1%,,,,,,,,
+Empoleon,83,held_item,1,Leftovers,46.2%,,,,,,,,
+Empoleon,83,held_item,2,Chople Berry,15.7%,,,,,,,,
+Empoleon,83,held_item,3,Sitrus Berry,11.9%,,,,,,,,
+Empoleon,83,held_item,4,Life Orb,8.5%,,,,,,,,
+Empoleon,83,held_item,5,Lopunnite,4.8%,,,,,,,,
+Empoleon,83,held_item,6,Shuca Berry,3.9%,,,,,,,,
+Empoleon,83,held_item,7,Focus Sash,3.6%,,,,,,,,
+Empoleon,83,held_item,8,Expert Belt,3.1%,,,,,,,,
+Empoleon,83,held_item,9,Wide Lens,2.3%,,,,,,,,
+Empoleon,83,held_item,10,Houndoominite,1.8%,,,,,,,,
+Empoleon,83,teammate,1,Rillaboom,,,,,,,,,
+Empoleon,83,teammate,2,Salamence,,,,,,,,,
+Empoleon,83,teammate,3,Incineroar,,,,,,,,,
+Empoleon,83,teammate,4,Golisopod,,,,,,,,,
+Empoleon,83,teammate,5,Sneasler,,,,,,,,,
+Empoleon,83,teammate,6,Garchomp,,,,,,,,,
+Empoleon,83,teammate,7,Farigiraf,,,,,,,,,
+Empoleon,83,teammate,8,Indeedee Female,,,,,,,,,
+Empoleon,83,teammate,9,Pelipper,,,,,,,,,
+Empoleon,83,teammate,10,Staraptor,,,,,,,,,
+Empoleon,83,stat_alignment,1,Modest,56.1%,Sp. Atk,Attack,,,,,,
+Empoleon,83,stat_alignment,2,Bold,13.3%,Defense,Attack,,,,,,
+Empoleon,83,stat_alignment,3,Calm,7.2%,Sp. Def,Attack,,,,,,
+Empoleon,83,stat_alignment,4,Quiet,16.9%,Sp. Atk,Speed,,,,,,
+Empoleon,83,stat_alignment,5,Timid,3.7%,Speed,Attack,,,,,,
+Empoleon,83,stat_alignment,6,Relaxed,1.6%,Defense,Speed,,,,,,
+Empoleon,83,stat_alignment,7,Sassy,1.2%,Sp. Def,Speed,,,,,,
+Empoleon,83,stat_alignment,8,Impish,0.0%,Defense,Sp. Atk,,,,,,
+Empoleon,83,stat_points,1,,17.2%,,,32,0,2,32,0,0
+Empoleon,83,stat_points,2,,4.6%,,,32,0,0,32,0,2
+Empoleon,83,stat_points,3,,4.2%,,,32,0,0,32,2,0
+Empoleon,83,stat_points,4,,2.1%,,,32,0,25,9,0,0
+Empoleon,83,stat_points,5,,2.0%,,,32,0,22,0,12,0
+Empoleon,83,stat_points,6,,1.8%,,,0,0,2,32,0,32
+Empoleon,83,stat_points,7,,1.8%,,,32,0,18,9,5,2
+Empoleon,83,stat_points,8,,1.8%,,,18,0,1,32,0,15
+Empoleon,83,stat_points,9,,1.7%,,,32,0,5,29,0,0
+Empoleon,83,stat_points,10,,1.7%,,,32,0,0,32,0,0
+Empoleon,83,ability,1,Competitive,99.7%,,,,,,,,
+Empoleon,83,ability,2,Torrent,0.3%,,,,,,,,

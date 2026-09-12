@@ -1,49 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aggron,116,move,6,Iron Head,12.6%,,,,,,,,
-Aggron,116,move,7,Earthquake,5.8%,,,,,,,,
-Aggron,116,move,8,Head Smash,5.7%,,,,,,,,
-Aggron,116,move,9,High Horsepower,4.7%,,,,,,,,
-Aggron,116,move,10,Stone Edge,4.7%,,,,,,,,
-Aggron,116,held_item,1,Aggronite,90.5%,,,,,,,,
-Aggron,116,held_item,2,Leftovers,1.8%,,,,,,,,
-Aggron,116,held_item,3,Quick Claw,1.4%,,,,,,,,
-Aggron,116,held_item,4,Sitrus Berry,1.2%,,,,,,,,
-Aggron,116,held_item,5,Focus Sash,0.7%,,,,,,,,
-Aggron,116,held_item,6,Chople Berry,0.4%,,,,,,,,
-Aggron,116,held_item,7,Life Orb,0.4%,,,,,,,,
-Aggron,116,held_item,8,Muscle Band,0.3%,,,,,,,,
-Aggron,116,held_item,9,Metronome,0.3%,,,,,,,,
-Aggron,116,held_item,10,Hard Stone,0.3%,,,,,,,,
-Aggron,116,teammate,1,Sinistcha,,,,,,,,,
-Aggron,116,teammate,2,Farigiraf,,,,,,,,,
-Aggron,116,teammate,3,Tyranitar,,,,,,,,,
-Aggron,116,teammate,4,Incineroar,,,,,,,,,
-Aggron,116,teammate,5,Sylveon,,,,,,,,,
-Aggron,116,teammate,6,Pelipper,,,,,,,,,
-Aggron,116,teammate,7,Grimmsnarl,,,,,,,,,
-Aggron,116,teammate,8,Garchomp,,,,,,,,,
-Aggron,116,teammate,9,Sneasler,,,,,,,,,
-Aggron,116,teammate,10,Milotic,,,,,,,,,
-Aggron,116,stat_alignment,1,Careful,27.3%,Sp. Def,Sp. Atk,,,,,,
-Aggron,116,stat_alignment,2,Impish,21.4%,Defense,Sp. Atk,,,,,,
-Aggron,116,stat_alignment,3,Sassy,15.0%,Sp. Def,Speed,,,,,,
-Aggron,116,stat_alignment,4,Adamant,12.6%,Attack,Sp. Atk,,,,,,
-Aggron,116,stat_alignment,5,Relaxed,12.2%,Defense,Speed,,,,,,
-Aggron,116,stat_alignment,6,Brave,8.5%,Attack,Speed,,,,,,
-Aggron,116,stat_alignment,7,Jolly,0.5%,Speed,Sp. Atk,,,,,,
-Aggron,116,stat_alignment,8,Naughty,0.5%,Attack,Sp. Def,,,,,,
-Aggron,116,stat_alignment,9,Bold,0.5%,Defense,Attack,,,,,,
-Aggron,116,stat_alignment,10,Quiet,0.3%,Sp. Atk,Speed,,,,,,
-Aggron,116,stat_points,1,,24.9%,,,32,0,2,0,32,0
-Aggron,116,stat_points,2,,7.4%,,,32,2,0,0,32,0
-Aggron,116,stat_points,3,,6.5%,,,32,0,32,0,2,0
-Aggron,116,stat_points,4,,3.5%,,,32,32,0,0,2,0
-Aggron,116,stat_points,5,,3.1%,,,32,32,0,0,0,2
-Aggron,116,stat_points,6,,2.7%,,,32,32,2,0,0,0
-Aggron,116,stat_points,7,,2.4%,,,32,2,32,0,0,0
-Aggron,116,stat_points,8,,2.2%,,,0,32,32,0,2,0
-Aggron,116,stat_points,9,,2.0%,,,2,32,0,0,32,0
-Aggron,116,stat_points,10,,1.9%,,,32,0,10,0,24,0
-Aggron,116,ability,1,Sturdy,58.9%,,,,,,,,
-Aggron,116,ability,2,Heavy Metal,32.3%,,,,,,,,
-Aggron,116,ability,3,Rock Head,8.8%,,,,,,,,
+Aggron,130,move,1,Body Press,97.1%,,,,,,,,
+Aggron,130,move,2,Heavy Slam,95.2%,,,,,,,,
+Aggron,130,move,3,Iron Defense,82.7%,,,,,,,,
+Aggron,130,move,4,Protect,76.4%,,,,,,,,
+Aggron,130,move,5,Rock Slide,9.3%,,,,,,,,
+Aggron,130,move,6,Ice Punch,6.9%,,,,,,,,
+Aggron,130,move,7,Payback,5.4%,,,,,,,,
+Aggron,130,move,8,Metal Burst,5.2%,,,,,,,,
+Aggron,130,move,9,Rest,5.1%,,,,,,,,
+Aggron,130,move,10,Iron Head,12.8%,,,,,,,,
+Aggron,130,held_item,1,Aggronite,92.1%,,,,,,,,
+Aggron,130,held_item,2,Leftovers,4.7%,,,,,,,,
+Aggron,130,held_item,3,Life Orb,1.2%,,,,,,,,
+Aggron,130,held_item,4,Metal Coat,1.1%,,,,,,,,
+Aggron,130,held_item,5,Focus Sash,0.6%,,,,,,,,
+Aggron,130,held_item,6,Choice Scarf,0.2%,,,,,,,,
+Aggron,130,held_item,7,White Herb,0.1%,,,,,,,,
+Aggron,130,teammate,1,Rillaboom,,,,,,,,,
+Aggron,130,teammate,2,Sinistcha,,,,,,,,,
+Aggron,130,teammate,3,Incineroar,,,,,,,,,
+Aggron,130,teammate,4,Farigiraf,,,,,,,,,
+Aggron,130,teammate,5,Tyranitar,,,,,,,,,
+Aggron,130,teammate,6,Indeedee Female,,,,,,,,,
+Aggron,130,teammate,7,Milotic,,,,,,,,,
+Aggron,130,teammate,8,Basculegion Male,,,,,,,,,
+Aggron,130,teammate,9,Salamence,,,,,,,,,
+Aggron,130,teammate,10,Pelipper,,,,,,,,,
+Aggron,130,stat_alignment,1,Careful,26.0%,Sp. Def,Sp. Atk,,,,,,
+Aggron,130,stat_alignment,2,Impish,14.2%,Defense,Sp. Atk,,,,,,
+Aggron,130,stat_alignment,3,Relaxed,13.6%,Defense,Speed,,,,,,
+Aggron,130,stat_alignment,4,Sassy,9.6%,Sp. Def,Speed,,,,,,
+Aggron,130,stat_alignment,5,Adamant,8.8%,Attack,Sp. Atk,,,,,,
+Aggron,130,stat_alignment,6,Brave,5.5%,Attack,Speed,,,,,,
+Aggron,130,stat_alignment,7,Quiet,1.2%,Sp. Atk,Speed,,,,,,
+Aggron,130,stat_alignment,8,Bold,0.8%,Defense,Attack,,,,,,
+Aggron,130,stat_alignment,9,Jolly,0.2%,Speed,Sp. Atk,,,,,,
+Aggron,130,stat_points,1,,21.1%,,,32,0,2,0,32,0
+Aggron,130,stat_points,2,,10.3%,,,32,0,32,0,2,0
+Aggron,130,stat_points,3,,7.7%,,,32,2,0,0,32,0
+Aggron,130,stat_points,4,,4.7%,,,32,0,4,0,30,0
+Aggron,130,stat_points,5,,3.5%,,,31,0,2,0,32,1
+Aggron,130,stat_points,6,,2.6%,,,2,0,32,0,32,0
+Aggron,130,stat_points,7,,2.2%,,,32,0,10,0,24,0
+Aggron,130,stat_points,8,,2.1%,,,32,4,0,0,30,0
+Aggron,130,stat_points,9,,2.0%,,,32,0,0,2,32,0
+Aggron,130,stat_points,10,,1.7%,,,20,32,12,0,0,2
+Aggron,130,ability,1,Sturdy,58.9%,,,,,,,,
+Aggron,130,ability,2,Heavy Metal,34.1%,,,,,,,,
+Aggron,130,ability,3,Rock Head,7.0%,,,,,,,,

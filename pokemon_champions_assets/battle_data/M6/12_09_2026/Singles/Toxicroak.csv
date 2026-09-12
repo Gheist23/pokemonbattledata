@@ -1,54 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Toxicroak,193,move,1,Close Combat,67.8%,,,,,,,,
-Toxicroak,193,move,2,Sucker Punch,62.7%,,,,,,,,
-Toxicroak,193,move,3,Poison Jab,42.4%,,,,,,,,
-Toxicroak,193,move,4,Gunk Shot,40.3%,,,,,,,,
-Toxicroak,193,move,5,Fake Out,21.5%,,,,,,,,
-Toxicroak,193,move,6,Drain Punch,19.8%,,,,,,,,
-Toxicroak,193,move,7,Ice Punch,13.7%,,,,,,,,
-Toxicroak,193,move,8,Counter,12.7%,,,,,,,,
-Toxicroak,193,move,9,Earthquake,12.2%,,,,,,,,
-Toxicroak,193,move,10,Swords Dance,11.3%,,,,,,,,
-Toxicroak,193,held_item,1,Focus Sash,59.9%,,,,,,,,
-Toxicroak,193,held_item,2,Life Orb,13.5%,,,,,,,,
-Toxicroak,193,held_item,3,Choice Scarf,4.7%,,,,,,,,
-Toxicroak,193,held_item,4,Sitrus Berry,4.6%,,,,,,,,
-Toxicroak,193,held_item,5,Leftovers,4.5%,,,,,,,,
-Toxicroak,193,held_item,6,Expert Belt,4.1%,,,,,,,,
-Toxicroak,193,held_item,7,Quick Claw,2.3%,,,,,,,,
-Toxicroak,193,held_item,8,Shuca Berry,2.3%,,,,,,,,
-Toxicroak,193,held_item,9,Muscle Band,2.1%,,,,,,,,
-Toxicroak,193,held_item,10,Lum Berry,4.4%,,,,,,,,
-Toxicroak,193,teammate,1,Garchomp,,,,,,,,,
-Toxicroak,193,teammate,2,Delphox,,,,,,,,,
-Toxicroak,193,teammate,3,Swampert,,,,,,,,,
-Toxicroak,193,teammate,4,Greninja,,,,,,,,,
-Toxicroak,193,teammate,5,Archaludon,,,,,,,,,
-Toxicroak,193,teammate,6,Charizard,,,,,,,,,
-Toxicroak,193,teammate,7,Mimikyu,,,,,,,,,
-Toxicroak,193,teammate,8,Meowscarada,,,,,,,,,
-Toxicroak,193,teammate,9,Pelipper,,,,,,,,,
-Toxicroak,193,teammate,10,Volcarona,,,,,,,,,
-Toxicroak,193,stat_alignment,1,Adamant,59.3%,Attack,Sp. Atk,,,,,,
-Toxicroak,193,stat_alignment,2,Jolly,23.0%,Speed,Sp. Atk,,,,,,
-Toxicroak,193,stat_alignment,3,Careful,3.6%,Sp. Def,Sp. Atk,,,,,,
-Toxicroak,193,stat_alignment,4,Naughty,3.0%,Attack,Sp. Def,,,,,,
-Toxicroak,193,stat_alignment,5,Naive,2.4%,Speed,Sp. Def,,,,,,
-Toxicroak,193,stat_alignment,6,Impish,2.0%,Defense,Sp. Atk,,,,,,
-Toxicroak,193,stat_alignment,7,Brave,1.5%,Attack,Speed,,,,,,
-Toxicroak,193,stat_alignment,8,Hasty,1.1%,Speed,Defense,,,,,,
-Toxicroak,193,stat_alignment,9,Lonely,1.0%,Attack,Defense,,,,,,
-Toxicroak,193,stat_alignment,10,Modest,0.8%,Sp. Atk,Attack,,,,,,
-Toxicroak,193,stat_points,1,,37.3%,,,2,32,0,0,0,32
-Toxicroak,193,stat_points,2,,9.1%,,,1,32,1,0,0,32
-Toxicroak,193,stat_points,3,,5.8%,,,0,32,0,0,2,32
-Toxicroak,193,stat_points,4,,4.3%,,,0,32,2,0,0,32
-Toxicroak,193,stat_points,5,,4.1%,,,32,32,0,0,0,2
-Toxicroak,193,stat_points,6,,1.8%,,,1,32,0,0,1,32
-Toxicroak,193,stat_points,7,,1.4%,,,32,32,0,0,2,0
-Toxicroak,193,stat_points,8,,1.4%,,,0,32,32,0,2,0
-Toxicroak,193,stat_points,9,,1.2%,,,2,32,32,0,0,0
-Toxicroak,193,stat_points,10,,1.2%,,,0,32,0,0,32,2
-Toxicroak,193,ability,1,Dry Skin,72.5%,,,,,,,,
-Toxicroak,193,ability,2,Poison Touch,25.8%,,,,,,,,
-Toxicroak,193,ability,3,Anticipation,1.7%,,,,,,,,
+Toxicroak,242,move,1,Close Combat,61.9%,,,,,,,,
+Toxicroak,242,move,2,Gunk Shot,41.9%,,,,,,,,
+Toxicroak,242,move,3,Poison Jab,41.9%,,,,,,,,
+Toxicroak,242,move,4,Sucker Punch,64.8%,,,,,,,,
+Toxicroak,242,move,5,Drain Punch,27.1%,,,,,,,,
+Toxicroak,242,move,6,Bullet Punch,22.4%,,,,,,,,
+Toxicroak,242,move,7,Thunder Punch,11.9%,,,,,,,,
+Toxicroak,242,move,8,Upper Hand,11.9%,,,,,,,,
+Toxicroak,242,move,9,Earthquake,16.7%,,,,,,,,
+Toxicroak,242,move,10,Ice Punch,16.2%,,,,,,,,
+Toxicroak,242,held_item,1,Focus Sash,77.1%,,,,,,,,
+Toxicroak,242,held_item,2,Leftovers,6.2%,,,,,,,,
+Toxicroak,242,held_item,3,Life Orb,12.4%,,,,,,,,
+Toxicroak,242,held_item,4,Choice Scarf,1.9%,,,,,,,,
+Toxicroak,242,held_item,5,Quick Claw,1.4%,,,,,,,,
+Toxicroak,242,held_item,6,Sitrus Berry,0.5%,,,,,,,,
+Toxicroak,242,held_item,7,White Herb,0.5%,,,,,,,,
+Toxicroak,242,teammate,1,Aerodactyl,,,,,,,,,
+Toxicroak,242,teammate,2,Skeledirge,,,,,,,,,
+Toxicroak,242,teammate,3,Garchomp,,,,,,,,,
+Toxicroak,242,teammate,4,Umbreon,,,,,,,,,
+Toxicroak,242,teammate,5,Salamence,,,,,,,,,
+Toxicroak,242,teammate,6,Jolteon,,,,,,,,,
+Toxicroak,242,teammate,7,Banette,,,,,,,,,
+Toxicroak,242,teammate,8,Primarina,,,,,,,,,
+Toxicroak,242,teammate,9,Gengar,,,,,,,,,
+Toxicroak,242,teammate,10,Charizard,,,,,,,,,
+Toxicroak,242,stat_alignment,1,Adamant,65.7%,Attack,Sp. Atk,,,,,,
+Toxicroak,242,stat_alignment,2,Naughty,2.9%,Attack,Sp. Def,,,,,,
+Toxicroak,242,stat_alignment,3,Jolly,19.5%,Speed,Sp. Atk,,,,,,
+Toxicroak,242,stat_alignment,4,Careful,1.0%,Sp. Def,Sp. Atk,,,,,,
+Toxicroak,242,stat_alignment,5,Modest,0.5%,Sp. Atk,Attack,,,,,,
+Toxicroak,242,stat_alignment,6,Impish,0.5%,Defense,Sp. Atk,,,,,,
+Toxicroak,242,stat_points,1,,29.5%,,,2,32,0,0,0,32
+Toxicroak,242,stat_points,2,,10.1%,,,1,32,1,0,0,32
+Toxicroak,242,stat_points,3,,5.7%,,,32,32,0,0,0,2
+Toxicroak,242,stat_points,4,,2.9%,,,1,32,0,0,1,32
+Toxicroak,242,stat_points,5,,7.1%,,,0,32,0,0,2,32
+Toxicroak,242,stat_points,6,,5.2%,,,22,29,8,0,7,0
+Toxicroak,242,stat_points,7,,4.8%,,,0,32,0,0,0,32
+Toxicroak,242,stat_points,8,,2.9%,,,19,10,19,0,0,18
+Toxicroak,242,stat_points,9,,1.0%,,,0,32,0,0,32,2
+Toxicroak,242,stat_points,10,,0.5%,,,0,32,2,0,0,32
+Toxicroak,242,ability,1,Dry Skin,72.7%,,,,,,,,
+Toxicroak,242,ability,2,Poison Touch,19.9%,,,,,,,,
+Toxicroak,242,ability,3,Anticipation,7.4%,,,,,,,,

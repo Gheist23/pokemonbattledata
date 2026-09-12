@@ -1,54 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Kangaskhan,45,move,1,Fake Out,97.1%,,,,,,,,
-Kangaskhan,45,move,2,Double-Edge,48.6%,,,,,,,,
-Kangaskhan,45,move,3,Last Resort,38.8%,,,,,,,,
-Kangaskhan,45,move,4,Sucker Punch,31.4%,,,,,,,,
-Kangaskhan,45,move,5,Ice Punch,24.6%,,,,,,,,
-Kangaskhan,45,move,6,Drain Punch,20.9%,,,,,,,,
-Kangaskhan,45,move,7,Hammer Arm,15.2%,,,,,,,,
-Kangaskhan,45,move,8,Low Kick,12.8%,,,,,,,,
-Kangaskhan,45,move,9,Protect,8.5%,,,,,,,,
-Kangaskhan,45,move,10,Brick Break,6.9%,,,,,,,,
-Kangaskhan,45,held_item,1,Kangaskhanite,49.3%,,,,,,,,
-Kangaskhan,45,held_item,2,Silk Scarf,31.5%,,,,,,,,
-Kangaskhan,45,held_item,3,Life Orb,8.4%,,,,,,,,
-Kangaskhan,45,held_item,4,Chople Berry,2.4%,,,,,,,,
-Kangaskhan,45,held_item,5,Sitrus Berry,1.9%,,,,,,,,
-Kangaskhan,45,held_item,6,Leftovers,1.4%,,,,,,,,
-Kangaskhan,45,held_item,7,Metronome,0.8%,,,,,,,,
-Kangaskhan,45,held_item,8,Muscle Band,0.6%,,,,,,,,
-Kangaskhan,45,held_item,9,Iron Ball,0.6%,,,,,,,,
-Kangaskhan,45,held_item,10,Expert Belt,0.6%,,,,,,,,
-Kangaskhan,45,teammate,1,Farigiraf,,,,,,,,,
-Kangaskhan,45,teammate,2,Torkoal,,,,,,,,,
-Kangaskhan,45,teammate,3,Kingambit,,,,,,,,,
-Kangaskhan,45,teammate,4,Basculegion Male,,,,,,,,,
-Kangaskhan,45,teammate,5,Sylveon,,,,,,,,,
-Kangaskhan,45,teammate,6,Sinistcha,,,,,,,,,
-Kangaskhan,45,teammate,7,Incineroar,,,,,,,,,
-Kangaskhan,45,teammate,8,Mawile,,,,,,,,,
-Kangaskhan,45,teammate,9,Charizard,,,,,,,,,
-Kangaskhan,45,teammate,10,Whimsicott,,,,,,,,,
-Kangaskhan,45,stat_alignment,1,Adamant,51.7%,Attack,Sp. Atk,,,,,,
-Kangaskhan,45,stat_alignment,2,Brave,39.8%,Attack,Speed,,,,,,
-Kangaskhan,45,stat_alignment,3,Jolly,5.1%,Speed,Sp. Atk,,,,,,
-Kangaskhan,45,stat_alignment,4,Impish,0.9%,Defense,Sp. Atk,,,,,,
-Kangaskhan,45,stat_alignment,5,Naughty,0.6%,Attack,Sp. Def,,,,,,
-Kangaskhan,45,stat_alignment,6,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
-Kangaskhan,45,stat_alignment,7,Lonely,0.4%,Attack,Defense,,,,,,
-Kangaskhan,45,stat_alignment,8,Relaxed,0.3%,Defense,Speed,,,,,,
-Kangaskhan,45,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,
-Kangaskhan,45,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Kangaskhan,45,stat_points,1,,24.8%,,,32,32,2,0,0,0
-Kangaskhan,45,stat_points,2,,12.4%,,,32,32,1,0,1,0
-Kangaskhan,45,stat_points,3,,10.7%,,,2,32,0,0,0,32
-Kangaskhan,45,stat_points,4,,7.2%,,,32,32,0,0,2,0
-Kangaskhan,45,stat_points,5,,4.4%,,,32,32,0,0,0,2
-Kangaskhan,45,stat_points,6,,1.7%,,,32,32,0,0,0,0
-Kangaskhan,45,stat_points,7,,1.5%,,,2,32,32,0,0,0
-Kangaskhan,45,stat_points,8,,1.4%,,,0,32,2,0,0,32
-Kangaskhan,45,stat_points,9,,1.3%,,,0,32,0,0,2,32
-Kangaskhan,45,stat_points,10,,1.1%,,,29,32,0,0,5,0
-Kangaskhan,45,ability,1,Scrappy,96.4%,,,,,,,,
-Kangaskhan,45,ability,2,Inner Focus,3.3%,,,,,,,,
-Kangaskhan,45,ability,3,Early Bird,0.3%,,,,,,,,
+Kangaskhan,81,move,1,Fake Out,96.3%,,,,,,,,
+Kangaskhan,81,move,2,Double-Edge,46.8%,,,,,,,,
+Kangaskhan,81,move,3,Last Resort,37.2%,,,,,,,,
+Kangaskhan,81,move,4,Ice Punch,26.4%,,,,,,,,
+Kangaskhan,81,move,5,Sucker Punch,26.0%,,,,,,,,
+Kangaskhan,81,move,6,Hammer Arm,13.2%,,,,,,,,
+Kangaskhan,81,move,7,Drain Punch,16.7%,,,,,,,,
+Kangaskhan,81,move,8,Low Kick,10.1%,,,,,,,,
+Kangaskhan,81,move,9,Brick Break,9.4%,,,,,,,,
+Kangaskhan,81,move,10,Protect,5.2%,,,,,,,,
+Kangaskhan,81,held_item,1,Kangaskhanite,44.5%,,,,,,,,
+Kangaskhan,81,held_item,2,Silk Scarf,36.1%,,,,,,,,
+Kangaskhan,81,held_item,3,Life Orb,11.0%,,,,,,,,
+Kangaskhan,81,held_item,4,Chople Berry,2.0%,,,,,,,,
+Kangaskhan,81,held_item,5,Expert Belt,1.2%,,,,,,,,
+Kangaskhan,81,held_item,6,Sitrus Berry,1.1%,,,,,,,,
+Kangaskhan,81,held_item,7,Metronome,0.8%,,,,,,,,
+Kangaskhan,81,held_item,8,Leftovers,0.8%,,,,,,,,
+Kangaskhan,81,held_item,9,Focus Sash,0.7%,,,,,,,,
+Kangaskhan,81,held_item,10,Lopunnite,0.6%,,,,,,,,
+Kangaskhan,81,teammate,1,Farigiraf,,,,,,,,,
+Kangaskhan,81,teammate,2,Torkoal,,,,,,,,,
+Kangaskhan,81,teammate,3,Golisopod,,,,,,,,,
+Kangaskhan,81,teammate,4,Kingambit,,,,,,,,,
+Kangaskhan,81,teammate,5,Sylveon,,,,,,,,,
+Kangaskhan,81,teammate,6,Basculegion Male,,,,,,,,,
+Kangaskhan,81,teammate,7,Blastoise,,,,,,,,,
+Kangaskhan,81,teammate,8,Camerupt,,,,,,,,,
+Kangaskhan,81,teammate,9,Rillaboom,,,,,,,,,
+Kangaskhan,81,teammate,10,Indeedee Female,,,,,,,,,
+Kangaskhan,81,stat_alignment,1,Adamant,48.7%,Attack,Sp. Atk,,,,,,
+Kangaskhan,81,stat_alignment,2,Brave,47.2%,Attack,Speed,,,,,,
+Kangaskhan,81,stat_alignment,3,Jolly,2.8%,Speed,Sp. Atk,,,,,,
+Kangaskhan,81,stat_alignment,4,Lonely,0.7%,Attack,Defense,,,,,,
+Kangaskhan,81,stat_alignment,5,Relaxed,0.5%,Defense,Speed,,,,,,
+Kangaskhan,81,stat_alignment,6,Modest,0.1%,Sp. Atk,Attack,,,,,,
+Kangaskhan,81,stat_alignment,7,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Kangaskhan,81,stat_points,1,,24.9%,,,32,32,2,0,0,0
+Kangaskhan,81,stat_points,2,,10.9%,,,32,32,1,0,1,0
+Kangaskhan,81,stat_points,3,,7.0%,,,2,32,0,0,0,32
+Kangaskhan,81,stat_points,4,,6.3%,,,32,32,0,0,2,0
+Kangaskhan,81,stat_points,5,,4.0%,,,27,32,7,0,0,0
+Kangaskhan,81,stat_points,6,,3.8%,,,32,32,0,0,0,2
+Kangaskhan,81,stat_points,7,,2.4%,,,29,32,0,0,5,0
+Kangaskhan,81,stat_points,8,,1.6%,,,30,32,4,0,0,0
+Kangaskhan,81,stat_points,9,,1.5%,,,32,32,0,0,1,1
+Kangaskhan,81,stat_points,10,,1.4%,,,27,32,4,0,3,0
+Kangaskhan,81,ability,1,Scrappy,94.2%,,,,,,,,
+Kangaskhan,81,ability,2,Inner Focus,5.0%,,,,,,,,
+Kangaskhan,81,ability,3,Early Bird,0.8%,,,,,,,,

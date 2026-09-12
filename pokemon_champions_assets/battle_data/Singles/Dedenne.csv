@@ -1,54 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dedenne,214,move,1,Nuzzle,70.3%,,,,,,,,
-Dedenne,214,move,2,Dazzling Gleam,53.9%,,,,,,,,
-Dedenne,214,move,3,Super Fang,53.7%,,,,,,,,
-Dedenne,214,move,4,Charm,35.2%,,,,,,,,
-Dedenne,214,move,5,Thunderbolt,29.0%,,,,,,,,
-Dedenne,214,move,6,Volt Switch,21.8%,,,,,,,,
-Dedenne,214,move,7,Eerie Impulse,19.2%,,,,,,,,
-Dedenne,214,move,8,Grass Knot,15.7%,,,,,,,,
-Dedenne,214,move,9,Endeavor,14.8%,,,,,,,,
-Dedenne,214,move,10,Draining Kiss,9.5%,,,,,,,,
-Dedenne,214,held_item,1,Sitrus Berry,59.4%,,,,,,,,
-Dedenne,214,held_item,2,Focus Sash,18.8%,,,,,,,,
-Dedenne,214,held_item,3,Shuca Berry,6.8%,,,,,,,,
-Dedenne,214,held_item,4,Choice Scarf,4.3%,,,,,,,,
-Dedenne,214,held_item,5,Lum Berry,7.2%,,,,,,,,
-Dedenne,214,held_item,6,Oran Berry,0.9%,,,,,,,,
-Dedenne,214,held_item,7,Life Orb,0.9%,,,,,,,,
-Dedenne,214,held_item,8,Leftovers,0.8%,,,,,,,,
-Dedenne,214,held_item,9,Light Ball,0.7%,,,,,,,,
-Dedenne,214,held_item,10,Magnet,0.4%,,,,,,,,
-Dedenne,214,teammate,1,Raichu,,,,,,,,,
-Dedenne,214,teammate,2,Mimikyu,,,,,,,,,
-Dedenne,214,teammate,3,Garchomp,,,,,,,,,
-Dedenne,214,teammate,4,Morpeko,,,,,,,,,
-Dedenne,214,teammate,5,Emolga,,,,,,,,,
-Dedenne,214,teammate,6,Pikachu,,,,,,,,,
-Dedenne,214,teammate,7,Delphox,,,,,,,,,
-Dedenne,214,teammate,8,Meowscarada,,,,,,,,,
-Dedenne,214,teammate,9,Charizard,,,,,,,,,
-Dedenne,214,teammate,10,Greninja,,,,,,,,,
-Dedenne,214,stat_alignment,1,Timid,37.8%,Speed,Attack,,,,,,
-Dedenne,214,stat_alignment,2,Bold,22.0%,Defense,Attack,,,,,,
-Dedenne,214,stat_alignment,3,Modest,15.6%,Sp. Atk,Attack,,,,,,
-Dedenne,214,stat_alignment,4,Calm,6.7%,Sp. Def,Attack,,,,,,
-Dedenne,214,stat_alignment,5,Impish,5.2%,Defense,Sp. Atk,,,,,,
-Dedenne,214,stat_alignment,6,Jolly,4.6%,Speed,Sp. Atk,,,,,,
-Dedenne,214,stat_alignment,7,Careful,2.4%,Sp. Def,Sp. Atk,,,,,,
-Dedenne,214,stat_alignment,8,Mild,1.6%,Sp. Atk,Defense,,,,,,
-Dedenne,214,stat_alignment,9,Hasty,1.3%,Speed,Defense,,,,,,
-Dedenne,214,stat_alignment,10,Naive,0.8%,Speed,Sp. Def,,,,,,
-Dedenne,214,stat_points,1,,20.5%,,,2,0,0,32,0,32
-Dedenne,214,stat_points,2,,10.2%,,,32,0,32,0,2,0
-Dedenne,214,stat_points,3,,6.1%,,,32,0,32,0,0,2
-Dedenne,214,stat_points,4,,4.8%,,,0,0,2,32,0,32
-Dedenne,214,stat_points,5,,4.0%,,,0,0,0,32,2,32
-Dedenne,214,stat_points,6,,2.0%,,,32,0,2,0,32,0
-Dedenne,214,stat_points,7,,1.6%,,,32,0,0,0,32,2
-Dedenne,214,stat_points,8,,1.4%,,,32,0,32,0,0,0
-Dedenne,214,stat_points,9,,1.3%,,,1,0,0,32,1,32
-Dedenne,214,stat_points,10,,1.3%,,,32,0,20,0,14,0
-Dedenne,214,ability,1,Cheek Pouch,78.4%,,,,,,,,
-Dedenne,214,ability,2,Pickup,17.5%,,,,,,,,
-Dedenne,214,ability,3,Plus,4.1%,,,,,,,,
+Dedenne,247,move,1,Nuzzle,70.0%,,,,,,,,
+Dedenne,247,move,2,Super Fang,53.0%,,,,,,,,
+Dedenne,247,move,3,Dazzling Gleam,50.0%,,,,,,,,
+Dedenne,247,move,4,Grass Knot,13.5%,,,,,,,,
+Dedenne,247,move,5,Charm,31.9%,,,,,,,,
+Dedenne,247,move,6,Volt Switch,21.0%,,,,,,,,
+Dedenne,247,move,7,Thunderbolt,29.6%,,,,,,,,
+Dedenne,247,move,8,Endeavor,18.8%,,,,,,,,
+Dedenne,247,move,9,Eerie Impulse,15.2%,,,,,,,,
+Dedenne,247,move,10,Magnet Rise,13.0%,,,,,,,,
+Dedenne,247,held_item,1,Sitrus Berry,77.0%,,,,,,,,
+Dedenne,247,held_item,2,Shuca Berry,4.8%,,,,,,,,
+Dedenne,247,held_item,3,Focus Sash,10.9%,,,,,,,,
+Dedenne,247,held_item,4,Life Orb,4.3%,,,,,,,,
+Dedenne,247,held_item,5,Lum Berry,3.6%,,,,,,,,
+Dedenne,247,held_item,6,Bright Powder,1.4%,,,,,,,,
+Dedenne,247,held_item,7,Choice Scarf,0.7%,,,,,,,,
+Dedenne,247,teammate,1,Pawmot,,,,,,,,,
+Dedenne,247,teammate,2,Garchomp,,,,,,,,,
+Dedenne,247,teammate,3,Banette,,,,,,,,,
+Dedenne,247,teammate,4,Mimikyu,,,,,,,,,
+Dedenne,247,teammate,5,Golisopod,,,,,,,,,
+Dedenne,247,teammate,6,Archaludon,,,,,,,,,
+Dedenne,247,teammate,7,Morpeko,,,,,,,,,
+Dedenne,247,teammate,8,Gengar,,,,,,,,,
+Dedenne,247,teammate,9,Basculegion Male,,,,,,,,,
+Dedenne,247,teammate,10,Absol,,,,,,,,,
+Dedenne,247,stat_alignment,1,Timid,37.8%,Speed,Attack,,,,,,
+Dedenne,247,stat_alignment,2,Modest,17.4%,Sp. Atk,Attack,,,,,,
+Dedenne,247,stat_alignment,3,Calm,13.0%,Sp. Def,Attack,,,,,,
+Dedenne,247,stat_alignment,4,Bold,10.1%,Defense,Attack,,,,,,
+Dedenne,247,stat_alignment,5,Impish,9.4%,Defense,Sp. Atk,,,,,,
+Dedenne,247,stat_alignment,6,Careful,1.4%,Sp. Def,Sp. Atk,,,,,,
+Dedenne,247,stat_alignment,7,Jolly,0.7%,Speed,Sp. Atk,,,,,,
+Dedenne,247,stat_points,1,,24.6%,,,1,0,1,32,0,32
+Dedenne,247,stat_points,2,,13.0%,,,0,0,2,32,0,32
+Dedenne,247,stat_points,3,,9.4%,,,1,0,0,32,1,32
+Dedenne,247,stat_points,4,,9.4%,,,32,0,14,0,13,7
+Dedenne,247,stat_points,5,,7.2%,,,32,0,0,0,0,32
+Dedenne,247,stat_points,6,,7.2%,,,32,0,2,0,32,0
+Dedenne,247,stat_points,7,,6.5%,,,32,0,0,0,32,2
+Dedenne,247,stat_points,8,,5.1%,,,2,0,0,32,0,32
+Dedenne,247,stat_points,9,,3.6%,,,12,0,5,19,1,29
+Dedenne,247,stat_points,10,,3.6%,,,32,0,26,0,8,0
+Dedenne,247,ability,1,Cheek Pouch,70.4%,,,,,,,,
+Dedenne,247,ability,2,Pickup,22.3%,,,,,,,,
+Dedenne,247,ability,3,Plus,7.3%,,,,,,,,

@@ -1,47 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Hydreigon,57,move,6,Heat Wave,23.0%,,,,,,,,
-Hydreigon,57,move,7,Dragon Pulse,15.4%,,,,,,,,
-Hydreigon,57,move,8,Flamethrower,15.2%,,,,,,,,
-Hydreigon,57,move,9,Tailwind,12.2%,,,,,,,,
-Hydreigon,57,move,10,Flash Cannon,11.6%,,,,,,,,
-Hydreigon,57,held_item,1,Choice Scarf,63.1%,,,,,,,,
-Hydreigon,57,held_item,2,Life Orb,18.2%,,,,,,,,
-Hydreigon,57,held_item,3,Focus Sash,5.9%,,,,,,,,
-Hydreigon,57,held_item,4,Expert Belt,3.0%,,,,,,,,
-Hydreigon,57,held_item,5,White Herb,2.7%,,,,,,,,
-Hydreigon,57,held_item,6,Sitrus Berry,2.4%,,,,,,,,
-Hydreigon,57,held_item,7,Roseli Berry,1.8%,,,,,,,,
-Hydreigon,57,held_item,8,Haban Berry,1.8%,,,,,,,,
-Hydreigon,57,held_item,9,Black Glasses,1.6%,,,,,,,,
-Hydreigon,57,held_item,10,Chople Berry,1.6%,,,,,,,,
-Hydreigon,57,teammate,1,Metagross,,,,,,,,,
-Hydreigon,57,teammate,2,Sneasler,,,,,,,,,
-Hydreigon,57,teammate,3,Whimsicott,,,,,,,,,
-Hydreigon,57,teammate,4,Charizard,,,,,,,,,
-Hydreigon,57,teammate,5,Incineroar,,,,,,,,,
-Hydreigon,57,teammate,6,Garchomp,,,,,,,,,
-Hydreigon,57,teammate,7,Sinistcha,,,,,,,,,
-Hydreigon,57,teammate,8,Raichu,,,,,,,,,
-Hydreigon,57,teammate,9,Farigiraf,,,,,,,,,
-Hydreigon,57,teammate,10,Basculegion Male,,,,,,,,,
-Hydreigon,57,stat_alignment,1,Modest,71.3%,Sp. Atk,Attack,,,,,,
-Hydreigon,57,stat_alignment,2,Timid,24.1%,Speed,Attack,,,,,,
-Hydreigon,57,stat_alignment,3,Quiet,0.8%,Sp. Atk,Speed,,,,,,
-Hydreigon,57,stat_alignment,4,Mild,0.8%,Sp. Atk,Defense,,,,,,
-Hydreigon,57,stat_alignment,5,Bold,0.7%,Defense,Attack,,,,,,
-Hydreigon,57,stat_alignment,6,Hasty,0.5%,Speed,Defense,,,,,,
-Hydreigon,57,stat_alignment,7,Calm,0.5%,Sp. Def,Attack,,,,,,
-Hydreigon,57,stat_alignment,8,Jolly,0.2%,Speed,Sp. Atk,,,,,,
-Hydreigon,57,stat_alignment,9,Adamant,0.2%,Attack,Sp. Atk,,,,,,
-Hydreigon,57,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
-Hydreigon,57,stat_points,1,,31.3%,,,2,0,0,32,0,32
-Hydreigon,57,stat_points,2,,4.4%,,,8,0,1,25,0,32
-Hydreigon,57,stat_points,3,,4.2%,,,0,0,2,32,0,32
-Hydreigon,57,stat_points,4,,4.0%,,,0,0,0,32,2,32
-Hydreigon,57,stat_points,5,,2.6%,,,8,0,0,32,0,26
-Hydreigon,57,stat_points,6,,1.3%,,,32,0,0,32,0,2
-Hydreigon,57,stat_points,7,,1.2%,,,4,0,16,20,0,26
-Hydreigon,57,stat_points,8,,1.0%,,,32,0,0,32,2,0
-Hydreigon,57,stat_points,9,,1.0%,,,32,0,2,32,0,0
-Hydreigon,57,stat_points,10,,0.9%,,,1,0,0,32,1,32
-Hydreigon,57,ability,1,Levitate,100.0%,,,,,,,,
+Hydreigon,55,move,1,Dark Pulse,89.6%,,,,,,,,
+Hydreigon,55,move,2,Draco Meteor,80.6%,,,,,,,,
+Hydreigon,55,move,3,Snarl,50.9%,,,,,,,,
+Hydreigon,55,move,4,Earth Power,50.8%,,,,,,,,
+Hydreigon,55,move,5,Protect,29.4%,,,,,,,,
+Hydreigon,55,move,6,Flamethrower,22.4%,,,,,,,,
+Hydreigon,55,move,7,Heat Wave,20.3%,,,,,,,,
+Hydreigon,55,move,8,Dragon Pulse,13.7%,,,,,,,,
+Hydreigon,55,move,9,Tailwind,13.6%,,,,,,,,
+Hydreigon,55,move,10,U-turn,8.2%,,,,,,,,
+Hydreigon,55,held_item,1,Choice Scarf,59.1%,,,,,,,,
+Hydreigon,55,held_item,2,Life Orb,15.7%,,,,,,,,
+Hydreigon,55,held_item,3,Focus Sash,9.5%,,,,,,,,
+Hydreigon,55,held_item,4,Lopunnite,5.2%,,,,,,,,
+Hydreigon,55,held_item,5,Sitrus Berry,1.8%,,,,,,,,
+Hydreigon,55,held_item,6,Expert Belt,1.7%,,,,,,,,
+Hydreigon,55,held_item,7,Chople Berry,1.6%,,,,,,,,
+Hydreigon,55,held_item,8,Scope Lens,1.4%,,,,,,,,
+Hydreigon,55,held_item,9,Roseli Berry,1.0%,,,,,,,,
+Hydreigon,55,held_item,10,Black Glasses,1.0%,,,,,,,,
+Hydreigon,55,teammate,1,Sneasler,,,,,,,,,
+Hydreigon,55,teammate,2,Rillaboom,,,,,,,,,
+Hydreigon,55,teammate,3,Indeedee Female,,,,,,,,,
+Hydreigon,55,teammate,4,Incineroar,,,,,,,,,
+Hydreigon,55,teammate,5,Golisopod,,,,,,,,,
+Hydreigon,55,teammate,6,Salamence,,,,,,,,,
+Hydreigon,55,teammate,7,Metagross,,,,,,,,,
+Hydreigon,55,teammate,8,Basculegion Male,,,,,,,,,
+Hydreigon,55,teammate,9,Gardevoir,,,,,,,,,
+Hydreigon,55,teammate,10,Charizard,,,,,,,,,
+Hydreigon,55,stat_alignment,1,Modest,78.2%,Sp. Atk,Attack,,,,,,
+Hydreigon,55,stat_alignment,2,Timid,19.3%,Speed,Attack,,,,,,
+Hydreigon,55,stat_alignment,3,Quiet,0.8%,Sp. Atk,Speed,,,,,,
+Hydreigon,55,stat_alignment,4,Calm,0.6%,Sp. Def,Attack,,,,,,
+Hydreigon,55,stat_alignment,5,Bold,0.5%,Defense,Attack,,,,,,
+Hydreigon,55,stat_alignment,6,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Hydreigon,55,stat_alignment,7,Hasty,0.2%,Speed,Defense,,,,,,
+Hydreigon,55,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Hydreigon,55,stat_alignment,9,Serious,0.0%,Attack,Sp. Atk,,,,,,
+Hydreigon,55,stat_alignment,10,Sassy,0.0%,Sp. Def,Speed,,,,,,
+Hydreigon,55,stat_points,1,,28.4%,,,2,0,0,32,0,32
+Hydreigon,55,stat_points,2,,4.0%,,,0,0,2,32,0,32
+Hydreigon,55,stat_points,3,,4.0%,,,4,0,1,32,1,28
+Hydreigon,55,stat_points,4,,2.8%,,,8,0,0,32,0,26
+Hydreigon,55,stat_points,5,,2.8%,,,0,0,1,32,1,32
+Hydreigon,55,stat_points,6,,2.3%,,,0,0,0,32,2,32
+Hydreigon,55,stat_points,7,,2.3%,,,8,0,1,25,0,32
+Hydreigon,55,stat_points,8,,1.3%,,,7,0,0,32,0,27
+Hydreigon,55,stat_points,9,,1.3%,,,1,0,1,32,0,32
+Hydreigon,55,stat_points,10,,1.3%,,,0,0,0,32,0,32
+Hydreigon,55,ability,1,Levitate,100.0%,,,,,,,,

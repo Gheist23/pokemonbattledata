@@ -1,54 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dragalge,125,move,1,Sludge Bomb,77.9%,,,,,,,,
-Dragalge,125,move,2,Protect,66.9%,,,,,,,,
-Dragalge,125,move,3,Draco Meteor,61.4%,,,,,,,,
-Dragalge,125,move,4,Dragon Pulse,47.2%,,,,,,,,
-Dragalge,125,move,5,Thunderbolt,27.2%,,,,,,,,
-Dragalge,125,move,6,Sludge Wave,18.7%,,,,,,,,
-Dragalge,125,move,7,Flip Turn,18.6%,,,,,,,,
-Dragalge,125,move,8,Focus Blast,16.6%,,,,,,,,
-Dragalge,125,move,9,Toxic,12.8%,,,,,,,,
-Dragalge,125,move,10,Scald,12.3%,,,,,,,,
-Dragalge,125,held_item,1,Dragalgite,65.1%,,,,,,,,
-Dragalge,125,held_item,2,Life Orb,20.0%,,,,,,,,
-Dragalge,125,held_item,3,Leftovers,2.1%,,,,,,,,
-Dragalge,125,held_item,4,White Herb,2.0%,,,,,,,,
-Dragalge,125,held_item,5,Quick Claw,1.8%,,,,,,,,
-Dragalge,125,held_item,6,Sitrus Berry,1.5%,,,,,,,,
-Dragalge,125,held_item,7,Poison Barb,1.3%,,,,,,,,
-Dragalge,125,held_item,8,Expert Belt,0.9%,,,,,,,,
-Dragalge,125,held_item,9,Wise Glasses,0.6%,,,,,,,,
-Dragalge,125,held_item,10,Focus Sash,0.5%,,,,,,,,
-Dragalge,125,teammate,1,Sinistcha,,,,,,,,,
-Dragalge,125,teammate,2,Farigiraf,,,,,,,,,
-Dragalge,125,teammate,3,Incineroar,,,,,,,,,
-Dragalge,125,teammate,4,Raichu,,,,,,,,,
-Dragalge,125,teammate,5,Kingambit,,,,,,,,,
-Dragalge,125,teammate,6,Aromatisse,,,,,,,,,
-Dragalge,125,teammate,7,Crabominable,,,,,,,,,
-Dragalge,125,teammate,8,Ampharos,,,,,,,,,
-Dragalge,125,teammate,9,Grimmsnarl,,,,,,,,,
-Dragalge,125,teammate,10,Torkoal,,,,,,,,,
-Dragalge,125,stat_alignment,1,Quiet,47.3%,Sp. Atk,Speed,,,,,,
-Dragalge,125,stat_alignment,2,Modest,31.5%,Sp. Atk,Attack,,,,,,
-Dragalge,125,stat_alignment,3,Bold,5.1%,Defense,Attack,,,,,,
-Dragalge,125,stat_alignment,4,Calm,4.8%,Sp. Def,Attack,,,,,,
-Dragalge,125,stat_alignment,5,Relaxed,4.8%,Defense,Speed,,,,,,
-Dragalge,125,stat_alignment,6,Sassy,4.4%,Sp. Def,Speed,,,,,,
-Dragalge,125,stat_alignment,7,Timid,0.9%,Speed,Attack,,,,,,
-Dragalge,125,stat_alignment,8,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Dragalge,125,stat_alignment,9,Brave,0.2%,Attack,Speed,,,,,,
-Dragalge,125,stat_alignment,10,Adamant,0.2%,Attack,Sp. Atk,,,,,,
-Dragalge,125,stat_points,1,,24.1%,,,32,0,2,32,0,0
-Dragalge,125,stat_points,2,,10.8%,,,29,0,5,32,0,0
-Dragalge,125,stat_points,3,,9.0%,,,32,0,0,32,2,0
-Dragalge,125,stat_points,4,,3.6%,,,32,0,6,28,0,0
-Dragalge,125,stat_points,5,,3.2%,,,0,0,32,32,2,0
-Dragalge,125,stat_points,6,,2.4%,,,0,0,2,32,32,0
-Dragalge,125,stat_points,7,,2.1%,,,32,0,11,23,0,0
-Dragalge,125,stat_points,8,,1.9%,,,32,0,32,0,2,0
-Dragalge,125,stat_points,9,,1.7%,,,32,0,2,0,32,0
-Dragalge,125,stat_points,10,,1.1%,,,32,0,32,2,0,0
-Dragalge,125,ability,1,Adaptability,83.1%,,,,,,,,
-Dragalge,125,ability,2,Poison Point,13.2%,,,,,,,,
-Dragalge,125,ability,3,Poison Touch,3.7%,,,,,,,,
+Dragalge,136,move,1,Sludge Bomb,76.8%,,,,,,,,
+Dragalge,136,move,2,Protect,70.6%,,,,,,,,
+Dragalge,136,move,3,Draco Meteor,60.7%,,,,,,,,
+Dragalge,136,move,4,Dragon Pulse,47.4%,,,,,,,,
+Dragalge,136,move,5,Flip Turn,24.5%,,,,,,,,
+Dragalge,136,move,6,Focus Blast,21.3%,,,,,,,,
+Dragalge,136,move,7,Thunderbolt,20.2%,,,,,,,,
+Dragalge,136,move,8,Toxic,17.0%,,,,,,,,
+Dragalge,136,move,9,Sludge Wave,11.0%,,,,,,,,
+Dragalge,136,move,10,Scald,9.8%,,,,,,,,
+Dragalge,136,held_item,1,Dragalgite,66.1%,,,,,,,,
+Dragalge,136,held_item,2,Life Orb,26.0%,,,,,,,,
+Dragalge,136,held_item,3,Leftovers,2.8%,,,,,,,,
+Dragalge,136,held_item,4,Lopunnite,1.5%,,,,,,,,
+Dragalge,136,held_item,5,Dragon Fang,1.1%,,,,,,,,
+Dragalge,136,held_item,6,Houndoominite,0.7%,,,,,,,,
+Dragalge,136,held_item,7,Sitrus Berry,0.4%,,,,,,,,
+Dragalge,136,held_item,8,Focus Sash,0.3%,,,,,,,,
+Dragalge,136,held_item,9,Wise Glasses,0.2%,,,,,,,,
+Dragalge,136,held_item,10,White Herb,0.1%,,,,,,,,
+Dragalge,136,teammate,1,Incineroar,,,,,,,,,
+Dragalge,136,teammate,2,Golisopod,,,,,,,,,
+Dragalge,136,teammate,3,Rillaboom,,,,,,,,,
+Dragalge,136,teammate,4,Sinistcha,,,,,,,,,
+Dragalge,136,teammate,5,Indeedee Female,,,,,,,,,
+Dragalge,136,teammate,6,Farigiraf,,,,,,,,,
+Dragalge,136,teammate,7,Torkoal,,,,,,,,,
+Dragalge,136,teammate,8,Armarouge,,,,,,,,,
+Dragalge,136,teammate,9,Raichu,,,,,,,,,
+Dragalge,136,teammate,10,Baxcalibur,,,,,,,,,
+Dragalge,136,stat_alignment,1,Quiet,45.3%,Sp. Atk,Speed,,,,,,
+Dragalge,136,stat_alignment,2,Modest,29.5%,Sp. Atk,Attack,,,,,,
+Dragalge,136,stat_alignment,3,Sassy,5.5%,Sp. Def,Speed,,,,,,
+Dragalge,136,stat_alignment,4,Calm,4.9%,Sp. Def,Attack,,,,,,
+Dragalge,136,stat_alignment,5,Relaxed,2.8%,Defense,Speed,,,,,,
+Dragalge,136,stat_alignment,6,Bold,2.0%,Defense,Attack,,,,,,
+Dragalge,136,stat_points,1,,27.5%,,,32,0,2,32,0,0
+Dragalge,136,stat_points,2,,15.4%,,,29,0,5,32,0,0
+Dragalge,136,stat_points,3,,4.4%,,,0,0,32,32,2,0
+Dragalge,136,stat_points,4,,3.9%,,,28,0,0,32,0,6
+Dragalge,136,stat_points,5,,3.8%,,,32,0,11,23,0,0
+Dragalge,136,stat_points,6,,3.7%,,,32,0,15,18,1,0
+Dragalge,136,stat_points,7,,3.2%,,,32,0,0,32,2,0
+Dragalge,136,stat_points,8,,3.0%,,,32,0,32,0,2,0
+Dragalge,136,stat_points,9,,2.1%,,,28,0,6,32,0,0
+Dragalge,136,stat_points,10,,2.0%,,,0,0,26,23,17,0
+Dragalge,136,ability,1,Adaptability,81.4%,,,,,,,,
+Dragalge,136,ability,2,Poison Point,13.2%,,,,,,,,
+Dragalge,136,ability,3,Poison Touch,5.4%,,,,,,,,

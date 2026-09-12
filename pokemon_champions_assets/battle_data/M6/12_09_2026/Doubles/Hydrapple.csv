@@ -1,54 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Hydrapple,160,move,1,Fickle Beam,90.8%,,,,,,,,
-Hydrapple,160,move,2,Protect,67.0%,,,,,,,,
-Hydrapple,160,move,3,Giga Drain,35.4%,,,,,,,,
-Hydrapple,160,move,4,Earth Power,34.3%,,,,,,,,
-Hydrapple,160,move,5,Pollen Puff,26.1%,,,,,,,,
-Hydrapple,160,move,6,Energy Ball,18.3%,,,,,,,,
-Hydrapple,160,move,7,Nasty Plot,13.1%,,,,,,,,
-Hydrapple,160,move,8,Leaf Storm,11.9%,,,,,,,,
-Hydrapple,160,move,9,Syrup Bomb,11.8%,,,,,,,,
-Hydrapple,160,move,10,Draco Meteor,8.1%,,,,,,,,
-Hydrapple,160,held_item,1,Life Orb,28.8%,,,,,,,,
-Hydrapple,160,held_item,2,Leftovers,31.1%,,,,,,,,
-Hydrapple,160,held_item,3,Sitrus Berry,11.8%,,,,,,,,
-Hydrapple,160,held_item,4,Yache Berry,10.8%,,,,,,,,
-Hydrapple,160,held_item,5,Quick Claw,3.9%,,,,,,,,
-Hydrapple,160,held_item,6,Focus Sash,3.4%,,,,,,,,
-Hydrapple,160,held_item,7,White Herb,2.9%,,,,,,,,
-Hydrapple,160,held_item,8,Wise Glasses,2.7%,,,,,,,,
-Hydrapple,160,held_item,9,Expert Belt,2.5%,,,,,,,,
-Hydrapple,160,held_item,10,Dragon Fang,2.4%,,,,,,,,
-Hydrapple,160,teammate,1,Farigiraf,,,,,,,,,
-Hydrapple,160,teammate,2,Incineroar,,,,,,,,,
-Hydrapple,160,teammate,3,Torkoal,,,,,,,,,
-Hydrapple,160,teammate,4,Mawile,,,,,,,,,
-Hydrapple,160,teammate,5,Kingambit,,,,,,,,,
-Hydrapple,160,teammate,6,Oranguru,,,,,,,,,
-Hydrapple,160,teammate,7,Sinistcha,,,,,,,,,
-Hydrapple,160,teammate,8,Sylveon,,,,,,,,,
-Hydrapple,160,teammate,9,Sneasler,,,,,,,,,
-Hydrapple,160,teammate,10,Hatterene,,,,,,,,,
-Hydrapple,160,stat_alignment,1,Quiet,48.7%,Sp. Atk,Speed,,,,,,
-Hydrapple,160,stat_alignment,2,Modest,26.9%,Sp. Atk,Attack,,,,,,
-Hydrapple,160,stat_alignment,3,Sassy,8.8%,Sp. Def,Speed,,,,,,
-Hydrapple,160,stat_alignment,4,Calm,5.9%,Sp. Def,Attack,,,,,,
-Hydrapple,160,stat_alignment,5,Bold,4.0%,Defense,Attack,,,,,,
-Hydrapple,160,stat_alignment,6,Relaxed,2.0%,Defense,Speed,,,,,,
-Hydrapple,160,stat_alignment,7,Timid,1.7%,Speed,Attack,,,,,,
-Hydrapple,160,stat_alignment,8,Mild,0.8%,Sp. Atk,Defense,,,,,,
-Hydrapple,160,stat_alignment,9,Adamant,0.3%,Attack,Sp. Atk,,,,,,
-Hydrapple,160,stat_alignment,10,Brave,0.2%,Attack,Speed,,,,,,
-Hydrapple,160,stat_points,1,,23.3%,,,32,0,0,32,2,0
-Hydrapple,160,stat_points,2,,12.6%,,,32,0,2,32,0,0
-Hydrapple,160,stat_points,3,,4.7%,,,2,0,0,32,32,0
-Hydrapple,160,stat_points,4,,4.6%,,,0,0,2,32,32,0
-Hydrapple,160,stat_points,5,,3.6%,,,2,0,32,32,0,0
-Hydrapple,160,stat_points,6,,1.9%,,,19,0,0,32,15,0
-Hydrapple,160,stat_points,7,,1.4%,,,32,0,0,32,0,0
-Hydrapple,160,stat_points,8,,1.2%,,,32,0,2,0,32,0
-Hydrapple,160,stat_points,9,,1.2%,,,4,0,0,32,30,0
-Hydrapple,160,stat_points,10,,0.9%,,,32,0,0,32,0,2
-Hydrapple,160,ability,1,Regenerator,68.2%,,,,,,,,
-Hydrapple,160,ability,2,Supersweet Syrup,28.3%,,,,,,,,
-Hydrapple,160,ability,3,Sticky Hold,3.5%,,,,,,,,
+Hydrapple,180,move,1,Fickle Beam,85.8%,,,,,,,,
+Hydrapple,180,move,2,Protect,62.3%,,,,,,,,
+Hydrapple,180,move,3,Earth Power,31.0%,,,,,,,,
+Hydrapple,180,move,4,Leaf Storm,9.2%,,,,,,,,
+Hydrapple,180,move,5,Giga Drain,31.5%,,,,,,,,
+Hydrapple,180,move,6,Pollen Puff,22.3%,,,,,,,,
+Hydrapple,180,move,7,Energy Ball,19.9%,,,,,,,,
+Hydrapple,180,move,8,Draco Meteor,14.2%,,,,,,,,
+Hydrapple,180,move,9,Hydro Pump,7.3%,,,,,,,,
+Hydrapple,180,move,10,Recover,5.9%,,,,,,,,
+Hydrapple,180,held_item,1,Life Orb,34.1%,,,,,,,,
+Hydrapple,180,held_item,2,Leftovers,29.9%,,,,,,,,
+Hydrapple,180,held_item,3,Sitrus Berry,13.4%,,,,,,,,
+Hydrapple,180,held_item,4,Yache Berry,6.7%,,,,,,,,
+Hydrapple,180,held_item,5,Lopunnite,3.8%,,,,,,,,
+Hydrapple,180,held_item,6,Quick Claw,2.7%,,,,,,,,
+Hydrapple,180,held_item,7,White Herb,2.4%,,,,,,,,
+Hydrapple,180,held_item,8,Wise Glasses,1.9%,,,,,,,,
+Hydrapple,180,held_item,9,Expert Belt,1.3%,,,,,,,,
+Hydrapple,180,held_item,10,Dragon Fang,1.1%,,,,,,,,
+Hydrapple,180,teammate,1,Indeedee Female,,,,,,,,,
+Hydrapple,180,teammate,2,Golisopod,,,,,,,,,
+Hydrapple,180,teammate,3,Farigiraf,,,,,,,,,
+Hydrapple,180,teammate,4,Hatterene,,,,,,,,,
+Hydrapple,180,teammate,5,Flapple,,,,,,,,,
+Hydrapple,180,teammate,6,Gourgeist Large Variety,,,,,,,,,
+Hydrapple,180,teammate,7,Armarouge,,,,,,,,,
+Hydrapple,180,teammate,8,Incineroar,,,,,,,,,
+Hydrapple,180,teammate,9,Drampa,,,,,,,,,
+Hydrapple,180,teammate,10,Torkoal,,,,,,,,,
+Hydrapple,180,stat_alignment,1,Quiet,47.2%,Sp. Atk,Speed,,,,,,
+Hydrapple,180,stat_alignment,2,Modest,25.1%,Sp. Atk,Attack,,,,,,
+Hydrapple,180,stat_alignment,3,Sassy,7.8%,Sp. Def,Speed,,,,,,
+Hydrapple,180,stat_alignment,4,Calm,4.3%,Sp. Def,Attack,,,,,,
+Hydrapple,180,stat_alignment,5,Bold,3.8%,Defense,Attack,,,,,,
+Hydrapple,180,stat_alignment,6,Relaxed,1.9%,Defense,Speed,,,,,,
+Hydrapple,180,stat_points,1,,30.4%,,,32,0,2,32,0,0
+Hydrapple,180,stat_points,2,,9.3%,,,32,0,0,32,2,0
+Hydrapple,180,stat_points,3,,4.6%,,,30,0,0,4,32,0
+Hydrapple,180,stat_points,4,,4.3%,,,0,0,32,32,2,0
+Hydrapple,180,stat_points,5,,4.3%,,,2,0,32,32,0,0
+Hydrapple,180,stat_points,6,,3.8%,,,0,0,2,32,32,0
+Hydrapple,180,stat_points,7,,3.8%,,,31,0,3,0,32,0
+Hydrapple,180,stat_points,8,,3.0%,,,2,0,0,32,32,0
+Hydrapple,180,stat_points,9,,2.4%,,,32,0,5,6,23,0
+Hydrapple,180,stat_points,10,,2.2%,,,32,0,2,0,32,0
+Hydrapple,180,ability,1,Regenerator,70.7%,,,,,,,,
+Hydrapple,180,ability,2,Supersweet Syrup,26.9%,,,,,,,,
+Hydrapple,180,ability,3,Sticky Hold,2.4%,,,,,,,,

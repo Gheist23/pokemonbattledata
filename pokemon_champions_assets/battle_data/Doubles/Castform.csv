@@ -1,47 +1,34 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Castform,221,move,6,Hurricane,22.7%,,,,,,,,
-Castform,221,move,7,Scald,15.6%,,,,,,,,
-Castform,221,move,8,Flamethrower,12.9%,,,,,,,,
-Castform,221,move,9,Ice Beam,11.2%,,,,,,,,
-Castform,221,move,10,Icy Wind,11.1%,,,,,,,,
-Castform,221,held_item,1,Life Orb,42.1%,,,,,,,,
-Castform,221,held_item,2,Focus Sash,12.0%,,,,,,,,
-Castform,221,held_item,3,Choice Scarf,17.1%,,,,,,,,
-Castform,221,held_item,4,Expert Belt,7.2%,,,,,,,,
-Castform,221,held_item,5,Leftovers,4.9%,,,,,,,,
-Castform,221,held_item,6,Sitrus Berry,4.8%,,,,,,,,
-Castform,221,held_item,7,Bright Powder,4.2%,,,,,,,,
-Castform,221,held_item,8,Quick Claw,3.5%,,,,,,,,
-Castform,221,held_item,9,Never-Melt Ice,2.5%,,,,,,,,
-Castform,221,held_item,10,Wise Glasses,2.2%,,,,,,,,
-Castform,221,teammate,1,Pelipper,,,,,,,,,
-Castform,221,teammate,2,Charizard,,,,,,,,,
-Castform,221,teammate,3,Froslass,,,,,,,,,
-Castform,221,teammate,4,Torkoal,,,,,,,,,
-Castform,221,teammate,5,Alolan Ninetales,,,,,,,,,
-Castform,221,teammate,6,Swampert,,,,,,,,,
-Castform,221,teammate,7,Abomasnow,,,,,,,,,
-Castform,221,teammate,8,Farigiraf,,,,,,,,,
-Castform,221,teammate,9,Archaludon,,,,,,,,,
-Castform,221,teammate,10,Sableye,,,,,,,,,
-Castform,221,stat_alignment,1,Modest,47.7%,Sp. Atk,Attack,,,,,,
-Castform,221,stat_alignment,2,Timid,25.1%,Speed,Attack,,,,,,
-Castform,221,stat_alignment,3,Quiet,15.5%,Sp. Atk,Speed,,,,,,
-Castform,221,stat_alignment,4,Mild,2.7%,Sp. Atk,Defense,,,,,,
-Castform,221,stat_alignment,5,Bold,2.1%,Defense,Attack,,,,,,
-Castform,221,stat_alignment,6,Sassy,2.0%,Sp. Def,Speed,,,,,,
-Castform,221,stat_alignment,7,Calm,1.5%,Sp. Def,Attack,,,,,,
-Castform,221,stat_alignment,8,Relaxed,1.2%,Defense,Speed,,,,,,
-Castform,221,stat_alignment,9,Hasty,1.0%,Speed,Defense,,,,,,
-Castform,221,stat_alignment,10,Gentle,0.5%,Sp. Def,Defense,,,,,,
-Castform,221,stat_points,1,,33.6%,,,2,0,0,32,0,32
-Castform,221,stat_points,2,,8.5%,,,32,0,0,32,2,0
-Castform,221,stat_points,3,,6.7%,,,0,0,0,32,2,32
-Castform,221,stat_points,4,,5.6%,,,32,0,2,32,0,0
-Castform,221,stat_points,5,,4.5%,,,0,0,2,32,0,32
-Castform,221,stat_points,6,,3.6%,,,6,0,12,32,16,0
-Castform,221,stat_points,7,,2.2%,,,0,0,0,32,32,2
-Castform,221,stat_points,8,,2.1%,,,0,0,0,32,0,32
-Castform,221,stat_points,9,,1.8%,,,2,0,32,32,0,0
-Castform,221,stat_points,10,,1.8%,,,32,0,1,32,1,0
-Castform,221,ability,1,Forecast,100.0%,,,,,,,,
+Castform,223,move,1,Weather Ball,98.4%,,,,,,,,
+Castform,223,move,2,Ice Beam,12.7%,,,,,,,,
+Castform,223,move,3,Energy Ball,48.4%,,,,,,,,
+Castform,223,move,4,Hurricane,22.1%,,,,,,,,
+Castform,223,move,5,Thunder,35.7%,,,,,,,,
+Castform,223,move,6,Rain Dance,22.5%,,,,,,,,
+Castform,223,move,7,Flamethrower,10.2%,,,,,,,,
+Castform,223,move,8,Protect,8.6%,,,,,,,,
+Castform,223,move,9,Solar Beam,9.5%,,,,,,,,
+Castform,223,move,10,Blizzard,6.3%,,,,,,,,
+Castform,223,held_item,1,Life Orb,61.3%,,,,,,,,
+Castform,223,held_item,2,Quick Claw,2.6%,,,,,,,,
+Castform,223,held_item,3,Black Belt,19.0%,,,,,,,,
+Castform,223,held_item,4,Expert Belt,9.5%,,,,,,,,
+Castform,223,held_item,5,Focus Sash,11.6%,,,,,,,,
+Castform,223,teammate,1,Ditto,,,,,,,,,
+Castform,223,teammate,2,Farfetch'd,,,,,,,,,
+Castform,223,teammate,3,Tyranitar,,,,,,,,,
+Castform,223,teammate,4,Audino,,,,,,,,,
+Castform,223,teammate,5,Tinkaton,,,,,,,,,
+Castform,223,teammate,6,Qwilfish,,,,,,,,,
+Castform,223,teammate,7,Watchog,,,,,,,,,
+Castform,223,teammate,8,Simisage,,,,,,,,,
+Castform,223,teammate,9,Simisear,,,,,,,,,
+Castform,223,teammate,10,Simipour,,,,,,,,,
+Castform,223,stat_alignment,1,Quiet,52.4%,Sp. Atk,Speed,,,,,,
+Castform,223,stat_alignment,2,Modest,46.0%,Sp. Atk,Attack,,,,,,
+Castform,223,stat_alignment,3,Timid,21.6%,Speed,Attack,,,,,,
+Castform,223,stat_points,1,,39.7%,,,2,0,0,32,0,32
+Castform,223,stat_points,2,,9.9%,,,32,0,0,32,2,0
+Castform,223,stat_points,3,,9.8%,,,32,0,2,32,0,0
+Castform,223,stat_points,4,,1.6%,,,32,0,0,32,0,0
+Castform,223,ability,1,Forecast,100.0%,,,,,,,,

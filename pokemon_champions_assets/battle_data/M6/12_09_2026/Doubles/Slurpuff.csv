@@ -1,53 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slurpuff,220,move,1,Dazzling Gleam,45.7%,,,,,,,,
-Slurpuff,220,move,2,Protect,37.9%,,,,,,,,
-Slurpuff,220,move,3,Cotton Guard,35.6%,,,,,,,,
-Slurpuff,220,move,4,Draining Kiss,31.9%,,,,,,,,
-Slurpuff,220,move,5,Flamethrower,29.4%,,,,,,,,
-Slurpuff,220,move,6,Calm Mind,26.4%,,,,,,,,
-Slurpuff,220,move,7,Play Rough,23.0%,,,,,,,,
-Slurpuff,220,move,8,Drain Punch,22.2%,,,,,,,,
-Slurpuff,220,move,9,After You,14.9%,,,,,,,,
-Slurpuff,220,move,10,Yawn,14.8%,,,,,,,,
-Slurpuff,220,held_item,1,Sitrus Berry,42.6%,,,,,,,,
-Slurpuff,220,held_item,2,Persim Berry,12.6%,,,,,,,,
-Slurpuff,220,held_item,3,Leftovers,19.9%,,,,,,,,
-Slurpuff,220,held_item,4,Lum Berry,8.5%,,,,,,,,
-Slurpuff,220,held_item,5,White Herb,5.0%,,,,,,,,
-Slurpuff,220,held_item,6,Fairy Feather,3.7%,,,,,,,,
-Slurpuff,220,held_item,7,Focus Sash,2.5%,,,,,,,,
-Slurpuff,220,held_item,8,Life Orb,1.7%,,,,,,,,
-Slurpuff,220,held_item,9,Kebia Berry,2.3%,,,,,,,,
-Slurpuff,220,held_item,10,Quick Claw,2.3%,,,,,,,,
-Slurpuff,220,teammate,1,Sableye,,,,,,,,,
-Slurpuff,220,teammate,2,Sinistcha,,,,,,,,,
-Slurpuff,220,teammate,3,Garchomp,,,,,,,,,
-Slurpuff,220,teammate,4,Whimsicott,,,,,,,,,
-Slurpuff,220,teammate,5,Chandelure,,,,,,,,,
-Slurpuff,220,teammate,6,Charizard,,,,,,,,,
-Slurpuff,220,teammate,7,Banette,,,,,,,,,
-Slurpuff,220,teammate,8,Maushold,,,,,,,,,
-Slurpuff,220,teammate,9,Grimmsnarl,,,,,,,,,
-Slurpuff,220,teammate,10,Staraptor,,,,,,,,,
-Slurpuff,220,stat_alignment,1,Modest,29.3%,Sp. Atk,Attack,,,,,,
-Slurpuff,220,stat_alignment,2,Adamant,16.6%,Attack,Sp. Atk,,,,,,
-Slurpuff,220,stat_alignment,3,Timid,12.5%,Speed,Attack,,,,,,
-Slurpuff,220,stat_alignment,4,Bold,12.2%,Defense,Attack,,,,,,
-Slurpuff,220,stat_alignment,5,Calm,7.8%,Sp. Def,Attack,,,,,,
-Slurpuff,220,stat_alignment,6,Quiet,7.8%,Sp. Atk,Speed,,,,,,
-Slurpuff,220,stat_alignment,7,Jolly,3.9%,Speed,Sp. Atk,,,,,,
-Slurpuff,220,stat_alignment,8,Relaxed,3.1%,Defense,Speed,,,,,,
-Slurpuff,220,stat_alignment,9,Sassy,2.4%,Sp. Def,Speed,,,,,,
-Slurpuff,220,stat_alignment,10,Mild,1.8%,Sp. Atk,Defense,,,,,,
-Slurpuff,220,stat_points,1,,7.2%,,,2,32,0,0,0,32
-Slurpuff,220,stat_points,2,,6.6%,,,2,0,0,32,0,32
-Slurpuff,220,stat_points,3,,5.2%,,,32,0,2,32,0,0
-Slurpuff,220,stat_points,4,,3.7%,,,0,0,32,32,2,0
-Slurpuff,220,stat_points,5,,3.3%,,,0,0,0,32,2,32
-Slurpuff,220,stat_points,6,,2.5%,,,32,0,0,32,2,0
-Slurpuff,220,stat_points,7,,2.5%,,,0,0,2,32,32,0
-Slurpuff,220,stat_points,8,,2.5%,,,2,0,0,32,32,0
-Slurpuff,220,stat_points,9,,2.2%,,,0,32,0,0,2,32
-Slurpuff,220,stat_points,10,,2.2%,,,2,0,32,0,32,0
-Slurpuff,220,ability,1,Unburden,71.3%,,,,,,,,
-Slurpuff,220,ability,2,Sweet Veil,28.7%,,,,,,,,
+Slurpuff,220,move,1,Dazzling Gleam,44.8%,,,,,,,,
+Slurpuff,220,move,2,Protect,38.3%,,,,,,,,
+Slurpuff,220,move,3,Yawn,16.9%,,,,,,,,
+Slurpuff,220,move,4,After You,11.5%,,,,,,,,
+Slurpuff,220,move,5,Flamethrower,28.7%,,,,,,,,
+Slurpuff,220,move,6,String Shot,28.7%,,,,,,,,
+Slurpuff,220,move,7,Fake Tears,25.2%,,,,,,,,
+Slurpuff,220,move,8,Psychic,22.4%,,,,,,,,
+Slurpuff,220,move,9,Draining Kiss,30.3%,,,,,,,,
+Slurpuff,220,move,10,Calm Mind,21.9%,,,,,,,,
+Slurpuff,220,held_item,1,Lopunnite,11.0%,,,,,,,,
+Slurpuff,220,held_item,2,Persim Berry,15.9%,,,,,,,,
+Slurpuff,220,held_item,3,Life Orb,5.6%,,,,,,,,
+Slurpuff,220,held_item,4,Lum Berry,4.9%,,,,,,,,
+Slurpuff,220,held_item,5,Leftovers,14.9%,,,,,,,,
+Slurpuff,220,held_item,6,Fairy Feather,3.5%,,,,,,,,
+Slurpuff,220,held_item,7,Sitrus Berry,42.1%,,,,,,,,
+Slurpuff,220,held_item,8,Houndoominite,2.1%,,,,,,,,
+Slurpuff,220,teammate,1,Rillaboom,,,,,,,,,
+Slurpuff,220,teammate,2,Milotic,,,,,,,,,
+Slurpuff,220,teammate,3,Cinderace,,,,,,,,,
+Slurpuff,220,teammate,4,Absol,,,,,,,,,
+Slurpuff,220,teammate,5,Sneasler,,,,,,,,,
+Slurpuff,220,teammate,6,Indeedee,,,,,,,,,
+Slurpuff,220,teammate,7,Charizard,,,,,,,,,
+Slurpuff,220,teammate,8,Torkoal,,,,,,,,,
+Slurpuff,220,teammate,9,Baxcalibur,,,,,,,,,
+Slurpuff,220,teammate,10,Lucario,,,,,,,,,
+Slurpuff,220,stat_alignment,1,Modest,32.9%,Sp. Atk,Attack,,,,,,
+Slurpuff,220,stat_alignment,2,Calm,8.7%,Sp. Def,Attack,,,,,,
+Slurpuff,220,stat_alignment,3,Timid,14.0%,Speed,Attack,,,,,,
+Slurpuff,220,stat_alignment,4,Jolly,9.8%,Speed,Sp. Atk,,,,,,
+Slurpuff,220,stat_alignment,5,Bold,7.0%,Defense,Attack,,,,,,
+Slurpuff,220,stat_alignment,6,Quiet,5.6%,Sp. Atk,Speed,,,,,,
+Slurpuff,220,stat_alignment,7,Sassy,2.1%,Sp. Def,Speed,,,,,,
+Slurpuff,220,stat_points,1,,8.9%,,,1,0,1,32,0,32
+Slurpuff,220,stat_points,2,,8.9%,,,27,0,4,0,15,20
+Slurpuff,220,stat_points,3,,9.1%,,,32,0,4,0,0,30
+Slurpuff,220,stat_points,4,,8.4%,,,31,0,0,15,0,20
+Slurpuff,220,stat_points,5,,6.3%,,,2,0,0,32,0,32
+Slurpuff,220,stat_points,6,,6.3%,,,2,32,0,0,0,32
+Slurpuff,220,stat_points,7,,5.6%,,,2,0,32,32,0,0
+Slurpuff,220,stat_points,8,,4.9%,,,18,0,14,9,25,0
+Slurpuff,220,stat_points,9,,3.5%,,,13,11,4,0,6,32
+Slurpuff,220,stat_points,10,,2.8%,,,32,0,0,0,8,26
+Slurpuff,220,ability,1,Unburden,73.0%,,,,,,,,
+Slurpuff,220,ability,2,Sweet Veil,27.0%,,,,,,,,

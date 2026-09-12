@@ -1,5 +1,4 @@
 move_name,type,category,power,accuracy,pp
-Astonish,Ghost,Physical,30,100,16
 Avalanche,Ice,Physical,60,100,12
 Bite,Dark,Physical,60,100,20
 Blizzard,Ice,Special,110,70,8
@@ -37,7 +36,6 @@ Payback,Dark,Physical,50,100,12
 Protect,Normal,Status,-,101,8
 Rain Dance,Water,Status,-,101,8
 Rest,Psychic,Status,-,101,8
-Rollout,Rock,Physical,30,90,20
 Round,Normal,Special,60,100,16
 Scary Face,Normal,Status,-,100,12
 Self-Destruct,Normal,Physical,200,100,8

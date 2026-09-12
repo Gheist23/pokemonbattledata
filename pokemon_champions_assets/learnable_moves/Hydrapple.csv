@@ -1,5 +1,4 @@
 move_name,type,category,power,accuracy,pp
-Astonish,Ghost,Physical,30,100,16
 Body Press,Fighting,Physical,80,100,12
 Body Slam,Normal,Physical,85,100,16
 Breaking Swipe,Dragon,Physical,60,100,16
@@ -30,7 +29,6 @@ Hydro Pump,Water,Special,110,80,8
 Hyper Beam,Normal,Special,150,90,8
 Infestation,Bug,Special,20,100,20
 Leaf Storm,Grass,Special,130,90,8
-Magical Leaf,Grass,Special,60,101,20
 Nasty Plot,Dark,Status,-,101,20
 Outrage,Dragon,Physical,120,100,12
 Pollen Puff,Bug,Special,90,100,16
@@ -42,7 +40,6 @@ Recover,Normal,Status,-,101,8
 Recycle,Normal,Status,-,101,12
 Reflect,Psychic,Status,-,101,20
 Rest,Psychic,Status,-,101,8
-Rollout,Rock,Physical,30,90,20
 Seed Bomb,Grass,Physical,80,100,16
 Sleep Talk,Normal,Status,-,101,12
 Solar Beam,Grass,Special,120,100,12

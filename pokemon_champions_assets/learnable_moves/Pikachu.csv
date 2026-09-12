@@ -43,7 +43,6 @@ Rising Voltage,Electric,Special,70,100,20
 Round,Normal,Special,60,100,16
 Sleep Talk,Normal,Status,-,101,12
 Snore,Normal,Special,50,100,16
-Spark,Electric,Physical,65,100,20
 Substitute,Normal,Status,-,101,12
 Surf,Water,Special,90,100,16
 Sweet Kiss,Fairy,Status,-,75,12
@@ -58,5 +57,5 @@ Upper Hand,Fighting,Physical,65,100,16
 Volt Switch,Electric,Special,70,100,20
 Volt Tackle,Electric,Physical,120,100,16
 Wild Charge,Electric,Physical,90,100,16
-Wish,Normal,Status,-,101,12
+Wish,Normal,Status,-,101,8
 Zap Cannon,Electric,Special,120,50,8

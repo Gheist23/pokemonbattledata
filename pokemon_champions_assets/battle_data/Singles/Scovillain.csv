@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scovillain,64,move,1,Protect,86.8%,,,,,,,,
-Scovillain,64,move,2,Leech Seed,81.7%,,,,,,,,
-Scovillain,64,move,3,Giga Drain,70.3%,,,,,,,,
-Scovillain,64,move,4,Flamethrower,67.5%,,,,,,,,
-Scovillain,64,move,5,Leaf Storm,31.0%,,,,,,,,
-Scovillain,64,move,6,Burning Jealousy,19.8%,,,,,,,,
-Scovillain,64,move,7,Substitute,13.4%,,,,,,,,
-Scovillain,64,move,8,Overheat,9.4%,,,,,,,,
-Scovillain,64,move,9,Super Fang,3.5%,,,,,,,,
-Scovillain,64,move,10,Fire Spin,3.2%,,,,,,,,
-Scovillain,64,held_item,1,Scovillainite,90.0%,,,,,,,,
+Scovillain,64,move,1,Protect,87.5%,,,,,,,,
+Scovillain,64,move,2,Leech Seed,81.5%,,,,,,,,
+Scovillain,64,move,3,Giga Drain,70.7%,,,,,,,,
+Scovillain,64,move,4,Flamethrower,67.8%,,,,,,,,
+Scovillain,64,move,5,Leaf Storm,30.3%,,,,,,,,
+Scovillain,64,move,6,Burning Jealousy,20.2%,,,,,,,,
+Scovillain,64,move,7,Substitute,12.9%,,,,,,,,
+Scovillain,64,move,8,Overheat,8.5%,,,,,,,,
+Scovillain,64,move,9,Super Fang,4.1%,,,,,,,,
+Scovillain,64,move,10,Fire Spin,3.1%,,,,,,,,
+Scovillain,64,held_item,1,Scovillainite,89.7%,,,,,,,,
 Scovillain,64,held_item,2,Leftovers,6.6%,,,,,,,,
 Scovillain,64,held_item,3,Big Root,0.8%,,,,,,,,
-Scovillain,64,held_item,4,Life Orb,0.4%,,,,,,,,
-Scovillain,64,held_item,5,Sitrus Berry,0.4%,,,,,,,,
+Scovillain,64,held_item,4,Sitrus Berry,0.4%,,,,,,,,
+Scovillain,64,held_item,5,Life Orb,0.4%,,,,,,,,
 Scovillain,64,held_item,6,Focus Sash,0.3%,,,,,,,,
-Scovillain,64,held_item,7,Charcoal,0.2%,,,,,,,,
-Scovillain,64,held_item,8,Bright Powder,0.1%,,,,,,,,
-Scovillain,64,held_item,9,White Herb,0.1%,,,,,,,,
-Scovillain,64,held_item,10,Muscle Band,0.1%,,,,,,,,
+Scovillain,64,held_item,7,Charcoal,0.1%,,,,,,,,
+Scovillain,64,held_item,8,White Herb,0.1%,,,,,,,,
+Scovillain,64,held_item,9,Bright Powder,0.1%,,,,,,,,
+Scovillain,64,held_item,10,Quick Claw,0.0%,,,,,,,,
 Scovillain,64,teammate,1,Garchomp,,,,,,,,,
 Scovillain,64,teammate,2,Primarina,,,,,,,,,
 Scovillain,64,teammate,3,Salamence,,,,,,,,,
@@ -27,28 +27,28 @@ Scovillain,64,teammate,5,Golisopod,,,,,,,,,
 Scovillain,64,teammate,6,Tyranitar,,,,,,,,,
 Scovillain,64,teammate,7,Basculegion Male,,,,,,,,,
 Scovillain,64,teammate,8,Corviknight,,,,,,,,,
-Scovillain,64,teammate,9,Archaludon,,,,,,,,,
-Scovillain,64,teammate,10,Hippowdon,,,,,,,,,
-Scovillain,64,stat_alignment,1,Bold,44.5%,Defense,Attack,,,,,,
-Scovillain,64,stat_alignment,2,Modest,30.4%,Sp. Atk,Attack,,,,,,
-Scovillain,64,stat_alignment,3,Calm,18.8%,Sp. Def,Attack,,,,,,
-Scovillain,64,stat_alignment,4,Timid,4.1%,Speed,Attack,,,,,,
+Scovillain,64,teammate,9,Hippowdon,,,,,,,,,
+Scovillain,64,teammate,10,Mimikyu,,,,,,,,,
+Scovillain,64,stat_alignment,1,Bold,44.8%,Defense,Attack,,,,,,
+Scovillain,64,stat_alignment,2,Modest,29.8%,Sp. Atk,Attack,,,,,,
+Scovillain,64,stat_alignment,3,Calm,19.0%,Sp. Def,Attack,,,,,,
+Scovillain,64,stat_alignment,4,Timid,3.9%,Speed,Attack,,,,,,
 Scovillain,64,stat_alignment,5,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
-Scovillain,64,stat_alignment,6,Relaxed,0.5%,Defense,Speed,,,,,,
-Scovillain,64,stat_alignment,7,Quiet,0.4%,Sp. Atk,Speed,,,,,,
-Scovillain,64,stat_alignment,8,Adamant,0.2%,Attack,Sp. Atk,,,,,,
+Scovillain,64,stat_alignment,6,Relaxed,0.6%,Defense,Speed,,,,,,
+Scovillain,64,stat_alignment,7,Quiet,0.5%,Sp. Atk,Speed,,,,,,
+Scovillain,64,stat_alignment,8,Adamant,0.1%,Attack,Sp. Atk,,,,,,
 Scovillain,64,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
 Scovillain,64,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
-Scovillain,64,stat_points,1,,18.2%,,,32,0,32,0,2,0
-Scovillain,64,stat_points,2,,6.8%,,,32,0,32,2,0,0
+Scovillain,64,stat_points,1,,17.9%,,,32,0,32,0,2,0
+Scovillain,64,stat_points,2,,7.2%,,,32,0,32,2,0,0
 Scovillain,64,stat_points,3,,4.8%,,,32,0,2,0,32,0
-Scovillain,64,stat_points,4,,4.0%,,,32,0,7,22,4,1
-Scovillain,64,stat_points,5,,2.8%,,,31,0,32,0,3,0
-Scovillain,64,stat_points,6,,2.4%,,,32,0,25,0,9,0
-Scovillain,64,stat_points,7,,1.9%,,,31,0,16,0,19,0
-Scovillain,64,stat_points,8,,1.8%,,,31,0,3,0,32,0
-Scovillain,64,stat_points,9,,1.8%,,,32,0,32,0,0,2
+Scovillain,64,stat_points,4,,3.9%,,,32,0,7,22,4,1
+Scovillain,64,stat_points,5,,2.9%,,,31,0,32,0,3,0
+Scovillain,64,stat_points,6,,2.5%,,,31,0,16,0,19,0
+Scovillain,64,stat_points,7,,2.4%,,,32,0,25,0,9,0
+Scovillain,64,stat_points,8,,1.9%,,,32,0,32,0,0,2
+Scovillain,64,stat_points,9,,1.8%,,,31,0,3,0,32,0
 Scovillain,64,stat_points,10,,1.6%,,,31,0,32,3,0,0
-Scovillain,64,ability,1,Insomnia,49.9%,,,,,,,,
-Scovillain,64,ability,2,Moody,48.1%,,,,,,,,
+Scovillain,64,ability,1,Insomnia,50.3%,,,,,,,,
+Scovillain,64,ability,2,Moody,47.7%,,,,,,,,
 Scovillain,64,ability,3,Chlorophyll,2.0%,,,,,,,,

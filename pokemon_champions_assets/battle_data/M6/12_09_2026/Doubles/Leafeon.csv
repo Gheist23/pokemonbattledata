@@ -1,42 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Leafeon,234,move,1,Detect,65.5%,,,,,,,,
-Leafeon,234,move,2,Leaf Blade,64.3%,,,,,,,,
-Leafeon,234,move,3,Knock Off,47.6%,,,,,,,,
-Leafeon,234,move,4,Rain Dance,44.0%,,,,,,,,
-Leafeon,234,move,5,Solar Blade,42.9%,,,,,,,,
-Leafeon,234,move,6,Yawn,6.9%,,,,,,,,
-Leafeon,234,move,7,Protect,25.0%,,,,,,,,
-Leafeon,234,move,8,Sunny Day,12.6%,,,,,,,,
-Leafeon,234,move,9,X-Scissor,16.7%,,,,,,,,
-Leafeon,234,move,10,Grassy Glide,15.5%,,,,,,,,
-Leafeon,234,held_item,1,Sitrus Berry,4.7%,,,,,,,,
-Leafeon,234,held_item,2,Miracle Seed,68.6%,,,,,,,,
-Leafeon,234,held_item,3,Life Orb,14.3%,,,,,,,,
-Leafeon,234,held_item,4,Focus Sash,8.3%,,,,,,,,
-Leafeon,234,held_item,5,Scope Lens,3.6%,,,,,,,,
-Leafeon,234,held_item,6,Muscle Band,2.4%,,,,,,,,
-Leafeon,234,held_item,7,Leftovers,1.2%,,,,,,,,
-Leafeon,234,teammate,1,Charizard,,,,,,,,,
-Leafeon,234,teammate,2,Primarina,,,,,,,,,
-Leafeon,234,teammate,3,Whimsicott,,,,,,,,,
-Leafeon,234,teammate,4,Garchomp,,,,,,,,,
-Leafeon,234,teammate,5,Archaludon,,,,,,,,,
-Leafeon,234,teammate,6,Torkoal,,,,,,,,,
-Leafeon,234,teammate,7,Farigiraf,,,,,,,,,
-Leafeon,234,teammate,8,Alolan Raichu,,,,,,,,,
-Leafeon,234,teammate,9,Lopunny,,,,,,,,,
-Leafeon,234,teammate,10,Dragalge,,,,,,,,,
-Leafeon,234,stat_alignment,1,Adamant,66.4%,Attack,Sp. Atk,,,,,,
-Leafeon,234,stat_alignment,2,Careful,4.7%,Sp. Def,Sp. Atk,,,,,,
-Leafeon,234,stat_alignment,3,Jolly,11.9%,Speed,Sp. Atk,,,,,,
-Leafeon,234,stat_points,1,,21.7%,,,32,1,1,0,32,0
-Leafeon,234,stat_points,2,,12.2%,,,19,32,0,0,1,14
-Leafeon,234,stat_points,3,,11.9%,,,10,32,0,0,0,24
-Leafeon,234,stat_points,4,,7.1%,,,0,32,32,0,0,2
-Leafeon,234,stat_points,5,,6.0%,,,1,32,0,0,1,32
-Leafeon,234,stat_points,6,,3.6%,,,0,32,2,0,0,32
-Leafeon,234,stat_points,7,,2.4%,,,2,32,0,0,0,32
-Leafeon,234,stat_points,8,,1.2%,,,0,32,0,0,3,31
-Leafeon,234,stat_points,9,,1.2%,,,9,32,0,0,7,18
-Leafeon,234,stat_points,10,,1.2%,,,17,16,6,0,1,26
-Leafeon,234,ability,1,Chlorophyll,100.0%,,,,,,,,
+Leafeon,233,move,1,Leaf Blade,61.8%,,,,,,,,
+Leafeon,233,move,2,Detect,67.3%,,,,,,,,
+Leafeon,233,move,3,Solar Blade,44.5%,,,,,,,,
+Leafeon,233,move,4,Knock Off,50.0%,,,,,,,,
+Leafeon,233,move,5,Yawn,5.5%,,,,,,,,
+Leafeon,233,move,6,Rain Dance,44.5%,,,,,,,,
+Leafeon,233,move,7,Protect,28.2%,,,,,,,,
+Leafeon,233,move,8,Sunny Day,13.6%,,,,,,,,
+Leafeon,233,move,9,Grassy Glide,16.4%,,,,,,,,
+Leafeon,233,move,10,X-Scissor,13.6%,,,,,,,,
+Leafeon,233,held_item,1,Miracle Seed,63.6%,,,,,,,,
+Leafeon,233,held_item,2,Sitrus Berry,3.7%,,,,,,,,
+Leafeon,233,held_item,3,Life Orb,14.5%,,,,,,,,
+Leafeon,233,held_item,4,Focus Sash,12.7%,,,,,,,,
+Leafeon,233,held_item,5,Grassy Seed,2.7%,,,,,,,,
+Leafeon,233,held_item,6,Muscle Band,1.8%,,,,,,,,
+Leafeon,233,held_item,7,Bright Powder,0.9%,,,,,,,,
+Leafeon,233,held_item,8,Unknown Item 253,0.9%,,,,,,,,
+Leafeon,233,teammate,1,Charizard,,,,,,,,,
+Leafeon,233,teammate,2,Primarina,,,,,,,,,
+Leafeon,233,teammate,3,Whimsicott,,,,,,,,,
+Leafeon,233,teammate,4,Archaludon,,,,,,,,,
+Leafeon,233,teammate,5,Torkoal,,,,,,,,,
+Leafeon,233,teammate,6,Garchomp,,,,,,,,,
+Leafeon,233,teammate,7,Farigiraf,,,,,,,,,
+Leafeon,233,teammate,8,Alolan Raichu,,,,,,,,,
+Leafeon,233,teammate,9,Lopunny,,,,,,,,,
+Leafeon,233,teammate,10,Cinderace,,,,,,,,,
+Leafeon,233,stat_alignment,1,Adamant,70.9%,Attack,Sp. Atk,,,,,,
+Leafeon,233,stat_alignment,2,Careful,3.7%,Sp. Def,Sp. Atk,,,,,,
+Leafeon,233,stat_alignment,3,Jolly,16.4%,Speed,Sp. Atk,,,,,,
+Leafeon,233,stat_points,1,,22.7%,,,32,1,1,0,32,0
+Leafeon,233,stat_points,2,,12.8%,,,19,32,0,0,1,14
+Leafeon,233,stat_points,3,,12.7%,,,10,32,0,0,0,24
+Leafeon,233,stat_points,4,,7.3%,,,17,16,6,0,1,26
+Leafeon,233,stat_points,5,,6.4%,,,0,32,32,0,0,2
+Leafeon,233,stat_points,6,,5.5%,,,17,32,2,0,10,5
+Leafeon,233,stat_points,7,,4.5%,,,1,32,0,0,1,32
+Leafeon,233,stat_points,8,,2.7%,,,0,32,2,0,0,32
+Leafeon,233,stat_points,9,,1.8%,,,2,32,0,0,0,32
+Leafeon,233,stat_points,10,,0.9%,,,0,32,0,0,3,31
+Leafeon,233,ability,1,Chlorophyll,100.0%,,,,,,,,

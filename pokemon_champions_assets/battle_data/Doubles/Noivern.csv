@@ -1,49 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Noivern,150,move,1,Tailwind,72.9%,,,,,,,,
-Noivern,150,move,2,Draco Meteor,64.5%,,,,,,,,
-Noivern,150,move,3,Protect,44.4%,,,,,,,,
-Noivern,150,move,4,Air Slash,43.1%,,,,,,,,
-Noivern,150,move,5,Heat Wave,21.9%,,,,,,,,
-Noivern,150,move,6,Super Fang,14.6%,,,,,,,,
-Noivern,150,move,7,Taunt,20.0%,,,,,,,,
-Noivern,150,move,8,Hurricane,17.8%,,,,,,,,
-Noivern,150,move,9,Dragon Cheer,15.4%,,,,,,,,
-Noivern,150,move,10,Boomburst,17.7%,,,,,,,,
-Noivern,150,held_item,1,Focus Sash,64.7%,,,,,,,,
-Noivern,150,held_item,2,Life Orb,7.3%,,,,,,,,
-Noivern,150,held_item,3,White Herb,5.9%,,,,,,,,
-Noivern,150,held_item,4,Sitrus Berry,4.4%,,,,,,,,
-Noivern,150,held_item,5,Wide Lens,3.6%,,,,,,,,
-Noivern,150,held_item,6,Scope Lens,3.5%,,,,,,,,
-Noivern,150,held_item,7,Roseli Berry,2.7%,,,,,,,,
-Noivern,150,held_item,8,Dragon Fang,2.3%,,,,,,,,
-Noivern,150,held_item,9,Leftovers,1.7%,,,,,,,,
-Noivern,150,held_item,10,Sharp Beak,1.0%,,,,,,,,
-Noivern,150,teammate,1,Milotic,,,,,,,,,
-Noivern,150,teammate,2,Glimmora,,,,,,,,,
-Noivern,150,teammate,3,Tsareena,,,,,,,,,
-Noivern,150,teammate,4,Salamence,,,,,,,,,
-Noivern,150,teammate,5,Metagross,,,,,,,,,
-Noivern,150,teammate,6,Sneasler,,,,,,,,,
-Noivern,150,teammate,7,Garchomp,,,,,,,,,
-Noivern,150,teammate,8,Baxcalibur,,,,,,,,,
-Noivern,150,teammate,9,Basculegion Male,,,,,,,,,
-Noivern,150,teammate,10,Archaludon,,,,,,,,,
-Noivern,150,stat_alignment,1,Timid,64.6%,Speed,Attack,,,,,,
-Noivern,150,stat_alignment,2,Modest,24.1%,Sp. Atk,Attack,,,,,,
-Noivern,150,stat_alignment,3,Hasty,0.6%,Speed,Defense,,,,,,
-Noivern,150,stat_alignment,4,Calm,0.5%,Sp. Def,Attack,,,,,,
-Noivern,150,stat_alignment,5,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Noivern,150,stat_points,1,,50.7%,,,2,0,0,32,0,32
-Noivern,150,stat_points,2,,10.1%,,,0,0,2,32,0,32
-Noivern,150,stat_points,3,,9.8%,,,0,0,1,32,1,32
-Noivern,150,stat_points,4,,5.5%,,,31,0,0,5,0,30
-Noivern,150,stat_points,5,,4.1%,,,0,0,0,32,2,32
-Noivern,150,stat_points,6,,3.9%,,,20,0,10,1,4,31
-Noivern,150,stat_points,7,,3.1%,,,4,0,0,32,0,30
-Noivern,150,stat_points,8,,2.3%,,,1,0,0,32,1,32
-Noivern,150,stat_points,9,,2.2%,,,1,0,1,32,0,32
-Noivern,150,stat_points,10,,1.5%,,,32,0,0,0,2,32
-Noivern,150,ability,1,Infiltrator,40.6%,,,,,,,,
-Noivern,150,ability,2,Telepathy,37.1%,,,,,,,,
-Noivern,150,ability,3,Frisk,22.3%,,,,,,,,
+Noivern,154,move,1,Tailwind,72.7%,,,,,,,,
+Noivern,154,move,2,Draco Meteor,63.4%,,,,,,,,
+Noivern,154,move,3,Protect,45.1%,,,,,,,,
+Noivern,154,move,4,Air Slash,42.1%,,,,,,,,
+Noivern,154,move,5,Heat Wave,20.0%,,,,,,,,
+Noivern,154,move,6,Super Fang,15.1%,,,,,,,,
+Noivern,154,move,7,Taunt,21.5%,,,,,,,,
+Noivern,154,move,8,Hurricane,16.2%,,,,,,,,
+Noivern,154,move,9,Dragon Cheer,15.8%,,,,,,,,
+Noivern,154,move,10,Boomburst,19.2%,,,,,,,,
+Noivern,154,held_item,1,Focus Sash,62.5%,,,,,,,,
+Noivern,154,held_item,2,Life Orb,8.4%,,,,,,,,
+Noivern,154,held_item,3,White Herb,5.0%,,,,,,,,
+Noivern,154,held_item,4,Wide Lens,4.8%,,,,,,,,
+Noivern,154,held_item,5,Sitrus Berry,4.3%,,,,,,,,
+Noivern,154,held_item,6,King's Rock,2.8%,,,,,,,,
+Noivern,154,held_item,7,Scope Lens,2.8%,,,,,,,,
+Noivern,154,held_item,8,Roseli Berry,2.2%,,,,,,,,
+Noivern,154,held_item,9,Dragon Fang,2.1%,,,,,,,,
+Noivern,154,held_item,10,Sharp Beak,1.6%,,,,,,,,
+Noivern,154,teammate,1,Milotic,,,,,,,,,
+Noivern,154,teammate,2,Glimmora,,,,,,,,,
+Noivern,154,teammate,3,Tsareena,,,,,,,,,
+Noivern,154,teammate,4,Salamence,,,,,,,,,
+Noivern,154,teammate,5,Baxcalibur,,,,,,,,,
+Noivern,154,teammate,6,Sneasler,,,,,,,,,
+Noivern,154,teammate,7,Rillaboom,,,,,,,,,
+Noivern,154,teammate,8,Garchomp,,,,,,,,,
+Noivern,154,teammate,9,Metagross,,,,,,,,,
+Noivern,154,teammate,10,Basculegion Male,,,,,,,,,
+Noivern,154,stat_alignment,1,Timid,63.6%,Speed,Attack,,,,,,
+Noivern,154,stat_alignment,2,Modest,25.0%,Sp. Atk,Attack,,,,,,
+Noivern,154,stat_alignment,3,Hasty,0.5%,Speed,Defense,,,,,,
+Noivern,154,stat_alignment,4,Calm,0.4%,Sp. Def,Attack,,,,,,
+Noivern,154,stat_alignment,5,Jolly,0.2%,Speed,Sp. Atk,,,,,,
+Noivern,154,stat_alignment,6,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Noivern,154,stat_alignment,7,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Noivern,154,stat_points,1,,51.0%,,,2,0,0,32,0,32
+Noivern,154,stat_points,2,,9.2%,,,0,0,2,32,0,32
+Noivern,154,stat_points,3,,8.5%,,,0,0,1,32,1,32
+Noivern,154,stat_points,4,,4.5%,,,31,0,0,5,0,30
+Noivern,154,stat_points,5,,4.3%,,,4,0,0,32,0,30
+Noivern,154,stat_points,6,,3.9%,,,0,0,0,32,2,32
+Noivern,154,stat_points,7,,3.1%,,,20,0,10,1,4,31
+Noivern,154,stat_points,8,,3.0%,,,1,0,1,32,0,32
+Noivern,154,stat_points,9,,1.9%,,,1,0,0,32,1,32
+Noivern,154,stat_points,10,,1.8%,,,32,0,0,0,2,32
+Noivern,154,ability,1,Infiltrator,38.5%,,,,,,,,
+Noivern,154,ability,2,Telepathy,37.4%,,,,,,,,
+Noivern,154,ability,3,Frisk,24.1%,,,,,,,,

@@ -1,44 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Drampa,221,move,1,Roost,40.2%,,,,,,,,
-Drampa,221,move,2,Draco Meteor,58.9%,,,,,,,,
-Drampa,221,move,3,Thunderbolt,37.2%,,,,,,,,
-Drampa,221,move,4,Flamethrower,48.7%,,,,,,,,
-Drampa,221,move,5,Energy Ball,40.2%,,,,,,,,
-Drampa,221,move,6,Dragon Pulse,24.0%,,,,,,,,
-Drampa,221,move,7,Hyper Voice,55.7%,,,,,,,,
-Drampa,221,move,8,Earth Power,16.6%,,,,,,,,
-Drampa,221,move,9,Tri Attack,12.6%,,,,,,,,
-Drampa,221,move,10,Ice Beam,12.0%,,,,,,,,
-Drampa,221,held_item,1,Drampanite,91.0%,,,,,,,,
-Drampa,221,held_item,2,Sitrus Berry,3.7%,,,,,,,,
-Drampa,221,held_item,3,Leftovers,1.8%,,,,,,,,
-Drampa,221,held_item,4,Lopunnite,1.6%,,,,,,,,
-Drampa,221,held_item,5,Quick Claw,1.1%,,,,,,,,
-Drampa,221,held_item,6,Focus Sash,0.7%,,,,,,,,
-Drampa,221,teammate,1,Mawile,,,,,,,,,
-Drampa,221,teammate,2,Lycanroc Dusk Form,,,,,,,,,
-Drampa,221,teammate,3,Clawitzer,,,,,,,,,
-Drampa,221,teammate,4,Aromatisse,,,,,,,,,
-Drampa,221,teammate,5,Hatterene,,,,,,,,,
-Drampa,221,teammate,6,Forretress,,,,,,,,,
-Drampa,221,teammate,7,Baxcalibur,,,,,,,,,
-Drampa,221,teammate,8,Mimikyu,,,,,,,,,
-Drampa,221,teammate,9,Excadrill,,,,,,,,,
-Drampa,221,teammate,10,Basculegion Male,,,,,,,,,
-Drampa,221,stat_alignment,1,Quiet,25.5%,Sp. Atk,Speed,,,,,,
-Drampa,221,stat_alignment,2,Modest,25.3%,Sp. Atk,Attack,,,,,,
-Drampa,221,stat_alignment,3,Bold,8.7%,Defense,Attack,,,,,,
-Drampa,221,stat_alignment,4,Relaxed,0.5%,Defense,Speed,,,,,,
-Drampa,221,stat_points,1,,27.8%,,,32,0,2,32,0,0
-Drampa,221,stat_points,2,,10.8%,,,32,0,0,32,2,0
-Drampa,221,stat_points,3,,8.7%,,,32,0,2,0,32,0
-Drampa,221,stat_points,4,,5.3%,,,32,0,32,0,2,0
-Drampa,221,stat_points,5,,3.7%,,,31,0,3,32,0,0
-Drampa,221,stat_points,6,,3.0%,,,32,0,0,32,0,2
-Drampa,221,stat_points,7,,2.5%,,,32,0,1,32,1,0
-Drampa,221,stat_points,8,,2.5%,,,32,0,4,30,0,0
-Drampa,221,stat_points,9,,2.3%,,,2,0,0,32,32,0
-Drampa,221,stat_points,10,,2.3%,,,30,0,16,10,10,0
-Drampa,221,ability,1,Berserk,73.9%,,,,,,,,
-Drampa,221,ability,2,Sap Sipper,15.1%,,,,,,,,
-Drampa,221,ability,3,Cloud Nine,11.0%,,,,,,,,
+Drampa,223,move,1,Draco Meteor,57.5%,,,,,,,,
+Drampa,223,move,2,Roost,36.9%,,,,,,,,
+Drampa,223,move,3,Thunderbolt,33.2%,,,,,,,,
+Drampa,223,move,4,Flamethrower,50.2%,,,,,,,,
+Drampa,223,move,5,Dragon Pulse,24.3%,,,,,,,,
+Drampa,223,move,6,Energy Ball,33.3%,,,,,,,,
+Drampa,223,move,7,Hyper Voice,59.4%,,,,,,,,
+Drampa,223,move,8,Earth Power,23.1%,,,,,,,,
+Drampa,223,move,9,Ice Beam,13.0%,,,,,,,,
+Drampa,223,move,10,Tri Attack,10.0%,,,,,,,,
+Drampa,223,held_item,1,Drampanite,80.4%,,,,,,,,
+Drampa,223,held_item,2,Focus Sash,6.4%,,,,,,,,
+Drampa,223,held_item,3,Sitrus Berry,5.4%,,,,,,,,
+Drampa,223,held_item,4,Quick Claw,4.3%,,,,,,,,
+Drampa,223,held_item,5,Leftovers,1.5%,,,,,,,,
+Drampa,223,held_item,6,Unknown Item 542,1.2%,,,,,,,,
+Drampa,223,held_item,7,Chople Berry,0.5%,,,,,,,,
+Drampa,223,teammate,1,Mawile,,,,,,,,,
+Drampa,223,teammate,2,Lycanroc Dusk Form,,,,,,,,,
+Drampa,223,teammate,3,Hatterene,,,,,,,,,
+Drampa,223,teammate,4,Mimikyu,,,,,,,,,
+Drampa,223,teammate,5,Clawitzer,,,,,,,,,
+Drampa,223,teammate,6,Aromatisse,,,,,,,,,
+Drampa,223,teammate,7,Salamence,,,,,,,,,
+Drampa,223,teammate,8,Forretress,,,,,,,,,
+Drampa,223,teammate,9,Primarina,,,,,,,,,
+Drampa,223,teammate,10,Baxcalibur,,,,,,,,,
+Drampa,223,stat_alignment,1,Quiet,26.7%,Sp. Atk,Speed,,,,,,
+Drampa,223,stat_alignment,2,Modest,21.3%,Sp. Atk,Attack,,,,,,
+Drampa,223,stat_alignment,3,Bold,10.4%,Defense,Attack,,,,,,
+Drampa,223,stat_alignment,4,Calm,1.2%,Sp. Def,Attack,,,,,,
+Drampa,223,stat_alignment,5,Relaxed,0.5%,Defense,Speed,,,,,,
+Drampa,223,stat_points,1,,24.5%,,,32,0,2,32,0,0
+Drampa,223,stat_points,2,,8.7%,,,32,0,0,32,2,0
+Drampa,223,stat_points,3,,8.4%,,,32,0,2,0,32,0
+Drampa,223,stat_points,4,,7.7%,,,32,0,1,32,1,0
+Drampa,223,stat_points,5,,6.0%,,,32,0,32,0,2,0
+Drampa,223,stat_points,6,,5.0%,,,31,0,3,32,0,0
+Drampa,223,stat_points,7,,3.2%,,,32,0,0,32,0,2
+Drampa,223,stat_points,8,,2.0%,,,2,0,0,32,32,0
+Drampa,223,stat_points,9,,1.8%,,,32,0,4,30,0,0
+Drampa,223,stat_points,10,,1.7%,,,30,0,16,10,10,0
+Drampa,223,ability,1,Berserk,79.6%,,,,,,,,
+Drampa,223,ability,2,Cloud Nine,11.0%,,,,,,,,
+Drampa,223,ability,3,Sap Sipper,9.4%,,,,,,,,

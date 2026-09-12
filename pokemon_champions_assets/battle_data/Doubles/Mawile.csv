@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Mawile,57,move,1,Play Rough,97.3%,,,,,,,,
-Mawile,57,move,2,Sucker Punch,88.0%,,,,,,,,
-Mawile,57,move,3,Protect,77.4%,,,,,,,,
-Mawile,57,move,4,Iron Head,59.0%,,,,,,,,
-Mawile,57,move,5,Rock Slide,36.5%,,,,,,,,
-Mawile,57,move,6,Swords Dance,19.2%,,,,,,,,
-Mawile,57,move,7,Knock Off,8.2%,,,,,,,,
-Mawile,57,move,8,Brick Break,4.2%,,,,,,,,
-Mawile,57,move,9,Fire Fang,4.2%,,,,,,,,
-Mawile,57,move,10,Thunder Punch,1.9%,,,,,,,,
-Mawile,57,held_item,1,Mawilite,99.1%,,,,,,,,
-Mawile,57,held_item,2,Leftovers,0.1%,,,,,,,,
+Mawile,57,move,2,Protect,77.8%,,,,,,,,
+Mawile,57,move,3,Sucker Punch,87.7%,,,,,,,,
+Mawile,57,move,4,Iron Head,58.9%,,,,,,,,
+Mawile,57,move,5,Rock Slide,35.5%,,,,,,,,
+Mawile,57,move,6,Swords Dance,18.5%,,,,,,,,
+Mawile,57,move,7,Knock Off,8.4%,,,,,,,,
+Mawile,57,move,8,Brick Break,4.6%,,,,,,,,
+Mawile,57,move,9,Fire Fang,4.5%,,,,,,,,
+Mawile,57,move,10,Thunder Punch,2.1%,,,,,,,,
+Mawile,57,held_item,1,Mawilite,99.2%,,,,,,,,
+Mawile,57,held_item,2,Leftovers,0.2%,,,,,,,,
 Mawile,57,held_item,3,Occa Berry,0.0%,,,,,,,,
 Mawile,57,held_item,4,Life Orb,0.0%,,,,,,,,
 Mawile,57,teammate,1,Indeedee Female,,,,,,,,,
@@ -23,26 +23,26 @@ Mawile,57,teammate,7,Sneasler,,,,,,,,,
 Mawile,57,teammate,8,Hatterene,,,,,,,,,
 Mawile,57,teammate,9,Salamence,,,,,,,,,
 Mawile,57,teammate,10,Basculegion Male,,,,,,,,,
-Mawile,57,stat_alignment,1,Brave,56.4%,Attack,Speed,,,,,,
-Mawile,57,stat_alignment,2,Adamant,31.7%,Attack,Sp. Atk,,,,,,
+Mawile,57,stat_alignment,1,Brave,55.7%,Attack,Speed,,,,,,
+Mawile,57,stat_alignment,2,Adamant,32.3%,Attack,Sp. Atk,,,,,,
 Mawile,57,stat_alignment,3,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
 Mawile,57,stat_alignment,4,Jolly,0.4%,Speed,Sp. Atk,,,,,,
-Mawile,57,stat_alignment,5,Relaxed,0.2%,Defense,Speed,,,,,,
-Mawile,57,stat_alignment,6,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Mawile,57,stat_alignment,7,Timid,0.1%,Speed,Attack,,,,,,
-Mawile,57,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
-Mawile,57,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Mawile,57,stat_alignment,10,Quiet,0.0%,Sp. Atk,Speed,,,,,,
-Mawile,57,stat_points,1,,41.2%,,,32,32,0,0,2,0
-Mawile,57,stat_points,2,,15.0%,,,32,32,2,0,0,0
-Mawile,57,stat_points,3,,6.0%,,,32,32,1,0,1,0
-Mawile,57,stat_points,4,,2.9%,,,32,31,3,0,0,0
-Mawile,57,stat_points,5,,2.8%,,,0,32,32,0,2,0
-Mawile,57,stat_points,6,,2.3%,,,32,32,0,0,0,2
-Mawile,57,stat_points,7,,1.9%,,,26,25,0,0,0,15
-Mawile,57,stat_points,8,,1.6%,,,0,32,2,0,32,0
-Mawile,57,stat_points,9,,1.2%,,,19,32,0,0,0,15
-Mawile,57,stat_points,10,,1.2%,,,2,32,0,0,0,32
-Mawile,57,ability,1,Intimidate,50.5%,,,,,,,,
-Mawile,57,ability,2,Hyper Cutter,48.9%,,,,,,,,
-Mawile,57,ability,3,Sheer Force,0.6%,,,,,,,,
+Mawile,57,stat_alignment,5,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Mawile,57,stat_alignment,6,Naive,0.2%,Speed,Sp. Def,,,,,,
+Mawile,57,stat_alignment,7,Relaxed,0.2%,Defense,Speed,,,,,,
+Mawile,57,stat_alignment,8,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Mawile,57,stat_alignment,9,Timid,0.1%,Speed,Attack,,,,,,
+Mawile,57,stat_alignment,10,Hardy,0.0%,Sp. Atk,Speed,,,,,,
+Mawile,57,stat_points,1,,41.7%,,,32,32,0,0,2,0
+Mawile,57,stat_points,2,,14.6%,,,32,32,2,0,0,0
+Mawile,57,stat_points,3,,5.7%,,,32,32,1,0,1,0
+Mawile,57,stat_points,4,,2.8%,,,0,32,32,0,2,0
+Mawile,57,stat_points,5,,2.5%,,,32,31,3,0,0,0
+Mawile,57,stat_points,6,,2.2%,,,32,32,0,0,0,2
+Mawile,57,stat_points,7,,2.1%,,,26,25,0,0,0,15
+Mawile,57,stat_points,8,,1.5%,,,0,32,2,0,32,0
+Mawile,57,stat_points,9,,1.2%,,,32,32,0,0,0,0
+Mawile,57,stat_points,10,,1.1%,,,2,32,0,0,0,32
+Mawile,57,ability,1,Intimidate,50.4%,,,,,,,,
+Mawile,57,ability,2,Hyper Cutter,48.7%,,,,,,,,
+Mawile,57,ability,3,Sheer Force,0.9%,,,,,,,,

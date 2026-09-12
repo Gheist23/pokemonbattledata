@@ -1,49 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Luxray,228,move,1,Protect,44.8%,,,,,,,,
-Luxray,228,move,2,Volt Switch,34.8%,,,,,,,,
-Luxray,228,move,3,Snarl,20.0%,,,,,,,,
-Luxray,228,move,4,Electroweb,32.4%,,,,,,,,
-Luxray,228,move,5,Psychic Fangs,28.6%,,,,,,,,
-Luxray,228,move,6,Superpower,24.8%,,,,,,,,
-Luxray,228,move,7,Ice Fang,27.1%,,,,,,,,
-Luxray,228,move,8,Wild Charge,23.3%,,,,,,,,
-Luxray,228,move,9,Eerie Impulse,11.4%,,,,,,,,
-Luxray,228,move,10,Helping Hand,15.7%,,,,,,,,
-Luxray,228,held_item,1,Magnet,23.8%,,,,,,,,
-Luxray,228,held_item,2,Shuca Berry,14.8%,,,,,,,,
-Luxray,228,held_item,3,Leftovers,5.2%,,,,,,,,
-Luxray,228,held_item,4,Sitrus Berry,16.7%,,,,,,,,
-Luxray,228,held_item,5,Expert Belt,3.8%,,,,,,,,
-Luxray,228,held_item,6,Life Orb,29.9%,,,,,,,,
-Luxray,228,held_item,7,Choice Scarf,2.9%,,,,,,,,
+Luxray,228,move,1,Volt Switch,30.9%,,,,,,,,
+Luxray,228,move,2,Protect,48.7%,,,,,,,,
+Luxray,228,move,3,Snarl,16.7%,,,,,,,,
+Luxray,228,move,4,Electroweb,27.5%,,,,,,,,
+Luxray,228,move,5,Psychic Fangs,28.4%,,,,,,,,
+Luxray,228,move,6,Superpower,25.5%,,,,,,,,
+Luxray,228,move,7,Wild Charge,16.3%,,,,,,,,
+Luxray,228,move,8,Ice Fang,25.6%,,,,,,,,
+Luxray,228,move,9,Eerie Impulse,9.9%,,,,,,,,
+Luxray,228,move,10,Baby-Doll Eyes,9.2%,,,,,,,,
+Luxray,228,held_item,1,Magnet,21.1%,,,,,,,,
+Luxray,228,held_item,2,Shuca Berry,22.7%,,,,,,,,
+Luxray,228,held_item,3,Leftovers,12.8%,,,,,,,,
+Luxray,228,held_item,4,Sitrus Berry,18.5%,,,,,,,,
+Luxray,228,held_item,5,Expert Belt,4.3%,,,,,,,,
+Luxray,228,held_item,6,Life Orb,10.5%,,,,,,,,
+Luxray,228,held_item,7,Air Balloon,3.5%,,,,,,,,
+Luxray,228,held_item,8,Choice Scarf,2.1%,,,,,,,,
+Luxray,228,held_item,9,Unknown Item 881,1.4%,,,,,,,,
 Luxray,228,teammate,1,Salamence,,,,,,,,,
 Luxray,228,teammate,2,Golisopod,,,,,,,,,
 Luxray,228,teammate,3,Baxcalibur,,,,,,,,,
 Luxray,228,teammate,4,Blaziken,,,,,,,,,
-Luxray,228,teammate,5,Basculegion Female,,,,,,,,,
-Luxray,228,teammate,6,Rillaboom,,,,,,,,,
+Luxray,228,teammate,5,Rillaboom,,,,,,,,,
+Luxray,228,teammate,6,Basculegion Female,,,,,,,,,
 Luxray,228,teammate,7,Charizard,,,,,,,,,
 Luxray,228,teammate,8,Alakazam,,,,,,,,,
 Luxray,228,teammate,9,Feraligatr,,,,,,,,,
 Luxray,228,teammate,10,Tyranitar,,,,,,,,,
-Luxray,228,stat_alignment,1,Timid,4.6%,Speed,Attack,,,,,,
-Luxray,228,stat_alignment,2,Quiet,21.9%,Sp. Atk,Speed,,,,,,
-Luxray,228,stat_alignment,3,Careful,1.4%,Sp. Def,Sp. Atk,,,,,,
-Luxray,228,stat_alignment,4,Relaxed,9.5%,Defense,Speed,,,,,,
-Luxray,228,stat_alignment,5,Jolly,12.9%,Speed,Sp. Atk,,,,,,
-Luxray,228,stat_alignment,6,Sassy,1.9%,Sp. Def,Speed,,,,,,
-Luxray,228,stat_alignment,7,Bold,1.9%,Defense,Attack,,,,,,
-Luxray,228,stat_alignment,8,Modest,1.0%,Sp. Atk,Attack,,,,,,
-Luxray,228,stat_alignment,9,Brave,1.0%,Attack,Speed,,,,,,
-Luxray,228,stat_alignment,10,Adamant,41.0%,Attack,Sp. Atk,,,,,,
-Luxray,228,stat_points,1,,13.8%,,,2,0,0,32,0,32
-Luxray,228,stat_points,2,,2.9%,,,32,0,1,32,1,0
-Luxray,228,stat_points,3,,11.4%,,,15,0,31,0,20,0
-Luxray,228,stat_points,4,,5.7%,,,32,0,0,17,17,0
-Luxray,228,stat_points,5,,3.8%,,,32,0,1,0,1,32
-Luxray,228,stat_points,6,,2.9%,,,0,32,1,0,1,32
-Luxray,228,stat_points,7,,2.9%,,,32,0,11,0,23,0
-Luxray,228,stat_points,8,,1.9%,,,32,0,1,0,32,1
-Luxray,228,stat_points,9,,1.9%,,,32,0,2,0,32,0
-Luxray,228,stat_points,10,,1.0%,,,21,32,1,0,12,0
+Luxray,228,stat_alignment,1,Timid,3.9%,Speed,Attack,,,,,,
+Luxray,228,stat_alignment,2,Quiet,20.6%,Sp. Atk,Speed,,,,,,
+Luxray,228,stat_alignment,3,Careful,8.5%,Sp. Def,Sp. Atk,,,,,,
+Luxray,228,stat_alignment,4,Modest,7.8%,Sp. Atk,Attack,,,,,,
+Luxray,228,stat_alignment,5,Relaxed,7.1%,Defense,Speed,,,,,,
+Luxray,228,stat_alignment,6,Adamant,45.7%,Attack,Sp. Atk,,,,,,
+Luxray,228,stat_alignment,7,Bold,5.0%,Defense,Attack,,,,,,
+Luxray,228,stat_alignment,8,Jolly,13.5%,Speed,Sp. Atk,,,,,,
+Luxray,228,stat_alignment,9,Brave,2.1%,Attack,Speed,,,,,,
+Luxray,228,stat_alignment,10,Sassy,1.4%,Sp. Def,Speed,,,,,,
+Luxray,228,stat_points,1,,11.1%,,,2,0,0,32,0,32
+Luxray,228,stat_points,2,,8.6%,,,32,0,1,32,1,0
+Luxray,228,stat_points,3,,8.5%,,,15,0,31,0,20,0
+Luxray,228,stat_points,4,,7.1%,,,0,32,1,0,1,32
+Luxray,228,stat_points,5,,5.7%,,,32,0,11,0,23,0
+Luxray,228,stat_points,6,,4.3%,,,32,0,0,17,17,0
+Luxray,228,stat_points,7,,2.8%,,,32,0,1,0,1,32
+Luxray,228,stat_points,8,,1.4%,,,1,32,0,32,0,1
+Luxray,228,stat_points,9,,1.4%,,,32,0,1,0,32,1
+Luxray,228,stat_points,10,,1.4%,,,32,0,2,0,32,0
 Luxray,228,ability,1,Intimidate,100.0%,,,,,,,,

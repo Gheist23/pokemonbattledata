@@ -1,40 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emolga,235,move,1,Nuzzle,57.0%,,,,,,,,
-Emolga,235,move,2,Taunt,24.4%,,,,,,,,
-Emolga,235,move,3,Volt Switch,23.0%,,,,,,,,
-Emolga,235,move,4,Charm,41.8%,,,,,,,,
-Emolga,235,move,5,Baton Pass,41.8%,,,,,,,,
-Emolga,235,move,6,Eerie Impulse,21.8%,,,,,,,,
-Emolga,235,move,7,Encore,18.0%,,,,,,,,
-Emolga,235,move,8,Light Screen,26.6%,,,,,,,,
-Emolga,235,move,9,Speed Swap,26.5%,,,,,,,,
-Emolga,235,move,10,Protect,17.6%,,,,,,,,
-Emolga,235,held_item,1,Focus Sash,89.4%,,,,,,,,
-Emolga,235,held_item,2,Lum Berry,4.8%,,,,,,,,
-Emolga,235,held_item,3,Choice Scarf,5.1%,,,,,,,,
-Emolga,235,held_item,4,Life Orb,2.5%,,,,,,,,
-Emolga,235,held_item,5,Lopunnite,1.3%,,,,,,,,
-Emolga,235,teammate,1,Sableye,,,,,,,,,
-Emolga,235,teammate,2,Audino,,,,,,,,,
-Emolga,235,teammate,3,Hisuian Zoroark,,,,,,,,,
-Emolga,235,teammate,4,Overqwil,,,,,,,,,
-Emolga,235,teammate,5,Farigiraf,,,,,,,,,
-Emolga,235,teammate,6,Rillaboom,,,,,,,,,
-Emolga,235,teammate,7,Swampert,,,,,,,,,
-Emolga,235,teammate,8,Pelipper,,,,,,,,,
-Emolga,235,teammate,9,Mawile,,,,,,,,,
-Emolga,235,teammate,10,Archaludon,,,,,,,,,
-Emolga,235,stat_alignment,1,Timid,49.4%,Speed,Attack,,,,,,
-Emolga,235,stat_alignment,2,Hasty,1.8%,Speed,Defense,,,,,,
-Emolga,235,stat_alignment,3,Jolly,17.6%,Speed,Sp. Atk,,,,,,
-Emolga,235,stat_alignment,4,Modest,12.3%,Sp. Atk,Attack,,,,,,
-Emolga,235,stat_points,1,,31.8%,,,0,32,0,0,0,32
-Emolga,235,stat_points,2,,9.6%,,,32,0,2,0,0,32
-Emolga,235,stat_points,3,,8.9%,,,32,0,0,0,0,32
-Emolga,235,stat_points,4,,7.6%,,,0,0,0,32,0,32
-Emolga,235,stat_points,5,,7.6%,,,2,32,0,0,0,32
-Emolga,235,stat_points,6,,3.8%,,,32,0,1,0,1,32
-Emolga,235,stat_points,7,,2.5%,,,2,0,0,32,0,32
-Emolga,235,stat_points,8,,1.3%,,,0,0,2,32,0,32
-Emolga,235,ability,1,Motor Drive,78.6%,,,,,,,,
-Emolga,235,ability,2,Static,21.4%,,,,,,,,
+Emolga,229,move,1,Taunt,20.4%,,,,,,,,
+Emolga,229,move,2,Nuzzle,50.4%,,,,,,,,
+Emolga,229,move,3,Charm,47.1%,,,,,,,,
+Emolga,229,move,4,Volt Switch,22.9%,,,,,,,,
+Emolga,229,move,5,Eerie Impulse,17.0%,,,,,,,,
+Emolga,229,move,6,Encore,20.3%,,,,,,,,
+Emolga,229,move,7,Baton Pass,37.7%,,,,,,,,
+Emolga,229,move,8,Electroweb,19.3%,,,,,,,,
+Emolga,229,move,9,Protect,18.5%,,,,,,,,
+Emolga,229,move,10,Light Screen,27.6%,,,,,,,,
+Emolga,229,held_item,1,Focus Sash,77.9%,,,,,,,,
+Emolga,229,held_item,2,Lum Berry,2.7%,,,,,,,,
+Emolga,229,held_item,3,Sitrus Berry,8.4%,,,,,,,,
+Emolga,229,held_item,4,Leftovers,5.9%,,,,,,,,
+Emolga,229,held_item,5,Life Orb,5.0%,,,,,,,,
+Emolga,229,held_item,6,Choice Scarf,3.4%,,,,,,,,
+Emolga,229,held_item,7,Bright Powder,0.8%,,,,,,,,
+Emolga,229,held_item,8,Rocky Helmet,0.8%,,,,,,,,
+Emolga,229,teammate,1,Rillaboom,,,,,,,,,
+Emolga,229,teammate,2,Farigiraf,,,,,,,,,
+Emolga,229,teammate,3,Sableye,,,,,,,,,
+Emolga,229,teammate,4,Audino,,,,,,,,,
+Emolga,229,teammate,5,Hisuian Zoroark,,,,,,,,,
+Emolga,229,teammate,6,Overqwil,,,,,,,,,
+Emolga,229,teammate,7,Garchomp,,,,,,,,,
+Emolga,229,teammate,8,Mawile,,,,,,,,,
+Emolga,229,teammate,9,Incineroar,,,,,,,,,
+Emolga,229,teammate,10,Primarina,,,,,,,,,
+Emolga,229,stat_alignment,1,Timid,48.8%,Speed,Attack,,,,,,
+Emolga,229,stat_alignment,2,Hasty,2.7%,Speed,Defense,,,,,,
+Emolga,229,stat_alignment,3,Jolly,12.6%,Speed,Sp. Atk,,,,,,
+Emolga,229,stat_alignment,4,Modest,10.8%,Sp. Atk,Attack,,,,,,
+Emolga,229,stat_points,1,,27.7%,,,0,32,0,0,0,32
+Emolga,229,stat_points,2,,10.2%,,,2,0,0,32,0,32
+Emolga,229,stat_points,3,,9.6%,,,32,0,2,0,0,32
+Emolga,229,stat_points,4,,9.2%,,,0,0,0,32,0,32
+Emolga,229,stat_points,5,,7.6%,,,14,0,10,0,10,32
+Emolga,229,stat_points,6,,5.9%,,,32,0,0,0,0,32
+Emolga,229,stat_points,7,,5.0%,,,2,32,0,0,0,32
+Emolga,229,stat_points,8,,2.5%,,,0,0,2,32,0,32
+Emolga,229,stat_points,9,,2.5%,,,32,0,1,0,1,32
+Emolga,229,stat_points,10,,0.8%,,,0,0,0,32,2,32
+Emolga,229,ability,1,Motor Drive,82.4%,,,,,,,,
+Emolga,229,ability,2,Static,17.6%,,,,,,,,

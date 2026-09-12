@@ -1,52 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rhyperior,175,move,1,Earthquake,96.8%,,,,,,,,
-Rhyperior,175,move,2,Ice Punch,46.9%,,,,,,,,
-Rhyperior,175,move,3,Stone Edge,20.3%,,,,,,,,
-Rhyperior,175,move,4,Rock Blast,26.6%,,,,,,,,
-Rhyperior,175,move,5,Horn Drill,23.9%,,,,,,,,
-Rhyperior,175,move,6,Rock Wrecker,23.3%,,,,,,,,
-Rhyperior,175,move,7,Supercell Slam,22.3%,,,,,,,,
-Rhyperior,175,move,8,Metal Burst,32.2%,,,,,,,,
-Rhyperior,175,move,9,Avalanche,8.7%,,,,,,,,
-Rhyperior,175,move,10,Fire Punch,7.1%,,,,,,,,
-Rhyperior,175,held_item,1,Life Orb,18.4%,,,,,,,,
-Rhyperior,175,held_item,2,Focus Sash,15.4%,,,,,,,,
-Rhyperior,175,held_item,3,Lopunnite,12.8%,,,,,,,,
-Rhyperior,175,held_item,4,Sitrus Berry,11.8%,,,,,,,,
-Rhyperior,175,held_item,5,Muscle Band,10.2%,,,,,,,,
-Rhyperior,175,held_item,6,Expert Belt,8.3%,,,,,,,,
-Rhyperior,175,held_item,7,Houndoominite,5.9%,,,,,,,,
-Rhyperior,175,held_item,8,Lum Berry,3.3%,,,,,,,,
-Rhyperior,175,held_item,9,Shuca Berry,3.1%,,,,,,,,
-Rhyperior,175,held_item,10,Quick Claw,12.5%,,,,,,,,
-Rhyperior,175,teammate,1,Garchomp,,,,,,,,,
-Rhyperior,175,teammate,2,Salamence,,,,,,,,,
-Rhyperior,175,teammate,3,Golisopod,,,,,,,,,
-Rhyperior,175,teammate,4,Gyarados,,,,,,,,,
-Rhyperior,175,teammate,5,Aegislash Shield Forme,,,,,,,,,
-Rhyperior,175,teammate,6,Venusaur,,,,,,,,,
-Rhyperior,175,teammate,7,Primarina,,,,,,,,,
-Rhyperior,175,teammate,8,Sylveon,,,,,,,,,
-Rhyperior,175,teammate,9,Tyranitar,,,,,,,,,
-Rhyperior,175,teammate,10,Charizard,,,,,,,,,
-Rhyperior,175,stat_alignment,1,Adamant,46.7%,Attack,Sp. Atk,,,,,,
-Rhyperior,175,stat_alignment,2,Brave,22.7%,Attack,Speed,,,,,,
-Rhyperior,175,stat_alignment,3,Impish,10.7%,Defense,Sp. Atk,,,,,,
-Rhyperior,175,stat_alignment,4,Naughty,6.9%,Attack,Sp. Def,,,,,,
-Rhyperior,175,stat_alignment,5,Jolly,6.3%,Speed,Sp. Atk,,,,,,
-Rhyperior,175,stat_alignment,6,Sassy,2.8%,Sp. Def,Speed,,,,,,
-Rhyperior,175,stat_alignment,7,Careful,2.2%,Sp. Def,Sp. Atk,,,,,,
-Rhyperior,175,stat_alignment,8,Relaxed,1.8%,Defense,Speed,,,,,,
-Rhyperior,175,stat_points,1,,15.2%,,,32,32,2,0,0,0
-Rhyperior,175,stat_points,2,,7.5%,,,32,32,0,0,2,0
-Rhyperior,175,stat_points,3,,6.9%,,,0,32,0,0,26,8
-Rhyperior,175,stat_points,4,,6.2%,,,2,32,32,0,0,0
-Rhyperior,175,stat_points,5,,6.1%,,,2,32,0,0,0,32
-Rhyperior,175,stat_points,6,,6.0%,,,31,32,0,0,3,0
-Rhyperior,175,stat_points,7,,5.3%,,,31,32,3,0,0,0
-Rhyperior,175,stat_points,8,,4.4%,,,1,32,1,0,32,0
-Rhyperior,175,stat_points,9,,4.3%,,,32,2,32,0,0,0
-Rhyperior,175,stat_points,10,,4.2%,,,32,32,0,0,0,2
-Rhyperior,175,ability,1,Solid Rock,90.2%,,,,,,,,
-Rhyperior,175,ability,2,Reckless,8.4%,,,,,,,,
-Rhyperior,175,ability,3,Lightning Rod,1.4%,,,,,,,,
+Rhyperior,170,move,1,Earthquake,95.1%,,,,,,,,
+Rhyperior,170,move,2,Ice Punch,48.0%,,,,,,,,
+Rhyperior,170,move,3,Stone Edge,24.3%,,,,,,,,
+Rhyperior,170,move,4,Rock Blast,25.1%,,,,,,,,
+Rhyperior,170,move,5,Metal Burst,32.3%,,,,,,,,
+Rhyperior,170,move,6,Supercell Slam,22.1%,,,,,,,,
+Rhyperior,170,move,7,Avalanche,10.7%,,,,,,,,
+Rhyperior,170,move,8,Rock Wrecker,20.7%,,,,,,,,
+Rhyperior,170,move,9,Horn Drill,19.4%,,,,,,,,
+Rhyperior,170,move,10,Temper Flare,14.0%,,,,,,,,
+Rhyperior,170,held_item,1,Life Orb,22.8%,,,,,,,,
+Rhyperior,170,held_item,2,Focus Sash,14.0%,,,,,,,,
+Rhyperior,170,held_item,3,Rocky Helmet,11.3%,,,,,,,,
+Rhyperior,170,held_item,4,Sitrus Berry,11.1%,,,,,,,,
+Rhyperior,170,held_item,5,Expert Belt,10.6%,,,,,,,,
+Rhyperior,170,held_item,6,Muscle Band,6.9%,,,,,,,,
+Rhyperior,170,held_item,7,Houndoominite,6.0%,,,,,,,,
+Rhyperior,170,held_item,8,Quick Claw,13.6%,,,,,,,,
+Rhyperior,170,held_item,9,Lum Berry,3.0%,,,,,,,,
+Rhyperior,170,held_item,10,Shuca Berry,2.9%,,,,,,,,
+Rhyperior,170,teammate,1,Salamence,,,,,,,,,
+Rhyperior,170,teammate,2,Garchomp,,,,,,,,,
+Rhyperior,170,teammate,3,Golisopod,,,,,,,,,
+Rhyperior,170,teammate,4,Primarina,,,,,,,,,
+Rhyperior,170,teammate,5,Gyarados,,,,,,,,,
+Rhyperior,170,teammate,6,Hatterene,,,,,,,,,
+Rhyperior,170,teammate,7,Gholdengo,,,,,,,,,
+Rhyperior,170,teammate,8,Aegislash Shield Forme,,,,,,,,,
+Rhyperior,170,teammate,9,Venusaur,,,,,,,,,
+Rhyperior,170,teammate,10,Tyranitar,,,,,,,,,
+Rhyperior,170,stat_alignment,1,Adamant,49.5%,Attack,Sp. Atk,,,,,,
+Rhyperior,170,stat_alignment,2,Brave,25.9%,Attack,Speed,,,,,,
+Rhyperior,170,stat_alignment,3,Impish,9.4%,Defense,Sp. Atk,,,,,,
+Rhyperior,170,stat_alignment,4,Naughty,4.7%,Attack,Sp. Def,,,,,,
+Rhyperior,170,stat_alignment,5,Jolly,4.3%,Speed,Sp. Atk,,,,,,
+Rhyperior,170,stat_alignment,6,Careful,2.2%,Sp. Def,Sp. Atk,,,,,,
+Rhyperior,170,stat_alignment,7,Sassy,2.0%,Sp. Def,Speed,,,,,,
+Rhyperior,170,stat_alignment,8,Relaxed,1.6%,Defense,Speed,,,,,,
+Rhyperior,170,stat_alignment,9,Bold,0.2%,Defense,Attack,,,,,,
+Rhyperior,170,stat_points,1,,15.1%,,,32,32,2,0,0,0
+Rhyperior,170,stat_points,2,,8.7%,,,32,32,0,0,2,0
+Rhyperior,170,stat_points,3,,7.1%,,,31,32,0,0,3,0
+Rhyperior,170,stat_points,4,,5.5%,,,2,32,32,0,0,0
+Rhyperior,170,stat_points,5,,5.0%,,,31,32,3,0,0,0
+Rhyperior,170,stat_points,6,,4.6%,,,0,32,0,0,26,8
+Rhyperior,170,stat_points,7,,4.1%,,,1,32,1,0,32,0
+Rhyperior,170,stat_points,8,,4.1%,,,2,32,0,0,0,32
+Rhyperior,170,stat_points,9,,4.0%,,,32,2,32,0,0,0
+Rhyperior,170,stat_points,10,,3.2%,,,32,32,0,0,0,2
+Rhyperior,170,ability,1,Solid Rock,92.3%,,,,,,,,
+Rhyperior,170,ability,2,Reckless,5.9%,,,,,,,,
+Rhyperior,170,ability,3,Lightning Rod,1.8%,,,,,,,,

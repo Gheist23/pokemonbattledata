@@ -1,52 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slurpuff,156,move,1,Sticky Web,76.9%,,,,,,,,
-Slurpuff,156,move,2,Yawn,71.3%,,,,,,,,
-Slurpuff,156,move,3,Endeavor,55.3%,,,,,,,,
-Slurpuff,156,move,4,Dazzling Gleam,45.3%,,,,,,,,
-Slurpuff,156,move,5,Misty Explosion,22.0%,,,,,,,,
-Slurpuff,156,move,6,Flamethrower,21.9%,,,,,,,,
-Slurpuff,156,move,7,Calm Mind,21.1%,,,,,,,,
-Slurpuff,156,move,8,Draining Kiss,18.9%,,,,,,,,
-Slurpuff,156,move,9,Cotton Guard,13.9%,,,,,,,,
-Slurpuff,156,move,10,Surf,9.7%,,,,,,,,
-Slurpuff,156,held_item,1,Sitrus Berry,41.1%,,,,,,,,
-Slurpuff,156,held_item,2,Focus Sash,20.7%,,,,,,,,
-Slurpuff,156,held_item,3,Lopunnite,19.4%,,,,,,,,
-Slurpuff,156,held_item,4,Leftovers,1.0%,,,,,,,,
-Slurpuff,156,held_item,5,Oran Berry,8.5%,,,,,,,,
-Slurpuff,156,held_item,6,Chesto Berry,4.2%,,,,,,,,
-Slurpuff,156,held_item,7,Quick Claw,2.4%,,,,,,,,
-Slurpuff,156,held_item,8,Babiri Berry,1.3%,,,,,,,,
-Slurpuff,156,held_item,9,Lum Berry,0.8%,,,,,,,,
-Slurpuff,156,held_item,10,Mental Herb,0.3%,,,,,,,,
-Slurpuff,156,teammate,1,Garchomp,,,,,,,,,
-Slurpuff,156,teammate,2,Lucario,,,,,,,,,
-Slurpuff,156,teammate,3,Salamence,,,,,,,,,
-Slurpuff,156,teammate,4,Archaludon,,,,,,,,,
-Slurpuff,156,teammate,5,Rillaboom,,,,,,,,,
-Slurpuff,156,teammate,6,Mimikyu,,,,,,,,,
-Slurpuff,156,teammate,7,Absol,,,,,,,,,
-Slurpuff,156,teammate,8,Cinderace,,,,,,,,,
-Slurpuff,156,teammate,9,Golisopod,,,,,,,,,
-Slurpuff,156,teammate,10,Baxcalibur,,,,,,,,,
-Slurpuff,156,stat_alignment,1,Bold,29.4%,Defense,Attack,,,,,,
-Slurpuff,156,stat_alignment,2,Timid,23.2%,Speed,Attack,,,,,,
-Slurpuff,156,stat_alignment,3,Modest,21.4%,Sp. Atk,Attack,,,,,,
-Slurpuff,156,stat_alignment,4,Calm,14.1%,Sp. Def,Attack,,,,,,
-Slurpuff,156,stat_alignment,5,Careful,6.8%,Sp. Def,Sp. Atk,,,,,,
-Slurpuff,156,stat_alignment,6,Hasty,2.6%,Speed,Defense,,,,,,
-Slurpuff,156,stat_alignment,7,Lax,1.4%,Defense,Sp. Def,,,,,,
-Slurpuff,156,stat_alignment,8,Mild,1.1%,Sp. Atk,Defense,,,,,,
-Slurpuff,156,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
-Slurpuff,156,stat_points,1,,13.3%,,,2,0,0,32,0,32
-Slurpuff,156,stat_points,2,,9.2%,,,32,0,11,0,20,3
-Slurpuff,156,stat_points,3,,6.9%,,,32,0,0,0,32,2
-Slurpuff,156,stat_points,4,,4.5%,,,32,0,11,0,3,20
-Slurpuff,156,stat_points,5,,4.0%,,,0,0,0,32,0,32
-Slurpuff,156,stat_points,6,,3.1%,,,31,0,32,0,0,3
-Slurpuff,156,stat_points,7,,2.9%,,,32,0,7,0,24,3
-Slurpuff,156,stat_points,8,,2.7%,,,0,0,2,32,0,32
-Slurpuff,156,stat_points,9,,2.3%,,,0,2,0,32,0,32
-Slurpuff,156,stat_points,10,,2.3%,,,15,0,32,0,8,11
-Slurpuff,156,ability,1,Unburden,87.7%,,,,,,,,
-Slurpuff,156,ability,2,Sweet Veil,12.3%,,,,,,,,
+Slurpuff,159,move,1,Sticky Web,73.7%,,,,,,,,
+Slurpuff,159,move,2,Yawn,68.1%,,,,,,,,
+Slurpuff,159,move,3,Endeavor,55.2%,,,,,,,,
+Slurpuff,159,move,4,Dazzling Gleam,44.2%,,,,,,,,
+Slurpuff,159,move,5,Flamethrower,24.3%,,,,,,,,
+Slurpuff,159,move,6,Misty Explosion,22.9%,,,,,,,,
+Slurpuff,159,move,7,Calm Mind,23.0%,,,,,,,,
+Slurpuff,159,move,8,Draining Kiss,19.8%,,,,,,,,
+Slurpuff,159,move,9,Cotton Guard,15.9%,,,,,,,,
+Slurpuff,159,move,10,Surf,9.2%,,,,,,,,
+Slurpuff,159,held_item,1,Sitrus Berry,28.4%,,,,,,,,
+Slurpuff,159,held_item,2,Unknown Item 542,21.3%,,,,,,,,
+Slurpuff,159,held_item,3,Focus Sash,20.7%,,,,,,,,
+Slurpuff,159,held_item,4,Grassy Seed,8.7%,,,,,,,,
+Slurpuff,159,held_item,5,Oran Berry,8.5%,,,,,,,,
+Slurpuff,159,held_item,6,Psychic Seed,6.7%,,,,,,,,
+Slurpuff,159,held_item,7,Air Balloon,2.4%,,,,,,,,
+Slurpuff,159,held_item,8,Rocky Helmet,1.1%,,,,,,,,
+Slurpuff,159,held_item,9,Lum Berry,1.0%,,,,,,,,
+Slurpuff,159,held_item,10,Leftovers,0.6%,,,,,,,,
+Slurpuff,159,teammate,1,Garchomp,,,,,,,,,
+Slurpuff,159,teammate,2,Lucario,,,,,,,,,
+Slurpuff,159,teammate,3,Salamence,,,,,,,,,
+Slurpuff,159,teammate,4,Archaludon,,,,,,,,,
+Slurpuff,159,teammate,5,Rillaboom,,,,,,,,,
+Slurpuff,159,teammate,6,Mimikyu,,,,,,,,,
+Slurpuff,159,teammate,7,Absol,,,,,,,,,
+Slurpuff,159,teammate,8,Indeedee,,,,,,,,,
+Slurpuff,159,teammate,9,Cinderace,,,,,,,,,
+Slurpuff,159,teammate,10,Golisopod,,,,,,,,,
+Slurpuff,159,stat_alignment,1,Bold,30.9%,Defense,Attack,,,,,,
+Slurpuff,159,stat_alignment,2,Timid,21.3%,Speed,Attack,,,,,,
+Slurpuff,159,stat_alignment,3,Modest,21.2%,Sp. Atk,Attack,,,,,,
+Slurpuff,159,stat_alignment,4,Calm,14.9%,Sp. Def,Attack,,,,,,
+Slurpuff,159,stat_alignment,5,Careful,5.3%,Sp. Def,Sp. Atk,,,,,,
+Slurpuff,159,stat_alignment,6,Hasty,2.2%,Speed,Defense,,,,,,
+Slurpuff,159,stat_alignment,7,Mild,1.3%,Sp. Atk,Defense,,,,,,
+Slurpuff,159,stat_alignment,8,Lax,1.1%,Defense,Sp. Def,,,,,,
+Slurpuff,159,stat_alignment,9,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,
+Slurpuff,159,stat_alignment,10,Impish,0.7%,Defense,Sp. Atk,,,,,,
+Slurpuff,159,stat_points,1,,13.0%,,,2,0,0,32,0,32
+Slurpuff,159,stat_points,2,,7.0%,,,32,0,11,0,20,3
+Slurpuff,159,stat_points,3,,5.9%,,,32,0,11,0,3,20
+Slurpuff,159,stat_points,4,,5.4%,,,32,0,0,0,32,2
+Slurpuff,159,stat_points,5,,4.9%,,,0,0,0,32,0,32
+Slurpuff,159,stat_points,6,,2.7%,,,32,0,7,0,24,3
+Slurpuff,159,stat_points,7,,2.6%,,,0,0,2,32,0,32
+Slurpuff,159,stat_points,8,,2.3%,,,31,0,32,0,0,3
+Slurpuff,159,stat_points,9,,2.2%,,,8,0,32,0,0,26
+Slurpuff,159,stat_points,10,,2.1%,,,15,0,32,0,8,11
+Slurpuff,159,ability,1,Unburden,86.2%,,,,,,,,
+Slurpuff,159,ability,2,Sweet Veil,13.8%,,,,,,,,

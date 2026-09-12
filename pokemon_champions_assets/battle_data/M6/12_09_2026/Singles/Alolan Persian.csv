@@ -1,44 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Alolan Persian,248,move,1,Endeavor,62.6%,,,,,,,,
-Alolan Persian,248,move,2,Feint,59.5%,,,,,,,,
-Alolan Persian,248,move,3,Fake Out,42.7%,,,,,,,,
-Alolan Persian,248,move,4,Trailblaze,37.4%,,,,,,,,
-Alolan Persian,248,move,5,Taunt,29.0%,,,,,,,,
-Alolan Persian,248,move,6,Bite,24.4%,,,,,,,,
-Alolan Persian,248,move,7,U-turn,21.4%,,,,,,,,
-Alolan Persian,248,move,8,Knock Off,15.3%,,,,,,,,
-Alolan Persian,248,move,9,Icy Wind,13.0%,,,,,,,,
-Alolan Persian,248,move,10,Flail,12.2%,,,,,,,,
-Alolan Persian,248,held_item,1,Focus Sash,64.9%,,,,,,,,
-Alolan Persian,248,held_item,2,Lopunnite,16.0%,,,,,,,,
-Alolan Persian,248,held_item,3,Sitrus Berry,6.9%,,,,,,,,
-Alolan Persian,248,held_item,4,Life Orb,5.3%,,,,,,,,
-Alolan Persian,248,held_item,5,Silk Scarf,3.8%,,,,,,,,
-Alolan Persian,248,held_item,6,Quick Claw,3.1%,,,,,,,,
-Alolan Persian,248,teammate,1,Flareon,,,,,,,,,
-Alolan Persian,248,teammate,2,Aerodactyl,,,,,,,,,
-Alolan Persian,248,teammate,3,Swampert,,,,,,,,,
-Alolan Persian,248,teammate,4,Venusaur,,,,,,,,,
-Alolan Persian,248,teammate,5,Dragapult,,,,,,,,,
-Alolan Persian,248,teammate,6,Absol,,,,,,,,,
-Alolan Persian,248,teammate,7,Ditto,,,,,,,,,
-Alolan Persian,248,teammate,8,Azumarill,,,,,,,,,
-Alolan Persian,248,teammate,9,Swalot,,,,,,,,,
-Alolan Persian,248,teammate,10,Serperior,,,,,,,,,
-Alolan Persian,248,stat_alignment,1,Jolly,50.4%,Speed,Sp. Atk,,,,,,
-Alolan Persian,248,stat_alignment,2,Adamant,32.8%,Attack,Sp. Atk,,,,,,
-Alolan Persian,248,stat_alignment,3,Timid,6.9%,Speed,Attack,,,,,,
-Alolan Persian,248,stat_alignment,4,Naive,6.1%,Speed,Sp. Def,,,,,,
-Alolan Persian,248,stat_alignment,5,Lonely,3.1%,Attack,Defense,,,,,,
-Alolan Persian,248,stat_alignment,6,Brave,0.8%,Attack,Speed,,,,,,
-Alolan Persian,248,stat_points,1,,35.1%,,,1,32,1,0,0,32
-Alolan Persian,248,stat_points,2,,26.7%,,,2,32,0,0,0,32
-Alolan Persian,248,stat_points,3,,6.9%,,,32,0,2,0,0,32
-Alolan Persian,248,stat_points,4,,6.1%,,,15,32,1,0,2,16
-Alolan Persian,248,stat_points,5,,5.3%,,,15,10,0,0,25,16
-Alolan Persian,248,stat_points,6,,3.8%,,,0,32,0,0,2,32
-Alolan Persian,248,stat_points,7,,3.8%,,,0,32,0,5,0,29
-Alolan Persian,248,stat_points,8,,3.8%,,,15,32,1,0,0,18
-Alolan Persian,248,stat_points,9,,3.1%,,,0,32,0,0,0,32
-Alolan Persian,248,stat_points,10,,1.5%,,,0,2,0,32,0,32
-Alolan Persian,248,ability,1,Technician,100.0%,,,,,,,,
+Alolan Persian,249,move,1,Feint,64.2%,,,,,,,,
+Alolan Persian,249,move,2,Endeavor,61.7%,,,,,,,,
+Alolan Persian,249,move,3,Fake Out,44.9%,,,,,,,,
+Alolan Persian,249,move,4,Bite,30.6%,,,,,,,,
+Alolan Persian,249,move,5,Trailblaze,36.9%,,,,,,,,
+Alolan Persian,249,move,6,Covet,23.3%,,,,,,,,
+Alolan Persian,249,move,7,Taunt,29.7%,,,,,,,,
+Alolan Persian,249,move,8,U-turn,19.2%,,,,,,,,
+Alolan Persian,249,move,9,Foul Play,13.5%,,,,,,,,
+Alolan Persian,249,move,10,Knock Off,12.4%,,,,,,,,
+Alolan Persian,249,held_item,1,Focus Sash,53.4%,,,,,,,,
+Alolan Persian,249,held_item,2,Lopunnite,21.2%,,,,,,,,
+Alolan Persian,249,held_item,3,Eject Button,10.4%,,,,,,,,
+Alolan Persian,249,held_item,4,Sitrus Berry,4.7%,,,,,,,,
+Alolan Persian,249,held_item,5,Life Orb,3.6%,,,,,,,,
+Alolan Persian,249,held_item,6,Silk Scarf,2.6%,,,,,,,,
+Alolan Persian,249,held_item,7,Quick Claw,2.1%,,,,,,,,
+Alolan Persian,249,held_item,8,Choice Scarf,2.1%,,,,,,,,
+Alolan Persian,249,teammate,1,Flareon,,,,,,,,,
+Alolan Persian,249,teammate,2,Aerodactyl,,,,,,,,,
+Alolan Persian,249,teammate,3,Swampert,,,,,,,,,
+Alolan Persian,249,teammate,4,Ditto,,,,,,,,,
+Alolan Persian,249,teammate,5,Venusaur,,,,,,,,,
+Alolan Persian,249,teammate,6,Mawile,,,,,,,,,
+Alolan Persian,249,teammate,7,Dragapult,,,,,,,,,
+Alolan Persian,249,teammate,8,Absol,,,,,,,,,
+Alolan Persian,249,teammate,9,Salamence,,,,,,,,,
+Alolan Persian,249,teammate,10,Bellibolt,,,,,,,,,
+Alolan Persian,249,stat_alignment,1,Jolly,50.1%,Speed,Sp. Atk,,,,,,
+Alolan Persian,249,stat_alignment,2,Adamant,28.0%,Attack,Sp. Atk,,,,,,
+Alolan Persian,249,stat_alignment,3,Timid,4.7%,Speed,Attack,,,,,,
+Alolan Persian,249,stat_alignment,4,Naive,4.7%,Speed,Sp. Def,,,,,,
+Alolan Persian,249,stat_alignment,5,Lonely,2.1%,Attack,Defense,,,,,,
+Alolan Persian,249,stat_alignment,6,Brave,0.5%,Attack,Speed,,,,,,
+Alolan Persian,249,stat_points,1,,37.8%,,,2,32,0,0,0,32
+Alolan Persian,249,stat_points,2,,31.6%,,,1,32,1,0,0,32
+Alolan Persian,249,stat_points,3,,4.7%,,,32,0,2,0,0,32
+Alolan Persian,249,stat_points,4,,4.1%,,,15,32,1,0,2,16
+Alolan Persian,249,stat_points,5,,3.6%,,,15,10,0,0,25,16
+Alolan Persian,249,stat_points,6,,2.6%,,,0,32,0,0,2,32
+Alolan Persian,249,stat_points,7,,2.6%,,,0,32,0,5,0,29
+Alolan Persian,249,stat_points,8,,2.6%,,,15,32,1,0,0,18
+Alolan Persian,249,stat_points,9,,2.1%,,,0,32,0,0,0,32
+Alolan Persian,249,stat_points,10,,2.1%,,,0,32,19,0,0,15
+Alolan Persian,249,ability,1,Technician,100.0%,,,,,,,,

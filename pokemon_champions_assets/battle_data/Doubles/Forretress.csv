@@ -1,38 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Forretress,253,move,1,Body Press,68.0%,,,,,,,,
-Forretress,253,move,2,Stealth Rock,20.0%,,,,,,,,
-Forretress,253,move,3,Heavy Slam,40.0%,,,,,,,,
-Forretress,253,move,4,Explosion,26.0%,,,,,,,,
-Forretress,253,move,5,Spikes,36.0%,,,,,,,,
-Forretress,253,move,6,Protect,28.0%,,,,,,,,
-Forretress,253,move,7,Rock Blast,24.0%,,,,,,,,
-Forretress,253,move,8,Light Screen,20.0%,,,,,,,,
-Forretress,253,move,9,Iron Head,20.0%,,,,,,,,
-Forretress,253,move,10,Gravity,16.0%,,,,,,,,
-Forretress,253,held_item,1,Lopunnite,16.0%,,,,,,,,
-Forretress,253,held_item,2,Occa Berry,10.0%,,,,,,,,
-Forretress,253,held_item,3,Quick Claw,10.0%,,,,,,,,
-Forretress,253,held_item,4,Leftovers,56.0%,,,,,,,,
-Forretress,253,held_item,5,Wide Lens,8.0%,,,,,,,,
-Forretress,253,teammate,1,Absol,,,,,,,,,
-Forretress,253,teammate,2,Aegislash Shield Forme,,,,,,,,,
-Forretress,253,teammate,3,Toucannon,,,,,,,,,
-Forretress,253,teammate,4,Kommo-o,,,,,,,,,
-Forretress,253,teammate,5,Indeedee Female,,,,,,,,,
-Forretress,253,teammate,6,Pawmot,,,,,,,,,
-Forretress,253,teammate,7,Armarouge,,,,,,,,,
-Forretress,253,teammate,8,Golisopod,,,,,,,,,
-Forretress,253,teammate,9,Pelipper,,,,,,,,,
-Forretress,253,teammate,10,Hisuian Zoroark,,,,,,,,,
-Forretress,253,stat_alignment,1,Careful,8.0%,Sp. Def,Sp. Atk,,,,,,
-Forretress,253,stat_alignment,2,Brave,24.0%,Attack,Speed,,,,,,
-Forretress,253,stat_alignment,3,Adamant,24.0%,Attack,Sp. Atk,,,,,,
-Forretress,253,stat_alignment,4,Relaxed,24.0%,Defense,Speed,,,,,,
-Forretress,253,stat_points,1,,18.0%,,,32,0,2,0,32,0
-Forretress,253,stat_points,2,,14.0%,,,32,27,2,0,5,0
-Forretress,253,stat_points,3,,10.0%,,,2,32,32,0,0,0
-Forretress,253,stat_points,4,,10.0%,,,32,0,32,0,1,0
-Forretress,253,stat_points,5,,4.0%,,,32,0,32,0,2,0
-Forretress,253,stat_points,6,,4.0%,,,24,32,10,0,0,0
-Forretress,253,ability,1,Sturdy,86.0%,,,,,,,,
-Forretress,253,ability,2,Overcoat,14.0%,,,,,,,,
+Forretress,252,move,1,Body Press,65.0%,,,,,,,,
+Forretress,252,move,2,Heavy Slam,40.0%,,,,,,,,
+Forretress,252,move,3,Stealth Rock,25.0%,,,,,,,,
+Forretress,252,move,4,Protect,32.5%,,,,,,,,
+Forretress,252,move,5,Steel Roller,32.5%,,,,,,,,
+Forretress,252,move,6,Explosion,30.0%,,,,,,,,
+Forretress,252,move,7,Lunge,30.0%,,,,,,,,
+Forretress,252,move,8,Light Screen,22.5%,,,,,,,,
+Forretress,252,move,9,Spikes,32.5%,,,,,,,,
+Forretress,252,move,10,Gyro Ball,17.5%,,,,,,,,
+Forretress,252,held_item,1,Leftovers,35.0%,,,,,,,,
+Forretress,252,held_item,2,Rocky Helmet,12.5%,,,,,,,,
+Forretress,252,held_item,3,Unknown Item 564,15.0%,,,,,,,,
+Forretress,252,held_item,4,Occa Berry,12.5%,,,,,,,,
+Forretress,252,held_item,5,Unknown Item 278,10.0%,,,,,,,,
+Forretress,252,held_item,6,Silk Scarf,5.0%,,,,,,,,
+Forretress,252,held_item,7,Wide Lens,5.0%,,,,,,,,
+Forretress,252,held_item,8,Quick Claw,2.5%,,,,,,,,
+Forretress,252,held_item,9,Light Clay,2.5%,,,,,,,,
+Forretress,252,teammate,1,Indeedee Female,,,,,,,,,
+Forretress,252,teammate,2,Armarouge,,,,,,,,,
+Forretress,252,teammate,3,Absol,,,,,,,,,
+Forretress,252,teammate,4,Aegislash Shield Forme,,,,,,,,,
+Forretress,252,teammate,5,Toucannon,,,,,,,,,
+Forretress,252,teammate,6,Golisopod,,,,,,,,,
+Forretress,252,teammate,7,Kommo-o,,,,,,,,,
+Forretress,252,teammate,8,Pawmot,,,,,,,,,
+Forretress,252,teammate,9,Raichu,,,,,,,,,
+Forretress,252,teammate,10,Alolan Ninetales,,,,,,,,,
+Forretress,252,stat_alignment,1,Brave,22.5%,Attack,Speed,,,,,,
+Forretress,252,stat_alignment,2,Sassy,17.5%,Sp. Def,Speed,,,,,,
+Forretress,252,stat_alignment,3,Careful,7.5%,Sp. Def,Sp. Atk,,,,,,
+Forretress,252,stat_alignment,4,Adamant,25.0%,Attack,Sp. Atk,,,,,,
+Forretress,252,stat_alignment,5,Relaxed,25.0%,Defense,Speed,,,,,,
+Forretress,252,stat_alignment,6,Impish,2.5%,Defense,Sp. Atk,,,,,,
+Forretress,252,stat_points,1,,17.5%,,,24,32,10,0,0,0
+Forretress,252,stat_points,2,,17.5%,,,32,0,2,0,32,0
+Forretress,252,stat_points,3,,15.0%,,,2,32,32,0,0,0
+Forretress,252,stat_points,4,,15.0%,,,32,27,2,0,5,0
+Forretress,252,stat_points,5,,10.0%,,,12,14,10,0,30,0
+Forretress,252,stat_points,6,,7.5%,,,32,0,32,0,1,0
+Forretress,252,stat_points,7,,7.5%,,,32,0,32,0,2,0
+Forretress,252,stat_points,8,,7.5%,,,32,2,0,0,32,0
+Forretress,252,stat_points,9,,2.5%,,,11,32,2,0,21,0
+Forretress,252,ability,1,Sturdy,82.5%,,,,,,,,
+Forretress,252,ability,2,Overcoat,17.5%,,,,,,,,

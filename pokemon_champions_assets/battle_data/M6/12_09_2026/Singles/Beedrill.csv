@@ -1,39 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Beedrill,189,move,1,Poison Jab,98.5%,,,,,,,,
-Beedrill,189,move,2,U-turn,83.3%,,,,,,,,
-Beedrill,189,move,3,Drill Run,81.7%,,,,,,,,
-Beedrill,189,move,4,Fell Stinger,52.9%,,,,,,,,
-Beedrill,189,move,5,Knock Off,37.3%,,,,,,,,
-Beedrill,189,move,6,Swords Dance,11.2%,,,,,,,,
-Beedrill,189,move,7,Lunge,7.5%,,,,,,,,
-Beedrill,189,move,8,Substitute,6.6%,,,,,,,,
-Beedrill,189,move,9,Pin Missile,4.2%,,,,,,,,
-Beedrill,189,move,10,Protect,2.9%,,,,,,,,
-Beedrill,189,held_item,1,Beedrillite,90.4%,,,,,,,,
-Beedrill,189,held_item,2,Focus Sash,8.1%,,,,,,,,
-Beedrill,189,teammate,1,Garchomp,,,,,,,,,
-Beedrill,189,teammate,2,Greninja,,,,,,,,,
-Beedrill,189,teammate,3,Swampert,,,,,,,,,
-Beedrill,189,teammate,4,Basculegion Male,,,,,,,,,
-Beedrill,189,teammate,5,Kangaskhan,,,,,,,,,
-Beedrill,189,teammate,6,Stunfisk,,,,,,,,,
-Beedrill,189,teammate,7,Aromatisse,,,,,,,,,
-Beedrill,189,teammate,8,Dragonite,,,,,,,,,
-Beedrill,189,teammate,9,Hydreigon,,,,,,,,,
-Beedrill,189,teammate,10,Hisuian Zoroark,,,,,,,,,
-Beedrill,189,stat_alignment,1,Jolly,85.1%,Speed,Sp. Atk,,,,,,
-Beedrill,189,stat_alignment,2,Adamant,13.2%,Attack,Sp. Atk,,,,,,
-Beedrill,189,stat_alignment,3,Lonely,1.3%,Attack,Defense,,,,,,
-Beedrill,189,stat_alignment,4,Hasty,0.3%,Speed,Defense,,,,,,
-Beedrill,189,stat_points,1,,59.5%,,,2,32,0,0,0,32
-Beedrill,189,stat_points,2,,10.0%,,,3,32,0,0,0,31
-Beedrill,189,stat_points,3,,8.3%,,,1,32,1,0,0,32
-Beedrill,189,stat_points,4,,5.2%,,,0,32,0,0,2,32
-Beedrill,189,stat_points,5,,3.6%,,,1,32,0,0,2,31
-Beedrill,189,stat_points,6,,2.1%,,,0,32,2,0,0,32
-Beedrill,189,stat_points,7,,1.7%,,,0,32,0,0,0,32
-Beedrill,189,stat_points,8,,1.6%,,,31,0,0,0,12,23
-Beedrill,189,stat_points,9,,1.5%,,,0,30,4,0,0,32
-Beedrill,189,stat_points,10,,1.3%,,,1,32,0,0,1,32
-Beedrill,189,ability,1,Sniper,51.1%,,,,,,,,
-Beedrill,189,ability,2,Swarm,48.9%,,,,,,,,
+Beedrill,191,move,1,Poison Jab,98.1%,,,,,,,,
+Beedrill,191,move,2,U-turn,82.7%,,,,,,,,
+Beedrill,191,move,3,Drill Run,81.0%,,,,,,,,
+Beedrill,191,move,4,Fell Stinger,51.4%,,,,,,,,
+Beedrill,191,move,5,Knock Off,35.0%,,,,,,,,
+Beedrill,191,move,6,Swords Dance,13.6%,,,,,,,,
+Beedrill,191,move,7,Lunge,9.6%,,,,,,,,
+Beedrill,191,move,8,Substitute,5.8%,,,,,,,,
+Beedrill,191,move,9,Protect,4.1%,,,,,,,,
+Beedrill,191,move,10,Pin Missile,3.8%,,,,,,,,
+Beedrill,191,held_item,1,Beedrillite,92.4%,,,,,,,,
+Beedrill,191,held_item,2,Focus Sash,6.2%,,,,,,,,
+Beedrill,191,teammate,1,Garchomp,,,,,,,,,
+Beedrill,191,teammate,2,Greninja,,,,,,,,,
+Beedrill,191,teammate,3,Hisuian Zoroark,,,,,,,,,
+Beedrill,191,teammate,4,Primarina,,,,,,,,,
+Beedrill,191,teammate,5,Swampert,,,,,,,,,
+Beedrill,191,teammate,6,Basculegion Male,,,,,,,,,
+Beedrill,191,teammate,7,Hydreigon,,,,,,,,,
+Beedrill,191,teammate,8,Corviknight,,,,,,,,,
+Beedrill,191,teammate,9,Kangaskhan,,,,,,,,,
+Beedrill,191,teammate,10,Stunfisk,,,,,,,,,
+Beedrill,191,stat_alignment,1,Jolly,85.5%,Speed,Sp. Atk,,,,,,
+Beedrill,191,stat_alignment,2,Adamant,12.5%,Attack,Sp. Atk,,,,,,
+Beedrill,191,stat_alignment,3,Lonely,1.0%,Attack,Defense,,,,,,
+Beedrill,191,stat_alignment,4,Hasty,0.6%,Speed,Defense,,,,,,
+Beedrill,191,stat_alignment,5,Lax,0.3%,Defense,Sp. Def,,,,,,
+Beedrill,191,stat_alignment,6,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Beedrill,191,stat_points,1,,56.5%,,,2,32,0,0,0,32
+Beedrill,191,stat_points,2,,9.2%,,,3,32,0,0,0,31
+Beedrill,191,stat_points,3,,7.7%,,,1,32,1,0,0,32
+Beedrill,191,stat_points,4,,6.4%,,,0,32,0,0,2,32
+Beedrill,191,stat_points,5,,4.2%,,,1,32,0,0,1,32
+Beedrill,191,stat_points,6,,3.9%,,,0,32,2,0,0,32
+Beedrill,191,stat_points,7,,2.7%,,,1,32,0,0,2,31
+Beedrill,191,stat_points,8,,1.3%,,,0,32,0,0,0,32
+Beedrill,191,stat_points,9,,1.2%,,,31,0,0,0,12,23
+Beedrill,191,stat_points,10,,1.1%,,,0,30,4,0,0,32
+Beedrill,191,ability,1,Swarm,51.0%,,,,,,,,
+Beedrill,191,ability,2,Sniper,49.0%,,,,,,,,

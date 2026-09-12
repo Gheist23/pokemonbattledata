@@ -1,50 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Houndstone,134,move,1,Last Respects,83.2%,,,,,,,,
-Houndstone,134,move,2,Shadow Sneak,65.5%,,,,,,,,
-Houndstone,134,move,3,Will-O-Wisp,46.8%,,,,,,,,
-Houndstone,134,move,4,Play Rough,56.2%,,,,,,,,
-Houndstone,134,move,5,Pain Split,23.9%,,,,,,,,
-Houndstone,134,move,6,Body Press,19.4%,,,,,,,,
-Houndstone,134,move,7,Poltergeist,14.1%,,,,,,,,
-Houndstone,134,move,8,Howl,13.7%,,,,,,,,
-Houndstone,134,move,9,Yawn,13.0%,,,,,,,,
-Houndstone,134,move,10,Substitute,12.5%,,,,,,,,
-Houndstone,134,held_item,1,Spell Tag,42.3%,,,,,,,,
-Houndstone,134,held_item,2,Leftovers,24.6%,,,,,,,,
-Houndstone,134,held_item,3,Lopunnite,13.7%,,,,,,,,
-Houndstone,134,held_item,4,Life Orb,7.8%,,,,,,,,
-Houndstone,134,held_item,5,Sitrus Berry,7.2%,,,,,,,,
-Houndstone,134,held_item,6,Focus Sash,1.0%,,,,,,,,
-Houndstone,134,held_item,7,Choice Scarf,0.9%,,,,,,,,
-Houndstone,134,held_item,8,Chesto Berry,0.9%,,,,,,,,
-Houndstone,134,held_item,9,Kasib Berry,0.7%,,,,,,,,
-Houndstone,134,held_item,10,Lum Berry,0.4%,,,,,,,,
-Houndstone,134,teammate,1,Tyranitar,,,,,,,,,
-Houndstone,134,teammate,2,Excadrill,,,,,,,,,
-Houndstone,134,teammate,3,Scovillain,,,,,,,,,
-Houndstone,134,teammate,4,Garchomp,,,,,,,,,
-Houndstone,134,teammate,5,Salamence,,,,,,,,,
-Houndstone,134,teammate,6,Golisopod,,,,,,,,,
-Houndstone,134,teammate,7,Primarina,,,,,,,,,
-Houndstone,134,teammate,8,Hippowdon,,,,,,,,,
-Houndstone,134,teammate,9,Dragonite,,,,,,,,,
-Houndstone,134,teammate,10,Baxcalibur,,,,,,,,,
-Houndstone,134,stat_alignment,1,Adamant,60.1%,Attack,Sp. Atk,,,,,,
-Houndstone,134,stat_alignment,2,Impish,23.0%,Defense,Sp. Atk,,,,,,
-Houndstone,134,stat_alignment,3,Jolly,7.6%,Speed,Sp. Atk,,,,,,
-Houndstone,134,stat_alignment,4,Careful,6.1%,Sp. Def,Sp. Atk,,,,,,
-Houndstone,134,stat_alignment,5,Bold,2.9%,Defense,Attack,,,,,,
-Houndstone,134,stat_alignment,6,Naughty,0.2%,Attack,Sp. Def,,,,,,
-Houndstone,134,stat_alignment,7,Relaxed,0.1%,Defense,Speed,,,,,,
-Houndstone,134,stat_points,1,,22.6%,,,2,32,0,0,0,32
-Houndstone,134,stat_points,2,,9.9%,,,2,32,4,0,0,28
-Houndstone,134,stat_points,3,,8.2%,,,32,0,32,0,2,0
-Houndstone,134,stat_points,4,,5.7%,,,9,32,0,0,0,25
-Houndstone,134,stat_points,5,,5.3%,,,32,0,32,0,0,2
-Houndstone,134,stat_points,6,,5.1%,,,32,2,32,0,0,0
-Houndstone,134,stat_points,7,,4.9%,,,28,10,0,0,0,28
-Houndstone,134,stat_points,8,,3.9%,,,0,2,32,0,32,0
-Houndstone,134,stat_points,9,,3.5%,,,32,32,2,0,0,0
-Houndstone,134,stat_points,10,,2.9%,,,10,32,0,0,0,24
-Houndstone,134,ability,1,Sand Rush,66.6%,,,,,,,,
-Houndstone,134,ability,2,Fluffy,33.4%,,,,,,,,
+Houndstone,133,move,1,Last Respects,82.7%,,,,,,,,
+Houndstone,133,move,2,Shadow Sneak,63.7%,,,,,,,,
+Houndstone,133,move,3,Will-O-Wisp,50.0%,,,,,,,,
+Houndstone,133,move,4,Play Rough,54.8%,,,,,,,,
+Houndstone,133,move,5,Pain Split,23.1%,,,,,,,,
+Houndstone,133,move,6,Body Press,20.2%,,,,,,,,
+Houndstone,133,move,7,Yawn,13.9%,,,,,,,,
+Houndstone,133,move,8,Poltergeist,13.4%,,,,,,,,
+Houndstone,133,move,9,Substitute,11.7%,,,,,,,,
+Houndstone,133,move,10,Howl,11.7%,,,,,,,,
+Houndstone,133,held_item,1,Spell Tag,40.5%,,,,,,,,
+Houndstone,133,held_item,2,Leftovers,22.9%,,,,,,,,
+Houndstone,133,held_item,3,Rocky Helmet,13.3%,,,,,,,,
+Houndstone,133,held_item,4,Life Orb,9.2%,,,,,,,,
+Houndstone,133,held_item,5,Sitrus Berry,7.2%,,,,,,,,
+Houndstone,133,held_item,6,Chesto Berry,1.2%,,,,,,,,
+Houndstone,133,held_item,7,Choice Scarf,1.1%,,,,,,,,
+Houndstone,133,held_item,8,Kasib Berry,1.1%,,,,,,,,
+Houndstone,133,held_item,9,Focus Sash,0.9%,,,,,,,,
+Houndstone,133,held_item,10,Lum Berry,0.6%,,,,,,,,
+Houndstone,133,teammate,1,Tyranitar,,,,,,,,,
+Houndstone,133,teammate,2,Excadrill,,,,,,,,,
+Houndstone,133,teammate,3,Garchomp,,,,,,,,,
+Houndstone,133,teammate,4,Salamence,,,,,,,,,
+Houndstone,133,teammate,5,Scovillain,,,,,,,,,
+Houndstone,133,teammate,6,Golisopod,,,,,,,,,
+Houndstone,133,teammate,7,Primarina,,,,,,,,,
+Houndstone,133,teammate,8,Hippowdon,,,,,,,,,
+Houndstone,133,teammate,9,Lucario,,,,,,,,,
+Houndstone,133,teammate,10,Baxcalibur,,,,,,,,,
+Houndstone,133,stat_alignment,1,Adamant,60.1%,Attack,Sp. Atk,,,,,,
+Houndstone,133,stat_alignment,2,Impish,24.4%,Defense,Sp. Atk,,,,,,
+Houndstone,133,stat_alignment,3,Jolly,6.4%,Speed,Sp. Atk,,,,,,
+Houndstone,133,stat_alignment,4,Careful,5.2%,Sp. Def,Sp. Atk,,,,,,
+Houndstone,133,stat_alignment,5,Bold,2.6%,Defense,Attack,,,,,,
+Houndstone,133,stat_alignment,6,Naughty,0.8%,Attack,Sp. Def,,,,,,
+Houndstone,133,stat_alignment,7,Relaxed,0.2%,Defense,Speed,,,,,,
+Houndstone,133,stat_alignment,8,Lonely,0.1%,Attack,Defense,,,,,,
+Houndstone,133,stat_alignment,9,Brave,0.0%,Attack,Speed,,,,,,
+Houndstone,133,stat_points,1,,21.9%,,,2,32,0,0,0,32
+Houndstone,133,stat_points,2,,11.2%,,,2,32,4,0,0,28
+Houndstone,133,stat_points,3,,9.4%,,,32,0,32,0,2,0
+Houndstone,133,stat_points,4,,6.1%,,,32,2,32,0,0,0
+Houndstone,133,stat_points,5,,5.6%,,,32,0,32,0,0,2
+Houndstone,133,stat_points,6,,5.2%,,,28,10,0,0,0,28
+Houndstone,133,stat_points,7,,4.5%,,,9,32,0,0,0,25
+Houndstone,133,stat_points,8,,3.1%,,,0,2,32,0,32,0
+Houndstone,133,stat_points,9,,2.9%,,,32,32,2,0,0,0
+Houndstone,133,stat_points,10,,2.6%,,,28,0,32,0,0,6
+Houndstone,133,ability,1,Sand Rush,66.4%,,,,,,,,
+Houndstone,133,ability,2,Fluffy,33.6%,,,,,,,,

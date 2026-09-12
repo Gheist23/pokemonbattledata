@@ -1,53 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Vanilluxe,88,move,1,Freeze-Dry,97.7%,,,,,,,,
-Vanilluxe,88,move,2,Blizzard,97.4%,,,,,,,,
-Vanilluxe,88,move,3,Protect,58.7%,,,,,,,,
-Vanilluxe,88,move,4,Ice Shard,50.8%,,,,,,,,
-Vanilluxe,88,move,5,Aurora Veil,25.1%,,,,,,,,
-Vanilluxe,88,move,6,Icy Wind,23.9%,,,,,,,,
-Vanilluxe,88,move,7,Sheer Cold,14.6%,,,,,,,,
-Vanilluxe,88,move,8,Weather Ball,5.0%,,,,,,,,
-Vanilluxe,88,move,9,Ally Switch,4.9%,,,,,,,,
-Vanilluxe,88,move,10,Flash Cannon,4.9%,,,,,,,,
-Vanilluxe,88,held_item,1,Never-Melt Ice,59.6%,,,,,,,,
-Vanilluxe,88,held_item,2,Choice Scarf,24.0%,,,,,,,,
-Vanilluxe,88,held_item,3,Light Clay,5.0%,,,,,,,,
-Vanilluxe,88,held_item,4,Focus Sash,5.0%,,,,,,,,
-Vanilluxe,88,held_item,5,Sitrus Berry,2.2%,,,,,,,,
-Vanilluxe,88,held_item,6,Life Orb,1.3%,,,,,,,,
-Vanilluxe,88,held_item,7,Lopunnite,0.8%,,,,,,,,
-Vanilluxe,88,held_item,8,Leftovers,0.5%,,,,,,,,
-Vanilluxe,88,held_item,9,Occa Berry,0.4%,,,,,,,,
-Vanilluxe,88,held_item,10,Quick Claw,0.4%,,,,,,,,
-Vanilluxe,88,teammate,1,Farigiraf,,,,,,,,,
-Vanilluxe,88,teammate,2,Golisopod,,,,,,,,,
-Vanilluxe,88,teammate,3,Rillaboom,,,,,,,,,
-Vanilluxe,88,teammate,4,Kingambit,,,,,,,,,
-Vanilluxe,88,teammate,5,Sneasler,,,,,,,,,
-Vanilluxe,88,teammate,6,Camerupt,,,,,,,,,
-Vanilluxe,88,teammate,7,Indeedee Female,,,,,,,,,
-Vanilluxe,88,teammate,8,Incineroar,,,,,,,,,
-Vanilluxe,88,teammate,9,Blastoise,,,,,,,,,
-Vanilluxe,88,teammate,10,Politoed,,,,,,,,,
-Vanilluxe,88,stat_alignment,1,Quiet,36.8%,Sp. Atk,Speed,,,,,,
-Vanilluxe,88,stat_alignment,2,Modest,25.0%,Sp. Atk,Attack,,,,,,
-Vanilluxe,88,stat_alignment,3,Timid,23.4%,Speed,Attack,,,,,,
-Vanilluxe,88,stat_alignment,4,Calm,2.3%,Sp. Def,Attack,,,,,,
-Vanilluxe,88,stat_alignment,5,Jolly,1.2%,Speed,Sp. Atk,,,,,,
-Vanilluxe,88,stat_alignment,6,Bold,0.7%,Defense,Attack,,,,,,
-Vanilluxe,88,stat_alignment,7,Sassy,0.3%,Sp. Def,Speed,,,,,,
-Vanilluxe,88,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
-Vanilluxe,88,stat_alignment,9,Adamant,0.1%,Attack,Sp. Atk,,,,,,
-Vanilluxe,88,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Vanilluxe,88,stat_points,1,,25.9%,,,32,0,0,32,2,0
-Vanilluxe,88,stat_points,2,,15.4%,,,2,0,0,32,0,32
-Vanilluxe,88,stat_points,3,,12.6%,,,32,0,2,32,0,0
-Vanilluxe,88,stat_points,4,,4.1%,,,1,0,1,32,0,32
-Vanilluxe,88,stat_points,5,,3.5%,,,0,0,0,32,0,32
-Vanilluxe,88,stat_points,6,,2.7%,,,32,0,12,22,0,0
-Vanilluxe,88,stat_points,7,,2.2%,,,32,0,14,20,0,0
-Vanilluxe,88,stat_points,8,,2.1%,,,0,0,2,32,0,32
-Vanilluxe,88,stat_points,9,,1.9%,,,3,0,0,32,0,31
-Vanilluxe,88,stat_points,10,,1.7%,,,11,0,0,32,0,23
-Vanilluxe,88,ability,1,Snow Warning,99.4%,,,,,,,,
-Vanilluxe,88,ability,2,Weak Armor,0.6%,,,,,,,,
+Vanilluxe,92,move,1,Blizzard,97.1%,,,,,,,,
+Vanilluxe,92,move,2,Freeze-Dry,96.6%,,,,,,,,
+Vanilluxe,92,move,3,Protect,58.0%,,,,,,,,
+Vanilluxe,92,move,4,Ice Shard,49.7%,,,,,,,,
+Vanilluxe,92,move,5,Aurora Veil,25.5%,,,,,,,,
+Vanilluxe,92,move,6,Icy Wind,24.3%,,,,,,,,
+Vanilluxe,92,move,7,Sheer Cold,16.4%,,,,,,,,
+Vanilluxe,92,move,8,Ally Switch,5.0%,,,,,,,,
+Vanilluxe,92,move,9,Flash Cannon,4.9%,,,,,,,,
+Vanilluxe,92,move,10,Weather Ball,4.8%,,,,,,,,
+Vanilluxe,92,held_item,1,Never-Melt Ice,58.1%,,,,,,,,
+Vanilluxe,92,held_item,2,Choice Scarf,25.3%,,,,,,,,
+Vanilluxe,92,held_item,3,Focus Sash,5.7%,,,,,,,,
+Vanilluxe,92,held_item,4,Light Clay,4.8%,,,,,,,,
+Vanilluxe,92,held_item,5,Sitrus Berry,2.1%,,,,,,,,
+Vanilluxe,92,held_item,6,Life Orb,1.2%,,,,,,,,
+Vanilluxe,92,held_item,7,Psychic Seed,0.6%,,,,,,,,
+Vanilluxe,92,held_item,8,Quick Claw,0.5%,,,,,,,,
+Vanilluxe,92,held_item,9,Icy Rock,0.4%,,,,,,,,
+Vanilluxe,92,held_item,10,Unknown Item 881,0.4%,,,,,,,,
+Vanilluxe,92,teammate,1,Farigiraf,,,,,,,,,
+Vanilluxe,92,teammate,2,Rillaboom,,,,,,,,,
+Vanilluxe,92,teammate,3,Golisopod,,,,,,,,,
+Vanilluxe,92,teammate,4,Sneasler,,,,,,,,,
+Vanilluxe,92,teammate,5,Kingambit,,,,,,,,,
+Vanilluxe,92,teammate,6,Camerupt,,,,,,,,,
+Vanilluxe,92,teammate,7,Incineroar,,,,,,,,,
+Vanilluxe,92,teammate,8,Indeedee Female,,,,,,,,,
+Vanilluxe,92,teammate,9,Salamence,,,,,,,,,
+Vanilluxe,92,teammate,10,Blastoise,,,,,,,,,
+Vanilluxe,92,stat_alignment,1,Quiet,44.7%,Sp. Atk,Speed,,,,,,
+Vanilluxe,92,stat_alignment,2,Modest,26.6%,Sp. Atk,Attack,,,,,,
+Vanilluxe,92,stat_alignment,3,Timid,23.6%,Speed,Attack,,,,,,
+Vanilluxe,92,stat_alignment,4,Calm,2.0%,Sp. Def,Attack,,,,,,
+Vanilluxe,92,stat_alignment,5,Jolly,1.8%,Speed,Sp. Atk,,,,,,
+Vanilluxe,92,stat_alignment,6,Bold,0.7%,Defense,Attack,,,,,,
+Vanilluxe,92,stat_alignment,7,Sassy,0.3%,Sp. Def,Speed,,,,,,
+Vanilluxe,92,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
+Vanilluxe,92,stat_alignment,9,Adamant,0.1%,Attack,Sp. Atk,,,,,,
+Vanilluxe,92,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Vanilluxe,92,stat_points,1,,24.6%,,,32,0,0,32,2,0
+Vanilluxe,92,stat_points,2,,16.3%,,,2,0,0,32,0,32
+Vanilluxe,92,stat_points,3,,11.6%,,,32,0,2,32,0,0
+Vanilluxe,92,stat_points,4,,3.5%,,,1,0,1,32,0,32
+Vanilluxe,92,stat_points,5,,3.0%,,,0,0,0,32,0,32
+Vanilluxe,92,stat_points,6,,2.4%,,,32,0,12,22,0,0
+Vanilluxe,92,stat_points,7,,2.0%,,,32,0,14,20,0,0
+Vanilluxe,92,stat_points,8,,1.9%,,,0,0,2,32,0,32
+Vanilluxe,92,stat_points,9,,1.8%,,,32,0,0,2,0,32
+Vanilluxe,92,stat_points,10,,1.7%,,,0,0,0,32,2,32
+Vanilluxe,92,ability,1,Snow Warning,99.5%,,,,,,,,
+Vanilluxe,92,ability,2,Weak Armor,0.5%,,,,,,,,
+Vanilluxe,92,ability,3,Ice Body,0.0%,,,,,,,,

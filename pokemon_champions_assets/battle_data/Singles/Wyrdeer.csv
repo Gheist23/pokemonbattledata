@@ -1,45 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Wyrdeer,257,move,1,Psyshield Bash,71.9%,,,,,,,,
-Wyrdeer,257,move,2,Earthquake,41.7%,,,,,,,,
-Wyrdeer,257,move,3,Earth Power,14.5%,,,,,,,,
-Wyrdeer,257,move,4,Thrash,26.2%,,,,,,,,
-Wyrdeer,257,move,5,Trick Room,26.2%,,,,,,,,
-Wyrdeer,257,move,6,Roar,16.2%,,,,,,,,
-Wyrdeer,257,move,7,Thunderbolt,25.0%,,,,,,,,
-Wyrdeer,257,move,8,Body Slam,19.0%,,,,,,,,
-Wyrdeer,257,move,9,Energy Ball,19.0%,,,,,,,,
-Wyrdeer,257,move,10,Lunge,19.0%,,,,,,,,
-Wyrdeer,257,held_item,1,Sitrus Berry,38.6%,,,,,,,,
-Wyrdeer,257,held_item,2,Leftovers,29.0%,,,,,,,,
-Wyrdeer,257,held_item,3,Expert Belt,5.5%,,,,,,,,
-Wyrdeer,257,held_item,4,Muscle Band,4.3%,,,,,,,,
-Wyrdeer,257,held_item,5,Silk Scarf,11.9%,,,,,,,,
-Wyrdeer,257,held_item,6,Light Clay,7.1%,,,,,,,,
-Wyrdeer,257,held_item,7,Lum Berry,2.4%,,,,,,,,
-Wyrdeer,257,teammate,1,Lucario,,,,,,,,,
-Wyrdeer,257,teammate,2,Mawile,,,,,,,,,
-Wyrdeer,257,teammate,3,Hisuian Goodra,,,,,,,,,
-Wyrdeer,257,teammate,4,Gholdengo,,,,,,,,,
-Wyrdeer,257,teammate,5,Greninja,,,,,,,,,
-Wyrdeer,257,teammate,6,Pawmot,,,,,,,,,
-Wyrdeer,257,teammate,7,Alolan Ninetales,,,,,,,,,
-Wyrdeer,257,teammate,8,Skeledirge,,,,,,,,,
-Wyrdeer,257,teammate,9,Baxcalibur,,,,,,,,,
-Wyrdeer,257,teammate,10,Salamence,,,,,,,,,
-Wyrdeer,257,stat_alignment,1,Adamant,32.4%,Attack,Sp. Atk,,,,,,
-Wyrdeer,257,stat_alignment,2,Calm,16.7%,Sp. Def,Attack,,,,,,
-Wyrdeer,257,stat_alignment,3,Quiet,5.5%,Sp. Atk,Speed,,,,,,
-Wyrdeer,257,stat_alignment,4,Impish,11.9%,Defense,Sp. Atk,,,,,,
-Wyrdeer,257,stat_alignment,5,Modest,9.6%,Sp. Atk,Attack,,,,,,
-Wyrdeer,257,stat_points,1,,16.2%,,,2,32,32,0,0,0
-Wyrdeer,257,stat_points,2,,9.0%,,,32,25,9,0,0,0
-Wyrdeer,257,stat_points,3,,5.5%,,,0,0,2,32,32,0
-Wyrdeer,257,stat_points,4,,5.5%,,,1,0,1,32,32,0
-Wyrdeer,257,stat_points,5,,7.1%,,,32,0,2,0,32,0
-Wyrdeer,257,stat_points,6,,6.0%,,,32,32,2,0,0,0
-Wyrdeer,257,stat_points,7,,3.6%,,,2,0,30,30,0,4
-Wyrdeer,257,stat_points,8,,3.6%,,,32,0,32,0,2,0
-Wyrdeer,257,stat_points,9,,2.4%,,,32,2,32,0,0,0
-Wyrdeer,257,stat_points,10,,1.2%,,,0,32,2,0,32,0
-Wyrdeer,257,ability,1,Intimidate,81.0%,,,,,,,,
-Wyrdeer,257,ability,2,Sap Sipper,19.0%,,,,,,,,
+Wyrdeer,251,move,1,Psyshield Bash,73.8%,,,,,,,,
+Wyrdeer,251,move,2,Earthquake,48.8%,,,,,,,,
+Wyrdeer,251,move,3,Thunderbolt,23.3%,,,,,,,,
+Wyrdeer,251,move,4,Trick Room,28.0%,,,,,,,,
+Wyrdeer,251,move,5,Earth Power,17.4%,,,,,,,,
+Wyrdeer,251,move,6,Lunge,25.6%,,,,,,,,
+Wyrdeer,251,move,7,Throat Chop,22.6%,,,,,,,,
+Wyrdeer,251,move,8,Thrash,25.9%,,,,,,,,
+Wyrdeer,251,move,9,Roar,15.9%,,,,,,,,
+Wyrdeer,251,move,10,Body Slam,15.2%,,,,,,,,
+Wyrdeer,251,held_item,1,Sitrus Berry,19.0%,,,,,,,,
+Wyrdeer,251,held_item,2,Expert Belt,12.8%,,,,,,,,
+Wyrdeer,251,held_item,3,Leftovers,31.6%,,,,,,,,
+Wyrdeer,251,held_item,4,Muscle Band,9.8%,,,,,,,,
+Wyrdeer,251,held_item,5,Rocky Helmet,7.9%,,,,,,,,
+Wyrdeer,251,held_item,6,Silk Scarf,6.7%,,,,,,,,
+Wyrdeer,251,held_item,7,Light Clay,3.7%,,,,,,,,
+Wyrdeer,251,held_item,8,Grassy Seed,3.0%,,,,,,,,
+Wyrdeer,251,held_item,9,Lum Berry,2.4%,,,,,,,,
+Wyrdeer,251,held_item,10,Psychic Seed,1.8%,,,,,,,,
+Wyrdeer,251,teammate,1,Dragonite,,,,,,,,,
+Wyrdeer,251,teammate,2,Cofagrigus,,,,,,,,,
+Wyrdeer,251,teammate,3,Delphox,,,,,,,,,
+Wyrdeer,251,teammate,4,Rotom Fan,,,,,,,,,
+Wyrdeer,251,teammate,5,Falinks,,,,,,,,,
+Wyrdeer,251,teammate,6,Greninja,,,,,,,,,
+Wyrdeer,251,teammate,7,Lucario,,,,,,,,,
+Wyrdeer,251,teammate,8,Salamence,,,,,,,,,
+Wyrdeer,251,teammate,9,Mawile,,,,,,,,,
+Wyrdeer,251,teammate,10,Hisuian Goodra,,,,,,,,,
+Wyrdeer,251,stat_alignment,1,Adamant,33.0%,Attack,Sp. Atk,,,,,,
+Wyrdeer,251,stat_alignment,2,Quiet,9.7%,Sp. Atk,Speed,,,,,,
+Wyrdeer,251,stat_alignment,3,Impish,9.1%,Defense,Sp. Atk,,,,,,
+Wyrdeer,251,stat_alignment,4,Calm,18.5%,Sp. Def,Attack,,,,,,
+Wyrdeer,251,stat_alignment,5,Brave,7.9%,Attack,Speed,,,,,,
+Wyrdeer,251,stat_alignment,6,Modest,1.8%,Sp. Atk,Attack,,,,,,
+Wyrdeer,251,stat_alignment,7,Sassy,1.8%,Sp. Def,Speed,,,,,,
+Wyrdeer,251,stat_points,1,,16.7%,,,32,32,2,0,0,0
+Wyrdeer,251,stat_points,2,,15.9%,,,2,32,32,0,0,0
+Wyrdeer,251,stat_points,3,,11.0%,,,1,0,1,32,32,0
+Wyrdeer,251,stat_points,4,,11.0%,,,32,25,9,0,0,0
+Wyrdeer,251,stat_points,5,,7.9%,,,0,0,2,32,32,0
+Wyrdeer,251,stat_points,6,,4.9%,,,31,1,2,32,0,0
+Wyrdeer,251,stat_points,7,,4.3%,,,32,2,32,0,0,0
+Wyrdeer,251,stat_points,8,,3.7%,,,32,0,2,0,32,0
+Wyrdeer,251,stat_points,9,,1.8%,,,2,0,30,30,0,4
+Wyrdeer,251,stat_points,10,,1.8%,,,11,32,13,0,10,0
+Wyrdeer,251,ability,1,Intimidate,82.3%,,,,,,,,
+Wyrdeer,251,ability,2,Sap Sipper,17.7%,,,,,,,,

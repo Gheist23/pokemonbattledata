@@ -1,46 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Appletun,254,move,1,Apple Acid,91.2%,,,,,,,,
-Appletun,254,move,2,Draco Meteor,17.1%,,,,,,,,
-Appletun,254,move,3,Recover,56.0%,,,,,,,,
-Appletun,254,move,4,Leech Seed,48.4%,,,,,,,,
-Appletun,254,move,5,Sucker Punch,34.1%,,,,,,,,
-Appletun,254,move,6,Recycle,13.1%,,,,,,,,
-Appletun,254,move,7,Iron Defense,18.7%,,,,,,,,
-Appletun,254,move,8,Body Press,18.7%,,,,,,,,
-Appletun,254,move,9,Earthquake,14.3%,,,,,,,,
-Appletun,254,move,10,Amnesia,11.0%,,,,,,,,
-Appletun,254,held_item,1,Lopunnite,14.1%,,,,,,,,
-Appletun,254,held_item,2,Leftovers,48.6%,,,,,,,,
-Appletun,254,held_item,3,Sitrus Berry,30.9%,,,,,,,,
-Appletun,254,held_item,4,Big Root,4.3%,,,,,,,,
-Appletun,254,held_item,5,Lum Berry,2.2%,,,,,,,,
-Appletun,254,teammate,1,Golisopod,,,,,,,,,
-Appletun,254,teammate,2,Primarina,,,,,,,,,
-Appletun,254,teammate,3,Salamence,,,,,,,,,
-Appletun,254,teammate,4,Rotom Heat,,,,,,,,,
-Appletun,254,teammate,5,Garchomp,,,,,,,,,
-Appletun,254,teammate,6,Archaludon,,,,,,,,,
-Appletun,254,teammate,7,Gholdengo,,,,,,,,,
-Appletun,254,teammate,8,Gardevoir,,,,,,,,,
-Appletun,254,teammate,9,Alolan Ninetales,,,,,,,,,
-Appletun,254,teammate,10,Mawile,,,,,,,,,
-Appletun,254,stat_alignment,1,Quiet,8.5%,Sp. Atk,Speed,,,,,,
-Appletun,254,stat_alignment,2,Calm,24.2%,Sp. Def,Attack,,,,,,
-Appletun,254,stat_alignment,3,Relaxed,6.5%,Defense,Speed,,,,,,
-Appletun,254,stat_alignment,4,Bold,38.8%,Defense,Attack,,,,,,
-Appletun,254,stat_alignment,5,Modest,6.6%,Sp. Atk,Attack,,,,,,
-Appletun,254,stat_alignment,6,Sassy,3.3%,Sp. Def,Speed,,,,,,
-Appletun,254,stat_alignment,7,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
-Appletun,254,stat_alignment,8,Impish,1.1%,Defense,Sp. Atk,,,,,,
-Appletun,254,stat_points,1,,14.1%,,,32,0,2,32,0,0
-Appletun,254,stat_points,2,,10.9%,,,32,0,32,0,2,0
-Appletun,254,stat_points,3,,9.9%,,,32,0,0,2,32,0
-Appletun,254,stat_points,4,,9.9%,,,32,0,3,0,31,0
-Appletun,254,stat_points,5,,5.5%,,,28,0,6,32,0,0
-Appletun,254,stat_points,6,,4.4%,,,24,0,0,10,32,0
-Appletun,254,stat_points,7,,4.4%,,,32,0,32,2,0,0
-Appletun,254,stat_points,8,,3.3%,,,32,0,2,0,32,0
-Appletun,254,stat_points,9,,2.2%,,,24,10,0,32,0,0
-Appletun,254,stat_points,10,,2.2%,,,32,0,1,32,1,0
-Appletun,254,ability,1,Thick Fat,79.1%,,,,,,,,
-Appletun,254,ability,2,Ripen,20.9%,,,,,,,,
+Appletun,252,move,1,Apple Acid,91.1%,,,,,,,,
+Appletun,252,move,2,Draco Meteor,13.1%,,,,,,,,
+Appletun,252,move,3,Leech Seed,47.3%,,,,,,,,
+Appletun,252,move,4,Recover,49.0%,,,,,,,,
+Appletun,252,move,5,Earthquake,13.8%,,,,,,,,
+Appletun,252,move,6,Sucker Punch,34.2%,,,,,,,,
+Appletun,252,move,7,Iron Defense,22.3%,,,,,,,,
+Appletun,252,move,8,Body Press,19.1%,,,,,,,,
+Appletun,252,move,9,Recycle,13.4%,,,,,,,,
+Appletun,252,move,10,Amnesia,9.6%,,,,,,,,
+Appletun,252,held_item,1,Rocky Helmet,13.8%,,,,,,,,
+Appletun,252,held_item,2,Leftovers,18.7%,,,,,,,,
+Appletun,252,held_item,3,Unknown Item 188,29.9%,,,,,,,,
+Appletun,252,held_item,4,Sitrus Berry,32.1%,,,,,,,,
+Appletun,252,held_item,5,Lum Berry,1.3%,,,,,,,,
+Appletun,252,held_item,6,Unknown Item 277,1.3%,,,,,,,,
+Appletun,252,teammate,1,Golisopod,,,,,,,,,
+Appletun,252,teammate,2,Archaludon,,,,,,,,,
+Appletun,252,teammate,3,Alolan Ninetales,,,,,,,,,
+Appletun,252,teammate,4,Primarina,,,,,,,,,
+Appletun,252,teammate,5,Garchomp,,,,,,,,,
+Appletun,252,teammate,6,Salamence,,,,,,,,,
+Appletun,252,teammate,7,Rotom Heat,,,,,,,,,
+Appletun,252,teammate,8,Gardevoir,,,,,,,,,
+Appletun,252,teammate,9,Mawile,,,,,,,,,
+Appletun,252,teammate,10,Charizard,,,,,,,,,
+Appletun,252,stat_alignment,1,Relaxed,7.0%,Defense,Speed,,,,,,
+Appletun,252,stat_alignment,2,Quiet,6.8%,Sp. Atk,Speed,,,,,,
+Appletun,252,stat_alignment,3,Calm,24.0%,Sp. Def,Attack,,,,,,
+Appletun,252,stat_alignment,4,Bold,23.4%,Defense,Attack,,,,,,
+Appletun,252,stat_alignment,5,Modest,3.8%,Sp. Atk,Attack,,,,,,
+Appletun,252,stat_alignment,6,Impish,3.8%,Defense,Sp. Atk,,,,,,
+Appletun,252,stat_alignment,7,Sassy,2.5%,Sp. Def,Speed,,,,,,
+Appletun,252,stat_alignment,8,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
+Appletun,252,stat_points,1,,15.9%,,,32,0,32,0,2,0
+Appletun,252,stat_points,2,,12.9%,,,32,0,2,32,0,0
+Appletun,252,stat_points,3,,5.7%,,,32,0,0,2,32,0
+Appletun,252,stat_points,4,,5.7%,,,32,0,3,0,31,0
+Appletun,252,stat_points,5,,3.2%,,,2,0,32,0,32,0
+Appletun,252,stat_points,6,,3.2%,,,28,0,6,32,0,0
+Appletun,252,stat_points,7,,2.5%,,,24,0,0,10,32,0
+Appletun,252,stat_points,8,,2.5%,,,32,0,32,2,0,0
+Appletun,252,stat_points,9,,1.9%,,,32,0,2,0,32,0
+Appletun,252,stat_points,10,,1.3%,,,24,10,0,32,0,0
+Appletun,252,ability,1,Thick Fat,77.9%,,,,,,,,
+Appletun,252,ability,2,Ripen,22.1%,,,,,,,,

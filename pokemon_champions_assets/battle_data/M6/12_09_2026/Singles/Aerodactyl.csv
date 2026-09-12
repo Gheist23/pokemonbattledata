@@ -1,51 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aerodactyl,152,move,1,Ice Fang,52.2%,,,,,,,,
-Aerodactyl,152,move,2,Dual Wingbeat,71.5%,,,,,,,,
-Aerodactyl,152,move,3,Earthquake,49.5%,,,,,,,,
-Aerodactyl,152,move,4,Taunt,19.2%,,,,,,,,
-Aerodactyl,152,move,5,Rock Slide,38.6%,,,,,,,,
-Aerodactyl,152,move,6,Dragon Dance,25.7%,,,,,,,,
-Aerodactyl,152,move,7,Stone Edge,20.8%,,,,,,,,
-Aerodactyl,152,move,8,Fire Fang,18.0%,,,,,,,,
-Aerodactyl,152,move,9,Stealth Rock,18.0%,,,,,,,,
-Aerodactyl,152,move,10,Iron Head,10.8%,,,,,,,,
-Aerodactyl,152,held_item,1,Aerodactylite,75.6%,,,,,,,,
-Aerodactyl,152,held_item,2,Focus Sash,13.8%,,,,,,,,
-Aerodactyl,152,held_item,3,Choice Scarf,2.8%,,,,,,,,
-Aerodactyl,152,held_item,4,Life Orb,2.3%,,,,,,,,
-Aerodactyl,152,held_item,5,Lopunnite,2.2%,,,,,,,,
-Aerodactyl,152,held_item,6,Sitrus Berry,1.1%,,,,,,,,
-Aerodactyl,152,held_item,7,Bright Powder,0.6%,,,,,,,,
-Aerodactyl,152,held_item,8,Mental Herb,0.4%,,,,,,,,
-Aerodactyl,152,held_item,9,King's Rock,0.4%,,,,,,,,
-Aerodactyl,152,held_item,10,Wide Lens,0.2%,,,,,,,,
-Aerodactyl,152,teammate,1,Garchomp,,,,,,,,,
-Aerodactyl,152,teammate,2,Golisopod,,,,,,,,,
-Aerodactyl,152,teammate,3,Salamence,,,,,,,,,
-Aerodactyl,152,teammate,4,Primarina,,,,,,,,,
-Aerodactyl,152,teammate,5,Baxcalibur,,,,,,,,,
-Aerodactyl,152,teammate,6,Rillaboom,,,,,,,,,
-Aerodactyl,152,teammate,7,Lucario,,,,,,,,,
-Aerodactyl,152,teammate,8,Archaludon,,,,,,,,,
-Aerodactyl,152,teammate,9,Skeledirge,,,,,,,,,
-Aerodactyl,152,teammate,10,Gholdengo,,,,,,,,,
-Aerodactyl,152,stat_alignment,1,Jolly,59.4%,Speed,Sp. Atk,,,,,,
-Aerodactyl,152,stat_alignment,2,Adamant,27.2%,Attack,Sp. Atk,,,,,,
-Aerodactyl,152,stat_alignment,3,Impish,1.6%,Defense,Sp. Atk,,,,,,
-Aerodactyl,152,stat_alignment,4,Careful,1.0%,Sp. Def,Sp. Atk,,,,,,
-Aerodactyl,152,stat_alignment,5,Naughty,0.5%,Attack,Sp. Def,,,,,,
-Aerodactyl,152,stat_alignment,6,Lonely,0.2%,Attack,Defense,,,,,,
-Aerodactyl,152,stat_alignment,7,Hasty,0.1%,Speed,Defense,,,,,,
-Aerodactyl,152,stat_points,1,,58.3%,,,2,32,0,0,0,32
-Aerodactyl,152,stat_points,2,,15.3%,,,0,32,2,0,0,32
-Aerodactyl,152,stat_points,3,,2.9%,,,32,32,0,0,2,0
-Aerodactyl,152,stat_points,4,,2.2%,,,6,32,5,0,0,23
-Aerodactyl,152,stat_points,5,,1.8%,,,25,32,0,0,0,9
-Aerodactyl,152,stat_points,6,,1.5%,,,10,32,3,0,0,21
-Aerodactyl,152,stat_points,7,,1.3%,,,10,25,8,0,0,23
-Aerodactyl,152,stat_points,8,,1.1%,,,32,0,16,0,0,18
-Aerodactyl,152,stat_points,9,,1.0%,,,32,0,2,0,32,0
-Aerodactyl,152,stat_points,10,,0.9%,,,32,0,12,0,17,5
-Aerodactyl,152,ability,1,Unnerve,77.5%,,,,,,,,
-Aerodactyl,152,ability,2,Pressure,17.2%,,,,,,,,
-Aerodactyl,152,ability,3,Rock Head,5.3%,,,,,,,,
+Aerodactyl,153,move,1,Ice Fang,52.7%,,,,,,,,
+Aerodactyl,153,move,2,Dual Wingbeat,70.5%,,,,,,,,
+Aerodactyl,153,move,3,Earthquake,52.1%,,,,,,,,
+Aerodactyl,153,move,4,Taunt,16.0%,,,,,,,,
+Aerodactyl,153,move,5,Rock Slide,35.5%,,,,,,,,
+Aerodactyl,153,move,6,Dragon Dance,29.6%,,,,,,,,
+Aerodactyl,153,move,7,Stone Edge,23.3%,,,,,,,,
+Aerodactyl,153,move,8,Stealth Rock,18.7%,,,,,,,,
+Aerodactyl,153,move,9,Fire Fang,17.1%,,,,,,,,
+Aerodactyl,153,move,10,Iron Head,8.8%,,,,,,,,
+Aerodactyl,153,held_item,1,Aerodactylite,77.7%,,,,,,,,
+Aerodactyl,153,held_item,2,Focus Sash,13.5%,,,,,,,,
+Aerodactyl,153,held_item,3,Choice Scarf,2.1%,,,,,,,,
+Aerodactyl,153,held_item,4,Life Orb,1.9%,,,,,,,,
+Aerodactyl,153,held_item,5,Rocky Helmet,1.7%,,,,,,,,
+Aerodactyl,153,held_item,6,Sitrus Berry,0.9%,,,,,,,,
+Aerodactyl,153,held_item,7,Bright Powder,0.4%,,,,,,,,
+Aerodactyl,153,held_item,8,King's Rock,0.4%,,,,,,,,
+Aerodactyl,153,held_item,9,Mental Herb,0.3%,,,,,,,,
+Aerodactyl,153,held_item,10,Scope Lens,0.3%,,,,,,,,
+Aerodactyl,153,teammate,1,Garchomp,,,,,,,,,
+Aerodactyl,153,teammate,2,Golisopod,,,,,,,,,
+Aerodactyl,153,teammate,3,Salamence,,,,,,,,,
+Aerodactyl,153,teammate,4,Primarina,,,,,,,,,
+Aerodactyl,153,teammate,5,Lucario,,,,,,,,,
+Aerodactyl,153,teammate,6,Baxcalibur,,,,,,,,,
+Aerodactyl,153,teammate,7,Skeledirge,,,,,,,,,
+Aerodactyl,153,teammate,8,Venusaur,,,,,,,,,
+Aerodactyl,153,teammate,9,Archaludon,,,,,,,,,
+Aerodactyl,153,teammate,10,Rillaboom,,,,,,,,,
+Aerodactyl,153,stat_alignment,1,Adamant,28.0%,Attack,Sp. Atk,,,,,,
+Aerodactyl,153,stat_alignment,2,Jolly,27.4%,Speed,Sp. Atk,,,,,,
+Aerodactyl,153,stat_alignment,3,Impish,2.6%,Defense,Sp. Atk,,,,,,
+Aerodactyl,153,stat_alignment,4,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
+Aerodactyl,153,stat_alignment,5,Naive,0.6%,Speed,Sp. Def,,,,,,
+Aerodactyl,153,stat_alignment,6,Naughty,0.4%,Attack,Sp. Def,,,,,,
+Aerodactyl,153,stat_alignment,7,Lonely,0.1%,Attack,Defense,,,,,,
+Aerodactyl,153,stat_alignment,8,Hasty,0.1%,Speed,Defense,,,,,,
+Aerodactyl,153,stat_points,1,,54.4%,,,2,32,0,0,0,32
+Aerodactyl,153,stat_points,2,,14.7%,,,0,32,2,0,0,32
+Aerodactyl,153,stat_points,3,,2.4%,,,32,32,0,0,2,0
+Aerodactyl,153,stat_points,4,,1.7%,,,8,32,0,0,0,26
+Aerodactyl,153,stat_points,5,,1.6%,,,6,32,5,0,0,23
+Aerodactyl,153,stat_points,6,,1.5%,,,10,32,1,0,0,23
+Aerodactyl,153,stat_points,7,,1.4%,,,29,32,5,0,0,0
+Aerodactyl,153,stat_points,8,,1.3%,,,25,32,0,0,0,9
+Aerodactyl,153,stat_points,9,,1.2%,,,32,0,31,0,0,3
+Aerodactyl,153,stat_points,10,,1.1%,,,10,32,3,0,0,21
+Aerodactyl,153,ability,1,Unnerve,78.4%,,,,,,,,
+Aerodactyl,153,ability,2,Pressure,15.4%,,,,,,,,
+Aerodactyl,153,ability,3,Rock Head,6.2%,,,,,,,,

@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Hisuian Arcanine,26,move,1,Flare Blitz,99.8%,,,,,,,,
-Hisuian Arcanine,26,move,2,Protect,92.7%,,,,,,,,
-Hisuian Arcanine,26,move,3,Head Smash,92.4%,,,,,,,,
+Hisuian Arcanine,26,move,2,Head Smash,92.8%,,,,,,,,
+Hisuian Arcanine,26,move,3,Protect,92.7%,,,,,,,,
 Hisuian Arcanine,26,move,4,Extreme Speed,89.3%,,,,,,,,
-Hisuian Arcanine,26,move,5,Rock Slide,14.6%,,,,,,,,
-Hisuian Arcanine,26,move,6,Wild Charge,3.9%,,,,,,,,
-Hisuian Arcanine,26,move,7,Close Combat,3.2%,,,,,,,,
+Hisuian Arcanine,26,move,5,Rock Slide,13.9%,,,,,,,,
+Hisuian Arcanine,26,move,6,Wild Charge,4.2%,,,,,,,,
+Hisuian Arcanine,26,move,7,Close Combat,3.3%,,,,,,,,
 Hisuian Arcanine,26,move,8,Psychic Fangs,0.7%,,,,,,,,
 Hisuian Arcanine,26,move,9,Howl,0.5%,,,,,,,,
 Hisuian Arcanine,26,move,10,Snarl,0.4%,,,,,,,,
-Hisuian Arcanine,26,held_item,1,Focus Sash,89.8%,,,,,,,,
+Hisuian Arcanine,26,held_item,1,Focus Sash,89.7%,,,,,,,,
 Hisuian Arcanine,26,held_item,2,Choice Scarf,4.4%,,,,,,,,
 Hisuian Arcanine,26,held_item,3,Life Orb,1.9%,,,,,,,,
-Hisuian Arcanine,26,held_item,4,Sitrus Berry,0.9%,,,,,,,,
-Hisuian Arcanine,26,held_item,5,Chople Berry,0.7%,,,,,,,,
+Hisuian Arcanine,26,held_item,4,Sitrus Berry,0.8%,,,,,,,,
+Hisuian Arcanine,26,held_item,5,Chople Berry,0.5%,,,,,,,,
 Hisuian Arcanine,26,held_item,6,White Herb,0.4%,,,,,,,,
-Hisuian Arcanine,26,held_item,7,Expert Belt,0.3%,,,,,,,,
-Hisuian Arcanine,26,held_item,8,Wide Lens,0.3%,,,,,,,,
+Hisuian Arcanine,26,held_item,7,Wide Lens,0.3%,,,,,,,,
+Hisuian Arcanine,26,held_item,8,Unknown Item 185,0.3%,,,,,,,,
 Hisuian Arcanine,26,held_item,9,Hard Stone,0.2%,,,,,,,,
-Hisuian Arcanine,26,held_item,10,Quick Claw,0.1%,,,,,,,,
+Hisuian Arcanine,26,held_item,10,Expert Belt,0.2%,,,,,,,,
 Hisuian Arcanine,26,teammate,1,Rillaboom,,,,,,,,,
 Hisuian Arcanine,26,teammate,2,Salamence,,,,,,,,,
 Hisuian Arcanine,26,teammate,3,Sneasler,,,,,,,,,
@@ -27,28 +27,28 @@ Hisuian Arcanine,26,teammate,5,Basculegion Male,,,,,,,,,
 Hisuian Arcanine,26,teammate,6,Gholdengo,,,,,,,,,
 Hisuian Arcanine,26,teammate,7,Indeedee Female,,,,,,,,,
 Hisuian Arcanine,26,teammate,8,Sylveon,,,,,,,,,
-Hisuian Arcanine,26,teammate,9,Farigiraf,,,,,,,,,
-Hisuian Arcanine,26,teammate,10,Raichu,,,,,,,,,
-Hisuian Arcanine,26,stat_alignment,1,Jolly,77.5%,Speed,Sp. Atk,,,,,,
-Hisuian Arcanine,26,stat_alignment,2,Adamant,21.1%,Attack,Sp. Atk,,,,,,
-Hisuian Arcanine,26,stat_alignment,3,Naughty,0.5%,Attack,Sp. Def,,,,,,
-Hisuian Arcanine,26,stat_alignment,4,Brave,0.2%,Attack,Speed,,,,,,
-Hisuian Arcanine,26,stat_alignment,5,Naive,0.2%,Speed,Sp. Def,,,,,,
+Hisuian Arcanine,26,teammate,9,Raichu,,,,,,,,,
+Hisuian Arcanine,26,teammate,10,Farigiraf,,,,,,,,,
+Hisuian Arcanine,26,stat_alignment,1,Jolly,77.3%,Speed,Sp. Atk,,,,,,
+Hisuian Arcanine,26,stat_alignment,2,Adamant,21.3%,Attack,Sp. Atk,,,,,,
+Hisuian Arcanine,26,stat_alignment,3,Naughty,0.6%,Attack,Sp. Def,,,,,,
+Hisuian Arcanine,26,stat_alignment,4,Brave,0.3%,Attack,Speed,,,,,,
+Hisuian Arcanine,26,stat_alignment,5,Naive,0.1%,Speed,Sp. Def,,,,,,
 Hisuian Arcanine,26,stat_alignment,6,Modest,0.1%,Sp. Atk,Attack,,,,,,
 Hisuian Arcanine,26,stat_alignment,7,Lonely,0.1%,Attack,Defense,,,,,,
 Hisuian Arcanine,26,stat_alignment,8,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
 Hisuian Arcanine,26,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
 Hisuian Arcanine,26,stat_alignment,10,Sassy,0.0%,Sp. Def,Speed,,,,,,
 Hisuian Arcanine,26,stat_points,1,,66.5%,,,2,32,0,0,0,32
-Hisuian Arcanine,26,stat_points,2,,6.4%,,,1,32,1,0,0,32
-Hisuian Arcanine,26,stat_points,3,,5.8%,,,1,32,0,0,1,32
-Hisuian Arcanine,26,stat_points,4,,5.6%,,,0,32,1,0,1,32
-Hisuian Arcanine,26,stat_points,5,,4.9%,,,0,32,2,0,0,32
-Hisuian Arcanine,26,stat_points,6,,3.1%,,,0,32,0,0,2,32
+Hisuian Arcanine,26,stat_points,2,,6.5%,,,1,32,0,0,1,32
+Hisuian Arcanine,26,stat_points,3,,6.0%,,,1,32,1,0,0,32
+Hisuian Arcanine,26,stat_points,4,,5.4%,,,0,32,1,0,1,32
+Hisuian Arcanine,26,stat_points,5,,4.6%,,,0,32,2,0,0,32
+Hisuian Arcanine,26,stat_points,6,,3.0%,,,0,32,0,0,2,32
 Hisuian Arcanine,26,stat_points,7,,1.1%,,,0,32,0,0,0,32
 Hisuian Arcanine,26,stat_points,8,,0.4%,,,32,32,0,0,0,2
-Hisuian Arcanine,26,stat_points,9,,0.4%,,,32,32,2,0,0,0
-Hisuian Arcanine,26,stat_points,10,,0.3%,,,6,32,0,0,0,28
-Hisuian Arcanine,26,ability,1,Rock Head,96.1%,,,,,,,,
-Hisuian Arcanine,26,ability,2,Intimidate,3.5%,,,,,,,,
-Hisuian Arcanine,26,ability,3,Flash Fire,0.4%,,,,,,,,
+Hisuian Arcanine,26,stat_points,9,,0.3%,,,32,32,2,0,0,0
+Hisuian Arcanine,26,stat_points,10,,0.3%,,,32,32,0,0,2,0
+Hisuian Arcanine,26,ability,1,Rock Head,96.2%,,,,,,,,
+Hisuian Arcanine,26,ability,2,Intimidate,3.3%,,,,,,,,
+Hisuian Arcanine,26,ability,3,Flash Fire,0.5%,,,,,,,,

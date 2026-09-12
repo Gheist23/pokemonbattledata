@@ -1,51 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Luxray,223,move,1,Ice Fang,54.7%,,,,,,,,
-Luxray,223,move,2,Volt Switch,37.5%,,,,,,,,
-Luxray,223,move,3,Supercell Slam,70.0%,,,,,,,,
-Luxray,223,move,4,Wild Charge,18.6%,,,,,,,,
-Luxray,223,move,5,Quick Attack,21.3%,,,,,,,,
-Luxray,223,move,6,Baby-Doll Eyes,21.1%,,,,,,,,
-Luxray,223,move,7,Psychic Fangs,29.4%,,,,,,,,
-Luxray,223,move,8,Superpower,26.4%,,,,,,,,
-Luxray,223,move,9,Snarl,12.9%,,,,,,,,
-Luxray,223,move,10,Fire Fang,12.1%,,,,,,,,
-Luxray,223,held_item,1,Sitrus Berry,43.5%,,,,,,,,
-Luxray,223,held_item,2,Lopunnite,17.1%,,,,,,,,
-Luxray,223,held_item,3,Shuca Berry,11.4%,,,,,,,,
-Luxray,223,held_item,4,Expert Belt,7.2%,,,,,,,,
-Luxray,223,held_item,5,Life Orb,14.0%,,,,,,,,
-Luxray,223,held_item,6,Houndoominite,1.9%,,,,,,,,
-Luxray,223,held_item,7,Leftovers,1.4%,,,,,,,,
-Luxray,223,held_item,8,Focus Sash,1.2%,,,,,,,,
-Luxray,223,held_item,9,Light Clay,0.9%,,,,,,,,
-Luxray,223,held_item,10,Quick Claw,0.7%,,,,,,,,
-Luxray,223,teammate,1,Garchomp,,,,,,,,,
-Luxray,223,teammate,2,Salamence,,,,,,,,,
-Luxray,223,teammate,3,Scizor,,,,,,,,,
-Luxray,223,teammate,4,Gyarados,,,,,,,,,
-Luxray,223,teammate,5,Dragonite,,,,,,,,,
-Luxray,223,teammate,6,Flareon,,,,,,,,,
-Luxray,223,teammate,7,Sableye,,,,,,,,,
-Luxray,223,teammate,8,Leafeon,,,,,,,,,
-Luxray,223,teammate,9,Clawitzer,,,,,,,,,
-Luxray,223,teammate,10,Emboar,,,,,,,,,
-Luxray,223,stat_alignment,1,Adamant,50.9%,Attack,Sp. Atk,,,,,,
-Luxray,223,stat_alignment,2,Impish,14.6%,Defense,Sp. Atk,,,,,,
-Luxray,223,stat_alignment,3,Relaxed,13.8%,Defense,Speed,,,,,,
-Luxray,223,stat_alignment,4,Bold,7.9%,Defense,Attack,,,,,,
-Luxray,223,stat_alignment,5,Careful,2.8%,Sp. Def,Sp. Atk,,,,,,
-Luxray,223,stat_alignment,6,Jolly,14.6%,Speed,Sp. Atk,,,,,,
-Luxray,223,stat_alignment,7,Calm,1.6%,Sp. Def,Attack,,,,,,
-Luxray,223,stat_alignment,8,Sassy,0.7%,Sp. Def,Speed,,,,,,
-Luxray,223,stat_points,1,,17.3%,,,20,26,0,0,20,0
-Luxray,223,stat_points,2,,16.4%,,,32,18,14,0,2,0
-Luxray,223,stat_points,3,,9.8%,,,32,30,0,0,4,0
-Luxray,223,stat_points,4,,8.4%,,,2,32,0,0,0,32
-Luxray,223,stat_points,5,,7.7%,,,32,2,32,0,0,0
-Luxray,223,stat_points,6,,7.2%,,,32,32,1,0,1,0
-Luxray,223,stat_points,7,,5.8%,,,32,0,32,0,2,0
-Luxray,223,stat_points,8,,5.1%,,,15,32,0,0,0,19
-Luxray,223,stat_points,9,,5.1%,,,28,7,31,0,0,0
-Luxray,223,stat_points,10,,4.9%,,,32,0,32,2,0,0
-Luxray,223,ability,1,Intimidate,96.7%,,,,,,,,
-Luxray,223,ability,2,Guts,3.3%,,,,,,,,
+Luxray,231,move,1,Ice Fang,55.3%,,,,,,,,
+Luxray,231,move,2,Volt Switch,39.1%,,,,,,,,
+Luxray,231,move,3,Supercell Slam,71.9%,,,,,,,,
+Luxray,231,move,4,Wild Charge,17.3%,,,,,,,,
+Luxray,231,move,5,Quick Attack,20.1%,,,,,,,,
+Luxray,231,move,6,Baby-Doll Eyes,28.1%,,,,,,,,
+Luxray,231,move,7,Superpower,27.3%,,,,,,,,
+Luxray,231,move,8,Psychic Fangs,27.3%,,,,,,,,
+Luxray,231,move,9,Fire Fang,13.6%,,,,,,,,
+Luxray,231,move,10,Snarl,11.6%,,,,,,,,
+Luxray,231,held_item,1,Sitrus Berry,42.7%,,,,,,,,
+Luxray,231,held_item,2,Rocky Helmet,15.2%,,,,,,,,
+Luxray,231,held_item,3,Shuca Berry,12.4%,,,,,,,,
+Luxray,231,held_item,4,Expert Belt,7.8%,,,,,,,,
+Luxray,231,held_item,5,Life Orb,14.4%,,,,,,,,
+Luxray,231,held_item,6,Air Balloon,2.4%,,,,,,,,
+Luxray,231,held_item,7,Eject Button,1.6%,,,,,,,,
+Luxray,231,held_item,8,Choice Scarf,1.4%,,,,,,,,
+Luxray,231,held_item,9,Chesto Berry,1.2%,,,,,,,,
+Luxray,231,held_item,10,Leftovers,1.2%,,,,,,,,
+Luxray,231,teammate,1,Garchomp,,,,,,,,,
+Luxray,231,teammate,2,Salamence,,,,,,,,,
+Luxray,231,teammate,3,Scizor,,,,,,,,,
+Luxray,231,teammate,4,Gyarados,,,,,,,,,
+Luxray,231,teammate,5,Dragonite,,,,,,,,,
+Luxray,231,teammate,6,Sableye,,,,,,,,,
+Luxray,231,teammate,7,Flareon,,,,,,,,,
+Luxray,231,teammate,8,Leafeon,,,,,,,,,
+Luxray,231,teammate,9,Clawitzer,,,,,,,,,
+Luxray,231,teammate,10,Golisopod,,,,,,,,,
+Luxray,231,stat_alignment,1,Adamant,48.9%,Attack,Sp. Atk,,,,,,
+Luxray,231,stat_alignment,2,Impish,21.2%,Defense,Sp. Atk,,,,,,
+Luxray,231,stat_alignment,3,Relaxed,14.8%,Defense,Speed,,,,,,
+Luxray,231,stat_alignment,4,Bold,7.4%,Defense,Attack,,,,,,
+Luxray,231,stat_alignment,5,Jolly,12.8%,Speed,Sp. Atk,,,,,,
+Luxray,231,stat_alignment,6,Careful,2.4%,Sp. Def,Sp. Atk,,,,,,
+Luxray,231,stat_alignment,7,Calm,1.4%,Sp. Def,Attack,,,,,,
+Luxray,231,stat_alignment,8,Sassy,0.6%,Sp. Def,Speed,,,,,,
+Luxray,231,stat_alignment,9,Brave,0.4%,Attack,Speed,,,,,,
+Luxray,231,stat_points,1,,15.0%,,,20,26,0,0,20,0
+Luxray,231,stat_points,2,,14.0%,,,32,18,14,0,2,0
+Luxray,231,stat_points,3,,8.4%,,,32,30,0,0,4,0
+Luxray,231,stat_points,4,,7.6%,,,32,32,1,0,1,0
+Luxray,231,stat_points,5,,7.4%,,,2,32,0,0,0,32
+Luxray,231,stat_points,6,,6.6%,,,32,2,32,0,0,0
+Luxray,231,stat_points,7,,6.4%,,,32,0,32,0,2,0
+Luxray,231,stat_points,8,,5.4%,,,28,7,31,0,0,0
+Luxray,231,stat_points,9,,4.8%,,,32,0,32,2,0,0
+Luxray,231,stat_points,10,,4.4%,,,15,32,0,0,0,19
+Luxray,231,ability,1,Intimidate,97.2%,,,,,,,,
+Luxray,231,ability,2,Guts,2.8%,,,,,,,,

@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dragonite,44,move,1,Protect,78.6%,,,,,,,,
-Dragonite,44,move,2,Dragon Pulse,51.1%,,,,,,,,
-Dragonite,44,move,3,Heat Wave,50.1%,,,,,,,,
-Dragonite,44,move,4,Extreme Speed,42.9%,,,,,,,,
-Dragonite,44,move,5,Tailwind,30.4%,,,,,,,,
+Dragonite,44,move,1,Protect,77.9%,,,,,,,,
+Dragonite,44,move,2,Dragon Pulse,50.0%,,,,,,,,
+Dragonite,44,move,3,Heat Wave,48.9%,,,,,,,,
+Dragonite,44,move,4,Extreme Speed,42.8%,,,,,,,,
+Dragonite,44,move,5,Tailwind,29.4%,,,,,,,,
 Dragonite,44,move,6,Hurricane,20.7%,,,,,,,,
-Dragonite,44,move,7,Dragon Claw,15.6%,,,,,,,,
-Dragonite,44,move,8,Thunderbolt,15.0%,,,,,,,,
-Dragonite,44,move,9,Draco Meteor,11.3%,,,,,,,,
-Dragonite,44,move,10,Superpower,7.4%,,,,,,,,
-Dragonite,44,held_item,1,Dragoninite,73.0%,,,,,,,,
-Dragonite,44,held_item,2,Life Orb,12.0%,,,,,,,,
-Dragonite,44,held_item,3,White Herb,2.2%,,,,,,,,
-Dragonite,44,held_item,4,Leftovers,1.8%,,,,,,,,
-Dragonite,44,held_item,5,Expert Belt,1.4%,,,,,,,,
-Dragonite,44,held_item,6,Choice Scarf,1.2%,,,,,,,,
-Dragonite,44,held_item,7,Muscle Band,1.1%,,,,,,,,
-Dragonite,44,held_item,8,Dragon Fang,1.1%,,,,,,,,
-Dragonite,44,held_item,9,Lopunnite,1.1%,,,,,,,,
-Dragonite,44,held_item,10,Sitrus Berry,1.1%,,,,,,,,
+Dragonite,44,move,7,Dragon Claw,15.7%,,,,,,,,
+Dragonite,44,move,8,Thunderbolt,15.3%,,,,,,,,
+Dragonite,44,move,9,Draco Meteor,11.8%,,,,,,,,
+Dragonite,44,move,10,Ice Beam,7.5%,,,,,,,,
+Dragonite,44,held_item,1,Dragoninite,72.0%,,,,,,,,
+Dragonite,44,held_item,2,Life Orb,12.3%,,,,,,,,
+Dragonite,44,held_item,3,White Herb,2.3%,,,,,,,,
+Dragonite,44,held_item,4,Leftovers,2.0%,,,,,,,,
+Dragonite,44,held_item,5,Expert Belt,1.5%,,,,,,,,
+Dragonite,44,held_item,6,Sitrus Berry,1.2%,,,,,,,,
+Dragonite,44,held_item,7,Choice Scarf,1.1%,,,,,,,,
+Dragonite,44,held_item,8,Rocky Helmet,1.0%,,,,,,,,
+Dragonite,44,held_item,9,Dragon Fang,1.0%,,,,,,,,
+Dragonite,44,held_item,10,Muscle Band,1.0%,,,,,,,,
 Dragonite,44,teammate,1,Sneasler,,,,,,,,,
 Dragonite,44,teammate,2,Rillaboom,,,,,,,,,
 Dragonite,44,teammate,3,Basculegion Male,,,,,,,,,
@@ -29,25 +29,25 @@ Dragonite,44,teammate,7,Golisopod,,,,,,,,,
 Dragonite,44,teammate,8,Archaludon,,,,,,,,,
 Dragonite,44,teammate,9,Pelipper,,,,,,,,,
 Dragonite,44,teammate,10,Floette Form 5,,,,,,,,,
-Dragonite,44,stat_alignment,1,Modest,64.7%,Sp. Atk,Attack,,,,,,
+Dragonite,44,stat_alignment,1,Modest,64.0%,Sp. Atk,Attack,,,,,,
 Dragonite,44,stat_alignment,2,Adamant,21.1%,Attack,Sp. Atk,,,,,,
-Dragonite,44,stat_alignment,3,Timid,7.0%,Speed,Attack,,,,,,
-Dragonite,44,stat_alignment,4,Quiet,2.6%,Sp. Atk,Speed,,,,,,
-Dragonite,44,stat_alignment,5,Jolly,1.2%,Speed,Sp. Atk,,,,,,
+Dragonite,44,stat_alignment,3,Timid,7.1%,Speed,Attack,,,,,,
+Dragonite,44,stat_alignment,4,Quiet,2.8%,Sp. Atk,Speed,,,,,,
+Dragonite,44,stat_alignment,5,Jolly,1.4%,Speed,Sp. Atk,,,,,,
 Dragonite,44,stat_alignment,6,Mild,0.7%,Sp. Atk,Defense,,,,,,
-Dragonite,44,stat_alignment,7,Rash,0.4%,Sp. Atk,Sp. Def,,,,,,
-Dragonite,44,stat_alignment,8,Calm,0.4%,Sp. Def,Attack,,,,,,
-Dragonite,44,stat_alignment,9,Serious,0.4%,,,,,,,,
-Dragonite,44,stat_alignment,10,Brave,0.3%,Attack,Speed,,,,,,
-Dragonite,44,stat_points,1,,47.5%,,,2,0,0,32,0,32
-Dragonite,44,stat_points,2,,4.2%,,,1,0,1,32,0,32
+Dragonite,44,stat_alignment,7,Calm,0.7%,Sp. Def,Attack,,,,,,
+Dragonite,44,stat_alignment,8,Brave,0.4%,Attack,Speed,,,,,,
+Dragonite,44,stat_alignment,9,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
+Dragonite,44,stat_alignment,10,Serious,0.3%,,,,,,,,
+Dragonite,44,stat_points,1,,46.9%,,,2,0,0,32,0,32
+Dragonite,44,stat_points,2,,4.1%,,,1,0,1,32,0,32
 Dragonite,44,stat_points,3,,3.7%,,,2,32,0,0,0,32
-Dragonite,44,stat_points,4,,3.6%,,,29,32,0,0,0,5
-Dragonite,44,stat_points,5,,2.9%,,,32,0,2,32,0,0
-Dragonite,44,stat_points,6,,2.3%,,,32,0,0,32,0,2
-Dragonite,44,stat_points,7,,1.2%,,,0,0,2,32,0,32
-Dragonite,44,stat_points,8,,1.1%,,,32,0,0,32,2,0
-Dragonite,44,stat_points,9,,0.9%,,,25,0,0,32,0,9
-Dragonite,44,stat_points,10,,0.8%,,,32,32,0,0,0,2
+Dragonite,44,stat_points,4,,3.3%,,,29,32,0,0,0,5
+Dragonite,44,stat_points,5,,3.0%,,,32,0,2,32,0,0
+Dragonite,44,stat_points,6,,2.5%,,,32,0,0,32,0,2
+Dragonite,44,stat_points,7,,1.4%,,,32,0,0,32,2,0
+Dragonite,44,stat_points,8,,1.2%,,,0,0,2,32,0,32
+Dragonite,44,stat_points,9,,0.8%,,,25,0,0,32,0,9
+Dragonite,44,stat_points,10,,0.8%,,,14,0,0,32,0,20
 Dragonite,44,ability,1,Multiscale,68.5%,,,,,,,,
 Dragonite,44,ability,2,Inner Focus,31.5%,,,,,,,,

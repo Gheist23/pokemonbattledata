@@ -1,38 +1,40 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Chimecho,218,move,1,Flash Cannon,62.3%,,,,,,,,
-Chimecho,218,move,2,Trick Room,47.9%,,,,,,,,
-Chimecho,218,move,3,Recover,34.3%,,,,,,,,
-Chimecho,218,move,4,Calm Mind,22.5%,,,,,,,,
-Chimecho,218,move,5,Psychic,43.5%,,,,,,,,
-Chimecho,218,move,6,Boomburst,22.9%,,,,,,,,
-Chimecho,218,move,7,Stored Power,25.7%,,,,,,,,
-Chimecho,218,move,8,Protect,24.6%,,,,,,,,
-Chimecho,218,move,9,Expanding Force,19.2%,,,,,,,,
-Chimecho,218,move,10,Cosmic Power,19.6%,,,,,,,,
-Chimecho,218,held_item,1,Chimechite,100.0%,,,,,,,,
-Chimecho,218,teammate,1,Sinistcha,,,,,,,,,
-Chimecho,218,teammate,2,Tyranitar,,,,,,,,,
-Chimecho,218,teammate,3,Golisopod,,,,,,,,,
-Chimecho,218,teammate,4,Incineroar,,,,,,,,,
-Chimecho,218,teammate,5,Rillaboom,,,,,,,,,
-Chimecho,218,teammate,6,Primarina,,,,,,,,,
-Chimecho,218,teammate,7,Kommo-o,,,,,,,,,
-Chimecho,218,teammate,8,Indeedee Female,,,,,,,,,
-Chimecho,218,teammate,9,Kingambit,,,,,,,,,
-Chimecho,218,teammate,10,Rotom Wash,,,,,,,,,
-Chimecho,218,stat_alignment,1,Quiet,35.1%,Sp. Atk,Speed,,,,,,
-Chimecho,218,stat_alignment,2,Bold,16.3%,Defense,Attack,,,,,,
-Chimecho,218,stat_alignment,3,Modest,16.2%,Sp. Atk,Attack,,,,,,
-Chimecho,218,stat_alignment,4,Calm,9.2%,Sp. Def,Attack,,,,,,
-Chimecho,218,stat_alignment,5,Relaxed,9.2%,Defense,Speed,,,,,,
-Chimecho,218,stat_points,1,,22.8%,,,32,0,2,32,0,0
-Chimecho,218,stat_points,2,,10.8%,,,32,0,32,0,0,2
-Chimecho,218,stat_points,3,,10.2%,,,20,0,14,32,0,0
-Chimecho,218,stat_points,4,,8.4%,,,8,0,10,24,24,0
-Chimecho,218,stat_points,5,,8.4%,,,32,0,0,15,19,0
-Chimecho,218,stat_points,6,,6.6%,,,18,0,18,22,8,0
-Chimecho,218,stat_points,7,,6.6%,,,32,0,20,1,13,0
-Chimecho,218,stat_points,8,,5.4%,,,32,0,32,0,2,0
-Chimecho,218,stat_points,9,,4.8%,,,20,0,0,26,20,0
-Chimecho,218,stat_points,10,,3.6%,,,23,0,8,27,8,0
-Chimecho,218,ability,1,Levitate,100.0%,,,,,,,,
+Chimecho,220,move,1,Flash Cannon,64.1%,,,,,,,,
+Chimecho,220,move,2,Trick Room,51.2%,,,,,,,,
+Chimecho,220,move,3,Calm Mind,21.1%,,,,,,,,
+Chimecho,220,move,4,Recover,38.3%,,,,,,,,
+Chimecho,220,move,5,Psychic,43.0%,,,,,,,,
+Chimecho,220,move,6,Boomburst,29.7%,,,,,,,,
+Chimecho,220,move,7,Expanding Force,23.9%,,,,,,,,
+Chimecho,220,move,8,Protect,22.5%,,,,,,,,
+Chimecho,220,move,9,Stored Power,21.1%,,,,,,,,
+Chimecho,220,move,10,Dazzling Gleam,16.7%,,,,,,,,
+Chimecho,220,held_item,1,Chimechite,95.7%,,,,,,,,
+Chimecho,220,held_item,2,Focus Sash,4.3%,,,,,,,,
+Chimecho,220,teammate,1,Sinistcha,,,,,,,,,
+Chimecho,220,teammate,2,Rillaboom,,,,,,,,,
+Chimecho,220,teammate,3,Golisopod,,,,,,,,,
+Chimecho,220,teammate,4,Indeedee Female,,,,,,,,,
+Chimecho,220,teammate,5,Tyranitar,,,,,,,,,
+Chimecho,220,teammate,6,Pelipper,,,,,,,,,
+Chimecho,220,teammate,7,Primarina,,,,,,,,,
+Chimecho,220,teammate,8,Kingambit,,,,,,,,,
+Chimecho,220,teammate,9,Incineroar,,,,,,,,,
+Chimecho,220,teammate,10,Kommo-o,,,,,,,,,
+Chimecho,220,stat_alignment,1,Quiet,39.3%,Sp. Atk,Speed,,,,,,
+Chimecho,220,stat_alignment,2,Bold,21.1%,Defense,Attack,,,,,,
+Chimecho,220,stat_alignment,3,Modest,14.4%,Sp. Atk,Attack,,,,,,
+Chimecho,220,stat_alignment,4,Sassy,13.4%,Sp. Def,Speed,,,,,,
+Chimecho,220,stat_alignment,5,Calm,9.0%,Sp. Def,Attack,,,,,,
+Chimecho,220,stat_alignment,6,Relaxed,9.0%,Defense,Speed,,,,,,
+Chimecho,220,stat_points,1,,18.7%,,,32,0,2,32,0,0
+Chimecho,220,stat_points,2,,9.6%,,,20,0,14,32,0,0
+Chimecho,220,stat_points,3,,8.6%,,,32,0,32,0,0,2
+Chimecho,220,stat_points,4,,7.7%,,,2,0,0,32,32,0
+Chimecho,220,stat_points,5,,7.7%,,,32,0,0,15,19,0
+Chimecho,220,stat_points,6,,7.2%,,,18,0,18,22,8,0
+Chimecho,220,stat_points,7,,6.7%,,,8,0,10,24,24,0
+Chimecho,220,stat_points,8,,5.3%,,,32,0,20,1,13,0
+Chimecho,220,stat_points,9,,4.3%,,,31,0,24,1,10,0
+Chimecho,220,stat_points,10,,4.3%,,,32,0,32,0,2,0
+Chimecho,220,ability,1,Levitate,100.0%,,,,,,,,

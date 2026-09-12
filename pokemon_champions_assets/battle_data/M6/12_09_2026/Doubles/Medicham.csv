@@ -1,49 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Medicham,172,move,1,Close Combat,67.3%,,,,,,,,
-Medicham,172,move,2,Fake Out,65.9%,,,,,,,,
-Medicham,172,move,3,Rock Slide,36.3%,,,,,,,,
-Medicham,172,move,4,Ice Punch,16.1%,,,,,,,,
-Medicham,172,move,5,Protect,15.3%,,,,,,,,
-Medicham,172,move,6,Detect,19.4%,,,,,,,,
-Medicham,172,move,7,Fire Punch,10.6%,,,,,,,,
-Medicham,172,move,8,Helping Hand,10.0%,,,,,,,,
-Medicham,172,move,9,Psycho Cut,30.0%,,,,,,,,
-Medicham,172,move,10,Trick Room,9.8%,,,,,,,,
-Medicham,172,held_item,1,Focus Sash,23.7%,,,,,,,,
-Medicham,172,held_item,2,Medichamite,42.0%,,,,,,,,
-Medicham,172,held_item,3,Lopunnite,12.0%,,,,,,,,
-Medicham,172,held_item,4,Choice Scarf,6.7%,,,,,,,,
-Medicham,172,held_item,5,Life Orb,5.5%,,,,,,,,
-Medicham,172,held_item,6,White Herb,3.5%,,,,,,,,
-Medicham,172,held_item,7,Muscle Band,3.5%,,,,,,,,
-Medicham,172,held_item,8,Expert Belt,1.4%,,,,,,,,
-Medicham,172,held_item,9,Quick Claw,1.2%,,,,,,,,
+Medicham,172,move,1,Fake Out,70.7%,,,,,,,,
+Medicham,172,move,2,Close Combat,66.5%,,,,,,,,
+Medicham,172,move,3,Ice Punch,20.1%,,,,,,,,
+Medicham,172,move,4,Rock Slide,35.1%,,,,,,,,
+Medicham,172,move,5,Thunder Punch,14.2%,,,,,,,,
+Medicham,172,move,6,Protect,11.3%,,,,,,,,
+Medicham,172,move,7,Psycho Cut,30.9%,,,,,,,,
+Medicham,172,move,8,Trick Room,10.7%,,,,,,,,
+Medicham,172,move,9,Helping Hand,9.4%,,,,,,,,
+Medicham,172,move,10,Poison Jab,9.1%,,,,,,,,
+Medicham,172,held_item,1,Focus Sash,20.0%,,,,,,,,
+Medicham,172,held_item,2,Medichamite,37.3%,,,,,,,,
+Medicham,172,held_item,3,Lopunnite,18.7%,,,,,,,,
+Medicham,172,held_item,4,Life Orb,6.5%,,,,,,,,
+Medicham,172,held_item,5,Choice Scarf,5.5%,,,,,,,,
+Medicham,172,held_item,6,White Herb,3.0%,,,,,,,,
+Medicham,172,held_item,7,Muscle Band,2.9%,,,,,,,,
+Medicham,172,held_item,8,Sitrus Berry,2.3%,,,,,,,,
+Medicham,172,held_item,9,Quick Claw,2.3%,,,,,,,,
+Medicham,172,held_item,10,Psychic Seed,1.0%,,,,,,,,
 Medicham,172,teammate,1,Farigiraf,,,,,,,,,
-Medicham,172,teammate,2,Kingambit,,,,,,,,,
-Medicham,172,teammate,3,Camerupt,,,,,,,,,
-Medicham,172,teammate,4,Charizard,,,,,,,,,
-Medicham,172,teammate,5,Metagross,,,,,,,,,
-Medicham,172,teammate,6,Torkoal,,,,,,,,,
-Medicham,172,teammate,7,Conkeldurr,,,,,,,,,
+Medicham,172,teammate,2,Camerupt,,,,,,,,,
+Medicham,172,teammate,3,Torkoal,,,,,,,,,
+Medicham,172,teammate,4,Metagross,,,,,,,,,
+Medicham,172,teammate,5,Kingambit,,,,,,,,,
+Medicham,172,teammate,6,Salamence,,,,,,,,,
+Medicham,172,teammate,7,Charizard,,,,,,,,,
 Medicham,172,teammate,8,Indeedee Female,,,,,,,,,
-Medicham,172,teammate,9,Rillaboom,,,,,,,,,
-Medicham,172,teammate,10,Armarouge,,,,,,,,,
-Medicham,172,stat_alignment,1,Brave,42.9%,Attack,Speed,,,,,,
-Medicham,172,stat_alignment,2,Jolly,40.4%,Speed,Sp. Atk,,,,,,
-Medicham,172,stat_alignment,3,Adamant,33.7%,Attack,Sp. Atk,,,,,,
-Medicham,172,stat_alignment,4,Lonely,1.2%,Attack,Defense,,,,,,
-Medicham,172,stat_alignment,5,Sassy,1.0%,Sp. Def,Speed,,,,,,
-Medicham,172,stat_alignment,6,Timid,0.6%,Speed,Attack,,,,,,
-Medicham,172,stat_alignment,7,Relaxed,0.2%,Defense,Speed,,,,,,
-Medicham,172,stat_points,1,,31.0%,,,2,32,0,0,0,32
-Medicham,172,stat_points,2,,9.6%,,,32,32,2,0,0,0
-Medicham,172,stat_points,3,,7.1%,,,32,0,1,0,1,32
-Medicham,172,stat_points,4,,7.1%,,,32,32,1,0,1,0
-Medicham,172,stat_points,5,,5.7%,,,0,32,0,0,0,32
-Medicham,172,stat_points,6,,4.9%,,,32,32,0,0,2,0
-Medicham,172,stat_points,7,,3.1%,,,0,32,1,0,1,32
-Medicham,172,stat_points,8,,2.7%,,,0,32,14,0,20,0
-Medicham,172,stat_points,9,,2.0%,,,0,32,32,0,2,0
-Medicham,172,stat_points,10,,1.8%,,,32,32,1,0,0,1
-Medicham,172,ability,1,Pure Power,86.9%,,,,,,,,
-Medicham,172,ability,2,Telepathy,13.1%,,,,,,,,
+Medicham,172,teammate,9,Musharna,,,,,,,,,
+Medicham,172,teammate,10,Sylveon,,,,,,,,,
+Medicham,172,stat_alignment,1,Brave,44.7%,Attack,Speed,,,,,,
+Medicham,172,stat_alignment,2,Jolly,38.9%,Speed,Sp. Atk,,,,,,
+Medicham,172,stat_alignment,3,Adamant,31.6%,Attack,Sp. Atk,,,,,,
+Medicham,172,stat_alignment,4,Lonely,2.3%,Attack,Defense,,,,,,
+Medicham,172,stat_alignment,5,Timid,1.5%,Speed,Attack,,,,,,
+Medicham,172,stat_alignment,6,Sassy,0.9%,Sp. Def,Speed,,,,,,
+Medicham,172,stat_alignment,7,Relaxed,0.1%,Defense,Speed,,,,,,
+Medicham,172,stat_points,1,,31.6%,,,32,32,2,0,0,0
+Medicham,172,stat_points,2,,11.5%,,,2,32,0,0,0,32
+Medicham,172,stat_points,3,,6.1%,,,32,32,0,0,2,0
+Medicham,172,stat_points,4,,5.2%,,,32,32,1,0,1,0
+Medicham,172,stat_points,5,,5.1%,,,32,0,1,0,1,32
+Medicham,172,stat_points,6,,4.5%,,,0,32,0,0,0,32
+Medicham,172,stat_points,7,,2.2%,,,0,32,1,0,1,32
+Medicham,172,stat_points,8,,1.9%,,,0,32,14,0,20,0
+Medicham,172,stat_points,9,,1.7%,,,0,32,9,0,15,10
+Medicham,172,stat_points,10,,1.6%,,,0,32,2,0,0,32
+Medicham,172,ability,1,Pure Power,85.9%,,,,,,,,
+Medicham,172,ability,2,Telepathy,14.1%,,,,,,,,

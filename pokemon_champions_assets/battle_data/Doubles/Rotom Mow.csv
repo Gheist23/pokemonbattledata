@@ -1,34 +1,38 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom Mow,252,move,1,Volt Switch,52.9%,,,,,,,,
-Rotom Mow,252,move,2,Will-O-Wisp,41.4%,,,,,,,,
-Rotom Mow,252,move,3,Rain Dance,57.1%,,,,,,,,
-Rotom Mow,252,move,4,Discharge,17.1%,,,,,,,,
-Rotom Mow,252,move,5,Air Slash,32.9%,,,,,,,,
-Rotom Mow,252,move,6,Thunderbolt,52.9%,,,,,,,,
-Rotom Mow,252,move,7,Electroweb,21.4%,,,,,,,,
-Rotom Mow,252,move,8,Protect,33.6%,,,,,,,,
-Rotom Mow,252,move,9,Pain Split,3.6%,,,,,,,,
-Rotom Mow,252,move,10,Dark Pulse,3.6%,,,,,,,,
-Rotom Mow,252,held_item,1,Sitrus Berry,40.7%,,,,,,,,
-Rotom Mow,252,held_item,2,Choice Scarf,41.4%,,,,,,,,
-Rotom Mow,252,held_item,3,Expert Belt,14.3%,,,,,,,,
-Rotom Mow,252,held_item,4,Magnet,3.6%,,,,,,,,
-Rotom Mow,252,teammate,1,Pelipper,,,,,,,,,
-Rotom Mow,252,teammate,2,Archaludon,,,,,,,,,
-Rotom Mow,252,teammate,3,Tsareena,,,,,,,,,
-Rotom Mow,252,teammate,4,Golisopod,,,,,,,,,
-Rotom Mow,252,teammate,5,Swampert,,,,,,,,,
-Rotom Mow,252,teammate,6,Salamence,,,,,,,,,
-Rotom Mow,252,teammate,7,Rillaboom,,,,,,,,,
-Rotom Mow,252,teammate,8,Sneasler,,,,,,,,,
-Rotom Mow,252,teammate,9,Galarian Slowking,,,,,,,,,
-Rotom Mow,252,teammate,10,Sylveon,,,,,,,,,
-Rotom Mow,252,stat_alignment,1,Bold,7.1%,Defense,Attack,,,,,,
-Rotom Mow,252,stat_alignment,2,Modest,45.0%,Sp. Atk,Attack,,,,,,
-Rotom Mow,252,stat_alignment,3,Timid,37.9%,Speed,Attack,,,,,,
-Rotom Mow,252,stat_points,1,,27.1%,,,32,0,23,11,0,0
-Rotom Mow,252,stat_points,2,,4.4%,,,32,0,0,32,0,2
-Rotom Mow,252,stat_points,3,,4.3%,,,0,0,0,32,0,32
-Rotom Mow,252,stat_points,4,,3.6%,,,0,0,17,32,17,0
-Rotom Mow,252,stat_points,5,,3.6%,,,2,0,0,32,0,32
-Rotom Mow,252,ability,1,Levitate,100.0%,,,,,,,,
+Rotom Mow,249,move,1,Volt Switch,52.2%,,,,,,,,
+Rotom Mow,249,move,2,Will-O-Wisp,40.0%,,,,,,,,
+Rotom Mow,249,move,3,Discharge,12.2%,,,,,,,,
+Rotom Mow,249,move,4,Rain Dance,60.0%,,,,,,,,
+Rotom Mow,249,move,5,Air Slash,40.0%,,,,,,,,
+Rotom Mow,249,move,6,Thunderbolt,57.8%,,,,,,,,
+Rotom Mow,249,move,7,Electroweb,22.2%,,,,,,,,
+Rotom Mow,249,move,8,Protect,32.2%,,,,,,,,
+Rotom Mow,249,move,9,Pain Split,2.2%,,,,,,,,
+Rotom Mow,249,move,10,Shadow Ball,2.2%,,,,,,,,
+Rotom Mow,249,held_item,1,Sitrus Berry,32.2%,,,,,,,,
+Rotom Mow,249,held_item,2,Choice Scarf,45.6%,,,,,,,,
+Rotom Mow,249,held_item,3,Bright Powder,8.9%,,,,,,,,
+Rotom Mow,249,held_item,4,Expert Belt,8.9%,,,,,,,,
+Rotom Mow,249,held_item,5,Leftovers,2.2%,,,,,,,,
+Rotom Mow,249,held_item,6,Magnet,2.2%,,,,,,,,
+Rotom Mow,249,teammate,1,Pelipper,,,,,,,,,
+Rotom Mow,249,teammate,2,Archaludon,,,,,,,,,
+Rotom Mow,249,teammate,3,Tsareena,,,,,,,,,
+Rotom Mow,249,teammate,4,Golisopod,,,,,,,,,
+Rotom Mow,249,teammate,5,Swampert,,,,,,,,,
+Rotom Mow,249,teammate,6,Sylveon,,,,,,,,,
+Rotom Mow,249,teammate,7,Salamence,,,,,,,,,
+Rotom Mow,249,teammate,8,Rillaboom,,,,,,,,,
+Rotom Mow,249,teammate,9,Sneasler,,,,,,,,,
+Rotom Mow,249,teammate,10,Galarian Slowking,,,,,,,,,
+Rotom Mow,249,stat_alignment,1,Bold,6.2%,Defense,Attack,,,,,,
+Rotom Mow,249,stat_alignment,2,Timid,40.0%,Speed,Attack,,,,,,
+Rotom Mow,249,stat_alignment,3,Modest,37.8%,Sp. Atk,Attack,,,,,,
+Rotom Mow,249,stat_points,1,,30.0%,,,32,0,23,11,0,0
+Rotom Mow,249,stat_points,2,,9.3%,,,32,0,0,32,0,2
+Rotom Mow,249,stat_points,3,,8.9%,,,0,0,0,32,0,32
+Rotom Mow,249,stat_points,4,,8.9%,,,0,0,32,0,2,32
+Rotom Mow,249,stat_points,5,,4.4%,,,2,0,0,32,0,32
+Rotom Mow,249,stat_points,6,,2.2%,,,0,0,17,32,17,0
+Rotom Mow,249,stat_points,7,,2.2%,,,32,0,2,32,0,0
+Rotom Mow,249,ability,1,Levitate,100.0%,,,,,,,,

@@ -1,44 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Galarian Stunfisk,256,move,1,Snap Trap,100.0%,,,,,,,,
-Galarian Stunfisk,256,move,2,Protect,88.1%,,,,,,,,
-Galarian Stunfisk,256,move,3,Stomping Tantrum,14.3%,,,,,,,,
-Galarian Stunfisk,256,move,4,Yawn,30.0%,,,,,,,,
-Galarian Stunfisk,256,move,5,Terrain Pulse,28.6%,,,,,,,,
-Galarian Stunfisk,256,move,6,Stealth Rock,16.7%,,,,,,,,
-Galarian Stunfisk,256,move,7,Earthquake,9.5%,,,,,,,,
-Galarian Stunfisk,256,move,8,Pain Split,7.1%,,,,,,,,
-Galarian Stunfisk,256,move,9,Sucker Punch,7.1%,,,,,,,,
-Galarian Stunfisk,256,move,10,Rock Slide,4.8%,,,,,,,,
-Galarian Stunfisk,256,held_item,1,Sitrus Berry,25.2%,,,,,,,,
-Galarian Stunfisk,256,held_item,2,Leftovers,36.7%,,,,,,,,
-Galarian Stunfisk,256,held_item,3,Rocky Helmet,16.7%,,,,,,,,
-Galarian Stunfisk,256,held_item,4,Unknown Item 544,14.3%,,,,,,,,
-Galarian Stunfisk,256,held_item,5,Focus Sash,4.8%,,,,,,,,
-Galarian Stunfisk,256,held_item,6,Unknown Item 253,2.4%,,,,,,,,
-Galarian Stunfisk,256,teammate,1,Gengar,,,,,,,,,
-Galarian Stunfisk,256,teammate,2,Mr. Mime,,,,,,,,,
-Galarian Stunfisk,256,teammate,3,Mabosstiff,,,,,,,,,
-Galarian Stunfisk,256,teammate,4,Houndoom,,,,,,,,,
-Galarian Stunfisk,256,teammate,5,Quaquaval,,,,,,,,,
-Galarian Stunfisk,256,teammate,6,Jolteon,,,,,,,,,
-Galarian Stunfisk,256,teammate,7,Baxcalibur,,,,,,,,,
-Galarian Stunfisk,256,teammate,8,Raichu,,,,,,,,,
-Galarian Stunfisk,256,teammate,9,Venusaur,,,,,,,,,
-Galarian Stunfisk,256,teammate,10,Alolan Ninetales,,,,,,,,,
-Galarian Stunfisk,256,stat_alignment,1,Impish,17.6%,Defense,Sp. Atk,,,,,,
-Galarian Stunfisk,256,stat_alignment,2,Brave,16.7%,Attack,Speed,,,,,,
-Galarian Stunfisk,256,stat_alignment,3,Careful,16.7%,Sp. Def,Sp. Atk,,,,,,
-Galarian Stunfisk,256,stat_alignment,4,Relaxed,14.3%,Defense,Speed,,,,,,
-Galarian Stunfisk,256,stat_alignment,5,Sassy,2.4%,Sp. Def,Speed,,,,,,
-Galarian Stunfisk,256,stat_alignment,6,Adamant,2.4%,Attack,Sp. Atk,,,,,,
-Galarian Stunfisk,256,stat_points,1,,5.5%,,,32,0,32,0,2,0
-Galarian Stunfisk,256,stat_points,2,,14.3%,,,2,32,32,0,0,0
-Galarian Stunfisk,256,stat_points,3,,4.8%,,,0,32,2,0,32,0
-Galarian Stunfisk,256,stat_points,4,,4.8%,,,2,32,0,0,32,0
-Galarian Stunfisk,256,stat_points,5,,4.8%,,,32,2,0,0,32,0
-Galarian Stunfisk,256,stat_points,6,,2.4%,,,20,24,12,0,10,0
-Galarian Stunfisk,256,stat_points,7,,2.4%,,,32,0,2,0,32,0
-Galarian Stunfisk,256,stat_points,8,,2.4%,,,32,0,3,0,31,0
-Galarian Stunfisk,256,stat_points,9,,2.4%,,,32,0,5,0,27,0
-Galarian Stunfisk,256,stat_points,10,,2.4%,,,32,32,0,0,2,0
-Galarian Stunfisk,256,ability,1,Mimicry,100.0%,,,,,,,,
+Galarian Stunfisk,254,move,1,Snap Trap,100.0%,,,,,,,,
+Galarian Stunfisk,254,move,2,Protect,86.8%,,,,,,,,
+Galarian Stunfisk,254,move,3,Yawn,33.6%,,,,,,,,
+Galarian Stunfisk,254,move,4,Stomping Tantrum,18.2%,,,,,,,,
+Galarian Stunfisk,254,move,5,Terrain Pulse,32.1%,,,,,,,,
+Galarian Stunfisk,254,move,6,Iron Defense,16.1%,,,,,,,,
+Galarian Stunfisk,254,move,7,Pain Split,12.5%,,,,,,,,
+Galarian Stunfisk,254,move,8,Stealth Rock,12.5%,,,,,,,,
+Galarian Stunfisk,254,move,9,Bind,8.9%,,,,,,,,
+Galarian Stunfisk,254,move,10,Ice Fang,8.9%,,,,,,,,
+Galarian Stunfisk,254,held_item,1,Sitrus Berry,13.9%,,,,,,,,
+Galarian Stunfisk,254,held_item,2,Rocky Helmet,14.3%,,,,,,,,
+Galarian Stunfisk,254,held_item,3,Grassy Seed,14.3%,,,,,,,,
+Galarian Stunfisk,254,held_item,4,Leftovers,32.5%,,,,,,,,
+Galarian Stunfisk,254,held_item,5,Focus Sash,10.7%,,,,,,,,
+Galarian Stunfisk,254,held_item,6,Unknown Item 544,10.7%,,,,,,,,
+Galarian Stunfisk,254,held_item,7,Unknown Item 253,1.8%,,,,,,,,
+Galarian Stunfisk,254,held_item,8,Psychic Seed,1.8%,,,,,,,,
+Galarian Stunfisk,254,teammate,1,Gengar,,,,,,,,,
+Galarian Stunfisk,254,teammate,2,Mr. Mime,,,,,,,,,
+Galarian Stunfisk,254,teammate,3,Mabosstiff,,,,,,,,,
+Galarian Stunfisk,254,teammate,4,Houndoom,,,,,,,,,
+Galarian Stunfisk,254,teammate,5,Quaquaval,,,,,,,,,
+Galarian Stunfisk,254,teammate,6,Indeedee Female,,,,,,,,,
+Galarian Stunfisk,254,teammate,7,Rillaboom,,,,,,,,,
+Galarian Stunfisk,254,teammate,8,Pelipper,,,,,,,,,
+Galarian Stunfisk,254,teammate,9,Inteleon,,,,,,,,,
+Galarian Stunfisk,254,teammate,10,Dragapult,,,,,,,,,
+Galarian Stunfisk,254,stat_alignment,1,Impish,19.7%,Defense,Sp. Atk,,,,,,
+Galarian Stunfisk,254,stat_alignment,2,Brave,19.6%,Attack,Speed,,,,,,
+Galarian Stunfisk,254,stat_alignment,3,Careful,19.6%,Sp. Def,Sp. Atk,,,,,,
+Galarian Stunfisk,254,stat_alignment,4,Modest,10.7%,Sp. Atk,Attack,,,,,,
+Galarian Stunfisk,254,stat_alignment,5,Relaxed,10.7%,Defense,Speed,,,,,,
+Galarian Stunfisk,254,stat_alignment,6,Sassy,1.8%,Sp. Def,Speed,,,,,,
+Galarian Stunfisk,254,stat_alignment,7,Adamant,1.8%,Attack,Sp. Atk,,,,,,
+Galarian Stunfisk,254,stat_points,1,,4.6%,,,32,0,32,0,2,0
+Galarian Stunfisk,254,stat_points,2,,10.7%,,,0,32,2,0,32,0
+Galarian Stunfisk,254,stat_points,3,,10.7%,,,2,32,32,0,0,0
+Galarian Stunfisk,254,stat_points,4,,8.9%,,,0,0,2,32,32,0
+Galarian Stunfisk,254,stat_points,5,,7.1%,,,32,0,15,0,16,0
+Galarian Stunfisk,254,stat_points,6,,3.6%,,,2,32,0,0,32,0
+Galarian Stunfisk,254,stat_points,7,,3.6%,,,32,2,0,0,32,0
+Galarian Stunfisk,254,stat_points,8,,1.8%,,,20,24,12,0,10,0
+Galarian Stunfisk,254,stat_points,9,,1.8%,,,32,0,2,0,32,0
+Galarian Stunfisk,254,stat_points,10,,1.8%,,,32,0,2,32,0,0
+Galarian Stunfisk,254,ability,1,Mimicry,100.0%,,,,,,,,

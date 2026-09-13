@@ -1,53 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Espathra,97,move,1,Protect,96.1%,,,,,,,,
-Espathra,97,move,2,Baton Pass,62.8%,,,,,,,,
-Espathra,97,move,3,Calm Mind,60.0%,,,,,,,,
-Espathra,97,move,4,Lumina Crash,77.1%,,,,,,,,
-Espathra,97,move,5,Expanding Force,2.3%,,,,,,,,
-Espathra,97,move,6,Dazzling Gleam,10.8%,,,,,,,,
-Espathra,97,move,7,Stored Power,7.4%,,,,,,,,
-Espathra,97,move,8,Hypnosis,5.1%,,,,,,,,
-Espathra,97,move,9,Roost,3.3%,,,,,,,,
-Espathra,97,move,10,Skill Swap,3.1%,,,,,,,,
-Espathra,97,held_item,1,Grassy Seed,11.2%,,,,,,,,
-Espathra,97,held_item,2,Focus Sash,10.9%,,,,,,,,
-Espathra,97,held_item,3,Houndoominite,14.3%,,,,,,,,
-Espathra,97,held_item,4,Sitrus Berry,10.9%,,,,,,,,
-Espathra,97,held_item,5,Psychic Seed,8.7%,,,,,,,,
-Espathra,97,held_item,6,Mental Herb,16.5%,,,,,,,,
-Espathra,97,held_item,7,Life Orb,6.2%,,,,,,,,
-Espathra,97,held_item,8,Colbur Berry,14.6%,,,,,,,,
-Espathra,97,held_item,9,Leftovers,3.6%,,,,,,,,
-Espathra,97,held_item,10,Kasib Berry,2.8%,,,,,,,,
-Espathra,97,teammate,1,Archaludon,,,,,,,,,
-Espathra,97,teammate,2,Rillaboom,,,,,,,,,
-Espathra,97,teammate,3,Pelipper,,,,,,,,,
-Espathra,97,teammate,4,Indeedee Female,,,,,,,,,
-Espathra,97,teammate,5,Sneasler,,,,,,,,,
-Espathra,97,teammate,6,Salamence,,,,,,,,,
-Espathra,97,teammate,7,Incineroar,,,,,,,,,
-Espathra,97,teammate,8,Politoed,,,,,,,,,
-Espathra,97,teammate,9,Raichu,,,,,,,,,
-Espathra,97,teammate,10,Lucario,,,,,,,,,
-Espathra,97,stat_alignment,1,Timid,44.1%,Speed,Attack,,,,,,
-Espathra,97,stat_alignment,2,Bold,31.2%,Defense,Attack,,,,,,
-Espathra,97,stat_alignment,3,Modest,22.3%,Sp. Atk,Attack,,,,,,
-Espathra,97,stat_alignment,4,Calm,10.3%,Sp. Def,Attack,,,,,,
-Espathra,97,stat_alignment,5,Mild,2.0%,Sp. Atk,Defense,,,,,,
-Espathra,97,stat_alignment,6,Quiet,0.0%,Sp. Atk,Speed,,,,,,
-Espathra,97,stat_alignment,7,Hasty,0.0%,Speed,Defense,,,,,,
-Espathra,97,stat_alignment,8,Sassy,0.0%,Sp. Def,Speed,,,,,,
-Espathra,97,stat_alignment,9,Relaxed,0.0%,Defense,Speed,,,,,,
-Espathra,97,stat_points,1,,7.3%,,,2,0,0,32,0,32
-Espathra,97,stat_points,2,,4.5%,,,32,0,9,0,6,19
-Espathra,97,stat_points,3,,3.2%,,,32,0,32,0,2,0
-Espathra,97,stat_points,4,,2.9%,,,32,0,30,0,4,0
-Espathra,97,stat_points,5,,2.8%,,,0,0,0,32,4,30
-Espathra,97,stat_points,6,,2.3%,,,32,0,0,32,0,2
-Espathra,97,stat_points,7,,2.3%,,,32,0,20,0,0,5
-Espathra,97,stat_points,8,,2.2%,,,32,0,26,0,8,0
-Espathra,97,stat_points,9,,2.2%,,,2,0,31,0,28,5
-Espathra,97,stat_points,10,,2.1%,,,20,0,15,0,14,17
-Espathra,97,ability,1,Speed Boost,99.0%,,,,,,,,
-Espathra,97,ability,2,Opportunist,0.9%,,,,,,,,
-Espathra,97,ability,3,Frisk,0.1%,,,,,,,,
+Espathra,93,move,1,Protect,96.1%,,,,,,,,
+Espathra,93,move,2,Baton Pass,62.4%,,,,,,,,
+Espathra,93,move,3,Calm Mind,59.8%,,,,,,,,
+Espathra,93,move,4,Lumina Crash,77.9%,,,,,,,,
+Espathra,93,move,5,Expanding Force,1.9%,,,,,,,,
+Espathra,93,move,6,Dazzling Gleam,10.3%,,,,,,,,
+Espathra,93,move,7,Stored Power,7.7%,,,,,,,,
+Espathra,93,move,8,Hypnosis,4.8%,,,,,,,,
+Espathra,93,move,9,Skill Swap,3.1%,,,,,,,,
+Espathra,93,move,10,Roost,3.0%,,,,,,,,
+Espathra,93,held_item,1,Grassy Seed,12.2%,,,,,,,,
+Espathra,93,held_item,2,Focus Sash,10.6%,,,,,,,,
+Espathra,93,held_item,3,Houndoominite,15.1%,,,,,,,,
+Espathra,93,held_item,4,Sitrus Berry,10.6%,,,,,,,,
+Espathra,93,held_item,5,Psychic Seed,8.0%,,,,,,,,
+Espathra,93,held_item,6,Mental Herb,16.4%,,,,,,,,
+Espathra,93,held_item,7,Life Orb,5.9%,,,,,,,,
+Espathra,93,held_item,8,Colbur Berry,15.0%,,,,,,,,
+Espathra,93,held_item,9,Leftovers,3.1%,,,,,,,,
+Espathra,93,held_item,10,Kasib Berry,2.7%,,,,,,,,
+Espathra,93,teammate,1,Archaludon,,,,,,,,,
+Espathra,93,teammate,2,Rillaboom,,,,,,,,,
+Espathra,93,teammate,3,Pelipper,,,,,,,,,
+Espathra,93,teammate,4,Indeedee Female,,,,,,,,,
+Espathra,93,teammate,5,Sneasler,,,,,,,,,
+Espathra,93,teammate,6,Incineroar,,,,,,,,,
+Espathra,93,teammate,7,Salamence,,,,,,,,,
+Espathra,93,teammate,8,Politoed,,,,,,,,,
+Espathra,93,teammate,9,Raichu,,,,,,,,,
+Espathra,93,teammate,10,Lucario,,,,,,,,,
+Espathra,93,stat_alignment,1,Timid,44.5%,Speed,Attack,,,,,,
+Espathra,93,stat_alignment,2,Bold,30.3%,Defense,Attack,,,,,,
+Espathra,93,stat_alignment,3,Modest,22.3%,Sp. Atk,Attack,,,,,,
+Espathra,93,stat_alignment,4,Calm,10.5%,Sp. Def,Attack,,,,,,
+Espathra,93,stat_alignment,5,Mild,2.0%,Sp. Atk,Defense,,,,,,
+Espathra,93,stat_alignment,6,Quiet,0.2%,Sp. Atk,Speed,,,,,,
+Espathra,93,stat_alignment,7,Relaxed,0.0%,Defense,Speed,,,,,,
+Espathra,93,stat_alignment,8,Impish,0.0%,Defense,Sp. Atk,,,,,,
+Espathra,93,stat_alignment,9,Hasty,0.0%,Speed,Defense,,,,,,
+Espathra,93,stat_alignment,10,Sassy,0.0%,Sp. Def,Speed,,,,,,
+Espathra,93,stat_points,1,,6.7%,,,2,0,0,32,0,32
+Espathra,93,stat_points,2,,4.0%,,,32,0,9,0,6,19
+Espathra,93,stat_points,3,,3.6%,,,32,0,32,0,2,0
+Espathra,93,stat_points,4,,2.7%,,,32,0,26,0,8,0
+Espathra,93,stat_points,5,,2.5%,,,0,0,0,32,4,30
+Espathra,93,stat_points,6,,2.5%,,,32,0,30,0,4,0
+Espathra,93,stat_points,7,,2.4%,,,32,0,24,0,10,0
+Espathra,93,stat_points,8,,2.1%,,,1,0,1,32,0,32
+Espathra,93,stat_points,9,,2.1%,,,2,0,31,0,28,5
+Espathra,93,stat_points,10,,2.1%,,,32,0,0,32,0,2
+Espathra,93,ability,1,Speed Boost,99.1%,,,,,,,,
+Espathra,93,ability,2,Opportunist,0.8%,,,,,,,,
+Espathra,93,ability,3,Frisk,0.1%,,,,,,,,

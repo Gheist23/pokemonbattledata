@@ -1,40 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Falinks,227,move,1,Close Combat,95.5%,,,,,,,,
-Falinks,227,move,2,No Retreat,93.0%,,,,,,,,
-Falinks,227,move,3,Protect,76.6%,,,,,,,,
-Falinks,227,move,4,Rock Slide,35.7%,,,,,,,,
-Falinks,227,move,5,Iron Head,24.3%,,,,,,,,
-Falinks,227,move,6,Knock Off,32.4%,,,,,,,,
-Falinks,227,move,7,Poison Jab,10.0%,,,,,,,,
-Falinks,227,move,8,Upper Hand,6.5%,,,,,,,,
-Falinks,227,move,9,Throat Chop,5.5%,,,,,,,,
-Falinks,227,move,10,High Horsepower,4.0%,,,,,,,,
-Falinks,227,held_item,1,Falinksite,97.0%,,,,,,,,
-Falinks,227,held_item,2,Life Orb,1.5%,,,,,,,,
-Falinks,227,held_item,3,Psychic Seed,1.0%,,,,,,,,
+Falinks,227,move,1,No Retreat,93.8%,,,,,,,,
+Falinks,227,move,2,Close Combat,93.1%,,,,,,,,
+Falinks,227,move,3,Protect,78.4%,,,,,,,,
+Falinks,227,move,4,Rock Slide,37.9%,,,,,,,,
+Falinks,227,move,5,Iron Head,21.7%,,,,,,,,
+Falinks,227,move,6,Knock Off,32.0%,,,,,,,,
+Falinks,227,move,7,Poison Jab,10.4%,,,,,,,,
+Falinks,227,move,8,Upper Hand,5.8%,,,,,,,,
+Falinks,227,move,9,Throat Chop,4.2%,,,,,,,,
+Falinks,227,move,10,Brick Break,3.9%,,,,,,,,
+Falinks,227,held_item,1,Falinksite,96.9%,,,,,,,,
+Falinks,227,held_item,2,Life Orb,1.2%,,,,,,,,
+Falinks,227,held_item,3,Psychic Seed,0.8%,,,,,,,,
+Falinks,227,held_item,4,Unknown Item 192,0.4%,,,,,,,,
+Falinks,227,held_item,5,Bright Powder,0.4%,,,,,,,,
 Falinks,227,teammate,1,Grimmsnarl,,,,,,,,,
 Falinks,227,teammate,2,Sinistcha,,,,,,,,,
-Falinks,227,teammate,3,Alolan Ninetales,,,,,,,,,
-Falinks,227,teammate,4,Hisuian Arcanine,,,,,,,,,
-Falinks,227,teammate,5,Volcarona,,,,,,,,,
-Falinks,227,teammate,6,Toxtricity,,,,,,,,,
-Falinks,227,teammate,7,Gardevoir,,,,,,,,,
-Falinks,227,teammate,8,Weavile,,,,,,,,,
-Falinks,227,teammate,9,Alcremie,,,,,,,,,
+Falinks,227,teammate,3,Hisuian Arcanine,,,,,,,,,
+Falinks,227,teammate,4,Alolan Ninetales,,,,,,,,,
+Falinks,227,teammate,5,Alcremie,,,,,,,,,
+Falinks,227,teammate,6,Volcarona,,,,,,,,,
+Falinks,227,teammate,7,Toxtricity,,,,,,,,,
+Falinks,227,teammate,8,Gardevoir,,,,,,,,,
+Falinks,227,teammate,9,Weavile,,,,,,,,,
 Falinks,227,teammate,10,Dragapult,,,,,,,,,
-Falinks,227,stat_alignment,1,Adamant,18.7%,Attack,Sp. Atk,,,,,,
-Falinks,227,stat_alignment,2,Jolly,11.3%,Speed,Sp. Atk,,,,,,
-Falinks,227,stat_alignment,3,Impish,6.5%,Defense,Sp. Atk,,,,,,
-Falinks,227,stat_alignment,4,Careful,3.5%,Sp. Def,Sp. Atk,,,,,,
-Falinks,227,stat_points,1,,19.4%,,,16,20,0,0,30,0
-Falinks,227,stat_points,2,,9.4%,,,32,11,2,0,0,21
-Falinks,227,stat_points,3,,9.0%,,,2,32,0,0,0,32
-Falinks,227,stat_points,4,,6.5%,,,1,32,1,0,0,32
-Falinks,227,stat_points,5,,6.5%,,,22,30,0,0,0,14
-Falinks,227,stat_points,6,,5.5%,,,0,5,0,0,32,29
-Falinks,227,stat_points,7,,5.0%,,,32,32,0,0,2,0
-Falinks,227,stat_points,8,,4.0%,,,13,32,1,0,0,20
-Falinks,227,stat_points,9,,3.5%,,,10,30,0,0,0,26
-Falinks,227,stat_points,10,,3.5%,,,24,0,17,0,0,25
-Falinks,227,ability,1,Defiant,87.6%,,,,,,,,
-Falinks,227,ability,2,Battle Armor,12.4%,,,,,,,,
+Falinks,227,stat_alignment,1,Adamant,16.8%,Attack,Sp. Atk,,,,,,
+Falinks,227,stat_alignment,2,Jolly,14.3%,Speed,Sp. Atk,,,,,,
+Falinks,227,stat_alignment,3,Impish,5.0%,Defense,Sp. Atk,,,,,,
+Falinks,227,stat_alignment,4,Careful,2.7%,Sp. Def,Sp. Atk,,,,,,
+Falinks,227,stat_alignment,5,Serious,0.8%,,,,,,,,
+Falinks,227,stat_alignment,6,Brave,0.4%,Attack,Speed,,,,,,
+Falinks,227,stat_points,1,,19.7%,,,16,20,0,0,30,0
+Falinks,227,stat_points,2,,15.1%,,,32,11,2,0,0,21
+Falinks,227,stat_points,3,,11.2%,,,2,32,0,0,0,32
+Falinks,227,stat_points,4,,5.0%,,,1,32,1,0,0,32
+Falinks,227,stat_points,5,,5.0%,,,22,30,0,0,0,14
+Falinks,227,stat_points,6,,4.2%,,,0,5,0,0,32,29
+Falinks,227,stat_points,7,,3.9%,,,32,32,0,0,2,0
+Falinks,227,stat_points,8,,3.1%,,,13,32,1,0,0,20
+Falinks,227,stat_points,9,,2.7%,,,10,30,0,0,0,26
+Falinks,227,stat_points,10,,2.7%,,,24,0,17,0,0,25
+Falinks,227,ability,1,Defiant,88.0%,,,,,,,,
+Falinks,227,ability,2,Battle Armor,12.0%,,,,,,,,

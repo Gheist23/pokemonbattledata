@@ -1,51 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Alakazam,116,move,1,Expanding Force,9.8%,,,,,,,,
-Alakazam,116,move,2,Shadow Ball,67.2%,,,,,,,,
-Alakazam,116,move,3,Focus Blast,46.3%,,,,,,,,
-Alakazam,116,move,4,Dazzling Gleam,54.1%,,,,,,,,
-Alakazam,116,move,5,Nasty Plot,27.0%,,,,,,,,
-Alakazam,116,move,6,Encore,25.8%,,,,,,,,
-Alakazam,116,move,7,Calm Mind,20.2%,,,,,,,,
-Alakazam,116,move,8,Psychic,79.6%,,,,,,,,
-Alakazam,116,move,9,Energy Ball,30.2%,,,,,,,,
-Alakazam,116,move,10,Substitute,8.3%,,,,,,,,
-Alakazam,116,held_item,1,Alakazite,78.1%,,,,,,,,
-Alakazam,116,held_item,2,Focus Sash,16.6%,,,,,,,,
-Alakazam,116,held_item,3,Life Orb,4.4%,,,,,,,,
-Alakazam,116,held_item,4,Twisted Spoon,0.2%,,,,,,,,
-Alakazam,116,held_item,5,Unknown Item 267,0.2%,,,,,,,,
-Alakazam,116,held_item,6,Choice Scarf,0.1%,,,,,,,,
-Alakazam,116,held_item,7,Light Clay,0.1%,,,,,,,,
-Alakazam,116,held_item,8,Quick Claw,0.1%,,,,,,,,
-Alakazam,116,held_item,9,Terrain Extender,0.1%,,,,,,,,
-Alakazam,116,held_item,10,Unknown Item 230,0.0%,,,,,,,,
-Alakazam,116,teammate,1,Indeedee,,,,,,,,,
-Alakazam,116,teammate,2,Sneasler,,,,,,,,,
-Alakazam,116,teammate,3,Mimikyu,,,,,,,,,
-Alakazam,116,teammate,4,Baxcalibur,,,,,,,,,
-Alakazam,116,teammate,5,Hippowdon,,,,,,,,,
-Alakazam,116,teammate,6,Salamence,,,,,,,,,
-Alakazam,116,teammate,7,Garchomp,,,,,,,,,
-Alakazam,116,teammate,8,Archaludon,,,,,,,,,
-Alakazam,116,teammate,9,Armarouge,,,,,,,,,
-Alakazam,116,teammate,10,Golisopod,,,,,,,,,
-Alakazam,116,stat_alignment,1,Timid,71.5%,Speed,Attack,,,,,,
-Alakazam,116,stat_alignment,2,Modest,27.5%,Sp. Atk,Attack,,,,,,
-Alakazam,116,stat_alignment,3,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Alakazam,116,stat_alignment,4,Bold,0.4%,Defense,Attack,,,,,,
-Alakazam,116,stat_alignment,5,Hasty,0.1%,Speed,Defense,,,,,,
-Alakazam,116,stat_alignment,6,Calm,0.1%,Sp. Def,Attack,,,,,,
-Alakazam,116,stat_alignment,7,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Alakazam,116,stat_points,1,,33.7%,,,2,0,0,32,0,32
-Alakazam,116,stat_points,2,,12.1%,,,7,0,0,32,0,27
-Alakazam,116,stat_points,3,,9.7%,,,1,0,1,32,0,32
-Alakazam,116,stat_points,4,,6.6%,,,0,0,2,32,0,32
-Alakazam,116,stat_points,5,,6.5%,,,1,0,0,32,1,32
-Alakazam,116,stat_points,6,,6.0%,,,0,0,0,32,2,32
-Alakazam,116,stat_points,7,,3.0%,,,0,0,27,8,0,31
-Alakazam,116,stat_points,8,,1.5%,,,21,0,11,8,0,26
-Alakazam,116,stat_points,9,,1.4%,,,29,0,17,0,0,20
-Alakazam,116,stat_points,10,,1.3%,,,0,0,8,32,0,26
-Alakazam,116,ability,1,Magic Guard,91.7%,,,,,,,,
-Alakazam,116,ability,2,Inner Focus,4.3%,,,,,,,,
-Alakazam,116,ability,3,Synchronize,4.0%,,,,,,,,
+Alakazam,113,move,1,Expanding Force,10.2%,,,,,,,,
+Alakazam,113,move,2,Shadow Ball,68.5%,,,,,,,,
+Alakazam,113,move,3,Focus Blast,46.9%,,,,,,,,
+Alakazam,113,move,4,Dazzling Gleam,51.4%,,,,,,,,
+Alakazam,113,move,5,Nasty Plot,25.4%,,,,,,,,
+Alakazam,113,move,6,Calm Mind,24.7%,,,,,,,,
+Alakazam,113,move,7,Encore,24.2%,,,,,,,,
+Alakazam,113,move,8,Psychic,78.9%,,,,,,,,
+Alakazam,113,move,9,Energy Ball,29.8%,,,,,,,,
+Alakazam,113,move,10,Substitute,8.0%,,,,,,,,
+Alakazam,113,held_item,1,Alakazite,78.8%,,,,,,,,
+Alakazam,113,held_item,2,Focus Sash,16.4%,,,,,,,,
+Alakazam,113,held_item,3,Life Orb,3.8%,,,,,,,,
+Alakazam,113,held_item,4,Twisted Spoon,0.3%,,,,,,,,
+Alakazam,113,held_item,5,Quick Claw,0.2%,,,,,,,,
+Alakazam,113,held_item,6,Unknown Item 267,0.2%,,,,,,,,
+Alakazam,113,held_item,7,Light Clay,0.1%,,,,,,,,
+Alakazam,113,held_item,8,Choice Scarf,0.1%,,,,,,,,
+Alakazam,113,held_item,9,Terrain Extender,0.0%,,,,,,,,
+Alakazam,113,held_item,10,Unknown Item 230,0.0%,,,,,,,,
+Alakazam,113,teammate,1,Indeedee,,,,,,,,,
+Alakazam,113,teammate,2,Sneasler,,,,,,,,,
+Alakazam,113,teammate,3,Mimikyu,,,,,,,,,
+Alakazam,113,teammate,4,Baxcalibur,,,,,,,,,
+Alakazam,113,teammate,5,Hippowdon,,,,,,,,,
+Alakazam,113,teammate,6,Garchomp,,,,,,,,,
+Alakazam,113,teammate,7,Salamence,,,,,,,,,
+Alakazam,113,teammate,8,Archaludon,,,,,,,,,
+Alakazam,113,teammate,9,Golisopod,,,,,,,,,
+Alakazam,113,teammate,10,Armarouge,,,,,,,,,
+Alakazam,113,stat_alignment,1,Timid,74.3%,Speed,Attack,,,,,,
+Alakazam,113,stat_alignment,2,Modest,24.8%,Sp. Atk,Attack,,,,,,
+Alakazam,113,stat_alignment,3,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Alakazam,113,stat_alignment,4,Bold,0.3%,Defense,Attack,,,,,,
+Alakazam,113,stat_alignment,5,Gentle,0.1%,Sp. Def,Defense,,,,,,
+Alakazam,113,stat_alignment,6,Hasty,0.1%,Speed,Defense,,,,,,
+Alakazam,113,stat_alignment,7,Calm,0.1%,Sp. Def,Attack,,,,,,
+Alakazam,113,stat_alignment,8,Quiet,0.0%,Sp. Atk,Speed,,,,,,
+Alakazam,113,stat_points,1,,33.9%,,,2,0,0,32,0,32
+Alakazam,113,stat_points,2,,16.3%,,,7,0,0,32,0,27
+Alakazam,113,stat_points,3,,8.5%,,,1,0,1,32,0,32
+Alakazam,113,stat_points,4,,6.4%,,,1,0,0,32,1,32
+Alakazam,113,stat_points,5,,6.1%,,,0,0,2,32,0,32
+Alakazam,113,stat_points,6,,5.4%,,,0,0,0,32,2,32
+Alakazam,113,stat_points,7,,2.4%,,,0,0,27,8,0,31
+Alakazam,113,stat_points,8,,1.3%,,,21,0,11,8,0,26
+Alakazam,113,stat_points,9,,1.2%,,,0,0,8,32,0,26
+Alakazam,113,stat_points,10,,1.1%,,,0,0,0,32,0,32
+Alakazam,113,ability,1,Magic Guard,92.4%,,,,,,,,
+Alakazam,113,ability,2,Inner Focus,4.0%,,,,,,,,
+Alakazam,113,ability,3,Synchronize,3.6%,,,,,,,,

@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gallade,57,move,1,Sacred Sword,84.2%,,,,,,,,
-Gallade,57,move,2,Psycho Cut,77.3%,,,,,,,,
-Gallade,57,move,3,Wide Guard,13.7%,,,,,,,,
-Gallade,57,move,4,Trick Room,12.5%,,,,,,,,
-Gallade,57,move,5,Leaf Blade,49.6%,,,,,,,,
-Gallade,57,move,6,Protect,45.6%,,,,,,,,
-Gallade,57,move,7,Night Slash,11.8%,,,,,,,,
-Gallade,57,move,8,Triple Axel,14.8%,,,,,,,,
-Gallade,57,move,9,Rock Slide,14.7%,,,,,,,,
-Gallade,57,move,10,Shadow Sneak,14.6%,,,,,,,,
-Gallade,57,held_item,1,Focus Sash,10.5%,,,,,,,,
-Gallade,57,held_item,2,White Herb,5.4%,,,,,,,,
-Gallade,57,held_item,3,Sitrus Berry,3.2%,,,,,,,,
-Gallade,57,held_item,4,Choice Scarf,8.2%,,,,,,,,
-Gallade,57,held_item,5,Life Orb,8.0%,,,,,,,,
-Gallade,57,held_item,6,Galladite,18.0%,,,,,,,,
-Gallade,57,held_item,7,Unknown Item 278,27.7%,,,,,,,,
-Gallade,57,held_item,8,Expert Belt,15.1%,,,,,,,,
-Gallade,57,held_item,9,Scope Lens,4.7%,,,,,,,,
+Gallade,57,move,2,Psycho Cut,76.6%,,,,,,,,
+Gallade,57,move,3,Wide Guard,13.1%,,,,,,,,
+Gallade,57,move,4,Trick Room,10.6%,,,,,,,,
+Gallade,57,move,5,Leaf Blade,49.9%,,,,,,,,
+Gallade,57,move,6,Protect,46.2%,,,,,,,,
+Gallade,57,move,7,Night Slash,12.6%,,,,,,,,
+Gallade,57,move,8,Triple Axel,15.0%,,,,,,,,
+Gallade,57,move,9,Rock Slide,14.8%,,,,,,,,
+Gallade,57,move,10,Shadow Sneak,14.5%,,,,,,,,
+Gallade,57,held_item,1,Focus Sash,10.6%,,,,,,,,
+Gallade,57,held_item,2,White Herb,4.7%,,,,,,,,
+Gallade,57,held_item,3,Sitrus Berry,3.0%,,,,,,,,
+Gallade,57,held_item,4,Galladite,18.7%,,,,,,,,
+Gallade,57,held_item,5,Life Orb,8.4%,,,,,,,,
+Gallade,57,held_item,6,Choice Scarf,8.2%,,,,,,,,
+Gallade,57,held_item,7,Unknown Item 278,27.4%,,,,,,,,
+Gallade,57,held_item,8,Expert Belt,15.3%,,,,,,,,
+Gallade,57,held_item,9,Scope Lens,4.5%,,,,,,,,
 Gallade,57,held_item,10,Psychic Seed,2.4%,,,,,,,,
 Gallade,57,teammate,1,Indeedee Female,,,,,,,,,
 Gallade,57,teammate,2,Hatterene,,,,,,,,,
@@ -30,25 +30,25 @@ Gallade,57,teammate,8,Kingambit,,,,,,,,,
 Gallade,57,teammate,9,Incineroar,,,,,,,,,
 Gallade,57,teammate,10,Basculegion Male,,,,,,,,,
 Gallade,57,stat_alignment,1,Adamant,46.2%,Attack,Sp. Atk,,,,,,
-Gallade,57,stat_alignment,2,Brave,16.7%,Attack,Speed,,,,,,
-Gallade,57,stat_alignment,3,Jolly,14.0%,Speed,Sp. Atk,,,,,,
-Gallade,57,stat_alignment,4,Relaxed,1.1%,Defense,Speed,,,,,,
+Gallade,57,stat_alignment,2,Brave,15.7%,Attack,Speed,,,,,,
+Gallade,57,stat_alignment,3,Jolly,14.7%,Speed,Sp. Atk,,,,,,
+Gallade,57,stat_alignment,4,Relaxed,1.0%,Defense,Speed,,,,,,
 Gallade,57,stat_alignment,5,Impish,0.9%,Defense,Sp. Atk,,,,,,
-Gallade,57,stat_alignment,6,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Gallade,57,stat_alignment,6,Sassy,0.6%,Sp. Def,Speed,,,,,,
 Gallade,57,stat_alignment,7,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
 Gallade,57,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,
 Gallade,57,stat_alignment,9,Modest,0.2%,Sp. Atk,Attack,,,,,,
-Gallade,57,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
-Gallade,57,stat_points,1,,32.0%,,,32,32,2,0,0,0
-Gallade,57,stat_points,2,,17.3%,,,2,32,0,0,0,32
-Gallade,57,stat_points,3,,4.7%,,,0,32,2,0,0,32
+Gallade,57,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Gallade,57,stat_points,1,,30.9%,,,32,32,2,0,0,0
+Gallade,57,stat_points,2,,17.8%,,,2,32,0,0,0,32
+Gallade,57,stat_points,3,,4.9%,,,0,32,2,0,0,32
 Gallade,57,stat_points,4,,4.0%,,,32,32,0,0,2,0
-Gallade,57,stat_points,5,,2.0%,,,0,32,0,0,2,32
+Gallade,57,stat_points,5,,2.1%,,,0,32,0,0,2,32
 Gallade,57,stat_points,6,,1.9%,,,21,32,13,0,0,0
-Gallade,57,stat_points,7,,1.1%,,,32,25,9,0,0,0
-Gallade,57,stat_points,8,,1.1%,,,32,32,0,0,0,2
-Gallade,57,stat_points,9,,1.1%,,,0,32,1,0,1,32
+Gallade,57,stat_points,7,,1.2%,,,0,32,1,0,1,32
+Gallade,57,stat_points,8,,1.1%,,,32,25,9,0,0,0
+Gallade,57,stat_points,9,,1.1%,,,32,32,0,0,0,2
 Gallade,57,stat_points,10,,1.0%,,,32,2,32,0,0,0
-Gallade,57,ability,1,Sharpness,84.7%,,,,,,,,
-Gallade,57,ability,2,Justified,14.8%,,,,,,,,
-Gallade,57,ability,3,Steadfast,0.5%,,,,,,,,
+Gallade,57,ability,1,Sharpness,84.4%,,,,,,,,
+Gallade,57,ability,2,Justified,15.2%,,,,,,,,
+Gallade,57,ability,3,Steadfast,0.4%,,,,,,,,

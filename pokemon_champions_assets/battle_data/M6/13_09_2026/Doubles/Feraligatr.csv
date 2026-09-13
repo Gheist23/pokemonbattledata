@@ -1,20 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Feraligatr,149,move,1,Liquidation,85.5%,,,,,,,,
-Feraligatr,149,move,2,Protect,63.9%,,,,,,,,
-Feraligatr,149,move,3,Ice Punch,45.5%,,,,,,,,
-Feraligatr,149,move,4,Aqua Jet,37.9%,,,,,,,,
-Feraligatr,149,move,5,Dragon Dance,25.6%,,,,,,,,
-Feraligatr,149,move,6,Double-Edge,22.5%,,,,,,,,
-Feraligatr,149,move,7,Rock Slide,17.8%,,,,,,,,
-Feraligatr,149,move,8,Body Slam,13.7%,,,,,,,,
-Feraligatr,149,move,9,Crunch,10.9%,,,,,,,,
-Feraligatr,149,move,10,Iron Tail,7.8%,,,,,,,,
-Feraligatr,149,held_item,1,Life Orb,36.8%,,,,,,,,
-Feraligatr,149,held_item,2,Feraligite,55.6%,,,,,,,,
-Feraligatr,149,held_item,3,Quick Claw,4.0%,,,,,,,,
-Feraligatr,149,held_item,4,Leftovers,2.2%,,,,,,,,
-Feraligatr,149,held_item,5,Choice Scarf,0.9%,,,,,,,,
-Feraligatr,149,held_item,6,Muscle Band,0.4%,,,,,,,,
+Feraligatr,149,move,1,Liquidation,84.6%,,,,,,,,
+Feraligatr,149,move,2,Protect,64.6%,,,,,,,,
+Feraligatr,149,move,3,Ice Punch,46.1%,,,,,,,,
+Feraligatr,149,move,4,Aqua Jet,36.4%,,,,,,,,
+Feraligatr,149,move,5,Dragon Dance,26.1%,,,,,,,,
+Feraligatr,149,move,6,Double-Edge,21.0%,,,,,,,,
+Feraligatr,149,move,7,Rock Slide,16.9%,,,,,,,,
+Feraligatr,149,move,8,Body Slam,13.5%,,,,,,,,
+Feraligatr,149,move,9,Crunch,11.7%,,,,,,,,
+Feraligatr,149,move,10,Swords Dance,7.9%,,,,,,,,
+Feraligatr,149,held_item,1,Life Orb,35.6%,,,,,,,,
+Feraligatr,149,held_item,2,Feraligite,54.8%,,,,,,,,
+Feraligatr,149,held_item,3,Quick Claw,4.8%,,,,,,,,
+Feraligatr,149,held_item,4,Leftovers,3.4%,,,,,,,,
+Feraligatr,149,held_item,5,Choice Scarf,0.8%,,,,,,,,
+Feraligatr,149,held_item,6,Muscle Band,0.3%,,,,,,,,
+Feraligatr,149,held_item,7,Mystic Water,0.3%,,,,,,,,
 Feraligatr,149,teammate,1,Incineroar,,,,,,,,,
 Feraligatr,149,teammate,2,Rillaboom,,,,,,,,,
 Feraligatr,149,teammate,3,Golisopod,,,,,,,,,
@@ -23,24 +24,24 @@ Feraligatr,149,teammate,5,Armarouge,,,,,,,,,
 Feraligatr,149,teammate,6,Sneasler,,,,,,,,,
 Feraligatr,149,teammate,7,Farigiraf,,,,,,,,,
 Feraligatr,149,teammate,8,Pelipper,,,,,,,,,
-Feraligatr,149,teammate,9,Raichu,,,,,,,,,
-Feraligatr,149,teammate,10,Charizard,,,,,,,,,
-Feraligatr,149,stat_alignment,1,Adamant,63.7%,Attack,Sp. Atk,,,,,,
-Feraligatr,149,stat_alignment,2,Brave,17.7%,Attack,Speed,,,,,,
-Feraligatr,149,stat_alignment,3,Jolly,17.3%,Speed,Sp. Atk,,,,,,
-Feraligatr,149,stat_alignment,4,Modest,6.2%,Sp. Atk,Attack,,,,,,
-Feraligatr,149,stat_alignment,5,Careful,4.7%,Sp. Def,Sp. Atk,,,,,,
-Feraligatr,149,stat_alignment,6,Quiet,0.4%,Sp. Atk,Speed,,,,,,
+Feraligatr,149,teammate,9,Charizard,,,,,,,,,
+Feraligatr,149,teammate,10,Whimsicott,,,,,,,,,
+Feraligatr,149,stat_alignment,1,Adamant,64.8%,Attack,Sp. Atk,,,,,,
+Feraligatr,149,stat_alignment,2,Brave,16.8%,Attack,Speed,,,,,,
+Feraligatr,149,stat_alignment,3,Jolly,15.9%,Speed,Sp. Atk,,,,,,
+Feraligatr,149,stat_alignment,4,Modest,6.7%,Sp. Atk,Attack,,,,,,
+Feraligatr,149,stat_alignment,5,Careful,5.5%,Sp. Def,Sp. Atk,,,,,,
+Feraligatr,149,stat_alignment,6,Quiet,0.3%,Sp. Atk,Speed,,,,,,
 Feraligatr,149,stat_alignment,7,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Feraligatr,149,stat_points,1,,19.5%,,,32,32,0,0,2,0
-Feraligatr,149,stat_points,2,,10.0%,,,2,32,0,0,0,32
-Feraligatr,149,stat_points,3,,9.2%,,,32,32,0,0,0,2
-Feraligatr,149,stat_points,4,,6.2%,,,2,0,0,32,0,32
-Feraligatr,149,stat_points,5,,4.6%,,,31,15,0,0,20,0
-Feraligatr,149,stat_points,6,,4.0%,,,1,32,0,0,1,32
-Feraligatr,149,stat_points,7,,3.0%,,,27,32,0,0,7,0
-Feraligatr,149,stat_points,8,,2.1%,,,31,15,20,0,0,0
-Feraligatr,149,stat_points,9,,2.0%,,,17,32,0,0,17,0
-Feraligatr,149,stat_points,10,,1.9%,,,32,0,0,0,2,32
-Feraligatr,149,ability,1,Sheer Force,90.7%,,,,,,,,
-Feraligatr,149,ability,2,Torrent,9.3%,,,,,,,,
+Feraligatr,149,stat_points,1,,19.7%,,,32,32,0,0,2,0
+Feraligatr,149,stat_points,2,,9.7%,,,2,32,0,0,0,32
+Feraligatr,149,stat_points,3,,8.3%,,,32,32,0,0,0,2
+Feraligatr,149,stat_points,4,,6.7%,,,2,0,0,32,0,32
+Feraligatr,149,stat_points,5,,4.3%,,,31,15,0,0,20,0
+Feraligatr,149,stat_points,6,,3.5%,,,1,32,0,0,1,32
+Feraligatr,149,stat_points,7,,2.6%,,,27,32,0,0,7,0
+Feraligatr,149,stat_points,8,,1.8%,,,31,15,20,0,0,0
+Feraligatr,149,stat_points,9,,1.7%,,,17,32,0,0,17,0
+Feraligatr,149,stat_points,10,,1.7%,,,32,0,0,0,2,32
+Feraligatr,149,ability,1,Sheer Force,91.0%,,,,,,,,
+Feraligatr,149,ability,2,Torrent,9.0%,,,,,,,,

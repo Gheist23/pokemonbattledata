@@ -1,41 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pinsir,222,move,1,Feint,69.6%,,,,,,,,
-Pinsir,222,move,2,Body Slam,66.7%,,,,,,,,
-Pinsir,222,move,3,Detect,22.8%,,,,,,,,
-Pinsir,222,move,4,Storm Throw,56.4%,,,,,,,,
-Pinsir,222,move,5,Close Combat,18.1%,,,,,,,,
-Pinsir,222,move,6,Protect,52.1%,,,,,,,,
-Pinsir,222,move,7,Lunge,20.8%,,,,,,,,
-Pinsir,222,move,8,X-Scissor,12.5%,,,,,,,,
-Pinsir,222,move,9,Giga Impact,11.5%,,,,,,,,
-Pinsir,222,move,10,Focus Energy,8.7%,,,,,,,,
-Pinsir,222,held_item,1,Pinsirite,96.5%,,,,,,,,
-Pinsir,222,held_item,2,Life Orb,2.2%,,,,,,,,
-Pinsir,222,held_item,3,Sitrus Berry,1.0%,,,,,,,,
-Pinsir,222,held_item,4,Choice Scarf,0.3%,,,,,,,,
-Pinsir,222,teammate,1,Metagross,,,,,,,,,
-Pinsir,222,teammate,2,Talonflame,,,,,,,,,
-Pinsir,222,teammate,3,Farigiraf,,,,,,,,,
-Pinsir,222,teammate,4,Paldean Tauros Aqua Breed,,,,,,,,,
-Pinsir,222,teammate,5,Garchomp,,,,,,,,,
-Pinsir,222,teammate,6,Froslass,,,,,,,,,
-Pinsir,222,teammate,7,Torkoal,,,,,,,,,
-Pinsir,222,teammate,8,Gholdengo,,,,,,,,,
-Pinsir,222,teammate,9,Paldean Tauros Blaze Breed,,,,,,,,,
-Pinsir,222,teammate,10,Incineroar,,,,,,,,,
-Pinsir,222,stat_alignment,1,Jolly,62.7%,Speed,Sp. Atk,,,,,,
-Pinsir,222,stat_alignment,2,Adamant,26.0%,Attack,Sp. Atk,,,,,,
-Pinsir,222,stat_alignment,3,Impish,1.3%,Defense,Sp. Atk,,,,,,
-Pinsir,222,stat_points,1,,35.3%,,,32,0,2,0,0,32
-Pinsir,222,stat_points,2,,25.3%,,,2,32,0,0,0,32
-Pinsir,222,stat_points,3,,15.4%,,,0,32,0,0,2,32
-Pinsir,222,stat_points,4,,8.0%,,,0,32,0,0,5,29
-Pinsir,222,stat_points,5,,4.5%,,,24,10,0,0,0,32
-Pinsir,222,stat_points,6,,4.2%,,,0,32,2,0,0,32
-Pinsir,222,stat_points,7,,2.6%,,,20,26,0,0,15,5
-Pinsir,222,stat_points,8,,1.0%,,,0,2,32,0,32,0
-Pinsir,222,stat_points,9,,0.6%,,,0,32,10,0,14,10
-Pinsir,222,stat_points,10,,0.6%,,,1,32,1,0,0,32
-Pinsir,222,ability,1,Hyper Cutter,80.0%,,,,,,,,
-Pinsir,222,ability,2,Mold Breaker,10.4%,,,,,,,,
-Pinsir,222,ability,3,Moxie,9.6%,,,,,,,,
+Pinsir,219,move,1,Detect,18.1%,,,,,,,,
+Pinsir,219,move,2,Feint,69.7%,,,,,,,,
+Pinsir,219,move,3,Body Slam,67.5%,,,,,,,,
+Pinsir,219,move,4,Storm Throw,55.0%,,,,,,,,
+Pinsir,219,move,5,Close Combat,22.3%,,,,,,,,
+Pinsir,219,move,6,Protect,47.5%,,,,,,,,
+Pinsir,219,move,7,Lunge,23.6%,,,,,,,,
+Pinsir,219,move,8,X-Scissor,17.4%,,,,,,,,
+Pinsir,219,move,9,Focus Energy,15.2%,,,,,,,,
+Pinsir,219,move,10,Rock Slide,11.3%,,,,,,,,
+Pinsir,219,held_item,1,Pinsirite,90.2%,,,,,,,,
+Pinsir,219,held_item,2,Sitrus Berry,7.6%,,,,,,,,
+Pinsir,219,held_item,3,Life Orb,1.7%,,,,,,,,
+Pinsir,219,held_item,4,Silver Powder,0.2%,,,,,,,,
+Pinsir,219,held_item,5,Choice Scarf,0.2%,,,,,,,,
+Pinsir,219,teammate,1,Metagross,,,,,,,,,
+Pinsir,219,teammate,2,Talonflame,,,,,,,,,
+Pinsir,219,teammate,3,Garchomp,,,,,,,,,
+Pinsir,219,teammate,4,Farigiraf,,,,,,,,,
+Pinsir,219,teammate,5,Paldean Tauros Aqua Breed,,,,,,,,,
+Pinsir,219,teammate,6,Gholdengo,,,,,,,,,
+Pinsir,219,teammate,7,Incineroar,,,,,,,,,
+Pinsir,219,teammate,8,Whimsicott,,,,,,,,,
+Pinsir,219,teammate,9,Froslass,,,,,,,,,
+Pinsir,219,teammate,10,Primarina,,,,,,,,,
+Pinsir,219,stat_alignment,1,Jolly,58.6%,Speed,Sp. Atk,,,,,,
+Pinsir,219,stat_alignment,2,Adamant,23.5%,Attack,Sp. Atk,,,,,,
+Pinsir,219,stat_alignment,3,Impish,7.9%,Defense,Sp. Atk,,,,,,
+Pinsir,219,stat_points,1,,28.0%,,,32,0,2,0,0,32
+Pinsir,219,stat_points,2,,22.6%,,,2,32,0,0,0,32
+Pinsir,219,stat_points,3,,20.4%,,,0,32,0,0,2,32
+Pinsir,219,stat_points,4,,7.6%,,,0,2,32,0,32,0
+Pinsir,219,stat_points,5,,6.9%,,,0,32,0,0,5,29
+Pinsir,219,stat_points,6,,4.9%,,,0,32,2,0,0,32
+Pinsir,219,stat_points,7,,3.7%,,,24,10,0,0,0,32
+Pinsir,219,stat_points,8,,2.2%,,,20,26,0,0,15,5
+Pinsir,219,stat_points,9,,0.7%,,,17,17,0,0,0,32
+Pinsir,219,stat_points,10,,0.5%,,,0,32,10,0,14,10
+Pinsir,219,ability,1,Hyper Cutter,80.2%,,,,,,,,
+Pinsir,219,ability,2,Mold Breaker,10.7%,,,,,,,,
+Pinsir,219,ability,3,Moxie,9.1%,,,,,,,,

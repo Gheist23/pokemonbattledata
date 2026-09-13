@@ -1,51 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Typhlosion,204,move,1,Eruption,78.9%,,,,,,,,
-Typhlosion,204,move,2,Scorching Sands,57.9%,,,,,,,,
-Typhlosion,204,move,3,Shadow Ball,46.3%,,,,,,,,
-Typhlosion,204,move,4,Burn Up,35.7%,,,,,,,,
-Typhlosion,204,move,5,Flamethrower,29.8%,,,,,,,,
-Typhlosion,204,move,6,Endeavor,24.1%,,,,,,,,
-Typhlosion,204,move,7,Focus Blast,21.2%,,,,,,,,
-Typhlosion,204,move,8,Quick Attack,17.6%,,,,,,,,
-Typhlosion,204,move,9,Extrasensory,13.0%,,,,,,,,
-Typhlosion,204,move,10,Will-O-Wisp,8.5%,,,,,,,,
-Typhlosion,204,held_item,1,Choice Scarf,62.2%,,,,,,,,
-Typhlosion,204,held_item,2,Focus Sash,27.8%,,,,,,,,
-Typhlosion,204,held_item,3,Charcoal,6.8%,,,,,,,,
-Typhlosion,204,held_item,4,Life Orb,1.1%,,,,,,,,
-Typhlosion,204,held_item,5,Quick Claw,0.9%,,,,,,,,
-Typhlosion,204,held_item,6,Wide Lens,0.5%,,,,,,,,
-Typhlosion,204,held_item,7,Expert Belt,0.4%,,,,,,,,
-Typhlosion,204,held_item,8,Air Balloon,0.2%,,,,,,,,
-Typhlosion,204,held_item,9,Leftovers,0.1%,,,,,,,,
-Typhlosion,204,teammate,1,Golisopod,,,,,,,,,
-Typhlosion,204,teammate,2,Garchomp,,,,,,,,,
-Typhlosion,204,teammate,3,Primarina,,,,,,,,,
-Typhlosion,204,teammate,4,Baxcalibur,,,,,,,,,
-Typhlosion,204,teammate,5,Dragonite,,,,,,,,,
-Typhlosion,204,teammate,6,Salamence,,,,,,,,,
-Typhlosion,204,teammate,7,Mimikyu,,,,,,,,,
-Typhlosion,204,teammate,8,Lucario,,,,,,,,,
-Typhlosion,204,teammate,9,Rillaboom,,,,,,,,,
-Typhlosion,204,teammate,10,Absol,,,,,,,,,
-Typhlosion,204,stat_alignment,1,Modest,54.4%,Sp. Atk,Attack,,,,,,
-Typhlosion,204,stat_alignment,2,Timid,25.3%,Speed,Attack,,,,,,
-Typhlosion,204,stat_alignment,3,Rash,9.4%,Sp. Atk,Sp. Def,,,,,,
-Typhlosion,204,stat_alignment,4,Hasty,3.8%,Speed,Defense,,,,,,
-Typhlosion,204,stat_alignment,5,Adamant,2.9%,Attack,Sp. Atk,,,,,,
-Typhlosion,204,stat_alignment,6,Lonely,2.0%,Attack,Defense,,,,,,
-Typhlosion,204,stat_alignment,7,Jolly,1.5%,Speed,Sp. Atk,,,,,,
-Typhlosion,204,stat_alignment,8,Gentle,0.5%,Sp. Def,Defense,,,,,,
-Typhlosion,204,stat_alignment,9,Mild,0.3%,Sp. Atk,Defense,,,,,,
-Typhlosion,204,stat_points,1,,46.5%,,,2,0,0,32,0,32
-Typhlosion,204,stat_points,2,,9.0%,,,0,0,2,32,0,32
-Typhlosion,204,stat_points,3,,7.0%,,,0,2,0,32,0,32
-Typhlosion,204,stat_points,4,,7.0%,,,4,0,0,32,0,30
-Typhlosion,204,stat_points,5,,6.2%,,,0,0,0,32,2,32
-Typhlosion,204,stat_points,6,,4.4%,,,2,32,0,0,0,32
-Typhlosion,204,stat_points,7,,3.8%,,,5,0,4,27,1,29
-Typhlosion,204,stat_points,8,,2.9%,,,11,21,0,31,0,3
-Typhlosion,204,stat_points,9,,2.2%,,,18,0,0,31,0,17
-Typhlosion,204,stat_points,10,,2.1%,,,2,24,0,32,0,8
-Typhlosion,204,ability,1,Flash Fire,76.8%,,,,,,,,
-Typhlosion,204,ability,2,Blaze,23.2%,,,,,,,,
+Typhlosion,203,move,1,Eruption,79.5%,,,,,,,,
+Typhlosion,203,move,2,Scorching Sands,57.7%,,,,,,,,
+Typhlosion,203,move,3,Shadow Ball,47.0%,,,,,,,,
+Typhlosion,203,move,4,Burn Up,34.0%,,,,,,,,
+Typhlosion,203,move,5,Flamethrower,30.6%,,,,,,,,
+Typhlosion,203,move,6,Endeavor,23.6%,,,,,,,,
+Typhlosion,203,move,7,Focus Blast,21.7%,,,,,,,,
+Typhlosion,203,move,8,Quick Attack,17.2%,,,,,,,,
+Typhlosion,203,move,9,Extrasensory,12.0%,,,,,,,,
+Typhlosion,203,move,10,Will-O-Wisp,9.2%,,,,,,,,
+Typhlosion,203,held_item,1,Choice Scarf,61.6%,,,,,,,,
+Typhlosion,203,held_item,2,Focus Sash,27.3%,,,,,,,,
+Typhlosion,203,held_item,3,Charcoal,6.9%,,,,,,,,
+Typhlosion,203,held_item,4,Life Orb,0.9%,,,,,,,,
+Typhlosion,203,held_item,5,Quick Claw,0.9%,,,,,,,,
+Typhlosion,203,held_item,6,Sitrus Berry,0.5%,,,,,,,,
+Typhlosion,203,held_item,7,Wide Lens,0.5%,,,,,,,,
+Typhlosion,203,held_item,8,Light Ball,0.4%,,,,,,,,
+Typhlosion,203,held_item,9,Expert Belt,0.4%,,,,,,,,
+Typhlosion,203,held_item,10,Soft Sand,0.3%,,,,,,,,
+Typhlosion,203,teammate,1,Golisopod,,,,,,,,,
+Typhlosion,203,teammate,2,Garchomp,,,,,,,,,
+Typhlosion,203,teammate,3,Primarina,,,,,,,,,
+Typhlosion,203,teammate,4,Baxcalibur,,,,,,,,,
+Typhlosion,203,teammate,5,Dragonite,,,,,,,,,
+Typhlosion,203,teammate,6,Salamence,,,,,,,,,
+Typhlosion,203,teammate,7,Mimikyu,,,,,,,,,
+Typhlosion,203,teammate,8,Lucario,,,,,,,,,
+Typhlosion,203,teammate,9,Rillaboom,,,,,,,,,
+Typhlosion,203,teammate,10,Gyarados,,,,,,,,,
+Typhlosion,203,stat_alignment,1,Modest,55.5%,Sp. Atk,Attack,,,,,,
+Typhlosion,203,stat_alignment,2,Timid,24.5%,Speed,Attack,,,,,,
+Typhlosion,203,stat_alignment,3,Rash,9.6%,Sp. Atk,Sp. Def,,,,,,
+Typhlosion,203,stat_alignment,4,Hasty,3.4%,Speed,Defense,,,,,,
+Typhlosion,203,stat_alignment,5,Adamant,2.8%,Attack,Sp. Atk,,,,,,
+Typhlosion,203,stat_alignment,6,Lonely,1.7%,Attack,Defense,,,,,,
+Typhlosion,203,stat_alignment,7,Jolly,1.3%,Speed,Sp. Atk,,,,,,
+Typhlosion,203,stat_alignment,8,Gentle,0.4%,Sp. Def,Defense,,,,,,
+Typhlosion,203,stat_alignment,9,Bold,0.4%,Defense,Attack,,,,,,
+Typhlosion,203,stat_alignment,10,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Typhlosion,203,stat_points,1,,45.6%,,,2,0,0,32,0,32
+Typhlosion,203,stat_points,2,,9.6%,,,0,0,2,32,0,32
+Typhlosion,203,stat_points,3,,7.6%,,,4,0,0,32,0,30
+Typhlosion,203,stat_points,4,,7.2%,,,0,2,0,32,0,32
+Typhlosion,203,stat_points,5,,5.7%,,,0,0,0,32,2,32
+Typhlosion,203,stat_points,6,,4.2%,,,2,32,0,0,0,32
+Typhlosion,203,stat_points,7,,3.3%,,,5,0,4,27,1,29
+Typhlosion,203,stat_points,8,,2.9%,,,0,0,0,32,0,32
+Typhlosion,203,stat_points,9,,2.5%,,,11,21,0,31,0,3
+Typhlosion,203,stat_points,10,,2.1%,,,18,0,0,31,0,17
+Typhlosion,203,ability,1,Flash Fire,77.3%,,,,,,,,
+Typhlosion,203,ability,2,Blaze,22.7%,,,,,,,,

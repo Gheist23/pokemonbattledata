@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sylveon,20,move,1,Hyper Voice,99.9%,,,,,,,,
-Sylveon,20,move,2,Quick Attack,75.9%,,,,,,,,
+Sylveon,20,move,2,Quick Attack,75.5%,,,,,,,,
 Sylveon,20,move,3,Hyper Beam,75.0%,,,,,,,,
-Sylveon,20,move,4,Detect,69.2%,,,,,,,,
-Sylveon,20,move,5,Protect,28.2%,,,,,,,,
+Sylveon,20,move,4,Detect,69.0%,,,,,,,,
+Sylveon,20,move,5,Protect,28.4%,,,,,,,,
 Sylveon,20,move,6,Yawn,14.0%,,,,,,,,
-Sylveon,20,move,7,Mystical Fire,8.3%,,,,,,,,
-Sylveon,20,move,8,Moonblast,8.0%,,,,,,,,
-Sylveon,20,move,9,Calm Mind,7.7%,,,,,,,,
-Sylveon,20,move,10,Shadow Ball,2.6%,,,,,,,,
-Sylveon,20,held_item,1,Fairy Feather,89.0%,,,,,,,,
+Sylveon,20,move,7,Mystical Fire,8.5%,,,,,,,,
+Sylveon,20,move,8,Moonblast,7.8%,,,,,,,,
+Sylveon,20,move,9,Calm Mind,7.6%,,,,,,,,
+Sylveon,20,move,10,Shadow Ball,2.7%,,,,,,,,
+Sylveon,20,held_item,1,Fairy Feather,88.9%,,,,,,,,
 Sylveon,20,held_item,2,Life Orb,5.4%,,,,,,,,
 Sylveon,20,held_item,3,Leftovers,1.7%,,,,,,,,
-Sylveon,20,held_item,4,Sitrus Berry,0.8%,,,,,,,,
-Sylveon,20,held_item,5,Grassy Seed,0.8%,,,,,,,,
+Sylveon,20,held_item,4,Sitrus Berry,0.9%,,,,,,,,
+Sylveon,20,held_item,5,Grassy Seed,0.7%,,,,,,,,
 Sylveon,20,held_item,6,Choice Scarf,0.6%,,,,,,,,
-Sylveon,20,held_item,7,Quick Claw,0.5%,,,,,,,,
-Sylveon,20,held_item,8,Focus Sash,0.3%,,,,,,,,
+Sylveon,20,held_item,7,Quick Claw,0.6%,,,,,,,,
+Sylveon,20,held_item,8,Focus Sash,0.4%,,,,,,,,
 Sylveon,20,held_item,9,Psychic Seed,0.2%,,,,,,,,
-Sylveon,20,held_item,10,Babiri Berry,0.1%,,,,,,,,
+Sylveon,20,held_item,10,Babiri Berry,0.2%,,,,,,,,
 Sylveon,20,teammate,1,Rillaboom,,,,,,,,,
 Sylveon,20,teammate,2,Salamence,,,,,,,,,
 Sylveon,20,teammate,3,Kingambit,,,,,,,,,
@@ -29,25 +29,25 @@ Sylveon,20,teammate,7,Farigiraf,,,,,,,,,
 Sylveon,20,teammate,8,Charizard,,,,,,,,,
 Sylveon,20,teammate,9,Garchomp,,,,,,,,,
 Sylveon,20,teammate,10,Golisopod,,,,,,,,,
-Sylveon,20,stat_alignment,1,Modest,21.0%,Sp. Atk,Attack,,,,,,
+Sylveon,20,stat_alignment,1,Modest,20.9%,Sp. Atk,Attack,,,,,,
 Sylveon,20,stat_alignment,2,Quiet,14.8%,Sp. Atk,Speed,,,,,,
-Sylveon,20,stat_alignment,3,Bold,1.8%,Defense,Attack,,,,,,
+Sylveon,20,stat_alignment,3,Bold,1.9%,Defense,Attack,,,,,,
 Sylveon,20,stat_alignment,4,Timid,1.4%,Speed,Attack,,,,,,
 Sylveon,20,stat_alignment,5,Relaxed,0.3%,Defense,Speed,,,,,,
-Sylveon,20,stat_alignment,6,Calm,0.2%,Sp. Def,Attack,,,,,,
-Sylveon,20,stat_alignment,7,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Sylveon,20,stat_alignment,6,Calm,0.3%,Sp. Def,Attack,,,,,,
+Sylveon,20,stat_alignment,7,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Sylveon,20,stat_alignment,8,Sassy,0.1%,Sp. Def,Speed,,,,,,
 Sylveon,20,stat_alignment,9,Naive,0.0%,Speed,Sp. Def,,,,,,
 Sylveon,20,stat_alignment,10,Rash,0.0%,Sp. Atk,Sp. Def,,,,,,
-Sylveon,20,stat_points,1,,11.1%,,,32,0,2,32,0,0
-Sylveon,20,stat_points,2,,6.5%,,,13,0,22,23,0,8
-Sylveon,20,stat_points,3,,4.4%,,,9,0,22,20,0,15
-Sylveon,20,stat_points,4,,3.7%,,,32,0,0,32,0,2
-Sylveon,20,stat_points,5,,2.2%,,,32,0,0,32,2,0
+Sylveon,20,stat_points,1,,11.0%,,,32,0,2,32,0,0
+Sylveon,20,stat_points,2,,6.3%,,,13,0,22,23,0,8
+Sylveon,20,stat_points,3,,4.5%,,,9,0,22,20,0,15
+Sylveon,20,stat_points,4,,3.8%,,,32,0,0,32,0,2
+Sylveon,20,stat_points,5,,2.3%,,,32,0,0,32,2,0
 Sylveon,20,stat_points,6,,2.0%,,,2,0,0,32,0,32
 Sylveon,20,stat_points,7,,1.9%,,,2,0,32,32,0,0
 Sylveon,20,stat_points,8,,1.5%,,,9,0,22,30,0,5
-Sylveon,20,stat_points,9,,1.1%,,,18,0,10,21,0,17
-Sylveon,20,stat_points,10,,0.9%,,,19,0,0,32,0,15
+Sylveon,20,stat_points,9,,1.2%,,,18,0,10,21,0,17
+Sylveon,20,stat_points,10,,0.9%,,,22,0,4,30,0,10
 Sylveon,20,ability,1,Pixilate,100.0%,,,,,,,,
 Sylveon,20,ability,2,Cute Charm,0.0%,,,,,,,,

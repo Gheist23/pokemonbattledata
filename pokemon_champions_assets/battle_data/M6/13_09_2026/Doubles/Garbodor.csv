@@ -1,34 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Garbodor,239,move,1,Stomping Tantrum,27.4%,,,,,,,,
-Garbodor,239,move,2,Poison Jab,26.5%,,,,,,,,
-Garbodor,239,move,3,Explosion,33.9%,,,,,,,,
-Garbodor,239,move,4,Seed Bomb,23.0%,,,,,,,,
-Garbodor,239,move,5,Drain Punch,36.1%,,,,,,,,
-Garbodor,239,move,6,Protect,46.4%,,,,,,,,
-Garbodor,239,move,7,Gunk Shot,53.5%,,,,,,,,
-Garbodor,239,move,8,Toxic,21.8%,,,,,,,,
-Garbodor,239,move,9,Haze,10.9%,,,,,,,,
-Garbodor,239,move,10,Spikes,10.9%,,,,,,,,
-Garbodor,239,held_item,1,Sitrus Berry,83.9%,,,,,,,,
-Garbodor,239,held_item,2,Rocky Helmet,4.4%,,,,,,,,
-Garbodor,239,held_item,3,Shuca Berry,0.9%,,,,,,,,
-Garbodor,239,held_item,4,Life Orb,10.9%,,,,,,,,
-Garbodor,239,teammate,1,Basculegion Male,,,,,,,,,
-Garbodor,239,teammate,2,Garchomp,,,,,,,,,
-Garbodor,239,teammate,3,Alakazam,,,,,,,,,
-Garbodor,239,teammate,4,Umbreon,,,,,,,,,
-Garbodor,239,teammate,5,Blaziken,,,,,,,,,
-Garbodor,239,teammate,6,Persian Form 1,,,,,,,,,
-Garbodor,239,teammate,7,Rillaboom,,,,,,,,,
-Garbodor,239,teammate,8,Lucario,,,,,,,,,
-Garbodor,239,teammate,9,Charizard,,,,,,,,,
-Garbodor,239,teammate,10,Raichu,,,,,,,,,
-Garbodor,239,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
-Garbodor,239,stat_points,1,,9.0%,,,32,32,1,0,1,0
-Garbodor,239,stat_points,2,,3.5%,,,26,32,0,0,0,8
-Garbodor,239,stat_points,3,,0.9%,,,2,32,0,0,0,32
-Garbodor,239,stat_points,4,,0.9%,,,32,25,0,0,0,9
-Garbodor,239,stat_points,5,,0.9%,,,32,32,0,0,2,0
-Garbodor,239,stat_points,6,,0.9%,,,32,32,2,0,0,0
-Garbodor,239,ability,1,Aftermath,68.2%,,,,,,,,
-Garbodor,239,ability,2,Weak Armor,31.8%,,,,,,,,
+Garbodor,231,move,1,Explosion,29.2%,,,,,,,,
+Garbodor,231,move,2,Stomping Tantrum,27.4%,,,,,,,,
+Garbodor,231,move,3,Poison Jab,26.8%,,,,,,,,
+Garbodor,231,move,4,Seed Bomb,24.4%,,,,,,,,
+Garbodor,231,move,5,Drain Punch,40.2%,,,,,,,,
+Garbodor,231,move,6,Gunk Shot,50.2%,,,,,,,,
+Garbodor,231,move,7,Protect,47.8%,,,,,,,,
+Garbodor,231,move,8,Rock Blast,17.2%,,,,,,,,
+Garbodor,231,move,9,Corrosive Gas,9.4%,,,,,,,,
+Garbodor,231,move,10,Haze,10.8%,,,,,,,,
+Garbodor,231,held_item,1,Sitrus Berry,85.0%,,,,,,,,
+Garbodor,231,held_item,2,Life Orb,5.4%,,,,,,,,
+Garbodor,231,held_item,3,Rocky Helmet,3.0%,,,,,,,,
+Garbodor,231,held_item,4,Unknown Item 564,3.0%,,,,,,,,
+Garbodor,231,held_item,5,White Herb,1.8%,,,,,,,,
+Garbodor,231,held_item,6,Leftovers,1.2%,,,,,,,,
+Garbodor,231,held_item,7,Shuca Berry,0.6%,,,,,,,,
+Garbodor,231,teammate,1,Basculegion Male,,,,,,,,,
+Garbodor,231,teammate,2,Garchomp,,,,,,,,,
+Garbodor,231,teammate,3,Alakazam,,,,,,,,,
+Garbodor,231,teammate,4,Umbreon,,,,,,,,,
+Garbodor,231,teammate,5,Blaziken,,,,,,,,,
+Garbodor,231,teammate,6,Abomasnow,,,,,,,,,
+Garbodor,231,teammate,7,Cofagrigus,,,,,,,,,
+Garbodor,231,teammate,8,Crabominable,,,,,,,,,
+Garbodor,231,teammate,9,Toxtricity,,,,,,,,,
+Garbodor,231,teammate,10,Pincurchin,,,,,,,,,
+Garbodor,231,stat_alignment,1,Adamant,99.8%,Attack,Sp. Atk,,,,,,
+Garbodor,231,stat_alignment,2,Brave,6.0%,Attack,Speed,,,,,,
+Garbodor,231,stat_alignment,3,Lonely,2.4%,Attack,Defense,,,,,,
+Garbodor,231,stat_alignment,4,Impish,1.8%,Defense,Sp. Atk,,,,,,
+Garbodor,231,stat_points,1,,9.2%,,,32,32,1,0,1,0
+Garbodor,231,stat_points,2,,3.0%,,,27,32,0,0,0,7
+Garbodor,231,stat_points,3,,2.4%,,,26,32,0,0,0,8
+Garbodor,231,stat_points,4,,1.8%,,,2,32,32,0,0,0
+Garbodor,231,stat_points,5,,1.8%,,,32,32,2,0,0,0
+Garbodor,231,stat_points,6,,0.6%,,,2,32,0,0,0,32
+Garbodor,231,stat_points,7,,0.6%,,,32,25,0,0,0,9
+Garbodor,231,stat_points,8,,0.6%,,,32,32,0,0,2,0
+Garbodor,231,ability,1,Aftermath,64.0%,,,,,,,,
+Garbodor,231,ability,2,Weak Armor,36.0%,,,,,,,,

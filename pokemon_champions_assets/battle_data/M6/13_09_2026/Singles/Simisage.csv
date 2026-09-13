@@ -1,51 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simisage,255,move,1,Leaf Storm,48.4%,,,,,,,,
-Simisage,255,move,2,Gunk Shot,30.9%,,,,,,,,
-Simisage,255,move,3,Rock Slide,39.4%,,,,,,,,
-Simisage,255,move,4,Leech Seed,18.0%,,,,,,,,
-Simisage,255,move,5,Focus Blast,17.2%,,,,,,,,
-Simisage,255,move,6,Seed Bomb,32.8%,,,,,,,,
-Simisage,255,move,7,Taunt,31.4%,,,,,,,,
-Simisage,255,move,8,Superpower,14.1%,,,,,,,,
-Simisage,255,move,9,Giga Drain,16.1%,,,,,,,,
-Simisage,255,move,10,Fake Out,16.1%,,,,,,,,
-Simisage,255,held_item,1,Focus Sash,38.5%,,,,,,,,
-Simisage,255,held_item,2,Black Belt,19.0%,,,,,,,,
-Simisage,255,held_item,3,Bright Powder,7.1%,,,,,,,,
-Simisage,255,held_item,4,Miracle Seed,12.4%,,,,,,,,
-Simisage,255,held_item,5,Leftovers,7.3%,,,,,,,,
-Simisage,255,held_item,6,Chesto Berry,5.1%,,,,,,,,
-Simisage,255,held_item,7,Choice Scarf,3.6%,,,,,,,,
-Simisage,255,held_item,8,White Herb,2.9%,,,,,,,,
-Simisage,255,held_item,9,Expert Belt,2.9%,,,,,,,,
-Simisage,255,held_item,10,Unknown Item 192,1.5%,,,,,,,,
+Simisage,255,move,1,Leaf Storm,50.4%,,,,,,,,
+Simisage,255,move,2,Rock Slide,38.9%,,,,,,,,
+Simisage,255,move,3,Gunk Shot,38.3%,,,,,,,,
+Simisage,255,move,4,Leech Seed,17.6%,,,,,,,,
+Simisage,255,move,5,Focus Blast,16.2%,,,,,,,,
+Simisage,255,move,6,Taunt,34.2%,,,,,,,,
+Simisage,255,move,7,Seed Bomb,30.2%,,,,,,,,
+Simisage,255,move,8,Superpower,12.1%,,,,,,,,
+Simisage,255,move,9,Giga Drain,19.5%,,,,,,,,
+Simisage,255,move,10,Fake Out,17.4%,,,,,,,,
+Simisage,255,held_item,1,Focus Sash,36.2%,,,,,,,,
+Simisage,255,held_item,2,Black Belt,17.4%,,,,,,,,
+Simisage,255,held_item,3,Bright Powder,14.8%,,,,,,,,
+Simisage,255,held_item,4,Miracle Seed,13.4%,,,,,,,,
+Simisage,255,held_item,5,Leftovers,6.7%,,,,,,,,
+Simisage,255,held_item,6,Chesto Berry,4.7%,,,,,,,,
+Simisage,255,held_item,7,Choice Scarf,3.4%,,,,,,,,
+Simisage,255,held_item,8,Unknown Item 188,2.7%,,,,,,,,
+Simisage,255,held_item,9,White Herb,2.7%,,,,,,,,
+Simisage,255,held_item,10,Expert Belt,2.7%,,,,,,,,
 Simisage,255,teammate,1,Simisear,,,,,,,,,
 Simisage,255,teammate,2,Simipour,,,,,,,,,
 Simisage,255,teammate,3,Golisopod,,,,,,,,,
 Simisage,255,teammate,4,Baxcalibur,,,,,,,,,
-Simisage,255,teammate,5,Blaziken,,,,,,,,,
-Simisage,255,teammate,6,Vanilluxe,,,,,,,,,
+Simisage,255,teammate,5,Vanilluxe,,,,,,,,,
+Simisage,255,teammate,6,Blaziken,,,,,,,,,
 Simisage,255,teammate,7,Orthworm,,,,,,,,,
 Simisage,255,teammate,8,Aegislash Shield Forme,,,,,,,,,
 Simisage,255,teammate,9,Wigglytuff,,,,,,,,,
 Simisage,255,teammate,10,Krookodile,,,,,,,,,
-Simisage,255,stat_alignment,1,Jolly,25.5%,Speed,Sp. Atk,,,,,,
-Simisage,255,stat_alignment,2,Modest,24.8%,Sp. Atk,Attack,,,,,,
-Simisage,255,stat_alignment,3,Naive,9.9%,Speed,Sp. Def,,,,,,
-Simisage,255,stat_alignment,4,Timid,9.5%,Speed,Attack,,,,,,
-Simisage,255,stat_alignment,5,Bold,7.3%,Defense,Attack,,,,,,
-Simisage,255,stat_alignment,6,Impish,7.3%,Defense,Sp. Atk,,,,,,
-Simisage,255,stat_alignment,7,Adamant,2.9%,Attack,Sp. Atk,,,,,,
+Simisage,255,stat_alignment,1,Modest,24.8%,Sp. Atk,Attack,,,,,,
+Simisage,255,stat_alignment,2,Jolly,23.5%,Speed,Sp. Atk,,,,,,
+Simisage,255,stat_alignment,3,Naive,14.1%,Speed,Sp. Def,,,,,,
+Simisage,255,stat_alignment,4,Timid,14.1%,Speed,Attack,,,,,,
+Simisage,255,stat_alignment,5,Bold,6.7%,Defense,Attack,,,,,,
+Simisage,255,stat_alignment,6,Impish,6.7%,Defense,Sp. Atk,,,,,,
+Simisage,255,stat_alignment,7,Adamant,2.7%,Attack,Sp. Atk,,,,,,
 Simisage,255,stat_alignment,8,Mild,0.7%,Sp. Atk,Defense,,,,,,
-Simisage,255,stat_points,1,,24.1%,,,2,0,0,32,0,32
-Simisage,255,stat_points,2,,16.1%,,,0,32,0,0,0,32
-Simisage,255,stat_points,3,,13.9%,,,0,32,0,2,0,32
-Simisage,255,stat_points,4,,12.4%,,,2,32,0,0,0,32
-Simisage,255,stat_points,5,,8.0%,,,0,2,0,32,0,32
-Simisage,255,stat_points,6,,7.3%,,,31,0,26,1,6,2
-Simisage,255,stat_points,7,,7.3%,,,32,0,32,0,2,0
-Simisage,255,stat_points,8,,5.1%,,,0,0,2,32,0,32
-Simisage,255,stat_points,9,,2.9%,,,1,0,1,32,0,32
-Simisage,255,stat_points,10,,1.5%,,,1,0,0,32,1,32
-Simisage,255,ability,1,Overgrow,94.9%,,,,,,,,
-Simisage,255,ability,2,Gluttony,5.1%,,,,,,,,
+Simisage,255,stat_alignment,9,Quiet,0.7%,Sp. Atk,Speed,,,,,,
+Simisage,255,stat_points,1,,24.8%,,,2,0,0,32,0,32
+Simisage,255,stat_points,2,,14.8%,,,0,32,0,0,0,32
+Simisage,255,stat_points,3,,12.8%,,,0,32,0,2,0,32
+Simisage,255,stat_points,4,,11.4%,,,2,32,0,0,0,32
+Simisage,255,stat_points,5,,10.1%,,,0,2,0,32,0,32
+Simisage,255,stat_points,6,,6.7%,,,31,0,26,1,6,2
+Simisage,255,stat_points,7,,6.7%,,,32,0,32,0,2,0
+Simisage,255,stat_points,8,,4.7%,,,0,0,2,32,0,32
+Simisage,255,stat_points,9,,2.7%,,,1,0,1,32,0,32
+Simisage,255,stat_points,10,,2.7%,,,32,0,1,32,1,0
+Simisage,255,ability,1,Overgrow,94.6%,,,,,,,,
+Simisage,255,ability,2,Gluttony,5.4%,,,,,,,,

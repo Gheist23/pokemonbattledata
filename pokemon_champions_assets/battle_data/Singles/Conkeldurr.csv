@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Conkeldurr,118,move,1,Mach Punch,93.3%,,,,,,,,
-Conkeldurr,118,move,2,Ice Punch,80.3%,,,,,,,,
+Conkeldurr,118,move,1,Mach Punch,92.6%,,,,,,,,
+Conkeldurr,118,move,2,Ice Punch,79.7%,,,,,,,,
 Conkeldurr,118,move,3,Drain Punch,79.1%,,,,,,,,
-Conkeldurr,118,move,4,Thunder Punch,29.5%,,,,,,,,
-Conkeldurr,118,move,5,Fire Punch,14.2%,,,,,,,,
-Conkeldurr,118,move,6,Knock Off,20.1%,,,,,,,,
-Conkeldurr,118,move,7,Earthquake,7.5%,,,,,,,,
-Conkeldurr,118,move,8,Close Combat,7.3%,,,,,,,,
+Conkeldurr,118,move,4,Thunder Punch,29.1%,,,,,,,,
+Conkeldurr,118,move,5,Fire Punch,14.7%,,,,,,,,
+Conkeldurr,118,move,6,Knock Off,20.7%,,,,,,,,
+Conkeldurr,118,move,7,Close Combat,8.1%,,,,,,,,
+Conkeldurr,118,move,8,Earthquake,8.0%,,,,,,,,
 Conkeldurr,118,move,9,Poison Jab,7.1%,,,,,,,,
-Conkeldurr,118,move,10,Bulk Up,6.8%,,,,,,,,
-Conkeldurr,118,held_item,1,Life Orb,44.0%,,,,,,,,
-Conkeldurr,118,held_item,2,Sitrus Berry,16.6%,,,,,,,,
-Conkeldurr,118,held_item,3,Expert Belt,13.5%,,,,,,,,
-Conkeldurr,118,held_item,4,Black Belt,9.2%,,,,,,,,
-Conkeldurr,118,held_item,5,Focus Sash,5.1%,,,,,,,,
-Conkeldurr,118,held_item,6,Lopunnite,3.1%,,,,,,,,
-Conkeldurr,118,held_item,7,Muscle Band,2.7%,,,,,,,,
+Conkeldurr,118,move,10,Bulk Up,6.0%,,,,,,,,
+Conkeldurr,118,held_item,1,Life Orb,44.4%,,,,,,,,
+Conkeldurr,118,held_item,2,Sitrus Berry,15.7%,,,,,,,,
+Conkeldurr,118,held_item,3,Expert Belt,13.9%,,,,,,,,
+Conkeldurr,118,held_item,4,Black Belt,8.7%,,,,,,,,
+Conkeldurr,118,held_item,5,Focus Sash,5.6%,,,,,,,,
+Conkeldurr,118,held_item,6,Muscle Band,3.0%,,,,,,,,
+Conkeldurr,118,held_item,7,Unknown Item 192,2.8%,,,,,,,,
 Conkeldurr,118,held_item,8,Lum Berry,1.4%,,,,,,,,
-Conkeldurr,118,held_item,9,Rocky Helmet,0.9%,,,,,,,,
+Conkeldurr,118,held_item,9,Rocky Helmet,1.0%,,,,,,,,
 Conkeldurr,118,held_item,10,Leftovers,0.8%,,,,,,,,
 Conkeldurr,118,teammate,1,Salamence,,,,,,,,,
 Conkeldurr,118,teammate,2,Garchomp,,,,,,,,,
@@ -27,27 +27,28 @@ Conkeldurr,118,teammate,5,Archaludon,,,,,,,,,
 Conkeldurr,118,teammate,6,Baxcalibur,,,,,,,,,
 Conkeldurr,118,teammate,7,Gholdengo,,,,,,,,,
 Conkeldurr,118,teammate,8,Volcarona,,,,,,,,,
-Conkeldurr,118,teammate,9,Hisuian Zoroark,,,,,,,,,
-Conkeldurr,118,teammate,10,Hippowdon,,,,,,,,,
-Conkeldurr,118,stat_alignment,1,Adamant,91.7%,Attack,Sp. Atk,,,,,,
-Conkeldurr,118,stat_alignment,2,Brave,5.0%,Attack,Speed,,,,,,
+Conkeldurr,118,teammate,9,Hippowdon,,,,,,,,,
+Conkeldurr,118,teammate,10,Hisuian Zoroark,,,,,,,,,
+Conkeldurr,118,stat_alignment,1,Adamant,92.0%,Attack,Sp. Atk,,,,,,
+Conkeldurr,118,stat_alignment,2,Brave,4.7%,Attack,Speed,,,,,,
 Conkeldurr,118,stat_alignment,3,Impish,1.7%,Defense,Sp. Atk,,,,,,
-Conkeldurr,118,stat_alignment,4,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
-Conkeldurr,118,stat_alignment,5,Jolly,0.6%,Speed,Sp. Atk,,,,,,
+Conkeldurr,118,stat_alignment,4,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
+Conkeldurr,118,stat_alignment,5,Jolly,0.5%,Speed,Sp. Atk,,,,,,
 Conkeldurr,118,stat_alignment,6,Relaxed,0.2%,Defense,Speed,,,,,,
 Conkeldurr,118,stat_alignment,7,Lonely,0.1%,Attack,Defense,,,,,,
-Conkeldurr,118,stat_alignment,8,Naughty,0.0%,Attack,Sp. Def,,,,,,
-Conkeldurr,118,stat_alignment,9,Lax,0.0%,Defense,Sp. Def,,,,,,
-Conkeldurr,118,stat_points,1,,16.6%,,,32,32,2,0,0,0
-Conkeldurr,118,stat_points,2,,9.2%,,,32,32,0,0,2,0
-Conkeldurr,118,stat_points,3,,6.3%,,,32,22,0,0,12,0
+Conkeldurr,118,stat_alignment,8,Sassy,0.0%,Sp. Def,Speed,,,,,,
+Conkeldurr,118,stat_alignment,9,Naughty,0.0%,Attack,Sp. Def,,,,,,
+Conkeldurr,118,stat_alignment,10,Lax,0.0%,Defense,Sp. Def,,,,,,
+Conkeldurr,118,stat_points,1,,16.9%,,,32,32,2,0,0,0
+Conkeldurr,118,stat_points,2,,8.9%,,,32,32,0,0,2,0
+Conkeldurr,118,stat_points,3,,5.5%,,,32,22,0,0,12,0
 Conkeldurr,118,stat_points,4,,5.3%,,,2,32,0,0,0,32
-Conkeldurr,118,stat_points,5,,5.3%,,,1,32,1,0,0,32
-Conkeldurr,118,stat_points,6,,3.5%,,,1,32,1,0,32,0
-Conkeldurr,118,stat_points,7,,2.7%,,,2,32,0,0,32,0
-Conkeldurr,118,stat_points,8,,2.5%,,,2,32,32,0,0,0
-Conkeldurr,118,stat_points,9,,2.0%,,,0,32,2,0,32,0
-Conkeldurr,118,stat_points,10,,2.0%,,,31,32,3,0,0,0
-Conkeldurr,118,ability,1,Iron Fist,71.8%,,,,,,,,
-Conkeldurr,118,ability,2,Sheer Force,16.9%,,,,,,,,
-Conkeldurr,118,ability,3,Guts,11.3%,,,,,,,,
+Conkeldurr,118,stat_points,5,,4.6%,,,1,32,1,0,0,32
+Conkeldurr,118,stat_points,6,,3.4%,,,1,32,1,0,32,0
+Conkeldurr,118,stat_points,7,,2.9%,,,2,32,0,0,32,0
+Conkeldurr,118,stat_points,8,,2.6%,,,2,32,32,0,0,0
+Conkeldurr,118,stat_points,9,,2.1%,,,0,32,2,0,32,0
+Conkeldurr,118,stat_points,10,,1.9%,,,31,32,3,0,0,0
+Conkeldurr,118,ability,1,Iron Fist,72.4%,,,,,,,,
+Conkeldurr,118,ability,2,Sheer Force,16.6%,,,,,,,,
+Conkeldurr,118,ability,3,Guts,11.0%,,,,,,,,

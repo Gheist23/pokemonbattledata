@@ -1,41 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Falinks,236,move,1,Close Combat,89.2%,,,,,,,,
-Falinks,236,move,2,No Retreat,87.7%,,,,,,,,
-Falinks,236,move,3,Poison Jab,12.7%,,,,,,,,
-Falinks,236,move,4,First Impression,30.0%,,,,,,,,
-Falinks,236,move,5,Throat Chop,10.1%,,,,,,,,
-Falinks,236,move,6,Knock Off,49.2%,,,,,,,,
-Falinks,236,move,7,Iron Head,30.0%,,,,,,,,
-Falinks,236,move,8,High Horsepower,16.8%,,,,,,,,
-Falinks,236,move,9,Rock Slide,14.2%,,,,,,,,
-Falinks,236,move,10,Reversal,11.8%,,,,,,,,
-Falinks,236,held_item,1,Falinksite,78.6%,,,,,,,,
-Falinks,236,held_item,2,Choice Scarf,10.9%,,,,,,,,
-Falinks,236,held_item,3,Focus Sash,12.3%,,,,,,,,
-Falinks,236,teammate,1,Charizard,,,,,,,,,
-Falinks,236,teammate,2,Gengar,,,,,,,,,
-Falinks,236,teammate,3,Vivillon Fancy Pattern,,,,,,,,,
-Falinks,236,teammate,4,Espathra,,,,,,,,,
-Falinks,236,teammate,5,Kingambit,,,,,,,,,
-Falinks,236,teammate,6,Primarina,,,,,,,,,
-Falinks,236,teammate,7,Cofagrigus,,,,,,,,,
-Falinks,236,teammate,8,Basculegion Male,,,,,,,,,
-Falinks,236,teammate,9,Blastoise,,,,,,,,,
-Falinks,236,teammate,10,Baxcalibur,,,,,,,,,
-Falinks,236,stat_alignment,1,Adamant,62.6%,Attack,Sp. Atk,,,,,,
-Falinks,236,stat_alignment,2,Jolly,19.4%,Speed,Sp. Atk,,,,,,
-Falinks,236,stat_alignment,3,Naughty,1.5%,Attack,Sp. Def,,,,,,
-Falinks,236,stat_alignment,4,Impish,1.5%,Defense,Sp. Atk,,,,,,
-Falinks,236,stat_alignment,5,Lonely,1.1%,Attack,Defense,,,,,,
-Falinks,236,stat_points,1,,34.2%,,,2,32,0,0,0,32
-Falinks,236,stat_points,2,,8.0%,,,1,1,32,0,0,32
-Falinks,236,stat_points,3,,5.4%,,,0,26,14,0,0,23
-Falinks,236,stat_points,4,,2.8%,,,1,32,1,0,0,32
-Falinks,236,stat_points,5,,2.4%,,,13,32,0,0,0,21
-Falinks,236,stat_points,6,,1.3%,,,1,32,0,0,1,32
-Falinks,236,stat_points,7,,1.3%,,,32,32,0,0,2,0
-Falinks,236,stat_points,8,,1.1%,,,11,0,23,0,0,32
-Falinks,236,stat_points,9,,0.9%,,,0,32,0,0,2,32
-Falinks,236,stat_points,10,,0.6%,,,0,32,2,0,0,32
-Falinks,236,ability,1,Defiant,87.5%,,,,,,,,
-Falinks,236,ability,2,Battle Armor,12.5%,,,,,,,,
+Falinks,232,move,1,Close Combat,89.6%,,,,,,,,
+Falinks,232,move,2,No Retreat,85.8%,,,,,,,,
+Falinks,232,move,3,Poison Jab,16.6%,,,,,,,,
+Falinks,232,move,4,First Impression,31.4%,,,,,,,,
+Falinks,232,move,5,Knock Off,51.1%,,,,,,,,
+Falinks,232,move,6,Throat Chop,7.4%,,,,,,,,
+Falinks,232,move,7,Iron Head,30.2%,,,,,,,,
+Falinks,232,move,8,Reversal,18.2%,,,,,,,,
+Falinks,232,move,9,Counter,16.7%,,,,,,,,
+Falinks,232,move,10,High Horsepower,13.1%,,,,,,,,
+Falinks,232,held_item,1,Falinksite,66.2%,,,,,,,,
+Falinks,232,held_item,2,Focus Sash,17.3%,,,,,,,,
+Falinks,232,held_item,3,Choice Scarf,14.8%,,,,,,,,
+Falinks,232,held_item,4,Life Orb,1.5%,,,,,,,,
+Falinks,232,teammate,1,Primarina,,,,,,,,,
+Falinks,232,teammate,2,Cofagrigus,,,,,,,,,
+Falinks,232,teammate,3,Dragonite,,,,,,,,,
+Falinks,232,teammate,4,Charizard,,,,,,,,,
+Falinks,232,teammate,5,Rotom Fan,,,,,,,,,
+Falinks,232,teammate,6,Delphox,,,,,,,,,
+Falinks,232,teammate,7,Wyrdeer,,,,,,,,,
+Falinks,232,teammate,8,Rillaboom,,,,,,,,,
+Falinks,232,teammate,9,Gengar,,,,,,,,,
+Falinks,232,teammate,10,Vivillon Fancy Pattern,,,,,,,,,
+Falinks,232,stat_alignment,1,Adamant,62.6%,Attack,Sp. Atk,,,,,,
+Falinks,232,stat_alignment,2,Jolly,23.1%,Speed,Sp. Atk,,,,,,
+Falinks,232,stat_alignment,3,Naughty,1.3%,Attack,Sp. Def,,,,,,
+Falinks,232,stat_alignment,4,Impish,1.3%,Defense,Sp. Atk,,,,,,
+Falinks,232,stat_alignment,5,Lonely,0.8%,Attack,Defense,,,,,,
+Falinks,232,stat_points,1,,30.9%,,,2,32,0,0,0,32
+Falinks,232,stat_points,2,,6.6%,,,1,1,32,0,0,32
+Falinks,232,stat_points,3,,6.4%,,,0,26,14,0,0,23
+Falinks,232,stat_points,4,,4.2%,,,1,32,1,0,0,32
+Falinks,232,stat_points,5,,3.7%,,,13,32,0,0,0,21
+Falinks,232,stat_points,6,,1.5%,,,0,18,0,0,20,28
+Falinks,232,stat_points,7,,1.3%,,,1,32,0,0,1,32
+Falinks,232,stat_points,8,,1.0%,,,11,0,23,0,0,32
+Falinks,232,stat_points,9,,1.0%,,,32,32,0,0,2,0
+Falinks,232,stat_points,10,,0.7%,,,0,32,0,0,2,32
+Falinks,232,ability,1,Defiant,82.8%,,,,,,,,
+Falinks,232,ability,2,Battle Armor,17.2%,,,,,,,,

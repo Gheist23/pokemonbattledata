@@ -1,20 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Passimian,251,move,1,Close Combat,50.4%,,,,,,,,
-Passimian,251,move,2,Rock Slide,33.1%,,,,,,,,
-Passimian,251,move,3,Earthquake,49.7%,,,,,,,,
-Passimian,251,move,4,U-turn,18.0%,,,,,,,,
-Passimian,251,move,5,Gunk Shot,29.1%,,,,,,,,
-Passimian,251,move,6,Seed Bomb,25.1%,,,,,,,,
-Passimian,251,move,7,Knock Off,32.9%,,,,,,,,
-Passimian,251,move,8,Drain Punch,49.6%,,,,,,,,
-Passimian,251,move,9,Rock Tomb,15.6%,,,,,,,,
-Passimian,251,move,10,Feint,3.4%,,,,,,,,
-Passimian,251,held_item,1,Choice Scarf,56.9%,,,,,,,,
-Passimian,251,held_item,2,Quick Claw,17.3%,,,,,,,,
-Passimian,251,held_item,3,Expert Belt,16.8%,,,,,,,,
-Passimian,251,held_item,4,Roseli Berry,3.4%,,,,,,,,
-Passimian,251,held_item,5,Light Ball,2.8%,,,,,,,,
-Passimian,251,held_item,6,Life Orb,2.8%,,,,,,,,
+Passimian,251,move,1,Close Combat,49.5%,,,,,,,,
+Passimian,251,move,2,Rock Slide,35.2%,,,,,,,,
+Passimian,251,move,3,U-turn,21.4%,,,,,,,,
+Passimian,251,move,4,Earthquake,45.7%,,,,,,,,
+Passimian,251,move,5,Knock Off,28.1%,,,,,,,,
+Passimian,251,move,6,Gunk Shot,26.2%,,,,,,,,
+Passimian,251,move,7,Seed Bomb,21.4%,,,,,,,,
+Passimian,251,move,8,Drain Punch,50.5%,,,,,,,,
+Passimian,251,move,9,Counter,13.8%,,,,,,,,
+Passimian,251,move,10,Rock Tomb,13.3%,,,,,,,,
+Passimian,251,held_item,1,Choice Scarf,57.1%,,,,,,,,
+Passimian,251,held_item,2,Expert Belt,15.7%,,,,,,,,
+Passimian,251,held_item,3,Quick Claw,14.8%,,,,,,,,
+Passimian,251,held_item,4,Roseli Berry,1.4%,,,,,,,,
+Passimian,251,held_item,5,Hard Stone,3.3%,,,,,,,,
+Passimian,251,held_item,6,Light Ball,2.9%,,,,,,,,
+Passimian,251,held_item,7,Life Orb,2.4%,,,,,,,,
+Passimian,251,held_item,8,Focus Sash,2.4%,,,,,,,,
 Passimian,251,teammate,1,Scizor,,,,,,,,,
 Passimian,251,teammate,2,Hatterene,,,,,,,,,
 Passimian,251,teammate,3,Greninja,,,,,,,,,
@@ -25,16 +27,17 @@ Passimian,251,teammate,7,Basculegion Male,,,,,,,,,
 Passimian,251,teammate,8,Slurpuff,,,,,,,,,
 Passimian,251,teammate,9,Camerupt,,,,,,,,,
 Passimian,251,teammate,10,Aromatisse,,,,,,,,,
-Passimian,251,stat_alignment,1,Adamant,63.8%,Attack,Sp. Atk,,,,,,
-Passimian,251,stat_alignment,2,Jolly,16.2%,Speed,Sp. Atk,,,,,,
-Passimian,251,stat_points,1,,33.0%,,,4,32,0,0,0,30
-Passimian,251,stat_points,2,,15.6%,,,0,32,2,0,0,32
-Passimian,251,stat_points,3,,15.1%,,,0,32,0,0,0,32
-Passimian,251,stat_points,4,,13.4%,,,11,32,23,0,0,0
-Passimian,251,stat_points,5,,10.1%,,,10,32,0,0,0,24
-Passimian,251,stat_points,6,,6.7%,,,17,32,0,0,0,17
-Passimian,251,stat_points,7,,2.8%,,,2,32,0,0,0,32
-Passimian,251,stat_points,8,,2.8%,,,25,32,0,0,0,9
-Passimian,251,stat_points,9,,0.6%,,,0,32,1,0,0,32
-Passimian,251,ability,1,Defiant,94.4%,,,,,,,,
-Passimian,251,ability,2,Receiver,5.6%,,,,,,,,
+Passimian,251,stat_alignment,1,Adamant,62.4%,Attack,Sp. Atk,,,,,,
+Passimian,251,stat_alignment,2,Jolly,15.2%,Speed,Sp. Atk,,,,,,
+Passimian,251,stat_alignment,3,Lonely,2.4%,Attack,Defense,,,,,,
+Passimian,251,stat_points,1,,28.1%,,,4,32,0,0,0,30
+Passimian,251,stat_points,2,,20.5%,,,0,32,2,0,0,32
+Passimian,251,stat_points,3,,12.9%,,,0,32,0,0,0,32
+Passimian,251,stat_points,4,,11.4%,,,11,32,23,0,0,0
+Passimian,251,stat_points,5,,8.6%,,,2,32,0,0,0,32
+Passimian,251,stat_points,6,,8.6%,,,10,32,0,0,0,24
+Passimian,251,stat_points,7,,7.1%,,,17,32,0,0,0,17
+Passimian,251,stat_points,8,,2.4%,,,25,32,0,0,0,9
+Passimian,251,stat_points,9,,0.5%,,,0,32,1,0,0,32
+Passimian,251,ability,1,Defiant,91.0%,,,,,,,,
+Passimian,251,ability,2,Receiver,9.0%,,,,,,,,

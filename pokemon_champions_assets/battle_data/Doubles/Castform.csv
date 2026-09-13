@@ -1,39 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Castform,224,move,1,Weather Ball,98.5%,,,,,,,,
-Castform,224,move,2,Thunder,46.2%,,,,,,,,
-Castform,224,move,3,Hurricane,24.6%,,,,,,,,
-Castform,224,move,4,Ice Beam,11.8%,,,,,,,,
-Castform,224,move,5,Energy Ball,46.6%,,,,,,,,
-Castform,224,move,6,Solar Beam,14.0%,,,,,,,,
-Castform,224,move,7,Protect,13.7%,,,,,,,,
-Castform,224,move,8,Rain Dance,22.2%,,,,,,,,
-Castform,224,move,9,Flamethrower,1.6%,,,,,,,,
-Castform,224,move,10,Blizzard,4.6%,,,,,,,,
-Castform,224,held_item,1,Choice Scarf,8.4%,,,,,,,,
-Castform,224,held_item,2,Life Orb,47.8%,,,,,,,,
-Castform,224,held_item,3,Quick Claw,8.6%,,,,,,,,
-Castform,224,held_item,4,Black Belt,17.5%,,,,,,,,
-Castform,224,held_item,5,Expert Belt,6.2%,,,,,,,,
-Castform,224,held_item,6,Focus Sash,11.5%,,,,,,,,
-Castform,224,teammate,1,Tyranitar,,,,,,,,,
-Castform,224,teammate,2,Abomasnow,,,,,,,,,
-Castform,224,teammate,3,Sceptile,,,,,,,,,
-Castform,224,teammate,4,Blaziken,,,,,,,,,
-Castform,224,teammate,5,Meowscarada,,,,,,,,,
-Castform,224,teammate,6,Ditto,,,,,,,,,
-Castform,224,teammate,7,Farfetch'd,,,,,,,,,
-Castform,224,teammate,8,Audino,,,,,,,,,
-Castform,224,teammate,9,Tinkaton,,,,,,,,,
-Castform,224,teammate,10,Farigiraf,,,,,,,,,
-Castform,224,stat_alignment,1,Modest,45.7%,Sp. Atk,Attack,,,,,,
-Castform,224,stat_alignment,2,Quiet,40.2%,Sp. Atk,Speed,,,,,,
-Castform,224,stat_alignment,3,Timid,22.1%,Speed,Attack,,,,,,
-Castform,224,stat_alignment,4,Hasty,2.1%,Speed,Defense,,,,,,
-Castform,224,stat_points,1,,27.3%,,,0,0,0,32,2,32
-Castform,224,stat_points,2,,16.3%,,,2,0,0,32,0,32
-Castform,224,stat_points,3,,16.3%,,,32,0,0,32,2,0
-Castform,224,stat_points,4,,8.0%,,,32,0,2,32,0,0
-Castform,224,stat_points,5,,1.0%,,,32,0,0,32,0,0
-Castform,224,stat_points,6,,0.5%,,,5,0,0,32,0,29
-Castform,224,stat_points,7,,0.5%,,,24,0,0,10,0,32
-Castform,224,ability,1,Forecast,100.0%,,,,,,,,
+Castform,226,move,1,Weather Ball,97.7%,,,,,,,,
+Castform,226,move,2,Thunder,53.4%,,,,,,,,
+Castform,226,move,3,Hurricane,22.1%,,,,,,,,
+Castform,226,move,4,Energy Ball,47.0%,,,,,,,,
+Castform,226,move,5,Ice Beam,7.0%,,,,,,,,
+Castform,226,move,6,Solar Beam,11.5%,,,,,,,,
+Castform,226,move,7,Protect,11.9%,,,,,,,,
+Castform,226,move,8,Rain Dance,21.0%,,,,,,,,
+Castform,226,move,9,Flamethrower,1.4%,,,,,,,,
+Castform,226,move,10,Blizzard,7.3%,,,,,,,,
+Castform,226,held_item,1,Choice Scarf,12.0%,,,,,,,,
+Castform,226,held_item,2,Life Orb,45.6%,,,,,,,,
+Castform,226,held_item,3,Quick Claw,10.4%,,,,,,,,
+Castform,226,held_item,4,Black Belt,15.5%,,,,,,,,
+Castform,226,held_item,5,Expert Belt,5.5%,,,,,,,,
+Castform,226,held_item,6,Focus Sash,12.7%,,,,,,,,
+Castform,226,teammate,1,Tyranitar,,,,,,,,,
+Castform,226,teammate,2,Abomasnow,,,,,,,,,
+Castform,226,teammate,3,Sceptile,,,,,,,,,
+Castform,226,teammate,4,Blaziken,,,,,,,,,
+Castform,226,teammate,5,Meowscarada,,,,,,,,,
+Castform,226,teammate,6,Ditto,,,,,,,,,
+Castform,226,teammate,7,Farigiraf,,,,,,,,,
+Castform,226,teammate,8,Torkoal,,,,,,,,,
+Castform,226,teammate,9,Farfetch'd,,,,,,,,,
+Castform,226,teammate,10,Audino,,,,,,,,,
+Castform,226,stat_alignment,1,Modest,47.5%,Sp. Atk,Attack,,,,,,
+Castform,226,stat_alignment,2,Quiet,35.6%,Sp. Atk,Speed,,,,,,
+Castform,226,stat_alignment,3,Timid,21.7%,Speed,Attack,,,,,,
+Castform,226,stat_alignment,4,Mild,2.3%,Sp. Atk,Defense,,,,,,
+Castform,226,stat_alignment,5,Hasty,1.8%,Speed,Defense,,,,,,
+Castform,226,stat_points,1,,25.6%,,,0,0,0,32,2,32
+Castform,226,stat_points,2,,14.7%,,,2,0,0,32,0,32
+Castform,226,stat_points,3,,14.2%,,,32,0,0,32,2,0
+Castform,226,stat_points,4,,10.0%,,,32,0,2,32,0,0
+Castform,226,stat_points,5,,4.6%,,,0,0,2,32,0,32
+Castform,226,stat_points,6,,2.3%,,,32,0,0,32,0,2
+Castform,226,stat_points,7,,0.9%,,,6,0,0,32,0,28
+Castform,226,stat_points,8,,0.9%,,,32,0,0,32,0,0
+Castform,226,stat_points,9,,0.5%,,,5,0,0,32,0,29
+Castform,226,stat_points,10,,0.5%,,,24,0,0,10,0,32
+Castform,226,ability,1,Forecast,100.0%,,,,,,,,

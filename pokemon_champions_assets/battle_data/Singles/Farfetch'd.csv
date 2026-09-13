@@ -1,50 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Farfetch'd,205,move,1,Brave Bird,54.8%,,,,,,,,
-Farfetch'd,205,move,2,Night Slash,53.6%,,,,,,,,
-Farfetch'd,205,move,3,Leaf Blade,50.2%,,,,,,,,
-Farfetch'd,205,move,4,Slash,38.3%,,,,,,,,
-Farfetch'd,205,move,5,First Impression,33.5%,,,,,,,,
-Farfetch'd,205,move,6,Swords Dance,24.8%,,,,,,,,
-Farfetch'd,205,move,7,Close Combat,23.6%,,,,,,,,
-Farfetch'd,205,move,8,Flail,20.7%,,,,,,,,
-Farfetch'd,205,move,9,Feint,17.0%,,,,,,,,
-Farfetch'd,205,move,10,Quick Attack,13.9%,,,,,,,,
-Farfetch'd,205,held_item,1,Leek,74.9%,,,,,,,,
-Farfetch'd,205,held_item,2,Focus Sash,16.6%,,,,,,,,
-Farfetch'd,205,held_item,3,Choice Scarf,6.1%,,,,,,,,
-Farfetch'd,205,held_item,4,Sitrus Berry,0.8%,,,,,,,,
-Farfetch'd,205,held_item,5,Rocky Helmet,0.5%,,,,,,,,
-Farfetch'd,205,held_item,6,Life Orb,0.2%,,,,,,,,
-Farfetch'd,205,held_item,7,Grassy Seed,0.2%,,,,,,,,
-Farfetch'd,205,held_item,8,Quick Claw,0.1%,,,,,,,,
-Farfetch'd,205,held_item,9,Eject Button,0.1%,,,,,,,,
-Farfetch'd,205,teammate,1,Golisopod,,,,,,,,,
-Farfetch'd,205,teammate,2,Garchomp,,,,,,,,,
-Farfetch'd,205,teammate,3,Salamence,,,,,,,,,
-Farfetch'd,205,teammate,4,Baxcalibur,,,,,,,,,
-Farfetch'd,205,teammate,5,Cinderace,,,,,,,,,
-Farfetch'd,205,teammate,6,Primarina,,,,,,,,,
-Farfetch'd,205,teammate,7,Sirfetch'd,,,,,,,,,
-Farfetch'd,205,teammate,8,Pawmot,,,,,,,,,
-Farfetch'd,205,teammate,9,Volcarona,,,,,,,,,
-Farfetch'd,205,teammate,10,Swalot,,,,,,,,,
-Farfetch'd,205,stat_alignment,1,Adamant,75.7%,Attack,Sp. Atk,,,,,,
-Farfetch'd,205,stat_alignment,2,Jolly,19.8%,Speed,Sp. Atk,,,,,,
-Farfetch'd,205,stat_alignment,3,Impish,2.1%,Defense,Sp. Atk,,,,,,
-Farfetch'd,205,stat_alignment,4,Naive,0.8%,Speed,Sp. Def,,,,,,
-Farfetch'd,205,stat_alignment,5,Bold,0.8%,Defense,Attack,,,,,,
-Farfetch'd,205,stat_alignment,6,Hasty,0.5%,Speed,Defense,,,,,,
-Farfetch'd,205,stat_alignment,7,Lonely,0.2%,Attack,Defense,,,,,,
-Farfetch'd,205,stat_points,1,,63.6%,,,2,32,0,0,0,32
-Farfetch'd,205,stat_points,2,,10.5%,,,16,32,7,0,0,11
-Farfetch'd,205,stat_points,3,,4.4%,,,32,32,2,0,0,0
-Farfetch'd,205,stat_points,4,,3.8%,,,32,32,0,0,2,0
-Farfetch'd,205,stat_points,5,,3.5%,,,32,2,0,0,0,32
-Farfetch'd,205,stat_points,6,,2.0%,,,32,0,0,0,0,32
-Farfetch'd,205,stat_points,7,,1.9%,,,32,0,20,0,14,0
-Farfetch'd,205,stat_points,8,,1.5%,,,0,32,2,0,0,32
-Farfetch'd,205,stat_points,9,,1.4%,,,8,32,0,0,0,26
-Farfetch'd,205,stat_points,10,,1.2%,,,0,32,0,0,0,32
-Farfetch'd,205,ability,1,Defiant,92.8%,,,,,,,,
-Farfetch'd,205,ability,2,Keen Eye,4.2%,,,,,,,,
-Farfetch'd,205,ability,3,Inner Focus,3.0%,,,,,,,,
+Farfetch'd,203,move,1,Brave Bird,52.2%,,,,,,,,
+Farfetch'd,203,move,2,Night Slash,50.8%,,,,,,,,
+Farfetch'd,203,move,3,Leaf Blade,44.8%,,,,,,,,
+Farfetch'd,203,move,4,Slash,37.7%,,,,,,,,
+Farfetch'd,203,move,5,First Impression,29.5%,,,,,,,,
+Farfetch'd,203,move,6,Swords Dance,25.3%,,,,,,,,
+Farfetch'd,203,move,7,Flail,22.4%,,,,,,,,
+Farfetch'd,203,move,8,Close Combat,20.9%,,,,,,,,
+Farfetch'd,203,move,9,Feint,17.8%,,,,,,,,
+Farfetch'd,203,move,10,Quick Attack,11.8%,,,,,,,,
+Farfetch'd,203,held_item,1,Leek,73.4%,,,,,,,,
+Farfetch'd,203,held_item,2,Focus Sash,18.6%,,,,,,,,
+Farfetch'd,203,held_item,3,Choice Scarf,6.0%,,,,,,,,
+Farfetch'd,203,held_item,4,Sitrus Berry,0.7%,,,,,,,,
+Farfetch'd,203,held_item,5,Rocky Helmet,0.4%,,,,,,,,
+Farfetch'd,203,held_item,6,Life Orb,0.2%,,,,,,,,
+Farfetch'd,203,held_item,7,Grassy Seed,0.2%,,,,,,,,
+Farfetch'd,203,held_item,8,Quick Claw,0.1%,,,,,,,,
+Farfetch'd,203,held_item,9,Eject Button,0.1%,,,,,,,,
+Farfetch'd,203,teammate,1,Garchomp,,,,,,,,,
+Farfetch'd,203,teammate,2,Golisopod,,,,,,,,,
+Farfetch'd,203,teammate,3,Salamence,,,,,,,,,
+Farfetch'd,203,teammate,4,Baxcalibur,,,,,,,,,
+Farfetch'd,203,teammate,5,Cinderace,,,,,,,,,
+Farfetch'd,203,teammate,6,Primarina,,,,,,,,,
+Farfetch'd,203,teammate,7,Sirfetch'd,,,,,,,,,
+Farfetch'd,203,teammate,8,Swalot,,,,,,,,,
+Farfetch'd,203,teammate,9,Volcarona,,,,,,,,,
+Farfetch'd,203,teammate,10,Pawmot,,,,,,,,,
+Farfetch'd,203,stat_alignment,1,Adamant,73.6%,Attack,Sp. Atk,,,,,,
+Farfetch'd,203,stat_alignment,2,Jolly,21.3%,Speed,Sp. Atk,,,,,,
+Farfetch'd,203,stat_alignment,3,Impish,1.7%,Defense,Sp. Atk,,,,,,
+Farfetch'd,203,stat_alignment,4,Brave,1.3%,Attack,Speed,,,,,,
+Farfetch'd,203,stat_alignment,5,Naive,0.7%,Speed,Sp. Def,,,,,,
+Farfetch'd,203,stat_alignment,6,Bold,0.7%,Defense,Attack,,,,,,
+Farfetch'd,203,stat_alignment,7,Lonely,0.4%,Attack,Defense,,,,,,
+Farfetch'd,203,stat_alignment,8,Hasty,0.4%,Speed,Defense,,,,,,
+Farfetch'd,203,stat_points,1,,57.6%,,,2,32,0,0,0,32
+Farfetch'd,203,stat_points,2,,8.2%,,,16,32,7,0,0,11
+Farfetch'd,203,stat_points,3,,8.0%,,,32,32,2,0,0,0
+Farfetch'd,203,stat_points,4,,6.8%,,,32,32,0,0,2,0
+Farfetch'd,203,stat_points,5,,3.4%,,,32,2,0,0,0,32
+Farfetch'd,203,stat_points,6,,2.1%,,,32,0,0,0,0,32
+Farfetch'd,203,stat_points,7,,1.5%,,,32,0,20,0,14,0
+Farfetch'd,203,stat_points,8,,1.4%,,,0,32,2,0,0,32
+Farfetch'd,203,stat_points,9,,1.3%,,,0,32,2,32,0,0
+Farfetch'd,203,stat_points,10,,1.1%,,,0,32,0,0,0,32
+Farfetch'd,203,ability,1,Defiant,87.9%,,,,,,,,
+Farfetch'd,203,ability,2,Keen Eye,7.2%,,,,,,,,
+Farfetch'd,203,ability,3,Inner Focus,4.9%,,,,,,,,

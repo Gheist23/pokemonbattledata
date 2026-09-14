@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slowbro,121,move,1,Trick Room,41.3%,,,,,,,,
+Slowbro,121,move,1,Trick Room,61.3%,,,,,,,,
 Slowbro,121,move,2,Expanding Force,45.9%,,,,,,,,
 Slowbro,121,move,3,Slack Off,45.1%,,,,,,,,
-Slowbro,121,move,4,Scald,43.8%,,,,,,,,
+Slowbro,121,move,4,Scald,33.8%,,,,,,,,
 Slowbro,121,move,5,Body Press,29.8%,,,,,,,,
 Slowbro,121,move,6,Psych Up,29.0%,,,,,,,,
 Slowbro,121,move,7,Stored Power,28.7%,,,,,,,,
@@ -18,8 +18,8 @@ Slowbro,121,held_item,6,Life Orb,1.7%,,,,,,,,
 Slowbro,121,held_item,7,Colbur Berry,1.6%,,,,,,,,
 Slowbro,121,held_item,8,Focus Sash,1.5%,,,,,,,,
 Slowbro,121,held_item,9,Psychic Seed,1.2%,,,,,,,,
-Slowbro,121,held_item,10,Damp Rock,0.2%,,,,,,,,
-Slowbro,121,teammate,1,Indeedee Female,,,,,,,,,
+Slowbro,121,held_item,10,Unknown Item 194,0.2%,,,,,,,,
+Slowbro,121,teammate,1,Indeedee-F,,,,,,,,,
 Slowbro,121,teammate,2,Torkoal,,,,,,,,,
 Slowbro,121,teammate,3,Audino,,,,,,,,,
 Slowbro,121,teammate,4,Snorlax,,,,,,,,,
@@ -28,7 +28,7 @@ Slowbro,121,teammate,6,Golisopod,,,,,,,,,
 Slowbro,121,teammate,7,Farigiraf,,,,,,,,,
 Slowbro,121,teammate,8,Kingambit,,,,,,,,,
 Slowbro,121,teammate,9,Armarouge,,,,,,,,,
-Slowbro,121,teammate,10,Maushold Form 1,,,,,,,,,
+Slowbro,121,teammate,10,Maushold-Four,,,,,,,,,
 Slowbro,121,stat_alignment,1,Quiet,34.6%,Sp. Atk,Speed,,,,,,
 Slowbro,121,stat_alignment,2,Calm,20.9%,Sp. Def,Attack,,,,,,
 Slowbro,121,stat_alignment,3,Sassy,16.6%,Sp. Def,Speed,,,,,,
@@ -37,7 +37,7 @@ Slowbro,121,stat_alignment,5,Bold,8.4%,Defense,Attack,,,,,,
 Slowbro,121,stat_alignment,6,Modest,5.8%,Sp. Atk,Attack,,,,,,
 Slowbro,121,stat_alignment,7,Hardy,0.0%,,,,,,,,
 Slowbro,121,stat_points,1,,17.7%,,,32,0,0,32,2,0
-Slowbro,121,stat_points,2,,5.3%,,,31,0,0,0,20,15
+Slowbro,121,stat_points,2,,15.3%,,,31,0,0,0,20,15
 Slowbro,121,stat_points,3,,12.6%,,,32,0,2,0,32,0
 Slowbro,121,stat_points,4,,4.3%,,,0,0,2,32,32,0
 Slowbro,121,stat_points,5,,3.2%,,,32,0,10,2,22,0
@@ -46,6 +46,6 @@ Slowbro,121,stat_points,7,,2.9%,,,32,0,32,0,2,0
 Slowbro,121,stat_points,8,,2.2%,,,2,0,0,32,32,0
 Slowbro,121,stat_points,9,,1.9%,,,32,0,10,0,24,0
 Slowbro,121,stat_points,10,,1.8%,,,32,0,2,32,0,0
-Slowbro,121,ability,1,Regenerator,52.2%,,,,,,,,
-Slowbro,121,ability,2,Oblivious,45.4%,,,,,,,,
+Slowbro,121,ability,1,Oblivious,55.4%,,,,,,,,
+Slowbro,121,ability,2,Regenerator,42.2%,,,,,,,,
 Slowbro,121,ability,3,Own Tempo,2.4%,,,,,,,,

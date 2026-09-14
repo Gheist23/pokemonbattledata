@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Morpeko,189,move,1,Aura Wheel,99.9%,,,,,,,,
-Morpeko,189,move,2,Fake Out,79.6%,,,,,,,,
+Morpeko,189,move,2,Fake Out,69.6%,,,,,,,,
 Morpeko,189,move,3,Protect,60.6%,,,,,,,,
-Morpeko,189,move,4,Knock Off,19.1%,,,,,,,,
+Morpeko,189,move,4,Knock Off,39.1%,,,,,,,,
 Morpeko,189,move,5,Parting Shot,27.7%,,,,,,,,
 Morpeko,189,move,6,Reversal,21.2%,,,,,,,,
 Morpeko,189,move,7,Taunt,17.8%,,,,,,,,
@@ -29,14 +29,14 @@ Morpeko,189,teammate,7,Kingambit,,,,,,,,,
 Morpeko,189,teammate,8,Rillaboom,,,,,,,,,
 Morpeko,189,teammate,9,Dragonite,,,,,,,,,
 Morpeko,189,teammate,10,Indeedee,,,,,,,,,
-Morpeko,189,stat_alignment,1,Jolly,32.6%,Speed,Sp. Atk,,,,,,
-Morpeko,189,stat_alignment,2,Adamant,21.6%,Attack,Sp. Atk,,,,,,
+Morpeko,189,stat_alignment,1,Jolly,52.6%,Speed,Sp. Atk,,,,,,
+Morpeko,189,stat_alignment,2,Adamant,41.6%,Attack,Sp. Atk,,,,,,
 Morpeko,189,stat_alignment,3,Hasty,2.4%,Speed,Defense,,,,,,
 Morpeko,189,stat_alignment,4,Naughty,1.4%,Attack,Sp. Def,,,,,,
 Morpeko,189,stat_alignment,5,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
 Morpeko,189,stat_alignment,6,Naive,0.7%,Speed,Sp. Def,,,,,,
-Morpeko,189,stat_alignment,7,Brave,20.3%,Attack,Speed,,,,,,
-Morpeko,189,stat_points,1,,51.8%,,,2,32,0,0,0,32
+Morpeko,189,stat_alignment,7,Brave,0.3%,Attack,Speed,,,,,,
+Morpeko,189,stat_points,1,,61.8%,,,2,32,0,0,0,32
 Morpeko,189,stat_points,2,,12.9%,,,0,32,2,0,0,32
 Morpeko,189,stat_points,3,,12.6%,,,0,32,0,0,2,32
 Morpeko,189,stat_points,4,,4.0%,,,0,32,0,0,0,32

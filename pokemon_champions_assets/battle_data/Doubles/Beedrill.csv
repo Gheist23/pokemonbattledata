@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Beedrill,202,move,1,Poison Jab,87.9%,,,,,,,,
-Beedrill,202,move,2,U-turn,55.7%,,,,,,,,
+Beedrill,202,move,2,U-turn,85.7%,,,,,,,,
 Beedrill,202,move,3,Protect,83.5%,,,,,,,,
 Beedrill,202,move,4,Drill Run,62.6%,,,,,,,,
 Beedrill,202,move,5,Fell Stinger,19.7%,,,,,,,,
@@ -15,7 +15,7 @@ Beedrill,202,held_item,3,Focus Sash,0.1%,,,,,,,,
 Beedrill,202,teammate,1,Incineroar,,,,,,,,,
 Beedrill,202,teammate,2,Archaludon,,,,,,,,,
 Beedrill,202,teammate,3,Pelipper,,,,,,,,,
-Beedrill,202,teammate,4,Indeedee Female,,,,,,,,,
+Beedrill,202,teammate,4,Indeedee-F,,,,,,,,,
 Beedrill,202,teammate,5,Rillaboom,,,,,,,,,
 Beedrill,202,teammate,6,Salamence,,,,,,,,,
 Beedrill,202,teammate,7,Milotic,,,,,,,,,
@@ -23,11 +23,11 @@ Beedrill,202,teammate,8,Farigiraf,,,,,,,,,
 Beedrill,202,teammate,9,Whimsicott,,,,,,,,,
 Beedrill,202,teammate,10,Sneasler,,,,,,,,,
 Beedrill,202,stat_alignment,1,Jolly,54.2%,Speed,Sp. Atk,,,,,,
-Beedrill,202,stat_alignment,2,Adamant,35.1%,Attack,Sp. Atk,,,,,,
+Beedrill,202,stat_alignment,2,Adamant,45.1%,Attack,Sp. Atk,,,,,,
 Beedrill,202,stat_alignment,3,Lonely,0.6%,Attack,Defense,,,,,,
 Beedrill,202,stat_alignment,4,Naughty,0.1%,Attack,Sp. Def,,,,,,
-Beedrill,202,stat_points,1,,56.5%,,,2,32,0,0,0,32
-Beedrill,202,stat_points,2,,2.1%,,,0,32,2,0,0,32
+Beedrill,202,stat_points,1,,36.5%,,,2,32,0,0,0,32
+Beedrill,202,stat_points,2,,27.1%,,,0,32,2,0,0,32
 Beedrill,202,stat_points,3,,17.1%,,,0,32,0,0,2,32
 Beedrill,202,stat_points,4,,3.9%,,,0,26,9,0,0,31
 Beedrill,202,stat_points,5,,2.9%,,,32,7,9,0,0,18

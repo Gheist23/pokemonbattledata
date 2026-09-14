@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emolga,230,move,1,Nuzzle,74.3%,,,,,,,,
-Emolga,230,move,2,Taunt,28.9%,,,,,,,,
+Emolga,230,move,1,Nuzzle,84.3%,,,,,,,,
+Emolga,230,move,2,Taunt,58.9%,,,,,,,,
 Emolga,230,move,3,Encore,53.3%,,,,,,,,
-Emolga,230,move,4,Air Slash,49.0%,,,,,,,,
+Emolga,230,move,4,Air Slash,29.0%,,,,,,,,
 Emolga,230,move,5,Volt Switch,28.8%,,,,,,,,
-Emolga,230,move,6,Charm,14.2%,,,,,,,,
+Emolga,230,move,6,Charm,24.2%,,,,,,,,
 Emolga,230,move,7,Energy Ball,17.1%,,,,,,,,
 Emolga,230,move,8,Thunderbolt,13.8%,,,,,,,,
 Emolga,230,move,9,U-turn,12.7%,,,,,,,,
 Emolga,230,move,10,Roost,11.1%,,,,,,,,
-Emolga,230,held_item,1,Focus Sash,49.3%,,,,,,,,
+Emolga,230,held_item,1,Focus Sash,39.3%,,,,,,,,
 Emolga,230,held_item,2,Leftovers,8.3%,,,,,,,,
 Emolga,230,held_item,3,Rocky Helmet,8.3%,,,,,,,,
 Emolga,230,held_item,4,Sitrus Berry,6.9%,,,,,,,,
@@ -18,7 +18,7 @@ Emolga,230,held_item,6,Bright Powder,5.4%,,,,,,,,
 Emolga,230,held_item,7,Light Clay,4.8%,,,,,,,,
 Emolga,230,held_item,8,King's Rock,4.6%,,,,,,,,
 Emolga,230,held_item,9,Life Orb,4.6%,,,,,,,,
-Emolga,230,held_item,10,Lum Berry,2.0%,,,,,,,,
+Emolga,230,held_item,10,Unknown Item 157,2.0%,,,,,,,,
 Emolga,230,teammate,1,Garchomp,,,,,,,,,
 Emolga,230,teammate,2,Baxcalibur,,,,,,,,,
 Emolga,230,teammate,3,Salamence,,,,,,,,,
@@ -28,7 +28,7 @@ Emolga,230,teammate,6,Mimikyu,,,,,,,,,
 Emolga,230,teammate,7,Golisopod,,,,,,,,,
 Emolga,230,teammate,8,Dragonite,,,,,,,,,
 Emolga,230,teammate,9,Lucario,,,,,,,,,
-Emolga,230,teammate,10,Aegislash Shield Forme,,,,,,,,,
+Emolga,230,teammate,10,Aegislash,,,,,,,,,
 Emolga,230,stat_alignment,1,Timid,56.0%,Speed,Attack,,,,,,
 Emolga,230,stat_alignment,2,Jolly,18.2%,Speed,Sp. Atk,,,,,,
 Emolga,230,stat_alignment,3,Bold,9.8%,Defense,Attack,,,,,,
@@ -39,7 +39,7 @@ Emolga,230,stat_alignment,7,Hasty,2.1%,Speed,Defense,,,,,,
 Emolga,230,stat_alignment,8,Modest,1.6%,Sp. Atk,Attack,,,,,,
 Emolga,230,stat_alignment,9,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
 Emolga,230,stat_alignment,10,Impish,0.5%,Defense,Sp. Atk,,,,,,
-Emolga,230,stat_points,1,,27.3%,,,2,0,0,32,0,32
+Emolga,230,stat_points,1,,17.3%,,,2,0,0,32,0,32
 Emolga,230,stat_points,2,,8.5%,,,32,0,0,0,2,32
 Emolga,230,stat_points,3,,8.4%,,,32,0,2,0,0,32
 Emolga,230,stat_points,4,,4.7%,,,0,0,2,32,0,32
@@ -49,5 +49,5 @@ Emolga,230,stat_points,7,,3.3%,,,1,0,0,32,1,32
 Emolga,230,stat_points,8,,3.3%,,,32,0,32,0,2,0
 Emolga,230,stat_points,9,,3.0%,,,2,32,0,0,0,32
 Emolga,230,stat_points,10,,2.9%,,,1,1,0,32,0,32
-Emolga,230,ability,1,Motor Drive,75.3%,,,,,,,,
-Emolga,230,ability,2,Static,24.7%,,,,,,,,
+Emolga,230,ability,1,Motor Drive,65.3%,,,,,,,,
+Emolga,230,ability,2,Static,34.7%,,,,,,,,

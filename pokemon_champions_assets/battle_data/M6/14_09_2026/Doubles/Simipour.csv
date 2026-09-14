@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simipour,239,move,1,Superpower,21.1%,,,,,,,,
-Simipour,239,move,2,Surf,68.9%,,,,,,,,
-Simipour,239,move,3,Shadow Claw,27.6%,,,,,,,,
-Simipour,239,move,4,Stuff Cheeks,17.6%,,,,,,,,
-Simipour,239,move,5,Fake Out,85.4%,,,,,,,,
+Simipour,239,move,1,Superpower,51.1%,,,,,,,,
+Simipour,239,move,2,Surf,48.9%,,,,,,,,
+Simipour,239,move,3,Shadow Claw,47.6%,,,,,,,,
+Simipour,239,move,4,Stuff Cheeks,47.6%,,,,,,,,
+Simipour,239,move,5,Fake Out,35.4%,,,,,,,,
 Simipour,239,move,6,Ice Beam,33.6%,,,,,,,,
 Simipour,239,move,7,Protect,25.8%,,,,,,,,
-Simipour,239,move,8,Flip Turn,35.8%,,,,,,,,
-Simipour,239,move,9,Hydro Pump,14.0%,,,,,,,,
+Simipour,239,move,8,Flip Turn,25.8%,,,,,,,,
+Simipour,239,move,9,Hydro Pump,24.0%,,,,,,,,
 Simipour,239,move,10,Focus Blast,19.7%,,,,,,,,
-Simipour,239,held_item,1,Choice Scarf,10.7%,,,,,,,,
-Simipour,239,held_item,2,Focus Sash,34.8%,,,,,,,,
+Simipour,239,held_item,1,Choice Scarf,19.7%,,,,,,,,
+Simipour,239,held_item,2,Focus Sash,14.8%,,,,,,,,
 Simipour,239,held_item,3,Rindo Berry,7.9%,,,,,,,,
 Simipour,239,held_item,4,Life Orb,4.4%,,,,,,,,
-Simipour,239,held_item,5,Expert Belt,39.1%,,,,,,,,
+Simipour,239,held_item,5,Expert Belt,3.1%,,,,,,,,
 Simipour,239,held_item,6,Muscle Band,1.7%,,,,,,,,
 Simipour,239,held_item,7,Sitrus Berry,0.4%,,,,,,,,
 Simipour,239,held_item,8,Mystic Water,0.4%,,,,,,,,
@@ -27,14 +27,14 @@ Simipour,239,teammate,7,Qwilfish,,,,,,,,,
 Simipour,239,teammate,8,Golisopod,,,,,,,,,
 Simipour,239,teammate,9,Toxapex,,,,,,,,,
 Simipour,239,teammate,10,Blastoise,,,,,,,,,
-Simipour,239,stat_alignment,1,Timid,11.5%,Speed,Attack,,,,,,
-Simipour,239,stat_alignment,2,Modest,6.6%,Sp. Atk,Attack,,,,,,
+Simipour,239,stat_alignment,1,Timid,51.5%,Speed,Attack,,,,,,
+Simipour,239,stat_alignment,2,Modest,26.6%,Sp. Atk,Attack,,,,,,
 Simipour,239,stat_alignment,3,Hasty,6.6%,Speed,Defense,,,,,,
 Simipour,239,stat_alignment,4,Jolly,5.7%,Speed,Sp. Atk,,,,,,
 Simipour,239,stat_alignment,5,Adamant,5.7%,Attack,Sp. Atk,,,,,,
 Simipour,239,stat_alignment,6,Calm,3.9%,Sp. Def,Attack,,,,,,
-Simipour,239,stat_points,1,,23.7%,,,2,0,0,32,0,32
-Simipour,239,stat_points,2,,10.5%,,,0,0,0,32,0,32
+Simipour,239,stat_points,1,,53.7%,,,2,0,0,32,0,32
+Simipour,239,stat_points,2,,20.5%,,,0,0,0,32,0,32
 Simipour,239,stat_points,3,,6.6%,,,0,5,0,32,0,29
 Simipour,239,stat_points,4,,3.9%,,,0,32,10,0,7,17
 Simipour,239,stat_points,5,,3.9%,,,8,0,9,32,13,4
@@ -43,5 +43,5 @@ Simipour,239,stat_points,7,,3.5%,,,2,32,0,0,0,32
 Simipour,239,stat_points,8,,3.1%,,,0,0,0,19,15,32
 Simipour,239,stat_points,9,,0.4%,,,0,0,0,32,2,32
 Simipour,239,stat_points,10,,0.4%,,,32,0,0,32,0,2
-Simipour,239,ability,1,Torrent,77.1%,,,,,,,,
-Simipour,239,ability,2,Gluttony,22.9%,,,,,,,,
+Simipour,239,ability,1,Gluttony,62.9%,,,,,,,,
+Simipour,239,ability,2,Torrent,37.1%,,,,,,,,

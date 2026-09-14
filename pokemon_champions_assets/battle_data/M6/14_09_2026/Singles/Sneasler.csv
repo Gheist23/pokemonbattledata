@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sneasler,23,move,1,Close Combat,98.9%,,,,,,,,
 Sneasler,23,move,2,Dire Claw,95.7%,,,,,,,,
-Sneasler,23,move,3,Swords Dance,32.6%,,,,,,,,
-Sneasler,23,move,4,Throat Chop,30.5%,,,,,,,,
+Sneasler,23,move,3,Swords Dance,52.6%,,,,,,,,
+Sneasler,23,move,4,Throat Chop,50.5%,,,,,,,,
 Sneasler,23,move,5,Fake Out,38.2%,,,,,,,,
 Sneasler,23,move,6,Acrobatics,16.4%,,,,,,,,
 Sneasler,23,move,7,Fire Punch,16.2%,,,,,,,,
 Sneasler,23,move,8,Shadow Claw,7.4%,,,,,,,,
-Sneasler,23,move,9,U-turn,15.2%,,,,,,,,
+Sneasler,23,move,9,U-turn,5.2%,,,,,,,,
 Sneasler,23,move,10,Rock Slide,3.7%,,,,,,,,
-Sneasler,23,held_item,1,Psychic Seed,23.0%,,,,,,,,
-Sneasler,23,held_item,2,Houndoominite,10.7%,,,,,,,,
+Sneasler,23,held_item,1,Psychic Seed,43.0%,,,,,,,,
+Sneasler,23,held_item,2,Unknown Item 564,30.7%,,,,,,,,
 Sneasler,23,held_item,3,Grassy Seed,7.7%,,,,,,,,
-Sneasler,23,held_item,4,Focus Sash,15.3%,,,,,,,,
+Sneasler,23,held_item,4,Focus Sash,5.3%,,,,,,,,
 Sneasler,23,held_item,5,White Herb,4.3%,,,,,,,,
-Sneasler,23,held_item,6,Unknown Item 881,20.0%,,,,,,,,
-Sneasler,23,held_item,7,Sitrus Berry,19.9%,,,,,,,,
+Sneasler,23,held_item,6,Unknown Item 881,2.0%,,,,,,,,
+Sneasler,23,held_item,7,Sitrus Berry,1.9%,,,,,,,,
 Sneasler,23,held_item,8,Air Balloon,1.4%,,,,,,,,
 Sneasler,23,held_item,9,Choice Scarf,1.2%,,,,,,,,
 Sneasler,23,held_item,10,Life Orb,0.8%,,,,,,,,
@@ -29,8 +29,8 @@ Sneasler,23,teammate,7,Blastoise,,,,,,,,,
 Sneasler,23,teammate,8,Archaludon,,,,,,,,,
 Sneasler,23,teammate,9,Rillaboom,,,,,,,,,
 Sneasler,23,teammate,10,Hippowdon,,,,,,,,,
-Sneasler,23,stat_alignment,1,Adamant,58.0%,Attack,Sp. Atk,,,,,,
-Sneasler,23,stat_alignment,2,Jolly,29.5%,Speed,Sp. Atk,,,,,,
+Sneasler,23,stat_alignment,1,Adamant,88.0%,Attack,Sp. Atk,,,,,,
+Sneasler,23,stat_alignment,2,Jolly,9.5%,Speed,Sp. Atk,,,,,,
 Sneasler,23,stat_alignment,3,Impish,0.8%,Defense,Sp. Atk,,,,,,
 Sneasler,23,stat_alignment,4,Naughty,0.6%,Attack,Sp. Def,,,,,,
 Sneasler,23,stat_alignment,5,Lonely,0.4%,Attack,Defense,,,,,,
@@ -39,7 +39,7 @@ Sneasler,23,stat_alignment,7,Naive,0.2%,Speed,Sp. Def,,,,,,
 Sneasler,23,stat_alignment,8,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
 Sneasler,23,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
 Sneasler,23,stat_alignment,10,Relaxed,0.0%,Defense,Speed,,,,,,
-Sneasler,23,stat_points,1,,48.9%,,,2,32,0,0,0,32
+Sneasler,23,stat_points,1,,28.9%,,,2,32,0,0,0,32
 Sneasler,23,stat_points,2,,5.3%,,,28,32,1,0,0,5
 Sneasler,23,stat_points,3,,4.6%,,,0,32,2,0,0,32
 Sneasler,23,stat_points,4,,4.4%,,,29,32,0,0,0,5
@@ -49,6 +49,6 @@ Sneasler,23,stat_points,7,,2.5%,,,0,32,0,0,2,32
 Sneasler,23,stat_points,8,,2.0%,,,32,32,0,0,0,2
 Sneasler,23,stat_points,9,,1.7%,,,20,32,7,0,0,7
 Sneasler,23,stat_points,10,,1.4%,,,26,32,3,0,0,5
-Sneasler,23,ability,1,Unburden,74.3%,,,,,,,,
-Sneasler,23,ability,2,Poison Touch,25.6%,,,,,,,,
+Sneasler,23,ability,1,Unburden,94.3%,,,,,,,,
+Sneasler,23,ability,2,Poison Touch,5.6%,,,,,,,,
 Sneasler,23,ability,3,Pressure,0.1%,,,,,,,,

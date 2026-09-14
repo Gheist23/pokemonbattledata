@@ -2,9 +2,9 @@ pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_point
 Pidgeot,209,move,1,Hurricane,99.9%,,,,,,,,
 Pidgeot,209,move,2,Heat Wave,89.4%,,,,,,,,
 Pidgeot,209,move,3,Protect,77.1%,,,,,,,,
-Pidgeot,209,move,4,Hyper Beam,21.5%,,,,,,,,
-Pidgeot,209,move,5,Tailwind,69.9%,,,,,,,,
-Pidgeot,209,move,6,Sunny Day,1.4%,,,,,,,,
+Pidgeot,209,move,4,Hyper Beam,51.5%,,,,,,,,
+Pidgeot,209,move,5,Tailwind,49.9%,,,,,,,,
+Pidgeot,209,move,6,Sunny Day,13.4%,,,,,,,,
 Pidgeot,209,move,7,Roost,4.5%,,,,,,,,
 Pidgeot,209,move,8,Rain Dance,3.7%,,,,,,,,
 Pidgeot,209,move,9,Round,3.0%,,,,,,,,
@@ -14,7 +14,7 @@ Pidgeot,209,held_item,2,Bright Powder,0.1%,,,,,,,,
 Pidgeot,209,teammate,1,Incineroar,,,,,,,,,
 Pidgeot,209,teammate,2,Farigiraf,,,,,,,,,
 Pidgeot,209,teammate,3,Whimsicott,,,,,,,,,
-Pidgeot,209,teammate,4,Hisuian Arcanine,,,,,,,,,
+Pidgeot,209,teammate,4,Arcanine-Hisui,,,,,,,,,
 Pidgeot,209,teammate,5,Sneasler,,,,,,,,,
 Pidgeot,209,teammate,6,Golisopod,,,,,,,,,
 Pidgeot,209,teammate,7,Pelipper,,,,,,,,,
@@ -26,7 +26,7 @@ Pidgeot,209,stat_alignment,2,Modest,39.0%,Sp. Atk,Attack,,,,,,
 Pidgeot,209,stat_alignment,3,Quiet,1.0%,Sp. Atk,Speed,,,,,,
 Pidgeot,209,stat_alignment,4,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
 Pidgeot,209,stat_alignment,5,Bold,0.1%,Defense,Attack,,,,,,
-Pidgeot,209,stat_points,1,,56.5%,,,2,0,0,32,0,32
+Pidgeot,209,stat_points,1,,66.5%,,,2,0,0,32,0,32
 Pidgeot,209,stat_points,2,,6.5%,,,1,0,1,32,0,32
 Pidgeot,209,stat_points,3,,3.5%,,,0,0,0,32,2,32
 Pidgeot,209,stat_points,4,,3.5%,,,32,0,0,0,0,32

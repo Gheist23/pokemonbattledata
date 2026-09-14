@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Ceruledge,50,move,1,Bitter Blade,96.4%,,,,,,,,
 Ceruledge,50,move,2,Shadow Sneak,93.1%,,,,,,,,
-Ceruledge,50,move,3,Poltergeist,74.7%,,,,,,,,
+Ceruledge,50,move,3,Poltergeist,84.7%,,,,,,,,
 Ceruledge,50,move,4,Swords Dance,65.1%,,,,,,,,
-Ceruledge,50,move,5,Close Combat,36.2%,,,,,,,,
+Ceruledge,50,move,5,Close Combat,26.2%,,,,,,,,
 Ceruledge,50,move,6,Bulk Up,10.9%,,,,,,,,
 Ceruledge,50,move,7,Destiny Bond,8.7%,,,,,,,,
 Ceruledge,50,move,8,Will-O-Wisp,2.5%,,,,,,,,
@@ -26,7 +26,7 @@ Ceruledge,50,teammate,4,Salamence,,,,,,,,,
 Ceruledge,50,teammate,5,Lucario,,,,,,,,,
 Ceruledge,50,teammate,6,Baxcalibur,,,,,,,,,
 Ceruledge,50,teammate,7,Archaludon,,,,,,,,,
-Ceruledge,50,teammate,8,Alolan Ninetales,,,,,,,,,
+Ceruledge,50,teammate,8,Ninetales-Alola,,,,,,,,,
 Ceruledge,50,teammate,9,Hippowdon,,,,,,,,,
 Ceruledge,50,teammate,10,Mimikyu,,,,,,,,,
 Ceruledge,50,stat_alignment,1,Adamant,78.1%,Attack,Sp. Atk,,,,,,
@@ -38,7 +38,7 @@ Ceruledge,50,stat_alignment,6,Naughty,0.3%,Attack,Sp. Def,,,,,,
 Ceruledge,50,stat_alignment,7,Hasty,0.2%,Speed,Defense,,,,,,
 Ceruledge,50,stat_alignment,8,Naive,0.2%,Speed,Sp. Def,,,,,,
 Ceruledge,50,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
-Ceruledge,50,stat_alignment,10,Hardy,0.1%,Sp. Atk,Attack,,,,,,
+Ceruledge,50,stat_alignment,10,Hardy,0.1%,,,,,,,,
 Ceruledge,50,stat_points,1,,28.4%,,,2,32,0,0,0,32
 Ceruledge,50,stat_points,2,,20.9%,,,1,32,1,0,0,32
 Ceruledge,50,stat_points,3,,7.9%,,,1,32,0,0,1,32
@@ -49,5 +49,5 @@ Ceruledge,50,stat_points,7,,1.6%,,,0,32,0,0,0,32
 Ceruledge,50,stat_points,8,,1.6%,,,32,32,0,0,0,2
 Ceruledge,50,stat_points,9,,1.5%,,,18,15,7,0,2,24
 Ceruledge,50,stat_points,10,,1.0%,,,31,30,4,0,1,0
-Ceruledge,50,ability,1,Weak Armor,79.6%,,,,,,,,
-Ceruledge,50,ability,2,Flash Fire,20.4%,,,,,,,,
+Ceruledge,50,ability,1,Weak Armor,69.6%,,,,,,,,
+Ceruledge,50,ability,2,Flash Fire,30.4%,,,,,,,,

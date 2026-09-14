@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Chandelure,99,move,1,Shadow Ball,89.7%,,,,,,,,
 Chandelure,99,move,2,Flamethrower,69.0%,,,,,,,,
-Chandelure,99,move,3,Energy Ball,69.9%,,,,,,,,
+Chandelure,99,move,3,Energy Ball,59.9%,,,,,,,,
 Chandelure,99,move,4,Overheat,39.9%,,,,,,,,
 Chandelure,99,move,5,Trick,19.7%,,,,,,,,
 Chandelure,99,move,6,Minimize,14.8%,,,,,,,,
@@ -9,9 +9,9 @@ Chandelure,99,move,7,Will-O-Wisp,13.5%,,,,,,,,
 Chandelure,99,move,8,Substitute,12.7%,,,,,,,,
 Chandelure,99,move,9,Psychic,12.3%,,,,,,,,
 Chandelure,99,move,10,Calm Mind,10.8%,,,,,,,,
-Chandelure,99,held_item,1,Choice Scarf,21.1%,,,,,,,,
-Chandelure,99,held_item,2,Chandelurite,55.7%,,,,,,,,
-Chandelure,99,held_item,3,Focus Sash,7.0%,,,,,,,,
+Chandelure,99,held_item,1,Choice Scarf,31.1%,,,,,,,,
+Chandelure,99,held_item,2,Chandelurite,25.7%,,,,,,,,
+Chandelure,99,held_item,3,Focus Sash,17.0%,,,,,,,,
 Chandelure,99,held_item,4,Air Balloon,6.8%,,,,,,,,
 Chandelure,99,held_item,5,Leftovers,5.6%,,,,,,,,
 Chandelure,99,held_item,6,Life Orb,2.3%,,,,,,,,
@@ -39,7 +39,7 @@ Chandelure,99,stat_alignment,7,Sassy,0.3%,Sp. Def,Speed,,,,,,
 Chandelure,99,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Chandelure,99,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,
 Chandelure,99,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Chandelure,99,stat_points,1,,57.2%,,,2,0,0,32,0,32
+Chandelure,99,stat_points,1,,47.2%,,,2,0,0,32,0,32
 Chandelure,99,stat_points,2,,4.3%,,,32,0,0,32,0,2
 Chandelure,99,stat_points,3,,3.2%,,,32,0,2,32,0,0
 Chandelure,99,stat_points,4,,2.8%,,,32,0,1,32,1,0

@@ -122,6 +122,7 @@ function showdownSuffix(value) {
     .replace(/\bFlower\b/gi, "")
     .replace(/\bBreed\b/gi, "")
     .replace(/\bVariety\b/gi, "")
+    .replace(/\bPlumage\b/gi, "")
     .replace(/\bOf\b/gi, "")
     .replace(/\s+/g, " ")
     .trim()
@@ -194,7 +195,37 @@ function showdownNameCandidates(name) {
   match = raw.match(/^(.+?)\s+(Antique|Masterpiece)\s+Form$/i);
   if (match) add(`${titleCase(match[1])}-${showdownSuffix(match[2])}`);
 
+  // Tried last, after every specific rule above: drop the form-noise words the
+  // game's own labels carry and hyphenate the rest, which turns e.g.
+  // "Toxtricity Low Key Form" into "Toxtricity-Low-Key".
+  add(showdownSuffix(raw));
+
   return unique(candidates);
+}
+
+/** Keys an asset filed under `name` should answer to.  Its own spelling first,
+ *  then its Showdown name -- so "Gourgeist Jumbo Variety.png" is still found
+ *  now the battle data calls that Pokemon "Gourgeist-Super".  The base species
+ *  is deliberately NOT registered: a forme must not claim the species' key. */
+function registrationKeys(name, keyFn) {
+  const keys = [keyFn(name)];
+  const species = resolveShowdownSpecies([name]);
+  if (species) keys.push(keyFn(species.name));
+  return unique(keys);
+}
+
+/** Keys to try when looking an asset up, most specific first.  The base
+ *  species comes last so a forme with no assets of its own -- Floette-Eternal,
+ *  Maushold-Four -- still shows the species' sprite and stats instead of
+ *  nothing at all. */
+function lookupKeys(name, keyFn) {
+  const keys = [keyFn(name)];
+  const species = resolveShowdownSpecies([name]);
+  if (species) {
+    keys.push(keyFn(species.name));
+    if (species.baseSpecies) keys.push(keyFn(species.baseSpecies));
+  }
+  return unique(keys.filter(Boolean));
 }
 
 function resolveShowdownSpecies(names) {
@@ -577,7 +608,14 @@ function snapshotFromFolder(folder) {
         !captured.every((rank, index) => rank === index + 1);
     }).sort();
     if (partial.length) entry.partial = partial;
-    pokemon[rows[0].pokemon || basename(file, ".csv")] = entry;
+    // Key by the Showdown name rather than by whatever that day's CSV said.
+    // Historical snapshots still carry the old labels ("Gourgeist Jumbo
+    // Variety", "Alolan Raichu"), and /meta/ looks rows up by the name the
+    // current data uses -- without this, every renamed Pokemon's trend line
+    // would stop at the day of the rename.
+    const rawName = rows[0].pokemon || basename(file, ".csv");
+    const canonical = resolveShowdownSpecies([rawName])?.name || rawName;
+    pokemon[Object.prototype.hasOwnProperty.call(pokemon, canonical) ? rawName : canonical] = entry;
   }
   return pokemon;
 }
@@ -595,13 +633,17 @@ function writeMetaTrends(pokemonRecords) {
   for (const record of pokemonRecords) {
     const battleName = record.battleName || record.name;
     const primary = record.summary?.primary || {};
-    lookup[battleName] = {
+    const info = {
       name: battleName,
       baseName: baseDisplayName(battleName, primary),
       slug: record.slug || "",
       sprite: record.summary?.sprite || primary.image_path || "",
       types: record.summary?.types || primary.types || []
     };
+    lookup[battleName] = info;
+    // Also answer to the Showdown spelling, which is how snapshotFromFolder
+    // keys a day's rows.
+    if (record.showdownName && !lookup[record.showdownName]) lookup[record.showdownName] = info;
   }
 
   const seasons = [];
@@ -656,12 +698,18 @@ for (const file of csvFilesRecursive(metadataDir)) {
   record.metadataCsv = normalizePath(relative(cwd, file));
   record.metadataRows = rows.map(normalizeMetadataRow);
   for (const row of record.metadataRows) {
-    const savedKey = recordKey(row.saved_name || row.form_name);
-    if (savedKey) {
-      metadataBySavedName.set(savedKey, {
-        metadataCsv: record.metadataCsv,
-        metadataRows: record.metadataRows
-      });
+    const savedName = row.saved_name || row.form_name;
+    const entry = { metadataCsv: record.metadataCsv, metadataRows: record.metadataRows };
+    if (savedName) {
+      const [own, ...aliases] = registrationKeys(savedName, recordKey);
+      if (own) metadataBySavedName.set(own, entry);
+      // The species name too, claimed only if nothing else has it: a metadata
+      // file may not carry a row for the exact forme the battle data uses
+      // (Vivillon.csv lists only Icy Snow), and the file still holds that
+      // species' types and stats.
+      for (const alias of [...aliases, recordKey(row.pokemon_name)]) {
+        if (alias && !metadataBySavedName.has(alias)) metadataBySavedName.set(alias, entry);
+      }
     }
   }
 }
@@ -678,11 +726,18 @@ if (existsSync(learnableMovesDir)) {
 
 for (const file of csvFilesRecursive(battleDir)) {
   const rows = parseCSV(readFileSync(file, "utf8"));
-  const inferredName = rows[0]?.pokemon || basename(file, ".csv");
+  const csvName = rows[0]?.pokemon || basename(file, ".csv");
+  // One record per species, whatever a given season called it.  Older seasons
+  // still say "Alolan Raichu" and "Mega Gallade" where the current data says
+  // "Raichu-Alola" and "Gallade-Mega"; without folding those together the same
+  // Pokemon would get two pages, two API entries and two half-histories.
+  const inferredName = resolveShowdownSpecies([csvName])?.name || csvName;
   const key = recordKey(inferredName || basename(file, ".csv"));
   const record = ensureRecord(key, inferredName);
   if (inferredName) record.name = inferredName;
-  const metadataMatch = metadataBySavedName.get(recordKey(inferredName));
+  const metadataMatch = lookupKeys(inferredName, recordKey)
+    .map((key) => metadataBySavedName.get(key))
+    .find(Boolean);
   if (metadataMatch) {
     record.metadataCsv = metadataMatch.metadataCsv;
     record.metadataRows = metadataMatch.metadataRows;
@@ -727,11 +782,34 @@ const dailyDataFolders = unique(dailyData.map((source) => `${source.season}/${so
     return compareDailySource({ season: as, date: ad }, { season: bs, date: bd });
   });
 
+// Built before the records are, because a record with no metadata row of its
+// own still needs a real sprite path: Vivillon-Fancy has no metadata entry,
+// and guessing 'pokemon/<name>.png' pointed at a file that does not exist.
+const spriteIndexes = {
+  mini: indexSpriteDir("pokemon_mini"),
+  full: indexSpriteDir("pokemon"),
+  item: indexSpriteDir("items"),
+  type: indexSpriteDir("types")
+};
+
 const pokemon = [...records.values()]
   .filter((record) => record.battleDataCsvs.length)
   .map((record) => {
     const recordNameKey = recordKey(record.name);
-    const primary = record.metadataRows.find((form) => recordKey(form.saved_name || form.form_name) === recordNameKey) ||
+    // The species row this record is actually about.  A metadata CSV holds
+    // every forme of a species, so picking the wrong row hands the page the
+    // wrong types, stats and abilities -- Persian-Alola would come out
+    // Normal/Limber instead of Dark/Fur Coat.  The exact spelling is tried
+    // first, then the Showdown identity, so a row still matches after the
+    // battle data was renamed from "Alolan Persian" to "Persian-Alola".
+    const recordSpecies = resolveShowdownSpecies([record.name]);
+    const recordSpeciesKey = recordSpecies ? apiNameKey(recordSpecies.name) : "";
+    const exactForm = record.metadataRows.find((form) => recordKey(form.saved_name || form.form_name) === recordNameKey) ||
+      (recordSpeciesKey && record.metadataRows.find((form) => {
+        const species = resolveShowdownSpecies([form.saved_name || form.form_name]);
+        return species && apiNameKey(species.name) === recordSpeciesKey;
+      })) || null;
+    const primary = exactForm ||
       record.metadataRows.find((form) => /base/i.test(form.form_kind || "") || !form.form_kind || form.form_name === record.name || form.saved_name === record.name) ||
       record.metadataRows[0] || {};
     const showdownMatch = resolveShowdownSpecies(unique([
@@ -742,7 +820,20 @@ const pokemon = [...records.values()]
       ...record.metadataRows.flatMap((form) => [form.saved_name, form.form_name, form.title])
     ]));
     const allTypes = unique((primary.types && primary.types.length ? primary.types : record.metadataRows.flatMap((form) => form.types || [])));
-    const sprite = primary.image_path || `${assetRoot}/pokemon/${record.name}.png`;
+    // A sprite filed under this exact Pokemon beats the metadata's image_path:
+    // when a species' metadata carries no row for this forme the file still
+    // resolves, and its picture would then be of a different forme entirely
+    // (Vivillon-Fancy showing the Icy Snow pattern).
+    // When the metadata row really is this forme, its image_path is the answer.
+    // Otherwise prefer a sprite filed under this Pokemon, because falling back
+    // to a sibling row's picture shows the wrong forme entirely -- that is how
+    // Vivillon-Fancy ended up illustrated with the Icy Snow pattern.
+    const ownSprite = spriteIndexes.full.get(spriteKey(record.name))
+      || (recordSpecies ? spriteIndexes.full.get(spriteKey(recordSpecies.name)) : null);
+    const sprite = (exactForm && exactForm.image_path)
+      || (ownSprite && `${assetRoot}/pokemon/${ownSprite.name}.png`)
+      || primary.image_path
+      || `${assetRoot}/pokemon/${record.name}.png`;
     return {
       name: record.name,
       battleName: record.name,
@@ -923,7 +1014,10 @@ function indexSpriteDir(dirName) {
     const name = basename(file, ".png");
     const size = readPngSize(join(dir, file)) || { width: 0, height: 0 };
     // Keyed loosely so a battle-data spelling still finds its sprite.
-    index.set(spriteKey(name), { name, src: `/${assetRoot}/${dirName}/${encodeURIComponent(file)}`, ...size });
+    const sprite = { name, src: `/${assetRoot}/${dirName}/${encodeURIComponent(file)}`, ...size };
+    for (const key of registrationKeys(name, spriteKey)) {
+      if (!index.has(key)) index.set(key, sprite);
+    }
   }
   return index;
 }
@@ -937,17 +1031,14 @@ function spriteKey(value) {
   return String(value || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "");
 }
 
-const spriteIndexes = {
-  mini: indexSpriteDir("pokemon_mini"),
-  full: indexSpriteDir("pokemon"),
-  item: indexSpriteDir("items"),
-  type: indexSpriteDir("types")
-};
 
 function lookupSprite(kind, ...names) {
   for (const name of names) {
-    const found = name ? spriteIndexes[kind].get(spriteKey(name)) : null;
-    if (found) return found;
+    if (!name) continue;
+    for (const key of lookupKeys(name, spriteKey)) {
+      const found = spriteIndexes[kind].get(key);
+      if (found) return found;
+    }
   }
   return null;
 }

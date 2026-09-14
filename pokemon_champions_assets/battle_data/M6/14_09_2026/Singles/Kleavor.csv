@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Kleavor,83,move,1,Stone Axe,100.0%,,,,,,,,
-Kleavor,83,move,2,X-Scissor,71.5%,,,,,,,,
-Kleavor,83,move,3,Close Combat,60.4%,,,,,,,,
-Kleavor,83,move,4,Night Slash,47.2%,,,,,,,,
-Kleavor,83,move,5,U-turn,27.9%,,,,,,,,
-Kleavor,83,move,6,Feint,18.5%,,,,,,,,
-Kleavor,83,move,7,Tailwind,12.9%,,,,,,,,
+Kleavor,83,move,2,X-Scissor,71.4%,,,,,,,,
+Kleavor,83,move,3,Close Combat,60.2%,,,,,,,,
+Kleavor,83,move,4,Night Slash,47.3%,,,,,,,,
+Kleavor,83,move,5,U-turn,27.8%,,,,,,,,
+Kleavor,83,move,6,Feint,18.3%,,,,,,,,
+Kleavor,83,move,7,Tailwind,13.0%,,,,,,,,
 Kleavor,83,move,8,Quick Attack,12.4%,,,,,,,,
 Kleavor,83,move,9,Brick Break,10.3%,,,,,,,,
-Kleavor,83,move,10,Counter,9.8%,,,,,,,,
+Kleavor,83,move,10,Counter,9.9%,,,,,,,,
 Kleavor,83,held_item,1,Focus Sash,62.2%,,,,,,,,
 Kleavor,83,held_item,2,Choice Scarf,28.9%,,,,,,,,
 Kleavor,83,held_item,3,Life Orb,2.6%,,,,,,,,
@@ -29,7 +29,7 @@ Kleavor,83,teammate,7,Araquanid,,,,,,,,,
 Kleavor,83,teammate,8,Archaludon,,,,,,,,,
 Kleavor,83,teammate,9,Baxcalibur,,,,,,,,,
 Kleavor,83,teammate,10,Rillaboom,,,,,,,,,
-Kleavor,83,stat_alignment,1,Adamant,58.6%,Attack,Sp. Atk,,,,,,
+Kleavor,83,stat_alignment,1,Adamant,58.5%,Attack,Sp. Atk,,,,,,
 Kleavor,83,stat_alignment,2,Jolly,37.6%,Speed,Sp. Atk,,,,,,
 Kleavor,83,stat_alignment,3,Careful,1.0%,Sp. Def,Sp. Atk,,,,,,
 Kleavor,83,stat_alignment,4,Naughty,0.9%,Attack,Sp. Def,,,,,,
@@ -37,16 +37,16 @@ Kleavor,83,stat_alignment,5,Naive,0.5%,Speed,Sp. Def,,,,,,
 Kleavor,83,stat_alignment,6,Impish,0.5%,Defense,Sp. Atk,,,,,,
 Kleavor,83,stat_alignment,7,Lonely,0.5%,Attack,Defense,,,,,,
 Kleavor,83,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,
-Kleavor,83,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
+Kleavor,83,stat_alignment,9,Brave,0.2%,Attack,Speed,,,,,,
 Kleavor,83,stat_alignment,10,Sassy,0.0%,Sp. Def,Speed,,,,,,
-Kleavor,83,stat_points,1,,64.8%,,,2,32,0,0,0,32
+Kleavor,83,stat_points,1,,64.7%,,,2,32,0,0,0,32
 Kleavor,83,stat_points,2,,7.7%,,,0,32,2,0,0,32
-Kleavor,83,stat_points,3,,6.1%,,,0,32,0,0,2,32
+Kleavor,83,stat_points,3,,6.2%,,,0,32,0,0,2,32
 Kleavor,83,stat_points,4,,2.9%,,,0,32,0,0,0,32
 Kleavor,83,stat_points,5,,1.6%,,,32,32,0,0,0,2
 Kleavor,83,stat_points,6,,1.4%,,,0,32,1,0,1,32
 Kleavor,83,stat_points,7,,1.2%,,,1,32,1,0,0,32
-Kleavor,83,stat_points,8,,1.2%,,,32,32,2,0,0,0
+Kleavor,83,stat_points,8,,1.1%,,,32,32,2,0,0,0
 Kleavor,83,stat_points,9,,1.0%,,,32,32,0,0,2,0
 Kleavor,83,stat_points,10,,0.7%,,,0,28,18,0,0,20
 Kleavor,83,ability,1,Sharpness,99.0%,,,,,,,,

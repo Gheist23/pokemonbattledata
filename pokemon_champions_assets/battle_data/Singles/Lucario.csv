@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Lucario,7,move,1,Nasty Plot,80.4%,,,,,,,,
 Lucario,7,move,2,Aura Sphere,78.5%,,,,,,,,
-Lucario,7,move,3,Flash Cannon,75.2%,,,,,,,,
+Lucario,7,move,3,Flash Cannon,75.1%,,,,,,,,
 Lucario,7,move,4,Dark Pulse,73.5%,,,,,,,,
 Lucario,7,move,5,Vacuum Wave,33.2%,,,,,,,,
 Lucario,7,move,6,Steel Beam,19.7%,,,,,,,,
@@ -9,7 +9,7 @@ Lucario,7,move,7,Close Combat,5.5%,,,,,,,,
 Lucario,7,move,8,Focus Blast,4.9%,,,,,,,,
 Lucario,7,move,9,Swords Dance,4.5%,,,,,,,,
 Lucario,7,move,10,Meteor Mash,3.9%,,,,,,,,
-Lucario,7,held_item,1,Lucarionite Z,91.2%,,,,,,,,
+Lucario,7,held_item,1,Lucarionite Z,91.1%,,,,,,,,
 Lucario,7,held_item,2,Lucarionite,8.2%,,,,,,,,
 Lucario,7,held_item,3,Focus Sash,0.3%,,,,,,,,
 Lucario,7,held_item,4,Choice Scarf,0.1%,,,,,,,,
@@ -40,7 +40,7 @@ Lucario,7,stat_alignment,8,Calm,0.1%,Sp. Def,Attack,,,,,,
 Lucario,7,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
 Lucario,7,stat_alignment,10,Mild,0.0%,Sp. Atk,Defense,,,,,,
 Lucario,7,stat_points,1,,55.9%,,,2,0,0,32,0,32
-Lucario,7,stat_points,2,,4.8%,,,0,0,2,32,0,32
+Lucario,7,stat_points,2,,4.7%,,,0,0,2,32,0,32
 Lucario,7,stat_points,3,,4.3%,,,2,32,0,0,0,32
 Lucario,7,stat_points,4,,2.1%,,,14,0,1,32,0,19
 Lucario,7,stat_points,5,,1.8%,,,0,0,1,32,1,32
@@ -50,5 +50,5 @@ Lucario,7,stat_points,8,,1.2%,,,0,0,0,32,0,32
 Lucario,7,stat_points,9,,1.1%,,,16,0,0,18,0,32
 Lucario,7,stat_points,10,,1.1%,,,30,0,12,16,0,8
 Lucario,7,ability,1,Inner Focus,80.8%,,,,,,,,
-Lucario,7,ability,2,Steadfast,13.3%,,,,,,,,
+Lucario,7,ability,2,Steadfast,13.2%,,,,,,,,
 Lucario,7,ability,3,Justified,6.0%,,,,,,,,

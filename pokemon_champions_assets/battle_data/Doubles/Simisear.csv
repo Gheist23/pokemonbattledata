@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simisear,250,move,1,Grass Knot,71.6%,,,,,,,,
-Simisear,250,move,2,Temper Flare,70.9%,,,,,,,,
-Simisear,250,move,3,Flamethrower,70.3%,,,,,,,,
-Simisear,250,move,4,Fire Spin,70.3%,,,,,,,,
-Simisear,250,move,5,Heat Wave,26.4%,,,,,,,,
-Simisear,250,move,6,Protect,25.0%,,,,,,,,
-Simisear,250,move,7,Scorching Sands,25.0%,,,,,,,,
-Simisear,250,move,8,Nasty Plot,24.3%,,,,,,,,
-Simisear,250,move,9,Fake Out,5.4%,,,,,,,,
-Simisear,250,move,10,Helping Hand,2.0%,,,,,,,,
-Simisear,250,held_item,1,Life Orb,91.2%,,,,,,,,
-Simisear,250,held_item,2,Sitrus Berry,2.0%,,,,,,,,
+Simisear,250,move,1,Grass Knot,70.7%,,,,,,,,
+Simisear,250,move,2,Temper Flare,70.0%,,,,,,,,
+Simisear,250,move,3,Flamethrower,69.3%,,,,,,,,
+Simisear,250,move,4,Fire Spin,69.3%,,,,,,,,
+Simisear,250,move,5,Heat Wave,26.0%,,,,,,,,
+Simisear,250,move,6,Nasty Plot,25.3%,,,,,,,,
+Simisear,250,move,7,Protect,24.7%,,,,,,,,
+Simisear,250,move,8,Scorching Sands,24.7%,,,,,,,,
+Simisear,250,move,9,Fake Out,6.7%,,,,,,,,
+Simisear,250,move,10,Helping Hand,3.3%,,,,,,,,
+Simisear,250,held_item,1,Life Orb,90.0%,,,,,,,,
+Simisear,250,held_item,2,Sitrus Berry,3.3%,,,,,,,,
 Simisear,250,held_item,3,Choice Scarf,2.0%,,,,,,,,
-Simisear,250,held_item,4,Charcoal,1.4%,,,,,,,,
+Simisear,250,held_item,4,Charcoal,1.3%,,,,,,,,
 Simisear,250,held_item,5,Greninjite,0.7%,,,,,,,,
 Simisear,250,held_item,6,Focus Sash,0.7%,,,,,,,,
 Simisear,250,held_item,7,Air Balloon,0.7%,,,,,,,,
@@ -23,17 +23,20 @@ Simisear,250,teammate,4,Alakazam,,,,,,,,,
 Simisear,250,teammate,5,Indeedee,,,,,,,,,
 Simisear,250,teammate,6,Qwilfish,,,,,,,,,
 Simisear,250,teammate,7,Watchog,,,,,,,,,
-Simisear,250,teammate,8,Garchomp,,,,,,,,,
-Simisear,250,teammate,9,Lucario,,,,,,,,,
-Simisear,250,teammate,10,Rillaboom,,,,,,,,,
-Simisear,250,stat_alignment,1,Modest,97.3%,Sp. Atk,Attack,,,,,,
-Simisear,250,stat_alignment,2,Brave,1.4%,Attack,Speed,,,,,,
-Simisear,250,stat_alignment,3,Timid,0.7%,Speed,Attack,,,,,,
-Simisear,250,stat_alignment,4,Serious,0.7%,,,,,,,,
-Simisear,250,stat_points,1,,70.3%,,,32,0,0,32,2,0
-Simisear,250,stat_points,2,,25.0%,,,2,0,0,32,0,32
+Simisear,250,teammate,8,Rillaboom,,,,,,,,,
+Simisear,250,teammate,9,Garchomp,,,,,,,,,
+Simisear,250,teammate,10,Lucario,,,,,,,,,
+Simisear,250,stat_alignment,1,Modest,96.0%,Sp. Atk,Attack,,,,,,
+Simisear,250,stat_alignment,2,Brave,1.3%,Attack,Speed,,,,,,
+Simisear,250,stat_alignment,3,Calm,1.3%,Sp. Def,Attack,,,,,,
+Simisear,250,stat_alignment,4,Timid,0.7%,Speed,Attack,,,,,,
+Simisear,250,stat_alignment,5,Serious,0.7%,,,,,,,,
+Simisear,250,stat_points,1,,69.3%,,,32,0,0,32,2,0
+Simisear,250,stat_points,2,,24.7%,,,2,0,0,32,0,32
 Simisear,250,stat_points,3,,2.0%,,,32,0,3,22,9,0
-Simisear,250,stat_points,4,,1.4%,,,0,0,17,0,17,32
-Simisear,250,stat_points,5,,0.7%,,,7,20,0,7,20,0
-Simisear,250,stat_points,6,,0.7%,,,32,0,2,32,0,0
-Simisear,250,ability,1,Blaze,100.0%,,,,,,,,
+Simisear,250,stat_points,4,,1.3%,,,0,0,17,0,17,32
+Simisear,250,stat_points,5,,1.3%,,,2,0,0,32,32,0
+Simisear,250,stat_points,6,,0.7%,,,7,20,0,7,20,0
+Simisear,250,stat_points,7,,0.7%,,,32,0,2,32,0,0
+Simisear,250,ability,1,Blaze,98.7%,,,,,,,,
+Simisear,250,ability,2,Gluttony,1.3%,,,,,,,,

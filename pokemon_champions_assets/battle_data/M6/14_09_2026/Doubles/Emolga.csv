@@ -1,47 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emolga,235,move,1,Taunt,52.5%,,,,,,,,
-Emolga,235,move,2,Nuzzle,49.2%,,,,,,,,
-Emolga,235,move,3,Charm,37.6%,,,,,,,,
-Emolga,235,move,4,Eerie Impulse,34.3%,,,,,,,,
-Emolga,235,move,5,Volt Switch,24.4%,,,,,,,,
-Emolga,235,move,6,Encore,23.8%,,,,,,,,
-Emolga,235,move,7,Electroweb,22.8%,,,,,,,,
-Emolga,235,move,8,Speed Swap,21.5%,,,,,,,,
-Emolga,235,move,9,Air Slash,21.1%,,,,,,,,
-Emolga,235,move,10,Protect,19.1%,,,,,,,,
-Emolga,235,held_item,1,Focus Sash,53.8%,,,,,,,,
-Emolga,235,held_item,2,Unknown Item 157,16.8%,,,,,,,,
-Emolga,235,held_item,3,Rocky Helmet,12.5%,,,,,,,,
-Emolga,235,held_item,4,Sitrus Berry,5.0%,,,,,,,,
-Emolga,235,held_item,5,Leftovers,4.6%,,,,,,,,
-Emolga,235,held_item,6,Choice Scarf,3.3%,,,,,,,,
-Emolga,235,held_item,7,Life Orb,2.0%,,,,,,,,
-Emolga,235,held_item,8,Bright Powder,0.7%,,,,,,,,
+Emolga,235,move,1,Taunt,53.1%,,,,,,,,
+Emolga,235,move,2,Nuzzle,48.9%,,,,,,,,
+Emolga,235,move,3,Charm,38.6%,,,,,,,,
+Emolga,235,move,4,Eerie Impulse,33.8%,,,,,,,,
+Emolga,235,move,5,Volt Switch,25.4%,,,,,,,,
+Emolga,235,move,6,Electroweb,23.8%,,,,,,,,
+Emolga,235,move,7,Encore,23.2%,,,,,,,,
+Emolga,235,move,8,Air Slash,21.2%,,,,,,,,
+Emolga,235,move,9,Speed Swap,20.9%,,,,,,,,
+Emolga,235,move,10,Protect,18.6%,,,,,,,,
+Emolga,235,held_item,1,Focus Sash,55.0%,,,,,,,,
+Emolga,235,held_item,2,Unknown Item 157,16.4%,,,,,,,,
+Emolga,235,held_item,3,Rocky Helmet,12.2%,,,,,,,,
+Emolga,235,held_item,4,Sitrus Berry,4.8%,,,,,,,,
+Emolga,235,held_item,5,Leftovers,4.5%,,,,,,,,
+Emolga,235,held_item,6,Choice Scarf,3.2%,,,,,,,,
+Emolga,235,held_item,7,Life Orb,1.9%,,,,,,,,
+Emolga,235,held_item,8,Bright Powder,0.6%,,,,,,,,
 Emolga,235,held_item,9,Charti Berry,0.3%,,,,,,,,
 Emolga,235,held_item,10,Magnet,0.3%,,,,,,,,
 Emolga,235,teammate,1,Audino,,,,,,,,,
-Emolga,235,teammate,2,Farigiraf,,,,,,,,,
-Emolga,235,teammate,3,Rillaboom,,,,,,,,,
+Emolga,235,teammate,2,Rillaboom,,,,,,,,,
+Emolga,235,teammate,3,Farigiraf,,,,,,,,,
 Emolga,235,teammate,4,Garchomp,,,,,,,,,
-Emolga,235,teammate,5,Sableye,,,,,,,,,
-Emolga,235,teammate,6,Zoroark-Hisui,,,,,,,,,
-Emolga,235,teammate,7,Overqwil,,,,,,,,,
-Emolga,235,teammate,8,Gholdengo,,,,,,,,,
-Emolga,235,teammate,9,Goodra,,,,,,,,,
-Emolga,235,teammate,10,Incineroar,,,,,,,,,
-Emolga,235,stat_alignment,1,Timid,44.9%,Speed,Attack,,,,,,
-Emolga,235,stat_alignment,2,Jolly,27.1%,Speed,Sp. Atk,,,,,,
-Emolga,235,stat_alignment,3,Hasty,16.8%,Speed,Defense,,,,,,
-Emolga,235,stat_alignment,4,Modest,11.2%,Sp. Atk,Attack,,,,,,
-Emolga,235,stat_points,1,,27.4%,,,2,0,0,32,0,32
-Emolga,235,stat_points,2,,18.5%,,,0,32,0,0,0,32
-Emolga,235,stat_points,3,,17.8%,,,32,0,1,0,1,32
-Emolga,235,stat_points,4,,9.6%,,,0,0,2,32,0,32
-Emolga,235,stat_points,5,,9.2%,,,32,0,2,0,0,32
-Emolga,235,stat_points,6,,4.3%,,,2,32,0,0,0,32
-Emolga,235,stat_points,7,,3.6%,,,0,0,0,32,0,32
-Emolga,235,stat_points,8,,3.0%,,,14,0,10,0,10,32
+Emolga,235,teammate,5,Gholdengo,,,,,,,,,
+Emolga,235,teammate,6,Sableye,,,,,,,,,
+Emolga,235,teammate,7,Zoroark-Hisui,,,,,,,,,
+Emolga,235,teammate,8,Overqwil,,,,,,,,,
+Emolga,235,teammate,9,Incineroar,,,,,,,,,
+Emolga,235,teammate,10,Goodra,,,,,,,,,
+Emolga,235,stat_alignment,1,Timid,45.3%,Speed,Attack,,,,,,
+Emolga,235,stat_alignment,2,Jolly,26.7%,Speed,Sp. Atk,,,,,,
+Emolga,235,stat_alignment,3,Hasty,16.4%,Speed,Defense,,,,,,
+Emolga,235,stat_alignment,4,Modest,10.9%,Sp. Atk,Attack,,,,,,
+Emolga,235,stat_alignment,5,Adamant,0.6%,Attack,Sp. Atk,,,,,,
+Emolga,235,stat_points,1,,28.3%,,,2,0,0,32,0,32
+Emolga,235,stat_points,2,,18.0%,,,0,32,0,0,0,32
+Emolga,235,stat_points,3,,17.7%,,,32,0,1,0,1,32
+Emolga,235,stat_points,4,,9.3%,,,0,0,2,32,0,32
+Emolga,235,stat_points,5,,9.0%,,,32,0,2,0,0,32
+Emolga,235,stat_points,6,,4.2%,,,2,32,0,0,0,32
+Emolga,235,stat_points,7,,3.5%,,,0,0,0,32,0,32
+Emolga,235,stat_points,8,,2.9%,,,14,0,10,0,10,32
 Emolga,235,stat_points,9,,2.6%,,,32,0,0,0,0,32
 Emolga,235,stat_points,10,,2.3%,,,5,27,0,0,2,32
-Emolga,235,ability,1,Motor Drive,68.3%,,,,,,,,
-Emolga,235,ability,2,Static,31.7%,,,,,,,,
+Emolga,235,ability,1,Motor Drive,68.2%,,,,,,,,
+Emolga,235,ability,2,Static,31.8%,,,,,,,,

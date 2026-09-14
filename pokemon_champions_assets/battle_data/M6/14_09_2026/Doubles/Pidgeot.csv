@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pidgeot,209,move,1,Hurricane,99.9%,,,,,,,,
-Pidgeot,209,move,2,Heat Wave,89.4%,,,,,,,,
-Pidgeot,209,move,3,Protect,77.1%,,,,,,,,
+Pidgeot,209,move,2,Heat Wave,89.2%,,,,,,,,
+Pidgeot,209,move,3,Protect,77.2%,,,,,,,,
 Pidgeot,209,move,4,Hyper Beam,51.5%,,,,,,,,
-Pidgeot,209,move,5,Tailwind,49.9%,,,,,,,,
-Pidgeot,209,move,6,Sunny Day,13.4%,,,,,,,,
+Pidgeot,209,move,5,Tailwind,50.1%,,,,,,,,
+Pidgeot,209,move,6,Sunny Day,13.3%,,,,,,,,
 Pidgeot,209,move,7,Roost,4.5%,,,,,,,,
 Pidgeot,209,move,8,Rain Dance,3.7%,,,,,,,,
 Pidgeot,209,move,9,Round,3.0%,,,,,,,,
@@ -21,12 +21,13 @@ Pidgeot,209,teammate,7,Pelipper,,,,,,,,,
 Pidgeot,209,teammate,8,Swampert,,,,,,,,,
 Pidgeot,209,teammate,9,Politoed,,,,,,,,,
 Pidgeot,209,teammate,10,Garchomp,,,,,,,,,
-Pidgeot,209,stat_alignment,1,Timid,59.7%,Speed,Attack,,,,,,
+Pidgeot,209,stat_alignment,1,Timid,59.3%,Speed,Attack,,,,,,
 Pidgeot,209,stat_alignment,2,Modest,39.0%,Sp. Atk,Attack,,,,,,
-Pidgeot,209,stat_alignment,3,Quiet,1.0%,Sp. Atk,Speed,,,,,,
-Pidgeot,209,stat_alignment,4,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
-Pidgeot,209,stat_alignment,5,Bold,0.1%,Defense,Attack,,,,,,
-Pidgeot,209,stat_points,1,,66.5%,,,2,0,0,32,0,32
+Pidgeot,209,stat_alignment,3,Quiet,0.9%,Sp. Atk,Speed,,,,,,
+Pidgeot,209,stat_alignment,4,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Pidgeot,209,stat_alignment,5,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
+Pidgeot,209,stat_alignment,6,Bold,0.1%,Defense,Attack,,,,,,
+Pidgeot,209,stat_points,1,,66.4%,,,2,0,0,32,0,32
 Pidgeot,209,stat_points,2,,6.5%,,,1,0,1,32,0,32
 Pidgeot,209,stat_points,3,,3.5%,,,0,0,0,32,2,32
 Pidgeot,209,stat_points,4,,3.5%,,,32,0,0,0,0,32
@@ -37,5 +38,5 @@ Pidgeot,209,stat_points,8,,1.8%,,,32,0,2,32,0,0
 Pidgeot,209,stat_points,9,,1.6%,,,0,0,0,32,0,32
 Pidgeot,209,stat_points,10,,1.6%,,,1,0,11,17,0,32
 Pidgeot,209,ability,1,Big Pecks,50.7%,,,,,,,,
-Pidgeot,209,ability,2,Keen Eye,39.5%,,,,,,,,
-Pidgeot,209,ability,3,Tangled Feet,9.8%,,,,,,,,
+Pidgeot,209,ability,2,Keen Eye,39.3%,,,,,,,,
+Pidgeot,209,ability,3,Tangled Feet,10.0%,,,,,,,,

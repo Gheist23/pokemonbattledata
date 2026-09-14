@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Hydreigon,27,move,1,Dark Pulse,98.8%,,,,,,,,
 Hydreigon,27,move,2,Draco Meteor,95.8%,,,,,,,,
-Hydreigon,27,move,3,U-turn,81.0%,,,,,,,,
+Hydreigon,27,move,3,U-turn,80.9%,,,,,,,,
 Hydreigon,27,move,4,Flamethrower,74.2%,,,,,,,,
 Hydreigon,27,move,5,Fire Blast,17.9%,,,,,,,,
 Hydreigon,27,move,6,Flash Cannon,5.9%,,,,,,,,
-Hydreigon,27,move,7,Earth Power,4.6%,,,,,,,,
-Hydreigon,27,move,8,Taunt,4.0%,,,,,,,,
+Hydreigon,27,move,7,Earth Power,4.7%,,,,,,,,
+Hydreigon,27,move,8,Taunt,4.1%,,,,,,,,
 Hydreigon,27,move,9,Nasty Plot,3.8%,,,,,,,,
-Hydreigon,27,move,10,Stealth Rock,2.7%,,,,,,,,
+Hydreigon,27,move,10,Stealth Rock,2.8%,,,,,,,,
 Hydreigon,27,held_item,1,Choice Scarf,86.8%,,,,,,,,
 Hydreigon,27,held_item,2,Focus Sash,4.1%,,,,,,,,
 Hydreigon,27,held_item,3,Life Orb,2.7%,,,,,,,,
@@ -29,7 +29,7 @@ Hydreigon,27,teammate,7,Gholdengo,,,,,,,,,
 Hydreigon,27,teammate,8,Aegislash,,,,,,,,,
 Hydreigon,27,teammate,9,Rotom-Wash,,,,,,,,,
 Hydreigon,27,teammate,10,Lucario,,,,,,,,,
-Hydreigon,27,stat_alignment,1,Modest,74.9%,Sp. Atk,Attack,,,,,,
+Hydreigon,27,stat_alignment,1,Modest,74.8%,Sp. Atk,Attack,,,,,,
 Hydreigon,27,stat_alignment,2,Timid,23.6%,Speed,Attack,,,,,,
 Hydreigon,27,stat_alignment,3,Mild,0.3%,Sp. Atk,Defense,,,,,,
 Hydreigon,27,stat_alignment,4,Hasty,0.3%,Speed,Defense,,,,,,
@@ -48,5 +48,5 @@ Hydreigon,27,stat_points,6,,1.0%,,,1,0,1,32,0,32
 Hydreigon,27,stat_points,7,,0.6%,,,8,0,0,32,0,26
 Hydreigon,27,stat_points,8,,0.5%,,,1,0,0,32,0,32
 Hydreigon,27,stat_points,9,,0.3%,,,32,0,0,32,0,2
-Hydreigon,27,stat_points,10,,0.3%,,,0,0,8,26,0,32
+Hydreigon,27,stat_points,10,,0.3%,,,0,2,0,32,0,32
 Hydreigon,27,ability,1,Levitate,100.0%,,,,,,,,

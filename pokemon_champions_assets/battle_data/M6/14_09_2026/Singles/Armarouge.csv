@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Armarouge,52,move,1,Armor Cannon,98.8%,,,,,,,,
 Armarouge,52,move,2,Expanding Force,85.5%,,,,,,,,
-Armarouge,52,move,3,Destiny Bond,63.2%,,,,,,,,
-Armarouge,52,move,4,Aura Sphere,36.9%,,,,,,,,
-Armarouge,52,move,5,Endure,25.0%,,,,,,,,
+Armarouge,52,move,3,Destiny Bond,63.3%,,,,,,,,
+Armarouge,52,move,4,Aura Sphere,36.8%,,,,,,,,
+Armarouge,52,move,5,Endure,25.1%,,,,,,,,
 Armarouge,52,move,6,Calm Mind,16.9%,,,,,,,,
-Armarouge,52,move,7,Psychic Terrain,15.1%,,,,,,,,
-Armarouge,52,move,8,Psychic,11.4%,,,,,,,,
-Armarouge,52,move,9,Energy Ball,11.4%,,,,,,,,
+Armarouge,52,move,7,Psychic Terrain,15.0%,,,,,,,,
+Armarouge,52,move,8,Energy Ball,11.4%,,,,,,,,
+Armarouge,52,move,9,Psychic,11.3%,,,,,,,,
 Armarouge,52,move,10,Focus Blast,9.7%,,,,,,,,
 Armarouge,52,held_item,1,Focus Sash,88.3%,,,,,,,,
 Armarouge,52,held_item,2,Shuca Berry,2.5%,,,,,,,,
@@ -17,7 +17,7 @@ Armarouge,52,held_item,5,Choice Scarf,1.0%,,,,,,,,
 Armarouge,52,held_item,6,Air Balloon,0.9%,,,,,,,,
 Armarouge,52,held_item,7,Twisted Spoon,0.8%,,,,,,,,
 Armarouge,52,held_item,8,Colbur Berry,0.8%,,,,,,,,
-Armarouge,52,held_item,9,Psychic Seed,0.6%,,,,,,,,
+Armarouge,52,held_item,9,Psychic Seed,0.5%,,,,,,,,
 Armarouge,52,held_item,10,White Herb,0.3%,,,,,,,,
 Armarouge,52,teammate,1,Indeedee,,,,,,,,,
 Armarouge,52,teammate,2,Sneasler,,,,,,,,,
@@ -29,23 +29,23 @@ Armarouge,52,teammate,7,Baxcalibur,,,,,,,,,
 Armarouge,52,teammate,8,Blastoise,,,,,,,,,
 Armarouge,52,teammate,9,Primarina,,,,,,,,,
 Armarouge,52,teammate,10,Hippowdon,,,,,,,,,
-Armarouge,52,stat_alignment,1,Modest,83.3%,Sp. Atk,Attack,,,,,,
-Armarouge,52,stat_alignment,2,Timid,12.6%,Speed,Attack,,,,,,
+Armarouge,52,stat_alignment,1,Modest,83.4%,Sp. Atk,Attack,,,,,,
+Armarouge,52,stat_alignment,2,Timid,12.5%,Speed,Attack,,,,,,
 Armarouge,52,stat_alignment,3,Quiet,2.3%,Sp. Atk,Speed,,,,,,
 Armarouge,52,stat_alignment,4,Bold,0.7%,Defense,Attack,,,,,,
 Armarouge,52,stat_alignment,5,Mild,0.5%,Sp. Atk,Defense,,,,,,
-Armarouge,52,stat_alignment,6,Calm,0.1%,Sp. Def,Attack,,,,,,
-Armarouge,52,stat_alignment,7,Hasty,0.1%,Speed,Defense,,,,,,
+Armarouge,52,stat_alignment,6,Hasty,0.1%,Speed,Defense,,,,,,
+Armarouge,52,stat_alignment,7,Calm,0.1%,Sp. Def,Attack,,,,,,
 Armarouge,52,stat_alignment,8,Sassy,0.1%,Sp. Def,Speed,,,,,,
 Armarouge,52,stat_alignment,9,Relaxed,0.1%,Defense,Speed,,,,,,
 Armarouge,52,stat_alignment,10,Naive,0.0%,Speed,Sp. Def,,,,,,
-Armarouge,52,stat_points,1,,42.0%,,,2,0,0,32,0,32
-Armarouge,52,stat_points,2,,25.4%,,,1,0,1,32,0,32
+Armarouge,52,stat_points,1,,41.9%,,,2,0,0,32,0,32
+Armarouge,52,stat_points,2,,25.5%,,,1,0,1,32,0,32
 Armarouge,52,stat_points,3,,10.1%,,,1,0,0,32,1,32
 Armarouge,52,stat_points,4,,3.4%,,,0,0,0,32,2,32
-Armarouge,52,stat_points,5,,3.0%,,,0,0,2,32,0,32
-Armarouge,52,stat_points,6,,1.4%,,,32,0,2,32,0,0
-Armarouge,52,stat_points,7,,1.4%,,,0,0,0,32,0,32
+Armarouge,52,stat_points,5,,2.9%,,,0,0,2,32,0,32
+Armarouge,52,stat_points,6,,1.4%,,,0,0,0,32,0,32
+Armarouge,52,stat_points,7,,1.4%,,,32,0,2,32,0,0
 Armarouge,52,stat_points,8,,1.1%,,,1,0,0,32,0,32
 Armarouge,52,stat_points,9,,1.0%,,,32,0,0,32,2,0
 Armarouge,52,stat_points,10,,0.6%,,,31,0,0,32,3,0

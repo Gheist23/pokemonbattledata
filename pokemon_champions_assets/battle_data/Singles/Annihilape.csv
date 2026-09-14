@@ -2,7 +2,7 @@ pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_point
 Annihilape,77,move,1,Rage Fist,94.8%,,,,,,,,
 Annihilape,77,move,2,Drain Punch,83.3%,,,,,,,,
 Annihilape,77,move,3,Bulk Up,74.1%,,,,,,,,
-Annihilape,77,move,4,Taunt,65.1%,,,,,,,,
+Annihilape,77,move,4,Taunt,65.0%,,,,,,,,
 Annihilape,77,move,5,Stealth Rock,18.3%,,,,,,,,
 Annihilape,77,move,6,Ice Punch,14.3%,,,,,,,,
 Annihilape,77,move,7,Encore,9.3%,,,,,,,,
@@ -11,14 +11,14 @@ Annihilape,77,move,9,Close Combat,4.3%,,,,,,,,
 Annihilape,77,move,10,Fire Punch,3.8%,,,,,,,,
 Annihilape,77,held_item,1,Leftovers,41.3%,,,,,,,,
 Annihilape,77,held_item,2,Sitrus Berry,33.1%,,,,,,,,
-Annihilape,77,held_item,3,Focus Sash,3.2%,,,,,,,,
-Annihilape,77,held_item,4,Rocky Helmet,3.2%,,,,,,,,
+Annihilape,77,held_item,3,Rocky Helmet,3.2%,,,,,,,,
+Annihilape,77,held_item,4,Focus Sash,3.2%,,,,,,,,
 Annihilape,77,held_item,5,Unknown Item 157,3.1%,,,,,,,,
 Annihilape,77,held_item,6,Light Ball,2.9%,,,,,,,,
 Annihilape,77,held_item,7,Life Orb,2.7%,,,,,,,,
 Annihilape,77,held_item,8,Expert Belt,1.2%,,,,,,,,
 Annihilape,77,held_item,9,Unknown Item 192,1.0%,,,,,,,,
-Annihilape,77,held_item,10,Choice Scarf,1.0%,,,,,,,,
+Annihilape,77,held_item,10,Choice Scarf,0.9%,,,,,,,,
 Annihilape,77,teammate,1,Garchomp,,,,,,,,,
 Annihilape,77,teammate,2,Salamence,,,,,,,,,
 Annihilape,77,teammate,3,Golisopod,,,,,,,,,
@@ -41,7 +41,7 @@ Annihilape,77,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,
 Annihilape,77,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
 Annihilape,77,stat_points,1,,8.0%,,,32,15,14,0,0,5
 Annihilape,77,stat_points,2,,7.0%,,,32,32,2,0,0,0
-Annihilape,77,stat_points,3,,4.8%,,,32,2,0,0,0,32
+Annihilape,77,stat_points,3,,4.9%,,,32,2,0,0,0,32
 Annihilape,77,stat_points,4,,3.5%,,,2,32,0,0,0,32
 Annihilape,77,stat_points,5,,3.2%,,,32,32,0,0,0,2
 Annihilape,77,stat_points,6,,2.8%,,,32,15,1,0,18,0
@@ -50,5 +50,5 @@ Annihilape,77,stat_points,8,,2.3%,,,24,32,0,0,0,10
 Annihilape,77,stat_points,9,,2.1%,,,32,2,0,0,32,0
 Annihilape,77,stat_points,10,,1.9%,,,32,0,2,0,32,0
 Annihilape,77,ability,1,Defiant,65.9%,,,,,,,,
-Annihilape,77,ability,2,Vital Spirit,30.5%,,,,,,,,
+Annihilape,77,ability,2,Vital Spirit,30.4%,,,,,,,,
 Annihilape,77,ability,3,Inner Focus,3.7%,,,,,,,,

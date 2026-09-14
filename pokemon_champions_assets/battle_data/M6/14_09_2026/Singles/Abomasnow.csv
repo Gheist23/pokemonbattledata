@@ -2,8 +2,8 @@ pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_point
 Abomasnow,157,move,1,Blizzard,88.4%,,,,,,,,
 Abomasnow,157,move,2,Ice Shard,62.3%,,,,,,,,
 Abomasnow,157,move,3,Earth Power,54.1%,,,,,,,,
-Abomasnow,157,move,4,Giga Drain,49.3%,,,,,,,,
-Abomasnow,157,move,5,Aurora Veil,38.1%,,,,,,,,
+Abomasnow,157,move,4,Giga Drain,49.4%,,,,,,,,
+Abomasnow,157,move,5,Aurora Veil,38.2%,,,,,,,,
 Abomasnow,157,move,6,Leaf Storm,18.9%,,,,,,,,
 Abomasnow,157,move,7,Sheer Cold,16.3%,,,,,,,,
 Abomasnow,157,move,8,Leech Seed,14.3%,,,,,,,,
@@ -30,17 +30,17 @@ Abomasnow,157,teammate,8,Hippowdon,,,,,,,,,
 Abomasnow,157,teammate,9,Tyranitar,,,,,,,,,
 Abomasnow,157,teammate,10,Archaludon,,,,,,,,,
 Abomasnow,157,stat_alignment,1,Quiet,47.8%,Sp. Atk,Speed,,,,,,
-Abomasnow,157,stat_alignment,2,Modest,20.9%,Sp. Atk,Attack,,,,,,
+Abomasnow,157,stat_alignment,2,Modest,20.8%,Sp. Atk,Attack,,,,,,
 Abomasnow,157,stat_alignment,3,Bold,10.5%,Defense,Attack,,,,,,
 Abomasnow,157,stat_alignment,4,Calm,7.0%,Sp. Def,Attack,,,,,,
-Abomasnow,157,stat_alignment,5,Relaxed,4.0%,Defense,Speed,,,,,,
+Abomasnow,157,stat_alignment,5,Relaxed,4.1%,Defense,Speed,,,,,,
 Abomasnow,157,stat_alignment,6,Adamant,2.5%,Attack,Sp. Atk,,,,,,
 Abomasnow,157,stat_alignment,7,Brave,1.4%,Attack,Speed,,,,,,
 Abomasnow,157,stat_alignment,8,Mild,1.2%,Sp. Atk,Defense,,,,,,
-Abomasnow,157,stat_alignment,9,Rash,1.2%,Sp. Atk,Sp. Def,,,,,,
+Abomasnow,157,stat_alignment,9,Rash,1.1%,Sp. Atk,Sp. Def,,,,,,
 Abomasnow,157,stat_alignment,10,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
 Abomasnow,157,stat_points,1,,17.4%,,,32,0,2,32,0,0
-Abomasnow,157,stat_points,2,,12.1%,,,32,2,0,32,0,0
+Abomasnow,157,stat_points,2,,12.2%,,,32,2,0,32,0,0
 Abomasnow,157,stat_points,3,,8.0%,,,32,0,0,32,2,0
 Abomasnow,157,stat_points,4,,6.2%,,,32,0,0,32,0,2
 Abomasnow,157,stat_points,5,,6.2%,,,32,0,32,0,2,0
@@ -48,6 +48,6 @@ Abomasnow,157,stat_points,6,,2.5%,,,32,0,32,2,0,0
 Abomasnow,157,stat_points,7,,2.4%,,,30,0,4,32,0,0
 Abomasnow,157,stat_points,8,,1.9%,,,32,1,19,14,0,0
 Abomasnow,157,stat_points,9,,1.8%,,,32,0,2,0,32,0
-Abomasnow,157,stat_points,10,,1.3%,,,26,0,8,32,0,0
+Abomasnow,157,stat_points,10,,1.3%,,,32,32,2,0,0,0
 Abomasnow,157,ability,1,Snow Warning,97.0%,,,,,,,,
 Abomasnow,157,ability,2,Soundproof,3.0%,,,,,,,,

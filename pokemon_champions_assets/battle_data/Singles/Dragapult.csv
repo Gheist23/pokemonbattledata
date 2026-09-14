@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Dragapult,60,move,1,Shadow Ball,49.0%,,,,,,,,
 Dragapult,60,move,2,Draco Meteor,44.2%,,,,,,,,
-Dragapult,60,move,3,Dragon Darts,41.7%,,,,,,,,
-Dragapult,60,move,4,U-turn,35.6%,,,,,,,,
+Dragapult,60,move,3,Dragon Darts,41.8%,,,,,,,,
+Dragapult,60,move,4,U-turn,35.5%,,,,,,,,
 Dragapult,60,move,5,Flamethrower,33.8%,,,,,,,,
 Dragapult,60,move,6,Thunderbolt,24.5%,,,,,,,,
-Dragapult,60,move,7,Phantom Force,23.6%,,,,,,,,
+Dragapult,60,move,7,Phantom Force,23.7%,,,,,,,,
 Dragapult,60,move,8,Will-O-Wisp,19.7%,,,,,,,,
-Dragapult,60,move,9,Sucker Punch,19.4%,,,,,,,,
+Dragapult,60,move,9,Sucker Punch,19.5%,,,,,,,,
 Dragapult,60,move,10,Curse,17.8%,,,,,,,,
 Dragapult,60,held_item,1,Life Orb,36.7%,,,,,,,,
 Dragapult,60,held_item,2,Choice Scarf,25.7%,,,,,,,,
-Dragapult,60,held_item,3,Light Clay,14.6%,,,,,,,,
+Dragapult,60,held_item,3,Light Clay,14.5%,,,,,,,,
 Dragapult,60,held_item,4,Focus Sash,14.0%,,,,,,,,
 Dragapult,60,held_item,5,Expert Belt,1.6%,,,,,,,,
 Dragapult,60,held_item,6,Dragon Fang,1.2%,,,,,,,,
@@ -30,9 +30,9 @@ Dragapult,60,teammate,8,Hippowdon,,,,,,,,,
 Dragapult,60,teammate,9,Charizard,,,,,,,,,
 Dragapult,60,teammate,10,Gyarados,,,,,,,,,
 Dragapult,60,stat_alignment,1,Timid,29.9%,Speed,Attack,,,,,,
-Dragapult,60,stat_alignment,2,Modest,21.3%,Sp. Atk,Attack,,,,,,
-Dragapult,60,stat_alignment,3,Jolly,15.1%,Speed,Sp. Atk,,,,,,
-Dragapult,60,stat_alignment,4,Adamant,15.1%,Attack,Sp. Atk,,,,,,
+Dragapult,60,stat_alignment,2,Modest,21.2%,Sp. Atk,Attack,,,,,,
+Dragapult,60,stat_alignment,3,Adamant,15.1%,Attack,Sp. Atk,,,,,,
+Dragapult,60,stat_alignment,4,Jolly,15.1%,Speed,Sp. Atk,,,,,,
 Dragapult,60,stat_alignment,5,Naive,8.4%,Speed,Sp. Def,,,,,,
 Dragapult,60,stat_alignment,6,Naughty,3.2%,Attack,Sp. Def,,,,,,
 Dragapult,60,stat_alignment,7,Rash,2.0%,Sp. Atk,Sp. Def,,,,,,
@@ -44,7 +44,7 @@ Dragapult,60,stat_points,2,,17.0%,,,2,32,0,0,0,32
 Dragapult,60,stat_points,3,,2.5%,,,0,0,2,32,0,32
 Dragapult,60,stat_points,4,,2.4%,,,0,32,2,0,0,32
 Dragapult,60,stat_points,5,,2.3%,,,32,0,2,0,0,32
-Dragapult,60,stat_points,6,,2.1%,,,32,0,1,0,1,32
+Dragapult,60,stat_points,6,,2.0%,,,32,0,1,0,1,32
 Dragapult,60,stat_points,7,,2.0%,,,0,32,0,0,2,32
 Dragapult,60,stat_points,8,,1.7%,,,0,32,0,2,0,32
 Dragapult,60,stat_points,9,,1.3%,,,0,0,0,32,0,32

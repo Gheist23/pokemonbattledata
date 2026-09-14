@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Squawkabilly-Yellow,192,move,1,Brave Bird,72.7%,,,,,,,,
-Squawkabilly-Yellow,192,move,2,Final Gambit,71.9%,,,,,,,,
+Squawkabilly-Yellow,192,move,2,Final Gambit,72.0%,,,,,,,,
 Squawkabilly-Yellow,192,move,3,Parting Shot,61.5%,,,,,,,,
-Squawkabilly-Yellow,192,move,4,U-turn,56.2%,,,,,,,,
-Squawkabilly-Yellow,192,move,5,Foul Play,19.8%,,,,,,,,
-Squawkabilly-Yellow,192,move,6,Double-Edge,17.8%,,,,,,,,
-Squawkabilly-Yellow,192,move,7,Quick Attack,17.8%,,,,,,,,
-Squawkabilly-Yellow,192,move,8,Taunt,14.9%,,,,,,,,
-Squawkabilly-Yellow,192,move,9,Tailwind,11.7%,,,,,,,,
+Squawkabilly-Yellow,192,move,4,U-turn,56.3%,,,,,,,,
+Squawkabilly-Yellow,192,move,5,Foul Play,20.0%,,,,,,,,
+Squawkabilly-Yellow,192,move,6,Double-Edge,17.7%,,,,,,,,
+Squawkabilly-Yellow,192,move,7,Quick Attack,17.7%,,,,,,,,
+Squawkabilly-Yellow,192,move,8,Taunt,14.8%,,,,,,,,
+Squawkabilly-Yellow,192,move,9,Tailwind,11.6%,,,,,,,,
 Squawkabilly-Yellow,192,move,10,Pounce,9.8%,,,,,,,,
-Squawkabilly-Yellow,192,held_item,1,Choice Scarf,81.3%,,,,,,,,
+Squawkabilly-Yellow,192,held_item,1,Choice Scarf,81.4%,,,,,,,,
 Squawkabilly-Yellow,192,held_item,2,Focus Sash,6.7%,,,,,,,,
 Squawkabilly-Yellow,192,held_item,3,Life Orb,3.6%,,,,,,,,
 Squawkabilly-Yellow,192,held_item,4,Quick Claw,0.5%,,,,,,,,
@@ -20,8 +20,8 @@ Squawkabilly-Yellow,192,held_item,8,Unknown Item 230,0.2%,,,,,,,,
 Squawkabilly-Yellow,192,held_item,9,Silk Scarf,0.2%,,,,,,,,
 Squawkabilly-Yellow,192,held_item,10,Sitrus Berry,0.1%,,,,,,,,
 Squawkabilly-Yellow,192,teammate,1,Salamence,,,,,,,,,
-Squawkabilly-Yellow,192,teammate,2,Basculegion,,,,,,,,,
-Squawkabilly-Yellow,192,teammate,3,Lucario,,,,,,,,,
+Squawkabilly-Yellow,192,teammate,2,Lucario,,,,,,,,,
+Squawkabilly-Yellow,192,teammate,3,Basculegion,,,,,,,,,
 Squawkabilly-Yellow,192,teammate,4,Golisopod,,,,,,,,,
 Squawkabilly-Yellow,192,teammate,5,Rillaboom,,,,,,,,,
 Squawkabilly-Yellow,192,teammate,6,Primarina,,,,,,,,,
@@ -29,8 +29,8 @@ Squawkabilly-Yellow,192,teammate,7,Garchomp,,,,,,,,,
 Squawkabilly-Yellow,192,teammate,8,Baxcalibur,,,,,,,,,
 Squawkabilly-Yellow,192,teammate,9,Cinderace,,,,,,,,,
 Squawkabilly-Yellow,192,teammate,10,Staraptor,,,,,,,,,
-Squawkabilly-Yellow,192,stat_alignment,1,Jolly,66.2%,Speed,Sp. Atk,,,,,,
-Squawkabilly-Yellow,192,stat_alignment,2,Adamant,24.3%,Attack,Sp. Atk,,,,,,
+Squawkabilly-Yellow,192,stat_alignment,1,Jolly,66.4%,Speed,Sp. Atk,,,,,,
+Squawkabilly-Yellow,192,stat_alignment,2,Adamant,24.2%,Attack,Sp. Atk,,,,,,
 Squawkabilly-Yellow,192,stat_alignment,3,Naughty,5.0%,Attack,Sp. Def,,,,,,
 Squawkabilly-Yellow,192,stat_alignment,4,Hasty,1.8%,Speed,Defense,,,,,,
 Squawkabilly-Yellow,192,stat_alignment,5,Lonely,0.6%,Attack,Defense,,,,,,
@@ -40,15 +40,15 @@ Squawkabilly-Yellow,192,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Squawkabilly-Yellow,192,stat_alignment,9,Impish,0.2%,Defense,Sp. Atk,,,,,,
 Squawkabilly-Yellow,192,stat_alignment,10,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Squawkabilly-Yellow,192,stat_points,1,,35.2%,,,32,2,0,0,0,32
-Squawkabilly-Yellow,192,stat_points,2,,13.1%,,,2,32,0,0,0,32
+Squawkabilly-Yellow,192,stat_points,2,,13.0%,,,2,32,0,0,0,32
 Squawkabilly-Yellow,192,stat_points,3,,11.6%,,,32,0,2,0,0,32
 Squawkabilly-Yellow,192,stat_points,4,,10.1%,,,0,32,0,0,2,32
-Squawkabilly-Yellow,192,stat_points,5,,6.2%,,,32,0,1,0,1,32
-Squawkabilly-Yellow,192,stat_points,6,,5.2%,,,32,0,0,0,0,32
+Squawkabilly-Yellow,192,stat_points,5,,6.3%,,,32,0,1,0,1,32
+Squawkabilly-Yellow,192,stat_points,6,,5.1%,,,32,0,0,0,0,32
 Squawkabilly-Yellow,192,stat_points,7,,4.3%,,,2,32,32,0,0,0
 Squawkabilly-Yellow,192,stat_points,8,,2.1%,,,0,32,0,0,0,32
 Squawkabilly-Yellow,192,stat_points,9,,2.1%,,,32,0,0,0,2,32
-Squawkabilly-Yellow,192,stat_points,10,,1.6%,,,0,32,2,0,0,32
-Squawkabilly-Yellow,192,ability,1,Intimidate,60.5%,,,,,,,,
-Squawkabilly-Yellow,192,ability,2,Hustle,22.9%,,,,,,,,
+Squawkabilly-Yellow,192,stat_points,10,,1.5%,,,0,32,2,0,0,32
+Squawkabilly-Yellow,192,ability,1,Intimidate,60.6%,,,,,,,,
+Squawkabilly-Yellow,192,ability,2,Hustle,22.8%,,,,,,,,
 Squawkabilly-Yellow,192,ability,3,Sheer Force,16.6%,,,,,,,,

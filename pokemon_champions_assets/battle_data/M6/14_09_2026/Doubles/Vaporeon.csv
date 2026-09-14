@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Vaporeon,173,move,1,Ice Beam,70.3%,,,,,,,,
-Vaporeon,173,move,2,Scald,48.6%,,,,,,,,
+Vaporeon,173,move,2,Scald,48.5%,,,,,,,,
 Vaporeon,173,move,3,Calm Mind,43.5%,,,,,,,,
-Vaporeon,173,move,4,Protect,38.0%,,,,,,,,
-Vaporeon,173,move,5,Detect,35.1%,,,,,,,,
+Vaporeon,173,move,4,Protect,37.9%,,,,,,,,
+Vaporeon,173,move,5,Detect,35.2%,,,,,,,,
 Vaporeon,173,move,6,Muddy Water,24.0%,,,,,,,,
 Vaporeon,173,move,7,Icy Wind,17.3%,,,,,,,,
 Vaporeon,173,move,8,Yawn,17.1%,,,,,,,,
@@ -11,9 +11,9 @@ Vaporeon,173,move,9,Weather Ball,16.7%,,,,,,,,
 Vaporeon,173,move,10,Acid Armor,13.3%,,,,,,,,
 Vaporeon,173,held_item,1,Leftovers,56.0%,,,,,,,,
 Vaporeon,173,held_item,2,Never-Melt Ice,9.5%,,,,,,,,
-Vaporeon,173,held_item,3,Mystic Water,7.4%,,,,,,,,
-Vaporeon,173,held_item,4,Sitrus Berry,6.1%,,,,,,,,
-Vaporeon,173,held_item,5,Choice Scarf,4.9%,,,,,,,,
+Vaporeon,173,held_item,3,Mystic Water,7.3%,,,,,,,,
+Vaporeon,173,held_item,4,Sitrus Berry,6.2%,,,,,,,,
+Vaporeon,173,held_item,5,Choice Scarf,4.8%,,,,,,,,
 Vaporeon,173,held_item,6,Scope Lens,4.0%,,,,,,,,
 Vaporeon,173,held_item,7,Life Orb,2.3%,,,,,,,,
 Vaporeon,173,held_item,8,Expert Belt,2.2%,,,,,,,,
@@ -29,14 +29,14 @@ Vaporeon,173,teammate,7,Salamence,,,,,,,,,
 Vaporeon,173,teammate,8,Golisopod,,,,,,,,,
 Vaporeon,173,teammate,9,Pelipper,,,,,,,,,
 Vaporeon,173,teammate,10,Dragonite,,,,,,,,,
-Vaporeon,173,stat_alignment,1,Bold,28.7%,Defense,Attack,,,,,,
-Vaporeon,173,stat_alignment,2,Modest,21.6%,Sp. Atk,Attack,,,,,,
-Vaporeon,173,stat_alignment,3,Timid,14.6%,Speed,Attack,,,,,,
-Vaporeon,173,stat_alignment,4,Relaxed,13.3%,Defense,Speed,,,,,,
-Vaporeon,173,stat_alignment,5,Calm,9.1%,Sp. Def,Attack,,,,,,
+Vaporeon,173,stat_alignment,1,Bold,28.6%,Defense,Attack,,,,,,
+Vaporeon,173,stat_alignment,2,Modest,21.7%,Sp. Atk,Attack,,,,,,
+Vaporeon,173,stat_alignment,3,Timid,14.5%,Speed,Attack,,,,,,
+Vaporeon,173,stat_alignment,4,Relaxed,13.2%,Defense,Speed,,,,,,
+Vaporeon,173,stat_alignment,5,Calm,9.2%,Sp. Def,Attack,,,,,,
 Vaporeon,173,stat_alignment,6,Quiet,6.1%,Sp. Atk,Speed,,,,,,
 Vaporeon,173,stat_alignment,7,Sassy,6.1%,Sp. Def,Speed,,,,,,
-Vaporeon,173,stat_alignment,8,Mild,0.5%,Sp. Atk,Defense,,,,,,
+Vaporeon,173,stat_alignment,8,Mild,0.6%,Sp. Atk,Defense,,,,,,
 Vaporeon,173,stat_points,1,,13.2%,,,32,0,32,0,2,0
 Vaporeon,173,stat_points,2,,12.7%,,,0,0,16,22,0,28
 Vaporeon,173,stat_points,3,,6.2%,,,1,0,32,32,1,0
@@ -44,7 +44,7 @@ Vaporeon,173,stat_points,4,,5.9%,,,32,0,0,25,9,0
 Vaporeon,173,stat_points,5,,4.3%,,,2,0,32,32,0,0
 Vaporeon,173,stat_points,6,,3.9%,,,0,0,2,32,0,32
 Vaporeon,173,stat_points,7,,3.0%,,,32,0,32,0,0,2
-Vaporeon,173,stat_points,8,,3.0%,,,32,0,2,32,0,0
+Vaporeon,173,stat_points,8,,2.9%,,,32,0,2,32,0,0
 Vaporeon,173,stat_points,9,,2.9%,,,32,0,32,2,0,0
 Vaporeon,173,stat_points,10,,2.6%,,,32,0,30,0,4,0
 Vaporeon,173,ability,1,Water Absorb,94.0%,,,,,,,,

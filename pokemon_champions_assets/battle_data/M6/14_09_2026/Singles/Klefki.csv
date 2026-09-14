@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Klefki,153,move,1,Reflect,75.5%,,,,,,,,
-Klefki,153,move,2,Light Screen,74.1%,,,,,,,,
-Klefki,153,move,3,Steel Beam,58.5%,,,,,,,,
+Klefki,153,move,2,Light Screen,74.0%,,,,,,,,
+Klefki,153,move,3,Steel Beam,58.6%,,,,,,,,
 Klefki,153,move,4,Thunder Wave,37.7%,,,,,,,,
 Klefki,153,move,5,Spikes,29.6%,,,,,,,,
 Klefki,153,move,6,Foul Play,23.3%,,,,,,,,
@@ -30,7 +30,7 @@ Klefki,153,teammate,8,Clefable,,,,,,,,,
 Klefki,153,teammate,9,Gyarados,,,,,,,,,
 Klefki,153,teammate,10,Gholdengo,,,,,,,,,
 Klefki,153,stat_alignment,1,Bold,59.9%,Defense,Attack,,,,,,
-Klefki,153,stat_alignment,2,Calm,19.3%,Sp. Def,Attack,,,,,,
+Klefki,153,stat_alignment,2,Calm,19.2%,Sp. Def,Attack,,,,,,
 Klefki,153,stat_alignment,3,Modest,13.0%,Sp. Atk,Attack,,,,,,
 Klefki,153,stat_alignment,4,Impish,2.5%,Defense,Sp. Atk,,,,,,
 Klefki,153,stat_alignment,5,Quiet,1.7%,Sp. Atk,Speed,,,,,,
@@ -39,8 +39,8 @@ Klefki,153,stat_alignment,7,Timid,0.8%,Speed,Attack,,,,,,
 Klefki,153,stat_alignment,8,Sassy,0.5%,Sp. Def,Speed,,,,,,
 Klefki,153,stat_alignment,9,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
 Klefki,153,stat_alignment,10,Brave,0.2%,Attack,Speed,,,,,,
-Klefki,153,stat_points,1,,26.5%,,,32,0,32,0,2,0
-Klefki,153,stat_points,2,,5.4%,,,32,0,0,32,2,0
+Klefki,153,stat_points,1,,26.6%,,,32,0,32,0,2,0
+Klefki,153,stat_points,2,,5.3%,,,32,0,0,32,2,0
 Klefki,153,stat_points,3,,4.7%,,,32,0,21,0,13,0
 Klefki,153,stat_points,4,,4.6%,,,32,0,2,0,32,0
 Klefki,153,stat_points,5,,4.1%,,,24,0,19,0,23,0

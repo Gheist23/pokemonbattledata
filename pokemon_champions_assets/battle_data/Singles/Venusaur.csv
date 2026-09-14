@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Venusaur,63,move,1,Earth Power,80.3%,,,,,,,,
 Venusaur,63,move,2,Giga Drain,62.5%,,,,,,,,
-Venusaur,63,move,3,Synthesis,57.1%,,,,,,,,
+Venusaur,63,move,3,Synthesis,57.0%,,,,,,,,
 Venusaur,63,move,4,Sludge Bomb,54.0%,,,,,,,,
 Venusaur,63,move,5,Leech Seed,44.4%,,,,,,,,
 Venusaur,63,move,6,Sludge Wave,27.7%,,,,,,,,
@@ -9,7 +9,7 @@ Venusaur,63,move,7,Weather Ball,18.0%,,,,,,,,
 Venusaur,63,move,8,Toxic,10.5%,,,,,,,,
 Venusaur,63,move,9,Sleep Powder,10.3%,,,,,,,,
 Venusaur,63,move,10,Growth,9.7%,,,,,,,,
-Venusaur,63,held_item,1,Venusaurite,72.5%,,,,,,,,
+Venusaur,63,held_item,1,Venusaurite,72.4%,,,,,,,,
 Venusaur,63,held_item,2,Life Orb,18.2%,,,,,,,,
 Venusaur,63,held_item,3,Leftovers,3.2%,,,,,,,,
 Venusaur,63,held_item,4,Sitrus Berry,1.2%,,,,,,,,
@@ -29,7 +29,7 @@ Venusaur,63,teammate,7,Baxcalibur,,,,,,,,,
 Venusaur,63,teammate,8,Archaludon,,,,,,,,,
 Venusaur,63,teammate,9,Umbreon,,,,,,,,,
 Venusaur,63,teammate,10,Golisopod,,,,,,,,,
-Venusaur,63,stat_alignment,1,Modest,39.0%,Sp. Atk,Attack,,,,,,
+Venusaur,63,stat_alignment,1,Modest,39.1%,Sp. Atk,Attack,,,,,,
 Venusaur,63,stat_alignment,2,Bold,28.9%,Defense,Attack,,,,,,
 Venusaur,63,stat_alignment,3,Calm,27.3%,Sp. Def,Attack,,,,,,
 Venusaur,63,stat_alignment,4,Timid,3.3%,Speed,Attack,,,,,,
@@ -39,7 +39,7 @@ Venusaur,63,stat_alignment,7,Relaxed,0.2%,Defense,Speed,,,,,,
 Venusaur,63,stat_alignment,8,Sassy,0.1%,Sp. Def,Speed,,,,,,
 Venusaur,63,stat_alignment,9,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
 Venusaur,63,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Venusaur,63,stat_points,1,,10.3%,,,32,0,32,0,2,0
+Venusaur,63,stat_points,1,,10.4%,,,32,0,32,0,2,0
 Venusaur,63,stat_points,2,,10.2%,,,2,0,0,32,0,32
 Venusaur,63,stat_points,3,,7.9%,,,32,0,2,0,32,0
 Venusaur,63,stat_points,4,,3.9%,,,32,0,0,32,0,2

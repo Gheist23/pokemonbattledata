@@ -1,21 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Polteageist,234,move,1,Shadow Ball,86.3%,,,,,,,,
-Polteageist,234,move,2,Shell Smash,62.2%,,,,,,,,
-Polteageist,234,move,3,Baton Pass,39.3%,,,,,,,,
-Polteageist,234,move,4,Protect,37.2%,,,,,,,,
-Polteageist,234,move,5,Strength Sap,37.2%,,,,,,,,
-Polteageist,234,move,6,Calm Mind,35.4%,,,,,,,,
-Polteageist,234,move,7,Confuse Ray,35.1%,,,,,,,,
-Polteageist,234,move,8,Stored Power,30.5%,,,,,,,,
-Polteageist,234,move,9,Dark Pulse,17.4%,,,,,,,,
-Polteageist,234,move,10,Giga Drain,6.7%,,,,,,,,
-Polteageist,234,held_item,1,Focus Sash,33.2%,,,,,,,,
-Polteageist,234,held_item,2,White Herb,25.0%,,,,,,,,
-Polteageist,234,held_item,3,Grassy Seed,2.7%,,,,,,,,
-Polteageist,234,held_item,4,Colbur Berry,1.8%,,,,,,,,
-Polteageist,234,held_item,5,Psychic Seed,1.5%,,,,,,,,
-Polteageist,234,held_item,6,Sitrus Berry,0.3%,,,,,,,,
-Polteageist,234,held_item,7,Leftovers,0.3%,,,,,,,,
+Polteageist,234,move,1,Shadow Ball,85.0%,,,,,,,,
+Polteageist,234,move,2,Shell Smash,62.5%,,,,,,,,
+Polteageist,234,move,3,Baton Pass,44.1%,,,,,,,,
+Polteageist,234,move,4,Protect,36.3%,,,,,,,,
+Polteageist,234,move,5,Strength Sap,33.1%,,,,,,,,
+Polteageist,234,move,6,Calm Mind,28.7%,,,,,,,,
+Polteageist,234,move,7,Confuse Ray,28.4%,,,,,,,,
+Polteageist,234,move,8,Stored Power,26.7%,,,,,,,,
+Polteageist,234,move,9,Giga Drain,15.0%,,,,,,,,
+Polteageist,234,move,10,Dark Pulse,14.0%,,,,,,,,
+Polteageist,234,held_item,1,White Herb,31.4%,,,,,,,,
+Polteageist,234,held_item,2,Focus Sash,27.2%,,,,,,,,
+Polteageist,234,held_item,3,Shell Bell,3.9%,,,,,,,,
+Polteageist,234,held_item,4,Life Orb,2.9%,,,,,,,,
+Polteageist,234,held_item,5,Grassy Seed,2.2%,,,,,,,,
+Polteageist,234,held_item,6,Colbur Berry,1.5%,,,,,,,,
+Polteageist,234,held_item,7,Psychic Seed,1.2%,,,,,,,,
+Polteageist,234,held_item,8,Sitrus Berry,1.0%,,,,,,,,
+Polteageist,234,held_item,9,Leftovers,0.2%,,,,,,,,
 Polteageist,234,teammate,1,Golisopod,,,,,,,,,
 Polteageist,234,teammate,2,Lucario,,,,,,,,,
 Polteageist,234,teammate,3,Wigglytuff,,,,,,,,,
@@ -26,19 +28,20 @@ Polteageist,234,teammate,7,Rillaboom,,,,,,,,,
 Polteageist,234,teammate,8,Baxcalibur,,,,,,,,,
 Polteageist,234,teammate,9,Ninetales-Alola,,,,,,,,,
 Polteageist,234,teammate,10,Typhlosion,,,,,,,,,
-Polteageist,234,stat_alignment,1,Modest,53.7%,Sp. Atk,Attack,,,,,,
-Polteageist,234,stat_alignment,2,Timid,32.0%,Speed,Attack,,,,,,
-Polteageist,234,stat_alignment,3,Bold,13.7%,Defense,Attack,,,,,,
-Polteageist,234,stat_alignment,4,Calm,0.6%,Sp. Def,Attack,,,,,,
-Polteageist,234,stat_points,1,,35.1%,,,0,0,0,32,32,2
-Polteageist,234,stat_points,2,,22.3%,,,2,0,0,32,0,32
-Polteageist,234,stat_points,3,,7.6%,,,32,0,0,4,0,30
-Polteageist,234,stat_points,4,,6.4%,,,4,0,0,32,0,30
-Polteageist,234,stat_points,5,,6.1%,,,0,0,2,32,0,32
-Polteageist,234,stat_points,6,,5.2%,,,32,0,15,0,0,19
-Polteageist,234,stat_points,7,,4.6%,,,32,0,22,0,0,12
-Polteageist,234,stat_points,8,,3.7%,,,2,0,32,0,0,32
-Polteageist,234,stat_points,9,,3.4%,,,32,0,32,0,0,2
-Polteageist,234,stat_points,10,,1.8%,,,32,0,32,0,2,0
-Polteageist,234,ability,1,Weak Armor,76.5%,,,,,,,,
-Polteageist,234,ability,2,Cursed Body,23.5%,,,,,,,,
+Polteageist,234,stat_alignment,1,Modest,49.0%,Sp. Atk,Attack,,,,,,
+Polteageist,234,stat_alignment,2,Timid,26.5%,Speed,Attack,,,,,,
+Polteageist,234,stat_alignment,3,Bold,15.9%,Defense,Attack,,,,,,
+Polteageist,234,stat_alignment,4,Mild,6.9%,Sp. Atk,Defense,,,,,,
+Polteageist,234,stat_alignment,5,Calm,1.7%,Sp. Def,Attack,,,,,,
+Polteageist,234,stat_points,1,,28.4%,,,0,0,0,32,32,2
+Polteageist,234,stat_points,2,,22.1%,,,2,0,0,32,0,32
+Polteageist,234,stat_points,3,,10.5%,,,0,0,2,32,0,32
+Polteageist,234,stat_points,4,,6.1%,,,32,0,0,4,0,30
+Polteageist,234,stat_points,5,,5.6%,,,4,0,0,32,0,30
+Polteageist,234,stat_points,6,,4.2%,,,32,0,15,0,0,19
+Polteageist,234,stat_points,7,,4.2%,,,32,0,32,0,0,2
+Polteageist,234,stat_points,8,,3.7%,,,32,0,22,0,0,12
+Polteageist,234,stat_points,9,,3.2%,,,0,0,2,32,32,0
+Polteageist,234,stat_points,10,,2.9%,,,2,0,32,0,0,32
+Polteageist,234,ability,1,Weak Armor,68.1%,,,,,,,,
+Polteageist,234,ability,2,Cursed Body,31.9%,,,,,,,,

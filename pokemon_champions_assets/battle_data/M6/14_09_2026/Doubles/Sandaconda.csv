@@ -1,50 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sandaconda,233,move,1,Earthquake,62.5%,,,,,,,,
-Sandaconda,233,move,2,Glare,59.9%,,,,,,,,
-Sandaconda,233,move,3,Protect,51.4%,,,,,,,,
-Sandaconda,233,move,4,Minimize,41.8%,,,,,,,,
-Sandaconda,233,move,5,Thunder Fang,41.8%,,,,,,,,
-Sandaconda,233,move,6,Rock Slide,33.2%,,,,,,,,
-Sandaconda,233,move,7,High Horsepower,20.7%,,,,,,,,
-Sandaconda,233,move,8,Iron Head,14.2%,,,,,,,,
-Sandaconda,233,move,9,Coil,12.8%,,,,,,,,
-Sandaconda,233,move,10,Body Press,11.9%,,,,,,,,
-Sandaconda,233,held_item,1,Choice Scarf,38.9%,,,,,,,,
-Sandaconda,233,held_item,2,Bright Powder,20.5%,,,,,,,,
-Sandaconda,233,held_item,3,Sitrus Berry,14.2%,,,,,,,,
-Sandaconda,233,held_item,4,Quick Claw,9.7%,,,,,,,,
-Sandaconda,233,held_item,5,Unknown Item 544,8.2%,,,,,,,,
-Sandaconda,233,held_item,6,Leftovers,3.4%,,,,,,,,
-Sandaconda,233,held_item,7,Unknown Item 278,2.0%,,,,,,,,
-Sandaconda,233,held_item,8,Rocky Helmet,1.4%,,,,,,,,
-Sandaconda,233,held_item,9,Unknown Item 188,0.9%,,,,,,,,
-Sandaconda,233,held_item,10,Unknown Item 185,0.3%,,,,,,,,
-Sandaconda,233,teammate,1,Persian-Alola,,,,,,,,,
-Sandaconda,233,teammate,2,Incineroar,,,,,,,,,
-Sandaconda,233,teammate,3,Salamence,,,,,,,,,
-Sandaconda,233,teammate,4,Delphox,,,,,,,,,
-Sandaconda,233,teammate,5,Mamoswine,,,,,,,,,
-Sandaconda,233,teammate,6,Tyranitar,,,,,,,,,
-Sandaconda,233,teammate,7,Golisopod,,,,,,,,,
-Sandaconda,233,teammate,8,Empoleon,,,,,,,,,
-Sandaconda,233,teammate,9,Garchomp,,,,,,,,,
-Sandaconda,233,teammate,10,Manectric,,,,,,,,,
-Sandaconda,233,stat_alignment,1,Jolly,50.3%,Speed,Sp. Atk,,,,,,
-Sandaconda,233,stat_alignment,2,Careful,31.5%,Sp. Def,Sp. Atk,,,,,,
-Sandaconda,233,stat_alignment,3,Impish,13.9%,Defense,Sp. Atk,,,,,,
-Sandaconda,233,stat_alignment,4,Sassy,3.4%,Sp. Def,Speed,,,,,,
-Sandaconda,233,stat_alignment,5,Adamant,0.6%,Attack,Sp. Atk,,,,,,
-Sandaconda,233,stat_alignment,6,Brave,0.3%,Attack,Speed,,,,,,
-Sandaconda,233,stat_points,1,,38.9%,,,2,32,0,0,0,32
-Sandaconda,233,stat_points,2,,11.1%,,,0,32,2,0,0,32
-Sandaconda,233,stat_points,3,,8.8%,,,29,0,5,0,32,0
-Sandaconda,233,stat_points,4,,8.8%,,,32,0,0,0,32,2
-Sandaconda,233,stat_points,5,,8.2%,,,24,0,0,0,32,10
-Sandaconda,233,stat_points,6,,5.1%,,,0,32,2,0,32,0
-Sandaconda,233,stat_points,7,,4.0%,,,2,32,11,0,21,0
-Sandaconda,233,stat_points,8,,3.4%,,,32,0,2,0,32,0
-Sandaconda,233,stat_points,9,,2.8%,,,8,0,28,0,30,0
-Sandaconda,233,stat_points,10,,2.3%,,,32,0,32,0,2,0
-Sandaconda,233,ability,1,Sand Spit,61.6%,,,,,,,,
-Sandaconda,233,ability,2,Sand Veil,37.5%,,,,,,,,
-Sandaconda,233,ability,3,Shed Skin,0.9%,,,,,,,,
+Sandaconda,229,move,1,Earthquake,65.2%,,,,,,,,
+Sandaconda,229,move,2,Glare,59.9%,,,,,,,,
+Sandaconda,229,move,3,Protect,53.8%,,,,,,,,
+Sandaconda,229,move,4,Thunder Fang,44.8%,,,,,,,,
+Sandaconda,229,move,5,Minimize,40.6%,,,,,,,,
+Sandaconda,229,move,6,Rock Slide,31.8%,,,,,,,,
+Sandaconda,229,move,7,High Horsepower,17.9%,,,,,,,,
+Sandaconda,229,move,8,Body Press,14.3%,,,,,,,,
+Sandaconda,229,move,9,Iron Head,12.3%,,,,,,,,
+Sandaconda,229,move,10,Sandstorm,11.9%,,,,,,,,
+Sandaconda,229,held_item,1,Choice Scarf,42.6%,,,,,,,,
+Sandaconda,229,held_item,2,Bright Powder,21.3%,,,,,,,,
+Sandaconda,229,held_item,3,Sitrus Berry,11.2%,,,,,,,,
+Sandaconda,229,held_item,4,Quick Claw,10.1%,,,,,,,,
+Sandaconda,229,held_item,5,Binding Band,6.7%,,,,,,,,
+Sandaconda,229,held_item,6,Leftovers,2.9%,,,,,,,,
+Sandaconda,229,held_item,7,Iron Ball,2.5%,,,,,,,,
+Sandaconda,229,held_item,8,Rocky Helmet,1.1%,,,,,,,,
+Sandaconda,229,held_item,9,Yache Berry,0.7%,,,,,,,,
+Sandaconda,229,held_item,10,Eject Button,0.4%,,,,,,,,
+Sandaconda,229,teammate,1,Persian-Alola,,,,,,,,,
+Sandaconda,229,teammate,2,Incineroar,,,,,,,,,
+Sandaconda,229,teammate,3,Salamence,,,,,,,,,
+Sandaconda,229,teammate,4,Delphox,,,,,,,,,
+Sandaconda,229,teammate,5,Mamoswine,,,,,,,,,
+Sandaconda,229,teammate,6,Tyranitar,,,,,,,,,
+Sandaconda,229,teammate,7,Garchomp,,,,,,,,,
+Sandaconda,229,teammate,8,Golisopod,,,,,,,,,
+Sandaconda,229,teammate,9,Empoleon,,,,,,,,,
+Sandaconda,229,teammate,10,Manectric,,,,,,,,,
+Sandaconda,229,stat_alignment,1,Jolly,54.3%,Speed,Sp. Atk,,,,,,
+Sandaconda,229,stat_alignment,2,Careful,28.3%,Sp. Def,Sp. Atk,,,,,,
+Sandaconda,229,stat_alignment,3,Impish,12.1%,Defense,Sp. Atk,,,,,,
+Sandaconda,229,stat_alignment,4,Sassy,3.6%,Sp. Def,Speed,,,,,,
+Sandaconda,229,stat_alignment,5,Adamant,0.7%,Attack,Sp. Atk,,,,,,
+Sandaconda,229,stat_alignment,6,Relaxed,0.7%,Defense,Speed,,,,,,
+Sandaconda,229,stat_alignment,7,Hasty,0.2%,Speed,Defense,,,,,,
+Sandaconda,229,stat_alignment,8,Brave,0.2%,Attack,Speed,,,,,,
+Sandaconda,229,stat_points,1,,42.6%,,,2,32,0,0,0,32
+Sandaconda,229,stat_points,2,,11.2%,,,0,32,2,0,0,32
+Sandaconda,229,stat_points,3,,7.2%,,,32,0,0,0,32,2
+Sandaconda,229,stat_points,4,,7.0%,,,29,0,5,0,32,0
+Sandaconda,229,stat_points,5,,6.5%,,,24,0,0,0,32,10
+Sandaconda,229,stat_points,6,,5.2%,,,0,32,2,0,32,0
+Sandaconda,229,stat_points,7,,3.1%,,,2,32,11,0,21,0
+Sandaconda,229,stat_points,8,,2.7%,,,32,0,2,0,32,0
+Sandaconda,229,stat_points,9,,2.7%,,,32,0,32,0,2,0
+Sandaconda,229,stat_points,10,,2.5%,,,2,0,32,0,32,0
+Sandaconda,229,ability,1,Sand Spit,63.0%,,,,,,,,
+Sandaconda,229,ability,2,Sand Veil,36.3%,,,,,,,,
+Sandaconda,229,ability,3,Shed Skin,0.7%,,,,,,,,

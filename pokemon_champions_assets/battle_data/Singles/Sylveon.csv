@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sylveon,31,move,1,Hyper Voice,98.6%,,,,,,,,
-Sylveon,31,move,2,Yawn,82.9%,,,,,,,,
-Sylveon,31,move,3,Wish,69.4%,,,,,,,,
-Sylveon,31,move,4,Protect,64.5%,,,,,,,,
-Sylveon,31,move,5,Mystical Fire,30.4%,,,,,,,,
-Sylveon,31,move,6,Quick Attack,20.8%,,,,,,,,
-Sylveon,31,move,7,Calm Mind,6.8%,,,,,,,,
-Sylveon,31,move,8,Hyper Beam,5.9%,,,,,,,,
-Sylveon,31,move,9,Detect,5.5%,,,,,,,,
+Sylveon,31,move,1,Hyper Voice,98.5%,,,,,,,,
+Sylveon,31,move,2,Yawn,82.1%,,,,,,,,
+Sylveon,31,move,3,Wish,68.5%,,,,,,,,
+Sylveon,31,move,4,Protect,64.0%,,,,,,,,
+Sylveon,31,move,5,Mystical Fire,31.6%,,,,,,,,
+Sylveon,31,move,6,Quick Attack,21.4%,,,,,,,,
+Sylveon,31,move,7,Calm Mind,7.0%,,,,,,,,
+Sylveon,31,move,8,Hyper Beam,6.0%,,,,,,,,
+Sylveon,31,move,9,Detect,5.4%,,,,,,,,
 Sylveon,31,move,10,Shadow Ball,5.0%,,,,,,,,
-Sylveon,31,held_item,1,Leftovers,70.0%,,,,,,,,
+Sylveon,31,held_item,1,Leftovers,69.2%,,,,,,,,
 Sylveon,31,held_item,2,Fairy Feather,12.0%,,,,,,,,
-Sylveon,31,held_item,3,Sitrus Berry,5.9%,,,,,,,,
-Sylveon,31,held_item,4,Life Orb,5.9%,,,,,,,,
+Sylveon,31,held_item,3,Life Orb,6.4%,,,,,,,,
+Sylveon,31,held_item,4,Sitrus Berry,6.0%,,,,,,,,
 Sylveon,31,held_item,5,Rocky Helmet,1.4%,,,,,,,,
 Sylveon,31,held_item,6,Babiri Berry,1.1%,,,,,,,,
-Sylveon,31,held_item,7,Expert Belt,1.0%,,,,,,,,
-Sylveon,31,held_item,8,Unknown Item 157,0.6%,,,,,,,,
+Sylveon,31,held_item,7,Expert Belt,1.1%,,,,,,,,
+Sylveon,31,held_item,8,Lum Berry,0.6%,,,,,,,,
 Sylveon,31,held_item,9,Chesto Berry,0.4%,,,,,,,,
 Sylveon,31,held_item,10,Focus Sash,0.3%,,,,,,,,
 Sylveon,31,teammate,1,Garchomp,,,,,,,,,
@@ -25,29 +25,29 @@ Sylveon,31,teammate,3,Golisopod,,,,,,,,,
 Sylveon,31,teammate,4,Lucario,,,,,,,,,
 Sylveon,31,teammate,5,Gholdengo,,,,,,,,,
 Sylveon,31,teammate,6,Hippowdon,,,,,,,,,
-Sylveon,31,teammate,7,Archaludon,,,,,,,,,
-Sylveon,31,teammate,8,Baxcalibur,,,,,,,,,
+Sylveon,31,teammate,7,Baxcalibur,,,,,,,,,
+Sylveon,31,teammate,8,Archaludon,,,,,,,,,
 Sylveon,31,teammate,9,Gyarados,,,,,,,,,
 Sylveon,31,teammate,10,Rotom-Wash,,,,,,,,,
-Sylveon,31,stat_alignment,1,Bold,61.1%,Defense,Attack,,,,,,
-Sylveon,31,stat_alignment,2,Modest,26.6%,Sp. Atk,Attack,,,,,,
+Sylveon,31,stat_alignment,1,Bold,60.3%,Defense,Attack,,,,,,
+Sylveon,31,stat_alignment,2,Modest,27.4%,Sp. Atk,Attack,,,,,,
 Sylveon,31,stat_alignment,3,Calm,6.9%,Sp. Def,Attack,,,,,,
 Sylveon,31,stat_alignment,4,Quiet,2.5%,Sp. Atk,Speed,,,,,,
-Sylveon,31,stat_alignment,5,Relaxed,1.7%,Defense,Speed,,,,,,
+Sylveon,31,stat_alignment,5,Relaxed,1.6%,Defense,Speed,,,,,,
 Sylveon,31,stat_alignment,6,Timid,0.4%,Speed,Attack,,,,,,
-Sylveon,31,stat_alignment,7,Sassy,0.3%,Sp. Def,Speed,,,,,,
+Sylveon,31,stat_alignment,7,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Sylveon,31,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Sylveon,31,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Sylveon,31,stat_alignment,10,Docile,0.0%,,,,,,,,
-Sylveon,31,stat_points,1,,20.1%,,,32,0,32,0,2,0
-Sylveon,31,stat_points,2,,8.3%,,,32,0,32,0,0,2
-Sylveon,31,stat_points,3,,6.5%,,,32,0,32,0,1,1
+Sylveon,31,stat_alignment,10,Gentle,0.0%,Sp. Def,Defense,,,,,,
+Sylveon,31,stat_points,1,,19.7%,,,32,0,32,0,2,0
+Sylveon,31,stat_points,2,,8.1%,,,32,0,32,0,0,2
+Sylveon,31,stat_points,3,,6.3%,,,32,0,32,0,1,1
 Sylveon,31,stat_points,4,,5.6%,,,32,0,32,2,0,0
-Sylveon,31,stat_points,5,,3.1%,,,31,0,32,0,3,0
-Sylveon,31,stat_points,6,,3.0%,,,31,0,32,2,0,1
-Sylveon,31,stat_points,7,,3.0%,,,32,0,0,32,0,2
-Sylveon,31,stat_points,8,,2.6%,,,31,0,25,0,7,3
+Sylveon,31,stat_points,5,,3.1%,,,32,0,0,32,0,2
+Sylveon,31,stat_points,6,,3.1%,,,31,0,32,0,3,0
+Sylveon,31,stat_points,7,,2.9%,,,31,0,32,2,0,1
+Sylveon,31,stat_points,8,,2.8%,,,31,0,25,0,7,3
 Sylveon,31,stat_points,9,,2.4%,,,32,0,2,32,0,0
-Sylveon,31,stat_points,10,,2.0%,,,32,0,31,0,0,3
+Sylveon,31,stat_points,10,,1.9%,,,32,0,31,0,0,3
 Sylveon,31,ability,1,Pixilate,99.2%,,,,,,,,
 Sylveon,31,ability,2,Cute Charm,0.8%,,,,,,,,

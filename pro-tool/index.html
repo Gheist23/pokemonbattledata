@@ -53,7 +53,7 @@
           {
             "@type": "Question",
             "name": "What does the Pro plan add?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Pro reads the running game for you. Live Mode recognises the opponent team from team preview and keeps lead and back suggestions current while you play. It also adds Team Evaluation with critical threat scoring, Auto Build Team, Top Lead simulation on demand and Pokemon Box scanning." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Pro reads the running game for you. Live Mode recognises the opponent team from team preview and predicts each Pokemon's moves, ability, held item, stat point distribution and nature from the tournament teams the tool ships with, the usage data for the current regulation and extra field-condition calculations on top, then keeps lead and back suggestions current while you play. It also adds Team Evaluation with critical threat scoring, Auto Build Team, Top Lead simulation on demand and Pokemon Box scanning." }
           },
           {
             "@type": "Question",
@@ -100,6 +100,7 @@
         <p class="eyebrow">Desktop companion for Pokemon Champions</p>
         <h1 id="toolTitle">Champions Battle Data Tool</h1>
         <p class="hero-text">Team preview gives you about a minute to read six Pokemon you have never seen together. This tool does that part for you: both teams side by side, who resists what, who outspeeds whom, the moves you have to play around, and a lead that has been tested rather than picked on a feeling. With Pro it does all of it live, while the game is running.</p>
+        <p class="hero-text">Team preview shows sprites and nothing else, so the tool works the rest out. Every opponent Pokemon is filled in with its moves, held item, ability, nature and stat spread — matched against hundreds of tournament teams the tool ships with, backed by the usage data for the current regulation, and finished with calculations that check the result against the opponent's own weather and terrain.</p>
         <div class="tool-cta-row">
           <a class="primary-button" href="/pro-tool/plans/">Choose your plan</a>
           <a class="ghost-button" href="#what-it-does">See what it does</a>
@@ -171,6 +172,10 @@
           <h2>It watches the game and keeps up, so you do not have to</h2>
           <p>This is the part Pro exists for. The game goes into the tool as a video feed and Live Mode reads it as it happens. The opponent's team is recognised straight from team preview, so nothing has to be typed in, and the lead and back suggestions recalculate on their own as the picture changes.</p>
           <p>You spend team preview reading a recommendation instead of racing the timer to enter six Pokemon, and the matchup, the speed order and the suggestion stay current for the rest of the game without you touching anything.</p>
+          <h3>What it fills in behind the six sprites</h3>
+          <p>Team preview shows sprites and nothing else, so everything underneath has to be worked out. Live Mode predicts the moves, ability, held item, stat point distribution and nature for every opponent Pokemon from three things at once: the tournament teams the tool already ships with, the usage data for the current regulation, and a set of extra calculations on top.</p>
+          <p>The tournament teams come first. When at least five of the six Pokemon it reads match a team in that library, it is the same team with at most one slot swapped, so that team's own sets are used instead of the usage averages — including the nature, with the stat point distribution real players used alongside it. The slot the team does not cover falls back to usage data.</p>
+          <p>The extra calculations then read the opponent's own field conditions. A Pokemon standing next to a rain setter is predicted with the moves that need rain, a terrain seed is only predicted on a team that sets that terrain, and an ability that does nothing without weather is not predicted onto a team that has none.</p>
           <h3>Getting the game into the tool</h3>
           <ul class="tool-list tool-list-single">
             <li><strong>Android.</strong> Connect the phone by USB and the tool mirrors it. You can play the game inside the app itself, on the same screen as your data, with no extra hardware at all.</li>
@@ -245,6 +250,9 @@
 
         <dt>What do I need to get the game into the tool?</dt>
         <dd>On Android, a USB cable. The tool mirrors the phone and you can play inside the app itself. On Switch you need a capture card between the console and the PC, and a basic HDMI capture stick at around ten dollars does the job.</dd>
+
+        <dt>Team preview only shows sprites. Where do the opponent's moves come from?</dt>
+        <dd>Live Mode predicts them. It matches the six Pokemon it reads against the tournament teams shipped with the tool, and when at least five of six match, that team's own moves, ability, item and nature are used, with the stat point distribution recorded alongside that nature. Anything the matched team does not cover falls back to the usage data for the current regulation, and a set of extra calculations then checks it against the opponent's own field conditions, so a move that needs rain is only predicted on a team that sets rain.</dd>
 
         <dt>Does this interact with the game in any way?</dt>
         <dd>No. Streaming and Live Mode both read a video feed. The tool sends no input to the game, reads no game memory and modifies no game files. Everything runs locally.</dd>

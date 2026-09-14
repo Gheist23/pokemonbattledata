@@ -508,7 +508,11 @@ select:focus-visible { border-color: rgba(88,220,196,0.66); box-shadow: 0 0 0 4p
   border-radius: 50%;
   background: radial-gradient(circle, rgba(88,220,196,0.14), rgba(133,167,255,0.08) 58%, transparent 59%);
 }
-.pokemon-art img { position: relative; z-index: 1; width: min(184px, 82%); height: 164px; object-fit: contain; filter: drop-shadow(0 18px 22px rgba(0,0,0,0.42)); }
+/* The artwork is 128x128; blowing it up to fill a 164px box only made it soft.
+   The box is its own size now, so it is drawn 1:1. The height stays fixed
+   rather than `auto`: these cards lazy-load, and an image that has not arrived
+   yet has no intrinsic height to lay out from. */
+.pokemon-art img { position: relative; z-index: 1; width: min(128px, 82%); height: 128px; object-fit: contain; filter: drop-shadow(0 18px 22px rgba(0,0,0,0.42)); }
 .pokemon-fallback {
   position: relative;
   z-index: 1;
@@ -7948,14 +7952,22 @@ body.page-api::before {
 
 /* --- sprites on the generated pages ------------------------------------- */
 
-/* Every sprite is a pixel-art PNG shown at or near its native size, so it must
-   not be smoothed by the browser's default scaling. */
+/* These are not pixel art: a Pokemon sprite carries ~4,500 distinct colours and
+   an item icon ~550, so they are anti-aliased renders. `image-rendering:
+   pixelated` on them was nearest-neighbour *downsampling* -- a 64px type icon
+   shown at 18px kept roughly one pixel in thirteen -- which is what made the
+   rankings and item pages look rough. The browser's own filtering is the right
+   answer for anything shown smaller than it is drawn.
+
+   Type icons are the exception: 76 colours, flat shapes, and the largest
+   reduction of the three. They are sized to an exact quarter of their 64px
+   source below so the reduction lands on whole pixels. */
 .static-mini-sprite,
 .static-item-icon,
 .static-type-icon,
 .static-hero-item,
 .static-hero-sprite {
-  image-rendering: pixelated;
+  image-rendering: auto;
   flex: none;
 }
 
@@ -7998,8 +8010,9 @@ body.page-api::before {
 }
 
 .static-type-icon {
-  width: 18px;
-  height: 18px;
+  /* 64px source, shown at exactly a quarter of it. */
+  width: 16px;
+  height: 16px;
 }
 
 .static-hero {
@@ -8024,8 +8037,9 @@ body.page-api::before {
 }
 
 .static-hero-item {
-  width: 64px;
-  height: 64px;
+  /* Its own 40px, rather than blown up to 64 and softened for the privilege. */
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 

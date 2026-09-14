@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scolipede,179,move,1,Protect,82.7%,,,,,,,,
+Scolipede,179,move,1,Protect,83.0%,,,,,,,,
 Scolipede,179,move,2,Leech Life,67.9%,,,,,,,,
-Scolipede,179,move,3,Poison Jab,56.0%,,,,,,,,
-Scolipede,179,move,4,Swords Dance,49.1%,,,,,,,,
-Scolipede,179,move,5,Rock Slide,29.7%,,,,,,,,
-Scolipede,179,move,6,Megahorn,20.5%,,,,,,,,
+Scolipede,179,move,3,Poison Jab,56.3%,,,,,,,,
+Scolipede,179,move,4,Swords Dance,49.0%,,,,,,,,
+Scolipede,179,move,5,Rock Slide,29.4%,,,,,,,,
+Scolipede,179,move,6,Megahorn,20.8%,,,,,,,,
 Scolipede,179,move,7,Gunk Shot,20.3%,,,,,,,,
-Scolipede,179,move,8,Earthquake,19.5%,,,,,,,,
-Scolipede,179,move,9,Steel Roller,13.7%,,,,,,,,
-Scolipede,179,move,10,Stomping Tantrum,13.4%,,,,,,,,
+Scolipede,179,move,8,Earthquake,19.2%,,,,,,,,
+Scolipede,179,move,9,Stomping Tantrum,13.8%,,,,,,,,
+Scolipede,179,move,10,Steel Roller,13.5%,,,,,,,,
 Scolipede,179,held_item,1,Scolipite,63.4%,,,,,,,,
-Scolipede,179,held_item,2,Life Orb,15.6%,,,,,,,,
-Scolipede,179,held_item,3,Sitrus Berry,6.2%,,,,,,,,
-Scolipede,179,held_item,4,Expert Belt,4.5%,,,,,,,,
-Scolipede,179,held_item,5,Focus Sash,4.3%,,,,,,,,
-Scolipede,179,held_item,6,Wide Lens,2.0%,,,,,,,,
+Scolipede,179,held_item,2,Life Orb,15.9%,,,,,,,,
+Scolipede,179,held_item,3,Sitrus Berry,6.1%,,,,,,,,
+Scolipede,179,held_item,4,Expert Belt,4.4%,,,,,,,,
+Scolipede,179,held_item,5,Focus Sash,4.2%,,,,,,,,
+Scolipede,179,held_item,6,Wide Lens,1.9%,,,,,,,,
 Scolipede,179,held_item,7,Unknown Item 193,1.8%,,,,,,,,
 Scolipede,179,held_item,8,Occa Berry,0.6%,,,,,,,,
 Scolipede,179,held_item,9,Unknown Item 245,0.5%,,,,,,,,
@@ -25,30 +25,30 @@ Scolipede,179,teammate,3,Golisopod,,,,,,,,,
 Scolipede,179,teammate,4,Incineroar,,,,,,,,,
 Scolipede,179,teammate,5,Farigiraf,,,,,,,,,
 Scolipede,179,teammate,6,Milotic,,,,,,,,,
-Scolipede,179,teammate,7,Sirfetch'd,,,,,,,,,
-Scolipede,179,teammate,8,Garchomp,,,,,,,,,
-Scolipede,179,teammate,9,Pincurchin,,,,,,,,,
-Scolipede,179,teammate,10,Sneasler,,,,,,,,,
-Scolipede,179,stat_alignment,1,Adamant,59.8%,Attack,Sp. Atk,,,,,,
-Scolipede,179,stat_alignment,2,Jolly,20.2%,Speed,Sp. Atk,,,,,,
+Scolipede,179,teammate,7,Pincurchin,,,,,,,,,
+Scolipede,179,teammate,8,Sneasler,,,,,,,,,
+Scolipede,179,teammate,9,Sirfetch'd,,,,,,,,,
+Scolipede,179,teammate,10,Garchomp,,,,,,,,,
+Scolipede,179,stat_alignment,1,Adamant,60.3%,Attack,Sp. Atk,,,,,,
+Scolipede,179,stat_alignment,2,Jolly,20.0%,Speed,Sp. Atk,,,,,,
 Scolipede,179,stat_alignment,3,Careful,7.7%,Sp. Def,Sp. Atk,,,,,,
-Scolipede,179,stat_alignment,4,Sassy,7.0%,Sp. Def,Speed,,,,,,
+Scolipede,179,stat_alignment,4,Sassy,6.9%,Sp. Def,Speed,,,,,,
 Scolipede,179,stat_alignment,5,Brave,2.2%,Attack,Speed,,,,,,
 Scolipede,179,stat_alignment,6,Naughty,1.2%,Attack,Sp. Def,,,,,,
 Scolipede,179,stat_alignment,7,Impish,1.2%,Defense,Sp. Atk,,,,,,
 Scolipede,179,stat_alignment,8,Gentle,0.3%,Sp. Def,Defense,,,,,,
 Scolipede,179,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,
 Scolipede,179,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
-Scolipede,179,stat_points,1,,19.1%,,,2,32,0,0,0,32
-Scolipede,179,stat_points,2,,7.6%,,,24,20,0,0,0,22
+Scolipede,179,stat_points,1,,19.7%,,,2,32,0,0,0,32
+Scolipede,179,stat_points,2,,7.4%,,,24,20,0,0,0,22
 Scolipede,179,stat_points,3,,7.4%,,,32,6,0,0,0,28
-Scolipede,179,stat_points,4,,7.1%,,,14,32,0,0,20,0
+Scolipede,179,stat_points,4,,7.3%,,,14,32,0,0,20,0
 Scolipede,179,stat_points,5,,4.6%,,,0,32,0,0,2,32
-Scolipede,179,stat_points,6,,4.6%,,,0,32,16,0,18,0
-Scolipede,179,stat_points,7,,4.1%,,,11,32,1,0,21,0
-Scolipede,179,stat_points,8,,3.1%,,,32,32,0,0,0,2
+Scolipede,179,stat_points,6,,4.5%,,,0,32,16,0,18,0
+Scolipede,179,stat_points,7,,4.0%,,,11,32,1,0,21,0
+Scolipede,179,stat_points,8,,3.0%,,,32,32,0,0,0,2
 Scolipede,179,stat_points,9,,2.8%,,,1,32,12,0,21,0
-Scolipede,179,stat_points,10,,2.7%,,,32,0,0,0,32,0
-Scolipede,179,ability,1,Speed Boost,87.9%,,,,,,,,
-Scolipede,179,ability,2,Swarm,7.3%,,,,,,,,
-Scolipede,179,ability,3,Poison Point,4.8%,,,,,,,,
+Scolipede,179,stat_points,10,,2.8%,,,32,32,0,0,2,0
+Scolipede,179,ability,1,Speed Boost,88.1%,,,,,,,,
+Scolipede,179,ability,2,Swarm,7.2%,,,,,,,,
+Scolipede,179,ability,3,Poison Point,4.7%,,,,,,,,

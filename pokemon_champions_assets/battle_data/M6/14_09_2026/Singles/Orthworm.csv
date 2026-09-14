@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Orthworm,97,move,1,Shed Tail,90.2%,,,,,,,,
-Orthworm,97,move,2,Body Press,82.7%,,,,,,,,
-Orthworm,97,move,3,Stealth Rock,64.5%,,,,,,,,
-Orthworm,97,move,4,Heavy Slam,47.8%,,,,,,,,
-Orthworm,97,move,5,Iron Defense,41.5%,,,,,,,,
-Orthworm,97,move,6,Metal Burst,30.3%,,,,,,,,
-Orthworm,97,move,7,Rock Tomb,10.7%,,,,,,,,
+Orthworm,97,move,2,Body Press,82.6%,,,,,,,,
+Orthworm,97,move,3,Stealth Rock,64.8%,,,,,,,,
+Orthworm,97,move,4,Heavy Slam,47.6%,,,,,,,,
+Orthworm,97,move,5,Iron Defense,41.2%,,,,,,,,
+Orthworm,97,move,6,Metal Burst,30.4%,,,,,,,,
+Orthworm,97,move,7,Rock Tomb,10.6%,,,,,,,,
 Orthworm,97,move,8,Iron Head,5.8%,,,,,,,,
-Orthworm,97,move,9,Rest,5.0%,,,,,,,,
-Orthworm,97,move,10,Earthquake,5.0%,,,,,,,,
-Orthworm,97,held_item,1,Sitrus Berry,80.1%,,,,,,,,
-Orthworm,97,held_item,2,Leftovers,9.5%,,,,,,,,
+Orthworm,97,move,9,Rest,5.1%,,,,,,,,
+Orthworm,97,move,10,Earthquake,4.9%,,,,,,,,
+Orthworm,97,held_item,1,Sitrus Berry,80.2%,,,,,,,,
+Orthworm,97,held_item,2,Leftovers,9.4%,,,,,,,,
 Orthworm,97,held_item,3,Rocky Helmet,4.1%,,,,,,,,
 Orthworm,97,held_item,4,Focus Sash,1.9%,,,,,,,,
 Orthworm,97,held_item,5,Chesto Berry,1.1%,,,,,,,,
@@ -34,13 +34,13 @@ Orthworm,97,stat_alignment,2,Relaxed,28.2%,Defense,Speed,,,,,,
 Orthworm,97,stat_alignment,3,Sassy,8.7%,Sp. Def,Speed,,,,,,
 Orthworm,97,stat_alignment,4,Careful,7.6%,Sp. Def,Sp. Atk,,,,,,
 Orthworm,97,stat_alignment,5,Bold,2.7%,Defense,Attack,,,,,,
-Orthworm,97,stat_alignment,6,Jolly,1.4%,Speed,Sp. Atk,,,,,,
+Orthworm,97,stat_alignment,6,Jolly,1.3%,Speed,Sp. Atk,,,,,,
 Orthworm,97,stat_alignment,7,Calm,0.9%,Sp. Def,Attack,,,,,,
 Orthworm,97,stat_alignment,8,Adamant,0.7%,Attack,Sp. Atk,,,,,,
 Orthworm,97,stat_alignment,9,Lax,0.3%,Defense,Sp. Def,,,,,,
 Orthworm,97,stat_alignment,10,Brave,0.3%,Attack,Speed,,,,,,
-Orthworm,97,stat_points,1,,29.4%,,,32,0,32,0,2,0
-Orthworm,97,stat_points,2,,11.7%,,,32,0,2,0,32,0
+Orthworm,97,stat_points,1,,29.5%,,,32,0,32,0,2,0
+Orthworm,97,stat_points,2,,11.8%,,,32,0,2,0,32,0
 Orthworm,97,stat_points,3,,6.4%,,,31,0,3,0,32,0
 Orthworm,97,stat_points,4,,5.7%,,,31,0,32,0,3,0
 Orthworm,97,stat_points,5,,5.5%,,,32,0,25,0,0,9
@@ -49,5 +49,5 @@ Orthworm,97,stat_points,7,,3.2%,,,31,0,15,0,20,0
 Orthworm,97,stat_points,8,,3.1%,,,32,2,32,0,0,0
 Orthworm,97,stat_points,9,,2.8%,,,32,0,32,0,0,0
 Orthworm,97,stat_points,10,,2.0%,,,32,0,5,0,29,0
-Orthworm,97,ability,1,Earth Eater,99.7%,,,,,,,,
-Orthworm,97,ability,2,Sand Veil,0.3%,,,,,,,,
+Orthworm,97,ability,1,Earth Eater,99.6%,,,,,,,,
+Orthworm,97,ability,2,Sand Veil,0.4%,,,,,,,,

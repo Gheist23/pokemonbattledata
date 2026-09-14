@@ -1,49 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Beartic,236,move,1,Icicle Crash,67.2%,,,,,,,,
-Beartic,236,move,2,Earthquake,61.6%,,,,,,,,
-Beartic,236,move,3,Close Combat,63.6%,,,,,,,,
-Beartic,236,move,4,Liquidation,24.5%,,,,,,,,
-Beartic,236,move,5,Aqua Jet,23.8%,,,,,,,,
-Beartic,236,move,6,Rock Slide,23.2%,,,,,,,,
-Beartic,236,move,7,Snowscape,21.0%,,,,,,,,
-Beartic,236,move,8,Heavy Slam,18.4%,,,,,,,,
-Beartic,236,move,9,Swords Dance,15.8%,,,,,,,,
-Beartic,236,move,10,Stone Edge,8.5%,,,,,,,,
-Beartic,236,held_item,1,Life Orb,73.1%,,,,,,,,
-Beartic,236,held_item,2,Expert Belt,1.2%,,,,,,,,
-Beartic,236,held_item,3,Focus Sash,10.3%,,,,,,,,
-Beartic,236,held_item,4,Choice Scarf,5.4%,,,,,,,,
-Beartic,236,held_item,5,Bright Powder,2.3%,,,,,,,,
-Beartic,236,held_item,6,Wide Lens,1.6%,,,,,,,,
-Beartic,236,held_item,7,Sitrus Berry,1.3%,,,,,,,,
-Beartic,236,held_item,8,Never-Melt Ice,1.2%,,,,,,,,
-Beartic,236,held_item,9,Lum Berry,1.0%,,,,,,,,
-Beartic,236,held_item,10,Black Belt,0.9%,,,,,,,,
-Beartic,236,teammate,1,Alolan Ninetales,,,,,,,,,
-Beartic,236,teammate,2,Pelipper,,,,,,,,,
-Beartic,236,teammate,3,Swampert,,,,,,,,,
-Beartic,236,teammate,4,Froslass,,,,,,,,,
-Beartic,236,teammate,5,Archaludon,,,,,,,,,
-Beartic,236,teammate,6,Golisopod,,,,,,,,,
-Beartic,236,teammate,7,Rillaboom,,,,,,,,,
-Beartic,236,teammate,8,Garchomp,,,,,,,,,
-Beartic,236,teammate,9,Politoed,,,,,,,,,
-Beartic,236,teammate,10,Gholdengo,,,,,,,,,
-Beartic,236,stat_alignment,1,Jolly,34.4%,Speed,Sp. Atk,,,,,,
-Beartic,236,stat_alignment,2,Adamant,32.3%,Attack,Sp. Atk,,,,,,
-Beartic,236,stat_alignment,3,Careful,2.5%,Sp. Def,Sp. Atk,,,,,,
-Beartic,236,stat_alignment,4,Brave,0.7%,Attack,Speed,,,,,,
-Beartic,236,stat_alignment,5,Lonely,0.1%,Attack,Defense,,,,,,
-Beartic,236,stat_points,1,,40.4%,,,2,32,0,0,0,32
-Beartic,236,stat_points,2,,16.6%,,,1,32,1,0,0,32
-Beartic,236,stat_points,3,,6.8%,,,0,32,2,0,0,32
-Beartic,236,stat_points,4,,5.0%,,,1,32,0,0,1,32
-Beartic,236,stat_points,5,,2.3%,,,32,0,14,0,20,0
-Beartic,236,stat_points,6,,1.3%,,,2,32,0,0,32,0
-Beartic,236,stat_points,7,,1.2%,,,1,32,0,0,0,32
-Beartic,236,stat_points,8,,0.9%,,,0,32,0,0,0,32
-Beartic,236,stat_points,9,,0.9%,,,0,32,0,0,2,32
-Beartic,236,stat_points,10,,0.8%,,,0,32,1,0,1,32
-Beartic,236,ability,1,Slush Rush,55.3%,,,,,,,,
-Beartic,236,ability,2,Swift Swim,42.4%,,,,,,,,
-Beartic,236,ability,3,Snow Cloak,2.3%,,,,,,,,
+Beartic,235,move,1,Icicle Crash,67.3%,,,,,,,,
+Beartic,235,move,2,Earthquake,59.9%,,,,,,,,
+Beartic,235,move,3,Close Combat,63.6%,,,,,,,,
+Beartic,235,move,4,Aqua Jet,26.5%,,,,,,,,
+Beartic,235,move,5,Liquidation,24.2%,,,,,,,,
+Beartic,235,move,6,Rock Slide,21.7%,,,,,,,,
+Beartic,235,move,7,Snowscape,19.3%,,,,,,,,
+Beartic,235,move,8,Heavy Slam,18.5%,,,,,,,,
+Beartic,235,move,9,Swords Dance,15.4%,,,,,,,,
+Beartic,235,move,10,Sheer Cold,8.6%,,,,,,,,
+Beartic,235,held_item,1,Life Orb,74.5%,,,,,,,,
+Beartic,235,held_item,2,Expert Belt,1.7%,,,,,,,,
+Beartic,235,held_item,3,Focus Sash,9.8%,,,,,,,,
+Beartic,235,held_item,4,Choice Scarf,5.0%,,,,,,,,
+Beartic,235,held_item,5,Bright Powder,2.1%,,,,,,,,
+Beartic,235,held_item,6,Lum Berry,1.9%,,,,,,,,
+Beartic,235,held_item,7,Wide Lens,1.4%,,,,,,,,
+Beartic,235,held_item,8,Sitrus Berry,1.2%,,,,,,,,
+Beartic,235,held_item,9,Never-Melt Ice,1.2%,,,,,,,,
+Beartic,235,held_item,10,Leftovers,1.1%,,,,,,,,
+Beartic,235,teammate,1,Pelipper,,,,,,,,,
+Beartic,235,teammate,2,Alolan Ninetales,,,,,,,,,
+Beartic,235,teammate,3,Swampert,,,,,,,,,
+Beartic,235,teammate,4,Froslass,,,,,,,,,
+Beartic,235,teammate,5,Archaludon,,,,,,,,,
+Beartic,235,teammate,6,Golisopod,,,,,,,,,
+Beartic,235,teammate,7,Rillaboom,,,,,,,,,
+Beartic,235,teammate,8,Garchomp,,,,,,,,,
+Beartic,235,teammate,9,Gholdengo,,,,,,,,,
+Beartic,235,teammate,10,Politoed,,,,,,,,,
+Beartic,235,stat_alignment,1,Jolly,35.6%,Speed,Sp. Atk,,,,,,
+Beartic,235,stat_alignment,2,Adamant,31.2%,Attack,Sp. Atk,,,,,,
+Beartic,235,stat_alignment,3,Careful,2.3%,Sp. Def,Sp. Atk,,,,,,
+Beartic,235,stat_alignment,4,Brave,0.6%,Attack,Speed,,,,,,
+Beartic,235,stat_alignment,5,Lonely,0.2%,Attack,Defense,,,,,,
+Beartic,235,stat_alignment,6,Naive,0.1%,Speed,Sp. Def,,,,,,
+Beartic,235,stat_points,1,,40.1%,,,2,32,0,0,0,32
+Beartic,235,stat_points,2,,16.5%,,,1,32,1,0,0,32
+Beartic,235,stat_points,3,,7.1%,,,0,32,2,0,0,32
+Beartic,235,stat_points,4,,4.9%,,,1,32,0,0,1,32
+Beartic,235,stat_points,5,,2.1%,,,32,0,14,0,20,0
+Beartic,235,stat_points,6,,2.0%,,,0,32,1,0,1,32
+Beartic,235,stat_points,7,,1.2%,,,2,32,0,0,32,0
+Beartic,235,stat_points,8,,1.1%,,,1,32,0,0,0,32
+Beartic,235,stat_points,9,,0.8%,,,0,32,0,0,0,32
+Beartic,235,stat_points,10,,0.8%,,,0,32,0,0,2,32
+Beartic,235,ability,1,Slush Rush,55.1%,,,,,,,,
+Beartic,235,ability,2,Swift Swim,42.8%,,,,,,,,
+Beartic,235,ability,3,Snow Cloak,2.1%,,,,,,,,

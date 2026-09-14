@@ -1,22 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Passimian,254,move,1,Close Combat,55.8%,,,,,,,,
-Passimian,254,move,2,Rock Slide,38.6%,,,,,,,,
-Passimian,254,move,3,U-turn,21.3%,,,,,,,,
-Passimian,254,move,4,Earthquake,38.5%,,,,,,,,
-Passimian,254,move,5,Knock Off,25.9%,,,,,,,,
-Passimian,254,move,6,Drain Punch,44.5%,,,,,,,,
-Passimian,254,move,7,Gunk Shot,21.6%,,,,,,,,
-Passimian,254,move,8,Seed Bomb,17.9%,,,,,,,,
-Passimian,254,move,9,Trailblaze,15.4%,,,,,,,,
-Passimian,254,move,10,Rock Tomb,11.4%,,,,,,,,
-Passimian,254,held_item,1,Choice Scarf,43.2%,,,,,,,,
-Passimian,254,held_item,2,Expert Belt,21.6%,,,,,,,,
-Passimian,254,held_item,3,Quick Claw,12.8%,,,,,,,,
-Passimian,254,held_item,4,Roseli Berry,8.8%,,,,,,,,
-Passimian,254,held_item,5,Focus Sash,4.8%,,,,,,,,
-Passimian,254,held_item,6,Light Ball,3.7%,,,,,,,,
-Passimian,254,held_item,7,Hard Stone,2.9%,,,,,,,,
-Passimian,254,held_item,8,Life Orb,2.2%,,,,,,,,
+Passimian,254,move,1,Close Combat,55.2%,,,,,,,,
+Passimian,254,move,2,Rock Slide,36.2%,,,,,,,,
+Passimian,254,move,3,U-turn,21.4%,,,,,,,,
+Passimian,254,move,4,Knock Off,27.9%,,,,,,,,
+Passimian,254,move,5,Earthquake,37.6%,,,,,,,,
+Passimian,254,move,6,Drain Punch,45.2%,,,,,,,,
+Passimian,254,move,7,Gunk Shot,21.0%,,,,,,,,
+Passimian,254,move,8,Seed Bomb,16.9%,,,,,,,,
+Passimian,254,move,9,Trailblaze,14.5%,,,,,,,,
+Passimian,254,move,10,Rock Tomb,11.7%,,,,,,,,
+Passimian,254,held_item,1,Choice Scarf,43.8%,,,,,,,,
+Passimian,254,held_item,2,Expert Belt,20.3%,,,,,,,,
+Passimian,254,held_item,3,Quick Claw,12.1%,,,,,,,,
+Passimian,254,held_item,4,Roseli Berry,8.3%,,,,,,,,
+Passimian,254,held_item,5,Focus Sash,5.2%,,,,,,,,
+Passimian,254,held_item,6,Light Ball,3.4%,,,,,,,,
+Passimian,254,held_item,7,Hard Stone,2.8%,,,,,,,,
+Passimian,254,held_item,8,Life Orb,2.1%,,,,,,,,
+Passimian,254,held_item,9,Unknown Item 542,1.0%,,,,,,,,
+Passimian,254,held_item,10,Unknown Item 230,0.7%,,,,,,,,
 Passimian,254,teammate,1,Scizor,,,,,,,,,
 Passimian,254,teammate,2,Hatterene,,,,,,,,,
 Passimian,254,teammate,3,Greninja,,,,,,,,,
@@ -27,18 +29,20 @@ Passimian,254,teammate,7,Dragonite,,,,,,,,,
 Passimian,254,teammate,8,Basculegion Male,,,,,,,,,
 Passimian,254,teammate,9,Golisopod,,,,,,,,,
 Passimian,254,teammate,10,Gengar,,,,,,,,,
-Passimian,254,stat_alignment,1,Adamant,64.6%,Attack,Sp. Atk,,,,,,
-Passimian,254,stat_alignment,2,Jolly,13.6%,Speed,Sp. Atk,,,,,,
-Passimian,254,stat_alignment,3,Lonely,1.8%,Attack,Defense,,,,,,
-Passimian,254,stat_points,1,,25.3%,,,4,32,0,0,0,30
-Passimian,254,stat_points,2,,20.1%,,,0,32,2,0,0,32
-Passimian,254,stat_points,3,,13.6%,,,17,32,0,0,0,17
-Passimian,254,stat_points,4,,11.0%,,,0,32,0,0,0,32
-Passimian,254,stat_points,5,,10.3%,,,2,32,0,0,0,32
-Passimian,254,stat_points,6,,8.8%,,,11,32,23,0,0,0
-Passimian,254,stat_points,7,,6.6%,,,10,32,0,0,0,24
-Passimian,254,stat_points,8,,1.8%,,,25,32,0,0,0,9
-Passimian,254,stat_points,9,,1.5%,,,0,32,0,0,2,32
-Passimian,254,stat_points,10,,0.4%,,,0,32,1,0,0,32
-Passimian,254,ability,1,Defiant,83.5%,,,,,,,,
-Passimian,254,ability,2,Receiver,16.5%,,,,,,,,
+Passimian,254,stat_alignment,1,Adamant,60.7%,Attack,Sp. Atk,,,,,,
+Passimian,254,stat_alignment,2,Jolly,16.6%,Speed,Sp. Atk,,,,,,
+Passimian,254,stat_alignment,3,Lonely,1.7%,Attack,Defense,,,,,,
+Passimian,254,stat_alignment,4,Impish,0.7%,Defense,Sp. Atk,,,,,,
+Passimian,254,stat_alignment,5,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Passimian,254,stat_points,1,,24.8%,,,4,32,0,0,0,30
+Passimian,254,stat_points,2,,19.0%,,,0,32,2,0,0,32
+Passimian,254,stat_points,3,,12.8%,,,17,32,0,0,0,17
+Passimian,254,stat_points,4,,12.4%,,,2,32,0,0,0,32
+Passimian,254,stat_points,5,,10.3%,,,0,32,0,0,0,32
+Passimian,254,stat_points,6,,8.3%,,,11,32,23,0,0,0
+Passimian,254,stat_points,7,,6.2%,,,10,32,0,0,0,24
+Passimian,254,stat_points,8,,1.7%,,,25,32,0,0,0,9
+Passimian,254,stat_points,9,,1.4%,,,0,32,0,0,2,32
+Passimian,254,stat_points,10,,1.4%,,,32,32,0,0,0,2
+Passimian,254,ability,1,Defiant,82.8%,,,,,,,,
+Passimian,254,ability,2,Receiver,17.2%,,,,,,,,

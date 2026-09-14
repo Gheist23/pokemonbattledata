@@ -1,52 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Salazzle,130,move,1,Toxic,88.7%,,,,,,,,
-Salazzle,130,move,2,Encore,53.8%,,,,,,,,
-Salazzle,130,move,3,Flamethrower,40.0%,,,,,,,,
-Salazzle,130,move,4,Endeavor,37.1%,,,,,,,,
-Salazzle,130,move,5,Overheat,32.7%,,,,,,,,
-Salazzle,130,move,6,Protect,24.2%,,,,,,,,
-Salazzle,130,move,7,Sludge Wave,20.1%,,,,,,,,
-Salazzle,130,move,8,Substitute,14.8%,,,,,,,,
-Salazzle,130,move,9,Sludge Bomb,13.0%,,,,,,,,
-Salazzle,130,move,10,Disable,11.8%,,,,,,,,
-Salazzle,130,held_item,1,Focus Sash,85.8%,,,,,,,,
-Salazzle,130,held_item,2,Leftovers,1.7%,,,,,,,,
-Salazzle,130,held_item,3,Air Balloon,2.6%,,,,,,,,
-Salazzle,130,held_item,4,Life Orb,3.5%,,,,,,,,
-Salazzle,130,held_item,5,Expert Belt,1.2%,,,,,,,,
-Salazzle,130,held_item,6,Choice Scarf,0.9%,,,,,,,,
-Salazzle,130,held_item,7,Bright Powder,0.6%,,,,,,,,
-Salazzle,130,held_item,8,Unknown Item 185,0.5%,,,,,,,,
-Salazzle,130,held_item,9,Unknown Item 230,0.5%,,,,,,,,
-Salazzle,130,held_item,10,Charcoal,0.5%,,,,,,,,
-Salazzle,130,teammate,1,Golisopod,,,,,,,,,
-Salazzle,130,teammate,2,Garchomp,,,,,,,,,
-Salazzle,130,teammate,3,Salamence,,,,,,,,,
-Salazzle,130,teammate,4,Primarina,,,,,,,,,
-Salazzle,130,teammate,5,Baxcalibur,,,,,,,,,
-Salazzle,130,teammate,6,Corviknight,,,,,,,,,
-Salazzle,130,teammate,7,Meowscarada,,,,,,,,,
-Salazzle,130,teammate,8,Lucario,,,,,,,,,
-Salazzle,130,teammate,9,Toxapex,,,,,,,,,
-Salazzle,130,teammate,10,Victreebel,,,,,,,,,
-Salazzle,130,stat_alignment,1,Timid,87.3%,Speed,Attack,,,,,,
-Salazzle,130,stat_alignment,2,Modest,8.6%,Sp. Atk,Attack,,,,,,
-Salazzle,130,stat_alignment,3,Hasty,1.3%,Speed,Defense,,,,,,
-Salazzle,130,stat_alignment,4,Calm,1.0%,Sp. Def,Attack,,,,,,
-Salazzle,130,stat_alignment,5,Jolly,0.7%,Speed,Sp. Atk,,,,,,
-Salazzle,130,stat_alignment,6,Bold,0.6%,Defense,Attack,,,,,,
-Salazzle,130,stat_alignment,7,Naive,0.4%,Speed,Sp. Def,,,,,,
-Salazzle,130,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Salazzle,130,stat_alignment,9,Quiet,0.0%,Sp. Atk,Speed,,,,,,
-Salazzle,130,stat_points,1,,54.8%,,,2,0,0,32,0,32
-Salazzle,130,stat_points,2,,9.0%,,,0,0,2,32,0,32
-Salazzle,130,stat_points,3,,5.6%,,,32,0,1,0,1,32
-Salazzle,130,stat_points,4,,4.1%,,,32,0,2,0,0,32
-Salazzle,130,stat_points,5,,2.9%,,,0,0,0,32,2,32
-Salazzle,130,stat_points,6,,2.7%,,,0,0,0,32,0,32
-Salazzle,130,stat_points,7,,1.9%,,,0,0,1,32,1,32
-Salazzle,130,stat_points,8,,1.6%,,,1,0,1,32,0,32
-Salazzle,130,stat_points,9,,1.5%,,,6,0,0,32,0,28
-Salazzle,130,stat_points,10,,1.2%,,,2,0,32,0,4,28
-Salazzle,130,ability,1,Corrosion,94.3%,,,,,,,,
-Salazzle,130,ability,2,Oblivious,5.7%,,,,,,,,
+Salazzle,129,move,1,Toxic,88.5%,,,,,,,,
+Salazzle,129,move,2,Encore,54.4%,,,,,,,,
+Salazzle,129,move,3,Flamethrower,40.9%,,,,,,,,
+Salazzle,129,move,4,Endeavor,36.0%,,,,,,,,
+Salazzle,129,move,5,Overheat,31.5%,,,,,,,,
+Salazzle,129,move,6,Protect,23.6%,,,,,,,,
+Salazzle,129,move,7,Sludge Wave,19.9%,,,,,,,,
+Salazzle,129,move,8,Substitute,15.1%,,,,,,,,
+Salazzle,129,move,9,Sludge Bomb,13.3%,,,,,,,,
+Salazzle,129,move,10,Disable,12.2%,,,,,,,,
+Salazzle,129,held_item,1,Focus Sash,85.9%,,,,,,,,
+Salazzle,129,held_item,2,Leftovers,1.8%,,,,,,,,
+Salazzle,129,held_item,3,Air Balloon,2.4%,,,,,,,,
+Salazzle,129,held_item,4,Life Orb,3.6%,,,,,,,,
+Salazzle,129,held_item,5,Expert Belt,1.1%,,,,,,,,
+Salazzle,129,held_item,6,Choice Scarf,0.8%,,,,,,,,
+Salazzle,129,held_item,7,Bright Powder,0.6%,,,,,,,,
+Salazzle,129,held_item,8,Unknown Item 185,0.5%,,,,,,,,
+Salazzle,129,held_item,9,Unknown Item 230,0.4%,,,,,,,,
+Salazzle,129,held_item,10,Charcoal,0.4%,,,,,,,,
+Salazzle,129,teammate,1,Golisopod,,,,,,,,,
+Salazzle,129,teammate,2,Garchomp,,,,,,,,,
+Salazzle,129,teammate,3,Salamence,,,,,,,,,
+Salazzle,129,teammate,4,Primarina,,,,,,,,,
+Salazzle,129,teammate,5,Baxcalibur,,,,,,,,,
+Salazzle,129,teammate,6,Corviknight,,,,,,,,,
+Salazzle,129,teammate,7,Lucario,,,,,,,,,
+Salazzle,129,teammate,8,Toxapex,,,,,,,,,
+Salazzle,129,teammate,9,Mimikyu,,,,,,,,,
+Salazzle,129,teammate,10,Meowscarada,,,,,,,,,
+Salazzle,129,stat_alignment,1,Timid,86.7%,Speed,Attack,,,,,,
+Salazzle,129,stat_alignment,2,Modest,9.2%,Sp. Atk,Attack,,,,,,
+Salazzle,129,stat_alignment,3,Hasty,1.2%,Speed,Defense,,,,,,
+Salazzle,129,stat_alignment,4,Calm,0.9%,Sp. Def,Attack,,,,,,
+Salazzle,129,stat_alignment,5,Jolly,0.7%,Speed,Sp. Atk,,,,,,
+Salazzle,129,stat_alignment,6,Bold,0.6%,Defense,Attack,,,,,,
+Salazzle,129,stat_alignment,7,Naive,0.3%,Speed,Sp. Def,,,,,,
+Salazzle,129,stat_alignment,8,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Salazzle,129,stat_alignment,9,Mild,0.0%,Sp. Atk,Defense,,,,,,
+Salazzle,129,stat_alignment,10,Quiet,0.0%,Sp. Atk,Speed,,,,,,
+Salazzle,129,stat_points,1,,54.1%,,,2,0,0,32,0,32
+Salazzle,129,stat_points,2,,9.1%,,,0,0,2,32,0,32
+Salazzle,129,stat_points,3,,5.8%,,,32,0,1,0,1,32
+Salazzle,129,stat_points,4,,4.2%,,,32,0,2,0,0,32
+Salazzle,129,stat_points,5,,3.0%,,,0,0,0,32,2,32
+Salazzle,129,stat_points,6,,2.8%,,,0,0,0,32,0,32
+Salazzle,129,stat_points,7,,1.8%,,,0,0,1,32,1,32
+Salazzle,129,stat_points,8,,1.6%,,,6,0,0,32,0,28
+Salazzle,129,stat_points,9,,1.4%,,,1,0,1,32,0,32
+Salazzle,129,stat_points,10,,1.4%,,,2,0,32,0,4,28
+Salazzle,129,ability,1,Corrosion,94.4%,,,,,,,,
+Salazzle,129,ability,2,Oblivious,5.6%,,,,,,,,

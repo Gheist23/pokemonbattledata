@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tauros Form 1,260,move,1,Protect,100.0%,,,,,,,,
-Tauros Form 1,260,move,2,Raging Bull,90.0%,,,,,,,,
-Tauros Form 1,260,move,3,Rock Slide,37.5%,,,,,,,,
-Tauros Form 1,260,move,4,High Horsepower,62.5%,,,,,,,,
-Tauros Form 1,260,move,5,Stomping Tantrum,5.0%,,,,,,,,
-Tauros Form 1,260,move,6,Earthquake,27.5%,,,,,,,,
-Tauros Form 1,260,move,7,Assurance,15.0%,,,,,,,,
-Tauros Form 1,260,move,8,Wild Charge,17.5%,,,,,,,,
-Tauros Form 1,260,move,9,Bulk Up,5.0%,,,,,,,,
-Tauros Form 1,260,move,10,Close Combat,5.0%,,,,,,,,
-Tauros Form 1,260,held_item,1,Sitrus Berry,30.0%,,,,,,,,
-Tauros Form 1,260,held_item,2,Life Orb,12.5%,,,,,,,,
-Tauros Form 1,260,held_item,3,White Herb,45.0%,,,,,,,,
-Tauros Form 1,260,held_item,4,Leftovers,5.0%,,,,,,,,
-Tauros Form 1,260,held_item,5,Muscle Band,5.0%,,,,,,,,
-Tauros Form 1,260,held_item,6,Unknown Item 192,2.5%,,,,,,,,
+Tauros Form 1,260,move,1,Raging Bull,91.7%,,,,,,,,
+Tauros Form 1,260,move,2,Protect,99.6%,,,,,,,,
+Tauros Form 1,260,move,3,Rock Slide,32.9%,,,,,,,,
+Tauros Form 1,260,move,4,High Horsepower,65.4%,,,,,,,,
+Tauros Form 1,260,move,5,Stomping Tantrum,2.2%,,,,,,,,
+Tauros Form 1,260,move,6,Earthquake,20.8%,,,,,,,,
+Tauros Form 1,260,move,7,Assurance,12.5%,,,,,,,,
+Tauros Form 1,260,move,8,Megahorn,18.3%,,,,,,,,
+Tauros Form 1,260,move,9,Close Combat,8.3%,,,,,,,,
+Tauros Form 1,260,move,10,Zen Headbutt,8.3%,,,,,,,,
+Tauros Form 1,260,held_item,1,Sitrus Berry,25.8%,,,,,,,,
+Tauros Form 1,260,held_item,2,Life Orb,18.8%,,,,,,,,
+Tauros Form 1,260,held_item,3,Muscle Band,6.7%,,,,,,,,
+Tauros Form 1,260,held_item,4,White Herb,42.5%,,,,,,,,
+Tauros Form 1,260,held_item,5,Leftovers,4.2%,,,,,,,,
+Tauros Form 1,260,held_item,6,Unknown Item 192,2.1%,,,,,,,,
 Tauros Form 1,260,teammate,1,Alolan Ninetales,,,,,,,,,
 Tauros Form 1,260,teammate,2,Golisopod,,,,,,,,,
 Tauros Form 1,260,teammate,3,Raichu,,,,,,,,,
@@ -22,21 +22,25 @@ Tauros Form 1,260,teammate,4,Pelipper,,,,,,,,,
 Tauros Form 1,260,teammate,5,Hydreigon,,,,,,,,,
 Tauros Form 1,260,teammate,6,Charizard,,,,,,,,,
 Tauros Form 1,260,teammate,7,Absol,,,,,,,,,
-Tauros Form 1,260,teammate,8,Dragapult,,,,,,,,,
-Tauros Form 1,260,teammate,9,Venusaur,,,,,,,,,
-Tauros Form 1,260,teammate,10,Farfetch'd,,,,,,,,,
-Tauros Form 1,260,stat_alignment,1,Adamant,85.0%,Attack,Sp. Atk,,,,,,
-Tauros Form 1,260,stat_alignment,2,Jolly,72.5%,Speed,Sp. Atk,,,,,,
-Tauros Form 1,260,stat_alignment,3,Careful,15.0%,Sp. Def,Sp. Atk,,,,,,
-Tauros Form 1,260,stat_alignment,4,Serious,7.5%,,,,,,,,
-Tauros Form 1,260,stat_points,1,,40.0%,,,20,32,0,0,14,0
-Tauros Form 1,260,stat_points,2,,20.0%,,,2,32,0,0,0,32
-Tauros Form 1,260,stat_points,3,,15.0%,,,0,32,2,0,0,32
-Tauros Form 1,260,stat_points,4,,15.0%,,,32,0,14,0,20,0
-Tauros Form 1,260,stat_points,5,,7.5%,,,9,25,0,0,0,32
-Tauros Form 1,260,stat_points,6,,5.0%,,,0,32,16,0,18,0
-Tauros Form 1,260,stat_points,7,,5.0%,,,32,32,2,0,0,0
-Tauros Form 1,260,stat_points,8,,2.5%,,,32,0,0,0,2,32
-Tauros Form 1,260,ability,1,Anger Point,37.5%,,,,,,,,
-Tauros Form 1,260,ability,2,Intimidate,62.5%,,,,,,,,
-Tauros Form 1,260,ability,3,Cud Chew,60.0%,,,,,,,,
+Tauros Form 1,260,teammate,8,Whimsicott,,,,,,,,,
+Tauros Form 1,260,teammate,9,Dragapult,,,,,,,,,
+Tauros Form 1,260,teammate,10,Venusaur,,,,,,,,,
+Tauros Form 1,260,stat_alignment,1,Adamant,89.6%,Attack,Sp. Atk,,,,,,
+Tauros Form 1,260,stat_alignment,2,Jolly,71.3%,Speed,Sp. Atk,,,,,,
+Tauros Form 1,260,stat_alignment,3,Careful,12.5%,Sp. Def,Sp. Atk,,,,,,
+Tauros Form 1,260,stat_alignment,4,Hasty,8.3%,Speed,Defense,,,,,,
+Tauros Form 1,260,stat_alignment,5,Serious,6.3%,,,,,,,,
+Tauros Form 1,260,stat_alignment,6,Naughty,2.1%,Attack,Sp. Def,,,,,,
+Tauros Form 1,260,stat_points,1,,35.0%,,,20,32,0,0,14,0
+Tauros Form 1,260,stat_points,2,,18.8%,,,2,32,0,0,0,32
+Tauros Form 1,260,stat_points,3,,12.5%,,,0,32,2,0,0,32
+Tauros Form 1,260,stat_points,4,,12.5%,,,32,0,14,0,20,0
+Tauros Form 1,260,stat_points,5,,8.3%,,,0,32,32,0,0,2
+Tauros Form 1,260,stat_points,6,,6.3%,,,9,25,0,0,0,32
+Tauros Form 1,260,stat_points,7,,4.2%,,,0,32,16,0,18,0
+Tauros Form 1,260,stat_points,8,,4.2%,,,1,24,9,0,0,32
+Tauros Form 1,260,stat_points,9,,4.2%,,,32,32,2,0,0,0
+Tauros Form 1,260,stat_points,10,,2.1%,,,10,32,0,0,0,24
+Tauros Form 1,260,ability,1,Intimidate,59.6%,,,,,,,,
+Tauros Form 1,260,ability,2,Anger Point,35.4%,,,,,,,,
+Tauros Form 1,260,ability,3,Cud Chew,55.0%,,,,,,,,

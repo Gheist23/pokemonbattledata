@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Raichu,24,move,1,Protect,85.3%,,,,,,,,
-Raichu,24,move,2,Zap Cannon,79.1%,,,,,,,,
+Raichu,24,move,2,Zap Cannon,79.2%,,,,,,,,
 Raichu,24,move,3,Focus Blast,78.9%,,,,,,,,
-Raichu,24,move,4,Fake Out,75.2%,,,,,,,,
-Raichu,24,move,5,Encore,20.7%,,,,,,,,
+Raichu,24,move,4,Fake Out,75.1%,,,,,,,,
+Raichu,24,move,5,Encore,20.9%,,,,,,,,
 Raichu,24,move,6,Volt Switch,14.3%,,,,,,,,
-Raichu,24,move,7,Volt Tackle,10.1%,,,,,,,,
-Raichu,24,move,8,Rising Voltage,7.9%,,,,,,,,
+Raichu,24,move,7,Volt Tackle,10.0%,,,,,,,,
+Raichu,24,move,8,Rising Voltage,8.0%,,,,,,,,
 Raichu,24,move,9,Grass Knot,4.2%,,,,,,,,
 Raichu,24,move,10,Feint,2.5%,,,,,,,,
 Raichu,24,held_item,1,Raichunite Y,79.0%,,,,,,,,
-Raichu,24,held_item,2,Raichunite X,18.1%,,,,,,,,
+Raichu,24,held_item,2,Raichunite X,18.0%,,,,,,,,
 Raichu,24,held_item,3,Focus Sash,1.4%,,,,,,,,
 Raichu,24,held_item,4,Sitrus Berry,0.2%,,,,,,,,
 Raichu,24,held_item,5,Shuca Berry,0.1%,,,,,,,,
@@ -20,8 +20,8 @@ Raichu,24,held_item,8,Choice Scarf,0.1%,,,,,,,,
 Raichu,24,held_item,9,Life Orb,0.0%,,,,,,,,
 Raichu,24,held_item,10,Expert Belt,0.0%,,,,,,,,
 Raichu,24,teammate,1,Rillaboom,,,,,,,,,
-Raichu,24,teammate,2,Incineroar,,,,,,,,,
-Raichu,24,teammate,3,Gholdengo,,,,,,,,,
+Raichu,24,teammate,2,Gholdengo,,,,,,,,,
+Raichu,24,teammate,3,Incineroar,,,,,,,,,
 Raichu,24,teammate,4,Sneasler,,,,,,,,,
 Raichu,24,teammate,5,Arcanine-Hisui,,,,,,,,,
 Raichu,24,teammate,6,Kingambit,,,,,,,,,
@@ -29,10 +29,10 @@ Raichu,24,teammate,7,Salamence,,,,,,,,,
 Raichu,24,teammate,8,Sylveon,,,,,,,,,
 Raichu,24,teammate,9,Staraptor,,,,,,,,,
 Raichu,24,teammate,10,Basculegion,,,,,,,,,
-Raichu,24,stat_alignment,1,Timid,81.3%,Speed,Attack,,,,,,
-Raichu,24,stat_alignment,2,Jolly,8.3%,Speed,Sp. Atk,,,,,,
+Raichu,24,stat_alignment,1,Timid,81.4%,Speed,Attack,,,,,,
+Raichu,24,stat_alignment,2,Jolly,8.2%,Speed,Sp. Atk,,,,,,
 Raichu,24,stat_alignment,3,Modest,6.3%,Sp. Atk,Attack,,,,,,
-Raichu,24,stat_alignment,4,Adamant,2.4%,Attack,Sp. Atk,,,,,,
+Raichu,24,stat_alignment,4,Adamant,2.3%,Attack,Sp. Atk,,,,,,
 Raichu,24,stat_alignment,5,Hasty,0.5%,Speed,Defense,,,,,,
 Raichu,24,stat_alignment,6,Bold,0.4%,Defense,Attack,,,,,,
 Raichu,24,stat_alignment,7,Naive,0.3%,Speed,Sp. Def,,,,,,
@@ -40,14 +40,14 @@ Raichu,24,stat_alignment,8,Impish,0.2%,Defense,Sp. Atk,,,,,,
 Raichu,24,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
 Raichu,24,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
 Raichu,24,stat_points,1,,20.2%,,,2,0,0,32,0,32
-Raichu,24,stat_points,2,,5.7%,,,2,32,0,0,0,32
+Raichu,24,stat_points,2,,5.6%,,,2,32,0,0,0,32
 Raichu,24,stat_points,3,,5.6%,,,32,0,0,2,0,32
-Raichu,24,stat_points,4,,4.6%,,,25,0,11,2,0,28
+Raichu,24,stat_points,4,,4.5%,,,25,0,11,2,0,28
 Raichu,24,stat_points,5,,4.5%,,,32,0,11,0,0,23
-Raichu,24,stat_points,6,,4.0%,,,26,0,17,0,0,23
+Raichu,24,stat_points,6,,4.1%,,,26,0,17,0,0,23
 Raichu,24,stat_points,7,,3.4%,,,30,0,13,0,0,23
 Raichu,24,stat_points,8,,2.5%,,,18,0,0,20,0,28
-Raichu,24,stat_points,9,,2.0%,,,32,0,2,0,0,32
+Raichu,24,stat_points,9,,2.1%,,,32,0,2,0,0,32
 Raichu,24,stat_points,10,,2.0%,,,0,0,2,32,0,32
 Raichu,24,ability,1,Lightning Rod,96.9%,,,,,,,,
 Raichu,24,ability,2,Static,3.1%,,,,,,,,

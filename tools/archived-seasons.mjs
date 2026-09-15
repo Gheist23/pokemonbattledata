@@ -7,7 +7,13 @@
 // tools/deploy.mjs uses this to decide what to leave out of an upload and
 // tools/generate-manifest.mjs uses it to mark the affected sources, so add a
 // season here and both stay in step.
-export const archivedSeasons = ["M4"];
+// Empty since 2026-09-15: every past season was pruned to its single closing
+// snapshot, which took the deployment from ~20,400 files to ~11,000 -- far
+// under the cap, so nothing needs leaving out. Parking M4 here would now
+// break the season dropdown: app.js has no handling for `archived` and
+// ensureBattleData throws on the 404 rather than falling back to the API
+// mirror. Re-add a season only if a deployment approaches 20,000 files.
+export const archivedSeasons = [];
 
 export const archivedSeasonPaths = archivedSeasons.map(
   (season) => `pokemon_champions_assets/battle_data/${season}`

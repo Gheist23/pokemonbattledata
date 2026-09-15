@@ -1,0 +1,53 @@
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Charizard,4,move,1,Solar Beam,63.5%,,,,,,,,
+Charizard,4,move,2,Flamethrower,41.2%,,,,,,,,
+Charizard,4,move,3,Flame Charge,38.2%,,,,,,,,
+Charizard,4,move,4,Flare Blitz,32.1%,,,,,,,,
+Charizard,4,move,5,Air Slash,31.4%,,,,,,,,
+Charizard,4,move,6,Overheat,27.7%,,,,,,,,
+Charizard,4,move,7,Dragon Dance,25.4%,,,,,,,,
+Charizard,4,move,8,Dragon Claw,22.5%,,,,,,,,
+Charizard,4,move,9,Thunder Punch,22.2%,,,,,,,,
+Charizard,4,move,10,Weather Ball,16.2%,,,,,,,,
+Charizard,4,held_item,1,Charizardite Y,64.4%,,,,,,,,
+Charizard,4,held_item,2,Charizardite X,34.2%,,,,,,,,
+Charizard,4,held_item,3,Choice Scarf,0.2%,,,,,,,,
+Charizard,4,held_item,4,Focus Sash,0.1%,,,,,,,,
+Charizard,4,held_item,5,Sitrus Berry,0.1%,,,,,,,,
+Charizard,4,held_item,6,Lum Berry,0.1%,,,,,,,,
+Charizard,4,held_item,7,Charcoal,0.1%,,,,,,,,
+Charizard,4,held_item,8,Quick Claw,0.0%,,,,,,,,
+Charizard,4,held_item,9,Leftovers,0.0%,,,,,,,,
+Charizard,4,held_item,10,Beedrillite,0.0%,,,,,,,,
+Charizard,4,teammate,1,Garchomp,,,,,,,,,
+Charizard,4,teammate,2,Primarina,,,,,,,,,
+Charizard,4,teammate,3,Hippowdon,,,,,,,,,
+Charizard,4,teammate,4,Archaludon,,,,,,,,,
+Charizard,4,teammate,5,Meowscarada,,,,,,,,,
+Charizard,4,teammate,6,Corviknight,,,,,,,,,
+Charizard,4,teammate,7,Mimikyu,,,,,,,,,
+Charizard,4,teammate,8,Basculegion,,,,,,,,,
+Charizard,4,teammate,9,Aegislash,,,,,,,,,
+Charizard,4,teammate,10,Kingambit,,,,,,,,,
+Charizard,4,stat_alignment,1,Timid,40.3%,Speed,Attack,,,,,,
+Charizard,4,stat_alignment,2,Modest,21.8%,Sp. Atk,Attack,,,,,,
+Charizard,4,stat_alignment,3,Adamant,21.3%,Attack,Sp. Atk,,,,,,
+Charizard,4,stat_alignment,4,Jolly,12.6%,Speed,Sp. Atk,,,,,,
+Charizard,4,stat_alignment,5,Bold,1.9%,Defense,Attack,,,,,,
+Charizard,4,stat_alignment,6,Impish,0.5%,Defense,Sp. Atk,,,,,,
+Charizard,4,stat_alignment,7,Hasty,0.3%,Speed,Defense,,,,,,
+Charizard,4,stat_alignment,8,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Charizard,4,stat_alignment,9,Naive,0.3%,Speed,Sp. Def,,,,,,
+Charizard,4,stat_alignment,10,Calm,0.1%,Sp. Def,Attack,,,,,,
+Charizard,4,stat_points,1,,37.7%,,,2,0,0,32,0,32
+Charizard,4,stat_points,2,,20.4%,,,2,32,0,0,0,32
+Charizard,4,stat_points,3,,5.6%,,,0,0,2,32,0,32
+Charizard,4,stat_points,4,,2.5%,,,0,0,0,32,2,32
+Charizard,4,stat_points,5,,2.4%,,,0,32,2,0,0,32
+Charizard,4,stat_points,6,,1.4%,,,0,0,0,32,0,32
+Charizard,4,stat_points,7,,1.4%,,,32,0,32,0,0,2
+Charizard,4,stat_points,8,,1.0%,,,1,0,0,32,0,32
+Charizard,4,stat_points,9,,1.0%,,,0,0,1,32,1,32
+Charizard,4,stat_points,10,,0.8%,,,28,0,20,1,0,17
+Charizard,4,ability,1,Blaze,80.0%,,,,,,,,
+Charizard,4,ability,2,Solar Power,20.0%,,,,,,,,

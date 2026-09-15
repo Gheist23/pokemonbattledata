@@ -142,6 +142,42 @@ code {
 }
 .format-toggle:not(.active):hover { color: var(--text); background: rgba(255,255,255,0.06); }
 
+/* Season picker, sitting beside the Doubles/Singles switch. Same pill shape and
+   height so the two read as one control group. */
+.season-select {
+  /* The global `select` rule sets width:100% and height:46px, which pushed this
+     onto its own row and made it taller than the format switch beside it. */
+  width: auto;
+  height: 40px;
+  min-height: 40px;
+  align-self: center;
+  margin-left: 0;
+  padding: 0 2rem 0 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  background-color: rgba(255,255,255,0.045);
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+                    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: right 1.05rem center, right 0.8rem center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  cursor: pointer;
+  font-weight: 850;
+  font-size: 0.84rem;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.season-select:hover { color: var(--text); background-color: rgba(255,255,255,0.06); }
+.season-select:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.season-select option { color: var(--text); background: #0f1720; }
+.season-select[hidden] { display: none !important; }
+
+@media (max-width: 760px) {
+  .season-select { width: 100%; }
+}
+
 .ghost-button,
 .primary-button,
 .close-button,

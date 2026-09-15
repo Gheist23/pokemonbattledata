@@ -106,6 +106,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     emptyClearButton: document.getElementById("emptyClearButton"),
     formatToggleDoubles: document.getElementById("formatToggleDoubles"),
     formatToggleSingles: document.getElementById("formatToggleSingles"),
+    seasonSelect: document.getElementById("seasonSelect"),
     resultCount: document.getElementById("resultCount"),
     rosterList: document.getElementById("rosterList"),
     pokemonGrid: document.getElementById("pokemonGrid"),
@@ -174,6 +175,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     els.emptyClearButton.addEventListener("click", clearFilters);
     els.formatToggleDoubles?.addEventListener("click", () => setActiveFormat("Doubles"));
     els.formatToggleSingles?.addEventListener("click", () => setActiveFormat("Singles"));
+    els.seasonSelect?.addEventListener("change", (event) => setActiveSeason(event.target.value));
     els.mobileFilterToggle?.addEventListener("click", toggleMobileFilters);
     els.profileFavoriteButton?.addEventListener("click", toggleProfileFavorite);
     els.closeDialogButton.addEventListener("click", closeDetail);
@@ -256,6 +258,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     if (!availableFormats().includes(state.selectedFormat)) state.selectedFormat = availableFormats()[0] || "Doubles";
     updateTypeFilter();
     updateFormatToggle();
+    updateSeasonSelect();
     updateSummary();
     renderBattleEntries();
     renderRecentSearches();
@@ -2001,6 +2004,48 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     applyFiltersAndRender();
   }
 
+  function setActiveSeason(season) {
+    const seasons = availableSeasons();
+    state.selectedSeason = seasons.includes(season) ? season : (seasons[0] || DEFAULT_SEASON);
+    updateSeasonSelect();
+    // A past season may not carry both formats; the toggle re-reads what exists.
+    if (!availableFormats().includes(state.selectedFormat)) {
+      state.selectedFormat = availableFormats()[0] || state.selectedFormat;
+    }
+    updateFormatToggle();
+    updateSummary();
+    renderBattleEntries();
+    applyFiltersAndRender();
+  }
+
+  function seasonLabel(season) {
+    if (season === DEFAULT_SEASON) return "Current";
+    const match = String(season || "").match(/^M-?(\d+)$/i);
+    return match ? `Season M-${match[1]}` : String(season || "");
+  }
+
+  function updateSeasonSelect() {
+    const select = els.seasonSelect;
+    if (!select) return;
+    const seasons = availableSeasons();
+    // Rebuild the options only when the list itself changes, so re-rendering
+    // never yanks the list out from under an open dropdown.
+    const signature = seasons.join("|");
+    if (select.dataset.seasonSignature !== signature) {
+      select.innerHTML = "";
+      for (const season of seasons) {
+        const option = document.createElement("option");
+        option.value = season;
+        option.textContent = seasonLabel(season);
+        select.appendChild(option);
+      }
+      select.dataset.seasonSignature = signature;
+    }
+    select.value = state.selectedSeason;
+    // One season is not a choice; hide rather than show a dead control.
+    select.hidden = seasons.length < 2;
+  }
+
   function updateFormatToggle() {
     for (const button of [els.formatToggleDoubles, els.formatToggleSingles]) {
       if (!button) continue;
@@ -2430,8 +2475,10 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return [...seasons].sort((a, b) => {
       if (a === DEFAULT_SEASON) return -1;
       if (b === DEFAULT_SEASON) return 1;
-      const am = String(a || "").match(/M-(\d+)/i);
-      const bm = String(b || "").match(/M-(\d+)/i);
+      // Folders are "M5"; some labels are "M-5". Accept both or every season
+      // falls through to the string compare and the order goes oldest-first.
+      const am = String(a || "").match(/M-?(\d+)/i);
+      const bm = String(b || "").match(/M-?(\d+)/i);
       if (am && bm) return Number(bm[1]) - Number(am[1]);
       return String(a).localeCompare(String(b), undefined, { numeric: true, sensitivity: "base" });
     });

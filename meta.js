@@ -33,6 +33,7 @@
     scope: 30,
     category: "move",
     usageExpanded: false,
+    rankExpanded: false,
     latest: null,
     baseline: null,
     snapshots: new Map(),
@@ -51,6 +52,7 @@
     results: document.getElementById("metaResults"),
     status: document.getElementById("metaStatus"),
     rankPill: document.getElementById("metaRankPill"),
+    rankMoreButton: document.getElementById("rankMoreButton"),
     rankWinners: document.getElementById("rankWinners"),
     rankLosers: document.getElementById("rankLosers"),
     usageRising: document.getElementById("usageRising"),
@@ -94,9 +96,18 @@
     els.scope?.addEventListener("change", () => {
       state.scope = els.scope.value === "all" ? "all" : Number(els.scope.value) || 30;
       writeStateToLocation();
+      // Both sections are scoped, so both have to be redrawn. Only the usage
+      // one was, which is the other half of "the Pokemon scope does nothing".
+      renderRankMovers();
       renderUsageChanges();
     });
     els.tabs.forEach((tab) => tab.addEventListener("click", () => setCategory(tab.dataset.category)));
+    els.rankMoreButton?.addEventListener("click", () => {
+      state.rankExpanded = !state.rankExpanded;
+      els.rankMoreButton.textContent = state.rankExpanded ? "Show less" : "Show more";
+      els.rankMoreButton.setAttribute("aria-expanded", String(state.rankExpanded));
+      renderRankMovers();
+    });
     els.usageMoreButton?.addEventListener("click", () => {
       state.usageExpanded = !state.usageExpanded;
       els.usageMoreButton.textContent = state.usageExpanded ? "Show less" : "Show more";
@@ -305,6 +316,7 @@
     const current = state.latest?.pokemon || {};
     const previous = state.baseline?.pokemon || {};
     Object.keys(current).forEach((name) => {
+      if (!inScope(name)) return;
       const to = positionOf(state.latest, name);
       const from = positionOf(state.baseline, name);
       if (to === null) return;
@@ -312,17 +324,31 @@
       else if (from !== to) moved.push({ name, from, to, delta: from - to });
     });
     const left = Object.keys(previous)
-      .filter((name) => !current[name])
+      .filter((name) => !current[name] && inScope(name))
       .map((name) => ({ name, from: positionOf(state.baseline, name) }));
     return { moved, entered, left };
   }
 
+  /** Whether the Pokemon scope covers this Pokemon.
+   *
+   *  Either snapshot counts, not just the latest one. A Pokemon that fell out
+   *  of the Top 30 is exactly what "rank losers" is for, and one that climbed
+   *  into it is exactly what "rank winners" is for -- judging only by where it
+   *  ended up would hide half of each list.
+   */
+  function inScope(name) {
+    if (state.scope === "all") return true;
+    const to = positionOf(state.latest, name);
+    const from = positionOf(state.baseline, name);
+    return (Number.isFinite(to) && to <= state.scope)
+      || (Number.isFinite(from) && from <= state.scope);
+  }
+
   function scopedNames() {
-    const entries = Object.entries(state.latest?.pokemon || {})
-      .filter(([, value]) => Number.isFinite(value.position))
+    return Object.entries(state.latest?.pokemon || {})
+      .filter(([name, value]) => Number.isFinite(value.position) && inScope(name))
       .sort((a, b) => a[1].position - b[1].position)
       .map(([name]) => name);
-    return state.scope === "all" ? entries : entries.slice(0, state.scope);
   }
 
   /** Snapshot rows always end with the rank they were captured at. */
@@ -407,12 +433,13 @@
 
   function renderRankMovers() {
     const { moved, entered, left } = rankMovers();
-    const winners = moved.filter((row) => row.delta > 0)
-      .sort((a, b) => b.delta - a.delta || a.to - b.to)
-      .slice(0, LIST_LIMIT);
-    const losers = moved.filter((row) => row.delta < 0)
-      .sort((a, b) => a.delta - b.delta || a.to - b.to)
-      .slice(0, LIST_LIMIT);
+    const limit = state.rankExpanded ? LIST_LIMIT_EXPANDED : LIST_LIMIT;
+    const climbed = moved.filter((row) => row.delta > 0)
+      .sort((a, b) => b.delta - a.delta || a.to - b.to);
+    const dropped = moved.filter((row) => row.delta < 0)
+      .sort((a, b) => a.delta - b.delta || a.to - b.to);
+    const winners = climbed.slice(0, limit);
+    const losers = dropped.slice(0, limit);
 
     // Some seasons record the same column_position on every ranked day, which
     // is worth saying outright rather than showing two empty columns.
@@ -425,7 +452,12 @@
       : "No Pokemon dropped in this window.";
     fillList(els.rankWinners, winners.map((row) => rankRow(row)), emptyUp);
     fillList(els.rankLosers, losers.map((row) => rankRow(row)), emptyDown);
-    if (els.rankPill) els.rankPill.textContent = `Top ${LIST_LIMIT}`;
+    if (els.rankPill) els.rankPill.textContent = `Top ${limit}`;
+    // Only offer to expand when there is something behind the button.
+    if (els.rankMoreButton) {
+      const more = climbed.length > limit || dropped.length > limit;
+      els.rankMoreButton.hidden = !more && !state.rankExpanded;
+    }
   }
 
   function renderUsageChanges() {

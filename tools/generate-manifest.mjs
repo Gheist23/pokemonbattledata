@@ -1175,7 +1175,14 @@ function buildPokemonPages(pokemonRecords) {
       isForm: false
     });
     for (const form of record.summary?.forms || []) {
-      const formName = form.saved_name || form.form_name || form.title || form.pokemon_name || "";
+      // The metadata still carries the app's own spellings ("Rotom Wash"), and
+      // a form that has no battle data of its own reaches this loop with no
+      // Showdown name attached to correct it. Resolve it the same way every
+      // other name on the site is resolved, so the profile page is filed and
+      // titled as "Rotom-Wash" rather than "Rotom Wash".
+      const rawFormName = form.saved_name || form.form_name || form.title || form.pokemon_name || "";
+      const resolvedForm = resolveShowdownSpecies([rawFormName]);
+      const formName = resolvedForm?.name || rawFormName;
       const formSlug = form.slug || slugify(formName);
       if (!formName || !formSlug) continue;
       addPokemonPage(pages, {

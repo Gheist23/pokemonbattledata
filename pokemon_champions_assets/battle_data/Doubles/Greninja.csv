@@ -1,53 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Greninja,98,move,1,Dark Pulse,75.6%,,,,,,,,
-Greninja,98,move,2,Ice Beam,66.6%,,,,,,,,
-Greninja,98,move,3,Protect,45.6%,,,,,,,,
-Greninja,98,move,4,Extrasensory,30.7%,,,,,,,,
+Greninja,98,move,1,Dark Pulse,76.0%,,,,,,,,
+Greninja,98,move,2,Ice Beam,66.8%,,,,,,,,
+Greninja,98,move,3,Protect,45.5%,,,,,,,,
+Greninja,98,move,4,Extrasensory,30.8%,,,,,,,,
 Greninja,98,move,5,Hydro Pump,23.3%,,,,,,,,
 Greninja,98,move,6,Water Shuriken,19.7%,,,,,,,,
-Greninja,98,move,7,Sludge Wave,16.3%,,,,,,,,
-Greninja,98,move,8,Blizzard,14.6%,,,,,,,,
+Greninja,98,move,7,Sludge Wave,17.4%,,,,,,,,
+Greninja,98,move,8,Blizzard,14.4%,,,,,,,,
 Greninja,98,move,9,Rock Slide,10.9%,,,,,,,,
-Greninja,98,move,10,Gunk Shot,10.9%,,,,,,,,
-Greninja,98,held_item,1,Greninjite,50.5%,,,,,,,,
-Greninja,98,held_item,2,Focus Sash,17.8%,,,,,,,,
-Greninja,98,held_item,3,Life Orb,13.5%,,,,,,,,
+Greninja,98,move,10,Surf,10.9%,,,,,,,,
+Greninja,98,held_item,1,Greninjite,50.0%,,,,,,,,
+Greninja,98,held_item,2,Focus Sash,17.9%,,,,,,,,
+Greninja,98,held_item,3,Life Orb,13.9%,,,,,,,,
 Greninja,98,held_item,4,Choice Scarf,8.0%,,,,,,,,
 Greninja,98,held_item,5,Expert Belt,4.4%,,,,,,,,
-Greninja,98,held_item,6,Wide Lens,1.4%,,,,,,,,
-Greninja,98,held_item,7,Wise Glasses,0.9%,,,,,,,,
+Greninja,98,held_item,6,Wide Lens,1.3%,,,,,,,,
+Greninja,98,held_item,7,Wise Glasses,1.0%,,,,,,,,
 Greninja,98,held_item,8,King's Rock,0.5%,,,,,,,,
-Greninja,98,held_item,9,Bright Powder,0.4%,,,,,,,,
-Greninja,98,held_item,10,Never-Melt Ice,0.4%,,,,,,,,
+Greninja,98,held_item,9,Never-Melt Ice,0.4%,,,,,,,,
+Greninja,98,held_item,10,Bright Powder,0.4%,,,,,,,,
 Greninja,98,teammate,1,Sneasler,,,,,,,,,
 Greninja,98,teammate,2,Rillaboom,,,,,,,,,
 Greninja,98,teammate,3,Pelipper,,,,,,,,,
 Greninja,98,teammate,4,Indeedee-F,,,,,,,,,
 Greninja,98,teammate,5,Archaludon,,,,,,,,,
 Greninja,98,teammate,6,Incineroar,,,,,,,,,
-Greninja,98,teammate,7,Golisopod,,,,,,,,,
-Greninja,98,teammate,8,Garchomp,,,,,,,,,
+Greninja,98,teammate,7,Garchomp,,,,,,,,,
+Greninja,98,teammate,8,Golisopod,,,,,,,,,
 Greninja,98,teammate,9,Farigiraf,,,,,,,,,
-Greninja,98,teammate,10,Kingambit,,,,,,,,,
+Greninja,98,teammate,10,Charizard,,,,,,,,,
 Greninja,98,stat_alignment,1,Timid,55.3%,Speed,Attack,,,,,,
-Greninja,98,stat_alignment,2,Modest,21.9%,Sp. Atk,Attack,,,,,,
-Greninja,98,stat_alignment,3,Jolly,5.1%,Speed,Sp. Atk,,,,,,
+Greninja,98,stat_alignment,2,Modest,22.0%,Sp. Atk,Attack,,,,,,
+Greninja,98,stat_alignment,3,Hasty,5.1%,Speed,Defense,,,,,,
 Greninja,98,stat_alignment,4,Adamant,5.0%,Attack,Sp. Atk,,,,,,
-Greninja,98,stat_alignment,5,Hasty,4.8%,Speed,Defense,,,,,,
+Greninja,98,stat_alignment,5,Jolly,4.9%,Speed,Sp. Atk,,,,,,
 Greninja,98,stat_alignment,6,Naive,4.2%,Speed,Sp. Def,,,,,,
-Greninja,98,stat_alignment,7,Mild,1.4%,Sp. Atk,Defense,,,,,,
+Greninja,98,stat_alignment,7,Mild,1.3%,Sp. Atk,Defense,,,,,,
 Greninja,98,stat_alignment,8,Rash,1.1%,Sp. Atk,Sp. Def,,,,,,
-Greninja,98,stat_alignment,9,Lax,0.3%,Defense,Sp. Def,,,,,,
-Greninja,98,stat_alignment,10,Lonely,0.3%,Attack,Defense,,,,,,
-Greninja,98,stat_points,1,,47.1%,,,2,0,0,32,0,32
-Greninja,98,stat_points,2,,8.5%,,,0,0,2,32,0,32
-Greninja,98,stat_points,3,,5.1%,,,2,32,0,0,0,32
+Greninja,98,stat_alignment,9,Lax,0.2%,Defense,Sp. Def,,,,,,
+Greninja,98,stat_alignment,10,Lonely,0.2%,Attack,Defense,,,,,,
+Greninja,98,stat_points,1,,46.9%,,,2,0,0,32,0,32
+Greninja,98,stat_points,2,,8.4%,,,0,0,2,32,0,32
+Greninja,98,stat_points,3,,5.2%,,,2,32,0,0,0,32
 Greninja,98,stat_points,4,,4.4%,,,0,0,0,32,2,32
-Greninja,98,stat_points,5,,4.2%,,,0,2,0,32,0,32
-Greninja,98,stat_points,6,,4.0%,,,0,0,0,32,0,32
-Greninja,98,stat_points,7,,3.9%,,,3,0,0,32,0,31
-Greninja,98,stat_points,8,,3.4%,,,8,0,0,32,0,26
-Greninja,98,stat_points,9,,2.9%,,,0,32,2,0,0,32
-Greninja,98,stat_points,10,,1.0%,,,6,0,0,32,0,28
+Greninja,98,stat_points,5,,4.2%,,,0,0,0,32,0,32
+Greninja,98,stat_points,6,,4.1%,,,3,0,0,32,0,31
+Greninja,98,stat_points,7,,4.1%,,,0,2,0,32,0,32
+Greninja,98,stat_points,8,,3.7%,,,8,0,0,32,0,26
+Greninja,98,stat_points,9,,2.7%,,,0,32,2,0,0,32
+Greninja,98,stat_points,10,,0.9%,,,6,0,0,32,0,28
 Greninja,98,ability,1,Protean,91.8%,,,,,,,,
 Greninja,98,ability,2,Torrent,8.2%,,,,,,,,

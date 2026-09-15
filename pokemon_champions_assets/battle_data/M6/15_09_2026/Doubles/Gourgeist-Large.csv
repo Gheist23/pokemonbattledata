@@ -1,43 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gourgeist-Large,257,move,1,Trick Room,92.7%,,,,,,,,
-Gourgeist-Large,257,move,2,Ally Switch,85.4%,,,,,,,,
-Gourgeist-Large,257,move,3,Explosion,82.3%,,,,,,,,
-Gourgeist-Large,257,move,4,Will-O-Wisp,72.9%,,,,,,,,
-Gourgeist-Large,257,move,5,Poltergeist,25.0%,,,,,,,,
-Gourgeist-Large,257,move,6,Trick-or-Treat,17.7%,,,,,,,,
-Gourgeist-Large,257,move,7,Seed Bomb,6.3%,,,,,,,,
-Gourgeist-Large,257,move,8,Destiny Bond,5.2%,,,,,,,,
-Gourgeist-Large,257,move,9,Phantom Force,3.1%,,,,,,,,
-Gourgeist-Large,257,move,10,Trick,2.1%,,,,,,,,
-Gourgeist-Large,257,held_item,1,Normal Gem,80.2%,,,,,,,,
-Gourgeist-Large,257,held_item,2,Focus Sash,6.3%,,,,,,,,
-Gourgeist-Large,257,held_item,3,Choice Scarf,6.3%,,,,,,,,
-Gourgeist-Large,257,held_item,4,Rocky Helmet,4.2%,,,,,,,,
-Gourgeist-Large,257,held_item,5,Scope Lens,2.1%,,,,,,,,
+Gourgeist-Large,257,move,1,Explosion,86.1%,,,,,,,,
+Gourgeist-Large,257,move,2,Ally Switch,85.2%,,,,,,,,
+Gourgeist-Large,257,move,3,Trick Room,76.2%,,,,,,,,
+Gourgeist-Large,257,move,4,Will-O-Wisp,75.4%,,,,,,,,
+Gourgeist-Large,257,move,5,Poltergeist,19.7%,,,,,,,,
+Gourgeist-Large,257,move,6,Trick-or-Treat,13.9%,,,,,,,,
+Gourgeist-Large,257,move,7,Light Screen,9.0%,,,,,,,,
+Gourgeist-Large,257,move,8,Phantom Force,9.0%,,,,,,,,
+Gourgeist-Large,257,move,9,Destiny Bond,7.4%,,,,,,,,
+Gourgeist-Large,257,move,10,Seed Bomb,4.9%,,,,,,,,
+Gourgeist-Large,257,held_item,1,Normal Gem,81.1%,,,,,,,,
+Gourgeist-Large,257,held_item,2,Focus Sash,8.2%,,,,,,,,
+Gourgeist-Large,257,held_item,3,Choice Scarf,4.9%,,,,,,,,
+Gourgeist-Large,257,held_item,4,Rocky Helmet,3.3%,,,,,,,,
+Gourgeist-Large,257,held_item,5,Scope Lens,1.6%,,,,,,,,
 Gourgeist-Large,257,teammate,1,Rillaboom,,,,,,,,,
-Gourgeist-Large,257,teammate,2,Arcanine-Hisui,,,,,,,,,
-Gourgeist-Large,257,teammate,3,Kingambit,,,,,,,,,
-Gourgeist-Large,257,teammate,4,Raichu,,,,,,,,,
-Gourgeist-Large,257,teammate,5,Staraptor,,,,,,,,,
-Gourgeist-Large,257,teammate,6,Sneasler,,,,,,,,,
-Gourgeist-Large,257,teammate,7,Gengar,,,,,,,,,
-Gourgeist-Large,257,teammate,8,Golisopod,,,,,,,,,
-Gourgeist-Large,257,teammate,9,Volcarona,,,,,,,,,
-Gourgeist-Large,257,teammate,10,Indeedee-F,,,,,,,,,
-Gourgeist-Large,257,stat_alignment,1,Adamant,82.3%,Attack,Sp. Atk,,,,,,
-Gourgeist-Large,257,stat_alignment,2,Relaxed,9.4%,Defense,Speed,,,,,,
-Gourgeist-Large,257,stat_alignment,3,Jolly,4.2%,Speed,Sp. Atk,,,,,,
-Gourgeist-Large,257,stat_alignment,4,Sassy,2.1%,Sp. Def,Speed,,,,,,
-Gourgeist-Large,257,stat_alignment,5,Careful,2.1%,Sp. Def,Sp. Atk,,,,,,
-Gourgeist-Large,257,stat_points,1,,66.7%,,,2,32,0,0,32,0
-Gourgeist-Large,257,stat_points,2,,9.4%,,,2,32,32,0,0,0
-Gourgeist-Large,257,stat_points,3,,8.3%,,,2,32,0,0,0,32
-Gourgeist-Large,257,stat_points,4,,5.2%,,,32,0,32,0,0,0
-Gourgeist-Large,257,stat_points,5,,4.2%,,,32,32,0,0,0,0
-Gourgeist-Large,257,stat_points,6,,3.1%,,,2,0,0,0,32,32
-Gourgeist-Large,257,stat_points,7,,1.0%,,,0,32,2,0,32,0
-Gourgeist-Large,257,stat_points,8,,1.0%,,,32,0,0,0,2,32
-Gourgeist-Large,257,stat_points,9,,1.0%,,,32,0,2,0,32,0
-Gourgeist-Large,257,ability,1,Frisk,80.2%,,,,,,,,
-Gourgeist-Large,257,ability,2,Insomnia,17.7%,,,,,,,,
-Gourgeist-Large,257,ability,3,Pickup,2.1%,,,,,,,,
+Gourgeist-Large,257,teammate,2,Raichu,,,,,,,,,
+Gourgeist-Large,257,teammate,3,Arcanine-Hisui,,,,,,,,,
+Gourgeist-Large,257,teammate,4,Kingambit,,,,,,,,,
+Gourgeist-Large,257,teammate,5,Gengar,,,,,,,,,
+Gourgeist-Large,257,teammate,6,Staraptor,,,,,,,,,
+Gourgeist-Large,257,teammate,7,Golisopod,,,,,,,,,
+Gourgeist-Large,257,teammate,8,Sneasler,,,,,,,,,
+Gourgeist-Large,257,teammate,9,Gholdengo,,,,,,,,,
+Gourgeist-Large,257,teammate,10,Volcarona,,,,,,,,,
+Gourgeist-Large,257,stat_alignment,1,Adamant,82.8%,Attack,Sp. Atk,,,,,,
+Gourgeist-Large,257,stat_alignment,2,Relaxed,7.4%,Defense,Speed,,,,,,
+Gourgeist-Large,257,stat_alignment,3,Jolly,3.3%,Speed,Sp. Atk,,,,,,
+Gourgeist-Large,257,stat_alignment,4,Brave,3.3%,Attack,Speed,,,,,,
+Gourgeist-Large,257,stat_alignment,5,Sassy,1.6%,Sp. Def,Speed,,,,,,
+Gourgeist-Large,257,stat_alignment,6,Careful,1.6%,Sp. Def,Sp. Atk,,,,,,
+Gourgeist-Large,257,stat_points,1,,59.0%,,,2,32,0,0,32,0
+Gourgeist-Large,257,stat_points,2,,11.5%,,,32,2,0,0,32,0
+Gourgeist-Large,257,stat_points,3,,7.4%,,,2,32,32,0,0,0
+Gourgeist-Large,257,stat_points,4,,6.6%,,,2,32,0,0,0,32
+Gourgeist-Large,257,stat_points,5,,4.1%,,,32,0,32,0,0,0
+Gourgeist-Large,257,stat_points,6,,3.3%,,,25,32,0,0,6,0
+Gourgeist-Large,257,stat_points,7,,3.3%,,,32,32,0,0,0,0
+Gourgeist-Large,257,stat_points,8,,2.5%,,,2,0,0,0,32,32
+Gourgeist-Large,257,stat_points,9,,0.8%,,,0,32,2,0,32,0
+Gourgeist-Large,257,stat_points,10,,0.8%,,,32,0,0,0,2,32
+Gourgeist-Large,257,ability,1,Frisk,84.4%,,,,,,,,
+Gourgeist-Large,257,ability,2,Insomnia,13.9%,,,,,,,,
+Gourgeist-Large,257,ability,3,Pickup,1.6%,,,,,,,,

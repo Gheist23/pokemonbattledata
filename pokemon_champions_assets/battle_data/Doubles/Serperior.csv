@@ -1,51 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Serperior,185,move,1,Leaf Storm,99.3%,,,,,,,,
-Serperior,185,move,2,Protect,67.0%,,,,,,,,
-Serperior,185,move,3,Dragon Pulse,66.7%,,,,,,,,
-Serperior,185,move,4,Giga Drain,31.9%,,,,,,,,
-Serperior,185,move,5,Glare,27.4%,,,,,,,,
-Serperior,185,move,6,Taunt,24.8%,,,,,,,,
-Serperior,185,move,7,Light Screen,10.2%,,,,,,,,
-Serperior,185,move,8,Hyper Beam,8.6%,,,,,,,,
-Serperior,185,move,9,Reflect,7.7%,,,,,,,,
-Serperior,185,move,10,Gastro Acid,7.7%,,,,,,,,
-Serperior,185,held_item,1,Leftovers,20.3%,,,,,,,,
-Serperior,185,held_item,2,Miracle Seed,13.7%,,,,,,,,
-Serperior,185,held_item,3,Wide Lens,10.9%,,,,,,,,
-Serperior,185,held_item,4,Choice Scarf,10.6%,,,,,,,,
-Serperior,185,held_item,5,Focus Sash,8.8%,,,,,,,,
-Serperior,185,held_item,6,Metronome,7.7%,,,,,,,,
-Serperior,185,held_item,7,Sitrus Berry,6.8%,,,,,,,,
-Serperior,185,held_item,8,Occa Berry,4.0%,,,,,,,,
-Serperior,185,held_item,9,Life Orb,3.6%,,,,,,,,
-Serperior,185,held_item,10,Light Clay,3.0%,,,,,,,,
-Serperior,185,teammate,1,Incineroar,,,,,,,,,
-Serperior,185,teammate,2,Milotic,,,,,,,,,
-Serperior,185,teammate,3,Charizard,,,,,,,,,
-Serperior,185,teammate,4,Garchomp,,,,,,,,,
-Serperior,185,teammate,5,Sneasler,,,,,,,,,
-Serperior,185,teammate,6,Whimsicott,,,,,,,,,
-Serperior,185,teammate,7,Rillaboom,,,,,,,,,
-Serperior,185,teammate,8,Staraptor,,,,,,,,,
-Serperior,185,teammate,9,Salamence,,,,,,,,,
-Serperior,185,teammate,10,Farigiraf,,,,,,,,,
-Serperior,185,stat_alignment,1,Timid,71.1%,Speed,Attack,,,,,,
-Serperior,185,stat_alignment,2,Modest,21.2%,Sp. Atk,Attack,,,,,,
-Serperior,185,stat_alignment,3,Bold,3.4%,Defense,Attack,,,,,,
-Serperior,185,stat_alignment,4,Mild,1.8%,Sp. Atk,Defense,,,,,,
-Serperior,185,stat_alignment,5,Calm,1.3%,Sp. Def,Attack,,,,,,
-Serperior,185,stat_alignment,6,Jolly,0.5%,Speed,Sp. Atk,,,,,,
-Serperior,185,stat_alignment,7,Relaxed,0.4%,Defense,Speed,,,,,,
-Serperior,185,stat_alignment,8,Serious,0.2%,,,,,,,,
-Serperior,185,stat_points,1,,34.6%,,,2,0,0,32,0,32
-Serperior,185,stat_points,2,,9.0%,,,0,0,2,32,0,32
-Serperior,185,stat_points,3,,4.5%,,,32,0,0,32,0,2
-Serperior,185,stat_points,4,,3.8%,,,0,0,0,32,2,32
-Serperior,185,stat_points,5,,3.0%,,,32,0,1,0,1,32
-Serperior,185,stat_points,6,,2.4%,,,32,0,5,1,2,26
-Serperior,185,stat_points,7,,2.3%,,,1,0,1,32,0,32
-Serperior,185,stat_points,8,,2.1%,,,0,0,0,32,0,32
-Serperior,185,stat_points,9,,1.9%,,,9,0,14,20,14,9
-Serperior,185,stat_points,10,,1.8%,,,31,0,0,10,0,25
-Serperior,185,ability,1,Contrary,99.8%,,,,,,,,
-Serperior,185,ability,2,Overgrow,0.2%,,,,,,,,
+Serperior,180,move,1,Leaf Storm,97.2%,,,,,,,,
+Serperior,180,move,2,Dragon Pulse,68.1%,,,,,,,,
+Serperior,180,move,3,Protect,63.9%,,,,,,,,
+Serperior,180,move,4,Giga Drain,35.4%,,,,,,,,
+Serperior,180,move,5,Glare,28.1%,,,,,,,,
+Serperior,180,move,6,Taunt,24.1%,,,,,,,,
+Serperior,180,move,7,Light Screen,9.1%,,,,,,,,
+Serperior,180,move,8,Synthesis,8.9%,,,,,,,,
+Serperior,180,move,9,Leech Seed,8.0%,,,,,,,,
+Serperior,180,move,10,Hyper Beam,7.5%,,,,,,,,
+Serperior,180,held_item,1,Leftovers,19.9%,,,,,,,,
+Serperior,180,held_item,2,Miracle Seed,13.5%,,,,,,,,
+Serperior,180,held_item,3,Wide Lens,10.5%,,,,,,,,
+Serperior,180,held_item,4,Choice Scarf,9.8%,,,,,,,,
+Serperior,180,held_item,5,Focus Sash,7.4%,,,,,,,,
+Serperior,180,held_item,6,Metronome,6.5%,,,,,,,,
+Serperior,180,held_item,7,Sitrus Berry,5.6%,,,,,,,,
+Serperior,180,held_item,8,Lum Berry,3.9%,,,,,,,,
+Serperior,180,held_item,9,Occa Berry,3.8%,,,,,,,,
+Serperior,180,held_item,10,Life Orb,3.1%,,,,,,,,
+Serperior,180,teammate,1,Charizard,,,,,,,,,
+Serperior,180,teammate,2,Milotic,,,,,,,,,
+Serperior,180,teammate,3,Incineroar,,,,,,,,,
+Serperior,180,teammate,4,Whimsicott,,,,,,,,,
+Serperior,180,teammate,5,Garchomp,,,,,,,,,
+Serperior,180,teammate,6,Sneasler,,,,,,,,,
+Serperior,180,teammate,7,Rillaboom,,,,,,,,,
+Serperior,180,teammate,8,Farigiraf,,,,,,,,,
+Serperior,180,teammate,9,Salamence,,,,,,,,,
+Serperior,180,teammate,10,Staraptor,,,,,,,,,
+Serperior,180,stat_alignment,1,Timid,67.4%,Speed,Attack,,,,,,
+Serperior,180,stat_alignment,2,Modest,23.7%,Sp. Atk,Attack,,,,,,
+Serperior,180,stat_alignment,3,Bold,3.7%,Defense,Attack,,,,,,
+Serperior,180,stat_alignment,4,Mild,2.8%,Sp. Atk,Defense,,,,,,
+Serperior,180,stat_alignment,5,Calm,1.2%,Sp. Def,Attack,,,,,,
+Serperior,180,stat_alignment,6,Jolly,0.4%,Speed,Sp. Atk,,,,,,
+Serperior,180,stat_alignment,7,Relaxed,0.4%,Defense,Speed,,,,,,
+Serperior,180,stat_alignment,8,Serious,0.2%,,,,,,,,
+Serperior,180,stat_alignment,9,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Serperior,180,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Serperior,180,stat_points,1,,34.8%,,,2,0,0,32,0,32
+Serperior,180,stat_points,2,,7.4%,,,0,0,2,32,0,32
+Serperior,180,stat_points,3,,4.0%,,,0,0,0,32,2,32
+Serperior,180,stat_points,4,,3.9%,,,32,0,0,32,0,2
+Serperior,180,stat_points,5,,2.6%,,,32,0,1,0,1,32
+Serperior,180,stat_points,6,,2.5%,,,2,0,32,32,0,0
+Serperior,180,stat_points,7,,2.2%,,,1,0,1,32,0,32
+Serperior,180,stat_points,8,,2.2%,,,31,0,0,3,32,0
+Serperior,180,stat_points,9,,2.1%,,,0,0,0,32,0,32
+Serperior,180,stat_points,10,,2.0%,,,0,0,1,32,1,32
+Serperior,180,ability,1,Contrary,97.8%,,,,,,,,
+Serperior,180,ability,2,Overgrow,2.2%,,,,,,,,

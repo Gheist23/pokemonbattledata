@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aromatisse,170,move,1,Trick Room,89.7%,,,,,,,,
+Aromatisse,170,move,1,Trick Room,89.1%,,,,,,,,
 Aromatisse,170,move,2,Moonblast,58.3%,,,,,,,,
-Aromatisse,170,move,3,Heal Pulse,44.8%,,,,,,,,
-Aromatisse,170,move,4,Dazzling Gleam,41.7%,,,,,,,,
-Aromatisse,170,move,5,Protect,25.8%,,,,,,,,
-Aromatisse,170,move,6,Sunny Day,20.9%,,,,,,,,
-Aromatisse,170,move,7,Encore,20.9%,,,,,,,,
-Aromatisse,170,move,8,Helping Hand,12.7%,,,,,,,,
-Aromatisse,170,move,9,Ally Switch,11.3%,,,,,,,,
-Aromatisse,170,move,10,Fake Tears,10.7%,,,,,,,,
-Aromatisse,170,held_item,1,Babiri Berry,32.0%,,,,,,,,
-Aromatisse,170,held_item,2,Sitrus Berry,26.6%,,,,,,,,
-Aromatisse,170,held_item,3,Fairy Feather,14.5%,,,,,,,,
+Aromatisse,170,move,3,Heal Pulse,45.0%,,,,,,,,
+Aromatisse,170,move,4,Dazzling Gleam,41.8%,,,,,,,,
+Aromatisse,170,move,5,Protect,27.1%,,,,,,,,
+Aromatisse,170,move,6,Encore,20.7%,,,,,,,,
+Aromatisse,170,move,7,Sunny Day,19.2%,,,,,,,,
+Aromatisse,170,move,8,Helping Hand,13.0%,,,,,,,,
+Aromatisse,170,move,9,Ally Switch,12.2%,,,,,,,,
+Aromatisse,170,move,10,Fake Tears,9.9%,,,,,,,,
+Aromatisse,170,held_item,1,Babiri Berry,30.4%,,,,,,,,
+Aromatisse,170,held_item,2,Sitrus Berry,26.7%,,,,,,,,
+Aromatisse,170,held_item,3,Fairy Feather,14.9%,,,,,,,,
 Aromatisse,170,held_item,4,Leftovers,9.7%,,,,,,,,
-Aromatisse,170,held_item,5,Focus Sash,3.9%,,,,,,,,
-Aromatisse,170,held_item,6,Light Clay,2.5%,,,,,,,,
-Aromatisse,170,held_item,7,Kebia Berry,2.3%,,,,,,,,
-Aromatisse,170,held_item,8,Bright Powder,2.1%,,,,,,,,
-Aromatisse,170,held_item,9,Quick Claw,1.6%,,,,,,,,
-Aromatisse,170,held_item,10,Grassy Seed,1.6%,,,,,,,,
+Aromatisse,170,held_item,5,Focus Sash,3.5%,,,,,,,,
+Aromatisse,170,held_item,6,Quick Claw,2.8%,,,,,,,,
+Aromatisse,170,held_item,7,Light Clay,2.4%,,,,,,,,
+Aromatisse,170,held_item,8,Kebia Berry,2.2%,,,,,,,,
+Aromatisse,170,held_item,9,Bright Powder,2.1%,,,,,,,,
+Aromatisse,170,held_item,10,Grassy Seed,1.5%,,,,,,,,
 Aromatisse,170,teammate,1,Torkoal,,,,,,,,,
 Aromatisse,170,teammate,2,Farigiraf,,,,,,,,,
 Aromatisse,170,teammate,3,Sinistcha,,,,,,,,,
@@ -28,22 +28,23 @@ Aromatisse,170,teammate,6,Snorlax,,,,,,,,,
 Aromatisse,170,teammate,7,Lopunny,,,,,,,,,
 Aromatisse,170,teammate,8,Indeedee-F,,,,,,,,,
 Aromatisse,170,teammate,9,Raichu,,,,,,,,,
-Aromatisse,170,teammate,10,Salamence,,,,,,,,,
-Aromatisse,170,stat_alignment,1,Relaxed,42.5%,Defense,Speed,,,,,,
-Aromatisse,170,stat_alignment,2,Quiet,37.0%,Sp. Atk,Speed,,,,,,
-Aromatisse,170,stat_alignment,3,Sassy,11.6%,Sp. Def,Speed,,,,,,
-Aromatisse,170,stat_alignment,4,Calm,4.1%,Sp. Def,Attack,,,,,,
-Aromatisse,170,stat_alignment,5,Bold,3.2%,Defense,Attack,,,,,,
-Aromatisse,170,stat_alignment,6,Modest,1.6%,Sp. Atk,Attack,,,,,,
-Aromatisse,170,stat_points,1,,16.2%,,,32,0,32,0,2,0
-Aromatisse,170,stat_points,2,,14.7%,,,32,0,23,0,11,0
-Aromatisse,170,stat_points,3,,10.2%,,,32,0,18,0,16,0
-Aromatisse,170,stat_points,4,,7.4%,,,32,0,0,32,2,0
-Aromatisse,170,stat_points,5,,7.3%,,,32,0,2,32,0,0
-Aromatisse,170,stat_points,6,,6.0%,,,32,0,2,0,32,0
-Aromatisse,170,stat_points,7,,5.0%,,,30,0,0,31,5,0
-Aromatisse,170,stat_points,8,,3.0%,,,30,0,0,32,4,0
-Aromatisse,170,stat_points,9,,2.7%,,,32,0,0,31,3,0
-Aromatisse,170,stat_points,10,,2.0%,,,2,0,0,32,32,0
-Aromatisse,170,ability,1,Aroma Veil,99.2%,,,,,,,,
-Aromatisse,170,ability,2,Healer,0.8%,,,,,,,,
+Aromatisse,170,teammate,10,Ampharos,,,,,,,,,
+Aromatisse,170,stat_alignment,1,Relaxed,41.1%,Defense,Speed,,,,,,
+Aromatisse,170,stat_alignment,2,Quiet,36.6%,Sp. Atk,Speed,,,,,,
+Aromatisse,170,stat_alignment,3,Sassy,12.3%,Sp. Def,Speed,,,,,,
+Aromatisse,170,stat_alignment,4,Calm,4.3%,Sp. Def,Attack,,,,,,
+Aromatisse,170,stat_alignment,5,Bold,3.7%,Defense,Attack,,,,,,
+Aromatisse,170,stat_alignment,6,Modest,1.8%,Sp. Atk,Attack,,,,,,
+Aromatisse,170,stat_alignment,7,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Aromatisse,170,stat_points,1,,15.9%,,,32,0,32,0,2,0
+Aromatisse,170,stat_points,2,,14.5%,,,32,0,23,0,11,0
+Aromatisse,170,stat_points,3,,9.6%,,,32,0,18,0,16,0
+Aromatisse,170,stat_points,4,,6.8%,,,32,0,2,32,0,0
+Aromatisse,170,stat_points,5,,6.8%,,,32,0,0,32,2,0
+Aromatisse,170,stat_points,6,,6.1%,,,32,0,2,0,32,0
+Aromatisse,170,stat_points,7,,5.7%,,,30,0,0,31,5,0
+Aromatisse,170,stat_points,8,,3.2%,,,2,0,0,32,32,0
+Aromatisse,170,stat_points,9,,2.9%,,,30,0,0,32,4,0
+Aromatisse,170,stat_points,10,,2.7%,,,32,0,0,31,3,0
+Aromatisse,170,ability,1,Aroma Veil,99.1%,,,,,,,,
+Aromatisse,170,ability,2,Healer,0.9%,,,,,,,,

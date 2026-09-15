@@ -27,7 +27,6 @@
     ["speed", "Spe"]
   ];
   const FORM_STATS = [...BASE_STATS, ["base_stat_total", "Total"]];
-  const REGIONAL_FORM_PATTERN = /\b(hisuian|alolan|galarian|paldean)\b/i;
   const STAT_ALIASES = {
     hp: ["hp", "health"],
     attack: ["attack", "atk"],
@@ -2218,10 +2217,20 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return String(record?.battleName || record?.saved_name || record?.primary?.saved_name || record?.name || "").trim();
   }
 
+  /** The label for a battle-data name -- which is already the right label.
+   *
+   *  This used to replace the battle name with the base species unless it
+   *  matched REGIONAL_FORM_PATTERN, from the era when battle names were the
+   *  app's own spellings ("Hisuian Arcanine", "Floette Form 5"). They are
+   *  Pokemon Showdown names now, and that pattern matched none of them, so
+   *  every form was collapsed onto its species: two "Indeedee" cards, two
+   *  "Ninetales", four "Tauros", six "Rotom". The base species is only a
+   *  fallback for a record with no battle name at all.
+   */
   function displayNameForBattleName(battleName, form) {
     const rawName = String(battleName || "").trim();
-    const baseName = String(form?.pokemon_name || form?.base_name || "").trim();
-    return (!REGIONAL_FORM_PATTERN.test(rawName) && baseName) ? baseName : rawName;
+    if (rawName) return rawName;
+    return String(form?.pokemon_name || form?.base_name || "").trim();
   }
 
   function findMetadataFormForBattleName(forms, battleName) {

@@ -1,47 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Falinks,232,move,1,Close Combat,90.2%,,,,,,,,
-Falinks,232,move,2,No Retreat,74.8%,,,,,,,,
-Falinks,232,move,3,First Impression,41.6%,,,,,,,,
-Falinks,232,move,4,Poison Jab,41.1%,,,,,,,,
-Falinks,232,move,5,Knock Off,29.1%,,,,,,,,
-Falinks,232,move,6,Throat Chop,23.4%,,,,,,,,
-Falinks,232,move,7,Iron Head,23.0%,,,,,,,,
-Falinks,232,move,8,Reversal,13.2%,,,,,,,,
-Falinks,232,move,9,Counter,12.3%,,,,,,,,
-Falinks,232,move,10,Rock Slide,12.0%,,,,,,,,
-Falinks,232,held_item,1,Falinksite,66.0%,,,,,,,,
-Falinks,232,held_item,2,Choice Scarf,17.9%,,,,,,,,
-Falinks,232,held_item,3,Focus Sash,13.1%,,,,,,,,
-Falinks,232,held_item,4,Sitrus Berry,1.8%,,,,,,,,
-Falinks,232,held_item,5,Life Orb,0.6%,,,,,,,,
+Falinks,232,move,1,Close Combat,88.6%,,,,,,,,
+Falinks,232,move,2,No Retreat,74.5%,,,,,,,,
+Falinks,232,move,3,First Impression,40.4%,,,,,,,,
+Falinks,232,move,4,Poison Jab,38.4%,,,,,,,,
+Falinks,232,move,5,Knock Off,29.3%,,,,,,,,
+Falinks,232,move,6,Iron Head,23.7%,,,,,,,,
+Falinks,232,move,7,Throat Chop,22.0%,,,,,,,,
+Falinks,232,move,8,Reversal,14.4%,,,,,,,,
+Falinks,232,move,9,Counter,13.5%,,,,,,,,
+Falinks,232,move,10,Rock Slide,12.6%,,,,,,,,
+Falinks,232,held_item,1,Falinksite,65.7%,,,,,,,,
+Falinks,232,held_item,2,Choice Scarf,16.0%,,,,,,,,
+Falinks,232,held_item,3,Focus Sash,14.4%,,,,,,,,
+Falinks,232,held_item,4,Sitrus Berry,1.7%,,,,,,,,
+Falinks,232,held_item,5,Life Orb,0.5%,,,,,,,,
 Falinks,232,held_item,6,Leftovers,0.3%,,,,,,,,
-Falinks,232,held_item,7,Rocky Helmet,0.1%,,,,,,,,
+Falinks,232,held_item,7,King's Rock,0.1%,,,,,,,,
+Falinks,232,held_item,8,Silk Scarf,0.1%,,,,,,,,
+Falinks,232,held_item,9,Rocky Helmet,0.1%,,,,,,,,
 Falinks,232,teammate,1,Charizard,,,,,,,,,
-Falinks,232,teammate,2,Basculegion,,,,,,,,,
-Falinks,232,teammate,3,Kingambit,,,,,,,,,
-Falinks,232,teammate,4,Primarina,,,,,,,,,
-Falinks,232,teammate,5,Cofagrigus,,,,,,,,,
-Falinks,232,teammate,6,Dragonite,,,,,,,,,
-Falinks,232,teammate,7,Cinderace,,,,,,,,,
-Falinks,232,teammate,8,Delphox,,,,,,,,,
-Falinks,232,teammate,9,Rillaboom,,,,,,,,,
-Falinks,232,teammate,10,Scolipede,,,,,,,,,
-Falinks,232,stat_alignment,1,Adamant,71.7%,Attack,Sp. Atk,,,,,,
-Falinks,232,stat_alignment,2,Jolly,17.5%,Speed,Sp. Atk,,,,,,
-Falinks,232,stat_alignment,3,Naughty,4.9%,Attack,Sp. Def,,,,,,
-Falinks,232,stat_alignment,4,Impish,4.2%,Defense,Sp. Atk,,,,,,
-Falinks,232,stat_alignment,5,Bold,1.3%,Defense,Attack,,,,,,
+Falinks,232,teammate,2,Primarina,,,,,,,,,
+Falinks,232,teammate,3,Basculegion,,,,,,,,,
+Falinks,232,teammate,4,Kingambit,,,,,,,,,
+Falinks,232,teammate,5,Dragonite,,,,,,,,,
+Falinks,232,teammate,6,Cofagrigus,,,,,,,,,
+Falinks,232,teammate,7,Delphox,,,,,,,,,
+Falinks,232,teammate,8,Rotom-Frost,,,,,,,,,
+Falinks,232,teammate,9,Wyrdeer,,,,,,,,,
+Falinks,232,teammate,10,Cinderace,,,,,,,,,
+Falinks,232,stat_alignment,1,Adamant,69.4%,Attack,Sp. Atk,,,,,,
+Falinks,232,stat_alignment,2,Jolly,18.4%,Speed,Sp. Atk,,,,,,
+Falinks,232,stat_alignment,3,Naughty,5.4%,Attack,Sp. Def,,,,,,
+Falinks,232,stat_alignment,4,Impish,5.2%,Defense,Sp. Atk,,,,,,
+Falinks,232,stat_alignment,5,Bold,1.2%,Defense,Attack,,,,,,
 Falinks,232,stat_alignment,6,Lonely,0.3%,Attack,Defense,,,,,,
 Falinks,232,stat_alignment,7,Brave,0.1%,Attack,Speed,,,,,,
-Falinks,232,stat_points,1,,68.7%,,,2,32,0,0,0,32
-Falinks,232,stat_points,2,,5.9%,,,1,32,1,0,0,32
-Falinks,232,stat_points,3,,2.7%,,,1,1,32,0,0,32
-Falinks,232,stat_points,4,,2.6%,,,0,26,14,0,0,23
-Falinks,232,stat_points,5,,2.3%,,,11,20,4,0,0,31
-Falinks,232,stat_points,6,,1.6%,,,13,32,0,0,0,21
-Falinks,232,stat_points,7,,1.4%,,,11,0,23,0,0,32
-Falinks,232,stat_points,8,,1.4%,,,32,0,32,0,2,0
-Falinks,232,stat_points,9,,1.4%,,,32,0,2,0,32,0
-Falinks,232,stat_points,10,,1.3%,,,9,27,2,0,4,24
-Falinks,232,ability,1,Defiant,84.2%,,,,,,,,
-Falinks,232,ability,2,Battle Armor,15.8%,,,,,,,,
+Falinks,232,stat_alignment,8,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Falinks,232,stat_points,1,,66.5%,,,2,32,0,0,0,32
+Falinks,232,stat_points,2,,5.6%,,,1,32,1,0,0,32
+Falinks,232,stat_points,3,,2.4%,,,1,1,32,0,0,32
+Falinks,232,stat_points,4,,2.3%,,,0,26,14,0,0,23
+Falinks,232,stat_points,5,,2.1%,,,11,20,4,0,0,31
+Falinks,232,stat_points,6,,1.6%,,,11,0,23,0,0,32
+Falinks,232,stat_points,7,,1.5%,,,13,32,0,0,0,21
+Falinks,232,stat_points,8,,1.3%,,,32,0,32,0,2,0
+Falinks,232,stat_points,9,,1.2%,,,32,0,2,0,32,0
+Falinks,232,stat_points,10,,1.2%,,,9,27,2,0,4,24
+Falinks,232,ability,1,Defiant,81.6%,,,,,,,,
+Falinks,232,ability,2,Battle Armor,18.4%,,,,,,,,

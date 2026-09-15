@@ -145,16 +145,19 @@ code {
 /* Season picker, sitting beside the Doubles/Singles switch. Same pill shape and
    height so the two read as one control group. */
 .season-select {
-  /* The global `select` rule sets width:100% and height:46px, which pushed this
-     onto its own row and made it taller than the format switch beside it. */
+  /* Shape, height and surface come from the shared control group further down
+     (`.season-picker select, .season-select, .format-switch, ...`) so this stays
+     in step with the buttons beside it. Only the things unique to a <select>
+     live here: the global `select` rule would otherwise stretch it to 100% and
+     push it onto its own row. */
   width: auto;
-  height: 40px;
-  min-height: 40px;
+  /* The global `select` rule sets an explicit 46px height, which would beat the
+     shared group's min-height and leave this 2px taller than its neighbours. */
+  height: auto;
   align-self: center;
   margin-left: 0;
   padding: 0 2rem 0 0.9rem;
   border: 1px solid var(--line);
-  border-radius: 999px;
   color: var(--text);
   background-color: rgba(255,255,255,0.045);
   background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
@@ -1750,6 +1753,11 @@ code,
   }
 
   .page-explorer .format-toggle {
+    width: 100%;
+  }
+
+  .page-explorer .season-select {
+    order: 1;
     width: 100%;
   }
 
@@ -3656,6 +3664,7 @@ code,
 }
 
 .season-picker select,
+.season-select,
 .format-switch,
 .ghost-button,
 .discord-button {
@@ -3972,6 +3981,7 @@ h3 {
 .filter-grid select,
 .search-box input,
 .season-picker select,
+.season-select,
 .format-switch,
 .ghost-button,
 .discord-button,
@@ -5681,6 +5691,7 @@ body.page-api::before {
   }
 
   .page-explorer .format-toggle,
+  .page-explorer .season-select,
   .page-explorer .ghost-button,
   .page-explorer .discord-button {
     width: 100% !important;
@@ -8692,4 +8703,328 @@ body.page-api::before {
   flex: none;
   margin-right: 0.35rem;
   vertical-align: -0.12em;
+}
+
+/* Licence pages: /pro-tool/download/ and /pro-tool/key/ ------------------- */
+
+.panel-heading h1 {
+  margin: 0.1rem 0 0;
+  font-size: 1.5rem;
+  letter-spacing: -0.035em;
+}
+
+.panel-sub {
+  margin: 0.4rem 0 0;
+  max-width: 54ch;
+  color: rgba(226, 244, 233, 0.66);
+  font-size: 0.92rem;
+}
+
+.licence-card {
+  margin: 0 0 1.6rem;
+  padding: 1.25rem 1.3rem;
+  border: 1px solid rgba(88, 220, 196, 0.22);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(88, 220, 196, 0.07), rgba(6, 16, 11, 0.5));
+}
+
+.licence-label {
+  margin: 0 0 0.55rem;
+  color: rgba(226, 244, 233, 0.62);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.licence-key-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.licence-key {
+  flex: 1 1 22ch;
+  min-width: 0;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid rgba(88, 220, 196, 0.3);
+  border-radius: 10px;
+  background: rgba(3, 10, 7, 0.72);
+  color: #eafff8;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  /* Long enough to wrap awkwardly on a phone; let it break rather than scroll. */
+  font-size: clamp(0.95rem, 3.4vw, 1.18rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  overflow-wrap: anywhere;
+}
+
+.licence-input {
+  flex: 1 1 18ch;
+  min-width: 0;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid rgba(88, 220, 196, 0.3);
+  border-radius: 10px;
+  background: rgba(3, 10, 7, 0.72);
+  color: #eafff8;
+  font-size: 1rem;
+  /* The site-wide `select, input { width: 100% }` rule would push the button
+     onto its own row; the flex basis above is the intended sizing here. */
+  width: auto;
+  height: auto;
+}
+
+.licence-input:focus-visible {
+  outline: none;
+  border-color: rgba(88, 220, 196, 0.75);
+}
+
+/* `.primary-button` is `width: 100%` site-wide, which is right for the plan
+   cards and wrong for a button sitting beside a field or inside a paragraph.
+   Both of these hug their label instead. */
+.licence-copy,
+.licence-step-list .primary-button {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+/* Block, not flex: these paragraphs contain inline links, and a flex container
+   would pull each one out of the sentence onto its own line. The spinner aligns
+   itself instead. */
+.licence-state {
+  margin: 0.75rem 0 0;
+  color: rgba(226, 244, 233, 0.72);
+  font-size: 0.9rem;
+}
+
+.licence-state[data-tone="ok"] { color: #7ef0d3; }
+.licence-state[data-tone="bad"] { color: #ff9e86; }
+
+.licence-spinner {
+  display: inline-block;
+  vertical-align: -0.08em;
+  margin-right: 0.45rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 2px solid rgba(88, 220, 196, 0.28);
+  border-top-color: rgba(88, 220, 196, 0.95);
+  border-radius: 50%;
+  animation: licence-spin 0.85s linear infinite;
+}
+
+@keyframes licence-spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .licence-spinner { animation-duration: 3s; }
+}
+
+.licence-plan {
+  margin: 0.8rem 0 0;
+  color: rgba(226, 244, 233, 0.58);
+  font-size: 0.85rem;
+}
+
+.licence-steps,
+.licence-notes {
+  margin-bottom: 1.6rem;
+}
+
+.licence-steps h2,
+.licence-notes h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.12rem;
+  letter-spacing: -0.035em;
+}
+
+.licence-step-list {
+  margin: 0;
+  padding-left: 1.3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.licence-step-list li { color: rgba(226, 244, 233, 0.78); }
+.licence-step-list strong { color: #eafff8; }
+
+.licence-step-list p {
+  margin: 0.35rem 0 0;
+  max-width: 64ch;
+  font-size: 0.92rem;
+}
+
+.licence-note-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.6rem;
+  max-width: 68ch;
+  color: rgba(226, 244, 233, 0.78);
+  font-size: 0.92rem;
+}
+
+.licence-note-list strong { color: #eafff8; }
+
+/* Companion page: the four plain questions above the feature run ---------- */
+
+.answer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.75rem;
+}
+
+.answer-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1.05rem 1.1rem 0.95rem;
+  border: 1px solid var(--line);
+  /* Squarer than a feature card and in the same family as the buttons, so the
+     page reads as one set of shapes rather than three. */
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.032);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.answer-card:hover,
+.answer-card:focus-visible {
+  border-color: rgba(88, 220, 196, 0.45);
+  background: rgba(88, 220, 196, 0.06);
+  transform: translateY(-2px);
+}
+
+.answer-card:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.answer-card h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+.answer-card p {
+  margin: 0;
+  flex: 1;
+  color: var(--soft);
+  font-size: 0.89rem;
+  line-height: 1.55;
+}
+
+.answer-link {
+  margin-top: 0.15rem;
+  color: var(--brand);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.answer-link::after {
+  content: " \2192";
+  /* The arrow is decoration; keep it from being read as part of the name. */
+  speak: never;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .answer-card { transition: none; }
+  .answer-card:hover, .answer-card:focus-visible { transform: none; }
+}
+
+/* Contextual Companion prompt on the Pokemon profile pages ---------------- */
+
+.companion-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.4rem;
+  margin: 1.6rem 0;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid rgba(88, 220, 196, 0.26);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(88, 220, 196, 0.08), rgba(255, 255, 255, 0.022));
+}
+
+.companion-cta > div:first-child {
+  flex: 1 1 22rem;
+  min-width: 0;
+}
+
+.companion-cta h2 {
+  margin: 0.25rem 0 0.4rem;
+  font-size: 1.12rem;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.companion-cta p {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.companion-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+}
+
+/* `.primary-button` is width:100% site-wide; these two sit side by side. */
+.companion-cta-actions .primary-button,
+.companion-cta-actions .ghost-button {
+  width: auto;
+}
+
+@media (max-width: 620px) {
+  .companion-cta-actions,
+  .companion-cta-actions .primary-button,
+  .companion-cta-actions .ghost-button {
+    width: 100%;
+  }
+}
+
+/* "3 free runs" in the plan comparison: neither a tick nor a cross. */
+.tool-limited {
+  display: inline-block;
+  padding: 0.18rem 0.5rem;
+  border: 1px solid rgba(88, 220, 196, 0.32);
+  border-radius: 5px;
+  color: #8ef0d6;
+  background: rgba(88, 220, 196, 0.08);
+  font-size: 0.72rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+/* Anchors styled as buttons must not carry the browser's link underline.
+   `.ghost-button` and `.discord-button` already reset it; `.primary-button`
+   and `.plan-button` never did, so every primary call to action on the site
+   was underlined -- the hero download, the plan buttons, and the Companion
+   prompt on each Pokemon profile. */
+a.primary-button,
+a.plan-button,
+a.answer-card,
+a.answer-card *,
+.answer-link {
+  text-decoration: none;
+}
+
+a.primary-button:hover,
+a.plan-button:hover,
+a.answer-card:hover,
+a.answer-card:hover *,
+a.primary-button:focus-visible,
+a.plan-button:focus-visible,
+a.answer-card:focus-visible {
+  text-decoration: none;
 }

@@ -1248,6 +1248,21 @@ function pokemonPageJsonLd(page) {
   };
 }
 
+function companionCta(page) {
+  const name = escapeHtml(page.name);
+  return `<aside class="companion-cta" aria-label="Champions Battle Data Companion">
+      <div>
+        <p class="eyebrow">Champions Battle Data Companion</p>
+        <h2>Does ${name} fit your team?</h2>
+        <p>The Companion scores your six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
+      </div>
+      <div class="companion-cta-actions">
+        <a class="primary-button" href="/pro-tool/">Check my team</a>
+        <a class="ghost-button" href="/pro-tool/plans/">What is in it</a>
+      </div>
+    </aside>`;
+}
+
 function pokemonStaticContent(page) {
   const record = page.sourceRecord;
   const primary = page.form || record.summary?.primary || {};
@@ -1296,6 +1311,7 @@ function pokemonStaticContent(page) {
         ${simpleTable(["Move", "Usage"], topMoves.map((row) => `<tr><td>${escapeHtml(rowName(row))}</td><td>${escapeHtml(row.percentage || "-")}</td></tr>`))}
         ${simpleTable(["Held item", "Usage"], topItems.map((row) => `<tr><td>${itemCell(rowName(row))}</td><td>${escapeHtml(row.percentage || "-")}</td></tr>`))}
       </div>
+      ${companionCta(page)}
       ${forms.length ? `<h2>Related forms</h2><ul class="static-sprite-list">${forms.map((form) => `<li><span class="static-name-cell">${spriteImg(lookupSprite("mini", form.name), { className: "static-mini-sprite" })}<a href="/pokemon/${escapeHtml(form.slug)}/">${escapeHtml(form.name)}</a></span></li>`).join("")}</ul>` : ""}
       <h2>More ${escapeHtml(page.name)} data</h2>
       <ul class="static-link-list">

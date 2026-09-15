@@ -1265,6 +1265,28 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     els.pokemonGrid.append(fragment);
   }
 
+  function companionPrompt(record) {
+    // The static page carries this too, for crawlers -- but `.detail-dialog` is
+    // fixed, covers the viewport and locks body scrolling, so a visitor arriving
+    // from a search result can never reach the static one. This is the copy that
+    // actually gets read, at the moment the question forms.
+    const name = escapeHtml(record.name || "this Pokemon");
+    const prompt = document.createElement("aside");
+    prompt.className = "companion-cta";
+    prompt.setAttribute("aria-label", "Champions Battle Data Companion");
+    prompt.innerHTML = `
+      <div>
+        <p class="eyebrow">Champions Battle Data Companion</p>
+        <h2>Does ${name} fit your team?</h2>
+        <p>The Companion scores your six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
+      </div>
+      <div class="companion-cta-actions">
+        <a class="primary-button" href="/pro-tool/">Check my team</a>
+        <a class="ghost-button" href="/pro-tool/plans/">What is in it</a>
+      </div>`;
+    return prompt;
+  }
+
   async function openDetail(record, options = {}) {
     if (options.rememberSearch !== false) rememberSearch(els.searchInput.value);
     if (options.updateRoute !== false) updateProfileRoute(record, options.routeAction);
@@ -1285,7 +1307,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       els.detailContent.dataset.recordKey = record.key;
       state.activeDetailRecord = record;
       updateProfileFavoriteButton(record);
-      els.detailContent.append(detailHero(record), detailSections(record));
+      els.detailContent.append(detailHero(record), detailSections(record), companionPrompt(record));
       resetDetailScroll();
       requestAnimationFrame(resetDetailScroll);
     } catch (error) {

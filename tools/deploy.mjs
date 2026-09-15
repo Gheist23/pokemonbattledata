@@ -22,7 +22,7 @@ const pagesFileLimit = 20000;
 
 // Local-only scaffolding that must never become a public asset, plus the
 // archived seasons. Wrangler already skips .git, node_modules and .wrangler.
-const devOnlyPaths = [".claude"];
+const devOnlyPaths = [".claude", ".dev.vars", ".license-private-key.txt"];
 const defaultExcludedPaths = [...devOnlyPaths, ...archivedSeasonPaths];
 
 function parseArgs(argv) {

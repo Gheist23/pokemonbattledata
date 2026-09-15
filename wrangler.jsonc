@@ -2,5 +2,10 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "pokemonbattledata",
   "pages_build_output_dir": ".",
-  "compatibility_date": "2026-07-08"
+  "compatibility_date": "2026-07-08",
+  // Ed25519 signing needs the Node-compat crypto surface in Workers.
+  "compatibility_flags": ["nodejs_compat"],
+  "kv_namespaces": [
+    { "binding": "LICENSES", "id": "88038110bbeb4f709e4cf614f67acc3d" }
+  ]
 }

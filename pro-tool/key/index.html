@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Lost your Champions Battle Data Companion licence key? Enter the email you subscribed with and it will be sent again." />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#050c08" />
+  <link rel="canonical" href="https://championsbattledata.com/pro-tool/key/" />
+  <title>Resend your licence key - Champions Battle Data Companion</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="page-tool">
+  <a class="skip-link" href="#resendForm">Skip to the form</a>
+
+  <header class="site-header" aria-label="Site header">
+    <nav class="nav-shell">
+      <a class="brand" href="/" aria-label="championsbattledata.com home">
+        <img class="brand-logo" src="/favicon.svg" alt="" aria-hidden="true" />
+        <span>
+          <strong>Pokemon Champions Battle Data</strong>
+          <small>championsbattledata.com</small>
+        </span>
+      </a>
+      <div class="nav-actions">
+        <a class="ghost-button" href="/pro-tool/"><svg class="nav-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false"><path fill="#ff4d2e" d="M13 1.4c-.5 2.6.3 4.2 1.6 5.6 1.7 1.8 3.7 3.5 3.7 6.6 0 3.6-2.9 6.6-6.4 6.6s-6.4-3-6.4-6.6c0-2.3 1-4.2 2.5-5.8-.3 1.7 0 3.1 1 3.8.7.5 1.6.1 1.7-.8.1-.7-.1-1.6-.3-2.6-.5-2.7.6-5 2.6-6.8Z"/><path fill="#ffc21a" d="M12.2 11.9c1.1 1.2 1.8 2.2 1.8 3.5 0 1.8-1.4 3.2-3.1 3.2-1.6 0-2.9-1.3-2.9-3 0-1 .4-1.9 1.1-2.7.1.9.5 1.5 1.2 1.5.8 0 1.2-.7 1.2-1.7 0-.5.2-.8.7-.8Z"/></svg><span>Companion</span></a>
+        <a class="ghost-button" href="/meta/">Meta</a>
+        <a class="ghost-button" href="/">Explorer</a>
+        <a class="ghost-button" href="/api_guide">API</a>
+        <a class="discord-button" href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-shell tool-section">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow eyebrow-pro">Pro</p>
+          <h1>Send my key again</h1>
+          <p class="panel-sub">Enter the email address you subscribed with and the key goes back out to it.</p>
+        </div>
+      </div>
+
+      <div class="licence-card">
+        <form id="resendForm" novalidate>
+          <label class="licence-label" for="email">Email address</label>
+          <div class="licence-key-row">
+            <input class="licence-input" id="email" name="email" type="email"
+                   autocomplete="email" placeholder="you@example.com" required />
+            <button class="primary-button licence-copy" id="resendButton" type="submit">Send it</button>
+          </div>
+          <p class="licence-state" id="resendMessage" hidden></p>
+          <p class="licence-plan">
+            For your privacy this page gives the same answer whether or not the address
+            has a subscription, so it cannot be used to find out who has one.
+          </p>
+        </form>
+      </div>
+
+      <div class="licence-notes">
+        <h2>If that does not help</h2>
+        <ul class="licence-note-list">
+          <li><strong>Try the other address.</strong> The key went to whichever email you gave Stripe at checkout, which is not always the one you expect.</li>
+          <li><strong>Check spam.</strong> The mail comes from championsbattledata.com and first-time senders often land there.</li>
+          <li><strong>Still nothing?</strong> Ask in the <a href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">Discord</a> and I will look it up. Have your Stripe receipt to hand.</li>
+          <li><strong>No subscription yet?</strong> The <a href="/pro-tool/plans/">plans are here</a>, and the free version needs no key at all.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell" aria-label="Site notice">
+    <p>Pokemon Champions ranked usage stats for Regulation M-A, Regulation M-B and Regulation M-C, rebuilt daily from ladder snapshots.</p>
+    <p>This fan-made project is not affiliated with, endorsed by, or sponsored by Pokemon, Nintendo, Game Freak, or Creatures Inc. <a href="/license.html">License</a>.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById("resendForm");
+      var field = document.getElementById("email");
+      var button = document.getElementById("resendButton");
+      var message = document.getElementById("resendMessage");
+
+      function say(text, tone) {
+        message.textContent = text;
+        message.hidden = false;
+        message.dataset.tone = tone || "";
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var email = field.value.trim();
+        if (!email || email.indexOf("@") < 1) {
+          say("That does not look like an email address.", "bad");
+          return;
+        }
+        button.disabled = true;
+        button.textContent = "Sending";
+        fetch("/api/license/resend", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ email: email })
+        }).then(function (response) {
+          return response.json().catch(function () { return {}; });
+        }).then(function (data) {
+          say(data.message ||
+            "If that address has a subscription, the key is on its way. Give it a minute.", "ok");
+        }).catch(function () {
+          say("Could not reach the server. Try again in a moment, or ask in the Discord.", "bad");
+        }).then(function () {
+          button.disabled = false;
+          button.textContent = "Send it";
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

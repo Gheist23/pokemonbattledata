@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Empoleon,35,move,1,Yawn,65.9%,,,,,,,,
-Empoleon,35,move,2,Stealth Rock,65.6%,,,,,,,,
-Empoleon,35,move,3,Ice Beam,61.7%,,,,,,,,
-Empoleon,35,move,4,Flip Turn,52.2%,,,,,,,,
-Empoleon,35,move,5,Surf,51.9%,,,,,,,,
+Empoleon,35,move,2,Stealth Rock,65.4%,,,,,,,,
+Empoleon,35,move,3,Ice Beam,61.6%,,,,,,,,
+Empoleon,35,move,4,Flip Turn,52.3%,,,,,,,,
+Empoleon,35,move,5,Surf,51.8%,,,,,,,,
 Empoleon,35,move,6,Vacuum Wave,28.5%,,,,,,,,
-Empoleon,35,move,7,Flash Cannon,27.5%,,,,,,,,
-Empoleon,35,move,8,Roost,25.6%,,,,,,,,
+Empoleon,35,move,7,Flash Cannon,27.6%,,,,,,,,
+Empoleon,35,move,8,Roost,25.8%,,,,,,,,
 Empoleon,35,move,9,Hydro Pump,5.2%,,,,,,,,
-Empoleon,35,move,10,Grass Knot,4.0%,,,,,,,,
+Empoleon,35,move,10,Grass Knot,3.9%,,,,,,,,
 Empoleon,35,held_item,1,Shuca Berry,36.7%,,,,,,,,
-Empoleon,35,held_item,2,Leftovers,29.6%,,,,,,,,
-Empoleon,35,held_item,3,Air Balloon,17.7%,,,,,,,,
+Empoleon,35,held_item,2,Leftovers,29.8%,,,,,,,,
+Empoleon,35,held_item,3,Air Balloon,17.6%,,,,,,,,
 Empoleon,35,held_item,4,Sitrus Berry,8.5%,,,,,,,,
 Empoleon,35,held_item,5,Focus Sash,3.2%,,,,,,,,
 Empoleon,35,held_item,6,Rocky Helmet,1.2%,,,,,,,,
@@ -29,9 +29,9 @@ Empoleon,35,teammate,7,Hippowdon,,,,,,,,,
 Empoleon,35,teammate,8,Golisopod,,,,,,,,,
 Empoleon,35,teammate,9,Primarina,,,,,,,,,
 Empoleon,35,teammate,10,Charizard,,,,,,,,,
-Empoleon,35,stat_alignment,1,Modest,35.5%,Sp. Atk,Attack,,,,,,
-Empoleon,35,stat_alignment,2,Sassy,35.4%,Sp. Def,Speed,,,,,,
-Empoleon,35,stat_alignment,3,Calm,9.5%,Sp. Def,Attack,,,,,,
+Empoleon,35,stat_alignment,1,Sassy,35.6%,Sp. Def,Speed,,,,,,
+Empoleon,35,stat_alignment,2,Modest,35.4%,Sp. Atk,Attack,,,,,,
+Empoleon,35,stat_alignment,3,Calm,9.4%,Sp. Def,Attack,,,,,,
 Empoleon,35,stat_alignment,4,Bold,9.0%,Defense,Attack,,,,,,
 Empoleon,35,stat_alignment,5,Relaxed,5.8%,Defense,Speed,,,,,,
 Empoleon,35,stat_alignment,6,Quiet,2.3%,Sp. Atk,Speed,,,,,,
@@ -39,14 +39,14 @@ Empoleon,35,stat_alignment,7,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
 Empoleon,35,stat_alignment,8,Timid,0.5%,Speed,Attack,,,,,,
 Empoleon,35,stat_alignment,9,Impish,0.4%,Defense,Sp. Atk,,,,,,
 Empoleon,35,stat_alignment,10,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Empoleon,35,stat_points,1,,17.7%,,,32,0,5,0,29,0
+Empoleon,35,stat_points,1,,17.9%,,,32,0,5,0,29,0
 Empoleon,35,stat_points,2,,16.3%,,,32,0,2,0,32,0
-Empoleon,35,stat_points,3,,6.5%,,,32,0,32,0,2,0
-Empoleon,35,stat_points,4,,6.5%,,,32,0,0,2,32,0
+Empoleon,35,stat_points,3,,6.4%,,,32,0,32,0,2,0
+Empoleon,35,stat_points,4,,6.4%,,,32,0,0,2,32,0
 Empoleon,35,stat_points,5,,6.3%,,,32,0,2,32,0,0
 Empoleon,35,stat_points,6,,4.6%,,,28,0,0,29,0,9
 Empoleon,35,stat_points,7,,2.9%,,,32,0,0,32,0,2
-Empoleon,35,stat_points,8,,2.0%,,,28,0,1,27,9,1
+Empoleon,35,stat_points,8,,1.9%,,,28,0,1,27,9,1
 Empoleon,35,stat_points,9,,1.9%,,,32,0,0,32,2,0
 Empoleon,35,stat_points,10,,1.6%,,,32,0,32,2,0,0
 Empoleon,35,ability,1,Competitive,68.3%,,,,,,,,

@@ -1,49 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pidgeot,203,move,1,Hurricane,88.1%,,,,,,,,
-Pidgeot,203,move,2,Heat Wave,83.3%,,,,,,,,
-Pidgeot,203,move,3,Protect,75.1%,,,,,,,,
-Pidgeot,203,move,4,Tailwind,45.5%,,,,,,,,
-Pidgeot,203,move,5,Hyper Beam,34.7%,,,,,,,,
-Pidgeot,203,move,6,Quick Attack,14.1%,,,,,,,,
-Pidgeot,203,move,7,Giga Impact,10.8%,,,,,,,,
-Pidgeot,203,move,8,Dual Wingbeat,10.8%,,,,,,,,
-Pidgeot,203,move,9,Sunny Day,7.0%,,,,,,,,
-Pidgeot,203,move,10,Round,4.8%,,,,,,,,
+Pidgeot,203,move,2,Heat Wave,83.7%,,,,,,,,
+Pidgeot,203,move,3,Protect,75.5%,,,,,,,,
+Pidgeot,203,move,4,Tailwind,45.3%,,,,,,,,
+Pidgeot,203,move,5,Hyper Beam,34.8%,,,,,,,,
+Pidgeot,203,move,6,Quick Attack,13.9%,,,,,,,,
+Pidgeot,203,move,7,Giga Impact,10.7%,,,,,,,,
+Pidgeot,203,move,8,Dual Wingbeat,10.7%,,,,,,,,
+Pidgeot,203,move,9,Sunny Day,6.7%,,,,,,,,
+Pidgeot,203,move,10,Round,4.7%,,,,,,,,
 Pidgeot,203,held_item,1,Pidgeotite,88.7%,,,,,,,,
-Pidgeot,203,held_item,2,Life Orb,10.8%,,,,,,,,
+Pidgeot,203,held_item,2,Life Orb,10.7%,,,,,,,,
 Pidgeot,203,held_item,3,Sharp Beak,0.2%,,,,,,,,
 Pidgeot,203,held_item,4,Wide Lens,0.1%,,,,,,,,
 Pidgeot,203,held_item,5,Bright Powder,0.1%,,,,,,,,
 Pidgeot,203,held_item,6,Staraptite,0.1%,,,,,,,,
-Pidgeot,203,held_item,7,Normal Gem,0.1%,,,,,,,,
-Pidgeot,203,teammate,1,Incineroar,,,,,,,,,
-Pidgeot,203,teammate,2,Whimsicott,,,,,,,,,
-Pidgeot,203,teammate,3,Farigiraf,,,,,,,,,
-Pidgeot,203,teammate,4,Rillaboom,,,,,,,,,
+Pidgeot,203,held_item,7,Muscle Band,0.1%,,,,,,,,
+Pidgeot,203,held_item,8,Normal Gem,0.1%,,,,,,,,
+Pidgeot,203,teammate,1,Whimsicott,,,,,,,,,
+Pidgeot,203,teammate,2,Incineroar,,,,,,,,,
+Pidgeot,203,teammate,3,Rillaboom,,,,,,,,,
+Pidgeot,203,teammate,4,Farigiraf,,,,,,,,,
 Pidgeot,203,teammate,5,Sneasler,,,,,,,,,
-Pidgeot,203,teammate,6,Raichu,,,,,,,,,
-Pidgeot,203,teammate,7,Garchomp,,,,,,,,,
+Pidgeot,203,teammate,6,Garchomp,,,,,,,,,
+Pidgeot,203,teammate,7,Raichu,,,,,,,,,
 Pidgeot,203,teammate,8,Beedrill,,,,,,,,,
 Pidgeot,203,teammate,9,Arcanine-Hisui,,,,,,,,,
 Pidgeot,203,teammate,10,Blastoise,,,,,,,,,
-Pidgeot,203,stat_alignment,1,Timid,56.5%,Speed,Attack,,,,,,
-Pidgeot,203,stat_alignment,2,Modest,29.1%,Sp. Atk,Attack,,,,,,
+Pidgeot,203,stat_alignment,1,Timid,56.8%,Speed,Attack,,,,,,
+Pidgeot,203,stat_alignment,2,Modest,29.0%,Sp. Atk,Attack,,,,,,
 Pidgeot,203,stat_alignment,3,Adamant,10.8%,Attack,Sp. Atk,,,,,,
-Pidgeot,203,stat_alignment,4,Rash,1.8%,Sp. Atk,Sp. Def,,,,,,
+Pidgeot,203,stat_alignment,4,Rash,1.7%,Sp. Atk,Sp. Def,,,,,,
 Pidgeot,203,stat_alignment,5,Mild,0.8%,Sp. Atk,Defense,,,,,,
 Pidgeot,203,stat_alignment,6,Hasty,0.5%,Speed,Defense,,,,,,
 Pidgeot,203,stat_alignment,7,Quiet,0.4%,Sp. Atk,Speed,,,,,,
 Pidgeot,203,stat_alignment,8,Bold,0.1%,Defense,Attack,,,,,,
-Pidgeot,203,stat_points,1,,53.0%,,,2,0,0,32,0,32
-Pidgeot,203,stat_points,2,,11.0%,,,1,32,1,0,0,32
-Pidgeot,203,stat_points,3,,5.3%,,,0,0,0,32,2,32
-Pidgeot,203,stat_points,4,,4.4%,,,0,0,0,16,18,32
-Pidgeot,203,stat_points,5,,4.2%,,,1,0,1,32,0,32
-Pidgeot,203,stat_points,6,,2.4%,,,32,0,0,0,0,32
-Pidgeot,203,stat_points,7,,2.3%,,,7,0,0,27,0,32
-Pidgeot,203,stat_points,8,,2.0%,,,1,0,11,17,0,32
-Pidgeot,203,stat_points,9,,1.6%,,,32,0,0,25,0,9
-Pidgeot,203,stat_points,10,,1.6%,,,0,0,0,32,0,32
-Pidgeot,203,ability,1,Big Pecks,48.1%,,,,,,,,
-Pidgeot,203,ability,2,Keen Eye,42.5%,,,,,,,,
-Pidgeot,203,ability,3,Tangled Feet,9.5%,,,,,,,,
+Pidgeot,203,stat_points,1,,52.4%,,,2,0,0,32,0,32
+Pidgeot,203,stat_points,2,,10.9%,,,1,32,1,0,0,32
+Pidgeot,203,stat_points,3,,5.5%,,,0,0,0,32,2,32
+Pidgeot,203,stat_points,4,,4.3%,,,0,0,0,16,18,32
+Pidgeot,203,stat_points,5,,4.3%,,,1,0,1,32,0,32
+Pidgeot,203,stat_points,6,,2.5%,,,7,0,0,27,0,32
+Pidgeot,203,stat_points,7,,2.3%,,,32,0,0,0,0,32
+Pidgeot,203,stat_points,8,,2.1%,,,0,0,0,32,0,32
+Pidgeot,203,stat_points,9,,1.9%,,,1,0,11,17,0,32
+Pidgeot,203,stat_points,10,,1.5%,,,32,0,0,25,0,9
+Pidgeot,203,ability,1,Big Pecks,47.6%,,,,,,,,
+Pidgeot,203,ability,2,Keen Eye,43.2%,,,,,,,,
+Pidgeot,203,ability,3,Tangled Feet,9.2%,,,,,,,,

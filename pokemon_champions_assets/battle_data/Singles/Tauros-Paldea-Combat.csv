@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tauros-Paldea-Combat,262,move,1,Close Combat,54.8%,,,,,,,,
-Tauros-Paldea-Combat,262,move,2,Stone Edge,51.0%,,,,,,,,
-Tauros-Paldea-Combat,262,move,3,Raging Bull,48.1%,,,,,,,,
-Tauros-Paldea-Combat,262,move,4,Body Press,47.1%,,,,,,,,
-Tauros-Paldea-Combat,262,move,5,Reversal,46.2%,,,,,,,,
-Tauros-Paldea-Combat,262,move,6,Megahorn,19.2%,,,,,,,,
-Tauros-Paldea-Combat,262,move,7,Earthquake,19.2%,,,,,,,,
-Tauros-Paldea-Combat,262,move,8,Bulk Up,18.3%,,,,,,,,
-Tauros-Paldea-Combat,262,move,9,Zen Headbutt,17.3%,,,,,,,,
-Tauros-Paldea-Combat,262,move,10,Outrage,16.3%,,,,,,,,
-Tauros-Paldea-Combat,262,held_item,1,Quick Claw,48.1%,,,,,,,,
-Tauros-Paldea-Combat,262,held_item,2,Life Orb,32.7%,,,,,,,,
-Tauros-Paldea-Combat,262,held_item,3,Choice Scarf,8.7%,,,,,,,,
-Tauros-Paldea-Combat,262,held_item,4,Sitrus Berry,6.7%,,,,,,,,
-Tauros-Paldea-Combat,262,held_item,5,Leftovers,1.9%,,,,,,,,
-Tauros-Paldea-Combat,262,held_item,6,Focus Sash,1.9%,,,,,,,,
+Tauros-Paldea-Combat,262,move,1,Close Combat,51.7%,,,,,,,,
+Tauros-Paldea-Combat,262,move,2,Body Press,50.9%,,,,,,,,
+Tauros-Paldea-Combat,262,move,3,Stone Edge,48.3%,,,,,,,,
+Tauros-Paldea-Combat,262,move,4,Raging Bull,44.8%,,,,,,,,
+Tauros-Paldea-Combat,262,move,5,Reversal,44.0%,,,,,,,,
+Tauros-Paldea-Combat,262,move,6,Outrage,22.4%,,,,,,,,
+Tauros-Paldea-Combat,262,move,7,Bulk Up,22.4%,,,,,,,,
+Tauros-Paldea-Combat,262,move,8,Megahorn,17.2%,,,,,,,,
+Tauros-Paldea-Combat,262,move,9,Earthquake,17.2%,,,,,,,,
+Tauros-Paldea-Combat,262,move,10,Zen Headbutt,15.5%,,,,,,,,
+Tauros-Paldea-Combat,262,held_item,1,Quick Claw,45.7%,,,,,,,,
+Tauros-Paldea-Combat,262,held_item,2,Life Orb,31.0%,,,,,,,,
+Tauros-Paldea-Combat,262,held_item,3,Leftovers,7.8%,,,,,,,,
+Tauros-Paldea-Combat,262,held_item,4,Choice Scarf,7.8%,,,,,,,,
+Tauros-Paldea-Combat,262,held_item,5,Sitrus Berry,6.0%,,,,,,,,
+Tauros-Paldea-Combat,262,held_item,6,Focus Sash,1.7%,,,,,,,,
 Tauros-Paldea-Combat,262,teammate,1,Basculegion,,,,,,,,,
 Tauros-Paldea-Combat,262,teammate,2,Gyarados,,,,,,,,,
 Tauros-Paldea-Combat,262,teammate,3,Jolteon,,,,,,,,,
@@ -25,23 +25,23 @@ Tauros-Paldea-Combat,262,teammate,7,Typhlosion-Hisui,,,,,,,,,
 Tauros-Paldea-Combat,262,teammate,8,Empoleon,,,,,,,,,
 Tauros-Paldea-Combat,262,teammate,9,Lucario,,,,,,,,,
 Tauros-Paldea-Combat,262,teammate,10,Heliolisk,,,,,,,,,
-Tauros-Paldea-Combat,262,stat_alignment,1,Adamant,79.8%,Attack,Sp. Atk,,,,,,
-Tauros-Paldea-Combat,262,stat_alignment,2,Hasty,9.6%,Speed,Defense,,,,,,
-Tauros-Paldea-Combat,262,stat_alignment,3,Timid,3.8%,Speed,Attack,,,,,,
-Tauros-Paldea-Combat,262,stat_alignment,4,Jolly,1.9%,Speed,Sp. Atk,,,,,,
-Tauros-Paldea-Combat,262,stat_alignment,5,Naive,1.9%,Speed,Sp. Def,,,,,,
-Tauros-Paldea-Combat,262,stat_alignment,6,Brave,1.9%,Attack,Speed,,,,,,
-Tauros-Paldea-Combat,262,stat_alignment,7,Impish,1.0%,Defense,Sp. Atk,,,,,,
-Tauros-Paldea-Combat,262,stat_points,1,,45.2%,,,4,20,10,0,32,0
-Tauros-Paldea-Combat,262,stat_points,2,,21.2%,,,2,32,0,0,0,32
-Tauros-Paldea-Combat,262,stat_points,3,,17.3%,,,11,32,0,0,23,0
-Tauros-Paldea-Combat,262,stat_points,4,,3.8%,,,11,1,1,0,21,32
-Tauros-Paldea-Combat,262,stat_points,5,,2.9%,,,1,32,0,0,1,32
-Tauros-Paldea-Combat,262,stat_points,6,,1.9%,,,0,32,0,0,17,17
-Tauros-Paldea-Combat,262,stat_points,7,,1.9%,,,1,32,1,0,0,32
-Tauros-Paldea-Combat,262,stat_points,8,,1.9%,,,31,32,0,0,0,0
-Tauros-Paldea-Combat,262,stat_points,9,,1.9%,,,32,32,0,0,2,0
-Tauros-Paldea-Combat,262,stat_points,10,,1.0%,,,2,0,32,0,32,0
-Tauros-Paldea-Combat,262,ability,1,Intimidate,93.3%,,,,,,,,
-Tauros-Paldea-Combat,262,ability,2,Cud Chew,4.8%,,,,,,,,
-Tauros-Paldea-Combat,262,ability,3,Anger Point,1.9%,,,,,,,,
+Tauros-Paldea-Combat,262,stat_alignment,1,Adamant,80.2%,Attack,Sp. Atk,,,,,,
+Tauros-Paldea-Combat,262,stat_alignment,2,Hasty,10.3%,Speed,Defense,,,,,,
+Tauros-Paldea-Combat,262,stat_alignment,3,Timid,3.4%,Speed,Attack,,,,,,
+Tauros-Paldea-Combat,262,stat_alignment,4,Jolly,1.7%,Speed,Sp. Atk,,,,,,
+Tauros-Paldea-Combat,262,stat_alignment,5,Naive,1.7%,Speed,Sp. Def,,,,,,
+Tauros-Paldea-Combat,262,stat_alignment,6,Brave,1.7%,Attack,Speed,,,,,,
+Tauros-Paldea-Combat,262,stat_alignment,7,Impish,0.9%,Defense,Sp. Atk,,,,,,
+Tauros-Paldea-Combat,262,stat_points,1,,43.1%,,,4,20,10,0,32,0
+Tauros-Paldea-Combat,262,stat_points,2,,20.7%,,,2,32,0,0,0,32
+Tauros-Paldea-Combat,262,stat_points,3,,15.5%,,,11,32,0,0,23,0
+Tauros-Paldea-Combat,262,stat_points,4,,6.0%,,,17,11,15,0,0,23
+Tauros-Paldea-Combat,262,stat_points,5,,3.4%,,,11,1,1,0,21,32
+Tauros-Paldea-Combat,262,stat_points,6,,2.6%,,,1,32,0,0,1,32
+Tauros-Paldea-Combat,262,stat_points,7,,1.7%,,,0,32,0,0,17,17
+Tauros-Paldea-Combat,262,stat_points,8,,1.7%,,,1,32,1,0,0,32
+Tauros-Paldea-Combat,262,stat_points,9,,1.7%,,,31,32,0,0,0,0
+Tauros-Paldea-Combat,262,stat_points,10,,1.7%,,,32,32,0,0,2,0
+Tauros-Paldea-Combat,262,ability,1,Intimidate,94.0%,,,,,,,,
+Tauros-Paldea-Combat,262,ability,2,Cud Chew,4.3%,,,,,,,,
+Tauros-Paldea-Combat,262,ability,3,Anger Point,1.7%,,,,,,,,

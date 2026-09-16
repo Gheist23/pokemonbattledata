@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gogoat,253,move,1,Horn Leech,71.5%,,,,,,,,
-Gogoat,253,move,2,Milk Drink,55.8%,,,,,,,,
-Gogoat,253,move,3,Bulk Up,51.1%,,,,,,,,
-Gogoat,253,move,4,Earthquake,44.3%,,,,,,,,
-Gogoat,253,move,5,Leech Seed,25.0%,,,,,,,,
-Gogoat,253,move,6,Play Rough,24.8%,,,,,,,,
-Gogoat,253,move,7,High Horsepower,18.5%,,,,,,,,
-Gogoat,253,move,8,Grassy Terrain,15.4%,,,,,,,,
-Gogoat,253,move,9,Megahorn,12.5%,,,,,,,,
+Gogoat,253,move,1,Horn Leech,71.2%,,,,,,,,
+Gogoat,253,move,2,Milk Drink,55.4%,,,,,,,,
+Gogoat,253,move,3,Bulk Up,50.7%,,,,,,,,
+Gogoat,253,move,4,Earthquake,44.7%,,,,,,,,
+Gogoat,253,move,5,Play Rough,25.1%,,,,,,,,
+Gogoat,253,move,6,Leech Seed,24.8%,,,,,,,,
+Gogoat,253,move,7,High Horsepower,18.4%,,,,,,,,
+Gogoat,253,move,8,Grassy Terrain,15.3%,,,,,,,,
+Gogoat,253,move,9,Megahorn,12.9%,,,,,,,,
 Gogoat,253,move,10,Grassy Glide,11.7%,,,,,,,,
-Gogoat,253,held_item,1,Grassy Seed,31.4%,,,,,,,,
-Gogoat,253,held_item,2,Leftovers,22.9%,,,,,,,,
-Gogoat,253,held_item,3,Sitrus Berry,11.0%,,,,,,,,
-Gogoat,253,held_item,4,Rocky Helmet,7.3%,,,,,,,,
+Gogoat,253,held_item,1,Grassy Seed,31.2%,,,,,,,,
+Gogoat,253,held_item,2,Leftovers,22.7%,,,,,,,,
+Gogoat,253,held_item,3,Sitrus Berry,11.4%,,,,,,,,
+Gogoat,253,held_item,4,Rocky Helmet,7.2%,,,,,,,,
 Gogoat,253,held_item,5,Muscle Band,3.9%,,,,,,,,
 Gogoat,253,held_item,6,Big Root,3.8%,,,,,,,,
 Gogoat,253,held_item,7,Expert Belt,3.6%,,,,,,,,
 Gogoat,253,held_item,8,Quick Claw,3.2%,,,,,,,,
-Gogoat,253,held_item,9,Occa Berry,3.1%,,,,,,,,
-Gogoat,253,held_item,10,Life Orb,1.8%,,,,,,,,
+Gogoat,253,held_item,9,Occa Berry,3.0%,,,,,,,,
+Gogoat,253,held_item,10,Life Orb,2.0%,,,,,,,,
 Gogoat,253,teammate,1,Rillaboom,,,,,,,,,
 Gogoat,253,teammate,2,Garchomp,,,,,,,,,
 Gogoat,253,teammate,3,Baxcalibur,,,,,,,,,
@@ -28,10 +28,10 @@ Gogoat,253,teammate,6,Grapploct,,,,,,,,,
 Gogoat,253,teammate,7,Greninja,,,,,,,,,
 Gogoat,253,teammate,8,Sirfetch’d,,,,,,,,,
 Gogoat,253,teammate,9,Primarina,,,,,,,,,
-Gogoat,253,teammate,10,Golisopod,,,,,,,,,
-Gogoat,253,stat_alignment,1,Impish,39.8%,Defense,Sp. Atk,,,,,,
-Gogoat,253,stat_alignment,2,Adamant,30.3%,Attack,Sp. Atk,,,,,,
-Gogoat,253,stat_alignment,3,Careful,15.0%,Sp. Def,Sp. Atk,,,,,,
+Gogoat,253,teammate,10,Kangaskhan,,,,,,,,,
+Gogoat,253,stat_alignment,1,Impish,39.5%,Defense,Sp. Atk,,,,,,
+Gogoat,253,stat_alignment,2,Adamant,30.8%,Attack,Sp. Atk,,,,,,
+Gogoat,253,stat_alignment,3,Careful,14.9%,Sp. Def,Sp. Atk,,,,,,
 Gogoat,253,stat_alignment,4,Brave,8.0%,Attack,Speed,,,,,,
 Gogoat,253,stat_alignment,5,Hasty,1.6%,Speed,Defense,,,,,,
 Gogoat,253,stat_alignment,6,Jolly,1.2%,Speed,Sp. Atk,,,,,,
@@ -39,15 +39,15 @@ Gogoat,253,stat_alignment,7,Sassy,1.1%,Sp. Def,Speed,,,,,,
 Gogoat,253,stat_alignment,8,Relaxed,0.7%,Defense,Speed,,,,,,
 Gogoat,253,stat_alignment,9,Naughty,0.5%,Attack,Sp. Def,,,,,,
 Gogoat,253,stat_alignment,10,Serious,0.4%,,,,,,,,
-Gogoat,253,stat_points,1,,11.3%,,,32,2,31,0,1,0
-Gogoat,253,stat_points,2,,9.5%,,,32,32,0,0,2,0
+Gogoat,253,stat_points,1,,11.2%,,,32,2,31,0,1,0
+Gogoat,253,stat_points,2,,10.0%,,,32,32,0,0,2,0
 Gogoat,253,stat_points,3,,7.7%,,,32,0,32,0,0,2
-Gogoat,253,stat_points,4,,7.2%,,,32,0,32,0,2,0
-Gogoat,253,stat_points,5,,6.5%,,,32,32,2,0,0,0
+Gogoat,253,stat_points,4,,7.1%,,,32,0,32,0,2,0
+Gogoat,253,stat_points,5,,6.4%,,,32,32,2,0,0,0
 Gogoat,253,stat_points,6,,4.3%,,,32,32,1,0,1,0
 Gogoat,253,stat_points,7,,4.0%,,,32,0,2,0,32,0
 Gogoat,253,stat_points,8,,3.6%,,,1,32,30,0,0,3
 Gogoat,253,stat_points,9,,3.5%,,,32,32,0,0,0,2
 Gogoat,253,stat_points,10,,3.2%,,,32,0,0,0,28,6
-Gogoat,253,ability,1,Grass Pelt,51.7%,,,,,,,,
-Gogoat,253,ability,2,Sap Sipper,48.3%,,,,,,,,
+Gogoat,253,ability,1,Grass Pelt,51.4%,,,,,,,,
+Gogoat,253,ability,2,Sap Sipper,48.6%,,,,,,,,

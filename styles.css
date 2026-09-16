@@ -9028,3 +9028,119 @@ a.plan-button:focus-visible,
 a.answer-card:focus-visible {
   text-decoration: none;
 }
+
+/* v48 mobile header, every page
+
+   The two-per-row top buttons and the header that scrolls away were only ever
+   written for the Explorer -- every rule in the v41/v43 blocks above is
+   prefixed with `.page-explorer`. So /api_guide, /api-rules/, /meta/,
+   /pro-tool/* and 404 kept the old stack: one full-width button per row, five
+   of them, under a `position: sticky` header that pinned ~315px (39% of a
+   phone screen) in place for the whole page.
+
+   These are the same declarations, scoped to `.site-header` instead of a body
+   class, so they reach every page and leave content buttons alone -- `.meta`'s
+   `.ghost-button.compact` and the Companion CTAs are outside the header and
+   keep their own sizing. The Explorer's own copies are equally specific and
+   carry identical values, so nothing there moves. */
+@media (max-width: 760px) {
+  .site-header {
+    position: relative !important;
+    top: auto !important;
+  }
+
+  .site-header .nav-shell {
+    width: min(calc(100% - 24px), var(--max-width)) !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding-block: 1rem !important;
+    gap: 0.62rem !important;
+  }
+
+  .site-header .brand {
+    width: 100% !important;
+    align-items: center !important;
+    min-height: 34px !important;
+  }
+
+  .site-header .brand span {
+    display: flex !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    min-height: 34px !important;
+  }
+
+  .site-header .brand small {
+    display: none !important;
+  }
+
+  .site-header .brand strong {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 34px !important;
+    max-width: none !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+    font-size: 0.9rem !important;
+    line-height: 1.08 !important;
+  }
+
+  .site-header .brand-logo {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 9px !important;
+  }
+
+  .site-header .nav-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
+  }
+
+  /* The format switch and the season picker sit under the links, as on the
+     Explorer, and the switch spans both columns so Doubles/Singles stay a
+     pair rather than splitting across rows. */
+  .site-header .format-switch,
+  .site-header .season-select,
+  .site-header .season-picker {
+    order: 1;
+  }
+
+  .site-header .format-switch {
+    grid-column: 1 / -1 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+  }
+
+  .site-header .format-toggle,
+  .site-header .season-select,
+  .site-header .season-picker,
+  .site-header .ghost-button,
+  .site-header .discord-button {
+    width: 100% !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding-block: 0 !important;
+    border-radius: 8px !important;
+    line-height: 1.15 !important;
+    font-size: 0.84rem !important;
+    font-weight: 850 !important;
+  }
+
+  /* Half a row is narrower than the Explorer's labels ever needed to be, so
+     "Download Battle Data" wraps. The buttons centre themselves with
+     `justify-content`, which does nothing once the label is two line boxes --
+     `text-align` is what centres the second line. */
+  .site-header .ghost-button,
+  .site-header .discord-button {
+    text-align: center !important;
+  }
+}

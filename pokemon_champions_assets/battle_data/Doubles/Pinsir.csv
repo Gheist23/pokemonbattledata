@@ -1,45 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pinsir,221,move,1,Body Slam,56.9%,,,,,,,,
-Pinsir,221,move,2,Feint,55.0%,,,,,,,,
-Pinsir,221,move,3,Detect,54.5%,,,,,,,,
-Pinsir,221,move,4,Storm Throw,43.7%,,,,,,,,
-Pinsir,221,move,5,Protect,39.6%,,,,,,,,
-Pinsir,221,move,6,Lunge,31.0%,,,,,,,,
-Pinsir,221,move,7,Close Combat,29.4%,,,,,,,,
-Pinsir,221,move,8,Slash,13.6%,,,,,,,,
-Pinsir,221,move,9,Focus Energy,12.3%,,,,,,,,
-Pinsir,221,move,10,Quick Attack,11.4%,,,,,,,,
-Pinsir,221,held_item,1,Pinsirite,88.7%,,,,,,,,
-Pinsir,221,held_item,2,Sitrus Berry,3.5%,,,,,,,,
-Pinsir,221,held_item,3,Quick Claw,2.7%,,,,,,,,
-Pinsir,221,held_item,4,Life Orb,2.1%,,,,,,,,
-Pinsir,221,held_item,5,Silver Powder,1.9%,,,,,,,,
-Pinsir,221,held_item,6,Choice Scarf,0.1%,,,,,,,,
-Pinsir,221,teammate,1,Metagross,,,,,,,,,
-Pinsir,221,teammate,2,Talonflame,,,,,,,,,
-Pinsir,221,teammate,3,Garchomp,,,,,,,,,
-Pinsir,221,teammate,4,Farigiraf,,,,,,,,,
-Pinsir,221,teammate,5,Tauros-Paldea-Aqua,,,,,,,,,
-Pinsir,221,teammate,6,Whimsicott,,,,,,,,,
-Pinsir,221,teammate,7,Incineroar,,,,,,,,,
-Pinsir,221,teammate,8,Gholdengo,,,,,,,,,
-Pinsir,221,teammate,9,Froslass,,,,,,,,,
-Pinsir,221,teammate,10,Primarina,,,,,,,,,
-Pinsir,221,stat_alignment,1,Jolly,70.3%,Speed,Sp. Atk,,,,,,
-Pinsir,221,stat_alignment,2,Adamant,22.3%,Attack,Sp. Atk,,,,,,
-Pinsir,221,stat_alignment,3,Impish,3.6%,Defense,Sp. Atk,,,,,,
-Pinsir,221,stat_alignment,4,Sassy,2.7%,Sp. Def,Speed,,,,,,
-Pinsir,221,stat_alignment,5,Naughty,1.1%,Attack,Sp. Def,,,,,,
-Pinsir,221,stat_points,1,,22.8%,,,32,0,2,0,0,32
-Pinsir,221,stat_points,2,,22.0%,,,2,32,0,0,0,32
-Pinsir,221,stat_points,3,,15.3%,,,0,32,0,0,2,32
-Pinsir,221,stat_points,4,,6.3%,,,0,32,2,0,0,32
-Pinsir,221,stat_points,5,,5.9%,,,32,32,0,0,0,2
-Pinsir,221,stat_points,6,,4.6%,,,2,32,0,0,32,0
-Pinsir,221,stat_points,7,,3.6%,,,0,2,32,0,32,0
-Pinsir,221,stat_points,8,,3.5%,,,20,26,0,0,15,5
-Pinsir,221,stat_points,9,,2.9%,,,0,32,0,0,5,29
-Pinsir,221,stat_points,10,,2.0%,,,1,32,1,0,0,32
-Pinsir,221,ability,1,Hyper Cutter,85.4%,,,,,,,,
-Pinsir,221,ability,2,Moxie,11.4%,,,,,,,,
-Pinsir,221,ability,3,Mold Breaker,3.2%,,,,,,,,
+Pinsir,220,move,1,Body Slam,57.4%,,,,,,,,
+Pinsir,220,move,2,Feint,56.0%,,,,,,,,
+Pinsir,220,move,3,Detect,54.3%,,,,,,,,
+Pinsir,220,move,4,Storm Throw,45.4%,,,,,,,,
+Pinsir,220,move,5,Protect,38.6%,,,,,,,,
+Pinsir,220,move,6,Lunge,30.3%,,,,,,,,
+Pinsir,220,move,7,Close Combat,28.0%,,,,,,,,
+Pinsir,220,move,8,Slash,13.0%,,,,,,,,
+Pinsir,220,move,9,Focus Energy,11.5%,,,,,,,,
+Pinsir,220,move,10,X-Scissor,11.1%,,,,,,,,
+Pinsir,220,held_item,1,Pinsirite,88.7%,,,,,,,,
+Pinsir,220,held_item,2,Sitrus Berry,3.3%,,,,,,,,
+Pinsir,220,held_item,3,Quick Claw,2.6%,,,,,,,,
+Pinsir,220,held_item,4,Silver Powder,2.1%,,,,,,,,
+Pinsir,220,held_item,5,Life Orb,1.9%,,,,,,,,
+Pinsir,220,held_item,6,Bright Powder,0.4%,,,,,,,,
+Pinsir,220,held_item,7,Choice Scarf,0.1%,,,,,,,,
+Pinsir,220,teammate,1,Metagross,,,,,,,,,
+Pinsir,220,teammate,2,Talonflame,,,,,,,,,
+Pinsir,220,teammate,3,Farigiraf,,,,,,,,,
+Pinsir,220,teammate,4,Garchomp,,,,,,,,,
+Pinsir,220,teammate,5,Tauros-Paldea-Aqua,,,,,,,,,
+Pinsir,220,teammate,6,Whimsicott,,,,,,,,,
+Pinsir,220,teammate,7,Incineroar,,,,,,,,,
+Pinsir,220,teammate,8,Froslass,,,,,,,,,
+Pinsir,220,teammate,9,Gholdengo,,,,,,,,,
+Pinsir,220,teammate,10,Volcarona,,,,,,,,,
+Pinsir,220,stat_alignment,1,Jolly,71.5%,Speed,Sp. Atk,,,,,,
+Pinsir,220,stat_alignment,2,Adamant,21.3%,Attack,Sp. Atk,,,,,,
+Pinsir,220,stat_alignment,3,Impish,3.4%,Defense,Sp. Atk,,,,,,
+Pinsir,220,stat_alignment,4,Sassy,2.6%,Sp. Def,Speed,,,,,,
+Pinsir,220,stat_alignment,5,Naughty,1.0%,Attack,Sp. Def,,,,,,
+Pinsir,220,stat_alignment,6,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Pinsir,220,stat_points,1,,23.3%,,,32,0,2,0,0,32
+Pinsir,220,stat_points,2,,22.5%,,,2,32,0,0,0,32
+Pinsir,220,stat_points,3,,14.4%,,,0,32,0,0,2,32
+Pinsir,220,stat_points,4,,6.6%,,,0,32,2,0,0,32
+Pinsir,220,stat_points,5,,5.5%,,,32,32,0,0,0,2
+Pinsir,220,stat_points,6,,4.7%,,,2,32,0,0,32,0
+Pinsir,220,stat_points,7,,3.4%,,,0,2,32,0,32,0
+Pinsir,220,stat_points,8,,3.3%,,,20,26,0,0,15,5
+Pinsir,220,stat_points,9,,2.7%,,,0,32,0,0,5,29
+Pinsir,220,stat_points,10,,1.8%,,,1,32,1,0,0,32
+Pinsir,220,ability,1,Hyper Cutter,85.8%,,,,,,,,
+Pinsir,220,ability,2,Moxie,11.1%,,,,,,,,
+Pinsir,220,ability,3,Mold Breaker,3.2%,,,,,,,,

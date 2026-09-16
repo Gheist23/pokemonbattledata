@@ -2,12 +2,12 @@ pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_point
 Charizard,18,move,1,Solar Beam,70.3%,,,,,,,,
 Charizard,18,move,2,Flamethrower,49.5%,,,,,,,,
 Charizard,18,move,3,Air Slash,40.0%,,,,,,,,
-Charizard,18,move,4,Roost,25.8%,,,,,,,,
+Charizard,18,move,4,Roost,25.9%,,,,,,,,
 Charizard,18,move,5,Dragon Pulse,25.7%,,,,,,,,
-Charizard,18,move,6,Flare Blitz,25.7%,,,,,,,,
-Charizard,18,move,7,Flame Charge,24.6%,,,,,,,,
+Charizard,18,move,6,Flare Blitz,25.6%,,,,,,,,
+Charizard,18,move,7,Flame Charge,24.5%,,,,,,,,
 Charizard,18,move,8,Weather Ball,19.3%,,,,,,,,
-Charizard,18,move,9,Overheat,18.6%,,,,,,,,
+Charizard,18,move,9,Overheat,18.5%,,,,,,,,
 Charizard,18,move,10,Dragon Dance,17.7%,,,,,,,,
 Charizard,18,held_item,1,Charizardite Y,71.7%,,,,,,,,
 Charizard,18,held_item,2,Charizardite X,26.9%,,,,,,,,
@@ -29,7 +29,7 @@ Charizard,18,teammate,7,Meowscarada,,,,,,,,,
 Charizard,18,teammate,8,Salamence,,,,,,,,,
 Charizard,18,teammate,9,Golisopod,,,,,,,,,
 Charizard,18,teammate,10,Lucario,,,,,,,,,
-Charizard,18,stat_alignment,1,Modest,47.1%,Sp. Atk,Attack,,,,,,
+Charizard,18,stat_alignment,1,Modest,47.2%,Sp. Atk,Attack,,,,,,
 Charizard,18,stat_alignment,2,Timid,23.5%,Speed,Attack,,,,,,
 Charizard,18,stat_alignment,3,Adamant,17.1%,Attack,Sp. Atk,,,,,,
 Charizard,18,stat_alignment,4,Jolly,9.7%,Speed,Sp. Atk,,,,,,
@@ -45,8 +45,8 @@ Charizard,18,stat_points,3,,3.8%,,,0,0,2,32,0,32
 Charizard,18,stat_points,4,,2.4%,,,4,30,0,0,0,32
 Charizard,18,stat_points,5,,2.0%,,,22,0,10,14,0,20
 Charizard,18,stat_points,6,,1.6%,,,22,0,0,12,0,32
-Charizard,18,stat_points,7,,1.4%,,,0,32,2,0,0,32
-Charizard,18,stat_points,8,,1.4%,,,32,0,23,11,0,0
+Charizard,18,stat_points,7,,1.4%,,,32,0,23,11,0,0
+Charizard,18,stat_points,8,,1.4%,,,0,32,2,0,0,32
 Charizard,18,stat_points,9,,1.4%,,,0,0,0,32,2,32
 Charizard,18,stat_points,10,,1.3%,,,32,0,20,11,0,3
 Charizard,18,ability,1,Blaze,88.3%,,,,,,,,

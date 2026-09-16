@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Liepard,189,move,1,Encore,87.4%,,,,,,,,
-Liepard,189,move,2,Foul Play,85.3%,,,,,,,,
-Liepard,189,move,3,Copycat,74.5%,,,,,,,,
-Liepard,189,move,4,Protect,64.1%,,,,,,,,
-Liepard,189,move,5,Thunder Wave,12.0%,,,,,,,,
-Liepard,189,move,6,Substitute,10.3%,,,,,,,,
-Liepard,189,move,7,Taunt,10.2%,,,,,,,,
-Liepard,189,move,8,Baton Pass,9.8%,,,,,,,,
+Liepard,189,move,2,Foul Play,85.4%,,,,,,,,
+Liepard,189,move,3,Copycat,74.8%,,,,,,,,
+Liepard,189,move,4,Protect,64.4%,,,,,,,,
+Liepard,189,move,5,Thunder Wave,11.9%,,,,,,,,
+Liepard,189,move,6,Taunt,10.4%,,,,,,,,
+Liepard,189,move,7,Substitute,9.8%,,,,,,,,
+Liepard,189,move,8,Baton Pass,9.5%,,,,,,,,
 Liepard,189,move,9,Yawn,9.4%,,,,,,,,
-Liepard,189,move,10,Double Team,5.5%,,,,,,,,
-Liepard,189,held_item,1,Focus Sash,39.0%,,,,,,,,
+Liepard,189,move,10,Knock Off,5.5%,,,,,,,,
+Liepard,189,held_item,1,Focus Sash,38.1%,,,,,,,,
 Liepard,189,held_item,2,Sitrus Berry,18.0%,,,,,,,,
-Liepard,189,held_item,3,Leftovers,12.5%,,,,,,,,
+Liepard,189,held_item,3,Leftovers,12.4%,,,,,,,,
 Liepard,189,held_item,4,Bright Powder,6.2%,,,,,,,,
-Liepard,189,held_item,5,Eject Button,3.6%,,,,,,,,
+Liepard,189,held_item,5,Eject Button,3.9%,,,,,,,,
 Liepard,189,held_item,6,Choice Scarf,3.6%,,,,,,,,
-Liepard,189,held_item,7,Mental Herb,3.1%,,,,,,,,
-Liepard,189,held_item,8,Lum Berry,1.8%,,,,,,,,
-Liepard,189,held_item,9,Black Glasses,1.8%,,,,,,,,
-Liepard,189,held_item,10,Psychic Seed,1.7%,,,,,,,,
+Liepard,189,held_item,7,Mental Herb,2.9%,,,,,,,,
+Liepard,189,held_item,8,Psychic Seed,2.2%,,,,,,,,
+Liepard,189,held_item,9,Black Glasses,2.1%,,,,,,,,
+Liepard,189,held_item,10,Lum Berry,1.9%,,,,,,,,
 Liepard,189,teammate,1,Garchomp,,,,,,,,,
 Liepard,189,teammate,2,Salamence,,,,,,,,,
 Liepard,189,teammate,3,Golisopod,,,,,,,,,
@@ -28,27 +28,27 @@ Liepard,189,teammate,6,Baxcalibur,,,,,,,,,
 Liepard,189,teammate,7,Pawmot,,,,,,,,,
 Liepard,189,teammate,8,Meowscarada,,,,,,,,,
 Liepard,189,teammate,9,Blaziken,,,,,,,,,
-Liepard,189,teammate,10,Archaludon,,,,,,,,,
-Liepard,189,stat_alignment,1,Bold,23.5%,Defense,Attack,,,,,,
-Liepard,189,stat_alignment,2,Jolly,19.2%,Speed,Sp. Atk,,,,,,
-Liepard,189,stat_alignment,3,Relaxed,16.2%,Defense,Speed,,,,,,
-Liepard,189,stat_alignment,4,Impish,14.1%,Defense,Sp. Atk,,,,,,
-Liepard,189,stat_alignment,5,Timid,8.0%,Speed,Attack,,,,,,
-Liepard,189,stat_alignment,6,Adamant,6.3%,Attack,Sp. Atk,,,,,,
-Liepard,189,stat_alignment,7,Calm,3.6%,Sp. Def,Attack,,,,,,
-Liepard,189,stat_alignment,8,Naive,1.9%,Speed,Sp. Def,,,,,,
-Liepard,189,stat_alignment,9,Naughty,1.5%,Attack,Sp. Def,,,,,,
-Liepard,189,stat_alignment,10,Quiet,1.2%,Sp. Atk,Speed,,,,,,
-Liepard,189,stat_points,1,,41.7%,,,32,0,32,0,2,0
-Liepard,189,stat_points,2,,5.6%,,,2,32,0,0,0,32
-Liepard,189,stat_points,3,,5.6%,,,32,0,2,0,0,32
-Liepard,189,stat_points,4,,4.4%,,,32,0,0,0,2,32
-Liepard,189,stat_points,5,,4.1%,,,32,0,1,0,1,32
-Liepard,189,stat_points,6,,2.7%,,,32,2,0,0,0,32
-Liepard,189,stat_points,7,,2.7%,,,2,0,32,0,32,0
-Liepard,189,stat_points,8,,2.6%,,,32,0,30,0,4,0
-Liepard,189,stat_points,9,,2.2%,,,22,0,32,0,10,2
-Liepard,189,stat_points,10,,1.8%,,,28,0,4,0,2,32
-Liepard,189,ability,1,Prankster,98.9%,,,,,,,,
+Liepard,189,teammate,10,Gyarados,,,,,,,,,
+Liepard,189,stat_alignment,1,Bold,23.3%,Defense,Attack,,,,,,
+Liepard,189,stat_alignment,2,Jolly,18.9%,Speed,Sp. Atk,,,,,,
+Liepard,189,stat_alignment,3,Relaxed,16.5%,Defense,Speed,,,,,,
+Liepard,189,stat_alignment,4,Impish,14.3%,Defense,Sp. Atk,,,,,,
+Liepard,189,stat_alignment,5,Timid,7.6%,Speed,Attack,,,,,,
+Liepard,189,stat_alignment,6,Adamant,6.6%,Attack,Sp. Atk,,,,,,
+Liepard,189,stat_alignment,7,Calm,4.0%,Sp. Def,Attack,,,,,,
+Liepard,189,stat_alignment,8,Naive,1.8%,Speed,Sp. Def,,,,,,
+Liepard,189,stat_alignment,9,Naughty,1.4%,Attack,Sp. Def,,,,,,
+Liepard,189,stat_alignment,10,Quiet,1.1%,Sp. Atk,Speed,,,,,,
+Liepard,189,stat_points,1,,41.5%,,,32,0,32,0,2,0
+Liepard,189,stat_points,2,,5.7%,,,2,32,0,0,0,32
+Liepard,189,stat_points,3,,5.4%,,,32,0,2,0,0,32
+Liepard,189,stat_points,4,,4.3%,,,32,0,0,0,2,32
+Liepard,189,stat_points,5,,4.0%,,,32,0,1,0,1,32
+Liepard,189,stat_points,6,,3.0%,,,32,0,30,0,4,0
+Liepard,189,stat_points,7,,2.8%,,,32,2,0,0,0,32
+Liepard,189,stat_points,8,,2.7%,,,2,0,32,0,32,0
+Liepard,189,stat_points,9,,2.0%,,,22,0,32,0,10,2
+Liepard,189,stat_points,10,,1.7%,,,28,0,4,0,2,32
+Liepard,189,ability,1,Prankster,99.0%,,,,,,,,
 Liepard,189,ability,2,Unburden,1.0%,,,,,,,,
 Liepard,189,ability,3,Limber,0.1%,,,,,,,,

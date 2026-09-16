@@ -1,27 +1,27 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ampharos,120,move,1,Protect,83.6%,,,,,,,,
-Ampharos,120,move,2,Dragon Pulse,82.2%,,,,,,,,
-Ampharos,120,move,3,Thunderbolt,63.6%,,,,,,,,
-Ampharos,120,move,4,Parabolic Charge,32.4%,,,,,,,,
-Ampharos,120,move,5,Cotton Guard,27.0%,,,,,,,,
-Ampharos,120,move,6,Rising Voltage,23.9%,,,,,,,,
-Ampharos,120,move,7,Dazzling Gleam,21.4%,,,,,,,,
-Ampharos,120,move,8,Power Gem,17.6%,,,,,,,,
-Ampharos,120,move,9,Focus Blast,12.8%,,,,,,,,
-Ampharos,120,move,10,Thunder,5.8%,,,,,,,,
-Ampharos,120,held_item,1,Ampharosite,82.0%,,,,,,,,
-Ampharos,120,held_item,2,Magnet,10.6%,,,,,,,,
+Ampharos,120,move,1,Protect,83.8%,,,,,,,,
+Ampharos,120,move,2,Dragon Pulse,82.0%,,,,,,,,
+Ampharos,120,move,3,Thunderbolt,63.7%,,,,,,,,
+Ampharos,120,move,4,Parabolic Charge,32.2%,,,,,,,,
+Ampharos,120,move,5,Cotton Guard,26.7%,,,,,,,,
+Ampharos,120,move,6,Rising Voltage,23.8%,,,,,,,,
+Ampharos,120,move,7,Dazzling Gleam,21.5%,,,,,,,,
+Ampharos,120,move,8,Power Gem,18.0%,,,,,,,,
+Ampharos,120,move,9,Focus Blast,13.0%,,,,,,,,
+Ampharos,120,move,10,Thunder,5.9%,,,,,,,,
+Ampharos,120,held_item,1,Ampharosite,81.8%,,,,,,,,
+Ampharos,120,held_item,2,Magnet,10.5%,,,,,,,,
 Ampharos,120,held_item,3,Leftovers,2.0%,,,,,,,,
-Ampharos,120,held_item,4,Shell Bell,1.0%,,,,,,,,
-Ampharos,120,held_item,5,Quick Claw,0.9%,,,,,,,,
-Ampharos,120,held_item,6,Life Orb,0.9%,,,,,,,,
-Ampharos,120,held_item,7,Sitrus Berry,0.8%,,,,,,,,
-Ampharos,120,held_item,8,Light Clay,0.5%,,,,,,,,
-Ampharos,120,held_item,9,Shuca Berry,0.4%,,,,,,,,
+Ampharos,120,held_item,4,Quick Claw,1.1%,,,,,,,,
+Ampharos,120,held_item,5,Sitrus Berry,1.0%,,,,,,,,
+Ampharos,120,held_item,6,Shell Bell,1.0%,,,,,,,,
+Ampharos,120,held_item,7,Life Orb,0.8%,,,,,,,,
+Ampharos,120,held_item,8,Light Clay,0.4%,,,,,,,,
+Ampharos,120,held_item,9,Shuca Berry,0.3%,,,,,,,,
 Ampharos,120,held_item,10,Wise Glasses,0.3%,,,,,,,,
 Ampharos,120,teammate,1,Farigiraf,,,,,,,,,
-Ampharos,120,teammate,2,Golisopod,,,,,,,,,
-Ampharos,120,teammate,3,Indeedee-F,,,,,,,,,
+Ampharos,120,teammate,2,Indeedee-F,,,,,,,,,
+Ampharos,120,teammate,3,Golisopod,,,,,,,,,
 Ampharos,120,teammate,4,Torkoal,,,,,,,,,
 Ampharos,120,teammate,5,Pincurchin,,,,,,,,,
 Ampharos,120,teammate,6,Armarouge,,,,,,,,,
@@ -29,9 +29,9 @@ Ampharos,120,teammate,7,Sinistcha,,,,,,,,,
 Ampharos,120,teammate,8,Rillaboom,,,,,,,,,
 Ampharos,120,teammate,9,Hatterene,,,,,,,,,
 Ampharos,120,teammate,10,Incineroar,,,,,,,,,
-Ampharos,120,stat_alignment,1,Quiet,72.9%,Sp. Atk,Speed,,,,,,
+Ampharos,120,stat_alignment,1,Quiet,73.0%,Sp. Atk,Speed,,,,,,
 Ampharos,120,stat_alignment,2,Modest,19.0%,Sp. Atk,Attack,,,,,,
-Ampharos,120,stat_alignment,3,Calm,3.0%,Sp. Def,Attack,,,,,,
+Ampharos,120,stat_alignment,3,Calm,2.9%,Sp. Def,Attack,,,,,,
 Ampharos,120,stat_alignment,4,Bold,1.9%,Defense,Attack,,,,,,
 Ampharos,120,stat_alignment,5,Sassy,1.1%,Sp. Def,Speed,,,,,,
 Ampharos,120,stat_alignment,6,Relaxed,1.1%,Defense,Speed,,,,,,
@@ -40,13 +40,13 @@ Ampharos,120,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Ampharos,120,stat_alignment,9,Naughty,0.0%,Attack,Sp. Def,,,,,,
 Ampharos,120,stat_points,1,,42.1%,,,32,0,2,32,0,0
 Ampharos,120,stat_points,2,,11.7%,,,32,0,0,32,2,0
-Ampharos,120,stat_points,3,,2.5%,,,32,0,0,32,0,0
-Ampharos,120,stat_points,4,,2.4%,,,15,0,5,25,21,0
+Ampharos,120,stat_points,3,,2.4%,,,32,0,0,32,0,0
+Ampharos,120,stat_points,4,,2.3%,,,15,0,5,25,21,0
 Ampharos,120,stat_points,5,,2.1%,,,32,0,0,25,9,0
-Ampharos,120,stat_points,6,,2.0%,,,2,0,0,32,32,0
-Ampharos,120,stat_points,7,,1.8%,,,32,0,2,0,32,0
-Ampharos,120,stat_points,8,,1.5%,,,30,0,0,25,11,0
+Ampharos,120,stat_points,6,,1.9%,,,2,0,0,32,32,0
+Ampharos,120,stat_points,7,,1.7%,,,32,0,2,0,32,0
+Ampharos,120,stat_points,8,,1.6%,,,30,0,0,25,11,0
 Ampharos,120,stat_points,9,,1.4%,,,0,0,32,32,2,0
-Ampharos,120,stat_points,10,,1.3%,,,28,0,6,32,0,0
-Ampharos,120,ability,1,Static,87.0%,,,,,,,,
-Ampharos,120,ability,2,Plus,13.0%,,,,,,,,
+Ampharos,120,stat_points,10,,1.2%,,,28,0,6,32,0,0
+Ampharos,120,ability,1,Static,87.2%,,,,,,,,
+Ampharos,120,ability,2,Plus,12.8%,,,,,,,,

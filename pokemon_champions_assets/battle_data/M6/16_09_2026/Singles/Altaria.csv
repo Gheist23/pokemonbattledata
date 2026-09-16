@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Altaria,126,move,1,Roost,89.9%,,,,,,,,
+Altaria,126,move,1,Roost,90.0%,,,,,,,,
 Altaria,126,move,2,Hyper Voice,79.4%,,,,,,,,
 Altaria,126,move,3,Cotton Guard,73.7%,,,,,,,,
-Altaria,126,move,4,Flamethrower,58.3%,,,,,,,,
-Altaria,126,move,5,Fire Blast,15.7%,,,,,,,,
-Altaria,126,move,6,Dragon Dance,10.1%,,,,,,,,
+Altaria,126,move,4,Flamethrower,58.1%,,,,,,,,
+Altaria,126,move,5,Fire Blast,15.8%,,,,,,,,
+Altaria,126,move,6,Dragon Dance,10.2%,,,,,,,,
 Altaria,126,move,7,Body Slam,8.9%,,,,,,,,
-Altaria,126,move,8,Will-O-Wisp,8.8%,,,,,,,,
+Altaria,126,move,8,Will-O-Wisp,8.6%,,,,,,,,
 Altaria,126,move,9,Draco Meteor,7.7%,,,,,,,,
 Altaria,126,move,10,Ice Beam,5.2%,,,,,,,,
 Altaria,126,held_item,1,Altarianite,96.9%,,,,,,,,
@@ -16,8 +16,8 @@ Altaria,126,held_item,4,Leftovers,0.5%,,,,,,,,
 Altaria,126,held_item,5,Binding Band,0.4%,,,,,,,,
 Altaria,126,held_item,6,Focus Sash,0.1%,,,,,,,,
 Altaria,126,held_item,7,Zoom Lens,0.1%,,,,,,,,
-Altaria,126,held_item,8,Lum Berry,0.1%,,,,,,,,
-Altaria,126,held_item,9,Iron Ball,0.1%,,,,,,,,
+Altaria,126,held_item,8,Lum Berry,0.0%,,,,,,,,
+Altaria,126,held_item,9,Iron Ball,0.0%,,,,,,,,
 Altaria,126,held_item,10,Wide Lens,0.0%,,,,,,,,
 Altaria,126,teammate,1,Garchomp,,,,,,,,,
 Altaria,126,teammate,2,Golisopod,,,,,,,,,
@@ -26,28 +26,28 @@ Altaria,126,teammate,4,Rillaboom,,,,,,,,,
 Altaria,126,teammate,5,Primarina,,,,,,,,,
 Altaria,126,teammate,6,Cinderace,,,,,,,,,
 Altaria,126,teammate,7,Gyarados,,,,,,,,,
-Altaria,126,teammate,8,Empoleon,,,,,,,,,
-Altaria,126,teammate,9,Sneasler,,,,,,,,,
-Altaria,126,teammate,10,Baxcalibur,,,,,,,,,
-Altaria,126,stat_alignment,1,Modest,45.0%,Sp. Atk,Attack,,,,,,
-Altaria,126,stat_alignment,2,Bold,22.1%,Defense,Attack,,,,,,
-Altaria,126,stat_alignment,3,Calm,15.6%,Sp. Def,Attack,,,,,,
+Altaria,126,teammate,8,Baxcalibur,,,,,,,,,
+Altaria,126,teammate,9,Empoleon,,,,,,,,,
+Altaria,126,teammate,10,Sneasler,,,,,,,,,
+Altaria,126,stat_alignment,1,Modest,45.5%,Sp. Atk,Attack,,,,,,
+Altaria,126,stat_alignment,2,Bold,21.8%,Defense,Attack,,,,,,
+Altaria,126,stat_alignment,3,Calm,15.4%,Sp. Def,Attack,,,,,,
 Altaria,126,stat_alignment,4,Careful,5.5%,Sp. Def,Sp. Atk,,,,,,
-Altaria,126,stat_alignment,5,Timid,3.2%,Speed,Attack,,,,,,
+Altaria,126,stat_alignment,5,Timid,3.1%,Speed,Attack,,,,,,
 Altaria,126,stat_alignment,6,Adamant,2.6%,Attack,Sp. Atk,,,,,,
-Altaria,126,stat_alignment,7,Impish,2.0%,Defense,Sp. Atk,,,,,,
+Altaria,126,stat_alignment,7,Impish,2.1%,Defense,Sp. Atk,,,,,,
 Altaria,126,stat_alignment,8,Jolly,1.7%,Speed,Sp. Atk,,,,,,
 Altaria,126,stat_alignment,9,Relaxed,0.6%,Defense,Speed,,,,,,
 Altaria,126,stat_alignment,10,Quiet,0.5%,Sp. Atk,Speed,,,,,,
-Altaria,126,stat_points,1,,9.3%,,,32,0,2,0,32,0
+Altaria,126,stat_points,1,,9.4%,,,32,0,2,0,32,0
 Altaria,126,stat_points,2,,7.4%,,,32,0,2,32,0,0
-Altaria,126,stat_points,3,,3.4%,,,32,0,32,0,0,2
+Altaria,126,stat_points,3,,3.3%,,,32,0,32,0,0,2
 Altaria,126,stat_points,4,,3.3%,,,32,0,0,32,0,2
-Altaria,126,stat_points,5,,3.0%,,,32,0,32,0,2,0
-Altaria,126,stat_points,6,,2.8%,,,32,0,0,32,2,0
-Altaria,126,stat_points,7,,2.7%,,,31,0,7,20,8,0
-Altaria,126,stat_points,8,,1.9%,,,32,0,0,0,32,2
-Altaria,126,stat_points,9,,1.9%,,,31,0,10,0,25,0
-Altaria,126,stat_points,10,,1.8%,,,32,0,32,2,0,0
-Altaria,126,ability,1,Natural Cure,50.9%,,,,,,,,
-Altaria,126,ability,2,Cloud Nine,49.1%,,,,,,,,
+Altaria,126,stat_points,5,,2.9%,,,32,0,32,0,2,0
+Altaria,126,stat_points,6,,2.9%,,,32,0,0,32,2,0
+Altaria,126,stat_points,7,,2.8%,,,31,0,7,20,8,0
+Altaria,126,stat_points,8,,1.9%,,,32,0,32,2,0,0
+Altaria,126,stat_points,9,,1.9%,,,32,0,0,0,32,2
+Altaria,126,stat_points,10,,1.9%,,,31,0,10,0,25,0
+Altaria,126,ability,1,Natural Cure,50.6%,,,,,,,,
+Altaria,126,ability,2,Cloud Nine,49.4%,,,,,,,,

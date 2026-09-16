@@ -1,51 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom-Frost,198,move,1,Blizzard,97.9%,,,,,,,,
-Rotom-Frost,198,move,2,Volt Switch,62.9%,,,,,,,,
-Rotom-Frost,198,move,3,Thunderbolt,57.4%,,,,,,,,
-Rotom-Frost,198,move,4,Will-O-Wisp,57.1%,,,,,,,,
-Rotom-Frost,198,move,5,Trick,30.3%,,,,,,,,
-Rotom-Frost,198,move,6,Shadow Ball,15.2%,,,,,,,,
-Rotom-Frost,198,move,7,Pain Split,14.1%,,,,,,,,
-Rotom-Frost,198,move,8,Thunder,8.5%,,,,,,,,
-Rotom-Frost,198,move,9,Nasty Plot,8.1%,,,,,,,,
-Rotom-Frost,198,move,10,Protect,7.4%,,,,,,,,
-Rotom-Frost,198,held_item,1,Choice Scarf,33.0%,,,,,,,,
-Rotom-Frost,198,held_item,2,Sitrus Berry,20.2%,,,,,,,,
-Rotom-Frost,198,held_item,3,Leftovers,14.3%,,,,,,,,
-Rotom-Frost,198,held_item,4,Zoom Lens,5.6%,,,,,,,,
-Rotom-Frost,198,held_item,5,Life Orb,4.5%,,,,,,,,
-Rotom-Frost,198,held_item,6,Rocky Helmet,4.0%,,,,,,,,
-Rotom-Frost,198,held_item,7,Wide Lens,3.3%,,,,,,,,
-Rotom-Frost,198,held_item,8,Never-Melt Ice,3.0%,,,,,,,,
+Rotom-Frost,198,move,1,Blizzard,97.7%,,,,,,,,
+Rotom-Frost,198,move,2,Volt Switch,62.5%,,,,,,,,
+Rotom-Frost,198,move,3,Thunderbolt,57.8%,,,,,,,,
+Rotom-Frost,198,move,4,Will-O-Wisp,57.4%,,,,,,,,
+Rotom-Frost,198,move,5,Trick,29.9%,,,,,,,,
+Rotom-Frost,198,move,6,Shadow Ball,15.1%,,,,,,,,
+Rotom-Frost,198,move,7,Pain Split,14.2%,,,,,,,,
+Rotom-Frost,198,move,8,Thunder,8.7%,,,,,,,,
+Rotom-Frost,198,move,9,Nasty Plot,8.0%,,,,,,,,
+Rotom-Frost,198,move,10,Protect,7.5%,,,,,,,,
+Rotom-Frost,198,held_item,1,Choice Scarf,32.7%,,,,,,,,
+Rotom-Frost,198,held_item,2,Sitrus Berry,19.7%,,,,,,,,
+Rotom-Frost,198,held_item,3,Leftovers,14.7%,,,,,,,,
+Rotom-Frost,198,held_item,4,Zoom Lens,5.9%,,,,,,,,
+Rotom-Frost,198,held_item,5,Life Orb,4.4%,,,,,,,,
+Rotom-Frost,198,held_item,6,Rocky Helmet,4.2%,,,,,,,,
+Rotom-Frost,198,held_item,7,Wide Lens,3.5%,,,,,,,,
+Rotom-Frost,198,held_item,8,Never-Melt Ice,2.9%,,,,,,,,
 Rotom-Frost,198,held_item,9,Focus Sash,2.2%,,,,,,,,
 Rotom-Frost,198,held_item,10,Quick Claw,2.0%,,,,,,,,
 Rotom-Frost,198,teammate,1,Garchomp,,,,,,,,,
-Rotom-Frost,198,teammate,2,Golisopod,,,,,,,,,
-Rotom-Frost,198,teammate,3,Salamence,,,,,,,,,
+Rotom-Frost,198,teammate,2,Salamence,,,,,,,,,
+Rotom-Frost,198,teammate,3,Golisopod,,,,,,,,,
 Rotom-Frost,198,teammate,4,Baxcalibur,,,,,,,,,
 Rotom-Frost,198,teammate,5,Primarina,,,,,,,,,
 Rotom-Frost,198,teammate,6,Gyarados,,,,,,,,,
 Rotom-Frost,198,teammate,7,Charizard,,,,,,,,,
-Rotom-Frost,198,teammate,8,Dragonite,,,,,,,,,
-Rotom-Frost,198,teammate,9,Lucario,,,,,,,,,
+Rotom-Frost,198,teammate,8,Lucario,,,,,,,,,
+Rotom-Frost,198,teammate,9,Dragonite,,,,,,,,,
 Rotom-Frost,198,teammate,10,Incineroar,,,,,,,,,
-Rotom-Frost,198,stat_alignment,1,Modest,43.7%,Sp. Atk,Attack,,,,,,
+Rotom-Frost,198,stat_alignment,1,Modest,43.1%,Sp. Atk,Attack,,,,,,
 Rotom-Frost,198,stat_alignment,2,Timid,24.0%,Speed,Attack,,,,,,
-Rotom-Frost,198,stat_alignment,3,Bold,16.0%,Defense,Attack,,,,,,
-Rotom-Frost,198,stat_alignment,4,Calm,12.0%,Sp. Def,Attack,,,,,,
-Rotom-Frost,198,stat_alignment,5,Quiet,2.2%,Sp. Atk,Speed,,,,,,
+Rotom-Frost,198,stat_alignment,3,Bold,16.3%,Defense,Attack,,,,,,
+Rotom-Frost,198,stat_alignment,4,Calm,12.5%,Sp. Def,Attack,,,,,,
+Rotom-Frost,198,stat_alignment,5,Quiet,2.1%,Sp. Atk,Speed,,,,,,
 Rotom-Frost,198,stat_alignment,6,Relaxed,1.7%,Defense,Speed,,,,,,
 Rotom-Frost,198,stat_alignment,7,Hasty,0.2%,Speed,Defense,,,,,,
 Rotom-Frost,198,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Rotom-Frost,198,stat_alignment,9,Naughty,0.1%,Attack,Sp. Def,,,,,,
-Rotom-Frost,198,stat_points,1,,28.4%,,,2,0,0,32,0,32
-Rotom-Frost,198,stat_points,2,,9.0%,,,32,0,0,32,0,2
-Rotom-Frost,198,stat_points,3,,5.5%,,,32,0,32,2,0,0
-Rotom-Frost,198,stat_points,4,,5.2%,,,32,0,2,32,0,0
-Rotom-Frost,198,stat_points,5,,2.8%,,,32,0,32,0,2,0
-Rotom-Frost,198,stat_points,6,,2.5%,,,32,0,0,32,2,0
-Rotom-Frost,198,stat_points,7,,2.3%,,,32,0,0,20,13,1
-Rotom-Frost,198,stat_points,8,,2.2%,,,0,0,32,32,2,0
-Rotom-Frost,198,stat_points,9,,2.2%,,,32,0,32,0,1,1
+Rotom-Frost,198,stat_alignment,9,Naughty,0.0%,Attack,Sp. Def,,,,,,
+Rotom-Frost,198,stat_alignment,10,Naive,0.0%,Speed,Sp. Def,,,,,,
+Rotom-Frost,198,stat_points,1,,28.1%,,,2,0,0,32,0,32
+Rotom-Frost,198,stat_points,2,,9.1%,,,32,0,0,32,0,2
+Rotom-Frost,198,stat_points,3,,5.6%,,,32,0,32,2,0,0
+Rotom-Frost,198,stat_points,4,,5.4%,,,32,0,2,32,0,0
+Rotom-Frost,198,stat_points,5,,2.7%,,,32,0,32,0,2,0
+Rotom-Frost,198,stat_points,6,,2.6%,,,32,0,0,20,13,1
+Rotom-Frost,198,stat_points,7,,2.5%,,,32,0,0,32,2,0
+Rotom-Frost,198,stat_points,8,,2.1%,,,0,0,32,32,2,0
+Rotom-Frost,198,stat_points,9,,2.1%,,,32,0,32,0,1,1
 Rotom-Frost,198,stat_points,10,,2.0%,,,0,0,0,32,2,32
 Rotom-Frost,198,ability,1,Levitate,100.0%,,,,,,,,

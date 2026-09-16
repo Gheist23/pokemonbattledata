@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pinsir,168,move,1,Quick Attack,81.2%,,,,,,,,
-Pinsir,168,move,2,Swords Dance,56.4%,,,,,,,,
-Pinsir,168,move,3,Storm Throw,55.4%,,,,,,,,
-Pinsir,168,move,4,Body Slam,47.0%,,,,,,,,
-Pinsir,168,move,5,Thrash,40.7%,,,,,,,,
-Pinsir,168,move,6,Earthquake,35.3%,,,,,,,,
-Pinsir,168,move,7,Guillotine,19.1%,,,,,,,,
+Pinsir,168,move,1,Quick Attack,81.0%,,,,,,,,
+Pinsir,168,move,2,Swords Dance,55.8%,,,,,,,,
+Pinsir,168,move,3,Storm Throw,55.5%,,,,,,,,
+Pinsir,168,move,4,Body Slam,46.5%,,,,,,,,
+Pinsir,168,move,5,Thrash,40.5%,,,,,,,,
+Pinsir,168,move,6,Earthquake,35.6%,,,,,,,,
+Pinsir,168,move,7,Guillotine,18.9%,,,,,,,,
 Pinsir,168,move,8,Bulk Up,13.6%,,,,,,,,
-Pinsir,168,move,9,Feint,12.9%,,,,,,,,
-Pinsir,168,move,10,Close Combat,6.6%,,,,,,,,
-Pinsir,168,held_item,1,Pinsirite,94.5%,,,,,,,,
-Pinsir,168,held_item,2,Choice Scarf,2.0%,,,,,,,,
-Pinsir,168,held_item,3,Focus Sash,1.0%,,,,,,,,
+Pinsir,168,move,9,Feint,12.5%,,,,,,,,
+Pinsir,168,move,10,Close Combat,6.9%,,,,,,,,
+Pinsir,168,held_item,1,Pinsirite,93.9%,,,,,,,,
+Pinsir,168,held_item,2,Choice Scarf,2.2%,,,,,,,,
+Pinsir,168,held_item,3,Focus Sash,1.1%,,,,,,,,
 Pinsir,168,held_item,4,Leftovers,0.8%,,,,,,,,
-Pinsir,168,held_item,5,White Herb,0.3%,,,,,,,,
-Pinsir,168,held_item,6,Sitrus Berry,0.2%,,,,,,,,
-Pinsir,168,held_item,7,Lum Berry,0.1%,,,,,,,,
+Pinsir,168,held_item,5,Lum Berry,0.4%,,,,,,,,
+Pinsir,168,held_item,6,White Herb,0.3%,,,,,,,,
+Pinsir,168,held_item,7,Sitrus Berry,0.2%,,,,,,,,
 Pinsir,168,held_item,8,Leek,0.1%,,,,,,,,
 Pinsir,168,held_item,9,Rocky Helmet,0.1%,,,,,,,,
 Pinsir,168,held_item,10,Light Ball,0.1%,,,,,,,,
@@ -29,26 +29,26 @@ Pinsir,168,teammate,7,Vivillon-Fancy,,,,,,,,,
 Pinsir,168,teammate,8,Garchomp,,,,,,,,,
 Pinsir,168,teammate,9,Snorlax,,,,,,,,,
 Pinsir,168,teammate,10,Primarina,,,,,,,,,
-Pinsir,168,stat_alignment,1,Jolly,78.0%,Speed,Sp. Atk,,,,,,
-Pinsir,168,stat_alignment,2,Adamant,17.7%,Attack,Sp. Atk,,,,,,
-Pinsir,168,stat_alignment,3,Impish,2.1%,Defense,Sp. Atk,,,,,,
+Pinsir,168,stat_alignment,1,Jolly,77.8%,Speed,Sp. Atk,,,,,,
+Pinsir,168,stat_alignment,2,Adamant,18.0%,Attack,Sp. Atk,,,,,,
+Pinsir,168,stat_alignment,3,Impish,2.0%,Defense,Sp. Atk,,,,,,
 Pinsir,168,stat_alignment,4,Careful,1.2%,Sp. Def,Sp. Atk,,,,,,
-Pinsir,168,stat_alignment,5,Brave,0.4%,Attack,Speed,,,,,,
-Pinsir,168,stat_alignment,6,Relaxed,0.3%,Defense,Speed,,,,,,
+Pinsir,168,stat_alignment,5,Relaxed,0.4%,Defense,Speed,,,,,,
+Pinsir,168,stat_alignment,6,Brave,0.3%,Attack,Speed,,,,,,
 Pinsir,168,stat_alignment,7,Timid,0.2%,Speed,Attack,,,,,,
 Pinsir,168,stat_alignment,8,Naughty,0.1%,Attack,Sp. Def,,,,,,
 Pinsir,168,stat_alignment,9,Lonely,0.0%,Attack,Defense,,,,,,
 Pinsir,168,stat_alignment,10,Naive,0.0%,Speed,Sp. Def,,,,,,
-Pinsir,168,stat_points,1,,36.2%,,,1,32,1,0,0,32
-Pinsir,168,stat_points,2,,19.4%,,,2,32,0,0,0,32
-Pinsir,168,stat_points,3,,9.5%,,,1,32,0,0,1,32
-Pinsir,168,stat_points,4,,4.9%,,,0,32,2,0,0,32
-Pinsir,168,stat_points,5,,4.8%,,,32,32,0,0,0,2
-Pinsir,168,stat_points,6,,2.4%,,,3,31,0,0,0,32
+Pinsir,168,stat_points,1,,36.4%,,,1,32,1,0,0,32
+Pinsir,168,stat_points,2,,19.5%,,,2,32,0,0,0,32
+Pinsir,168,stat_points,3,,9.6%,,,1,32,0,0,1,32
+Pinsir,168,stat_points,4,,4.8%,,,0,32,2,0,0,32
+Pinsir,168,stat_points,5,,4.6%,,,32,32,0,0,0,2
+Pinsir,168,stat_points,6,,2.5%,,,3,31,0,0,0,32
 Pinsir,168,stat_points,7,,2.3%,,,0,32,0,0,2,32
-Pinsir,168,stat_points,8,,2.2%,,,1,29,4,0,0,32
-Pinsir,168,stat_points,9,,1.7%,,,3,32,0,0,0,31
-Pinsir,168,stat_points,10,,1.2%,,,0,20,14,0,0,32
-Pinsir,168,ability,1,Moxie,56.7%,,,,,,,,
-Pinsir,168,ability,2,Hyper Cutter,25.7%,,,,,,,,
-Pinsir,168,ability,3,Mold Breaker,17.7%,,,,,,,,
+Pinsir,168,stat_points,8,,2.1%,,,1,29,4,0,0,32
+Pinsir,168,stat_points,9,,1.6%,,,3,32,0,0,0,31
+Pinsir,168,stat_points,10,,1.1%,,,0,20,14,0,0,32
+Pinsir,168,ability,1,Moxie,56.5%,,,,,,,,
+Pinsir,168,ability,2,Hyper Cutter,25.9%,,,,,,,,
+Pinsir,168,ability,3,Mold Breaker,17.6%,,,,,,,,

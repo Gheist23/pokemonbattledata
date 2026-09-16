@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simisage,256,move,1,Leaf Storm,44.7%,,,,,,,,
-Simisage,256,move,2,Rock Slide,35.8%,,,,,,,,
-Simisage,256,move,3,Leech Seed,33.0%,,,,,,,,
-Simisage,256,move,4,Taunt,31.3%,,,,,,,,
-Simisage,256,move,5,Focus Blast,29.9%,,,,,,,,
-Simisage,256,move,6,Fake Out,29.4%,,,,,,,,
+Simisage,256,move,1,Leaf Storm,44.5%,,,,,,,,
+Simisage,256,move,2,Rock Slide,36.7%,,,,,,,,
+Simisage,256,move,3,Leech Seed,32.4%,,,,,,,,
+Simisage,256,move,4,Taunt,30.7%,,,,,,,,
+Simisage,256,move,5,Focus Blast,29.8%,,,,,,,,
+Simisage,256,move,6,Fake Out,28.9%,,,,,,,,
 Simisage,256,move,7,Gunk Shot,23.3%,,,,,,,,
-Simisage,256,move,8,Seed Bomb,20.6%,,,,,,,,
-Simisage,256,move,9,Giga Drain,16.5%,,,,,,,,
-Simisage,256,move,10,Low Kick,14.8%,,,,,,,,
-Simisage,256,held_item,1,Focus Sash,28.0%,,,,,,,,
-Simisage,256,held_item,2,Life Orb,22.2%,,,,,,,,
-Simisage,256,held_item,3,Lum Berry,14.2%,,,,,,,,
-Simisage,256,held_item,4,Miracle Seed,9.8%,,,,,,,,
-Simisage,256,held_item,5,Black Belt,4.9%,,,,,,,,
+Simisage,256,move,8,Seed Bomb,21.4%,,,,,,,,
+Simisage,256,move,9,Giga Drain,16.2%,,,,,,,,
+Simisage,256,move,10,Stuff Cheeks,14.7%,,,,,,,,
+Simisage,256,held_item,1,Focus Sash,28.9%,,,,,,,,
+Simisage,256,held_item,2,Life Orb,21.8%,,,,,,,,
+Simisage,256,held_item,3,Lum Berry,14.0%,,,,,,,,
+Simisage,256,held_item,4,Miracle Seed,9.7%,,,,,,,,
+Simisage,256,held_item,5,Black Belt,4.8%,,,,,,,,
 Simisage,256,held_item,6,Yache Berry,4.5%,,,,,,,,
-Simisage,256,held_item,7,Bright Powder,4.2%,,,,,,,,
+Simisage,256,held_item,7,Bright Powder,4.1%,,,,,,,,
 Simisage,256,held_item,8,Leftovers,3.2%,,,,,,,,
-Simisage,256,held_item,9,Choice Scarf,1.7%,,,,,,,,
+Simisage,256,held_item,9,Choice Scarf,2.0%,,,,,,,,
 Simisage,256,held_item,10,Normal Gem,1.7%,,,,,,,,
 Simisage,256,teammate,1,Simisear,,,,,,,,,
 Simisage,256,teammate,2,Simipour,,,,,,,,,
@@ -29,25 +29,25 @@ Simisage,256,teammate,7,Tyrantrum,,,,,,,,,
 Simisage,256,teammate,8,Pangoro,,,,,,,,,
 Simisage,256,teammate,9,Stunfisk,,,,,,,,,
 Simisage,256,teammate,10,Mimikyu,,,,,,,,,
-Simisage,256,stat_alignment,1,Modest,23.7%,Sp. Atk,Attack,,,,,,
-Simisage,256,stat_alignment,2,Naive,17.4%,Speed,Sp. Def,,,,,,
-Simisage,256,stat_alignment,3,Impish,16.1%,Defense,Sp. Atk,,,,,,
-Simisage,256,stat_alignment,4,Timid,14.6%,Speed,Attack,,,,,,
-Simisage,256,stat_alignment,5,Jolly,14.6%,Speed,Sp. Atk,,,,,,
-Simisage,256,stat_alignment,6,Adamant,6.6%,Attack,Sp. Atk,,,,,,
-Simisage,256,stat_alignment,7,Bold,5.1%,Defense,Attack,,,,,,
+Simisage,256,stat_alignment,1,Modest,23.6%,Sp. Atk,Attack,,,,,,
+Simisage,256,stat_alignment,2,Naive,17.1%,Speed,Sp. Def,,,,,,
+Simisage,256,stat_alignment,3,Impish,15.8%,Defense,Sp. Atk,,,,,,
+Simisage,256,stat_alignment,4,Timid,14.5%,Speed,Attack,,,,,,
+Simisage,256,stat_alignment,5,Jolly,14.3%,Speed,Sp. Atk,,,,,,
+Simisage,256,stat_alignment,6,Adamant,7.6%,Attack,Sp. Atk,,,,,,
+Simisage,256,stat_alignment,7,Bold,5.0%,Defense,Attack,,,,,,
 Simisage,256,stat_alignment,8,Gentle,0.6%,Sp. Def,Defense,,,,,,
 Simisage,256,stat_alignment,9,Hasty,0.4%,Speed,Defense,,,,,,
 Simisage,256,stat_alignment,10,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Simisage,256,stat_points,1,,25.4%,,,2,0,0,32,0,32
-Simisage,256,stat_points,2,,14.2%,,,31,0,32,0,0,3
-Simisage,256,stat_points,3,,10.6%,,,2,32,0,0,0,32
-Simisage,256,stat_points,4,,10.4%,,,0,32,0,2,0,32
-Simisage,256,stat_points,5,,6.6%,,,0,2,0,32,0,32
+Simisage,256,stat_points,1,,25.0%,,,2,0,0,32,0,32
+Simisage,256,stat_points,2,,14.0%,,,31,0,32,0,0,3
+Simisage,256,stat_points,3,,11.5%,,,2,32,0,0,0,32
+Simisage,256,stat_points,4,,10.2%,,,0,32,0,2,0,32
+Simisage,256,stat_points,5,,6.5%,,,0,2,0,32,0,32
 Simisage,256,stat_points,6,,4.5%,,,32,0,1,32,1,0
-Simisage,256,stat_points,7,,4.2%,,,0,32,0,0,0,32
-Simisage,256,stat_points,8,,4.0%,,,0,17,0,17,0,32
-Simisage,256,stat_points,9,,4.0%,,,0,32,1,0,1,32
+Simisage,256,stat_points,7,,4.1%,,,0,32,0,0,0,32
+Simisage,256,stat_points,8,,3.9%,,,0,17,0,17,0,32
+Simisage,256,stat_points,9,,3.9%,,,0,32,1,0,1,32
 Simisage,256,stat_points,10,,3.0%,,,32,0,32,0,2,0
-Simisage,256,ability,1,Overgrow,82.4%,,,,,,,,
-Simisage,256,ability,2,Gluttony,17.6%,,,,,,,,
+Simisage,256,ability,1,Overgrow,82.5%,,,,,,,,
+Simisage,256,ability,2,Gluttony,17.5%,,,,,,,,

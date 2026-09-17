@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emboar,186,move,1,Flare Blitz,83.6%,,,,,,,,
-Emboar,186,move,2,Sucker Punch,56.7%,,,,,,,,
-Emboar,186,move,3,Close Combat,46.9%,,,,,,,,
-Emboar,186,move,4,Earthquake,32.6%,,,,,,,,
-Emboar,186,move,5,Wild Charge,31.1%,,,,,,,,
+Emboar,186,move,1,Flare Blitz,83.8%,,,,,,,,
+Emboar,186,move,2,Sucker Punch,56.3%,,,,,,,,
+Emboar,186,move,3,Close Combat,46.8%,,,,,,,,
+Emboar,186,move,4,Earthquake,32.2%,,,,,,,,
+Emboar,186,move,5,Wild Charge,30.9%,,,,,,,,
 Emboar,186,move,6,Head Smash,27.6%,,,,,,,,
 Emboar,186,move,7,Drain Punch,26.7%,,,,,,,,
-Emboar,186,move,8,Storm Throw,14.0%,,,,,,,,
+Emboar,186,move,8,Storm Throw,13.8%,,,,,,,,
 Emboar,186,move,9,Bulk Up,12.9%,,,,,,,,
-Emboar,186,move,10,Thunder Punch,7.2%,,,,,,,,
-Emboar,186,held_item,1,Emboarite,82.3%,,,,,,,,
-Emboar,186,held_item,2,Choice Scarf,4.9%,,,,,,,,
+Emboar,186,move,10,Thunder Punch,7.3%,,,,,,,,
+Emboar,186,held_item,1,Emboarite,81.9%,,,,,,,,
+Emboar,186,held_item,2,Choice Scarf,4.7%,,,,,,,,
 Emboar,186,held_item,3,Life Orb,3.6%,,,,,,,,
 Emboar,186,held_item,4,Sitrus Berry,2.6%,,,,,,,,
-Emboar,186,held_item,5,Rocky Helmet,2.1%,,,,,,,,
-Emboar,186,held_item,6,Muscle Band,0.5%,,,,,,,,
+Emboar,186,held_item,5,Rocky Helmet,2.3%,,,,,,,,
+Emboar,186,held_item,6,Muscle Band,0.4%,,,,,,,,
 Emboar,186,held_item,7,Focus Sash,0.4%,,,,,,,,
 Emboar,186,held_item,8,Lum Berry,0.4%,,,,,,,,
 Emboar,186,held_item,9,Leftovers,0.4%,,,,,,,,
@@ -24,30 +24,30 @@ Emboar,186,teammate,2,Rillaboom,,,,,,,,,
 Emboar,186,teammate,3,Baxcalibur,,,,,,,,,
 Emboar,186,teammate,4,Primarina,,,,,,,,,
 Emboar,186,teammate,5,Salamence,,,,,,,,,
-Emboar,186,teammate,6,Gholdengo,,,,,,,,,
-Emboar,186,teammate,7,Basculegion,,,,,,,,,
+Emboar,186,teammate,6,Basculegion,,,,,,,,,
+Emboar,186,teammate,7,Gholdengo,,,,,,,,,
 Emboar,186,teammate,8,Mimikyu,,,,,,,,,
 Emboar,186,teammate,9,Archaludon,,,,,,,,,
 Emboar,186,teammate,10,Corviknight,,,,,,,,,
-Emboar,186,stat_alignment,1,Adamant,72.7%,Attack,Sp. Atk,,,,,,
-Emboar,186,stat_alignment,2,Jolly,7.9%,Speed,Sp. Atk,,,,,,
+Emboar,186,stat_alignment,1,Adamant,72.8%,Attack,Sp. Atk,,,,,,
+Emboar,186,stat_alignment,2,Jolly,7.7%,Speed,Sp. Atk,,,,,,
 Emboar,186,stat_alignment,3,Brave,6.6%,Attack,Speed,,,,,,
-Emboar,186,stat_alignment,4,Impish,5.0%,Defense,Sp. Atk,,,,,,
-Emboar,186,stat_alignment,5,Naive,2.6%,Speed,Sp. Def,,,,,,
+Emboar,186,stat_alignment,4,Impish,4.9%,Defense,Sp. Atk,,,,,,
+Emboar,186,stat_alignment,5,Naive,2.9%,Speed,Sp. Def,,,,,,
 Emboar,186,stat_alignment,6,Careful,2.4%,Sp. Def,Sp. Atk,,,,,,
 Emboar,186,stat_alignment,7,Quiet,0.9%,Sp. Atk,Speed,,,,,,
 Emboar,186,stat_alignment,8,Modest,0.5%,Sp. Atk,Attack,,,,,,
-Emboar,186,stat_alignment,9,Sassy,0.4%,Sp. Def,Speed,,,,,,
-Emboar,186,stat_alignment,10,Naughty,0.4%,Attack,Sp. Def,,,,,,
-Emboar,186,stat_points,1,,13.9%,,,32,32,0,0,0,2
-Emboar,186,stat_points,2,,10.8%,,,32,32,2,0,0,0
-Emboar,186,stat_points,3,,7.7%,,,2,32,0,0,0,32
-Emboar,186,stat_points,4,,7.5%,,,32,32,1,0,1,0
+Emboar,186,stat_alignment,9,Naughty,0.4%,Attack,Sp. Def,,,,,,
+Emboar,186,stat_alignment,10,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Emboar,186,stat_points,1,,14.4%,,,32,32,0,0,0,2
+Emboar,186,stat_points,2,,10.7%,,,32,32,2,0,0,0
+Emboar,186,stat_points,3,,8.0%,,,2,32,0,0,0,32
+Emboar,186,stat_points,4,,7.3%,,,32,32,1,0,1,0
 Emboar,186,stat_points,5,,4.5%,,,32,32,0,0,2,0
-Emboar,186,stat_points,6,,3.4%,,,0,23,0,0,21,22
+Emboar,186,stat_points,6,,3.3%,,,0,23,0,0,21,22
 Emboar,186,stat_points,7,,3.1%,,,10,26,17,0,0,13
 Emboar,186,stat_points,8,,2.5%,,,2,32,32,0,0,0
-Emboar,186,stat_points,9,,2.3%,,,32,2,32,0,0,0
+Emboar,186,stat_points,9,,2.2%,,,32,2,32,0,0,0
 Emboar,186,stat_points,10,,2.1%,,,14,32,20,0,0,0
-Emboar,186,ability,1,Reckless,66.2%,,,,,,,,
-Emboar,186,ability,2,Blaze,33.8%,,,,,,,,
+Emboar,186,ability,1,Reckless,65.3%,,,,,,,,
+Emboar,186,ability,2,Blaze,34.7%,,,,,,,,

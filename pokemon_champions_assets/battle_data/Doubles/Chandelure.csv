@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Chandelure,76,move,1,Shadow Ball,91.7%,,,,,,,,
+Chandelure,76,move,1,Shadow Ball,91.6%,,,,,,,,
 Chandelure,76,move,2,Heat Wave,81.8%,,,,,,,,
-Chandelure,76,move,3,Protect,65.5%,,,,,,,,
-Chandelure,76,move,4,Trick Room,41.4%,,,,,,,,
-Chandelure,76,move,5,Energy Ball,24.8%,,,,,,,,
-Chandelure,76,move,6,Flamethrower,17.7%,,,,,,,,
+Chandelure,76,move,3,Protect,65.4%,,,,,,,,
+Chandelure,76,move,4,Trick Room,41.1%,,,,,,,,
+Chandelure,76,move,5,Energy Ball,25.0%,,,,,,,,
+Chandelure,76,move,6,Flamethrower,17.8%,,,,,,,,
 Chandelure,76,move,7,Calm Mind,11.6%,,,,,,,,
-Chandelure,76,move,8,Overheat,9.3%,,,,,,,,
-Chandelure,76,move,9,Minimize,7.2%,,,,,,,,
+Chandelure,76,move,8,Overheat,9.2%,,,,,,,,
+Chandelure,76,move,9,Minimize,7.3%,,,,,,,,
 Chandelure,76,move,10,Psychic,6.6%,,,,,,,,
-Chandelure,76,held_item,1,Chandelurite,32.7%,,,,,,,,
-Chandelure,76,held_item,2,Focus Sash,32.1%,,,,,,,,
-Chandelure,76,held_item,3,Choice Scarf,9.9%,,,,,,,,
+Chandelure,76,held_item,1,Chandelurite,32.6%,,,,,,,,
+Chandelure,76,held_item,2,Focus Sash,32.2%,,,,,,,,
+Chandelure,76,held_item,3,Choice Scarf,10.0%,,,,,,,,
 Chandelure,76,held_item,4,Life Orb,6.0%,,,,,,,,
 Chandelure,76,held_item,5,Colbur Berry,4.1%,,,,,,,,
 Chandelure,76,held_item,6,Sitrus Berry,3.0%,,,,,,,,
 Chandelure,76,held_item,7,Charcoal,2.1%,,,,,,,,
-Chandelure,76,held_item,8,Bright Powder,1.6%,,,,,,,,
-Chandelure,76,held_item,9,Leftovers,1.0%,,,,,,,,
+Chandelure,76,held_item,8,Bright Powder,1.7%,,,,,,,,
+Chandelure,76,held_item,9,Leftovers,0.9%,,,,,,,,
 Chandelure,76,held_item,10,Wise Glasses,0.9%,,,,,,,,
 Chandelure,76,teammate,1,Rillaboom,,,,,,,,,
 Chandelure,76,teammate,2,Sneasler,,,,,,,,,
@@ -26,12 +26,12 @@ Chandelure,76,teammate,4,Whimsicott,,,,,,,,,
 Chandelure,76,teammate,5,Golisopod,,,,,,,,,
 Chandelure,76,teammate,6,Indeedee-F,,,,,,,,,
 Chandelure,76,teammate,7,Milotic,,,,,,,,,
-Chandelure,76,teammate,8,Basculegion,,,,,,,,,
-Chandelure,76,teammate,9,Salamence,,,,,,,,,
-Chandelure,76,teammate,10,Farigiraf,,,,,,,,,
-Chandelure,76,stat_alignment,1,Modest,54.1%,Sp. Atk,Attack,,,,,,
+Chandelure,76,teammate,8,Farigiraf,,,,,,,,,
+Chandelure,76,teammate,9,Basculegion,,,,,,,,,
+Chandelure,76,teammate,10,Salamence,,,,,,,,,
+Chandelure,76,stat_alignment,1,Modest,53.9%,Sp. Atk,Attack,,,,,,
 Chandelure,76,stat_alignment,2,Quiet,23.9%,Sp. Atk,Speed,,,,,,
-Chandelure,76,stat_alignment,3,Timid,14.5%,Speed,Attack,,,,,,
+Chandelure,76,stat_alignment,3,Timid,14.7%,Speed,Attack,,,,,,
 Chandelure,76,stat_alignment,4,Relaxed,4.1%,Defense,Speed,,,,,,
 Chandelure,76,stat_alignment,5,Calm,1.2%,Sp. Def,Attack,,,,,,
 Chandelure,76,stat_alignment,6,Bold,1.2%,Defense,Attack,,,,,,
@@ -40,15 +40,15 @@ Chandelure,76,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Chandelure,76,stat_alignment,9,Adamant,0.1%,Attack,Sp. Atk,,,,,,
 Chandelure,76,stat_alignment,10,Hardy,0.0%,,,,,,,,
 Chandelure,76,stat_points,1,,27.2%,,,2,0,0,32,0,32
-Chandelure,76,stat_points,2,,11.6%,,,32,0,2,32,0,0
+Chandelure,76,stat_points,2,,11.5%,,,32,0,2,32,0,0
 Chandelure,76,stat_points,3,,11.2%,,,32,0,1,32,1,0
 Chandelure,76,stat_points,4,,5.3%,,,32,0,0,32,2,0
-Chandelure,76,stat_points,5,,2.6%,,,32,0,0,32,0,2
-Chandelure,76,stat_points,6,,2.6%,,,32,0,11,0,23,0
+Chandelure,76,stat_points,5,,2.6%,,,32,0,11,0,23,0
+Chandelure,76,stat_points,6,,2.5%,,,32,0,0,32,0,2
 Chandelure,76,stat_points,7,,1.8%,,,0,0,0,32,0,32
 Chandelure,76,stat_points,8,,1.7%,,,0,0,2,32,0,32
 Chandelure,76,stat_points,9,,1.1%,,,32,0,0,32,0,0
 Chandelure,76,stat_points,10,,1.0%,,,32,0,2,0,32,0
-Chandelure,76,ability,1,Flash Fire,84.2%,,,,,,,,
-Chandelure,76,ability,2,Infiltrator,11.6%,,,,,,,,
+Chandelure,76,ability,1,Flash Fire,84.1%,,,,,,,,
+Chandelure,76,ability,2,Infiltrator,11.7%,,,,,,,,
 Chandelure,76,ability,3,Flame Body,4.2%,,,,,,,,

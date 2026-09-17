@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Volcarona,30,move,1,Protect,80.1%,,,,,,,,
-Volcarona,30,move,2,Quiver Dance,55.1%,,,,,,,,
+Volcarona,30,move,2,Quiver Dance,55.3%,,,,,,,,
 Volcarona,30,move,3,Heat Wave,50.2%,,,,,,,,
-Volcarona,30,move,4,Rage Powder,47.4%,,,,,,,,
-Volcarona,30,move,5,Tailwind,28.0%,,,,,,,,
+Volcarona,30,move,4,Rage Powder,47.2%,,,,,,,,
+Volcarona,30,move,5,Tailwind,27.8%,,,,,,,,
 Volcarona,30,move,6,Struggle Bug,26.9%,,,,,,,,
-Volcarona,30,move,7,Giga Drain,25.6%,,,,,,,,
-Volcarona,30,move,8,Bug Buzz,25.4%,,,,,,,,
+Volcarona,30,move,7,Giga Drain,25.8%,,,,,,,,
+Volcarona,30,move,8,Bug Buzz,25.5%,,,,,,,,
 Volcarona,30,move,9,Fiery Dance,22.0%,,,,,,,,
-Volcarona,30,move,10,Overheat,18.6%,,,,,,,,
-Volcarona,30,held_item,1,Grassy Seed,37.9%,,,,,,,,
+Volcarona,30,move,10,Overheat,18.5%,,,,,,,,
+Volcarona,30,held_item,1,Grassy Seed,38.0%,,,,,,,,
 Volcarona,30,held_item,2,Rocky Helmet,23.1%,,,,,,,,
 Volcarona,30,held_item,3,Sitrus Berry,14.8%,,,,,,,,
 Volcarona,30,held_item,4,Leftovers,9.3%,,,,,,,,
@@ -18,7 +18,7 @@ Volcarona,30,held_item,6,Life Orb,2.4%,,,,,,,,
 Volcarona,30,held_item,7,Charti Berry,2.2%,,,,,,,,
 Volcarona,30,held_item,8,Charcoal,1.1%,,,,,,,,
 Volcarona,30,held_item,9,Passho Berry,0.8%,,,,,,,,
-Volcarona,30,held_item,10,Psychic Seed,0.8%,,,,,,,,
+Volcarona,30,held_item,10,Psychic Seed,0.7%,,,,,,,,
 Volcarona,30,teammate,1,Rillaboom,,,,,,,,,
 Volcarona,30,teammate,2,Salamence,,,,,,,,,
 Volcarona,30,teammate,3,Sneasler,,,,,,,,,
@@ -26,11 +26,11 @@ Volcarona,30,teammate,4,Incineroar,,,,,,,,,
 Volcarona,30,teammate,5,Garchomp,,,,,,,,,
 Volcarona,30,teammate,6,Basculegion,,,,,,,,,
 Volcarona,30,teammate,7,Kingambit,,,,,,,,,
-Volcarona,30,teammate,8,Glimmora,,,,,,,,,
-Volcarona,30,teammate,9,Gholdengo,,,,,,,,,
+Volcarona,30,teammate,8,Gholdengo,,,,,,,,,
+Volcarona,30,teammate,9,Glimmora,,,,,,,,,
 Volcarona,30,teammate,10,Raichu,,,,,,,,,
 Volcarona,30,stat_alignment,1,Modest,41.7%,Sp. Atk,Attack,,,,,,
-Volcarona,30,stat_alignment,2,Bold,39.7%,Defense,Attack,,,,,,
+Volcarona,30,stat_alignment,2,Bold,39.6%,Defense,Attack,,,,,,
 Volcarona,30,stat_alignment,3,Timid,16.2%,Speed,Attack,,,,,,
 Volcarona,30,stat_alignment,4,Calm,1.7%,Sp. Def,Attack,,,,,,
 Volcarona,30,stat_alignment,5,Mild,0.2%,Sp. Atk,Defense,,,,,,
@@ -39,15 +39,15 @@ Volcarona,30,stat_alignment,7,Relaxed,0.1%,Defense,Speed,,,,,,
 Volcarona,30,stat_alignment,8,Hasty,0.1%,Speed,Defense,,,,,,
 Volcarona,30,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,
 Volcarona,30,stat_alignment,10,Rash,0.0%,Sp. Atk,Sp. Def,,,,,,
-Volcarona,30,stat_points,1,,12.8%,,,32,0,32,0,2,0
+Volcarona,30,stat_points,1,,12.7%,,,32,0,32,0,2,0
 Volcarona,30,stat_points,2,,8.9%,,,16,0,15,5,0,30
 Volcarona,30,stat_points,3,,5.4%,,,21,0,15,5,1,24
-Volcarona,30,stat_points,4,,4.5%,,,32,0,11,5,1,17
-Volcarona,30,stat_points,5,,3.8%,,,32,0,32,0,0,2
-Volcarona,30,stat_points,6,,3.4%,,,2,0,0,32,0,32
-Volcarona,30,stat_points,7,,2.5%,,,30,0,31,0,0,5
+Volcarona,30,stat_points,4,,4.6%,,,32,0,11,5,1,17
+Volcarona,30,stat_points,5,,3.9%,,,32,0,32,0,0,2
+Volcarona,30,stat_points,6,,3.5%,,,2,0,0,32,0,32
+Volcarona,30,stat_points,7,,2.4%,,,30,0,31,0,0,5
 Volcarona,30,stat_points,8,,2.4%,,,32,0,32,0,1,1
 Volcarona,30,stat_points,9,,2.1%,,,32,0,32,2,0,0
-Volcarona,30,stat_points,10,,1.9%,,,15,0,28,0,0,23
+Volcarona,30,stat_points,10,,1.8%,,,15,0,28,0,0,23
 Volcarona,30,ability,1,Flame Body,98.7%,,,,,,,,
 Volcarona,30,ability,2,Swarm,1.3%,,,,,,,,

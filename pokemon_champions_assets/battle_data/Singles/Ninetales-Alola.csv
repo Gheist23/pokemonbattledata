@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Ninetales-Alola,23,move,1,Aurora Veil,97.6%,,,,,,,,
-Ninetales-Alola,23,move,2,Freeze-Dry,75.8%,,,,,,,,
-Ninetales-Alola,23,move,3,Encore,73.9%,,,,,,,,
+Ninetales-Alola,23,move,2,Freeze-Dry,75.6%,,,,,,,,
+Ninetales-Alola,23,move,3,Encore,73.8%,,,,,,,,
 Ninetales-Alola,23,move,4,Blizzard,61.1%,,,,,,,,
-Ninetales-Alola,23,move,5,Moonblast,51.0%,,,,,,,,
+Ninetales-Alola,23,move,5,Moonblast,51.1%,,,,,,,,
 Ninetales-Alola,23,move,6,Misty Terrain,19.0%,,,,,,,,
 Ninetales-Alola,23,move,7,Pain Split,4.1%,,,,,,,,
 Ninetales-Alola,23,move,8,Nasty Plot,2.4%,,,,,,,,
@@ -30,7 +30,7 @@ Ninetales-Alola,23,teammate,8,Primarina,,,,,,,,,
 Ninetales-Alola,23,teammate,9,Archaludon,,,,,,,,,
 Ninetales-Alola,23,teammate,10,Gyarados,,,,,,,,,
 Ninetales-Alola,23,stat_alignment,1,Timid,86.3%,Speed,Attack,,,,,,
-Ninetales-Alola,23,stat_alignment,2,Modest,6.5%,Sp. Atk,Attack,,,,,,
+Ninetales-Alola,23,stat_alignment,2,Modest,6.4%,Sp. Atk,Attack,,,,,,
 Ninetales-Alola,23,stat_alignment,3,Bold,4.9%,Defense,Attack,,,,,,
 Ninetales-Alola,23,stat_alignment,4,Calm,1.5%,Sp. Def,Attack,,,,,,
 Ninetales-Alola,23,stat_alignment,5,Hasty,0.2%,Speed,Defense,,,,,,
@@ -38,9 +38,9 @@ Ninetales-Alola,23,stat_alignment,6,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Ninetales-Alola,23,stat_alignment,7,Quiet,0.1%,Sp. Atk,Speed,,,,,,
 Ninetales-Alola,23,stat_alignment,8,Relaxed,0.1%,Defense,Speed,,,,,,
 Ninetales-Alola,23,stat_alignment,9,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Ninetales-Alola,23,stat_alignment,10,Naive,0.0%,Speed,Sp. Def,,,,,,
+Ninetales-Alola,23,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
 Ninetales-Alola,23,stat_points,1,,21.5%,,,2,0,0,32,0,32
-Ninetales-Alola,23,stat_points,2,,7.7%,,,27,0,7,0,0,32
+Ninetales-Alola,23,stat_points,2,,7.8%,,,27,0,7,0,0,32
 Ninetales-Alola,23,stat_points,3,,4.6%,,,1,0,1,32,0,32
 Ninetales-Alola,23,stat_points,4,,3.6%,,,32,0,2,0,0,32
 Ninetales-Alola,23,stat_points,5,,3.3%,,,31,0,3,0,0,32

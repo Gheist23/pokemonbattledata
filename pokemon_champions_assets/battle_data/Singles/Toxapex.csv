@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Toxapex,43,move,1,Recover,97.6%,,,,,,,,
 Toxapex,43,move,2,Toxic,89.3%,,,,,,,,
-Toxapex,43,move,3,Haze,64.7%,,,,,,,,
-Toxapex,43,move,4,Infestation,63.5%,,,,,,,,
-Toxapex,43,move,5,Baneful Bunker,38.6%,,,,,,,,
-Toxapex,43,move,6,Liquidation,14.7%,,,,,,,,
-Toxapex,43,move,7,Toxic Spikes,13.3%,,,,,,,,
+Toxapex,43,move,3,Haze,64.5%,,,,,,,,
+Toxapex,43,move,4,Infestation,63.6%,,,,,,,,
+Toxapex,43,move,5,Baneful Bunker,38.8%,,,,,,,,
+Toxapex,43,move,6,Liquidation,14.6%,,,,,,,,
+Toxapex,43,move,7,Toxic Spikes,13.2%,,,,,,,,
 Toxapex,43,move,8,Chilling Water,4.5%,,,,,,,,
 Toxapex,43,move,9,Payback,1.7%,,,,,,,,
 Toxapex,43,move,10,Iron Defense,1.4%,,,,,,,,
-Toxapex,43,held_item,1,Leftovers,60.0%,,,,,,,,
-Toxapex,43,held_item,2,Rocky Helmet,12.6%,,,,,,,,
-Toxapex,43,held_item,3,Sitrus Berry,10.1%,,,,,,,,
-Toxapex,43,held_item,4,Binding Band,9.0%,,,,,,,,
+Toxapex,43,held_item,1,Leftovers,60.2%,,,,,,,,
+Toxapex,43,held_item,2,Rocky Helmet,12.5%,,,,,,,,
+Toxapex,43,held_item,3,Sitrus Berry,10.0%,,,,,,,,
+Toxapex,43,held_item,4,Binding Band,8.9%,,,,,,,,
 Toxapex,43,held_item,5,Mental Herb,1.9%,,,,,,,,
 Toxapex,43,held_item,6,Air Balloon,1.3%,,,,,,,,
 Toxapex,43,held_item,7,Shuca Berry,1.3%,,,,,,,,
-Toxapex,43,held_item,8,Red Card,0.9%,,,,,,,,
+Toxapex,43,held_item,8,Red Card,0.8%,,,,,,,,
 Toxapex,43,held_item,9,Bright Powder,0.5%,,,,,,,,
 Toxapex,43,held_item,10,Shed Shell,0.3%,,,,,,,,
 Toxapex,43,teammate,1,Garchomp,,,,,,,,,
@@ -25,23 +25,23 @@ Toxapex,43,teammate,3,Salamence,,,,,,,,,
 Toxapex,43,teammate,4,Corviknight,,,,,,,,,
 Toxapex,43,teammate,5,Hippowdon,,,,,,,,,
 Toxapex,43,teammate,6,Gholdengo,,,,,,,,,
-Toxapex,43,teammate,7,Primarina,,,,,,,,,
-Toxapex,43,teammate,8,Baxcalibur,,,,,,,,,
+Toxapex,43,teammate,7,Baxcalibur,,,,,,,,,
+Toxapex,43,teammate,8,Primarina,,,,,,,,,
 Toxapex,43,teammate,9,Rillaboom,,,,,,,,,
 Toxapex,43,teammate,10,Lucario,,,,,,,,,
-Toxapex,43,stat_alignment,1,Careful,30.1%,Sp. Def,Sp. Atk,,,,,,
+Toxapex,43,stat_alignment,1,Careful,30.0%,Sp. Def,Sp. Atk,,,,,,
 Toxapex,43,stat_alignment,2,Calm,23.4%,Sp. Def,Attack,,,,,,
 Toxapex,43,stat_alignment,3,Bold,22.9%,Defense,Attack,,,,,,
-Toxapex,43,stat_alignment,4,Impish,12.7%,Defense,Sp. Atk,,,,,,
-Toxapex,43,stat_alignment,5,Sassy,5.8%,Sp. Def,Speed,,,,,,
+Toxapex,43,stat_alignment,4,Impish,12.6%,Defense,Sp. Atk,,,,,,
+Toxapex,43,stat_alignment,5,Sassy,5.9%,Sp. Def,Speed,,,,,,
 Toxapex,43,stat_alignment,6,Relaxed,4.2%,Defense,Speed,,,,,,
 Toxapex,43,stat_alignment,7,Modest,0.4%,Sp. Atk,Attack,,,,,,
 Toxapex,43,stat_alignment,8,Quiet,0.2%,Sp. Atk,Speed,,,,,,
 Toxapex,43,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
 Toxapex,43,stat_alignment,10,Adamant,0.1%,Attack,Sp. Atk,,,,,,
 Toxapex,43,stat_points,1,,27.6%,,,32,0,2,0,32,0
-Toxapex,43,stat_points,2,,17.6%,,,32,0,32,0,2,0
-Toxapex,43,stat_points,3,,16.1%,,,32,0,14,0,20,0
+Toxapex,43,stat_points,2,,17.7%,,,32,0,32,0,2,0
+Toxapex,43,stat_points,3,,16.0%,,,32,0,14,0,20,0
 Toxapex,43,stat_points,4,,4.0%,,,32,0,6,0,28,0
 Toxapex,43,stat_points,5,,3.1%,,,32,0,18,0,16,0
 Toxapex,43,stat_points,6,,2.5%,,,32,0,28,0,6,0
@@ -49,6 +49,6 @@ Toxapex,43,stat_points,7,,2.5%,,,32,0,16,0,18,0
 Toxapex,43,stat_points,8,,2.2%,,,2,0,32,0,32,0
 Toxapex,43,stat_points,9,,1.7%,,,32,0,0,0,32,0
 Toxapex,43,stat_points,10,,1.4%,,,32,0,20,0,14,0
-Toxapex,43,ability,1,Regenerator,98.5%,,,,,,,,
+Toxapex,43,ability,1,Regenerator,98.4%,,,,,,,,
 Toxapex,43,ability,2,Merciless,1.2%,,,,,,,,
 Toxapex,43,ability,3,Limber,0.4%,,,,,,,,

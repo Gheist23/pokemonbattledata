@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Arboliva,91,move,1,Giga Drain,76.9%,,,,,,,,
-Arboliva,91,move,2,Earth Power,60.9%,,,,,,,,
+Arboliva,91,move,1,Giga Drain,77.0%,,,,,,,,
+Arboliva,91,move,2,Earth Power,61.0%,,,,,,,,
 Arboliva,91,move,3,Strength Sap,54.8%,,,,,,,,
-Arboliva,91,move,4,Leech Seed,50.1%,,,,,,,,
-Arboliva,91,move,5,Encore,34.5%,,,,,,,,
-Arboliva,91,move,6,Mirror Coat,28.1%,,,,,,,,
-Arboliva,91,move,7,Memento,23.0%,,,,,,,,
-Arboliva,91,move,8,Alluring Voice,14.9%,,,,,,,,
-Arboliva,91,move,9,Protect,13.3%,,,,,,,,
+Arboliva,91,move,4,Leech Seed,50.0%,,,,,,,,
+Arboliva,91,move,5,Encore,34.4%,,,,,,,,
+Arboliva,91,move,6,Mirror Coat,28.0%,,,,,,,,
+Arboliva,91,move,7,Memento,23.1%,,,,,,,,
+Arboliva,91,move,8,Alluring Voice,15.0%,,,,,,,,
+Arboliva,91,move,9,Protect,13.4%,,,,,,,,
 Arboliva,91,move,10,Hyper Voice,7.0%,,,,,,,,
-Arboliva,91,held_item,1,Focus Sash,25.1%,,,,,,,,
-Arboliva,91,held_item,2,Leftovers,22.3%,,,,,,,,
-Arboliva,91,held_item,3,Sitrus Berry,21.4%,,,,,,,,
+Arboliva,91,held_item,1,Focus Sash,25.2%,,,,,,,,
+Arboliva,91,held_item,2,Leftovers,22.2%,,,,,,,,
+Arboliva,91,held_item,3,Sitrus Berry,21.5%,,,,,,,,
 Arboliva,91,held_item,4,Big Root,8.3%,,,,,,,,
-Arboliva,91,held_item,5,Grassy Seed,5.8%,,,,,,,,
-Arboliva,91,held_item,6,Rocky Helmet,3.9%,,,,,,,,
+Arboliva,91,held_item,5,Grassy Seed,5.9%,,,,,,,,
+Arboliva,91,held_item,6,Rocky Helmet,3.8%,,,,,,,,
 Arboliva,91,held_item,7,Terrain Extender,2.5%,,,,,,,,
 Arboliva,91,held_item,8,Miracle Seed,1.9%,,,,,,,,
 Arboliva,91,held_item,9,Life Orb,1.8%,,,,,,,,
@@ -25,13 +25,13 @@ Arboliva,91,teammate,3,Garchomp,,,,,,,,,
 Arboliva,91,teammate,4,Espathra,,,,,,,,,
 Arboliva,91,teammate,5,Clefable,,,,,,,,,
 Arboliva,91,teammate,6,Golisopod,,,,,,,,,
-Arboliva,91,teammate,7,Lucario,,,,,,,,,
-Arboliva,91,teammate,8,Primarina,,,,,,,,,
-Arboliva,91,teammate,9,Baxcalibur,,,,,,,,,
+Arboliva,91,teammate,7,Primarina,,,,,,,,,
+Arboliva,91,teammate,8,Baxcalibur,,,,,,,,,
+Arboliva,91,teammate,9,Lucario,,,,,,,,,
 Arboliva,91,teammate,10,Skeledirge,,,,,,,,,
-Arboliva,91,stat_alignment,1,Modest,38.5%,Sp. Atk,Attack,,,,,,
+Arboliva,91,stat_alignment,1,Modest,38.6%,Sp. Atk,Attack,,,,,,
 Arboliva,91,stat_alignment,2,Calm,32.8%,Sp. Def,Attack,,,,,,
-Arboliva,91,stat_alignment,3,Bold,21.5%,Defense,Attack,,,,,,
+Arboliva,91,stat_alignment,3,Bold,21.3%,Defense,Attack,,,,,,
 Arboliva,91,stat_alignment,4,Quiet,2.5%,Sp. Atk,Speed,,,,,,
 Arboliva,91,stat_alignment,5,Sassy,1.8%,Sp. Def,Speed,,,,,,
 Arboliva,91,stat_alignment,6,Timid,1.4%,Speed,Attack,,,,,,
@@ -39,9 +39,9 @@ Arboliva,91,stat_alignment,7,Relaxed,1.0%,Defense,Speed,,,,,,
 Arboliva,91,stat_alignment,8,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
 Arboliva,91,stat_alignment,9,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Arboliva,91,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Arboliva,91,stat_points,1,,16.4%,,,2,0,0,32,0,32
-Arboliva,91,stat_points,2,,16.3%,,,32,0,2,0,32,0
-Arboliva,91,stat_points,3,,11.0%,,,32,0,32,0,2,0
+Arboliva,91,stat_points,1,,16.5%,,,2,0,0,32,0,32
+Arboliva,91,stat_points,2,,16.2%,,,32,0,2,0,32,0
+Arboliva,91,stat_points,3,,10.9%,,,32,0,32,0,2,0
 Arboliva,91,stat_points,4,,5.0%,,,32,0,2,32,0,0
 Arboliva,91,stat_points,5,,3.8%,,,32,0,0,2,32,0
 Arboliva,91,stat_points,6,,3.3%,,,32,0,0,32,2,0
@@ -49,5 +49,5 @@ Arboliva,91,stat_points,7,,1.7%,,,32,0,13,0,21,0
 Arboliva,91,stat_points,8,,1.6%,,,32,0,32,2,0,0
 Arboliva,91,stat_points,9,,1.3%,,,32,0,3,0,31,0
 Arboliva,91,stat_points,10,,1.0%,,,32,0,32,0,0,0
-Arboliva,91,ability,1,Seed Sower,84.6%,,,,,,,,
-Arboliva,91,ability,2,Harvest,15.4%,,,,,,,,
+Arboliva,91,ability,1,Seed Sower,84.5%,,,,,,,,
+Arboliva,91,ability,2,Harvest,15.5%,,,,,,,,

@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Quaquaval,190,move,1,Aqua Step,83.2%,,,,,,,,
 Quaquaval,190,move,2,Close Combat,82.0%,,,,,,,,
-Quaquaval,190,move,3,Triple Axel,35.1%,,,,,,,,
-Quaquaval,190,move,4,Protect,33.2%,,,,,,,,
-Quaquaval,190,move,5,Ice Spinner,31.5%,,,,,,,,
+Quaquaval,190,move,3,Triple Axel,35.0%,,,,,,,,
+Quaquaval,190,move,4,Protect,33.1%,,,,,,,,
+Quaquaval,190,move,5,Ice Spinner,31.6%,,,,,,,,
 Quaquaval,190,move,6,Detect,22.3%,,,,,,,,
-Quaquaval,190,move,7,Knock Off,16.7%,,,,,,,,
+Quaquaval,190,move,7,Knock Off,16.6%,,,,,,,,
 Quaquaval,190,move,8,Aqua Jet,16.6%,,,,,,,,
 Quaquaval,190,move,9,Wave Crash,16.1%,,,,,,,,
-Quaquaval,190,move,10,Brave Bird,9.0%,,,,,,,,
+Quaquaval,190,move,10,Brave Bird,8.9%,,,,,,,,
 Quaquaval,190,held_item,1,Focus Sash,20.2%,,,,,,,,
-Quaquaval,190,held_item,2,Life Orb,16.9%,,,,,,,,
+Quaquaval,190,held_item,2,Life Orb,16.8%,,,,,,,,
 Quaquaval,190,held_item,3,Choice Scarf,15.2%,,,,,,,,
 Quaquaval,190,held_item,4,Expert Belt,12.1%,,,,,,,,
 Quaquaval,190,held_item,5,Mystic Water,9.2%,,,,,,,,
@@ -27,11 +27,11 @@ Quaquaval,190,teammate,5,Volcarona,,,,,,,,,
 Quaquaval,190,teammate,6,Farigiraf,,,,,,,,,
 Quaquaval,190,teammate,7,Golisopod,,,,,,,,,
 Quaquaval,190,teammate,8,Kingambit,,,,,,,,,
-Quaquaval,190,teammate,9,Absol,,,,,,,,,
-Quaquaval,190,teammate,10,Sinistcha,,,,,,,,,
-Quaquaval,190,stat_alignment,1,Adamant,64.3%,Attack,Sp. Atk,,,,,,
+Quaquaval,190,teammate,9,Sinistcha,,,,,,,,,
+Quaquaval,190,teammate,10,Absol,,,,,,,,,
+Quaquaval,190,stat_alignment,1,Adamant,64.2%,Attack,Sp. Atk,,,,,,
 Quaquaval,190,stat_alignment,2,Jolly,27.1%,Speed,Sp. Atk,,,,,,
-Quaquaval,190,stat_alignment,3,Brave,2.1%,Attack,Speed,,,,,,
+Quaquaval,190,stat_alignment,3,Brave,2.2%,Attack,Speed,,,,,,
 Quaquaval,190,stat_alignment,4,Naughty,1.4%,Attack,Sp. Def,,,,,,
 Quaquaval,190,stat_alignment,5,Naive,1.4%,Speed,Sp. Def,,,,,,
 Quaquaval,190,stat_alignment,6,Impish,1.2%,Defense,Sp. Atk,,,,,,
@@ -41,13 +41,13 @@ Quaquaval,190,stat_alignment,9,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
 Quaquaval,190,stat_alignment,10,Timid,0.2%,Speed,Attack,,,,,,
 Quaquaval,190,stat_points,1,,44.2%,,,2,32,0,0,0,32
 Quaquaval,190,stat_points,2,,7.0%,,,0,32,2,0,0,32
-Quaquaval,190,stat_points,3,,5.7%,,,0,32,0,0,2,32
-Quaquaval,190,stat_points,4,,4.8%,,,12,20,0,0,5,29
+Quaquaval,190,stat_points,3,,5.6%,,,0,32,0,0,2,32
+Quaquaval,190,stat_points,4,,4.7%,,,12,20,0,0,5,29
 Quaquaval,190,stat_points,5,,4.7%,,,0,32,0,0,0,32
-Quaquaval,190,stat_points,6,,3.3%,,,0,32,2,0,32,0
+Quaquaval,190,stat_points,6,,3.4%,,,0,32,2,0,32,0
 Quaquaval,190,stat_points,7,,2.7%,,,32,32,0,0,2,0
-Quaquaval,190,stat_points,8,,2.6%,,,0,32,32,0,2,0
-Quaquaval,190,stat_points,9,,1.7%,,,1,32,0,0,1,32
+Quaquaval,190,stat_points,8,,2.5%,,,0,32,32,0,2,0
+Quaquaval,190,stat_points,9,,1.6%,,,1,32,0,0,1,32
 Quaquaval,190,stat_points,10,,1.4%,,,32,32,2,0,0,0
-Quaquaval,190,ability,1,Moxie,95.1%,,,,,,,,
-Quaquaval,190,ability,2,Torrent,4.9%,,,,,,,,
+Quaquaval,190,ability,1,Moxie,95.0%,,,,,,,,
+Quaquaval,190,ability,2,Torrent,5.0%,,,,,,,,

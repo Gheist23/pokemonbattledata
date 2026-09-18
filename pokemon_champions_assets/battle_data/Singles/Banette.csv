@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Banette,42,move,1,Destiny Bond,99.4%,,,,,,,,
 Banette,42,move,2,Poltergeist,97.2%,,,,,,,,
-Banette,42,move,3,Encore,76.6%,,,,,,,,
+Banette,42,move,3,Encore,76.7%,,,,,,,,
 Banette,42,move,4,Shadow Sneak,65.5%,,,,,,,,
 Banette,42,move,5,Taunt,29.2%,,,,,,,,
 Banette,42,move,6,Will-O-Wisp,7.9%,,,,,,,,
 Banette,42,move,7,Gunk Shot,6.3%,,,,,,,,
 Banette,42,move,8,Protect,3.1%,,,,,,,,
 Banette,42,move,9,Sucker Punch,2.6%,,,,,,,,
-Banette,42,move,10,Trick Room,2.1%,,,,,,,,
+Banette,42,move,10,Trick Room,2.0%,,,,,,,,
 Banette,42,held_item,1,Banettite,99.7%,,,,,,,,
 Banette,42,held_item,2,Focus Sash,0.1%,,,,,,,,
 Banette,42,held_item,3,Sitrus Berry,0.0%,,,,,,,,
@@ -30,7 +30,7 @@ Banette,42,teammate,8,Sneasler,,,,,,,,,
 Banette,42,teammate,9,Indeedee,,,,,,,,,
 Banette,42,teammate,10,Mimikyu,,,,,,,,,
 Banette,42,stat_alignment,1,Adamant,74.4%,Attack,Sp. Atk,,,,,,
-Banette,42,stat_alignment,2,Brave,19.3%,Attack,Speed,,,,,,
+Banette,42,stat_alignment,2,Brave,19.4%,Attack,Speed,,,,,,
 Banette,42,stat_alignment,3,Jolly,1.9%,Speed,Sp. Atk,,,,,,
 Banette,42,stat_alignment,4,Lonely,1.0%,Attack,Defense,,,,,,
 Banette,42,stat_alignment,5,Naughty,0.9%,Attack,Sp. Def,,,,,,
@@ -40,7 +40,7 @@ Banette,42,stat_alignment,8,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
 Banette,42,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
 Banette,42,stat_alignment,10,Modest,0.2%,Sp. Atk,Attack,,,,,,
 Banette,42,stat_points,1,,31.6%,,,32,32,2,0,0,0
-Banette,42,stat_points,2,,23.2%,,,32,32,0,0,0,2
+Banette,42,stat_points,2,,23.1%,,,32,32,0,0,0,2
 Banette,42,stat_points,3,,10.6%,,,32,32,0,0,2,0
 Banette,42,stat_points,4,,4.3%,,,2,32,0,0,0,32
 Banette,42,stat_points,5,,2.8%,,,32,32,1,0,1,0

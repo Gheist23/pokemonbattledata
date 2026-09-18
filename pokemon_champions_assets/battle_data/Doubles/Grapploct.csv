@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Grapploct,101,move,1,Storm Throw,93.8%,,,,,,,,
 Grapploct,101,move,2,Detect,61.5%,,,,,,,,
-Grapploct,101,move,3,Mach Punch,51.1%,,,,,,,,
+Grapploct,101,move,3,Mach Punch,50.9%,,,,,,,,
 Grapploct,101,move,4,Octolock,31.4%,,,,,,,,
-Grapploct,101,move,5,Feint,25.5%,,,,,,,,
+Grapploct,101,move,5,Feint,25.6%,,,,,,,,
 Grapploct,101,move,6,Ice Punch,22.5%,,,,,,,,
 Grapploct,101,move,7,Protect,18.7%,,,,,,,,
 Grapploct,101,move,8,Payback,17.7%,,,,,,,,
-Grapploct,101,move,9,Sucker Punch,17.7%,,,,,,,,
-Grapploct,101,move,10,Soak,11.5%,,,,,,,,
-Grapploct,101,held_item,1,Black Belt,27.9%,,,,,,,,
+Grapploct,101,move,9,Sucker Punch,17.6%,,,,,,,,
+Grapploct,101,move,10,Soak,11.7%,,,,,,,,
+Grapploct,101,held_item,1,Black Belt,27.8%,,,,,,,,
 Grapploct,101,held_item,2,Life Orb,17.2%,,,,,,,,
-Grapploct,101,held_item,3,Focus Sash,15.7%,,,,,,,,
+Grapploct,101,held_item,3,Focus Sash,15.8%,,,,,,,,
 Grapploct,101,held_item,4,Sitrus Berry,11.1%,,,,,,,,
 Grapploct,101,held_item,5,Psychic Seed,10.3%,,,,,,,,
-Grapploct,101,held_item,6,Leftovers,4.0%,,,,,,,,
+Grapploct,101,held_item,6,Leftovers,4.1%,,,,,,,,
 Grapploct,101,held_item,7,Expert Belt,3.7%,,,,,,,,
 Grapploct,101,held_item,8,Coba Berry,1.3%,,,,,,,,
 Grapploct,101,held_item,9,Quick Claw,1.2%,,,,,,,,
@@ -29,19 +29,19 @@ Grapploct,101,teammate,7,Rillaboom,,,,,,,,,
 Grapploct,101,teammate,8,Torkoal,,,,,,,,,
 Grapploct,101,teammate,9,Hatterene,,,,,,,,,
 Grapploct,101,teammate,10,Salamence,,,,,,,,,
-Grapploct,101,stat_alignment,1,Brave,56.3%,Attack,Speed,,,,,,
-Grapploct,101,stat_alignment,2,Adamant,27.5%,Attack,Sp. Atk,,,,,,
+Grapploct,101,stat_alignment,1,Brave,56.4%,Attack,Speed,,,,,,
+Grapploct,101,stat_alignment,2,Adamant,27.4%,Attack,Sp. Atk,,,,,,
 Grapploct,101,stat_alignment,3,Careful,5.4%,Sp. Def,Sp. Atk,,,,,,
 Grapploct,101,stat_alignment,4,Sassy,2.4%,Sp. Def,Speed,,,,,,
 Grapploct,101,stat_alignment,5,Impish,2.1%,Defense,Sp. Atk,,,,,,
 Grapploct,101,stat_alignment,6,Jolly,2.0%,Speed,Sp. Atk,,,,,,
-Grapploct,101,stat_alignment,7,Quiet,1.8%,Sp. Atk,Speed,,,,,,
-Grapploct,101,stat_alignment,8,Relaxed,1.7%,Defense,Speed,,,,,,
+Grapploct,101,stat_alignment,7,Relaxed,1.8%,Defense,Speed,,,,,,
+Grapploct,101,stat_alignment,8,Quiet,1.8%,Sp. Atk,Speed,,,,,,
 Grapploct,101,stat_alignment,9,Lonely,0.2%,Attack,Defense,,,,,,
 Grapploct,101,stat_alignment,10,Bold,0.2%,Defense,Attack,,,,,,
-Grapploct,101,stat_points,1,,40.2%,,,32,32,0,0,2,0
-Grapploct,101,stat_points,2,,12.1%,,,32,32,2,0,0,0
-Grapploct,101,stat_points,3,,3.9%,,,32,32,1,0,1,0
+Grapploct,101,stat_points,1,,40.4%,,,32,32,0,0,2,0
+Grapploct,101,stat_points,2,,12.0%,,,32,32,2,0,0,0
+Grapploct,101,stat_points,3,,3.8%,,,32,32,1,0,1,0
 Grapploct,101,stat_points,4,,3.3%,,,32,12,10,0,12,0
 Grapploct,101,stat_points,5,,1.5%,,,0,32,2,0,32,0
 Grapploct,101,stat_points,6,,1.4%,,,2,32,0,0,0,32

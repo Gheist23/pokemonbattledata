@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Forretress,140,move,1,Stealth Rock,68.0%,,,,,,,,
-Forretress,140,move,2,Explosion,42.9%,,,,,,,,
-Forretress,140,move,3,Volt Switch,42.0%,,,,,,,,
-Forretress,140,move,4,Body Press,33.8%,,,,,,,,
-Forretress,140,move,5,Rapid Spin,32.9%,,,,,,,,
-Forretress,140,move,6,Ice Spinner,20.9%,,,,,,,,
+Forretress,140,move,1,Stealth Rock,68.1%,,,,,,,,
+Forretress,140,move,2,Explosion,43.0%,,,,,,,,
+Forretress,140,move,3,Volt Switch,41.9%,,,,,,,,
+Forretress,140,move,4,Body Press,33.9%,,,,,,,,
+Forretress,140,move,5,Rapid Spin,33.0%,,,,,,,,
+Forretress,140,move,6,Ice Spinner,20.8%,,,,,,,,
 Forretress,140,move,7,Toxic Spikes,20.5%,,,,,,,,
-Forretress,140,move,8,Spikes,16.8%,,,,,,,,
-Forretress,140,move,9,Gyro Ball,16.5%,,,,,,,,
-Forretress,140,move,10,Iron Defense,14.0%,,,,,,,,
-Forretress,140,held_item,1,Rocky Helmet,29.9%,,,,,,,,
-Forretress,140,held_item,2,Normal Gem,16.9%,,,,,,,,
-Forretress,140,held_item,3,Red Card,16.4%,,,,,,,,
+Forretress,140,move,8,Spikes,16.9%,,,,,,,,
+Forretress,140,move,9,Gyro Ball,16.4%,,,,,,,,
+Forretress,140,move,10,Iron Defense,13.9%,,,,,,,,
+Forretress,140,held_item,1,Rocky Helmet,29.8%,,,,,,,,
+Forretress,140,held_item,2,Normal Gem,16.8%,,,,,,,,
+Forretress,140,held_item,3,Red Card,16.6%,,,,,,,,
 Forretress,140,held_item,4,Sitrus Berry,8.0%,,,,,,,,
 Forretress,140,held_item,5,Leftovers,7.7%,,,,,,,,
-Forretress,140,held_item,6,Silk Scarf,6.3%,,,,,,,,
+Forretress,140,held_item,6,Silk Scarf,6.4%,,,,,,,,
 Forretress,140,held_item,7,Mental Herb,2.8%,,,,,,,,
 Forretress,140,held_item,8,Quick Claw,2.2%,,,,,,,,
 Forretress,140,held_item,9,Light Clay,2.2%,,,,,,,,
@@ -23,31 +23,31 @@ Forretress,140,teammate,1,Golisopod,,,,,,,,,
 Forretress,140,teammate,2,Volcarona,,,,,,,,,
 Forretress,140,teammate,3,Garchomp,,,,,,,,,
 Forretress,140,teammate,4,Araquanid,,,,,,,,,
-Forretress,140,teammate,5,Kleavor,,,,,,,,,
-Forretress,140,teammate,6,Salamence,,,,,,,,,
+Forretress,140,teammate,5,Salamence,,,,,,,,,
+Forretress,140,teammate,6,Kleavor,,,,,,,,,
 Forretress,140,teammate,7,Baxcalibur,,,,,,,,,
 Forretress,140,teammate,8,Primarina,,,,,,,,,
 Forretress,140,teammate,9,Lucario,,,,,,,,,
 Forretress,140,teammate,10,Pinsir,,,,,,,,,
-Forretress,140,stat_alignment,1,Relaxed,32.3%,Defense,Speed,,,,,,
-Forretress,140,stat_alignment,2,Impish,20.6%,Defense,Sp. Atk,,,,,,
-Forretress,140,stat_alignment,3,Adamant,18.8%,Attack,Sp. Atk,,,,,,
+Forretress,140,stat_alignment,1,Relaxed,32.2%,Defense,Speed,,,,,,
+Forretress,140,stat_alignment,2,Impish,20.8%,Defense,Sp. Atk,,,,,,
+Forretress,140,stat_alignment,3,Adamant,18.7%,Attack,Sp. Atk,,,,,,
 Forretress,140,stat_alignment,4,Brave,10.2%,Attack,Speed,,,,,,
 Forretress,140,stat_alignment,5,Careful,6.5%,Sp. Def,Sp. Atk,,,,,,
-Forretress,140,stat_alignment,6,Sassy,5.7%,Sp. Def,Speed,,,,,,
+Forretress,140,stat_alignment,6,Sassy,5.6%,Sp. Def,Speed,,,,,,
 Forretress,140,stat_alignment,7,Bold,2.4%,Defense,Attack,,,,,,
 Forretress,140,stat_alignment,8,Calm,1.0%,Sp. Def,Attack,,,,,,
 Forretress,140,stat_alignment,9,Quiet,0.6%,Sp. Atk,Speed,,,,,,
-Forretress,140,stat_alignment,10,Modest,0.4%,Sp. Atk,Attack,,,,,,
-Forretress,140,stat_points,1,,19.1%,,,32,0,32,0,2,0
+Forretress,140,stat_alignment,10,Jolly,0.4%,Speed,Sp. Atk,,,,,,
+Forretress,140,stat_points,1,,19.3%,,,32,0,32,0,2,0
 Forretress,140,stat_points,2,,12.9%,,,32,32,2,0,0,0
 Forretress,140,stat_points,3,,8.7%,,,32,2,32,0,0,0
-Forretress,140,stat_points,4,,7.5%,,,32,0,2,0,32,0
+Forretress,140,stat_points,4,,7.4%,,,32,0,2,0,32,0
 Forretress,140,stat_points,5,,4.0%,,,31,0,32,0,3,0
 Forretress,140,stat_points,6,,3.9%,,,2,32,32,0,0,0
 Forretress,140,stat_points,7,,2.8%,,,32,32,0,0,2,0
 Forretress,140,stat_points,8,,2.4%,,,31,3,32,0,0,0
-Forretress,140,stat_points,9,,1.7%,,,32,0,32,0,0,2
-Forretress,140,stat_points,10,,1.5%,,,32,2,0,0,32,0
+Forretress,140,stat_points,9,,1.6%,,,32,0,32,0,0,2
+Forretress,140,stat_points,10,,1.5%,,,2,32,0,0,0,32
 Forretress,140,ability,1,Sturdy,97.9%,,,,,,,,
 Forretress,140,ability,2,Overcoat,2.1%,,,,,,,,

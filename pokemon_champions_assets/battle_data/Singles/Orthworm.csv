@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Orthworm,99,move,1,Shed Tail,89.6%,,,,,,,,
 Orthworm,99,move,2,Body Press,81.4%,,,,,,,,
-Orthworm,99,move,3,Stealth Rock,66.5%,,,,,,,,
+Orthworm,99,move,3,Stealth Rock,66.6%,,,,,,,,
 Orthworm,99,move,4,Heavy Slam,43.6%,,,,,,,,
-Orthworm,99,move,5,Iron Defense,39.3%,,,,,,,,
+Orthworm,99,move,5,Iron Defense,39.2%,,,,,,,,
 Orthworm,99,move,6,Metal Burst,29.9%,,,,,,,,
 Orthworm,99,move,7,Rock Tomb,11.9%,,,,,,,,
 Orthworm,99,move,8,Iron Head,7.6%,,,,,,,,
@@ -14,7 +14,7 @@ Orthworm,99,held_item,2,Leftovers,8.9%,,,,,,,,
 Orthworm,99,held_item,3,Rocky Helmet,3.9%,,,,,,,,
 Orthworm,99,held_item,4,Focus Sash,1.8%,,,,,,,,
 Orthworm,99,held_item,5,Chesto Berry,1.3%,,,,,,,,
-Orthworm,99,held_item,6,Occa Berry,1.0%,,,,,,,,
+Orthworm,99,held_item,6,Occa Berry,0.9%,,,,,,,,
 Orthworm,99,held_item,7,Choice Scarf,0.9%,,,,,,,,
 Orthworm,99,held_item,8,Mental Herb,0.4%,,,,,,,,
 Orthworm,99,held_item,9,Chople Berry,0.3%,,,,,,,,
@@ -33,7 +33,7 @@ Orthworm,99,stat_alignment,1,Impish,48.0%,Defense,Sp. Atk,,,,,,
 Orthworm,99,stat_alignment,2,Relaxed,28.6%,Defense,Speed,,,,,,
 Orthworm,99,stat_alignment,3,Sassy,8.4%,Sp. Def,Speed,,,,,,
 Orthworm,99,stat_alignment,4,Careful,8.0%,Sp. Def,Sp. Atk,,,,,,
-Orthworm,99,stat_alignment,5,Bold,3.5%,Defense,Attack,,,,,,
+Orthworm,99,stat_alignment,5,Bold,3.4%,Defense,Attack,,,,,,
 Orthworm,99,stat_alignment,6,Jolly,1.3%,Speed,Sp. Atk,,,,,,
 Orthworm,99,stat_alignment,7,Adamant,0.7%,Attack,Sp. Atk,,,,,,
 Orthworm,99,stat_alignment,8,Calm,0.6%,Sp. Def,Attack,,,,,,
@@ -46,7 +46,7 @@ Orthworm,99,stat_points,4,,5.3%,,,31,0,32,0,3,0
 Orthworm,99,stat_points,5,,4.4%,,,32,0,32,0,0,2
 Orthworm,99,stat_points,6,,4.1%,,,32,0,25,0,0,9
 Orthworm,99,stat_points,7,,3.6%,,,32,2,32,0,0,0
-Orthworm,99,stat_points,8,,3.0%,,,31,0,15,0,20,0
+Orthworm,99,stat_points,8,,2.9%,,,31,0,15,0,20,0
 Orthworm,99,stat_points,9,,2.5%,,,32,0,32,0,0,0
 Orthworm,99,stat_points,10,,2.2%,,,32,0,5,0,29,0
 Orthworm,99,ability,1,Earth Eater,99.5%,,,,,,,,

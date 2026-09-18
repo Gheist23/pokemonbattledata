@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Houndoom,170,move,1,Dark Pulse,81.1%,,,,,,,,
 Houndoom,170,move,2,Flamethrower,72.3%,,,,,,,,
-Houndoom,170,move,3,Destiny Bond,60.5%,,,,,,,,
+Houndoom,170,move,3,Destiny Bond,60.6%,,,,,,,,
 Houndoom,170,move,4,Sucker Punch,40.5%,,,,,,,,
-Houndoom,170,move,5,Counter,21.2%,,,,,,,,
+Houndoom,170,move,5,Counter,21.3%,,,,,,,,
 Houndoom,170,move,6,Sludge Bomb,19.1%,,,,,,,,
 Houndoom,170,move,7,Overheat,15.2%,,,,,,,,
 Houndoom,170,move,8,Nasty Plot,12.9%,,,,,,,,
 Houndoom,170,move,9,Comeuppance,10.0%,,,,,,,,
 Houndoom,170,move,10,Fire Blast,9.5%,,,,,,,,
 Houndoom,170,held_item,1,Focus Sash,50.5%,,,,,,,,
-Houndoom,170,held_item,2,Houndoominite,36.2%,,,,,,,,
+Houndoom,170,held_item,2,Houndoominite,36.1%,,,,,,,,
 Houndoom,170,held_item,3,Choice Scarf,3.5%,,,,,,,,
 Houndoom,170,held_item,4,Life Orb,2.9%,,,,,,,,
 Houndoom,170,held_item,5,Air Balloon,2.1%,,,,,,,,
@@ -18,7 +18,7 @@ Houndoom,170,held_item,6,Chople Berry,1.2%,,,,,,,,
 Houndoom,170,held_item,7,Sitrus Berry,0.6%,,,,,,,,
 Houndoom,170,held_item,8,Black Glasses,0.5%,,,,,,,,
 Houndoom,170,held_item,9,Quick Claw,0.4%,,,,,,,,
-Houndoom,170,held_item,10,Charcoal,0.3%,,,,,,,,
+Houndoom,170,held_item,10,Leftovers,0.3%,,,,,,,,
 Houndoom,170,teammate,1,Garchomp,,,,,,,,,
 Houndoom,170,teammate,2,Golisopod,,,,,,,,,
 Houndoom,170,teammate,3,Primarina,,,,,,,,,
@@ -29,26 +29,26 @@ Houndoom,170,teammate,7,Meowscarada,,,,,,,,,
 Houndoom,170,teammate,8,Scizor,,,,,,,,,
 Houndoom,170,teammate,9,Lucario,,,,,,,,,
 Houndoom,170,teammate,10,Basculegion,,,,,,,,,
-Houndoom,170,stat_alignment,1,Timid,51.0%,Speed,Attack,,,,,,
+Houndoom,170,stat_alignment,1,Timid,50.9%,Speed,Attack,,,,,,
 Houndoom,170,stat_alignment,2,Modest,19.9%,Sp. Atk,Attack,,,,,,
 Houndoom,170,stat_alignment,3,Hasty,12.2%,Speed,Defense,,,,,,
 Houndoom,170,stat_alignment,4,Mild,7.2%,Sp. Atk,Defense,,,,,,
 Houndoom,170,stat_alignment,5,Naive,2.8%,Speed,Sp. Def,,,,,,
 Houndoom,170,stat_alignment,6,Brave,1.8%,Attack,Speed,,,,,,
 Houndoom,170,stat_alignment,7,Bold,1.2%,Defense,Attack,,,,,,
-Houndoom,170,stat_alignment,8,Naughty,1.0%,Attack,Sp. Def,,,,,,
+Houndoom,170,stat_alignment,8,Naughty,1.1%,Attack,Sp. Def,,,,,,
 Houndoom,170,stat_alignment,9,Jolly,0.7%,Speed,Sp. Atk,,,,,,
 Houndoom,170,stat_alignment,10,Calm,0.6%,Sp. Def,Attack,,,,,,
 Houndoom,170,stat_points,1,,36.3%,,,2,0,0,32,0,32
 Houndoom,170,stat_points,2,,10.9%,,,1,0,1,32,0,32
 Houndoom,170,stat_points,3,,7.1%,,,1,0,0,32,1,32
 Houndoom,170,stat_points,4,,5.2%,,,0,0,0,32,2,32
-Houndoom,170,stat_points,5,,5.1%,,,1,1,0,32,0,32
+Houndoom,170,stat_points,5,,5.2%,,,1,1,0,32,0,32
 Houndoom,170,stat_points,6,,4.7%,,,0,0,2,32,0,32
-Houndoom,170,stat_points,7,,4.7%,,,0,2,0,32,0,32
-Houndoom,170,stat_points,8,,2.5%,,,0,0,0,32,0,32
-Houndoom,170,stat_points,9,,1.6%,,,1,0,0,32,0,32
-Houndoom,170,stat_points,10,,1.4%,,,4,0,0,32,0,30
-Houndoom,170,ability,1,Flash Fire,91.3%,,,,,,,,
+Houndoom,170,stat_points,7,,4.6%,,,0,2,0,32,0,32
+Houndoom,170,stat_points,8,,2.4%,,,0,0,0,32,0,32
+Houndoom,170,stat_points,9,,1.7%,,,1,0,0,32,0,32
+Houndoom,170,stat_points,10,,1.3%,,,4,0,0,32,0,30
+Houndoom,170,ability,1,Flash Fire,91.2%,,,,,,,,
 Houndoom,170,ability,2,Unnerve,5.4%,,,,,,,,
 Houndoom,170,ability,3,Early Bird,3.4%,,,,,,,,

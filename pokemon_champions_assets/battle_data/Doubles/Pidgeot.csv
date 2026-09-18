@@ -1,53 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pidgeot,204,move,1,Hurricane,85.9%,,,,,,,,
-Pidgeot,204,move,2,Heat Wave,83.3%,,,,,,,,
-Pidgeot,204,move,3,Protect,75.3%,,,,,,,,
-Pidgeot,204,move,4,Tailwind,45.5%,,,,,,,,
-Pidgeot,204,move,5,Hyper Beam,34.0%,,,,,,,,
-Pidgeot,204,move,6,Quick Attack,14.2%,,,,,,,,
-Pidgeot,204,move,7,Dual Wingbeat,12.0%,,,,,,,,
-Pidgeot,204,move,8,Giga Impact,11.9%,,,,,,,,
-Pidgeot,204,move,9,Sunny Day,4.7%,,,,,,,,
-Pidgeot,204,move,10,Feather Dance,4.5%,,,,,,,,
-Pidgeot,204,held_item,1,Pidgeotite,86.1%,,,,,,,,
-Pidgeot,204,held_item,2,Life Orb,11.8%,,,,,,,,
-Pidgeot,204,held_item,3,Silk Scarf,0.7%,,,,,,,,
-Pidgeot,204,held_item,4,Wide Lens,0.4%,,,,,,,,
-Pidgeot,204,held_item,5,Sharp Beak,0.3%,,,,,,,,
-Pidgeot,204,held_item,6,Choice Scarf,0.3%,,,,,,,,
-Pidgeot,204,held_item,7,Lum Berry,0.1%,,,,,,,,
-Pidgeot,204,held_item,8,Wise Glasses,0.1%,,,,,,,,
-Pidgeot,204,held_item,9,Focus Sash,0.1%,,,,,,,,
-Pidgeot,204,held_item,10,Bright Powder,0.0%,,,,,,,,
-Pidgeot,204,teammate,1,Whimsicott,,,,,,,,,
-Pidgeot,204,teammate,2,Incineroar,,,,,,,,,
-Pidgeot,204,teammate,3,Sneasler,,,,,,,,,
-Pidgeot,204,teammate,4,Rillaboom,,,,,,,,,
-Pidgeot,204,teammate,5,Raichu,,,,,,,,,
-Pidgeot,204,teammate,6,Garchomp,,,,,,,,,
-Pidgeot,204,teammate,7,Farigiraf,,,,,,,,,
-Pidgeot,204,teammate,8,Beedrill,,,,,,,,,
-Pidgeot,204,teammate,9,Arcanine-Hisui,,,,,,,,,
-Pidgeot,204,teammate,10,Basculegion,,,,,,,,,
-Pidgeot,204,stat_alignment,1,Timid,52.5%,Speed,Attack,,,,,,
-Pidgeot,204,stat_alignment,2,Modest,31.4%,Sp. Atk,Attack,,,,,,
-Pidgeot,204,stat_alignment,3,Adamant,12.0%,Attack,Sp. Atk,,,,,,
-Pidgeot,204,stat_alignment,4,Mild,1.2%,Sp. Atk,Defense,,,,,,
-Pidgeot,204,stat_alignment,5,Rash,1.2%,Sp. Atk,Sp. Def,,,,,,
-Pidgeot,204,stat_alignment,6,Hasty,0.9%,Speed,Defense,,,,,,
-Pidgeot,204,stat_alignment,7,Jolly,0.4%,Speed,Sp. Atk,,,,,,
-Pidgeot,204,stat_alignment,8,Quiet,0.3%,Sp. Atk,Speed,,,,,,
-Pidgeot,204,stat_alignment,9,Bold,0.1%,Defense,Attack,,,,,,
-Pidgeot,204,stat_points,1,,49.3%,,,2,0,0,32,0,32
-Pidgeot,204,stat_points,2,,12.0%,,,1,32,1,0,0,32
-Pidgeot,204,stat_points,3,,5.2%,,,0,0,0,32,2,32
-Pidgeot,204,stat_points,4,,4.3%,,,0,0,0,16,18,32
-Pidgeot,204,stat_points,5,,4.3%,,,7,0,0,27,0,32
-Pidgeot,204,stat_points,6,,4.2%,,,1,0,1,32,0,32
-Pidgeot,204,stat_points,7,,2.5%,,,0,0,2,32,0,32
-Pidgeot,204,stat_points,8,,1.6%,,,0,0,0,32,0,32
-Pidgeot,204,stat_points,9,,1.6%,,,32,0,0,0,0,32
-Pidgeot,204,stat_points,10,,1.6%,,,1,0,11,17,0,32
-Pidgeot,204,ability,1,Big Pecks,47.1%,,,,,,,,
-Pidgeot,204,ability,2,Keen Eye,43.2%,,,,,,,,
-Pidgeot,204,ability,3,Tangled Feet,9.8%,,,,,,,,
+Pidgeot,202,move,1,Hurricane,85.7%,,,,,,,,
+Pidgeot,202,move,2,Heat Wave,83.0%,,,,,,,,
+Pidgeot,202,move,3,Protect,74.8%,,,,,,,,
+Pidgeot,202,move,4,Tailwind,45.7%,,,,,,,,
+Pidgeot,202,move,5,Hyper Beam,33.3%,,,,,,,,
+Pidgeot,202,move,6,Quick Attack,14.6%,,,,,,,,
+Pidgeot,202,move,7,Giga Impact,11.8%,,,,,,,,
+Pidgeot,202,move,8,Dual Wingbeat,11.8%,,,,,,,,
+Pidgeot,202,move,9,Feather Dance,4.9%,,,,,,,,
+Pidgeot,202,move,10,Sunny Day,4.4%,,,,,,,,
+Pidgeot,202,held_item,1,Pidgeotite,85.4%,,,,,,,,
+Pidgeot,202,held_item,2,Life Orb,11.6%,,,,,,,,
+Pidgeot,202,held_item,3,Silk Scarf,0.6%,,,,,,,,
+Pidgeot,202,held_item,4,Wide Lens,0.4%,,,,,,,,
+Pidgeot,202,held_item,5,Sharp Beak,0.3%,,,,,,,,
+Pidgeot,202,held_item,6,Choice Scarf,0.2%,,,,,,,,
+Pidgeot,202,held_item,7,Leftovers,0.2%,,,,,,,,
+Pidgeot,202,held_item,8,Lum Berry,0.1%,,,,,,,,
+Pidgeot,202,held_item,9,Wise Glasses,0.1%,,,,,,,,
+Pidgeot,202,held_item,10,Focus Sash,0.1%,,,,,,,,
+Pidgeot,202,teammate,1,Whimsicott,,,,,,,,,
+Pidgeot,202,teammate,2,Incineroar,,,,,,,,,
+Pidgeot,202,teammate,3,Sneasler,,,,,,,,,
+Pidgeot,202,teammate,4,Rillaboom,,,,,,,,,
+Pidgeot,202,teammate,5,Raichu,,,,,,,,,
+Pidgeot,202,teammate,6,Garchomp,,,,,,,,,
+Pidgeot,202,teammate,7,Farigiraf,,,,,,,,,
+Pidgeot,202,teammate,8,Beedrill,,,,,,,,,
+Pidgeot,202,teammate,9,Arcanine-Hisui,,,,,,,,,
+Pidgeot,202,teammate,10,Basculegion,,,,,,,,,
+Pidgeot,202,stat_alignment,1,Timid,52.5%,Speed,Attack,,,,,,
+Pidgeot,202,stat_alignment,2,Modest,30.9%,Sp. Atk,Attack,,,,,,
+Pidgeot,202,stat_alignment,3,Adamant,11.8%,Attack,Sp. Atk,,,,,,
+Pidgeot,202,stat_alignment,4,Mild,1.1%,Sp. Atk,Defense,,,,,,
+Pidgeot,202,stat_alignment,5,Rash,1.1%,Sp. Atk,Sp. Def,,,,,,
+Pidgeot,202,stat_alignment,6,Bold,0.9%,Defense,Attack,,,,,,
+Pidgeot,202,stat_alignment,7,Hasty,0.9%,Speed,Defense,,,,,,
+Pidgeot,202,stat_alignment,8,Jolly,0.4%,Speed,Sp. Atk,,,,,,
+Pidgeot,202,stat_alignment,9,Quiet,0.3%,Sp. Atk,Speed,,,,,,
+Pidgeot,202,stat_alignment,10,Calm,0.2%,Sp. Def,Attack,,,,,,
+Pidgeot,202,stat_points,1,,49.4%,,,2,0,0,32,0,32
+Pidgeot,202,stat_points,2,,11.7%,,,1,32,1,0,0,32
+Pidgeot,202,stat_points,3,,5.2%,,,0,0,0,32,2,32
+Pidgeot,202,stat_points,4,,4.5%,,,0,0,0,16,18,32
+Pidgeot,202,stat_points,5,,4.1%,,,7,0,0,27,0,32
+Pidgeot,202,stat_points,6,,3.9%,,,1,0,1,32,0,32
+Pidgeot,202,stat_points,7,,2.3%,,,0,0,2,32,0,32
+Pidgeot,202,stat_points,8,,1.6%,,,0,0,0,32,0,32
+Pidgeot,202,stat_points,9,,1.5%,,,32,0,0,0,0,32
+Pidgeot,202,stat_points,10,,1.5%,,,1,0,11,17,0,32
+Pidgeot,202,ability,1,Big Pecks,47.0%,,,,,,,,
+Pidgeot,202,ability,2,Keen Eye,43.0%,,,,,,,,
+Pidgeot,202,ability,3,Tangled Feet,10.0%,,,,,,,,

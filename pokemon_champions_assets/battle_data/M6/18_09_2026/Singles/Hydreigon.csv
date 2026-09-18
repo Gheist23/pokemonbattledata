@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Hydreigon,31,move,1,Dark Pulse,98.7%,,,,,,,,
 Hydreigon,31,move,2,Draco Meteor,94.9%,,,,,,,,
-Hydreigon,31,move,3,U-turn,78.0%,,,,,,,,
+Hydreigon,31,move,3,U-turn,77.9%,,,,,,,,
 Hydreigon,31,move,4,Flamethrower,72.9%,,,,,,,,
 Hydreigon,31,move,5,Fire Blast,18.2%,,,,,,,,
 Hydreigon,31,move,6,Flash Cannon,7.0%,,,,,,,,
@@ -29,9 +29,9 @@ Hydreigon,31,teammate,7,Gholdengo,,,,,,,,,
 Hydreigon,31,teammate,8,Aegislash,,,,,,,,,
 Hydreigon,31,teammate,9,Lucario,,,,,,,,,
 Hydreigon,31,teammate,10,Baxcalibur,,,,,,,,,
-Hydreigon,31,stat_alignment,1,Modest,73.0%,Sp. Atk,Attack,,,,,,
-Hydreigon,31,stat_alignment,2,Timid,25.0%,Speed,Attack,,,,,,
-Hydreigon,31,stat_alignment,3,Mild,0.4%,Sp. Atk,Defense,,,,,,
+Hydreigon,31,stat_alignment,1,Modest,72.9%,Sp. Atk,Attack,,,,,,
+Hydreigon,31,stat_alignment,2,Timid,25.1%,Speed,Attack,,,,,,
+Hydreigon,31,stat_alignment,3,Mild,0.5%,Sp. Atk,Defense,,,,,,
 Hydreigon,31,stat_alignment,4,Hasty,0.3%,Speed,Defense,,,,,,
 Hydreigon,31,stat_alignment,5,Bold,0.3%,Defense,Attack,,,,,,
 Hydreigon,31,stat_alignment,6,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
@@ -42,9 +42,9 @@ Hydreigon,31,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
 Hydreigon,31,stat_points,1,,75.7%,,,2,0,0,32,0,32
 Hydreigon,31,stat_points,2,,5.1%,,,0,0,2,32,0,32
 Hydreigon,31,stat_points,3,,3.9%,,,0,0,0,32,2,32
-Hydreigon,31,stat_points,4,,3.5%,,,0,0,1,32,1,32
+Hydreigon,31,stat_points,4,,3.4%,,,0,0,1,32,1,32
 Hydreigon,31,stat_points,5,,1.4%,,,0,0,0,32,0,32
-Hydreigon,31,stat_points,6,,0.8%,,,1,0,1,32,0,32
+Hydreigon,31,stat_points,6,,0.9%,,,1,0,1,32,0,32
 Hydreigon,31,stat_points,7,,0.6%,,,8,0,0,32,0,26
 Hydreigon,31,stat_points,8,,0.5%,,,1,0,0,32,0,32
 Hydreigon,31,stat_points,9,,0.5%,,,32,0,0,32,0,2

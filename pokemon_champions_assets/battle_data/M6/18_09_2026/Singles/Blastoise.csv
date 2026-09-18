@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Blastoise,28,move,1,Shell Smash,90.7%,,,,,,,,
-Blastoise,28,move,2,Aura Sphere,85.6%,,,,,,,,
-Blastoise,28,move,3,Dark Pulse,81.6%,,,,,,,,
-Blastoise,28,move,4,Terrain Pulse,73.7%,,,,,,,,
-Blastoise,28,move,5,Water Pulse,24.6%,,,,,,,,
-Blastoise,28,move,6,Ice Beam,21.7%,,,,,,,,
+Blastoise,28,move,1,Shell Smash,90.8%,,,,,,,,
+Blastoise,28,move,2,Aura Sphere,85.7%,,,,,,,,
+Blastoise,28,move,3,Dark Pulse,81.7%,,,,,,,,
+Blastoise,28,move,4,Terrain Pulse,74.0%,,,,,,,,
+Blastoise,28,move,5,Water Pulse,24.4%,,,,,,,,
+Blastoise,28,move,6,Ice Beam,21.5%,,,,,,,,
 Blastoise,28,move,7,Dragon Pulse,5.8%,,,,,,,,
 Blastoise,28,move,8,Water Spout,3.7%,,,,,,,,
-Blastoise,28,move,9,Surf,2.9%,,,,,,,,
+Blastoise,28,move,9,Surf,2.8%,,,,,,,,
 Blastoise,28,move,10,Aqua Jet,2.5%,,,,,,,,
 Blastoise,28,held_item,1,Blastoisinite,96.8%,,,,,,,,
 Blastoise,28,held_item,2,White Herb,1.6%,,,,,,,,
-Blastoise,28,held_item,3,Lum Berry,0.4%,,,,,,,,
+Blastoise,28,held_item,3,Lum Berry,0.3%,,,,,,,,
 Blastoise,28,held_item,4,Sitrus Berry,0.3%,,,,,,,,
 Blastoise,28,held_item,5,Focus Sash,0.2%,,,,,,,,
 Blastoise,28,held_item,6,Leftovers,0.2%,,,,,,,,
@@ -35,10 +35,10 @@ Blastoise,28,stat_alignment,3,Bold,0.5%,Defense,Attack,,,,,,
 Blastoise,28,stat_alignment,4,Quiet,0.4%,Sp. Atk,Speed,,,,,,
 Blastoise,28,stat_alignment,5,Calm,0.2%,Sp. Def,Attack,,,,,,
 Blastoise,28,stat_alignment,6,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Blastoise,28,stat_alignment,7,Relaxed,0.1%,Defense,Speed,,,,,,
-Blastoise,28,stat_alignment,8,Adamant,0.1%,Attack,Sp. Atk,,,,,,
-Blastoise,28,stat_alignment,9,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Blastoise,28,stat_alignment,10,Naive,0.0%,Speed,Sp. Def,,,,,,
+Blastoise,28,stat_alignment,7,Adamant,0.1%,Attack,Sp. Atk,,,,,,
+Blastoise,28,stat_alignment,8,Relaxed,0.1%,Defense,Speed,,,,,,
+Blastoise,28,stat_alignment,9,Jolly,0.0%,Speed,Sp. Atk,,,,,,
+Blastoise,28,stat_alignment,10,Hasty,0.0%,Speed,Defense,,,,,,
 Blastoise,28,stat_points,1,,15.0%,,,11,0,0,25,0,30
 Blastoise,28,stat_points,2,,9.9%,,,1,0,1,32,0,32
 Blastoise,28,stat_points,3,,8.3%,,,2,0,0,32,0,32
@@ -47,7 +47,7 @@ Blastoise,28,stat_points,5,,4.0%,,,21,0,1,15,0,29
 Blastoise,28,stat_points,6,,3.4%,,,1,0,0,32,1,32
 Blastoise,28,stat_points,7,,3.1%,,,21,0,1,26,0,18
 Blastoise,28,stat_points,8,,1.8%,,,17,0,0,32,0,17
-Blastoise,28,stat_points,9,,1.6%,,,19,0,0,18,0,29
-Blastoise,28,stat_points,10,,1.6%,,,11,0,1,32,0,22
+Blastoise,28,stat_points,9,,1.6%,,,11,0,1,32,0,22
+Blastoise,28,stat_points,10,,1.5%,,,19,0,0,18,0,29
 Blastoise,28,ability,1,Torrent,65.9%,,,,,,,,
 Blastoise,28,ability,2,Rain Dish,34.1%,,,,,,,,

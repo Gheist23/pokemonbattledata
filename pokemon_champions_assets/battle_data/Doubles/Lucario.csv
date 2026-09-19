@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Lucario,28,move,1,Aura Sphere,94.7%,,,,,,,,
 Lucario,28,move,2,Flash Cannon,83.9%,,,,,,,,
-Lucario,28,move,3,Detect,49.8%,,,,,,,,
-Lucario,28,move,4,Protect,40.7%,,,,,,,,
-Lucario,28,move,5,Calm Mind,29.6%,,,,,,,,
-Lucario,28,move,6,Dark Pulse,22.3%,,,,,,,,
+Lucario,28,move,3,Detect,49.9%,,,,,,,,
+Lucario,28,move,4,Protect,40.5%,,,,,,,,
+Lucario,28,move,5,Calm Mind,29.5%,,,,,,,,
+Lucario,28,move,6,Dark Pulse,22.4%,,,,,,,,
 Lucario,28,move,7,Nasty Plot,22.0%,,,,,,,,
 Lucario,28,move,8,Steel Beam,14.9%,,,,,,,,
-Lucario,28,move,9,Vacuum Wave,7.1%,,,,,,,,
+Lucario,28,move,9,Vacuum Wave,7.2%,,,,,,,,
 Lucario,28,move,10,Terrain Pulse,5.7%,,,,,,,,
 Lucario,28,held_item,1,Lucarionite Z,95.2%,,,,,,,,
 Lucario,28,held_item,2,Lucarionite,2.1%,,,,,,,,
@@ -17,8 +17,8 @@ Lucario,28,held_item,5,Life Orb,0.3%,,,,,,,,
 Lucario,28,held_item,6,Expert Belt,0.1%,,,,,,,,
 Lucario,28,held_item,7,Black Belt,0.1%,,,,,,,,
 Lucario,28,held_item,8,Sitrus Berry,0.0%,,,,,,,,
-Lucario,28,held_item,9,Air Balloon,0.0%,,,,,,,,
-Lucario,28,held_item,10,Metal Coat,0.0%,,,,,,,,
+Lucario,28,held_item,9,Metal Coat,0.0%,,,,,,,,
+Lucario,28,held_item,10,Air Balloon,0.0%,,,,,,,,
 Lucario,28,teammate,1,Rillaboom,,,,,,,,,
 Lucario,28,teammate,2,Incineroar,,,,,,,,,
 Lucario,28,teammate,3,Salamence,,,,,,,,,
@@ -29,8 +29,8 @@ Lucario,28,teammate,7,Sylveon,,,,,,,,,
 Lucario,28,teammate,8,Garchomp,,,,,,,,,
 Lucario,28,teammate,9,Kingambit,,,,,,,,,
 Lucario,28,teammate,10,Milotic,,,,,,,,,
-Lucario,28,stat_alignment,1,Modest,47.1%,Sp. Atk,Attack,,,,,,
-Lucario,28,stat_alignment,2,Timid,46.4%,Speed,Attack,,,,,,
+Lucario,28,stat_alignment,1,Modest,47.2%,Sp. Atk,Attack,,,,,,
+Lucario,28,stat_alignment,2,Timid,46.3%,Speed,Attack,,,,,,
 Lucario,28,stat_alignment,3,Jolly,2.0%,Speed,Sp. Atk,,,,,,
 Lucario,28,stat_alignment,4,Adamant,1.3%,Attack,Sp. Atk,,,,,,
 Lucario,28,stat_alignment,5,Naive,0.6%,Speed,Sp. Def,,,,,,
@@ -42,9 +42,9 @@ Lucario,28,stat_alignment,10,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Lucario,28,stat_points,1,,32.8%,,,2,0,0,32,0,32
 Lucario,28,stat_points,2,,2.9%,,,18,0,0,32,0,16
 Lucario,28,stat_points,3,,2.8%,,,30,0,2,0,2,32
-Lucario,28,stat_points,4,,2.3%,,,0,0,0,32,2,32
-Lucario,28,stat_points,5,,2.3%,,,20,0,0,16,0,30
-Lucario,28,stat_points,6,,2.3%,,,0,0,2,32,0,32
+Lucario,28,stat_points,4,,2.3%,,,20,0,0,16,0,30
+Lucario,28,stat_points,5,,2.3%,,,0,0,2,32,0,32
+Lucario,28,stat_points,6,,2.3%,,,0,0,0,32,2,32
 Lucario,28,stat_points,7,,2.1%,,,32,0,0,2,0,32
 Lucario,28,stat_points,8,,1.7%,,,2,32,0,0,0,32
 Lucario,28,stat_points,9,,1.4%,,,0,0,0,32,0,32

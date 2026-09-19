@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Charizard,15,move,1,Solar Beam,70.8%,,,,,,,,
+Charizard,15,move,1,Solar Beam,70.7%,,,,,,,,
 Charizard,15,move,2,Flamethrower,51.4%,,,,,,,,
 Charizard,15,move,3,Air Slash,38.6%,,,,,,,,
 Charizard,15,move,4,Dragon Pulse,29.6%,,,,,,,,
 Charizard,15,move,5,Roost,27.5%,,,,,,,,
 Charizard,15,move,6,Flare Blitz,24.7%,,,,,,,,
-Charizard,15,move,7,Flame Charge,22.8%,,,,,,,,
-Charizard,15,move,8,Weather Ball,18.4%,,,,,,,,
+Charizard,15,move,7,Flame Charge,22.7%,,,,,,,,
+Charizard,15,move,8,Weather Ball,18.3%,,,,,,,,
 Charizard,15,move,9,Overheat,18.1%,,,,,,,,
 Charizard,15,move,10,Dragon Dance,17.2%,,,,,,,,
 Charizard,15,held_item,1,Charizardite Y,72.7%,,,,,,,,
@@ -14,7 +14,7 @@ Charizard,15,held_item,2,Charizardite X,25.9%,,,,,,,,
 Charizard,15,held_item,3,Choice Scarf,0.3%,,,,,,,,
 Charizard,15,held_item,4,Focus Sash,0.2%,,,,,,,,
 Charizard,15,held_item,5,Life Orb,0.1%,,,,,,,,
-Charizard,15,held_item,6,Charcoal,0.0%,,,,,,,,
+Charizard,15,held_item,6,Charcoal,0.1%,,,,,,,,
 Charizard,15,held_item,7,Sitrus Berry,0.0%,,,,,,,,
 Charizard,15,held_item,8,Quick Claw,0.0%,,,,,,,,
 Charizard,15,held_item,9,Leftovers,0.0%,,,,,,,,
@@ -39,7 +39,7 @@ Charizard,15,stat_alignment,7,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Charizard,15,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,
 Charizard,15,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,
 Charizard,15,stat_alignment,10,Calm,0.2%,Sp. Def,Attack,,,,,,
-Charizard,15,stat_points,1,,29.8%,,,2,0,0,32,0,32
+Charizard,15,stat_points,1,,29.9%,,,2,0,0,32,0,32
 Charizard,15,stat_points,2,,13.3%,,,2,32,0,0,0,32
 Charizard,15,stat_points,3,,3.9%,,,0,0,2,32,0,32
 Charizard,15,stat_points,4,,3.5%,,,22,0,10,14,0,20

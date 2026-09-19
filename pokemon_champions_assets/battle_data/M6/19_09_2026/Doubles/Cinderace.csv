@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Cinderace,83,move,1,Pyro Ball,96.7%,,,,,,,,
-Cinderace,83,move,2,High Jump Kick,56.4%,,,,,,,,
-Cinderace,83,move,3,Sucker Punch,44.8%,,,,,,,,
-Cinderace,83,move,4,U-turn,37.9%,,,,,,,,
-Cinderace,83,move,5,Protect,37.2%,,,,,,,,
+Cinderace,83,move,1,Pyro Ball,96.6%,,,,,,,,
+Cinderace,83,move,2,High Jump Kick,56.5%,,,,,,,,
+Cinderace,83,move,3,Sucker Punch,44.7%,,,,,,,,
+Cinderace,83,move,4,U-turn,38.1%,,,,,,,,
+Cinderace,83,move,5,Protect,37.1%,,,,,,,,
 Cinderace,83,move,6,Iron Head,29.0%,,,,,,,,
-Cinderace,83,move,7,Gunk Shot,26.1%,,,,,,,,
+Cinderace,83,move,7,Gunk Shot,26.3%,,,,,,,,
 Cinderace,83,move,8,Low Kick,9.4%,,,,,,,,
 Cinderace,83,move,9,Zen Headbutt,9.3%,,,,,,,,
 Cinderace,83,move,10,Smack Down,7.4%,,,,,,,,
 Cinderace,83,held_item,1,Life Orb,29.0%,,,,,,,,
 Cinderace,83,held_item,2,Focus Sash,16.2%,,,,,,,,
-Cinderace,83,held_item,3,Wide Lens,15.2%,,,,,,,,
-Cinderace,83,held_item,4,Choice Scarf,13.3%,,,,,,,,
-Cinderace,83,held_item,5,Expert Belt,8.1%,,,,,,,,
-Cinderace,83,held_item,6,Charcoal,3.8%,,,,,,,,
+Cinderace,83,held_item,3,Wide Lens,15.1%,,,,,,,,
+Cinderace,83,held_item,4,Choice Scarf,13.4%,,,,,,,,
+Cinderace,83,held_item,5,Expert Belt,8.2%,,,,,,,,
+Cinderace,83,held_item,6,Charcoal,3.7%,,,,,,,,
 Cinderace,83,held_item,7,Sitrus Berry,2.5%,,,,,,,,
-Cinderace,83,held_item,8,Muscle Band,2.4%,,,,,,,,
-Cinderace,83,held_item,9,White Herb,2.0%,,,,,,,,
-Cinderace,83,held_item,10,Grassy Seed,1.0%,,,,,,,,
+Cinderace,83,held_item,8,Muscle Band,2.3%,,,,,,,,
+Cinderace,83,held_item,9,White Herb,1.9%,,,,,,,,
+Cinderace,83,held_item,10,Grassy Seed,1.1%,,,,,,,,
 Cinderace,83,teammate,1,Rillaboom,,,,,,,,,
 Cinderace,83,teammate,2,Salamence,,,,,,,,,
 Cinderace,83,teammate,3,Sneasler,,,,,,,,,
@@ -27,11 +27,11 @@ Cinderace,83,teammate,5,Indeedee-F,,,,,,,,,
 Cinderace,83,teammate,6,Golisopod,,,,,,,,,
 Cinderace,83,teammate,7,Whimsicott,,,,,,,,,
 Cinderace,83,teammate,8,Milotic,,,,,,,,,
-Cinderace,83,teammate,9,Kingambit,,,,,,,,,
-Cinderace,83,teammate,10,Farigiraf,,,,,,,,,
-Cinderace,83,stat_alignment,1,Adamant,49.5%,Attack,Sp. Atk,,,,,,
-Cinderace,83,stat_alignment,2,Jolly,44.6%,Speed,Sp. Atk,,,,,,
-Cinderace,83,stat_alignment,3,Lonely,1.3%,Attack,Defense,,,,,,
+Cinderace,83,teammate,9,Farigiraf,,,,,,,,,
+Cinderace,83,teammate,10,Kingambit,,,,,,,,,
+Cinderace,83,stat_alignment,1,Adamant,49.4%,Attack,Sp. Atk,,,,,,
+Cinderace,83,stat_alignment,2,Jolly,44.7%,Speed,Sp. Atk,,,,,,
+Cinderace,83,stat_alignment,3,Lonely,1.4%,Attack,Defense,,,,,,
 Cinderace,83,stat_alignment,4,Naive,0.8%,Speed,Sp. Def,,,,,,
 Cinderace,83,stat_alignment,5,Hasty,0.8%,Speed,Defense,,,,,,
 Cinderace,83,stat_alignment,6,Brave,0.7%,Attack,Speed,,,,,,
@@ -40,14 +40,14 @@ Cinderace,83,stat_alignment,8,Impish,0.5%,Defense,Sp. Atk,,,,,,
 Cinderace,83,stat_alignment,9,Relaxed,0.3%,Defense,Speed,,,,,,
 Cinderace,83,stat_alignment,10,Timid,0.2%,Speed,Attack,,,,,,
 Cinderace,83,stat_points,1,,55.7%,,,2,32,0,0,0,32
-Cinderace,83,stat_points,2,,7.7%,,,0,32,2,0,0,32
+Cinderace,83,stat_points,2,,7.8%,,,0,32,2,0,0,32
 Cinderace,83,stat_points,3,,6.5%,,,0,32,0,0,2,32
-Cinderace,83,stat_points,4,,4.0%,,,0,32,0,0,0,32
+Cinderace,83,stat_points,4,,3.9%,,,0,32,0,0,0,32
 Cinderace,83,stat_points,5,,1.8%,,,32,32,0,0,0,2
 Cinderace,83,stat_points,6,,1.5%,,,0,32,1,0,1,32
 Cinderace,83,stat_points,7,,1.0%,,,1,32,0,0,1,32
 Cinderace,83,stat_points,8,,1.0%,,,1,32,0,0,0,32
-Cinderace,83,stat_points,9,,0.8%,,,32,32,2,0,0,0
-Cinderace,83,stat_points,10,,0.8%,,,3,32,0,0,0,31
-Cinderace,83,ability,1,Libero,94.6%,,,,,,,,
-Cinderace,83,ability,2,Blaze,5.4%,,,,,,,,
+Cinderace,83,stat_points,9,,0.8%,,,3,32,0,0,0,31
+Cinderace,83,stat_points,10,,0.8%,,,32,32,2,0,0,0
+Cinderace,83,ability,1,Libero,94.5%,,,,,,,,
+Cinderace,83,ability,2,Blaze,5.5%,,,,,,,,

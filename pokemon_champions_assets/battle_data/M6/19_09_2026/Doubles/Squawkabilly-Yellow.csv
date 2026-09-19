@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Squawkabilly-Yellow,200,move,1,Brave Bird,78.4%,,,,,,,,
-Squawkabilly-Yellow,200,move,2,Final Gambit,69.5%,,,,,,,,
-Squawkabilly-Yellow,200,move,3,Parting Shot,60.2%,,,,,,,,
-Squawkabilly-Yellow,200,move,4,Tailwind,40.1%,,,,,,,,
-Squawkabilly-Yellow,200,move,5,U-turn,31.4%,,,,,,,,
-Squawkabilly-Yellow,200,move,6,Foul Play,14.8%,,,,,,,,
-Squawkabilly-Yellow,200,move,7,Protect,13.3%,,,,,,,,
-Squawkabilly-Yellow,200,move,8,Lash Out,11.2%,,,,,,,,
-Squawkabilly-Yellow,200,move,9,Taunt,10.4%,,,,,,,,
-Squawkabilly-Yellow,200,move,10,Fly,9.2%,,,,,,,,
-Squawkabilly-Yellow,200,held_item,1,Choice Scarf,70.0%,,,,,,,,
-Squawkabilly-Yellow,200,held_item,2,Focus Sash,19.5%,,,,,,,,
-Squawkabilly-Yellow,200,held_item,3,Life Orb,5.1%,,,,,,,,
-Squawkabilly-Yellow,200,held_item,4,Sitrus Berry,1.5%,,,,,,,,
-Squawkabilly-Yellow,200,held_item,5,Quick Claw,0.8%,,,,,,,,
-Squawkabilly-Yellow,200,held_item,6,Sharp Beak,0.8%,,,,,,,,
-Squawkabilly-Yellow,200,held_item,7,Eject Button,0.5%,,,,,,,,
+Squawkabilly-Yellow,200,move,1,Brave Bird,78.6%,,,,,,,,
+Squawkabilly-Yellow,200,move,2,Final Gambit,69.1%,,,,,,,,
+Squawkabilly-Yellow,200,move,3,Parting Shot,59.9%,,,,,,,,
+Squawkabilly-Yellow,200,move,4,Tailwind,39.6%,,,,,,,,
+Squawkabilly-Yellow,200,move,5,U-turn,32.3%,,,,,,,,
+Squawkabilly-Yellow,200,move,6,Foul Play,14.6%,,,,,,,,
+Squawkabilly-Yellow,200,move,7,Protect,13.1%,,,,,,,,
+Squawkabilly-Yellow,200,move,8,Lash Out,10.8%,,,,,,,,
+Squawkabilly-Yellow,200,move,9,Taunt,10.3%,,,,,,,,
+Squawkabilly-Yellow,200,move,10,Double-Edge,9.4%,,,,,,,,
+Squawkabilly-Yellow,200,held_item,1,Choice Scarf,69.6%,,,,,,,,
+Squawkabilly-Yellow,200,held_item,2,Focus Sash,19.0%,,,,,,,,
+Squawkabilly-Yellow,200,held_item,3,Life Orb,5.8%,,,,,,,,
+Squawkabilly-Yellow,200,held_item,4,Sitrus Berry,1.8%,,,,,,,,
+Squawkabilly-Yellow,200,held_item,5,Quick Claw,0.7%,,,,,,,,
+Squawkabilly-Yellow,200,held_item,6,Sharp Beak,0.7%,,,,,,,,
+Squawkabilly-Yellow,200,held_item,7,Eject Button,0.6%,,,,,,,,
 Squawkabilly-Yellow,200,held_item,8,Wide Lens,0.3%,,,,,,,,
 Squawkabilly-Yellow,200,held_item,9,Rocky Helmet,0.3%,,,,,,,,
 Squawkabilly-Yellow,200,held_item,10,Bright Powder,0.2%,,,,,,,,
@@ -29,26 +29,26 @@ Squawkabilly-Yellow,200,teammate,7,Basculegion,,,,,,,,,
 Squawkabilly-Yellow,200,teammate,8,Torkoal,,,,,,,,,
 Squawkabilly-Yellow,200,teammate,9,Kingambit,,,,,,,,,
 Squawkabilly-Yellow,200,teammate,10,Politoed,,,,,,,,,
-Squawkabilly-Yellow,200,stat_alignment,1,Jolly,72.4%,Speed,Sp. Atk,,,,,,
-Squawkabilly-Yellow,200,stat_alignment,2,Adamant,12.1%,Attack,Sp. Atk,,,,,,
-Squawkabilly-Yellow,200,stat_alignment,3,Lonely,9.0%,Attack,Defense,,,,,,
+Squawkabilly-Yellow,200,stat_alignment,1,Jolly,72.1%,Speed,Sp. Atk,,,,,,
+Squawkabilly-Yellow,200,stat_alignment,2,Adamant,12.7%,Attack,Sp. Atk,,,,,,
+Squawkabilly-Yellow,200,stat_alignment,3,Lonely,8.8%,Attack,Defense,,,,,,
 Squawkabilly-Yellow,200,stat_alignment,4,Naive,4.0%,Speed,Sp. Def,,,,,,
-Squawkabilly-Yellow,200,stat_alignment,5,Naughty,1.1%,Attack,Sp. Def,,,,,,
-Squawkabilly-Yellow,200,stat_alignment,6,Brave,0.3%,Attack,Speed,,,,,,
-Squawkabilly-Yellow,200,stat_alignment,7,Timid,0.3%,Speed,Attack,,,,,,
-Squawkabilly-Yellow,200,stat_alignment,8,Impish,0.3%,Defense,Sp. Atk,,,,,,
-Squawkabilly-Yellow,200,stat_alignment,9,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Squawkabilly-Yellow,200,stat_alignment,5,Naughty,1.0%,Attack,Sp. Def,,,,,,
+Squawkabilly-Yellow,200,stat_alignment,6,Impish,0.4%,Defense,Sp. Atk,,,,,,
+Squawkabilly-Yellow,200,stat_alignment,7,Brave,0.3%,Attack,Speed,,,,,,
+Squawkabilly-Yellow,200,stat_alignment,8,Timid,0.3%,Speed,Attack,,,,,,
+Squawkabilly-Yellow,200,stat_alignment,9,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
 Squawkabilly-Yellow,200,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Squawkabilly-Yellow,200,stat_points,1,,48.6%,,,32,2,0,0,0,32
-Squawkabilly-Yellow,200,stat_points,2,,13.2%,,,2,32,0,0,0,32
-Squawkabilly-Yellow,200,stat_points,3,,9.1%,,,32,32,0,0,0,2
-Squawkabilly-Yellow,200,stat_points,4,,6.5%,,,32,0,2,0,0,32
-Squawkabilly-Yellow,200,stat_points,5,,6.3%,,,32,0,0,0,0,32
-Squawkabilly-Yellow,200,stat_points,6,,3.1%,,,32,0,0,0,2,32
-Squawkabilly-Yellow,200,stat_points,7,,3.1%,,,32,6,0,0,0,28
-Squawkabilly-Yellow,200,stat_points,8,,2.2%,,,32,0,1,0,1,32
-Squawkabilly-Yellow,200,stat_points,9,,1.5%,,,0,32,2,0,0,32
+Squawkabilly-Yellow,200,stat_points,1,,48.2%,,,32,2,0,0,0,32
+Squawkabilly-Yellow,200,stat_points,2,,13.7%,,,2,32,0,0,0,32
+Squawkabilly-Yellow,200,stat_points,3,,8.9%,,,32,32,0,0,0,2
+Squawkabilly-Yellow,200,stat_points,4,,6.4%,,,32,0,2,0,0,32
+Squawkabilly-Yellow,200,stat_points,5,,6.2%,,,32,0,0,0,0,32
+Squawkabilly-Yellow,200,stat_points,6,,3.1%,,,32,6,0,0,0,28
+Squawkabilly-Yellow,200,stat_points,7,,3.0%,,,32,0,0,0,2,32
+Squawkabilly-Yellow,200,stat_points,8,,2.3%,,,32,0,1,0,1,32
+Squawkabilly-Yellow,200,stat_points,9,,1.6%,,,0,32,2,0,0,32
 Squawkabilly-Yellow,200,stat_points,10,,0.9%,,,2,32,32,0,0,0
-Squawkabilly-Yellow,200,ability,1,Intimidate,77.8%,,,,,,,,
-Squawkabilly-Yellow,200,ability,2,Hustle,16.3%,,,,,,,,
-Squawkabilly-Yellow,200,ability,3,Sheer Force,5.9%,,,,,,,,
+Squawkabilly-Yellow,200,ability,1,Intimidate,76.8%,,,,,,,,
+Squawkabilly-Yellow,200,ability,2,Hustle,17.2%,,,,,,,,
+Squawkabilly-Yellow,200,ability,3,Sheer Force,6.0%,,,,,,,,

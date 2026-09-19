@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pelipper,9,move,1,Hurricane,97.7%,,,,,,,,
 Pelipper,9,move,2,Weather Ball,88.1%,,,,,,,,
-Pelipper,9,move,3,Tailwind,80.6%,,,,,,,,
-Pelipper,9,move,4,Wide Guard,67.4%,,,,,,,,
-Pelipper,9,move,5,Protect,31.9%,,,,,,,,
-Pelipper,9,move,6,Muddy Water,8.9%,,,,,,,,
-Pelipper,9,move,7,Ice Beam,8.9%,,,,,,,,
+Pelipper,9,move,3,Tailwind,80.5%,,,,,,,,
+Pelipper,9,move,4,Wide Guard,67.5%,,,,,,,,
+Pelipper,9,move,5,Protect,31.8%,,,,,,,,
+Pelipper,9,move,6,Ice Beam,8.9%,,,,,,,,
+Pelipper,9,move,7,Muddy Water,8.9%,,,,,,,,
 Pelipper,9,move,8,U-turn,3.3%,,,,,,,,
 Pelipper,9,move,9,Rain Dance,3.0%,,,,,,,,
 Pelipper,9,move,10,Helping Hand,2.4%,,,,,,,,
@@ -29,7 +29,7 @@ Pelipper,9,teammate,7,Swampert,,,,,,,,,
 Pelipper,9,teammate,8,Grimmsnarl,,,,,,,,,
 Pelipper,9,teammate,9,Farigiraf,,,,,,,,,
 Pelipper,9,teammate,10,Gardevoir,,,,,,,,,
-Pelipper,9,stat_alignment,1,Modest,57.9%,Sp. Atk,Attack,,,,,,
+Pelipper,9,stat_alignment,1,Modest,57.8%,Sp. Atk,Attack,,,,,,
 Pelipper,9,stat_alignment,2,Timid,17.8%,Speed,Attack,,,,,,
 Pelipper,9,stat_alignment,3,Bold,12.5%,Defense,Attack,,,,,,
 Pelipper,9,stat_alignment,4,Calm,5.6%,Sp. Def,Attack,,,,,,
@@ -39,14 +39,14 @@ Pelipper,9,stat_alignment,7,Sassy,0.5%,Sp. Def,Speed,,,,,,
 Pelipper,9,stat_alignment,8,Mild,0.3%,Sp. Atk,Defense,,,,,,
 Pelipper,9,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
 Pelipper,9,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
-Pelipper,9,stat_points,1,,30.0%,,,2,0,0,32,0,32
-Pelipper,9,stat_points,2,,4.5%,,,32,0,1,5,17,11
-Pelipper,9,stat_points,3,,4.5%,,,32,0,0,32,2,0
-Pelipper,9,stat_points,4,,3.0%,,,0,0,0,32,2,32
+Pelipper,9,stat_points,1,,29.9%,,,2,0,0,32,0,32
+Pelipper,9,stat_points,2,,4.5%,,,32,0,0,32,2,0
+Pelipper,9,stat_points,3,,4.5%,,,32,0,1,5,17,11
+Pelipper,9,stat_points,4,,3.1%,,,0,0,0,32,2,32
 Pelipper,9,stat_points,5,,2.3%,,,0,0,2,32,0,32
 Pelipper,9,stat_points,6,,2.1%,,,32,0,2,32,0,0
 Pelipper,9,stat_points,7,,2.0%,,,32,0,10,1,21,2
-Pelipper,9,stat_points,8,,1.4%,,,32,0,0,32,0,2
+Pelipper,9,stat_points,8,,1.5%,,,32,0,0,32,0,2
 Pelipper,9,stat_points,9,,1.4%,,,31,0,1,5,18,11
 Pelipper,9,stat_points,10,,1.1%,,,0,0,0,32,0,32
 Pelipper,9,ability,1,Drizzle,100.0%,,,,,,,,

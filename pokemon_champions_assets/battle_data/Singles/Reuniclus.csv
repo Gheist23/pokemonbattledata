@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Reuniclus,157,move,1,Trick Room,66.8%,,,,,,,,
-Reuniclus,157,move,2,Focus Blast,51.6%,,,,,,,,
-Reuniclus,157,move,3,Shadow Ball,44.9%,,,,,,,,
-Reuniclus,157,move,4,Psychic,42.7%,,,,,,,,
-Reuniclus,157,move,5,Psychic Noise,40.2%,,,,,,,,
-Reuniclus,157,move,6,Recover,30.4%,,,,,,,,
-Reuniclus,157,move,7,Calm Mind,25.1%,,,,,,,,
-Reuniclus,157,move,8,Grass Knot,25.0%,,,,,,,,
-Reuniclus,157,move,9,Energy Ball,14.3%,,,,,,,,
-Reuniclus,157,move,10,Thunder,13.0%,,,,,,,,
-Reuniclus,157,held_item,1,Life Orb,74.9%,,,,,,,,
-Reuniclus,157,held_item,2,Leftovers,10.9%,,,,,,,,
+Reuniclus,157,move,1,Trick Room,66.6%,,,,,,,,
+Reuniclus,157,move,2,Focus Blast,51.5%,,,,,,,,
+Reuniclus,157,move,3,Shadow Ball,45.0%,,,,,,,,
+Reuniclus,157,move,4,Psychic,42.9%,,,,,,,,
+Reuniclus,157,move,5,Psychic Noise,40.0%,,,,,,,,
+Reuniclus,157,move,6,Recover,30.5%,,,,,,,,
+Reuniclus,157,move,7,Calm Mind,25.3%,,,,,,,,
+Reuniclus,157,move,8,Grass Knot,24.8%,,,,,,,,
+Reuniclus,157,move,9,Energy Ball,14.4%,,,,,,,,
+Reuniclus,157,move,10,Thunder,12.9%,,,,,,,,
+Reuniclus,157,held_item,1,Life Orb,74.8%,,,,,,,,
+Reuniclus,157,held_item,2,Leftovers,11.0%,,,,,,,,
 Reuniclus,157,held_item,3,Focus Sash,3.6%,,,,,,,,
 Reuniclus,157,held_item,4,Sitrus Berry,2.6%,,,,,,,,
-Reuniclus,157,held_item,5,Colbur Berry,1.3%,,,,,,,,
-Reuniclus,157,held_item,6,Rocky Helmet,1.3%,,,,,,,,
+Reuniclus,157,held_item,5,Rocky Helmet,1.4%,,,,,,,,
+Reuniclus,157,held_item,6,Colbur Berry,1.3%,,,,,,,,
 Reuniclus,157,held_item,7,Mental Herb,0.9%,,,,,,,,
 Reuniclus,157,held_item,8,Quick Claw,0.7%,,,,,,,,
 Reuniclus,157,held_item,9,Kasib Berry,0.5%,,,,,,,,
@@ -29,10 +29,10 @@ Reuniclus,157,teammate,7,Archaludon,,,,,,,,,
 Reuniclus,157,teammate,8,Charizard,,,,,,,,,
 Reuniclus,157,teammate,9,Baxcalibur,,,,,,,,,
 Reuniclus,157,teammate,10,Sneasler,,,,,,,,,
-Reuniclus,157,stat_alignment,1,Modest,44.4%,Sp. Atk,Attack,,,,,,
+Reuniclus,157,stat_alignment,1,Modest,44.2%,Sp. Atk,Attack,,,,,,
 Reuniclus,157,stat_alignment,2,Quiet,29.5%,Sp. Atk,Speed,,,,,,
-Reuniclus,157,stat_alignment,3,Bold,16.7%,Defense,Attack,,,,,,
-Reuniclus,157,stat_alignment,4,Calm,5.7%,Sp. Def,Attack,,,,,,
+Reuniclus,157,stat_alignment,3,Bold,17.0%,Defense,Attack,,,,,,
+Reuniclus,157,stat_alignment,4,Calm,5.6%,Sp. Def,Attack,,,,,,
 Reuniclus,157,stat_alignment,5,Relaxed,1.9%,Defense,Speed,,,,,,
 Reuniclus,157,stat_alignment,6,Sassy,1.4%,Sp. Def,Speed,,,,,,
 Reuniclus,157,stat_alignment,7,Timid,0.2%,Speed,Attack,,,,,,
@@ -40,15 +40,15 @@ Reuniclus,157,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Reuniclus,157,stat_alignment,9,Lax,0.1%,Defense,Sp. Def,,,,,,
 Reuniclus,157,stat_alignment,10,Serious,0.1%,,,,,,,,
 Reuniclus,157,stat_points,1,,18.7%,,,32,0,2,32,0,0
-Reuniclus,157,stat_points,2,,15.1%,,,32,0,19,15,0,0
-Reuniclus,157,stat_points,3,,9.3%,,,32,0,18,15,1,0
-Reuniclus,157,stat_points,4,,6.8%,,,32,0,32,0,2,0
+Reuniclus,157,stat_points,2,,14.9%,,,32,0,19,15,0,0
+Reuniclus,157,stat_points,3,,9.2%,,,32,0,18,15,1,0
+Reuniclus,157,stat_points,4,,6.7%,,,32,0,32,0,2,0
 Reuniclus,157,stat_points,5,,5.1%,,,32,0,0,32,2,0
-Reuniclus,157,stat_points,6,,3.5%,,,32,0,32,2,0,0
+Reuniclus,157,stat_points,6,,3.7%,,,32,0,32,2,0,0
 Reuniclus,157,stat_points,7,,3.4%,,,24,0,10,32,0,0
 Reuniclus,157,stat_points,8,,2.2%,,,32,0,2,0,32,0
-Reuniclus,157,stat_points,9,,1.7%,,,32,0,0,2,32,0
-Reuniclus,157,stat_points,10,,1.7%,,,2,0,32,0,32,0
-Reuniclus,157,ability,1,Magic Guard,94.2%,,,,,,,,
-Reuniclus,157,ability,2,Regenerator,5.3%,,,,,,,,
+Reuniclus,157,stat_points,9,,1.8%,,,32,0,0,2,32,0
+Reuniclus,157,stat_points,10,,1.6%,,,2,0,32,0,32,0
+Reuniclus,157,ability,1,Magic Guard,94.1%,,,,,,,,
+Reuniclus,157,ability,2,Regenerator,5.4%,,,,,,,,
 Reuniclus,157,ability,3,Overcoat,0.5%,,,,,,,,

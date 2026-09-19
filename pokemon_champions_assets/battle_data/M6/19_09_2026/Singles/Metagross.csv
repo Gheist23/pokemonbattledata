@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Metagross,25,move,1,Bullet Punch,88.2%,,,,,,,,
-Metagross,25,move,2,Psychic Fangs,77.9%,,,,,,,,
-Metagross,25,move,3,Ice Punch,70.1%,,,,,,,,
-Metagross,25,move,4,Earthquake,52.9%,,,,,,,,
-Metagross,25,move,5,Thunder Punch,24.2%,,,,,,,,
-Metagross,25,move,6,Iron Head,18.9%,,,,,,,,
-Metagross,25,move,7,Body Press,12.5%,,,,,,,,
-Metagross,25,move,8,Iron Defense,11.3%,,,,,,,,
-Metagross,25,move,9,Hammer Arm,10.1%,,,,,,,,
-Metagross,25,move,10,Steel Roller,9.9%,,,,,,,,
+Metagross,25,move,2,Psychic Fangs,77.8%,,,,,,,,
+Metagross,25,move,3,Ice Punch,70.3%,,,,,,,,
+Metagross,25,move,4,Earthquake,53.0%,,,,,,,,
+Metagross,25,move,5,Thunder Punch,24.3%,,,,,,,,
+Metagross,25,move,6,Iron Head,18.7%,,,,,,,,
+Metagross,25,move,7,Body Press,12.3%,,,,,,,,
+Metagross,25,move,8,Iron Defense,11.2%,,,,,,,,
+Metagross,25,move,9,Steel Roller,10.2%,,,,,,,,
+Metagross,25,move,10,Hammer Arm,10.0%,,,,,,,,
 Metagross,25,held_item,1,Metagrossite,94.5%,,,,,,,,
 Metagross,25,held_item,2,Life Orb,0.8%,,,,,,,,
 Metagross,25,held_item,3,Air Balloon,0.8%,,,,,,,,
@@ -29,9 +29,9 @@ Metagross,25,teammate,7,Rillaboom,,,,,,,,,
 Metagross,25,teammate,8,Mimikyu,,,,,,,,,
 Metagross,25,teammate,9,Meowscarada,,,,,,,,,
 Metagross,25,teammate,10,Gholdengo,,,,,,,,,
-Metagross,25,stat_alignment,1,Adamant,58.1%,Attack,Sp. Atk,,,,,,
-Metagross,25,stat_alignment,2,Jolly,30.1%,Speed,Sp. Atk,,,,,,
-Metagross,25,stat_alignment,3,Impish,9.4%,Defense,Sp. Atk,,,,,,
+Metagross,25,stat_alignment,1,Adamant,58.0%,Attack,Sp. Atk,,,,,,
+Metagross,25,stat_alignment,2,Jolly,30.3%,Speed,Sp. Atk,,,,,,
+Metagross,25,stat_alignment,3,Impish,9.3%,Defense,Sp. Atk,,,,,,
 Metagross,25,stat_alignment,4,Careful,1.0%,Sp. Def,Sp. Atk,,,,,,
 Metagross,25,stat_alignment,5,Brave,0.4%,Attack,Speed,,,,,,
 Metagross,25,stat_alignment,6,Naughty,0.2%,Attack,Sp. Def,,,,,,
@@ -39,8 +39,8 @@ Metagross,25,stat_alignment,7,Naive,0.1%,Speed,Sp. Def,,,,,,
 Metagross,25,stat_alignment,8,Bold,0.1%,Defense,Attack,,,,,,
 Metagross,25,stat_alignment,9,Relaxed,0.1%,Defense,Speed,,,,,,
 Metagross,25,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
-Metagross,25,stat_points,1,,25.4%,,,2,32,0,0,0,32
-Metagross,25,stat_points,2,,8.0%,,,32,32,0,0,0,2
+Metagross,25,stat_points,1,,25.5%,,,2,32,0,0,0,32
+Metagross,25,stat_points,2,,7.9%,,,32,32,0,0,0,2
 Metagross,25,stat_points,3,,3.7%,,,8,32,0,0,0,26
 Metagross,25,stat_points,4,,3.2%,,,32,32,2,0,0,0
 Metagross,25,stat_points,5,,2.6%,,,32,32,0,0,2,0

@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Orthworm,101,move,1,Shed Tail,89.6%,,,,,,,,
-Orthworm,101,move,2,Body Press,81.6%,,,,,,,,
-Orthworm,101,move,3,Stealth Rock,67.2%,,,,,,,,
+Orthworm,101,move,2,Body Press,81.5%,,,,,,,,
+Orthworm,101,move,3,Stealth Rock,67.1%,,,,,,,,
 Orthworm,101,move,4,Heavy Slam,42.4%,,,,,,,,
 Orthworm,101,move,5,Iron Defense,39.0%,,,,,,,,
-Orthworm,101,move,6,Metal Burst,29.5%,,,,,,,,
-Orthworm,101,move,7,Rock Tomb,11.8%,,,,,,,,
+Orthworm,101,move,6,Metal Burst,29.4%,,,,,,,,
+Orthworm,101,move,7,Rock Tomb,11.9%,,,,,,,,
 Orthworm,101,move,8,Iron Head,7.9%,,,,,,,,
-Orthworm,101,move,9,Earthquake,6.1%,,,,,,,,
+Orthworm,101,move,9,Earthquake,6.2%,,,,,,,,
 Orthworm,101,move,10,Rest,5.5%,,,,,,,,
 Orthworm,101,held_item,1,Sitrus Berry,79.5%,,,,,,,,
 Orthworm,101,held_item,2,Leftovers,8.6%,,,,,,,,
@@ -27,10 +27,10 @@ Orthworm,101,teammate,5,Raichu,,,,,,,,,
 Orthworm,101,teammate,6,Lucario,,,,,,,,,
 Orthworm,101,teammate,7,Blastoise,,,,,,,,,
 Orthworm,101,teammate,8,Mimikyu,,,,,,,,,
-Orthworm,101,teammate,9,Rillaboom,,,,,,,,,
-Orthworm,101,teammate,10,Golisopod,,,,,,,,,
+Orthworm,101,teammate,9,Golisopod,,,,,,,,,
+Orthworm,101,teammate,10,Rillaboom,,,,,,,,,
 Orthworm,101,stat_alignment,1,Impish,47.7%,Defense,Sp. Atk,,,,,,
-Orthworm,101,stat_alignment,2,Relaxed,28.3%,Defense,Speed,,,,,,
+Orthworm,101,stat_alignment,2,Relaxed,28.2%,Defense,Speed,,,,,,
 Orthworm,101,stat_alignment,3,Sassy,8.6%,Sp. Def,Speed,,,,,,
 Orthworm,101,stat_alignment,4,Careful,7.9%,Sp. Def,Sp. Atk,,,,,,
 Orthworm,101,stat_alignment,5,Bold,3.6%,Defense,Attack,,,,,,
@@ -39,13 +39,13 @@ Orthworm,101,stat_alignment,7,Adamant,0.8%,Attack,Sp. Atk,,,,,,
 Orthworm,101,stat_alignment,8,Calm,0.6%,Sp. Def,Attack,,,,,,
 Orthworm,101,stat_alignment,9,Brave,0.4%,Attack,Speed,,,,,,
 Orthworm,101,stat_alignment,10,Lax,0.4%,Defense,Sp. Def,,,,,,
-Orthworm,101,stat_points,1,,30.4%,,,32,0,32,0,2,0
-Orthworm,101,stat_points,2,,11.2%,,,32,0,2,0,32,0
+Orthworm,101,stat_points,1,,30.5%,,,32,0,32,0,2,0
+Orthworm,101,stat_points,2,,11.1%,,,32,0,2,0,32,0
 Orthworm,101,stat_points,3,,7.0%,,,31,0,3,0,32,0
 Orthworm,101,stat_points,4,,5.0%,,,31,0,32,0,3,0
 Orthworm,101,stat_points,5,,4.2%,,,32,0,32,0,0,2
-Orthworm,101,stat_points,6,,3.6%,,,32,0,25,0,0,9
-Orthworm,101,stat_points,7,,3.6%,,,32,2,32,0,0,0
+Orthworm,101,stat_points,6,,3.6%,,,32,2,32,0,0,0
+Orthworm,101,stat_points,7,,3.6%,,,32,0,25,0,0,9
 Orthworm,101,stat_points,8,,2.6%,,,31,0,15,0,20,0
 Orthworm,101,stat_points,9,,2.5%,,,32,0,32,0,0,0
 Orthworm,101,stat_points,10,,2.2%,,,32,0,5,0,29,0

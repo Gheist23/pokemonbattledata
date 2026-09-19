@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dragapult,64,move,1,Protect,48.1%,,,,,,,,
-Dragapult,64,move,2,Dragon Darts,42.3%,,,,,,,,
-Dragapult,64,move,3,Phantom Force,41.2%,,,,,,,,
-Dragapult,64,move,4,Draco Meteor,38.5%,,,,,,,,
-Dragapult,64,move,5,Will-O-Wisp,37.5%,,,,,,,,
-Dragapult,64,move,6,Shadow Ball,36.7%,,,,,,,,
-Dragapult,64,move,7,Psychic Fangs,21.3%,,,,,,,,
-Dragapult,64,move,8,U-turn,17.8%,,,,,,,,
+Dragapult,64,move,1,Protect,47.9%,,,,,,,,
+Dragapult,64,move,2,Dragon Darts,42.0%,,,,,,,,
+Dragapult,64,move,3,Phantom Force,40.8%,,,,,,,,
+Dragapult,64,move,4,Draco Meteor,38.8%,,,,,,,,
+Dragapult,64,move,5,Will-O-Wisp,38.0%,,,,,,,,
+Dragapult,64,move,6,Shadow Ball,37.1%,,,,,,,,
+Dragapult,64,move,7,Psychic Fangs,21.1%,,,,,,,,
+Dragapult,64,move,8,U-turn,17.7%,,,,,,,,
 Dragapult,64,move,9,Flamethrower,15.3%,,,,,,,,
-Dragapult,64,move,10,Dragon Cheer,14.6%,,,,,,,,
-Dragapult,64,held_item,1,Life Orb,37.7%,,,,,,,,
-Dragapult,64,held_item,2,Focus Sash,27.7%,,,,,,,,
-Dragapult,64,held_item,3,Expert Belt,4.0%,,,,,,,,
+Dragapult,64,move,10,Dragon Cheer,15.2%,,,,,,,,
+Dragapult,64,held_item,1,Life Orb,37.6%,,,,,,,,
+Dragapult,64,held_item,2,Focus Sash,28.1%,,,,,,,,
+Dragapult,64,held_item,3,Expert Belt,3.9%,,,,,,,,
 Dragapult,64,held_item,4,Dragon Fang,3.6%,,,,,,,,
-Dragapult,64,held_item,5,Light Clay,3.6%,,,,,,,,
-Dragapult,64,held_item,6,Choice Scarf,3.1%,,,,,,,,
-Dragapult,64,held_item,7,Wide Lens,3.1%,,,,,,,,
-Dragapult,64,held_item,8,Colbur Berry,3.0%,,,,,,,,
+Dragapult,64,held_item,5,Light Clay,3.5%,,,,,,,,
+Dragapult,64,held_item,6,Colbur Berry,3.1%,,,,,,,,
+Dragapult,64,held_item,7,Choice Scarf,3.1%,,,,,,,,
+Dragapult,64,held_item,8,Wide Lens,3.1%,,,,,,,,
 Dragapult,64,held_item,9,Sitrus Berry,2.5%,,,,,,,,
 Dragapult,64,held_item,10,King's Rock,1.0%,,,,,,,,
 Dragapult,64,teammate,1,Rillaboom,,,,,,,,,
@@ -30,25 +30,25 @@ Dragapult,64,teammate,8,Milotic,,,,,,,,,
 Dragapult,64,teammate,9,Charizard,,,,,,,,,
 Dragapult,64,teammate,10,Kingambit,,,,,,,,,
 Dragapult,64,stat_alignment,1,Jolly,27.1%,Speed,Sp. Atk,,,,,,
-Dragapult,64,stat_alignment,2,Timid,24.1%,Speed,Attack,,,,,,
-Dragapult,64,stat_alignment,3,Modest,19.6%,Sp. Atk,Attack,,,,,,
-Dragapult,64,stat_alignment,4,Adamant,19.0%,Attack,Sp. Atk,,,,,,
+Dragapult,64,stat_alignment,2,Timid,24.2%,Speed,Attack,,,,,,
+Dragapult,64,stat_alignment,3,Modest,19.7%,Sp. Atk,Attack,,,,,,
+Dragapult,64,stat_alignment,4,Adamant,18.8%,Attack,Sp. Atk,,,,,,
 Dragapult,64,stat_alignment,5,Naive,3.5%,Speed,Sp. Def,,,,,,
 Dragapult,64,stat_alignment,6,Hasty,2.6%,Speed,Defense,,,,,,
 Dragapult,64,stat_alignment,7,Naughty,0.9%,Attack,Sp. Def,,,,,,
 Dragapult,64,stat_alignment,8,Lonely,0.8%,Attack,Defense,,,,,,
-Dragapult,64,stat_alignment,9,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,
+Dragapult,64,stat_alignment,9,Rash,0.5%,Sp. Atk,Sp. Def,,,,,,
 Dragapult,64,stat_alignment,10,Mild,0.5%,Sp. Atk,Defense,,,,,,
-Dragapult,64,stat_points,1,,24.2%,,,2,0,0,32,0,32
-Dragapult,64,stat_points,2,,22.4%,,,2,32,0,0,0,32
+Dragapult,64,stat_points,1,,24.5%,,,2,0,0,32,0,32
+Dragapult,64,stat_points,2,,22.3%,,,2,32,0,0,0,32
 Dragapult,64,stat_points,3,,4.2%,,,0,32,0,0,2,32
-Dragapult,64,stat_points,4,,3.7%,,,0,32,2,0,0,32
+Dragapult,64,stat_points,4,,3.6%,,,0,32,2,0,0,32
 Dragapult,64,stat_points,5,,2.2%,,,0,32,0,0,0,32
-Dragapult,64,stat_points,6,,2.1%,,,6,0,0,32,0,28
-Dragapult,64,stat_points,7,,1.6%,,,0,0,2,32,0,32
-Dragapult,64,stat_points,8,,1.6%,,,8,0,0,30,0,28
-Dragapult,64,stat_points,9,,1.6%,,,0,2,0,32,0,32
+Dragapult,64,stat_points,6,,2.0%,,,6,0,0,32,0,28
+Dragapult,64,stat_points,7,,1.7%,,,0,2,0,32,0,32
+Dragapult,64,stat_points,8,,1.6%,,,0,0,2,32,0,32
+Dragapult,64,stat_points,9,,1.5%,,,8,0,0,30,0,28
 Dragapult,64,stat_points,10,,1.4%,,,0,0,0,32,2,32
-Dragapult,64,ability,1,Clear Body,53.3%,,,,,,,,
-Dragapult,64,ability,2,Infiltrator,29.2%,,,,,,,,
-Dragapult,64,ability,3,Cursed Body,17.5%,,,,,,,,
+Dragapult,64,ability,1,Clear Body,52.9%,,,,,,,,
+Dragapult,64,ability,2,Infiltrator,29.5%,,,,,,,,
+Dragapult,64,ability,3,Cursed Body,17.6%,,,,,,,,

@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Noivern,150,move,1,Draco Meteor,90.9%,,,,,,,,
-Noivern,150,move,2,Flamethrower,69.3%,,,,,,,,
-Noivern,150,move,3,Air Slash,54.1%,,,,,,,,
-Noivern,150,move,4,U-turn,36.3%,,,,,,,,
-Noivern,150,move,5,Taunt,35.7%,,,,,,,,
-Noivern,150,move,6,Switcheroo,27.2%,,,,,,,,
-Noivern,150,move,7,Boomburst,20.5%,,,,,,,,
+Noivern,150,move,1,Draco Meteor,91.0%,,,,,,,,
+Noivern,150,move,2,Flamethrower,68.9%,,,,,,,,
+Noivern,150,move,3,Air Slash,53.8%,,,,,,,,
+Noivern,150,move,4,U-turn,36.2%,,,,,,,,
+Noivern,150,move,5,Taunt,35.4%,,,,,,,,
+Noivern,150,move,6,Switcheroo,27.1%,,,,,,,,
+Noivern,150,move,7,Boomburst,20.8%,,,,,,,,
 Noivern,150,move,8,Hurricane,12.6%,,,,,,,,
-Noivern,150,move,9,Super Fang,7.3%,,,,,,,,
-Noivern,150,move,10,Heat Wave,7.1%,,,,,,,,
-Noivern,150,held_item,1,Choice Scarf,40.6%,,,,,,,,
-Noivern,150,held_item,2,Life Orb,28.8%,,,,,,,,
-Noivern,150,held_item,3,Focus Sash,12.6%,,,,,,,,
-Noivern,150,held_item,4,Expert Belt,3.2%,,,,,,,,
-Noivern,150,held_item,5,White Herb,2.2%,,,,,,,,
+Noivern,150,move,9,Super Fang,7.6%,,,,,,,,
+Noivern,150,move,10,Heat Wave,7.5%,,,,,,,,
+Noivern,150,held_item,1,Choice Scarf,40.5%,,,,,,,,
+Noivern,150,held_item,2,Life Orb,28.3%,,,,,,,,
+Noivern,150,held_item,3,Focus Sash,12.7%,,,,,,,,
+Noivern,150,held_item,4,Expert Belt,3.3%,,,,,,,,
+Noivern,150,held_item,5,White Herb,2.3%,,,,,,,,
 Noivern,150,held_item,6,King's Rock,1.7%,,,,,,,,
 Noivern,150,held_item,7,Red Card,1.7%,,,,,,,,
 Noivern,150,held_item,8,Sitrus Berry,1.6%,,,,,,,,
-Noivern,150,held_item,9,Wide Lens,0.8%,,,,,,,,
+Noivern,150,held_item,9,Wide Lens,0.9%,,,,,,,,
 Noivern,150,held_item,10,Eject Button,0.7%,,,,,,,,
 Noivern,150,teammate,1,Golisopod,,,,,,,,,
 Noivern,150,teammate,2,Primarina,,,,,,,,,
@@ -29,8 +29,8 @@ Noivern,150,teammate,7,Greninja,,,,,,,,,
 Noivern,150,teammate,8,Baxcalibur,,,,,,,,,
 Noivern,150,teammate,9,Glimmora,,,,,,,,,
 Noivern,150,teammate,10,Rillaboom,,,,,,,,,
-Noivern,150,stat_alignment,1,Timid,59.9%,Speed,Attack,,,,,,
-Noivern,150,stat_alignment,2,Modest,33.7%,Sp. Atk,Attack,,,,,,
+Noivern,150,stat_alignment,1,Timid,60.2%,Speed,Attack,,,,,,
+Noivern,150,stat_alignment,2,Modest,33.6%,Sp. Atk,Attack,,,,,,
 Noivern,150,stat_alignment,3,Mild,2.4%,Sp. Atk,Defense,,,,,,
 Noivern,150,stat_alignment,4,Hasty,1.5%,Speed,Defense,,,,,,
 Noivern,150,stat_alignment,5,Bold,0.6%,Defense,Attack,,,,,,
@@ -38,17 +38,17 @@ Noivern,150,stat_alignment,6,Naive,0.6%,Speed,Sp. Def,,,,,,
 Noivern,150,stat_alignment,7,Jolly,0.4%,Speed,Sp. Atk,,,,,,
 Noivern,150,stat_alignment,8,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
 Noivern,150,stat_alignment,9,Gentle,0.2%,Sp. Def,Defense,,,,,,
-Noivern,150,stat_alignment,10,Adamant,0.2%,Attack,Sp. Atk,,,,,,
-Noivern,150,stat_points,1,,34.4%,,,2,0,0,32,0,32
-Noivern,150,stat_points,2,,27.4%,,,1,0,1,32,0,32
+Noivern,150,stat_alignment,10,Adamant,0.1%,Attack,Sp. Atk,,,,,,
+Noivern,150,stat_points,1,,34.5%,,,2,0,0,32,0,32
+Noivern,150,stat_points,2,,27.2%,,,1,0,1,32,0,32
 Noivern,150,stat_points,3,,5.7%,,,0,0,2,32,0,32
-Noivern,150,stat_points,4,,5.5%,,,1,0,0,32,1,32
-Noivern,150,stat_points,5,,3.4%,,,0,0,0,32,2,32
+Noivern,150,stat_points,4,,5.4%,,,1,0,0,32,1,32
+Noivern,150,stat_points,5,,3.5%,,,0,0,0,32,2,32
 Noivern,150,stat_points,6,,2.9%,,,0,0,1,32,1,32
-Noivern,150,stat_points,7,,2.9%,,,4,0,0,32,0,30
-Noivern,150,stat_points,8,,1.9%,,,0,0,0,32,0,32
+Noivern,150,stat_points,7,,2.8%,,,4,0,0,32,0,30
+Noivern,150,stat_points,8,,2.0%,,,0,0,0,32,0,32
 Noivern,150,stat_points,9,,1.4%,,,32,0,0,32,0,2
-Noivern,150,stat_points,10,,1.2%,,,7,0,0,32,0,27
-Noivern,150,ability,1,Frisk,52.1%,,,,,,,,
-Noivern,150,ability,2,Infiltrator,47.5%,,,,,,,,
+Noivern,150,stat_points,10,,1.1%,,,7,0,0,32,0,27
+Noivern,150,ability,1,Frisk,52.5%,,,,,,,,
+Noivern,150,ability,2,Infiltrator,47.2%,,,,,,,,
 Noivern,150,ability,3,Telepathy,0.4%,,,,,,,,

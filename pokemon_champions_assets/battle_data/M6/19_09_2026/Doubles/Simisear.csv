@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simisear,256,move,1,Fake Out,61.5%,,,,,,,,
-Simisear,256,move,2,Flamethrower,40.2%,,,,,,,,
-Simisear,256,move,3,Grass Knot,33.7%,,,,,,,,
-Simisear,256,move,4,Protect,31.3%,,,,,,,,
-Simisear,256,move,5,Overheat,30.5%,,,,,,,,
-Simisear,256,move,6,Fire Spin,30.0%,,,,,,,,
-Simisear,256,move,7,Heat Wave,28.5%,,,,,,,,
-Simisear,256,move,8,Temper Flare,27.5%,,,,,,,,
-Simisear,256,move,9,Scorching Sands,24.3%,,,,,,,,
-Simisear,256,move,10,Nasty Plot,22.6%,,,,,,,,
-Simisear,256,held_item,1,Life Orb,34.2%,,,,,,,,
-Simisear,256,held_item,2,Charcoal,20.6%,,,,,,,,
-Simisear,256,held_item,3,Sitrus Berry,14.6%,,,,,,,,
-Simisear,256,held_item,4,Focus Sash,11.7%,,,,,,,,
-Simisear,256,held_item,5,Red Card,6.0%,,,,,,,,
-Simisear,256,held_item,6,King's Rock,4.0%,,,,,,,,
-Simisear,256,held_item,7,Choice Scarf,4.0%,,,,,,,,
-Simisear,256,held_item,8,Leftovers,1.5%,,,,,,,,
+Simisear,256,move,1,Fake Out,62.9%,,,,,,,,
+Simisear,256,move,2,Flamethrower,42.0%,,,,,,,,
+Simisear,256,move,3,Grass Knot,34.2%,,,,,,,,
+Simisear,256,move,4,Protect,31.1%,,,,,,,,
+Simisear,256,move,5,Overheat,29.2%,,,,,,,,
+Simisear,256,move,6,Fire Spin,28.7%,,,,,,,,
+Simisear,256,move,7,Heat Wave,28.0%,,,,,,,,
+Simisear,256,move,8,Temper Flare,26.4%,,,,,,,,
+Simisear,256,move,9,Scorching Sands,26.1%,,,,,,,,
+Simisear,256,move,10,Nasty Plot,23.8%,,,,,,,,
+Simisear,256,held_item,1,Life Orb,34.0%,,,,,,,,
+Simisear,256,held_item,2,Charcoal,22.1%,,,,,,,,
+Simisear,256,held_item,3,Sitrus Berry,14.0%,,,,,,,,
+Simisear,256,held_item,4,Focus Sash,11.9%,,,,,,,,
+Simisear,256,held_item,5,Red Card,5.7%,,,,,,,,
+Simisear,256,held_item,6,King's Rock,3.8%,,,,,,,,
+Simisear,256,held_item,7,Choice Scarf,3.8%,,,,,,,,
+Simisear,256,held_item,8,Leftovers,1.4%,,,,,,,,
 Simisear,256,held_item,9,White Herb,0.7%,,,,,,,,
 Simisear,256,held_item,10,Expert Belt,0.7%,,,,,,,,
 Simisear,256,teammate,1,Simipour,,,,,,,,,
@@ -29,25 +29,25 @@ Simisear,256,teammate,7,Gengar,,,,,,,,,
 Simisear,256,teammate,8,Baxcalibur,,,,,,,,,
 Simisear,256,teammate,9,Qwilfish,,,,,,,,,
 Simisear,256,teammate,10,Floette-Eternal,,,,,,,,,
-Simisear,256,stat_alignment,1,Modest,50.9%,Sp. Atk,Attack,,,,,,
-Simisear,256,stat_alignment,2,Timid,20.6%,Speed,Attack,,,,,,
-Simisear,256,stat_alignment,3,Calm,11.2%,Sp. Def,Attack,,,,,,
-Simisear,256,stat_alignment,4,Jolly,10.4%,Speed,Sp. Atk,,,,,,
-Simisear,256,stat_alignment,5,Naive,2.2%,Speed,Sp. Def,,,,,,
-Simisear,256,stat_alignment,6,Hasty,1.5%,Speed,Defense,,,,,,
+Simisear,256,stat_alignment,1,Modest,52.0%,Sp. Atk,Attack,,,,,,
+Simisear,256,stat_alignment,2,Timid,19.7%,Speed,Attack,,,,,,
+Simisear,256,stat_alignment,3,Calm,10.7%,Sp. Def,Attack,,,,,,
+Simisear,256,stat_alignment,4,Jolly,10.0%,Speed,Sp. Atk,,,,,,
+Simisear,256,stat_alignment,5,Naive,2.9%,Speed,Sp. Def,,,,,,
+Simisear,256,stat_alignment,6,Hasty,1.4%,Speed,Defense,,,,,,
 Simisear,256,stat_alignment,7,Adamant,1.2%,Attack,Sp. Atk,,,,,,
-Simisear,256,stat_alignment,8,Mild,0.7%,Sp. Atk,Defense,,,,,,
+Simisear,256,stat_alignment,8,Mild,1.0%,Sp. Atk,Defense,,,,,,
 Simisear,256,stat_alignment,9,Brave,0.5%,Attack,Speed,,,,,,
 Simisear,256,stat_alignment,10,Serious,0.2%,,,,,,,,
-Simisear,256,stat_points,1,,27.0%,,,2,0,0,32,0,32
-Simisear,256,stat_points,2,,25.8%,,,32,0,0,32,2,0
-Simisear,256,stat_points,3,,10.4%,,,2,32,0,0,0,32
-Simisear,256,stat_points,4,,7.2%,,,2,0,0,32,32,0
-Simisear,256,stat_points,5,,6.0%,,,0,0,2,32,17,15
-Simisear,256,stat_points,6,,4.2%,,,25,0,14,0,27,0
-Simisear,256,stat_points,7,,4.0%,,,32,0,22,0,10,2
-Simisear,256,stat_points,8,,3.0%,,,0,0,32,32,2,0
-Simisear,256,stat_points,9,,2.7%,,,0,2,0,32,0,32
+Simisear,256,stat_points,1,,27.8%,,,2,0,0,32,0,32
+Simisear,256,stat_points,2,,24.7%,,,32,0,0,32,2,0
+Simisear,256,stat_points,3,,10.0%,,,2,32,0,0,0,32
+Simisear,256,stat_points,4,,7.8%,,,0,0,2,32,17,15
+Simisear,256,stat_points,5,,6.9%,,,2,0,0,32,32,0
+Simisear,256,stat_points,6,,4.0%,,,25,0,14,0,27,0
+Simisear,256,stat_points,7,,3.8%,,,32,0,22,0,10,2
+Simisear,256,stat_points,8,,2.9%,,,0,0,32,32,2,0
+Simisear,256,stat_points,9,,2.6%,,,0,2,0,32,0,32
 Simisear,256,stat_points,10,,1.7%,,,3,0,0,32,0,31
-Simisear,256,ability,1,Blaze,91.3%,,,,,,,,
-Simisear,256,ability,2,Gluttony,8.7%,,,,,,,,
+Simisear,256,ability,1,Blaze,91.7%,,,,,,,,
+Simisear,256,ability,2,Gluttony,8.3%,,,,,,,,

@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Arbok,230,move,1,Coil,53.4%,,,,,,,,
-Arbok,230,move,2,Protect,51.4%,,,,,,,,
-Arbok,230,move,3,Gunk Shot,45.7%,,,,,,,,
-Arbok,230,move,4,Sucker Punch,38.0%,,,,,,,,
-Arbok,230,move,5,Glare,36.9%,,,,,,,,
-Arbok,230,move,6,Poison Jab,25.4%,,,,,,,,
-Arbok,230,move,7,Rock Slide,23.8%,,,,,,,,
-Arbok,230,move,8,Dragon Tail,23.7%,,,,,,,,
-Arbok,230,move,9,Crunch,21.9%,,,,,,,,
-Arbok,230,move,10,Snarl,7.0%,,,,,,,,
-Arbok,230,held_item,1,Poison Barb,21.5%,,,,,,,,
-Arbok,230,held_item,2,King's Rock,21.1%,,,,,,,,
-Arbok,230,held_item,3,White Herb,13.2%,,,,,,,,
-Arbok,230,held_item,4,Leftovers,8.5%,,,,,,,,
-Arbok,230,held_item,5,Focus Sash,7.3%,,,,,,,,
-Arbok,230,held_item,6,Expert Belt,4.9%,,,,,,,,
-Arbok,230,held_item,7,Sitrus Berry,3.7%,,,,,,,,
-Arbok,230,held_item,8,Shuca Berry,3.4%,,,,,,,,
-Arbok,230,held_item,9,Choice Scarf,3.4%,,,,,,,,
+Arbok,230,move,1,Coil,52.5%,,,,,,,,
+Arbok,230,move,2,Protect,51.3%,,,,,,,,
+Arbok,230,move,3,Gunk Shot,45.0%,,,,,,,,
+Arbok,230,move,4,Glare,38.5%,,,,,,,,
+Arbok,230,move,5,Sucker Punch,37.3%,,,,,,,,
+Arbok,230,move,6,Poison Jab,25.5%,,,,,,,,
+Arbok,230,move,7,Dragon Tail,24.4%,,,,,,,,
+Arbok,230,move,8,Rock Slide,24.3%,,,,,,,,
+Arbok,230,move,9,Crunch,22.5%,,,,,,,,
+Arbok,230,move,10,Snarl,7.3%,,,,,,,,
+Arbok,230,held_item,1,Poison Barb,22.2%,,,,,,,,
+Arbok,230,held_item,2,King's Rock,21.8%,,,,,,,,
+Arbok,230,held_item,3,White Herb,12.3%,,,,,,,,
+Arbok,230,held_item,4,Leftovers,8.6%,,,,,,,,
+Arbok,230,held_item,5,Focus Sash,7.0%,,,,,,,,
+Arbok,230,held_item,6,Expert Belt,4.6%,,,,,,,,
+Arbok,230,held_item,7,Sitrus Berry,3.4%,,,,,,,,
+Arbok,230,held_item,8,Shuca Berry,3.3%,,,,,,,,
+Arbok,230,held_item,9,Choice Scarf,3.2%,,,,,,,,
 Arbok,230,held_item,10,Quick Claw,2.9%,,,,,,,,
 Arbok,230,teammate,1,Raichu,,,,,,,,,
 Arbok,230,teammate,2,Pidgeot,,,,,,,,,
@@ -26,28 +26,29 @@ Arbok,230,teammate,4,Beedrill,,,,,,,,,
 Arbok,230,teammate,5,Pikachu,,,,,,,,,
 Arbok,230,teammate,6,Absol,,,,,,,,,
 Arbok,230,teammate,7,Tyrantrum,,,,,,,,,
-Arbok,230,teammate,8,Ninetales-Alola,,,,,,,,,
-Arbok,230,teammate,9,Milotic,,,,,,,,,
+Arbok,230,teammate,8,Milotic,,,,,,,,,
+Arbok,230,teammate,9,Ninetales-Alola,,,,,,,,,
 Arbok,230,teammate,10,Slowbro,,,,,,,,,
-Arbok,230,stat_alignment,1,Adamant,36.5%,Attack,Sp. Atk,,,,,,
-Arbok,230,stat_alignment,2,Jolly,31.7%,Speed,Sp. Atk,,,,,,
-Arbok,230,stat_alignment,3,Brave,11.7%,Attack,Speed,,,,,,
-Arbok,230,stat_alignment,4,Impish,9.4%,Defense,Sp. Atk,,,,,,
-Arbok,230,stat_alignment,5,Sassy,5.8%,Sp. Def,Speed,,,,,,
-Arbok,230,stat_alignment,6,Relaxed,2.4%,Defense,Speed,,,,,,
-Arbok,230,stat_alignment,7,Careful,2.3%,Sp. Def,Sp. Atk,,,,,,
+Arbok,230,stat_alignment,1,Adamant,35.9%,Attack,Sp. Atk,,,,,,
+Arbok,230,stat_alignment,2,Jolly,32.8%,Speed,Sp. Atk,,,,,,
+Arbok,230,stat_alignment,3,Brave,11.6%,Attack,Speed,,,,,,
+Arbok,230,stat_alignment,4,Impish,9.6%,Defense,Sp. Atk,,,,,,
+Arbok,230,stat_alignment,5,Sassy,5.4%,Sp. Def,Speed,,,,,,
+Arbok,230,stat_alignment,6,Relaxed,2.3%,Defense,Speed,,,,,,
+Arbok,230,stat_alignment,7,Careful,2.2%,Sp. Def,Sp. Atk,,,,,,
 Arbok,230,stat_alignment,8,Hasty,0.1%,Speed,Defense,,,,,,
 Arbok,230,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,
-Arbok,230,stat_points,1,,24.9%,,,2,32,0,0,0,32
-Arbok,230,stat_points,2,,15.4%,,,18,28,1,0,5,14
-Arbok,230,stat_points,3,,12.0%,,,0,32,2,0,32,0
-Arbok,230,stat_points,4,,9.0%,,,0,32,0,0,2,32
-Arbok,230,stat_points,5,,5.1%,,,32,2,0,0,32,0
-Arbok,230,stat_points,6,,4.6%,,,0,32,1,0,16,17
-Arbok,230,stat_points,7,,3.8%,,,2,32,0,0,32,0
-Arbok,230,stat_points,8,,1.9%,,,32,32,0,0,0,0
-Arbok,230,stat_points,9,,1.8%,,,0,32,0,0,0,32
-Arbok,230,stat_points,10,,1.6%,,,31,3,11,0,21,0
-Arbok,230,ability,1,Intimidate,78.4%,,,,,,,,
-Arbok,230,ability,2,Shed Skin,21.3%,,,,,,,,
+Arbok,230,stat_alignment,10,Bold,0.1%,Defense,Attack,,,,,,
+Arbok,230,stat_points,1,,25.3%,,,2,32,0,0,0,32
+Arbok,230,stat_points,2,,14.4%,,,18,28,1,0,5,14
+Arbok,230,stat_points,3,,11.2%,,,0,32,2,0,32,0
+Arbok,230,stat_points,4,,9.9%,,,0,32,0,0,2,32
+Arbok,230,stat_points,5,,5.5%,,,32,2,0,0,32,0
+Arbok,230,stat_points,6,,4.3%,,,0,32,1,0,16,17
+Arbok,230,stat_points,7,,3.5%,,,2,32,0,0,32,0
+Arbok,230,stat_points,8,,2.5%,,,32,32,0,0,0,0
+Arbok,230,stat_points,9,,1.6%,,,0,32,0,0,0,32
+Arbok,230,stat_points,10,,1.5%,,,31,3,11,0,21,0
+Arbok,230,ability,1,Intimidate,77.8%,,,,,,,,
+Arbok,230,ability,2,Shed Skin,21.9%,,,,,,,,
 Arbok,230,ability,3,Unnerve,0.3%,,,,,,,,

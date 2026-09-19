@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Falinks,221,move,1,Close Combat,88.4%,,,,,,,,
-Falinks,221,move,2,No Retreat,83.5%,,,,,,,,
+Falinks,221,move,1,Close Combat,88.0%,,,,,,,,
+Falinks,221,move,2,No Retreat,83.3%,,,,,,,,
 Falinks,221,move,3,Protect,65.4%,,,,,,,,
-Falinks,221,move,4,Rock Slide,46.1%,,,,,,,,
-Falinks,221,move,5,Iron Head,24.7%,,,,,,,,
-Falinks,221,move,6,Knock Off,19.5%,,,,,,,,
-Falinks,221,move,7,High Horsepower,12.2%,,,,,,,,
-Falinks,221,move,8,Upper Hand,11.4%,,,,,,,,
-Falinks,221,move,9,Throat Chop,10.1%,,,,,,,,
-Falinks,221,move,10,Poison Jab,7.2%,,,,,,,,
+Falinks,221,move,4,Rock Slide,45.7%,,,,,,,,
+Falinks,221,move,5,Iron Head,24.8%,,,,,,,,
+Falinks,221,move,6,Knock Off,19.8%,,,,,,,,
+Falinks,221,move,7,High Horsepower,12.3%,,,,,,,,
+Falinks,221,move,8,Upper Hand,11.7%,,,,,,,,
+Falinks,221,move,9,Throat Chop,10.2%,,,,,,,,
+Falinks,221,move,10,Poison Jab,7.1%,,,,,,,,
 Falinks,221,held_item,1,Falinksite,93.6%,,,,,,,,
 Falinks,221,held_item,2,Choice Scarf,1.6%,,,,,,,,
 Falinks,221,held_item,3,Life Orb,0.7%,,,,,,,,
-Falinks,221,held_item,4,Bright Powder,0.6%,,,,,,,,
-Falinks,221,held_item,5,King's Rock,0.6%,,,,,,,,
-Falinks,221,held_item,6,Leftovers,0.5%,,,,,,,,
+Falinks,221,held_item,4,Leftovers,0.7%,,,,,,,,
+Falinks,221,held_item,5,Bright Powder,0.6%,,,,,,,,
+Falinks,221,held_item,6,King's Rock,0.6%,,,,,,,,
 Falinks,221,held_item,7,Grassy Seed,0.4%,,,,,,,,
 Falinks,221,held_item,8,White Herb,0.3%,,,,,,,,
 Falinks,221,held_item,9,Muscle Band,0.2%,,,,,,,,
@@ -29,24 +29,24 @@ Falinks,221,teammate,7,Gholdengo,,,,,,,,,
 Falinks,221,teammate,8,Indeedee-F,,,,,,,,,
 Falinks,221,teammate,9,Arcanine-Hisui,,,,,,,,,
 Falinks,221,teammate,10,Glimmora,,,,,,,,,
-Falinks,221,stat_alignment,1,Adamant,65.6%,Attack,Sp. Atk,,,,,,
-Falinks,221,stat_alignment,2,Jolly,23.5%,Speed,Sp. Atk,,,,,,
+Falinks,221,stat_alignment,1,Adamant,65.4%,Attack,Sp. Atk,,,,,,
+Falinks,221,stat_alignment,2,Jolly,23.7%,Speed,Sp. Atk,,,,,,
 Falinks,221,stat_alignment,3,Impish,4.7%,Defense,Sp. Atk,,,,,,
-Falinks,221,stat_alignment,4,Careful,3.4%,Sp. Def,Sp. Atk,,,,,,
+Falinks,221,stat_alignment,4,Careful,3.5%,Sp. Def,Sp. Atk,,,,,,
 Falinks,221,stat_alignment,5,Brave,1.5%,Attack,Speed,,,,,,
-Falinks,221,stat_alignment,6,Sassy,1.1%,Sp. Def,Speed,,,,,,
+Falinks,221,stat_alignment,6,Sassy,1.0%,Sp. Def,Speed,,,,,,
 Falinks,221,stat_alignment,7,Lax,0.1%,Defense,Sp. Def,,,,,,
 Falinks,221,stat_alignment,8,Serious,0.1%,,,,,,,,
 Falinks,221,stat_alignment,9,Relaxed,0.0%,Defense,Speed,,,,,,
-Falinks,221,stat_points,1,,14.1%,,,2,32,0,0,0,32
-Falinks,221,stat_points,2,,9.0%,,,16,20,0,0,30,0
-Falinks,221,stat_points,3,,6.2%,,,32,32,0,0,2,0
-Falinks,221,stat_points,4,,5.5%,,,32,2,0,0,0,32
-Falinks,221,stat_points,5,,4.6%,,,32,11,2,0,0,21
-Falinks,221,stat_points,6,,4.5%,,,0,32,0,0,2,32
-Falinks,221,stat_points,7,,4.0%,,,19,32,0,0,0,15
-Falinks,221,stat_points,8,,3.4%,,,32,4,0,0,25,5
-Falinks,221,stat_points,9,,3.4%,,,1,32,0,0,1,32
-Falinks,221,stat_points,10,,2.9%,,,32,13,0,0,0,21
+Falinks,221,stat_points,1,,14.5%,,,2,32,0,0,0,32
+Falinks,221,stat_points,2,,8.7%,,,16,20,0,0,30,0
+Falinks,221,stat_points,3,,6.0%,,,32,32,0,0,2,0
+Falinks,221,stat_points,4,,5.6%,,,32,2,0,0,0,32
+Falinks,221,stat_points,5,,4.8%,,,0,32,0,0,2,32
+Falinks,221,stat_points,6,,4.5%,,,32,11,2,0,0,21
+Falinks,221,stat_points,7,,3.9%,,,19,32,0,0,0,15
+Falinks,221,stat_points,8,,3.3%,,,32,4,0,0,25,5
+Falinks,221,stat_points,9,,3.3%,,,1,32,0,0,1,32
+Falinks,221,stat_points,10,,2.8%,,,32,13,0,0,0,21
 Falinks,221,ability,1,Defiant,94.6%,,,,,,,,
 Falinks,221,ability,2,Battle Armor,5.4%,,,,,,,,

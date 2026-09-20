@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Passimian,256,move,1,Close Combat,58.4%,,,,,,,,
-Passimian,256,move,2,Knock Off,48.6%,,,,,,,,
+Passimian,256,move,1,Close Combat,58.6%,,,,,,,,
+Passimian,256,move,2,Knock Off,48.2%,,,,,,,,
 Passimian,256,move,3,Drain Punch,38.8%,,,,,,,,
-Passimian,256,move,4,Rock Slide,36.7%,,,,,,,,
-Passimian,256,move,5,U-turn,30.4%,,,,,,,,
-Passimian,256,move,6,Gunk Shot,26.4%,,,,,,,,
-Passimian,256,move,7,Rock Tomb,26.1%,,,,,,,,
-Passimian,256,move,8,Earthquake,25.8%,,,,,,,,
-Passimian,256,move,9,Counter,25.6%,,,,,,,,
-Passimian,256,move,10,Seed Bomb,11.3%,,,,,,,,
-Passimian,256,held_item,1,Focus Sash,27.0%,,,,,,,,
-Passimian,256,held_item,2,Choice Scarf,26.4%,,,,,,,,
-Passimian,256,held_item,3,Expert Belt,10.7%,,,,,,,,
+Passimian,256,move,4,Rock Slide,36.9%,,,,,,,,
+Passimian,256,move,5,U-turn,30.1%,,,,,,,,
+Passimian,256,move,6,Gunk Shot,26.7%,,,,,,,,
+Passimian,256,move,7,Earthquake,26.4%,,,,,,,,
+Passimian,256,move,8,Rock Tomb,25.9%,,,,,,,,
+Passimian,256,move,9,Counter,25.5%,,,,,,,,
+Passimian,256,move,10,Seed Bomb,11.6%,,,,,,,,
+Passimian,256,held_item,1,Choice Scarf,26.9%,,,,,,,,
+Passimian,256,held_item,2,Focus Sash,26.8%,,,,,,,,
+Passimian,256,held_item,3,Expert Belt,10.5%,,,,,,,,
 Passimian,256,held_item,4,Quick Claw,7.9%,,,,,,,,
-Passimian,256,held_item,5,Light Ball,7.1%,,,,,,,,
+Passimian,256,held_item,5,Light Ball,6.9%,,,,,,,,
 Passimian,256,held_item,6,Coba Berry,4.7%,,,,,,,,
-Passimian,256,held_item,7,Black Belt,2.9%,,,,,,,,
+Passimian,256,held_item,7,Black Belt,3.0%,,,,,,,,
 Passimian,256,held_item,8,Hard Stone,2.1%,,,,,,,,
 Passimian,256,held_item,9,Roseli Berry,2.1%,,,,,,,,
 Passimian,256,held_item,10,Life Orb,1.7%,,,,,,,,
@@ -27,26 +27,26 @@ Passimian,256,teammate,5,Indeedee,,,,,,,,,
 Passimian,256,teammate,6,Rotom-Wash,,,,,,,,,
 Passimian,256,teammate,7,Dragonite,,,,,,,,,
 Passimian,256,teammate,8,Staraptor,,,,,,,,,
-Passimian,256,teammate,9,Basculegion,,,,,,,,,
-Passimian,256,teammate,10,Salamence,,,,,,,,,
-Passimian,256,stat_alignment,1,Adamant,70.4%,Attack,Sp. Atk,,,,,,
-Passimian,256,stat_alignment,2,Jolly,21.4%,Speed,Sp. Atk,,,,,,
-Passimian,256,stat_alignment,3,Impish,3.2%,Defense,Sp. Atk,,,,,,
+Passimian,256,teammate,9,Salamence,,,,,,,,,
+Passimian,256,teammate,10,Rillaboom,,,,,,,,,
+Passimian,256,stat_alignment,1,Adamant,69.8%,Attack,Sp. Atk,,,,,,
+Passimian,256,stat_alignment,2,Jolly,21.8%,Speed,Sp. Atk,,,,,,
+Passimian,256,stat_alignment,3,Impish,3.5%,Defense,Sp. Atk,,,,,,
 Passimian,256,stat_alignment,4,Naughty,2.4%,Attack,Sp. Def,,,,,,
 Passimian,256,stat_alignment,5,Hasty,1.5%,Speed,Defense,,,,,,
 Passimian,256,stat_alignment,6,Lonely,0.4%,Attack,Defense,,,,,,
 Passimian,256,stat_alignment,7,Naive,0.3%,Speed,Sp. Def,,,,,,
 Passimian,256,stat_alignment,8,Brave,0.2%,Attack,Speed,,,,,,
 Passimian,256,stat_alignment,9,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
-Passimian,256,stat_points,1,,21.3%,,,2,32,0,0,0,32
+Passimian,256,stat_points,1,,21.1%,,,2,32,0,0,0,32
 Passimian,256,stat_points,2,,17.1%,,,18,32,0,0,0,16
-Passimian,256,stat_points,3,,9.1%,,,0,32,2,0,0,32
-Passimian,256,stat_points,4,,8.7%,,,4,32,0,0,0,30
-Passimian,256,stat_points,5,,8.6%,,,0,32,0,0,2,32
-Passimian,256,stat_points,6,,7.2%,,,0,32,32,0,0,2
-Passimian,256,stat_points,7,,6.8%,,,0,32,0,0,0,32
-Passimian,256,stat_points,8,,3.8%,,,17,32,0,0,0,17
-Passimian,256,stat_points,9,,2.8%,,,20,32,0,0,13,1
+Passimian,256,stat_points,3,,9.0%,,,0,32,2,0,0,32
+Passimian,256,stat_points,4,,8.5%,,,4,32,0,0,0,30
+Passimian,256,stat_points,5,,8.4%,,,0,32,0,0,2,32
+Passimian,256,stat_points,6,,7.1%,,,0,32,32,0,0,2
+Passimian,256,stat_points,7,,6.6%,,,0,32,0,0,0,32
+Passimian,256,stat_points,8,,3.7%,,,17,32,0,0,0,17
+Passimian,256,stat_points,9,,2.9%,,,20,32,0,0,13,1
 Passimian,256,stat_points,10,,2.0%,,,11,32,23,0,0,0
-Passimian,256,ability,1,Defiant,88.3%,,,,,,,,
-Passimian,256,ability,2,Receiver,11.7%,,,,,,,,
+Passimian,256,ability,1,Defiant,88.4%,,,,,,,,
+Passimian,256,ability,2,Receiver,11.6%,,,,,,,,

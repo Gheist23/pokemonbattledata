@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Scolipede,94,move,1,Swords Dance,67.8%,,,,,,,,
-Scolipede,94,move,2,Earthquake,59.2%,,,,,,,,
+Scolipede,94,move,2,Earthquake,59.0%,,,,,,,,
 Scolipede,94,move,3,Leech Life,54.5%,,,,,,,,
-Scolipede,94,move,4,Baton Pass,46.6%,,,,,,,,
-Scolipede,94,move,5,Protect,42.7%,,,,,,,,
-Scolipede,94,move,6,Poison Jab,35.2%,,,,,,,,
-Scolipede,94,move,7,Iron Defense,32.3%,,,,,,,,
+Scolipede,94,move,4,Baton Pass,46.7%,,,,,,,,
+Scolipede,94,move,5,Protect,42.9%,,,,,,,,
+Scolipede,94,move,6,Poison Jab,35.0%,,,,,,,,
+Scolipede,94,move,7,Iron Defense,32.2%,,,,,,,,
 Scolipede,94,move,8,Substitute,17.8%,,,,,,,,
 Scolipede,94,move,9,Gunk Shot,15.3%,,,,,,,,
-Scolipede,94,move,10,Rock Slide,8.5%,,,,,,,,
+Scolipede,94,move,10,Rock Slide,8.6%,,,,,,,,
 Scolipede,94,held_item,1,Scolipite,34.8%,,,,,,,,
 Scolipede,94,held_item,2,Focus Sash,24.5%,,,,,,,,
-Scolipede,94,held_item,3,Sitrus Berry,12.6%,,,,,,,,
+Scolipede,94,held_item,3,Sitrus Berry,12.5%,,,,,,,,
 Scolipede,94,held_item,4,Leftovers,7.4%,,,,,,,,
 Scolipede,94,held_item,5,Mental Herb,4.9%,,,,,,,,
-Scolipede,94,held_item,6,Life Orb,3.6%,,,,,,,,
+Scolipede,94,held_item,6,Life Orb,3.7%,,,,,,,,
 Scolipede,94,held_item,7,Lum Berry,2.6%,,,,,,,,
 Scolipede,94,held_item,8,Bright Powder,1.1%,,,,,,,,
 Scolipede,94,held_item,9,Occa Berry,1.0%,,,,,,,,
@@ -24,13 +24,13 @@ Scolipede,94,teammate,2,Clefable,,,,,,,,,
 Scolipede,94,teammate,3,Salamence,,,,,,,,,
 Scolipede,94,teammate,4,Archaludon,,,,,,,,,
 Scolipede,94,teammate,5,Ninetales-Alola,,,,,,,,,
-Scolipede,94,teammate,6,Gholdengo,,,,,,,,,
-Scolipede,94,teammate,7,Baxcalibur,,,,,,,,,
+Scolipede,94,teammate,6,Baxcalibur,,,,,,,,,
+Scolipede,94,teammate,7,Gholdengo,,,,,,,,,
 Scolipede,94,teammate,8,Primarina,,,,,,,,,
 Scolipede,94,teammate,9,Golisopod,,,,,,,,,
 Scolipede,94,teammate,10,Volcarona,,,,,,,,,
-Scolipede,94,stat_alignment,1,Adamant,48.9%,Attack,Sp. Atk,,,,,,
-Scolipede,94,stat_alignment,2,Jolly,22.0%,Speed,Sp. Atk,,,,,,
+Scolipede,94,stat_alignment,1,Adamant,48.8%,Attack,Sp. Atk,,,,,,
+Scolipede,94,stat_alignment,2,Jolly,22.1%,Speed,Sp. Atk,,,,,,
 Scolipede,94,stat_alignment,3,Impish,12.6%,Defense,Sp. Atk,,,,,,
 Scolipede,94,stat_alignment,4,Careful,9.2%,Sp. Def,Sp. Atk,,,,,,
 Scolipede,94,stat_alignment,5,Bold,3.3%,Defense,Attack,,,,,,
@@ -39,16 +39,16 @@ Scolipede,94,stat_alignment,7,Calm,0.6%,Sp. Def,Attack,,,,,,
 Scolipede,94,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,
 Scolipede,94,stat_alignment,9,Naughty,0.2%,Attack,Sp. Def,,,,,,
 Scolipede,94,stat_alignment,10,Brave,0.1%,Attack,Speed,,,,,,
-Scolipede,94,stat_points,1,,10.6%,,,24,20,0,0,0,22
-Scolipede,94,stat_points,2,,10.6%,,,2,32,0,0,0,32
+Scolipede,94,stat_points,1,,10.6%,,,2,32,0,0,0,32
+Scolipede,94,stat_points,2,,10.6%,,,24,20,0,0,0,22
 Scolipede,94,stat_points,3,,3.9%,,,14,20,0,0,0,32
 Scolipede,94,stat_points,4,,3.7%,,,32,0,32,0,2,0
 Scolipede,94,stat_points,5,,3.1%,,,32,0,2,0,32,0
 Scolipede,94,stat_points,6,,2.6%,,,32,0,0,0,2,32
 Scolipede,94,stat_points,7,,2.5%,,,0,32,2,0,0,32
 Scolipede,94,stat_points,8,,2.1%,,,32,32,0,0,0,2
-Scolipede,94,stat_points,9,,1.8%,,,32,0,2,0,0,32
-Scolipede,94,stat_points,10,,1.8%,,,0,32,0,0,2,32
+Scolipede,94,stat_points,9,,1.8%,,,0,32,0,0,2,32
+Scolipede,94,stat_points,10,,1.8%,,,32,0,2,0,0,32
 Scolipede,94,ability,1,Speed Boost,99.3%,,,,,,,,
 Scolipede,94,ability,2,Poison Point,0.5%,,,,,,,,
 Scolipede,94,ability,3,Swarm,0.2%,,,,,,,,

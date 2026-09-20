@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emboar,190,move,1,Flare Blitz,85.6%,,,,,,,,
-Emboar,190,move,2,Sucker Punch,55.5%,,,,,,,,
-Emboar,190,move,3,Close Combat,47.8%,,,,,,,,
-Emboar,190,move,4,Earthquake,34.9%,,,,,,,,
-Emboar,190,move,5,Wild Charge,31.3%,,,,,,,,
-Emboar,190,move,6,Drain Punch,27.6%,,,,,,,,
+Emboar,190,move,1,Flare Blitz,85.8%,,,,,,,,
+Emboar,190,move,2,Sucker Punch,55.6%,,,,,,,,
+Emboar,190,move,3,Close Combat,48.2%,,,,,,,,
+Emboar,190,move,4,Earthquake,35.2%,,,,,,,,
+Emboar,190,move,5,Wild Charge,31.1%,,,,,,,,
+Emboar,190,move,6,Drain Punch,27.5%,,,,,,,,
 Emboar,190,move,7,Head Smash,25.7%,,,,,,,,
-Emboar,190,move,8,Bulk Up,12.7%,,,,,,,,
-Emboar,190,move,9,Storm Throw,12.7%,,,,,,,,
-Emboar,190,move,10,Thunder Punch,6.3%,,,,,,,,
+Emboar,190,move,8,Bulk Up,12.8%,,,,,,,,
+Emboar,190,move,9,Storm Throw,12.4%,,,,,,,,
+Emboar,190,move,10,Thunder Punch,6.4%,,,,,,,,
 Emboar,190,held_item,1,Emboarite,82.0%,,,,,,,,
 Emboar,190,held_item,2,Choice Scarf,4.3%,,,,,,,,
-Emboar,190,held_item,3,Life Orb,3.6%,,,,,,,,
+Emboar,190,held_item,3,Life Orb,3.7%,,,,,,,,
 Emboar,190,held_item,4,Sitrus Berry,2.0%,,,,,,,,
-Emboar,190,held_item,5,Rocky Helmet,1.9%,,,,,,,,
+Emboar,190,held_item,5,Rocky Helmet,1.8%,,,,,,,,
 Emboar,190,held_item,6,Focus Sash,1.1%,,,,,,,,
 Emboar,190,held_item,7,Leftovers,0.5%,,,,,,,,
 Emboar,190,held_item,8,Muscle Band,0.3%,,,,,,,,
 Emboar,190,held_item,9,Lum Berry,0.2%,,,,,,,,
-Emboar,190,held_item,10,Black Belt,0.2%,,,,,,,,
+Emboar,190,held_item,10,Charcoal,0.2%,,,,,,,,
 Emboar,190,teammate,1,Garchomp,,,,,,,,,
 Emboar,190,teammate,2,Rillaboom,,,,,,,,,
 Emboar,190,teammate,3,Baxcalibur,,,,,,,,,
@@ -26,28 +26,28 @@ Emboar,190,teammate,4,Primarina,,,,,,,,,
 Emboar,190,teammate,5,Salamence,,,,,,,,,
 Emboar,190,teammate,6,Basculegion,,,,,,,,,
 Emboar,190,teammate,7,Archaludon,,,,,,,,,
-Emboar,190,teammate,8,Gholdengo,,,,,,,,,
-Emboar,190,teammate,9,Corviknight,,,,,,,,,
+Emboar,190,teammate,8,Corviknight,,,,,,,,,
+Emboar,190,teammate,9,Gholdengo,,,,,,,,,
 Emboar,190,teammate,10,Mimikyu,,,,,,,,,
-Emboar,190,stat_alignment,1,Adamant,71.7%,Attack,Sp. Atk,,,,,,
+Emboar,190,stat_alignment,1,Adamant,71.8%,Attack,Sp. Atk,,,,,,
 Emboar,190,stat_alignment,2,Brave,8.5%,Attack,Speed,,,,,,
-Emboar,190,stat_alignment,3,Jolly,8.0%,Speed,Sp. Atk,,,,,,
-Emboar,190,stat_alignment,4,Impish,4.6%,Defense,Sp. Atk,,,,,,
+Emboar,190,stat_alignment,3,Jolly,8.1%,Speed,Sp. Atk,,,,,,
+Emboar,190,stat_alignment,4,Impish,4.5%,Defense,Sp. Atk,,,,,,
 Emboar,190,stat_alignment,5,Naive,2.2%,Speed,Sp. Def,,,,,,
-Emboar,190,stat_alignment,6,Careful,2.0%,Sp. Def,Sp. Atk,,,,,,
-Emboar,190,stat_alignment,7,Naughty,0.6%,Attack,Sp. Def,,,,,,
-Emboar,190,stat_alignment,8,Sassy,0.6%,Sp. Def,Speed,,,,,,
-Emboar,190,stat_alignment,9,Quiet,0.5%,Sp. Atk,Speed,,,,,,
-Emboar,190,stat_alignment,10,Modest,0.4%,Sp. Atk,Attack,,,,,,
-Emboar,190,stat_points,1,,13.0%,,,32,32,0,0,0,2
-Emboar,190,stat_points,2,,12.9%,,,32,32,2,0,0,0
+Emboar,190,stat_alignment,6,Careful,1.9%,Sp. Def,Sp. Atk,,,,,,
+Emboar,190,stat_alignment,7,Sassy,0.6%,Sp. Def,Speed,,,,,,
+Emboar,190,stat_alignment,8,Naughty,0.6%,Attack,Sp. Def,,,,,,
+Emboar,190,stat_alignment,9,Modest,0.5%,Sp. Atk,Attack,,,,,,
+Emboar,190,stat_alignment,10,Quiet,0.5%,Sp. Atk,Speed,,,,,,
+Emboar,190,stat_points,1,,13.2%,,,32,32,2,0,0,0
+Emboar,190,stat_points,2,,12.7%,,,32,32,0,0,0,2
 Emboar,190,stat_points,3,,9.1%,,,2,32,0,0,0,32
 Emboar,190,stat_points,4,,7.2%,,,32,32,1,0,1,0
-Emboar,190,stat_points,5,,5.1%,,,32,32,0,0,2,0
-Emboar,190,stat_points,6,,2.7%,,,10,26,17,0,0,13
+Emboar,190,stat_points,5,,5.4%,,,32,32,0,0,2,0
+Emboar,190,stat_points,6,,2.6%,,,10,26,17,0,0,13
 Emboar,190,stat_points,7,,2.3%,,,14,32,20,0,0,0
-Emboar,190,stat_points,8,,2.2%,,,0,23,0,0,21,22
+Emboar,190,stat_points,8,,2.1%,,,0,23,0,0,21,22
 Emboar,190,stat_points,9,,2.1%,,,2,32,32,0,0,0
 Emboar,190,stat_points,10,,1.8%,,,0,32,2,0,0,32
-Emboar,190,ability,1,Reckless,65.4%,,,,,,,,
-Emboar,190,ability,2,Blaze,34.6%,,,,,,,,
+Emboar,190,ability,1,Reckless,65.6%,,,,,,,,
+Emboar,190,ability,2,Blaze,34.4%,,,,,,,,

@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mudsdale,164,move,1,Earthquake,82.2%,,,,,,,,
-Mudsdale,164,move,2,Body Press,76.9%,,,,,,,,
-Mudsdale,164,move,3,Stealth Rock,55.8%,,,,,,,,
+Mudsdale,164,move,1,Earthquake,82.0%,,,,,,,,
+Mudsdale,164,move,2,Body Press,77.0%,,,,,,,,
+Mudsdale,164,move,3,Stealth Rock,55.9%,,,,,,,,
 Mudsdale,164,move,4,Roar,50.4%,,,,,,,,
-Mudsdale,164,move,5,Rest,29.7%,,,,,,,,
+Mudsdale,164,move,5,Rest,29.8%,,,,,,,,
 Mudsdale,164,move,6,Fissure,17.1%,,,,,,,,
-Mudsdale,164,move,7,Smack Down,13.7%,,,,,,,,
-Mudsdale,164,move,8,Iron Defense,11.7%,,,,,,,,
+Mudsdale,164,move,7,Smack Down,13.8%,,,,,,,,
+Mudsdale,164,move,8,Iron Defense,11.8%,,,,,,,,
 Mudsdale,164,move,9,Heavy Slam,11.0%,,,,,,,,
-Mudsdale,164,move,10,Stone Edge,9.9%,,,,,,,,
-Mudsdale,164,held_item,1,Leftovers,29.9%,,,,,,,,
-Mudsdale,164,held_item,2,Sitrus Berry,25.7%,,,,,,,,
+Mudsdale,164,move,10,Stone Edge,9.8%,,,,,,,,
+Mudsdale,164,held_item,1,Leftovers,29.8%,,,,,,,,
+Mudsdale,164,held_item,2,Sitrus Berry,25.6%,,,,,,,,
 Mudsdale,164,held_item,3,Chesto Berry,17.4%,,,,,,,,
-Mudsdale,164,held_item,4,Rocky Helmet,16.8%,,,,,,,,
-Mudsdale,164,held_item,5,Lum Berry,3.4%,,,,,,,,
-Mudsdale,164,held_item,6,Quick Claw,2.7%,,,,,,,,
+Mudsdale,164,held_item,4,Rocky Helmet,17.0%,,,,,,,,
+Mudsdale,164,held_item,5,Lum Berry,3.6%,,,,,,,,
+Mudsdale,164,held_item,6,Quick Claw,2.8%,,,,,,,,
 Mudsdale,164,held_item,7,Shell Bell,0.6%,,,,,,,,
-Mudsdale,164,held_item,8,Life Orb,0.4%,,,,,,,,
+Mudsdale,164,held_item,8,Life Orb,0.3%,,,,,,,,
 Mudsdale,164,held_item,9,Focus Sash,0.3%,,,,,,,,
-Mudsdale,164,held_item,10,Red Card,0.3%,,,,,,,,
+Mudsdale,164,held_item,10,Mental Herb,0.3%,,,,,,,,
 Mudsdale,164,teammate,1,Salamence,,,,,,,,,
 Mudsdale,164,teammate,2,Golisopod,,,,,,,,,
 Mudsdale,164,teammate,3,Baxcalibur,,,,,,,,,
@@ -26,29 +26,29 @@ Mudsdale,164,teammate,4,Primarina,,,,,,,,,
 Mudsdale,164,teammate,5,Meowscarada,,,,,,,,,
 Mudsdale,164,teammate,6,Garchomp,,,,,,,,,
 Mudsdale,164,teammate,7,Lucario,,,,,,,,,
-Mudsdale,164,teammate,8,Dragonite,,,,,,,,,
-Mudsdale,164,teammate,9,Mimikyu,,,,,,,,,
+Mudsdale,164,teammate,8,Mimikyu,,,,,,,,,
+Mudsdale,164,teammate,9,Dragonite,,,,,,,,,
 Mudsdale,164,teammate,10,Gholdengo,,,,,,,,,
-Mudsdale,164,stat_alignment,1,Impish,65.5%,Defense,Sp. Atk,,,,,,
-Mudsdale,164,stat_alignment,2,Careful,16.5%,Sp. Def,Sp. Atk,,,,,,
+Mudsdale,164,stat_alignment,1,Impish,65.4%,Defense,Sp. Atk,,,,,,
+Mudsdale,164,stat_alignment,2,Careful,16.6%,Sp. Def,Sp. Atk,,,,,,
 Mudsdale,164,stat_alignment,3,Adamant,7.5%,Attack,Sp. Atk,,,,,,
 Mudsdale,164,stat_alignment,4,Relaxed,4.2%,Defense,Speed,,,,,,
-Mudsdale,164,stat_alignment,5,Sassy,2.9%,Sp. Def,Speed,,,,,,
+Mudsdale,164,stat_alignment,5,Sassy,2.8%,Sp. Def,Speed,,,,,,
 Mudsdale,164,stat_alignment,6,Brave,1.9%,Attack,Speed,,,,,,
-Mudsdale,164,stat_alignment,7,Bold,0.7%,Defense,Attack,,,,,,
+Mudsdale,164,stat_alignment,7,Bold,0.6%,Defense,Attack,,,,,,
 Mudsdale,164,stat_alignment,8,Lonely,0.5%,Attack,Defense,,,,,,
 Mudsdale,164,stat_alignment,9,Jolly,0.1%,Speed,Sp. Atk,,,,,,
 Mudsdale,164,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Mudsdale,164,stat_points,1,,33.0%,,,32,0,32,0,2,0
-Mudsdale,164,stat_points,2,,11.4%,,,32,2,32,0,0,0
-Mudsdale,164,stat_points,3,,8.5%,,,32,0,2,0,32,0
+Mudsdale,164,stat_points,1,,33.1%,,,32,0,32,0,2,0
+Mudsdale,164,stat_points,2,,11.3%,,,32,2,32,0,0,0
+Mudsdale,164,stat_points,3,,8.4%,,,32,0,2,0,32,0
 Mudsdale,164,stat_points,4,,5.8%,,,2,0,32,0,32,0
-Mudsdale,164,stat_points,5,,2.8%,,,32,2,0,0,32,0
-Mudsdale,164,stat_points,6,,2.6%,,,32,0,32,0,0,2
+Mudsdale,164,stat_points,5,,2.7%,,,32,2,0,0,32,0
+Mudsdale,164,stat_points,6,,2.5%,,,32,0,32,0,0,2
 Mudsdale,164,stat_points,7,,2.0%,,,32,0,20,0,14,0
-Mudsdale,164,stat_points,8,,1.9%,,,32,0,0,0,32,0
+Mudsdale,164,stat_points,8,,1.8%,,,32,0,0,0,32,0
 Mudsdale,164,stat_points,9,,1.8%,,,2,32,32,0,0,0
-Mudsdale,164,stat_points,10,,1.5%,,,32,32,2,0,0,0
+Mudsdale,164,stat_points,10,,1.4%,,,32,32,2,0,0,0
 Mudsdale,164,ability,1,Stamina,99.2%,,,,,,,,
-Mudsdale,164,ability,2,Inner Focus,0.5%,,,,,,,,
+Mudsdale,164,ability,2,Inner Focus,0.6%,,,,,,,,
 Mudsdale,164,ability,3,Own Tempo,0.2%,,,,,,,,

@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Abomasnow,166,move,1,Blizzard,88.2%,,,,,,,,
-Abomasnow,166,move,2,Ice Shard,60.2%,,,,,,,,
-Abomasnow,166,move,3,Earth Power,51.5%,,,,,,,,
-Abomasnow,166,move,4,Giga Drain,50.1%,,,,,,,,
+Abomasnow,166,move,1,Blizzard,88.3%,,,,,,,,
+Abomasnow,166,move,2,Ice Shard,60.4%,,,,,,,,
+Abomasnow,166,move,3,Earth Power,51.1%,,,,,,,,
+Abomasnow,166,move,4,Giga Drain,50.0%,,,,,,,,
 Abomasnow,166,move,5,Aurora Veil,39.4%,,,,,,,,
-Abomasnow,166,move,6,Leech Seed,18.4%,,,,,,,,
-Abomasnow,166,move,7,Leaf Storm,17.8%,,,,,,,,
-Abomasnow,166,move,8,Sheer Cold,13.3%,,,,,,,,
-Abomasnow,166,move,9,Energy Ball,12.1%,,,,,,,,
-Abomasnow,166,move,10,Focus Blast,6.1%,,,,,,,,
-Abomasnow,166,held_item,1,Abomasite,53.5%,,,,,,,,
+Abomasnow,166,move,6,Leech Seed,18.2%,,,,,,,,
+Abomasnow,166,move,7,Leaf Storm,18.1%,,,,,,,,
+Abomasnow,166,move,8,Sheer Cold,13.4%,,,,,,,,
+Abomasnow,166,move,9,Energy Ball,12.2%,,,,,,,,
+Abomasnow,166,move,10,Focus Blast,6.2%,,,,,,,,
+Abomasnow,166,held_item,1,Abomasite,53.7%,,,,,,,,
 Abomasnow,166,held_item,2,Light Clay,19.4%,,,,,,,,
-Abomasnow,166,held_item,3,Focus Sash,10.2%,,,,,,,,
-Abomasnow,166,held_item,4,Leftovers,4.9%,,,,,,,,
-Abomasnow,166,held_item,5,Lum Berry,1.7%,,,,,,,,
+Abomasnow,166,held_item,3,Focus Sash,10.1%,,,,,,,,
+Abomasnow,166,held_item,4,Leftovers,4.8%,,,,,,,,
+Abomasnow,166,held_item,5,Lum Berry,1.6%,,,,,,,,
 Abomasnow,166,held_item,6,Never-Melt Ice,1.3%,,,,,,,,
 Abomasnow,166,held_item,7,Sitrus Berry,1.2%,,,,,,,,
-Abomasnow,166,held_item,8,Rocky Helmet,1.1%,,,,,,,,
-Abomasnow,166,held_item,9,Occa Berry,1.1%,,,,,,,,
-Abomasnow,166,held_item,10,Expert Belt,1.0%,,,,,,,,
+Abomasnow,166,held_item,8,Expert Belt,1.1%,,,,,,,,
+Abomasnow,166,held_item,9,Rocky Helmet,1.1%,,,,,,,,
+Abomasnow,166,held_item,10,Occa Berry,1.1%,,,,,,,,
 Abomasnow,166,teammate,1,Garchomp,,,,,,,,,
 Abomasnow,166,teammate,2,Gyarados,,,,,,,,,
 Abomasnow,166,teammate,3,Salamence,,,,,,,,,
@@ -29,25 +29,25 @@ Abomasnow,166,teammate,7,Mimikyu,,,,,,,,,
 Abomasnow,166,teammate,8,Tyranitar,,,,,,,,,
 Abomasnow,166,teammate,9,Archaludon,,,,,,,,,
 Abomasnow,166,teammate,10,Hippowdon,,,,,,,,,
-Abomasnow,166,stat_alignment,1,Quiet,41.1%,Sp. Atk,Speed,,,,,,
-Abomasnow,166,stat_alignment,2,Modest,24.9%,Sp. Atk,Attack,,,,,,
-Abomasnow,166,stat_alignment,3,Bold,8.5%,Defense,Attack,,,,,,
-Abomasnow,166,stat_alignment,4,Calm,6.4%,Sp. Def,Attack,,,,,,
-Abomasnow,166,stat_alignment,5,Relaxed,4.9%,Defense,Speed,,,,,,
+Abomasnow,166,stat_alignment,1,Quiet,40.9%,Sp. Atk,Speed,,,,,,
+Abomasnow,166,stat_alignment,2,Modest,25.1%,Sp. Atk,Attack,,,,,,
+Abomasnow,166,stat_alignment,3,Bold,8.4%,Defense,Attack,,,,,,
+Abomasnow,166,stat_alignment,4,Calm,6.3%,Sp. Def,Attack,,,,,,
+Abomasnow,166,stat_alignment,5,Relaxed,5.0%,Defense,Speed,,,,,,
 Abomasnow,166,stat_alignment,6,Sassy,3.2%,Sp. Def,Speed,,,,,,
 Abomasnow,166,stat_alignment,7,Adamant,3.2%,Attack,Sp. Atk,,,,,,
-Abomasnow,166,stat_alignment,8,Brave,2.6%,Attack,Speed,,,,,,
+Abomasnow,166,stat_alignment,8,Brave,2.7%,Attack,Speed,,,,,,
 Abomasnow,166,stat_alignment,9,Rash,1.6%,Sp. Atk,Sp. Def,,,,,,
 Abomasnow,166,stat_alignment,10,Timid,0.9%,Speed,Attack,,,,,,
-Abomasnow,166,stat_points,1,,19.4%,,,32,0,2,32,0,0
-Abomasnow,166,stat_points,2,,9.7%,,,32,2,0,32,0,0
+Abomasnow,166,stat_points,1,,19.3%,,,32,0,2,32,0,0
+Abomasnow,166,stat_points,2,,9.5%,,,32,2,0,32,0,0
 Abomasnow,166,stat_points,3,,6.6%,,,32,0,0,32,2,0
 Abomasnow,166,stat_points,4,,5.2%,,,32,0,0,32,0,2
-Abomasnow,166,stat_points,5,,3.5%,,,32,0,32,0,2,0
-Abomasnow,166,stat_points,6,,3.3%,,,2,0,32,32,0,0
+Abomasnow,166,stat_points,5,,3.6%,,,32,0,32,0,2,0
+Abomasnow,166,stat_points,6,,3.4%,,,2,0,32,32,0,0
 Abomasnow,166,stat_points,7,,2.9%,,,32,0,2,0,32,0
 Abomasnow,166,stat_points,8,,2.1%,,,32,0,32,2,0,0
-Abomasnow,166,stat_points,9,,1.6%,,,30,0,4,32,0,0
-Abomasnow,166,stat_points,10,,1.6%,,,32,32,2,0,0,0
+Abomasnow,166,stat_points,9,,1.5%,,,30,0,4,32,0,0
+Abomasnow,166,stat_points,10,,1.5%,,,32,32,2,0,0,0
 Abomasnow,166,ability,1,Snow Warning,95.7%,,,,,,,,
 Abomasnow,166,ability,2,Soundproof,4.3%,,,,,,,,

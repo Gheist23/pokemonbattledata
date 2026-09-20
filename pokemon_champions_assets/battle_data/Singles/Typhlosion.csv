@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Typhlosion,210,move,1,Eruption,74.3%,,,,,,,,
-Typhlosion,210,move,2,Scorching Sands,59.1%,,,,,,,,
-Typhlosion,210,move,3,Shadow Ball,43.9%,,,,,,,,
-Typhlosion,210,move,4,Burn Up,32.4%,,,,,,,,
-Typhlosion,210,move,5,Flamethrower,30.2%,,,,,,,,
+Typhlosion,210,move,1,Eruption,74.0%,,,,,,,,
+Typhlosion,210,move,2,Scorching Sands,59.2%,,,,,,,,
+Typhlosion,210,move,3,Shadow Ball,43.5%,,,,,,,,
+Typhlosion,210,move,4,Burn Up,32.2%,,,,,,,,
+Typhlosion,210,move,5,Flamethrower,30.0%,,,,,,,,
 Typhlosion,210,move,6,Focus Blast,25.6%,,,,,,,,
-Typhlosion,210,move,7,Endeavor,18.9%,,,,,,,,
-Typhlosion,210,move,8,Quick Attack,18.8%,,,,,,,,
-Typhlosion,210,move,9,Fire Blast,10.9%,,,,,,,,
-Typhlosion,210,move,10,Will-O-Wisp,10.8%,,,,,,,,
+Typhlosion,210,move,7,Endeavor,18.8%,,,,,,,,
+Typhlosion,210,move,8,Quick Attack,18.6%,,,,,,,,
+Typhlosion,210,move,9,Fire Blast,11.5%,,,,,,,,
+Typhlosion,210,move,10,Will-O-Wisp,10.7%,,,,,,,,
 Typhlosion,210,held_item,1,Choice Scarf,57.4%,,,,,,,,
 Typhlosion,210,held_item,2,Focus Sash,19.3%,,,,,,,,
-Typhlosion,210,held_item,3,Charcoal,11.6%,,,,,,,,
-Typhlosion,210,held_item,4,Sitrus Berry,3.2%,,,,,,,,
-Typhlosion,210,held_item,5,Life Orb,1.6%,,,,,,,,
-Typhlosion,210,held_item,6,Expert Belt,1.6%,,,,,,,,
-Typhlosion,210,held_item,7,Air Balloon,1.5%,,,,,,,,
+Typhlosion,210,held_item,3,Charcoal,11.5%,,,,,,,,
+Typhlosion,210,held_item,4,Sitrus Berry,3.3%,,,,,,,,
+Typhlosion,210,held_item,5,Air Balloon,1.7%,,,,,,,,
+Typhlosion,210,held_item,6,Life Orb,1.6%,,,,,,,,
+Typhlosion,210,held_item,7,Expert Belt,1.5%,,,,,,,,
 Typhlosion,210,held_item,8,Light Ball,0.9%,,,,,,,,
 Typhlosion,210,held_item,9,Soft Sand,0.4%,,,,,,,,
 Typhlosion,210,held_item,10,Quick Claw,0.3%,,,,,,,,
@@ -29,25 +29,25 @@ Typhlosion,210,teammate,7,Lucario,,,,,,,,,
 Typhlosion,210,teammate,8,Primarina,,,,,,,,,
 Typhlosion,210,teammate,9,Gyarados,,,,,,,,,
 Typhlosion,210,teammate,10,Ninetales-Alola,,,,,,,,,
-Typhlosion,210,stat_alignment,1,Modest,60.2%,Sp. Atk,Attack,,,,,,
+Typhlosion,210,stat_alignment,1,Modest,60.5%,Sp. Atk,Attack,,,,,,
 Typhlosion,210,stat_alignment,2,Timid,24.1%,Speed,Attack,,,,,,
 Typhlosion,210,stat_alignment,3,Rash,7.0%,Sp. Atk,Sp. Def,,,,,,
 Typhlosion,210,stat_alignment,4,Mild,1.9%,Sp. Atk,Defense,,,,,,
-Typhlosion,210,stat_alignment,5,Hasty,1.6%,Speed,Defense,,,,,,
+Typhlosion,210,stat_alignment,5,Hasty,1.5%,Speed,Defense,,,,,,
 Typhlosion,210,stat_alignment,6,Bold,1.4%,Defense,Attack,,,,,,
 Typhlosion,210,stat_alignment,7,Adamant,1.1%,Attack,Sp. Atk,,,,,,
-Typhlosion,210,stat_alignment,8,Naive,0.7%,Speed,Sp. Def,,,,,,
+Typhlosion,210,stat_alignment,8,Naive,0.6%,Speed,Sp. Def,,,,,,
 Typhlosion,210,stat_alignment,9,Lonely,0.6%,Attack,Defense,,,,,,
 Typhlosion,210,stat_alignment,10,Jolly,0.6%,Speed,Sp. Atk,,,,,,
-Typhlosion,210,stat_points,1,,42.8%,,,2,0,0,32,0,32
-Typhlosion,210,stat_points,2,,11.0%,,,0,0,2,32,0,32
-Typhlosion,210,stat_points,3,,8.2%,,,0,0,0,32,0,32
-Typhlosion,210,stat_points,4,,7.3%,,,0,0,0,32,2,32
-Typhlosion,210,stat_points,5,,5.3%,,,0,2,0,32,0,32
-Typhlosion,210,stat_points,6,,4.4%,,,32,0,2,32,0,0
-Typhlosion,210,stat_points,7,,3.7%,,,4,0,0,32,0,30
+Typhlosion,210,stat_points,1,,43.4%,,,2,0,0,32,0,32
+Typhlosion,210,stat_points,2,,11.1%,,,0,0,2,32,0,32
+Typhlosion,210,stat_points,3,,8.0%,,,0,0,0,32,0,32
+Typhlosion,210,stat_points,4,,7.0%,,,0,0,0,32,2,32
+Typhlosion,210,stat_points,5,,5.4%,,,0,2,0,32,0,32
+Typhlosion,210,stat_points,6,,4.5%,,,32,0,2,32,0,0
+Typhlosion,210,stat_points,7,,3.6%,,,4,0,0,32,0,30
 Typhlosion,210,stat_points,8,,1.5%,,,2,32,0,0,0,32
 Typhlosion,210,stat_points,9,,1.2%,,,2,0,1,32,0,31
 Typhlosion,210,stat_points,10,,1.1%,,,32,0,0,32,2,0
-Typhlosion,210,ability,1,Flash Fire,76.6%,,,,,,,,
-Typhlosion,210,ability,2,Blaze,23.4%,,,,,,,,
+Typhlosion,210,ability,1,Flash Fire,76.8%,,,,,,,,
+Typhlosion,210,ability,2,Blaze,23.2%,,,,,,,,

@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pikachu,173,move,1,Quick Attack,43.7%,,,,,,,,
+Pikachu,173,move,1,Quick Attack,43.4%,,,,,,,,
 Pikachu,173,move,2,Volt Tackle,37.7%,,,,,,,,
-Pikachu,173,move,3,Grass Knot,34.0%,,,,,,,,
-Pikachu,173,move,4,Surf,33.7%,,,,,,,,
+Pikachu,173,move,3,Grass Knot,33.9%,,,,,,,,
+Pikachu,173,move,4,Surf,33.6%,,,,,,,,
 Pikachu,173,move,5,Thunderbolt,26.9%,,,,,,,,
-Pikachu,173,move,6,Fake Out,25.9%,,,,,,,,
-Pikachu,173,move,7,Endeavor,24.1%,,,,,,,,
-Pikachu,173,move,8,Encore,20.9%,,,,,,,,
-Pikachu,173,move,9,Thunder,19.7%,,,,,,,,
+Pikachu,173,move,6,Fake Out,26.1%,,,,,,,,
+Pikachu,173,move,7,Endeavor,24.3%,,,,,,,,
+Pikachu,173,move,8,Encore,20.7%,,,,,,,,
+Pikachu,173,move,9,Thunder,19.8%,,,,,,,,
 Pikachu,173,move,10,Nuzzle,15.8%,,,,,,,,
-Pikachu,173,held_item,1,Light Ball,59.6%,,,,,,,,
+Pikachu,173,held_item,1,Light Ball,59.7%,,,,,,,,
 Pikachu,173,held_item,2,Focus Sash,21.2%,,,,,,,,
-Pikachu,173,held_item,3,Lum Berry,10.5%,,,,,,,,
-Pikachu,173,held_item,4,Choice Scarf,0.4%,,,,,,,,
+Pikachu,173,held_item,3,Lum Berry,10.4%,,,,,,,,
+Pikachu,173,held_item,4,Choice Scarf,0.5%,,,,,,,,
 Pikachu,173,held_item,5,White Herb,0.1%,,,,,,,,
 Pikachu,173,held_item,6,Sitrus Berry,0.1%,,,,,,,,
 Pikachu,173,held_item,7,Focus Band,0.1%,,,,,,,,
 Pikachu,173,held_item,8,Mental Herb,0.1%,,,,,,,,
-Pikachu,173,held_item,9,Bright Powder,0.1%,,,,,,,,
-Pikachu,173,held_item,10,Life Orb,0.0%,,,,,,,,
+Pikachu,173,held_item,9,Quick Claw,0.1%,,,,,,,,
+Pikachu,173,held_item,10,Bright Powder,0.1%,,,,,,,,
 Pikachu,173,teammate,1,Gengar,,,,,,,,,
 Pikachu,173,teammate,2,Charizard,,,,,,,,,
 Pikachu,173,teammate,3,Garchomp,,,,,,,,,
@@ -26,28 +26,28 @@ Pikachu,173,teammate,4,Dragonite,,,,,,,,,
 Pikachu,173,teammate,5,Greninja,,,,,,,,,
 Pikachu,173,teammate,6,Azumarill,,,,,,,,,
 Pikachu,173,teammate,7,Gyarados,,,,,,,,,
-Pikachu,173,teammate,8,Kingambit,,,,,,,,,
-Pikachu,173,teammate,9,Lucario,,,,,,,,,
+Pikachu,173,teammate,8,Lucario,,,,,,,,,
+Pikachu,173,teammate,9,Kingambit,,,,,,,,,
 Pikachu,173,teammate,10,Snorlax,,,,,,,,,
-Pikachu,173,stat_alignment,1,Timid,33.4%,Speed,Attack,,,,,,
-Pikachu,173,stat_alignment,2,Jolly,25.4%,Speed,Sp. Atk,,,,,,
-Pikachu,173,stat_alignment,3,Adamant,15.1%,Attack,Sp. Atk,,,,,,
+Pikachu,173,stat_alignment,1,Timid,33.1%,Speed,Attack,,,,,,
+Pikachu,173,stat_alignment,2,Jolly,25.6%,Speed,Sp. Atk,,,,,,
+Pikachu,173,stat_alignment,3,Adamant,14.9%,Attack,Sp. Atk,,,,,,
 Pikachu,173,stat_alignment,4,Modest,10.2%,Sp. Atk,Attack,,,,,,
-Pikachu,173,stat_alignment,5,Naive,6.1%,Speed,Sp. Def,,,,,,
-Pikachu,173,stat_alignment,6,Hasty,4.0%,Speed,Defense,,,,,,
+Pikachu,173,stat_alignment,5,Naive,6.4%,Speed,Sp. Def,,,,,,
+Pikachu,173,stat_alignment,6,Hasty,4.1%,Speed,Defense,,,,,,
 Pikachu,173,stat_alignment,7,Brave,1.5%,Attack,Speed,,,,,,
 Pikachu,173,stat_alignment,8,Mild,0.9%,Sp. Atk,Defense,,,,,,
 Pikachu,173,stat_alignment,9,Impish,0.9%,Defense,Sp. Atk,,,,,,
-Pikachu,173,stat_alignment,10,Rash,0.7%,Sp. Atk,Sp. Def,,,,,,
-Pikachu,173,stat_points,1,,32.7%,,,2,0,0,32,0,32
-Pikachu,173,stat_points,2,,26.7%,,,2,32,0,0,0,32
-Pikachu,173,stat_points,3,,5.0%,,,1,0,1,32,0,32
+Pikachu,173,stat_alignment,10,Rash,0.8%,Sp. Atk,Sp. Def,,,,,,
+Pikachu,173,stat_points,1,,32.5%,,,2,0,0,32,0,32
+Pikachu,173,stat_points,2,,26.9%,,,2,32,0,0,0,32
+Pikachu,173,stat_points,3,,4.9%,,,1,0,1,32,0,32
 Pikachu,173,stat_points,4,,3.8%,,,0,32,2,0,0,32
 Pikachu,173,stat_points,5,,3.5%,,,1,32,1,0,0,32
-Pikachu,173,stat_points,6,,2.9%,,,0,32,0,0,0,32
-Pikachu,173,stat_points,7,,2.4%,,,0,2,0,32,0,32
-Pikachu,173,stat_points,8,,2.2%,,,3,32,0,0,0,31
+Pikachu,173,stat_points,6,,2.8%,,,0,32,0,0,0,32
+Pikachu,173,stat_points,7,,2.7%,,,0,2,0,32,0,32
+Pikachu,173,stat_points,8,,2.1%,,,3,32,0,0,0,31
 Pikachu,173,stat_points,9,,1.7%,,,1,0,0,32,1,32
 Pikachu,173,stat_points,10,,1.5%,,,0,0,2,32,0,32
-Pikachu,173,ability,1,Static,62.5%,,,,,,,,
-Pikachu,173,ability,2,Lightning Rod,37.5%,,,,,,,,
+Pikachu,173,ability,1,Static,62.6%,,,,,,,,
+Pikachu,173,ability,2,Lightning Rod,37.4%,,,,,,,,

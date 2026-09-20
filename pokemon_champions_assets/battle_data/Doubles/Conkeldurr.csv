@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Conkeldurr,140,move,1,Drain Punch,71.6%,,,,,,,,
-Conkeldurr,140,move,2,Ice Punch,65.1%,,,,,,,,
+Conkeldurr,140,move,2,Ice Punch,65.0%,,,,,,,,
 Conkeldurr,140,move,3,Mach Punch,47.4%,,,,,,,,
-Conkeldurr,140,move,4,Thunder Punch,46.4%,,,,,,,,
-Conkeldurr,140,move,5,Wide Guard,35.9%,,,,,,,,
-Conkeldurr,140,move,6,Fire Punch,21.1%,,,,,,,,
-Conkeldurr,140,move,7,Rock Slide,18.6%,,,,,,,,
+Conkeldurr,140,move,4,Thunder Punch,46.6%,,,,,,,,
+Conkeldurr,140,move,5,Wide Guard,35.8%,,,,,,,,
+Conkeldurr,140,move,6,Fire Punch,21.2%,,,,,,,,
+Conkeldurr,140,move,7,Rock Slide,18.5%,,,,,,,,
 Conkeldurr,140,move,8,Protect,16.0%,,,,,,,,
 Conkeldurr,140,move,9,Knock Off,14.5%,,,,,,,,
-Conkeldurr,140,move,10,Detect,13.3%,,,,,,,,
-Conkeldurr,140,held_item,1,Life Orb,48.8%,,,,,,,,
-Conkeldurr,140,held_item,2,Expert Belt,14.8%,,,,,,,,
+Conkeldurr,140,move,10,Detect,13.4%,,,,,,,,
+Conkeldurr,140,held_item,1,Life Orb,48.7%,,,,,,,,
+Conkeldurr,140,held_item,2,Expert Belt,14.7%,,,,,,,,
 Conkeldurr,140,held_item,3,Black Belt,9.1%,,,,,,,,
 Conkeldurr,140,held_item,4,Sitrus Berry,4.6%,,,,,,,,
 Conkeldurr,140,held_item,5,Leftovers,3.5%,,,,,,,,
 Conkeldurr,140,held_item,6,White Herb,2.7%,,,,,,,,
 Conkeldurr,140,held_item,7,Focus Sash,2.5%,,,,,,,,
-Conkeldurr,140,held_item,8,Muscle Band,2.4%,,,,,,,,
+Conkeldurr,140,held_item,8,Muscle Band,2.5%,,,,,,,,
 Conkeldurr,140,held_item,9,Psychic Seed,2.3%,,,,,,,,
 Conkeldurr,140,held_item,10,Quick Claw,1.2%,,,,,,,,
 Conkeldurr,140,teammate,1,Indeedee-F,,,,,,,,,
@@ -29,26 +29,26 @@ Conkeldurr,140,teammate,7,Camerupt,,,,,,,,,
 Conkeldurr,140,teammate,8,Armarouge,,,,,,,,,
 Conkeldurr,140,teammate,9,Incineroar,,,,,,,,,
 Conkeldurr,140,teammate,10,Rillaboom,,,,,,,,,
-Conkeldurr,140,stat_alignment,1,Brave,69.0%,Attack,Speed,,,,,,
-Conkeldurr,140,stat_alignment,2,Adamant,24.9%,Attack,Sp. Atk,,,,,,
+Conkeldurr,140,stat_alignment,1,Brave,68.6%,Attack,Speed,,,,,,
+Conkeldurr,140,stat_alignment,2,Adamant,25.4%,Attack,Sp. Atk,,,,,,
 Conkeldurr,140,stat_alignment,3,Sassy,2.2%,Sp. Def,Speed,,,,,,
 Conkeldurr,140,stat_alignment,4,Careful,1.4%,Sp. Def,Sp. Atk,,,,,,
 Conkeldurr,140,stat_alignment,5,Lax,0.7%,Defense,Sp. Def,,,,,,
 Conkeldurr,140,stat_alignment,6,Relaxed,0.7%,Defense,Speed,,,,,,
-Conkeldurr,140,stat_alignment,7,Impish,0.3%,Defense,Sp. Atk,,,,,,
-Conkeldurr,140,stat_alignment,8,Jolly,0.3%,Speed,Sp. Atk,,,,,,
+Conkeldurr,140,stat_alignment,7,Jolly,0.3%,Speed,Sp. Atk,,,,,,
+Conkeldurr,140,stat_alignment,8,Impish,0.3%,Defense,Sp. Atk,,,,,,
 Conkeldurr,140,stat_alignment,9,Naughty,0.2%,Attack,Sp. Def,,,,,,
 Conkeldurr,140,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
-Conkeldurr,140,stat_points,1,,24.4%,,,32,32,0,0,2,0
-Conkeldurr,140,stat_points,2,,21.7%,,,32,32,2,0,0,0
-Conkeldurr,140,stat_points,3,,8.4%,,,2,32,0,0,32,0
+Conkeldurr,140,stat_points,1,,24.5%,,,32,32,0,0,2,0
+Conkeldurr,140,stat_points,2,,21.5%,,,32,32,2,0,0,0
+Conkeldurr,140,stat_points,3,,8.3%,,,2,32,0,0,32,0
 Conkeldurr,140,stat_points,4,,3.6%,,,0,32,2,0,32,0
-Conkeldurr,140,stat_points,5,,2.4%,,,19,32,0,0,15,0
-Conkeldurr,140,stat_points,6,,1.9%,,,4,32,0,0,30,0
-Conkeldurr,140,stat_points,7,,1.8%,,,0,32,32,0,2,0
+Conkeldurr,140,stat_points,5,,2.3%,,,19,32,0,0,15,0
+Conkeldurr,140,stat_points,6,,2.1%,,,4,32,0,0,30,0
+Conkeldurr,140,stat_points,7,,1.9%,,,0,32,32,0,2,0
 Conkeldurr,140,stat_points,8,,1.2%,,,2,32,32,0,0,0
 Conkeldurr,140,stat_points,9,,1.2%,,,7,32,15,0,10,0
 Conkeldurr,140,stat_points,10,,1.1%,,,20,31,0,0,15,0
 Conkeldurr,140,ability,1,Iron Fist,69.9%,,,,,,,,
-Conkeldurr,140,ability,2,Sheer Force,24.2%,,,,,,,,
-Conkeldurr,140,ability,3,Guts,5.9%,,,,,,,,
+Conkeldurr,140,ability,2,Sheer Force,24.1%,,,,,,,,
+Conkeldurr,140,ability,3,Guts,6.0%,,,,,,,,

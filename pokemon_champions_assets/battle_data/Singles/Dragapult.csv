@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dragapult,59,move,1,Dragon Darts,47.5%,,,,,,,,
-Dragapult,59,move,2,Shadow Ball,44.5%,,,,,,,,
-Dragapult,59,move,3,Draco Meteor,39.8%,,,,,,,,
-Dragapult,59,move,4,U-turn,36.6%,,,,,,,,
-Dragapult,59,move,5,Flamethrower,30.7%,,,,,,,,
-Dragapult,59,move,6,Phantom Force,27.4%,,,,,,,,
-Dragapult,59,move,7,Thunderbolt,23.1%,,,,,,,,
+Dragapult,59,move,1,Dragon Darts,47.6%,,,,,,,,
+Dragapult,59,move,2,Shadow Ball,44.4%,,,,,,,,
+Dragapult,59,move,3,Draco Meteor,39.7%,,,,,,,,
+Dragapult,59,move,4,U-turn,36.7%,,,,,,,,
+Dragapult,59,move,5,Flamethrower,30.6%,,,,,,,,
+Dragapult,59,move,6,Phantom Force,27.5%,,,,,,,,
+Dragapult,59,move,7,Thunderbolt,23.0%,,,,,,,,
 Dragapult,59,move,8,Sucker Punch,22.1%,,,,,,,,
-Dragapult,59,move,9,Will-O-Wisp,18.8%,,,,,,,,
-Dragapult,59,move,10,Curse,16.6%,,,,,,,,
+Dragapult,59,move,9,Will-O-Wisp,18.7%,,,,,,,,
+Dragapult,59,move,10,Curse,16.5%,,,,,,,,
 Dragapult,59,held_item,1,Life Orb,35.8%,,,,,,,,
 Dragapult,59,held_item,2,Choice Scarf,24.0%,,,,,,,,
 Dragapult,59,held_item,3,Focus Sash,15.5%,,,,,,,,
@@ -30,7 +30,7 @@ Dragapult,59,teammate,8,Charizard,,,,,,,,,
 Dragapult,59,teammate,9,Rillaboom,,,,,,,,,
 Dragapult,59,teammate,10,Meowscarada,,,,,,,,,
 Dragapult,59,stat_alignment,1,Timid,26.5%,Speed,Attack,,,,,,
-Dragapult,59,stat_alignment,2,Modest,19.5%,Sp. Atk,Attack,,,,,,
+Dragapult,59,stat_alignment,2,Modest,19.4%,Sp. Atk,Attack,,,,,,
 Dragapult,59,stat_alignment,3,Jolly,17.3%,Speed,Sp. Atk,,,,,,
 Dragapult,59,stat_alignment,4,Adamant,15.8%,Attack,Sp. Atk,,,,,,
 Dragapult,59,stat_alignment,5,Naive,8.8%,Speed,Sp. Def,,,,,,
@@ -40,7 +40,7 @@ Dragapult,59,stat_alignment,8,Rash,2.1%,Sp. Atk,Sp. Def,,,,,,
 Dragapult,59,stat_alignment,9,Lonely,1.6%,Attack,Defense,,,,,,
 Dragapult,59,stat_alignment,10,Mild,0.7%,Sp. Atk,Defense,,,,,,
 Dragapult,59,stat_points,1,,24.6%,,,2,0,0,32,0,32
-Dragapult,59,stat_points,2,,19.8%,,,2,32,0,0,0,32
+Dragapult,59,stat_points,2,,19.9%,,,2,32,0,0,0,32
 Dragapult,59,stat_points,3,,3.1%,,,0,32,2,0,0,32
 Dragapult,59,stat_points,4,,2.9%,,,0,32,0,0,2,32
 Dragapult,59,stat_points,5,,2.2%,,,0,32,0,2,0,32
@@ -48,7 +48,7 @@ Dragapult,59,stat_points,6,,2.1%,,,0,0,2,32,0,32
 Dragapult,59,stat_points,7,,1.9%,,,32,0,2,0,0,32
 Dragapult,59,stat_points,8,,1.8%,,,32,0,1,0,1,32
 Dragapult,59,stat_points,9,,1.5%,,,0,2,0,32,0,32
-Dragapult,59,stat_points,10,,1.2%,,,0,32,0,0,0,32
+Dragapult,59,stat_points,10,,1.2%,,,0,15,0,25,0,26
 Dragapult,59,ability,1,Infiltrator,67.4%,,,,,,,,
 Dragapult,59,ability,2,Clear Body,16.6%,,,,,,,,
 Dragapult,59,ability,3,Cursed Body,16.0%,,,,,,,,

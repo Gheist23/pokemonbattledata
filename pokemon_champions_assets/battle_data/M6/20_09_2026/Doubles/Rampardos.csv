@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rampardos,212,move,1,Rock Slide,86.6%,,,,,,,,
-Rampardos,212,move,2,Protect,62.2%,,,,,,,,
-Rampardos,212,move,3,Iron Head,31.6%,,,,,,,,
-Rampardos,212,move,4,Head Smash,31.2%,,,,,,,,
-Rampardos,212,move,5,Fire Punch,27.0%,,,,,,,,
-Rampardos,212,move,6,Earthquake,24.5%,,,,,,,,
-Rampardos,212,move,7,Hammer Arm,19.5%,,,,,,,,
-Rampardos,212,move,8,Crunch,17.6%,,,,,,,,
-Rampardos,212,move,9,Supercell Slam,15.1%,,,,,,,,
-Rampardos,212,move,10,Thunder Punch,14.9%,,,,,,,,
-Rampardos,212,held_item,1,Life Orb,56.7%,,,,,,,,
-Rampardos,212,held_item,2,Focus Sash,13.7%,,,,,,,,
-Rampardos,212,held_item,3,Muscle Band,10.4%,,,,,,,,
-Rampardos,212,held_item,4,Choice Scarf,5.6%,,,,,,,,
+Rampardos,212,move,1,Rock Slide,86.8%,,,,,,,,
+Rampardos,212,move,2,Protect,63.3%,,,,,,,,
+Rampardos,212,move,3,Iron Head,32.0%,,,,,,,,
+Rampardos,212,move,4,Head Smash,30.9%,,,,,,,,
+Rampardos,212,move,5,Fire Punch,27.6%,,,,,,,,
+Rampardos,212,move,6,Earthquake,24.2%,,,,,,,,
+Rampardos,212,move,7,Hammer Arm,19.1%,,,,,,,,
+Rampardos,212,move,8,Crunch,17.2%,,,,,,,,
+Rampardos,212,move,9,Thunder Punch,15.1%,,,,,,,,
+Rampardos,212,move,10,Supercell Slam,14.7%,,,,,,,,
+Rampardos,212,held_item,1,Life Orb,56.5%,,,,,,,,
+Rampardos,212,held_item,2,Focus Sash,14.2%,,,,,,,,
+Rampardos,212,held_item,3,Muscle Band,10.1%,,,,,,,,
+Rampardos,212,held_item,4,Choice Scarf,5.4%,,,,,,,,
 Rampardos,212,held_item,5,Wide Lens,5.3%,,,,,,,,
 Rampardos,212,held_item,6,Hard Stone,2.9%,,,,,,,,
-Rampardos,212,held_item,7,White Herb,1.9%,,,,,,,,
+Rampardos,212,held_item,7,White Herb,1.8%,,,,,,,,
 Rampardos,212,held_item,8,Sitrus Berry,1.0%,,,,,,,,
 Rampardos,212,held_item,9,Expert Belt,0.5%,,,,,,,,
-Rampardos,212,held_item,10,King's Rock,0.4%,,,,,,,,
+Rampardos,212,held_item,10,Metronome,0.4%,,,,,,,,
 Rampardos,212,teammate,1,Farigiraf,,,,,,,,,
 Rampardos,212,teammate,2,Golisopod,,,,,,,,,
 Rampardos,212,teammate,3,Torkoal,,,,,,,,,
@@ -30,23 +30,24 @@ Rampardos,212,teammate,8,Camerupt,,,,,,,,,
 Rampardos,212,teammate,9,Cofagrigus,,,,,,,,,
 Rampardos,212,teammate,10,Absol,,,,,,,,,
 Rampardos,212,stat_alignment,1,Brave,72.2%,Attack,Speed,,,,,,
-Rampardos,212,stat_alignment,2,Adamant,20.1%,Attack,Sp. Atk,,,,,,
-Rampardos,212,stat_alignment,3,Jolly,5.8%,Speed,Sp. Atk,,,,,,
+Rampardos,212,stat_alignment,2,Adamant,20.0%,Attack,Sp. Atk,,,,,,
+Rampardos,212,stat_alignment,3,Jolly,5.7%,Speed,Sp. Atk,,,,,,
 Rampardos,212,stat_alignment,4,Naive,0.8%,Speed,Sp. Def,,,,,,
-Rampardos,212,stat_alignment,5,Naughty,0.5%,Attack,Sp. Def,,,,,,
+Rampardos,212,stat_alignment,5,Naughty,0.6%,Attack,Sp. Def,,,,,,
 Rampardos,212,stat_alignment,6,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
-Rampardos,212,stat_alignment,7,Sassy,0.2%,Sp. Def,Speed,,,,,,
-Rampardos,212,stat_alignment,8,Lonely,0.1%,Attack,Defense,,,,,,
+Rampardos,212,stat_alignment,7,Lonely,0.2%,Attack,Defense,,,,,,
+Rampardos,212,stat_alignment,8,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Rampardos,212,stat_alignment,9,Relaxed,0.1%,Defense,Speed,,,,,,
-Rampardos,212,stat_points,1,,21.7%,,,32,32,0,0,2,0
-Rampardos,212,stat_points,2,,13.9%,,,32,32,2,0,0,0
-Rampardos,212,stat_points,3,,10.3%,,,0,32,21,0,13,0
-Rampardos,212,stat_points,4,,8.1%,,,2,32,0,0,0,32
-Rampardos,212,stat_points,5,,4.9%,,,32,32,0,0,0,0
-Rampardos,212,stat_points,6,,3.9%,,,32,26,0,8,0,0
-Rampardos,212,stat_points,7,,3.4%,,,32,32,0,0,0,2
+Rampardos,212,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Rampardos,212,stat_points,1,,22.0%,,,32,32,0,0,2,0
+Rampardos,212,stat_points,2,,14.4%,,,32,32,2,0,0,0
+Rampardos,212,stat_points,3,,9.9%,,,0,32,21,0,13,0
+Rampardos,212,stat_points,4,,7.9%,,,2,32,0,0,0,32
+Rampardos,212,stat_points,5,,4.8%,,,32,32,0,0,0,0
+Rampardos,212,stat_points,6,,3.8%,,,32,26,0,8,0,0
+Rampardos,212,stat_points,7,,3.3%,,,32,32,0,0,0,2
 Rampardos,212,stat_points,8,,3.2%,,,21,32,0,13,0,0
-Rampardos,212,stat_points,9,,2.4%,,,26,32,0,8,0,0
-Rampardos,212,stat_points,10,,1.9%,,,0,32,0,0,2,32
-Rampardos,212,ability,1,Sheer Force,95.4%,,,,,,,,
-Rampardos,212,ability,2,Mold Breaker,4.6%,,,,,,,,
+Rampardos,212,stat_points,9,,2.3%,,,26,32,0,8,0,0
+Rampardos,212,stat_points,10,,2.0%,,,0,32,0,0,2,32
+Rampardos,212,ability,1,Sheer Force,95.3%,,,,,,,,
+Rampardos,212,ability,2,Mold Breaker,4.7%,,,,,,,,

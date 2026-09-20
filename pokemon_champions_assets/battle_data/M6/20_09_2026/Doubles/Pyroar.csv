@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pyroar,106,move,1,Protect,97.8%,,,,,,,,
-Pyroar,106,move,2,Heat Wave,97.5%,,,,,,,,
-Pyroar,106,move,3,Overheat,60.9%,,,,,,,,
+Pyroar,106,move,2,Heat Wave,97.6%,,,,,,,,
+Pyroar,106,move,3,Overheat,60.8%,,,,,,,,
 Pyroar,106,move,4,Hyper Voice,29.3%,,,,,,,,
-Pyroar,106,move,5,Solar Beam,29.1%,,,,,,,,
-Pyroar,106,move,6,Flamethrower,17.8%,,,,,,,,
-Pyroar,106,move,7,Scorching Sands,17.5%,,,,,,,,
-Pyroar,106,move,8,Dark Pulse,11.8%,,,,,,,,
+Pyroar,106,move,5,Solar Beam,29.2%,,,,,,,,
+Pyroar,106,move,6,Scorching Sands,17.7%,,,,,,,,
+Pyroar,106,move,7,Flamethrower,17.7%,,,,,,,,
+Pyroar,106,move,8,Dark Pulse,11.7%,,,,,,,,
 Pyroar,106,move,9,Snarl,9.2%,,,,,,,,
 Pyroar,106,move,10,Sunny Day,5.3%,,,,,,,,
 Pyroar,106,held_item,1,Pyroarite,97.0%,,,,,,,,
 Pyroar,106,held_item,2,Life Orb,1.1%,,,,,,,,
-Pyroar,106,held_item,3,Charcoal,1.0%,,,,,,,,
+Pyroar,106,held_item,3,Charcoal,0.9%,,,,,,,,
 Pyroar,106,held_item,4,Focus Sash,0.5%,,,,,,,,
 Pyroar,106,held_item,5,Quick Claw,0.1%,,,,,,,,
 Pyroar,106,held_item,6,Air Balloon,0.1%,,,,,,,,
@@ -21,34 +21,34 @@ Pyroar,106,held_item,9,Choice Scarf,0.0%,,,,,,,,
 Pyroar,106,held_item,10,Passho Berry,0.0%,,,,,,,,
 Pyroar,106,teammate,1,Torkoal,,,,,,,,,
 Pyroar,106,teammate,2,Indeedee-F,,,,,,,,,
-Pyroar,106,teammate,3,Rillaboom,,,,,,,,,
-Pyroar,106,teammate,4,Whimsicott,,,,,,,,,
+Pyroar,106,teammate,3,Whimsicott,,,,,,,,,
+Pyroar,106,teammate,4,Rillaboom,,,,,,,,,
 Pyroar,106,teammate,5,Sneasler,,,,,,,,,
 Pyroar,106,teammate,6,Farigiraf,,,,,,,,,
 Pyroar,106,teammate,7,Basculegion,,,,,,,,,
 Pyroar,106,teammate,8,Kingambit,,,,,,,,,
-Pyroar,106,teammate,9,Salamence,,,,,,,,,
-Pyroar,106,teammate,10,Garchomp,,,,,,,,,
-Pyroar,106,stat_alignment,1,Timid,80.1%,Speed,Attack,,,,,,
-Pyroar,106,stat_alignment,2,Modest,18.3%,Sp. Atk,Attack,,,,,,
-Pyroar,106,stat_alignment,3,Naive,0.9%,Speed,Sp. Def,,,,,,
-Pyroar,106,stat_alignment,4,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Pyroar,106,stat_alignment,5,Hasty,0.1%,Speed,Defense,,,,,,
+Pyroar,106,teammate,9,Garchomp,,,,,,,,,
+Pyroar,106,teammate,10,Sylveon,,,,,,,,,
+Pyroar,106,stat_alignment,1,Timid,80.0%,Speed,Attack,,,,,,
+Pyroar,106,stat_alignment,2,Modest,18.5%,Sp. Atk,Attack,,,,,,
+Pyroar,106,stat_alignment,3,Naive,0.8%,Speed,Sp. Def,,,,,,
+Pyroar,106,stat_alignment,4,Hasty,0.1%,Speed,Defense,,,,,,
+Pyroar,106,stat_alignment,5,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Pyroar,106,stat_alignment,6,Quiet,0.1%,Sp. Atk,Speed,,,,,,
 Pyroar,106,stat_alignment,7,Adamant,0.1%,Attack,Sp. Atk,,,,,,
 Pyroar,106,stat_alignment,8,Bold,0.1%,Defense,Attack,,,,,,
 Pyroar,106,stat_alignment,9,Calm,0.1%,Sp. Def,Attack,,,,,,
 Pyroar,106,stat_alignment,10,Rash,0.0%,Sp. Atk,Sp. Def,,,,,,
 Pyroar,106,stat_points,1,,56.8%,,,2,0,0,32,0,32
-Pyroar,106,stat_points,2,,7.1%,,,0,0,0,32,2,32
+Pyroar,106,stat_points,2,,7.0%,,,0,0,0,32,2,32
 Pyroar,106,stat_points,3,,5.4%,,,0,0,2,32,0,32
-Pyroar,106,stat_points,4,,3.8%,,,7,0,0,32,0,27
+Pyroar,106,stat_points,4,,3.7%,,,7,0,0,32,0,27
 Pyroar,106,stat_points,5,,2.3%,,,0,0,7,32,0,27
-Pyroar,106,stat_points,6,,1.8%,,,6,0,0,32,0,28
+Pyroar,106,stat_points,6,,1.9%,,,6,0,0,32,0,28
 Pyroar,106,stat_points,7,,1.4%,,,5,0,0,32,0,29
 Pyroar,106,stat_points,8,,1.3%,,,0,0,0,32,0,32
-Pyroar,106,stat_points,9,,1.2%,,,30,0,0,9,0,27
+Pyroar,106,stat_points,9,,1.2%,,,0,0,1,32,1,32
 Pyroar,106,stat_points,10,,1.2%,,,4,0,0,32,0,30
-Pyroar,106,ability,1,Unnerve,84.4%,,,,,,,,
-Pyroar,106,ability,2,Moxie,9.1%,,,,,,,,
+Pyroar,106,ability,1,Unnerve,84.6%,,,,,,,,
+Pyroar,106,ability,2,Moxie,8.9%,,,,,,,,
 Pyroar,106,ability,3,Rivalry,6.5%,,,,,,,,

@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slurpuff,210,move,1,Dazzling Gleam,70.6%,,,,,,,,
-Slurpuff,210,move,2,Protect,47.6%,,,,,,,,
-Slurpuff,210,move,3,Flamethrower,33.1%,,,,,,,,
-Slurpuff,210,move,4,After You,28.7%,,,,,,,,
-Slurpuff,210,move,5,Calm Mind,25.4%,,,,,,,,
-Slurpuff,210,move,6,Cotton Guard,21.3%,,,,,,,,
-Slurpuff,210,move,7,Charm,21.0%,,,,,,,,
-Slurpuff,210,move,8,String Shot,20.0%,,,,,,,,
-Slurpuff,210,move,9,Helping Hand,19.0%,,,,,,,,
-Slurpuff,210,move,10,Fake Tears,18.5%,,,,,,,,
-Slurpuff,210,held_item,1,Psychic Seed,35.1%,,,,,,,,
-Slurpuff,210,held_item,2,Sitrus Berry,20.0%,,,,,,,,
-Slurpuff,210,held_item,3,Grassy Seed,14.1%,,,,,,,,
-Slurpuff,210,held_item,4,Quick Claw,6.6%,,,,,,,,
-Slurpuff,210,held_item,5,Electric Seed,6.6%,,,,,,,,
-Slurpuff,210,held_item,6,Choice Scarf,6.4%,,,,,,,,
-Slurpuff,210,held_item,7,Persim Berry,2.9%,,,,,,,,
+Slurpuff,210,move,1,Dazzling Gleam,70.5%,,,,,,,,
+Slurpuff,210,move,2,Protect,47.0%,,,,,,,,
+Slurpuff,210,move,3,Flamethrower,32.8%,,,,,,,,
+Slurpuff,210,move,4,After You,29.5%,,,,,,,,
+Slurpuff,210,move,5,Calm Mind,25.3%,,,,,,,,
+Slurpuff,210,move,6,Cotton Guard,20.9%,,,,,,,,
+Slurpuff,210,move,7,Charm,20.6%,,,,,,,,
+Slurpuff,210,move,8,String Shot,20.4%,,,,,,,,
+Slurpuff,210,move,9,Helping Hand,18.8%,,,,,,,,
+Slurpuff,210,move,10,Fake Tears,18.7%,,,,,,,,
+Slurpuff,210,held_item,1,Psychic Seed,34.7%,,,,,,,,
+Slurpuff,210,held_item,2,Sitrus Berry,19.5%,,,,,,,,
+Slurpuff,210,held_item,3,Grassy Seed,14.8%,,,,,,,,
+Slurpuff,210,held_item,4,Electric Seed,7.0%,,,,,,,,
+Slurpuff,210,held_item,5,Quick Claw,6.4%,,,,,,,,
+Slurpuff,210,held_item,6,Choice Scarf,6.2%,,,,,,,,
+Slurpuff,210,held_item,7,Persim Berry,2.8%,,,,,,,,
 Slurpuff,210,held_item,8,Red Card,2.3%,,,,,,,,
 Slurpuff,210,held_item,9,Leftovers,1.4%,,,,,,,,
 Slurpuff,210,held_item,10,Focus Band,1.0%,,,,,,,,
@@ -29,25 +29,25 @@ Slurpuff,210,teammate,7,Salamence,,,,,,,,,
 Slurpuff,210,teammate,8,Basculegion,,,,,,,,,
 Slurpuff,210,teammate,9,Golisopod,,,,,,,,,
 Slurpuff,210,teammate,10,Gardevoir,,,,,,,,,
-Slurpuff,210,stat_alignment,1,Modest,43.6%,Sp. Atk,Attack,,,,,,
-Slurpuff,210,stat_alignment,2,Timid,23.8%,Speed,Attack,,,,,,
+Slurpuff,210,stat_alignment,1,Modest,43.8%,Sp. Atk,Attack,,,,,,
+Slurpuff,210,stat_alignment,2,Timid,23.7%,Speed,Attack,,,,,,
 Slurpuff,210,stat_alignment,3,Calm,12.9%,Sp. Def,Attack,,,,,,
-Slurpuff,210,stat_alignment,4,Bold,10.6%,Defense,Attack,,,,,,
-Slurpuff,210,stat_alignment,5,Adamant,4.2%,Attack,Sp. Atk,,,,,,
-Slurpuff,210,stat_alignment,6,Impish,1.9%,Defense,Sp. Atk,,,,,,
+Slurpuff,210,stat_alignment,4,Bold,10.7%,Defense,Attack,,,,,,
+Slurpuff,210,stat_alignment,5,Adamant,4.1%,Attack,Sp. Atk,,,,,,
+Slurpuff,210,stat_alignment,6,Impish,1.8%,Defense,Sp. Atk,,,,,,
 Slurpuff,210,stat_alignment,7,Sassy,0.8%,Sp. Def,Speed,,,,,,
 Slurpuff,210,stat_alignment,8,Quiet,0.6%,Sp. Atk,Speed,,,,,,
 Slurpuff,210,stat_alignment,9,Jolly,0.5%,Speed,Sp. Atk,,,,,,
 Slurpuff,210,stat_alignment,10,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Slurpuff,210,stat_points,1,,13.5%,,,32,0,2,32,0,0
+Slurpuff,210,stat_points,1,,13.3%,,,32,0,2,32,0,0
 Slurpuff,210,stat_points,2,,8.1%,,,32,0,0,0,2,32
-Slurpuff,210,stat_points,3,,6.7%,,,0,0,32,32,2,0
-Slurpuff,210,stat_points,4,,6.6%,,,32,0,2,0,0,32
+Slurpuff,210,stat_points,3,,6.6%,,,0,0,32,32,2,0
+Slurpuff,210,stat_points,4,,6.5%,,,32,0,2,0,0,32
 Slurpuff,210,stat_points,5,,5.4%,,,2,0,0,32,0,32
 Slurpuff,210,stat_points,6,,3.1%,,,2,0,0,32,32,0
 Slurpuff,210,stat_points,7,,2.5%,,,2,0,4,32,15,13
-Slurpuff,210,stat_points,8,,2.2%,,,14,0,0,32,0,20
-Slurpuff,210,stat_points,9,,2.2%,,,2,32,0,0,0,32
-Slurpuff,210,stat_points,10,,2.0%,,,27,0,4,0,15,20
-Slurpuff,210,ability,1,Unburden,78.6%,,,,,,,,
-Slurpuff,210,ability,2,Sweet Veil,21.4%,,,,,,,,
+Slurpuff,210,stat_points,8,,2.3%,,,14,0,0,32,0,20
+Slurpuff,210,stat_points,9,,2.1%,,,2,32,0,0,0,32
+Slurpuff,210,stat_points,10,,1.9%,,,27,0,4,0,15,20
+Slurpuff,210,ability,1,Unburden,78.9%,,,,,,,,
+Slurpuff,210,ability,2,Sweet Veil,21.1%,,,,,,,,

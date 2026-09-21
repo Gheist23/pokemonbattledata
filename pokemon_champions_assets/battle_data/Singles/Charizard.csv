@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Charizard,15,move,1,Solar Beam,71.1%,,,,,,,,
+Charizard,15,move,1,Solar Beam,71.2%,,,,,,,,
 Charizard,15,move,2,Flamethrower,52.0%,,,,,,,,
 Charizard,15,move,3,Air Slash,38.2%,,,,,,,,
-Charizard,15,move,4,Dragon Pulse,31.2%,,,,,,,,
+Charizard,15,move,4,Dragon Pulse,31.3%,,,,,,,,
 Charizard,15,move,5,Roost,27.7%,,,,,,,,
-Charizard,15,move,6,Flare Blitz,24.3%,,,,,,,,
+Charizard,15,move,6,Flare Blitz,24.2%,,,,,,,,
 Charizard,15,move,7,Flame Charge,22.3%,,,,,,,,
 Charizard,15,move,8,Weather Ball,18.2%,,,,,,,,
-Charizard,15,move,9,Overheat,17.6%,,,,,,,,
+Charizard,15,move,9,Overheat,17.5%,,,,,,,,
 Charizard,15,move,10,Dragon Dance,16.9%,,,,,,,,
-Charizard,15,held_item,1,Charizardite Y,73.0%,,,,,,,,
-Charizard,15,held_item,2,Charizardite X,25.5%,,,,,,,,
+Charizard,15,held_item,1,Charizardite Y,73.1%,,,,,,,,
+Charizard,15,held_item,2,Charizardite X,25.4%,,,,,,,,
 Charizard,15,held_item,3,Choice Scarf,0.3%,,,,,,,,
 Charizard,15,held_item,4,Focus Sash,0.1%,,,,,,,,
 Charizard,15,held_item,5,Life Orb,0.1%,,,,,,,,
@@ -31,7 +31,7 @@ Charizard,15,teammate,9,Salamence,,,,,,,,,
 Charizard,15,teammate,10,Gholdengo,,,,,,,,,
 Charizard,15,stat_alignment,1,Modest,49.2%,Sp. Atk,Attack,,,,,,
 Charizard,15,stat_alignment,2,Timid,22.7%,Speed,Attack,,,,,,
-Charizard,15,stat_alignment,3,Adamant,15.5%,Attack,Sp. Atk,,,,,,
+Charizard,15,stat_alignment,3,Adamant,15.4%,Attack,Sp. Atk,,,,,,
 Charizard,15,stat_alignment,4,Jolly,9.9%,Speed,Sp. Atk,,,,,,
 Charizard,15,stat_alignment,5,Bold,1.2%,Defense,Attack,,,,,,
 Charizard,15,stat_alignment,6,Impish,0.3%,Defense,Sp. Atk,,,,,,
@@ -40,7 +40,7 @@ Charizard,15,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,
 Charizard,15,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,
 Charizard,15,stat_alignment,10,Calm,0.2%,Sp. Def,Attack,,,,,,
 Charizard,15,stat_points,1,,30.0%,,,2,0,0,32,0,32
-Charizard,15,stat_points,2,,12.9%,,,2,32,0,0,0,32
+Charizard,15,stat_points,2,,12.8%,,,2,32,0,0,0,32
 Charizard,15,stat_points,3,,4.1%,,,0,0,2,32,0,32
 Charizard,15,stat_points,4,,3.8%,,,22,0,10,14,0,20
 Charizard,15,stat_points,5,,1.8%,,,4,30,0,0,0,32

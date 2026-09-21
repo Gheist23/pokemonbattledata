@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Manectric,147,move,1,Protect,80.2%,,,,,,,,
-Manectric,147,move,2,Snarl,66.4%,,,,,,,,
-Manectric,147,move,3,Volt Switch,55.8%,,,,,,,,
-Manectric,147,move,4,Thunderbolt,49.6%,,,,,,,,
-Manectric,147,move,5,Overheat,44.3%,,,,,,,,
-Manectric,147,move,6,Flamethrower,36.8%,,,,,,,,
-Manectric,147,move,7,Thunder,16.4%,,,,,,,,
-Manectric,147,move,8,Rising Voltage,12.1%,,,,,,,,
-Manectric,147,move,9,Discharge,10.6%,,,,,,,,
-Manectric,147,move,10,Eerie Impulse,4.7%,,,,,,,,
+Manectric,147,move,1,Protect,80.3%,,,,,,,,
+Manectric,147,move,2,Snarl,66.2%,,,,,,,,
+Manectric,147,move,3,Volt Switch,55.4%,,,,,,,,
+Manectric,147,move,4,Thunderbolt,49.7%,,,,,,,,
+Manectric,147,move,5,Overheat,44.1%,,,,,,,,
+Manectric,147,move,6,Flamethrower,37.1%,,,,,,,,
+Manectric,147,move,7,Thunder,16.1%,,,,,,,,
+Manectric,147,move,8,Rising Voltage,12.3%,,,,,,,,
+Manectric,147,move,9,Discharge,10.8%,,,,,,,,
+Manectric,147,move,10,Eerie Impulse,4.6%,,,,,,,,
 Manectric,147,held_item,1,Manectite,75.0%,,,,,,,,
 Manectric,147,held_item,2,Focus Sash,5.2%,,,,,,,,
-Manectric,147,held_item,3,Air Balloon,3.2%,,,,,,,,
+Manectric,147,held_item,3,Air Balloon,3.1%,,,,,,,,
 Manectric,147,held_item,4,Magnet,3.0%,,,,,,,,
 Manectric,147,held_item,5,Choice Scarf,2.3%,,,,,,,,
 Manectric,147,held_item,6,Life Orb,1.8%,,,,,,,,
 Manectric,147,held_item,7,Sitrus Berry,1.7%,,,,,,,,
-Manectric,147,held_item,8,King's Rock,1.3%,,,,,,,,
-Manectric,147,held_item,9,Shuca Berry,1.3%,,,,,,,,
+Manectric,147,held_item,8,Shuca Berry,1.2%,,,,,,,,
+Manectric,147,held_item,9,King's Rock,1.2%,,,,,,,,
 Manectric,147,held_item,10,Bright Powder,1.0%,,,,,,,,
 Manectric,147,teammate,1,Rillaboom,,,,,,,,,
 Manectric,147,teammate,2,Archaludon,,,,,,,,,
@@ -29,26 +29,26 @@ Manectric,147,teammate,7,Sneasler,,,,,,,,,
 Manectric,147,teammate,8,Basculegion,,,,,,,,,
 Manectric,147,teammate,9,Pincurchin,,,,,,,,,
 Manectric,147,teammate,10,Milotic,,,,,,,,,
-Manectric,147,stat_alignment,1,Timid,74.0%,Speed,Attack,,,,,,
-Manectric,147,stat_alignment,2,Modest,21.4%,Sp. Atk,Attack,,,,,,
+Manectric,147,stat_alignment,1,Timid,73.9%,Speed,Attack,,,,,,
+Manectric,147,stat_alignment,2,Modest,21.5%,Sp. Atk,Attack,,,,,,
 Manectric,147,stat_alignment,3,Hasty,2.8%,Speed,Defense,,,,,,
 Manectric,147,stat_alignment,4,Mild,0.9%,Sp. Atk,Defense,,,,,,
 Manectric,147,stat_alignment,5,Bold,0.4%,Defense,Attack,,,,,,
 Manectric,147,stat_alignment,6,Naughty,0.2%,Attack,Sp. Def,,,,,,
-Manectric,147,stat_alignment,7,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Manectric,147,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Manectric,147,stat_alignment,7,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Manectric,147,stat_alignment,8,Quiet,0.1%,Sp. Atk,Speed,,,,,,
 Manectric,147,stat_alignment,9,Calm,0.1%,Sp. Def,Attack,,,,,,
 Manectric,147,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
-Manectric,147,stat_points,1,,53.6%,,,2,0,0,32,0,32
-Manectric,147,stat_points,2,,6.4%,,,0,0,0,32,2,32
+Manectric,147,stat_points,1,,53.4%,,,2,0,0,32,0,32
+Manectric,147,stat_points,2,,6.3%,,,0,0,0,32,2,32
 Manectric,147,stat_points,3,,4.6%,,,0,0,2,32,0,32
-Manectric,147,stat_points,4,,3.0%,,,0,0,0,32,0,32
-Manectric,147,stat_points,5,,2.5%,,,32,0,1,0,1,32
+Manectric,147,stat_points,4,,3.2%,,,0,0,0,32,0,32
+Manectric,147,stat_points,5,,2.6%,,,32,0,1,0,1,32
 Manectric,147,stat_points,6,,2.3%,,,31,0,0,4,3,28
-Manectric,147,stat_points,7,,2.2%,,,5,0,0,29,0,32
+Manectric,147,stat_points,7,,2.1%,,,5,0,0,29,0,32
 Manectric,147,stat_points,8,,1.6%,,,6,0,0,32,0,28
 Manectric,147,stat_points,9,,1.3%,,,32,0,0,2,0,32
-Manectric,147,stat_points,10,,1.2%,,,18,0,0,32,0,16
-Manectric,147,ability,1,Lightning Rod,92.7%,,,,,,,,
-Manectric,147,ability,2,Static,4.3%,,,,,,,,
-Manectric,147,ability,3,Minus,3.0%,,,,,,,,
+Manectric,147,stat_points,10,,1.1%,,,18,0,0,32,0,16
+Manectric,147,ability,1,Lightning Rod,92.6%,,,,,,,,
+Manectric,147,ability,2,Static,4.2%,,,,,,,,
+Manectric,147,ability,3,Minus,3.2%,,,,,,,,

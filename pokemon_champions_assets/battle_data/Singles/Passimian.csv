@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Passimian,256,move,1,Close Combat,58.4%,,,,,,,,
-Passimian,256,move,2,Knock Off,45.7%,,,,,,,,
-Passimian,256,move,3,Drain Punch,39.0%,,,,,,,,
+Passimian,256,move,1,Close Combat,58.1%,,,,,,,,
+Passimian,256,move,2,Knock Off,45.2%,,,,,,,,
+Passimian,256,move,3,Drain Punch,39.4%,,,,,,,,
 Passimian,256,move,4,Rock Slide,35.7%,,,,,,,,
-Passimian,256,move,5,U-turn,28.9%,,,,,,,,
-Passimian,256,move,6,Earthquake,28.7%,,,,,,,,
-Passimian,256,move,7,Gunk Shot,25.6%,,,,,,,,
-Passimian,256,move,8,Rock Tomb,24.6%,,,,,,,,
-Passimian,256,move,9,Counter,24.0%,,,,,,,,
+Passimian,256,move,5,U-turn,28.7%,,,,,,,,
+Passimian,256,move,6,Earthquake,28.6%,,,,,,,,
+Passimian,256,move,7,Gunk Shot,25.7%,,,,,,,,
+Passimian,256,move,8,Rock Tomb,24.3%,,,,,,,,
+Passimian,256,move,9,Counter,23.7%,,,,,,,,
 Passimian,256,move,10,Seed Bomb,11.4%,,,,,,,,
-Passimian,256,held_item,1,Focus Sash,26.7%,,,,,,,,
-Passimian,256,held_item,2,Choice Scarf,26.1%,,,,,,,,
-Passimian,256,held_item,3,Expert Belt,9.7%,,,,,,,,
-Passimian,256,held_item,4,Quick Claw,7.3%,,,,,,,,
-Passimian,256,held_item,5,Light Ball,6.6%,,,,,,,,
-Passimian,256,held_item,6,Coba Berry,4.4%,,,,,,,,
-Passimian,256,held_item,7,Black Belt,2.8%,,,,,,,,
+Passimian,256,held_item,1,Focus Sash,26.5%,,,,,,,,
+Passimian,256,held_item,2,Choice Scarf,25.9%,,,,,,,,
+Passimian,256,held_item,3,Expert Belt,9.6%,,,,,,,,
+Passimian,256,held_item,4,Quick Claw,7.2%,,,,,,,,
+Passimian,256,held_item,5,Light Ball,6.5%,,,,,,,,
+Passimian,256,held_item,6,Coba Berry,4.7%,,,,,,,,
+Passimian,256,held_item,7,Black Belt,3.0%,,,,,,,,
 Passimian,256,held_item,8,Life Orb,2.1%,,,,,,,,
 Passimian,256,held_item,9,Hard Stone,1.9%,,,,,,,,
 Passimian,256,held_item,10,Roseli Berry,1.9%,,,,,,,,
@@ -27,27 +27,27 @@ Passimian,256,teammate,5,Indeedee,,,,,,,,,
 Passimian,256,teammate,6,Rotom-Wash,,,,,,,,,
 Passimian,256,teammate,7,Dragonite,,,,,,,,,
 Passimian,256,teammate,8,Salamence,,,,,,,,,
-Passimian,256,teammate,9,Staraptor,,,,,,,,,
-Passimian,256,teammate,10,Basculegion,,,,,,,,,
-Passimian,256,stat_alignment,1,Adamant,67.3%,Attack,Sp. Atk,,,,,,
-Passimian,256,stat_alignment,2,Jolly,21.2%,Speed,Sp. Atk,,,,,,
-Passimian,256,stat_alignment,3,Impish,4.3%,Defense,Sp. Atk,,,,,,
+Passimian,256,teammate,9,Basculegion,,,,,,,,,
+Passimian,256,teammate,10,Staraptor,,,,,,,,,
+Passimian,256,stat_alignment,1,Adamant,67.4%,Attack,Sp. Atk,,,,,,
+Passimian,256,stat_alignment,2,Jolly,20.9%,Speed,Sp. Atk,,,,,,
+Passimian,256,stat_alignment,3,Impish,4.6%,Defense,Sp. Atk,,,,,,
 Passimian,256,stat_alignment,4,Naughty,2.2%,Attack,Sp. Def,,,,,,
-Passimian,256,stat_alignment,5,Naive,1.9%,Speed,Sp. Def,,,,,,
+Passimian,256,stat_alignment,5,Naive,1.8%,Speed,Sp. Def,,,,,,
 Passimian,256,stat_alignment,6,Hasty,1.6%,Speed,Defense,,,,,,
 Passimian,256,stat_alignment,7,Gentle,0.6%,Sp. Def,Defense,,,,,,
 Passimian,256,stat_alignment,8,Lonely,0.4%,Attack,Defense,,,,,,
 Passimian,256,stat_alignment,9,Brave,0.4%,Attack,Speed,,,,,,
 Passimian,256,stat_alignment,10,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
-Passimian,256,stat_points,1,,22.9%,,,2,32,0,0,0,32
-Passimian,256,stat_points,2,,15.9%,,,18,32,0,0,0,16
-Passimian,256,stat_points,3,,9.8%,,,0,32,2,0,0,32
-Passimian,256,stat_points,4,,8.1%,,,0,32,0,0,2,32
-Passimian,256,stat_points,5,,7.9%,,,4,32,0,0,0,30
-Passimian,256,stat_points,6,,6.6%,,,0,32,32,0,0,2
+Passimian,256,stat_points,1,,22.8%,,,2,32,0,0,0,32
+Passimian,256,stat_points,2,,15.7%,,,18,32,0,0,0,16
+Passimian,256,stat_points,3,,9.9%,,,0,32,2,0,0,32
+Passimian,256,stat_points,4,,8.0%,,,0,32,0,0,2,32
+Passimian,256,stat_points,5,,7.8%,,,4,32,0,0,0,30
+Passimian,256,stat_points,6,,6.9%,,,0,32,32,0,0,2
 Passimian,256,stat_points,7,,6.1%,,,0,32,0,0,0,32
 Passimian,256,stat_points,8,,3.4%,,,17,32,0,0,0,17
 Passimian,256,stat_points,9,,2.6%,,,20,32,0,0,13,1
-Passimian,256,stat_points,10,,1.9%,,,11,32,23,0,0,0
-Passimian,256,ability,1,Defiant,88.8%,,,,,,,,
-Passimian,256,ability,2,Receiver,11.2%,,,,,,,,
+Passimian,256,stat_points,10,,1.8%,,,11,32,23,0,0,0
+Passimian,256,ability,1,Defiant,88.9%,,,,,,,,
+Passimian,256,ability,2,Receiver,11.1%,,,,,,,,

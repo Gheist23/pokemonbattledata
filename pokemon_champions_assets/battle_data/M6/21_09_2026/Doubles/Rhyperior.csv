@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rhyperior,168,move,1,Rock Slide,84.6%,,,,,,,,
+Rhyperior,168,move,1,Rock Slide,84.7%,,,,,,,,
 Rhyperior,168,move,2,Protect,77.8%,,,,,,,,
 Rhyperior,168,move,3,High Horsepower,68.1%,,,,,,,,
-Rhyperior,168,move,4,Ice Punch,36.0%,,,,,,,,
-Rhyperior,168,move,5,Earthquake,33.0%,,,,,,,,
-Rhyperior,168,move,6,Rock Wrecker,7.6%,,,,,,,,
-Rhyperior,168,move,7,Temper Flare,7.2%,,,,,,,,
+Rhyperior,168,move,4,Ice Punch,36.3%,,,,,,,,
+Rhyperior,168,move,5,Earthquake,32.9%,,,,,,,,
+Rhyperior,168,move,6,Rock Wrecker,7.5%,,,,,,,,
+Rhyperior,168,move,7,Temper Flare,7.1%,,,,,,,,
 Rhyperior,168,move,8,Hammer Arm,6.8%,,,,,,,,
 Rhyperior,168,move,9,Megahorn,6.8%,,,,,,,,
 Rhyperior,168,move,10,Supercell Slam,6.7%,,,,,,,,
-Rhyperior,168,held_item,1,Life Orb,36.3%,,,,,,,,
-Rhyperior,168,held_item,2,Focus Sash,7.8%,,,,,,,,
-Rhyperior,168,held_item,3,Leftovers,7.2%,,,,,,,,
-Rhyperior,168,held_item,4,Sitrus Berry,5.9%,,,,,,,,
+Rhyperior,168,held_item,1,Life Orb,36.4%,,,,,,,,
+Rhyperior,168,held_item,2,Focus Sash,7.9%,,,,,,,,
+Rhyperior,168,held_item,3,Leftovers,7.3%,,,,,,,,
+Rhyperior,168,held_item,4,Sitrus Berry,6.0%,,,,,,,,
 Rhyperior,168,held_item,5,Quick Claw,5.0%,,,,,,,,
 Rhyperior,168,held_item,6,Soft Sand,4.8%,,,,,,,,
 Rhyperior,168,held_item,7,Hard Stone,4.2%,,,,,,,,
@@ -21,17 +21,17 @@ Rhyperior,168,held_item,9,Rindo Berry,3.7%,,,,,,,,
 Rhyperior,168,held_item,10,Expert Belt,3.6%,,,,,,,,
 Rhyperior,168,teammate,1,Torkoal,,,,,,,,,
 Rhyperior,168,teammate,2,Indeedee-F,,,,,,,,,
-Rhyperior,168,teammate,3,Golisopod,,,,,,,,,
-Rhyperior,168,teammate,4,Farigiraf,,,,,,,,,
+Rhyperior,168,teammate,3,Farigiraf,,,,,,,,,
+Rhyperior,168,teammate,4,Golisopod,,,,,,,,,
 Rhyperior,168,teammate,5,Hatterene,,,,,,,,,
 Rhyperior,168,teammate,6,Incineroar,,,,,,,,,
 Rhyperior,168,teammate,7,Kingambit,,,,,,,,,
 Rhyperior,168,teammate,8,Armarouge,,,,,,,,,
 Rhyperior,168,teammate,9,Rillaboom,,,,,,,,,
 Rhyperior,168,teammate,10,Charizard,,,,,,,,,
-Rhyperior,168,stat_alignment,1,Brave,68.4%,Attack,Speed,,,,,,
+Rhyperior,168,stat_alignment,1,Brave,68.3%,Attack,Speed,,,,,,
 Rhyperior,168,stat_alignment,2,Adamant,15.3%,Attack,Sp. Atk,,,,,,
-Rhyperior,168,stat_alignment,3,Sassy,4.7%,Sp. Def,Speed,,,,,,
+Rhyperior,168,stat_alignment,3,Sassy,4.8%,Sp. Def,Speed,,,,,,
 Rhyperior,168,stat_alignment,4,Careful,3.9%,Sp. Def,Sp. Atk,,,,,,
 Rhyperior,168,stat_alignment,5,Impish,2.5%,Defense,Sp. Atk,,,,,,
 Rhyperior,168,stat_alignment,6,Jolly,1.8%,Speed,Sp. Atk,,,,,,
@@ -39,16 +39,16 @@ Rhyperior,168,stat_alignment,7,Relaxed,1.7%,Defense,Speed,,,,,,
 Rhyperior,168,stat_alignment,8,Naughty,0.3%,Attack,Sp. Def,,,,,,
 Rhyperior,168,stat_alignment,9,Serious,0.3%,,,,,,,,
 Rhyperior,168,stat_alignment,10,Calm,0.3%,Sp. Def,Attack,,,,,,
-Rhyperior,168,stat_points,1,,22.9%,,,32,32,0,0,2,0
+Rhyperior,168,stat_points,1,,23.0%,,,32,32,0,0,2,0
 Rhyperior,168,stat_points,2,,16.4%,,,32,32,2,0,0,0
-Rhyperior,168,stat_points,3,,8.4%,,,2,32,0,0,32,0
+Rhyperior,168,stat_points,3,,8.2%,,,2,32,0,0,32,0
 Rhyperior,168,stat_points,4,,4.9%,,,2,32,32,0,0,0
-Rhyperior,168,stat_points,5,,3.1%,,,0,32,2,0,32,0
-Rhyperior,168,stat_points,6,,2.1%,,,0,32,32,0,0,0
-Rhyperior,168,stat_points,7,,2.1%,,,9,32,0,0,25,0
+Rhyperior,168,stat_points,5,,3.0%,,,0,32,2,0,32,0
+Rhyperior,168,stat_points,6,,2.2%,,,9,32,0,0,25,0
+Rhyperior,168,stat_points,7,,2.1%,,,0,32,32,0,0,0
 Rhyperior,168,stat_points,8,,1.7%,,,0,32,32,0,2,0
 Rhyperior,168,stat_points,9,,1.6%,,,32,32,0,0,0,0
-Rhyperior,168,stat_points,10,,1.4%,,,32,0,2,0,32,0
+Rhyperior,168,stat_points,10,,1.5%,,,32,0,2,0,32,0
 Rhyperior,168,ability,1,Solid Rock,82.0%,,,,,,,,
 Rhyperior,168,ability,2,Lightning Rod,16.8%,,,,,,,,
 Rhyperior,168,ability,3,Reckless,1.2%,,,,,,,,

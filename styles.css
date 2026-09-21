@@ -9144,3 +9144,66 @@ a.answer-card:focus-visible {
     text-align: center !important;
   }
 }
+
+/* v49 Team Builder / Damage Calc links, and the phone header
+
+   The Team Builder is now the main product, so its link carries the brand
+   colour everywhere.  On phones every link stays visible (no Menu button):
+   they are compact pills that wrap into two rows, and the Doubles/Singles
+   switch and the season picker take a full row underneath. */
+.site-header .nav-builder {
+  color: #eafff2 !important;
+  border-color: rgba(114, 255, 171, 0.55) !important;
+  background: linear-gradient(180deg, rgba(114, 255, 171, 0.16), rgba(7, 17, 11, 0.96)) !important;
+}
+
+@media (max-width: 760px) {
+  .site-header .nav-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.4rem !important;
+  }
+
+  .site-header .nav-actions > a,
+  .site-header .nav-actions > .discord-button {
+    flex: 1 1 auto;
+    width: auto !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding-inline: 0.7rem !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap;
+  }
+
+  .site-header .format-switch,
+  .site-header .season-select,
+  .site-header .season-picker {
+    flex: 1 1 100%;
+  }
+}
+
+/* v49 plans table: section rows and the Pro bonus line */
+.tool-table .tool-section-row th {
+  padding-top: 1rem !important;
+  color: var(--brand) !important;
+  background: transparent !important;
+  font-size: 0.74rem !important;
+  letter-spacing: 0.06em;
+  text-align: left !important;
+  text-transform: uppercase;
+}
+.plan-list .plan-bonus {
+  margin-top: 0.5rem;
+  color: var(--gold);
+}
+@media (max-width: 760px) {
+  .tool-table-wrap tr.tool-section-row {
+    padding: 0.8rem 0 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+  .tool-table-wrap tr.tool-section-row th {
+    display: block;
+    padding: 0 !important;
+  }
+}

@@ -53,7 +53,7 @@
           {
             "@type": "Question",
             "name": "What does the Pro plan add?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Pro reads the running game for you. Live Mode recognises the opponent team from team preview and predicts each Pokemon's moves, ability, held item, stat point distribution and nature from the tournament teams the tool ships with, the usage data for the current regulation and extra field-condition calculations on top, then keeps lead and back suggestions current while you play. It also adds Team Evaluation with critical threat scoring, Auto Build Team, Top Lead simulation on demand and Pokemon Box scanning." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Pro makes Team Evaluation and Auto Build Team unlimited on the website and in the Companion. In the Companion it also reads the running game: Live Mode recognises the opponent team from team preview and predicts each Pokemon's moves, ability, held item, stat point distribution and nature, then keeps lead and back suggestions current while you play. Top Lead simulation and Pokemon Box scanning are included too." }
           },
           {
             "@type": "Question",
@@ -85,10 +85,12 @@
         </span>
       </a>
       <div class="nav-actions">
-        <a class="ghost-button" href="/pro-tool/" aria-current="page"><svg class="nav-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false"><path fill="#ff4d2e" d="M13 1.4c-.5 2.6.3 4.2 1.6 5.6 1.7 1.8 3.7 3.5 3.7 6.6 0 3.6-2.9 6.6-6.4 6.6s-6.4-3-6.4-6.6c0-2.3 1-4.2 2.5-5.8-.3 1.7 0 3.1 1 3.8.7.5 1.6.1 1.7-.8.1-.7-.1-1.6-.3-2.6-.5-2.7.6-5 2.6-6.8Z"/><path fill="#ffc21a" d="M12.2 11.9c1.1 1.2 1.8 2.2 1.8 3.5 0 1.8-1.4 3.2-3.1 3.2-1.6 0-2.9-1.3-2.9-3 0-1 .4-1.9 1.1-2.7.1.9.5 1.5 1.2 1.5.8 0 1.2-.7 1.2-1.7 0-.5.2-.8.7-.8Z"/></svg><span>Companion</span></a>
+        <a class="ghost-button nav-builder" href="/team-builder/">Team Builder</a>
+        <a class="ghost-button" href="/damage-calculator/">Damage Calc</a>
         <a class="ghost-button" href="/meta/">Meta</a>
         <a class="ghost-button" href="/">Explorer</a>
         <a class="ghost-button" href="/api_guide">API</a>
+        <a class="ghost-button" href="/pro-tool/plans/" aria-current="page"><svg class="nav-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false"><path fill="#ff4d2e" d="M13 1.4c-.5 2.6.3 4.2 1.6 5.6 1.7 1.8 3.7 3.5 3.7 6.6 0 3.6-2.9 6.6-6.4 6.6s-6.4-3-6.4-6.6c0-2.3 1-4.2 2.5-5.8-.3 1.7 0 3.1 1 3.8.7.5 1.6.1 1.7-.8.1-.7-.1-1.6-.3-2.6-.5-2.7.6-5 2.6-6.8Z"/><path fill="#ffc21a" d="M12.2 11.9c1.1 1.2 1.8 2.2 1.8 3.5 0 1.8-1.4 3.2-3.1 3.2-1.6 0-2.9-1.3-2.9-3 0-1 .4-1.9 1.1-2.7.1.9.5 1.5 1.2 1.5.8 0 1.2-.7 1.2-1.7 0-.5.2-.8.7-.8Z"/></svg><span>Pro</span></a>
         <a class="discord-button" href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">Discord</a>
       </div>
     </nav>
@@ -97,15 +99,16 @@
   <main>
     <section class="hero section-shell tool-hero" aria-labelledby="toolTitle">
       <div class="hero-copy">
-        <p class="eyebrow">Desktop companion for Pokemon Champions</p>
+        <p class="eyebrow">Desktop companion &middot; included with Pro</p>
         <h1 id="toolTitle">Champions Battle Data Companion</h1>
         <p class="hero-text">A companion app for Ranked. It answers the four questions a run actually comes down to: whether your team holds up, what to lead against the six in front of you, what to build next, and what everyone else is using this season.</p>
         <p class="hero-text">It reads the same daily ladder data this site publishes, works offline once installed, and runs beside the game on your own PC.</p>
+        <p class="hero-text">Building a team? The <a href="/team-builder/">Team Builder</a> and the <a href="/damage-calculator/">Damage Calculator</a> run free in your browser, and your Box and teams sync to the Companion. The app is the bonus that comes with Pro: the part that sits beside the game and reads it for you.</p>
         <div class="tool-cta-row">
           <a class="primary-button" href="https://releases.championsbattledata.com/releases/PokemonChampionsTool-latest.zip">Download for Windows</a>
           <a class="ghost-button" href="#what-it-answers">See what it does</a>
         </div>
-        <p class="tool-cta-note">Free, with no account. Team Evaluation and Auto Build include 3 free runs; Pro removes the limit and starts with a 7-day trial.</p>
+        <p class="tool-cta-note">Free, with no account. Pro unlocks Live Mode here and unlimited Team Evaluation and Auto Build on the website and in the app, and starts with a 7-day trial.</p>
       </div>
     </section>
 
@@ -256,7 +259,7 @@
       <div class="tool-cta-row tool-cta-row-center">
         <a class="primary-button" href="/pro-tool/plans/">See what is in each plan</a>
       </div>
-      <p class="tool-cta-note tool-cta-note-center">Free, or &euro;5 a month and &euro;45 a year for Pro. The next page compares them line by line.</p>
+      <p class="tool-cta-note tool-cta-note-center">The app is free; Pro is &euro;5 a month or &euro;45 a year and covers the website and the app. The next page compares them line by line.</p>
     </section>
 
     <section class="section-shell tool-section tool-support" aria-labelledby="supportHeading">
@@ -281,8 +284,11 @@
         <dt>Is the free version a trial?</dt>
         <dd>No. It does not expire and it is not time-limited. Battle Mode with the full matchup overview, the damage calculator, the team builder, unlimited saved teams and the offline data are the free version permanently.</dd>
 
-        <dt>What are the 3 free runs?</dt>
-        <dd>Team Evaluation and Auto Build are the two features that are hard to judge from a description, so you get three real runs of each &mdash; the full result, not a preview. After that they ask you to subscribe, and everything else in the free version carries on as it was.</dd>
+        <dt>Can I try Team Evaluation and Auto Build first?</dt>
+        <dd>Yes. They are the two features that are hard to judge from a description, so you can run them for real &mdash; the full result, not a preview &mdash; on the website or in the app. After that they ask for Pro, and everything else carries on as it was.</dd>
+
+        <dt>Do I need the app to build teams?</dt>
+        <dd>No. The <a href="/team-builder/">Team Builder</a> and the <a href="/damage-calculator/">Damage Calculator</a> run in your browser for free. The Companion adds what only a program beside the game can do, and your Box and teams sync between the two.</dd>
 
         <dt>Is there a trial of Pro?</dt>
         <dd>Yes. Both plans start with a seven day free trial. Cancel inside the trial and you are not charged; the app returns to the free version rather than locking anything you made.</dd>
@@ -336,8 +342,10 @@
         </ul>
       </div>
       <div>
-        <h2>Tool</h2>
+        <h2>Build</h2>
         <ul>
+          <li><a href="/team-builder/">Team Builder</a></li>
+          <li><a href="/damage-calculator/">Damage Calculator</a></li>
           <li><a href="/pro-tool/">Champions Battle Data Companion</a></li>
           <li><a href="/pro-tool/plans/">Plans and pricing</a></li>
           <li><a href="/api_guide">Free public API</a></li>

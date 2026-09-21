@@ -2,6 +2,7 @@ import { closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, 
 import { basename, extname, join, relative, sep } from "node:path";
 import { writeSeoPages, REGULATION_KEYWORDS } from "./seo-pages.mjs";
 import { isArchivedSeason } from "./archived-seasons.mjs";
+import { writeBuilderMeta } from "./builder-meta.mjs";
 
 const assetRoot = "pokemon_champions_assets";
 const cwd = process.cwd();
@@ -1250,15 +1251,16 @@ function pokemonPageJsonLd(page) {
 
 function companionCta(page) {
   const name = escapeHtml(page.name);
-  return `<aside class="companion-cta" aria-label="Champions Battle Data Companion">
+  const key = encodeURIComponent(page.battleName || page.name || "");
+  return `<aside class="companion-cta" aria-label="Team Builder">
       <div>
-        <p class="eyebrow">Champions Battle Data Companion</p>
+        <p class="eyebrow">Free Team Builder</p>
         <h2>Does ${name} fit your team?</h2>
-        <p>The Companion scores your six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
+        <p>Add ${name} with its most common set and the Team Builder scores your six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
       </div>
       <div class="companion-cta-actions">
-        <a class="primary-button" href="/pro-tool/">Check my team</a>
-        <a class="ghost-button" href="/pro-tool/plans/">What is in it</a>
+        <a class="primary-button" href="/team-builder/?add=${key}">Try it in my team</a>
+        <a class="ghost-button" href="/damage-calculator/?attacker=${key}">Calculate damage</a>
       </div>
     </aside>`;
 }
@@ -1541,6 +1543,8 @@ function writeSitemap(pokemonPages, topicPages, generatedAt, extraUrls = []) {
   const lastmod = generatedAt.slice(0, 10);
   const urls = unique([
     `${siteUrl}/`,
+    `${siteUrl}/team-builder/`,
+    `${siteUrl}/damage-calculator/`,
     `${siteUrl}/meta/`,
     `${siteUrl}/pro-tool/`,
     `${siteUrl}/pro-tool/plans/`,
@@ -1556,6 +1560,7 @@ function writeSitemap(pokemonPages, topicPages, generatedAt, extraUrls = []) {
   const priorityFor = (url) => {
     const path = url.replace(siteUrl, "");
     if (path === "/") return "1.0";
+    if (path === "/team-builder/" || path === "/damage-calculator/") return "1.0";
     if (path === "/pro-tool/") return "0.9";
     if (/^\/(meta|rankings|pokemon|moves|items|abilities|teams)\/$/.test(path)) return "0.9";
     if (path.startsWith("/pro-tool/")) return "0.8";
@@ -1596,6 +1601,7 @@ writeFileSync(join(cwd, "data", "pokemon-index.json"), `${JSON.stringify({
 })}\n`);
 writeApiData(manifest);
 writeMetaTrends(pokemon);
+const builderMetaCount = writeBuilderMeta({ cwd, parseCSV, generatedAt });
 writePokemonPages(pokemonPages);
 writeTopicPages(topicPages);
 
@@ -1643,4 +1649,5 @@ const sitemapCount = writeSitemap(pokemonPages, topicPages, generatedAt, seo.url
 console.log(`Generated data/pokemon-index.json with ${pokemon.length} Pokemon, ${pokemonPages.length} profile page(s), and ${topicPages.length} topic page(s).`);
 console.log(`Generated ${seo.counts.total} SEO page(s): ${seo.counts.moves} move, ${seo.counts.items} item, ${seo.counts.abilities} ability, plus per-Pokemon, comparison, team, meta and ranking pages.`);
 console.log(`Sitemap lists ${sitemapCount} URL(s).`);
+console.log(`Builder meta covers ${builderMetaCount} ranked Pokemon across both formats.`);
 if (skippedMetadataOnly.length) console.warn(`Skipped ${skippedMetadataOnly.length} metadata-only name(s): ${skippedMetadataOnly.join(", ")}`);

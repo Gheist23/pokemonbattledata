@@ -1271,18 +1271,19 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     // from a search result can never reach the static one. This is the copy that
     // actually gets read, at the moment the question forms.
     const name = escapeHtml(record.name || "this Pokemon");
+    const key = encodeURIComponent(record.battleName || record.name || "");
     const prompt = document.createElement("aside");
     prompt.className = "companion-cta";
-    prompt.setAttribute("aria-label", "Champions Battle Data Companion");
+    prompt.setAttribute("aria-label", "Team Builder");
     prompt.innerHTML = `
       <div>
-        <p class="eyebrow">Champions Battle Data Companion</p>
+        <p class="eyebrow">Free Team Builder</p>
         <h2>Does ${name} fit your team?</h2>
-        <p>The Companion scores your six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
+        <p>Add ${name} with its most common set and the Team Builder scores your six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
       </div>
       <div class="companion-cta-actions">
-        <a class="primary-button" href="/pro-tool/">Check my team</a>
-        <a class="ghost-button" href="/pro-tool/plans/">What is in it</a>
+        <a class="primary-button" href="/team-builder/?add=${key}">Try it in my team</a>
+        <a class="ghost-button" href="/damage-calculator/?attacker=${key}">Calculate damage</a>
       </div>`;
     return prompt;
   }

@@ -1,1 +1,7 @@
 .wrangler/
+tests/calc-vectors.json
+tests/eval-vectors.json
+tests/suggest-vectors.json
+tests/autobuild-vectors.json
+tests/optimize-vectors.json
+tests/overview-vectors.json

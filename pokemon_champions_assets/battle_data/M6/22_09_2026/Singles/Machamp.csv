@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Machamp,186,move,1,Dynamic Punch,76.2%,,,,,,,,
-Machamp,186,move,2,Stone Edge,63.3%,,,,,,,,
-Machamp,186,move,3,Bullet Punch,62.8%,,,,,,,,
+Machamp,186,move,1,Dynamic Punch,76.5%,,,,,,,,
+Machamp,186,move,2,Stone Edge,63.5%,,,,,,,,
+Machamp,186,move,3,Bullet Punch,62.2%,,,,,,,,
 Machamp,186,move,4,Ice Punch,53.7%,,,,,,,,
-Machamp,186,move,5,Knock Off,19.4%,,,,,,,,
-Machamp,186,move,6,Earthquake,15.3%,,,,,,,,
-Machamp,186,move,7,Darkest Lariat,10.8%,,,,,,,,
-Machamp,186,move,8,Fire Punch,9.3%,,,,,,,,
-Machamp,186,move,9,Encore,9.1%,,,,,,,,
+Machamp,186,move,5,Knock Off,19.6%,,,,,,,,
+Machamp,186,move,6,Earthquake,15.6%,,,,,,,,
+Machamp,186,move,7,Darkest Lariat,10.9%,,,,,,,,
+Machamp,186,move,8,Fire Punch,9.5%,,,,,,,,
+Machamp,186,move,9,Encore,9.0%,,,,,,,,
 Machamp,186,move,10,Cross Chop,7.9%,,,,,,,,
 Machamp,186,held_item,1,Quick Claw,26.3%,,,,,,,,
-Machamp,186,held_item,2,Focus Sash,14.7%,,,,,,,,
-Machamp,186,held_item,3,Choice Scarf,14.5%,,,,,,,,
-Machamp,186,held_item,4,Life Orb,10.3%,,,,,,,,
+Machamp,186,held_item,2,Choice Scarf,14.6%,,,,,,,,
+Machamp,186,held_item,3,Focus Sash,14.5%,,,,,,,,
+Machamp,186,held_item,4,Life Orb,10.2%,,,,,,,,
 Machamp,186,held_item,5,Lum Berry,5.9%,,,,,,,,
 Machamp,186,held_item,6,Scope Lens,5.5%,,,,,,,,
 Machamp,186,held_item,7,Sitrus Berry,5.3%,,,,,,,,
-Machamp,186,held_item,8,Expert Belt,4.9%,,,,,,,,
+Machamp,186,held_item,8,Expert Belt,5.1%,,,,,,,,
 Machamp,186,held_item,9,Black Belt,3.3%,,,,,,,,
 Machamp,186,held_item,10,Payapa Berry,1.5%,,,,,,,,
 Machamp,186,teammate,1,Garchomp,,,,,,,,,
@@ -28,27 +28,27 @@ Machamp,186,teammate,6,Primarina,,,,,,,,,
 Machamp,186,teammate,7,Gengar,,,,,,,,,
 Machamp,186,teammate,8,Golisopod,,,,,,,,,
 Machamp,186,teammate,9,Baxcalibur,,,,,,,,,
-Machamp,186,teammate,10,Tyranitar,,,,,,,,,
-Machamp,186,stat_alignment,1,Adamant,65.9%,Attack,Sp. Atk,,,,,,
-Machamp,186,stat_alignment,2,Jolly,17.9%,Speed,Sp. Atk,,,,,,
-Machamp,186,stat_alignment,3,Brave,3.4%,Attack,Speed,,,,,,
-Machamp,186,stat_alignment,4,Modest,2.8%,Sp. Atk,Attack,,,,,,
+Machamp,186,teammate,10,Meowscarada,,,,,,,,,
+Machamp,186,stat_alignment,1,Adamant,65.7%,Attack,Sp. Atk,,,,,,
+Machamp,186,stat_alignment,2,Jolly,18.2%,Speed,Sp. Atk,,,,,,
+Machamp,186,stat_alignment,3,Brave,3.5%,Attack,Speed,,,,,,
+Machamp,186,stat_alignment,4,Modest,2.7%,Sp. Atk,Attack,,,,,,
 Machamp,186,stat_alignment,5,Careful,2.2%,Sp. Def,Sp. Atk,,,,,,
 Machamp,186,stat_alignment,6,Quiet,2.2%,Sp. Atk,Speed,,,,,,
-Machamp,186,stat_alignment,7,Impish,1.9%,Defense,Sp. Atk,,,,,,
+Machamp,186,stat_alignment,7,Impish,1.8%,Defense,Sp. Atk,,,,,,
 Machamp,186,stat_alignment,8,Naive,1.0%,Speed,Sp. Def,,,,,,
-Machamp,186,stat_alignment,9,Sassy,0.7%,Sp. Def,Speed,,,,,,
+Machamp,186,stat_alignment,9,Sassy,0.6%,Sp. Def,Speed,,,,,,
 Machamp,186,stat_alignment,10,Mild,0.6%,Sp. Atk,Defense,,,,,,
-Machamp,186,stat_points,1,,17.3%,,,32,32,0,0,0,2
-Machamp,186,stat_points,2,,17.2%,,,2,32,0,0,0,32
-Machamp,186,stat_points,3,,15.2%,,,32,32,2,0,0,0
-Machamp,186,stat_points,4,,9.7%,,,32,32,0,0,2,0
+Machamp,186,stat_points,1,,17.5%,,,2,32,0,0,0,32
+Machamp,186,stat_points,2,,17.1%,,,32,32,0,0,0,2
+Machamp,186,stat_points,3,,15.3%,,,32,32,2,0,0,0
+Machamp,186,stat_points,4,,9.6%,,,32,32,0,0,2,0
 Machamp,186,stat_points,5,,3.0%,,,0,32,2,0,0,32
-Machamp,186,stat_points,6,,2.0%,,,0,32,0,0,2,32
-Machamp,186,stat_points,7,,1.9%,,,32,32,1,0,1,0
-Machamp,186,stat_points,8,,1.7%,,,0,32,32,0,2,0
-Machamp,186,stat_points,9,,1.5%,,,32,32,0,0,1,1
+Machamp,186,stat_points,6,,1.9%,,,0,32,0,0,2,32
+Machamp,186,stat_points,7,,1.8%,,,32,32,1,0,1,0
+Machamp,186,stat_points,8,,1.6%,,,0,32,32,0,2,0
+Machamp,186,stat_points,9,,1.4%,,,32,32,0,0,1,1
 Machamp,186,stat_points,10,,1.2%,,,0,32,0,0,0,32
-Machamp,186,ability,1,No Guard,88.7%,,,,,,,,
-Machamp,186,ability,2,Guts,11.2%,,,,,,,,
+Machamp,186,ability,1,No Guard,88.9%,,,,,,,,
+Machamp,186,ability,2,Guts,11.0%,,,,,,,,
 Machamp,186,ability,3,Steadfast,0.1%,,,,,,,,

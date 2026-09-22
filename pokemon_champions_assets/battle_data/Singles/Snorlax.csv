@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Snorlax,73,move,1,Earthquake,55.6%,,,,,,,,
 Snorlax,73,move,2,Fissure,41.6%,,,,,,,,
-Snorlax,73,move,3,Yawn,40.7%,,,,,,,,
+Snorlax,73,move,3,Yawn,40.6%,,,,,,,,
 Snorlax,73,move,4,Ice Punch,38.3%,,,,,,,,
-Snorlax,73,move,5,Rest,34.7%,,,,,,,,
+Snorlax,73,move,5,Rest,34.8%,,,,,,,,
 Snorlax,73,move,6,Smack Down,23.1%,,,,,,,,
 Snorlax,73,move,7,Self-Destruct,17.8%,,,,,,,,
 Snorlax,73,move,8,Body Slam,17.1%,,,,,,,,
-Snorlax,73,move,9,Counter,14.3%,,,,,,,,
+Snorlax,73,move,9,Counter,14.2%,,,,,,,,
 Snorlax,73,move,10,Heat Crash,12.7%,,,,,,,,
 Snorlax,73,held_item,1,Leftovers,43.9%,,,,,,,,
 Snorlax,73,held_item,2,Chesto Berry,16.0%,,,,,,,,
@@ -29,9 +29,9 @@ Snorlax,73,teammate,7,Archaludon,,,,,,,,,
 Snorlax,73,teammate,8,Basculegion,,,,,,,,,
 Snorlax,73,teammate,9,Gholdengo,,,,,,,,,
 Snorlax,73,teammate,10,Charizard,,,,,,,,,
-Snorlax,73,stat_alignment,1,Careful,41.3%,Sp. Def,Sp. Atk,,,,,,
+Snorlax,73,stat_alignment,1,Careful,41.2%,Sp. Def,Sp. Atk,,,,,,
 Snorlax,73,stat_alignment,2,Adamant,26.1%,Attack,Sp. Atk,,,,,,
-Snorlax,73,stat_alignment,3,Impish,20.7%,Defense,Sp. Atk,,,,,,
+Snorlax,73,stat_alignment,3,Impish,20.8%,Defense,Sp. Atk,,,,,,
 Snorlax,73,stat_alignment,4,Relaxed,3.6%,Defense,Speed,,,,,,
 Snorlax,73,stat_alignment,5,Sassy,3.0%,Sp. Def,Speed,,,,,,
 Snorlax,73,stat_alignment,6,Brave,2.6%,Attack,Speed,,,,,,
@@ -40,15 +40,15 @@ Snorlax,73,stat_alignment,8,Calm,0.7%,Sp. Def,Attack,,,,,,
 Snorlax,73,stat_alignment,9,Lonely,0.2%,Attack,Defense,,,,,,
 Snorlax,73,stat_alignment,10,Modest,0.2%,Sp. Atk,Attack,,,,,,
 Snorlax,73,stat_points,1,,16.5%,,,32,0,2,0,32,0
-Snorlax,73,stat_points,2,,10.0%,,,32,0,32,0,2,0
+Snorlax,73,stat_points,2,,10.1%,,,32,0,32,0,2,0
 Snorlax,73,stat_points,3,,9.5%,,,2,32,32,0,0,0
 Snorlax,73,stat_points,4,,5.4%,,,32,2,0,0,32,0
 Snorlax,73,stat_points,5,,4.1%,,,2,32,0,0,32,0
 Snorlax,73,stat_points,6,,3.3%,,,0,32,32,0,2,0
-Snorlax,73,stat_points,7,,2.7%,,,22,0,32,0,12,0
+Snorlax,73,stat_points,7,,2.8%,,,22,0,32,0,12,0
 Snorlax,73,stat_points,8,,2.6%,,,32,32,2,0,0,0
 Snorlax,73,stat_points,9,,2.6%,,,2,0,32,0,32,0
-Snorlax,73,stat_points,10,,1.7%,,,0,32,2,0,32,0
-Snorlax,73,ability,1,Thick Fat,89.0%,,,,,,,,
+Snorlax,73,stat_points,10,,1.7%,,,22,0,14,0,30,0
+Snorlax,73,ability,1,Thick Fat,88.9%,,,,,,,,
 Snorlax,73,ability,2,Immunity,10.2%,,,,,,,,
 Snorlax,73,ability,3,Gluttony,0.9%,,,,,,,,

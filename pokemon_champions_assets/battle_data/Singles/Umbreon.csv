@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Umbreon,41,move,1,Foul Play,95.4%,,,,,,,,
-Umbreon,41,move,2,Protect,79.1%,,,,,,,,
+Umbreon,41,move,2,Protect,79.0%,,,,,,,,
 Umbreon,41,move,3,Wish,77.9%,,,,,,,,
 Umbreon,41,move,4,Toxic,49.9%,,,,,,,,
 Umbreon,41,move,5,Yawn,48.4%,,,,,,,,
@@ -12,10 +12,10 @@ Umbreon,41,move,10,Snarl,3.0%,,,,,,,,
 Umbreon,41,held_item,1,Leftovers,86.4%,,,,,,,,
 Umbreon,41,held_item,2,Rocky Helmet,5.7%,,,,,,,,
 Umbreon,41,held_item,3,Sitrus Berry,4.5%,,,,,,,,
-Umbreon,41,held_item,4,Lum Berry,0.7%,,,,,,,,
+Umbreon,41,held_item,4,Lum Berry,0.6%,,,,,,,,
 Umbreon,41,held_item,5,Bright Powder,0.6%,,,,,,,,
-Umbreon,41,held_item,6,Chople Berry,0.3%,,,,,,,,
-Umbreon,41,held_item,7,Light Clay,0.3%,,,,,,,,
+Umbreon,41,held_item,6,Light Clay,0.3%,,,,,,,,
+Umbreon,41,held_item,7,Chople Berry,0.3%,,,,,,,,
 Umbreon,41,held_item,8,Black Glasses,0.3%,,,,,,,,
 Umbreon,41,held_item,9,Mental Herb,0.2%,,,,,,,,
 Umbreon,41,held_item,10,Quick Claw,0.1%,,,,,,,,
@@ -29,8 +29,8 @@ Umbreon,41,teammate,7,Glimmora,,,,,,,,,
 Umbreon,41,teammate,8,Corviknight,,,,,,,,,
 Umbreon,41,teammate,9,Baxcalibur,,,,,,,,,
 Umbreon,41,teammate,10,Gengar,,,,,,,,,
-Umbreon,41,stat_alignment,1,Bold,52.9%,Defense,Attack,,,,,,
-Umbreon,41,stat_alignment,2,Impish,23.1%,Defense,Sp. Atk,,,,,,
+Umbreon,41,stat_alignment,1,Bold,52.8%,Defense,Attack,,,,,,
+Umbreon,41,stat_alignment,2,Impish,23.2%,Defense,Sp. Atk,,,,,,
 Umbreon,41,stat_alignment,3,Calm,10.2%,Sp. Def,Attack,,,,,,
 Umbreon,41,stat_alignment,4,Careful,8.9%,Sp. Def,Sp. Atk,,,,,,
 Umbreon,41,stat_alignment,5,Relaxed,2.7%,Defense,Speed,,,,,,
@@ -39,15 +39,15 @@ Umbreon,41,stat_alignment,7,Adamant,0.4%,Attack,Sp. Atk,,,,,,
 Umbreon,41,stat_alignment,8,Jolly,0.2%,Speed,Sp. Atk,,,,,,
 Umbreon,41,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
 Umbreon,41,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
-Umbreon,41,stat_points,1,,44.4%,,,32,0,32,0,2,0
+Umbreon,41,stat_points,1,,44.5%,,,32,0,32,0,2,0
 Umbreon,41,stat_points,2,,7.0%,,,32,0,2,0,32,0
 Umbreon,41,stat_points,3,,4.5%,,,31,0,32,0,3,0
-Umbreon,41,stat_points,4,,3.6%,,,32,0,30,0,0,4
+Umbreon,41,stat_points,4,,3.5%,,,32,0,30,0,0,4
 Umbreon,41,stat_points,5,,3.1%,,,32,0,32,0,0,2
 Umbreon,41,stat_points,6,,2.9%,,,32,0,20,0,14,0
 Umbreon,41,stat_points,7,,2.6%,,,32,0,32,0,1,1
 Umbreon,41,stat_points,8,,2.2%,,,32,0,30,0,4,0
 Umbreon,41,stat_points,9,,2.1%,,,2,0,32,0,32,0
 Umbreon,41,stat_points,10,,1.8%,,,32,0,32,0,0,0
-Umbreon,41,ability,1,Inner Focus,66.6%,,,,,,,,
-Umbreon,41,ability,2,Synchronize,33.4%,,,,,,,,
+Umbreon,41,ability,1,Inner Focus,66.7%,,,,,,,,
+Umbreon,41,ability,2,Synchronize,33.3%,,,,,,,,

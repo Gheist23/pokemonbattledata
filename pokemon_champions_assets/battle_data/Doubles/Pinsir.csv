@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pinsir,227,move,1,Body Slam,58.2%,,,,,,,,
-Pinsir,227,move,2,Feint,57.9%,,,,,,,,
-Pinsir,227,move,3,Detect,46.6%,,,,,,,,
-Pinsir,227,move,4,Storm Throw,45.7%,,,,,,,,
-Pinsir,227,move,5,Protect,36.4%,,,,,,,,
-Pinsir,227,move,6,Lunge,30.1%,,,,,,,,
-Pinsir,227,move,7,Close Combat,23.0%,,,,,,,,
-Pinsir,227,move,8,Quick Attack,15.1%,,,,,,,,
-Pinsir,227,move,9,X-Scissor,13.0%,,,,,,,,
-Pinsir,227,move,10,Rock Slide,10.3%,,,,,,,,
-Pinsir,227,held_item,1,Pinsirite,87.3%,,,,,,,,
-Pinsir,227,held_item,2,Expert Belt,3.0%,,,,,,,,
-Pinsir,227,held_item,3,Sitrus Berry,1.2%,,,,,,,,
-Pinsir,227,held_item,4,Silver Powder,1.0%,,,,,,,,
-Pinsir,227,held_item,5,Life Orb,1.0%,,,,,,,,
-Pinsir,227,held_item,6,Quick Claw,0.9%,,,,,,,,
-Pinsir,227,held_item,7,Metronome,0.9%,,,,,,,,
-Pinsir,227,held_item,8,Focus Sash,0.8%,,,,,,,,
+Pinsir,227,move,1,Body Slam,57.7%,,,,,,,,
+Pinsir,227,move,2,Feint,57.5%,,,,,,,,
+Pinsir,227,move,3,Detect,46.5%,,,,,,,,
+Pinsir,227,move,4,Storm Throw,45.3%,,,,,,,,
+Pinsir,227,move,5,Protect,36.0%,,,,,,,,
+Pinsir,227,move,6,Lunge,29.5%,,,,,,,,
+Pinsir,227,move,7,Close Combat,22.3%,,,,,,,,
+Pinsir,227,move,8,Quick Attack,14.8%,,,,,,,,
+Pinsir,227,move,9,X-Scissor,13.2%,,,,,,,,
+Pinsir,227,move,10,Rock Slide,11.0%,,,,,,,,
+Pinsir,227,held_item,1,Pinsirite,86.2%,,,,,,,,
+Pinsir,227,held_item,2,Expert Belt,2.9%,,,,,,,,
+Pinsir,227,held_item,3,Quick Claw,1.5%,,,,,,,,
+Pinsir,227,held_item,4,Silver Powder,1.5%,,,,,,,,
+Pinsir,227,held_item,5,Sitrus Berry,1.2%,,,,,,,,
+Pinsir,227,held_item,6,Metronome,1.0%,,,,,,,,
+Pinsir,227,held_item,7,Life Orb,0.9%,,,,,,,,
+Pinsir,227,held_item,8,Focus Sash,0.7%,,,,,,,,
 Pinsir,227,held_item,9,Choice Scarf,0.5%,,,,,,,,
 Pinsir,227,held_item,10,Wide Lens,0.5%,,,,,,,,
 Pinsir,227,teammate,1,Metagross,,,,,,,,,
@@ -28,27 +28,27 @@ Pinsir,227,teammate,6,Garchomp,,,,,,,,,
 Pinsir,227,teammate,7,Incineroar,,,,,,,,,
 Pinsir,227,teammate,8,Rillaboom,,,,,,,,,
 Pinsir,227,teammate,9,Kleavor,,,,,,,,,
-Pinsir,227,teammate,10,Gholdengo,,,,,,,,,
-Pinsir,227,stat_alignment,1,Jolly,67.4%,Speed,Sp. Atk,,,,,,
-Pinsir,227,stat_alignment,2,Adamant,24.9%,Attack,Sp. Atk,,,,,,
-Pinsir,227,stat_alignment,3,Brave,2.3%,Attack,Speed,,,,,,
-Pinsir,227,stat_alignment,4,Impish,2.0%,Defense,Sp. Atk,,,,,,
-Pinsir,227,stat_alignment,5,Sassy,1.1%,Sp. Def,Speed,,,,,,
-Pinsir,227,stat_alignment,6,Lonely,0.5%,Attack,Defense,,,,,,
+Pinsir,227,teammate,10,Golisopod,,,,,,,,,
+Pinsir,227,stat_alignment,1,Jolly,66.6%,Speed,Sp. Atk,,,,,,
+Pinsir,227,stat_alignment,2,Adamant,24.5%,Attack,Sp. Atk,,,,,,
+Pinsir,227,stat_alignment,3,Brave,2.6%,Attack,Speed,,,,,,
+Pinsir,227,stat_alignment,4,Impish,1.9%,Defense,Sp. Atk,,,,,,
+Pinsir,227,stat_alignment,5,Lonely,1.1%,Attack,Defense,,,,,,
+Pinsir,227,stat_alignment,6,Sassy,1.0%,Sp. Def,Speed,,,,,,
 Pinsir,227,stat_alignment,7,Timid,0.5%,Speed,Attack,,,,,,
-Pinsir,227,stat_alignment,8,Naughty,0.4%,Attack,Sp. Def,,,,,,
-Pinsir,227,stat_alignment,9,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
-Pinsir,227,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
-Pinsir,227,stat_points,1,,24.5%,,,2,32,0,0,0,32
+Pinsir,227,stat_alignment,8,Naughty,0.5%,Attack,Sp. Def,,,,,,
+Pinsir,227,stat_alignment,9,Lax,0.5%,Defense,Sp. Def,,,,,,
+Pinsir,227,stat_alignment,10,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Pinsir,227,stat_points,1,,24.3%,,,2,32,0,0,0,32
 Pinsir,227,stat_points,2,,11.4%,,,32,0,2,0,0,32
-Pinsir,227,stat_points,3,,8.4%,,,0,32,0,0,2,32
-Pinsir,227,stat_points,4,,5.5%,,,0,32,2,0,0,32
-Pinsir,227,stat_points,5,,5.0%,,,2,32,0,0,32,0
-Pinsir,227,stat_points,6,,4.7%,,,1,32,1,0,0,32
-Pinsir,227,stat_points,7,,3.9%,,,32,32,0,0,0,2
-Pinsir,227,stat_points,8,,3.3%,,,10,24,0,0,0,32
-Pinsir,227,stat_points,9,,3.2%,,,13,0,21,0,0,32
+Pinsir,227,stat_points,3,,8.1%,,,0,32,0,0,2,32
+Pinsir,227,stat_points,4,,5.3%,,,0,32,2,0,0,32
+Pinsir,227,stat_points,5,,4.8%,,,2,32,0,0,32,0
+Pinsir,227,stat_points,6,,4.5%,,,1,32,1,0,0,32
+Pinsir,227,stat_points,7,,3.8%,,,32,32,0,0,0,2
+Pinsir,227,stat_points,8,,3.4%,,,13,0,21,0,0,32
+Pinsir,227,stat_points,9,,3.3%,,,10,24,0,0,0,32
 Pinsir,227,stat_points,10,,3.0%,,,20,26,0,0,15,5
-Pinsir,227,ability,1,Hyper Cutter,79.7%,,,,,,,,
-Pinsir,227,ability,2,Moxie,14.6%,,,,,,,,
-Pinsir,227,ability,3,Mold Breaker,5.7%,,,,,,,,
+Pinsir,227,ability,1,Hyper Cutter,78.4%,,,,,,,,
+Pinsir,227,ability,2,Moxie,14.9%,,,,,,,,
+Pinsir,227,ability,3,Mold Breaker,6.7%,,,,,,,,

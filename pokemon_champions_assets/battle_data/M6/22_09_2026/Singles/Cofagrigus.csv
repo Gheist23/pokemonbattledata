@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Cofagrigus,158,move,1,Will-O-Wisp,76.1%,,,,,,,,
-Cofagrigus,158,move,2,Body Press,56.3%,,,,,,,,
-Cofagrigus,158,move,3,Hex,48.8%,,,,,,,,
-Cofagrigus,158,move,4,Trick Room,37.6%,,,,,,,,
-Cofagrigus,158,move,5,Iron Defense,33.9%,,,,,,,,
-Cofagrigus,158,move,6,Shadow Ball,27.0%,,,,,,,,
+Cofagrigus,158,move,1,Will-O-Wisp,76.0%,,,,,,,,
+Cofagrigus,158,move,2,Body Press,55.9%,,,,,,,,
+Cofagrigus,158,move,3,Hex,48.9%,,,,,,,,
+Cofagrigus,158,move,4,Trick Room,37.8%,,,,,,,,
+Cofagrigus,158,move,5,Iron Defense,33.6%,,,,,,,,
+Cofagrigus,158,move,6,Shadow Ball,26.8%,,,,,,,,
 Cofagrigus,158,move,7,Curse,18.8%,,,,,,,,
-Cofagrigus,158,move,8,Destiny Bond,16.1%,,,,,,,,
+Cofagrigus,158,move,8,Destiny Bond,16.3%,,,,,,,,
 Cofagrigus,158,move,9,Toxic Spikes,11.9%,,,,,,,,
-Cofagrigus,158,move,10,Rest,11.4%,,,,,,,,
-Cofagrigus,158,held_item,1,Leftovers,45.9%,,,,,,,,
-Cofagrigus,158,held_item,2,Sitrus Berry,22.5%,,,,,,,,
-Cofagrigus,158,held_item,3,Rocky Helmet,10.6%,,,,,,,,
-Cofagrigus,158,held_item,4,Chesto Berry,5.5%,,,,,,,,
-Cofagrigus,158,held_item,5,Mental Herb,2.7%,,,,,,,,
-Cofagrigus,158,held_item,6,Red Card,1.5%,,,,,,,,
-Cofagrigus,158,held_item,7,Colbur Berry,1.4%,,,,,,,,
+Cofagrigus,158,move,10,Rest,11.2%,,,,,,,,
+Cofagrigus,158,held_item,1,Leftovers,45.8%,,,,,,,,
+Cofagrigus,158,held_item,2,Sitrus Berry,22.4%,,,,,,,,
+Cofagrigus,158,held_item,3,Rocky Helmet,10.5%,,,,,,,,
+Cofagrigus,158,held_item,4,Chesto Berry,5.4%,,,,,,,,
+Cofagrigus,158,held_item,5,Mental Herb,2.8%,,,,,,,,
+Cofagrigus,158,held_item,6,Red Card,1.7%,,,,,,,,
+Cofagrigus,158,held_item,7,Colbur Berry,1.5%,,,,,,,,
 Cofagrigus,158,held_item,8,Focus Sash,1.4%,,,,,,,,
 Cofagrigus,158,held_item,9,Kasib Berry,1.2%,,,,,,,,
 Cofagrigus,158,held_item,10,Quick Claw,1.2%,,,,,,,,
@@ -29,24 +29,24 @@ Cofagrigus,158,teammate,7,Lucario,,,,,,,,,
 Cofagrigus,158,teammate,8,Greninja,,,,,,,,,
 Cofagrigus,158,teammate,9,Meowscarada,,,,,,,,,
 Cofagrigus,158,teammate,10,Rillaboom,,,,,,,,,
-Cofagrigus,158,stat_alignment,1,Bold,60.7%,Defense,Attack,,,,,,
-Cofagrigus,158,stat_alignment,2,Relaxed,17.5%,Defense,Speed,,,,,,
+Cofagrigus,158,stat_alignment,1,Bold,60.4%,Defense,Attack,,,,,,
+Cofagrigus,158,stat_alignment,2,Relaxed,17.7%,Defense,Speed,,,,,,
 Cofagrigus,158,stat_alignment,3,Calm,8.7%,Sp. Def,Attack,,,,,,
-Cofagrigus,158,stat_alignment,4,Sassy,5.0%,Sp. Def,Speed,,,,,,
-Cofagrigus,158,stat_alignment,5,Modest,2.5%,Sp. Atk,Attack,,,,,,
-Cofagrigus,158,stat_alignment,6,Impish,2.4%,Defense,Sp. Atk,,,,,,
+Cofagrigus,158,stat_alignment,4,Sassy,5.1%,Sp. Def,Speed,,,,,,
+Cofagrigus,158,stat_alignment,5,Modest,2.6%,Sp. Atk,Attack,,,,,,
+Cofagrigus,158,stat_alignment,6,Impish,2.5%,Defense,Sp. Atk,,,,,,
 Cofagrigus,158,stat_alignment,7,Careful,1.7%,Sp. Def,Sp. Atk,,,,,,
 Cofagrigus,158,stat_alignment,8,Quiet,1.2%,Sp. Atk,Speed,,,,,,
 Cofagrigus,158,stat_alignment,9,Timid,0.1%,Speed,Attack,,,,,,
 Cofagrigus,158,stat_alignment,10,Mild,0.0%,Sp. Atk,Defense,,,,,,
 Cofagrigus,158,stat_points,1,,45.4%,,,32,0,32,0,2,0
-Cofagrigus,158,stat_points,2,,7.2%,,,32,0,2,0,32,0
-Cofagrigus,158,stat_points,3,,5.8%,,,32,0,32,2,0,0
+Cofagrigus,158,stat_points,2,,7.5%,,,32,0,2,0,32,0
+Cofagrigus,158,stat_points,3,,5.7%,,,32,0,32,2,0,0
 Cofagrigus,158,stat_points,4,,5.1%,,,2,0,32,0,32,0
-Cofagrigus,158,stat_points,5,,3.0%,,,32,0,32,0,0,2
+Cofagrigus,158,stat_points,5,,2.9%,,,32,0,32,0,0,2
 Cofagrigus,158,stat_points,6,,2.7%,,,32,0,32,0,0,0
 Cofagrigus,158,stat_points,7,,1.8%,,,32,0,0,2,32,0
-Cofagrigus,158,stat_points,8,,1.5%,,,2,0,32,32,0,0
+Cofagrigus,158,stat_points,8,,1.4%,,,2,0,32,32,0,0
 Cofagrigus,158,stat_points,9,,1.3%,,,32,0,17,0,17,0
 Cofagrigus,158,stat_points,10,,1.3%,,,32,0,0,0,32,0
 Cofagrigus,158,ability,1,Mummy,100.0%,,,,,,,,

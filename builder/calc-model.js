@@ -562,7 +562,8 @@ export class CalcModel {
     const move = best[winner].move;
     let summary = this.formatKoOdds(best[winner].result).replace(/\n/g, " ").trim();
     if (summary) summary = summary[0].toLowerCase() + summary.slice(1);
-    const name = this.data.displayName(...this.data.battleForm(winnerMon.pokemon_name, winnerMon.form_name, winnerMon.item));
+    const [winnerSpecies, winnerForm] = this.data.battleForm(winnerMon.pokemon_name, winnerMon.form_name, winnerMon.item);
+    const name = this.data.displayName(winnerSpecies, winnerForm, winnerMon.form_name);
     const pctText = Number.isInteger(percent) ? String(percent) : String(percent);
     return {
       winner,
@@ -734,7 +735,8 @@ export class CalcModel {
     if (key === "helping_hand") return this.state.format === "Doubles" && own.length > 0;
     if (key === "reflect") return incoming.some((meta) => meta.category === "physical");
     if (key === "light_screen") return incoming.some((meta) => meta.category === "special");
-    if (["aurora_veil", "protect", "friend_guard", "stealth_rock", "salt_cure"].includes(key)) return incoming.length > 0;
+    if (key === "friend_guard") return this.state.format === "Doubles" && incoming.length > 0;
+    if (["aurora_veil", "protect", "stealth_rock", "salt_cure"].includes(key)) return incoming.length > 0;
     if (key === "tailwind") return !selectedMove && own.length > 0;
     return own.length > 0 || incoming.length > 0;
   }

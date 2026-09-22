@@ -1552,7 +1552,8 @@ function stageFor(mon, attr, critical, side, ignore = false, offset = 0) {
   return stage;
 }
 
-function intimidateOffsets(source, target) {
+// Exported for the Tournament Test, which applies Intimidate once on entry instead of per calc.
+export function intimidateOffsets(source, target) {
   const offsets = { attack_stage: 0, sp_attack_stage: 0 };
   if (key(source.ability) !== "intimidate") return offsets;
   if (target._white_herb_restored_v314) return offsets;
@@ -1641,3 +1642,6 @@ function rewriteRolls(result, rolls, detail = "") {
   if (detail) out.details = [...(out.details || []), detail];
   return out;
 }
+
+// Read-only tables for Optimize (builder/optimize-deep.js): recoil and self-lowering moves.
+export { DAMAGE_RECOIL_FRACTIONS, MAX_HP_RECOIL_FRACTIONS, SELF_DROP_STAGES };

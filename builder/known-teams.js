@@ -11,6 +11,23 @@ const taKey = (value) => String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g
 
 export const FOUND_IN_TEAM_NOTE = "Found in similar team";
 
+// Roster keys are battle-data names, and the app's tables spell some Pokemon
+// two ways: the library files Basculegion as "Basculegion Male" while a team
+// may hold the table's second "Basculegion" row ("Heat Rotom" / "Rotom Heat"
+// likewise).  BuilderData (builder/common.js) registers a map from every app
+// spelling to its Showdown identity when it loads, so both count as the same
+// member.  Without it (the parity tests run the bare engine) a key is itself.
+let rosterIdentity = null;
+
+/** @param {((key: string) => string) | null} identity  roster key -> identity key */
+export function setRosterIdentity(identity) {
+  rosterIdentity = typeof identity === "function" ? identity : null;
+}
+
+function rosterKey(key) {
+  return rosterIdentity ? rosterIdentity(key) || key : key;
+}
+
 export class KnownTeams {
   /** @param {{minOverlap:number, bonus:number, battleDataForms:string[], teams:Array}} payload */
   constructor(payload = {}) {
@@ -21,8 +38,18 @@ export class KnownTeams {
       const members = (rows || []).map(([species, form, item, ability, nature, moves, roster]) => ({
         species, form: form || species, item, ability, nature, moves: moves || [], roster: roster || taKey(species),
       }));
-      return { name, members, counts: countKeys(members.map((m) => m.roster)) };
+      return { name, members, counts: null, countsFor: undefined };
     });
+  }
+
+  /** A team's roster keys as counts, under the identity map in use (worked out on first use,
+   *  since the library may load before BuilderData registers the map). */
+  teamCounts(team) {
+    if (!team.counts || team.countsFor !== rosterIdentity) {
+      team.counts = countKeys(team.members.map((m) => rosterKey(m.roster)));
+      team.countsFor = rosterIdentity;
+    }
+    return team.counts;
   }
 
   /** _v494_battle_data_name: the form's name when it has its own file, else the species. */
@@ -41,7 +68,7 @@ export class KnownTeams {
       const form = String(entry?.form || species);
       const name = species || form ? this.battleDataName(species, form) : "";
       if (!name) return {};
-      keys.push(taKey(name));
+      keys.push(rosterKey(taKey(name)));
     }
     return countKeys(keys);
   }
@@ -49,7 +76,8 @@ export class KnownTeams {
   /** _v494_team_overlap */
   overlap(team, present) {
     const wanted = this.rosterCounts(present);
-    return Object.entries(wanted).reduce((sum, [key, count]) => sum + Math.min(count, team.counts[key] || 0), 0);
+    const counts = this.teamCounts(team);
+    return Object.entries(wanted).reduce((sum, [key, count]) => sum + Math.min(count, counts[key] || 0), 0);
   }
 
   /** _v494_member_for: by form first, then by species. */
@@ -119,9 +147,9 @@ export function mostSimilarTeam(known, entries) {
     }
   }
   if (!best) return null;
-  const ours = present.map((e) => ({ entry: e, key: taKey(known.battleDataName(e.pokemon, e.form || e.pokemon)), used: false }));
+  const ours = present.map((e) => ({ entry: e, key: rosterKey(taKey(known.battleDataName(e.pokemon, e.form || e.pokemon))), used: false }));
   const members = best.team.members.map((m) => {
-    const match = ours.find((o) => !o.used && o.key === m.roster);
+    const match = ours.find((o) => !o.used && o.key === rosterKey(m.roster));
     if (match) match.used = true;
     const entry = match?.entry;
     const moves = new Set((m.moves || []).map(taKey));

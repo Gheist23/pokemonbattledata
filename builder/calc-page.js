@@ -46,7 +46,7 @@ async function initialSets(format) {
   const target = params.get("defender");
   const fromName = (name, fallback) => {
     if (!name) return fallback;
-    const [species, form] = data.resolve(name, name);
+    const [species, form] = data.resolveName(name);
     return data.speciesEntry(species) ? setFromCommon(data.commonSet(format, species, form)) : fallback;
   };
   const a = top[0] ? setFromCommon(data.commonSet(format, top[0].species, top[0].form)) : makeSet();
@@ -69,7 +69,7 @@ function render() {
 function monName(side) {
   const mon = model.mon(side);
   const [, form] = data.battleForm(mon.pokemon_name, mon.form_name, mon.item);
-  return data.displayName(mon.pokemon_name, form) || "Pokémon";
+  return data.displayName(mon.pokemon_name, form, mon.form_name) || "Pokémon";
 }
 
 function renderResults() {
@@ -235,7 +235,7 @@ function renderMon(side) {
     h("button", { type: "button", class: "bd-mon-art", onclick: changePokemon, "aria-label": "Change Pokémon" },
       sprite(data.sprite(set.species, set.form, set.item, { full: true }), "", 84, "bd-sprite bd-sprite-lg")),
     h("div", { class: "bd-mon-id" },
-      h("button", { type: "button", class: "bd-mon-name", onclick: changePokemon }, data.displayName(battleSpecies, battleForm) || "Choose Pokémon", h("span", { "aria-hidden": "true" }, " ▾")),
+      h("button", { type: "button", class: "bd-mon-name", onclick: changePokemon }, data.displayName(battleSpecies, battleForm, set.form) || "Choose Pokémon", h("span", { "aria-hidden": "true" }, " ▾")),
       h("div", { class: "bd-type-row" }, types.map(typeChip)),
       h("label", { class: "bd-inline-field" }, h("span", {}, "Ability"), abilityField),
       h("div", { class: "bd-inline-field" }, h("span", {}, "Item"), itemCombo)));
@@ -294,7 +294,7 @@ function renderMon(side) {
 
   const details = h("div", { class: "bd-mon-details" },
     h("label", { class: "bd-field" }, h("span", {}, "Nature"), select(NATURE_ORDER.map((name) => [name, data.natureLabel(name)]), set.nature, (value) => { set.nature = value; render(); }, { "aria-label": "Nature" })),
-    h("label", { class: "bd-field" }, h("span", {}, "Form"), select(data.legalForms(set.species), set.form, (value) => {
+    h("label", { class: "bd-field" }, h("span", {}, "Form"), select(data.legalForms(set.species, set.form), set.form, (value) => {
       set.form = value;
       const legal = data.abilities(set.species, value);
       if (!legal.includes(set.ability)) set.ability = legal[0] || set.ability;
@@ -353,11 +353,14 @@ function renderField() {
       "aria-pressed": field[key] ? "true" : "false",
       onclick: () => { field[key] = !field[key]; render(); },
     }, FIELD_LABELS[key]);
+    // Helping Hand and Friend Guard come from a partner, which Singles does not have
+    // (the calculation ignores them there), so Singles does not offer them.
+    const doubles = state.format === "Doubles";
     return h("div", { class: "bd-side-toggles" },
       h("h3", {}, side === LEFT ? "Our side" : "Opposing side"),
-      toggle("protect"), toggle("helping_hand"), toggle("aurora_veil"),
+      toggle("protect"), doubles ? toggle("helping_hand") : null, toggle("aurora_veil"),
       h("div", { class: "bd-toggle-pair" }, toggle("reflect"), toggle("light_screen")),
-      toggle("tailwind"), toggle("friend_guard"), toggle("stealth_rock"),
+      toggle("tailwind"), doubles ? toggle("friend_guard") : null, toggle("stealth_rock"),
       h("div", { class: "bd-segment bd-spikes", role: "group", "aria-label": "Spikes layers" },
         [0, 1, 2, 3].map((n) => h("button", {
           type: "button",

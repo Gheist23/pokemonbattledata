@@ -1153,19 +1153,14 @@ export function writeSeoPages(ctx) {
 
   /* -------------------------------------------------- reverse redirects */
 
-  // _redirects keeps its hand-written entries; everything below the marker is
-  // regenerated each build so stale comparison redirects cannot pile up.
-  {
-    const marker = "# --- generated: reverse comparison URLs (do not edit below) ---";
-    const redirectsPath = join(cwd, "_redirects");
-    const existing = existsSync(redirectsPath) ? readFileSync(redirectsPath, "utf8") : "";
-    const manual = existing.split(marker)[0].replace(/\s+$/, "");
-    const generated = reverseRedirects
-      .map(([from, to]) => `${from} ${to} 301`)
-      .sort()
-      .join("\n");
-    writeFileSync(redirectsPath, `${manual}\n\n${marker}\n${generated}\n`);
-  }
+  // _redirects keeps its hand-written entries; everything below the first
+  // generated marker is regenerated each build so stale redirects cannot pile
+  // up. The legacy block is built by the caller once every page is on disk,
+  // because it may only point at pages that exist and never shadow one.
+  const redirectCounts = writeRedirects(cwd, [
+    { marker: LEGACY_REDIRECTS_MARKER, rules: typeof ctx.legacyRedirects === "function" ? ctx.legacyRedirects() : [] },
+    { marker: REVERSE_REDIRECTS_MARKER, rules: reverseRedirects }
+  ]);
 
   return {
     urls,
@@ -1175,7 +1170,61 @@ export function writeSeoPages(ctx) {
       items: itemPages.length,
       abilities: abilityPages.length,
       redirects: reverseRedirects.length,
+      legacyRedirects: redirectCounts.blocks[0],
+      staticRedirects: redirectCounts.static,
+      dynamicRedirects: redirectCounts.dynamic,
       total: urls.length
     }
   };
+}
+
+const LEGACY_REDIRECTS_MARKER = "# --- generated: old Pokemon URLs, renamed to Showdown spellings (do not edit below) ---";
+const REVERSE_REDIRECTS_MARKER = "# --- generated: reverse comparison URLs (do not edit below) ---";
+// Cloudflare Pages honours at most 2,000 static and 100 dynamic (splat or
+// placeholder) redirect rules and silently ignores the rest -- which is how
+// 47 of the old rename rules went dead. Every generated rule is static.
+const MAX_STATIC_REDIRECTS = 2000;
+const MAX_DYNAMIC_REDIRECTS = 100;
+
+/** Rewrites the generated blocks of _redirects below the hand-written part.
+ *  A rule whose source path already appears earlier in the file is skipped,
+ *  since only the first matching rule ever fires. Throws before writing when
+ *  the file would exceed what Cloudflare Pages honours. */
+function writeRedirects(cwd, blocks) {
+  const redirectsPath = join(cwd, "_redirects");
+  const existing = existsSync(redirectsPath) ? readFileSync(redirectsPath, "utf8").replace(/\r\n/g, "\n") : "";
+  let manual = existing;
+  for (const { marker } of blocks) manual = manual.split(marker)[0];
+  manual = manual.replace(/\s+$/, "");
+
+  const seen = new Set();
+  let staticCount = 0;
+  let dynamicCount = 0;
+  const count = (line) => {
+    const [from] = line.trim().split(/\s+/);
+    if (!from || from.startsWith("#")) return;
+    seen.add(from);
+    if (/[*]|\/:[A-Za-z]/.test(from)) dynamicCount += 1;
+    else staticCount += 1;
+  };
+  manual.split("\n").forEach(count);
+
+  const written = [];
+  const sections = blocks.map(({ marker, rules }) => {
+    const lines = [];
+    for (const [from, to] of [...rules].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))) {
+      if (!from || !to || from === to || seen.has(from)) continue;
+      const line = `${from} ${to} 301`;
+      count(line);
+      lines.push(line);
+    }
+    written.push(lines.length);
+    return `${marker}\n${lines.join("\n")}`;
+  });
+
+  if (staticCount > MAX_STATIC_REDIRECTS || dynamicCount > MAX_DYNAMIC_REDIRECTS) {
+    throw new Error(`_redirects would hold ${staticCount} static and ${dynamicCount} dynamic rules; Cloudflare Pages honours at most ${MAX_STATIC_REDIRECTS} static and ${MAX_DYNAMIC_REDIRECTS} dynamic ones and ignores the rest.`);
+  }
+  writeFileSync(redirectsPath, `${manual}\n\n${sections.join("\n\n")}\n`);
+  return { static: staticCount, dynamic: dynamicCount, blocks: written };
 }

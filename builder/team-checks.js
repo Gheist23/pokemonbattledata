@@ -19,6 +19,31 @@ const TYPES = ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting"
 const WEATHERS = ["rain", "sun", "sand", "snow"];
 const SEVERITY_ORDER = { red: 0, yellow: 1, good: 2, green: 2 };
 
+// Singles (the website's own rule; the app's checks are written for Doubles). With one
+// Pokemon a side there is no partner to help and no second target: a spread move hits
+// one Pokemon, so the Spread Damage check and the "Spread attackers" archetype
+// requirements are skipped, and these partner-only moves count for no check group.
+const SINGLES_NO_EFFECT = new Set(["followme", "ragepowder", "spotlight", "helpinghand", "coaching", "decorate", "allyswitch", "afteryou", "aromaticmist", "holdhands"]);
+const SINGLES_SKIPPED_CHECKS = new Set(["spread_damage"]);
+
+/** The archetype texts that name spread pressure or redirection, as they read in Singles. */
+const SINGLES_ARCHETYPE_WHY = {
+  offense: "Offense needs several immediate attackers and enough speed or priority to keep tempo.",
+  setup: "Setup teams need multiple win conditions and protection through disruption, screens, or safe switches.",
+};
+
+/** The Customize list's descriptions where the app's text is about Doubles. */
+const SINGLES_DESCRIPTIONS = {
+  protect_positioning: "Checks for Protect-style moves and safe switching tools such as pivoting moves, Fake Out or Intimidate.",
+  spread_damage: "Doubles only: checks whether the team can pressure both opposing slots with spread attacks. In Singles every move hits one Pokémon, so this check is skipped.",
+  utility_disruption: "Checks for utility such as Fake Out, Taunt, Haze, Encore, status, healing, screens, pivoting or other disruption.",
+};
+
+/** Whether an evaluator (or a stand-in with a `format`) is in Singles. */
+function isSingles(evaluator) {
+  return String(evaluator?.format || "").toLowerCase().startsWith("single");
+}
+
 // part_016 _V201_SCORE_THRESHOLDS (the fallback when a row has no threshold)
 const SCORE_THRESHOLDS = {
   good: "",
@@ -181,8 +206,18 @@ function maxRequirement(label, current, target, critical = false) {
   return { label, current: c, target: t, display: `${c} (max ${t})`, met: c <= t, critical: Boolean(critical) };
 }
 
-/** _v403_archetype_requirements (+ V494: Perish Trap wants redirection) */
+/** _v403_archetype_requirements (+ V494: Perish Trap wants redirection; Singles: see below) */
 export function archetypeRequirements(key, f) {
+  const specs = doublesRequirements(key, f);
+  if (!f?.singles) return specs;
+  // Singles: no spread moves and no partner to redirect for or to protect while it sets
+  // up, so those requirements go; Perish Trap keeps its target in with trapping instead.
+  return specs
+    .filter((req) => !["Spread attackers", "Redirection / Fake Out"].includes(req.label))
+    .map((req) => (req.label === "Redirection users" ? minRequirement("Trapping users", f.trap_sources || 0, 1, true) : req));
+}
+
+function doublesRequirements(key, f) {
   const minimum = (label, field, target, critical = false) => minRequirement(label, f[field] || 0, target, critical);
   const weather = f.weather_setters || {};
   const weatherUsers = f.weather_users || {};
@@ -298,6 +333,7 @@ export class TeamChecks {
    */
   constructor(evaluator) {
     this.ev = evaluator;
+    this.singles = isSingles(evaluator);
     const data = evaluator.engine.data || {};
     const tables = data.analysisTables || {};
     this.tables = tables;
@@ -341,7 +377,7 @@ export class TeamChecks {
   checkList() {
     return [
       { id: ARCHETYPE_CHECK_ID, label: "Archetype", description: "Checks the current archetype's setters, payoffs, Speed plan, support, and other archetype-specific requirements." },
-      ...this.checks.filter((c) => c.id !== ARCHETYPE_CHECK_ID),
+      ...this.checks.filter((c) => c.id !== ARCHETYPE_CHECK_ID).map((c) => (this.singles ? { ...c, description: SINGLES_DESCRIPTIONS[c.id] || c.description } : c)),
     ];
   }
 
@@ -359,10 +395,21 @@ export class TeamChecks {
     return selected;
   }
 
-  /** pokemon_display_name: the Showdown spelling of a form. */
+  /** pokemon_display_name: the Showdown spelling of a form.  A Mega the table
+   *  has no entry for gets Showdown's gendered name: the app's single "Mega
+   *  Meowstic" is Meowstic-M-Mega, and the evaluation's threat "Mega
+   *  Meowstic-F" (the female meta row holding the stone) is Meowstic-F-Mega. */
   showdownName(name) {
     const text = String(name ?? "").trim();
-    return this.displayNames.get(compact(text)) || text;
+    const shown = this.displayNames.get(compact(text));
+    if (shown) return shown;
+    const mega = text.match(/^Mega\s+(.+)$/i);
+    if (mega) {
+      const base = this.showdownName(mega[1]);
+      const gendered = this.displayNames.get(compact(`${base}-Mega`)) || this.displayNames.get(compact(`${base}-M-Mega`));
+      if (gendered) return gendered;
+    }
+    return text;
   }
 
   /**
@@ -397,6 +444,8 @@ export class TeamChecks {
     if (weather) weatherSet.add(weather.toLowerCase());
     if (terrain) terrainSet.add(terrain.toLowerCase().replace(" terrain", ""));
     const stats = this.ev.statsFor(mon);
+    // Singles: partner-only moves count for no group, and nothing is a spread move.
+    const groupKeys = this.singles ? new Set([...moveKeys].filter((k) => !SINGLES_NO_EFFECT.has(k))) : moveKeys;
     return {
       entry,
       mon,
@@ -411,12 +460,12 @@ export class TeamChecks {
       special,
       damaging_count: physical.length + special.length,
       damaging_types: damagingTypes,
-      protect: intersects(moveKeys, this.groups.protect),
-      speed_control: intersects(moveKeys, this.groups.speed),
-      priority: intersects(moveKeys, this.groups.priority),
-      positioning: intersects(moveKeys, this.groups.positioning) || abilityKey === "intimidate",
-      spread: intersects(moveKeys, this.groups.spread),
-      utility: new Set(this.utilityGroups.filter(([, keys]) => intersects(moveKeys, keys)).map(([label]) => label)),
+      protect: intersects(groupKeys, this.groups.protect),
+      speed_control: intersects(groupKeys, this.groups.speed),
+      priority: intersects(groupKeys, this.groups.priority),
+      positioning: intersects(groupKeys, this.groups.positioning) || abilityKey === "intimidate",
+      spread: !this.singles && intersects(groupKeys, this.groups.spread),
+      utility: new Set(this.utilityGroups.filter(([, keys]) => intersects(groupKeys, keys)).map(([label]) => label)),
       speed: Number(stats.speed) || 0,
       stats,
       weather_set: weatherSet,
@@ -489,7 +538,7 @@ export class TeamChecks {
         "Needs attention = no direct control, but at least two priority users or two naturally fast Pokémon.", extra);
     }
     return this.row("speed_control", "red", "the team has no reliable way to change or bypass move order.",
-      "Most doubles teams need some way to move first at key moments.",
+      this.singles ? "Most teams need some way to move first at key moments." : "Most doubles teams need some way to move first at key moments.",
       "Add Tailwind, Trick Room, Icy Wind, Electroweb, Thunder Wave, Fake Out plus priority, or another clear speed plan.", 5.5,
       "Problem = no direct control and fewer than two priority/fast backup options.", extra);
   }
@@ -501,18 +550,20 @@ export class TeamChecks {
     const extra = { protect, positioning };
     if (protect.length >= 3 || (protect.length >= 2 && positioning.length >= 2)) {
       return this.row("protect_positioning", "good", `${protect.length} Protect user(s) and ${positioning.length} positioning user(s) are available.`,
-        "The team can scout turns, stall field effects, and protect vulnerable slots while partner Pokémon act.", "", 0,
+        this.singles ? "The team can scout turns, stall field effects, and bring in the right Pokémon safely." : "The team can scout turns, stall field effects, and protect vulnerable slots while partner Pokémon act.", "", 0,
         "Good = 3+ Protect users, or 2 Protect users plus 2+ positioning tools.", extra);
     }
     if (protect.length >= 1 || positioning.length >= 2 || active < 4) {
       return this.row("protect_positioning", "yellow", `only ${protect.length} Protect user(s) and ${positioning.length} positioning user(s) are visible.`,
         "The team has some safe-turn tools, but they may be concentrated on too few slots.",
-        "Add another Protect-style move or a reliable positioning tool such as Fake Out, Follow Me/Rage Powder, pivoting, or Intimidate.", 2.5,
+        this.singles ? "Add another Protect-style move or a reliable positioning tool such as a pivoting move (U-turn, Volt Switch, Parting Shot), Fake Out, or Intimidate."
+          : "Add another Protect-style move or a reliable positioning tool such as Fake Out, Follow Me/Rage Powder, pivoting, or Intimidate.", 2.5,
         "Needs attention = at least one Protect or two positioning tools, but below the good threshold.", extra);
     }
-    return this.row("protect_positioning", "red", "there is almost no way to protect a slot or reposition safely.",
+    return this.row("protect_positioning", "red", this.singles ? "there is almost no way to scout a turn or switch safely." : "there is almost no way to protect a slot or reposition safely.",
       "Without these tools, reads become all-or-nothing and setup/support turns are hard to create.",
-      "Add Protect to key attackers and at least one board-control tool such as Fake Out, redirection, pivoting, or Intimidate.", 5.4,
+      this.singles ? "Add Protect to key attackers and at least one switching tool such as a pivoting move, Fake Out, or Intimidate."
+        : "Add Protect to key attackers and at least one board-control tool such as Fake Out, redirection, pivoting, or Intimidate.", 5.4,
       "Problem = no Protect and fewer than two positioning tools.", extra);
   }
 
@@ -611,12 +662,15 @@ export class TeamChecks {
     if (categories.length >= 2 || providers.length >= 2) {
       return this.row("utility_disruption", "yellow", `utility is limited to ${simpleJoin(categories, 7) || "a small number of tools"} across ${providers.length} Pokémon.`,
         "The team has support options, but may not be able to disrupt varied opposing plans.",
-        "Add another utility category such as Fake Out, redirection, Taunt, Haze, Encore, status, healing, or screens.", 2.4,
+        this.singles ? "Add another utility category such as Taunt, Haze, Encore, status, healing, screens, or pivoting."
+          : "Add another utility category such as Fake Out, redirection, Taunt, Haze, Encore, status, healing, or screens.", 2.4,
         "Needs attention = 2 categories or 2 providers, but not both enough for good.", extra);
     }
     return this.row("utility_disruption", "red", "very little utility or disruption is selected.",
-      "Teams that only attack often struggle when the opponent sets up, redirects, or controls the board first.",
-      "Add useful doubles tools such as Fake Out, redirection, Taunt, Haze, Encore, status, healing, screens, or pivoting.", 5.2,
+      this.singles ? "Teams that only attack often struggle when the opponent sets up or controls the game first."
+        : "Teams that only attack often struggle when the opponent sets up, redirects, or controls the board first.",
+      this.singles ? "Add useful tools such as Taunt, Haze, Encore, status, healing, screens, or pivoting."
+        : "Add useful doubles tools such as Fake Out, redirection, Taunt, Haze, Encore, status, healing, screens, or pivoting.", 5.2,
       "Problem = fewer than 2 utility categories and fewer than 2 utility providers.", extra);
   }
 
@@ -689,7 +743,7 @@ export class TeamChecks {
     if (unsupported.length) problems.push(`missing setter for ${simpleJoin(unsupported.map(pyTitleWord), 4)}`);
     if (weatherSet.size >= 2) problems.push("multiple weather setters may fight each other");
     if (terrainSet.has("psychic") && priority.length) problems.push("Psychic Terrain can block the team's priority attacks");
-    if (terrainSet.has("grassy") && ["earthquake", "bulldoze", "magnitude"].some((k) => moveKeys.has(k))) problems.push("Grassy Terrain weakens the team's Ground spread attacks");
+    if (terrainSet.has("grassy") && ["earthquake", "bulldoze", "magnitude"].some((k) => moveKeys.has(k))) problems.push(this.singles ? "Grassy Terrain weakens the team's Earthquake-style Ground attacks" : "Grassy Terrain weakens the team's Ground spread attacks");
     if (problems.length >= 2) {
       return this.row("field_weather_consistency", "red", `${simpleJoin(problems, 4)}.`,
         "Conflicting field choices can make the team’s own tools unreliable.",
@@ -735,7 +789,7 @@ export class TeamChecks {
       return [{ kind: "checks_disabled", check_id: "checks_disabled", check_label: "checks_disabled", severity: "good", pressure: 0, check_system: "simple_custom_v187",
         text: "No Team Building Checks are enabled. Use Customize to select the requirements used by Team Building Checks, Suggestion Calcs, and Optimize Calcs." }];
     }
-    const rows = this.baseIds.filter((id) => base.has(id)).map((id) => this.checkFor(id).call(this, profiles));
+    const rows = this.baseIds.filter((id) => base.has(id) && !(this.singles && SINGLES_SKIPPED_CHECKS.has(id))).map((id) => this.checkFor(id).call(this, profiles));
     const order = Object.fromEntries(this.baseIds.map((id, i) => [id, i]));
     return stableSort(rows.filter((r) => String(r.text || "").trim()), (r) => [severityRank(r), order[rowId(r)] ?? 99]);
   }
@@ -756,7 +810,9 @@ export class TeamChecks {
     }];
     const protect = hasMove(["protect", "detect", "spiky shield", "king's shield", "baneful bunker", "silk trap", "burning bulwark"]);
     rows.push({ check_id: "protect_positioning", check_label: "Protect / Positioning", severity: protect ? "good" : "yellow",
-      text: protect ? "Protect / Positioning: Covered - at least one selected Pokemon has a Protect-style tool." : "Protect / Positioning: Needs Attention - add Protect, Fake Out, redirection, pivoting, Intimidate, or similar board-control support." });
+      text: protect ? "Protect / Positioning: Covered - at least one selected Pokemon has a Protect-style tool."
+        : this.singles ? "Protect / Positioning: Needs Attention - add Protect, a pivoting move, Fake Out, Intimidate, or similar switching support."
+          : "Protect / Positioning: Needs Attention - add Protect, Fake Out, redirection, pivoting, Intimidate, or similar board-control support." });
     const speed = hasMove(["tailwind", "trick room", "icy wind", "electroweb", "thunder wave", "scary face", "bulldoze", "quash"]);
     rows.push({ check_id: "speed_control", check_label: "Speed Control", severity: speed ? "good" : "yellow",
       text: speed ? "Speed Control: Covered - at least one selected Pokemon has a speed-control move." : "Speed Control: Needs Attention - add Tailwind, Trick Room, speed-lowering moves, priority, or naturally fast teammates." });
@@ -772,12 +828,18 @@ export class TeamChecks {
     if (physical && special) rows.push({ check_id: "damage_mix", check_label: "Damage Mix", severity: "good", text: "Damage Mix: Covered - the current team already has both physical and special pressure." });
     else if (count <= 1) rows.push({ check_id: "damage_mix", check_label: "Damage Mix", severity: "yellow", text: "Damage Mix: Needs Attention - one Pokemon cannot establish a complete physical/special damage profile yet. Add teammates that cover the missing side." });
     else rows.push({ check_id: "damage_mix", check_label: "Damage Mix", severity: "yellow", text: "Damage Mix: Needs Attention - the current team leans too heavily toward one attacking side. Add physical or special pressure to balance it." });
-    const spread = hasMove(["heat wave", "rock slide", "earthquake", "dazzling gleam", "hyper voice", "blizzard", "muddy water", "eruption", "water spout", "discharge", "surf", "icy wind", "snarl"]);
-    rows.push({ check_id: "spread_damage", check_label: "Spread Damage", severity: spread ? "good" : "yellow",
-      text: spread ? "Spread Damage: Covered - the current team has at least one spread-pressure option." : "Spread Damage: Needs Attention - add spread attacks so the team can pressure both opposing slots." });
-    const utility = hasMove(["fake out", "follow me", "rage powder", "taunt", "haze", "encore", "will-o-wisp", "parting shot", "snarl", "helping hand", "wide guard", "quick guard"]);
+    if (!this.singles) {
+      const spread = hasMove(["heat wave", "rock slide", "earthquake", "dazzling gleam", "hyper voice", "blizzard", "muddy water", "eruption", "water spout", "discharge", "surf", "icy wind", "snarl"]);
+      rows.push({ check_id: "spread_damage", check_label: "Spread Damage", severity: spread ? "good" : "yellow",
+        text: spread ? "Spread Damage: Covered - the current team has at least one spread-pressure option." : "Spread Damage: Needs Attention - add spread attacks so the team can pressure both opposing slots." });
+    }
+    const utility = hasMove(this.singles
+      ? ["fake out", "taunt", "haze", "encore", "will-o-wisp", "parting shot", "snarl", "quick guard"]
+      : ["fake out", "follow me", "rage powder", "taunt", "haze", "encore", "will-o-wisp", "parting shot", "snarl", "helping hand", "wide guard", "quick guard"]);
     rows.push({ check_id: "utility_disruption", check_label: "Utility / Disruption", severity: utility ? "good" : "yellow",
-      text: utility ? "Utility / Disruption: Covered - at least one selected Pokemon has a disruption or support tool." : "Utility / Disruption: Needs Attention - add Fake Out, redirection, Taunt, Haze, Parting Shot, status, screens, or similar support." });
+      text: utility ? "Utility / Disruption: Covered - at least one selected Pokemon has a disruption or support tool."
+        : this.singles ? "Utility / Disruption: Needs Attention - add Taunt, Haze, Encore, Parting Shot, status, screens, or similar support."
+          : "Utility / Disruption: Needs Attention - add Fake Out, redirection, Taunt, Haze, Parting Shot, status, screens, or similar support." });
     return rows;
   }
 
@@ -834,7 +896,7 @@ export class TeamChecks {
         recovery: has(moves, s.recovery),
         denial: has(moves, s.denial),
         screen_providers: has(moves, s.screen),
-        redirection_fakeout: has(moves, s.redirection) || moves.has("fakeout"),
+        redirection_fakeout: (!this.singles && has(moves, s.redirection)) || moves.has("fakeout"),
         pivots: has(moves, s.pivot),
         tailwind_setters: moves.has("tailwind"),
         trick_room_setters: moves.has("trickroom"),
@@ -893,8 +955,10 @@ export class TeamChecks {
     values.weather_types = Object.values(weatherSetters).filter(Boolean).length;
     values.utility_category_names = [...utility].sort();
     values.evidence = evidence;
-    values.redirection_users = profiles.filter((p) => has(p.move_keys, s.redirection)).length;
+    values.redirection_users = this.singles ? 0 : profiles.filter((p) => has(p.move_keys, s.redirection)).length;
     values.tailwind_beneficiaries = typeof tailwind === "function" ? tailwind() : Number(tailwind) || 0;
+    // Read by archetypeRequirements (only set in Singles, so Doubles features are unchanged).
+    if (this.singles) values.singles = true;
     return values;
   }
 
@@ -919,7 +983,7 @@ export class TeamChecks {
       summary_v203: summary,
       summary,
       text: summary,
-      why_v203: String(this.descriptions[key] || ""),
+      why_v203: String((this.singles && SINGLES_ARCHETYPE_WHY[key]) || this.descriptions[key] || ""),
       fix_v203: missing.length ? `Improve ${missing.map((r) => r.label || "requirement").join(", ")}.` : "No archetype-specific changes are needed.",
       score_explanation: "",
       threshold_v203: "",
@@ -984,7 +1048,7 @@ export class TeamChecks {
     return {
       check_id: "mega", kind: "mega", check_label: "Mega Options", severity, status,
       summary_v203: summary, summary, text: summary,
-      why_v203: `A VGC team needs a usable Mega option, while three or more Mega users compete for the one Mega Evolution available in battle. ${evidence}.`,
+      why_v203: `${this.singles ? "A team" : "A VGC team"} needs a usable Mega option, while three or more Mega users compete for the one Mega Evolution available in battle. ${evidence}.`,
       fix_v203: fix,
       score_explanation: "0 Mega options and 3 or more Mega options are structural Team Building Problems; 1 or 2 are healthy.",
       pressure, mega_count: count, mega_names: megaNames,

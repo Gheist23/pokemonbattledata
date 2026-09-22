@@ -2,11 +2,11 @@
 // Customize), Critical Threats with their calcs, the Synergy and Offense /
 // Defense popups and Speed (Speed Control plus the ranked Speed Tiers).
 //
-// Everything here renders the payload builder/team-payload.js produces, which
-// follows the Companion app's own evaluation; the wording follows the app.
+// Everything here renders the payload builder/team-payload.js produces (a port of
+// the Companion app's evaluation); the calc wording follows the app.
 
 import { DEFAULT_SETTINGS, STAT_DISTRIBUTION_OPTIONS } from "./team-eval.js";
-import { displayResultCopy } from "./team-payload.js";
+import { calcTail, orderedResults, suppressedResult } from "./calc-format.js";
 import { h, openDialog, problemCard, scoreRing, segmented, select, sprite, stepper, switchControl } from "./ui.js";
 
 // --- settings ----------------------------------------------------------------------
@@ -38,12 +38,15 @@ const HINTS = {
 const SIDES = [["None", "Off"], ["My Team", "Your team"], ["Threat Team", "Threats"], ["Both", "Both"]];
 
 /**
- * The app's "Team Evaluation Settings" (V429/V431): the same twenty settings,
- * grouped the way they are used instead of one long list of dropdowns.
+ * The Settings dialog (the app's Team Evaluation Settings, V429/V431): the same
+ * twenty settings, grouped the way they are used, plus the Team Building Checks.
  * @param {object} current   the saved settings (app keys)
  * @param {(settings: object) => void} onSave
+ * @param {{maxTopMeta?: number, onCustomizeChecks?: (onSaved: () => void) => void, checksSummary?: () => string}} options
  */
-export function openSettingsDialog(current, onSave) {
+export function openSettingsDialog(current, onSave, options = {}) {
+  const { maxTopMeta = 262, onCustomizeChecks = null, checksSummary = null } = options;
+  const summaryNode = h("span", { class: "bd-note" }, checksSummary ? checksSummary() : "");
   const draft = { ...DEFAULT_SETTINGS, ...(current || {}) };
   const row = (label, key, control, { stack = false } = {}) => h("div", { class: `bd-set-row ${stack ? "stack" : ""}` },
     h("div", { class: "bd-set-text" }, h("span", { class: "bd-set-label" }, label), HINTS[key] ? h("small", {}, HINTS[key]) : null),
@@ -58,10 +61,10 @@ export function openSettingsDialog(current, onSave) {
   };
   const section = (title, rows) => h("section", { class: "bd-set-section" }, h("h3", {}, title), h("div", { class: "bd-set-rows" }, rows));
   const body = h("div", { class: "bd-settings" },
-    h("p", { class: "bd-section-note" }, "Used the next time Team Evaluation, Suggestions or Auto Build runs."),
+    h("p", { class: "bd-section-note" }, "Applies to Team Evaluation, Suggestions, Optimize, Auto Build and the Tournament Test the next time they run."),
     h("div", { class: "bd-set-grid" },
       section("What is calculated", [
-        row("Top X Meta", "top_meta", count("top_meta", 1, 100, "Top X Meta")),
+        row("Top X Meta", "top_meta", count("top_meta", 1, Math.max(1, maxTopMeta), "Top X Meta")),
         row("Held items per threat", "calc_item_limit", count("calc_item_limit", 1, 5, "Held items per threat")),
         row("Moves per Pokémon", "calc_move_limit", count("calc_move_limit", 1, 10, "Moves per Pokémon")),
         row("Threat Stat Points", "threat_stat_distributions", select(STAT_DISTRIBUTION_OPTIONS, draft.threat_stat_distributions, (v) => { draft.threat_stat_distributions = v; }, { "aria-label": "Threat Stat Points" }), { stack: true }),
@@ -87,14 +90,22 @@ export function openSettingsDialog(current, onSave) {
         row("Exclude Pokémon", "exclude_pokemon", text("exclude_pokemon", "Incineroar, Sneasler", "Exclude Pokémon"), { stack: true }),
         row("Your stat stages", "my_stages", text("my_stages", "Atk:-1, Spe:+1", "Your stat stages"), { stack: true }),
         row("Threat stat stages", "threat_stages", text("threat_stages", "SpA:+1, Atk:-1", "Threat stat stages"), { stack: true }),
-      ])));
+      ]),
+      onCustomizeChecks ? section("Team Building Checks", [
+        h("div", { class: "bd-set-row" },
+          h("div", { class: "bd-set-text" }, h("span", { class: "bd-set-label" }, "Checks in use"),
+            h("small", {}, "Choose which team requirements are checked. Only the checked ones count for Suggestions and Auto Build.")),
+          h("div", { class: "bd-set-control" },
+            checksSummary ? summaryNode : null,
+            h("button", { type: "button", class: "ghost-button compact", onclick: () => onCustomizeChecks(() => { if (checksSummary) summaryNode.textContent = checksSummary(); }) }, "Choose checks…"))),
+      ]) : null));
   const { close } = openDialog({
-    title: "Team Evaluation Settings",
+    title: "Settings",
     body,
     wide: true,
     className: "bd-dialog-settings",
     actions: [
-      h("button", { type: "button", class: "ghost-button", onclick: () => { close(); openSettingsDialog({ ...DEFAULT_SETTINGS }, onSave); } }, "Reset to defaults"),
+      h("button", { type: "button", class: "ghost-button", onclick: () => { close(); openSettingsDialog({ ...DEFAULT_SETTINGS }, onSave, options); } }, "Reset to defaults"),
       h("span", { class: "bd-spacer" }),
       h("button", { type: "button", class: "ghost-button", onclick: () => close() }, "Cancel"),
       h("button", { type: "button", class: "primary-button", onclick: () => {
@@ -115,13 +126,6 @@ function severityLabel(row) {
   if (row.check_id === "archetype_fit") return row.severity === "good" ? "OK" : "Watch";
   if (row.check_id === "mega") return row.severity === "good" ? "OK" : "Problem";
   return row.severity === "red" ? "Problem" : row.severity === "yellow" ? "Needs Attention" : "Good";
-}
-
-function koText(result) {
-  const data = displayResultCopy(result || {});
-  const percent = String(data.percent || "").trim();
-  const label = String(data.label || data.full_label || "No damage");
-  return percent && label.toLowerCase() !== "no damage" ? `${percent} · ${label}` : percent || label;
 }
 
 // --- Team Building Checks ------------------------------------------------------------
@@ -186,73 +190,105 @@ export function openChecksDialog(list, selected, onSave) {
 }
 
 // --- Critical Threats ---------------------------------------------------------------------
+//
+// One card per threat, laid out like the app's threat rows: one sprite, the set, how
+// many of the team it KOs and how many answer it, the best answer, and a ring coloured
+// by danger. Opened, it lists each team member's matchup as a compact box per side
+// that acts ("Attacker · Move" over "damage · KO"), the side that moves second and is
+// knocked out first as one grey line, and a condition note (Sun, Intimidate...) inside
+// the box it changes.
+
+/** _v47_threat_score_color: higher is more dangerous. */
+function threatTone(score) {
+  return score >= 75 ? "bad" : score >= 55 ? "orange" : score >= 35 ? "mid" : "good";
+}
+
+function threatRing(score) {
+  const value = Math.max(0, Math.min(100, Math.round(Number(score) || 0)));
+  return h("span", { class: `bd-ring bd-ring-${threatTone(value)}`, style: `--value: ${value}`, role: "img", "aria-label": `Threat score ${value} out of 100`, title: "Threat score: higher is more dangerous" }, h("b", {}, value));
+}
+
+/** _v38_breakdown_counts: "3/6 OHKO · 2/6 2HKO"; a side knocked out before it attacks does not count. */
+function koCounts(threat, key, teamSize) {
+  const counts = { 1: 0, 2: 0, 3: 0 };
+  for (const b of threat.breakdown || []) {
+    const r = b[key] || {};
+    if (r.speed_tier_suppressed) continue;
+    const hits = Number.parseInt(r.hits ?? 99, 10) || 99;
+    if (hits in counts && (Number(r.chance) || 0) > 0) counts[hits] += 1;
+  }
+  const parts = [[1, "OHKO"], [2, "2HKO"], [3, "3HKO"]].filter(([n]) => counts[n] > 0).map(([n, label]) => `${counts[n]}/${teamSize} ${label}`);
+  return parts.length ? parts.join(" · ") : `0/${teamSize} KO`;
+}
+
+const lines = (text) => String(text || "").split("\n").map((line, i) => (i ? [h("br"), line] : line));
+const isThreatSide = (r) => String(r?.attacker_side || "").toLowerCase() === "threat";
+
+/** One side's attack: "Attacker · Move" over "damage · KO" (plus a condition line). */
+function calcBox(result, name, outcome) {
+  return h("div", { class: `bd-tc-calc ${isThreatSide(result) ? "threat" : "team"}` },
+    h("p", {}, h("strong", {}, name(result.attacker || result.attacker_mon || "")), ` · ${result.move || "—"}`),
+    calcTail(result).map((line) => h("p", {}, line)),
+    outcome ? h("p", { class: `bd-tc-outcome ${outcome.severity === "critical" ? "critical" : "helpful"}` }, lines(outcome.text)) : null);
+}
+
+/** One team member's matchup with the threat. */
+function matchupGroup(b, name) {
+  const visible = orderedResults(b);
+  const hidden = suppressedResult(b);
+  if (!visible.length && !hidden) return null;
+  const outcome = b.conditional_outcome_v420?.text ? b.conditional_outcome_v420 : null;
+  // The condition note sits in the threat's box when it hurts, else in ours.
+  const wantThreat = outcome?.severity === "critical";
+  const target = outcome ? visible.find((r) => isThreatSide(r) === wantThreat) || visible[0] : null;
+  return h("section", { class: "bd-tc-group" },
+    h("h4", { class: "bd-tc-vs" }, `vs ${name(b.team_mon || (b.incoming_result || {}).defender || "")}`),
+    visible.map((r) => calcBox(r, name, r === target ? outcome : null)),
+    hidden ? h("p", { class: "bd-tc-hidden" },
+      `${name(hidden.attacker || hidden.attacker_mon || "")} · ${hidden.move || "—"} · ${calcTail(hidden, { trueLabel: true }).join(" / ")}`,
+      h("em", {}, " (moves second and is knocked out first)")) : null);
+}
+
+/** _v40_best_answer_display_text, in the breakdown's format. */
+function bestAnswer(best, name) {
+  if (!best || !best.move || best.move === "—") return h("p", { class: "bd-tc-best" }, "Best answer: none");
+  const [first, ...rest] = calcTail(best, { trueLabel: Boolean(best.speed_tier_suppressed) });
+  return h("p", { class: "bd-tc-best" }, "Best answer: ", h("strong", {}, name(best.attacker || best.attacker_mon || "")), ` · ${best.move} · ${first}`,
+    best.speed_tier_suppressed ? h("em", {}, " (moves second)") : null,
+    rest.map((line) => [h("br"), line]));
+}
+
+function threatCard(threat, { spriteFor, name, teamSize }) {
+  const species = threat.base_name || threat.name;
+  const form = threat.form || threat.name;
+  const groups = (threat.breakdown || []).map((b) => matchupGroup(b, name)).filter(Boolean);
+  return h("details", { class: "bd-tc" },
+    h("summary", {},
+      h("div", { class: "bd-tc-head" },
+        h("span", { class: "bd-tc-art" }, sprite(spriteFor(species, form, threat.threat_item), "", 48)),
+        h("div", { class: "bd-tc-main" },
+          h("h3", { class: "bd-tc-title" }, h("strong", {}, name(threat.name)), [threat.threat_item, threat.threat_ability].filter(Boolean).map((v) => ` · ${v}`)),
+          threat.threat_spread_label ? h("p", { class: "bd-tc-spread" }, threat.threat_spread_label) : null,
+          h("p", { class: "bd-tc-pressure" }, `Threat pressure: ${koCounts(threat, "incoming_result", teamSize)}`),
+          h("p", { class: "bd-tc-answers" }, `Team answers: ${koCounts(threat, "outgoing_result", teamSize)}`),
+          bestAnswer(threat.our_best, name)),
+        threatRing(threat.score))),
+    h("div", { class: "bd-tc-body" }, groups.length ? groups : h("p", { class: "bd-note" }, "No detailed calcs available.")));
+}
 
 /**
  * @param {object} payload
- * @param {object} helpers  {spriteFor(species, form, item), name(value), onCalc(threat, breakdown)}
+ * @param {object} helpers  {spriteFor(species, form, item), name(value)}
  */
 export function threatsView(payload, { spriteFor, name }) {
   const threats = payload.threats || [];
   if (!threats.length) {
     return h("div", { class: "bd-gate" }, h("h3", {}, "No critical threats"), h("p", {}, `Nothing in the Top ${payload.settings?.top_meta ?? ""} Meta reaches a 3HKO or better into this team.`));
   }
+  const teamSize = Math.max(1, (payload.slots || []).length || (threats[0].breakdown || []).length);
   return h("div", { class: "bd-list" },
-    h("p", { class: "bd-section-note" }, `${threats.length} of the Top ${payload.all_top_meta_threat_rows_v462} Meta Pokémon can KO a team member in three hits or fewer. Open a threat for every calculation.`),
-    threats.map((threat) => threatCard(threat, { spriteFor, name })));
-}
-
-function counts(map) {
-  const parts = [1, 2, 3].map((hits) => [hits, Number((map || {})[hits] ?? (map || {})[String(hits)] ?? 0)]).filter(([, n]) => n > 0)
-    .map(([hits, n]) => `${n}× ${hits === 1 ? "OHKO" : `${hits}HKO`}`);
-  return parts.length ? parts.join(" · ") : "none";
-}
-
-/** A Pokémon's name with its mini sprite in front (the Threat breakdowns). */
-function monLabel(value, name, spriteFor, strong = false) {
-  const text = name(value || "");
-  const label = strong ? h("strong", {}, text) : h("span", {}, text);
-  if (!spriteFor || !value) return label;
-  return h("span", { class: "bd-name-with-sprite" }, sprite(spriteFor(value, value), "", 24), label);
-}
-
-function calcLine(result, name, { second = false, spriteFor = null } = {}) {
-  if (!result || !result.move || result.move === "—") return h("span", { class: "bd-note" }, "No damaging move");
-  return h("span", {},
-    monLabel(result.attacker || result.attacker_mon || "", name, spriteFor, true), " uses ", h("strong", {}, result.move), " against ", monLabel(result.defender || result.defender_mon || "", name, spriteFor),
-    " → ", h("b", {}, koText(result)),
-    second && result.pre_speed_tier_label ? h("em", { class: "bd-note" }, ` (moves second; ${result.pre_speed_tier_label} if it moved first)`) : null);
-}
-
-function threatCard(threat, { spriteFor, name }) {
-  const form = threat.form || threat.name;
-  const species = threat.base_name || threat.name;
-  const score = Number(threat.score) || 0;
-  const tone = score >= 75 ? "red" : score >= 35 ? "yellow" : "neutral";
-  const best = threat.our_best || {};
-  const rows = (threat.breakdown || []).map((b) => {
-    const incoming = b.incoming_result || {};
-    const outgoing = b.outgoing_result || {};
-    const outcome = b.conditional_outcome_v420;
-    return h("div", { class: "bd-calcrow" },
-      h("div", { class: "bd-calc-head" }, monLabel(b.team_mon || outgoing.attacker || "", name, spriteFor, true), h("span", { class: "bd-note" }, "vs"), monLabel(b.threat_mon || incoming.attacker || "", name, spriteFor)),
-      h("p", { class: "bd-calc-in" }, h("span", { class: "bd-calc-tag in" }, "Threat"), calcLine(incoming, name, { second: Boolean(incoming.speed_tier_suppressed), spriteFor })),
-      h("p", { class: "bd-calc-out" }, h("span", { class: "bd-calc-tag out" }, "Answer"), calcLine(outgoing, name, { second: Boolean(outgoing.speed_tier_suppressed), spriteFor })),
-      outcome ? h("p", { class: `bd-outcome ${outcome.severity}` }, String(outcome.text).split("\n").map((line, i) => (i ? [h("br"), line] : line))) : null);
-  });
-  return h("details", { class: `bd-threat-card ${tone}` },
-    h("summary", {},
-      h("div", { class: "bd-threat" },
-        sprite(spriteFor(species, form, threat.threat_item), "", 48),
-        h("div", {},
-          h("h3", {}, [name(threat.name), threat.threat_item, threat.threat_ability].filter(Boolean).join(" · ")),
-          h("p", {}, `#${threat.position} · ${threat.threat_spread_label || ""}`),
-          h("p", { class: "bd-threat-pressure" }, `Threat pressure: ${counts(threat.threat_counts)} · `, calcLine(threat.their_best, name, { spriteFor })),
-          h("p", { class: "bd-threat-answers" }, `Team answers: ${counts(threat.answer_counts)} · `, best.move && best.move !== "—" ? calcLine(best, name, { second: Boolean(best.speed_tier_suppressed), spriteFor }) : "Best answer: none"),
-          (threat.condition_outcomes_v420 || []).length ? h("p", { class: "bd-note" }, `${threat.condition_outcomes_v420.length} condition${threat.condition_outcomes_v420.length === 1 ? "" : "s"} change a result`) : null),
-        h("span", { title: "Threat score: higher is more dangerous" }, scoreRing(score, "Threat score")))),
-    h("div", { class: "bd-threat-calcs" },
-      h("p", { class: "bd-note" }, `Items considered: ${(threat.top_items || []).slice(0, Number(threat.calc_items_considered_v451) || 3).join(", ") || "—"} · Moves: ${threat.threat_moves_display || (threat.top_moves || []).join(", ")}${(threat.weather_used || []).length ? ` · Weather: ${threat.weather_used.join(", ")}` : ""}${(threat.terrain_used || []).length ? ` · Terrain: ${threat.terrain_used.join(", ")}` : ""}`),
-      rows));
+    h("p", { class: "bd-section-note" }, `${threats.length} of the Top ${payload.all_top_meta_threat_rows_v462} Meta Pokémon can KO a team member in three hits or fewer. Open a threat to see each matchup: red is the threat attacking, white is your Pokémon attacking, grey is the side that moves second and is knocked out first.`),
+    threats.map((threat) => threatCard(threat, { spriteFor, name, teamSize })));
 }
 
 // --- Synergy, Offense and Defense popups ---------------------------------------------------
@@ -319,7 +355,8 @@ export function speedView(payload) {
     h("ul", { class: "bd-speed-lines" }, (lines || []).map((line) => h("li", {}, line))));
   const room = speed.room_plan || {};
   return h("div", { class: "bd-speed" },
-    h("p", { class: "bd-section-note" }, speed.summary || ""),
+    h("p", { class: "bd-section-note" }, `The Speed score is how often your team moves first against the Top ${payload.settings?.top_meta ?? ""} Meta in three situations: normal Speed, when the opponent has Tailwind, and under Trick Room. Open a part to see the matchups behind it.`),
+    speed.summary ? h("p", { class: "bd-note" }, speed.summary) : null,
     speed.archetype_speed_mode_v465 === "trick_room"
       ? h("div", { class: "bd-speed-parts" }, section("Trick Room", speed.trick_room, speed.trick_lines))
       : h("div", { class: "bd-speed-parts" },
@@ -330,10 +367,10 @@ export function speedView(payload) {
 }
 
 /**
- * The ranked Speed list (the app's Speed tab): our team plus the Top-X meta,
- * under the chosen weather, Tailwinds, Trick Room and Speed stages.
+ * The ranked Speed list: our team plus the Top-X meta (the Team Overview's
+ * "Top N Meta"), under the chosen weather, Tailwinds, Trick Room and Speed stages.
  */
-export function speedTiersView(tiers, state, { spriteFor, onState, title = "Speed Tiers", error = "", onRetry }) {
+export function speedTiersView(tiers, state, { spriteFor, onState, title = "Speed Tiers", error = "", onRetry, topSource = "" }) {
   const set = (patch) => onState({ ...state, ...patch });
   const stages = Array.from({ length: 13 }, (_, i) => i - 6).map((v) => [String(v), v > 0 ? `+${v}` : v === 0 ? "±0" : String(v)]);
   const group = (label, ...controls) => h("div", { class: "bd-speed-group" }, h("span", { class: "bd-speed-label" }, label), h("div", { class: "bd-speed-group-body" }, controls));
@@ -343,9 +380,7 @@ export function speedTiersView(tiers, state, { spriteFor, onState, title = "Spee
   const controls = h("div", { class: "bd-speed-toolbar" },
     group("Weather", segmented(["None", "Sun", "Rain", "Sand", "Snow"], state.weather || "None", (v) => set({ weather: v }), { "aria-label": "Weather" })),
     group("Order",
-      labelled("Trick Room", switchControl(state.trick_room, (on) => set({ trick_room: on }), { "aria-label": "Trick Room" })),
-      h("label", { class: "bd-inline-control" }, h("span", {}, "Meta"),
-        select([10, 20, 30, 40, 50].map((n) => [String(n), `Top ${n}`]), String(state.top_x || 30), (v) => set({ top_x: Number(v) }), { class: "bd-select bd-select-small", "aria-label": "Top X Meta" }))),
+      labelled("Trick Room", switchControl(state.trick_room, (on) => set({ trick_room: on }), { "aria-label": "Trick Room" }))),
     group("Your team",
       labelled("Tailwind", switchControl(state.own_tailwind, (on) => set({ own_tailwind: on }), { "aria-label": "Your Tailwind" })),
       stageSelect("our_stage", "Your Speed stage")),
@@ -375,49 +410,12 @@ export function speedTiersView(tiers, state, { spriteFor, onState, title = "Spee
   return h("section", { class: "bd-overview-section bd-speed-tiers" },
     h("div", { class: "bd-section-head" },
       h("h3", { class: "bd-field-label" }, title),
-      tiers && !error ? h("span", { class: "bd-note" }, `${tiers.rows.length} rows · ${state.trick_room ? "slowest" : "fastest"} first`) : null),
+      tiers && !error ? h("span", { class: "bd-note" }, `${tiers.rows.length} rows · Top ${state.top_x} Meta · ${state.trick_room ? "slowest" : "fastest"} first`) : null),
+    h("p", { class: "bd-section-note" }, `Your team and the Top ${state.top_x} Meta on their most common sets. A Pokémon gets an extra row when it often runs Choice Scarf or a Speed Ability. Change the weather, Tailwind, Trick Room or Speed stages to see how the order moves.${topSource ? ` The Top Meta size comes from ${topSource}.` : ""}`),
     controls, list);
 }
 
 // --- Suggested Pokémon ----------------------------------------------------------------
 
-/**
- * The app's Suggested Pokémon list.
- * @param {object|null} result   worker result {rows, scanned, targets, empty_slot}
- * @param {object} helpers       {spriteFor, onUse(row), running, progress, status, onRun}
- */
-export function suggestionsView(result, { spriteFor, onUse, running, progress = 0, status = "", onRun, full }) {
-  if (running) {
-    return h("div", { class: "bd-progress" },
-      h("div", { class: "bd-progress-bar", role: "progressbar", "aria-valuemin": "0", "aria-valuemax": "100", "aria-valuenow": String(Math.round(progress * 100)) }, h("i", { style: { width: `${Math.round(progress * 100)}%` } })),
-      h("p", { class: "bd-note", "aria-live": "polite" }, status || "Testing every ranked Pokémon…"));
-  }
-  if (!result) {
-    return h("div", { class: "bd-gate" },
-      h("h3", {}, full ? "Who would improve this team?" : "Who fits the open slot?"),
-      h("p", {}, full
-        ? "Tests every ranked Pokémon in place of the three weakest members and keeps each one's best swap, exactly like the Companion's Suggested Pokémon."
-        : "Tests every ranked Pokémon in the open slot on its most common set and ranks them by what they add: checks fixed, threats answered, typing, Speed and archetype fit."),
-      h("div", { class: "bd-gate-actions" }, h("button", { type: "button", class: "primary-button", onclick: onRun }, "Find suggestions")));
-  }
-  if (!result.rows.length) return h("div", { class: "bd-gate" }, h("h3", {}, "No suggestions"), h("p", {}, "Nothing in the ranked meta improves this team under the current settings."));
-  const tone = (sev) => (sev === "good" ? "bd-good-text" : sev === "red" ? "bd-bad-text" : sev === "yellow" ? "bd-mid-text" : "");
-  return h("div", { class: "bd-list" },
-    h("div", { class: "bd-checks-head" },
-      h("p", { class: "bd-section-note" }, `${result.scanned} Pokémon tested${result.targets?.filter(Boolean).length ? ` against ${result.targets.join(", ")}` : ""}. Open a suggestion for the reasons behind it.`),
-      h("button", { type: "button", class: "ghost-button compact", onclick: onRun }, "Run again")),
-    result.rows.map((row) => h("details", { class: "bd-suggestion" },
-      h("summary", {},
-        sprite(spriteFor(row.candidate_entry?.pokemon || row.name, row.form || row.name, row.item), "", 44),
-        h("div", {},
-          h("h3", {}, row.action),
-          // The app's tile says so too (known_team_prediction): the set is that team's own.
-          row.found_in_team ? h("p", { class: "bd-good-text bd-found-in-team" }, "Found in similar team") : null,
-          h("p", {}, [row.item, row.ability, row.spread_label].filter(Boolean).join(" · ")),
-          h("p", { class: "bd-note" }, (row.moves || []).join(" · "))),
-        h("div", { class: "bd-suggestion-side" },
-          h("b", { class: "bd-suggestion-score" }, Number(row.score).toFixed(1)),
-          h("button", { type: "button", class: "ghost-button compact", onclick: (event) => { event.preventDefault(); onUse(row); } }, "Use"))),
-      h("ul", { class: "bd-suggestion-details" }, (row.details || []).map((text) => h("li", { class: tone((row.severities || {})[String(text).toLowerCase()]) }, text))),
-      row.components ? h("p", { class: "bd-note" }, Object.entries(row.components).map(([k, c]) => `${k[0].toUpperCase()}${k.slice(1)} ${c.current} → ${c.projected}`).join(" · ")) : null)));
-}
+// The list and its breakdown live in builder/suggest-view.js.
+export { suggestionsView } from "./suggest-view.js";

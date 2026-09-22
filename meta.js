@@ -362,7 +362,11 @@
     (entry?.[category] || []).forEach((row) => {
       if (!Array.isArray(row)) return;
       const value = category === "stat_points" ? row[0] : row[1];
-      map.set(rowKey(category, row), { percent: numberOrZero(value), rank: row[row.length - 1], row });
+      // Teammates are Pokemon names: an old spelling of one ("Basculegion
+      // Male") must not read as a second Pokemon next to its Showdown name.
+      const key = category === "teammate" ? canon(rowKey(category, row)) : rowKey(category, row);
+      if (category === "teammate" && map.has(key)) return;
+      map.set(key,{ percent: numberOrZero(value), rank: row[row.length - 1], row });
     });
     return map;
   }
@@ -559,7 +563,9 @@
    *  Never rewrites the URL itself -- the location is already the source of truth
    *  in both of those cases, so every call here passes updateRoute: false. */
   function openRouteProfileFromLocation() {
-    const name = new URLSearchParams(window.location.search).get("pokemon");
+    // canon(): a link shared before the switch to Showdown names
+    // (?pokemon=Basculegion%20Male) still opens that Pokemon.
+    const name = canon(new URLSearchParams(window.location.search).get("pokemon"));
     const valid = name && state.latest?.pokemon?.[name];
     if (valid) {
       if (state.activeName !== name) openChanges(name, { updateRoute: false });
@@ -694,7 +700,7 @@
       table.innerHTML = `
         <thead><tr><th>Teammate</th><th>Before</th><th>Now</th><th>Change</th></tr></thead>
         <tbody>${rows.map((row) => `<tr>
-          <td data-label="Teammate">${assetLabelMarkup(row.entry, teammateImageCandidates(row.entry), "teammate-label")}</td>
+          <td data-label="Teammate">${assetLabelMarkup(displayName(canon(row.entry)), teammateImageCandidates(row.entry), "teammate-label")}</td>
           <td data-label="Before">${row.wasRank ? `#${row.wasRank}` : "—"}</td>
           <td data-label="Now">${row.nowRank ? `#${row.nowRank}` : "—"}</td>
           <td data-label="Change">${teammateChangeMarkup(row)}</td>
@@ -744,7 +750,9 @@
   async function loadMoveTypes(name) {
     if (state.learnableMoves.has(name)) return state.learnableMoves.get(name);
     const info = state.lookup[name] || {};
-    const candidates = unique([name, info.baseName].filter(Boolean));
+    // info.learnset is the file's own stem: learnsets keep the app's spelling
+    // ("Basculegion Male.csv") while the page names Pokemon the Showdown way.
+    const candidates = unique([info.learnset, name, info.baseName].filter(Boolean));
     for (const candidate of candidates) {
       try {
         const rows = parseCSV(await fetchText(`${ROOT}/learnable_moves/${candidate}.csv`));
@@ -865,8 +873,23 @@
     return name ? [`${ROOT}/items/${name}.png`, `${ROOT}/items/${name}.webp`] : [];
   }
 
+  /** Sprites are filed under the app's spelling ("Basculegion Male.png"), so a
+   *  teammate is looked up by its canonical name first -- the lookup knows the
+   *  real file -- and only then by a file named after it. */
   function teammateImageCandidates(name) {
-    return name ? [`${ROOT}/pokemon/${name}.png`, `${ROOT}/pokemon/${name}.webp`] : [];
+    if (!name) return [];
+    const shown = canon(name);
+    return unique([
+      ...(state.lookup[shown] ? spriteCandidates(shown) : []),
+      `${ROOT}/pokemon/${name}.png`,
+      `${ROOT}/pokemon/${name}.webp`
+    ]);
+  }
+
+  /** The Showdown name for any spelling of a Pokemon the index knows. */
+  function canon(name) {
+    const text = String(name || "").trim();
+    return state.index?.aliases?.[text] || text;
   }
 
   function typeImageCandidates(type) {

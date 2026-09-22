@@ -351,6 +351,13 @@ export function allBoxEntries() {
   return getState().boxes.flatMap((box) => box.box.map((entry, index) => ({ entry, index, boxId: box.id, boxName: box.name })));
 }
 
+/** The Team Overview's Top-X (how many ranked Pokemon its charts and the Speed list use). */
+export function setOverviewTop(value) {
+  update((s) => {
+    s.settings.overviewTop = Math.max(1, Number.parseInt(value, 10) || 30);
+  }, "overviewTop", { touch: false });
+}
+
 export function setSetting(key, value) {
   update((s) => {
     s.settings[key] = value;

@@ -11,6 +11,7 @@ const battleDir = join(assetRootPath, "battle_data");
 const metadataDir = join(assetRootPath, "metadata");
 const learnableMovesDir = join(assetRootPath, "learnable_moves");
 const showdownSpeciesPath = join(cwd, "tools", "showdown-species.json");
+const legacyNamesPath = join(cwd, "tools", "legacy-pokemon-names.json");
 const defaultSeason = "Current";
 const validFormats = new Set(["Doubles", "Singles"]);
 const preferredFormatOrder = ["Doubles", "Singles"];
@@ -98,7 +99,8 @@ function loadShowdownSpecies() {
       id,
       name: species?.name || id,
       baseSpecies: species?.baseSpecies || "",
-      forme: species?.forme || ""
+      forme: species?.forme || "",
+      formeOrder: Array.isArray(species?.formeOrder) ? species.formeOrder : []
     }));
   } catch (error) {
     console.warn(`Could not read tools/showdown-species.json: ${error.message}`);
@@ -114,6 +116,31 @@ for (const species of showdownSpecies) {
     if (key && !showdownByKey.has(key)) showdownByKey.set(key, species);
   }
 }
+
+/** tools/legacy-pokemon-names.json: the old labels the battle data used before
+ *  it switched to Showdown spellings, and the old URLs built from them. */
+function loadLegacyPokemonNames() {
+  const empty = { teammateNames: { season: "", lastDate: "", names: {} }, catalogueNames: {}, retiredPageNames: [], retiredComparisonSlugs: [] };
+  if (!existsSync(legacyNamesPath)) return empty;
+  try {
+    const raw = JSON.parse(readFileSync(legacyNamesPath, "utf8"));
+    return {
+      teammateNames: {
+        season: String(raw?.teammateNames?.season || ""),
+        lastDate: String(raw?.teammateNames?.lastDate || ""),
+        names: raw?.teammateNames?.names || {}
+      },
+      catalogueNames: raw?.catalogueNames && typeof raw.catalogueNames === "object" ? raw.catalogueNames : {},
+      retiredPageNames: Array.isArray(raw?.retiredPageNames) ? raw.retiredPageNames : [],
+      retiredComparisonSlugs: Array.isArray(raw?.retiredComparisonSlugs) ? raw.retiredComparisonSlugs : []
+    };
+  } catch (error) {
+    console.warn(`Could not read tools/legacy-pokemon-names.json: ${error.message}`);
+    return empty;
+  }
+}
+
+const legacyPokemonNames = loadLegacyPokemonNames();
 
 function showdownSuffix(value) {
   return titleCase(value)
@@ -139,8 +166,24 @@ function showdownNameCandidates(name) {
     if (value) candidates.push(value);
   };
 
-  let match = raw.match(/^Mega\s+(.+?)(?:\s+([XYZ]))?$/i);
-  if (match) add(`${titleCase(match[1])}-Mega${match[2] ? `-${match[2].toUpperCase()}` : ""}`);
+  // "<Species> Form <n>": the game's form index, which is Showdown's formeOrder
+  // ("Floette Form 5" is Floette-Eternal, "Maushold Form 1" Maushold-Four).
+  let match = raw.match(/^(.+?)\s+Form\s+(\d+)$/i);
+  if (match) {
+    const base = showdownByKey.get(apiNameKey(match[1]));
+    const order = base && !base.baseSpecies ? base.formeOrder : [];
+    const forme = order[Number(match[2])];
+    // A formeOrder that lists a name twice cannot say which one was meant.
+    if (forme && order.indexOf(forme) === order.lastIndexOf(forme)) add(forme);
+  }
+
+  match = raw.match(/^Mega\s+(.+?)(?:\s+([XYZ]))?$/i);
+  if (match) {
+    add(`${titleCase(match[1])}-Mega${match[2] ? `-${match[2].toUpperCase()}` : ""}`);
+    // Showdown files the gendered Megas under the gender letter: the game's
+    // single "Mega Meowstic" is Meowstic-M-Mega.
+    if (!match[2]) add(`${titleCase(match[1])}-M-Mega`);
+  }
 
   match = raw.match(/^(Alolan|Galarian|Hisuian|Paldean)\s+(.+)$/i);
   if (match) add(`${titleCase(match[2])}-${showdownRegionNames[match[1].toLowerCase()] || titleCase(match[1])}`);
@@ -229,14 +272,58 @@ function lookupKeys(name, keyFn) {
   return unique(keys.filter(Boolean));
 }
 
+const showdownResolveCache = new Map();
+
+function resolveShowdownName(name) {
+  const raw = String(name || "").trim();
+  if (!raw) return null;
+  if (showdownResolveCache.has(raw)) return showdownResolveCache.get(raw);
+  let found = null;
+  for (const candidate of showdownNameCandidates(raw)) {
+    found = showdownByKey.get(apiNameKey(candidate)) || null;
+    if (found) break;
+  }
+  showdownResolveCache.set(raw, found);
+  return found;
+}
+
 function resolveShowdownSpecies(names) {
   for (const name of names) {
-    for (const candidate of showdownNameCandidates(name)) {
-      const match = showdownByKey.get(apiNameKey(candidate));
-      if (match) return match;
-    }
+    const match = resolveShowdownName(name);
+    if (match) return match;
   }
   return null;
+}
+
+/** Whether the old OCR-era teammate labels apply to a snapshot of this day. */
+function legacyTeammateNamesApply(season, date) {
+  const scope = legacyPokemonNames.teammateNames;
+  if (!scope.season || season !== scope.season) return false;
+  const day = parseDailyDate(date);
+  const last = parseDailyDate(scope.lastDate);
+  return day !== null && last !== null && day <= last;
+}
+
+/** The one Showdown name for any Pokemon name read from a battle-data file:
+ *  a teammate cell, the file's own 'pokemon' column, or its file name.
+ *
+ *  `context` is the {season, date} the name came from.  The M6 days captured
+ *  before the switch to Showdown spellings (2026-09-14) still carry old
+ *  labels, and for those days the recorded meaning of each label wins over the
+ *  generic resolver: there "Alolan Persian" was the Kantonian Persian and
+ *  "Persian Form 1" the Alolan one, and 11_09 filed Floette-Eternal and
+ *  Maushold-Four as plain "Floette" and "Maushold" -- valid Showdown names
+ *  the resolver would keep, which made /meta/ read one Pokemon as two.
+ *  Everywhere else the name is resolved against Showdown, so a real "Alolan
+ *  Persian" stays Alolan and an older season's "Maushold" stays as it is. */
+function canonicalPokemonName(name, context = {}) {
+  const raw = String(name || "").trim();
+  if (!raw) return raw;
+  const legacy = legacyPokemonNames.teammateNames.names;
+  if (legacyTeammateNamesApply(context.season, context.date) && Object.prototype.hasOwnProperty.call(legacy, raw)) {
+    return legacy[raw];
+  }
+  return resolveShowdownName(raw)?.name || raw;
 }
 
 function csvFilesRecursive(dir) {
@@ -391,6 +478,17 @@ function normalizeMetadataRow(row) {
   const savedName = readField(row, ["saved_name", "form_name", "title", "name"]) || baseName || "Unknown form";
   const title = readField(row, ["title"]) || savedName;
   const formKind = readField(row, metadataAliases.form_kind) || "";
+  // saved_name stays the app's own spelling: it is the API contract and the
+  // key the sprite and learnset files are filed under.  showdown_name is what
+  // every page shows, and the profile URL is built from it, so "Mega Charizard
+  // X" lives at /pokemon/charizard-mega-x/ next to the battle-data pages.
+  // The app catalogue's only Floette is the ladder's Floette-Eternal (and its
+  // Maushold is Maushold-Four), so that row is named, and filed, as the
+  // battle-data Pokemon it is instead of getting a page of its own.
+  const catalogueName = Object.prototype.hasOwnProperty.call(legacyPokemonNames.catalogueNames, savedName) ? legacyPokemonNames.catalogueNames[savedName] : "";
+  const showdownName = catalogueName || resolveShowdownSpecies([savedName])?.name || savedName;
+  const slug = slugify(showdownName);
+  const legacySlug = slugify(savedName);
   const normalized = {
     pokemon_name: baseName,
     title,
@@ -399,7 +497,9 @@ function normalizeMetadataRow(row) {
     image_path: normalizePath(readField(row, metadataAliases.image_path) || ""),
     form_name: savedName,
     saved_name: savedName,
-    slug: slugify(savedName),
+    showdown_name: showdownName,
+    slug,
+    ...(legacySlug && legacySlug !== slug ? { legacy_slug: legacySlug } : {}),
     form_kind: formKind || (savedName === baseName ? "Base" : "Form"),
     types,
     types_raw: readField(row, metadataAliases.types) || "",
@@ -412,15 +512,27 @@ function normalizeMetadataRow(row) {
   return normalized;
 }
 
-function normalizeBattleRow(row) {
+/** One battle-data CSV row.  `context` is the {season, date} of the file it
+ *  came from: teammate cells are Pokemon names too, and the OCR-era days wrote
+ *  them in the app's old spelling ("Basculegion Male"), so they are brought to
+ *  the Showdown name the rest of the data uses.  Without that, comparing an
+ *  old day against a new one reads one Pokemon as two -- "Basculegion Male"
+ *  dropped out, "Basculegion" new. */
+function normalizeBattleRow(row, context = {}) {
   const columnPosition = numberOrNull(readField(row, ["column_position", "columnPosition", "columnposition"]));
+  const category = readField(row, ["category"]) || "";
+  const rawName = readField(row, ["name"]) || "";
+  const pokemonName = readField(row, ["pokemon"]) || "";
   const normalized = {
-    pokemon: readField(row, ["pokemon"]) || "",
+    // The file's own Pokemon, named like its teammates: the dated old labels
+    // apply only inside their M6 window, so an older season's "Alolan
+    // Persian" is still the Alolan one.
+    pokemon: pokemonName ? canonicalPokemonName(pokemonName, context) : "",
     column_position: columnPosition,
     position: columnPosition ?? numberOrNull(readField(row, ["position", "pos"])),
-    category: readField(row, ["category"]) || "",
+    category,
     rank: numberOrNull(readField(row, ["rank"])),
-    name: readField(row, ["name"]) || "",
+    name: category === "teammate" ? canonicalPokemonName(rawName, context) : rawName,
     percentage: readField(row, ["percentage"]) || "",
     percentage_value: parsePercent(readField(row, ["percentage"])),
     stat_up: readField(row, ["stat_up"]) || "",
@@ -581,10 +693,11 @@ function baseDisplayName(battleName, primary) {
 /** One ranked day of one format, keyed by the battle name used in the CSVs.
  *  Every row keeps the rank it was captured at as its trailing element --
  *  see the "partial" comment below for why /meta/ needs that. */
-function snapshotFromFolder(folder) {
+function snapshotFromFolder(folder, context = {}) {
   const pokemon = {};
   for (const file of readdirSync(folder).filter((name) => extname(name).toLowerCase() === ".csv").sort()) {
-    const rows = parseCSV(readFileSync(join(folder, file), "utf8")).map(normalizeBattleRow).filter((row) => row.category);
+    const parsed = parseCSV(readFileSync(join(folder, file), "utf8"));
+    const rows = parsed.map((row) => normalizeBattleRow(row, context)).filter((row) => row.category);
     if (!rows.length) continue;
     rows.sort((a, b) => numberOrZero(a.rank) - numberOrZero(b.rank));
     const entry = { position: rows[0].column_position };
@@ -614,8 +727,8 @@ function snapshotFromFolder(folder) {
     // Variety", "Alolan Raichu"), and /meta/ looks rows up by the name the
     // current data uses -- without this, every renamed Pokemon's trend line
     // would stop at the day of the rename.
-    const rawName = rows[0].pokemon || basename(file, ".csv");
-    const canonical = resolveShowdownSpecies([rawName])?.name || rawName;
+    const rawName = parsed.find((row) => readField(row, ["category"]))?.pokemon || basename(file, ".csv");
+    const canonical = canonicalPokemonName(rawName, context);
     pokemon[Object.prototype.hasOwnProperty.call(pokemon, canonical) ? rawName : canonical] = entry;
   }
   return pokemon;
@@ -639,13 +752,35 @@ function writeMetaTrends(pokemonRecords) {
       baseName: baseDisplayName(battleName, primary),
       slug: record.slug || "",
       sprite: record.summary?.sprite || primary.image_path || "",
-      types: record.summary?.types || primary.types || []
+      types: record.summary?.types || primary.types || [],
+      // The learnable_moves file stem, which keeps the app's spelling
+      // ("Basculegion Male"): /meta/ reads move types from it.
+      learnset: learnsetFor(battleName)?.stem || ""
     };
     lookup[battleName] = info;
     // Also answer to the Showdown spelling, which is how snapshotFromFolder
     // keys a day's rows.
     if (record.showdownName && !lookup[record.showdownName]) lookup[record.showdownName] = info;
   }
+
+  // Old spelling -> Showdown name, for links and cached snapshots that still
+  // carry an old label.  A label that means two different Pokemon depending on
+  // the season ("Alolan Persian") is left out rather than guessed.
+  const aliasTargets = new Map();
+  const addAlias = (from, to) => {
+    if (!from || !to || from === to) return;
+    if (!aliasTargets.has(from)) aliasTargets.set(from, new Set());
+    aliasTargets.get(from).add(to);
+  };
+  for (const [from, to] of Object.entries(legacyPokemonNames.teammateNames.names)) addAlias(from, to);
+  for (const record of pokemonRecords) {
+    for (const form of record.summary?.forms || []) addAlias(form.saved_name, form.showdown_name);
+  }
+  const aliases = Object.fromEntries([...aliasTargets]
+    .filter(([, targets]) => targets.size === 1)
+    .map(([from, targets]) => [from, [...targets][0]])
+    // Plain code-point order, which tools/build_meta_trends.py reproduces.
+    .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)));
 
   const seasons = [];
   let written = 0;
@@ -659,7 +794,7 @@ function writeMetaTrends(pokemonRecords) {
       for (const format of preferredFormatOrder) {
         const folder = join(seasonDir, date, format);
         if (!existsSync(folder)) continue;
-        const snapshot = snapshotFromFolder(folder);
+        const snapshot = snapshotFromFolder(folder, { season, date });
         if (!Object.keys(snapshot).length) continue;
         const outDir = join(metaDir, season, date);
         mkdirSync(outDir, { recursive: true });
@@ -671,7 +806,7 @@ function writeMetaTrends(pokemonRecords) {
     if (dates.length && formats.length) seasons.push({ season, dates, formats });
   }
 
-  writeFileSync(join(metaDir, "index.json"), `${JSON.stringify({ generatedAt, dataVersion, assetRoot, seasons, pokemon: lookup })}\n`);
+  writeFileSync(join(metaDir, "index.json"), `${JSON.stringify({ generatedAt, dataVersion, assetRoot, seasons, pokemon: lookup, aliases })}\n`);
   console.log(`Wrote ${written} meta snapshot(s) across ${seasons.length} season(s) to data/meta/.`);
 }
 
@@ -715,24 +850,45 @@ for (const file of csvFilesRecursive(metadataDir)) {
   }
 }
 
+// Learnsets are filed under the app's own spelling ("Basculegion Male.csv",
+// "Alolan Ninetales.csv") while records are named the Showdown way, so each
+// file answers to its own name first and to its Showdown name only when no
+// other file claims that.  Records pick theirs up after the battle data is read.
+const learnsetByKey = new Map();
 if (existsSync(learnableMovesDir)) {
-  for (const file of csvFilesRecursive(learnableMovesDir)) {
-    const inferredName = basename(file, ".csv");
-    const key = recordKey(inferredName);
+  // Stem order decides which file claims a shared key, so it is fixed here
+  // (code-point order, as tools/build_meta_trends.py sorts) rather than left
+  // to the file system.
+  const learnsets = csvFilesRecursive(learnableMovesDir).map((file) => {
+    const stem = basename(file, ".csv");
     const rows = parseCSV(readFileSync(file, "utf8"));
-    const moveNames = unique(rows.map((row) => readField(row, ["move_name", "move", "name"])).filter(Boolean));
-    ensureRecord(key, inferredName).learnableMoveNames = moveNames;
+    return { stem, moveNames: unique(rows.map((row) => readField(row, ["move_name", "move", "name"])).filter(Boolean)) };
+  }).sort((a, b) => (a.stem < b.stem ? -1 : a.stem > b.stem ? 1 : 0));
+  for (const learnset of learnsets) learnsetByKey.set(recordKey(learnset.stem), learnset);
+  for (const learnset of learnsets) {
+    for (const key of registrationKeys(learnset.stem, recordKey).slice(1)) {
+      if (key && !learnsetByKey.has(key)) learnsetByKey.set(key, learnset);
+    }
   }
+}
+
+/** The learnset file for a Pokemon name: its own, else its Showdown name's,
+ *  else its base species' (a forme with no file of its own). */
+function learnsetFor(name) {
+  return lookupKeys(name, recordKey).map((key) => learnsetByKey.get(key)).find(Boolean) || null;
 }
 
 for (const file of csvFilesRecursive(battleDir)) {
   const rows = parseCSV(readFileSync(file, "utf8"));
   const csvName = rows[0]?.pokemon || basename(file, ".csv");
+  const { season, date, format, daily } = battleInfoFromPath(file);
   // One record per species, whatever a given season called it.  Older seasons
   // still say "Alolan Raichu" and "Mega Gallade" where the current data says
   // "Raichu-Alola" and "Gallade-Mega"; without folding those together the same
-  // Pokemon would get two pages, two API entries and two half-histories.
-  const inferredName = resolveShowdownSpecies([csvName])?.name || csvName;
+  // Pokemon would get two pages, two API entries and two half-histories.  The
+  // day's own meaning of an old label comes first (M6 11_09's "Floette" is
+  // Floette-Eternal), as in the snapshots /meta/ reads.
+  const inferredName = canonicalPokemonName(csvName, { season, date }) || csvName;
   const key = recordKey(inferredName || basename(file, ".csv"));
   const record = ensureRecord(key, inferredName);
   if (inferredName) record.name = inferredName;
@@ -743,8 +899,7 @@ for (const file of csvFilesRecursive(battleDir)) {
     record.metadataCsv = metadataMatch.metadataCsv;
     record.metadataRows = metadataMatch.metadataRows;
   }
-  const { season, date, format, daily } = battleInfoFromPath(file);
-  const normalizedRows = rows.map(normalizeBattleRow).filter((row) => row.category);
+  const normalizedRows = rows.map((row) => normalizeBattleRow(row, { season, date })).filter((row) => row.category);
   const source = { season, format, path: normalizePath(relative(cwd, file)) };
   if (daily && date) {
     source.date = date;
@@ -846,7 +1001,7 @@ const pokemon = [...records.values()]
         if (a.daily || b.daily) return compareDailySource(a, b);
         return compareSeason(a.season, b.season) || compareFormat(a, b);
       }),
-      learnableMoveNames: record.learnableMoveNames,
+      learnableMoveNames: learnsetFor(record.name)?.moveNames || record.learnableMoveNames,
       summary: {
         dex: primary.dex_number ?? null,
         sprite,
@@ -1163,8 +1318,13 @@ function addPokemonPage(pages, page) {
 
 function buildPokemonPages(pokemonRecords) {
   const pages = new Map();
+  // Every battle-data Pokemon's own page first.  A form page is filed under its
+  // Showdown name, and a species' metadata lists its regional and gendered
+  // formes ("Alolan Ninetales" is Ninetales-Alola, "Indeedee Female" is
+  // Indeedee-F), which have battle data of their own; the first page for a
+  // slug wins, so without this /pokemon/ninetales-alola/ would show the
+  // Kantonian Ninetales' data because "Ninetales" sorts first.
   for (const record of pokemonRecords) {
-    const recordTypes = unique(record.summary?.types || record.summary?.primary?.types || []);
     const recordName = record.battleName || record.name;
     addPokemonPage(pages, {
       name: recordName,
@@ -1172,19 +1332,22 @@ function buildPokemonPages(pokemonRecords) {
       battleName: recordName,
       sourceRecord: record,
       baseName: record.summary?.primary?.pokemon_name || record.name,
-      types: recordTypes,
+      types: unique(record.summary?.types || record.summary?.primary?.types || []),
       isForm: false
     });
+  }
+  for (const record of pokemonRecords) {
+    const recordTypes = unique(record.summary?.types || record.summary?.primary?.types || []);
+    const recordName = record.battleName || record.name;
     for (const form of record.summary?.forms || []) {
-      // The metadata still carries the app's own spellings ("Rotom Wash"), and
-      // a form that has no battle data of its own reaches this loop with no
-      // Showdown name attached to correct it. Resolve it the same way every
-      // other name on the site is resolved, so the profile page is filed and
-      // titled as "Rotom-Wash" rather than "Rotom Wash".
+      // The metadata still carries the app's own spellings ("Rotom Wash",
+      // "Mega Charizard X"). The page is titled AND filed under the Showdown
+      // name, so a form that is also a battle-data Pokemon ("Basculegion Male"
+      // is Basculegion) folds into that record's page instead of getting a
+      // second copy under an old slug; the old slug becomes a redirect.
       const rawFormName = form.saved_name || form.form_name || form.title || form.pokemon_name || "";
-      const resolvedForm = resolveShowdownSpecies([rawFormName]);
-      const formName = resolvedForm?.name || rawFormName;
-      const formSlug = form.slug || slugify(formName);
+      const formName = form.showdown_name || resolveShowdownSpecies([rawFormName])?.name || rawFormName;
+      const formSlug = slugify(formName);
       if (!formName || !formSlug) continue;
       addPokemonPage(pages, {
         name: formName,
@@ -1293,9 +1456,18 @@ function pokemonStaticContent(page) {
   ];
   const topMoves = categoryRows(doubles, "move").slice(0, 8);
   const topItems = categoryRows(doubles, "held_item").slice(0, 8);
+  const seenFormSlugs = new Set([page.slug]);
   const forms = (record.summary?.forms || [])
-    .map((form) => ({ name: form.saved_name || form.form_name || form.title || form.pokemon_name, slug: form.slug || slugify(form.saved_name || form.form_name || form.title || form.pokemon_name) }))
-    .filter((form) => form.name && form.slug && form.slug !== page.slug)
+    .map((form) => {
+      const savedName = form.saved_name || form.form_name || form.title || form.pokemon_name;
+      const name = form.showdown_name || savedName;
+      return { name, savedName, slug: slugify(name) };
+    })
+    .filter((form) => {
+      if (!form.name || !form.slug || seenFormSlugs.has(form.slug)) return false;
+      seenFormSlugs.add(form.slug);
+      return true;
+    })
     .slice(0, 16);
   return `<section class="section-shell static-seo-content" aria-label="${escapeHtml(page.name)} static battle data">
     <div class="content-area static-seo-panel">
@@ -1314,7 +1486,7 @@ function pokemonStaticContent(page) {
         ${simpleTable(["Held item", "Usage"], topItems.map((row) => `<tr><td>${itemCell(rowName(row))}</td><td>${escapeHtml(row.percentage || "-")}</td></tr>`))}
       </div>
       ${companionCta(page)}
-      ${forms.length ? `<h2>Related forms</h2><ul class="static-sprite-list">${forms.map((form) => `<li><span class="static-name-cell">${spriteImg(lookupSprite("mini", form.name), { className: "static-mini-sprite" })}<a href="/pokemon/${escapeHtml(form.slug)}/">${escapeHtml(form.name)}</a></span></li>`).join("")}</ul>` : ""}
+      ${forms.length ? `<h2>Related forms</h2><ul class="static-sprite-list">${forms.map((form) => `<li><span class="static-name-cell">${spriteImg(lookupSprite("mini", form.savedName, form.name), { className: "static-mini-sprite" })}<a href="/pokemon/${escapeHtml(form.slug)}/">${escapeHtml(form.name)}</a></span></li>`).join("")}</ul>` : ""}
       <h2>More ${escapeHtml(page.name)} data</h2>
       <ul class="static-link-list">
         <li><a href="/pokemon/${escapeHtml(page.slug)}/moves/">${escapeHtml(page.name)} moves and usage</a></li>
@@ -1575,6 +1747,58 @@ function writeSitemap(pokemonPages, topicPages, generatedAt, extraUrls = []) {
   return urls.length;
 }
 
+/** Static redirects for every profile URL an old spelling produced.
+ *
+ *  Three sources: the OCR-era labels in tools/legacy-pokemon-names.json (the
+ *  battle-data pages of 2026-09 and earlier), every metadata form whose app
+ *  spelling makes a different slug than its Showdown name (/pokemon/mega-
+ *  charizard-x/ -> /pokemon/charizard-mega-x/), and the published head-to-head
+ *  URLs under old names.  Called once every page is on disk: a rule is only
+ *  written when its target exists and its source is not a live page, since
+ *  Cloudflare applies redirects before serving files. */
+function legacyPokemonRedirects(pokemonRecords) {
+  const exists = (path) => existsSync(join(cwd, ...path.split("/").filter(Boolean), "index.html"));
+  const slugMoves = new Map();
+  const note = (legacySlug, slug) => {
+    if (legacySlug && slug && legacySlug !== slug && !slugMoves.has(legacySlug)) slugMoves.set(legacySlug, slug);
+  };
+  const oldNames = legacyPokemonNames.teammateNames.names;
+  for (const name of unique([...Object.keys(oldNames), ...legacyPokemonNames.retiredPageNames])) {
+    // The page an old URL named was that name's own Pokemon, so the generic
+    // resolver decides here, not the dated teammate meaning: /pokemon/alolan-
+    // persian/ was the Alolan Persian page.  A label that already is a
+    // Showdown name keeps its slug under the resolver, and its page existed
+    // only because of the dated meaning (/pokemon/floette/ held M6 11_09's
+    // Floette-Eternal), so that meaning decides.  The rule below still skips
+    // it while another season keeps a live page there (/pokemon/maushold/).
+    const resolved = resolveShowdownName(name)?.name || "";
+    const target = resolved && slugify(resolved) !== slugify(name) ? resolved : (oldNames[name] || resolved);
+    note(slugify(name), slugify(target || ""));
+  }
+  for (const record of pokemonRecords) {
+    for (const form of record.summary?.forms || []) note(form.legacy_slug, form.slug);
+  }
+
+  const rules = [];
+  for (const [legacySlug, slug] of slugMoves) {
+    if (exists(`pokemon/${legacySlug}`) || !exists(`pokemon/${slug}`)) continue;
+    rules.push([`/pokemon/${legacySlug}/`, `/pokemon/${slug}/`], [`/pokemon/${legacySlug}`, `/pokemon/${slug}/`]);
+    for (const segment of ["moves", "items", "teammates"]) {
+      if (exists(`pokemon/${slug}/${segment}`)) rules.push([`/pokemon/${legacySlug}/${segment}/`, `/pokemon/${slug}/${segment}/`]);
+    }
+    if (exists(`teams/${slug}`) && !exists(`teams/${legacySlug}`)) rules.push([`/teams/${legacySlug}/`, `/teams/${slug}/`]);
+  }
+  for (const legacySlug of legacyPokemonNames.retiredComparisonSlugs) {
+    const sides = String(legacySlug).split("-vs-");
+    if (sides.length !== 2) continue;
+    const [a, b] = sides.map((side) => slugMoves.get(side) || side).sort((x, y) => x.localeCompare(y));
+    const target = `${a}-vs-${b}`;
+    if (target === legacySlug || exists(`pokemon/${legacySlug}`) || !exists(`pokemon/${target}`)) continue;
+    rules.push([`/pokemon/${legacySlug}/`, `/pokemon/${target}/`]);
+  }
+  return rules;
+}
+
 const skippedMetadataOnly = [...records.values()].filter((record) => !record.battleDataCsvs.length).map((record) => record.name);
 
 const generatedAt = new Date().toISOString();
@@ -1617,6 +1841,7 @@ const seo = writeSeoPages({
   generatedAt,
   pokemon,
   parseCSV,
+  legacyRedirects: () => legacyPokemonRedirects(pokemon),
   helpers: {
     escapeHtml,
     slugify,
@@ -1649,5 +1874,6 @@ const sitemapCount = writeSitemap(pokemonPages, topicPages, generatedAt, seo.url
 console.log(`Generated data/pokemon-index.json with ${pokemon.length} Pokemon, ${pokemonPages.length} profile page(s), and ${topicPages.length} topic page(s).`);
 console.log(`Generated ${seo.counts.total} SEO page(s): ${seo.counts.moves} move, ${seo.counts.items} item, ${seo.counts.abilities} ability, plus per-Pokemon, comparison, team, meta and ranking pages.`);
 console.log(`Sitemap lists ${sitemapCount} URL(s).`);
+console.log(`_redirects: ${seo.counts.legacyRedirects} old-name and ${seo.counts.redirects} reverse-comparison rule(s); ${seo.counts.staticRedirects} static (limit 2000), ${seo.counts.dynamicRedirects} dynamic (limit 100).`);
 console.log(`Builder meta covers ${builderMetaCount} ranked Pokemon across both formats.`);
 if (skippedMetadataOnly.length) console.warn(`Skipped ${skippedMetadataOnly.length} metadata-only name(s): ${skippedMetadataOnly.join(", ")}`);

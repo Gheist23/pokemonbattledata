@@ -70,7 +70,7 @@ export function record(data, set, extra = {}) {
     ability: effective.ability || set.ability || "",
     types,
     stats,
-    name: data.displayName(effective.pokemon_name, effective.form_name),
+    name: data.displayName(effective.pokemon_name, effective.form_name, set.form),
     key: `${set.species}|${set.form}|${set.item}|${set.ability}|${(set.moves || []).join(",")}|${set.nature}|${(set.bonuses || []).join(",")}`,
     isMega: effective.form_name !== (set.form || set.species) && /(^|[\s-])mega([\s-]|$)/i.test(effective.form_name),
     megaCapable: data.isMegaStone(set.item) && effective.form_name !== (set.form || set.species),

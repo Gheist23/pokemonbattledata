@@ -560,9 +560,19 @@ export function resolveAutomaticArchetype(features, savedKey, ratio) {
   return best;
 }
 
+/**
+ * How many Pokémon Prioritize Meta ranks ahead: the Team Evaluation's Top X, at most the
+ * ranked list. (The app capped it at 100, its own Top X maximum; the site's Settings go
+ * up to every ranked Pokémon, and the option's hint names that number.)
+ */
+export function topMetaSize(ev) {
+  const wanted = Math.max(1, Number.parseInt(ev.settings.top_meta, 10) || 30);
+  return Math.max(1, ev.topMeta(wanted).length);
+}
+
 /** _v454_preflight_auto_build (V462): the Top-X meta's name keys, when Prioritize Meta is on. */
 export function topMetaKeys(ev) {
-  const topX = Math.max(1, Math.min(100, Number.parseInt(ev.settings.top_meta, 10) || 30));
+  const topX = topMetaSize(ev);
   const keys = new Set();
   for (const meta of ev.topMeta(topX).slice(0, topX)) {
     for (const value of [meta?.name, meta?.base_name, meta?._v124_base_species]) {

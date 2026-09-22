@@ -52,7 +52,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
 const SIDES = ["None", "My Team", "Threat Team", "Both"];
 
 /** _v35_copy_settings (final): defaults, clamps and the use/ignore pairs. */
-export function normalizeSettings(raw = {}, topMetaCap = 100) {
+export function normalizeSettings(raw = {}, topMetaCap = 1000) {
   const out = { ...DEFAULT_SETTINGS, ...(raw || {}) };
   const clampInt = (value, fallback, low, high) => {
     const n = Number.parseInt(value, 10);
@@ -683,7 +683,8 @@ export class TeamEvaluator {
     if (ability === "analytic") add("moved_first", [[true, "moves first"], [false, "moves second"]]);
     if (ability === "stakeout") add("defender_switching", [[false, "target stays in"], [true, "target switches in"]]);
     if (ability === "slow start") add("slow_start_ended", [[false, "Slow Start active"], [true, "Slow Start ended"]]);
-    if (ability === "plus" || ability === "minus") add("plus_minus_partner", [[false, "no Plus/Minus partner"], [true, "Plus/Minus partner active"]]);
+    // Plus and Minus need a partner beside them, which Singles never has.
+    if ((ability === "plus" || ability === "minus") && this.format !== "Singles") add("plus_minus_partner", [[false, "no Plus/Minus partner"], [true, "Plus/Minus partner active"]]);
     if (ability in PINCH_ABILITIES) add("attacker_hp", [[100, `${attacker.ability} inactive`], [33, `${attacker.ability} active`]]);
     if (ability === "guts") add("attacker_status", [["", "Guts inactive"], ["Burned", "Guts active"]]);
     if (ability === "toxic boost") add("attacker_status", [["", "Toxic Boost inactive"], ["Poisoned", "Toxic Boost active"]]);

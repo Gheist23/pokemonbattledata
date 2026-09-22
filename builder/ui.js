@@ -10,7 +10,13 @@ export function h(tag, attrs = {}, ...children) {
     if (value === undefined || value === null || value === false) continue;
     if (key === "class") node.className = value;
     else if (key === "dataset") Object.assign(node.dataset, value);
-    else if (key === "style" && typeof value === "object") Object.assign(node.style, value);
+    else if (key === "style" && typeof value === "object") {
+      // Custom properties ("--value") only take effect through setProperty.
+      for (const [prop, v] of Object.entries(value)) {
+        if (prop.startsWith("--")) node.style.setProperty(prop, String(v));
+        else node.style[prop] = v;
+      }
+    }
     else if (key.startsWith("on") && typeof value === "function") node.addEventListener(key.slice(2).toLowerCase(), value);
     else if (key === "html") node.innerHTML = value;
     else if (value === true) node.setAttribute(key, "");
@@ -223,7 +229,7 @@ export function pickPokemon(data, { format = "Doubles", title = "Choose a Pokém
           onclick: () => { chosen = row; close(); },
         },
         sprite(`/${row.mini.split("/").map(encodeURIComponent).join("/")}`, "", 40),
-        h("span", { class: "bd-pick-name" }, row.form, row.position < 9999 ? h("small", {}, `#${row.position} ${format}`) : null),
+        h("span", { class: "bd-pick-name" }, row.label || row.form, row.position < 9999 ? h("small", {}, `#${row.position} ${format}`) : null),
         h("span", { class: "bd-pick-types" }, (row.types || []).map(typeChip))));
       }
     };
@@ -279,7 +285,7 @@ export function editSet(data, initialSet, { format = "Doubles", title = "Edit Po
       const head = h("div", { class: "bd-editor-head" },
         sprite(data.sprite(set.species, set.form, set.item, { full: true }), "", 96, "bd-sprite bd-sprite-lg"),
         h("div", { class: "bd-editor-title" },
-          h("h3", {}, data.displayName(set.species, battleForm)),
+          h("h3", {}, data.displayName(set.species, battleForm, set.form)),
           h("div", { class: "bd-type-row" }, types.map(typeChip)),
           h("div", { class: "bd-editor-head-actions" },
             h("button", { class: "ghost-button compact", type: "button", onclick: async () => {
@@ -288,7 +294,7 @@ export function editSet(data, initialSet, { format = "Doubles", title = "Edit Po
             } }, "Change Pokémon"),
             h("button", { class: "ghost-button compact", type: "button", title: "Most common ranked set for this Pokémon", onclick: () => applySpecies(set.species, set.form) }, "Most common set"))));
 
-      const forms = data.legalForms(set.species);
+      const forms = data.legalForms(set.species, set.form);
       const formSelect = select(forms, set.form, (value) => {
         set.form = value;
         const legal = data.abilities(set.species, value);
@@ -372,7 +378,7 @@ export function editSet(data, initialSet, { format = "Doubles", title = "Edit Po
         h("div", { class: "bd-editor-grid" },
           h("label", { class: "bd-field" }, h("span", {}, "Form"), formSelect),
           h("label", { class: "bd-field" }, h("span", {}, "Ability"), abilitySelect,
-            forcedAbility && battleForm !== set.form ? h("small", { class: "bd-note" }, `${battleForm} battles with ${forcedAbility}.`) : null),
+            forcedAbility && battleForm !== set.form ? h("small", { class: "bd-note" }, `${data.displayName(set.species, battleForm, set.form) || battleForm} battles with ${forcedAbility}.`) : null),
           h("div", { class: "bd-field" }, h("span", {}, "Held item"), itemCombo),
           h("label", { class: "bd-field" }, h("span", {}, "Nature"), natureSelect)),
         h("div", { class: "bd-editor-moves" }, h("span", { class: "bd-field-label" }, "Moves"), h("div", { class: "bd-move-grid" }, moveCombos)),

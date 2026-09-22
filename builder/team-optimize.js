@@ -7,12 +7,36 @@
 // OHKO/2HKO thresholds and odds, in and out, plus a Speed term worth at most 10
 // points for passing threats the old spread did not. The moves stay as they are;
 // Auto Build's optional pass also searches the Nature.
+//
+// This is the shallow search Auto Build's finish uses and the parity suite checks
+// (tests/run-optimize-vectors.mjs). The Team Evaluation Optimize tab runs the deeper
+// search in builder/optimize-deep.js.
+//
+// calcOne is memoised: a calc between one of our spreads and a threat reads only a
+// few of our final stats (the attack stat a move uses, HP and the defence it hits,
+// Speed for Speed-based moves and field setters), so each calc is keyed by those
+// stats and repeated spreads reuse it. The results are identical to calculating
+// every time; only the display-only 10-hit label is no longer computed.
 
 import { compact, makeMon } from "./engine.js";
 import { TeamSuggestions } from "./team-suggest.js";
 
 const TOP_MOVE_LIMIT = 6; // _V175_TOP_MOVE_LIMIT: 8, lowered to 6 by the fast-calc defaults (part_018)
 const MAX_POINTS = 32; // MAX_BONUS_POINTS_PER_STAT
+const CALC_MEMO_LIMIT = 60000;
+
+/** Abilities that set weather or terrain: their holder's Speed decides which field stays. */
+export const FIELD_SETTER_ABILITIES = new Set(["drizzle", "drought", "sandstream", "snowwarning", "frostwarning", "orichalcumpulse", "electricsurge", "grassysurge", "psychicsurge", "mistysurge", "hadronengine", "desolateland", "primordialsea", "deltastream"]);
+
+/** Everything about a Pokemon a damage calc can read apart from its Nature and Stat Points. */
+export function identityKey(mon) {
+  return [mon.pokemon_name, mon.form_name, mon.item, mon.ability, mon.attack_stage, mon.defense_stage, mon.sp_attack_stage, mon.sp_defense_stage, mon.speed_stage, mon.status, mon.current_hp_percent, mon.gender, mon.level, mon.analysis_side].join("|");
+}
+
+/** Everything about a Pokemon a damage calc can read. */
+export function fullMonKey(mon) {
+  return `${identityKey(mon)}|${mon.nature_name}|${(mon.bonuses || []).join(",")}`;
+}
 
 /** stat_optimization.matchup_weight: rank 1 counts three times, the tail once. */
 export function matchupWeight(rank) {
@@ -176,14 +200,62 @@ export class TeamOptimizer {
    */
   calcOne(attacker, defender, move) {
     if (!move || !this.damaging(move)) return noDamage(move, "Ignored non-damaging move");
+    // Only an optimize() run repeats calcs; other callers (the tournament test) calculate directly.
+    const key = this.calcMemo ? this.calcKey(attacker, defender, move) : null;
+    if (key === null) return this.calcDirect(attacker, defender, move);
+    let hit = this.calcMemo.get(key);
+    if (!hit) {
+      hit = this.calcDirect(attacker, defender, move);
+      if (this.calcMemo.size >= CALC_MEMO_LIMIT) this.calcMemo.clear();
+      this.calcMemo.set(key, hit);
+    }
+    // attacker_speed is the attacker's own Speed, which changes with our spread.
+    if (attacker.analysis_side === "team" && hit.attacker_speed !== undefined) return { ...hit, attacker_speed: this.ev.engine.effectiveSpeed(makeMon(attacker), {}) };
+    return { ...hit };
+  }
+
+  /**
+   * The memo key of a calc between our member and a threat: the threat in full, our
+   * member without its spread, and only the final stats of ours the calc reads.
+   * null (no memo) unless exactly one side is the team's.
+   */
+  calcKey(attacker, defender, move) {
+    const outgoing = attacker.analysis_side === "team";
+    if (outgoing === (defender.analysis_side === "team")) return null;
+    const ours = outgoing ? attacker : defender;
+    const other = outgoing ? defender : attacker;
+    const engine = this.ev.engine;
+    const fs = engine.finalStats(ours);
+    const record = engine.moveRecord(move) || {};
+    const category = String(record.category || "").toLowerCase();
+    const special = String(record.special || "");
+    const both = record.choose_best_category || record.choose_higher_offense || special === "tera_blast";
+    const k = [];
+    if (outgoing) {
+      if (both) k.push(fs.attack, fs.sp_attack);
+      else if (record.attack_stat === "defense") k.push(fs.defense);
+      else k.push(category === "special" ? fs.sp_attack : fs.attack);
+      if (special === "eruption" || special === "flail" || record.fixed_damage === "attacker_current_hp") k.push("h", fs.hp);
+    } else {
+      k.push(fs.hp);
+      if (both || compact(other.ability) === "download") k.push(fs.defense, fs.sp_defense);
+      else k.push(category === "physical" || record.defense_stat === "defense" ? fs.defense : fs.sp_defense);
+      if (special === "foul_play") k.push("a", fs.attack);
+    }
+    if (special === "electro_ball" || special === "gyro_ball" || FIELD_SETTER_ABILITIES.has(compact(this.ev.fieldAbility(ours)))) k.push("s", fs.speed);
+    return `${outgoing ? "o" : "i"}|${move}|${fullMonKey(other)}|${identityKey(ours)}|${k.join(",")}`;
+  }
+
+  /** One calc, uncached. */
+  calcDirect(attacker, defender, move) {
     try {
       const ctx = this.ev.calcContext(attacker, defender, move);
       const result = this.ev.calculate(attacker, defender, ctx);
       const raw = this.ev.applyCooldown(move, this.ev.koSummary(result), result);
-      const full = this.ev.fullKoSummary(move, result, 10);
+      const label = String(raw.label || "No damage");
       return {
-        hits: hitRank(raw), chance: Number(raw.chance) || 0, label: String(raw.label || full.label || "No damage"),
-        full_label: String(full.label || raw.label || "No damage"), move, percent: String(result.percent || "0-0%"), score: Number(raw.score) || 0,
+        hits: hitRank(raw), chance: Number(raw.chance) || 0, label,
+        full_label: label, move, percent: String(result.percent || "0-0%"), score: Number(raw.score) || 0,
         attacker_speed: this.ev.engine.effectiveSpeed(makeMon(attacker), {}), move_priority: this.ev.movePriority(move),
         rolls: [...(result.rolls || [])], current_hp: result.current_hp, max_hp: result.max_hp, one_time_resist_berry: result.one_time_resist_berry || "",
         rolls_with_resist_berry: [...(result.rolls_with_resist_berry || [])], rolls_without_resist_berry: [...(result.rolls_without_resist_berry || [])],
@@ -309,7 +381,17 @@ export class TeamOptimizer {
    * @param {Array<object|null>} sets  the team (builder sets)
    * @param {number} slot              the member to tune
    */
-  optimize(sets, slot, { optimizeNature = false, onProgress } = {}) {
+  optimize(sets, slot, options = {}) {
+    // Each run keys its calcs by its own member, so the memo only lives for one run.
+    this.calcMemo = new Map();
+    try {
+      return this.optimizeSlot(sets, slot, options);
+    } finally {
+      this.calcMemo = null;
+    }
+  }
+
+  optimizeSlot(sets, slot, { optimizeNature = false, onProgress } = {}) {
     const set = sets[slot];
     if (!set?.species) return { ok: false, message: "This slot is empty." };
     const common = this.ev.commonSet(this.sg.usageName(set.species)) || {};

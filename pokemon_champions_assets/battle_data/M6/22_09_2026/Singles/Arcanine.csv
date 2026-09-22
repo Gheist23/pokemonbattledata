@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Arcanine,125,move,1,Will-O-Wisp,73.9%,,,,,,,,
-Arcanine,125,move,2,Morning Sun,73.5%,,,,,,,,
-Arcanine,125,move,3,Flamethrower,39.6%,,,,,,,,
-Arcanine,125,move,4,Extreme Speed,37.7%,,,,,,,,
-Arcanine,125,move,5,Flare Blitz,37.6%,,,,,,,,
-Arcanine,125,move,6,Snarl,28.0%,,,,,,,,
-Arcanine,125,move,7,Play Rough,15.6%,,,,,,,,
-Arcanine,125,move,8,Burn Up,14.1%,,,,,,,,
-Arcanine,125,move,9,Roar,13.7%,,,,,,,,
+Arcanine,125,move,1,Will-O-Wisp,73.7%,,,,,,,,
+Arcanine,125,move,2,Morning Sun,73.4%,,,,,,,,
+Arcanine,125,move,3,Flamethrower,39.3%,,,,,,,,
+Arcanine,125,move,4,Extreme Speed,37.8%,,,,,,,,
+Arcanine,125,move,5,Flare Blitz,37.7%,,,,,,,,
+Arcanine,125,move,6,Snarl,27.9%,,,,,,,,
+Arcanine,125,move,7,Play Rough,15.8%,,,,,,,,
+Arcanine,125,move,8,Burn Up,14.2%,,,,,,,,
+Arcanine,125,move,9,Roar,13.4%,,,,,,,,
 Arcanine,125,move,10,Wild Charge,13.0%,,,,,,,,
-Arcanine,125,held_item,1,Rocky Helmet,43.2%,,,,,,,,
-Arcanine,125,held_item,2,Leftovers,19.7%,,,,,,,,
+Arcanine,125,held_item,1,Rocky Helmet,42.7%,,,,,,,,
+Arcanine,125,held_item,2,Leftovers,19.9%,,,,,,,,
 Arcanine,125,held_item,3,Sitrus Berry,19.5%,,,,,,,,
-Arcanine,125,held_item,4,Life Orb,4.8%,,,,,,,,
-Arcanine,125,held_item,5,Air Balloon,2.6%,,,,,,,,
-Arcanine,125,held_item,6,Charcoal,2.0%,,,,,,,,
-Arcanine,125,held_item,7,Expert Belt,1.2%,,,,,,,,
-Arcanine,125,held_item,8,Choice Scarf,1.2%,,,,,,,,
+Arcanine,125,held_item,4,Life Orb,4.7%,,,,,,,,
+Arcanine,125,held_item,5,Air Balloon,2.7%,,,,,,,,
+Arcanine,125,held_item,6,Charcoal,1.9%,,,,,,,,
+Arcanine,125,held_item,7,Choice Scarf,1.3%,,,,,,,,
+Arcanine,125,held_item,8,Expert Belt,1.3%,,,,,,,,
 Arcanine,125,held_item,9,Shuca Berry,0.7%,,,,,,,,
-Arcanine,125,held_item,10,Shell Bell,0.6%,,,,,,,,
+Arcanine,125,held_item,10,Muscle Band,0.6%,,,,,,,,
 Arcanine,125,teammate,1,Garchomp,,,,,,,,,
 Arcanine,125,teammate,2,Salamence,,,,,,,,,
 Arcanine,125,teammate,3,Primarina,,,,,,,,,
@@ -27,28 +27,28 @@ Arcanine,125,teammate,5,Baxcalibur,,,,,,,,,
 Arcanine,125,teammate,6,Golisopod,,,,,,,,,
 Arcanine,125,teammate,7,Lucario,,,,,,,,,
 Arcanine,125,teammate,8,Gholdengo,,,,,,,,,
-Arcanine,125,teammate,9,Greninja,,,,,,,,,
-Arcanine,125,teammate,10,Gyarados,,,,,,,,,
-Arcanine,125,stat_alignment,1,Bold,42.3%,Defense,Attack,,,,,,
-Arcanine,125,stat_alignment,2,Adamant,20.2%,Attack,Sp. Atk,,,,,,
-Arcanine,125,stat_alignment,3,Impish,18.8%,Defense,Sp. Atk,,,,,,
+Arcanine,125,teammate,9,Gyarados,,,,,,,,,
+Arcanine,125,teammate,10,Greninja,,,,,,,,,
+Arcanine,125,stat_alignment,1,Bold,42.0%,Defense,Attack,,,,,,
+Arcanine,125,stat_alignment,2,Adamant,20.4%,Attack,Sp. Atk,,,,,,
+Arcanine,125,stat_alignment,3,Impish,18.7%,Defense,Sp. Atk,,,,,,
 Arcanine,125,stat_alignment,4,Calm,4.8%,Sp. Def,Attack,,,,,,
-Arcanine,125,stat_alignment,5,Jolly,3.7%,Speed,Sp. Atk,,,,,,
+Arcanine,125,stat_alignment,5,Jolly,3.8%,Speed,Sp. Atk,,,,,,
 Arcanine,125,stat_alignment,6,Modest,3.0%,Sp. Atk,Attack,,,,,,
-Arcanine,125,stat_alignment,7,Relaxed,1.8%,Defense,Speed,,,,,,
+Arcanine,125,stat_alignment,7,Relaxed,1.9%,Defense,Speed,,,,,,
 Arcanine,125,stat_alignment,8,Careful,1.6%,Sp. Def,Sp. Atk,,,,,,
-Arcanine,125,stat_alignment,9,Timid,0.7%,Speed,Attack,,,,,,
+Arcanine,125,stat_alignment,9,Timid,0.6%,Speed,Attack,,,,,,
 Arcanine,125,stat_alignment,10,Lonely,0.6%,Attack,Defense,,,,,,
 Arcanine,125,stat_points,1,,23.2%,,,32,0,32,0,2,0
-Arcanine,125,stat_points,2,,8.7%,,,32,0,32,0,0,2
-Arcanine,125,stat_points,3,,6.3%,,,32,0,32,2,0,0
-Arcanine,125,stat_points,4,,5.8%,,,32,2,32,0,0,0
-Arcanine,125,stat_points,5,,5.7%,,,32,32,0,0,0,2
-Arcanine,125,stat_points,6,,4.6%,,,2,32,0,0,0,32
-Arcanine,125,stat_points,7,,3.0%,,,32,0,2,0,32,0
-Arcanine,125,stat_points,8,,1.9%,,,32,0,30,0,4,0
+Arcanine,125,stat_points,2,,8.6%,,,32,0,32,0,0,2
+Arcanine,125,stat_points,3,,6.1%,,,32,0,32,2,0,0
+Arcanine,125,stat_points,4,,5.9%,,,32,32,0,0,0,2
+Arcanine,125,stat_points,5,,5.8%,,,32,2,32,0,0,0
+Arcanine,125,stat_points,6,,4.7%,,,2,32,0,0,0,32
+Arcanine,125,stat_points,7,,2.9%,,,32,0,2,0,32,0
+Arcanine,125,stat_points,8,,1.8%,,,32,0,30,0,4,0
 Arcanine,125,stat_points,9,,1.6%,,,32,0,32,0,0,0
-Arcanine,125,stat_points,10,,1.4%,,,32,32,2,0,0,0
+Arcanine,125,stat_points,10,,1.3%,,,32,32,2,0,0,0
 Arcanine,125,ability,1,Intimidate,96.5%,,,,,,,,
 Arcanine,125,ability,2,Flash Fire,3.0%,,,,,,,,
-Arcanine,125,ability,3,Justified,0.4%,,,,,,,,
+Arcanine,125,ability,3,Justified,0.5%,,,,,,,,

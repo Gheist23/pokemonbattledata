@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Free Pokemon Champions team builder: build and save teams, keep a Box of the Pokemon you own, see your coverage and pressure against the current top 30, then run Team Evaluation and Auto Build Team with the Companion app's damage engine. Syncs with the Companion." />
+  <meta name="description" content="Free Pokemon Champions team builder: build and save teams, keep a Box of the Pokemon you own, see your coverage and pressure against the ranked meta, then run Team Evaluation and Auto Build Team. Syncs with the Companion app." />
   <meta name="keywords" content="Pokemon Champions team builder, Pokemon Champions team rater, Pokemon Champions team evaluation, Pokemon Champions best team, Pokemon Champions auto team builder, VGC team builder, Pokemon Champions Box, Regulation M-A, Regulation M-B, Regulation M-C" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#050c08" />
@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://championsbattledata.com/assets/tool/team-builder.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pokemon Champions Team Builder" />
-  <meta name="twitter:description" content="Teams, a Box, coverage against the top 30, Team Evaluation and Auto Build, with the Companion app's damage engine." />
+  <meta name="twitter:description" content="Teams, a Box, coverage against the ranked meta, Team Evaluation and Auto Build." />
   <meta name="twitter:image" content="https://championsbattledata.com/assets/tool/team-builder.webp" />
   <title>Team Builder - Pokemon Champions Battle Data</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -41,6 +41,9 @@
   </script>
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/builder/builder.css" />
+  <link rel="stylesheet" href="/builder/tournament.css" />
+  <link rel="stylesheet" href="/builder/optimize.css" />
+  <link rel="stylesheet" href="/builder/suggest.css" />
   <link rel="modulepreload" href="/builder/engine.js" />
   <link rel="modulepreload" href="/builder/common.js" />
 </head>
@@ -66,6 +69,7 @@
         <a class="ghost-button" href="/meta/">Meta</a>
         <a class="ghost-button" href="/">Explorer</a>
         <a class="ghost-button" href="/api_guide">API</a>
+        <a class="ghost-button nav-companion" href="/pro-tool/">Companion</a>
         <a class="ghost-button" href="/pro-tool/plans/"><svg class="nav-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false"><path fill="#ff4d2e" d="M13 1.4c-.5 2.6.3 4.2 1.6 5.6 1.7 1.8 3.7 3.5 3.7 6.6 0 3.6-2.9 6.6-6.4 6.6s-6.4-3-6.4-6.6c0-2.3 1-4.2 2.5-5.8-.3 1.7 0 3.1 1 3.8.7.5 1.6.1 1.7-.8.1-.7-.1-1.6-.3-2.6-.5-2.7.6-5 2.6-6.8Z"/><path fill="#ffc21a" d="M12.2 11.9c1.1 1.2 1.8 2.2 1.8 3.5 0 1.8-1.4 3.2-3.1 3.2-1.6 0-2.9-1.3-2.9-3 0-1 .4-1.9 1.1-2.7.1.9.5 1.5 1.2 1.5.8 0 1.2-.7 1.2-1.7 0-.5.2-.8.7-.8Z"/></svg><span>Pro</span></a>
         <a class="discord-button" href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">Discord</a>
       </div>

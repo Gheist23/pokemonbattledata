@@ -1,11 +1,13 @@
 // Runs the Team Builder's analysis off the main thread so Team Evaluation and
 // Auto Build never freeze the page (they are thousands of damage calculations).
 //
-// Everything here is the port of the Companion app's own analysis
-// (builder/team-eval.js and its companions), checked against app recordings.
+// Team Evaluation, Suggestions and the Auto Build anchor are the port of the Companion
+// app's analysis (builder/team-eval.js and its companions), checked against app
+// recordings; the Auto Build search, Optimize and the Tournament Test go further.
 //
 // Messages in:  { id, type: "overview" | "evaluate" | "speedTiers" | "suggestions" | "optimize" | "autobuild" | "tournament", payload }
-//               { type: "cancel", payload: { target } } stops a running "tournament" request
+//               { type: "cancel", payload: { target } } stops a running "tournament", "optimize" or
+//               "autobuild" request (it answers with the best result so far) and the Suggestions check
 // Messages out: { id, progress } while running, then { id, ok, result | error }
 
 import { BuilderData, makeSet } from "./common.js";
@@ -17,19 +19,32 @@ import { TeamEvaluation } from "./team-payload.js";
 import { SpeedTiers } from "./speed-tiers.js";
 import { TeamSuggestions } from "./team-suggest.js";
 import { TeamAutoBuild } from "./team-autobuild.js";
-import { TeamOptimizer } from "./team-optimize.js";
+import { DeepOptimizer } from "./optimize-deep.js";
 
 let dataPromise = null;
 let knownTeamsPromise = null;
 
-/** The tournament-team library Suggestions and Auto Build recognise (loaded on first use). */
+/**
+ * The tournament-team library Suggestions and Auto Build recognise (loaded on first use).
+ * A failed load is not kept: the next request tries again, instead of the whole session
+ * running without the "Found in similar team" bonus.
+ */
 function knownTeams() {
   knownTeamsPromise ||= fetch("/data/builder/known-teams.json", { cache: "no-cache" })
     .then((response) => (response.ok ? response.json() : null))
     .then((payload) => (payload ? new KnownTeams(payload) : null))
-    .catch(() => null);
+    .catch(() => null)
+    .then((known) => {
+      if (!known) {
+        knownTeamsPromise = null;
+        console.warn("The tournament-team library could not be loaded; it is tried again on the next request.");
+      }
+      return known;
+    });
   return knownTeamsPromise;
 }
+
+const yieldWorker = () => new Promise((resolve) => setTimeout(resolve, 0));
 const evaluators = new Map();
 
 /** One evaluator per format and settings, so its damage caches carry over between runs. */
@@ -93,29 +108,52 @@ self.addEventListener("message", async (event) => {
       return;
     }
     if (type === "suggestions") {
-      // The app's Suggested Pokemon: every ranked Pokemon tried in the open slot,
-      // or in place of the three weakest members when the team is full.
+      // Suggested Pokémon: every ranked Pokémon (or, with onlyBox, every Box Pokémon) tried
+      // in the open slot, or in place of the three members the failing checks point at.
+      // The ranked list goes out first ({progress: {ranked}}); then each shown row is
+      // checked against the full Team Evaluation of the team it would make, one
+      // {progress: {detail}} at a time (display only - the order never changes).
       const { evaluation } = await appEvaluation(payload.format, payload.settings);
       evaluation.knownTeams ||= await knownTeams();
-      const current = evaluation.evaluate(sets, { checkSelection: payload.checks ?? null });
+      // A run the page dropped before it started (the team or settings changed) is not ranked:
+      // the ranking itself cannot be interrupted once it runs.
+      await yieldWorker();
+      if (cancelled.has(id)) {
+        cancelled.delete(id);
+        self.postMessage({ id, ok: true, result: { scanned: 0, targets: [], empty_slot: null, scope: payload.onlyBox ? "box" : "all", rows: [], checking: false, cancelled: true } });
+        return;
+      }
+      const selection = payload.checks ?? null;
+      const current = evaluation.evaluate(sets, { checkSelection: selection });
       const suggestions = new TeamSuggestions(evaluation);
+      const box = payload.onlyBox ? (payload.box || []).map((set) => (set && set.species ? makeSet(set) : null)).filter(Boolean) : null;
       const run = suggestions.run(current, {
-        selection: payload.checks ?? null,
+        selection,
+        box,
         onProgress: (done, total, name) => progress({ fraction: done / Math.max(1, total), message: `Testing ${name} (${done}/${total})` }),
       });
-      result = {
-        scanned: run.scanned, targets: run.targets, empty_slot: run.empty_slot,
-        rows: run.rows.map((row) => ({
-          name: row.name, action: row.action, action_kind: row.action_kind, slot_index: row.slot_index, swap_target: row.swap_target,
-          score: row.score, position: row.position, item: row.item, ability: row.ability, moves: row.moves, spread_label: row.spread_label,
-          answers: row.answers, details: row.details, severities: row._v104_detail_severities, candidate_entry: row.candidate_entry,
-          spread: row.candidate_spread, form: row.form || row.candidate_entry?.form, components: row.suggestion_score_components_v318,
-          found_in_team: row.found_in_team_v496 || "",
-          archetype: row.strategy_archetype_v466, fixed: row._fixed_requirements, worsened: row._worsened_requirements,
-          // _v480_item_options: what "Use" may swap a clashing item for (V482 applies Item Clause on apply).
-          item_options: [...new Set([row.candidate_entry?.item, suggestions.common(row.candidate_entry?.pokemon || row.name).item, ...suggestions.usage(row.candidate_entry?.pokemon || row.name, "held_item", 30)].filter(Boolean))],
-        })),
-      };
+      const selected = evaluation.checks.selectedIds(selection);
+      const rows = run.rows.map((row) => suggestions.forPage(row, selected));
+      const head = { scanned: run.scanned, targets: run.targets, empty_slot: run.empty_slot, scope: box ? "box" : "all", known_teams: Boolean(evaluation.knownTeams) };
+      progress({ ranked: { ...head, rows, checking: rows.length > 0 } });
+      try {
+        for (const [i, row] of run.rows.entries()) {
+          // Other requests (a new evaluation after "Use") and a cancel may arrive in between.
+          await yieldWorker();
+          if (cancelled.has(id)) break;
+          let projected;
+          try {
+            projected = suggestions.projectedDetail(row, sets, current, { checkSelection: selection });
+          } catch (error) {
+            projected = { error: String(error?.message || error).split("\n")[0] };
+          }
+          rows[i].projected = projected;
+          progress({ detail: { key: rows[i].key, projected }, fraction: (i + 1) / run.rows.length, message: `Checking suggestion ${i + 1} of ${run.rows.length} against the full Team Evaluation` });
+        }
+      } finally {
+        cancelled.delete(id);
+      }
+      result = { ...head, rows, checking: false };
       self.postMessage({ id, ok: true, result });
       return;
     }
@@ -136,63 +174,84 @@ self.addEventListener("message", async (event) => {
       return;
     }
     if (type === "optimize") {
-      // The Companion's Optimize: one member's Stat Points (and, when asked, Nature)
-      // tuned against the Top-X threats with its moves held.
+      // Optimize (builder/optimize-deep.js): one member's Nature, Stat Points and, when
+      // asked, attacking moves, searched against the Team Evaluation's Top X. Like the
+      // tournament test it yields between batches, so a "cancel" stops it with the best
+      // result found so far.
       const { evaluation } = await appEvaluation(payload.format, payload.settings);
-      const started = Date.now();
-      const out = new TeamOptimizer(evaluation).optimize(sets, Number(payload.slot) || 0, {
-        optimizeNature: Boolean(payload.optimizeNature),
-        onProgress: (fraction, message) => progress({ fraction, message }),
-      });
-      const clean = (row) => ({ kind: row.kind, threat: row.threat, previous: row.previous, now: row.now, detail: row.detail, score: row.score, meta_rank: row.meta_rank });
-      result = {
-        ok: Boolean(out.ok), message: out.message || "", score: out.score || 0, spread: out.spread, original: out.original,
-        damage: out.damage_score_v404 || 0, speed: out.speed_order_score_v404 || 0, speed_before: out.speed_before, speed_after: out.speed_after,
-        // Both variants of a threat often change the same way; show each change once.
-        comparisons: [...new Map((out.comparisons || []).map((row) => [`${row.threat}|${row.detail}|${row.previous}|${row.now}`, clean(row)])).values()].slice(0, 40),
-        improved: out.improved || 0, worsened: out.worsened || 0,
-        top_meta: out.top_meta, targets: out.target_count, tested: out.tested_spreads, seconds: (Date.now() - started) / 1000,
-      };
+      try {
+        result = await new DeepOptimizer(evaluation).run(sets, Number(payload.slot) || 0, {
+          depth: payload.depth === "quick" ? "quick" : "deep",
+          testMoves: payload.testMoves !== false,
+          keepNature: Boolean(payload.keepNature),
+          keepSpeed: Boolean(payload.keepSpeed),
+          lockedMoves: Array.isArray(payload.lockedMoves) ? payload.lockedMoves : [],
+          topX: Number(payload.topX) || Number(payload.settings?.top_meta) || 0,
+        }, {
+          onProgress: (fraction, message, phase) => progress({ fraction, message, phase }),
+          shouldStop: () => cancelled.has(id),
+        });
+      } finally {
+        cancelled.delete(id);
+      }
       self.postMessage({ id, ok: true, result });
       return;
     }
     if (type === "autobuild") {
-      // The Companion's Auto Build: frozen pool, per-slot Suggestions scoring, the finish chain.
+      // Auto Build: the greedy pick per slot, then a search over alternative teams that
+      // are finished and compared by the full Team Evaluation (builder/autobuild-search.js).
+      // It is async: other requests may run between its chunks, and it switches the shared
+      // evaluator's per-move mode on only inside a chunk, so they never see it. A cancel
+      // (Stop) returns the best team found so far.
       const { evaluation } = await appEvaluation(payload.format, payload.settings);
       evaluation.knownTeams ||= await knownTeams();
       const started = Date.now();
-      const run = new TeamAutoBuild(evaluation).run(sets, {
-        selection: payload.checks ?? null,
-        depth: payload.depth || "medium",
-        cachedScores: payload.cachedScores || null,
-        onlyBox: Boolean(payload.onlyBox),
-        optimizeStats: Boolean(payload.optimizeStats),
-        archetype: payload.archetype || "automatic",
-        teamArchetype: payload.teamArchetype || "",
-        prioritizeMeta: Boolean(payload.prioritizeMeta),
-        box: (payload.box || []).map((set) => (set && set.species ? makeSet(set) : null)).filter(Boolean),
-        onProgress: (fraction, message) => progress({ fraction, message }),
-      });
+      const selection = payload.checks ?? null;
+      let run;
+      try {
+        run = await new TeamAutoBuild(evaluation).run(sets, {
+          search: payload.search || payload.depth || "deep",
+          selection,
+          depth: payload.depth || "deep",
+          cachedScores: payload.cachedScores || null,
+          onlyBox: Boolean(payload.onlyBox),
+          optimizeStats: Boolean(payload.optimizeStats),
+          archetype: payload.archetype || "automatic",
+          teamArchetype: payload.teamArchetype || "",
+          prioritizeMeta: Boolean(payload.prioritizeMeta),
+          box: (payload.box || []).map((set) => (set && set.species ? makeSet(set) : null)).filter(Boolean),
+          onProgress: (fraction, message) => progress({ fraction, message }),
+          shouldStop: () => cancelled.has(id),
+        });
+      } finally {
+        cancelled.delete(id);
+      }
       const built = run.entries.map((entry, i) => (entry.pokemon ? {
         species: entry.pokemon, form: entry.form, item: entry.item, ability: entry.ability, moves: entry.moves,
         nature: run.spreads[i]?.nature_name || "Serious", bonuses: run.spreads[i]?.bonuses || [0, 0, 0, 0, 0, 0],
       } : null));
+      // The search already evaluated the team it chose (none for a build stopped before
+      // its first team was complete, so Stop answers at once); the greedy path did not.
+      const chosen = run.error || run.search?.unevaluated ? null : run.payload || evaluation.evaluate(built.map((set) => (set ? makeSet(set) : null)), { checkSelection: selection });
       result = {
         error: run.error || "",
         sets: built,
         seconds: (Date.now() - started) / 1000,
-        additions: run.additions.map((a) => ({ slot: a.slot, name: a.name, score: a.score, answers: a.row?.answers || [], details: a.row?.details || [] })),
+        additions: run.additions.map((a) => TeamAutoBuild.additionForPage(a)),
         log: run.log,
         archetype: run.archetype || "",
-        evaluation: run.error ? null : transferable(evaluation.evaluate(built.map((set) => (set ? makeSet(set) : null)), { checkSelection: payload.checks ?? null })),
+        evaluation: chosen ? transferable(chosen) : null,
         similar: run.error ? null : similarTeam(evaluation, built),
+        compared: run.compared || [],
+        search: run.search || null,
       };
       self.postMessage({ id, ok: true, result });
       return;
     }
     if (type === "tournament") {
-      // Test against Tournament Teams: the fast Matchup Matrix against the first N
-      // shipped tournament teams, with a fresh analysis after every batch.
+      // Test against Tournament Teams: short games (turn 1, then the fight that follows)
+      // against the first N shipped tournament teams, with a fresh analysis after every
+      // batch. The format decides how many each side brings (TeamEvaluator.format).
       const { evaluation } = await appEvaluation(payload.format, payload.settings);
       evaluation.knownTeams ||= await knownTeams();
       if (!evaluation.knownTeams) throw new Error("The tournament teams could not be loaded. Check the connection and try again.");
@@ -210,10 +269,19 @@ self.addEventListener("message", async (event) => {
       return;
     }
     if (type === "overview") {
-      // The app's Team Builder dashboard (_v300_dashboard_overview): type and power
-      // pressure both ways against the Speed tab's Top-X.
+      // The Team Overview charts: type and power pressure both ways against the
+      // overview's Top-X. Only what the page draws is sent back (a few KB at Top 262).
       const { evaluation } = await appEvaluation(payload.format, payload.settings);
-      result = teamOverview(evaluation, sets, payload.top || 30);
+      const ov = teamOverview(evaluation, sets, payload.top || 30);
+      result = {
+        empty: ov.empty,
+        top_x: ov.top_x,
+        offense_chart: ov.offense_chart,
+        defense_chart: ov.defense_chart,
+        team_to_meta: ov.team_to_meta ? { score: ov.team_to_meta.score, type_summary: ov.team_to_meta.type_summary } : null,
+        meta_to_team: ov.meta_to_team ? { score: ov.meta_to_team.score, type_summary: ov.meta_to_team.type_summary } : null,
+        weaknesses: ov.weaknesses,
+      };
       self.postMessage({ id, ok: true, result });
       return;
     }

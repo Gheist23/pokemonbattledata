@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Ditto,52,move,1,Transform,100.0%,,,,,,,,
-Ditto,52,held_item,1,Choice Scarf,86.9%,,,,,,,,
+Ditto,52,held_item,1,Choice Scarf,87.0%,,,,,,,,
 Ditto,52,held_item,2,Focus Sash,4.9%,,,,,,,,
 Ditto,52,held_item,3,Quick Claw,3.7%,,,,,,,,
 Ditto,52,held_item,4,Red Card,1.3%,,,,,,,,
 Ditto,52,held_item,5,Sitrus Berry,0.7%,,,,,,,,
-Ditto,52,held_item,6,Life Orb,0.7%,,,,,,,,
+Ditto,52,held_item,6,Life Orb,0.6%,,,,,,,,
 Ditto,52,held_item,7,Bright Powder,0.4%,,,,,,,,
 Ditto,52,held_item,8,Leftovers,0.4%,,,,,,,,
 Ditto,52,held_item,9,Rocky Helmet,0.1%,,,,,,,,
@@ -17,15 +17,15 @@ Ditto,52,teammate,4,Primarina,,,,,,,,,
 Ditto,52,teammate,5,Baxcalibur,,,,,,,,,
 Ditto,52,teammate,6,Lucario,,,,,,,,,
 Ditto,52,teammate,7,Archaludon,,,,,,,,,
-Ditto,52,teammate,8,Gholdengo,,,,,,,,,
-Ditto,52,teammate,9,Hippowdon,,,,,,,,,
-Ditto,52,teammate,10,Pawmot,,,,,,,,,
+Ditto,52,teammate,8,Pawmot,,,,,,,,,
+Ditto,52,teammate,9,Gholdengo,,,,,,,,,
+Ditto,52,teammate,10,Hippowdon,,,,,,,,,
 Ditto,52,stat_alignment,1,Relaxed,21.3%,Defense,Speed,,,,,,
-Ditto,52,stat_alignment,2,Jolly,8.4%,Speed,Sp. Atk,,,,,,
+Ditto,52,stat_alignment,2,Jolly,8.3%,Speed,Sp. Atk,,,,,,
 Ditto,52,stat_alignment,3,Sassy,8.3%,Sp. Def,Speed,,,,,,
-Ditto,52,stat_alignment,4,Timid,8.3%,Speed,Attack,,,,,,
+Ditto,52,stat_alignment,4,Timid,8.2%,Speed,Attack,,,,,,
 Ditto,52,stat_alignment,5,Serious,7.3%,,,,,,,,
-Ditto,52,stat_alignment,6,Gentle,6.5%,Sp. Def,Defense,,,,,,
+Ditto,52,stat_alignment,6,Gentle,6.6%,Sp. Def,Defense,,,,,,
 Ditto,52,stat_alignment,7,Naive,5.2%,Speed,Sp. Def,,,,,,
 Ditto,52,stat_alignment,8,Brave,5.2%,Attack,Speed,,,,,,
 Ditto,52,stat_alignment,9,Quiet,3.7%,Sp. Atk,Speed,,,,,,
@@ -34,11 +34,11 @@ Ditto,52,stat_points,1,,22.9%,,,32,0,0,0,0,0
 Ditto,52,stat_points,2,,9.1%,,,32,0,32,0,2,0
 Ditto,52,stat_points,3,,6.7%,,,32,2,32,0,0,0
 Ditto,52,stat_points,4,,6.2%,,,32,0,2,0,0,32
-Ditto,52,stat_points,5,,4.9%,,,32,0,2,0,32,0
+Ditto,52,stat_points,5,,5.0%,,,32,0,2,0,32,0
 Ditto,52,stat_points,6,,4.8%,,,32,0,0,0,0,32
 Ditto,52,stat_points,7,,3.5%,,,32,2,0,0,0,32
 Ditto,52,stat_points,8,,3.0%,,,32,0,0,0,2,32
 Ditto,52,stat_points,9,,2.3%,,,32,32,2,0,0,0
-Ditto,52,stat_points,10,,2.0%,,,32,0,0,0,23,11
+Ditto,52,stat_points,10,,2.0%,,,32,0,32,2,0,0
 Ditto,52,ability,1,Imposter,99.4%,,,,,,,,
 Ditto,52,ability,2,Limber,0.6%,,,,,,,,

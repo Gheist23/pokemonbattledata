@@ -52,7 +52,7 @@ export function isCriticalThreat(row) {
 }
 
 /** _v367_clean_ko_label */
-function cleanKoLabel(text) {
+export function cleanKoLabel(text) {
   return String(text ?? "").trim().replace(/\b0(?:\.0+)?%\s+(?:chance\s+)?(?:to\s+)?(OHKO|[2-9]HKO)\b/gi, (_m, ko) => `Less than 1% chance to ${ko}`);
 }
 

@@ -24,9 +24,10 @@
 //               speed_mode_v505, team_set_refinement_v505).
 
 import { compact } from "./engine.js";
+import { AutoBuildSearch, additionForPage } from "./autobuild-search.js";
 import { AutoBuildArchetype, archetypeDisplay, archetypeKey, candidateKey, manualArchetype, resolveAutomaticArchetype, topMetaKeys } from "./autobuild-archetype.js";
 import { TeamOptimizer } from "./team-optimize.js";
-import { MOVES_NEEDING_SUPPORT, TeamSuggestions, speedModePlan, uniqueNames } from "./team-suggest.js";
+import { MOVES_NEEDING_SUPPORT, TeamSuggestions, boxCandidates, speedModePlan, uniqueNames } from "./team-suggest.js";
 
 const TEAM_SIZE = 6;
 const MAX_DEFENSIVE_WARNINGS = 2;
@@ -52,6 +53,11 @@ export class TeamAutoBuild {
     this.checks = evaluation.checks;
     this.synergy = evaluation.synergy;
     this.sg = new TeamSuggestions(evaluation);
+  }
+
+  /** One added member as the page shows it (see builder/autobuild-search.js additionForPage). */
+  static additionForPage(addition) {
+    return additionForPage(addition);
   }
 
   // --- conversions ----------------------------------------------------------------
@@ -192,32 +198,7 @@ export class TeamAutoBuild {
    * Only Box limits the species, not the moveset.
    */
   boxPool(box, activeNames) {
-    const active = new Set(activeNames.map(compact).filter(Boolean));
-    const rows = [];
-    (box || []).forEach((set, index) => {
-      const pokemon = String(set?.species || "").trim();
-      if (!pokemon) return;
-      const form = String(set.form || pokemon).trim() || pokemon;
-      if (active.has(compact(form)) || active.has(compact(pokemon))) return;
-      const moves = (set.moves || []).map((m) => String(m || "").trim()).filter(Boolean).slice(0, 4);
-      const forced = {
-        rank: 1, evaluated_count: 1, total_sets: 1, item: String(set.item || ""), ability: String(set.ability || ""), moves,
-        spread: { name: set.nature || "Serious", nature_name: set.nature || "Serious", bonuses: [...(set.bonuses || [0, 0, 0, 0, 0, 0])] },
-      };
-      const row = {
-        name: form, base_name: pokemon, form, position: index + 1, top_item: forced.item, top_items: forced.item ? [forced.item] : [],
-        moves: [...moves], _candidate_set_v113: forced, candidate_source: "Pokemon Box",
-      };
-      if (!moves.length) {
-        delete row._candidate_set_v113;
-        const common = this.sg.common(form);
-        if ((common.moves || []).length) row.moves = common.moves.slice(0, 4);
-        if (common.item && !row.top_item) Object.assign(row, { top_item: common.item, top_items: [common.item] });
-        row._v494_box_set_completed = true;
-      }
-      rows.push(row);
-    });
-    return rows;
+    return boxCandidates(this.sg, box, activeNames);
   }
 
   /**
@@ -409,9 +390,19 @@ export class TeamAutoBuild {
   /**
    * @param {Array<object|null>} sets     the six builder slots (null or no species = open)
    * @param {object} options  {selection, depth, cachedPayload, onProgress(fraction, message)}
+   *   search: "companion" (default) runs the app's greedy path below and returns its
+   *   result; any other value runs builder/autobuild-search.js (the anchored beam and the
+   *   Team Evaluation comparison) and returns a Promise of the same shape plus
+   *   {compared, search, payload}. shouldStop() ends a search early with its best team.
    * @returns {{entries, spreads, additions, log, error?}}
    */
-  run(sets, { selection = null, depth = "medium", cachedPayload = null, cachedScores = null, onlyBox = false, box = [], optimizeStats = false, archetype = "automatic", teamArchetype = "", prioritizeMeta = false, onProgress } = {}) {
+  run(sets, options = {}) {
+    if (options.search && options.search !== "companion") return new AutoBuildSearch(this, AUTO_BUILD_PROFILES).run(sets, options);
+    return this.runGreedy(sets, options);
+  }
+
+  /** The app's own Auto Build: one committed pick per slot, then the finish chain. */
+  runGreedy(sets, { selection = null, depth = "medium", cachedPayload = null, cachedScores = null, onlyBox = false, box = [], optimizeStats = false, archetype = "automatic", teamArchetype = "", prioritizeMeta = false, onProgress } = {}) {
     const profile = AUTO_BUILD_PROFILES[depth] || AUTO_BUILD_PROFILES.medium;
     const entries = Array.from({ length: TEAM_SIZE }, (_, i) => this.entryFromSet(sets[i]));
     const spreads = Array.from({ length: TEAM_SIZE }, (_, i) => (sets[i]?.species ? { nature_name: sets[i].nature || "Serious", bonuses: [...(sets[i].bonuses || [0, 0, 0, 0, 0, 0])] } : null));
@@ -476,55 +467,111 @@ export class TeamAutoBuild {
 
   /** Phase 1: every open slot in turn, scored against the team as it stands (V459). */
   buildSlots({ entries, spreads, selection, selected, profile, state, seed, frozen, startEntries, additions, progress, options = {} }) {
+    const shared = { selection, selected, profile, frozen, startEntries, options };
     const open = entries.filter((e) => !valid(e)).length;
+    let node = { entries, spreads, seed, state };
     for (let done = 0; done < open; done += 1) {
-      const slotIndex = entries.findIndex((e) => !valid(e));
-      if (slotIndex < 0) break;
-      let slots = this.slotsFor(entries, spreads);
-      const activeNames = this.names(slots);
-      const candidates = this.slotPool(frozen, slots, activeNames, profile, options);
-      const context = {
-        payload: seed, teamSlots: slots, teamEntries: slots.map((s) => s.entry), activeNames,
-        emptySlot: slots.length, selection, selected, swapTarget: "", autoBuild: true, fieldEntries: startEntries, ...options,
-      };
-      let ranked = [];
-      candidates.forEach((meta, index) => {
-        const row = this.sg.evaluateCandidate(structuredClone(meta), context);
-        if (row && row.score > 0) ranked.push(row);
-        if (index % 6 === 0 || index === candidates.length - 1) {
-          progress(((done + (index + 1) / candidates.length) / open) * 0.9, `Building slot ${done + 1}/${open}: screening ${index + 1}/${candidates.length} · ${meta.name}`);
+      const screened = this.screenSlot(node, shared, (index, total, name) => {
+        if (index % 6 === 0 || index === total - 1) {
+          progress(((done + (index + 1) / total) / open) * 0.9, `Building slot ${done + 1}/${open}: screening ${index + 1}/${total} · ${name}`);
         }
       });
-      // The last slot keeps only candidates that pass the finished-team rules, and
-      // falls back to the ones breaking the fewest when none does (see autoBuildFilters).
-      const clean = ranked.filter((row) => !row._finish_filter_misses);
-      if (clean.length || !ranked.length) ranked = clean;
-      else {
-        // Within the switch-in limit first, then the fewest types left unanswered, then the fewest rules broken.
-        const cost = (row) => [row._finish_over_cap || 0, row._finish_filter_misses.length];
-        const best = ranked.map(cost).sort((a, b) => a[0] - b[0] || a[1] - b[1])[0];
-        ranked = ranked.filter((row) => cost(row)[0] === best[0] && cost(row)[1] === best[1]);
-        if (best[0]) state.overCap = best[0];
-        const misses = [...new Set(ranked.flatMap((row) => row._finish_filter_misses))];
-        state.log.push(`No Pokémon for the last slot avoids leaving the team with ${misses.join(" or ")}; Auto Build takes the best of them instead of stopping.`);
-      }
-      const finalists = this.finalists(ranked, profile, state);
-      if (!finalists.length) return "Auto Build did not find a structurally fitting Pokemon for an empty slot.";
-      const refined = finalists.map((row) => this.representative(row));
-      const coverage = (row) => Math.max(0, (Number(row.defensive_switch_warning_count) || 0) - MAX_DEFENSIVE_WARNINGS);
-      const ranks = (row) => [row.auto_build_suggestion_rank_v468 === undefined ? 1 : 0, row.auto_build_suggestion_rank_v468 ?? 999999];
-      const best = refined.map((row, i) => [row, i]).sort(([a, ia], [b, ib]) => coverage(a) - coverage(b) || ranks(a)[0] - ranks(b)[0] || ranks(a)[1] - ranks(b)[1] || ia - ib)[0][0];
-      const [entry, spread] = this.completeSelected(best);
-      entries[slotIndex] = entry;
-      spreads[slotIndex] = spread;
-      additions.push({ slot: slotIndex, entry, spread, score: best.score, name: best.name, row: best });
+      if (!screened) break;
+      const best = this.pickFromRanked(screened.ranked, profile, state);
+      if (!best) return "Auto Build did not find a structurally fitting Pokemon for an empty slot.";
+      const next = this.applyPick(node, screened.slotIndex, best, selection);
+      entries[screened.slotIndex] = next.entries[screened.slotIndex];
+      spreads[screened.slotIndex] = next.spreads[screened.slotIndex];
+      additions.push(next.addition);
       // The next slot is scored against the projected team and its projected scores.
-      slots = this.slotsFor(entries, spreads);
-      seed.checks = this.sg.snapshotFor(slots, selection);
-      this.projectScores(seed, best);
+      node = { entries, spreads, seed: next.seed, state };
       progress(((done + 1) / open) * 0.9, `Built slot ${done + 1}/${open}: ${best.name}`);
     }
     return "";
+  }
+
+  // --- the pieces of one slot (shared by buildSlots and builder/autobuild-search.js) ---
+
+  /**
+   * The first open slot of a partial team and what every candidate for it is scored
+   * against. `node` is {entries, spreads, seed}; `shared` is the run's fixed inputs
+   * {selection, selected, profile, frozen, startEntries, options}. `candidates`
+   * replaces the pool (the search screens a shortlist on its side branches).
+   */
+  prepareSlot(node, shared, { candidates = null } = {}) {
+    const slotIndex = node.entries.findIndex((e) => !valid(e));
+    if (slotIndex < 0) return null;
+    const slots = this.slotsFor(node.entries, node.spreads);
+    const activeNames = this.names(slots);
+    const pool = candidates || this.slotPool(shared.frozen, slots, activeNames, shared.profile, shared.options);
+    const context = {
+      payload: node.seed, teamSlots: slots, teamEntries: slots.map((s) => s.entry), activeNames,
+      emptySlot: slots.length, selection: shared.selection, selected: shared.selected, swapTarget: "", autoBuild: true, fieldEntries: shared.startEntries, ...shared.options,
+    };
+    return { slotIndex, slots, activeNames, candidates: pool, context };
+  }
+
+  /** One candidate scored for the slot (null when it scores nothing). */
+  screenCandidate(meta, context) {
+    const row = this.sg.evaluateCandidate(structuredClone(meta), context);
+    return row && row.score > 0 ? row : null;
+  }
+
+  /**
+   * The last slot keeps only candidates that pass the finished-team rules, and falls
+   * back to the ones breaking the fewest when none does (see autoBuildFilters).
+   */
+  finishFilter(ranked, state) {
+    const clean = ranked.filter((row) => !row._finish_filter_misses);
+    if (clean.length || !ranked.length) return clean;
+    // Within the switch-in limit first, then the fewest types left unanswered, then the fewest rules broken.
+    const cost = (row) => [row._finish_over_cap || 0, row._finish_filter_misses.length];
+    const best = ranked.map(cost).sort((a, b) => a[0] - b[0] || a[1] - b[1])[0];
+    const kept = ranked.filter((row) => cost(row)[0] === best[0] && cost(row)[1] === best[1]);
+    if (best[0]) state.overCap = best[0];
+    const misses = [...new Set(kept.flatMap((row) => row._finish_filter_misses))];
+    state.log.push(`No Pokémon for the last slot avoids leaving the team with ${misses.join(" or ")}; Auto Build takes the best of them instead of stopping.`);
+    return kept;
+  }
+
+  /** prepareSlot, every candidate screened, then finishFilter: {slotIndex, slots, activeNames, candidates, context, ranked}. */
+  screenSlot(node, shared, onCandidate = null) {
+    const prepared = this.prepareSlot(node, shared);
+    if (!prepared) return null;
+    const ranked = [];
+    prepared.candidates.forEach((meta, index) => {
+      const row = this.screenCandidate(meta, prepared.context);
+      if (row) ranked.push(row);
+      onCandidate?.(index, prepared.candidates.length, meta.name);
+    });
+    return { ...prepared, ranked: this.finishFilter(ranked, node.state) };
+  }
+
+  /** The slot's pick: the finalists (with V494's forcing, which updates `state`), their common set, the best rank. */
+  pickFromRanked(ranked, profile, state) {
+    const finalists = this.finalists(ranked, profile, state);
+    if (!finalists.length) return null;
+    const refined = finalists.map((row) => this.representative(row));
+    const coverage = (row) => Math.max(0, (Number(row.defensive_switch_warning_count) || 0) - MAX_DEFENSIVE_WARNINGS);
+    const ranks = (row) => [row.auto_build_suggestion_rank_v468 === undefined ? 1 : 0, row.auto_build_suggestion_rank_v468 ?? 999999];
+    return refined.map((row, i) => [row, i]).sort(([a, ia], [b, ib]) => coverage(a) - coverage(b) || ranks(a)[0] - ranks(b)[0] || ranks(a)[1] - ranks(b)[1] || ia - ib)[0][0];
+  }
+
+  /**
+   * The team with `best` in `slotIndex`, as a new node: copied entries and spreads,
+   * and a seed with the projected team's checks and the pick's projected scores.
+   * The input node is left as it was.
+   */
+  applyPick(node, slotIndex, best, selection) {
+    const [entry, spread] = this.completeSelected(best);
+    const entries = [...node.entries];
+    const spreads = [...node.spreads];
+    entries[slotIndex] = entry;
+    spreads[slotIndex] = spread;
+    const seed = { ...node.seed, speed: node.seed.speed ? { ...node.seed.speed } : node.seed.speed };
+    seed.checks = this.sg.snapshotFor(this.slotsFor(entries, spreads), selection);
+    this.projectScores(seed, best);
+    return { entries, spreads, seed, addition: { slot: slotIndex, entry, spread, score: best.score, name: best.name, row: best } };
   }
 
   /** _v450_complete_selected_auto_set */
@@ -549,8 +596,13 @@ export class TeamAutoBuild {
 
   // --- the finish chain ---------------------------------------------------------------
 
-  /** Everything _v427_auto_build_finished runs over the applied team, in order. */
-  finish(entries, spreads, log, progress = () => {}, { anchorArchetype = null, box = [], archetype = "" } = {}) {
+  /**
+   * Everything _v427_auto_build_finished runs over the applied team, in order.
+   * `quick` (a build stopped before its first team was complete) keeps the rules - Mega
+   * stones, Mega forms, spreads, field conditions, speed mode - and skips the two passes
+   * that run damage calcs: the Mega pair balance and the set refinement.
+   */
+  finish(entries, spreads, log, progress = () => {}, { anchorArchetype = null, box = [], archetype = "", quick = false } = {}) {
     // A Trick Room or Tailwind team keeps the speed control it was built around.
     const preferredMode = { "trick room": "trickroom", tailwind: "tailwind" }[archetype] || "";
     this.trimExcessMegaStones(entries, log);
@@ -559,10 +611,13 @@ export class TeamAutoBuild {
     this.normaliseMegas(entries, log);
     this.completeMissingSpreads(entries, spreads);
     this.retuneForConditions(entries, log);
-    const board = this.threatBoard(30);
-    this.balanceMegas(entries, board, log);
+    if (!quick) {
+      const board = this.threatBoard(30);
+      this.balanceMegas(entries, board, log);
+    }
     progress(0.95, "Checking team speed-control moves");
     this.resolveSpeedMode(entries, log, preferredMode);
+    if (quick) return;
     progress(0.97, "Moves, Items and Abilities");
     this.refineSets(entries, spreads, log, preferredMode);
   }

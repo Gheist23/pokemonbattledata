@@ -2,13 +2,12 @@
 // V302/V471). The same _v188 profiles as the Team Evaluation's Offense and Defense
 // Overview, with two differences the app makes on purpose: pressure comes from
 // type and power alone (use_current_team_sets=False, so a tab click never waits
-// on hundreds of damage calcs), and the meta side is the Speed tab's Top-X on
-// each Pokemon's top-ranked set (_v300_meta_pressure_records).
+// on hundreds of damage calcs), and the meta side is the Team Overview's Top-X
+// (1 to every ranked Pokemon, shared with the Speed list) on each Pokemon's
+// top-ranked set (_v300_meta_pressure_records).
 
 import { SpeedTiers } from "./speed-tiers.js";
 import { TYPES } from "./team-eval.js";
-
-const TOP_META_CAP = 100;
 
 /** _v300_meta_pressure_records */
 function metaPressureRecords(evaluation, topX) {
@@ -55,11 +54,12 @@ function directionalTypeChart(teamProfile, metaProfile, direction, offense) {
 /**
  * @param {TeamEvaluation} evaluation
  * @param {Array<object|null>} sets  the six builder slots
- * @param {number} topX              the Speed tab's Top-X
+ * @param {number} topX              the Team Overview's Top-X (capped at the ranked count)
  */
 export function teamOverview(evaluation, sets, topX = 30) {
   const ev = evaluation.ev;
-  const x = Math.max(1, Math.min(TOP_META_CAP, Number(topX) || 30));
+  const ranked = (ev.metaRecords || []).filter((r) => Number(r.position) < 999999).length;
+  const x = Math.max(1, Math.min(Math.max(1, ranked), Number(topX) || 30));
   // _v188_team_records: every filled slot, owned by its slot number.
   const filled = (sets || []).slice(0, 6).map((set, slot) => ({ set, slot })).filter(({ set }) => set && String(set.species || "").trim());
   const teamRecords = ev.teamRecords(filled.map(({ set }, i) => ev.teamMon(set, i)));

@@ -127,7 +127,11 @@ analysis in the browser. They are plain ES modules in `builder/`, with no build 
 | `builder/team-eval.js`, `builder/team-payload.js` | Team Evaluation: threat calcs, critical threats, Offense/Defense scores (the app's V36-V494 stack) |
 | `builder/team-checks.js`, `builder/team-synergy.js`, `builder/team-speed.js` | Team Building Checks and archetype, Synergy, Speed Control |
 | `builder/team-suggest.js`, `builder/known-teams.js` | Suggested Pokémon, including the "Found in similar team" bonus |
-| `builder/team-autobuild.js`, `builder/team-optimize.js` | Auto Build and Optimize (Stat Points) |
+| `builder/suggest-view.js` | the Suggestions list and each suggestion's breakdown |
+| `builder/team-autobuild.js`, `builder/team-optimize.js` | Auto Build, and the app's shallow Stat Point optimiser its finish uses (memoised; checked by `run-optimize-vectors.mjs`) |
+| `builder/optimize-deep.js`, `builder/optimize-objective.js`, `builder/optimize-core.js`, `builder/move-traits.js` | Team Evaluation > Optimize: a budgeted, stoppable search over Natures, Stat Points and learnable attacks, scored by a speed-aware matchup value (see the file headers); checked by `tests/run-optimize-deep.mjs` |
+| `builder/optimize-view.js`, `builder/optimize.css` | the Optimize tab: options, progress, Previously / Now table, what changes in battle, Speed lists, moves tested |
+| `builder/autobuild-search.js` | Auto Build's search: the greedy path as the anchor, a beam over partial teams, the Team Evaluation comparison, one repair swap |
 | `builder/autobuild-archetype.js` | Auto Build's Preferred archetype and Prioritize Meta Pokémon |
 | `builder/tournament-test.js`, `builder/tournament-view.js` | Test against Tournament Teams and its Result Analysis |
 | `builder/speed-tiers.js`, `builder/team-overview.js` | the ranked Speed list and the Team Overview charts |
@@ -172,7 +176,9 @@ Data comes from two places:
   recordings exposed (the test replays the app's own behaviour where they apply):
   - Prioritize Meta Pokemon ranks the Top-X meta ahead once the red/yellow checks, the Speed
     plan and the chosen archetype are settled. In the app that tier sits under a later sort
-    that overwrites it, so the option never changes a pick there.
+    that overwrites it, so the option never changes a pick there. Its Top X is the Team
+    Evaluation's, up to every ranked Pokemon (`topMetaSize`; the app capped it at 100, its
+    own Settings maximum).
   - On the last slot, the finished-team rules (at most two attacking types without a
     switch-in, no Trick Room the team cannot use, no terrain that misses half of it) pick the
     candidate that breaks the fewest instead of rejecting all of them. The app stops with "did
@@ -181,6 +187,73 @@ Data comes from two places:
   - A chosen Trick Room or Tailwind archetype decides the speed mode, so the finish passes no
     longer swap the team's Trick Room out again, and a Trick Room team is not rejected for
     carrying Trick Room.
+
+  The page goes further than the app's Auto Build, which is greedy (every slot commits its
+  first pick; its own deeper stages, V459 finalist sets and Phase-2 "Adjust against Meta",
+  are switched off by V467 and V469). `TeamAutoBuild.run(sets, {search})` runs the app's
+  path unchanged when `search` is `"companion"` (the default, which
+  `run-autobuild-vectors.mjs` checks); the worker passes the chosen depth instead, and
+  `builder/autobuild-search.js` runs:
+  - the anchor: the app's greedy path at that depth, built from `buildSlots`' pieces
+    (`prepareSlot`, `screenCandidate`, `finishFilter`, `pickFromRanked`, `applyPick`). It is
+    always one of the compared teams and the result when nothing beats it.
+  - a beam over partial teams (Fast 2 teams, Medium 3, Deep 4, the anchor's line always
+    kept): each keeps its greedy pick plus the next best candidates; side branches screen a
+    shortlist (the best of the slot before and of the anchor's screening of the same slot,
+    plus the Megas and archetype specialists the pool would reserve); alternative picks try
+    up to 2 (Medium) or 3 (Deep) V449 sets ranked by the app's `_v459_structural_key`; at
+    most half the beam may share its first pick, or the greedy line's siblings crowd out
+    every other first pick.
+  - a comparison of every complete team through the same finish chain and the full Team
+    Evaluation. `beats()` compares tier by tier and the first tier that differs decides:
+    fewer red Team Building Checks failed, then fewer yellow ones, then (with a chosen
+    archetype) fewer unmet critical requirements of it, then (with Prioritize Meta) fewer
+    added members from outside the Top X, and only when all of those tie a score at least
+    `margin` (1.0) higher on T = mean(Synergy, Offense, Defense, Speed) - 1.0 x threats
+    scoring 70+ (`SEARCH_OBJECTIVE`, `OBJECTIVE_TIERS`). The page's "Compared teams" note and
+    the log sentence (`replacedBecause`) name that rule and the tier that decided.
+  - Medium/Deep: one repair swap of a member Auto Build added (kept members never), judged
+    by the same rule; with Prioritize Meta the Top X alternatives are tried first.
+
+  The work is bounded by counts (`SEARCH_PROFILES`: beam, children, shortlist sizes,
+  finalist sets, repair targets, candidates and pool), not by the clock, so the same input
+  gives the same team on a fast or a slow machine. The clock is only a safety cap on the
+  whole run (`capMs`: 24 / 44 / 66 s, about twice the old deadlines); when it cuts a step,
+  `search.capped` and `search.cut` say which, and the page says the search hit its time
+  limit. Deep's shortlist (45) and repair (2 targets, 5 of 80 candidates) were cut after a
+  cold Deep build of an empty team took 45-54 s. Measured in Node on 2026-09-22 since: Deep
+  cold 40-45 s (empty team, about 25 s of it the anchor) and 31-32 s (three kept), warm 8-9 s
+  and 5-7 s; Medium cold 18-21 s, warm 5-6 s; Fast cold 10 s, warm 1-3 s; a warm run on a clock
+  1.5x slower picked the same team. The run yields every ~0.1 s; the evaluator's per-move mode (V458) is set
+  only inside those synchronous chunks, so other worker requests never see it. Stop (a
+  `cancel` message) returns the best team so far: instantly once the first team is
+  finished, and within ~0.3 s before that (the rest filled from a dozen candidates per
+  slot, the calc-heavy finish passes and the evaluation skipped, which the result says).
+  `node tests/run-autobuild-search.mjs` (`full` for every start x archetype x Prioritize
+  Meta x depth, `TOUR=N` to also play every compared team against N tournament teams)
+  checks that the result is never worse than the anchor, the log names the tier that
+  decided, Prioritize Meta is not overridden by the score, kept members stay, Item Clause,
+  Mega and switch-in rules hold, runs repeat (also on a 1.5x slower clock), the cold timings
+  and Stop, and reports how often and by how much the search beats the anchor under other
+  weights. On 2026-09-22 the quick matrix (17 builds, Doubles and Singles) kept another team
+  than the anchor in 15: on average 0.7 fewer failing checks, +2.2 mean score and 1.9 fewer
+  threats at 70+. An earlier run with `TOUR=300` (before the Deep cut) found those teams
+  averaging +0.7 in the tournament test, and the objective ordering 73% of team pairs the
+  way the tournament average does (weight 0.5 scored +0.8, within noise, so 1.0 / 1.0 stayed).
+
+  Different Auto Build and Suggestions results from the Companion mostly come from the data,
+  not the search: the Companion 1.0.17 ships the 14 Sep battle data, the site regenerates
+  `meta-*.json` daily. On the same data the greedy anchor and the Suggestions list are the
+  app's (the parity suites).
+
+  Suggestions keep their order and scores (`run-suggest-vectors.mjs`); what the breakdown
+  shows is extra: every layer's share of the score (`score_ledger`, `score_uncapped`; the
+  score is capped at 100, so ties there fall back to meta rank), the calcs behind each
+  type-fit answer (`answer_calcs_v494`, including the ones the calc strikes), and, after the
+  list is sent, a check of each shown row against the full Team Evaluation of the team it
+  would make (`TeamSuggestions.projectedDetail`: the four scores, the critical threats whose
+  scores fall or rise, and the threats the newcomer really answers). "Only Box" tries the Box
+  (`boxCandidates`, shared with Auto Build's Only Box).
 - `data/builder/meta-doubles.json` and `meta-singles.json` are written by
   `tools/generate-manifest.mjs` (via `tools/builder-meta.mjs`) from the battle-data CSVs: the
   ranked Pokemon with their usage (moves, items, Abilities, and Natures and Stat Points as

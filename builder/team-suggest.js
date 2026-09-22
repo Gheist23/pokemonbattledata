@@ -97,6 +97,18 @@ function rowKey(row) {
 }
 
 const MAX_DEFENSIVE_WARNINGS = 2; // team_build_constraints
+
+const RESULT_FIELDS = ["attacker", "defender", "attacker_side", "move", "percent", "label", "full_label", "hits", "chance", "full_hits", "full_chance", "attacker_speed", "move_priority",
+  "speed_tier_suppressed", "pre_speed_tier_label", "pre_speed_tier_hits", "condition_range", "range_min_percent", "range_min_label", "range_max_percent",
+  "range_max_label", "range_max_condition", "weather", "terrain"];
+
+/** A calc result cut to what a calc line shows (builder/calc-format.js), for rows sent to the page. */
+export function compactResult(result) {
+  if (!result || typeof result !== "object") return null;
+  const out = {};
+  for (const k of RESULT_FIELDS) if (result[k] !== undefined && result[k] !== null && result[k] !== "") out[k] = result[k];
+  return out;
+}
 const MAX_STRUCTURAL_SETS = 18; // V449_MAX_STRUCTURAL_SET_VARIANTS
 
 /** _v483_speed_reducing_nature: keep the role the nature (or the Stat Points) says. */
@@ -265,6 +277,87 @@ export function speedModePlan(profiles, metaSpeeds) {
   return { threshold, trick_room: setters, tailwind: winders, slow_attackers: slow, fast_attackers: fast, attackers, room_supported: roomSupported, wind_supported: windSupported, mode };
 }
 
+/**
+ * "Only Box" candidates (_v321_box_suggestion_candidates + V494), shared by Suggestions
+ * and Auto Build: each Box entry not on the team with its saved set forced; an entry
+ * saved without moves gets its usage set instead, because Only Box limits the species,
+ * not the moveset. `position` is the Box order, as in the app.
+ * @param {TeamSuggestions} sg
+ */
+export function boxCandidates(sg, box, activeNames) {
+  const active = new Set(activeNames.map(compact).filter(Boolean));
+  const rows = [];
+  (box || []).forEach((set, index) => {
+    const pokemon = String(set?.species || "").trim();
+    if (!pokemon) return;
+    const form = String(set.form || pokemon).trim() || pokemon;
+    if (active.has(compact(form)) || active.has(compact(pokemon))) return;
+    const moves = (set.moves || []).map((m) => String(m || "").trim()).filter(Boolean).slice(0, 4);
+    const forced = {
+      rank: 1, evaluated_count: 1, total_sets: 1, item: String(set.item || ""), ability: String(set.ability || ""), moves,
+      spread: { name: set.nature || "Serious", nature_name: set.nature || "Serious", bonuses: [...(set.bonuses || [0, 0, 0, 0, 0, 0])] },
+    };
+    const row = {
+      name: form, base_name: pokemon, form, position: index + 1, top_item: forced.item, top_items: forced.item ? [forced.item] : [],
+      moves: [...moves], _candidate_set_v113: forced, candidate_source: "Pokemon Box",
+    };
+    if (!moves.length) {
+      delete row._candidate_set_v113;
+      const common = sg.common(form);
+      if ((common.moves || []).length) row.moves = common.moves.slice(0, 4);
+      if (common.item && !row.top_item) Object.assign(row, { top_item: common.item, top_items: [common.item] });
+      row._v494_box_set_completed = true;
+    }
+    rows.push(row);
+  });
+  return rows;
+}
+
+/**
+ * A suggestion row as the page gets it: what the list and its breakdown show, and no
+ * engine objects. `selected` is the enabled Team Building Checks (a Set of ids).
+ * @param {TeamSuggestions} sg
+ */
+export function suggestionForPage(sg, row, selected = null) {
+  const species = row.candidate_entry?.pokemon || row.name;
+  const enabled = (id) => id && id !== "checks_disabled" && id !== "archetype_fit" && (!selected || !selected.size || selected.has(id));
+  const index = (rows) => new Map((rows || []).map((r) => [rowKey(r), r]));
+  const before = index(row._before_check_rows);
+  const after = index(row._after_check_rows);
+  // Only the checks whose status the suggestion changes.
+  const checks = [];
+  for (const [id, now] of after) {
+    if (!enabled(id)) continue;
+    const old = before.get(id);
+    if (severityOf(old) === severityOf(now)) continue;
+    checks.push({ id, label: String(now.check_label || old?.check_label || id), before: severityOf(old), after: severityOf(now), summary: String(now.summary || now.summary_v203 || "") });
+  }
+  const requirements = (rows) => new Map((sg.archetypeRow(rows)?.archetype_requirements_v403 || []).map((req) => [String(req.label || ""), req]));
+  const reqBefore = requirements(row._before_check_rows);
+  const reqAfter = requirements(row._after_check_rows);
+  const requirement = (req, old) => ({ label: String(req.label || ""), display: String(req.display || ""), before: String(old?.display || ""), critical: Boolean(req.critical) });
+  const gained = [...reqAfter.values()].filter((req) => req.met && !reqBefore.get(req.label)?.met).map((req) => requirement(req, reqBefore.get(req.label)));
+  const lost = [...reqAfter.values()].filter((req) => !req.met && reqBefore.get(req.label)?.met).map((req) => requirement(req, reqBefore.get(req.label)));
+  const inBox = row._candidate_meta_v378?.candidate_source === "Pokemon Box";
+  return {
+    key: String(row.action || row.name), name: row.name, action: row.action, action_kind: row.action_kind, slot_index: row.slot_index, swap_target: row.swap_target,
+    score: row.score, score_uncapped: row.score_uncapped ?? row.score, ledger: row.score_ledger || [],
+    position: row.position, meta_rank: sg.metaPosition(row.form || row.name) || (inBox ? 0 : row.position), source: inBox ? "box" : "meta",
+    item: row.item, ability: row.ability, moves: row.moves, spread_label: row.spread_label,
+    answers: row.answers, details: row.details, severities: row._v104_detail_severities, candidate_entry: row.candidate_entry,
+    spread: row.candidate_spread, form: row.form || row.candidate_entry?.form, components: row.suggestion_score_components_v318,
+    found_in_team: row.found_in_team_v496 || "",
+    set_source: row.found_in_team_v496 ? `Tournament team ${row.found_in_team_v496}` : inBox && row._candidate_meta_v378?._candidate_set_v113 ? "Your Box" : "Most common set",
+    archetype: row.strategy_archetype_v466, fixed: row._fixed_requirements, worsened: row._worsened_requirements,
+    checks, archetype_changes: { archetype: String(sg.archetypeRow(row._after_check_rows)?.archetype || ""), gained, lost },
+    payoff: row.archetype_payoff_v496 || null, conditional: row.conditional_dependence_v499 || null,
+    role_fixes: row.role_fixes_v466 || 0, speed_conflict: Boolean(row.counter_archetype_speed_control_v466),
+    answer_calcs: row.answer_calcs_v494 || [],
+    // _v480_item_options: what "Use" may swap a clashing item for (V482 applies Item Clause on apply).
+    item_options: [...new Set([row.candidate_entry?.item, sg.common(species).item, ...sg.usage(species, "held_item", 30)].filter(Boolean))],
+  };
+}
+
 export class TeamSuggestions {
   /** @param {TeamEvaluation} evaluation  (its evaluator carries the settings and meta) */
   constructor(evaluation) {
@@ -363,6 +456,24 @@ export class TeamSuggestions {
       return entry;
     });
     return this._allMeta;
+  }
+
+  /** suggestionForPage for this engine. */
+  forPage(row, selected = null) {
+    return suggestionForPage(this, row, selected);
+  }
+
+  /** The meta rank of a Pokemon (its own name, or the species a Mega is filed under); 0 when unranked. */
+  metaPosition(name) {
+    if (!this._metaRank) {
+      this._metaRank = new Map();
+      this.allMeta().forEach((meta, index) => {
+        const rank = Number(meta.position) || index + 1;
+        for (const value of [meta.name, meta.base_name]) if (!this._metaRank.has(compact(value))) this._metaRank.set(compact(value), rank);
+      });
+    }
+    const k = compact(name);
+    return this._metaRank.get(k) || this._metaRank.get(compact(this.ev.baseSpeciesFromDisplay(String(name || "")))) || 0;
   }
 
   /** _v476_full_suggestion_candidates: every ranked Pokemon not already on the team. */
@@ -517,8 +628,11 @@ export class TeamSuggestions {
     return out;
   }
 
-  /** _v378_type_fit (+ V494: an answer that loses the real matchup is taken back). */
-  typeFit(payload, profile) {
+  /**
+   * _v378_type_fit (+ V494: an answer that loses the real matchup is taken back).
+   * `calcs`, when given, receives each listed answer's matchup: {threat, kept, incoming, outgoing}.
+   */
+  typeFit(payload, profile, calcs = null) {
     const moveTypes = [...(profile.damaging_types || [])].map(pyTitle);
     const ownTypes = (profile.types || []).map(pyTitle);
     const threats = [...(payload.threats || [])].map((t, i) => [t, i]).sort((a, b) => -(Number(a[0].score) || 0) - -(Number(b[0].score) || 0) || a[1] - b[1]).map(([t]) => t);
@@ -550,7 +664,9 @@ export class TeamSuggestions {
     let struck = 0;
     for (const n of listed) {
       const threat = byName.get(n);
-      if (threat && this.losesToThreat(profile, threat)) {
+      const matchup = threat ? this.threatMatchup(profile, threat) : null;
+      if (calcs) calcs.push({ threat: n, kept: !matchup?.loses, incoming: matchup?.incoming || null, outgoing: matchup?.outgoing || null });
+      if (threat && matchup.loses) {
         struck += 1;
         continue;
       }
@@ -562,14 +678,20 @@ export class TeamSuggestions {
 
   /** _v494_profile_loses_to_threat: the matchup itself, speed order included. */
   losesToThreat(profile, threat) {
+    return this.threatMatchup(profile, threat).loses;
+  }
+
+  /** The matchup behind losesToThreat, with its two calcs kept (compact copies, shared through the cache). */
+  threatMatchup(profile, threat) {
+    const none = { loses: false, incoming: null, outgoing: null };
     const species = String(profile.pokemon || profile.name || "").trim();
     const threatName = String(threat.name || threat.base_name || "").trim();
-    if (!species || !threatName) return false;
+    if (!species || !threatName) return none;
     // Everything the verdict depends on (the app's V509 key): the set, the threat's data and the evaluator mode.
     const cacheKey = [compact(species), compact(profile.form || ""), compact(profile.item || ""), (profile.moves || []).map(compact).join(","), compact(threatName),
       (threat._v124_strict_top_items || threat.top_items || []).map(compact).join(","), (threat.top_moves || []).map(compact).join(","), this.ev.perMoveAttacks ? 1 : 0].join("|");
     if (this.lossCache.has(cacheKey)) return this.lossCache.get(cacheKey);
-    let result = false;
+    let result = none;
     try {
       const threatVariants = this.threatVariantsForSuggestion(threat);
       const candidateVariants = this.candidateVariants(species, profile.item, profile.moves);
@@ -577,10 +699,10 @@ export class TeamSuggestions {
         const rawIn = this.ev.bestBetween(threatVariants, candidateVariants);
         const rawOut = this.ev.bestBetween(candidateVariants, threatVariants);
         const [incoming, outgoing] = this.ev.applySpeedOrder(rawIn, rawOut);
-        result = !this.isRealAnswer(incoming, outgoing);
+        result = { loses: !this.isRealAnswer(incoming, outgoing), incoming: compactResult(incoming), outgoing: compactResult(outgoing) };
       }
     } catch {
-      result = false;
+      result = none;
     }
     this.lossCache.set(cacheKey, result);
     return result;
@@ -731,7 +853,8 @@ export class TeamSuggestions {
     const afterBad = this.badChecks(after);
     const fixed = [...beforeBad].filter(([k]) => !afterBad.has(k)).map(([, [label]]) => label);
     const introduced = [...afterBad].filter(([k]) => !beforeBad.has(k)).map(([, [label]]) => label);
-    const [offenseFit, defenseFit, answers] = this.typeFit(payload, profile);
+    const answerCalcs = [];
+    const [offenseFit, defenseFit, answers] = this.typeFit(payload, profile, answerCalcs);
     const teamProfiles = teamSlots.map(({ entry, mon }) => this.checks.profile(entry, mon));
     const [synergyFit, covered, stacked] = this.teamFit(teamProfiles, profile);
     const speedFit = this.speedFit(profile);
@@ -774,6 +897,8 @@ export class TeamSuggestions {
       total_component: r1(score), projected_total: r1(sum(projected) / 4), total_delta: r1((sum(projected) - sum(current)) / 4),
       projected_synergy_score: r1(projected.synergy), projected_offense_score: r1(projected.offense), projected_defense_score: r1(projected.defense),
       speed_delta: r1(projected.speed - current.speed), suggestion_score_components_v318: components,
+      // The calcs behind the listed answers (display only): a struck one is a type matchup the calc does not back.
+      answer_calcs_v494: answerCalcs,
     };
   }
 
@@ -852,7 +977,7 @@ export class TeamSuggestions {
     const score = Math.max(0, row.score - penalty);
     Object.assign(row, {
       score: r1(score), total_component: r1(score), checks_component: r1(component), total_delta: r1(row.total_delta - penalty / 8),
-      _fixed_requirements: improved, _worsened_requirements: worsened, details, _v104_detail_severities: sev,
+      _fixed_requirements: improved, _worsened_requirements: worsened, details, _v104_detail_severities: sev, _raw_adjust: -penalty,
     });
     return row;
   }
@@ -928,6 +1053,7 @@ export class TeamSuggestions {
     const delta = afterCov - beforeCov;
     const adjustment = Math.max(-30, Math.min(30, delta * 52 + criticalFixed * 5 - criticalWorsened * 8));
     const score = clamp(row.score + adjustment);
+    row._raw_adjust = adjustment;
     row.score = r1(score);
     row.total_component = r1(score);
     row.total_delta = r1(row.total_delta + adjustment / 8);
@@ -1010,6 +1136,7 @@ export class TeamSuggestions {
     const introducedRed = worsened.filter(([, o, n]) => n === "red" && o !== "red").length;
     const adjustment = Math.max(-18, Math.min(18, gain * 1.15 + fixedRed * 6 - introducedRed * 8));
     const score = clamp(row.score + adjustment);
+    row._raw_adjust = adjustment;
     row.score = r1(score);
     row.total_component = r1(score);
     row.team_check_before_penalty_v433 = r3(before.total);
@@ -1105,7 +1232,9 @@ export class TeamSuggestions {
    * that team's own item, Ability, moves and Nature.
    */
   knownTeamFit(row, context) {
-    if (!this.known || !row) return row;
+    // The library holds Doubles tournament teams: in Singles their sets (Fake Out,
+    // Follow Me, Helping Hand...) are not what a Singles player runs, so no bonus.
+    if (!this.known || !row || this.ev.format === "Singles") return row;
     // The app reads base_name, pokemon and form off the row; a suggestion row carries
     // none of them, so both are its name -- a Mega candidate never matches a file.
     const species = String(row.name || "");
@@ -1114,6 +1243,7 @@ export class TeamSuggestions {
     const [team, member] = found;
     const out = { ...row, found_in_team_v496: String(team.name || "") };
     out.score = Number(pyFixed(Math.max(0, Math.min(100, (Number(row.score) || 0) + this.known.bonus)), 1));
+    out._raw_adjust = this.known.bonus;
     out.total_component = out.score;
     if (member.item) out.item = member.item;
     if (member.ability) out.ability = member.ability;
@@ -1182,7 +1312,14 @@ export class TeamSuggestions {
     const fit = archetypeSpeedControlFit(archetype, row.moves?.length ? row.moves : row.candidate_entry.moves, Number(teamFeatures.trick_room_setters) || 0, Number(teamFeatures.tailwind_setters) || 0);
     const res = checkResolution(row._before_check_rows, row._after_check_rows);
     const adjustment = fit.adjustment + res.fixes * 5 - res.worsened * 9;
+    // The breakdown's share of each piece (the score ledger); nothing reads it back.
+    const pieces = [];
+    const piece = (key, label, before, raw) => {
+      if (Math.abs(row.score - before) >= 0.05 || Math.abs(raw) >= 0.05) pieces.push({ key, label, delta: r1(row.score - before), raw: r1(raw) });
+    };
+    let before = row.score;
     row.score = r1(clamp(row.score + adjustment));
+    piece("speed_plan", res.fixes || res.worsened ? "Speed plan and Speed Control" : "Speed plan", before, adjustment);
     row.total_component = row.score;
     row.archetype_speed_fit_v466 = r1(50 + fit.adjustment);
     row.counter_archetype_speed_control_v466 = fit.conflict;
@@ -1200,14 +1337,18 @@ export class TeamSuggestions {
     const room = roomPlan(projectedProfiles, this.synergy.metaSpeedRows());
     if (room.redundant) {
       row.counter_archetype_speed_control_v466 = true;
+      before = row.score;
       row.score = Math.max(0, row.score - 18 * room.redundant);
+      piece("trick_room", "A Trick Room setter the team cannot use", before, -18 * room.redundant);
       row.total_component = row.score;
       row.details.push("Multiple Trick Room setters need at least two slow attacking partners.");
     }
     // field_synergy: a terrain that misses more than one teammate.
     const reach = this.terrainReach(projected);
     if (reach.excess) {
+      before = row.score;
       row.score = Math.max(0, row.score - 12 * reach.excess);
+      piece("terrain", "Terrain that misses teammates", before, -12 * reach.excess);
       row.total_component = row.score;
       row.details.push(`${reach.terrains.join("/").replace(/\b\w/g, (c) => c.toUpperCase())} Terrain misses ${reach.unreachable.length} of the team (${reach.unreachable.join(", ")}).`);
     }
@@ -1217,7 +1358,9 @@ export class TeamSuggestions {
       const plan = payoff(condition, teamFeatures, this.featuresFor(projected));
       if (plan.adjustment || plan.reason) {
         row.archetype_payoff_v496 = plan;
+        before = row.score;
         row.score = r1(clamp(row.score + plan.adjustment));
+        piece("payoff", "Archetype payoff", before, plan.adjustment);
         row.total_component = row.score;
         if (plan.conflict) row.counter_archetype_speed_control_v466 = true;
         if (plan.reason && !row.details.includes(plan.reason)) {
@@ -1227,7 +1370,10 @@ export class TeamSuggestions {
         }
       }
     }
+    before = row.score;
     this.conditionalValue(row, context, projected);
+    if (row.conditional_dependence_v499 && row._conditional_value_applied) piece("conditional", "Relies on a condition the team does not set", before, -(Number(row.conditional_dependence_v499.cost) || 0));
+    row._strategy_ledger = pieces;
     return row;
   }
 
@@ -1326,14 +1472,30 @@ export class TeamSuggestions {
       const evaluated = auto ? this.forceFinalMegaMeta(m, context) : m;
       let row = this.baseRow(evaluated, context);
       if (!row) return null;
-      row = this.v418(row);
+      // The score ledger: what each layer added, for the breakdown. Only fields are
+      // written; no score and no order depends on them.
+      const ledger = [{ key: "team", label: "Team fit (projected scores, checks, meta rank)", value: row.score }];
+      const layer = (key, label, apply) => {
+        const before = Number(row.score) || 0;
+        row._raw_adjust = undefined;
+        row._strategy_ledger = undefined;
+        row = apply(row);
+        const delta = (Number(row.score) || 0) - before;
+        if (Array.isArray(row._strategy_ledger)) ledger.push(...row._strategy_ledger);
+        else if (Math.abs(delta) >= 0.05 || (row._raw_adjust !== undefined && Math.abs(row._raw_adjust) >= 0.05)) ledger.push({ key, label, delta: r1(delta), raw: r1(row._raw_adjust ?? delta) });
+        delete row._raw_adjust;
+        delete row._strategy_ledger;
+      };
+      layer("checks_new", "New or worse Team Building Checks", (r) => this.v418(r));
       row = this.v419(row);
-      row = this.v429(row);
-      if (auto) row = this.v432(row);
+      layer("archetype", "Archetype fit", (r) => this.v429(r));
+      if (auto) layer("archetype_priority", "Archetype priority (Auto Build)", (r) => this.v432(r));
       // V451 replaces V433: the before/after check penalty over the enabled checks only.
-      row = this.checkAdjust(row, context, context.selected);
-      row = this.strategyFit(row, context);
-      row = this.knownTeamFit(row, context);
+      layer("checks", "Team Building Checks", (r) => this.checkAdjust(r, context, context.selected));
+      layer("strategy", "Strategy", (r) => this.strategyFit(r, context));
+      layer("known_team", "Found in a tournament team", (r) => this.knownTeamFit(r, context));
+      row.score_ledger = ledger;
+      row.score_uncapped = r1(ledger.reduce((sum, item) => sum + (item.value ?? item.raw ?? item.delta ?? 0), 0));
       if (auto) {
         // V462: Prioritize Meta Pokemon marks the Top-X meta.
         if (context.metaKeys) {
@@ -1400,6 +1562,7 @@ export class TeamSuggestions {
     }
     let adjustment = gain * 105 + fixed * 14 - worsened * 22;
     if (beforeCov < 0.999 && gain <= 0.001) adjustment -= 24;
+    row._raw_adjust = adjustment;
     row.score = r1(clamp(row.score + adjustment));
     row.total_component = row.score;
     row.auto_build_archetype_priority_v432 = r1(adjustment);
@@ -1906,9 +2069,11 @@ export class TeamSuggestions {
   /**
    * _v307_suggestion_worker: every candidate, ranked.
    * @param {object} payload   the evaluation payload (TeamEvaluation.evaluate)
-   * @param {object} options   {selection, onProgress(done, total, name), onlyBox, box}
+   * @param {object} options   {selection, onProgress(done, total, name), box, candidates}
+   *   box: the Box's sets - only those are tried (the app's "Only Box" scope);
+   *   candidates: a ready candidate list in place of the ranked meta.
    */
-  run(payload, { selection = null, onProgress } = {}) {
+  run(payload, { selection = null, onProgress, box = null, candidates: given = null } = {}) {
     const teamSlots = (payload.slots || []).map(({ entry, mon }) => ({ entry: { ...entry, form: mon.form_name || entry.form, ability: mon.ability || entry.ability }, mon }));
     const teamEntries = teamSlots.map(({ entry }) => entry);
     const activeNames = teamSlots.map(({ entry, mon }) => this.name(mon.form_name || entry.form || entry.pokemon));
@@ -1916,7 +2081,7 @@ export class TeamSuggestions {
     const selected = this.checks.selectedIds(selection);
     const context = { payload, teamSlots, teamEntries, activeNames, emptySlot, selection, selected, swapTarget: "" };
     const targets = emptySlot !== null ? [""] : this.swapTargets(context);
-    const candidates = this.candidates(payload, activeNames);
+    const candidates = given || (box ? boxCandidates(this, box, activeNames) : this.candidates(payload, activeNames));
     const best = new Map();
     candidates.forEach((meta, index) => {
       const rows = [];
@@ -1941,6 +2106,80 @@ export class TeamSuggestions {
     });
     const rows = this.sorted([...best.values()], { teamEntries }).slice(0, ROW_LIMIT);
     return { rows, scanned: candidates.length, targets, empty_slot: emptySlot };
+  }
+
+  /**
+   * The suggestion checked against the full Team Evaluation of the team it would make
+   * (display only, never part of the ranking): the four scores before and after, the
+   * critical threats whose scores fall or rise (the app's V308 idea) and the critical
+   * threats the newcomer really answers in that evaluation, with the calcs.
+   * @param {object} row      a suggestion row (candidate_entry, candidate_spread, action_kind, swap_target)
+   * @param {Array} sets      the builder's six slots (null = open)
+   * @param {object} before   the current team's evaluation payload
+   */
+  projectedDetail(row, sets, before, { checkSelection = null } = {}) {
+    const entry = row?.candidate_entry;
+    if (!entry || !String(entry.pokemon || "").trim()) return null;
+    const team = Array.from({ length: TEAM_SIZE }, (_, i) => (sets[i] && String(sets[i].species || "").trim() ? sets[i] : null));
+    let index = -1;
+    if (row.action_kind === "swap" && row.swap_target) {
+      const wanted = this.speciesId(row.swap_target);
+      index = team.findIndex((set) => set && [set.species, set.form].some((v) => this.speciesId(v) === wanted || compact(this.name(v)) === compact(this.name(row.swap_target))));
+      if (index < 0) {
+        const filled = team.map((set, i) => (set ? i : -1)).filter((i) => i >= 0);
+        index = filled[Number(row.slot_index) || 0] ?? -1;
+      }
+    } else index = team.findIndex((set) => !set);
+    if (index < 0) return null;
+    // Item Clause as "Use" applies it (_v482_suggestion_unique_item).
+    const used = new Set(team.filter((set, i) => set && i !== index && set.item).map((set) => compact(set.item)));
+    let item = String(entry.item || "");
+    if (compact(item) && used.has(compact(item))) item = uniqueNames([this.common(entry.pokemon).item, ...this.usage(entry.pokemon, "held_item", 30)], 99).find((o) => !used.has(compact(o))) || "";
+    const spread = row.candidate_spread || {};
+    team[index] = {
+      species: entry.pokemon, form: entry.form || entry.pokemon, item, ability: entry.ability || "", moves: (entry.moves || []).slice(0, 4),
+      nature: spread.nature_name || spread.name || "Serious", bonuses: [...(spread.bonuses || [0, 0, 0, 0, 0, 0])],
+    };
+    const after = this.evaluation.evaluate(team, { checkSelection });
+    const scores = (p) => ({ synergy: r1(p.synergy_score), offense: r1(p.offense_score), defense: r1(p.defense_score), speed: r1(p.speed?.score) });
+    const threatMap = (p) => new Map((p.threats || []).map((t) => [String(t.name), Number(t.score) || 0]));
+    const was = threatMap(before);
+    const now = threatMap(after);
+    const lowered = [];
+    const raised = [];
+    for (const [threat, old] of was) {
+      const next = now.get(threat);
+      if (next === undefined) lowered.push({ threat, before: r1(old), after: null, drop: old });
+      else if (next < old - 0.5) lowered.push({ threat, before: r1(old), after: r1(next), drop: old - next });
+    }
+    for (const [threat, next] of now) {
+      const old = was.get(threat);
+      if (old === undefined) raised.push({ threat, before: null, after: r1(next), rise: next });
+      else if (next > old + 0.5) raised.push({ threat, before: r1(old), after: r1(next), rise: next - old });
+    }
+    lowered.sort((a, b) => b.drop - a.drop);
+    raised.sort((a, b) => b.rise - a.rise);
+    // The newcomer's own rows in the new evaluation: where it wins the matchup.
+    const position = team.slice(0, index).filter(Boolean).length;
+    const slot = (after.slots || [])[position];
+    const member = slot ? this.ev.display(slot.mon) : "";
+    const answers = [];
+    for (const threat of after.threats || []) {
+      for (const breakdown of threat.breakdown || []) {
+        if (!member || breakdown.team_mon !== member || !this.isRealAnswer(breakdown.incoming_result, breakdown.outgoing_result)) continue;
+        answers.push({ threat: String(threat.name), score: r1(threat.score), first: breakdown.first_result || "", incoming: compactResult(breakdown.incoming_result), outgoing: compactResult(breakdown.outgoing_result) });
+        break;
+      }
+    }
+    answers.sort((a, b) => b.score - a.score);
+    const strip = (list, k) => list.slice(0, 5).map((x) => Object.fromEntries(Object.entries(x).filter(([name]) => name !== k)));
+    return {
+      member, item_changed: compact(item) !== compact(entry.item) ? item : "",
+      scores: { before: scores(before), after: scores(after) },
+      critical: { before: (before.threats || []).length, after: (after.threats || []).length },
+      lowered: strip(lowered, "drop"), raised: strip(raised, "rise"),
+      answers: answers.slice(0, 6),
+    };
   }
 
   /** _v57_sort_suggestions (score, rank, name) then V466 (no speed conflicts first, Speed Control fixes). */

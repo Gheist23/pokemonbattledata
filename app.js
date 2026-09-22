@@ -387,6 +387,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     const savedName = readField(form, ["saved_name", "form_name"]) || readField(form, ["title", "name"]) || baseName || "Base";
     const titleField = readField(form, ["title"]) || savedName;
     const formKind = readField(form, METADATA_ALIASES.form_kind) || "";
+    // saved_name keeps the app's spelling (sprite and learnset files are filed
+    // under it); showdown_name is the name the battle data and every page use.
+    const showdownName = readField(form, ["showdown_name"]) || "";
     const normalized = {
       pokemon_name: baseName || readField(form, METADATA_ALIASES.pokemon_name) || "",
       title: titleField,
@@ -395,7 +398,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       image_path: normalizePath(readField(form, METADATA_ALIASES.image_path) || ""),
       form_name: savedName,
       saved_name: savedName,
-      slug: form.slug || slugify(savedName),
+      showdown_name: showdownName,
+      slug: form.slug || slugify(showdownName || savedName),
+      legacy_slug: readField(form, ["legacy_slug"]) || "",
       form_kind: formKind || (savedName === baseName ? "Base" : "Form"),
       types,
       types_raw: readField(form, ["types_raw", ...METADATA_ALIASES.types]) || types.join("/"),
@@ -1635,8 +1640,12 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return outer;
   }
 
+  /** The name a form is shown and looked up by: its Showdown name, which is
+   *  also what the battle data calls it.  Comparing the app's own spelling
+   *  ("Alolan Ninetales") against battle names ("Ninetales-Alola") missed the
+   *  form's own record and opened the base species' battle data instead. */
   function formProfileName(form) {
-    return String(form?.saved_name || form?.form_name || form?.title || form?.pokemon_name || "").trim();
+    return String(form?.showdown_name || form?.saved_name || form?.form_name || form?.title || form?.pokemon_name || "").trim();
   }
 
   function formProfileRecord(currentRecord, form) {
@@ -1675,7 +1684,13 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   function findRecordByBattleName(name) {
     const target = recordKey(name);
     if (!target) return null;
-    return state.pokemon.find((record) => recordKey(battleDataName(record)) === target) || null;
+    return state.pokemon.find((record) => recordKey(battleDataName(record)) === target)
+      // An app spelling finds the record whose own metadata row carries it
+      // ("Basculegion Male" is the Basculegion record).
+      || state.pokemon.find((record) => record.primary?.showdown_name
+        && recordKey(record.primary.showdown_name) === recordKey(battleDataName(record))
+        && recordKey(record.primary.saved_name) === target)
+      || null;
   }
 
   function routeSlugFromLocation() {
@@ -1721,6 +1736,14 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       for (const form of record.forms || []) {
         const formSlug = form?.slug || slugify(formProfileName(form));
         if (formSlug === target) return formProfileRecord(record, form);
+      }
+    }
+    // An old URL built from the app's spelling (/pokemon/mega-charizard-x/,
+    // /pokemon/basculegion-male/) still opens the Pokemon it named.
+    for (const record of state.pokemon) {
+      for (const form of record.forms || []) {
+        if (!form?.legacy_slug || form.legacy_slug !== target) continue;
+        return findRecordByBattleName(formProfileName(form)) || formProfileRecord(record, form);
       }
     }
     return null;
@@ -2303,7 +2326,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   function findMetadataFormForBattleName(forms, battleName) {
     const target = normalizeForSearch(battleName);
-    return (forms || []).find((form) => normalizeForSearch(form?.saved_name || form?.form_name) === target) || null;
+    return (forms || []).find((form) => form?.showdown_name && normalizeForSearch(form.showdown_name) === target)
+      || (forms || []).find((form) => normalizeForSearch(form?.saved_name || form?.form_name) === target)
+      || null;
   }
 
   function searchablePokemonNames(record) {
@@ -2323,7 +2348,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       ...metadataAbilityValues(record)
     ];
     (record?.forms || []).forEach((form) => {
-      values.push(form?.pokemon_name, form?.saved_name, form?.form_name, form?.form_kind);
+      values.push(form?.pokemon_name, form?.showdown_name, form?.saved_name, form?.form_name, form?.form_kind);
       values.push(...(form?.types || []));
     });
     values.push(...searchableBattleTextValues(record, format, season));

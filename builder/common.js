@@ -8,6 +8,7 @@
 // { name, nature_name, nature: [up, down], bonuses: [6] }.
 
 import { DamageEngine, compact, makeMon, normalizeBonuses, STAT_KEYS } from "./engine.js";
+import { setRosterIdentity } from "./known-teams.js";
 
 export const FORMATS = ["Doubles", "Singles"];
 export const TYPES = ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"];
@@ -70,6 +71,110 @@ export class BuilderData {
     this.natures = appData.natures || {};
     this.meta = {};
     this.metaByUsage = {};
+
+    // Pokemon are shown under their Pokemon Showdown names ("Indeedee-F",
+    // "Charizard-Mega-Y"), the names the battle data and the rest of the site
+    // use.  The app's tables file some Pokemon twice under different spellings
+    // (species "Basculegion" lists both "Basculegion" and "Basculegion Male";
+    // "Heat Rotom" is its own species next to Rotom's "Rotom Heat"), so every
+    // Showdown name keeps one (species, form) pair to stand for it: the pair
+    // the usage data is filed under when there is one, so the picker's rank and
+    // most common set come from the same row as the meta tables.
+    this.displayNames = new Map(Object.entries(appData.displayNames || {}).map(([name, shown]) => [compact(name), shown]));
+    const usageAliases = Object.entries(appData.usageAliases || {});
+    const usagePairs = new Map(usageAliases.map(([shown, pair]) => [compact(shown), pair]));
+    // The ladder's name for an app form where the display table says something
+    // else: the app's one Floette is the ladder's Floette-Eternal, its Maushold
+    // is Maushold-Four, and its "Vivillon Icy Snow Pattern" carries the
+    // Vivillon-Fancy usage.  Only a form exactly one ladder name points at is
+    // renamed.  The app's single Squawkabilly stands for both ladder
+    // Squawkabilly and Squawkabilly-Yellow, so it keeps its own name and the
+    // second name only finds it (see byName below).
+    const ladderByForm = new Map();
+    for (const [shown, [, form]] of usageAliases) {
+      const key = compact(form);
+      if (!ladderByForm.has(key)) ladderByForm.set(key, { form, names: [] });
+      ladderByForm.get(key).names.push(shown);
+    }
+    this.ladderNames = new Map(); // compact(app form) -> the ladder's Showdown name
+    for (const [key, { form, names }] of ladderByForm) {
+      if (names.length === 1 && compact(names[0]) !== compact(this.displayNames.get(key) || form)) this.ladderNames.set(key, names[0]);
+    }
+    const preference = (row, shown) => {
+      const pair = usagePairs.get(compact(shown));
+      if (pair && compact(pair[0]) === compact(row.species) && compact(pair[1]) === compact(row.form)) return 0;
+      if (compact(row.species) === compact(String(shown).split("-")[0])) return 1;
+      return 2;
+    };
+    this.byShowdown = new Map(); // compact(Showdown name) -> { row, label, keys }
+    for (const row of this.forms) {
+      const label = this.showdownName(row.form);
+      const key = compact(label);
+      const identity = this.byShowdown.get(key);
+      if (!identity) {
+        this.byShowdown.set(key, { row, label, keys: new Set([key, compact(row.form), compact(row.species)]) });
+        continue;
+      }
+      identity.keys.add(compact(row.form));
+      identity.keys.add(compact(row.species));
+      if (preference(row, label) < preference(identity.row, label)) identity.row = row;
+    }
+
+    // Every name a person may type or paste for a Pokemon, to its identity:
+    // the Showdown label; the display table's own spelling where the label
+    // differs ("Floette", "Vivillon-Icy Snow"); a second ladder name that
+    // shares one app form ("Squawkabilly-Yellow"); and "<Base>-F-Mega" for a
+    // Mega the app files once for both genders ("Meowstic-F-Mega" is a female
+    // Meowstic, whose stone does the rest).  The search matches them too.
+    this.byName = new Map(this.byShowdown);
+    const claim = (name, identity) => {
+      const key = compact(name);
+      if (!key || !identity || this.byName.has(key)) return;
+      this.byName.set(key, identity);
+      identity.keys.add(key);
+    };
+    for (const row of this.forms) claim(this.displayNames.get(compact(row.form)), this.byShowdown.get(compact(this.showdownName(row.form))));
+    for (const [shown, [, form]] of usageAliases) claim(shown, this.byShowdown.get(compact(this.showdownName(form))));
+    for (const identity of this.byShowdown.values()) {
+      const gendered = identity.label.match(/^(.+)-M-Mega$/);
+      if (gendered) claim(`${gendered[1]}-F-Mega`, this.byShowdown.get(compact(`${gendered[1]}-F`)));
+      // "Meowstic-M", "Indeedee-M": the male is the plain name where a -F forme exists.
+      if (this.byShowdown.has(compact(`${identity.label}-F`))) claim(`${identity.label}-M`, identity);
+    }
+
+    // The tournament-team library compares rosters by battle-data name, and
+    // the app's tables spell some Pokemon two ways: a Basculegion saved as
+    // "Basculegion" and one saved as "Basculegion Male" must count as the
+    // same member (builder/known-teams.js).  Every app spelling answers to
+    // its Showdown identity.
+    this.rosterKeys = new Map();
+    for (const row of this.forms) {
+      const identityKey = compact(this.showdownName(row.form));
+      for (const key of [identityKey, compact(row.form), compact(this.displayNames.get(compact(row.form)))]) {
+        if (key && !this.rosterKeys.has(key)) this.rosterKeys.set(key, identityKey);
+      }
+    }
+    setRosterIdentity((key) => this.rosterKeys.get(key) || key);
+  }
+
+  /** The Showdown spelling of an app form name (pokemon_display_name), or the
+   *  ladder's name where the app files one ladder form under another name
+   *  (the app's Floette is Floette-Eternal). */
+  showdownName(name) {
+    const text = String(name ?? "").trim();
+    const key = compact(text);
+    const known = this.ladderNames?.get(key) || this.displayNames.get(key);
+    if (known) return known;
+    // A Mega the table has no entry for: Showdown names the gendered ones
+    // after the gender letter, and the app's single "Mega Meowstic" is the
+    // male's (a female holder is named in displayName()).
+    const mega = text.match(/^Mega\s+(.+)$/i);
+    if (mega) {
+      const base = this.showdownName(mega[1]);
+      const shown = this.displayNames.get(compact(`${base}-Mega`)) || this.displayNames.get(compact(`${base}-M-Mega`));
+      if (shown) return shown;
+    }
+    return text;
   }
 
   async loadMeta(format) {
@@ -82,9 +187,35 @@ export class BuilderData {
     return this.meta[format];
   }
 
-  /** (species, form) in the app's spelling for any name (Showdown, app, legacy). */
+  /** (species, form) in the app's spelling for any name (Showdown, app, legacy).
+   *  A pair the app's tables already hold is returned unchanged, so a synced
+   *  team round-trips as it was saved; Showdown names the tables do not spell
+   *  that way ("Aegislash-Blade", "Castform-Rainy", "Vivillon-Icy Snow",
+   *  "Meowstic-M-Mega") are looked up by their Showdown identity. */
   resolve(pokemon, form = "") {
-    return this.engine.resolve(pokemon, form);
+    const resolved = this.engine.resolve(pokemon, form);
+    if (this.isAppPair(resolved)) return resolved;
+    for (const name of [form, pokemon]) {
+      const identity = name ? this.byName.get(compact(name)) : null;
+      if (identity) return [identity.row.species, identity.row.form];
+    }
+    return resolved;
+  }
+
+  /** (species, form) for a name a person typed or pasted (a Showdown paste,
+   *  a link's ?add=): the Showdown identity comes first, so "Basculegion" is
+   *  the pair the picker stores (Basculegion Male, the one the usage data and
+   *  the tournament library use), not the table's second "Basculegion" row.
+   *  App spellings still resolve as themselves. */
+  resolveName(name) {
+    const identity = this.byName.get(compact(name));
+    if (identity) return [identity.row.species, identity.row.form];
+    return this.resolve(name, name);
+  }
+
+  isAppPair([species, form]) {
+    const entry = this.speciesEntry(species);
+    return Boolean(entry && entry.forms.some((record) => compact(record.form) === compact(form)));
   }
 
   formRecord(species, form) {
@@ -95,10 +226,27 @@ export class BuilderData {
     return this.engine.speciesEntry(species);
   }
 
-  /** What the Companion shows: the form's own name ("Mega Charizard Y", "Alolan Ninetales"). */
-  displayName(species, form) {
+  /** The form's Pokemon Showdown name ("Charizard-Mega-Y", "Ninetales-Alola",
+   *  "Indeedee-F") -- what every label, the Showdown export and the Team
+   *  Evaluation threats use.  `baseForm` is the set's own form when `form` is
+   *  the Mega it battles as: the app has one "Mega Meowstic" for both
+   *  genders, and Showdown calls a female holder's Meowstic-F-Mega. */
+  displayName(species, form, baseForm = "") {
     const record = this.formRecord(species, form);
-    return record?.form || form || species || "";
+    const label = this.showdownName(record?.form || form || species || "");
+    if (baseForm && /-M-Mega$/.test(label) && /-F$/.test(this.showdownName(baseForm))) {
+      return this.displayNames.get(compact(label.replace(/-M-Mega$/, "-F-Mega"))) || label;
+    }
+    return label;
+  }
+
+  /** The name a set battles under: its Mega's name when the stone applies,
+   *  after the holder's gender (a female Meowstic with Meowsticite is
+   *  Meowstic-F-Mega), otherwise its own form's name. */
+  setName(set) {
+    if (!set?.species) return "";
+    const [species, form] = this.battleForm(set.species, set.form, set.item);
+    return this.displayName(species, form, set.form || set.species);
   }
 
   /** The form a set actually battles as (a matching Mega Stone decides). */
@@ -128,8 +276,22 @@ export class BuilderData {
     return this.formRecord(species, form)?.abilities || [];
   }
 
-  legalForms(species) {
-    return (this.speciesEntry(species)?.forms || []).map((form) => form.form);
+  /** [value, label] pairs for a Form select: one per Showdown identity, the
+   *  value in the app's spelling and the label its Showdown name.  `current`
+   *  (the set's own form) keeps its spelling, so the select shows it chosen. */
+  legalForms(species, current = "") {
+    const entry = this.speciesEntry(species);
+    const groups = new Map();
+    for (const form of entry?.forms || []) {
+      const label = this.showdownName(form.form);
+      const key = compact(label);
+      const isCurrent = Boolean(current) && compact(form.form) === compact(current);
+      const preferred = this.byShowdown.get(key)?.row;
+      const isPreferred = Boolean(preferred) && compact(preferred.species) === compact(entry.name) && compact(preferred.form) === compact(form.form);
+      const existing = groups.get(key);
+      if (!existing || isCurrent || (isPreferred && !existing.isCurrent)) groups.set(key, { value: form.form, label, isCurrent });
+    }
+    return [...groups.values()].map(({ value, label }) => [value, label]);
   }
 
   learnset(species, form) {
@@ -199,25 +361,26 @@ export class BuilderData {
     return up && down ? `${name} (+${up}/-${down})` : `${name} (Neutral)`;
   }
 
+  /** Picker rows: one per Pokemon (Showdown identity), labelled with its
+   *  Showdown name.  A query matches the Showdown name or any app spelling of
+   *  that Pokemon, so "ninetales-alola" and "alolan ninetales" both find it. */
   searchSpecies(query, { limit = 60, format = "Doubles" } = {}) {
     const q = compact(query);
     const index = this.metaByUsage[format];
     const scored = [];
-    for (const form of this.forms) {
-      const name = form.form;
-      const key = compact(name);
-      const speciesKey = compact(form.species);
+    for (const { row, label, keys } of this.byShowdown.values()) {
+      const names = [...keys];
       let score;
       if (!q) score = 0;
-      else if (key === q || speciesKey === q) score = 3;
-      else if (key.startsWith(q) || speciesKey.startsWith(q)) score = 2;
-      else if (key.includes(q) || (form.types || []).some((t) => compact(t) === q)) score = 1;
+      else if (names.some((key) => key === q)) score = 3;
+      else if (names.some((key) => key.startsWith(q))) score = 2;
+      else if (names.some((key) => key.includes(q)) || (row.types || []).some((t) => compact(t) === q)) score = 1;
       else continue;
-      const usage = form.usage && index ? index.get(compact(form.usage)) : null;
-      const position = usage && !form.mega ? usage.position : 9999;
-      scored.push({ ...form, score, position });
+      const usage = row.usage && index ? index.get(compact(row.usage)) : null;
+      const position = usage && !row.mega ? usage.position : 9999;
+      scored.push({ ...row, label, score, position });
     }
-    scored.sort((a, b) => b.score - a.score || a.position - b.position || a.form.localeCompare(b.form));
+    scored.sort((a, b) => b.score - a.score || a.position - b.position || a.label.localeCompare(b.label));
     return scored.slice(0, limit);
   }
 }
@@ -347,10 +510,15 @@ export function parseShowdown(text, data) {
     const lines = block.split("\n").map((line) => line.trim()).filter(Boolean);
     if (!lines.length) continue;
     let [head, item = ""] = lines[0].split(" @ ");
+    const gender = head.match(/\s*\((M|F)\)\s*$/)?.[1] || "";
     head = head.replace(/\s*\((M|F)\)\s*$/, "");
     const nicknamed = head.match(/\(([^)]+)\)\s*$/);
-    const name = (nicknamed ? nicknamed[1] : head).trim();
-    const [species, form] = data.resolve(name, name);
+    let name = (nicknamed ? nicknamed[1] : head).trim();
+    // "Meowstic (F)": the gender marker picks the female forme where Showdown has one.
+    if (gender === "F" && data.byName?.has(compact(`${name}-F`))) name = `${name}-F`;
+    // Through the Showdown identity first, so a pasted "Basculegion" is the
+    // same Pokemon the picker stores, and the similar-team matching sees it.
+    const [species, form] = data.resolveName(name);
     if (!data.speciesEntry(species)) continue;
     const set = makeSet({ species, form, item: item.trim() });
     for (const line of lines.slice(1)) {

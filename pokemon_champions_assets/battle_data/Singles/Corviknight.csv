@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Corviknight,20,move,1,Roost,99.0%,,,,,,,,
-Corviknight,20,move,2,Body Press,64.0%,,,,,,,,
-Corviknight,20,move,3,U-turn,62.4%,,,,,,,,
-Corviknight,20,move,4,Iron Defense,60.5%,,,,,,,,
-Corviknight,20,move,5,Brave Bird,29.2%,,,,,,,,
-Corviknight,20,move,6,Iron Head,24.8%,,,,,,,,
+Corviknight,20,move,2,Body Press,63.5%,,,,,,,,
+Corviknight,20,move,3,U-turn,62.6%,,,,,,,,
+Corviknight,20,move,4,Iron Defense,60.0%,,,,,,,,
+Corviknight,20,move,5,Brave Bird,28.9%,,,,,,,,
+Corviknight,20,move,6,Iron Head,25.5%,,,,,,,,
 Corviknight,20,move,7,Bulk Up,23.1%,,,,,,,,
 Corviknight,20,move,8,Taunt,10.0%,,,,,,,,
-Corviknight,20,move,9,Defog,7.4%,,,,,,,,
-Corviknight,20,move,10,Curse,6.7%,,,,,,,,
-Corviknight,20,held_item,1,Rocky Helmet,64.5%,,,,,,,,
-Corviknight,20,held_item,2,Leftovers,25.1%,,,,,,,,
-Corviknight,20,held_item,3,Sitrus Berry,8.6%,,,,,,,,
+Corviknight,20,move,9,Defog,8.0%,,,,,,,,
+Corviknight,20,move,10,Curse,6.6%,,,,,,,,
+Corviknight,20,held_item,1,Rocky Helmet,64.3%,,,,,,,,
+Corviknight,20,held_item,2,Leftovers,25.4%,,,,,,,,
+Corviknight,20,held_item,3,Sitrus Berry,8.5%,,,,,,,,
 Corviknight,20,held_item,4,Psychic Seed,0.2%,,,,,,,,
 Corviknight,20,held_item,5,Lum Berry,0.2%,,,,,,,,
 Corviknight,20,held_item,6,Occa Berry,0.2%,,,,,,,,
 Corviknight,20,held_item,7,Bright Powder,0.2%,,,,,,,,
 Corviknight,20,held_item,8,Light Clay,0.1%,,,,,,,,
 Corviknight,20,held_item,9,Quick Claw,0.1%,,,,,,,,
-Corviknight,20,held_item,10,Red Card,0.1%,,,,,,,,
+Corviknight,20,held_item,10,Life Orb,0.1%,,,,,,,,
 Corviknight,20,teammate,1,Garchomp,,,,,,,,,
 Corviknight,20,teammate,2,Primarina,,,,,,,,,
 Corviknight,20,teammate,3,Salamence,,,,,,,,,
@@ -28,10 +28,10 @@ Corviknight,20,teammate,6,Golisopod,,,,,,,,,
 Corviknight,20,teammate,7,Meowscarada,,,,,,,,,
 Corviknight,20,teammate,8,Lucario,,,,,,,,,
 Corviknight,20,teammate,9,Charizard,,,,,,,,,
-Corviknight,20,teammate,10,Rillaboom,,,,,,,,,
-Corviknight,20,stat_alignment,1,Impish,66.2%,Defense,Sp. Atk,,,,,,
-Corviknight,20,stat_alignment,2,Relaxed,21.2%,Defense,Speed,,,,,,
-Corviknight,20,stat_alignment,3,Careful,7.5%,Sp. Def,Sp. Atk,,,,,,
+Corviknight,20,teammate,10,Mimikyu,,,,,,,,,
+Corviknight,20,stat_alignment,1,Impish,65.7%,Defense,Sp. Atk,,,,,,
+Corviknight,20,stat_alignment,2,Relaxed,21.4%,Defense,Speed,,,,,,
+Corviknight,20,stat_alignment,3,Careful,7.8%,Sp. Def,Sp. Atk,,,,,,
 Corviknight,20,stat_alignment,4,Sassy,1.8%,Sp. Def,Speed,,,,,,
 Corviknight,20,stat_alignment,5,Bold,1.4%,Defense,Attack,,,,,,
 Corviknight,20,stat_alignment,6,Adamant,0.9%,Attack,Sp. Atk,,,,,,
@@ -39,16 +39,16 @@ Corviknight,20,stat_alignment,7,Jolly,0.3%,Speed,Sp. Atk,,,,,,
 Corviknight,20,stat_alignment,8,Brave,0.2%,Attack,Speed,,,,,,
 Corviknight,20,stat_alignment,9,Calm,0.2%,Sp. Def,Attack,,,,,,
 Corviknight,20,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,
-Corviknight,20,stat_points,1,,43.4%,,,32,0,32,0,2,0
+Corviknight,20,stat_points,1,,43.1%,,,32,0,32,0,2,0
 Corviknight,20,stat_points,2,,6.6%,,,32,0,32,0,0,2
-Corviknight,20,stat_points,3,,3.8%,,,32,0,25,0,9,0
-Corviknight,20,stat_points,4,,3.7%,,,32,0,2,0,32,0
-Corviknight,20,stat_points,5,,3.4%,,,32,2,32,0,0,0
+Corviknight,20,stat_points,3,,3.9%,,,32,0,2,0,32,0
+Corviknight,20,stat_points,4,,3.7%,,,32,0,25,0,9,0
+Corviknight,20,stat_points,5,,3.3%,,,32,2,32,0,0,0
 Corviknight,20,stat_points,6,,2.3%,,,32,1,26,0,7,0
 Corviknight,20,stat_points,7,,2.1%,,,32,2,17,0,15,0
 Corviknight,20,stat_points,8,,1.9%,,,32,0,25,0,7,2
-Corviknight,20,stat_points,9,,1.4%,,,32,1,30,0,2,1
+Corviknight,20,stat_points,9,,1.5%,,,32,0,29,0,5,0
 Corviknight,20,stat_points,10,,1.4%,,,32,0,32,0,0,0
-Corviknight,20,ability,1,Pressure,58.3%,,,,,,,,
-Corviknight,20,ability,2,Mirror Armor,40.7%,,,,,,,,
+Corviknight,20,ability,1,Pressure,58.4%,,,,,,,,
+Corviknight,20,ability,2,Mirror Armor,40.6%,,,,,,,,
 Corviknight,20,ability,3,Unnerve,1.0%,,,,,,,,

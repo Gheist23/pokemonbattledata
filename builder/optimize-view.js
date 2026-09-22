@@ -1,0 +1,403 @@
+// Team Evaluation > Optimize: the options, the running state and the result of
+// builder/optimize-deep.js for each team member, drawn as
+//
+//   a one-line summary        Matchup score 57 → 63 (+6) and what it now survives, KOs, outspeeds
+//   Previously | Now | Change the Nature, each stat as "Stat Points · final stat", the moves
+//   What changes in battle    threat by threat, better and worse, in plain sentences
+//   Speed                     only when Speed changed: the Top-X Pokemon it now outspeeds or not
+//   Moves tested              which moves were kept and the best other attacks
+//   Apply / Discard
+//
+// Styles: builder/optimize.css. The page (builder-page.js) owns the state and the worker.
+
+import { h, segmented, sprite, switchRow } from "./ui.js";
+
+const STATS = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
+const CHANGE_LIMIT = 8;
+
+export const OPTIMIZE_DEFAULTS = Object.freeze({ depth: "deep", testMoves: true, keepNature: false, keepSpeed: false });
+
+const fmt = (value, digits = 1) => Number(value || 0).toFixed(digits);
+const signed = (value, digits = 1) => {
+  const v = Number(value || 0);
+  const text = Math.abs(v).toFixed(digits);
+  if (Number(text) === 0) return `±${text}`;
+  return `${v > 0 ? "+" : "−"}${text}`;
+};
+const count = (n, one, many = `${one}s`) => `${Number(n || 0).toLocaleString("en-US")} ${n === 1 ? one : many}`;
+const pct = (value) => `${Math.round(Math.max(0, Math.min(1, Number(value) || 0)) * 100)}%`;
+const spreadText = (bonuses) => (bonuses || []).join("/");
+const toneOf = (delta) => (delta > 0 ? "up" : delta < 0 ? "down" : "same");
+
+/** The explanation above the members. */
+export function optimizeIntro(topX) {
+  return h("p", { class: "bd-section-note bd-opt-intro" },
+    `Optimize tries Stat Point spreads, every Nature and, if you let it, new attacking moves for one Pokémon against the Top ${topX} Meta. `,
+    "Each option is scored by how its matchups play out: who moves first, and how many hits each side needs to knock the other out, in normal play and with your team's Tailwind, Trick Room or weather. ",
+    "Common Pokémon count more. Another Nature, less Speed or new moves are only suggested when they clearly score better. ",
+    h("strong", {}, "Nothing changes until you press Apply."));
+}
+
+/** Quick / Deep and the three switches. */
+function optionsBar(options, onOptions) {
+  return h("div", { class: "bd-opt-options" },
+    h("div", { class: "bd-opt-depth" },
+      h("span", { class: "bd-field-label" }, "Search"),
+      segmented([["quick", "Quick"], ["deep", "Deep"]], options.depth, (depth) => onOptions({ depth }), { "aria-label": "How deep to search" }),
+      h("small", { class: "bd-note" }, options.depth === "quick"
+        ? "About 5 to 20 seconds per Pokémon: fewer Natures and coarser steps. Longer with a larger Top Meta and on phones."
+        : "About 15 seconds to a minute per Pokémon: every Nature worth trying, finer steps and more move sets. Longer with a larger Top Meta and on phones.")),
+    h("div", { class: "bd-opt-switches" },
+      switchRow("Test new moves", options.testMoves, (testMoves) => onOptions({ testMoves }), { hint: "Try the attacks it can learn in the move slots that are not doing a support job." }),
+      switchRow("Keep current Nature", options.keepNature, (keepNature) => onOptions({ keepNature }), { hint: "Only tune the Stat Points (and moves)." }),
+      switchRow("Keep Speed", options.keepSpeed, (keepSpeed) => onOptions({ keepSpeed }), { hint: "Never suggest a spread that is slower than the current one." })));
+}
+
+/**
+ * The whole Optimize tab. A member's `teamChanged` says its result was found with other
+ * teammates than the team has now (their Tailwind, Trick Room or weather feed the score).
+ * @param {{members: Array<{slot:number, name:string, sprite:string, set:object, state:object|null, kept:Set<string>, teamChanged?:boolean}>,
+ *   options: object, topX: number, spriteFor: Function, onOptions: Function, onRun: Function, onStop: Function,
+ *   onApply: Function, onDiscard: Function, onKeepMove: Function}} props
+ */
+export function optimizeView(props) {
+  const wrap = h("div", { class: "bd-opt" }, optimizeIntro(props.topX), optionsBar(props.options, props.onOptions));
+  for (const member of props.members) wrap.append(memberCard(member, props));
+  return wrap;
+}
+
+function memberCard(member, props) {
+  const { slot, set, state } = member;
+  const result = state?.result;
+  const running = Boolean(state?.running);
+  const card = h("section", { class: "bd-opt-member", dataset: { optSlot: String(slot) } });
+  const button = running
+    ? h("button", { type: "button", class: "ghost-button compact", disabled: Boolean(state.stopping), onclick: () => props.onStop(slot) }, state.stopping ? "Stopping…" : "Stop")
+    : h("button", { type: "button", class: `${result ? "ghost-button" : "primary-button"} compact`, onclick: () => props.onRun(slot) }, result ? "Run again" : "Optimize");
+  card.append(h("div", { class: "bd-opt-head" },
+    sprite(member.sprite, "", 40, "bd-sprite bd-opt-head-sprite"),
+    h("div", { class: "bd-opt-head-text" },
+      h("h3", {}, member.name),
+      h("p", {}, `${set.nature || "Serious"} · ${spreadText(set.bonuses)} · ${(set.moves || []).filter(Boolean).join(", ") || "no moves"}`)),
+    button));
+  if (running) {
+    card.append(progressBlock(state));
+    return card;
+  }
+  // (Element.append would print a null as the text "null".)
+  const keep = !result && props.options.testMoves ? keepRow(member, props) : null;
+  if (keep) card.append(keep);
+  if (result && member.teamChanged && !result.error) {
+    card.append(h("p", { class: "bd-note bd-opt-stale" }, "Your other team members changed since this ran, and they shape the score (their Tailwind, Trick Room or weather). Run it again to refresh."));
+  }
+  if (result) card.append(resultBlock(member, result, props));
+  return card;
+}
+
+/** Moves the player can pin so Optimize never replaces them. */
+function keepRow(member, props) {
+  const moves = (member.set.moves || []).filter(Boolean);
+  if (!moves.length) return null;
+  return h("div", { class: "bd-opt-keep" },
+    h("span", { class: "bd-note" }, "Tap a move to keep it:"),
+    h("div", { class: "bd-opt-move-row" }, moves.map((move) => {
+      const kept = member.kept?.has(move);
+      return h("button", {
+        type: "button",
+        class: `bd-opt-move toggle ${kept ? "kept" : ""}`,
+        "aria-pressed": kept ? "true" : "false",
+        title: kept ? "Kept: Optimize will not replace it" : "Optimize may replace it with a better attack",
+        onclick: () => props.onKeepMove(member.slot, move),
+      }, kept ? `✓ ${move}` : move);
+    })));
+}
+
+/** The progress bar, the phase and what it is doing. Updated in place by the page. */
+export function progressBlock(state) {
+  const fraction = Math.max(0, Math.min(1, Number(state.fraction) || 0));
+  return h("div", { class: "bd-opt-run bd-progress", role: "status" },
+    h("div", { class: "bd-progress-bar" }, h("i", { style: { width: `${Math.round(fraction * 100)}%` } })),
+    h("p", { class: "bd-note bd-opt-run-text" }, state.stopping ? "Stopping: finishing with the best result so far…" : state.status || "Preparing…"));
+}
+
+/** Patch a running card's bar and text without redrawing the page. */
+export function updateProgress(host, state) {
+  const bar = host?.querySelector(".bd-opt-run .bd-progress-bar i");
+  const text = host?.querySelector(".bd-opt-run-text");
+  if (!bar || !text) return false;
+  bar.style.width = `${Math.round(Math.max(0, Math.min(1, Number(state.fraction) || 0)) * 100)}%`;
+  text.textContent = state.stopping ? "Stopping: finishing with the best result so far…" : state.status || "Preparing…";
+  return true;
+}
+
+// --- the result ------------------------------------------------------------------------
+
+function resultBlock(member, result, props) {
+  const block = h("div", { class: "bd-opt-result" });
+  // An error, or a run that ended before it had a set to compare (an empty slot, no meta).
+  if (result.error || !result.before || !result.after) {
+    block.append(h("p", { class: `bd-opt-message ${result.error ? "bad" : ""}` }, result.message || "Optimize could not finish."),
+      h("div", { class: "bd-opt-actions" }, h("button", { type: "button", class: "ghost-button compact", onclick: () => props.onDiscard(member.slot) }, "Close")));
+    return block;
+  }
+  const ui = (member.state.ui ||= {});
+  const parts = [summary(result)];
+  if (result.ok) {
+    parts.push(compareTable(result), changesSection(result, ui, props));
+    if (result.speed?.changed) parts.push(speedSection(result, ui));
+  } else if (result.message) {
+    parts.push(h("p", { class: "bd-opt-message" }, result.message));
+  }
+  if (result.trade_off) parts.push(tradeOffSection(member, result, props));
+  if (result.moves_tested) parts.push(movesSection(member, result, props));
+  parts.push(actions(member, result, props));
+  // (A section with nothing to show is null; Element.append would print it as "null".)
+  block.append(...parts.filter(Boolean));
+  return block;
+}
+
+/** The team's speed plan, for the "moves first" texts (Trick Room for a Trick Room team). */
+const planText = (result) => (result.plan_context?.trick_room ? "in Trick Room, your team's speed plan" : "in normal play");
+
+function summary(result) {
+  const { before, after } = result;
+  const stats = result.stats || {};
+  const chips = [];
+  const chip = (label, was, now, higherIsBetter = true) => {
+    if (was === now) return;
+    const better = higherIsBetter ? now > was : now < was;
+    chips.push(h("span", { class: `bd-opt-chip ${better ? "good" : "bad"}` }, `${label} ${was} → ${now}`));
+  };
+  const threats = after?.counts?.threats || 0;
+  const topMeta = stats.top_meta || result.speed?.top_meta || 0;
+  if (result.ok) {
+    chip("Survives a hit from", before.counts.survives, after.counts.survives);
+    chip("OHKOs", before.counts.ohkos, after.counts.ohkos);
+    chip("2HKOs", before.counts.twohkos, after.counts.twohkos);
+    // In the team's speed plan: under its Trick Room the slower Pokémon moves first.
+    chip(result.plan_context?.trick_room ? "Moves first in Trick Room vs" : "Outspeeds", before.counts.outspeeds, after.counts.outspeeds);
+  }
+  const tested = [
+    count(stats.spreads, "spread"),
+    count(stats.natures, "Nature"),
+    stats.move_sets ? count(stats.move_sets, "move set") : "",
+    `${fmt(stats.seconds)} s`,
+    `Top ${topMeta}${stats.working_set < stats.threat_sets ? ` (searched against the ${stats.working_ranks} most common, checked against all)` : ""}`,
+  ].filter(Boolean).join(" · ");
+  return h("div", { class: "bd-opt-summary" },
+    h("p", { class: "bd-opt-headline" },
+      "Matchup score ",
+      h("strong", {}, fmt(before.score)),
+      result.ok ? [" → ", h("strong", {}, fmt(after.score)), " ", h("span", { class: `bd-opt-delta ${toneOf(result.delta)}` }, signed(result.delta))] : null,
+      h("small", { class: "bd-note" }, ` against the Top ${topMeta}${threats ? ` (${threats} Pokémon)` : ""}`)),
+    chips.length ? h("div", { class: "bd-opt-chips" }, chips) : null,
+    pointsNote(result),
+    result.ok && result.moves_from_common?.length
+      ? h("p", { class: "bd-note bd-opt-points" }, `It has no moves yet, so Optimize tested it with its most common ones. They are marked new below, and Apply adds them.`)
+      : null,
+    h("p", { class: "bd-note bd-opt-tested" }, `Tested ${tested}.`),
+    stats.stopped ? h("p", { class: "bd-note bd-opt-stopped" }, "Stopped early: this is the best result found before you pressed Stop.") : null,
+    !stats.stopped && stats.clock_cut ? h("p", { class: "bd-note" }, "This device ran out of time before the search finished, so it looked at fewer options than usual. Deep, or a faster device, may find more.") : null,
+    !stats.stopped && !stats.clock_cut && stats.out_of_budget ? h("p", { class: "bd-note" }, "The search tried as many options as this depth allows; Deep looks further than Quick.") : null);
+}
+
+/** A set over 66 Stat Points, or one that leaves points unused: what the suggestion does about it. */
+function pointsNote(result) {
+  const points = result.points;
+  if (!points || !result.ok) return null;
+  const plural = (n) => `${n} Stat Point${n === 1 ? "" : "s"}`;
+  if (points.kind === "legal") {
+    return h("p", { class: "bd-opt-message bad bd-opt-points" },
+      `This set has ${points.total} Stat Points, ${points.over} more than the 66 allowed (pasted Showdown EVs often do this). The spread below is legal: apply it before you use this set.`,
+      result.delta < 0 ? " Its score is lower than the pasted set's because the extra points are gone; no legal spread keeps them." : "");
+  }
+  if (points.kind === "fill") {
+    return h("p", { class: "bd-note bd-opt-points" }, `This set leaves ${plural(points.unspent)} unused. The spread below spends them where they help most and changes nothing else.`);
+  }
+  return null;
+}
+
+/** Previously | Now | Change: the Nature, every stat as "Stat Points · final stat", the total and the moves. */
+function compareTable(result) {
+  const { before, after } = result;
+  const mark = (side, index) => (side.nature_effect?.[0] === index ? "▲" : side.nature_effect?.[1] === index ? "▼" : "");
+  const cell = (side, index) => h("td", {}, h("span", { class: "bd-opt-sp" }, String(side.bonuses[index])), " · ", h("b", {}, String(side.stats[index])),
+    mark(side, index) ? h("span", { class: `bd-nature-mark ${mark(side, index) === "▲" ? "up" : "down"}`, title: mark(side, index) === "▲" ? "Raised by the Nature" : "Lowered by the Nature" }, mark(side, index)) : null);
+  const change = (was, now, extra = "") => {
+    const delta = now - was;
+    return h("td", {}, delta ? h("span", { class: `bd-opt-delta ${toneOf(delta)}` }, `${delta > 0 ? "+" : "−"}${Math.abs(delta)}${extra}`) : h("span", { class: "bd-note" }, "–"));
+  };
+  const natureChanged = before.nature !== after.nature;
+  const rows = [
+    h("tr", { class: natureChanged ? "changed" : "" },
+      h("th", { scope: "row" }, "Nature"),
+      natureCell(before), natureCell(after),
+      h("td", {}, natureChanged ? h("span", { class: "bd-opt-delta changed" }, "New") : h("span", { class: "bd-note" }, "–"))),
+    ...STATS.map((label, index) => h("tr", { class: before.bonuses[index] !== after.bonuses[index] || before.stats[index] !== after.stats[index] ? "changed" : "" },
+      h("th", { scope: "row" }, label),
+      cell(before, index), cell(after, index),
+      change(before.stats[index], after.stats[index]))),
+    h("tr", { class: "bd-opt-total" },
+      h("th", { scope: "row" }, "Total"),
+      h("td", {}, `${before.total}/66`), h("td", {}, `${after.total}/66`),
+      change(before.total, after.total, " SP")),
+  ];
+  const moves = h("div", { class: "bd-opt-moves-compare" },
+    h("div", {}, h("span", { class: "bd-field-label" }, "Previously"), (before.moves || []).some(Boolean) ? moveChips(before.moves, result.removed, "gone") : h("p", { class: "bd-note" }, "No moves")),
+    h("div", {}, h("span", { class: "bd-field-label" }, "Now"), moveChips(after.moves, result.added, "new")));
+  return h("div", { class: "bd-opt-compare" },
+    h("h4", {}, "Previously and now"),
+    h("p", { class: "bd-note" }, "Each stat shows its Stat Points · the final stat at level 50. ▲ and ▼ mark the stats the Nature raises and lowers."),
+    h("div", { class: "bd-stat-table-wrap bd-opt-table-wrap" },
+      h("table", { class: "bd-stat-table bd-opt-table" },
+        h("thead", {}, h("tr", {}, h("th", {}, ""), h("th", {}, "Previously"), h("th", {}, "Now"), h("th", {}, "Change"))),
+        h("tbody", {}, rows))),
+    moves);
+}
+
+/** "Jolly" over "+Spe −SpA", so the column stays narrow on a phone. */
+function natureCell(side) {
+  const [up, down] = side.nature_effect || [-1, -1];
+  return h("td", { class: "bd-opt-nature" }, side.nature, h("small", {}, up >= 0 ? `+${STATS[up]} −${STATS[down]}` : "neutral"));
+}
+
+function moveChips(moves, highlighted, tone) {
+  const marked = new Set((highlighted || []).map((m) => m.toLowerCase()));
+  return h("div", { class: "bd-opt-move-row" }, (moves || []).filter(Boolean).map((move) => h("span", { class: `bd-opt-move ${marked.has(move.toLowerCase()) ? tone : ""}` }, move)));
+}
+
+/** What changes in battle: better and worse, one threat per row. */
+function changesSection(result, ui, props) {
+  const better = (result.changes || []).filter((c) => c.tone === "better");
+  const worse = (result.changes || []).filter((c) => c.tone === "worse");
+  if (!better.length && !worse.length) return null;
+  ui.changeTab ||= better.length ? "better" : "worse";
+  const list = h("div", { class: "bd-opt-change-list" });
+  const paint = () => {
+    const rows = ui.changeTab === "worse" ? worse : better;
+    const shown = ui.allChanges ? rows : rows.slice(0, CHANGE_LIMIT);
+    list.replaceChildren(...shown.map((row) => changeRow(row, props, result)));
+    if (rows.length > CHANGE_LIMIT) {
+      list.append(h("button", { type: "button", class: "ghost-button compact bd-opt-more", onclick: () => { ui.allChanges = !ui.allChanges; paint(); } },
+        ui.allChanges ? "Show fewer" : `Show all ${rows.length}`));
+    }
+    if (!rows.length) list.append(h("p", { class: "bd-note" }, ui.changeTab === "worse" ? "Nothing gets worse." : "Nothing gets better."));
+  };
+  paint();
+  return h("div", { class: "bd-opt-section bd-opt-changes" },
+    h("h4", {}, "What changes in battle"),
+    h("p", { class: "bd-note" }, `Threat by threat (on the item set that changes most): what it now survives or knocks out, who moves first, and the chance to win the one-on-one race to the KO ${planText(result)}. The biggest changes come first.`),
+    segmented([["better", `Better (${better.length})`], ["worse", `Worse (${worse.length})`]], ui.changeTab, (tab) => { ui.changeTab = tab; ui.allChanges = false; paint(); }, { "aria-label": "Better or worse matchups" }),
+    list);
+}
+
+function changeRow(row, props, result) {
+  const src = props.spriteFor?.(row.species, row.form, row.item);
+  return h("div", { class: `bd-opt-change ${row.tone}` },
+    sprite(src, "", 28, "bd-sprite bd-opt-change-sprite"),
+    h("div", { class: "bd-opt-change-text" },
+      h("div", { class: "bd-opt-change-name" }, h("span", { class: "bd-opt-rank" }, `#${row.rank}`), h("strong", {}, row.name)),
+      (row.lines || []).map((line) => h("p", { class: `bd-opt-line ${line.tone}` }, line.text, line.detail ? h("small", {}, ` ${line.detail}`) : null))),
+    h("span", { class: `bd-opt-win ${row.win_after > row.win_before + 0.005 ? "up" : row.win_after < row.win_before - 0.005 ? "down" : "same"}`, title: `The chance to win the one-on-one race to the KO ${planText(result)}` },
+      h("small", {}, "1-on-1"), `${pct(row.win_before)} → ${pct(row.win_after)}`));
+}
+
+/** The Top-X Speed list rows now outsped or no longer outsped, per speed context. */
+function speedSection(result, ui) {
+  const contexts = (result.speed.contexts || []).filter((c) => c.before !== c.after || c.now_faster.length || c.now_slower.length || c.now_tied.length);
+  if (!contexts.length) return null;
+  // A Trick Room team opens on Trick Room, where its lower Speed is the point.
+  if (!contexts.some((c) => c.id === ui.speedContext)) ui.speedContext = (contexts.find((c) => c.id === result.plan_context?.id) || contexts[0]).id;
+  const body = h("div", { class: "bd-opt-speed-body" });
+  const paint = () => {
+    const context = contexts.find((c) => c.id === ui.speedContext) || contexts[0];
+    const faster = context.trick_room ? "Now moves before" : "Now faster than";
+    const slower = context.trick_room ? "Now moves after" : "Now slower than";
+    body.replaceChildren(...[
+      h("p", { class: "bd-opt-speed-line" }, `${context.label}: Speed `, h("strong", {}, String(context.before)), " → ", h("strong", {}, String(context.after)),
+        context.trick_room ? h("small", { class: "bd-note" }, " Under Trick Room the slower Pokémon moves first.") : null),
+      h("div", { class: "bd-opt-speed-cols" },
+        speedList(`${faster} (${context.now_faster.length})`, context.now_faster, "good"),
+        speedList(`${slower} (${context.now_slower.length})`, context.now_slower, "bad")),
+      context.now_tied.length ? h("p", { class: "bd-note" }, `Now speed-tied with ${context.now_tied.map(tierName).join(", ")}.`) : null,
+      h("p", { class: "bd-note" }, `Still ${context.trick_room ? "moves before" : "faster than"} ${context.still_faster} · still ${context.trick_room ? "moves after" : "slower than"} ${context.still_slower}${context.still_tied ? ` · still tied with ${context.still_tied}` : ""} of the Top ${result.speed.top_meta} Speed list.`),
+    ].filter(Boolean));
+  };
+  paint();
+  return h("div", { class: "bd-opt-section bd-opt-speed" },
+    h("h4", {}, `Speed ${result.speed.before} → ${result.speed.after}`),
+    h("p", { class: "bd-note" }, `The Top ${result.speed.top_meta} Pokémon of the Speed list (the Top Meta size from Settings), on their most common set and their Choice Scarf or Speed-Ability versions.`),
+    contexts.length > 1 ? segmented(contexts.map((c) => [c.id, c.label]), ui.speedContext, (id) => { ui.speedContext = id; paint(); }, { "aria-label": "Speed context" }) : null,
+    body);
+}
+
+const tierName = (row) => `${row.name}${row.variant ? ` (${row.variant})` : ""}`;
+
+function speedList(title, rows, tone) {
+  return h("div", { class: `bd-opt-speed-list ${tone}` },
+    h("h5", {}, title),
+    rows.length
+      ? h("ul", {}, rows.map((row) => h("li", {},
+        h("span", { class: "bd-opt-rank" }, row.rank ? `#${row.rank}` : ""),
+        h("span", { class: "bd-opt-speed-name" }, row.name, row.variant ? h("span", { class: "bd-tier-variant" }, row.variant) : null),
+        h("b", {}, String(row.speed)))))
+      : h("p", { class: "bd-note" }, "None."));
+}
+
+/**
+ * The best option the margins held back. Its reasons compare it with the suggestion when
+ * there is one (so nothing the two share is listed), else with the current set.
+ */
+function tradeOffSection(member, result, props) {
+  const trade = result.trade_off;
+  const text = `${trade.nature_text} · ${spreadText(trade.bonuses)}${trade.moves?.length ? ` · ${trade.moves.join(", ")}` : ""}`;
+  const reasons = trade.reasons.join("; ") || "the gain is small for the change";
+  const against = trade.compared_with === "suggestion"
+    ? [text, " scores ", h("strong", {}, fmt(trade.over_pick)), ` more than the suggestion above (${signed(trade.delta)} against your current set). Compared with the suggestion: ${reasons}.`]
+    : [text, " scores ", h("strong", {}, signed(trade.delta)), ` over your current set, but: ${reasons}.`];
+  return h("div", { class: "bd-opt-section bd-opt-trade" },
+    h("h4", {}, "Closest trade-off"),
+    h("p", {}, against),
+    h("p", { class: "bd-note" }, "It was not suggested because a change like this has to score clearly better first. Use it if that trade suits your team."),
+    h("button", { type: "button", class: "ghost-button compact", onclick: () => props.onApply(member.slot, trade, "trade") }, "Use this instead"));
+}
+
+function movesSection(member, result, props) {
+  const tested = result.moves_tested;
+  const kept = (tested.kept || []).map((k) => `${k.move} (${k.reason})`).join(", ");
+  const options = tested.options || [];
+  return h("div", { class: "bd-opt-section bd-opt-moves" },
+    h("h4", {}, "Moves tested"),
+    h("p", { class: "bd-note" }, tested.note || [
+      tested.tested ? `${count(tested.tested, "attack")} it can learn, in ${count(tested.combos, "combination")} for its ${count(tested.free, "free slot")}.` : "",
+      kept ? `Kept as they are: ${kept}.` : "",
+    ].filter(Boolean).join(" ")),
+    options.length ? h("ul", { class: "bd-opt-move-options" }, options.map((option) => h("li", {},
+      h("span", { class: "bd-opt-move-swap" },
+        option.added.map((m) => h("span", { class: "bd-opt-move new" }, m)),
+        h("small", {}, " for "),
+        option.removed.map((m) => h("span", { class: "bd-opt-move gone" }, m))),
+      h("span", { class: `bd-opt-delta ${toneOf(option.delta)}` }, signed(option.delta)),
+      tested.spread ? h("button", { type: "button", class: "ghost-button compact", title: `Apply these moves with ${tested.spread.nature} · ${spreadText(tested.spread.bonuses)}`, onclick: () => props.onApply(member.slot, { nature: tested.spread.nature, bonuses: tested.spread.bonuses, moves: option.moves }, "moves") }, "Use") : null))) : null,
+    options.length && tested.spread ? h("p", { class: "bd-note" }, `Scores are matchup-score points against ${result.moves_from_common?.length ? "its most common moves" : "the current moves"}, with ${tested.spread.nature} · ${spreadText(tested.spread.bonuses)}; Use applies that spread with those moves.`) : null);
+}
+
+function actions(member, result, props) {
+  const bar = h("div", { class: "bd-opt-actions" });
+  if (result.ok) {
+    bar.append(h("button", { type: "button", class: "primary-button compact", onclick: () => props.onApply(member.slot, result.after, "all") }, "Apply"));
+    const statsOnly = (result.alternatives || []).find((a) => a.kind === "stats");
+    if (result.moves_changed && statsOnly) {
+      bar.append(h("button", {
+        type: "button", class: "ghost-button compact",
+        title: `${statsOnly.nature_text} · ${spreadText(statsOnly.bonuses)} with your current moves (${signed(statsOnly.delta)})`,
+        onclick: () => props.onApply(member.slot, statsOnly, "stats"),
+      }, `Apply Stat Points & Nature only (${signed(statsOnly.delta)})`));
+    }
+  }
+  if (result.ok && result.moves_changed && !result.moves_from_common?.length && !(result.alternatives || []).some((a) => a.kind === "stats")) {
+    bar.append(h("p", { class: "bd-note bd-opt-actions-note" }, "Keeping your current moves, no Stat Point or Nature change scored clearly better."));
+  }
+  bar.append(h("button", { type: "button", class: "ghost-button compact", onclick: () => props.onDiscard(member.slot) }, result.ok ? "Discard" : "Close"));
+  return bar;
+}

@@ -61,6 +61,7 @@
         <a class="ghost-button download-link" href="pokemon_champions_assets/battle_data.zip" download>Download Battle Data</a>
         <a class="ghost-button" href="/api-rules/">API Rules</a>
         <a class="ghost-button" href="/api_guide">API</a>
+        <a class="ghost-button nav-companion" href="/pro-tool/">Companion</a>
         <a class="ghost-button" href="/pro-tool/plans/"><svg class="nav-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false"><path fill="#ff4d2e" d="M13 1.4c-.5 2.6.3 4.2 1.6 5.6 1.7 1.8 3.7 3.5 3.7 6.6 0 3.6-2.9 6.6-6.4 6.6s-6.4-3-6.4-6.6c0-2.3 1-4.2 2.5-5.8-.3 1.7 0 3.1 1 3.8.7.5 1.6.1 1.7-.8.1-.7-.1-1.6-.3-2.6-.5-2.7.6-5 2.6-6.8Z"/><path fill="#ffc21a" d="M12.2 11.9c1.1 1.2 1.8 2.2 1.8 3.5 0 1.8-1.4 3.2-3.1 3.2-1.6 0-2.9-1.3-2.9-3 0-1 .4-1.9 1.1-2.7.1.9.5 1.5 1.2 1.5.8 0 1.2-.7 1.2-1.7 0-.5.2-.8.7-.8Z"/></svg><span>Pro</span></a>
         <a class="discord-button" href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">Discord</a>
       </div>
@@ -137,7 +138,7 @@ const dailyRows = await fetch(
   battle_data/
     Doubles/
       Garchomp.csv                    &lt;- current Doubles data
-      Alolan Raichu.csv
+      Raichu-Alola.csv                &lt;- battle data files use Showdown names
     Singles/
       Garchomp.csv                    &lt;- current Singles data
     M4/
@@ -170,7 +171,7 @@ GET /api/battle/Singles/basculegionf</code></pre>
           <dl class="api-kv-list">
             <div><dt>showdownId</dt><dd>The matched Pokemon Showdown internal ID, for example <code>raichualola</code>.</dd></div>
             <div><dt>showdownName</dt><dd>The standardized Showdown species name, for example <code>Raichu-Alola</code>.</dd></div>
-            <div><dt>saved_name</dt><dd>The form-specific site/file name still used by raw CSV and sprite assets.</dd></div>
+            <div><dt>saved_name</dt><dd>The form-specific name sprite files are named after. Battle data CSVs use the Showdown name instead, for example <code>Raichu-Alola.csv</code>.</dd></div>
           </dl>
         </article>
 
@@ -283,7 +284,7 @@ GET /api/battle/Singles/basculegionf</code></pre>
             <span>Endpoint 04</span>
             <h2>Metadata rows</h2>
             <p>Returns all forms for a Pokémon from a single metadata file. Request by <strong>base name</strong> (e.g. <code>tauros</code>) — the response contains one row per form, each identified by its <strong>form-specific</strong> <code>saved_name</code>.</p>
-            <p>Use <code>saved_name</code> to build paths to sprites and battle data. Use <code>base_name</code> to group forms together.</p>
+            <p>Use <code>saved_name</code> to build paths to sprites. Battle data CSVs are named with the Showdown name (<code>Tauros-Paldea-Aqua.csv</code>). Use <code>base_name</code> to group forms together.</p>
           </div>
           <div class="api-endpoint-line"><b>GET</b><code>/api/metadata/tauros</code></div>
           <pre><code>{
@@ -327,7 +328,7 @@ GET /api/battle/Singles/basculegionf</code></pre>
 }</code></pre>
           <dl class="api-kv-list">
             <div><dt>base_name</dt><dd>The shared Pokémon name. Matches the metadata filename and the <code>/api/metadata/:name</code> route parameter.</dd></div>
-            <div><dt>saved_name</dt><dd>The form-specific name used for battle data CSVs, sprites, and the <code>/api/battle/:format/:name</code> route.</dd></div>
+            <div><dt>saved_name</dt><dd>The form-specific name used for sprites. The <code>/api/battle/:format/:name</code> route accepts it as well as the Showdown ID.</dd></div>
             <div><dt>form</dt><dd>Human-readable form label. Empty string for the base form.</dd></div>
             <div><dt>abilities</dt><dd>Pipe-separated list of all abilities for this form.</dd></div>
           </dl>
@@ -337,7 +338,7 @@ GET /api/battle/Singles/basculegionf</code></pre>
           <div class="api-section-heading">
             <span>Direct Files</span>
             <h2>Raw CSV and images</h2>
-            <p>Use static paths for downloads, spreadsheet imports, notebooks, sprites, and type icons. Raw CSV and sprite paths still use the site/file name, while JSON API routes accept Showdown IDs.</p>
+            <p>Use static paths for downloads, spreadsheet imports, notebooks, sprites, and type icons. Raw battle data CSVs are named with the Showdown name, sprites with <code>saved_name</code>, and JSON API routes accept Showdown IDs.</p>
           </div>
           <pre><code><!-- Current battle data -->
 GET /pokemon_champions_assets/battle_data/Doubles/Garchomp.csv

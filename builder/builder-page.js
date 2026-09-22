@@ -23,13 +23,14 @@ import {
 } from "./common.js";
 import {
   addBox, addToBox, currentBox, currentTeam, deleteBox, deleteTeam, duplicateTeam, getState, newTeam,
-  removeFromBox, renameBox, renameTeam, replaceBoxEntry, selectBox, selectTeam, setFormat, setSetting, setSlot, setTeamSets,
+  removeFromBox, renameBox, renameTeam, replaceBoxEntry, selectBox, selectTeam, setFormat, setOverviewTop, setSetting, setSlot, setTeamSets,
   subscribe, swapSlots, teamSets,
 } from "./store.js";
 import { activate, canRun, deactivate, freeRunsLeft, isPro, licenceSummary, recordRun, refreshLicence } from "./pro.js";
-import { tournamentAnalysis, tournamentExplainer } from "./tournament-view.js";
+import { tournamentAnalysis, tournamentExplainer, tournamentProgress } from "./tournament-view.js";
 import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, segmented, select, sprite, switchRow, toast, typeChip } from "./ui.js";
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
+import { OPTIMIZE_DEFAULTS, optimizeView, updateProgress } from "./optimize-view.js";
 
 const root = document.getElementById("builderApp");
 let data;
@@ -51,7 +52,7 @@ const view = {
   evalError: "",
   evalProgress: 0,
   evalStatus: "",
-  speedState: { top_x: 30, weather: "None", own_tailwind: false, opposing_tailwind: false, trick_room: false, our_stage: 0, opponent_stage: 0 },
+  speedState: { weather: "None", own_tailwind: false, opposing_tailwind: false, trick_room: false, our_stage: 0, opponent_stage: 0 },
   speedTiers: null,
   speedTiersKey: "",
   speedTiersBusy: "",
@@ -61,8 +62,16 @@ const view = {
   suggestProgress: 0,
   suggestStatus: "",
   suggestError: "",
+  // Suggestions: All Pokémon or Only Box, the running request (its Team Evaluation
+  // checks arrive after the list), the team and settings it was run for (evaluationKey),
+  // which rows are open and which show every reason.
+  suggestScope: "all",
+  suggestRequest: 0,
+  suggestKey: "",
+  suggestUi: { open: new Set(), all: new Set() },
+  suggestHost: null,
   optimize: {},
-  auto: { running: false, fraction: 0, status: "", result: null, error: "", keep: true, onlyBox: false, depth: "medium", archetype: "automatic", prioritizeMeta: false },
+  auto: { running: false, stopping: false, requestId: 0, fraction: 0, status: "", result: null, error: "", keep: true, onlyBox: false, depth: "deep", archetype: "automatic", prioritizeMeta: false },
   tour: { running: false, stopping: false, limit: 1000, snapshot: null, error: "", requestId: 0, key: "", host: null, paintQueued: false },
   libraryQuery: "",
   libraryFilter: "All",
@@ -132,14 +141,14 @@ function teamKey(list = sets()) {
   return `${format()}|${JSON.stringify(plainSets(list))}`;
 }
 
+/** The name a set battles under (its Mega's name when the stone applies), in Showdown spelling. */
 function name(set) {
-  const [species, form] = data.battleForm(set.species, set.form, set.item);
-  return data.displayName(species, form);
+  return data.setName(set);
 }
 
-/** The app's Team Evaluation settings, as saved on this device. */
+/** The Team Evaluation settings, as saved on this device (Top X at most every ranked Pokémon). */
 function evalSettings() {
-  return normalizeSettings({ ...DEFAULT_SETTINGS, ...(getState().settings.evaluation || {}) });
+  return normalizeSettings({ ...DEFAULT_SETTINGS, ...(getState().settings.evaluation || {}) }, metaCount() || 1000);
 }
 
 /** The saved Team Building Checks selection (null = every check, as in the app). */
@@ -158,17 +167,25 @@ function spriteFor(species, form, item = "") {
 }
 
 function openEvaluationSettings() {
+  const checks = new TeamChecks({ engine: data.engine });
+  const total = checks.checkList().length;
   openSettingsDialog(evalSettings(), (next) => {
-    setSetting("evaluation", normalizeSettings(next));
-    toast("Settings saved. They apply to the next Team Evaluation, Suggestions and Auto Build.");
+    setSetting("evaluation", normalizeSettings(next, metaCount() || 1000));
+    toast("Settings saved. They apply the next time you run an analysis.");
+  }, {
+    maxTopMeta: metaCount() || 262,
+    onCustomizeChecks: openCustomizeChecks,
+    checksSummary: () => `${checks.selectedIds(checkSelection()).size} of ${total} in use`,
   });
 }
 
-function openCustomizeChecks() {
-  const checks = new TeamChecks({ engine: data.engine });
+function openCustomizeChecks(onSaved) {
+  // The format picks the descriptions (Singles skips Spread Damage and says so).
+  const checks = new TeamChecks({ engine: data.engine, format: format() });
   openChecksDialog(checks.checkList(), checks.selectedIds(checkSelection()), (ids) => {
     setSetting("teamChecks", ids);
     toast("Team Building Checks updated. Run the evaluation again to apply them.");
+    if (typeof onSaved === "function") onSaved();
   });
 }
 
@@ -213,7 +230,7 @@ function renderToolbar() {
       "aria-selected": view.tab === id ? "true" : "false",
       onclick: () => { view.tab = id; renderAll(); },
     }, label)),
-    h("button", { type: "button", class: "bd-tab", onclick: openEvaluationSettings, title: "Team Evaluation, Suggestions and Auto Build settings" }, "Settings"),
+    h("button", { type: "button", class: "bd-tab", onclick: openEvaluationSettings, title: "Settings for Team Evaluation, Suggestions, Optimize, Auto Build and the Tournament Test" }, "Settings"),
     h("span", { class: "bd-spacer" }),
     h("button", { type: "button", class: "bd-tab", onclick: () => openSyncDialog(data) }, "Sync with Companion"),
     h("button", { type: "button", class: `bd-tab ${isPro() ? "on" : ""}`, onclick: openProDialog }, isPro() ? "Pro ✓" : "Get Pro"),
@@ -379,6 +396,8 @@ function addTeamToBox() {
 
 function renderMain() {
   clear(hosts.main);
+  // On phones the analysis tabs show their results above the team column (builder.css).
+  if (hosts.main.parentElement) hosts.main.parentElement.dataset.tab = view.tab;
   try {
     if (view.tab === "overview") renderOverview();
     else if (view.tab === "box") renderBox();
@@ -404,6 +423,7 @@ function resetResults() {
   });
   view.auto.result = null;
   view.auto.error = "";
+  for (const shelf of Object.values(formatShelves)) for (const k of Object.keys(shelf)) delete shelf[k];
   if (!view.tour.running) {
     view.tour.snapshot = null;
     view.tour.error = "";
@@ -417,6 +437,7 @@ function resetResults() {
 }
 
 function renderOverview() {
+  if (!["offense", "defense", "speed"].includes(view.overviewTab)) view.overviewTab = "offense";
   const team = currentTeam();
   const titleInput = h("input", { type: "text", class: "bd-input", value: team.title, maxlength: 80, "aria-label": "Team title" });
   titleInput.addEventListener("change", () => renameTeam(team.id, titleInput.value.trim() || team.title));
@@ -425,14 +446,16 @@ function renderOverview() {
     h("div", { class: "bd-team-meta" },
       h("label", { class: "bd-field" }, h("span", {}, "Title"), titleInput),
       h("label", { class: "bd-field" }, h("span", {}, "Archetype"), archetype)),
-    h("div", { class: "bd-subtabs", role: "tablist", "aria-label": "Overview" },
-      [["offense", "Offense"], ["defense", "Defense"], ["speed", "Speed"], ["meta", `Top ${overviewTop()} Meta`]].map(([id, label]) => h("button", {
-        type: "button",
-        class: `bd-tab ${view.overviewTab === id ? "on" : ""}`,
-        role: "tab",
-        "aria-selected": view.overviewTab === id ? "true" : "false",
-        onclick: () => { view.overviewTab = id; renderMain(); },
-      }, label))));
+    h("div", { class: "bd-overview-bar" },
+      h("div", { class: "bd-subtabs", role: "tablist", "aria-label": "Overview" },
+        [["offense", "Offense"], ["defense", "Defense"], ["speed", "Speed"]].map(([id, label]) => h("button", {
+          type: "button",
+          class: `bd-tab ${view.overviewTab === id ? "on" : ""}`,
+          role: "tab",
+          "aria-selected": view.overviewTab === id ? "true" : "false",
+          onclick: () => { view.overviewTab = id; renderMain(); },
+        }, label))),
+      topMetaControl()));
   const key = overviewKey();
   if (view.overviewTab === "speed") {
     const body = h("div", { class: "bd-overview" });
@@ -454,10 +477,6 @@ function renderOverview() {
   const overviewData = view.overview;
   const body = h("div", { class: `bd-overview ${view.overviewKey !== key ? "bd-stale" : ""}` });
   hosts.main.append(body);
-  if (view.overviewTab === "meta") {
-    body.append(metaGrid((overviewData.meta?.records || []).map((r) => ({ name: data.displayName(r.pokemon, r.form) || r.name, species: r.pokemon, form: r.entry_form || r.form, item: r.item, position: r.position }))));
-    return;
-  }
   if (overviewData.empty) {
     body.append(h("div", { class: "bd-gate" }, h("h3", {}, "Start with one Pokémon"), h("p", {}, "Add a Pokémon to a slot on the left, pick one from your Box, or let Auto Build fill the team."),
       h("div", { class: "bd-gate-actions" }, h("button", { type: "button", class: "primary-button", onclick: () => hosts.team.querySelector(".bd-slot")?.click() }, "Add a Pokémon"), h("button", { type: "button", class: "ghost-button", onclick: () => { view.tab = "auto"; renderAll(); } }, "Auto Build"))));
@@ -477,30 +496,44 @@ function renderOverview() {
 }
 
 /** The app's ranked Speed Tiers list: our team plus the Top-X meta, with sprites. */
-function speedTiersPanel(title = "Speed Tiers") {
-  const key = `${teamKey()}|${JSON.stringify(view.speedState)}`;
+/**
+ * @param {string} title
+ * @param {"overview"|"evaluation"} place  the Team Overview's list follows its "Top N Meta";
+ *   the Team Evaluation's follows the Top X from Settings, like everything else on that tab
+ */
+function speedTiersPanel(title = "Speed Tiers", place = "overview") {
+  const topX = place === "evaluation" ? evalSettings().top_meta : overviewTop();
+  const state = { ...view.speedState, top_x: topX };
+  const key = `${teamKey()}|${JSON.stringify(state)}`;
   const failed = view.speedTiersError?.key === key ? view.speedTiersError.message : "";
-  if (view.speedTiersKey !== key && !failed) requestSpeedTiers(key);
+  if (view.speedTiersKey !== key && !failed) requestSpeedTiers(key, state);
   const stale = view.speedTiersKey !== key;
-  const panel = speedTiersView(stale ? null : view.speedTiers, view.speedState, {
+  const panel = speedTiersView(stale ? null : view.speedTiers, state, {
     spriteFor,
     title,
+    topSource: place === "evaluation" ? "the Top X in Settings" : "“Top N Meta” above",
     error: failed,
     onRetry: () => { view.speedTiersError = null; renderMain(); },
     onState: (next) => {
-      view.speedState = next;
+      const { top_x: _topX, ...rest } = next;
+      view.speedState = rest;
       renderMain();
     },
   });
   return panel;
 }
 
-function requestSpeedTiers(key) {
+function requestSpeedTiers(key, state) {
   if (view.speedTiersBusy === key) return;
   view.speedTiersBusy = key;
-  analysis("speedTiers", { format: format(), sets: plainSets(), settings: evalSettings(), state: view.speedState }).then((result) => {
+  analysis("speedTiers", { format: format(), sets: plainSets(), settings: evalSettings(), state }).then((result) => {
     if (view.speedTiersBusy !== key) return;
-    for (const row of result.rows || []) row.name = data.displayName(row.species, row.form) || row.name;
+    const members = sets();
+    for (const row of result.rows || []) {
+      // Our rows name the Mega after the holder's own form (a female Meowstic is Meowstic-F-Mega).
+      const member = row.ours ? members.find((s) => s.species === row.species && (s.item || "") === (row.item || "")) : null;
+      row.name = data.displayName(row.species, row.form, member?.form || "") || row.name;
+    }
     view.speedTiers = result;
     view.speedTiersKey = key;
     view.speedTiersBusy = "";
@@ -513,9 +546,39 @@ function requestSpeedTiers(key) {
   });
 }
 
-/** The app shares one Top-X between the Speed list and the Team Overview charts. */
+/** How many Pokémon the current format's meta ranks (the most the Top-X can be). */
+function metaCount(fmt = format()) {
+  const rows = data?.meta?.[fmt]?.pokemon;
+  return rows ? Math.max(1, rows.filter((r) => Number(r.position) < 999999).length) : 0;
+}
+
+/**
+ * The Team Overview's Top-X: how many ranked Pokémon the Offense, Defense and Speed
+ * overviews are scored against. Clamped when read, so a smaller format keeps the choice.
+ */
 function overviewTop() {
-  return Number(view.speedState?.top_x) || getState().settings.overviewTop || 30;
+  const saved = Number.parseInt(getState().settings.overviewTop, 10) || 30;
+  const max = metaCount();
+  return Math.max(1, max ? Math.min(max, saved) : saved);
+}
+
+function chooseOverviewTop(value) {
+  setOverviewTop(value);
+  renderMain();
+}
+
+/** "Top N Meta ▾": a native list of 1..N laid over the segment, so any click opens it. */
+function topMetaControl() {
+  const current = overviewTop();
+  const max = metaCount() || current;
+  if (!metaCount()) data.loadMeta(format()).then(() => renderMain()).catch(() => {});
+  return h("label", { class: "bd-tab bd-topx", title: `Score the Offense, Defense and Speed overviews against the ${current} highest-ranked ${format()} Pokémon` },
+    h("span", { "aria-hidden": "true" }, `Top ${current} Meta`),
+    h("span", { class: "bd-topx-caret", "aria-hidden": "true" }, "▾"),
+    select(Array.from({ length: max }, (_, i) => String(i + 1)), String(current), (value) => chooseOverviewTop(Number(value)), {
+      class: "bd-topx-select",
+      "aria-label": `How many ranked ${format()} Pokémon the overviews use (1 to ${max})`,
+    }));
 }
 
 function overviewKey() {
@@ -587,16 +650,6 @@ function weaknessTable(defense) {
       : h("p", { class: "bd-section-note" }, "No attacking type hits two or more of the team super-effectively."));
 }
 
-function metaGrid(meta) {
-  return h("div", { class: "bd-box-grid" }, meta.map((row) => h("div", { class: "bd-box-card", style: { cursor: "default" } },
-    sprite(data.sprite(row.species, row.form, row.item), "", 56),
-    h("strong", {}, `#${row.position} ${row.name}`),
-    h("small", {}, data.itemIcon(row.item) ? h("img", { src: data.itemIcon(row.item), alt: "", width: 14, height: 14 }) : null, row.item || "—"),
-    h("div", { class: "bd-box-card-actions" },
-      h("button", { type: "button", class: "bd-mini-button", title: `Add ${row.name} to the team`, "aria-label": `Add ${row.name} to the team`, onclick: () => addToTeamFlow(setFromCommon(data.commonSet(format(), row.species, row.form))) }, "+"),
-      h("button", { type: "button", class: "bd-mini-button", title: `Add ${row.name} to the Box`, "aria-label": `Add ${row.name} to the Box`, onclick: () => { addToBox([setToBoxEntry(setFromCommon(data.commonSet(format(), row.species, row.form)), data)]); toast(`${row.name} added to ${currentBox().name}`); } }, "⇩"),
-      h("button", { type: "button", class: "bd-mini-button", title: `Calculate against ${row.name}`, "aria-label": `Calculate against ${row.name}`, onclick: () => openInCalc(setFromCommon(data.commonSet(format(), row.species, row.form)), "right") }, "⚔")))));
-}
 
 async function addToTeamFlow(set) {
   const list = sets();
@@ -757,10 +810,10 @@ function renderEvaluation() {
   const settings = evalSettings();
   const hasResult = isEvaluation(view.evaluation);
   hosts.main.append(h("div", { class: "bd-panel-head" },
-    h("div", {}, h("h2", {}, "Team Evaluation"), h("p", {}, `Scores the team against the Top ${settings.top_meta} ${format()} Meta with the Companion's own Team Evaluation: the same damage engine, threat calcs, checks and scores.`)),
-    h("div", { class: "bd-actions" },
-      h("button", { type: "button", class: "ghost-button compact", onclick: openEvaluationSettings }, "Settings"),
-      hasResult && !view.evaluating ? h("button", { type: "button", class: "primary-button compact", onclick: () => runEvaluation(key) }, view.evaluationKey === key ? "Run again" : "Evaluate changes") : null)));
+    h("div", {}, h("h2", {}, "Team Evaluation"), h("p", {}, `Rates the team against the Top ${settings.top_meta} ${format()} Meta on their most common sets. Open a score to see how it is made up, or a threat to see every damage calc behind it.`)),
+    hasResult && !view.evaluating
+      ? h("div", { class: "bd-actions" }, h("button", { type: "button", class: "primary-button compact", onclick: () => runEvaluation(key) }, view.evaluationKey === key ? "Run again" : "Evaluate changes"))
+      : null));
   if (!list.length) {
     hosts.main.append(h("div", { class: "bd-gate" }, h("h3", {}, "Nothing to evaluate yet"), h("p", {}, "Add at least one Pokémon to the team first.")));
     return;
@@ -782,7 +835,7 @@ function renderEvaluation() {
     }
     hosts.main.append(h("div", { class: "bd-gate" },
       h("h3", {}, "Is this team any good?"),
-      h("p", {}, "Team Evaluation scores Synergy, Offense, Defense and Speed, runs the Team Building Checks, and lists every critical threat in the meta with the calcs behind it."),
+      h("p", {}, "Team Evaluation scores Synergy, Offense, Defense and Speed, runs the Team Building Checks, and lists every critical threat in the meta with the calcs behind it. The Top Meta size, field and rules are under Settings in the top bar."),
       h("div", { class: "bd-gate-actions" }, h("button", { type: "button", class: "primary-button", onclick: () => runEvaluation(key) }, "Run Team Evaluation"))));
     return;
   }
@@ -810,20 +863,20 @@ function renderEvaluation() {
   else if (view.evalTab === "threats") wrap.append(threatsView(result, { spriteFor, name: (value) => showdownName(value) }));
   else if (view.evalTab === "suggest") wrap.append(suggestionsPanel());
   else if (view.evalTab === "optimize") wrap.append(optimizePanel());
-  else if (view.evalTab === "speed") wrap.append(speedView(result), speedTiersPanel("Speed Tiers"));
+  else if (view.evalTab === "speed") wrap.append(speedView(result), speedTiersPanel("Speed Tiers", "evaluation"));
   hosts.main.append(wrap);
 }
 
 function memberName(result, slot) {
   const members = result.synergy_members || [];
   const wanted = showdownName(slot.form || slot.species);
-  return members.find((m) => m.name === wanted)?.name || wanted;
+  return members.find((m) => m.name === wanted || showdownName(m.name) === wanted)?.name || wanted;
 }
 
-let namer = null;
+/** Showdown spelling for names in analysis results (threats, checks, synergy): the
+ *  builder's table also knows the ladder names (Floette-Eternal) and gendered Megas. */
 function showdownName(value) {
-  namer ||= new TeamChecks({ engine: data.engine });
-  return namer.showdownName(value);
+  return data.showdownName(value);
 }
 
 function scoreButton(label, value, onClick, hint) {
@@ -836,92 +889,255 @@ function scoreCard(label, value) {
   return h("div", { class: "bd-score static" }, scoreRing(value, label), h("span", { class: "bd-score-text" }, h("strong", {}, label)));
 }
 
+/**
+ * The app spellings of Pokémon ("Mega Salamence", "Hisuian Arcanine") that have another
+ * Showdown name, longest first, as one pattern. Suggestions and Auto Build reasons carry
+ * the engine's names inside their sentences; showdownText renames them on screen only, so
+ * the rows stay exactly as the parity suites check them.
+ */
+let appSpellings = null;
+function spellingPattern(names) {
+  const escape = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const sorted = [...names].sort((a, b) => b.length - a.length || (a < b ? -1 : 1));
+  return new RegExp(`(^|[^A-Za-z0-9'’-])(${sorted.map(escape).join("|")})(?=$|[^A-Za-z0-9'’-])`, "g");
+}
+
+/** `text` with every Pokémon name in its Showdown spelling, as the Threats tab shows them; `extra` adds names to look for. */
+function showdownText(text, extra = []) {
+  const value = String(text ?? "");
+  if (!value) return value;
+  if (!appSpellings) {
+    const raw = new Set([...Object.keys(data.app?.displayNames || {}), ...data.forms.flatMap((row) => [row.form, row.species])]);
+    const names = [...raw].filter((n) => /^[A-Z]/.test(n) && showdownName(n) !== n);
+    appSpellings = { names: new Set(names), pattern: names.length ? spellingPattern(names) : null };
+  }
+  const more = [...new Set((extra || []).map((n) => String(n || "").trim()))].filter((n) => n && !appSpellings.names.has(n) && showdownName(n) !== n);
+  const pattern = more.length ? spellingPattern([...appSpellings.names, ...more]) : appSpellings.pattern;
+  return pattern ? value.replace(pattern, (_, before, found) => `${before}${showdownName(found)}`) : value;
+}
+
+/**
+ * Drops a Suggestions run or list made for another team, format or settings (a team edit,
+ * "Use", a Settings change) and stops the worker's checks for it. True when it dropped one.
+ */
+function dropStaleSuggestions() {
+  if (!view.suggestKey || view.suggestKey === evaluationKey()) return false;
+  if (view.suggestRequest) cancelAnalysis(view.suggestRequest);
+  Object.assign(view, { suggestRequest: 0, suggestKey: "", suggesting: false, suggestions: null, suggestProgress: 0, suggestStatus: "" });
+  return true;
+}
+
 function suggestionsPanel() {
   const list = sets();
+  dropStaleSuggestions();
   if (view.suggestError && !view.suggesting) {
     return problemCard("Suggestions could not be calculated", view.suggestError, { onAction: runSuggestions });
   }
-  return suggestionsView(view.suggestions, {
+  const boxCount = allBoxSets().length;
+  const panel = suggestionsView(view.suggestions, {
     spriteFor,
+    // Pokémon names in Showdown spelling, as on the Threats tab (display only).
+    name: showdownName,
+    text: showdownText,
     running: view.suggesting,
     progress: view.suggestProgress,
     status: view.suggestStatus,
     full: !list.some((s) => !s.species),
     onRun: runSuggestions,
     onUse: useSuggestion,
+    scope: boxCount ? view.suggestScope : "all",
+    boxCount,
+    // Switching the scope of a list on screen runs it again for the new scope; with an
+    // empty Box there is only "All Pokémon" (the view disables Only Box).
+    onScope: (scope) => {
+      const wanted = scope === "box" && boxCount ? "box" : "all";
+      view.suggestScope = wanted;
+      if (view.suggestions && (view.suggestions.scope || "all") !== wanted) runSuggestions();
+    },
+    ui: view.suggestUi,
   });
+  // Kept so a Team Evaluation check that arrives redraws just its row.
+  view.suggestHost = panel;
+  return panel;
 }
 
-const STAT_SHORT = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
-const spreadText = (bonuses) => (bonuses || []).map((v, i) => `${STAT_SHORT[i]} ${v}`).join(" / ");
+// --- Optimize (builder/optimize-deep.js in the worker, builder/optimize-view.js on screen) ---
 
-/** The app's Optimize: one member's Stat Points tuned against the Top-X threats, moves held. */
+const OPTIMIZE_STORE = "cbd.optimize.v1";
+
+/** The Optimize options, remembered on this device (Quick by default on small machines). */
+function optimizeOptions() {
+  const fallback = { ...OPTIMIZE_DEFAULTS, depth: (navigator.hardwareConcurrency || 8) <= 4 ? "quick" : "deep" };
+  try {
+    const saved = JSON.parse(localStorage.getItem(OPTIMIZE_STORE) || "null");
+    return saved && typeof saved === "object" ? { ...fallback, ...saved, depth: saved.depth === "quick" ? "quick" : saved.depth === "deep" ? "deep" : fallback.depth } : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function setOptimizeOptions(patch) {
+  // Merged from the options in memory, so an earlier choice still holds when the browser
+  // refuses to store them.
+  const next = { ...(view.optimizeOptions || optimizeOptions()), ...patch };
+  try {
+    localStorage.setItem(OPTIMIZE_STORE, JSON.stringify(next));
+  } catch {
+    // Storage off: the choice lasts until the page is reloaded.
+  }
+  view.optimizeOptions = next;
+  renderMain();
+}
+
+/** The moves the player pinned for a member (cleared when the slot holds another Pokemon). */
+function optimizeKept(slot, set) {
+  view.optimizeKeep ||= {};
+  const entry = view.optimizeKeep[slot];
+  if (!entry || entry.species !== set.species) view.optimizeKeep[slot] = { species: set.species, moves: new Set() };
+  const moves = view.optimizeKeep[slot].moves;
+  for (const move of [...moves]) if (!(set.moves || []).includes(move)) moves.delete(move);
+  return moves;
+}
+
+/**
+ * What a member's Optimize state stands for: the format, that member's own set and the
+ * Team Evaluation settings. Changing another member keeps it (shown with a note, since
+ * the team's Tailwind, Trick Room or weather feed the score); changing this one drops it.
+ */
+function optimizeMemberKey(set) {
+  return `${format()}|${JSON.stringify(plainSets([set])[0])}|${JSON.stringify(evalSettings())}`;
+}
+
+/** Whether a slot's Optimize state no longer belongs there (replaced, or its member changed). */
+function optimizeStale(slot, state, list = sets()) {
+  if (view.optimize[slot] !== state) return true;
+  const set = list[slot];
+  return !set?.species || optimizeMemberKey(set) !== state.key;
+}
+
+/** Forget a slot's Optimize state; a run still going is cancelled in the worker. */
+function dropOptimize(slot, state) {
+  if (state?.running && state.requestId && !state.cancelled) {
+    state.cancelled = true;
+    cancelAnalysis(state.requestId);
+  }
+  if (view.optimize[slot] === state) view.optimize[slot] = null;
+}
+
+/** Optimize: each member's Nature, Stat Points and attacking moves tuned against the Top-X meta. */
 function optimizePanel() {
   const list = sets();
   const key = teamKey(list);
-  const holder = h("div", { class: "bd-list" },
-    h("p", { class: "bd-section-note" }, `Tunes one member's Stat Points against every Top ${evalSettings().top_meta} threat (two sets each), exactly like the Companion's Optimize: each 8, 4, 2 and 1-point transfer is tried and kept only when it wins or saves more KOs, weighted by how common the threat is, plus up to 10 points for newly outspeeding threats. Moves and Nature stay as they are.`));
+  const options = view.optimizeOptions || optimizeOptions();
+  for (const [slot, state] of Object.entries(view.optimize)) {
+    if (state && optimizeStale(Number(slot), state, list)) dropOptimize(Number(slot), state);
+  }
+  const members = [];
   list.forEach((set, slot) => {
     if (!set.species) return;
-    const state = view.optimize[slot] && view.optimize[slot].key === key ? view.optimize[slot] : null;
-    const result = state?.result;
-    const card = h("details", { class: "bd-suggestion", open: Boolean(result) });
-    const side = h("div", { class: "bd-suggestion-side" },
-      state?.running
-        ? h("span", { class: "bd-note" }, `${Math.round((state.fraction || 0) * 100)}%`)
-        : h("button", { type: "button", class: "ghost-button compact", onclick: (event) => { event.preventDefault(); runOptimize(slot); } }, result ? "Run again" : "Optimize"));
-    card.append(h("summary", {},
-      sprite(data.sprite(set.species, set.form, set.item), "", 44),
-      h("div", {},
-        h("h3", {}, name(set)),
-        h("p", {}, `${set.nature || "Serious"} · ${spreadText(set.bonuses)}`),
-        state?.running ? h("p", { class: "bd-note", "aria-live": "polite" }, state.status || "Preparing…") : null),
-      side));
-    if (result) {
-      if (!result.ok) {
-        card.append(h("p", { class: "bd-note", style: { padding: "0 0.8rem 0.6rem" } }, result.message || "No transfer improves the ranked matchups; keep the current investment."));
-      } else {
-        card.append(
-          h("div", { class: "bd-optimize-result" },
-            h("p", {}, h("strong", {}, `Set Stat Points to ${spreadText(result.spread.bonuses)}`)),
-            h("p", { class: "bd-note" }, `+${result.score.toFixed(1)} against the Top ${result.top_meta} (${result.damage >= 0 ? "+" : ""}${result.damage.toFixed(1)} from KO odds, ${result.speed >= 0 ? "+" : ""}${result.speed.toFixed(1)} from Speed) · Speed ${result.speed_before} → ${result.speed_after} · ${result.improved} matchups better, ${result.worsened} worse · ${result.tested} spreads tested in ${result.seconds.toFixed(1)} s`),
-            h("div", { class: "bd-gate-actions", style: { justifyContent: "flex-start" } },
-              h("button", { type: "button", class: "primary-button compact", onclick: () => applyOptimize(slot, result) }, "Apply"))),
-          h("ul", { class: "bd-suggestion-details" }, (result.comparisons || []).slice(0, 12).map((row) => h("li", { class: row.score > 0 ? "bd-good-text" : "bd-bad-text" },
-            h("strong", {}, `${row.threat}: `), `${row.detail} `, h("span", { class: "bd-note" }, `${row.previous} → ${row.now}`)))));
-      }
-    }
-    holder.append(card);
+    const state = view.optimize[slot] || null;
+    members.push({
+      slot, set, name: name(set), sprite: data.sprite(set.species, set.form, set.item), state, kept: optimizeKept(slot, set),
+      teamChanged: Boolean(state?.result && state.teamKey !== key),
+    });
   });
-  return holder;
+  return optimizeView({
+    members,
+    options,
+    topX: evalSettings().top_meta,
+    spriteFor,
+    onOptions: setOptimizeOptions,
+    onRun: runOptimize,
+    onStop: stopOptimize,
+    onApply: applyOptimize,
+    onDiscard: (slot) => { view.optimize[slot] = null; renderMain(); },
+    onKeepMove: (slot, move) => {
+      const kept = optimizeKept(slot, sets()[slot]);
+      if (kept.has(move)) kept.delete(move);
+      else kept.add(move);
+      renderMain();
+    },
+  });
 }
 
 async function runOptimize(slot) {
   const list = sets();
-  const key = teamKey(list);
-  const state = { key, running: true, fraction: 0, status: "Preparing the Top Meta threats…" };
+  const set = list[slot];
+  if (!set?.species) return;
+  const options = view.optimizeOptions || optimizeOptions();
+  // An earlier run of this slot that is still going is cancelled, so two never compete.
+  if (view.optimize[slot]) dropOptimize(slot, view.optimize[slot]);
+  const state = { key: optimizeMemberKey(set), teamKey: teamKey(list), running: true, stopping: false, fraction: 0, status: "Preparing the Top Meta threats…", requestId: 0 };
   view.optimize[slot] = state;
   renderMain();
+  let painted = 0;
+  let checked = 0;
   try {
-    state.result = await analysis("optimize", { format: format(), sets: plainSets(list), slot, settings: evalSettings(), checks: checkSelection() }, (progress) => {
+    const request = analysis("optimize", {
+      format: format(), sets: plainSets(list), slot, settings: evalSettings(), topX: evalSettings().top_meta,
+      depth: options.depth, testMoves: options.testMoves, keepNature: options.keepNature, keepSpeed: options.keepSpeed,
+      lockedMoves: [...optimizeKept(slot, set)],
+    }, (progress) => {
+      if (state.cancelled) return;
+      const now = Date.now();
+      // A run whose member changed, or that was replaced, is cancelled and never drawn
+      // (checked a few times a second, also while another tab is open).
+      if (view.optimize[slot] !== state || now - checked >= 200) {
+        checked = now;
+        if (optimizeStale(slot, state)) {
+          dropOptimize(slot, state);
+          return;
+        }
+      }
       state.fraction = progress.fraction ?? state.fraction;
       if (progress.message) state.status = progress.message;
-      if (view.tab === "evaluation" && view.evalTab === "optimize") renderMain();
+      if (!(view.tab === "evaluation" && view.evalTab === "optimize")) return;
+      // A few redraws a second, in place only: the rest of the tab does not move while it
+      // runs, and a card that is not on screen is drawn from this state when it next is.
+      if (now - painted < 200) return;
+      painted = now;
+      updateProgress(hosts.main.querySelector(`[data-opt-slot="${slot}"]`), state);
     });
+    state.requestId = request.requestId;
+    state.result = await request;
   } catch (error) {
     console.error(error);
-    state.result = { ok: false, message: `Optimize could not finish: ${String(error?.message || error || "Unknown error").split("\n")[0]}` };
+    state.result = { ok: false, error: true, message: `Optimize could not finish: ${String(error?.message || error || "Unknown error").split("\n")[0]}` };
   }
   state.running = false;
+  state.stopping = false;
+  state.requestId = 0;
+  // Dropped meanwhile (its member changed, or a newer run replaced it): nothing to show.
+  if (state.cancelled || optimizeStale(slot, state)) {
+    dropOptimize(slot, state);
+    return;
+  }
+  if (view.tab === "evaluation" && view.evalTab === "optimize") renderMain();
+}
+
+/** Stop a running Optimize: the worker answers with the best result found so far. */
+function stopOptimize(slot) {
+  const state = view.optimize[slot];
+  if (!state?.running || !state.requestId) return;
+  state.stopping = true;
+  cancelAnalysis(state.requestId);
+  updateProgress(hosts.main.querySelector(`[data-opt-slot="${slot}"]`), state);
   renderMain();
 }
 
-function applyOptimize(slot, result) {
+/**
+ * Put an Optimize result into the slot. `kind`: "all" (Nature, Stat Points and moves),
+ * "stats" (Nature and Stat Points, moves kept), "moves" or "trade" (a listed option).
+ */
+function applyOptimize(slot, choice, kind = "all") {
   const set = sets()[slot];
-  if (!set?.species || !result?.spread) return;
-  setSlot(slot, makeSet({ ...set, nature: result.spread.nature_name || set.nature, bonuses: [...result.spread.bonuses] }), data);
+  if (!set?.species || !choice?.bonuses) return;
+  const moves = kind !== "stats" && (choice.moves || []).length ? [...choice.moves] : set.moves;
+  // This member's result is used up; the other members keep theirs (their sets did not change).
   view.optimize[slot] = null;
-  toast(`${name(set)}: Stat Points set to ${spreadText(result.spread.bonuses)}`);
+  setSlot(slot, makeSet({ ...set, nature: choice.nature || set.nature, bonuses: [...choice.bonuses], moves }), data);
+  const changedMoves = kind !== "stats" && (choice.moves || []).some((m) => !(set.moves || []).includes(m));
+  toast(`${name(set)}: ${choice.nature || set.nature} · ${choice.bonuses.join("/")}${changedMoves ? ` · ${moves.join(", ")}` : ""}`);
 }
 
 /** The builder slot a suggestion goes into: the open slot, or the member it replaces. */
@@ -960,24 +1176,70 @@ function useSuggestion(row) {
   toast(row.action_kind === "swap" && row.swap_target ? `${row.name} replaces ${row.swap_target}` : `${row.name} added`);
 }
 
+/**
+ * Suggestions arrive in two steps: the ranked list ({ranked}), then each shown row's
+ * check against the full Team Evaluation ({detail}), merged into its row by key. A run
+ * whose team, format or settings changed meanwhile (a team edit, Use, Settings) is
+ * dropped and stopped at its next message, whichever step it is in; details of a list
+ * that is gone (Use, a new run) are dropped and the check stopped.
+ */
 async function runSuggestions() {
-  view.suggesting = true;
-  view.suggestError = "";
-  view.suggestProgress = 0;
-  view.suggestStatus = "Evaluating the current team…";
+  if (view.suggestRequest) cancelAnalysis(view.suggestRequest);
+  const showing = () => view.tab === "evaluation" && view.evalTab === "suggest";
+  const boxSets = plainSets(allBoxSets()).filter(Boolean);
+  const onlyBox = view.suggestScope === "box" && boxSets.length > 0;
+  Object.assign(view, {
+    suggesting: true, suggestError: "", suggestProgress: 0, suggestStatus: "Evaluating the current team…",
+    suggestions: null, suggestUi: { open: new Set(), all: new Set() }, suggestRequest: 0, suggestKey: evaluationKey(),
+  });
   renderMain();
+  let id = 0;
   try {
-    view.suggestions = await analysis("suggestions", { format: format(), sets: plainSets(), settings: evalSettings(), checks: checkSelection() }, (progress) => {
+    const request = analysis("suggestions", { format: format(), sets: plainSets(), settings: evalSettings(), checks: checkSelection(), onlyBox, box: onlyBox ? boxSets : [] }, (progress) => {
+      if (view.suggestRequest !== id) return;
+      if (dropStaleSuggestions()) {
+        if (showing()) renderMain();
+        return;
+      }
+      if (progress.ranked) {
+        view.suggestions = progress.ranked;
+        view.suggesting = false;
+        if (showing()) renderMain();
+        return;
+      }
+      if (progress.detail) {
+        const row = view.suggestions?.rows?.find((r) => r.key === progress.detail.key);
+        if (!row) {
+          cancelAnalysis(id);
+          return;
+        }
+        row.projected = progress.detail.projected;
+        if (!showing()) return;
+        if (view.suggestHost?.isConnected && view.suggestHost.refreshRow) view.suggestHost.refreshRow(row.key);
+        else renderMain();
+        return;
+      }
       view.suggestProgress = progress.fraction ?? view.suggestProgress;
       if (progress.message) view.suggestStatus = progress.message;
-      if (view.tab === "evaluation" && view.evalTab === "suggest") renderMain();
+      if (view.suggesting && showing()) renderMain();
     });
+    id = request.requestId;
+    view.suggestRequest = id;
+    const result = await request;
+    if (view.suggestRequest === id && dropStaleSuggestions()) {
+      if (showing()) renderMain();
+      return;
+    }
+    // A list cleared meanwhile (Use, a team change) stays cleared.
+    if (view.suggestRequest === id && view.suggestions) view.suggestions = result;
   } catch (error) {
     console.error(error);
-    view.suggestError = String(error?.message || error || "Unknown error").split("\n")[0];
+    if (view.suggestRequest === id) view.suggestError = String(error?.message || error || "Unknown error").split("\n")[0];
   }
+  if (view.suggestRequest !== id) return;
+  view.suggestRequest = 0;
   view.suggesting = false;
-  renderMain();
+  if (showing()) renderMain();
 }
 
 async function runEvaluation(key) {
@@ -992,23 +1254,52 @@ async function runEvaluation(key) {
   view.evalStatus = "Preparing the Top Meta…";
   view.suggestions = null;
   renderMain();
+  const runFormat = format();
+  // The format was switched while it ran: the result is kept for that format.
+  const place = () => (format() === runFormat ? view : formatShelf(runFormat));
   try {
-    const result = await analysis("evaluate", { format: format(), sets: plainSets(), settings: evalSettings(), checks: checkSelection() }, (progress) => {
+    const result = await analysis("evaluate", { format: runFormat, sets: plainSets(), settings: evalSettings(), checks: checkSelection() }, (progress) => {
       view.evalProgress = progress.fraction ?? view.evalProgress;
       if (progress.message) view.evalStatus = progress.message;
       if (view.tab === "evaluation") renderMain();
     });
     if (!isEvaluation(result)) throw new Error("The evaluation came back incomplete.");
-    view.evaluation = result;
-    view.evaluationKey = key;
+    Object.assign(place(), { evaluation: result, evaluationKey: key, evalError: "" });
     recordRun("evaluation");
     rememberEvaluation(key, result);
   } catch (error) {
     console.error(error);
-    view.evalError = String(error?.message || error || "Unknown error").split("\n")[0];
+    place().evalError = String(error?.message || error || "Unknown error").split("\n")[0];
   }
   view.evaluating = false;
   renderMain();
+}
+
+// --- results per format ------------------------------------------------------------
+//
+// A Team Evaluation or Auto Build result belongs to the format it was made in. Switching
+// the format puts the shown ones on that format's shelf and brings back the other
+// format's own (or none); a run that finishes after a switch goes onto its own shelf.
+
+const formatShelves = { Doubles: {}, Singles: {} };
+
+function formatShelf(fmt) {
+  return formatShelves[fmt === "Singles" ? "Singles" : "Doubles"];
+}
+
+/** The format a result key was made for (every key starts with it, see teamKey). */
+function keyFormat(key) {
+  return String(key || "").split("|")[0];
+}
+
+function switchFormatResults(from, to) {
+  if (from === to) return;
+  Object.assign(formatShelf(from), { evaluation: view.evaluation, evaluationKey: view.evaluationKey, evalError: view.evalError, autoResult: view.auto.result, autoError: view.auto.error });
+  const next = formatShelf(to);
+  Object.assign(view, { evaluation: next.evaluation || null, evaluationKey: next.evaluationKey || "", evalError: next.evalError || "" });
+  view.auto.result = next.autoResult || null;
+  view.auto.error = next.autoError || "";
+  for (const k of Object.keys(next)) delete next[k];
 }
 
 // The last evaluation survives a reload of the tab. Its shape changed when the app's
@@ -1046,8 +1337,8 @@ function restoreEvaluation() {
     for (const old of OLD_EVALUATION_STORES) sessionStorage.removeItem(old);
     const saved = JSON.parse(sessionStorage.getItem(EVALUATION_STORE) || "null");
     if (saved?.key && isEvaluation(saved.result)) {
-      view.evaluation = saved.result;
-      view.evaluationKey = saved.key;
+      // Shown only in the format it was made for; otherwise it waits on that format's shelf.
+      Object.assign(keyFormat(saved.key) === format() ? view : formatShelf(keyFormat(saved.key)), { evaluation: saved.result, evaluationKey: saved.key });
     } else if (saved) {
       forgetEvaluation();
     }
@@ -1058,11 +1349,16 @@ function restoreEvaluation() {
 
 // ---- auto build ----
 
+// Times as measured on a desktop (Node): the first build of a visit also fills the damage
+// caches; a slower device can take up to about twice as long.
 const AUTO_DEPTHS = [
-  ["fast", "Fast", "Screens the 40 most-used Pokémon per slot and keeps the best one."],
-  ["medium", "Medium", "Screens the 100 most-used Pokémon per slot with two finalists each. The Companion's default."],
-  ["deep", "Deep", "Screens every ranked Pokémon per slot with four finalists each."],
+  ["fast", "Fast", "Screens the 40 most-used Pokémon for each open slot, then builds one other team and compares both with the full Team Evaluation. About 10 seconds for the first build, a few seconds after that."],
+  ["medium", "Medium", "Screens the 100 most-used Pokémon for each slot, then compares up to three complete teams (two sets tried for each other pick) and checks one swap of a Pokémon it added. About 20 seconds for the first build, about 5 after that."],
+  ["deep", "Deep", "Screens every ranked Pokémon for each slot, then compares up to four complete teams (three sets tried for each other pick) and checks one swap of a Pokémon it added. Up to about 45 seconds for the first build and about 10 after that, longer on a slower device; Stop keeps the best team found so far."],
 ];
+
+/** What the compared teams are called on the result. */
+const AUTO_TEAM_LABELS = { anchor: "Best pick per slot", alternative: "Other picks", swap: "After one swap" };
 
 function renderAuto() {
   const auto = view.auto;
@@ -1070,25 +1366,28 @@ function renderAuto() {
   const locked = sets().filter((s) => s.species);
   hosts.main.append(h("div", { class: "bd-panel-head" },
     h("div", {}, h("h2", {}, "Auto Build Team"),
-      h("p", {}, "Fills the open slots the way the Companion does: every candidate is scored by the Suggestions engine, the enabled Team Building Checks decide first and the score second, and the finished team is tuned for its own weather, Megas, speed mode and sets.")),
-    h("div", { class: "bd-actions" }, h("button", { type: "button", class: "ghost-button compact", onclick: openEvaluationSettings }, "Settings"))));
+      h("p", {}, "Fills the open slots one at a time: every candidate is scored on the enabled Team Building Checks first and on the Suggestions score second, and the best one is taken. Then other picks are tried for each slot, the complete teams are finished (Megas, weather, speed mode and sets) and compared with the full Team Evaluation, and the best team is kept."))));
   if (auto.running) {
-    hosts.main.append(h("div", { class: "bd-progress" },
+    hosts.main.append(h("div", { class: "bd-progress bd-auto-progress" },
       h("div", { class: "bd-progress-bar", role: "progressbar", "aria-valuemin": "0", "aria-valuemax": "100", "aria-valuenow": String(Math.round(auto.fraction * 100)) }, h("i", { style: { width: `${Math.round(auto.fraction * 100)}%` } })),
-      h("p", { class: "bd-note", "aria-live": "polite" }, auto.status)));
+      h("div", { class: "bd-auto-run" },
+        h("p", { class: "bd-note", "aria-live": "polite" }, auto.status),
+        h("button", { type: "button", class: "ghost-button compact", disabled: auto.stopping, onclick: stopAutoBuild }, auto.stopping ? "Stopping…" : "Stop")),
+      auto.runFormat && auto.runFormat !== format() ? h("p", { class: "bd-note" }, `This build is for ${auto.runFormat}; its team is shown when ${auto.runFormat} is selected again.`) : null));
     return;
   }
   if (!auto.result && !canRun("autobuild")) {
     hosts.main.append(gate("autobuild"));
     return;
   }
-  const depthNote = (AUTO_DEPTHS.find(([key]) => key === (auto.depth || "medium")) || AUTO_DEPTHS[1])[2];
+  const depth = AUTO_DEPTHS.some(([key]) => key === auto.depth) ? auto.depth : "deep";
+  const depthNote = AUTO_DEPTHS.find(([key]) => key === depth)[2];
   const topMeta = evalSettings().top_meta;
   hosts.main.append(h("div", { class: "bd-auto-options" },
     h("div", { class: "bd-auto-col" },
       h("div", { class: "bd-auto-depth" },
-        h("span", { class: "bd-field-label" }, "Depth"),
-        segmented(AUTO_DEPTHS.map(([key, label]) => [key, label]), auto.depth || "medium", (value) => { auto.depth = value; renderMain(); }, { "aria-label": "Depth" }),
+        h("span", { class: "bd-field-label" }, "Search depth"),
+        segmented(AUTO_DEPTHS.map(([key, label]) => [key, label]), depth, (value) => { auto.depth = value; renderMain(); }, { "aria-label": "Search depth" }),
         h("p", { class: "bd-note" }, depthNote)),
       h("label", { class: "bd-auto-depth" },
         h("span", { class: "bd-field-label" }, "Preferred archetype"),
@@ -1097,11 +1396,11 @@ function renderAuto() {
     h("div", { class: "bd-auto-switches" },
       switchRow(locked.length ? `Keep the current ${locked.length} Pokémon` : "Keep the current team", auto.keep, (on) => { auto.keep = on; }),
       switchRow(boxCount ? "Only use my Box" : "Only use my Box (empty)", Boolean(auto.onlyBox && boxCount), (on) => { auto.onlyBox = on; }, { disabled: !boxCount, hint: "Build only from the Pokémon in your Box." }),
-      switchRow("Prioritize Meta Pokémon", Boolean(auto.prioritizeMeta), (on) => { auto.prioritizeMeta = on; }, { hint: `Ranks the Top ${topMeta} ${format()} Meta ahead of other Pokémon once the Team Building Checks are settled.` }),
+      switchRow("Prioritize Meta Pokémon", Boolean(auto.prioritizeMeta), (on) => { auto.prioritizeMeta = on; }, { hint: `Ranks the Top ${topMeta} ${format()} Meta ahead of other Pokémon once the Team Building Checks are settled, for each slot and when the complete teams are compared.` }),
       switchRow("Optimize Stat Points", Boolean(auto.optimizeStats), (on) => { auto.optimizeStats = on; }, { hint: "After the build, tune every member's Stat Points and Nature (slower)." })),
     h("div", { class: "bd-actions" },
       h("button", { type: "button", class: "primary-button", onclick: runAutoBuild }, auto.result ? "Build again" : "Start Auto Build"),
-      h("span", { class: "bd-note" }, "Uses the Team Evaluation Settings and your Team Building Checks."))));
+      h("span", { class: "bd-note" }, "Uses your Team Evaluation settings and Team Building Checks (the Settings button above)."))));
   if (auto.error) {
     hosts.main.append(problemCard("Auto Build could not finish", auto.error, { onAction: runAutoBuild }));
     return;
@@ -1121,12 +1420,25 @@ function renderAuto() {
   const archetypeLine = result.archetype
     ? (detected && detected !== result.archetype ? `Built for ${result.archetype} · reads as ${detected}` : `Built for ${result.archetype}`)
     : detected;
-  // Only what the reader should know: a rule the last slot could not keep, a move it could not add.
-  const caveats = (result.log || []).filter((line) => /^No Pokémon for the last slot|^Auto Build could not reach|^Auto Build reached \d/.test(line));
+  // Only what the reader should know: a rule the last slot could not keep, a move it could
+  // not add, the swap the Team Evaluation asked for, a build stopped early (names in
+  // Showdown spelling, as everywhere on the page).
+  const swapNames = (result.compared || []).flatMap((team) => (team.swap ? [team.swap.out, team.swap.in] : []));
+  const caveats = (result.log || []).filter((line) => /^No Pokémon for the last slot|^Auto Build could not reach|^Auto Build reached \d|^Swapped |^Auto Build was stopped|^The best pick per slot could not/.test(line))
+    .map((line) => showdownText(line, swapNames));
+  const search = result.search || null;
+  // The search is bounded by fixed counts; only its time limit (a safety net for a very
+  // slow or busy device) can cut it short, and then the same team may build differently.
+  if (search?.capped && !search.stoppedEarly) caveats.push("The search reached its time limit, so it compared fewer teams than it normally does. Building again, which is faster once the first build has run, may find a different team.");
   hosts.main.append(h("section", { class: "bd-auto-result" },
     h("div", { class: "bd-section-head" },
       h("h3", { class: "bd-field-label" }, "Result"),
-      h("span", { class: "bd-note" }, [archetypeLine, evaluation ? `${evaluation.threats.length} critical threat${evaluation.threats.length === 1 ? "" : "s"} left` : "", result.seconds ? `built in ${result.seconds.toFixed(1)} s` : ""].filter(Boolean).join(" · "))),
+      h("span", { class: "bd-note" }, [
+        archetypeLine,
+        evaluation ? `${evaluation.threats.length} critical threat${evaluation.threats.length === 1 ? "" : "s"} left` : "",
+        search?.teams > 1 ? `${search.teams} complete teams compared` : "",
+        result.seconds ? `built in ${result.seconds.toFixed(1)} s` : "",
+      ].filter(Boolean).join(" · "))),
     caveats.length ? h("p", { class: "bd-note bd-auto-caveat" }, caveats.join(" ")) : null,
     evaluation ? h("div", { class: "bd-scores" },
       scoreCard("Synergy", evaluation.synergy_score), scoreCard("Offense", evaluation.offense_score),
@@ -1139,12 +1451,93 @@ function renderAuto() {
         h("div", { class: "bd-auto-text" },
           h("div", { class: "bd-auto-name" }, h("strong", {}, name(set)), pick ? h("span", { class: "bd-pill good", title: "Suggestions score when it was added" }, `Added · ${Number(pick.score).toFixed(1)}`) : null),
           h("p", {}, [set.item, set.ability, set.nature].filter(Boolean).join(" · ")),
-          h("div", { class: "bd-move-chips" }, (set.moves || []).filter(Boolean).map((move) => h("span", {}, move)))));
+          h("div", { class: "bd-move-chips" }, (set.moves || []).filter(Boolean).map((move) => h("span", {}, move))),
+          pick ? autoWhy(pick) : null));
     })),
+    comparedTeams(result),
     result.similar ? similarTeamCard(result.similar) : null,
     h("div", { class: "bd-actions" },
       h("button", { type: "button", class: "primary-button", onclick: () => { newTeam(built, data, `Auto Build ${new Date().toLocaleDateString()}`); renameTeam(currentTeam().id, undefined, teamLabel); toast("Saved as a new team"); view.tab = "overview"; renderAll(); } }, "Save as new team"),
       h("button", { type: "button", class: "ghost-button", onclick: () => { setTeamSets(built, data, { archetype: teamLabel }); toast("Current team replaced"); } }, "Replace current team"))));
+}
+
+/**
+ * "Why it was added": the member's best reasons, the threats it helps against, its
+ * estimated score changes. Pokémon names are shown in Showdown spelling (display only).
+ */
+function autoWhy(pick) {
+  const order = { good: 0, yellow: 1, red: 2, neutral: 3 };
+  const severities = pick.severities || {};
+  const answers = (pick.answers || []).map(String);
+  const reasons = (pick.details || []).map((text, i) => [String(text), severities[String(text).toLowerCase()] || "neutral", i])
+    .sort((a, b) => (order[a[1]] ?? 3) - (order[b[1]] ?? 3) || a[2] - b[2]).slice(0, 3)
+    .map(([text, sev, i]) => [showdownText(text, answers), sev, i]);
+  const components = pick.components || {};
+  const chips = [["synergy", "Syn"], ["offense", "Off"], ["defense", "Def"], ["speed", "Spe"]].filter(([k]) => components[k]).map(([k, short]) => {
+    const delta = Number(components[k].delta) || 0;
+    return h("span", { class: `bd-sg-delta ${delta > 0.049 ? "up" : delta < -0.049 ? "down" : "flat"}` }, `${short} ${delta > 0.049 ? "+" : delta < -0.049 ? "−" : "±"}${Math.abs(delta).toFixed(1)}`);
+  });
+  return h("details", { class: "bd-auto-why" },
+    h("summary", {}, "Why it was added"),
+    pick.swapped ? h("p", {}, `Swapped in for ${showdownName(pick.swapped)} because the full Team Evaluation rated the team higher with it.`) : null,
+    reasons.length ? h("ul", { class: "bd-sg-impact" }, reasons.map(([text, sev]) => h("li", { class: sev },
+      h("span", { class: `bd-sg-badge ${sev}`, "aria-hidden": "true" }, sev === "good" ? "✓" : sev === "neutral" ? "i" : "!"), h("span", {}, text)))) : null,
+    answers.length ? h("p", {}, `Helps vs ${answers.slice(0, 4).map((n) => showdownName(n)).join(", ")}`) : null,
+    chips.length ? h("div", { class: "bd-sg-deltas", title: "Estimated score changes when it was picked" }, chips) : null);
+}
+
+/**
+ * The rule the compared teams are ranked by, in words (autobuild-search.js beats(): the
+ * first step on which two teams differ decides; the score counts only when all tie).
+ */
+function comparedRule(objective = {}, archetype = "") {
+  const margin = Number(objective.margin ?? 1);
+  const weight = Number(objective.redThreatWeight ?? 1);
+  const red = Number(objective.redThreat ?? 70);
+  const steps = ["fewer red Team Building Checks failed", "then fewer yellow ones"];
+  const chosenArchetype = objective.archetype ?? archetype;
+  if (chosenArchetype) steps.push(`then fewer unmet critical ${chosenArchetype} requirements`);
+  if (objective.metaTop) steps.push(`then fewer Pokémon added from outside the Top ${objective.metaTop} Meta`);
+  steps.push(`and last a score at least ${margin} point${margin === 1 ? "" : "s"} higher (the average of the four scores, minus ${weight} for every threat scoring ${red} or more)`);
+  return `Each team went through the same finishing steps and the full Team Evaluation. Teams are compared step by step, and the first step where two teams differ decides: ${steps.join(", ")}. The best pick per slot is kept unless another team wins this way.`;
+}
+
+/** Every complete team the search finished and evaluated, the kept one marked. */
+function comparedTeams(result) {
+  const compared = result.compared || [];
+  if (compared.length < 2) return null;
+  const objective = result.search?.objective || {};
+  const scores = (s) => [["Synergy", s.scores.synergy], ["Offense", s.scores.offense], ["Defense", s.scores.defense], ["Speed", s.scores.speed]];
+  return h("section", { class: "bd-auto-compare" },
+    h("div", { class: "bd-section-head" },
+      h("h3", { class: "bd-field-label" }, "Compared teams"),
+      h("span", { class: "bd-note" }, `${compared.length} complete teams`)),
+    h("p", { class: "bd-note" }, comparedRule(objective, result.archetype || "")),
+    h("div", { class: "bd-auto-compare-list" }, compared.map((team) => {
+      const s = team.summary;
+      const tiers = [
+        `Checks failed: ${s.checksRed} red, ${s.checksYellow} yellow`,
+        (objective.archetype ?? result.archetype) ? `Unmet critical ${objective.archetype || result.archetype} requirements: ${Number(s.archetypeUnmet) || 0}` : "",
+        objective.metaTop ? `Added from outside the Top ${objective.metaTop}: ${Number(s.metaOutside) || 0}` : "",
+        `Threats at 70+: ${s.threatsRed}`, `Critical threats: ${s.critical}`,
+      ].filter(Boolean);
+      return h("div", { class: `bd-auto-compare-row ${team.chosen ? "chosen" : ""}` },
+        h("div", { class: "bd-auto-compare-main" },
+          h("div", { class: "bd-auto-compare-title" },
+            h("strong", {}, AUTO_TEAM_LABELS[team.label] || "Team"),
+            team.chosen ? h("span", { class: "bd-pill good" }, "Picked") : null),
+          h("p", { class: "bd-auto-compare-team" }, team.members.map((member, i) => [i ? ", " : "", member.added ? h("b", {}, name(member)) : name(member)])),
+          h("p", { class: "bd-auto-compare-scores" }, scores(s).map(([label, value]) => h("span", {}, `${label} ${Number(value).toFixed(1)}`))),
+          h("p", { class: "bd-note" }, tiers.join(" · "))),
+        team.chosen ? null : h("button", { type: "button", class: "ghost-button compact", onclick: () => useComparedTeam(team, result) }, "Use this team"));
+    })),
+    h("p", { class: "bd-note" }, "Names in bold were added by Auto Build."));
+}
+
+function useComparedTeam(team, result) {
+  const built = (team.sets || []).map((set) => (set ? makeSet(set) : makeSet()));
+  setTeamSets(built, data, result.archetype ? { archetype: result.archetype } : {});
+  toast("Current team replaced");
 }
 
 /** The tournament team closest to the built one, with what it has in common. */
@@ -1159,6 +1552,7 @@ function similarTeamCard(similar) {
       h("h3", { class: "bd-field-label" }, "Most similar tournament team"),
       h("span", { class: "bd-pill" }, `Team #${similar.number} · ${similar.overlap}/${similar.members.length} shared`)),
     h("p", { class: "bd-similar-verdict" }, verdict),
+    format() === "Singles" ? h("p", { class: "bd-note" }, "The tournament teams come from Doubles events, so their sets are built for Doubles.") : null,
     h("div", { class: "bd-similar-members" }, similar.members.map((member) => {
       const set = { species: member.species, form: member.form, item: member.item };
       const detail = member.shared
@@ -1207,10 +1601,9 @@ function renderTournament() {
   const left = freeRunsLeft("tournament");
   hosts.main.append(h("div", { class: "bd-panel-head" },
     h("div", {}, h("h2", {}, "Test against Tournament Teams"),
-      h("p", {}, "A fast Matchup Matrix of your team against real tournament teams, with a live analysis of how it fares: your best and worst cores, how each of your Pokémon does, and the teams and Pokémon that give you the most trouble.")),
-    h("div", { class: "bd-actions" }, h("button", { type: "button", class: "ghost-button compact", onclick: openEvaluationSettings }, "Settings"))));
+      h("p", {}, "Plays your team against real tournament teams: turn 1 with Fake Out, Tailwind, Trick Room and Intimidate, then the fight that follows. Shows how often you are favoured, what happens on turn 1, and which teams and Pokémon give you trouble."))));
   // The explanation leads until there is a result; after that it is one click away.
-  const how = tournamentExplainer(2827);
+  const how = tournamentExplainer({ teams: tour.snapshot?.library || 2827, format: format() });
   hosts.main.append(tour.snapshot || tour.running ? h("details", { class: "bd-tour-howto" }, h("summary", {}, "How the test works"), how) : how);
   if (!list.length) {
     hosts.main.append(h("div", { class: "bd-gate" }, h("h3", {}, "Nothing to test yet"), h("p", {}, "Add at least one Pokémon to the team first.")));
@@ -1235,7 +1628,7 @@ function renderTournament() {
     const fraction = tour.snapshot ? tour.snapshot.tested / Math.max(1, tour.snapshot.total) : 0;
     hosts.main.append(h("div", { class: "bd-progress bd-tour-progress" },
       h("div", { class: "bd-progress-bar", role: "progressbar", "aria-valuemin": "0", "aria-valuemax": "100", "aria-valuenow": String(Math.round(fraction * 100)) }, h("i", { style: { width: `${Math.round(fraction * 100)}%` } })),
-      h("p", { class: "bd-note", "aria-live": "polite" }, tour.snapshot ? `${tour.snapshot.tested.toLocaleString("en-US")} of ${tour.snapshot.total.toLocaleString("en-US")} teams · ${tour.snapshot.seconds.toFixed(1)} s` : "Loading the tournament teams…")));
+      h("p", { class: "bd-note", "aria-live": "polite" }, tournamentProgress(tour.snapshot))));
   }
   if (tour.error) {
     hosts.main.append(problemCard("The test could not finish", tour.error, { onAction: runTournament }));
@@ -1249,7 +1642,7 @@ function renderTournament() {
   paintTournament();
 }
 
-/** Redraws only the analysis (the controls stay put while the test runs). */
+/** Redraws only the analysis (the controls stay put while the test runs), keeping opened sections open. */
 function paintTournament() {
   const tour = view.tour;
   tour.paintQueued = false;
@@ -1258,7 +1651,13 @@ function paintTournament() {
     clear(tour.host);
     return;
   }
+  tour.opened ||= new Map();
   clear(tour.host).append(tournamentAnalysis(tour.snapshot, { name: tourName, sprite: tourSprite, running: tour.running }));
+  for (const node of tour.host.querySelectorAll("details[data-key]")) {
+    if (tour.opened.has(node.dataset.key)) node.open = tour.opened.get(node.dataset.key);
+    // Only what the viewer opens or closes is remembered (a click on the summary, also by keyboard).
+    node.querySelector(":scope > summary")?.addEventListener("click", () => tour.opened.set(node.dataset.key, !node.open));
+  }
 }
 
 async function runTournament() {
@@ -1270,7 +1669,7 @@ async function runTournament() {
     return;
   }
   const key = evaluationKey();
-  Object.assign(tour, { running: true, stopping: false, error: "", snapshot: null, key });
+  Object.assign(tour, { running: true, stopping: false, error: "", snapshot: null, key, opened: new Map() });
   renderMain();
   let lastPaint = 0;
   try {
@@ -1283,15 +1682,17 @@ async function runTournament() {
         renderMain();
         return;
       }
-      // At most a few redraws a second: the analysis moves while it runs, the buttons do not.
+      // At most two redraws a second: the analysis moves while it runs, the buttons do not.
       const now = Date.now();
-      if (now - lastPaint > 350) {
+      if (now - lastPaint > 500) {
         lastPaint = now;
         const bar = hosts.main.querySelector(".bd-tour-progress");
         if (bar) {
           const fraction = tour.snapshot.tested / Math.max(1, tour.snapshot.total);
-          bar.querySelector(".bd-progress-bar i").style.width = `${Math.round(fraction * 100)}%`;
-          bar.querySelector(".bd-note").textContent = `${tour.snapshot.tested.toLocaleString("en-US")} of ${tour.snapshot.total.toLocaleString("en-US")} teams · ${tour.snapshot.seconds.toFixed(1)} s`;
+          const fill = bar.querySelector(".bd-progress-bar");
+          fill.setAttribute("aria-valuenow", String(Math.round(fraction * 100)));
+          fill.querySelector("i").style.width = `${Math.round(fraction * 100)}%`;
+          bar.querySelector(".bd-note").textContent = tournamentProgress(tour.snapshot);
         }
         paintTournament();
       }
@@ -1313,7 +1714,8 @@ async function runTournament() {
 }
 
 // The last finished test survives a reload of the tab, like the last evaluation.
-const TOURNAMENT_STORE = "cbd.tour.v1";
+// v2: the turn-1 model's snapshot (tournament-test.js SNAPSHOT_VERSION); v1 ones are dropped.
+const TOURNAMENT_STORE = "cbd.tour.v2";
 
 function rememberTournament(key, snapshot) {
   try {
@@ -1325,9 +1727,12 @@ function rememberTournament(key, snapshot) {
 
 function restoreTournament() {
   try {
+    sessionStorage.removeItem("cbd.tour.v1");
     const saved = JSON.parse(sessionStorage.getItem(TOURNAMENT_STORE) || "null");
-    if (saved?.snapshot?.tested && Array.isArray(saved.snapshot.bestCores) && Array.isArray(saved.snapshot.archetypes)) {
-      view.tour.snapshot = saved.snapshot;
+    const s = saved?.snapshot;
+    const lists = ["bestBrings", "pokemon", "threats", "archetypes", "hardest", "easiest"];
+    if (s?.version === 2 && s.tested > 0 && lists.every((name) => Array.isArray(s[name])) && s.bands && s.turnOne && Array.isArray(s.duels?.rows) && Array.isArray(s.duels?.columns)) {
+      view.tour.snapshot = s;
       view.tour.key = saved.key || "";
     }
   } catch {
@@ -1350,25 +1755,32 @@ async function runAutoBuild() {
     return;
   }
   const auto = view.auto;
+  if (auto.running) return;
   auto.running = true;
+  auto.stopping = false;
   auto.error = "";
   auto.fraction = 0;
   auto.status = "Preparing the team and the candidate pool…";
   renderMain();
   const boxCount = allBoxSets().length;
   const key = evaluationKey();
+  const depth = AUTO_DEPTHS.some(([k]) => k === auto.depth) ? auto.depth : "deep";
   // The app reuses Team Evaluation's scores only for the very team it evaluated.
   const cachedScores = auto.keep && view.evaluation && view.evaluationKey === key
     ? { synergy_score: view.evaluation.synergy_score, offense_score: view.evaluation.offense_score, defense_score: view.evaluation.defense_score, speed: view.evaluation.speed ? { score: view.evaluation.speed.score } : undefined }
     : null;
+  // The team is built for this format; a switch meanwhile leaves the result on its shelf.
+  const runFormat = format();
+  auto.runFormat = runFormat;
   try {
-    const result = await analysis("autobuild", {
-      format: format(),
+    const request = analysis("autobuild", {
+      format: runFormat,
       sets: auto.keep ? plainSets() : [],
       box: plainSets(allBoxSets()).filter(Boolean),
       onlyBox: Boolean(auto.onlyBox && boxCount),
       optimizeStats: Boolean(auto.optimizeStats),
-      depth: auto.depth || "medium",
+      depth,
+      search: depth,
       archetype: archetypeKey(auto.archetype),
       teamArchetype: currentTeam().archetype || "",
       prioritizeMeta: Boolean(auto.prioritizeMeta),
@@ -1377,18 +1789,54 @@ async function runAutoBuild() {
       cachedScores,
     }, (progress) => {
       auto.fraction = progress.fraction ?? auto.fraction;
-      if (progress.message) auto.status = progress.message;
-      if (view.tab === "auto") renderMain();
+      // The worker names candidates as the engine does; shown in Showdown spelling.
+      if (progress.message) auto.status = showdownText(progress.message);
+      if (view.tab !== "auto") return;
+      // Only the bar and the line move while it runs, so the Stop button stays clickable.
+      const bar = hosts.main.querySelector(".bd-auto-progress");
+      if (!bar) {
+        renderMain();
+        return;
+      }
+      bar.querySelector(".bd-progress-bar")?.setAttribute("aria-valuenow", String(Math.round(auto.fraction * 100)));
+      const fill = bar.querySelector(".bd-progress-bar i");
+      if (fill) fill.style.width = `${Math.round(auto.fraction * 100)}%`;
+      const line = bar.querySelector(".bd-auto-run .bd-note");
+      if (line) line.textContent = auto.status;
     });
-    auto.result = result;
-    if (!result.error) recordRun("autobuild");
+    auto.requestId = request.requestId;
+    const result = await request;
+    if (format() === runFormat) auto.result = result;
+    else {
+      Object.assign(formatShelf(runFormat), { autoResult: result, autoError: "" });
+      toast(`The ${runFormat} Auto Build has finished. Switch to ${runFormat} to see it.`);
+    }
+    // A free run is used only by a scored team: a build stopped before its first team was
+    // complete (no Team Evaluation) does not count.
+    if (!result.error && result.evaluation) recordRun("autobuild");
   } catch (error) {
     console.error(error);
-    auto.result = null;
-    auto.error = String(error?.message || error || "Unknown error").split("\n")[0];
+    const message = String(error?.message || error || "Unknown error").split("\n")[0];
+    if (format() === runFormat) {
+      auto.result = null;
+      auto.error = message;
+    } else Object.assign(formatShelf(runFormat), { autoResult: null, autoError: message });
   }
   auto.running = false;
+  auto.stopping = false;
+  auto.requestId = 0;
+  auto.runFormat = "";
   renderMain();
+}
+
+/** Stop keeps the best team found so far (the worker answers with it). */
+function stopAutoBuild() {
+  const auto = view.auto;
+  if (!auto.running || !auto.requestId) return;
+  auto.stopping = true;
+  auto.status = "Stopping: finishing the best team found so far…";
+  cancelAnalysis(auto.requestId);
+  if (view.tab === "auto") renderMain();
 }
 
 // ---- import / export ----
@@ -1398,7 +1846,7 @@ function renderImportExport() {
   const exportArea = h("textarea", { class: "bd-textarea", readonly: true, "aria-label": "Team export" }, exportText);
   const importArea = h("textarea", { class: "bd-textarea", placeholder: "Paste a Showdown team (up to six Pokémon)…", "aria-label": "Team import" });
   hosts.main.append(
-    h("div", { class: "bd-panel-head" }, h("div", {}, h("h2", {}, "Import / Export"), h("p", {}, "Showdown format, as the Companion imports and exports it. Stat Points go in the EVs line."))),
+    h("div", { class: "bd-panel-head" }, h("div", {}, h("h2", {}, "Import / Export"), h("p", {}, "Copy or paste teams in Showdown format. Stat Points go on the EVs line."))),
     h("div", { class: "bd-eval-grid" },
       h("div", { class: "bd-field" }, h("span", {}, `Export “${currentTeam().title}”`), exportArea,
         h("div", { class: "bd-actions" }, h("button", { type: "button", class: "ghost-button compact", onclick: async () => { try { await navigator.clipboard.writeText(exportText); toast("Copied to the clipboard"); } catch { exportArea.select(); } } }, "Copy"))),
@@ -1441,7 +1889,7 @@ async function handleAddParam() {
   const wanted = params.get("add");
   if (!wanted) return;
   history.replaceState(null, "", location.pathname);
-  const [species, form] = data.resolve(wanted, wanted);
+  const [species, form] = data.resolveName(wanted);
   if (!data.speciesEntry(species)) return toast(`Could not find ${wanted}.`, "error");
   const set = setFromCommon(data.commonSet(format(), species, form));
   await addToTeamFlow(set);
@@ -1459,16 +1907,18 @@ async function handleAddParam() {
 async function main() {
   try {
     data = await BuilderData.load();
-    await data.loadMeta(format());
     const params = new URLSearchParams(location.search);
     const wantedFormat = params.get("format");
     if (wantedFormat === "Singles" || wantedFormat === "Doubles") setFormat(wantedFormat);
+    await data.loadMeta(format());
     mount();
     restoreEvaluation();
     restoreTournament();
     renderAll();
     document.querySelectorAll("[data-format]").forEach((button) => button.addEventListener("click", async () => {
+      const from = format();
       setFormat(button.dataset.format);
+      switchFormatResults(from, format());
       await data.loadMeta(format());
       view.overview = null;
       view.overviewKey = "";
@@ -1476,6 +1926,8 @@ async function main() {
     }));
     subscribe((_state, reason) => {
       if (reason === "format") return;
+      // The overview's Top-X only redraws the overview; a finished analysis stays.
+      if (reason === "overviewTop") return;
       view.suggestions = null;
       renderAll();
     });

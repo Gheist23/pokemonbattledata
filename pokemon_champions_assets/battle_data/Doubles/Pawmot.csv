@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pawmot,40,move,1,Double Shock,94.1%,,,,,,,,
-Pawmot,40,move,2,Close Combat,88.8%,,,,,,,,
-Pawmot,40,move,3,Revival Blessing,75.9%,,,,,,,,
+Pawmot,40,move,2,Close Combat,88.6%,,,,,,,,
+Pawmot,40,move,3,Revival Blessing,76.0%,,,,,,,,
 Pawmot,40,move,4,Fake Out,48.9%,,,,,,,,
-Pawmot,40,move,5,Ice Punch,23.1%,,,,,,,,
-Pawmot,40,move,6,Coaching,23.1%,,,,,,,,
+Pawmot,40,move,5,Ice Punch,23.2%,,,,,,,,
+Pawmot,40,move,6,Coaching,22.9%,,,,,,,,
 Pawmot,40,move,7,Protect,19.8%,,,,,,,,
-Pawmot,40,move,8,Mach Punch,7.8%,,,,,,,,
-Pawmot,40,move,9,Thunder Punch,3.6%,,,,,,,,
-Pawmot,40,move,10,Fire Punch,3.2%,,,,,,,,
-Pawmot,40,held_item,1,Focus Sash,81.4%,,,,,,,,
-Pawmot,40,held_item,2,Life Orb,5.1%,,,,,,,,
-Pawmot,40,held_item,3,Leppa Berry,4.3%,,,,,,,,
+Pawmot,40,move,8,Mach Punch,7.9%,,,,,,,,
+Pawmot,40,move,9,Thunder Punch,3.7%,,,,,,,,
+Pawmot,40,move,10,Fire Punch,3.3%,,,,,,,,
+Pawmot,40,held_item,1,Focus Sash,81.1%,,,,,,,,
+Pawmot,40,held_item,2,Life Orb,5.2%,,,,,,,,
+Pawmot,40,held_item,3,Leppa Berry,4.4%,,,,,,,,
 Pawmot,40,held_item,4,White Herb,1.2%,,,,,,,,
 Pawmot,40,held_item,5,Expert Belt,1.2%,,,,,,,,
 Pawmot,40,held_item,6,Sitrus Berry,1.1%,,,,,,,,
@@ -29,8 +29,8 @@ Pawmot,40,teammate,7,Politoed,,,,,,,,,
 Pawmot,40,teammate,8,Staraptor,,,,,,,,,
 Pawmot,40,teammate,9,Indeedee-F,,,,,,,,,
 Pawmot,40,teammate,10,Basculegion,,,,,,,,,
-Pawmot,40,stat_alignment,1,Jolly,65.9%,Speed,Sp. Atk,,,,,,
-Pawmot,40,stat_alignment,2,Adamant,29.8%,Attack,Sp. Atk,,,,,,
+Pawmot,40,stat_alignment,1,Jolly,66.0%,Speed,Sp. Atk,,,,,,
+Pawmot,40,stat_alignment,2,Adamant,29.5%,Attack,Sp. Atk,,,,,,
 Pawmot,40,stat_alignment,3,Naughty,0.6%,Attack,Sp. Def,,,,,,
 Pawmot,40,stat_alignment,4,Naive,0.6%,Speed,Sp. Def,,,,,,
 Pawmot,40,stat_alignment,5,Brave,0.6%,Attack,Speed,,,,,,
@@ -39,7 +39,7 @@ Pawmot,40,stat_alignment,7,Impish,0.4%,Defense,Sp. Atk,,,,,,
 Pawmot,40,stat_alignment,8,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
 Pawmot,40,stat_alignment,9,Lonely,0.4%,Attack,Defense,,,,,,
 Pawmot,40,stat_alignment,10,Timid,0.3%,Speed,Attack,,,,,,
-Pawmot,40,stat_points,1,,73.0%,,,2,32,0,0,0,32
+Pawmot,40,stat_points,1,,72.8%,,,2,32,0,0,0,32
 Pawmot,40,stat_points,2,,6.1%,,,0,32,0,0,2,32
 Pawmot,40,stat_points,3,,5.9%,,,0,32,2,0,0,32
 Pawmot,40,stat_points,4,,2.7%,,,0,32,0,0,0,32
@@ -49,6 +49,6 @@ Pawmot,40,stat_points,7,,0.6%,,,0,32,1,0,1,32
 Pawmot,40,stat_points,8,,0.5%,,,32,32,0,0,0,2
 Pawmot,40,stat_points,9,,0.4%,,,32,32,2,0,0,0
 Pawmot,40,stat_points,10,,0.4%,,,32,2,0,0,0,32
-Pawmot,40,ability,1,Iron Fist,90.2%,,,,,,,,
-Pawmot,40,ability,2,Volt Absorb,8.5%,,,,,,,,
+Pawmot,40,ability,1,Iron Fist,90.0%,,,,,,,,
+Pawmot,40,ability,2,Volt Absorb,8.6%,,,,,,,,
 Pawmot,40,ability,3,Natural Cure,1.3%,,,,,,,,

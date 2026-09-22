@@ -258,6 +258,10 @@ export class TeamSynergy {
     const metaSpeeds = this.metaSpeedRows();
     const metaCount = Math.max(1, metaSpeeds.length);
     const outspeed = (speed, factor = 1.0) => metaSpeeds.filter(([, s]) => Number(speed || 0) > Number(s || 0) * Number(factor || 1)).length;
+    // Singles (the website's own rule): the two are never on the field together, so what
+    // only works beside a partner (Fake Out or redirection covering its turn, Helping
+    // Hand, ally Abilities, moves that hit or trigger the partner, Commander) is skipped.
+    const together = !String(format || "").toLowerCase().includes("single");
 
     // Defensive pivots are directional.
     for (const [source, partner] of [[a, b], [b, a]]) {
@@ -315,10 +319,11 @@ export class TeamSynergy {
         const meaningful = gain >= Math.max(2, roundInt(metaCount * 0.20)) && after >= Math.max(1, Math.ceil(metaCount * 0.55));
         if (reliable && meaningful) {
           const lead = controller.item_key === "choice scarf" ? `Choice Scarf ${controller.name}` : controller.name;
-          const scope = affectsBoth ? "both opposing Pokemon" : "a target";
+          const both = affectsBoth && together;
+          const scope = both ? "both opposing Pokemon" : together ? "a target" : "the opposing Pokemon";
           addInteraction(`${lead}'s ${pyTitle(move)} unlocks ${beneficiary.name}`,
             `${lead} moves before ${controllerFirst}/${metaCount} Top Meta Pokemon and can slow ${scope}; afterward ${beneficiary.name} moves first in ${after}/${metaCount} matchups instead of ${before}/${metaCount}, letting its damage pressure matter before it is hit.`,
-            Math.min(16, 7 + gain * 0.7 + (affectsBoth ? 2 : 0)), controller.name, beneficiary.name, "speed");
+            Math.min(16, 7 + gain * 0.7 + (both ? 2 : 0)), controller.name, beneficiary.name, "speed");
         } else if (meaningful && !reliable) {
           addConflict(`${controller.name}'s ${pyTitle(move)} may arrive too late for ${beneficiary.name}`,
             `The speed drop would improve ${gain} matchups, but ${controller.name} currently moves before only ${controllerFirst}/${metaCount} Top Meta Pokemon.`, 5);
@@ -354,11 +359,11 @@ export class TeamSynergy {
       else if (beneficiary.screen_moves.size) action = "establish screens";
       else if (beneficiary.fields.size) action = "establish its field plan";
       else if (beneficiary.is_fragile && beneficiary.damage_pressure && [...beneficiary.move_keys].some((k) => spreadKeys.has(k))) action = "launch a high-pressure spread attack";
-      if (supporterMoves.has("fake out") && action) {
+      if (together && supporterMoves.has("fake out") && action) {
         addInteraction(`${supporter.name}'s Fake Out creates ${beneficiary.name}'s setup turn`,
           `Fake Out denies one opposing action while ${beneficiary.name} can safely ${action}; without that concrete action, Fake Out is not counted as pair synergy.`, 9, supporter.name, beneficiary.name, "positioning");
       }
-      if (supporter.redirection_moves.size && action) {
+      if (together && supporter.redirection_moves.size && action) {
         const move = pyTitle(sortedStrings(supporter.redirection_moves)[0]);
         addInteraction(`${move} protects ${beneficiary.name}'s key turn`, `${supporter.name} redirects single-target attacks while ${beneficiary.name} can ${action}.`, 11, supporter.name, beneficiary.name, "positioning");
       }
@@ -369,10 +374,11 @@ export class TeamSynergy {
             `The damage reduction gives ${beneficiary.has_setup ? "a setup user" : "a fragile attacker"} more chances to execute its plan.`, 8, supporter.name, beneficiary.name, "bulk");
         }
       }
-      if (supporter.ability_key === "intimidate" && ((Number(beneficiary.battle_stats.defense) || 80) < 100 || beneficiary.has_setup)) {
+      if (together && supporter.ability_key === "intimidate" && ((Number(beneficiary.battle_stats.defense) || 80) < 100 || beneficiary.has_setup)) {
         addInteraction(`Intimidate patches ${beneficiary.name}'s physical turns`,
           `Lowering both opponents' Attack specifically helps ${beneficiary.name} survive while it ${beneficiary.has_setup ? "sets up" : "uses its lower physical bulk"}.`, 7, supporter.name, beneficiary.name, "bulk");
       }
+      if (!together) continue;
       if (supporterMoves.has("helping hand") && beneficiary.damage_pressure) {
         addInteraction(`Helping Hand amplifies ${beneficiary.name}'s real damage pressure`,
           `${beneficiary.name} already carries meaningful direct damage, so the 50% boost has a concrete payoff.`, 8, supporter.name, beneficiary.name, "damage");
@@ -388,7 +394,7 @@ export class TeamSynergy {
     // Ability and ally-hit interactions must match a real partner need.
     for (const [owner, beneficiary] of [[a, b], [b, a]]) {
       const ability = owner.ability_key;
-      const redirectType = this.redirect[ability];
+      const redirectType = together ? this.redirect[ability] : "";
       if (redirectType && redirectType in beneficiary.weaknesses) {
         addInteraction(`${owner.ability} redirects ${redirectType} away from ${beneficiary.name}`, "The ability directly removes targeting into a real partner weakness.", 12, owner.name, beneficiary.name, "ability");
       }
@@ -396,7 +402,7 @@ export class TeamSynergy {
       if (immune.length) {
         addInteraction(`${owner.ability} creates a ${immune[0]} switch for ${beneficiary.name}`, `The ability is relevant because ${beneficiary.name} is actually weak to ${immune[0]}.`, 8, owner.name, beneficiary.name, "ability");
       }
-      const ally = this.ally[ability];
+      const ally = together ? this.ally[ability] : null;
       if (ally) {
         let applies = ability !== "battery" && ability !== "steely spirit";
         applies = applies || (ability === "battery" && beneficiary.special > 0);
@@ -407,16 +413,18 @@ export class TeamSynergy {
       }
       const ownerMoves = owner.move_keys;
       const beneficiaryMoves = beneficiary.move_keys;
-      if (ownerMoves.has("beat up") && ["justified", "stamina", "anger point"].includes(beneficiary.ability_key)) {
+      // Moves that hit or target the partner beside them (Doubles only).
+      const allyMoves = together ? ownerMoves : new Set();
+      if (allyMoves.has("beat up") && ["justified", "stamina", "anger point"].includes(beneficiary.ability_key)) {
         addInteraction(`Beat Up activates ${beneficiary.name}'s ${beneficiary.ability}`, "The ally-targeted multi-hit move intentionally triggers the partner ability before it attacks.", 14, owner.name, beneficiary.name, "combo");
       }
-      if (ownerMoves.has("surf") && ["water absorb", "dry skin", "storm drain", "steam engine"].includes(beneficiary.ability_key)) {
+      if (allyMoves.has("surf") && ["water absorb", "dry skin", "storm drain", "steam engine"].includes(beneficiary.ability_key)) {
         addInteraction(`Surf activates ${beneficiary.name}'s ${beneficiary.ability}`, "The spread move provides a beneficial ally trigger instead of ordinary partner damage.", 12, owner.name, beneficiary.name, "combo");
       }
-      if (ownerMoves.has("discharge") && (beneficiary.immunities.has("Electric") || ["volt absorb", "motor drive", "lightning rod"].includes(beneficiary.ability_key))) {
+      if (allyMoves.has("discharge") && (beneficiary.immunities.has("Electric") || ["volt absorb", "motor drive", "lightning rod"].includes(beneficiary.ability_key))) {
         addInteraction(`Discharge is safe beside ${beneficiary.name}`, "The partner avoids the ally hit and may gain healing, Speed, or Special Attack from it.", 11, owner.name, beneficiary.name, "combo");
       }
-      if (ownerMoves.has("earthquake") && (beneficiary.immunities.has("Ground") || beneficiary.ability_key === "telepathy")) {
+      if (allyMoves.has("earthquake") && (beneficiary.immunities.has("Ground") || beneficiary.ability_key === "telepathy")) {
         addInteraction(`Earthquake is safe beside ${beneficiary.name}`, "The partner's typing or ability removes friendly-fire damage from the spread move.", 10, owner.name, beneficiary.name, "combo");
       }
       for (const [statusMove, statusName] of Object.entries(this.statusInflict)) {
@@ -434,7 +442,7 @@ export class TeamSynergy {
     }
 
     // Friendly fire (V252): resisted is safe, super effective is a conflict.
-    for (const [attacker, partner] of [[a, b], [b, a]]) {
+    for (const [attacker, partner] of together ? [[a, b], [b, a]] : []) {
       for (const [move, moveType] of Object.entries(this.spread)) {
         if (!attacker.move_keys.has(move)) continue;
         const multiplier = partnerMultiplier(partner, moveType);
@@ -485,10 +493,10 @@ export class TeamSynergy {
     const names = [norm(a.name), norm(b.name)];
     const allMoves = new Set([...a.move_keys, ...b.move_keys]);
     const allAbilities = new Set([a.ability_key, b.ability_key]);
-    if (names.some((n) => n.includes("dondozo")) && names.some((n) => n.includes("tatsugiri")) && allAbilities.has("commander")) {
+    if (together && names.some((n) => n.includes("dondozo")) && names.some((n) => n.includes("tatsugiri")) && allAbilities.has("commander")) {
       addInteraction("Commander creates the Dondozo + Tatsugiri mode", "Tatsugiri enters Dondozo and supplies the intended all-stat boost and Order Up interaction.", 18, "Tatsugiri", "Dondozo", "combo");
     }
-    if (allMoves.has("swagger") && (allAbilities.has("own tempo") || allAbilities.has("mirror armor"))) {
+    if (together && allMoves.has("swagger") && (allAbilities.has("own tempo") || allAbilities.has("mirror armor"))) {
       addInteraction("Swagger supplies a protected ally Attack boost", "The partner ability prevents or reflects the confusion drawback, turning Swagger into intentional support.", 12, a.name, b.name, "combo");
     }
 

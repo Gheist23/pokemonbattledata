@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Noivern,147,move,1,Tailwind,84.7%,,,,,,,,
-Noivern,147,move,2,Draco Meteor,68.2%,,,,,,,,
-Noivern,147,move,3,Protect,43.9%,,,,,,,,
-Noivern,147,move,4,Air Slash,32.3%,,,,,,,,
-Noivern,147,move,5,Heat Wave,24.3%,,,,,,,,
-Noivern,147,move,6,Taunt,20.9%,,,,,,,,
-Noivern,147,move,7,Dragon Cheer,16.4%,,,,,,,,
+Noivern,147,move,1,Tailwind,84.5%,,,,,,,,
+Noivern,147,move,2,Draco Meteor,68.0%,,,,,,,,
+Noivern,147,move,3,Protect,44.1%,,,,,,,,
+Noivern,147,move,4,Air Slash,32.2%,,,,,,,,
+Noivern,147,move,5,Heat Wave,23.9%,,,,,,,,
+Noivern,147,move,6,Taunt,21.2%,,,,,,,,
+Noivern,147,move,7,Dragon Cheer,16.3%,,,,,,,,
 Noivern,147,move,8,Super Fang,15.7%,,,,,,,,
-Noivern,147,move,9,Flamethrower,14.3%,,,,,,,,
-Noivern,147,move,10,Hurricane,14.0%,,,,,,,,
-Noivern,147,held_item,1,Focus Sash,54.8%,,,,,,,,
-Noivern,147,held_item,2,Life Orb,9.1%,,,,,,,,
-Noivern,147,held_item,3,White Herb,3.8%,,,,,,,,
-Noivern,147,held_item,4,Normal Gem,3.5%,,,,,,,,
-Noivern,147,held_item,5,Sitrus Berry,3.1%,,,,,,,,
-Noivern,147,held_item,6,Wide Lens,2.9%,,,,,,,,
-Noivern,147,held_item,7,Choice Scarf,2.8%,,,,,,,,
-Noivern,147,held_item,8,Yache Berry,2.3%,,,,,,,,
-Noivern,147,held_item,9,Dragon Fang,2.1%,,,,,,,,
-Noivern,147,held_item,10,Expert Belt,1.5%,,,,,,,,
+Noivern,147,move,9,Flamethrower,14.5%,,,,,,,,
+Noivern,147,move,10,Hurricane,13.9%,,,,,,,,
+Noivern,147,held_item,1,Focus Sash,54.6%,,,,,,,,
+Noivern,147,held_item,2,Life Orb,9.3%,,,,,,,,
+Noivern,147,held_item,3,White Herb,3.9%,,,,,,,,
+Noivern,147,held_item,4,Normal Gem,3.7%,,,,,,,,
+Noivern,147,held_item,5,Sitrus Berry,3.2%,,,,,,,,
+Noivern,147,held_item,6,Wide Lens,2.8%,,,,,,,,
+Noivern,147,held_item,7,Choice Scarf,2.7%,,,,,,,,
+Noivern,147,held_item,8,Yache Berry,2.2%,,,,,,,,
+Noivern,147,held_item,9,Dragon Fang,2.2%,,,,,,,,
+Noivern,147,held_item,10,Expert Belt,1.6%,,,,,,,,
 Noivern,147,teammate,1,Rillaboom,,,,,,,,,
 Noivern,147,teammate,2,Garchomp,,,,,,,,,
 Noivern,147,teammate,3,Archaludon,,,,,,,,,
@@ -30,25 +30,25 @@ Noivern,147,teammate,8,Kingambit,,,,,,,,,
 Noivern,147,teammate,9,Glalie,,,,,,,,,
 Noivern,147,teammate,10,Metagross,,,,,,,,,
 Noivern,147,stat_alignment,1,Timid,81.8%,Speed,Attack,,,,,,
-Noivern,147,stat_alignment,2,Modest,13.0%,Sp. Atk,Attack,,,,,,
+Noivern,147,stat_alignment,2,Modest,13.1%,Sp. Atk,Attack,,,,,,
 Noivern,147,stat_alignment,3,Hasty,1.1%,Speed,Defense,,,,,,
 Noivern,147,stat_alignment,4,Jolly,1.0%,Speed,Sp. Atk,,,,,,
-Noivern,147,stat_alignment,5,Mild,0.7%,Sp. Atk,Defense,,,,,,
-Noivern,147,stat_alignment,6,Bold,0.6%,Defense,Attack,,,,,,
-Noivern,147,stat_alignment,7,Adamant,0.6%,Attack,Sp. Atk,,,,,,
+Noivern,147,stat_alignment,5,Mild,0.6%,Sp. Atk,Defense,,,,,,
+Noivern,147,stat_alignment,6,Bold,0.5%,Defense,Attack,,,,,,
+Noivern,147,stat_alignment,7,Adamant,0.5%,Attack,Sp. Atk,,,,,,
 Noivern,147,stat_alignment,8,Calm,0.4%,Sp. Def,Attack,,,,,,
 Noivern,147,stat_alignment,9,Naive,0.4%,Speed,Sp. Def,,,,,,
-Noivern,147,stat_alignment,10,Impish,0.2%,Defense,Sp. Atk,,,,,,
-Noivern,147,stat_points,1,,50.8%,,,2,0,0,32,0,32
-Noivern,147,stat_points,2,,9.7%,,,0,0,2,32,0,32
+Noivern,147,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Noivern,147,stat_points,1,,50.5%,,,2,0,0,32,0,32
+Noivern,147,stat_points,2,,9.8%,,,0,0,2,32,0,32
 Noivern,147,stat_points,3,,6.5%,,,0,0,0,32,2,32
 Noivern,147,stat_points,4,,3.6%,,,0,0,0,32,0,32
 Noivern,147,stat_points,5,,2.8%,,,0,0,1,32,1,32
-Noivern,147,stat_points,6,,2.8%,,,4,0,0,32,0,30
-Noivern,147,stat_points,7,,2.5%,,,1,0,1,32,0,32
+Noivern,147,stat_points,6,,2.7%,,,4,0,0,32,0,30
+Noivern,147,stat_points,7,,2.7%,,,1,0,1,32,0,32
 Noivern,147,stat_points,8,,1.2%,,,3,0,0,32,0,31
 Noivern,147,stat_points,9,,1.1%,,,32,0,1,0,1,32
-Noivern,147,stat_points,10,,0.9%,,,1,0,0,32,1,32
-Noivern,147,ability,1,Telepathy,39.3%,,,,,,,,
-Noivern,147,ability,2,Frisk,34.0%,,,,,,,,
+Noivern,147,stat_points,10,,1.0%,,,1,0,0,32,1,32
+Noivern,147,ability,1,Telepathy,39.7%,,,,,,,,
+Noivern,147,ability,2,Frisk,33.7%,,,,,,,,
 Noivern,147,ability,3,Infiltrator,26.7%,,,,,,,,

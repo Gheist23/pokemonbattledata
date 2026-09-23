@@ -567,18 +567,76 @@ function chooseOverviewTop(value) {
   renderMain();
 }
 
-/** "Top N Meta ▾": a native list of 1..N laid over the segment, so any click opens it. */
+/** "Top N Meta ▾": any number from 1 to the ranked count.
+ *
+ *  A native select would drop a list of all 262 numbers down the whole screen,
+ *  so the list is drawn here instead and kept to a few rows high, scrolled to
+ *  the number in use.
+ */
 function topMetaControl() {
   const current = overviewTop();
   const max = metaCount() || current;
   if (!metaCount()) data.loadMeta(format()).then(() => renderMain()).catch(() => {});
-  return h("label", { class: "bd-tab bd-topx", title: `Score the Offense, Defense and Speed overviews against the ${current} highest-ranked ${format()} Pokémon` },
-    h("span", { "aria-hidden": "true" }, `Top ${current} Meta`),
-    h("span", { class: "bd-topx-caret", "aria-hidden": "true" }, "▾"),
-    select(Array.from({ length: max }, (_, i) => String(i + 1)), String(current), (value) => chooseOverviewTop(Number(value)), {
-      class: "bd-topx-select",
-      "aria-label": `How many ranked ${format()} Pokémon the overviews use (1 to ${max})`,
+
+  const panel = h("div", { class: "bd-topx-panel", role: "listbox", hidden: true, "aria-label": `How many ranked ${format()} Pokémon the overviews use (1 to ${max})` },
+    ...Array.from({ length: max }, (_, index) => {
+      const value = index + 1;
+      return h("button", {
+        type: "button", class: `bd-topx-option ${value === current ? "on" : ""}`, role: "option",
+        "aria-selected": value === current ? "true" : "false", "data-value": String(value),
+        onclick: () => chooseOverviewTop(value),
+      }, `Top ${value}`);
     }));
+
+  const button = h("button", {
+    type: "button", class: "bd-tab bd-topx", "aria-haspopup": "listbox", "aria-expanded": "false",
+    title: `Score the Offense, Defense and Speed overviews against the ${current} highest-ranked ${format()} Pokémon`,
+    onclick: (event) => { event.stopPropagation(); toggleTopMetaPanel(panel); },
+    onkeydown: (event) => {
+      if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+      event.preventDefault();
+      toggleTopMetaPanel(panel, true);
+      panel.querySelector(".bd-topx-option.on")?.focus();
+    },
+  }, h("span", {}, `Top ${current} Meta`), h("span", { class: "bd-topx-caret", "aria-hidden": "true" }, "▾"));
+
+  return h("div", { class: "bd-topx-wrap" }, button, panel);
+}
+
+/** Opens or closes the Top-X list; only one is ever open, and Escape closes it. */
+function toggleTopMetaPanel(panel, forceOpen = false) {
+  const open = forceOpen || panel.hidden;
+  for (const other of document.querySelectorAll(".bd-topx-panel")) {
+    if (other !== panel) {
+      other.hidden = true;
+      other.previousElementSibling?.setAttribute("aria-expanded", "false");
+    }
+  }
+  panel.hidden = !open;
+  panel.previousElementSibling?.setAttribute("aria-expanded", open ? "true" : "false");
+  if (!open) return;
+  panel.querySelector(".bd-topx-option.on")?.scrollIntoView({ block: "center" });
+  const close = (event) => {
+    if (panel.contains(event.target) || panel.previousElementSibling?.contains(event.target)) return;
+    panel.hidden = true;
+    panel.previousElementSibling?.setAttribute("aria-expanded", "false");
+    document.removeEventListener("click", close);
+  };
+  document.addEventListener("click", close);
+  panel.onkeydown = (event) => {
+    if (event.key === "Escape") {
+      panel.hidden = true;
+      panel.previousElementSibling?.setAttribute("aria-expanded", "false");
+      panel.previousElementSibling?.focus();
+      return;
+    }
+    if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+    event.preventDefault();
+    const options = [...panel.querySelectorAll(".bd-topx-option")];
+    const at = options.indexOf(document.activeElement);
+    const next = event.key === "ArrowDown" ? at + 1 : at - 1;
+    options[Math.max(0, Math.min(options.length - 1, next))]?.focus();
+  };
 }
 
 function overviewKey() {

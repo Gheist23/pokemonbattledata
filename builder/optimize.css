@@ -135,6 +135,8 @@ button.bd-opt-move:hover { border-color: var(--bd-line-strong); }
 .bd-opt-table tbody tr.changed td { background: rgba(148, 163, 184, 0.1) !important; }
 .bd-opt-table tbody tr.changed th { border-left: 2px solid var(--bd-line-strong) !important; color: var(--text); font-weight: 800; }
 .bd-opt-table tbody tr.changed td { color: var(--text); }
+/* The same 2px on the quiet rows, so the stat labels stay in one line. */
+.bd-opt-table tbody tr.same th { border-left: 2px solid transparent !important; }
 .bd-opt-table tbody tr.same th,
 .bd-opt-table tbody tr.same td { color: var(--soft); }
 .bd-opt-table tbody tr.same b { color: var(--soft); font-weight: 650; }

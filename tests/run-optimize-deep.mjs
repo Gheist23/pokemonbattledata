@@ -572,8 +572,9 @@ for (const [team, slot, options] of jobs) {
 //      matchup score may not decide it: it adds up every item set of a threat and both
 //      sides of the fight at once, so it can rise while the one set the row shows only
 //      has a sentence that says the Pokemon hits softer - and the row was then listed
-//      under Better against its own words. A row that says both is marked "both ways"
-//      and prints one sentence of each side;
+//      under Better against its own words. A row that pulls both ways - in its own
+//      sentences, or in the one-on-one chance beside them - is marked "both ways", and
+//      one whose sentences split prints one of each;
 //   b) the Previously / Now block keeps every number (Stat Points, the final stat at
 //      level 50, the total out of 66), marks only the rows that moved, says which way
 //      each one went with an arrow as well as a sign, and never paints a direction:
@@ -592,10 +593,14 @@ for (const [team, slot, options] of jobs) {
       check(row.lines.length <= 2, `${where} prints ${row.lines.length} lines`);
       check(!(row.tone === "better" && bad.length && !good.length), `${where} is listed under Better and every line it shows says worse: ${said}`);
       check(!(row.tone === "worse" && good.length && !bad.length), `${where} is listed under Worse and every line it shows says better: ${said}`);
-      check(Boolean(row.trade) === Boolean(good.length && bad.length), `${where} is${row.trade ? "" : " not"} marked "both ways" but shows ${said}`);
+      // "Both ways" is every row that pulls in two directions: its own lines, or the
+      // one-on-one chance printed beside them moving against the side it is listed on.
+      const raceAgainst = Math.abs(row.win_after - row.win_before) >= 0.1 && (row.win_after > row.win_before) !== (row.tone === "better");
+      check(Boolean(row.trade) === Boolean((good.length && bad.length) || raceAgainst),
+        `${where} is${row.trade ? "" : " not"} marked "both ways" but shows ${said} with the 1-on-1 at ${Math.round(row.win_before * 100)}% → ${Math.round(row.win_after * 100)}%`);
       if (row.trade) {
         trades += 1;
-        check(good.length === 1 && bad.length === 1, `${where} is marked "both ways" but does not show one line of each: ${said}`);
+        if (good.length && bad.length) check(good.length === 1 && bad.length === 1, `${where} is marked "both ways" but does not show one line of each: ${said}`);
       }
       if ((row.points > 0) !== (row.tone === "better")) scoreDisagrees += 1;
     }

@@ -69,6 +69,8 @@ export const DEPTHS = {
 const TEMPLATES = [[2, 32, 0, 0, 0, 32], [2, 0, 0, 32, 0, 32], [32, 32, 0, 0, 2, 0], [32, 0, 0, 32, 2, 0], [32, 0, 32, 0, 2, 0], [32, 0, 2, 0, 32, 0], [32, 2, 16, 0, 16, 0]];
 const MEMO_MEMBERS = 1; // the member whose calcs stay cached for "Run again" (tens of MB)
 const EPSILON = 1e-9;
+/** How much the one-on-one chance has to move before a change row prints it as news. */
+const RACE_READABLE = 0.1;
 const SCREEN_SHARE = 0.4; // of the evaluations, at most, for screening Natures and starts
 
 class Stop extends Error {}
@@ -908,8 +910,9 @@ export class DeepOptimizer {
    * at once, so it can rise while the one set shown here has only a sentence that says
    * the Pokemon hits softer - the row would then be listed under Better against its own
    * words. Where the sentences disagree with each other the row is a trade, and then the
-   * shown set's own score decides the side, one sentence of each side is printed, and
-   * `trade` marks it so the card can say so.
+   * shown set's own score decides the side and one sentence of each side is printed.
+   * `trade` marks every row that pulls both ways - by its sentences or by the one-on-one
+   * chance printed beside them - so the card can say so.
    */
   changes(objective, beforeDetail, afterDetail, plan = this.planContext(objective)) {
     const groups = new Map();
@@ -933,8 +936,9 @@ export class DeepOptimizer {
       const lines = this.changeLines(objective, b, a, plan);
       const winBefore = b.contexts[plan.index].race;
       const winAfter = a.contexts[plan.index].race;
+      const race = winAfter - winBefore;
       if (Math.abs(group.weight) * 100 / total < 0.005) continue;
-      if (!lines.length && Math.abs(winAfter - winBefore) < 0.1) continue;
+      if (!lines.length && Math.abs(race) < RACE_READABLE) continue;
       const row = b.row;
       const good = lines.filter((l) => l.tone === "good");
       const bad = lines.filter((l) => l.tone === "bad");
@@ -944,12 +948,15 @@ export class DeepOptimizer {
         : split ? (group.pickValue > 0 ? "better" : "worse")
           // Nothing to say about the hits: the one-on-one chance beside the row is all
           // there is, and it only got this far when it moved enough to read.
-          : (winAfter > winBefore ? "better" : "worse");
+          : (race > 0 ? "better" : "worse");
       const lead = lines.filter((l) => (tone === "better" ? l.tone === "good" : l.tone === "bad"));
       const rest = lines.filter((l) => (tone === "better" ? l.tone !== "good" : l.tone !== "bad"));
       out.push({
         rank: row.rank, name: row.name, species: row.species, form: row.form, item: row.item,
-        points: (100 * group.weight) / total, tone, trade: split,
+        points: (100 * group.weight) / total, tone,
+        // A trade: the row's own sentences disagree with each other, or the one-on-one
+        // chance printed beside them moved the other way.
+        trade: split || (Math.abs(race) >= RACE_READABLE && (race > 0) !== (tone === "better")),
         // Two sentences at most: the side the row is on first, and on a trade one of each.
         lines: lead.length && rest.length ? [lead[0], rest[0]] : [...lead, ...rest].slice(0, 2),
         win_before: winBefore, win_after: winAfter,

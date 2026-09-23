@@ -750,9 +750,16 @@
 
   /* --------------------------------------------------- type lists: render */
 
-  /** "Top 30 Meta", or the whole ranked list when the scope is All Pokemon. */
+  /** "Top 30 Meta", or the whole ranked list when the scope is All Pokemon. The
+   *  Top X is capped at how many Pokemon are actually ranked, the way the Team
+   *  Builder's own Top-X is. */
+  function scopeSize(count) {
+    const asked = Number(state.scope) || 30;
+    return count > 0 ? Math.min(asked, count) : asked;
+  }
+
   function scopeLabel(count) {
-    return state.scope === "all" ? `the full ranked meta (${count} Pokemon)` : `Top ${Math.min(Number(state.scope) || 30, count)} Meta`;
+    return state.scope === "all" ? `the full ranked meta (${count} Pokemon)` : `Top ${scopeSize(count)} Meta`;
   }
 
   function windowLabel() {
@@ -781,7 +788,7 @@
     const was = typeScoresFor(data, state.baseline);
     const count = now?.count || 0;
     const scope = scopeLabel(count);
-    if (els.typePill) els.typePill.textContent = state.scope === "all" ? `All ${count}` : `Top ${Math.min(Number(state.scope) || 30, count)}`;
+    if (els.typePill) els.typePill.textContent = state.scope === "all" ? `All ${count}` : `Top ${scopeSize(count)}`;
 
     const offense = now ? typeRows(now, was, "offense") : [];
     const defense = now ? typeRows(now, was, "defense") : [];

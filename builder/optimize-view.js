@@ -235,49 +235,117 @@ function pointsNote(result) {
   return null;
 }
 
-/** Previously | Now | Change: the Nature, every stat as "Stat Points · final stat", the total and the moves. */
+/**
+ * Previously | Now | Change: the Nature, every stat as "Stat Points · final stat", the
+ * total and the moves.
+ *
+ * What a player compares is which stats moved, which way and by how much, so the rows
+ * that moved are the loud ones, each carries an arrow and a bar for its size beside the
+ * number, and the rows that did not move fade back and say "same". The arrows and bars
+ * are one neutral colour on purpose: less Speed for more bulk is a trade, not a loss,
+ * and nothing here may colour it as one. ▲ and ▼ stay the Nature's own marks.
+ */
 function compareTable(result) {
   const { before, after } = result;
-  const mark = (side, index) => (side.nature_effect?.[0] === index ? "▲" : side.nature_effect?.[1] === index ? "▼" : "");
-  const cell = (side, index) => h("td", {}, h("span", { class: "bd-opt-sp" }, String(side.bonuses[index])), " · ", h("b", {}, String(side.stats[index])),
-    mark(side, index) ? h("span", { class: `bd-nature-mark ${mark(side, index) === "▲" ? "up" : "down"}`, title: mark(side, index) === "▲" ? "Raised by the Nature" : "Lowered by the Nature" }, mark(side, index)) : null);
-  const change = (was, now, extra = "") => {
-    const delta = now - was;
-    return h("td", {}, delta ? h("span", { class: `bd-opt-delta ${toneOf(delta)}` }, `${delta > 0 ? "+" : "−"}${Math.abs(delta)}${extra}`) : h("span", { class: "bd-note" }, "–"));
-  };
+  const shifts = STATS.map((label, index) => ({
+    label,
+    index,
+    stat: after.stats[index] - before.stats[index],
+    points: after.bonuses[index] - before.bonuses[index],
+  }));
+  // Every bar is drawn against the biggest stat change, so their lengths compare.
+  const scale = Math.max(1, ...shifts.map((s) => Math.abs(s.stat)));
   const natureChanged = before.nature !== after.nature;
   const rows = [
-    h("tr", { class: natureChanged ? "changed" : "" },
+    h("tr", { class: `bd-opt-nature-row ${natureChanged ? "changed" : "same"}` },
       h("th", { scope: "row" }, "Nature"),
       natureCell(before), natureCell(after),
-      h("td", {}, natureChanged ? h("span", { class: "bd-opt-delta changed" }, "New") : h("span", { class: "bd-note" }, "–"))),
-    ...STATS.map((label, index) => h("tr", { class: before.bonuses[index] !== after.bonuses[index] || before.stats[index] !== after.stats[index] ? "changed" : "" },
-      h("th", { scope: "row" }, label),
-      cell(before, index), cell(after, index),
-      change(before.stats[index], after.stats[index]))),
-    h("tr", { class: "bd-opt-total" },
+      h("td", { class: "bd-opt-change-cell" }, natureChanged
+        ? h("span", { class: "bd-opt-shift new" }, "New")
+        : h("span", { class: "bd-opt-shift same" }, "same"))),
+    ...shifts.map((shift) => h("tr", { class: shift.stat || shift.points ? "changed" : "same" },
+      h("th", { scope: "row" }, shift.label),
+      statCell(before, shift.index), statCell(after, shift.index),
+      shiftCell(shift.stat, scale, shift.points))),
+    h("tr", { class: `bd-opt-total ${before.total !== after.total ? "changed" : "same"}` },
       h("th", { scope: "row" }, "Total"),
-      h("td", {}, `${before.total}/66`), h("td", {}, `${after.total}/66`),
-      change(before.total, after.total, " SP")),
+      h("td", { class: "bd-opt-cell" }, h("b", {}, String(before.total)), "/66"),
+      h("td", { class: "bd-opt-cell" }, h("b", {}, String(after.total)), "/66"),
+      shiftCell(after.total - before.total, 0, 0, " SP")),
   ];
   const moves = h("div", { class: "bd-opt-moves-compare" },
     h("div", {}, h("span", { class: "bd-field-label" }, "Previously"), (before.moves || []).some(Boolean) ? moveChips(before.moves, result.removed, "gone") : h("p", { class: "bd-note" }, "No moves")),
     h("div", {}, h("span", { class: "bd-field-label" }, "Now"), moveChips(after.moves, result.added, "new")));
+  // A move the saved set was missing that nearly every team of this Pokemon runs.
   const guaranteed = result.guaranteed?.note ? h("p", { class: "bd-note" }, result.guaranteed.note) : null;
   return h("div", { class: "bd-opt-compare" },
     h("h4", {}, "Previously and now"),
-    h("p", { class: "bd-note" }, "Each stat shows its Stat Points · the final stat at level 50. ▲ and ▼ mark the stats the Nature raises and lowers."),
+    shiftStrip(before, after, shifts),
     h("div", { class: "bd-stat-table-wrap bd-opt-table-wrap" },
       h("table", { class: "bd-stat-table bd-opt-table" },
         h("thead", {}, h("tr", {}, h("th", {}, ""), h("th", {}, "Previously"), h("th", {}, "Now"), h("th", {}, "Change"))),
         h("tbody", {}, rows))),
+    h("p", { class: "bd-note bd-opt-table-note" }, "Each stat shows its Stat Points · the final stat at level 50, and the arrow is the change in that final stat; the bars compare how big the changes are. ▲ and ▼ mark the stats the Nature raises and lowers."),
     moves, guaranteed);
 }
 
-/** "Jolly" over "+Spe −SpA", so the column stays narrow on a phone. */
+/** The whole change in one line: the Nature, then every stat that moved, biggest first. */
+function shiftStrip(before, after, shifts) {
+  const moved = shifts.filter((s) => s.stat || s.points).sort((a, b) => Math.abs(b.stat) - Math.abs(a.stat) || Math.abs(b.points) - Math.abs(a.points));
+  const chips = [];
+  if (before.nature !== after.nature) {
+    chips.push(h("span", { class: "bd-opt-shift-chip nature" },
+      h("span", { class: "bd-opt-shift-chip-label" }, "Nature"),
+      h("b", {}, `${before.nature} → ${after.nature}`)));
+  }
+  for (const shift of moved) {
+    // A stat whose points moved without moving the stat says so in Stat Points.
+    const value = shift.stat || shift.points;
+    const unit = shift.stat ? "" : " SP";
+    chips.push(h("span", { class: `bd-opt-shift-chip ${value > 0 ? "up" : "down"}` },
+      h("span", { class: "bd-opt-shift-chip-label" }, shift.label),
+      h("i", { class: "bd-opt-arrow", "aria-hidden": "true" }, value > 0 ? "↑" : "↓"),
+      h("b", {}, `${value > 0 ? "+" : "−"}${Math.abs(value)}${unit}`)));
+  }
+  if (!chips.length) return h("p", { class: "bd-note bd-opt-shift-strip-none" }, "Same Nature and the same Stat Points: only the moves change.");
+  return h("div", { class: "bd-opt-shift-strip" }, chips);
+}
+
+/** "Stat Points · final stat", with the Nature's own ▲ / ▼ on the stat it moves. */
+function statCell(side, index) {
+  const [up, down] = side.nature_effect || [-1, -1];
+  const mark = index === up ? "up" : index === down ? "down" : "";
+  return h("td", { class: "bd-opt-cell" },
+    h("span", { class: "bd-opt-sp" }, String(side.bonuses[index])), " · ", h("b", {}, String(side.stats[index])),
+    mark ? h("span", { class: `bd-nature-mark ${mark}`, title: mark === "up" ? "Raised by the Nature" : "Lowered by the Nature" }, mark === "up" ? "▲" : "▼") : null);
+}
+
+/**
+ * The Change cell: an arrow, the signed number and a bar that grows out of the middle,
+ * right for up and left for down. One colour for both, since up is not always better.
+ * `scale` is the biggest change on the card, and 0 draws no bar (the Stat Point total
+ * is not on the same scale as a stat, so a bar there would compare nothing).
+ */
+function shiftCell(delta, scale, points = 0, unit = "") {
+  const value = delta || points;
+  if (!value) return h("td", { class: "bd-opt-change-cell" }, h("span", { class: "bd-opt-shift same" }, "same"));
+  const up = value > 0;
+  // Half the track is the biggest change on the card, so the bar never leaves its side.
+  const width = `${Math.round(Math.min(1, Math.abs(delta || 0) / (scale || 1)) * 50)}%`;
+  return h("td", { class: "bd-opt-change-cell" },
+    h("span", { class: `bd-opt-shift ${up ? "up" : "down"}` },
+      h("i", { class: "bd-opt-arrow", "aria-hidden": "true" }, up ? "↑" : "↓"),
+      `${up ? "+" : "−"}${Math.abs(value)}${delta ? unit : " SP"}`),
+    delta && scale > 0 ? h("span", { class: `bd-opt-bar ${up ? "up" : "down"}`, "aria-hidden": "true" }, h("i", { style: { width } })) : null);
+}
+
+/** "Jolly" over "▲Spe ▼SpA", so the column stays narrow on a phone. */
 function natureCell(side) {
   const [up, down] = side.nature_effect || [-1, -1];
-  return h("td", { class: "bd-opt-nature" }, side.nature, h("small", {}, up >= 0 ? `+${STATS[up]} −${STATS[down]}` : "neutral"));
+  return h("td", { class: "bd-opt-cell bd-opt-nature" }, h("b", {}, side.nature),
+    h("small", {}, up >= 0
+      ? [h("span", { class: "bd-nature-mark up" }, "▲"), STATS[up], " ", h("span", { class: "bd-nature-mark down" }, "▼"), STATS[down]]
+      : "neutral"));
 }
 
 function moveChips(moves, highlighted, tone) {
@@ -305,7 +373,7 @@ function changesSection(result, ui, props) {
   paint();
   return h("div", { class: "bd-opt-section bd-opt-changes" },
     h("h4", {}, "What changes in battle"),
-    h("p", { class: "bd-note" }, `Threat by threat (on the item set that changes most): what it now survives or knocks out, who moves first, and the chance to win the one-on-one race to the KO ${planText(result)}. The biggest changes come first. Each row is listed by what its own lines say; one marked “both ways” gains in one way and gives something up in another, and shows both.`),
+    h("p", { class: "bd-note" }, `Threat by threat (on the item set that changes most): what it now survives or knocks out, who moves first, and the chance to win the one-on-one race to the KO ${planText(result)}. The biggest changes come first, and each row sits on the side its own lines say. “Both ways” means it gains one way and gives something up the other, in its lines or in the 1-on-1 chance beside them.`),
     segmented([["better", `Better (${better.length})`], ["worse", `Worse (${worse.length})`]], ui.changeTab, (tab) => { ui.changeTab = tab; ui.allChanges = false; paint(); }, { "aria-label": "Better or worse matchups" }),
     list);
 }

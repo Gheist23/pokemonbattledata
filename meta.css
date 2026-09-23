@@ -75,8 +75,6 @@
 }
 .meta-arrow.up { color: #6fe3c4; }
 .meta-arrow.down { color: #f3868f; }
-.meta-arrow.attack { color: #ffce6a; font-size: 0.92rem; }
-.meta-arrow.shield { color: #8fb8ff; font-size: 0.92rem; }
 .meta-panel-up { border-color: rgba(88, 220, 196, 0.24); }
 .meta-panel-down { border-color: rgba(239, 100, 109, 0.22); }
 .meta-panel-offense { border-color: rgba(255, 206, 106, 0.24); }
@@ -209,10 +207,10 @@
 .meta-type-thumb {
   background: transparent;
 }
+/* The type icons are square (64x64), so they are sized, not stretched. */
 .meta-type-thumb img {
-  width: 100%;
-  height: auto;
-  max-height: 22px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
 }
 .meta-type-rank {
@@ -367,6 +365,7 @@
   .meta-type-list .meta-delta { min-width: 62px; font-size: 0.72rem; padding: 0.26rem 0.38rem; }
   .meta-type-rank { min-width: 1.2rem; height: 1.2rem; margin-right: 0.35rem; font-size: 0.68rem; }
   .meta-type-lead { font-size: 0.79rem; }
+  .meta-type-thumb img { width: 26px; height: 26px; }
   .meta-tabs { width: 100%; justify-content: space-between; }
   .meta-tab { flex: 1 1 auto; padding: 0 0.5rem; }
 }

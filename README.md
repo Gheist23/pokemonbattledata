@@ -121,7 +121,7 @@ analysis in the browser. They are plain ES modules in `builder/`, with no build 
 
 | File | Role |
 | --- | --- |
-| `builder/engine.js` | port of the app's damage calculation, with the app's exact integer and rounding behaviour |
+| `builder/engine.js` | port of the app's damage calculation, with the app's exact integer and rounding behaviour (the name normalisers, the Mega and form lookups and each move's `move_meta` base are memoised per engine, which is what makes a cold Deep Auto Build fit its budget) |
 | `builder/calc-model.js`, `builder/calc-page.js` | the calculator panel: field, KO odds, the no-move matchup verdict |
 | `builder/analysis-worker.js` | runs every analysis below in a Web Worker |
 | `builder/team-eval.js`, `builder/team-payload.js` | Team Evaluation: threat calcs, critical threats, Offense/Defense scores (the app's V36-V494 stack) |
@@ -133,6 +133,8 @@ analysis in the browser. They are plain ES modules in `builder/`, with no build 
 | `builder/optimize-view.js`, `builder/optimize.css` | the Optimize tab: options, progress, Previously / Now table, what changes in battle, Speed lists, moves tested |
 | `builder/autobuild-search.js` | Auto Build's search: the greedy path as the anchor, a beam over partial teams, the Team Evaluation comparison, one repair swap |
 | `builder/autobuild-archetype.js` | Auto Build's Preferred archetype and Prioritize Meta Pokémon |
+| `builder/guaranteed-moves.js` | the guaranteed-moves rule (95%+ usage moves stay on every Auto Build, Suggestions and Optimize set) |
+| `builder/nature-spreads.js` | the Nature / Stat Point pairing rule (a Nature never gets Stat Points in the stat it lowers) |
 | `builder/tournament-test.js`, `builder/tournament-view.js` | Test against Tournament Teams and its Result Analysis |
 | `builder/speed-tiers.js`, `builder/team-overview.js` | the ranked Speed list and the Team Overview charts |
 | `builder/evaluation-view.js` | the Team Evaluation screens and the Settings dialog |
@@ -170,7 +172,15 @@ Data comes from two places:
   `run-overview-vectors.mjs` (Speed list and Team Overview charts). Each must report 0
   mismatches after an app change is recorded again. `run-autobuild-vectors.mjs` also reads
   `autobuild-vectors-options.json`, builds recorded with a Preferred archetype or Prioritize
-  Meta Pokemon.
+  Meta Pokemon, and `autobuild-vectors-guaranteed.json`; `run-suggest-vectors.mjs` also reads
+  `suggest-vectors-guaranteed.json`. The `-guaranteed` files are runs recorded after the
+  guaranteed-moves rule, so they carry `record.rules.guaranteed_move_share` and replay with
+  the rule on, next to the older recordings, which replay with it off. The Nature / Stat Point
+  pairing is stamped the same way, in `record.rules.paired_spreads`, and read by
+  `run-eval-vectors.mjs`, `run-suggest-vectors.mjs`, `run-autobuild-vectors.mjs`,
+  `run-optimize-vectors.mjs` and `run-overview-vectors.mjs`. A recording of a start
+  team that has no evaluation or Suggestions recording of its own names the recorded team
+  whose rows its meta records are rebuilt from, in `meta_case`.
 
   Auto Build departs from the app on purpose in three places, each a fix for an app bug the
   recordings exposed (the test replays the app's own behaviour where they apply):
@@ -221,10 +231,20 @@ Data comes from two places:
   whole run (`capMs`: 24 / 44 / 66 s, about twice the old deadlines); when it cuts a step,
   `search.capped` and `search.cut` say which, and the page says the search hit its time
   limit. Deep's shortlist (45) and repair (2 targets, 5 of 80 candidates) were cut after a
-  cold Deep build of an empty team took 45-54 s. Measured in Node on 2026-09-22 since: Deep
-  cold 40-45 s (empty team, about 25 s of it the anchor) and 31-32 s (three kept), warm 8-9 s
-  and 5-7 s; Medium cold 18-21 s, warm 5-6 s; Fast cold 10 s, warm 1-3 s; a warm run on a clock
-  1.5x slower picked the same team. The run yields every ~0.1 s; the evaluator's per-move mode (V458) is set
+  cold Deep build of an empty team took 45-54 s. The times then crept back over the budget as
+  the checks and the two set rules grew, and what bought them back was not a smaller search
+  but `builder/engine.js`: the name normalisers (`clean` / `key` / `compact` / `pyTitle`),
+  `parseMegaName` / `speciesAndForm`, `resolve` / `formRecord`, the Mega identity behind
+  `effectiveMegaMon`, `canonicalMoveName` and each move's `move_meta` base (which used to be
+  deep-copied with `JSON.parse(JSON.stringify(...))` on every damage calculation) now keep
+  their answers. They are pure functions of their arguments over `appData`, so every compared
+  team, every score and every log line is unchanged - the parity suites and a 24-case
+  before/after matrix (six start teams x archetypes x depths, both formats) all match to the
+  last decimal. Measured in Node on 2026-09-23, the two sides back to back on the same
+  machine: Deep cold 41 s (empty team; 66 s before) and 31 s (three kept; 45 s before), warm
+  6-9 s and 5-6 s; Medium cold 18 s (25 s before), warm 3-4 s; Fast cold 10 s (15 s before),
+  warm 1-2 s; a warm run on a clock 1.5x slower picked the same team. The run yields every
+  ~0.1 s; the evaluator's per-move mode (V458) is set
   only inside those synchronous chunks, so other worker requests never see it. Stop (a
   `cancel` message) returns the best team so far: instantly once the first team is
   finished, and within ~0.3 s before that (the rest filled from a dozen candidates per
@@ -245,6 +265,76 @@ Data comes from two places:
   not the search: the Companion 1.0.17 ships the 14 Sep battle data, the site regenerates
   `meta-*.json` daily. On the same data the greedy anchor and the Suggestions list are the
   app's (the parity suites).
+
+  Guaranteed moves (`builder/guaranteed-moves.js`), as the page puts it to players: a move
+  used by 95% or more of that Pokémon on the ladder is always kept on the final set, unless
+  it needs weather or terrain the team does not set up. So it is on every set Auto Build and
+  Suggested Pokémon put forward, and no finish step (anchor move, field retune, speed mode,
+  set refinement) removes one. A weather or terrain move counts only once the team (or the
+  set's own Ability, a Mega's own for its stone) turns the condition on; a guaranteed Trick
+  Room or Tailwind stays even against the team's speed mode; the user's own members that no
+  step changed stay as written. `TeamSuggestions` / `TeamAutoBuild` take
+  `{guaranteedMoveShare}` (95 by default; `null` = off, how recordings made before the rule
+  replay: the parity runners read `record.rules.guaranteed_move_share`).
+  `node tests/run-guaranteed-moves.mjs` (`--full` for everything) checks it on both formats.
+
+  Optimize's move test follows the same rule (`optimize-deep.js` `moveGuards`), so the tab
+  cannot offer back what Auto Build guaranteed: a guaranteed move is in "Kept as they are"
+  with its share, no move option, trade-off or alternative drops one, and a weather or terrain
+  move the team cannot switch on is never offered as a new attack (one the set already has
+  stays testable). A saved set that is missing one is measured from the set with it in and
+  offered it in place of its least used move that nothing else keeps - `result.guaranteed`
+  carries what was added and the sentence the Previously / Now breakdown prints, and the
+  suggestion stands without having to clear the usual margin first. Optimize is otherwise
+  unchanged: Stat Points, Nature, item and moves as before, and `DeepOptimizer.run` takes
+  `{guaranteedMoveShare}` like the other two (`null` = off). Section 7 of
+  `node tests/run-optimize-deep.mjs` checks it at both depths, and runs each case again with
+  the rule off, where the old behaviour has to come back - so a check that stopped testing the
+  rule fails instead of passing quietly.
+
+  One wording, both codebases (`guaranteed-moves.js` `describeChanges` and the app's
+  `guaranteed_moves.describe`): `Guaranteed move: Rillaboom keeps Grassy Glide (97.8% usage)
+  in place of High Horsepower.` / `... in a free move slot.`; the speed mode writes
+  `Speed mode: Farigiraf keeps Trick Room (96.1% usage), although the team plays Tailwind.`
+  and the field gate `Field conditions: ... which needs sun and the finished team does not
+  set it up.` The share is always one decimal (`formatShare` = Python's `f"{share:.1f}"`),
+  and where a message names the rule in words it uses the page's own ("every move they would
+  give up is used by 95% or more of their teams", when no slot is free for an archetype's
+  move). The field-gate line is the site's alone: the app's gate sits earlier, where the move
+  is never offered, so it has nothing to report.
+
+  Natures and Stat Points (`builder/nature-spreads.js`): a usage file ranks Natures and Stat
+  Point distributions as two separate lists and never records which distribution a Nature was
+  used with, so the Nature in place 2 has nothing to do with the distribution in place 2.
+  Read side by side, that handed a Jolly Garchomp - a Nature that lowers Sp. Atk - 32 Sp. Atk
+  and no Attack. Each Nature instead keeps the most used distribution it does not contradict:
+  nothing in the stat it lowers and, where the data offers one, something in the stat it
+  raises; when every recorded distribution invests in the lowered stat, the one that leans on
+  it least wins, and the answer is always a distribution the file really records. It is one
+  rule for the candidate spreads every Auto Build pick and Suggestions row is built on
+  (`team-eval.js` `commonSpreads` through `team-suggest.js` `spreadOptions`, including its
+  fallback, the common set's own Nature), for the threat stat distributions, and for a saved
+  tournament team's Natures (`spreadForNature`). `TeamEvaluator` takes `{pairedSpreads}` (on
+  by default; `null` = off, how a recording made before the rule replays), and
+  `TeamSuggestions` / `TeamAutoBuild` follow their evaluator or take their own.
+  `node tests/run-nature-spreads.mjs` checks the rule, the two formats' whole meta (no
+  candidate set invests in the stat its Nature lowers) and the option, and it also checks that
+  the old pairing still contradicts itself, so the check cannot pass on data that never had
+  the problem.
+
+  Singles: the app's checks and Synergy are written for Doubles, and every recording is a
+  Doubles one, so the site adapts them for Singles behind the format (Doubles runs the
+  unchanged code): the Spread Damage check and the "Spread attackers" and "Redirection /
+  Fake Out" archetype requirements are skipped, Perish Trap asks for trapping instead of
+  redirection, and moves that only help a partner (Follow Me, Rage Powder, Helping Hand,
+  Coaching...) count for no check (`team-checks.js`); Synergy leaves out what needs both
+  Pokemon on the field (friendly fire, Fake Out or redirection covering a turn, Helping
+  Hand, Intimidate beside it, ally Abilities, Commander; `team-synergy.js`); threat calcs never
+  assume a Plus/Minus partner; Suggestions give no "Found in similar team" bonus, since the
+  library holds Doubles tournament teams; the calculator hides Helping Hand and Friend
+  Guard. On the page, Team Evaluation and Auto Build results are kept per format: switching
+  shows that format's own, and a run that finishes after a switch is kept for its format.
+  `node tests/run-singles-smoke.mjs` runs every analysis once in Singles and checks this.
 
   Suggestions keep their order and scores (`run-suggest-vectors.mjs`); what the breakdown
   shows is extra: every layer's share of the score (`score_ledger`, `score_uncapped`; the

@@ -23,6 +23,34 @@ export const other = (side) => (side === LEFT ? RIGHT : LEFT);
 const norm = (value) => String(value ?? "").trim().replace(/\s+/g, " ").toLowerCase();
 const compactKey = (value) => String(value ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
+// How many amount pickers the result strip shows at once when no move is
+// selected and several moves have one.
+const MAX_COUNT_CONTROLS = 6;
+
+function ordinal(number) {
+  const rest = number % 100;
+  const suffix = rest >= 10 && rest <= 20 ? "th" : { 1: "st", 2: "nd", 3: "rd" }[number % 10] || "th";
+  return `${number}${suffix}`;
+}
+const hitsLabel = (count) => `${count} hit${count === 1 ? "" : "s"}`;
+const usesLabel = (count) => `${ordinal(count)} use`;
+const faintedNote = (count) => `${count} fainted all${count === 1 ? "y" : "ies"}`;
+
+/** The number of hits engine.js settles on when no amount has been chosen.
+ *  Mirrored here so the picker opens on the number the calculation is already
+ *  using; engine.js itself is checked against recorded app results and is left
+ *  untouched. */
+function defaultHitCount(mon, meta) {
+  if (meta.hits) return Math.max(1, Math.min(10, Number(meta.hits) || 1));
+  const range = meta.hit_range;
+  if (Array.isArray(range) && range.length >= 2) {
+    if (norm(mon.ability) === "skill link") return Number(range[1]);
+    if (norm(mon.item) === "loaded dice") return Math.max(Number(range[0]), Number(range[1]) - 1);
+    return 3;
+  }
+  return 1;
+}
+
 export const FIELD_LABELS = {
   protect: "Protect", helping_hand: "Helping Hand", aurora_veil: "Aurora Veil", reflect: "Reflect",
   light_screen: "Light Screen", tailwind: "Tailwind", friend_guard: "Friend Guard", stealth_rock: "Stealth Rock",
@@ -289,7 +317,20 @@ export class CalcModel {
       ctx.fainted_allies = clampFaintedAllies(this.state.effectValues[`${side}:fainted_allies`] || 0, this.state.format);
       const moveKey = norm(moveName);
       if (moveKey === "last respects" && !this.effectActive(side, "move", "Last Respects")) ctx.fainted_allies = 0;
-      if (moveKey === "rage fist") ctx.attacker_state.times_hit = Math.max(0, Math.min(6, Number(this.state.effectValues[`${side}:times_hit`] || 0)));
+      // The Rage Fist chip is the on/off switch it looks like: switching it off
+      // means this Pokemon has not been hit, as it already did for Last Respects.
+      if (moveKey === "rage fist") {
+        ctx.attacker_state.times_hit = this.effectActive(side, "move", "Rage Fist")
+          ? Math.max(0, Math.min(6, Number(this.state.effectValues[`${side}:times_hit`]) || 0))
+          : 0;
+      }
+      // A chosen amount reaches only the move it was chosen for.
+      for (const spec of this.countSpecs(side, moveName)) {
+        const value = this.countValue(spec);
+        if (spec.kind === "hits") ctx.hits = Math.max(1, Math.min(10, value));
+        else if (spec.kind === "times_used") ctx.times_used = Math.max(1, value);
+        else if (spec.kind === "ally_fainted_last_turn" && value) ctx.attacker_state.ally_fainted_last_turn = true;
+      }
       if (this.unburdenActive(side)) ctx.attacker_state.unburden = true;
       if (this.unburdenActive(defending)) ctx.defender_state.unburden = true;
       ctx.actual_spread_targets_v445 = 1;
@@ -610,7 +651,7 @@ export class CalcModel {
       if (normalized === "supreme overlord" || normalized === "last respects") {
         const limit = maxFaintedAllies(this.state.format);
         options = Array.from({ length: limit + 1 }, (_, n) => [`${n} fainted`, n]);
-        value = Number(this.state.effectValues[`${record.side}:fainted_allies`] || 0);
+        value = clampFaintedAllies(this.state.effectValues[`${record.side}:fainted_allies`] || 0, this.state.format);
       } else if (normalized === "rage fist") {
         options = [["Not hit", 0], ...Array.from({ length: 6 }, (_, n) => [`Hit ${n + 1}x`, n + 1])];
         value = Number(this.state.effectValues[`${record.side}:times_hit`] || 0);
@@ -638,6 +679,225 @@ export class CalcModel {
     const normalized = norm(name);
     if (normalized === "supreme overlord" || normalized === "last respects") this.state.effectValues[`${side}:fainted_allies`] = clampFaintedAllies(value, this.state.format);
     else if (normalized === "rage fist") this.state.effectValues[`${side}:times_hit`] = Math.max(0, Math.min(6, Number(value) || 0));
+  }
+
+  // ---- amounts for the moves whose strength is a count ----
+
+  /** Every amount `move` offers for the Pokemon on `side`: how many times it
+   *  hits, which use in a row it is, and whether an ally fainted last turn.
+   *  Each spec carries its own storage key, so one move's amount never reaches
+   *  another move or the other side. */
+  countSpecs(side, move) {
+    const key = norm(move);
+    if (!key) return [];
+    const meta = this.moveMetaFor(move);
+    if (!isDamaging(meta)) return [];
+    const mon = this.engine.effectiveMegaMon(this.mon(side));
+    const ability = norm(mon.ability);
+    const item = norm(mon.item);
+    const special = String(meta.special || "");
+    const specs = [];
+
+    const range = meta.hit_range;
+    if (ability !== "skill link") {
+      // Skill Link always lands every hit, so there is nothing to choose.
+      if (Array.isArray(range) && range.length >= 2) {
+        const high = Number(range[1]);
+        const low = item === "loaded dice" ? Math.max(Number(range[0]), high - 1) : Number(range[0]);
+        const auto = defaultHitCount(mon, meta);
+        specs.push({
+          kind: "hits",
+          storeKey: `${side}:hits:${key}`,
+          options: countOptions(low, high, hitsLabel),
+          default: auto,
+          natural: true,
+          tip: `How many times ${move} hits: ${low} to ${high}. Without a choice the calculator assumes ${hitsLabel(auto)}.`,
+        });
+      } else if (key === "population bomb" || special === "triple_axel" || special === "triple_kick") {
+        const top = Math.max(1, Math.min(10, Number(meta.hits) || (key === "population bomb" ? 10 : 3)));
+        specs.push({
+          kind: "hits",
+          storeKey: `${side}:hits:${key}`,
+          options: countOptions(1, top, hitsLabel),
+          default: top,
+          natural: true,
+          tip: `How many of the ${top} hits of ${move} land. Each hit can miss on its own.`,
+        });
+      }
+    }
+
+    let topUses = 0;
+    let natural = true;
+    let tip = "";
+    if (special === "successive_power") {
+      if (key === "fury cutter") {
+        // It doubles per use up to 160 power, so 40 -> 80 -> 160 is three uses.
+        const base = Math.max(1, Math.trunc(Number(meta.power) || 40));
+        topUses = 1;
+        while (topUses < 4 && base * 2 ** (topUses - 1) < 160) topUses += 1;
+      } else {
+        topUses = 5;
+        for (const effect of meta.effect_script || []) {
+          if (effect && typeof effect === "object" && String(effect.op || "") === "successive_power") {
+            topUses = Math.max(2, Math.min(10, Number(effect.max_uses) || 5));
+          }
+        }
+      }
+      tip = `Which use in a row this is. ${move} gets stronger each turn it is used again.`;
+    } else if (special === "team_successive_power") {
+      topUses = 5;
+      tip = `Which turn in a row ${move} is used, by any Pokémon on the field. It gets stronger each turn.`;
+    }
+    if (item === "metronome") {
+      if (topUses < 6) {
+        // An amount the held item brings, not the move: offered for the move
+        // being looked at rather than for every move at once.
+        natural = topUses > 0;
+        topUses = 6;
+      }
+      tip = `${tip ? `${tip} ` : ""}The Metronome item adds 20% per use of the same move in a row, up to double.`;
+    }
+    if (topUses > 1) {
+      specs.push({
+        kind: "times_used",
+        storeKey: `${side}:times_used:${key}`,
+        options: countOptions(1, topUses, usesLabel),
+        default: 1,
+        natural,
+        tip,
+      });
+    }
+
+    if (special === "retaliate" || key === "retaliate") {
+      specs.push({
+        kind: "ally_fainted_last_turn",
+        storeKey: `${side}:ally_fainted_last_turn`,
+        options: [["No ally fainted", 0], ["Ally fainted", 1]],
+        default: 0,
+        natural: true,
+        tip: "Retaliate doubles in power if a teammate fainted on the previous turn.",
+      });
+    }
+    return specs;
+  }
+
+  /** Move facts only, so a bare context does. */
+  moveMetaFor(move) {
+    return this.engine.moveMeta(makeContext({ move_name: String(move || ""), battle_format: this.state.format }));
+  }
+
+  /** The amount this spec holds, snapped to an option it still offers: picking
+   *  up Loaded Dice can take "2 hits" off the list after it was chosen. */
+  countValue(spec) {
+    const stored = this.state.effectValues[spec.storeKey];
+    const allowed = spec.options.map(([, value]) => value);
+    let value = stored === undefined || stored === null ? spec.default : Number(stored);
+    if (!Number.isFinite(value)) value = spec.default;
+    if (!allowed.includes(value) && allowed.length) {
+      value = allowed.reduce((best, option) => (Math.abs(option - value) < Math.abs(best - value) ? option : best), allowed[0]);
+    }
+    return value;
+  }
+
+  setCountValue(storeKey, value, fallback) {
+    const parsed = Number(value);
+    const next = Number.isFinite(parsed) ? Math.trunc(parsed) : Number(fallback);
+    if (next === Number(fallback)) delete this.state.effectValues[storeKey];
+    else this.state.effectValues[storeKey] = next;
+  }
+
+  /** The amount pickers the result strip should draw: the selected move's, or
+   *  those of every move on the board while the matchup is shown. */
+  countControls() {
+    const [rawSide, selectedMove] = this.selectedMove();
+    const selectedSide = rawSide === LEFT || rawSide === RIGHT ? rawSide : LEFT;
+    const sources = selectedMove
+      ? [[selectedSide, selectedMove]]
+      : [LEFT, RIGHT].flatMap((side) => this.mon(side).moves.slice(0, 4).map((move) => [side, move]));
+    const rows = [];
+    const seen = new Set();
+    for (const [side, move] of sources) {
+      const key = norm(move);
+      if (!key || seen.has(`${side}:${key}`)) continue;
+      seen.add(`${side}:${key}`);
+      for (const spec of this.countSpecs(side, move)) {
+        if (!selectedMove && !spec.natural && !(spec.storeKey in this.state.effectValues)) continue;
+        rows.push({ side, move, spec });
+      }
+    }
+    const shown = rows.slice(0, MAX_COUNT_CONTROLS);
+    const sidesPerMove = new Map();
+    for (const row of shown) {
+      const key = norm(row.move);
+      if (!sidesPerMove.has(key)) sidesPerMove.set(key, new Set());
+      sidesPerMove.get(key).add(row.side);
+    }
+    return shown.map((row) => ({
+      ...row,
+      label: sidesPerMove.get(norm(row.move)).size > 1 ? `${row.side === LEFT ? "Our" : "Opposing"} · ${row.move}` : row.move,
+      value: this.countValue(row.spec),
+    }));
+  }
+
+  /** What the result heading should say about the amounts behind this move,
+   *  e.g. "2 fainted allies" or "hit 3 times". */
+  headerNotes(side, move) {
+    const key = norm(move);
+    const notes = [];
+    let usesFainted = key === "last respects" && this.effectActive(side, "move", "Last Respects");
+    const ability = this.engine.effectiveMegaMon(this.mon(side)).ability;
+    if (!usesFainted && norm(ability) === "supreme overlord" && this.effectActive(side, "ability", ability)) {
+      usesFainted = isDamaging(this.moveMetaFor(move));
+    }
+    if (usesFainted) notes.push(faintedNote(clampFaintedAllies(this.state.effectValues[`${side}:fainted_allies`] || 0, this.state.format)));
+    if (key === "rage fist" && this.effectActive(side, "move", "Rage Fist")) {
+      const hit = Math.max(0, Math.min(6, Number(this.state.effectValues[`${side}:times_hit`]) || 0));
+      notes.push(hit === 0 ? "not hit yet" : `hit ${hit} time${hit === 1 ? "" : "s"}`);
+    }
+    for (const spec of this.countSpecs(side, move)) {
+      const value = this.countValue(spec);
+      if (spec.kind === "hits") notes.push(hitsLabel(value));
+      else if (spec.kind === "times_used" && value > 1) notes.push(usesLabel(value));
+      else if (spec.kind === "ally_fainted_last_turn" && value) notes.push("ally fainted last turn");
+    }
+    return notes;
+  }
+
+  /** Singles has one ally fewer than Doubles, so a stored count can be too
+   *  high for the format the calculator has just been switched to. */
+  setFormat(format) {
+    for (const key of Object.keys(this.state.effectValues)) {
+      if (key.endsWith(":fainted_allies")) this.state.effectValues[key] = clampFaintedAllies(this.state.effectValues[key], format);
+    }
+    this.state.format = format;
+  }
+
+  /** A state restored from this browser can carry amounts from another format
+   *  or from an older version of the page. */
+  normalizeEffectValues() {
+    if (!this.state.effectValues || typeof this.state.effectValues !== "object") {
+      this.state.effectValues = {};
+      return;
+    }
+    for (const [key, value] of Object.entries(this.state.effectValues)) {
+      const number = Number(value);
+      if (!Number.isFinite(number)) {
+        delete this.state.effectValues[key];
+      } else if (key.endsWith(":fainted_allies")) {
+        this.state.effectValues[key] = clampFaintedAllies(number, this.state.format);
+      } else if (key.endsWith(":times_hit")) {
+        this.state.effectValues[key] = Math.max(0, Math.min(6, Math.trunc(number)));
+      } else {
+        this.state.effectValues[key] = Math.trunc(number);
+      }
+    }
+  }
+
+  /** A new Pokemon on this side starts with no amounts chosen. */
+  clearSideValues(side) {
+    for (const key of Object.keys(this.state.effectValues)) {
+      if (key.startsWith(`${side}:`)) delete this.state.effectValues[key];
+    }
   }
 
   sitrusDisplay(result) {
@@ -744,6 +1004,12 @@ export class CalcModel {
 
 function isDamaging(meta) {
   return meta.category !== "status" && (Number(meta.power) > 0 || Boolean(meta.fixed_damage));
+}
+
+function countOptions(low, high, label) {
+  const options = [];
+  for (let value = low; value <= high; value += 1) options.push([label(value), value]);
+  return options;
 }
 
 export { compactKey };

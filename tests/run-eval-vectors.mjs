@@ -5,6 +5,11 @@
 //
 // Each stage compares one layer of the evaluation on the app's exact inputs, so
 // a mismatch points at the layer that differs rather than at the final score.
+//
+// Nature / Stat Point pairing (builder/nature-spreads.js): a recording made with the rule
+// carries record.rules.paired_spreads and replays with it; one without the stamp was made
+// before the rule and replays with each Nature on the distribution at its own place in the
+// usage file's other list. PAIRED_SPREADS=0 / =1 replays every recording either way.
 
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -25,6 +30,10 @@ const engine = new DamageEngine(appData);
 const aliases = appData.usageAliases || {};
 const MON_FIELDS = ["pokemon_name", "form_name", "item", "ability", "nature_name", "bonuses", "moves", "analysis_side"];
 const stage = process.argv[2] || "all";
+/** The recording's Nature / Stat Point pairing stamp (null: recorded before the rule, replayed
+ *  with the usage file's index zip). PAIRED_SPREADS=0 / =1 replays every recording either way. */
+const pairedStamp = (testCase) => testCase.record?.rules?.paired_spreads ?? testCase.rules?.paired_spreads ?? null;
+const pairedRule = (testCase) => (process.env.PAIRED_SPREADS === undefined ? pairedStamp(testCase) : process.env.PAIRED_SPREADS);
 const limit = Number(process.argv[3] || 12);
 
 const ATTACK_FIELDS = [
@@ -57,7 +66,7 @@ let total = 0;
 const failures = [];
 const byField = new Map();
 for (const testCase of cases) {
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings);
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase) });
   // The app's meta rows carry their raw battle-data rows; build the site's meta
   // records from exactly those, so data freshness cannot hide a logic difference.
   const metaRows = testCase.record.meta[0]?.rows || [];

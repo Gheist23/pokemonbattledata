@@ -317,6 +317,11 @@ export function openSynergyDialog(payload, { spriteFor, slots }) {
   openDialog({ title: "Team Synergy by Pokémon", body, wide: true });
 }
 
+/** The Speed score's overview: how it is made up (normal Speed, opposing Tailwind, Trick Room). */
+export function openSpeedDialog(payload) {
+  openDialog({ title: "Speed Control", body: h("div", { class: "bd-list" }, scoreRing(payload.speed?.score ?? 0, "Speed"), speedView(payload)), wide: true });
+}
+
 export function openPressureDialog(payload, which) {
   const overview = payload.pressure_overview_v188 || {};
   const offense = which === "offense";

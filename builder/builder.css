@@ -334,8 +334,28 @@
   margin-top: 0.55rem;
 }
 .bd-effect { min-height: 28px; padding: 0.15rem 0.55rem; font-size: 0.74rem; }
-.bd-effect-group { display: inline-flex; gap: 0.25rem; }
-.bd-effect-select { width: auto; min-height: 28px; font-size: 0.74rem; }
+.bd-effect-group { display: inline-flex; align-items: center; gap: 0.25rem; min-width: 0; max-width: 100%; }
+.bd-effect-select { width: auto; min-width: 0; min-height: 28px; padding: 0.15rem 0.4rem; font-size: 0.74rem; }
+.bd-effect-select:disabled { opacity: 0.45; cursor: not-allowed; }
+/* An amount for a move whose strength is a count (hits, uses in a row): the
+   move's name, then how many.  The name is a label, not a switch. */
+.bd-count { cursor: pointer; }
+.bd-count-name {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  min-width: 0;
+  padding: 0.15rem 0.55rem;
+  border: 1px dashed var(--bd-line);
+  border-radius: 7px;
+  color: var(--soft);
+  font-size: 0.74rem;
+  font-weight: 750;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bd-count:hover .bd-count-name { border-color: var(--bd-line-strong); color: var(--text); }
 
 .bd-mon-head {
   display: grid;
@@ -1056,6 +1076,10 @@ body.page-team-builder { --max-width: 1520px; }
 }
 
 @media (max-width: 420px) {
+  /* Phones: an effect that carries an amount gets a row to itself, so the name
+     and the number stay side by side and readable. */
+  .bd-effects { gap: 0.3rem; }
+  .bd-effect-group { flex: 1 1 100%; justify-content: center; }
   .bd-team-col { grid-template-columns: minmax(0, 1fr); }
   .bd-mon-head { grid-template-columns: 72px minmax(0, 1fr); }
   .bd-mon-art { width: 72px; height: 72px; }

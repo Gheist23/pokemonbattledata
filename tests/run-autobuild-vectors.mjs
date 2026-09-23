@@ -4,6 +4,18 @@
 // the finalists, each pick and the finished team.
 //
 //   node tests/run-autobuild-vectors.mjs [limit]
+//
+// Guaranteed moves (builder/guaranteed-moves.js): a recording made with the rule carries
+// record.rules.guaranteed_move_share and replays with it; one without the stamp was made
+// before the rule and replays with it off. For a stamped recording the app's own picks and
+// finished members must also carry their guaranteed moves (computed from the recording's
+// rows), so a regression shows even where both sides agree. GUARANTEED_MOVE_SHARE=95
+// replays every recording with the rule on (diagnostic: shows what the rule changes).
+//
+// Nature / Stat Point pairing (builder/nature-spreads.js): a recording made with the rule
+// carries record.rules.paired_spreads and replays with it; one without the stamp was made
+// before the rule and replays with each Nature on the distribution at its own place in the
+// usage file's other list. PAIRED_SPREADS=0 / =1 replays every recording either way.
 
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -13,6 +25,7 @@ import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { KnownTeams } from "../builder/known-teams.js";
 import { TeamAutoBuild } from "../builder/team-autobuild.js";
+import { missingLocked } from "../builder/guaranteed-moves.js";
 import { pokemonRecord } from "../tools/builder-meta.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -20,17 +33,23 @@ const root = join(here, "..");
 const appData = JSON.parse(readFileSync(join(root, "data", "builder", "app-data.json"), "utf8"));
 // autobuild-vectors-options.json: the same team built with a preferred archetype and/or
 // Prioritize Meta Pokemon (the recorder's second argument and AUTOBUILD_META=1).
-const cases = ["autobuild-vectors.json", "autobuild-vectors-options.json"]
+// autobuild-vectors-guaranteed.json: the same runs recorded again after the guaranteed-move
+// rule, so they carry the stamp and replay with the rule on.
+const cases = ["autobuild-vectors.json", "autobuild-vectors-options.json", "autobuild-vectors-guaranteed.json"]
   .filter((file) => existsSync(join(here, file)))
   .flatMap((file) => JSON.parse(readFileSync(join(here, file), "utf8")));
 const siteMeta = JSON.parse(readFileSync(join(root, "data", "builder", "meta-doubles.json"), "utf8"));
 const evalCases = Object.fromEntries(JSON.parse(readFileSync(join(here, "eval-vectors.json"), "utf8")).map((c) => [c.name, c]));
-let suggestCases = [];
-try {
-  suggestCases = JSON.parse(readFileSync(join(here, "suggest-vectors.json"), "utf8"));
-} catch {
-  suggestCases = [];
-}
+// The Suggestions recordings of the same teams (the app's own ranked list, see below).
+const suggestCases = ["suggest-vectors.json", "suggest-vectors-guaranteed.json"]
+  .filter((file) => existsSync(join(here, file)))
+  .flatMap((file) => {
+    try {
+      return JSON.parse(readFileSync(join(here, file), "utf8"));
+    } catch {
+      return [];
+    }
+  });
 const engine = new DamageEngine(appData);
 const knownTeams = new KnownTeams(JSON.parse(readFileSync(join(root, "data", "builder", "known-teams.json"), "utf8")));
 const aliases = appData.usageAliases || {};
@@ -42,6 +61,14 @@ function same(a, b) {
 }
 const asEntry = (e) => (Array.isArray(e) ? { pokemon: e[0], item: e[1], form: e[2], ability: e[3], moves: e[4] || [] } : e);
 const entryText = (e) => (e && e.pokemon ? `${e.pokemon} @ ${e.item} [${e.form}] ${e.ability} / ${(e.moves || []).join(", ")}` : "(empty)");
+/** The recording's guaranteed-moves stamp (null: recorded before the rule, replayed without it). */
+const stampOf = (testCase) => testCase.record?.rules?.guaranteed_move_share ?? testCase.rules?.guaranteed_move_share ?? null;
+const ruleShare = (testCase) => (process.env.GUARANTEED_MOVE_SHARE ? Number(process.env.GUARANTEED_MOVE_SHARE) : stampOf(testCase));
+const lacks = (sg, entry, team) => missingLocked(sg, entry, team).map((l) => `${l.move} ${l.share}%`);
+/** The recording's Nature / Stat Point pairing stamp (null: recorded before the rule, replayed
+ *  with the usage file's index zip). PAIRED_SPREADS=0 / =1 replays every recording either way. */
+const pairedStamp = (testCase) => testCase.record?.rules?.paired_spreads ?? testCase.rules?.paired_spreads ?? null;
+const pairedRule = (testCase) => (process.env.PAIRED_SPREADS === undefined ? pairedStamp(testCase) : process.env.PAIRED_SPREADS);
 
 const failures = [];
 const byField = new Map();
@@ -50,10 +77,14 @@ for (const testCase of cases) {
   const rec = testCase.record;
   const archetype = testCase.archetype_key || "automatic";
   const prioritizeMeta = Boolean(testCase.dialog?.checkboxes?.autoBuildPrioritizeMetaV462);
-  const label = `${testCase.name}/${archetype}${prioritizeMeta ? "+meta" : ""}`;
+  const label = `${testCase.name}/${archetype}${prioritizeMeta ? "+meta" : ""}${stampOf(testCase) ? " guaranteed" : ""}`;
   const failCount = failures.length;
   const records = new Map();
-  for (const row of evalCases[testCase.name]?.record.meta[0]?.rows || []) {
+  // A recording of a start team that has no evaluation / Suggestions recording of its own
+  // names the recorded team whose rows the site's meta records are rebuilt from (the meta
+  // is the format's, not the team's), so nothing from the site's newer meta is mixed in.
+  const metaCase = testCase.meta_case || testCase.name;
+  for (const row of evalCases[metaCase]?.record.meta[0]?.rows || []) {
     const stem = String(row.pokemon || row.base_name || row.name);
     if (!records.has(stem) && (row.rows || []).length) records.set(stem, pokemonRecord(stem, row.rows, aliases));
   }
@@ -65,7 +96,7 @@ for (const testCase of cases) {
   }
   // The Suggestions recording of the same team holds the app's whole ranked list; with
   // it, nothing from the site's own (newer) meta is mixed in.
-  const appPool = suggestCases.find((c) => c.name === testCase.name)?.record.rows || [];
+  const appPool = suggestCases.find((c) => c.name === metaCase)?.record.rows || [];
   for (const call of appPool) {
     const meta = call.meta;
     const stem = String(meta.base_name || meta.pokemon || meta.name);
@@ -73,11 +104,11 @@ for (const testCase of cases) {
   }
   if (!appPool.length) for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
   const settings = rec._v452_fast_autobuild_payload[0].snapshot?.settings || testCase.settings;
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings);
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { pairedSpreads: pairedRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;
-  const builder = new TeamAutoBuild(evaluation);
+  const builder = new TeamAutoBuild(evaluation, { guaranteedMoveShare: ruleShare(testCase) });
 
   // The start team as the builder holds it; the recorded spreads are the case's.
   const start = rec.start[0].team.map(asEntry);
@@ -240,6 +271,29 @@ for (const testCase of cases) {
         if (entryText(wantEntry) !== entryText(run.entries[i])) failures.push(`finished slot ${i}\n    app ${entryText(wantEntry)}\n    web ${entryText(run.entries[i])}`);
       });
     }
+  }
+
+  // 7. guaranteed moves, on a recording made with the rule: every pick carries its guaranteed
+  // moves on the start team (the field gate the candidates were screened with), and every
+  // finished member on the finished team - except a member of the user's no step changed.
+  if (Number(stampOf(testCase)) > 0) {
+    const startTeam = wantFinal.filter((e) => e.pokemon);
+    picks.forEach((pick, n) => {
+      total += 1;
+      const missing = lacks(builder.sg, pick.entry, startTeam);
+      if (missing.length) failures.push(`guaranteed moves: pick ${n} ${entryText(pick.entry)} lacks ${missing.join(", ")}`);
+    });
+    const finalTeam = (testCase.final_team || []).map(asEntry);
+    const members = finalTeam.filter((e) => e && e.pokemon);
+    finalTeam.forEach((member, i) => {
+      if (!member?.pokemon) return;
+      const own = wantFinal[i];
+      const untouched = own?.pokemon && own.pokemon === member.pokemon && (own.moves || []).join("|") === (member.moves || []).join("|");
+      if (untouched) return;
+      total += 1;
+      const missing = lacks(builder.sg, member, members);
+      if (missing.length) failures.push(`guaranteed moves: finished slot ${i} ${entryText(member)} lacks ${missing.join(", ")}`);
+    });
   }
   for (let i = failCount; i < failures.length; i += 1) failures[i] = `[${label}] ${failures[i]}`;
 }

@@ -12,7 +12,7 @@ import {
   ARCHETYPES,
 } from "./analysis.js";
 import {
-  checksView, openChecksDialog, openPressureDialog, openSettingsDialog, openSynergyDialog, speedTiersView, speedView, suggestionsView, threatsView,
+  checksView, openChecksDialog, openPressureDialog, openSettingsDialog, openSpeedDialog, openSynergyDialog, speedTiersView, speedView, suggestionsView, threatsView,
 } from "./evaluation-view.js";
 import { AUTO_BUILD_ARCHETYPES, archetypeDescription, archetypeDisplay, archetypeKey } from "./autobuild-archetype.js";
 import { TeamChecks } from "./team-checks.js";
@@ -27,7 +27,7 @@ import {
   subscribe, swapSlots, teamSets,
 } from "./store.js";
 import { activate, canRun, deactivate, freeRunsLeft, isPro, licenceSummary, recordRun, refreshLicence } from "./pro.js";
-import { tournamentAnalysis, tournamentExplainer, tournamentProgress } from "./tournament-view.js";
+import { resetTournamentView, tournamentAnalysis, tournamentExplainer, tournamentProgress } from "./tournament-view.js";
 import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, segmented, select, sprite, switchRow, toast, typeChip } from "./ui.js";
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
 import { OPTIMIZE_DEFAULTS, optimizeView, updateProgress } from "./optimize-view.js";
@@ -72,7 +72,7 @@ const view = {
   suggestHost: null,
   optimize: {},
   auto: { running: false, stopping: false, requestId: 0, fraction: 0, status: "", result: null, error: "", keep: true, onlyBox: false, depth: "deep", archetype: "automatic", prioritizeMeta: false },
-  tour: { running: false, stopping: false, limit: 1000, snapshot: null, error: "", requestId: 0, key: "", host: null, paintQueued: false },
+  tour: { running: false, stopping: false, limit: 1000, snapshot: null, error: "", requestId: 0, key: "", host: null, paintQueued: false, runFormat: "" },
   libraryQuery: "",
   libraryFilter: "All",
   dragSlot: null,
@@ -848,7 +848,7 @@ function renderEvaluation() {
     scoreButton("Synergy", result.synergy_score, () => openSynergyDialog(result, { spriteFor, slots: slots.map((slot) => ({ ...slot, name: memberName(result, slot) })) }), "Team Synergy by Pokémon"),
     scoreButton("Offense", result.offense_score, () => openPressureDialog(result, "offense"), "Offense Overview"),
     scoreButton("Defense", result.defense_score, () => openPressureDialog(result, "defense"), "Defense Overview"),
-    scoreButton("Speed", result.speed.score, () => { view.evalTab = "speed"; renderMain(); }, "Speed Control")));
+    scoreButton("Speed", result.speed.score, () => openSpeedDialog(result), "Speed Control")));
   const archetype = result.archetype?.archetype;
   wrap.append(h("p", { class: "bd-eval-meta" }, [archetype ? `Detected archetype: ${archetype}` : "", `${result.threats.length} critical threat${result.threats.length === 1 ? "" : "s"} in the Top ${result.all_top_meta_threat_rows_v462}`, result.seconds ? `calculated in ${result.seconds.toFixed(1)} s` : ""].filter(Boolean).join(" · ")));
   wrap.append(h("div", { class: "bd-subtabs", role: "tablist", style: "--tabs: 5" },
@@ -1299,7 +1299,18 @@ function switchFormatResults(from, to) {
   Object.assign(view, { evaluation: next.evaluation || null, evaluationKey: next.evaluationKey || "", evalError: next.evalError || "" });
   view.auto.result = next.autoResult || null;
   view.auto.error = next.autoError || "";
-  for (const k of Object.keys(next)) delete next[k];
+  for (const k of ["evaluation", "evaluationKey", "evalError", "autoResult", "autoError"]) delete next[k];
+  // The tournament result on screen belongs to the format it was made in, running or not:
+  // a test that keeps running for `from` keeps filing its progress on that shelf (see runTournament).
+  Object.assign(formatShelf(from), { tourSnapshot: view.tour.snapshot, tourKey: view.tour.key, tourError: view.tour.error });
+  takeTournamentShelf(to);
+}
+
+/** Shows the given format's shelved tournament result (or none). */
+function takeTournamentShelf(fmt) {
+  const shelf = formatShelf(fmt);
+  Object.assign(view.tour, { snapshot: shelf.tourSnapshot || null, key: shelf.tourKey || "", error: shelf.tourError || "", opened: new Map() });
+  for (const k of ["tourSnapshot", "tourKey", "tourError"]) delete shelf[k];
 }
 
 // The last evaluation survives a reload of the tab. Its shape changed when the app's
@@ -1366,7 +1377,8 @@ function renderAuto() {
   const locked = sets().filter((s) => s.species);
   hosts.main.append(h("div", { class: "bd-panel-head" },
     h("div", {}, h("h2", {}, "Auto Build Team"),
-      h("p", {}, "Fills the open slots one at a time: every candidate is scored on the enabled Team Building Checks first and on the Suggestions score second, and the best one is taken. Then other picks are tried for each slot, the complete teams are finished (Megas, weather, speed mode and sets) and compared with the full Team Evaluation, and the best team is kept."))));
+      h("p", {}, "Fills the open slots one at a time: every candidate is scored on the enabled Team Building Checks first and on the Suggestions score second, and the best one is taken. Then other picks are tried for each slot, the complete teams are finished (Megas, weather, speed mode and sets) and compared with the full Team Evaluation, and the best team is kept."),
+      h("p", { class: "bd-note" }, "A move used by 95% or more of that Pokémon on the ladder is always kept on the final set, unless it needs weather or terrain the team does not set up."))));
   if (auto.running) {
     hosts.main.append(h("div", { class: "bd-progress bd-auto-progress" },
       h("div", { class: "bd-progress-bar", role: "progressbar", "aria-valuemin": "0", "aria-valuemax": "100", "aria-valuenow": String(Math.round(auto.fraction * 100)) }, h("i", { style: { width: `${Math.round(auto.fraction * 100)}%` } })),
@@ -1599,11 +1611,15 @@ function renderTournament() {
   const tour = view.tour;
   const list = sets().filter((s) => s.species);
   const left = freeRunsLeft("tournament");
+  const singles = format() === "Singles";
   hosts.main.append(h("div", { class: "bd-panel-head" },
     h("div", {}, h("h2", {}, "Test against Tournament Teams"),
-      h("p", {}, "Plays your team against real tournament teams: turn 1 with Fake Out, Tailwind, Trick Room and Intimidate, then the fight that follows. Shows how often you are favoured, what happens on turn 1, and which teams and Pokémon give you trouble."))));
-  // The explanation leads until there is a result; after that it is one click away.
-  const how = tournamentExplainer({ teams: tour.snapshot?.library || 2827, format: format() });
+      h("p", {}, singles
+        ? "Plays your team against real tournament teams, three against three and one at a time: turn 1 with Fake Out, Tailwind, Trick Room, Intimidate, sleep moves, Taunt and more, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your Pokémon match up 1 vs 1, and which teams and Pokémon give you trouble."
+        : "Plays your team against real tournament teams, 2 vs 2 from the leads on: turn 1 with Fake Out, Tailwind, Trick Room, Intimidate, Helping Hand, Wide Guard and more, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your lead pairs match up against theirs, and which teams and Pokémon give you trouble."))));
+  // The explanation leads until there is a result; after that it is one click away. A team
+  // shorter than a full bring brings everyone, so the explanation says the real number.
+  const how = tournamentExplainer({ teams: tour.snapshot?.library || 2827, format: format(), bring: tour.snapshot?.bring ?? Math.min(list.length, singles ? 3 : 4) });
   hosts.main.append(tour.snapshot || tour.running ? h("details", { class: "bd-tour-howto" }, h("summary", {}, "How the test works"), how) : how);
   if (!list.length) {
     hosts.main.append(h("div", { class: "bd-gate" }, h("h3", {}, "Nothing to test yet"), h("p", {}, "Add at least one Pokémon to the team first.")));
@@ -1624,7 +1640,13 @@ function renderTournament() {
         : h("button", { type: "button", class: "primary-button", onclick: runTournament }, tour.snapshot ? "Run again" : "Start the test"),
       isPro() ? null : h("span", { class: "bd-pill" }, left > 0 ? `Pro feature · ${left} free ${left === 1 ? "try" : "tries"} left` : "Pro feature")));
   hosts.main.append(controls);
-  if (tour.running) {
+  // A test running for the other format keeps going; this format still shows its own
+  // finished result underneath, so nothing the player already has disappears.
+  const elsewhere = tour.running && tour.runFormat && tour.runFormat !== format();
+  if (elsewhere) {
+    hosts.main.append(h("p", { class: "bd-note" }, `A test for ${tour.runFormat} is running; its result is shown when ${tour.runFormat} is selected again. Stop it to test this team in ${format()}.`));
+  }
+  if (tour.running && !elsewhere) {
     const fraction = tour.snapshot ? tour.snapshot.tested / Math.max(1, tour.snapshot.total) : 0;
     hosts.main.append(h("div", { class: "bd-progress bd-tour-progress" },
       h("div", { class: "bd-progress-bar", role: "progressbar", "aria-valuemin": "0", "aria-valuemax": "100", "aria-valuenow": String(Math.round(fraction * 100)) }, h("i", { style: { width: `${Math.round(fraction * 100)}%` } })),
@@ -1634,10 +1656,11 @@ function renderTournament() {
     hosts.main.append(problemCard("The test could not finish", tour.error, { onAction: runTournament }));
     return;
   }
-  if (!tour.running && tour.snapshot && tour.key !== key) {
+  const stale = (!tour.running || elsewhere) && tour.snapshot && tour.key !== key;
+  if (stale) {
     hosts.main.append(h("p", { class: "bd-note bd-stale-note" }, "The team or the settings changed since this test. Run it again to update it."));
   }
-  tour.host = h("div", { class: `bd-tour-host ${!tour.running && tour.snapshot && tour.key !== key ? "bd-stale" : ""}` });
+  tour.host = h("div", { class: `bd-tour-host ${stale ? "bd-stale" : ""}` });
   hosts.main.append(tour.host);
   paintTournament();
 }
@@ -1647,12 +1670,14 @@ function paintTournament() {
   const tour = view.tour;
   tour.paintQueued = false;
   if (!tour.host || !tour.host.isConnected) return;
-  if (!tour.snapshot && !tour.running) {
+  // Nothing to draw: no result for this format, and no test running for it either
+  // (a test running for the other format has its own note above).
+  if (!tour.snapshot && (!tour.running || (tour.runFormat && tour.runFormat !== format()))) {
     clear(tour.host);
     return;
   }
   tour.opened ||= new Map();
-  clear(tour.host).append(tournamentAnalysis(tour.snapshot, { name: tourName, sprite: tourSprite, running: tour.running }));
+  clear(tour.host).append(tournamentAnalysis(tour.snapshot, { name: tourName, sprite: tourSprite, running: tour.running, loadTeam: loadTournamentTeam }));
   for (const node of tour.host.querySelectorAll("details[data-key]")) {
     if (tour.opened.has(node.dataset.key)) node.open = tour.opened.get(node.dataset.key);
     // Only what the viewer opens or closes is remembered (a click on the summary, also by keyboard).
@@ -1669,12 +1694,22 @@ async function runTournament() {
     return;
   }
   const key = evaluationKey();
-  Object.assign(tour, { running: true, stopping: false, error: "", snapshot: null, key, opened: new Map() });
+  // The test belongs to the format it runs in; a switch meanwhile leaves it running for that format.
+  const runFormat = format();
+  Object.assign(tour, { running: true, stopping: false, error: "", snapshot: null, key, opened: new Map(), runFormat });
+  resetTournamentView();
   renderMain();
   let lastPaint = 0;
+  let snapshot = null;
+  let failure = "";
   try {
-    const request = analysis("tournament", { format: format(), sets: plainSets(), settings: evalSettings(), limit: tour.limit || 100000 }, (progress) => {
+    const request = analysis("tournament", { format: runFormat, sets: plainSets(), settings: evalSettings(), limit: tour.limit || 100000 }, (progress) => {
       if (!progress.snapshot) return;
+      if (format() !== runFormat) {
+        // The other format is on screen: keep the progress on this run's own shelf.
+        formatShelf(runFormat).tourSnapshot = progress.snapshot;
+        return;
+      }
       const first = !tour.snapshot;
       tour.snapshot = progress.snapshot;
       if (view.tab !== "tournament") return;
@@ -1699,23 +1734,35 @@ async function runTournament() {
     });
     tour.requestId = request.requestId;
     const result = await request;
-    tour.snapshot = result;
+    snapshot = result;
     if (result.tested) rememberTournament(key, result);
-    // A try counts once it has shown a real result, not for a test stopped straight away.
-    if (result.tested >= Math.min(result.total, 100)) recordRun("tournament");
+    // A try counts for a test that ran its course, not for one the player cut short:
+    // with "All" chosen, 100 of 2,827 teams is four seconds of a run worth minutes.
+    if (result.tested >= result.total || result.tested >= Math.max(100, result.total / 2)) recordRun("tournament");
   } catch (error) {
     console.error(error);
-    tour.error = String(error?.message || error || "Unknown error").split("\n")[0];
+    failure = String(error?.message || error || "Unknown error").split("\n")[0];
   }
   tour.running = false;
   tour.stopping = false;
   tour.requestId = 0;
+  tour.runFormat = "";
+  if (format() === runFormat) {
+    tour.snapshot = snapshot;
+    tour.error = failure;
+  } else {
+    // It finished while the other format was on screen: file it under its own format
+    // and leave this format's own result alone.
+    Object.assign(formatShelf(runFormat), { tourSnapshot: snapshot, tourKey: key, tourError: failure });
+    toast(`The ${runFormat} tournament test has finished. Switch to ${runFormat} to see it.`);
+  }
   if (view.tab === "tournament") renderMain();
 }
 
 // The last finished test survives a reload of the tab, like the last evaluation.
-// v2: the turn-1 model's snapshot (tournament-test.js SNAPSHOT_VERSION); v1 ones are dropped.
-const TOURNAMENT_STORE = "cbd.tour.v2";
+// v3: the snapshot with the lead matrix, bring options and the similar team
+// (tournament-test.js SNAPSHOT_VERSION); older ones are dropped.
+const TOURNAMENT_STORE = "cbd.tour.v3";
 
 function rememberTournament(key, snapshot) {
   try {
@@ -1728,12 +1775,17 @@ function rememberTournament(key, snapshot) {
 function restoreTournament() {
   try {
     sessionStorage.removeItem("cbd.tour.v1");
+    sessionStorage.removeItem("cbd.tour.v2");
     const saved = JSON.parse(sessionStorage.getItem(TOURNAMENT_STORE) || "null");
     const s = saved?.snapshot;
     const lists = ["bestBrings", "pokemon", "threats", "archetypes", "hardest", "easiest"];
-    if (s?.version === 2 && s.tested > 0 && lists.every((name) => Array.isArray(s[name])) && s.bands && s.turnOne && Array.isArray(s.duels?.rows) && Array.isArray(s.duels?.columns)) {
-      view.tour.snapshot = s;
-      view.tour.key = saved.key || "";
+    if (s?.version === 3 && s.tested > 0 && lists.every((name) => Array.isArray(s[name])) && s.bands && typeof s.active === "number"
+      && Array.isArray(s.matrix?.rows) && Array.isArray(s.matrix?.columns) && s.matrix.rows.every((row) => Array.isArray(row.cells) && Array.isArray(row.members))
+      && s.bestBrings.every((b) => Array.isArray(b.members) && Array.isArray(b.leads)) && (s.similar === null || Array.isArray(s.similar?.members))) {
+      // Shown only in the format it was made for; otherwise it waits on that format's shelf.
+      const fmt = keyFormat(saved.key) || format();
+      if (fmt === format()) Object.assign(view.tour, { snapshot: s, key: saved.key || "" });
+      else Object.assign(formatShelf(fmt), { tourSnapshot: s, tourKey: saved.key || "", tourError: "" });
     }
   } catch {
     // ignore

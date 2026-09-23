@@ -232,7 +232,11 @@ export class TournamentTest {
     }
     mon.analysis_side = "threat";
     this.ev.applyStages(mon, this.ev.settings.threat_stages);
-    const entry = { key, mon, species: member.species, form: mon.form_name, item: mon.item, display: `${compact(member.species)}|${compact(mon.form_name)}` };
+    const entry = {
+      key, mon, species: member.species, form: mon.form_name, item: mon.item, display: `${compact(member.species)}|${compact(mon.form_name)}`,
+      // The form and Ability it walks in with: a Mega Stone holder Mega-Evolves during the turn.
+      baseForm: member.form || member.species, baseAbility: member.ability || "",
+    };
     this.monCache.set(key, entry);
     return this.prepare(entry);
   }
@@ -240,13 +244,40 @@ export class TournamentTest {
   /** One of our slots as a unit (cached by its set, so the damage caches outlive a run). */
   ourUnit(set, index) {
     const mon = this.ev.teamMon(set, index);
-    const key = ["team", mon.pokemon_name, mon.form_name, mon.item, mon.ability, mon.nature_name, (mon.bonuses || []).join(","), (mon.moves || []).join("+")].join("|");
+    // The Ability on the set is part of the key: a Mega Stone overwrites it with the Mega's,
+    // but the base one is what fires as it comes in.
+    const baseForm = set.form || set.species;
+    const baseAbility = set.ability || "";
+    const key = ["team", mon.pokemon_name, mon.form_name, mon.item, mon.ability, baseForm, baseAbility, mon.nature_name, (mon.bonuses || []).join(","), (mon.moves || []).join("+")].join("|");
     let unit = this.ourCache.get(key);
     if (!unit) {
-      unit = { key, mon, species: set.species, form: mon.form_name, item: set.item || "", display: `${compact(set.species)}|${compact(mon.form_name)}` };
+      unit = { key, mon, species: set.species, form: mon.form_name, item: set.item || "", display: `${compact(set.species)}|${compact(mon.form_name)}`, baseForm, baseAbility };
       this.ourCache.set(key, unit);
     }
     return this.prepare(unit);
+  }
+
+  /**
+   * The mon a Mega Stone holder comes in as, before it Mega-Evolves during the turn:
+   * its base form and the base form's Ability. null when it is not a Mega Stone holder.
+   */
+  baseFormMon(unit) {
+    const mon = unit.mon;
+    if (!compact(mon.item) || !this.ev.engine.isMegaStone(mon.item)) return null;
+    // A set usually names the base form and its Ability, and the stone turns both into the
+    // Mega's. Some already name the Mega form, and then the base form is the species itself
+    // and the Ability on the set is the Mega's, so the species' own first Ability stands in.
+    const named = String(unit.baseForm || "").trim();
+    const ownForm = named && compact(named) !== compact(mon.form_name);
+    const form = ownForm ? named : mon.pokemon_name;
+    if (compact(form) === compact(mon.form_name)) return null;
+    let ability = ownForm ? String(unit.baseAbility || "").trim() : "";
+    if (!ability) {
+      const data = this.ev.engine.pokemon(mon.pokemon_name, form) || {};
+      ability = (data.abilities || []).map((a) => String(a || "").trim()).find(Boolean) || mon.ability;
+    }
+    // Without the stone the engine leaves the form alone, so this reads the base form's stats.
+    return { ...mon, bonuses: [...(mon.bonuses || [])], form_name: form, ability, item: "" };
   }
 
   /** What one move does in the model (cached by name). */
@@ -311,6 +342,15 @@ export class TournamentTest {
     const speedDrop = ability === "sheerforce" ? -1 : keys.findIndex((k, slot) => this.speedDropMoves.get(k) && unit.moves[slot].damaging);
     const redirect = keys.findIndex((k) => this.redirectMoves.has(k));
     const sleep = keys.findIndex((k) => SLEEP_MOVES[k]);
+    // A Mega Stone holder walks in as its base form and Mega-Evolves during the turn, so the
+    // base form's Ability and Speed are what count as it comes in.
+    const base = this.baseFormMon(unit);
+    unit.base = base;
+    unit.entrySpeed = base ? engine.effectiveSpeed({ ...base, speed_stage: clampStage(base.speed_stage || 0) }, { weather: WEATHERS[0], tailwind: false }) : null;
+    // Intimidate fires once on turn 1: from the base form as it enters, or from the Mega's own
+    // Ability as it Mega-Evolves (Mega Salamence keeps Salamence's, Mega Manectric gains one).
+    const baseAbility = base ? compact(base.ability) : ability;
+    unit.intimidateMon = baseAbility === "intimidate" ? base || mon : ability === "intimidate" ? mon : null;
     const kit = {
       fakeOut: keys.indexOf("fakeout"),
       firstImpression: keys.findIndex((k, slot) => k === "firstimpression" && unit.moves[slot].damaging),
@@ -334,7 +374,7 @@ export class TournamentTest {
       lowers: unit.moves.map((info, slot) => (info.drop && (info.drop[0] < 0 || info.drop[1] < 0) && (info.attack || !info.damaging) ? slot : -1))
         .filter((slot) => slot >= 0 && !(unit.moves[slot].damaging && ability === "sheerforce")),
       prankster: ability === "prankster",
-      intimidate: ability === "intimidate",
+      intimidate: Boolean(unit.intimidateMon),
       flinchProof: FLINCH_PROOF.has(ability) || item === "covertcloak",
       // Clear Body and friends stop every stat drop; Shield Dust and Covert Cloak stop the ones
       // that come with an attack (Icy Wind's, Snarl's); Hyper Cutter keeps its Attack.
@@ -493,6 +533,11 @@ export class TournamentTest {
     return this.speedOf(m.u, board.w, board.tw[m.s] > 0, m.spe);
   }
 
+  /** The Speed a unit has as it comes in (a Mega Stone holder's base form). */
+  entrySpeedOf(unit) {
+    return unit.entrySpeed ?? this.speedOf(unit, 0, false, 0);
+  }
+
   /** The most damage a Pokémon's best attack does to any of these (a share of their HP). */
   threatTo(foe, list, board) {
     let danger = 0;
@@ -530,7 +575,12 @@ export class TournamentTest {
     };
   }
 
-  /** A Pokémon comes in: its weather or terrain, and its Intimidate. */
+  /**
+   * A Pokémon comes in: its weather or terrain, and its Intimidate.
+   * A Mega Stone holder is still its base form here, so Intimidate reads the base form's
+   * Ability on both sides (Mega Salamence lowers Attack; Mega Mawile's Hyper Cutter still
+   * blocks it). It Mega-Evolves during the turn, and the Mega's Ability takes it from there.
+   */
   enter(m, active, board, events) {
     const k = m.k;
     if (k.weather) {
@@ -542,16 +592,18 @@ export class TournamentTest {
       events?.push({ s: m.s, kind: "terrain", actor: m.u, value: k.terrain });
     }
     if (!k.intimidate) return;
+    const source = m.u.intimidateMon || m.u.mon;
     const lowered = [];
     for (const foe of active[1 - m.s]) {
       if (!alive(foe)) continue;
-      const ability = compact(foe.u.mon.ability);
+      const target = foe.u.base || foe.u.mon;
+      const ability = compact(target.ability);
       if (ability === "hypercutter" || ability === "mirrorarmor") continue;
       if (ability === "guarddog") {
         foe.atk = clampStage(foe.atk + 1);
         continue;
       }
-      const offsets = intimidateOffsets(m.u.mon, foe.u.mon);
+      const offsets = intimidateOffsets(source, target);
       if (!offsets.attack_stage && !offsets.sp_attack_stage) continue;
       foe.atk = clampStage(foe.atk + offsets.attack_stage);
       foe.spa = clampStage(foe.spa + offsets.sp_attack_stage);
@@ -980,18 +1032,28 @@ export class TournamentTest {
   }
 
   /**
-   * After both sides planned: Protect for a lead that would be knocked out, then Wide Guard and
-   * Quick Guard when what they block is worth more than the lead's own action.
+   * After both sides planned: Wide Guard and Quick Guard when what they block is worth more than
+   * the lead's own action, then Protect for a lead that would still be knocked out (an attacker,
+   * or a lead about to use sleep, Taunt, Encore, Will-O-Wisp or a stat drop).
    */
   planGuards(plans, board) {
     const all = [...plans[0], ...plans[1]];
     const replaceable = (a) => !a.kind || a.kind === ATTACK || a.kind === LOWER;
+    this.planSideGuards(plans, board, replaceable);
+    const guarded = (x, target) => {
+      const g = plans[target.s].find((b) => b.kind === WIDE_GUARD || b.kind === QUICK_GUARD);
+      if (!g) return false;
+      const slot = x.kind === FAKE_OUT ? x.m.k.fakeOut : x.slot;
+      if (g.kind === WIDE_GUARD) return Boolean(x.m.u.moves[slot]?.spread);
+      return x.pr > 0 && (x.pr < g.pr || (x.pr === g.pr && x.sp < g.sp));
+    };
+    const protectable = (a) => replaceable(a) || a.kind === SLEEP || a.kind === TAUNT || a.kind === ENCORE || a.kind === BURN;
     for (const a of all) {
-      if (!a.m.k.protect || !replaceable(a)) continue;
+      if (!a.m.k.protect || !protectable(a)) continue;
       let incoming = 0;
       let hits = 0;
       for (const x of all) {
-        if (x.m === a.m) continue;
+        if (x.m === a.m || guarded(x, a.m)) continue;
         const frac = this.plannedDamage(x, a.m, board);
         if (frac <= 0) continue;
         incoming += frac;
@@ -1000,6 +1062,10 @@ export class TournamentTest {
       const sashHolds = a.m.sash && hits === 1;
       if (incoming >= a.m.hp && !sashHolds) Object.assign(a, { kind: PROTECT, pr: 4, target: null, move: "Protect" });
     }
+  }
+
+  /** Wide Guard and Quick Guard, one of each per side. */
+  planSideGuards(plans, board, replaceable) {
     for (let s = 0; s < 2; s += 1) {
       const mine = plans[s];
       const foes = plans[1 - s];
@@ -1043,8 +1109,10 @@ export class TournamentTest {
 
   /** Turn 1 for the leads: entry, then one action each. `slower[s]` = side s brought the slower Pokémon. */
   turnOne(active, board, slower, events) {
+    // Entry order is by the Speed each one has as it comes in: a Mega Stone holder is still
+    // its base form until it Mega-Evolves later in the turn.
     const entrants = [...active[0], ...active[1]].filter(Boolean)
-      .sort((a, b) => this.speedOf(b.u, 0, false, 0) - this.speedOf(a.u, 0, false, 0) || a.s - b.s);
+      .sort((a, b) => this.entrySpeedOf(b.u) - this.entrySpeedOf(a.u) || a.s - b.s);
     for (const m of entrants) this.enter(m, active, board, events);
     board.wide = 0;
     board.quick = 0;
@@ -1547,7 +1615,7 @@ export class TournamentTest {
     const broughtBy = new Map(theirPlan.order.map((t, i) => [t, game.mons[1][i]]));
     const duelBoard = game.board;
     theirs.forEach((t, i) => {
-      const row = state.species.get(t.display) || { species: t.species, form: t.form, item: t.item, count: 0, brought: 0, kos: 0, survived: 0, perSlot: state.ours.map(() => 0), sets: new Map() };
+      const row = state.species.get(t.display) || { display: t.display, species: t.species, form: t.form, item: t.item, count: 0, brought: 0, kos: 0, survived: 0, perSlot: state.ours.map(() => 0), sets: new Map() };
       row.count += 1;
       const set = row.sets.get(t.key) || { count: 0, member: team.members[i] };
       set.count += 1;
@@ -1657,7 +1725,9 @@ export class TournamentTest {
       rows = [...state.species.entries()]
         .sort(([ka, a], [kb, b]) => b.count - a.count || (ka < kb ? -1 : ka > kb ? 1 : 0))
         .slice(0, MATRIX_ROWS)
-        .map(([display, row]) => ({ units: [this.commonSet(state, display)], lead: row.brought, together: row.count, weight: row.count }));
+        // `display` and `brought` let the snapshot quote these very cells in the Pokémon table,
+        // the Trouble list and the biggest threats, so the page never contradicts itself.
+        .map(([display, row]) => ({ display, units: [this.commonSet(state, display)], lead: row.brought, brought: row.brought, together: row.count, weight: row.count }));
     }
     const cells = rows.map((row) => state.lineups.map((line) => this.cellValue(line.plan, row.units)));
     state.matrix = { rows, cells, tested: state.results.length };
@@ -1701,16 +1771,56 @@ export class TournamentTest {
         share: (doubles ? row.lead : row.together) / n,
         count: doubles ? row.lead : row.together,
         together: row.together / n,
+        // Singles: how often they actually brought it against us, which is what the Pokémon
+        // table's 1 vs 1 column weights these rows by. null for a pair (Doubles).
+        brought: row.brought === undefined ? null : row.brought / n,
         cells: columnOrder.map((c) => m.cells[r][c]),
       })),
       tested: m.tested || 0,
     };
 
     const speciesRows = [...state.species.values()];
+    // Singles: the 1 vs 1 game the matrix card draws for one of ours against one of theirs.
+    // The Pokémon table, the Trouble list and the biggest threats all read these very cells,
+    // so a "Trouble: X" never sits next to a Favoured cell for the same pair. null when that
+    // Pokémon is not one of the rows the matrix holds (it keeps their most common 40).
+    // Singles only: a line-up is one Pokémon of ours, so its column is that slot's column.
+    const columnOf = doubles ? new Map() : new Map(state.lineups.map((line, c) => [line.idx[0], c]));
+    const matrixCells = new Map();
+    if (!doubles && m.rows.length) {
+      m.rows.forEach((row, r) => {
+        if (!row.display) return;
+        for (const [o, c] of columnOf) matrixCells.set(`${row.display}|${o}`, m.cells[r][c]);
+      });
+    }
+    const oneOnOne = (display, o) => {
+      const value = matrixCells.get(`${display}|${o}`);
+      return value === undefined ? null : value;
+    };
     const answerOf = (row) => {
+      const cells = doubles ? null : state.ours.map((_, o) => oneOnOne(row.display, o));
+      if (cells && cells.every((value) => value !== null)) {
+        let slot = 0;
+        for (let o = 1; o < cells.length; o += 1) if (cells[o] > cells[slot]) slot = o;
+        return { ...slotInfo(slot), win: row.perSlot[slot] / Math.max(1, row.count), value: cells[slot] };
+      }
       let slot = 0;
       for (let o = 1; o < row.perSlot.length; o += 1) if (row.perSlot[o] > row.perSlot[slot]) slot = o;
-      return { ...slotInfo(slot), win: row.perSlot[slot] / Math.max(1, row.count) };
+      return { ...slotInfo(slot), win: row.perSlot[slot] / Math.max(1, row.count), value: null };
+    };
+    // Singles: how one of ours does over the 1 vs 1 games of the matrix, counting only the
+    // Pokémon they actually brought against us and weighting each by how often they did.
+    const oneOnOneScore = (o) => {
+      if (doubles || !m.rows.length) return null;
+      const c = columnOf.get(o);
+      let sum = 0;
+      let weight = 0;
+      m.rows.forEach((row, r) => {
+        if (!(row.brought > 0)) return;
+        sum += row.brought * m.cells[r][c];
+        weight += row.brought;
+      });
+      return weight > 0 ? sum / weight : null;
     };
     // Trouble: common enough to matter (2% of the teams, fewer early in a run).
     const minCount = Math.min(Math.max(2, Math.round(n * 0.02)), Math.max(1, ...speciesRows.map((row) => row.count)));
@@ -1734,9 +1844,15 @@ export class TournamentTest {
     };
     const pokemon = state.ours.map((_, o) => {
       const t = state.mons[o];
+      // Behind in the 1 vs 1 game the matrix draws; without a cell, the quick duel's old rule.
       const weakTo = speciesRows.filter((row) => row.count >= minCount)
-        .map((row) => ({ species: row.species, form: row.form, item: row.item, win: row.perSlot[o] / row.count, weight: row.count * (1 - row.perSlot[o] / row.count) }))
-        .filter((row) => row.win < 0.5)
+        .map((row) => {
+          const cell = oneOnOne(row.display, o);
+          const win = row.perSlot[o] / row.count;
+          const value = cell === null ? win * 100 : cell;
+          return { species: row.species, form: row.form, item: row.item, win, value, fromMatrix: cell !== null, weight: row.count * (1 - value / 100) };
+        })
+        .filter((row) => (row.fromMatrix ? row.value < MATCHUP_BANDS.unfavourable : row.win < 0.5))
         .sort((a, b) => b.weight - a.weight)
         .slice(0, 2)
         .map(({ weight, ...row }) => row);
@@ -1748,6 +1864,7 @@ export class TournamentTest {
         kosPerGame: t.brought ? t.kos / t.brought : 0,
         faintRate: t.brought ? t.faints / t.brought : 0,
         duel: t.faced ? t.duel / t.faced : 0,
+        oneOnOne: oneOnOneScore(o),
         weakTo,
         partner: pairs?.partner || null,
         pairScore: pairs ? pairs.pairScore : null,
@@ -1773,7 +1890,8 @@ export class TournamentTest {
       const share = row.count / n;
       return { display, species: row.species, form: row.form, item: row.item, count: row.count, share, brought, kosPerGame, survived, answer, danger: share * brought * (kosPerGame + survived) };
     })
-      .filter((row) => row.brought > 0 && !(row.answer.win >= 0.9 && row.kosPerGame < 0.3))
+      // Nothing to warn about when one of ours simply beats it and it knocks out almost nothing.
+      .filter((row) => row.brought > 0 && !((row.answer.value === null ? row.answer.win >= 0.9 : row.answer.value >= 90) && row.kosPerGame < 0.3))
       .sort((a, b) => b.danger - a.danger)
       .slice(0, 6)
       .map(({ display, ...row }) => {
@@ -1788,7 +1906,9 @@ export class TournamentTest {
           }
           pairAnswer = { ...best, partner: who(units[1]) };
         }
-        return { ...row, pairAnswer, level: row.kosPerGame >= 1 || (pairAnswer ? pairAnswer.value < MATCHUP_BANDS.unfavourable : row.answer.win < 0.5) ? "high" : "medium" };
+        const answerBehind = pairAnswer ? pairAnswer.value < MATCHUP_BANDS.unfavourable
+          : row.answer.value === null ? row.answer.win < 0.5 : row.answer.value < MATCHUP_BANDS.unfavourable;
+        return { ...row, pairAnswer, level: row.kosPerGame >= 1 || answerBehind ? "high" : "medium" };
       });
 
     const common = [...speciesRows].sort((a, b) => b.count - a.count || a.species.localeCompare(b.species)).slice(0, 10);

@@ -22,8 +22,13 @@
 //               pair balanced, the speed mode settled and every set refined for
 //               the team it ended up on (field_synergy, mega_balance_v505,
 //               speed_mode_v505, team_set_refinement_v505).
+//   guaranteed  a move with at least 95% usage for the Pokémon is on every set the
+//               build puts forward (builder/guaranteed-moves.js): no step removes one,
+//               and the end of the finish chain puts back any an added or changed
+//               member lacks. Members of the user's that no step changed stay as written.
 
 import { compact } from "./engine.js";
+import { GUARANTEED_MOVE_SHARE, describeChanges, effectiveAbility, enforce, formatShare, lockedKeys, moveShares } from "./guaranteed-moves.js";
 import { AutoBuildSearch, additionForPage } from "./autobuild-search.js";
 import { AutoBuildArchetype, archetypeDisplay, archetypeKey, candidateKey, manualArchetype, resolveAutomaticArchetype, topMetaKeys } from "./autobuild-archetype.js";
 import { TeamOptimizer } from "./team-optimize.js";
@@ -34,6 +39,11 @@ const MAX_DEFENSIVE_WARNINGS = 2;
 const MAX_MEGA_STONES = 2;
 const MEGA_ITEM_LOOKUP_DEPTH = 12;
 const SUGGESTION_LIMIT = 14;
+/** MOVES_NEEDING_SUPPORT's conditions, as the log names them. */
+const CONDITION_TEXT = {
+  sun: "sun", rain: "rain", snow: "snow", sand: "sand", weather: "a weather", terrain: "a terrain",
+  grassy: "Grassy Terrain", psychic: "Psychic Terrain", electric: "Electric Terrain", misty: "Misty Terrain",
+};
 
 /** V453 depth profiles as V472 left them: candidate budget and Phase-1 finalists. */
 export const AUTO_BUILD_PROFILES = {
@@ -46,13 +56,29 @@ const blankEntry = () => ({ pokemon: "", item: "", form: "", ability: "", moves:
 const valid = (entry) => Boolean(entry && String(entry.pokemon || "").trim());
 
 export class TeamAutoBuild {
-  /** @param {TeamEvaluation} evaluation */
-  constructor(evaluation) {
+  /**
+   * @param {TeamEvaluation} evaluation
+   * @param {{guaranteedMoveShare?: number|null, pairedSpreads?: boolean|null}} options
+   *   `guaranteedMoveShare`: the usage share (percent) from which a move is guaranteed on
+   *   every set (builder/guaranteed-moves.js); null or 0 = off.
+   *   `pairedSpreads`: a pick's Nature gets Stat Points it does not contradict
+   *   (builder/nature-spreads.js); left out, the evaluator's own setting decides.
+   */
+  constructor(evaluation, { guaranteedMoveShare = GUARANTEED_MOVE_SHARE, pairedSpreads } = {}) {
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.checks = evaluation.checks;
     this.synergy = evaluation.synergy;
-    this.sg = new TeamSuggestions(evaluation);
+    this.sg = new TeamSuggestions(evaluation, { guaranteedMoveShare, pairedSpreads });
+  }
+
+  /** The guaranteed moves of an entry on this team: [{move, share}] ([] with the rule off). */
+  lockedMoves(entry, teamEntries) {
+    return this.sg.lockedMoves(entry.pokemon, entry, teamEntries);
+  }
+
+  lockedKeys(entry, teamEntries) {
+    return lockedKeys(this.lockedMoves(entry, teamEntries));
   }
 
   /** One added member as the page shows it (see builder/autobuild-search.js additionForPage). */
@@ -99,14 +125,20 @@ export class TeamAutoBuild {
     return [];
   }
 
-  /** Missing item, Ability, moves (to four) and spread, from the common set, usage, then the learnset. */
-  completeSet(entry, spread) {
+  /**
+   * Missing item, Ability, moves (to four) and spread, from the common set, usage, then the
+   * learnset. Only empty move slots are filled: the guaranteed moves first (judged on
+   * `teamEntries`, else the set alone), so a set the user wrote in full stays as it is.
+   */
+  completeSet(entry, spread, teamEntries = null) {
     const pokemon = String(entry.pokemon || "").trim();
     const form = String(entry.form || pokemon).trim() || pokemon;
     const common = this.sg.common(pokemon);
     let item = String(entry.item || "").trim() || String(common.item || "").trim() || this.sg.usage(pokemon, "held_item", 12)[0] || "";
     let ability = String(entry.ability || "").trim() || String(common.ability || "").trim() || this.sg.usage(pokemon, "ability", 8)[0] || "";
-    let moves = uniqueNames([...(entry.moves || []), ...(common.moves || []), ...this.sg.usage(pokemon, "move", 20)], 4);
+    const own = (entry.moves || []).filter((m) => String(m || "").trim());
+    const locked = own.length < 4 ? this.lockedMoves({ pokemon, item, ability }, teamEntries || [{ pokemon, item, ability, moves: own }]).map((l) => l.move) : [];
+    let moves = uniqueNames([...(entry.moves || []), ...locked, ...(common.moves || []), ...this.sg.usage(pokemon, "move", 20)], 4);
     if (moves.length < 4) moves = uniqueNames([...moves, ...this.learnable(pokemon, form)], 4);
     if (!item) item = "Sitrus Berry";
     const clean = { pokemon, item, form, ability, moves: moves.slice(0, 4) };
@@ -132,9 +164,10 @@ export class TeamAutoBuild {
   finalizeExisting(entries, spreads) {
     const used = new Set();
     const log = [];
+    const team = entries.filter(valid);
     entries.forEach((entry, slot) => {
       if (!valid(entry)) return;
-      let [clean, spread] = this.completeSet(entry, spreads[slot]);
+      let [clean, spread] = this.completeSet(entry, spreads[slot], team);
       const k = compact(clean.item);
       if (k && used.has(k)) {
         const replacement = this.itemOptions(clean.pokemon, clean.item).find((o) => !used.has(compact(o))) || "";
@@ -409,6 +442,7 @@ export class TeamAutoBuild {
     const log = this.finalizeExisting(entries, spreads);
     const selected = this.checks.selectedIds(selection);
     const startEntries = entries.filter(valid).map((e) => ({ ...e }));
+    const userSlots = entries.map((e, i) => (valid(e) ? i : -1)).filter((i) => i >= 0);
     const slots = this.slotsFor(entries, spreads);
     const { manual, chosen, options } = this.runOptions(entries, slots, { archetype, teamArchetype, prioritizeMeta });
     const state = { megaNeeded: this.megaStoneSlots(entries).length === 0, log, archetype: chosen, ...chosen.forcing(entries.filter(valid)) };
@@ -435,7 +469,7 @@ export class TeamAutoBuild {
       return { entries, spreads, additions, log, error: `Auto Build could not finish with at most ${MAX_DEFENSIVE_WARNINGS} defensive switch-in warnings (${warnings} remain). Broaden the candidate pool or free another slot.` };
     }
     progress(0.92, "Finalizing Mega items and abilities");
-    this.finish(entries, spreads, log, progress, { anchorArchetype: options.anchorArchetype, box, archetype: manual });
+    this.finish(entries, spreads, log, progress, { anchorArchetype: options.anchorArchetype, box, archetype: manual, userSlots });
     if (optimizeStats) this.finetune(entries, spreads, log, progress);
     progress(1, "Auto Build finished");
     // _v494_label_team_with_archetype: the chosen archetype, or the one the team reads as.
@@ -563,7 +597,7 @@ export class TeamAutoBuild {
    * The input node is left as it was.
    */
   applyPick(node, slotIndex, best, selection) {
-    const [entry, spread] = this.completeSelected(best);
+    const [entry, spread] = this.completeSelected(best, node.entries.filter(valid));
     const entries = [...node.entries];
     const spreads = [...node.spreads];
     entries[slotIndex] = entry;
@@ -574,12 +608,12 @@ export class TeamAutoBuild {
     return { entries, spreads, seed, addition: { slot: slotIndex, entry, spread, score: best.score, name: best.name, row: best } };
   }
 
-  /** _v450_complete_selected_auto_set */
-  completeSelected(best) {
+  /** _v450_complete_selected_auto_set (`teamEntries`: the team the pick joins, for its guaranteed moves) */
+  completeSelected(best, teamEntries = null) {
     const e = best.candidate_entry || {};
     const entry = { pokemon: e.pokemon || best.name, item: e.item || best.item || "", form: e.form || best.form || e.pokemon || best.name, ability: e.ability || best.ability || "", moves: (e.moves || best.moves || []).slice(0, 4) };
     const spread = this.sg.normalizeSpread(entry.pokemon, best.candidate_spread || best._candidate_set_v113?.spread || {});
-    return this.completeSet(entry, spread);
+    return this.completeSet(entry, spread, teamEntries ? [...teamEntries, entry] : null);
   }
 
   /** _v427_project_scores: the next slot starts from this pick's projected scores. */
@@ -602,9 +636,10 @@ export class TeamAutoBuild {
    * stones, Mega forms, spreads, field conditions, speed mode - and skips the two passes
    * that run damage calcs: the Mega pair balance and the set refinement.
    */
-  finish(entries, spreads, log, progress = () => {}, { anchorArchetype = null, box = [], archetype = "", quick = false } = {}) {
+  finish(entries, spreads, log, progress = () => {}, { anchorArchetype = null, box = [], archetype = "", quick = false, userSlots = null } = {}) {
     // A Trick Room or Tailwind team keeps the speed control it was built around.
     const preferredMode = { "trick room": "trickroom", tailwind: "tailwind" }[archetype] || "";
+    const before = entries.map((e) => (valid(e) ? { pokemon: e.pokemon, moves: [...(e.moves || [])] } : null));
     this.trimExcessMegaStones(entries, log);
     this.ensureMegaHolder(entries, log);
     if (anchorArchetype) this.installAnchor(entries, spreads, log, anchorArchetype, box);
@@ -617,9 +652,70 @@ export class TeamAutoBuild {
     }
     progress(0.95, "Checking team speed-control moves");
     this.resolveSpeedMode(entries, log, preferredMode);
-    if (quick) return;
-    progress(0.97, "Moves, Items and Abilities");
-    this.refineSets(entries, spreads, log, preferredMode);
+    if (!quick) {
+      progress(0.97, "Moves, Items and Abilities");
+      this.refineSets(entries, spreads, log, preferredMode);
+    }
+    this.guaranteeFinished(entries, before, userSlots, log, anchorArchetype);
+  }
+
+  /**
+   * The backstop after the finish chain: every member Auto Build added, and every member
+   * the chain changed, carries its guaranteed moves on the finished team (the team's
+   * weather and terrain now count). A member of the user's that no step changed stays as
+   * the user wrote it. `userSlots` lists the user's slots; unknown means only the changed
+   * members are checked.
+   */
+  guaranteeFinished(entries, before, userSlots, log, anchorArchetype = null) {
+    if (!(this.sg.guaranteedShare > 0)) return;
+    const user = new Set(userSlots || entries.map((_, i) => i));
+    const anchorKeys = new Set((anchorArchetype?.anchor?.moves || []).map(compact));
+    const movesKey = (moves) => (moves || []).map(compact).join(",");
+    entries.forEach((start, i) => {
+      if (!valid(start)) return;
+      const was = before[i];
+      const same = Boolean(was) && compact(was.pokemon) === compact(start.pokemon);
+      if (user.has(i) && same && movesKey(was.moves) === movesKey(start.moves)) return;
+      // The field gate wins: a weather / terrain move the finished team cannot power goes
+      // (a Mega that gave up its stone lost its weather) - unless the user wrote it.
+      const written = new Set(user.has(i) && same ? was.moves.map(compact) : []);
+      const dropped = new Set(same ? was.moves.map(compact).filter((k) => !(start.moves || []).some((m) => compact(m) === k)) : []);
+      const entry = this.gateFinished(start, entries.filter(valid), written, dropped, log);
+      if (entry !== start) entries[i] = entry;
+      const locked = this.lockedMoves(entry, entries.filter(valid));
+      if (!locked.length) return;
+      // The archetype's anchor move stays where the chain taught it.
+      const protect = (entry.moves || []).filter((m) => anchorKeys.has(compact(m)));
+      const { moves, changes } = enforce(entry.moves, locked, { shares: moveShares(this.sg, entry.pokemon), protect });
+      if (!changes.length) return;
+      entries[i] = { ...entry, moves };
+      log.push(...describeChanges(entry.form || entry.pokemon, changes));
+    });
+  }
+
+  /**
+   * A finished member's weather / terrain moves its team cannot power are replaced by its
+   * most used move the team can (not one it holds, one the chain took from it, Trick Room
+   * or Tailwind); `written` are the user's own moves, which stay.
+   */
+  gateFinished(entry, team, written, dropped, log) {
+    const have = this.sg.fieldSupport(team, [effectiveAbility(this.sg, entry.pokemon, entry.ability, entry.item)].filter(Boolean));
+    const off = (move) => {
+      const need = this.sg.moveCondition(move);
+      return need && !have.has(need) ? need : "";
+    };
+    const bad = (entry.moves || []).filter((m) => off(m) && !written.has(compact(m)));
+    if (!bad.length) return entry;
+    const legal = new Set(this.learnable(entry.pokemon, entry.form).map(compact));
+    const skip = new Set([...(entry.moves || []).map(compact), ...dropped, "trickroom", "tailwind"]);
+    const options = this.sg.usage(entry.pokemon, "move", 20).filter((m) => !skip.has(compact(m)) && !off(m) && (!legal.size || legal.has(compact(m))));
+    let moves = [...entry.moves];
+    for (const move of bad) {
+      const next = options.shift();
+      moves = next ? moves.map((m) => (m === move ? next : m)) : moves.filter((m) => m !== move);
+      log.push(`Field conditions: ${entry.form || entry.pokemon} drops ${move}, which needs ${CONDITION_TEXT[off(move)] || off(move)} and the finished team does not set it up${next ? `; it runs ${next} instead` : ""}.`);
+    }
+    return { ...entry, moves };
   }
 
   /** _v494_install_archetype_anchor: the finished team carries the move its archetype is named after. */
@@ -721,8 +817,10 @@ export class TeamAutoBuild {
       });
       let changed = false;
       const order = new Map(pool.map((m, idx) => [compact(m), idx]));
+      // A guaranteed move is never the one that makes room.
+      const locked = upgrades.length ? this.lockedKeys(entry, entries.filter(valid)) : new Set();
       for (const upgrade of upgrades) {
-        const droppable = moves.filter((m) => !keep.has(compact(m)) && !setterKeys.has(compact(m)) && !MOVES_NEEDING_SUPPORT[compact(m)]);
+        const droppable = moves.filter((m) => !keep.has(compact(m)) && !setterKeys.has(compact(m)) && !MOVES_NEEDING_SUPPORT[compact(m)] && !locked.has(compact(m)));
         if (!droppable.length) break;
         const worst = droppable.reduce((a, b) => ((order.get(compact(b)) ?? 99) > (order.get(compact(a)) ?? 99) ? b : a));
         if ((order.get(compact(upgrade)) ?? 99) >= (order.get(compact(worst)) ?? 99)) continue;
@@ -876,9 +974,19 @@ export class TeamAutoBuild {
       if (!move) continue;
       const doomed = entry.moves.find((m) => compact(m) === compact(move));
       if (!doomed) continue;
+      // A guaranteed Trick Room or Tailwind stays, even against the team's speed mode.
+      const kept = this.lockedMoves(entry, entries.filter(valid)).find((l) => compact(l.move) === compact(doomed));
+      if (kept) {
+        const plays = plan.mode === "trickroom" ? "the team plays Trick Room" : plan.mode === "tailwind" ? "the team plays Tailwind" : "the team's Speed does not suit it";
+        log.push(`Speed mode: ${entry.pokemon} keeps ${doomed} (${formatShare(kept.share)}% usage), although ${plays}.`);
+        continue;
+      }
       const legal = new Set(this.learnable(entry.pokemon, entry.form).map(compact));
       const held = new Set(entry.moves.map(compact));
-      const swap = this.sg.usage(entry.pokemon, "move", 14).find((m) => !held.has(compact(m)) && !["trickroom", "tailwind"].includes(compact(m)) && (!legal.size || legal.has(compact(m))));
+      // With the guaranteed-moves rule on (the same release), the stand-in obeys the field gate too.
+      const have = this.sg.guaranteedShare > 0 ? this.sg.fieldSupport(entries.filter(valid), [effectiveAbility(this.sg, entry.pokemon, entry.ability, entry.item)].filter(Boolean)) : null;
+      const powered = (m) => !have || !this.sg.moveCondition(m) || have.has(this.sg.moveCondition(m));
+      const swap = this.sg.usage(entry.pokemon, "move", 14).find((m) => !held.has(compact(m)) && !["trickroom", "tailwind"].includes(compact(m)) && (!legal.size || legal.has(compact(m))) && powered(m));
       if (!swap) continue;
       entries[i] = { ...entry, moves: entry.moves.map((m) => (m === doomed ? swap : m)) };
       log.push(`Speed mode: ${entry.pokemon}: ${doomed} -> ${swap}`);
@@ -962,14 +1070,20 @@ export class TeamAutoBuild {
     return true;
   }
 
-  bestAttacks(tables, pool, slots, weights) {
-    const options = pool.filter((m) => this.tradeable(tables, m));
+  /**
+   * The `slots` attacks from the pool that score best against the board. `fixed` are the
+   * guaranteed attacks the set keeps anyway: the free slots are scored together with them
+   * (so they cover what the fixed ones do not), and `exclude` (the guaranteed moves) is
+   * never offered again.
+   */
+  bestAttacks(tables, pool, slots, weights, fixed = [], exclude = null) {
+    const options = pool.filter((m) => this.tradeable(tables, m) && !exclude?.has(compact(m)));
     if (slots <= 0 || !options.length) return [];
     if (options.length <= slots) return [...options];
     let best = [-1, []];
     const choose = (start, picked) => {
       if (picked.length === slots) {
-        const score = this.outgoingScore(tables, picked, weights);
+        const score = this.outgoingScore(tables, fixed.length ? [...fixed, ...picked] : picked, weights);
         if (score > best[0]) best = [score, [...picked]];
         return;
       }
@@ -1011,11 +1125,21 @@ export class TeamAutoBuild {
       const { pokemon: name, item, form, ability, moves } = entry;
       const sets = this.sg.v113Sets({ name, form }, 6, context);
       const legal = new Set(this.learnable(name, form).map(compact));
+      // Guaranteed moves are kept (put back when missing), never traded, and need no
+      // learnset entry (their usage proves them); with the rule on, a move the team cannot
+      // power (weather / terrain, as the candidate sets gate it) is not brought in either.
+      const team = entries.filter(valid);
+      const locked = this.lockedMoves(entry, team);
+      const lockedSet = new Set(locked.map((l) => compact(l.move)));
+      const support = this.sg.guaranteedShare > 0 ? this.sg.fieldSupport(team) : null;
+      const held = new Set(moves.map(compact));
       const pool = [];
-      for (const move of [...moves, ...sets.flatMap((row) => row.moves || []), ...this.sg.usage(name, "move", 10)]) {
+      for (const move of [...moves, ...locked.map((l) => l.move), ...sets.flatMap((row) => row.moves || []), ...this.sg.usage(name, "move", 10)]) {
         const k = compact(move);
         if (!k || pool.some((m) => compact(m) === k)) continue;
-        if (legal.size && !legal.has(k) && !moves.some((m) => compact(m) === k)) continue;
+        if (legal.size && !legal.has(k) && !held.has(k) && !lockedSet.has(k)) continue;
+        const need = support && !held.has(k) && !lockedSet.has(k) ? this.sg.moveCondition(move) : "";
+        if (need && !support.has(need)) continue;
         pool.push(move);
         if (pool.length >= 10) break;
       }
@@ -1042,11 +1166,18 @@ export class TeamAutoBuild {
       for (const row of sets) add(item, row.ability);
       let best = null;
       let baseline = null;
+      const shares = locked.length ? moveShares(this.sg, name) : null;
       options.forEach((option, index) => {
         const mon = this.monFor(name, option.item, option.ability, spread, moves);
         const tables = this.moveTable(mon, board, pool);
-        const keep = moves.filter((m) => !this.tradeable(tables, m) && !(["trickroom", "tailwind"].includes(compact(m)) && compact(m) !== plan.mode));
-        const chosen = [...keep, ...this.bestAttacks(tables, pool, Math.max(0, 4 - keep.length), weights)];
+        let keep = moves.filter((m) => lockedSet.has(compact(m)) || (!this.tradeable(tables, m) && !(["trickroom", "tailwind"].includes(compact(m)) && compact(m) !== plan.mode)));
+        let fixed = [];
+        if (locked.length) {
+          keep = enforce(keep, locked, { shares }).moves;
+          // The guaranteed attacks are the base the free slots are chosen around.
+          fixed = keep.filter((m) => lockedSet.has(compact(m)) && (tables.table.get(m) || []).some((v) => v > 0));
+        }
+        const chosen = [...keep, ...this.bestAttacks(tables, pool, Math.max(0, 4 - keep.length), weights, fixed, locked.length ? lockedSet : null)];
         const incoming = this.incomingScore(mon, board, weights);
         const score = this.outgoingScore(tables, chosen, weights) - incoming;
         if (index === 0) baseline = this.outgoingScore(tables, moves, weights) - incoming;

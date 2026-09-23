@@ -14,6 +14,7 @@
 //         and ranked ahead of the rest within the same hard Team Building Check group.
 
 import { compact } from "./engine.js";
+import { lockedKeys } from "./guaranteed-moves.js";
 import { archetypeRequirements, classifyArchetype } from "./team-checks.js";
 
 /** The setup dialog's choices, in the app's order (_V433_ARCHETYPE_CHOICES). */
@@ -169,14 +170,20 @@ export class AutoBuildArchetype {
   slotRank(moves, index, keeperTypes) {
     const key = compact(moves[index]);
     if (KEEP_PROTECT.has(key)) return 100;
+    // The app tests power first, so its utility list never protected Fake Out; with the
+    // guaranteed-moves rule on (the same app release) the list is read before the power.
+    if (this.sg.guaranteedShare > 0 && KEEP_UTILITY.has(key)) return 60;
     const [type, , power] = this.ev.simpleMoveInfo(moves[index]);
     if (Number(power) > 0) return (keeperTypes.has(String(type).toLowerCase()) ? 40 : 10) + Number(power) / 1000;
     if (KEEP_UTILITY.has(key)) return 60;
     return 20;
   }
 
-  /** _v494_anchor_drop_index: which of four moves makes room, or the free slot. */
-  dropIndex(moves) {
+  /**
+   * _v494_anchor_drop_index: which of four moves makes room, or the free slot. A locked
+   * (guaranteed) move never does; -1 when every slot is locked.
+   */
+  dropIndex(moves, locked = null) {
     if (moves.length < 4) return moves.length;
     const types = new Map();
     for (const move of moves) {
@@ -184,15 +191,20 @@ export class AutoBuildArchetype {
       if (Number(power) > 0) types.set(String(type).toLowerCase(), (types.get(String(type).toLowerCase()) || 0) + 1);
     }
     const keepers = new Set([...types].filter(([, n]) => n <= 1).map(([t]) => t));
-    const ranked = moves.map((_, i) => i).sort((a, b) => this.slotRank(moves, a, keepers) - this.slotRank(moves, b, keepers) || b - a);
+    const ranked = moves.map((_, i) => i).filter((i) => !locked?.has(compact(moves[i]))).sort((a, b) => this.slotRank(moves, a, keepers) - this.slotRank(moves, b, keepers) || b - a);
     return ranked.length ? ranked[0] : -1;
   }
 
-  /** _v494_with_anchor_move: the moves with the anchor installed, or null when it is there. */
-  withAnchorMove(moves, anchorMove) {
+  /** The keys of the moves this set may not give up (builder/guaranteed-moves.js). */
+  lockedFor(name, set, teamEntries) {
+    return lockedKeys(this.sg.lockedMoves(name, set, teamEntries));
+  }
+
+  /** _v494_with_anchor_move: the moves with the anchor installed, or null when it is there (or cannot go in). */
+  withAnchorMove(moves, anchorMove, locked = null) {
     const clean = (moves || []).map((m) => String(m || "")).filter((m) => m.trim());
     if (clean.some((m) => compact(m) === compact(anchorMove))) return null;
-    const index = this.dropIndex(clean);
+    const index = this.dropIndex(clean, locked);
     if (index < 0) return null;
     if (index >= clean.length) return [...clean, anchorMove].slice(0, 4);
     const out = [...clean];
@@ -202,8 +214,11 @@ export class AutoBuildArchetype {
 
   // --- 1. the move is offered to every candidate that can learn it (V494) -------------
 
-  /** _v494_anchor_candidate_sets, round the candidate sets the Trick Room natures produced. */
-  candidateSets(sets, meta) {
+  /**
+   * _v494_anchor_candidate_sets, round the candidate sets the Trick Room natures produced.
+   * `fieldEntries` is the team the field gate reads, for which moves are guaranteed.
+   */
+  candidateSets(sets, meta, fieldEntries = []) {
     if (!sets.length || !this.anchor) return sets;
     const species = String(meta.base_name || meta.pokemon || meta.name || meta.form || "").trim();
     const form = String(meta.form || meta.name || species).trim();
@@ -220,7 +235,9 @@ export class AutoBuildArchetype {
     const seen = new Set(sets.map(signature));
     const variants = [];
     for (const set of sets.slice(0, 3)) {
-      const moves = this.withAnchorMove(set.moves, anchorMove);
+      // by the candidate's own name: usage is filed under it (a Mega maps to its base species,
+      // a form with its own data - Indeedee-F - keeps its own, which `species` would lose).
+      const moves = this.withAnchorMove(set.moves, anchorMove, this.lockedFor(String(meta.name || species), set, fieldEntries));
       if (!moves) continue;
       const variant = { ...structuredClone(set), moves, source_v449: "archetype-anchor", archetype_anchor_v494: anchorMove };
       const k = signature(variant);
@@ -404,6 +421,8 @@ export class AutoBuildArchetype {
     if (supply >= target) return [];
     const display = archetypeDisplay(this.key);
     const distinct = Boolean(this.anchor.distinct);
+    // a member that could learn the move but has no slot left to give up (guaranteed moves)
+    let noSlot = false;
     for (const index of populated) {
       if (supply >= target) break;
       const entry = entries[index];
@@ -412,8 +431,12 @@ export class AutoBuildArchetype {
       const learnable = this.learnable(entry.pokemon, entry.form);
       const wanted = this.anchor.moves.find((name) => learnable.has(compact(name)) && !keys.has(compact(name)) && !(distinct && present.has(compact(name))));
       if (!wanted) continue;
-      const replacement = this.withAnchorMove(entry.moves, wanted);
-      if (!replacement) continue;
+      // A guaranteed move never makes room; a member with no other slot is not taught.
+      const replacement = this.withAnchorMove(entry.moves, wanted, this.lockedFor(entry.pokemon, entry, entries));
+      if (!replacement) {
+        noSlot = true;
+        continue;
+      }
       const kept = new Set(replacement.map(compact));
       const dropped = (entry.moves || []).filter((m) => !kept.has(compact(m)));
       entries[index] = { ...entry, moves: replacement };
@@ -421,7 +444,7 @@ export class AutoBuildArchetype {
       supply += 1;
       log.push(`Auto Build finished a ${display} team without enough ${this.anchor.label}. Teaching ${entry.form || entry.pokemon} ${wanted}${dropped.length ? ` in place of ${dropped[0]}.` : "."}`);
     }
-    return supply < target ? this.swapIn(entries, { box, speedOf, log, supply, target, present, display }) : [];
+    return supply < target ? this.swapIn(entries, { box, speedOf, log, supply, target, present, display, noSlot }) : [];
   }
 
   /** _v494_box_anchor_options: Box Pokémon that can supply the defining move. */
@@ -463,7 +486,7 @@ export class AutoBuildArchetype {
     return options.map((o, i) => [o, i]).sort((a, b) => b[0].rank - a[0].rank || a[1] - b[1]).map(([o]) => o);
   }
 
-  swapIn(entries, { box, speedOf, log, supply, target, present, display }) {
+  swapIn(entries, { box, speedOf, log, supply, target, present, display, noSlot = false }) {
     const populated = entries.map((e, i) => (e && String(e.pokemon || "").trim() ? i : -1)).filter((i) => i >= 0);
     const taken = new Set(populated.flatMap((i) => [compact(entries[i].pokemon), compact(entries[i].form)]));
     const options = this.boxOptions(box, taken);
@@ -475,7 +498,9 @@ export class AutoBuildArchetype {
       .sort((a, b) => a[0] - b[0] || a[1] - b[1])
       .map(([, i]) => i);
     if (!options.length || !removable.length) {
-      log.push(`Auto Build could not reach ${target} ${this.anchor.label} for the ${display} archetype: none of the selected Pokémon can learn the move and the Box has no replacement that can.`);
+      log.push(`Auto Build could not reach ${target} ${this.anchor.label} for the ${display} archetype: ${noSlot
+        ? "the Pokémon that can learn the move have no slot to spare - every move they would give up is used by 95% or more of their teams"
+        : "none of the selected Pokémon can learn the move"} and the Box has no replacement that can.`);
       return [];
     }
     const distinct = Boolean(this.anchor.distinct);
@@ -489,7 +514,7 @@ export class AutoBuildArchetype {
       const byAbility = Boolean(this.anchorAbilities.size && this.anchorAbilities.has(compact(option.ability)));
       if (!wanted && !byAbility) continue;
       let moves = [...option.moves];
-      if (wanted && !moveKeys.has(compact(wanted))) moves = this.withAnchorMove(moves, wanted) || moves;
+      if (wanted && !moveKeys.has(compact(wanted))) moves = this.withAnchorMove(moves, wanted, this.lockedFor(option.pokemon, option, entries)) || moves;
       const outgoing = entries[slot].form || entries[slot].pokemon;
       entries[slot] = { pokemon: option.pokemon, item: option.item, form: option.form, ability: option.ability, moves: moves.slice(0, 4) };
       if (wanted) present.add(compact(wanted));

@@ -7,6 +7,7 @@
 // app and this file disagree, the app is the reference.
 
 import { DamageEngine, PINCH_ABILITIES, applyChainedModifiers, compact, key as engineKey, makeContext, makeMon, pyTitle } from "./engine.js";
+import { PAIRED_SPREADS, pairedOption, pointsForNature } from "./nature-spreads.js";
 
 // --- settings (TEAM_ANALYSIS_DEFAULT_SETTINGS_V35 after every override) ---------
 
@@ -293,8 +294,13 @@ export class TeamEvaluator {
    * @param {DamageEngine} engine
    * @param {string} format  "Doubles" | "Singles"
    * @param {object} settings  normalised settings
+   * @param {{pairedSpreads?: boolean|null}} options  `pairedSpreads`: each Nature is shown
+   *   with Stat Points it does not contradict (builder/nature-spreads.js) instead of with
+   *   the distribution at its own place in the usage file's other list. On in production;
+   *   a run recorded before the rule replays with it off.
    */
-  constructor(data, engine, format, settings) {
+  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS } = {}) {
+    this.pairedSpreads = pairedOption(pairedSpreads);
     this.data = data;
     this.engine = engine;
     this.format = format === "Singles" ? "Singles" : "Doubles";
@@ -1449,21 +1455,33 @@ export class TeamEvaluator {
     return Object.assign(mon, { form_name: eff.form_name, ability: eff.ability });
   }
 
-  /** _v40_common_spreads_for_pokemon over build_stat_alignment_spreads */
-  commonSpreads(name, limit) {
+  /**
+   * _v40_common_spreads_for_pokemon over build_stat_alignment_spreads: the candidate spreads
+   * Auto Build, Suggestions and the threat stat distributions are built from.
+   *
+   * The usage file ranks Natures and Stat Points as two separate lists, so the Nature in
+   * place `i` has nothing to do with the distribution in place `i`: each Nature instead gets
+   * the most used distribution it does not contradict (builder/nature-spreads.js). `paired`
+   * false is the file's own index zip, which is what a run recorded before the rule replays.
+   */
+  commonSpreads(name, limit, paired = this.pairedSpreads) {
     const record = this.record(name);
     let spreads = [];
     if (record) {
       const natures = (record.natures || []).slice(0, Math.max(2, limit));
       const points = record.spreads || [];
-      spreads = natures.map(([nature, pct], index) => ({
-        name: nature || "Serious",
-        nature_name: nature || "Serious",
-        bonuses: [...(points[index]?.[1] || [0, 0, 0, 0, 0, 0])],
-        percentage: Number(pct) || 0,
-        stat_points_percentage: Number(points[index]?.[0]) || 0,
-        rank: index + 1,
-      }));
+      const table = this.engine?.natures || {};
+      spreads = natures.map(([nature, pct], index) => {
+        const point = pointsForNature(points, nature || "Serious", table, { paired, index });
+        return {
+          name: nature || "Serious",
+          nature_name: nature || "Serious",
+          bonuses: [...(point?.[1] || [0, 0, 0, 0, 0, 0])],
+          percentage: Number(pct) || 0,
+          stat_points_percentage: Number(point?.[0]) || 0,
+          rank: index + 1,
+        };
+      });
       if (!spreads.length) {
         const common = this.commonSet(name);
         spreads = [{ name: common.nature_name || "Serious", nature_name: common.nature_name || "Serious", bonuses: [...(common.bonuses || [0, 0, 0, 0, 0, 0])], rank: 1 }];

@@ -5,3 +5,5 @@ tests/suggest-vectors.json
 tests/autobuild-vectors.json
 tests/optimize-vectors.json
 tests/overview-vectors.json
+tests/suggest-vectors-guaranteed.json
+tests/autobuild-vectors-guaranteed.json

@@ -57,8 +57,11 @@ export const SEARCH_PROFILES = {
   fast: { key: "fast", depth: "fast", beam: 2, children: 2, widenLevels: 6, shortlist: 30, narrow: 15, finalistSets: 1, repairTargets: 0, repairCandidates: 0, repairPool: 0, capMs: 24000 },
   medium: { key: "medium", depth: "medium", beam: 3, children: 3, widenLevels: 6, shortlist: 40, narrow: 20, finalistSets: 2, repairTargets: 2, repairCandidates: 4, repairPool: 60, capMs: 44000 },
   // Deep's shortlist and repair were cut from 60 / 3 targets / 6 of 100 after a cold build of
-  // an empty team took 45-54 s in Node: 40-45 s now, and on nine warm test builds the kept
-  // teams scored no worse (4 better, 5 the same).
+  // an empty team took 45-54 s in Node, and on nine warm test builds the kept teams scored no
+  // worse (4 better, 5 the same). The sizes have stood since: when the times crept back up
+  // (66 s cold in Node on 2026-09-23) the work came off builder/engine.js instead, whose
+  // name normalisers, Mega / form lookups and per-move `move_meta` base are now memoised -
+  // 41 s cold for the same compared teams and the same scores.
   deep: { key: "deep", depth: "deep", beam: 4, children: 3, widenLevels: 6, shortlist: 45, narrow: 20, finalistSets: 3, repairTargets: 2, repairCandidates: 5, repairPool: 80, capMs: 66000 },
 };
 
@@ -509,7 +512,8 @@ export class AutoBuildSearch {
     if (!quick && warnings > MAX_DEFENSIVE_WARNINGS && !leaf.state?.overCap) {
       return { leaf, label, error: `Auto Build could not finish with at most ${MAX_DEFENSIVE_WARNINGS} defensive switch-in warnings (${warnings} remain). Broaden the candidate pool or free another slot.` };
     }
-    b.finish(entries, spreads, log, () => {}, { anchorArchetype: ctx.options.anchorArchetype, box: ctx.box, archetype: ctx.manual, quick });
+    // userSlots: the members the user kept, left as written unless a finish step changed them.
+    b.finish(entries, spreads, log, () => {}, { anchorArchetype: ctx.options.anchorArchetype, box: ctx.box, archetype: ctx.manual, quick, userSlots: ctx.kept });
     const sets = teamSets(entries, spreads);
     if (quick) return { leaf, label, entries, spreads, log, sets, payload: null, summary: null, quick: true };
     const payload = this.evaluation.evaluate(sets, { checkSelection: ctx.selection });
@@ -710,7 +714,8 @@ export class AutoBuildSearch {
       progress(0.93 + (k / Math.max(1, tries.length)) * 0.04, `Checking one swap: ${teamEntries[slot].pokemon} for ${row.name} (${k + 1}/${tries.length})`, true);
       await tick();
       const pick = b.representative(structuredClone(row));
-      const [entry, spread] = b.completeSelected(pick);
+      // the team it joins (without the member it replaces): what its guaranteed moves are judged on
+      const [entry, spread] = b.completeSelected(pick, leaf.entries.filter((e, i) => i !== slot && valid(e)));
       const entries = [...leaf.entries];
       const spreads = [...leaf.spreads];
       entries[slot] = entry;

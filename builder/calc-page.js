@@ -112,7 +112,7 @@ function renderResults() {
     const defenderName = monName(other(selectedSide));
     verdict.append(
       h("p", { class: "bd-verdict-eyebrow" }, `${selectedSide === LEFT ? "Our" : "Opposing"} ${attackerName} → ${defenderName}`),
-      h("h2", { class: "bd-verdict-title" }, `${selectedMove} KO odds`),
+      h("h2", { class: "bd-verdict-title" }, koHeading(selectedSide, selectedMove)),
       h("p", { class: "bd-verdict-ko" }, model.formatKoOdds(result)),
       h("p", { class: "bd-verdict-damage" }, `Damage: ${result.range} HP  |  ${result.percent}`, result.recoil_text ? h("span", { class: "bd-recoil" }, ` · ${result.recoil_text}`) : null),
       h("p", { class: "bd-verdict-note" }, [result.ko, ...(result.warnings || []).slice(0, 2).map((w) => `Missing exact data: ${w}`)].filter(Boolean).join("  |  ")),
@@ -126,7 +126,8 @@ function renderResults() {
       h("p", { class: "bd-verdict-note" }, "Each side uses its best move every turn. Select a move to see its KO odds."));
   }
   const chips = model.effectChips(result);
-  if (chips.length) {
+  const counts = model.countControls();
+  if (chips.length || counts.length) {
     verdict.append(h("div", { class: "bd-effects", role: "group", "aria-label": "Effects included in the calculation" },
       chips.map((chip) => {
         const button = h("button", {
@@ -141,14 +142,29 @@ function renderResults() {
           },
         }, chip.label);
         if (!chip.options) return button;
+        // The chip stays the on/off switch; the amount sits beside it, and is
+        // out of reach while the effect is switched off.
         const picker = select(chip.options.map(([label, value]) => [String(value), label]), String(chip.value ?? 0), (value) => {
           model.setEffectValue(chip.side, chip.name, Number(value));
           render();
-        }, { class: "bd-select bd-effect-select", "aria-label": `${chip.name} value` });
+        }, { class: "bd-select bd-effect-select", "aria-label": `${chip.label} amount`, disabled: !chip.active });
         return h("span", { class: "bd-effect-group" }, button, picker);
-      })));
+      }),
+      counts.map((row) => h("label", { class: "bd-effect-group bd-count", title: row.spec.tip },
+        h("span", { class: "bd-count-name" }, row.label),
+        select(row.spec.options.map(([label, value]) => [String(value), label]), String(row.value), (value) => {
+          model.setCountValue(row.spec.storeKey, Number(value), row.spec.default);
+          render();
+        }, { class: "bd-select bd-effect-select" })))));
   }
   return h("div", { class: "bd-calc-results" }, moveList(LEFT), verdict, moveList(RIGHT));
+}
+
+/** "Kowtow Cleave KO odds (2 fainted allies)": the heading names the amounts
+ *  the number below it was worked out with. */
+function koHeading(side, move) {
+  const notes = model.headerNotes(side, move);
+  return `${move} KO odds${notes.length ? ` (${notes.join(", ")})` : ""}`;
 }
 
 /** "80.8 - 95.5% (20.3 - 24.2% recoil)" as the app shows it, recoil on its own line. */
@@ -388,6 +404,7 @@ function resetMonState(side) {
   const fresh = defaultMonState(model.state.mons[side].set);
   model.state.mons[side] = fresh;
   for (const key of Object.keys(model.state.effectOverrides)) if (key.startsWith(`${side}:`)) delete model.state.effectOverrides[key];
+  model.clearSideValues(side);
   if (model.state.selectedSide === side) {
     model.state.selectedSide = "";
     model.state.selectedIndex = -1;
@@ -429,7 +446,8 @@ function swapSides() {
 }
 
 async function setFormat(format) {
-  model.state.format = format;
+  // Singles has one ally fewer, so a chosen "3 fainted allies" comes down to 2.
+  model.setFormat(format);
   await data.loadMeta(format);
   render();
 }
@@ -451,6 +469,7 @@ async function main() {
     const state = saved && !new URLSearchParams(location.search).has("attacker") ? saved : defaultCalcState();
     state.format = format;
     model = new CalcModel(data, state);
+    model.normalizeEffectValues();
     if (!saved || new URLSearchParams(location.search).has("attacker")) {
       const [a, b] = await initialSets(format);
       state.mons[LEFT] = defaultMonState(a);

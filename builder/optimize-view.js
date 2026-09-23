@@ -27,6 +27,8 @@ const signed = (value, digits = 1) => {
 const count = (n, one, many = `${one}s`) => `${Number(n || 0).toLocaleString("en-US")} ${n === 1 ? one : many}`;
 const pct = (value) => `${Math.round(Math.max(0, Math.min(1, Number(value) || 0)) * 100)}%`;
 const spreadText = (bonuses) => (bonuses || []).join("/");
+/** "A", "A & B", "A, B & C": a plain English list for a button label. */
+const listText = (parts) => (parts.length < 2 ? parts.join("") : `${parts.slice(0, -1).join(", ")} & ${parts.at(-1)}`);
 const toneOf = (delta) => (delta > 0 ? "up" : delta < 0 ? "down" : "same");
 
 /** The explanation above the members. */
@@ -35,6 +37,7 @@ export function optimizeIntro(topX) {
     `Optimize tries Stat Point spreads, every Nature and, if you let it, new attacking moves for one Pokémon against the Top ${topX} Meta. `,
     "Each option is scored by how its matchups play out: who moves first, and how many hits each side needs to knock the other out, in normal play and with your team's Tailwind, Trick Room or weather. ",
     "Common Pokémon count more. Another Nature, less Speed or new moves are only suggested when they clearly score better. ",
+    "A move used by 95% or more of that Pokémon on the ladder is never swapped out, unless it needs weather or terrain your team does not set up. ",
     h("strong", {}, "Nothing changes until you press Apply."));
 }
 
@@ -192,6 +195,7 @@ function summary(result) {
       h("small", { class: "bd-note" }, ` against the Top ${topMeta}${threats ? ` (${threats} Pokémon)` : ""}`)),
     chips.length ? h("div", { class: "bd-opt-chips" }, chips) : null,
     pointsNote(result),
+    guaranteedCostNote(result),
     result.ok && result.moves_from_common?.length
       ? h("p", { class: "bd-note bd-opt-points" }, `It has no moves yet, so Optimize tested it with its most common ones. They are marked new below, and Apply adds them.`)
       : null,
@@ -199,6 +203,19 @@ function summary(result) {
     stats.stopped ? h("p", { class: "bd-note bd-opt-stopped" }, "Stopped early: this is the best result found before you pressed Stop.") : null,
     !stats.stopped && stats.clock_cut ? h("p", { class: "bd-note" }, "This device ran out of time before the search finished, so it looked at fewer options than usual. Deep, or a faster device, may find more.") : null,
     !stats.stopped && !stats.clock_cut && stats.out_of_budget ? h("p", { class: "bd-note" }, "The search tried as many options as this depth allows; Deep looks further than Quick.") : null);
+}
+
+/**
+ * The score now covers the move the rule adds, so it can come out lower than the saved
+ * set's. Why the suggestion is still the one to use.
+ */
+function guaranteedCostNote(result) {
+  const added = (result.guaranteed?.added || []).map((a) => a.move);
+  if (!result.ok || !added.length || !(result.delta < 0) || !(result.guaranteed.delta < 0)) return null;
+  const one = added.length === 1;
+  return h("p", { class: "bd-note bd-opt-points" },
+    `The score above is lower than your saved set's because ${added.join(" and ")} ${one ? "scores less against the Top Meta than the move it replaces" : "score less against the Top Meta than the moves they replace"}. `
+    + `Nearly every team of this Pokémon still runs ${one ? "it" : "them"}, so the suggestion keeps ${one ? "it" : "them"}; the spread below is the best one found beside ${one ? "it" : "them"}.`);
 }
 
 /** A set over 66 Stat Points, or one that leaves points unused: what the suggestion does about it. */
@@ -209,7 +226,8 @@ function pointsNote(result) {
   if (points.kind === "legal") {
     return h("p", { class: "bd-opt-message bad bd-opt-points" },
       `This set has ${points.total} Stat Points, ${points.over} more than the 66 allowed (pasted Showdown EVs often do this). The spread below is legal: apply it before you use this set.`,
-      result.delta < 0 ? " Its score is lower than the pasted set's because the extra points are gone; no legal spread keeps them." : "");
+      // A guaranteed move that costs score is named by its own note instead (the points are then not the reason).
+      result.delta < 0 && !(result.guaranteed?.delta < 0) ? " Its score is lower than the pasted set's because the extra points are gone; no legal spread keeps them." : "");
   }
   if (points.kind === "fill") {
     return h("p", { class: "bd-note bd-opt-points" }, `This set leaves ${plural(points.unspent)} unused. The spread below spends them where they help most and changes nothing else.`);
@@ -245,6 +263,8 @@ function compareTable(result) {
   const moves = h("div", { class: "bd-opt-moves-compare" },
     h("div", {}, h("span", { class: "bd-field-label" }, "Previously"), (before.moves || []).some(Boolean) ? moveChips(before.moves, result.removed, "gone") : h("p", { class: "bd-note" }, "No moves")),
     h("div", {}, h("span", { class: "bd-field-label" }, "Now"), moveChips(after.moves, result.added, "new")));
+  // A move the saved set was missing that nearly every team of this Pokemon runs.
+  const guaranteed = result.guaranteed?.note ? h("p", { class: "bd-note" }, result.guaranteed.note) : null;
   return h("div", { class: "bd-opt-compare" },
     h("h4", {}, "Previously and now"),
     h("p", { class: "bd-note" }, "Each stat shows its Stat Points · the final stat at level 50. ▲ and ▼ mark the stats the Nature raises and lowers."),
@@ -252,7 +272,7 @@ function compareTable(result) {
       h("table", { class: "bd-stat-table bd-opt-table" },
         h("thead", {}, h("tr", {}, h("th", {}, ""), h("th", {}, "Previously"), h("th", {}, "Now"), h("th", {}, "Change"))),
         h("tbody", {}, rows))),
-    moves);
+    moves, guaranteed);
 }
 
 /** "Jolly" over "+Spe −SpA", so the column stays narrow on a phone. */
@@ -379,7 +399,15 @@ function movesSection(member, result, props) {
         option.removed.map((m) => h("span", { class: "bd-opt-move gone" }, m))),
       h("span", { class: `bd-opt-delta ${toneOf(option.delta)}` }, signed(option.delta)),
       tested.spread ? h("button", { type: "button", class: "ghost-button compact", title: `Apply these moves with ${tested.spread.nature} · ${spreadText(tested.spread.bonuses)}`, onclick: () => props.onApply(member.slot, { nature: tested.spread.nature, bonuses: tested.spread.bonuses, moves: option.moves }, "moves") }, "Use") : null))) : null,
-    options.length && tested.spread ? h("p", { class: "bd-note" }, `Scores are matchup-score points against ${result.moves_from_common?.length ? "its most common moves" : "the current moves"}, with ${tested.spread.nature} · ${spreadText(tested.spread.bonuses)}; Use applies that spread with those moves.`) : null);
+    options.length && tested.spread ? h("p", { class: "bd-note" }, `Scores are matchup-score points against ${movesReference(result)}, with ${tested.spread.nature} · ${spreadText(tested.spread.bonuses)}; Use applies that spread with those moves.`) : null);
+}
+
+/** What the "Moves tested" scores are measured against: the set the move search started from. */
+function movesReference(result) {
+  if (result.moves_from_common?.length) return "its most common moves";
+  const added = (result.guaranteed?.added || []).map((a) => a.move);
+  if (added.length) return `the current moves with ${added.join(" and ")} in`;
+  return "the current moves";
 }
 
 function actions(member, result, props) {
@@ -388,15 +416,29 @@ function actions(member, result, props) {
     bar.append(h("button", { type: "button", class: "primary-button compact", onclick: () => props.onApply(member.slot, result.after, "all") }, "Apply"));
     const statsOnly = (result.alternatives || []).find((a) => a.kind === "stats");
     if (result.moves_changed && statsOnly) {
+      // This button writes the moves the search started from, which is the player's own set
+      // plus any move the guaranteed-move rule added to it. "only" would then be untrue, so
+      // the label names those moves and the tooltip spells the whole set out.
+      const added = (result.guaranteed?.added || []).map((a) => a.move).filter(Boolean);
+      const withMoves = added.length ? (statsOnly.moves || []).join(", ") : "your current moves";
       bar.append(h("button", {
         type: "button", class: "ghost-button compact",
-        title: `${statsOnly.nature_text} · ${spreadText(statsOnly.bonuses)} with your current moves (${signed(statsOnly.delta)})`,
+        title: `${statsOnly.nature_text} · ${spreadText(statsOnly.bonuses)} with ${withMoves} (${signed(statsOnly.delta)})`,
         onclick: () => props.onApply(member.slot, statsOnly, "stats"),
-      }, `Apply Stat Points & Nature only (${signed(statsOnly.delta)})`));
+      }, added.length
+        ? `Apply ${listText(["Stat Points", "Nature", ...added])} (${signed(statsOnly.delta)})`
+        : `Apply Stat Points & Nature only (${signed(statsOnly.delta)})`));
     }
   }
-  if (result.ok && result.moves_changed && !result.moves_from_common?.length && !(result.alternatives || []).some((a) => a.kind === "stats")) {
-    bar.append(h("p", { class: "bd-note bd-opt-actions-note" }, "Keeping your current moves, no Stat Point or Nature change scored clearly better."));
+  // Only when the suggestion really leaves the spread and the Nature alone. A guaranteed
+  // move added by the rule also sets `moves_changed`, and the search can still have found a
+  // better spread beside it - the table above would then contradict this note.
+  const spreadKept = String(result.before?.bonuses) === String(result.after?.bonuses) && result.before?.nature === result.after?.nature;
+  if (result.ok && result.moves_changed && spreadKept && !result.moves_from_common?.length && !(result.alternatives || []).some((a) => a.kind === "stats")) {
+    // With a move added by the rule there is no "your current moves" to keep: say what is left.
+    bar.append(h("p", { class: "bd-note bd-opt-actions-note" }, result.guaranteed?.added?.length
+      ? "Apart from the move nearly every team of it runs, no Stat Point or Nature change scored clearly better."
+      : "Keeping your current moves, no Stat Point or Nature change scored clearly better."));
   }
   bar.append(h("button", { type: "button", class: "ghost-button compact", onclick: () => props.onDiscard(member.slot) }, result.ok ? "Discard" : "Close"));
   return bar;

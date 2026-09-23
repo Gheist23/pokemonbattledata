@@ -83,21 +83,54 @@ function floorDiv(a, b) {
 
 // --- small helpers mirroring the Python ones ------------------------------
 
-export function clean(value) {
-  return String(value ?? "").replace(/\s+/g, " ").trim();
+/**
+ * A memo for the normalisers below. They are pure functions of one string and run millions
+ * of times in a single Auto Build - every name, item, move and type of every candidate set
+ * goes through them, always out of the same few thousand strings - so each keeps its
+ * answers. The memo cannot change a result, only how often the regex runs; the cap is only
+ * there so a long-lived page cannot grow one without bound.
+ */
+const MEMO_LIMIT = 50000;
+
+function stringMemo(fn) {
+  const cache = new Map();
+  return (text) => {
+    let out = cache.get(text);
+    if (out === undefined && !cache.has(text)) {
+      out = fn(text);
+      if (cache.size >= MEMO_LIMIT) cache.clear();
+      cache.set(text, out);
+    }
+    return out;
+  };
 }
+
+/** The string a normaliser really works on (its own `String(value ?? "")`). */
+const asText = (value) => (typeof value === "string" ? value : String(value ?? ""));
+
+const cleanMemo = stringMemo((text) => text.replace(/\s+/g, " ").trim());
+
+export function clean(value) {
+  return cleanMemo(asText(value));
+}
+
+const keyMemo = stringMemo((text) => cleanMemo(text).toLowerCase());
 
 export function key(value) {
-  return clean(value).toLowerCase();
+  return keyMemo(asText(value));
 }
 
+const compactMemo = stringMemo((text) => text.toLowerCase().replace(/[^a-z0-9]/g, ""));
+
 export function compact(value) {
-  return String(value ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  return compactMemo(asText(value));
 }
+
+const pyTitleMemo = stringMemo((text) => text.toLowerCase().replace(/(^|[^a-z])([a-z])/g, (m, pre, ch) => pre + ch.toUpperCase()));
 
 /** Python str.title() for the short ASCII words used here (types, categories). */
 export function pyTitle(value) {
-  return String(value ?? "").toLowerCase().replace(/(^|[^a-z])([a-z])/g, (m, pre, ch) => pre + ch.toUpperCase());
+  return pyTitleMemo(asText(value));
 }
 
 const truthy = (value) => Boolean(value) && !(Array.isArray(value) && value.length === 0);
@@ -337,8 +370,8 @@ export function clampFaintedAllies(value, battleFormat) {
 }
 
 /** v351: canonical (species, form) for either Mega naming style. */
-export function parseMegaName(value) {
-  const words = String(value ?? "").trim().replace(/_/g, " ").split(/[\s-]+/).filter(Boolean);
+const parseMegaNameMemo = stringMemo((value) => {
+  const words = value.trim().replace(/_/g, " ").split(/[\s-]+/).filter(Boolean);
   if (!words.length) return null;
   const lower = words.map((w) => w.toLowerCase());
   const megaIndex = lower.indexOf("mega");
@@ -354,17 +387,31 @@ export function parseMegaName(value) {
   const base = baseWords.join(" ").trim();
   if (!base) return null;
   return [base, `Mega ${base}${suffix ? ` ${suffix}` : ""}`];
+});
+
+/**
+ * The answer is a pair the callers only read (every one of them destructures it, as
+ * `DamageEngine.resolve` already hands out the shared pairs of its form index), so the
+ * memo may return the same array again.
+ */
+export function parseMegaName(value) {
+  return parseMegaNameMemo(asText(value));
 }
 
-export function speciesAndForm(pokemonName, formName = "") {
-  const rawSpecies = String(pokemonName ?? "").trim();
-  const rawForm = String(formName ?? "").trim();
+const speciesAndFormMemo = stringMemo((packed) => {
+  const cut = packed.indexOf("\u0000");
+  const rawSpecies = packed.slice(0, cut).trim();
+  const rawForm = packed.slice(cut + 1).trim();
   const parsedForm = parseMegaName(rawForm);
   const parsedSpecies = parseMegaName(rawSpecies);
   if (parsedForm) return parsedForm;
   if (parsedSpecies) return parsedSpecies;
   const species = rawSpecies || rawForm;
   return [species, rawForm || species];
+});
+
+export function speciesAndForm(pokemonName, formName = "") {
+  return speciesAndFormMemo(`${asText(pokemonName)}\u0000${asText(formName)}`);
 }
 
 // --- the engine ------------------------------------------------------------
@@ -398,12 +445,31 @@ export class DamageEngine {
     this.items = new Map((appData.items || []).map((item) => [compact(item.name), item]));
     this.megaStones = new Map(Object.entries(appData.megaStones || {}).map(([name, holders]) => [compact(name), holders]));
     this._statCache = new Map();
+    // Memos of the lookups below. Each is a pure function of the strings in its key over
+    // `appData`, which never changes for an engine, so a hit is the same answer the lookup
+    // would compute; they only spare the work of computing it again for every candidate set.
+    this._resolveCache = new Map();
+    this._formRecordCache = new Map();
+    this._megaFormCache = new Map();
+    this._megaMonCache = new Map();
+    this._moveNameCache = new Map();
+    this._moveMetaBase = new Map();
   }
 
   // ---- lookups ----
 
   /** The app's (species, form) for any spelling of a Pokemon. */
   resolve(pokemonName, formName = "") {
+    const cacheKey = `${pokemonName ?? ""}\u0000${formName ?? ""}`;
+    const cached = this._resolveCache.get(cacheKey);
+    if (cached) return cached;
+    const out = this._resolve(pokemonName, formName);
+    if (this._resolveCache.size >= MEMO_LIMIT) this._resolveCache.clear();
+    this._resolveCache.set(cacheKey, out);
+    return out;
+  }
+
+  _resolve(pokemonName, formName = "") {
     const [species, form] = speciesAndForm(pokemonName, formName || pokemonName);
     const entry = this.speciesByName.get(compact(species));
     if (entry) {
@@ -422,10 +488,14 @@ export class DamageEngine {
   }
 
   formRecord(pokemonName, formName = "") {
+    const cacheKey = `${pokemonName ?? ""}\u0000${formName ?? ""}`;
+    if (this._formRecordCache.has(cacheKey)) return this._formRecordCache.get(cacheKey);
     const [species, form] = this.resolve(pokemonName, formName);
     const entry = this.speciesByName.get(compact(species));
-    if (!entry) return null;
-    return entry.forms.find((f) => compact(f.form) === compact(form)) || entry.forms[0] || null;
+    const out = entry ? entry.forms.find((f) => compact(f.form) === compact(form)) || entry.forms[0] || null : null;
+    if (this._formRecordCache.size >= MEMO_LIMIT) this._formRecordCache.clear();
+    this._formRecordCache.set(cacheKey, out);
+    return out;
   }
 
   /** AssetManager.get_pokemon: types, stats, weight (placeholder when unknown). */
@@ -451,6 +521,17 @@ export class DamageEngine {
 
   /** V494's `_v297_mega_form_for_mon`: a matching stone decides, even over an explicit Mega form. */
   megaFormForMon(mon) {
+    // Only these three fields are read, so the answer is theirs alone.
+    const cacheKey = `${mon.item ?? ""}\u0000${mon.pokemon_name ?? ""}\u0000${mon.form_name ?? ""}`;
+    const cached = this._megaFormCache.get(cacheKey);
+    if (cached !== undefined) return cached;
+    const out = this._megaFormForMon(mon);
+    if (this._megaFormCache.size >= MEMO_LIMIT) this._megaFormCache.clear();
+    this._megaFormCache.set(cacheKey, out);
+    return out;
+  }
+
+  _megaFormForMon(mon) {
     const holders = this.megaStones.get(compact(mon.item)) || [];
     const [named, current] = speciesAndForm(mon.pokemon_name, mon.form_name);
     // A ladder spelling ("Floette-Eternal") names its species through the
@@ -462,49 +543,83 @@ export class DamageEngine {
     return current || species;
   }
 
-  /** v351 `_v297_effective_mega_mon`: the stone decides the form, a Mega form its ability. */
-  effectiveMegaMon(mon) {
-    const clone = cloneMon(mon);
+  /**
+   * The species, form and (for a Mega) Ability `effectiveMegaMon` puts on a mon. It reads
+   * only the mon's species, form and item, so the answer is theirs and is kept: the whole
+   * chain runs for every candidate set's every damage calculation.
+   */
+  megaIdentityForMon(mon) {
+    const cacheKey = `${mon.pokemon_name ?? ""}\u0000${mon.form_name ?? ""}\u0000${mon.item ?? ""}`;
+    const cached = this._megaMonCache.get(cacheKey);
+    if (cached) return cached;
     const rawForm = String(mon.form_name || mon.pokemon_name || "").trim();
     const [named, canonical] = speciesAndForm(mon.pokemon_name, rawForm);
     const species = this.speciesByName.has(compact(named)) ? named : this.resolve(named)[0];
-    clone.pokemon_name = species;
-    clone.form_name = canonical || species;
-    const resolved = this.megaFormForMon(clone);
-    clone.form_name = resolved;
+    const resolved = this.megaFormForMon({ item: mon.item, pokemon_name: species, form_name: canonical || species });
+    let ability = "";
     if (parseMegaName(resolved)) {
       const record = this.formRecord(species, resolved);
-      let ability = record?.megaAbility || "";
+      ability = record?.megaAbility || "";
       if (!ability && record?.abilities?.length) ability = record.abilities[0];
-      if (ability) clone.ability = ability;
     }
+    const out = { pokemon_name: species, form_name: resolved, ability };
+    if (this._megaMonCache.size >= MEMO_LIMIT) this._megaMonCache.clear();
+    this._megaMonCache.set(cacheKey, out);
+    return out;
+  }
+
+  /** v351 `_v297_effective_mega_mon`: the stone decides the form, a Mega form its ability. */
+  effectiveMegaMon(mon) {
+    const { pokemon_name: species, form_name: resolved, ability } = this.megaIdentityForMon(mon);
+    const clone = cloneMon(mon);
+    clone.pokemon_name = species;
+    clone.form_name = resolved;
+    if (ability) clone.ability = ability;
     return clone;
   }
 
   canonicalMoveName(moveName) {
-    const name = clean(moveName);
-    if (this.moveAliases[name]) return this.moveAliases[name];
-    return this.moveByCompact.get(compact(name)) || name;
+    const text = typeof moveName === "string" ? moveName : String(moveName ?? "");
+    const cached = this._moveNameCache.get(text);
+    if (cached !== undefined) return cached;
+    const name = clean(text);
+    const out = this.moveAliases[name] || this.moveByCompact.get(compact(name)) || name;
+    if (this._moveNameCache.size >= MEMO_LIMIT) this._moveNameCache.clear();
+    this._moveNameCache.set(text, out);
+    return out;
   }
 
   moveRecord(moveName) {
     return this.moves[this.canonicalMoveName(moveName)] || null;
   }
 
+  /**
+   * The part of `move_meta` that is the move's alone: its record without the fields the
+   * chain drops. Shared and never handed out - `moveMeta` copies it - because the copy is
+   * what the chain then writes on. Its nested lists (`flags`, `simple`, `analysis`,
+   * `hit_range`, `effect_script`, `conditional_power_ops`) are only ever read.
+   */
+  moveMetaBase(name) {
+    let base = this._moveMetaBase.get(name);
+    if (base) return base;
+    const record = this.moves[name];
+    if (record) {
+      base = { ...record };
+      delete base.acc;
+      delete base.acc_weather;
+      delete base.description;
+    } else {
+      base = { type: "Normal", category: "physical", power: 80, missing_metadata: true, priority: 0, target: "normal", spread: false };
+    }
+    base.name = name;
+    this._moveMetaBase.set(name, base);
+    return base;
+  }
+
   /** The final `move_meta` chain for a context. */
   moveMeta(ctx) {
     const name = this.canonicalMoveName(ctx.move_name);
-    const record = this.moves[name];
-    let meta;
-    if (record) {
-      meta = JSON.parse(JSON.stringify(record));
-      delete meta.acc;
-      delete meta.acc_weather;
-      delete meta.description;
-    } else {
-      meta = { type: "Normal", category: "physical", power: 80, missing_metadata: true, priority: 0, target: "normal", spread: false };
-    }
-    meta.name = name;
+    const meta = { ...this.moveMetaBase(name) };
     if (ctx.move_type_override) meta.type = pyTitle(ctx.move_type_override);
     if (ctx.move_category_override) meta.category = String(ctx.move_category_override).toLowerCase();
     if (int(ctx.move_power_override) > 0) {

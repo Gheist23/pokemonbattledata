@@ -20,11 +20,21 @@
 // The candidate set is the app's common set (_v123/_v113) with its move gate
 // (a move whose weather/terrain the team cannot set is not offered) and its
 // field repair (an item or Ability the team cannot switch on is replaced).
+// Every candidate set then carries the Pokémon's guaranteed moves (at least 95%
+// usage; builder/guaranteed-moves.js), unless the option switches the rule off.
+// Its Nature and its Stat Points are put together by builder/nature-spreads.js
+// instead of by the two usage lists' positions, unless that option is switched off too.
 
 import { compact, makeMon, pyFixed, pyRound } from "./engine.js";
+import { GUARANTEED_MOVE_SHARE, describeChanges, enforce, lockedMoves, moveShares, shareOption } from "./guaranteed-moves.js";
+import { PAIRED_SPREADS, pairedOption, spreadPointsForNature } from "./nature-spreads.js";
 import { FOUND_IN_TEAM_NOTE } from "./known-teams.js";
 import { classifyArchetype, tailwindBeneficiaries } from "./team-checks.js";
 import { roomPlan } from "./team-speed.js";
+
+// The Nature / Stat Point pairing lives in builder/nature-spreads.js, so team-eval.js's
+// candidate spreads and the pairing here cannot drift apart; re-exported for its old callers.
+export { spreadPointsForNature } from "./nature-spreads.js";
 
 const TEAM_SIZE = 6;
 const ROW_LIMIT = 14;
@@ -359,10 +369,19 @@ export function suggestionForPage(sg, row, selected = null) {
 }
 
 export class TeamSuggestions {
-  /** @param {TeamEvaluation} evaluation  (its evaluator carries the settings and meta) */
-  constructor(evaluation) {
+  /**
+   * @param {TeamEvaluation} evaluation  (its evaluator carries the settings and meta)
+   * @param {{guaranteedMoveShare?: number|null, pairedSpreads?: boolean|null}} options
+   *   `guaranteedMoveShare`: the usage share (percent) from which a move is on every set
+   *   this engine puts forward; null or 0 switches it off.
+   *   `pairedSpreads`: a candidate's Nature gets Stat Points it does not contradict
+   *   (builder/nature-spreads.js); left out, the evaluator's own setting decides.
+   */
+  constructor(evaluation, { guaranteedMoveShare = GUARANTEED_MOVE_SHARE, pairedSpreads } = {}) {
+    this.guaranteedShare = shareOption(guaranteedMoveShare);
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
+    this.pairedSpreads = pairedSpreads === undefined ? (this.ev.pairedSpreads ?? PAIRED_SPREADS) : pairedOption(pairedSpreads);
     this.checks = evaluation.checks;
     this.synergy = evaluation.synergy;
     this.lossCache = new Map();
@@ -432,6 +451,33 @@ export class TeamSuggestions {
 
   usage(name, category, limit) {
     return this.ev.usagePairs(this.usageName(name), category, limit).map(([n]) => n);
+  }
+
+  // --- guaranteed moves (builder/guaranteed-moves.js) --------------------------------
+
+  /** The weather / terrain a move needs to be offered ("" when it needs none). */
+  moveCondition(move) {
+    return MOVES_NEEDING_SUPPORT[compact(move)] || "";
+  }
+
+  /** The moves a set ({ability, item}) of this Pokémon must carry on this team: [{move, share}]. */
+  lockedMoves(name, set, teamEntries) {
+    return lockedMoves(this, name, set || {}, teamEntries || []);
+  }
+
+  /**
+   * The set with its guaranteed moves in (the same object when nothing was missing).
+   * `protect` names moves that may not make room (the archetype's anchor move); `notes`
+   * collects the plain-English lines for a log.
+   */
+  guaranteeSet(name, set, teamEntries, protect = [], notes = null) {
+    if (!(this.guaranteedShare > 0) || !set) return set;
+    const locked = this.lockedMoves(name, set, teamEntries);
+    if (!locked.length) return set;
+    const { moves, changes } = enforce(set.moves || [], locked, { shares: moveShares(this, name), protect });
+    if (!changes.length) return set;
+    if (notes) notes.push(...describeChanges(String(name || ""), changes));
+    return { ...set, moves };
   }
 
   // --- candidates -----------------------------------------------------------------
@@ -526,6 +572,8 @@ export class TeamSuggestions {
     let set = { rank: 1, item: items[0] || "", ability: abilities[0] || "", moves: moves.slice(0, 4), spread, total_sets: 1 };
     set = this.repairSetMoves(name, set, teamEntries);
     set = this.repairSetFields(name, set, teamEntries);
+    // Guaranteed moves: judged with the Ability the set plays with (a Mega's for its stone).
+    set = this.guaranteeSet(name, set, teamEntries);
     return { ...set, rank: 1, evaluated_count: 1, total_sets: 1, _common_gate_v123: true };
   }
 
@@ -1279,7 +1327,10 @@ export class TeamSuggestions {
     return { pokemon: entry.pokemon, item, form, ability, moves: (moves.length ? moves : entry.moves || []).slice(0, 4) };
   }
 
-  /** known_team_prediction.spread_for_nature over common_stat_alignment_spreads(species, 10). */
+  /**
+   * known_team_prediction.spread_for_nature over common_stat_alignment_spreads(species, 10).
+   * Each Nature keeps the most used Stat Points it does not contradict (spreadPointsForNature).
+   */
   spreadForNature(species, nature) {
     const record = this.ev.record(species);
     const natures = (record?.natures || []).slice(0, 10);
@@ -1287,18 +1338,25 @@ export class TeamSuggestions {
     const table = this.ev.engine.natures || {};
     const spreads = natures.map(([name, pct], index) => {
       const natureName = String(name || "Serious").trim() || "Serious";
+      const point = spreadPointsForNature(points, table[natureName]);
       return {
         name: natureName, nature_name: natureName, nature: [...(table[natureName] || ["", ""])],
-        bonuses: [...(points[index]?.[1] || [0, 0, 0, 0, 0, 0])],
-        percentage: Number(pct) || 0, stat_points_percentage: Number(points[index]?.[0]) || 0, rank: index + 1,
+        bonuses: [...(point?.[1] || [0, 0, 0, 0, 0, 0])],
+        percentage: Number(pct) || 0, stat_points_percentage: Number(point?.[0]) || 0, rank: index + 1,
       };
     });
     const wanted = String(nature || "").trim().toLowerCase();
     const hit = spreads.find((spread) => wanted && spread.nature_name.trim().toLowerCase() === wanted);
-    if (hit) return hit;
+    if (hit) return { ...hit, nature: [...hit.nature], bonuses: [...hit.bonuses] };
     if (!wanted) return spreads[0] ? { ...spreads[0] } : null;
+    // A Nature the usage file never saw still gets Stat Points that suit it, not the top Nature's.
     const title = String(nature).trim().toLowerCase().replace(/(^|[^a-z])([a-z])/g, (m, a, b) => a + b.toUpperCase());
-    return { ...(spreads[0] || { bonuses: [] }), name: title, nature_name: title, nature: [...(table[title] || ["", ""])] };
+    const effect = table[title] || ["", ""];
+    const point = spreadPointsForNature(points, effect);
+    return {
+      ...(spreads[0] || { bonuses: [] }), name: title, nature_name: title, nature: [...effect],
+      bonuses: [...(point?.[1] || spreads[0]?.bonuses || [])], stat_points_percentage: Number(point?.[0]) || 0,
+    };
   }
 
   /** V466 and the installers wrapped round it: the team's strategy. */
@@ -1596,8 +1654,11 @@ export class TeamSuggestions {
     const stone = this.megaItemForCandidate(meta);
     if (!stone) return meta;
     const forced = structuredClone(meta);
-    const set = forced._candidate_set_v113 ? structuredClone(forced._candidate_set_v113) : this.commonCandidateSet(forced, context.fieldEntries || context.teamEntries);
+    const fieldEntries = context.fieldEntries || context.teamEntries;
+    let set = forced._candidate_set_v113 ? structuredClone(forced._candidate_set_v113) : this.commonCandidateSet(forced, fieldEntries);
     Object.assign(set, { item: stone, rank: 1, evaluated_count: 1, total_sets: 1 });
+    // The stone brings the Mega's Ability, which may turn on a guaranteed move's weather.
+    set = this.guaranteeSet(String(meta.name || ""), set, fieldEntries, set.archetype_anchor_v494 ? [set.archetype_anchor_v494] : []);
     Object.assign(forced, { _candidate_set_v113: set, top_item: stone, top_items: [stone], forced_mega_for_last_slot_v472: true });
     return forced;
   }
@@ -1799,10 +1860,26 @@ export class TeamSuggestions {
     return packages.length ? packages : [basePackage];
   }
 
+  /**
+   * The common set's Nature with the Stat Points it goes with: the first spread every
+   * candidate set is built on. The usage file's common set reads the top Nature and the top
+   * Stat Points off two separate lists, so on a Pokemon whose most used Nature is not the
+   * one its most used distribution was built for that pair contradicts itself
+   * (builder/nature-spreads.js). With the rule off it stays as the file has it.
+   */
+  commonSpread(name, common) {
+    const nature = String(common.nature_name || "Serious").trim() || "Serious";
+    const bonuses = [...(common.bonuses || [0, 0, 0, 0, 0, 0])];
+    if (!this.pairedSpreads) return { name: nature, nature_name: nature, bonuses, rank: 1 };
+    const points = this.ev.record(this.usageName(name))?.spreads || [];
+    const point = spreadPointsForNature(points, this.ev.engine.natures?.[nature] || ["", ""]);
+    return { name: nature, nature_name: nature, bonuses: [...(point?.[1] || bonuses)], rank: 1 };
+  }
+
   /** _v113_spread_options: the common spread, then the recorded nature / Stat Point pairs. */
   spreadOptions(name, common, limit) {
-    const fallback = { name: common.nature_name || "Serious", nature_name: common.nature_name || "Serious", bonuses: [...(common.bonuses || [0, 0, 0, 0, 0, 0])], rank: 1 };
-    const spreads = [fallback, ...this.ev.commonSpreads(this.usageName(name), limit)];
+    const fallback = this.commonSpread(name, common);
+    const spreads = [fallback, ...this.ev.commonSpreads(this.usageName(name), limit, this.pairedSpreads)];
     const out = [];
     const seen = new Set();
     for (const spread of spreads) {
@@ -1896,7 +1973,7 @@ export class TeamSuggestions {
     }));
     sets = this.trickRoomNatures(sets, meta, context);
     // V494: the archetype's defining move is offered to every candidate that can learn it.
-    if (context.anchorArchetype) sets = context.anchorArchetype.candidateSets(sets, meta);
+    if (context.anchorArchetype) sets = context.anchorArchetype.candidateSets(sets, meta, fieldEntries);
     return this.guardSets(name, sets, fieldEntries);
   }
 
@@ -1995,7 +2072,32 @@ export class TeamSuggestions {
         if (standIns.length) itemMap.set(k, standIns[Math.min(i, standIns.length - 1)]);
       });
     }
-    return sets.map((set) => this.repairSetFields(name, set, fieldEntries, itemMap));
+    const repaired = sets.map((set) => this.repairSetFields(name, set, fieldEntries, itemMap));
+    return this.guaranteeSets(name, repaired, fieldEntries);
+  }
+
+  /**
+   * Guaranteed moves on every set of a candidate list (the archetype's anchor move stays
+   * where it was offered); sets that become the same are kept once and renumbered.
+   */
+  guaranteeSets(name, sets, fieldEntries) {
+    if (!(this.guaranteedShare > 0) || !sets.length) return sets;
+    let changed = false;
+    const out = [];
+    const seen = new Set();
+    for (const set of sets) {
+      const next = this.guaranteeSet(name, set, fieldEntries, set.archetype_anchor_v494 ? [set.archetype_anchor_v494] : []);
+      if (next !== set) changed = true;
+      const k = [compact(next.item), compact(next.ability), (next.moves || []).map(compact).join(","), String(next.spread?.nature_name || next.spread?.name || "").toLowerCase(), (next.spread?.bonuses || []).join(",")].join("|");
+      if (seen.has(k)) {
+        changed = true;
+        continue;
+      }
+      seen.add(k);
+      out.push(next);
+    }
+    if (!changed) return sets;
+    return out.map((set, i) => (set.rank !== undefined ? { ...set, rank: i + 1, evaluated_count: out.length, total_sets: out.length } : set));
   }
 
   /** _v476_three_worst_targets: the members the failing checks point at, up to three. */

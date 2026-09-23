@@ -3,6 +3,11 @@
 // spread the search evaluated with its score, and the result.
 //
 //   node tests/run-optimize-vectors.mjs [limit]
+//
+// Nature / Stat Point pairing (builder/nature-spreads.js): a recording made with the rule
+// carries record.rules.paired_spreads and replays with it; one without the stamp was made
+// before the rule and replays with each Nature on the distribution at its own place in the
+// usage file's other list. PAIRED_SPREADS=0 / =1 replays every recording either way.
 
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -29,6 +34,10 @@ const engine = new DamageEngine(appData);
 const aliases = appData.usageAliases || {};
 const limit = Number(process.argv[2]) || 30;
 const near = (a, b, tol = 1e-6) => Math.abs(Number(a) - Number(b)) <= tol * Math.max(1, Math.abs(Number(a)));
+/** The recording's Nature / Stat Point pairing stamp (null: recorded before the rule, replayed
+ *  with the usage file's index zip). PAIRED_SPREADS=0 / =1 replays every recording either way. */
+const pairedStamp = (testCase) => testCase.record?.rules?.paired_spreads ?? testCase.rules?.paired_spreads ?? null;
+const pairedRule = (testCase) => (process.env.PAIRED_SPREADS === undefined ? pairedStamp(testCase) : process.env.PAIRED_SPREADS);
 
 const failures = [];
 let total = 0;
@@ -46,7 +55,7 @@ for (const testCase of cases) {
     if (!records.has(stem) && (call.meta.rows || []).length) records.set(stem, pokemonRecord(stem, call.meta.rows, aliases));
   }
   if (!appPool.length) for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
-  const ev = new TeamEvaluator(null, engine, "Doubles", testCase.settings);
+  const ev = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase) });
   ev.setMetaRecords([...records.values()]);
   const optimizer = new TeamOptimizer(new TeamEvaluation(ev));
   const label = `${testCase.name} slot ${testCase.slot} ${testCase.entry[0]}`;

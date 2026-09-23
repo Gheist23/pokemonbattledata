@@ -251,7 +251,9 @@ self.addEventListener("message", async (event) => {
     if (type === "tournament") {
       // Test against Tournament Teams: short games (turn 1, then the fight that follows)
       // against the first N shipped tournament teams, with a fresh analysis after every
-      // batch. The format decides how many each side brings (TeamEvaluator.format).
+      // batch. The format decides how many each side brings and whether the lead matrix
+      // is 2 vs 2 or 1 vs 1 (TeamEvaluator.format); the snapshot also carries the most
+      // similar tournament team, so no separate lookup is needed here.
       const { evaluation } = await appEvaluation(payload.format, payload.settings);
       evaluation.knownTeams ||= await knownTeams();
       if (!evaluation.knownTeams) throw new Error("The tournament teams could not be loaded. Check the connection and try again.");

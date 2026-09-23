@@ -10,9 +10,18 @@
 //     (each stat stays within 0-32, the total at 66).
 //  3. Moves (optional): attacks the member can learn are ranked against the meta and
 //     every combination for the free move slots is scored; support moves, pivots,
-//     priority moves and the moves the team's weather or terrain is built around are
-//     never swapped out, and locked-in, charging, situational and self-KO moves are
-//     never suggested. The Stat Points are then tuned again for the best move sets.
+//     priority moves, the moves the team's weather or terrain is built around and the
+//     moves nearly every team of this Pokémon runs are never swapped out, and locked-in,
+//     charging, situational, self-KO and unpowered weather/terrain moves are never
+//     suggested. The Stat Points are then tuned again for the best move sets.
+//
+// The guaranteed moves (builder/guaranteed-moves.js: at least GUARANTEED_MOVE_SHARE
+// percent of this Pokémon's teams run them) are the same rule Auto Build and Suggestions
+// follow, so Optimize never offers to undo them. A saved set that is missing one is offered
+// it in place of its least used free attack - adding a move the rule guarantees is an
+// improvement, not a change that has to earn its margin - and the search measures from the
+// set with it in. What the player is shown starts one step earlier, at the moves the set was
+// saved with, so the score change and the breakdown cover everything Apply writes.
 //
 // Every option is scored by builder/optimize-objective.js. A change is only worth it
 // when it clearly scores better than what the set already has: another Nature, less
@@ -29,6 +38,7 @@ import { TeamOptimizer, identityKey } from "./team-optimize.js";
 import { OptimizeObjective, WORKING_SET_RANKS } from "./optimize-objective.js";
 import { DamageMemo, STAT_NAMES, fillPoints, legalPoints, natureIndices, pointTotal, pointsKey, tick, withSpeedPoints } from "./optimize-core.js";
 import { UTILITY_ATTACKS, suggestBlock } from "./move-traits.js";
+import { enforce, fieldGate, formatShare, lockedKeys, lockedMoves, moveShares, shareOption } from "./guaranteed-moves.js";
 
 /**
  * How much better (in matchup-score points, 0-100) a change must score before it is
@@ -97,6 +107,56 @@ export class DeepOptimizer {
     return memo;
   }
 
+  /**
+   * Which moves this member may not lose, and which new moves it may be offered at all.
+   *
+   * `lockReason` names why a move stays: you locked it, nearly every team of this Pokémon
+   * runs it (the guaranteed-moves rule, builder/guaranteed-moves.js), it is a support move,
+   * a utility attack or a priority move, or the team's weather or terrain is built around it.
+   * `powered` is the same field gate the rule uses, so a weather or terrain move the team
+   * cannot switch on is never offered as a new attack. `moves` is the set the search measures
+   * against: the member's own moves, plus any guaranteed move it does not have yet (`added`),
+   * in place of its least used move that no reason keeps.
+   *
+   * `options.guaranteedMoveShare` overrides the share (`null` or 0 switches the rule off,
+   * which is what Optimize looked like before it: no guaranteed move and no field gate).
+   *
+   * @param {OptimizeObjective} objective
+   * @param {object} member  the set being optimised (its own moves)
+   * @param {Array<object|null>} team  the whole team, for the weather and terrain it sets
+   */
+  moveGuards(objective, member, team, options = {}) {
+    const sg = this.sg;
+    const share = options.guaranteedMoveShare === undefined ? sg.guaranteedShare : shareOption(options.guaranteedMoveShare);
+    const name = member.form || member.species;
+    const set = { ability: member.ability || "", item: member.item || "" };
+    const entries = (team || []).filter((s) => s?.species).map((s) => ({
+      pokemon: s.form || s.species, form: s.form || s.species, item: s.item || "",
+      ability: s.ability || "", moves: (s.moves || []).filter(Boolean),
+    }));
+    const locked = share > 0 ? lockedMoves(sg, name, set, entries, share) : [];
+    const keys = lockedKeys(locked);
+    const shareOf = (key) => locked.find((l) => compact(l.move) === key)?.share ?? 0;
+    const userLocked = new Set((options.lockedMoves || []).map(compact));
+    const planMoves = objective.fieldPlanMoves();
+    const lockReason = (move) => {
+      const k = compact(move);
+      if (userLocked.has(k)) return "kept by you";
+      if (keys.has(k)) return `on ${formatShare(shareOf(k))}% of its teams`;
+      if (!this.opt.damaging(move)) return "support move";
+      if (UTILITY_ATTACKS.has(k)) return "utility attack";
+      if (this.ev.movePriority(move) > 0) return "priority move";
+      if (planMoves.has(k)) return "works with your team's field";
+      return "";
+    };
+    const own = (member.moves || []).filter(Boolean).slice(0, 4);
+    const { moves, changes } = enforce(own, locked, {
+      shares: locked.length ? moveShares(sg, name) : new Map(),
+      protect: own.filter((m) => lockReason(m)),
+    });
+    return { locked, keys, lockReason, moves, added: changes, powered: share > 0 ? fieldGate(sg, name, set, entries) : () => true };
+  }
+
   /** The moves a member can learn (the form's list, else another form's). */
   learnset(species, form) {
     const sets = this.engine.data?.learnsets || {};
@@ -113,7 +173,7 @@ export class DeepOptimizer {
   /**
    * @param {Array<object|null>} sets   the team (builder sets, makeSet'd)
    * @param {number} slot
-   * @param {{depth?: "quick"|"deep", testMoves?: boolean, keepNature?: boolean, keepSpeed?: boolean, lockedMoves?: string[], topX?: number}} options
+   * @param {{depth?: "quick"|"deep", testMoves?: boolean, keepNature?: boolean, keepSpeed?: boolean, lockedMoves?: string[], topX?: number, guaranteedMoveShare?: number|null}} options
    * @param {{onProgress?: (fraction:number, message:string, phase:string) => void, shouldStop?: () => boolean}} hooks
    */
   async run(sets, slot, options = {}, { onProgress, shouldStop } = {}) {
@@ -192,7 +252,13 @@ export class DeepOptimizer {
     if (!objective.rows.length) return { ok: false, message: "No meta matchups were available for this format." };
     await tick();
 
-    const baseSet = objective.moveSet(currentMoves);
+    // The guaranteed moves (builder/guaranteed-moves.js), the same rule Auto Build and
+    // Suggestions follow: they are never offered away, and a saved set missing one is
+    // measured from the set with it in - the rule guarantees it, so adding it does not have
+    // to earn a margin first. `movesFromCommon` already reports its whole set as new.
+    const guard = this.moveGuards(objective, member, team, options);
+    const guaranteedAdded = movesFromCommon ? [] : guard.added;
+    const baseSet = objective.moveSet(guard.moves);
     const speedOf = (nature, points) => Math.trunc(this.engine.effectiveSpeed(objective.mon(nature, points), {})) || 1;
     const currentSpeed = speedOf(currentNature, setPoints);
     // Every option the search keeps is a legal spread (0-32 each, 66 in total at most).
@@ -359,7 +425,7 @@ export class DeepOptimizer {
         }
         return movesOver();
       };
-      moveReport = await guarded(() => this.testMoves({ objective, member, baseSet, budget, bests, score, value, refine, report, pause, overBudget: movesOver, retuneOver, options, kept }));
+      moveReport = await guarded(() => this.testMoves({ objective, member, baseSet, budget, bests, score, value, refine, report, pause, overBudget: movesOver, retuneOver, options, kept, guard }));
     }
 
     // --- the pick ------------------------------------------------------------------------
@@ -374,8 +440,14 @@ export class DeepOptimizer {
     const full = objective.rows.length !== objective.workingRows.length;
     const scoreAll = (nature, points, moveSet) => (full ? objective.score(nature, points, moveSet, { rows: objective.rows }) : score(nature, points, moveSet));
     const beforeAll = scoreAll(currentNature, currentPoints, baseSet);
-    // The set as it is (its own spread even when that is over 66): the "Previously" side.
-    const setAll = overBy ? objective.score(currentNature, setPoints, baseSet, { rows: objective.rows }) : beforeAll;
+    // The "Previously" side is the set the player actually has: its own moves (a guaranteed
+    // move the rule added is part of what Apply changes, so it belongs on the "Now" side),
+    // at its own Nature and its own spread even when that is over 66. The search keeps
+    // measuring from `baseSet`/`currentPoints`; only what the player is shown starts here.
+    const shownSet = guaranteedAdded.length ? objective.moveSet(currentMoves) : baseSet;
+    const setAll = overBy || shownSet.id !== baseSet.id
+      ? objective.score(currentNature, setPoints, shownSet, { rows: objective.rows })
+      : beforeAll;
     let afterAll = scoreAll(pick.nature, pick.points, pick.moveSet);
     const same = (option) => option.nature === currentNature && pointsKey(option.points) === pointsKey(currentPoints) && option.moveSet.id === baseSet.id;
     // Only spends unused points: the same Nature and moves, no stat lower than before.
@@ -406,7 +478,8 @@ export class DeepOptimizer {
     }
     const statsOnly = pick.moveSet.id !== baseSet.id ? bests.get(baseSet.id) : null;
     const result = this.describe({
-      objective, member, template, currentNature, setPoints, setTotal, baseSet, pick, setAll, beforeAll, afterAll, moveReport, statsOnly, scoreAll, kind, movesFromCommon,
+      objective, member, template, currentNature, setPoints, setTotal, baseSet, shownSet, pick, setAll, beforeAll, afterAll, moveReport, statsOnly, scoreAll, kind, movesFromCommon,
+      currentMoves, guaranteedAdded,
     });
     if (run.stopped && !result.ok) result.message = "Stopped before anything clearly better was found. Run it again and let it finish for the full search.";
     result.trade_off = this.tradeOff({ objective, bestRaw, pick, baseSet, beforeAll, setAll, afterAll, scoreAll, speedOf, suggested: result.ok });
@@ -514,27 +587,21 @@ export class DeepOptimizer {
   }
 
   /** Test new attacks in the free move slots, then re-tune the spread for the best sets. */
-  async testMoves({ objective, member, baseSet, budget, bests, score, value, refine, report, pause, overBudget, retuneOver = overBudget, options, kept }) {
+  async testMoves({ objective, member, baseSet, budget, bests, score, value, refine, report, pause, overBudget, retuneOver = overBudget, options, kept, guard }) {
     const leader = bests.get(baseSet.id);
     if (!leader) return null;
-    const userLocked = new Set((options.lockedMoves || []).map(compact));
-    const planMoves = objective.fieldPlanMoves();
-    const lockReason = (move) => {
-      const k = compact(move);
-      if (userLocked.has(k)) return "kept by you";
-      if (!this.opt.damaging(move)) return "support move";
-      if (UTILITY_ATTACKS.has(k)) return "utility attack";
-      if (this.ev.movePriority(move) > 0) return "priority move";
-      if (planMoves.has(k)) return "works with your team's field";
-      return "";
-    };
-    const moves = member.moves;
+    const { lockReason, powered } = guard;
+    // The reference set, so a guaranteed move the saved set did not have is tested with the rest.
+    const moves = baseSet.moves;
+    const held = new Set(moves.map(compact));
     const lockedMoves = moves.filter((m) => lockReason(m));
     const freeMoves = moves.filter((m) => !lockReason(m));
     const slots = 4 - lockedMoves.length;
     const out = { kept: lockedMoves.map((move) => ({ move, reason: lockReason(move) })), free: slots, tested: 0, combos: 0, results: [], note: "" };
     if (slots <= 0) {
-      out.note = "Every move does a job the damage numbers cannot see, so all four were kept.";
+      out.note = lockedMoves.some((m) => guard.keys.has(compact(m)))
+        ? "All four were kept: each one either does a job the damage numbers cannot see or is a move nearly every team of it runs."
+        : "Every move does a job the damage numbers cannot see, so all four were kept.";
       return out;
     }
     const types = new Set((this.engine.pokemon(objective.template.pokemon_name, objective.template.form_name)?.types || []).map(compact));
@@ -546,6 +613,9 @@ export class DeepOptimizer {
       const k = compact(move);
       if (!record || !this.opt.damaging(move) || excluded.has(k) || lockedMoves.some((m) => compact(m) === k)) continue;
       if (UTILITY_ATTACKS.has(k) || this.ev.movePriority(move) > 0) continue; // kept when present, never added
+      // A weather or terrain move the team cannot switch on is never offered as a new attack
+      // (the same gate the guaranteed-moves rule uses). One the set already has stays testable.
+      if (!held.has(k) && !powered(move)) continue;
       if (suggestBlock(record, { sun: objective.sunTeam, rain: objective.rainTeam, stab: types.has(compact(record.type)), doubles: objective.doubles })) continue;
       learnable.set(k, move);
     }
@@ -704,6 +774,14 @@ export class DeepOptimizer {
     return up < 0 ? `${name} (neutral)` : `${name} (+${STAT_NAMES[up]} −${STAT_NAMES[down]})`;
   }
 
+  /** Why the suggestion carries a move the saved set did not have, in plain English. */
+  guaranteedNote(who, added) {
+    const one = ([{ move, share, replaced }]) => `${move} is on ${formatShare(share)}% of ${who} teams, so it is always kept on the final set. Your set did not have it: it was ${replaced ? `added in place of ${replaced}` : "added in a free move slot"}.`;
+    const text = added.length === 1 ? one(added)
+      : `${added.map(({ move, share }) => `${move} (${formatShare(share)}%)`).join(" and ")} are on nearly every ${who} team, so they are always kept on the final set. Your set did not have ${added.length === 2 ? "them" : "all of them"}: ${added.map(({ move, replaced }) => (replaced ? `${move} took the place of ${replaced}` : `${move} went in a free move slot`)).join(", ")}.`;
+    return `${text} The score change and everything below compare your saved set with the suggestion, so ${added.length === 1 ? "the added move counts" : "the added moves count"} towards them.`;
+  }
+
   side(objective, nature, points, moveSet, value, counts) {
     const mon = objective.mon(nature, points);
     const effective = this.engine.effectiveMegaMon(mon);
@@ -749,21 +827,31 @@ export class DeepOptimizer {
     };
   }
 
-  describe({ objective, member, template, currentNature, setPoints, setTotal, baseSet, pick, setAll, beforeAll, afterAll, moveReport, statsOnly, scoreAll, kind, movesFromCommon }) {
+  describe({ objective, member, template, currentNature, setPoints, setTotal, baseSet, shownSet = baseSet, pick, setAll, beforeAll, afterAll, moveReport, statsOnly, scoreAll, kind, movesFromCommon, currentMoves = [], guaranteedAdded = [] }) {
     const rows = objective.rows;
     this.baseMoves = baseSet.moves;
     const plan = this.planContext(objective);
-    // "Previously" is the set as it is: its own spread, and no moves when it had none.
-    const beforeDetail = objective.score(currentNature, setPoints, baseSet, { detail: true, rows });
+    // "Previously" is the set as it is: its own moves, its own spread, and no moves when it
+    // had none. `shownSet` is the player's own moves whenever the rule added a guaranteed
+    // one, so the headline, the counts and "What changes in battle" all cover everything
+    // Apply writes - the added move included.
+    const beforeDetail = objective.score(currentNature, setPoints, shownSet, { detail: true, rows });
     const afterDetail = objective.score(pick.nature, pick.points, pick.moveSet, { detail: true, rows });
-    const before = this.side(objective, currentNature, setPoints, baseSet, setAll, this.counts(beforeDetail, plan));
+    const before = this.side(objective, currentNature, setPoints, shownSet, setAll, this.counts(beforeDetail, plan));
     const after = this.side(objective, pick.nature, pick.points, pick.moveSet, afterAll, this.counts(afterDetail, plan));
     if (movesFromCommon) before.moves = [];
-    const movesChanged = pick.moveSet.id !== baseSet.id || movesFromCommon;
+    // "Previously" lists the saved moves in the order the set has them.
+    else if (guaranteedAdded.length) before.moves = [...currentMoves];
+    // The set with the guaranteed moves in, at the set's own spread: what the search started
+    // from (`beforeAll` already is that, unless the spread had to be made legal first).
+    const guaranteedRef = guaranteedAdded.length
+      ? (setTotal > MAX_BONUS_STAT_POINTS ? objective.score(currentNature, setPoints, baseSet, { rows }) : beforeAll)
+      : 0;
+    const movesChanged = pick.moveSet.id !== baseSet.id || movesFromCommon || guaranteedAdded.length > 0;
     const changed = movesChanged || pick.nature !== currentNature || pointsKey(pick.points) !== pointsKey(setPoints);
     const unspent = Math.max(0, MAX_BONUS_STAT_POINTS - setTotal);
     const result = {
-      ok: changed && (afterAll >= beforeAll + MARGINS.minimum || kind === "legal" || kind === "fill"),
+      ok: changed && (afterAll >= beforeAll + MARGINS.minimum || kind === "legal" || kind === "fill" || guaranteedAdded.length > 0),
       member: { species: member.species, form: member.form || member.species, item: member.item || "", name: this.sg.name(template.form_name || template.pokemon_name) },
       before, after, delta: afterAll - setAll, moves_changed: movesChanged,
       ...moveDiff(before.moves, after.moves),
@@ -774,6 +862,15 @@ export class DeepOptimizer {
       // suggested when that is the reason ("legal", "fill").
       points: { total: setTotal, over: Math.max(0, setTotal - MAX_BONUS_STAT_POINTS), unspent, kind },
       moves_from_common: movesFromCommon ? [...baseSet.moves] : null,
+      // The guaranteed moves the saved set did not have yet, and the sentence for the
+      // Previously / Now breakdown. Null when the set already carried every one of them.
+      guaranteed: guaranteedAdded.length ? {
+        added: guaranteedAdded.map(({ move, share, replaced }) => ({ move, share, replaced })),
+        // What adding the move is worth on its own, at the set's own Nature and spread:
+        // below zero when the move the rule guarantees scores less than the one it replaces.
+        delta: guaranteedRef - setAll,
+        note: this.guaranteedNote(this.sg.name(template.form_name || template.pokemon_name), guaranteedAdded),
+      } : null,
     };
     if (!result.ok) {
       result.message = "Your current set already plays these matchups best: no Stat Point, Nature or move change we tried did clearly better.";

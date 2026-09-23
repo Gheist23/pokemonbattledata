@@ -1,9 +1,12 @@
-// Pro status and the free-run allowance for Team Evaluation and Auto Build.
+// Pro status and the free-run allowance for Team Evaluation, Auto Build and Test
+// against Tournament Teams.
 //
-// Everything else on the builder pages is free.  These two features give a
-// visitor a few complete runs; after that they ask for Pro.  The allowance is
-// deliberately never shown while it is being used -- the first sign of it is
-// the Pro prompt.
+// Everything else on the builder pages is free.  These three work the same way:
+// a visitor gets FREE_RUNS complete runs of each -- the whole result, not a
+// preview -- counted only when a run really finished, and after that they ask
+// for Pro.  Each panel says how many tries are left before the first one is
+// used, so nobody is surprised by the Pro prompt.  Pro lifts the limit for all
+// three at once.
 //
 // Pro on the website is the same licence as the Companion: the key from the
 // purchase email is exchanged at /api/license/activate for a signed token whose
@@ -12,7 +15,8 @@
 const RUNS_KEY = "cbd.runs.v1";
 const LICENCE_KEY = "cbd.licence.v1";
 const COOKIE = "cbd_r";
-const FREE_RUNS = 3;
+/** Complete runs of each of the three Pro features a visitor gets for free. */
+export const FREE_RUNS = 3;
 const REFRESH_AFTER_MS = 3 * 24 * 3600 * 1000;
 
 function readJson(storageKey, fallback) {

@@ -227,6 +227,34 @@ export const MANUAL_STAGE_CHANGES = {
   "chilling neigh": { attack_stage: 1 },
   "grim neigh": { sp_attack_stage: 1 },
 };
+// Terrain seeds (terrain_seeds_v511.py). Four items that do nothing until their terrain
+// is on the field and then, once, raise one defence by a stage. Terrain reaches grounded
+// Pokémon only, so a Flying type and a Levitate holder are left out; Gravity puts them
+// back down and the seed works again. (The other ways off the ground -- Air Balloon, Iron
+// Ball -- are items, and the holder's item here is the seed.)
+export const TERRAIN_SEEDS = {
+  electricseed: { terrain: "Electric", stat: "defense" },
+  grassyseed: { terrain: "Grassy", stat: "defense" },
+  mistyseed: { terrain: "Misty", stat: "sp_defense" },
+  psychicseed: { terrain: "Psychic", stat: "sp_defense" },
+};
+const SEED_STAT_LABEL = { defense: "Defense", sp_defense: "Special Defense" };
+
+/** The default: production applies a seed's boost the moment its terrain is up. */
+export const TERRAIN_SEEDS_ON = true;
+
+/**
+ * The `terrainSeeds` option as a flag, the way `pairedOption` reads `pairedSpreads`:
+ * false for null / undefined / false / "" / 0 / "off" / "no". A recorded run made before
+ * the rule carries no `terrain_seeds` stamp in its `rules` and replays with it off, so the
+ * suites recorded from the app before V511 stay at 0 mismatches.
+ */
+export function terrainSeedOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
 export const STAT_KEYS = [["HP", "hp"], ["ATK", "attack"], ["DEF", "defense"], ["SPA", "sp_attack"], ["SPD", "sp_defense"], ["SPE", "speed"]];
 const STAGE_ATTRS = ["attack_stage", "defense_stage", "sp_attack_stage", "sp_defense_stage", "speed_stage"];
 export const MAX_BONUS_STAT_POINTS = 66;
@@ -417,7 +445,9 @@ export function speciesAndForm(pokemonName, formName = "") {
 // --- the engine ------------------------------------------------------------
 
 export class DamageEngine {
-  constructor(appData) {
+  constructor(appData, { terrainSeeds = TERRAIN_SEEDS_ON } = {}) {
+    // Off only for a recording made before the rule (see `terrainSeedOption`).
+    this.terrainSeeds = terrainSeedOption(terrainSeeds);
     this.data = appData;
     this.typeChart = appData.typeChart || {};
     this.natures = appData.natures || {};
@@ -1023,6 +1053,10 @@ export class DamageEngine {
 
   /** v287 attack_defense_values (with v314's Intimidate/White Herb rule). */
   attackDefenseValues(attacker, defender, meta, category, ctx, details) {
+    // A standing terrain seed is part of the stats: the defender's, for every attack
+    // against it, and the attacker's, for Body Press and friends, which hit with Defense.
+    attacker = terrainSeedMon(this, attacker, ctx, "attacker_state", details);
+    defender = terrainSeedMon(this, defender, ctx, "defender_state", details);
     const atkStats = this.finalStats(attacker);
     const defStats = this.finalStats(defender);
     if ((ctx.attacker_state || {}).power_trick) [atkStats.attack, atkStats.defense] = [atkStats.defense, atkStats.attack];
@@ -1665,6 +1699,30 @@ function stageFor(mon, attr, critical, side, ignore = false, offset = 0) {
   if (critical && side === "attacker" && stage < 0) stage = 0;
   if (critical && side === "defender" && stage > 0) stage = 0;
   return stage;
+}
+
+/**
+ * A holder with its terrain seed's stage already in, or the holder unchanged.
+ *
+ * The stage is added to whatever the sheet says and then goes through `stageFor`, so it
+ * clamps at +6, doubles under Simple, and a critical hit or an Unaware attacker ignores it
+ * exactly like any other positive stage. One damage line has no turn order, so "is the
+ * terrain up?" is the only question it can answer; the item is never marked as spent here.
+ */
+export function terrainSeedMon(engine, mon, ctx, stateName, details) {
+  if (engine.terrainSeeds === false) return mon;
+  const seed = TERRAIN_SEEDS[compact(mon.item)];
+  const terrain = String(ctx.terrain || "None");
+  if (!seed || seed.terrain !== terrain) return mon;
+  // `_calcV287` copies ctx.gravity into its own side states, which this never sees.
+  const sideState = { ...(ctx[stateName] || {}) };
+  if (ctx.gravity) sideState.gravity = true;
+  if (!engine.isGrounded(mon, engine.pokemon(mon.pokemon_name, mon.form_name), sideState)) return mon;
+  const attr = `${seed.stat}_stage`;
+  const raised = cloneMon(mon);
+  raised[attr] = clamp(int(mon[attr]) + 1, -6, 6);
+  if (details) details.push(`${mon.item}: ${terrain} Terrain raises ${SEED_STAT_LABEL[seed.stat]} by one stage`);
+  return raised;
 }
 
 // Exported for the Tournament Test, which applies Intimidate once on entry instead of per calc.

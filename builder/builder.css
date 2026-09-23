@@ -463,7 +463,13 @@
 
 .bd-import { display: grid; gap: 0.55rem; border-top: 1px solid var(--bd-line); padding-top: 0.7rem; }
 .bd-import-row { min-width: 0; }
-.bd-import-chips { display: flex; gap: 0.35rem; overflow-x: auto; padding-bottom: 0.2rem; scrollbar-width: thin; }
+.bd-import-head { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; min-width: 0; margin: 0.2rem 0 0.35rem; }
+.bd-import-head .bd-field-label { margin: 0; }
+.bd-import-team { max-width: 13rem; min-height: 30px; padding: 0.1rem 1.5rem 0.1rem 0.45rem; font-size: 0.78rem; }
+.bd-import-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; padding-bottom: 0.2rem; scrollbar-width: thin; }
+/* 30 meta chips wrap into rows and the block itself scrolls, so the card keeps
+   about three rows' height on a phone instead of one very long sideways swipe. */
+.bd-import-meta { max-height: 150px; overflow-y: auto; }
 .bd-import-chip {
   flex: 0 0 auto;
   display: grid;

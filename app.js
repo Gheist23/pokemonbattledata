@@ -84,6 +84,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     recentSearches: readArray(RECENT_KEY),
     learnableMovesCache: new Map(),
     moveDescriptionCache: new Map(),
+    effectDescriptions: null,
     failedAssetUrls: new Set(),
     activeDetailRecord: null,
     activeMoveButton: null,
@@ -570,6 +571,40 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     }
     state.moveDescriptionCache.set(key, "");
     return "";
+  }
+
+  /* Held-item and Ability effect text for the click-to-open descriptions.
+   *
+   * One small file for the whole site, fetched once per visit while a profile
+   * is opening, rather than a line per item baked into each of the ~2,700
+   * generated pages. A failure here never fails the profile: the popover then
+   * simply says no effect text is on file. */
+  async function ensureEffectDescriptions() {
+    if (state.effectDescriptions) return state.effectDescriptions;
+    let raw = {};
+    try {
+      raw = await fetchJson("data/descriptions.json");
+    } catch {
+      raw = {};
+    }
+    const toMap = (source) => new Map(Object.entries(source || {}).map(([name, text]) => [recordKey(name), String(text || "")]));
+    state.effectDescriptions = { items: toMap(raw.items), abilities: toMap(raw.abilities) };
+    return state.effectDescriptions;
+  }
+
+  function effectDescription(kind, name) {
+    return state.effectDescriptions?.[kind]?.get(recordKey(name)) || "";
+  }
+
+  /* The battle data spells a move that cannot miss as accuracy 101. That is a
+   * storage convention, not something to show a player, so every accuracy the
+   * page prints is read back as at most 100. The CSVs keep their own spelling. */
+  function displayAccuracy(value) {
+    const text = String(value ?? "").trim();
+    if (!text || text === "-" || text === "—") return "";
+    const number = Number(text.replace("%", ""));
+    if (!Number.isFinite(number)) return text;
+    return String(Math.min(100, Math.max(0, Math.round(number))));
   }
 
 
@@ -1309,6 +1344,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       const battleRows = await ensureBattleData(record, state.selectedFormat, state.selectedSeason);
       await ensureLearnableMoves(record);
       await prepareProfileMoveDescriptions(record, battleRows);
+      await ensureEffectDescriptions();
       els.detailContent.innerHTML = "";
       els.detailContent.dataset.recordKey = record.key;
       state.activeDetailRecord = record;
@@ -1477,7 +1513,13 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
         const moveMeta = moveMetaForName(record, row.name);
         const moveDescription = moveDescriptionForName(record, row.name);
         appendDataCell(tr, "#", escapeHtml(row.rank ?? "—"));
-        appendDataCell(tr, "Name", moveInfoButton(row.name || "—", moveDescription));
+        appendDataCell(tr, "Name", infoButton({
+          label: row.name || "—",
+          title: row.name || "Move",
+          facts: moveFactRows(moveMeta),
+          description: moveDescription,
+          note: moveDescription ? "" : "No description for this move is on file yet."
+        }));
         appendDataCell(tr, "Type", moveTypeMarkup(moveMeta?.type || ""));
         appendDataCell(tr, "Usage", row.percentage ? percentBar(row.percentage_value, row.percentage) : "—");
         tbody.append(tr);
@@ -1490,8 +1532,33 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       const { table, tbody } = createResponsiveTable(["#", "Name", "Usage"], "battle-table held-item-table");
       rows.forEach((row) => {
         const tr = document.createElement("tr");
+        const description = effectDescription("items", row.name);
         appendDataCell(tr, "#", escapeHtml(row.rank ?? "—"));
-        appendDataCell(tr, "Name", assetLabel(row.name || "—", itemImageCandidates(row.name), "item-label"));
+        appendDataCell(tr, "Name", infoButton({
+          content: assetLabel(row.name || "—", itemImageCandidates(row.name), "item-label"),
+          title: row.name || "Held item",
+          description,
+          note: description ? "" : "No effect text for this item is on file yet."
+        }));
+        appendDataCell(tr, "Usage", row.percentage ? percentBar(row.percentage_value, row.percentage) : "—");
+        tbody.append(tr);
+      });
+      wrap.append(table);
+      return wrap;
+    }
+
+    if (category === "ability") {
+      const { table, tbody } = createResponsiveTable(["#", "Name", "Usage"], "battle-table ability-table");
+      rows.forEach((row) => {
+        const tr = document.createElement("tr");
+        const description = effectDescription("abilities", row.name);
+        appendDataCell(tr, "#", escapeHtml(row.rank ?? "—"));
+        appendDataCell(tr, "Name", infoButton({
+          label: row.name || "—",
+          title: row.name || "Ability",
+          description,
+          note: description ? "" : "No effect text for this Ability is on file yet."
+        }));
         appendDataCell(tr, "Usage", row.percentage ? percentBar(row.percentage_value, row.percentage) : "—");
         tbody.append(tr);
       });
@@ -1827,7 +1894,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
         ${tableCell("Type", moveTypeMarkup(move.type))}
         ${tableCell("Category", moveCategoryMarkup(move.category))}
         ${tableCell("Power", escapeHtml(move.power || "—"))}
-        ${tableCell("Accuracy", escapeHtml(move.accuracy || "—"))}
+        ${tableCell("Accuracy", escapeHtml(displayAccuracy(move.accuracy) || "—"))}
         ${tableCell("PP", escapeHtml(move.pp || "—"))}
         ${tableCell("Description", `<span class="move-description">${escapeHtml(move.description || "—")}</span>`)}
       </tr>`).join("")}</tbody>`;
@@ -1859,21 +1926,43 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return cell;
   }
 
-  function moveInfoButton(moveName, description) {
+  /** A name that opens its own description.
+   *
+   * Moves, held items and Abilities all use this one button, so the popover,
+   * the click-outside handler and the Escape key stay in a single place. The
+   * payload rides on the element rather than in `dataset`, because a fact can
+   * carry markup (a type icon, a category pill) that must not be re-parsed. */
+  function infoButton({ label, title, content = null, facts = [], description = "", note = "" }) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "move-info-button";
-    button.textContent = moveName || "—";
-    button.dataset.moveName = moveName || "";
-    button.dataset.moveDescription = description || "No short description available.";
+    if (content) button.append(content);
+    else button.textContent = label || "—";
+    button.infoPayload = { title: title || label || "", facts, description, note };
     button.setAttribute("aria-expanded", "false");
-    button.setAttribute("aria-label", `${moveName || "Move"} description`);
+    button.setAttribute("aria-label", `${title || label || "Entry"} description`);
     button.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
       toggleMoveInfoPopover(button);
     });
     return button;
+  }
+
+  /** The five numbers a player compares moves on, for the move popover. */
+  function moveFactRows(moveMeta) {
+    if (!moveMeta) return [];
+    const plain = (value) => {
+      const text = String(value ?? "").trim();
+      return text && text !== "-" ? escapeHtml(text) : "";
+    };
+    return [
+      ["Type", moveMeta.type ? moveTypeMarkup(moveMeta.type) : ""],
+      ["Category", moveMeta.category ? moveCategoryMarkup(moveMeta.category) : ""],
+      ["Power", plain(moveMeta.power)],
+      ["Accuracy", plain(displayAccuracy(moveMeta.accuracy))],
+      ["PP", plain(moveMeta.pp)]
+    ];
   }
 
   function toggleMoveInfoPopover(button) {
@@ -1886,8 +1975,8 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   function showMoveInfoPopover(button) {
     const popover = moveInfoPopover();
-    const moveName = button.dataset.moveName || "Move";
-    const description = button.dataset.moveDescription || "No short description available.";
+    const payload = button.infoPayload || {};
+    const facts = (payload.facts || []).filter(([, value]) => value);
     if (state.activeMoveButton) {
       state.activeMoveButton.classList.remove("active");
       state.activeMoveButton.setAttribute("aria-expanded", "false");
@@ -1895,7 +1984,14 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     state.activeMoveButton = button;
     button.classList.add("active");
     button.setAttribute("aria-expanded", "true");
-    popover.innerHTML = `<strong>${escapeHtml(moveName)}</strong><span>${escapeHtml(description)}</span>`;
+    popover.innerHTML = [
+      `<strong>${escapeHtml(payload.title || "")}</strong>`,
+      facts.length
+        ? `<dl class="info-facts">${facts.map(([label, value]) => `<dt>${escapeHtml(label)}</dt><dd>${value}</dd>`).join("")}</dl>`
+        : "",
+      payload.description ? `<span>${escapeHtml(payload.description)}</span>` : "",
+      payload.note ? `<span class="info-note">${escapeHtml(payload.note)}</span>` : ""
+    ].join("");
     popover.hidden = false;
     requestAnimationFrame(() => positionMoveInfoPopover());
   }
@@ -2018,7 +2114,9 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
   function learnableMoveMatches(move, query) {
     if (!query) return true;
     const needle = normalizeForSearch(query);
-    return [move.move_name, move.type, move.category, move.power, move.accuracy, move.pp, move.description]
+    // Accuracy is searched as it is printed, so "100" finds the moves whose
+    // Accuracy column reads 100 and "101" no longer finds a hidden spelling.
+    return [move.move_name, move.type, move.category, move.power, displayAccuracy(move.accuracy), move.pp, move.description]
       .some((value) => normalizeForSearch(value).includes(needle));
   }
 

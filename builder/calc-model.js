@@ -99,6 +99,9 @@ export function defaultCalcState() {
     critical: false,
     effectOverrides: {},
     effectValues: {},
+    // Which saved team the import row shows; "" follows the Team Builder's
+    // selected team (builder/calc-page.js importSource()).
+    importTeamId: "",
   };
 }
 

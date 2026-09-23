@@ -9,10 +9,15 @@
 // before the rule and replays with each Nature on the distribution at its own place in the
 // usage file's other list. PAIRED_SPREADS=0 / =1 replays every recording either way.
 
+// Terrain seeds (builder/engine.js): a recording made with the rule carries
+// record.rules.terrain_seeds and replays with it; one without the stamp was made before
+// the rule and replays with it off, so a held Electric/Grassy/Misty/Psychic Seed adds no
+// stage. TERRAIN_SEEDS=1 / =0 replays every recording either way.
+
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, makeMon } from "../builder/engine.js";
+import { DamageEngine, makeMon, terrainSeedOption } from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamOptimizer } from "../builder/team-optimize.js";
@@ -31,6 +36,11 @@ try {
   suggestCases = [];
 }
 const engine = new DamageEngine(appData);
+/** The recording's terrain-seed stamp (null: recorded before the rule, replayed with it off).
+ *  TERRAIN_SEEDS=0 / =1 replays every recording either way. */
+const seedStamp = (testCase) => testCase.record?.rules?.terrain_seeds ?? testCase.rules?.terrain_seeds ?? null;
+const seedRule = (testCase) => terrainSeedOption(process.env.TERRAIN_SEEDS === undefined ? seedStamp(testCase) : process.env.TERRAIN_SEEDS);
+
 const aliases = appData.usageAliases || {};
 const limit = Number(process.argv[2]) || 30;
 const near = (a, b, tol = 1e-6) => Math.abs(Number(a) - Number(b)) <= tol * Math.max(1, Math.abs(Number(a)));
@@ -42,6 +52,7 @@ const pairedRule = (testCase) => (process.env.PAIRED_SPREADS === undefined ? pai
 const failures = [];
 let total = 0;
 for (const testCase of cases) {
+  engine.terrainSeeds = seedRule(testCase);
   const evalCase = evalCases[testCase.name];
   const records = new Map();
   for (const row of evalCase?.record.meta[0]?.rows || []) {

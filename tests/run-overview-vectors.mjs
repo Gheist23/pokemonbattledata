@@ -4,10 +4,15 @@
 //
 //   node tests/run-overview-vectors.mjs [speed|overview|all] [limit]
 
+// Terrain seeds (builder/engine.js): a recording made with the rule carries
+// record.rules.terrain_seeds and replays with it; one without the stamp was made before
+// the rule and replays with it off, so a held Electric/Grassy/Misty/Psychic Seed adds no
+// stage. TERRAIN_SEEDS=1 / =0 replays every recording either way.
+
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine } from "../builder/engine.js";
+import { DamageEngine, terrainSeedOption } from "../builder/engine.js";
 import { SpeedTiers } from "../builder/speed-tiers.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
@@ -20,6 +25,11 @@ const appData = JSON.parse(readFileSync(join(root, "data", "builder", "app-data.
 const cases = JSON.parse(readFileSync(join(here, "overview-vectors.json"), "utf8"));
 const evalCases = Object.fromEntries(JSON.parse(readFileSync(join(here, "eval-vectors.json"), "utf8")).map((c) => [c.name, c]));
 const engine = new DamageEngine(appData);
+/** The recording's terrain-seed stamp (null: recorded before the rule, replayed with it off).
+ *  TERRAIN_SEEDS=0 / =1 replays every recording either way. */
+const seedStamp = (testCase) => testCase.record?.rules?.terrain_seeds ?? testCase.rules?.terrain_seeds ?? null;
+const seedRule = (testCase) => terrainSeedOption(process.env.TERRAIN_SEEDS === undefined ? seedStamp(testCase) : process.env.TERRAIN_SEEDS);
+
 const aliases = appData.usageAliases || {};
 const stage = process.argv[2] || "all";
 const limit = Number(process.argv[3]) || 30;
@@ -35,6 +45,7 @@ let labelOnly = 0;
 const failures = [];
 let total = 0;
 for (const testCase of cases) {
+  engine.terrainSeeds = seedRule(testCase);
   const evalCase = evalCases[testCase.name];
   const records = testCase.ranked.map((entry) => pokemonRecord(String(entry.rows[0]?.pokemon || entry.name), entry.rows, aliases));
   // The pairing rule (builder/nature-spreads.js) as the recording ran it: without the

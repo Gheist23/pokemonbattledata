@@ -238,6 +238,18 @@ export function writeSeoPages(ctx) {
   </section>`;
   }
 
+  /* The learnable-move CSVs spell a move that cannot miss as accuracy 101.
+   * That is how the data stores "never misses", not something to show a
+   * player, so every accuracy this module prints is read back as at most 100.
+   * The CSVs themselves keep their own spelling. */
+  function displayAccuracy(value) {
+    const text = String(value ?? "").trim();
+    if (!text || text === "-") return "";
+    const number = Number(text.replace("%", ""));
+    if (!Number.isFinite(number)) return text;
+    return String(Math.min(100, Math.max(0, Math.round(number))));
+  }
+
   function linkList(heading, items) {
     if (!items.length) return "";
     return `<h2>${escapeHtml(heading)}</h2><ul class="static-link-list">${items
@@ -361,7 +373,7 @@ export function writeSeoPages(ctx) {
         if (facts.type) factRows.push(["Type", facts.type, typeChip(facts.type)]);
         if (facts.category) factRows.push(["Category", facts.category]);
         if (facts.power) factRows.push(["Power", facts.power]);
-        if (facts.accuracy) factRows.push(["Accuracy", facts.accuracy]);
+        if (displayAccuracy(facts.accuracy)) factRows.push(["Accuracy", displayAccuracy(facts.accuracy)]);
         if (facts.pp) factRows.push(["PP", facts.pp]);
         if (learners) factRows.push(["Pokemon that can learn it", String(learners.size)]);
       }

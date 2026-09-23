@@ -26,7 +26,7 @@ import {
   removeFromBox, renameBox, renameTeam, replaceBoxEntry, selectBox, selectTeam, setFormat, setOverviewTop, setSetting, setSlot, setTeamSets,
   subscribe, swapSlots, teamSets,
 } from "./store.js";
-import { activate, canRun, deactivate, freeRunsLeft, isPro, licenceSummary, recordRun, refreshLicence } from "./pro.js";
+import { activate, canRun, deactivate, FREE_RUNS, freeRunsLeft, isPro, licenceSummary, recordRun, refreshLicence } from "./pro.js";
 import { resetTournamentView, tournamentAnalysis, tournamentExplainer, tournamentProgress } from "./tournament-view.js";
 import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, segmented, select, sprite, switchRow, toast, typeChip } from "./ui.js";
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
@@ -798,11 +798,34 @@ async function addPokemonToBox() {
 
 const FEATURE_LABELS = { evaluation: "Team Evaluation", autobuild: "Auto Build", tournament: "Test against Tournament Teams" };
 
+/**
+ * The free-run pill the three Pro features share. Team Evaluation, Auto Build and Test
+ * against Tournament Teams each get the same free tries, counted only when a run really
+ * finished, so each panel says the same thing in the same place: how many are left, then
+ * "Pro feature" once they are used, and nothing at all with Pro.
+ */
+function proPill(feature) {
+  if (isPro()) return null;
+  const left = freeRunsLeft(feature);
+  const label = FEATURE_LABELS[feature] || "This";
+  return h("span", {
+    class: "bd-pill",
+    title: left > 0
+      ? `${label} is free for ${FREE_RUNS} complete runs; only a run that finishes counts. Everything else in the Team Builder stays free.`
+      : `You have used your ${FREE_RUNS} free runs of ${label}. Everything else in the Team Builder stays free.`,
+  }, left > 0 ? `Pro feature · ${left} free ${left === 1 ? "try" : "tries"} left` : "Pro feature");
+}
+
+// Team Evaluation and Auto Build are in the Companion app too; the tournament test is not,
+// so its wording stays on the website.
+const ALSO_IN_APP = new Set(["evaluation", "autobuild"]);
+
 function gate(feature) {
   const label = FEATURE_LABELS[feature] || "Pro";
+  const where = ALSO_IN_APP.has(feature) ? ", on this website and in the Companion app" : " on this website";
   return h("div", { class: "bd-gate" },
     h("h3", {}, `Keep using ${label} with Pro`),
-    h("p", {}, "You've had the full result — Pro makes it unlimited, on this website and in the Companion app."),
+    h("p", {}, `You've had the full result — Pro makes it unlimited${where}.`),
     h("ul", {},
       h("li", {}, "Unlimited Team Evaluation: scores, checks and every critical threat"),
       h("li", {}, "Unlimited Auto Build from your Box or the ranked meta"),
@@ -820,8 +843,9 @@ function gate(feature) {
  */
 function openGateDialog(feature) {
   const label = FEATURE_LABELS[feature] || "this feature";
+  const where = ALSO_IN_APP.has(feature) ? ", on this website and in the Companion app" : " on this website";
   const body = h("div", { class: "bd-list" },
-    h("p", { class: "bd-confirm-text" }, `You've used your free runs of ${label}. The last result stays on screen; with Pro you can run it again as often as you like, on this website and in the Companion app.`),
+    h("p", { class: "bd-confirm-text" }, `You've used your free runs of ${label}. The last result stays on screen; with Pro you can run it again as often as you like${where}.`),
     h("p", { class: "bd-note" }, "Everything else in the Team Builder and the Damage Calculator stays free."));
   const { close } = openDialog({
     title: `Keep using ${label} with Pro`,
@@ -870,7 +894,9 @@ function renderEvaluation() {
   hosts.main.append(h("div", { class: "bd-panel-head" },
     h("div", {}, h("h2", {}, "Team Evaluation"), h("p", {}, `Rates the team against the Top ${settings.top_meta} ${format()} Meta on their most common sets. Open a score to see how it is made up, or a threat to see every damage calc behind it.`)),
     hasResult && !view.evaluating
-      ? h("div", { class: "bd-actions" }, h("button", { type: "button", class: "primary-button compact", onclick: () => runEvaluation(key) }, view.evaluationKey === key ? "Run again" : "Evaluate changes"))
+      ? h("div", { class: "bd-actions" },
+        h("button", { type: "button", class: "primary-button compact", onclick: () => runEvaluation(key) }, view.evaluationKey === key ? "Run again" : "Evaluate changes"),
+        proPill("evaluation"))
       : null));
   if (!list.length) {
     hosts.main.append(h("div", { class: "bd-gate" }, h("h3", {}, "Nothing to evaluate yet"), h("p", {}, "Add at least one Pokémon to the team first.")));
@@ -894,7 +920,9 @@ function renderEvaluation() {
     hosts.main.append(h("div", { class: "bd-gate" },
       h("h3", {}, "Is this team any good?"),
       h("p", {}, "Team Evaluation scores Synergy, Offense, Defense and Speed, runs the Team Building Checks, and lists every critical threat in the meta with the calcs behind it. The Top Meta size, field and rules are under Settings in the top bar."),
-      h("div", { class: "bd-gate-actions" }, h("button", { type: "button", class: "primary-button", onclick: () => runEvaluation(key) }, "Run Team Evaluation"))));
+      h("div", { class: "bd-gate-actions" },
+        h("button", { type: "button", class: "primary-button", onclick: () => runEvaluation(key) }, "Run Team Evaluation"),
+        proPill("evaluation"))));
     return;
   }
   const result = view.evaluation;
@@ -1323,6 +1351,8 @@ async function runEvaluation(key) {
     });
     if (!isEvaluation(result)) throw new Error("The evaluation came back incomplete.");
     Object.assign(place(), { evaluation: result, evaluationKey: key, evalError: "" });
+    // A free run is used by a complete result, as in Auto Build and the tournament test;
+    // an evaluation that came back short has already thrown above.
     recordRun("evaluation");
     rememberEvaluation(key, result);
   } catch (error) {
@@ -1470,6 +1500,7 @@ function renderAuto() {
       switchRow("Optimize Stat Points", Boolean(auto.optimizeStats), (on) => { auto.optimizeStats = on; }, { hint: "After the build, tune every member's Stat Points and Nature (slower)." })),
     h("div", { class: "bd-actions" },
       h("button", { type: "button", class: "primary-button", onclick: runAutoBuild }, auto.result ? "Build again" : "Start Auto Build"),
+      proPill("autobuild"),
       h("span", { class: "bd-note" }, "Uses your Team Evaluation settings and Team Building Checks (the Settings button above)."))));
   if (auto.error) {
     hosts.main.append(problemCard("Auto Build could not finish", auto.error, { onAction: runAutoBuild }));
@@ -1668,7 +1699,6 @@ function tourSprite(mon, size) {
 function renderTournament() {
   const tour = view.tour;
   const list = sets().filter((s) => s.species);
-  const left = freeRunsLeft("tournament");
   const singles = format() === "Singles";
   hosts.main.append(h("div", { class: "bd-panel-head" },
     h("div", {}, h("h2", {}, "Test against Tournament Teams"),
@@ -1696,7 +1726,7 @@ function renderTournament() {
       tour.running
         ? h("button", { type: "button", class: "ghost-button", disabled: tour.stopping, onclick: stopTournament }, tour.stopping ? "Stopping…" : "Stop")
         : h("button", { type: "button", class: "primary-button", onclick: runTournament }, tour.snapshot ? "Run again" : "Start the test"),
-      isPro() ? null : h("span", { class: "bd-pill" }, left > 0 ? `Pro feature · ${left} free ${left === 1 ? "try" : "tries"} left` : "Pro feature")));
+      proPill("tournament")));
   hosts.main.append(controls);
   // A test running for the other format keeps going; this format still shows its own
   // finished result underneath, so nothing the player already has disappears.

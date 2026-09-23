@@ -7,6 +7,9 @@ import { clear, h, pickPokemon, searchSelect, select, sprite, toast, typeChip } 
 import { currentTeam, getState, subscribe, teamSets } from "./store.js";
 
 const STORAGE_KEY = "cbd.calc.v1";
+// How many ranked Pokemon the "Top Doubles/Singles meta" row offers. The chips
+// wrap and the block scrolls (builder.css), so the row stays usable on a phone.
+const META_IMPORT_CHIPS = 30;
 const STAT_KEYS = ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"];
 const STAGE_ATTRS = { attack: "attack_stage", defense: "defense_stage", sp_attack: "sp_attack_stage", sp_defense: "sp_defense_stage", speed: "speed_stage" };
 
@@ -325,8 +328,26 @@ function renderMon(side) {
     header, moves, hp, stats, details, renderImport(side));
 }
 
+/** Every team the Team Builder has saved, read through the store (which
+ *  repairs a document written by an older version or by the Companion). */
+function savedTeams() {
+  return (getState().teams || []).filter((team) => team && team.id);
+}
+
+/** The team the import row is showing. The calculator remembers its own pick,
+ *  so choosing a team here does not move the Team Builder's selection; with no
+ *  pick (or after that team is deleted) it follows the selected team. */
+function importSource() {
+  const teams = savedTeams();
+  return teams.find((team) => team.id === model.state.importTeamId) || currentTeam() || teams[0] || null;
+}
+
 function renderImport(side) {
-  const sets = teamSets(currentTeam(), data).filter((set) => set.species);
+  const teams = savedTeams();
+  const team = importSource();
+  // A team saved elsewhere can name a Pokemon this site's tables do not hold;
+  // such a slot gets no chip rather than a chip that loads nothing.
+  const sets = teamSets(team, data).filter((set) => set.species && data.speciesEntry(set.species));
   const meta = data.meta[model.state.format]?.pokemon || [];
   const chip = (set, label) => h("button", {
     type: "button",
@@ -340,14 +361,26 @@ function renderImport(side) {
   }, sprite(data.sprite(set.species, set.form, set.item), label, 36));
   const teamRow = sets.length
     ? sets.map((set) => chip(set, data.displayName(set.species, set.form)))
-    : [h("a", { class: "bd-import-empty", href: "/team-builder/" }, "Build a team to import it here")];
-  const metaRow = meta.slice(0, 12).map((row) => {
+    : [h("a", { class: "bd-import-empty", href: "/team-builder/" }, teams.length > 1 ? "This team is empty. Fill it in the Team Builder" : "Build a team to import it here")];
+  const metaRow = meta.slice(0, META_IMPORT_CHIPS).map((row) => {
     const set = setFromCommon(data.commonSet(model.state.format, row.species, row.form));
     return chip(set, `${row.name} (most common set)`);
   });
+  // The picker sits next to the label so any saved team can be imported, not
+  // only the one the Team Builder happens to have open.
+  const picker = teams.length
+    ? select(teams.map((entry) => [entry.id, entry.title || "Team"]), team?.id || "", (value) => {
+      model.state.importTeamId = value;
+      render();
+    }, { class: "bd-select bd-import-team", "aria-label": `Team to import from, ${side === LEFT ? "our" : "opposing"} Pokémon` })
+    : null;
   return h("div", { class: "bd-import" },
-    h("div", { class: "bd-import-row" }, h("span", { class: "bd-field-label" }, `Import from “${currentTeam().title}”`), h("div", { class: "bd-import-chips" }, teamRow)),
-    h("div", { class: "bd-import-row" }, h("span", { class: "bd-field-label" }, `Top ${model.state.format} meta`), h("div", { class: "bd-import-chips" }, metaRow)));
+    h("div", { class: "bd-import-row" },
+      h("div", { class: "bd-import-head" }, h("span", { class: "bd-field-label" }, "Import from"), picker),
+      h("div", { class: "bd-import-chips" }, teamRow)),
+    h("div", { class: "bd-import-row" },
+      h("div", { class: "bd-import-head" }, h("span", { class: "bd-field-label" }, `Top ${model.state.format} meta`)),
+      h("div", { class: "bd-import-chips bd-import-meta" }, metaRow)));
 }
 
 function renderField() {

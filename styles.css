@@ -9207,3 +9207,124 @@ a.answer-card:focus-visible {
     padding: 0 !important;
   }
 }
+
+/* v50 API pages: the top buttons stay on one row
+
+   /api_guide carries two buttons the other pages do not ("Download Battle
+   Data" and "API Rules"), while `.page-api .nav-shell` is capped at 1180px so
+   the header lines up with the page content. The row therefore wrapped onto a
+   second line at every desktop width. The API button is gone from the guide
+   itself -- it linked to the page you were already standing on -- and the rest
+   of the row is sized for a dense header: smaller label, tighter padding,
+   tighter gap. That sizing starts above the phone header at 760px, so a narrow
+   window wraps into fewer rows as well.
+
+   From 940px up the row is `nowrap` and the brand is the part that gives way:
+   it truncates with an ellipsis rather than letting a button drop to a second
+   line. The whole brand still fits from about 1200px up, so the ellipsis is a
+   squeeze valve, not the normal state. Below 940px the buttons wrap again --
+   nine of them plus the brand cannot hold one line there without the row
+   running off the screen, and a wrapped header is only wrapped, not broken.
+   At 760px and below the v48/v49 phone header takes over unchanged. */
+@media (min-width: 761px) {
+  .page-api .site-header .nav-shell {
+    gap: 0.85rem;
+  }
+
+  .page-api .site-header .brand {
+    flex: 0 1 auto;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  .page-api .site-header .brand strong { font-size: 0.84rem; }
+  .page-api .site-header .brand small { font-size: 0.68rem; }
+
+  .page-api .site-header .nav-actions {
+    flex: 0 0 auto;
+    gap: 0.34rem;
+  }
+
+  .page-api .site-header .ghost-button,
+  .page-api .site-header .discord-button {
+    flex: 0 0 auto;
+    padding-inline: 0.52rem !important;
+    font-size: 0.76rem !important;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 940px) {
+  .page-api .site-header .nav-actions {
+    flex-wrap: nowrap;
+  }
+
+  .page-api .site-header .brand,
+  .page-api .site-header .brand span {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .page-api .site-header .brand strong,
+  .page-api .site-header .brand small {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/* v50 profile popovers: a move, item or Ability description on click
+
+   The move popover used to print the flavour text alone. It now leads with the
+   facts a player is actually comparing -- type, category, power, accuracy and
+   PP -- and the held items and Abilities in the same profile open the same
+   popover with their effect text. Everything is one <button>, so it is
+   reachable by Tab and closes on Escape like the move popover always did. */
+.move-info-popover {
+  width: min(320px, calc(100vw - 24px));
+}
+
+.move-info-popover .info-facts {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.18rem 0.6rem;
+  margin: 0 0 0.45rem;
+}
+
+.move-info-popover .info-facts dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.move-info-popover .info-facts dd {
+  margin: 0;
+  color: #edf7ff;
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.move-info-popover .info-facts dd .move-type-label,
+.move-info-popover .info-facts dd .move-category {
+  font-size: 0.78rem;
+}
+
+.move-info-popover .info-facts dd img {
+  width: 14px;
+  height: 14px;
+  vertical-align: -2px;
+}
+
+.move-info-popover .info-note {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-style: italic;
+}
+
+/* The item and Ability names carry the same button as the move names, so the
+   icon that sits beside an item name has to stay inside the button. */
+.move-info-button .asset-label {
+  pointer-events: none;
+}

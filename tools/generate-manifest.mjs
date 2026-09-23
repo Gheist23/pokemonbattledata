@@ -12,6 +12,7 @@ const metadataDir = join(assetRootPath, "metadata");
 const learnableMovesDir = join(assetRootPath, "learnable_moves");
 const showdownSpeciesPath = join(cwd, "tools", "showdown-species.json");
 const legacyNamesPath = join(cwd, "tools", "legacy-pokemon-names.json");
+const effectDescriptionsPath = join(cwd, "tools", "effect-descriptions.json");
 const defaultSeason = "Current";
 const validFormats = new Set(["Doubles", "Singles"]);
 const preferredFormatOrder = ["Doubles", "Singles"];
@@ -635,6 +636,29 @@ function apiSecondaryAliases(record) {
     primary.form_name,
     primary.title
   ]);
+}
+
+/* Held-item and Ability effect text for the profile pages' click-to-open
+ * descriptions, published as one small file.
+ *
+ * `tools/effect-descriptions.json` is the hand-kept source, like
+ * `tools/showdown-species.json`: a name that is not in it has no effect text on
+ * file, and the page says so rather than guessing. Everything is written to one
+ * `data/descriptions.json` so ~2,700 generated pages share a single fetch
+ * instead of carrying a copy each. */
+function writeEffectDescriptions() {
+  if (!existsSync(effectDescriptionsPath)) return { items: 0, abilities: 0 };
+  const raw = JSON.parse(readFileSync(effectDescriptionsPath, "utf8"));
+  const clean = (source) => Object.fromEntries(
+    Object.entries(source || {})
+      .filter(([name, text]) => name && String(text || "").trim())
+      .map(([name, text]) => [name, String(text).trim()])
+      .sort(([a], [b]) => a.localeCompare(b))
+  );
+  const payload = { items: clean(raw.items), abilities: clean(raw.abilities) };
+  mkdirSync(join(cwd, "data"), { recursive: true });
+  writeFileSync(join(cwd, "data", "descriptions.json"), `${JSON.stringify(payload)}\n`);
+  return { items: Object.keys(payload.items).length, abilities: Object.keys(payload.abilities).length };
 }
 
 function writeApiData(manifest) {
@@ -1824,6 +1848,7 @@ writeFileSync(join(cwd, "data", "pokemon-index.json"), `${JSON.stringify({
   pokemon: pokemon.map(lightweightPokemonRecord)
 })}\n`);
 writeApiData(manifest);
+const effectDescriptionCounts = writeEffectDescriptions();
 writeMetaTrends(pokemon);
 const builderMetaCount = writeBuilderMeta({ cwd, parseCSV, generatedAt });
 writePokemonPages(pokemonPages);
@@ -1876,4 +1901,5 @@ console.log(`Generated ${seo.counts.total} SEO page(s): ${seo.counts.moves} move
 console.log(`Sitemap lists ${sitemapCount} URL(s).`);
 console.log(`_redirects: ${seo.counts.legacyRedirects} old-name and ${seo.counts.redirects} reverse-comparison rule(s); ${seo.counts.staticRedirects} static (limit 2000), ${seo.counts.dynamicRedirects} dynamic (limit 100).`);
 console.log(`Builder meta covers ${builderMetaCount} ranked Pokemon across both formats.`);
+console.log(`data/descriptions.json holds effect text for ${effectDescriptionCounts.items} held item(s) and ${effectDescriptionCounts.abilities} Abilit(y/ies).`);
 if (skippedMetadataOnly.length) console.warn(`Skipped ${skippedMetadataOnly.length} metadata-only name(s): ${skippedMetadataOnly.join(", ")}`);

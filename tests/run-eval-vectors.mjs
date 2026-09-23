@@ -11,10 +11,15 @@
 // before the rule and replays with each Nature on the distribution at its own place in the
 // usage file's other list. PAIRED_SPREADS=0 / =1 replays every recording either way.
 
+// Terrain seeds (builder/engine.js): a recording made with the rule carries
+// record.rules.terrain_seeds and replays with it; one without the stamp was made before
+// the rule and replays with it off, so a held Electric/Grassy/Misty/Psychic Seed adds no
+// stage. TERRAIN_SEEDS=1 / =0 replays every recording either way.
+
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, makeMon } from "../builder/engine.js";
+import { DamageEngine, makeMon, terrainSeedOption } from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamChecks, classifyArchetype, tailwindBeneficiaries } from "../builder/team-checks.js";
 import { TeamSynergy } from "../builder/team-synergy.js";
@@ -27,6 +32,11 @@ const root = join(here, "..");
 const appData = JSON.parse(readFileSync(join(root, "data", "builder", "app-data.json"), "utf8"));
 const cases = JSON.parse(readFileSync(join(here, "eval-vectors.json"), "utf8"));
 const engine = new DamageEngine(appData);
+/** The recording's terrain-seed stamp (null: recorded before the rule, replayed with it off).
+ *  TERRAIN_SEEDS=0 / =1 replays every recording either way. */
+const seedStamp = (testCase) => testCase.record?.rules?.terrain_seeds ?? testCase.rules?.terrain_seeds ?? null;
+const seedRule = (testCase) => terrainSeedOption(process.env.TERRAIN_SEEDS === undefined ? seedStamp(testCase) : process.env.TERRAIN_SEEDS);
+
 const aliases = appData.usageAliases || {};
 const MON_FIELDS = ["pokemon_name", "form_name", "item", "ability", "nature_name", "bonuses", "moves", "analysis_side"];
 const stage = process.argv[2] || "all";
@@ -66,6 +76,7 @@ let total = 0;
 const failures = [];
 const byField = new Map();
 for (const testCase of cases) {
+  engine.terrainSeeds = seedRule(testCase);
   const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase) });
   // The app's meta rows carry their raw battle-data rows; build the site's meta
   // records from exactly those, so data freshness cannot hide a logic difference.

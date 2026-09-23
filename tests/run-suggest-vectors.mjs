@@ -18,10 +18,15 @@
 // before the rule and replays with each Nature on the distribution at its own place in the
 // usage file's other list. PAIRED_SPREADS=0 / =1 replays every recording either way.
 
+// Terrain seeds (builder/engine.js): a recording made with the rule carries
+// record.rules.terrain_seeds and replays with it; one without the stamp was made before
+// the rule and replays with it off, so a held Electric/Grassy/Misty/Psychic Seed adds no
+// stage. TERRAIN_SEEDS=1 / =0 replays every recording either way.
+
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine } from "../builder/engine.js";
+import { DamageEngine, terrainSeedOption } from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { KnownTeams } from "../builder/known-teams.js";
@@ -41,6 +46,11 @@ const siteMeta = JSON.parse(readFileSync(join(root, "data", "builder", "meta-dou
 // The team's saved spreads are in the evaluation recording of the same team.
 const evalCases = Object.fromEntries(JSON.parse(readFileSync(join(here, "eval-vectors.json"), "utf8")).map((c) => [c.name, c]));
 const engine = new DamageEngine(appData);
+/** The recording's terrain-seed stamp (null: recorded before the rule, replayed with it off).
+ *  TERRAIN_SEEDS=0 / =1 replays every recording either way. */
+const seedStamp = (testCase) => testCase.record?.rules?.terrain_seeds ?? testCase.rules?.terrain_seeds ?? null;
+const seedRule = (testCase) => terrainSeedOption(process.env.TERRAIN_SEEDS === undefined ? seedStamp(testCase) : process.env.TERRAIN_SEEDS);
+
 const knownTeams = new KnownTeams(JSON.parse(readFileSync(join(root, "data", "builder", "known-teams.json"), "utf8")));
 const aliases = appData.usageAliases || {};
 const only = process.argv[2] && process.argv[2] !== "all" ? process.argv[2] : null;
@@ -63,6 +73,7 @@ const failures = [];
 const byField = new Map();
 let total = 0;
 for (const testCase of cases) {
+  engine.terrainSeeds = seedRule(testCase);
   if (only && testCase.name !== only) continue;
   // A recording made with the guaranteed-move rule says so in its label.
   const label = `${testCase.name}${stampOf(testCase) ? " guaranteed" : ""}`;

@@ -32,6 +32,16 @@ Current battle CSV format:
 pokemon,position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 ```
 
+`pokemon_champions_assets/learnable_moves/<Pokemon>.csv` writes a move that cannot miss as
+accuracy `101`. That is how the data stores "never misses" and the CSVs keep it, but nothing
+shown to a player may print it: `displayAccuracy()` in `app.js` and in `tools/seo-pages.mjs`
+reads every accuracy back as at most 100 on its way to the page.
+
+`node tests/run-profile-page.mjs` checks the pages this repo generates and the profile view
+`app.js` opens on them: the API pages' single top button row, the click-to-open descriptions
+on a profile's moves, held items and Abilities, and that no accuracy anywhere reads 101. It
+boots the profile on a small DOM of its own, with no browser and no network.
+
 ## Local preview
 
 ```powershell
@@ -52,6 +62,11 @@ The generator produces a lightweight browser index and static API records:
 - `data/pokemon-index.json` is the lightweight browser/search index.
 - `data/api/index.json` is the complete API dataset streamed by `/api`.
 - `data/api/lookup.json` and `data/api/pokemon/*.json` keep individual API requests small.
+- `data/descriptions.json` is the held-item and Ability effect text a profile page shows when
+  you click an item or Ability name. Its source is `tools/effect-descriptions.json`, kept by
+  hand like `tools/showdown-species.json`: a name that is not listed there has no effect text
+  on file, and the page says so rather than guessing. Move text is not in here -- it already
+  comes from `pokemon_champions_assets/all_moves/<Move>.csv`.
 - `data/meta/index.json` and `data/meta/<season>/<date>/<Doubles|Singles>.json` are the daily
   ranked-usage snapshots the `/meta/` page diffs to show rank and usage-percentage changes. They
   only cover season folders with dated subfolders (e.g. `M5/03_09_2026/`) -- an undated season
@@ -122,7 +137,7 @@ analysis in the browser. They are plain ES modules in `builder/`, with no build 
 | File | Role |
 | --- | --- |
 | `builder/engine.js` | port of the app's damage calculation, with the app's exact integer and rounding behaviour (the name normalisers, the Mega and form lookups and each move's `move_meta` base are memoised per engine, which is what makes a cold Deep Auto Build fit its budget) |
-| `builder/calc-model.js`, `builder/calc-page.js` | the calculator panel: field, KO odds, the no-move matchup verdict |
+| `builder/calc-model.js`, `builder/calc-page.js` | the calculator panel: field, KO odds, the no-move matchup verdict, and the import row (any saved team through `builder/store.js`, plus the top 30 of the ranked meta); the page itself is checked by `node tests/run-calc-page.mjs`, which boots it on a small DOM of its own |
 | `builder/analysis-worker.js` | runs every analysis below in a Web Worker |
 | `builder/team-eval.js`, `builder/team-payload.js` | Team Evaluation: threat calcs, critical threats, Offense/Defense scores (the app's V36-V494 stack) |
 | `builder/team-checks.js`, `builder/team-synergy.js`, `builder/team-speed.js` | Team Building Checks and archetype, Synergy, Speed Control |
@@ -302,6 +317,23 @@ Data comes from two places:
   give up is used by 95% or more of their teams", when no slot is free for an archetype's
   move). The field-gate line is the site's alone: the app's gate sits earlier, where the move
   is never offered, so it has nothing to report.
+
+  Terrain seeds (`builder/engine.js`: `TERRAIN_SEEDS` / `terrainSeedMon`): Electric Seed and
+  Grassy Seed give their holder +1 Defense, Misty Seed and Psychic Seed +1 Special Defense,
+  the moment the matching terrain is on the field. Terrain reaches grounded Pokémon only, so
+  a Flying type and a Levitate holder collect nothing, and Gravity puts them back down. The
+  stage is added to whatever the sheet says and then goes
+  through the ordinary stage handling, so it clamps at +6, doubles under Simple, and a
+  critical hit or an Unaware attacker ignores it. It sits in `attackDefenseValues`, so every
+  damage number on the site sees it: the Damage Calculator, Team Evaluation's threat lines,
+  the Auto Build / Suggestions scoring, Optimize and the Tournament Test's 2v2 games. A
+  single damage line has no turn order, so the item is never marked as spent here - "is the
+  terrain up?" is the whole question. `DamageEngine` takes `{terrainSeeds}` (on by default;
+  `null` = off, how recordings made before the rule replay: every parity runner reads
+  `record.rules.terrain_seeds`, and `calc-vectors.json` stamps it per vector).
+  `node tests/run-terrain-seeds.mjs` checks the rule and the option. The app models the same
+  four items in `pokemon_champions_tool/terrain_seeds_v511.py`, which is where a change has
+  to start.
 
   Natures and Stat Points (`builder/nature-spreads.js`): a usage file ranks Natures and Stat
   Point distributions as two separate lists and never records which distribution a Nature was

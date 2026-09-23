@@ -386,6 +386,33 @@ const kinds = (log) => log.map((e) => `${e.s}:${e.kind}:${e.actor?.species || ""
   }
 }
 
+// --- one Mega Evolution a side ------------------------------------------------------------
+//
+// Only one Pokémon per side Mega-Evolves, so no bring carries a second Mega Stone, and when
+// a line-up must hold two (a named lead pair), one Mega-Evolves and the other plays its own
+// base form -- base stats, base Ability, base Speed -- with the stone still in hand.
+const TWO_STONES = [
+  { species: "Salamence", item: "Salamencite", ability: "Intimidate", nature: "Jolly", moves: ["Double-Edge", "Dragon Claw", "Protect", "Tailwind"], bonuses: [2, 32, 0, 0, 0, 32] },
+  { species: "Arcanine", item: "Sitrus Berry", ability: "Intimidate", nature: "Adamant", moves: ["Flare Blitz", "Extreme Speed", "Snarl", "Protect"], bonuses: [32, 32, 0, 0, 2, 0] },
+  { species: "Blastoise", item: "Blastoisinite", ability: "Torrent", nature: "Modest", moves: ["Water Spout", "Ice Beam", "Protect", "Fake Out"], bonuses: [2, 0, 0, 32, 0, 32] },
+  { species: "Milotic", item: "Leftovers", ability: "Competitive", nature: "Calm", moves: ["Scald", "Icy Wind", "Recover", "Protect"], bonuses: [32, 0, 0, 2, 32, 0] },
+  { species: "Gholdengo", item: "Choice Specs", ability: "Good as Gold", nature: "Modest", moves: ["Make It Rain", "Shadow Ball", "Power Gem", "Trick"], bonuses: [2, 0, 0, 32, 0, 32] },
+  { species: "Rillaboom", item: "Assault Vest", ability: "Grassy Surge", nature: "Adamant", moves: ["Grassy Glide", "Wood Hammer", "Fake Out", "U-turn"], bonuses: [32, 32, 0, 0, 2, 0] },
+];
+// Five holders in six: a bring cannot avoid a second stone, and still only one Mega-Evolves.
+const FIVE_STONES = [
+  { species: "Salamence", item: "Salamencite", ability: "Intimidate", nature: "Jolly", moves: ["Double-Edge", "Dragon Claw", "Protect", "Tailwind"], bonuses: [2, 32, 0, 0, 0, 32] },
+  { species: "Blastoise", item: "Blastoisinite", ability: "Torrent", nature: "Modest", moves: ["Water Spout", "Ice Beam", "Protect", "Fake Out"], bonuses: [2, 0, 0, 32, 0, 32] },
+  { species: "Garchomp", item: "Garchompite", ability: "Rough Skin", nature: "Jolly", moves: ["Earthquake", "Dragon Claw", "Rock Slide", "Protect"], bonuses: [2, 32, 0, 0, 0, 32] },
+  { species: "Metagross", item: "Metagrossite", ability: "Clear Body", nature: "Adamant", moves: ["Iron Head", "Zen Headbutt", "Bullet Punch", "Protect"], bonuses: [2, 32, 0, 0, 0, 32] },
+  { species: "Tyranitar", item: "Tyranitarite", ability: "Sand Stream", nature: "Adamant", moves: ["Rock Slide", "Crunch", "Low Kick", "Protect"], bonuses: [32, 32, 0, 0, 2, 0] },
+  { species: "Milotic", item: "Leftovers", ability: "Competitive", nature: "Calm", moves: ["Scald", "Icy Wind", "Recover", "Protect"], bonuses: [32, 0, 0, 2, 32, 0] },
+];
+// A line-up names a Mega by the form it plays; a holder that did not Mega-Evolve is named by
+// its base form and carries the stone under `stone` instead of `item`.
+const megasIn = (list) => (list || []).filter((m) => /^mega /i.test(String(m.form || ""))).length;
+const megaBoard = () => ({ w: 0, t: 0, tw: [0, 0], tr: 0, trBy: -1, wide: 0, quick: 0 });
+
 // --- the bring size per format, the snapshot, and the spread of results -------------------
 const runs = {};
 for (const format of ["Doubles", "Singles"]) {
@@ -473,7 +500,139 @@ for (const format of ["Doubles", "Singles"]) {
     JSON.stringify(s.similar && { n: s.similar.number, o: s.similar.overlap }));
   check(`${format}: stories have the field after turn 1`, s.hardest.every((t) => Array.isArray(t.after.field?.you) && t.after.field.you.length <= (doubles ? 2 : 1) && Array.isArray(t.after.status?.them)));
   check(`${format}: snapshot survives a structured clone`, JSON.stringify(structuredClone(s)) === JSON.stringify(s));
+  // One Mega a side, everywhere the results name a line-up. Most tournament teams are
+  // registered with two Mega Stones, so their side is the real test here.
+  {
+    const lineUps = [
+      ...s.bestBrings.map((b) => ["bring", b.members]),
+      ...s.bestBrings.map((b) => ["lead", b.leads]),
+      ...mx.columns.map((col) => ["our line-up", col.members]),
+      ...mx.rows.map((row) => ["their line-up", row.members]),
+      ...[...s.hardest, ...s.easiest].flatMap((g) => [["game bring", g.bring], ["their bring", g.against]]),
+      ...s.pokemon.flatMap((p) => (p.weakPairs || []).map((w) => ["trouble pair", w.members])),
+      ...s.threats.filter((t) => t.pairAnswer).map((t) => ["pair answer", t.pairAnswer.members]),
+    ];
+    const twoMegas = lineUps.filter(([, list]) => megasIn(list) > 1);
+    check(`${format}: no line-up in the results names two Megas`, twoMegas.length === 0,
+      JSON.stringify(twoMegas.map(([what, list]) => [what, list.map((m) => m.form)])));
+    // A story never names two Megas on one side either.
+    const sides = [...s.hardest, ...s.easiest].flatMap((g) => ["you", "them"].map((side) => g.story.filter((e) => e.side === side).map((e) => e.actor)));
+    check(`${format}: no story has two Megas acting on one side`, sides.every((list) => megasIn(list.filter((m, i) => list.findIndex((x) => x.form === m.form) === i)) <= 1),
+      JSON.stringify(sides.filter((list) => megasIn(list) > 1).map((list) => list.map((m) => m.form))));
+  }
   console.log(`${format}: ${s.tested} teams in ${runs[format].seconds.toFixed(1)} s · average ${s.average.toFixed(1)} · favoured ${s.bands.favourable} / even ${s.bands.even} / behind ${s.bands.unfavourable} · deciles ${JSON.stringify(deciles)} · matrix ${mx.rows.length} x ${mx.columns.length}`);
+}
+
+for (const format of ["Doubles", "Singles"]) {
+  const test = makeTest(format);
+  const units = TWO_STONES.map((set, i) => test.ourUnit(makeSet(set), i));
+  const holders = units.filter((u) => test.megaHolder(u));
+  check(`${format}: the two stone holders are found`, holders.length === 2 && units[0].base?.form_name === "Salamence" && units[2].base?.form_name === "Blastoise",
+    JSON.stringify(units.map((u) => [u.form, Boolean(u.base)])));
+
+  // No bring offers a second stone: the fours (or threes) holding both are simply gone.
+  const plans = test.plansFor(units);
+  const both = format === "Singles" ? 4 : 6; // the line-ups that carry both holders
+  const all = format === "Singles" ? 20 : 15;
+  check(`${format}: the brings holding two stones are not offered`, plans.length === all - both, `${plans.length} of ${all}`);
+  check(`${format}: every bring carries at most one Mega Stone`, plans.every((p) => p.members.filter((m) => test.megaHolder(m)).length <= 1));
+  check(`${format}: no bring plays two Megas`, plans.every((p) => megasIn(p.members) <= 1),
+    JSON.stringify(plans.map((p) => p.members.map((m) => m.form))));
+
+  // A named lead pair of the two holders has to carry both: one Mega-Evolves, the other does not.
+  const forced = test.fixedPlan([units[0], units[2]]);
+  const [first, second] = forced.members;
+  check(`${format}: a forced two-stone line-up plays exactly one Mega`,
+    first.form === "Mega Salamence" && !first.stone && second.form === "Blastoise" && second.stone === "Blastoisinite",
+    forced.members.map((m) => `${m.form}${m.stone ? `+${m.stone}` : ""}`).join(" + "));
+  // It is played that way, not only labelled: base stats, base Ability, base Speed.
+  const megaBlastoise = units[2];
+  const baseStats = test.ev.engine.finalStats(second.mon);
+  const megaStats = test.ev.engine.finalStats(megaBlastoise.mon);
+  check(`${format}: the holder that stays behind keeps its base stats and Ability`,
+    second.mon.ability === "Torrent" && megaBlastoise.mon.ability !== "Torrent" && baseStats.defense < megaStats.defense,
+    `${second.mon.ability}/${baseStats.defense} vs ${megaBlastoise.mon.ability}/${megaStats.defense}`);
+  // Turn the pair around and Salamence is the one that stays behind: 100 Speed, not 120.
+  {
+    const other = test.fixedPlan([units[2], units[0]]);
+    const salamence = other.members[1];
+    check(`${format}: the holder that stays behind keeps its base Speed`,
+      other.members[0].form === "Mega Blastoise" && salamence.form === "Salamence"
+      && test.speedOf(salamence, 0, false, 0) < test.speedOf(units[0], 0, false, 0),
+      `${other.members.map((m) => m.form).join(" + ")} ${test.speedOf(salamence, 0, false, 0)} vs ${test.speedOf(units[0], 0, false, 0)}`);
+  }
+  // ... and it takes a hit like the base form, not like the Mega.
+  {
+    const kg = test.opponentMon(member("Kingambit", "Leftovers", "Defiant", "Adamant", ["Sucker Punch", "Kowtow Cleave", "Iron Head", "Protect"]));
+    const b = megaBoard();
+    const onBase = test.strike(kg, second, b, 0, 0).frac;
+    const onMega = test.strike(kg, megaBlastoise, b, 0, 0).frac;
+    check(`${format}: the base form takes damage like the base form`, onBase > onMega + 1e-9, `${onBase.toFixed(4)} vs ${onMega.toFixed(4)}`);
+  }
+
+  // Which one Mega-Evolves is a choice, not an accident.
+  const [v0, v2] = [test.megaValue(units[0]), test.megaValue(units[2])];
+  check(`${format}: a stone holder is worth Mega-Evolving and a plain one is not`,
+    v0 > 0 && v2 > 0 && test.megaValue(units[1]) < 0 && test.committedMega([1, 3], units, []) === -1,
+    `${v0.toFixed(1)} / ${v2.toFixed(1)}`);
+  check(`${format}: with neither leading, the holder worth more Mega-Evolves`,
+    test.committedMega([0, 2], units, []) === (v0 >= v2 ? 0 : 2), `${v0.toFixed(1)} vs ${v2.toFixed(1)}`);
+  if (Math.abs(v0 - v2) < 7) {
+    check(`${format}: a leading holder Mega-Evolves over an equal one behind it`,
+      test.committedMega([0, 2], units, [2]) === 2 && test.committedMega([0, 2], units, [0]) === 0);
+  }
+
+  // Five holders in six: a bring must carry a second stone, and still plays one Mega.
+  const stoneUnits = FIVE_STONES.map((set, i) => test.ourUnit(makeSet(set), i));
+  const stonePlans = test.plansFor(stoneUnits);
+  const stonesPer = stonePlans.map((p) => p.members.filter((m) => test.megaHolder(m) || m.stone).length);
+  check(`${format}: a team of stone holders still has brings, each with one Mega`,
+    stonePlans.length === (format === "Singles" ? 10 : 10) && stonePlans.every((p) => megasIn(p.members) === 1),
+    `${stonePlans.length} brings, megas ${JSON.stringify(stonePlans.map((p) => megasIn(p.members)))}`);
+  check(`${format}: such a bring carries the fewest stones it can`, Math.max(...stonesPer) === (format === "Singles" ? 2 : 3), JSON.stringify(stonesPer));
+}
+
+// --- the free runs: the three Pro features behave the same --------------------------------
+//
+// Team Evaluation, Auto Build and Test against Tournament Teams each give the same number of
+// complete free runs, count them apart from each other, and are all lifted by one Pro licence.
+{
+  const store = new Map();
+  globalThis.localStorage = {
+    getItem: (key) => (store.has(key) ? store.get(key) : null),
+    setItem: (key, value) => store.set(key, String(value)),
+    removeItem: (key) => store.delete(key),
+  };
+  let jar = "";
+  globalThis.document = { get cookie() { return jar; }, set cookie(value) { jar = String(value).split(";")[0]; } };
+  const pro = await import("../builder/pro.js");
+  const FEATURES = ["evaluation", "autobuild", "tournament"];
+  check("Pro: three free runs of each feature", pro.FREE_RUNS === 3, String(pro.FREE_RUNS));
+  check("Pro: all three start with every free try", FEATURES.every((f) => pro.canRun(f) && pro.freeRunsLeft(f) === pro.FREE_RUNS));
+  for (let used = 1; used <= pro.FREE_RUNS; used += 1) {
+    pro.recordRun("tournament");
+    check(`Pro: the tournament test has ${pro.FREE_RUNS - used} free tries left after ${used}`, pro.freeRunsLeft("tournament") === pro.FREE_RUNS - used,
+      String(pro.freeRunsLeft("tournament")));
+  }
+  check("Pro: the tournament test asks for Pro after its free runs", !pro.canRun("tournament"));
+  check("Pro: its runs are not taken from the other two",
+    FEATURES.filter((f) => f !== "tournament").every((f) => pro.canRun(f) && pro.freeRunsLeft(f) === pro.FREE_RUNS));
+  for (const feature of ["evaluation", "autobuild"]) for (let i = 0; i < pro.FREE_RUNS; i += 1) pro.recordRun(feature);
+  check("Pro: all three are out after the same number of runs", FEATURES.every((f) => !pro.canRun(f) && pro.freeRunsLeft(f) === 0));
+  // One licence lifts the limit for all three, and a Pro run is not counted.
+  const token = (edition, seconds) => `${Buffer.from(JSON.stringify({ edition, plan: "pro-yearly", exp: Math.floor(Date.now() / 1000) + seconds })).toString("base64")}.signature`;
+  store.set("cbd.licence.v1", JSON.stringify({ key: "PCT-TEST", token: token("pro", 3600) }));
+  check("Pro: a licence lifts the limit for all three", pro.isPro() && FEATURES.every((f) => pro.canRun(f) && pro.freeRunsLeft(f) === Infinity));
+  const spent = globalThis.localStorage.getItem("cbd.runs.v1");
+  FEATURES.forEach((f) => pro.recordRun(f));
+  check("Pro: a Pro run is not counted against the free tries", globalThis.localStorage.getItem("cbd.runs.v1") === spent);
+  // An expired or free-edition token is not Pro, and the free runs stay spent.
+  store.set("cbd.licence.v1", JSON.stringify({ key: "PCT-TEST", token: token("pro", -10) }));
+  check("Pro: an expired licence is not Pro", !pro.isPro() && FEATURES.every((f) => !pro.canRun(f)));
+  store.set("cbd.licence.v1", JSON.stringify({ key: "PCT-TEST", token: token("free", 3600) }));
+  check("Pro: a free-edition token is not Pro", !pro.isPro() && !pro.canRun("tournament"));
+  delete globalThis.localStorage;
+  delete globalThis.document;
 }
 
 // --- (e) turn-1 tools move the result ----------------------------------------------------------
@@ -538,6 +697,29 @@ for (const format of ["Doubles", "Singles"]) {
   resetTournamentView();
   check("Doubles text talks about pairs", full.includes("Your best lead pair into it") && full.includes("Best partner") && full.includes("2 vs 2"));
   check("The similar team is shown with its six", doublesView.all("bd-similar-member").length === 6 && full.includes(`Team #${runs.Doubles.s.similar.number}`));
+
+  // One Mega a side: the holder that does not Mega-Evolve is named by its base form, with the
+  // Mega Stone it is still holding, wherever the results speak in sentences.
+  {
+    const d = runs.Doubles.s;
+    const stone = { species: "Blastoise", form: "Blastoise", item: "", stone: "Blastoisinite" };
+    const first = d.bestBrings[0];
+    const held = { ...first.members[0], ...stone };
+    const option = { ...first, members: [held, ...first.members.slice(1)], leads: [held, ...first.leads.slice(1)] };
+    const bringText = render({ ...d, bestBrings: [option] });
+    check("A holder that does not Mega-Evolve is named with the stone it holds",
+      bringText.includes("Blastoise (holding Blastoisinite)"), bringText.match(/Lead[^.]*\./)?.[0] || "");
+    const pairAnswer = d.threats.find((t) => t.pairAnswer)?.pairAnswer;
+    if (pairAnswer) {
+      const threat = { ...d.threats.find((t) => t.pairAnswer), pairAnswer: { ...pairAnswer, subject: { ...stone }, partner: { ...stone } } };
+      const threatText = render({ ...d, threats: [threat] });
+      check("A threat that cannot Mega-Evolve beside its partner is named that way",
+        threatText.includes("Your best lead pair into Blastoise (holding Blastoisinite)") && threatText.includes("with Blastoise (holding Blastoisinite)"),
+        threatText.match(/Your best lead pair into[^.]*\./)?.[0] || "");
+    }
+    check("The explainer states the one-Mega rule",
+      tournamentExplainer({ teams: 2827, format: "Doubles" }).textContent.includes("Only one Pokémon a side may Mega-Evolve"));
+  }
 
   const singlesView = view(runs.Singles.s);
   const singlesText = singlesView.textContent;

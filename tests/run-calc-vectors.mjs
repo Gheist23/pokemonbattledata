@@ -7,16 +7,22 @@
 // and the fields it answered with. Any difference is printed with the inputs so
 // the failing layer can be found; the exit code is the number of mismatches.
 
+// Terrain seeds (builder/engine.js): each vector carries the rules the app ran with, so a
+// vector stamped `rules.terrain_seeds` is replayed with a held Electric/Grassy/Misty/Psychic
+// Seed adding its stage and one recorded before the rule is replayed without it.
+// TERRAIN_SEEDS=1 / =0 replays every vector either way.
+
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, makeContext, makeMon, pyFixed, pyRound } from "../builder/engine.js";
+import { DamageEngine, makeContext, makeMon, pyFixed, pyRound, terrainSeedOption } from "../builder/engine.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
 const appData = JSON.parse(readFileSync(join(root, "data", "builder", "app-data.json"), "utf8"));
 const vectors = JSON.parse(readFileSync(join(here, "calc-vectors.json"), "utf8"));
 const engine = new DamageEngine(appData);
+const seedRule = (vector) => terrainSeedOption(process.env.TERRAIN_SEEDS === undefined ? (vector.rules?.terrain_seeds ?? null) : process.env.TERRAIN_SEEDS);
 
 // Formatting helpers first: they carry most of the Python/JS divergence risk.
 const formatCases = [[6.25, "6.2"], [18.75, "18.8"], [31.25, "31.2"], [0.05, "0.1"], [2.675, "2.7"], [100, "100.0"], [43.75, "43.8"]];
@@ -40,6 +46,7 @@ let checked = 0;
 const byField = new Map();
 for (const [index, vector] of vectors.entries()) {
   if (vector.error) continue;
+  engine.terrainSeeds = seedRule(vector);
   const attacker = makeMon(vector.attacker);
   const defender = makeMon(vector.defender);
   const ctx = makeContext(vector.ctx);

@@ -45,12 +45,21 @@
 // holds up best; they answer with the one that hurts it most (max over ours of min over
 // theirs, ties to the better average). 50 is even.
 //
+// One Mega Evolution a side. Only one Pokémon per side may Mega-Evolve in a battle, so a
+// bring carries one Mega Stone: a second stone is a dead item slot, and no bring that can
+// avoid it is offered. When a side must bring two holders anyway -- a lead pair of the
+// matrix, or a team with almost nothing else -- one of them Mega-Evolves and the other
+// plays its own base form, with the stone still in hand: base stats, base Ability, base
+// Speed. Which one it is, is a choice: the holder that gains the most by Mega-Evolving,
+// counting the extra stats, a new Ability, a new typing, and a lead that can Mega-Evolve on
+// turn 1. This is the Companion's rule (lead_optimizer/mega_rule.py).
+//
 // The lead matrix: in Doubles every pair of ours plays the pairs they lead with most often,
 // a full 2 vs 2 game of just those four (turn 1 and the fight after it), each of their
 // Pokémon on its most common tournament set; in Singles every Pokémon of ours plays their
 // most common Pokémon 1 vs 1.
 
-import { compact, intimidateOffsets, makeMon } from "./engine.js";
+import { compact, intimidateOffsets, makeMon, TERRAIN_SEEDS } from "./engine.js";
 import { mostSimilarTeam } from "./known-teams.js";
 import { classifyArchetype, tailwindBeneficiaries } from "./team-checks.js";
 
@@ -137,7 +146,12 @@ const teamNumber = (name) => Number((String(name).match(/\d+/) || [0])[0]) || 0;
 const clampStage = (value) => Math.max(-6, Math.min(6, value));
 const stageFactor = (stage) => (stage >= 0 ? (2 + stage) / 2 : 2 / (2 - stage));
 const hitsFor = (frac) => (frac > 1e-9 ? Math.min(99, Math.ceil(1 / frac - 1e-9)) : 99);
-const who = (unit) => ({ species: unit.species, form: unit.form, item: unit.item });
+// A Pokémon as the results name it. A stone holder that does not Mega-Evolve this game is
+// named by its base form, so `item` is empty (the item decides the name and the sprite) and
+// `stone` says which Mega Stone it is still holding.
+const who = (unit) => (unit.stone
+  ? { species: unit.species, form: unit.form, item: "", stone: unit.stone }
+  : { species: unit.species, form: unit.form, item: unit.item });
 const alive = (m) => Boolean(m && !m.out);
 
 function combinations(size, k) {
@@ -332,7 +346,9 @@ export class TournamentTest {
     unit.moldBreaker = MOLD_BREAKERS.has(ability);
     unit.grass = types.includes("Grass");
     unit.weatherSense = types.includes("Rock") || types.includes("Ice") || WEATHER_ABILITIES.test(ability);
-    unit.terrainSense = TERRAIN_ABILITIES.test(ability);
+    // A terrain seed holder's defence depends on the board's terrain too, so the damage
+    // cache must key on it; without this the calc made on a terrainless board is reused.
+    unit.terrainSense = TERRAIN_ABILITIES.test(ability) || Boolean(TERRAIN_SEEDS[item]);
     const keys = unit.moves.map((info) => info.key);
     const field = compact(this.ev.fieldAbility(mon));
     const s = this.ev.settings;
@@ -545,26 +561,131 @@ export class TournamentTest {
     return danger;
   }
 
+  // --- one Mega Evolution a side ---------------------------------------------------------
+
+  /** Is this unit holding a Mega Stone that would turn it into another form? */
+  megaHolder(unit) {
+    return Boolean(unit && unit.base);
+  }
+
+  /**
+   * What a holder gains by Mega-Evolving: the Top Lead optimizer's rule (mega_rule.mega_value)
+   * -- the extra base stats over 8, plus 16 for an Ability the base form does not have (5 for
+   * the same one) and 7 for a new typing. Static, so it is worked out once per unit.
+   */
+  megaValue(unit) {
+    if (!this.megaHolder(unit)) return -1e9;
+    if (unit._megaValue !== undefined) return unit._megaValue;
+    const engine = this.ev.engine;
+    const record = (mon) => engine.pokemon(mon.pokemon_name, mon.form_name) || {};
+    const total = (mon) => {
+      const stats = record(mon).stats || {};
+      return ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"].reduce((sum, key) => sum + (Number(stats[key]) || 0), 0);
+    };
+    const baseTypes = (record(unit.base).types || []).join("/");
+    const megaTypes = (record(unit.mon).types || []).join("/");
+    const ability = compact(unit.mon.ability) && compact(unit.mon.ability) !== compact(unit.base.ability) ? 16 : 5;
+    unit._megaValue = (total(unit.mon) - total(unit.base)) / 8 + ability + (megaTypes && megaTypes !== baseTypes ? 7 : 0);
+    return unit._megaValue;
+  }
+
+  /** The stone holders among these indices, in the order given. */
+  stoneHolders(idx, units) {
+    return idx.filter((i) => this.megaHolder(units[i]));
+  }
+
+  /**
+   * How many stone holders one bring may carry: one, unless the side has too few Pokémon
+   * without a stone to fill the rest of the bring (mega_rule.allowed_stone_count).
+   */
+  allowedStones(units, size) {
+    const withoutStone = units.filter((unit) => !this.megaHolder(unit)).length;
+    return Math.max(1, size - withoutStone);
+  }
+
+  /**
+   * Which holder of a bring Mega-Evolves, or -1 when it brings no stone
+   * (mega_rule.committed_mega). A leading holder gets the optimizer's +7, since it can
+   * Mega-Evolve on turn 1; ties go to the lower slot, so the answer is stable.
+   */
+  committedMega(idx, units, lead = []) {
+    const leading = new Set(lead);
+    let best = -1;
+    let bestValue = 0;
+    for (const i of idx) {
+      if (!this.megaHolder(units[i])) continue;
+      const value = this.megaValue(units[i]) + (leading.has(i) ? 7 : 0);
+      if (best < 0 || value > bestValue + 1e-9) {
+        best = i;
+        bestValue = value;
+      }
+    }
+    return best;
+  }
+
+  /**
+   * A stone holder that is not the one Mega-Evolving, as its own base form: base stats,
+   * base Ability, base Speed, the stone still in hand but doing nothing. Cached on the unit,
+   * so its damage caches outlive a run like every other unit's.
+   */
+  baseFormUnit(unit) {
+    if (!this.megaHolder(unit)) return unit;
+    if (!unit.baseUnit) {
+      const mon = unit.base;
+      unit.baseUnit = {
+        key: `${unit.key}|base`, mon, species: unit.species, form: mon.form_name,
+        // The name and the sprite follow the item, so the base form needs none; `stone` is
+        // what it is holding, for the results to say so.
+        item: "", stone: unit.item || unit.mon.item || "",
+        display: `${compact(unit.species)}|${compact(mon.form_name)}`,
+        baseForm: mon.form_name, baseAbility: mon.ability,
+      };
+    }
+    return this.prepare(unit.baseUnit);
+  }
+
+  /** These Pokémon as they play: one Mega at most, every other holder in its base form. */
+  membersOf(idx, units, lead) {
+    const committed = this.committedMega(idx, units, lead);
+    return new Map(idx.map((i) => [i, i === committed ? units[i] : this.baseFormUnit(units[i])]));
+  }
+
   // --- one game --------------------------------------------------------------------------
 
-  /** Our brings (or theirs): members lead first, then the back in team order. */
+  /**
+   * Our brings (or theirs): members lead first, then the back in team order.
+   * A bring carries one Mega Stone, and the holder that gains the most Mega-Evolves; the
+   * leads are then picked from the forms that really play, so a base form's own turn-1 kit
+   * decides whether it leads.
+   */
   plansFor(units) {
     const size = Math.min(this.bring, units.length);
-    return combinations(units.length, size).map((idx) => {
-      const leads = [...idx].sort((a, b) => units[b].kit.lead - units[a].kit.lead || a - b).slice(0, Math.min(this.active, size)).sort((a, b) => a - b);
+    const allowed = this.allowedStones(units, size);
+    const every = combinations(units.length, size);
+    const kept = every.filter((idx) => this.stoneHolders(idx, units).length <= allowed);
+    return (kept.length ? kept : every).map((idx) => {
+      const opening = [...idx].sort((a, b) => units[b].kit.lead - units[a].kit.lead || a - b).slice(0, Math.min(this.active, size));
+      const played = this.membersOf(idx, units, opening);
+      const leads = [...idx].sort((a, b) => played.get(b).kit.lead - played.get(a).kit.lead || a - b).slice(0, Math.min(this.active, size)).sort((a, b) => a - b);
       const order = [...leads, ...idx.filter((i) => !leads.includes(i))];
-      const members = order.map((i) => units[i]);
+      const members = order.map((i) => played.get(i));
       const mean = members.reduce((sum, u) => sum + this.speedOf(u, 0, false, 0), 0) / Math.max(1, members.length);
-      return { idx, order, members, leads: leads.length, leadKey: members.slice(0, leads.length).map((u) => u.id).join(","), mean };
+      return { idx, order, members, unitAt: played, leads: leads.length, leadKey: members.slice(0, leads.length).map((u) => u.id).join(","), mean };
     });
   }
 
-  /** A line-up that is all leads (the lead matrix): these Pokémon and no one behind them. */
+  /**
+   * A line-up that is all leads (the lead matrix): these Pokémon and no one behind them.
+   * The caller names them, so two stone holders can stand here -- one Mega-Evolves and the
+   * other leads in its base form.
+   */
   fixedPlan(units) {
-    const members = [...units];
+    const idx = units.map((_, i) => i);
+    const played = this.membersOf(idx, units, idx.slice(0, Math.min(this.active, units.length)));
+    const members = idx.map((i) => played.get(i));
     const leads = Math.min(this.active, members.length);
     const mean = members.reduce((sum, u) => sum + this.speedOf(u, 0, false, 0), 0) / Math.max(1, members.length);
-    return { idx: members.map((_, i) => i), order: members.map((_, i) => i), members, leads, leadKey: members.map((u) => u.id).join(","), mean };
+    return { idx, order: idx, members, unitAt: played, leads, leadKey: members.map((u) => u.id).join(","), mean };
   }
 
   fresh(unit, s, lead) {
@@ -1478,12 +1599,16 @@ export class TournamentTest {
     return win / 4;
   }
 
-  /** A full game of just these Pokémon (all leading, no one behind): our line-up against theirs. */
-  cellValue(ourPlan, theirUnits) {
-    const key = `${ourPlan.leadKey}|${theirUnits.map((u) => u.id).join(",")}`;
+  /**
+   * A full game of just these Pokémon (all leading, no one behind): our line-up against
+   * theirs. Both sides come in as plans, so the one Mega each of them commits to is already
+   * settled and the cache is keyed by the forms that really play.
+   */
+  cellValue(ourPlan, theirPlan) {
+    const key = `${ourPlan.leadKey}|${theirPlan.leadKey}`;
     let value = this.cells.get(key);
     if (value === undefined) {
-      value = this.play(ourPlan, this.fixedPlan(theirUnits)).value;
+      value = this.play(ourPlan, theirPlan).value;
       this.cells.set(key, value);
     }
     return value;
@@ -1635,8 +1760,11 @@ export class TournamentTest {
       state.species.set(t.display, row);
     });
     // Their pairs (Doubles): the two they lead with, and every two they bring together.
+    // Named by their own set (the Mega a stone holder is registered as), so the pairs, the
+    // Pokémon rows and the matrix's most common sets all speak of the same Pokémon even when
+    // this one bring played a holder in its base form.
     if (this.active > 1) {
-      const brought = theirPlan.members;
+      const brought = theirPlan.order.map((t) => theirs[t]);
       for (let a = 0; a < brought.length; a += 1) {
         for (let b = a + 1; b < brought.length; b += 1) {
           const [x, y] = [brought[a].display, brought[b].display].sort();
@@ -1720,23 +1848,36 @@ export class TournamentTest {
       rows = [...state.pairs.values()]
         .sort((x, y) => y.lead - x.lead || y.together - x.together || (x.key < y.key ? -1 : x.key > y.key ? 1 : 0))
         .slice(0, MATRIX_ROWS)
-        .map((pair) => ({ units: [this.commonSet(state, pair.a), this.commonSet(state, pair.b)], lead: pair.lead, together: pair.together, weight: Math.max(pair.lead, pair.together / 6) }));
+        .map((pair) => {
+          // A pair of two stone holders leads with one Mega and one base form, so the row
+          // is the line-up that plays the cells, not the two sets on their own.
+          const plan = this.fixedPlan([this.commonSet(state, pair.a), this.commonSet(state, pair.b)]);
+          return { plan, lead: pair.lead, together: pair.together, weight: Math.max(pair.lead, pair.together / 6) };
+        });
     } else {
       rows = [...state.species.entries()]
         .sort(([ka, a], [kb, b]) => b.count - a.count || (ka < kb ? -1 : ka > kb ? 1 : 0))
         .slice(0, MATRIX_ROWS)
         // `display` and `brought` let the snapshot quote these very cells in the Pokémon table,
         // the Trouble list and the biggest threats, so the page never contradicts itself.
-        .map(([display, row]) => ({ display, units: [this.commonSet(state, display)], lead: row.brought, brought: row.brought, together: row.count, weight: row.count }));
+        .map(([display, row]) => {
+          return { display, plan: this.fixedPlan([this.commonSet(state, display)]), lead: row.brought, brought: row.brought, together: row.count, weight: row.count };
+        });
     }
-    const cells = rows.map((row) => state.lineups.map((line) => this.cellValue(line.plan, row.units)));
+    const cells = rows.map((row) => state.lineups.map((line) => this.cellValue(line.plan, row.plan)));
     state.matrix = { rows, cells, tested: state.results.length };
   }
 
   snapshot(state, total, started, done) {
     const tested = state.results.length;
     const n = Math.max(1, tested);
-    const slotInfo = (o) => ({ slot: state.ours[o].slot, species: state.ours[o].set.species, form: state.ours[o].unit.form, item: state.ours[o].set.item || "" });
+    // One of our slots, by default as its own set battles. `unit` names the form it plays in
+    // one particular line-up instead: a stone holder that does not Mega-Evolve there.
+    const slotInfo = (o, unit = state.ours[o].unit) => (unit.stone
+      ? { slot: state.ours[o].slot, species: state.ours[o].set.species, form: unit.form, item: "", stone: unit.stone }
+      : { slot: state.ours[o].slot, species: state.ours[o].set.species, form: unit.form, item: state.ours[o].set.item || "" });
+    // The same, for a line-up whose members are already settled (`unitAt` from the plan).
+    const planInfo = (plan, list = plan.idx) => list.map((o) => slotInfo(o, plan.unitAt.get(o)));
     const doubles = this.active > 1;
     const values = state.results.map((r) => r.value);
     const average = values.reduce((a, b) => a + b, 0) / n;
@@ -1747,8 +1888,8 @@ export class TournamentTest {
       else bands.even += 1;
     }
     const plan = (c) => ({
-      members: state.plans[c].idx.map(slotInfo),
-      leads: state.plans[c].order.slice(0, state.plans[c].leads).map(slotInfo),
+      members: planInfo(state.plans[c]),
+      leads: planInfo(state.plans[c], state.plans[c].order.slice(0, state.plans[c].leads)),
       value: state.bringTotals[c].value / n,
       bestRate: state.bringTotals[c].picked / n,
     });
@@ -1763,11 +1904,15 @@ export class TournamentTest {
     const lineMean = state.lineups.map((_, c) => m.rows.reduce((sum, row, r) => sum + row.weight * m.cells[r][c], 0) / weightSum);
     const lineLeads = state.lineups.map((line) => (state.ourLeads.get(line.idx.join(",")) || 0) / n);
     const columnOrder = state.lineups.map((_, c) => c).sort((a, b) => lineLeads[b] - lineLeads[a] || lineMean[b] - lineMean[a] || a - b);
+    // A line-up's members in the forms it leads with: its plan keeps them in the order its
+    // own `idx` names them, so the slot and the form it plays line up one for one.
+    const lineInfo = (line) => line.idx.map((o, i) => slotInfo(o, line.plan.members[i]));
     const matrix = {
       kind: doubles ? "pairs" : "single",
-      columns: columnOrder.map((c) => ({ members: state.lineups[c].idx.map(slotInfo), leads: lineLeads[c], average: m.rows.length ? lineMean[c] : null })),
+      columns: columnOrder.map((c) => ({ members: lineInfo(state.lineups[c]), leads: lineLeads[c], average: m.rows.length ? lineMean[c] : null })),
       rows: m.rows.map((row, r) => ({
-        members: row.units.map(who),
+        // The forms that play the cell's game, so a pair of two stone holders shows one Mega.
+        members: row.plan.members.map(who),
         share: (doubles ? row.lead : row.together) / n,
         count: doubles ? row.lead : row.together,
         together: row.together / n,
@@ -1835,12 +1980,15 @@ export class TournamentTest {
         if (c >= 0 && (!best || lineMean[c] > best.score)) best = { partner: p, c, score: lineMean[c] };
       }
       if (!best) return null;
-      const weakPairs = m.rows.map((row, r) => ({ members: row.units.map(who), value: m.cells[r][best.c], weight: row.weight }))
+      const weakPairs = m.rows.map((row, r) => ({ members: row.plan.members.map(who), value: m.cells[r][best.c], weight: row.weight }))
         .filter((row) => row.value < MATCHUP_BANDS.unfavourable)
         .sort((a, b) => a.value - b.value || b.weight - a.weight)
         .slice(0, 2)
         .map(({ weight, ...row }) => row);
-      return { partner: slotInfo(best.partner), pairScore: best.score, weakPairs };
+      // The partner in the form it leads in beside this one: a pair of two stone holders
+      // plays only one of them as its Mega, and the score comes from that game.
+      const line = state.lineups[best.c];
+      return { partner: slotInfo(best.partner, line.plan.members[line.idx.indexOf(best.partner)]), pairScore: best.score, weakPairs };
     };
     const pokemon = state.ours.map((_, o) => {
       const t = state.mons[o];
@@ -1899,12 +2047,15 @@ export class TournamentTest {
         const partner = doubles && state.ours.length > 1 ? partnerOf(display) : null;
         if (partner && state.species.has(partner)) {
           const units = [this.commonSet(state, display), this.commonSet(state, partner)];
+          const theirPlan = this.fixedPlan(units);
           let best = null;
           for (const line of state.lineups) {
-            const value = this.cellValue(line.plan, units);
-            if (!best || value > best.value) best = { members: line.idx.map(slotInfo), value };
+            const value = this.cellValue(line.plan, theirPlan);
+            if (!best || value > best.value) best = { members: lineInfo(line), value };
           }
-          pairAnswer = { ...best, partner: who(units[1]) };
+          // The two of them as they stand together: only one Mega-Evolves, so `subject` says
+          // which form of this very Pokémon the score belongs to.
+          pairAnswer = { ...best, partner: who(theirPlan.members[1]), subject: who(theirPlan.members[0]) };
         }
         const answerBehind = pairAnswer ? pairAnswer.value < MATCHUP_BANDS.unfavourable
           : row.answer.value === null ? row.answer.win < 0.5 : row.answer.value < MATCHUP_BANDS.unfavourable;
@@ -1937,7 +2088,7 @@ export class TournamentTest {
       const plan = state.plans[r.bring];
       return {
         name: r.name, number: r.number, archetype: r.archetype, value: r.value, members: r.members,
-        bring: plan.order.map(slotInfo), leads: plan.leads, against: r.against, theirLeads: r.theirLeads,
+        bring: planInfo(plan, plan.order), leads: plan.leads, against: r.against, theirLeads: r.theirLeads,
         story: r.story, after: r.after, result: r.result,
       };
     };

@@ -89,7 +89,9 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
           : size === 1
             ? `Your one Pokémon plays every ${theirs} they could bring. They answer with the ${theirs} that do the most against it.`
             : `Every ${ours} you could bring plays every ${theirs} they could bring. You get the ${ours} that hold up best; they answer with the ${theirs} that do the most against your choice.`),
-      step("5", "Across the teams", `Played against up to ${number(teams)} real tournament teams. A score of 50 is even; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
+      step("5", "One Mega Evolution a side",
+        "Only one Pokémon a side may Mega-Evolve, so a bring carries one Mega Stone. When two holders have to come along anyway, the one that gains more Mega-Evolves and the other plays its own base form — base stats, base Ability, base Speed — with the stone still in hand."),
+      step("6", "Across the teams", `Played against up to ${number(teams)} real tournament teams. A score of 50 is even; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
     h("p", { class: "bd-note bd-tour-limits" },
       "Kept simple on purpose: nobody switches out (Parting Shot lowers the stats but its user stays in), paralysis, poison, screens and stat-boosting moves are left out, and each Pokémon picks its best play without guessing what the other side will do. ",
       singles ? "The tournament teams come from Doubles events; in Singles both sides play one Pokémon at a time." : ""));
@@ -130,7 +132,16 @@ export function tournamentAnalysis(s, { name, sprite, running, loadTeam = null }
 
 /** Pokémon names joined with "+" (a pair on the field). */
 function plus(list, name) {
-  return list.map((m) => name(m)).join(" + ");
+  return list.map((m) => held(m, name)).join(" + ");
+}
+
+/**
+ * A Pokémon's name, saying which Mega Stone it is holding when it does not Mega-Evolve.
+ * Only one Pokémon a side may Mega-Evolve, so a second stone holder plays its base form and
+ * the results name it that way; the snapshot puts its stone under `stone`.
+ */
+function held(mon, name) {
+  return mon?.stone ? `${name(mon)} (holding ${mon.stone})` : name(mon);
 }
 
 // --- the verdict ----------------------------------------------------------------------------
@@ -184,15 +195,15 @@ function bringCard({ s, n, doubles, bring, section, name, sprite }) {
     const size = i === 0 ? 44 : 36;
     return h("li", { class: `bd-tr-option ${i === 0 ? "first" : ""}` },
       h("span", { class: "bd-tr-option-rank", "aria-hidden": "true" }, String(i + 1)),
-      h("div", { class: "bd-tr-option-mons" }, [...leadList, ...back].map((m) => h("span", { class: `bd-tr-option-mon ${leads.has(m.slot) ? "lead" : ""}`, title: `${name(m)}${leads.has(m.slot) ? " (lead)" : ""}` },
+      h("div", { class: "bd-tr-option-mons" }, [...leadList, ...back].map((m) => h("span", { class: `bd-tr-option-mon ${leads.has(m.slot) ? "lead" : ""}`, title: `${held(m, name)}${leads.has(m.slot) ? " (lead)" : ""}` },
         sprite(m, size),
         leads.has(m.slot) ? h("small", {}, "Lead") : h("small", { "aria-hidden": "true" }, " ")))),
       h("div", { class: "bd-tr-option-text" },
         h("strong", {}, i === 0 ? "Recommended" : `Option ${i + 1}`),
         h("p", {}, leadList.length
           // "Lead A + B" only when there really are two of them: a team of one leads with one.
-          ? `${leadList.length > 1 ? `Lead ${plus(leadList, name)}` : `Lead with ${name(leadList[0])}`}${back.length ? `, then ${joinNames(back.map((m) => name(m)))}` : ""}.`
-          : joinNames(b.members.map((m) => name(m)))),
+          ? `${leadList.length > 1 ? `Lead ${plus(leadList, name)}` : `Lead with ${held(leadList[0], name)}`}${back.length ? `, then ${joinNames(back.map((m) => held(m, name)))}` : ""}.`
+          : joinNames(b.members.map((m) => held(m, name)))),
         h("small", {}, `Your best choice against ${pct(b.bestRate)} of the teams · ${score(b.value)} on average when brought against every team`)));
   };
   const leadCount = options[0].leads?.length || (doubles ? 2 : 1);
@@ -215,8 +226,11 @@ function threatsCard({ s, doubles, section, pill, name, sprite }) {
   const answer = (t) => {
     if (doubles && t.pairAnswer) {
       const tone = bandOf(t.pairAnswer.value);
-      return h("p", {}, "Your best lead pair into it: ", h("b", {}, plus(t.pairAnswer.members, name)),
-        ` (${BAND_LABEL[tone]}, ${score(t.pairAnswer.value)} against it with ${name(t.pairAnswer.partner)})`);
+      // Beside its usual partner it may be the one that cannot Mega-Evolve, and the score
+      // belongs to that form, so the line names it.
+      const into = t.pairAnswer.subject?.stone ? held(t.pairAnswer.subject, name) : "it";
+      return h("p", {}, `Your best lead pair into ${into}: `, h("b", {}, plus(t.pairAnswer.members, name)),
+        ` (${BAND_LABEL[tone]}, ${score(t.pairAnswer.value)} against it with ${held(t.pairAnswer.partner, name)})`);
     }
     // The 1 vs 1 game the Matchups card below draws, so both say the same thing.
     if (t.answer.value !== null && t.answer.value !== undefined) {
@@ -259,7 +273,7 @@ function pokemonCard({ s, doubles, bring, section, name, sprite }) {
   const partner = (p) => {
     if (!p.partner || p.pairScore === null || p.pairScore === undefined) return "–";
     const tone = bandOf(p.pairScore);
-    return h("span", { class: "bd-tr-partner", title: `Leads best with ${name(p.partner)}: ${BAND_LABEL[tone]}, ${score(p.pairScore)}` },
+    return h("span", { class: "bd-tr-partner", title: `Leads best with ${held(p.partner, name)}: ${BAND_LABEL[tone]}, ${score(p.pairScore)}` },
       sprite(p.partner, 24),
       h("small", {}, name(p.partner)),
       h("b", { class: `bd-tr-win ${tone}` }, score(p.pairScore)));
@@ -388,7 +402,7 @@ function resultLine(game) {
 }
 
 function gameRow(game, { open, group, doubles, bandPill, name, sprite }) {
-  const names = (list) => joinNames(list.map((m) => name(m)));
+  const names = (list) => joinNames(list.map((m) => held(m, name)));
   const leadsOf = (list, count) => list.slice(0, count);
   const lineUp = (list, count) => (doubles ? plus(leadsOf(list, count), name) : names(leadsOf(list, count)));
   const story = (game.story || []).map((e) => storyLine(e, name)).filter(Boolean);

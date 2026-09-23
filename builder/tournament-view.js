@@ -79,9 +79,9 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
         ? "Both sides lead with the Pokémon that does the most on turn 1. Intimidate and weather or terrain Abilities trigger as it comes in."
         : "Both sides lead with the two Pokémon that do the most on turn 1, so every game starts as your pair against their pair. Intimidate and weather or terrain Abilities trigger as they come in."),
       step("2", "Turn 1", singles
-        ? "Each lead picks one action, and they go in priority and Speed order: Fake Out, Tailwind, Trick Room, Protect, Quick Guard, sleep moves like Spore, Taunt, Encore, Speed drops like Icy Wind, Attack and Sp. Atk drops like Snarl, Parting Shot and Charm, Will-O-Wisp, or its best attack."
-        : "Each of the four picks one action, and they go in priority and Speed order: Fake Out, Tailwind, Trick Room, Helping Hand, Protect, Wide Guard against spread moves, Quick Guard against Fake Out and priority moves, Follow Me and Rage Powder, sleep moves like Spore, Taunt, Encore, Speed drops like Icy Wind, Attack and Sp. Atk drops like Snarl, Parting Shot and Charm, Will-O-Wisp, or its best attack. Each lead plans with its partner, and Earthquake and similar moves hit the partner too."),
-      step("3", "After turn 1", `From turn 2 ${singles ? "both Pokémon attack" : "all four attack"} on the board turn 1 left behind. Tailwind doubles Speed for 3 more turns, Trick Room lets slower Pokémon move first for 4 more, stat drops stay, sleep and Encore cost the next turns, a burn halves physical damage, and every Pokémon keeps the HP it has left. A Pokémon that faints is replaced from the back until one side is out.`),
+        ? "Each lead picks one action, and they go in priority and Speed order."
+        : "Each of the four picks one action, and they go in priority and Speed order."),
+      step("3", "After turn 1", `From turn 2 ${singles ? "both Pokémon attack" : "all four attack"} on the board turn 1 left behind.`),
       step("4",
         same ? `Both sides bring ${theirs}` : `You bring ${size === 1 ? "your one" : ours}, they bring ${theirs}`,
         same
@@ -89,9 +89,7 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
           : size === 1
             ? `Your one Pokémon plays every ${theirs} they could bring. They answer with the ${theirs} that do the most against it.`
             : `Every ${ours} you could bring plays every ${theirs} they could bring. You get the ${ours} that hold up best; they answer with the ${theirs} that do the most against your choice.`),
-      step("5", "One Mega Evolution a side",
-        "Only one Pokémon a side may Mega-Evolve, so a bring carries one Mega Stone. When two holders have to come along anyway, the one that gains more Mega-Evolves and the other plays its own base form — base stats, base Ability, base Speed — with the stone still in hand."),
-      step("6", "Across the teams", `Played against up to ${number(teams)} real tournament teams. A score of 50 is even; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
+      step("5", "Across the teams", `Played against up to ${number(teams)} real tournament teams. A score of 50 is even; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
     h("p", { class: "bd-note bd-tour-limits" },
       "Kept simple on purpose: nobody switches out (Parting Shot lowers the stats but its user stays in), paralysis, poison, screens and stat-boosting moves are left out, and each Pokémon picks its best play without guessing what the other side will do. ",
       singles ? "The tournament teams come from Doubles events; in Singles both sides play one Pokémon at a time." : ""));

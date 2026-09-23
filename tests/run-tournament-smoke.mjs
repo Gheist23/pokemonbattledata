@@ -717,8 +717,12 @@ for (const format of ["Doubles", "Singles"]) {
         threatText.includes("Your best lead pair into Blastoise (holding Blastoisinite)") && threatText.includes("with Blastoise (holding Blastoisinite)"),
         threatText.match(/Your best lead pair into[^.]*\./)?.[0] || "");
     }
-    check("The explainer states the one-Mega rule",
-      tournamentExplainer({ teams: 2827, format: "Doubles" }).textContent.includes("Only one Pokémon a side may Mega-Evolve"));
+    // The one-Mega rule is a rule of the games, not a paragraph: the owner asked
+    // for a short "How it works", so the explainer no longer spells it out. What
+    // the player sees instead is the result naming the stone the Pokemon that did
+    // not Mega-Evolve still holds, which the checks above cover.
+    check("The explainer does not spell out the one-Mega rule",
+      !tournamentExplainer({ teams: 2827, format: "Doubles" }).textContent.includes("Only one Pokémon a side may Mega-Evolve"));
   }
 
   const singlesView = view(runs.Singles.s);
@@ -727,7 +731,11 @@ for (const format of ["Doubles", "Singles"]) {
     JSON.stringify(sections(singlesView)));
   check("Singles: matrix heads are one sprite each", singlesView.all("bd-tr-mx-col").every((c) => c.kids.length === 1 && c.kids[0].tag === "img"));
   const how = tournamentExplainer({ teams: 2827, format: "Doubles" }).textContent;
-  check("The explainer names the new turn-1 moves", ["Helping Hand", "Wide Guard", "Quick Guard", "Spore", "Taunt", "Encore", "Snarl", "Parting Shot", "Will-O-Wisp"].every((w) => how.includes(w)));
+  // "How it works" is deliberately short now: the moves turn 1 can bring are
+  // listed once, in the panel description above the button, not again here.
+  check("The explainer keeps its steps short", how.includes("Each of the four picks one action, and they go in priority and Speed order.")
+    && how.includes("From turn 2 all four attack on the board turn 1 left behind.")
+    && !how.includes("Wide Guard"), how.slice(0, 160));
   check("The Singles explainer brings three and has no partner moves", tournamentExplainer({ format: "Singles" }).textContent.includes("Both sides bring three") && !tournamentExplainer({ format: "Singles" }).textContent.includes("Helping Hand"));
 
   // A lone Pokémon that cannot damage anything: one to bring, the same score against every archetype.

@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Ceruledge,55,move,1,Bitter Blade,96.6%,,,,,,,,
-Ceruledge,55,move,2,Shadow Sneak,90.1%,,,,,,,,
-Ceruledge,55,move,3,Poltergeist,80.1%,,,,,,,,
+Ceruledge,55,move,2,Shadow Sneak,90.0%,,,,,,,,
+Ceruledge,55,move,3,Poltergeist,80.0%,,,,,,,,
 Ceruledge,55,move,4,Swords Dance,63.2%,,,,,,,,
 Ceruledge,55,move,5,Close Combat,26.8%,,,,,,,,
 Ceruledge,55,move,6,Destiny Bond,12.6%,,,,,,,,
@@ -9,7 +9,7 @@ Ceruledge,55,move,7,Bulk Up,9.6%,,,,,,,,
 Ceruledge,55,move,8,Will-O-Wisp,4.1%,,,,,,,,
 Ceruledge,55,move,9,Shadow Claw,2.0%,,,,,,,,
 Ceruledge,55,move,10,Taunt,1.9%,,,,,,,,
-Ceruledge,55,held_item,1,Focus Sash,74.9%,,,,,,,,
+Ceruledge,55,held_item,1,Focus Sash,74.8%,,,,,,,,
 Ceruledge,55,held_item,2,Leftovers,5.5%,,,,,,,,
 Ceruledge,55,held_item,3,Sitrus Berry,4.3%,,,,,,,,
 Ceruledge,55,held_item,4,Life Orb,3.9%,,,,,,,,
@@ -32,7 +32,7 @@ Ceruledge,55,teammate,10,Rillaboom,,,,,,,,,
 Ceruledge,55,stat_alignment,1,Adamant,75.0%,Attack,Sp. Atk,,,,,,
 Ceruledge,55,stat_alignment,2,Jolly,17.1%,Speed,Sp. Atk,,,,,,
 Ceruledge,55,stat_alignment,3,Impish,2.7%,Defense,Sp. Atk,,,,,,
-Ceruledge,55,stat_alignment,4,Careful,2.5%,Sp. Def,Sp. Atk,,,,,,
+Ceruledge,55,stat_alignment,4,Careful,2.4%,Sp. Def,Sp. Atk,,,,,,
 Ceruledge,55,stat_alignment,5,Lonely,0.6%,Attack,Defense,,,,,,
 Ceruledge,55,stat_alignment,6,Naughty,0.6%,Attack,Sp. Def,,,,,,
 Ceruledge,55,stat_alignment,7,Hasty,0.4%,Speed,Defense,,,,,,
@@ -43,9 +43,9 @@ Ceruledge,55,stat_points,1,,31.6%,,,2,32,0,0,0,32
 Ceruledge,55,stat_points,2,,17.5%,,,1,32,1,0,0,32
 Ceruledge,55,stat_points,3,,7.5%,,,1,32,0,0,1,32
 Ceruledge,55,stat_points,4,,7.3%,,,0,32,2,0,0,32
-Ceruledge,55,stat_points,5,,4.3%,,,0,32,0,0,2,32
+Ceruledge,55,stat_points,5,,4.4%,,,0,32,0,0,2,32
 Ceruledge,55,stat_points,6,,1.9%,,,0,32,0,0,0,32
-Ceruledge,55,stat_points,7,,1.5%,,,32,32,2,0,0,0
+Ceruledge,55,stat_points,7,,1.6%,,,32,32,2,0,0,0
 Ceruledge,55,stat_points,8,,1.5%,,,32,32,0,0,0,2
 Ceruledge,55,stat_points,9,,0.8%,,,0,32,1,0,1,32
 Ceruledge,55,stat_points,10,,0.8%,,,18,15,7,0,2,24

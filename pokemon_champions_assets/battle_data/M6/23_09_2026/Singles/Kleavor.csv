@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Kleavor,79,move,1,Stone Axe,99.9%,,,,,,,,
-Kleavor,79,move,2,X-Scissor,71.1%,,,,,,,,
-Kleavor,79,move,3,Close Combat,56.1%,,,,,,,,
-Kleavor,79,move,4,Night Slash,51.0%,,,,,,,,
+Kleavor,79,move,2,X-Scissor,71.2%,,,,,,,,
+Kleavor,79,move,3,Close Combat,56.0%,,,,,,,,
+Kleavor,79,move,4,Night Slash,50.9%,,,,,,,,
 Kleavor,79,move,5,U-turn,28.0%,,,,,,,,
 Kleavor,79,move,6,Feint,15.8%,,,,,,,,
 Kleavor,79,move,7,Quick Attack,14.4%,,,,,,,,
 Kleavor,79,move,8,Tailwind,13.4%,,,,,,,,
 Kleavor,79,move,9,Brick Break,9.2%,,,,,,,,
 Kleavor,79,move,10,Counter,8.3%,,,,,,,,
-Kleavor,79,held_item,1,Focus Sash,59.0%,,,,,,,,
+Kleavor,79,held_item,1,Focus Sash,58.9%,,,,,,,,
 Kleavor,79,held_item,2,Choice Scarf,29.9%,,,,,,,,
 Kleavor,79,held_item,3,Life Orb,2.4%,,,,,,,,
 Kleavor,79,held_item,4,Wide Lens,1.2%,,,,,,,,
@@ -29,7 +29,7 @@ Kleavor,79,teammate,7,Baxcalibur,,,,,,,,,
 Kleavor,79,teammate,8,Araquanid,,,,,,,,,
 Kleavor,79,teammate,9,Rillaboom,,,,,,,,,
 Kleavor,79,teammate,10,Basculegion,,,,,,,,,
-Kleavor,79,stat_alignment,1,Adamant,53.8%,Attack,Sp. Atk,,,,,,
+Kleavor,79,stat_alignment,1,Adamant,53.7%,Attack,Sp. Atk,,,,,,
 Kleavor,79,stat_alignment,2,Jolly,41.4%,Speed,Sp. Atk,,,,,,
 Kleavor,79,stat_alignment,3,Naughty,1.1%,Attack,Sp. Def,,,,,,
 Kleavor,79,stat_alignment,4,Impish,0.8%,Defense,Sp. Atk,,,,,,
@@ -38,10 +38,10 @@ Kleavor,79,stat_alignment,6,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
 Kleavor,79,stat_alignment,7,Lonely,0.5%,Attack,Defense,,,,,,
 Kleavor,79,stat_alignment,8,Hasty,0.3%,Speed,Defense,,,,,,
 Kleavor,79,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,
-Kleavor,79,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Kleavor,79,stat_points,1,,61.7%,,,2,32,0,0,0,32
-Kleavor,79,stat_points,2,,9.9%,,,0,32,2,0,0,32
-Kleavor,79,stat_points,3,,6.7%,,,0,32,0,0,2,32
+Kleavor,79,stat_alignment,10,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Kleavor,79,stat_points,1,,61.6%,,,2,32,0,0,0,32
+Kleavor,79,stat_points,2,,9.8%,,,0,32,2,0,0,32
+Kleavor,79,stat_points,3,,6.8%,,,0,32,0,0,2,32
 Kleavor,79,stat_points,4,,3.0%,,,0,32,0,0,0,32
 Kleavor,79,stat_points,5,,1.6%,,,32,32,0,0,0,2
 Kleavor,79,stat_points,6,,1.4%,,,32,32,2,0,0,0

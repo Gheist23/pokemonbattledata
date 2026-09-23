@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Trevenant,212,move,1,Leech Seed,80.0%,,,,,,,,
 Trevenant,212,move,2,Will-O-Wisp,61.6%,,,,,,,,
-Trevenant,212,move,3,Protect,55.0%,,,,,,,,
+Trevenant,212,move,3,Protect,55.1%,,,,,,,,
 Trevenant,212,move,4,Horn Leech,52.6%,,,,,,,,
 Trevenant,212,move,5,Curse,34.3%,,,,,,,,
 Trevenant,212,move,6,Substitute,25.2%,,,,,,,,
-Trevenant,212,move,7,Poltergeist,15.7%,,,,,,,,
+Trevenant,212,move,7,Poltergeist,15.6%,,,,,,,,
 Trevenant,212,move,8,Toxic,9.3%,,,,,,,,
 Trevenant,212,move,9,Trick Room,6.9%,,,,,,,,
 Trevenant,212,move,10,Skitter Smack,6.4%,,,,,,,,
@@ -30,7 +30,7 @@ Trevenant,212,teammate,8,Mimikyu,,,,,,,,,
 Trevenant,212,teammate,9,Greninja,,,,,,,,,
 Trevenant,212,teammate,10,Charizard,,,,,,,,,
 Trevenant,212,stat_alignment,1,Impish,46.0%,Defense,Sp. Atk,,,,,,
-Trevenant,212,stat_alignment,2,Careful,23.9%,Sp. Def,Sp. Atk,,,,,,
+Trevenant,212,stat_alignment,2,Careful,23.8%,Sp. Def,Sp. Atk,,,,,,
 Trevenant,212,stat_alignment,3,Bold,7.0%,Defense,Attack,,,,,,
 Trevenant,212,stat_alignment,4,Adamant,6.4%,Attack,Sp. Atk,,,,,,
 Trevenant,212,stat_alignment,5,Relaxed,4.5%,Defense,Speed,,,,,,
@@ -39,8 +39,8 @@ Trevenant,212,stat_alignment,7,Brave,2.6%,Attack,Speed,,,,,,
 Trevenant,212,stat_alignment,8,Sassy,2.5%,Sp. Def,Speed,,,,,,
 Trevenant,212,stat_alignment,9,Timid,0.7%,Speed,Attack,,,,,,
 Trevenant,212,stat_alignment,10,Quiet,0.7%,Sp. Atk,Speed,,,,,,
-Trevenant,212,stat_points,1,,24.6%,,,32,0,32,0,2,0
-Trevenant,212,stat_points,2,,9.9%,,,32,0,2,0,32,0
+Trevenant,212,stat_points,1,,24.7%,,,32,0,32,0,2,0
+Trevenant,212,stat_points,2,,9.8%,,,32,0,2,0,32,0
 Trevenant,212,stat_points,3,,4.2%,,,2,0,32,0,32,0
 Trevenant,212,stat_points,4,,3.2%,,,32,0,0,0,32,2
 Trevenant,212,stat_points,5,,3.2%,,,32,0,6,0,28,0

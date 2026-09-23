@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Froslass,35,move,1,Blizzard,99.1%,,,,,,,,
 Froslass,35,move,2,Protect,92.8%,,,,,,,,
-Froslass,35,move,3,Shadow Ball,82.3%,,,,,,,,
-Froslass,35,move,4,Aurora Veil,79.0%,,,,,,,,
-Froslass,35,move,5,Rain Dance,15.1%,,,,,,,,
+Froslass,35,move,3,Shadow Ball,82.4%,,,,,,,,
+Froslass,35,move,4,Aurora Veil,78.9%,,,,,,,,
+Froslass,35,move,5,Rain Dance,14.9%,,,,,,,,
 Froslass,35,move,6,Thunderbolt,6.5%,,,,,,,,
 Froslass,35,move,7,Taunt,4.9%,,,,,,,,
 Froslass,35,move,8,Destiny Bond,4.4%,,,,,,,,
@@ -26,8 +26,8 @@ Froslass,35,teammate,4,Incineroar,,,,,,,,,
 Froslass,35,teammate,5,Basculegion,,,,,,,,,
 Froslass,35,teammate,6,Archaludon,,,,,,,,,
 Froslass,35,teammate,7,Politoed,,,,,,,,,
-Froslass,35,teammate,8,Gengar,,,,,,,,,
-Froslass,35,teammate,9,Arcanine-Hisui,,,,,,,,,
+Froslass,35,teammate,8,Arcanine-Hisui,,,,,,,,,
+Froslass,35,teammate,9,Gengar,,,,,,,,,
 Froslass,35,teammate,10,Garchomp,,,,,,,,,
 Froslass,35,stat_alignment,1,Timid,74.9%,Speed,Attack,,,,,,
 Froslass,35,stat_alignment,2,Modest,23.4%,Sp. Atk,Attack,,,,,,
@@ -39,11 +39,11 @@ Froslass,35,stat_alignment,7,Quiet,0.2%,Sp. Atk,Speed,,,,,,
 Froslass,35,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,
 Froslass,35,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,
 Froslass,35,stat_alignment,10,Relaxed,0.0%,Defense,Speed,,,,,,
-Froslass,35,stat_points,1,,29.8%,,,2,0,0,32,0,32
+Froslass,35,stat_points,1,,29.9%,,,2,0,0,32,0,32
 Froslass,35,stat_points,2,,5.6%,,,12,0,1,20,1,32
-Froslass,35,stat_points,3,,4.9%,,,32,0,2,0,0,32
+Froslass,35,stat_points,3,,4.8%,,,32,0,2,0,0,32
 Froslass,35,stat_points,4,,3.9%,,,0,0,2,32,0,32
-Froslass,35,stat_points,5,,3.9%,,,32,0,0,2,0,32
+Froslass,35,stat_points,5,,3.8%,,,32,0,0,2,0,32
 Froslass,35,stat_points,6,,3.5%,,,0,0,0,32,2,32
 Froslass,35,stat_points,7,,3.1%,,,14,0,0,20,0,32
 Froslass,35,stat_points,8,,2.4%,,,24,0,0,10,0,32

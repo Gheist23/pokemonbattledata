@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Araquanid,102,move,1,Liquidation,89.7%,,,,,,,,
 Araquanid,102,move,2,Wide Guard,89.1%,,,,,,,,
-Araquanid,102,move,3,Leech Life,61.1%,,,,,,,,
-Araquanid,102,move,4,Protect,51.5%,,,,,,,,
+Araquanid,102,move,3,Leech Life,61.3%,,,,,,,,
+Araquanid,102,move,4,Protect,51.6%,,,,,,,,
 Araquanid,102,move,5,Mirror Coat,12.3%,,,,,,,,
-Araquanid,102,move,6,Rain Dance,10.4%,,,,,,,,
+Araquanid,102,move,6,Rain Dance,10.3%,,,,,,,,
 Araquanid,102,move,7,Entrainment,9.1%,,,,,,,,
 Araquanid,102,move,8,Lunge,8.0%,,,,,,,,
 Araquanid,102,move,9,Sticky Web,7.9%,,,,,,,,
-Araquanid,102,move,10,Soak,7.9%,,,,,,,,
+Araquanid,102,move,10,Soak,7.8%,,,,,,,,
 Araquanid,102,held_item,1,Mystic Water,40.2%,,,,,,,,
 Araquanid,102,held_item,2,Sitrus Berry,19.8%,,,,,,,,
 Araquanid,102,held_item,3,Leftovers,14.9%,,,,,,,,
@@ -28,22 +28,22 @@ Araquanid,102,teammate,6,Sneasler,,,,,,,,,
 Araquanid,102,teammate,7,Pelipper,,,,,,,,,
 Araquanid,102,teammate,8,Torkoal,,,,,,,,,
 Araquanid,102,teammate,9,Kingambit,,,,,,,,,
-Araquanid,102,teammate,10,Archaludon,,,,,,,,,
+Araquanid,102,teammate,10,Sinistcha,,,,,,,,,
 Araquanid,102,stat_alignment,1,Brave,37.7%,Attack,Speed,,,,,,
-Araquanid,102,stat_alignment,2,Adamant,31.7%,Attack,Sp. Atk,,,,,,
+Araquanid,102,stat_alignment,2,Adamant,31.6%,Attack,Sp. Atk,,,,,,
 Araquanid,102,stat_alignment,3,Impish,9.4%,Defense,Sp. Atk,,,,,,
 Araquanid,102,stat_alignment,4,Careful,5.5%,Sp. Def,Sp. Atk,,,,,,
 Araquanid,102,stat_alignment,5,Relaxed,5.0%,Defense,Speed,,,,,,
 Araquanid,102,stat_alignment,6,Quiet,3.2%,Sp. Atk,Speed,,,,,,
-Araquanid,102,stat_alignment,7,Sassy,3.0%,Sp. Def,Speed,,,,,,
+Araquanid,102,stat_alignment,7,Sassy,3.1%,Sp. Def,Speed,,,,,,
 Araquanid,102,stat_alignment,8,Modest,2.3%,Sp. Atk,Attack,,,,,,
-Araquanid,102,stat_alignment,9,Jolly,0.9%,Speed,Sp. Atk,,,,,,
+Araquanid,102,stat_alignment,9,Jolly,1.0%,Speed,Sp. Atk,,,,,,
 Araquanid,102,stat_alignment,10,Bold,0.3%,Defense,Attack,,,,,,
-Araquanid,102,stat_points,1,,32.7%,,,32,32,2,0,0,0
-Araquanid,102,stat_points,2,,8.5%,,,32,32,0,0,2,0
+Araquanid,102,stat_points,1,,32.6%,,,32,32,2,0,0,0
+Araquanid,102,stat_points,2,,8.6%,,,32,32,0,0,2,0
 Araquanid,102,stat_points,3,,3.6%,,,32,0,32,0,2,0
-Araquanid,102,stat_points,4,,3.2%,,,2,32,32,0,0,0
-Araquanid,102,stat_points,5,,2.7%,,,32,0,2,32,0,0
+Araquanid,102,stat_points,4,,3.3%,,,2,32,32,0,0,0
+Araquanid,102,stat_points,5,,2.6%,,,32,0,2,32,0,0
 Araquanid,102,stat_points,6,,2.6%,,,2,32,0,0,32,0
 Araquanid,102,stat_points,7,,2.6%,,,0,32,2,0,32,0
 Araquanid,102,stat_points,8,,2.2%,,,0,32,32,0,2,0

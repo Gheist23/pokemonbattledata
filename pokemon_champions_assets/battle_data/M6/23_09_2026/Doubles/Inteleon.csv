@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Inteleon,64,move,1,Snipe Shot,93.5%,,,,,,,,
-Inteleon,64,move,2,Protect,78.7%,,,,,,,,
+Inteleon,64,move,1,Snipe Shot,93.6%,,,,,,,,
+Inteleon,64,move,2,Protect,78.6%,,,,,,,,
 Inteleon,64,move,3,Ice Beam,76.6%,,,,,,,,
 Inteleon,64,move,4,Focus Energy,43.7%,,,,,,,,
 Inteleon,64,move,5,Dark Pulse,23.2%,,,,,,,,
 Inteleon,64,move,6,Vacuum Wave,14.1%,,,,,,,,
 Inteleon,64,move,7,Air Cutter,11.5%,,,,,,,,
-Inteleon,64,move,8,Muddy Water,11.2%,,,,,,,,
+Inteleon,64,move,8,Muddy Water,11.1%,,,,,,,,
 Inteleon,64,move,9,Icy Wind,5.5%,,,,,,,,
 Inteleon,64,move,10,Blizzard,5.3%,,,,,,,,
 Inteleon,64,held_item,1,Scope Lens,62.2%,,,,,,,,
@@ -16,7 +16,7 @@ Inteleon,64,held_item,4,Life Orb,6.6%,,,,,,,,
 Inteleon,64,held_item,5,Choice Scarf,1.6%,,,,,,,,
 Inteleon,64,held_item,6,Wise Glasses,0.9%,,,,,,,,
 Inteleon,64,held_item,7,Expert Belt,0.8%,,,,,,,,
-Inteleon,64,held_item,8,Sitrus Berry,0.6%,,,,,,,,
+Inteleon,64,held_item,8,Sitrus Berry,0.5%,,,,,,,,
 Inteleon,64,held_item,9,Quick Claw,0.5%,,,,,,,,
 Inteleon,64,held_item,10,Wide Lens,0.4%,,,,,,,,
 Inteleon,64,teammate,1,Rillaboom,,,,,,,,,
@@ -29,9 +29,9 @@ Inteleon,64,teammate,7,Raichu,,,,,,,,,
 Inteleon,64,teammate,8,Incineroar,,,,,,,,,
 Inteleon,64,teammate,9,Archaludon,,,,,,,,,
 Inteleon,64,teammate,10,Whimsicott,,,,,,,,,
-Inteleon,64,stat_alignment,1,Timid,65.5%,Speed,Attack,,,,,,
+Inteleon,64,stat_alignment,1,Timid,65.4%,Speed,Attack,,,,,,
 Inteleon,64,stat_alignment,2,Modest,28.7%,Sp. Atk,Attack,,,,,,
-Inteleon,64,stat_alignment,3,Mild,1.8%,Sp. Atk,Defense,,,,,,
+Inteleon,64,stat_alignment,3,Mild,1.9%,Sp. Atk,Defense,,,,,,
 Inteleon,64,stat_alignment,4,Hasty,1.6%,Speed,Defense,,,,,,
 Inteleon,64,stat_alignment,5,Quiet,0.6%,Sp. Atk,Speed,,,,,,
 Inteleon,64,stat_alignment,6,Bold,0.5%,Defense,Attack,,,,,,
@@ -39,10 +39,10 @@ Inteleon,64,stat_alignment,7,Naive,0.4%,Speed,Sp. Def,,,,,,
 Inteleon,64,stat_alignment,8,Calm,0.3%,Sp. Def,Attack,,,,,,
 Inteleon,64,stat_alignment,9,Jolly,0.2%,Speed,Sp. Atk,,,,,,
 Inteleon,64,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Inteleon,64,stat_points,1,,57.4%,,,2,0,0,32,0,32
-Inteleon,64,stat_points,2,,11.1%,,,0,0,2,32,0,32
+Inteleon,64,stat_points,1,,57.3%,,,2,0,0,32,0,32
+Inteleon,64,stat_points,2,,11.2%,,,0,0,2,32,0,32
 Inteleon,64,stat_points,3,,8.9%,,,0,0,0,32,2,32
-Inteleon,64,stat_points,4,,4.0%,,,0,0,0,32,0,32
+Inteleon,64,stat_points,4,,3.9%,,,0,0,0,32,0,32
 Inteleon,64,stat_points,5,,2.6%,,,0,0,1,32,1,32
 Inteleon,64,stat_points,6,,0.9%,,,32,0,0,32,0,2
 Inteleon,64,stat_points,7,,0.7%,,,25,0,0,32,0,9

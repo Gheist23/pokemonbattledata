@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Kommo-o,54,move,1,Clanging Scales,94.0%,,,,,,,,
 Kommo-o,54,move,2,Protect,88.0%,,,,,,,,
-Kommo-o,54,move,3,Aura Sphere,86.5%,,,,,,,,
-Kommo-o,54,move,4,Clangorous Soul,57.7%,,,,,,,,
+Kommo-o,54,move,3,Aura Sphere,86.4%,,,,,,,,
+Kommo-o,54,move,4,Clangorous Soul,57.8%,,,,,,,,
 Kommo-o,54,move,5,Flamethrower,26.6%,,,,,,,,
-Kommo-o,54,move,6,Vacuum Wave,14.6%,,,,,,,,
+Kommo-o,54,move,6,Vacuum Wave,14.5%,,,,,,,,
 Kommo-o,54,move,7,Flash Cannon,6.7%,,,,,,,,
 Kommo-o,54,move,8,Drain Punch,3.3%,,,,,,,,
 Kommo-o,54,move,9,Body Press,2.4%,,,,,,,,
 Kommo-o,54,move,10,Iron Defense,2.2%,,,,,,,,
-Kommo-o,54,held_item,1,Leftovers,45.0%,,,,,,,,
+Kommo-o,54,held_item,1,Leftovers,45.1%,,,,,,,,
 Kommo-o,54,held_item,2,Life Orb,32.0%,,,,,,,,
-Kommo-o,54,held_item,3,Sitrus Berry,6.9%,,,,,,,,
+Kommo-o,54,held_item,3,Sitrus Berry,6.8%,,,,,,,,
 Kommo-o,54,held_item,4,Dragon Fang,3.8%,,,,,,,,
 Kommo-o,54,held_item,5,Haban Berry,1.6%,,,,,,,,
-Kommo-o,54,held_item,6,Focus Sash,1.4%,,,,,,,,
-Kommo-o,54,held_item,7,Expert Belt,1.4%,,,,,,,,
+Kommo-o,54,held_item,6,Expert Belt,1.4%,,,,,,,,
+Kommo-o,54,held_item,7,Focus Sash,1.4%,,,,,,,,
 Kommo-o,54,held_item,8,Choice Scarf,1.2%,,,,,,,,
 Kommo-o,54,held_item,9,Grassy Seed,1.1%,,,,,,,,
 Kommo-o,54,held_item,10,Roseli Berry,0.9%,,,,,,,,
@@ -23,9 +23,9 @@ Kommo-o,54,teammate,1,Rillaboom,,,,,,,,,
 Kommo-o,54,teammate,2,Incineroar,,,,,,,,,
 Kommo-o,54,teammate,3,Indeedee-F,,,,,,,,,
 Kommo-o,54,teammate,4,Gengar,,,,,,,,,
-Kommo-o,54,teammate,5,Basculegion,,,,,,,,,
-Kommo-o,54,teammate,6,Gardevoir,,,,,,,,,
-Kommo-o,54,teammate,7,Kingambit,,,,,,,,,
+Kommo-o,54,teammate,5,Kingambit,,,,,,,,,
+Kommo-o,54,teammate,6,Basculegion,,,,,,,,,
+Kommo-o,54,teammate,7,Gardevoir,,,,,,,,,
 Kommo-o,54,teammate,8,Sneasler,,,,,,,,,
 Kommo-o,54,teammate,9,Whimsicott,,,,,,,,,
 Kommo-o,54,teammate,10,Politoed,,,,,,,,,
@@ -37,10 +37,10 @@ Kommo-o,54,stat_alignment,5,Adamant,1.3%,Attack,Sp. Atk,,,,,,
 Kommo-o,54,stat_alignment,6,Calm,0.7%,Sp. Def,Attack,,,,,,
 Kommo-o,54,stat_alignment,7,Impish,0.6%,Defense,Sp. Atk,,,,,,
 Kommo-o,54,stat_alignment,8,Jolly,0.6%,Speed,Sp. Atk,,,,,,
-Kommo-o,54,stat_alignment,9,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
+Kommo-o,54,stat_alignment,9,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
 Kommo-o,54,stat_alignment,10,Brave,0.4%,Attack,Speed,,,,,,
 Kommo-o,54,stat_points,1,,24.6%,,,2,0,0,32,0,32
-Kommo-o,54,stat_points,2,,7.3%,,,10,0,0,24,0,32
+Kommo-o,54,stat_points,2,,7.2%,,,10,0,0,24,0,32
 Kommo-o,54,stat_points,3,,3.1%,,,32,0,0,32,2,0
 Kommo-o,54,stat_points,4,,2.5%,,,1,0,0,32,1,32
 Kommo-o,54,stat_points,5,,2.1%,,,29,0,0,32,5,0
@@ -48,7 +48,7 @@ Kommo-o,54,stat_points,6,,2.0%,,,11,0,0,23,0,32
 Kommo-o,54,stat_points,7,,1.9%,,,32,0,0,32,0,2
 Kommo-o,54,stat_points,8,,1.8%,,,0,0,0,32,2,32
 Kommo-o,54,stat_points,9,,1.4%,,,4,0,0,30,0,32
-Kommo-o,54,stat_points,10,,1.3%,,,32,0,2,32,0,0
-Kommo-o,54,ability,1,Soundproof,92.1%,,,,,,,,
+Kommo-o,54,stat_points,10,,1.2%,,,32,0,2,32,0,0
+Kommo-o,54,ability,1,Soundproof,92.0%,,,,,,,,
 Kommo-o,54,ability,2,Overcoat,4.5%,,,,,,,,
 Kommo-o,54,ability,3,Bulletproof,3.4%,,,,,,,,

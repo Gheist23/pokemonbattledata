@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Metagross,26,move,1,Psychic Fangs,92.7%,,,,,,,,
-Metagross,26,move,2,Protect,83.4%,,,,,,,,
+Metagross,26,move,2,Protect,83.5%,,,,,,,,
 Metagross,26,move,3,Steel Roller,45.9%,,,,,,,,
-Metagross,26,move,4,Iron Head,38.2%,,,,,,,,
-Metagross,26,move,5,Ice Punch,27.1%,,,,,,,,
-Metagross,26,move,6,Body Press,26.3%,,,,,,,,
-Metagross,26,move,7,Stomping Tantrum,24.0%,,,,,,,,
+Metagross,26,move,4,Iron Head,38.0%,,,,,,,,
+Metagross,26,move,5,Ice Punch,26.9%,,,,,,,,
+Metagross,26,move,6,Body Press,26.5%,,,,,,,,
+Metagross,26,move,7,Stomping Tantrum,23.9%,,,,,,,,
 Metagross,26,move,8,Bullet Punch,20.5%,,,,,,,,
 Metagross,26,move,9,Meteor Mash,11.2%,,,,,,,,
-Metagross,26,move,10,Hammer Arm,3.8%,,,,,,,,
+Metagross,26,move,10,Hammer Arm,3.7%,,,,,,,,
 Metagross,26,held_item,1,Metagrossite,90.5%,,,,,,,,
-Metagross,26,held_item,2,Life Orb,2.6%,,,,,,,,
+Metagross,26,held_item,2,Life Orb,2.5%,,,,,,,,
 Metagross,26,held_item,3,Normal Gem,1.1%,,,,,,,,
 Metagross,26,held_item,4,Metal Coat,0.7%,,,,,,,,
 Metagross,26,held_item,5,Sitrus Berry,0.7%,,,,,,,,
@@ -24,23 +24,23 @@ Metagross,26,teammate,2,Sneasler,,,,,,,,,
 Metagross,26,teammate,3,Incineroar,,,,,,,,,
 Metagross,26,teammate,4,Salamence,,,,,,,,,
 Metagross,26,teammate,5,Garchomp,,,,,,,,,
-Metagross,26,teammate,6,Indeedee-F,,,,,,,,,
-Metagross,26,teammate,7,Milotic,,,,,,,,,
+Metagross,26,teammate,6,Milotic,,,,,,,,,
+Metagross,26,teammate,7,Indeedee-F,,,,,,,,,
 Metagross,26,teammate,8,Volcarona,,,,,,,,,
 Metagross,26,teammate,9,Arcanine-Hisui,,,,,,,,,
 Metagross,26,teammate,10,Indeedee,,,,,,,,,
-Metagross,26,stat_alignment,1,Adamant,50.4%,Attack,Sp. Atk,,,,,,
-Metagross,26,stat_alignment,2,Jolly,42.2%,Speed,Sp. Atk,,,,,,
-Metagross,26,stat_alignment,3,Impish,2.5%,Defense,Sp. Atk,,,,,,
+Metagross,26,stat_alignment,1,Adamant,50.3%,Attack,Sp. Atk,,,,,,
+Metagross,26,stat_alignment,2,Jolly,42.3%,Speed,Sp. Atk,,,,,,
+Metagross,26,stat_alignment,3,Impish,2.4%,Defense,Sp. Atk,,,,,,
 Metagross,26,stat_alignment,4,Brave,2.0%,Attack,Speed,,,,,,
 Metagross,26,stat_alignment,5,Careful,1.4%,Sp. Def,Sp. Atk,,,,,,
 Metagross,26,stat_alignment,6,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Metagross,26,stat_alignment,7,Lonely,0.2%,Attack,Defense,,,,,,
-Metagross,26,stat_alignment,8,Relaxed,0.2%,Defense,Speed,,,,,,
+Metagross,26,stat_alignment,7,Relaxed,0.2%,Defense,Speed,,,,,,
+Metagross,26,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,
 Metagross,26,stat_alignment,9,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Metagross,26,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,
-Metagross,26,stat_points,1,,25.2%,,,2,32,0,0,0,32
-Metagross,26,stat_points,2,,8.5%,,,24,15,0,0,0,27
+Metagross,26,stat_points,1,,25.0%,,,2,32,0,0,0,32
+Metagross,26,stat_points,2,,8.6%,,,24,15,0,0,0,27
 Metagross,26,stat_points,3,,3.5%,,,32,32,0,0,2,0
 Metagross,26,stat_points,4,,3.1%,,,0,32,2,0,0,32
 Metagross,26,stat_points,5,,2.7%,,,0,32,0,0,2,32
@@ -48,6 +48,6 @@ Metagross,26,stat_points,6,,2.1%,,,14,27,0,0,0,25
 Metagross,26,stat_points,7,,1.9%,,,32,32,0,0,0,2
 Metagross,26,stat_points,8,,1.8%,,,10,23,1,0,0,32
 Metagross,26,stat_points,9,,1.7%,,,32,32,2,0,0,0
-Metagross,26,stat_points,10,,1.6%,,,18,25,0,0,0,23
+Metagross,26,stat_points,10,,1.6%,,,0,27,14,0,0,25
 Metagross,26,ability,1,Clear Body,99.5%,,,,,,,,
 Metagross,26,ability,2,Light Metal,0.5%,,,,,,,,

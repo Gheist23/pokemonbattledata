@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pangoro,200,move,1,Knock Off,48.6%,,,,,,,,
+Pangoro,200,move,1,Knock Off,48.4%,,,,,,,,
 Pangoro,200,move,2,Close Combat,39.4%,,,,,,,,
-Pangoro,200,move,3,Protect,39.1%,,,,,,,,
-Pangoro,200,move,4,Darkest Lariat,38.0%,,,,,,,,
+Pangoro,200,move,3,Protect,39.0%,,,,,,,,
+Pangoro,200,move,4,Darkest Lariat,38.1%,,,,,,,,
 Pangoro,200,move,5,Drain Punch,34.4%,,,,,,,,
 Pangoro,200,move,6,Ice Punch,25.2%,,,,,,,,
-Pangoro,200,move,7,Detect,23.8%,,,,,,,,
-Pangoro,200,move,8,Bullet Punch,23.6%,,,,,,,,
-Pangoro,200,move,9,Storm Throw,15.4%,,,,,,,,
+Pangoro,200,move,7,Detect,24.0%,,,,,,,,
+Pangoro,200,move,8,Bullet Punch,23.5%,,,,,,,,
+Pangoro,200,move,9,Storm Throw,15.3%,,,,,,,,
 Pangoro,200,move,10,Fire Punch,11.1%,,,,,,,,
 Pangoro,200,held_item,1,Life Orb,27.5%,,,,,,,,
 Pangoro,200,held_item,2,Focus Sash,18.0%,,,,,,,,
@@ -15,7 +15,7 @@ Pangoro,200,held_item,3,Expert Belt,8.5%,,,,,,,,
 Pangoro,200,held_item,4,Choice Scarf,6.2%,,,,,,,,
 Pangoro,200,held_item,5,Muscle Band,4.1%,,,,,,,,
 Pangoro,200,held_item,6,White Herb,3.9%,,,,,,,,
-Pangoro,200,held_item,7,Quick Claw,3.7%,,,,,,,,
+Pangoro,200,held_item,7,Quick Claw,3.8%,,,,,,,,
 Pangoro,200,held_item,8,Black Glasses,3.5%,,,,,,,,
 Pangoro,200,held_item,9,Sitrus Berry,3.4%,,,,,,,,
 Pangoro,200,held_item,10,Black Belt,3.2%,,,,,,,,
@@ -29,19 +29,19 @@ Pangoro,200,teammate,7,Incineroar,,,,,,,,,
 Pangoro,200,teammate,8,Camerupt,,,,,,,,,
 Pangoro,200,teammate,9,Hatterene,,,,,,,,,
 Pangoro,200,teammate,10,Rillaboom,,,,,,,,,
-Pangoro,200,stat_alignment,1,Brave,44.8%,Attack,Speed,,,,,,
-Pangoro,200,stat_alignment,2,Adamant,35.5%,Attack,Sp. Atk,,,,,,
+Pangoro,200,stat_alignment,1,Brave,44.7%,Attack,Speed,,,,,,
+Pangoro,200,stat_alignment,2,Adamant,35.6%,Attack,Sp. Atk,,,,,,
 Pangoro,200,stat_alignment,3,Jolly,7.2%,Speed,Sp. Atk,,,,,,
-Pangoro,200,stat_alignment,4,Sassy,4.0%,Sp. Def,Speed,,,,,,
+Pangoro,200,stat_alignment,4,Sassy,3.9%,Sp. Def,Speed,,,,,,
 Pangoro,200,stat_alignment,5,Careful,2.8%,Sp. Def,Sp. Atk,,,,,,
 Pangoro,200,stat_alignment,6,Naughty,1.9%,Attack,Sp. Def,,,,,,
 Pangoro,200,stat_alignment,7,Impish,1.8%,Defense,Sp. Atk,,,,,,
-Pangoro,200,stat_alignment,8,Relaxed,0.6%,Defense,Speed,,,,,,
-Pangoro,200,stat_alignment,9,Naive,0.6%,Speed,Sp. Def,,,,,,
+Pangoro,200,stat_alignment,8,Naive,0.7%,Speed,Sp. Def,,,,,,
+Pangoro,200,stat_alignment,9,Relaxed,0.6%,Defense,Speed,,,,,,
 Pangoro,200,stat_alignment,10,Lonely,0.5%,Attack,Defense,,,,,,
-Pangoro,200,stat_points,1,,24.2%,,,32,32,2,0,0,0
-Pangoro,200,stat_points,2,,15.7%,,,32,32,0,0,2,0
-Pangoro,200,stat_points,3,,10.0%,,,2,32,0,0,0,32
+Pangoro,200,stat_points,1,,24.1%,,,32,32,2,0,0,0
+Pangoro,200,stat_points,2,,15.9%,,,32,32,0,0,2,0
+Pangoro,200,stat_points,3,,9.9%,,,2,32,0,0,0,32
 Pangoro,200,stat_points,4,,5.5%,,,29,26,2,0,9,0
 Pangoro,200,stat_points,5,,3.2%,,,0,32,16,0,18,0
 Pangoro,200,stat_points,6,,3.1%,,,0,32,2,0,0,32
@@ -49,6 +49,6 @@ Pangoro,200,stat_points,7,,2.5%,,,0,32,0,0,2,32
 Pangoro,200,stat_points,8,,2.3%,,,2,32,32,0,0,0
 Pangoro,200,stat_points,9,,1.8%,,,7,17,18,0,24,0
 Pangoro,200,stat_points,10,,1.6%,,,23,32,2,0,9,0
-Pangoro,200,ability,1,Scrappy,73.1%,,,,,,,,
-Pangoro,200,ability,2,Iron Fist,25.6%,,,,,,,,
+Pangoro,200,ability,1,Scrappy,73.0%,,,,,,,,
+Pangoro,200,ability,2,Iron Fist,25.7%,,,,,,,,
 Pangoro,200,ability,3,Mold Breaker,1.2%,,,,,,,,

@@ -72,7 +72,8 @@ const view = {
   suggestHost: null,
   optimize: {},
   auto: { running: false, stopping: false, requestId: 0, fraction: 0, status: "", result: null, error: "", keep: true, onlyBox: false, depth: "deep", archetype: "automatic", prioritizeMeta: false },
-  tour: { running: false, stopping: false, limit: 1000, snapshot: null, error: "", requestId: 0, key: "", host: null, paintQueued: false, runFormat: "" },
+  // limit 0 is "All": the whole tournament library, which is what the test is for.
+  tour: { running: false, stopping: false, limit: 0, snapshot: null, error: "", requestId: 0, key: "", host: null, paintQueued: false, runFormat: "" },
   libraryQuery: "",
   libraryFilter: "All",
   dragSlot: null,
@@ -2022,17 +2023,28 @@ function syncFormatSwitch() {
   });
 }
 
-// --- profile links: /team-builder/?add=Salamence -------------------------------------
+// --- profile links: /team-builder/?add=Salamence, /team-builder/?build=Salamence -----
+//
+// `?add=` drops the Pokemon into the team that is already open (the profile's
+// old button). `?build=` is the profile's "Build Team with it": it always
+// starts a fresh team with that Pokemon in slot 1, so the visitor never has to
+// answer "which of your six should it replace?" before they have a team.
 
 async function handleAddParam() {
   const params = new URLSearchParams(location.search);
-  const wanted = params.get("add");
+  const wanted = params.get("add") || params.get("build");
   if (!wanted) return;
+  const startNew = !params.get("add");
   history.replaceState(null, "", location.pathname);
   const [species, form] = data.resolveName(wanted);
   if (!data.speciesEntry(species)) return toast(`Could not find ${wanted}.`, "error");
   const set = setFromCommon(data.commonSet(format(), species, form));
-  await addToTeamFlow(set);
+  if (startNew) {
+    newTeam([set], data, "");
+    toast(`New team started with ${name(set)}`);
+  } else {
+    await addToTeamFlow(set);
+  }
   view.tab = "overview";
   renderAll();
   const banner = document.getElementById("addBanner");

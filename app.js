@@ -165,7 +165,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       }
     });
     window.addEventListener("popstate", () => openRouteProfileFromLocation());
-    window.addEventListener("resize", () => { updateSearchHelpPosition(); positionMoveInfoPopover(); renderBattleEntries(); }, { passive: true });
+    window.addEventListener("resize", () => { updateSearchHelpPosition(); renderBattleEntries(); }, { passive: true });
     mobileResultsQuery?.addEventListener?.("change", () => { updateMobileSearchUi(); renderBattleEntries(); renderCards(); });
     window.addEventListener("scroll", () => updateSearchHelpPosition(), { passive: true });
     els.typeFilter.addEventListener("change", applyFiltersAndRender);
@@ -184,7 +184,8 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       if (event.target === els.detailDialog) closeDetail();
     });
     els.detailDialog.addEventListener("cancel", () => updateExplorerRoute());
-    els.dialogInner?.addEventListener("scroll", () => positionMoveInfoPopover(), { passive: true });
+    // The description card is centred on the screen by CSS, so the profile can
+    // scroll under it without anything needing to be moved.
     els.detailDialog.addEventListener("close", () => {
       document.body.classList.remove("profile-open");
       hideMoveInfoPopover();
@@ -1318,12 +1319,11 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     prompt.innerHTML = `
       <div>
         <p class="eyebrow">Free Team Builder</p>
-        <h2>Does ${name} fit your team?</h2>
-        <p>Add ${name} with its most common set and the Team Builder scores your six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
+        <h2>Build a Team with ${name}</h2>
+        <p>This starts a brand new team with ${name} in the first slot, on its most common set. The Team Builder then scores the six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
       </div>
       <div class="companion-cta-actions">
-        <a class="primary-button" href="/team-builder/?add=${key}">Try it in my team</a>
-        <a class="ghost-button" href="/damage-calculator/?attacker=${key}">Calculate damage</a>
+        <a class="primary-button" href="/team-builder/?build=${key}">Build Team with it</a>
       </div>`;
     return prompt;
   }
@@ -1516,6 +1516,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
         appendDataCell(tr, "Name", infoButton({
           label: row.name || "—",
           title: row.name || "Move",
+          kind: "Move",
           facts: moveFactRows(moveMeta),
           description: moveDescription,
           note: moveDescription ? "" : "No description for this move is on file yet."
@@ -1537,6 +1538,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
         appendDataCell(tr, "Name", infoButton({
           content: assetLabel(row.name || "—", itemImageCandidates(row.name), "item-label"),
           title: row.name || "Held item",
+          kind: "Held item",
           description,
           note: description ? "" : "No effect text for this item is on file yet."
         }));
@@ -1556,6 +1558,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
         appendDataCell(tr, "Name", infoButton({
           label: row.name || "—",
           title: row.name || "Ability",
+          kind: "Ability",
           description,
           note: description ? "" : "No effect text for this Ability is on file yet."
         }));
@@ -1928,17 +1931,17 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
 
   /** A name that opens its own description.
    *
-   * Moves, held items and Abilities all use this one button, so the popover,
+   * Moves, held items and Abilities all use this one button, so the card,
    * the click-outside handler and the Escape key stay in a single place. The
    * payload rides on the element rather than in `dataset`, because a fact can
-   * carry markup (a type icon, a category pill) that must not be re-parsed. */
-  function infoButton({ label, title, content = null, facts = [], description = "", note = "" }) {
+   * carry markup (a type icon) that must not be re-parsed. */
+  function infoButton({ label, title, kind = "", content = null, facts = [], description = "", note = "" }) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "move-info-button";
     if (content) button.append(content);
     else button.textContent = label || "—";
-    button.infoPayload = { title: title || label || "", facts, description, note };
+    button.infoPayload = { title: title || label || "", kind, facts, description, note };
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-label", `${title || label || "Entry"} description`);
     button.addEventListener("click", (event) => {
@@ -1949,7 +1952,11 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return button;
   }
 
-  /** The five numbers a player compares moves on, for the move popover. */
+  /** The five numbers a player compares moves on, for the move card.
+   *
+   * Type keeps its icon -- that is the one fact people read as a picture.
+   * Everything else, category included, is plain text: a category badge in a
+   * row of values reads as a control you can press, and it is not one. */
   function moveFactRows(moveMeta) {
     if (!moveMeta) return [];
     const plain = (value) => {
@@ -1958,7 +1965,7 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     };
     return [
       ["Type", moveMeta.type ? moveTypeMarkup(moveMeta.type) : ""],
-      ["Category", moveMeta.category ? moveCategoryMarkup(moveMeta.category) : ""],
+      ["Category", plain(titleCase(moveMeta.category || ""))],
       ["Power", plain(moveMeta.power)],
       ["Accuracy", plain(displayAccuracy(moveMeta.accuracy))],
       ["PP", plain(moveMeta.pp)]
@@ -1984,26 +1991,75 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     state.activeMoveButton = button;
     button.classList.add("active");
     button.setAttribute("aria-expanded", "true");
+    popover.setAttribute("aria-label", `${payload.title || "Entry"} description`);
     popover.innerHTML = [
+      payload.kind ? `<p class="info-kind">${escapeHtml(payload.kind)}</p>` : "",
       `<strong>${escapeHtml(payload.title || "")}</strong>`,
       facts.length
-        ? `<dl class="info-facts">${facts.map(([label, value]) => `<dt>${escapeHtml(label)}</dt><dd>${value}</dd>`).join("")}</dl>`
+        ? `<dl class="info-facts">${facts.map(([label, value]) =>
+          `<div class="info-fact"><dt>${escapeHtml(label)}</dt><dd>${value}</dd></div>`).join("")}</dl>`
         : "",
       payload.description ? `<span>${escapeHtml(payload.description)}</span>` : "",
       payload.note ? `<span class="info-note">${escapeHtml(payload.note)}</span>` : ""
     ].join("");
+    popover.prepend(infoCloseButton());
+    infoScrim().hidden = false;
     popover.hidden = false;
-    requestAnimationFrame(() => positionMoveInfoPopover());
+    popover.focus?.({ preventScroll: true });
+  }
+
+  function infoCloseButton() {
+    const close = document.createElement("button");
+    close.type = "button";
+    close.className = "info-close";
+    close.setAttribute("aria-label", "Close");
+    close.textContent = "×";
+    close.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      hideMoveInfoPopover();
+    });
+    return close;
   }
 
   function hideMoveInfoPopover() {
     const popover = document.getElementById("moveInfoPopover");
-    if (state.activeMoveButton) {
-      state.activeMoveButton.classList.remove("active");
-      state.activeMoveButton.setAttribute("aria-expanded", "false");
+    const scrim = document.getElementById("moveInfoScrim");
+    const button = state.activeMoveButton;
+    if (button) {
+      button.classList.remove("active");
+      button.setAttribute("aria-expanded", "false");
     }
     state.activeMoveButton = null;
     if (popover) popover.hidden = true;
+    if (scrim) scrim.hidden = true;
+    // Only hand focus back while the profile is still open: this also runs on
+    // the profile's own close, and there the button is on its way out.
+    if (button && document.body.classList.contains("profile-open")) button.focus?.({ preventScroll: true });
+  }
+
+  /** The screen-sized layer the description card is centred in.
+   *
+   * It lives inside `<dialog id="detailDialog">` because the profile is a
+   * modal dialog and anything outside it is inert. It is `position: fixed`
+   * with `inset: 0` (see styles.css), so it is exactly as big as the screen
+   * and cannot add scrollable height to the profile the way the old anchored
+   * popover could -- that is what put a second scrollbar on the profile when
+   * a move near the bottom of a long list was clicked. Centring is CSS, so
+   * there is nothing to reposition on scroll or resize either. */
+  function infoScrim() {
+    let scrim = document.getElementById("moveInfoScrim");
+    if (!scrim) {
+      scrim = document.createElement("div");
+      scrim.id = "moveInfoScrim";
+      scrim.className = "info-scrim";
+      scrim.hidden = true;
+      scrim.addEventListener("click", (event) => {
+        if (event.target === scrim) hideMoveInfoPopover();
+      });
+      els.detailDialog.append(scrim);
+    }
+    return scrim;
   }
 
   function moveInfoPopover() {
@@ -2012,34 +2068,16 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       popover = document.createElement("div");
       popover.id = "moveInfoPopover";
       popover.className = "move-info-popover";
-      popover.setAttribute("role", "tooltip");
+      // A dialog, not a tooltip: it takes focus, it is dismissed rather than
+      // hovered away. No `aria-modal` though -- the scrim stops the mouse
+      // reaching the profile, but Tab can still walk into it, and claiming
+      // the rest of the page is hidden when it is not helps nobody.
+      popover.setAttribute("role", "dialog");
+      popover.setAttribute("tabindex", "-1");
       popover.hidden = true;
-      els.detailDialog.append(popover);
+      infoScrim().append(popover);
     }
     return popover;
-  }
-
-  function positionMoveInfoPopover() {
-    const button = state.activeMoveButton;
-    const popover = document.getElementById("moveInfoPopover");
-    if (!button || !popover || popover.hidden) return;
-    const buttonRect = button.getBoundingClientRect();
-    const popoverRect = popover.getBoundingClientRect();
-    const margin = 12;
-    let left = buttonRect.left;
-    let top = buttonRect.bottom + 8;
-
-    if (left + popoverRect.width > window.innerWidth - margin) {
-      left = window.innerWidth - popoverRect.width - margin;
-    }
-    if (top + popoverRect.height > window.innerHeight - margin) {
-      top = buttonRect.top - popoverRect.height - 8;
-    }
-    left = Math.max(margin, left);
-    top = Math.max(margin, top);
-
-    popover.style.left = `${Math.round(left)}px`;
-    popover.style.top = `${Math.round(top)}px`;
   }
 
   function assetLabel(name, candidates, className) {

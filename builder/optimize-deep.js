@@ -902,17 +902,27 @@ export class DeepOptimizer {
   /**
    * What changes in battle, threat by threat (its most changed set), biggest first. Who
    * moves first and the one-on-one race are read in the team's speed plan (`plan`).
+   *
+   * Better or worse is decided by the row's own sentences, never by the matchup score.
+   * The score (`weight`) sums every item set of the threat and both sides of the fight
+   * at once, so it can rise while the one set shown here has only a sentence that says
+   * the Pokemon hits softer - the row would then be listed under Better against its own
+   * words. Where the sentences disagree with each other the row is a trade, and then the
+   * shown set's own score decides the side, one sentence of each side is printed, and
+   * `trade` marks it so the card can say so.
    */
   changes(objective, beforeDetail, afterDetail, plan = this.planContext(objective)) {
     const groups = new Map();
     beforeDetail.per.forEach((b, i) => {
       const a = afterDetail.per[i];
       const row = b.row;
-      const group = groups.get(row.rank) || { weight: 0, pick: null, pickDelta: -1 };
+      const group = groups.get(row.rank) || { weight: 0, pick: null, pickDelta: -1, pickValue: 0 };
       group.weight += row.weight * (a.value - b.value);
       if (Math.abs(a.value - b.value) > group.pickDelta) {
         group.pick = [b, a];
         group.pickDelta = Math.abs(a.value - b.value);
+        // The shown set's own change, signed: the tie-break for a row that says both.
+        group.pickValue = a.value - b.value;
       }
       groups.set(row.rank, group);
     });
@@ -926,10 +936,22 @@ export class DeepOptimizer {
       if (Math.abs(group.weight) * 100 / total < 0.005) continue;
       if (!lines.length && Math.abs(winAfter - winBefore) < 0.1) continue;
       const row = b.row;
+      const good = lines.filter((l) => l.tone === "good");
+      const bad = lines.filter((l) => l.tone === "bad");
+      const split = Boolean(good.length && bad.length);
+      const tone = good.length && !bad.length ? "better"
+        : bad.length && !good.length ? "worse"
+        : split ? (group.pickValue > 0 ? "better" : "worse")
+          // Nothing to say about the hits: the one-on-one chance beside the row is all
+          // there is, and it only got this far when it moved enough to read.
+          : (winAfter > winBefore ? "better" : "worse");
+      const lead = lines.filter((l) => (tone === "better" ? l.tone === "good" : l.tone === "bad"));
+      const rest = lines.filter((l) => (tone === "better" ? l.tone !== "good" : l.tone !== "bad"));
       out.push({
         rank: row.rank, name: row.name, species: row.species, form: row.form, item: row.item,
-        points: (100 * group.weight) / total, tone: group.weight > 0 ? "better" : "worse",
-        lines: lines.filter((l) => (group.weight > 0 ? l.tone === "good" : l.tone === "bad")).concat(lines.filter((l) => (group.weight > 0 ? l.tone !== "good" : l.tone !== "bad"))).slice(0, 2),
+        points: (100 * group.weight) / total, tone, trade: split,
+        // Two sentences at most: the side the row is on first, and on a trade one of each.
+        lines: lead.length && rest.length ? [lead[0], rest[0]] : [...lead, ...rest].slice(0, 2),
         win_before: winBefore, win_after: winAfter,
       });
     }
@@ -950,6 +972,10 @@ export class DeepOptimizer {
       else if (was.hits > 1 && now.hits === 1) lines.push({ tone: "bad", text: `Now knocked out in one hit by ${move}`, detail });
       else if (was.hits === 2 && now.hits > 2) lines.push({ tone: "good", text: `Now survives two hits of ${move}`, detail });
       else if (was.hits > 2 && was.hits < 99 && now.hits === 2) lines.push({ tone: "bad", text: `Now knocked out in two hits by ${move}`, detail });
+      // The third hit counts too: without it a matchup that only moved there has no
+      // sentence at all, and the row ends up on a side nothing on it explains.
+      else if (was.hits === 3 && now.hits > 3) lines.push({ tone: "good", text: `Now survives three hits of ${move}`, detail });
+      else if (was.hits > 3 && was.hits < 99 && now.hits === 3) lines.push({ tone: "bad", text: `Now knocked out in three hits by ${move}`, detail });
       else if (was.hits === now.hits && now.hits <= 3 && Math.abs(now.chance - was.chance) >= 0.15) {
         lines.push({ tone: now.chance < was.chance ? "good" : "bad", text: now.chance < was.chance ? `Takes ${move} better` : `Takes more from ${move}`, detail });
       }
@@ -964,6 +990,9 @@ export class DeepOptimizer {
       else if (was.hits === 1 && now.hits > 1) lines.push({ tone: "bad", text: `No longer OHKOs with ${b.out.move || move}`, detail });
       else if (now.hits === 2 && was.hits > 2) lines.push({ tone: "good", text: `Now 2HKOs with ${move}`, detail });
       else if (was.hits === 2 && now.hits > 2) lines.push({ tone: "bad", text: `No longer 2HKOs with ${b.out.move || move}`, detail });
+      // As on the way in: a matchup that only moved at the third hit still gets a sentence.
+      else if (now.hits === 3 && was.hits > 3) lines.push({ tone: "good", text: `Now 3HKOs with ${move}`, detail });
+      else if (was.hits === 3 && now.hits > 3) lines.push({ tone: "bad", text: `No longer 3HKOs with ${b.out.move || move}`, detail });
       else if (was.hits === now.hits && now.hits <= 3 && Math.abs(now.chance - was.chance) >= 0.15) {
         lines.push({ tone: now.chance > was.chance ? "good" : "bad", text: now.chance > was.chance ? `Hits harder with ${move}` : `Hits softer with ${move}`, detail });
       }

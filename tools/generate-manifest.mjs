@@ -1442,12 +1442,11 @@ function companionCta(page) {
   return `<aside class="companion-cta" aria-label="Team Builder">
       <div>
         <p class="eyebrow">Free Team Builder</p>
-        <h2>Does ${name} fit your team?</h2>
-        <p>Add ${name} with its most common set and the Team Builder scores your six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
+        <h2>Build a Team with ${name}</h2>
+        <p>This starts a brand new team with ${name} in the first slot, on its most common set. The Team Builder then scores the six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
       </div>
       <div class="companion-cta-actions">
-        <a class="primary-button" href="/team-builder/?add=${key}">Try it in my team</a>
-        <a class="ghost-button" href="/damage-calculator/?attacker=${key}">Calculate damage</a>
+        <a class="primary-button" href="/team-builder/?build=${key}">Build Team with it</a>
       </div>
     </aside>`;
 }

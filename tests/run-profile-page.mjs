@@ -13,6 +13,16 @@
 //   * a Pokemon profile: the move, held item and Ability names are buttons
 //     that open a description, and the move's description leads with type,
 //     category, power, accuracy and PP;
+//   * that description opens as a card centred on the screen inside a
+//     screen-sized `.info-scrim`, closes on a click outside it and on Escape,
+//     and reads its category as plain text - the old version was anchored to
+//     the name with pixel offsets and could give the profile a second
+//     scrollbar, so the checks below also pin the CSS that makes that
+//     impossible and that app.js writes no offsets of its own;
+//   * the Team Builder call to action on a profile: "Build a Team with X",
+//     one button, and a link to /team-builder/?build=X - the parameter that
+//     starts a NEW team with that Pokemon in slot 1 (?add= still adds to the
+//     team that is open);
 //   * accuracy is shown as 100 wherever the battle data stores the "never
 //     misses" spelling of 101 - on the generated /moves/ pages, in the
 //     profile's learnable-move table and in the move popover.
@@ -108,6 +118,49 @@ check("data/descriptions.json carries held items", Object.keys(descriptions.item
 check("data/descriptions.json carries Abilities", Object.keys(descriptions.abilities || {}).length > 150);
 check("a known item has effect text", /1\/16/.test(descriptions.items?.Leftovers || ""), descriptions.items?.Leftovers || "missing");
 check("a known Ability has effect text", /Attack/.test(descriptions.abilities?.Intimidate || ""), descriptions.abilities?.Intimidate || "missing");
+
+/* ------------------------------ the description card, in the CSS and the JS */
+
+const appSource = read("app.js");
+
+// The card sits in a layer that is exactly the size of the screen. That is
+// what stops it adding height to the profile: the old version was placed with
+// pixel offsets inside the profile dialog, and opening it on a row far down a
+// long profile put a second scrollbar on the profile.
+const scrimRule = css.match(/\n\.info-scrim \{([^}]*)\}/)?.[1] || "";
+check("styles.css carries a screen-sized layer for the card", !!scrimRule);
+check("the layer is fixed to the screen", /position:\s*fixed/.test(scrimRule), scrimRule.trim());
+check("the layer is exactly the size of the screen", /inset:\s*0/.test(scrimRule), scrimRule.trim());
+check("the card is centred in it", /place-items:\s*center/.test(scrimRule), scrimRule.trim());
+
+check("app.js writes no offsets onto the card", !/popover\.style\.(left|top)/.test(appSource));
+check("app.js has nothing left to reposition", !/positionMoveInfoPopover/.test(appSource));
+
+// "increase the width": it used to be min(320px, ...). The last rule wins.
+const cardWidths = [...css.matchAll(/\.move-info-popover \{[^}]*?width:\s*min\((\d+)px/g)].map((match) => Number(match[1]));
+check("the card is wider than the old popover", cardWidths.length > 0 && cardWidths.at(-1) >= 480, cardWidths.join(", "));
+
+/* ------------------------------------------- the Team Builder call to action */
+
+const companionSource = appSource.match(/function companionPrompt\([\s\S]*?\n  \}/)?.[0] || "";
+check("the profile still offers the Team Builder", !!companionSource);
+check("the profile button starts a new team", /team-builder\/\?build=/.test(companionSource), companionSource);
+check("the profile offers no damage-calculator button", !/damage-calculator/.test(companionSource), companionSource);
+
+const staticCta = read("pokemon", "abomasnow", "index.html").match(/<aside class="companion-cta"[\s\S]*?<\/aside>/)?.[0] || "";
+check("the generated page carries the same block", !!staticCta);
+check("the generated heading builds a team", /<h2>Build a Team with Abomasnow<\/h2>/.test(staticCta), staticCta.slice(0, 260));
+check("the generated button says Build Team with it", />Build Team with it</.test(staticCta), staticCta);
+check("the generated button links to ?build=", /href="\/team-builder\/\?build=Abomasnow"/.test(staticCta), staticCta);
+check("the generated block offers no damage calculator", !/Calculate damage/.test(staticCta), staticCta);
+check("the generated block has one button only", (staticCta.match(/<a /g) || []).length === 1, staticCta);
+
+// ?build= is the Team Builder's half of that button: a brand new team with
+// that Pokemon in slot 1. ?add= keeps dropping it into the team already open.
+const paramHandler = read("builder", "builder-page.js").match(/async function handleAddParam\(\)[\s\S]*?\n\}/)?.[0] || "";
+check("the Team Builder reads ?build=", /params\.get\("build"\)/.test(paramHandler), paramHandler.slice(0, 200));
+check("?build= starts a new team with that Pokemon first", /newTeam\(\[set\]/.test(paramHandler), paramHandler);
+check("?add= still adds to the team that is open", /addToTeamFlow\(set\)/.test(paramHandler), paramHandler);
 
 /* -------------------------------------------------------------- the DOM */
 
@@ -475,6 +528,43 @@ if (abilityButton) {
   check("the Ability popover says what it does",
     (abilityButton.infoPayload.description || abilityButton.infoPayload.note).length > 10,
     JSON.stringify(abilityButton.infoPayload));
+}
+
+/* --------------------------- the card: where it hangs, and what closes it */
+
+const scrim = page.getElementById("moveInfoScrim");
+check("the card has its screen-sized layer", !!scrim);
+check("the layer hangs off the dialog itself, not its scrolling inner",
+  !!scrim && scrim.parentNode === page.getElementById("detailDialog"),
+  scrim?.parentNode?.className || scrim?.parentNode?.tagName || "nothing");
+check("the card lives inside that layer", popover()?.parentNode === scrim);
+
+if (moveButton) {
+  open(moveButton);
+  check("the layer is shown with the card", scrim.hidden === false);
+  const category = (moveButton.infoPayload.facts.find(([label]) => label === "Category") || [])[1];
+  check("a move's category reads as plain text", !!category && !/[<>]/.test(category), String(category));
+
+  page.getElementById("searchInput").click();
+  check("a click outside closes the card", popover().hidden === true);
+  check("the layer goes with it", scrim.hidden === true);
+
+  open(moveButton);
+  scrim.click();
+  check("a click on the layer around the card closes it", popover().hidden === true);
+
+  open(moveButton);
+  page.dispatch("keydown", { key: "Escape" });
+  check("Escape still closes the card", popover().hidden === true);
+}
+
+const cta = page.querySelector(".companion-cta");
+check("the profile shows the Team Builder block", !!cta);
+if (cta) {
+  check("its heading builds a team", cta.textContent.includes("Build a Team with Abomasnow"), cta.textContent.slice(0, 200));
+  check("its button says Build Team with it", cta.textContent.includes("Build Team with it"));
+  check("it says the button starts a new team", /starts a brand new team/i.test(cta.textContent), cta.textContent.slice(0, 300));
+  check("it offers no damage calculator", !cta.textContent.includes("Calculate damage"));
 }
 
 // Abomasnow's Aurora Veil is stored as accuracy 101 and must read 100 here.

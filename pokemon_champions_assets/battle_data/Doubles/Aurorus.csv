@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Aurorus,174,move,1,Blizzard,72.1%,,,,,,,,
-Aurorus,174,move,2,Protect,60.8%,,,,,,,,
-Aurorus,174,move,3,Ancient Power,55.9%,,,,,,,,
+Aurorus,174,move,2,Protect,60.9%,,,,,,,,
+Aurorus,174,move,3,Ancient Power,55.7%,,,,,,,,
 Aurorus,174,move,4,Freeze-Dry,47.7%,,,,,,,,
 Aurorus,174,move,5,Aurora Veil,44.6%,,,,,,,,
-Aurorus,174,move,6,Earth Power,27.2%,,,,,,,,
+Aurorus,174,move,6,Earth Power,27.3%,,,,,,,,
 Aurorus,174,move,7,Hyper Voice,17.5%,,,,,,,,
 Aurorus,174,move,8,Mirror Coat,6.6%,,,,,,,,
 Aurorus,174,move,9,Rock Slide,5.7%,,,,,,,,
@@ -13,7 +13,7 @@ Aurorus,174,held_item,1,Focus Sash,22.8%,,,,,,,,
 Aurorus,174,held_item,2,Never-Melt Ice,18.9%,,,,,,,,
 Aurorus,174,held_item,3,Light Clay,14.8%,,,,,,,,
 Aurorus,174,held_item,4,Sitrus Berry,10.5%,,,,,,,,
-Aurorus,174,held_item,5,Life Orb,6.9%,,,,,,,,
+Aurorus,174,held_item,5,Life Orb,7.1%,,,,,,,,
 Aurorus,174,held_item,6,Choice Scarf,3.9%,,,,,,,,
 Aurorus,174,held_item,7,Chople Berry,3.7%,,,,,,,,
 Aurorus,174,held_item,8,Quick Claw,3.1%,,,,,,,,
@@ -33,20 +33,20 @@ Aurorus,174,stat_alignment,1,Modest,37.2%,Sp. Atk,Attack,,,,,,
 Aurorus,174,stat_alignment,2,Quiet,30.5%,Sp. Atk,Speed,,,,,,
 Aurorus,174,stat_alignment,3,Sassy,6.2%,Sp. Def,Speed,,,,,,
 Aurorus,174,stat_alignment,4,Calm,5.7%,Sp. Def,Attack,,,,,,
-Aurorus,174,stat_alignment,5,Timid,5.3%,Speed,Attack,,,,,,
+Aurorus,174,stat_alignment,5,Timid,5.4%,Speed,Attack,,,,,,
 Aurorus,174,stat_alignment,6,Bold,5.1%,Defense,Attack,,,,,,
 Aurorus,174,stat_alignment,7,Relaxed,4.9%,Defense,Speed,,,,,,
 Aurorus,174,stat_alignment,8,Mild,3.2%,Sp. Atk,Defense,,,,,,
-Aurorus,174,stat_alignment,9,Hasty,0.8%,Speed,Defense,,,,,,
+Aurorus,174,stat_alignment,9,Hasty,0.7%,Speed,Defense,,,,,,
 Aurorus,174,stat_alignment,10,Adamant,0.7%,Attack,Sp. Atk,,,,,,
 Aurorus,174,stat_points,1,,18.2%,,,32,0,2,32,0,0
 Aurorus,174,stat_points,2,,7.3%,,,2,0,0,32,0,32
-Aurorus,174,stat_points,3,,5.6%,,,2,0,0,32,32,0
-Aurorus,174,stat_points,4,,5.2%,,,32,0,0,32,2,0
+Aurorus,174,stat_points,3,,5.5%,,,2,0,0,32,32,0
+Aurorus,174,stat_points,4,,5.3%,,,32,0,0,32,2,0
 Aurorus,174,stat_points,5,,4.1%,,,2,0,32,32,0,0
 Aurorus,174,stat_points,6,,3.0%,,,0,0,2,32,0,32
 Aurorus,174,stat_points,7,,2.9%,,,8,0,0,32,0,26
-Aurorus,174,stat_points,8,,2.3%,,,32,0,0,32,0,2
+Aurorus,174,stat_points,8,,2.2%,,,32,0,0,32,0,2
 Aurorus,174,stat_points,9,,2.2%,,,0,0,2,32,32,0
 Aurorus,174,stat_points,10,,1.8%,,,8,0,8,32,18,0
 Aurorus,174,ability,1,Snow Warning,81.6%,,,,,,,,

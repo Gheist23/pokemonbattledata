@@ -105,22 +105,82 @@ button.bd-opt-move:hover { border-color: var(--bd-line-strong); }
 .bd-opt-section > .bd-note,
 .bd-opt-compare > .bd-note { margin: 0; line-height: 1.45; }
 
-/* Previously | Now | Change */
+/* Previously | Now | Change.
+   The rows that moved carry the band and the accent, the rows that did not fade back.
+   Direction is an arrow and the side the bar grows to, never colour on its own: up is
+   not always better (less Speed for more bulk is a trade), and a red/green reader would
+   lose it anyway. */
+.bd-opt-shift-strip { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.bd-opt-shift-strip-none { margin: 0; }
+.bd-opt-shift-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0.14rem 0.5rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.08);
+  font-size: 0.74rem;
+  white-space: nowrap;
+}
+.bd-opt-shift-chip-label { font-family: var(--bd-mono); font-size: 0.68rem; font-weight: 800; color: var(--soft); }
+.bd-opt-shift-chip b { font-family: var(--bd-mono); font-size: 0.78rem; color: var(--text); font-variant-numeric: tabular-nums; }
+.bd-opt-shift-chip.nature b { font-size: 0.74rem; }
+.bd-opt-arrow { font-style: normal; font-weight: 900; color: var(--muted); }
+
 .bd-opt-table th,
 .bd-opt-table td { white-space: nowrap; }
 .bd-opt-table tbody td { font-size: 0.78rem; }
+.bd-opt-table tbody tr.changed th,
+.bd-opt-table tbody tr.changed td { background: rgba(148, 163, 184, 0.1) !important; }
+.bd-opt-table tbody tr.changed th { border-left: 2px solid var(--bd-line-strong) !important; color: var(--text); font-weight: 800; }
 .bd-opt-table tbody tr.changed td { color: var(--text); }
-.bd-opt-table tbody tr.changed th { color: var(--text); }
-.bd-opt-table tbody tr:not(.changed) td { color: var(--muted); }
+.bd-opt-table tbody tr.same th,
+.bd-opt-table tbody tr.same td { color: var(--soft); }
+.bd-opt-table tbody tr.same b { color: var(--soft); font-weight: 650; }
 .bd-opt-table tr.bd-opt-total th,
 .bd-opt-table tr.bd-opt-total td { border-top: 1px solid var(--bd-line) !important; }
 .bd-opt-table .bd-opt-sp { color: var(--soft); }
 .bd-opt-table-wrap { overflow-x: auto; }
+.bd-opt-table-note { margin: 0; }
 .bd-opt-table td.bd-opt-nature { white-space: normal; line-height: 1.2; }
+.bd-opt-table td.bd-opt-nature b { font-size: 0.78rem; }
 .bd-opt-table td.bd-opt-nature small { display: block; font-size: 0.66rem; color: var(--soft); }
 .bd-opt-table b { font-family: var(--bd-mono); }
 .bd-opt-table .bd-nature-mark.up { color: #ff9a9a; }
 .bd-opt-table .bd-nature-mark.down { color: #9ec9ff; }
+
+.bd-opt-change-cell { white-space: nowrap; }
+.bd-opt-shift {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.1rem;
+  font-family: var(--bd-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.bd-opt-shift.same { font-size: 0.7rem; font-weight: 650; color: var(--soft); }
+.bd-opt-shift.new {
+  padding: 0.04rem 0.4rem;
+  border: 1px solid var(--bd-line-strong);
+  border-radius: 6px;
+  font-size: 0.7rem;
+}
+.bd-opt-bar {
+  position: relative;
+  display: block;
+  width: 46px;
+  height: 5px;
+  margin: 0.16rem auto 0;
+  border-radius: 3px;
+  background: rgba(148, 163, 184, 0.16);
+}
+.bd-opt-bar::before { content: ""; position: absolute; left: 50%; top: -1px; bottom: -1px; width: 1px; background: var(--bd-line-strong); }
+.bd-opt-bar i { position: absolute; top: 0; bottom: 0; min-width: 2px; border-radius: 3px; background: var(--muted); }
+.bd-opt-bar.up i { left: 50%; }
+.bd-opt-bar.down i { right: 50%; }
 .bd-opt-moves-compare { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.5rem 1rem; }
 .bd-opt-moves-compare > div { display: grid; gap: 0.25rem; align-content: start; min-width: 0; }
 .bd-opt-moves-compare .bd-field-label { margin: 0; }
@@ -146,6 +206,18 @@ button.bd-opt-move:hover { border-color: var(--bd-line-strong); }
 .bd-opt-change-name { display: flex; align-items: baseline; gap: 0.35rem; min-width: 0; }
 .bd-opt-change-name strong { font-family: var(--bd-mono); font-size: 0.8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .bd-opt-rank { flex: 0 0 auto; font-family: var(--bd-mono); font-size: 0.68rem; color: var(--soft); }
+/* "both ways": this matchup gains one way and gives something up the other. */
+.bd-opt-tag {
+  flex: 0 0 auto;
+  padding: 0.02rem 0.35rem;
+  border: 1px solid var(--bd-line-strong);
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  white-space: nowrap;
+}
 .bd-opt-line { margin: 0; font-size: 0.76rem; line-height: 1.35; overflow-wrap: anywhere; }
 .bd-opt-line.good { color: #a7f3c9; }
 .bd-opt-line.bad { color: #ffab9c; }
@@ -204,6 +276,10 @@ button.bd-opt-move:hover { border-color: var(--bd-line-strong); }
   .bd-opt-head-sprite { width: 34px; height: 34px; }
   .bd-opt-table th,
   .bd-opt-table td { padding-inline: 0.12rem; font-size: 0.72rem; }
+  .bd-opt-shift { font-size: 0.72rem; }
+  .bd-opt-bar { width: 34px; }
+  .bd-opt-shift-chip { padding: 0.12rem 0.42rem; font-size: 0.72rem; }
+  .bd-opt-shift-chip b { font-size: 0.74rem; }
   .bd-opt-change { grid-template-columns: 24px minmax(0, 1fr) auto; gap: 0.4rem; padding: 0.35rem 0.45rem; }
   .bd-opt-change-sprite { width: 24px; height: 24px; }
   .bd-opt-move-options li { grid-template-columns: minmax(0, 1fr) auto; }

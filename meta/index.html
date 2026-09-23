@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Pokemon Champions meta trends: the biggest ranked usage rank winners and losers plus the largest move, item, and ability usage swings over the last 7 to 30 days in Singles and Doubles." />
+  <meta name="description" content="Pokemon Champions meta trends: the biggest ranked usage rank winners and losers, the largest move, item, and ability usage swings, and the best offensive and defensive types against the top meta over the last 7 to 30 days in Singles and Doubles." />
   <meta name="keywords" content="Pokemon Champions meta, Pokemon Champions meta trends, usage changes, rank winners, rank losers, rising moves, Pokemon Champions doubles meta, Pokemon Champions singles meta, usage stats, Pokemon Champions battle data, pokemon champions tier list, pokemon champions most used pokemon, pokemon champions M5, Regulation M-A, Regulation M-B, Regulation M-C, Pokemon Champions Regulation M-A, Pokemon Champions Regulation M-B, Pokemon Champions Regulation M-C" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#050c08" />
@@ -66,7 +66,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Pokemon Champions Meta Trends</p>
         <h1 id="metaTitle">What moved in the meta</h1>
-        <p class="hero-text">Compare two ranked snapshots to see which Pokemon climbed or dropped in usage rank, and which moves, held items, and abilities gained or lost the most ground. Pick any Pokemon to open its full change breakdown.</p>
+        <p class="hero-text">Compare two ranked snapshots to see which Pokemon climbed or dropped in usage rank, which moves, held items, and abilities gained or lost the most ground, and which attacking and defending types the top meta is weakest to right now. Pick any Pokemon to open its full change breakdown.</p>
         <p class="meta-window" id="metaWindow" aria-live="polite">Loading snapshots…</p>
       </div>
 
@@ -151,6 +151,31 @@
         </div>
         <div class="meta-more">
           <button class="ghost-button compact" id="usageMoreButton" type="button" aria-expanded="false">Show more</button>
+        </div>
+      </section>
+
+      <section class="section-shell meta-section" aria-labelledby="typeHeading">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Type matchups</p>
+            <h2 id="typeHeading">Type changes</h2>
+          </div>
+          <span class="pill" id="metaTypePill">Top 30</span>
+        </div>
+        <div class="meta-duo">
+          <section class="meta-panel meta-panel-offense" aria-labelledby="typeOffenseHeading">
+            <h3 id="typeOffenseHeading"><span class="meta-arrow attack" aria-hidden="true">⚔</span> Best offensive types</h3>
+            <p class="meta-type-lead" id="typeOffenseLead"></p>
+            <div class="meta-list meta-type-list" id="typeOffense"></div>
+          </section>
+          <section class="meta-panel meta-panel-defense" aria-labelledby="typeDefenseHeading">
+            <h3 id="typeDefenseHeading"><span class="meta-arrow shield" aria-hidden="true">⛨</span> Best defensive types</h3>
+            <p class="meta-type-lead" id="typeDefenseLead"></p>
+            <div class="meta-list meta-type-list" id="typeDefense"></div>
+          </section>
+        </div>
+        <div class="meta-more">
+          <p class="meta-note" id="metaTypeNote"></p>
         </div>
       </section>
     </div>

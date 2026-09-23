@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pyroar,102,move,1,Flamethrower,93.8%,,,,,,,,
+Pyroar,102,move,1,Flamethrower,93.7%,,,,,,,,
 Pyroar,102,move,2,Overheat,79.2%,,,,,,,,
-Pyroar,102,move,3,Yawn,59.7%,,,,,,,,
+Pyroar,102,move,3,Yawn,59.6%,,,,,,,,
 Pyroar,102,move,4,Protect,35.6%,,,,,,,,
 Pyroar,102,move,5,Hyper Voice,34.0%,,,,,,,,
 Pyroar,102,move,6,Scorching Sands,17.8%,,,,,,,,
@@ -29,8 +29,8 @@ Pyroar,102,teammate,7,Hippowdon,,,,,,,,,
 Pyroar,102,teammate,8,Gholdengo,,,,,,,,,
 Pyroar,102,teammate,9,Meowscarada,,,,,,,,,
 Pyroar,102,teammate,10,Archaludon,,,,,,,,,
-Pyroar,102,stat_alignment,1,Timid,55.3%,Speed,Attack,,,,,,
-Pyroar,102,stat_alignment,2,Modest,43.0%,Sp. Atk,Attack,,,,,,
+Pyroar,102,stat_alignment,1,Timid,55.2%,Speed,Attack,,,,,,
+Pyroar,102,stat_alignment,2,Modest,43.1%,Sp. Atk,Attack,,,,,,
 Pyroar,102,stat_alignment,3,Mild,0.4%,Sp. Atk,Defense,,,,,,
 Pyroar,102,stat_alignment,4,Bold,0.4%,Defense,Attack,,,,,,
 Pyroar,102,stat_alignment,5,Hasty,0.2%,Speed,Defense,,,,,,
@@ -39,7 +39,7 @@ Pyroar,102,stat_alignment,7,Adamant,0.1%,Attack,Sp. Atk,,,,,,
 Pyroar,102,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
 Pyroar,102,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
 Pyroar,102,stat_alignment,10,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Pyroar,102,stat_points,1,,46.1%,,,2,0,0,32,0,32
+Pyroar,102,stat_points,1,,46.0%,,,2,0,0,32,0,32
 Pyroar,102,stat_points,2,,17.4%,,,10,0,0,32,0,24
 Pyroar,102,stat_points,3,,5.5%,,,0,0,2,32,0,32
 Pyroar,102,stat_points,4,,4.1%,,,4,0,0,32,0,30
@@ -51,4 +51,4 @@ Pyroar,102,stat_points,9,,1.0%,,,4,0,1,32,0,29
 Pyroar,102,stat_points,10,,0.8%,,,6,0,1,32,0,27
 Pyroar,102,ability,1,Unnerve,79.6%,,,,,,,,
 Pyroar,102,ability,2,Moxie,12.0%,,,,,,,,
-Pyroar,102,ability,3,Rivalry,8.4%,,,,,,,,
+Pyroar,102,ability,3,Rivalry,8.5%,,,,,,,,

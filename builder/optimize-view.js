@@ -263,7 +263,6 @@ function compareTable(result) {
   const moves = h("div", { class: "bd-opt-moves-compare" },
     h("div", {}, h("span", { class: "bd-field-label" }, "Previously"), (before.moves || []).some(Boolean) ? moveChips(before.moves, result.removed, "gone") : h("p", { class: "bd-note" }, "No moves")),
     h("div", {}, h("span", { class: "bd-field-label" }, "Now"), moveChips(after.moves, result.added, "new")));
-  // A move the saved set was missing that nearly every team of this Pokemon runs.
   const guaranteed = result.guaranteed?.note ? h("p", { class: "bd-note" }, result.guaranteed.note) : null;
   return h("div", { class: "bd-opt-compare" },
     h("h4", {}, "Previously and now"),
@@ -306,7 +305,7 @@ function changesSection(result, ui, props) {
   paint();
   return h("div", { class: "bd-opt-section bd-opt-changes" },
     h("h4", {}, "What changes in battle"),
-    h("p", { class: "bd-note" }, `Threat by threat (on the item set that changes most): what it now survives or knocks out, who moves first, and the chance to win the one-on-one race to the KO ${planText(result)}. The biggest changes come first.`),
+    h("p", { class: "bd-note" }, `Threat by threat (on the item set that changes most): what it now survives or knocks out, who moves first, and the chance to win the one-on-one race to the KO ${planText(result)}. The biggest changes come first. Each row is listed by what its own lines say; one marked “both ways” gains in one way and gives something up in another, and shows both.`),
     segmented([["better", `Better (${better.length})`], ["worse", `Worse (${worse.length})`]], ui.changeTab, (tab) => { ui.changeTab = tab; ui.allChanges = false; paint(); }, { "aria-label": "Better or worse matchups" }),
     list);
 }
@@ -316,7 +315,9 @@ function changeRow(row, props, result) {
   return h("div", { class: `bd-opt-change ${row.tone}` },
     sprite(src, "", 28, "bd-sprite bd-opt-change-sprite"),
     h("div", { class: "bd-opt-change-text" },
-      h("div", { class: "bd-opt-change-name" }, h("span", { class: "bd-opt-rank" }, `#${row.rank}`), h("strong", {}, row.name)),
+      h("div", { class: "bd-opt-change-name" }, h("span", { class: "bd-opt-rank" }, `#${row.rank}`), h("strong", {}, row.name),
+        // A matchup that gains one way and loses another: both lines are printed below.
+        row.trade ? h("span", { class: "bd-opt-tag", title: "Gains in one way, gives something up in another" }, "both ways") : null),
       (row.lines || []).map((line) => h("p", { class: `bd-opt-line ${line.tone}` }, line.text, line.detail ? h("small", {}, ` ${line.detail}`) : null))),
     h("span", { class: `bd-opt-win ${row.win_after > row.win_before + 0.005 ? "up" : row.win_after < row.win_before - 0.005 ? "down" : "same"}`, title: `The chance to win the one-on-one race to the KO ${planText(result)}` },
       h("small", {}, "1-on-1"), `${pct(row.win_before)} → ${pct(row.win_after)}`));

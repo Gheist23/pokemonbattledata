@@ -18,7 +18,12 @@
 //     counts and the change rows are measured from the moves the set was saved with, and
 //     the card only prints the "no Stat Point or Nature change scored clearly better" note
 //     when the suggestion really keeps the spread and the Nature, and the Stat Points &
-//     Nature button names the added move instead of promising the spread "only".
+//     Nature button names the added move instead of promising the spread "only";
+//  9. the panel: every "What changes in battle" row is listed on the side its own
+//     sentences say (never on the sign of the matchup score, which adds up every item
+//     set of a threat and both sides of the fight at once), and the Previously / Now
+//     block keeps every number, marks only the rows that moved and shows the direction
+//     with an arrow rather than with colour.
 //
 //   node tests/run-optimize-deep.mjs [--quick]     (--quick: fewer members, no Deep run)
 
@@ -560,6 +565,125 @@ for (const [team, slot, options] of jobs) {
     console.log(`   card: the note only when the spread and the Nature are kept (${real.before.nature} ${real.before.bonuses.join("/")} -> ${real.after.nature} ${real.after.bonuses.join("/")} prints none); a lower score says why`);
   }
   console.log("8. the added guaranteed move counts towards the headline, the counts and the change rows; the actions note follows the table");
+}
+
+// --- 9. what the panel says about a change ----------------------------------------------
+//   a) every "What changes in battle" row sits on the side its own sentences say. The
+//      matchup score may not decide it: it adds up every item set of a threat and both
+//      sides of the fight at once, so it can rise while the one set the row shows only
+//      has a sentence that says the Pokemon hits softer - and the row was then listed
+//      under Better against its own words. A row that says both is marked "both ways"
+//      and prints one sentence of each side;
+//   b) the Previously / Now block keeps every number (Stat Points, the final stat at
+//      level 50, the total out of 66), marks only the rows that moved, says which way
+//      each one went with an arrow as well as a sign, and never paints a direction:
+//      trading Speed for bulk is a trade, not a loss.
+{
+  let changeRows = 0;
+  let trades = 0;
+  let scoreDisagrees = 0;
+  for (const run of runs) {
+    for (const row of run.result.changes || []) {
+      changeRows += 1;
+      const good = row.lines.filter((l) => l.tone === "good");
+      const bad = row.lines.filter((l) => l.tone === "bad");
+      const said = row.lines.map((l) => `${l.tone}: ${l.text}`).join(" | ") || "(nothing)";
+      const where = `${run.name}: #${row.rank} ${row.name}`;
+      check(row.lines.length <= 2, `${where} prints ${row.lines.length} lines`);
+      check(!(row.tone === "better" && bad.length && !good.length), `${where} is listed under Better and every line it shows says worse: ${said}`);
+      check(!(row.tone === "worse" && good.length && !bad.length), `${where} is listed under Worse and every line it shows says better: ${said}`);
+      check(Boolean(row.trade) === Boolean(good.length && bad.length), `${where} is${row.trade ? "" : " not"} marked "both ways" but shows ${said}`);
+      if (row.trade) {
+        trades += 1;
+        check(good.length === 1 && bad.length === 1, `${where} is marked "both ways" but does not show one line of each: ${said}`);
+      }
+      if ((row.points > 0) !== (row.tone === "better")) scoreDisagrees += 1;
+    }
+  }
+  check(changeRows > (quickOnly ? 10 : 40), `only ${changeRows} change rows to check`);
+  // The whole point of the rule: the side a row is listed on is not the sign of its
+  // matchup score. Without a row where the two differ the checks above cannot fail.
+  if (!quickOnly) check(scoreDisagrees > 0, "no row is listed against the sign of its matchup score, so the side checks above cannot fail - pick another team");
+
+  // b) the rendered block (the mini DOM from section 8 is still installed).
+  const { optimizeView, OPTIMIZE_DEFAULTS } = await import("../builder/optimize-view.js");
+  const walk = (node, fn) => { for (const kid of node.kids || []) { fn(kid); walk(kid, fn); } };
+  const classesOf = (node) => String(node.className || "").split(" ").filter(Boolean);
+  const pick = (root, cls) => { const out = []; walk(root, (n) => { if (classesOf(n).includes(cls)) out.push(n); }); return out; };
+  const noop = () => {};
+  const cardFor = (set, result) => optimizeView({
+    members: [{ slot: 0, name: set.species, sprite: "", set, state: { result }, kept: new Set() }],
+    options: { ...OPTIMIZE_DEFAULTS, depth: "quick" }, topX: TOP, spriteFor: () => "",
+    onOptions: noop, onRun: noop, onStop: noop, onApply: noop, onDiscard: noop, onKeepMove: noop,
+  });
+  const spread = runs.find((r) => r.result.ok && String(r.result.before.bonuses) === String(TEAMS.rough[0].bonuses));
+  check(Boolean(spread), `card: no run over the rough Garchomp (${TEAMS.rough[0].bonuses.join("/")}) to draw - pick another case`);
+  if (spread) {
+    const { before, after } = spread.result;
+    const card = cardFor(teamSets("rough")[0], spread.result);
+    const compare = pick(card, "bd-opt-compare")[0];
+    check(Boolean(compare), "card: the Previously / Now block is missing");
+    const text = compare.textContent;
+    const labels = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
+    const rows = [];
+    walk(compare, (n) => { if (n.tagName === "TR") rows.push(n); });
+    const rowFor = (label) => rows.find((tr) => (tr.kids[0]?.textContent || "") === label);
+    check(before.bonuses.some((v, i) => v !== after.bonuses[i]) && before.nature !== after.nature,
+      `card: the case no longer changes the spread and the Nature (${before.nature} ${before.bonuses.join("/")} -> ${after.nature} ${after.bonuses.join("/")}) - the checks below cannot fail`);
+    check(labels.some((_, i) => before.stats[i] === after.stats[i] && before.bonuses[i] === after.bonuses[i]),
+      "card: the case no longer leaves a stat alone, so the check on the quiet rows cannot fail");
+    for (const [i, label] of labels.entries()) {
+      // Every number the old table had is still there: the points and the final stat.
+      check(text.includes(`${before.bonuses[i]} · ${before.stats[i]}`), `card: Previously does not show ${label} as ${before.bonuses[i]} · ${before.stats[i]}`);
+      check(text.includes(`${after.bonuses[i]} · ${after.stats[i]}`), `card: Now does not show ${label} as ${after.bonuses[i]} · ${after.stats[i]}`);
+      const tr = rowFor(label);
+      check(Boolean(tr), `card: no ${label} row`);
+      if (!tr) continue;
+      const moved = before.bonuses[i] !== after.bonuses[i] || before.stats[i] !== after.stats[i];
+      check(classesOf(tr).includes(moved ? "changed" : "same"), `card: the ${label} row is marked ${classesOf(tr).join(" ") || "nothing"} but it ${moved ? "moved" : "did not move"}`);
+      const delta = after.stats[i] - before.stats[i];
+      if (delta) {
+        check(tr.textContent.includes(delta > 0 ? "↑" : "↓"), `card: the ${label} row (${before.stats[i]} -> ${after.stats[i]}) shows no arrow for the way it went: "${tr.textContent}"`);
+        check(tr.textContent.includes(`${delta > 0 ? "+" : "−"}${Math.abs(delta)}`), `card: the ${label} row does not print the change ${delta}: "${tr.textContent}"`);
+      } else if (!moved) {
+        check(/same/.test(tr.textContent), `card: the unchanged ${label} row does not say so: "${tr.textContent}"`);
+        check(!/[↑↓]/.test(tr.textContent), `card: the unchanged ${label} row shows a direction arrow: "${tr.textContent}"`);
+      }
+    }
+    check(text.includes(`${before.total}/66`) && text.includes(`${after.total}/66`), `card: the Stat Point total out of 66 is gone (${before.total} -> ${after.total})`);
+    // The Nature row names both Natures and what each one raises and lowers.
+    const natureRow = rowFor("Nature");
+    check(Boolean(natureRow) && natureRow.textContent.includes(before.nature) && natureRow.textContent.includes(after.nature),
+      `card: the Nature row does not name ${before.nature} and ${after.nature}: "${natureRow?.textContent}"`);
+    for (const side of [before, after]) {
+      const [up, down] = side.nature_effect || [-1, -1];
+      if (up < 0) continue;
+      check(natureRow.textContent.includes(`▲${labels[up]}`) && natureRow.textContent.includes(`▼${labels[down]}`),
+        `card: the Nature row does not say that ${side.nature} raises ${labels[up]} and lowers ${labels[down]}: "${natureRow.textContent}"`);
+    }
+    // The line above the table: every stat that moved, and nothing that did not.
+    const strip = pick(card, "bd-opt-shift-strip")[0];
+    check(Boolean(strip), "card: the line that says what moved is missing");
+    for (const [i, label] of labels.entries()) {
+      if (!strip) break;
+      const moved = before.bonuses[i] !== after.bonuses[i] || before.stats[i] !== after.stats[i];
+      check(strip.textContent.includes(label) === moved, `card: ${label} ${moved ? "moved but is not" : "did not move but is"} in the line above the table: "${strip.textContent}"`);
+    }
+    // A stat change is not a good or a bad thing (less Speed for more bulk is a trade),
+    // so the block may not use the green/red score chip for one.
+    check(!pick(compare, "bd-opt-delta").length, "card: the Previously / Now block marks a stat change with the good/bad score chip");
+    console.log(`   card: ${before.nature} ${before.bonuses.join("/")} -> ${after.nature} ${after.bonuses.join("/")} reads as "${strip?.textContent || ""}"`);
+  }
+  // Direction is an arrow and the side the bar grows to, never colour on its own.
+  {
+    const css = readFileSync(join(root, "builder", "optimize.css"), "utf8");
+    const directional = [...css.matchAll(/([^{}]*\.bd-opt-(?:shift|bar|shift-chip)[a-z-]*\.(?:up|down)[^{}]*)\{([^}]*)\}/g)];
+    check(directional.length > 0, "css: nothing styles the direction of a stat change at all - this check cannot fail");
+    for (const [, selector, body] of directional) {
+      check(!/(^|;|\s)(color|background|border-color)\s*:/.test(body), `css: ${selector.trim()} paints the direction of a stat change (${body.trim()}); up is not always better and colour alone is not readable for everyone`);
+    }
+  }
+  console.log(`9. ${changeRows} change rows all on the side their own lines say (${trades} marked "both ways", ${scoreDisagrees} against the sign of their score); the Previously / Now block keeps every number`);
 }
 
 // 5. Time (Node): the work is bounded by counts, the clock only caps slow machines

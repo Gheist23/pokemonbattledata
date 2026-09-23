@@ -40,7 +40,10 @@
     learnableMoves: new Map(),
     failedAssetUrls: new Set(),
     activeName: "",
-    loadToken: 0
+    loadToken: 0,
+    builderData: null,
+    builderPromise: null,
+    typeToken: 0
   };
 
   const els = {
@@ -58,6 +61,12 @@
     usageRising: document.getElementById("usageRising"),
     usageFalling: document.getElementById("usageFalling"),
     usageMoreButton: document.getElementById("usageMoreButton"),
+    typePill: document.getElementById("metaTypePill"),
+    typeNote: document.getElementById("metaTypeNote"),
+    typeOffenseLead: document.getElementById("typeOffenseLead"),
+    typeDefenseLead: document.getElementById("typeDefenseLead"),
+    typeOffense: document.getElementById("typeOffense"),
+    typeDefense: document.getElementById("typeDefense"),
     tabs: [...document.querySelectorAll(".meta-tab")],
     formatToggleDoubles: document.getElementById("formatToggleDoubles"),
     formatToggleSingles: document.getElementById("formatToggleSingles"),
@@ -96,10 +105,11 @@
     els.scope?.addEventListener("change", () => {
       state.scope = els.scope.value === "all" ? "all" : Number(els.scope.value) || 30;
       writeStateToLocation();
-      // Both sections are scoped, so both have to be redrawn. Only the usage
+      // Every section is scoped, so every one has to be redrawn. Only the usage
       // one was, which is the other half of "the Pokemon scope does nothing".
       renderRankMovers();
       renderUsageChanges();
+      renderTypeChanges();
     });
     els.tabs.forEach((tab) => tab.addEventListener("click", () => setCategory(tab.dataset.category)));
     els.rankMoreButton?.addEventListener("click", () => {
@@ -417,6 +427,7 @@
     renderWindowLine();
     renderRankMovers();
     renderUsageChanges();
+    renderTypeChanges();
     if (els.pokemonCount) els.pokemonCount.textContent = Object.keys(state.latest?.pokemon || {}).length.toLocaleString();
   }
 
@@ -530,6 +541,315 @@
     chip.textContent = `${sign}${formatNumber(rounded)}${options.suffix ?? ""}`;
     if (options.title) chip.title = options.title;
     return chip;
+  }
+
+  /* ---------------------------------------------------------- type lists */
+
+  /* The two lists under "Type changes" are the Team Builder's Team Overview
+     charts with the team taken out of them (builder/team-overview.js, and the
+     profile/directionalPressure pair in builder/team-eval.js the app records
+     were checked against):
+
+       offence  the average type multiplier an attacking type gets against the
+                Top X's typings -- the Overview's "Average Type Chart" for a team
+                that carries no move of that type, so it falls back to the meta's
+                own chart. Every Pokemon counts once: the Overview does not weight
+                the Top X by usage, and neither does this.
+       defence  the Overview's "Average Pressure: Top X Meta into Our Team" with
+                one Pokemon of that single type standing in for the team. Every
+                damaging move on the Top X's most common sets is priced by type
+                multiplier, power and STAB, each Pokemon's best two count, and
+                those are averaged. 0-100, lower is better.
+
+     The page is a plain script and cannot import those modules (they pull in the
+     whole damage engine), so the two formulas are copied here in the small form
+     they need. tests/run-meta-types.mjs runs this copy and the real ones over the
+     same day and fails if they disagree. */
+
+  /** builder/team-eval.js TYPES, in its order. */
+  const TYPE_ORDER = ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"];
+
+  function compactKey(value) {
+    return String(value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  }
+
+  function clamp100(value) {
+    return Math.max(0, Math.min(100, numberOrZero(value)));
+  }
+
+  /** The Team Builder's own tables (data/builder/app-data.json), loaded once and
+   *  only for this section: the type chart, the move list, and the form and Mega
+   *  tables the Top X's typings come from. Reading the same file is what keeps the
+   *  two pages from disagreeing. */
+  async function loadBuilderData() {
+    if (state.builderData) return state.builderData;
+    state.builderPromise ||= fetchJson("data/builder/app-data.json")
+      .then((payload) => {
+        const forms = new Map();
+        (payload.species || []).forEach((species) => {
+          (species.forms || []).forEach((form) => {
+            const key = compactKey(form.form);
+            if (key && !forms.has(key)) forms.set(key, form.types || []);
+          });
+        });
+        state.builderData = {
+          chart: payload.typeChart || {},
+          forms,
+          stones: new Map(Object.entries(payload.megaStones || {}).map(([item, holders]) => [compactKey(item), holders || []])),
+          moves: new Map(Object.entries(payload.moves || {}).map(([name, record]) => [compactKey(name), record?.simple || null])),
+          moveAliases: payload.moveAliases || {},
+          usage: payload.usageAliases || {}
+        };
+        return state.builderData;
+      })
+      .catch((error) => {
+        state.builderPromise = null;
+        throw error;
+      });
+    return state.builderPromise;
+  }
+
+  /** builder/engine.js typeMultiplier. */
+  function typeMultiplier(chart, attacking, defending) {
+    let multiplier = 1;
+    const row = chart[attacking] || {};
+    for (const type of defending || []) {
+      const value = row[type];
+      multiplier *= value === undefined ? 1 : value;
+    }
+    return multiplier;
+  }
+
+  /** builder/engine.js canonicalMoveName + team-eval.js simpleMoveInfo. */
+  function moveSimple(data, move) {
+    const text = String(move || "").trim();
+    return data.moves.get(compactKey(data.moveAliases[text] || text)) || null;
+  }
+
+  /** One Pokemon of a day's Top X, played the way the Team Builder plays it:
+   *  the most common set is the top row of each usage category, and a Mega form
+   *  only when the top held item is that species' own stone
+   *  (builder/speed-tiers.js commonMetaSet). */
+  function metaEntry(data, name, entry) {
+    const [species, form] = data.usage[name] || [name, name];
+    const item = (entry.held_item || [])[0]?.[0] || "";
+    const holder = (data.stones.get(compactKey(item)) || []).find((row) => compactKey(row.species) === compactKey(species));
+    const resolved = holder ? holder.form : form;
+    const types = data.forms.get(compactKey(resolved))
+      || data.forms.get(compactKey(form))
+      || data.forms.get(compactKey(species))
+      || state.lookup[name]?.types
+      || [];
+    return {
+      name,
+      types: [...types],
+      moves: (entry.move || []).slice(0, 4).map((row) => String(row?.[0] || "").trim()).filter(Boolean),
+      partialMoves: (entry.partial || []).includes("move")
+    };
+  }
+
+  /** That day's own Top X: the meta as it stood, not today's names on an old day. */
+  function metaTopX(data, snapshot) {
+    const ranked = Object.entries(snapshot?.pokemon || {})
+      .filter(([, entry]) => Number.isFinite(entry?.position))
+      .sort((a, b) => a[1].position - b[1].position);
+    const limited = state.scope === "all" ? ranked : ranked.slice(0, Math.max(1, Number(state.scope) || 30));
+    return limited.map(([name, entry]) => metaEntry(data, name, entry));
+  }
+
+  /** team-eval.js profile(): the average multiplier of each attacking type into
+   *  the group, every member counting once. */
+  function offenseScores(data, mons) {
+    const out = {};
+    for (const type of TYPE_ORDER) {
+      const values = mons.map((mon) => (mon.types.length ? typeMultiplier(data.chart, type, mon.types) : 1));
+      out[type] = mons.length ? values.reduce((a, b) => a + b, 0) / mons.length : 1;
+    }
+    return out;
+  }
+
+  /** team-eval.js profile(): the damaging moves the group carries, with STAB. */
+  function metaDamageMoves(data, mons) {
+    const rows = [];
+    mons.forEach((mon, owner) => {
+      const own = new Set(mon.types);
+      for (const move of mon.moves.slice(0, 4)) {
+        const simple = moveSimple(data, move);
+        if (!simple) continue;
+        const category = String(simple[1] || "").toLowerCase();
+        if (category !== "physical" && category !== "special") continue;
+        const power = Number(simple[2]) > 0 ? Number(simple[2]) : 70;
+        rows.push({
+          owner,
+          move,
+          type: simple[0] || "Normal",
+          power: Math.max(20, Math.min(180, power)),
+          stab: own.has(simple[0]) ? 1.5 : 1
+        });
+      }
+    });
+    return rows;
+  }
+
+  /** team-eval.js directionalPressure() with use_current_team_sets off: every
+   *  move priced by type multiplier, power and STAB, the best two per attacker,
+   *  averaged over the attackers. */
+  function defenseScore(data, moves, ownerCount, defendingTypes) {
+    const byOwner = new Map();
+    for (const move of moves) {
+      const multiplier = Math.max(0, typeMultiplier(data.chart, move.type, defendingTypes));
+      const effective = (move.power / 80) * Math.max(1, move.stab) * multiplier;
+      if (!byOwner.has(move.owner)) byOwner.set(move.owner, []);
+      byOwner.get(move.owner).push({ move: move.move, pressure: clamp100(40 * effective) });
+    }
+    const scores = [];
+    for (let owner = 0; owner < Math.max(1, ownerCount); owner += 1) {
+      const best = [...(byOwner.get(owner) || [])]
+        .sort((a, b) => b.pressure - a.pressure || String(a.move).localeCompare(String(b.move)))
+        .slice(0, 2);
+      scores.push(best.length ? best.reduce((sum, row) => sum + row.pressure, 0) / best.length : 0);
+    }
+    return clamp100(scores.reduce((a, b) => a + b, 0) / Math.max(1, scores.length));
+  }
+
+  /** Both scores for one day, or null for a day that ranks nobody in scope.
+   *  A day whose Top X carries no damaging move at all has no defence score
+   *  rather than eighteen zeroes. */
+  function typeScoresFor(data, snapshot) {
+    const mons = metaTopX(data, snapshot);
+    if (!mons.length) return null;
+    const moves = metaDamageMoves(data, mons);
+    return {
+      count: mons.length,
+      partial: mons.filter((mon) => mon.partialMoves).length,
+      offense: offenseScores(data, mons),
+      defense: moves.length ? Object.fromEntries(TYPE_ORDER.map((type) => [type, defenseScore(data, moves, mons.length, [type])])) : null
+    };
+  }
+
+  /** Best first. A type the earlier day cannot score carries no change at all,
+   *  which the row shows as a dash -- never as a 0 it did not earn. */
+  function typeRows(now, was, side) {
+    const lowerIsBetter = side === "defense";
+    return TYPE_ORDER
+      .map((type) => {
+        const value = now?.[side]?.[type];
+        const before = was?.[side]?.[type];
+        const has = Number.isFinite(value);
+        const hadBefore = Number.isFinite(before);
+        return {
+          type,
+          value: has ? value : null,
+          was: hadBefore ? before : null,
+          delta: has && hadBefore ? value - before : null
+        };
+      })
+      .filter((row) => row.value !== null)
+      .sort((a, b) => (lowerIsBetter ? a.value - b.value : b.value - a.value) || a.type.localeCompare(b.type));
+  }
+
+  /* --------------------------------------------------- type lists: render */
+
+  /** "Top 30 Meta", or the whole ranked list when the scope is All Pokemon. */
+  function scopeLabel(count) {
+    return state.scope === "all" ? `the full ranked meta (${count} Pokemon)` : `Top ${Math.min(Number(state.scope) || 30, count)} Meta`;
+  }
+
+  function windowLabel() {
+    const span = daysBetween(state.baseline?.date, state.latest?.date);
+    if (span === null) return "the window";
+    return `the last ${span} day${span === 1 ? "" : "s"}`;
+  }
+
+  async function renderTypeChanges() {
+    if (!els.typeOffense || !els.typeDefense || !state.latest || !state.baseline) return;
+    const token = (state.typeToken += 1);
+    let data;
+    try {
+      data = await loadBuilderData();
+    } catch (error) {
+      if (token !== state.typeToken) return;
+      setTypeNote(`The type lists need <code>data/builder/app-data.json</code>, which could not be loaded. ${escapeHtml(error.message || "")}`);
+      fillList(els.typeOffense, [], "No type scores available.");
+      fillList(els.typeDefense, [], "No type scores available.");
+      if (els.typeOffenseLead) els.typeOffenseLead.textContent = "";
+      if (els.typeDefenseLead) els.typeDefenseLead.textContent = "";
+      return;
+    }
+    if (token !== state.typeToken) return;
+    const now = typeScoresFor(data, state.latest);
+    const was = typeScoresFor(data, state.baseline);
+    const count = now?.count || 0;
+    const scope = scopeLabel(count);
+    if (els.typePill) els.typePill.textContent = state.scope === "all" ? `All ${count}` : `Top ${Math.min(Number(state.scope) || 30, count)}`;
+
+    const offense = now ? typeRows(now, was, "offense") : [];
+    const defense = now ? typeRows(now, was, "defense") : [];
+    renderTypeList(els.typeOffense, els.typeOffenseLead, offense, "offense", scope);
+    renderTypeList(els.typeDefense, els.typeDefenseLead, defense, "defense", scope);
+
+    const partial = Math.max(now?.partial || 0, was?.partial || 0);
+    setTypeNote(`<strong>Best</strong> here is the same measure as the Team Builder's Offense and Defense overviews. An attacking type is scored by the average damage multiplier it gets against the typings of the ${escapeHtml(scope)}; a defending type by how much damage the ${escapeHtml(scope)} can put on it, counting every damaging move on their most used sets by type, power and same-type bonus, best two per Pokemon. Every Pokemon in the list counts once, whatever its usage. Scored on ${escapeHtml(formatDate(state.latest?.date))}, changed against ${escapeHtml(formatDate(state.baseline?.date))}.${partial ? ` ${partial} of them had a partly captured move list on one of the two days.` : ""}`);
+  }
+
+  function renderTypeList(target, lead, rows, side, scope) {
+    const offense = side === "offense";
+    const best = rows[0];
+    if (lead) {
+      lead.innerHTML = best
+        ? `<strong>Best ${offense ? "offensive" : "defensive"} type against ${escapeHtml(scope)}: ${escapeHtml(best.type)}.</strong> <span>Best to worst, with the change over ${escapeHtml(windowLabel())}.</span>`
+        : "";
+    }
+    fillList(target, rows.map((row, index) => typeRow(row, index, side)), `No ranked Pokemon in this scope, so there is nothing to score ${offense ? "attacking" : "defending"} types against.`);
+  }
+
+  function typeRow(row, index, side) {
+    const offense = side === "offense";
+    const line = document.createElement("div");
+    line.className = "meta-row meta-type-row";
+
+    const thumb = document.createElement("span");
+    thumb.className = "meta-row-thumb meta-type-thumb";
+    appendImageOrFallback(thumb, typeImageCandidates(row.type), row.type, initials(row.type));
+
+    const body = document.createElement("span");
+    body.className = "meta-row-body";
+    const score = offense ? `${row.value.toFixed(2)}×` : `${row.value.toFixed(1)}%`;
+    const detail = offense ? "average multiplier" : "damage pressure taken";
+    body.innerHTML = `<strong><span class="meta-type-rank">${index + 1}</span>${escapeHtml(row.type)}</strong><small>${score} ${escapeHtml(detail)}</small>`;
+
+    line.append(thumb, body, typeDeltaChip(row, side));
+    return line;
+  }
+
+  /** The arrow and the sign carry the direction, so the colour is never the only
+   *  thing saying which way a type moved. On the defending list a rise is a worse
+   *  score, and the chip is toned that way round. */
+  function typeDeltaChip(row, side) {
+    const offense = side === "offense";
+    const chip = document.createElement("span");
+    if (row.delta === null) {
+      chip.className = "meta-delta flat";
+      chip.textContent = "—";
+      chip.title = `No score for ${row.type} on ${formatDate(state.baseline?.date)}, so there is no change to show yet.`;
+      return chip;
+    }
+    const digits = offense ? 2 : 1;
+    const delta = Number(row.delta.toFixed(digits));
+    const better = offense ? delta > 0 : delta < 0;
+    const tone = delta === 0 ? "flat" : better ? "up" : "down";
+    const arrow = delta > 0 ? "▲" : delta < 0 ? "▼" : "▪";
+    chip.className = `meta-delta ${tone}`;
+    chip.textContent = `${arrow} ${delta > 0 ? "+" : ""}${delta.toFixed(digits)}`;
+    const unit = offense ? "×" : " points";
+    chip.title = delta === 0
+      ? `${row.type} scores the same as on ${formatDate(state.baseline?.date)}.`
+      : `${row.type}: ${row.was.toFixed(digits)}${offense ? "×" : "%"} on ${formatDate(state.baseline?.date)} → ${row.value.toFixed(digits)}${offense ? "×" : "%"} now, ${delta > 0 ? "up" : "down"} ${Math.abs(delta).toFixed(digits)}${unit}. ${better ? "Better" : "Worse"} for this type.`;
+    return chip;
+  }
+
+  function setTypeNote(html) {
+    if (els.typeNote) els.typeNote.innerHTML = html;
   }
 
   /* --------------------------------------------------------------- detail */

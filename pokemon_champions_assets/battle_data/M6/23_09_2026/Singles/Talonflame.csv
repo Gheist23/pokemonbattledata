@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Talonflame,133,move,1,Will-O-Wisp,53.5%,,,,,,,,
-Talonflame,133,move,2,Taunt,53.0%,,,,,,,,
+Talonflame,133,move,2,Taunt,52.9%,,,,,,,,
 Talonflame,133,move,3,Roost,49.1%,,,,,,,,
 Talonflame,133,move,4,Flare Blitz,45.6%,,,,,,,,
 Talonflame,133,move,5,Brave Bird,45.2%,,,,,,,,
@@ -13,7 +13,7 @@ Talonflame,133,held_item,1,Rocky Helmet,27.8%,,,,,,,,
 Talonflame,133,held_item,2,Sharp Beak,12.6%,,,,,,,,
 Talonflame,133,held_item,3,Life Orb,9.7%,,,,,,,,
 Talonflame,133,held_item,4,Sitrus Berry,8.1%,,,,,,,,
-Talonflame,133,held_item,5,Leftovers,7.6%,,,,,,,,
+Talonflame,133,held_item,5,Leftovers,7.5%,,,,,,,,
 Talonflame,133,held_item,6,Focus Sash,4.8%,,,,,,,,
 Talonflame,133,held_item,7,Wide Lens,2.0%,,,,,,,,
 Talonflame,133,held_item,8,Muscle Band,1.8%,,,,,,,,
@@ -29,11 +29,11 @@ Talonflame,133,teammate,7,Greninja,,,,,,,,,
 Talonflame,133,teammate,8,Rillaboom,,,,,,,,,
 Talonflame,133,teammate,9,Sneasler,,,,,,,,,
 Talonflame,133,teammate,10,Meowscarada,,,,,,,,,
-Talonflame,133,stat_alignment,1,Jolly,30.9%,Speed,Sp. Atk,,,,,,
+Talonflame,133,stat_alignment,1,Jolly,31.0%,Speed,Sp. Atk,,,,,,
 Talonflame,133,stat_alignment,2,Adamant,21.9%,Attack,Sp. Atk,,,,,,
 Talonflame,133,stat_alignment,3,Impish,11.0%,Defense,Sp. Atk,,,,,,
 Talonflame,133,stat_alignment,4,Bold,10.5%,Defense,Attack,,,,,,
-Talonflame,133,stat_alignment,5,Timid,9.9%,Speed,Attack,,,,,,
+Talonflame,133,stat_alignment,5,Timid,9.8%,Speed,Attack,,,,,,
 Talonflame,133,stat_alignment,6,Modest,5.3%,Sp. Atk,Attack,,,,,,
 Talonflame,133,stat_alignment,7,Naughty,2.7%,Attack,Sp. Def,,,,,,
 Talonflame,133,stat_alignment,8,Naive,1.9%,Speed,Sp. Def,,,,,,
@@ -42,7 +42,7 @@ Talonflame,133,stat_alignment,10,Lonely,1.1%,Attack,Defense,,,,,,
 Talonflame,133,stat_points,1,,24.4%,,,2,32,0,0,0,32
 Talonflame,133,stat_points,2,,6.6%,,,32,0,32,0,0,2
 Talonflame,133,stat_points,3,,6.5%,,,0,32,2,0,0,32
-Talonflame,133,stat_points,4,,5.6%,,,0,32,0,0,2,32
+Talonflame,133,stat_points,4,,5.7%,,,0,32,0,0,2,32
 Talonflame,133,stat_points,5,,3.8%,,,32,0,32,0,2,0
 Talonflame,133,stat_points,6,,3.6%,,,2,0,0,32,0,32
 Talonflame,133,stat_points,7,,2.1%,,,0,32,0,0,0,32

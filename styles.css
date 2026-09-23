@@ -9273,54 +9273,165 @@ a.answer-card:focus-visible {
   }
 }
 
-/* v50 profile popovers: a move, item or Ability description on click
+/* v51 profile descriptions: a move, item or Ability opens a centred card
 
    The move popover used to print the flavour text alone. It now leads with the
    facts a player is actually comparing -- type, category, power, accuracy and
    PP -- and the held items and Abilities in the same profile open the same
-   popover with their effect text. Everything is one <button>, so it is
-   reachable by Tab and closes on Escape like the move popover always did. */
-.move-info-popover {
-  width: min(320px, calc(100vw - 24px));
+   card with their effect text. Everything is one <button>, so it is reachable
+   by Tab and closes on Escape like the popover always did.
+
+   v51 moved it off the name it came from. It used to be an anchored box that
+   JavaScript placed with pixel offsets inside the profile dialog; open it on a
+   row far down a long profile and it reached past the dialog, which gave the
+   profile a second scrollbar and left the card half off the screen. The card
+   now sits in `.info-scrim`, a `position: fixed` layer with `inset: 0`: it is
+   exactly the size of the screen, so it cannot add scrollable height to
+   anything, and the card is centred inside it by the grid below. No offsets
+   are written from JavaScript any more, so nothing has to be repositioned when
+   the profile scrolls or the window is resized. The scrim is also what catches
+   a click outside the card and closes it. */
+.info-scrim[hidden] {
+  display: none !important;
 }
 
+.info-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 10020;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 4vw, 28px);
+  overflow: hidden;
+  background: rgba(3, 8, 6, 0.58);
+  backdrop-filter: blur(3px);
+}
+
+.move-info-popover {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: min(560px, 100%);
+  max-height: min(78vh, 620px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1.15rem 1.25rem 1.2rem;
+  border-radius: 16px;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.52);
+}
+
+.move-info-popover .info-kind {
+  margin: 0 0 0.12rem;
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.move-info-popover strong {
+  margin-bottom: 0.7rem;
+  padding-right: 2rem;
+  font-size: 1.24rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.move-info-popover .info-close {
+  position: absolute;
+  top: 0.62rem;
+  right: 0.68rem;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  padding: 0 0 2px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 9px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.move-info-popover .info-close:hover,
+.move-info-popover .info-close:focus-visible {
+  color: #edf7ff;
+  border-color: rgba(88, 220, 196, 0.42);
+  background: rgba(88, 220, 196, 0.12);
+}
+
+/* One tile per fact, so a wide card reads as a row of values instead of a
+   long two-column list. `auto-fit` drops to two rows on a phone by itself. */
 .move-info-popover .info-facts {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.18rem 0.6rem;
-  margin: 0 0 0.45rem;
+  grid-template-columns: repeat(auto-fit, minmax(82px, 1fr));
+  gap: 0.42rem;
+  margin: 0 0 0.75rem;
+}
+
+.move-info-popover .info-fact {
+  display: grid;
+  gap: 0.16rem;
+  min-width: 0;
+  padding: 0.5rem 0.58rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.035);
 }
 
 .move-info-popover .info-facts dt {
   color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
 .move-info-popover .info-facts dd {
   margin: 0;
   color: #edf7ff;
-  font-size: 0.78rem;
-  font-weight: 750;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
-.move-info-popover .info-facts dd .move-type-label,
-.move-info-popover .info-facts dd .move-category {
-  font-size: 0.78rem;
+.move-info-popover .info-facts dd .move-type-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  font-size: 0.92rem;
+  font-weight: 800;
 }
 
 .move-info-popover .info-facts dd img {
-  width: 14px;
-  height: 14px;
-  vertical-align: -2px;
+  width: 17px;
+  height: 17px;
+  vertical-align: -3px;
+}
+
+.move-info-popover span {
+  color: rgba(237, 247, 255, 0.86);
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 .move-info-popover .info-note {
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 0.86rem;
   font-style: italic;
+}
+
+@media (max-width: 560px) {
+  .move-info-popover {
+    padding: 1rem 1rem 1.05rem;
+  }
+
+  .move-info-popover strong {
+    font-size: 1.12rem;
+  }
 }
 
 /* The item and Ability names carry the same button as the move names, so the

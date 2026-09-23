@@ -280,8 +280,20 @@ function threatCard(threat, { spriteFor, name, teamSize }) {
  * @param {object} payload
  * @param {object} helpers  {spriteFor(species, form, item), name(value)}
  */
+/** Red threats first, then orange, then the rest; inside a colour the harder one leads.
+ *  Display only - the payload's own order is left alone, so the recorded suites
+ *  keep comparing the same list. */
+const TONE_ORDER = { bad: 0, orange: 1, mid: 2, good: 3 };
+function bySeverity(threats) {
+  return [...threats].sort((a, b) => {
+    const scoreA = Number(a.score) || 0;
+    const scoreB = Number(b.score) || 0;
+    return TONE_ORDER[threatTone(scoreA)] - TONE_ORDER[threatTone(scoreB)] || scoreB - scoreA;
+  });
+}
+
 export function threatsView(payload, { spriteFor, name }) {
-  const threats = payload.threats || [];
+  const threats = bySeverity(payload.threats || []);
   if (!threats.length) {
     return h("div", { class: "bd-gate" }, h("h3", {}, "No critical threats"), h("p", {}, `Nothing in the Top ${payload.settings?.top_meta ?? ""} Meta reaches a 3HKO or better into this team.`));
   }

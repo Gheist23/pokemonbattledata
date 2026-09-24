@@ -157,10 +157,11 @@ export function pokemonReply(profile, appData, origin) {
   const types = form?.types || profile.identity?.types || [];
   const url = profileUrl(profile.identity?.slug, origin);
 
-  // No base stat total: the "Total" a profile page prints is not the sum of the
-  // six stats it prints above it (it runs 55 lower on every Pokemon in
-  // pokemon_champions_assets/metadata/*.csv), so a sum worked out here would
-  // disagree with the page this embed links to. The page has the number.
+  // No base stat total: the embed keeps to the six stats and leaves the total to
+  // the page it links to. (The metadata "total" used to run 55 low on every
+  // Pokemon -- the scraper offset the total by 20 x 6 while HP's own offset is
+  // 75 -- so a sum worked out here disagreed with the page. That is fixed: the
+  // total is now the sum of the six stats, guarded by tests/run-naming-checks.mjs.)
   const headline = [
     types.join(' / '),
     profile.rank ? `#${profile.rank} of ${profile.total} in ${profile.format}` : null

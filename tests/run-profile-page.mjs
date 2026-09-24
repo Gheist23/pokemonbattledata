@@ -25,7 +25,11 @@
 //     team that is open);
 //   * accuracy is shown as 100 wherever the battle data stores the "never
 //     misses" spelling of 101 - on the generated /moves/ pages, in the
-//     profile's learnable-move table and in the move popover.
+//     profile's learnable-move table and in the move popover;
+//   * the Total a profile prints is the sum of the six stats printed above it,
+//     in the metadata CSVs, in the generated API payloads and on the page - it
+//     ran exactly 55 low everywhere until the scraper stopped offsetting the
+//     total by a constant of its own (see the note further down).
 //
 // The profile needs a DOM, so this file carries a small one (enough for
 // app.js's renders, simple selectors and click events). No browser and no
@@ -110,6 +114,82 @@ check("no move page prints accuracy 101", with101.length === 0, with101.slice(0,
 // The data itself keeps its own spelling: this only fixes what is shown.
 const learnableCsv = read("pokemon_champions_assets", "learnable_moves", "Abomasnow.csv");
 check("the CSVs still store 101", /,101,/.test(learnableCsv));
+
+/* ------------------------------------------- the Total a page prints */
+
+// A profile prints six stats and a Total, and the Total is their sum. It was not:
+// scrape_data_pokemonzone.py converts pokemonzone's base stats to the level-50
+// numbers Champions shows by adding a flat offset per stat (HP +75, the other five
+// +20), but the offset it added to "total" was hard-coded to 120 - 20 x 6, missing
+// that HP's own offset is 75 - so every written total came out exactly 55 low
+// (Garchomp printed 720 next to stats summing to 775). The six Rotom formes were
+// the only rows with a correct total, which left them 55 points too high on
+// /rankings/highest-base-stats/. The generator now derives the total by summing the
+// six stats it writes; these checks keep the CSVs, the generated JSON and the
+// generated pages agreeing with each other.
+const SIX_STATS = ["hp", "atk", "def", "spa", "spd", "spe"];
+const metadataDir = join(site, "pokemon_champions_assets", "metadata");
+const metadataFiles = readdirSync(metadataDir).filter((name) => name.endsWith(".csv"));
+check("the metadata CSVs are there to check", metadataFiles.length > 200, `${metadataFiles.length} file(s)`);
+
+const totalMismatches = [];
+let metadataRows = 0;
+for (const name of metadataFiles) {
+  const lines = read("pokemon_champions_assets", "metadata", name).split(/\r?\n/).filter((line) => line.trim());
+  const columns = lines[0].split(",");
+  const at = Object.fromEntries(SIX_STATS.map((stat) => [stat, columns.indexOf(stat)]));
+  const totalAt = columns.indexOf("total");
+  if (totalAt < 0 || SIX_STATS.some((stat) => at[stat] < 0)) {
+    totalMismatches.push(`${name}: missing a stat column`);
+    continue;
+  }
+  for (const line of lines.slice(1)) {
+    const cells = line.split(",");
+    const sum = SIX_STATS.reduce((running, stat) => running + Number(cells[at[stat]]), 0);
+    metadataRows += 1;
+    if (Number(cells[totalAt]) !== sum) totalMismatches.push(`${name} row "${cells[0]}": total ${cells[totalAt]} vs sum ${sum}`);
+  }
+}
+check("every metadata CSV row's total is the sum of its six stats", !totalMismatches.length,
+  `${totalMismatches.length} bad row(s): ${totalMismatches.slice(0, 4).join("; ")}`);
+check("the check actually read the rows", metadataRows > 300, `${metadataRows} row(s)`);
+
+// The same number after generate-manifest.mjs has carried it into the API payloads.
+// Walk the whole payload rather than one known shape: the total is repeated under
+// summary.primary, summary.forms[] and summary.baseStatTotal, and a check that knows
+// only about forms[] would miss a generator that got one of the others wrong.
+const API_STATS = ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"];
+const apiBad = [];
+let apiChecked = 0;
+const walkStats = (node, where) => {
+  if (Array.isArray(node)) return node.forEach((item, i) => walkStats(item, `${where}[${i}]`));
+  if (!node || typeof node !== "object") return;
+  for (const totalKey of ["base_stat_total", "baseStatTotal"]) {
+    if (!(totalKey in node)) continue;
+    const values = API_STATS.map((stat) => Number(node[stat]));
+    if (!values.every(Number.isFinite)) continue;
+    apiChecked += 1;
+    const sum = values.reduce((running, value) => running + value, 0);
+    if (Number(node[totalKey]) !== sum) apiBad.push(`${where}.${totalKey}: ${node[totalKey]} vs ${sum}`);
+  }
+  for (const [key, value] of Object.entries(node)) walkStats(value, `${where}.${key}`);
+};
+walkStats(JSON.parse(read("data", "api", "index.json")), "index");
+for (const slug of ["garchomp", "abomasnow", "rotom-wash"]) walkStats(JSON.parse(read("data", "api", "pokemon", `${slug}.json`)), slug);
+check("every API base_stat_total is the sum of its six stats", !apiBad.length,
+  `${apiBad.length} bad record(s): ${apiBad.slice(0, 4).join("; ")}`);
+check("the API check actually read the records", apiChecked > 500, `${apiChecked} record(s)`);
+
+// And the number a generated profile page actually prints.
+const valueOf = (html, label) => Number(html.match(new RegExp(`${label}</td><td data-label="Value">(\\d+)`))?.[1]);
+for (const slug of ["garchomp", "abomasnow", "rotom-wash"]) {
+  const html = read("pokemon", slug, "index.html");
+  const printed = ["HP", "Attack", "Defense", "Sp. Attack", "Sp. Defense", "Speed"].map((label) => valueOf(html, label));
+  const printedTotal = valueOf(html, "Total");
+  const sum = printed.reduce((running, value) => running + value, 0);
+  check(`/pokemon/${slug}/ prints a Total that is the sum of its six stats`,
+    printed.every(Number.isFinite) && printedTotal === sum, `${printed.join("+")} = ${sum}, page says ${printedTotal}`);
+}
 
 /* --------------------------------------------------- the description file */
 

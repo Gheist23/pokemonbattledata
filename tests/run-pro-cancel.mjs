@@ -43,6 +43,7 @@ const ok = (label, condition, detail = "") => {
 };
 
 const PORTAL = "https://billing.stripe.com/p/login/test_0000example";
+const PORTAL_LIVE = "https://billing.stripe.com/p/login/3cIaEX7TQfju0rIei157W00";
 // Wording that would be false: the licence keeps verifying offline until the
 // paid period plus GRACE_DAYS, and the Companion re-checks only every few days.
 const FALSE_PROMISES = [
@@ -107,8 +108,14 @@ ok("it sits under the \"Already subscribed?\" note",
   plans.indexOf("Already subscribed?") < plans.indexOf('id="cancel"'),
   `subscribed ${plans.indexOf("Already subscribed?")}, cancel ${plans.indexOf('id="cancel"')}`);
 ok("it opens with the owner's question", /<strong>Want to cancel\?<\/strong>/.test(cancelParagraph));
-ok("it names the receipt email from Stripe",
-  /manage-subscription link in the receipt email you got from Stripe/.test(cancelParagraph));
+ok("it offers the Stripe Customer Portal",
+  /Manage or cancel your subscription at any time through the <a[^>]*>Stripe Customer Portal<\/a>\./.test(cancelParagraph),
+  cancelParagraph.slice(0, 200));
+ok("the portal link is the live one",
+  cancelParagraph.includes(`href="${PORTAL_LIVE}"`));
+ok("it opens in a new tab safely",
+  /<a href="https:\/\/billing\.stripe\.com[^"]*" target="_blank" rel="noopener">/.test(cancelParagraph));
+ok("nobody is sent hunting through their email", !/receipt email/i.test(cancelParagraph));
 ok("it does not send anyone to Discord to cancel", !/discord\.gg/.test(cancelParagraph));
 ok("the page says Pro runs on to the end of the period", /end of the period you are in/i.test(cancelParagraph));
 ok("it names the trial and the paid period", /the free trial, or the month or year you have paid for/.test(cancelParagraph));
@@ -123,41 +130,12 @@ ok("the trial sentence further up is untouched",
 /* --------------------------------------------- the plans page inline script */
 
 const inlineScript = [...plans.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1]).pop() || "";
-ok("the inline script carries a STRIPE_PORTAL constant", /var STRIPE_PORTAL = "";?/.test(inlineScript));
+ok("the inline script still holds the portal URL, so the page has one home for it",
+  inlineScript.includes(`var STRIPE_PORTAL = "${PORTAL_LIVE}";`),
+  inlineScript.match(/var STRIPE_PORTAL = "[^"]*";/)?.[0] || "missing");
 ok("the payment links are still rewritten by the same script", /data-plan="/.test(inlineScript));
-
-function runInlineScript(portalValue) {
-  const source = inlineScript.replace(/var STRIPE_PORTAL = "[^"]*";/, `var STRIPE_PORTAL = ${JSON.stringify(portalValue)};`);
-  // The paragraph as it ships: the owner's sentence, opened by a <strong>.
-  const note = new El("p");
-  note.append(new El("strong"));
-  const byId = { cancel: note };
-  const created = [];
-  const doc = {
-    getElementById: (id) => byId[id] || null,
-    querySelectorAll: () => [],
-    createElement: (tag) => { const el = new El(tag); created.push(el); return el; },
-    createTextNode: (text) => new TextNode(text),
-  };
-  new Function("document", source)(doc);
-  return { note, links: created.filter((el) => el.tagName === "A") };
-}
-
-{
-  const { links } = runInlineScript("");
-  ok("unset: no portal link is added", links.length === 0);
-}
-{
-  const { links } = runInlineScript(PORTAL);
-  ok("set: a portal link is added", links.length === 1, String(links.length));
-  ok("set: it points at the portal", links[0]?.getAttribute("href") === PORTAL, String(links[0]?.getAttribute("href")));
-  ok("set: it opens in a new tab safely",
-    links[0]?.getAttribute("target") === "_blank" && /noopener/.test(String(links[0]?.getAttribute("rel"))));
-}
-for (const junk of ["", "   ", "billing.stripe.com/p/login/x", "http://billing.stripe.com/x", "javascript:alert(1)", "about:blank"]) {
-  const { links } = runInlineScript(junk);
-  ok(`a value that is not an https URL is ignored (${JSON.stringify(junk)})`, links.length === 0);
-}
+ok("the script no longer injects the cancel link, the paragraph carries it",
+  !/getElementById\("cancelPortal/.test(inlineScript) && !/createElement\("a"\)/.test(inlineScript));
 
 /* ------------------------------------------------------- builder/pro.js */
 
@@ -201,12 +179,12 @@ function renderCancelLine(portal) {
   const node = renderCancelLine("");
   const text = node.textContent;
   const anchors = links(node);
-  ok("dialog, unset: it names the receipt link", /receipt email/i.test(text), text);
+  ok("dialog, unset: it still offers the portal in words", /through the Stripe Customer Portal\./.test(text), text.slice(0, 120));
   // The dialog says the same as the plans page: the receipt link, no Discord.
   ok("dialog, unset: no link is needed", anchors.length === 0,
     anchors.map((a) => a.getAttribute("href")).join(" | "));
   ok("dialog, unset: it does not send anyone to Discord to cancel", !/discord/i.test(text));
-  ok("dialog, unset: it uses the owner's wording", /Want to cancel\?/.test(text) && /you got from Stripe/.test(text), text.slice(0, 90));
+  ok("dialog, unset: it uses the owner's wording", /Want to cancel\?/.test(text) && /Manage or cancel your subscription at any time/.test(text), text.slice(0, 90));
   ok("dialog, unset: no Stripe portal link is invented", !/billing\.stripe\.com/.test(anchors.map((a) => a.getAttribute("href")).join(" ")));
 }
 {
@@ -215,7 +193,9 @@ function renderCancelLine(portal) {
   const anchors = links(node);
   ok("dialog, set: one link, to the portal", anchors.length === 1 && anchors[0].getAttribute("href") === PORTAL,
     anchors.map((a) => a.getAttribute("href")).join(" | "));
-  ok("dialog, set: the link says what it does", /cancel/i.test(anchors[0]?.textContent || ""), anchors[0]?.textContent || "");
+  // The link is named after where it goes; the sentence around it says what it does.
+  ok("dialog, set: the link names the portal", /Stripe Customer Portal/.test(anchors[0]?.textContent || ""), anchors[0]?.textContent || "");
+  ok("dialog, set: the sentence says what happens there", /Manage or cancel your subscription at any time/.test(text), text.slice(0, 120));
   ok("dialog, set: it opens in a new tab safely",
     anchors[0]?.getAttribute("target") === "_blank" && /noopener/.test(anchors[0]?.getAttribute("rel") || ""));
   ok("dialog: cancelling is told apart from removing the key here",

@@ -29,7 +29,7 @@
 // It is deliberately not an endpoint of ours: a licence key is shared across a
 // buyer's machines by design, so a "cancel with your key" API would let anyone
 // holding the key cancel the payer's subscription.
-const STRIPE_PORTAL = "";
+const STRIPE_PORTAL = "https://billing.stripe.com/p/login/3cIaEX7TQfju0rIei157W00";
 export const DISCORD_URL = "https://discord.gg/k93eVQzj8c";
 
 /** The customer-portal login link, or "" while it has not been pasted in yet. */

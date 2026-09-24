@@ -141,7 +141,7 @@
 
       <p class="tool-cta-note tool-cta-note-center">Prices in euro. Both Pro plans start with a <strong>7-day free trial</strong>; cancel inside it and you are not charged.</p>
       <p class="tool-cta-note tool-cta-note-center">Already subscribed? Enter the key from your email under <strong>Get Pro &rarr; I have a key</strong> in the <a href="/team-builder/">Team Builder</a>, and in the Companion app. Lost it? <a href="/pro-tool/key/">Send it again</a>.</p>
-      <p class="tool-cta-note tool-cta-note-center" id="cancel"><strong>Want to cancel?</strong> Use the manage-subscription link in the receipt email you got from Stripe. Pro then keeps working to the end of the period you are in &mdash; the free trial, or the month or year you have paid for &mdash; and for up to a week after that, while the licence is checked again. After that the website and the Companion app go back to Free; your teams and your Box stay exactly where they are.</p>
+      <p class="tool-cta-note tool-cta-note-center" id="cancel"><strong>Want to cancel?</strong> Manage or cancel your subscription at any time through the <a href="https://billing.stripe.com/p/login/3cIaEX7TQfju0rIei157W00" target="_blank" rel="noopener">Stripe Customer Portal</a>. Pro then keeps working to the end of the period you are in &mdash; the free trial, or the month or year you have paid for &mdash; and for up to a week after that, while the licence is checked again. After that the website and the Companion app go back to Free; your teams and your Box stay exactly where they are.</p>
     </section>
 
     <section class="section-shell tool-section" id="compare" aria-labelledby="compareHeading">
@@ -234,7 +234,7 @@
     // Builder's Pro dialog offers it too. While this is empty the receipt /
     // Discord wording above stays put, so the page never shows a dead link.
     // ---------------------------------------------------------------------
-    var STRIPE_PORTAL = "";
+    var STRIPE_PORTAL = "https://billing.stripe.com/p/login/3cIaEX7TQfju0rIei157W00";
 
     (function () {
       var links = { monthly: STRIPE_MONTHLY, yearly: STRIPE_YEARLY };
@@ -248,18 +248,9 @@
         });
       });
 
-      // With a customer-portal link set, the cancel paragraph gains a direct
-      // link in front of the receipt-email sentence; without one it stands as
-      // written, which is the wording the owner asked for.
-      var portal = (STRIPE_PORTAL || "").trim();
-      var note = document.getElementById("cancel");
-      if (!/^https:\/\//.test(portal) || !note) return;
-      var link = document.createElement("a");
-      link.setAttribute("href", portal);
-      link.setAttribute("target", "_blank");
-      link.setAttribute("rel", "noopener");
-      link.textContent = "Manage or cancel your subscription";
-      note.append(" You can also do it yourself: ", link, " — sign in with the email you subscribed with.");
+      // The cancel paragraph carries the portal link itself; this constant is
+      // kept beside the payment links so the URL has one home on this page.
+      void STRIPE_PORTAL;
     })();
   </script>
 </body>

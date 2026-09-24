@@ -884,8 +884,10 @@ function cancelLine() {
   return h("div", {},
     h("p", { class: "bd-note" },
       h("strong", {}, "Want to cancel?"), " ",
-      portal ? [h("a", { href: portal, target: "_blank", rel: "noopener" }, "Manage or cancel your subscription"), " — sign in with the email you subscribed with. "] : "",
-      "Use the manage-subscription link in the receipt email you got from Stripe. Pro then keeps working to the end of the period you are in — the free trial, or the month or year you have paid for — and for up to a week after that, while the licence is checked again. After that the website and the Companion app go back to Free; your teams and your Box stay exactly where they are."),
+      portal
+        ? ["Manage or cancel your subscription at any time through the ", h("a", { href: portal, target: "_blank", rel: "noopener" }, "Stripe Customer Portal"), ". "]
+        : "Manage or cancel your subscription at any time through the Stripe Customer Portal. ",
+      "Pro then keeps working to the end of the period you are in — the free trial, or the month or year you have paid for — and for up to a week after that, while the licence is checked again. After that the website and the Companion app go back to Free; your teams and your Box stay exactly where they are."),
     h("p", { class: "bd-note" }, "Cancelling is not the same as removing the key from this browser, which only signs this browser out."));
 }
 

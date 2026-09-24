@@ -24,8 +24,32 @@ export const STAT_DISTRIBUTION_LIMITS = {
   "Use 3 most common Stat Distributions": 3,
 };
 
+/**
+ * The V512 scoring rule (the app's `score_composition_v512`), as a version number:
+ *
+ *   * a Trick Room team's Speed score keeps Standard Speed and Opposing Speed Control
+ *     beside the measured Trick Room number instead of being that number alone
+ *     (builder/team-speed.js);
+ *   * Offense and Defense are their own measurement at full weight, instead of 70% of it
+ *     plus 30% of the Critical Threat answer / safety shown beside them.
+ *
+ * On in production.  A run recorded before the rule carries no `score_composition` stamp and
+ * replays with it off, so the recorded parity suites stay at 0 mismatches.
+ */
+export const SCORE_RULES = 1;
+
+/** A `score_composition` stamp as a version: 0 (off) for null / undefined / false / "" / "0". */
+export function scoreRulesOption(value) {
+  if (value === null || value === undefined || value === false) return 0;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return 0;
+  const n = Number(text);
+  return Number.isFinite(n) && n > 0 ? n : SCORE_RULES;
+}
+
 export const DEFAULT_SETTINGS = Object.freeze({
-  top_meta: 20,
+  // The app's TEAM_ANALYSIS_DEFAULT_SETTINGS_V35 after team_evaluation_defaults_v512.
+  top_meta: 30,
   calc_item_limit: 3,
   calc_move_limit: 6,
   threat_stat_distributions: "Use most common Stat Distribution",
@@ -59,7 +83,7 @@ export function normalizeSettings(raw = {}, topMetaCap = 1000) {
     const n = Number.parseInt(value, 10);
     return Number.isFinite(n) && n ? Math.max(low, Math.min(high, n)) : fallback;
   };
-  out.top_meta = clampInt(out.top_meta, 20, 1, Math.max(1, topMetaCap));
+  out.top_meta = clampInt(out.top_meta, DEFAULT_SETTINGS.top_meta, 1, Math.max(1, topMetaCap));
   out.calc_item_limit = clampInt(out.calc_item_limit, 3, 1, 5);
   out.calc_move_limit = clampInt(out.calc_move_limit, 6, 1, 10);
   if (!(out.threat_stat_distributions in STAT_DISTRIBUTION_LIMITS)) out.threat_stat_distributions = DEFAULT_SETTINGS.threat_stat_distributions;
@@ -294,13 +318,15 @@ export class TeamEvaluator {
    * @param {DamageEngine} engine
    * @param {string} format  "Doubles" | "Singles"
    * @param {object} settings  normalised settings
-   * @param {{pairedSpreads?: boolean|null}} options  `pairedSpreads`: each Nature is shown
-   *   with Stat Points it does not contradict (builder/nature-spreads.js) instead of with
-   *   the distribution at its own place in the usage file's other list. On in production;
-   *   a run recorded before the rule replays with it off.
+   * @param {{pairedSpreads?: boolean|null, scoreRules?: number|null}} options
+   *   `pairedSpreads`: each Nature is shown with Stat Points it does not contradict
+   *   (builder/nature-spreads.js) instead of with the distribution at its own place in the
+   *   usage file's other list. `scoreRules`: the V512 scoring rule (see SCORE_RULES).
+   *   Both are on in production; a run recorded before either replays with it off.
    */
-  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS } = {}) {
+  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES } = {}) {
     this.pairedSpreads = pairedOption(pairedSpreads);
+    this.scoreRules = scoreRulesOption(scoreRules);
     this.data = data;
     this.engine = engine;
     this.format = format === "Singles" ? "Singles" : "Doubles";
@@ -1982,9 +2008,18 @@ export class TeamEvaluator {
     const outgoing = this.directionalPressure(teamProfile, metaProfile);
     const incoming = this.directionalPressure(metaProfile, teamProfile);
     const critical = this.criticalComponents(threats, legacyOffense, legacyDefense);
-    const offense = clamp100(outgoing.score * 0.7 + critical.answer_score * 0.3);
     const resistance = clamp100(100 - incoming.score);
-    const defense = clamp100(resistance * 0.7 + critical.safety_score * 0.3);
+    // V512 (score_composition_v512.compose_pressure_scores): each score is its own
+    // measurement at full weight. Before the rule each borrowed 30% from the Critical
+    // Threat rows the panel already shows beside it, so 30% of the number restated a
+    // list the reader is looking at. `critical` is untouched and still carries
+    // answer_score / safety_score / count / rows: the information stays where it is
+    // shown, it simply stops being part of these two numbers.
+    const rule = this.scoreRules;
+    const pressureWeight = rule ? 1 : 0.7;
+    const criticalWeight = rule ? 0 : 0.3;
+    const offense = clamp100(outgoing.score * pressureWeight + critical.answer_score * criticalWeight);
+    const defense = clamp100(resistance * pressureWeight + critical.safety_score * criticalWeight);
     const strip = (profile) => ({ ...profile, records: profile.records.map(({ mon: _m, ...rest }) => rest), damage_moves: profile.damage_moves.map(({ attacker_mon: _a, ...rest }) => rest) });
     return {
       version: "per_matchup_overkill_cap_v193",
@@ -1995,12 +2030,15 @@ export class TeamEvaluator {
       team_to_meta: outgoing,
       meta_to_team: incoming,
       critical,
-      pressure_weight: 0.7,
-      critical_weight: 0.3,
+      pressure_weight: pressureWeight,
+      critical_weight: criticalWeight,
       defense_pressure_resistance: resistance,
       offense_score: offense,
       defense_score: defense,
-      formula: "70% per-matchup capped set damage and typing pressure + 30% yellow/red Critical Threat results",
+      ...(rule ? { score_rule_v512: rule } : {}),
+      formula: rule
+        ? "Per-matchup capped set damage and typing pressure at full weight; Critical Threat results are reported separately"
+        : "70% per-matchup capped set damage and typing pressure + 30% yellow/red Critical Threat results",
     };
   }
 

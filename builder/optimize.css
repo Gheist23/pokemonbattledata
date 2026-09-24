@@ -1,8 +1,8 @@
 /* optimize styles for the Team Builder (loaded after builder.css).
    Team Evaluation > Optimize (builder/optimize-view.js, prefix bd-opt-): the options,
-   one card per member, and the result (summary, Previously / Now table, what changes
-   in battle, Speed lists, moves tested). Nothing is wider than its card: at 375 px
-   everything stacks and the table fits. */
+   one card per member, and the result (summary, Previously and now, what changes in
+   battle, Speed lists, moves tested). Nothing is wider than its card: at 375 px
+   everything stacks and the bars take their own row. */
 
 /* --- options and member cards ---------------------------------------------------------- */
 
@@ -105,85 +105,191 @@ button.bd-opt-move:hover { border-color: var(--bd-line-strong); }
 .bd-opt-section > .bd-note,
 .bd-opt-compare > .bd-note { margin: 0; line-height: 1.45; }
 
-/* Previously | Now | Change.
-   The rows that moved carry the band and the accent, the rows that did not fade back.
-   Direction is an arrow and the side the bar grows to, never colour on its own: up is
-   not always better (less Speed for more bulk is a trade), and a red/green reader would
-   lose it anyway. */
-.bd-opt-shift-strip { display: flex; flex-wrap: wrap; gap: 0.3rem; }
-.bd-opt-shift-strip-none { margin: 0; }
-.bd-opt-shift-chip {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.3rem;
-  padding: 0.14rem 0.5rem;
+/* Previously and now: the change in a sentence, then the spread as a shape.
+
+   The block opens with the trade written out - what the Pokémon gained and what it paid
+   for it - and only then draws it. The six bars are the final stats on one shared scale,
+   so the block reads as this Pokemon's silhouette before it reads as numbers. The solid
+   bar is always the stat NOW; a striped tip is the part it just gained, a hollow dashed
+   tip past the end of the bar is the part it gave up. Direction is that pattern plus
+   ↑ ↓ plus the signed number, so it survives a colour-blind reader and never says good or
+   bad: less Speed for more bulk is a trade. Underneath, the 66 Stat Points as one budget
+   bar per side (same track, so a re-spend keeps its length) and both Natures. */
+.bd-opt-story { display: grid; gap: 0.2rem; }
+.bd-opt-story p { margin: 0; }
+.bd-opt-story-lead { font-size: 1rem; line-height: 1.45; color: var(--text); }
+.bd-opt-story-lead b { font-family: var(--bd-mono); font-weight: 800; color: var(--text); }
+.bd-opt-amount { white-space: nowrap; }
+.bd-opt-story-detail { font-size: 0.78rem; line-height: 1.5; color: var(--soft); }
+.bd-opt-arrow { font-style: normal; font-weight: 900; color: var(--muted); }
+.bd-opt-compare .bd-opt-sp { color: var(--soft); font-weight: 650; }
+.bd-opt-compare .bd-nature-mark.up { color: #ff9a9a; }
+.bd-opt-compare .bd-nature-mark.down { color: #9ec9ff; }
+
+.bd-opt-shape,
+.bd-opt-once,
+.bd-opt-budget,
+.bd-opt-natures {
+  min-width: 0;
+  padding: 0.5rem 0.55rem;
   border: 1px solid var(--bd-line);
-  border-radius: 999px;
-  background: rgba(148, 163, 184, 0.08);
-  font-size: 0.74rem;
+  border-radius: 10px;
+  background: rgba(5, 13, 8, 0.45);
+}
+.bd-opt-shape { display: grid; gap: 0.1rem; }
+.bd-opt-shape-head,
+.bd-opt-srow {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr) 6.6rem 4.1rem;
+  gap: 0.55rem;
+  align-items: center;
+}
+.bd-opt-shape-head { padding: 0 0.3rem 0.32rem; border-bottom: 1px solid var(--bd-line); }
+.bd-opt-shape-head span {
+  font-family: var(--bd-mono);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
-.bd-opt-shift-chip-label { font-family: var(--bd-mono); font-size: 0.68rem; font-weight: 800; color: var(--soft); }
-.bd-opt-shift-chip b { font-family: var(--bd-mono); font-size: 0.78rem; color: var(--text); font-variant-numeric: tabular-nums; }
-.bd-opt-shift-chip.nature b { font-size: 0.74rem; }
-.bd-opt-arrow { font-style: normal; font-weight: 900; color: var(--muted); }
+.bd-opt-shape-head span:nth-child(3),
+.bd-opt-shape-head span:nth-child(4) { text-align: right; }
+.bd-opt-srow { padding: 0.3rem; border-radius: 7px; }
+.bd-opt-srow.changed { background: rgba(148, 163, 184, 0.09); }
+.bd-opt-srow-stat { font-family: var(--bd-mono); font-size: 0.76rem; font-weight: 800; color: var(--soft); }
+.bd-opt-srow.changed .bd-opt-srow-stat { color: var(--text); }
+/* An unchanged stat prints its numbers once: "was" would be the same numbers again. */
+.bd-opt-srow.same .bd-opt-vals small { display: none; }
 
-.bd-opt-table th,
-.bd-opt-table td { white-space: nowrap; }
-.bd-opt-table tbody td { font-size: 0.78rem; }
-.bd-opt-table tbody tr.changed th,
-.bd-opt-table tbody tr.changed td { background: rgba(148, 163, 184, 0.1) !important; }
-.bd-opt-table tbody tr.changed th { border-left: 2px solid var(--bd-line-strong) !important; color: var(--text); font-weight: 800; }
-.bd-opt-table tbody tr.changed td { color: var(--text); }
-/* The same 2px on the quiet rows, so the stat labels stay in one line. */
-.bd-opt-table tbody tr.same th { border-left: 2px solid transparent !important; }
-.bd-opt-table tbody tr.same th,
-.bd-opt-table tbody tr.same td { color: var(--soft); }
-.bd-opt-table tbody tr.same b { color: var(--soft); font-weight: 650; }
-.bd-opt-table tr.bd-opt-total th,
-.bd-opt-table tr.bd-opt-total td { border-top: 1px solid var(--bd-line) !important; }
-.bd-opt-table .bd-opt-sp { color: var(--soft); }
-.bd-opt-table-wrap { overflow-x: auto; }
-.bd-opt-table-note { margin: 0; }
-.bd-opt-table td.bd-opt-nature { white-space: normal; line-height: 1.2; }
-.bd-opt-table td.bd-opt-nature b { font-size: 0.78rem; }
-.bd-opt-table td.bd-opt-nature small { display: block; font-size: 0.66rem; color: var(--soft); }
-.bd-opt-table b { font-family: var(--bd-mono); }
-.bd-opt-table .bd-nature-mark.up { color: #ff9a9a; }
-.bd-opt-table .bd-nature-mark.down { color: #9ec9ff; }
+.bd-opt-track {
+  position: relative;
+  display: block;
+  height: 15px;
+  border-radius: 3px;
+  background: rgba(148, 163, 184, 0.1);
+}
+.bd-opt-track i { position: absolute; top: 0; bottom: 0; left: 0; border-radius: 3px; }
+.bd-opt-now { background: rgba(203, 227, 214, 0.42); }
+.bd-opt-srow.changed .bd-opt-now { background: rgba(214, 240, 226, 0.78); }
+/* What it gained: still ink, still part of the bar, with a lighter stripe over it and a
+   hard edge where the stat used to stop. */
+.bd-opt-gain {
+  min-width: 3px;
+  border-left: 1px solid rgba(4, 18, 10, 0.9);
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0 3px, rgba(255, 255, 255, 0) 3px 6px);
+}
+/* What it gave up: no ink at all past the end of the bar, only the outline of where the
+   stat used to reach. Ink against no ink is the direction, before any colour is. */
+.bd-opt-loss {
+  min-width: 3px;
+  border: 1px dashed rgba(214, 240, 226, 0.6);
+  background: transparent;
+}
 
-.bd-opt-change-cell { white-space: nowrap; }
+.bd-opt-vals { display: grid; gap: 0; justify-items: end; text-align: right; line-height: 1.3; min-width: 0; }
+.bd-opt-vals b { font-family: var(--bd-mono); font-size: 0.76rem; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bd-opt-vals small { font-family: var(--bd-mono); font-size: 0.66rem; color: var(--soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bd-opt-srow.same .bd-opt-vals b { color: var(--soft); font-weight: 650; }
+.bd-opt-d { justify-self: end; text-align: right; white-space: nowrap; }
 .bd-opt-shift {
   display: inline-flex;
   align-items: baseline;
-  gap: 0.1rem;
+  gap: 0.12rem;
   font-family: var(--bd-mono);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: var(--text);
   font-variant-numeric: tabular-nums;
 }
 .bd-opt-shift.same { font-size: 0.7rem; font-weight: 650; color: var(--soft); }
-.bd-opt-shift.new {
-  padding: 0.04rem 0.4rem;
-  border: 1px solid var(--bd-line-strong);
-  border-radius: 6px;
-  font-size: 0.7rem;
-}
-.bd-opt-bar {
+
+/* The 66 Stat Points, and the Nature. What produced the shape above. */
+.bd-opt-ledger { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 0.5rem 0.7rem; align-items: start; }
+.bd-opt-budget,
+.bd-opt-natures { display: grid; gap: 0.32rem; align-content: start; }
+.bd-opt-budget .bd-field-label,
+.bd-opt-natures .bd-field-label { margin: 0; }
+.bd-opt-budget-row { display: grid; grid-template-columns: 4.4rem minmax(0, 1fr) 3rem; gap: 0.45rem; align-items: center; }
+.bd-opt-budget-key { font-family: var(--bd-mono); font-size: 0.64rem; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; color: var(--soft); }
+.bd-opt-budget-track {
   position: relative;
-  display: block;
-  width: 46px;
-  height: 5px;
-  margin: 0.16rem auto 0;
+  display: flex;
+  height: 16px;
   border-radius: 3px;
-  background: rgba(148, 163, 184, 0.16);
+  background: rgba(148, 163, 184, 0.1);
+  overflow: hidden;
 }
-.bd-opt-bar::before { content: ""; position: absolute; left: 50%; top: -1px; bottom: -1px; width: 1px; background: var(--bd-line-strong); }
-.bd-opt-bar i { position: absolute; top: 0; bottom: 0; min-width: 2px; border-radius: 3px; background: var(--muted); }
-.bd-opt-bar.up i { left: 50%; }
-.bd-opt-bar.down i { right: 50%; }
+/* Stat order is the same on both bars, so the nth block is the same stat: a block that
+   shrinks on one and grows on the other is the Stat Points that moved. Two shades, no
+   hue: none of these six is the "good" one. */
+.bd-opt-budget-seg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3px;
+  border-right: 1px solid rgba(5, 13, 8, 0.85);
+  background: rgba(214, 240, 226, calc(0.95 - var(--i) * 0.08));
+  overflow: hidden;
+}
+.bd-opt-budget-seg span { font-family: var(--bd-mono); font-size: 0.6rem; font-weight: 800; color: #04120a; white-space: nowrap; }
+.bd-opt-budget-free {
+  min-width: 3px;
+  border: 1px dashed rgba(214, 240, 226, 0.45);
+  background-image: repeating-linear-gradient(135deg, rgba(214, 240, 226, 0.16) 0 3px, rgba(214, 240, 226, 0) 3px 6px);
+}
+/* Only drawn when a pasted set spends more than the 66 a legal set may spend. */
+.bd-opt-budget-cap { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--bd-mid); }
+.bd-opt-budget-total { font-family: var(--bd-mono); font-size: 0.7rem; color: var(--soft); text-align: right; white-space: nowrap; }
+.bd-opt-budget-total b { font-size: 0.8rem; color: var(--text); }
+
+.bd-opt-nature-swap { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; }
+.bd-opt-nature-side {
+  display: grid;
+  gap: 0.02rem;
+  padding: 0.22rem 0.5rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 8px;
+  background: rgba(148, 163, 184, 0.07);
+}
+.bd-opt-nature-side.now { border-color: var(--bd-line-strong); background: rgba(148, 163, 184, 0.15); }
+.bd-opt-nature-side b { font-family: var(--bd-mono); font-size: 0.8rem; color: var(--text); }
+.bd-opt-nature-side.was b { color: var(--soft); }
+.bd-opt-nature-side small { font-size: 0.66rem; color: var(--soft); white-space: nowrap; }
+.bd-opt-nature-to { font-style: normal; font-weight: 900; color: var(--muted); }
+.bd-opt-natures > small { margin: 0; }
+
+/* The spread printed once, for a set whose Nature and Stat Points do not change. */
+.bd-opt-once { display: grid; gap: 0.42rem; }
+.bd-opt-once-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.5rem; }
+.bd-opt-once-head b { font-family: var(--bd-mono); font-size: 0.84rem; color: var(--text); }
+.bd-opt-once-head small { font-size: 0.68rem; color: var(--soft); }
+.bd-opt-once-total { margin-left: auto; font-family: var(--bd-mono); font-size: 0.7rem; color: var(--soft); white-space: nowrap; }
+.bd-opt-once-total b { font-size: 0.78rem; color: var(--text); }
+.bd-opt-once-stats { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.bd-opt-once-stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  padding: 0.14rem 0.5rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.07);
+  font-family: var(--bd-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--text);
+  white-space: nowrap;
+}
+.bd-opt-once-key { font-size: 0.64rem; color: var(--soft); }
+.bd-opt-shape-note { margin: 0; }
+
 .bd-opt-moves-compare { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.5rem 1rem; }
+.bd-opt-moves-compare.one { grid-template-columns: minmax(0, 1fr); }
 .bd-opt-moves-compare > div { display: grid; gap: 0.25rem; align-content: start; min-width: 0; }
 .bd-opt-moves-compare .bd-field-label { margin: 0; }
 
@@ -264,24 +370,48 @@ button.bd-opt-move:hover { border-color: var(--bd-line-strong); }
 .bd-opt-trade p { margin: 0; font-size: 0.78rem; line-height: 1.45; }
 .bd-opt-trade button { justify-self: start; }
 .bd-opt-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem; }
-.bd-opt-actions-note { flex-basis: 100%; margin: 0; }
 
 @media (max-width: 640px) {
   .bd-opt-options,
+  .bd-opt-ledger,
   .bd-opt-speed-cols,
   .bd-opt-moves-compare { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* On a phone the bar takes the whole row and the numbers sit above it, so the track
+   still has the width the shape needs. */
+@media (max-width: 560px) {
+  .bd-opt-shape-head { display: none; }
+  .bd-opt-srow {
+    grid-template-columns: 2.4rem minmax(0, 1fr) auto;
+    grid-template-areas: "stat vals delta" "track track track";
+    gap: 0.18rem 0.45rem;
+    padding: 0.32rem 0.35rem 0.38rem;
+  }
+  .bd-opt-srow-stat { grid-area: stat; }
+  .bd-opt-vals { grid-area: vals; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.45rem; justify-items: start; text-align: left; }
+  .bd-opt-d { grid-area: delta; }
+  .bd-opt-track { grid-area: track; }
+  .bd-opt-budget-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "key total" "track track";
+    gap: 0.16rem 0.45rem;
+  }
+  .bd-opt-budget-key { grid-area: key; }
+  .bd-opt-budget-total { grid-area: total; }
+  .bd-opt-budget-track { grid-area: track; }
 }
 
 @media (max-width: 420px) {
   .bd-opt-member { padding: 0.55rem 0.5rem; }
   .bd-opt-head { grid-template-columns: 34px minmax(0, 1fr) auto; gap: 0.45rem; }
   .bd-opt-head-sprite { width: 34px; height: 34px; }
-  .bd-opt-table th,
-  .bd-opt-table td { padding-inline: 0.12rem; font-size: 0.72rem; }
-  .bd-opt-shift { font-size: 0.72rem; }
-  .bd-opt-bar { width: 34px; }
-  .bd-opt-shift-chip { padding: 0.12rem 0.42rem; font-size: 0.72rem; }
-  .bd-opt-shift-chip b { font-size: 0.74rem; }
+  .bd-opt-shape,
+  .bd-opt-once,
+  .bd-opt-budget,
+  .bd-opt-natures { padding: 0.45rem 0.4rem; }
+  .bd-opt-shift { font-size: 0.74rem; }
+  .bd-opt-vals b { font-size: 0.74rem; }
   .bd-opt-change { grid-template-columns: 24px minmax(0, 1fr) auto; gap: 0.4rem; padding: 0.35rem 0.45rem; }
   .bd-opt-change-sprite { width: 24px; height: 24px; }
   .bd-opt-move-options li { grid-template-columns: minmax(0, 1fr) auto; }

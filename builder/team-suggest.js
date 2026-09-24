@@ -191,21 +191,59 @@ function archetypeSpeedControlFit(archetype, moves, trSetters, twSetters) {
 // +22 however many setters the team already had (the Tailwind branch above it damps to +4
 // at one setter; that damping was never applied back). Two stages fix it:
 //
-//   stage one   the archetype reward is damped by what the team already has, and speed fit
-//               points the way the team's plan points (a Trick Room team wants slow);
+//   stage one   the archetype reward is damped by what the team already has, the same move
+//               is not charged a second time by the coverage layer, and speed fit points
+//               the way the team's plan points (a Trick Room team wants slow);
 //   stage two   the best 40 candidates are measured against the team's 8 worst threats with
 //               the engine the Team Evaluation uses, and three calc-backed terms decide the
 //               order: what it answers, what it covers that the team has nothing for, and
 //               what removes it first.
 //
+// Version 3 answers the owner's second report ("the suggestions still show just Trick Room
+// users"). Version 2 damped `archetypeSpeedControlFit` and stopped there, and the archetype's
+// requirement list *is* the speed plan: on a Trick Room team one requirement is "Trick Room
+// setters, at least 2, critical", so up to version 2 `v429` paid a carrier for closing it --
+// +14.75, undamped, more than the damped speed plan itself (of which a flat +5 was simply for
+// closing a critical requirement, identical for every carrier).
+// Measured on Indeedee-F / Milotic / Sylveon / Rillaboom (one setter, one open slot): 20 of
+// the stage-one top 20 carried Trick Room, seven tied at exactly 90.9 against 74.9 for the
+// best Pokémon that did not, and 12 of the 14 shown rows still carried it after the calcs --
+// five of those answering none of the team's eight worst threats.
+//
 // Plain Suggestions only: Auto Build has its own archetype machinery and keeps the weights
 // it was tuned with, so its recorded runs still replay.
 
 /** The rule version production runs; a recording stamps it as `rules.suggestion_scoring`. */
-export const SUGGESTION_SCORING = 2;
+export const SUGGESTION_SCORING = 3;
 
-/** What another Trick Room carrier is worth once the plan has 0 / 1 / 2+ setters. */
-const TRICK_ROOM_BY_SETTERS = [22, 12, 2];
+/**
+ * What another Trick Room carrier is worth once the plan has 0 / 1 / 2+ setters, per rule
+ * version. **Every version the app has ever stamped is kept here.** A stamp selects behaviour,
+ * not just on or off: a recording stamped 2 replays exactly as version 2 scored it, one
+ * stamped 3 as version 3, and an unstamped one with the rule off entirely - the same contract
+ * the guaranteed-move, Nature-pairing and terrain-seed rules follow.
+ *
+ * Version 3's floor is zero, not a token: once the plan runs, carrying the move is worth
+ * nothing extra and what the Pokémon does decides the ranking. At one setter the plan does
+ * want a second, but roughly a tenth of the pool can supply it, so the credit stays under the
+ * span the calcs move (±18).
+ */
+const TRICK_ROOM_BY_SETTERS_BY_RULE = { 2: [22, 12, 2], 3: [22, 10, 0] };
+/** `archetypeSpeedControlFit`'s own flat reward, which no version changes. */
+const FLAT_TRICK_ROOM_REWARD = 22;
+/** The version that stopped the coverage layer charging for the same move twice. */
+const COVERAGE_CORRECTION_FROM_RULE = 3;
+/**
+ * The archetype requirement labels the damped speed-plan term above already prices, so the
+ * coverage layer must not pay for them again. Nothing else is touched: the weather setter
+ * requirements are paid by `payoff`, and "Speed-control users" is a role, not one move.
+ */
+const SPEED_PLAN_REQUIREMENT = { "trick room": "trick room setters", tailwind: "tailwind setters" };
+const COVERAGE_WEIGHT = 52; // v429: coverage delta -> score
+const COVERAGE_CRITICAL_FIXED = 5; // v429: flat, for closing a critical requirement
+const COVERAGE_CRITICAL_WORSENED = 8;
+const COVERAGE_SPAN = 30; // v429 clamps its own adjustment to ±30
+const CRITICAL_WEIGHT = 2.4; // v429: a critical requirement weighs 2.4
 const SPEED_CONTROL_CREDIT = 24;
 const SPEED_CONTROL_CREDIT_ALREADY_PAID = 8;
 const PRIORITY_CREDIT = 10;
@@ -241,10 +279,21 @@ export function suggestionScoringOption(value) {
   return SUGGESTION_SCORING;
 }
 
+/**
+ * suggestion_scoring_v511.rule_table: the damping table the given version scored with. An
+ * unknown (newer) version uses production's, so a recording from a build ahead of this one is
+ * replayed on the newest weights rather than refused.
+ */
+export function ruleTable(rule) {
+  const version = Math.trunc(Number(rule) || 0) || SUGGESTION_SCORING;
+  return TRICK_ROOM_BY_SETTERS_BY_RULE[version] || TRICK_ROOM_BY_SETTERS_BY_RULE[SUGGESTION_SCORING];
+}
+
 /** suggestion_scoring_v511.trick_room_reward */
-export function trickRoomReward(setters) {
-  const index = Math.max(0, Math.min(TRICK_ROOM_BY_SETTERS.length - 1, Math.trunc(Number(setters) || 0)));
-  return TRICK_ROOM_BY_SETTERS[index];
+export function trickRoomReward(setters, rule) {
+  const table = ruleTable(rule);
+  const index = Math.max(0, Math.min(table.length - 1, Math.trunc(Number(setters) || 0)));
+  return table[index];
 }
 
 /**
@@ -254,18 +303,88 @@ export function trickRoomReward(setters) {
  * was never the complaint.
  * @returns {[number, string]} the adjustment and the reason line that replaces the old one
  */
-export function dampedSpeedPlan(fit, archetype, trickRoomSetters) {
+export function dampedSpeedPlan(fit, archetype, trickRoomSetters, rule) {
   const adjustment = Number(fit?.adjustment) || 0;
   const reason = String(fit?.reason || "");
   if (String(archetype || "").trim().toLowerCase() !== "trick room") return [adjustment, reason];
   if (!fit?.has_trick_room) return [adjustment, reason];
   const setters = Math.trunc(Number(trickRoomSetters) || 0);
-  const damped = adjustment - TRICK_ROOM_BY_SETTERS[0] + trickRoomReward(setters);
+  const reward = trickRoomReward(setters, rule);
+  const damped = adjustment - FLAT_TRICK_ROOM_REWARD + reward;
   if (setters >= 2) {
-    return [damped, "The team already sets Trick Room, so another setter adds little to the speed plan; what it does against the threats decides this."];
+    // Version 2 paid a token +2 here and said so; version 3 pays nothing.
+    const adds = reward <= 0 ? "nothing" : "little";
+    return [damped, `The team already sets Trick Room, so another setter adds ${adds} to the speed plan; what it does against the threats decides this.`];
   }
   if (setters === 1) return [damped, "A second Trick Room setter makes the speed plan reliable."];
   return [damped, "Trick Room reinforces the team's primary speed plan."];
+}
+
+/** suggestion_scoring_v511.speed_plan_requirement */
+export function speedPlanRequirement(archetype) {
+  return SPEED_PLAN_REQUIREMENT[String(archetype || "").trim().toLowerCase()] || "";
+}
+
+const requirementLabel = (req) => String(req?.label || "requirement").trim().replace(/\s+/g, " ").toLowerCase();
+const requirementWeight = (req) => (req?.critical ? CRITICAL_WEIGHT : 1);
+
+/**
+ * suggestion_scoring_v511.coverage_adjustment: `v429`'s own arithmetic re-derived from the
+ * two requirement lists the row already carries, so the correction below is a difference
+ * rather than a guess. `hold` is a requirement label whose *improvement* is withheld, having
+ * been paid for once already; a worsening still counts, because swapping away a setter the
+ * plan needs really does cost the team something.
+ * @param {(req: object) => number} ratioOf  `requirementRatio`
+ */
+export function coverageAdjustment(beforeRequirements, afterRequirements, ratioOf, hold = "") {
+  const indexed = (list) => new Map((list || []).filter((r) => r && typeof r === "object").map((r) => [requirementLabel(r), r]));
+  const before = indexed(beforeRequirements);
+  const after = indexed(afterRequirements);
+  // Each side is divided by its own total, the way `archetypeCoverage` does it: adding a
+  // Pokémon can move the team into a different archetype, and then the two requirement lists
+  // are not the same list.
+  const sum = (map) => [...map.values()].reduce((acc, req) => acc + requirementWeight(req), 0) || 1;
+  const totalBefore = sum(before);
+  const totalAfter = sum(after);
+  const held = String(hold || "").trim().replace(/\s+/g, " ").toLowerCase();
+  let coveredBefore = 0;
+  let coveredAfter = 0;
+  let criticalFixed = 0;
+  let criticalWorsened = 0;
+  for (const label of [...new Set([...before.keys(), ...after.keys()])].sort()) {
+    const b = before.get(label) || null;
+    const a = after.get(label) || null;
+    const br = b ? Number(ratioOf(b)) || 0 : 0;
+    const ar = a ? Number(ratioOf(a)) || 0 : 0;
+    const withhold = Boolean(held) && label === held && ar > br;
+    if (b) coveredBefore += br * requirementWeight(b);
+    if (a) coveredAfter += (withhold ? br : ar) * requirementWeight(a);
+    if (withhold) continue;
+    const subject = a || b || {};
+    if (ar > br + 0.001) {
+      if (subject.critical && !b?.met && a?.met) criticalFixed += 1;
+    } else if (ar + 0.001 < br) {
+      if (subject.critical) criticalWorsened += 1;
+    }
+  }
+  const delta = coveredAfter / totalAfter - coveredBefore / totalBefore;
+  const raw = delta * COVERAGE_WEIGHT + criticalFixed * COVERAGE_CRITICAL_FIXED - criticalWorsened * COVERAGE_CRITICAL_WORSENED;
+  return Math.max(-COVERAGE_SPAN, Math.min(COVERAGE_SPAN, raw));
+}
+
+/**
+ * suggestion_scoring_v511.archetype_move_double_payment: what the coverage layer paid for the
+ * move the speed-plan term already paid for, as the correction to apply (≤ 0). Zero when the
+ * archetype has no move-shaped requirement, or the candidate did not improve it.
+ */
+export function archetypeMoveDoublePayment(beforeRequirements, afterRequirements, ratioOf, archetype, rule) {
+  // Version 2 left that payment in place, and a recording stamped 2 replays as version 2.
+  if ((Math.trunc(Number(rule) || 0) || SUGGESTION_SCORING) < COVERAGE_CORRECTION_FROM_RULE) return 0;
+  const label = speedPlanRequirement(archetype);
+  if (!label) return 0;
+  const plain = coverageAdjustment(beforeRequirements, afterRequirements, ratioOf);
+  const held = coverageAdjustment(beforeRequirements, afterRequirements, ratioOf, label);
+  return Math.min(0, held - plain);
 }
 
 /**
@@ -1749,11 +1868,34 @@ export class TeamSuggestions {
   }
 
   /**
+   * `_coverage_correction`: (correction, requirement label) for the archetype move charged
+   * twice. Reads the two archetype-fit check rows the candidate already carries, so no check
+   * is recomputed and a row that never had them is left alone.
+   * @returns {[number, string]}
+   */
+  archetypeMoveCorrection(row, archetype) {
+    const label = speedPlanRequirement(archetype);
+    if (!label) return [0, ""];
+    const beforeRow = this.archetypeRow(row._before_check_rows);
+    const afterRow = this.archetypeRow(row._after_check_rows);
+    if (!beforeRow || !afterRow) return [0, ""];
+    const after = afterRow.archetype_requirements_v403 || [];
+    const correction = archetypeMoveDoublePayment(
+      beforeRow.archetype_requirements_v403 || [], after,
+      (req) => this.requirementRatio(req), archetype, this.suggestionScoring,
+    );
+    if (correction >= -1e-9) return [0, ""];
+    const named = after.find((req) => requirementLabel(req) === label);
+    return [correction, String(named?.label || label)];
+  }
+
+  /**
    * V511 stage one (`_rescore_stage_one`): applied after every existing layer, so the numbers
    * it corrects are the ones the row ends the chain with.
    *
-   *   (a) the archetype speed plan, damped by the setters the team already has;
-   *   (b) speed fit pointed the way the team's plan points.
+   *   (a)  the archetype speed plan, damped by the setters the team already has;
+   *   (a2) and the coverage layer not charging for that same move a second time;
+   *   (b)  speed fit pointed the way the team's plan points.
    *
    * Every conflict penalty, the Tailwind branch and the fast-control credit are untouched.
    */
@@ -1767,7 +1909,7 @@ export class TeamSuggestions {
 
     // (a) the archetype is one term among several, not the whole ranking.
     const fit = archetypeSpeedControlFit(archetype, row.moves?.length ? row.moves : row.candidate_entry.moves, trSetters, twSetters);
-    const [after, reason] = dampedSpeedPlan(fit, archetype, trSetters);
+    const [after, reason] = dampedSpeedPlan(fit, archetype, trSetters, this.suggestionScoring);
     if (Math.abs(after - fit.adjustment) > 1e-9) {
       score += after - fit.adjustment;
       // `conditionalValue` (and the payoff) write this flag when they strip a Trick Room the
@@ -1781,6 +1923,23 @@ export class TeamSuggestions {
       if (reason) severities[reason.toLowerCase()] = after > 0 ? "good" : "yellow";
       row._v104_detail_severities = severities;
       pieces.push({ key: "speed_plan_v511", label: "Fits the speed plan", delta: r1(after - fit.adjustment), raw: r1(after - fit.adjustment), detail: reason });
+    }
+
+    // (a2) and the coverage layer does not charge for that same move a second time.
+    // `archetype_component_v429` is the projected team's real coverage and is left alone:
+    // the team would genuinely hold those setters. What changes is only what the candidate
+    // is *paid* for holding the move.
+    const [correction, requirement] = this.archetypeMoveCorrection(row, archetype);
+    if (correction < -1e-9) {
+      score += correction;
+      row.archetype_move_double_payment_v511 = r2(correction);
+      pieces.push({
+        key: "archetype_double_v511",
+        label: "Archetype fit, minus the speed plan",
+        delta: r1(correction),
+        raw: r1(correction),
+        detail: `The archetype's "${requirement}" requirement is the speed plan above, so closing it is not paid for twice.`,
+      });
     }
 
     // (b) a Trick Room team wants the slow half of the speed tiers, and a candidate whose only

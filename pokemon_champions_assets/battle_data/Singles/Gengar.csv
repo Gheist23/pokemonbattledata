@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gengar,35,move,1,Shadow Ball,85.7%,,,,,,,,
-Gengar,35,move,2,Sludge Wave,68.7%,,,,,,,,
-Gengar,35,move,3,Destiny Bond,62.3%,,,,,,,,
-Gengar,35,move,4,Protect,42.3%,,,,,,,,
-Gengar,35,move,5,Icy Wind,30.8%,,,,,,,,
+Gengar,35,move,1,Shadow Ball,85.8%,,,,,,,,
+Gengar,35,move,2,Sludge Wave,68.6%,,,,,,,,
+Gengar,35,move,3,Destiny Bond,62.2%,,,,,,,,
+Gengar,35,move,4,Protect,42.2%,,,,,,,,
+Gengar,35,move,5,Icy Wind,31.0%,,,,,,,,
 Gengar,35,move,6,Perish Song,25.3%,,,,,,,,
-Gengar,35,move,7,Hex,10.3%,,,,,,,,
-Gengar,35,move,8,Focus Blast,9.9%,,,,,,,,
-Gengar,35,move,9,Will-O-Wisp,9.1%,,,,,,,,
-Gengar,35,move,10,Sludge Bomb,9.0%,,,,,,,,
+Gengar,35,move,7,Hex,10.2%,,,,,,,,
+Gengar,35,move,8,Focus Blast,10.0%,,,,,,,,
+Gengar,35,move,9,Sludge Bomb,9.0%,,,,,,,,
+Gengar,35,move,10,Will-O-Wisp,9.0%,,,,,,,,
 Gengar,35,held_item,1,Gengarite,73.3%,,,,,,,,
-Gengar,35,held_item,2,Focus Sash,22.1%,,,,,,,,
+Gengar,35,held_item,2,Focus Sash,22.0%,,,,,,,,
 Gengar,35,held_item,3,Choice Scarf,1.5%,,,,,,,,
 Gengar,35,held_item,4,Life Orb,0.7%,,,,,,,,
 Gengar,35,held_item,5,Air Balloon,0.5%,,,,,,,,
-Gengar,35,held_item,6,Quick Claw,0.4%,,,,,,,,
+Gengar,35,held_item,6,Quick Claw,0.5%,,,,,,,,
 Gengar,35,held_item,7,Wide Lens,0.3%,,,,,,,,
 Gengar,35,held_item,8,Spell Tag,0.1%,,,,,,,,
 Gengar,35,held_item,9,Expert Belt,0.1%,,,,,,,,
@@ -25,14 +25,14 @@ Gengar,35,teammate,3,Salamence,,,,,,,,,
 Gengar,35,teammate,4,Corviknight,,,,,,,,,
 Gengar,35,teammate,5,Archaludon,,,,,,,,,
 Gengar,35,teammate,6,Golisopod,,,,,,,,,
-Gengar,35,teammate,7,Hippowdon,,,,,,,,,
-Gengar,35,teammate,8,Baxcalibur,,,,,,,,,
-Gengar,35,teammate,9,Meowscarada,,,,,,,,,
-Gengar,35,teammate,10,Mimikyu,,,,,,,,,
-Gengar,35,stat_alignment,1,Timid,85.8%,Speed,Attack,,,,,,
-Gengar,35,stat_alignment,2,Modest,11.4%,Sp. Atk,Attack,,,,,,
-Gengar,35,stat_alignment,3,Bold,0.7%,Defense,Attack,,,,,,
-Gengar,35,stat_alignment,4,Hasty,0.7%,Speed,Defense,,,,,,
+Gengar,35,teammate,7,Baxcalibur,,,,,,,,,
+Gengar,35,teammate,8,Hippowdon,,,,,,,,,
+Gengar,35,teammate,9,Mimikyu,,,,,,,,,
+Gengar,35,teammate,10,Meowscarada,,,,,,,,,
+Gengar,35,stat_alignment,1,Timid,85.9%,Speed,Attack,,,,,,
+Gengar,35,stat_alignment,2,Modest,11.3%,Sp. Atk,Attack,,,,,,
+Gengar,35,stat_alignment,3,Bold,0.8%,Defense,Attack,,,,,,
+Gengar,35,stat_alignment,4,Hasty,0.8%,Speed,Defense,,,,,,
 Gengar,35,stat_alignment,5,Naive,0.5%,Speed,Sp. Def,,,,,,
 Gengar,35,stat_alignment,6,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Gengar,35,stat_alignment,7,Calm,0.2%,Sp. Def,Attack,,,,,,
@@ -41,12 +41,12 @@ Gengar,35,stat_alignment,9,Jolly,0.1%,Speed,Sp. Atk,,,,,,
 Gengar,35,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
 Gengar,35,stat_points,1,,44.1%,,,2,0,0,32,0,32
 Gengar,35,stat_points,2,,6.4%,,,14,0,0,20,0,32
-Gengar,35,stat_points,3,,6.0%,,,32,0,0,2,0,32
-Gengar,35,stat_points,4,,3.9%,,,0,0,2,32,0,32
-Gengar,35,stat_points,5,,2.6%,,,16,0,2,16,0,32
+Gengar,35,stat_points,3,,5.8%,,,32,0,0,2,0,32
+Gengar,35,stat_points,4,,3.8%,,,0,0,2,32,0,32
+Gengar,35,stat_points,5,,2.8%,,,16,0,2,16,0,32
 Gengar,35,stat_points,6,,2.4%,,,0,0,0,32,2,32
 Gengar,35,stat_points,7,,2.2%,,,12,0,0,22,0,32
 Gengar,35,stat_points,8,,2.1%,,,32,0,2,0,0,32
-Gengar,35,stat_points,9,,2.0%,,,18,0,0,13,3,32
+Gengar,35,stat_points,9,,1.9%,,,18,0,0,13,3,32
 Gengar,35,stat_points,10,,1.9%,,,24,0,0,10,0,32
 Gengar,35,ability,1,Cursed Body,100.0%,,,,,,,,

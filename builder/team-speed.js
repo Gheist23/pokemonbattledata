@@ -13,6 +13,8 @@
 //   v465  a real Trick Room team is scored under its own Trick Room
 //   V494  that Trick Room score is the measured coverage, gated by setter reliability -
 //         no flat points for owning the setters or for being slow
+//   V512  that measured number is one of three parts again: a Trick Room team keeps
+//         Standard Speed and Opposing Speed Control beside it
 //   team_strategy  Trick Room scoring only when slow attackers back it up; a
 //         redundant setter costs 8
 // The payload then scales the score by active slots / 6 (v47).
@@ -68,6 +70,18 @@ const V358_FIELD_SETTER_MOVES = {
   "rain dance": "Rain", "sunny day": "Sun", sandstorm: "Sand", snowscape: "Snow", "chilly reception": "Snow", "electric terrain": "Electric Terrain",
 };
 const PARALYSIS_MOVES = new Set(["Thunder Wave", "Nuzzle", "Glare", "Stun Spore"]);
+
+/**
+ * V512, `score_composition_v512.TRICK_ROOM_WEIGHTS`: [trick_room, opposing_tailwind, standard].
+ *
+ * The general path finishes with `standard * 0.46 + opposing_tailwind * 0.27 + trick_room * 0.27`
+ * (v67 and v358). These are the same three weights with the leading slot given to the axis the
+ * team actually plays, so neither path is the more generous one - only the order changes. It is
+ * also the answer to "a Trick Room team must not be punished for being slow": the general path
+ * would charge it 0.46 for a Standard Speed it has deliberately not built, and here that is 0.27
+ * while the number it has built carries 0.46.
+ */
+export const TRICK_ROOM_WEIGHTS = [0.46, 0.27, 0.27];
 
 /**
  * team_evaluation_v465.trick_room_speed_metrics, as V494 left it
@@ -492,34 +506,54 @@ export class TeamSpeed {
     return this.v358(speed, team);
   }
 
+  /** v465's repeated-label clean-up, over the four line lists in its order. */
+  static dedupeLines(speed) {
+    const seen = new Set();
+    for (const k of ["trick_lines", "tailwind_lines", "standard_lines", "priority_lines"]) {
+      const unique = [];
+      for (const line of speed[k] || []) {
+        const n = String(line ?? "").trim().toLowerCase();
+        if (!n || seen.has(n)) continue;
+        seen.add(n);
+        unique.push(String(line));
+      }
+      speed[k] = unique;
+    }
+    return speed;
+  }
+
   /** v465: a Trick Room archetype is scored under its own Trick Room. */
   v465(team, { profiles, features }) {
     const speed = this.normal(team);
     const [, archetype] = classifyArchetype(features);
-    if (archetype !== "trick room") {
-      const seen = new Set();
-      for (const k of ["trick_lines", "tailwind_lines", "standard_lines", "priority_lines"]) {
-        const unique = [];
-        for (const line of speed[k] || []) {
-          const n = String(line ?? "").trim().toLowerCase();
-          if (!n || seen.has(n)) continue;
-          seen.add(n);
-          unique.push(String(line));
-        }
-        speed[k] = unique;
-      }
+    if (archetype !== "trick room") return TeamSpeed.dedupeLines(speed);
+    const setters = Number(features.trick_room_setters) || 0;
+    const ownSpeeds = profiles.filter((p) => p.has_damage || p.damage_pressure).map((p) => [String(p.name || "Pokemon"), Number(p.effective_speed ?? p.speed ?? 0) || 0]);
+    const metrics = trickRoomSpeedMetrics(ownSpeeds, this.synergy.metaSpeedRows(), setters, Number(features.slow_attackers) || 0, Number(features.team) || team.length);
+    if (!this.ev.scoreRules) {
+      // Before V512: the measured Trick Room number was the whole score, and the other
+      // three parts were written as 0 with no lines at all.
+      Object.assign(speed, {
+        score: metrics.score, trick_room: metrics.score, standard: 0.0, opposing_tailwind: 0.0, priority: 0.0,
+        trick_lines: metrics.lines, tailwind_lines: [], standard_lines: [], priority_lines: [], speed_ability_lines: [],
+        trick_users: ["Own Trick Room plan"], tailwind_users: ["Not part of Trick Room scoring"],
+        archetype_speed_mode_v465: "trick_room",
+        summary: `Trick Room archetype · ${pyG(metrics.coverage)}% of selected Top-X speed matchups favor your attackers under Trick Room · ${setters} setter(s).`,
+      });
       return speed;
     }
-    const ownSpeeds = profiles.filter((p) => p.has_damage || p.damage_pressure).map((p) => [String(p.name || "Pokemon"), Number(p.effective_speed ?? p.speed ?? 0) || 0]);
-    const metrics = trickRoomSpeedMetrics(ownSpeeds, this.synergy.metaSpeedRows(), Number(features.trick_room_setters) || 0, Number(features.slow_attackers) || 0, Number(features.team) || team.length);
+    // V512 (score_composition_v512.compose_trick_room_speed): Standard Speed and Opposing
+    // Speed Control keep the values and the lines the general path gave them; only Trick
+    // Room is replaced by V494's measured coverage, and the score is the three weighted.
+    const [trW, twW, stdW] = TRICK_ROOM_WEIGHTS;
     Object.assign(speed, {
-      score: metrics.score, trick_room: metrics.score, standard: 0.0, opposing_tailwind: 0.0, priority: 0.0,
-      trick_lines: metrics.lines, tailwind_lines: [], standard_lines: [], priority_lines: [], speed_ability_lines: [],
-      trick_users: ["Own Trick Room plan"], tailwind_users: ["Not part of Trick Room scoring"],
+      trick_room: clamp(metrics.score),
+      trick_lines: metrics.lines.map(String),
+      score: clamp(clamp(metrics.score) * trW + Number(speed.opposing_tailwind || 0) * twW + Number(speed.standard || 0) * stdW),
       archetype_speed_mode_v465: "trick_room",
-      summary: `Trick Room archetype · ${pyG(metrics.coverage)}% of selected Top-X speed matchups favor your attackers under Trick Room · ${Number(features.trick_room_setters) || 0} setter(s).`,
+      summary: `Trick Room archetype · ${pyG(metrics.coverage)}% of selected Top-X speed matchups favor your attackers under Trick Room · ${setters} setter(s). Scored as Trick Room ${pyG(trW)} · Opposing Speed Control ${pyG(twW)} · Standard Speed ${pyG(stdW)}.`,
     });
-    return speed;
+    return TeamSpeed.dedupeLines(speed);
   }
 
   /**

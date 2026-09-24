@@ -5,25 +5,34 @@
 //   node tests/run-suggest-scoring.mjs --quick    the arithmetic, the switch and the views only
 //
 // The complaint this answers, in the owner's words: on a Trick Room team the Suggestions list
-// was "every Pokemon with Trick Room". One number caused it - `archetypeSpeedControlFit` paid a
+// was "every Pokemon with Trick Room". One number started it - `archetypeSpeedControlFit` paid a
 // Trick Room carrier a flat +22 on a Trick Room team however many setters the team already had,
 // while the Tailwind branch four lines above it damps to +4 once the team has one.
+//
+// Version 3 answers the owner's second report ("the suggestions still show just Trick Room
+// users"). Damping that number was not enough, because the archetype pays for the same move
+// twice: its requirement list *is* the speed plan ("Trick Room setters, at least 2, critical"),
+// so `v429`'s coverage layer paid a carrier +14.75 more, undamped - more than the damped speed
+// plan itself - and every carrier got the identical number, so the list was carriers ranked by
+// nothing at all.
 //
 // What is checked here, and why it is not in tests/run-suggest-vectors.mjs (which replays the
 // app's own recorded answers and so can only check what was recorded):
 //
-//   1. the rule's own arithmetic - the damping table, the speed direction, the double payment,
-//      the verdicts and the sentences they are said in - against the numbers the app's module
-//      states, so the two implementations are read off the same spec;
-//   2. the switch: production is version 2, an unstamped recording replays with the rule off,
+//   1. the rule's own arithmetic - the damping table, the coverage correction, the speed
+//      direction, the double payment, the verdicts and the sentences they are said in -
+//      against the numbers the app's module states, so the two implementations are read off
+//      the same spec;
+//   2. the switch: production is version 3, an unstamped recording replays with the rule off,
 //      and "off"/"0"/"false"/"no"/"none" switch it off;
 //   3. the scope: an Auto Build calculation is never re-scored, which is what keeps
 //      run-autobuild-vectors replaying against its recording;
 //   4. the ratio the complaint was really about: the archetype can pay at most 22 points, the
 //      calcs 68, so the archetype is one term among several rather than the whole ranking;
-//   5. the measurement, on the site's own meta data and the team the complaint was about
-//      (Indeedee-F / Hatterene / Incineroar / Gholdengo, one open slot): how many of the top 20
-//      suggestions carry Trick Room with the rule off and with it on;
+//   5. the measurement, on the site's own meta data, on three real teams: the one the first
+//      report was about (Indeedee-F / Hatterene / Incineroar / Gholdengo, one open slot), the
+//      owner's own six slots full (three setters, so every suggestion is a swap), and a Trick
+//      Room team one setter short, which is the shape the fault really lived in;
 //   6. the breakdown the owner called hard to read: the three views each say what they measure
 //      and in what unit, the numbers that moved stand out, a trade is never coloured as a win,
 //      and one row shows at most one sprite.
@@ -55,19 +64,31 @@ const near = (label, got, want, tolerance = 1e-9) => ok(label, Math.abs(Number(g
 
 const suggest = await import("../builder/team-suggest.js");
 const {
-  SUGGESTION_SCORING, VERDICT_VALUE, dampedSpeedPlan, directedSpeedFit, hitsFromLabel,
+  SUGGESTION_SCORING, VERDICT_VALUE, archetypeMoveDoublePayment, coverageAdjustment,
+  dampedSpeedPlan, directedSpeedFit, hitsFromLabel, ruleTable, speedPlanRequirement,
   suggestionScoringOption, teamGapThreats, trickRoomReward, verdictFor, verdictLine, verdictSentence,
 } = suggest;
 
 // ---------------------------------------------------------------- 1. the arithmetic
 
-// The whole complaint, as arithmetic: another setter is never worth more than the first.
-eq("a Trick Room carrier is worth less once the plan runs", [0, 1, 2, 5].map(trickRoomReward), [22, 12, 2, 2]);
+// The whole complaint, as arithmetic: another setter is never worth more than the first, and
+// once the plan runs the move buys nothing at all - a carrier and a non-carrier start level.
+eq("a Trick Room carrier is worth less once the plan runs", [0, 1, 2, 5].map((n) => trickRoomReward(n)), [22, 10, 0, 0]);
+
+// A stamp selects behaviour, not just on or off: every version the app has shipped stays
+// available here, so a recording replays exactly as the build that made it scored.
+eq("version 2 is still scored the way version 2 scored", [0, 1, 2, 5].map((n) => trickRoomReward(n, 2)), [22, 12, 2, 2]);
+eq("and version 3 the way version 3 does", [0, 1, 2, 5].map((n) => trickRoomReward(n, 3)), [22, 10, 0, 0]);
+eq("left out, production's table", ruleTable(undefined), ruleTable(SUGGESTION_SCORING));
+eq("a recording from a build ahead of this one replays on the newest weights", ruleTable(99), ruleTable(SUGGESTION_SCORING));
+ok("and the reason line is the one that version said",
+  dampedSpeedPlan({ adjustment: 22, reason: "x", has_trick_room: true }, "trick room", 2, 2)[1].includes("adds little")
+  && dampedSpeedPlan({ adjustment: 22, reason: "x", has_trick_room: true }, "trick room", 2, 3)[1].includes("adds nothing"));
 
 // `archetypeSpeedControlFit` is not exported; the rule reads its answer, so the shapes it can
 // produce are written out here exactly as that function returns them.
 const fitFor = (adjustment, reason, extra = {}) => ({ conflict: false, adjustment, reason, has_trick_room: true, has_tailwind: false, ...extra });
-for (const [setters, expected] of [[0, 22], [1, 12], [2, 2], [3, 2]]) {
+for (const [setters, expected] of [[0, 22], [1, 10], [2, 0], [3, 0]]) {
   const [adjustment, reason] = dampedSpeedPlan(fitFor(22, "Trick Room reinforces the team's primary speed plan."), "trick room", setters);
   near(`the damping matches the Tailwind branch at ${setters} setter(s)`, adjustment, expected);
   ok(`the reason is said at ${setters} setter(s)`, Boolean(reason));
@@ -76,6 +97,42 @@ ok("the reason changes its tune once the plan is covered",
   dampedSpeedPlan(fitFor(22, "x"), "trick room", 2)[1].includes("already sets Trick Room"));
 ok("at one setter it says the plan becomes reliable",
   dampedSpeedPlan(fitFor(22, "x"), "trick room", 1)[1] === "A second Trick Room setter makes the speed plan reliable.");
+
+// --------------------------------------------- 1b. the same move, charged once
+//
+// The archetype's requirement list *is* the speed plan: one of the requirements `v429` scores
+// a candidate against is "Trick Room setters, at least 2, critical". Version 2 damped
+// `archetypeSpeedControlFit` and stopped there, so a carrier still collected v429's reward for
+// the same move - undamped, and more than the damped speed plan itself.
+{
+  const minimum = (label, current, target, critical = false) => ({
+    label, current, target, display: `${current}/${target}`, met: current >= target, critical,
+  });
+  const requirements = (setters, protect = 3) => [
+    minimum("Trick Room setters", setters, 2, true), minimum("Slow attackers", 4, 3),
+    minimum("Protect users", protect, 4), minimum("Spread attackers", 1, 1), minimum("Priority users", 1, 1),
+  ];
+  const ratio = (req) => (Number(req.target) > 0 ? Math.max(0, Math.min(1, Number(req.current) / Number(req.target))) : (req.met ? 1 : 0));
+
+  // one setter -> two: the critical requirement goes 0.5 -> 1.0 and weighs 2.4 of the 6.4
+  // total, so 0.5 * 2.4 / 6.4 * 52 = 9.75, plus v429's flat 5 for a critical requirement met.
+  near("the coverage arithmetic is v429's own", coverageAdjustment(requirements(1), requirements(2), ratio), 14.75, 1e-9);
+  near("holding it withholds exactly that", coverageAdjustment(requirements(1), requirements(2), ratio, "trick room setters"), 0, 1e-9);
+  near("and nothing else it brought", coverageAdjustment(requirements(1), requirements(2, 4), ratio, "trick room setters"), (0.25 / 6.4) * 52, 1e-9);
+  near("the archetype move is not charged for twice", archetypeMoveDoublePayment(requirements(1), requirements(2), ratio, "trick room"), -14.75, 1e-9);
+  ok("which was more than the damped speed plan pays at one setter", 14.75 > trickRoomReward(1));
+  // Version 2 left that payment in place, so a recording stamped 2 still gets it.
+  eq("a version 2 replay keeps the payment version 2 made", archetypeMoveDoublePayment(requirements(1), requirements(2), ratio, "trick room", 2), 0);
+  near("and a version 3 replay withholds it", archetypeMoveDoublePayment(requirements(1), requirements(2), ratio, "trick room", 3), -14.75, 1e-9);
+  // Only the reward is withheld: swapping away a setter the plan needs is a real cost.
+  near("a worsening stands", coverageAdjustment(requirements(2), requirements(1), ratio, "trick room setters"),
+    coverageAdjustment(requirements(2), requirements(1), ratio), 1e-9);
+  ok("and it really is a penalty", coverageAdjustment(requirements(2), requirements(1), ratio) < 0);
+  eq("nothing is taken from a team whose plan already runs", archetypeMoveDoublePayment(requirements(2), requirements(3), ratio, "trick room"), 0);
+  eq("an archetype whose requirements are not one move is untouched", speedPlanRequirement("balanced"), "");
+  eq("and so is its coverage", archetypeMoveDoublePayment(requirements(1), requirements(2), ratio, "balanced"), 0);
+  eq("Tailwind has the identical shape, so it gets the identical treatment", speedPlanRequirement("tailwind"), "tailwind setters");
+}
 
 // A conflict penalty is a refusal: refusing Trick Room on a fast team was always right.
 near("a Trick Room conflict on a fast team is never damped",
@@ -139,12 +196,12 @@ eq("an unmeasured row says nothing at all", verdictLine({}), "");
 
 // ------------------------------------------------------------------- 2. the switch
 
-eq("production runs version 2", SUGGESTION_SCORING, 2);
+eq("production runs version 3", SUGGESTION_SCORING, 3);
 eq("left out, the rule is on at production's version", suggestionScoringOption(undefined), SUGGESTION_SCORING);
 eq("a recording with no stamp replays with the rule off", suggestionScoringOption(null), 0);
 for (const off of ["off", "0", "false", "no", "none", ""]) eq(`"${off}" switches it off`, suggestionScoringOption(off), 0);
-eq("a version pins that version", suggestionScoringOption(2), 2);
-eq("a stamp read from JSON as a string pins it too", suggestionScoringOption("2"), 2);
+eq("a version pins that version", suggestionScoringOption(3), 3);
+eq("a stamp read from JSON as a string pins it too", suggestionScoringOption("3"), 3);
 
 // ------------------------------------------------- 4. the ratio the complaint was about
 
@@ -152,7 +209,8 @@ eq("a stamp read from JSON as a string pins it too", suggestionScoringOption("2"
   const answerSpan = 2 * 18;                       // ANSWER_SPAN, both ways
   const calcSpan = answerSpan + 18 + 14;           // + GAP_SPAN + VULNERABLE_SPAN
   ok("the archetype never pays more than the answers alone move", trickRoomReward(0) <= answerSpan);
-  ok("on a team whose plan already runs it is a token beside them", trickRoomReward(2) < 18);
+  ok("one setter short it stays under what the answers alone move", trickRoomReward(1) < 18);
+  eq("on a team whose plan already runs it pays nothing at all", trickRoomReward(2), 0);
   ok("and the calcs span at least twice the archetype's best case", calcSpan >= 2 * trickRoomReward(0), `${calcSpan}`);
 }
 
@@ -352,13 +410,28 @@ if (quick) {
   const known = new KnownTeams(read("data", "builder", "known-teams.json"));
   const ranked = (meta.pokemon || []).filter((r) => Number(r.position) < 999999).length;
 
-  // The team the complaint was about: a real Trick Room team with two setters and one open slot.
+  // The team the first report was about: a real Trick Room team with two setters and one open slot.
   const TEAM = [
     { species: "Indeedee-F", form: "Indeedee-F", item: "Psychic Seed", ability: "Psychic Surge", nature: "Sassy", moves: ["Follow Me", "Psychic", "Helping Hand", "Trick Room"], bonuses: [32, 0, 2, 0, 32, 0] },
     { species: "Hatterene", form: "Hatterene", item: "Life Orb", ability: "Magic Bounce", nature: "Quiet", moves: ["Expanding Force", "Dazzling Gleam", "Trick Room", "Protect"], bonuses: [32, 0, 2, 32, 0, 0] },
     { species: "Incineroar", form: "Incineroar", item: "Assault Vest", ability: "Intimidate", nature: "Careful", moves: ["Fake Out", "Knock Off", "Flare Blitz", "U-turn"], bonuses: [32, 0, 2, 0, 32, 0] },
     { species: "Gholdengo", form: "Gholdengo", item: "Choice Specs", ability: "Good as Gold", nature: "Quiet", moves: ["Make It Rain", "Shadow Ball", "Power Gem", "Trick"], bonuses: [32, 0, 2, 32, 0, 0] },
   ];
+  // The owner's own team when they reported it a second time: six slots full, three of them
+  // carrying Trick Room, so every suggestion is a swap rather than a fill.
+  const OWNER_TEAM = [
+    { species: "Malamar", form: "Mega Malamar", item: "Malamarite", ability: "Contrary", nature: "Relaxed", moves: ["Superpower", "Protect", "Knock Off", "Trick Room"], bonuses: [32, 32, 2, 0, 0, 0] },
+    { species: "Indeedee", form: "Indeedee Female", item: "Colbur Berry", ability: "Psychic Surge", nature: "Relaxed", moves: ["Follow Me", "Trick Room", "Helping Hand", "Psychic"], bonuses: [32, 0, 32, 0, 2, 0] },
+    { species: "Milotic", form: "Milotic", item: "Leftovers", ability: "Competitive", nature: "Modest", moves: ["Protect", "Scald", "Ice Beam", "Icy Wind"], bonuses: [32, 0, 32, 0, 2, 0] },
+    { species: "Sylveon", form: "Sylveon", item: "Fairy Feather", ability: "Pixilate", nature: "Modest", moves: ["Hyper Voice", "Hyper Beam", "Quick Attack", "Detect"], bonuses: [32, 0, 2, 32, 0, 0] },
+    { species: "Farigiraf", form: "Farigiraf", item: "Sitrus Berry", ability: "Armor Tail", nature: "Bold", moves: ["Trick Room", "Helping Hand", "Psychic", "Thunderbolt"], bonuses: [27, 0, 20, 0, 19, 0] },
+    { species: "Rillaboom", form: "Rillaboom", item: "Miracle Seed", ability: "Grassy Surge", nature: "Adamant", moves: ["Grassy Glide", "Fake Out", "Wood Hammer", "U-turn"], bonuses: [32, 32, 0, 0, 0, 2] },
+  ];
+  // The shape the complaint really lives in: a Trick Room team one setter short. Here the
+  // archetype's own requirement ("Trick Room setters, at least 2, critical") is unmet, so
+  // before version 3 the coverage layer paid every carrier +14.75 for closing it on top of
+  // the damped speed plan, and the whole list was carriers tied at one number.
+  const ONE_SETTER = [OWNER_TEAM[1], OWNER_TEAM[2], OWNER_TEAM[3], OWNER_TEAM[5]];
   const sets = Array.from({ length: 6 }, (_, i) => (TEAM[i] ? makeSet(TEAM[i]) : null));
 
   const evaluationFor = () => {
@@ -388,10 +461,25 @@ if (quick) {
     return { rows, pool, archetype: String(pool[0]?.strategy_archetype_v466 || "") };
   }
 
+  /**
+   * The rows the tab really shows for `team`, through the whole chain the page runs
+   * (`TeamSuggestions.run`): every candidate against every swap target, then the calc-backed
+   * re-rank. This is the only way to measure a full six-slot team, where a suggestion is a
+   * swap rather than a fill.
+   */
+  function shownRows(team, scoring) {
+    const evaluation = evaluationFor();
+    const payload = evaluation.evaluate(Array.from({ length: 6 }, (_, i) => (team[i] ? makeSet(team[i]) : null)), { checkSelection: null });
+    const sg = new TeamSuggestions(evaluation, { suggestionScoring: scoring });
+    const out = sg.run(payload, { selection: null });
+    const slots = (payload.slots || []).map(({ entry, mon }) => ({ entry: { ...entry, form: mon.form_name || entry.form, ability: mon.ability || entry.ability }, mon }));
+    return { ...out, setters: Number(sg.featuresFor(slots).trick_room_setters) || 0 };
+  }
+
   const carriesTrickRoom = (row) => (row.moves || []).some((m) => compact(m) === "trickroom");
   const started = Date.now();
   const before = rank(null, 20);
-  const after = rank(2, 20);
+  const after = rank(SUGGESTION_SCORING, 20);
   const seconds = Math.round((Date.now() - started) / 1000);
 
   ok("the team the complaint was about is detected as Trick Room", before.archetype === "trick room", before.archetype);
@@ -420,6 +508,36 @@ if (quick) {
   ok("a measured row carries the ledger the breakdown reads",
     after.rows.every((row) => (row.score_ledger || []).some((item) => item.key === "answers_v511")));
 
+  // ---- 5b. the owner's own six-slot team, and the shape the complaint lives in ----
+  //
+  // Six slots full is a different path: every suggestion is a swap, and the setter count the
+  // damping reads includes the Pokémon being swapped away.
+  for (const [label, team, expectations] of [
+    ["the owner's six-slot team (3 setters, swaps)", OWNER_TEAM, { maxShown: 2 }],
+    ["a Trick Room team one setter short (fills)", ONE_SETTER, { maxShown: 6, everyCarrierAnswers: true }],
+  ]) {
+    const plain = shownRows(team, null);
+    const scored = shownRows(team, SUGGESTION_SCORING);
+    const plainCarriers = plain.rows.filter(carriesTrickRoom);
+    const carriers = scored.rows.filter(carriesTrickRoom);
+    notes.push(`${label}: ${scored.setters} setters, ${scored.scanned} candidates, ${scored.targets.length} target(s)`);
+    notes.push(`  shown rows carrying Trick Room: rule off ${plainCarriers.length}/${plain.rows.length}, on ${carriers.length}/${scored.rows.length}`);
+    notes.push(`  best 6: ${scored.rows.slice(0, 6).map((r) => `${carriesTrickRoom(r) ? "[TR]" : ""}${r.name} ${r.score.toFixed(1)} (${(r.threat_answers_v511 || []).length}/${r.threats_measured_v511 || 0})`).join(", ")}`);
+    ok(`${label}: the list is no longer mostly Trick Room users`,
+      carriers.length <= expectations.maxShown, `${carriers.length}/${scored.rows.length}: ${carriers.map((r) => r.name).join(", ")}`);
+    ok(`${label}: the rule really is what moved it`,
+      plainCarriers.length > carriers.length, `off ${plainCarriers.length}, on ${carriers.length}`);
+    ok(`${label}: every shown row was measured against the worst threats`,
+      scored.rows.every((row) => Number(row.threats_measured_v511) > 0));
+    if (expectations.everyCarrierAnswers) {
+      // The owner's point: a Pokémon may be suggested for what it does, and a setter that
+      // answers nothing at all is not doing anything.
+      ok(`${label}: no shown Pokémon answers none of the eight worst threats`,
+        scored.rows.every((row) => (row.threat_answers_v511 || []).length > 0),
+        scored.rows.filter((r) => !(r.threat_answers_v511 || []).length).map((r) => r.name).join(", "));
+    }
+  }
+
   // The scope: an Auto Build calculation keeps the weights it was tuned with, which is what
   // keeps run-autobuild-vectors replaying against its recording.
   {
@@ -429,7 +547,7 @@ if (quick) {
     const teamEntries = teamSlots.map(({ entry }) => entry);
     const activeNames = teamSlots.map(({ entry, mon }) => entry.pokemon && mon ? String(mon.form_name || entry.form || entry.pokemon) : "");
     const base = { payload, teamSlots, teamEntries, activeNames, emptySlot: teamSlots.length, selection: null, swapTarget: "" };
-    const on = new TeamSuggestions(evaluation, { suggestionScoring: 2 });
+    const on = new TeamSuggestions(evaluation, { suggestionScoring: SUGGESTION_SCORING });
     const off = new TeamSuggestions(evaluation, { suggestionScoring: null });
     const carrier = on.candidates(payload, activeNames).find((m) => {
       const row = off.evaluateCandidate(structuredClone(m), { ...base, selected: off.checks.selectedIds(null) });

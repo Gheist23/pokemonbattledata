@@ -51,7 +51,8 @@ for (const testCase of cases) {
   // The pairing rule (builder/nature-spreads.js) as the recording ran it: without the
   // `paired_spreads` stamp, with the usage file's index zip.
   const stamp = testCase.record?.rules?.paired_spreads ?? testCase.rules?.paired_spreads ?? evalCase?.record?.rules?.paired_spreads ?? null;
-  const ev = new TeamEvaluator(null, engine, "Doubles", evalCase?.settings || {}, { pairedSpreads: stamp });
+  const scoreStamp = testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? evalCase?.record?.rules?.score_composition ?? null;
+  const ev = new TeamEvaluator(null, engine, "Doubles", evalCase?.settings || {}, { pairedSpreads: stamp, scoreRules: scoreStamp });
   ev.setMetaRecords(records);
   const entries = evalCase ? evalCase.record.team_mons.at(-1).mons : [];
   const sets = entries.map((m) => ({ species: m.pokemon_name, form: m.form_name, item: m.item, ability: m.ability, moves: m.moves, nature: m.nature_name, bonuses: m.bonuses }));

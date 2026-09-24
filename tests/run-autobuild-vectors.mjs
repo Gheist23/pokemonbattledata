@@ -78,6 +78,10 @@ const lacks = (sg, entry, team) => missingLocked(sg, entry, team).map((l) => `${
 /** The recording's Nature / Stat Point pairing stamp (null: recorded before the rule, replayed
  *  with the usage file's index zip). PAIRED_SPREADS=0 / =1 replays every recording either way. */
 const pairedStamp = (testCase) => testCase.record?.rules?.paired_spreads ?? testCase.rules?.paired_spreads ?? null;
+/** The V512 scoring stamp (null: recorded before the rule, replayed with it off). */
+const scoreRule = (testCase) => (process.env.SCORE_RULES === undefined
+  ? (testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? null)
+  : process.env.SCORE_RULES);
 const pairedRule = (testCase) => (process.env.PAIRED_SPREADS === undefined ? pairedStamp(testCase) : process.env.PAIRED_SPREADS);
 
 const failures = [];
@@ -115,7 +119,7 @@ for (const testCase of cases) {
   }
   if (!appPool.length) for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
   const settings = rec._v452_fast_autobuild_payload[0].snapshot?.settings || testCase.settings;
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { pairedSpreads: pairedRule(testCase) });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;

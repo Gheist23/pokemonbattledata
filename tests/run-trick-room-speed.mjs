@@ -19,8 +19,16 @@
 // score too high (the recorded team below: 50.55 against the app's 47.5) and, through the
 // four-score average, every suggestion on such a team about 0.8 too high.
 //
+// V512 then made that measured number one part of three rather than the whole score: a Trick
+// Room team keeps Standard Speed and Opposing Speed Control beside it, weighted
+// 0.46 / 0.27 / 0.27 with Trick Room leading. `trickRoomSpeedMetrics` itself is untouched by
+// that - it still answers the measured coverage gated by setter reliability, which is what
+// part 1 below checks - and the composition it now feeds is checked in
+// tests/run-score-composition.mjs.
+//
 // Checked here: the rule itself, and the recorded Trick Room team end to end - its whole
-// `payload.speed` against what the app recorded for it.
+// `payload.speed` against what the app recorded for it, replayed under the rules that
+// recording carries.
 
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -87,7 +95,7 @@ else {
   }
   for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
 
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: testCase.record?.rules?.paired_spreads ?? null });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: testCase.record?.rules?.paired_spreads ?? null, scoreRules: testCase.record?.rules?.score_composition ?? null });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;

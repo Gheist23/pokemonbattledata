@@ -16,14 +16,15 @@
 //     is read from the meta records here, not from builder/guaranteed-moves.js;
 //  8. the guaranteed move counts towards what the player is shown: the headline, the
 //     counts and the change rows are measured from the moves the set was saved with, and
-//     the card only prints the "no Stat Point or Nature change scored clearly better" note
-//     when the suggestion really keeps the spread and the Nature, and the Stat Points &
-//     Nature button names the added move instead of promising the spread "only";
+//     the block only says "the spread stays as it is" when the suggestion really keeps
+//     the spread and the Nature, and the Stat Points & Nature button names the added move
+//     instead of promising the spread "only";
 //  9. the panel: every "What changes in battle" row is listed on the side its own
 //     sentences say (never on the sign of the matchup score, which adds up every item
-//     set of a threat and both sides of the fight at once), and the Previously / Now
-//     block keeps every number, marks only the rows that moved and shows the direction
-//     with an arrow rather than with colour.
+//     set of a threat and both sides of the fight at once), and the Previously and now
+//     block keeps every number, opens with a sentence built from those numbers, marks
+//     only the stats that moved, shows the direction with a tip on the bar and an arrow
+//     rather than with colour, and collapses when nothing in the spread moves.
 //
 //   node tests/run-optimize-deep.mjs [--quick]     (--quick: fewer members, no Deep run)
 
@@ -527,7 +528,7 @@ for (const [team, slot, options] of jobs) {
       options: { ...OPTIMIZE_DEFAULTS, depth: "quick" }, topX: TOP, spriteFor: () => "",
       onOptions: noop, onRun: noop, onStop: noop, onApply: noop, onDiscard: noop, onKeepMove: noop,
     });
-    const noteOf = (set, result) => cardFor(set, result).all("bd-opt-actions-note")[0]?.textContent || "";
+    const blockOf = (set, result) => cardFor(set, result).all("bd-opt-compare")[0]?.textContent || "";
 
     const sets = teamSets("rough", 2, { moves: ["Fake Out", "Wood Hammer", "U-turn", "High Horsepower"] });
     const real = await new DeepOptimizer(evaluation).run(sets, 2, { depth: "quick", topX: TOP }, {});
@@ -535,11 +536,12 @@ for (const [team, slot, options] of jobs) {
     check(!(real.alternatives || []).some((a) => a.kind === "stats"), "card: the case now offers a Stat Points & Nature alternative, which hides the note - pick another");
     const spreadMoved = String(real.before.bonuses) !== String(real.after.bonuses) || real.before.nature !== real.after.nature;
     check(spreadMoved, "card: the case no longer changes the spread or the Nature - pick another, this check cannot fail");
-    check(!noteOf(sets[2], real), `card: the note denies a change the table shows (${real.before.nature} ${real.before.bonuses.join("/")} -> ${real.after.nature} ${real.after.bonuses.join("/")}): "${noteOf(sets[2], real)}"`);
+    check(!/The spread stays as it is/.test(blockOf(sets[2], real)), `card: the block says the spread stays as it is over a change it shows (${real.before.nature} ${real.before.bonuses.join("/")} -> ${real.after.nature} ${real.after.bonuses.join("/")})`);
 
-    // The same result with the spread and the Nature left alone: there the note belongs.
+    // The same result with the spread and the Nature left alone: there it is the whole story,
+    // so the block collapses to one spread instead of printing the same numbers twice.
     const kept = { ...real, after: { ...real.after, nature: real.before.nature, bonuses: [...real.before.bonuses] } };
-    check(/no Stat Point or Nature change scored clearly better/.test(noteOf(sets[2], kept)), `card: the note is missing when only the moves change: "${noteOf(sets[2], kept)}"`);
+    check(/The spread stays as it is/.test(blockOf(sets[2], kept)), `card: with only the moves changing the block does not say the spread stays as it is: "${blockOf(sets[2], kept).slice(0, 160)}"`);
     // A headline that comes out below the saved set's says why, and only then.
     const costLine = "scores less against the Top Meta than the move it replaces";
     check(real.delta < 0 && real.guaranteed.delta < 0, `card: the case no longer loses score to the added move (${real.delta.toFixed(2)}, the move alone ${Number(real.guaranteed?.delta).toFixed(2)}) - pick another`);
@@ -562,9 +564,9 @@ for (const [team, slot, options] of jobs) {
     check(noMove.some((t) => t.startsWith("Apply Stat Points & Nature only")),
       `card: with no move added the button should say "only": ${JSON.stringify(noMove)}`);
     console.log(`   card: the Stat Points & Nature button names the move it writes ("${withMove.find((t) => t.startsWith("Apply Stat Points"))}")`);
-    console.log(`   card: the note only when the spread and the Nature are kept (${real.before.nature} ${real.before.bonuses.join("/")} -> ${real.after.nature} ${real.after.bonuses.join("/")} prints none); a lower score says why`);
+    console.log(`   card: "the spread stays as it is" only when it does (${real.before.nature} ${real.before.bonuses.join("/")} -> ${real.after.nature} ${real.after.bonuses.join("/")} does not print it); a lower score says why`);
   }
-  console.log("8. the added guaranteed move counts towards the headline, the counts and the change rows; the actions note follows the table");
+  console.log("8. the added guaranteed move counts towards the headline, the counts and the change rows; the block follows the spread");
 }
 
 // --- 9. what the panel says about a change ----------------------------------------------
@@ -575,10 +577,14 @@ for (const [team, slot, options] of jobs) {
 //      under Better against its own words. A row that pulls both ways - in its own
 //      sentences, or in the one-on-one chance beside them - is marked "both ways", and
 //      one whose sentences split prints one of each;
-//   b) the Previously / Now block keeps every number (Stat Points, the final stat at
-//      level 50, the total out of 66), marks only the rows that moved, says which way
-//      each one went with an arrow as well as a sign, and never paints a direction:
-//      trading Speed for bulk is a trade, not a loss.
+//   b) the Previously and now block keeps every number (the Stat Points and the final
+//      stat at level 50 on both sides, the total out of 66, both Natures with what each
+//      raises and lowers), opens with a sentence assembled from those two sides, marks
+//      only the stats that moved, says which way each one went with a tip on its bar as
+//      well as an arrow and a sign, prints one spread instead of two when neither the
+//      Nature nor a Stat Point moves, and never paints a direction: trading Speed for
+//      bulk is a trade, not a loss. The Speed section opens on Normal, not on the team's
+//      own Trick Room.
 {
   let changeRows = 0;
   let trades = 0;
@@ -613,7 +619,7 @@ for (const [team, slot, options] of jobs) {
   // b) the rendered block (the mini DOM from section 8 is still installed).
   const { optimizeView, OPTIMIZE_DEFAULTS } = await import("../builder/optimize-view.js");
   const walk = (node, fn) => { for (const kid of node.kids || []) { fn(kid); walk(kid, fn); } };
-  const classesOf = (node) => String(node.className || "").split(" ").filter(Boolean);
+  const classesOf = (node) => String(node?.className || "").split(" ").filter(Boolean);
   const pick = (root, cls) => { const out = []; walk(root, (n) => { if (classesOf(n).includes(cls)) out.push(n); }); return out; };
   const noop = () => {};
   const cardFor = (set, result) => optimizeView({
@@ -621,74 +627,163 @@ for (const [team, slot, options] of jobs) {
     options: { ...OPTIMIZE_DEFAULTS, depth: "quick" }, topX: TOP, spriteFor: () => "",
     onOptions: noop, onRun: noop, onStop: noop, onApply: noop, onDiscard: noop, onKeepMove: noop,
   });
+  const blockFor = (set, result) => pick(cardFor(set, result), "bd-opt-compare")[0];
+  const labels = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
+  // The words the opening sentence uses, where the bars use the short labels above.
+  const words = ["HP", "Attack", "Defense", "Special Attack", "Special Defense", "Speed"];
   const spread = runs.find((r) => r.result.ok && String(r.result.before.bonuses) === String(TEAMS.rough[0].bonuses));
   check(Boolean(spread), `card: no run over the rough Garchomp (${TEAMS.rough[0].bonuses.join("/")}) to draw - pick another case`);
   if (spread) {
     const { before, after } = spread.result;
-    const card = cardFor(teamSets("rough")[0], spread.result);
-    const compare = pick(card, "bd-opt-compare")[0];
-    check(Boolean(compare), "card: the Previously / Now block is missing");
-    const text = compare.textContent;
-    const labels = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
-    const rows = [];
-    walk(compare, (n) => { if (n.tagName === "TR") rows.push(n); });
-    const rowFor = (label) => rows.find((tr) => (tr.kids[0]?.textContent || "") === label);
+    const set = teamSets("rough")[0];
+    const compare = blockFor(set, spread.result);
+    check(Boolean(compare), "card: the Previously and now block is missing");
+    const text = compare?.textContent || "";
+    const rows = pick(compare, "bd-opt-srow");
+    const rowFor = (label) => rows.find((row) => (row.kids[0]?.textContent || "") === label);
     check(before.bonuses.some((v, i) => v !== after.bonuses[i]) && before.nature !== after.nature,
       `card: the case no longer changes the spread and the Nature (${before.nature} ${before.bonuses.join("/")} -> ${after.nature} ${after.bonuses.join("/")}) - the checks below cannot fail`);
     check(labels.some((_, i) => before.stats[i] === after.stats[i] && before.bonuses[i] === after.bonuses[i]),
       "card: the case no longer leaves a stat alone, so the check on the quiet rows cannot fail");
     for (const [i, label] of labels.entries()) {
-      // Every number the old table had is still there: the points and the final stat.
-      check(text.includes(`${before.bonuses[i]} · ${before.stats[i]}`), `card: Previously does not show ${label} as ${before.bonuses[i]} · ${before.stats[i]}`);
-      check(text.includes(`${after.bonuses[i]} · ${after.stats[i]}`), `card: Now does not show ${label} as ${after.bonuses[i]} · ${after.stats[i]}`);
-      const tr = rowFor(label);
-      check(Boolean(tr), `card: no ${label} row`);
-      if (!tr) continue;
+      // Every number the old table had is still there: the Stat Points and the final stat,
+      // on both sides ("22 · 183" now, "was 32 · 193" beside it).
+      check(text.includes(`${before.bonuses[i]} · ${before.stats[i]}`), `card: the block does not show ${label} as it was, ${before.bonuses[i]} · ${before.stats[i]}`);
+      check(text.includes(`${after.bonuses[i]} · ${after.stats[i]}`), `card: the block does not show ${label} as it now is, ${after.bonuses[i]} · ${after.stats[i]}`);
+      const row = rowFor(label);
+      check(Boolean(row), `card: no ${label} row`);
+      if (!row) continue;
       const moved = before.bonuses[i] !== after.bonuses[i] || before.stats[i] !== after.stats[i];
-      check(classesOf(tr).includes(moved ? "changed" : "same"), `card: the ${label} row is marked ${classesOf(tr).join(" ") || "nothing"} but it ${moved ? "moved" : "did not move"}`);
+      check(classesOf(row).includes(moved ? "changed" : "same"), `card: the ${label} row is marked ${classesOf(row).join(" ") || "nothing"} but it ${moved ? "moved" : "did not move"}`);
       const delta = after.stats[i] - before.stats[i];
       if (delta) {
-        check(tr.textContent.includes(delta > 0 ? "↑" : "↓"), `card: the ${label} row (${before.stats[i]} -> ${after.stats[i]}) shows no arrow for the way it went: "${tr.textContent}"`);
-        check(tr.textContent.includes(`${delta > 0 ? "+" : "−"}${Math.abs(delta)}`), `card: the ${label} row does not print the change ${delta}: "${tr.textContent}"`);
+        check(row.textContent.includes(delta > 0 ? "↑" : "↓"), `card: the ${label} row (${before.stats[i]} -> ${after.stats[i]}) shows no arrow for the way it went: "${row.textContent}"`);
+        check(row.textContent.includes(`${delta > 0 ? "+" : "−"}${Math.abs(delta)}`), `card: the ${label} row does not print the change ${delta}: "${row.textContent}"`);
+        // The bar's own tip carries the direction without colour: ink for the part it
+        // gained, an outline past the end of the bar for the part it gave up.
+        check(pick(row, delta > 0 ? "bd-opt-gain" : "bd-opt-loss").length === 1, `card: the ${label} bar has no tip for the ${delta > 0 ? "part it gained" : "part it gave up"}`);
+        check(!pick(row, delta > 0 ? "bd-opt-loss" : "bd-opt-gain").length, `card: the ${label} bar carries the tip of the other direction`);
       } else if (!moved) {
-        check(/same/.test(tr.textContent), `card: the unchanged ${label} row does not say so: "${tr.textContent}"`);
-        check(!/[↑↓]/.test(tr.textContent), `card: the unchanged ${label} row shows a direction arrow: "${tr.textContent}"`);
+        check(/same/.test(row.textContent), `card: the unchanged ${label} row does not say so: "${row.textContent}"`);
+        check(!/[↑↓]/.test(row.textContent), `card: the unchanged ${label} row shows a direction arrow: "${row.textContent}"`);
       }
     }
     check(text.includes(`${before.total}/66`) && text.includes(`${after.total}/66`), `card: the Stat Point total out of 66 is gone (${before.total} -> ${after.total})`);
-    // The Nature row names both Natures and what each one raises and lowers.
-    const natureRow = rowFor("Nature");
-    check(Boolean(natureRow) && natureRow.textContent.includes(before.nature) && natureRow.textContent.includes(after.nature),
-      `card: the Nature row does not name ${before.nature} and ${after.nature}: "${natureRow?.textContent}"`);
+    // Both Natures, each with what it raises and lowers.
+    const natures = pick(compare, "bd-opt-natures")[0];
+    check(Boolean(natures) && natures.textContent.includes(before.nature) && natures.textContent.includes(after.nature),
+      `card: the Nature panel does not name ${before.nature} and ${after.nature}: "${natures?.textContent || ""}"`);
+    const natureText = natures?.textContent || "";
     for (const side of [before, after]) {
       const [up, down] = side.nature_effect || [-1, -1];
       if (up < 0) continue;
-      check(natureRow.textContent.includes(`▲${labels[up]}`) && natureRow.textContent.includes(`▼${labels[down]}`),
-        `card: the Nature row does not say that ${side.nature} raises ${labels[up]} and lowers ${labels[down]}: "${natureRow.textContent}"`);
+      check(natureText.includes(`▲${labels[up]}`) && natureText.includes(`▼${labels[down]}`),
+        `card: the Nature panel does not say that ${side.nature} raises ${labels[up]} and lowers ${labels[down]}: "${natureText}"`);
     }
-    // The line above the table: every stat that moved, and nothing that did not.
-    const strip = pick(card, "bd-opt-shift-strip")[0];
-    check(Boolean(strip), "card: the line that says what moved is missing");
-    for (const [i, label] of labels.entries()) {
-      if (!strip) break;
-      const moved = before.bonuses[i] !== after.bonuses[i] || before.stats[i] !== after.stats[i];
-      check(strip.textContent.includes(label) === moved, `card: ${label} ${moved ? "moved but is not" : "did not move but is"} in the line above the table: "${strip.textContent}"`);
+    // The sentence the block opens with is assembled from the two sides, never written by
+    // hand, so it cannot drift from the bars: every stat it names moved, every stat that
+    // moved is named, each number it prints is that stat's own change, and it only says
+    // "paid for with" when there is both a gain and a cost.
+    const lead = pick(compare, "bd-opt-story-lead")[0];
+    check(Boolean(lead), "card: the block does not open with the change in a sentence");
+    const said = lead?.textContent || "";
+    // "Special Attack" ends in "Attack", so a stat only counts as named where its own
+    // number sits in front of its own whole name.
+    const namedAs = (size, word) => new RegExp(`(^|\\s)${size} (?:more |less )?${word}($|[\\s.,])`).test(said);
+    let gains = 0;
+    let costs = 0;
+    for (const [i, word] of words.entries()) {
+      const delta = after.stats[i] - before.stats[i];
+      if (delta > 0) gains += 1;
+      if (delta < 0) costs += 1;
+      check(namedAs("\\d+", word) === Boolean(delta), `card: ${word} ${delta ? "moved but the sentence does not name it" : "did not move but the sentence names it"}: "${said}"`);
+      if (delta) check(namedAs(Math.abs(delta), word), `card: the sentence does not give ${word} its own change of ${Math.abs(delta)}: "${said}"`);
     }
+    check(gains > 0 && costs > 0, `card: the case is no longer a trade (${gains} up, ${costs} down), so the "paid for with" check cannot fail`);
+    check(/paid for with/.test(said) === Boolean(gains && costs), `card: the sentence ${gains && costs ? "does not say" : "says"} "paid for with" for ${gains} stats up and ${costs} down: "${said}"`);
+    check(said.includes(before.nature) && said.includes(after.nature), `card: the sentence does not name ${before.nature} and ${after.nature}: "${said}"`);
+    // Under it, the quiet line that captions the two panels: the Stat Points, the Nature.
+    const detail = pick(compare, "bd-opt-story-detail")[0];
+    check(Boolean(detail) && /Stat Point/.test(detail.textContent), `card: the quiet line does not say where the Stat Points went: "${detail?.textContent}"`);
     // A stat change is not a good or a bad thing (less Speed for more bulk is a trade),
     // so the block may not use the green/red score chip for one.
-    check(!pick(compare, "bd-opt-delta").length, "card: the Previously / Now block marks a stat change with the good/bad score chip");
-    console.log(`   card: ${before.nature} ${before.bonuses.join("/")} -> ${after.nature} ${after.bonuses.join("/")} reads as "${strip?.textContent || ""}"`);
+    check(!pick(compare, "bd-opt-delta").length, "card: the Previously and now block marks a stat change with the good/bad score chip");
+    console.log(`   card: ${before.nature} ${before.bonuses.join("/")} -> ${after.nature} ${after.bonuses.join("/")} reads as "${said}"`);
+
+    // The shapes the block takes when less than everything moves. One search will not hand
+    // us all three, so these are the real result with one side shaped: what is checked is
+    // what the view does with each shape.
+    const shaped = (over) => ({ ...spread.result, after: { ...spread.result.after, ...over } });
+
+    // Only the Nature changes: both Natures, every number still there, and the budget bar
+    // says outright that the points did not move.
+    const natureOnly = blockFor(set, shaped({ bonuses: [...before.bonuses], total: before.total }));
+    const nt = natureOnly?.textContent || "";
+    check(!classesOf(natureOnly).includes("bd-opt-unchanged"), "card: a Nature change collapses the block, but a Nature change is a change");
+    check(nt.includes(before.nature) && nt.includes(after.nature), `card: the Nature-only block does not name ${before.nature} and ${after.nature}`);
+    check(/the same points, in the same stats/.test(nt), `card: the Nature-only block does not say the Stat Points stayed where they were: "${nt.slice(0, 200)}"`);
+    check(nt.includes(`${before.total}/66`), "card: the Nature-only block drops the Stat Point total out of 66");
+    for (const [i, label] of labels.entries()) {
+      check(nt.includes(`${before.bonuses[i]} · ${after.stats[i]}`), `card: the Nature-only block does not show ${label} as ${before.bonuses[i]} · ${after.stats[i]}`);
+    }
+
+    // Nothing in the spread moves: no two-sided comparison at all. The same numbers side by
+    // side would be the same numbers twice, so the set is printed once.
+    const nothing = blockFor(set, shaped({ nature: before.nature, nature_effect: before.nature_effect, bonuses: [...before.bonuses], stats: [...before.stats], total: before.total }));
+    const ut = nothing?.textContent || "";
+    check(classesOf(nothing).includes("bd-opt-unchanged"), "card: with neither the Nature nor a Stat Point moving the block still prints two sides");
+    check(/The spread stays as it is/.test(ut), `card: the unchanged block does not say so: "${ut.slice(0, 160)}"`);
+    check(pick(nothing, "bd-opt-once").length === 1 && !pick(nothing, "bd-opt-srow").length, "card: the unchanged block still draws the two-sided comparison");
+    check(!/[↑↓]/.test(ut) && !/was /.test(ut), `card: the unchanged block still marks a direction or prints a "was" side: "${ut.slice(0, 200)}"`);
+    check(ut.includes(`${before.total}/66`), "card: the unchanged block drops the Stat Point total out of 66");
+    check(ut.includes(before.nature), `card: the unchanged block does not name ${before.nature}`);
+    for (const [i, label] of labels.entries()) {
+      check(ut.includes(`${before.bonuses[i]} · ${before.stats[i]}`), `card: the unchanged block does not show ${label} as ${before.bonuses[i]} · ${before.stats[i]}`);
+    }
+
+    // The Speed section opens on Normal, whatever the team's own speed plan is, because the
+    // heading above it ("Speed 97 → 120") reads Normal's numbers. The team's own context
+    // stays one tap away.
+    const tier = (name, rank, speed) => ({ name, species: name, form: "", item: "", variant: "", speed, rank });
+    const trickRoomTeam = {
+      ...spread.result,
+      plan_context: { id: "trick-room", label: "Trick Room", trick_room: true },
+      speed: {
+        before: 97, after: 120, changed: true, top_meta: TOP,
+        // Trick Room first, and the team's own plan: both of the ways the old code picked.
+        contexts: [
+          { id: "trick-room", label: "Trick Room", trick_room: true, before: 97, after: 120, now_faster: [], now_slower: [tier("Pelipper", 1, 117)], now_tied: [], still_faster: 0, still_slower: 1, still_tied: 0 },
+          { id: "normal", label: "Normal", trick_room: false, before: 97, after: 120, now_faster: [tier("Pelipper", 1, 117)], now_slower: [], now_tied: [], still_faster: 1, still_slower: 0, still_tied: 0 },
+        ],
+      },
+    };
+    const speedCard = cardFor(set, trickRoomTeam);
+    const speedLine = pick(speedCard, "bd-opt-speed-line")[0]?.textContent || "";
+    check(/^Normal: Speed/.test(speedLine), `card: the Speed section does not open on Normal, it opens on "${speedLine}"`);
+    const speedBlock = pick(speedCard, "bd-opt-speed")[0];
+    check(Boolean(speedBlock) && speedBlock.textContent.includes("Trick Room"), "card: the team's own Trick Room tab is no longer reachable from the Speed section");
+    console.log(`   card: the Speed section opens on "${speedLine}" for a Trick Room team, with its Trick Room tab beside it`);
   }
-  // Direction is an arrow and the side the bar grows to, never colour on its own.
+  // Direction is ink against no ink - a striped tip for the part a stat gained, a hollow
+  // outline past the end of the bar for the part it gave up - plus ↑ ↓ plus the sign.
+  // Never colour on its own: up is not always better, and the site ships one dark theme.
   {
     const css = readFileSync(join(root, "builder", "optimize.css"), "utf8");
-    const directional = [...css.matchAll(/([^{}]*\.bd-opt-(?:shift|bar|shift-chip)[a-z-]*\.(?:up|down)[^{}]*)\{([^}]*)\}/g)];
-    check(directional.length > 0, "css: nothing styles the direction of a stat change at all - this check cannot fail");
+    // (a match reaches back over whatever precedes its selector, comments included)
+    const named = (selector) => selector.replace(/\/\*[\s\S]*?\*\//g, " ").replace(/\s+/g, " ").trim();
+    const marks = [...css.matchAll(/([^{}]*\.bd-opt-(?:gain|loss)\b[^{}]*)\{([^}]*)\}/g)];
+    check(marks.length >= 2, "css: nothing draws what a stat gained or gave up at all - this check cannot fail");
+    for (const [, selector, body] of marks) {
+      check(!/var\(--bd-(?:good|bad)\)/.test(body), `css: ${named(selector)} paints what a stat gained or gave up with the good/bad colour (${body.trim()}); up is not always better`);
+      check(/repeating-linear-gradient|dashed|dotted/.test(body), `css: ${named(selector)} separates a gain from a loss without a pattern (${body.trim()}); colour alone is not readable for everyone`);
+      check(!/(^|;|\s)color\s*:/.test(body), `css: ${named(selector)} gives a gain or a loss its own text colour (${body.trim()})`);
+    }
+    const directional = [...css.matchAll(/([^{}]*\.bd-opt-(?:shift|gain|loss)[a-z-]*\.(?:up|down)[^{}]*)\{([^}]*)\}/g)];
     for (const [, selector, body] of directional) {
-      check(!/(^|;|\s)(color|background|border-color)\s*:/.test(body), `css: ${selector.trim()} paints the direction of a stat change (${body.trim()}); up is not always better and colour alone is not readable for everyone`);
+      check(!/(^|;|\s)(color|background|border-color)\s*:/.test(body), `css: ${named(selector)} paints the direction of a stat change (${body.trim()}); up is not always better and colour alone is not readable for everyone`);
     }
   }
-  console.log(`9. ${changeRows} change rows all on the side their own lines say (${trades} marked "both ways", ${scoreDisagrees} against the sign of their score); the Previously / Now block keeps every number`);
+  console.log(`9. ${changeRows} change rows all on the side their own lines say (${trades} marked "both ways", ${scoreDisagrees} against the sign of their score); the Previously and now block keeps every number`);
 }
 
 // 5. Time (Node): the work is bounded by counts, the clock only caps slow machines

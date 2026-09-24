@@ -5,12 +5,16 @@
 // It follows the Companion's model where the app pins one down:
 //   * the meta is the top-X ranked Pokemon, each playing its most common set;
 //   * every number comes from the ported damage engine (same rolls as the app);
-//   * Offense  = 70% set-aware damage pressure into the meta
-//              + 30% how well the team answers its critical threats   (V188)
-//   * Defense  = 70% (100 - the meta's pressure into the team)
-//              + 30% critical-threat safety                            (V188)
+//   * Offense  = set-aware damage pressure into the meta, at full weight (V512;
+//                before it, 70% of that + 30% how well the team answers its
+//                critical threats, V188)
+//   * Defense  = 100 - the meta's pressure into the team, at full weight (V512;
+//                before it, 70% of that + 30% critical-threat safety, V188)
+//     Critical Threat answers and safety are still reported in full beside the
+//     scores - they are simply no longer part of them;
 //   * Speed    = the V36 blend of Trick Room, standard speed, answers to an
-//                opposing Tailwind and priority;
+//                opposing Tailwind and priority; a Trick Room team leads on
+//                Trick Room and keeps the other two parts (V512);
 //   * the Team Building Checks use the V201 thresholds and the V418 Mega rule,
 //     and the archetype is the V462 feature classifier;
 //   * a critical threat is one whose best line into the team is a 1-3HKO (V462).

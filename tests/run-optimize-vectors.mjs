@@ -66,7 +66,7 @@ for (const testCase of cases) {
     if (!records.has(stem) && (call.meta.rows || []).length) records.set(stem, pokemonRecord(stem, call.meta.rows, aliases));
   }
   if (!appPool.length) for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
-  const ev = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase) });
+  const ev = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? null });
   ev.setMetaRecords([...records.values()]);
   const optimizer = new TeamOptimizer(new TeamEvaluation(ev));
   const label = `${testCase.name} slot ${testCase.slot} ${testCase.entry[0]}`;

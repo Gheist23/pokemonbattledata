@@ -26,8 +26,11 @@
 // Suggestion scoring (builder/team-suggest.js, the app's suggestion_scoring_v511): a recording made
 // with the rule carries record.rules.suggestion_scoring and replays with that version; one without the
 // stamp was made before the rule and replays with the old weights, which is what keeps the 2097 rows of
-// suggest-vectors.json and suggest-vectors-guaranteed.json at 0 mismatches. SUGGESTION_SCORING=off / =2
+// suggest-vectors.json and suggest-vectors-guaranteed.json at 0 mismatches. SUGGESTION_SCORING=off / =3
 // replays every recording either way (forcing it off on a stamped recording must mismatch).
+// The stamped recording is remade from the app whenever the scoring changes, so both sides agree:
+// suggest-vectors-scoring.json carries `suggestion_scoring: 3` since version 3 stopped the archetype's
+// own setter requirement being paid for twice.
 
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -90,6 +93,10 @@ const pairedRule = (testCase) => (process.env.PAIRED_SPREADS === undefined ? pai
 /** The recording's V511 suggestion-scoring stamp (null: recorded before the rule, replayed with the
  *  old weights). SUGGESTION_SCORING=off / =2 replays every recording either way. */
 const scoringStamp = (testCase) => testCase.record?.rules?.suggestion_scoring ?? testCase.rules?.suggestion_scoring ?? null;
+/** The V512 scoring stamp (null: recorded before the rule, replayed with it off). */
+const scoreRule = (testCase) => (process.env.SCORE_RULES === undefined
+  ? (testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? null)
+  : process.env.SCORE_RULES);
 const scoringRule = (testCase) => (process.env.SUGGESTION_SCORING === undefined ? scoringStamp(testCase) : process.env.SUGGESTION_SCORING);
 const asEntry = (e) => (Array.isArray(e) ? { pokemon: e[0], item: e[1], form: e[2], ability: e[3], moves: e[4] || [] } : e);
 
@@ -117,7 +124,7 @@ for (const testCase of cases) {
     if (!records.has(stem) && (meta.rows || []).length) records.set(stem, pokemonRecord(stem, meta.rows, aliases));
   }
   for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase) });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;

@@ -2,7 +2,10 @@
 // builder/optimize-deep.js for each team member, drawn as
 //
 //   a one-line summary        Matchup score 57 → 63 (+6) and what it now survives, KOs, outspeeds
-//   Previously | Now | Change the Nature, each stat as "Stat Points · final stat", the moves
+//   Previously and now        the trade in one sentence ("23 more Speed and 14 more Attack,
+//                             paid for with…"), then the spread as a shape: a bar per stat
+//                             with what it gained or gave up at its tip, the 66 Stat Points
+//                             as a budget bar per side, both Natures, and the moves
 //   What changes in battle    threat by threat, better and worse, in plain sentences
 //   Speed                     only when Speed changed: the Top-X Pokemon it now outspeeds or not
 //   Moves tested              which moves were kept and the best other attacks
@@ -10,9 +13,13 @@
 //
 // Styles: builder/optimize.css. The page (builder-page.js) owns the state and the worker.
 
+import { MAX_BONUS_STAT_POINTS } from "./engine.js";
 import { h, segmented, sprite, switchRow } from "./ui.js";
 
 const STATS = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
+/** The same six, spelled out: the short labels head the bars, these go in the sentence. */
+const STAT_WORDS = ["HP", "Attack", "Defense", "Special Attack", "Special Defense", "Speed"];
+const MAX_POINTS = MAX_BONUS_STAT_POINTS;
 const CHANGE_LIMIT = 8;
 
 export const OPTIMIZE_DEFAULTS = Object.freeze({ depth: "deep", testMoves: true, keepNature: false, keepSpeed: false });
@@ -30,6 +37,8 @@ const spreadText = (bonuses) => (bonuses || []).join("/");
 /** "A", "A & B", "A, B & C": a plain English list for a button label. */
 const listText = (parts) => (parts.length < 2 ? parts.join("") : `${parts.slice(0, -1).join(", ")} & ${parts.at(-1)}`);
 const toneOf = (delta) => (delta > 0 ? "up" : delta < 0 ? "down" : "same");
+/** The same list inside a sentence, where "&" would read as an abbreviation. */
+const andList = (parts) => (parts.length < 2 ? parts.join("") : `${parts.slice(0, -1).join(", ")} and ${parts.at(-1)}`);
 
 /** The explanation above the members. */
 export function optimizeIntro(topX) {
@@ -236,14 +245,21 @@ function pointsNote(result) {
 }
 
 /**
- * Previously | Now | Change: the Nature, every stat as "Stat Points · final stat", the
- * total and the moves.
+ * Previously and now: the spread as a shape.
  *
- * What a player compares is which stats moved, which way and by how much, so the rows
- * that moved are the loud ones, each carries an arrow and a bar for its size beside the
- * number, and the rows that did not move fade back and say "same". The arrows and bars
- * are one neutral colour on purpose: less Speed for more bulk is a trade, not a loss,
- * and nothing here may colour it as one. ▲ and ▼ stay the Nature's own marks.
+ * A player does not read six rows of digits to learn what their Pokemon became — they
+ * want its silhouette. So the six final stats are bars on one shared scale: the solid
+ * bar is always what the stat is NOW, a striped tip is the part it just gained, and a
+ * hollow tip past the end of the bar is the part it gave up. The digits are all still
+ * there, quietly, beside each bar.
+ *
+ * Under the shape sit the two things that produced it: the 66 Stat Points as one budget
+ * bar per side (the same length both times when nothing was unspent, so the eye reads a
+ * re-spend, not a gain), and the Nature with the stats it raises and lowers.
+ *
+ * Nothing here colours a direction: less Speed for more bulk is a trade, not a loss.
+ * Direction is carried by the stripe/hollow pattern, by ↑ ↓ and by the signed number, so
+ * it survives one dark theme and a colour-blind reader. ▲ and ▼ stay the Nature's marks.
  */
 function compareTable(result) {
   const { before, after } = result;
@@ -253,99 +269,253 @@ function compareTable(result) {
     stat: after.stats[index] - before.stats[index],
     points: after.bonuses[index] - before.bonuses[index],
   }));
-  // Every bar is drawn against the biggest stat change, so their lengths compare.
-  const scale = Math.max(1, ...shifts.map((s) => Math.abs(s.stat)));
   const natureChanged = before.nature !== after.nature;
-  const rows = [
-    h("tr", { class: `bd-opt-nature-row ${natureChanged ? "changed" : "same"}` },
-      h("th", { scope: "row" }, "Nature"),
-      natureCell(before), natureCell(after),
-      h("td", { class: "bd-opt-change-cell" }, natureChanged
-        ? h("span", { class: "bd-opt-shift new" }, "New")
-        : h("span", { class: "bd-opt-shift same" }, "same"))),
-    ...shifts.map((shift) => h("tr", { class: shift.stat || shift.points ? "changed" : "same" },
-      h("th", { scope: "row" }, shift.label),
-      statCell(before, shift.index), statCell(after, shift.index),
-      shiftCell(shift.stat, scale, shift.points))),
-    h("tr", { class: `bd-opt-total ${before.total !== after.total ? "changed" : "same"}` },
-      h("th", { scope: "row" }, "Total"),
-      h("td", { class: "bd-opt-cell" }, h("b", {}, String(before.total)), "/66"),
-      h("td", { class: "bd-opt-cell" }, h("b", {}, String(after.total)), "/66"),
-      shiftCell(after.total - before.total, 0, 0, " SP")),
-  ];
-  const moves = h("div", { class: "bd-opt-moves-compare" },
-    h("div", {}, h("span", { class: "bd-field-label" }, "Previously"), (before.moves || []).some(Boolean) ? moveChips(before.moves, result.removed, "gone") : h("p", { class: "bd-note" }, "No moves")),
-    h("div", {}, h("span", { class: "bd-field-label" }, "Now"), moveChips(after.moves, result.added, "new")));
+  const spreadChanged = natureChanged || shifts.some((shift) => shift.points);
+  const moves = movesCompare(result);
   // A move the saved set was missing that nearly every team of this Pokemon runs.
   const guaranteed = result.guaranteed?.note ? h("p", { class: "bd-note" }, result.guaranteed.note) : null;
+  // Its Nature and all of its Stat Points already are the ones we would pick: printing
+  // them twice, side by side, would be the same numbers twice. The spread is shown once
+  // instead, and only the moves are compared.
+  if (!spreadChanged) {
+    return h("div", { class: "bd-opt-compare bd-opt-unchanged" },
+      h("h4", {}, "The spread stays as it is"),
+      h("p", { class: "bd-note" }, "Its Nature and all of its Stat Points are already the best we found, so there is nothing to compare. Only the moves change."),
+      spreadOnce(after),
+      moves, guaranteed);
+  }
   return h("div", { class: "bd-opt-compare" },
     h("h4", {}, "Previously and now"),
-    shiftStrip(before, after, shifts),
-    h("div", { class: "bd-stat-table-wrap bd-opt-table-wrap" },
-      h("table", { class: "bd-stat-table bd-opt-table" },
-        h("thead", {}, h("tr", {}, h("th", {}, ""), h("th", {}, "Previously"), h("th", {}, "Now"), h("th", {}, "Change"))),
-        h("tbody", {}, rows))),
-    h("p", { class: "bd-note bd-opt-table-note" }, "Each stat shows its Stat Points · the final stat at level 50, and the arrow is the change in that final stat; the bars compare how big the changes are. ▲ and ▼ mark the stats the Nature raises and lowers."),
+    tradeStory(before, after, shifts, natureChanged),
+    shapeTable(before, after, shifts),
+    h("div", { class: "bd-opt-ledger" }, budgetBlock(before, after), natureBlock(before, after, natureChanged)),
+    h("p", { class: "bd-note bd-opt-shape-note" },
+      `Each bar is that stat now, at level 50, all on one scale to ${Math.max(...before.stats, ...after.stats)}: a striped tip is what it gained, a hollow tip past the end of the bar is what it gave up. `,
+      "Beside it are its Stat Points · its final stat, with the set's own numbers marked \"was\", and ▲ ▼ mark what the Nature raises and lowers. ",
+      h("strong", {}, "Up is not better here"),
+      ": less Speed for more bulk is a trade, so nothing is coloured good or bad."),
     moves, guaranteed);
 }
 
-/** The whole change in one line: the Nature, then every stat that moved, biggest first. */
-function shiftStrip(before, after, shifts) {
-  const moved = shifts.filter((s) => s.stat || s.points).sort((a, b) => Math.abs(b.stat) - Math.abs(a.stat) || Math.abs(b.points) - Math.abs(a.points));
-  const chips = [];
-  if (before.nature !== after.nature) {
-    chips.push(h("span", { class: "bd-opt-shift-chip nature" },
-      h("span", { class: "bd-opt-shift-chip-label" }, "Nature"),
-      h("b", {}, `${before.nature} → ${after.nature}`)));
-  }
-  for (const shift of moved) {
-    // A stat whose points moved without moving the stat says so in Stat Points.
-    const value = shift.stat || shift.points;
-    const unit = shift.stat ? "" : " SP";
-    chips.push(h("span", { class: `bd-opt-shift-chip ${value > 0 ? "up" : "down"}` },
-      h("span", { class: "bd-opt-shift-chip-label" }, shift.label),
-      h("i", { class: "bd-opt-arrow", "aria-hidden": "true" }, value > 0 ? "↑" : "↓"),
-      h("b", {}, `${value > 0 ? "+" : "−"}${Math.abs(value)}${unit}`)));
-  }
-  if (!chips.length) return h("p", { class: "bd-note bd-opt-shift-strip-none" }, "Same Nature and the same Stat Points: only the moves change.");
-  return h("div", { class: "bd-opt-shift-strip" }, chips);
+/** The Nature's ▲ / ▼ on the stat it moves, or nothing. */
+function natureMark(side, index) {
+  const [up, down] = side.nature_effect || [-1, -1];
+  if (index !== up && index !== down) return null;
+  const mark = index === up ? "up" : "down";
+  return h("span", { class: `bd-nature-mark ${mark}`, title: mark === "up" ? "Raised by the Nature" : "Lowered by the Nature" }, mark === "up" ? "▲" : "▼");
 }
 
-/** "Stat Points · final stat", with the Nature's own ▲ / ▼ on the stat it moves. */
-function statCell(side, index) {
-  const [up, down] = side.nature_effect || [-1, -1];
-  const mark = index === up ? "up" : index === down ? "down" : "";
-  return h("td", { class: "bd-opt-cell" },
-    h("span", { class: "bd-opt-sp" }, String(side.bonuses[index])), " · ", h("b", {}, String(side.stats[index])),
-    mark ? h("span", { class: `bd-nature-mark ${mark}`, title: mark === "up" ? "Raised by the Nature" : "Lowered by the Nature" }, mark === "up" ? "▲" : "▼") : null);
+const pointWord = (n) => `${n} Stat Point${n === 1 ? "" : "s"}`;
+
+/** "a" / "a and b" / "a, b and c", as nodes, so each part can keep its own markup. */
+function joinNodes(parts) {
+  const out = [];
+  parts.forEach((part, i) => {
+    if (i) out.push(i === parts.length - 1 ? " and " : ", ");
+    out.push(part);
+  });
+  return out;
+}
+
+/** "23 more Speed": the size in the mono face, and the two never break apart. */
+const amount = (shift, word) => h("span", { class: "bd-opt-amount" }, h("b", {}, String(Math.abs(shift.stat))), word, STAT_WORDS[shift.index]);
+
+/**
+ * The change in one plain sentence, built from the two sides: what the Pokémon gained
+ * and what it paid for it, in the final stats a player feels in battle.
+ *
+ * "paid for with" states a trade and judges neither side — less Speed for more bulk is
+ * a trade, not a loss — and the sentence is assembled from the numbers, never written by
+ * hand, so it cannot drift from the bars underneath it.
+ */
+function leadSentence(before, after, shifts, natureChanged) {
+  const gains = shifts.filter((shift) => shift.stat > 0).sort((a, b) => b.stat - a.stat);
+  const costs = shifts.filter((shift) => shift.stat < 0).sort((a, b) => a.stat - b.stat);
+  const head = natureChanged ? [h("b", {}, before.nature), " to ", h("b", {}, after.nature), ": "] : [];
+  const line = (...parts) => h("p", { class: "bd-opt-story-lead" }, ...head, ...parts);
+  if (gains.length && costs.length) {
+    return line(...joinNodes(gains.map((s) => amount(s, " more "))), ", paid for with ", ...joinNodes(costs.map((s) => amount(s, " "))), ".");
+  }
+  if (gains.length) return line(...joinNodes(gains.map((s) => amount(s, " more "))), ", and nothing is given up.");
+  if (costs.length) return line(...joinNodes(costs.map((s) => amount(s, " less "))), ", and nothing is gained.");
+  // Points that move without moving the stat they are spent on, or two Natures that both
+  // raise and lower nothing: the stats are the same twelve numbers, and the line below says why.
+  return line(natureChanged ? "every stat keeps the number it had." : "Every stat keeps the number it had.");
 }
 
 /**
- * The Change cell: an arrow, the signed number and a bar that grows out of the middle,
- * right for up and left for down. One colour for both, since up is not always better.
- * `scale` is the biggest change on the card, and 0 draws no bar (the Stat Point total
- * is not on the same scale as a stat, so a bar there would compare nothing).
+ * Under it, quieter: where the Stat Points went, and what the Nature does now that it did
+ * not do before — the two panels below this block, said in words. Stat Points and final
+ * stats are different things — a stat can lose a point and still end up higher because the
+ * Nature now raises it — so this line only ever talks about points, and the line above it
+ * only about stats.
  */
-function shiftCell(delta, scale, points = 0, unit = "") {
-  const value = delta || points;
-  if (!value) return h("td", { class: "bd-opt-change-cell" }, h("span", { class: "bd-opt-shift same" }, "same"));
-  const up = value > 0;
-  // Half the track is the biggest change on the card, so the bar never leaves its side.
-  const width = `${Math.round(Math.min(1, Math.abs(delta || 0) / (scale || 1)) * 50)}%`;
-  return h("td", { class: "bd-opt-change-cell" },
-    h("span", { class: `bd-opt-shift ${up ? "up" : "down"}` },
-      h("i", { class: "bd-opt-arrow", "aria-hidden": "true" }, up ? "↑" : "↓"),
-      `${up ? "+" : "−"}${Math.abs(value)}${delta ? unit : " SP"}`),
-    delta && scale > 0 ? h("span", { class: `bd-opt-bar ${up ? "up" : "down"}`, "aria-hidden": "true" }, h("i", { style: { width } })) : null);
+function tradeStory(before, after, shifts, natureChanged) {
+  const out = shifts.filter((shift) => shift.points < 0);
+  const into = shifts.filter((shift) => shift.points > 0);
+  const outSum = out.reduce((sum, shift) => sum - shift.points, 0);
+  const inSum = into.reduce((sum, shift) => sum + shift.points, 0);
+  const named = (list) => andList(list.map((shift) => (list.length > 1 ? `${shift.label} (${Math.abs(shift.points)})` : shift.label)));
+  const lines = [];
+  if (outSum && inSum && outSum === inSum) lines.push(`${pointWord(inSum)} move out of ${named(out)} into ${named(into)}.`);
+  else if (outSum && inSum) lines.push(`${pointWord(outSum)} come out of ${named(out)} and ${pointWord(inSum)} go into ${named(into)}.`);
+  else if (inSum) lines.push(`${pointWord(inSum)} more are spent, on ${named(into)}.`);
+  else if (outSum) lines.push(`${pointWord(outSum)} come off ${named(out)}.`);
+  if (natureChanged) {
+    const [wasUp, wasDown] = before.nature_effect || [-1, -1];
+    const [isUp, isDown] = after.nature_effect || [-1, -1];
+    if (isUp < 0) lines.push(`${after.nature} raises and lowers nothing, where ${before.nature} raised ${STATS[wasUp]} and lowered ${STATS[wasDown]}.`);
+    else if (wasUp < 0) lines.push(`${after.nature} raises ${STATS[isUp]} and lowers ${STATS[isDown]}, where ${before.nature} raised and lowered nothing.`);
+    else {
+      // Two Natures can share the stat they raise or the stat they lower: that half of the
+      // sentence then has to say "still", not "instead of" the same stat. "now" belongs to
+      // the first half that did change, so the sentence does not say it twice.
+      const raiseMoved = isUp !== wasUp;
+      const raises = raiseMoved ? `now raises ${STATS[isUp]} instead of ${STATS[wasUp]}` : `still raises ${STATS[isUp]}`;
+      const lowers = isDown === wasDown
+        ? `still lowers ${STATS[isDown]}`
+        : `${raiseMoved ? "" : "now "}lowers ${STATS[isDown]} instead of ${STATS[wasDown]}`;
+      lines.push(`The Nature ${raises} and ${lowers}.`);
+    }
+  }
+  return h("div", { class: "bd-opt-story" },
+    leadSentence(before, after, shifts, natureChanged),
+    lines.length ? h("p", { class: "bd-opt-story-detail" }, lines.join(" ")) : null);
 }
 
-/** "Jolly" over "▲Spe ▼SpA", so the column stays narrow on a phone. */
-function natureCell(side) {
+/** One row per stat: the bar is the stat now, the tip is what moved. */
+function shapeTable(before, after, shifts) {
+  // One scale for all twelve numbers, so the six bars read as this Pokemon's shape.
+  const axis = Math.max(1, ...before.stats, ...after.stats);
+  const pos = (value) => `${(Math.max(0, value) / axis) * 100}%`;
+  const rows = shifts.map((shift) => {
+    const was = before.stats[shift.index];
+    const now = after.stats[shift.index];
+    const grew = now > was;
+    const lost = now < was;
+    return h("div", { class: `bd-opt-srow ${shift.stat || shift.points ? "changed" : "same"}`, role: "row" },
+      h("span", { class: "bd-opt-srow-stat", role: "rowheader" }, shift.label),
+      h("span", { class: "bd-opt-track", role: "cell" },
+        // The solid bar is always the stat as it is now.
+        h("i", { class: "bd-opt-now", style: { width: pos(now) } }),
+        grew ? h("i", { class: "bd-opt-gain", style: { left: pos(was), width: pos(now - was) } }) : null,
+        lost ? h("i", { class: "bd-opt-loss", style: { left: pos(now), width: pos(was - now) } }) : null),
+      h("span", { class: "bd-opt-vals", role: "cell" },
+        h("b", {}, h("span", { class: "bd-opt-sp" }, String(after.bonuses[shift.index])), " · ", String(now), natureMark(after, shift.index)),
+        h("small", {}, "was ", h("span", { class: "bd-opt-sp" }, String(before.bonuses[shift.index])), " · ", String(was), natureMark(before, shift.index))),
+      shiftMark(shift.stat, shift.points));
+  });
+  return h("div", { class: "bd-opt-shape", role: "table", "aria-label": "Every stat previously and now" },
+    h("div", { class: "bd-opt-shape-head", role: "row" },
+      h("span", { role: "columnheader" }, "Stat"),
+      h("span", { role: "columnheader" }, `Final stat at level 50 — one scale, 0 to ${axis}`),
+      h("span", { role: "columnheader" }, "Stat Points · stat"),
+      h("span", { role: "columnheader" }, "Change")),
+    rows);
+}
+
+/** ↑ +14 / ↓ −12 / same. One colour for both: up is not always better. */
+function shiftMark(delta, points) {
+  const value = delta || points;
+  if (!value) return h("span", { class: "bd-opt-d", role: "cell" }, h("span", { class: "bd-opt-shift same" }, "same"));
+  const up = value > 0;
+  return h("span", { class: "bd-opt-d", role: "cell" },
+    h("span", { class: `bd-opt-shift ${up ? "up" : "down"}` },
+      h("i", { class: "bd-opt-arrow", "aria-hidden": "true" }, up ? "↑" : "↓"),
+      `${up ? "+" : "−"}${Math.abs(value)}${delta ? "" : " SP"}`));
+}
+
+/**
+ * The 66 Stat Points as one bar per side, cut into the stats they are spent on. Both
+ * bars are drawn on the same track, so a spread that only moves its points keeps the
+ * same length and the eye sees the re-spend. The 66 line is always drawn, which is what
+ * a pasted set with more than 66 points crosses.
+ */
+function budgetBlock(before, after) {
+  const cap = Math.max(MAX_POINTS, before.total, after.total);
+  // Only the Nature moved: the second bar would be the first one again.
+  const same = String(before.bonuses) === String(after.bonuses);
+  return h("div", { class: "bd-opt-budget" },
+    h("span", { class: "bd-field-label" }, "The 66 Stat Points"),
+    same ? budgetRow("Both", after, cap) : budgetRow("Previously", before, cap),
+    same ? null : budgetRow("Now", after, cap),
+    same ? h("small", { class: "bd-note" }, "Unchanged: the same points, in the same stats.") : null,
+    cap > MAX_POINTS ? h("small", { class: "bd-note" }, "The line is the 66 a legal set may spend.") : null);
+}
+
+function budgetRow(label, side, cap) {
+  const track = h("span", { class: "bd-opt-budget-track" });
+  STATS.forEach((stat, index) => {
+    const points = side.bonuses[index];
+    if (!points) return;
+    // The shade is the stat's own, the same on both bars, so a block that shrinks on one
+    // and grows on the other is the same block. It is one hue: no stat is "good".
+    // A block narrower than about an eighth of the bar cannot hold its label legibly.
+    const wide = points / cap >= 0.12;
+    track.append(h("i", { class: "bd-opt-budget-seg", style: { width: `${(points / cap) * 100}%`, "--i": String(index) }, title: `${stat}: ${pointWord(points)}` },
+      wide ? h("span", {}, `${stat} ${points}`) : null));
+  });
+  const unspent = MAX_POINTS - side.total;
+  if (unspent > 0) track.append(h("i", { class: "bd-opt-budget-free", style: { width: `${(unspent / cap) * 100}%` }, title: `${pointWord(unspent)} not spent` }));
+  if (cap > MAX_POINTS) track.append(h("i", { class: "bd-opt-budget-cap", style: { left: `${(MAX_POINTS / cap) * 100}%` } }));
+  return h("div", { class: "bd-opt-budget-row" },
+    h("span", { class: "bd-opt-budget-key" }, label),
+    track,
+    h("span", { class: "bd-opt-budget-total" }, h("b", {}, String(side.total)), "/66"));
+}
+
+/** Both Natures with what each raises and lowers. */
+function natureBlock(before, after, natureChanged) {
+  return h("div", { class: "bd-opt-natures" },
+    h("span", { class: "bd-field-label" }, "Nature"),
+    h("div", { class: "bd-opt-nature-swap" },
+      natureSide(before, "was"),
+      natureChanged ? h("i", { class: "bd-opt-nature-to", "aria-hidden": "true" }, "→") : null,
+      natureChanged ? natureSide(after, "now") : null),
+    natureChanged ? null : h("small", { class: "bd-note" }, "Unchanged."));
+}
+
+function natureSide(side, kind) {
   const [up, down] = side.nature_effect || [-1, -1];
-  return h("td", { class: "bd-opt-cell bd-opt-nature" }, h("b", {}, side.nature),
+  return h("span", { class: `bd-opt-nature-side ${kind}` },
+    h("b", {}, side.nature),
     h("small", {}, up >= 0
       ? [h("span", { class: "bd-nature-mark up" }, "▲"), STATS[up], " ", h("span", { class: "bd-nature-mark down" }, "▼"), STATS[down]]
-      : "neutral"));
+      : "raises and lowers nothing"));
+}
+
+/** The spread printed once, for a set whose Nature and Stat Points do not change. */
+function spreadOnce(side) {
+  return h("div", { class: "bd-opt-once" },
+    h("div", { class: "bd-opt-once-head" },
+      h("b", {}, side.nature),
+      h("small", {}, ...(() => {
+        const [up, down] = side.nature_effect || [-1, -1];
+        return up >= 0
+          ? [h("span", { class: "bd-nature-mark up" }, "▲"), STATS[up], " ", h("span", { class: "bd-nature-mark down" }, "▼"), STATS[down]]
+          : ["raises and lowers nothing"];
+      })()),
+      h("span", { class: "bd-opt-once-total" }, h("b", {}, String(side.total)), "/66 Stat Points")),
+    h("div", { class: "bd-opt-once-stats" }, STATS.map((stat, index) => h("span", { class: "bd-opt-once-stat" },
+      h("span", { class: "bd-opt-once-key" }, stat),
+      h("span", { class: "bd-opt-sp" }, String(side.bonuses[index])), " · ", h("b", {}, String(side.stats[index])),
+      natureMark(side, index)))));
+}
+
+/**
+ * The moves the set had and the moves it would have - or, when the four are the same four,
+ * one row of them: two identical lists side by side is the same thing printed twice.
+ */
+function movesCompare(result) {
+  const { before, after } = result;
+  const had = (before.moves || []).filter(Boolean);
+  if (had.length && String(before.moves) === String(after.moves)) {
+    return h("div", { class: "bd-opt-moves-compare one" },
+      h("div", {}, h("span", { class: "bd-field-label" }, "Moves, unchanged"), moveChips(after.moves, [], "new")));
+  }
+  return h("div", { class: "bd-opt-moves-compare" },
+    h("div", {}, h("span", { class: "bd-field-label" }, "Previously"), had.length ? moveChips(before.moves, result.removed, "gone") : h("p", { class: "bd-note" }, "No moves")),
+    h("div", {}, h("span", { class: "bd-field-label" }, "Now"), moveChips(after.moves, result.added, "new")));
 }
 
 function moveChips(moves, highlighted, tone) {
@@ -395,8 +565,11 @@ function changeRow(row, props, result) {
 function speedSection(result, ui) {
   const contexts = (result.speed.contexts || []).filter((c) => c.before !== c.after || c.now_faster.length || c.now_slower.length || c.now_tied.length);
   if (!contexts.length) return null;
-  // A Trick Room team opens on Trick Room, where its lower Speed is the point.
-  if (!contexts.some((c) => c.id === ui.speedContext)) ui.speedContext = (contexts.find((c) => c.id === result.plan_context?.id) || contexts[0]).id;
+  // Normal opens first: it is the context the "Speed 97 → 120" heading above reads, and the
+  // one every player checks before their team's own Tailwind or Trick Room, which is a tap away.
+  if (!contexts.some((c) => c.id === ui.speedContext)) {
+    ui.speedContext = (contexts.find((c) => c.id === "normal") || contexts.find((c) => c.id === result.plan_context?.id) || contexts[0]).id;
+  }
   const body = h("div", { class: "bd-opt-speed-body" });
   const paint = () => {
     const context = contexts.find((c) => c.id === ui.speedContext) || contexts[0];
@@ -499,16 +672,8 @@ function actions(member, result, props) {
         : `Apply Stat Points & Nature only (${signed(statsOnly.delta)})`));
     }
   }
-  // Only when the suggestion really leaves the spread and the Nature alone. A guaranteed
-  // move added by the rule also sets `moves_changed`, and the search can still have found a
-  // better spread beside it - the table above would then contradict this note.
-  const spreadKept = String(result.before?.bonuses) === String(result.after?.bonuses) && result.before?.nature === result.after?.nature;
-  if (result.ok && result.moves_changed && spreadKept && !result.moves_from_common?.length && !(result.alternatives || []).some((a) => a.kind === "stats")) {
-    // With a move added by the rule there is no "your current moves" to keep: say what is left.
-    bar.append(h("p", { class: "bd-note bd-opt-actions-note" }, result.guaranteed?.added?.length
-      ? "Apart from the move nearly every team of it runs, no Stat Point or Nature change scored clearly better."
-      : "Keeping your current moves, no Stat Point or Nature change scored clearly better."));
-  }
+  // (A set whose spread is kept says so in the breakdown above, under "The spread stays as
+  // it is", which is where a player is looking when they ask the question.)
   bar.append(h("button", { type: "button", class: "ghost-button compact", onclick: () => props.onDiscard(member.slot) }, result.ok ? "Discard" : "Close"));
   return bar;
 }

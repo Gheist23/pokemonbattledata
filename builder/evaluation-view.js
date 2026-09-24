@@ -334,15 +334,38 @@ export function openSpeedDialog(payload) {
   openDialog({ title: "Speed Control", body: h("div", { class: "bd-list" }, scoreRing(payload.speed?.score ?? 0, "Speed"), speedView(payload)), wide: true });
 }
 
+/**
+ * The sentence under the Offense / Defense score, in the maths the payload was scored with.
+ *
+ * V512 (builder/team-eval.js `pressureOverview`, the app's `score_composition_v512`): each
+ * score is its own measurement at full weight, and the critical-threat number it used to
+ * borrow 30% from is named as something reported beside it rather than inside it. A payload
+ * recorded before the rule carries no `score_rule_v512` and is still described as 70/30,
+ * because that is how it was scored.
+ */
+export function pressureFormula(payload, which) {
+  const overview = payload?.pressure_overview_v188 || {};
+  const offense = which === "offense";
+  const pressure = offense ? overview.team_to_meta : overview.meta_to_team;
+  const critical = overview.critical || {};
+  const score = offense ? payload?.offense_score : payload?.defense_score;
+  if (overview.score_rule_v512) {
+    return offense
+      ? `Offense ${Math.round(score)} = the team's damage pressure into the Top ${overview.top_x} Meta (${Math.round(pressure?.score ?? 0)}), at full weight. How well it answers its critical threats (${Math.round(critical.answer_score ?? 0)}) is listed below and is no longer part of this score.`
+      : `Defense ${Math.round(score)} = 100 − the meta's pressure into the team (${Math.round(pressure?.score ?? 0)}), at full weight. Critical-threat safety (${Math.round(critical.safety_score ?? 0)}) is listed below and is no longer part of this score.`;
+  }
+  return offense
+    ? `Offense ${Math.round(score)} = 70% of the team's damage pressure into the Top ${overview.top_x} Meta (${Math.round(pressure?.score ?? 0)}) + 30% how well it answers its critical threats (${Math.round(critical.answer_score ?? 0)}).`
+    : `Defense ${Math.round(score)} = 70% of (100 − the meta's pressure into the team, ${Math.round(pressure?.score ?? 0)}) + 30% critical-threat safety (${Math.round(critical.safety_score ?? 0)}).`;
+}
+
 export function openPressureDialog(payload, which) {
   const overview = payload.pressure_overview_v188 || {};
   const offense = which === "offense";
   const pressure = offense ? overview.team_to_meta : overview.meta_to_team;
   const critical = overview.critical || {};
-  const score = offense ? payload.offense_score : payload.defense_score;
-  const formula = offense
-    ? `Offense ${Math.round(score)} = 70% of the team's damage pressure into the Top ${overview.top_x} Meta (${Math.round(pressure?.score ?? 0)}) + 30% how well it answers its critical threats (${Math.round(critical.answer_score ?? 0)}).`
-    : `Defense ${Math.round(score)} = 70% of (100 − the meta's pressure into the team, ${Math.round(pressure?.score ?? 0)}) + 30% critical-threat safety (${Math.round(critical.safety_score ?? 0)}).`;
+  const rule = Boolean(overview.score_rule_v512);
+  const formula = pressureFormula(payload, which);
   const types = Object.entries(pressure?.type_summary || {}).filter(([, v]) => v.count > 0).sort((a, b) => b[1].pressure - a[1].pressure);
   const body = h("div", { class: "bd-list" },
     h("p", { class: "bd-confirm-text" }, formula),
@@ -355,7 +378,8 @@ export function openPressureDialog(payload, which) {
     types.length ? h("h3", { class: "bd-field-label" }, "By attacking type") : null,
     types.length ? h("div", { class: "bd-type-grid" }, types.map(([type, v]) => h("div", { class: `bd-type-cell ${offense ? (v.pressure >= 60 ? "good" : v.pressure < 35 ? "bad" : "mid") : (v.pressure >= 60 ? "bad" : v.pressure < 35 ? "good" : "mid")}` },
       h("img", { src: `/pokemon_champions_assets/types/${type}.png`, alt: "", width: 16, height: 16 }), h("span", {}, type), h("b", {}, `${Math.round(v.pressure)}%`)))) : null,
-    (critical.critical_rows || []).length ? h("h3", { class: "bd-field-label" }, "Critical threats in this score") : null,
+    // The rows stay exactly where they were shown; under V512 they are no longer in the score.
+    (critical.critical_rows || []).length ? h("h3", { class: "bd-field-label" }, rule ? (offense ? "Critical threats and your best answer" : "Critical threats and how safe you are") : "Critical threats in this score") : null,
     (critical.critical_rows || []).map((row) => h("div", { class: "bd-row" },
       h("span", { class: `bd-status ${row.severity}` }, row.severity === "red" ? "Red" : "Yellow"),
       h("div", {}, h("h3", {}, row.name), h("p", {}, `Threat ${Math.round(row.score)} · best answer ${Math.round(row.answer)}`)), h("span"))));
@@ -363,6 +387,24 @@ export function openPressureDialog(payload, which) {
 }
 
 // --- Speed ------------------------------------------------------------------------------------
+
+/**
+ * The Speed score's parts, in the order the panel shows them.
+ *
+ * V512 (builder/team-speed.js): a Trick Room team is scored on all three parts, so it shows
+ * all three, with Trick Room first because that is the part it leads on. A payload recorded
+ * before the rule has Standard Speed and Opposing Speed Control written as 0 with no lines
+ * at all, and is still shown as the one part it was scored on.
+ */
+export function speedParts(speed = {}) {
+  const trick = { label: "Trick Room", value: speed.trick_room, lines: speed.trick_lines };
+  const opposing = { label: "Opposing Speed Control", value: speed.opposing_tailwind, lines: speed.tailwind_lines };
+  const standard = { label: "Standard Speed", value: speed.standard, lines: speed.standard_lines };
+  if (speed.archetype_speed_mode_v465 !== "trick_room") return [standard, opposing, trick];
+  const scoredOnAllThree = Boolean(speed.standard || speed.opposing_tailwind
+    || (speed.standard_lines || []).length || (speed.tailwind_lines || []).length);
+  return scoredOnAllThree ? [trick, opposing, standard] : [trick];
+}
 
 /** Speed Control: the Speed score's sub-scores and every line behind them. */
 export function speedView(payload) {
@@ -374,12 +416,7 @@ export function speedView(payload) {
   return h("div", { class: "bd-speed" },
     h("p", { class: "bd-section-note" }, `The Speed score is how often your team moves first against the Top ${payload.settings?.top_meta ?? ""} Meta in three situations: normal Speed, when the opponent has Tailwind, and under Trick Room. Open a part to see the matchups behind it.`),
     speed.summary ? h("p", { class: "bd-note" }, speed.summary) : null,
-    speed.archetype_speed_mode_v465 === "trick_room"
-      ? h("div", { class: "bd-speed-parts" }, section("Trick Room", speed.trick_room, speed.trick_lines))
-      : h("div", { class: "bd-speed-parts" },
-        section("Standard Speed", speed.standard, speed.standard_lines),
-        section("Opposing Tailwind", speed.opposing_tailwind, speed.tailwind_lines),
-        section("Trick Room", speed.trick_room, speed.trick_lines)),
+    h("div", { class: "bd-speed-parts" }, speedParts(speed).map(({ label, value, lines }) => section(label, value, lines))),
     room.setters ? h("p", { class: "bd-note" }, `Trick Room plan: ${room.setters} setter${room.setters === 1 ? "" : "s"}, ${room.beneficiaries} slow attacker${room.beneficiaries === 1 ? "" : "s"}. ${room.supported ? "Scored under Trick Room." : "Scored as a normal-Speed team."}`) : null);
 }
 

@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Tyranitar,53,move,1,Knock Off,76.6%,,,,,,,,
-Tyranitar,53,move,2,Stone Edge,46.4%,,,,,,,,
-Tyranitar,53,move,3,Stealth Rock,43.6%,,,,,,,,
-Tyranitar,53,move,4,Ice Punch,37.8%,,,,,,,,
+Tyranitar,53,move,2,Stone Edge,46.6%,,,,,,,,
+Tyranitar,53,move,3,Stealth Rock,43.3%,,,,,,,,
+Tyranitar,53,move,4,Ice Punch,38.0%,,,,,,,,
 Tyranitar,53,move,5,Earthquake,35.5%,,,,,,,,
-Tyranitar,53,move,6,Dragon Dance,18.4%,,,,,,,,
+Tyranitar,53,move,6,Dragon Dance,18.6%,,,,,,,,
 Tyranitar,53,move,7,Rock Tomb,18.0%,,,,,,,,
-Tyranitar,53,move,8,Roar,13.1%,,,,,,,,
+Tyranitar,53,move,8,Roar,12.9%,,,,,,,,
 Tyranitar,53,move,9,Rock Slide,10.9%,,,,,,,,
-Tyranitar,53,move,10,Superpower,10.6%,,,,,,,,
-Tyranitar,53,held_item,1,Tyranitarite,38.8%,,,,,,,,
-Tyranitar,53,held_item,2,Leftovers,12.6%,,,,,,,,
-Tyranitar,53,held_item,3,Sitrus Berry,12.2%,,,,,,,,
-Tyranitar,53,held_item,4,Smooth Rock,11.0%,,,,,,,,
+Tyranitar,53,move,10,Superpower,10.7%,,,,,,,,
+Tyranitar,53,held_item,1,Tyranitarite,39.3%,,,,,,,,
+Tyranitar,53,held_item,2,Leftovers,12.4%,,,,,,,,
+Tyranitar,53,held_item,3,Sitrus Berry,12.1%,,,,,,,,
+Tyranitar,53,held_item,4,Smooth Rock,10.8%,,,,,,,,
 Tyranitar,53,held_item,5,Chople Berry,3.8%,,,,,,,,
 Tyranitar,53,held_item,6,Air Balloon,2.5%,,,,,,,,
 Tyranitar,53,held_item,7,Lum Berry,2.5%,,,,,,,,
@@ -29,9 +29,9 @@ Tyranitar,53,teammate,7,Rillaboom,,,,,,,,,
 Tyranitar,53,teammate,8,Excadrill,,,,,,,,,
 Tyranitar,53,teammate,9,Corviknight,,,,,,,,,
 Tyranitar,53,teammate,10,Archaludon,,,,,,,,,
-Tyranitar,53,stat_alignment,1,Adamant,41.9%,Attack,Sp. Atk,,,,,,
-Tyranitar,53,stat_alignment,2,Careful,27.7%,Sp. Def,Sp. Atk,,,,,,
-Tyranitar,53,stat_alignment,3,Jolly,11.3%,Speed,Sp. Atk,,,,,,
+Tyranitar,53,stat_alignment,1,Adamant,42.2%,Attack,Sp. Atk,,,,,,
+Tyranitar,53,stat_alignment,2,Careful,27.5%,Sp. Def,Sp. Atk,,,,,,
+Tyranitar,53,stat_alignment,3,Jolly,11.4%,Speed,Sp. Atk,,,,,,
 Tyranitar,53,stat_alignment,4,Impish,6.5%,Defense,Sp. Atk,,,,,,
 Tyranitar,53,stat_alignment,5,Modest,5.1%,Sp. Atk,Attack,,,,,,
 Tyranitar,53,stat_alignment,6,Brave,1.7%,Attack,Speed,,,,,,
@@ -39,15 +39,15 @@ Tyranitar,53,stat_alignment,7,Sassy,1.6%,Sp. Def,Speed,,,,,,
 Tyranitar,53,stat_alignment,8,Calm,1.1%,Sp. Def,Attack,,,,,,
 Tyranitar,53,stat_alignment,9,Relaxed,0.8%,Defense,Speed,,,,,,
 Tyranitar,53,stat_alignment,10,Bold,0.7%,Defense,Attack,,,,,,
-Tyranitar,53,stat_points,1,,11.1%,,,32,32,0,0,2,0
-Tyranitar,53,stat_points,2,,10.6%,,,32,0,2,0,32,0
+Tyranitar,53,stat_points,1,,11.3%,,,32,32,0,0,2,0
+Tyranitar,53,stat_points,2,,10.5%,,,32,0,2,0,32,0
 Tyranitar,53,stat_points,3,,8.2%,,,2,32,0,0,0,32
-Tyranitar,53,stat_points,4,,7.7%,,,32,2,0,0,32,0
-Tyranitar,53,stat_points,5,,6.1%,,,32,32,2,0,0,0
+Tyranitar,53,stat_points,4,,7.6%,,,32,2,0,0,32,0
+Tyranitar,53,stat_points,5,,6.2%,,,32,32,2,0,0,0
 Tyranitar,53,stat_points,6,,3.8%,,,32,32,0,0,0,2
-Tyranitar,53,stat_points,7,,2.4%,,,32,0,0,0,32,2
+Tyranitar,53,stat_points,7,,2.3%,,,32,0,0,0,32,2
 Tyranitar,53,stat_points,8,,2.0%,,,32,0,32,0,2,0
-Tyranitar,53,stat_points,9,,1.1%,,,0,32,0,0,2,32
+Tyranitar,53,stat_points,9,,1.2%,,,0,32,0,0,2,32
 Tyranitar,53,stat_points,10,,1.0%,,,32,0,0,32,0,2
 Tyranitar,53,ability,1,Sand Stream,99.2%,,,,,,,,
 Tyranitar,53,ability,2,Unnerve,0.8%,,,,,,,,

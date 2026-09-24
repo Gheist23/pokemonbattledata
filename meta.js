@@ -278,7 +278,16 @@
     if (!older.length) return null;
     const cutoff = latest - windowDays * 86400000;
     const inWindow = older.filter((day) => (parseDate(day.date) ?? 0) >= cutoff);
-    return inWindow.length ? inWindow[inWindow.length - 1] : older[0];
+    const oldestInside = inWindow.length ? inWindow[inWindow.length - 1] : null;
+    const newestOutside = older.find((day) => (parseDate(day.date) ?? 0) < cutoff) || null;
+    if (!oldestInside) return newestOutside;
+    if (!newestOutside) return oldestInside;
+    // "The last 30 days" with a sparse archive: the day just inside the window
+    // and the day just outside it are both approximations, so take whichever
+    // lands closer to the length that was asked for. With a daily archive the
+    // inside day is the answer; it only matters where days are missing.
+    const missBy = (day) => Math.abs(Math.round((latest - (parseDate(day.date) ?? 0)) / 86400000) - windowDays);
+    return missBy(newestOutside) < missBy(oldestInside) ? newestOutside : oldestInside;
   }
 
   async function refresh() {

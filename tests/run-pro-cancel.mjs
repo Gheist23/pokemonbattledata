@@ -101,25 +101,23 @@ const plans = read("pro-tool", "plans", "index.html");
 const cancelParagraph = plans.match(/<p class="tool-cta-note tool-cta-note-center" id="cancel">[\s\S]*?<\/p>/)?.[0] || "";
 
 ok("the plans page has a cancel block", cancelParagraph.length > 0);
-ok("it sits between the prices note and the \"Already subscribed?\" note",
-  plans.indexOf("Prices in euro") < plans.indexOf('id="cancel"')
-  && plans.indexOf('id="cancel"') < plans.indexOf("Already subscribed?"),
-  `prices ${plans.indexOf("Prices in euro")}, cancel ${plans.indexOf('id="cancel"')}, subscribed ${plans.indexOf("Already subscribed?")}`);
-ok("the always-true wording is what shows without the portal link",
-  /id="cancelFallback"/.test(cancelParagraph) && !/id="cancelFallback"[^>]*\bhidden\b/.test(cancelParagraph));
-ok("the portal sentence starts hidden", /id="cancelPortal"[^>]*\bhidden\b/.test(cancelParagraph));
-ok("the portal link ships with no href, so it can never be a dead link",
-  /<a id="cancelPortalLink"(?![^>]*href)/.test(cancelParagraph),
-  cancelParagraph.match(/<a id="cancelPortalLink"[^>]*>/)?.[0] || "missing");
-ok("the fallback names the receipt link and Discord",
-  /receipt email/i.test(cancelParagraph) && /discord\.gg/.test(cancelParagraph));
+// The owner asked for this paragraph under "Already subscribed?", in their own
+// words: the receipt link, no Discord, and what actually happens to Pro.
+ok("it sits under the \"Already subscribed?\" note",
+  plans.indexOf("Already subscribed?") < plans.indexOf('id="cancel"'),
+  `subscribed ${plans.indexOf("Already subscribed?")}, cancel ${plans.indexOf('id="cancel"')}`);
+ok("it opens with the owner's question", /<strong>Want to cancel\?<\/strong>/.test(cancelParagraph));
+ok("it names the receipt email from Stripe",
+  /manage-subscription link in the receipt email you got from Stripe/.test(cancelParagraph));
+ok("it does not send anyone to Discord to cancel", !/discord\.gg/.test(cancelParagraph));
 ok("the page says Pro runs on to the end of the period", /end of the period you are in/i.test(cancelParagraph));
+ok("it names the trial and the paid period", /the free trial, or the month or year you have paid for/.test(cancelParagraph));
 ok("the page names the up-to-a-week lag", /up to a week/i.test(cancelParagraph));
-ok("the page says the teams and the Box are kept", /teams and your Box/i.test(cancelParagraph));
+ok("the page says the teams and the Box are kept", /teams and your Box stay exactly where they are/.test(cancelParagraph));
 ok("the page promises no instant stop",
   !FALSE_PROMISES.some((pattern) => pattern.test(cancelParagraph)),
   FALSE_PROMISES.map((p) => cancelParagraph.match(p)?.[0]).filter(Boolean).join(" | "));
-ok("the trial sentence above it is untouched",
+ok("the trial sentence further up is untouched",
   /7-day free trial<\/strong>; cancel inside it and you are not charged/.test(plans));
 
 /* --------------------------------------------- the plans page inline script */
@@ -130,35 +128,35 @@ ok("the payment links are still rewritten by the same script", /data-plan="/.tes
 
 function runInlineScript(portalValue) {
   const source = inlineScript.replace(/var STRIPE_PORTAL = "[^"]*";/, `var STRIPE_PORTAL = ${JSON.stringify(portalValue)};`);
-  const portalBlock = new El("span");
-  portalBlock.hidden = true;                       // as the markup ships it
-  const portalLink = new El("a");
-  const fallback = new El("span");
-  const byId = { cancelPortal: portalBlock, cancelPortalLink: portalLink, cancelFallback: fallback };
+  // The paragraph as it ships: the owner's sentence, opened by a <strong>.
+  const note = new El("p");
+  note.append(new El("strong"));
+  const byId = { cancel: note };
+  const created = [];
   const doc = {
     getElementById: (id) => byId[id] || null,
     querySelectorAll: () => [],
+    createElement: (tag) => { const el = new El(tag); created.push(el); return el; },
+    createTextNode: (text) => new TextNode(text),
   };
   new Function("document", source)(doc);
-  return { portalBlock, portalLink, fallback };
+  return { note, links: created.filter((el) => el.tagName === "A") };
 }
 
 {
-  const { portalBlock, portalLink, fallback } = runInlineScript("");
-  ok("unset: the receipt/Discord wording stays", fallback.hidden === false);
-  ok("unset: the portal sentence stays hidden", portalBlock.hidden === true);
-  ok("unset: no href is written", portalLink.getAttribute("href") === null);
+  const { links } = runInlineScript("");
+  ok("unset: no portal link is added", links.length === 0);
 }
 {
-  const { portalBlock, portalLink, fallback } = runInlineScript(PORTAL);
-  ok("set: the portal sentence appears", portalBlock.hidden === false);
-  ok("set: the fallback wording gives way", fallback.hidden === true);
-  ok("set: the link points at the portal", portalLink.getAttribute("href") === PORTAL, String(portalLink.getAttribute("href")));
+  const { links } = runInlineScript(PORTAL);
+  ok("set: a portal link is added", links.length === 1, String(links.length));
+  ok("set: it points at the portal", links[0]?.getAttribute("href") === PORTAL, String(links[0]?.getAttribute("href")));
+  ok("set: it opens in a new tab safely",
+    links[0]?.getAttribute("target") === "_blank" && /noopener/.test(String(links[0]?.getAttribute("rel"))));
 }
 for (const junk of ["", "   ", "billing.stripe.com/p/login/x", "http://billing.stripe.com/x", "javascript:alert(1)", "about:blank"]) {
-  const { portalBlock, portalLink, fallback } = runInlineScript(junk);
-  ok(`a value that is not an https URL is ignored (${JSON.stringify(junk)})`,
-    portalLink.getAttribute("href") === null && portalBlock.hidden === true && fallback.hidden === false);
+  const { links } = runInlineScript(junk);
+  ok(`a value that is not an https URL is ignored (${JSON.stringify(junk)})`, links.length === 0);
 }
 
 /* ------------------------------------------------------- builder/pro.js */
@@ -204,8 +202,11 @@ function renderCancelLine(portal) {
   const text = node.textContent;
   const anchors = links(node);
   ok("dialog, unset: it names the receipt link", /receipt email/i.test(text), text);
-  ok("dialog, unset: Discord is a link", anchors.length === 1 && /discord\.gg/.test(anchors[0].getAttribute("href") || ""),
+  // The dialog says the same as the plans page: the receipt link, no Discord.
+  ok("dialog, unset: no link is needed", anchors.length === 0,
     anchors.map((a) => a.getAttribute("href")).join(" | "));
+  ok("dialog, unset: it does not send anyone to Discord to cancel", !/discord/i.test(text));
+  ok("dialog, unset: it uses the owner's wording", /Want to cancel\?/.test(text) && /you got from Stripe/.test(text), text.slice(0, 90));
   ok("dialog, unset: no Stripe portal link is invented", !/billing\.stripe\.com/.test(anchors.map((a) => a.getAttribute("href")).join(" ")));
 }
 {

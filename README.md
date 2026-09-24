@@ -129,6 +129,106 @@ GET /api/metadata/garchomp
 The `_headers` file enables CORS for static JSON, CSV, and image assets.
 
 
+## Discord bot
+
+`functions/api/discord/interactions.js` is the whole bot: a Pages Function on
+`POST /api/discord/interactions` that answers Discord's HTTP interactions. There
+is no gateway connection and no second host, so it deploys with the site, scales
+with it and costs nothing extra. It reads the site's own files through
+`env.ASSETS` — `data/api/lookup.json`, `data/meta/index.json`,
+`data/builder/meta-<format>.json`, `data/builder/app-data.json` and
+`data/descriptions.json` — so an answer in Discord and the page it links to
+cannot disagree.
+
+Every reply is an embed with link buttons back to the matching page, because
+sending people to the site is the point of the bot.
+
+| Command | Answers | Leads to |
+| --- | --- | --- |
+| `/pokemon` | Rank, typing, base stats, the most used set, top moves and teammates, other forms | that Pokemon's profile |
+| `/moves` | The ten most used moves with their types; `move:` explains one of them | the profile, all movesets |
+| `/items` | The ten most used held items and what the top one does; `item:` explains one | the profile, all held items |
+| `/teammates` | The ten most common teammates, each with its own usage rank | the profile, all teammates |
+| `/meta` | The current ranking, `top:` 5–25, with each Pokemon's most used item | `/meta/`, ranked usage |
+| `/compare` | Two Pokemon side by side: rank, typing, stats, item, ability, shared teammates and moves | both profiles, the Damage Calculator |
+| `/speed` | Base Speed plus points plus nature, and who sits either side of it | the speed tiers page |
+| `/matchup` | What one or two types resist, take double from and hit hard | the Team Builder |
+| `/counters` | Ranked Pokemon already carrying a move that hits this one for double or more | the Damage Calculator |
+| `/help` | The command list and where the numbers come from | the site, `/meta/`, both tools |
+
+`format` is `Doubles` unless `Singles` is picked, on every command whose data
+differs by format. Pokemon, move and item arguments autocomplete.
+
+Discord drops an interaction that is not answered within three seconds. `/help`
+answers in the first response; every other command replies DEFERRED and then
+edits that message through the interaction webhook, which needs no bot token —
+the interaction token in the signed body authorises it. Autocomplete cannot be
+deferred, so it is answered inline from the smallest list that fits and gives up
+after two seconds rather than letting the box time out. Finished replies are
+cached for five minutes by command, arguments and format.
+
+### Setting it up
+
+1. **Discord developer portal → New Application.** Copy the **Application ID**
+   and the **Public Key** from *General Information*. On the *Bot* tab, *Reset
+   Token* and copy the token; it is needed only to register the commands.
+2. **Cloudflare Pages → the `pokemonbattledata` project → Settings → Environment
+   variables.** Add `DISCORD_PUBLIC_KEY` (required — the Function verifies every
+   request against it) and, optionally, `DISCORD_APP_ID` (the Function then
+   refuses a body signed for a different application). `DISCORD_BOT_TOKEN` is
+   **not** needed in Cloudflare; it is only used by the registration script on
+   your own machine. Deploy, then confirm the route is live:
+   `GET https://championsbattledata.com/api/discord/interactions` answers with
+   the command list and `"configured": true`.
+3. **Register the commands** (they do not exist until this runs):
+
+   ```powershell
+   $env:DISCORD_APP_ID    = "<application id>"
+   $env:DISCORD_BOT_TOKEN = "<bot token>"
+   node tools/register-discord-commands.mjs --guild <your server id>   # instant
+   node tools/register-discord-commands.mjs                            # everywhere
+   ```
+
+   `--dry-run` prints the commands without needing either value, and `--list`
+   shows what is registered. Guild commands appear at once and are the way to
+   try a change; global commands can take up to an hour to roll out.
+4. **Set the interactions endpoint URL** back in the developer portal, under
+   *General Information*:
+   `https://championsbattledata.com/api/discord/interactions`. Discord will not
+   accept it until the Function is deployed: it sends a PING and a deliberately
+   corrupted signature, and the URL is only saved if the bad one comes back 401.
+5. **Invite the bot.** Scopes `applications.commands` and `bot`, permissions `0`
+   — an interaction reply needs no channel permission at all:
+
+   ```text
+   https://discord.com/oauth2/authorize?client_id=<application id>&scope=applications.commands%20bot&permissions=0
+   ```
+
+`tools/` is uploaded with the site, so nothing in it may ever hold a secret. The
+registration script reads the token from the environment only, and never prints
+it. `SITE_ORIGIN` overrides `https://championsbattledata.com` in the links if the
+bot is ever pointed at a preview deployment.
+
+### Testing it
+
+```powershell
+node tests/run-discord-bot.mjs
+```
+
+Signatures are real: the test signs bodies with a generated Ed25519 key and
+checks that a good one passes, a tampered one and a tampered body are refused,
+and a replayed timestamp is refused even though its signature is genuine. Then
+it builds every reply twice — once on small fixtures, so a day's new battle data
+cannot change what an embed should contain, and once on this repo's real `data/`
+files, which is what catches a field being renamed upstream. It also checks the
+name resolver against misspellings, the autocomplete ranking, the reply cache,
+Discord's embed and component limits, and that no source hard-codes a
+credential. `tests/` is never deployed.
+
+A real Discord application is still needed to check the parts nobody can fake
+locally: that Discord accepts the endpoint URL, that the slash commands appear,
+and that an embed and its buttons look right on a phone.
+
 ## Team Builder and Damage Calculator
 
 `/team-builder/` and `/damage-calculator/` run the Companion app's damage engine and team

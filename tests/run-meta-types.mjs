@@ -501,16 +501,24 @@ const singlesWindow = (() => {
     const m = /^(\d{2})_(\d{2})_(\d{4})$/.exec(value);
     return Date.UTC(Number(m[3]), Number(m[2]) - 1, Number(m[1]));
   };
-  const older = season.dates.filter((date) => stamp(date) < stamp(latestDate));
-  const inWindow = older.filter((date) => stamp(date) >= stamp(latestDate) - 14 * 86400000);
-  const date = inWindow.length ? inWindow.at(-1) : older[0];
-  return { date, days: Math.round((stamp(latestDate) - stamp(date)) / 86400000) };
+  // The page reaches past the season the latest day belongs to, so that "the
+  // last 14 days" is 14 days and not "as much of them as this season holds".
+  const days = [];
+  for (const entry of metaIndex.seasons) {
+    if (!(entry.formats || []).includes("Singles")) continue;
+    for (const date of entry.dates) days.push({ season: entry.season, date });
+  }
+  days.sort((a, b) => stamp(b.date) - stamp(a.date));
+  const older = days.filter((day) => stamp(day.date) < stamp(latestDate));
+  const inWindow = older.filter((day) => stamp(day.date) >= stamp(latestDate) - 14 * 86400000);
+  const pick = inWindow.length ? inWindow.at(-1) : older[0];
+  return { date: pick.date, season: pick.season, days: Math.round((stamp(latestDate) - stamp(pick.date)) / 86400000) };
 })();
 const singles = await openMetaPage(diskFetch(), { search: "?format=Singles&range=14&scope=20" });
 const singlesOffense = readList(singles, "typeOffense");
 const singlesDefense = readList(singles, "typeDefense");
 const wantSingles = builderScores(season.season, latestDate, "Singles", 20);
-const wantSinglesWas = builderScores(season.season, singlesWindow.date, "Singles", 20);
+const wantSinglesWas = builderScores(singlesWindow.season, singlesWindow.date, "Singles", 20);
 check("Singles gets the same section", singlesOffense.length === 18 && singlesDefense.length === 18,
   `${singlesOffense.length} / ${singlesDefense.length} row(s)`);
 check("its sentence names the Top X from the URL",

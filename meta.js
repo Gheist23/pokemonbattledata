@@ -255,14 +255,29 @@
     return Math.round(Math.abs(b - a) / 86400000);
   }
 
+  /** Every ranked day the site holds for this format, newest first, whichever
+   *  season it belongs to. A season is a ladder reset, not a break in the
+   *  calendar, so "the last 30 days" reaches across one when it has to. */
+  function rankedDays(format) {
+    const days = [];
+    for (const entry of state.index?.seasons || []) {
+      if (!entry?.dates?.length || !(entry.formats || []).includes(format)) continue;
+      for (const date of entry.dates) days.push({ season: entry.season, date });
+    }
+    return days.sort((a, b) => (parseDate(b.date) ?? 0) - (parseDate(a.date) ?? 0));
+  }
+
   /** Snapshots are irregular, so the window resolves to the oldest day that
-   *  still falls inside it, or the nearest day before it when none does. */
-  function pickBaselineDate(dates, latestDate, days) {
+   *  still falls inside it, or the nearest day before it when none does. It
+   *  looks past the season the latest day belongs to: with a season two weeks
+   *  old, "last 30 days" would otherwise silently mean "last 13 days". */
+  function pickBaseline(days, latestDate, windowDays) {
     const latest = parseDate(latestDate);
-    const older = dates.filter((date) => parseDate(date) < latest);
-    if (!older.length || latest === null) return "";
-    const cutoff = latest - days * 86400000;
-    const inWindow = older.filter((date) => parseDate(date) >= cutoff);
+    if (latest === null) return null;
+    const older = days.filter((day) => (parseDate(day.date) ?? 0) < latest);
+    if (!older.length) return null;
+    const cutoff = latest - windowDays * 86400000;
+    const inWindow = older.filter((day) => (parseDate(day.date) ?? 0) >= cutoff);
     return inWindow.length ? inWindow[inWindow.length - 1] : older[0];
   }
 
@@ -278,7 +293,10 @@
       return;
     }
     const latestDate = entry.dates[0];
-    const baselineDate = pickBaselineDate(entry.dates, latestDate, state.rangeDays);
+    const baselineDay = pickBaseline(rankedDays(state.format), latestDate, state.rangeDays);
+    const baselineDate = baselineDay?.date || "";
+    const baselineSeason = baselineDay?.season || entry.season;
+    state.baselineSeason = baselineSeason;
     if (!baselineDate) {
       showStatus("Only one snapshot is available.", `${escapeHtml(entry.season)} has a single ranked day (${escapeHtml(formatDate(latestDate))}), so there is nothing to compare against yet.`);
       return;
@@ -288,7 +306,7 @@
     try {
       const [latest, baseline] = await Promise.all([
         loadSnapshot(entry.season, latestDate, state.format),
-        loadSnapshot(entry.season, baselineDate, state.format)
+        loadSnapshot(baselineSeason, baselineDate, state.format)
       ]);
       if (token !== state.loadToken) return;
       state.latest = latest;
@@ -439,7 +457,12 @@
     const fallback = span !== null && span > state.rangeDays
       ? ` <span class="meta-window-note">no snapshot inside ${state.rangeDays} day${state.rangeDays === 1 ? "" : "s"}, so the nearest earlier day is used</span>`
       : "";
-    setWindowText(`Comparing <strong>${escapeHtml(formatDate(from))}</strong> to <strong>${escapeHtml(formatDate(to))}</strong>${spanText}${fallback}`);
+    // Reaching back past a ladder reset is worth saying: the two days are from
+    // different seasons, so some of the movement is the reset itself.
+    const crossed = state.baselineSeason && state.season && state.baselineSeason !== state.season
+      ? ` <span class="meta-window-note">the earlier day is from ${escapeHtml(state.baselineSeason)}, so this window crosses a season</span>`
+      : "";
+    setWindowText(`Comparing <strong>${escapeHtml(formatDate(from))}</strong> to <strong>${escapeHtml(formatDate(to))}</strong>${spanText}${fallback}${crossed}`);
   }
 
   function setWindowText(html) {

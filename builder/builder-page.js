@@ -879,11 +879,14 @@ function openGateDialog(feature) {
  */
 function cancelLine() {
   const portal = portalUrl();
+  // The same words as the plans page, so a player reads one answer wherever
+  // they ask. A customer-portal link, when one is set, goes in front of it.
   return h("div", {},
-    h("p", { class: "bd-note" }, portal
-      ? h("a", { href: portal, target: "_blank", rel: "noopener" }, "Manage or cancel your subscription")
-      : ["To cancel, use the manage-subscription link in the receipt email from Stripe, or ", h("a", { href: DISCORD_URL, target: "_blank", rel: "noopener" }, "ask on Discord"), " and it will be cancelled for you."]),
-    h("p", { class: "bd-note" }, "Cancelling is not the same as removing the key here: Pro keeps working to the end of the period you are in, and for up to a week after that while the licence is checked again. Then this browser and the Companion go back to Free, and your teams and your Box stay exactly where they are."));
+    h("p", { class: "bd-note" },
+      h("strong", {}, "Want to cancel?"), " ",
+      portal ? [h("a", { href: portal, target: "_blank", rel: "noopener" }, "Manage or cancel your subscription"), " — sign in with the email you subscribed with. "] : "",
+      "Use the manage-subscription link in the receipt email you got from Stripe. Pro then keeps working to the end of the period you are in — the free trial, or the month or year you have paid for — and for up to a week after that, while the licence is checked again. After that the website and the Companion app go back to Free; your teams and your Box stay exactly where they are."),
+    h("p", { class: "bd-note" }, "Cancelling is not the same as removing the key from this browser, which only signs this browser out."));
 }
 
 function openProDialog() {

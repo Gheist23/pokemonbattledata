@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sirfetch’d,71,move,1,Leaf Blade,85.1%,,,,,,,,
-Sirfetch’d,71,move,2,Meteor Assault,83.6%,,,,,,,,
-Sirfetch’d,71,move,3,First Impression,57.5%,,,,,,,,
-Sirfetch’d,71,move,4,Close Combat,45.9%,,,,,,,,
-Sirfetch’d,71,move,5,Night Slash,32.3%,,,,,,,,
-Sirfetch’d,71,move,6,Feint,20.7%,,,,,,,,
-Sirfetch’d,71,move,7,Quick Attack,16.4%,,,,,,,,
+Sirfetch’d,71,move,2,Meteor Assault,83.5%,,,,,,,,
+Sirfetch’d,71,move,3,First Impression,57.4%,,,,,,,,
+Sirfetch’d,71,move,4,Close Combat,46.0%,,,,,,,,
+Sirfetch’d,71,move,5,Night Slash,32.4%,,,,,,,,
+Sirfetch’d,71,move,6,Feint,21.0%,,,,,,,,
+Sirfetch’d,71,move,7,Quick Attack,16.3%,,,,,,,,
 Sirfetch’d,71,move,8,Brave Bird,12.2%,,,,,,,,
-Sirfetch’d,71,move,9,Knock Off,8.7%,,,,,,,,
+Sirfetch’d,71,move,9,Knock Off,8.6%,,,,,,,,
 Sirfetch’d,71,move,10,Swords Dance,8.3%,,,,,,,,
 Sirfetch’d,71,held_item,1,Leek,88.0%,,,,,,,,
-Sirfetch’d,71,held_item,2,Focus Sash,7.3%,,,,,,,,
+Sirfetch’d,71,held_item,2,Focus Sash,7.2%,,,,,,,,
 Sirfetch’d,71,held_item,3,Choice Scarf,1.6%,,,,,,,,
 Sirfetch’d,71,held_item,4,Life Orb,1.0%,,,,,,,,
 Sirfetch’d,71,held_item,5,Black Belt,0.5%,,,,,,,,
 Sirfetch’d,71,held_item,6,Quick Claw,0.3%,,,,,,,,
-Sirfetch’d,71,held_item,7,Lum Berry,0.2%,,,,,,,,
-Sirfetch’d,71,held_item,8,Sitrus Berry,0.2%,,,,,,,,
+Sirfetch’d,71,held_item,7,Sitrus Berry,0.2%,,,,,,,,
+Sirfetch’d,71,held_item,8,Lum Berry,0.2%,,,,,,,,
 Sirfetch’d,71,held_item,9,Expert Belt,0.1%,,,,,,,,
 Sirfetch’d,71,held_item,10,Eject Button,0.1%,,,,,,,,
 Sirfetch’d,71,teammate,1,Salamence,,,,,,,,,
@@ -31,7 +31,7 @@ Sirfetch’d,71,teammate,9,Cinderace,,,,,,,,,
 Sirfetch’d,71,teammate,10,Mimikyu,,,,,,,,,
 Sirfetch’d,71,stat_alignment,1,Adamant,85.2%,Attack,Sp. Atk,,,,,,
 Sirfetch’d,71,stat_alignment,2,Jolly,7.8%,Speed,Sp. Atk,,,,,,
-Sirfetch’d,71,stat_alignment,3,Brave,3.7%,Attack,Speed,,,,,,
+Sirfetch’d,71,stat_alignment,3,Brave,3.6%,Attack,Speed,,,,,,
 Sirfetch’d,71,stat_alignment,4,Naughty,0.9%,Attack,Sp. Def,,,,,,
 Sirfetch’d,71,stat_alignment,5,Impish,0.7%,Defense,Sp. Atk,,,,,,
 Sirfetch’d,71,stat_alignment,6,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
@@ -39,11 +39,11 @@ Sirfetch’d,71,stat_alignment,7,Lonely,0.4%,Attack,Defense,,,,,,
 Sirfetch’d,71,stat_alignment,8,Naive,0.2%,Speed,Sp. Def,,,,,,
 Sirfetch’d,71,stat_alignment,9,Lax,0.2%,Defense,Sp. Def,,,,,,
 Sirfetch’d,71,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,
-Sirfetch’d,71,stat_points,1,,23.5%,,,2,32,0,0,0,32
+Sirfetch’d,71,stat_points,1,,23.4%,,,2,32,0,0,0,32
 Sirfetch’d,71,stat_points,2,,14.0%,,,32,32,0,0,0,2
 Sirfetch’d,71,stat_points,3,,8.8%,,,32,32,2,0,0,0
-Sirfetch’d,71,stat_points,4,,7.5%,,,32,32,0,0,2,0
-Sirfetch’d,71,stat_points,5,,7.4%,,,22,32,0,0,0,12
+Sirfetch’d,71,stat_points,4,,7.6%,,,22,32,0,0,0,12
+Sirfetch’d,71,stat_points,5,,7.5%,,,32,32,0,0,2,0
 Sirfetch’d,71,stat_points,6,,3.3%,,,0,32,2,0,0,32
 Sirfetch’d,71,stat_points,7,,2.1%,,,0,32,0,0,2,32
 Sirfetch’d,71,stat_points,8,,2.1%,,,4,32,0,0,0,30

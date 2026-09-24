@@ -11,6 +11,8 @@
 //   v101  Exclude Pokemon applied to the team (the caller passes the filtered team)
 //   v358  condition-aware Speed Abilities (Swift Swim with a Rain setter, Unburden)
 //   v465  a real Trick Room team is scored under its own Trick Room
+//   V494  that Trick Room score is the measured coverage, gated by setter reliability -
+//         no flat points for owning the setters or for being slow
 //   team_strategy  Trick Room scoring only when slow attackers back it up; a
 //         redundant setter costs 8
 // The payload then scales the score by active slots / 6 (v47).
@@ -67,7 +69,21 @@ const V358_FIELD_SETTER_MOVES = {
 };
 const PARALYSIS_MOVES = new Set(["Thunder Wave", "Nuzzle", "Glare", "Stun Spore"]);
 
-/** team_evaluation_v465.trick_room_speed_metrics */
+/**
+ * team_evaluation_v465.trick_room_speed_metrics, as V494 left it
+ * (_v494_trick_room_speed_metrics, the app's final binding of the name).
+ *
+ * v465 scored `coverage * 78 + setter_reliability * 15 + slow_share * 7`, so a Trick Room
+ * team collected up to 22 points for merely owning the setters and for being slow, whatever
+ * those slow Pokemon actually achieved against the meta. V494 replaced the composite: the
+ * score is the measured coverage - the share of selected Top-X speed matchups the team wins
+ * under its own Trick Room, and the one number the summary line prints beside it - gated by
+ * whether the team can reliably get Trick Room up at all. `slow_share` is reported but no
+ * longer paid for, and a team with no setter scores 0 however slow it is.
+ *
+ * The other four fields are still v465's, and V494 reads the rounded percentages back out of
+ * them, so the score is computed from `coverage` and `setter_reliability` as returned.
+ */
 export function trickRoomSpeedMetrics(ownSpeeds, metaSpeeds, setters, slowAttackers, teamSize) {
   const own = ownSpeeds.map(([n, s]) => [String(n), Number(s)]).filter(([, s]) => s > 0);
   const meta = metaSpeeds.map(([n, s]) => [String(n), Number(s)]).filter(([, s]) => s > 0);
@@ -83,13 +99,17 @@ export function trickRoomSpeedMetrics(ownSpeeds, metaSpeeds, setters, slowAttack
   const reliability = setters >= 2 ? 1.0 : setters === 1 ? 0.72 : 0.0;
   const size = Math.max(1, Math.trunc(teamSize || own.length));
   const slowShare = Math.min(1.0, Math.max(0.0, slowAttackers / size));
-  const score = Math.max(0, Math.min(100, coverage * 78 + reliability * 15 + slowShare * 7));
   const lines = [...perMon]
     .sort((a, b) => a[1] - b[1] || (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0))
     .map(([name, speed, favorable]) => `${name}: Speed ${roundInt(speed)} acts before ${favorable}/${meta.length} Top Meta Pokemon under Trick Room`);
   lines.unshift(`${setters} Trick Room setter${setters !== 1 ? "s" : ""}; ${slowAttackers}/${size} slow attackers`);
   const r2 = (x) => Number(pyFixed(x, 2));
-  return { score: r2(score), coverage: r2(coverage * 100), setter_reliability: r2(reliability * 100), slow_share: r2(slowShare * 100), lines };
+  const metrics = { score: 0, coverage: r2(coverage * 100), setter_reliability: r2(reliability * 100), slow_share: r2(slowShare * 100), lines };
+  // V494: coverage carries the score on its own, scaled by how reliably Trick Room goes up.
+  const shown = metrics.coverage / 100;
+  const gate = metrics.setter_reliability / 100;
+  metrics.score = r2(Math.max(0, Math.min(100, shown * 100 * gate)));
+  return metrics;
 }
 
 /** team_strategy.room_plan: is Trick Room backed by slow attackers? */

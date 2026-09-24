@@ -541,6 +541,25 @@
 
 /* --- dialogs --------------------------------------------------------------------- */
 
+/* Holding the page still while a dialog is open (below) takes the page scrollbar away
+   with it, and the columns then jump 15px sideways and back again. Keeping the gutter
+   reserved means opening "Edit Pokemon" or the Pokemon picker moves nothing behind it.
+   Only these two pages load this file, so it reaches nothing else.
+
+   Always, not only while a dialog is up: `html:has(body.bd-modal-open)` was tried and
+   is worse. Measured at 1024px on the Team Builder, scrolled, opening a dialog moves
+   the page by (across / down): 15px / 0 with no rule at all, 0 / 0 with this rule, and
+   0.35px / 2.3px when the rule arrives with the dialog - reserving a gutter in a page
+   already laid out is not quite the same width as the scrollbar it replaces, and the
+   fraction of a pixel re-wraps text.
+
+   Leaving it on costs nothing while the page scrolls, which it does at every width:
+   loaded with the rule and loaded without it, 0 of 148 elements on the Team Builder and
+   0 of 592 on the Damage Calculator sit differently. The one case where it shows is a
+   window tall enough that the page does not scroll at all - about 2400px of viewport
+   at 1600px wide - where it leaves the 15px strip on the right empty instead of giving
+   it to the content. */
+html { scrollbar-gutter: stable; }
 body.bd-modal-open { overflow: hidden; }
 .bd-dialog {
   width: min(560px, calc(100vw - 24px));

@@ -4,6 +4,7 @@ import { BuilderData, NATURE_ORDER, STAT_LABELS, bonusTotal, makeSet, setFromCom
 import { CalcModel, FIELD_LABELS, GENDERS, LEFT, RIGHT, STATUSES, defaultCalcState, defaultMonState, other } from "./calc-model.js";
 import { MAX_BONUS_POINTS_PER_STAT, MAX_BONUS_STAT_POINTS } from "./engine.js";
 import { clear, h, pickPokemon, searchSelect, select, sprite, toast, typeChip } from "./ui.js";
+import { keepPlace } from "./scroll-anchor.js";
 import { currentTeam, getState, subscribe, teamSets } from "./store.js";
 
 const STORAGE_KEY = "cbd.calc.v1";
@@ -60,6 +61,9 @@ async function initialSets(format) {
 // --- rendering ------------------------------------------------------------------
 
 function render() {
+  // The whole page is rebuilt, so the browser cannot hold the reading position
+  // itself: note where the top of the screen is and put it back (scroll-anchor.js).
+  const keepPosition = keepPlace("calc");
   clear(root);
   root.append(
     renderResults(),
@@ -67,6 +71,7 @@ function render() {
   );
   syncFormatSwitch();
   save();
+  keepPosition();
 }
 
 function monName(side) {

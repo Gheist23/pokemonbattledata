@@ -188,7 +188,11 @@ Data comes from two places:
   mismatches after an app change is recorded again. `run-autobuild-vectors.mjs` also reads
   `autobuild-vectors-options.json`, builds recorded with a Preferred archetype or Prioritize
   Meta Pokemon, and `autobuild-vectors-guaranteed.json`; `run-suggest-vectors.mjs` also reads
-  `suggest-vectors-guaranteed.json`. The `-guaranteed` files are runs recorded after the
+  `suggest-vectors-guaranteed.json` and `suggest-vectors-scoring.json`;
+  `run-eval-vectors.mjs` replays every `eval-vectors-*.json` beside the main file, so an
+  evaluation recorded alongside a suggestion run (`eval-vectors-scoring.json`) is checked by
+  the Team Evaluation suite that owns it instead of surfacing as an upstream note in the
+  suggestion suite. The `-guaranteed` files are runs recorded after the
   guaranteed-moves rule, so they carry `record.rules.guaranteed_move_share` and replay with
   the rule on, next to the older recordings, which replay with it off. The Nature / Stat Point
   pairing is stamped the same way, in `record.rules.paired_spreads`, and read by
@@ -367,6 +371,18 @@ Data comes from two places:
   Guard. On the page, Team Evaluation and Auto Build results are kept per format: switching
   shows that format's own, and a run that finishes after a switch is kept for its format.
   `node tests/run-singles-smoke.mjs` runs every analysis once in Singles and checks this.
+
+  Trick Room Speed (`builder/team-speed.js` `trickRoomSpeedMetrics`): a team the archetype
+  classifier calls Trick Room is scored under its own Trick Room instead of on raw Speed, and
+  that score is one measured quantity - the coverage, the share of selected Top-X speed
+  matchups its attackers win with the turn order reversed, which is also the number the
+  summary line prints - gated by setter reliability (two setters 100%, one 72%, none 0%). The
+  v465 composite it replaced (`coverage * 78 + setter_reliability * 15 + slow_share * 7`)
+  granted up to 22 points for owning the setters and for being slow; the app dropped it in
+  V494 and `slow_share` is now reported without being paid for. Because every candidate's
+  score averages the team's four projected scores, the old composite put every Suggestions row
+  on such a team about 0.8 too high. `node tests/run-trick-room-speed.mjs` checks the rule and
+  replays the recorded Trick Room team's whole `payload.speed`.
 
   Suggestions keep their order and scores (`run-suggest-vectors.mjs`); what the breakdown
   shows is extra: every layer's share of the score (`score_ledger`, `score_uncapped`; the

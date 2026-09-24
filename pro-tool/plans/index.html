@@ -140,6 +140,7 @@
       </div>
 
       <p class="tool-cta-note tool-cta-note-center">Prices in euro. Both Pro plans start with a <strong>7-day free trial</strong>; cancel inside it and you are not charged.</p>
+      <p class="tool-cta-note tool-cta-note-center" id="cancel"><strong>Want to cancel?</strong> <span id="cancelPortal" hidden><a id="cancelPortalLink" target="_blank" rel="noopener">Manage or cancel your subscription</a> &mdash; sign in with the email you subscribed with, no licence key needed.</span><span id="cancelFallback">Use the manage-subscription link in the receipt email from Stripe, or <a href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">ask on Discord</a> and it will be cancelled for you.</span> Pro then keeps working to the end of the period you are in &mdash; the free trial, or the month or year you have paid for &mdash; and for up to a week after that, while the licence is checked again. After that the website and the Companion app go back to Free; your teams and your Box stay exactly where they are.</p>
       <p class="tool-cta-note tool-cta-note-center">Already subscribed? Enter the key from your email under <strong>Get Pro &rarr; I have a key</strong> in the <a href="/team-builder/">Team Builder</a>, and in the Companion app. Lost it? <a href="/pro-tool/key/">Send it again</a>.</p>
     </section>
 
@@ -221,6 +222,20 @@
     var STRIPE_MONTHLY = "https://buy.stripe.com/3cIaEX7TQfju0rIei157W00";
     var STRIPE_YEARLY = "https://buy.stripe.com/14A00j4HE7R24HY8XH57W01";
 
+    // ---------------------------------------------------------------------
+    // Cancelling. Paste the Stripe customer portal's shareable LOGIN link here
+    // (Stripe dashboard -> Settings -> Billing -> Customer portal, with
+    // "Cancel subscriptions" switched on). It looks like
+    // https://billing.stripe.com/p/login/... , it does not expire, and the
+    // subscriber signs in at Stripe by email -- so it is safe to publish and it
+    // works for someone who has lost their licence key.
+    //
+    // Paste the SAME link into STRIPE_PORTAL in builder/pro.js, so the Team
+    // Builder's Pro dialog offers it too. While this is empty the receipt /
+    // Discord wording above stays put, so the page never shows a dead link.
+    // ---------------------------------------------------------------------
+    var STRIPE_PORTAL = "";
+
     (function () {
       var links = { monthly: STRIPE_MONTHLY, yearly: STRIPE_YEARLY };
       Object.keys(links).forEach(function (plan) {
@@ -232,6 +247,15 @@
           node.removeAttribute("rel");
         });
       });
+
+      var portal = (STRIPE_PORTAL || "").trim();
+      var portalBlock = document.getElementById("cancelPortal");
+      var portalLink = document.getElementById("cancelPortalLink");
+      var fallback = document.getElementById("cancelFallback");
+      if (!/^https:\/\//.test(portal) || !portalBlock || !portalLink || !fallback) return;
+      portalLink.setAttribute("href", portal);
+      portalBlock.hidden = false;
+      fallback.hidden = true;
     })();
   </script>
 </body>

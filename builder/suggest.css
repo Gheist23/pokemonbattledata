@@ -119,6 +119,44 @@
 .bd-sg-threat-moves li.up b { color: #a7f3c9; }
 .bd-sg-threat-moves li.down b { color: #ffab9c; }
 
+/* --- V511: the three views on the threats ------------------------------------- */
+/* One sentence at the top of the breakdown: what this Pokemon does for the team. */
+.bd-suggestion .bd-sg-verdict { margin: 0; font-size: 0.82rem; line-height: 1.45; font-weight: 700; color: var(--text); }
+.bd-suggestion .bd-sg-verdict.up { color: #a7f3c9; }
+.bd-suggestion .bd-sg-verdict.down { color: #ffab9c; }
+
+/* One measured matchup. Only a plain win or a plain loss is coloured: a trade is left
+   neutral rather than dressed up as one. */
+.bd-sg-verdicts { display: grid; gap: 0.35rem; }
+.bd-sg-verdicts.quiet { opacity: 0.72; }
+.bd-sg-vd { display: grid; gap: 0.2rem; padding: 0.4rem 0.55rem; border: 1px solid var(--bd-line); border-radius: 8px; background: rgba(7, 17, 11, 0.6); border-left-width: 3px; min-width: 0; }
+.bd-sg-vd.good { border-left-color: rgba(114, 255, 171, 0.65); }
+.bd-sg-vd.bad { border-left-color: rgba(255, 122, 102, 0.6); }
+.bd-sg-vd.flat { border-left-color: var(--bd-line); }
+.bd-sg-vd-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 0.45rem; min-width: 0; }
+.bd-sg-vd-head strong { font-family: var(--bd-mono); font-size: 0.82rem; overflow-wrap: anywhere; }
+.bd-sg-vd-tag { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+.bd-sg-vd-tag.good { color: #a7f3c9; }
+.bd-sg-vd-tag.bad { color: #ffab9c; }
+/* The two hit counts are what moved the score, so they carry the weight; the words recede. */
+.bd-sg-vd-hits { display: flex; flex-wrap: wrap; gap: 0.15rem 0.9rem; font-size: 0.74rem; color: var(--muted); }
+.bd-sg-vd-hits b { font-family: var(--bd-mono); font-size: 0.86rem; font-weight: 700; color: var(--text); margin-right: 0.2rem; }
+.bd-sg-vd-order { font-style: italic; }
+.bd-sg-vd-calcs { display: grid; gap: 0.2rem; margin-top: 0.15rem; }
+.bd-sg-vd-calcs-head { color: var(--muted); font-size: 0.7rem; }
+
+.bd-sg-tsg { display: grid; gap: 0.25rem; }
+.bd-sg-threat-moves small { color: var(--muted); font-size: 0.7rem; white-space: nowrap; }
+.bd-suggestion .bd-sg-net { margin: 0.1rem 0 0; font-size: 0.78rem; color: var(--muted); }
+.bd-suggestion .bd-sg-net b { font-family: var(--bd-mono); font-size: 0.86rem; color: var(--text); }
+.bd-suggestion .bd-sg-net.up b { color: #a7f3c9; }
+.bd-suggestion .bd-sg-net.down b { color: #ffab9c; }
+
+.bd-sg-typeonly { display: grid; gap: 0.25rem; margin: 0; padding: 0; list-style: none; font-size: 0.76rem; line-height: 1.45; }
+.bd-sg-typeonly li { padding-left: 0.5rem; border-left: 2px dashed var(--bd-line); overflow-wrap: anywhere; }
+.bd-sg-typeonly strong { font-family: var(--bd-mono); font-size: 0.78rem; }
+.bd-sg-typeonly span { color: var(--muted); }
+
 .bd-sg-set { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.2rem 0.8rem; margin: 0; font-size: 0.78rem; }
 .bd-sg-set dt { color: var(--muted); }
 .bd-sg-set dd { margin: 0; overflow-wrap: anywhere; }
@@ -130,6 +168,9 @@
 .bd-sg-ledger li.up b { color: #a7f3c9; }
 .bd-sg-ledger li.down b { color: #ffab9c; }
 .bd-sg-ledger small { color: var(--muted); font-size: 0.68rem; }
+/* A term the calcs added says what it measured, in the same words the groups above use. */
+.bd-sg-ledger li.wide { flex: 1 1 100%; }
+.bd-sg-ledger li.wide .bd-sg-ledger-detail { flex: 1 1 100%; line-height: 1.4; }
 
 /* --- Auto Build: running, why each member was added, compared teams ------------- */
 
@@ -164,6 +205,9 @@
   .bd-sg-body { padding: 0.2rem 0.55rem 0.7rem; }
   .bd-sg-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bd-sg-answers, .bd-sg-threat-moves { grid-template-columns: minmax(0, 1fr); }
+  /* At phone width the hit counts stack rather than being squeezed onto one line. */
+  .bd-sg-vd-hits { gap: 0.1rem 0.6rem; }
+  .bd-sg-threat-moves li { flex-wrap: wrap; }
   .bd-auto-compare-row { flex-direction: column; align-items: stretch; }
   .bd-auto-compare-row > .ghost-button { align-self: flex-start; }
 }

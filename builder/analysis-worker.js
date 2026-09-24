@@ -17,7 +17,7 @@ import { TournamentTest } from "./tournament-test.js";
 import { TeamEvaluator, normalizeSettings } from "./team-eval.js";
 import { TeamEvaluation } from "./team-payload.js";
 import { SpeedTiers } from "./speed-tiers.js";
-import { TeamSuggestions } from "./team-suggest.js";
+import { SUGGESTION_SCORING, TeamSuggestions } from "./team-suggest.js";
 import { TeamAutoBuild } from "./team-autobuild.js";
 import { DeepOptimizer } from "./optimize-deep.js";
 
@@ -125,12 +125,17 @@ self.addEventListener("message", async (event) => {
       }
       const selection = payload.checks ?? null;
       const current = evaluation.evaluate(sets, { checkSelection: selection });
-      const suggestions = new TeamSuggestions(evaluation);
+      // V511 (`suggestion_scoring`): production ranks on the damped archetype reward and the
+      // calc-backed terms. A recorded run replays with the version its stamp names.
+      const suggestions = new TeamSuggestions(evaluation, { suggestionScoring: SUGGESTION_SCORING });
       const box = payload.onlyBox ? (payload.box || []).map((set) => (set && set.species ? makeSet(set) : null)).filter(Boolean) : null;
       const run = suggestions.run(current, {
         selection,
         box,
-        onProgress: (done, total, name) => progress({ fraction: done / Math.max(1, total), message: `Testing ${name} (${done}/${total})` }),
+        onProgress: (done, total, name, phase) => progress({
+          fraction: done / Math.max(1, total),
+          message: phase === "measuring" ? `Measuring ${name} against the team's worst threats (${done}/${total})` : `Testing ${name} (${done}/${total})`,
+        }),
       });
       const selected = evaluation.checks.selectedIds(selection);
       const rows = run.rows.map((row) => suggestions.forPage(row, selected));

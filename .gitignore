@@ -7,3 +7,5 @@ tests/optimize-vectors.json
 tests/overview-vectors.json
 tests/suggest-vectors-guaranteed.json
 tests/autobuild-vectors-guaranteed.json
+tests/suggest-vectors-scoring.json
+tests/eval-vectors-scoring.json

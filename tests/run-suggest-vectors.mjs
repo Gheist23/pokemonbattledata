@@ -23,6 +23,12 @@
 // the rule and replays with it off, so a held Electric/Grassy/Misty/Psychic Seed adds no
 // stage. TERRAIN_SEEDS=1 / =0 replays every recording either way.
 
+// Suggestion scoring (builder/team-suggest.js, the app's suggestion_scoring_v511): a recording made
+// with the rule carries record.rules.suggestion_scoring and replays with that version; one without the
+// stamp was made before the rule and replays with the old weights, which is what keeps the 2097 rows of
+// suggest-vectors.json and suggest-vectors-guaranteed.json at 0 mismatches. SUGGESTION_SCORING=off / =2
+// replays every recording either way (forcing it off on a stamped recording must mismatch).
+
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -39,12 +45,26 @@ const root = join(here, "..");
 const appData = JSON.parse(readFileSync(join(root, "data", "builder", "app-data.json"), "utf8"));
 // suggest-vectors-guaranteed.json: the same runs recorded again after the guaranteed-move
 // rule, so they carry the stamp and replay with the rule on.
-const cases = ["suggest-vectors.json", "suggest-vectors-guaranteed.json"]
+// suggest-vectors-scoring.json: recorded again after the V511 suggestion scoring, so those runs
+// carry `suggestion_scoring` and replay on the damped archetype reward and the calc-backed
+// ranking terms. One of its cases is a real Trick Room team, which is where the rule bites.
+const cases = ["suggest-vectors.json", "suggest-vectors-guaranteed.json", "suggest-vectors-scoring.json"]
   .filter((file) => existsSync(join(here, file)))
   .flatMap((file) => JSON.parse(readFileSync(join(here, file), "utf8")));
 const siteMeta = JSON.parse(readFileSync(join(root, "data", "builder", "meta-doubles.json"), "utf8"));
-// The team's saved spreads are in the evaluation recording of the same team.
-const evalCases = Object.fromEntries(JSON.parse(readFileSync(join(here, "eval-vectors.json"), "utf8")).map((c) => [c.name, c]));
+// The team's saved spreads are in the evaluation recording of the same team, and so are the Top-X
+// rows the site rebuilds its meta records from. Those rows are the app's bundled battle-data
+// snapshot, and the snapshot moves: between the V510 and the V511 recordings Kingambit went from
+// meta position 5 to 6 and Arcanine-Hisui from 23 to 18. So an evaluation recording only pairs with
+// a suggestion recording from the same app run - eval-vectors-scoring.json holds the evaluations
+// made beside suggest-vectors-scoring.json, and its entries win where a name appears in both.
+const evalByFile = (file) => (existsSync(join(here, file))
+  ? Object.fromEntries(JSON.parse(readFileSync(join(here, file), "utf8")).map((c) => [c.name, c]))
+  : {});
+const evalCases = evalByFile("eval-vectors.json");
+const scoringEvalCases = evalByFile("eval-vectors-scoring.json");
+/** The evaluation recorded beside this suggestion recording (never one from another app run). */
+const evalFor = (testCase) => (scoringStamp(testCase) ? scoringEvalCases[testCase.name] : null) ?? evalCases[testCase.name];
 const engine = new DamageEngine(appData);
 /** The recording's terrain-seed stamp (null: recorded before the rule, replayed with it off).
  *  TERRAIN_SEEDS=0 / =1 replays every recording either way. */
@@ -67,21 +87,27 @@ const ruleShare = (testCase) => (process.env.GUARANTEED_MOVE_SHARE ? Number(proc
  *  with the usage file's index zip). PAIRED_SPREADS=0 / =1 replays every recording either way. */
 const pairedStamp = (testCase) => testCase.record?.rules?.paired_spreads ?? testCase.rules?.paired_spreads ?? null;
 const pairedRule = (testCase) => (process.env.PAIRED_SPREADS === undefined ? pairedStamp(testCase) : process.env.PAIRED_SPREADS);
+/** The recording's V511 suggestion-scoring stamp (null: recorded before the rule, replayed with the
+ *  old weights). SUGGESTION_SCORING=off / =2 replays every recording either way. */
+const scoringStamp = (testCase) => testCase.record?.rules?.suggestion_scoring ?? testCase.rules?.suggestion_scoring ?? null;
+const scoringRule = (testCase) => (process.env.SUGGESTION_SCORING === undefined ? scoringStamp(testCase) : process.env.SUGGESTION_SCORING);
 const asEntry = (e) => (Array.isArray(e) ? { pokemon: e[0], item: e[1], form: e[2], ability: e[3], moves: e[4] || [] } : e);
 
 const failures = [];
+/** Differences that belong to another suite (the Team Evaluation's own scores), reported in full. */
+const upstream = [];
 const byField = new Map();
 let total = 0;
 for (const testCase of cases) {
   engine.terrainSeeds = seedRule(testCase);
   if (only && testCase.name !== only) continue;
   // A recording made with the guaranteed-move rule says so in its label.
-  const label = `${testCase.name}${stampOf(testCase) ? " guaranteed" : ""}`;
+  const label = `${testCase.name}${stampOf(testCase) ? " guaranteed" : ""}${scoringStamp(testCase) ? ` scoring v${scoringStamp(testCase)}` : ""}`;
   const calls = testCase.record.rows;
   const records = new Map();
   // The evaluation recording of the same team carries the full Top-X rows (and their meta
   // positions); candidates outside it come from the candidate rows.
-  for (const row of evalCases[testCase.name]?.record.meta[0]?.rows || []) {
+  for (const row of evalFor(testCase)?.record.meta[0]?.rows || []) {
     const stem = String(row.pokemon || row.base_name || row.name);
     if (!records.has(stem) && (row.rows || []).length) records.set(stem, pokemonRecord(stem, row.rows, aliases));
   }
@@ -95,16 +121,35 @@ for (const testCase of cases) {
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;
-  const recordedMons = evalCases[testCase.name]?.record.team_mons.at(-1)?.mons || [];
+  const recordedMons = evalFor(testCase)?.record.team_mons.at(-1)?.mons || [];
   const sets = testCase.team.filter((e) => e[0]).map(([species, item, form, ability, moves], i) => (
     { species, item, form, ability, moves, nature: recordedMons[i]?.nature_name, bonuses: recordedMons[i]?.bonuses }));
   const payload = evaluation.evaluate(sets, { checkSelection: null });
   const names = (rows) => (rows || []).map((r) => r.name).join(",");
   if (names(payload.threats) !== names(testCase.payload.threats)) failures.push(`${label} payload threats differ\n    app ${names(testCase.payload.threats)}\n    web ${names(payload.threats)}`);
-  for (const k of ["synergy_score", "offense_score", "defense_score"]) if (!same(payload[k], testCase.payload[k])) failures.push(`${label} payload ${k}: app ${testCase.payload[k]} | web ${payload[k]}`);
-  if (!same(payload.speed.score, testCase.payload.speed.score)) failures.push(`${label} payload speed: app ${testCase.payload.speed.score} | web ${payload.speed.score}`);
+  // The four team scores are a precondition for everything below: every candidate's score is
+  // the average of the four projected ones, so a difference here moves every row by the same
+  // amount and says nothing about the suggestion layer. They belong to the Team Evaluation
+  // (tests/run-eval-vectors.mjs). On a recording that carries a rule this suite is here to
+  // check, a difference is reported as an upstream note and the app's own value is used, so
+  // the rows below still measure the rule. Without such a stamp it is a plain mismatch.
+  for (const [k, appValue, webValue] of [
+    ["synergy_score", testCase.payload.synergy_score, payload.synergy_score],
+    ["offense_score", testCase.payload.offense_score, payload.offense_score],
+    ["defense_score", testCase.payload.defense_score, payload.defense_score],
+    ["speed", testCase.payload.speed.score, payload.speed.score],
+  ]) {
+    if (same(appValue, webValue)) continue;
+    if (!scoringStamp(testCase)) {
+      failures.push(`${label} payload ${k}: app ${appValue} | web ${webValue}`);
+      continue;
+    }
+    upstream.push(`${label} payload ${k}: app ${appValue} | web ${webValue} - the Team Evaluation's own number, upstream of the suggestion scoring; the app's value is used below`);
+    if (k === "speed") payload.speed = { ...payload.speed, score: appValue };
+    else payload[k] = appValue;
+  }
 
-  const suggest = new TeamSuggestions(evaluation, { guaranteedMoveShare: ruleShare(testCase) });
+  const suggest = new TeamSuggestions(evaluation, { guaranteedMoveShare: ruleShare(testCase), suggestionScoring: scoringRule(testCase) });
   const teamSlots = (payload.slots || []).map(({ entry, mon }) => ({ entry: { ...entry, form: mon.form_name || entry.form, ability: mon.ability || entry.ability }, mon }));
   const teamEntries = teamSlots.map(({ entry }) => entry);
   const activeNames = calls[0]?.active || [];
@@ -149,6 +194,27 @@ for (const testCase of cases) {
   const run = suggest.run(payload, {});
   const final = (rows) => rows.map((r) => `${r.name} ${r.score}`).join(" | ");
   if (final(run.rows) !== final(testCase.finished.rows)) failures.push(`${label} final ranking\n    app ${final(testCase.finished.rows)}\n    web ${final(run.rows)}`);
+  // V511, on a recording made with the rule: every shown row's verdict on each of the team's worst
+  // threats (the three terms that decide the order are read straight off these).
+  if (Number(scoringStamp(testCase)) > 0) {
+    const byName = new Map(run.rows.map((row) => [String(row.name), row]));
+    const verdicts = (row) => (row.threat_verdicts_v511 || []).map((e) => `${e.threat} ${e.verdict} ${e.out_hits}/${e.in_hits}${e.fills_a_gap ? " gap" : ""}${e.type_chart_says_good ? " type" : ""}`).join(" | ");
+    for (const want of testCase.finished.rows || []) {
+      total += 1;
+      const got = byName.get(String(want.name));
+      if (!got) {
+        failures.push(`${label} ${want.name}: shown by the app, not by the site`);
+        continue;
+      }
+      if (verdicts(want) !== verdicts(got)) failures.push(`${label} ${want.name} threat verdicts\n    app ${verdicts(want)}\n    web ${verdicts(got)}`);
+      total += 1;
+      if (!same(want.answers, got.answers)) failures.push(`${label} ${want.name} answers: app ${JSON.stringify(want.answers)} | web ${JSON.stringify(got.answers)}`);
+      for (const f of ["threats_measured_v511", "gaps_filled_v511", "removed_first_v511", "answered_share_v511"]) {
+        total += 1;
+        if (!same(want[f], got[f])) failures.push(`${label} ${want.name} ${f}: app ${JSON.stringify(want[f])} | web ${JSON.stringify(got[f])}`);
+      }
+    }
+  }
   // Guaranteed moves, on a recording made with the rule: every shown row's set (what "Use" adds) carries them.
   if (Number(stampOf(testCase)) > 0) {
     for (const row of testCase.finished.rows || []) {
@@ -160,6 +226,7 @@ for (const testCase of cases) {
   }
 }
 for (const failure of failures.slice(0, limit)) console.log(failure);
-console.log(`\n${total} checked, ${failures.length} mismatched.`);
+for (const note of upstream) console.log(`UPSTREAM ${note}`);
+console.log(`\n${total} checked, ${failures.length} mismatched${upstream.length ? `, ${upstream.length} upstream Team Evaluation difference${upstream.length === 1 ? "" : "s"} (listed above)` : ""}.`);
 if (byField.size) console.log("by field:", Object.fromEntries([...byField.entries()].sort((a, b) => b[1] - a[1])));
 process.exitCode = failures.length ? 1 : 0;

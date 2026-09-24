@@ -181,7 +181,202 @@ function archetypeSpeedControlFit(archetype, moves, trSetters, twSetters) {
       reason = "Adds direct speed control without conflicting with the current flexible archetype.";
     }
   }
-  return { conflict, adjustment, reason };
+  return { conflict, adjustment, reason, has_trick_room: hasTr, has_tailwind: hasTw };
+}
+
+// --- V511: a suggestion is ranked on what it does, not on one move it holds ----------
+//
+// suggestion_scoring_v511.py. On a Trick Room team the list was, in the owner's words,
+// "every Pokémon with Trick Room", because `archetypeSpeedControlFit` paid a carrier a flat
+// +22 however many setters the team already had (the Tailwind branch above it damps to +4
+// at one setter; that damping was never applied back). Two stages fix it:
+//
+//   stage one   the archetype reward is damped by what the team already has, and speed fit
+//               points the way the team's plan points (a Trick Room team wants slow);
+//   stage two   the best 40 candidates are measured against the team's 8 worst threats with
+//               the engine the Team Evaluation uses, and three calc-backed terms decide the
+//               order: what it answers, what it covers that the team has nothing for, and
+//               what removes it first.
+//
+// Plain Suggestions only: Auto Build has its own archetype machinery and keeps the weights
+// it was tuned with, so its recorded runs still replay.
+
+/** The rule version production runs; a recording stamps it as `rules.suggestion_scoring`. */
+export const SUGGESTION_SCORING = 2;
+
+/** What another Trick Room carrier is worth once the plan has 0 / 1 / 2+ setters. */
+const TRICK_ROOM_BY_SETTERS = [22, 12, 2];
+const SPEED_CONTROL_CREDIT = 24;
+const SPEED_CONTROL_CREDIT_ALREADY_PAID = 8;
+const PRIORITY_CREDIT = 10;
+const SLOW_PLAN_PIVOT = 125; // the Speed at which a Trick Room team stops caring
+// The base row folds speed fit in as (fit - 50) * 0.32 and then divides four projected
+// scores by four, so one point of speed fit is 0.08 score points.
+const SPEED_FIT_TO_SCORE = 0.32 / 4;
+const SHORTLIST = 40; // candidates that get real calcs
+const DEEP_THREATS = 8; // threats each of them is measured against
+const ANSWER_SPAN = 18;
+const ANSWER_MIDPOINT = 45;
+const ANSWER_SCALE = 0.3;
+const GAP_SPAN = 18;
+const VULNERABLE_SPAN = 14;
+const THREATEN_MAX_HITS = 2; // a 1-2HKO is a real threat (the V494 rule)
+const WALL_MIN_INCOMING = 4; // it needs 4+ hits to remove us
+/** How much a verdict is worth, 0..1, and the order the breakdown lists them in. */
+export const VERDICT_VALUE = { beats: 1, walls: 0.85, chips: 0.35, trades: 0.15, loses: 0 };
+const VERDICT_SORT = { beats: 0, walls: 1, chips: 2, trades: 3, loses: 4 };
+
+/**
+ * The scoring version in force. Left out, production's version; null (an unstamped
+ * recording) or "off"/"0"/"false"/"no"/"none", the rule is off and the old weights rank.
+ */
+export function suggestionScoringOption(value) {
+  if (value === undefined) return SUGGESTION_SCORING;
+  if (value === null || value === "" || value === false) return 0;
+  if (value === true) return SUGGESTION_SCORING;
+  const text = String(value).trim().toLowerCase();
+  if (["off", "false", "no", "none", "0"].includes(text)) return 0;
+  const version = Number.parseInt(text, 10);
+  if (Number.isFinite(version)) return version > 0 ? version : 0;
+  return SUGGESTION_SCORING;
+}
+
+/** suggestion_scoring_v511.trick_room_reward */
+export function trickRoomReward(setters) {
+  const index = Math.max(0, Math.min(TRICK_ROOM_BY_SETTERS.length - 1, Math.trunc(Number(setters) || 0)));
+  return TRICK_ROOM_BY_SETTERS[index];
+}
+
+/**
+ * suggestion_scoring_v511.damped_speed_plan: `archetypeSpeedControlFit` with the Trick Room
+ * branch damped the way the Tailwind branch already was. Only the positive reward on a Trick
+ * Room team moves: a conflict penalty is a refusal, and refusing Trick Room on a fast team
+ * was never the complaint.
+ * @returns {[number, string]} the adjustment and the reason line that replaces the old one
+ */
+export function dampedSpeedPlan(fit, archetype, trickRoomSetters) {
+  const adjustment = Number(fit?.adjustment) || 0;
+  const reason = String(fit?.reason || "");
+  if (String(archetype || "").trim().toLowerCase() !== "trick room") return [adjustment, reason];
+  if (!fit?.has_trick_room) return [adjustment, reason];
+  const setters = Math.trunc(Number(trickRoomSetters) || 0);
+  const damped = adjustment - TRICK_ROOM_BY_SETTERS[0] + trickRoomReward(setters);
+  if (setters >= 2) {
+    return [damped, "The team already sets Trick Room, so another setter adds little to the speed plan; what it does against the threats decides this."];
+  }
+  if (setters === 1) return [damped, "A second Trick Room setter makes the speed plan reliable."];
+  return [damped, "Trick Room reinforces the team's primary speed plan."];
+}
+
+/**
+ * suggestion_scoring_v511.directed_speed_fit: `speedFit` with the team's speed plan pointing
+ * it. The original rewards raw Speed on a team whose whole plan is to be slow, and pays Trick
+ * Room a second time for being "speed control".
+ */
+export function directedSpeedFit(profile, archetype, trickRoomSetters) {
+  const speed = Number(profile?.speed) || 0;
+  const room = String(archetype || "").trim().toLowerCase() === "trick room";
+  let score = room ? 35 + Math.min(30, Math.max(0, SLOW_PLAN_PIVOT - speed) / 4) : 35 + Math.min(30, speed / 5);
+  if (profile?.speed_control) {
+    const onlyTrickRoom = onlySpeedControlIsTrickRoom(profile);
+    score += room && onlyTrickRoom && Math.trunc(Number(trickRoomSetters) || 0) >= 2 ? SPEED_CONTROL_CREDIT_ALREADY_PAID : SPEED_CONTROL_CREDIT;
+  }
+  if (profile?.priority) score += PRIORITY_CREDIT;
+  return clamp(score);
+}
+
+function onlySpeedControlIsTrickRoom(profile) {
+  const keys = new Set((profile?.moves || []).map(compact).filter(Boolean));
+  if (!keys.has("trickroom")) return false;
+  return ![...keys].some((key) => FAST_SPEED_CONTROL.has(key));
+}
+
+/** Hits to remove, read off a Team Evaluation label ("OHKO", "3HKO"). */
+export function hitsFromLabel(label) {
+  const text = String(label ?? "");
+  if (/\bOHKO\b/i.test(text)) return 1;
+  const found = /\b(\d+)\s*HKO\b/i.exec(text);
+  if (found) return Math.max(1, Number.parseInt(found[1], 10) || 99);
+  return 99;
+}
+
+/** One of beats / walls / chips / trades / loses: the app's real-answer rule (V494), graded. */
+export function verdictFor(outHits, inHits, oursFirst, theirsFirst) {
+  const out = Math.trunc(Number(outHits) || 99);
+  const inn = Math.trunc(Number(inHits) || 99);
+  if (theirsFirst && inn === 1) return "loses";
+  const wins = out < inn;
+  const matchesAndFaster = out === inn && Boolean(oursFirst);
+  if (out <= THREATEN_MAX_HITS && (wins || matchesAndFaster)) return "beats";
+  if (inn >= WALL_MIN_INCOMING && wins) return "walls";
+  if (inn < out) return "loses";
+  if (out === inn) return "trades";
+  return "chips";
+}
+
+/** The verdict in words, before any calc line. */
+export function verdictSentence(name, verdict, outHits, inHits, oursFirst, theirsFirst) {
+  const hits = (count) => {
+    const n = Math.trunc(Number(count) || 99);
+    if (n >= 99) return "no reliable KO";
+    return n === 1 ? "one hit" : `${n} hits`;
+  };
+  // Move order is only worth a clause where it decides the exchange: when both need the same
+  // number of hits, or when the threat can remove this Pokémon inside the turns it needs.
+  const close = (Math.trunc(Number(inHits) || 99)) <= (Math.trunc(Number(outHits) || 99));
+  const order = close && oursFirst ? " and moves first" : close && theirsFirst ? " but moves second" : "";
+  if (verdict === "beats") return `Beats ${name}: removes it in ${hits(outHits)}${order}, and takes ${hits(inHits)} to be removed.`;
+  if (verdict === "walls") return `Walls ${name}: it needs ${hits(inHits)} to remove this, which removes it in ${hits(outHits)}.`;
+  if (verdict === "trades") return `Even with ${name}: both need ${hits(outHits)}${order || ", so it comes down to the speed tie"}.`;
+  if (verdict === "loses") {
+    if (theirsFirst && Math.trunc(Number(inHits) || 99) === 1) return `Loses to ${name}: it moves first and removes this in one hit.`;
+    return `Loses to ${name}: it needs ${hits(inHits)} to remove this, which needs ${hits(outHits)}.`;
+  }
+  return `Chips ${name}: needs ${hits(outHits)} while taking ${hits(inHits)}.`;
+}
+
+/**
+ * Which of these threats nothing on the team currently beats or walls, read off the Team
+ * Evaluation's own per-member breakdown (it already carries both damage labels for every
+ * team member against every threat).
+ * @returns {Map<string, boolean>} threat name -> nothing on the team answers it
+ */
+export function teamGapThreats(threats) {
+  const gaps = new Map();
+  for (const threat of threats || []) {
+    const name = String(threat?.name || threat?.base_name || "");
+    let answered = false;
+    for (const row of threat?.breakdown || []) {
+      if (!row || typeof row !== "object") continue;
+      const out = hitsFromLabel(row.outgoing_label);
+      const inn = hitsFromLabel(row.incoming_label);
+      if ((out <= THREATEN_MAX_HITS && out < inn) || (inn >= WALL_MIN_INCOMING && out < inn)) {
+        answered = true;
+        break;
+      }
+    }
+    gaps.set(name, !answered);
+  }
+  return gaps;
+}
+
+/** A threat's own score, or NaN where it has none (the weights fall back to 40, as the app's does). */
+function threatScore(threat) {
+  const raw = threat?.score;
+  return raw === null || raw === undefined || raw === "" ? Number.NaN : Number(raw);
+}
+
+/** One plain sentence at the top of the breakdown. */
+export function verdictLine(row) {
+  const measured = Math.trunc(Number(row?.threats_measured_v511) || 0);
+  if (!measured) return "";
+  const beaten = (row?.threat_answers_v511 || []).filter((e) => e.verdict === "beats" || e.verdict === "walls").length;
+  const parts = [`Answers ${beaten} of the team's ${measured} worst threats`];
+  const gaps = Math.trunc(Number(row?.gaps_filled_v511) || 0);
+  if (gaps) parts.push(`${gaps} of those nothing on the team answers today`);
+  const removed = Math.trunc(Number(row?.removed_first_v511) || 0);
+  if (removed) parts.push(`${removed} of them ${removed === 1 ? "removes" : "remove"} it first`);
+  return `${parts.join("; ")}.`;
 }
 
 /** team_evaluation_v466.check_resolution_metrics: only Speed Control counts as a role fix. */
@@ -363,6 +558,14 @@ export function suggestionForPage(sg, row, selected = null) {
     payoff: row.archetype_payoff_v496 || null, conditional: row.conditional_dependence_v499 || null,
     role_fixes: row.role_fixes_v466 || 0, speed_conflict: Boolean(row.counter_archetype_speed_control_v466),
     answer_calcs: row.answer_calcs_v494 || [],
+    // V511: what the real calcs said about this candidate against the team's worst threats.
+    verdict_line: row.verdict_line_v511 || "",
+    threats_measured: row.threats_measured_v511 || 0,
+    threat_verdicts: row.threat_verdicts_v511 || [],
+    threat_answers: row.threat_answers_v511 || [],
+    type_matchup_only: row.type_matchup_only_v511 || [],
+    gaps_filled: row.gaps_filled_v511 || 0,
+    removed_first: row.removed_first_v511 || 0,
     // _v480_item_options: what "Use" may swap a clashing item for (V482 applies Item Clause on apply).
     item_options: [...new Set([row.candidate_entry?.item, sg.common(species).item, ...sg.usage(species, "held_item", 30)].filter(Boolean))],
   };
@@ -371,14 +574,18 @@ export function suggestionForPage(sg, row, selected = null) {
 export class TeamSuggestions {
   /**
    * @param {TeamEvaluation} evaluation  (its evaluator carries the settings and meta)
-   * @param {{guaranteedMoveShare?: number|null, pairedSpreads?: boolean|null}} options
+   * @param {{guaranteedMoveShare?: number|null, pairedSpreads?: boolean|null,
+   *          suggestionScoring?: number|null}} options
    *   `guaranteedMoveShare`: the usage share (percent) from which a move is on every set
    *   this engine puts forward; null or 0 switches it off.
    *   `pairedSpreads`: a candidate's Nature gets Stat Points it does not contradict
    *   (builder/nature-spreads.js); left out, the evaluator's own setting decides.
+   *   `suggestionScoring`: the V511 scoring version (the damped archetype reward and the
+   *   calc-backed ranking terms); null (a recording made before the rule) switches it off.
    */
-  constructor(evaluation, { guaranteedMoveShare = GUARANTEED_MOVE_SHARE, pairedSpreads } = {}) {
+  constructor(evaluation, { guaranteedMoveShare = GUARANTEED_MOVE_SHARE, pairedSpreads, suggestionScoring } = {}) {
     this.guaranteedShare = shareOption(guaranteedMoveShare);
+    this.suggestionScoring = suggestionScoringOption(suggestionScoring);
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.pairedSpreads = pairedSpreads === undefined ? (this.ev.pairedSpreads ?? PAIRED_SPREADS) : pairedOption(pairedSpreads);
@@ -797,27 +1004,57 @@ export class TeamSuggestions {
     return chosen.length ? chosen : variants;
   }
 
+  /** _v35_best_rank_from_result: hits to remove, 1-3 or 6 ("no reliable KO"). */
+  hitRank(result) {
+    return [1, 2, 3].includes(Number.parseInt(result?.hits, 10)) ? Number.parseInt(result.hits, 10) : 6;
+  }
+
+  /** _v494_move_order: (we move first, the threat moves first) under the current settings. */
+  moveOrder(outgoing, incoming) {
+    const s = this.ev.settings;
+    if (!s.use_speed_tiers) return [false, false];
+    let outSpeed = Number(outgoing?.attacker_speed) || 0;
+    let inSpeed = Number(incoming?.attacker_speed) || 0;
+    if (["My Team", "Both"].includes(s.tailwind)) outSpeed *= 2;
+    if (["Threat Team", "Both"].includes(s.tailwind)) inSpeed *= 2;
+    if (s.trick_room) return [outSpeed < inSpeed, inSpeed < outSpeed];
+    return [outSpeed > inSpeed, inSpeed > outSpeed];
+  }
+
   /** _v494_is_real_answer */
   isRealAnswer(incoming, outgoing) {
-    const rank = (r) => ([1, 2, 3].includes(Number.parseInt(r?.hits, 10)) ? Number.parseInt(r.hits, 10) : 6);
-    const inHits = rank(incoming);
-    const outHits = rank(outgoing);
-    const s = this.ev.settings;
-    let oursFirst = false;
-    let theirsFirst = false;
-    if (s.use_speed_tiers) {
-      let outSpeed = Number(outgoing?.attacker_speed) || 0;
-      let inSpeed = Number(incoming?.attacker_speed) || 0;
-      if (["My Team", "Both"].includes(s.tailwind)) outSpeed *= 2;
-      if (["Threat Team", "Both"].includes(s.tailwind)) inSpeed *= 2;
-      if (s.trick_room) [oursFirst, theirsFirst] = [outSpeed < inSpeed, inSpeed < outSpeed];
-      else [oursFirst, theirsFirst] = [outSpeed > inSpeed, inSpeed > outSpeed];
-    }
+    const inHits = this.hitRank(incoming);
+    const outHits = this.hitRank(outgoing);
+    const [oursFirst, theirsFirst] = this.moveOrder(outgoing, incoming);
     if (theirsFirst && inHits === 1) return false;
     const wins = outHits < inHits;
     const matchesFaster = outHits === inHits && oursFirst;
     if (outHits <= 2 && (wins || matchesFaster)) return true;
     return inHits >= 4 && wins;
+  }
+
+  /**
+   * V511 `_matchup_evidence`: hits both ways and who moves first, from the engine the Team
+   * Evaluation uses (the same two calcs `threatMatchup` runs, so they share its cache).
+   * @returns {null|{outHits: number, inHits: number, oursFirst: boolean, theirsFirst: boolean}}
+   *   null when the matchup could not be built at all (nothing to measure).
+   */
+  matchupEvidence(profile, threat) {
+    const matchup = this.threatMatchup(profile, threat);
+    if (!matchup.incoming && !matchup.outgoing) return null;
+    const [oursFirst, theirsFirst] = this.moveOrder(matchup.outgoing, matchup.incoming);
+    return { outHits: this.hitRank(matchup.outgoing), inHits: this.hitRank(matchup.incoming), oursFirst, theirsFirst };
+  }
+
+  /** V511 `_type_chart_says_good`: whether typing alone would have listed this as an answer. */
+  typeChartSaysGood(profile, threat) {
+    const threatTypes = this.synergy.metaTypes(threat);
+    if (!threatTypes.length) return false;
+    const moveTypes = [...(profile.damaging_types || [])].map(pyTitle);
+    const ownTypes = (profile.types || []).map(pyTitle);
+    const bestAttack = Math.max(...(moveTypes.length ? moveTypes.map((t) => this.ev.engine.typeMultiplier(t, threatTypes)) : [1]));
+    const worstIncoming = Math.max(...threatTypes.map((t) => this.ev.engine.typeMultiplier(t, ownTypes)));
+    return bestAttack > 1 || (bestAttack >= 1 && worstIncoming <= 0.5);
   }
 
   /** _v378_team_fit: covers for shared weaknesses, stacked weaknesses, new attacking types. */
@@ -1512,6 +1749,176 @@ export class TeamSuggestions {
   }
 
   /**
+   * V511 stage one (`_rescore_stage_one`): applied after every existing layer, so the numbers
+   * it corrects are the ones the row ends the chain with.
+   *
+   *   (a) the archetype speed plan, damped by the setters the team already has;
+   *   (b) speed fit pointed the way the team's plan points.
+   *
+   * Every conflict penalty, the Tailwind branch and the fast-control credit are untouched.
+   */
+  rescoreStageOne(row, context) {
+    const archetype = String(row.strategy_archetype_v466 || "").trim().toLowerCase();
+    const features = this.featuresFor(context.teamSlots);
+    const trSetters = Number(features.trick_room_setters) || 0;
+    const twSetters = Number(features.tailwind_setters) || 0;
+    const pieces = [];
+    let score = Number(row.score) || 0;
+
+    // (a) the archetype is one term among several, not the whole ranking.
+    const fit = archetypeSpeedControlFit(archetype, row.moves?.length ? row.moves : row.candidate_entry.moves, trSetters, twSetters);
+    const [after, reason] = dampedSpeedPlan(fit, archetype, trSetters);
+    if (Math.abs(after - fit.adjustment) > 1e-9) {
+      score += after - fit.adjustment;
+      // `conditionalValue` (and the payoff) write this flag when they strip a Trick Room the
+      // team cannot support; where they have spoken, the field is theirs.
+      if (!row.counter_archetype_speed_control_v466) row.archetype_speed_fit_v466 = r1(50 + after);
+      const details = (row.details || []).filter((line) => String(line) !== String(fit.reason || ""));
+      if (reason && !details.includes(reason)) details.unshift(reason);
+      row.details = details;
+      const severities = { ...(row._v104_detail_severities || {}) };
+      delete severities[String(fit.reason || "").toLowerCase()];
+      if (reason) severities[reason.toLowerCase()] = after > 0 ? "good" : "yellow";
+      row._v104_detail_severities = severities;
+      pieces.push({ key: "speed_plan_v511", label: "Fits the speed plan", delta: r1(after - fit.adjustment), raw: r1(after - fit.adjustment), detail: reason });
+    }
+
+    // (b) a Trick Room team wants the slow half of the speed tiers, and a candidate whose only
+    // speed control is Trick Room stops being paid for it twice. Only where the base row really
+    // folded a speed fit in: a row without one has nothing to correct.
+    const profile = row._candidate_profile;
+    if (profile && row.speed_component !== undefined && row.speed_component !== null) {
+      const before = Number(row.speed_component);
+      const directed = directedSpeedFit(profile, archetype, trSetters);
+      const move = (directed - before) * SPEED_FIT_TO_SCORE;
+      if (Math.abs(move) > 1e-9) {
+        score += move;
+        row.speed_component = r1(directed);
+        row.speed_fit_directed_v511 = r1(directed);
+        pieces.push({
+          key: "speed_direction_v511",
+          label: "Speed against the team's plan",
+          delta: r1(move),
+          raw: r1(move),
+          detail: archetype === "trick room" ? "A Trick Room team wants the slow half of the speed tiers." : "Speed and speed control against the team's plan.",
+        });
+      }
+    }
+    row.score = r1(clamp(score));
+    row.total_component = row.score;
+    row.stage_one_score_v511 = row.score;
+    row._strategy_ledger = pieces;
+    return row;
+  }
+
+  /**
+   * V511 stage two (`_score_on_calcs`): this candidate measured against the team's worst
+   * threats with the engine the Team Evaluation uses. Writes the verdicts the breakdown reads
+   * and moves the score by three terms: what it answers, what it covers that the team has
+   * nothing for, and what removes it first.
+   * @param {Map<string, boolean>} gaps  threat name -> nothing on the team answers it today
+   */
+  scoreOnCalcs(row, threats, totalWeight, gaps) {
+    if (row.calc_scored_v511) return row; // a row already measured keeps the terms it was given
+    const profile = row._candidate_profile;
+    if (!profile) return row;
+    const entries = [];
+    let answerValue = 0;
+    let gapValue = 0;
+    let loseWeight = 0;
+    let measured = 0;
+    for (const threat of threats) {
+      const name = String(threat.name || threat.base_name || "Threat");
+      const score = threatScore(threat);
+      const weight = Math.max(1, Number.isFinite(score) ? score : 40) / totalWeight;
+      const evidence = this.matchupEvidence(profile, threat);
+      if (!evidence) continue;
+      measured += 1;
+      const verdict = verdictFor(evidence.outHits, evidence.inHits, evidence.oursFirst, evidence.theirsFirst);
+      const value = VERDICT_VALUE[verdict] ?? 0.3;
+      const fillsAGap = Boolean(gaps.get(name));
+      answerValue += weight * value;
+      if (fillsAGap && (verdict === "beats" || verdict === "walls")) gapValue += weight * value;
+      if (verdict === "loses") loseWeight += weight;
+      const entry = {
+        threat: name, threat_score: r1(Number.isFinite(score) ? score : 0), verdict,
+        out_hits: evidence.outHits, in_hits: evidence.inHits, ours_first: evidence.oursFirst, theirs_first: evidence.theirsFirst,
+        fills_a_gap: fillsAGap,
+        sentence: verdictSentence(name, verdict, evidence.outHits, evidence.inHits, evidence.oursFirst, evidence.theirsFirst),
+      };
+      // Threats whose typing flatters this Pokémon while the calc disagrees.
+      if (verdict !== "beats" && verdict !== "walls") entry.type_chart_says_good = this.typeChartSaysGood(profile, threat);
+      entries.push(entry);
+    }
+    if (!measured) return row;
+
+    const answeredShare = 100 * answerValue;
+    const answerTerm = Math.max(-ANSWER_SPAN, Math.min(ANSWER_SPAN, (answeredShare - ANSWER_MIDPOINT) * ANSWER_SCALE));
+    const gapTerm = Math.max(0, Math.min(GAP_SPAN, GAP_SPAN * gapValue * 2));
+    const vulnerableTerm = -Math.max(0, Math.min(VULNERABLE_SPAN, VULNERABLE_SPAN * loseWeight * 1.6));
+    // Sorted by how convincingly it wins, not by how scary the threat is.
+    entries.sort((a, b) => (VERDICT_SORT[a.verdict] ?? 9) - (VERDICT_SORT[b.verdict] ?? 9)
+      || (a.out_hits - a.in_hits) - (b.out_hits - b.in_hits)
+      || (Number(b.threat_score) || 0) - (Number(a.threat_score) || 0));
+    const beaten = entries.filter((e) => e.verdict === "beats" || e.verdict === "walls");
+    const removedFirst = entries.filter((e) => e.verdict === "loses").length;
+    row.threat_verdicts_v511 = entries;
+    row.threat_answers_v511 = beaten;
+    row.type_matchup_only_v511 = entries.filter((e) => e.type_chart_says_good);
+    row.threats_measured_v511 = measured;
+    row.answered_share_v511 = r1(answeredShare);
+    row.gaps_filled_v511 = beaten.filter((e) => e.fills_a_gap).length;
+    row.removed_first_v511 = removedFirst;
+    row.calc_scored_v511 = true;
+    // The closed row's "Helps vs" list and the open breakdown's answers were two different
+    // lists; both are this one now.
+    if (beaten.length) row.answers = beaten.map((e) => e.threat).slice(0, 5);
+
+    // The app keeps its own `score_ledger_v511` because it had no score ledger at all; this
+    // engine already builds one per layer, so the three calc terms join it with the same
+    // labels and the same wording, and the ledger still adds up to the score.
+    const ledger = [...(row.score_ledger || [])];
+    ledger.push({ key: "answers_v511", label: "Answers the team's threats", delta: r1(answerTerm), raw: r1(answerTerm), detail: `Beats or walls ${beaten.length} of the ${measured} worst threats, weighted by how bad each one is.` });
+    if (gapTerm) ledger.push({ key: "gaps_v511", label: "Covers what the team is missing", delta: r1(gapTerm), raw: r1(gapTerm), detail: `${row.gaps_filled_v511} of those are threats nothing on the team answers today.` });
+    if (vulnerableTerm) ledger.push({ key: "vulnerable_v511", label: "Survives the same threats", delta: r1(vulnerableTerm), raw: r1(vulnerableTerm), detail: `${removedFirst} of them ${removedFirst === 1 ? "removes" : "remove"} it first.` });
+    row.score_ledger = ledger;
+    row.score = r1(clamp((Number(row.score) || 0) + answerTerm + gapTerm + vulnerableTerm));
+    row.score_uncapped = r1(ledger.reduce((sum, item) => sum + (item.value ?? item.raw ?? item.delta ?? 0), 0));
+    row.total_component = row.score;
+    row.answered_threat_component_v511 = r1(clamp(answeredShare));
+    row.verdict_line_v511 = verdictLine(row);
+    return row;
+  }
+
+  /**
+   * V511 stage two over the finished pool: the best 40 by stage-one score are measured against
+   * the team's 8 worst threats and re-ranked, then the list the page shows is cut from that.
+   * @param {Array} pool  every candidate's best row, already in (-score, position, name) order
+   * @param {number} limit  how many rows the list shows
+   * @returns {Array|null} the re-ranked rows, or null when there is nothing to measure against
+   */
+  deepRank(pool, payload, limit, onProgress) {
+    const threats = (payload.threats || []).filter((t) => t && typeof t === "object")
+      .map((t, i) => [t, i]).sort((a, b) => -(Number(a[0].score) || 0) - -(Number(b[0].score) || 0) || a[1] - b[1])
+      .map(([t]) => t).slice(0, DEEP_THREATS);
+    if (!threats.length) return null;
+    const totalWeight = threats.reduce((sum, t) => {
+      const score = threatScore(t);
+      return sum + Math.max(1, Number.isFinite(score) ? score : 40);
+    }, 0) || 1;
+    const gaps = teamGapThreats(threats);
+    const shortlist = pool.slice(0, SHORTLIST);
+    const tail = pool.slice(SHORTLIST);
+    shortlist.forEach((row, index) => {
+      this.scoreOnCalcs(row, threats, totalWeight, gaps);
+      onProgress?.(index + 1, shortlist.length, row.name);
+    });
+    const ranked = [...shortlist].sort((a, b) => b.score - a.score || a.position - b.position
+      || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+    return [...ranked, ...tail].slice(0, limit).map((row) => this.namedAction(row));
+  }
+
+  /**
    * The full chain for one candidate (_v378_fast_suggestion_for_candidate).
    *
    * Suggestions never enforce Item Clause while ranking (V482 restored the
@@ -1552,6 +1959,8 @@ export class TeamSuggestions {
       layer("checks", "Team Building Checks", (r) => this.checkAdjust(r, context, context.selected));
       layer("strategy", "Strategy", (r) => this.strategyFit(r, context));
       layer("known_team", "Found in a tournament team", (r) => this.knownTeamFit(r, context));
+      // V511 stage one, after every layer above it (Auto Build keeps the old weights).
+      if (!auto && this.suggestionScoring) layer("scoring_v511", "Speed plan", (r) => this.rescoreStageOne(r, context));
       row.score_ledger = ledger;
       row.score_uncapped = r1(ledger.reduce((sum, item) => sum + (item.value ?? item.raw ?? item.delta ?? 0), 0));
       if (auto) {
@@ -2206,7 +2615,16 @@ export class TeamSuggestions {
       }
       onProgress?.(index + 1, candidates.length, meta.name);
     });
-    const rows = this.sorted([...best.values()], { teamEntries }).slice(0, ROW_LIMIT);
+    let rows = this.sorted([...best.values()], { teamEntries }).slice(0, ROW_LIMIT);
+    // V511: the best 40 of the whole pool are then measured against the team's worst threats
+    // with real calcs, and the shown list is cut from that ranking. The shortlist is inside
+    // the rule's gate too: with the rule off, the ordering above is the final one.
+    if (this.suggestionScoring && rows.length) {
+      const pool = [...best.values()].sort((a, b) => b.score - a.score || a.position - b.position
+        || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+      const deep = this.deepRank(pool, payload, rows.length, (done, total, name) => onProgress?.(done, total, name, "measuring"));
+      if (deep) rows = deep;
+    }
     return { rows, scanned: candidates.length, targets, empty_slot: emptySlot };
   }
 
@@ -2296,14 +2714,16 @@ export class TeamSuggestions {
       return !(candidateKey && present.has(candidateKey) && candidateKey !== targetKey);
     };
     const first = [...rows].sort((a, b) => b.score - a.score || a.position - b.position || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0) || (a.action < b.action ? -1 : a.action > b.action ? 1 : 0)).slice(0, ROW_LIMIT);
-    return first.map((row, i) => [row, i]).sort((x, y) => (x[0].counter_archetype_speed_control_v466 ? 1 : 0) - (y[0].counter_archetype_speed_control_v466 ? 1 : 0) || (y[0].role_fixes_v466 || 0) - (x[0].role_fixes_v466 || 0) || x[1] - y[1]).map(([row]) => {
-      // species_identity: the action text in Showdown spelling.
-      let action = row.action;
-      for (const raw of [...new Set(["name", "form", "swap_target", "base_name", "pokemon"].map((f) => String(row[f] || "").trim()).filter(Boolean))].sort((a, b) => b.length - a.length)) {
-        const shown = this.name(raw);
-        if (shown && shown !== raw && action.includes(raw)) action = action.replace(raw, shown);
-      }
-      return { ...row, action };
-    }).filter(possible);
+    return first.map((row, i) => [row, i]).sort((x, y) => (x[0].counter_archetype_speed_control_v466 ? 1 : 0) - (y[0].counter_archetype_speed_control_v466 ? 1 : 0) || (y[0].role_fixes_v466 || 0) - (x[0].role_fixes_v466 || 0) || x[1] - y[1]).map(([row]) => this.namedAction(row)).filter(possible);
+  }
+
+  /** species_identity: a copy of the row with its action text in Showdown spelling. */
+  namedAction(row) {
+    let action = row.action;
+    for (const raw of [...new Set(["name", "form", "swap_target", "base_name", "pokemon"].map((f) => String(row[f] || "").trim()).filter(Boolean))].sort((a, b) => b.length - a.length)) {
+      const shown = this.name(raw);
+      if (shown && shown !== raw && action.includes(raw)) action = action.replace(raw, shown);
+    }
+    return { ...row, action };
   }
 }

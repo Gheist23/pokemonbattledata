@@ -12,6 +12,32 @@
 // purchase email is exchanged at /api/license/activate for a signed token whose
 // expiry covers the paid period plus grace, exactly like the app.
 
+// ---------------------------------------------------------------------------
+// Cancelling a subscription.
+//
+// Stripe's customer portal has a shareable LOGIN link (Stripe dashboard ->
+// Settings -> Billing -> Customer portal, with "Cancel subscriptions" switched
+// on). It looks like https://billing.stripe.com/p/login/... , it never expires,
+// and the subscriber authenticates by email at Stripe, so it is safe to publish
+// and it also works for someone who lost their licence key.
+//
+// Paste that link here AND in the same constant at the bottom of
+// pro-tool/plans/index.html -- the two must match. While it is empty the Pro
+// dialog falls back to the Stripe receipt / Discord wording instead of showing
+// a dead button, exactly like the payment links on the plans page.
+//
+// It is deliberately not an endpoint of ours: a licence key is shared across a
+// buyer's machines by design, so a "cancel with your key" API would let anyone
+// holding the key cancel the payer's subscription.
+const STRIPE_PORTAL = "";
+export const DISCORD_URL = "https://discord.gg/k93eVQzj8c";
+
+/** The customer-portal login link, or "" while it has not been pasted in yet. */
+export function portalUrl() {
+  const url = String(STRIPE_PORTAL || "").trim();
+  return /^https:\/\//.test(url) ? url : "";
+}
+
 const RUNS_KEY = "cbd.runs.v1";
 const LICENCE_KEY = "cbd.licence.v1";
 const COOKIE = "cbd_r";

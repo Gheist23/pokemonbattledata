@@ -26,10 +26,11 @@ import {
   removeFromBox, renameBox, renameTeam, replaceBoxEntry, selectBox, selectTeam, setFormat, setOverviewTop, setSetting, setSlot, setTeamSets,
   subscribe, swapSlots, teamSets,
 } from "./store.js";
-import { activate, canRun, deactivate, FREE_RUNS, freeRunsLeft, isPro, licenceSummary, recordRun, refreshLicence } from "./pro.js";
+import { activate, canRun, deactivate, DISCORD_URL, FREE_RUNS, freeRunsLeft, isPro, licenceSummary, portalUrl, recordRun, refreshLicence } from "./pro.js";
 import { resetTournamentView, tournamentAnalysis, tournamentExplainer, tournamentProgress } from "./tournament-view.js";
 import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, segmented, select, sprite, switchRow, toast, typeChip } from "./ui.js";
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
+import { keepPlace } from "./scroll-anchor.js";
 import { OPTIMIZE_DEFAULTS, optimizeView, updateProgress } from "./optimize-view.js";
 
 const root = document.getElementById("builderApp");
@@ -206,11 +207,15 @@ function mount() {
 }
 
 function renderAll() {
+  // Every column is rebuilt, so the browser cannot hold the reading position
+  // itself: note where the top of the screen is and put it back (scroll-anchor.js).
+  const keepPosition = keepPlace("builder");
   renderToolbar();
   renderTeam();
   renderMain();
   renderLibrary();
   syncFormatSwitch();
+  keepPosition();
 }
 
 function renderToolbar() {
@@ -396,6 +401,9 @@ function addTeamToBox() {
 // ---- main panel ----
 
 function renderMain() {
+  // Redrawn on its own by a progress tick or a sub-tab as well as by renderAll,
+  // which holds the position for the whole page when it is the caller.
+  const keepPosition = keepPlace("builder-main");
   clear(hosts.main);
   // On phones the analysis tabs show their results above the team column (builder.css).
   if (hosts.main.parentElement) hosts.main.parentElement.dataset.tab = view.tab;
@@ -412,6 +420,7 @@ function renderMain() {
       `${String(error?.message || error || "Unknown error").split("\n")[0]}. Resetting clears the results kept for this team; your teams and Box are not touched.`,
       { actionLabel: "Reset this view", onAction: () => { resetResults(); renderMain(); } }));
   }
+  keepPosition();
 }
 
 /** Forget every calculated result (not the teams): the way out of a result that cannot be shown. */
@@ -858,13 +867,32 @@ function openGateDialog(feature) {
   });
 }
 
+/**
+ * The cancel line inside the Pro dialog, shown only while Pro is active.
+ *
+ * With the Stripe customer-portal login link pasted into pro.js this is a link
+ * to it (the subscriber signs in at Stripe by email, so it works even without
+ * the key); until then it names the two ways that always work. It is not the
+ * dialog's "Cancel" button, which only closes it, and not "Remove key from this
+ * browser", which only signs this browser out -- so it says what cancelling
+ * really does, including the delay, rather than promising an instant stop.
+ */
+function cancelLine() {
+  const portal = portalUrl();
+  return h("div", {},
+    h("p", { class: "bd-note" }, portal
+      ? h("a", { href: portal, target: "_blank", rel: "noopener" }, "Manage or cancel your subscription")
+      : ["To cancel, use the manage-subscription link in the receipt email from Stripe, or ", h("a", { href: DISCORD_URL, target: "_blank", rel: "noopener" }, "ask on Discord"), " and it will be cancelled for you."]),
+    h("p", { class: "bd-note" }, "Cancelling is not the same as removing the key here: Pro keeps working to the end of the period you are in, and for up to a week after that while the licence is checked again. Then this browser and the Companion go back to Free, and your teams and your Box stay exactly where they are."));
+}
+
 function openProDialog() {
   const summary = licenceSummary();
   const input = h("input", { type: "text", class: "bd-input", placeholder: "PCT-XXXXX-XXXXX-XXXXX-XXXXX", autocomplete: "off", spellcheck: "false", "aria-label": "Licence key" });
   const message = h("p", { class: "bd-note", role: "status" });
   const body = h("div", { class: "bd-list" },
     isPro() && summary
-      ? h("div", {}, h("p", { class: "bd-confirm-text" }, `Pro is active (${summary.plan}). Renewed automatically while your subscription runs.`), h("p", { class: "bd-note" }, `Key ${summary.key} · valid until ${summary.expires.toLocaleDateString()}`))
+      ? h("div", {}, h("p", { class: "bd-confirm-text" }, `Pro is active (${summary.plan}). Renewed automatically while your subscription runs.`), h("p", { class: "bd-note" }, `Key ${summary.key} · valid until ${summary.expires.toLocaleDateString()}`), cancelLine())
       : h("div", {}, h("p", { class: "bd-confirm-text" }, "Enter the licence key from your purchase email. The same key unlocks Pro here and in the Companion app."), input, message),
     h("p", { class: "bd-note" }, h("a", { href: "/pro-tool/plans/" }, "See the plans"), " · ", h("a", { href: "/pro-tool/key/" }, "Lost your key?")));
   const actions = isPro()
@@ -1261,6 +1289,12 @@ function useSuggestion(row) {
   setSlot(slot, set, data);
   view.suggestions = null;
   toast(row.action_kind === "swap" && row.swap_target ? `${row.name} replaces ${row.swap_target}` : `${row.name} added`);
+  // The team just changed, so the evaluation on screen is about the old six.
+  // Score the new team straight away rather than leaving a stale result behind
+  // a "Run again" button - that is the question the player is already asking.
+  // Only when there is a run to spend: an automatic run must never be the thing
+  // that opens the Pro dialog.
+  if ((view.evaluation || view.evaluationKey) && canRun("evaluation")) runEvaluation();
 }
 
 /**

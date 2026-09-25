@@ -2,50 +2,129 @@
  "context": {
   "damaging_move_counts": {
    "Bug": 1,
-   "Dark": 3,
+   "Dark": 4,
    "Dragon": 3,
    "Electric": 2,
    "Fairy": 3,
    "Fighting": 4,
-   "Fire": 6,
+   "Fire": 7,
    "Flying": 2,
    "Ghost": 2,
    "Grass": 4,
    "Ground": 4,
-   "Ice": 1,
-   "Normal": 9,
+   "Ice": 2,
+   "Normal": 13,
    "Poison": 1,
    "Psychic": 6,
    "Rock": 4,
    "Steel": 7,
    "Water": 3
   },
-  "damaging_move_total": 65,
+  "damaging_move_total": 72,
+  "provisional": false,
   "speed_band": [
    70.0,
    167.0
   ],
   "top_x": 30,
   "type_weights": {
-   "Bug": 0.27692307692307694,
-   "Dark": 0.8307692307692307,
-   "Dragon": 0.8307692307692307,
-   "Electric": 0.5538461538461539,
-   "Fairy": 0.8307692307692307,
-   "Fighting": 1.1076923076923078,
-   "Fire": 1.6615384615384614,
-   "Flying": 0.5538461538461539,
-   "Ghost": 0.5538461538461539,
-   "Grass": 1.1076923076923078,
-   "Ground": 1.1076923076923078,
-   "Ice": 0.27692307692307694,
-   "Normal": 2.4923076923076923,
-   "Poison": 0.27692307692307694,
-   "Psychic": 1.6615384615384614,
-   "Rock": 1.1076923076923078,
-   "Steel": 1.9384615384615385,
-   "Water": 0.8307692307692307
+   "Bug": 0.5,
+   "Dark": 1.0,
+   "Dragon": 0.8,
+   "Electric": 0.6,
+   "Fairy": 0.8,
+   "Fighting": 1.0,
+   "Fire": 1.6,
+   "Flying": 0.6,
+   "Ghost": 0.6,
+   "Grass": 1.0,
+   "Ground": 1.0,
+   "Ice": 0.6,
+   "Normal": 2.8,
+   "Poison": 0.5,
+   "Psychic": 1.4,
+   "Rock": 1.0,
+   "Steel": 1.6,
+   "Water": 0.8
   }
+ },
+ "coverage_extra_attacks": {
+  "acidspray": [
+   "Poison",
+   40.0
+  ],
+  "breakingswipe": [
+   "Dragon",
+   60.0
+  ],
+  "bulldoze": [
+   "Ground",
+   60.0
+  ],
+  "chillingwater": [
+   "Water",
+   50.0
+  ],
+  "clearsmog": [
+   "Poison",
+   50.0
+  ],
+  "electroweb": [
+   "Electric",
+   55.0
+  ],
+  "fakeout": [
+   "Normal",
+   40.0
+  ],
+  "icywind": [
+   "Ice",
+   55.0
+  ],
+  "knockoff": [
+   "Dark",
+   65.0
+  ],
+  "lowsweep": [
+   "Fighting",
+   65.0
+  ],
+  "lunge": [
+   "Bug",
+   80.0
+  ],
+  "mudshot": [
+   "Ground",
+   55.0
+  ],
+  "mysticalfire": [
+   "Fire",
+   75.0
+  ],
+  "nuzzle": [
+   "Electric",
+   20.0
+  ],
+  "rocktomb": [
+   "Rock",
+   60.0
+  ],
+  "skittersmack": [
+   "Bug",
+   70.0
+  ],
+  "snarl": [
+   "Dark",
+   55.0
+  ],
+  "spiritbreak": [
+   "Fairy",
+   75.0
+  ],
+  "strugglebug": [
+   "Bug",
+   50.0
+  ]
  },
  "expect": {
   "cluster": {
@@ -85,36 +164,47 @@
        ]
       }
      ],
-     "coverage_top_x_v514": 30
+     "coverage_top_x_v514": 30,
+     "meta_provisional_v514": false
     },
     "fix": "",
     "pressure": 0.0,
     "severity": "good",
-    "summary": "only 1 of the Top 30 lacks a super-effective answer, which is a normal amount to live with",
+    "summary": "only 1 of the Top 30 lacks a super-effective answer (Raichu), which is a normal amount to live with",
     "threshold": "Good = fewer than 5 of the Top 30 without a super-effective answer.",
-    "why": "The team can bring super-effective damage to almost everything it will meet."
+    "why": "The team can bring super-effective damage to almost everything it will meet. The one it cannot is listed so you can decide whether to live with them."
    },
    "defensive_switch_ins": {
     "check_id": "defensive_switch_ins",
     "extra": {
      "exposed": [
       {
-       "exposure": 3.8769230769230774,
+       "exposure": 3.5,
        "immunities": 0,
-       "meta_weight": 1.1076923076923078,
+       "meta_weight": 1.0,
        "severity": "yellow",
        "switch_ins": 1,
        "type": "Rock",
        "weak": 4
       },
       {
-       "exposure": 3.323076923076923,
+       "exposure": 3.2,
        "immunities": 0,
-       "meta_weight": 0.8307692307692307,
+       "meta_weight": 0.8,
        "severity": "yellow",
        "switch_ins": 0,
        "type": "Water",
        "weak": 4
+      }
+     ],
+     "gated_types_v514": [
+      {
+       "exposure": 2.5,
+       "immunities": 1,
+       "meta_weight": 1.0,
+       "switch_ins": 1,
+       "type": "Ground",
+       "weak": 3
       }
      ],
      "immune_counts": {
@@ -137,26 +227,28 @@
       "Steel": 0,
       "Water": 0
      },
+     "meta_provisional_v514": false,
      "meta_type_weights_v514": {
-      "Bug": 0.27692307692307694,
-      "Dark": 0.8307692307692307,
-      "Dragon": 0.8307692307692307,
-      "Electric": 0.5538461538461539,
-      "Fairy": 0.8307692307692307,
-      "Fighting": 1.1076923076923078,
-      "Fire": 1.6615384615384614,
-      "Flying": 0.5538461538461539,
-      "Ghost": 0.5538461538461539,
-      "Grass": 1.1076923076923078,
-      "Ground": 1.1076923076923078,
-      "Ice": 0.27692307692307694,
-      "Normal": 2.4923076923076923,
-      "Poison": 0.27692307692307694,
-      "Psychic": 1.6615384615384614,
-      "Rock": 1.1076923076923078,
-      "Steel": 1.9384615384615385,
-      "Water": 0.8307692307692307
+      "Bug": 0.5,
+      "Dark": 1.0,
+      "Dragon": 0.8,
+      "Electric": 0.6,
+      "Fairy": 0.8,
+      "Fighting": 1.0,
+      "Fire": 1.6,
+      "Flying": 0.6,
+      "Ghost": 0.6,
+      "Grass": 1.0,
+      "Ground": 1.0,
+      "Ice": 0.6,
+      "Normal": 2.8,
+      "Poison": 0.5,
+      "Psychic": 1.4,
+      "Rock": 1.0,
+      "Steel": 1.6,
+      "Water": 0.8
      },
+     "meta_weighted_v514": true,
      "resist_counts": {
       "Bug": 6,
       "Dark": 1,
@@ -180,18 +272,18 @@
      "severe": [],
      "type_rows_v251": [
       {
-       "exposure": 3.8769230769230774,
+       "exposure": 3.5,
        "immunities": 0,
-       "meta_weight": 1.1076923076923078,
+       "meta_weight": 1.0,
        "severity": "yellow",
        "switch_ins": 1,
        "type": "Rock",
        "weak": 4
       },
       {
-       "exposure": 3.323076923076923,
+       "exposure": 3.2,
        "immunities": 0,
-       "meta_weight": 0.8307692307692307,
+       "meta_weight": 0.8,
        "severity": "yellow",
        "switch_ins": 0,
        "type": "Water",
@@ -222,7 +314,7 @@
     "fix": "add a Rock resist or immunity, or replace one of the 4 that share the weakness",
     "pressure": 2.6,
     "severity": "yellow",
-    "summary": "four of your six lose to Rock, which the Top 30 attacks with 1.11 times the average rate, and the same is true of Water",
+    "summary": "four of your six lose to Rock, and the same is true of Water",
     "threshold": "Needs attention = 3 or more members weak to one type, and that type's meta-weighted exposure reaches 3.0.",
     "why": "One Pokemon with that attacking type can threaten most of the team in a single turn, which is the classic reason a team folds to one opponent."
    },
@@ -233,6 +325,10 @@
       "sun",
       "weather"
      ],
+     "field_problem_weights_v514": [
+      1.0
+     ],
+     "field_weight_v514": 1.0,
      "problems": [
       "Sylveon's Aurora Veil needs snow and nothing on the team sets it"
      ]
@@ -241,7 +337,7 @@
     "pressure": 2.4,
     "severity": "yellow",
     "summary": "Sylveon's Aurora Veil needs snow and nothing on the team sets it.",
-    "threshold": "Needs attention = one detected field/weather issue.",
+    "threshold": "Needs attention = the field problems together stay under 2.0, counting 1.0 for a dependency that cannot work and 0.5 for a conflict the team can play around.",
     "why": "The field plan mostly works, but one dependency or conflict needs attention."
    },
    "lead_viability": {
@@ -387,6 +483,7 @@
    "speed_tiers": {
     "check_id": "speed_tiers",
     "extra": {
+     "meta_provisional_v514": false,
      "speed_band_v514": [
       70.0,
       167.0
@@ -406,11 +503,7 @@
       ],
       "width": 8.0
      },
-     "speed_flip_v514": {
-      "count": 9,
-      "name": "Milotic",
-      "speed": 101.0
-     },
+     "speed_flip_v514": {},
      "speed_gate_v514": ""
     },
     "fix": "move one attacker clearly above or below the group, or carry your own Tailwind or Trick Room",
@@ -418,7 +511,368 @@
     "severity": "red",
     "summary": "four of your six sit between 96 and 104",
     "threshold": "Problem = 4 or more members inside 10 Speed points, or 5 or more inside 20, in the range the Top 30 contests.",
-    "why": "Torkoal, Arcanine-Hisui, Charizard, Volcarona. One Tailwind from Milotic (Speed 101) moves it past all four in the same turn."
+    "why": "Torkoal, Arcanine-Hisui, Charizard, Volcarona. One Tailwind or Icy Wind changes the order for all four at once."
+   }
+  },
+  "nometa": {
+   "coverage_gaps": {
+    "check_id": "coverage_gaps",
+    "extra": {
+     "best_added_types_v514": [],
+     "coverage_attacking_types_v514": [
+      "Normal",
+      "Fire",
+      "Grass",
+      "Fighting",
+      "Flying",
+      "Bug",
+      "Rock",
+      "Ghost",
+      "Steel",
+      "Fairy"
+     ],
+     "coverage_bars_v514": {
+      "red": 8,
+      "yellow": 5
+     },
+     "coverage_gap_count_v514": 0,
+     "coverage_resisted_count_v514": 0,
+     "coverage_rows_v514": [],
+     "coverage_top_x_v514": 30,
+     "meta_provisional_v514": false
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "the Top Meta is not loaded yet, so coverage cannot be measured",
+    "threshold": "Not measured = there is no Top Meta to compare the team's attacks against.",
+    "why": "Nothing has been measured here: sync the Top Meta, or pick a format that has one."
+   },
+   "defensive_switch_ins": {
+    "check_id": "defensive_switch_ins",
+    "extra": {
+     "exposed": [
+      {
+       "exposure": 3.5,
+       "immunities": 0,
+       "meta_weight": 1.0,
+       "severity": "yellow",
+       "switch_ins": 1,
+       "type": "Rock",
+       "weak": 4
+      }
+     ],
+     "gated_types_v514": [
+      {
+       "exposure": 2.5,
+       "immunities": 1,
+       "meta_weight": 1.0,
+       "switch_ins": 1,
+       "type": "Ground",
+       "weak": 3
+      }
+     ],
+     "immune_counts": {
+      "Bug": 0,
+      "Dark": 0,
+      "Dragon": 1,
+      "Electric": 0,
+      "Fairy": 0,
+      "Fighting": 1,
+      "Fire": 0,
+      "Flying": 0,
+      "Ghost": 0,
+      "Grass": 0,
+      "Ground": 1,
+      "Ice": 0,
+      "Normal": 1,
+      "Poison": 1,
+      "Psychic": 0,
+      "Rock": 0,
+      "Steel": 0,
+      "Water": 0
+     },
+     "meta_provisional_v514": false,
+     "meta_type_weights_v514": {
+      "Bug": 1.0,
+      "Dark": 1.0,
+      "Dragon": 1.0,
+      "Electric": 1.0,
+      "Fairy": 1.0,
+      "Fighting": 1.0,
+      "Fire": 1.0,
+      "Flying": 1.0,
+      "Ghost": 1.0,
+      "Grass": 1.0,
+      "Ground": 1.0,
+      "Ice": 1.0,
+      "Normal": 1.0,
+      "Poison": 1.0,
+      "Psychic": 1.0,
+      "Rock": 1.0,
+      "Steel": 1.0,
+      "Water": 1.0
+     },
+     "meta_weighted_v514": false,
+     "resist_counts": {
+      "Bug": 6,
+      "Dark": 1,
+      "Dragon": 2,
+      "Electric": 0,
+      "Fairy": 5,
+      "Fighting": 4,
+      "Fire": 3,
+      "Flying": 2,
+      "Ghost": 0,
+      "Grass": 4,
+      "Ground": 1,
+      "Ice": 4,
+      "Normal": 2,
+      "Poison": 2,
+      "Psychic": 1,
+      "Rock": 1,
+      "Steel": 4,
+      "Water": 0
+     },
+     "severe": [
+      {
+       "exposure": 4.0,
+       "immunities": 0,
+       "meta_weight": 1.0,
+       "severity": "red",
+       "switch_ins": 0,
+       "type": "Water",
+       "weak": 4
+      }
+     ],
+     "type_rows_v251": [
+      {
+       "exposure": 4.0,
+       "immunities": 0,
+       "meta_weight": 1.0,
+       "severity": "red",
+       "switch_ins": 0,
+       "type": "Water",
+       "weak": 4
+      },
+      {
+       "exposure": 3.5,
+       "immunities": 0,
+       "meta_weight": 1.0,
+       "severity": "yellow",
+       "switch_ins": 1,
+       "type": "Rock",
+       "weak": 4
+      }
+     ],
+     "weak_counts": {
+      "Bug": 0,
+      "Dark": 1,
+      "Dragon": 0,
+      "Electric": 1,
+      "Fairy": 0,
+      "Fighting": 1,
+      "Fire": 1,
+      "Flying": 1,
+      "Ghost": 1,
+      "Grass": 0,
+      "Ground": 3,
+      "Ice": 0,
+      "Normal": 0,
+      "Poison": 1,
+      "Psychic": 0,
+      "Rock": 4,
+      "Steel": 1,
+      "Water": 4
+     }
+    },
+    "fix": "add a Water resist or immunity, or replace one of the 4 that share the weakness",
+    "pressure": 5.8,
+    "severity": "red",
+    "summary": "four of your six lose to Water, and the same is true of Rock",
+    "threshold": "Problem = 3 or more members weak to one type, and that type's meta-weighted exposure reaches 4.0.",
+    "why": "One Pokemon with that attacking type can threaten most of the team in a single turn, which is the classic reason a team folds to one opponent. The Top Meta is not loaded, so this is the unweighted reading: every attacking type was treated as equally common."
+   },
+   "field_weather_consistency": {
+    "check_id": "field_weather_consistency",
+    "extra": {
+     "field_available_v514": [
+      "sun",
+      "weather"
+     ],
+     "field_problem_weights_v514": [
+      1.0
+     ],
+     "field_weight_v514": 1.0,
+     "problems": [
+      "Sylveon's Aurora Veil needs snow and nothing on the team sets it"
+     ]
+    },
+    "fix": "Fix the listed conflict or confirm it is an intentional matchup-specific choice.",
+    "pressure": 2.4,
+    "severity": "yellow",
+    "summary": "Sylveon's Aurora Veil needs snow and nothing on the team sets it.",
+    "threshold": "Needs attention = the field problems together stay under 2.0, counting 1.0 for a dependency that cannot work and 0.5 for a conflict the team can play around.",
+    "why": "The field plan mostly works, but one dependency or conflict needs attention."
+   },
+   "lead_viability": {
+    "check_id": "lead_viability",
+    "extra": {
+     "lead_bar_v514": 5.6,
+     "lead_pair_count_v514": 15,
+     "lead_pairs_v514": [
+      {
+       "members": [
+        "Arcanine-Hisui",
+        "Sylveon"
+       ],
+       "playable": true,
+       "score": 7.906666666666666
+      },
+      {
+       "members": [
+        "Charizard",
+        "Arcanine-Hisui"
+       ],
+       "playable": true,
+       "score": 7.793333333333333
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Arcanine-Hisui"
+       ],
+       "playable": true,
+       "score": 7.753333333333333
+      },
+      {
+       "members": [
+        "Arcanine-Hisui",
+        "Gholdengo"
+       ],
+       "playable": true,
+       "score": 7.573333333333333
+      },
+      {
+       "members": [
+        "Arcanine-Hisui",
+        "Torkoal"
+       ],
+       "playable": true,
+       "score": 7.133333333333333
+      },
+      {
+       "members": [
+        "Charizard",
+        "Sylveon"
+       ],
+       "playable": false,
+       "score": 5.26
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Sylveon"
+       ],
+       "playable": false,
+       "score": 5.22
+      },
+      {
+       "members": [
+        "Charizard",
+        "Volcarona"
+       ],
+       "playable": false,
+       "score": 5.1066666666666665
+      },
+      {
+       "members": [
+        "Sylveon",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 5.04
+      },
+      {
+       "members": [
+        "Charizard",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 4.926666666666667
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 4.886666666666667
+      },
+      {
+       "members": [
+        "Torkoal",
+        "Sylveon"
+       ],
+       "playable": false,
+       "score": 4.6
+      },
+      {
+       "members": [
+        "Charizard",
+        "Torkoal"
+       ],
+       "playable": false,
+       "score": 4.486666666666666
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Torkoal"
+       ],
+       "playable": false,
+       "score": 4.446666666666666
+      },
+      {
+       "members": [
+        "Torkoal",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 4.266666666666667
+      }
+     ],
+     "lead_playable_v514": 5,
+     "lead_severity_bars_v514": {
+      "red": 4,
+      "yellow": 8
+     }
+    },
+    "fix": "give another Pokemon a turn-one tool so more pairs can open",
+    "pressure": 2.0,
+    "severity": "yellow",
+    "summary": "an estimated 5 of your 15 lead pairs are worth bringing",
+    "threshold": "Needs attention = 8 or fewer of the 15 lead pairs reach the playable bar.",
+    "why": "Your best openings are Arcanine-Hisui with Sylveon, Charizard with Arcanine-Hisui. 10 pairs have little more than raw damage between them. This is an estimate from each pair's turn-one tools, not a played-out game."
+   },
+   "speed_tiers": {
+    "check_id": "speed_tiers",
+    "extra": {
+     "meta_provisional_v514": false,
+     "speed_band_v514": [
+      0.0,
+      0.0
+     ],
+     "speed_cluster_v514": {},
+     "speed_flip_v514": {},
+     "speed_gate_v514": "no_meta"
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "the Top Meta is not loaded yet, so the contested Speed range cannot be measured",
+    "threshold": "Not measured = there is no Top Meta, so there is no contested Speed range.",
+    "why": "Nothing has been measured here: this check compares the team's Speeds against the range the Top Meta contests, and there is no Top Meta to compare them with."
    }
   },
   "owner": {
@@ -432,11 +886,11 @@
       },
       {
        "covers": 3,
-       "type": "Ground"
+       "type": "Steel"
       },
       {
-       "covers": 3,
-       "type": "Ghost"
+       "covers": 1,
+       "type": "Ground"
       }
      ],
      "coverage_attacking_types_v514": [
@@ -447,13 +901,14 @@
       "Ice",
       "Fighting",
       "Psychic",
-      "Bug"
+      "Bug",
+      "Dark"
      ],
      "coverage_bars_v514": {
       "red": 8,
       "yellow": 5
      },
-     "coverage_gap_count_v514": 6,
+     "coverage_gap_count_v514": 4,
      "coverage_resisted_count_v514": 0,
      "coverage_rows_v514": [
       {
@@ -473,22 +928,6 @@
       },
       {
        "best_multiplier": 1.0,
-       "name": "Gholdengo",
-       "types": [
-        "Steel",
-        "Ghost"
-       ]
-      },
-      {
-       "best_multiplier": 1.0,
-       "name": "Metagross",
-       "types": [
-        "Steel",
-        "Psychic"
-       ]
-      },
-      {
-       "best_multiplier": 1.0,
        "name": "Raichu",
        "types": [
         "Electric"
@@ -502,19 +941,30 @@
        ]
       }
      ],
-     "coverage_top_x_v514": 30
+     "coverage_top_x_v514": 30,
+     "meta_provisional_v514": false
     },
-    "fix": "a Poison or Ground attack would cover 3 of them",
-    "pressure": 2.5,
-    "severity": "yellow",
-    "summary": "6 of the Top 30 have no super-effective answer on this team",
-    "threshold": "Needs attention = 5 or more of the Top 30 with no super-effective answer.",
-    "why": "The team can only hit Floette-Eternal, Gardevoir, Gholdengo, Metagross +2 more for neutral damage. Without a super-effective answer it has to break them with neutral damage, which usually costs a turn it does not have."
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "only 4 of the Top 30 lack a super-effective answer (Floette-Eternal, Gardevoir, Raichu, Sylveon), which is a normal amount to live with",
+    "threshold": "Good = fewer than 5 of the Top 30 without a super-effective answer.",
+    "why": "The team can bring super-effective damage to almost everything it will meet. The four it cannot are listed so you can decide whether to live with them."
    },
    "defensive_switch_ins": {
     "check_id": "defensive_switch_ins",
     "extra": {
      "exposed": [],
+     "gated_types_v514": [
+      {
+       "exposure": 1.75,
+       "immunities": 0,
+       "meta_weight": 0.5,
+       "switch_ins": 1,
+       "type": "Bug",
+       "weak": 4
+      }
+     ],
      "immune_counts": {
       "Bug": 0,
       "Dark": 0,
@@ -535,26 +985,28 @@
       "Steel": 0,
       "Water": 0
      },
+     "meta_provisional_v514": false,
      "meta_type_weights_v514": {
-      "Bug": 0.27692307692307694,
-      "Dark": 0.8307692307692307,
-      "Dragon": 0.8307692307692307,
-      "Electric": 0.5538461538461539,
-      "Fairy": 0.8307692307692307,
-      "Fighting": 1.1076923076923078,
-      "Fire": 1.6615384615384614,
-      "Flying": 0.5538461538461539,
-      "Ghost": 0.5538461538461539,
-      "Grass": 1.1076923076923078,
-      "Ground": 1.1076923076923078,
-      "Ice": 0.27692307692307694,
-      "Normal": 2.4923076923076923,
-      "Poison": 0.27692307692307694,
-      "Psychic": 1.6615384615384614,
-      "Rock": 1.1076923076923078,
-      "Steel": 1.9384615384615385,
-      "Water": 0.8307692307692307
+      "Bug": 0.5,
+      "Dark": 1.0,
+      "Dragon": 0.8,
+      "Electric": 0.6,
+      "Fairy": 0.8,
+      "Fighting": 1.0,
+      "Fire": 1.6,
+      "Flying": 0.6,
+      "Ghost": 0.6,
+      "Grass": 1.0,
+      "Ground": 1.0,
+      "Ice": 0.6,
+      "Normal": 2.8,
+      "Poison": 0.5,
+      "Psychic": 1.4,
+      "Rock": 1.0,
+      "Steel": 1.6,
+      "Water": 0.8
      },
+     "meta_weighted_v514": true,
      "resist_counts": {
       "Bug": 1,
       "Dark": 1,
@@ -603,7 +1055,7 @@
     "severity": "good",
     "summary": "no attacking type the meta actually uses hits enough of the team to matter",
     "threshold": "Good = no attacking type reaches the weighted exposure bar with 3 or more members weak to it.",
-    "why": "The weaknesses the team does share belong to types the Top Meta rarely attacks with."
+    "why": "The weaknesses the team does share belong to types the Top Meta rarely attacks with. Bug is shared by four of the team but excused by how rarely the meta brings them."
    },
    "field_weather_consistency": {
     "check_id": "field_weather_consistency",
@@ -613,17 +1065,22 @@
       "psychic",
       "terrain"
      ],
+     "field_problem_weights_v514": [
+      0.5,
+      0.5
+     ],
+     "field_weight_v514": 1.0,
      "problems": [
       "Rillaboom's Grassy Terrain and Indeedee Female's Psychic Terrain replace each other",
       "Psychic Terrain can block the team's priority attacks"
      ]
     },
-    "fix": "Drop one of the competing setters, or give the move's owner the condition it needs.",
-    "pressure": 5.0,
-    "severity": "red",
+    "fix": "Fix the listed conflict or confirm it is an intentional matchup-specific choice.",
+    "pressure": 2.4,
+    "severity": "yellow",
     "summary": "Rillaboom's Grassy Terrain and Indeedee Female's Psychic Terrain replace each other, Psychic Terrain can block the team's priority attacks.",
-    "threshold": "Problem = two or more field/weather conflicts.",
-    "why": "Conflicting field choices can make the team's own tools unreliable."
+    "threshold": "Needs attention = the field problems together stay under 2.0, counting 1.0 for a dependency that cannot work and 0.5 for a conflict the team can play around.",
+    "why": "The field plan mostly works, but one dependency or conflict needs attention."
    },
    "lead_viability": {
     "check_id": "lead_viability",
@@ -768,6 +1225,7 @@
    "speed_tiers": {
     "check_id": "speed_tiers",
     "extra": {
+     "meta_provisional_v514": false,
      "speed_band_v514": [
       70.0,
       167.0
@@ -783,9 +1241,648 @@
     "threshold": "Good = the team sets Trick Room, so a shared Speed tier is deliberate.",
     "why": "The team inverts the turn order on purpose, which is exactly what a tight Speed band is for."
    }
+  },
+  "pair": {
+   "coverage_gaps": {
+    "check_id": "coverage_gaps",
+    "extra": {
+     "best_added_types_v514": [
+      {
+       "covers": 7,
+       "type": "Rock"
+      },
+      {
+       "covers": 5,
+       "type": "Electric"
+      },
+      {
+       "covers": 5,
+       "type": "Ice"
+      }
+     ],
+     "coverage_attacking_types_v514": [
+      "Fighting",
+      "Psychic",
+      "Dark"
+     ],
+     "coverage_bars_v514": {
+      "red": 8,
+      "yellow": 5
+     },
+     "coverage_gap_count_v514": 15,
+     "coverage_resisted_count_v514": 0,
+     "coverage_rows_v514": [
+      {
+       "best_multiplier": 1.0,
+       "name": "Charizard",
+       "types": [
+        "Fire",
+        "Flying"
+       ]
+      },
+      {
+       "best_multiplier": 1.0,
+       "name": "Floette-Eternal",
+       "types": [
+        "Fairy"
+       ]
+      },
+      {
+       "best_multiplier": 1.0,
+       "name": "Garchomp",
+       "types": [
+        "Dragon",
+        "Ground"
+       ]
+      },
+      {
+       "best_multiplier": 1.0,
+       "name": "Gardevoir",
+       "types": [
+        "Psychic",
+        "Fairy"
+       ]
+      },
+      {
+       "best_multiplier": 1.0,
+       "name": "Golisopod",
+       "types": [
+        "Bug",
+        "Water"
+       ]
+      },
+      {
+       "best_multiplier": 1.0,
+       "name": "Milotic",
+       "types": [
+        "Water"
+       ]
+      }
+     ],
+     "coverage_top_x_v514": 30,
+     "meta_provisional_v514": false
+    },
+    "fix": "a Rock attack would cover 7 of them",
+    "pressure": 5.6,
+    "severity": "red",
+    "summary": "15 of the Top 30 have no super-effective answer on this team",
+    "threshold": "Problem = at least one of the Top 30 the team only resists, or 8 or more with no super-effective answer.",
+    "why": "The team can only hit Charizard, Floette-Eternal, Garchomp, Gardevoir +11 more for neutral damage. Without a super-effective answer it has to break them with neutral damage, which usually costs a turn it does not have."
+   },
+   "defensive_switch_ins": {
+    "check_id": "defensive_switch_ins",
+    "extra": {
+     "exposed": [],
+     "gated_types_v514": [],
+     "immune_counts": {
+      "Bug": 0,
+      "Dark": 0,
+      "Dragon": 0,
+      "Electric": 0,
+      "Fairy": 0,
+      "Fighting": 0,
+      "Fire": 0,
+      "Flying": 0,
+      "Ghost": 1,
+      "Grass": 0,
+      "Ground": 0,
+      "Ice": 0,
+      "Normal": 0,
+      "Poison": 0,
+      "Psychic": 1,
+      "Rock": 0,
+      "Steel": 0,
+      "Water": 0
+     },
+     "meta_provisional_v514": false,
+     "meta_type_weights_v514": {
+      "Bug": 0.5,
+      "Dark": 1.0,
+      "Dragon": 0.8,
+      "Electric": 0.6,
+      "Fairy": 0.8,
+      "Fighting": 1.0,
+      "Fire": 1.6,
+      "Flying": 0.6,
+      "Ghost": 0.6,
+      "Grass": 1.0,
+      "Ground": 1.0,
+      "Ice": 0.6,
+      "Normal": 2.8,
+      "Poison": 0.5,
+      "Psychic": 1.4,
+      "Rock": 1.0,
+      "Steel": 1.6,
+      "Water": 0.8
+     },
+     "meta_weighted_v514": true,
+     "resist_counts": {
+      "Bug": 0,
+      "Dark": 0,
+      "Dragon": 0,
+      "Electric": 0,
+      "Fairy": 0,
+      "Fighting": 0,
+      "Fire": 0,
+      "Flying": 0,
+      "Ghost": 1,
+      "Grass": 0,
+      "Ground": 0,
+      "Ice": 0,
+      "Normal": 0,
+      "Poison": 0,
+      "Psychic": 2,
+      "Rock": 0,
+      "Steel": 0,
+      "Water": 0
+     },
+     "severe": [],
+     "type_rows_v251": [],
+     "weak_counts": {
+      "Bug": 2,
+      "Dark": 1,
+      "Dragon": 0,
+      "Electric": 0,
+      "Fairy": 1,
+      "Fighting": 0,
+      "Fire": 0,
+      "Flying": 0,
+      "Ghost": 0,
+      "Grass": 0,
+      "Ground": 0,
+      "Ice": 0,
+      "Normal": 0,
+      "Poison": 0,
+      "Psychic": 0,
+      "Rock": 0,
+      "Steel": 0,
+      "Water": 0
+     }
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "no attacking type the meta actually uses hits enough of the team to matter",
+    "threshold": "Good = no attacking type reaches the weighted exposure bar with 3 or more members weak to it.",
+    "why": "The weaknesses the team does share belong to types the Top Meta rarely attacks with."
+   },
+   "field_weather_consistency": {
+    "check_id": "field_weather_consistency",
+    "extra": {
+     "field_available_v514": [
+      "psychic",
+      "terrain"
+     ],
+     "field_problem_weights_v514": [],
+     "field_weight_v514": 0,
+     "problems": []
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "weather and terrain choices have no obvious internal conflict.",
+    "threshold": "Good = field dependencies have matching support and no detected conflict.",
+    "why": "The detected field tools support the current team instead of blocking it."
+   },
+   "lead_viability": {
+    "check_id": "lead_viability",
+    "extra": {
+     "lead_bar_v514": 5.6,
+     "lead_pair_count_v514": 1,
+     "lead_pairs_v514": [
+      {
+       "members": [
+        "Mega Malamar",
+        "Indeedee Female"
+       ],
+       "playable": true,
+       "score": 10.793333333333333
+      }
+     ],
+     "lead_playable_v514": 1,
+     "lead_severity_bars_v514": {
+      "red": 0,
+      "yellow": 1
+     }
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "your one lead pair, Mega Malamar with Indeedee Female, has a turn-one tool to open with",
+    "threshold": "Good = the only lead pair reaches the playable bar of 5.6.",
+    "why": "This is an estimate from each pair's turn-one tools, not a played-out game."
+   },
+   "speed_tiers": {
+    "check_id": "speed_tiers",
+    "extra": {
+     "meta_provisional_v514": false,
+     "speed_band_v514": [
+      70.0,
+      167.0
+     ],
+     "speed_cluster_v514": {},
+     "speed_flip_v514": {},
+     "speed_gate_v514": "trick_room"
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "Trick Room sets the order, so sitting close together on Speed does not decide your turns",
+    "threshold": "Good = the team sets Trick Room, so a shared Speed tier is deliberate.",
+    "why": "The team inverts the turn order on purpose, which is exactly what a tight Speed band is for."
+   }
+  },
+  "slow": {
+   "coverage_gaps": {
+    "check_id": "coverage_gaps",
+    "extra": {
+     "best_added_types_v514": [
+      {
+       "covers": 1,
+       "type": "Ground"
+      }
+     ],
+     "coverage_attacking_types_v514": [
+      "Normal",
+      "Fire",
+      "Grass",
+      "Fighting",
+      "Flying",
+      "Bug",
+      "Rock",
+      "Ghost",
+      "Steel",
+      "Fairy"
+     ],
+     "coverage_bars_v514": {
+      "red": 8,
+      "yellow": 5
+     },
+     "coverage_gap_count_v514": 1,
+     "coverage_resisted_count_v514": 0,
+     "coverage_rows_v514": [
+      {
+       "best_multiplier": 1.0,
+       "name": "Raichu",
+       "types": [
+        "Electric"
+       ]
+      }
+     ],
+     "coverage_top_x_v514": 30,
+     "meta_provisional_v514": false
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "only 1 of the Top 30 lacks a super-effective answer (Raichu), which is a normal amount to live with",
+    "threshold": "Good = fewer than 5 of the Top 30 without a super-effective answer.",
+    "why": "The team can bring super-effective damage to almost everything it will meet. The one it cannot is listed so you can decide whether to live with them."
+   },
+   "defensive_switch_ins": {
+    "check_id": "defensive_switch_ins",
+    "extra": {
+     "exposed": [
+      {
+       "exposure": 3.5,
+       "immunities": 0,
+       "meta_weight": 1.0,
+       "severity": "yellow",
+       "switch_ins": 1,
+       "type": "Rock",
+       "weak": 4
+      },
+      {
+       "exposure": 3.2,
+       "immunities": 0,
+       "meta_weight": 0.8,
+       "severity": "yellow",
+       "switch_ins": 0,
+       "type": "Water",
+       "weak": 4
+      }
+     ],
+     "gated_types_v514": [
+      {
+       "exposure": 2.5,
+       "immunities": 1,
+       "meta_weight": 1.0,
+       "switch_ins": 1,
+       "type": "Ground",
+       "weak": 3
+      }
+     ],
+     "immune_counts": {
+      "Bug": 0,
+      "Dark": 0,
+      "Dragon": 1,
+      "Electric": 0,
+      "Fairy": 0,
+      "Fighting": 1,
+      "Fire": 0,
+      "Flying": 0,
+      "Ghost": 0,
+      "Grass": 0,
+      "Ground": 1,
+      "Ice": 0,
+      "Normal": 1,
+      "Poison": 1,
+      "Psychic": 0,
+      "Rock": 0,
+      "Steel": 0,
+      "Water": 0
+     },
+     "meta_provisional_v514": false,
+     "meta_type_weights_v514": {
+      "Bug": 0.5,
+      "Dark": 1.0,
+      "Dragon": 0.8,
+      "Electric": 0.6,
+      "Fairy": 0.8,
+      "Fighting": 1.0,
+      "Fire": 1.6,
+      "Flying": 0.6,
+      "Ghost": 0.6,
+      "Grass": 1.0,
+      "Ground": 1.0,
+      "Ice": 0.6,
+      "Normal": 2.8,
+      "Poison": 0.5,
+      "Psychic": 1.4,
+      "Rock": 1.0,
+      "Steel": 1.6,
+      "Water": 0.8
+     },
+     "meta_weighted_v514": true,
+     "resist_counts": {
+      "Bug": 6,
+      "Dark": 1,
+      "Dragon": 2,
+      "Electric": 0,
+      "Fairy": 5,
+      "Fighting": 4,
+      "Fire": 3,
+      "Flying": 2,
+      "Ghost": 0,
+      "Grass": 4,
+      "Ground": 1,
+      "Ice": 4,
+      "Normal": 2,
+      "Poison": 2,
+      "Psychic": 1,
+      "Rock": 1,
+      "Steel": 4,
+      "Water": 0
+     },
+     "severe": [],
+     "type_rows_v251": [
+      {
+       "exposure": 3.5,
+       "immunities": 0,
+       "meta_weight": 1.0,
+       "severity": "yellow",
+       "switch_ins": 1,
+       "type": "Rock",
+       "weak": 4
+      },
+      {
+       "exposure": 3.2,
+       "immunities": 0,
+       "meta_weight": 0.8,
+       "severity": "yellow",
+       "switch_ins": 0,
+       "type": "Water",
+       "weak": 4
+      }
+     ],
+     "weak_counts": {
+      "Bug": 0,
+      "Dark": 1,
+      "Dragon": 0,
+      "Electric": 1,
+      "Fairy": 0,
+      "Fighting": 1,
+      "Fire": 1,
+      "Flying": 1,
+      "Ghost": 1,
+      "Grass": 0,
+      "Ground": 3,
+      "Ice": 0,
+      "Normal": 0,
+      "Poison": 1,
+      "Psychic": 0,
+      "Rock": 4,
+      "Steel": 1,
+      "Water": 4
+     }
+    },
+    "fix": "add a Rock resist or immunity, or replace one of the 4 that share the weakness",
+    "pressure": 2.6,
+    "severity": "yellow",
+    "summary": "four of your six lose to Rock, and the same is true of Water",
+    "threshold": "Needs attention = 3 or more members weak to one type, and that type's meta-weighted exposure reaches 3.0.",
+    "why": "One Pokemon with that attacking type can threaten most of the team in a single turn, which is the classic reason a team folds to one opponent."
+   },
+   "field_weather_consistency": {
+    "check_id": "field_weather_consistency",
+    "extra": {
+     "field_available_v514": [
+      "sun",
+      "weather"
+     ],
+     "field_problem_weights_v514": [
+      1.0
+     ],
+     "field_weight_v514": 1.0,
+     "problems": [
+      "Sylveon's Aurora Veil needs snow and nothing on the team sets it"
+     ]
+    },
+    "fix": "Fix the listed conflict or confirm it is an intentional matchup-specific choice.",
+    "pressure": 2.4,
+    "severity": "yellow",
+    "summary": "Sylveon's Aurora Veil needs snow and nothing on the team sets it.",
+    "threshold": "Needs attention = the field problems together stay under 2.0, counting 1.0 for a dependency that cannot work and 0.5 for a conflict the team can play around.",
+    "why": "The field plan mostly works, but one dependency or conflict needs attention."
+   },
+   "lead_viability": {
+    "check_id": "lead_viability",
+    "extra": {
+     "lead_bar_v514": 5.6,
+     "lead_pair_count_v514": 15,
+     "lead_pairs_v514": [
+      {
+       "members": [
+        "Arcanine-Hisui",
+        "Sylveon"
+       ],
+       "playable": true,
+       "score": 7.906666666666666
+      },
+      {
+       "members": [
+        "Charizard",
+        "Arcanine-Hisui"
+       ],
+       "playable": true,
+       "score": 7.793333333333333
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Arcanine-Hisui"
+       ],
+       "playable": true,
+       "score": 7.753333333333333
+      },
+      {
+       "members": [
+        "Arcanine-Hisui",
+        "Gholdengo"
+       ],
+       "playable": true,
+       "score": 7.573333333333333
+      },
+      {
+       "members": [
+        "Arcanine-Hisui",
+        "Torkoal"
+       ],
+       "playable": true,
+       "score": 7.133333333333333
+      },
+      {
+       "members": [
+        "Charizard",
+        "Sylveon"
+       ],
+       "playable": false,
+       "score": 5.26
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Sylveon"
+       ],
+       "playable": false,
+       "score": 5.22
+      },
+      {
+       "members": [
+        "Charizard",
+        "Volcarona"
+       ],
+       "playable": false,
+       "score": 5.1066666666666665
+      },
+      {
+       "members": [
+        "Sylveon",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 5.04
+      },
+      {
+       "members": [
+        "Charizard",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 4.926666666666667
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 4.886666666666667
+      },
+      {
+       "members": [
+        "Torkoal",
+        "Sylveon"
+       ],
+       "playable": false,
+       "score": 4.6
+      },
+      {
+       "members": [
+        "Charizard",
+        "Torkoal"
+       ],
+       "playable": false,
+       "score": 4.486666666666666
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Torkoal"
+       ],
+       "playable": false,
+       "score": 4.446666666666666
+      },
+      {
+       "members": [
+        "Torkoal",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 4.266666666666667
+      }
+     ],
+     "lead_playable_v514": 5,
+     "lead_severity_bars_v514": {
+      "red": 4,
+      "yellow": 8
+     }
+    },
+    "fix": "give another Pokemon a turn-one tool so more pairs can open",
+    "pressure": 2.0,
+    "severity": "yellow",
+    "summary": "an estimated 5 of your 15 lead pairs are worth bringing",
+    "threshold": "Needs attention = 8 or fewer of the 15 lead pairs reach the playable bar.",
+    "why": "Your best openings are Arcanine-Hisui with Sylveon, Charizard with Arcanine-Hisui. 10 pairs have little more than raw damage between them. This is an estimate from each pair's turn-one tools, not a played-out game."
+   },
+   "speed_tiers": {
+    "check_id": "speed_tiers",
+    "extra": {
+     "meta_provisional_v514": false,
+     "speed_band_v514": [
+      70.0,
+      167.0
+     ],
+     "speed_cluster_v514": {
+      "band": [
+       70.0,
+       167.0
+      ],
+      "high": 35.0,
+      "low": 30.0,
+      "members": [
+       "Charizard",
+       "Volcarona",
+       "Arcanine-Hisui",
+       "Torkoal",
+       "Sylveon",
+       "Gholdengo"
+      ],
+      "width": 5.0
+     },
+     "speed_flip_v514": {},
+     "speed_gate_v514": "outside_band"
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "six of your six sit between 30 and 35, which is outside the Speed range the Top 30 contests",
+    "threshold": "Good = the shared Speed tier sits outside 70 to 167, the range the Top 30 contests.",
+    "why": "Charizard, Volcarona, Arcanine-Hisui, Torkoal, Sylveon, Gholdengo. They share a Speed tier, but the Top 30 contests 70 to 167, so a Tailwind aimed at that range does not decide their turns."
+   }
   }
  },
- "fixture_id": "3c1c4d7fec648a2bcb8b928c096e8bbf",
+ "fixture_id": "2c4a82637daf404a8faabdade3985478",
  "labels": {
   "coverage_gaps": "Coverage Gaps",
   "defensive_switch_ins": "Shared Weakness",
@@ -935,20 +2032,6 @@
    },
    {
     "moves": [
-     "Hurricane",
-     "Weather Ball",
-     "Tailwind",
-     "Wide Guard"
-    ],
-    "name": "Pelipper",
-    "speed": 117,
-    "types": [
-     "Water",
-     "Flying"
-    ]
-   },
-   {
-    "moves": [
      "Electro Shot",
      "Protect",
      "Flash Cannon",
@@ -959,6 +2042,20 @@
     "types": [
      "Steel",
      "Dragon"
+    ]
+   },
+   {
+    "moves": [
+     "Hurricane",
+     "Weather Ball",
+     "Tailwind",
+     "Wide Guard"
+    ],
+    "name": "Pelipper",
+    "speed": 117,
+    "types": [
+     "Water",
+     "Flying"
     ]
    },
    {
@@ -1089,7 +2186,7 @@
      "Expanding Force",
      "Armor Cannon",
      "Protect",
-     "Trick Room"
+     "Wide Guard"
     ],
     "name": "Armarouge",
     "speed": 95,
@@ -1142,19 +2239,6 @@
    },
    {
     "moves": [
-     "Eruption",
-     "Protect",
-     "Weather Ball",
-     "Earth Power"
-    ],
-    "name": "Torkoal",
-    "speed": 36,
-    "types": [
-     "Fire"
-    ]
-   },
-   {
-    "moves": [
      "Expanding Force",
      "Mystical Fire",
      "Trick",
@@ -1165,6 +2249,19 @@
     "types": [
      "Psychic",
      "Normal"
+    ]
+   },
+   {
+    "moves": [
+     "Eruption",
+     "Protect",
+     "Weather Ball",
+     "Earth Power"
+    ],
+    "name": "Torkoal",
+    "speed": 36,
+    "types": [
+     "Fire"
     ]
    },
    {
@@ -1593,7 +2690,10 @@
    120
   ]
  },
- "note": "Shared V514 Team Building Checks parity fixture. Inputs from the website's data (meta-doubles.json of 2026-09-25, Top 30); `context` and `expect` are computed by the app, which is the source of truth. Regenerate with scratchpad/checks/gen_fixture.mjs then gen_fixture_expect.py, and copy the result to BOTH trees.",
+ "no_context_teams": [
+  "nometa"
+ ],
+ "note": "Shared V514 Team Building Checks parity fixture. Inputs from the website's data (meta-doubles.json of 2026-09-25, Top 30); `context` and `expect` are computed by the app, which is the source of truth. Teams: `owner` and `cluster` are the two worked examples; `slow` is a Speed cluster outside the range the Top X contests, `pair` is the two-Pokemon single-lead-pair case, and `nometa` is the same six as `cluster` judged with NO Top Meta (see `no_context_teams`), so the sentences a check says when it cannot measure are compared across the ports rather than asserted separately on each. Regenerate with scratchpad/checksfix/gen_fixture_expect.py and copy to BOTH trees.",
  "tables": {
   "fake_out": [
    "fake out"
@@ -1720,6 +2820,11 @@
    {
     "_v514_attack": 93,
     "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Fire",
+     "Flying",
+     "Grass"
+    ],
     "_v514_sp_attack": 161,
     "ability": "Blaze",
     "damaging_types": [
@@ -1753,6 +2858,10 @@
    {
     "_v514_attack": 72,
     "_v514_best_power": 95,
+    "_v514_coverage_types": [
+     "Bug",
+     "Fire"
+    ],
     "_v514_sp_attack": 155,
     "ability": "Flame Body",
     "damaging_types": [
@@ -1785,6 +2894,12 @@
    {
     "_v514_attack": 183,
     "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Fighting",
+     "Fire",
+     "Normal",
+     "Rock"
+    ],
     "_v514_sp_attack": 103,
     "ability": "Intimidate",
     "damaging_types": [
@@ -1819,6 +2934,10 @@
    {
     "_v514_attack": 94,
     "_v514_best_power": 150,
+    "_v514_coverage_types": [
+     "Fighting",
+     "Fire"
+    ],
     "_v514_sp_attack": 137,
     "ability": "Drought",
     "damaging_types": [
@@ -1852,6 +2971,10 @@
    {
     "_v514_attack": 76,
     "_v514_best_power": 95,
+    "_v514_coverage_types": [
+     "Fairy",
+     "Normal"
+    ],
     "_v514_sp_attack": 178,
     "ability": "Pixilate",
     "damaging_types": [
@@ -1883,6 +3006,237 @@
    {
     "_v514_attack": 72,
     "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Ghost",
+     "Rock",
+     "Steel"
+    ],
+    "_v514_sp_attack": 203,
+    "ability": "Good as Gold",
+    "damaging_types": [
+     "Steel",
+     "Ghost",
+     "Rock"
+    ],
+    "move_keys": [
+     "makeitrain",
+     "shadowball",
+     "powergem",
+     "nastyplot"
+    ],
+    "moves": [
+     "Make It Rain",
+     "Shadow Ball",
+     "Power Gem",
+     "Nasty Plot"
+    ],
+    "name": "Gholdengo",
+    "priority": false,
+    "speed": 60,
+    "terrain_set": [],
+    "types": [
+     "Steel",
+     "Ghost"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   }
+  ],
+  "nometa": [
+   {
+    "_v514_attack": 93,
+    "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Fire",
+     "Flying",
+     "Grass"
+    ],
+    "_v514_sp_attack": 161,
+    "ability": "Blaze",
+    "damaging_types": [
+     "Fire",
+     "Flying",
+     "Grass"
+    ],
+    "move_keys": [
+     "heatwave",
+     "airslash",
+     "solarbeam",
+     "protect"
+    ],
+    "moves": [
+     "Heat Wave",
+     "Air Slash",
+     "Solar Beam",
+     "Protect"
+    ],
+    "name": "Charizard",
+    "priority": false,
+    "speed": 100,
+    "terrain_set": [],
+    "types": [
+     "Fire",
+     "Flying"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 72,
+    "_v514_best_power": 95,
+    "_v514_coverage_types": [
+     "Bug",
+     "Fire"
+    ],
+    "_v514_sp_attack": 155,
+    "ability": "Flame Body",
+    "damaging_types": [
+     "Fire",
+     "Bug"
+    ],
+    "move_keys": [
+     "heatwave",
+     "bugbuzz",
+     "quiverdance",
+     "protect"
+    ],
+    "moves": [
+     "Heat Wave",
+     "Bug Buzz",
+     "Quiver Dance",
+     "Protect"
+    ],
+    "name": "Volcarona",
+    "priority": false,
+    "speed": 104,
+    "terrain_set": [],
+    "types": [
+     "Bug",
+     "Fire"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 183,
+    "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Fighting",
+     "Fire",
+     "Normal",
+     "Rock"
+    ],
+    "_v514_sp_attack": 103,
+    "ability": "Intimidate",
+    "damaging_types": [
+     "Fire",
+     "Rock",
+     "Normal",
+     "Fighting"
+    ],
+    "move_keys": [
+     "flareblitz",
+     "rockslide",
+     "extremespeed",
+     "closecombat"
+    ],
+    "moves": [
+     "Flare Blitz",
+     "Rock Slide",
+     "Extreme Speed",
+     "Close Combat"
+    ],
+    "name": "Arcanine-Hisui",
+    "priority": true,
+    "speed": 98,
+    "terrain_set": [],
+    "types": [
+     "Fire",
+     "Rock"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 94,
+    "_v514_best_power": 150,
+    "_v514_coverage_types": [
+     "Fighting",
+     "Fire"
+    ],
+    "_v514_sp_attack": 137,
+    "ability": "Drought",
+    "damaging_types": [
+     "Fire",
+     "Fighting"
+    ],
+    "move_keys": [
+     "eruption",
+     "heatwave",
+     "bodypress",
+     "yawn"
+    ],
+    "moves": [
+     "Eruption",
+     "Heat Wave",
+     "Body Press",
+     "Yawn"
+    ],
+    "name": "Torkoal",
+    "priority": false,
+    "speed": 96,
+    "terrain_set": [],
+    "types": [
+     "Fire"
+    ],
+    "weather_set": [
+     "sun"
+    ],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 76,
+    "_v514_best_power": 95,
+    "_v514_coverage_types": [
+     "Fairy",
+     "Normal"
+    ],
+    "_v514_sp_attack": 178,
+    "ability": "Pixilate",
+    "damaging_types": [
+     "Normal",
+     "Fairy"
+    ],
+    "move_keys": [
+     "hypervoice",
+     "moonblast",
+     "auroraveil",
+     "detect"
+    ],
+    "moves": [
+     "Hyper Voice",
+     "Moonblast",
+     "Aurora Veil",
+     "Detect"
+    ],
+    "name": "Sylveon",
+    "priority": false,
+    "speed": 150,
+    "terrain_set": [],
+    "types": [
+     "Fairy"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 72,
+    "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Ghost",
+     "Rock",
+     "Steel"
+    ],
     "_v514_sp_attack": 203,
     "ability": "Good as Gold",
     "damaging_types": [
@@ -1918,6 +3272,10 @@
    {
     "_v514_attack": 154,
     "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Dark",
+     "Fighting"
+    ],
     "_v514_sp_attack": 118,
     "ability": "Contrary",
     "damaging_types": [
@@ -1949,6 +3307,9 @@
    {
     "_v514_attack": 75,
     "_v514_best_power": 90,
+    "_v514_coverage_types": [
+     "Psychic"
+    ],
     "_v514_sp_attack": 115,
     "ability": "Psychic Surge",
     "damaging_types": [
@@ -1982,6 +3343,10 @@
    {
     "_v514_attack": 72,
     "_v514_best_power": 90,
+    "_v514_coverage_types": [
+     "Ice",
+     "Water"
+    ],
     "_v514_sp_attack": 132,
     "ability": "Competitive",
     "damaging_types": [
@@ -2013,6 +3378,9 @@
    {
     "_v514_attack": 76,
     "_v514_best_power": 150,
+    "_v514_coverage_types": [
+     "Normal"
+    ],
     "_v514_sp_attack": 178,
     "ability": "Pixilate",
     "damaging_types": [
@@ -2043,6 +3411,10 @@
    {
     "_v514_attack": 99,
     "_v514_best_power": 90,
+    "_v514_coverage_types": [
+     "Electric",
+     "Psychic"
+    ],
     "_v514_sp_attack": 130,
     "ability": "Armor Tail",
     "damaging_types": [
@@ -2075,6 +3447,11 @@
    {
     "_v514_attack": 194,
     "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Bug",
+     "Grass",
+     "Normal"
+    ],
     "_v514_sp_attack": 72,
     "ability": "Grassy Surge",
     "damaging_types": [
@@ -2101,6 +3478,305 @@
     ],
     "types": [
      "Grass"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   }
+  ],
+  "pair": [
+   {
+    "_v514_attack": 154,
+    "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Dark",
+     "Fighting"
+    ],
+    "_v514_sp_attack": 118,
+    "ability": "Contrary",
+    "damaging_types": [
+     "Fighting"
+    ],
+    "move_keys": [
+     "superpower",
+     "protect",
+     "knockoff",
+     "trickroom"
+    ],
+    "moves": [
+     "Superpower",
+     "Protect",
+     "Knock Off",
+     "Trick Room"
+    ],
+    "name": "Mega Malamar",
+    "priority": false,
+    "speed": 97,
+    "terrain_set": [],
+    "types": [
+     "Dark",
+     "Psychic"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 75,
+    "_v514_best_power": 90,
+    "_v514_coverage_types": [
+     "Psychic"
+    ],
+    "_v514_sp_attack": 115,
+    "ability": "Psychic Surge",
+    "damaging_types": [
+     "Psychic"
+    ],
+    "move_keys": [
+     "followme",
+     "trickroom",
+     "helpinghand",
+     "psychic"
+    ],
+    "moves": [
+     "Follow Me",
+     "Trick Room",
+     "Helping Hand",
+     "Psychic"
+    ],
+    "name": "Indeedee Female",
+    "priority": false,
+    "speed": 94,
+    "terrain_set": [
+     "psychic"
+    ],
+    "types": [
+     "Psychic",
+     "Normal"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   }
+  ],
+  "slow": [
+   {
+    "_v514_attack": 93,
+    "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Fire",
+     "Flying",
+     "Grass"
+    ],
+    "_v514_sp_attack": 161,
+    "ability": "Blaze",
+    "damaging_types": [
+     "Fire",
+     "Flying",
+     "Grass"
+    ],
+    "move_keys": [
+     "heatwave",
+     "airslash",
+     "solarbeam",
+     "protect"
+    ],
+    "moves": [
+     "Heat Wave",
+     "Air Slash",
+     "Solar Beam",
+     "Protect"
+    ],
+    "name": "Charizard",
+    "priority": false,
+    "speed": 30,
+    "terrain_set": [],
+    "types": [
+     "Fire",
+     "Flying"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 72,
+    "_v514_best_power": 95,
+    "_v514_coverage_types": [
+     "Bug",
+     "Fire"
+    ],
+    "_v514_sp_attack": 155,
+    "ability": "Flame Body",
+    "damaging_types": [
+     "Fire",
+     "Bug"
+    ],
+    "move_keys": [
+     "heatwave",
+     "bugbuzz",
+     "quiverdance",
+     "protect"
+    ],
+    "moves": [
+     "Heat Wave",
+     "Bug Buzz",
+     "Quiver Dance",
+     "Protect"
+    ],
+    "name": "Volcarona",
+    "priority": false,
+    "speed": 31,
+    "terrain_set": [],
+    "types": [
+     "Bug",
+     "Fire"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 183,
+    "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Fighting",
+     "Fire",
+     "Normal",
+     "Rock"
+    ],
+    "_v514_sp_attack": 103,
+    "ability": "Intimidate",
+    "damaging_types": [
+     "Fire",
+     "Rock",
+     "Normal",
+     "Fighting"
+    ],
+    "move_keys": [
+     "flareblitz",
+     "rockslide",
+     "extremespeed",
+     "closecombat"
+    ],
+    "moves": [
+     "Flare Blitz",
+     "Rock Slide",
+     "Extreme Speed",
+     "Close Combat"
+    ],
+    "name": "Arcanine-Hisui",
+    "priority": true,
+    "speed": 32,
+    "terrain_set": [],
+    "types": [
+     "Fire",
+     "Rock"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 94,
+    "_v514_best_power": 150,
+    "_v514_coverage_types": [
+     "Fighting",
+     "Fire"
+    ],
+    "_v514_sp_attack": 137,
+    "ability": "Drought",
+    "damaging_types": [
+     "Fire",
+     "Fighting"
+    ],
+    "move_keys": [
+     "eruption",
+     "heatwave",
+     "bodypress",
+     "yawn"
+    ],
+    "moves": [
+     "Eruption",
+     "Heat Wave",
+     "Body Press",
+     "Yawn"
+    ],
+    "name": "Torkoal",
+    "priority": false,
+    "speed": 33,
+    "terrain_set": [],
+    "types": [
+     "Fire"
+    ],
+    "weather_set": [
+     "sun"
+    ],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 76,
+    "_v514_best_power": 95,
+    "_v514_coverage_types": [
+     "Fairy",
+     "Normal"
+    ],
+    "_v514_sp_attack": 178,
+    "ability": "Pixilate",
+    "damaging_types": [
+     "Normal",
+     "Fairy"
+    ],
+    "move_keys": [
+     "hypervoice",
+     "moonblast",
+     "auroraveil",
+     "detect"
+    ],
+    "moves": [
+     "Hyper Voice",
+     "Moonblast",
+     "Aurora Veil",
+     "Detect"
+    ],
+    "name": "Sylveon",
+    "priority": false,
+    "speed": 34,
+    "terrain_set": [],
+    "types": [
+     "Fairy"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 72,
+    "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Ghost",
+     "Rock",
+     "Steel"
+    ],
+    "_v514_sp_attack": 203,
+    "ability": "Good as Gold",
+    "damaging_types": [
+     "Steel",
+     "Ghost",
+     "Rock"
+    ],
+    "move_keys": [
+     "makeitrain",
+     "shadowball",
+     "powergem",
+     "nastyplot"
+    ],
+    "moves": [
+     "Make It Rain",
+     "Shadow Ball",
+     "Power Gem",
+     "Nasty Plot"
+    ],
+    "name": "Gholdengo",
+    "priority": false,
+    "speed": 35,
+    "terrain_set": [],
+    "types": [
+     "Steel",
+     "Ghost"
     ],
     "weather_set": [],
     "weather_use": []

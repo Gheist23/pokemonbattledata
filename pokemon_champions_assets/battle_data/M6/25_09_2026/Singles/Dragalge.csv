@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Dragalge,100,move,1,Draco Meteor,87.8%,,,,,,,,
 Dragalge,100,move,2,Flip Turn,83.9%,,,,,,,,
-Dragalge,100,move,3,Toxic,51.4%,,,,,,,,
+Dragalge,100,move,3,Toxic,51.5%,,,,,,,,
 Dragalge,100,move,4,Sludge Wave,36.7%,,,,,,,,
 Dragalge,100,move,5,Toxic Spikes,26.9%,,,,,,,,
 Dragalge,100,move,6,Sludge Bomb,26.6%,,,,,,,,
@@ -15,7 +15,7 @@ Dragalge,100,held_item,3,Sitrus Berry,1.0%,,,,,,,,
 Dragalge,100,held_item,4,Leftovers,1.0%,,,,,,,,
 Dragalge,100,held_item,5,Air Balloon,0.6%,,,,,,,,
 Dragalge,100,held_item,6,Expert Belt,0.4%,,,,,,,,
-Dragalge,100,held_item,7,Focus Sash,0.4%,,,,,,,,
+Dragalge,100,held_item,7,Focus Sash,0.3%,,,,,,,,
 Dragalge,100,held_item,8,White Herb,0.3%,,,,,,,,
 Dragalge,100,held_item,9,Quick Claw,0.3%,,,,,,,,
 Dragalge,100,held_item,10,Dragon Fang,0.2%,,,,,,,,
@@ -39,10 +39,10 @@ Dragalge,100,stat_alignment,7,Timid,0.4%,Speed,Attack,,,,,,
 Dragalge,100,stat_alignment,8,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
 Dragalge,100,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,
 Dragalge,100,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Dragalge,100,stat_points,1,,19.2%,,,32,0,2,0,32,0
+Dragalge,100,stat_points,1,,19.1%,,,32,0,2,0,32,0
 Dragalge,100,stat_points,2,,8.1%,,,32,0,0,2,32,0
 Dragalge,100,stat_points,3,,4.6%,,,32,0,0,32,2,0
-Dragalge,100,stat_points,4,,4.4%,,,32,0,32,0,2,0
+Dragalge,100,stat_points,4,,4.5%,,,32,0,32,0,2,0
 Dragalge,100,stat_points,5,,4.4%,,,32,0,17,0,17,0
 Dragalge,100,stat_points,6,,4.0%,,,32,0,2,32,0,0
 Dragalge,100,stat_points,7,,3.8%,,,31,0,3,0,32,0
@@ -50,5 +50,5 @@ Dragalge,100,stat_points,8,,2.9%,,,31,0,18,0,17,0
 Dragalge,100,stat_points,9,,2.1%,,,31,0,0,3,32,0
 Dragalge,100,stat_points,10,,2.0%,,,31,0,32,3,0,0
 Dragalge,100,ability,1,Adaptability,65.9%,,,,,,,,
-Dragalge,100,ability,2,Poison Point,30.4%,,,,,,,,
-Dragalge,100,ability,3,Poison Touch,3.7%,,,,,,,,
+Dragalge,100,ability,2,Poison Point,30.3%,,,,,,,,
+Dragalge,100,ability,3,Poison Touch,3.8%,,,,,,,,

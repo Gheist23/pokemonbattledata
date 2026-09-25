@@ -888,19 +888,61 @@ if (quick) {
     const count = (rows, name) => targetsOf(rows).filter((t) => t === name).length;
     notes.push(`  shown rows' targets, v3: ${targetsOf(plain.rows).join(", ")}`);
     notes.push(`  shown rows' targets, v4: ${targetsOf(scored.rows).join(", ")}`);
-    ok("V512: version 3 offered one slot over and over", count(plain.rows, "Indeedee-F") >= plain.rows.length - 2,
-      `${count(plain.rows, "Indeedee-F")}/${plain.rows.length}`);
-    ok("V512: version 4 rarely offers the only redirector", count(scored.rows, "Indeedee-F") <= 2,
-      `${count(scored.rows, "Indeedee-F")}/${scored.rows.length}: ${scored.rows.filter((r) => r.swap_target === "Indeedee-F").map((r) => r.name).join(", ")}`);
+    // RE-DERIVED for V514, with the measurement that forced it.
+    //
+    // Two of the assertions here used to be exact counts ("version 4 offers Indeedee-F at most
+    // twice", "the slot offered most costs nothing"), and both were fitted to a check set that
+    // contained a FALSE Defensive Switch-ins red on this very team: four members weak to Bug on
+    // a board where Bug is 1 of the Top 30's 72 damaging moves. That red paid the Malamar-Mega
+    // swap +15.2 check points, which is the only reason a price-0 slot was the mode.
+    //
+    // V514 removed the false red (its own test says so: tests/test_team_check_rules_v514.py,
+    // "TODAY the same team is RED, because Bug reaches weak >= 4"), and the causal chain was
+    // measured one behaviour at a time: with every V514 rule on but Shared Weakness put back on
+    // the V251 thresholds, the targets return to Malamar-Mega 11/14, Indeedee-F 0/14; with the
+    // shipped rule they are Indeedee-F 7/14, Malamar-Mega 7/14. Nothing else in V514 moves them.
+    //
+    // With a correct check set no slot on this team is a free win: removing Malamar-Mega costs
+    // the team's only Mega (V418 charges -22.5), removing Rillaboom costs Grassy Terrain and the
+    // team's priority, and removing Indeedee-F costs the redirector (-12.8) but closes two rows.
+    // So the invariant is asserted as an invariant instead of as a count that happened to hold:
+    // the price must MOVE the list, no one slot may dominate it, and a slot that costs nothing
+    // must really be on it rather than only named in a sentence. All three are measured below
+    // with margin, and the three assertions that were already properties rather than counts
+    // (every offered priced slot is charged, more than one slot is offered, every charged row
+    // says what it charged for) are unchanged.
+    const share = (rows, name) => count(rows, name) / Math.max(1, rows.length);
+    ok("V512: version 3 offers one slot over and over", share(plain.rows, mode(targetsOf(plain.rows))) >= 0.7,
+      `${mode(targetsOf(plain.rows))} ${count(plain.rows, mode(targetsOf(plain.rows)))}/${plain.rows.length}`);
+    ok("V512: version 4 offers the only redirector strictly less often than version 3 did",
+      count(scored.rows, "Indeedee-F") < count(plain.rows, "Indeedee-F"),
+      `v4 ${count(scored.rows, "Indeedee-F")}/${scored.rows.length} vs v3 ${count(plain.rows, "Indeedee-F")}/${plain.rows.length}`);
+    // One slot may dominate the list only when it costs the team nothing to give up. That is
+    // the complaint itself, stated as an invariant: "every suggestion says remove Indeedee-F"
+    // is a dominant PRICED slot. It holds at version 4 with the rule on (Indeedee-F 7/14, a
+    // priced slot at 50%) and with it off (Malamar-Mega 13/14, a free slot), and it would have
+    // failed on the list the owner reported (Indeedee-F 14/14, priced).
+    {
+      const top = mode(targetsOf(scored.rows));
+      const topCost = r1(outgoingRoleCostFor(liveCensus, names.indexOf(top)));
+      ok("V512: a slot may dominate the list only when giving it up costs nothing",
+        topCost === 0 || share(scored.rows, top) <= 0.6,
+        `${top} costs ${topCost} and is ${count(scored.rows, top)}/${scored.rows.length}: ${targetsOf(scored.rows).join(", ")}`);
+    }
     // The term is a price, not a veto: a candidate good enough at that slot may still pay it
     // and win there. What must never happen is offering the slot without charging for it.
     ok("V512: a row that still offers the only redirector was charged for it",
       scored.rows.filter((r) => r.swap_target === "Indeedee-F")
         .every((r) => Number(r.outgoing_role_cost_v512) < 0 && (r.outgoing_roles_lost_v512 || []).length),
       scored.rows.filter((r) => r.swap_target === "Indeedee-F").map((r) => `${r.name} ${r.outgoing_role_cost_v512} ${JSON.stringify(r.outgoing_roles_lost_v512)}`).join("; "));
-    ok("V512: the slot the list now offers most is one that is the sole source of nothing",
-      r1(outgoingRoleCostFor(liveCensus, names.indexOf(mode(targetsOf(scored.rows))))) === 0,
-      `${mode(targetsOf(scored.rows))} costs ${r1(outgoingRoleCostFor(liveCensus, names.indexOf(mode(targetsOf(scored.rows)))))}`);
+    // A free alternative is on the list, not only in the verdict sentence that names one.
+    {
+      const free = names.filter((_n, i) => r1(outgoingRoleCostFor(liveCensus, i)) === 0);
+      const offeredFree = targetsOf(scored.rows).filter((t) => free.includes(t)).length;
+      ok("V512: a slot that is the sole source of nothing is really offered, not just named",
+        offeredFree >= Math.ceil(scored.rows.length / 3),
+        `${offeredFree}/${scored.rows.length} rows offer one of ${free.join(", ")}`);
+    }
     ok("V512: and more than one slot is offered at all", new Set(targetsOf(scored.rows)).size >= 2, targetsOf(scored.rows).join(", "));
     ok("V512: every charged row says in one sentence what it charged for",
       scored.rows.filter((r) => r.outgoing_role_cost_v512)

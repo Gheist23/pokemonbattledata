@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Espathra,66,move,1,Protect,76.3%,,,,,,,,
-Espathra,66,move,2,Lumina Crash,72.5%,,,,,,,,
-Espathra,66,move,3,Calm Mind,69.3%,,,,,,,,
+Espathra,66,move,2,Lumina Crash,72.4%,,,,,,,,
+Espathra,66,move,3,Calm Mind,69.4%,,,,,,,,
 Espathra,66,move,4,Baton Pass,69.2%,,,,,,,,
 Espathra,66,move,5,Dazzling Gleam,29.1%,,,,,,,,
-Espathra,66,move,6,Shadow Ball,20.9%,,,,,,,,
-Espathra,66,move,7,Stored Power,20.1%,,,,,,,,
-Espathra,66,move,8,Roost,11.0%,,,,,,,,
+Espathra,66,move,6,Shadow Ball,20.8%,,,,,,,,
+Espathra,66,move,7,Stored Power,20.2%,,,,,,,,
+Espathra,66,move,8,Roost,11.1%,,,,,,,,
 Espathra,66,move,9,Substitute,8.2%,,,,,,,,
-Espathra,66,move,10,Reflect,5.2%,,,,,,,,
+Espathra,66,move,10,Reflect,5.1%,,,,,,,,
 Espathra,66,held_item,1,Focus Sash,32.8%,,,,,,,,
 Espathra,66,held_item,2,Grassy Seed,26.4%,,,,,,,,
 Espathra,66,held_item,3,Sitrus Berry,14.9%,,,,,,,,
@@ -29,9 +29,9 @@ Espathra,66,teammate,7,Archaludon,,,,,,,,,
 Espathra,66,teammate,8,Rillaboom,,,,,,,,,
 Espathra,66,teammate,9,Primarina,,,,,,,,,
 Espathra,66,teammate,10,Golisopod,,,,,,,,,
-Espathra,66,stat_alignment,1,Bold,38.9%,Defense,Attack,,,,,,
+Espathra,66,stat_alignment,1,Bold,39.0%,Defense,Attack,,,,,,
 Espathra,66,stat_alignment,2,Modest,29.4%,Sp. Atk,Attack,,,,,,
-Espathra,66,stat_alignment,3,Timid,24.9%,Speed,Attack,,,,,,
+Espathra,66,stat_alignment,3,Timid,24.8%,Speed,Attack,,,,,,
 Espathra,66,stat_alignment,4,Calm,5.3%,Sp. Def,Attack,,,,,,
 Espathra,66,stat_alignment,5,Mild,0.5%,Sp. Atk,Defense,,,,,,
 Espathra,66,stat_alignment,6,Impish,0.2%,Defense,Sp. Atk,,,,,,
@@ -44,8 +44,8 @@ Espathra,66,stat_points,2,,8.5%,,,1,0,1,32,0,32
 Espathra,66,stat_points,3,,6.2%,,,32,0,32,0,2,0
 Espathra,66,stat_points,4,,4.6%,,,32,0,32,0,0,2
 Espathra,66,stat_points,5,,2.4%,,,29,0,32,0,0,5
-Espathra,66,stat_points,6,,2.1%,,,25,0,32,0,0,9
-Espathra,66,stat_points,7,,2.1%,,,32,0,31,0,1,2
+Espathra,66,stat_points,6,,2.1%,,,32,0,31,0,1,2
+Espathra,66,stat_points,7,,2.1%,,,25,0,32,0,0,9
 Espathra,66,stat_points,8,,1.9%,,,0,0,2,32,0,32
 Espathra,66,stat_points,9,,1.5%,,,31,0,32,0,3,0
 Espathra,66,stat_points,10,,1.4%,,,0,0,0,32,2,32

@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gourgeist-Small,259,move,1,Poltergeist,75.1%,,,,,,,,
-Gourgeist-Small,259,move,2,Will-O-Wisp,56.4%,,,,,,,,
-Gourgeist-Small,259,move,3,Power Whip,50.6%,,,,,,,,
-Gourgeist-Small,259,move,4,Trick,37.7%,,,,,,,,
-Gourgeist-Small,259,move,5,Destiny Bond,31.7%,,,,,,,,
-Gourgeist-Small,259,move,6,Leech Seed,28.4%,,,,,,,,
+Gourgeist-Small,259,move,2,Will-O-Wisp,56.3%,,,,,,,,
+Gourgeist-Small,259,move,3,Power Whip,50.8%,,,,,,,,
+Gourgeist-Small,259,move,4,Trick,37.6%,,,,,,,,
+Gourgeist-Small,259,move,5,Destiny Bond,32.0%,,,,,,,,
+Gourgeist-Small,259,move,6,Leech Seed,28.3%,,,,,,,,
 Gourgeist-Small,259,move,7,Explosion,18.0%,,,,,,,,
-Gourgeist-Small,259,move,8,Protect,16.6%,,,,,,,,
+Gourgeist-Small,259,move,8,Protect,16.5%,,,,,,,,
 Gourgeist-Small,259,move,9,Trick Room,12.8%,,,,,,,,
-Gourgeist-Small,259,move,10,Trick-or-Treat,9.7%,,,,,,,,
-Gourgeist-Small,259,held_item,1,Choice Scarf,40.7%,,,,,,,,
-Gourgeist-Small,259,held_item,2,Focus Sash,15.8%,,,,,,,,
+Gourgeist-Small,259,move,10,Trick-or-Treat,9.6%,,,,,,,,
+Gourgeist-Small,259,held_item,1,Choice Scarf,41.0%,,,,,,,,
+Gourgeist-Small,259,held_item,2,Focus Sash,15.7%,,,,,,,,
 Gourgeist-Small,259,held_item,3,Leftovers,10.1%,,,,,,,,
-Gourgeist-Small,259,held_item,4,Bright Powder,8.5%,,,,,,,,
+Gourgeist-Small,259,held_item,4,Bright Powder,8.4%,,,,,,,,
 Gourgeist-Small,259,held_item,5,Sitrus Berry,5.5%,,,,,,,,
 Gourgeist-Small,259,held_item,6,Wide Lens,5.5%,,,,,,,,
 Gourgeist-Small,259,held_item,7,Big Root,4.4%,,,,,,,,
@@ -29,19 +29,19 @@ Gourgeist-Small,259,teammate,7,Snorlax,,,,,,,,,
 Gourgeist-Small,259,teammate,8,Indeedee,,,,,,,,,
 Gourgeist-Small,259,teammate,9,Klefki,,,,,,,,,
 Gourgeist-Small,259,teammate,10,Arcanine,,,,,,,,,
-Gourgeist-Small,259,stat_alignment,1,Adamant,40.0%,Attack,Sp. Atk,,,,,,
-Gourgeist-Small,259,stat_alignment,2,Jolly,25.6%,Speed,Sp. Atk,,,,,,
-Gourgeist-Small,259,stat_alignment,3,Impish,10.9%,Defense,Sp. Atk,,,,,,
+Gourgeist-Small,259,stat_alignment,1,Adamant,39.9%,Attack,Sp. Atk,,,,,,
+Gourgeist-Small,259,stat_alignment,2,Jolly,25.9%,Speed,Sp. Atk,,,,,,
+Gourgeist-Small,259,stat_alignment,3,Impish,10.8%,Defense,Sp. Atk,,,,,,
 Gourgeist-Small,259,stat_alignment,4,Careful,9.3%,Sp. Def,Sp. Atk,,,,,,
 Gourgeist-Small,259,stat_alignment,5,Bold,4.8%,Defense,Attack,,,,,,
-Gourgeist-Small,259,stat_alignment,6,Calm,2.4%,Sp. Def,Attack,,,,,,
-Gourgeist-Small,259,stat_alignment,7,Brave,2.4%,Attack,Speed,,,,,,
+Gourgeist-Small,259,stat_alignment,6,Brave,2.4%,Attack,Speed,,,,,,
+Gourgeist-Small,259,stat_alignment,7,Calm,2.4%,Sp. Def,Attack,,,,,,
 Gourgeist-Small,259,stat_alignment,8,Naive,1.2%,Speed,Sp. Def,,,,,,
 Gourgeist-Small,259,stat_alignment,9,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,
 Gourgeist-Small,259,stat_alignment,10,Lonely,0.9%,Attack,Defense,,,,,,
-Gourgeist-Small,259,stat_points,1,,24.0%,,,2,32,0,0,0,32
-Gourgeist-Small,259,stat_points,2,,12.2%,,,1,32,1,0,0,32
-Gourgeist-Small,259,stat_points,3,,7.2%,,,29,5,0,0,0,32
+Gourgeist-Small,259,stat_points,1,,23.9%,,,2,32,0,0,0,32
+Gourgeist-Small,259,stat_points,2,,12.4%,,,1,32,1,0,0,32
+Gourgeist-Small,259,stat_points,3,,7.1%,,,29,5,0,0,0,32
 Gourgeist-Small,259,stat_points,4,,6.8%,,,32,32,0,0,2,0
 Gourgeist-Small,259,stat_points,5,,4.1%,,,2,0,0,0,32,32
 Gourgeist-Small,259,stat_points,6,,3.9%,,,0,32,1,0,1,32
@@ -49,6 +49,6 @@ Gourgeist-Small,259,stat_points,7,,3.8%,,,0,32,2,0,0,32
 Gourgeist-Small,259,stat_points,8,,3.2%,,,32,0,32,0,2,0
 Gourgeist-Small,259,stat_points,9,,3.0%,,,32,0,32,0,0,2
 Gourgeist-Small,259,stat_points,10,,2.4%,,,31,0,0,0,32,3
-Gourgeist-Small,259,ability,1,Frisk,61.9%,,,,,,,,
-Gourgeist-Small,259,ability,2,Insomnia,35.7%,,,,,,,,
+Gourgeist-Small,259,ability,1,Frisk,61.7%,,,,,,,,
+Gourgeist-Small,259,ability,2,Insomnia,35.9%,,,,,,,,
 Gourgeist-Small,259,ability,3,Pickup,2.4%,,,,,,,,

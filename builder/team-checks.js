@@ -34,16 +34,30 @@ export const ARCHETYPE_CHECK_ID = "archetype_fit";
 // still equal the app's, so the duplication is paid for by a test.
 export const TEAM_CHECK_RULES = 1;
 
-/** A `team_checks` stamp as a version: 0 (off) for null / undefined / false / "" / "0". */
+/** A `team_checks` stamp as a version: 0 (off) for null / undefined / false / "" / "0".
+ *
+ *  Coerces exactly as `team_check_rules_v514.active_rule` does, which is the whole job of
+ *  the pair. Two asymmetries were measured and both are gone: a NEGATIVE version ("-1",
+ *  "-5") used to fall through to the current version here while the app read it as off, and
+ *  a FRACTIONAL one ("1.9") used to stay 1.9 here while the app truncated it to 1. A
+ *  version is a non-negative integer, so it is truncated and a non-positive one is off.
+ *
+ *  The one remaining difference is deliberate and belongs to the two domains: an ABSENT
+ *  value means "no stamp on this recording", i.e. a recording made before the rule, so it
+ *  is off; an absent environment variable in the app means production, so it is on. */
 export function teamCheckRulesOption(value) {
   if (value === null || value === undefined || value === false) return 0;
   const text = String(value).trim().toLowerCase();
   if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return 0;
   const n = Number(text);
-  return Number.isFinite(n) && n > 0 ? n : TEAM_CHECK_RULES;
+  if (!Number.isFinite(n)) return TEAM_CHECK_RULES;
+  const version = Math.trunc(n);
+  return version > 0 ? version : 0;
 }
 
-/** team_check_rules_v514.V514_NEW_IDS */
+/** team_check_rules_v514.V514_NEW_IDS -- the ids this rule adds to the catalogue.
+ *
+ *  They are NOT unioned onto a saved selection: see `selectedIds`. */
 export const V514_NEW_IDS = ["coverage_gaps", "speed_tiers", "lead_viability"];
 
 /** team_check_rules_v514.V514_CHECK_ROWS */
@@ -85,13 +99,100 @@ const SHARED_YELLOW_EXPOSURE = 3.0;      // 23.9% cumulative
 const LEAD_BAR = 5.6;                    // 25th percentile of 42,405 real lead pairs
 const LEAD_RED_FRACTION = 0.27;          // <= 4 of 15 -> 1.7%
 const LEAD_YELLOW_FRACTION = 0.55;       // <= 8 of 15 -> 11.9% cumulative
+// V514 revision: field severity is a WEIGHT, not a line count. `problems.length >= 2 -> red`
+// is what the app's pre-V514 rule did, so adding one rule mechanically promoted any team that
+// already had one problem -- the owner's own Doubles Trick Room team went yellow -> red on
+// Indeedee's Psychic Terrain plus Rillaboom's Grassy Terrain, and because Suggestions prices a
+// candidate on the check pressure a swap removes, a 12-point field red at one slot made almost
+// every suggestion say "remove Indeedee-F" (tests/run-suggest-scoring.mjs, the V512 sole-source
+// guards). HARD = a dependency that does not work; SOFT = a conflict the team can play around.
+// Red needs 2.0: two broken dependencies, or one plus two playable conflicts, or four playable
+// conflicts. MEASURED over the same 2827 complete six-slot teams in known-teams.json: counting
+// lines flags 4.7% red / 27.1% yellow, weighing them flags 1.5% red / 30.4% yellow -- 93 teams
+// (3.3 points) move from red to yellow, nothing moves the other way, and the total flagged
+// share is unchanged. The owner's own team is one of the 93.
+const FIELD_HARD_WEIGHT = 1.0;
+const FIELD_SOFT_WEIGHT = 0.5;
+const FIELD_RED_WEIGHT = 2.0;
+// The meta type weight is smoothed and floored; see META_WEIGHT_SMOOTHING in the app module
+// for the derivation. `count / average` gave a type the Top X never attacks with weight
+// EXACTLY 0, so its exposure was 0 however many members were weak to it -- reachable from the
+// Top X spinner alone (at Top 10 Electric, Ice, Flying and Fairy were all 0). Smoothing with
+// k = 1 leaves weight == 1.0 exactly at the average, so the calibration point of the 3.0 / 4.0
+// bars does not move; the floor is the yellow bar divided by the largest weak count a six-slot
+// team can have (6 * 0.5 = 3.0), so "every member loses to it" is the minimum condition under
+// which an unused type can still be raised. MEASURED: at Top 30 the correction changes the
+// Shared Weakness verdict of ONE of 2827 real six-slot teams (red 153 -> 153, yellow 523 ->
+// 522), while at Top 20 it rescues Fairy, at Top 10 Electric / Ice / Flying / Fairy and at Top 4
+// ten of the eighteen types from weight exactly 0.
+const META_WEIGHT_SMOOTHING = 1.0;
+const META_WEIGHT_FLOOR = 0.5;
 
-/** The moves that lose their whole point without their condition.  Deliberately NOT
- *  here: Blizzard / Thunder / Hurricane (accuracy only), Weather Ball (still a 50 BP
- *  Normal move), Solar Beam / Solar Blade (charge), Electro Shot (still works). */
+/** MEASURED over the 2827 real six-slot teams: the eight fired on 8.4% of them, these three
+ *  fire on 7.7%. Per removed entry: steelroller 0.5% (14 teams, every one a false positive by
+ *  construction), risingvoltage 0.2%, terrainpulse 0.1%, mistyexplosion 0.03%, psyblade 0. What
+ *  the check is for is untouched: auroraveil with no snow is 5.1% of teams on its own.
+ *
+ *  A move is flagged only when its condition changes what the move DOES -- it fails, or it
+ *  loses its priority, or it loses its spread -- never when the condition is only a damage
+ *  multiplier.  Removed after verification, each one by that rule: `terrainpulse` (without a
+ *  terrain it is a 50 BP Normal special, the same shape as Weather Ball, which this table
+ *  excluded for exactly that reason), `mistyexplosion` (a working 100 BP Fairy attack that
+ *  loses a 1.5x), `risingvoltage` and `psyblade` (ditto), and `steelroller` (the terrain it
+ *  needs is usually the OPPONENT's -- the move is brought to remove a terrain, so "nothing on
+ *  the team sets it" is the intended state and flagging it was a false positive by
+ *  construction).  Still excluded, unchanged: Blizzard / Thunder / Hurricane (accuracy only),
+ *  Weather Ball, Solar Beam / Solar Blade (charge), Electro Shot. */
 const MOVES_NEEDING_CONDITION = {
-  auroraveil: "snow", steelroller: "terrain", grassyglide: "grassy", terrainpulse: "terrain",
-  expandingforce: "psychic", risingvoltage: "electric", mistyexplosion: "misty", psyblade: "electric",
+  auroraveil: "snow", grassyglide: "grassy", expandingforce: "psychic",
+};
+
+/** (attacking type, base power) for the nineteen attacks the app files as status because
+ *  they also lower a stat.  Identical to `COVERAGE_EXTRA_ATTACKS` in
+ *  pokemon_champions_tool/team_check_rules_v514.py, and carried in the shared fixture so
+ *  both suites can assert their own copy against it.
+ *
+ *  Why a table and not "power > 0". `_v94_move_bucket` (`part_010.py:487`) forces every
+ *  member of `_SUPPORT_STATUS_MOVE_KEYS_V95` back to power 0.0 and the app restores the
+ *  power only for the five the curated `_v196` table happens to carry (Knock Off, Bulldoze,
+ *  Icy Wind, Snarl, Fake Out), while this site's exported app-data.json keeps a real power
+ *  in `simple` for all nineteen.  So "power > 0" admitted 14 attacking types here that the
+ *  Companion dropped, and 507 of the 2827 real six-slot teams in known-teams.json (17.9%)
+ *  carry at least one of them -- the two products could reach different Coverage Gaps
+ *  verdicts on nearly a fifth of real teams, and the shared fixture could not see it.
+ *  Nothing is invented: every pair is the `simple` triple in the app's own export, i.e. the
+ *  set of moves whose `simple` and `analysis.bucket` triples differ there. */
+export const COVERAGE_EXTRA_ATTACKS = {
+  acidspray: ["Poison", 40], breakingswipe: ["Dragon", 60], bulldoze: ["Ground", 60],
+  chillingwater: ["Water", 50], clearsmog: ["Poison", 50], electroweb: ["Electric", 55],
+  fakeout: ["Normal", 40], icywind: ["Ice", 55], knockoff: ["Dark", 65],
+  lowsweep: ["Fighting", 65], lunge: ["Bug", 80], mudshot: ["Ground", 55],
+  mysticalfire: ["Fire", 75], nuzzle: ["Electric", 20], rocktomb: ["Rock", 60],
+  skittersmack: ["Bug", 70], snarl: ["Dark", 55], spiritbreak: ["Fairy", 75],
+  strugglebug: ["Bug", 50],
+};
+
+/** ONE definition of "this move attacks", shared by the team's coverage, its best power and
+ *  the meta's type weights, so the three cannot drift apart.  Mirrors `attack_of`. */
+function attackOf(move, reading) {
+  const extra = COVERAGE_EXTRA_ATTACKS[compact(move)];
+  if (extra) return [pyTitleWord(String(extra[0])), Number(extra[1])];
+  if (!reading) return null;
+  const [type, , power] = reading;
+  const bp = Number(power) || 0;
+  if (!(bp > 0)) return null;
+  return [pyTitleWord(String(type || "")), bp];
+}
+
+/** Said once, by every meta-relative row, while the Top X can still move. */
+const PROVISIONAL_NOTE = "The Top Meta is still syncing, so this reading can change once it finishes.";
+/** Whether there is a Top X to measure against at all. */
+const metaLoaded = (context) => Boolean(context && (context.members || []).length);
+const metaProvisional = (context) => Boolean(context && context.provisional);
+const withNote = (text, context) => {
+  if (!metaProvisional(context)) return text;
+  const body = String(text || "").trim();
+  return body ? `${body} ${PROVISIONAL_NOTE}` : PROVISIONAL_NOTE;
 };
 /** `_SIMPLE_WEATHER_SETTERS_V187["snow"]` omits Hail, whose own description in this
  *  game's data is "For 5 turns, hail crashes down."  The exported table is generated and
@@ -142,7 +243,14 @@ const SEVERITY_ORDER = { red: 0, yellow: 1, good: 2, green: 2 };
 // one Pokemon, so the Spread Damage check and the "Spread attackers" archetype
 // requirements are skipped, and these partner-only moves count for no check group.
 const SINGLES_NO_EFFECT = new Set(["followme", "ragepowder", "spotlight", "helpinghand", "coaching", "decorate", "allyswitch", "afteryou", "aromaticmist", "holdhands"]);
-// V514: lead_viability joins the list. With one Pokemon a side there is no pair to score.
+// V514: lead_viability joins the list, and the Companion now agrees -- its
+// `CheckRules.lead_viability` returns None in a Singles format, which removes the row there
+// too. Every term in that check is about a PAIR (fifteen pairs, only one Fake Out lands, two
+// Trick Room setters in one lead, Wide Guard, Helping Hand, redirection); a Singles lead is one
+// Pokemon, so "an estimated N of your 15 lead pairs are worth bringing" is a number about
+// something the format does not have. There is a real Singles lead question, but this check
+// does not measure it and answering a different question under the same name would be
+// dishonest. coverage_gaps and speed_tiers are format-neutral and stay.
 const SINGLES_SKIPPED_CHECKS = new Set(["spread_damage", "lead_viability"]);
 
 /** The archetype texts that name spread pressure or redirection, as they read in Singles. */
@@ -517,7 +625,16 @@ export class TeamChecks {
     ];
   }
 
-  /** _v200_selected_check_ids: every check when nothing was saved; old ids mapped forward. */
+  /** _v200_selected_check_ids: every check when nothing was saved; old ids mapped forward.
+   *
+   *  A SAVED SELECTION IS TAKEN LITERALLY, and the Companion now agrees (see
+   *  `derived_selection` in team_check_rules_v514.py, which is an identity for this reason).
+   *  Nothing saved -> every check, including the three V514 rows, which is how a user who
+   *  never opened Customize gets them. A saved list -> exactly that list, mapped forward. An
+   *  explicit [] -> nothing, because "I turned every check off" is a supported state and this
+   *  page has a row for it. The app used to union V514_NEW_IDS onto a saved list, so the
+   *  same person's Companion and browser disagreed about their own settings, and a user who
+   *  had turned everything off got three checks back. */
   selectedIds(raw) {
     if (raw === undefined || raw === null) return new Set(this.allCheckIds());
     const values = typeof raw === "string" ? raw.split(",").map((v) => v.trim()).filter(Boolean) : [...raw];
@@ -631,17 +748,31 @@ export class TeamChecks {
       let total = 0;
       for (const record of records) {
         const types = (record.types || []).map((t) => pyTitleWord(String(t))).filter((t) => TYPES.includes(t));
-        members.push({ name: String(record.name || record.form || record.pokemon || "Pokemon"), types, speed: Number(record.stats?.speed ?? record.speed) || 0 });
-        for (const move of (record.moves || []).slice(0, 4)) {
-          const [type, category, power] = this.ev.simpleMoveInfo(move);
-          if ((category === "physical" || category === "special") && power > 0 && counts[type] !== undefined) {
-            counts[type] += 1;
+        const recordMoves = (record.moves || []).slice(0, 4);
+        members.push({
+          name: String(record.name || record.form || record.pokemon || "Pokemon"),
+          types,
+          speed: Number(record.stats?.speed ?? record.speed) || 0,
+          // Speed Tiers names an opposing Pokemon and says one Tailwind from it reorders
+          // the cluster. It may only name one that HAS Tailwind.
+          tailwind: recordMoves.some((m) => compact(m) === "tailwind"),
+        });
+        for (const move of recordMoves) {
+          // D22 again, through the ONE shared definition: `attackOf` puts the meta's Knock
+          // Off, Rock Tomb, Mystical Fire and the other seventeen back into the totals with
+          // the same type and power the Companion reads, so the weights cannot drift.
+          const attack = attackOf(move, this.ev.simpleMoveInfo(move));
+          if (attack && counts[attack[0]] !== undefined) {
+            counts[attack[0]] += 1;
             total += 1;
           }
         }
       }
       const average = total && TYPES.length ? total / TYPES.length : 0;
-      const weights = Object.fromEntries(TYPES.map((t) => [t, average > 0 ? counts[t] / average : 1]));
+      // Smoothed and floored; see META_WEIGHT_SMOOTHING above.
+      const weights = Object.fromEntries(TYPES.map((t) => [t, average > 0
+        ? Math.max(META_WEIGHT_FLOOR, (counts[t] + META_WEIGHT_SMOOTHING) / (average + META_WEIGHT_SMOOTHING))
+        : 1]));
       const speeds = members.map((m) => m.speed).filter((s) => s > 0).sort((a, b) => a - b);
       context = {
         top_x: topX,
@@ -650,6 +781,10 @@ export class TeamChecks {
         damaging_move_counts: counts,
         damaging_move_total: total,
         speed_band: speeds.length ? [quantile(speeds, SPEED_BAND_LOW_QUANTILE), quantile(speeds, SPEED_BAND_HIGH_QUANTILE)] : [0, 0],
+        // The site's meta file is a finished build, not a cache that fills while the page
+        // runs, so a website reading is never provisional. The app sets this from
+        // `_v223_battle_cache_signature(panel)[3]`, whose Top X can still move mid-session.
+        provisional: false,
       };
     }
     this._metaCtx.set(topX, context);
@@ -668,12 +803,26 @@ export class TeamChecks {
       profile._v514_meta = context;
       profile._v514_attack = Number(profile.stats?.attack) || 0;
       profile._v514_sp_attack = Number(profile.stats?.sp_attack) || 0;
+      // V514 deviation D22: "this move attacks" is decided by `attackOf`, i.e. by power and,
+      // for the nineteen attacks the app files as status because they also lower a stat, by
+      // the shared COVERAGE_EXTRA_ATTACKS table. The table rather than "power > 0" is what
+      // keeps the two products' attacking sets identical: the Companion's live move reader
+      // returns power 0 for 14 of the nineteen (Rock Tomb, Mystical Fire, Spirit Break,
+      // Struggle Bug, Electroweb, Acid Spray, Breaking Swipe, Lunge, Clear Smog, Low Sweep,
+      // Nuzzle, Chilling Water, Skitter Smack, Mud Shot) while this site's app-data.json
+      // keeps their real power. `damaging_types` / `physical` / `special` / `damaging_count`
+      // are left alone, so no pre-V514 check and no recording moves -- only these two keys.
       let best = 0;
+      const coverage = new Set(Array.from(profile.damaging_types || [], (t) => String(t)));
       for (const move of profile.moves || []) {
-        const [, category, power] = this.ev.simpleMoveInfo(move);
-        if (category === "physical" || category === "special") best = Math.max(best, Number(power) || 0);
+        const attack = attackOf(move, this.ev.simpleMoveInfo(move));
+        if (attack) {
+          best = Math.max(best, attack[1]);
+          if (attack[0]) coverage.add(attack[0]);
+        }
       }
       profile._v514_best_power = best;
+      profile._v514_coverage_types = [...coverage].sort();
     }
     return rows;
   }
@@ -918,7 +1067,13 @@ export class TeamChecks {
     const topX = Number(context?.top_x) || 30;
     const members = (context?.members || []).filter((m) => m.types.length);
     const seen = new Set();
-    for (const profile of filled) for (const t of profile.damaging_types || []) if (TYPES.includes(String(t))) seen.add(String(t));
+    // D22: the attacks the team really has. `_v514_coverage_types` is stamped by
+    // profiles() and is a superset of `damaging_types`; the fallback keeps a
+    // hand-built profile working.
+    for (const profile of filled) {
+      const source = profile._v514_coverage_types?.length ? profile._v514_coverage_types : (profile.damaging_types || []);
+      for (const t of source) if (TYPES.includes(String(t))) seen.add(String(t));
+    }
     const attacking = TYPES.filter((t) => seen.has(t));
 
     const gaps = [];
@@ -947,6 +1102,7 @@ export class TeamChecks {
       coverage_top_x_v514: topX,
       coverage_attacking_types_v514: attacking,
       coverage_bars_v514: { yellow: yellowBar, red: redBar },
+      meta_provisional_v514: metaProvisional(context),
     };
     const fix = fixes.length
       ? (fixes.length > 1 && fixes[1].covers === fixes[0].covers
@@ -955,8 +1111,8 @@ export class TeamChecks {
       : "replace one attack with a type that hits them, or add a member that does";
     // The names go in the text, not only in the payload: a bare count is not actionable.
     const named = simpleJoin(gaps.map((g) => g.name), 4);
-    const why = `${gaps.length ? `The team can only hit ${named} for neutral damage. ` : ""}`
-      + "Without a super-effective answer it has to break them with neutral damage, which usually costs a turn it does not have.";
+    const why = withNote(`${gaps.length ? `The team can only hit ${named} for neutral damage. ` : ""}`
+      + "Without a super-effective answer it has to break them with neutral damage, which usually costs a turn it does not have.", context);
 
     if (resisted.length || gaps.length >= redBar) {
       const summary = resisted.length
@@ -969,13 +1125,22 @@ export class TeamChecks {
       return this.row("coverage_gaps", "yellow", `${gaps.length} of the Top ${topX} have no super-effective answer on this team`,
         why, fix, 2.5, `Needs attention = ${yellowBar} or more of the Top ${topX} with no super-effective answer.`, extra);
     }
-    const summary = !members.length
-      ? "the Top Meta is not loaded yet, so coverage cannot be measured"
-      : gaps.length
-        ? `only ${gaps.length} of the Top ${topX} ${gaps.length === 1 ? "lacks" : "lack"} a super-effective answer, which is a normal amount to live with`
-        : `every one of the Top ${topX} has a super-effective answer somewhere on the team`;
+    // The green branch names the gap members too: they are the most actionable thing the row
+    // knows, and withholding them exactly when the verdict is good left coverage_rows_v514
+    // payload-only with no way for a player to read it.
+    if (!members.length) {
+      return this.row("coverage_gaps", "good",
+        "the Top Meta is not loaded yet, so coverage cannot be measured",
+        "Nothing has been measured here: sync the Top Meta, or pick a format that has one.", "", 0,
+        "Not measured = there is no Top Meta to compare the team's attacks against.", extra);
+    }
+    const summary = gaps.length
+      ? `only ${gaps.length} of the Top ${topX} ${gaps.length === 1 ? "lacks" : "lack"} a super-effective answer (${named}), which is a normal amount to live with`
+      : `every one of the Top ${topX} has a super-effective answer somewhere on the team`;
     return this.row("coverage_gaps", "good", summary,
-      "The team can bring super-effective damage to almost everything it will meet.", "", 0,
+      withNote("The team can bring super-effective damage to almost everything it will meet."
+        + (gaps.length ? ` The ${gaps.length < NUMBER_WORDS.length ? countWord(gaps.length) : gaps.length} it cannot ${gaps.length === 1 ? "is" : "are"} listed so you can decide whether to live with them.` : ""), context),
+      "", 0,
       `Good = fewer than ${yellowBar} of the Top ${topX} without a super-effective answer.`, extra);
   }
 
@@ -992,11 +1157,23 @@ export class TeamChecks {
         "Trick Room sets the order, so sitting close together on Speed does not decide your turns",
         "The team inverts the turn order on purpose, which is exactly what a tight Speed band is for.", "", 0,
         "Good = the team sets Trick Room, so a shared Speed tier is deliberate.",
-        { speed_gate_v514: "trick_room", speed_cluster_v514: {}, speed_flip_v514: {}, speed_band_v514: [lowEdge, highEdge] });
+        { speed_gate_v514: "trick_room", speed_cluster_v514: {}, speed_flip_v514: {}, speed_band_v514: [lowEdge, highEdge], meta_provisional_v514: metaProvisional(context) });
+    }
+
+    // GATE 0. Both remaining gates are relative to the Speed range the Top X contests, and
+    // without a Top X there is no range: the band is (0, 0), every cluster is rejected and the
+    // row used to answer "the team's Speeds are spread out enough that one Tailwind cannot
+    // reorder all of it at once" -- a positive conclusion from a measurement that never ran.
+    if (!metaLoaded(context)) {
+      return this.row("speed_tiers", "good",
+        "the Top Meta is not loaded yet, so the contested Speed range cannot be measured",
+        "Nothing has been measured here: this check compares the team's Speeds against the range the Top Meta contests, and there is no Top Meta to compare them with.",
+        "", 0, "Not measured = there is no Top Meta, so there is no contested Speed range.",
+        { speed_gate_v514: "no_meta", speed_cluster_v514: {}, speed_flip_v514: {}, speed_band_v514: [lowEdge, highEdge], meta_provisional_v514: metaProvisional(context) });
     }
 
     const entries = stableSort(filled.map((p) => [Number(p.speed) || 0, String(p.name || "Pokemon")]), (e) => [e[0], e[1]]);
-    const bestCluster = (width) => {
+    const bestCluster = (width, gated = true) => {
       let best = null;
       for (let start = 0; start < entries.length; start += 1) {
         let stop = start;
@@ -1006,7 +1183,7 @@ export class TeamChecks {
         const low = entries[start][0];
         const high = entries[stop - 1][0];
         // GATE 2. A block slower than the whole field is not in a Speed race.
-        if (!(high >= lowEdge && low <= highEdge)) continue;
+        if (gated && !(high >= lowEdge && low <= highEdge)) continue;
         if (!best || size > best.size) best = { size, low, high, width: high - low, members: entries.slice(start, stop).map((e) => e[1]) };
       }
       return best;
@@ -1019,11 +1196,17 @@ export class TeamChecks {
     const yellow = wideSize >= SPEED_WIDE_YELLOW;
     const cluster = tightSize >= SPEED_TIGHT_RED && tightSize >= wideSize ? tight : wide;
 
+    // The Top X members an opposing Tailwind moves past the whole cluster at once: not faster
+    // than all of it now, faster than all of it doubled -- and CARRYING TAILWIND. Without that
+    // last test the row named a Pokemon and credited it with a move it does not have ("One
+    // Tailwind from Milotic (Speed 101)", whose set is Protect / Scald / Ice Beam / Icy Wind).
+    // If no Tailwind user in the Top X can make the flip, nobody is named.
     let flip = {};
     let flipCount = 0;
     if (cluster) {
       const ceiling = Number(cluster.high);
       for (const member of context?.members || []) {
+        if (!member.tailwind) continue;
         const speed = Number(member.speed) || 0;
         if (speed <= 0 || speed > ceiling || speed * 2 <= ceiling) continue;
         flipCount += 1;
@@ -1039,14 +1222,15 @@ export class TeamChecks {
         : {},
       speed_flip_v514: flip,
       speed_band_v514: [lowEdge, highEdge],
+      meta_provisional_v514: metaProvisional(context),
     };
     if (red || yellow) {
       const word = countWord(cluster.size);
       const summary = `${word} of your ${countWord(filled.length)} sit between ${speedText(cluster.low)} and ${speedText(cluster.high)}`;
       const named = simpleJoin([...cluster.members], 6);
-      const why = flip.name
+      const why = withNote(flip.name
         ? `${named}. One Tailwind from ${flip.name} (Speed ${speedText(flip.speed)}) moves it past all ${word} in the same turn.`
-        : `${named}. One Tailwind or Icy Wind changes the order for all ${word} at once.`;
+        : `${named}. One Tailwind or Icy Wind changes the order for all ${word} at once.`, context);
       const fix = "move one attacker clearly above or below the group, or carry your own Tailwind or Trick Room";
       if (red) {
         return this.row("speed_tiers", "red", summary, why, fix, 4.0,
@@ -1055,9 +1239,24 @@ export class TeamChecks {
       return this.row("speed_tiers", "yellow", summary, why, fix, 1.8,
         `Needs attention = ${SPEED_WIDE_YELLOW} or more members inside ${SPEED_WIDE_BAND} Speed points, in the range the Top ${topX} contests.`, extra);
     }
+    // GATE 2 said its own sentence. A block of six at Speed 30-35 under a contested band of
+    // (70, 167) is excused correctly, but telling that team its Speeds are "spread out enough"
+    // is false -- they are not spread out, they are simply not in the race.
+    const outside = bestCluster(SPEED_WIDE_BAND, false);
+    if ((outside?.size || 0) >= SPEED_WIDE_YELLOW) {
+      const word = countWord(outside.size);
+      return this.row("speed_tiers", "good",
+        `${word} of your ${countWord(filled.length)} sit between ${speedText(outside.low)} and ${speedText(outside.high)}, which is outside the Speed range the Top ${topX} contests`,
+        withNote(`${simpleJoin([...outside.members], 6)}. They share a Speed tier, but the Top ${topX} contests ${speedText(lowEdge)} to ${speedText(highEdge)}, so a Tailwind aimed at that range does not decide their turns.`, context),
+        "", 0,
+        `Good = the shared Speed tier sits outside ${speedText(lowEdge)} to ${speedText(highEdge)}, the range the Top ${topX} contests.`,
+        { ...extra,
+          speed_gate_v514: "outside_band",
+          speed_cluster_v514: { members: [...outside.members], low: outside.low, high: outside.high, width: outside.width, band: [lowEdge, highEdge] } });
+    }
     return this.row("speed_tiers", "good",
       "the team's Speeds are spread out enough that one Tailwind cannot reorder all of it at once",
-      "No large group of the team shares a Speed tier inside the range the meta contests.", "", 0,
+      withNote("No large group of the team shares a Speed tier inside the range the meta contests.", context), "", 0,
       `Good = no group of ${SPEED_WIDE_YELLOW} sits inside ${SPEED_WIDE_BAND} Speed points in the range the Top ${topX} contests.`, extra);
   }
 
@@ -1113,9 +1312,27 @@ export class TeamChecks {
       lead_severity_bars_v514: { yellow: yellowBar, red: redBar },
     };
     const honest = "This is an estimate from each pair's turn-one tools, not a played-out game.";
-    if (total < 2) {
+    if (total === 0) {
       return this.row("lead_viability", "good", "there is no lead pair to judge yet", "", "", 0,
         "Good = not enough Pokemon to form a lead pair.", extra);
+    }
+    if (total === 1) {
+      // Two Pokemon: the one pair IS the lead, and it was scored. The row used to say "there is
+      // no lead pair to judge yet" while its own payload reported lead_pair_count_v514 = 1 --
+      // the one case where the player knows their lead exactly. The fraction bars are
+      // meaningless at n = 1 (halfUp(0.55 * 1) = 1, so a playable pair would have read yellow).
+      const only = pairs[0];
+      const names = `${only.members[0]} with ${only.members[1]}`;
+      if (only.playable) {
+        return this.row("lead_viability", "good",
+          `your one lead pair, ${names}, has a turn-one tool to open with`, honest, "", 0,
+          `Good = the only lead pair reaches the playable bar of ${LEAD_BAR}.`, extra);
+      }
+      return this.row("lead_viability", "yellow",
+        `your only lead pair, ${names}, has little more than raw damage between it`,
+        `With two Pokemon there is no other opening to fall back on. ${honest}`,
+        "give one of the two a turn-one tool, or add a third Pokemon so there is a choice", 2.0,
+        `Needs attention = the only lead pair misses the playable bar of ${LEAD_BAR}.`, extra);
     }
     if (playable <= redBar || playable <= yellowBar) {
       const pieces = pairs.slice(0, 2).map((p) => `${p.members[0]} with ${p.members[1]}`);
@@ -1148,6 +1365,7 @@ export class TeamChecks {
     const weights = this.metaWeights(context);
     const [weakCounts, resistCounts, immuneCounts] = this.defensiveCounts(filled);
     let typeRows = [];
+    let gated = [];
     for (const type of TYPES) {
       const weak = weakCounts[type] || 0;
       const switchIns = resistCounts[type] || 0;
@@ -1155,23 +1373,39 @@ export class TeamChecks {
       const exposure = Math.max(0, weak - SHARED_RESIST_DISCOUNT * switchIns) * weight;
       if (weak < SHARED_WEAK_GATE) continue;
       const severity = exposure >= SHARED_RED_EXPOSURE ? "red" : exposure >= SHARED_YELLOW_EXPOSURE ? "yellow" : "";
-      if (!severity) continue;
+      if (!severity) {
+        // The user's literal condition held and the weighting excused it. Recorded rather than
+        // dropped, so "three of my six lose to Ground and the row is green" has an answer.
+        gated.push({ type, weak, switch_ins: switchIns, immunities: immuneCounts[type] || 0, meta_weight: weight, exposure });
+        continue;
+      }
       typeRows.push({ type, weak, switch_ins: switchIns, immunities: immuneCounts[type] || 0, severity, meta_weight: weight, exposure });
     }
     typeRows = stableSort(typeRows, (r) => [r.severity === "red" ? 0 : 1, -r.exposure, -r.weak, r.switch_ins, r.type]);
+    gated = stableSort(gated, (r) => [-r.exposure, -r.weak, r.type]);
     const severe = typeRows.filter((r) => r.severity === "red");
     const exposed = typeRows.filter((r) => r.severity === "yellow");
+    const loaded = metaLoaded(context);
     const extra = {
       weak_counts: weakCounts, resist_counts: resistCounts, immune_counts: immuneCounts,
-      severe, exposed, type_rows_v251: typeRows,
+      severe, exposed, type_rows_v251: typeRows, gated_types_v514: gated,
       meta_type_weights_v514: Object.fromEntries(TYPES.map((t) => [t, Number(weights[t] ?? 1)])),
+      meta_weighted_v514: loaded,
+      meta_provisional_v514: metaProvisional(context),
     };
     if (typeRows.length) {
       const worst = typeRows[0];
       const others = typeRows.slice(1).map((r) => r.type);
-      let summary = `${countWord(worst.weak)} of your ${countWord(filled.length)} lose to ${worst.type}, which the Top ${topX} attacks with ${fixed2(worst.meta_weight)} times the average rate`;
+      let summary = `${countWord(worst.weak)} of your ${countWord(filled.length)} lose to ${worst.type}`;
+      // The rate clause is only said when it says something: "1.00 times the average rate" is
+      // two decimals of resolution a 72-move sample does not have and, at exactly average, no
+      // information at all; and without a Top X every weight is the 1.0 placeholder, so the
+      // clause would be a claim about a meta this row never looked at.
+      const rate = Math.round(Number(worst.meta_weight) * 10) / 10;
+      if (loaded && rate !== 1) summary += `, a type the Top ${topX} attacks with ${rate.toFixed(1)} times the average rate`;
       if (others.length) summary += `, and the same is true of ${simpleJoin(others, 3)}`;
-      const why = "One Pokemon with that attacking type can threaten most of the team in a single turn, which is the classic reason a team folds to one opponent.";
+      const why = withNote("One Pokemon with that attacking type can threaten most of the team in a single turn, which is the classic reason a team folds to one opponent."
+        + (loaded ? "" : " The Top Meta is not loaded, so this is the unweighted reading: every attacking type was treated as equally common."), context);
       const fix = `add a ${worst.type} resist or immunity, or replace one of the ${worst.weak} that share the weakness`;
       if (severe.length) {
         return this.row("defensive_switch_ins", "red", summary, why, fix, 5.8,
@@ -1180,9 +1414,21 @@ export class TeamChecks {
       return this.row("defensive_switch_ins", "yellow", summary, why, fix, 2.6,
         `Needs attention = ${SHARED_WEAK_GATE} or more members weak to one type, and that type's meta-weighted exposure reaches ${SHARED_YELLOW_EXPOSURE.toFixed(1)}.`, extra);
     }
+    // The green text may only claim what was measured. Without a Top X the weights are all the
+    // 1.0 placeholder, so "the types the Top Meta rarely attacks with" would be a statement
+    // about a meta this row never read.
+    if (!loaded) {
+      return this.row("defensive_switch_ins", "good",
+        "no attacking type hits enough of the team to matter, counting every type as equally common",
+        "The Top Meta is not loaded, so this is the unweighted reading: nothing was measured about how often the meta actually attacks with these types.",
+        "", 0,
+        `Good, unweighted = no attacking type reaches the exposure bar with ${SHARED_WEAK_GATE} or more members weak to it.`, extra);
+    }
     return this.row("defensive_switch_ins", "good",
       "no attacking type the meta actually uses hits enough of the team to matter",
-      "The weaknesses the team does share belong to types the Top Meta rarely attacks with.", "", 0,
+      withNote("The weaknesses the team does share belong to types the Top Meta rarely attacks with."
+        + (gated.length ? ` ${simpleJoin(gated.map((r) => r.type), 3)} ${gated.length === 1 ? "is" : "are"} shared by ${gated.length === 1 ? countWord(gated[0].weak) : "several"} of the team but excused by how rarely the meta brings them.` : ""), context),
+      "", 0,
       `Good = no attacking type reaches the weighted exposure bar with ${SHARED_WEAK_GATE} or more members weak to it.`, extra);
   }
 
@@ -1226,24 +1472,37 @@ export class TeamChecks {
     const terrainSet = union("terrain_set");
     const moveKeys = union("move_keys");
     const priority = names(profiles, (p) => p.priority);
-    const problems = [];
+    // (text, weight) while the rule is on: HARD = the dependency does not work, SOFT = a
+    // conflict the team chose and can play around. See FIELD_HARD_WEIGHT.
+    const weighted = [];
+    const add = (text, weight) => weighted.push([text, weight]);
     const unsupported = [...weatherUse].filter((w) => !weatherSet.has(w)).sort();
-    if (unsupported.length) problems.push(`missing setter for ${simpleJoin(unsupported.map(pyTitleWord), 4)}`);
-    if (weatherSet.size >= 2) problems.push("multiple weather setters may fight each other");
+    if (unsupported.length) add(`missing setter for ${simpleJoin(unsupported.map(pyTitleWord), 4)}`, FIELD_HARD_WEIGHT);
+    const ownerOf = (field, condition) => {
+      const found = (profiles || []).find((p) => p && p[field].has(condition));
+      return found ? String(found.name || "One Pokemon") : "One Pokemon";
+    };
+    /** One sentence for two weathers or two terrains, in one voice. The pre-V514 weather line
+     *  hedged ("multiple weather setters may fight each other") while the added terrain line
+     *  was definite and named its owners; two setters of the same kind DO replace each other,
+     *  so with the rule on both say so and both name who brought them. */
+    const twoSetters = (kind, set, field) => {
+      if (set.size < 2) return;
+      const ordered = [...set].sort();
+      const suffix = kind ? ` ${kind}` : "";
+      let text = `${ownerOf(field, ordered[0])}'s ${pyTitleWord(ordered[0])}${suffix} and ${ownerOf(field, ordered[1])}'s ${pyTitleWord(ordered[1])}${suffix} replace each other`;
+      if (set.size > 2) text += ` (+${set.size - 2} more${suffix || " setter"})`;
+      add(text, FIELD_SOFT_WEIGHT);
+    };
+    if (weatherSet.size >= 2) {
+      if (this.rules) twoSetters("", weatherSet, "weather_set");
+      else add("multiple weather setters may fight each other", FIELD_SOFT_WEIGHT);
+    }
     // V514 NEW RULE A: two terrain setters. The half of "two setters fighting each other"
     // that did not exist -- only weather was checked. 2.6% of real teams.
-    if (this.rules && terrainSet.size >= 2) {
-      const owner = (condition) => {
-        const found = (profiles || []).find((p) => p && p.terrain_set.has(condition));
-        return found ? String(found.name || "One Pokemon") : "One Pokemon";
-      };
-      const [first, second] = [...terrainSet].sort();
-      let text = `${owner(first)}'s ${pyTitleWord(first)} Terrain and ${owner(second)}'s ${pyTitleWord(second)} Terrain replace each other`;
-      if (terrainSet.size > 2) text += ` (+${terrainSet.size - 2} more terrain)`;
-      problems.push(text);
-    }
-    if (terrainSet.has("psychic") && priority.length) problems.push("Psychic Terrain can block the team's priority attacks");
-    if (terrainSet.has("grassy") && ["earthquake", "bulldoze", "magnitude"].some((k) => moveKeys.has(k))) problems.push(this.singles ? "Grassy Terrain weakens the team's Earthquake-style Ground attacks" : "Grassy Terrain weakens the team's Ground spread attacks");
+    if (this.rules) twoSetters("Terrain", terrainSet, "terrain_set");
+    if (terrainSet.has("psychic") && priority.length) add("Psychic Terrain can block the team's priority attacks", FIELD_SOFT_WEIGHT);
+    if (terrainSet.has("grassy") && ["earthquake", "bulldoze", "magnitude"].some((k) => moveKeys.has(k))) add(this.singles ? "Grassy Terrain weakens the team's Earthquake-style Ground attacks" : "Grassy Terrain weakens the team's Ground spread attacks", FIELD_SOFT_WEIGHT);
     // V514 NEW RULE B: a move whose condition the team cannot set, derived from THESE
     // profiles (never from the builder's global team).  NEW RULE C: Hail counts as snow.
     const available = new Set([...weatherSet, ...terrainSet]);
@@ -1256,26 +1515,39 @@ export class TeamChecks {
         for (const move of profile.moves || []) {
           const need = MOVES_NEEDING_CONDITION[compact(move)];
           if (!need || !profile.move_keys.has(compact(move)) || available.has(need)) continue;
-          problems.push(`${String(profile.name)}'s ${String(move).trim()} needs ${CONDITION_WORDS[need] || need} and nothing on the team sets it`);
+          add(`${String(profile.name)}'s ${String(move).trim()} needs ${CONDITION_WORDS[need] || need} and nothing on the team sets it`, FIELD_HARD_WEIGHT);
         }
       }
     }
-    const extra = this.rules ? { problems, field_available_v514: [...available].sort() } : { problems };
+    const problems = weighted.map(([text]) => text);
+    const totalWeight = Math.round(weighted.reduce((s, [, w]) => s + w, 0) * 1000) / 1000;
+    const extra = this.rules
+      ? { problems,
+        field_available_v514: [...available].sort(),
+        field_problem_weights_v514: weighted.map(([, w]) => w),
+        field_weight_v514: totalWeight }
+      : { problems };
     const fix = this.rules
       ? "Drop one of the competing setters, or give the move's owner the condition it needs."
       : "Remove the conflict or add the missing weather/terrain support.";
     const why = this.rules
       ? "Conflicting field choices can make the team's own tools unreliable."
       : "Conflicting field choices can make the team’s own tools unreliable.";
-    if (problems.length >= 2) {
+    // Rule off replays the pre-V514 line count exactly; rule on uses the weight.
+    const isRed = this.rules ? totalWeight >= FIELD_RED_WEIGHT : problems.length >= 2;
+    if (isRed) {
       return this.row("field_weather_consistency", "red", `${simpleJoin(problems, 4)}.`, why, fix, 5.0,
-        "Problem = two or more field/weather conflicts.", extra);
+        this.rules
+          ? `Problem = the field problems together reach ${FIELD_RED_WEIGHT.toFixed(1)}, counting ${FIELD_HARD_WEIGHT.toFixed(1)} for a dependency that cannot work and ${FIELD_SOFT_WEIGHT.toFixed(1)} for a conflict the team can play around.`
+          : "Problem = two or more field/weather conflicts.", extra);
     }
     if (problems.length) {
       return this.row("field_weather_consistency", "yellow", `${simpleJoin(problems, 4)}.`,
         "The field plan mostly works, but one dependency or conflict needs attention.",
         "Fix the listed conflict or confirm it is an intentional matchup-specific choice.", 2.4,
-        "Needs attention = one detected field/weather issue.", extra);
+        this.rules
+          ? `Needs attention = the field problems together stay under ${FIELD_RED_WEIGHT.toFixed(1)}, counting ${FIELD_HARD_WEIGHT.toFixed(1)} for a dependency that cannot work and ${FIELD_SOFT_WEIGHT.toFixed(1)} for a conflict the team can play around.`
+          : "Needs attention = one detected field/weather issue.", extra);
     }
     if (weatherSet.size || weatherUse.size || terrainSet.size) {
       return this.row("field_weather_consistency", "good", "weather and terrain choices have no obvious internal conflict.",

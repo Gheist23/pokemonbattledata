@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Chimecho,151,move,1,Recover,85.2%,,,,,,,,
-Chimecho,151,move,2,Cosmic Power,55.5%,,,,,,,,
+Chimecho,151,move,2,Cosmic Power,55.4%,,,,,,,,
 Chimecho,151,move,3,Stored Power,52.3%,,,,,,,,
-Chimecho,151,move,4,Calm Mind,32.0%,,,,,,,,
-Chimecho,151,move,5,Flash Cannon,26.4%,,,,,,,,
-Chimecho,151,move,6,Boomburst,19.9%,,,,,,,,
+Chimecho,151,move,4,Calm Mind,32.1%,,,,,,,,
+Chimecho,151,move,5,Flash Cannon,26.3%,,,,,,,,
+Chimecho,151,move,6,Boomburst,19.8%,,,,,,,,
 Chimecho,151,move,7,Psychic Noise,17.4%,,,,,,,,
 Chimecho,151,move,8,Psychic,11.6%,,,,,,,,
-Chimecho,151,move,9,Dazzling Gleam,11.0%,,,,,,,,
-Chimecho,151,move,10,Shadow Ball,10.9%,,,,,,,,
+Chimecho,151,move,9,Dazzling Gleam,11.1%,,,,,,,,
+Chimecho,151,move,10,Shadow Ball,11.0%,,,,,,,,
 Chimecho,151,held_item,1,Chimechite,94.1%,,,,,,,,
 Chimecho,151,held_item,2,Leftovers,1.2%,,,,,,,,
-Chimecho,151,held_item,3,Sitrus Berry,1.2%,,,,,,,,
+Chimecho,151,held_item,3,Sitrus Berry,1.1%,,,,,,,,
 Chimecho,151,held_item,4,Quick Claw,1.0%,,,,,,,,
 Chimecho,151,held_item,5,Rocky Helmet,0.8%,,,,,,,,
 Chimecho,151,held_item,6,Mental Herb,0.3%,,,,,,,,
@@ -29,7 +29,7 @@ Chimecho,151,teammate,7,Mimikyu,,,,,,,,,
 Chimecho,151,teammate,8,Meowscarada,,,,,,,,,
 Chimecho,151,teammate,9,Skeledirge,,,,,,,,,
 Chimecho,151,teammate,10,Gholdengo,,,,,,,,,
-Chimecho,151,stat_alignment,1,Bold,52.3%,Defense,Attack,,,,,,
+Chimecho,151,stat_alignment,1,Bold,52.2%,Defense,Attack,,,,,,
 Chimecho,151,stat_alignment,2,Modest,26.9%,Sp. Atk,Attack,,,,,,
 Chimecho,151,stat_alignment,3,Calm,16.5%,Sp. Def,Attack,,,,,,
 Chimecho,151,stat_alignment,4,Quiet,1.4%,Sp. Atk,Speed,,,,,,
@@ -45,8 +45,8 @@ Chimecho,151,stat_points,3,,3.8%,,,32,0,32,0,0,2
 Chimecho,151,stat_points,4,,3.5%,,,32,0,32,2,0,0
 Chimecho,151,stat_points,5,,2.7%,,,32,0,2,32,0,0
 Chimecho,151,stat_points,6,,2.4%,,,31,0,32,0,3,0
-Chimecho,151,stat_points,7,,2.0%,,,32,0,24,0,10,0
+Chimecho,151,stat_points,7,,1.9%,,,32,0,24,0,10,0
 Chimecho,151,stat_points,8,,1.6%,,,32,0,0,32,2,0
 Chimecho,151,stat_points,9,,1.6%,,,32,0,20,0,14,0
-Chimecho,151,stat_points,10,,1.5%,,,32,0,0,32,0,2
+Chimecho,151,stat_points,10,,1.5%,,,2,0,32,0,32,0
 Chimecho,151,ability,1,Levitate,100.0%,,,,,,,,

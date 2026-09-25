@@ -217,12 +217,17 @@ function breakdown(row, helpers, result) {
   const body = h("div", { class: "bd-sg-body" });
   const { one } = namers(helpers);
 
-  // 0. What it does: the one sentence the ranking comes down to (V511).
-  if (row.verdict_line) {
+  // 0. What it does: the one sentence the ranking comes down to (V511), then - on a swap that
+  // gives up a role only the outgoing Pokemon provides - what it costs to make it (V512).
+  if (row.verdict_line || row.outgoing_verdict_line) {
     const beaten = (row.threat_answers || []).length;
     const measured = Number(row.threats_measured) || 0;
-    body.append(section("What it does",
-      h("p", { class: `bd-sg-verdict ${measured && beaten * 2 >= measured ? "up" : beaten ? "" : "down"}` }, text(row.verdict_line))));
+    const lines = [];
+    if (row.verdict_line) {
+      lines.push(h("p", { class: `bd-sg-verdict ${measured && beaten * 2 >= measured ? "up" : beaten ? "" : "down"}` }, text(row.verdict_line)));
+    }
+    if (row.outgoing_verdict_line) lines.push(h("p", { class: "bd-sg-verdict down" }, text(row.outgoing_verdict_line)));
+    body.append(section("What it does", ...lines));
   }
 
   // 1. Score changes: the estimate the ranking uses, then the full Team Evaluation.

@@ -214,7 +214,7 @@ function archetypeSpeedControlFit(archetype, moves, trSetters, twSetters) {
 // it was tuned with, so its recorded runs still replay.
 
 /** The rule version production runs; a recording stamps it as `rules.suggestion_scoring`. */
-export const SUGGESTION_SCORING = 3;
+export const SUGGESTION_SCORING = 4;
 
 /**
  * What another Trick Room carrier is worth once the plan has 0 / 1 / 2+ setters, per rule
@@ -228,7 +228,10 @@ export const SUGGESTION_SCORING = 3;
  * want a second, but roughly a tenth of the pool can supply it, so the credit stays under the
  * span the calcs move (±18).
  */
-const TRICK_ROOM_BY_SETTERS_BY_RULE = { 2: [22, 12, 2], 3: [22, 10, 0] };
+// Version 4 keeps version 3's damping unchanged - what it adds is priced by its own term
+// (`outgoingRoleCost`) - but it still needs its own row: `ruleTable(4)` falls back to
+// `[SUGGESTION_SCORING]`, which without a `4:` row is `undefined` and throws.
+const TRICK_ROOM_BY_SETTERS_BY_RULE = { 2: [22, 12, 2], 3: [22, 10, 0], 4: [22, 10, 0] };
 /** `archetypeSpeedControlFit`'s own flat reward, which no version changes. */
 const FLAT_TRICK_ROOM_REWARD = 22;
 /** The version that stopped the coverage layer charging for the same move twice. */
@@ -244,6 +247,218 @@ const COVERAGE_CRITICAL_FIXED = 5; // v429: flat, for closing a critical require
 const COVERAGE_CRITICAL_WORSENED = 8;
 const COVERAGE_SPAN = 30; // v429 clamps its own adjustment to ±30
 const CRITICAL_WEIGHT = 2.4; // v429: a critical requirement weighs 2.4
+
+// --- V512: a swap is scored against the Pokemon it replaces ------------------
+//
+// `outgoing_value_v512.py`. On the owner's six-slot Doubles Trick Room team the list said
+// "remove Indeedee-F" on 13 of the 14 shown rows. Indeedee-F is the team's only Follow Me and
+// its only Psychic Terrain; Mega Malamar's Trick Room is one of four. Two reasons the ranking
+// could not see it: the archetype's requirement list (`Trick Room setters 2 critical / Slow
+// attackers 3 / Protect users 4 / Spread attackers 1 / Priority users 1`) names neither
+// redirection nor terrain, and `requirementRatio` clamps at `min(1, current/target)` so on a
+// three-setter team losing a setter moves nothing. And every swap target resolved to the same
+// slot: `entryIndexForSwap` matched the target against `entry.pokemon` alone, so "Indeedee-F"
+// and "Malamar-Mega" both fell through to the last slot - which is why the recorded parity
+// suites were green on a broken behaviour.
+//
+// A role only the outgoing Pokemon provides is *reopened*: priced as a share of the archetype's
+// requirement budget at the same COVERAGE_WEIGHT the coverage layer uses. It can only subtract
+// (a role goes 1.0 -> 1.0 or 1.0 -> 0.0, so it is never a reward and cannot double-count with
+// version 3's withheld reward), and a candidate that does the same job pays nothing.
+/** The version that reopens the outgoing member's roles - and fixes the resolver. */
+const REOPEN_ROLES_FROM_RULE = 4;
+const TERRAIN_SUFFIX = " terrain";
+const WEATHER_SUFFIX = " weather";
+const TERRAIN_TOKENS = ["electric", "grassy", "psychic", "misty"].map((t) => t + TERRAIN_SUFFIX);
+const WEATHER_TOKENS = ["rain", "sun", "sand", "snow"].map((w) => w + WEATHER_SUFFIX);
+/**
+ * Skipped on every archetype: v511's own speed terms price speed control three times over
+ * (`dampedSpeedPlan`, the (a2) correction and `directedSpeedFit`'s SPEED_CONTROL_CREDIT /
+ * _ALREADY_PAID), and they do it whatever the archetype is.
+ */
+const ALWAYS_SKIP_ROLES = ["Speed Control"];
+/**
+ * `outgoing_value_v512.REQUIREMENT_ROLES`: the roles a requirement label already prices, so
+ * reopening one of them would charge the candidate twice. Keyed on the label rather than the
+ * archetype, so the skip set is derived from the requirement list the row carries and follows
+ * `archetypeRequirements` if it changes. A label maps to every role its feature counts:
+ * "Disruption users" reads the denial move set, which holds Perish Song and the sleep / burn /
+ * paralysis moves, so it prices Setup Denial *and* Status.
+ */
+const REQUIREMENT_ROLES = {
+  "speed-control users": ["Speed Control"],
+  "speed / board control": ["Speed Control"],
+  "trick room setters": ["Speed Control"],
+  "tailwind setters": ["Speed Control"],
+  "redirection / fake out": ["Redirection", "Fake Out"],
+  "redirection users": ["Redirection"], // V494's Perish Trap row
+  "perish song users": ["Setup Denial"], // perishsong is a Setup Denial key
+  "disruption users": ["Setup Denial", "Status"],
+  "recovery users": ["Healing"],
+  "recovery / pivot users": ["Healing", "Pivoting"],
+  "sustain / pivot users": ["Healing", "Pivoting"],
+  "distinct screens": ["Screens"],
+  "screen providers": ["Screens"],
+  "terrain setters": TERRAIN_TOKENS,
+  "conflicting terrains": TERRAIN_TOKENS,
+  "competing weather setters": WEATHER_TOKENS,
+  "rain setters": ["rain" + WEATHER_SUFFIX],
+  "sun setters": ["sun" + WEATHER_SUFFIX],
+  "sand setters": ["sand" + WEATHER_SUFFIX],
+  "snow setters": ["snow" + WEATHER_SUFFIX],
+};
+/**
+ * Every other label `archetypeRequirements` can produce. These name a count of *anything*
+ * ("Utility providers", "Positioning users") or something no role token describes, so they
+ * price no role. The list exists so the invariant test fails loudly when a new requirement
+ * label appears: an unknown label means someone has to decide what it pays for.
+ */
+export const UNPRICED_REQUIREMENT_LABELS = [
+  "attackers", "bulky members", "fast attackers", "immediate attackers", "light clay users",
+  "mixed damage modes", "physical attackers", "physical damage", "positioning users",
+  "priority users", "protect / positioning", "protect / positioning users", "protect users",
+  "setup users", "slow attackers", "special attackers", "special damage", "spread attackers",
+  "terrain beneficiaries", "trapping sources", "utility categories", "utility providers",
+  "rain beneficiaries", "sun beneficiaries", "sand beneficiaries", "snow beneficiaries",
+  "rain ability users", "sun ability users", "sand ability users", "snow ability users",
+];
+/**
+ * Roles that weigh what a critical requirement weighs. Quoted from the codebase, not invented:
+ * V494 replaced Perish Trap's trapping requirement with `Redirection users >= 1, critical`
+ * because what keeps a Doubles Perish Song user alive long enough to matter is redirection -
+ * drawing the attack that would otherwise remove it. A Trick Room setter has to live through
+ * the turn it spends setting.
+ */
+const REOPEN_CRITICAL = { "trick room": ["Redirection"] };
+/** Plain English for the sentence the reader sees; never the internal token. */
+const ROLE_PHRASES = {
+  "Fake Out": "Fake Out",
+  Redirection: "Follow Me redirection",
+  "Speed Control": "direct Speed control",
+  "Setup Denial": "disruption",
+  "Spread Defense": "spread protection",
+  "Damage Support": "Helping Hand support",
+  Pivoting: "pivoting",
+  Healing: "healing",
+  Screens: "screens",
+  Status: "status moves",
+  "electric terrain": "Electric Terrain",
+  "grassy terrain": "Grassy Terrain",
+  "psychic terrain": "Psychic Terrain",
+  "misty terrain": "Misty Terrain",
+  "rain weather": "rain",
+  "sun weather": "sun",
+  "sand weather": "sand",
+  "snow weather": "snow",
+};
+/** The redirection phrase names the move it actually is, in this fixed order. */
+const REDIRECTION_PHRASES = [["followme", "Follow Me redirection"], ["ragepowder", "Rage Powder redirection"], ["spotlight", "Spotlight redirection"]];
+const LEDGER_LABEL_OUTGOING = "What the swap gives up";
+
+/** `outgoing_value_v512.role_tokens`: every role one team member provides, as ASCII tokens. */
+export function roleTokens(profile) {
+  const tokens = new Set();
+  for (const label of profile?.utility || []) tokens.add(String(label));
+  for (const terrain of profile?.terrain_set || []) tokens.add(`${String(terrain).trim().toLowerCase()}${TERRAIN_SUFFIX}`);
+  for (const weather of profile?.weather_set || []) tokens.add(`${String(weather).trim().toLowerCase()}${WEATHER_SUFFIX}`);
+  return tokens;
+}
+
+/** `outgoing_value_v512.priced_roles_for`: the roles one requirement label already prices. */
+export function pricedRolesFor(label) {
+  return [...(REQUIREMENT_ROLES[String(label || "").trim().replace(/\s+/g, " ").toLowerCase()] || [])];
+}
+
+/** `outgoing_value_v512.skipped_roles`: the roles this requirement list already prices. */
+export function skippedRoles(requirements) {
+  const skip = new Set(ALWAYS_SKIP_ROLES);
+  for (const req of requirements || []) for (const role of REQUIREMENT_ROLES[requirementLabel(req)] || []) skip.add(role);
+  return skip;
+}
+
+/** `outgoing_value_v512.role_phrase` */
+export function rolePhrase(role, profile) {
+  if (role === "Redirection") {
+    const keys = new Set([...(profile?.moves || []).map(compact), ...(profile?.move_keys || [])]);
+    for (const [key, phrase] of REDIRECTION_PHRASES) if (keys.has(key)) return phrase;
+  }
+  return ROLE_PHRASES[role] || String(role);
+}
+
+/**
+ * `outgoing_value_v512.build_census`: which roles this team covers, who covers them, and the
+ * price of one. `roles` is one ASCII-sorted list on both sides; `providers` maps a role to the
+ * **index list** of the members that provide it, so the sole-provider test is an index
+ * comparison and no name ever has to be matched.
+ */
+export function buildCensus(profiles, archetype, requirements) {
+  const key = String(archetype || "").trim().toLowerCase();
+  const skip = skippedRoles(requirements);
+  const critical = new Set(REOPEN_CRITICAL[key] || []);
+  const tokens = (profiles || []).map((profile) => roleTokens(profile));
+  const roles = [...new Set(tokens.flatMap((t) => [...t]))].filter((role) => !skip.has(role)).sort();
+  const providers = {};
+  const weights = {};
+  for (const role of roles) {
+    providers[role] = tokens.map((t, i) => (t.has(role) ? i : -1)).filter((i) => i >= 0);
+    weights[role] = critical.has(role) ? CRITICAL_WEIGHT : 1;
+  }
+  const plainTotal = (requirements || []).reduce((sum, req) => sum + requirementWeight(req), 0);
+  const reopened = roles.reduce((sum, role) => sum + weights[role], 0);
+  return { archetype: key, roles, providers, weights, tokens, profiles: profiles || [],
+    plain_total: plainTotal, reopened, denominator: plainTotal + reopened };
+}
+
+/**
+ * `outgoing_value_v512.outgoing_role_cost`: (term, the roles lost) for replacing `slot` with a
+ * Pokemon holding `candidateTokens`. Clamped to COVERAGE_SPAN and never positive.
+ * @returns {[number, string[]]}
+ */
+export function outgoingRoleCost(census, slot, candidateTokens) {
+  const roles = census?.roles || [];
+  const denominator = Number(census?.denominator) || 0;
+  if (!roles.length || denominator <= 0) return [0, []];
+  const held = candidateTokens || new Set();
+  const index = Math.trunc(Number(slot) || 0);
+  const lostRoles = roles.filter((role) => {
+    const providers = census.providers[role] || [];
+    return providers.length === 1 && providers[0] === index && !held.has(role);
+  });
+  if (!lostRoles.length) return [0, []];
+  const lost = lostRoles.reduce((sum, role) => sum + (census.weights[role] ?? 1), 0);
+  return [-Math.min(COVERAGE_SPAN, (COVERAGE_WEIGHT * lost) / denominator), lostRoles];
+}
+
+/** `outgoing_value_v512.role_sentence`: one sentence naming exactly what was charged. */
+export function roleSentence(lostRoles, swapTarget, candidateName, outgoingProfile) {
+  const roles = [...(lostRoles || [])];
+  if (!roles.length) return "";
+  const target = String(swapTarget || "").trim() || "that slot";
+  const candidate = String(candidateName || "").trim() || "the replacement";
+  const phrases = roles.map((role) => rolePhrase(role, outgoingProfile));
+  if (phrases.length === 1) return `${target} is the team's only ${phrases[0]}, and ${candidate} does not replace it.`;
+  if (phrases.length === 2) return `${target} is the team's only ${phrases[0]} and its only ${phrases[1]}, and ${candidate} replaces neither.`;
+  return `${target} is the only source of ${phrases.slice(0, -1).join(", ")} and ${phrases.at(-1)} on this team, and ${candidate} replaces none of it.`;
+}
+
+/** `outgoing_value_v512.verdict_line`: the one line above the ledger. */
+export function outgoingVerdictLine(lostRoles, swapTarget, term, freeTarget) {
+  if (!(lostRoles || []).length || term >= 0) return "";
+  const target = String(swapTarget || "").trim() || "that slot";
+  const tail = String(freeTarget || "").trim() ? ` -- replacing ${String(freeTarget).trim()} starts level.` : ".";
+  return `Scored against the Pokemon it replaces: ${target} is the only member that does those jobs, so this swap starts ${pyFixed(Math.abs(term), 1)} points behind${tail}`;
+}
+
+/** `outgoing_value_v512.free_target`: the first other slot that costs nothing. */
+export function freeSwapTarget(census, slot, labels) {
+  const providers = Object.values(census?.providers || {});
+  for (let index = 0; index < (labels || []).length; index += 1) {
+    if (index === Math.trunc(Number(slot) || 0) || !String(labels[index] || "").trim()) continue;
+    if (providers.some((list) => list.length === 1 && list[0] === index)) continue;
+    return String(labels[index]);
+  }
+  return "";
+}
 const SPEED_CONTROL_CREDIT = 24;
 const SPEED_CONTROL_CREDIT_ALREADY_PAID = 8;
 const PRIORITY_CREDIT = 10;
@@ -679,6 +894,10 @@ export function suggestionForPage(sg, row, selected = null) {
     answer_calcs: row.answer_calcs_v494 || [],
     // V511: what the real calcs said about this candidate against the team's worst threats.
     verdict_line: row.verdict_line_v511 || "",
+    // V512: what this swap gives up, when the slot it replaces is the only source of something.
+    outgoing_verdict_line: row.outgoing_verdict_line_v512 || "",
+    outgoing_role_cost: row.outgoing_role_cost_v512 ?? null,
+    outgoing_roles_lost: row.outgoing_roles_lost_v512 || [],
     threats_measured: row.threats_measured_v511 || 0,
     threat_verdicts: row.threat_verdicts_v511 || [],
     threat_answers: row.threat_answers_v511 || [],
@@ -1306,10 +1525,89 @@ export class TeamSuggestions {
     };
   }
 
+  /**
+   * `_v54_entry_index_for_swap`: the slot a swap target names.
+   *
+   * Up to version 3 this tested the entry's species alone, so every Showdown-named target
+   * ("Indeedee-F", "Malamar-Mega") matched nothing and fell through to the last slot - all
+   * three targets then produced the same projected team and the same score. From version 4 the
+   * display name and the form are tried too. The fallback shape is unchanged: an unknown label
+   * still answers the last slot. Version-selected, so a stamp-3 replay resolves exactly as it
+   * always did.
+   */
   entryIndexForSwap(teamEntries, swapTarget) {
     const target = compact(swapTarget);
-    const index = teamEntries.findIndex((entry) => target && compact(entry.pokemon) === target);
+    if (!target) return Math.max(0, teamEntries.length - 1);
+    const keysOf = (entry) => (this.suggestionScoring >= REOPEN_ROLES_FROM_RULE
+      ? [compact(this.name(entry.form || entry.pokemon)), compact(entry.form), compact(entry.pokemon)]
+      : [compact(entry.pokemon)]);
+    const index = teamEntries.findIndex((entry) => keysOf(entry).includes(target));
     return index >= 0 ? index : Math.max(0, teamEntries.length - 1);
+  }
+
+  /**
+   * `outgoing_value_v512.apply_outgoing_value`, step (a3) of stage one: what the swap gives up.
+   *
+   * Returns the score move (<= 0) and writes `outgoing_role_cost_v512`,
+   * `outgoing_roles_lost_v512` and one ledger piece onto the row. Zero - and nothing written -
+   * whenever the version predates the term, the row is not a swap, the format is not Doubles,
+   * the row carries no archetype requirements, the target does not resolve, or nothing unique
+   * is lost.
+   * @returns {[number, object|null]}
+   */
+  outgoingValue(row, context, archetype) {
+    if (this.suggestionScoring < REOPEN_ROLES_FROM_RULE) return [0, null];
+    if (row.action_kind !== "swap" || !row.swap_target) return [0, null];
+    // Doubles only: in Singles the site drops the partner-only moves from the utility groups
+    // and the app does not, so ungated the two sides would reopen different roles there.
+    if (this.checks.singles) return [0, null];
+    const before = this.archetypeRow(row._before_check_rows);
+    const requirements = before?.archetype_requirements_v403 || [];
+    if (!requirements.length) return [0, null];
+    const census = this.censusFor(context.teamSlots, archetype, requirements);
+    const slot = this.entryIndexForSwap(context.teamEntries, row.swap_target);
+    if (slot >= census.keys.length || !census.keys[slot].includes(compact(row.swap_target))) {
+      // Never silently treat an unresolved label as "every role is lost".
+      row.outgoing_unresolved_v512 = true;
+      return [0, null];
+    }
+    const [term, lostRoles] = outgoingRoleCost(census, slot, roleTokens(row._candidate_profile));
+    if (term > -1e-9) return [0, null];
+    row.outgoing_role_cost_v512 = r2(term);
+    row.outgoing_roles_lost_v512 = [...lostRoles];
+    const line = outgoingVerdictLine(lostRoles, row.swap_target, term, freeSwapTarget(census, slot, census.labels));
+    if (line) row.outgoing_verdict_line_v512 = line;
+    return [term, {
+      key: "outgoing_roles_v512",
+      label: LEDGER_LABEL_OUTGOING,
+      delta: r1(term),
+      raw: r1(term),
+      detail: roleSentence(lostRoles, row.swap_target, row.name, census.profiles[slot]),
+    }];
+  }
+
+  /**
+   * The role census of the team on screen, built once per run.
+   *
+   * The team does not change while a scan runs, so this is kept against the team's own
+   * signature - never against `this`, because Auto Build swaps only the team between slots.
+   */
+  censusFor(teamSlots, archetype, requirements) {
+    const key = JSON.stringify([String(archetype || "").trim().toLowerCase(),
+      teamSlots.map(({ entry, mon }) => [entry.pokemon, entry.item, mon.form_name || entry.form, mon.ability || entry.ability, entry.moves])]);
+    const cached = this.censusCache?.get(key);
+    if (cached) return cached;
+    const profiles = this.checks.profiles(teamSlots);
+    const census = buildCensus(profiles, archetype, requirements);
+    census.keys = teamSlots.map(({ entry, mon }, i) => {
+      const label = profiles[i]?.name || this.name(mon.form_name || entry.form || entry.pokemon);
+      return [...new Set([compact(entry.pokemon), compact(entry.form), compact(mon.form_name), compact(label)])].filter(Boolean);
+    });
+    census.labels = teamSlots.map(({ entry, mon }, i) => String(profiles[i]?.name || this.name(mon.form_name || entry.form || entry.pokemon) || ""));
+    if (!this.censusCache) this.censusCache = new Map();
+    if (this.censusCache.size > 6) this.censusCache.clear();
+    this.censusCache.set(key, census);
+    return census;
   }
 
   // --- the layers ------------------------------------------------------------------
@@ -1940,6 +2238,17 @@ export class TeamSuggestions {
         raw: r1(correction),
         detail: `The archetype's "${requirement}" requirement is the speed plan above, so closing it is not paid for twice.`,
       });
+    }
+
+    // (a3) and a swap is scored against the Pokemon it replaces. The archetype's requirement
+    // list does not mention redirection or terrain and `requirementRatio` saturates, so on a
+    // three-setter Trick Room team every swap target looked equally free. A role only the
+    // outgoing Pokemon provides is reopened; a candidate that does the same job pays nothing.
+    // The term can only subtract, so it cannot double-count with (a2)'s withheld reward.
+    const [outgoing, outgoingPiece] = this.outgoingValue(row, context, archetype);
+    if (outgoingPiece) {
+      score += outgoing;
+      pieces.push(outgoingPiece);
     }
 
     // (b) a Trick Room team wants the slow half of the speed tiers, and a candidate whose only

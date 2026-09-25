@@ -63,10 +63,12 @@ function eq(label, got, want) {
 const near = (label, got, want, tolerance = 1e-9) => ok(label, Math.abs(Number(got) - Number(want)) <= tolerance, `${got} vs ${want}`);
 
 const suggest = await import("../builder/team-suggest.js");
+const TERRAIN_ROLES = ["electric terrain", "grassy terrain", "psychic terrain", "misty terrain"];
+const WEATHER_ROLES = ["rain weather", "sun weather", "sand weather", "snow weather"];
 const {
   SUGGESTION_SCORING, VERDICT_VALUE, archetypeMoveDoublePayment, coverageAdjustment,
   dampedSpeedPlan, directedSpeedFit, hitsFromLabel, ruleTable, speedPlanRequirement,
-  suggestionScoringOption, teamGapThreats, trickRoomReward, verdictFor, verdictLine, verdictSentence,
+  suggestionScoringOption, r1, teamGapThreats, trickRoomReward, verdictFor, verdictLine, verdictSentence,
 } = suggest;
 
 // ---------------------------------------------------------------- 1. the arithmetic
@@ -196,12 +198,168 @@ eq("an unmeasured row says nothing at all", verdictLine({}), "");
 
 // ------------------------------------------------------------------- 2. the switch
 
-eq("production runs version 3", SUGGESTION_SCORING, 3);
+eq("production runs version 4", SUGGESTION_SCORING, 4);
 eq("left out, the rule is on at production's version", suggestionScoringOption(undefined), SUGGESTION_SCORING);
 eq("a recording with no stamp replays with the rule off", suggestionScoringOption(null), 0);
 for (const off of ["off", "0", "false", "no", "none", ""]) eq(`"${off}" switches it off`, suggestionScoringOption(off), 0);
 eq("a version pins that version", suggestionScoringOption(3), 3);
 eq("a stamp read from JSON as a string pins it too", suggestionScoringOption("3"), 3);
+eq("and version 4 pins version 4", suggestionScoringOption(4), 4);
+
+// ------------------------------- 3. V512: a swap is scored against what it replaces
+//
+// `outgoing_value_v512.py`. On the owner's six slots the list said "remove Indeedee-F" on 13 of
+// the 14 shown rows, because nothing in the ranking could see that Indeedee-F is the team's only
+// Follow Me and its only Psychic Terrain while Mega Malamar's Trick Room is one of four. Every
+// number below is derived by hand from the same two tables the app derives them from, so the two
+// implementations are read off one spec rather than off each other.
+
+{
+  const {
+    UNPRICED_REQUIREMENT_LABELS, buildCensus, freeSwapTarget,
+    outgoingRoleCost, pricedRolesFor, roleSentence, roleTokens, rolePhrase, skippedRoles, outgoingVerdictLine,
+  } = suggest;
+  const profile = (utility = [], terrain = [], weather = [], name = "", pokemon = "", moves = []) => (
+    { utility: new Set(utility), terrain_set: new Set(terrain), weather_set: new Set(weather), name, pokemon, moves });
+  // The owner's six, with the groups read off _SIMPLE_UTILITY_GROUPS_V187 and the terrain off
+  // _SIMPLE_TERRAIN_SETTERS_V187 (which folds the Ability in, so Psychic Surge counts).
+  const OWNER = [
+    profile(["Speed Control"], [], [], "Malamar-Mega", "Malamar", ["Superpower", "Protect", "Knock Off", "Trick Room"]),
+    profile(["Redirection", "Damage Support", "Speed Control"], ["psychic"], [], "Indeedee-F", "Indeedee", ["Follow Me", "Trick Room", "Helping Hand", "Psychic"]),
+    profile(["Speed Control"], [], [], "Milotic", "Milotic", ["Protect", "Scald", "Ice Beam", "Icy Wind"]),
+    profile([], [], [], "Sylveon", "Sylveon", ["Hyper Voice", "Hyper Beam", "Quick Attack", "Detect"]),
+    profile(["Damage Support", "Speed Control"], [], [], "Farigiraf", "Farigiraf", ["Trick Room", "Helping Hand", "Psychic", "Thunderbolt"]),
+    profile(["Fake Out", "Pivoting"], ["grassy"], [], "Rillaboom", "Rillaboom", ["Grassy Glide", "Fake Out", "Wood Hammer", "U-turn"]),
+  ];
+  const LABELS = OWNER.map((p) => p.name);
+  // The Trick Room requirement list, exactly as `_v403_archetype_requirements` builds it.
+  const TR_REQUIREMENTS = [
+    { label: "Trick Room setters", current: 3, target: 2, critical: true },
+    { label: "Slow attackers", current: 6, target: 3 },
+    { label: "Protect users", current: 3, target: 4 },
+    { label: "Spread attackers", current: 2, target: 1 },
+    { label: "Priority users", current: 2, target: 1 },
+  ];
+  const census = buildCensus(OWNER, "trick room", TR_REQUIREMENTS);
+
+  // ---- the census -----------------------------------------------------------------
+  eq("the reopened roles are the six the team covers and the archetype does not price",
+    census.roles, ["Damage Support", "Fake Out", "Pivoting", "Redirection", "grassy terrain", "psychic terrain"]);
+  eq("Speed Control is never reopened - v511's own speed terms price it three times over",
+    census.roles.includes("Speed Control"), false);
+  eq("and who provides each of them is an index list, never a name",
+    census.providers, { "Damage Support": [1, 4], "Fake Out": [5], Pivoting: [5], Redirection: [1], "grassy terrain": [5], "psychic terrain": [1] });
+  near("the archetype's own requirement budget", census.plain_total, 6.4);
+  near("what reopening costs on top of it (Redirection weighs 2.4)", census.reopened, 7.4);
+  near("so a whole role is 52 / 13.8 points", census.denominator, 13.8);
+
+  // ---- the term -------------------------------------------------------------------
+  const cost = (slot, held = []) => outgoingRoleCost(census, slot, new Set(held));
+  near("replacing Indeedee-F gives up Follow Me and Psychic Terrain", cost(1)[0], -12.811594202898551, 1e-9);
+  eq("and the ledger says -12.8", r1(cost(1)[0]), -12.8);
+  eq("the roles are named in table order", cost(1)[1], ["Redirection", "psychic terrain"]);
+  near("replacing Rillaboom gives up Fake Out, pivoting and Grassy Terrain", cost(5)[0], -11.304347826086957, 1e-9);
+  eq("and the ledger says -11.3", r1(cost(5)[0]), -11.3);
+  for (const [slot, name] of [[0, "Mega Malamar"], [2, "Milotic"], [3, "Sylveon"], [4, "Farigiraf"]]) {
+    eq(`${name} is the sole provider of nothing, so its slot is free`, cost(slot)[0], 0);
+    eq(`and no ledger line is written for ${name}`, cost(slot)[1], []);
+  }
+  eq("Damage Support has two providers, so neither is charged for it",
+    cost(4)[1].includes("Damage Support") || cost(1)[1].includes("Damage Support"), false);
+
+  // ---- the refund ------------------------------------------------------------------
+  eq("a candidate carrying Rage Powder keeps redirection closed", r1(cost(1, ["Redirection"])[0]), -3.8);
+  eq("Indeedee-M refunds both, so its Indeedee-F row costs nothing", cost(1, ["Redirection", "psychic terrain"])[0], 0);
+  near("a candidate carrying neither pays the whole term", cost(1, ["Healing"])[0], -12.811594202898551, 1e-9);
+
+  // ---- sign, clamp, determinism ----------------------------------------------------
+  ok("no input can make the term positive", [0, 1, 2, 3, 4, 5].every((slot) => cost(slot)[0] <= 0));
+  {
+    // Sixteen roles on one slot against a two-requirement archetype: the clamp bites.
+    const rich = [profile(["Fake Out", "Redirection", "Setup Denial", "Spread Defense", "Damage Support", "Pivoting", "Healing", "Screens", "Status"],
+      ["electric", "grassy", "psychic", "misty"], ["rain", "sun", "sand"], "Hog", "Hog"), profile([], [], [], "Other", "Other")];
+    const tiny = buildCensus(rich, "balanced", [{ label: "Bulky members", current: 1, target: 2 }]);
+    ok("a slot that provides everything clamps at the coverage span", outgoingRoleCost(tiny, 0, new Set())[0] === -30,
+      String(outgoingRoleCost(tiny, 0, new Set())[0]));
+  }
+  {
+    // The token-order parity vector: all four terrains and all four weathers, one sorted list.
+    const all = [profile([], ["electric", "grassy", "misty", "psychic"], ["rain", "sand", "snow", "sun"], "A", "A"), profile([], [], [], "B", "B")];
+    eq("every terrain and weather token sorts one way on both sides",
+      buildCensus(all, "balanced", [{ label: "Bulky members", current: 1, target: 2 }]).roles,
+      ["electric terrain", "grassy terrain", "misty terrain", "psychic terrain",
+        "rain weather", "sand weather", "snow weather", "sun weather"]);
+  }
+
+  // ---- the skip table, over every archetype ----------------------------------------
+  //
+  // THE ANTI-DOUBLE-PAY GUARD. Every label `_v403_archetype_requirements` can produce must be
+  // classified: either it names roles it already prices (and they are skipped) or it is listed
+  // as pricing none. An unclassified label fails here rather than silently charging twice.
+  {
+    const ALL_LABELS = [
+      "Physical attackers", "Special attackers", "Speed-control users", "Utility providers",
+      "Protect / positioning users", "Bulky members", "Immediate attackers", "Spread attackers",
+      "Fast attackers", "Priority users", "Positioning users", "Attackers", "Protect users",
+      "Recovery / pivot users", "Mixed damage modes", "Recovery users", "Disruption users",
+      "Speed / board control", "Physical damage", "Special damage", "Utility categories",
+      "Trick Room setters", "Slow attackers", "Tailwind setters", "Distinct screens",
+      "Screen providers", "Light Clay users", "Setup users", "Redirection / Fake Out",
+      "Terrain setters", "Terrain beneficiaries", "Conflicting terrains", "Perish Song users",
+      "Trapping sources", "Sustain / pivot users", "Protect / positioning", "Redirection users",
+      "Rain setters", "Rain beneficiaries", "Rain ability users", "Competing weather setters",
+      "Sun setters", "Sun beneficiaries", "Sun ability users",
+      "Sand setters", "Sand beneficiaries", "Sand ability users",
+      "Snow setters", "Snow beneficiaries", "Snow ability users",
+    ];
+    const classified = (label) => pricedRolesFor(label).length > 0
+      || UNPRICED_REQUIREMENT_LABELS.includes(label.trim().toLowerCase());
+    const unknown = ALL_LABELS.filter((label) => !classified(label));
+    eq("every archetype requirement label is classified as pricing some role or none", unknown, []);
+    // And the four the term must never reopen, spelled out.
+    ok("a setup team does not pay twice for Redirection or Fake Out",
+      ["Redirection", "Fake Out"].every((r) => skippedRoles([{ label: "Redirection / Fake Out" }]).has(r)));
+    ok("a screens team does not pay twice for screens", skippedRoles([{ label: "Distinct screens" }]).has("Screens"));
+    ok("a terrain team does not pay twice for its terrain",
+      TERRAIN_ROLES.every((r) => skippedRoles([{ label: "Terrain setters" }]).has(r)));
+    ok("a weather team does not pay twice for any weather",
+      WEATHER_ROLES.every((r) => skippedRoles([{ label: "Competing weather setters" }]).has(r)));
+    ok("a perish trap team does not pay twice for redirection (V494's own requirement)",
+      skippedRoles([{ label: "Redirection users" }]).has("Redirection"));
+  }
+
+  // ---- the sentence the reader gets -------------------------------------------------
+  eq("two roles read as one sentence naming both",
+    roleSentence(cost(1)[1], "Indeedee-F", "Arcanine-Hisui", OWNER[1]),
+    "Indeedee-F is the team's only Follow Me redirection and its only Psychic Terrain, and Arcanine-Hisui replaces neither.");
+  eq("three or more read as a list", roleSentence(cost(5)[1], "Rillaboom", "Ursaluna", OWNER[5]),
+    "Rillaboom is the only source of Fake Out, pivoting and Grassy Terrain on this team, and Ursaluna replaces none of it.");
+  eq("one role reads as one clause", roleSentence(["Fake Out"], "Rillaboom", "Ursaluna", OWNER[5]),
+    "Rillaboom is the team's only Fake Out, and Ursaluna does not replace it.");
+  eq("nothing lost says nothing at all", roleSentence([], "Sylveon", "Ursaluna", OWNER[3]), "");
+  eq("the sentence names the redirection move the Pokemon actually carries",
+    rolePhrase("Redirection", profile([], [], [], "", "", ["Rage Powder"])), "Rage Powder redirection");
+  eq("and never an internal token", rolePhrase("psychic terrain"), "Psychic Terrain");
+  eq("the line above the ledger names the slot that starts level",
+    outgoingVerdictLine(cost(1)[1], "Indeedee-F", cost(1)[0], freeSwapTarget(census, 1, LABELS)),
+    "Scored against the Pokemon it replaces: Indeedee-F is the only member that does those jobs, "
+    + "so this swap starts 12.8 points behind -- replacing Malamar-Mega starts level.");
+  eq("and says nothing where nothing was charged", outgoingVerdictLine([], "Sylveon", 0, ""), "");
+
+  // ---- A WEAK POKEMON MUST STILL BE REPLACEABLE -------------------------------------
+  eq("four of the owner's six slots stay completely free",
+    [0, 2, 3, 4].filter((slot) => cost(slot)[0] === 0).length, 4);
+  {
+    // Six disjoint specialists, each the sole provider of exactly one plain-weight role: the
+    // term must charge them all the same, so it changes no ordering and freezes nothing.
+    const roles = ["Fake Out", "Healing", "Pivoting", "Screens", "Setup Denial", "Status"];
+    const six = roles.map((role, i) => profile([role], [], [], `P${i}`, `P${i}`));
+    const even = buildCensus(six, "balanced", [{ label: "Bulky members", current: 1, target: 2 }]);
+    const terms = six.map((_, slot) => outgoingRoleCost(even, slot, new Set())[0]);
+    ok("a team of six specialists is charged evenly, so nothing is frozen",
+      Math.max(...terms) - Math.min(...terms) < 1e-9, terms.join(", "));
+  }
+}
 
 // ------------------------------------------------- 4. the ratio the complaint was about
 
@@ -432,6 +590,9 @@ if (quick) {
   // before version 3 the coverage layer paid every carrier +14.75 for closing it on top of
   // the damped speed plan, and the whole list was carriers tied at one number.
   const ONE_SETTER = [OWNER_TEAM[1], OWNER_TEAM[2], OWNER_TEAM[3], OWNER_TEAM[5]];
+  // And the same shape with two setters, so "no regression on an open-slot team" is measured on
+  // both sides of the damping table's 1 / 2+ boundary.
+  const TWO_SETTERS = [OWNER_TEAM[0], OWNER_TEAM[1], OWNER_TEAM[2], OWNER_TEAM[3]];
   const sets = Array.from({ length: 6 }, (_, i) => (TEAM[i] ? makeSet(TEAM[i]) : null));
 
   const evaluationFor = () => {
@@ -467,6 +628,27 @@ if (quick) {
    * re-rank. This is the only way to measure a full six-slot team, where a suggestion is a
    * swap rather than a fill.
    */
+  /** A TeamSuggestions at one scoring version, on this suite's evaluation. */
+  const sgFor = (scoring) => new TeamSuggestions(evaluationFor(), { suggestionScoring: scoring });
+  const outgoingRoleCostFor = (census, slot) => suggest.outgoingRoleCost(census, slot, new Set())[0];
+  /** The value that occurs most often in a list. */
+  const mode = (values) => [...values.reduce((m, v) => m.set(v, (m.get(v) || 0) + 1), new Map())]
+    .sort((a, b) => b[1] - a[1])[0]?.[0] ?? "";
+  /** The same team through a Singles evaluator: the term must reopen nothing there. */
+  function singlesReopensAnything(team) {
+    const ev = new TeamEvaluator(null, new DamageEngine(appData), "Singles", normalizeSettings({ ...DEFAULT_SETTINGS }, ranked));
+    ev.setMetaRecords(meta.pokemon || []);
+    const evaluation = new TeamEvaluation(ev);
+    evaluation.knownTeams = known;
+    const payload = evaluation.evaluate(Array.from({ length: 6 }, (_, i) => makeSet(team[i])), { checkSelection: null });
+    const sg = new TeamSuggestions(evaluation, { suggestionScoring: 4 });
+    const slots = (payload.slots || []).map(({ entry, mon }) => ({ entry: { ...entry, form: mon.form_name || entry.form, ability: mon.ability || entry.ability }, mon }));
+    const row = { action_kind: "swap", swap_target: "Indeedee-F", name: "Zapdos", _candidate_profile: null,
+      _before_check_rows: payload.checks?.rows || [] };
+    const [term] = sg.outgoingValue(row, { teamSlots: slots, teamEntries: slots.map(({ entry }) => entry) }, "trick room");
+    return term !== 0;
+  }
+
   function shownRows(team, scoring) {
     const evaluation = evaluationFor();
     const payload = evaluation.evaluate(Array.from({ length: 6 }, (_, i) => (team[i] ? makeSet(team[i]) : null)), { checkSelection: null });
@@ -535,6 +717,81 @@ if (quick) {
       ok(`${label}: no shown Pokémon answers none of the eight worst threats`,
         scored.rows.every((row) => (row.threat_answers_v511 || []).length > 0),
         scored.rows.filter((r) => !(r.threat_answers_v511 || []).length).map((r) => r.name).join(", "));
+    }
+  }
+
+  // ---- 5c. V512: which slot the list offers, measured ------------------------------
+  //
+  // The complaint was not that the suggestions were bad Pokemon - it was that they all said
+  // "remove Indeedee-F". Two things caused that and both are checked here on the real pool:
+  // the resolver sent every target to the last slot, and nothing priced what a slot alone gives
+  // the team.
+  {
+    const evaluation = evaluationFor();
+    const payload = evaluation.evaluate(Array.from({ length: 6 }, (_, i) => makeSet(OWNER_TEAM[i])), { checkSelection: null });
+    const slots = (payload.slots || []).map(({ entry, mon }) => ({ entry: { ...entry, form: mon.form_name || entry.form, ability: mon.ability || entry.ability }, mon }));
+    const entries = slots.map(({ entry }) => entry);
+    const names = slots.map(({ entry, mon }) => sgFor(4).name(mon.form_name || entry.form || entry.pokemon));
+    const resolve = (scoring) => names.map((name) => sgFor(scoring).entryIndexForSwap(entries, name));
+
+    notes.push(`  the six slots offer: ${names.join(", ")}`);
+    notes.push(`  entryIndexForSwap  v4: ${resolve(4).join(", ")}   v3: ${resolve(3).join(", ")}`);
+    eq("V512: every swap target resolves to its own slot", resolve(4), [0, 1, 2, 3, 4, 5]);
+    eq("V512: at version 3 the Showdown-named targets still fall through to the last slot",
+      resolve(3), [5, 5, 2, 3, 4, 5]);
+    eq("V512: an unknown label still answers the last slot, at either version",
+      [3, 4].map((v) => sgFor(v).entryIndexForSwap(entries, "Zapdos")), [5, 5]);
+
+    // The census the term prices, built from the real profiles rather than a fixture.
+    const sg = sgFor(4);
+    const before = sg.archetypeRow(payload.checks?.rows || []);
+    const liveCensus = sg.censusFor(slots, "trick room", before?.archetype_requirements_v403 || []);
+    notes.push(`  reopened roles: ${liveCensus.roles.join(", ")} | denominator ${liveCensus.denominator}`);
+    notes.push(`  per-slot price: ${names.map((n, i) => `${n} ${r1(outgoingRoleCostFor(liveCensus, i))}`).join(", ")}`);
+    eq("V512: the real profiles give the census the unit test asserts",
+      liveCensus.roles, ["Damage Support", "Fake Out", "Pivoting", "Redirection", "grassy terrain", "psychic terrain"]);
+    near("V512: and the same denominator", liveCensus.denominator, 13.8);
+    eq("V512: and the same per-slot prices",
+      names.map((_n, i) => r1(outgoingRoleCostFor(liveCensus, i))), [0, -12.8, 0, 0, 0, -11.3]);
+    eq("V512: Doubles only - a Singles evaluator reopens nothing",
+      singlesReopensAnything(OWNER_TEAM), false);
+
+    // What the reader actually sees.
+    const plain = shownRows(OWNER_TEAM, 3);
+    const scored = shownRows(OWNER_TEAM, 4);
+    const targetsOf = (rows) => rows.map((row) => String(row.swap_target || ""));
+    const count = (rows, name) => targetsOf(rows).filter((t) => t === name).length;
+    notes.push(`  shown rows' targets, v3: ${targetsOf(plain.rows).join(", ")}`);
+    notes.push(`  shown rows' targets, v4: ${targetsOf(scored.rows).join(", ")}`);
+    ok("V512: version 3 offered one slot over and over", count(plain.rows, "Indeedee-F") >= plain.rows.length - 2,
+      `${count(plain.rows, "Indeedee-F")}/${plain.rows.length}`);
+    ok("V512: version 4 rarely offers the only redirector", count(scored.rows, "Indeedee-F") <= 2,
+      `${count(scored.rows, "Indeedee-F")}/${scored.rows.length}: ${scored.rows.filter((r) => r.swap_target === "Indeedee-F").map((r) => r.name).join(", ")}`);
+    // The term is a price, not a veto: a candidate good enough at that slot may still pay it
+    // and win there. What must never happen is offering the slot without charging for it.
+    ok("V512: a row that still offers the only redirector was charged for it",
+      scored.rows.filter((r) => r.swap_target === "Indeedee-F")
+        .every((r) => Number(r.outgoing_role_cost_v512) < 0 && (r.outgoing_roles_lost_v512 || []).length),
+      scored.rows.filter((r) => r.swap_target === "Indeedee-F").map((r) => `${r.name} ${r.outgoing_role_cost_v512} ${JSON.stringify(r.outgoing_roles_lost_v512)}`).join("; "));
+    ok("V512: the slot the list now offers most is one that is the sole source of nothing",
+      r1(outgoingRoleCostFor(liveCensus, names.indexOf(mode(targetsOf(scored.rows))))) === 0,
+      `${mode(targetsOf(scored.rows))} costs ${r1(outgoingRoleCostFor(liveCensus, names.indexOf(mode(targetsOf(scored.rows)))))}`);
+    ok("V512: and more than one slot is offered at all", new Set(targetsOf(scored.rows)).size >= 2, targetsOf(scored.rows).join(", "));
+    ok("V512: every charged row says in one sentence what it charged for",
+      scored.rows.filter((r) => r.outgoing_role_cost_v512)
+        .every((r) => (r.score_ledger || []).some((p) => p.key === "outgoing_roles_v512" && String(p.detail || "").includes("only"))));
+
+    // NO REGRESSION, measured rather than argued: with one slot open every suggestion is an
+    // `add`, so both the resolver and the term are structurally inert and the whole scored row
+    // set must be identical at version 4 and version 3.
+    for (const [label, team] of [["one setter, one open slot", ONE_SETTER], ["two setters, one open slot", TWO_SETTERS]]) {
+      const four = shownRows(team, 4);
+      const three = shownRows(team, 3);
+      eq(`V512: ${label} - the slot is filled, not swapped`, [four.empty_slot !== null, four.targets], [true, [""]]);
+      ok(`V512: ${label} - no row is a swap`, four.rows.every((r) => r.action_kind === "add"));
+      ok(`V512: ${label} - no row carries the term`, four.rows.every((r) => r.outgoing_role_cost_v512 === undefined));
+      eq(`V512: ${label} - version 4 and version 3 score it identically`,
+        four.rows.map((r) => `${r.name} ${r.score}`), three.rows.map((r) => `${r.name} ${r.score}`));
     }
   }
 

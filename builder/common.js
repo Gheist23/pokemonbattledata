@@ -177,13 +177,21 @@ export class BuilderData {
     return text;
   }
 
+  /** Index one already-read meta payload, so a caller that fetched the file
+   *  itself gets the same `meta` / `metaByUsage` the pages build.  The Discord
+   *  bot reads the site's files through env.ASSETS inside a Cloudflare Function,
+   *  where `loadMeta`'s root-relative fetch has no base URL to resolve against
+   *  (functions/api/discord/_damage.js), so it calls this instead.  One copy of
+   *  the indexing rule, whichever way the payload arrived. */
+  ingestMeta(format, payload) {
+    this.meta[format] = payload;
+    this.metaByUsage[format] = new Map(payload.pokemon.map((row) => [compact(row.name), row]));
+    return payload;
+  }
+
   async loadMeta(format) {
     const key = format === "Singles" ? "singles" : "doubles";
-    if (!this.meta[format]) {
-      const payload = await fetchJson(`/data/builder/meta-${key}.json`);
-      this.meta[format] = payload;
-      this.metaByUsage[format] = new Map(payload.pokemon.map((row) => [compact(row.name), row]));
-    }
+    if (!this.meta[format]) this.ingestMeta(format, await fetchJson(`/data/builder/meta-${key}.json`));
     return this.meta[format];
   }
 
@@ -500,7 +508,10 @@ export function setToShowdown(set, data) {
   return lines.join("\n");
 }
 
-const STAT_ALIASES = { hp: 0, atk: 1, attack: 1, def: 2, defense: 2, spa: 3, spatk: 3, "sp.atk": 3, spd: 4, spdef: 4, "sp.def": 4, spe: 5, speed: 5 };
+/** Stat words a person may type or paste, to the index they mean. Exported so
+ *  the Discord bot's /damage free text reads the same spellings this file's
+ *  Showdown parser does (functions/api/discord/_damage.js). */
+export const STAT_ALIASES = { hp: 0, atk: 1, attack: 1, def: 2, defense: 2, spa: 3, spatk: 3, "sp.atk": 3, spd: 4, spdef: 4, "sp.def": 4, spe: 5, speed: 5 };
 
 /** Parse a Showdown paste into sets (the format the Companion's import reads). */
 export function parseShowdown(text, data) {

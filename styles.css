@@ -1249,6 +1249,13 @@ body { animation: page-fade-in 180ms ease-out both; }
 .discord-button:hover,
 .discord-button:focus-visible { transform: translateY(-1px); filter: brightness(1.05); box-shadow: 0 16px 38px rgba(88, 101, 242, 0.24); }
 .discord-button-large { width: 100%; min-height: 42px; margin-top: 0.3rem; }
+.discord-button-secondary {
+  background: rgba(88, 101, 242, 0.12);
+  border-color: rgba(133, 167, 255, 0.34);
+  box-shadow: none;
+}
+.discord-button-secondary:hover,
+.discord-button-secondary:focus-visible { box-shadow: 0 12px 30px rgba(88, 101, 242, 0.18); }
 .endpoint-grid { max-width: 1080px; }
 .endpoint-card { overflow: hidden; }
 .endpoint-card pre { max-width: 100%; }
@@ -8984,6 +8991,9 @@ body.page-api::before {
 .companion-cta-actions .ghost-button {
   width: auto;
 }
+
+/* The pill has no padding of its own, so the label ran edge to edge. */
+.companion-cta-actions .primary-button { padding: 0 1.5rem; }
 
 @media (max-width: 620px) {
   .companion-cta-actions,

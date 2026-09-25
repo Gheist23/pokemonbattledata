@@ -632,7 +632,8 @@ check("a Pokemon with no usage rows still gets a profile link",
 for (const name of COMMAND_NAMES) {
   const payload = await reply(name, [
     { name: "pokemon", value: "Garchomp" }, { name: "first", value: "Garchomp" },
-    { name: "second", value: "Rillaboom" }, { name: "type", value: "Ice" }
+    { name: "second", value: "Rillaboom" }, { name: "type", value: "Ice" },
+    { name: "attacker", value: "Garchomp" }, { name: "defender", value: "Rillaboom" }
   ]);
   const problems = embedProblems(payload, `/${name}`);
   check(`/${name} reply fits Discord's limits`, !problems.length, problems.join("; "));
@@ -864,12 +865,92 @@ check("the registration script has no token-shaped literal in it",
   !/["'][A-Za-z0-9_-]{24,}\.[A-Za-z0-9_-]{6,}\.[A-Za-z0-9_-]{27,}["']/.test(registerSource));
 check("the registration script never prints the token", !/console\.(log|error)\([^)]*token[^)]*\)/i.test(registerSource.replace(/<token>/g, "")));
 
-const botSources = ["_verify.js", "_data.js", "_render.js", "_commands.js", "interactions.js"]
+const botSources = ["_verify.js", "_data.js", "_render.js", "_commands.js", "_damage.js", "interactions.js"]
   .map((name) => readFileSync(join(root, "functions", "api", "discord", name), "utf8"));
 check("no bot source hard-codes a Discord credential",
   !botSources.some((source) => /DISCORD_(PUBLIC_KEY|BOT_TOKEN|APP_ID)\s*=\s*["'][^"']+["']/.test(source)));
 check("the endpoint never sends a bot token to Discord",
   !botSources.some((source) => /Authorization/i.test(source)));
+
+// --------------------------------------- the registrar and the router agree
+
+// _commands.js is one list used twice: tools/register-discord-commands.mjs PUTs
+// it to Discord and interactions.js routes against it. A command that exists in
+// one and not the other would either be invokable with nothing to answer it, or
+// answerable and never registered -- so the two directions are both checked.
+const routerSource = readFileSync(join(root, "functions", "api", "discord", "interactions.js"), "utf8");
+const handlerBlock = routerSource.split("const HANDLERS = {")[1]?.split("\n};")[0] || "";
+const handlerNames = [...handlerBlock.matchAll(/^ {2}(?:async )?([a-z_][a-z0-9_]*)\(/gm)].map((match) => match[1]);
+check("the router has a handler for every defined command",
+  COMMAND_NAMES.every((name) => handlerNames.includes(name)),
+  COMMAND_NAMES.filter((name) => !handlerNames.includes(name)).join(", "));
+check("the router has no handler for a command that is not defined",
+  handlerNames.every((name) => COMMAND_NAMES.includes(name)),
+  handlerNames.filter((name) => !COMMAND_NAMES.includes(name)).join(", "));
+check("the registrar sends the shared list and defines none of its own",
+  /import \{ COMMANDS \} from "\.\.\/functions\/api\/discord\/_commands\.js"/.test(registerSource)
+  && /call\("PUT", COMMANDS\)/.test(registerSource)
+  && !/const COMMANDS\s*=/.test(registerSource));
+
+// Discord's own rules for a command, so a bad definition fails here and not in
+// the registrar -- which the lead runs by hand, once, against the live bot.
+const seenNames = new Set();
+for (const definition of COMMANDS) {
+  const where = `/${definition.name}`;
+  check(`${where} has a Discord-legal name`, /^[a-z][a-z0-9_-]{0,31}$/.test(definition.name), definition.name);
+  check(`${where} is defined once`, !seenNames.has(definition.name));
+  seenNames.add(definition.name);
+  check(`${where} description fits 100 characters`, definition.description.length <= 100, String(definition.description.length));
+  const options = definition.options || [];
+  check(`${where} has at most 25 options`, options.length <= 25, String(options.length));
+  let optional = false;
+  const optionNames = new Set();
+  for (const option of options) {
+    check(`${where} ${option.name} has a legal name`, /^[a-z][a-z0-9_-]{0,31}$/.test(option.name), option.name);
+    check(`${where} ${option.name} appears once`, !optionNames.has(option.name));
+    optionNames.add(option.name);
+    check(`${where} ${option.name} description fits 100 characters`, option.description.length <= 100, String(option.description.length));
+    // Discord refuses a required option after an optional one.
+    if (option.required) check(`${where} ${option.name} comes before the optional options`, !optional);
+    else optional = true;
+    if (option.choices) check(`${where} ${option.name} has at most 25 choices`, option.choices.length <= 25);
+    check(`${where} ${option.name} is not both a choice list and autocompleting`, !(option.choices && option.autocomplete));
+  }
+}
+
+// ------------------------------------------------------------ /damage routing
+
+const damageRouted = await routed("damage", [{ name: "attacker", value: "Garchomp" }, { name: "defender", value: "Rillaboom" }]);
+check("/damage defers before it calculates", damageRouted.response.type === RESPONSE_DEFERRED && Boolean(damageRouted.work));
+const damagePayload = await damageRouted.work();
+check("/damage answers with one embed", (damagePayload.embeds || []).length === 1);
+check("/damage names both Pokemon in the title", /Garchomp.*Rillaboom/.test(damagePayload.embeds[0].title || ""), damagePayload.embeds[0].title);
+check("/damage says the set it used came from the usage data", /most used Doubles set/.test(damagePayload.embeds[0].description || ""), damagePayload.embeds[0].description);
+check("/damage links into the calculator with both names",
+  (damagePayload.components?.[0]?.components || []).some((button) => /damage-calculator\/\?attacker=Garchomp&defender=Rillaboom&format=Doubles/.test(button.url)));
+
+// The move box has to complete from the attacker's own used moves, not from the
+// whole move table: that is one line in completeOption and the entire quality of
+// the box, so it is checked through the router.
+const damageMoves = await routeInteraction(
+  { type: 4, data: { name: "damage", options: [{ name: "attacker", value: "Garchomp" }, { name: "move", value: "", focused: true }] } },
+  { data: siteData(fixtureEnv()), origin: ORIGIN }
+);
+const damageChoices = damageMoves.response.data.choices.map((choice) => choice.value);
+check("the /damage move box completes from the attacker's used moves",
+  damageChoices.length > 0 && damageChoices.every((name) => FIXTURES["data/builder/meta-doubles.json"].pokemon[0].moves.some(([move]) => move === name)),
+  damageChoices.join(", "));
+const damageNames = await routeInteraction(
+  { type: 4, data: { name: "damage", options: [{ name: "attacker", value: "garch", focused: true }] } },
+  { data: siteData(fixtureEnv()), origin: ORIGIN }
+);
+check("the /damage attacker box completes Pokemon names",
+  damageNames.response.data.choices.some((choice) => choice.value === "Garchomp"));
+
+// The reply cache key must not be confusable by free text, which /damage takes.
+check("a pipe in free text cannot fake a second option",
+  replyKey("damage", [{ name: "field", value: "reflect|crit=true" }], "Doubles")
+  !== replyKey("damage", [{ name: "field", value: "reflect" }, { name: "crit", value: "true" }], "Doubles"));
 
 console.log(`${checked} checked, ${failures.length} failed.`);
 for (const failure of failures) console.log(`  FAIL ${failure}`);

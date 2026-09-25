@@ -1,0 +1,2130 @@
+{
+ "context": {
+  "damaging_move_counts": {
+   "Bug": 1,
+   "Dark": 3,
+   "Dragon": 3,
+   "Electric": 2,
+   "Fairy": 3,
+   "Fighting": 4,
+   "Fire": 6,
+   "Flying": 2,
+   "Ghost": 2,
+   "Grass": 4,
+   "Ground": 4,
+   "Ice": 1,
+   "Normal": 9,
+   "Poison": 1,
+   "Psychic": 6,
+   "Rock": 4,
+   "Steel": 7,
+   "Water": 3
+  },
+  "damaging_move_total": 65,
+  "speed_band": [
+   70.0,
+   167.0
+  ],
+  "top_x": 30,
+  "type_weights": {
+   "Bug": 0.27692307692307694,
+   "Dark": 0.8307692307692307,
+   "Dragon": 0.8307692307692307,
+   "Electric": 0.5538461538461539,
+   "Fairy": 0.8307692307692307,
+   "Fighting": 1.1076923076923078,
+   "Fire": 1.6615384615384614,
+   "Flying": 0.5538461538461539,
+   "Ghost": 0.5538461538461539,
+   "Grass": 1.1076923076923078,
+   "Ground": 1.1076923076923078,
+   "Ice": 0.27692307692307694,
+   "Normal": 2.4923076923076923,
+   "Poison": 0.27692307692307694,
+   "Psychic": 1.6615384615384614,
+   "Rock": 1.1076923076923078,
+   "Steel": 1.9384615384615385,
+   "Water": 0.8307692307692307
+  }
+ },
+ "expect": {
+  "cluster": {
+   "coverage_gaps": {
+    "check_id": "coverage_gaps",
+    "extra": {
+     "best_added_types_v514": [
+      {
+       "covers": 1,
+       "type": "Ground"
+      }
+     ],
+     "coverage_attacking_types_v514": [
+      "Normal",
+      "Fire",
+      "Grass",
+      "Fighting",
+      "Flying",
+      "Bug",
+      "Rock",
+      "Ghost",
+      "Steel",
+      "Fairy"
+     ],
+     "coverage_bars_v514": {
+      "red": 8,
+      "yellow": 5
+     },
+     "coverage_gap_count_v514": 1,
+     "coverage_resisted_count_v514": 0,
+     "coverage_rows_v514": [
+      {
+       "best_multiplier": 1.0,
+       "name": "Raichu",
+       "types": [
+        "Electric"
+       ]
+      }
+     ],
+     "coverage_top_x_v514": 30
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "only 1 of the Top 30 lacks a super-effective answer, which is a normal amount to live with",
+    "threshold": "Good = fewer than 5 of the Top 30 without a super-effective answer.",
+    "why": "The team can bring super-effective damage to almost everything it will meet."
+   },
+   "defensive_switch_ins": {
+    "check_id": "defensive_switch_ins",
+    "extra": {
+     "exposed": [
+      {
+       "exposure": 3.8769230769230774,
+       "immunities": 0,
+       "meta_weight": 1.1076923076923078,
+       "severity": "yellow",
+       "switch_ins": 1,
+       "type": "Rock",
+       "weak": 4
+      },
+      {
+       "exposure": 3.323076923076923,
+       "immunities": 0,
+       "meta_weight": 0.8307692307692307,
+       "severity": "yellow",
+       "switch_ins": 0,
+       "type": "Water",
+       "weak": 4
+      }
+     ],
+     "immune_counts": {
+      "Bug": 0,
+      "Dark": 0,
+      "Dragon": 1,
+      "Electric": 0,
+      "Fairy": 0,
+      "Fighting": 1,
+      "Fire": 0,
+      "Flying": 0,
+      "Ghost": 0,
+      "Grass": 0,
+      "Ground": 1,
+      "Ice": 0,
+      "Normal": 1,
+      "Poison": 1,
+      "Psychic": 0,
+      "Rock": 0,
+      "Steel": 0,
+      "Water": 0
+     },
+     "meta_type_weights_v514": {
+      "Bug": 0.27692307692307694,
+      "Dark": 0.8307692307692307,
+      "Dragon": 0.8307692307692307,
+      "Electric": 0.5538461538461539,
+      "Fairy": 0.8307692307692307,
+      "Fighting": 1.1076923076923078,
+      "Fire": 1.6615384615384614,
+      "Flying": 0.5538461538461539,
+      "Ghost": 0.5538461538461539,
+      "Grass": 1.1076923076923078,
+      "Ground": 1.1076923076923078,
+      "Ice": 0.27692307692307694,
+      "Normal": 2.4923076923076923,
+      "Poison": 0.27692307692307694,
+      "Psychic": 1.6615384615384614,
+      "Rock": 1.1076923076923078,
+      "Steel": 1.9384615384615385,
+      "Water": 0.8307692307692307
+     },
+     "resist_counts": {
+      "Bug": 6,
+      "Dark": 1,
+      "Dragon": 2,
+      "Electric": 0,
+      "Fairy": 5,
+      "Fighting": 4,
+      "Fire": 3,
+      "Flying": 2,
+      "Ghost": 0,
+      "Grass": 4,
+      "Ground": 1,
+      "Ice": 4,
+      "Normal": 2,
+      "Poison": 2,
+      "Psychic": 1,
+      "Rock": 1,
+      "Steel": 4,
+      "Water": 0
+     },
+     "severe": [],
+     "type_rows_v251": [
+      {
+       "exposure": 3.8769230769230774,
+       "immunities": 0,
+       "meta_weight": 1.1076923076923078,
+       "severity": "yellow",
+       "switch_ins": 1,
+       "type": "Rock",
+       "weak": 4
+      },
+      {
+       "exposure": 3.323076923076923,
+       "immunities": 0,
+       "meta_weight": 0.8307692307692307,
+       "severity": "yellow",
+       "switch_ins": 0,
+       "type": "Water",
+       "weak": 4
+      }
+     ],
+     "weak_counts": {
+      "Bug": 0,
+      "Dark": 1,
+      "Dragon": 0,
+      "Electric": 1,
+      "Fairy": 0,
+      "Fighting": 1,
+      "Fire": 1,
+      "Flying": 1,
+      "Ghost": 1,
+      "Grass": 0,
+      "Ground": 3,
+      "Ice": 0,
+      "Normal": 0,
+      "Poison": 1,
+      "Psychic": 0,
+      "Rock": 4,
+      "Steel": 1,
+      "Water": 4
+     }
+    },
+    "fix": "add a Rock resist or immunity, or replace one of the 4 that share the weakness",
+    "pressure": 2.6,
+    "severity": "yellow",
+    "summary": "four of your six lose to Rock, which the Top 30 attacks with 1.11 times the average rate, and the same is true of Water",
+    "threshold": "Needs attention = 3 or more members weak to one type, and that type's meta-weighted exposure reaches 3.0.",
+    "why": "One Pokemon with that attacking type can threaten most of the team in a single turn, which is the classic reason a team folds to one opponent."
+   },
+   "field_weather_consistency": {
+    "check_id": "field_weather_consistency",
+    "extra": {
+     "field_available_v514": [
+      "sun",
+      "weather"
+     ],
+     "problems": [
+      "Sylveon's Aurora Veil needs snow and nothing on the team sets it"
+     ]
+    },
+    "fix": "Fix the listed conflict or confirm it is an intentional matchup-specific choice.",
+    "pressure": 2.4,
+    "severity": "yellow",
+    "summary": "Sylveon's Aurora Veil needs snow and nothing on the team sets it.",
+    "threshold": "Needs attention = one detected field/weather issue.",
+    "why": "The field plan mostly works, but one dependency or conflict needs attention."
+   },
+   "lead_viability": {
+    "check_id": "lead_viability",
+    "extra": {
+     "lead_bar_v514": 5.6,
+     "lead_pair_count_v514": 15,
+     "lead_pairs_v514": [
+      {
+       "members": [
+        "Arcanine-Hisui",
+        "Sylveon"
+       ],
+       "playable": true,
+       "score": 7.906666666666666
+      },
+      {
+       "members": [
+        "Charizard",
+        "Arcanine-Hisui"
+       ],
+       "playable": true,
+       "score": 7.793333333333333
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Arcanine-Hisui"
+       ],
+       "playable": true,
+       "score": 7.753333333333333
+      },
+      {
+       "members": [
+        "Arcanine-Hisui",
+        "Gholdengo"
+       ],
+       "playable": true,
+       "score": 7.573333333333333
+      },
+      {
+       "members": [
+        "Arcanine-Hisui",
+        "Torkoal"
+       ],
+       "playable": true,
+       "score": 7.133333333333333
+      },
+      {
+       "members": [
+        "Charizard",
+        "Sylveon"
+       ],
+       "playable": false,
+       "score": 5.26
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Sylveon"
+       ],
+       "playable": false,
+       "score": 5.22
+      },
+      {
+       "members": [
+        "Charizard",
+        "Volcarona"
+       ],
+       "playable": false,
+       "score": 5.1066666666666665
+      },
+      {
+       "members": [
+        "Sylveon",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 5.04
+      },
+      {
+       "members": [
+        "Charizard",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 4.926666666666667
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 4.886666666666667
+      },
+      {
+       "members": [
+        "Torkoal",
+        "Sylveon"
+       ],
+       "playable": false,
+       "score": 4.6
+      },
+      {
+       "members": [
+        "Charizard",
+        "Torkoal"
+       ],
+       "playable": false,
+       "score": 4.486666666666666
+      },
+      {
+       "members": [
+        "Volcarona",
+        "Torkoal"
+       ],
+       "playable": false,
+       "score": 4.446666666666666
+      },
+      {
+       "members": [
+        "Torkoal",
+        "Gholdengo"
+       ],
+       "playable": false,
+       "score": 4.266666666666667
+      }
+     ],
+     "lead_playable_v514": 5,
+     "lead_severity_bars_v514": {
+      "red": 4,
+      "yellow": 8
+     }
+    },
+    "fix": "give another Pokemon a turn-one tool so more pairs can open",
+    "pressure": 2.0,
+    "severity": "yellow",
+    "summary": "an estimated 5 of your 15 lead pairs are worth bringing",
+    "threshold": "Needs attention = 8 or fewer of the 15 lead pairs reach the playable bar.",
+    "why": "Your best openings are Arcanine-Hisui with Sylveon, Charizard with Arcanine-Hisui. 10 pairs have little more than raw damage between them. This is an estimate from each pair's turn-one tools, not a played-out game."
+   },
+   "speed_tiers": {
+    "check_id": "speed_tiers",
+    "extra": {
+     "speed_band_v514": [
+      70.0,
+      167.0
+     ],
+     "speed_cluster_v514": {
+      "band": [
+       70.0,
+       167.0
+      ],
+      "high": 104.0,
+      "low": 96.0,
+      "members": [
+       "Torkoal",
+       "Arcanine-Hisui",
+       "Charizard",
+       "Volcarona"
+      ],
+      "width": 8.0
+     },
+     "speed_flip_v514": {
+      "count": 9,
+      "name": "Milotic",
+      "speed": 101.0
+     },
+     "speed_gate_v514": ""
+    },
+    "fix": "move one attacker clearly above or below the group, or carry your own Tailwind or Trick Room",
+    "pressure": 4.0,
+    "severity": "red",
+    "summary": "four of your six sit between 96 and 104",
+    "threshold": "Problem = 4 or more members inside 10 Speed points, or 5 or more inside 20, in the range the Top 30 contests.",
+    "why": "Torkoal, Arcanine-Hisui, Charizard, Volcarona. One Tailwind from Milotic (Speed 101) moves it past all four in the same turn."
+   }
+  },
+  "owner": {
+   "coverage_gaps": {
+    "check_id": "coverage_gaps",
+    "extra": {
+     "best_added_types_v514": [
+      {
+       "covers": 3,
+       "type": "Poison"
+      },
+      {
+       "covers": 3,
+       "type": "Ground"
+      },
+      {
+       "covers": 3,
+       "type": "Ghost"
+      }
+     ],
+     "coverage_attacking_types_v514": [
+      "Normal",
+      "Water",
+      "Electric",
+      "Grass",
+      "Ice",
+      "Fighting",
+      "Psychic",
+      "Bug"
+     ],
+     "coverage_bars_v514": {
+      "red": 8,
+      "yellow": 5
+     },
+     "coverage_gap_count_v514": 6,
+     "coverage_resisted_count_v514": 0,
+     "coverage_rows_v514": [
+      {
+       "best_multiplier": 1.0,
+       "name": "Floette-Eternal",
+       "types": [
+        "Fairy"
+       ]
+      },
+      {
+       "best_multiplier": 1.0,
+       "name": "Gardevoir",
+       "types": [
+        "Psychic",
+        "Fairy"
+       ]
+      },
+      {
+       "best_multiplier": 1.0,
+       "name": "Gholdengo",
+       "types": [
+        "Steel",
+        "Ghost"
+       ]
+      },
+      {
+       "best_multiplier": 1.0,
+       "name": "Metagross",
+       "types": [
+        "Steel",
+        "Psychic"
+       ]
+      },
+      {
+       "best_multiplier": 1.0,
+       "name": "Raichu",
+       "types": [
+        "Electric"
+       ]
+      },
+      {
+       "best_multiplier": 1.0,
+       "name": "Sylveon",
+       "types": [
+        "Fairy"
+       ]
+      }
+     ],
+     "coverage_top_x_v514": 30
+    },
+    "fix": "a Poison or Ground attack would cover 3 of them",
+    "pressure": 2.5,
+    "severity": "yellow",
+    "summary": "6 of the Top 30 have no super-effective answer on this team",
+    "threshold": "Needs attention = 5 or more of the Top 30 with no super-effective answer.",
+    "why": "The team can only hit Floette-Eternal, Gardevoir, Gholdengo, Metagross +2 more for neutral damage. Without a super-effective answer it has to break them with neutral damage, which usually costs a turn it does not have."
+   },
+   "defensive_switch_ins": {
+    "check_id": "defensive_switch_ins",
+    "extra": {
+     "exposed": [],
+     "immune_counts": {
+      "Bug": 0,
+      "Dark": 0,
+      "Dragon": 1,
+      "Electric": 0,
+      "Fairy": 0,
+      "Fighting": 0,
+      "Fire": 0,
+      "Flying": 0,
+      "Ghost": 2,
+      "Grass": 0,
+      "Ground": 0,
+      "Ice": 0,
+      "Normal": 0,
+      "Poison": 0,
+      "Psychic": 1,
+      "Rock": 0,
+      "Steel": 0,
+      "Water": 0
+     },
+     "meta_type_weights_v514": {
+      "Bug": 0.27692307692307694,
+      "Dark": 0.8307692307692307,
+      "Dragon": 0.8307692307692307,
+      "Electric": 0.5538461538461539,
+      "Fairy": 0.8307692307692307,
+      "Fighting": 1.1076923076923078,
+      "Fire": 1.6615384615384614,
+      "Flying": 0.5538461538461539,
+      "Ghost": 0.5538461538461539,
+      "Grass": 1.1076923076923078,
+      "Ground": 1.1076923076923078,
+      "Ice": 0.27692307692307694,
+      "Normal": 2.4923076923076923,
+      "Poison": 0.27692307692307694,
+      "Psychic": 1.6615384615384614,
+      "Rock": 1.1076923076923078,
+      "Steel": 1.9384615384615385,
+      "Water": 0.8307692307692307
+     },
+     "resist_counts": {
+      "Bug": 1,
+      "Dark": 1,
+      "Dragon": 1,
+      "Electric": 1,
+      "Fairy": 0,
+      "Fighting": 1,
+      "Fire": 1,
+      "Flying": 0,
+      "Ghost": 2,
+      "Grass": 1,
+      "Ground": 1,
+      "Ice": 1,
+      "Normal": 0,
+      "Poison": 0,
+      "Psychic": 3,
+      "Rock": 0,
+      "Steel": 1,
+      "Water": 2
+     },
+     "severe": [],
+     "type_rows_v251": [],
+     "weak_counts": {
+      "Bug": 4,
+      "Dark": 2,
+      "Dragon": 0,
+      "Electric": 1,
+      "Fairy": 1,
+      "Fighting": 0,
+      "Fire": 1,
+      "Flying": 1,
+      "Ghost": 0,
+      "Grass": 1,
+      "Ground": 0,
+      "Ice": 1,
+      "Normal": 0,
+      "Poison": 2,
+      "Psychic": 0,
+      "Rock": 0,
+      "Steel": 1,
+      "Water": 0
+     }
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "no attacking type the meta actually uses hits enough of the team to matter",
+    "threshold": "Good = no attacking type reaches the weighted exposure bar with 3 or more members weak to it.",
+    "why": "The weaknesses the team does share belong to types the Top Meta rarely attacks with."
+   },
+   "field_weather_consistency": {
+    "check_id": "field_weather_consistency",
+    "extra": {
+     "field_available_v514": [
+      "grassy",
+      "psychic",
+      "terrain"
+     ],
+     "problems": [
+      "Rillaboom's Grassy Terrain and Indeedee Female's Psychic Terrain replace each other",
+      "Psychic Terrain can block the team's priority attacks"
+     ]
+    },
+    "fix": "Drop one of the competing setters, or give the move's owner the condition it needs.",
+    "pressure": 5.0,
+    "severity": "red",
+    "summary": "Rillaboom's Grassy Terrain and Indeedee Female's Psychic Terrain replace each other, Psychic Terrain can block the team's priority attacks.",
+    "threshold": "Problem = two or more field/weather conflicts.",
+    "why": "Conflicting field choices can make the team's own tools unreliable."
+   },
+   "lead_viability": {
+    "check_id": "lead_viability",
+    "extra": {
+     "lead_bar_v514": 5.6,
+     "lead_pair_count_v514": 15,
+     "lead_pairs_v514": [
+      {
+       "members": [
+        "Indeedee Female",
+        "Rillaboom"
+       ],
+       "playable": true,
+       "score": 13.059999999999999
+      },
+      {
+       "members": [
+        "Farigiraf",
+        "Rillaboom"
+       ],
+       "playable": true,
+       "score": 11.66
+      },
+      {
+       "members": [
+        "Indeedee Female",
+        "Milotic"
+       ],
+       "playable": true,
+       "score": 11.646666666666667
+      },
+      {
+       "members": [
+        "Indeedee Female",
+        "Sylveon"
+       ],
+       "playable": true,
+       "score": 11.453333333333333
+      },
+      {
+       "members": [
+        "Mega Malamar",
+        "Rillaboom"
+       ],
+       "playable": true,
+       "score": 11.32
+      },
+      {
+       "members": [
+        "Indeedee Female",
+        "Farigiraf"
+       ],
+       "playable": true,
+       "score": 11.133333333333333
+      },
+      {
+       "members": [
+        "Mega Malamar",
+        "Indeedee Female"
+       ],
+       "playable": true,
+       "score": 10.793333333333333
+      },
+      {
+       "members": [
+        "Milotic",
+        "Farigiraf"
+       ],
+       "playable": true,
+       "score": 10.246666666666666
+      },
+      {
+       "members": [
+        "Sylveon",
+        "Farigiraf"
+       ],
+       "playable": true,
+       "score": 10.053333333333335
+      },
+      {
+       "members": [
+        "Mega Malamar",
+        "Milotic"
+       ],
+       "playable": true,
+       "score": 9.906666666666666
+      },
+      {
+       "members": [
+        "Mega Malamar",
+        "Sylveon"
+       ],
+       "playable": true,
+       "score": 9.713333333333333
+      },
+      {
+       "members": [
+        "Mega Malamar",
+        "Farigiraf"
+       ],
+       "playable": true,
+       "score": 9.393333333333334
+      },
+      {
+       "members": [
+        "Milotic",
+        "Rillaboom"
+       ],
+       "playable": true,
+       "score": 9.173333333333332
+      },
+      {
+       "members": [
+        "Sylveon",
+        "Rillaboom"
+       ],
+       "playable": true,
+       "score": 8.98
+      },
+      {
+       "members": [
+        "Milotic",
+        "Sylveon"
+       ],
+       "playable": true,
+       "score": 7.566666666666666
+      }
+     ],
+     "lead_playable_v514": 15,
+     "lead_severity_bars_v514": {
+      "red": 4,
+      "yellow": 8
+     }
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "an estimated 15 of your 15 lead pairs are worth bringing, judged from each pair's turn-one tools rather than a played-out game",
+    "threshold": "Good = more than 8 of the 15 lead pairs reach the playable bar.",
+    "why": "Most openings have a turn-one tool, so the lead choice stays a real choice."
+   },
+   "speed_tiers": {
+    "check_id": "speed_tiers",
+    "extra": {
+     "speed_band_v514": [
+      70.0,
+      167.0
+     ],
+     "speed_cluster_v514": {},
+     "speed_flip_v514": {},
+     "speed_gate_v514": "trick_room"
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "Trick Room sets the order, so sitting close together on Speed does not decide your turns",
+    "threshold": "Good = the team sets Trick Room, so a shared Speed tier is deliberate.",
+    "why": "The team inverts the turn order on purpose, which is exactly what a tight Speed band is for."
+   }
+  }
+ },
+ "fixture_id": "3c1c4d7fec648a2bcb8b928c096e8bbf",
+ "labels": {
+  "coverage_gaps": "Coverage Gaps",
+  "defensive_switch_ins": "Shared Weakness",
+  "lead_viability": "Lead Viability",
+  "speed_tiers": "Speed Tiers"
+ },
+ "meta": {
+  "records": [
+   {
+    "moves": [
+     "Grassy Glide",
+     "Fake Out",
+     "Wood Hammer",
+     "High Horsepower"
+    ],
+    "name": "Rillaboom",
+    "speed": 107,
+    "types": [
+     "Grass"
+    ]
+   },
+   {
+    "moves": [
+     "Close Combat",
+     "Dire Claw",
+     "Protect",
+     "Fake Out"
+    ],
+    "name": "Sneasler",
+    "speed": 172,
+    "types": [
+     "Fighting",
+     "Poison"
+    ]
+   },
+   {
+    "moves": [
+     "Protect",
+     "Hyper Voice",
+     "Draco Meteor",
+     "Tailwind"
+    ],
+    "name": "Salamence",
+    "speed": 167,
+    "types": [
+     "Dragon",
+     "Flying"
+    ]
+   },
+   {
+    "moves": [
+     "Fake Out",
+     "Flare Blitz",
+     "Parting Shot",
+     "Darkest Lariat"
+    ],
+    "name": "Incineroar",
+    "speed": 80,
+    "types": [
+     "Fire",
+     "Dark"
+    ]
+   },
+   {
+    "moves": [
+     "Follow Me",
+     "Trick Room",
+     "Helping Hand",
+     "Psychic"
+    ],
+    "name": "Indeedee-F",
+    "speed": 94,
+    "types": [
+     "Psychic",
+     "Normal"
+    ]
+   },
+   {
+    "moves": [
+     "Kowtow Cleave",
+     "Sucker Punch",
+     "Iron Head",
+     "Protect"
+    ],
+    "name": "Kingambit",
+    "speed": 70,
+    "types": [
+     "Dark",
+     "Steel"
+    ]
+   },
+   {
+    "moves": [
+     "Last Respects",
+     "Wave Crash",
+     "Aqua Jet",
+     "Protect"
+    ],
+    "name": "Basculegion",
+    "speed": 130,
+    "types": [
+     "Water",
+     "Ghost"
+    ]
+   },
+   {
+    "moves": [
+     "Leech Life",
+     "Iron Head",
+     "Protect",
+     "Swords Dance"
+    ],
+    "name": "Golisopod",
+    "speed": 60,
+    "types": [
+     "Bug",
+     "Water"
+    ]
+   },
+   {
+    "moves": [
+     "Protect",
+     "Rock Slide",
+     "Dragon Claw",
+     "Earthquake"
+    ],
+    "name": "Garchomp",
+    "speed": 154,
+    "types": [
+     "Dragon",
+     "Ground"
+    ]
+   },
+   {
+    "moves": [
+     "Make It Rain",
+     "Shadow Ball",
+     "Protect",
+     "Nasty Plot"
+    ],
+    "name": "Gholdengo",
+    "speed": 136,
+    "types": [
+     "Steel",
+     "Ghost"
+    ]
+   },
+   {
+    "moves": [
+     "Hurricane",
+     "Weather Ball",
+     "Tailwind",
+     "Wide Guard"
+    ],
+    "name": "Pelipper",
+    "speed": 117,
+    "types": [
+     "Water",
+     "Flying"
+    ]
+   },
+   {
+    "moves": [
+     "Electro Shot",
+     "Protect",
+     "Flash Cannon",
+     "Dragon Pulse"
+    ],
+    "name": "Archaludon",
+    "speed": 109,
+    "types": [
+     "Steel",
+     "Dragon"
+    ]
+   },
+   {
+    "moves": [
+     "Protect",
+     "Scald",
+     "Ice Beam",
+     "Icy Wind"
+    ],
+    "name": "Milotic",
+    "speed": 101,
+    "types": [
+     "Water"
+    ]
+   },
+   {
+    "moves": [
+     "Trick Room",
+     "Helping Hand",
+     "Psychic",
+     "Protect"
+    ],
+    "name": "Farigiraf",
+    "speed": 80,
+    "types": [
+     "Normal",
+     "Psychic"
+    ]
+   },
+   {
+    "moves": [
+     "Protect",
+     "Heat Wave",
+     "Weather Ball",
+     "Solar Beam"
+    ],
+    "name": "Charizard",
+    "speed": 152,
+    "types": [
+     "Fire",
+     "Flying"
+    ]
+   },
+   {
+    "moves": [
+     "Protect",
+     "Zap Cannon",
+     "Focus Blast",
+     "Fake Out"
+    ],
+    "name": "Raichu",
+    "speed": 178,
+    "types": [
+     "Electric"
+    ]
+   },
+   {
+    "moves": [
+     "Hyper Voice",
+     "Protect",
+     "Expanding Force",
+     "Trick Room"
+    ],
+    "name": "Gardevoir",
+    "speed": 132,
+    "types": [
+     "Psychic",
+     "Fairy"
+    ]
+   },
+   {
+    "moves": [
+     "Flare Blitz",
+     "Head Smash",
+     "Protect",
+     "Extreme Speed"
+    ],
+    "name": "Arcanine-Hisui",
+    "speed": 156,
+    "types": [
+     "Fire",
+     "Rock"
+    ]
+   },
+   {
+    "moves": [
+     "Hyper Voice",
+     "Hyper Beam",
+     "Quick Attack",
+     "Detect"
+    ],
+    "name": "Sylveon",
+    "speed": 80,
+    "types": [
+     "Fairy"
+    ]
+   },
+   {
+    "moves": [
+     "Rock Slide",
+     "Knock Off",
+     "Protect",
+     "Low Kick"
+    ],
+    "name": "Tyranitar",
+    "speed": 113,
+    "types": [
+     "Rock",
+     "Dark"
+    ]
+   },
+   {
+    "moves": [
+     "Tailwind",
+     "Moonblast",
+     "Encore",
+     "Protect"
+    ],
+    "name": "Whimsicott",
+    "speed": 184,
+    "types": [
+     "Grass",
+     "Fairy"
+    ]
+   },
+   {
+    "moves": [
+     "Expanding Force",
+     "Armor Cannon",
+     "Protect",
+     "Trick Room"
+    ],
+    "name": "Armarouge",
+    "speed": 95,
+    "types": [
+     "Fire",
+     "Psychic"
+    ]
+   },
+   {
+    "moves": [
+     "Close Combat",
+     "Protect",
+     "Brave Bird",
+     "Tailwind"
+    ],
+    "name": "Staraptor",
+    "speed": 167,
+    "types": [
+     "Normal",
+     "Flying"
+    ]
+   },
+   {
+    "moves": [
+     "Psychic Fangs",
+     "Protect",
+     "Steel Roller",
+     "Iron Head"
+    ],
+    "name": "Metagross",
+    "speed": 122,
+    "types": [
+     "Steel",
+     "Psychic"
+    ]
+   },
+   {
+    "moves": [
+     "Matcha Gotcha",
+     "Rage Powder",
+     "Trick Room",
+     "Protect"
+    ],
+    "name": "Sinistcha",
+    "speed": 90,
+    "types": [
+     "Grass",
+     "Ghost"
+    ]
+   },
+   {
+    "moves": [
+     "Eruption",
+     "Protect",
+     "Weather Ball",
+     "Earth Power"
+    ],
+    "name": "Torkoal",
+    "speed": 36,
+    "types": [
+     "Fire"
+    ]
+   },
+   {
+    "moves": [
+     "Expanding Force",
+     "Mystical Fire",
+     "Trick",
+     "Protect"
+    ],
+    "name": "Indeedee",
+    "speed": 115,
+    "types": [
+     "Psychic",
+     "Normal"
+    ]
+   },
+   {
+    "moves": [
+     "Iron Head",
+     "Protect",
+     "Rock Slide",
+     "High Horsepower"
+    ],
+    "name": "Excadrill",
+    "speed": 140,
+    "types": [
+     "Ground",
+     "Steel"
+    ]
+   },
+   {
+    "moves": [
+     "Protect",
+     "Dazzling Gleam",
+     "Moonblast",
+     "Calm Mind"
+    ],
+    "name": "Floette-Eternal",
+    "speed": 144,
+    "types": [
+     "Fairy"
+    ]
+   },
+   {
+    "moves": [
+     "Protect",
+     "Quiver Dance",
+     "Heat Wave",
+     "Rage Powder"
+    ],
+    "name": "Volcarona",
+    "speed": 120,
+    "types": [
+     "Bug",
+     "Fire"
+    ]
+   }
+  ],
+  "top_x": 30
+ },
+ "move_info": {
+  "Air Slash": [
+   "Flying",
+   "special",
+   75
+  ],
+  "Aqua Jet": [
+   "Water",
+   "physical",
+   40
+  ],
+  "Armor Cannon": [
+   "Fire",
+   "special",
+   120
+  ],
+  "Aurora Veil": [
+   "Ice",
+   "status",
+   0
+  ],
+  "Body Press": [
+   "Fighting",
+   "physical",
+   80
+  ],
+  "Brave Bird": [
+   "Flying",
+   "physical",
+   120
+  ],
+  "Bug Buzz": [
+   "Bug",
+   "special",
+   90
+  ],
+  "Calm Mind": [
+   "Psychic",
+   "status",
+   0
+  ],
+  "Close Combat": [
+   "Fighting",
+   "physical",
+   120
+  ],
+  "Darkest Lariat": [
+   "Dark",
+   "physical",
+   85
+  ],
+  "Dazzling Gleam": [
+   "Fairy",
+   "special",
+   80
+  ],
+  "Detect": [
+   "Fighting",
+   "status",
+   0
+  ],
+  "Dire Claw": [
+   "Poison",
+   "physical",
+   80
+  ],
+  "Draco Meteor": [
+   "Dragon",
+   "special",
+   130
+  ],
+  "Dragon Claw": [
+   "Dragon",
+   "physical",
+   80
+  ],
+  "Dragon Pulse": [
+   "Dragon",
+   "special",
+   85
+  ],
+  "Earth Power": [
+   "Ground",
+   "special",
+   90
+  ],
+  "Earthquake": [
+   "Ground",
+   "physical",
+   100
+  ],
+  "Electro Shot": [
+   "Electric",
+   "special",
+   130
+  ],
+  "Encore": [
+   "Normal",
+   "status",
+   0
+  ],
+  "Eruption": [
+   "Fire",
+   "special",
+   150
+  ],
+  "Expanding Force": [
+   "Psychic",
+   "special",
+   80
+  ],
+  "Extreme Speed": [
+   "Normal",
+   "physical",
+   80
+  ],
+  "Fake Out": [
+   "Normal",
+   "status",
+   40
+  ],
+  "Flare Blitz": [
+   "Fire",
+   "physical",
+   120
+  ],
+  "Flash Cannon": [
+   "Steel",
+   "special",
+   80
+  ],
+  "Focus Blast": [
+   "Fighting",
+   "special",
+   120
+  ],
+  "Follow Me": [
+   "Normal",
+   "status",
+   0
+  ],
+  "Grassy Glide": [
+   "Grass",
+   "physical",
+   55
+  ],
+  "Head Smash": [
+   "Rock",
+   "physical",
+   150
+  ],
+  "Heat Wave": [
+   "Fire",
+   "special",
+   95
+  ],
+  "Helping Hand": [
+   "Normal",
+   "status",
+   0
+  ],
+  "High Horsepower": [
+   "Ground",
+   "physical",
+   95
+  ],
+  "Hurricane": [
+   "Flying",
+   "special",
+   110
+  ],
+  "Hyper Beam": [
+   "Normal",
+   "special",
+   150
+  ],
+  "Hyper Voice": [
+   "Normal",
+   "special",
+   90
+  ],
+  "Ice Beam": [
+   "Ice",
+   "special",
+   90
+  ],
+  "Icy Wind": [
+   "Ice",
+   "status",
+   55
+  ],
+  "Iron Head": [
+   "Steel",
+   "physical",
+   80
+  ],
+  "Knock Off": [
+   "Dark",
+   "status",
+   65
+  ],
+  "Kowtow Cleave": [
+   "Dark",
+   "physical",
+   85
+  ],
+  "Last Respects": [
+   "Ghost",
+   "physical",
+   50
+  ],
+  "Leech Life": [
+   "Bug",
+   "physical",
+   80
+  ],
+  "Low Kick": [
+   "Fighting",
+   "physical",
+   80
+  ],
+  "Make It Rain": [
+   "Steel",
+   "special",
+   120
+  ],
+  "Matcha Gotcha": [
+   "Grass",
+   "special",
+   80
+  ],
+  "Moonblast": [
+   "Fairy",
+   "special",
+   95
+  ],
+  "Mystical Fire": [
+   "Fire",
+   "status",
+   75
+  ],
+  "Nasty Plot": [
+   "Dark",
+   "status",
+   0
+  ],
+  "Parting Shot": [
+   "Dark",
+   "status",
+   0
+  ],
+  "Power Gem": [
+   "Rock",
+   "special",
+   80
+  ],
+  "Protect": [
+   "Normal",
+   "status",
+   0
+  ],
+  "Psychic": [
+   "Psychic",
+   "special",
+   90
+  ],
+  "Psychic Fangs": [
+   "Psychic",
+   "physical",
+   85
+  ],
+  "Quick Attack": [
+   "Normal",
+   "physical",
+   40
+  ],
+  "Quiver Dance": [
+   "Bug",
+   "status",
+   0
+  ],
+  "Rage Powder": [
+   "Bug",
+   "status",
+   0
+  ],
+  "Rock Slide": [
+   "Rock",
+   "physical",
+   75
+  ],
+  "Scald": [
+   "Water",
+   "special",
+   80
+  ],
+  "Shadow Ball": [
+   "Ghost",
+   "special",
+   80
+  ],
+  "Solar Beam": [
+   "Grass",
+   "special",
+   120
+  ],
+  "Steel Roller": [
+   "Steel",
+   "physical",
+   130
+  ],
+  "Sucker Punch": [
+   "Dark",
+   "physical",
+   70
+  ],
+  "Superpower": [
+   "Fighting",
+   "physical",
+   120
+  ],
+  "Swords Dance": [
+   "Normal",
+   "status",
+   0
+  ],
+  "Tailwind": [
+   "Flying",
+   "status",
+   0
+  ],
+  "Thunderbolt": [
+   "Electric",
+   "special",
+   90
+  ],
+  "Trick": [
+   "Psychic",
+   "status",
+   0
+  ],
+  "Trick Room": [
+   "Psychic",
+   "status",
+   0
+  ],
+  "U-turn": [
+   "Bug",
+   "physical",
+   70
+  ],
+  "Wave Crash": [
+   "Water",
+   "physical",
+   120
+  ],
+  "Weather Ball": [
+   "Normal",
+   "special",
+   50
+  ],
+  "Wide Guard": [
+   "Rock",
+   "status",
+   0
+  ],
+  "Wood Hammer": [
+   "Grass",
+   "physical",
+   120
+  ],
+  "Yawn": [
+   "Normal",
+   "status",
+   0
+  ],
+  "Zap Cannon": [
+   "Electric",
+   "special",
+   120
+  ]
+ },
+ "note": "Shared V514 Team Building Checks parity fixture. Inputs from the website's data (meta-doubles.json of 2026-09-25, Top 30); `context` and `expect` are computed by the app, which is the source of truth. Regenerate with scratchpad/checks/gen_fixture.mjs then gen_fixture_expect.py, and copy the result to BOTH trees.",
+ "tables": {
+  "fake_out": [
+   "fake out"
+  ],
+  "priority": [
+   "accelerock",
+   "aquajet",
+   "bulletpunch",
+   "extremespeed",
+   "fakeout",
+   "feint",
+   "firstimpression",
+   "grassyglide",
+   "iceshard",
+   "jetpunch",
+   "machpunch",
+   "quickattack",
+   "shadowsneak",
+   "suckerpunch",
+   "thunderclap",
+   "upperhand",
+   "vacuumwave",
+   "watershuriken"
+  ],
+  "protect": [
+   "banefulbunker",
+   "burningbulwark",
+   "detect",
+   "kingsshield",
+   "obstruct",
+   "protect",
+   "silktrap",
+   "spikyshield"
+  ],
+  "redirection": [
+   "followme",
+   "ragepowder",
+   "spotlight"
+  ],
+  "speed": [
+   "afteryou",
+   "bulldoze",
+   "cottonspore",
+   "electroweb",
+   "icywind",
+   "lowsweep",
+   "quash",
+   "rocktomb",
+   "scaryface",
+   "stringshot",
+   "tailwind",
+   "thunderwave",
+   "trickroom"
+  ],
+  "spread": [
+   "astralbarrage",
+   "blizzard",
+   "boomburst",
+   "dazzlinggleam",
+   "discharge",
+   "dragonenergy",
+   "earthquake",
+   "electroweb",
+   "eruption",
+   "expandingforce",
+   "glaciallance",
+   "heatwave",
+   "hypervoice",
+   "icywind",
+   "makeitrain",
+   "muddywater",
+   "originpulse",
+   "precipiceblades",
+   "rockslide",
+   "sludgewave",
+   "snarl",
+   "surf",
+   "waterspout"
+  ],
+  "terrain_setters": {
+   "electric": [
+    "electricsurge",
+    "electricterrain",
+    "hadronengine"
+   ],
+   "grassy": [
+    "grassysurge",
+    "grassyterrain"
+   ],
+   "misty": [
+    "mistysurge",
+    "mistyterrain"
+   ],
+   "psychic": [
+    "psychicsurge",
+    "psychicterrain"
+   ]
+  },
+  "weather_setters": {
+   "rain": [
+    "drizzle",
+    "primordialsea",
+    "raindance"
+   ],
+   "sand": [
+    "sandspit",
+    "sandstorm",
+    "sandstream"
+   ],
+   "snow": [
+    "chillyreception",
+    "snowscape",
+    "snowwarning"
+   ],
+   "sun": [
+    "drought",
+    "orichalcumpulse",
+    "sunnyday"
+   ]
+  }
+ },
+ "teams": {
+  "cluster": [
+   {
+    "_v514_attack": 93,
+    "_v514_best_power": 120,
+    "_v514_sp_attack": 161,
+    "ability": "Blaze",
+    "damaging_types": [
+     "Fire",
+     "Flying",
+     "Grass"
+    ],
+    "move_keys": [
+     "heatwave",
+     "airslash",
+     "solarbeam",
+     "protect"
+    ],
+    "moves": [
+     "Heat Wave",
+     "Air Slash",
+     "Solar Beam",
+     "Protect"
+    ],
+    "name": "Charizard",
+    "priority": false,
+    "speed": 100,
+    "terrain_set": [],
+    "types": [
+     "Fire",
+     "Flying"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 72,
+    "_v514_best_power": 95,
+    "_v514_sp_attack": 155,
+    "ability": "Flame Body",
+    "damaging_types": [
+     "Fire",
+     "Bug"
+    ],
+    "move_keys": [
+     "heatwave",
+     "bugbuzz",
+     "quiverdance",
+     "protect"
+    ],
+    "moves": [
+     "Heat Wave",
+     "Bug Buzz",
+     "Quiver Dance",
+     "Protect"
+    ],
+    "name": "Volcarona",
+    "priority": false,
+    "speed": 104,
+    "terrain_set": [],
+    "types": [
+     "Bug",
+     "Fire"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 183,
+    "_v514_best_power": 120,
+    "_v514_sp_attack": 103,
+    "ability": "Intimidate",
+    "damaging_types": [
+     "Fire",
+     "Rock",
+     "Normal",
+     "Fighting"
+    ],
+    "move_keys": [
+     "flareblitz",
+     "rockslide",
+     "extremespeed",
+     "closecombat"
+    ],
+    "moves": [
+     "Flare Blitz",
+     "Rock Slide",
+     "Extreme Speed",
+     "Close Combat"
+    ],
+    "name": "Arcanine-Hisui",
+    "priority": true,
+    "speed": 98,
+    "terrain_set": [],
+    "types": [
+     "Fire",
+     "Rock"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 94,
+    "_v514_best_power": 150,
+    "_v514_sp_attack": 137,
+    "ability": "Drought",
+    "damaging_types": [
+     "Fire",
+     "Fighting"
+    ],
+    "move_keys": [
+     "eruption",
+     "heatwave",
+     "bodypress",
+     "yawn"
+    ],
+    "moves": [
+     "Eruption",
+     "Heat Wave",
+     "Body Press",
+     "Yawn"
+    ],
+    "name": "Torkoal",
+    "priority": false,
+    "speed": 96,
+    "terrain_set": [],
+    "types": [
+     "Fire"
+    ],
+    "weather_set": [
+     "sun"
+    ],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 76,
+    "_v514_best_power": 95,
+    "_v514_sp_attack": 178,
+    "ability": "Pixilate",
+    "damaging_types": [
+     "Normal",
+     "Fairy"
+    ],
+    "move_keys": [
+     "hypervoice",
+     "moonblast",
+     "auroraveil",
+     "detect"
+    ],
+    "moves": [
+     "Hyper Voice",
+     "Moonblast",
+     "Aurora Veil",
+     "Detect"
+    ],
+    "name": "Sylveon",
+    "priority": false,
+    "speed": 150,
+    "terrain_set": [],
+    "types": [
+     "Fairy"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 72,
+    "_v514_best_power": 120,
+    "_v514_sp_attack": 203,
+    "ability": "Good as Gold",
+    "damaging_types": [
+     "Steel",
+     "Ghost",
+     "Rock"
+    ],
+    "move_keys": [
+     "makeitrain",
+     "shadowball",
+     "powergem",
+     "nastyplot"
+    ],
+    "moves": [
+     "Make It Rain",
+     "Shadow Ball",
+     "Power Gem",
+     "Nasty Plot"
+    ],
+    "name": "Gholdengo",
+    "priority": false,
+    "speed": 60,
+    "terrain_set": [],
+    "types": [
+     "Steel",
+     "Ghost"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   }
+  ],
+  "owner": [
+   {
+    "_v514_attack": 154,
+    "_v514_best_power": 120,
+    "_v514_sp_attack": 118,
+    "ability": "Contrary",
+    "damaging_types": [
+     "Fighting"
+    ],
+    "move_keys": [
+     "superpower",
+     "protect",
+     "knockoff",
+     "trickroom"
+    ],
+    "moves": [
+     "Superpower",
+     "Protect",
+     "Knock Off",
+     "Trick Room"
+    ],
+    "name": "Mega Malamar",
+    "priority": false,
+    "speed": 97,
+    "terrain_set": [],
+    "types": [
+     "Dark",
+     "Psychic"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 75,
+    "_v514_best_power": 90,
+    "_v514_sp_attack": 115,
+    "ability": "Psychic Surge",
+    "damaging_types": [
+     "Psychic"
+    ],
+    "move_keys": [
+     "followme",
+     "trickroom",
+     "helpinghand",
+     "psychic"
+    ],
+    "moves": [
+     "Follow Me",
+     "Trick Room",
+     "Helping Hand",
+     "Psychic"
+    ],
+    "name": "Indeedee Female",
+    "priority": false,
+    "speed": 94,
+    "terrain_set": [
+     "psychic"
+    ],
+    "types": [
+     "Psychic",
+     "Normal"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 72,
+    "_v514_best_power": 90,
+    "_v514_sp_attack": 132,
+    "ability": "Competitive",
+    "damaging_types": [
+     "Water",
+     "Ice"
+    ],
+    "move_keys": [
+     "protect",
+     "scald",
+     "icebeam",
+     "icywind"
+    ],
+    "moves": [
+     "Protect",
+     "Scald",
+     "Ice Beam",
+     "Icy Wind"
+    ],
+    "name": "Milotic",
+    "priority": false,
+    "speed": 101,
+    "terrain_set": [],
+    "types": [
+     "Water"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 76,
+    "_v514_best_power": 150,
+    "_v514_sp_attack": 178,
+    "ability": "Pixilate",
+    "damaging_types": [
+     "Normal"
+    ],
+    "move_keys": [
+     "hypervoice",
+     "hyperbeam",
+     "quickattack",
+     "detect"
+    ],
+    "moves": [
+     "Hyper Voice",
+     "Hyper Beam",
+     "Quick Attack",
+     "Detect"
+    ],
+    "name": "Sylveon",
+    "priority": true,
+    "speed": 80,
+    "terrain_set": [],
+    "types": [
+     "Fairy"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 99,
+    "_v514_best_power": 90,
+    "_v514_sp_attack": 130,
+    "ability": "Armor Tail",
+    "damaging_types": [
+     "Psychic",
+     "Electric"
+    ],
+    "move_keys": [
+     "trickroom",
+     "helpinghand",
+     "psychic",
+     "thunderbolt"
+    ],
+    "moves": [
+     "Trick Room",
+     "Helping Hand",
+     "Psychic",
+     "Thunderbolt"
+    ],
+    "name": "Farigiraf",
+    "priority": false,
+    "speed": 80,
+    "terrain_set": [],
+    "types": [
+     "Normal",
+     "Psychic"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 194,
+    "_v514_best_power": 120,
+    "_v514_sp_attack": 72,
+    "ability": "Grassy Surge",
+    "damaging_types": [
+     "Grass",
+     "Bug"
+    ],
+    "move_keys": [
+     "grassyglide",
+     "fakeout",
+     "woodhammer",
+     "uturn"
+    ],
+    "moves": [
+     "Grassy Glide",
+     "Fake Out",
+     "Wood Hammer",
+     "U-turn"
+    ],
+    "name": "Rillaboom",
+    "priority": true,
+    "speed": 107,
+    "terrain_set": [
+     "grassy"
+    ],
+    "types": [
+     "Grass"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   }
+  ]
+ },
+ "types": [
+  "Normal",
+  "Fire",
+  "Water",
+  "Electric",
+  "Grass",
+  "Ice",
+  "Fighting",
+  "Poison",
+  "Ground",
+  "Flying",
+  "Psychic",
+  "Bug",
+  "Rock",
+  "Ghost",
+  "Dragon",
+  "Dark",
+  "Steel",
+  "Fairy"
+ ]
+}

@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Thievul,214,move,1,Dark Pulse,79.6%,,,,,,,,
-Thievul,214,move,2,Burning Jealousy,54.8%,,,,,,,,
-Thievul,214,move,3,Taunt,49.8%,,,,,,,,
-Thievul,214,move,4,Grass Knot,35.4%,,,,,,,,
+Thievul,214,move,1,Dark Pulse,79.3%,,,,,,,,
+Thievul,214,move,2,Burning Jealousy,54.6%,,,,,,,,
+Thievul,214,move,3,Taunt,50.0%,,,,,,,,
+Thievul,214,move,4,Grass Knot,35.8%,,,,,,,,
 Thievul,214,move,5,Foul Play,27.6%,,,,,,,,
-Thievul,214,move,6,Psychic,20.6%,,,,,,,,
-Thievul,214,move,7,Parting Shot,19.6%,,,,,,,,
-Thievul,214,move,8,Nasty Plot,19.1%,,,,,,,,
-Thievul,214,move,9,Sucker Punch,16.2%,,,,,,,,
-Thievul,214,move,10,First Impression,12.1%,,,,,,,,
-Thievul,214,held_item,1,Focus Sash,29.3%,,,,,,,,
+Thievul,214,move,6,Psychic,20.9%,,,,,,,,
+Thievul,214,move,7,Parting Shot,19.9%,,,,,,,,
+Thievul,214,move,8,Nasty Plot,19.3%,,,,,,,,
+Thievul,214,move,9,Sucker Punch,15.9%,,,,,,,,
+Thievul,214,move,10,First Impression,11.9%,,,,,,,,
+Thievul,214,held_item,1,Focus Sash,29.8%,,,,,,,,
 Thievul,214,held_item,2,Red Card,18.5%,,,,,,,,
 Thievul,214,held_item,3,Sitrus Berry,6.7%,,,,,,,,
-Thievul,214,held_item,4,Black Glasses,5.8%,,,,,,,,
-Thievul,214,held_item,5,Psychic Seed,5.7%,,,,,,,,
-Thievul,214,held_item,6,King's Rock,5.6%,,,,,,,,
-Thievul,214,held_item,7,Choice Scarf,4.9%,,,,,,,,
-Thievul,214,held_item,8,Air Balloon,4.8%,,,,,,,,
+Thievul,214,held_item,4,Black Glasses,5.9%,,,,,,,,
+Thievul,214,held_item,5,Psychic Seed,5.6%,,,,,,,,
+Thievul,214,held_item,6,King's Rock,5.5%,,,,,,,,
+Thievul,214,held_item,7,Air Balloon,4.8%,,,,,,,,
+Thievul,214,held_item,8,Choice Scarf,4.8%,,,,,,,,
 Thievul,214,held_item,9,Life Orb,3.0%,,,,,,,,
 Thievul,214,held_item,10,Expert Belt,2.5%,,,,,,,,
 Thievul,214,teammate,1,Baxcalibur,,,,,,,,,
@@ -25,30 +25,30 @@ Thievul,214,teammate,3,Garchomp,,,,,,,,,
 Thievul,214,teammate,4,Golisopod,,,,,,,,,
 Thievul,214,teammate,5,Lucario,,,,,,,,,
 Thievul,214,teammate,6,Indeedee,,,,,,,,,
-Thievul,214,teammate,7,Gogoat,,,,,,,,,
-Thievul,214,teammate,8,Primarina,,,,,,,,,
+Thievul,214,teammate,7,Primarina,,,,,,,,,
+Thievul,214,teammate,8,Gogoat,,,,,,,,,
 Thievul,214,teammate,9,Cinderace,,,,,,,,,
 Thievul,214,teammate,10,Pawmot,,,,,,,,,
-Thievul,214,stat_alignment,1,Modest,45.1%,Sp. Atk,Attack,,,,,,
+Thievul,214,stat_alignment,1,Modest,45.0%,Sp. Atk,Attack,,,,,,
 Thievul,214,stat_alignment,2,Timid,30.0%,Speed,Attack,,,,,,
-Thievul,214,stat_alignment,3,Rash,3.5%,Sp. Atk,Sp. Def,,,,,,
-Thievul,214,stat_alignment,4,Bold,2.8%,Defense,Attack,,,,,,
-Thievul,214,stat_alignment,5,Mild,2.6%,Sp. Atk,Defense,,,,,,
+Thievul,214,stat_alignment,3,Rash,3.4%,Sp. Atk,Sp. Def,,,,,,
+Thievul,214,stat_alignment,4,Bold,3.1%,Defense,Attack,,,,,,
+Thievul,214,stat_alignment,5,Mild,2.5%,Sp. Atk,Defense,,,,,,
 Thievul,214,stat_alignment,6,Jolly,2.4%,Speed,Sp. Atk,,,,,,
 Thievul,214,stat_alignment,7,Adamant,2.2%,Attack,Sp. Atk,,,,,,
 Thievul,214,stat_alignment,8,Careful,2.2%,Sp. Def,Sp. Atk,,,,,,
-Thievul,214,stat_alignment,9,Hasty,1.8%,Speed,Defense,,,,,,
-Thievul,214,stat_alignment,10,Calm,1.7%,Sp. Def,Attack,,,,,,
-Thievul,214,stat_points,1,,44.5%,,,2,0,0,32,0,32
-Thievul,214,stat_points,2,,5.0%,,,0,0,0,32,2,32
+Thievul,214,stat_alignment,9,Calm,1.8%,Sp. Def,Attack,,,,,,
+Thievul,214,stat_alignment,10,Hasty,1.8%,Speed,Defense,,,,,,
+Thievul,214,stat_points,1,,44.7%,,,2,0,0,32,0,32
+Thievul,214,stat_points,2,,4.9%,,,0,0,0,32,2,32
 Thievul,214,stat_points,3,,3.9%,,,0,0,2,32,0,32
-Thievul,214,stat_points,4,,3.6%,,,2,0,0,32,32,0
-Thievul,214,stat_points,5,,2.1%,,,32,0,0,32,0,2
-Thievul,214,stat_points,6,,2.1%,,,32,2,0,0,32,0
+Thievul,214,stat_points,4,,3.5%,,,2,0,0,32,32,0
+Thievul,214,stat_points,5,,2.1%,,,32,2,0,0,32,0
+Thievul,214,stat_points,6,,2.1%,,,32,0,0,32,0,2
 Thievul,214,stat_points,7,,2.0%,,,2,32,0,0,0,32
-Thievul,214,stat_points,8,,1.9%,,,0,10,0,32,0,24
-Thievul,214,stat_points,9,,1.8%,,,0,32,0,32,0,2
+Thievul,214,stat_points,8,,1.8%,,,0,10,0,32,0,24
+Thievul,214,stat_points,9,,1.7%,,,0,32,0,32,0,2
 Thievul,214,stat_points,10,,1.7%,,,32,0,2,0,0,32
-Thievul,214,ability,1,Stakeout,59.0%,,,,,,,,
-Thievul,214,ability,2,Unburden,40.2%,,,,,,,,
+Thievul,214,ability,1,Stakeout,58.7%,,,,,,,,
+Thievul,214,ability,2,Unburden,40.4%,,,,,,,,
 Thievul,214,ability,3,Run Away,0.8%,,,,,,,,

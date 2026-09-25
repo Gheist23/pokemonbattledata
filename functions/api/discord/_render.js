@@ -9,6 +9,8 @@
 import {
   assetUrl, profileUrl, siteLinks, formatDate, defensiveChart, offensiveChart, finalStat, natureEffect
 } from './_data.js';
+// The stat-point budget is the engine's, not a number written down twice.
+import { MAX_BONUS_POINTS_PER_STAT, MAX_BONUS_STAT_POINTS } from './_damage.js';
 
 export const EPHEMERAL = 64;
 
@@ -603,6 +605,176 @@ export function countersReply(profile, counters, typeChart, origin) {
   };
 }
 
+// ----------------------------------------------------------------- /damage
+
+/** Only the stats that carry points, so a phone shows the spread in one line. */
+function pointsLine(bonuses) {
+  const parts = STAT_LABELS
+    .map(([, label], index) => (Number(bonuses?.[index]) ? `${bonuses[index]} ${label}` : ''))
+    .filter(Boolean);
+  return parts.length ? parts.join(' / ') : 'no bonus points';
+}
+
+/** The link the button opens. The page reads `attacker`, `defender` and
+ *  `format` and nothing else (builder/calc-page.js initialSets), so it opens on
+ *  both Pokemon's most used sets -- the bot's default, not a customized one. */
+export function calculatorUrl(attackerName, defenderName, format, origin) {
+  const links = siteLinks(origin);
+  const query = new URLSearchParams({ attacker: attackerName, defender: defenderName, format });
+  return `${links.calculator}?${query.toString()}`;
+}
+
+const FIELD_ON_LABELS = {
+  reflect: 'Reflect', light_screen: 'Light Screen', aurora_veil: 'Aurora Veil', friend_guard: 'Friend Guard',
+  helping_hand: 'Helping Hand', protect: 'Protect', stealth_rock: 'Stealth Rock', salt_cure: 'Salt Cure',
+  charged_v445: 'Charged', tailwind: 'Tailwind'
+};
+
+function fieldSummary(side, label) {
+  const parts = [];
+  for (const [key, name] of Object.entries(FIELD_ON_LABELS)) if (side?.[key]) parts.push(name);
+  if (Number(side?.spikes)) parts.push(`Spikes ${side.spikes}`);
+  return parts.length ? `${label}: ${parts.join(', ')}` : '';
+}
+
+/** One side's column: where the set came from, and everything changed about it. */
+function monColumn(view) {
+  const set = view.set;
+  const lines = [
+    [set.item || 'no item', set.ability || 'no Ability', set.nature].filter(Boolean).join(' · '),
+    pointsLine(set.bonuses)
+  ];
+  if (view.stages.length) lines.push(`Boosts ${view.stages.join(', ')}`);
+  if (view.status) lines.push(view.status);
+  if (view.gender) lines.push(view.gender);
+  if (view.hp !== 100) lines.push(`at ${view.hp}% HP`);
+  return lines.filter(Boolean).join('\n');
+}
+
+const TOKEN_FAMILIES = [
+  '`Life Orb` any held item · `Rough Skin` any Ability · `Adamant` any nature',
+  '`32 atk` bonus points (0–32 per stat) · `+2 atk` a stat stage · `60%` HP left',
+  '`burned` `poisoned` `asleep` `paralyzed` `frozen` `healthy` · `male` `female`'
+];
+
+export function damageReply(calculation, origin, snapshot) {
+  const links = siteLinks(origin);
+  const { attacker, defender, chosen, results, move, format, conditions } = calculation;
+  const types = attacker.profile.form?.types || attacker.profile.identity?.types || [];
+  const url = calculatorUrl(attacker.profile.name, defender.profile.name, format, origin);
+
+  const headline = chosen
+    ? `**${chosen.move}** — ${chosen.result.range} (${chosen.result.percent})`
+    : 'No damaging move to measure.';
+  const provenance = [attacker.customized, defender.customized].some(Boolean)
+    ? `Built from each one’s most used ${format} set, then customized.`
+    : `Both on their most used ${format} set.`;
+  const moveNote = move.unknown
+    ? `No move called **${truncate(move.asked, 40)}**, so all four of the set are shown.`
+    : move.replaced
+      ? `**${chosen?.move}** stands in for **${move.replaced}**, the 4th move of the set.`
+      : '';
+  const illegalNote = move.illegal ? `${attacker.battleName} does not learn **${chosen?.move}**; the number is what it would do.` : '';
+
+  const fields = [];
+  if (!move.chosen && results.length) {
+    const bestIndex = chosen ? chosen.index : -1;
+    fields.push(field(`All four moves`, results.map((entry) => {
+      const mark = entry.index === bestIndex;
+      const label = mark ? `**${entry.move}**` : entry.move;
+      return `\`${entry.result.percent.padStart(14)}\` ${label}${mark ? ' ◄ best' : ''}`;
+    }).join('\n')));
+  }
+  fields.push(field(`${attacker.battleName} — attacking`, monColumn(attacker), true));
+  fields.push(field(`${defender.battleName} — defending`, monColumn(defender), true));
+
+  const conditionLines = [
+    conditions.weather !== 'None'
+      ? `${conditions.weather}${conditions.weatherFrom ? ` (from ${conditions.weatherFrom})` : ''}`
+      : '',
+    conditions.terrain !== 'None'
+      ? `${conditions.terrain} Terrain${conditions.terrainFrom ? ` (from ${conditions.terrainFrom})` : ''}`
+      : '',
+    calculation.critical ? 'Critical hit' : '',
+    (conditions.extra || []).join(', '),
+    (conditions.moveNotes || []).length ? `This hit: ${conditions.moveNotes.join(', ')}` : '',
+    conditions.spreadNote,
+    fieldSummary(conditions.field.attacker, 'Attacker’s side'),
+    fieldSummary(conditions.field.defender, 'Defender’s side')
+  ].filter(Boolean);
+  if (conditionLines.length) fields.push(field('Conditions', conditionLines.join('\n')));
+
+  const readAs = [
+    attacker.read.length ? `**attacker_set** → ${attacker.read.join(', ')}` : '',
+    defender.read.length ? `**defender_set** → ${defender.read.join(', ')}` : '',
+    calculation.fieldRead.length ? `**field** → ${calculation.fieldRead.join(', ')}` : ''
+  ].filter(Boolean);
+  if (readAs.length) fields.push(field('Read as', readAs.join('\n')));
+
+  const unread = [
+    ...attacker.unread.map((item) => `**attacker_set** — ${item}`),
+    ...defender.unread.map((item) => `**defender_set** — ${item}`),
+    ...calculation.fieldUnread.map((item) => `**field** — ${item}`)
+  ];
+  if (unread.length) {
+    // Never dropped in silence, and never a refusal either: the numbers above
+    // are real and the words below simply did not reach them.
+    const emptyParse = attacker.emptyParse || defender.emptyParse;
+    fields.push(field('Not understood', [
+      unread.slice(0, 8).join('\n'),
+      emptyParse ? `\nWhat these boxes take:\n${TOKEN_FAMILIES.join('\n')}` : ''
+    ].filter(Boolean).join('\n')));
+  }
+
+  const notes = [...attacker.notes, ...defender.notes];
+  if (notes.length) fields.push(field('Worth knowing', notes.slice(0, 4).join('\n')));
+
+  return {
+    embeds: [{
+      color: typeColor(types),
+      author: { name: snapshotLine(format, snapshot), url: links.meta },
+      title: `${attacker.battleName} → ${defender.battleName}`,
+      url,
+      thumbnail: spriteThumbnail(attacker.profile.identity, origin),
+      description: [
+        headline,
+        calculation.koOdds,
+        provenance,
+        moveNote,
+        illegalNote,
+        formNote(attacker.profile),
+        formNote(defender.profile)
+      ].filter(Boolean).join('\n'),
+      fields,
+      footer: { text: `The button opens the calculator on both most used sets · ${snapshotLine(format, snapshot)}` }
+    }],
+    components: linkButtons([
+      { label: 'Open in the calculator', url },
+      { label: attacker.profile.name, url: profileUrl(attacker.profile.identity?.slug, origin) },
+      { label: defender.profile.name, url: profileUrl(defender.profile.identity?.slug, origin) }
+    ])
+  };
+}
+
+/** The attacker has no move on file, so there is nothing to measure. */
+export function noMovesReply(profile, origin) {
+  const links = siteLinks(origin);
+  return {
+    embeds: [{
+      color: typeColor(profile.identity?.types),
+      title: profile.name,
+      url: profileUrl(profile.identity?.slug, origin),
+      thumbnail: spriteThumbnail(profile.identity, origin),
+      description: `No moves on file for **${profile.name}** in the current ${profile.format} snapshot, so there is nothing to calculate. Name a move with \`move:\` and it will use that one.`,
+      footer: footer(profile.format, profile.snapshot)
+    }],
+    components: linkButtons([
+      { label: 'Damage Calc', url: links.calculator },
+      { label: 'Profile', url: profileUrl(profile.identity?.slug, origin) }
+    ])
+  };
+}
+
 // ------------------------------------------------------------------- /help
 
 export function helpReply(commands, origin) {
@@ -614,7 +786,14 @@ export function helpReply(commands, origin) {
       title: 'Pokemon Champions battle data, in Discord',
       url: links.home,
       description: `${lines.join('\n')}\n\nNames follow Pokemon Showdown spelling and the box autocompletes. \`format\` is Doubles unless you pick Singles.`,
-      fields: [field('Where the numbers come from', `Every answer is read live from championsbattledata.com, the same files the site’s own pages and [public API](${links.api}) use.`)],
+      fields: [
+        field('Customizing /damage', [
+          '`attacker_set` and `defender_set` take a held item, an Ability, a nature, bonus points (`32 atk`), stat stages (`+2 atk`), status (`burned`), gender and HP left (`60%`) in any order.',
+          '`field` takes `reflect, light screen, aurora veil, friend guard, helping hand, protect, stealth rock, spikes 2, salt cure, gravity, wonder room, charged, switching, moved first, hits 5, use 3, times hit 4, fainted 2` — the defender’s side unless the switch is the attacker’s.',
+          `Level is always 50 and the spread is a ${MAX_BONUS_STAT_POINTS}-point budget with at most ${MAX_BONUS_POINTS_PER_STAT} in one stat, not EVs. Anything the bot could not read is listed in the reply instead of ignored.`
+        ].join('\n')),
+        field('Where the numbers come from', `Every answer is read live from championsbattledata.com, the same files the site’s own pages and [public API](${links.api}) use. \`/damage\` runs the site’s own damage engine, so it agrees with the [Damage Calculator](${links.calculator}) on the same set.`)
+      ],
       footer: { text: 'championsbattledata.com' }
     }],
     components: linkButtons([

@@ -32,7 +32,7 @@
 // suggest-vectors-scoring.json carries `suggestion_scoring: 3` since version 3 stopped the archetype's
 // own setter requirement being paid for twice.
 
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { DamageEngine, compact, terrainSeedOption } from "../builder/engine.js";
@@ -51,7 +51,12 @@ const appData = JSON.parse(readFileSync(join(root, "data", "builder", "app-data.
 // suggest-vectors-scoring.json: recorded again after the V511 suggestion scoring, so those runs
 // carry `suggestion_scoring` and replay on the damped archetype reward and the calc-backed
 // ranking terms. One of its cases is a real Trick Room team, which is where the rule bites.
-const cases = ["suggest-vectors.json", "suggest-vectors-guaranteed.json", "suggest-vectors-scoring.json"]
+// Every stamped recording beside the main file is replayed too, the same way
+// tests/run-eval-vectors.mjs discovers its own: suggest-vectors-v5.json is the version-5
+// recording, and a recording added later is picked up without editing this line.
+const SUGGEST_FILES = ["suggest-vectors.json",
+  ...readdirSync(here).filter((file) => /^suggest-vectors-.+\.json$/.test(file)).sort()];
+const cases = SUGGEST_FILES
   .filter((file) => existsSync(join(here, file)))
   .flatMap((file) => JSON.parse(readFileSync(join(here, file), "utf8")));
 const siteMeta = JSON.parse(readFileSync(join(root, "data", "builder", "meta-doubles.json"), "utf8"));
@@ -65,9 +70,11 @@ const evalByFile = (file) => (existsSync(join(here, file))
   ? Object.fromEntries(JSON.parse(readFileSync(join(here, file), "utf8")).map((c) => [c.name, c]))
   : {});
 const evalCases = evalByFile("eval-vectors.json");
-const scoringEvalCases = evalByFile("eval-vectors-scoring.json");
+/** Every stamped evaluation recording, by case name; names never collide across app runs. */
+const stampedEvalCases = Object.assign({}, ...readdirSync(here)
+  .filter((file) => /^eval-vectors-.+\.json$/.test(file)).sort().map(evalByFile));
 /** The evaluation recorded beside this suggestion recording (never one from another app run). */
-const evalFor = (testCase) => (scoringStamp(testCase) ? scoringEvalCases[testCase.name] : null) ?? evalCases[testCase.name];
+const evalFor = (testCase) => (scoringStamp(testCase) ? stampedEvalCases[testCase.name] : null) ?? evalCases[testCase.name];
 const engine = new DamageEngine(appData);
 /** The recording's terrain-seed stamp (null: recorded before the rule, replayed with it off).
  *  TERRAIN_SEEDS=0 / =1 replays every recording either way. */
@@ -98,12 +105,37 @@ const scoreRule = (testCase) => (process.env.SCORE_RULES === undefined
   ? (testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? null)
   : process.env.SCORE_RULES);
 const scoringRule = (testCase) => (process.env.SUGGESTION_SCORING === undefined ? scoringStamp(testCase) : process.env.SUGGESTION_SCORING);
+/** The recording's V514 Team Building Checks stamp (null: recorded before the rule, so the ten
+ *  pre-V514 ids, the label "Defensive Switch-ins" and the V251 thresholds replay).
+ *  TEAM_CHECK_RULES=0 / =1 replays every recording either way. */
+const checkRule = (testCase) => (process.env.TEAM_CHECK_RULES === undefined
+  ? (testCase?.record?.rules?.team_checks ?? testCase?.rules?.team_checks ?? null)
+  : process.env.TEAM_CHECK_RULES);
+
 const asEntry = (e) => (Array.isArray(e) ? { pokemon: e[0], item: e[1], form: e[2], ability: e[3], moves: e[4] || [] } : e);
 
 const failures = [];
-/** Differences that belong to another suite (the Team Evaluation's own scores), reported in full. */
+/**
+ * Differences that belong to another suite (the Team Evaluation's own scores), reported in full.
+ *
+ * THIS IS A ROUTING DEVICE, NEVER A VERDICT. A note is only legal when the difference really is
+ * checked somewhere that can fail on it - tests/run-eval-vectors.mjs, which has no hatch of its
+ * own - so every note names that suite and the assertion below refuses a note on a recording the
+ * eval suite does not replay. The budget is checked in: the count may not grow without a reviewer
+ * seeing this number change in the diff. It is 0 today, and 0 is the honest value - the suite
+ * emits no notes at all, because eval-vectors-scoring.json is now replayed by the eval suite.
+ *
+ * Two suppressors that lived here until version 5 are why this is spelled out. One rerouted
+ * "the app scored a row, the website returned none" whenever the candidate's base species matched
+ * the swap target's; the other rerouted any difference confined to the type-fit sentence. Neither
+ * consulted a stamp, and together they hid 26 real divergences - including a live parity break
+ * where the app offered "Swap Indeedee-F -> Indeedee" at 49.8 and the website refused the row.
+ * Both were labelled "upstream Team Evaluation", and the type-fit one demonstrably was not:
+ * typeFit lives in the suggestion layer and no eval recording checks it, so the label sent a real
+ * website bug to a suite structurally unable to fail on it.
+ */
 const upstream = [];
-let typeFitNotes = 0;
+const UPSTREAM_BUDGET = 0;
 const byField = new Map();
 let total = 0;
 for (const testCase of cases) {
@@ -125,7 +157,7 @@ for (const testCase of cases) {
     if (!records.has(stem) && (meta.rows || []).length) records.set(stem, pokemonRecord(stem, meta.rows, aliases));
   }
   for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase) });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;
@@ -152,7 +184,9 @@ for (const testCase of cases) {
       failures.push(`${label} payload ${k}: app ${appValue} | web ${webValue}`);
       continue;
     }
-    upstream.push(`${label} payload ${k}: app ${appValue} | web ${webValue} - the Team Evaluation's own number, upstream of the suggestion scoring; the app's value is used below`);
+    upstream.push(`${label} payload ${k}: app ${appValue} | web ${webValue} - the Team Evaluation's own number, upstream of the suggestion scoring; the app's value is used below. Fails in tests/run-eval-vectors.mjs over ${scoringStamp(testCase) ? "eval-vectors-scoring.json" : "eval-vectors.json"}`);
+    // A hand-off is only legal when it has somewhere to land.
+    if (!evalFor(testCase)) failures.push(`${label} payload ${k}: handed off to the Team Evaluation suite, but no evaluation of this team is recorded for it to replay`);
     if (k === "speed") payload.speed = { ...payload.speed, score: appValue };
     else payload[k] = appValue;
   }
@@ -178,6 +212,9 @@ for (const testCase of cases) {
   const FIELDS = ["name", "action", "score", "item", "ability", "moves", "answers", "checks_component", "threat_component", "synergy_component", "speed_component",
     "archetype_component_v429", "team_check_delta_v433", "archetype_speed_fit_v466", "role_fixes_v466", "details",
     "found_in_team_v496", "nature", "slot_index",
+    // Recorded on every row and in no suite's field list until version 5, which is why the
+    // type-fit offense number a suppressor called cosmetic was in fact simply unchecked.
+    "projected_offense_score", "projected_defense_score", "projected_synergy_score", "projected_total",
     "outgoing_role_cost_v512", "outgoing_roles_lost_v512", "outgoing_unresolved_v512"];
   calls.forEach((call, index) => {
     total += 1;
@@ -186,18 +223,10 @@ for (const testCase of cases) {
     const got = suggest.evaluateCandidate(structuredClone(call.meta), { ...context, swapTarget: call.swap || "" });
     if (!want && !got) return;
     if (!want || !got) {
-      // KNOWN, PRE-EXISTING: `evaluateCandidate` refuses a candidate whose *base species* is the
-      // one being replaced ("species_identity: never offer the Pokemon being replaced"), so it
-      // declines Indeedee-M against an Indeedee-F target and plain Malamar against Malamar-Mega.
-      // The app has no such per-target guard - it only keeps the team's own members out of the
-      // pool - so it scores those rows. Reported in full rather than counted as a suggestion-layer
-      // mismatch; narrowing the guard is its own change, because it moves the candidate set.
-      const declined = Boolean(!got && want)
-        && suggest.speciesId(call.meta.form || call.meta.name || call.meta.base_name) === suggest.speciesId(call.swap || "")
-        && compact(call.meta.form || call.meta.name) !== compact(call.swap || "");
-      const line = `${label} #${index} ${call.meta.name}: app ${want ? want.score : "none"} | web ${got ? got.score : "none"}`;
-      if (declined) upstream.push(`${line} - the site's base-species swap guard declines it; the app has no such guard`);
-      else failures.push(line);
+      // "The app scored a row, the website returned none" is a mismatch. It used to be excused
+      // whenever the candidate's base species equalled the swap target's, which is exactly the
+      // legitimate form-for-form swap the site now offers (`sameFormAs`).
+      failures.push(`${label} #${index} ${call.meta.name}: app ${want ? want.score : "none"} | web ${got ? got.score : "none"}`);
       return;
     }
     const diffs = [];
@@ -211,28 +240,11 @@ for (const testCase of cases) {
         byField.set(f, (byField.get(f) || 0) + 1);
       }
     }
-    if (diffs.length) {
-      // KNOWN, PRE-EXISTING: the "Adds type-based counterplay into ..." sentence is written from
-      // `_v378_type_fit`'s own answer list, and the app's and the site's disagree by one threat on
-      // some teams. The *scored* list (`answers`) is overwritten later by the calc-backed one
-      // (part_052's V380 refinement) on both sides, which is why every other field agrees. A
-      // difference confined to that one sentence, with `answers` identical, is an upstream note;
-      // anything else - and any difference in `answers` itself - stays a mismatch.
-      const counterplay = (row) => (row.details || []).filter((l) => String(l).startsWith("Adds type-based counterplay into "));
-      const rest = (row) => (row.details || []).filter((l) => !String(l).startsWith("Adds type-based counterplay into "));
-      // On this team it is always one threat (Sneasler) that the site's type fit counts as
-      // answered and the app's does not, so the sentence is sometimes one name longer and
-      // sometimes present on one side only. Either shape is the same upstream difference.
-      const typeFitOnly = diffs.length === 1 && diffs[0].startsWith("details:")
-        && same(want.answers, got.answers) && same(rest(want), rest(got))
-        && counterplay(want).join("|") !== counterplay(got).join("|");
-      const note = `${label} #${index} ${call.meta.name}\n    ${diffs.join("\n    ")}`;
-      if (typeFitOnly) {
-        typeFitNotes += 1;
-        upstream.push(`${note}\n    - the type-fit answer sentence only; \`answers\` itself is identical, so this is upstream of the suggestion layer`);
-        byField.set("details", (byField.get("details") || 0) - 1);
-      } else failures.push(note);
-    }
+    // A difference in the "Adds type-based counterplay into ..." sentence is a difference. It
+    // used to be excused as upstream; it was in fact the site failing to resolve the app's game
+    // form name ("Indeedee Female") to its meta record, so the outgoing member's every calc read
+    // "No damaging move" and V494 struck a threat off its type-fit answers.
+    if (diffs.length) failures.push(`${label} #${index} ${call.meta.name}\n    ${diffs.join("\n    ")}`);
   });
   total += 1;
   const run = suggest.run(payload, {});
@@ -271,8 +283,13 @@ for (const testCase of cases) {
 }
 for (const failure of failures.slice(0, limit)) console.log(failure);
 for (const note of upstream) console.log(`UPSTREAM ${note}`);
-if (typeFitNotes) console.log(`\n${typeFitNotes} row(s) differ only in the type-fit answer sentence (listed above as UPSTREAM).`);
-console.log(`\n${total} checked, ${failures.length} mismatched${upstream.length ? `, ${upstream.length} upstream Team Evaluation difference${upstream.length === 1 ? "" : "s"} (listed above)` : ""}.`);
-const fields = [...byField.entries()].filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]);
+// Counted, printed with its own number, and asserted: a class handed off to another suite may
+// not grow silently. Raising UPSTREAM_BUDGET in the same commit as the change that needed it
+// reproduces exactly the failure the suppressors above caused.
+if (upstream.length > UPSTREAM_BUDGET) {
+  failures.push(`upstream Team Evaluation differences: ${upstream.length}, budget ${UPSTREAM_BUDGET} (listed above). Fix them in tests/run-eval-vectors.mjs, or change UPSTREAM_BUDGET in this file and say why.`);
+}
+console.log(`\n${total} checked, ${failures.length} mismatched, ${upstream.length} upstream Team Evaluation difference${upstream.length === 1 ? "" : "s"} handed to tests/run-eval-vectors.mjs (budget ${UPSTREAM_BUDGET}).`);
+const fields = [...byField.entries()].sort((a, b) => b[1] - a[1]);
 if (fields.length) console.log("by field:", Object.fromEntries(fields));
 process.exitCode = failures.length ? 1 : 0;

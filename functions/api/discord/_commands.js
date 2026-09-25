@@ -10,6 +10,7 @@
 
 export const OPTION_STRING = 3;
 export const OPTION_INTEGER = 4;
+export const OPTION_BOOLEAN = 5;
 
 // The 18 types, in the order data/builder/app-data.json lists them. Only the
 // labels on the picker: the multipliers are always read from the site's chart.
@@ -54,13 +55,39 @@ const itemOption = {
   autocomplete: true
 };
 
-/** Which name list an autocompleting option is completed from. */
+/** Which name list an autocompleting option is completed from. Keyed by option
+ *  name, so an option named anything else completes from nothing at all. */
 export const AUTOCOMPLETE_KINDS = {
   pokemon: 'pokemon',
   first: 'pokemon',
   second: 'pokemon',
+  attacker: 'pokemon',
+  defender: 'pokemon',
   move: 'move',
   item: 'item'
+};
+
+/** Option names that name the Pokemon a `move`/`item` box completes from, in the
+ *  order they are tried. interactions.js completeOption reads this, so a command
+ *  can call its Pokemon option whatever reads best in Discord. */
+export const SUBJECT_OPTIONS = ['pokemon', 'first', 'attacker'];
+
+/** The weather and terrain a /damage user can force. "Auto" is the calculator's
+ *  own behaviour: it reads whichever ability on the field sets one. */
+const weatherOption = {
+  type: OPTION_STRING,
+  name: 'weather',
+  description: 'Auto (default) reads the abilities on the field',
+  required: false,
+  choices: ['Auto', 'None', 'Sun', 'Rain', 'Sand', 'Snow'].map((name) => ({ name, value: name }))
+};
+
+const terrainOption = {
+  type: OPTION_STRING,
+  name: 'terrain',
+  description: 'Auto (default) reads the abilities on the field',
+  required: false,
+  choices: ['Auto', 'None', 'Electric', 'Grassy', 'Psychic', 'Misty'].map((name) => ({ name, value: name }))
 };
 
 const typeChoices = TYPE_NAMES.map((name) => ({ name, value: name }));
@@ -127,6 +154,59 @@ export const COMMANDS = [
     name: 'counters',
     description: 'Meta Pokemon whose usual moves hit this one super effectively',
     options: [pokemonOption(), formatOption]
+  },
+  {
+    // The numbers come from builder/engine.js, the same module the site's own
+    // Damage Calculator and the recorded app vectors run through, so /damage and
+    // the calculator page cannot disagree on one set.
+    name: 'damage',
+    description: 'Damage between two Pokemon on their most used sets — fully customizable',
+    options: [
+      { ...pokemonOption('The attacking Pokemon'), name: 'attacker' },
+      { ...pokemonOption('The defending Pokemon'), name: 'defender' },
+      {
+        type: OPTION_STRING,
+        name: 'move',
+        description: 'Optional: one move. Default: all four of the most used set',
+        required: false,
+        autocomplete: true
+      },
+      formatOption,
+      {
+        type: OPTION_STRING,
+        name: 'attacker_set',
+        description: 'Optional: e.g. "Life Orb, +2 atk, 32 spe, Adamant, burned"',
+        required: false
+      },
+      {
+        type: OPTION_STRING,
+        name: 'defender_set',
+        description: 'Optional: e.g. "Rocky Helmet, 32 hp, 32 spd, 60%"',
+        required: false
+      },
+      weatherOption,
+      terrainOption,
+      {
+        type: OPTION_STRING,
+        name: 'field',
+        description: 'Optional: e.g. "reflect, helping hand, stealth rock, spikes 2"',
+        required: false
+      },
+      {
+        type: OPTION_BOOLEAN,
+        name: 'crit',
+        description: 'Treat the hit as a critical hit',
+        required: false
+      },
+      {
+        type: OPTION_INTEGER,
+        name: 'defender_hp',
+        description: 'The defender’s HP left, as a percent (default 100)',
+        required: false,
+        min_value: 1,
+        max_value: 100
+      }
+    ]
   },
   {
     name: 'help',

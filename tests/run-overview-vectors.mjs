@@ -52,7 +52,7 @@ for (const testCase of cases) {
   // `paired_spreads` stamp, with the usage file's index zip.
   const stamp = testCase.record?.rules?.paired_spreads ?? testCase.rules?.paired_spreads ?? evalCase?.record?.rules?.paired_spreads ?? null;
   const scoreStamp = testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? evalCase?.record?.rules?.score_composition ?? null;
-  const ev = new TeamEvaluator(null, engine, "Doubles", evalCase?.settings || {}, { pairedSpreads: stamp, scoreRules: scoreStamp });
+  const ev = new TeamEvaluator(null, engine, "Doubles", evalCase?.settings || {}, { pairedSpreads: stamp, scoreRules: scoreStamp, checkRules: testCase.record?.rules?.team_checks ?? evalCase?.record?.rules?.team_checks ?? null });
   ev.setMetaRecords(records);
   const entries = evalCase ? evalCase.record.team_mons.at(-1).mons : [];
   const sets = entries.map((m) => ({ species: m.pokemon_name, form: m.form_name, item: m.item, ability: m.ability, moves: m.moves, nature: m.nature_name, bonuses: m.bonuses }));

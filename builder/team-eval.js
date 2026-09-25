@@ -8,6 +8,7 @@
 
 import { DamageEngine, PINCH_ABILITIES, applyChainedModifiers, compact, key as engineKey, makeContext, makeMon, pyTitle } from "./engine.js";
 import { PAIRED_SPREADS, pairedOption, pointsForNature } from "./nature-spreads.js";
+import { TEAM_CHECK_RULES, teamCheckRulesOption } from "./team-checks.js";
 
 // --- settings (TEAM_ANALYSIS_DEFAULT_SETTINGS_V35 after every override) ---------
 
@@ -36,7 +37,15 @@ export const STAT_DISTRIBUTION_LIMITS = {
  * On in production.  A run recorded before the rule carries no `score_composition` stamp and
  * replays with it off, so the recorded parity suites stay at 0 mismatches.
  */
-export const SCORE_RULES = 1;
+// Version 2 (score_composition_v512.PROTECT_FAMILY_FROM_RULE): the payload's protect_count
+// counts the eight-move Protect family, not the exact string "Protect". The app had two Protect
+// concepts and only one was right - the live eight-checks flag already used the family, while
+// `payload["protect_count"]` came from a V35 leftover that tested one move. On the owner's team,
+// where Sylveon runs Detect, the app reported 2 and this port reported 3. The port was right, so
+// the app moved; the version is what lets a recording stamped 1 still replay the old count.
+export const SCORE_RULES = 2;
+/** The version whose payload protect_count counts Detect and the rest of the family. */
+export const PROTECT_FAMILY_FROM_RULE = 2;
 
 /** A `score_composition` stamp as a version: 0 (off) for null / undefined / false / "" / "0". */
 export function scoreRulesOption(value) {
@@ -322,11 +331,15 @@ export class TeamEvaluator {
    *   `pairedSpreads`: each Nature is shown with Stat Points it does not contradict
    *   (builder/nature-spreads.js) instead of with the distribution at its own place in the
    *   usage file's other list. `scoreRules`: the V512 scoring rule (see SCORE_RULES).
-   *   Both are on in production; a run recorded before either replays with it off.
+   *   `checkRules`: the V514 Team Building Checks rule (see team-checks.js TEAM_CHECK_RULES).
+   *   All three are on in production; a run recorded before one of them replays with it off.
    */
-  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES } = {}) {
+  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES } = {}) {
     this.pairedSpreads = pairedOption(pairedSpreads);
     this.scoreRules = scoreRulesOption(scoreRules);
+    // V514 Team Building Checks. TeamChecks reads it off the evaluator, so nothing
+    // between here and there needs a new argument (builder/team-payload.js included).
+    this.checkRules = teamCheckRulesOption(checkRules);
     this.data = data;
     this.engine = engine;
     this.format = format === "Singles" ? "Singles" : "Doubles";
@@ -1196,8 +1209,41 @@ export class TeamEvaluator {
     return this;
   }
 
+  /**
+   * The meta record a name answers to.
+   *
+   * The index is keyed by the battle-data stem, which is the Showdown spelling ("Indeedee-F").
+   * A saved team entry holds the app's GAME FORM NAME in its species slot instead - battle data
+   * is filed under form names - so "Indeedee Female" found nothing here, and every caller
+   * silently fell back: `commonSet` returned {}, `usagePairs` returned [], `commonMoves` saw
+   * only the set's own four moves. That is one root cause behind 26 of the 28 known
+   * app-vs-website divergences: Indeedee-F was judged to have no damaging move at all against
+   * every threat (so V494 struck a threat off its type-fit answers), and its "OHKOs Tailwind
+   * users" line lost Terrain Pulse, the move that actually OHKOs Mega Staraptor.
+   *
+   * `usageAliases` already maps stem -> [species, form]; this reads it the other way, as a
+   * fallback only, so a name with a record of its own (Squawkabilly is both a form name and a
+   * stem) still resolves to that record. 38 of the app's forms need it and none collide.
+   */
   record(name) {
-    return this.recordByKey?.get(compact(name)) || null;
+    const key = compact(name);
+    const direct = this.recordByKey?.get(key);
+    if (direct) return direct;
+    const stem = this.formNameStems().get(key);
+    return (stem && this.recordByKey?.get(stem)) || null;
+  }
+
+  /** compact(game form name) -> compact(battle-data stem), from the app's own usageAliases. */
+  formNameStems() {
+    if (!this._formNameStems) {
+      this._formNameStems = new Map();
+      for (const [stem, pair] of Object.entries(this.engine?.usageAliases || {})) {
+        const form = compact(Array.isArray(pair) ? pair[1] : "");
+        if (!form || form === compact(stem) || this._formNameStems.has(form)) continue;
+        this._formNameStems.set(form, compact(stem));
+      }
+    }
+    return this._formNameStems;
   }
 
   /** PokemonBattleApiClient.usage_pairs: rank-ordered [name, pct]. */

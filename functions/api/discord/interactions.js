@@ -30,12 +30,13 @@ import { jsonResponse, optionsResponse } from '../_common.js';
 import { readSignedBody } from './_verify.js';
 import { SiteData, SITE_ORIGIN, DEFAULT_FORMAT } from './_data.js';
 import { replyCache, replyKey } from './_cache.js';
-import { COMMANDS, IMMEDIATE_COMMANDS, AUTOCOMPLETE_KINDS, optionValue, focusedOption, TYPE_NAMES } from './_commands.js';
+import { COMMANDS, IMMEDIATE_COMMANDS, AUTOCOMPLETE_KINDS, SUBJECT_OPTIONS, optionValue, focusedOption, TYPE_NAMES } from './_commands.js';
 import {
-  notFoundReply, noUsageReply, errorReply, pokemonReply, movesReply, itemsReply, teammatesReply,
-  metaReply, compareReply, speedReply, speedTable, matchupReply, counterList, countersReply, helpReply,
+  notFoundReply, noUsageReply, noMovesReply, errorReply, pokemonReply, movesReply, itemsReply, teammatesReply,
+  metaReply, compareReply, speedReply, speedTable, matchupReply, counterList, countersReply, damageReply, helpReply,
   EPHEMERAL
 } from './_render.js';
+import { damageCalculation } from './_damage.js';
 
 export const INTERACTION_PING = 1;
 export const INTERACTION_COMMAND = 2;
@@ -129,6 +130,29 @@ const HANDLERS = {
     return countersReply(profile, counters, appData.typeChart || {}, origin);
   },
 
+  /** The one command that calculates rather than reads. Everything it needs is
+   *  the two names plus whatever was customized; the numbers come out of
+   *  builder/engine.js through _damage.js. */
+  async damage(data, options, origin) {
+    const outcome = await damageCalculation(data, {
+      attacker: optionValue(options, 'attacker'),
+      defender: optionValue(options, 'defender'),
+      move: optionValue(options, 'move', ''),
+      format: optionValue(options, 'format'),
+      attacker_set: optionValue(options, 'attacker_set', ''),
+      defender_set: optionValue(options, 'defender_set', ''),
+      weather: optionValue(options, 'weather', 'Auto'),
+      terrain: optionValue(options, 'terrain', 'Auto'),
+      field: optionValue(options, 'field', ''),
+      crit: optionValue(options, 'crit', false) === true,
+      defender_hp: optionValue(options, 'defender_hp', null)
+    });
+    if (outcome.notFound) return notFoundReply(outcome.notFound, origin);
+    if (outcome.noUsage) return noUsageReply(outcome.noUsage, origin);
+    if (outcome.noMoves) return noMovesReply(outcome.noMoves, origin);
+    return damageReply(outcome.calculation, origin, outcome.snapshot);
+  },
+
   async help(data, options, origin) {
     return helpReply(COMMANDS, origin);
   }
@@ -160,7 +184,10 @@ export async function completeOption(data, options, focused) {
   const kind = AUTOCOMPLETE_KINDS[focused.name];
   if (!kind || !data) return [];
   const format = optionValue(options, 'format');
-  const pokemon = optionValue(options, 'pokemon') || optionValue(options, 'first');
+  // Which Pokemon a move or item box belongs to. Without /damage's `attacker`
+  // here, its move box would complete from all 955 moves instead of the ten the
+  // attacker actually runs -- the whole quality of that box.
+  const pokemon = SUBJECT_OPTIONS.reduce((found, name) => found || optionValue(options, name), null);
   if (kind === 'move') return data.completeMoves(focused.value, { pokemon, format }, AUTOCOMPLETE_LIMIT);
   if (kind === 'item') return data.completeItems(focused.value, { pokemon, format }, AUTOCOMPLETE_LIMIT);
   return data.completions(focused.value, AUTOCOMPLETE_LIMIT);

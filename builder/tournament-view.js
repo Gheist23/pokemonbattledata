@@ -89,7 +89,7 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
           : size === 1
             ? `Your one Pokémon plays every ${theirs} they could bring. They answer with the ${theirs} that do the most against it.`
             : `Every ${ours} you could bring plays every ${theirs} they could bring. You get the ${ours} that hold up best; they answer with the ${theirs} that do the most against your choice.`),
-      step("5", "Across the teams", `Played against up to ${number(teams)} real tournament teams. A score of 50 is even; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
+      step("5", "Across the teams", `Played against up to ${number(teams)} real recent tournament teams. A score of 50 is even; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
     h("p", { class: "bd-note bd-tour-limits" },
       "Kept simple on purpose: nobody switches out (Parting Shot lowers the stats but its user stays in), paralysis, poison, screens and stat-boosting moves are left out, and each Pokémon picks its best play without guessing what the other side will do. ",
       singles ? "The tournament teams come from Doubles events; in Singles both sides play one Pokémon at a time." : ""));

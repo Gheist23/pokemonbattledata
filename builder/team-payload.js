@@ -16,7 +16,7 @@ import { compact } from "./engine.js";
 import { TeamChecks, tailwindBeneficiaries } from "./team-checks.js";
 import { TeamSpeed } from "./team-speed.js";
 import { TeamSynergy } from "./team-synergy.js";
-import { coloredThreats, percentBounds, koTier } from "./team-eval.js";
+import { coloredThreats, percentBounds, koTier, PROTECT_FAMILY_FROM_RULE } from "./team-eval.js";
 
 const TEAM_SIZE = 6;
 const ORDER_NOTE_KEYS = new Set(["speed_note", "speed_tier_note", "move_order_note", "order_note"]);
@@ -286,10 +286,21 @@ export class TeamEvaluation {
     return value;
   }
 
-  /** mega_count / protect_count, as the payload reports them. */
+  /**
+   * mega_count / protect_count, as the payload reports them.
+   *
+   * VERSION-SELECTED. From `score_composition` version 2 this is the app's own eight-move
+   * `_SIMPLE_PROTECT_V187` family, read from the exported table rather than hand-copied (the
+   * hand-copied duplicate here was the only place in either codebase that had forked it).
+   * Below version 2 it is `_team_analysis_protect_count_v35`'s exact "Protect" test, which is
+   * what a recording stamped 1 - or an unstamped one - was made with.
+   */
   counts(team) {
     const [megaCount, megaNames] = this.checks.megaCount(team);
-    const protect = team.filter(({ entry }) => (entry.moves || []).some((m) => ["protect", "detect", "spikyshield", "banefulbunker", "kingsshield", "burningbulwark", "silktrap", "obstruct"].includes(compact(m))));
+    const family = this.ev.scoreRules >= PROTECT_FAMILY_FROM_RULE
+      ? this.checks.groups.protect
+      : new Set(["protect"]);
+    const protect = team.filter(({ entry }) => (entry.moves || []).some((m) => family.has(compact(m))));
     return { mega_count: megaCount, mega_names: megaNames, protect_count: protect.length, protect_names: protect.map(({ entry }) => String(entry.pokemon)) };
   }
 

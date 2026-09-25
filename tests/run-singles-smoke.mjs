@@ -123,6 +123,28 @@ const list = new TeamChecks({ engine, format: "Singles" }).checkList();
 check("Customize list says Spread Damage is Doubles only in Singles", /Doubles only/.test(list.find((c) => c.id === "spread_damage")?.description || ""));
 check("Customize list keeps the app's text in Doubles", !/Doubles only/.test(new TeamChecks({ engine }).checkList().find((c) => c.id === "spread_damage")?.description || ""));
 
+// V514: the two new rows, and the one that has no meaning with one Pokemon a side.
+check("Doubles has the Coverage Gaps row", rowIds(doubles).includes("coverage_gaps"), rowIds(doubles).join(","));
+check("Doubles has the Speed Tiers row", rowIds(doubles).includes("speed_tiers"), rowIds(doubles).join(","));
+check("Doubles has the Lead Viability row", rowIds(doubles).includes("lead_viability"), rowIds(doubles).join(","));
+check("Singles keeps Coverage Gaps and Speed Tiers",
+  rowIds(singles).includes("coverage_gaps") && rowIds(singles).includes("speed_tiers"), rowIds(singles).join(","));
+check("Singles has no Lead Viability row (there is no pair to score)",
+  !rowIds(singles).includes("lead_viability"), rowIds(singles).join(","));
+// The price of declaring the V514 ids, labels and descriptions locally instead of waiting
+// for the app-data.json export (deviation D14): a test holds the two declarations together.
+// The fixture's `labels` map was written by the app.
+{
+  const fixture = read("tests", "team-check-fixture-v514.json");
+  const onList = new TeamChecks({ engine }).checkList();
+  for (const [id, label] of Object.entries(fixture.labels)) {
+    const entry = onList.find((c) => c.id === id);
+    check(`the website's label for ${id} is the app's`, entry?.label === label, `${entry?.label} vs ${label}`);
+  }
+  check("Shared Weakness keeps the id defensive_switch_ins",
+    onList.some((c) => c.id === "defensive_switch_ins" && c.label === "Shared Weakness"));
+}
+
 // Synergy: nothing that needs both Pokemon on the field.
 const pairRows = (payload) => (payload.synergy?.pairs || payload.synergy_pairs?.pairs || []).flatMap((p) => [...p.interactions, ...p.conflicts]);
 const synergyS = singles.synergy || {};

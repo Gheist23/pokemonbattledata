@@ -1743,8 +1743,8 @@ function renderTournament() {
   hosts.main.append(h("div", { class: "bd-panel-head" },
     h("div", {}, h("h2", {}, "Test against Tournament Teams"),
       h("p", {}, singles
-        ? "Plays your team against real tournament teams, three against three and one at a time: turn 1 with Fake Out, Tailwind, Trick Room, Intimidate, sleep moves, Taunt and more, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your Pokémon match up 1 vs 1, and which teams and Pokémon give you trouble."
-        : "Plays your team against real tournament teams, 2 vs 2 from the leads on: turn 1 with Fake Out, Tailwind, Trick Room, Intimidate, Helping Hand, Wide Guard and more, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your lead pairs match up against theirs, and which teams and Pokémon give you trouble."))));
+        ? "Plays your team against real recent tournament teams, three against three and one at a time: turn 1 with Fake Out, Tailwind, Trick Room, Intimidate, sleep moves, Taunt and more, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your Pokémon match up 1 vs 1, and which teams and Pokémon give you trouble."
+        : "Plays your team against real recent tournament teams, 2 vs 2 from the leads on: turn 1 with Fake Out, Tailwind, Trick Room, Intimidate, Helping Hand, Wide Guard and more, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your lead pairs match up against theirs, and which teams and Pokémon give you trouble."))));
   // The explanation leads until there is a result; after that it is one click away. A team
   // shorter than a full bring brings everyone, so the explanation says the real number.
   const how = tournamentExplainer({ teams: tour.snapshot?.library || 2827, format: format(), bring: tour.snapshot?.bring ?? Math.min(list.length, singles ? 3 : 4) });

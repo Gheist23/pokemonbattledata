@@ -87,6 +87,28 @@ check("a pasted Meowstic-F-Mega is a female Meowstic", pairOf(pastedMega) === "M
 
 // Team Evaluation names.
 const checks = new TeamChecks({ engine: data.engine });
+
+// V514 check names, exactly as the Companion spells them.
+{
+  const list = checks.checkList();
+  for (const [id, label] of Object.entries({
+    defensive_switch_ins: "Shared Weakness", coverage_gaps: "Coverage Gaps",
+    speed_tiers: "Speed Tiers", lead_viability: "Lead Viability",
+  })) {
+    const entry = list.find((c) => c.id === id);
+    check(`the check ${id} is called "${label}"`, entry?.label === label, entry?.label || "missing");
+  }
+  // "Defensive Switch-ins" may survive only in builder/analysis.js, the frozen
+  // benchmark copy tests/bench-analysis.mjs measures (deviation D15).
+  const live = readFileSync(join(root, "builder", "team-checks.js"), "utf8")
+    .split(String.fromCharCode(10)).filter((line) => !line.trim().startsWith("//")).join(" ");
+  check("no live path still says Defensive Switch-ins", !live.includes("Defensive Switch-ins"),
+    (live.match(/.*Defensive Switch-ins.*/) || [""])[0].slice(0, 120));
+  for (const file of ["team-payload.js", "evaluation-view.js", "team-suggest.js", "team-autobuild.js"]) {
+    const text = readFileSync(join(root, "builder", file), "utf8");
+    check(`${file} does not hardcode the old label`, !text.includes("Defensive Switch-ins"));
+  }
+}
 for (const [raw, want] of [["Mega Meowstic", "Meowstic-M-Mega"], ["Mega Meowstic-F", "Meowstic-F-Mega"], ["Mega Charizard Y", "Charizard-Mega-Y"], ["Basculegion Male", "Basculegion"]]) {
   check(`threat name ${raw}`, checks.showdownName(raw) === want, checks.showdownName(raw));
 }

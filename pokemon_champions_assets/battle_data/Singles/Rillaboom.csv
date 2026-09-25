@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Rillaboom,10,move,1,Grassy Glide,97.0%,,,,,,,,
-Rillaboom,10,move,2,U-turn,71.5%,,,,,,,,
-Rillaboom,10,move,3,Knock Off,63.7%,,,,,,,,
+Rillaboom,10,move,2,U-turn,71.6%,,,,,,,,
+Rillaboom,10,move,3,Knock Off,63.5%,,,,,,,,
 Rillaboom,10,move,4,High Horsepower,49.8%,,,,,,,,
-Rillaboom,10,move,5,Drum Beating,48.6%,,,,,,,,
-Rillaboom,10,move,6,Wood Hammer,16.1%,,,,,,,,
-Rillaboom,10,move,7,Leech Seed,12.9%,,,,,,,,
-Rillaboom,10,move,8,Taunt,12.0%,,,,,,,,
-Rillaboom,10,move,9,Endeavor,4.9%,,,,,,,,
-Rillaboom,10,move,10,Swords Dance,4.8%,,,,,,,,
+Rillaboom,10,move,5,Drum Beating,48.7%,,,,,,,,
+Rillaboom,10,move,6,Wood Hammer,16.0%,,,,,,,,
+Rillaboom,10,move,7,Leech Seed,13.0%,,,,,,,,
+Rillaboom,10,move,8,Taunt,11.9%,,,,,,,,
+Rillaboom,10,move,9,Swords Dance,4.8%,,,,,,,,
+Rillaboom,10,move,10,Endeavor,4.8%,,,,,,,,
 Rillaboom,10,held_item,1,Life Orb,23.2%,,,,,,,,
 Rillaboom,10,held_item,2,Miracle Seed,22.1%,,,,,,,,
-Rillaboom,10,held_item,3,Terrain Extender,17.5%,,,,,,,,
-Rillaboom,10,held_item,4,Grassy Seed,11.2%,,,,,,,,
+Rillaboom,10,held_item,3,Terrain Extender,17.6%,,,,,,,,
+Rillaboom,10,held_item,4,Grassy Seed,11.1%,,,,,,,,
 Rillaboom,10,held_item,5,Leftovers,8.2%,,,,,,,,
 Rillaboom,10,held_item,6,Focus Sash,6.3%,,,,,,,,
 Rillaboom,10,held_item,7,Sitrus Berry,4.6%,,,,,,,,
@@ -29,8 +29,8 @@ Rillaboom,10,teammate,7,Archaludon,,,,,,,,,
 Rillaboom,10,teammate,8,Gholdengo,,,,,,,,,
 Rillaboom,10,teammate,9,Golisopod,,,,,,,,,
 Rillaboom,10,teammate,10,Cinderace,,,,,,,,,
-Rillaboom,10,stat_alignment,1,Adamant,87.7%,Attack,Sp. Atk,,,,,,
-Rillaboom,10,stat_alignment,2,Careful,6.0%,Sp. Def,Sp. Atk,,,,,,
+Rillaboom,10,stat_alignment,1,Adamant,87.6%,Attack,Sp. Atk,,,,,,
+Rillaboom,10,stat_alignment,2,Careful,6.1%,Sp. Def,Sp. Atk,,,,,,
 Rillaboom,10,stat_alignment,3,Impish,2.3%,Defense,Sp. Atk,,,,,,
 Rillaboom,10,stat_alignment,4,Jolly,2.1%,Speed,Sp. Atk,,,,,,
 Rillaboom,10,stat_alignment,5,Brave,1.1%,Attack,Speed,,,,,,
@@ -42,10 +42,10 @@ Rillaboom,10,stat_alignment,10,Bold,0.0%,Defense,Attack,,,,,,
 Rillaboom,10,stat_points,1,,36.8%,,,32,32,0,0,0,2
 Rillaboom,10,stat_points,2,,7.6%,,,32,32,2,0,0,0
 Rillaboom,10,stat_points,3,,7.0%,,,32,32,0,0,2,0
-Rillaboom,10,stat_points,4,,5.2%,,,2,32,0,0,0,32
+Rillaboom,10,stat_points,4,,5.1%,,,2,32,0,0,0,32
 Rillaboom,10,stat_points,5,,3.8%,,,32,2,0,0,32,0
 Rillaboom,10,stat_points,6,,2.6%,,,32,32,1,0,1,0
-Rillaboom,10,stat_points,7,,1.8%,,,32,18,0,0,16,0
+Rillaboom,10,stat_points,7,,1.7%,,,32,18,0,0,16,0
 Rillaboom,10,stat_points,8,,1.2%,,,32,0,2,0,32,0
 Rillaboom,10,stat_points,9,,0.9%,,,0,32,2,0,0,32
 Rillaboom,10,stat_points,10,,0.9%,,,26,32,0,0,0,8

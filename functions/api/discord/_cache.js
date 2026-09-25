@@ -67,11 +67,16 @@ export class TtlCache {
 /** Finished replies, keyed by the question that was asked. Shared per isolate. */
 export const replyCache = new TtlCache();
 
-/** The key a command and its arguments cache under: same question, same key. */
+/** The key a command and its arguments cache under: same question, same key.
+ *
+ *  The pairs are joined with "|", so a value that contains one has to be encoded
+ *  or two different questions could share a key: /damage takes free text, and
+ *  `field=reflect|crit=true` typed into one box would otherwise read as two
+ *  separate options. */
 export function replyKey(name, options, format) {
   const parts = (options || [])
     .filter((option) => option && option.name !== 'format' && option.value !== undefined && option.value !== '')
-    .map((option) => `${option.name}=${String(option.value).trim().toLowerCase()}`)
+    .map((option) => `${option.name}=${String(option.value).trim().toLowerCase().split('|').join('%7C')}`)
     .sort();
   return [name, `format=${format}`, ...parts].join('|');
 }

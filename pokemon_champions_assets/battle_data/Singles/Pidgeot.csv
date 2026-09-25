@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pidgeot,156,move,1,Hurricane,98.4%,,,,,,,,
 Pidgeot,156,move,2,Heat Wave,97.7%,,,,,,,,
-Pidgeot,156,move,3,Hyper Beam,46.8%,,,,,,,,
-Pidgeot,156,move,4,Substitute,45.3%,,,,,,,,
-Pidgeot,156,move,5,Roost,43.6%,,,,,,,,
+Pidgeot,156,move,3,Hyper Beam,47.1%,,,,,,,,
+Pidgeot,156,move,4,Substitute,45.0%,,,,,,,,
+Pidgeot,156,move,5,Roost,43.5%,,,,,,,,
 Pidgeot,156,move,6,Quick Attack,19.7%,,,,,,,,
 Pidgeot,156,move,7,U-turn,12.8%,,,,,,,,
 Pidgeot,156,move,8,Tailwind,8.0%,,,,,,,,
-Pidgeot,156,move,9,Whirlwind,6.3%,,,,,,,,
-Pidgeot,156,move,10,Feather Dance,5.7%,,,,,,,,
-Pidgeot,156,held_item,1,Pidgeotite,98.1%,,,,,,,,
+Pidgeot,156,move,9,Whirlwind,6.4%,,,,,,,,
+Pidgeot,156,move,10,Feather Dance,5.6%,,,,,,,,
+Pidgeot,156,held_item,1,Pidgeotite,98.2%,,,,,,,,
 Pidgeot,156,held_item,2,Focus Sash,0.7%,,,,,,,,
 Pidgeot,156,held_item,3,Shell Bell,0.2%,,,,,,,,
 Pidgeot,156,held_item,4,Sitrus Berry,0.2%,,,,,,,,
@@ -29,8 +29,8 @@ Pidgeot,156,teammate,7,Baxcalibur,,,,,,,,,
 Pidgeot,156,teammate,8,Malamar,,,,,,,,,
 Pidgeot,156,teammate,9,Archaludon,,,,,,,,,
 Pidgeot,156,teammate,10,Primarina,,,,,,,,,
-Pidgeot,156,stat_alignment,1,Modest,52.8%,Sp. Atk,Attack,,,,,,
-Pidgeot,156,stat_alignment,2,Timid,43.4%,Speed,Attack,,,,,,
+Pidgeot,156,stat_alignment,1,Modest,52.9%,Sp. Atk,Attack,,,,,,
+Pidgeot,156,stat_alignment,2,Timid,43.2%,Speed,Attack,,,,,,
 Pidgeot,156,stat_alignment,3,Mild,0.8%,Sp. Atk,Defense,,,,,,
 Pidgeot,156,stat_alignment,4,Hasty,0.6%,Speed,Defense,,,,,,
 Pidgeot,156,stat_alignment,5,Calm,0.5%,Sp. Def,Attack,,,,,,
@@ -39,14 +39,14 @@ Pidgeot,156,stat_alignment,7,Quiet,0.4%,Sp. Atk,Speed,,,,,,
 Pidgeot,156,stat_alignment,8,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
 Pidgeot,156,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,
 Pidgeot,156,stat_alignment,10,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Pidgeot,156,stat_points,1,,25.7%,,,2,0,0,32,0,32
-Pidgeot,156,stat_points,2,,18.1%,,,29,0,1,32,0,4
-Pidgeot,156,stat_points,3,,11.3%,,,1,0,1,32,0,32
-Pidgeot,156,stat_points,4,,6.7%,,,1,0,0,32,1,32
+Pidgeot,156,stat_points,1,,25.9%,,,2,0,0,32,0,32
+Pidgeot,156,stat_points,2,,17.9%,,,29,0,1,32,0,4
+Pidgeot,156,stat_points,3,,11.2%,,,1,0,1,32,0,32
+Pidgeot,156,stat_points,4,,6.6%,,,1,0,0,32,1,32
 Pidgeot,156,stat_points,5,,5.3%,,,0,0,2,32,0,32
 Pidgeot,156,stat_points,6,,3.7%,,,0,0,0,32,2,32
-Pidgeot,156,stat_points,7,,2.0%,,,32,0,0,32,0,2
-Pidgeot,156,stat_points,8,,1.7%,,,32,0,2,32,0,0
+Pidgeot,156,stat_points,7,,2.1%,,,32,0,0,32,0,2
+Pidgeot,156,stat_points,8,,1.8%,,,32,0,2,32,0,0
 Pidgeot,156,stat_points,9,,1.5%,,,0,0,0,32,0,32
 Pidgeot,156,stat_points,10,,1.2%,,,29,0,0,32,0,5
 Pidgeot,156,ability,1,Big Pecks,65.4%,,,,,,,,

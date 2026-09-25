@@ -198,13 +198,14 @@ eq("an unmeasured row says nothing at all", verdictLine({}), "");
 
 // ------------------------------------------------------------------- 2. the switch
 
-eq("production runs version 4", SUGGESTION_SCORING, 4);
+eq("production runs version 5", SUGGESTION_SCORING, 5);
 eq("left out, the rule is on at production's version", suggestionScoringOption(undefined), SUGGESTION_SCORING);
 eq("a recording with no stamp replays with the rule off", suggestionScoringOption(null), 0);
 for (const off of ["off", "0", "false", "no", "none", ""]) eq(`"${off}" switches it off`, suggestionScoringOption(off), 0);
 eq("a version pins that version", suggestionScoringOption(3), 3);
 eq("a stamp read from JSON as a string pins it too", suggestionScoringOption("3"), 3);
 eq("and version 4 pins version 4", suggestionScoringOption(4), 4);
+eq("and version 5 pins version 5", suggestionScoringOption(5), 5);
 
 // ------------------------------- 3. V512: a swap is scored against what it replaces
 //
@@ -289,6 +290,130 @@ eq("and version 4 pins version 4", suggestionScoringOption(4), 4);
       buildCensus(all, "balanced", [{ label: "Bulky members", current: 1, target: 2 }]).roles,
       ["electric terrain", "grassy terrain", "misty terrain", "psychic terrain",
         "rain weather", "sand weather", "snow weather", "sun weather"]);
+  }
+
+  // ---- version 5: the same `lost`, charged net of the team ------------------------
+  //
+  // Version 4 charged `lost` flat, and that was wrong in two separable ways:
+  //
+  //   * A BLANKET TAX. On an ordinary balanced team where each member happens to be the sole
+  //     provider of one utility it charged all six slots the same -3.88. Nothing was ranked;
+  //     every swap simply got worse. Only the per-team baseline `typical` fixes this.
+  //   * THE INVERSION. On a Trick Room team whose slot 5 was both the thinnest member and the
+  //     only Screens user it charged slots 0/2/3/4 exactly 0.00 and slot 5 -3.77, so four
+  //     better-integrated members became CHEAPER swap targets than the bad one. Only the
+  //     per-slot credit `thin` fixes this.
+  //
+  // Every number below is the app's (tests/test_outgoing_value_v512.py), derived from the same
+  // census, so the two implementations are read off one spec.
+  {
+    const { outgoingRoleCostV5, costForRule } = suggest;
+    const v5 = (c, slot, held = []) => outgoingRoleCostV5(c, slot, new Set(held));
+    const r2 = (n) => Math.round(Number(n) * 100) / 100;
+
+    eq("the census carries the two per-slot loads", census.sole, [0, 3.4, 0, 0, 0, 3]);
+    eq("... and what each slot carries at all", census.carried, [0, 4.4, 0, 0, 1, 3]);
+
+    // A stamp selects BEHAVIOUR: version 4's recording keeps version 4's number.
+    for (const version of [0, 2, 3, 4]) ok(`version ${version} is charged version 4's flat term`, costForRule(version) === suggest.outgoingRoleCost);
+    for (const version of [5, 6, 99]) ok(`version ${version} is charged the netted term`, costForRule(version) === outgoingRoleCostV5);
+    eq("version 4 still charges the owner's Indeedee-F 12.81", r2(costForRule(4)(census, 1, new Set())[0]), -12.81);
+    eq("version 5 charges it 5.41", r2(costForRule(5)(census, 1, new Set())[0]), -5.41);
+
+    eq("the roles it names are unchanged", v5(census, 1)[1], ["Redirection", "psychic terrain"]);
+    eq("version 5 still prices the original complaint above the 2.8-point flip threshold",
+      Math.abs(v5(census, 1)[0]) > 2.8, true);
+    eq("and Rillaboom, well integrated, drops from 11.30 to 1.24", r2(v5(census, 5)[0]), -1.24);
+    ok("version 4 could not tell the reported fault from a healthy member (ratio 1.13)",
+      Math.abs(r2(cost(1)[0]) / r2(cost(5)[0])) < 1.2);
+    ok("version 5 separates them by more than 4x",
+      Math.abs(v5(census, 1)[0] / v5(census, 5)[0]) > 4);
+
+    // REVERT-PROOF (the inversion): this fails if `thin` is dropped, and it fails if the weak
+    // member stops being the cheapest swap target.
+    const CASE_E = [
+      profile(["Fake Out", "Damage Support"], [], [], "A", "A"),
+      profile(["Redirection", "Fake Out"], [], [], "B", "B"),
+      profile(["Healing", "Pivoting"], [], [], "C", "C"),
+      profile(["Healing", "Damage Support"], [], [], "D", "D"),
+      profile(["Pivoting"], [], [], "E", "E"),
+      profile(["Screens"], [], [], "Weak", "Weak"),
+    ];
+    const caseE = buildCensus(CASE_E, "trick room", TR_REQUIREMENTS);
+    const eCosts = CASE_E.map((_p, slot) => v5(caseE, slot)[0]);
+    eq("the weak sole Screens user pays nothing", eCosts[5], 0);
+    eq("... which is the cheapest price there is", eCosts[5], Math.max(...eCosts));
+    ok("the member the team relies on still pays", eCosts[1] < -1e-9);
+    eq("and pays 4.25", r2(eCosts[1]), -4.25);
+    ok("nothing is clamped on a real shape", Math.min(...eCosts) > -9);
+    const eV4 = CASE_E.map((_p, slot) => outgoingRoleCost(caseE, slot, new Set())[0]);
+    eq("version 4 charged that weak member 3.77 - unchanged", r2(eV4[5]), -3.77);
+    eq("... which made it the 2nd most expensive of six",
+      [...eV4.keys()].sort((a, b) => eV4[a] - eV4[b]).indexOf(5), 1);
+
+    // REVERT-PROOF (the blanket tax): this fails if `typical` is dropped.
+    const CASE_D = ["Redirection", "Fake Out", "Healing", "Screens", "Status", "Pivoting"]
+      .map((role) => profile([role], [], [], role, role));
+    const BALANCED = [{ label: "Physical attackers" }, { label: "Special attackers" },
+      { label: "Speed-control users", critical: true }, { label: "Utility providers" },
+      { label: "Protect / positioning users" }, { label: "Bulky members" }];
+    const balanced = buildCensus(CASE_D, "no setters / balanced", BALANCED);
+    eq("version 4 taxed all six sole providers identically",
+      CASE_D.map((_p, slot) => r2(outgoingRoleCost(balanced, slot, new Set())[0])), [-3.88, -3.88, -3.88, -3.88, -3.88, -3.88]);
+    eq("version 5 charges none of them", CASE_D.map((_p, slot) => v5(balanced, slot)[0]), [0, 0, 0, 0, 0, 0]);
+    const trShape = buildCensus(CASE_D, "trick room", TR_REQUIREMENTS);
+    eq("on Trick Room only the critical role survives the credits",
+      CASE_D.map((_p, slot) => r2(v5(trShape, slot)[0])), [-2.71, 0, 0, 0, 0, 0]);
+
+    // REVERT-PROOF (magnitude): this fails if OUTGOING_CAP is removed or raised.
+    {
+      const hog = [
+        profile(["Redirection", "Fake Out", "Healing", "Screens", "Status", "Pivoting",
+          "Damage Support", "Spread Defense", "Setup Denial"], ["psychic"], [], "Hog", "Hog"),
+        profile([], [], [], "B", "B"), profile([], [], [], "C", "C"),
+      ];
+      const shape = buildCensus(hog, "trick room", TR_REQUIREMENTS);
+      eq("version 4 clamped this row at the coverage span of 30", outgoingRoleCost(shape, 0, new Set())[0], -30);
+      eq("version 5 clamps it at 9, exactly", v5(shape, 0)[0], -9);
+      const unclamped = 32 * (11.4 - shape.sole.reduce((a, b) => a + b, 0) / 3
+        - (Math.max(...shape.carried) - shape.carried[0])) / shape.denominator;
+      eq("unclamped the same row is 13.66, so a missing clamp shows here", r2(unclamped), 13.66);
+    }
+
+    // `net <= lost` always, so no census and no candidate can make version 5 charge more.
+    {
+      let worst = 0;
+      let positive = 0;
+      const ROLES = ["Redirection", "Fake Out", "Healing", "Screens", "Status", "Pivoting",
+        "Damage Support", "Spread Defense", "Setup Denial", "Speed Control"];
+      let seed = 512;
+      const rand = (n) => { seed = (seed * 1103515245 + 12345) % 2147483648; return seed % n; };
+      for (let trial = 0; trial < 600; trial += 1) {
+        const size = 1 + rand(6);
+        const profiles = [];
+        for (let i = 0; i < size; i += 1) profiles.push(profile(ROLES.filter(() => rand(3) === 0), [], [], String(i), String(i)));
+        for (const [archetype, requirements] of [["trick room", TR_REQUIREMENTS], ["no setters / balanced", BALANCED]]) {
+          const shape = buildCensus(profiles, archetype, requirements);
+          for (let slot = 0; slot < size; slot += 1) {
+            const held = new Set(ROLES.filter(() => rand(4) === 0));
+            const old = outgoingRoleCost(shape, slot, held)[0];
+            const now = outgoingRoleCostV5(shape, slot, held)[0];
+            if (now > 1e-12) positive += 1;
+            if (now < old - 1e-9) worst += 1;
+          }
+        }
+      }
+      eq("version 5 is a strict reduction of version 4 everywhere", worst, 0);
+      eq("and can never be positive", positive, 0);
+    }
+
+    // A census from before version 5 must charge nothing, never `lost` at the new weight.
+    {
+      const legacy = { ...census };
+      delete legacy.sole;
+      delete legacy.carried;
+      eq("a census with no per-slot loads cannot be netted", outgoingRoleCostV5(legacy, 1, new Set()), [0, []]);
+    }
   }
 
   // ---- the skip table, over every archetype ----------------------------------------

@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Clefable,44,move,1,Moonlight,81.5%,,,,,,,,
-Clefable,44,move,2,Moonblast,80.2%,,,,,,,,
-Clefable,44,move,3,Cosmic Power,51.9%,,,,,,,,
-Clefable,44,move,4,Flamethrower,46.8%,,,,,,,,
-Clefable,44,move,5,Calm Mind,32.9%,,,,,,,,
-Clefable,44,move,6,Stored Power,30.2%,,,,,,,,
-Clefable,44,move,7,Baton Pass,10.1%,,,,,,,,
+Clefable,44,move,2,Moonblast,80.1%,,,,,,,,
+Clefable,44,move,3,Cosmic Power,52.0%,,,,,,,,
+Clefable,44,move,4,Flamethrower,46.7%,,,,,,,,
+Clefable,44,move,5,Calm Mind,32.8%,,,,,,,,
+Clefable,44,move,6,Stored Power,30.4%,,,,,,,,
+Clefable,44,move,7,Baton Pass,10.2%,,,,,,,,
 Clefable,44,move,8,Mystical Fire,9.6%,,,,,,,,
 Clefable,44,move,9,Stealth Rock,8.6%,,,,,,,,
 Clefable,44,move,10,Encore,6.0%,,,,,,,,
-Clefable,44,held_item,1,Clefablite,78.2%,,,,,,,,
+Clefable,44,held_item,1,Clefablite,78.1%,,,,,,,,
 Clefable,44,held_item,2,Leftovers,10.5%,,,,,,,,
 Clefable,44,held_item,3,Sitrus Berry,4.1%,,,,,,,,
 Clefable,44,held_item,4,Life Orb,2.1%,,,,,,,,
@@ -25,12 +25,12 @@ Clefable,44,teammate,3,Gholdengo,,,,,,,,,
 Clefable,44,teammate,4,Archaludon,,,,,,,,,
 Clefable,44,teammate,5,Espathra,,,,,,,,,
 Clefable,44,teammate,6,Rillaboom,,,,,,,,,
-Clefable,44,teammate,7,Golisopod,,,,,,,,,
-Clefable,44,teammate,8,Baxcalibur,,,,,,,,,
+Clefable,44,teammate,7,Baxcalibur,,,,,,,,,
+Clefable,44,teammate,8,Golisopod,,,,,,,,,
 Clefable,44,teammate,9,Basculegion,,,,,,,,,
 Clefable,44,teammate,10,Gyarados,,,,,,,,,
 Clefable,44,stat_alignment,1,Bold,61.1%,Defense,Attack,,,,,,
-Clefable,44,stat_alignment,2,Modest,20.7%,Sp. Atk,Attack,,,,,,
+Clefable,44,stat_alignment,2,Modest,20.6%,Sp. Atk,Attack,,,,,,
 Clefable,44,stat_alignment,3,Calm,15.3%,Sp. Def,Attack,,,,,,
 Clefable,44,stat_alignment,4,Timid,1.2%,Speed,Attack,,,,,,
 Clefable,44,stat_alignment,5,Relaxed,0.5%,Defense,Speed,,,,,,
@@ -38,7 +38,7 @@ Clefable,44,stat_alignment,6,Sassy,0.3%,Sp. Def,Speed,,,,,,
 Clefable,44,stat_alignment,7,Quiet,0.3%,Sp. Atk,Speed,,,,,,
 Clefable,44,stat_alignment,8,Impish,0.1%,Defense,Sp. Atk,,,,,,
 Clefable,44,stat_alignment,9,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Clefable,44,stat_alignment,10,Serious,0.0%,,,,,,,,
+Clefable,44,stat_alignment,10,Hasty,0.0%,Speed,Defense,,,,,,
 Clefable,44,stat_points,1,,21.1%,,,32,0,32,0,2,0
 Clefable,44,stat_points,2,,4.8%,,,32,0,32,0,0,2
 Clefable,44,stat_points,3,,3.7%,,,31,0,32,0,3,0
@@ -47,8 +47,8 @@ Clefable,44,stat_points,5,,2.0%,,,31,0,32,0,0,3
 Clefable,44,stat_points,6,,1.9%,,,32,0,32,2,0,0
 Clefable,44,stat_points,7,,1.7%,,,32,0,2,32,0,0
 Clefable,44,stat_points,8,,1.4%,,,31,0,26,2,4,3
-Clefable,44,stat_points,9,,1.4%,,,18,0,0,31,0,17
-Clefable,44,stat_points,10,,1.4%,,,32,0,17,0,17,0
-Clefable,44,ability,1,Unaware,86.6%,,,,,,,,
+Clefable,44,stat_points,9,,1.4%,,,32,0,17,0,17,0
+Clefable,44,stat_points,10,,1.4%,,,18,0,0,31,0,17
+Clefable,44,ability,1,Unaware,86.5%,,,,,,,,
 Clefable,44,ability,2,Magic Guard,12.7%,,,,,,,,
 Clefable,44,ability,3,Cute Charm,0.8%,,,,,,,,

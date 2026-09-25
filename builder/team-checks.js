@@ -15,6 +15,124 @@ import { compact } from "./engine.js";
 
 export const ARCHETYPE_CHECK_ID = "archetype_fit";
 
+// --- V514 Team Building Checks (pokemon_champions_tool/team_check_rules_v514.py) ------
+//
+// Two new rows (Coverage Gaps, Speed Tiers, Lead Viability), "Defensive Switch-ins"
+// relabelled "Shared Weakness" and rethresholded on a meta-weighted exposure, and three
+// added Field / Weather rules. One stamp, `team_checks`, selects BEHAVIOUR: a recording
+// made before the rule (no stamp) replays with the ten pre-V514 ids, the old label and the
+// V251 thresholds, byte for byte.
+//
+// The ids, labels and descriptions are declared HERE rather than read from
+// app-data.json's analysisTables, following the precedent already in this file
+// (ARCHETYPE_CHECK_ID, the archetype entry in checkList(), SINGLES_DESCRIPTIONS, the
+// "mega" row). The deployed data/builder/app-data.json is version 20260921172816 and is
+// already behind the app -- it contains neither _V494_MOVES_NEEDING_SUPPORT nor
+// V510_GUARANTEED_MOVE_SHARE although tools/export_web_builder_data.py lists both -- and
+// regenerating it rewrites a multi-megabyte file in a worktree the owner's pipeline
+// commits and deploys every few hours. tests/run-singles-smoke.mjs asserts these strings
+// still equal the app's, so the duplication is paid for by a test.
+export const TEAM_CHECK_RULES = 1;
+
+/** A `team_checks` stamp as a version: 0 (off) for null / undefined / false / "" / "0". */
+export function teamCheckRulesOption(value) {
+  if (value === null || value === undefined || value === false) return 0;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return 0;
+  const n = Number(text);
+  return Number.isFinite(n) && n > 0 ? n : TEAM_CHECK_RULES;
+}
+
+/** team_check_rules_v514.V514_NEW_IDS */
+export const V514_NEW_IDS = ["coverage_gaps", "speed_tiers", "lead_viability"];
+
+/** team_check_rules_v514.V514_CHECK_ROWS */
+export const V514_CHECKS = [
+  ["coverage_gaps", "Coverage Gaps",
+    "Checks whether the team has a super-effective answer to the Pokemon it will actually meet, and names the ones it can only hit for normal damage."],
+  ["speed_tiers", "Speed Tiers",
+    "Checks whether too many of the team sit at almost the same Speed, so one opposing Tailwind or Icy Wind changes the turn order for all of them at once."],
+  ["lead_viability", "Lead Viability",
+    "Estimates how many of your fifteen lead pairs are worth bringing, from the turn-one tools each pair has. It is an estimate, not a played-out game."],
+];
+
+/** The id does NOT change: every saved selection and all eight other references stay. */
+export const V514_RELABELLED = {
+  defensive_switch_ins: ["Shared Weakness",
+    "Checks whether three or more of the team lose to the same attacking type, weighted by how often the Top X actually attacks with it."],
+  field_weather_consistency: ["Field / Weather Consistency",
+    "Checks that the team's weather and terrain choices support it instead of fighting each other, its own priority, or a move that needs a condition nobody sets."],
+};
+
+// Thresholds, every one measured over 2827 complete six-slot real tournament teams
+// (data/builder/known-teams.json) against the Top 30 of 2026-09-25.
+// scratchpad/checks/measure.mjs .. measure5b.mjs are the derivation.
+const COVERAGE_RED_FRACTION = 0.27;      // 8 of 30 -> 4.3% of real teams
+const COVERAGE_YELLOW_FRACTION = 0.17;   // 5 of 30 -> 18.5%
+const COVERAGE_RED_FLOOR = 3;
+const COVERAGE_YELLOW_FLOOR = 2;
+const SPEED_TIGHT_BAND = 10;
+const SPEED_WIDE_BAND = 20;
+const SPEED_TIGHT_RED = 4;               // 0.6% after the two gates
+const SPEED_WIDE_RED = 5;
+const SPEED_WIDE_YELLOW = 4;             // 3.0% after the two gates
+const SPEED_BAND_LOW_QUANTILE = 0.10;
+const SPEED_BAND_HIGH_QUANTILE = 0.90;
+const SHARED_WEAK_GATE = 3;              // the user's literal condition, kept as a gate
+const SHARED_RESIST_DISCOUNT = 0.5;
+const SHARED_RED_EXPOSURE = 4.0;         // 5.4%
+const SHARED_YELLOW_EXPOSURE = 3.0;      // 23.9% cumulative
+const LEAD_BAR = 5.6;                    // 25th percentile of 42,405 real lead pairs
+const LEAD_RED_FRACTION = 0.27;          // <= 4 of 15 -> 1.7%
+const LEAD_YELLOW_FRACTION = 0.55;       // <= 8 of 15 -> 11.9% cumulative
+
+/** The moves that lose their whole point without their condition.  Deliberately NOT
+ *  here: Blizzard / Thunder / Hurricane (accuracy only), Weather Ball (still a 50 BP
+ *  Normal move), Solar Beam / Solar Blade (charge), Electro Shot (still works). */
+const MOVES_NEEDING_CONDITION = {
+  auroraveil: "snow", steelroller: "terrain", grassyglide: "grassy", terrainpulse: "terrain",
+  expandingforce: "psychic", risingvoltage: "electric", mistyexplosion: "misty", psyblade: "electric",
+};
+/** `_SIMPLE_WEATHER_SETTERS_V187["snow"]` omits Hail, whose own description in this
+ *  game's data is "For 5 turns, hail crashes down."  The exported table is generated and
+ *  is not edited, so the extra source is declared beside the needs table on both sides. */
+const EXTRA_SNOW_SETTERS = ["hail"];
+const CONDITION_WORDS = {
+  snow: "snow", sun: "sun", rain: "rain", sand: "sand", grassy: "Grassy Terrain",
+  psychic: "Psychic Terrain", electric: "Electric Terrain", misty: "Misty Terrain",
+  terrain: "a terrain", weather: "weather",
+};
+const NUMBER_WORDS = ["zero", "one", "two", "three", "four", "five", "six"];
+
+/** `floor(x + 0.5)`.  NOT Math.round: Python rounds a .5 to even and JavaScript rounds
+ *  it up, so at Top X = 50 `round(0.17 * X)` is 8 there and 9 here.  Both sides use this. */
+function halfUp(value) {
+  return Math.floor(Number(value) + 0.5);
+}
+
+/** The corpus scripts' quantile: `a[trunc(p * (n - 1))]` on ascending values. */
+function quantile(sorted, p) {
+  if (!sorted.length) return 0;
+  const i = Math.max(0, Math.min(sorted.length - 1, Math.trunc(Number(p) * (sorted.length - 1))));
+  return Number(sorted[i]);
+}
+
+function countWord(value) {
+  const n = Number(value);
+  return Number.isInteger(n) && n >= 0 && n < NUMBER_WORDS.length ? NUMBER_WORDS[n] : String(value);
+}
+
+/** A Speed as the row prints it: 97, not 97.0 (matching `_speed_text`). */
+function speedText(value) {
+  const n = Number(value) || 0;
+  return Number.isInteger(n) ? String(n) : n.toFixed(1);
+}
+
+/** Python's `f"{value:.2f}"`. */
+function fixed2(value) {
+  return (Number(value) || 0).toFixed(2);
+}
+
 const TYPES = ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"];
 const WEATHERS = ["rain", "sun", "sand", "snow"];
 const SEVERITY_ORDER = { red: 0, yellow: 1, good: 2, green: 2 };
@@ -24,7 +142,8 @@ const SEVERITY_ORDER = { red: 0, yellow: 1, good: 2, green: 2 };
 // one Pokemon, so the Spread Damage check and the "Spread attackers" archetype
 // requirements are skipped, and these partner-only moves count for no check group.
 const SINGLES_NO_EFFECT = new Set(["followme", "ragepowder", "spotlight", "helpinghand", "coaching", "decorate", "allyswitch", "afteryou", "aromaticmist", "holdhands"]);
-const SINGLES_SKIPPED_CHECKS = new Set(["spread_damage"]);
+// V514: lead_viability joins the list. With one Pokemon a side there is no pair to score.
+const SINGLES_SKIPPED_CHECKS = new Set(["spread_damage", "lead_viability"]);
 
 /** The archetype texts that name spread pressure or redirection, as they read in Singles. */
 const SINGLES_ARCHETYPE_WHY = {
@@ -66,6 +185,11 @@ export const ARCHETYPES = [
 
 function asSet(values) {
   return new Set((values || []).map((v) => String(v)));
+}
+
+/** A move-group table normalised the way `_simple_key_v187` normalises a move name. */
+function compactSet(values) {
+  return new Set((values || []).map((v) => compact(String(v))).filter(Boolean));
 }
 
 function intersects(set, other) {
@@ -339,9 +463,18 @@ export class TeamChecks {
     this.tables = tables;
     this.abilityFields = data.abilityFields || {};
     this.displayNames = new Map(Object.entries(data.displayNames || {}).map(([name, shown]) => [compact(name), shown]));
-    this.checks = (tables._SIMPLE_CHECKS_V187 || []).map(([id, label, description]) => ({ id, label, description }));
+    // V514: the stamp. `evaluator.checkRules` is the carrier, so nothing else needs a new
+    // argument; builder-page.js constructs TeamChecks with a stand-in `{engine, format}`
+    // and no evaluator, and the `??` default is what makes Customize show the new rows.
+    this.rules = teamCheckRulesOption(evaluator?.checkRules ?? TEAM_CHECK_RULES);
+    const baseRows = (tables._SIMPLE_CHECKS_V187 || []).map(([id, label, description]) =>
+      (this.rules && V514_RELABELLED[id] ? [id, V514_RELABELLED[id][0], V514_RELABELLED[id][1]] : [id, label, description]));
+    const known = new Set(baseRows.map(([id]) => id));
+    const rows = [...baseRows, ...(this.rules ? V514_CHECKS.filter(([id]) => !known.has(id)) : [])];
+    this.checks = rows.map(([id, label, description]) => ({ id, label, description }));
     this.baseIds = this.checks.map((c) => c.id);
     this.labels = Object.fromEntries(this.checks.map((c) => [c.id, c.label]));
+    this._metaCtx = new Map();
     this.oldMap = tables._V201_OLD_CHECK_MAP || {};
     this.groups = {
       protect: asSet(tables._SIMPLE_PROTECT_V187),
@@ -349,6 +482,9 @@ export class TeamChecks {
       priority: asSet(tables._SIMPLE_PRIORITY_V187),
       positioning: asSet(tables._SIMPLE_POSITIONING_V187),
       spread: asSet(tables._SIMPLE_SPREAD_V187),
+      // `_V250_FAKE_OUT` is `["fake out"]` -- a DISPLAY spelling, while a profile's
+      // move_keys are compacted -- so reading it through asSet() would never match.
+      fakeOut: compactSet(tables._V250_FAKE_OUT || ["fakeout"]),
     };
     this.utilityGroups = Object.entries(tables._SIMPLE_UTILITY_GROUPS_V187 || {}).map(([label, keys]) => [label, asSet(keys)]);
     const keyed = (table) => Object.entries(table || {}).map(([name, keys]) => [name, asSet(keys)]);
@@ -474,8 +610,72 @@ export class TeamChecks {
     };
   }
 
+  /**
+   * Everything the two meta-relative checks need, from records the evaluation already
+   * built (`pressureOverview` calls `metaPressureRecords(topX)` once per evaluation, so
+   * the records cost nothing).  Mirrors `team_check_rules_v514.build_meta_context`.
+   */
+  metaContext() {
+    const topX = Number(this.ev?.settings?.top_meta) || 30;
+    if (this._metaCtx.has(topX)) return this._metaCtx.get(topX);
+    let records = [];
+    try {
+      records = this.ev.metaPressureRecords(topX) || [];
+    } catch {
+      records = [];
+    }
+    let context = null;
+    if (records.length) {
+      const members = [];
+      const counts = Object.fromEntries(TYPES.map((t) => [t, 0]));
+      let total = 0;
+      for (const record of records) {
+        const types = (record.types || []).map((t) => pyTitleWord(String(t))).filter((t) => TYPES.includes(t));
+        members.push({ name: String(record.name || record.form || record.pokemon || "Pokemon"), types, speed: Number(record.stats?.speed ?? record.speed) || 0 });
+        for (const move of (record.moves || []).slice(0, 4)) {
+          const [type, category, power] = this.ev.simpleMoveInfo(move);
+          if ((category === "physical" || category === "special") && power > 0 && counts[type] !== undefined) {
+            counts[type] += 1;
+            total += 1;
+          }
+        }
+      }
+      const average = total && TYPES.length ? total / TYPES.length : 0;
+      const weights = Object.fromEntries(TYPES.map((t) => [t, average > 0 ? counts[t] / average : 1]));
+      const speeds = members.map((m) => m.speed).filter((s) => s > 0).sort((a, b) => a - b);
+      context = {
+        top_x: topX,
+        members,
+        type_weights: weights,
+        damaging_move_counts: counts,
+        damaging_move_total: total,
+        speed_band: speeds.length ? [quantile(speeds, SPEED_BAND_LOW_QUANTILE), quantile(speeds, SPEED_BAND_HIGH_QUANTILE)] : [0, 0],
+      };
+    }
+    this._metaCtx.set(topX, context);
+    return context;
+  }
+
   profiles(team) {
-    return team.map(({ entry, mon }) => this.profile(entry, mon));
+    const rows = team.map(({ entry, mon }) => this.profile(entry, mon));
+    if (!this.rules) return rows;
+    // V514 (deviation D19): the meta context is stamped onto each profile because every
+    // verdict function is fn(profiles) and `team_build_constraints` calls one of them
+    // directly, so the signature cannot change. The recorded vector runners compare a
+    // named field list, so the extra keys are invisible to them.
+    const context = this.metaContext();
+    for (const profile of rows) {
+      profile._v514_meta = context;
+      profile._v514_attack = Number(profile.stats?.attack) || 0;
+      profile._v514_sp_attack = Number(profile.stats?.sp_attack) || 0;
+      let best = 0;
+      for (const move of profile.moves || []) {
+        const [, category, power] = this.ev.simpleMoveInfo(move);
+        if (category === "physical" || category === "special") best = Math.max(best, Number(power) || 0);
+      }
+      profile._v514_best_power = best;
+    }
+    return rows;
   }
 
   // --- V201 rows -----------------------------------------------------------------
@@ -699,8 +899,296 @@ export class TeamChecks {
     return [weak, resist, immune];
   }
 
+  /** The meta context off the first profile that carries one (`context_of`). */
+  contextOf(profiles) {
+    for (const profile of profiles || []) if (profile && profile._v514_meta) return profile._v514_meta;
+    return null;
+  }
+
+  /** The meta weight per attacking type; 1.0 everywhere when there is no context. */
+  metaWeights(context) {
+    if (context && context.type_weights) return Object.fromEntries(TYPES.map((t) => [t, Number(context.type_weights[t] ?? 1) || 0]));
+    return Object.fromEntries(TYPES.map((t) => [t, 1]));
+  }
+
+  /** V514 coverage_gaps: how thin the team's super-effective coverage is over the Top X. */
+  checkCoverageGaps(profiles) {
+    const filled = (profiles || []).filter(Boolean);
+    const context = this.contextOf(filled);
+    const topX = Number(context?.top_x) || 30;
+    const members = (context?.members || []).filter((m) => m.types.length);
+    const seen = new Set();
+    for (const profile of filled) for (const t of profile.damaging_types || []) if (TYPES.includes(String(t))) seen.add(String(t));
+    const attacking = TYPES.filter((t) => seen.has(t));
+
+    const gaps = [];
+    for (const member of members) {
+      let best = 0;
+      for (const type of attacking) best = Math.max(best, Number(this.ev.engine.typeMultiplier(type, member.types)));
+      if (best < 2) gaps.push({ name: member.name, types: [...member.types], best_multiplier: best });
+    }
+    gaps.sort((a, b) => a.best_multiplier - b.best_multiplier || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+    const resisted = gaps.filter((g) => g.best_multiplier < 1);
+    const redBar = Math.max(COVERAGE_RED_FLOOR, halfUp(COVERAGE_RED_FRACTION * topX));
+    const yellowBar = Math.max(COVERAGE_YELLOW_FLOOR, halfUp(COVERAGE_YELLOW_FRACTION * topX));
+
+    let fixes = [];
+    for (const type of TYPES) {
+      const covers = gaps.filter((g) => Number(this.ev.engine.typeMultiplier(type, g.types)) >= 2).length;
+      if (covers) fixes.push({ type, covers });
+    }
+    fixes = stableSort(fixes, (f) => [-f.covers, TYPES.indexOf(f.type)]).slice(0, 3);
+
+    const extra = {
+      coverage_rows_v514: gaps.slice(0, 6),
+      best_added_types_v514: fixes,
+      coverage_gap_count_v514: gaps.length,
+      coverage_resisted_count_v514: resisted.length,
+      coverage_top_x_v514: topX,
+      coverage_attacking_types_v514: attacking,
+      coverage_bars_v514: { yellow: yellowBar, red: redBar },
+    };
+    const fix = fixes.length
+      ? (fixes.length > 1 && fixes[1].covers === fixes[0].covers
+        ? `a ${fixes[0].type} or ${fixes[1].type} attack would cover ${fixes[0].covers} of them`
+        : `a ${fixes[0].type} attack would cover ${fixes[0].covers} of them`)
+      : "replace one attack with a type that hits them, or add a member that does";
+    // The names go in the text, not only in the payload: a bare count is not actionable.
+    const named = simpleJoin(gaps.map((g) => g.name), 4);
+    const why = `${gaps.length ? `The team can only hit ${named} for neutral damage. ` : ""}`
+      + "Without a super-effective answer it has to break them with neutral damage, which usually costs a turn it does not have.";
+
+    if (resisted.length || gaps.length >= redBar) {
+      const summary = resisted.length
+        ? `${resisted.length} of the Top ${topX} resist every attack the team carries, and ${gaps.length} in total have no super-effective answer`
+        : `${gaps.length} of the Top ${topX} have no super-effective answer on this team`;
+      return this.row("coverage_gaps", "red", summary, why, fix, 5.6,
+        `Problem = at least one of the Top ${topX} the team only resists, or ${redBar} or more with no super-effective answer.`, extra);
+    }
+    if (gaps.length >= yellowBar) {
+      return this.row("coverage_gaps", "yellow", `${gaps.length} of the Top ${topX} have no super-effective answer on this team`,
+        why, fix, 2.5, `Needs attention = ${yellowBar} or more of the Top ${topX} with no super-effective answer.`, extra);
+    }
+    const summary = !members.length
+      ? "the Top Meta is not loaded yet, so coverage cannot be measured"
+      : gaps.length
+        ? `only ${gaps.length} of the Top ${topX} ${gaps.length === 1 ? "lacks" : "lack"} a super-effective answer, which is a normal amount to live with`
+        : `every one of the Top ${topX} has a super-effective answer somewhere on the team`;
+    return this.row("coverage_gaps", "good", summary,
+      "The team can bring super-effective damage to almost everything it will meet.", "", 0,
+      `Good = fewer than ${yellowBar} of the Top ${topX} without a super-effective answer.`, extra);
+  }
+
+  /** V514 speed_tiers: too many members in one Speed band, after two gates. */
+  checkSpeedTiers(profiles) {
+    const filled = (profiles || []).filter(Boolean);
+    const context = this.contextOf(filled);
+    const topX = Number(context?.top_x) || 30;
+    const [lowEdge, highEdge] = context?.speed_band || [0, 0];
+
+    // GATE 1. 39.3% of real teams set Trick Room; under it a tight band is the plan.
+    if (filled.some((p) => p.move_keys.has("trickroom"))) {
+      return this.row("speed_tiers", "good",
+        "Trick Room sets the order, so sitting close together on Speed does not decide your turns",
+        "The team inverts the turn order on purpose, which is exactly what a tight Speed band is for.", "", 0,
+        "Good = the team sets Trick Room, so a shared Speed tier is deliberate.",
+        { speed_gate_v514: "trick_room", speed_cluster_v514: {}, speed_flip_v514: {}, speed_band_v514: [lowEdge, highEdge] });
+    }
+
+    const entries = stableSort(filled.map((p) => [Number(p.speed) || 0, String(p.name || "Pokemon")]), (e) => [e[0], e[1]]);
+    const bestCluster = (width) => {
+      let best = null;
+      for (let start = 0; start < entries.length; start += 1) {
+        let stop = start;
+        while (stop < entries.length && entries[stop][0] - entries[start][0] <= width) stop += 1;
+        const size = stop - start;
+        if (size <= 1) continue;
+        const low = entries[start][0];
+        const high = entries[stop - 1][0];
+        // GATE 2. A block slower than the whole field is not in a Speed race.
+        if (!(high >= lowEdge && low <= highEdge)) continue;
+        if (!best || size > best.size) best = { size, low, high, width: high - low, members: entries.slice(start, stop).map((e) => e[1]) };
+      }
+      return best;
+    };
+    const tight = bestCluster(SPEED_TIGHT_BAND);
+    const wide = bestCluster(SPEED_WIDE_BAND);
+    const tightSize = tight?.size || 0;
+    const wideSize = wide?.size || 0;
+    const red = tightSize >= SPEED_TIGHT_RED || wideSize >= SPEED_WIDE_RED;
+    const yellow = wideSize >= SPEED_WIDE_YELLOW;
+    const cluster = tightSize >= SPEED_TIGHT_RED && tightSize >= wideSize ? tight : wide;
+
+    let flip = {};
+    let flipCount = 0;
+    if (cluster) {
+      const ceiling = Number(cluster.high);
+      for (const member of context?.members || []) {
+        const speed = Number(member.speed) || 0;
+        if (speed <= 0 || speed > ceiling || speed * 2 <= ceiling) continue;
+        flipCount += 1;
+        if (!flip.name || speed > Number(flip.speed)) flip = { name: String(member.name || "Pokemon"), speed };
+      }
+    }
+    if (flip.name) flip.count = flipCount;
+
+    const extra = {
+      speed_gate_v514: "",
+      speed_cluster_v514: cluster
+        ? { members: [...cluster.members], low: cluster.low, high: cluster.high, width: cluster.width, band: [lowEdge, highEdge] }
+        : {},
+      speed_flip_v514: flip,
+      speed_band_v514: [lowEdge, highEdge],
+    };
+    if (red || yellow) {
+      const word = countWord(cluster.size);
+      const summary = `${word} of your ${countWord(filled.length)} sit between ${speedText(cluster.low)} and ${speedText(cluster.high)}`;
+      const named = simpleJoin([...cluster.members], 6);
+      const why = flip.name
+        ? `${named}. One Tailwind from ${flip.name} (Speed ${speedText(flip.speed)}) moves it past all ${word} in the same turn.`
+        : `${named}. One Tailwind or Icy Wind changes the order for all ${word} at once.`;
+      const fix = "move one attacker clearly above or below the group, or carry your own Tailwind or Trick Room";
+      if (red) {
+        return this.row("speed_tiers", "red", summary, why, fix, 4.0,
+          `Problem = ${SPEED_TIGHT_RED} or more members inside ${SPEED_TIGHT_BAND} Speed points, or ${SPEED_WIDE_RED} or more inside ${SPEED_WIDE_BAND}, in the range the Top ${topX} contests.`, extra);
+      }
+      return this.row("speed_tiers", "yellow", summary, why, fix, 1.8,
+        `Needs attention = ${SPEED_WIDE_YELLOW} or more members inside ${SPEED_WIDE_BAND} Speed points, in the range the Top ${topX} contests.`, extra);
+    }
+    return this.row("speed_tiers", "good",
+      "the team's Speeds are spread out enough that one Tailwind cannot reorder all of it at once",
+      "No large group of the team shares a Speed tier inside the range the meta contests.", "", 0,
+      `Good = no group of ${SPEED_WIDE_YELLOW} sits inside ${SPEED_WIDE_BAND} Speed points in the range the Top ${topX} contests.`, extra);
+  }
+
+  /** V514 lead_viability: an explicit estimate from each pair's turn-one tools. */
+  leadScore(profile) {
+    const keys = profile.move_keys;
+    const ability = compact(profile.ability || "");
+    const hits = (group) => intersects(keys, group);
+    let score = 0;
+    if (hits(this.groups.fakeOut)) score += 3;
+    if (keys.has("tailwind")) score += 3;
+    if (keys.has("trickroom")) score += 3;
+    if (ability === "intimidate") score += 2;
+    if (hits(this.archetypeSets.redirection)) score += 1.5;
+    if (hits(this.groups.speed)) score += 1.5;
+    if (keys.has("firstimpression")) score += 1.5;
+    if (hits(this.groups.priority)) score += 1;
+    if (hits(this.groups.spread)) score += 1;
+    if (keys.has("helpinghand")) score += 1;
+    if (keys.has("wideguard")) score += 1;
+    if (keys.has("taunt")) score += 1;
+    if (hits(this.groups.protect)) score += 0.5;
+    return score + Math.max(Number(profile._v514_attack) || 0, Number(profile._v514_sp_attack) || 0) / 150;
+  }
+
+  leadPairScore(a, b) {
+    let score = this.leadScore(a) + this.leadScore(b);
+    if (intersects(a.move_keys, this.groups.fakeOut) && intersects(b.move_keys, this.groups.fakeOut)) score -= 3;
+    if ((a.move_keys.has("trickroom") && b.move_keys.has("trickroom")) || (a.move_keys.has("tailwind") && b.move_keys.has("tailwind"))) score -= 3;
+    if (![a, b].some((p) => (Number(p._v514_best_power) || 0) >= 60)) score -= 3;
+    return score;
+  }
+
+  checkLeadViability(profiles) {
+    const filled = (profiles || []).filter(Boolean);
+    let pairs = [];
+    for (let i = 0; i < filled.length; i += 1) {
+      for (let j = i + 1; j < filled.length; j += 1) {
+        const score = this.leadPairScore(filled[i], filled[j]);
+        pairs.push({ members: [String(filled[i].name), String(filled[j].name)], score, playable: score >= LEAD_BAR });
+      }
+    }
+    pairs = stableSort(pairs, (p) => [-p.score, p.members[0], p.members[1]]);
+    const total = pairs.length;
+    const playable = pairs.filter((p) => p.playable).length;
+    const redBar = halfUp(LEAD_RED_FRACTION * total);
+    const yellowBar = halfUp(LEAD_YELLOW_FRACTION * total);
+    const extra = {
+      lead_pairs_v514: pairs,
+      lead_playable_v514: playable,
+      lead_pair_count_v514: total,
+      lead_bar_v514: LEAD_BAR,
+      lead_severity_bars_v514: { yellow: yellowBar, red: redBar },
+    };
+    const honest = "This is an estimate from each pair's turn-one tools, not a played-out game.";
+    if (total < 2) {
+      return this.row("lead_viability", "good", "there is no lead pair to judge yet", "", "", 0,
+        "Good = not enough Pokemon to form a lead pair.", extra);
+    }
+    if (playable <= redBar || playable <= yellowBar) {
+      const pieces = pairs.slice(0, 2).map((p) => `${p.members[0]} with ${p.members[1]}`);
+      const weak = pairs.filter((p) => !p.playable);
+      let why = `Your best openings are ${simpleJoin(pieces, 2)}.`;
+      if (weak.length) {
+        why += ` ${weak.length < NUMBER_WORDS.length ? countWord(weak.length) : weak.length} pair${weak.length !== 1 ? "s" : ""} have little more than raw damage between them.`;
+      }
+      why += ` ${honest}`;
+      const fix = "give another Pokemon a turn-one tool so more pairs can open";
+      const summary = `an estimated ${playable} of your ${total} lead pairs are worth bringing`;
+      if (playable <= redBar) {
+        return this.row("lead_viability", "red", summary, why, fix, 4.4,
+          `Problem = ${redBar} or fewer of the ${total} lead pairs reach the playable bar.`, extra);
+      }
+      return this.row("lead_viability", "yellow", summary, why, fix, 2.0,
+        `Needs attention = ${yellowBar} or fewer of the ${total} lead pairs reach the playable bar.`, extra);
+    }
+    return this.row("lead_viability", "good",
+      `an estimated ${playable} of your ${total} lead pairs are worth bringing, judged from each pair's turn-one tools rather than a played-out game`,
+      "Most openings have a turn-one tool, so the lead choice stays a real choice.", "", 0,
+      `Good = more than ${yellowBar} of the ${total} lead pairs reach the playable bar.`, extra);
+  }
+
+  /** V514 Shared Weakness: the same id, weighted by how often the meta attacks with it. */
+  checkSharedWeakness(profiles) {
+    const filled = (profiles || []).filter(Boolean);
+    const context = this.contextOf(filled);
+    const topX = Number(context?.top_x) || 30;
+    const weights = this.metaWeights(context);
+    const [weakCounts, resistCounts, immuneCounts] = this.defensiveCounts(filled);
+    let typeRows = [];
+    for (const type of TYPES) {
+      const weak = weakCounts[type] || 0;
+      const switchIns = resistCounts[type] || 0;
+      const weight = Number(weights[type] ?? 1);
+      const exposure = Math.max(0, weak - SHARED_RESIST_DISCOUNT * switchIns) * weight;
+      if (weak < SHARED_WEAK_GATE) continue;
+      const severity = exposure >= SHARED_RED_EXPOSURE ? "red" : exposure >= SHARED_YELLOW_EXPOSURE ? "yellow" : "";
+      if (!severity) continue;
+      typeRows.push({ type, weak, switch_ins: switchIns, immunities: immuneCounts[type] || 0, severity, meta_weight: weight, exposure });
+    }
+    typeRows = stableSort(typeRows, (r) => [r.severity === "red" ? 0 : 1, -r.exposure, -r.weak, r.switch_ins, r.type]);
+    const severe = typeRows.filter((r) => r.severity === "red");
+    const exposed = typeRows.filter((r) => r.severity === "yellow");
+    const extra = {
+      weak_counts: weakCounts, resist_counts: resistCounts, immune_counts: immuneCounts,
+      severe, exposed, type_rows_v251: typeRows,
+      meta_type_weights_v514: Object.fromEntries(TYPES.map((t) => [t, Number(weights[t] ?? 1)])),
+    };
+    if (typeRows.length) {
+      const worst = typeRows[0];
+      const others = typeRows.slice(1).map((r) => r.type);
+      let summary = `${countWord(worst.weak)} of your ${countWord(filled.length)} lose to ${worst.type}, which the Top ${topX} attacks with ${fixed2(worst.meta_weight)} times the average rate`;
+      if (others.length) summary += `, and the same is true of ${simpleJoin(others, 3)}`;
+      const why = "One Pokemon with that attacking type can threaten most of the team in a single turn, which is the classic reason a team folds to one opponent.";
+      const fix = `add a ${worst.type} resist or immunity, or replace one of the ${worst.weak} that share the weakness`;
+      if (severe.length) {
+        return this.row("defensive_switch_ins", "red", summary, why, fix, 5.8,
+          `Problem = ${SHARED_WEAK_GATE} or more members weak to one type, and that type's meta-weighted exposure reaches ${SHARED_RED_EXPOSURE.toFixed(1)}.`, extra);
+      }
+      return this.row("defensive_switch_ins", "yellow", summary, why, fix, 2.6,
+        `Needs attention = ${SHARED_WEAK_GATE} or more members weak to one type, and that type's meta-weighted exposure reaches ${SHARED_YELLOW_EXPOSURE.toFixed(1)}.`, extra);
+    }
+    return this.row("defensive_switch_ins", "good",
+      "no attacking type the meta actually uses hits enough of the team to matter",
+      "The weaknesses the team does share belong to types the Top Meta rarely attacks with.", "", 0,
+      `Good = no attacking type reaches the weighted exposure bar with ${SHARED_WEAK_GATE} or more members weak to it.`, extra);
+  }
+
   /** _v251_check_defensive_switch_ins */
   checkDefensiveSwitchIns(profiles) {
+    if (this.rules) return this.checkSharedWeakness(profiles);
     const [weakCounts, resistCounts, immuneCounts] = this.defensiveCounts(profiles);
     let typeRows = [];
     for (const type of TYPES) {
@@ -742,28 +1230,61 @@ export class TeamChecks {
     const unsupported = [...weatherUse].filter((w) => !weatherSet.has(w)).sort();
     if (unsupported.length) problems.push(`missing setter for ${simpleJoin(unsupported.map(pyTitleWord), 4)}`);
     if (weatherSet.size >= 2) problems.push("multiple weather setters may fight each other");
+    // V514 NEW RULE A: two terrain setters. The half of "two setters fighting each other"
+    // that did not exist -- only weather was checked. 2.6% of real teams.
+    if (this.rules && terrainSet.size >= 2) {
+      const owner = (condition) => {
+        const found = (profiles || []).find((p) => p && p.terrain_set.has(condition));
+        return found ? String(found.name || "One Pokemon") : "One Pokemon";
+      };
+      const [first, second] = [...terrainSet].sort();
+      let text = `${owner(first)}'s ${pyTitleWord(first)} Terrain and ${owner(second)}'s ${pyTitleWord(second)} Terrain replace each other`;
+      if (terrainSet.size > 2) text += ` (+${terrainSet.size - 2} more terrain)`;
+      problems.push(text);
+    }
     if (terrainSet.has("psychic") && priority.length) problems.push("Psychic Terrain can block the team's priority attacks");
     if (terrainSet.has("grassy") && ["earthquake", "bulldoze", "magnitude"].some((k) => moveKeys.has(k))) problems.push(this.singles ? "Grassy Terrain weakens the team's Earthquake-style Ground attacks" : "Grassy Terrain weakens the team's Ground spread attacks");
+    // V514 NEW RULE B: a move whose condition the team cannot set, derived from THESE
+    // profiles (never from the builder's global team).  NEW RULE C: Hail counts as snow.
+    const available = new Set([...weatherSet, ...terrainSet]);
+    const hasHail = EXTRA_SNOW_SETTERS.some((k) => moveKeys.has(k));
+    if (hasHail) available.add("snow");
+    if (weatherSet.size || hasHail) available.add("weather");
+    if (terrainSet.size) available.add("terrain");
+    if (this.rules) {
+      for (const profile of profiles || []) {
+        for (const move of profile.moves || []) {
+          const need = MOVES_NEEDING_CONDITION[compact(move)];
+          if (!need || !profile.move_keys.has(compact(move)) || available.has(need)) continue;
+          problems.push(`${String(profile.name)}'s ${String(move).trim()} needs ${CONDITION_WORDS[need] || need} and nothing on the team sets it`);
+        }
+      }
+    }
+    const extra = this.rules ? { problems, field_available_v514: [...available].sort() } : { problems };
+    const fix = this.rules
+      ? "Drop one of the competing setters, or give the move's owner the condition it needs."
+      : "Remove the conflict or add the missing weather/terrain support.";
+    const why = this.rules
+      ? "Conflicting field choices can make the team's own tools unreliable."
+      : "Conflicting field choices can make the team’s own tools unreliable.";
     if (problems.length >= 2) {
-      return this.row("field_weather_consistency", "red", `${simpleJoin(problems, 4)}.`,
-        "Conflicting field choices can make the team’s own tools unreliable.",
-        "Remove the conflict or add the missing weather/terrain support.", 5.0,
-        "Problem = two or more field/weather conflicts.", { problems });
+      return this.row("field_weather_consistency", "red", `${simpleJoin(problems, 4)}.`, why, fix, 5.0,
+        "Problem = two or more field/weather conflicts.", extra);
     }
     if (problems.length) {
       return this.row("field_weather_consistency", "yellow", `${simpleJoin(problems, 4)}.`,
         "The field plan mostly works, but one dependency or conflict needs attention.",
         "Fix the listed conflict or confirm it is an intentional matchup-specific choice.", 2.4,
-        "Needs attention = one detected field/weather issue.", { problems });
+        "Needs attention = one detected field/weather issue.", extra);
     }
     if (weatherSet.size || weatherUse.size || terrainSet.size) {
       return this.row("field_weather_consistency", "good", "weather and terrain choices have no obvious internal conflict.",
         "The detected field tools support the current team instead of blocking it.", "", 0,
-        "Good = field dependencies have matching support and no detected conflict.", { problems: [] });
+        "Good = field dependencies have matching support and no detected conflict.", extra);
     }
     return this.row("field_weather_consistency", "good", "the team does not depend on weather or terrain, so no field support is required.",
       "No field plan is also valid for many balance or offense teams.", "", 0,
-      "Good = no weather or terrain dependency needs support.", { problems: [] });
+      "Good = no weather or terrain dependency needs support.", extra);
   }
 
   checkFor(id) {
@@ -777,6 +1298,9 @@ export class TeamChecks {
       utility_disruption: this.checkUtilityDisruption,
       defensive_switch_ins: this.checkDefensiveSwitchIns,
       field_weather_consistency: this.checkFieldWeatherConsistency,
+      coverage_gaps: this.checkCoverageGaps,
+      speed_tiers: this.checkSpeedTiers,
+      lead_viability: this.checkLeadViability,
     }[id];
   }
 

@@ -9,3 +9,5 @@ tests/suggest-vectors-guaranteed.json
 tests/autobuild-vectors-guaranteed.json
 tests/suggest-vectors-scoring.json
 tests/eval-vectors-scoring.json
+tests/eval-vectors-v5.json
+tests/suggest-vectors-v5.json

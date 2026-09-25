@@ -95,7 +95,7 @@ else {
   }
   for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
 
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: testCase.record?.rules?.paired_spreads ?? null, scoreRules: testCase.record?.rules?.score_composition ?? null });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: testCase.record?.rules?.paired_spreads ?? null, scoreRules: testCase.record?.rules?.score_composition ?? null, checkRules: testCase.record?.rules?.team_checks ?? null });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;

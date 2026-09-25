@@ -83,6 +83,13 @@ const scoreRule = (testCase) => (process.env.SCORE_RULES === undefined
   ? (testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? null)
   : process.env.SCORE_RULES);
 const pairedRule = (testCase) => (process.env.PAIRED_SPREADS === undefined ? pairedStamp(testCase) : process.env.PAIRED_SPREADS);
+/** The recording's V514 Team Building Checks stamp (null: recorded before the rule, so the ten
+ *  pre-V514 ids, the label "Defensive Switch-ins" and the V251 thresholds replay).
+ *  TEAM_CHECK_RULES=0 / =1 replays every recording either way. */
+const checkRule = (testCase) => (process.env.TEAM_CHECK_RULES === undefined
+  ? (testCase?.record?.rules?.team_checks ?? testCase?.rules?.team_checks ?? null)
+  : process.env.TEAM_CHECK_RULES);
+
 
 const failures = [];
 const byField = new Map();
@@ -119,7 +126,7 @@ for (const testCase of cases) {
   }
   if (!appPool.length) for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
   const settings = rec._v452_fast_autobuild_payload[0].snapshot?.settings || testCase.settings;
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase) });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;

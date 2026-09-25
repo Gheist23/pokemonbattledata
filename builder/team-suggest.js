@@ -214,7 +214,7 @@ function archetypeSpeedControlFit(archetype, moves, trSetters, twSetters) {
 // it was tuned with, so its recorded runs still replay.
 
 /** The rule version production runs; a recording stamps it as `rules.suggestion_scoring`. */
-export const SUGGESTION_SCORING = 4;
+export const SUGGESTION_SCORING = 5;
 
 /**
  * What another Trick Room carrier is worth once the plan has 0 / 1 / 2+ setters, per rule
@@ -231,7 +231,10 @@ export const SUGGESTION_SCORING = 4;
 // Version 4 keeps version 3's damping unchanged - what it adds is priced by its own term
 // (`outgoingRoleCost`) - but it still needs its own row: `ruleTable(4)` falls back to
 // `[SUGGESTION_SCORING]`, which without a `4:` row is `undefined` and throws.
-const TRICK_ROOM_BY_SETTERS_BY_RULE = { 2: [22, 12, 2], 3: [22, 10, 0], 4: [22, 10, 0] };
+// Version 5 tunes what version 4 added - the reopened-roles term is charged net of the team
+// rather than flat (`outgoingRoleCostV5`) - and changes nothing here either, so its row is
+// version 4's row. Not optional, for the same reason version 4's was not.
+const TRICK_ROOM_BY_SETTERS_BY_RULE = { 2: [22, 12, 2], 3: [22, 10, 0], 4: [22, 10, 0], 5: [22, 10, 0] };
 /** `archetypeSpeedControlFit`'s own flat reward, which no version changes. */
 const FLAT_TRICK_ROOM_REWARD = 22;
 /** The version that stopped the coverage layer charging for the same move twice. */
@@ -267,6 +270,27 @@ const CRITICAL_WEIGHT = 2.4; // v429: a critical requirement weighs 2.4
 // version 3's withheld reward), and a candidate that does the same job pays nothing.
 /** The version that reopens the outgoing member's roles - and fixes the resolver. */
 const REOPEN_ROLES_FROM_RULE = 4;
+// Version 5 charges the same `lost` net of the team. Version 4 charged it flat, and that was
+// wrong in two separable ways: on a balanced archetype where every member is the sole provider
+// of one utility it taxed all six slots the same -3.88 (nothing ranked, every swap worse), and
+// on a Trick Room team whose slot 5 was both the weakest member and the only Screens user it
+// charged slots 0/2/3/4 exactly 0.00 and slot 5 -3.77, making the bad member a *more* expensive
+// swap target than four better-integrated ones. Each symptom needs its own credit: the team's
+// average irreplaceable load (`typical`) is the only thing that fixes the first, and how much
+// less this slot carries than the team's busiest (`thin`) the only thing that fixes the second.
+/** `outgoing_value_v512.NET_ROLES_FROM_RULE`: the version that nets the term against the team. */
+const NET_ROLES_FROM_RULE = 5;
+// Derived, not borrowed. The two calc-backed terms that actually reorder a list move a row by a
+// median 5.60 ("Answers the team's threats") and 5.30 ("Covers what the team is missing") over
+// 160 deep-scored rows on the four recorded teams; median 5.45. Solving W * 2.3333 / 13.8 = 5.45
+// on the case the term exists for - the owner's Indeedee-F, net 2.3333 of a 13.8 budget - gives
+// 32.24, taken as 32 (-> 5.41). Version 4's borrowed COVERAGE_WEIGHT of 52 priced an unrequested
+// role at the rate the coverage layer pays for a requirement: 12.81 of a 0-100 score.
+const OUTGOING_WEIGHT = 32;
+// The weakest discriminating calc-backed term ("Survives the same threats") moves a row by a
+// median 9.65 within one team, rounded down to a whole point. Version 4's borrowed COVERAGE_SPAN
+// of 30 was unreachable by 2.3x while the term routinely charged 12.81.
+const OUTGOING_CAP = 9;
 const TERRAIN_SUFFIX = " terrain";
 const WEATHER_SUFFIX = " weather";
 const TERRAIN_TOKENS = ["electric", "grassy", "psychic", "misty"].map((t) => t + TERRAIN_SUFFIX);
@@ -390,6 +414,13 @@ export function rolePhrase(role, profile) {
  * price of one. `roles` is one ASCII-sorted list on both sides; `providers` maps a role to the
  * **index list** of the members that provide it, so the sole-provider test is an index
  * comparison and no name ever has to be matched.
+ *
+ * `sole[i]` is the weight of the roles **only** slot i provides, `carried[i]` the weight of
+ * every role it provides at all - version 5's two per-slot loads, accumulated in the one loop
+ * the census already walks, so version 5 costs nothing per candidate row. Version 4 never reads
+ * them. The accumulation order is load-bearing and must match the app's: CRITICAL_WEIGHT 2.4 is
+ * not representable in binary, so the sums are only bit-identical while both sides walk `roles`
+ * ASCII-sorted on the outside and each role's provider indexes ascending on the inside.
  */
 export function buildCensus(profiles, archetype, requirements) {
   const key = String(archetype || "").trim().toLowerCase();
@@ -403,9 +434,17 @@ export function buildCensus(profiles, archetype, requirements) {
     providers[role] = tokens.map((t, i) => (t.has(role) ? i : -1)).filter((i) => i >= 0);
     weights[role] = critical.has(role) ? CRITICAL_WEIGHT : 1;
   }
+  const sole = tokens.map(() => 0);
+  const carried = tokens.map(() => 0);
+  for (const role of roles) {
+    const weight = weights[role];
+    const indexes = providers[role];
+    for (const index of indexes) carried[index] += weight;
+    if (indexes.length === 1) sole[indexes[0]] += weight;
+  }
   const plainTotal = (requirements || []).reduce((sum, req) => sum + requirementWeight(req), 0);
   const reopened = roles.reduce((sum, role) => sum + weights[role], 0);
-  return { archetype: key, roles, providers, weights, tokens, profiles: profiles || [],
+  return { archetype: key, roles, providers, weights, tokens, profiles: profiles || [], sole, carried,
     plain_total: plainTotal, reopened, denominator: plainTotal + reopened };
 }
 
@@ -427,6 +466,57 @@ export function outgoingRoleCost(census, slot, candidateTokens) {
   if (!lostRoles.length) return [0, []];
   const lost = lostRoles.reduce((sum, role) => sum + (census.weights[role] ?? 1), 0);
   return [-Math.min(COVERAGE_SPAN, (COVERAGE_WEIGHT * lost) / denominator), lostRoles];
+}
+
+/**
+ * `outgoing_value_v512.outgoing_role_cost_v5`: version 5 charges the same `lost` net of what
+ * the team makes ordinary.
+ *
+ *   net = lost - typical - thin[slot]
+ *   typical    = sum(sole) / live members      the team's own average irreplaceable load
+ *   thin[slot] = max(carried) - carried[slot]  how much less this slot carries than the busiest
+ *
+ * Nothing is charged while `net <= 0`, and `net <= lost` always, so version 5 is a strict
+ * reduction of version 4 everywhere; the term is still never positive and still charges sole
+ * providers only. What it cannot do is make the weak member *strictly* the cheapest swap: 0 is
+ * the floor for a term clamped at <= 0, so it ties with every member charged nothing. What it
+ * does achieve is that it pays the cheapest price there is, strictly less than any
+ * well-integrated sole provider.
+ * @returns {[number, string[]]}
+ */
+export function outgoingRoleCostV5(census, slot, candidateTokens) {
+  const roles = census?.roles || [];
+  const denominator = Number(census?.denominator) || 0;
+  if (!roles.length || denominator <= 0) return [0, []];
+  const held = candidateTokens || new Set();
+  const index = Math.trunc(Number(slot) || 0);
+  const lostRoles = roles.filter((role) => {
+    const providers = census.providers[role] || [];
+    return providers.length === 1 && providers[0] === index && !held.has(role);
+  });
+  if (!lostRoles.length) return [0, []];
+  const carried = census.carried || [];
+  const sole = census.sole || [];
+  const members = (census.tokens || []).length;
+  // A census built before version 5 cannot be netted; charging `lost` flat here would be
+  // version 4 under version 5's weight.
+  if (members <= 0 || !carried.length || index < 0 || index >= carried.length) return [0, []];
+  const lost = lostRoles.reduce((sum, role) => sum + (census.weights[role] ?? 1), 0);
+  const typical = sole.reduce((sum, value) => sum + value, 0) / members;
+  const thin = Math.max(...carried) - carried[index];
+  const net = lost - typical - thin;
+  if (net <= 0) return [0, []];
+  return [-Math.min(OUTGOING_CAP, (OUTGOING_WEIGHT * net) / denominator), lostRoles];
+}
+
+/**
+ * `outgoing_value_v512.cost_for_rule`: the cost function the given scoring version scored with.
+ * A stamp selects behaviour - a recording stamped 4 is charged version 4's flat `lost`, one
+ * stamped 5 (and anything newer) the netted term.
+ */
+export function costForRule(rule) {
+  const version = Math.trunc(Number(rule) || 0);
+  return version >= NET_ROLES_FROM_RULE ? outgoingRoleCostV5 : outgoingRoleCost;
 }
 
 /** `outgoing_value_v512.role_sentence`: one sentence naming exactly what was charged. */
@@ -1338,8 +1428,29 @@ export class TeamSuggestions {
     });
     if (!variants.length) variants = [base];
     const itemKey = compact(item);
-    const chosen = variants.filter((v) => !itemKey || compact(v.item) === itemKey).map((v) => (moves?.length ? { ...v, moves: moves.slice(0, 4) } : v));
-    return chosen.length ? chosen : variants;
+    // The row's own moves are applied on BOTH paths. They used to be applied only to the
+    // filtered list, so whenever the item filter emptied it - which is what happens when the
+    // name resolved to no meta record at all and `variants` is the bare `base` - the fallback
+    // returned a variant with `moves: []` and every calc for that Pokemon read "no damaging
+    // move". Nothing about the row asked for that; it was the shape of the fallback.
+    const withMoves = (v) => (moves?.length ? { ...v, moves: moves.slice(0, 4) } : v);
+    const chosen = variants.filter((v) => !itemKey || compact(v.item) === itemKey).map(withMoves);
+    return chosen.length ? chosen : variants.map(withMoves);
+  }
+
+  /**
+   * Whether a candidate IS the Pokemon being replaced: the same form, or the same species
+   * differing only by a Mega. Distinct non-Mega forms are NOT the same Pokemon.
+   */
+  sameFormAs(meta, swapTarget) {
+    const candidate = this.name(meta.form || meta.name || meta.base_name || "");
+    const target = this.name(swapTarget || "");
+    if (!candidate || !target) return false;
+    if (compact(candidate) === compact(target)) return true;
+    const megaBase = (text) => compact(String(text || "")
+      .replace(/^mega[\s-]+/i, "")
+      .replace(/[\s-]mega(?:[\s-]*[xyz])?$/i, ""));
+    return megaBase(candidate) === megaBase(target);
   }
 
   /** _v35_best_rank_from_result: hits to remove, 1-3 or 6 ("no reliable KO"). */
@@ -1571,7 +1682,7 @@ export class TeamSuggestions {
       row.outgoing_unresolved_v512 = true;
       return [0, null];
     }
-    const [term, lostRoles] = outgoingRoleCost(census, slot, roleTokens(row._candidate_profile));
+    const [term, lostRoles] = costForRule(this.suggestionScoring)(census, slot, roleTokens(row._candidate_profile));
     if (term > -1e-9) return [0, null];
     row.outgoing_role_cost_v512 = r2(term);
     row.outgoing_roles_lost_v512 = [...lostRoles];
@@ -2399,7 +2510,16 @@ export class TeamSuggestions {
    */
   evaluateCandidate(meta, context) {
     // species_identity: never offer the Pokemon being replaced.
-    if (context.swapTarget && this.speciesId(meta.form || meta.name || meta.base_name) === this.speciesId(context.swapTarget)) return null;
+    //
+    // This used to compare BASE SPECIES, which declined every form-for-form swap: on the
+    // owner's team the app offers "Swap Indeedee-F -> Indeedee" at 49.8 and the site refused the
+    // row outright. Across the whole 4550-check recorded corpus the guard's only measured effect
+    // was to delete that one legitimate row. A different form is a different Pokemon and is a
+    // real builder decision (Indeedee-F / Indeedee-M, and every other split-form pair), so the
+    // test is now form identity - the app's own rule (`part_108.py:522` compares NAMES) - plus
+    // one explicit extra refusal so a Pokemon's own Mega, or the base of the Mega being
+    // replaced, is still never offered as a swap for it.
+    if (context.swapTarget && this.sameFormAs(meta, context.swapTarget)) return null;
     const auto = Boolean(context.autoBuild);
     const inner = (m) => {
       const evaluated = auto ? this.forceFinalMegaMeta(m, context) : m;

@@ -369,6 +369,12 @@ export function classifyArchetype(f) {
   return { key: best, display, scores };
 }
 
+// FROZEN BENCHMARK COPY -- not the live implementation.
+// builder/team-checks.js is what the Team Builder, the Team Evaluation payload and the
+// Customize dialog use; this function is reachable only from tests/bench-analysis.mjs and
+// is deliberately left at its pre-V514 wording (it still says "Defensive Switch-ins",
+// which the live path now calls "Shared Weakness", and it has none of the V514 rows).
+// Do not extend it: change builder/team-checks.js.
 export function teamChecks(data, records) {
   const profiles = records.map((rec) => profile(data, rec));
   const active = profiles.length;

@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Blastoise,24,move,1,Shell Smash,91.2%,,,,,,,,
 Blastoise,24,move,2,Aura Sphere,86.6%,,,,,,,,
-Blastoise,24,move,3,Dark Pulse,82.3%,,,,,,,,
+Blastoise,24,move,3,Dark Pulse,82.2%,,,,,,,,
 Blastoise,24,move,4,Terrain Pulse,74.7%,,,,,,,,
 Blastoise,24,move,5,Water Pulse,22.5%,,,,,,,,
 Blastoise,24,move,6,Ice Beam,20.8%,,,,,,,,
@@ -18,7 +18,7 @@ Blastoise,24,held_item,6,Leftovers,0.2%,,,,,,,,
 Blastoise,24,held_item,7,Mystic Water,0.1%,,,,,,,,
 Blastoise,24,held_item,8,Choice Scarf,0.1%,,,,,,,,
 Blastoise,24,held_item,9,Rocky Helmet,0.1%,,,,,,,,
-Blastoise,24,held_item,10,Wise Glasses,0.1%,,,,,,,,
+Blastoise,24,held_item,10,Life Orb,0.1%,,,,,,,,
 Blastoise,24,teammate,1,Indeedee,,,,,,,,,
 Blastoise,24,teammate,2,Sneasler,,,,,,,,,
 Blastoise,24,teammate,3,Hippowdon,,,,,,,,,
@@ -38,15 +38,15 @@ Blastoise,24,stat_alignment,6,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Blastoise,24,stat_alignment,7,Adamant,0.2%,Attack,Sp. Atk,,,,,,
 Blastoise,24,stat_alignment,8,Relaxed,0.1%,Defense,Speed,,,,,,
 Blastoise,24,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
-Blastoise,24,stat_alignment,10,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Blastoise,24,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,
 Blastoise,24,stat_points,1,,15.8%,,,11,0,0,25,0,30
-Blastoise,24,stat_points,2,,9.1%,,,1,0,1,32,0,32
+Blastoise,24,stat_points,2,,9.0%,,,1,0,1,32,0,32
 Blastoise,24,stat_points,3,,8.4%,,,2,0,0,32,0,32
 Blastoise,24,stat_points,4,,5.1%,,,5,0,0,32,0,29
 Blastoise,24,stat_points,5,,4.1%,,,21,0,1,15,0,29
-Blastoise,24,stat_points,6,,2.8%,,,11,0,1,32,0,22
+Blastoise,24,stat_points,6,,2.9%,,,11,0,1,32,0,22
 Blastoise,24,stat_points,7,,2.5%,,,1,0,0,32,1,32
-Blastoise,24,stat_points,8,,2.4%,,,17,0,1,16,0,32
+Blastoise,24,stat_points,8,,2.5%,,,17,0,1,16,0,32
 Blastoise,24,stat_points,9,,2.3%,,,21,0,1,26,0,18
 Blastoise,24,stat_points,10,,1.4%,,,9,0,0,25,0,32
 Blastoise,24,ability,1,Torrent,65.5%,,,,,,,,

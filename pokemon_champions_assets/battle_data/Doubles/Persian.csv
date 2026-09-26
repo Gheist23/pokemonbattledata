@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Persian,238,move,1,Fake Out,96.8%,,,,,,,,
-Persian,238,move,2,Icy Wind,29.5%,,,,,,,,
-Persian,238,move,3,Feint,29.0%,,,,,,,,
-Persian,238,move,4,Protect,22.0%,,,,,,,,
-Persian,238,move,5,U-turn,21.4%,,,,,,,,
-Persian,238,move,6,Helping Hand,20.1%,,,,,,,,
-Persian,238,move,7,Bite,15.4%,,,,,,,,
-Persian,238,move,8,Endeavor,14.9%,,,,,,,,
-Persian,238,move,9,Covet,12.3%,,,,,,,,
-Persian,238,move,10,Hyper Voice,11.3%,,,,,,,,
-Persian,238,held_item,1,Focus Sash,43.6%,,,,,,,,
+Persian,238,move,2,Icy Wind,30.3%,,,,,,,,
+Persian,238,move,3,Feint,29.2%,,,,,,,,
+Persian,238,move,4,Protect,21.8%,,,,,,,,
+Persian,238,move,5,U-turn,21.1%,,,,,,,,
+Persian,238,move,6,Helping Hand,19.9%,,,,,,,,
+Persian,238,move,7,Endeavor,15.8%,,,,,,,,
+Persian,238,move,8,Bite,15.2%,,,,,,,,
+Persian,238,move,9,Covet,12.1%,,,,,,,,
+Persian,238,move,10,Hyper Voice,11.1%,,,,,,,,
+Persian,238,held_item,1,Focus Sash,43.5%,,,,,,,,
 Persian,238,held_item,2,Normal Gem,12.1%,,,,,,,,
 Persian,238,held_item,3,Silk Scarf,10.1%,,,,,,,,
-Persian,238,held_item,4,Life Orb,7.1%,,,,,,,,
+Persian,238,held_item,4,Life Orb,7.0%,,,,,,,,
 Persian,238,held_item,5,Choice Scarf,5.4%,,,,,,,,
-Persian,238,held_item,6,Wide Lens,4.7%,,,,,,,,
-Persian,238,held_item,7,Eject Button,1.9%,,,,,,,,
-Persian,238,held_item,8,Chople Berry,1.7%,,,,,,,,
-Persian,238,held_item,9,Expert Belt,1.3%,,,,,,,,
+Persian,238,held_item,6,Wide Lens,4.6%,,,,,,,,
+Persian,238,held_item,7,Chople Berry,2.2%,,,,,,,,
+Persian,238,held_item,8,Eject Button,1.9%,,,,,,,,
+Persian,238,held_item,9,Expert Belt,1.4%,,,,,,,,
 Persian,238,held_item,10,Red Card,1.3%,,,,,,,,
 Persian,238,teammate,1,Charizard,,,,,,,,,
 Persian,238,teammate,2,Rillaboom,,,,,,,,,
@@ -27,28 +27,28 @@ Persian,238,teammate,5,Incineroar,,,,,,,,,
 Persian,238,teammate,6,Indeedee-F,,,,,,,,,
 Persian,238,teammate,7,Baxcalibur,,,,,,,,,
 Persian,238,teammate,8,Aerodactyl,,,,,,,,,
-Persian,238,teammate,9,Tyranitar,,,,,,,,,
-Persian,238,teammate,10,Garchomp,,,,,,,,,
-Persian,238,stat_alignment,1,Jolly,30.4%,Speed,Sp. Atk,,,,,,
-Persian,238,stat_alignment,2,Timid,19.6%,Speed,Attack,,,,,,
-Persian,238,stat_alignment,3,Adamant,18.7%,Attack,Sp. Atk,,,,,,
-Persian,238,stat_alignment,4,Naive,7.8%,Speed,Sp. Def,,,,,,
-Persian,238,stat_alignment,5,Modest,7.1%,Sp. Atk,Attack,,,,,,
-Persian,238,stat_alignment,6,Hasty,6.2%,Speed,Defense,,,,,,
-Persian,238,stat_alignment,7,Impish,3.6%,Defense,Sp. Atk,,,,,,
-Persian,238,stat_alignment,8,Lonely,2.9%,Attack,Defense,,,,,,
+Persian,238,teammate,9,Garchomp,,,,,,,,,
+Persian,238,teammate,10,Tyranitar,,,,,,,,,
+Persian,238,stat_alignment,1,Jolly,30.7%,Speed,Sp. Atk,,,,,,
+Persian,238,stat_alignment,2,Timid,19.4%,Speed,Attack,,,,,,
+Persian,238,stat_alignment,3,Adamant,18.4%,Attack,Sp. Atk,,,,,,
+Persian,238,stat_alignment,4,Naive,8.3%,Speed,Sp. Def,,,,,,
+Persian,238,stat_alignment,5,Modest,7.0%,Sp. Atk,Attack,,,,,,
+Persian,238,stat_alignment,6,Hasty,6.1%,Speed,Defense,,,,,,
+Persian,238,stat_alignment,7,Impish,3.5%,Defense,Sp. Atk,,,,,,
+Persian,238,stat_alignment,8,Lonely,2.8%,Attack,Defense,,,,,,
 Persian,238,stat_alignment,9,Brave,1.4%,Attack,Speed,,,,,,
-Persian,238,stat_alignment,10,Naughty,1.0%,Attack,Sp. Def,,,,,,
-Persian,238,stat_points,1,,24.8%,,,2,32,0,0,0,32
-Persian,238,stat_points,2,,10.7%,,,2,0,0,32,0,32
-Persian,238,stat_points,3,,9.9%,,,0,0,0,32,2,32
-Persian,238,stat_points,4,,6.2%,,,0,32,0,0,32,2
-Persian,238,stat_points,5,,6.2%,,,0,32,2,0,0,32
-Persian,238,stat_points,6,,4.4%,,,0,0,0,32,0,32
-Persian,238,stat_points,7,,4.3%,,,0,32,0,0,2,32
-Persian,238,stat_points,8,,2.4%,,,2,0,32,0,32,0
+Persian,238,stat_alignment,10,Naughty,0.9%,Attack,Sp. Def,,,,,,
+Persian,238,stat_points,1,,24.7%,,,2,32,0,0,0,32
+Persian,238,stat_points,2,,10.6%,,,2,0,0,32,0,32
+Persian,238,stat_points,3,,9.8%,,,0,0,0,32,2,32
+Persian,238,stat_points,4,,6.3%,,,0,32,2,0,0,32
+Persian,238,stat_points,5,,6.1%,,,0,32,0,0,32,2
+Persian,238,stat_points,6,,4.3%,,,0,0,0,32,0,32
+Persian,238,stat_points,7,,4.2%,,,0,32,0,0,2,32
+Persian,238,stat_points,8,,3.0%,,,0,32,0,2,0,32
 Persian,238,stat_points,9,,2.4%,,,0,0,1,32,1,32
-Persian,238,stat_points,10,,2.4%,,,0,32,0,2,0,32
-Persian,238,ability,1,Technician,78.0%,,,,,,,,
-Persian,238,ability,2,Unnerve,16.8%,,,,,,,,
-Persian,238,ability,3,Limber,5.2%,,,,,,,,
+Persian,238,stat_points,10,,2.4%,,,2,0,32,0,32,0
+Persian,238,ability,1,Technician,77.9%,,,,,,,,
+Persian,238,ability,2,Unnerve,17.0%,,,,,,,,
+Persian,238,ability,3,Limber,5.1%,,,,,,,,

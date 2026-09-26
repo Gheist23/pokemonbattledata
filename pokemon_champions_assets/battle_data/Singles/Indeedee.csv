@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Indeedee,21,move,1,Expanding Force,99.5%,,,,,,,,
 Indeedee,21,move,2,Mystical Fire,91.9%,,,,,,,,
-Indeedee,21,move,3,Encore,72.1%,,,,,,,,
+Indeedee,21,move,3,Encore,72.0%,,,,,,,,
 Indeedee,21,move,4,Dazzling Gleam,66.8%,,,,,,,,
 Indeedee,21,move,5,Healing Wish,18.5%,,,,,,,,
-Indeedee,21,move,6,Trick,17.2%,,,,,,,,
+Indeedee,21,move,6,Trick,17.3%,,,,,,,,
 Indeedee,21,move,7,Shadow Ball,7.3%,,,,,,,,
 Indeedee,21,move,8,Substitute,6.6%,,,,,,,,
 Indeedee,21,move,9,Trick Room,4.3%,,,,,,,,
 Indeedee,21,move,10,Energy Ball,3.1%,,,,,,,,
-Indeedee,21,held_item,1,Terrain Extender,61.0%,,,,,,,,
-Indeedee,21,held_item,2,Choice Scarf,21.3%,,,,,,,,
-Indeedee,21,held_item,3,Focus Sash,12.6%,,,,,,,,
+Indeedee,21,held_item,1,Terrain Extender,60.9%,,,,,,,,
+Indeedee,21,held_item,2,Choice Scarf,21.4%,,,,,,,,
+Indeedee,21,held_item,3,Focus Sash,12.5%,,,,,,,,
 Indeedee,21,held_item,4,Life Orb,2.1%,,,,,,,,
 Indeedee,21,held_item,5,Psychic Seed,1.1%,,,,,,,,
 Indeedee,21,held_item,6,Twisted Spoon,0.5%,,,,,,,,
@@ -29,8 +29,8 @@ Indeedee,21,teammate,7,Baxcalibur,,,,,,,,,
 Indeedee,21,teammate,8,Archaludon,,,,,,,,,
 Indeedee,21,teammate,9,Lucario,,,,,,,,,
 Indeedee,21,teammate,10,Golisopod,,,,,,,,,
-Indeedee,21,stat_alignment,1,Modest,50.8%,Sp. Atk,Attack,,,,,,
-Indeedee,21,stat_alignment,2,Timid,45.4%,Speed,Attack,,,,,,
+Indeedee,21,stat_alignment,1,Modest,50.7%,Sp. Atk,Attack,,,,,,
+Indeedee,21,stat_alignment,2,Timid,45.5%,Speed,Attack,,,,,,
 Indeedee,21,stat_alignment,3,Quiet,1.2%,Sp. Atk,Speed,,,,,,
 Indeedee,21,stat_alignment,4,Bold,1.0%,Defense,Attack,,,,,,
 Indeedee,21,stat_alignment,5,Mild,0.3%,Sp. Atk,Defense,,,,,,
@@ -44,7 +44,7 @@ Indeedee,21,stat_points,2,,5.4%,,,0,0,2,32,0,32
 Indeedee,21,stat_points,3,,3.8%,,,0,0,0,32,2,32
 Indeedee,21,stat_points,4,,2.2%,,,32,0,9,0,0,25
 Indeedee,21,stat_points,5,,2.1%,,,8,0,0,32,0,26
-Indeedee,21,stat_points,6,,2.0%,,,32,0,2,32,0,0
+Indeedee,21,stat_points,6,,1.9%,,,32,0,2,32,0,0
 Indeedee,21,stat_points,7,,1.8%,,,0,0,0,32,0,32
 Indeedee,21,stat_points,8,,1.8%,,,2,0,23,15,0,26
 Indeedee,21,stat_points,9,,1.6%,,,32,0,0,32,0,2

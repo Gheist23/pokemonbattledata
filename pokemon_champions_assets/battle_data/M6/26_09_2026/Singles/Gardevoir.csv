@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gardevoir,85,move,1,Hyper Voice,59.1%,,,,,,,,
+Gardevoir,85,move,1,Hyper Voice,59.0%,,,,,,,,
 Gardevoir,85,move,2,Mystical Fire,58.1%,,,,,,,,
-Gardevoir,85,move,3,Vacuum Wave,56.4%,,,,,,,,
+Gardevoir,85,move,3,Vacuum Wave,56.3%,,,,,,,,
 Gardevoir,85,move,4,Moonblast,39.3%,,,,,,,,
 Gardevoir,85,move,5,Psychic,34.1%,,,,,,,,
 Gardevoir,85,move,6,Thunderbolt,24.1%,,,,,,,,
 Gardevoir,85,move,7,Psychic Noise,18.1%,,,,,,,,
 Gardevoir,85,move,8,Psyshock,13.1%,,,,,,,,
 Gardevoir,85,move,9,Expanding Force,12.1%,,,,,,,,
-Gardevoir,85,move,10,Calm Mind,11.9%,,,,,,,,
+Gardevoir,85,move,10,Calm Mind,12.0%,,,,,,,,
 Gardevoir,85,held_item,1,Gardevoirite,69.0%,,,,,,,,
 Gardevoir,85,held_item,2,Focus Sash,13.2%,,,,,,,,
 Gardevoir,85,held_item,3,Choice Scarf,8.1%,,,,,,,,
@@ -18,7 +18,7 @@ Gardevoir,85,held_item,6,Expert Belt,0.7%,,,,,,,,
 Gardevoir,85,held_item,7,Lum Berry,0.7%,,,,,,,,
 Gardevoir,85,held_item,8,Quick Claw,0.6%,,,,,,,,
 Gardevoir,85,held_item,9,Babiri Berry,0.5%,,,,,,,,
-Gardevoir,85,held_item,10,Leftovers,0.5%,,,,,,,,
+Gardevoir,85,held_item,10,Fairy Feather,0.5%,,,,,,,,
 Gardevoir,85,teammate,1,Garchomp,,,,,,,,,
 Gardevoir,85,teammate,2,Salamence,,,,,,,,,
 Gardevoir,85,teammate,3,Meowscarada,,,,,,,,,
@@ -34,15 +34,15 @@ Gardevoir,85,stat_alignment,2,Timid,23.9%,Speed,Attack,,,,,,
 Gardevoir,85,stat_alignment,3,Bold,8.1%,Defense,Attack,,,,,,
 Gardevoir,85,stat_alignment,4,Calm,1.9%,Sp. Def,Attack,,,,,,
 Gardevoir,85,stat_alignment,5,Quiet,1.4%,Sp. Atk,Speed,,,,,,
-Gardevoir,85,stat_alignment,6,Relaxed,0.5%,Defense,Speed,,,,,,
+Gardevoir,85,stat_alignment,6,Relaxed,0.6%,Defense,Speed,,,,,,
 Gardevoir,85,stat_alignment,7,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Gardevoir,85,stat_alignment,8,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Gardevoir,85,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,
 Gardevoir,85,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
 Gardevoir,85,stat_points,1,,30.8%,,,2,0,0,32,0,32
-Gardevoir,85,stat_points,2,,3.7%,,,0,0,2,32,0,32
+Gardevoir,85,stat_points,2,,3.8%,,,0,0,2,32,0,32
 Gardevoir,85,stat_points,3,,3.4%,,,32,0,0,32,0,2
-Gardevoir,85,stat_points,4,,3.4%,,,32,0,2,32,0,0
+Gardevoir,85,stat_points,4,,3.3%,,,32,0,2,32,0,0
 Gardevoir,85,stat_points,5,,2.9%,,,0,0,0,32,2,32
 Gardevoir,85,stat_points,6,,2.8%,,,32,0,32,0,2,0
 Gardevoir,85,stat_points,7,,2.0%,,,32,0,0,32,2,0
@@ -51,4 +51,4 @@ Gardevoir,85,stat_points,9,,1.8%,,,32,0,11,5,0,18
 Gardevoir,85,stat_points,10,,1.6%,,,32,0,32,2,0,0
 Gardevoir,85,ability,1,Trace,89.0%,,,,,,,,
 Gardevoir,85,ability,2,Synchronize,9.9%,,,,,,,,
-Gardevoir,85,ability,3,Telepathy,1.1%,,,,,,,,
+Gardevoir,85,ability,3,Telepathy,1.2%,,,,,,,,

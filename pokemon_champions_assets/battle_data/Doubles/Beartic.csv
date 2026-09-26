@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Beartic,214,move,1,Icicle Crash,71.7%,,,,,,,,
-Beartic,214,move,2,Close Combat,60.7%,,,,,,,,
-Beartic,214,move,3,Protect,54.6%,,,,,,,,
-Beartic,214,move,4,Rock Slide,44.5%,,,,,,,,
+Beartic,214,move,2,Close Combat,60.5%,,,,,,,,
+Beartic,214,move,3,Protect,54.3%,,,,,,,,
+Beartic,214,move,4,Rock Slide,44.2%,,,,,,,,
 Beartic,214,move,5,Earthquake,26.3%,,,,,,,,
-Beartic,214,move,6,Liquidation,25.7%,,,,,,,,
-Beartic,214,move,7,Ice Punch,18.9%,,,,,,,,
-Beartic,214,move,8,Throat Chop,12.0%,,,,,,,,
-Beartic,214,move,9,Aqua Jet,10.4%,,,,,,,,
-Beartic,214,move,10,Play Rough,8.4%,,,,,,,,
-Beartic,214,held_item,1,Life Orb,40.7%,,,,,,,,
-Beartic,214,held_item,2,Focus Sash,16.0%,,,,,,,,
-Beartic,214,held_item,3,Expert Belt,8.0%,,,,,,,,
-Beartic,214,held_item,4,White Herb,6.2%,,,,,,,,
-Beartic,214,held_item,5,Never-Melt Ice,5.3%,,,,,,,,
+Beartic,214,move,6,Liquidation,25.8%,,,,,,,,
+Beartic,214,move,7,Ice Punch,18.7%,,,,,,,,
+Beartic,214,move,8,Throat Chop,11.9%,,,,,,,,
+Beartic,214,move,9,Aqua Jet,10.3%,,,,,,,,
+Beartic,214,move,10,Play Rough,8.7%,,,,,,,,
+Beartic,214,held_item,1,Life Orb,40.5%,,,,,,,,
+Beartic,214,held_item,2,Focus Sash,16.4%,,,,,,,,
+Beartic,214,held_item,3,Expert Belt,7.9%,,,,,,,,
+Beartic,214,held_item,4,White Herb,6.1%,,,,,,,,
+Beartic,214,held_item,5,Never-Melt Ice,5.2%,,,,,,,,
 Beartic,214,held_item,6,Wide Lens,4.8%,,,,,,,,
 Beartic,214,held_item,7,Sitrus Berry,2.9%,,,,,,,,
-Beartic,214,held_item,8,Bright Powder,2.3%,,,,,,,,
+Beartic,214,held_item,8,Bright Powder,2.4%,,,,,,,,
 Beartic,214,held_item,9,Muscle Band,2.0%,,,,,,,,
-Beartic,214,held_item,10,Grassy Seed,1.9%,,,,,,,,
+Beartic,214,held_item,10,Grassy Seed,1.8%,,,,,,,,
 Beartic,214,teammate,1,Pelipper,,,,,,,,,
 Beartic,214,teammate,2,Archaludon,,,,,,,,,
 Beartic,214,teammate,3,Froslass,,,,,,,,,
@@ -29,9 +29,9 @@ Beartic,214,teammate,7,Rillaboom,,,,,,,,,
 Beartic,214,teammate,8,Sableye,,,,,,,,,
 Beartic,214,teammate,9,Golisopod,,,,,,,,,
 Beartic,214,teammate,10,Sinistcha,,,,,,,,,
-Beartic,214,stat_alignment,1,Adamant,61.8%,Attack,Sp. Atk,,,,,,
+Beartic,214,stat_alignment,1,Adamant,61.9%,Attack,Sp. Atk,,,,,,
 Beartic,214,stat_alignment,2,Jolly,31.6%,Speed,Sp. Atk,,,,,,
-Beartic,214,stat_alignment,3,Brave,2.6%,Attack,Speed,,,,,,
+Beartic,214,stat_alignment,3,Brave,2.5%,Attack,Speed,,,,,,
 Beartic,214,stat_alignment,4,Lonely,1.1%,Attack,Defense,,,,,,
 Beartic,214,stat_alignment,5,Naughty,0.6%,Attack,Sp. Def,,,,,,
 Beartic,214,stat_alignment,6,Impish,0.5%,Defense,Sp. Atk,,,,,,
@@ -39,16 +39,16 @@ Beartic,214,stat_alignment,7,Sassy,0.4%,Sp. Def,Speed,,,,,,
 Beartic,214,stat_alignment,8,Naive,0.4%,Speed,Sp. Def,,,,,,
 Beartic,214,stat_alignment,9,Hasty,0.4%,Speed,Defense,,,,,,
 Beartic,214,stat_alignment,10,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
-Beartic,214,stat_points,1,,45.8%,,,2,32,0,0,0,32
-Beartic,214,stat_points,2,,7.2%,,,0,32,0,0,2,32
+Beartic,214,stat_points,1,,45.7%,,,2,32,0,0,0,32
+Beartic,214,stat_points,2,,7.3%,,,0,32,0,0,2,32
 Beartic,214,stat_points,3,,6.0%,,,0,32,2,0,0,32
-Beartic,214,stat_points,4,,4.6%,,,0,32,0,0,0,32
+Beartic,214,stat_points,4,,4.7%,,,0,32,0,0,0,32
 Beartic,214,stat_points,5,,4.5%,,,1,32,1,0,0,32
 Beartic,214,stat_points,6,,3.1%,,,1,32,0,0,1,32
-Beartic,214,stat_points,7,,2.3%,,,3,32,0,0,0,31
+Beartic,214,stat_points,7,,2.4%,,,3,32,0,0,0,31
 Beartic,214,stat_points,8,,2.0%,,,2,32,32,0,0,0
-Beartic,214,stat_points,9,,1.6%,,,32,32,2,0,0,0
-Beartic,214,stat_points,10,,1.6%,,,0,32,1,0,1,32
-Beartic,214,ability,1,Swift Swim,50.5%,,,,,,,,
-Beartic,214,ability,2,Slush Rush,44.3%,,,,,,,,
-Beartic,214,ability,3,Snow Cloak,5.2%,,,,,,,,
+Beartic,214,stat_points,9,,1.7%,,,32,32,2,0,0,0
+Beartic,214,stat_points,10,,1.5%,,,0,32,1,0,1,32
+Beartic,214,ability,1,Swift Swim,50.3%,,,,,,,,
+Beartic,214,ability,2,Slush Rush,44.4%,,,,,,,,
+Beartic,214,ability,3,Snow Cloak,5.3%,,,,,,,,

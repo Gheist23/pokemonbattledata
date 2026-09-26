@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gengar,36,move,1,Shadow Ball,95.5%,,,,,,,,
-Gengar,36,move,2,Protect,91.6%,,,,,,,,
+Gengar,36,move,2,Protect,91.5%,,,,,,,,
 Gengar,36,move,3,Sludge Bomb,72.8%,,,,,,,,
-Gengar,36,move,4,Perish Song,71.0%,,,,,,,,
-Gengar,36,move,5,Disable,17.2%,,,,,,,,
-Gengar,36,move,6,Icy Wind,7.5%,,,,,,,,
+Gengar,36,move,4,Perish Song,70.8%,,,,,,,,
+Gengar,36,move,5,Disable,17.1%,,,,,,,,
+Gengar,36,move,6,Icy Wind,7.6%,,,,,,,,
 Gengar,36,move,7,Sludge Wave,6.4%,,,,,,,,
-Gengar,36,move,8,Destiny Bond,5.6%,,,,,,,,
-Gengar,36,move,9,Focus Blast,5.4%,,,,,,,,
+Gengar,36,move,8,Destiny Bond,5.7%,,,,,,,,
+Gengar,36,move,9,Focus Blast,5.5%,,,,,,,,
 Gengar,36,move,10,Substitute,5.1%,,,,,,,,
-Gengar,36,held_item,1,Gengarite,89.4%,,,,,,,,
-Gengar,36,held_item,2,Focus Sash,7.4%,,,,,,,,
+Gengar,36,held_item,1,Gengarite,89.3%,,,,,,,,
+Gengar,36,held_item,2,Focus Sash,7.5%,,,,,,,,
 Gengar,36,held_item,3,Choice Scarf,0.8%,,,,,,,,
 Gengar,36,held_item,4,Life Orb,0.7%,,,,,,,,
 Gengar,36,held_item,5,Expert Belt,0.2%,,,,,,,,
@@ -29,9 +29,9 @@ Gengar,36,teammate,7,Kommo-o,,,,,,,,,
 Gengar,36,teammate,8,Swampert,,,,,,,,,
 Gengar,36,teammate,9,Sneasler,,,,,,,,,
 Gengar,36,teammate,10,Golisopod,,,,,,,,,
-Gengar,36,stat_alignment,1,Modest,49.8%,Sp. Atk,Attack,,,,,,
+Gengar,36,stat_alignment,1,Modest,49.7%,Sp. Atk,Attack,,,,,,
 Gengar,36,stat_alignment,2,Timid,45.4%,Speed,Attack,,,,,,
-Gengar,36,stat_alignment,3,Bold,1.8%,Defense,Attack,,,,,,
+Gengar,36,stat_alignment,3,Bold,1.7%,Defense,Attack,,,,,,
 Gengar,36,stat_alignment,4,Calm,1.7%,Sp. Def,Attack,,,,,,
 Gengar,36,stat_alignment,5,Quiet,0.4%,Sp. Atk,Speed,,,,,,
 Gengar,36,stat_alignment,6,Hasty,0.2%,Speed,Defense,,,,,,
@@ -39,9 +39,9 @@ Gengar,36,stat_alignment,7,Jolly,0.1%,Speed,Sp. Atk,,,,,,
 Gengar,36,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Gengar,36,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,
 Gengar,36,stat_alignment,10,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
-Gengar,36,stat_points,1,,20.1%,,,2,0,0,32,0,32
+Gengar,36,stat_points,1,,20.2%,,,2,0,0,32,0,32
 Gengar,36,stat_points,2,,5.4%,,,30,0,1,1,28,6
-Gengar,36,stat_points,3,,4.7%,,,32,0,5,1,8,20
+Gengar,36,stat_points,3,,4.6%,,,32,0,5,1,8,20
 Gengar,36,stat_points,4,,4.5%,,,32,0,6,0,8,20
 Gengar,36,stat_points,5,,3.3%,,,31,0,15,0,0,20
 Gengar,36,stat_points,6,,2.9%,,,32,0,2,0,0,32

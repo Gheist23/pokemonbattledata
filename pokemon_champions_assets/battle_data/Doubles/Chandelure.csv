@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Chandelure,76,move,1,Shadow Ball,89.8%,,,,,,,,
-Chandelure,76,move,2,Heat Wave,80.2%,,,,,,,,
+Chandelure,76,move,2,Heat Wave,80.3%,,,,,,,,
 Chandelure,76,move,3,Protect,63.0%,,,,,,,,
-Chandelure,76,move,4,Trick Room,35.9%,,,,,,,,
+Chandelure,76,move,4,Trick Room,36.0%,,,,,,,,
 Chandelure,76,move,5,Energy Ball,31.9%,,,,,,,,
 Chandelure,76,move,6,Flamethrower,18.3%,,,,,,,,
 Chandelure,76,move,7,Calm Mind,10.9%,,,,,,,,
 Chandelure,76,move,8,Overheat,9.0%,,,,,,,,
-Chandelure,76,move,9,Psychic,8.0%,,,,,,,,
+Chandelure,76,move,9,Psychic,7.9%,,,,,,,,
 Chandelure,76,move,10,Minimize,7.5%,,,,,,,,
-Chandelure,76,held_item,1,Chandelurite,37.2%,,,,,,,,
-Chandelure,76,held_item,2,Focus Sash,27.0%,,,,,,,,
+Chandelure,76,held_item,1,Chandelurite,37.3%,,,,,,,,
+Chandelure,76,held_item,2,Focus Sash,26.9%,,,,,,,,
 Chandelure,76,held_item,3,Choice Scarf,10.7%,,,,,,,,
 Chandelure,76,held_item,4,Life Orb,5.4%,,,,,,,,
 Chandelure,76,held_item,5,Colbur Berry,3.1%,,,,,,,,
@@ -32,17 +32,17 @@ Chandelure,76,teammate,10,Basculegion,,,,,,,,,
 Chandelure,76,stat_alignment,1,Modest,54.6%,Sp. Atk,Attack,,,,,,
 Chandelure,76,stat_alignment,2,Quiet,20.2%,Sp. Atk,Speed,,,,,,
 Chandelure,76,stat_alignment,3,Timid,16.8%,Speed,Attack,,,,,,
-Chandelure,76,stat_alignment,4,Relaxed,3.8%,Defense,Speed,,,,,,
+Chandelure,76,stat_alignment,4,Relaxed,3.7%,Defense,Speed,,,,,,
 Chandelure,76,stat_alignment,5,Calm,1.8%,Sp. Def,Attack,,,,,,
 Chandelure,76,stat_alignment,6,Bold,1.5%,Defense,Attack,,,,,,
 Chandelure,76,stat_alignment,7,Sassy,0.9%,Sp. Def,Speed,,,,,,
 Chandelure,76,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Chandelure,76,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
-Chandelure,76,stat_alignment,10,Serious,0.0%,,,,,,,,
+Chandelure,76,stat_alignment,10,Brave,0.1%,Attack,Speed,,,,,,
 Chandelure,76,stat_points,1,,29.5%,,,2,0,0,32,0,32
 Chandelure,76,stat_points,2,,9.3%,,,32,0,2,32,0,0
 Chandelure,76,stat_points,3,,8.9%,,,32,0,1,32,1,0
-Chandelure,76,stat_points,4,,4.7%,,,32,0,0,32,2,0
+Chandelure,76,stat_points,4,,4.8%,,,32,0,0,32,2,0
 Chandelure,76,stat_points,5,,2.5%,,,32,0,0,32,0,2
 Chandelure,76,stat_points,6,,2.4%,,,32,0,11,0,23,0
 Chandelure,76,stat_points,7,,1.8%,,,0,0,2,32,0,32
@@ -50,5 +50,5 @@ Chandelure,76,stat_points,8,,1.5%,,,0,0,0,32,2,32
 Chandelure,76,stat_points,9,,1.4%,,,32,0,0,32,0,0
 Chandelure,76,stat_points,10,,1.4%,,,0,0,0,32,0,32
 Chandelure,76,ability,1,Flash Fire,81.0%,,,,,,,,
-Chandelure,76,ability,2,Infiltrator,13.5%,,,,,,,,
-Chandelure,76,ability,3,Flame Body,5.4%,,,,,,,,
+Chandelure,76,ability,2,Infiltrator,13.6%,,,,,,,,
+Chandelure,76,ability,3,Flame Body,5.5%,,,,,,,,

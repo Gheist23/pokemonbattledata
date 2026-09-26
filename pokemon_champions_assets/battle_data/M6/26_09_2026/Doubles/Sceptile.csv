@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sceptile,109,move,1,Dragon Pulse,84.4%,,,,,,,,
 Sceptile,109,move,2,Earth Power,78.9%,,,,,,,,
-Sceptile,109,move,3,Detect,44.7%,,,,,,,,
+Sceptile,109,move,3,Detect,44.5%,,,,,,,,
 Sceptile,109,move,4,Energy Ball,40.4%,,,,,,,,
 Sceptile,109,move,5,Leaf Storm,31.9%,,,,,,,,
-Sceptile,109,move,6,Protect,31.5%,,,,,,,,
-Sceptile,109,move,7,Giga Drain,22.9%,,,,,,,,
+Sceptile,109,move,6,Protect,31.6%,,,,,,,,
+Sceptile,109,move,7,Giga Drain,23.0%,,,,,,,,
 Sceptile,109,move,8,Shed Tail,11.9%,,,,,,,,
-Sceptile,109,move,9,Focus Blast,8.3%,,,,,,,,
-Sceptile,109,move,10,Quick Guard,5.0%,,,,,,,,
+Sceptile,109,move,9,Focus Blast,8.4%,,,,,,,,
+Sceptile,109,move,10,Vacuum Wave,5.0%,,,,,,,,
 Sceptile,109,held_item,1,Sceptilite,79.9%,,,,,,,,
 Sceptile,109,held_item,2,White Herb,3.7%,,,,,,,,
 Sceptile,109,held_item,3,Psychic Seed,2.3%,,,,,,,,
 Sceptile,109,held_item,4,Focus Sash,2.2%,,,,,,,,
 Sceptile,109,held_item,5,Sitrus Berry,2.1%,,,,,,,,
-Sceptile,109,held_item,6,Electric Seed,1.8%,,,,,,,,
+Sceptile,109,held_item,6,Electric Seed,1.7%,,,,,,,,
 Sceptile,109,held_item,7,Grassy Seed,1.5%,,,,,,,,
 Sceptile,109,held_item,8,Leftovers,0.9%,,,,,,,,
-Sceptile,109,held_item,9,Life Orb,0.7%,,,,,,,,
-Sceptile,109,held_item,10,Miracle Seed,0.6%,,,,,,,,
+Sceptile,109,held_item,9,Life Orb,0.8%,,,,,,,,
+Sceptile,109,held_item,10,Choice Scarf,0.6%,,,,,,,,
 Sceptile,109,teammate,1,Rotom-Heat,,,,,,,,,
 Sceptile,109,teammate,2,Garchomp,,,,,,,,,
 Sceptile,109,teammate,3,Incineroar,,,,,,,,,
@@ -31,7 +31,7 @@ Sceptile,109,teammate,9,Jolteon,,,,,,,,,
 Sceptile,109,teammate,10,Milotic,,,,,,,,,
 Sceptile,109,stat_alignment,1,Timid,58.1%,Speed,Attack,,,,,,
 Sceptile,109,stat_alignment,2,Modest,33.8%,Sp. Atk,Attack,,,,,,
-Sceptile,109,stat_alignment,3,Adamant,1.8%,Attack,Sp. Atk,,,,,,
+Sceptile,109,stat_alignment,3,Adamant,1.9%,Attack,Sp. Atk,,,,,,
 Sceptile,109,stat_alignment,4,Hasty,1.1%,Speed,Defense,,,,,,
 Sceptile,109,stat_alignment,5,Naive,1.1%,Speed,Sp. Def,,,,,,
 Sceptile,109,stat_alignment,6,Mild,1.0%,Sp. Atk,Defense,,,,,,
@@ -47,7 +47,7 @@ Sceptile,109,stat_points,5,,1.4%,,,3,0,0,32,0,31
 Sceptile,109,stat_points,6,,1.2%,,,2,32,0,0,0,32
 Sceptile,109,stat_points,7,,0.9%,,,9,0,0,32,0,25
 Sceptile,109,stat_points,8,,0.9%,,,13,0,0,29,0,24
-Sceptile,109,stat_points,9,,0.8%,,,32,0,0,2,0,32
-Sceptile,109,stat_points,10,,0.7%,,,32,0,0,32,0,2
+Sceptile,109,stat_points,9,,0.9%,,,32,0,0,2,0,32
+Sceptile,109,stat_points,10,,0.8%,,,32,0,0,32,0,2
 Sceptile,109,ability,1,Overgrow,65.5%,,,,,,,,
 Sceptile,109,ability,2,Unburden,34.5%,,,,,,,,

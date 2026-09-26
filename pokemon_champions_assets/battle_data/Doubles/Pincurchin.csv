@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pincurchin,78,move,1,Rising Voltage,87.3%,,,,,,,,
-Pincurchin,78,move,2,Protect,68.4%,,,,,,,,
+Pincurchin,78,move,2,Protect,68.5%,,,,,,,,
 Pincurchin,78,move,3,Sucker Punch,51.2%,,,,,,,,
-Pincurchin,78,move,4,Scald,40.0%,,,,,,,,
+Pincurchin,78,move,4,Scald,39.9%,,,,,,,,
 Pincurchin,78,move,5,Acupressure,15.6%,,,,,,,,
-Pincurchin,78,move,6,Electroweb,13.6%,,,,,,,,
+Pincurchin,78,move,6,Electroweb,13.7%,,,,,,,,
 Pincurchin,78,move,7,Recover,12.0%,,,,,,,,
 Pincurchin,78,move,8,Discharge,11.0%,,,,,,,,
 Pincurchin,78,move,9,Hydro Pump,9.9%,,,,,,,,
-Pincurchin,78,move,10,Thunderbolt,9.6%,,,,,,,,
+Pincurchin,78,move,10,Thunderbolt,9.5%,,,,,,,,
 Pincurchin,78,held_item,1,Magnet,28.2%,,,,,,,,
 Pincurchin,78,held_item,2,Electric Seed,22.4%,,,,,,,,
 Pincurchin,78,held_item,3,Life Orb,10.5%,,,,,,,,
-Pincurchin,78,held_item,4,Terrain Extender,8.1%,,,,,,,,
+Pincurchin,78,held_item,4,Terrain Extender,8.2%,,,,,,,,
 Pincurchin,78,held_item,5,Sitrus Berry,5.6%,,,,,,,,
-Pincurchin,78,held_item,6,Focus Sash,4.7%,,,,,,,,
+Pincurchin,78,held_item,6,Focus Sash,4.8%,,,,,,,,
 Pincurchin,78,held_item,7,Shuca Berry,4.0%,,,,,,,,
 Pincurchin,78,held_item,8,Leftovers,3.5%,,,,,,,,
 Pincurchin,78,held_item,9,Quick Claw,3.1%,,,,,,,,
@@ -30,8 +30,8 @@ Pincurchin,78,teammate,8,Sneasler,,,,,,,,,
 Pincurchin,78,teammate,9,Raichu,,,,,,,,,
 Pincurchin,78,teammate,10,Camerupt,,,,,,,,,
 Pincurchin,78,stat_alignment,1,Quiet,58.6%,Sp. Atk,Speed,,,,,,
-Pincurchin,78,stat_alignment,2,Modest,11.3%,Sp. Atk,Attack,,,,,,
-Pincurchin,78,stat_alignment,3,Relaxed,8.1%,Defense,Speed,,,,,,
+Pincurchin,78,stat_alignment,2,Modest,11.4%,Sp. Atk,Attack,,,,,,
+Pincurchin,78,stat_alignment,3,Relaxed,8.0%,Defense,Speed,,,,,,
 Pincurchin,78,stat_alignment,4,Sassy,6.1%,Sp. Def,Speed,,,,,,
 Pincurchin,78,stat_alignment,5,Brave,4.8%,Attack,Speed,,,,,,
 Pincurchin,78,stat_alignment,6,Bold,4.6%,Defense,Attack,,,,,,
@@ -40,7 +40,7 @@ Pincurchin,78,stat_alignment,8,Adamant,1.9%,Attack,Sp. Atk,,,,,,
 Pincurchin,78,stat_alignment,9,Impish,0.4%,Defense,Sp. Atk,,,,,,
 Pincurchin,78,stat_alignment,10,Mild,0.3%,Sp. Atk,Defense,,,,,,
 Pincurchin,78,stat_points,1,,26.2%,,,32,0,0,32,2,0
-Pincurchin,78,stat_points,2,,11.1%,,,32,0,2,32,0,0
+Pincurchin,78,stat_points,2,,11.0%,,,32,0,2,32,0,0
 Pincurchin,78,stat_points,3,,8.6%,,,32,2,0,32,0,0
 Pincurchin,78,stat_points,4,,3.4%,,,0,0,2,32,32,0
 Pincurchin,78,stat_points,5,,2.9%,,,32,0,32,0,2,0
@@ -49,5 +49,5 @@ Pincurchin,78,stat_points,7,,2.0%,,,2,0,32,32,0,0
 Pincurchin,78,stat_points,8,,2.0%,,,32,32,0,0,2,0
 Pincurchin,78,stat_points,9,,1.7%,,,2,0,32,0,32,0
 Pincurchin,78,stat_points,10,,1.7%,,,32,0,0,32,0,0
-Pincurchin,78,ability,1,Electric Surge,97.8%,,,,,,,,
-Pincurchin,78,ability,2,Lightning Rod,2.2%,,,,,,,,
+Pincurchin,78,ability,1,Electric Surge,97.9%,,,,,,,,
+Pincurchin,78,ability,2,Lightning Rod,2.1%,,,,,,,,

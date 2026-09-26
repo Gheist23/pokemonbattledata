@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sirfetch’d,71,move,1,Leaf Blade,85.5%,,,,,,,,
 Sirfetch’d,71,move,2,Meteor Assault,83.7%,,,,,,,,
-Sirfetch’d,71,move,3,First Impression,57.1%,,,,,,,,
+Sirfetch’d,71,move,3,First Impression,57.0%,,,,,,,,
 Sirfetch’d,71,move,4,Close Combat,46.6%,,,,,,,,
 Sirfetch’d,71,move,5,Night Slash,31.7%,,,,,,,,
-Sirfetch’d,71,move,6,Feint,22.4%,,,,,,,,
+Sirfetch’d,71,move,6,Feint,22.5%,,,,,,,,
 Sirfetch’d,71,move,7,Quick Attack,15.8%,,,,,,,,
 Sirfetch’d,71,move,8,Brave Bird,12.3%,,,,,,,,
 Sirfetch’d,71,move,9,Knock Off,8.4%,,,,,,,,
@@ -15,8 +15,8 @@ Sirfetch’d,71,held_item,3,Choice Scarf,1.5%,,,,,,,,
 Sirfetch’d,71,held_item,4,Life Orb,1.0%,,,,,,,,
 Sirfetch’d,71,held_item,5,Black Belt,0.4%,,,,,,,,
 Sirfetch’d,71,held_item,6,Quick Claw,0.3%,,,,,,,,
-Sirfetch’d,71,held_item,7,Sitrus Berry,0.2%,,,,,,,,
-Sirfetch’d,71,held_item,8,Lum Berry,0.2%,,,,,,,,
+Sirfetch’d,71,held_item,7,Lum Berry,0.2%,,,,,,,,
+Sirfetch’d,71,held_item,8,Sitrus Berry,0.2%,,,,,,,,
 Sirfetch’d,71,held_item,9,Eject Button,0.1%,,,,,,,,
 Sirfetch’d,71,held_item,10,Expert Belt,0.1%,,,,,,,,
 Sirfetch’d,71,teammate,1,Salamence,,,,,,,,,
@@ -39,7 +39,7 @@ Sirfetch’d,71,stat_alignment,7,Lonely,0.5%,Attack,Defense,,,,,,
 Sirfetch’d,71,stat_alignment,8,Naive,0.2%,Speed,Sp. Def,,,,,,
 Sirfetch’d,71,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
 Sirfetch’d,71,stat_alignment,10,Lax,0.1%,Defense,Sp. Def,,,,,,
-Sirfetch’d,71,stat_points,1,,23.5%,,,2,32,0,0,0,32
+Sirfetch’d,71,stat_points,1,,23.4%,,,2,32,0,0,0,32
 Sirfetch’d,71,stat_points,2,,13.5%,,,32,32,0,0,0,2
 Sirfetch’d,71,stat_points,3,,8.7%,,,32,32,2,0,0,0
 Sirfetch’d,71,stat_points,4,,8.4%,,,22,32,0,0,0,12

@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Scrafty,143,move,1,Drain Punch,82.9%,,,,,,,,
-Scrafty,143,move,2,Knock Off,69.7%,,,,,,,,
-Scrafty,143,move,3,Dragon Dance,44.9%,,,,,,,,
-Scrafty,143,move,4,Ice Punch,40.7%,,,,,,,,
-Scrafty,143,move,5,Bulk Up,27.0%,,,,,,,,
+Scrafty,143,move,2,Knock Off,69.8%,,,,,,,,
+Scrafty,143,move,3,Dragon Dance,45.0%,,,,,,,,
+Scrafty,143,move,4,Ice Punch,40.8%,,,,,,,,
+Scrafty,143,move,5,Bulk Up,26.9%,,,,,,,,
 Scrafty,143,move,6,Poison Jab,18.5%,,,,,,,,
 Scrafty,143,move,7,Taunt,16.3%,,,,,,,,
 Scrafty,143,move,8,Throat Chop,10.6%,,,,,,,,
 Scrafty,143,move,9,High Jump Kick,9.9%,,,,,,,,
 Scrafty,143,move,10,Fire Punch,8.8%,,,,,,,,
-Scrafty,143,held_item,1,Scraftinite,90.1%,,,,,,,,
+Scrafty,143,held_item,1,Scraftinite,90.0%,,,,,,,,
 Scrafty,143,held_item,2,Rocky Helmet,2.5%,,,,,,,,
 Scrafty,143,held_item,3,Sitrus Berry,1.7%,,,,,,,,
 Scrafty,143,held_item,4,Leftovers,1.4%,,,,,,,,
@@ -17,8 +17,8 @@ Scrafty,143,held_item,5,Roseli Berry,0.4%,,,,,,,,
 Scrafty,143,held_item,6,Chesto Berry,0.3%,,,,,,,,
 Scrafty,143,held_item,7,Life Orb,0.3%,,,,,,,,
 Scrafty,143,held_item,8,Focus Sash,0.3%,,,,,,,,
-Scrafty,143,held_item,9,Expert Belt,0.2%,,,,,,,,
-Scrafty,143,held_item,10,Black Belt,0.2%,,,,,,,,
+Scrafty,143,held_item,9,Black Belt,0.3%,,,,,,,,
+Scrafty,143,held_item,10,Expert Belt,0.2%,,,,,,,,
 Scrafty,143,teammate,1,Garchomp,,,,,,,,,
 Scrafty,143,teammate,2,Primarina,,,,,,,,,
 Scrafty,143,teammate,3,Gholdengo,,,,,,,,,
@@ -29,7 +29,7 @@ Scrafty,143,teammate,7,Rillaboom,,,,,,,,,
 Scrafty,143,teammate,8,Sylveon,,,,,,,,,
 Scrafty,143,teammate,9,Cinderace,,,,,,,,,
 Scrafty,143,teammate,10,Volcarona,,,,,,,,,
-Scrafty,143,stat_alignment,1,Adamant,58.7%,Attack,Sp. Atk,,,,,,
+Scrafty,143,stat_alignment,1,Adamant,58.8%,Attack,Sp. Atk,,,,,,
 Scrafty,143,stat_alignment,2,Jolly,18.6%,Speed,Sp. Atk,,,,,,
 Scrafty,143,stat_alignment,3,Impish,10.0%,Defense,Sp. Atk,,,,,,
 Scrafty,143,stat_alignment,4,Careful,8.4%,Sp. Def,Sp. Atk,,,,,,
@@ -43,9 +43,9 @@ Scrafty,143,stat_points,1,,13.0%,,,2,32,0,0,0,32
 Scrafty,143,stat_points,2,,6.0%,,,32,32,2,0,0,0
 Scrafty,143,stat_points,3,,5.2%,,,32,32,0,0,0,2
 Scrafty,143,stat_points,4,,4.4%,,,31,32,0,0,0,3
-Scrafty,143,stat_points,5,,3.6%,,,32,32,0,0,2,0
+Scrafty,143,stat_points,5,,3.7%,,,32,32,0,0,2,0
 Scrafty,143,stat_points,6,,3.3%,,,31,32,3,0,0,0
-Scrafty,143,stat_points,7,,3.1%,,,1,32,1,0,0,32
+Scrafty,143,stat_points,7,,3.0%,,,1,32,1,0,0,32
 Scrafty,143,stat_points,8,,2.0%,,,32,32,1,0,1,0
 Scrafty,143,stat_points,9,,1.9%,,,0,32,2,0,0,32
 Scrafty,143,stat_points,10,,1.8%,,,32,0,2,0,32,0

@@ -27,7 +27,7 @@ import {
   subscribe, swapSlots, teamSets,
 } from "./store.js";
 import { activate, canRun, deactivate, DISCORD_URL, FREE_RUNS, freeRunsLeft, isPro, licenceSummary, portalUrl, recordRun, refreshLicence } from "./pro.js";
-import { resetTournamentView, tournamentAnalysis, tournamentExplainer, tournamentProgress } from "./tournament-view.js";
+import { resetTournamentView, SNAPSHOT_VERSION, tournamentAnalysis, tournamentExplainer, tournamentProgress } from "./tournament-view.js";
 import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, segmented, select, sprite, switchRow, toast, typeChip } from "./ui.js";
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
 import { keepPlace } from "./scroll-anchor.js";
@@ -1505,8 +1505,7 @@ function renderAuto() {
   const locked = sets().filter((s) => s.species);
   hosts.main.append(h("div", { class: "bd-panel-head" },
     h("div", {}, h("h2", {}, "Auto Build Team"),
-      h("p", {}, "Fills the open slots one at a time: every candidate is scored on the enabled Team Building Checks first and on the Suggestions score second, and the best one is taken. Then other picks are tried for each slot, the complete teams are finished (Megas, weather, speed mode and sets) and compared with the full Team Evaluation, and the best team is kept."),
-      h("p", { class: "bd-note" }, "A move used by 95% or more of that Pokémon on the ladder is always kept on the final set, unless it needs weather or terrain the team does not set up."))));
+      h("p", {}, "Fills the open slots one at a time: every candidate is scored on the enabled Team Building Checks first and on the Suggestions score second, and the best one is taken. Then other picks are tried for each slot, the complete teams are finished (Megas, weather, speed mode and sets) and compared with the full Team Evaluation, and the best team is kept."))));
   if (auto.running) {
     hosts.main.append(h("div", { class: "bd-progress bd-auto-progress" },
       h("div", { class: "bd-progress-bar", role: "progressbar", "aria-valuemin": "0", "aria-valuemax": "100", "aria-valuenow": String(Math.round(auto.fraction * 100)) }, h("i", { style: { width: `${Math.round(auto.fraction * 100)}%` } })),
@@ -1888,9 +1887,10 @@ async function runTournament() {
 }
 
 // The last finished test survives a reload of the tab, like the last evaluation.
-// v3: the snapshot with the lead matrix, bring options and the similar team
-// (tournament-test.js SNAPSHOT_VERSION); older ones are dropped.
-const TOURNAMENT_STORE = "cbd.tour.v3";
+// v4: the snapshot whose turn-1 story can say a setup move was held back
+// (tournament-test.js SNAPSHOT_VERSION); older ones are dropped, because
+// tournamentAnalysis refuses a snapshot from another version and would only show its spinner.
+const TOURNAMENT_STORE = "cbd.tour.v4";
 
 function rememberTournament(key, snapshot) {
   try {
@@ -1902,12 +1902,11 @@ function rememberTournament(key, snapshot) {
 
 function restoreTournament() {
   try {
-    sessionStorage.removeItem("cbd.tour.v1");
-    sessionStorage.removeItem("cbd.tour.v2");
+    for (const old of ["cbd.tour.v1", "cbd.tour.v2", "cbd.tour.v3"]) sessionStorage.removeItem(old);
     const saved = JSON.parse(sessionStorage.getItem(TOURNAMENT_STORE) || "null");
     const s = saved?.snapshot;
     const lists = ["bestBrings", "pokemon", "threats", "archetypes", "hardest", "easiest"];
-    if (s?.version === 3 && s.tested > 0 && lists.every((name) => Array.isArray(s[name])) && s.bands && typeof s.active === "number"
+    if (s?.version === SNAPSHOT_VERSION && s.tested > 0 && lists.every((name) => Array.isArray(s[name])) && s.bands && typeof s.active === "number"
       && Array.isArray(s.matrix?.rows) && Array.isArray(s.matrix?.columns) && s.matrix.rows.every((row) => Array.isArray(row.cells) && Array.isArray(row.members))
       && s.bestBrings.every((b) => Array.isArray(b.members) && Array.isArray(b.leads)) && (s.similar === null || Array.isArray(s.similar?.members))) {
       // Shown only in the format it was made for; otherwise it waits on that format's shelf.

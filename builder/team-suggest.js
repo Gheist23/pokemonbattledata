@@ -35,6 +35,8 @@ import { roomPlan } from "./team-speed.js";
 // The Nature / Stat Point pairing lives in builder/nature-spreads.js, so team-eval.js's
 // candidate spreads and the pairing here cannot drift apart; re-exported for its old callers.
 export { spreadPointsForNature } from "./nature-spreads.js";
+import { diversityOption, selectDiverse, SUGGESTION_DIVERSITY } from "./suggest-diversity.js";
+export { SUGGESTION_DIVERSITY, perTargetCap, selectDiverse } from "./suggest-diversity.js";
 
 const TEAM_SIZE = 6;
 const ROW_LIMIT = 14;
@@ -569,6 +571,10 @@ const WALL_MIN_INCOMING = 4; // it needs 4+ hits to remove us
 export const VERDICT_VALUE = { beats: 1, walls: 0.85, chips: 0.35, trades: 0.15, loses: 0 };
 const VERDICT_SORT = { beats: 0, walls: 1, chips: 2, trades: 3, loses: 4 };
 
+/** One candidate, whichever slot its row is offered at (the key `run` files it under). */
+const candidateKeyOf = (row) => String(row?.candidate_key_v517
+  || compact(row?.form || row?.name || row?.base_name || ""));
+
 /**
  * The scoring version in force. Left out, production's version; null (an unstamped
  * recording) or "off"/"0"/"false"/"no"/"none", the rule is off and the old weights rank.
@@ -1010,10 +1016,13 @@ export class TeamSuggestions {
    *   (builder/nature-spreads.js); left out, the evaluator's own setting decides.
    *   `suggestionScoring`: the V511 scoring version (the damped archetype reward and the
    *   calc-backed ranking terms); null (a recording made before the rule) switches it off.
+   *   `suggestionDiversity`: the presentation rule that stops one swap target taking the
+   *   whole shown list (builder/suggest-diversity.js); null switches it off.
    */
-  constructor(evaluation, { guaranteedMoveShare = GUARANTEED_MOVE_SHARE, pairedSpreads, suggestionScoring } = {}) {
+  constructor(evaluation, { guaranteedMoveShare = GUARANTEED_MOVE_SHARE, pairedSpreads, suggestionScoring, suggestionDiversity } = {}) {
     this.guaranteedShare = shareOption(guaranteedMoveShare);
     this.suggestionScoring = suggestionScoringOption(suggestionScoring);
+    this.suggestionDiversity = diversityOption(suggestionDiversity);
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.pairedSpreads = pairedSpreads === undefined ? (this.ev.pairedSpreads ?? PAIRED_SPREADS) : pairedOption(pairedSpreads);
@@ -2476,7 +2485,7 @@ export class TeamSuggestions {
    * @param {number} limit  how many rows the list shows
    * @returns {Array|null} the re-ranked rows, or null when there is nothing to measure against
    */
-  deepRank(pool, payload, limit, onProgress) {
+  deepRank(pool, payload, limit, onProgress, alternates = null) {
     const threats = (payload.threats || []).filter((t) => t && typeof t === "object")
       .map((t, i) => [t, i]).sort((a, b) => -(Number(a[0].score) || 0) - -(Number(b[0].score) || 0) || a[1] - b[1])
       .map(([t]) => t).slice(0, DEEP_THREATS);
@@ -2492,8 +2501,18 @@ export class TeamSuggestions {
       this.scoreOnCalcs(row, threats, totalWeight, gaps);
       onProgress?.(index + 1, shortlist.length, row.name);
     });
-    const ranked = [...shortlist].sort((a, b) => b.score - a.score || a.position - b.position
+    let ranked = [...shortlist].sort((a, b) => b.score - a.score || a.position - b.position
       || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+    // V517: no swap target takes more than its share of the shown rows. The three terms above
+    // are a pure function of the candidate's own profile, the threats and the gaps -- they never
+    // read `swap_target` -- so the same candidate's row at another slot gets the identical
+    // terms, and a displaced row can be shown at a different slot instead of being dropped.
+    if (this.suggestionDiversity && alternates) {
+      for (const row of shortlist) {
+        for (const alt of alternates.get(candidateKeyOf(row)) || []) this.scoreOnCalcs(alt, threats, totalWeight, gaps);
+      }
+      ranked = selectDiverse(ranked, alternates, Math.min(limit, ranked.length), ANSWER_SPAN, candidateKeyOf, this._diversityReport);
+    }
     return [...ranked, ...tail].slice(0, limit).map((row) => this.namedAction(row));
   }
 
@@ -3182,6 +3201,17 @@ export class TeamSuggestions {
     const targets = emptySlot !== null ? [""] : this.swapTargets(context);
     const candidates = given || (box ? boxCandidates(this, box, activeNames) : this.candidates(payload, activeNames));
     const best = new Map();
+    const alternates = new Map();
+    // The same test `sorted` applies: a candidate already on the team may only be offered at its
+    // OWN slot, so an alternate that would be filtered out later is never offered as a swap.
+    const present = new Set(teamEntries.map((e) => this.speciesId(e.form || e.pokemon)).filter(Boolean));
+    const alternateOk = (row) => {
+      if (!present.size) return true;
+      const targetKey = this.speciesId(String(row.swap_target || "").trim());
+      if (!targetKey || !present.has(targetKey)) return false;
+      const candidateKey = this.speciesId(String(row.form || row.name || row.base_name || ""));
+      return !(candidateKey && present.has(candidateKey) && candidateKey !== targetKey);
+    };
     candidates.forEach((meta, index) => {
       const rows = [];
       for (const target of targets) {
@@ -3199,10 +3229,28 @@ export class TeamSuggestions {
         const pick = this.sorted(rows, { filter: false })[0];
         pick.evaluated_switch_targets_v476 = targets;
         pick.candidate_scan_index_v476 = index + 1;
-        best.set(compact(meta.name || meta.form || meta.pokemon), pick);
+        const key = compact(meta.name || meta.form || meta.pokemon);
+        best.set(key, pick);
+        // V517 keeps this candidate's rows at the OTHER targets, so a row the diversity rule
+        // displaces can be shown at another slot instead of dropping out of the list. They are
+        // rows `evaluateCandidate` really produced; nothing here is synthesised.
+        if (this.suggestionDiversity) {
+          // Only with the rule on, so a row in an unstamped recording's payload is untouched.
+          pick.candidate_key_v517 = key;
+        }
+        if (this.suggestionDiversity && rows.length > 1) {
+          const others = rows.filter((row) => row.swap_target !== pick.swap_target && alternateOk(row))
+            .map((row) => ({ ...row, candidate_key_v517: key, evaluated_switch_targets_v476: targets, candidate_scan_index_v476: index + 1 }));
+          if (others.length) alternates.set(key, others);
+        }
       }
       onProgress?.(index + 1, candidates.length, meta.name);
     });
+    this._diversityReport = this.suggestionDiversity ? {} : null;
+    // The shaping runs inside the deep pass only, where stage two has scored the alternates --
+    // the same place the app shapes (suggestion_diversity_v517), so both sides agree row for row.
+    // With no critical threats the deep pass returns nothing and this stage-one list is shown as
+    // it is, on both sides.
     let rows = this.sorted([...best.values()], { teamEntries }).slice(0, ROW_LIMIT);
     // V511: the best 40 of the whole pool are then measured against the team's worst threats
     // with real calcs, and the shown list is cut from that ranking. The shortlist is inside
@@ -3210,10 +3258,13 @@ export class TeamSuggestions {
     if (this.suggestionScoring && rows.length) {
       const pool = [...best.values()].sort((a, b) => b.score - a.score || a.position - b.position
         || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
-      const deep = this.deepRank(pool, payload, rows.length, (done, total, name) => onProgress?.(done, total, name, "measuring"));
+      const deep = this.deepRank(pool, payload, rows.length, (done, total, name) => onProgress?.(done, total, name, "measuring"), alternates);
       if (deep) rows = deep;
     }
-    return { rows, scanned: candidates.length, targets, empty_slot: emptySlot };
+    const out = { rows, scanned: candidates.length, targets, empty_slot: emptySlot };
+    // Only when the rule is on, so an unstamped recording's payload is unchanged.
+    if (this._diversityReport) out.diversity_v517 = this._diversityReport;
+    return out;
   }
 
   /**

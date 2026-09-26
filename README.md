@@ -484,6 +484,64 @@ Data comes from two places:
   on such a team about 0.8 too high. `node tests/run-trick-room-speed.mjs` checks the rule and
   replays the recorded Trick Room team's whole `payload.speed`.
 
+  Turn-1 setup in Test against Tournament Teams (`builder/tournament-test.js`
+  `TOURNAMENT_TURN_ONE`, `planSetup`): Tailwind and Trick Room are PRICED on turn 1, not simply
+  used. Before this rule a lead that carried Trick Room used it whenever `slower[s]` said its
+  side was the slower one, and a lead that carried Tailwind always used it; neither was ever
+  weighed against attacking, so a Trick Room team got its defining condition free in every one of
+  the ~2,827 matches. Measured on the pool itself, that was worth about 7 points of headline
+  average to a Trick Room team (30+30 subjects x 120 opponents: 52.63 against 45.62 for every
+  other archetype), and the same free move on the opponent side made "Trick Room" one of the
+  hardest columns of the By-archetype card. `planSetup` now collects one bid per (lead,
+  condition), prices each as `swing x stakes x weight x (1 - risk)` on the order it actually buys
+  (`orderWins` counts the lead pairs the side wins the order on, under the hypothetical
+  condition, with the same strict comparison `orderActions` makes), and commits greedily: a
+  second condition is re-priced on the board the first one leaves, so a side never sets Tailwind
+  into its own Trick Room. It declines when the inversion buys nothing, when the setter is
+  knocked out or flinched first, when the other side's Trick Room would cancel it (a case the old
+  mutually-exclusive `slower` gate made impossible), or when the setter's own attack or Taunt was
+  worth more - and the turn-1 story then says which move was held back and why. Taunt is
+  deliberately NOT part of the risk term: it is a simultaneous choice the model already plays
+  out, so pricing it here as well would make the setter fold against a threat that is never
+  spent. Both sides are priced by the identical function with the identical constants. On that
+  same 30+30 set the Trick Room advantage falls from 7.02 to 3.31 while every other archetype
+  moves 45.62 -> 45.45; a committed Trick Room team still gets Trick Room up on turn 1 in about a
+  third of games instead of half. `node tests/run-tournament-turn-one.mjs` checks the rule, and
+  `TOURNAMENT_TURN_ONE` is a stamp: `new TournamentTest(..., { turnOneRule: 0 })` replays the
+  forced branches exactly, so a result recorded before the rule replays at its own stamp.
+  `SNAPSHOT_VERSION` went 3 -> 4 because the story gained the `heldback` event (and
+  `builder-page.js` drops the shelved `cbd.tour.v3` snapshot).
+
+  `TOURNAMENT_TURN_ONE` version 2 (`duelBoard`) takes turn 1 back out of the quick duels.
+  `playTeam` duelled on `game.board`, the board the chosen game left AFTER turn 1, and `duel`
+  decides who strikes first with `board.tr > 0 ? sa < sb : sa > sb` - so whenever a Trick Room
+  went up on turn 1 of that game, every duel of it was scored with the Speed order inverted, and
+  a Tailwind sped up every one of that side's slots, including the ones the game never brought.
+  Reporting only: the headline average comes from `play` (pure HP share) and the lead matrix from
+  `refreshMatrix` -> `cellValue` -> `play` on a fresh board, but the bias reached the `duel`
+  column, the `duels` table and the Pokemon the biggest-threats card names as your answer.
+  Version 2 duels on `duelBoard(o, t)` instead: a `freshBoard` (the settings' field, no Tailwind,
+  no Trick Room, no turn-1 guard) plus the weather and terrain THE TWO DUELLISTS bring, applied
+  in `turnOne`'s own entry order so the slower setter's field stands. Tailwind and Trick Room
+  cannot be pair properties in this model at all - `tw[0]` is a side flag and `tr` a field flag
+  neither duellist need have set, and both expire after 3 or 4 turns while `duel` counts a race
+  of up to 99 hits - whereas weather and terrain are: `kit.weather` / `kit.terrain` are already
+  `""` whenever the settings pin a field, and a matrix cell's own field is built exactly this way
+  (`play` starts fresh, then `enter` applies that cell's Pokemon), so the duel and the matrix now
+  agree - which matters because `answerOf` and `weakTo` use the matrix cell when there is one and
+  the duel share when there is not. Measured, Doubles, 200 tournament teams: on a Trick Room team
+  (turn 1 left Trick Room up in 79.5% of the chosen games) the duel column moves up to 34.3
+  points per slot (Hatterene 74.1 -> 39.8, Farigiraf 37.9 -> 20.3) and the duel table 17.3 points
+  a cell on average; on an ordinary team (Trick Room up in 8.0%, our Tailwind in 17.5%) up to 11.2
+  points per slot and 8.7 a cell, almost all of it the borrowed weather rather than the inversion.
+  The headline average and the matrix do not move at all. In Singles, where a matrix column is a
+  single Pokemon and so directly comparable, the duel now names the matrix's own best answer for
+  24 of 40 threats on the Trick Room team instead of 20 (dropping the duellists' weather as well
+  would score 20, which is why it is kept). `run-tournament-turn-one.mjs` checks the board and the
+  stamp, and `run-tournament-smoke.mjs` hands a whole run's `duel` a board carrying a Trick Room,
+  both Tailwinds and Sand and checks the reported duel column, duel table and threat answers do
+  not budge. The view no longer says "of their 1-on-1s after turn 1" but "from full HP".
+
   Suggestions keep their order and scores (`run-suggest-vectors.mjs`); what the breakdown
   shows is extra: every layer's share of the score (`score_ledger`, `score_uncapped`; the
   score is capped at 100, so ties there fall back to meta rank), the calcs behind each

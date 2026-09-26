@@ -39,6 +39,7 @@ import { OptimizeObjective, WORKING_SET_RANKS } from "./optimize-objective.js";
 import { DamageMemo, STAT_NAMES, fillPoints, legalPoints, natureIndices, pointTotal, pointsKey, tick, withSpeedPoints } from "./optimize-core.js";
 import { UTILITY_ATTACKS, suggestBlock } from "./move-traits.js";
 import { enforce, fieldGate, formatShare, lockedKeys, lockedMoves, moveShares, shareOption } from "./guaranteed-moves.js";
+import { recordedMoveKeys, testableMove, usageOption } from "./optimize-usage-moves.js";
 
 /**
  * How much better (in matchup-score points, 0-100) a change must score before it is
@@ -609,11 +610,16 @@ export class DeepOptimizer {
     const types = new Set((this.engine.pokemon(objective.template.pokemon_name, objective.template.form_name)?.types || []).map(compact));
     const excluded = new Set(String(this.ev.settings.exclude_moves || "").split(/[,;]/).map((m) => compact(m)).filter(Boolean));
     const learnable = new Map();
+    // Only attacks this Pokémon is recorded with are offered (builder/optimize-usage-moves.js).
+    // Its own moves stay testable at any share, and a Pokémon with no record is not restricted.
+    const usageRule = usageOption(options.optimizeUsageMoves);
+    const recorded = usageRule ? recordedMoveKeys(this.sg, member.form || member.species) : null;
     for (const name of this.learnset(member.species, member.form || member.species)) {
       const move = this.engine.canonicalMoveName(name);
       const record = this.engine.moveRecord(move);
       const k = compact(move);
       if (!record || !this.opt.damaging(move) || excluded.has(k) || lockedMoves.some((m) => compact(m) === k)) continue;
+      if (usageRule && !testableMove(k, recorded, held)) continue;
       if (UTILITY_ATTACKS.has(k) || this.ev.movePriority(move) > 0) continue; // kept when present, never added
       // A weather or terrain move the team cannot switch on is never offered as a new attack
       // (the same gate the guaranteed-moves rule uses). One the set already has stays testable.
@@ -622,7 +628,7 @@ export class DeepOptimizer {
       learnable.set(k, move);
     }
     const usage = this.sg.usage(member.species, "move", 12).map((m) => learnable.get(compact(m))).filter(Boolean).slice(0, 8);
-    report(0.7, `Ranking the ${learnable.size} attacks ${member.species} can learn…`);
+    report(0.7, `Ranking the ${learnable.size} attacks ${member.species} is recorded with…`);
     const ranked = [];
     for (const move of learnable.values()) {
       if (overBudget()) break;
@@ -647,6 +653,12 @@ export class DeepOptimizer {
       pool.splice(index, 1);
     }
     out.tested = pool.length;
+    // The usage rule can leave nothing new: every attack this Pokémon is recorded with is
+    // already on the set. The single combination is then the set itself, so the options list
+    // would be empty -- say why instead of showing nothing.
+    if (usageRule && recorded && pool.length && pool.every((m) => freeMoves.includes(m))) {
+      out.note = `Every attack ${member.species} is recorded with in this format is already on the set, so there was no new attack to test.`;
+    }
     const size = Math.min(slots, pool.length);
     const combos = [];
     const pick = (start, chosen) => {

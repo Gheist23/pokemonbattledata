@@ -77,7 +77,48 @@ const MATRIX_EVERY = 8; // snapshots between lead-matrix refreshes while running
 const ID_SPAN = 1 << 16;
 const MAX_CACHED_HITS = 400000;
 export const MATCHUP_BANDS = { favourable: 55, unfavourable: 45 };
-export const SNAPSHOT_VERSION = 3;
+export const SNAPSHOT_VERSION = 4;
+
+/** The turn-1 rule as a version: 2 keeps turn 1 out of the duel board, 1 prices Tailwind and
+ *  Trick Room, 0 forces them.
+ *
+ *  Before version 1 a lead that carried Trick Room simply USED it on turn 1 whenever its side
+ *  was the slower one, and a lead that carried Tailwind always used it. The move was never
+ *  weighed against attacking, so a Trick Room team got its defining condition for free in every
+ *  match -- measured at +11 points of headline average on the subject side, and it made "Trick
+ *  Room" the hardest column of the By-archetype card on the opponent side. Version 1 replaces
+ *  both forced branches with `planSetup`, which prices each condition and commits only when it
+ *  beats the setter's own best alternative.
+ *
+ *  Version 2 stops turn 1 leaking into the quick duels (`duel`, `duelBoard`). Before it,
+ *  `playTeam` duelled on the board the chosen game left AFTER turn 1, so a Trick Room that went
+ *  up on turn 1 inverted `duel`'s Speed comparison and a Tailwind sped up every one of that
+ *  side's slots -- including the ones the game never brought. That is a reporting bias only (the
+ *  headline average comes from `play`, the lead matrix from `cellValue` on a fresh board), but it
+ *  reached the "answer" the biggest-threats card names, the `duel` column and the `duels` table.
+ *  Version 2 duels on a fresh board carrying only the settings' field and the two duellists' own
+ *  weather and terrain Abilities, so a duel is a property of the pair and nothing else.
+ *
+ *  Kept as a stamp on the `team_checks` pattern so a recording made before a rule replays
+ *  byte-identically at its own stamp: version 1 restores the post-turn-1 duel board and version
+ *  0 the forced setup branches as well. */
+export const TOURNAMENT_TURN_ONE = 2;
+
+/** A `tournament_turn_one` stamp as a version: 0 (off) for null / undefined / false / "" / "0".
+ *
+ *  Coerces exactly as `teamCheckRulesOption` does (team-checks.js): a version is a non-negative
+ *  integer, so it is truncated and a non-positive one is off. An ABSENT value on a recording
+ *  means "no stamp", i.e. a recording made before the rule, so it is off -- but the option's own
+ *  default is the current version, which is what production runs. */
+export function tournamentTurnOneOption(value) {
+  if (value === null || value === undefined || value === false) return 0;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return 0;
+  const n = Number(text);
+  if (!Number.isFinite(n)) return TOURNAMENT_TURN_ONE;
+  const version = Math.trunc(n);
+  return version > 0 ? version : 0;
+}
 
 const WEATHERS = ["None", "Sun", "Rain", "Sand", "Snow", "Strong Winds"];
 const TERRAINS = ["None", "Electric", "Grassy", "Psychic", "Misty"];
@@ -141,6 +182,19 @@ const BURN = 15;
 // The actions that are status moves (Taunt stops them; Encore locks a Pokémon that used one).
 const STATUS_ACTIONS = new Set([TAILWIND, TRICK_ROOM, REDIRECT, PROTECT, HELPING_HAND, WIDE_GUARD, QUICK_GUARD, SLEEP, TAUNT, ENCORE, BURN]);
 
+// What owning the Speed order is worth, on the same currency as hitScore (a knockout is 10).
+// Hand-set, like the Taunt value of 3 and the Wide Guard margin of 0.3 below: a full inversion
+// against a field that can take a whole Pokémon (swing 1, stakes 2) prices at 12, just above a
+// knockout; against chip damage (stakes 0.5) at 3, which loses to a knockout and beats a weak
+// attack. Trick Room is worth more than Tailwind because it lasts a turn longer AND slows the
+// other side down as well. Measured from 4 to 9 the Trick Room weight moves the manufactured
+// Trick Room advantage only 0.86 -> 2.86 points and the turn-1 landing rate 30% -> 42%, so no
+// conclusion rests on the exact figure.
+const TRICK_ROOM_WEIGHT = 6;
+const TAILWIND_WEIGHT = 4.5;
+const SETUP_MARGIN = 0; // how far setting up must beat the setter's own best alternative
+const NO_SETUP = Object.freeze({ setup: new Map(), held: new Map() });
+
 const tick = () => new Promise((resolve) => setTimeout(resolve, 0));
 const teamNumber = (name) => Number((String(name).match(/\d+/) || [0])[0]) || 0;
 const clampStage = (value) => Math.max(-6, Math.min(6, value));
@@ -177,8 +231,12 @@ export class TournamentTest {
    * @param {TeamEvaluation} evaluation   its evaluator does every calculation
    * @param {KnownTeams} known            the tournament-team library
    * @param {TeamSuggestions} suggestions for the Stat Points that go with a Nature
+   * @param {{turnOneRule?:number|string}} options `turnOneRule`: the turn-1 rule
+   *   (TOURNAMENT_TURN_ONE); 1 replays the post-turn-1 duel board of a recording made before
+   *   version 2, and 0 the forced Tailwind / Trick Room of one made before version 1 as well.
    */
-  constructor(evaluation, known, suggestions) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE } = {}) {
+    this.turnOneRule = tournamentTurnOneOption(turnOneRule);
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -1026,6 +1084,152 @@ export class TournamentTest {
     return best;
   }
 
+  /**
+   * How many (mine, theirs) pairs my side wins the Speed order on, under a hypothetical condition.
+   *
+   * `mul` doubles my Speed (Tailwind), `tr` is the Trick Room flag to judge it under. The
+   * comparison is the strict one `orderActions` itself makes, both ways round, so a Speed tie
+   * counts for neither side.
+   */
+  orderWins(mine, foes, board, mul, tr) {
+    let wins = 0;
+    let pairs = 0;
+    for (const a of mine) {
+      if (!alive(a)) continue;
+      const sa = this.speed(a, board) * mul;
+      for (const b of foes) {
+        if (!alive(b)) continue;
+        const sb = this.speed(b, board);
+        pairs += 1;
+        if (tr ? sa < sb : sa > sb) wins += 1;
+      }
+    }
+    return { wins, pairs };
+  }
+
+  /** What the setter would do instead of setting up: its best attack, or a pre-empting Taunt. */
+  altValue(m, mine, foes, board, slower, s) {
+    const taunt = m.k.taunt >= 0 ? this.tauntTarget(m, foes, board, slower[1 - s]) : null;
+    const pick = this.pickTarget(m, foes, board, mine, true);
+    return Math.max(taunt?.value || 0, pick ? this.attackValue(m, pick, foes, board) : 0);
+  }
+
+  /**
+   * Which of this side's setup moves are worth their turn, best bid first.
+   *
+   * One bid per (lead, condition), priced on the current board, then committed greedily: a second
+   * condition is RE-priced on the board the first one leaves, so a side never sets Tailwind into
+   * its own Trick Room and then fights its own Speed plan. Returns the committed actions by lead
+   * and, for the rest, why the move stayed unused.
+   */
+  planSetup(s, mine, foes, board, slower) {
+    const setup = new Map();
+    const held = new Map();
+    const bids = [];
+    for (const m of mine) {
+      if (!alive(m)) continue;
+      if (m.k.tailwind && !(board.tw[s] > 0)) bids.push({ m, kind: TAILWIND, pr: m.k.prankster ? 1 : 0, move: "Tailwind" });
+      if (m.k.trickRoom) bids.push({ m, kind: TRICK_ROOM, pr: m.k.prankster ? -6 : -7, move: "Trick Room" });
+    }
+    if (!bids.length) return NO_SETUP;
+    for (const bid of bids) bid.first = this.setupBid(bid.kind, bid.m, mine, foes, board, bid.pr, slower, s);
+    // Descending by price. Array sort is stable, so equal prices keep the order the leads are in.
+    bids.sort((a, b) => b.first.value - a.first.value);
+    let tr = board.tr;
+    const tw = [...board.tw];
+    const taken = new Set();
+    for (const bid of bids) {
+      // One condition per side and one action per lead: a second bid for either is already decided.
+      if (setup.has(bid.m) || taken.has(bid.kind)) {
+        if (!held.has(bid.m)) held.set(bid.m, { move: bid.move, why: "taken" });
+        continue;
+      }
+      const assumed = tr === board.tr && tw[s] === board.tw[s] ? board : { ...board, tr, tw };
+      const now = assumed === board ? bid.first : this.setupBid(bid.kind, bid.m, mine, foes, assumed, bid.pr, slower, s);
+      if (now.value > this.altValue(bid.m, mine, foes, assumed, slower, s) + SETUP_MARGIN) {
+        setup.set(bid.m, { kind: bid.kind, pr: bid.pr, value: now.value, move: bid.move });
+        taken.add(bid.kind);
+        if (bid.kind === TRICK_ROOM) tr = TRICK_ROOM_TURNS;
+        else tw[s] = TAILWIND_TURNS;
+      } else {
+        held.set(bid.m, { move: bid.move, why: now.why === "ok" ? "notworth" : now.why });
+      }
+    }
+    return { setup, held };
+  }
+
+  /**
+   * What setting this condition is worth: the order it buys x what that order is worth x how
+   * likely the setter is to get to use it.
+   */
+  setupBid(kind, m, mine, foes, board, pr, slower, s) {
+    const tr = kind === TRICK_ROOM;
+    const now = board.tr > 0;
+    const base = this.orderWins(mine, foes, board, 1, now);
+    const pairs = Math.max(1, base.pairs);
+    // Trick Room's hypothetical is the inverted flag; Tailwind's is double Speed with the flag
+    // unchanged, so doubling Speed under an existing Trick Room correctly scores as a LOSS.
+    const after = tr ? this.orderWins(mine, foes, board, 1, !now).wins : this.orderWins(mine, foes, board, 2, now).wins;
+    const lead = (after - base.wins) / pairs;
+    // Half the field, half the bring behind it: Trick Room is set for the slow Pokémon that come
+    // in later, not only for the two on the field. `slower` is the bring-level signal `play`
+    // already computes and already keys the turn-1 memo on, so this adds no new input. Tailwind is
+    // judged on the field alone (it is one-sided and shorter, and the field is what it buys).
+    const bring = slower[s] ? 1 : slower[1 - s] ? -1 : 0;
+    const swing = tr ? 0.5 * lead + 0.5 * bring : lead;
+    // The test that replaces the old `slower` gate -- and what lets the mirror exist at all,
+    // because both sides may now bid.
+    if (swing <= 0) return { value: 0, why: "nogain" };
+    if (tr && foes.some((f) => alive(f) && f.k.trickRoom)) {
+      // Whoever moves second at -7 turns it straight off again, so neither side should spend the
+      // turn on it. Only when the inversion would suit them too: an inversion that hurts them is
+      // one they will not undo.
+      const theirs = this.orderWins(foes, mine, board, 1, now);
+      if (this.orderWins(foes, mine, board, 1, !now).wins > theirs.wins) return { value: 0, why: "mirror" };
+    }
+    // What the order is worth this turn: what the foes can actually do to us, on the same 0..1
+    // HP-share-per-foe threat Fake Out already targets by.
+    let stakes = 0;
+    for (const foe of foes) if (alive(foe)) stakes += this.threatTo(foe, mine, board);
+    const risk = this.setupRisk(m, mine, foes, board, pr);
+    return { value: swing * stakes * (tr ? TRICK_ROOM_WEIGHT : TAILWIND_WEIGHT) * (1 - risk.p), why: risk.p >= 0.5 ? risk.why : "ok" };
+  }
+
+  /**
+   * The single likeliest thing that stops this setter before it moves -- never a product, so the
+   * reason stays explainable.
+   *
+   * Counts only what the turn does ANYWAY, never what the other side could CHOOSE. In particular
+   * NOT Taunt: a Taunt is a simultaneous choice and the model already plays it out (tauntTarget
+   * scores their setter at 3 and a taunted setter loses its action), so pricing it here as well
+   * would let the setter fold against a threat that is then never spent, and the "Taunt stopped
+   * their Trick Room" line would vanish from the results.
+   */
+  setupRisk(m, mine, foes, board, pr) {
+    const sp = this.speed(m, board);
+    const blocked = mine.some((x) => alive(x) && x.k.priorityBlock);
+    let p = 0;
+    let why = "ok";
+    const bump = (q, w) => { if (q > p) { p = q; why = w; } };
+    // Fake Out is forced on the other side and its target score puts a setup carrier first, so it
+    // lands on one of ours -- but with two carriers only one of them is hit.
+    let carriers = 0;
+    for (const x of mine) if (alive(x) && (x.k.trickRoom || x.k.tailwind) && !x.k.flinchProof) carriers += 1;
+    let incoming = 0;
+    for (const foe of foes) {
+      if (!alive(foe)) continue;
+      if (foe.k.fakeOut >= 0 && !m.k.flinchProof && !blocked && pr < 3 && this.hitOn(foe, m, foe.k.fakeOut, board, false).frac > 0) {
+        bump(1 / Math.max(1, carriers), "fakeout");
+      }
+      // Knocked out first: only the foes that move before this lead at this priority count.
+      const best = this.strike(foe.u, m.u, board, foe.atk, foe.spa, false, foe.burn);
+      const before = best.priority > pr || (best.priority === pr && this.speed(foe, board) > sp);
+      if (best.frac > 0 && before) incoming += best.frac;
+    }
+    if (incoming >= m.hp && !(m.sash && m.hp >= 0.999)) bump(0.9, "ko");
+    return { p, why };
+  }
+
   /** One side's turn-1 plan: one action per lead. */
   planSide(s, active, board, slower) {
     const mine = active[s];
@@ -1037,6 +1241,9 @@ export class TournamentTest {
     let tailwindTaken = board.tw[s] > 0;
     let roomTaken = false;
     let redirectTaken = false;
+    // Which setup moves are worth their turn (rule 1), or none of them (rule 0, which forces both
+    // below exactly as every recording made before the rule saw them).
+    const { setup, held } = this.turnOneRule >= 1 ? this.planSetup(s, mine, foes, board, slower) : NO_SETUP;
     // The plays that decide the turn: Fake Out, Tailwind, Trick Room.
     for (const m of mine) {
       if (!alive(m)) continue;
@@ -1062,14 +1269,28 @@ export class TournamentTest {
           continue;
         }
       }
-      if (k.tailwind && !tailwindTaken) {
-        tailwindTaken = true;
-        Object.assign(a, { kind: TAILWIND, pr: k.prankster ? 1 : 0, value: 3, move: "Tailwind" });
-        continue;
-      }
-      if (k.trickRoom && !roomTaken && slower[s]) {
-        roomTaken = true;
-        Object.assign(a, { kind: TRICK_ROOM, pr: k.prankster ? -6 : -7, value: 3, move: "Trick Room" });
+      if (this.turnOneRule >= 1) {
+        const chosen = setup.get(m);
+        if (chosen) {
+          Object.assign(a, chosen);
+          if (chosen.kind === TAILWIND) tailwindTaken = true;
+          else roomTaken = true;
+          continue;
+        }
+        // It carries a setup move and is not using it: say so, then fall through to the rest of
+        // the chain, which gives it an attack, a Taunt or whatever else is worth more.
+        const back = held.get(m);
+        if (back) a.held = back;
+      } else {
+        if (k.tailwind && !tailwindTaken) {
+          tailwindTaken = true;
+          Object.assign(a, { kind: TAILWIND, pr: k.prankster ? 1 : 0, value: 3, move: "Tailwind" });
+          continue;
+        }
+        if (k.trickRoom && !roomTaken && slower[s]) {
+          roomTaken = true;
+          Object.assign(a, { kind: TRICK_ROOM, pr: k.prankster ? -6 : -7, value: 3, move: "Trick Room" });
+        }
       }
     }
     // The rest: Taunt on their speed control, redirection, sleep, a Speed drop, else the best of
@@ -1240,6 +1461,9 @@ export class TournamentTest {
 
     const plans = [this.planSide(0, active, board, slower), this.planSide(1, active, board, slower)];
     this.planGuards(plans, board);
+    // A setup move that was priced and left unused is part of what happened this turn, so the
+    // results can say why the condition never went up.
+    if (events) for (const plan of plans) for (const a of plan) if (a.held) events.push({ s: a.s, kind: "heldback", actor: a.m.u, move: a.held.move, why: a.held.why });
     const actions = orderActions([...plans[0], ...plans[1]].filter((a) => a.kind), false, 1);
     const redirector = [null, null];
     for (const a of actions) {
@@ -1459,6 +1683,11 @@ export class TournamentTest {
     }
   }
 
+  /** An empty field: the settings' weather and terrain, nobody's Tailwind, no Trick Room. */
+  freshBoard() {
+    return { w: this.fixedWeather, t: this.fixedTerrain, tw: [0, 0], tr: 0, trBy: -1, wide: 0, quick: 0 };
+  }
+
   /**
    * One game between two brings.
    * @param {object} ours    a plan from plansFor (our side)
@@ -1474,7 +1703,7 @@ export class TournamentTest {
     const active = [sides[0].slice(0, ours.leads), sides[1].slice(0, theirs.leads)];
     const next = [ours.leads, theirs.leads];
     const slower = [ours.mean < theirs.mean, theirs.mean < ours.mean];
-    let board = { w: this.fixedWeather, t: this.fixedTerrain, tw: [0, 0], tr: 0, trBy: -1, wide: 0, quick: 0 };
+    let board = this.freshBoard();
     const events = record ? [] : null;
     const memoKey = memo && !record ? `${ours.leadKey}|${theirs.leadKey}|${slower[0] ? 1 : slower[1] ? 2 : 0}` : "";
     const saved = memoKey ? memo.get(memoKey) : undefined;
@@ -1573,8 +1802,39 @@ export class TournamentTest {
     };
   }
 
-  /** A 1-on-1 on a given board from full HP: hits to KO (lowest and highest roll) both ways, then who moves first. */
-  duel(o, t, board) {
+  /**
+   * The field a 1-on-1 between these two is fought on (TOURNAMENT_TURN_ONE version 2): a fresh
+   * board, plus the weather and terrain THESE TWO bring. A duel is averaged over every team the
+   * defender appears on (`row.perSlot[slot] / row.count`), so it is only a number about the pair
+   * if the field is decided by the pair: a Trick Room or a Tailwind from one chosen game belongs
+   * to whoever led there, often neither duellist, and expires after 4 or 5 turns while `duel`
+   * counts a race of up to 99 hits.
+   *
+   * Weather and terrain stay, because for these two they are not borrowed: `kit.weather` and
+   * `kit.terrain` are already "" whenever the settings pin a field (so this can never override
+   * the user's own weather), and when the settings say "None" a duellist's Drought really is the
+   * field of this 1 vs 1 -- dropping it would score a Torkoal's Eruption or a Pelipper's
+   * Hurricane out of the weather the threat list most needs them priced in. They are applied in
+   * `turnOne`'s own entry order (fastest in first, each setter overwriting), so the SLOWER
+   * setter's field stands, exactly as in a real game; a Speed tie goes to their side, as the
+   * `a.s - b.s` tie-break there does.
+   */
+  duelBoard(o, t) {
+    const board = this.freshBoard();
+    for (const unit of this.entrySpeedOf(t) > this.entrySpeedOf(o) ? [t, o] : [o, t]) {
+      if (unit.kit.weather) board.w = WEATHERS.indexOf(unit.kit.weather);
+      if (unit.kit.terrain) board.t = TERRAINS.indexOf(unit.kit.terrain);
+    }
+    return board;
+  }
+
+  /**
+   * A 1-on-1 from full HP: hits to KO (lowest and highest roll) both ways, then who moves first.
+   * `board` is the board the caller has; version 2 duels on `duelBoard` instead, and version 1
+   * and below on the caller's, which is the board the chosen game left after turn 1.
+   */
+  duel(o, t, given) {
+    const board = this.turnOneRule >= 2 ? this.duelBoard(o, t) : given;
     const a = this.strike(o, t, board, 0, 0);
     const b = this.strike(t, o, board, 0, 0);
     let first = 0.5;
@@ -1738,7 +1998,9 @@ export class TournamentTest {
     state.ourLeads.set(ourLead, (state.ourLeads.get(ourLead) || 0) + 1);
     // Their Pokémon: how often each is seen, brought against us, what it does, its sets, and our duels with it.
     const broughtBy = new Map(theirPlan.order.map((t, i) => [t, game.mons[1][i]]));
-    const duelBoard = game.board;
+    // The board this game left after turn 1. Version 2 of the turn-1 rule duels on `duelBoard`
+    // instead and ignores this one; it is still handed over so version 1 and below replay.
+    const afterTurnOneBoard = game.board;
     theirs.forEach((t, i) => {
       const row = state.species.get(t.display) || { display: t.display, species: t.species, form: t.form, item: t.item, count: 0, brought: 0, kos: 0, survived: 0, perSlot: state.ours.map(() => 0), sets: new Map() };
       row.count += 1;
@@ -1752,7 +2014,7 @@ export class TournamentTest {
         if (!mon.out) row.survived += 1;
       }
       state.ours.forEach((o, slot) => {
-        const win = this.duel(o.unit, t, duelBoard);
+        const win = this.duel(o.unit, t, afterTurnOneBoard);
         row.perSlot[slot] += win;
         state.mons[slot].duel += win;
         state.mons[slot].faced += 1;
@@ -1821,6 +2083,7 @@ export class TournamentTest {
         move: e.move || "",
         value: e.value || "",
         by: e.by || "",
+        why: e.why || "",
         stats: e.stats || null,
         on: e.on,
       })),

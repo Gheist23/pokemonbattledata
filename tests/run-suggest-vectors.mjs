@@ -105,6 +105,11 @@ const scoreRule = (testCase) => (process.env.SCORE_RULES === undefined
   ? (testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? null)
   : process.env.SCORE_RULES);
 const scoringRule = (testCase) => (process.env.SUGGESTION_SCORING === undefined ? scoringStamp(testCase) : process.env.SUGGESTION_SCORING);
+/** The recording's V517 diversity stamp (null: recorded before the rule, so the shown list keeps
+ *  the shape it was recorded with). SUGGESTION_DIVERSITY=0 / =1 replays every recording either way. */
+const diversityRule = (testCase) => (process.env.SUGGESTION_DIVERSITY === undefined
+  ? (testCase?.record?.rules?.suggestion_diversity ?? testCase?.rules?.suggestion_diversity ?? null)
+  : process.env.SUGGESTION_DIVERSITY);
 /** The recording's V514 Team Building Checks stamp (null: recorded before the rule, so the ten
  *  pre-V514 ids, the label "Defensive Switch-ins" and the V251 thresholds replay).
  *  TEAM_CHECK_RULES=0 / =1 replays every recording either way. */
@@ -191,7 +196,7 @@ for (const testCase of cases) {
     else payload[k] = appValue;
   }
 
-  const suggest = new TeamSuggestions(evaluation, { guaranteedMoveShare: ruleShare(testCase), suggestionScoring: scoringRule(testCase) });
+  const suggest = new TeamSuggestions(evaluation, { guaranteedMoveShare: ruleShare(testCase), suggestionScoring: scoringRule(testCase), suggestionDiversity: diversityRule(testCase) });
   const teamSlots = (payload.slots || []).map(({ entry, mon }) => ({ entry: { ...entry, form: mon.form_name || entry.form, ability: mon.ability || entry.ability }, mon }));
   const teamEntries = teamSlots.map(({ entry }) => entry);
   const activeNames = calls[0]?.active || [];

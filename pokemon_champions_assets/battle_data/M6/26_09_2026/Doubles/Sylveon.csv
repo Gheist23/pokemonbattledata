@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sylveon,19,move,1,Hyper Voice,99.6%,,,,,,,,
 Sylveon,19,move,2,Hyper Beam,74.6%,,,,,,,,
-Sylveon,19,move,3,Quick Attack,70.3%,,,,,,,,
-Sylveon,19,move,4,Detect,65.1%,,,,,,,,
+Sylveon,19,move,3,Quick Attack,70.2%,,,,,,,,
+Sylveon,19,move,4,Detect,65.0%,,,,,,,,
 Sylveon,19,move,5,Protect,30.2%,,,,,,,,
 Sylveon,19,move,6,Mystical Fire,11.4%,,,,,,,,
 Sylveon,19,move,7,Yawn,11.2%,,,,,,,,
@@ -15,7 +15,7 @@ Sylveon,19,held_item,3,Leftovers,2.1%,,,,,,,,
 Sylveon,19,held_item,4,Sitrus Berry,1.5%,,,,,,,,
 Sylveon,19,held_item,5,Quick Claw,1.4%,,,,,,,,
 Sylveon,19,held_item,6,Choice Scarf,0.6%,,,,,,,,
-Sylveon,19,held_item,7,Grassy Seed,0.5%,,,,,,,,
+Sylveon,19,held_item,7,Grassy Seed,0.4%,,,,,,,,
 Sylveon,19,held_item,8,Focus Sash,0.4%,,,,,,,,
 Sylveon,19,held_item,9,Wise Glasses,0.3%,,,,,,,,
 Sylveon,19,held_item,10,Metronome,0.2%,,,,,,,,
@@ -26,8 +26,8 @@ Sylveon,19,teammate,4,Raichu,,,,,,,,,
 Sylveon,19,teammate,5,Arcanine-Hisui,,,,,,,,,
 Sylveon,19,teammate,6,Farigiraf,,,,,,,,,
 Sylveon,19,teammate,7,Gholdengo,,,,,,,,,
-Sylveon,19,teammate,8,Sneasler,,,,,,,,,
-Sylveon,19,teammate,9,Staraptor,,,,,,,,,
+Sylveon,19,teammate,8,Staraptor,,,,,,,,,
+Sylveon,19,teammate,9,Sneasler,,,,,,,,,
 Sylveon,19,teammate,10,Garchomp,,,,,,,,,
 Sylveon,19,stat_alignment,1,Modest,80.5%,Sp. Atk,Attack,,,,,,
 Sylveon,19,stat_alignment,2,Quiet,13.2%,Sp. Atk,Speed,,,,,,
@@ -39,7 +39,7 @@ Sylveon,19,stat_alignment,7,Mild,0.4%,Sp. Atk,Defense,,,,,,
 Sylveon,19,stat_alignment,8,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Sylveon,19,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,
 Sylveon,19,stat_alignment,10,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
-Sylveon,19,stat_points,1,,11.4%,,,32,0,2,32,0,0
+Sylveon,19,stat_points,1,,11.5%,,,32,0,2,32,0,0
 Sylveon,19,stat_points,2,,6.2%,,,9,0,22,20,0,15
 Sylveon,19,stat_points,3,,5.2%,,,32,0,0,32,0,2
 Sylveon,19,stat_points,4,,4.5%,,,13,0,22,23,0,8
@@ -47,7 +47,7 @@ Sylveon,19,stat_points,5,,2.7%,,,32,0,0,32,2,0
 Sylveon,19,stat_points,6,,2.4%,,,2,0,0,32,0,32
 Sylveon,19,stat_points,7,,2.4%,,,2,0,32,32,0,0
 Sylveon,19,stat_points,8,,1.6%,,,3,0,17,30,0,16
-Sylveon,19,stat_points,9,,1.1%,,,21,0,6,24,0,15
-Sylveon,19,stat_points,10,,1.1%,,,9,0,22,30,0,5
+Sylveon,19,stat_points,9,,1.1%,,,9,0,22,30,0,5
+Sylveon,19,stat_points,10,,1.1%,,,21,0,6,24,0,15
 Sylveon,19,ability,1,Pixilate,99.8%,,,,,,,,
 Sylveon,19,ability,2,Cute Charm,0.2%,,,,,,,,

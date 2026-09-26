@@ -4,7 +4,8 @@
 // Intimidate actually move the result. Also: Earthquake-type moves hit the partner (and the
 // choice and Protect account for it), Speed drops skip immune targets, Grassy Glide / First
 // Impression priority, Helping Hand, Wide Guard, Quick Guard against Fake Out, Snarl, Spore,
-// Taunt, Encore and Will-O-Wisp, and the lines and sections of the results view.
+// Taunt, Encore and Will-O-Wisp, and the lines and sections of the results view. Also that the
+// duel numbers no longer read what turn 1 left on the board (TOURNAMENT_TURN_ONE version 2).
 //
 //   node tests/run-tournament-smoke.mjs [teams]     (default 150 tournament teams per run)
 //
@@ -424,7 +425,7 @@ for (const format of ["Doubles", "Singles"]) {
   runs[format] = { s, seconds: (Date.now() - started) / 1000, values: test.values };
   const size = format === "Singles" ? 3 : 4;
   const doubles = format === "Doubles";
-  check(`${format}: snapshot version ${SNAPSHOT_VERSION}`, s.version === 3 && SNAPSHOT_VERSION === 3);
+  check(`${format}: snapshot version ${SNAPSHOT_VERSION}`, s.version === 4 && SNAPSHOT_VERSION === 4);
   check(`${format}: brings ${size}`, s.bring === size && s.bestBrings.every((b) => b.members.length === size) && s.hardest.every((t) => t.bring.length === size && t.against.length === size),
     JSON.stringify(s.bestBrings.map((b) => b.members.length)));
   check(`${format}: at most ${size} bring options, each the best choice somewhere`, s.bestBrings.length >= 1 && s.bestBrings.length <= size && s.bestBrings.slice(1).every((b) => b.bestRate > 0) && s.bestBrings.every((b) => b.leads.length === (doubles ? 2 : 1)),
@@ -521,6 +522,33 @@ for (const format of ["Doubles", "Singles"]) {
       JSON.stringify(sides.filter((list) => megasIn(list) > 1).map((list) => list.map((m) => m.form))));
   }
   console.log(`${format}: ${s.tested} teams in ${runs[format].seconds.toFixed(1)} s · average ${s.average.toFixed(1)} · favoured ${s.bands.favourable} / even ${s.bands.even} / behind ${s.bands.unfavourable} · deciles ${JSON.stringify(deciles)} · matrix ${mx.rows.length} x ${mx.columns.length}`);
+}
+
+// --- turn 1 does not reach the duel numbers (TOURNAMENT_TURN_ONE version 2) ----------------
+// `playTeam` used to duel on the board the chosen game left AFTER turn 1, so a Trick Room that
+// went up on turn 1 inverted who strikes first in every duel of that game. Whole-pipeline check:
+// a run whose `duel` is handed a board with a Trick Room, both Tailwinds and Sand on it must
+// report the same duel column, the same duel table and the same threat answers as an honest one.
+{
+  const poison = { w: 3, t: 4, tw: [3, 3], tr: 4, trBy: 0, wide: 3, quick: 3 };
+  const quick = 40;
+  for (const format of ["Doubles", "Singles"]) {
+    const honest = await makeTest(format).run(BENCH.map((set) => makeSet(set)), { limit: quick });
+    const test = makeTest(format);
+    const honestDuel = test.duel.bind(test);
+    test.duel = (o, t) => honestDuel(o, t, poison);
+    const poisoned = await test.run(BENCH.map((set) => makeSet(set)), { limit: quick });
+    const column = (s) => s.pokemon.map((p) => p.duel);
+    const table = (s) => s.duels.rows.map((row) => [row.species, row.form, ...row.cells]);
+    const answers = (s) => s.threats.map((t) => [t.species, t.form, t.answer.species, t.answer.form, t.answer.win, t.level]);
+    check(`${format}: the duel column ignores what turn 1 left on the board`,
+      column(honest).length === 6 && JSON.stringify(column(honest)) === JSON.stringify(column(poisoned)),
+      `${JSON.stringify(column(honest))} vs ${JSON.stringify(column(poisoned))}`);
+    check(`${format}: so does the duel table`, table(honest).length > 0 && JSON.stringify(table(honest)) === JSON.stringify(table(poisoned)));
+    check(`${format}: and the biggest threats' answers`, answers(honest).length > 0 && JSON.stringify(answers(honest)) === JSON.stringify(answers(poisoned)));
+    // The rest of the run is untouched by the duels, so it must match as well.
+    check(`${format}: the headline average never came from the duels`, honest.average === poisoned.average, `${honest.average} vs ${poisoned.average}`);
+  }
 }
 
 for (const format of ["Doubles", "Singles"]) {
@@ -788,7 +816,7 @@ for (const format of ["Doubles", "Singles"]) {
     // Every threat the matrix holds a row for is quoted as that row's score, not a duel share.
     const fromMatrix = s.threats.filter((t) => t.answer.value !== null);
     const quoted = text.split(" against it 1 vs 1)").length - 1;
-    const duelWords = text.split("of their 1-on-1s after turn 1").length - 1;
+    const duelWords = text.split("of their 1-on-1s from full HP").length - 1;
     check("Singles: the best answer is quoted as a matrix score, not a duel share",
       fromMatrix.length > 0 && quoted === fromMatrix.length && duelWords === s.threats.length - fromMatrix.length,
       `${quoted} matrix / ${duelWords} duel of ${s.threats.length} threats`);

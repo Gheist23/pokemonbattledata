@@ -60,7 +60,7 @@ function optionsBar(options, onOptions) {
         ? "About 5 to 20 seconds per Pokémon: fewer Natures and coarser steps. Longer with a larger Top Meta and on phones."
         : "About 15 seconds to a minute per Pokémon: every Nature worth trying, finer steps and more move sets. Longer with a larger Top Meta and on phones.")),
     h("div", { class: "bd-opt-switches" },
-      switchRow("Test new moves", options.testMoves, (testMoves) => onOptions({ testMoves }), { hint: "Try the attacks it can learn in the move slots that are not doing a support job." }),
+      switchRow("Test new moves", options.testMoves, (testMoves) => onOptions({ testMoves }), { hint: "Try the attacks it is recorded with in the move slots that are not doing a support job." }),
       switchRow("Keep current Nature", options.keepNature, (keepNature) => onOptions({ keepNature }), { hint: "Only tune the Stat Points (and moves)." }),
       switchRow("Keep Speed", options.keepSpeed, (keepSpeed) => onOptions({ keepSpeed }), { hint: "Never suggest a spread that is slower than the current one." })));
 }
@@ -289,11 +289,6 @@ function compareTable(result) {
     tradeStory(before, after, shifts, natureChanged),
     shapeTable(before, after, shifts),
     h("div", { class: "bd-opt-ledger" }, budgetBlock(before, after), natureBlock(before, after, natureChanged)),
-    h("p", { class: "bd-note bd-opt-shape-note" },
-      `Each bar is that stat now, at level 50, all on one scale to ${Math.max(...before.stats, ...after.stats)}: a striped tip is what it gained, a hollow tip past the end of the bar is what it gave up. `,
-      "Beside it are its Stat Points · its final stat, with the set's own numbers marked \"was\", and ▲ ▼ mark what the Nature raises and lowers. ",
-      h("strong", {}, "Up is not better here"),
-      ": less Speed for more bulk is a trade, so nothing is coloured good or bad."),
     moves, guaranteed);
 }
 
@@ -631,7 +626,7 @@ function movesSection(member, result, props) {
   return h("div", { class: "bd-opt-section bd-opt-moves" },
     h("h4", {}, "Moves tested"),
     h("p", { class: "bd-note" }, tested.note || [
-      tested.tested ? `${count(tested.tested, "attack")} it can learn, in ${count(tested.combos, "combination")} for its ${count(tested.free, "free slot")}.` : "",
+      tested.tested ? `${count(tested.tested, "attack")} it is recorded with, in ${count(tested.combos, "combination")} for its ${count(tested.free, "free slot")}.` : "",
       kept ? `Kept as they are: ${kept}.` : "",
     ].filter(Boolean).join(" ")),
     options.length ? h("ul", { class: "bd-opt-move-options" }, options.map((option) => h("li", {},

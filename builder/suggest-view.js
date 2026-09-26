@@ -100,7 +100,6 @@ export function suggestionsView(result, helpers) {
         : "Tests every ranked Pokémon in the open slot on its most common set, and ranks them by what they add: Team Building Checks fixed, threats answered, typing, Speed and archetype fit."),
       h("p", { class: "bd-note" }, "The best 40 are then played out against the team's 8 worst threats with the full calcs, both ways, and the list is ranked on what they actually answer rather than on one move they carry."),
       h("p", { class: "bd-note" }, "The best 14 are then checked one by one against the full Team Evaluation of the team they would make."),
-      h("p", { class: "bd-note" }, "A move used by 95% or more of that Pokémon on the ladder is always kept on the final set, unless it needs weather or terrain the team does not set up."),
       h("div", { class: "bd-gate-actions" }, controls));
   }
   const scopeText = result.scope === "box" ? "Pokémon from your Box" : "Pokémon";

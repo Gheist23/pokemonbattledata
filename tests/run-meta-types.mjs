@@ -476,7 +476,25 @@ if (wantNow && wantWas) {
   check("a rising attacking type reads as better", !risingOffense || risingOffense.tone === "up", `${risingOffense?.type} ${risingOffense?.tone}`);
   check("a rising defending type reads as worse", !risingDefense || risingDefense.tone === "down", `${risingDefense?.type} ${risingDefense?.tone}`);
   check("every chip carries its own arrow and sign", [...offense, ...defense].every((row) => /^[▲▼▪] /.test(row.delta)));
-  check("a chip spells the change out in words", /on \d+ \w+ \d{4} →/.test(offense[0]?.title || ""), offense[0]?.title);
+  // Both title forms name the baseline date in words (meta.js:884), and only the form for a chip
+  // that MOVED has a "was → now" transition to print. The older check read offense[0] alone and
+  // demanded the transition, so it went red the first day the top attacking type happened to score
+  // exactly flat -- Rock, 26 Sep 2026. Every chip in both lists is checked now, each against the
+  // sentence its own delta produces, which is a stronger claim than the line it replaces.
+  const titled = [...offense, ...defense];
+  const named = (row) => / on \d+ \w+ \d{4}/.test(row.title || "");
+  const show = (rows) => rows.slice(0, 3).map((row) => `${row.type} ${JSON.stringify(row.title)}`).join("; ");
+  check("every chip names the baseline date in words", titled.every(named), show(titled.filter((row) => !named(row))));
+  const flatChips = titled.filter((row) => row.delta.startsWith("▪"));
+  const movedChips = titled.filter((row) => !row.delta.startsWith("▪"));
+  const spelled = (row) => /on \d+ \w+ \d{4} →/.test(row.title || "");
+  const same = (row) => /scores the same as on \d+ \w+ \d{4}\./.test(row.title || "");
+  check("a chip that moved spells the change out as was → now",
+    movedChips.every(spelled), show(movedChips.filter((row) => !spelled(row))));
+  check("a chip that did not move says exactly that instead",
+    flatChips.every(same), show(flatChips.filter((row) => !same(row))));
+  check("and both lists really carry titles", (offense[0]?.title || "") !== "" && (defense[0]?.title || "") !== "",
+    `${JSON.stringify(offense[0]?.title)} / ${JSON.stringify(defense[0]?.title)}`);
 }
 
 /* ------------------------------------------- the controls the page already has */

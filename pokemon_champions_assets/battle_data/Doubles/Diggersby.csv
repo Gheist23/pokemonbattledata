@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Diggersby,224,move,1,Earthquake,65.2%,,,,,,,,
-Diggersby,224,move,2,Ice Punch,56.7%,,,,,,,,
-Diggersby,224,move,3,High Horsepower,43.7%,,,,,,,,
-Diggersby,224,move,4,Quick Attack,37.5%,,,,,,,,
-Diggersby,224,move,5,Rock Slide,29.9%,,,,,,,,
-Diggersby,224,move,6,Protect,29.8%,,,,,,,,
-Diggersby,224,move,7,Thunder Punch,19.0%,,,,,,,,
-Diggersby,224,move,8,U-turn,16.2%,,,,,,,,
-Diggersby,224,move,9,Giga Impact,11.4%,,,,,,,,
+Diggersby,224,move,1,Earthquake,65.4%,,,,,,,,
+Diggersby,224,move,2,Ice Punch,56.6%,,,,,,,,
+Diggersby,224,move,3,High Horsepower,43.4%,,,,,,,,
+Diggersby,224,move,4,Quick Attack,37.2%,,,,,,,,
+Diggersby,224,move,5,Rock Slide,30.0%,,,,,,,,
+Diggersby,224,move,6,Protect,29.7%,,,,,,,,
+Diggersby,224,move,7,Thunder Punch,18.8%,,,,,,,,
+Diggersby,224,move,8,U-turn,16.6%,,,,,,,,
+Diggersby,224,move,9,Giga Impact,11.7%,,,,,,,,
 Diggersby,224,move,10,Fire Punch,10.8%,,,,,,,,
-Diggersby,224,held_item,1,Choice Scarf,26.1%,,,,,,,,
-Diggersby,224,held_item,2,Life Orb,25.9%,,,,,,,,
-Diggersby,224,held_item,3,Focus Sash,23.0%,,,,,,,,
+Diggersby,224,held_item,1,Choice Scarf,26.5%,,,,,,,,
+Diggersby,224,held_item,2,Life Orb,25.7%,,,,,,,,
+Diggersby,224,held_item,3,Focus Sash,23.1%,,,,,,,,
 Diggersby,224,held_item,4,Muscle Band,4.5%,,,,,,,,
 Diggersby,224,held_item,5,Soft Sand,3.9%,,,,,,,,
 Diggersby,224,held_item,6,Expert Belt,3.8%,,,,,,,,
-Diggersby,224,held_item,7,Chople Berry,2.6%,,,,,,,,
+Diggersby,224,held_item,7,Chople Berry,2.5%,,,,,,,,
 Diggersby,224,held_item,8,Iron Ball,2.4%,,,,,,,,
 Diggersby,224,held_item,9,Leftovers,2.1%,,,,,,,,
 Diggersby,224,held_item,10,Sitrus Berry,0.9%,,,,,,,,
@@ -28,10 +28,10 @@ Diggersby,224,teammate,6,Golisopod,,,,,,,,,
 Diggersby,224,teammate,7,Charizard,,,,,,,,,
 Diggersby,224,teammate,8,Milotic,,,,,,,,,
 Diggersby,224,teammate,9,Whimsicott,,,,,,,,,
-Diggersby,224,teammate,10,Pawmot,,,,,,,,,
-Diggersby,224,stat_alignment,1,Adamant,61.1%,Attack,Sp. Atk,,,,,,
-Diggersby,224,stat_alignment,2,Jolly,21.5%,Speed,Sp. Atk,,,,,,
-Diggersby,224,stat_alignment,3,Brave,13.8%,Attack,Speed,,,,,,
+Diggersby,224,teammate,10,Aerodactyl,,,,,,,,,
+Diggersby,224,stat_alignment,1,Adamant,61.2%,Attack,Sp. Atk,,,,,,
+Diggersby,224,stat_alignment,2,Jolly,21.6%,Speed,Sp. Atk,,,,,,
+Diggersby,224,stat_alignment,3,Brave,13.7%,Attack,Speed,,,,,,
 Diggersby,224,stat_alignment,4,Naughty,0.9%,Attack,Sp. Def,,,,,,
 Diggersby,224,stat_alignment,5,Impish,0.8%,Defense,Sp. Atk,,,,,,
 Diggersby,224,stat_alignment,6,Naive,0.6%,Speed,Sp. Def,,,,,,
@@ -39,12 +39,12 @@ Diggersby,224,stat_alignment,7,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
 Diggersby,224,stat_alignment,8,Hasty,0.3%,Speed,Defense,,,,,,
 Diggersby,224,stat_alignment,9,Lonely,0.2%,Attack,Defense,,,,,,
 Diggersby,224,stat_alignment,10,Sassy,0.2%,Sp. Def,Speed,,,,,,
-Diggersby,224,stat_points,1,,20.8%,,,2,32,0,0,0,32
-Diggersby,224,stat_points,2,,10.8%,,,1,32,1,0,0,32
+Diggersby,224,stat_points,1,,20.9%,,,2,32,0,0,0,32
+Diggersby,224,stat_points,2,,11.0%,,,1,32,1,0,0,32
 Diggersby,224,stat_points,3,,6.0%,,,32,32,2,0,0,0
-Diggersby,224,stat_points,4,,5.7%,,,0,32,0,0,0,32
-Diggersby,224,stat_points,5,,5.6%,,,0,32,0,0,2,32
-Diggersby,224,stat_points,6,,4.8%,,,0,32,2,0,0,32
+Diggersby,224,stat_points,4,,5.8%,,,0,32,0,0,2,32
+Diggersby,224,stat_points,5,,5.6%,,,0,32,0,0,0,32
+Diggersby,224,stat_points,6,,4.9%,,,0,32,2,0,0,32
 Diggersby,224,stat_points,7,,4.4%,,,32,32,0,0,0,0
 Diggersby,224,stat_points,8,,4.3%,,,32,32,0,0,0,2
 Diggersby,224,stat_points,9,,4.1%,,,32,32,0,0,2,0

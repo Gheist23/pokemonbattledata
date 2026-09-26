@@ -774,10 +774,13 @@ if (quick) {
     return term !== 0;
   }
 
-  function shownRows(team, scoring) {
+  // `diversity` defaults OFF here: every V512 assertion below is about the SCORING term, and
+  // the V517 presentation rule would reshape the very list they measure. The rule's own shape is
+  // asserted separately at the end of this block, and unit-tested in tests/run-suggest-diversity.mjs.
+  function shownRows(team, scoring, diversity = 0) {
     const evaluation = evaluationFor();
     const payload = evaluation.evaluate(Array.from({ length: 6 }, (_, i) => (team[i] ? makeSet(team[i]) : null)), { checkSelection: null });
-    const sg = new TeamSuggestions(evaluation, { suggestionScoring: scoring });
+    const sg = new TeamSuggestions(evaluation, { suggestionScoring: scoring, suggestionDiversity: diversity });
     const out = sg.run(payload, { selection: null });
     const slots = (payload.slots || []).map(({ entry, mon }) => ({ entry: { ...entry, form: mon.form_name || entry.form, ability: mon.ability || entry.ability }, mon }));
     return { ...out, setters: Number(sg.featuresFor(slots).trick_room_setters) || 0 };
@@ -959,6 +962,77 @@ if (quick) {
       ok(`V512: ${label} - no row carries the term`, four.rows.every((r) => r.outgoing_role_cost_v512 === undefined));
       eq(`V512: ${label} - version 4 and version 3 score it identically`,
         four.rows.map((r) => `${r.name} ${r.score}`), three.rows.map((r) => `${r.name} ${r.score}`));
+    }
+  }
+
+  // --- V517: the SHAPE of the shown list ---------------------------------------------------
+  //
+  // This replaces the fitted `topCost === 0 || share <= 0.6` guard above as the bound on
+  // concentration. It is stated as an invariant over several real teams and checked against the
+  // rule's own definition rather than against a count that happened to hold: no swap target may
+  // exceed ceil(limit / offered targets) rows UNLESS the cap really gave way, and a yield is only
+  // legal when the row it kept was more than ANSWER_SPAN better than the best row it could have
+  // shown instead. Both the share and every yield are printed on failure.
+  //
+  // The 0.6 guard was itself re-derived once, after a false V514 red moved the numbers. This one
+  // cannot be satisfied by re-tuning a weight: a per-candidate term cannot see how many rows a
+  // target has taken. Version 5 is the proof -- it only re-tuned the outgoing price and the
+  // owner's list went from 7/14 to 13/14.
+  {
+    const ANSWER_SPAN_HERE = 18;
+    const targetsOf = (rows) => rows.map((row) => String(row.swap_target || ""));
+    const topShare = (rows) => {
+      const counts = new Map();
+      for (const t of targetsOf(rows)) counts.set(t, (counts.get(t) || 0) + 1);
+      const best = [...counts.entries()].sort((a, b) => b[1] - a[1])[0] || ["", 0];
+      return { name: best[0], rows: best[1], share: best[1] / Math.max(1, rows.length), counts: [...counts.entries()] };
+    };
+    for (const [label, team] of [["the owner's Trick Room team", OWNER_TEAM],
+                                 ["one setter, one open slot", ONE_SETTER],
+                                 ["two setters, one open slot", TWO_SETTERS]]) {
+      const off = shownRows(team, SUGGESTION_SCORING, 0);
+      const on = shownRows(team, SUGGESTION_SCORING, 1);
+      const report = on.diversity_v517 || {};
+      const before = topShare(off.rows);
+      const after = topShare(on.rows);
+      const cap = Math.ceil(on.rows.length / Math.max(1, report.offered || 1));
+      notes.push(`  V517 ${label}: ${before.name || "(add)"} ${before.rows}/${off.rows.length} -> ${after.name || "(add)"} ${after.rows}/${on.rows.length}, cap ${cap} over ${report.offered} target(s)`);
+      eq(`V517: ${label} - the list is never shortened`, on.rows.length, off.rows.length);
+      ok(`V517: ${label} - the list stays ordered by merit`,
+        on.rows.every((r, i) => i === 0 || Number(on.rows[i - 1].score) >= Number(r.score)),
+        on.rows.map((r) => r.score).join(" "));
+      ok(`V517: ${label} - one row per Pokemon`,
+        new Set(on.rows.map((r) => compact(r.form || r.name))).size === on.rows.length,
+        on.rows.map((r) => r.name).join(", "));
+      ok(`V517: ${label} - no target over the cap unless the cap really gave way`,
+        after.rows <= cap || (report.yielded || []).length > 0,
+        `${after.name} ${after.rows}/${on.rows.length} with cap ${cap}: ${JSON.stringify(after.counts)}`);
+      ok(`V517: ${label} - every yield beat the margin`,
+        (report.yielded || []).every(([taken, allowed]) => allowed === null || taken - allowed > ANSWER_SPAN_HERE),
+        JSON.stringify(report.yielded));
+      ok(`V517: ${label} - the rule never concentrates the list further`,
+        after.share <= before.share + 1e-9,
+        `${(before.share * 100).toFixed(0)}% -> ${(after.share * 100).toFixed(0)}%`);
+      if (off.empty_slot !== null) {
+        // An open slot is one bucket, so the rule is inert by construction -- the same reason the
+        // two open-slot recordings are unaffected by it.
+        eq(`V517: ${label} - an open slot leaves the list untouched`,
+          on.rows.map((r) => `${r.name} ${r.score}`), off.rows.map((r) => `${r.name} ${r.score}`));
+        eq(`V517: ${label} - with an inert cap`, cap, on.rows.length);
+      }
+    }
+    // A genuinely one-sided team must not be padded: the owner's team is the hard case, and the
+    // rule may not push the bottom of its list below what stage two could ever move a row.
+    {
+      const off = shownRows(OWNER_TEAM, SUGGESTION_SCORING, 0);
+      const on = shownRows(OWNER_TEAM, SUGGESTION_SCORING, 1);
+      const worstOff = Math.min(...off.rows.map((r) => Number(r.score)));
+      const worstOn = Math.min(...on.rows.map((r) => Number(r.score)));
+      notes.push(`  V517 worst shown row: ${worstOff} -> ${worstOn}`);
+      ok("V517: no padding - the worst shown row never falls by more than ANSWER_SPAN",
+        worstOff - worstOn <= ANSWER_SPAN_HERE, `${worstOff} -> ${worstOn}`);
+      ok("V517: and the owner's team reaches about a third", topShare(on.rows).share <= 5 / 14 + 1e-9,
+        `${topShare(on.rows).rows}/${on.rows.length}`);
     }
   }
 

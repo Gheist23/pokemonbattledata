@@ -17,7 +17,7 @@ import { TournamentTest } from "./tournament-test.js";
 import { TeamEvaluator, normalizeSettings } from "./team-eval.js";
 import { TeamEvaluation } from "./team-payload.js";
 import { SpeedTiers } from "./speed-tiers.js";
-import { SUGGESTION_SCORING, TeamSuggestions } from "./team-suggest.js";
+import { SUGGESTION_DIVERSITY, SUGGESTION_SCORING, TeamSuggestions } from "./team-suggest.js";
 import { TeamAutoBuild } from "./team-autobuild.js";
 import { DeepOptimizer } from "./optimize-deep.js";
 
@@ -126,8 +126,9 @@ self.addEventListener("message", async (event) => {
       const selection = payload.checks ?? null;
       const current = evaluation.evaluate(sets, { checkSelection: selection });
       // V511 (`suggestion_scoring`): production ranks on the damped archetype reward and the
-      // calc-backed terms. A recorded run replays with the version its stamp names.
-      const suggestions = new TeamSuggestions(evaluation, { suggestionScoring: SUGGESTION_SCORING });
+      // calc-backed terms. V517 (`suggestion_diversity`) then shapes the shown list so one swap
+      // target cannot take all of it. A recorded run replays with the versions its stamp names.
+      const suggestions = new TeamSuggestions(evaluation, { suggestionScoring: SUGGESTION_SCORING, suggestionDiversity: SUGGESTION_DIVERSITY });
       const box = payload.onlyBox ? (payload.box || []).map((set) => (set && set.species ? makeSet(set) : null)).filter(Boolean) : null;
       const run = suggestions.run(current, {
         selection,

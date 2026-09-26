@@ -12,11 +12,24 @@
 import { MATCHUP_BANDS, SNAPSHOT_VERSION } from "./tournament-test.js";
 import { h } from "./ui.js";
 
+// Re-exported for builder-page.js, which drops a shelved snapshot from another version.
+export { SNAPSHOT_VERSION };
+
 const BAND_LABEL = { good: "Favoured", mid: "Even", bad: "Behind" };
 const BAND_ICON = { good: "▲", mid: "●", bad: "▼" };
 const WORDS = ["none", "one", "two", "three", "four", "five", "six"];
 const WEATHER_TEXT = { Sun: "harsh sunlight", Rain: "rain", Sand: "a sandstorm", Snow: "snow", "Strong Winds": "strong winds" };
 const STAT_TEXT = { atk: "Attack", spa: "Sp. Atk", spe: "Speed" };
+// Why a Tailwind or Trick Room the team carries was not used on turn 1 (tournament-test.js
+// planSetup). A reason this table does not know prints nothing, the way an unknown event does.
+const HELD_BACK = {
+  nogain: ({ own, ownLower, actor, move }) => `${own} ${actor} holds ${move} back: it would not win ${ownLower} side the Speed order this turn.`,
+  ko: ({ own, other, actor, move }) => `${own} ${actor} holds ${move} back: ${other} leads would knock it out before ${move} goes up.`,
+  fakeout: ({ own, other, actor, move }) => `${own} ${actor} holds ${move} back: ${other} Fake Out would stop it.`,
+  mirror: ({ own, other, actor }) => `${own} ${actor} holds Trick Room back: ${other} own Trick Room would turn it straight off again.`,
+  taken: ({ own, ownLower, actor, move }) => `${own} ${actor} holds ${move} back: ${ownLower} side already decides the Speed order this turn.`,
+  notworth: ({ own, actor, move }) => `${own} ${actor} holds ${move} back: what it does instead is worth more this turn.`,
+};
 // The verdict names a strongest and a weakest archetype only when their averages differ by this much.
 const ARCHETYPE_GAP = 3;
 // The lead matrix: rows shown at first and per "Show more", and our pairs shown before "Show all".
@@ -235,7 +248,9 @@ function threatsCard({ s, doubles, section, pill, name, sprite }) {
       const tone = bandOf(t.answer.value);
       return h("p", {}, "Your best answer: ", h("b", {}, name(t.answer)), ` (${BAND_LABEL[tone]}, ${score(t.answer.value)} against it 1 vs 1)`);
     }
-    return h("p", {}, "Your best answer: ", h("b", {}, name(t.answer)), ` (wins ${pct(t.answer.win)} of their 1-on-1s after turn 1)`);
+    // Not "after turn 1": since TOURNAMENT_TURN_ONE version 2 the quick duel is fought on a
+    // fresh field (tournament-test.js duelBoard), so nothing a lead set on turn 1 is in it.
+    return h("p", {}, "Your best answer: ", h("b", {}, name(t.answer)), ` (wins ${pct(t.answer.win)} of their 1-on-1s from full HP)`);
   };
   return section("Biggest threats", doubles
     ? "Common Pokémon that knock out yours or are hard to knock out, with the pair of yours that does best against it and its usual partner, 2 vs 2."
@@ -317,7 +332,8 @@ function statsText(stats) {
   return joinNames((stats || []).map((k) => STAT_TEXT[k] || k));
 }
 
-function storyLine(e, name) {
+/** One line of a game's turn-1 story. Exported so the tests can assert the wording. */
+export function storyLine(e, name) {
   const own = e.side === "you" ? "Your" : "Their";
   const other = e.side === "you" ? "their" : "your";
   const ownLower = own.toLowerCase();
@@ -357,6 +373,11 @@ function storyLine(e, name) {
       if (e.own?.length) parts.push(`${ownLower} own ${loses(e.own)}${parts.length ? " too" : ""}`);
       return `${own} ${actor} uses ${e.move}${parts.length ? `: ${parts.join(", and ")}` : ""}.`;
     }
+    // A setup move that was priced and not used. `default` below keeps an unknown reason silent
+    // rather than printing a half-sentence.
+    case "heldback": return HELD_BACK[e.why]
+      ? HELD_BACK[e.why]({ own, other, ownLower, actor, move: e.move })
+      : "";
     case "ko": return `${own} ${actor} knocks out ${other} ${name(e.target)}.`;
     case "partnerko": return `${own} ${actor}'s ${e.move || "attack"} also hits ${ownLower} own ${name(e.target)} and knocks it out.`;
     case "burnout": return `${own} ${actor} faints from its burn.`;

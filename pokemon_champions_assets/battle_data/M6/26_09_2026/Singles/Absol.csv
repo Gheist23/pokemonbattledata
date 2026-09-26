@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Absol,50,move,1,Shadow Claw,89.4%,,,,,,,,
 Absol,50,move,2,Sucker Punch,71.7%,,,,,,,,
-Absol,50,move,3,Close Combat,65.9%,,,,,,,,
+Absol,50,move,3,Close Combat,66.0%,,,,,,,,
 Absol,50,move,4,Swords Dance,64.3%,,,,,,,,
-Absol,50,move,5,Night Slash,36.4%,,,,,,,,
+Absol,50,move,5,Night Slash,36.3%,,,,,,,,
 Absol,50,move,6,Psycho Cut,16.2%,,,,,,,,
-Absol,50,move,7,Shadow Sneak,12.4%,,,,,,,,
+Absol,50,move,7,Shadow Sneak,12.3%,,,,,,,,
 Absol,50,move,8,X-Scissor,5.3%,,,,,,,,
 Absol,50,move,9,Play Rough,5.2%,,,,,,,,
-Absol,50,move,10,Detect,3.7%,,,,,,,,
+Absol,50,move,10,Detect,3.8%,,,,,,,,
 Absol,50,held_item,1,Absolite Z,95.8%,,,,,,,,
 Absol,50,held_item,2,Absolite,3.2%,,,,,,,,
 Absol,50,held_item,3,Focus Sash,0.3%,,,,,,,,
 Absol,50,held_item,4,Scope Lens,0.3%,,,,,,,,
 Absol,50,held_item,5,Choice Scarf,0.0%,,,,,,,,
-Absol,50,held_item,6,Life Orb,0.0%,,,,,,,,
-Absol,50,held_item,7,Quick Claw,0.0%,,,,,,,,
+Absol,50,held_item,6,Quick Claw,0.0%,,,,,,,,
+Absol,50,held_item,7,Life Orb,0.0%,,,,,,,,
 Absol,50,held_item,8,Sitrus Berry,0.0%,,,,,,,,
 Absol,50,held_item,9,Air Balloon,0.0%,,,,,,,,
 Absol,50,held_item,10,Bright Powder,0.0%,,,,,,,,
@@ -40,7 +40,7 @@ Absol,50,stat_alignment,8,Hasty,0.3%,Speed,Defense,,,,,,
 Absol,50,stat_alignment,9,Lonely,0.3%,Attack,Defense,,,,,,
 Absol,50,stat_alignment,10,Rash,0.2%,Sp. Atk,Sp. Def,,,,,,
 Absol,50,stat_points,1,,36.6%,,,2,32,0,0,0,32
-Absol,50,stat_points,2,,22.4%,,,1,32,1,0,0,32
+Absol,50,stat_points,2,,22.3%,,,1,32,1,0,0,32
 Absol,50,stat_points,3,,3.7%,,,0,32,2,0,0,32
 Absol,50,stat_points,4,,2.3%,,,0,32,0,0,2,32
 Absol,50,stat_points,5,,2.2%,,,15,32,0,0,0,19
@@ -50,5 +50,5 @@ Absol,50,stat_points,8,,1.7%,,,5,29,12,0,0,20
 Absol,50,stat_points,9,,1.6%,,,0,32,0,0,0,32
 Absol,50,stat_points,10,,1.4%,,,0,32,1,0,1,32
 Absol,50,ability,1,Justified,64.0%,,,,,,,,
-Absol,50,ability,2,Super Luck,23.8%,,,,,,,,
+Absol,50,ability,2,Super Luck,23.9%,,,,,,,,
 Absol,50,ability,3,Pressure,12.2%,,,,,,,,

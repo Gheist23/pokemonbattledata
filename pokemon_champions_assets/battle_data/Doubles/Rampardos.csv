@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rampardos,205,move,1,Rock Slide,85.1%,,,,,,,,
+Rampardos,205,move,1,Rock Slide,85.0%,,,,,,,,
 Rampardos,205,move,2,Protect,61.1%,,,,,,,,
 Rampardos,205,move,3,Iron Head,35.5%,,,,,,,,
 Rampardos,205,move,4,Head Smash,34.2%,,,,,,,,
-Rampardos,205,move,5,Fire Punch,29.6%,,,,,,,,
+Rampardos,205,move,5,Fire Punch,29.5%,,,,,,,,
 Rampardos,205,move,6,Earthquake,20.1%,,,,,,,,
 Rampardos,205,move,7,Crunch,17.5%,,,,,,,,
 Rampardos,205,move,8,Supercell Slam,17.0%,,,,,,,,
-Rampardos,205,move,9,Zen Headbutt,16.9%,,,,,,,,
+Rampardos,205,move,9,Zen Headbutt,16.8%,,,,,,,,
 Rampardos,205,move,10,Thunder Punch,16.7%,,,,,,,,
-Rampardos,205,held_item,1,Life Orb,52.0%,,,,,,,,
+Rampardos,205,held_item,1,Life Orb,51.9%,,,,,,,,
 Rampardos,205,held_item,2,Focus Sash,13.0%,,,,,,,,
 Rampardos,205,held_item,3,Choice Scarf,10.8%,,,,,,,,
 Rampardos,205,held_item,4,Muscle Band,6.1%,,,,,,,,
@@ -29,7 +29,7 @@ Rampardos,205,teammate,7,Sylveon,,,,,,,,,
 Rampardos,205,teammate,8,Oranguru,,,,,,,,,
 Rampardos,205,teammate,9,Sirfetch’d,,,,,,,,,
 Rampardos,205,teammate,10,Camerupt,,,,,,,,,
-Rampardos,205,stat_alignment,1,Brave,59.1%,Attack,Speed,,,,,,
+Rampardos,205,stat_alignment,1,Brave,59.0%,Attack,Speed,,,,,,
 Rampardos,205,stat_alignment,2,Adamant,22.5%,Attack,Sp. Atk,,,,,,
 Rampardos,205,stat_alignment,3,Jolly,13.3%,Speed,Sp. Atk,,,,,,
 Rampardos,205,stat_alignment,4,Serious,1.4%,,,,,,,,
@@ -39,7 +39,7 @@ Rampardos,205,stat_alignment,7,Sassy,0.5%,Sp. Def,Speed,,,,,,
 Rampardos,205,stat_alignment,8,Naive,0.3%,Speed,Sp. Def,,,,,,
 Rampardos,205,stat_alignment,9,Impish,0.2%,Defense,Sp. Atk,,,,,,
 Rampardos,205,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
-Rampardos,205,stat_points,1,,22.1%,,,32,32,0,0,2,0
+Rampardos,205,stat_points,1,,22.0%,,,32,32,0,0,2,0
 Rampardos,205,stat_points,2,,14.4%,,,2,32,0,0,0,32
 Rampardos,205,stat_points,3,,11.7%,,,32,32,2,0,0,0
 Rampardos,205,stat_points,4,,5.7%,,,0,32,21,0,13,0
@@ -48,6 +48,6 @@ Rampardos,205,stat_points,6,,3.1%,,,32,32,0,0,0,0
 Rampardos,205,stat_points,7,,3.0%,,,32,32,0,0,0,2
 Rampardos,205,stat_points,8,,2.4%,,,2,32,32,0,0,0
 Rampardos,205,stat_points,9,,2.1%,,,21,32,0,13,0,0
-Rampardos,205,stat_points,10,,1.9%,,,26,32,0,8,0,0
+Rampardos,205,stat_points,10,,1.9%,,,0,32,32,0,2,0
 Rampardos,205,ability,1,Sheer Force,88.4%,,,,,,,,
 Rampardos,205,ability,2,Mold Breaker,11.6%,,,,,,,,

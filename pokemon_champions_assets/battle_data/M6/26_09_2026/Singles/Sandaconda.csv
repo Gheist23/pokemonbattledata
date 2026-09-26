@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sandaconda,214,move,1,Earthquake,73.2%,,,,,,,,
 Sandaconda,214,move,2,Stealth Rock,66.0%,,,,,,,,
-Sandaconda,214,move,3,Glare,63.5%,,,,,,,,
+Sandaconda,214,move,3,Glare,63.4%,,,,,,,,
 Sandaconda,214,move,4,Endeavor,39.5%,,,,,,,,
-Sandaconda,214,move,5,Rock Tomb,23.2%,,,,,,,,
+Sandaconda,214,move,5,Rock Tomb,23.1%,,,,,,,,
 Sandaconda,214,move,6,Minimize,22.8%,,,,,,,,
 Sandaconda,214,move,7,Coil,20.3%,,,,,,,,
 Sandaconda,214,move,8,Body Press,13.3%,,,,,,,,
@@ -29,7 +29,7 @@ Sandaconda,214,teammate,7,Lucario,,,,,,,,,
 Sandaconda,214,teammate,8,Tyranitar,,,,,,,,,
 Sandaconda,214,teammate,9,Baxcalibur,,,,,,,,,
 Sandaconda,214,teammate,10,Rillaboom,,,,,,,,,
-Sandaconda,214,stat_alignment,1,Impish,31.2%,Defense,Sp. Atk,,,,,,
+Sandaconda,214,stat_alignment,1,Impish,31.1%,Defense,Sp. Atk,,,,,,
 Sandaconda,214,stat_alignment,2,Jolly,23.6%,Speed,Sp. Atk,,,,,,
 Sandaconda,214,stat_alignment,3,Careful,21.4%,Sp. Def,Sp. Atk,,,,,,
 Sandaconda,214,stat_alignment,4,Adamant,15.3%,Attack,Sp. Atk,,,,,,
@@ -38,13 +38,13 @@ Sandaconda,214,stat_alignment,6,Brave,1.2%,Attack,Speed,,,,,,
 Sandaconda,214,stat_alignment,7,Bold,1.0%,Defense,Attack,,,,,,
 Sandaconda,214,stat_alignment,8,Calm,0.8%,Sp. Def,Attack,,,,,,
 Sandaconda,214,stat_alignment,9,Hasty,0.7%,Speed,Defense,,,,,,
-Sandaconda,214,stat_alignment,10,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,
+Sandaconda,214,stat_alignment,10,Naughty,0.6%,Attack,Sp. Def,,,,,,
 Sandaconda,214,stat_points,1,,16.8%,,,2,32,0,0,0,32
-Sandaconda,214,stat_points,2,,9.6%,,,32,0,32,0,2,0
+Sandaconda,214,stat_points,2,,9.7%,,,32,0,32,0,2,0
 Sandaconda,214,stat_points,3,,8.4%,,,32,0,2,0,32,0
 Sandaconda,214,stat_points,4,,5.4%,,,0,32,2,0,0,32
 Sandaconda,214,stat_points,5,,5.3%,,,32,2,32,0,0,0
-Sandaconda,214,stat_points,6,,3.0%,,,32,2,0,0,32,0
+Sandaconda,214,stat_points,6,,3.1%,,,32,2,0,0,32,0
 Sandaconda,214,stat_points,7,,2.5%,,,0,32,0,0,2,32
 Sandaconda,214,stat_points,8,,2.3%,,,0,32,32,0,2,0
 Sandaconda,214,stat_points,9,,1.7%,,,0,8,29,0,0,29

@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Samurott,241,move,1,Ice Beam,88.3%,,,,,,,,
-Samurott,241,move,2,Vacuum Wave,70.0%,,,,,,,,
-Samurott,241,move,3,Surf,50.6%,,,,,,,,
-Samurott,241,move,4,Hydro Pump,41.0%,,,,,,,,
-Samurott,241,move,5,Grass Knot,40.2%,,,,,,,,
-Samurott,241,move,6,Encore,25.9%,,,,,,,,
-Samurott,241,move,7,Aqua Jet,18.6%,,,,,,,,
+Samurott,241,move,2,Vacuum Wave,69.9%,,,,,,,,
+Samurott,241,move,3,Surf,50.5%,,,,,,,,
+Samurott,241,move,4,Hydro Pump,41.1%,,,,,,,,
+Samurott,241,move,5,Grass Knot,40.3%,,,,,,,,
+Samurott,241,move,6,Encore,25.8%,,,,,,,,
+Samurott,241,move,7,Aqua Jet,18.7%,,,,,,,,
 Samurott,241,move,8,Taunt,10.3%,,,,,,,,
 Samurott,241,move,9,Knock Off,5.8%,,,,,,,,
-Samurott,241,move,10,Flip Turn,5.8%,,,,,,,,
-Samurott,241,held_item,1,Sitrus Berry,32.5%,,,,,,,,
+Samurott,241,move,10,Flip Turn,5.7%,,,,,,,,
+Samurott,241,held_item,1,Sitrus Berry,32.4%,,,,,,,,
 Samurott,241,held_item,2,Life Orb,14.1%,,,,,,,,
 Samurott,241,held_item,3,Expert Belt,10.9%,,,,,,,,
 Samurott,241,held_item,4,Focus Sash,10.1%,,,,,,,,
@@ -18,7 +18,7 @@ Samurott,241,held_item,6,Lum Berry,3.8%,,,,,,,,
 Samurott,241,held_item,7,Rindo Berry,3.7%,,,,,,,,
 Samurott,241,held_item,8,Leftovers,3.5%,,,,,,,,
 Samurott,241,held_item,9,Rocky Helmet,3.2%,,,,,,,,
-Samurott,241,held_item,10,Wise Glasses,2.0%,,,,,,,,
+Samurott,241,held_item,10,Wise Glasses,1.9%,,,,,,,,
 Samurott,241,teammate,1,Garchomp,,,,,,,,,
 Samurott,241,teammate,2,Mimikyu,,,,,,,,,
 Samurott,241,teammate,3,Salamence,,,,,,,,,
@@ -30,9 +30,9 @@ Samurott,241,teammate,8,Metagross,,,,,,,,,
 Samurott,241,teammate,9,Baxcalibur,,,,,,,,,
 Samurott,241,teammate,10,Absol,,,,,,,,,
 Samurott,241,stat_alignment,1,Modest,68.2%,Sp. Atk,Attack,,,,,,
-Samurott,241,stat_alignment,2,Quiet,9.5%,Sp. Atk,Speed,,,,,,
-Samurott,241,stat_alignment,3,Timid,4.1%,Speed,Attack,,,,,,
-Samurott,241,stat_alignment,4,Adamant,2.9%,Attack,Sp. Atk,,,,,,
+Samurott,241,stat_alignment,2,Quiet,9.4%,Sp. Atk,Speed,,,,,,
+Samurott,241,stat_alignment,3,Timid,4.2%,Speed,Attack,,,,,,
+Samurott,241,stat_alignment,4,Adamant,2.8%,Attack,Sp. Atk,,,,,,
 Samurott,241,stat_alignment,5,Relaxed,2.6%,Defense,Speed,,,,,,
 Samurott,241,stat_alignment,6,Bold,2.5%,Defense,Attack,,,,,,
 Samurott,241,stat_alignment,7,Naive,1.8%,Speed,Sp. Def,,,,,,
@@ -41,8 +41,8 @@ Samurott,241,stat_alignment,9,Impish,1.6%,Defense,Sp. Atk,,,,,,
 Samurott,241,stat_alignment,10,Jolly,1.1%,Speed,Sp. Atk,,,,,,
 Samurott,241,stat_points,1,,19.2%,,,31,0,0,32,0,3
 Samurott,241,stat_points,2,,8.0%,,,32,0,2,32,0,0
-Samurott,241,stat_points,3,,5.5%,,,2,0,0,32,0,32
-Samurott,241,stat_points,4,,4.5%,,,32,0,0,32,0,2
+Samurott,241,stat_points,3,,5.6%,,,2,0,0,32,0,32
+Samurott,241,stat_points,4,,4.4%,,,32,0,0,32,0,2
 Samurott,241,stat_points,5,,3.8%,,,2,0,32,32,0,0
 Samurott,241,stat_points,6,,3.0%,,,31,0,3,32,0,0
 Samurott,241,stat_points,7,,2.5%,,,32,0,0,32,2,0

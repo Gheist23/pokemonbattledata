@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Raichu,16,move,1,Protect,86.6%,,,,,,,,
 Raichu,16,move,2,Zap Cannon,83.0%,,,,,,,,
-Raichu,16,move,3,Focus Blast,82.7%,,,,,,,,
+Raichu,16,move,3,Focus Blast,82.6%,,,,,,,,
 Raichu,16,move,4,Fake Out,75.1%,,,,,,,,
 Raichu,16,move,5,Encore,21.5%,,,,,,,,
 Raichu,16,move,6,Volt Switch,10.8%,,,,,,,,
@@ -37,8 +37,8 @@ Raichu,16,stat_alignment,5,Hasty,0.5%,Speed,Defense,,,,,,
 Raichu,16,stat_alignment,6,Bold,0.4%,Defense,Attack,,,,,,
 Raichu,16,stat_alignment,7,Naive,0.3%,Speed,Sp. Def,,,,,,
 Raichu,16,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Raichu,16,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Raichu,16,stat_alignment,10,Brave,0.1%,Attack,Speed,,,,,,
+Raichu,16,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
+Raichu,16,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,
 Raichu,16,stat_points,1,,21.0%,,,2,0,0,32,0,32
 Raichu,16,stat_points,2,,5.5%,,,26,0,17,0,0,23
 Raichu,16,stat_points,3,,4.6%,,,32,0,11,0,0,23
@@ -49,5 +49,5 @@ Raichu,16,stat_points,7,,2.6%,,,30,0,13,0,0,23
 Raichu,16,stat_points,8,,2.1%,,,0,0,2,32,0,32
 Raichu,16,stat_points,9,,1.8%,,,20,0,21,0,0,25
 Raichu,16,stat_points,10,,1.8%,,,21,0,22,0,0,23
-Raichu,16,ability,1,Lightning Rod,96.9%,,,,,,,,
-Raichu,16,ability,2,Static,3.1%,,,,,,,,
+Raichu,16,ability,1,Lightning Rod,96.8%,,,,,,,,
+Raichu,16,ability,2,Static,3.2%,,,,,,,,

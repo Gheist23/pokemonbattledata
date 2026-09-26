@@ -78,6 +78,65 @@ export const V514_RELABELLED = {
     "Checks that the team's weather and terrain choices support it instead of fighting each other, its own priority, or a move that needs a condition nobody sets."],
 };
 
+/** The whole catalogue, as SELECTION_MATRIX spells it, so the matrix stays true when it grows. */
+export const CATALOGUE = "__catalogue__";
+
+/** EVERY SETTINGS SHAPE THE TWO PORTS CAN BOTH BE ASKED, and the one answer both must give.
+ *
+ *  `{name, stored, marker, resolves}`. `marker` is the app's V433 marker, which this port has
+ *  no equivalent of -- `selectedIds` sees only what was stored -- so it is an extra degree of
+ *  freedom on that side and `resolves` is what BOTH ports produce. Nine of the eleven already
+ *  agreed. The two that did not are the ends of the list: a stored `[]` with no marker, where
+ *  the app answered `["archetype_fit"]` and wrote it over the stored `[]`, and nothing stored
+ *  with the marker set, where the app answered 12 of the 13.
+ *
+ *  Identical to `team_check_rules_v514.SELECTION_MATRIX`; it travels in the shared fixture, so
+ *  neither declaration can drift, and each suite drives its own resolver over all eleven. */
+export const SELECTION_MATRIX = [
+  { name: "nothing stored", stored: null, marker: false, resolves: [CATALOGUE] },
+  { name: "nothing stored, marker set", stored: null, marker: true, resolves: [CATALOGUE] },
+  { name: "stored [], marker set", stored: [], marker: true, resolves: [] },
+  { name: "stored [], no marker", stored: [], marker: false, resolves: [] },
+  { name: "the ten pre-V514 ids", marker: true,
+    stored: ["archetype_fit", "speed_control", "protect_positioning", "spread_damage",
+      "priority_cleanup", "physical_damage", "special_damage", "utility_disruption",
+      "defensive_switch_ins", "field_weather_consistency"],
+    resolves: ["archetype_fit", "speed_control", "protect_positioning", "spread_damage",
+      "priority_cleanup", "physical_damage", "special_damage", "utility_disruption",
+      "defensive_switch_ins", "field_weather_consistency"] },
+  { name: "a stored list with the renamed id", stored: ["defensive_switch_ins", "archetype_fit"],
+    marker: true, resolves: ["archetype_fit", "defensive_switch_ins"] },
+  { name: "the pre-V201 id shared_weaknesses", stored: ["shared_weaknesses", "archetype_fit"],
+    marker: true, resolves: ["archetype_fit", "defensive_switch_ins"] },
+  { name: "an unknown id beside a real one", stored: ["totally_bogus_id_xyz", "archetype_fit"],
+    marker: true, resolves: ["archetype_fit"] },
+  { name: "only an unknown id", stored: ["totally_bogus_id_xyz"], marker: true, resolves: [] },
+  { name: "the three V514 ids", stored: ["coverage_gaps", "speed_tiers", "lead_viability"],
+    marker: true, resolves: ["coverage_gaps", "speed_tiers", "lead_viability"] },
+  { name: "a comma string", stored: "coverage_gaps, speed_tiers", marker: true,
+    resolves: ["coverage_gaps", "speed_tiers"] },
+];
+
+/** WHICH PARTS OF A ROW THE SENTENCE THE PLAYER READS CARRIES, per severity.
+ *
+ *  `requirementText` below and the app's `_v201_requirement_text` (`part_016.py:1125`, the live
+ *  one; `part_015.py:3672` is an earlier definition the same runtime overwrites twice) are two
+ *  ports of one rule, and nothing compared them: both parity suites capture the ARGUMENTS handed
+ *  to `row()` and never the assembled string, so a port could drop the why, the fix or the score
+ *  on one severity and 423/423 would still be green.
+ *
+ *  This is the contract both renderers are held to. It is the identical table in
+ *  `team_check_rules_v514.RENDERED_COMPONENTS`, it travels in the shared fixture so the two
+ *  declarations cannot drift, and each suite renders a row per severity with marker strings and
+ *  asserts exactly these components and no others. A GOOD row is summary only -- measured, on
+ *  both products -- which is why honest text for a green verdict has to live in the SUMMARY: a
+ *  green row's why reaches the payload and nothing the player reads. */
+export const RENDERED_COMPONENTS = {
+  good: ["summary"],
+  yellow: ["summary", "why", "fix", "score"],
+  red: ["summary", "why", "fix", "score"],
+};
+
 // Thresholds, every one measured over 2827 complete six-slot real tournament teams
 // (data/builder/known-teams.json) against the Top 30 of 2026-09-25.
 // scratchpad/checks/measure.mjs .. measure5b.mjs are the derivation.
@@ -251,7 +310,12 @@ const SINGLES_NO_EFFECT = new Set(["followme", "ragepowder", "spotlight", "helpi
 // something the format does not have. There is a real Singles lead question, but this check
 // does not measure it and answering a different question under the same name would be
 // dishonest. coverage_gaps and speed_tiers are format-neutral and stay.
-const SINGLES_SKIPPED_CHECKS = new Set(["spread_damage", "lead_viability"]);
+// lead_viability is NOT in this set: its gate lives INSIDE checkLeadViability, the same layer
+// the Companion gates at (`CheckRules.lead_viability` returns None). With the gate here instead,
+// calling the check function directly -- which is how the app's own Auto Build per-candidate
+// battery reaches these checks -- produced a Singles Lead Viability row on this port and none on
+// the app's, so any future per-candidate pricing on the website would have disagreed in Singles.
+const SINGLES_SKIPPED_CHECKS = new Set(["spread_damage"]);
 
 /** The archetype texts that name spread pressure or redirection, as they read in Singles. */
 const SINGLES_ARCHETYPE_WHY = {
@@ -264,6 +328,10 @@ const SINGLES_DESCRIPTIONS = {
   protect_positioning: "Checks for Protect-style moves and safe switching tools such as pivoting moves, Fake Out or Intimidate.",
   spread_damage: "Doubles only: checks whether the team can pressure both opposing slots with spread attacks. In Singles every move hits one Pokémon, so this check is skipped.",
   utility_disruption: "Checks for utility such as Fake Out, Taunt, Haze, Encore, status, healing, screens, pivoting or other disruption.",
+  // A check that cannot run has to say so where the player chooses it. Without this line the
+  // Singles Customize list offered "Lead Viability", described it in terms of fifteen lead
+  // PAIRS, let the player tick it, and then showed no row at all.
+  lead_viability: "Doubles only: estimates how many of your fifteen lead pairs are worth bringing. In Singles a lead is one Pokémon, not a pair, so this check is skipped.",
 };
 
 /** Whether an evaluator (or a stand-in with a `format`) is in Singles. */
@@ -1228,9 +1296,15 @@ export class TeamChecks {
       const word = countWord(cluster.size);
       const summary = `${word} of your ${countWord(filled.length)} sit between ${speedText(cluster.low)} and ${speedText(cluster.high)}`;
       const named = simpleJoin([...cluster.members], 6);
+      // NO TOP-X POKEMON CAN MAKE THE FLIP, so the row may not say one does. It used to
+      // answer "One Tailwind or Icy Wind changes the order for all four at once" -- a positive
+      // claim about a reorder the loop above has just established no Top X opponent produces
+      // (134 of the 318 red/yellow rows over the 2827 real teams take this branch). What IS
+      // measured is the window: a Tailwind user between half the group's ceiling and the
+      // ceiling doubles past all of them at once, and nobody in the Top X is in it with the move.
       const why = withNote(flip.name
         ? `${named}. One Tailwind from ${flip.name} (Speed ${speedText(flip.speed)}) moves it past all ${word} in the same turn.`
-        : `${named}. One Tailwind or Icy Wind changes the order for all ${word} at once.`, context);
+        : `${named}. Getting past all ${word} in one turn takes a Tailwind from something between ${speedText(cluster.high / 2)} and ${speedText(cluster.high)} Speed, and no Pokemon in the Top ${topX} carries Tailwind in that range. An opponent from outside that list still could.`, context);
       const fix = "move one attacker clearly above or below the group, or carry your own Tailwind or Trick Room";
       if (red) {
         return this.row("speed_tiers", "red", summary, why, fix, 4.0,
@@ -1291,6 +1365,12 @@ export class TeamChecks {
   }
 
   checkLeadViability(profiles) {
+    // DOUBLES ONLY -- null in Singles, where there is no lead pair. Gated here and not in
+    // baseRows() so that this port and `CheckRules.lead_viability` skip it at the same layer:
+    // every term in the check is about a PAIR (fifteen pairs, only one Fake Out lands, two Trick
+    // Room setters in one lead, Wide Guard, Helping Hand, redirection), and a Singles lead is one
+    // Pokemon. The Customize list says so in SINGLES_DESCRIPTIONS.
+    if (this.singles) return null;
     const filled = (profiles || []).filter(Boolean);
     let pairs = [];
     for (let i = 0; i < filled.length; i += 1) {
@@ -1424,10 +1504,56 @@ export class TeamChecks {
         "", 0,
         `Good, unweighted = no attacking type reaches the exposure bar with ${SHARED_WEAK_GATE} or more members weak to it.`, extra);
     }
+    // THE GREEN SENTENCE MAY ONLY NAME THE REASON THE COMPUTATION FOUND. It used to say the
+    // shared weaknesses "belong to types the Top Meta rarely attacks with" and that a named type
+    // was "excused by how rarely the meta brings them". Over the 2827 real six-slot teams 1261
+    // got that sentence and in 1071 of them the named type is attacked with at or ABOVE the
+    // average rate -- what excused it was the team's own switch-ins (SHARED_RESIST_DISCOUNT), not
+    // rarity. Which of the two it was is decidable, so the row says which: at_average asks
+    // whether it would still be green if the type were used at exactly the average rate, and
+    // withoutDiscount whether it would still be green with no switch-in discount.
+    //
+    // The reason goes in the SUMMARY, because a green row renders the summary and nothing else
+    // (RENDERED_COMPONENTS). In the why it would reach the payload and no player.
+    if (!gated.length) {
+      return this.row("defensive_switch_ins", "good",
+        `no attacking type is a weakness for ${countWord(SHARED_WEAK_GATE)} or more of the team`,
+        withNote(`A type that ${countWord(SHARED_WEAK_GATE)} or more of the team lose to is what makes a team fold to one opponent, and no type here reaches that.`, context),
+        "", 0,
+        `Good = no attacking type reaches the weighted exposure bar with ${SHARED_WEAK_GATE} or more members weak to it.`, extra);
+    }
+    const worstGated = gated[0];
+    const gName = String(worstGated.type);
+    const gWeak = Number(worstGated.weak);
+    const gSwitchIns = Number(worstGated.switch_ins);
+    const atAverage = Math.max(0, gWeak - SHARED_RESIST_DISCOUNT * gSwitchIns);
+    const withoutDiscount = gWeak * Number(worstGated.meta_weight);
+    const resists = gSwitchIns === 1
+      ? `${countWord(gSwitchIns)} of the team resists it or is immune to it`
+      : `${countWord(gSwitchIns)} of the team resist it or are immune to it`;
+    const rarer = `the Top ${topX} attacks with ${gName} less often than average`;
+    let reason;
+    let detail;
+    if (atAverage < SHARED_YELLOW_EXPOSURE) {
+      reason = resists;
+      detail = `One ${gName} attacker cannot reach enough of the team at once. That, and not how often the Top ${topX} attacks with ${gName}, is what keeps this green: it would still be green if that type were used at exactly the average rate.`;
+    } else if (withoutDiscount < SHARED_YELLOW_EXPOSURE) {
+      reason = rarer;
+      detail = `With ${countWord(gWeak)} of the team weak to it, this would be flagged if ${gName} were attacked with at the average rate or more often.`;
+    } else {
+      reason = `${resists} and ${rarer}`;
+      detail = "Neither of those on its own would keep this green; together they do.";
+    }
+    const restGated = gated.slice(1).map((r) => String(r.type));
+    let gatedTail = "";
+    if (restGated.length === 1) {
+      gatedTail = ` ${restGated[0]} is shared by ${countWord(SHARED_WEAK_GATE)} or more of the team as well, and stays under the bar for its own reasons.`;
+    } else if (restGated.length) {
+      gatedTail = ` ${simpleJoin(restGated, 3)} are shared by ${countWord(SHARED_WEAK_GATE)} or more of the team as well, and stay under the bar for their own reasons.`;
+    }
     return this.row("defensive_switch_ins", "good",
-      "no attacking type the meta actually uses hits enough of the team to matter",
-      withNote("The weaknesses the team does share belong to types the Top Meta rarely attacks with."
-        + (gated.length ? ` ${simpleJoin(gated.map((r) => r.type), 3)} ${gated.length === 1 ? "is" : "are"} shared by ${gated.length === 1 ? countWord(gated[0].weak) : "several"} of the team but excused by how rarely the meta brings them.` : ""), context),
+      `${countWord(gWeak)} of your ${countWord(filled.length)} lose to ${gName}, but ${reason}, so no attacking type hits enough of the team at once to matter`,
+      withNote(detail + gatedTail, context),
       "", 0,
       `Good = no attacking type reaches the weighted exposure bar with ${SHARED_WEAK_GATE} or more members weak to it.`, extra);
   }
@@ -1587,7 +1713,10 @@ export class TeamChecks {
     }
     const rows = this.baseIds.filter((id) => base.has(id) && !(this.singles && SINGLES_SKIPPED_CHECKS.has(id))).map((id) => this.checkFor(id).call(this, profiles));
     const order = Object.fromEntries(this.baseIds.map((id, i) => [id, i]));
-    return stableSort(rows.filter((r) => String(r.text || "").trim()), (r) => [severityRank(r), order[rowId(r)] ?? 99]);
+    // A check may decline to produce a row at all (Lead Viability in Singles returns null), the
+    // same way the app's two row assemblers keep only dicts with non-empty text
+    // (`part_015.py:4161`, `part_014.py:3211`).
+    return stableSort(rows.filter((r) => r && String(r.text || "").trim()), (r) => [severityRank(r), order[rowId(r)] ?? 99]);
   }
 
   /** _v218_partial_team_check_rows: what a one-Pokemon team still gets told. */

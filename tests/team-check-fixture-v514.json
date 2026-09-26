@@ -1,4 +1,5 @@
 {
+ "catalogue_marker": "__catalogue__",
  "context": {
   "damaging_move_counts": {
    "Bug": 1,
@@ -511,7 +512,778 @@
     "severity": "red",
     "summary": "four of your six sit between 96 and 104",
     "threshold": "Problem = 4 or more members inside 10 Speed points, or 5 or more inside 20, in the range the Top 30 contests.",
-    "why": "Torkoal, Arcanine-Hisui, Charizard, Volcarona. One Tailwind or Icy Wind changes the order for all four at once."
+    "why": "Torkoal, Arcanine-Hisui, Charizard, Volcarona. Getting past all four in one turn takes a Tailwind from something between 52 and 104 Speed, and no Pokemon in the Top 30 carries Tailwind in that range. An opponent from outside that list still could."
+   }
+  },
+  "gatedboth": {
+   "coverage_gaps": {
+    "check_id": "coverage_gaps",
+    "extra": {
+     "best_added_types_v514": [
+      {
+       "covers": 12,
+       "type": "Ground"
+      },
+      {
+       "covers": 10,
+       "type": "Rock"
+      },
+      {
+       "covers": 8,
+       "type": "Water"
+      }
+     ],
+     "coverage_attacking_types_v514": [],
+     "coverage_bars_v514": {
+      "red": 8,
+      "yellow": 5
+     },
+     "coverage_gap_count_v514": 30,
+     "coverage_resisted_count_v514": 30,
+     "coverage_rows_v514": [
+      {
+       "best_multiplier": 0.0,
+       "name": "Arcanine-Hisui",
+       "types": [
+        "Fire",
+        "Rock"
+       ]
+      },
+      {
+       "best_multiplier": 0.0,
+       "name": "Archaludon",
+       "types": [
+        "Steel",
+        "Dragon"
+       ]
+      },
+      {
+       "best_multiplier": 0.0,
+       "name": "Armarouge",
+       "types": [
+        "Fire",
+        "Psychic"
+       ]
+      },
+      {
+       "best_multiplier": 0.0,
+       "name": "Basculegion",
+       "types": [
+        "Water",
+        "Ghost"
+       ]
+      },
+      {
+       "best_multiplier": 0.0,
+       "name": "Charizard",
+       "types": [
+        "Fire",
+        "Flying"
+       ]
+      },
+      {
+       "best_multiplier": 0.0,
+       "name": "Excadrill",
+       "types": [
+        "Ground",
+        "Steel"
+       ]
+      }
+     ],
+     "coverage_top_x_v514": 30,
+     "meta_provisional_v514": false
+    },
+    "fix": "a Ground attack would cover 12 of them",
+    "pressure": 5.6,
+    "severity": "red",
+    "summary": "30 of the Top 30 resist every attack the team carries, and 30 in total have no super-effective answer",
+    "threshold": "Problem = at least one of the Top 30 the team only resists, or 8 or more with no super-effective answer.",
+    "why": "The team can only hit Arcanine-Hisui, Archaludon, Armarouge, Basculegion +26 more for neutral damage. Without a super-effective answer it has to break them with neutral damage, which usually costs a turn it does not have."
+   },
+   "defensive_switch_ins": {
+    "check_id": "defensive_switch_ins",
+    "extra": {
+     "exposed": [],
+     "gated_types_v514": [
+      {
+       "exposure": 2.8000000000000003,
+       "immunities": 0,
+       "meta_weight": 0.8,
+       "switch_ins": 1,
+       "type": "Fairy",
+       "weak": 4
+      },
+      {
+       "exposure": 2.0999999999999996,
+       "immunities": 2,
+       "meta_weight": 1.4,
+       "switch_ins": 3,
+       "type": "Psychic",
+       "weak": 3
+      }
+     ],
+     "immune_counts": {
+      "Bug": 0,
+      "Dark": 0,
+      "Dragon": 1,
+      "Electric": 0,
+      "Fairy": 0,
+      "Fighting": 1,
+      "Fire": 0,
+      "Flying": 0,
+      "Ghost": 0,
+      "Grass": 0,
+      "Ground": 1,
+      "Ice": 0,
+      "Normal": 1,
+      "Poison": 0,
+      "Psychic": 2,
+      "Rock": 0,
+      "Steel": 0,
+      "Water": 0
+     },
+     "meta_provisional_v514": false,
+     "meta_type_weights_v514": {
+      "Bug": 0.5,
+      "Dark": 1.0,
+      "Dragon": 0.8,
+      "Electric": 0.6,
+      "Fairy": 0.8,
+      "Fighting": 1.0,
+      "Fire": 1.6,
+      "Flying": 0.6,
+      "Ghost": 0.6,
+      "Grass": 1.0,
+      "Ground": 1.0,
+      "Ice": 0.6,
+      "Normal": 2.8,
+      "Poison": 0.5,
+      "Psychic": 1.4,
+      "Rock": 1.0,
+      "Steel": 1.6,
+      "Water": 0.8
+     },
+     "meta_weighted_v514": true,
+     "resist_counts": {
+      "Bug": 3,
+      "Dark": 4,
+      "Dragon": 1,
+      "Electric": 0,
+      "Fairy": 1,
+      "Fighting": 3,
+      "Fire": 0,
+      "Flying": 0,
+      "Ghost": 2,
+      "Grass": 2,
+      "Ground": 1,
+      "Ice": 0,
+      "Normal": 1,
+      "Poison": 1,
+      "Psychic": 3,
+      "Rock": 1,
+      "Steel": 0,
+      "Water": 0
+     },
+     "severe": [],
+     "type_rows_v251": [],
+     "weak_counts": {
+      "Bug": 2,
+      "Dark": 2,
+      "Dragon": 0,
+      "Electric": 1,
+      "Fairy": 4,
+      "Fighting": 1,
+      "Fire": 0,
+      "Flying": 2,
+      "Ghost": 2,
+      "Grass": 0,
+      "Ground": 1,
+      "Ice": 1,
+      "Normal": 0,
+      "Poison": 1,
+      "Psychic": 3,
+      "Rock": 0,
+      "Steel": 1,
+      "Water": 0
+     }
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "four of your six lose to Fairy, but one of the team resists it or is immune to it and the Top 30 attacks with Fairy less often than average, so no attacking type hits enough of the team at once to matter",
+    "threshold": "Good = no attacking type reaches the weighted exposure bar with 3 or more members weak to it.",
+    "why": "Neither of those on its own would keep this green; together they do. Psychic is shared by three or more of the team as well, and stays under the bar for its own reasons."
+   },
+   "field_weather_consistency": {
+    "check_id": "field_weather_consistency",
+    "extra": {
+     "field_available_v514": [],
+     "field_problem_weights_v514": [],
+     "field_weight_v514": 0,
+     "problems": []
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "the team does not depend on weather or terrain, so no field support is required.",
+    "threshold": "Good = no weather or terrain dependency needs support.",
+    "why": "No field plan is also valid for many balance or offense teams."
+   },
+   "lead_viability": {
+    "check_id": "lead_viability",
+    "extra": {
+     "lead_bar_v514": 5.6,
+     "lead_pair_count_v514": 15,
+     "lead_pairs_v514": [
+      {
+       "members": [
+        "Alakazam",
+        "Gengar"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Alakazam",
+        "Grimmsnarl"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Gengar",
+        "Grimmsnarl"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Hawlucha",
+        "Alakazam"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Hawlucha",
+        "Gengar"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Hawlucha",
+        "Grimmsnarl"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Hawlucha",
+        "Machamp"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Machamp",
+        "Alakazam"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Machamp",
+        "Gengar"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Machamp",
+        "Grimmsnarl"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Umbreon",
+        "Alakazam"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Umbreon",
+        "Gengar"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Umbreon",
+        "Grimmsnarl"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Umbreon",
+        "Hawlucha"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Umbreon",
+        "Machamp"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      }
+     ],
+     "lead_playable_v514": 0,
+     "lead_severity_bars_v514": {
+      "red": 4,
+      "yellow": 8
+     }
+    },
+    "fix": "give another Pokemon a turn-one tool so more pairs can open",
+    "pressure": 4.4,
+    "severity": "red",
+    "summary": "an estimated 0 of your 15 lead pairs are worth bringing",
+    "threshold": "Problem = 4 or fewer of the 15 lead pairs reach the playable bar.",
+    "why": "Your best openings are Alakazam with Gengar, Alakazam with Grimmsnarl. 15 pairs have little more than raw damage between them. This is an estimate from each pair's turn-one tools, not a played-out game."
+   },
+   "speed_tiers": {
+    "check_id": "speed_tiers",
+    "extra": {
+     "meta_provisional_v514": false,
+     "speed_band_v514": [
+      70.0,
+      167.0
+     ],
+     "speed_cluster_v514": {
+      "band": [
+       70.0,
+       167.0
+      ],
+      "high": 120.0,
+      "low": 110.0,
+      "members": [
+       "Gengar",
+       "Hawlucha",
+       "Alakazam"
+      ],
+      "width": 10.0
+     },
+     "speed_flip_v514": {
+      "count": 1,
+      "name": "Pelipper",
+      "speed": 117.0
+     },
+     "speed_gate_v514": ""
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "the team's Speeds are spread out enough that one Tailwind cannot reorder all of it at once",
+    "threshold": "Good = no group of 4 sits inside 20 Speed points in the range the Top 30 contests.",
+    "why": "No large group of the team shares a Speed tier inside the range the meta contests."
+   }
+  },
+  "gatedresist": {
+   "coverage_gaps": {
+    "check_id": "coverage_gaps",
+    "extra": {
+     "best_added_types_v514": [
+      {
+       "covers": 12,
+       "type": "Ground"
+      },
+      {
+       "covers": 10,
+       "type": "Rock"
+      },
+      {
+       "covers": 8,
+       "type": "Water"
+      }
+     ],
+     "coverage_attacking_types_v514": [],
+     "coverage_bars_v514": {
+      "red": 8,
+      "yellow": 5
+     },
+     "coverage_gap_count_v514": 30,
+     "coverage_resisted_count_v514": 30,
+     "coverage_rows_v514": [
+      {
+       "best_multiplier": 0.0,
+       "name": "Arcanine-Hisui",
+       "types": [
+        "Fire",
+        "Rock"
+       ]
+      },
+      {
+       "best_multiplier": 0.0,
+       "name": "Archaludon",
+       "types": [
+        "Steel",
+        "Dragon"
+       ]
+      },
+      {
+       "best_multiplier": 0.0,
+       "name": "Armarouge",
+       "types": [
+        "Fire",
+        "Psychic"
+       ]
+      },
+      {
+       "best_multiplier": 0.0,
+       "name": "Basculegion",
+       "types": [
+        "Water",
+        "Ghost"
+       ]
+      },
+      {
+       "best_multiplier": 0.0,
+       "name": "Charizard",
+       "types": [
+        "Fire",
+        "Flying"
+       ]
+      },
+      {
+       "best_multiplier": 0.0,
+       "name": "Excadrill",
+       "types": [
+        "Ground",
+        "Steel"
+       ]
+      }
+     ],
+     "coverage_top_x_v514": 30,
+     "meta_provisional_v514": false
+    },
+    "fix": "a Ground attack would cover 12 of them",
+    "pressure": 5.6,
+    "severity": "red",
+    "summary": "30 of the Top 30 resist every attack the team carries, and 30 in total have no super-effective answer",
+    "threshold": "Problem = at least one of the Top 30 the team only resists, or 8 or more with no super-effective answer.",
+    "why": "The team can only hit Arcanine-Hisui, Archaludon, Armarouge, Basculegion +26 more for neutral damage. Without a super-effective answer it has to break them with neutral damage, which usually costs a turn it does not have."
+   },
+   "defensive_switch_ins": {
+    "check_id": "defensive_switch_ins",
+    "extra": {
+     "exposed": [],
+     "gated_types_v514": [
+      {
+       "exposure": 2.8,
+       "immunities": 1,
+       "meta_weight": 1.4,
+       "switch_ins": 2,
+       "type": "Psychic",
+       "weak": 3
+      }
+     ],
+     "immune_counts": {
+      "Bug": 0,
+      "Dark": 0,
+      "Dragon": 0,
+      "Electric": 0,
+      "Fairy": 0,
+      "Fighting": 0,
+      "Fire": 0,
+      "Flying": 0,
+      "Ghost": 0,
+      "Grass": 0,
+      "Ground": 0,
+      "Ice": 0,
+      "Normal": 0,
+      "Poison": 0,
+      "Psychic": 1,
+      "Rock": 0,
+      "Steel": 0,
+      "Water": 0
+     },
+     "meta_provisional_v514": false,
+     "meta_type_weights_v514": {
+      "Bug": 0.5,
+      "Dark": 1.0,
+      "Dragon": 0.8,
+      "Electric": 0.6,
+      "Fairy": 0.8,
+      "Fighting": 1.0,
+      "Fire": 1.6,
+      "Flying": 0.6,
+      "Ghost": 0.6,
+      "Grass": 1.0,
+      "Ground": 1.0,
+      "Ice": 0.6,
+      "Normal": 2.8,
+      "Poison": 0.5,
+      "Psychic": 1.4,
+      "Rock": 1.0,
+      "Steel": 1.6,
+      "Water": 0.8
+     },
+     "meta_weighted_v514": true,
+     "resist_counts": {
+      "Bug": 3,
+      "Dark": 3,
+      "Dragon": 0,
+      "Electric": 0,
+      "Fairy": 1,
+      "Fighting": 3,
+      "Fire": 1,
+      "Flying": 0,
+      "Ghost": 1,
+      "Grass": 2,
+      "Ground": 0,
+      "Ice": 1,
+      "Normal": 0,
+      "Poison": 2,
+      "Psychic": 2,
+      "Rock": 2,
+      "Steel": 1,
+      "Water": 1
+     },
+     "severe": [],
+     "type_rows_v251": [],
+     "weak_counts": {
+      "Bug": 2,
+      "Dark": 1,
+      "Dragon": 0,
+      "Electric": 1,
+      "Fairy": 2,
+      "Fighting": 1,
+      "Fire": 0,
+      "Flying": 2,
+      "Ghost": 1,
+      "Grass": 1,
+      "Ground": 2,
+      "Ice": 0,
+      "Normal": 0,
+      "Poison": 0,
+      "Psychic": 3,
+      "Rock": 0,
+      "Steel": 0,
+      "Water": 0
+     }
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "three of your six lose to Psychic, but two of the team resist it or are immune to it, so no attacking type hits enough of the team at once to matter",
+    "threshold": "Good = no attacking type reaches the weighted exposure bar with 3 or more members weak to it.",
+    "why": "One Psychic attacker cannot reach enough of the team at once. That, and not how often the Top 30 attacks with Psychic, is what keeps this green: it would still be green if that type were used at exactly the average rate."
+   },
+   "field_weather_consistency": {
+    "check_id": "field_weather_consistency",
+    "extra": {
+     "field_available_v514": [],
+     "field_problem_weights_v514": [],
+     "field_weight_v514": 0,
+     "problems": []
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "the team does not depend on weather or terrain, so no field support is required.",
+    "threshold": "Good = no weather or terrain dependency needs support.",
+    "why": "No field plan is also valid for many balance or offense teams."
+   },
+   "lead_viability": {
+    "check_id": "lead_viability",
+    "extra": {
+     "lead_bar_v514": 5.6,
+     "lead_pair_count_v514": 15,
+     "lead_pairs_v514": [
+      {
+       "members": [
+        "Alakazam",
+        "Milotic"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Hariyama",
+        "Alakazam"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Hariyama",
+        "Milotic"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Hariyama",
+        "Muk"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Hariyama",
+        "Toxicroak"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Hariyama",
+        "Umbreon"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Muk",
+        "Alakazam"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Muk",
+        "Milotic"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Muk",
+        "Toxicroak"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Muk",
+        "Umbreon"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Toxicroak",
+        "Alakazam"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Toxicroak",
+        "Milotic"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Toxicroak",
+        "Umbreon"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Umbreon",
+        "Alakazam"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      },
+      {
+       "members": [
+        "Umbreon",
+        "Milotic"
+       ],
+       "playable": false,
+       "score": -0.666666666666667
+      }
+     ],
+     "lead_playable_v514": 0,
+     "lead_severity_bars_v514": {
+      "red": 4,
+      "yellow": 8
+     }
+    },
+    "fix": "give another Pokemon a turn-one tool so more pairs can open",
+    "pressure": 4.4,
+    "severity": "red",
+    "summary": "an estimated 0 of your 15 lead pairs are worth bringing",
+    "threshold": "Problem = 4 or fewer of the 15 lead pairs reach the playable bar.",
+    "why": "Your best openings are Alakazam with Milotic, Hariyama with Alakazam. 15 pairs have little more than raw damage between them. This is an estimate from each pair's turn-one tools, not a played-out game."
+   },
+   "speed_tiers": {
+    "check_id": "speed_tiers",
+    "extra": {
+     "meta_provisional_v514": false,
+     "speed_band_v514": [
+      70.0,
+      167.0
+     ],
+     "speed_cluster_v514": {
+      "band": [
+       70.0,
+       167.0
+      ],
+      "high": 85.0,
+      "low": 65.0,
+      "members": [
+       "Umbreon",
+       "Muk",
+       "Milotic",
+       "Toxicroak"
+      ],
+      "width": 20.0
+     },
+     "speed_flip_v514": {},
+     "speed_gate_v514": ""
+    },
+    "fix": "move one attacker clearly above or below the group, or carry your own Tailwind or Trick Room",
+    "pressure": 1.8,
+    "severity": "yellow",
+    "summary": "four of your six sit between 65 and 85",
+    "threshold": "Needs attention = 4 or more members inside 20 Speed points, in the range the Top 30 contests.",
+    "why": "Umbreon, Muk, Milotic, Toxicroak. Getting past all four in one turn takes a Tailwind from something between 42.5 and 85 Speed, and no Pokemon in the Top 30 carries Tailwind in that range. An opponent from outside that list still could."
    }
   },
   "nometa": {
@@ -1053,9 +1825,9 @@
     "fix": "",
     "pressure": 0.0,
     "severity": "good",
-    "summary": "no attacking type the meta actually uses hits enough of the team to matter",
+    "summary": "four of your six lose to Bug, but the Top 30 attacks with Bug less often than average, so no attacking type hits enough of the team at once to matter",
     "threshold": "Good = no attacking type reaches the weighted exposure bar with 3 or more members weak to it.",
-    "why": "The weaknesses the team does share belong to types the Top Meta rarely attacks with. Bug is shared by four of the team but excused by how rarely the meta brings them."
+    "why": "With four of the team weak to it, this would be flagged if Bug were attacked with at the average rate or more often."
    },
    "field_weather_consistency": {
     "check_id": "field_weather_consistency",
@@ -1422,9 +2194,9 @@
     "fix": "",
     "pressure": 0.0,
     "severity": "good",
-    "summary": "no attacking type the meta actually uses hits enough of the team to matter",
+    "summary": "no attacking type is a weakness for three or more of the team",
     "threshold": "Good = no attacking type reaches the weighted exposure bar with 3 or more members weak to it.",
-    "why": "The weaknesses the team does share belong to types the Top Meta rarely attacks with."
+    "why": "A type that three or more of the team lose to is what makes a team fold to one opponent, and no type here reaches that."
    },
    "field_weather_consistency": {
     "check_id": "field_weather_consistency",
@@ -1882,7 +2654,7 @@
    }
   }
  },
- "fixture_id": "2c4a82637daf404a8faabdade3985478",
+ "fixture_id": "732f370f3404f0d5382a815eea31c03c",
  "labels": {
   "coverage_gaps": "Coverage Gaps",
   "defensive_switch_ins": "Shared Weakness",
@@ -2693,7 +3465,148 @@
  "no_context_teams": [
   "nometa"
  ],
- "note": "Shared V514 Team Building Checks parity fixture. Inputs from the website's data (meta-doubles.json of 2026-09-25, Top 30); `context` and `expect` are computed by the app, which is the source of truth. Teams: `owner` and `cluster` are the two worked examples; `slow` is a Speed cluster outside the range the Top X contests, `pair` is the two-Pokemon single-lead-pair case, and `nometa` is the same six as `cluster` judged with NO Top Meta (see `no_context_teams`), so the sentences a check says when it cannot measure are compared across the ports rather than asserted separately on each. Regenerate with scratchpad/checksfix/gen_fixture_expect.py and copy to BOTH trees.",
+ "note": "Shared V514 Team Building Checks parity fixture. Inputs from the website's data (meta-doubles.json of 2026-09-25, Top 30); `context` and `expect` are computed by the app, which is the source of truth. Teams: `owner` and `cluster` are the two worked examples; `slow` is a Speed cluster outside the range the Top X contests, `pair` is the two-Pokemon single-lead-pair case, `nometa` is the same six as `cluster` judged with NO Top Meta (see `no_context_teams`), and `gatedresist` / `gatedboth` are the two Shared Weakness green branches where a type IS shared by three or more: one excused by the team's own switch-ins alone (Psychic, which the Top 30 attacks with at 1.4x the average rate) and one where neither the switch-ins nor the below-average rate would be enough on its own (Fairy). Regenerate with tests/gen_team_check_fixture_v514.py in the Companion repository, which writes both copies and prints the fixture_id both suites assert.",
+ "rendered_components": {
+  "good": [
+   "summary"
+  ],
+  "red": [
+   "summary",
+   "why",
+   "fix",
+   "score"
+  ],
+  "yellow": [
+   "summary",
+   "why",
+   "fix",
+   "score"
+  ]
+ },
+ "selection_matrix": [
+  {
+   "marker": false,
+   "name": "nothing stored",
+   "resolves": [
+    "__catalogue__"
+   ],
+   "stored": null
+  },
+  {
+   "marker": true,
+   "name": "nothing stored, marker set",
+   "resolves": [
+    "__catalogue__"
+   ],
+   "stored": null
+  },
+  {
+   "marker": true,
+   "name": "stored [], marker set",
+   "resolves": [],
+   "stored": []
+  },
+  {
+   "marker": false,
+   "name": "stored [], no marker",
+   "resolves": [],
+   "stored": []
+  },
+  {
+   "marker": true,
+   "name": "the ten pre-V514 ids",
+   "resolves": [
+    "archetype_fit",
+    "speed_control",
+    "protect_positioning",
+    "spread_damage",
+    "priority_cleanup",
+    "physical_damage",
+    "special_damage",
+    "utility_disruption",
+    "defensive_switch_ins",
+    "field_weather_consistency"
+   ],
+   "stored": [
+    "archetype_fit",
+    "speed_control",
+    "protect_positioning",
+    "spread_damage",
+    "priority_cleanup",
+    "physical_damage",
+    "special_damage",
+    "utility_disruption",
+    "defensive_switch_ins",
+    "field_weather_consistency"
+   ]
+  },
+  {
+   "marker": true,
+   "name": "a stored list with the renamed id",
+   "resolves": [
+    "archetype_fit",
+    "defensive_switch_ins"
+   ],
+   "stored": [
+    "defensive_switch_ins",
+    "archetype_fit"
+   ]
+  },
+  {
+   "marker": true,
+   "name": "the pre-V201 id shared_weaknesses",
+   "resolves": [
+    "archetype_fit",
+    "defensive_switch_ins"
+   ],
+   "stored": [
+    "shared_weaknesses",
+    "archetype_fit"
+   ]
+  },
+  {
+   "marker": true,
+   "name": "an unknown id beside a real one",
+   "resolves": [
+    "archetype_fit"
+   ],
+   "stored": [
+    "totally_bogus_id_xyz",
+    "archetype_fit"
+   ]
+  },
+  {
+   "marker": true,
+   "name": "only an unknown id",
+   "resolves": [],
+   "stored": [
+    "totally_bogus_id_xyz"
+   ]
+  },
+  {
+   "marker": true,
+   "name": "the three V514 ids",
+   "resolves": [
+    "coverage_gaps",
+    "speed_tiers",
+    "lead_viability"
+   ],
+   "stored": [
+    "coverage_gaps",
+    "speed_tiers",
+    "lead_viability"
+   ]
+  },
+  {
+   "marker": true,
+   "name": "a comma string",
+   "resolves": [
+    "coverage_gaps",
+    "speed_tiers"
+   ],
+   "stored": "coverage_gaps, speed_tiers"
+  }
+ ],
  "tables": {
   "fake_out": [
    "fake out"
@@ -3037,6 +3950,290 @@
     "types": [
      "Steel",
      "Ghost"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   }
+  ],
+  "gatedboth": [
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Umbreon",
+    "priority": false,
+    "speed": 65,
+    "terrain_set": [],
+    "types": [
+     "Dark"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Hawlucha",
+    "priority": false,
+    "speed": 118,
+    "terrain_set": [],
+    "types": [
+     "Fighting",
+     "Flying"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Machamp",
+    "priority": false,
+    "speed": 55,
+    "terrain_set": [],
+    "types": [
+     "Fighting"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Alakazam",
+    "priority": false,
+    "speed": 120,
+    "terrain_set": [],
+    "types": [
+     "Psychic"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Gengar",
+    "priority": false,
+    "speed": 110,
+    "terrain_set": [],
+    "types": [
+     "Ghost",
+     "Poison"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Grimmsnarl",
+    "priority": false,
+    "speed": 60,
+    "terrain_set": [],
+    "types": [
+     "Dark",
+     "Fairy"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   }
+  ],
+  "gatedresist": [
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Hariyama",
+    "priority": false,
+    "speed": 50,
+    "terrain_set": [],
+    "types": [
+     "Fighting"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Muk",
+    "priority": false,
+    "speed": 75,
+    "terrain_set": [],
+    "types": [
+     "Poison"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Toxicroak",
+    "priority": false,
+    "speed": 85,
+    "terrain_set": [],
+    "types": [
+     "Fighting",
+     "Poison"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Umbreon",
+    "priority": false,
+    "speed": 65,
+    "terrain_set": [],
+    "types": [
+     "Dark"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Alakazam",
+    "priority": false,
+    "speed": 120,
+    "terrain_set": [],
+    "types": [
+     "Psychic"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 100,
+    "_v514_best_power": 0,
+    "_v514_coverage_types": [],
+    "_v514_sp_attack": 100,
+    "ability": "",
+    "damaging_types": [],
+    "move_keys": [
+     "protect"
+    ],
+    "moves": [
+     "Protect"
+    ],
+    "name": "Milotic",
+    "priority": false,
+    "speed": 81,
+    "terrain_set": [],
+    "types": [
+     "Water"
     ],
     "weather_set": [],
     "weather_use": []

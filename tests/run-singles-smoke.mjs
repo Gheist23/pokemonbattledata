@@ -131,6 +131,25 @@ check("Singles keeps Coverage Gaps and Speed Tiers",
   rowIds(singles).includes("coverage_gaps") && rowIds(singles).includes("speed_tiers"), rowIds(singles).join(","));
 check("Singles has no Lead Viability row (there is no pair to score)",
   !rowIds(singles).includes("lead_viability"), rowIds(singles).join(","));
+// AND THE CUSTOMIZE LIST SAYS SO. A skipped check that is still offered, still tickable and
+// still described in terms of fifteen lead PAIRS leaves the player with a check they switched
+// on and no row -- the silent state SINGLES_DESCRIPTIONS exists to prevent, and which
+// spread_damage has had a sentence for since the Singles rules landed.
+{
+  const singlesList = new TeamChecks({ engine, format: "Singles" }).checkList();
+  const lead = singlesList.find((c) => c.id === "lead_viability")?.description || "";
+  check("Customize list says Lead Viability is Doubles only in Singles", /^Doubles only:/.test(lead), lead);
+  check("and says it is skipped", /this check is skipped/.test(lead), lead);
+  // The "Doubles only" qualifier comes BEFORE the fifteen pairs, so a Singles player never
+  // reads a promise about their lead pairs without it -- the same shape spread_damage uses.
+  check("the Doubles-only qualifier comes before the fifteen pairs",
+    lead.indexOf("Doubles only") === 0 && lead.indexOf("fifteen lead pairs") > 0, lead);
+  const doublesLead = new TeamChecks({ engine }).checkList().find((c) => c.id === "lead_viability")?.description || "";
+  check("Doubles keeps the app's own Lead Viability text", !/Doubles only/.test(doublesLead), doublesLead);
+  // The gate is inside the check, the layer the app gates at, so a direct call agrees too.
+  check("calling checkLeadViability directly in Singles returns no row",
+    new TeamChecks({ engine, format: "Singles" }).checkLeadViability([]) === null);
+}
 // The price of declaring the V514 ids, labels and descriptions locally instead of waiting
 // for the app-data.json export (deviation D14): a test holds the two declarations together.
 // The fixture's `labels` map was written by the app.

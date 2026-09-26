@@ -18,11 +18,18 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { DamageEngine, compact } from "../builder/engine.js";
-import { TeamChecks, TEAM_CHECK_RULES, V514_CHECKS, V514_NEW_IDS, V514_RELABELLED, COVERAGE_EXTRA_ATTACKS, teamCheckRulesOption } from "../builder/team-checks.js";
+import { TeamChecks, TEAM_CHECK_RULES, V514_CHECKS, V514_NEW_IDS, V514_RELABELLED, COVERAGE_EXTRA_ATTACKS, RENDERED_COMPONENTS, SELECTION_MATRIX, teamCheckRulesOption } from "../builder/team-checks.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 
-/** The shared fixture's content hash; tests/test_team_check_rules_v514.py asserts it too. */
-const FIXTURE_ID = "2c4a82637daf404a8faabdade3985478";
+/** The shared fixture's content hash; tests/test_team_check_rules_v514.py asserts it too.
+ *
+ *  `fixture_id` is the guarantee, not the file's bytes: this repository has
+ *  core.autocrlf on, so a checkout rewrites this copy's line endings while the Companion's
+ *  copy stays LF.  The id is a hash of the PARSED, canonically serialised body, so it is
+ *  identical either way, and regenerating one copy without the other still fails on both
+ *  sides.  Regenerate with tests/gen_team_check_fixture_v514.py in the Companion repository,
+ *  which writes both copies and prints the id. */
+const FIXTURE_ID = "732f370f3404f0d5382a815eea31c03c";
 
 /** The ten ids the Customize list offered before V514, in order. */
 const PRE_V514_IDS = [
@@ -161,6 +168,54 @@ same("turning one new check on and another off sticks",
 // D12: the id never moved, so the pre-V201 name still maps forward to it.
 check("the pre-V201 id shared_weaknesses still maps to defensive_switch_ins",
   listOn.selectedIds(["shared_weaknesses"]).has("defensive_switch_ins"));
+
+// --- THE SELECTION MATRIX: all eleven shapes, against the app's own answers ---------
+// Nine of these already agreed. The two that did not are the ends of the stored list: a
+// stored [] with no V433 marker, where the app answered ["archetype_fit"] and WROTE it over
+// the stored [], and nothing stored with the marker set, where the app answered 12 of the
+// 13. The shared fixture carries the table, so this suite and
+// test_the_selection_matrix_agrees_with_the_website are comparing, not agreeing by accident.
+same("the selection matrix is the app's", fixture.selection_matrix, SELECTION_MATRIX.map((row) => ({
+  name: row.name, stored: row.stored ?? null, marker: Boolean(row.marker), resolves: row.resolves,
+})));
+check("the matrix covers eleven shapes", SELECTION_MATRIX.length === 11, String(SELECTION_MATRIX.length));
+for (const row of fixture.selection_matrix) {
+  // This port has no V433 marker, so both marker variants of a shape are one input here --
+  // which is exactly why the app had to be the one to change.
+  const want = [...(row.resolves.length === 1 && row.resolves[0] === fixture.catalogue_marker
+    ? listOn.allCheckIds() : row.resolves)].sort();
+  const got = [...listOn.selectedIds(row.stored === null ? null : row.stored)].sort();
+  same(`the selection matrix: ${row.name}`, want, got);
+}
+
+// --- THE RENDERING CONTRACT: which parts of a row the player actually reads ----------
+// Both suites capture the ARGUMENTS handed to row() and never the assembled string, so a port
+// could drop the why, the fix or the score on one severity and 423/423 would still be green.
+// This is the website half; `test_the_rendered_row_obeys_the_contract` drives the app's live
+// `_v201_requirement_text` over the same table.
+{
+  same("the rendering contract is the app's", fixture.rendered_components, RENDERED_COMPONENTS);
+  const marks = { summary: "SUMMARYMARK", why: "WHYMARK", fix: "FIXMARK", score: "THRESHMARK" };
+  for (const [severity, components] of Object.entries(RENDERED_COMPONENTS)) {
+    const text = listOn.requirementText("coverage_gaps", severity, "SUMMARYMARK", "WHYMARK", "FIXMARK", "THRESHMARK");
+    const row = listOn.row("coverage_gaps", severity, "SUMMARYMARK", "WHYMARK", "FIXMARK", 1, "THRESHMARK", {});
+    check(`${severity}: the row's text is what requirementText produced`, row.text === text, row.text);
+    for (const [part, mark] of Object.entries(marks)) {
+      const present = text.includes(mark);
+      check(`${severity}: ${part} is ${components.includes(part) ? "rendered" : "not rendered"}`,
+        present === components.includes(part), text);
+    }
+  }
+  // And the consequence, stated once: a GREEN row is the summary and nothing else, so honest
+  // text for a green verdict has to be in the summary. The green Shared Weakness row names the
+  // reason it measured there, not in the why.
+  const gated = fixture.expect.gatedresist.defensive_switch_ins;
+  check("a green verdict carries its reason in the summary",
+    /but two of the team resist it or are immune to it/.test(gated.summary), gated.summary);
+  check("and never credits the meta's attack rate with it",
+    !/rarely attacks with|excused by how rarely|the meta actually uses/.test(`${gated.summary} ${gated.why}`),
+    `${gated.summary} | ${gated.why}`);
+}
 
 // --- the meta context, then the five verdicts --------------------------------------
 const records = fixture.meta.records;
@@ -356,8 +411,16 @@ function callOf(checks, method, profiles) {
   const cluster = fixture.expect.cluster.speed_tiers;
   check("with no Tailwind user in range, nobody is named",
     !Object.keys(cluster.extra.speed_flip_v514).length && !/One Tailwind from/.test(cluster.why), cluster.why);
-  check("and the row says the honest generic sentence instead",
-    /One Tailwind or Icy Wind changes the order/.test(cluster.why), cluster.why);
+  // AND IT DOES NOT CLAIM THE FLIP HAPPENS ANYWAY. "One Tailwind or Icy Wind changes the
+  // order for all four at once" was a positive claim about a reorder the check has just
+  // established no Top 30 opponent can produce, on 134 of the 318 red/yellow Speed rows over
+  // the 2827 real teams. What it may say is the window it measured, and that nobody is in it.
+  check("and it does not claim the reorder happens anyway",
+    !/changes the order for all four at once/.test(cluster.why), cluster.why);
+  check("it names the Speed window a Tailwind would have to come from",
+    /Getting past all four in one turn takes a Tailwind from something between 52 and 104 Speed, and no Pokemon in the Top 30 carries Tailwind in that range\./.test(cluster.why), cluster.why);
+  check("and says only that an opponent outside the list could",
+    /An opponent from outside that list still could\./.test(cluster.why), cluster.why);
   // Give one member of the Top X that really is in range a Tailwind and it IS named.
   const ceiling = cluster.extra.speed_cluster_v514.high;
   const inRange = records.find((r) => {
@@ -488,6 +551,24 @@ function callOf(checks, method, profiles) {
 {
   const singles = new TeamChecks({ ...stub(1), format: "Singles" });
   check("Singles skips lead_viability", singles.singles === true);
+  // THE GATE IS AT THE SAME LAYER AS THE APP'S. `CheckRules.lead_viability` returns None in a
+  // Singles format; this port used to return a full row and let baseRows() drop it, so calling
+  // the check function directly -- which is how the app's own Auto Build per-candidate battery
+  // reaches these checks -- produced a Singles Lead Viability row here and none there.
+  check("calling checkLeadViability directly in Singles returns no row at all",
+    singles.checkLeadViability(profilesFor("cluster")) === null,
+    JSON.stringify(singles.checkLeadViability(profilesFor("cluster"))));
+  check("and in Doubles it still does",
+    Boolean(new TeamChecks(stub(1)).checkLeadViability(profilesFor("cluster"))));
+  // A check that cannot run has to say so where the player chooses it.
+  const singlesList = singles.checkList().find((c) => c.id === "lead_viability");
+  check("the Singles Customize list says Lead Viability is Doubles only",
+    /^Doubles only:/.test(String(singlesList?.description || "")), singlesList?.description);
+  check("and says why it is skipped", /this check is skipped/.test(String(singlesList?.description || "")),
+    singlesList?.description);
+  check("Doubles keeps the app's own description",
+    new TeamChecks(stub(1)).checkList().find((c) => c.id === "lead_viability").description
+      === V514_CHECKS.find(([id]) => id === "lead_viability")[2]);
   const rows = singles.baseRows(profilesFor("cluster").map((p) => ({ ...p })), new Set(singles.baseIds));
   const ids = rows.map((r) => r.check_id);
   check("Singles has no lead_viability row", !ids.includes("lead_viability"), json(ids));

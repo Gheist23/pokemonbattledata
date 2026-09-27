@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Banette,43,move,1,Destiny Bond,99.2%,,,,,,,,
 Banette,43,move,2,Poltergeist,96.8%,,,,,,,,
-Banette,43,move,3,Encore,77.5%,,,,,,,,
-Banette,43,move,4,Shadow Sneak,61.2%,,,,,,,,
+Banette,43,move,3,Encore,77.4%,,,,,,,,
+Banette,43,move,4,Shadow Sneak,61.1%,,,,,,,,
 Banette,43,move,5,Taunt,27.6%,,,,,,,,
-Banette,43,move,6,Will-O-Wisp,11.4%,,,,,,,,
+Banette,43,move,6,Will-O-Wisp,11.5%,,,,,,,,
 Banette,43,move,7,Gunk Shot,6.4%,,,,,,,,
 Banette,43,move,8,Protect,3.1%,,,,,,,,
 Banette,43,move,9,Sucker Punch,3.0%,,,,,,,,
@@ -31,16 +31,16 @@ Banette,43,teammate,9,Golisopod,,,,,,,,,
 Banette,43,teammate,10,Blastoise,,,,,,,,,
 Banette,43,stat_alignment,1,Adamant,73.9%,Attack,Sp. Atk,,,,,,
 Banette,43,stat_alignment,2,Brave,19.2%,Attack,Speed,,,,,,
-Banette,43,stat_alignment,3,Jolly,2.2%,Speed,Sp. Atk,,,,,,
-Banette,43,stat_alignment,4,Lonely,1.0%,Attack,Defense,,,,,,
+Banette,43,stat_alignment,3,Jolly,2.3%,Speed,Sp. Atk,,,,,,
+Banette,43,stat_alignment,4,Lonely,1.1%,Attack,Defense,,,,,,
 Banette,43,stat_alignment,5,Naughty,0.8%,Attack,Sp. Def,,,,,,
 Banette,43,stat_alignment,6,Impish,0.8%,Defense,Sp. Atk,,,,,,
 Banette,43,stat_alignment,7,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
-Banette,43,stat_alignment,8,Relaxed,0.3%,Defense,Speed,,,,,,
+Banette,43,stat_alignment,8,Relaxed,0.4%,Defense,Speed,,,,,,
 Banette,43,stat_alignment,9,Hasty,0.3%,Speed,Defense,,,,,,
 Banette,43,stat_alignment,10,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Banette,43,stat_points,1,,32.4%,,,32,32,2,0,0,0
-Banette,43,stat_points,2,,19.6%,,,32,32,0,0,0,2
+Banette,43,stat_points,2,,19.5%,,,32,32,0,0,0,2
 Banette,43,stat_points,3,,10.5%,,,32,32,0,0,2,0
 Banette,43,stat_points,4,,4.7%,,,2,32,0,0,0,32
 Banette,43,stat_points,5,,2.8%,,,32,32,1,0,1,0

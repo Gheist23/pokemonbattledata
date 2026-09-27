@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pikachu,176,move,1,Quick Attack,40.4%,,,,,,,,
-Pikachu,176,move,2,Volt Tackle,37.8%,,,,,,,,
-Pikachu,176,move,3,Grass Knot,31.1%,,,,,,,,
-Pikachu,176,move,4,Surf,29.9%,,,,,,,,
-Pikachu,176,move,5,Thunderbolt,29.8%,,,,,,,,
+Pikachu,176,move,1,Quick Attack,40.2%,,,,,,,,
+Pikachu,176,move,2,Volt Tackle,37.7%,,,,,,,,
+Pikachu,176,move,3,Grass Knot,31.0%,,,,,,,,
+Pikachu,176,move,4,Thunderbolt,29.8%,,,,,,,,
+Pikachu,176,move,5,Surf,29.8%,,,,,,,,
 Pikachu,176,move,6,Fake Out,27.6%,,,,,,,,
-Pikachu,176,move,7,Endeavor,27.1%,,,,,,,,
+Pikachu,176,move,7,Endeavor,27.3%,,,,,,,,
 Pikachu,176,move,8,Encore,20.1%,,,,,,,,
-Pikachu,176,move,9,Nuzzle,17.9%,,,,,,,,
+Pikachu,176,move,9,Nuzzle,18.0%,,,,,,,,
 Pikachu,176,move,10,Thunder,17.0%,,,,,,,,
-Pikachu,176,held_item,1,Light Ball,60.8%,,,,,,,,
-Pikachu,176,held_item,2,Focus Sash,22.6%,,,,,,,,
-Pikachu,176,held_item,3,Lum Berry,7.8%,,,,,,,,
+Pikachu,176,held_item,1,Light Ball,60.7%,,,,,,,,
+Pikachu,176,held_item,2,Focus Sash,22.8%,,,,,,,,
+Pikachu,176,held_item,3,Lum Berry,7.7%,,,,,,,,
 Pikachu,176,held_item,4,Choice Scarf,0.6%,,,,,,,,
 Pikachu,176,held_item,5,Focus Band,0.2%,,,,,,,,
 Pikachu,176,held_item,6,Leftovers,0.2%,,,,,,,,
 Pikachu,176,held_item,7,Bright Powder,0.2%,,,,,,,,
-Pikachu,176,held_item,8,Quick Claw,0.1%,,,,,,,,
+Pikachu,176,held_item,8,Quick Claw,0.2%,,,,,,,,
 Pikachu,176,held_item,9,Rocky Helmet,0.1%,,,,,,,,
-Pikachu,176,held_item,10,Magnet,0.1%,,,,,,,,
+Pikachu,176,held_item,10,Light Clay,0.1%,,,,,,,,
 Pikachu,176,teammate,1,Charizard,,,,,,,,,
 Pikachu,176,teammate,2,Gengar,,,,,,,,,
 Pikachu,176,teammate,3,Greninja,,,,,,,,,
@@ -29,25 +29,25 @@ Pikachu,176,teammate,7,Snorlax,,,,,,,,,
 Pikachu,176,teammate,8,Azumarill,,,,,,,,,
 Pikachu,176,teammate,9,Sirfetch’d,,,,,,,,,
 Pikachu,176,teammate,10,Venusaur,,,,,,,,,
-Pikachu,176,stat_alignment,1,Timid,30.0%,Speed,Attack,,,,,,
+Pikachu,176,stat_alignment,1,Timid,29.9%,Speed,Attack,,,,,,
 Pikachu,176,stat_alignment,2,Jolly,24.4%,Speed,Sp. Atk,,,,,,
 Pikachu,176,stat_alignment,3,Adamant,12.2%,Attack,Sp. Atk,,,,,,
 Pikachu,176,stat_alignment,4,Modest,12.0%,Sp. Atk,Attack,,,,,,
 Pikachu,176,stat_alignment,5,Naive,8.1%,Speed,Sp. Def,,,,,,
-Pikachu,176,stat_alignment,6,Hasty,5.4%,Speed,Defense,,,,,,
+Pikachu,176,stat_alignment,6,Hasty,5.3%,Speed,Defense,,,,,,
 Pikachu,176,stat_alignment,7,Brave,2.4%,Attack,Speed,,,,,,
-Pikachu,176,stat_alignment,8,Mild,1.0%,Sp. Atk,Defense,,,,,,
+Pikachu,176,stat_alignment,8,Mild,1.1%,Sp. Atk,Defense,,,,,,
 Pikachu,176,stat_alignment,9,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,
-Pikachu,176,stat_alignment,10,Quiet,0.8%,Sp. Atk,Speed,,,,,,
-Pikachu,176,stat_points,1,,31.1%,,,2,0,0,32,0,32
+Pikachu,176,stat_alignment,10,Quiet,0.9%,Sp. Atk,Speed,,,,,,
+Pikachu,176,stat_points,1,,31.0%,,,2,0,0,32,0,32
 Pikachu,176,stat_points,2,,23.8%,,,2,32,0,0,0,32
-Pikachu,176,stat_points,3,,4.8%,,,1,0,1,32,0,32
+Pikachu,176,stat_points,3,,4.7%,,,1,0,1,32,0,32
 Pikachu,176,stat_points,4,,4.7%,,,0,2,0,32,0,32
-Pikachu,176,stat_points,5,,3.7%,,,0,32,2,0,0,32
-Pikachu,176,stat_points,6,,3.0%,,,1,32,1,0,0,32
-Pikachu,176,stat_points,7,,2.6%,,,0,32,0,0,0,32
+Pikachu,176,stat_points,5,,3.6%,,,0,32,2,0,0,32
+Pikachu,176,stat_points,6,,3.1%,,,1,32,1,0,0,32
+Pikachu,176,stat_points,7,,2.5%,,,0,32,0,0,0,32
 Pikachu,176,stat_points,8,,1.9%,,,0,0,2,32,0,32
 Pikachu,176,stat_points,9,,1.8%,,,0,32,0,2,0,32
 Pikachu,176,stat_points,10,,1.5%,,,1,0,0,32,1,32
-Pikachu,176,ability,1,Static,61.3%,,,,,,,,
-Pikachu,176,ability,2,Lightning Rod,38.7%,,,,,,,,
+Pikachu,176,ability,1,Static,61.2%,,,,,,,,
+Pikachu,176,ability,2,Lightning Rod,38.8%,,,,,,,,

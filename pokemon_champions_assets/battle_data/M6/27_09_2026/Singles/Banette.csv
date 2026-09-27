@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Banette,43,move,1,Destiny Bond,99.2%,,,,,,,,
 Banette,43,move,2,Poltergeist,96.8%,,,,,,,,
-Banette,43,move,3,Encore,77.4%,,,,,,,,
-Banette,43,move,4,Shadow Sneak,61.4%,,,,,,,,
+Banette,43,move,3,Encore,77.5%,,,,,,,,
+Banette,43,move,4,Shadow Sneak,61.3%,,,,,,,,
 Banette,43,move,5,Taunt,27.6%,,,,,,,,
 Banette,43,move,6,Will-O-Wisp,11.4%,,,,,,,,
 Banette,43,move,7,Gunk Shot,6.4%,,,,,,,,
@@ -37,9 +37,9 @@ Banette,43,stat_alignment,5,Naughty,0.8%,Attack,Sp. Def,,,,,,
 Banette,43,stat_alignment,6,Impish,0.8%,Defense,Sp. Atk,,,,,,
 Banette,43,stat_alignment,7,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
 Banette,43,stat_alignment,8,Relaxed,0.3%,Defense,Speed,,,,,,
-Banette,43,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
+Banette,43,stat_alignment,9,Hasty,0.3%,Speed,Defense,,,,,,
 Banette,43,stat_alignment,10,Sassy,0.2%,Sp. Def,Speed,,,,,,
-Banette,43,stat_points,1,,32.5%,,,32,32,2,0,0,0
+Banette,43,stat_points,1,,32.4%,,,32,32,2,0,0,0
 Banette,43,stat_points,2,,19.7%,,,32,32,0,0,0,2
 Banette,43,stat_points,3,,10.5%,,,32,32,0,0,2,0
 Banette,43,stat_points,4,,4.7%,,,2,32,0,0,0,32
@@ -49,6 +49,6 @@ Banette,43,stat_points,7,,1.4%,,,32,32,0,0,0,0
 Banette,43,stat_points,8,,1.2%,,,32,32,1,0,0,1
 Banette,43,stat_points,9,,1.0%,,,0,32,2,0,0,32
 Banette,43,stat_points,10,,0.9%,,,0,32,0,0,2,32
-Banette,43,ability,1,Frisk,88.1%,,,,,,,,
+Banette,43,ability,1,Frisk,88.0%,,,,,,,,
 Banette,43,ability,2,Insomnia,7.4%,,,,,,,,
 Banette,43,ability,3,Cursed Body,4.5%,,,,,,,,

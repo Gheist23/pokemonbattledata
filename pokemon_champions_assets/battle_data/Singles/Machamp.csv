@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Machamp,188,move,1,Dynamic Punch,77.7%,,,,,,,,
-Machamp,188,move,2,Stone Edge,66.0%,,,,,,,,
-Machamp,188,move,3,Bullet Punch,59.3%,,,,,,,,
+Machamp,188,move,2,Stone Edge,66.1%,,,,,,,,
+Machamp,188,move,3,Bullet Punch,59.4%,,,,,,,,
 Machamp,188,move,4,Ice Punch,52.2%,,,,,,,,
-Machamp,188,move,5,Knock Off,20.6%,,,,,,,,
-Machamp,188,move,6,Earthquake,16.0%,,,,,,,,
+Machamp,188,move,5,Knock Off,20.7%,,,,,,,,
+Machamp,188,move,6,Earthquake,15.9%,,,,,,,,
 Machamp,188,move,7,Darkest Lariat,11.3%,,,,,,,,
-Machamp,188,move,8,Fire Punch,9.5%,,,,,,,,
-Machamp,188,move,9,Encore,8.3%,,,,,,,,
-Machamp,188,move,10,Thunder Punch,7.3%,,,,,,,,
-Machamp,188,held_item,1,Quick Claw,23.0%,,,,,,,,
+Machamp,188,move,8,Fire Punch,9.6%,,,,,,,,
+Machamp,188,move,9,Encore,8.2%,,,,,,,,
+Machamp,188,move,10,Cross Chop,7.3%,,,,,,,,
+Machamp,188,held_item,1,Quick Claw,22.8%,,,,,,,,
 Machamp,188,held_item,2,Choice Scarf,16.9%,,,,,,,,
 Machamp,188,held_item,3,Focus Sash,13.0%,,,,,,,,
 Machamp,188,held_item,4,Life Orb,9.8%,,,,,,,,
-Machamp,188,held_item,5,Expert Belt,6.4%,,,,,,,,
-Machamp,188,held_item,6,Sitrus Berry,5.7%,,,,,,,,
-Machamp,188,held_item,7,Scope Lens,5.7%,,,,,,,,
-Machamp,188,held_item,8,Lum Berry,5.4%,,,,,,,,
+Machamp,188,held_item,5,Expert Belt,6.5%,,,,,,,,
+Machamp,188,held_item,6,Scope Lens,5.8%,,,,,,,,
+Machamp,188,held_item,7,Sitrus Berry,5.8%,,,,,,,,
+Machamp,188,held_item,8,Lum Berry,5.5%,,,,,,,,
 Machamp,188,held_item,9,Black Belt,3.7%,,,,,,,,
 Machamp,188,held_item,10,Muscle Band,1.5%,,,,,,,,
 Machamp,188,teammate,1,Garchomp,,,,,,,,,
@@ -32,7 +32,7 @@ Machamp,188,teammate,10,Gyarados,,,,,,,,,
 Machamp,188,stat_alignment,1,Adamant,66.1%,Attack,Sp. Atk,,,,,,
 Machamp,188,stat_alignment,2,Jolly,19.4%,Speed,Sp. Atk,,,,,,
 Machamp,188,stat_alignment,3,Brave,3.5%,Attack,Speed,,,,,,
-Machamp,188,stat_alignment,4,Modest,2.2%,Sp. Atk,Attack,,,,,,
+Machamp,188,stat_alignment,4,Modest,2.1%,Sp. Atk,Attack,,,,,,
 Machamp,188,stat_alignment,5,Quiet,2.1%,Sp. Atk,Speed,,,,,,
 Machamp,188,stat_alignment,6,Careful,2.0%,Sp. Def,Sp. Atk,,,,,,
 Machamp,188,stat_alignment,7,Impish,1.7%,Defense,Sp. Atk,,,,,,
@@ -40,15 +40,15 @@ Machamp,188,stat_alignment,8,Naive,0.9%,Speed,Sp. Def,,,,,,
 Machamp,188,stat_alignment,9,Naughty,0.6%,Attack,Sp. Def,,,,,,
 Machamp,188,stat_alignment,10,Sassy,0.5%,Sp. Def,Speed,,,,,,
 Machamp,188,stat_points,1,,20.4%,,,2,32,0,0,0,32
-Machamp,188,stat_points,2,,15.9%,,,32,32,2,0,0,0
-Machamp,188,stat_points,3,,15.7%,,,32,32,0,0,0,2
+Machamp,188,stat_points,2,,15.8%,,,32,32,2,0,0,0
+Machamp,188,stat_points,3,,15.6%,,,32,32,0,0,0,2
 Machamp,188,stat_points,4,,8.8%,,,32,32,0,0,2,0
-Machamp,188,stat_points,5,,2.9%,,,0,32,2,0,0,32
-Machamp,188,stat_points,6,,2.2%,,,32,32,1,0,1,0
+Machamp,188,stat_points,5,,3.0%,,,0,32,2,0,0,32
+Machamp,188,stat_points,6,,2.1%,,,32,32,1,0,1,0
 Machamp,188,stat_points,7,,1.7%,,,0,32,0,0,2,32
 Machamp,188,stat_points,8,,1.4%,,,32,32,0,0,1,1
-Machamp,188,stat_points,9,,1.3%,,,0,32,32,0,2,0
-Machamp,188,stat_points,10,,1.3%,,,0,32,0,0,0,32
-Machamp,188,ability,1,No Guard,89.0%,,,,,,,,
+Machamp,188,stat_points,9,,1.4%,,,0,32,32,0,2,0
+Machamp,188,stat_points,10,,1.2%,,,0,32,0,0,0,32
+Machamp,188,ability,1,No Guard,88.9%,,,,,,,,
 Machamp,188,ability,2,Guts,10.8%,,,,,,,,
 Machamp,188,ability,3,Steadfast,0.2%,,,,,,,,

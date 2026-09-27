@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Roserade,180,move,1,Sludge Bomb,86.3%,,,,,,,,
-Roserade,180,move,2,Shadow Ball,43.9%,,,,,,,,
-Roserade,180,move,3,Leaf Storm,43.6%,,,,,,,,
+Roserade,180,move,2,Shadow Ball,44.0%,,,,,,,,
+Roserade,180,move,3,Leaf Storm,43.5%,,,,,,,,
 Roserade,180,move,4,Dazzling Gleam,39.1%,,,,,,,,
 Roserade,180,move,5,Giga Drain,32.6%,,,,,,,,
-Roserade,180,move,6,Leech Seed,27.4%,,,,,,,,
-Roserade,180,move,7,Sleep Powder,22.7%,,,,,,,,
+Roserade,180,move,6,Leech Seed,27.3%,,,,,,,,
+Roserade,180,move,7,Sleep Powder,22.8%,,,,,,,,
 Roserade,180,move,8,Toxic Spikes,15.1%,,,,,,,,
 Roserade,180,move,9,Toxic,14.1%,,,,,,,,
 Roserade,180,move,10,Energy Ball,13.1%,,,,,,,,
@@ -15,8 +15,8 @@ Roserade,180,held_item,3,Leftovers,14.3%,,,,,,,,
 Roserade,180,held_item,4,Life Orb,8.1%,,,,,,,,
 Roserade,180,held_item,5,Sitrus Berry,5.1%,,,,,,,,
 Roserade,180,held_item,6,Expert Belt,4.4%,,,,,,,,
-Roserade,180,held_item,7,Wide Lens,4.3%,,,,,,,,
-Roserade,180,held_item,8,Miracle Seed,3.7%,,,,,,,,
+Roserade,180,held_item,7,Wide Lens,4.2%,,,,,,,,
+Roserade,180,held_item,8,Miracle Seed,3.8%,,,,,,,,
 Roserade,180,held_item,9,Big Root,3.5%,,,,,,,,
 Roserade,180,held_item,10,White Herb,2.3%,,,,,,,,
 Roserade,180,teammate,1,Garchomp,,,,,,,,,
@@ -33,7 +33,7 @@ Roserade,180,stat_alignment,1,Timid,40.1%,Speed,Attack,,,,,,
 Roserade,180,stat_alignment,2,Modest,34.1%,Sp. Atk,Attack,,,,,,
 Roserade,180,stat_alignment,3,Calm,15.8%,Sp. Def,Attack,,,,,,
 Roserade,180,stat_alignment,4,Bold,6.5%,Defense,Attack,,,,,,
-Roserade,180,stat_alignment,5,Mild,1.9%,Sp. Atk,Defense,,,,,,
+Roserade,180,stat_alignment,5,Mild,2.0%,Sp. Atk,Defense,,,,,,
 Roserade,180,stat_alignment,6,Hasty,0.4%,Speed,Defense,,,,,,
 Roserade,180,stat_alignment,7,Quiet,0.3%,Sp. Atk,Speed,,,,,,
 Roserade,180,stat_alignment,8,Adamant,0.2%,Attack,Sp. Atk,,,,,,
@@ -42,7 +42,7 @@ Roserade,180,stat_alignment,10,Jolly,0.1%,Speed,Sp. Atk,,,,,,
 Roserade,180,stat_points,1,,32.6%,,,2,0,0,32,0,32
 Roserade,180,stat_points,2,,6.5%,,,0,0,0,32,2,32
 Roserade,180,stat_points,3,,4.1%,,,10,0,0,32,0,24
-Roserade,180,stat_points,4,,3.7%,,,32,0,0,0,32,2
+Roserade,180,stat_points,4,,3.6%,,,32,0,0,0,32,2
 Roserade,180,stat_points,5,,3.6%,,,0,0,2,32,0,32
 Roserade,180,stat_points,6,,3.3%,,,32,0,0,2,32,0
 Roserade,180,stat_points,7,,2.8%,,,32,0,2,0,32,0

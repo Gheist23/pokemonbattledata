@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Castform,239,move,1,Weather Ball,82.7%,,,,,,,,
-Castform,239,move,2,Hurricane,39.1%,,,,,,,,
+Castform,239,move,2,Hurricane,39.0%,,,,,,,,
 Castform,239,move,3,Protect,36.0%,,,,,,,,
-Castform,239,move,4,Thunder,35.9%,,,,,,,,
-Castform,239,move,5,Rain Dance,28.2%,,,,,,,,
-Castform,239,move,6,Blizzard,24.2%,,,,,,,,
+Castform,239,move,4,Thunder,35.8%,,,,,,,,
+Castform,239,move,5,Rain Dance,28.1%,,,,,,,,
+Castform,239,move,6,Blizzard,24.3%,,,,,,,,
 Castform,239,move,7,Ice Beam,19.7%,,,,,,,,
-Castform,239,move,8,Energy Ball,19.1%,,,,,,,,
-Castform,239,move,9,Thunderbolt,17.6%,,,,,,,,
+Castform,239,move,8,Energy Ball,19.2%,,,,,,,,
+Castform,239,move,9,Thunderbolt,17.7%,,,,,,,,
 Castform,239,move,10,Scald,15.6%,,,,,,,,
 Castform,239,held_item,1,Life Orb,22.7%,,,,,,,,
 Castform,239,held_item,2,Focus Sash,17.6%,,,,,,,,
-Castform,239,held_item,3,Choice Scarf,15.2%,,,,,,,,
+Castform,239,held_item,3,Choice Scarf,15.3%,,,,,,,,
 Castform,239,held_item,4,Quick Claw,8.6%,,,,,,,,
 Castform,239,held_item,5,Rocky Helmet,7.0%,,,,,,,,
 Castform,239,held_item,6,Bright Powder,5.2%,,,,,,,,
@@ -30,8 +30,8 @@ Castform,239,teammate,8,Froslass,,,,,,,,,
 Castform,239,teammate,9,Dragonite,,,,,,,,,
 Castform,239,teammate,10,Politoed,,,,,,,,,
 Castform,239,stat_alignment,1,Modest,65.6%,Sp. Atk,Attack,,,,,,
-Castform,239,stat_alignment,2,Timid,18.9%,Speed,Attack,,,,,,
-Castform,239,stat_alignment,3,Quiet,7.6%,Sp. Atk,Speed,,,,,,
+Castform,239,stat_alignment,2,Timid,18.8%,Speed,Attack,,,,,,
+Castform,239,stat_alignment,3,Quiet,7.5%,Sp. Atk,Speed,,,,,,
 Castform,239,stat_alignment,4,Mild,3.7%,Sp. Atk,Defense,,,,,,
 Castform,239,stat_alignment,5,Calm,1.3%,Sp. Def,Attack,,,,,,
 Castform,239,stat_alignment,6,Hasty,1.1%,Speed,Defense,,,,,,
@@ -40,13 +40,13 @@ Castform,239,stat_alignment,8,Bold,0.4%,Defense,Attack,,,,,,
 Castform,239,stat_alignment,9,Jolly,0.3%,Speed,Sp. Atk,,,,,,
 Castform,239,stat_alignment,10,Sassy,0.3%,Sp. Def,Speed,,,,,,
 Castform,239,stat_points,1,,18.6%,,,2,0,0,32,0,32
-Castform,239,stat_points,2,,14.5%,,,0,0,2,32,0,32
+Castform,239,stat_points,2,,14.6%,,,0,0,2,32,0,32
 Castform,239,stat_points,3,,12.9%,,,32,0,0,32,2,0
 Castform,239,stat_points,4,,11.5%,,,32,0,0,32,0,2
 Castform,239,stat_points,5,,7.8%,,,32,0,1,32,1,0
 Castform,239,stat_points,6,,4.3%,,,2,0,0,32,32,0
 Castform,239,stat_points,7,,3.2%,,,0,0,0,32,2,32
-Castform,239,stat_points,8,,2.9%,,,24,0,0,32,10,0
+Castform,239,stat_points,8,,2.8%,,,24,0,0,32,10,0
 Castform,239,stat_points,9,,2.5%,,,25,0,2,32,2,5
 Castform,239,stat_points,10,,1.8%,,,0,0,26,14,26,0
 Castform,239,ability,1,Forecast,100.0%,,,,,,,,

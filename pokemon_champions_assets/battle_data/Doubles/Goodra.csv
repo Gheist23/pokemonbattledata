@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Goodra,210,move,1,Protect,40.2%,,,,,,,,
+Goodra,210,move,1,Protect,40.1%,,,,,,,,
 Goodra,210,move,2,Flamethrower,35.0%,,,,,,,,
-Goodra,210,move,3,Dragon Pulse,31.6%,,,,,,,,
-Goodra,210,move,4,Thunderbolt,30.7%,,,,,,,,
+Goodra,210,move,3,Dragon Pulse,31.7%,,,,,,,,
+Goodra,210,move,4,Thunderbolt,30.9%,,,,,,,,
 Goodra,210,move,5,Draco Meteor,29.2%,,,,,,,,
 Goodra,210,move,6,Ice Beam,23.7%,,,,,,,,
 Goodra,210,move,7,Sludge Bomb,21.4%,,,,,,,,
@@ -29,9 +29,9 @@ Goodra,210,teammate,7,Archaludon,,,,,,,,,
 Goodra,210,teammate,8,Incineroar,,,,,,,,,
 Goodra,210,teammate,9,Whimsicott,,,,,,,,,
 Goodra,210,teammate,10,Charizard,,,,,,,,,
-Goodra,210,stat_alignment,1,Modest,32.1%,Sp. Atk,Attack,,,,,,
-Goodra,210,stat_alignment,2,Bold,16.4%,Defense,Attack,,,,,,
-Goodra,210,stat_alignment,3,Quiet,13.2%,Sp. Atk,Speed,,,,,,
+Goodra,210,stat_alignment,1,Modest,32.2%,Sp. Atk,Attack,,,,,,
+Goodra,210,stat_alignment,2,Bold,16.3%,Defense,Attack,,,,,,
+Goodra,210,stat_alignment,3,Quiet,13.3%,Sp. Atk,Speed,,,,,,
 Goodra,210,stat_alignment,4,Calm,11.3%,Sp. Def,Attack,,,,,,
 Goodra,210,stat_alignment,5,Adamant,6.5%,Attack,Sp. Atk,,,,,,
 Goodra,210,stat_alignment,6,Timid,6.2%,Speed,Attack,,,,,,
@@ -39,7 +39,7 @@ Goodra,210,stat_alignment,7,Jolly,2.7%,Speed,Sp. Atk,,,,,,
 Goodra,210,stat_alignment,8,Relaxed,2.5%,Defense,Speed,,,,,,
 Goodra,210,stat_alignment,9,Sassy,2.3%,Sp. Def,Speed,,,,,,
 Goodra,210,stat_alignment,10,Brave,1.8%,Attack,Speed,,,,,,
-Goodra,210,stat_points,1,,11.0%,,,32,0,2,32,0,0
+Goodra,210,stat_points,1,,10.9%,,,32,0,2,32,0,0
 Goodra,210,stat_points,2,,5.1%,,,32,0,0,32,2,0
 Goodra,210,stat_points,3,,3.7%,,,32,0,32,0,2,0
 Goodra,210,stat_points,4,,3.6%,,,0,0,0,32,32,2

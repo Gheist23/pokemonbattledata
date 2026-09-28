@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Arbok,230,move,1,Gunk Shot,52.3%,,,,,,,,
 Arbok,230,move,2,Protect,42.9%,,,,,,,,
-Arbok,230,move,3,Coil,42.0%,,,,,,,,
+Arbok,230,move,3,Coil,41.9%,,,,,,,,
 Arbok,230,move,4,Glare,41.1%,,,,,,,,
-Arbok,230,move,5,Sucker Punch,32.3%,,,,,,,,
-Arbok,230,move,6,Poison Jab,23.3%,,,,,,,,
+Arbok,230,move,5,Sucker Punch,32.4%,,,,,,,,
+Arbok,230,move,6,Poison Jab,23.2%,,,,,,,,
 Arbok,230,move,7,Rock Slide,21.2%,,,,,,,,
 Arbok,230,move,8,Dragon Tail,19.0%,,,,,,,,
-Arbok,230,move,9,Crunch,18.2%,,,,,,,,
+Arbok,230,move,9,Crunch,18.1%,,,,,,,,
 Arbok,230,move,10,Leech Life,11.5%,,,,,,,,
 Arbok,230,held_item,1,Poison Barb,13.9%,,,,,,,,
 Arbok,230,held_item,2,King's Rock,13.4%,,,,,,,,
@@ -34,7 +34,7 @@ Arbok,230,stat_alignment,2,Jolly,31.6%,Speed,Sp. Atk,,,,,,
 Arbok,230,stat_alignment,3,Impish,10.7%,Defense,Sp. Atk,,,,,,
 Arbok,230,stat_alignment,4,Brave,8.0%,Attack,Speed,,,,,,
 Arbok,230,stat_alignment,5,Careful,6.6%,Sp. Def,Sp. Atk,,,,,,
-Arbok,230,stat_alignment,6,Sassy,2.5%,Sp. Def,Speed,,,,,,
+Arbok,230,stat_alignment,6,Sassy,2.4%,Sp. Def,Speed,,,,,,
 Arbok,230,stat_alignment,7,Relaxed,1.4%,Defense,Speed,,,,,,
 Arbok,230,stat_alignment,8,Naughty,1.3%,Attack,Sp. Def,,,,,,
 Arbok,230,stat_alignment,9,Naive,0.4%,Speed,Sp. Def,,,,,,
@@ -47,8 +47,8 @@ Arbok,230,stat_points,5,,4.6%,,,32,0,2,0,0,32
 Arbok,230,stat_points,6,,4.0%,,,2,32,0,0,32,0
 Arbok,230,stat_points,7,,3.8%,,,0,32,2,0,32,0
 Arbok,230,stat_points,8,,3.3%,,,32,32,0,0,0,0
-Arbok,230,stat_points,9,,3.3%,,,32,2,0,0,32,0
+Arbok,230,stat_points,9,,3.2%,,,32,2,0,0,32,0
 Arbok,230,stat_points,10,,2.9%,,,32,25,1,0,1,7
-Arbok,230,ability,1,Intimidate,81.0%,,,,,,,,
-Arbok,230,ability,2,Shed Skin,18.1%,,,,,,,,
+Arbok,230,ability,1,Intimidate,81.1%,,,,,,,,
+Arbok,230,ability,2,Shed Skin,18.0%,,,,,,,,
 Arbok,230,ability,3,Unnerve,0.9%,,,,,,,,

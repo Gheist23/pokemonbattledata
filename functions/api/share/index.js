@@ -65,6 +65,15 @@ function decodeBase64(raw) {
 async function readSubmission(request) {
   const type = String(request.headers.get("content-type") || "").toLowerCase();
   if (type.includes("multipart/form-data")) {
+    // formData() buffers the whole body and takes no size argument, so a
+    // declared content-length over MAX_BODY_BYTES (refused above) is the only
+    // cheap guard there is.  A body sent without one is bounded by the
+    // platform's own request limit and costs no storage, because validatePng
+    // still refuses anything over MAX_CARD_BYTES before a single write.
+    // Requiring content-length here would be stricter, and was tried: undici
+    // does not surface it on a constructed Request, so it could not be tested,
+    // and an untested guard on the only path the website uses is worse than the
+    // risk it removes.
     const form = await request.formData();
     const rawRecord = form.get("record") ?? form.get("digest");
     const rawImage = form.get("image") ?? form.get("card");

@@ -113,8 +113,11 @@ function png(width, height, noise = 0) {
 }
 
 const CARD_PNG = png(CARD_W, CARD_H);
+const BUSY_PNG = png(CARD_W, CARD_H, 1);
 const WRONG_SIZE_PNG = png(CARD_W, CARD_H + 1);
-note(`a flat 1200x630 PNG is ${CARD_PNG.length} bytes; the 1200x631 reject fixture is ${WRONG_SIZE_PNG.length}`);
+const TRUNCATED_PNG = CARD_PNG.subarray(0, CARD_PNG.length - 20);
+note(`fixtures: a flat 1200x630 PNG is ${CARD_PNG.length} bytes, a BUSY one (every pixel different, which is what six sprites and eighteen bars look like to deflate) is ${BUSY_PNG.length}, the 1200x631 reject is ${WRONG_SIZE_PNG.length}`);
+note(`the byte cap is ${MAX_CARD_BYTES}: ${(MAX_CARD_BYTES / BUSY_PNG.length).toFixed(2)}x the busy card measured here and 1.88x the 319,274-byte worst case stage 1 rendered in a real browser`);
 
 // --- the stubs ---------------------------------------------------------------
 
@@ -263,8 +266,10 @@ const EVAL_DIGEST = {
   const code = newCode();
   ok(/^CBS-[A-HJ-NP-Z2-9]{4}(-[A-HJ-NP-Z2-9]{4}){3}$/.test(code), `a new code looks like ${code}`);
   ok(normaliseCode(code.toLowerCase().replace(/-/g, " ")) === code, "a code survives lower case and stray spaces");
-  ok(normaliseCode("CBD-ABCD-ABCD-ABCD-ABCD") === "CBS-ABCD-ABCD-ABCD-ABCD",
-    "a bare 16-character body is accepted whatever prefix was typed");
+  ok(normaliseCode("ABCD-ABCD-ABCD-ABCD") === "CBS-ABCD-ABCD-ABCD-ABCD",
+    "a bare 16-character body is accepted and given its prefix back");
+  ok(normaliseCode("CBD-ABCD-ABCD-ABCD-ABCD") === "",
+    "a SYNC code is NOT a share code: the two prefixes cannot be pasted into each other's box");
   for (const hostile of ["", "../../etc/passwd", "CBS-ABCD", "share/x", null, undefined, "CBS-ABCD-ABCD-ABCD-ABC0", "%2e%2e%2f", "A".repeat(400)]) {
     ok(normaliseCode(hostile) === "", `${JSON.stringify(hostile)} is not a share code`);
   }
@@ -361,11 +366,30 @@ const EVAL_DIGEST = {
   threw = null;
   try { cleanDigest({ kind: "team", title: "x".repeat(200), team: [ENTRY({ ability: "y".repeat(9000) })] }); } catch (error) { threw = error; }
   ok(threw === null, "long fields are truncated rather than refused");
-  threw = null;
-  try {
-    cleanDigest({ kind: "eval", ...EVAL_DIGEST, checks: Array.from({ length: 16 }, () => ({ label: "z".repeat(90), severity: "red" })), team: TEAM_DIGEST.team.map(() => ENTRY({ name: "n".repeat(48), item: "i".repeat(48), moves: ["m".repeat(40), "m".repeat(40), "m".repeat(40), "m".repeat(40)] })) });
-  } catch (error) { threw = error; }
-  ok(threw?.status === 413, "a digest that is all maximum-length fields hits the record cap and is refused with 413");
+  // The biggest digest the allowlist can possibly emit, to show the record cap
+  // can never refuse a legitimate share -- it is there to catch a future change
+  // to the allowlist, and this is the assertion that would catch it.
+  const biggest = cleanDigest({
+    kind: "eval",
+    title: "t".repeat(200),
+    archetype: "a".repeat(200),
+    format: "Doubles",
+    scores: { synergy: 100, offense: 100, defense: 100, speed: 100 },
+    topMeta: 1000,
+    threatCount: 100000,
+    checks: Array.from({ length: 30 }, () => ({ label: "z".repeat(200), severity: "yellow" })),
+    checkCounts: { good: 999, yellow: 999, red: 999 },
+    threats: Array.from({ length: 30 }, () => ({ name: "n".repeat(200), species: "s".repeat(200), form: "f".repeat(200), item: "i".repeat(200), score: 100 })),
+    team: Array.from({ length: 12 }, () => ENTRY({
+      name: "n".repeat(200), species: "s".repeat(200), form: "f".repeat(200), item: "i".repeat(200),
+      ability: "b".repeat(200), nature: "Adamant", moves: Array.from({ length: 12 }, () => "m".repeat(200)),
+      bonuses: [32, 32, 32, 32, 32, 32], stats: { hp: 999, attack: 999, defense: 999, sp_attack: 999, sp_defense: 999, speed: 999 },
+    })),
+  });
+  const biggestChars = JSON.stringify(biggest).length;
+  ok(biggestChars < MAX_RECORD_CHARS,
+    `the largest digest the allowlist can emit is ${biggestChars} chars, inside the ${MAX_RECORD_CHARS} cap, so the cap can never refuse a real share`);
+  note(`the allowlist's own ceiling is ${biggestChars} chars against a ${MAX_RECORD_CHARS} cap`);
 }
 
 // 5. create, then read it back -------------------------------------------------
@@ -415,13 +439,24 @@ let liveBucket = null;
   ok(record.digest.team[2].item === "Rare Poke Ball Guaranteed Ticket", "the longest real item survives the round trip");
   ok(record.code === liveCode && record.format === "cbd-share/1", "the record names its own code and format");
 
-  // Accept: application/json is the other way in
+  // ONE URL, ONE REPRESENTATION.  Cloudflare keys its cache on the URL and
+  // ignores Vary except for Accept-Encoding, so if the Accept header chose the
+  // representation, a cached JSON body would eventually be served to a crawler
+  // (no card at all) or a cached page to the Companion.  The query string is the
+  // only switch, and this is the assertion that keeps it that way.
   const acceptResponse = await readCode.onRequestGet({
     request: getRequest(`${SITE}/api/share/${liveCode}`, { accept: "application/json" }),
     params: { code: liveCode },
     env: envFor(bucket),
   });
-  ok(acceptResponse.headers.get("content-type").includes("application/json"), "Accept: application/json also returns the record");
+  ok(acceptResponse.headers.get("content-type").includes("text/html"),
+    "Accept: application/json does NOT switch representation -- the URL decides, so a shared cache can never serve the wrong one");
+  const htmlParam = await readCode.onRequestGet({
+    request: getRequest(`${SITE}/api/share/${liveCode}?format=html`, { accept: "application/json" }),
+    params: { code: liveCode },
+    env: envFor(bucket),
+  });
+  ok(htmlParam.headers.get("content-type").includes("text/html"), "?format=html is the page too");
 }
 
 // 6. the page a crawler lands on ------------------------------------------------
@@ -483,8 +518,10 @@ let liveBucket = null;
   });
   const html = await response.text();
   ok(!html.includes("<script>alert(1)"), "the hostile title is not executable in the page");
-  ok(!html.includes("onerror=alert(2)"), "the hostile archetype is not executable either");
+  ok(!html.includes("<img src=x"), "the hostile archetype cannot become a tag (its angle brackets are gone everywhere, including inside the inlined JSON)");
   ok(!html.includes("</title><img"), "an injected </title> cannot end the title early");
+  const BACKSLASH = String.fromCharCode(92);
+  ok(html.includes(`${BACKSLASH}u003cimg src=x`), "and inside the JSON block its angle brackets are escaped rather than dropped");
   ok(html.includes("&lt;script&gt;alert(1)&lt;/script&gt;"), "the title is escaped and still readable");
   ok((html.match(/<\/title>/g) || []).length === 1, "exactly one </title>");
   ok(escapeHtml(`<a href="x">&'`) === "&lt;a href=&quot;x&quot;&gt;&amp;&#39;", "escapeHtml covers < > \" ' &");
@@ -561,6 +598,9 @@ let liveBucket = null;
   ok(html.includes("does not exist"), "which says so");
   ok(asPage.headers.get("cache-control") === "public, max-age=300", "a miss is cached only briefly");
   ok(html.includes('property="og:image"'), "even a miss carries og tags, so a dead link unfurls to something");
+  ok(/<title>That share link does not exist - Pokemon Champions<\/title>/.test(html),
+    `a miss names itself in the tab title rather than calling itself a Team: ${html.match(/<title>([^<]*)</)?.[1]}`);
+  ok(!html.includes("has expired"), "and an unknown code is not described as expired");
 }
 
 // 12. a crafted code never reaches storage ------------------------------------
@@ -612,7 +652,7 @@ let liveBucket = null;
     ["a too-large PNG", { record: TEAM_DIGEST, imageBase64: Buffer.alloc(MAX_CARD_BYTES + 32).toString("base64") }, 413],
     ["a PNG that is not a PNG", { record: TEAM_DIGEST, imageBase64: Buffer.from(`<!doctype html>${"x".repeat(400)}`).toString("base64") }, 400],
     ["a 1200x631 PNG", { record: TEAM_DIGEST, imageBase64: WRONG_SIZE_PNG.toString("base64") }, 400],
-    ["a truncated PNG", { record: TEAM_DIGEST, imageBase64: CARD_PNG.subarray(0, 4000).toString("base64") }, 400],
+    ["a truncated PNG", { record: TEAM_DIGEST, imageBase64: TRUNCATED_PNG.toString("base64") }, 400],
     ["a malformed record", { record: { kind: "team", team: "not a list" }, imageBase64: CARD_PNG.toString("base64") }, 400],
     ["no record at all", { imageBase64: CARD_PNG.toString("base64") }, 400],
     ["no image at all", { record: TEAM_DIGEST }, 400],
@@ -678,6 +718,21 @@ let liveBucket = null;
   ok(refused.status === 400, "multipart with no image field is refused");
 }
 
+// 15b. a realistic, busy card goes through untouched --------------------------
+{
+  const bucket = makeBucket();
+  const response = await create.onRequestPost({
+    request: jsonPost({ record: TEAM_DIGEST, imageBase64: BUSY_PNG.toString("base64") }),
+    env: envFor(bucket),
+  });
+  const body = await response.json();
+  ok(response.status === 201, `a ${BUSY_PNG.length}-byte card (the realistic size) is accepted`);
+  ok(body.bytes === BUSY_PNG.length, "and its byte count is reported exactly");
+  const served = await readImage.onRequestGet({ params: { code: body.code }, env: envFor(bucket) });
+  const bytes = new Uint8Array(await served.arrayBuffer());
+  ok(bytes.length === BUSY_PNG.length && Buffer.from(bytes).equals(BUSY_PNG), "and it comes back byte for byte");
+}
+
 // 16. abuse: what bounds growth ------------------------------------------------
 {
   // a repeat of the same share is the same share
@@ -735,6 +790,10 @@ let liveBucket = null;
     "without the R2 binding a create is 503, exactly as sync is without its namespace");
   ok((await readCode.onRequestGet({ request: getRequest(`${SITE}/api/share/${liveCode}?format=json`), params: { code: liveCode }, env })).status === 503,
     "and a read is 503");
+  const unconfiguredPage = await readCode.onRequestGet({ request: getRequest(`${SITE}/api/share/${liveCode}`), params: { code: liveCode }, env });
+  ok(unconfiguredPage.status === 503 && unconfiguredPage.headers.get("content-type").includes("text/html"),
+    "while a person or a crawler gets a page saying so, not a naked JSON error");
+  ok((await unconfiguredPage.text()).includes("not switched on yet"), "which says what is wrong");
   const image = await readImage.onRequestGet({ params: { code: liveCode }, env });
   ok(image.status === 200 && image.headers.get("x-share-card-reason") === "not-configured",
     "but the image route still answers with a real PNG, so nothing unfurls broken while the bucket is being created");
@@ -775,7 +834,7 @@ let liveBucket = null;
   ok(/<link rel="canonical" href="https:\/\/championsbattledata\.com\/share\/"/.test(template), "the bare /share/ page has its own absolute canonical");
   ok(template.includes('content="https://championsbattledata.com/assets/tool/team-builder.webp"'), "and a real absolute fallback og:image");
   ok(template.includes('class="page-share"'), "every style rule is scoped under .page-share");
-  ok(!template.includes("builder/builder.css"), "the page does not pull 67 KB of builder CSS for six colours");
+  ok(!/<link[^>]*builder\.css/.test(template), "the page does not pull 67 KB of builder CSS for six colours");
   ok(template.includes('src="/share/share-page.js"') && template.includes('href="/styles.css"'), "its script and stylesheet are root-absolute, so the same HTML works at /share/ and at /api/share/<code>");
 
   // with no template the page still stands up
@@ -834,6 +893,35 @@ let liveBucket = null;
   ok(wrangler.includes("wrangler r2 bucket create cbd-shares") && wrangler.includes('"binding": "SHARES", "bucket_name": "cbd-shares"'),
     "and the two steps to switch it on are written down beside it");
   ok(parsed.compatibility_flags?.includes("nodejs_compat"), "nodejs_compat is still set");
+}
+
+// 22. the source itself: no way out of the Function -----------------------------
+//
+// The worst mistake available here is a record whose value ends up in a fetch --
+// that turns the card pipeline into an open proxy.  The allowlist is the first
+// guard; this is the second, and it reads the shipped source rather than
+// trusting a comment.
+{
+  const sources = [
+    ["functions/api/share/_lib.js", readFileSync(join(root, "functions/api/share/_lib.js"), "utf8")],
+    ["functions/api/share/index.js", readFileSync(join(root, "functions/api/share/index.js"), "utf8")],
+    ["functions/api/share/[code].js", readFileSync(join(root, "functions/api/share/[code].js"), "utf8")],
+    ["functions/api/share/img/[code].js", readFileSync(join(root, "functions/api/share/img/[code].js"), "utf8")],
+  ];
+  let fetches = 0;
+  for (const [name, source] of sources) {
+    const calls = source.match(/[\w.]*fetch\s*\(/g) || [];
+    fetches += calls.length;
+    ok(!/console\.(log|info|warn|error)/.test(source), `${name} logs nothing, so no request data reaches a log line`);
+    ok(!/LICENSES|SYNC|licen[cs]e/i.test(source.replace(/^\s*[/*].*$/gm, "")), `${name} never touches the licence or sync bindings`);
+  }
+  ok(fetches === 1, `the whole feature makes exactly ${fetches} fetch call`);
+  const pageSource = sources[2][1];
+  ok(/const TEMPLATE_PATH = "\/share\/index\.html";/.test(pageSource), "and its path is a literal constant");
+  ok(/env\.ASSETS\.fetch\(new URL\(TEMPLATE_PATH, request\.url\)/.test(pageSource),
+    "resolved against this site's own origin -- never a string out of a request body");
+  // and the routes never widen CORS on the write path
+  ok(!/access-control-allow-origin/i.test(sources[1][1]), "the create route sends no CORS header, so a third-party page cannot read its answer");
 }
 
 for (const line of notes) console.log(`note: ${line}`);

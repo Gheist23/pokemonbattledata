@@ -15,18 +15,17 @@
  * loads in one request and works while the Team Builder's 863 KB table does not.
  */
 
-import {
-  MAX_BONUS_STAT_POINTS, PALETTE, STAT_KEYS, STAT_LABELS, bonusTotal, natureLabel, scoreColor,
-  statBarWidth, statColor, threatColor,
 // Relative, not "/builder/share-card.js": this module's own URL is always
-// /share/share-page.js (the page is served at /share/ and at /api/share/<code>
+// /share/share-page.js (the page is served at /share/ and at /api/share/<code>,
 // and both load it from that absolute path), so "../builder/..." resolves to
 // /builder/... in the browser AND imports in node, which is what lets the guard
 // suite pin the paste format against builder/common.js.
+import {
+  MAX_BONUS_STAT_POINTS, PALETTE, STAT_KEYS, STAT_LABELS, bonusTotal, natureLabel, scoreColor,
+  statBarWidth, statColor, threatColor,
 } from "../builder/share-card.js";
 
 const RECORD_SUFFIX = "?format=json";
-const CODE_SHAPE = /^CBS-[A-HJ-NP-Z2-9]{4}(-[A-HJ-NP-Z2-9]{4}){3}$/;
 /** functions/api/share/_lib.js TTL_DAYS, so the page and the store agree. */
 const TTL_DAYS = 180;
 
@@ -215,11 +214,12 @@ function render(payload) {
       <a class="ghost-button" href="/team-builder/?format=${encodeURIComponent(digest.format || "Doubles")}">Open the Team Builder</a>
     </div>
     <p class="share-note">${paste ? "Copy the team, then paste it into Import / Export in the Team Builder or the Companion. " : ""}${esc(expiryNote(record))}</p>
+    ${/* an evaluation leads with its verdict; a team leads with its sets */ ""}
+    ${isEval ? evalPanels(digest) : ""}
     ${(digest.team || []).length ? `<section class="share-panel">
       <h2>${isEval ? "The team that was evaluated" : "The sets"}</h2>
       <div class="share-grid">${(digest.team || []).map(slotCard).join("")}</div>
     </section>` : ""}
-    ${isEval ? evalPanels(digest) : ""}
     ${paste ? `<details class="share-paste">
       <summary>Show the team as text</summary>
       <textarea readonly spellcheck="false" aria-label="The team in Showdown format">${esc(paste)}</textarea>
@@ -316,6 +316,6 @@ async function main() {
 
 // Exported for the guard suite, which has no DOM: the paste builder and the code
 // reader are the only two pieces of this file worth pinning.
-export { CODE_SHAPE, TTL_DAYS, normaliseCode, showdownFor, showdownTeam };
+export { TTL_DAYS, normaliseCode, showdownFor, showdownTeam };
 
 if (hasDom) main();

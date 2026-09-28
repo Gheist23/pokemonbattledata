@@ -47,7 +47,11 @@ function htmlResponse(body, status = 200, cacheControl = "public, max-age=3600")
  *  og:type, og:url, og:title, og:description, og:site_name, og:image, then the
  *  twitter:* trio. */
 function metaBlock({ title, description, page, image, kind }) {
-  const heading = `${title} - ${KIND_WORD[kind] || KIND_WORD.team} - Pokemon Champions`;
+  // A miss has no kind to name, and calling it a "Team" in the tab title while
+  // the page says the link is gone reads like a bug.
+  const heading = kind
+    ? `${title} - ${KIND_WORD[kind] || KIND_WORD.team} - Pokemon Champions`
+    : `${title} - Pokemon Champions`;
   return [
     `  <title>${escapeHtml(heading)}</title>`,
     `  <meta name="description" content="${escapeHtml(description)}" />`,
@@ -129,14 +133,15 @@ async function template(env, request) {
 
 async function page(env, request, { record, code, status, note }) {
   const digest = record?.digest || null;
-  const title = digest ? cardTitle(digest) : "This share link has expired";
+  const fallbackTitle = String(note || "This share link is not available").replace(/\.$/, "");
+  const title = digest ? cardTitle(digest) : fallbackTitle;
   const description = digest
     ? cardDescription(digest)
     : note || "Share a Pokemon Champions team or a Team Evaluation result as a picture.";
   const image = digest
     ? imageUrl(request, code)
     : `${SITE_ORIGIN}/assets/tool/team-builder.webp`;
-  const meta = metaBlock({ title, description, page: pageUrl(request, code), image, kind: digest?.kind || "team" });
+  const meta = metaBlock({ title, description, page: pageUrl(request, code), image, kind: digest?.kind || "" });
   const noscript = noscriptBlock({ title, description, image });
   const payload = escapeJsonForHtml(JSON.stringify({
     code,
@@ -158,13 +163,17 @@ async function page(env, request, { record, code, status, note }) {
   return htmlResponse(html, status, status === 200 ? "public, max-age=3600" : "public, max-age=300");
 }
 
+/**
+ * ONE URL, ONE REPRESENTATION -- the query string decides, never the Accept
+ * header.  Both answers are public and cacheable, and Cloudflare's cache keys
+ * on the URL and ignores `Vary` on everything except Accept-Encoding, so an
+ * Accept-negotiated pair at one URL would eventually serve a cached JSON body
+ * to a crawler (no card) or a cached HTML body to the Companion (no record).
+ * `?format=json` is a different URL and cannot do that.  The create endpoint
+ * hands every client that exact URL back as `recordUrl`.
+ */
 function wantsJson(request) {
-  const url = new URL(request.url);
-  const asked = String(url.searchParams.get("format") || "").toLowerCase();
-  if (asked === "json") return true;
-  if (asked === "html") return false;
-  const accept = String(request.headers.get("accept") || "").toLowerCase();
-  return accept.includes("application/json") && !accept.includes("text/html") && !accept.includes("*/*");
+  return String(new URL(request.url).searchParams.get("format") || "").toLowerCase() === "json";
 }
 
 export async function onRequestGet(context) {
@@ -181,7 +190,15 @@ export async function onRequestGet(context) {
   }
 
   const bucket = store(env);
-  if (!bucket) return json({ error: "Sharing is not configured on this server." }, 503);
+  if (!bucket) {
+    // The binding is added only after the bucket exists, so this is the state
+    // the feature ships in.  An API caller gets the same 503 the sync routes
+    // give (functions/api/sync/index.js:8); a person or a crawler gets a page
+    // that says so, rather than a naked JSON error.
+    return wantsJson(request)
+      ? json({ error: "Sharing is not configured on this server." }, 503)
+      : page(env, request, { record: null, code, status: 503, note: "Sharing is not switched on yet." });
+  }
 
   const stored = await bucket.get(await recordKey(code));
   let record = null;

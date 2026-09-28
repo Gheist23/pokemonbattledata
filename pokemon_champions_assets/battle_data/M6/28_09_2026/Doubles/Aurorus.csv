@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Aurorus,174,move,1,Blizzard,69.3%,,,,,,,,
-Aurorus,174,move,2,Protect,62.0%,,,,,,,,
+Aurorus,174,move,2,Protect,62.1%,,,,,,,,
 Aurorus,174,move,3,Ancient Power,52.6%,,,,,,,,
 Aurorus,174,move,4,Freeze-Dry,46.0%,,,,,,,,
 Aurorus,174,move,5,Aurora Veil,43.9%,,,,,,,,
@@ -28,13 +28,13 @@ Aurorus,174,teammate,6,Incineroar,,,,,,,,,
 Aurorus,174,teammate,7,Torkoal,,,,,,,,,
 Aurorus,174,teammate,8,Sylveon,,,,,,,,,
 Aurorus,174,teammate,9,Milotic,,,,,,,,,
-Aurorus,174,teammate,10,Froslass,,,,,,,,,
+Aurorus,174,teammate,10,Tyranitar,,,,,,,,,
 Aurorus,174,stat_alignment,1,Modest,35.9%,Sp. Atk,Attack,,,,,,
 Aurorus,174,stat_alignment,2,Quiet,30.8%,Sp. Atk,Speed,,,,,,
 Aurorus,174,stat_alignment,3,Timid,6.3%,Speed,Attack,,,,,,
 Aurorus,174,stat_alignment,4,Bold,6.1%,Defense,Attack,,,,,,
 Aurorus,174,stat_alignment,5,Calm,5.8%,Sp. Def,Attack,,,,,,
-Aurorus,174,stat_alignment,6,Relaxed,5.1%,Defense,Speed,,,,,,
+Aurorus,174,stat_alignment,6,Relaxed,5.0%,Defense,Speed,,,,,,
 Aurorus,174,stat_alignment,7,Sassy,4.9%,Sp. Def,Speed,,,,,,
 Aurorus,174,stat_alignment,8,Mild,2.6%,Sp. Atk,Defense,,,,,,
 Aurorus,174,stat_alignment,9,Hasty,1.0%,Speed,Defense,,,,,,
@@ -49,5 +49,5 @@ Aurorus,174,stat_points,7,,2.3%,,,0,0,32,32,2,0
 Aurorus,174,stat_points,8,,2.3%,,,0,0,2,32,32,0
 Aurorus,174,stat_points,9,,2.0%,,,8,0,0,32,0,26
 Aurorus,174,stat_points,10,,1.9%,,,32,0,0,32,0,2
-Aurorus,174,ability,1,Snow Warning,77.9%,,,,,,,,
-Aurorus,174,ability,2,Refrigerate,22.1%,,,,,,,,
+Aurorus,174,ability,1,Snow Warning,77.8%,,,,,,,,
+Aurorus,174,ability,2,Refrigerate,22.2%,,,,,,,,

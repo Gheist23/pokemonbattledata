@@ -64,7 +64,10 @@ export async function onRequestGet({ params, env }) {
   };
   if (object.httpEtag) headers.etag = object.httpEtag;
   if (Number.isFinite(Number(object.size))) headers["content-length"] = String(object.size);
-  return new Response(object.body ?? object, { status: 200, headers });
+  // R2's get() gives an R2ObjectBody; anything without a body is not a card, and
+  // handing Response an arbitrary object would serve "[object Object]" as a PNG.
+  if (!object.body) return fallback("no-body");
+  return new Response(object.body, { status: 200, headers });
 }
 
 export const onRequestHead = onRequestGet;

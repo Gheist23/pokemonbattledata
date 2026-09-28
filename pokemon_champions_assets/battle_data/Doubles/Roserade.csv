@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Roserade,227,move,1,Sludge Bomb,89.4%,,,,,,,,
 Roserade,227,move,2,Protect,60.0%,,,,,,,,
-Roserade,227,move,3,Sleep Powder,38.7%,,,,,,,,
-Roserade,227,move,4,Giga Drain,38.5%,,,,,,,,
+Roserade,227,move,3,Sleep Powder,38.6%,,,,,,,,
+Roserade,227,move,4,Giga Drain,38.6%,,,,,,,,
 Roserade,227,move,5,Leaf Storm,26.9%,,,,,,,,
 Roserade,227,move,6,Shadow Ball,24.9%,,,,,,,,
-Roserade,227,move,7,Energy Ball,23.6%,,,,,,,,
+Roserade,227,move,7,Energy Ball,23.5%,,,,,,,,
 Roserade,227,move,8,Dazzling Gleam,23.1%,,,,,,,,
 Roserade,227,move,9,Extrasensory,9.6%,,,,,,,,
 Roserade,227,move,10,Weather Ball,7.7%,,,,,,,,
@@ -16,8 +16,8 @@ Roserade,227,held_item,4,Wise Glasses,10.2%,,,,,,,,
 Roserade,227,held_item,5,Sitrus Berry,6.4%,,,,,,,,
 Roserade,227,held_item,6,Wide Lens,6.4%,,,,,,,,
 Roserade,227,held_item,7,Big Root,5.3%,,,,,,,,
-Roserade,227,held_item,8,Expert Belt,3.3%,,,,,,,,
-Roserade,227,held_item,9,Miracle Seed,3.2%,,,,,,,,
+Roserade,227,held_item,8,Expert Belt,3.2%,,,,,,,,
+Roserade,227,held_item,9,Miracle Seed,3.1%,,,,,,,,
 Roserade,227,held_item,10,White Herb,2.4%,,,,,,,,
 Roserade,227,teammate,1,Milotic,,,,,,,,,
 Roserade,227,teammate,2,Garchomp,,,,,,,,,
@@ -28,11 +28,11 @@ Roserade,227,teammate,6,Froslass,,,,,,,,,
 Roserade,227,teammate,7,Gallade,,,,,,,,,
 Roserade,227,teammate,8,Empoleon,,,,,,,,,
 Roserade,227,teammate,9,Altaria,,,,,,,,,
-Roserade,227,teammate,10,Sylveon,,,,,,,,,
-Roserade,227,stat_alignment,1,Modest,54.4%,Sp. Atk,Attack,,,,,,
+Roserade,227,teammate,10,Flareon,,,,,,,,,
+Roserade,227,stat_alignment,1,Modest,54.5%,Sp. Atk,Attack,,,,,,
 Roserade,227,stat_alignment,2,Timid,32.1%,Speed,Attack,,,,,,
 Roserade,227,stat_alignment,3,Calm,3.1%,Sp. Def,Attack,,,,,,
-Roserade,227,stat_alignment,4,Bold,2.9%,Defense,Attack,,,,,,
+Roserade,227,stat_alignment,4,Bold,3.0%,Defense,Attack,,,,,,
 Roserade,227,stat_alignment,5,Quiet,2.0%,Sp. Atk,Speed,,,,,,
 Roserade,227,stat_alignment,6,Mild,1.4%,Sp. Atk,Defense,,,,,,
 Roserade,227,stat_alignment,7,Adamant,1.2%,Attack,Sp. Atk,,,,,,
@@ -41,12 +41,12 @@ Roserade,227,stat_alignment,9,Hasty,0.6%,Speed,Defense,,,,,,
 Roserade,227,stat_alignment,10,Jolly,0.6%,Speed,Sp. Atk,,,,,,
 Roserade,227,stat_points,1,,31.9%,,,2,0,0,32,0,32
 Roserade,227,stat_points,2,,8.8%,,,0,0,0,32,2,32
-Roserade,227,stat_points,3,,8.0%,,,0,0,10,32,16,8
-Roserade,227,stat_points,4,,5.2%,,,5,0,0,31,0,30
+Roserade,227,stat_points,3,,8.1%,,,0,0,10,32,16,8
+Roserade,227,stat_points,4,,5.3%,,,5,0,0,31,0,30
 Roserade,227,stat_points,5,,5.0%,,,0,0,2,32,0,32
-Roserade,227,stat_points,6,,3.2%,,,0,0,0,32,32,2
-Roserade,227,stat_points,7,,2.4%,,,0,0,0,32,0,32
-Roserade,227,stat_points,8,,2.4%,,,32,0,2,32,0,0
+Roserade,227,stat_points,6,,3.1%,,,0,0,0,32,32,2
+Roserade,227,stat_points,7,,2.4%,,,32,0,2,32,0,0
+Roserade,227,stat_points,8,,2.4%,,,0,0,0,32,0,32
 Roserade,227,stat_points,9,,1.8%,,,32,0,0,32,2,0
 Roserade,227,stat_points,10,,1.7%,,,25,0,0,1,8,32
 Roserade,227,ability,1,Poison Point,74.6%,,,,,,,,

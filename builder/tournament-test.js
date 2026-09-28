@@ -46,9 +46,13 @@
 // The game's value = 50 + 50 x (our HP left - their HP left), each side's HP as a share
 // of what it brought, kept to 0..100.
 //
-// A matchup is every bring of ours against every bring of theirs. We bring the one that
-// holds up best; they answer with the one that hurts it most (max over ours of min over
-// theirs, ties to the better average). 50 is even.
+// A matchup is every bring of ours against every bring of theirs. Both sides bring blind: each
+// takes the Pokémon that hold up best against every answer the other could make (ties to the
+// better average, then the lower line-up), and the matchup's score is the one game those two
+// choices play. Neither side sees the other's choice, and a Speed tie is decided by the two
+// Pokémon themselves and not by which side they are on, so the same two teams score the same
+// whichever of them is "ours": A against B and B against A add up to 100, and a team against
+// itself scores exactly 50. That is why 50 is even.
 //
 // One Mega Evolution a side. Only one Pokémon per side may Mega-Evolve in a battle, so a
 // bring carries one Mega Stone: a second stone is a dead item slot, and no bring that can
@@ -82,8 +86,9 @@ const MATRIX_EVERY = 8; // snapshots between lead-matrix refreshes while running
 const ID_SPAN = 1 << 16;
 const MAX_CACHED_HITS = 400000;
 export const MATCHUP_BANDS = { favourable: 55, unfavourable: 45 };
-// v5: scored under the seat rule (TOURNAMENT_SEAT), so every earlier snapshot is a different number.
-export const SNAPSHOT_VERSION = 5;
+// v6: scored under the bring rule (TOURNAMENT_BRING) on top of the seat rule (TOURNAMENT_SEAT), so
+// every earlier snapshot is a different number.
+export const SNAPSHOT_VERSION = 6;
 
 /** The turn-1 rule as a version: 2 keeps turn 1 out of the duel board, 1 prices Tailwind and
  *  Trick Room, 0 forces them.
@@ -124,18 +129,58 @@ export const TOURNAMENT_TURN_ONE = 2;
  *      on. A tie in the real game is a coin flip, so no winner is "correct"; what must not happen
  *      is that the seat decides it.
  *    - two INDISTINGUISHABLE Pokémon (same priority, same Speed, same set) cannot be ordered at
- *      all, and there both act: neither takes the other's action away by knocking it out, making
- *      it flinch, putting it to sleep or Taunting it first. That is the only seat-free answer to
- *      a coin flip between twins, and it is what makes a mirror come out at exactly 50.
+ *      all, and there both act (`tieRuns`, `freezeRun`): neither takes the other's action away by
+ *      knocking it out, making it flinch, putting it to sleep, Taunting or Encoring it first, and
+ *      both strike with the stats they had before either moved. That is the only seat-free answer
+ *      to a coin flip between twins, and it is what makes a mirror come out at exactly 50.
  *    - Protect, Wide Guard and Quick Guard are decided for both sides against the plans as they
  *      stood BEFORE any guard was chosen, so side 0's Protect no longer removes its attack from
  *      the damage side 1 prices its own Protect against.
- *  Measured after: all 20 mirrors score exactly 50.00, and A-vs-B + B-vs-A is exactly 100.
+ *    - everyone replaced on the same turn comes in together, in Speed order (`refill`), instead of
+ *      side 0's replacements and then side 1's.
+ *  Measured after, on the same 20 teams: all 210 mirror games (every bring) score exactly 50.00,
+ *  and all 4,050 seat swaps measured -- within a team and across teams -- add up to exactly 100.
+ *  The headline barely moves (Doubles 48.41 -> 48.46 on 150 teams), which is why a per-matchup
+ *  bias of up to 75 points could sit here unnoticed.
  *
  *  Kept as a stamp on the `team_checks` pattern so a recording made before the rule replays
  *  byte-identically at its own stamp: version 0 restores the seat-dependent order and the
  *  one-pass Protect. */
 export const TOURNAMENT_SEAT = 1;
+
+/** The bring rule as a version: 1 has both sides commit blind, 0 is the shipped best response.
+ *
+ *  Under version 0 our bring is the one whose WORST answer is best (`max` over ours of `min` over
+ *  theirs) and their bring is the answer that hurts that choice most -- a best response to a
+ *  commitment they can see. Since `max min <= min max`, the number reported is the value of a game
+ *  we play blind and they play knowing our line-up, so it is systematically below even: measured on
+ *  a round robin of the first 20 tournament teams (380 ordered pairs, every bring against every
+ *  bring, Doubles, default settings) the reported average is 45.17 while the average over every
+ *  bring pair -- the value with no decision in it at all -- is exactly 50.0000, and 170 of the 190
+ *  unordered pairs do not add up to 100 (mean 10.80, max 31.55 points). That is what made the
+ *  page's own "A score of 50 is even" untrue.
+ *
+ *  Version 1 gives their bring the same rule ours has: the bring whose worst case is best, chosen
+ *  without seeing what the other side brings. Their seat's maximin is `argmin` over theirs of `max`
+ *  over ours, which needs no extra game -- it reads the very grid the loop already builds, because
+ *  the seat rule (TOURNAMENT_SEAT) makes V(ours=c, theirs=d) + V(ours=d, theirs=c) exactly 100. The
+ *  tie-break is the mirror of ours: ours takes the better worst case, then the better average, then
+ *  the lower plan index; theirs takes the better worst case FOR THEM (our lower one), then the
+ *  better average for them (our lower one), then the lower plan index -- their own index in their
+ *  own plan list, which is the same list whichever seat they sit on, so the pick is the same after a
+ *  seat swap. Measured on the same round robin: the reported average is exactly 50.00, all 190
+ *  pairs add up to 100 exactly, and the bands go 25.3 / 21.3 / 53.4 -> 38.2 / 23.7 / 38.2.
+ *
+ *  Our own recommended bring is the same under both versions -- only the game it is scored in
+ *  changes, and with it which of THEIR Pokémon are recorded as brought against us (the threats
+ *  card's `brought`, `kosPerGame`, `survived` and their pairs). `bringTotals` follows the same
+ *  rule, so the bring options card prints the average of what each bring scores against every
+ *  team's own committed bring, which is what its copy claims.
+ *
+ *  Kept as a stamp on the `team_checks` pattern so a recording made before the rule replays
+ *  byte-identically at its own stamp: version 0 restores the best-response answer and the
+ *  per-team worst case in `bringTotals`. */
+export const TOURNAMENT_BRING = 1;
 
 /** A rule stamp as a version: 0 (off) for null / undefined / false / "" / "0".
  *
@@ -163,6 +208,12 @@ export function tournamentTurnOneOption(value) {
  *  exactly as `tournamentTurnOneOption` does. */
 export function tournamentSeatOption(value) {
   return ruleVersion(value, TOURNAMENT_SEAT);
+}
+
+/** A `tournament_bring` stamp as a version (`ruleVersion` against TOURNAMENT_BRING), so it coerces
+ *  exactly as `tournamentTurnOneOption` does. */
+export function tournamentBringOption(value) {
+  return ruleVersion(value, TOURNAMENT_BRING);
 }
 
 const WEATHERS = ["None", "Sun", "Rain", "Sand", "Snow", "Strong Winds"];
@@ -331,15 +382,17 @@ export class TournamentTest {
    * @param {TeamEvaluation} evaluation   its evaluator does every calculation
    * @param {KnownTeams} known            the tournament-team library
    * @param {TeamSuggestions} suggestions for the Stat Points that go with a Nature
-   * @param {{turnOneRule?:number|string, seatRule?:number|string}} options `turnOneRule`: the
-   *   turn-1 rule (TOURNAMENT_TURN_ONE); 1 replays the post-turn-1 duel board of a recording made
-   *   before version 2, and 0 the forced Tailwind / Trick Room of one made before version 1 as
-   *   well. `seatRule`: the seat rule (TOURNAMENT_SEAT); 0 replays the seat-dependent Speed tie
-   *   and one-pass Protect of a recording made before it.
+   * @param {{turnOneRule?:number|string, seatRule?:number|string, bringRule?:number|string}} options
+   *   `turnOneRule`: the turn-1 rule (TOURNAMENT_TURN_ONE); 1 replays the post-turn-1 duel board of
+   *   a recording made before version 2, and 0 the forced Tailwind / Trick Room of one made before
+   *   version 1 as well. `seatRule`: the seat rule (TOURNAMENT_SEAT); 0 replays the seat-dependent
+   *   Speed tie and one-pass Protect of a recording made before it. `bringRule`: the bring rule
+   *   (TOURNAMENT_BRING); 0 replays the best-response answer of a recording made before it.
    */
-  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT } = {}) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING } = {}) {
     this.turnOneRule = tournamentTurnOneOption(turnOneRule);
     this.seatRule = tournamentSeatOption(seatRule);
+    this.bringRule = tournamentBringOption(bringRule);
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -2137,25 +2190,57 @@ export class TournamentTest {
     const theirs = team.members.map((member) => this.opponentMon(member));
     const theirPlans = this.plansFor(theirs);
     const memo = new Map();
+    // Every bring of ours against every bring of theirs, kept as a grid: under the bring rule
+    // (TOURNAMENT_BRING) their own blind choice is read off these very games, so it costs none.
+    const grid = [];
     let best = { value: -1, mean: -1, c: 0, d: 0 };
     for (let c = 0; c < state.plans.length; c += 1) {
+      const row = [];
       let worst = 101;
       let worstD = 0;
       let sum = 0;
       for (let d = 0; d < theirPlans.length; d += 1) {
         const { value } = this.play(state.plans[c], theirPlans[d], memo);
+        row.push(value);
         sum += value;
         if (value < worst) {
           worst = value;
           worstD = d;
         }
       }
+      grid.push(row);
       state.games += theirPlans.length;
       const mean = sum / theirPlans.length;
-      state.bringTotals[c].value += worst;
+      // Version 0's bring options card: the per-team worst case. Version 1's is the game each
+      // bring plays against the bring they commit to, which is what the card says it shows.
+      if (this.bringRule < 1) state.bringTotals[c].value += worst;
       if (worst > best.value + 1e-9 || (Math.abs(worst - best.value) <= 1e-9 && (mean > best.mean + 1e-9 || (Math.abs(mean - best.mean) <= 1e-9 && c < best.c)))) {
         best = { value: worst, mean, c, d: worstD };
       }
+    }
+    // Their bring. Version 0 answers the bring we chose, which only a side that can see it could
+    // pick. Version 1 gives them our own rule instead -- the bring whose worst case is best, chosen
+    // blind -- which from our seat is the column whose BEST case for us is worst. Its tie-break is
+    // the mirror of ours: their better worst case (our lower best case), then their better average
+    // (our lower average), then the lower index in THEIR OWN plan list, which is the same list
+    // whichever seat they sit on, so a seat swap makes the same pick. Our own bring is untouched.
+    if (this.bringRule >= 1) {
+      let theirBest = { value: 101, mean: 101, d: 0 };
+      for (let d = 0; d < theirPlans.length; d += 1) {
+        let top = -1;
+        let sum = 0;
+        for (let c = 0; c < state.plans.length; c += 1) {
+          const value = grid[c][d];
+          sum += value;
+          if (value > top) top = value;
+        }
+        const mean = sum / state.plans.length;
+        if (top < theirBest.value - 1e-9 || (Math.abs(top - theirBest.value) <= 1e-9 && (mean < theirBest.mean - 1e-9 || (Math.abs(mean - theirBest.mean) <= 1e-9 && d < theirBest.d)))) {
+          theirBest = { value: top, mean, d };
+        }
+      }
+      best = { value: grid[best.c][theirBest.d], mean: best.mean, c: best.c, d: theirBest.d };
+      for (let c = 0; c < state.plans.length; c += 1) state.bringTotals[c].value += grid[c][theirBest.d];
     }
     const ourPlan = state.plans[best.c];
     const theirPlan = theirPlans[best.d];

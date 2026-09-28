@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Altaria,101,move,1,Protect,83.1%,,,,,,,,
 Altaria,101,move,2,Tailwind,71.0%,,,,,,,,
-Altaria,101,move,3,Will-O-Wisp,58.8%,,,,,,,,
+Altaria,101,move,3,Will-O-Wisp,58.7%,,,,,,,,
 Altaria,101,move,4,Ice Beam,53.8%,,,,,,,,
 Altaria,101,move,5,Hyper Voice,27.8%,,,,,,,,
 Altaria,101,move,6,Roost,15.4%,,,,,,,,
 Altaria,101,move,7,Dragon Pulse,9.5%,,,,,,,,
 Altaria,101,move,8,Flamethrower,8.0%,,,,,,,,
-Altaria,101,move,9,Perish Song,7.8%,,,,,,,,
-Altaria,101,move,10,Draco Meteor,7.8%,,,,,,,,
+Altaria,101,move,9,Draco Meteor,7.8%,,,,,,,,
+Altaria,101,move,10,Perish Song,7.8%,,,,,,,,
 Altaria,101,held_item,1,Haban Berry,49.9%,,,,,,,,
 Altaria,101,held_item,2,Altarianite,31.8%,,,,,,,,
 Altaria,101,held_item,3,Leftovers,5.3%,,,,,,,,
@@ -43,7 +43,7 @@ Altaria,101,stat_points,1,,39.9%,,,32,0,5,0,0,29
 Altaria,101,stat_points,2,,4.8%,,,32,0,0,32,0,2
 Altaria,101,stat_points,3,,4.3%,,,32,0,1,0,1,32
 Altaria,101,stat_points,4,,3.2%,,,2,0,0,32,0,32
-Altaria,101,stat_points,5,,2.7%,,,32,0,2,32,0,0
+Altaria,101,stat_points,5,,2.6%,,,32,0,2,32,0,0
 Altaria,101,stat_points,6,,1.8%,,,32,0,20,0,14,0
 Altaria,101,stat_points,7,,1.6%,,,32,0,0,32,2,0
 Altaria,101,stat_points,8,,1.4%,,,32,0,20,0,11,3

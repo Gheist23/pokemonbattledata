@@ -561,11 +561,14 @@ Data comes from two places:
   Quick Guard are decided against the plans as they stood before any guard was chosen; and everyone
   replaced on a turn comes in together in Speed order. After it every one of those measurements is
   exact: 210 of 210 mirror games (every bring of every one of the 20 teams) score exactly 50.00 and
-  all 4,050 seat swaps add up to exactly 100.00. It is nearly free in the headline - Doubles 48.41 -> 48.46, Singles 49.03 ->
-  49.21 on the smoke suite's bench team against 150 teams, and the subject-side by-archetype table
-  moves 41.80 -> 41.68 over 88 corpus subjects with Trick Room 42.82 -> 42.64, still below Hyper
-  Offense (46.98) and Tailwind (46.26) - which is exactly why it was easy to miss: the bias is
-  per-matchup, up to 75 points, and cancels in the average. `node tests/run-tournament-symmetry.mjs`
+  all 4,050 seat swaps add up to exactly 100.00. It is nearly free in the headline - Doubles 48.41
+  -> 48.46 and Singles 49.03 -> 49.21 on the smoke suite's bench team against 150 teams, and the
+  subject-side by-archetype table moves 41.80 -> 41.68 over 88 corpus subjects with Trick Room
+  42.82 -> 42.64, still below Hyper Offense (46.98) and Tailwind (46.26) - which is exactly why it
+  was easy to miss: the bias is per-matchup and cancels in the average. Per matchup it is not small
+  at all: on that same bench team 22 of the 150 matchup values move, every one of them by more than
+  a point, up to 37.50 -> 60.23 (Singles 12 of 150, up to 33.33 -> 58.57).
+  `node tests/run-tournament-symmetry.mjs`
   asserts the properties themselves rather than any measured number, in both formats, and checks
   that version 0 still breaks all four, so it cannot pass by doing nothing. `TOURNAMENT_SEAT` is a
   stamp: `new TournamentTest(..., { seatRule: 0 })` replays the seat-dependent model exactly (the

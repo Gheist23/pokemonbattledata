@@ -1,7 +1,9 @@
 // The seat test for Test against Tournament Teams (builder/tournament-test.js TOURNAMENT_SEAT).
 //
-// The battle model must not care which side a Pokémon sits on. Two properties say so, and both
-// are asserted here on real tournament teams (data/builder/known-teams.json), in both formats:
+// The battle model must not care which side a Pokémon sits on. These properties say so, and all of
+// them are asserted here on real tournament teams (data/builder/known-teams.json), in both formats,
+// under the default settings (the shared Reflect / Light Screen / Tailwind settings are applied by
+// SIDE, so pinning one of those makes the board asymmetric by input, not by this rule):
 //
 //   MIRROR      a team played against ITSELF, the same bring on both sides, scores exactly 50.
 //   SEAT SWAP   the same two line-ups with the seats exchanged score exactly 100 together.
@@ -11,9 +13,9 @@
 //               the bring rule's own pessimism, which is not this rule's business. team8 read
 //               66.06 against itself before the seat rule.)
 //
-// Neither is a number that was measured and written down: they follow from the value being
+// None of them is a number that was measured and written down: they follow from the value being
 // 50 + 50 x (our HP share - their HP share) of a game whose rules never read the side index.
-// Under version 0 both fail -- that is the defect the rule fixes, and the suite checks that the
+// Under version 0 they all fail -- that is the defect the rule fixes, and the suite checks that the
 // old version still fails, so it cannot pass by doing nothing.
 //
 // The subject is built through the PRODUCTION path on both sides (ourUnit for our team,

@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Bastiodon,223,move,1,Body Press,75.2%,,,,,,,,
+Bastiodon,223,move,1,Body Press,75.3%,,,,,,,,
 Bastiodon,223,move,2,Wide Guard,67.2%,,,,,,,,
-Bastiodon,223,move,3,Metal Burst,37.6%,,,,,,,,
-Bastiodon,223,move,4,Iron Defense,32.9%,,,,,,,,
+Bastiodon,223,move,3,Metal Burst,37.5%,,,,,,,,
+Bastiodon,223,move,4,Iron Defense,33.0%,,,,,,,,
 Bastiodon,223,move,5,Protect,30.0%,,,,,,,,
 Bastiodon,223,move,6,Foul Play,23.1%,,,,,,,,
 Bastiodon,223,move,7,Steel Roller,18.2%,,,,,,,,
@@ -18,7 +18,7 @@ Bastiodon,223,held_item,6,Focus Sash,3.7%,,,,,,,,
 Bastiodon,223,held_item,7,Grassy Seed,2.7%,,,,,,,,
 Bastiodon,223,held_item,8,Red Card,2.5%,,,,,,,,
 Bastiodon,223,held_item,9,Psychic Seed,2.4%,,,,,,,,
-Bastiodon,223,held_item,10,Quick Claw,2.2%,,,,,,,,
+Bastiodon,223,held_item,10,Quick Claw,2.1%,,,,,,,,
 Bastiodon,223,teammate,1,Tyranitar,,,,,,,,,
 Bastiodon,223,teammate,2,Indeedee-F,,,,,,,,,
 Bastiodon,223,teammate,3,Rillaboom,,,,,,,,,
@@ -31,7 +31,7 @@ Bastiodon,223,teammate,9,Milotic,,,,,,,,,
 Bastiodon,223,teammate,10,Staraptor,,,,,,,,,
 Bastiodon,223,stat_alignment,1,Impish,24.7%,Defense,Sp. Atk,,,,,,
 Bastiodon,223,stat_alignment,2,Relaxed,23.9%,Defense,Speed,,,,,,
-Bastiodon,223,stat_alignment,3,Sassy,21.2%,Sp. Def,Speed,,,,,,
+Bastiodon,223,stat_alignment,3,Sassy,21.3%,Sp. Def,Speed,,,,,,
 Bastiodon,223,stat_alignment,4,Careful,12.3%,Sp. Def,Sp. Atk,,,,,,
 Bastiodon,223,stat_alignment,5,Bold,5.0%,Defense,Attack,,,,,,
 Bastiodon,223,stat_alignment,6,Brave,5.0%,Attack,Speed,,,,,,
@@ -40,7 +40,7 @@ Bastiodon,223,stat_alignment,8,Calm,1.9%,Sp. Def,Attack,,,,,,
 Bastiodon,223,stat_alignment,9,Modest,0.4%,Sp. Atk,Attack,,,,,,
 Bastiodon,223,stat_alignment,10,Lonely,0.2%,Attack,Defense,,,,,,
 Bastiodon,223,stat_points,1,,29.4%,,,32,0,32,0,2,0
-Bastiodon,223,stat_points,2,,16.1%,,,32,0,2,0,32,0
+Bastiodon,223,stat_points,2,,16.0%,,,32,0,2,0,32,0
 Bastiodon,223,stat_points,3,,7.8%,,,2,0,32,0,32,0
 Bastiodon,223,stat_points,4,,3.5%,,,0,0,32,0,32,0
 Bastiodon,223,stat_points,5,,3.3%,,,32,0,22,0,12,0
@@ -49,5 +49,5 @@ Bastiodon,223,stat_points,7,,2.4%,,,32,0,12,0,22,0
 Bastiodon,223,stat_points,8,,2.0%,,,32,0,0,0,32,0
 Bastiodon,223,stat_points,9,,2.0%,,,2,32,32,0,0,0
 Bastiodon,223,stat_points,10,,1.9%,,,0,32,32,0,2,0
-Bastiodon,223,ability,1,Sturdy,52.5%,,,,,,,,
-Bastiodon,223,ability,2,Soundproof,47.5%,,,,,,,,
+Bastiodon,223,ability,1,Sturdy,52.6%,,,,,,,,
+Bastiodon,223,ability,2,Soundproof,47.4%,,,,,,,,

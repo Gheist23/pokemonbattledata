@@ -104,20 +104,59 @@ export const SNAPSHOT_VERSION = 4;
  *  0 the forced setup branches as well. */
 export const TOURNAMENT_TURN_ONE = 2;
 
-/** A `tournament_turn_one` stamp as a version: 0 (off) for null / undefined / false / "" / "0".
+/** The seat rule as a version: 1 takes the SEAT out of the battle model, 0 is the shipped model.
  *
- *  Coerces exactly as `teamCheckRulesOption` does (team-checks.js): a version is a non-negative
- *  integer, so it is truncated and a non-positive one is off. An ABSENT value on a recording
- *  means "no stamp", i.e. a recording made before the rule, so it is off -- but the option's own
- *  default is the current version, which is what production runs. */
-export function tournamentTurnOneOption(value) {
+ *  Under version 0 a Speed tie is broken by `(turn % 2 ? b.s - a.s : a.s - b.s)`, i.e. by which
+ *  side the Pokémon sits on and the parity of the turn number, and Protect is decided in one pass
+ *  over both sides' plans. Both make the value of a game depend on the seat: a team played against
+ *  ITSELF did not score 50 (measured on the first 20 tournament teams: every one of them off 50,
+ *  up to 41.43 points on one bring), and A against B plus B against A did not add up to 100.
+ *
+ *  Version 1 decides both without the seat:
+ *    - a Speed tie goes to the Pokémon whose own set hashes lower (`tieRank` / `tieKey`, set in
+ *      `prepare`), so the same two Pokémon break their tie the same way whichever side they are
+ *      on. A tie in the real game is a coin flip, so no winner is "correct"; what must not happen
+ *      is that the seat decides it.
+ *    - two INDISTINGUISHABLE Pokémon (same priority, same Speed, same set) cannot be ordered at
+ *      all, and there both act: neither takes the other's action away by knocking it out, making
+ *      it flinch, putting it to sleep or Taunting it first. That is the only seat-free answer to
+ *      a coin flip between twins, and it is what makes a mirror come out at exactly 50.
+ *    - Protect, Wide Guard and Quick Guard are decided for both sides against the plans as they
+ *      stood BEFORE any guard was chosen, so side 0's Protect no longer removes its attack from
+ *      the damage side 1 prices its own Protect against.
+ *  Measured after: all 20 mirrors score exactly 50.00, and A-vs-B + B-vs-A is exactly 100.
+ *
+ *  Kept as a stamp on the `team_checks` pattern so a recording made before the rule replays
+ *  byte-identically at its own stamp: version 0 restores the seat-dependent order and the
+ *  one-pass Protect. */
+export const TOURNAMENT_SEAT = 1;
+
+/** A rule stamp as a version: 0 (off) for null / undefined / false / "" / "0".
+ *
+ *  Coerces as `teamCheckRulesOption` does (team-checks.js): a version is a non-negative integer,
+ *  so it is truncated and a non-positive one is off. An ABSENT value on a recording means "no
+ *  stamp", i.e. a recording made before the rule, so it is off -- but a stamp option's own
+ *  default is `current`, the version production runs, which is also what an unreadable value
+ *  falls back to. */
+function ruleVersion(value, current) {
   if (value === null || value === undefined || value === false) return 0;
   const text = String(value).trim().toLowerCase();
   if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return 0;
   const n = Number(text);
-  if (!Number.isFinite(n)) return TOURNAMENT_TURN_ONE;
+  if (!Number.isFinite(n)) return current;
   const version = Math.trunc(n);
   return version > 0 ? version : 0;
+}
+
+/** A `tournament_turn_one` stamp as a version (`ruleVersion` against TOURNAMENT_TURN_ONE). */
+export function tournamentTurnOneOption(value) {
+  return ruleVersion(value, TOURNAMENT_TURN_ONE);
+}
+
+/** A `tournament_seat` stamp as a version (`ruleVersion` against TOURNAMENT_SEAT), so it coerces
+ *  exactly as `tournamentTurnOneOption` does. */
+export function tournamentSeatOption(value) {
+  return ruleVersion(value, TOURNAMENT_SEAT);
 }
 
 const WEATHERS = ["None", "Sun", "Rain", "Sand", "Snow", "Strong Winds"];
@@ -221,9 +260,56 @@ function combinations(size, k) {
   return out;
 }
 
-/** Priority first, then Speed (reversed under Trick Room); ties alternate by turn. */
-function orderActions(actions, trickRoom, turn) {
+/** FNV-1a, so a set's tie rank is the same number in every run and on every machine. */
+function hash32(text) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < text.length; i += 1) {
+    h ^= text.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return h >>> 0;
+}
+
+/**
+ * Two Pokémon in Speed order without the seat (seat rule 1): the lower `tieRank` of the set each
+ * one plays goes first, the key itself settling the rare hash collision. A hash rather than the
+ * name so no species is handed every tie it takes part in, and a total order (never a per-pair
+ * coin flip) so `sort` stays consistent. 0 means the two are the same Pokémon and the tie cannot
+ * be broken at all -- see `tieRuns`.
+ */
+const byIdentity = (a, b) => a.tieRank - b.tieRank || (a.tieKey < b.tieKey ? -1 : a.tieKey > b.tieKey ? 1 : 0);
+
+/** Priority first, then Speed (reversed under Trick Room); a tie by the Pokémon themselves under
+ *  seat rule 1 (`byIdentity`), and by the seat and the turn's parity under version 0. */
+function orderActions(actions, trickRoom, turn, seatRule = 0) {
+  if (seatRule >= 1) return actions.sort((a, b) => b.pr - a.pr || (trickRoom ? a.sp - b.sp : b.sp - a.sp) || byIdentity(a.m.u, b.m.u));
   return actions.sort((a, b) => b.pr - a.pr || (trickRoom ? a.sp - b.sp : b.sp - a.sp) || (turn % 2 ? b.s - a.s : a.s - b.s));
+}
+
+/**
+ * Where each action's run of actions the order could not separate starts (seat rule 1): the same
+ * priority, the same Speed and the same Pokémon, which after `orderActions` is a block of
+ * neighbours. A run of one is every ordinary action. A longer run is a Speed tie between twins --
+ * the same set on both sides -- and all of it acts on the state the run began with, so neither
+ * twin can take the other's action away.
+ */
+function tieRuns(actions) {
+  const runs = new Array(actions.length);
+  for (let i = 0; i < actions.length;) {
+    let j = i + 1;
+    while (j < actions.length && actions[j].pr === actions[i].pr && actions[j].sp === actions[i].sp && byIdentity(actions[j].m.u, actions[i].m.u) === 0) j += 1;
+    for (let k = i; k < j; k += 1) runs[k] = i;
+    i = j;
+  }
+  return runs;
+}
+
+/** The state an action is judged by: what its Pokémon was when its run began. */
+function freezeRun(actions, runs, i) {
+  for (let j = i; j < actions.length && runs[j] === i; j += 1) {
+    const m = actions[j].m;
+    actions[j].pre = { out: m.out, flinch: m.flinch, idle: m.idle, taunted: m.taunted };
+  }
 }
 
 export class TournamentTest {
@@ -231,12 +317,15 @@ export class TournamentTest {
    * @param {TeamEvaluation} evaluation   its evaluator does every calculation
    * @param {KnownTeams} known            the tournament-team library
    * @param {TeamSuggestions} suggestions for the Stat Points that go with a Nature
-   * @param {{turnOneRule?:number|string}} options `turnOneRule`: the turn-1 rule
-   *   (TOURNAMENT_TURN_ONE); 1 replays the post-turn-1 duel board of a recording made before
-   *   version 2, and 0 the forced Tailwind / Trick Room of one made before version 1 as well.
+   * @param {{turnOneRule?:number|string, seatRule?:number|string}} options `turnOneRule`: the
+   *   turn-1 rule (TOURNAMENT_TURN_ONE); 1 replays the post-turn-1 duel board of a recording made
+   *   before version 2, and 0 the forced Tailwind / Trick Room of one made before version 1 as
+   *   well. `seatRule`: the seat rule (TOURNAMENT_SEAT); 0 replays the seat-dependent Speed tie
+   *   and one-pass Protect of a recording made before it.
    */
-  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE } = {}) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT } = {}) {
     this.turnOneRule = tournamentTurnOneOption(turnOneRule);
+    this.seatRule = tournamentSeatOption(seatRule);
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -478,6 +567,16 @@ export class TournamentTest {
       + (kit.taunt >= 0 ? 1 : 0) + (kit.encore >= 0 ? 1 : 0) + (kit.lowers.length ? 1 : 0) + (kit.wisp >= 0 ? 0.5 : 0)
       + kit.power / 150;
     unit.kit = kit;
+    // What this Pokémon IS to the model, and nothing about the side it sits on: the set as it
+    // plays (a stone holder that does not Mega-Evolve is its own base form here, with no item),
+    // plus the stat stages the settings gave it, because those change what it does. Two units
+    // with the same key are indistinguishable, so a Speed tie between them cannot be broken.
+    unit.tieKey = [
+      compact(mon.pokemon_name), compact(mon.form_name), item, ability, compact(mon.nature_name),
+      (mon.bonuses || []).map((b) => Number(b) || 0).join(","), keys.join("+"),
+      [mon.attack_stage, mon.defense_stage, mon.sp_attack_stage, mon.sp_defense_stage, mon.speed_stage].map((v) => Number(v) || 0).join(","),
+    ].join("|");
+    unit.tieRank = hash32(unit.tieKey);
     return unit;
   }
 
@@ -1390,6 +1489,11 @@ export class TournamentTest {
       return x.pr > 0 && (x.pr < g.pr || (x.pr === g.pr && x.sp < g.sp));
     };
     const protectable = (a) => replaceable(a) || a.kind === SLEEP || a.kind === TAUNT || a.kind === ENCORE || a.kind === BURN;
+    // Seat rule 1: every lead is judged against the plans as they stand before ANY of them
+    // Protects, and the choices are applied together. In one sequential pass side 0's Protect
+    // takes its own attack out of the damage side 1 then prices its Protect against, so in a
+    // mirror side 0's Salamence Protected and side 1's identical Salamence did not.
+    const decided = [];
     for (const a of all) {
       if (!a.m.k.protect || !protectable(a)) continue;
       let incoming = 0;
@@ -1402,8 +1506,11 @@ export class TournamentTest {
         hits += 1;
       }
       const sashHolds = a.m.sash && hits === 1;
-      if (incoming >= a.m.hp && !sashHolds) Object.assign(a, { kind: PROTECT, pr: 4, target: null, move: "Protect" });
+      if (!(incoming >= a.m.hp) || sashHolds) continue;
+      if (this.seatRule >= 1) decided.push(a);
+      else Object.assign(a, { kind: PROTECT, pr: 4, target: null, move: "Protect" });
     }
+    for (const a of decided) Object.assign(a, { kind: PROTECT, pr: 4, target: null, move: "Protect" });
   }
 
   /** Wide Guard and Quick Guard, one of each per side. */
@@ -1454,7 +1561,7 @@ export class TournamentTest {
     // Entry order is by the Speed each one has as it comes in: a Mega Stone holder is still
     // its base form until it Mega-Evolves later in the turn.
     const entrants = [...active[0], ...active[1]].filter(Boolean)
-      .sort((a, b) => this.entrySpeedOf(b.u) - this.entrySpeedOf(a.u) || a.s - b.s);
+      .sort((a, b) => this.entrySpeedOf(b.u) - this.entrySpeedOf(a.u) || (this.seatRule >= 1 ? byIdentity(a.u, b.u) : a.s - b.s));
     for (const m of entrants) this.enter(m, active, board, events);
     board.wide = 0;
     board.quick = 0;
@@ -1464,17 +1571,22 @@ export class TournamentTest {
     // A setup move that was priced and left unused is part of what happened this turn, so the
     // results can say why the condition never went up.
     if (events) for (const plan of plans) for (const a of plan) if (a.held) events.push({ s: a.s, kind: "heldback", actor: a.m.u, move: a.held.move, why: a.held.why });
-    const actions = orderActions([...plans[0], ...plans[1]].filter((a) => a.kind), false, 1);
+    const actions = orderActions([...plans[0], ...plans[1]].filter((a) => a.kind), false, 1, this.seatRule);
+    // Twins the order cannot separate act on the state their run began with (seat rule 1).
+    const runs = this.seatRule >= 1 ? tieRuns(actions) : null;
     const redirector = [null, null];
-    for (const a of actions) {
+    for (let i = 0; i < actions.length; i += 1) {
+      const a = actions[i];
       const { m, s } = a;
-      if (m.out || m.flinch) continue;
-      if (m.idle > 0) {
+      if (runs && runs[i] === i) freezeRun(actions, runs, i);
+      const pre = a.pre || m;
+      if (pre.out || pre.flinch) continue;
+      if (pre.idle > 0) {
         m.idle -= 1;
         continue;
       }
       const foes = active[1 - s];
-      if (m.taunted && (STATUS_ACTIONS.has(a.kind) || (a.kind === LOWER && !m.u.moves[a.slot].damaging))) {
+      if (pre.taunted && (STATUS_ACTIONS.has(a.kind) || (a.kind === LOWER && !m.u.moves[a.slot].damaging))) {
         events?.push({ s, kind: "taunted", actor: m.u, move: a.move });
         m.acted = a.kind;
         continue;
@@ -1744,9 +1856,12 @@ export class TournamentTest {
         turn = this.turnCap + 1;
         break;
       }
-      orderActions(actions, board.tr > 0, turn);
-      for (const a of actions) {
-        if (a.m.out) continue;
+      orderActions(actions, board.tr > 0, turn, this.seatRule);
+      const runs = this.seatRule >= 1 ? tieRuns(actions) : null;
+      for (let i = 0; i < actions.length; i += 1) {
+        const a = actions[i];
+        if (runs && runs[i] === i) freezeRun(actions, runs, i);
+        if ((a.pre || a.m).out) continue;
         this.attack(a.m, a.target, a.hit, active[1 - a.s], active[a.s], board, null, null);
       }
       this.endOfTurn(active, null);

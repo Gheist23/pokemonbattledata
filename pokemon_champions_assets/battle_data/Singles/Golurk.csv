@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Golurk,208,move,1,Poltergeist,75.7%,,,,,,,,
-Golurk,208,move,2,Ice Punch,63.7%,,,,,,,,
+Golurk,208,move,2,Ice Punch,63.8%,,,,,,,,
 Golurk,208,move,3,Headlong Rush,61.0%,,,,,,,,
 Golurk,208,move,4,Earthquake,32.8%,,,,,,,,
 Golurk,208,move,5,Drain Punch,24.1%,,,,,,,,
@@ -32,7 +32,7 @@ Golurk,208,teammate,10,Mimikyu,,,,,,,,,
 Golurk,208,stat_alignment,1,Adamant,57.4%,Attack,Sp. Atk,,,,,,
 Golurk,208,stat_alignment,2,Brave,28.8%,Attack,Speed,,,,,,
 Golurk,208,stat_alignment,3,Jolly,4.1%,Speed,Sp. Atk,,,,,,
-Golurk,208,stat_alignment,4,Impish,2.9%,Defense,Sp. Atk,,,,,,
+Golurk,208,stat_alignment,4,Impish,3.0%,Defense,Sp. Atk,,,,,,
 Golurk,208,stat_alignment,5,Careful,2.7%,Sp. Def,Sp. Atk,,,,,,
 Golurk,208,stat_alignment,6,Calm,0.8%,Sp. Def,Attack,,,,,,
 Golurk,208,stat_alignment,7,Lonely,0.6%,Attack,Defense,,,,,,
@@ -41,7 +41,7 @@ Golurk,208,stat_alignment,9,Sassy,0.5%,Sp. Def,Speed,,,,,,
 Golurk,208,stat_alignment,10,Naughty,0.5%,Attack,Sp. Def,,,,,,
 Golurk,208,stat_points,1,,22.2%,,,32,32,2,0,0,0
 Golurk,208,stat_points,2,,8.7%,,,32,32,1,0,1,0
-Golurk,208,stat_points,3,,8.6%,,,32,32,0,0,2,0
+Golurk,208,stat_points,3,,8.7%,,,32,32,0,0,2,0
 Golurk,208,stat_points,4,,6.0%,,,2,32,0,0,0,32
 Golurk,208,stat_points,5,,5.4%,,,32,32,0,0,0,2
 Golurk,208,stat_points,6,,3.0%,,,31,31,0,0,4,0
@@ -49,6 +49,6 @@ Golurk,208,stat_points,7,,3.0%,,,2,32,32,0,0,0
 Golurk,208,stat_points,8,,2.6%,,,32,32,1,0,0,0
 Golurk,208,stat_points,9,,2.5%,,,32,32,0,0,0,0
 Golurk,208,stat_points,10,,1.8%,,,0,32,2,0,32,0
-Golurk,208,ability,1,Iron Fist,70.1%,,,,,,,,
+Golurk,208,ability,1,Iron Fist,70.0%,,,,,,,,
 Golurk,208,ability,2,No Guard,26.4%,,,,,,,,
 Golurk,208,ability,3,Klutz,3.6%,,,,,,,,

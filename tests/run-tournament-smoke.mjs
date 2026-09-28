@@ -936,6 +936,14 @@ for (const format of ["Doubles", "Singles"]) {
   check("The results name the settings a run ignored",
     ignoring.includes("Each game has a field of its own, set by the Pokémon in it, so these settings are not used here: Reflect (your team) and Weather (Sun)."),
     ignoring.match(/[^.]*not used here[^.]*\./)?.[0] || "");
+  // And the third place the claim has to hold: the Settings dialog itself, where the setting is made.
+  // Read as text (as run-naming-checks.mjs does) because the dialog needs a real DOM to render.
+  {
+    const settingsSource = readFileSync(join(root, "builder", "evaluation-view.js"), "utf8");
+    check("The Settings dialog says the Tournament Test plays out its own field",
+      settingsSource.includes("The Tournament Test plays out its own field, so the Field settings below do not change it."),
+      (settingsSource.match(/Applies to Team Evaluation[^"]*/) || [""])[0]);
+  }
 
   // A lone Pokémon that cannot damage anything: one to bring, the same score against every archetype.
   const lone = await makeTest("Doubles").run([makeSet({ species: "Whimsicott", item: "Focus Sash", ability: "Prankster", nature: "Timid", moves: ["Tailwind", "Encore", "Protect"], bonuses: [2, 0, 0, 32, 0, 32] })], { limit: 80 });

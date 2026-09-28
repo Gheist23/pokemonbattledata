@@ -34,9 +34,9 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   CARD, CONTEXT_OPS, ELLIPSIS, EVAL, FONT_LADDER, FOOTER, HEADER, MAX_BONUS_POINTS_PER_STAT,
-  MAX_BONUS_STAT_POINTS, MAX_CARD_BYTES, PALETTE, STAT_LABELS, TEAM, bonusTotal, drawEvalCard,
-  drawTeamCard, fitText, liveTeam, natureLabel, scoreTone, statBarWidth, statColor, teamCellBoxes,
-  threatColor, threatTone,
+  MAX_BONUS_STAT_POINTS, MAX_CARD_BYTES, PALETTE, STAT_LABELS, TEAM, bonusTotal, cellScale,
+  drawEvalCard, drawTeamCard, fitText, liveTeam, natureLabel, pointsColor, scoreTone, statBarWidth,
+  statColor, teamCellBoxes, threatColor, threatTone,
 } from "../builder/share-card.js";
 import { BuilderData } from "../builder/common.js";
 import { MAX_BONUS_POINTS_PER_STAT as ENGINE_PER_STAT, MAX_BONUS_STAT_POINTS as ENGINE_TOTAL } from "../builder/engine.js";
@@ -325,25 +325,70 @@ for (const [score, tone] of [[100, "bad"], [75, "bad"], [74, "orange"], [55, "or
 ok(threatColor(80) === PALETTE.bad && threatColor(20) === PALETTE.good, "threat colours run opposite to team scores");
 
 // 2. the grid tiles without overlap, for every team size
+//
+// THE EXPECTED LAYOUT, written out.  A team of one used to draw one 372x232
+// cell in a 1144x478 grid -- 17% of it, one small panel in a dark void, an empty
+// box once Discord scales the card to ~500px.  The cell now grows by a uniform
+// factor, so this table pins BOTH halves of that: the scale each team size gets,
+// and the share of the grid it must end up covering.  Every number here is also
+// in tests/test_share_card_v518.py, which is how the two renderers are held to
+// one geometry.
+const EXPECTED_LAYOUT = {
+  1: { s: 2.06, rows: [1], cover: 67.0, x: 217, y: 98 },
+  2: { s: 1.5, rows: [2], cover: 71.0, x: 32, y: 163 },
+  3: { s: 1, rows: [3], cover: 47.3, x: 28, y: 221 },
+  4: { s: 1, rows: [3, 1], cover: 63.1, x: 28, y: 98 },
+  5: { s: 1, rows: [3, 2], cover: 78.9, x: 28, y: 98 },
+  6: { s: 1, rows: [3, 3], cover: 94.7, x: 28, y: 98 },
+};
+const GRID_AREA = TEAM.gridW * TEAM.gridH;
+
 for (let n = 1; n <= 6; n += 1) {
   const boxes = teamCellBoxes(n);
+  const want = EXPECTED_LAYOUT[n];
   ok(boxes.length === n, `teamCellBoxes(${n}) returns ${n} cells`);
+  ok(boxes.every((box) => box.s === want.s), `n=${n}: every cell is drawn at scale ${want.s}`);
   for (const box of boxes) {
-    ok(box.w === TEAM.cellW && box.h === TEAM.cellH, `n=${n}: every cell is ${TEAM.cellW}x${TEAM.cellH}`);
+    ok(box.w === TEAM.cellW * want.s && box.h === TEAM.cellH * want.s,
+      `n=${n}: every cell is ${TEAM.cellW}x${TEAM.cellH} at ${want.s} (${box.w}x${box.h})`);
     ok(box.x >= TEAM.gridX && box.x + box.w <= TEAM.gridX + TEAM.gridW, `n=${n}: cell inside the grid horizontally`);
     ok(box.y >= TEAM.gridY && box.y + box.h <= TEAM.gridY + TEAM.gridH, `n=${n}: cell inside the grid vertically`);
     ok(box.y >= HEADER.H && box.y + box.h <= FOOTER.ruleY, `n=${n}: cell clear of the header and the footer`);
   }
+  // the split, and where the block starts
+  const rowYs = [...new Set(boxes.map((box) => box.y))].sort((a, b) => a - b);
+  ok(rowYs.length === want.rows.length, `n=${n}: ${want.rows.length} row(s) of cells`);
+  ok(rowYs.every((y, i) => boxes.filter((box) => box.y === y).length === want.rows[i]),
+    `n=${n}: the rows hold ${want.rows.join(" then ")}`);
+  ok(boxes[0].x === want.x && boxes[0].y === want.y,
+    `n=${n}: the block starts at ${want.x},${want.y} (it is ${boxes[0].x},${boxes[0].y})`);
+  // THE DEFECT ITSELF: how much of the grid the cells actually cover.
+  const cover = (100 * n * boxes[0].w * boxes[0].h) / GRID_AREA;
+  ok(Math.abs(cover - want.cover) < 0.1,
+    `n=${n}: the cells cover ${cover.toFixed(1)}% of the grid (want ${want.cover}%)`);
+  // and each row is centred in the grid, to within the half pixel the integer
+  // rounding of a fractional cell width can cost
+  for (const y of rowYs) {
+    const row = boxes.filter((box) => box.y === y);
+    const mid = (row[0].x + row[row.length - 1].x + row[0].w) / 2;
+    ok(Math.abs(mid - (TEAM.gridX + TEAM.gridW / 2)) <= 0.5,
+      `n=${n}: the row at y=${y} is centred (${mid.toFixed(2)} vs ${TEAM.gridX + TEAM.gridW / 2})`);
+  }
+  const blockMid = (boxes[0].y + boxes[boxes.length - 1].y + boxes[0].h) / 2;
+  ok(Math.abs(blockMid - (TEAM.gridY + TEAM.gridH / 2)) <= 0.5,
+    `n=${n}: the block is centred vertically (${blockMid.toFixed(2)} vs ${TEAM.gridY + TEAM.gridH / 2})`);
+
   for (let a = 0; a < boxes.length; a += 1) {
     for (let b = a + 1; b < boxes.length; b += 1) {
       ok(!overlaps(asBox(boxes[a]), asBox(boxes[b])), `n=${n}: cell ${a} does not overlap cell ${b}`);
       // Not overlapping is not enough: setting gapX to 0 kept every assertion
       // above green while fusing the row into one slab, because touching is not
-      // overlapping.  Adjacent cells must be SEPARATED, by the declared gutter.
+      // overlapping.  Adjacent cells must be SEPARATED, by the declared gutter,
+      // which scales with the cell.
       const [p, q] = [boxes[a], boxes[b]];
       const gapX = Math.max(p.x - (q.x + q.w), q.x - (p.x + p.w));
       const gapY = Math.max(p.y - (q.y + q.h), q.y - (p.y + p.h));
-      ok(gapX >= TEAM.gapX || gapY >= TEAM.gapY,
+      ok(gapX >= TEAM.gapX * want.s - 0.5 || gapY >= TEAM.gapY * want.s - 0.5,
         `n=${n}: cell ${a} and cell ${b} are separated by the declared gutter (x ${gapX}, y ${gapY})`);
     }
   }
@@ -352,7 +397,31 @@ ok(TEAM.gapX > 0 && TEAM.gapY > 0, `the grid declares a positive gutter (${TEAM.
 // four must look intentional: three across, the fourth centred under them
 const four = teamCellBoxes(4);
 ok(four[3].x + four[3].w / 2 === TEAM.gridX + TEAM.gridW / 2, "a four-Pokemon team centres the fourth cell");
-ok(teamCellBoxes(1)[0].y + TEAM.cellH / 2 === TEAM.gridY + TEAM.gridH / 2, "a one-Pokemon team centres its row vertically");
+// A one-Pokemon team fills the grid's whole height: that is what its 2.06 buys,
+// and asserting the centre alone would pass on the 232px cell that read as a
+// fault.  Half a pixel of slack, no more.
+const one = teamCellBoxes(1)[0];
+ok(Math.abs(one.y + one.h / 2 - (TEAM.gridY + TEAM.gridH / 2)) <= 0.5, "a one-Pokemon team centres its row vertically");
+ok(one.h >= TEAM.gridH - 1, `a one-Pokemon team fills the grid's height (${one.h} of ${TEAM.gridH})`);
+ok(one.w >= 700, `a one-Pokemon team is at least 700px wide (${one.w})`);
+// Nothing may grow past the grid it is centred in, at any size.
+for (let n = 1; n <= 6; n += 1) {
+  for (const box of teamCellBoxes(n)) {
+    ok(box.x + box.w <= TEAM.gridX + TEAM.gridW + EPS && box.y + box.h <= TEAM.gridY + TEAM.gridH + EPS,
+      `n=${n}: a scaled cell still ends inside the grid`);
+  }
+}
+// The scale rule itself: never below 1, never past what the grid can hold.
+for (let columns = 1; columns <= 3; columns += 1) {
+  for (let rows = 1; rows <= 2; rows += 1) {
+    const s = cellScale(columns, rows);
+    ok(s >= 1, `cellScale(${columns}, ${rows}) = ${s} never shrinks the cell below its design size`);
+    ok(columns * TEAM.cellW * s + (columns - 1) * TEAM.gapX * s <= TEAM.gridW + EPS,
+      `cellScale(${columns}, ${rows}): the row fits the grid width`);
+    ok(rows * TEAM.cellH * s + (rows - 1) * TEAM.gapY * s <= TEAM.gridH + EPS,
+      `cellScale(${columns}, ${rows}): the block fits the grid height`);
+  }
+}
 ok(teamCellBoxes(0).length === 0, "an empty team asks for no cells");
 
 // 3. the six-Pokemon card: bounds, containment, fields
@@ -425,6 +494,179 @@ for (const n of [1, 2, 3, 4, 5]) {
   }
   ok(texts(ops).includes(FOOTER.brandText), `n=${n}: the footer is still present`);
   ok(texts(ops).some((t) => t.includes(`${n} Pok`)), `n=${n}: the subtitle counts the team`);
+}
+
+// 4b. a short team draws the same design LARGER, not the same picture centred.
+// The scale is useless if it only moves the box, so this reads the text that was
+// really drawn: the name in a one-Pokemon card must be more than twice the size
+// of the name in a six-Pokemon card, and the sprite more than twice the area.
+{
+  const nameOf = (n) => {
+    const { ops } = render(teamDigest(n), imagesFor(n));
+    return ops.find((o) => o.kind === "text" && o.text === SIX[0].name);
+  };
+  // A renderer that draws nothing must fail these, not crash them: size 0 keeps
+  // every comparison below false and reports a FAILED line instead of throwing.
+  const big = nameOf(1);
+  const small = nameOf(6);
+  const two = nameOf(2);
+  ok(big && small && two, "the first name is drawn at one, two and six Pokemon");
+  ok((big?.size ?? 0) > (small?.size ?? 0) * 2,
+    `a one-Pokemon card draws the name at ${big?.size ?? 0}px against six's ${small?.size ?? 0}px`);
+  const spriteOf = (n) => {
+    const { ops } = render(teamDigest(n), imagesFor(n));
+    const image = ops.filter((o) => o.kind === "image")[0];
+    return image ? (image.x1 - image.x0) * (image.y1 - image.y0) : 0;
+  };
+  ok(spriteOf(1) > spriteOf(6) * 4 && spriteOf(6) > 0,
+    `a one-Pokemon card draws the sprite at ${spriteOf(1)}px2 against six's ${spriteOf(6)}px2`);
+  ok((two?.size ?? 0) > (small?.size ?? 0), `a two-Pokemon card draws the name at ${two?.size ?? 0}px, above six's ${small?.size ?? 0}px`);
+  // and the whole worst-case text still lays out inside the enlarged cells
+  for (const n of [1, 2]) {
+    const { ops } = render({ ...WORST_TEAM, team: WORST_TEAM.team.slice(0, n) }, imagesFor(n));
+    const boxes = teamCellBoxes(n);
+    const cellBoxes = boxes.map(asBox);
+    for (const op of ops) {
+      ok(op.x0 >= -EPS && op.y0 >= -EPS && op.x1 <= CARD.W + EPS && op.y1 <= CARD.H + EPS,
+        `n=${n} worst case: ${op.kind} ${JSON.stringify(op.text ?? "")} inside the canvas`);
+    }
+    for (const op of content(ops)) {
+      const hits = cellBoxes.filter((b) => overlaps(op, b));
+      if (!hits.length) continue;
+      ok(hits.length === 1 && inside(op, boxes[cellBoxes.indexOf(hits[0])]),
+        `n=${n} worst case: ${op.kind} ${JSON.stringify(op.text ?? "")} stays in one cell`);
+    }
+  }
+}
+
+// 4c. THE FOUR MOVE CHIPS IN A CELL SHARE ONE SIZE.
+// Each chip used to pick its own step, so "10,000,000 Volt Thunderbolt" drew
+// visibly smaller than "Soul-Stealing 7-Star Strike" beside it.
+{
+  const WIDE = "Menacing Moonraze Maelstrom";
+  const NARROW = "Ice Shard";
+  const mixed = {
+    v: 1, kind: "team", title: "Mixed", format: "Doubles",
+    team: [entryOf({ moves: [WIDE, NARROW, "10,000,000 Volt Thunderbolt", "Protect"] })],
+  };
+  for (const n of [1, 6]) {
+    const digest = n === 1 ? mixed : { ...mixed, team: Array.from({ length: 6 }, () => mixed.team[0]) };
+    const { ops } = render(digest, imagesFor(n));
+    const chips = ops.filter((o) => o.kind === "text" && [WIDE, NARROW, "10,000,000 Volt Thunderbolt", "Protect"].includes(o.text));
+    ok(chips.length === 4 * n, `n=${n}: four move chips per cell are drawn (${chips.length})`);
+    const sizes = [...new Set(chips.map((o) => o.size))];
+    ok(sizes.length === 1, `n=${n}: the four chips in a cell share ONE size (${sizes.join(", ")})`);
+    // and it is the smallest one any of them needed, not the largest
+    const chipTextW = (TEAM.moveColW - TEAM.moveInset * 2) * teamCellBoxes(n)[0].s;
+    const alone = fitText(probe, WIDE, chipTextW, FONT_LADDER.move.map((v) => v * teamCellBoxes(n)[0].s), 700);
+    ok(sizes[0] === alone.size,
+      `n=${n}: the shared size ${sizes[0]} is the step the widest move needs (${alone.size})`);
+    ok(sizes[0] < FONT_LADDER.move[0] * teamCellBoxes(n)[0].s,
+      `n=${n}: the shared size stepped DOWN for the wide move (${sizes[0]})`);
+    for (const chip of chips) {
+      ok(chip.x1 - chip.x0 <= chipTextW + EPS,
+        `n=${n}: ${JSON.stringify(chip.text)} fits the chip at the shared size (${(chip.x1 - chip.x0).toFixed(1)} <= ${chipTextW})`);
+    }
+  }
+  // the worst real case -- four copies of the widest real move -- still fits
+  const worst = {
+    v: 1, kind: "team", title: "Worst", format: "Doubles",
+    team: [entryOf({ moves: [WIDEST.move.text, WIDEST.move.text, WIDEST.move.text, WIDEST.move.text] })],
+  };
+  const { ops: worstOps } = render(worst, imagesFor(1));
+  const worstChips = worstOps.filter((o) => o.kind === "text" && o.text === WIDEST.move.text);
+  ok(worstChips.length === 4, "four copies of the widest real move all draw");
+  ok(new Set(worstChips.map((o) => o.size)).size === 1, "and at one size");
+  ok(worstChips.every((o) => !o.text.includes(ELLIPSIS)), "the widest real move is still not elided at the shared size");
+}
+
+// 4d. AN EMPTY MOVE SLOT READS AS NOTHING, not as a chip that failed to load.
+{
+  const partial = {
+    v: 1, kind: "team", title: "Partial", format: "Doubles",
+    team: [entryOf({ moves: ["Protect"] }), entryOf({ moves: [] })],
+  };
+  const { ops } = render(partial, imagesFor(2));
+  const s = teamCellBoxes(2)[0].s;
+  const drawn = texts(ops);
+  // the em-dash placeholder is gone from the move slots.  The ability line still
+  // uses one and that is fine -- it is one small run in a text column, not four
+  // outlined pills -- so this counts them: two abilities are set, so no "—" at all.
+  ok(!drawn.includes("—"), `no em-dash placeholder is drawn for an empty move slot (${drawn.filter((t) => t === "—").length} found)`);
+  const boxes = teamCellBoxes(2);
+  const chipAt = (cell, i) => ({
+    x0: boxes[cell].x + TEAM.moveX[i % 2] * s,
+    y0: boxes[cell].y + TEAM.moveRowY[Math.floor(i / 2)] * s,
+    x1: boxes[cell].x + (TEAM.moveX[i % 2] + TEAM.moveColW) * s,
+    y1: boxes[cell].y + (TEAM.moveRowY[Math.floor(i / 2)] + TEAM.moveH) * s,
+  });
+  const at = (box, kind) => ops.filter((o) => o.kind === kind
+    && Math.abs(o.x0 - box.x0) < 0.6 && Math.abs(o.y0 - box.y0) < 0.6
+    && Math.abs(o.x1 - box.x1) < 0.6 && Math.abs(o.y1 - box.y1) < 0.6);
+  // slot 0 of cell 0 holds Protect: a filled, outlined chip with text in it
+  const filled = chipAt(0, 0);
+  ok(at(filled, "path-fill").length === 1, "a filled move slot draws its chip");
+  ok(at(filled, "path-stroke").length === 1, "a filled move slot is outlined");
+  ok(at(filled, "path-fill")[0]?.style === PALETTE.cardDeep, "a filled move slot uses the recessed chip colour");
+  // slots 1..3 of cell 0 and all four of cell 1 are empty: a quiet recess, no
+  // outline, no text
+  for (const [cell, slot] of [[0, 1], [0, 2], [0, 3], [1, 0], [1, 1], [1, 2], [1, 3]]) {
+    const box = chipAt(cell, slot);
+    ok(at(box, "path-fill").length === 1, `cell ${cell} slot ${slot}: an empty slot still marks the slot`);
+    ok(at(box, "path-fill")[0]?.style === PALETTE.hairline,
+      `cell ${cell} slot ${slot}: an empty slot is the hairline recess, not the chip fill`);
+    ok(at(box, "path-stroke").length === 0, `cell ${cell} slot ${slot}: an empty slot is NOT outlined`);
+    ok(!ops.some((o) => o.kind === "text" && overlaps(o, box)),
+      `cell ${cell} slot ${slot}: an empty slot carries no text`);
+  }
+  // the four real moves of a full cell are all still outlined chips
+  const full = render(teamDigest(6), imagesFor(6));
+  const strokes = full.ops.filter((o) => o.kind === "path-stroke" && Math.abs(o.y1 - o.y0 - TEAM.moveH) < 0.6);
+  ok(strokes.length === 24, `a six-Pokemon team with every move set still outlines 24 chips (${strokes.length})`);
+}
+
+// 4e. THE STAT POINTS READ-OUT CARRIES A VALUE'S COLOUR.
+// PALETTE.good was a fixed label colour, so 0/66 and 66/66 were the same green.
+{
+  ok(pointsColor(0) === PALETTE.soft, `pointsColor(0) is the muted tone (${pointsColor(0)})`);
+  ok(pointsColor(1) === PALETTE.mid && pointsColor(65) === PALETTE.mid, "a part-invested team reads mid");
+  ok(pointsColor(MAX_BONUS_STAT_POINTS) === PALETTE.good, "a fully invested team reads good");
+  ok(pointsColor(0) !== pointsColor(MAX_BONUS_STAT_POINTS), "0/66 and 66/66 are NOT the same colour");
+  ok(pointsColor(1) !== pointsColor(MAX_BONUS_STAT_POINTS), "part-invested and fully invested are not the same colour");
+  const tone = (bonuses) => {
+    const digest = { v: 1, kind: "team", title: "t", format: "Doubles", team: [entryOf({ bonuses })] };
+    const { ops } = render(digest, imagesFor(1));
+    return ops.find((o) => o.kind === "text" && /^\d+\/66 pts$/.test(o.text));
+  };
+  const none = tone([0, 0, 0, 0, 0, 0]);
+  const part = tone([0, 16, 0, 0, 0, 16]);
+  const all = tone([2, 32, 0, 0, 0, 32]);
+  ok(none?.text === "0/66 pts" && none?.style === PALETTE.soft, `0/66 pts is drawn ${none?.style}`);
+  ok(part?.text === "32/66 pts" && part?.style === PALETTE.mid, `32/66 pts is drawn ${part?.style}`);
+  ok(all?.text === "66/66 pts" && all?.style === PALETTE.good, `66/66 pts is drawn ${all?.style}`);
+  ok(none !== undefined && all !== undefined && none.style !== all.style, "an uninvested team does not read as a finished one");
+}
+
+// 4f. THE INVESTED TOTAL IS CLAMPED TO 66, not just to 32 a stat.
+{
+  ok(bonusTotal({ bonuses: [99, 99, 99, 99, 99, 99] }) === MAX_BONUS_STAT_POINTS,
+    `six over-max stats total ${bonusTotal({ bonuses: [99, 99, 99, 99, 99, 99] })}, not 192`);
+  ok(bonusTotal({ bonuses: [32, 32, 32, 0, 0, 0] }) === MAX_BONUS_STAT_POINTS, "three maxed stats still total 66");
+  ok(bonusTotal({ bonuses: [4, 32, 0, 0, 0, 30] }) === 66, "a legal spread is unchanged");
+  ok(bonusTotal({ bonuses: [0, 16, 0, 0, 0, 16] }) === 32, "a part spread is unchanged");
+  ok(bonusTotal({}) === 0, "no bonuses total nothing");
+  const crafted = { v: 1, kind: "team", title: "t", format: "Doubles", team: [entryOf({ bonuses: [99, 99, 99, 99, 99, 99] })] };
+  const { ops } = render(crafted, imagesFor(1));
+  const printed = texts(ops).filter((t) => /\/66 pts$/.test(t));
+  ok(printed.length === 1 && printed[0] === "66/66 pts", `a crafted record prints ${JSON.stringify(printed[0])}, never "192/66 pts"`);
+  // ...and the subtitle, which sums the six cells, cannot run over either
+  const sixCrafted = {
+    v: 1, kind: "team", title: "t", format: "Doubles",
+    team: Array.from({ length: 6 }, () => entryOf({ bonuses: [99, 99, 99, 99, 99, 99] })),
+  };
+  const subtitle = texts(render(sixCrafted, imagesFor(6)).ops).find((t) => t.includes("Stat Points"));
+  ok(subtitle === "Doubles · 6 Pokémon · 396 Stat Points",
+    `a crafted six-Pokemon team totals ${JSON.stringify(subtitle)}, not 1152 Stat Points`);
 }
 
 // 5. THE WIDEST REAL STRINGS -- the whole point of the ladder
@@ -543,7 +785,7 @@ for (const n of [1, 2, 3, 4, 5]) {
     ok(drawn.includes(label), `eval: the ${label} tile is labelled`);
     ok(drawn.includes(String(EVAL_DIGEST.scores[key])), `eval: the ${label} score ${EVAL_DIGEST.scores[key]} is drawn`);
   }
-  ok(drawn.includes("Team Building Checks") && drawn.includes("Critical threats (Top 20)"), "eval: both section headings drawn");
+  ok(drawn.includes("Team Building Checks") && drawn.includes("Critical threats"), "eval: both section headings drawn");
   ok(drawn.includes("10 good · 1 watch · 0 problem"), "eval: the verdict line is drawn");
   for (const row of EVAL_DIGEST.checks.slice(0, EVAL.checkRows)) ok(drawn.includes(row.label), `eval: check ${JSON.stringify(row.label)} is drawn`);
   ok(!drawn.includes(EVAL_DIGEST.checks[5].label), "eval: the sixth check is not drawn (only five fit)");
@@ -551,7 +793,48 @@ for (const n of [1, 2, 3, 4, 5]) {
   for (const t of EVAL_DIGEST.threats.slice(0, EVAL.threatRows)) ok(drawn.includes(t.name), `eval: threat ${t.name} is drawn`);
   ok(drawn.includes("80") && drawn.includes("71"), "eval: the threat scores are drawn");
   ok(drawn.includes("Detected archetype: Hyper Offense"), "eval: the archetype is named");
-  ok(drawn.includes("20 critical threats in the Top 20"), "eval: the threat total is drawn");
+
+  // THE WORDING.  The card used to head the list "Critical threats (Top 20)" and
+  // then say "20 critical threats in the Top 20" under it: the same words twice,
+  // and "(Top 20)" reads as "the twenty worst" when it means "of the Top 20 of
+  // the meta", which the subtitle already says.  The note now carries the one
+  // fact the list cannot: how much of the total is on the card.
+  ok(drawn.includes("Showing the 5 worst of 20"), "eval: the note says how much of the list is shown");
+  ok(!drawn.some((t) => t.includes("critical threat") && t !== "Critical threats"),
+    "eval: the redundant \"N critical threats in the Top N\" line is gone");
+  ok(!drawn.some((t) => /^Critical threats \(/.test(t)), "eval: the heading no longer repeats the meta size");
+  ok(drawn.filter((t) => t.toLowerCase().includes("top 20")).length === 1,
+    `eval: "Top 20" is said once, in the subtitle (${drawn.filter((t) => t.toLowerCase().includes("top 20")).join(" | ")})`);
+  // nothing to add when the list already shows everything
+  const short = render({ ...EVAL_DIGEST, threats: EVAL_DIGEST.threats.slice(0, 3), threatCount: 3 }, imagesFor(6, 3));
+  ok(!texts(short.ops).some((t) => t.startsWith("Showing the")),
+    "eval: a list that shows every threat says nothing about how many are shown");
+  ok(texts(short.ops).includes("Critical threats"), "eval: ...but still has its heading");
+
+  // THE DEAD GAP.  The left column used to stop at 506 while the right ran to
+  // 542 and the footer rule sits at 582, leaving a band roughly a sixth of the
+  // column tall with nothing in it.  Both columns must now reach the same depth.
+  const bottomOf = (side) => Math.max(...content(ops)
+    .filter((o) => !(o.y1 <= 93) && !(o.y0 >= FOOTER.ruleY - 1) && inside(o, side))
+    .map((o) => o.y1));
+  const leftBottom = bottomOf(LEFT);
+  const rightBottom = bottomOf(RIGHT);
+  ok(Math.abs(leftBottom - rightBottom) <= 12,
+    `eval: the two columns end together (left ${leftBottom.toFixed(1)}, right ${rightBottom.toFixed(1)})`);
+  ok(FOOTER.ruleY - Math.max(leftBottom, rightBottom) <= 40,
+    `eval: the content reaches the footer rule (${(FOOTER.ruleY - Math.max(leftBottom, rightBottom)).toFixed(1)}px of margin)`);
+  ok(leftBottom > 530, `eval: the left column runs to ${leftBottom.toFixed(1)}, not the old 509`);
+  // and the space went to the team, not to empty air
+  ok(EVAL.stripSize >= 76, `eval: the sprite strip is ${EVAL.stripSize}px, up from the 62 that left the gap`);
+  ok(EVAL.leftX + 5 * EVAL.stripPitch + EVAL.stripSize <= EVAL.leftX + EVAL.leftW,
+    "eval: six sprites at the larger size still fit the left column");
+  ok(EVAL.stripPitch > EVAL.stripSize, `eval: the strip keeps a gap between sprites (${EVAL.stripPitch - EVAL.stripSize}px)`);
+  ok(EVAL.tileY[1] + EVAL.tileH < EVAL.stripY, "eval: the tiles clear the sprite strip");
+  ok(EVAL.tileBarDY + EVAL.tileBarH < EVAL.tileH, "eval: the tile bar sits inside its tile");
+  ok(EVAL.stripY + EVAL.stripSize < EVAL.stripNameBaseline, "eval: the strip names sit below the sprites");
+  ok(EVAL.stripNameBaseline < EVAL.archetypeBaseline && EVAL.archetypeBaseline < EVAL.leftNoteBaseline,
+    "eval: the left column's three closing lines run in order");
+  ok(EVAL.leftNoteBaseline < FOOTER.ruleY, "eval: the left column's last line clears the footer rule");
   ok(drawn.includes(FOOTER.leadText) && drawn.includes(FOOTER.brandText), "eval: the footer is present");
   ok(ops.filter((o) => o.kind === "image").length === 11, "eval: six team sprites and five threat sprites drawn");
   // the longest REAL check label must survive its column

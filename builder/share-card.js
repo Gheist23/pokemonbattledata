@@ -595,8 +595,8 @@ function teamCell(ctx, entry, box, image, itemIcon) {
 
   const plate = TEAM.spritePlate;
   fillRound(ctx, x + up(plate.x), y + up(plate.y), up(plate.w), up(plate.h), up(plate.r), PALETTE.cardDeep);
-  const art_ = TEAM.sprite;
-  if (!art(ctx, image, x + up(art_.x), y + up(art_.y), up(art_.w), up(art_.h))) {
+  const spriteBox = TEAM.sprite;
+  if (!art(ctx, image, x + up(spriteBox.x), y + up(spriteBox.y), up(spriteBox.w), up(spriteBox.h))) {
     drawText(ctx, "?", ...at(plate.x + plate.w / 2, plate.y + plate.h / 2 + 10), {
       sizes: [up(28)], weight: 700, color: PALETTE.soft, align: "center", maxWidth: up(plate.w),
     });

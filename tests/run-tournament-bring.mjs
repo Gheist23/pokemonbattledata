@@ -10,8 +10,8 @@
 // with all 190 pairs adding up to 100.
 //
 // What is asserted here:
-//   STAMP        `tournamentBringOption` coerces exactly as the other two stamps do, and the option
-//                selects behaviour BY VERSION, so a recording made before the rule still replays.
+//   STAMP        `tournamentBringOption` coerces exactly as every other stamp of the file does, and
+//                the option selects behaviour BY VERSION, so a recording made before the rule replays.
 //   THE RULE     `chooseBrings` is the decision itself, so it is asserted directly: on hand-made
 //                grids that pin both sides' picks and every step of both tie-breaks, and on random
 //                grids for the property the tie-break exists for -- transposing a grid and
@@ -37,7 +37,8 @@ import { TeamEvaluator, normalizeSettings, DEFAULT_SETTINGS } from "../builder/t
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
-import { TournamentTest, TOURNAMENT_BRING, TOURNAMENT_SEAT, TOURNAMENT_TURN_ONE, tournamentBringOption, tournamentSeatOption, tournamentTurnOneOption } from "../builder/tournament-test.js";
+import { TournamentTest, TOURNAMENT_BRING, TOURNAMENT_SEAT, TOURNAMENT_TURN_ONE, tournamentBringOption, tournamentSeatOption, tournamentTurnOneOption,
+  tournamentFieldOption, tournamentMegaOption, tournamentAltOption } from "../builder/tournament-test.js";
 import { makeSet } from "../builder/common.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -81,11 +82,19 @@ function setFor(test, m) {
 
 check("TOURNAMENT_BRING is version 1", TOURNAMENT_BRING === 1);
 // An ABSENT stamp on a recording means "made before the rule", so it must resolve to 0 -- the same
-// way for all three stamps, or one recording's stamp means different things to different rules.
+// way for EVERY stamp of the file, or one recording's stamp means different things to different rules.
+const stamps = { turnOne: tournamentTurnOneOption, seat: tournamentSeatOption, field: tournamentFieldOption, mega: tournamentMegaOption, alt: tournamentAltOption };
 for (const off of [null, undefined, false, "", "0", "off", "false", "no", "none", 0, -1, "-5", "0.9"]) {
   check(`tournamentBringOption(${JSON.stringify(off)}) is off`, tournamentBringOption(off) === 0, String(tournamentBringOption(off)));
-  check(`tournamentBringOption(${JSON.stringify(off)}) agrees with the other two stamps`,
-    tournamentBringOption(off) === tournamentTurnOneOption(off) && tournamentBringOption(off) === tournamentSeatOption(off));
+  check(`tournamentBringOption(${JSON.stringify(off)}) agrees with every other stamp`,
+    Object.values(stamps).every((option) => option(off) === tournamentBringOption(off)),
+    JSON.stringify(Object.fromEntries(Object.entries(stamps).map(([name, option]) => [name, option(off)]))));
+}
+// And an unreadable value falls back to each rule's OWN current version, which is what makes them
+// different functions rather than one.
+for (const [name, option] of Object.entries(stamps)) {
+  check(`a non-numeric ${name} stamp is that rule's current version, not the bring rule's`,
+    option("yes") >= 1 && option("3") === 3 && option("1.9") === 1, `${option("yes")} / ${option("3")} / ${option("1.9")}`);
 }
 check("tournamentBringOption(1) is 1", tournamentBringOption(1) === 1);
 check("tournamentBringOption('1.9') truncates to 1", tournamentBringOption("1.9") === 1);

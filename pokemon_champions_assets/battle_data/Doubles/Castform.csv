@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Castform,239,move,1,Weather Ball,83.1%,,,,,,,,
-Castform,239,move,2,Hurricane,39.0%,,,,,,,,
+Castform,239,move,2,Hurricane,38.9%,,,,,,,,
 Castform,239,move,3,Protect,36.6%,,,,,,,,
 Castform,239,move,4,Thunder,36.0%,,,,,,,,
-Castform,239,move,5,Rain Dance,27.8%,,,,,,,,
+Castform,239,move,5,Rain Dance,27.9%,,,,,,,,
 Castform,239,move,6,Blizzard,24.5%,,,,,,,,
 Castform,239,move,7,Energy Ball,19.3%,,,,,,,,
 Castform,239,move,8,Ice Beam,19.3%,,,,,,,,
@@ -14,7 +14,7 @@ Castform,239,held_item,2,Focus Sash,17.2%,,,,,,,,
 Castform,239,held_item,3,Choice Scarf,15.7%,,,,,,,,
 Castform,239,held_item,4,Quick Claw,8.5%,,,,,,,,
 Castform,239,held_item,5,Rocky Helmet,6.8%,,,,,,,,
-Castform,239,held_item,6,Leftovers,5.2%,,,,,,,,
+Castform,239,held_item,6,Leftovers,5.3%,,,,,,,,
 Castform,239,held_item,7,Bright Powder,5.0%,,,,,,,,
 Castform,239,held_item,8,Sitrus Berry,3.9%,,,,,,,,
 Castform,239,held_item,9,Expert Belt,3.3%,,,,,,,,
@@ -33,7 +33,7 @@ Castform,239,stat_alignment,1,Modest,65.3%,Sp. Atk,Attack,,,,,,
 Castform,239,stat_alignment,2,Timid,18.9%,Speed,Attack,,,,,,
 Castform,239,stat_alignment,3,Quiet,7.5%,Sp. Atk,Speed,,,,,,
 Castform,239,stat_alignment,4,Mild,3.6%,Sp. Atk,Defense,,,,,,
-Castform,239,stat_alignment,5,Calm,1.5%,Sp. Def,Attack,,,,,,
+Castform,239,stat_alignment,5,Calm,1.6%,Sp. Def,Attack,,,,,,
 Castform,239,stat_alignment,6,Hasty,1.1%,Speed,Defense,,,,,,
 Castform,239,stat_alignment,7,Serious,0.7%,,,,,,,,
 Castform,239,stat_alignment,8,Bold,0.4%,Defense,Attack,,,,,,
@@ -47,6 +47,6 @@ Castform,239,stat_points,5,,7.6%,,,32,0,1,32,1,0
 Castform,239,stat_points,6,,4.2%,,,2,0,0,32,32,0
 Castform,239,stat_points,7,,3.2%,,,0,0,0,32,2,32
 Castform,239,stat_points,8,,2.9%,,,24,0,0,32,10,0
-Castform,239,stat_points,9,,2.5%,,,25,0,2,32,2,5
+Castform,239,stat_points,9,,2.4%,,,25,0,2,32,2,5
 Castform,239,stat_points,10,,1.9%,,,32,0,2,32,0,0
 Castform,239,ability,1,Forecast,100.0%,,,,,,,,

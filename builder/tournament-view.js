@@ -109,7 +109,7 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
 }
 
 /**
- * @param {object} s            a snapshot from TournamentTest.run (version 3)
+ * @param {object} s            a snapshot from TournamentTest.run (SNAPSHOT_VERSION, now 5)
  * @param {{name:(mon)=>string, sprite:(mon, size)=>Node, running:boolean, loadTeam?:(similar)=>void}} helpers
  */
 export function tournamentAnalysis(s, { name, sprite, running, loadTeam = null }) {

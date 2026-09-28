@@ -542,6 +542,36 @@ Data comes from two places:
   both Tailwinds and Sand and checks the reported duel column, duel table and threat answers do
   not budge. The view no longer says "of their 1-on-1s after turn 1" but "from full HP".
 
+  The seat (`builder/tournament-test.js` `TOURNAMENT_SEAT`): the battle model must not know which
+  SIDE a Pokemon sits on, and it did. `orderActions` broke a Speed tie with
+  `(turn % 2 ? b.s - a.s : a.s - b.s)` - the side index, alternating with the turn number, on every
+  turn - `planGuards` decided Protect in one pass over both sides' plans, so side 0's Protect took
+  its own attack out of the damage side 1 then priced its Protect against, and `refill` filled side
+  0 and then side 1, so side 1's replacement walked into side 0's and Intimidated a Pokemon that
+  had already come in. Measured on the first 20 tournament teams played against THEMSELVES through
+  the production path (our side via `ourUnit`, theirs via `opponentMon`): all 20 were off 50 on the
+  bring the test recommends (up to 31.30, and up to 41.43 over every bring), team8 reported 66.06
+  against itself in both directions, 1,720 of 2,340 within-team seat swaps did not add up to 100
+  (worst 82.85) and 342 of 1,710 cross-team ones did not (worst 70.36). Version 1 decides all of it
+  without the seat: a tie goes to the Pokemon whose own set hashes lower (`tieKey` / `tieRank` in
+  `prepare`, a total order so `sort` stays consistent, hashed so no species is handed every tie it
+  takes part in); two INDISTINGUISHABLE Pokemon are not ordered at all and both act (`tieRuns` /
+  `freezeRun`), neither taking the other's action away by a knockout, a flinch, sleep, Taunt or
+  Encore, and both striking with the stats they had before either moved; Protect, Wide Guard and
+  Quick Guard are decided against the plans as they stood before any guard was chosen; and everyone
+  replaced on a turn comes in together in Speed order. After it every one of those measurements is
+  exact: 210 of 210 mirror games (every bring of every one of the 20 teams) score exactly 50.00 and
+  all 4,050 seat swaps add up to exactly 100.00. It is nearly free in the headline - Doubles 48.41 -> 48.46, Singles 49.03 ->
+  49.21 on the smoke suite's bench team against 150 teams, and the subject-side by-archetype table
+  moves 41.80 -> 41.68 over 88 corpus subjects with Trick Room 42.82 -> 42.64, still below Hyper
+  Offense (46.98) and Tailwind (46.26) - which is exactly why it was easy to miss: the bias is
+  per-matchup, up to 75 points, and cancels in the average. `node tests/run-tournament-symmetry.mjs`
+  asserts the properties themselves rather than any measured number, in both formats, and checks
+  that version 0 still breaks all four, so it cannot pass by doing nothing. `TOURNAMENT_SEAT` is a
+  stamp: `new TournamentTest(..., { seatRule: 0 })` replays the seat-dependent model exactly (the
+  20 mirror numbers come back to the digit). `SNAPSHOT_VERSION` went 4 -> 5 because every score
+  moves (and `builder-page.js` drops the shelved `cbd.tour.v4` snapshot).
+
   Suggestions keep their order and scores (`run-suggest-vectors.mjs`); what the breakdown
   shows is extra: every layer's share of the score (`score_ledger`, `score_uncapped`; the
   score is capped at 100, so ties there fall back to meta rank), the calcs behind each

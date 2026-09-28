@@ -20,7 +20,10 @@
 //            is worth more. Finally, knowing what the other side plans: Protect for a lead
 //            that would be knocked out, Wide Guard against spread moves and Quick Guard
 //            against Fake Out and other priority moves when they save more than the lead's
-//            own attack. Actions go by priority, then Speed. Taunt stops status moves,
+//            own attack. Actions go by priority, then Speed; a Speed tie is decided by the two
+//            Pokémon themselves and never by which side they are on, and two Pokémon that are the
+//            same in every way act at the same time -- neither takes the other's action away, and
+//            both strike with the stats they had before either moved. Taunt stops status moves,
 //            Protect blocks everything aimed at its user, Prankster status moves fail on
 //            Dark types, Good as Gold and Magic Bounce stop status moves.
 //   Partner  Earthquake, Surf, Discharge, Bulldoze and the other "every Pokémon next to the
@@ -34,7 +37,9 @@
 //            Icy Wind's, applies on every hit), sleep and Encore cost the next turns, a burn
 //            halves physical damage and takes 1/16 HP a turn, HP carries over, Focus Sash and
 //            Sitrus Berry work once. A Pokémon that faints is replaced from the back until
-//            one side is out or the turn cap is reached.
+//            one side is out or the turn cap is reached. Everyone replaced on the same turn comes
+//            in together, in Speed order, so a replacement's Intimidate reaches the other side's
+//            replacement too and the slower setter's weather stands whichever side it is on.
 // Damage is the calc engine's exact expected damage (mean roll x accuracy, halved for
 // moves that need a recharge turn) for the board's weather, terrain, stat stages, burn
 // and Helping Hand.
@@ -77,7 +82,8 @@ const MATRIX_EVERY = 8; // snapshots between lead-matrix refreshes while running
 const ID_SPAN = 1 << 16;
 const MAX_CACHED_HITS = 400000;
 export const MATCHUP_BANDS = { favourable: 55, unfavourable: 45 };
-export const SNAPSHOT_VERSION = 4;
+// v5: scored under the seat rule (TOURNAMENT_SEAT), so every earlier snapshot is a different number.
+export const SNAPSHOT_VERSION = 5;
 
 /** The turn-1 rule as a version: 2 keeps turn 1 out of the duel board, 1 prices Tailwind and
  *  Trick Room, 0 forces them.
@@ -304,11 +310,19 @@ function tieRuns(actions) {
   return runs;
 }
 
-/** The state an action is judged by: what its Pokémon was when its run began. */
+let runTag = 0;
+
+/** The state an action is judged by: what its Pokémon was when its run began. The run's `tag`
+ *  also marks its Pokémon (`m.runTag`), so an action can tell a twin of its own run -- which has
+ *  not moved yet, whatever order the two were listed in -- from a Pokémon that really has moved. */
 function freezeRun(actions, runs, i) {
+  const tag = (runTag += 1);
   for (let j = i; j < actions.length && runs[j] === i; j += 1) {
     const m = actions[j].m;
-    actions[j].pre = { out: m.out, flinch: m.flinch, idle: m.idle, taunted: m.taunted };
+    // atk / spa / burn as well, so twins strike with the stats they had before either moved: a
+    // Mystical Fire between two identical Indeedee lowered only the one listed second otherwise.
+    actions[j].pre = { tag, out: m.out, flinch: m.flinch, idle: m.idle, taunted: m.taunted, atk: m.atk, spa: m.spa, burn: m.burn };
+    m.runTag = tag;
   }
 }
 
@@ -666,9 +680,13 @@ export class TournamentTest {
     }
   }
 
-  /** A Pokémon's move into another on this board, with its stages, burn and Helping Hand. */
-  hitOn(m, target, slot, board, helped = m.helped) {
-    return this.moveHit(m.u, target.u, slot, board, m.atk, m.spa, (helped ? 1 : 0) | (m.burn ? 2 : 0));
+  /**
+   * A Pokémon's move into another on this board, with its stages, burn and Helping Hand.
+   * `pre` is the attacker's own state to strike with, which is the attacker itself everywhere
+   * except inside a run of tied twins (seat rule 1), where it is what it was before the run began.
+   */
+  hitOn(m, target, slot, board, helped = m.helped, pre = m) {
+    return this.moveHit(m.u, target.u, slot, board, pre.atk, pre.spa, (helped ? 1 : 0) | (pre.burn ? 2 : 0));
   }
 
   /**
@@ -849,7 +867,7 @@ export class TournamentTest {
     return {
       u: unit, k: unit.kit, s, hp: 1, spe: 0, atk: 0, spa: 0, sash: unit.kit.sash, berry: unit.kit.sitrus, out: false, kos: 0,
       flinch: false, guard: false, intimidated: false, lead,
-      idle: 0, sleep: false, burn: false, helped: false, taunted: false, acted: 0,
+      idle: 0, sleep: false, burn: false, helped: false, taunted: false, acted: 0, runTag: 0,
     };
   }
 
@@ -1513,15 +1531,26 @@ export class TournamentTest {
     for (const a of decided) Object.assign(a, { kind: PROTECT, pr: 4, target: null, move: "Protect" });
   }
 
-  /** Wide Guard and Quick Guard, one of each per side. */
+  /** Wide Guard and Quick Guard, one of each per side. Seat rule 1 decides both sides against the
+   *  plans as they stand before either has guarded, then applies the choices together, so which
+   *  side is asked first cannot change the answer. */
   planSideGuards(plans, board, replaceable) {
+    const decided = [];
+    const take = (a, patch) => {
+      if (this.seatRule >= 1) decided.push([a, patch]);
+      else Object.assign(a, patch);
+    };
     for (let s = 0; s < 2; s += 1) {
       const mine = plans[s];
       const foes = plans[1 - s];
       const own = mine.map((a) => a.m);
+      // One of each per side: under the two-pass rule the choice is not on the action yet, so the
+      // count is kept here. Nothing else in the turn sets either guard, so this reads the same.
+      let wideTaken = mine.some((b) => b.kind === WIDE_GUARD);
+      let quickTaken = mine.some((b) => b.kind === QUICK_GUARD);
       for (const a of mine) {
         if (!replaceable(a) || (!a.m.k.wideGuard && !a.m.k.quickGuard)) continue;
-        if (a.m.k.wideGuard && !mine.some((b) => b.kind === WIDE_GUARD)) {
+        if (a.m.k.wideGuard && !wideTaken) {
           let blocked = 0;
           for (const x of [...foes, ...mine]) {
             const slot = x.kind === ATTACK || x.kind === SPEED_DROP || x.kind === LOWER ? x.slot : -1;
@@ -1530,11 +1559,12 @@ export class TournamentTest {
             for (const target of own) if (alive(target) && target !== x.m) blocked += this.hitScore(this.plannedDamage(x, target, board), target);
           }
           if (blocked > a.value + 0.3) {
-            Object.assign(a, { kind: WIDE_GUARD, pr: 3 + (a.m.k.prankster ? 1 : 0), target: null, value: blocked, move: "Wide Guard" });
+            take(a, { kind: WIDE_GUARD, pr: 3 + (a.m.k.prankster ? 1 : 0), target: null, value: blocked, move: "Wide Guard" });
+            wideTaken = true;
             continue;
           }
         }
-        if (a.m.k.quickGuard && !mine.some((b) => b.kind === QUICK_GUARD)) {
+        if (a.m.k.quickGuard && !quickTaken) {
           const pr = 3 + (a.m.k.prankster ? 1 : 0);
           let blocked = 0;
           for (const x of foes) {
@@ -1542,10 +1572,14 @@ export class TournamentTest {
             if (x.kind === FAKE_OUT) blocked += Math.max(0.8, mine.find((b) => b.m === x.target)?.value || 0);
             else blocked += this.hitScore(this.plannedDamage(x, x.target, board), x.target);
           }
-          if (blocked > a.value + 0.3) Object.assign(a, { kind: QUICK_GUARD, pr, target: null, value: blocked, move: "Quick Guard" });
+          if (blocked > a.value + 0.3) {
+            take(a, { kind: QUICK_GUARD, pr, target: null, value: blocked, move: "Quick Guard" });
+            quickTaken = true;
+          }
         }
       }
     }
+    for (const [a, patch] of decided) Object.assign(a, patch);
   }
 
   /** Why a status move aimed at a Pokémon fails now ("" when it lands). */
@@ -1614,7 +1648,7 @@ export class TournamentTest {
           events?.push({ s, kind: "blocked", actor: m.u, target: target.u, move: "Fake Out", by });
           continue;
         }
-        this.deal(m, target, this.hitOn(m, target, m.k.fakeOut, board), events);
+        this.deal(m, target, this.hitOn(m, target, m.k.fakeOut, board, m.helped, pre), events);
         target.flinch = true;
         events?.push({ s, kind: "fakeout", actor: m.u, target: target.u });
       } else if (a.kind === TAILWIND) {
@@ -1630,11 +1664,11 @@ export class TournamentTest {
       } else if (a.kind === SLEEP || a.kind === TAUNT || a.kind === ENCORE || a.kind === BURN || (a.kind === LOWER && !m.u.moves[a.slot].damaging)) {
         this.statusMove(a, active, board, redirector[1 - s], events);
       } else if (a.kind === SPEED_DROP) {
-        const done = this.attack(m, null, { slot: a.slot, spread: m.u.moves[a.slot].spread }, foes, active[s], board, null, events);
+        const done = this.attack(m, null, { slot: a.slot, spread: m.u.moves[a.slot].spread }, foes, active[s], board, null, events, pre);
         events?.push({ s, kind: "speeddrop", actor: m.u, move: a.move, targets: done.lowered.map((x) => x.m.u), own: done.own.map((x) => x.m.u) });
       } else if (a.kind === ATTACK || a.kind === LOWER) {
         const hit = a.hit || { slot: a.slot, spread: m.u.moves[a.slot].spread };
-        const done = this.attack(m, a.target || foes.find(alive) || null, hit, foes, active[s], board, redirector[1 - s], events);
+        const done = this.attack(m, a.target || foes.find(alive) || null, hit, foes, active[s], board, redirector[1 - s], events, pre);
         const drops = [...done.lowered, ...done.own];
         if (drops.length) events?.push({ s, kind: "lower", actor: m.u, move: m.u.moves[hit.slot].name, targets: done.lowered.map((x) => x.m.u), own: done.own.map((x) => x.m.u), stats: drops[0].stats });
       }
@@ -1690,11 +1724,16 @@ export class TournamentTest {
     } else if (a.kind === ENCORE) {
       // Encore needs a move to repeat: it fails on a Pokémon that has not moved yet, and an
       // attack repeated changes little. A status move or Fake Out repeated does nothing.
-      if (!target.acted || target.k.tauntProof) {
+      // A twin of the user's own run counts as not having moved (seat rule 1): the two are the
+      // same Pokémon at the same Speed, so whichever was listed first only moved first by chance
+      // -- and Encoring that would hand the whole exchange to one seat (measured on team10's
+      // mirror: two Mega Raichu Y, one Encore-locked and one not, 43.56 instead of 50.00).
+      const acted = a.pre && target.runTag === a.pre.tag ? 0 : target.acted;
+      if (!acted || target.k.tauntProof) {
         events?.push({ s, kind: "encorefail", actor: m.u, target: target.u });
         return;
       }
-      if (target.acted === ATTACK || target.acted === SPEED_DROP || target.acted === LOWER) return;
+      if (acted === ATTACK || acted === SPEED_DROP || acted === LOWER) return;
       target.idle = Math.max(target.idle, IDLE_TURNS);
       events?.push({ s, kind: "encore", actor: m.u, target: target.u, value: String(IDLE_TURNS) });
     } else if (a.kind === BURN) {
@@ -1716,7 +1755,7 @@ export class TournamentTest {
    * target. Wide Guard stops spread moves, Quick Guard priority moves. A sure stat drop (Icy Wind,
    * Snarl) follows each landed hit. Returns the Pokémon whose stats went down: { lowered, own }.
    */
-  attack(m, target, hit, foes, allies, board, redirector, events) {
+  attack(m, target, hit, foes, allies, board, redirector, events, pre = m) {
     const slot = hit.slot;
     const info = m.u.moves[slot];
     const out = { lowered: [], own: [] };
@@ -1728,7 +1767,7 @@ export class TournamentTest {
       else {
         for (const foe of foes) {
           if (!alive(foe)) continue;
-          const h = this.hitOn(m, foe, slot, board);
+          const h = this.hitOn(m, foe, slot, board, m.helped, pre);
           if (h.priority > 0 && quick & (1 << foe.s)) continue;
           if (!this.deal(m, foe, h, events)) continue;
           const stats = this.afterHit(m, foe, info);
@@ -1738,7 +1777,7 @@ export class TournamentTest {
       if (allies && info.allyHit && !(wide & (1 << m.s))) {
         for (const ally of allies) {
           if (!alive(ally) || ally === m) continue;
-          if (!this.deal(m, ally, this.hitOn(m, ally, slot, board), events, true)) continue;
+          if (!this.deal(m, ally, this.hitOn(m, ally, slot, board, m.helped, pre), events, true)) continue;
           const stats = this.afterHit(m, ally, info);
           if (stats.length) out.own.push({ m: ally, stats });
         }
@@ -1748,7 +1787,7 @@ export class TournamentTest {
     let aim = target ? this.redirected(m, target, redirector) : null;
     if (!aim || aim.out) aim = foes.find(alive) || null;
     if (!aim) return out;
-    const h = this.hitOn(m, aim, slot, board);
+    const h = this.hitOn(m, aim, slot, board, m.helped, pre);
     if (h.priority > 0 && quick & (1 << aim.s)) {
       events?.push({ s: m.s, kind: "blocked", actor: m.u, target: aim.u, move: info.name, by: "Quick Guard" });
       return out;
@@ -1775,8 +1814,19 @@ export class TournamentTest {
     }
   }
 
-  /** Empty slots take the next Pokémon from the back, which then enters (Intimidate, weather, terrain). */
+  /**
+   * Empty slots take the next Pokémon from the back, which then enters (Intimidate, weather, terrain).
+   *
+   * Seat rule 1: everyone replaced this turn is on the field before ANY of them triggers, and they
+   * trigger in the Speed order they come in at, as on turn 1. Under version 0 each side was filled
+   * in turn, so side 1's replacement walked into side 0's -- its Intimidate lowered the Attack of
+   * a Pokémon that had already come in -- while side 0's replacement met an empty slot. In a mirror
+   * that alone cost side 0 an Attack stage on every simultaneous replacement (measured: team11's
+   * bring [1,2,3,4] came out at 44.21 instead of 50.00), and it put the weather of whichever side
+   * refilled second on the board whatever the Speed.
+   */
   refill(active, sides, next, board) {
+    const arriving = [];
     for (let s = 0; s < 2; s += 1) {
       for (let slot = 0; slot < active[s].length; slot += 1) {
         const m = active[s][slot];
@@ -1790,9 +1840,13 @@ export class TournamentTest {
         }
         const incoming = next[s] < sides[s].length ? sides[s][next[s]++] : null;
         active[s][slot] = incoming;
-        if (incoming) this.enter(incoming, active, board, null);
+        if (!incoming) continue;
+        if (this.seatRule >= 1) arriving.push(incoming);
+        else this.enter(incoming, active, board, null);
       }
     }
+    arriving.sort((a, b) => this.entrySpeedOf(b.u) - this.entrySpeedOf(a.u) || byIdentity(a.u, b.u));
+    for (const m of arriving) this.enter(m, active, board, null);
   }
 
   /** An empty field: the settings' weather and terrain, nobody's Tailwind, no Trick Room. */
@@ -1861,8 +1915,9 @@ export class TournamentTest {
       for (let i = 0; i < actions.length; i += 1) {
         const a = actions[i];
         if (runs && runs[i] === i) freezeRun(actions, runs, i);
-        if ((a.pre || a.m).out) continue;
-        this.attack(a.m, a.target, a.hit, active[1 - a.s], active[a.s], board, null, null);
+        const pre = a.pre || a.m;
+        if (pre.out) continue;
+        this.attack(a.m, a.target, a.hit, active[1 - a.s], active[a.s], board, null, null, pre);
       }
       this.endOfTurn(active, null);
       if (board.tw[0]) board.tw[0] -= 1;
@@ -1931,8 +1986,15 @@ export class TournamentTest {
    * field of this 1 vs 1 -- dropping it would score a Torkoal's Eruption or a Pelipper's
    * Hurricane out of the weather the threat list most needs them priced in. They are applied in
    * `turnOne`'s own entry order (fastest in first, each setter overwriting), so the SLOWER
-   * setter's field stands, exactly as in a real game; a Speed tie goes to their side, as the
-   * `a.s - b.s` tie-break there does.
+   * setter's field stands, exactly as in a real game; on an exact Speed tie the field of the
+   * threat stands, because it is applied second here.
+   *
+   * That last tie is the one thing left in the file that a side decides: it is not part of the
+   * battle model (the seat rule covers `turnOne`, `play` and `refill`, and a duel has no sides --
+   * `duel` is always called with our unit first), and it reaches only the duel column and the
+   * biggest-threats answer, never a score (tests/run-tournament-smoke.mjs proves the headline
+   * cannot come from the duels). Deciding it by `byIdentity` too would move published duel
+   * numbers for no gain in the test itself.
    */
   duelBoard(o, t) {
     const board = this.freshBoard();

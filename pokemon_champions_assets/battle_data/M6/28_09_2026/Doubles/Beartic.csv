@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Beartic,214,move,1,Icicle Crash,72.5%,,,,,,,,
-Beartic,214,move,2,Close Combat,59.5%,,,,,,,,
-Beartic,214,move,3,Protect,53.2%,,,,,,,,
-Beartic,214,move,4,Rock Slide,43.3%,,,,,,,,
+Beartic,214,move,2,Close Combat,59.6%,,,,,,,,
+Beartic,214,move,3,Protect,53.3%,,,,,,,,
+Beartic,214,move,4,Rock Slide,43.2%,,,,,,,,
 Beartic,214,move,5,Earthquake,26.1%,,,,,,,,
 Beartic,214,move,6,Liquidation,25.9%,,,,,,,,
 Beartic,214,move,7,Ice Punch,17.6%,,,,,,,,
-Beartic,214,move,8,Throat Chop,12.3%,,,,,,,,
+Beartic,214,move,8,Throat Chop,12.4%,,,,,,,,
 Beartic,214,move,9,Aqua Jet,11.0%,,,,,,,,
 Beartic,214,move,10,Play Rough,9.7%,,,,,,,,
 Beartic,214,held_item,1,Life Orb,38.6%,,,,,,,,
@@ -26,8 +26,8 @@ Beartic,214,teammate,4,Ninetales-Alola,,,,,,,,,
 Beartic,214,teammate,5,Swampert,,,,,,,,,
 Beartic,214,teammate,6,Baxcalibur,,,,,,,,,
 Beartic,214,teammate,7,Rillaboom,,,,,,,,,
-Beartic,214,teammate,8,Golisopod,,,,,,,,,
-Beartic,214,teammate,9,Sableye,,,,,,,,,
+Beartic,214,teammate,8,Sableye,,,,,,,,,
+Beartic,214,teammate,9,Golisopod,,,,,,,,,
 Beartic,214,teammate,10,Abomasnow,,,,,,,,,
 Beartic,214,stat_alignment,1,Adamant,63.0%,Attack,Sp. Atk,,,,,,
 Beartic,214,stat_alignment,2,Jolly,30.4%,Speed,Sp. Atk,,,,,,
@@ -39,7 +39,7 @@ Beartic,214,stat_alignment,7,Sassy,0.5%,Sp. Def,Speed,,,,,,
 Beartic,214,stat_alignment,8,Hasty,0.4%,Speed,Defense,,,,,,
 Beartic,214,stat_alignment,9,Naive,0.3%,Speed,Sp. Def,,,,,,
 Beartic,214,stat_alignment,10,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
-Beartic,214,stat_points,1,,45.8%,,,2,32,0,0,0,32
+Beartic,214,stat_points,1,,45.9%,,,2,32,0,0,0,32
 Beartic,214,stat_points,2,,7.6%,,,0,32,0,0,2,32
 Beartic,214,stat_points,3,,5.9%,,,0,32,2,0,0,32
 Beartic,214,stat_points,4,,4.4%,,,0,32,0,0,0,32
@@ -49,6 +49,6 @@ Beartic,214,stat_points,7,,2.3%,,,3,32,0,0,0,31
 Beartic,214,stat_points,8,,2.1%,,,32,32,2,0,0,0
 Beartic,214,stat_points,9,,1.8%,,,2,32,32,0,0,0
 Beartic,214,stat_points,10,,1.4%,,,0,32,1,0,1,32
-Beartic,214,ability,1,Swift Swim,49.7%,,,,,,,,
-Beartic,214,ability,2,Slush Rush,44.8%,,,,,,,,
+Beartic,214,ability,1,Swift Swim,49.8%,,,,,,,,
+Beartic,214,ability,2,Slush Rush,44.7%,,,,,,,,
 Beartic,214,ability,3,Snow Cloak,5.5%,,,,,,,,

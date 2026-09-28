@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050c08" />
+  <!-- The block between the SHARE:META markers is REPLACED per share code by
+       functions/api/share/[code].js, which is what puts a real og:image on a
+       pasted link.  What is here is the fallback for /share/ itself, and it is
+       what a visitor who types the address sees.  Keep the markers. -->
+  <!--SHARE:META-->
+  <title>Shared team - Pokemon Champions Battle Data</title>
+  <meta name="description" content="Open a shared Pokemon Champions team or Team Evaluation result: the full sets, the stat bars, the Stat Points and the nature, as one picture." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://championsbattledata.com/share/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://championsbattledata.com/share/" />
+  <meta property="og:title" content="Shared team - Pokemon Champions Battle Data" />
+  <meta property="og:description" content="Open a shared Pokemon Champions team or Team Evaluation result." />
+  <meta property="og:site_name" content="Pokemon Champions Battle Data" />
+  <meta property="og:image" content="https://championsbattledata.com/assets/tool/team-builder.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shared team - Pokemon Champions Battle Data" />
+  <meta name="twitter:description" content="Open a shared Pokemon Champions team or Team Evaluation result." />
+  <meta name="twitter:image" content="https://championsbattledata.com/assets/tool/team-builder.webp" />
+  <!--/SHARE:META-->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    /* Scoped under .page-share so nothing can leak into the Explorer, Meta,
+       Team Builder or tool pages.  The tokens are the Team Builder's own
+       (builder/builder.css:8-20) and the card's (builder/share-card.js
+       PALETTE), copied rather than imported so this page does not pull 67 KB of
+       builder CSS for six colours. */
+    .page-share {
+      --bd-card: linear-gradient(180deg, rgba(20, 34, 24, 0.97), rgba(8, 17, 12, 0.96));
+      --bd-card-deep: rgba(5, 13, 8, 0.72);
+      --bd-line: rgba(114, 255, 171, 0.16);
+      --bd-line-strong: rgba(114, 255, 171, 0.36);
+      --bd-good: #72ffab;
+      --bd-mid: #f2cf5b;
+      --bd-bad: #ff7a66;
+      --bd-nature-up: #ff9a9a;
+      --bd-nature-down: #9ec9ff;
+    }
+    .page-share main { padding-bottom: 2.5rem; }
+    .page-share .share-head { padding-block: clamp(1.2rem, 3vw, 2rem) 0.6rem; }
+    .page-share .share-head h1 {
+      margin: 0.2rem 0 0.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+      line-height: 1.06;
+      overflow-wrap: anywhere;
+    }
+    .page-share .share-sub { margin: 0; color: var(--muted); max-width: 90ch; overflow-wrap: anywhere; }
+    .page-share .share-frame {
+      margin: 1rem 0 0;
+      padding: 0;
+      border: 1px solid var(--bd-line);
+      border-radius: var(--radius-lg);
+      background: var(--bd-card-deep);
+      overflow: hidden;
+      line-height: 0;
+    }
+    .page-share .share-frame img { display: block; width: 100%; height: auto; }
+    .page-share .share-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      margin: 1rem 0 0;
+    }
+    .page-share .share-note { margin: 0.7rem 0 0; color: var(--soft); font-size: 0.9rem; }
+    .page-share .share-panel {
+      margin-top: 1.4rem;
+      padding: 1rem 1.1rem 1.2rem;
+      border: 1px solid var(--bd-line);
+      border-radius: var(--radius-lg);
+      background: var(--bd-card);
+    }
+    .page-share .share-panel > h2 {
+      margin: 0 0 0.8rem;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+    .page-share .share-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 0.8rem;
+    }
+    .page-share .share-slot {
+      padding: 0.75rem 0.85rem 0.85rem;
+      border: 1px solid var(--bd-line);
+      border-radius: var(--radius-md);
+      background: var(--bd-card-deep);
+    }
+    .page-share .share-slot h3 { margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
+    .page-share .share-slot .share-meta { margin: 0.15rem 0 0; color: var(--muted); font-size: 0.86rem; overflow-wrap: anywhere; }
+    .page-share .share-slot .share-nature { color: var(--bd-good); }
+    .page-share .share-moves { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.6rem 0 0; padding: 0; list-style: none; }
+    .page-share .share-moves li {
+      padding: 0.16rem 0.45rem;
+      border: 1px solid var(--bd-line);
+      border-radius: 0.5rem;
+      background: rgba(5, 13, 8, 0.72);
+      font-size: 0.82rem;
+    }
+    .page-share .share-stats { margin: 0.7rem 0 0; display: grid; gap: 0.3rem; }
+    .page-share .share-stat { display: grid; grid-template-columns: 2.6rem 1fr 4.6rem; gap: 0.45rem; align-items: center; font-size: 0.82rem; }
+    .page-share .share-stat .share-stat-name { color: var(--muted); }
+    .page-share .share-stat .share-track { height: 6px; border-radius: 3px; background: var(--bd-line); overflow: hidden; }
+    .page-share .share-stat .share-fill { display: block; height: 100%; border-radius: 3px; }
+    .page-share .share-stat .share-stat-value { text-align: right; font-variant-numeric: tabular-nums; }
+    .page-share .share-stat .share-points { color: var(--bd-good); }
+    .page-share .share-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem; }
+    .page-share .share-tile {
+      padding: 0.8rem 0.9rem 0.9rem;
+      border: 1px solid var(--bd-line);
+      border-radius: var(--radius-md);
+      background: var(--bd-card-deep);
+    }
+    .page-share .share-tile span { display: block; color: var(--muted); font-size: 0.82rem; }
+    .page-share .share-tile strong { display: block; font-size: 2.1rem; line-height: 1.1; font-weight: 800; }
+    .page-share .share-rows { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.35rem; }
+    .page-share .share-rows li { display: flex; gap: 0.55rem; align-items: baseline; padding: 0.35rem 0; border-top: 1px solid rgba(114, 255, 171, 0.09); overflow-wrap: anywhere; }
+    .page-share .share-rows li:first-child { border-top: 0; }
+    .page-share .share-dot { flex: 0 0 auto; width: 9px; height: 9px; border-radius: 50%; margin-top: 0.35rem; }
+    .page-share .share-score { margin-left: auto; font-variant-numeric: tabular-nums; font-weight: 700; }
+    .page-share .share-paste { margin-top: 1rem; }
+    .page-share .share-paste summary { cursor: pointer; color: var(--muted); }
+    .page-share .share-paste textarea {
+      width: 100%;
+      min-height: 13rem;
+      margin-top: 0.6rem;
+      padding: 0.7rem 0.8rem;
+      border: 1px solid var(--bd-line);
+      border-radius: var(--radius-md);
+      background: rgba(5, 13, 8, 0.72);
+      color: var(--text);
+      font-family: "Cascadia Code", "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+      font-size: 0.84rem;
+    }
+    .page-share .share-built { margin: 1.6rem 0 0; color: var(--soft); }
+    .page-share .share-built a { color: var(--bd-good); }
+    .page-share .share-empty { margin: 1.4rem 0 0; }
+    .page-share .share-code-form { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+    .page-share .share-code-form input {
+      flex: 1 1 18rem;
+      padding: 0.55rem 0.7rem;
+      border: 1px solid var(--bd-line-strong);
+      border-radius: var(--radius-md);
+      background: rgba(5, 13, 8, 0.72);
+      color: var(--text);
+      font-family: "Cascadia Code", "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+      letter-spacing: 0.06em;
+    }
+    @media (max-width: 560px) {
+      .page-share .share-stat { grid-template-columns: 2.4rem 1fr 4.2rem; font-size: 0.78rem; }
+      .page-share .share-actions .ghost-button, .page-share .share-actions .primary-button { flex: 1 1 auto; text-align: center; }
+    }
+  </style>
+</head>
+<body class="page-share">
+  <a class="skip-link" href="#shareView">Skip to the shared team</a>
+
+  <header class="site-header" aria-label="Site header">
+    <nav class="nav-shell">
+      <a class="brand" href="/" aria-label="championsbattledata.com home">
+        <img class="brand-logo" src="/favicon.svg" alt="" aria-hidden="true" />
+        <span>
+          <strong>Pokemon Champions Battle Data</strong>
+          <small>championsbattledata.com</small>
+        </span>
+      </a>
+      <div class="nav-actions">
+        <a class="ghost-button nav-builder" href="/team-builder/">Team Builder</a>
+        <a class="ghost-button" href="/damage-calculator/">Damage Calc</a>
+        <a class="ghost-button" href="/meta/">Meta</a>
+        <a class="ghost-button" href="/">Explorer</a>
+        <a class="ghost-button nav-companion" href="/pro-tool/">Companion</a>
+        <a class="discord-button" href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-shell share-head">
+      <div id="shareView" role="status" aria-live="polite">
+        <p class="eyebrow">Shared from championsbattledata.com</p>
+        <h1>Loading the share…</h1>
+        <p class="share-sub">One moment.</p>
+      </div>
+    </section>
+    <!-- Replaced per code with a plain hero (title, description and the card)
+         so a reader with no JavaScript still gets the picture. -->
+    <!--SHARE:NOSCRIPT--><!--/SHARE:NOSCRIPT-->
+  </main>
+
+  <footer class="site-footer section-shell" aria-label="Site notice">
+    <nav class="footer-links" aria-label="Pokemon Champions tools">
+      <div>
+        <h2>Build</h2>
+        <ul>
+          <li><a href="/team-builder/">Team Builder</a></li>
+          <li><a href="/damage-calculator/">Damage Calculator</a></li>
+          <li><a href="/pro-tool/">Companion app</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Browse</h2>
+        <ul>
+          <li><a href="/pokemon/">All Pokemon</a></li>
+          <li><a href="/moves/">All moves</a></li>
+          <li><a href="/items/">All held items</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Meta</h2>
+        <ul>
+          <li><a href="/meta/">Meta trends</a></li>
+          <li><a href="/rankings/most-used/">Most used Pokemon</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p>A shared team or evaluation is a snapshot: it is stored as the picture and the numbers it was made from, and it is not linked to any account.</p>
+    <p>This fan-made project is not affiliated with, endorsed by, or sponsored by Pokemon, Nintendo, Game Freak, or Creatures Inc. <a href="/license.html">License</a>.</p>
+  </footer>
+
+  <!-- Replaced per code with the record as inline JSON, so the page needs no
+       second request.  Left empty, share-page.js reads ?c= instead. -->
+  <!--SHARE:DATA--><!--/SHARE:DATA-->
+  <script type="module" src="/share/share-page.js"></script>
+</body>
+</html>

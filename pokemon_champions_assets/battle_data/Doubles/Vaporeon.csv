@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Vaporeon,168,move,1,Scald,54.8%,,,,,,,,
 Vaporeon,168,move,2,Ice Beam,53.7%,,,,,,,,
-Vaporeon,168,move,3,Calm Mind,46.7%,,,,,,,,
-Vaporeon,168,move,4,Protect,37.6%,,,,,,,,
+Vaporeon,168,move,3,Calm Mind,46.8%,,,,,,,,
+Vaporeon,168,move,4,Protect,37.5%,,,,,,,,
 Vaporeon,168,move,5,Muddy Water,25.6%,,,,,,,,
 Vaporeon,168,move,6,Acid Armor,23.4%,,,,,,,,
 Vaporeon,168,move,7,Detect,23.2%,,,,,,,,
 Vaporeon,168,move,8,Surf,17.0%,,,,,,,,
 Vaporeon,168,move,9,Yawn,13.9%,,,,,,,,
-Vaporeon,168,move,10,Baton Pass,13.5%,,,,,,,,
-Vaporeon,168,held_item,1,Leftovers,50.7%,,,,,,,,
+Vaporeon,168,move,10,Baton Pass,13.6%,,,,,,,,
+Vaporeon,168,held_item,1,Leftovers,50.6%,,,,,,,,
 Vaporeon,168,held_item,2,Sitrus Berry,11.9%,,,,,,,,
 Vaporeon,168,held_item,3,Mystic Water,7.3%,,,,,,,,
-Vaporeon,168,held_item,4,Grassy Seed,5.4%,,,,,,,,
+Vaporeon,168,held_item,4,Grassy Seed,5.5%,,,,,,,,
 Vaporeon,168,held_item,5,Life Orb,3.8%,,,,,,,,
 Vaporeon,168,held_item,6,Shell Bell,2.6%,,,,,,,,
 Vaporeon,168,held_item,7,Electric Seed,1.8%,,,,,,,,
@@ -29,8 +29,8 @@ Vaporeon,168,teammate,7,Raichu,,,,,,,,,
 Vaporeon,168,teammate,8,Umbreon,,,,,,,,,
 Vaporeon,168,teammate,9,Politoed,,,,,,,,,
 Vaporeon,168,teammate,10,Dragonite,,,,,,,,,
-Vaporeon,168,stat_alignment,1,Bold,32.7%,Defense,Attack,,,,,,
-Vaporeon,168,stat_alignment,2,Modest,30.9%,Sp. Atk,Attack,,,,,,
+Vaporeon,168,stat_alignment,1,Bold,32.8%,Defense,Attack,,,,,,
+Vaporeon,168,stat_alignment,2,Modest,30.8%,Sp. Atk,Attack,,,,,,
 Vaporeon,168,stat_alignment,3,Calm,10.9%,Sp. Def,Attack,,,,,,
 Vaporeon,168,stat_alignment,4,Quiet,8.3%,Sp. Atk,Speed,,,,,,
 Vaporeon,168,stat_alignment,5,Relaxed,7.1%,Defense,Speed,,,,,,
@@ -44,8 +44,8 @@ Vaporeon,168,stat_points,2,,6.1%,,,32,0,2,32,0,0
 Vaporeon,168,stat_points,3,,5.6%,,,32,0,0,32,2,0
 Vaporeon,168,stat_points,4,,4.1%,,,2,0,32,32,0,0
 Vaporeon,168,stat_points,5,,3.6%,,,19,0,17,10,11,9
-Vaporeon,168,stat_points,6,,3.5%,,,2,0,32,0,32,0
-Vaporeon,168,stat_points,7,,3.5%,,,19,0,30,0,17,0
+Vaporeon,168,stat_points,6,,3.5%,,,19,0,30,0,17,0
+Vaporeon,168,stat_points,7,,3.5%,,,2,0,32,0,32,0
 Vaporeon,168,stat_points,8,,2.5%,,,32,0,31,0,3,0
 Vaporeon,168,stat_points,9,,1.8%,,,0,0,16,22,0,28
 Vaporeon,168,stat_points,10,,1.6%,,,19,0,32,0,15,0

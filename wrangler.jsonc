@@ -7,5 +7,13 @@
   "compatibility_flags": ["nodejs_compat"],
   "kv_namespaces": [
     { "binding": "LICENSES", "id": "88038110bbeb4f709e4cf614f67acc3d" }
-  ]
-}
+  ],
+  // Share cards (functions/api/share/*): the digest record and the 1200x630 PNG
+  // a client rendered.  R2 and not KV -- the free KV allowance is 1,000 writes a
+  // day for the whole account and the licence and sync endpoints already spend
+  // from it, while R2's free tier is 10 GB with 1,000,000 Class A operations a
+  // month.
+  //
+  // TWO STEPS, IN THIS ORDER.  This worktree is committed and deployed
+  // automatically every few hours, so a binding that names a bucket which does
+  // not exist yet would be

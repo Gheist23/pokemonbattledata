@@ -575,6 +575,48 @@ Data comes from two places:
   20 mirror numbers come back to the digit). `SNAPSHOT_VERSION` went 4 -> 5 because every score
   moves (and `builder-page.js` drops the shelved `cbd.tour.v4` snapshot).
 
+  The bring (`builder/tournament-test.js` `TOURNAMENT_BRING`, `chooseBrings`): both sides now choose
+  their bring BLIND. Before this rule our bring was the one whose worst answer is best while theirs
+  was the answer that hurts our choice most - a best response to a commitment they could see - and
+  `max min <= min max` made the number reported systematically below even. Measured on a round robin
+  of the first 20 tournament teams, each as OUR builder team against all 20 (380 ordered pairs, every
+  bring against every bring, Doubles, default settings): the reported average was 45.17 while the
+  average over every bring pair - the same 41,760 games with no decision in them at all - is exactly
+  50.0000, 170 of the 190 unordered pairs did not add up to 100 (mean 10.80, max 31.55), 6 of the 20
+  teams reported below 50 against THEMSELVES (as low as 37.50), and the bands read 25.3 / 21.3 / 53.4.
+  Version 1 gives their bring our own rule: the bring whose worst case is best, chosen without seeing
+  ours, which from our seat is the column whose best case for us is worst. It needs no extra game -
+  it reads the very grid the loop already builds, because the seat rule makes
+  V(ours=c, theirs=d) + V(ours=d, theirs=c) exactly 100 - and its tie-break is the mirror of ours
+  (their better worst case, then their better average, then their own lower line-up, which is their
+  index in their own plan list and so survives a seat swap). On the same round robin the reported
+  average is exactly 50.00, all 190 pairs add up to 100 exactly, all 20 teams report exactly 50
+  against themselves, and the bands read 38.2 / 23.7 / 38.2. It is free: 44,100 games either way,
+  Doubles 150 teams 5.3 s -> 4.5 s and Singles 2.9 s -> 2.9 s on the smoke suite's bench team. What
+  it costs is that the headline rises - Doubles 48.46 -> 53.35 and Singles 49.21 -> 51.99 on that
+  bench team, 92 of 150 Doubles matchup values moving (84 by more than a point, worst 27.94 -> 69.01;
+  Singles 60 of 150, 56 by more than a point, worst 43.65 -> 66.67), and always upwards, because
+  their blind bring is never a better answer than their best one. Our own recommended bring does not
+  change at all; what changes with theirs is which of THEIR Pokemon are recorded as brought against
+  us, so the threats card's brought / knockouts / survived and their pairs move on every run. The
+  subject-side by-archetype table keeps its shape (88 corpus subjects against 60 teams, 41.68 ->
+  46.22): Trick Room 42.64 -> 46.86, still 7th-8th of 15 and still below Hyper Offense 46.98 ->
+  51.71 and Tailwind 46.26 -> 51.19, and Trick Room gains LESS than the table average, so the
+  turn-1 Trick Room correction is undisturbed. `node tests/run-tournament-bring.mjs` asserts the
+  rule on hand-made grids, on 400 random grids (transposing a grid and reflecting it through 100 is
+  what a seat swap does, so it must swap the two picks and the two values must add up to 100), and
+  on real teams, and checks that version 0 breaks every one of them.
+  `node tests/run-tournament-symmetry.mjs`'s "reported" property was TIGHTENED at the same time,
+  from "never above 50" to "exactly 50". `TOURNAMENT_BRING` is a stamp:
+  `new TournamentTest(..., { bringRule: 0 })` replays the best-response answer exactly (the 45.17
+  round robin comes back to the digit). `SNAPSHOT_VERSION` went 5 -> 6 (and `builder-page.js` drops
+  the shelved `cbd.tour.v5` snapshot). The bring-options card followed the rule: it used to average
+  each bring's per-team WORST case, which is not what "on average when brought against every team"
+  says and sat 12.79 points under the headline in Doubles and 15.89 in Singles; it now averages the
+  game each bring plays against the bring they commit to, and the copy says "on average if you
+  brought these against every team", which is what that number is - still below the headline, which
+  lets each team have the bring that suits it.
+
   Suggestions keep their order and scores (`run-suggest-vectors.mjs`); what the breakdown
   shows is extra: every layer's share of the score (`score_ledger`, `score_uncapped`; the
   score is capped at 100, so ties there fall back to meta rank), the calcs behind each

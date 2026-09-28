@@ -132,20 +132,18 @@ check("the seat rule does not touch the turn-1 rule", makeTest("Doubles", { seat
 function measure(format, seatRule) {
   const test = makeTest(format, { seatRule });
   const teams = test.teams(limit).map((team) => seats(test, team));
-  const out = { mirrors: 0, mirrorsOff: 0, worstMirror: 0, swaps: 0, swapsOff: 0, worstSwap: 0, stories: 0, storiesOff: 0, exact: 0, reported: 0, reportedOver: 0, worstReported: 0 };
+  const out = { mirrors: 0, mirrorsOff: 0, worstMirror: 0, swaps: 0, swapsOff: 0, worstSwap: 0, stories: 0, storiesOff: 0, exact: 0, reported: 0, reportedOff: 0, reportedOver: 0, worstReported: 0 };
   for (const team of teams) {
-    // REPORTED: the value playTeam would print for this team against itself (its own maximin over
-    // our brings of the worst of theirs), which no team can win.
+    // REPORTED: the value playTeam would print for this team against itself. Not a maximin worked
+    // out here -- `chooseBrings` is the production decision itself (tournament-test.js), handed the
+    // same grid playTeam builds, so this asserts the shipped rule and not a copy of it.
     {
-      let best = -1;
-      for (const ours of team.ourPlans) {
-        let worst = 101;
-        for (const theirs of team.theirPlans) worst = Math.min(worst, test.play(ours, theirs, null).value);
-        best = Math.max(best, worst);
-      }
+      const grid = team.ourPlans.map((ours) => team.theirPlans.map((theirs) => test.play(ours, theirs, null).value));
+      const value = test.chooseBrings(grid).value;
       out.reported += 1;
-      if (best > 50 + 1e-9) out.reportedOver += 1;
-      if (best - 50 > out.worstReported) out.worstReported = best - 50;
+      if (Math.abs(value - 50) > 1e-9) out.reportedOff += 1;
+      if (value > 50 + 1e-9) out.reportedOver += 1;
+      if (Math.abs(value - 50) > Math.abs(out.worstReported)) out.worstReported = value - 50;
     }
     // MIRROR: the same bring on both sides, every bring the team can make.
     for (let i = 0; i < team.ourPlans.length; i += 1) {
@@ -195,22 +193,27 @@ function measure(format, seatRule) {
 for (const format of ["Doubles", "Singles"]) {
   const now = measure(format, undefined);
   const old = measure(format, 0);
-  console.log(`${format} (${limit} teams): version ${TOURNAMENT_SEAT} · mirrors ${now.mirrors - now.mirrorsOff}/${now.mirrors} at 50 (${now.exact} of them exactly) · seat swaps ${now.swaps - now.swapsOff}/${now.swaps} at 100 · stories ${now.stories - now.storiesOff}/${now.stories} symmetric · reported above 50: ${now.reportedOver}/${now.reported}`);
-  console.log(`${format} (${limit} teams): version 0       · mirrors off 50: ${old.mirrorsOff}/${old.mirrors} (worst ${old.worstMirror.toFixed(2)}) · swaps off 100: ${old.swapsOff}/${old.swaps} (worst ${old.worstSwap.toFixed(2)}) · stories not symmetric: ${old.storiesOff}/${old.stories} · reported above 50: ${old.reportedOver}/${old.reported} (worst +${old.worstReported.toFixed(2)})`);
+  console.log(`${format} (${limit} teams): version ${TOURNAMENT_SEAT} · mirrors ${now.mirrors - now.mirrorsOff}/${now.mirrors} at 50 (${now.exact} of them exactly) · seat swaps ${now.swaps - now.swapsOff}/${now.swaps} at 100 · stories ${now.stories - now.storiesOff}/${now.stories} symmetric · reported off 50: ${now.reportedOff}/${now.reported}`);
+  console.log(`${format} (${limit} teams): version 0       · mirrors off 50: ${old.mirrorsOff}/${old.mirrors} (worst ${old.worstMirror.toFixed(2)}) · swaps off 100: ${old.swapsOff}/${old.swaps} (worst ${old.worstSwap.toFixed(2)}) · stories not symmetric: ${old.storiesOff}/${old.stories} · reported off 50: ${old.reportedOff}/${old.reported} (worst ${old.worstReported >= 0 ? "+" : ""}${old.worstReported.toFixed(2)}), above 50: ${old.reportedOver}/${old.reported}`);
 
   check(`${format}: a team against itself scores 50 on every bring`, now.mirrorsOff === 0, `${now.mirrorsOff} of ${now.mirrors} off, worst ${now.worstMirror.toFixed(4)}`);
   check(`${format}: and it is exactly 50, not 50 to a rounding`, now.exact === now.mirrors, `${now.exact} of ${now.mirrors}`);
   check(`${format}: swapping the seats of two line-ups adds up to 100`, now.swapsOff === 0, `${now.swapsOff} of ${now.swaps} off, worst ${now.worstSwap.toFixed(4)} (${now.worstPair || ""})`);
   check(`${format}: a mirror's turn-1 story is the same for both sides`, now.storiesOff === 0, now.firstStory || "");
-  // Not "is 50": the bring rule reports what our bring can guarantee, which against ourselves is
-  // at most even. Once the bring decision is symmetric too, this becomes an equality.
-  check(`${format}: the value reported for a team against itself is never above 50`, now.reportedOver === 0, `${now.reportedOver} of ${now.reported} over, worst +${now.worstReported.toFixed(2)}`);
+  // An equality since the bring rule (TOURNAMENT_BRING version 1) made the bring decision symmetric
+  // too: before it this could only say "never ABOVE 50", because our bring was a guarantee against
+  // their best answer while theirs answered our choice, which costs a mirror up to 12.50 points
+  // (team4 and team19 read 37.50 against themselves under bringRule 0). Tightened, not loosened --
+  // do not put it back.
+  check(`${format}: the value reported for a team against itself is exactly 50`, now.reportedOff === 0, `${now.reportedOff} of ${now.reported} off, worst ${now.worstReported.toFixed(4)}`);
+  check(`${format}: and it is not above 50 either (a guarantee cannot beat itself)`, now.reportedOver === 0, `${now.reportedOver} of ${now.reported} over`);
   // The gate has to be able to fail: version 0 is the seat-dependent model, and every one of the
   // properties above must break under it, or this suite proves nothing about the rule.
   check(`${format}: version 0 still breaks the mirror (so the check is a real gate)`, old.mirrorsOff > 0, `${old.mirrorsOff} of ${old.mirrors}`);
   check(`${format}: version 0 still breaks the seat swap`, old.swapsOff > 0, `${old.swapsOff} of ${old.swaps}`);
   check(`${format}: version 0 still breaks a mirror's story`, old.storiesOff > 0, `${old.storiesOff} of ${old.stories}`);
   check(`${format}: version 0 still reports a team beating itself`, old.reportedOver > 0, `${old.reportedOver} of ${old.reported}`);
+  check(`${format}: version 0 still reports a team against itself off 50`, old.reportedOff > 0, `${old.reportedOff} of ${old.reported}`);
 }
 
 console.log(`${checked} checked, ${failures.length} failed.`);

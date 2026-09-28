@@ -98,18 +98,18 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
       step("4",
         same ? `Both sides bring ${theirs}` : `You bring ${size === 1 ? "your one" : ours}, they bring ${theirs}`,
         same
-          ? `Every ${theirs} you could bring plays every ${theirs} they could bring. You get the ${theirs} that hold up best; they answer with the ${theirs} that do the most against your choice.`
+          ? `Every ${theirs} you could bring plays every ${theirs} they could bring. Neither side sees the other's choice: you both bring the ${theirs} that hold up best against every answer, and the score is the one game those two choices play.`
           : size === 1
-            ? `Your one Pokémon plays every ${theirs} they could bring. They answer with the ${theirs} that do the most against it.`
-            : `Every ${ours} you could bring plays every ${theirs} they could bring. You get the ${ours} that hold up best; they answer with the ${theirs} that do the most against your choice.`),
-      step("5", "Across the teams", `Played against up to ${number(teams)} real recent tournament teams. A score of 50 is even; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
+            ? `Your one Pokémon plays every ${theirs} they could bring. They cannot see it coming, so they bring the ${theirs} that hold up best against every one of yours, and the score is that one game.`
+            : `Every ${ours} you could bring plays every ${theirs} they could bring. Neither side sees the other's choice: you bring the ${ours} that hold up best against every answer, they bring the ${theirs} that do, and the score is the one game those two choices play.`),
+      step("5", "Across the teams", `Played against up to ${number(teams)} real recent tournament teams. A score of 50 is even — the same two teams score the same whichever of them is yours, so 50 is what a team scores against itself; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
     h("p", { class: "bd-note bd-tour-limits" },
       "Kept simple on purpose: nobody switches out (Parting Shot lowers the stats but its user stays in), paralysis, poison, screens and stat-boosting moves are left out, and each Pokémon picks its best play without guessing what the other side will do. ",
       singles ? "The tournament teams come from Doubles events; in Singles both sides play one Pokémon at a time." : ""));
 }
 
 /**
- * @param {object} s            a snapshot from TournamentTest.run (SNAPSHOT_VERSION, now 5)
+ * @param {object} s            a snapshot from TournamentTest.run (SNAPSHOT_VERSION, now 6)
  * @param {{name:(mon)=>string, sprite:(mon, size)=>Node, running:boolean, loadTeam?:(similar)=>void}} helpers
  */
 export function tournamentAnalysis(s, { name, sprite, running, loadTeam = null }) {
@@ -215,7 +215,10 @@ function bringCard({ s, n, doubles, bring, section, name, sprite }) {
           // "Lead A + B" only when there really are two of them: a team of one leads with one.
           ? `${leadList.length > 1 ? `Lead ${plus(leadList, name)}` : `Lead with ${held(leadList[0], name)}`}${back.length ? `, then ${joinNames(back.map((m) => held(m, name)))}` : ""}.`
           : joinNames(b.members.map((m) => held(m, name)))),
-        h("small", {}, `Your best choice against ${pct(b.bestRate)} of the teams · ${score(b.value)} on average when brought against every team`)));
+        // Two different numbers on purpose: `bestRate` is how often this is the best choice, and
+        // `value` is what it averages if you never changed it -- always below the score at the top
+        // of the page, which lets each team have the bring that suits it.
+        h("small", {}, `Your best choice against ${pct(b.bestRate)} of the teams · ${score(b.value)} on average if you brought these against every team`)));
   };
   const leadCount = options[0].leads?.length || (doubles ? 2 : 1);
   const more = options.length > 1 ? ` The other strong choices are each your best ${bring} against some of the teams.` : "";

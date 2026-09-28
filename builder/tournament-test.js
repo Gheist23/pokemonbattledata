@@ -2180,6 +2180,71 @@ export class TournamentTest {
     }
   }
 
+  /**
+   * Both sides' brings, read off the grid of every bring of ours (`c`) against every bring of
+   * theirs (`d`): `grid[c][d]` is the value of that one game from our seat.
+   *
+   * OURS is the bring whose WORST answer is best -- what holds up whatever they bring -- with ties
+   * going to the better average over their brings, then to the lower line-up. THEIRS depends on the
+   * bring rule (TOURNAMENT_BRING):
+   *   version 1  the same rule from their own seat, chosen without seeing ours. From our seat that
+   *              is the column whose BEST case for us is worst, ties to their better worst case
+   *              (our lower best), then their better average (our lower average), then their own
+   *              lower line-up -- their index in their own plan list, which is the same list
+   *              whichever seat they sit on, so a seat swap makes the same pick. With the seat rule
+   *              making V(ours=c, theirs=d) + V(ours=d, theirs=c) exactly 100, this is their own
+   *              maximin, so the two sides' reported scores add up to 100 and a team against itself
+   *              reports exactly 50.
+   *   version 0  the answer that hurts the bring we chose most, which only a side that could see
+   *              our choice would find, so the number reported is below even.
+   *
+   * `totals[c]` is what the bring options card adds up for bring `c`: the game it plays against the
+   * bring they commit to (version 1, so the card's "on average ... against every team" is what it
+   * says), or its own worst case (version 0).
+   *
+   * @param {number[][]} grid
+   * @returns {{c:number, d:number, value:number, mean:number, totals:number[]}}
+   */
+  chooseBrings(grid) {
+    const theirCount = Math.max(1, grid[0]?.length || 0);
+    const worst = [];
+    let best = { value: -1, mean: -1, c: 0, d: 0 };
+    for (let c = 0; c < grid.length; c += 1) {
+      let low = 101;
+      let lowD = 0;
+      let sum = 0;
+      for (let d = 0; d < theirCount; d += 1) {
+        const value = grid[c][d];
+        sum += value;
+        if (value < low) {
+          low = value;
+          lowD = d;
+        }
+      }
+      worst.push(low);
+      const mean = sum / theirCount;
+      if (low > best.value + 1e-9 || (Math.abs(low - best.value) <= 1e-9 && (mean > best.mean + 1e-9 || (Math.abs(mean - best.mean) <= 1e-9 && c < best.c)))) {
+        best = { value: low, mean, c, d: lowD };
+      }
+    }
+    if (this.bringRule < 1) return { ...best, totals: worst };
+    let theirBest = { value: 101, mean: 101, d: 0 };
+    for (let d = 0; d < theirCount; d += 1) {
+      let top = -1;
+      let sum = 0;
+      for (let c = 0; c < grid.length; c += 1) {
+        const value = grid[c][d];
+        sum += value;
+        if (value > top) top = value;
+      }
+      const mean = sum / Math.max(1, grid.length);
+      if (top < theirBest.value - 1e-9 || (Math.abs(top - theirBest.value) <= 1e-9 && (mean < theirBest.mean - 1e-9 || (Math.abs(mean - theirBest.mean) <= 1e-9 && d < theirBest.d)))) {
+        theirBest = { value: top, mean, d };
+      }
+    }
+    return { value: grid[best.c][theirBest.d], mean: best.mean, c: best.c, d: theirBest.d, totals: grid.map((row) => row[theirBest.d]) };
+  }
+
   /** One tournament team: every bring against every bring, then the chosen game once more with its story. */
   playTeam(state, team) {
     if (this.hits.size > MAX_CACHED_HITS) {
@@ -2193,55 +2258,14 @@ export class TournamentTest {
     // Every bring of ours against every bring of theirs, kept as a grid: under the bring rule
     // (TOURNAMENT_BRING) their own blind choice is read off these very games, so it costs none.
     const grid = [];
-    let best = { value: -1, mean: -1, c: 0, d: 0 };
     for (let c = 0; c < state.plans.length; c += 1) {
       const row = [];
-      let worst = 101;
-      let worstD = 0;
-      let sum = 0;
-      for (let d = 0; d < theirPlans.length; d += 1) {
-        const { value } = this.play(state.plans[c], theirPlans[d], memo);
-        row.push(value);
-        sum += value;
-        if (value < worst) {
-          worst = value;
-          worstD = d;
-        }
-      }
+      for (let d = 0; d < theirPlans.length; d += 1) row.push(this.play(state.plans[c], theirPlans[d], memo).value);
       grid.push(row);
       state.games += theirPlans.length;
-      const mean = sum / theirPlans.length;
-      // Version 0's bring options card: the per-team worst case. Version 1's is the game each
-      // bring plays against the bring they commit to, which is what the card says it shows.
-      if (this.bringRule < 1) state.bringTotals[c].value += worst;
-      if (worst > best.value + 1e-9 || (Math.abs(worst - best.value) <= 1e-9 && (mean > best.mean + 1e-9 || (Math.abs(mean - best.mean) <= 1e-9 && c < best.c)))) {
-        best = { value: worst, mean, c, d: worstD };
-      }
     }
-    // Their bring. Version 0 answers the bring we chose, which only a side that can see it could
-    // pick. Version 1 gives them our own rule instead -- the bring whose worst case is best, chosen
-    // blind -- which from our seat is the column whose BEST case for us is worst. Its tie-break is
-    // the mirror of ours: their better worst case (our lower best case), then their better average
-    // (our lower average), then the lower index in THEIR OWN plan list, which is the same list
-    // whichever seat they sit on, so a seat swap makes the same pick. Our own bring is untouched.
-    if (this.bringRule >= 1) {
-      let theirBest = { value: 101, mean: 101, d: 0 };
-      for (let d = 0; d < theirPlans.length; d += 1) {
-        let top = -1;
-        let sum = 0;
-        for (let c = 0; c < state.plans.length; c += 1) {
-          const value = grid[c][d];
-          sum += value;
-          if (value > top) top = value;
-        }
-        const mean = sum / state.plans.length;
-        if (top < theirBest.value - 1e-9 || (Math.abs(top - theirBest.value) <= 1e-9 && (mean < theirBest.mean - 1e-9 || (Math.abs(mean - theirBest.mean) <= 1e-9 && d < theirBest.d)))) {
-          theirBest = { value: top, mean, d };
-        }
-      }
-      best = { value: grid[best.c][theirBest.d], mean: best.mean, c: best.c, d: theirBest.d };
-      for (let c = 0; c < state.plans.length; c += 1) state.bringTotals[c].value += grid[c][theirBest.d];
-    }
+    const best = this.chooseBrings(grid);
+    for (let c = 0; c < state.plans.length; c += 1) state.bringTotals[c].value += best.totals[c];
     const ourPlan = state.plans[best.c];
     const theirPlan = theirPlans[best.d];
     state.bringTotals[best.c].picked += 1;

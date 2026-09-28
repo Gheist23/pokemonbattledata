@@ -1887,10 +1887,11 @@ async function runTournament() {
 }
 
 // The last finished test survives a reload of the tab, like the last evaluation.
-// v5: the snapshot scored under the seat rule, where a Speed tie does not go to a side
-// (tournament-test.js SNAPSHOT_VERSION / TOURNAMENT_SEAT); older ones are dropped, because
-// tournamentAnalysis refuses a snapshot from another version and would only show its spinner.
-const TOURNAMENT_STORE = "cbd.tour.v5";
+// v6: the snapshot scored under the bring rule, where both sides commit their bring blind
+// (tournament-test.js SNAPSHOT_VERSION / TOURNAMENT_BRING), on top of v5's seat rule; older ones
+// are dropped, because tournamentAnalysis refuses a snapshot from another version and would only
+// show its spinner.
+const TOURNAMENT_STORE = "cbd.tour.v6";
 
 function rememberTournament(key, snapshot) {
   try {
@@ -1902,7 +1903,7 @@ function rememberTournament(key, snapshot) {
 
 function restoreTournament() {
   try {
-    for (const old of ["cbd.tour.v1", "cbd.tour.v2", "cbd.tour.v3", "cbd.tour.v4"]) sessionStorage.removeItem(old);
+    for (const old of ["cbd.tour.v1", "cbd.tour.v2", "cbd.tour.v3", "cbd.tour.v4", "cbd.tour.v5"]) sessionStorage.removeItem(old);
     const saved = JSON.parse(sessionStorage.getItem(TOURNAMENT_STORE) || "null");
     const s = saved?.snapshot;
     const lists = ["bestBrings", "pokemon", "threats", "archetypes", "hardest", "easiest"];

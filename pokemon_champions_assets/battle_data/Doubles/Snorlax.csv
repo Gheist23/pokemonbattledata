@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Snorlax,96,move,1,Protect,59.5%,,,,,,,,
+Snorlax,96,move,1,Protect,59.4%,,,,,,,,
 Snorlax,96,move,2,Fissure,34.5%,,,,,,,,
 Snorlax,96,move,3,Stockpile,24.8%,,,,,,,,
-Snorlax,96,move,4,Belly Drum,24.1%,,,,,,,,
+Snorlax,96,move,4,Belly Drum,24.0%,,,,,,,,
 Snorlax,96,move,5,Body Slam,18.0%,,,,,,,,
 Snorlax,96,move,6,Rock Slide,17.5%,,,,,,,,
 Snorlax,96,move,7,Yawn,17.0%,,,,,,,,
@@ -14,7 +14,7 @@ Snorlax,96,held_item,2,Sitrus Berry,24.8%,,,,,,,,
 Snorlax,96,held_item,3,Normal Gem,5.4%,,,,,,,,
 Snorlax,96,held_item,4,Chople Berry,5.4%,,,,,,,,
 Snorlax,96,held_item,5,Life Orb,4.6%,,,,,,,,
-Snorlax,96,held_item,6,Chesto Berry,3.1%,,,,,,,,
+Snorlax,96,held_item,6,Chesto Berry,3.0%,,,,,,,,
 Snorlax,96,held_item,7,Lum Berry,1.9%,,,,,,,,
 Snorlax,96,held_item,8,Expert Belt,1.5%,,,,,,,,
 Snorlax,96,held_item,9,Silk Scarf,1.5%,,,,,,,,
@@ -32,7 +32,7 @@ Snorlax,96,teammate,10,Dragonite,,,,,,,,,
 Snorlax,96,stat_alignment,1,Relaxed,29.7%,Defense,Speed,,,,,,
 Snorlax,96,stat_alignment,2,Brave,19.3%,Attack,Speed,,,,,,
 Snorlax,96,stat_alignment,3,Impish,18.3%,Defense,Sp. Atk,,,,,,
-Snorlax,96,stat_alignment,4,Adamant,15.8%,Attack,Sp. Atk,,,,,,
+Snorlax,96,stat_alignment,4,Adamant,15.9%,Attack,Sp. Atk,,,,,,
 Snorlax,96,stat_alignment,5,Careful,6.7%,Sp. Def,Sp. Atk,,,,,,
 Snorlax,96,stat_alignment,6,Sassy,4.1%,Sp. Def,Speed,,,,,,
 Snorlax,96,stat_alignment,7,Bold,3.5%,Defense,Attack,,,,,,
@@ -42,8 +42,8 @@ Snorlax,96,stat_alignment,10,Naive,0.3%,Speed,Sp. Def,,,,,,
 Snorlax,96,stat_points,1,,20.2%,,,32,0,32,0,2,0
 Snorlax,96,stat_points,2,,6.9%,,,2,32,32,0,0,0
 Snorlax,96,stat_points,3,,5.5%,,,32,32,2,0,0,0
-Snorlax,96,stat_points,4,,3.7%,,,32,32,0,0,2,0
-Snorlax,96,stat_points,5,,3.7%,,,2,32,0,0,32,0
+Snorlax,96,stat_points,4,,3.7%,,,2,32,0,0,32,0
+Snorlax,96,stat_points,5,,3.7%,,,32,32,0,0,2,0
 Snorlax,96,stat_points,6,,3.2%,,,21,0,31,0,0,14
 Snorlax,96,stat_points,7,,2.9%,,,0,32,32,0,2,0
 Snorlax,96,stat_points,8,,2.8%,,,21,0,31,0,14,0

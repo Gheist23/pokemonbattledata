@@ -867,6 +867,15 @@ for (const format of ["Doubles", "Singles"]) {
       check("A threat that cannot Mega-Evolve beside its partner is named that way",
         threatText.includes("Your best lead pair into Blastoise (holding Blastoisinite)") && threatText.includes("with Blastoise (holding Blastoisinite)"),
         threatText.match(/Your best lead pair into[^.]*\./)?.[0] || "");
+      // And the answer taken from the quick duels, which since TOURNAMENT_MEGA is the form
+      // `duelUnits` leaves the slot in: a stone holder duelling as its base form. The win rate on
+      // this line is that form's, so the line has to name that form and not the bare species, or it
+      // reads as the Mega -- the very confusion the Mega rule was made to end.
+      const duelAnswer = { ...d.threats[0], pairAnswer: null, answer: { ...stone, slot: 0, win: 0.42, value: null } };
+      const duelText = render({ ...d, threats: [duelAnswer] });
+      check("An answer that comes from the quick duels names the stone its form still holds",
+        duelText.includes("Your best answer: Blastoise (holding Blastoisinite) (wins 42% of their 1-on-1s from full HP)"),
+        duelText.match(/Your best answer[^.]*\./)?.[0] || "");
     }
     // The one-Mega rule is a rule of the games, not a paragraph: the owner asked
     // for a short "How it works", so the explainer no longer spells it out. What

@@ -102,7 +102,13 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
           : size === 1
             ? `Your one Pokémon plays every ${theirs} they could bring. They cannot see it coming, so they bring the ${theirs} that hold up best against every one of yours, and the score is that one game.`
             : `Every ${ours} you could bring plays every ${theirs} they could bring. Neither side sees the other's choice: you bring the ${ours} that hold up best against every answer, they bring the ${theirs} that do, and the score is the one game those two choices play.`),
-      step("5", "Across the teams", `Played against up to ${number(teams)} real recent tournament teams. A score of 50 is even — the same two teams score the same whichever of them is yours, so 50 is what a team scores against itself; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
+      // "the same two teams score the same whichever of them is yours" was not true of the rule it
+      // was written for: the two scores are COMPLEMENTS, not equals. Measured on 60 corpus teams
+      // spread across the library, both formats, through TournamentTest.run: 0 of 179 team pairs
+      // fail to add up to 100 and 0 of 120 mirrors are off 50 -- but e.g. team501 against team1201
+      // scores 43.4934 and team1201 against team501 scores 56.5066. So the sentence says the
+      // property that holds.
+      step("5", "Across the teams", `Played against up to ${number(teams)} real recent tournament teams. A score of 50 is even — swap the two teams round and the score flips to the other side of 50 by the same amount, so 50 is what a team scores against itself; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
     h("p", { class: "bd-note bd-tour-limits" },
       "Kept simple on purpose: nobody switches out (Parting Shot lowers the stats but its user stays in), paralysis, poison, screens and stat-boosting moves are left out, and each Pokémon picks its best play without guessing what the other side will do. ",
       // The board is the only source of the field (tournament-test.js TOURNAMENT_FIELD), so this is
@@ -268,7 +274,12 @@ function threatsCard({ s, doubles, section, pill, name, sprite }) {
     }
     // Not "after turn 1": since TOURNAMENT_TURN_ONE version 2 the quick duel is fought on a
     // fresh field (tournament-test.js duelBoard), so nothing a lead set on turn 1 is in it.
-    return h("p", {}, "Your best answer: ", h("b", {}, name(t.answer)), ` (wins ${pct(t.answer.win)} of their 1-on-1s from full HP)`);
+    // `held`, not `name`: since TOURNAMENT_MEGA this answer comes from `duelUnits`, so it can be a
+    // stone holder duelling in its own base form (tournament-test.js `baseFormUnit` puts the stone
+    // under `stone`), and the number belongs to THAT form. The pair answer above already says so;
+    // this line printed the bare species and so read like the Mega. The branch above cannot carry a
+    // stone -- it names the registered unit -- so it is left alone.
+    return h("p", {}, "Your best answer: ", h("b", {}, held(t.answer, name)), ` (wins ${pct(t.answer.win)} of their 1-on-1s from full HP)`);
   };
   return section("Biggest threats", doubles
     ? "Common Pokémon that knock out yours or are hard to knock out, with the pair of yours that does best against it and its usual partner, 2 vs 2."

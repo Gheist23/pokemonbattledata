@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Falinks,233,move,1,Close Combat,89.1%,,,,,,,,
+Falinks,233,move,1,Close Combat,89.0%,,,,,,,,
 Falinks,233,move,2,No Retreat,80.0%,,,,,,,,
-Falinks,233,move,3,Knock Off,44.0%,,,,,,,,
+Falinks,233,move,3,Knock Off,44.1%,,,,,,,,
 Falinks,233,move,4,Poison Jab,34.0%,,,,,,,,
 Falinks,233,move,5,First Impression,22.5%,,,,,,,,
 Falinks,233,move,6,Iron Head,20.4%,,,,,,,,
@@ -34,20 +34,20 @@ Falinks,233,stat_alignment,2,Jolly,21.9%,Speed,Sp. Atk,,,,,,
 Falinks,233,stat_alignment,3,Impish,5.3%,Defense,Sp. Atk,,,,,,
 Falinks,233,stat_alignment,4,Timid,1.8%,Speed,Attack,,,,,,
 Falinks,233,stat_alignment,5,Naughty,1.0%,Attack,Sp. Def,,,,,,
-Falinks,233,stat_alignment,6,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
+Falinks,233,stat_alignment,6,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
 Falinks,233,stat_alignment,7,Lonely,0.5%,Attack,Defense,,,,,,
 Falinks,233,stat_alignment,8,Brave,0.5%,Attack,Speed,,,,,,
 Falinks,233,stat_alignment,9,Lax,0.4%,Defense,Sp. Def,,,,,,
 Falinks,233,stat_alignment,10,Naive,0.4%,Speed,Sp. Def,,,,,,
 Falinks,233,stat_points,1,,43.7%,,,2,32,0,0,0,32
-Falinks,233,stat_points,2,,5.1%,,,1,32,1,0,0,32
+Falinks,233,stat_points,2,,5.0%,,,1,32,1,0,0,32
 Falinks,233,stat_points,3,,2.7%,,,1,32,0,0,1,32
 Falinks,233,stat_points,4,,2.4%,,,0,32,0,0,2,32
 Falinks,233,stat_points,5,,2.3%,,,0,32,2,0,0,32
 Falinks,233,stat_points,6,,2.2%,,,32,32,0,0,0,2
-Falinks,233,stat_points,7,,2.0%,,,15,20,0,0,30,1
-Falinks,233,stat_points,8,,1.5%,,,4,32,0,0,0,30
-Falinks,233,stat_points,9,,1.5%,,,32,32,2,0,0,0
+Falinks,233,stat_points,7,,1.9%,,,15,20,0,0,30,1
+Falinks,233,stat_points,8,,1.5%,,,32,32,2,0,0,0
+Falinks,233,stat_points,9,,1.5%,,,4,32,0,0,0,30
 Falinks,233,stat_points,10,,1.5%,,,2,32,32,0,0,0
 Falinks,233,ability,1,Defiant,83.8%,,,,,,,,
 Falinks,233,ability,2,Battle Armor,16.2%,,,,,,,,

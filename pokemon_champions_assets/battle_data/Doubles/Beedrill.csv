@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Beedrill,184,move,1,Poison Jab,90.0%,,,,,,,,
-Beedrill,184,move,2,U-turn,81.2%,,,,,,,,
+Beedrill,184,move,2,U-turn,81.1%,,,,,,,,
 Beedrill,184,move,3,Protect,70.6%,,,,,,,,
 Beedrill,184,move,4,Drill Run,55.6%,,,,,,,,
 Beedrill,184,move,5,Fell Stinger,20.5%,,,,,,,,
 Beedrill,184,move,6,Knock Off,18.1%,,,,,,,,
 Beedrill,184,move,7,Lunge,14.0%,,,,,,,,
-Beedrill,184,move,8,Cross Poison,9.6%,,,,,,,,
-Beedrill,184,move,9,Dual Wingbeat,8.7%,,,,,,,,
+Beedrill,184,move,8,Cross Poison,9.5%,,,,,,,,
+Beedrill,184,move,9,Dual Wingbeat,8.6%,,,,,,,,
 Beedrill,184,move,10,Brick Break,6.7%,,,,,,,,
 Beedrill,184,held_item,1,Beedrillite,87.2%,,,,,,,,
 Beedrill,184,held_item,2,Choice Scarf,6.4%,,,,,,,,
@@ -30,18 +30,18 @@ Beedrill,184,teammate,8,Raichu,,,,,,,,,
 Beedrill,184,teammate,9,Garchomp,,,,,,,,,
 Beedrill,184,teammate,10,Sneasler,,,,,,,,,
 Beedrill,184,stat_alignment,1,Jolly,66.5%,Speed,Sp. Atk,,,,,,
-Beedrill,184,stat_alignment,2,Adamant,30.5%,Attack,Sp. Atk,,,,,,
+Beedrill,184,stat_alignment,2,Adamant,30.4%,Attack,Sp. Atk,,,,,,
 Beedrill,184,stat_alignment,3,Brave,0.5%,Attack,Speed,,,,,,
 Beedrill,184,stat_alignment,4,Lonely,0.5%,Attack,Defense,,,,,,
-Beedrill,184,stat_alignment,5,Impish,0.4%,Defense,Sp. Atk,,,,,,
-Beedrill,184,stat_alignment,6,Gentle,0.3%,Sp. Def,Defense,,,,,,
+Beedrill,184,stat_alignment,5,Impish,0.5%,Defense,Sp. Atk,,,,,,
+Beedrill,184,stat_alignment,6,Gentle,0.4%,Sp. Def,Defense,,,,,,
 Beedrill,184,stat_alignment,7,Naughty,0.3%,Attack,Sp. Def,,,,,,
 Beedrill,184,stat_alignment,8,Relaxed,0.3%,Defense,Speed,,,,,,
 Beedrill,184,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,
 Beedrill,184,stat_alignment,10,Lax,0.1%,Defense,Sp. Def,,,,,,
 Beedrill,184,stat_points,1,,51.2%,,,2,32,0,0,0,32
 Beedrill,184,stat_points,2,,12.3%,,,0,32,0,0,2,32
-Beedrill,184,stat_points,3,,12.0%,,,0,32,2,0,0,32
+Beedrill,184,stat_points,3,,11.9%,,,0,32,2,0,0,32
 Beedrill,184,stat_points,4,,6.2%,,,1,32,1,0,0,32
 Beedrill,184,stat_points,5,,3.3%,,,0,32,0,0,0,32
 Beedrill,184,stat_points,6,,1.2%,,,0,32,1,0,1,32
@@ -49,5 +49,5 @@ Beedrill,184,stat_points,7,,0.8%,,,5,30,7,0,0,24
 Beedrill,184,stat_points,8,,0.8%,,,0,32,16,0,0,18
 Beedrill,184,stat_points,9,,0.7%,,,0,30,5,0,0,31
 Beedrill,184,stat_points,10,,0.6%,,,0,32,0,0,32,2
-Beedrill,184,ability,1,Sniper,59.4%,,,,,,,,
-Beedrill,184,ability,2,Swarm,40.6%,,,,,,,,
+Beedrill,184,ability,1,Sniper,59.5%,,,,,,,,
+Beedrill,184,ability,2,Swarm,40.5%,,,,,,,,

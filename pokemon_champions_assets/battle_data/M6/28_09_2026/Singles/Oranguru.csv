@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Oranguru,250,move,1,Psychic,80.9%,,,,,,,,
-Oranguru,250,move,2,Trick Room,49.3%,,,,,,,,
-Oranguru,250,move,3,Foul Play,34.3%,,,,,,,,
-Oranguru,250,move,4,Shadow Ball,33.2%,,,,,,,,
+Oranguru,250,move,2,Trick Room,49.4%,,,,,,,,
+Oranguru,250,move,3,Foul Play,34.2%,,,,,,,,
+Oranguru,250,move,4,Shadow Ball,33.3%,,,,,,,,
 Oranguru,250,move,5,Thunderbolt,23.7%,,,,,,,,
 Oranguru,250,move,6,Yawn,20.0%,,,,,,,,
 Oranguru,250,move,7,Instruct,15.6%,,,,,,,,
-Oranguru,250,move,8,Encore,14.5%,,,,,,,,
+Oranguru,250,move,8,Encore,14.4%,,,,,,,,
 Oranguru,250,move,9,Taunt,13.6%,,,,,,,,
 Oranguru,250,move,10,Endeavor,10.0%,,,,,,,,
-Oranguru,250,held_item,1,Life Orb,27.3%,,,,,,,,
+Oranguru,250,held_item,1,Life Orb,27.4%,,,,,,,,
 Oranguru,250,held_item,2,Red Card,15.5%,,,,,,,,
 Oranguru,250,held_item,3,Light Clay,12.4%,,,,,,,,
 Oranguru,250,held_item,4,Leftovers,10.6%,,,,,,,,
@@ -29,7 +29,7 @@ Oranguru,250,teammate,7,Typhlosion-Hisui,,,,,,,,,
 Oranguru,250,teammate,8,Steelix,,,,,,,,,
 Oranguru,250,teammate,9,Armarouge,,,,,,,,,
 Oranguru,250,teammate,10,Weavile,,,,,,,,,
-Oranguru,250,stat_alignment,1,Bold,41.4%,Defense,Attack,,,,,,
+Oranguru,250,stat_alignment,1,Bold,41.3%,Defense,Attack,,,,,,
 Oranguru,250,stat_alignment,2,Relaxed,19.2%,Defense,Speed,,,,,,
 Oranguru,250,stat_alignment,3,Modest,12.7%,Sp. Atk,Attack,,,,,,
 Oranguru,250,stat_alignment,4,Quiet,8.0%,Sp. Atk,Speed,,,,,,
@@ -45,8 +45,8 @@ Oranguru,250,stat_points,3,,8.6%,,,32,0,32,2,0,0
 Oranguru,250,stat_points,4,,7.8%,,,32,0,32,0,2,0
 Oranguru,250,stat_points,5,,6.8%,,,2,0,32,0,0,32
 Oranguru,250,stat_points,6,,3.9%,,,2,0,32,32,0,0
-Oranguru,250,stat_points,7,,3.7%,,,32,0,2,32,0,0
-Oranguru,250,stat_points,8,,3.7%,,,32,0,20,14,0,0
+Oranguru,250,stat_points,7,,3.8%,,,32,0,20,14,0,0
+Oranguru,250,stat_points,8,,3.7%,,,32,0,2,32,0,0
 Oranguru,250,stat_points,9,,3.5%,,,32,0,2,0,32,0
 Oranguru,250,stat_points,10,,3.4%,,,2,0,32,0,32,0
 Oranguru,250,ability,1,Inner Focus,80.4%,,,,,,,,

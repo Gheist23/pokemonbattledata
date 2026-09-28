@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Scolipede,175,move,1,Protect,79.4%,,,,,,,,
-Scolipede,175,move,2,Leech Life,65.9%,,,,,,,,
+Scolipede,175,move,2,Leech Life,66.0%,,,,,,,,
 Scolipede,175,move,3,Poison Jab,51.7%,,,,,,,,
 Scolipede,175,move,4,Swords Dance,45.5%,,,,,,,,
-Scolipede,175,move,5,Rock Slide,24.0%,,,,,,,,
+Scolipede,175,move,5,Rock Slide,23.9%,,,,,,,,
 Scolipede,175,move,6,Gunk Shot,20.5%,,,,,,,,
 Scolipede,175,move,7,Megahorn,20.3%,,,,,,,,
 Scolipede,175,move,8,Steel Roller,18.9%,,,,,,,,
@@ -37,9 +37,9 @@ Scolipede,175,stat_alignment,5,Brave,2.9%,Attack,Speed,,,,,,
 Scolipede,175,stat_alignment,6,Sassy,2.1%,Sp. Def,Speed,,,,,,
 Scolipede,175,stat_alignment,7,Naive,1.0%,Speed,Sp. Def,,,,,,
 Scolipede,175,stat_alignment,8,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,
-Scolipede,175,stat_alignment,9,Hasty,0.6%,Speed,Defense,,,,,,
-Scolipede,175,stat_alignment,10,Naughty,0.6%,Attack,Sp. Def,,,,,,
-Scolipede,175,stat_points,1,,13.9%,,,2,32,0,0,0,32
+Scolipede,175,stat_alignment,9,Naughty,0.6%,Attack,Sp. Def,,,,,,
+Scolipede,175,stat_alignment,10,Hasty,0.6%,Speed,Defense,,,,,,
+Scolipede,175,stat_points,1,,14.0%,,,2,32,0,0,0,32
 Scolipede,175,stat_points,2,,4.5%,,,32,32,0,0,2,0
 Scolipede,175,stat_points,3,,4.4%,,,0,32,0,0,2,32
 Scolipede,175,stat_points,4,,4.3%,,,0,32,2,0,0,32
@@ -50,5 +50,5 @@ Scolipede,175,stat_points,8,,2.6%,,,32,32,2,0,0,0
 Scolipede,175,stat_points,9,,2.4%,,,32,0,2,0,32,0
 Scolipede,175,stat_points,10,,2.2%,,,0,26,2,0,32,6
 Scolipede,175,ability,1,Speed Boost,93.8%,,,,,,,,
-Scolipede,175,ability,2,Poison Point,4.4%,,,,,,,,
+Scolipede,175,ability,2,Poison Point,4.3%,,,,,,,,
 Scolipede,175,ability,3,Swarm,1.8%,,,,,,,,

@@ -118,7 +118,7 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
 }
 
 /**
- * @param {object} s            a snapshot from TournamentTest.run (SNAPSHOT_VERSION, now 7)
+ * @param {object} s            a snapshot from TournamentTest.run (SNAPSHOT_VERSION, now 8)
  * @param {{name:(mon)=>string, sprite:(mon, size)=>Node, running:boolean, loadTeam?:(similar)=>void}} helpers
  */
 export function tournamentAnalysis(s, { name, sprite, running, loadTeam = null }) {
@@ -183,6 +183,7 @@ function verdictCard({ s, n, doubles, bring, theirBring }) {
     ["mid", s.bands.even],
     ["bad", s.bands.unfavourable],
   ];
+  const stageLine = stagesNote(s.unevenStages);
   return h("section", { class: `bd-tr-verdict ${tone}` },
     h("div", { class: "bd-tr-verdict-main" },
       h("p", { class: "bd-tr-kicker" }, `${s.done ? "" : "So far: "}${number(s.tested)} tournament team${s.tested === 1 ? "" : "s"} · ${s.format}`),
@@ -207,7 +208,30 @@ function verdictCard({ s, n, doubles, bring, theirBring }) {
       // (tournament-test.js TOURNAMENT_FIELD / ignoredFieldSettings), so a pinned one is ignored.
       (s.ignoredField || []).length
         ? h("p", { class: "bd-note" }, `Each game has a field of its own, set by the Pokémon in it, so these settings are not used here: ${joinNames(s.ignoredField)}.`)
-        : null));
+        : null,
+      // The other half of the same duty: a stat stage IS used, and when only one side has one the
+      // two sides are not on the same footing, so "50 is even" above is not true of this run
+      // (tournament-test.js `unevenStagePins`). Said without naming a setting panel or a rule,
+      // because what the reader needs to know is that the score's middle has moved.
+      stageLine ? h("p", { class: "bd-note" }, stageLine) : null));
+}
+
+/**
+ * The line for a stat stage pinned on one side only (`unevenStages` from the snapshot): which side
+ * is given what, and that 50 is no longer the even score because of it. null when the two sides are
+ * given the same stages, which is the usual case and needs no line.
+ */
+function stagesNote(uneven) {
+  if (!uneven) return null;
+  const you = joinNames(uneven.you || []);
+  const them = joinNames(uneven.them || []);
+  if (!you && !them) return null;
+  const given = you && them
+    ? `Your Pokémon are given ${you} in the settings and theirs ${them}`
+    : you
+      ? `Your Pokémon are given ${you} in the settings and theirs are not`
+      : `Their Pokémon are given ${them} in the settings and yours are not`;
+  return `${given}, so the two sides do not start level here: 50 is not the even score in this run.`;
 }
 
 // --- what to bring --------------------------------------------------------------------------
@@ -274,11 +298,13 @@ function threatsCard({ s, doubles, section, pill, name, sprite }) {
     }
     // Not "after turn 1": since TOURNAMENT_TURN_ONE version 2 the quick duel is fought on a
     // fresh field (tournament-test.js duelBoard), so nothing a lead set on turn 1 is in it.
-    // `held`, not `name`: since TOURNAMENT_MEGA this answer comes from `duelUnits`, so it can be a
-    // stone holder duelling in its own base form (tournament-test.js `baseFormUnit` puts the stone
-    // under `stone`), and the number belongs to THAT form. The pair answer above already says so;
-    // this line printed the bare species and so read like the Mega. The branch above cannot carry a
-    // stone -- it names the registered unit -- so it is left alone.
+    // `held`, not `name`: this answer comes from `duelUnits`, and the win rate on the line belongs to
+    // the form that duelled, so if that form is ever a stone holder that did not Mega-Evolve the line
+    // has to say so (tournament-test.js `baseFormUnit` puts the stone under `stone`) instead of
+    // printing a bare species that reads like the Mega. Under TOURNAMENT_MEGA version 2 a duel is
+    // fought by one Pokémon of ours, so its own stone is always spent and this form is the same one
+    // the branch above names; `held` stays because it is what makes that true of the TEXT and not
+    // only of the current rule -- version 1 put a base form here.
     return h("p", {}, "Your best answer: ", h("b", {}, held(t.answer, name)), ` (wins ${pct(t.answer.win)} of their 1-on-1s from full HP)`);
   };
   return section("Biggest threats", doubles

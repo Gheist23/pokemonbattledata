@@ -1,13 +1,16 @@
 // Scenario checks for Test against Tournament Teams (builder/tournament-test.js):
-// hand-made leads for turn 1, the bring size per format, the snapshot shape (SNAPSHOT_VERSION 7:
-// the lead matrix, the bring options, the most similar team, the Field settings a run ignored), and
+// hand-made leads for turn 1, the bring size per format, the snapshot shape (SNAPSHOT_VERSION 8:
+// the lead matrix, the bring options, the most similar team, the Field settings a run ignored, a stat
+// stage pinned on one side only), and
 // that Tailwind / Fake Out / Intimidate actually move the result. Also: Earthquake-type moves hit the
 // partner (and the choice and Protect account for it), Speed drops skip immune targets, Grassy Glide
 // / First Impression priority, Helping Hand, Wide Guard, Quick Guard against Fake Out, Snarl, Spore,
 // Taunt, Encore and Will-O-Wisp, and the lines and sections of the results view. Also that the
 // duel numbers no longer read what turn 1 left on the board (TOURNAMENT_TURN_ONE version 2), that
-// the shared Field settings do not reach the board (TOURNAMENT_FIELD), that the quick duels price
-// one Mega a side (TOURNAMENT_MEGA), and the copy the bring and field rules paid for.
+// the shared Field settings do not reach the board (TOURNAMENT_FIELD), that each quick duel is priced
+// in the form its own slot plays in the line-up that fights it (TOURNAMENT_MEGA version 2), that a
+// one-sided stat stage is disclosed on the results (`unevenStagePins`), and the copy the bring, field
+// and stage rules paid for.
 //
 //   node tests/run-tournament-smoke.mjs [teams]     (default 150 tournament teams per run)
 //
@@ -22,7 +25,7 @@ import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
 import { TournamentTest, SNAPSHOT_VERSION, TOURNAMENT_FIELD, tournamentFieldOption, TOURNAMENT_MEGA, tournamentMegaOption,
-  ignoredFieldSettings } from "../builder/tournament-test.js";
+  ignoredFieldSettings, unevenStagePins } from "../builder/tournament-test.js";
 import { makeSet } from "../builder/common.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -130,6 +133,24 @@ const kinds = (log) => log.map((e) => `${e.s}:${e.kind}:${e.actor?.species || ""
   check("Trick Room goes up for the slower side", g.after.trickRoom === 4 && g.after.trickRoomBy === "you", JSON.stringify(g.after));
   check("Under Trick Room the slower side moves first on turn 2", g.after.faster === "you", g.after.faster);
   check("Drought sets harsh sunlight", g.after.weather === "Sun", g.after.weather);
+  // A lead that carries Fake Out AND a setup move uses Fake Out: `planSide` takes Fake Out before it
+  // reads the committed setup, so the condition is not an option for that lead at all. This is the
+  // behaviour TOURNAMENT_ALT's comment leans on when it leaves Fake Out out of `altValue`'s bids --
+  // pricing the bid against Fake Out could not change what this lead does. Only 3 of the library's
+  // 16,962 members carry both (two Meowstic and an Indeedee, all Trick Room), so it is spelled out
+  // here on a hand-made one instead of waiting for a real team to show it. The control is the pair
+  // just above, which really does commit Trick Room against these two foes: only the setter's move
+  // list changes, so what the check sees is the ORDER, not a Trick Room that was worthless anyway.
+  {
+    const alsoFakes = { ...farigiraf, moves: ["Psychic", "Fake Out", "Trick Room", "Protect"] };
+    const both = game(test, [alsoFakes, torkoal], fast);
+    const faked = events(both, 0, "fakeout");
+    check("A lead carrying Fake Out and Trick Room uses Fake Out",
+      faked.length === 1 && faked[0].actor.species === "Farigiraf", kinds(both.events.filter((e) => e.s === 0)));
+    check("And that lead sets no Trick Room, whatever its bid was worth",
+      both.after.trickRoomBy !== "you" && !both.events.some((e) => e.s === 0 && e.move === "Trick Room" && e.kind !== "heldback"),
+      `${both.after.trickRoomBy} · ${kinds(both.events.filter((e) => e.s === 0))}`);
+  }
 
   // (d) Prankster Tailwind turns the turn-2 order around.
   const whimsicott = BENCH[4];
@@ -428,7 +449,7 @@ for (const format of ["Doubles", "Singles"]) {
   runs[format] = { s, seconds: (Date.now() - started) / 1000, values: test.values };
   const size = format === "Singles" ? 3 : 4;
   const doubles = format === "Doubles";
-  check(`${format}: snapshot version ${SNAPSHOT_VERSION}`, s.version === 7 && SNAPSHOT_VERSION === 7);
+  check(`${format}: snapshot version ${SNAPSHOT_VERSION}`, s.version === 8 && SNAPSHOT_VERSION === 8);
   check(`${format}: brings ${size}`, s.bring === size && s.bestBrings.every((b) => b.members.length === size) && s.hardest.every((t) => t.bring.length === size && t.against.length === size),
     JSON.stringify(s.bestBrings.map((b) => b.members.length)));
   check(`${format}: at most ${size} bring options, each the best choice somewhere`, s.bestBrings.length >= 1 && s.bestBrings.length <= size && s.bestBrings.slice(1).every((b) => b.bestRate > 0) && s.bestBrings.every((b) => b.leads.length === (doubles ? 2 : 1)),
@@ -515,13 +536,28 @@ for (const format of ["Doubles", "Singles"]) {
       ...[...s.hardest, ...s.easiest].flatMap((g) => [["game bring", g.bring], ["their bring", g.against]]),
       ...s.pokemon.flatMap((p) => (p.weakPairs || []).map((w) => ["trouble pair", w.members])),
       ...s.threats.filter((t) => t.pairAnswer).map((t) => ["pair answer", t.pairAnswer.members]),
-      // The quick duels price one Mega a side too (TOURNAMENT_MEGA), so the column they are
-      // reported in is a line-up like any other.
-      ["duel column", s.duels.columns],
+      // The duel column is NOT in this list, and must not be put back: it is not a line-up but six
+      // separate 1-on-1s, each holding one Pokémon of ours, so under TOURNAMENT_MEGA version 2 every
+      // stone holder duels as its own Mega and a two-stone team's column names two of them. The
+      // checks below pin the column itself, slot by slot, which is tighter than "at most one Mega".
     ];
     const twoMegas = lineUps.filter(([, list]) => megasIn(list) > 1);
     check(`${format}: no line-up in the results names two Megas`, twoMegas.length === 0,
       JSON.stringify(twoMegas.map(([what, list]) => [what, list.map((m) => m.form)])));
+    // Every slot duels in the form the report names it by everywhere else, so the duel column, the
+    // Pokémon table and (in Singles) the Matchups card cannot speak of different Pokémon.
+    check(`${format}: the duel column is our slots as they stand`, JSON.stringify(s.duels.columns) === JSON.stringify(s.ours),
+      `${JSON.stringify(s.duels.columns.map((c) => c.form))} vs ${JSON.stringify(s.ours.map((c) => c.form))}`);
+    check(`${format}: no duel is fought with a stone left in hand`, s.duels.columns.every((c) => !c.stone),
+      JSON.stringify(s.duels.columns.map((c) => [c.form, c.stone || ""])));
+    if (!doubles) {
+      // Singles: the matrix plays each of ours as a line-up of one, which is the same question the
+      // duel asks, so the two must field the same form for the same slot.
+      const played = new Map(mx.columns.map((col) => [col.members[0].slot, col.members[0]]));
+      check("Singles: the duel column plays what the 1 vs 1 matrix plays",
+        s.duels.columns.every((c) => played.get(c.slot)?.form === c.form && (played.get(c.slot)?.stone || "") === (c.stone || "")),
+        JSON.stringify(s.duels.columns.map((c) => [c.form, played.get(c.slot)?.form])));
+    }
     // A story never names two Megas on one side either.
     const sides = [...s.hardest, ...s.easiest].flatMap((g) => ["you", "them"].map((side) => g.story.filter((e) => e.side === side).map((e) => e.actor)));
     check(`${format}: no story has two Megas acting on one side`, sides.every((list) => megasIn(list.filter((m, i) => list.findIndex((x) => x.form === m.form) === i)) <= 1),
@@ -629,6 +665,58 @@ for (const format of ["Doubles", "Singles"]) {
   check("And none of them when none is pinned", ignoredFieldSettings({ ...DEFAULT_SETTINGS }).length === 0, JSON.stringify(ignoredFieldSettings({ ...DEFAULT_SETTINGS })));
 }
 
+// --- a stat stage pinned on ONE side is honoured, and said out loud (`unevenStagePins`) ----------
+//
+// The Field settings are kept out of the board; the stat stages are not, because a stage is part of
+// what the user says their Pokémon is. That is defensible -- but it makes "50 is even, because that is
+// what a team scores against itself" false for that run, so the results have to say so. Measured
+// through the production path on 20 library teams played as ours (Doubles, the reported `chooseBrings`
+// value): defaults 0 of 20 off 50; `my_stages` "attack: +2" 20 of 20 off, worst +32.6234;
+// `threat_stages` "attack: +2" 20 of 20 off, worst -32.6234; both sides "attack: +2" 0 of 20 again.
+// tests/run-tournament-symmetry.mjs asserts that pairing: the sentence appears exactly when the mirror
+// leaves 50.
+{
+  const evaluator = makeTest("Doubles").ev;
+  const read = (text) => evaluator.applyStages({}, text);
+  const pins = (settings) => unevenStagePins({ ...DEFAULT_SETTINGS, ...settings }, read);
+  check("Nothing is uneven under the default settings", pins({}) === null, JSON.stringify(pins({})));
+  check("Our side alone is named when only our side is pinned",
+    JSON.stringify(pins({ my_stages: "attack: +2" })) === JSON.stringify({ you: ["Attack +2"], them: [] }),
+    JSON.stringify(pins({ my_stages: "attack: +2" })));
+  check("Their side alone is named when only theirs is pinned",
+    JSON.stringify(pins({ threat_stages: "spe: -1, atk: +1" })) === JSON.stringify({ you: [], them: ["Attack +1", "Speed -1"] }),
+    JSON.stringify(pins({ threat_stages: "spe: -1, atk: +1" })));
+  check("Both sides are named when both are pinned differently",
+    JSON.stringify(pins({ my_stages: "spa: +1", threat_stages: "def: -2" })) === JSON.stringify({ you: ["Sp. Atk +1"], them: ["Defense -2"] }),
+    JSON.stringify(pins({ my_stages: "spa: +1", threat_stages: "def: -2" })));
+  // The same stages on both sides keep the mirror at 50, so there is nothing to disclose -- including
+  // when the two sides are SPELLED differently, because the reader is the evaluator's own parser.
+  check("The same pin on both sides is not uneven", pins({ my_stages: "attack: +2", threat_stages: "attack: +2" }) === null);
+  check("Nor is the same pin spelled differently", pins({ my_stages: "atk:+2", threat_stages: "+2 Attack" }) === null,
+    JSON.stringify(pins({ my_stages: "atk:+2", threat_stages: "+2 Attack" })));
+  check("Nor a pin of zero against no pin at all", pins({ my_stages: "atk: 0" }) === null, JSON.stringify(pins({ my_stages: "atk: 0" })));
+  check("A stat the evaluator does not read is not a pin", pins({ my_stages: "accuracy: +2" }) === null, JSON.stringify(pins({ my_stages: "accuracy: +2" })));
+  check("Every stat the evaluator reads can be named",
+    JSON.stringify(pins({ my_stages: "atk:+1, def:-1, spa:+2, spd:-2, spe:+3" })?.you)
+      === JSON.stringify(["Attack +1", "Defense -1", "Sp. Atk +2", "Sp. Def -2", "Speed +3"]),
+    JSON.stringify(pins({ my_stages: "atk:+1, def:-1, spa:+2, spd:-2, spe:+3" })));
+  // Through the whole pipeline: the snapshot carries it, and the stages really are in the battle.
+  const quick = 12;
+  const sets = () => BENCH.map((set) => makeSet(set));
+  const plain = await makeTest("Doubles").run(sets(), { limit: quick });
+  const boosted = await makeTest("Doubles", { my_stages: "attack: +2" }).run(sets(), { limit: quick });
+  const both = await makeTest("Doubles", { my_stages: "attack: +2", threat_stages: "attack: +2" }).run(sets(), { limit: quick });
+  check("A run with no stage pin reports none", plain.unevenStages === null, JSON.stringify(plain.unevenStages));
+  check("A run with a one-sided stage pin reports it",
+    JSON.stringify(boosted.unevenStages) === JSON.stringify({ you: ["Attack +2"], them: [] }), JSON.stringify(boosted.unevenStages));
+  check("A run with the same pin on both sides reports none", both.unevenStages === null, JSON.stringify(both.unevenStages));
+  // The gate: the stages are honoured, so the pin has to move the score. If it ever stops moving it,
+  // the model has started discarding them and this disclosure would be the wrong fix.
+  check("The one-sided pin really did reach the battle", boosted.average > plain.average + 1, `${boosted.average} vs ${plain.average}`);
+  check("And the same pin on both sides is a different run again", both.average !== boosted.average, `${both.average} vs ${boosted.average}`);
+  check("A stage pin is not reported as an ignored Field setting", boosted.ignoredField.length === 0, JSON.stringify(boosted.ignoredField));
+}
+
 
 for (const format of ["Doubles", "Singles"]) {
   const test = makeTest(format);
@@ -698,18 +786,24 @@ for (const format of ["Doubles", "Singles"]) {
     `${stonePlans.length} brings, megas ${JSON.stringify(stonePlans.map((p) => megasIn(p.members)))}`);
   check(`${format}: such a bring carries the fewest stones it can`, Math.max(...stonesPer) === (format === "Singles" ? 2 : 3), JSON.stringify(stonesPer));
 
-  // The quick 1-on-1s of the opponent report price one Mega a side too (TOURNAMENT_MEGA). Before the
-  // rule they duelled with the set as registered, so BOTH holders of this team were priced as Megas:
-  // Mega Blastoise duels 0.500 into a Choice Specs Dragapult where the base form it plays duels
-  // 0.000, and 1.000 into a Life Orb Kingambit against 0.500 in Doubles. The card then answered with
-  // a form no recommended game ever fielded.
+  // The quick 1-on-1s of the opponent report ask the one-Mega rule about the line-up that FIGHTS the
+  // duel (TOURNAMENT_MEGA version 2), and a 1-on-1 holds one Pokémon of ours: nothing else is there
+  // to spend the stone, so every holder duels as its own Mega. Version 1 committed one Mega over the
+  // whole TEAM instead, which priced this fixture's Blastoise -- the very holder the recommended bring
+  // Mega-Evolves ([Arcanine, Mega Blastoise, Milotic, Gholdengo] over 150 teams in Doubles) -- as a
+  // base form, and spent the Mega on a Salamence that bring never brings. The one-Mega rule still
+  // binds every line-up that stands on a field together, which the checks above assert.
   {
     const duelUnits = test.duelUnits(units);
-    const committed = test.committedMega(units.map((_, i) => i), units);
-    check(`${format}: the duels play exactly one Mega`, duelUnits.filter((u) => test.megaHolder(u)).length === 1 && committed >= 0,
-      duelUnits.map((u) => `${u.form}${u.stone ? `+${u.stone}` : ""}`).join(" | "));
-    check(`${format}: and it is the holder the brings commit to`, duelUnits[committed] === units[committed] && duelUnits[2] !== units[2] && duelUnits[2].stone === "Blastoisinite",
-      `${committed} ${duelUnits[committed].form} / ${duelUnits[2].form}`);
+    const form = (u) => `${u.form}${u.stone ? `+${u.stone}` : ""}`;
+    // The rule itself, slot by slot: the form `membersOf` gives that slot in a line-up of just it.
+    check(`${format}: every slot duels in the form its own one-Pokémon line-up plays`,
+      duelUnits.every((u, i) => u === test.membersOf([i], units, [i]).get(i)),
+      duelUnits.map(form).join(" | "));
+    check(`${format}: so both stone holders duel as their own Megas, with no stone left in hand`,
+      duelUnits[0].form === "Mega Salamence" && duelUnits[2].form === "Mega Blastoise"
+      && duelUnits.every((u) => !u.stone) && duelUnits.filter((u) => test.megaHolder(u)).length === 2,
+      duelUnits.map(form).join(" | "));
     check(`${format}: a plain Pokémon duels as itself`, duelUnits[1] === units[1] && duelUnits[3] === units[3]);
     const foes = [
       member("Dragapult", "Choice Specs", "Clear Body", "Timid", ["Shadow Ball", "Draco Meteor", "Flamethrower", "U-turn"]),
@@ -717,12 +811,33 @@ for (const format of ["Doubles", "Singles"]) {
       member("Milotic", "Sitrus Berry", "Competitive", "Calm", ["Scald", "Icy Wind", "Recover", "Protect"]),
       member("Corviknight", "Leftovers", "Pressure", "Impish", ["Brave Bird", "Body Press", "Iron Head", "Roost"]),
     ].map((m) => test.opponentMon(m));
-    const asBase = foes.map((t) => [test.duel(duelUnits[2], t), test.duel(test.baseFormUnit(units[2]), t), test.duel(units[2], t)]);
-    check(`${format}: the holder that does not Mega-Evolve duels as its base form`, asBase.every(([played, base]) => played === base),
-      JSON.stringify(asBase));
-    check(`${format}: which is a different number from its Mega's, so that is not vacuous`,
-      asBase.filter(([, base, mega]) => Math.abs(base - mega) > 1e-9).length >= 1, JSON.stringify(asBase));
-    // Version 0 replays the registered form, so the stamp selects by version.
+    // [what it duels as, its base form, its Mega]: the first two must differ and the first and third
+    // must agree, or "it duels as its Mega" is only a label.
+    const asMega = foes.map((t) => [test.duel(duelUnits[2], t), test.duel(test.baseFormUnit(units[2]), t), test.duel(units[2], t)]);
+    check(`${format}: the second holder duels as its Mega, not as the base form`,
+      asMega.every(([played, , mega]) => played === mega), JSON.stringify(asMega));
+    check(`${format}: which is a different number from the base form's, so that is not vacuous`,
+      asMega.filter(([, base, mega]) => Math.abs(base - mega) > 1e-9).length >= 1, JSON.stringify(asMega));
+    // The stamp selects by version: 1 replays the team-wide commitment (the second holder duelling as
+    // its base form with the stone in hand), 0 the set as registered -- which is what an absent stamp
+    // means, and what version 2 ends up fielding by asking the rule instead of reading the set.
+    const one = makeTest(format, {}, { megaRule: 1 });
+    const oneUnits = TWO_STONES.map((set, i) => one.ourUnit(makeSet(set), i));
+    const oneDuel = one.duelUnits(oneUnits);
+    const committed = one.committedMega(oneUnits.map((_, i) => i), oneUnits);
+    check(`${format}: Mega rule 1 still commits one Mega over the whole team`,
+      oneDuel.filter((u) => one.megaHolder(u)).length === 1 && committed === 0
+      && oneDuel[0] === oneUnits[0] && oneDuel[2] !== oneUnits[2] && oneDuel[2].stone === "Blastoisinite",
+      `${committed}: ${oneDuel.map(form).join(" | ")}`);
+    // What the defect was, said without a snapshot: both holders are the Mega of some bring this team
+    // can offer (the brings that carry one of them and not the other), so pricing either as a base
+    // form prices a Pokémon the recommended games can really Mega-Evolve in a form they never field.
+    const megaSlots = [...new Set(test.plansFor(units).flatMap((p) => p.idx.filter((i) => /^mega /i.test(p.unitAt.get(i).form))))].sort();
+    check(`${format}: both holders are the Mega of some bring`, JSON.stringify(megaSlots) === JSON.stringify([0, 2]), JSON.stringify(megaSlots));
+    check(`${format}: and every one of them duels as that Mega`, megaSlots.every((i) => /^mega /i.test(duelUnits[i].form)),
+      JSON.stringify(megaSlots.map((i) => duelUnits[i].form)));
+    check(`${format}: where Mega rule 1 priced one of them as a base form, so that is a real gate`,
+      megaSlots.some((i) => !/^mega /i.test(oneDuel[i].form)), JSON.stringify(megaSlots.map((i) => oneDuel[i].form)));
     const old = makeTest(format, {}, { megaRule: 0 });
     const oldUnits = TWO_STONES.map((set, i) => old.ourUnit(makeSet(set), i));
     check(`${format}: Mega rule 0 still duels with the set as registered`,
@@ -731,16 +846,58 @@ for (const format of ["Doubles", "Singles"]) {
   }
 }
 
+// --- the duel column against the bring it is meant to inform (TOURNAMENT_MEGA version 2) ---------
+//
+// A whole-pipeline check on the two-stone fixture, because the defect version 2 fixes was only
+// visible in a finished snapshot: version 1's duel column priced the recommended bring's own Mega slot
+// as a base form (14 of 30 library teams holding two or more stones, played as ours in Doubles against
+// 60 teams each), and in Singles it contradicted the Matchups card, which plays each of ours as a
+// line-up of one and so fields the Mega. Neither moves the headline: 56.2996 in Doubles and 54.7169 in
+// Singles under both versions over 150 teams, 0 of 150 matchups moved.
+{
+  const quick = 12;
+  for (const format of ["Doubles", "Singles"]) {
+    const sets = () => TWO_STONES.map((set) => makeSet(set));
+    const now = await makeTest(format).run(sets(), { limit: quick });
+    const old = await makeTest(format, {}, { megaRule: 1 }).run(sets(), { limit: quick });
+    const col = (s) => s.duels.columns.map((c) => `${c.form}${c.stone ? `+${c.stone}` : ""}`);
+    // Every slot a bring the report OFFERS would Mega-Evolve must be priced as that Mega in the duel
+    // column, or the column prices a Pokémon in a form the games it sits beside never field. Taken
+    // over every offered bring, not only the recommended one, so which bring these 12 teams happen to
+    // recommend cannot make the check vacuous or wrong.
+    const megaSlots = (s) => [...new Set(s.bestBrings.flatMap((b) => b.members.filter((m) => /^mega /i.test(m.form)).map((m) => m.slot)))].sort();
+    const pricedAsMega = (s) => megaSlots(s).every((slot) => /^mega /i.test(s.duels.columns.find((c) => c.slot === slot)?.form || ""));
+    check(`${format}: the duel column prices every Mega a bring would play as that Mega`,
+      megaSlots(now).length > 0 && pricedAsMega(now),
+      `Mega slots ${JSON.stringify(megaSlots(now))} column ${JSON.stringify(col(now))}`);
+    // The gate, put where it cannot depend on which bring these 12 teams happen to recommend: under
+    // Mega rule 1 one of the two holders is priced with its stone still in hand, although every bring
+    // that carries it alone Mega-Evolves it.
+    check(`${format}: Mega rule 1 still leaves one holder duelling with its stone in hand`,
+      old.duels.columns.filter((c) => c.stone).length === 1 && now.duels.columns.every((c) => !c.stone),
+      `${JSON.stringify(col(old))} vs ${JSON.stringify(col(now))}`);
+    check(`${format}: the two versions report the same headline`, now.average === old.average, `${now.average} vs ${old.average}`);
+    if (format === "Singles") {
+      const played = (s) => new Map(s.matrix.columns.map((c) => [c.members[0].slot, c.members[0].form]));
+      const agrees = (s) => s.duels.columns.every((c) => played(s).get(c.slot) === c.form);
+      check("Singles: the duel column and the 1 vs 1 matrix field the same forms", agrees(now), JSON.stringify(col(now)));
+      check("Singles: and under Mega rule 1 they did not", !agrees(old), JSON.stringify(col(old)));
+    }
+  }
+}
+
 // --- the duels' Mega stamp ------------------------------------------------------------------
 {
-  check("TOURNAMENT_MEGA is version 1", TOURNAMENT_MEGA === 1);
+  check("TOURNAMENT_MEGA is version 2", TOURNAMENT_MEGA === 2);
   for (const off of [null, undefined, false, "", "0", "off", "false", "no", "none", 0, -1, "-5", "0.9"]) {
     check(`tournamentMegaOption(${JSON.stringify(off)}) is off`, tournamentMegaOption(off) === 0, String(tournamentMegaOption(off)));
   }
   check("tournamentMegaOption('1.9') truncates to 1", tournamentMegaOption("1.9") === 1);
-  check("tournamentMegaOption('2') is kept for a later version", tournamentMegaOption("2") === 2);
+  check("tournamentMegaOption('2.9') truncates to 2", tournamentMegaOption("2.9") === 2);
+  check("tournamentMegaOption('3') is kept for a later version", tournamentMegaOption("3") === 3);
   check("a value that is not a number is the current Mega version", tournamentMegaOption("yes") === TOURNAMENT_MEGA);
   check("the default Mega option is the current version", makeTest("Doubles").megaRule === TOURNAMENT_MEGA);
+  check("and the older versions are kept as themselves", makeTest("Doubles", {}, { megaRule: 1 }).megaRule === 1 && makeTest("Doubles", {}, { megaRule: 0 }).megaRule === 0);
 }
 
 // --- the free runs: the three Pro features behave the same --------------------------------
@@ -867,10 +1024,12 @@ for (const format of ["Doubles", "Singles"]) {
       check("A threat that cannot Mega-Evolve beside its partner is named that way",
         threatText.includes("Your best lead pair into Blastoise (holding Blastoisinite)") && threatText.includes("with Blastoise (holding Blastoisinite)"),
         threatText.match(/Your best lead pair into[^.]*\./)?.[0] || "");
-      // And the answer taken from the quick duels, which since TOURNAMENT_MEGA is the form
-      // `duelUnits` leaves the slot in: a stone holder duelling as its base form. The win rate on
-      // this line is that form's, so the line has to name that form and not the bare species, or it
-      // reads as the Mega -- the very confusion the Mega rule was made to end.
+      // And the answer taken from the quick duels, which is the form `duelUnits` leaves the slot in.
+      // The win rate on this line is that form's, so the line has to name that form and not the bare
+      // species, or a base form reads as the Mega. Under TOURNAMENT_MEGA version 2 a duel is fought by
+      // one Pokémon of ours, so production never puts a stone-in-hand form here any more -- this pins
+      // the TEXT, which has to be right for whatever form the snapshot names (version 1 put a base
+      // form here, and a recording at that stamp still replays into this very view).
       const duelAnswer = { ...d.threats[0], pairAnswer: null, answer: { ...stone, slot: 0, win: 0.42, value: null } };
       const duelText = render({ ...d, threats: [duelAnswer] });
       check("An answer that comes from the quick duels names the stone its form still holds",
@@ -952,6 +1111,35 @@ for (const format of ["Doubles", "Singles"]) {
     check("The Settings dialog says the Tournament Test plays out its own field",
       settingsSource.includes("The Tournament Test plays out its own field, so the Field settings below do not change it."),
       (settingsSource.match(/Applies to Team Evaluation[^"]*/) || [""])[0]);
+  }
+
+  // The other half of that duty: a stat stage IS used, so when one side alone has one the page must
+  // stop claiming its 50 is even (tournament-test.js `unevenStagePins`). Plain English, and no rule
+  // name, version or panel jargon in the sentence.
+  {
+    check("Nothing is said about stat stages when neither side has one",
+      !full.includes("do not start level here") && runs.Doubles.s.unevenStages === null,
+      full.match(/[^.]*start level[^.]*\./)?.[0] || "");
+    const ours = render({ ...runs.Doubles.s, unevenStages: { you: ["Attack +2"], them: [] } });
+    check("The results say when only our side has a stat stage",
+      ours.includes("Your Pokémon are given Attack +2 in the settings and theirs are not, so the two sides do not start level here: 50 is not the even score in this run."),
+      ours.match(/[^.]*start level[^.]*\./)?.[0] || "");
+    const theirs = render({ ...runs.Doubles.s, unevenStages: { you: [], them: ["Attack +1", "Speed -1"] } });
+    check("And when only theirs has",
+      theirs.includes("Their Pokémon are given Attack +1 and Speed -1 in the settings and yours are not, so the two sides do not start level here: 50 is not the even score in this run."),
+      theirs.match(/[^.]*start level[^.]*\./)?.[0] || "");
+    const uneven = render({ ...runs.Doubles.s, unevenStages: { you: ["Attack +2"], them: ["Speed -1"] } });
+    check("And when the two sides have different ones",
+      uneven.includes("Your Pokémon are given Attack +2 in the settings and theirs Speed -1, so the two sides do not start level here: 50 is not the even score in this run."),
+      uneven.match(/[^.]*start level[^.]*\./)?.[0] || "");
+    check("The sentence names no rule, version or setting panel",
+      !/TOURNAMENT|version|stage rule|Field/i.test(ours.match(/Your Pokémon are given[^.]*\./)?.[0] || ""),
+      ours.match(/Your Pokémon are given[^.]*\./)?.[0] || "");
+    // A snapshot from before the disclosure existed is not drawn at all (the view refuses another
+    // version), so there is no way for it to show a stage-pinned run as though 50 were even.
+    check("A snapshot of the previous version is refused",
+      render({ ...runs.Doubles.s, version: SNAPSHOT_VERSION - 1 }).includes("Playing the first tournament teams"),
+      render({ ...runs.Doubles.s, version: SNAPSHOT_VERSION - 1 }).slice(0, 60));
   }
 
   // A lone Pokémon that cannot damage anything: one to bring, the same score against every archetype.

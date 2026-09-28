@@ -13,6 +13,11 @@
 // last section here asserts it in both directions: a pinned one-sided screen no longer moves a
 // mirror off 50, and under field rule 0 it still does.
 //
+// One setting still may break it, on purpose: a stat stage. `my_stages` / `threat_stages` are part of
+// what the user says their Pokémon IS, so they are honoured -- and the final section asserts the only
+// property left to hold, that the run tells the reader 50 is not its even score exactly when a stage is
+// pinned on one side alone (tournament-test.js `unevenStagePins`).
+//
 //   MIRROR      a team played against ITSELF, the same bring on both sides, scores exactly 50.
 //   SEAT SWAP   the same two line-ups with the seats exchanged score exactly 100 together.
 //   REPORTED    and so the number the page would print for a team against itself is exactly 50 --
@@ -45,7 +50,8 @@ import { TeamEvaluator, normalizeSettings, DEFAULT_SETTINGS } from "../builder/t
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
-import { TournamentTest, TOURNAMENT_SEAT, TOURNAMENT_TURN_ONE, tournamentSeatOption, tournamentTurnOneOption } from "../builder/tournament-test.js";
+import { TournamentTest, TOURNAMENT_SEAT, TOURNAMENT_TURN_ONE, tournamentSeatOption, tournamentTurnOneOption,
+  unevenStagePins, ignoredFieldSettings } from "../builder/tournament-test.js";
 import { makeSet } from "../builder/common.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -274,6 +280,66 @@ for (const format of ["Doubles", "Singles"]) {
     }
     check(`${format}: field rule 0 still lets a one-sided Reflect break the mirror`, brokenMirrors > 0, String(brokenMirrors));
     check(`${format}: and the seat swap`, brokenSwaps > 0, String(brokenSwaps));
+  }
+}
+
+// --- the one setting that MAY break the mirror, and has to admit it (`unevenStagePins`) ---------
+//
+// `my_stages` and `threat_stages` are deliberately NOT taken out of the board the way the Field
+// settings are: a stat stage is part of what the user says their Pokémon is, and silently discarding
+// it would be its own bug. So a stage pinned on one side only really does move a team's score against
+// itself off 50 -- and the property asserted here is not that 50 survives, but that the run SAYS 50 is
+// no longer the even score exactly when it is not (tournament-test.js `unevenStagePins`, drawn by
+// builder/tournament-view.js on the results). Measured on these 4 teams per format: with the defaults
+// and with the same pin on both sides, every bring mirror is exactly 50 and no team is off 50; with a
+// pin on one side, all 4 of 4 teams report a value off 50, and the individual bring mirrors move with
+// it -- 42 of 42 in Doubles by up to 47.94 points, 62 of 68 in Singles by up to 50.00, which is why the
+// mirrors are asserted as "some" and the reported value as "all". Two spellings of the same stage are
+// the same pin, because the reader is the evaluator's own `applyStages`.
+{
+  const pins = [
+    ["the defaults", {}],
+    ["our side given Attack +2", { my_stages: "attack: +2" }],
+    ["their side given Attack +2", { threat_stages: "attack: +2" }],
+    ["both sides given Attack +2", { my_stages: "attack: +2", threat_stages: "attack: +2" }],
+    ["the same stage spelled differently on each side", { my_stages: "atk:+2", threat_stages: "+2 Attack" }],
+    ["our side given Speed -1", { my_stages: "spe: -1" }],
+    ["a different stage on each side", { my_stages: "attack: +2", threat_stages: "speed: -1" }],
+  ];
+  for (const format of ["Doubles", "Singles"]) {
+    for (const [label, settings] of pins) {
+      const test = makeTest(format, {}, settings);
+      const teams = test.teams(4).map((team) => seats(test, team));
+      let mirrors = 0;
+      let off = 0;
+      let worst = 0;
+      let reportedOff = 0;
+      for (const team of teams) {
+        for (let i = 0; i < team.ourPlans.length; i += 1) {
+          const value = test.play(team.ourPlans[i], team.theirPlans[i], null).value;
+          mirrors += 1;
+          if (Math.abs(value - 50) > 1e-9) off += 1;
+          if (Math.abs(value - 50) > Math.abs(worst)) worst = value - 50;
+        }
+        // The number the page prints for a team against itself, through the production decision.
+        const grid = team.ourPlans.map((ours) => team.theirPlans.map((theirs) => test.play(ours, theirs, null).value));
+        if (Math.abs(test.chooseBrings(grid).value - 50) > 1e-9) reportedOff += 1;
+      }
+      const said = unevenStagePins(test.ev.settings, (text) => test.ev.applyStages({}, text));
+      // The property: the disclosure is there exactly when a team no longer scores 50 against itself.
+      check(`${format}: with ${label}, the run says 50 is uneven exactly when it is`,
+        Boolean(said) === (reportedOff > 0), `${said ? JSON.stringify(said) : "even"} against ${reportedOff} of ${teams.length} off 50`);
+      if (said) {
+        check(`${format}: with ${label}, every team is off 50 and the mirrors move with it`,
+          reportedOff === teams.length && off > 0, `${reportedOff} of ${teams.length} off, mirrors ${off} of ${mirrors}, worst ${worst.toFixed(4)}`);
+      } else {
+        check(`${format}: with ${label}, every bring mirror is still exactly 50`,
+          off === 0 && reportedOff === 0, `${off} of ${mirrors} off, worst ${worst.toFixed(4)}`);
+      }
+      // A stage is not a Field setting: it is honoured, so it is never reported as ignored.
+      check(`${format}: with ${label}, no stage is reported as an ignored Field setting`,
+        ignoredFieldSettings(test.ev.settings).length === 0, JSON.stringify(ignoredFieldSettings(test.ev.settings)));
+    }
   }
 }
 

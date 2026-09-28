@@ -88,12 +88,17 @@ const MATRIX_EVERY = 8; // snapshots between lead-matrix refreshes while running
 const ID_SPAN = 1 << 16;
 const MAX_CACHED_HITS = 400000;
 export const MATCHUP_BANDS = { favourable: 55, unfavourable: 45 };
-// v7: the duels are priced for one Mega a side (TOURNAMENT_MEGA), a setter is weighed against every
-// alternative its own chain offers (TOURNAMENT_ALT), the shared Field settings no longer reach the
-// board (TOURNAMENT_FIELD) and `ignoredField` names the ones it ignored, so every earlier snapshot
-// is a different number. v6 scored under the bring rule (TOURNAMENT_BRING) on top of the seat rule
-// (TOURNAMENT_SEAT).
-export const SNAPSHOT_VERSION = 7;
+// v8: `unevenStages` names a stat stage pinned on ONE side, because then a team does not score 50
+// against itself and the results have to say so; and each slot's quick duel is priced in the form
+// the one-Mega rule gives it in the line-up that fights that duel (TOURNAMENT_MEGA version 2), so
+// the duel column of a team carrying two Mega Stones reads differently. A restored v7 snapshot has
+// no `unevenStages` at all, which is why the version moves: it would draw a run with a one-sided
+// stage as though 50 were even. v7: the duels were priced for one Mega over the whole team
+// (TOURNAMENT_MEGA version 1), a setter is weighed against every alternative its own chain offers
+// (TOURNAMENT_ALT), the shared Field settings no longer reach the board (TOURNAMENT_FIELD) and
+// `ignoredField` names the ones it ignored, so every earlier snapshot is a different number. v6
+// scored under the bring rule (TOURNAMENT_BRING) on top of the seat rule (TOURNAMENT_SEAT).
+export const SNAPSHOT_VERSION = 8;
 
 /** The turn-1 rule as a version: 2 keeps turn 1 out of the duel board, 1 prices Tailwind and
  *  Trick Room, 0 forces them.
@@ -220,34 +225,57 @@ export const TOURNAMENT_BRING = 1;
  *  default settings (no field pinned) the two versions are the same run. */
 export const TOURNAMENT_FIELD = 1;
 
-/** The Mega rule of the quick duels as a version: 1 duels with the form the slot really plays, 0
- *  prices every Mega Stone holder as its Mega.
+/** The Mega rule of the quick duels as a version: 2 duels in the form the one-Mega rule gives the
+ *  slot in the line-up that FIGHTS the duel, 1 commits one Mega over the whole team, 0 prices every
+ *  Mega Stone holder as its Mega.
  *
  *  One Mega Stone a side is all a bring can spend (`committedMega`, the Companion's
- *  lead_optimizer/mega_rule.py), and the games honour it everywhere: `plansFor` offers no bring
- *  with two stones it could avoid, and `membersOf` plays every other holder in its own base form.
- *  The quick 1-on-1s of the opponent report did not: `playTeam` duelled with `state.ours[o].unit`,
- *  which is the set as registered, so a team with two stones had BOTH of its holders priced as
- *  Megas in the duel column. Measured on a team holding Salamencite and Blastoisinite against the
- *  library's most common sets: Mega Blastoise duels 1.000 into the commonest Kingambit where the
- *  base form it plays duels 0.500, 1.000 into Milotic against 0.750, and Mega Salamence 0.500 into
- *  Corviknight against 0.000 -- 6 of the 8 common sets probed move. It reached the page: the
- *  biggest-threats card answered Milotic with "Mega Blastoise, wins 100%", a form no recommended
- *  game ever fielded.
+ *  lead_optimizer/mega_rule.py), and the games honour it per LINE-UP: `membersOf` is asked about the
+ *  Pokémon that stand on the field together, so `plansFor` offers no bring with two stones it could
+ *  avoid and `fixedPlan` plays the second holder of a named lead pair in its own base form.
  *
- *  Version 1 duels with the form the one-Mega rule leaves the slot in, and names it that way: the
- *  holder that gains the most by Mega-Evolving (`committedMega` over the whole team, which is the
- *  one the brings commit) keeps its Mega, every other holder duels as its base form with the stone
- *  still in hand. An empty commitment stays an empty commitment -- a team with no stone at all has
- *  nothing to spend, exactly as `mega_allowed` of `()` means "no commitment" in the Companion.
- *  It moves no score: the duels reach only the duel column, the `duels` table and the
- *  biggest-threats answer (tests/run-tournament-smoke.mjs proves the headline cannot come from
- *  them), and the headline of the two-stone team above is 58.1075 under both versions.
+ *  Version 0 duelled with `state.ours[o].unit`, the set as registered. Version 1 asked
+ *  `committedMega` about the WHOLE TEAM and duelled every other holder as its base form -- which is
+ *  not the question a 1-on-1 poses, and it made the duel column depend on a teammate that is not in
+ *  the duel. Measured on tests/run-tournament-smoke.mjs's own TWO_STONES fixture against 150 teams in
+ *  Doubles: the column committed slot 0 ([Mega Salamence, Arcanine, Blastoise+Blastoisinite, Milotic,
+ *  Gholdengo, Rillaboom]) while the recommended bring is [Arcanine, Mega Blastoise, Milotic,
+ *  Gholdengo], which commits slot 2 -- so the column priced the one Pokémon the recommended games
+ *  really do Mega-Evolve as a base form, and spent its Mega on a Salamence that bring never brings.
+ *  On 30 library teams holding two or more stones (played as ours, Doubles, 60 opponents each) it
+ *  priced the recommended bring's own Mega slot as a base form in 14 of 30. It also contradicted the
+ *  report's own 1 vs 1 games: in Singles the Matchups card plays each of our Pokémon as a line-up of
+ *  one (`fixedPlan`), so its column for that slot IS Mega Blastoise, while the same page priced base
+ *  Blastoise in the duels. The claim version 1 was written on -- that the card answered with "a form
+ *  no recommended game ever fielded" -- does not hold for that fixture: the recommended bring fields
+ *  Mega Blastoise.
+ *
+ *  Version 2 asks the one-Mega rule the question the duel actually poses: which form does this slot
+ *  play in the line-up that fights this game? A 1-on-1 holds one Pokémon of ours, so nothing else can
+ *  spend the stone and the holder Mega-Evolves -- `membersOf([slot])`, the very call the games make.
+ *  The duel is a property of the pair again, like the field it is fought on (`duelBoard`), and the
+ *  duel column agrees with the Singles matrix column for the same slot. It fields the same forms
+ *  version 0 did, by asking the rule instead of reading the set; the one-Mega rule keeps its bite
+ *  where it belongs, in the GAMES (`plansFor`, `membersOf`, `fixedPlan`), and an empty commitment is
+ *  still empty -- a slot with no stone has nothing to spend, exactly as `mega_allowed` of `()` means
+ *  "no commitment" in the Companion.
+ *
+ *  It moves no score: the duels reach the duel column, the `duels` table, `weakTo` where the matrix
+ *  has no cell of its own, and the biggest-threats answer (tests/run-tournament-smoke.mjs proves the
+ *  headline cannot come from them). Measured version 1 against version 2 on TWO_STONES against 150
+ *  teams: the headline is 56.2996 in Doubles and 54.7169 in Singles under both, and 0 of 150 matchups
+ *  move in either format. On the 30 two-stone library teams above: 0 of 30 headlines and 0 of 1,800
+ *  matchups move; 25 snapshot threat answers change and none of them is drawn (a Doubles answer comes
+ *  from the duels only when there is no pair answer, which in practice needs a one-Pokémon team, and
+ *  such a team has at most one stone); the Biggest-threats list is the same on 30 of 30 and so is its
+ *  High / Medium pill; `weakTo` changes on 18 of 30 in Doubles, where the card draws `weakPairs`
+ *  instead, and on 0 of 30 in Singles, where it is drawn.
  *
  *  Kept as a stamp on the `team_checks` pattern so a recording made before the rule replays
- *  byte-identically at its own stamp: version 0 restores the registered form. A team with at most
- *  one stone holder is the same run under both. */
-export const TOURNAMENT_MEGA = 1;
+ *  byte-identically at its own stamp: version 1 restores the team-wide commitment and version 0 the
+ *  registered form, which is also what an ABSENT stamp means. A team with at most one stone holder is
+ *  the same run under all three. */
+export const TOURNAMENT_MEGA = 2;
 
 /** The setter's alternatives as a version: 1 prices every action its own chain would offer, 0 only
  *  a Taunt and an attack.
@@ -268,6 +296,27 @@ export const TOURNAMENT_MEGA = 1;
  *  one still commits: team685 sets Trick Room in 67 of 100 recommended games (66 before) and scores
  *  58.03 (58.07 before). Helping Hand is deliberately not among the alternatives: what it is worth
  *  depends on the partner's chosen action, which is not settled while a bid is being priced.
+ *
+ *  Two more of the chain are out, on purpose, so this list is not read as everything `planSide` can
+ *  give a lead:
+ *    - FAKE OUT, because it is not an alternative to setting up at all: `planSide` takes it BEFORE it
+ *      reads the committed setup (`planSide`'s Fake Out branch `continue`s past it), so a lead that
+ *      can flinch something never uses a setup move whatever the bid says. Pricing the bid against
+ *      Fake Out would not change what THAT lead does; it would only stop it reserving the condition
+ *      from a partner (`taken` in `planSetup`), which is a separate defect this list cannot fix.
+ *      Measured, with Fake Out's own price (1 + 10 for a setter + `threatTo`) added to the bids
+ *      below: exactly +0.0000 on the bench team against 150 teams in both formats, 0 of 150 matchups
+ *      moved; +0.0000 and 0 matchups on a hand-made team whose lead carries Fake Out and Trick Room;
+ *      +0.0000 on all three library teams that hold such a member, played as ours against 60 teams
+ *      each, and on the bench against those three. Of 16,962 library members exactly 3 carry Fake Out
+ *      and a setup move (team98 and team587 Meowstic, team568 Indeedee, all Trick Room). It is only
+ *      ever worth anything when the SAME side has a second carrier of the same condition: on a
+ *      manufactured team (Meowstic with Fake Out + Trick Room beside an Indeedee with Trick Room) it
+ *      is +0.3334 over 150 teams with 6 matchups moved, the biggest by 40.02 -- which is the
+ *      reservation defect, not this price.
+ *    - WIDE GUARD, QUICK GUARD and PROTECT, because `planGuards` runs after both sides have planned
+ *      and only ever replaces an action that is `replaceable` -- nothing, an attack or a stat drop. A
+ *      lead that committed a condition is never one of them, so a guard cannot take its turn.
  *
  *  Kept as a stamp on the `team_checks` pattern so a recording made before the rule replays
  *  byte-identically at its own stamp: version 0 restores the Taunt-or-attack alternative. */
@@ -344,6 +393,56 @@ export function ignoredFieldSettings(settings) {
   if (on(s.reflect)) out.push(`Reflect (${side(s.reflect)})`);
   if (on(s.light_screen)) out.push(`Light Screen (${side(s.light_screen)})`);
   return out;
+}
+
+// The stat stages the Settings dialog's "Your stat stages" / "Threat stat stages" can set, named as
+// the results name a stat (builder/evaluation-view.js, team-eval.js `applyStages`).
+const STAGE_NAMES = [["attack_stage", "Attack"], ["defense_stage", "Defense"], ["sp_attack_stage", "Sp. Atk"], ["sp_defense_stage", "Sp. Def"], ["speed_stage", "Speed"]];
+
+/**
+ * A stat stage pinned on ONE side, for the results to own up to.
+ *
+ * Unlike the Field settings, the stat stages are NOT taken out of the board: a stage is part of what
+ * the user says their Pokémon is (`ourUnit` through `teamMon`, `opponentMon`), and dropping it would
+ * be its own bug. But the page's own "50 is even, because that is what a team scores against itself"
+ * is only true while both sides get the same treatment. Measured through the production path on 20
+ * library teams played as ours (Doubles, every bring, the reported `chooseBrings` value): with the
+ * default settings 0 of 20 teams are off 50; with `my_stages` "attack: +2" 20 of 20 are off, worst
+ * +32.6234 (every one of the 210 bring mirrors off, worst +47.9424); with `threat_stages` "attack:
+ * +2" 20 of 20 off with the sign flipped, worst -32.6234; with "attack: +2" on BOTH sides 0 of 20
+ * again; with `my_stages` "spe: -1" 20 of 20 off, worst -31.2962. So what matters is not that a stage
+ * is set but that the two sides are set differently.
+ *
+ * `readStages` parses one settings string the way the evaluator does -- pass
+ * `(text) => ev.applyStages({}, text)`, so this cannot drift from the stages the battle really gets.
+ * Returns null when both sides are given the same stages (including none at all, and including two
+ * different spellings of the same thing), otherwise each side's stages in the words the results use.
+ * It is not behind a rule version: every version of every rule here applies the stages, so every one
+ * of them needs the sentence.
+ *
+ * @param {object} settings
+ * @param {(text:string)=>object} readStages
+ * @returns {{you:string[], them:string[]}|null}
+ */
+export function unevenStagePins(settings, readStages) {
+  const s = settings || {};
+  const read = (text) => {
+    try {
+      return readStages(String(text || "")) || {};
+    } catch {
+      return {};
+    }
+  };
+  const mine = read(s.my_stages);
+  const theirs = read(s.threat_stages);
+  const stage = (stages, key) => {
+    const value = Number(stages?.[key]);
+    return Number.isFinite(value) ? value : 0;
+  };
+  if (STAGE_NAMES.every(([key]) => stage(mine, key) === stage(theirs, key))) return null;
+  const named = (stages) => STAGE_NAMES.filter(([key]) => stage(stages, key) !== 0)
+    .map(([key, name]) => `${name} ${stage(stages, key) > 0 ? "+" : ""}${stage(stages, key)}`);
+  return { you: named(mine), them: named(theirs) };
 }
 
 const WEATHERS = ["None", "Sun", "Rain", "Sand", "Snow", "Strong Winds"];
@@ -520,8 +619,9 @@ export class TournamentTest {
    *   Speed tie and one-pass Protect of a recording made before it. `bringRule`: the bring rule
    *   (TOURNAMENT_BRING); 0 replays the best-response answer of a recording made before it.
    *   `fieldRule`: the field rule (TOURNAMENT_FIELD); 0 replays the settings-first field of a
-   *   recording made before it. `megaRule`: the duels' Mega rule (TOURNAMENT_MEGA); 0 replays every
-   *   stone holder duelling as its Mega. `altRule`: the setter's alternatives (TOURNAMENT_ALT); 0
+   *   recording made before it. `megaRule`: the duels' Mega rule (TOURNAMENT_MEGA); 1 replays the
+   *   team-wide Mega commitment of a recording made before version 2, and 0 the registered form of
+   *   one made before version 1 as well. `altRule`: the setter's alternatives (TOURNAMENT_ALT); 0
    *   replays the Taunt-or-attack alternative of a recording made before it.
    */
   constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT } = {}) {
@@ -1036,14 +1136,19 @@ export class TournamentTest {
   }
 
   /**
-   * Our slots as the quick duels price them (TOURNAMENT_MEGA): one Mega Stone a side is all a bring
-   * can spend, so the holder that gains the most by Mega-Evolving keeps its Mega and every other
-   * holder duels as its own base form, with the stone still in hand. That is the same choice
-   * `committedMega` makes for a bring, taken over the whole team, because the duel column is a
-   * property of the team and not of one game -- and the results name the form it duelled as.
-   * Version 0 duels with the set as registered, so a team with two stones showed two Megas.
+   * Our slots as the quick duels price them (TOURNAMENT_MEGA version 2): the form the one-Mega rule
+   * leaves this slot in for the line-up that FIGHTS the duel, which is this slot alone -- so nothing
+   * else is there to spend the stone and a holder duels as its own Mega. It is the same call the
+   * games make for a bring (`membersOf`), asked about the one Pokémon in the duel, so the duel is a
+   * property of the pair like the field it is fought on, and the column agrees with the Singles
+   * matrix column for the same slot (`fixedPlan` of one of ours, which is this same question).
+   * Version 1 committed one Mega over the whole TEAM, so a second holder duelled as its base form
+   * with the stone in hand -- including the holder the recommended bring really Mega-Evolves.
+   * Version 0 duels with the set as registered, which is what version 2 ends up fielding.
+   * The results name the form each slot duelled as, whichever version is in force.
    */
   duelUnits(units) {
+    if (this.megaRule >= 2) return units.map((_, i) => this.membersOf([i], units, [i]).get(i));
     if (this.megaRule < 1) return units.map((unit) => unit);
     const committed = this.committedMega(units.map((_, i) => i), units);
     return units.map((unit, i) => (i === committed ? unit : this.baseFormUnit(unit)));
@@ -1456,14 +1561,17 @@ export class TournamentTest {
 
   /**
    * What the setter would do instead of setting up: the best of everything `planSide`'s own chain
-   * would offer that lead, at the price the chain puts on it (TOURNAMENT_ALT). Version 0 asks only
-   * for a pre-empting Taunt and the lead's best attack, which under-prices the turn a Spore or a
-   * Snarl carrier gives up -- the lead has one action, so the condition has to beat the best of
-   * them, not one of them.
+   * would offer that lead IN PLACE of the condition, at the price the chain puts on it
+   * (TOURNAMENT_ALT). Version 0 asks only for a pre-empting Taunt and the lead's best attack, which
+   * under-prices the turn a Spore or a Snarl carrier gives up -- the lead has one action, so the
+   * condition has to beat the best of them, not one of them.
    *
-   * Helping Hand is not among them on purpose: what it is worth depends on the partner's chosen
-   * action (`helpGain` needs the partner's planned attack), which is not settled while a bid is
-   * being priced -- and a partner boosting this lead's attack is not a lead that just set up.
+   * Three of the chain are deliberately not among them, and TOURNAMENT_ALT says why for each:
+   * Helping Hand (its worth depends on the partner's chosen action, which `helpGain` cannot know
+   * while a bid is being priced -- and a partner boosting this lead's attack is not a lead that just
+   * set up), Fake Out (taken before the setup branch is read at all, so it is a pre-emption and not
+   * an alternative: measured at exactly +0.0000 everywhere it could be priced here), and the guards
+   * (`planGuards` never replaces a committed condition).
    */
   altValue(m, mine, foes, board, slower, s) {
     const k = m.k;
@@ -2511,7 +2619,8 @@ export class TournamentTest {
         if (!mon.out) row.survived += 1;
       }
       state.ours.forEach((o, slot) => {
-        // The form this slot really plays: one Mega a side (TOURNAMENT_MEGA, `duelUnits`).
+        // The form this slot plays in the line-up that fights this duel -- itself, so a stone holder
+        // duels as its own Mega (TOURNAMENT_MEGA, `duelUnits`).
         const win = this.duel(state.duelUnits[slot], t, afterTurnOneBoard);
         row.perSlot[slot] += win;
         state.mons[slot].duel += win;
@@ -2712,7 +2821,8 @@ export class TournamentTest {
       }
       let slot = 0;
       for (let o = 1; o < row.perSlot.length; o += 1) if (row.perSlot[o] > row.perSlot[slot]) slot = o;
-      // From the quick duels, so named by the form that duelled: one Mega a side (TOURNAMENT_MEGA).
+      // From the quick duels, so named by the form that duelled (TOURNAMENT_MEGA): the form this
+      // slot plays in a line-up of one, which is the form the branch above names as well.
       return { ...slotInfo(slot, state.duelUnits[slot]), win: row.perSlot[slot] / Math.max(1, row.count), value: null };
     };
     // Singles: how one of ours does over the 1 vs 1 games of the matrix, counting only the
@@ -2830,8 +2940,10 @@ export class TournamentTest {
     // both that turn 1 cannot reach them and that the headline cannot come from them -- so it stays:
     // deleting it would delete two guards, and it is ten rows of six numbers.
     const duels = {
-      // Named by the forms that duelled (TOURNAMENT_MEGA): one Mega a side, every other stone holder
-      // in its base form, so the column head and the number below it are the same Pokémon.
+      // Named by the forms that duelled (TOURNAMENT_MEGA), so the column head and the number below it
+      // are the same Pokémon. Not a line-up: these are six separate 1-on-1s, each with one Pokémon of
+      // ours in it, so two stone holders both duel as their own Megas -- where a bring, a lead pair
+      // or a matrix row plays only one Mega, because those Pokémon stand on the field together.
       columns: state.ours.map((_, o) => slotInfo(o, state.duelUnits[o])),
       rows: common.map((row) => ({ species: row.species, form: row.form, item: row.item, share: row.count / n, cells: row.perSlot.map((sum) => sum / row.count) })),
     };
@@ -2887,6 +2999,9 @@ export class TournamentTest {
       ours: state.ours.map((_, o) => slotInfo(o)),
       // The Field settings this run ignored, for the results to own up to (TOURNAMENT_FIELD).
       ignoredField: this.fieldRule >= 1 ? ignoredFieldSettings(this.ev.settings) : [],
+      // A stat stage pinned on one side only, which the run DOES honour -- so 50 is not the even
+      // score in it, and the results say so (`unevenStagePins`). null when both sides match.
+      unevenStages: unevenStagePins(this.ev.settings, (text) => this.ev.applyStages({}, text)),
       average, bands,
       bestBrings, mostBrought: bestBrings[0] || null,
       turnOne, pokemon, threats, duels, matrix, archetypes,

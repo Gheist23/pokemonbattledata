@@ -1,11 +1,13 @@
 // Scenario checks for Test against Tournament Teams (builder/tournament-test.js):
-// hand-made leads for turn 1, the bring size per format, the snapshot shape (version 3:
-// the lead matrix, the bring options, the most similar team), and that Tailwind / Fake Out /
-// Intimidate actually move the result. Also: Earthquake-type moves hit the partner (and the
-// choice and Protect account for it), Speed drops skip immune targets, Grassy Glide / First
-// Impression priority, Helping Hand, Wide Guard, Quick Guard against Fake Out, Snarl, Spore,
+// hand-made leads for turn 1, the bring size per format, the snapshot shape (SNAPSHOT_VERSION 7:
+// the lead matrix, the bring options, the most similar team, the Field settings a run ignored), and
+// that Tailwind / Fake Out / Intimidate actually move the result. Also: Earthquake-type moves hit the
+// partner (and the choice and Protect account for it), Speed drops skip immune targets, Grassy Glide
+// / First Impression priority, Helping Hand, Wide Guard, Quick Guard against Fake Out, Snarl, Spore,
 // Taunt, Encore and Will-O-Wisp, and the lines and sections of the results view. Also that the
-// duel numbers no longer read what turn 1 left on the board (TOURNAMENT_TURN_ONE version 2).
+// duel numbers no longer read what turn 1 left on the board (TOURNAMENT_TURN_ONE version 2), that
+// the shared Field settings do not reach the board (TOURNAMENT_FIELD), that the quick duels price
+// one Mega a side (TOURNAMENT_MEGA), and the copy the bring and field rules paid for.
 //
 //   node tests/run-tournament-smoke.mjs [teams]     (default 150 tournament teams per run)
 //

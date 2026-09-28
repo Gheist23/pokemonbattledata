@@ -766,6 +766,15 @@ export class TournamentTest {
       // rule about the model and not a field. Version 0 drops both when a field is pinned.
       weather: (this.fieldRule >= 1 || s.weather === "None") && s.use_weather_abilities ? WEATHER_SETTERS[field] || "" : "",
       terrain: this.fieldRule >= 1 || s.terrain === "None" ? TERRAIN_SETTERS[field] || "" : "",
+      // A Choice item is NOT modelled, and the reason matters: it does not forbid status moves, it
+      // locks its user into the first move it uses, so dropping Protect or Snarl from a holder's kit
+      // would be modelling the wrong rule. Nor are the sets that pair the two an artefact of the
+      // >=95% guaranteed-moves rule (guaranteed-moves.js is in the Auto Build and Suggestions path
+      // only; this library is registered teams, imported as they were registered): measured on
+      // today's 2,827 teams, 678 of 16,962 members hold a Choice item (4.0%), and of those 34 carry
+      // Snarl, 26 Protect, 23 Icy Wind, 15 Trick Room, 9 Helping Hand, 7 Encore, 5 Taunt, 4
+      // Will-O-Wisp, 3 Sleep Powder and 3 Tailwind. Modelling the lock itself (from turn 2, in
+      // `play`) is the honest change and is not made here.
       sash: item === "focussash",
       sitrus: item === "sitrusberry",
       power: Math.max(Number(stats.attack) || 0, Number(stats.sp_attack) || 0),
@@ -2816,6 +2825,10 @@ export class TournamentTest {
       });
 
     const common = [...speciesRows].sort((a, b) => b.count - a.count || a.species.localeCompare(b.species)).slice(0, 10);
+    // Nothing on the page draws this table (the biggest-threats answer and `weakTo` read `perSlot`
+    // themselves), but it is what tests/run-tournament-smoke.mjs watches the duel numbers through --
+    // both that turn 1 cannot reach them and that the headline cannot come from them -- so it stays:
+    // deleting it would delete two guards, and it is ten rows of six numbers.
     const duels = {
       // Named by the forms that duelled (TOURNAMENT_MEGA): one Mega a side, every other stone holder
       // in its base form, so the column head and the number below it are the same Pokémon.

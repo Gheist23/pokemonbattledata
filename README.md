@@ -621,19 +621,77 @@ Data comes from two places:
   is even - and asserts the old "they answer with the four that do the most against your choice"
   never comes back; nothing had asserted the copy before.
 
-  One limit, measured and still open: those sentences are true of the board the page plays under the
-  default settings, but the shared Team Evaluation settings for Reflect and Light Screen are applied
-  BY SIDE (`team-eval.js` `screenOn`), so pinning either of those two to ONE side makes the board
-  asymmetric by INPUT, which no rule in `tournament-test.js` can undo. Measured, round robin of the
-  first 10 corpus teams, Doubles, 12 settings one at a time (45 unordered pairs and 10 mirrors each):
-  a one-sided screen is the only thing that breaks it - `reflect` "My Team" 45 of 45 pairs off 100
-  (worst 49.66), 9 of 10 mirrors off 50 (worst 22.40), headline 58.19; `reflect` "Threat Team" the
-  same with the sign flipped (worst -49.66, mirrors -22.40, headline 41.81), which is what says it is
-  the by-side input and nothing else; `light_screen` "My Team" 44 of 45 (worst 37.63), 9 of 10
-  mirrors (worst 12.50), headline 55.57. Default settings, `reflect` "Both", `light_screen` "Both",
-  `tailwind` "My Team", `tailwind` "Threat Team", `trick_room`, weather Snow, terrain Psychic and
-  terrain Grassy are each 0 of 45 and 0 of 10, headline 50.00. Neutralising the two screens in `calc`
-  is a scoring change of its own and needs its own stamp.
+  That limit is now closed as well. The field (`builder/tournament-test.js` `TOURNAMENT_FIELD`,
+  `calc`, `freshBoard`, `prepare`, `ignoredFieldSettings`): every game plays out a field of its OWN -
+  weather and terrain come in with the Pokemon that set them, Tailwind and Trick Room are turn-1
+  choices with counters, screens are not modelled at all - so none of the six controls of the Settings
+  dialog's Field section applies here, and the snapshot names the ones a run ignored. Five of them
+  used to reach every calculation of every game: `calc` overrode the settings' weather only when it
+  was "None" and terrain only when it was "None", `freshBoard` started every board on them, and
+  `prepare` then dropped the Pokemon's own weather / terrain Ability from its kit, so nothing could
+  set the real one; Reflect and Light Screen were applied BY SIDE (`team-eval.js` `screenOn`), so "My
+  Team" halved every hit into our seat of every game while the board has no screen, no turn count and
+  no Light Clay to price that with. Measured on team1 against the first 120 teams (Doubles, one
+  setting at a time): Reflect "My Team" +7.47 headline points, "Threat Team" -5.50, "Both" +2.83;
+  Light Screen "My Team" +5.82, "Threat Team" -6.05, "Both" +0.45; weather Rain +5.15, Sand +3.02,
+  Snow +2.50, Sun +1.24; terrain Psychic +1.21, Misty -0.46, Grassy -0.45, Electric -0.03; Trick Room
+  and Tailwind exactly +0.0000 (the engine reads them only in `effectiveSpeed`, and the board drives
+  that itself). Under version 1 all 18 of those pinned settings move the headline by exactly 0.0000
+  and the default run is unchanged to the digit (50.9798), so the policy costs nothing under the
+  default settings and takes up to seven points of nonsense out of a pinned one. A silently ignored
+  setting is its own bug, so the Settings dialog says the Test plays out its own field, the explainer
+  says it once, and the results name the settings that run ignored. `TOURNAMENT_FIELD` is a stamp:
+  `new TournamentTest(..., { fieldRule: 0 })` replays the settings-first field exactly (the +7.47
+  comes back to the digit). `run-tournament-symmetry.mjs` was EXTENDED rather than corrected: it now
+  asserts that a pinned one-sided Reflect leaves every mirror at exactly 50 and every seat swap at
+  exactly 100, in both formats, and that field rule 0 still breaks both.
+
+  The duels' Mega rule (`builder/tournament-test.js` `TOURNAMENT_MEGA`, `duelUnits`): one Mega Stone a
+  side is all a bring can spend, and the games have always honoured it (`plansFor`, `membersOf`), but
+  the quick 1-on-1s of the opponent report duelled with the set as REGISTERED, so a team with two
+  stones had both of its holders priced as Megas. Measured on a team holding Salamencite and
+  Blastoisinite against the library's most common sets: Mega Blastoise duels 1.000 into the commonest
+  Kingambit where the base form it plays duels 0.500, 1.000 into Milotic against 0.750, and Mega
+  Salamence 0.500 into Corviknight against 0.000 - 6 of the 8 sets probed move. It reached the page:
+  the biggest-threats card answered Milotic with "Mega Blastoise, wins 100%", a form no recommended
+  game ever fielded; under version 1 the answer is Gholdengo at 98.3%. The rule is `committedMega`
+  over the whole team, because the duel column is a property of the team and not of one game, and the
+  results now name the form that duelled (the non-Mega holder reads "Blastoise (holding
+  Blastoisinite)"). It moves no score - 58.1075 before and after on that team against 150 teams,
+  7 of 60 duel-table cells and one answer changed in Doubles, 8 of 60 in Singles - because the duels
+  reach only the duel column, the `duels` table and that answer. `run-tournament-smoke.mjs` now
+  includes the duel column in the "no line-up names two Megas" check and asserts that an answer taken
+  from the duels names the form that duelled; version 0 replays the registered form.
+
+  The setter's alternatives (`builder/tournament-test.js` `TOURNAMENT_ALT`, `altValue`): what setting
+  Tailwind or Trick Room is weighed against. The lead has one action, so the condition must beat the
+  best thing that lead would otherwise do - but `altValue` asked only for a pre-empting Taunt and the
+  lead's best attack, while `planSide`'s own chain would also give it a sleep move, Follow Me / Rage
+  Powder, a spread Speed drop, the Attack / Sp. Atk drops, Will-O-Wisp or Encore. So setting up was
+  compared against a turn the model itself would not have played. Version 1 takes the best of every
+  option the chain offers, each at the chain's own price (Helping Hand excepted: what it is worth
+  depends on the partner's chosen action, which is not settled while a bid is priced). Measured on the
+  smoke suite's bench team against 150 teams: the headline moves +0.0195 in Doubles (53.3546 ->
+  53.3742) and 0.0000 in Singles, but 12 of the 150 matchups change and 11 of them by more than a
+  point (biggest 22.28), their Trick Room rate falls 4.0% -> 2.7% and our Tailwind 18.0% -> 17.3%.
+  The Trick Room correction is not disturbed: on eight real Trick Room teams played as the subject
+  against the first 100 teams the move is -2.28 to +0.99 (mean -0.51), and the committed one still
+  commits - team685 sets Trick Room in 67 of 100 recommended games (66 before) and scores 58.03
+  (58.07 before). `run-tournament-turn-one.mjs` asserts both versions on a hand-made Spore-carrying
+  setter: version 0 prices its alternative at 1.000 and sets Trick Room, version 1 prices it at 1.500
+  (the Spore the chain would really use), holds Trick Room back as "notworth" and lands the Spore.
+
+  `SNAPSHOT_VERSION` went 6 -> 7 for the three of them together (and `builder-page.js` drops the
+  shelved `cbd.tour.v6` snapshot). One thing deliberately NOT changed: a Choice item is still not
+  modelled, and the reason offered for modelling it was wrong - a Choice item does not forbid status
+  moves, it locks its user into the first move it uses, so dropping Protect or Snarl from a holder's
+  kit would model the wrong rule. Nor are the sets that pair the two an artefact of the >=95%
+  guaranteed-moves rule (that rule lives in the Auto Build and Suggestions path; this library is
+  registered teams, imported as registered): measured on today's 2,827 teams, 678 of 16,962 members
+  hold a Choice item (4.0%), and of those 34 carry Snarl, 26 Protect, 23 Icy Wind, 15 Trick Room, 9
+  Helping Hand, 7 Encore, 5 Taunt, 4 Will-O-Wisp, 3 Sleep Powder and 3 Tailwind. `snapshot.duels`
+  also stays although nothing draws it: it is what `run-tournament-smoke.mjs` watches the duel
+  numbers through, so deleting it would delete two guards.
 
   Suggestions keep their order and scores (`run-suggest-vectors.mjs`); what the breakdown
   shows is extra: every layer's share of the score (`score_ledger`, `score_uncapped`; the

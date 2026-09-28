@@ -1,15 +1,17 @@
 // The seat test for Test against Tournament Teams (builder/tournament-test.js TOURNAMENT_SEAT).
 //
 // The battle model must not care which side a Pokémon sits on. These properties say so, and all of
-// them are asserted here on real tournament teams (data/builder/known-teams.json), in both formats,
-// under the default settings. One thing outside these rules can still break them: the shared Team
-// Evaluation Reflect and Light Screen settings are applied BY SIDE (team-eval.js screenOn), so
-// pinning either to ONE side makes the board asymmetric by INPUT, not by this rule. Measured on 10
-// corpus teams in Doubles, 45 pairs and 10 mirrors each: reflect "My Team" 45 of 45 pairs off 100
-// (worst 49.66) and 9 of 10 mirrors off 50, "Threat Team" the same with the sign flipped,
-// light_screen "My Team" 44 of 45 (worst 37.63); while either set to "Both", tailwind on either side
-// (the board sets its own, so the setting never reaches it), trick_room, weather and terrain are all
-// 0 of 45 and 0 of 10. Neutralising the two screens is a scoring change and needs its own stamp:
+// them are asserted here on real tournament teams (data/builder/known-teams.json), in both formats.
+// They used to hold under the DEFAULT settings only: the shared Team Evaluation Reflect and Light
+// Screen settings are applied BY SIDE (team-eval.js screenOn), so pinning either to ONE side made the
+// board asymmetric by INPUT, not by this rule -- measured on 10 corpus teams in Doubles, 45 pairs and
+// 10 mirrors each: reflect "My Team" 45 of 45 pairs off 100 (worst 49.66) and 9 of 10 mirrors off 50,
+// "Threat Team" the same with the sign flipped, light_screen "My Team" 44 of 45 (worst 37.63); while
+// either set to "Both", tailwind on either side (the board sets its own, so the setting never reached
+// it), trick_room, weather and terrain were all 0 of 45 and 0 of 10. The field rule
+// (TOURNAMENT_FIELD) closed that hole by keeping the whole Field section out of the board, and the
+// last section here asserts it in both directions: a pinned one-sided screen no longer moves a
+// mirror off 50, and under field rule 0 it still does.
 //
 //   MIRROR      a team played against ITSELF, the same bring on both sides, scores exactly 50.
 //   SEAT SWAP   the same two line-ups with the seats exchanged score exactly 100 together.
@@ -59,10 +61,10 @@ const check = (label, ok, detail = "") => {
   if (!ok) failures.push(`${label}${detail ? `: ${detail}` : ""}`);
 };
 
-function makeTest(format, options = {}) {
+function makeTest(format, options = {}, settings = {}) {
   const engine = new DamageEngine(appData);
   const meta = JSON.parse(readFileSync(join(root, "data", "builder", `meta-${format.toLowerCase()}.json`), "utf8"));
-  const ev = new TeamEvaluator(null, engine, format, normalizeSettings({ ...DEFAULT_SETTINGS }));
+  const ev = new TeamEvaluator(null, engine, format, normalizeSettings({ ...DEFAULT_SETTINGS, ...settings }));
   ev.setMetaRecords(meta.pokemon || []);
   const evaluation = new TeamEvaluation(ev);
   return new TournamentTest(evaluation, new KnownTeams(knownRaw), new TeamSuggestions(evaluation), options);
@@ -222,6 +224,57 @@ for (const format of ["Doubles", "Singles"]) {
   check(`${format}: version 0 still breaks a mirror's story`, old.storiesOff > 0, `${old.storiesOff} of ${old.stories}`);
   check(`${format}: version 0 still reports a team beating itself`, old.reportedOver > 0, `${old.reportedOver} of ${old.reported}`);
   check(`${format}: version 0 still reports a team against itself off 50`, old.reportedOff > 0, `${old.reportedOff} of ${old.reported}`);
+}
+
+// --- the settings cannot break it either (TOURNAMENT_FIELD) ------------------------------------
+
+// The one thing outside these rules that could: Reflect and Light Screen are applied by SIDE
+// (team-eval.js screenOn keyed on analysis_side), so a one-sided screen halved every hit into our
+// seat of every game. The field rule keeps the whole Field section out of the board, so a mirror is
+// exactly 50 whatever is pinned -- and under field rule 0 the same pin still breaks it, which is what
+// makes this a gate and not a tautology.
+{
+  const pins = [["reflect", "My Team"], ["reflect", "Threat Team"], ["light_screen", "My Team"], ["weather", "Sun"], ["terrain", "Psychic"], ["trick_room", true]];
+  for (const format of ["Doubles", "Singles"]) {
+    for (const [key, value] of pins) {
+      const test = makeTest(format, {}, { [key]: value });
+      const teams = test.teams(4).map((team) => seats(test, team));
+      let off = 0;
+      let worst = 0;
+      let swapsOff = 0;
+      for (const team of teams) {
+        for (let i = 0; i < team.ourPlans.length; i += 1) {
+          const value2 = test.play(team.ourPlans[i], team.theirPlans[i], null).value;
+          if (Math.abs(value2 - 50) > 1e-9) off += 1;
+          if (Math.abs(value2 - 50) > Math.abs(worst)) worst = value2 - 50;
+        }
+        for (let i = 1; i < Math.min(3, team.ourPlans.length); i += 1) {
+          const x = test.play(team.ourPlans[0], team.theirPlans[i], null).value;
+          const y = test.play(team.ourPlans[i], team.theirPlans[0], null).value;
+          if (Math.abs(x + y - 100) > 1e-9) swapsOff += 1;
+        }
+      }
+      check(`${format}: a pinned ${key} leaves the mirror at exactly 50`, off === 0, `${off} off, worst ${worst.toFixed(4)}`);
+      check(`${format}: and the seat swap at exactly 100`, swapsOff === 0, String(swapsOff));
+    }
+    // The gate: under field rule 0 a one-sided Reflect really does break the mirror.
+    const leaky = makeTest(format, { fieldRule: 0 }, { reflect: "My Team" });
+    const leakyTeams = leaky.teams(4).map((team) => seats(leaky, team));
+    let brokenMirrors = 0;
+    let brokenSwaps = 0;
+    for (const team of leakyTeams) {
+      for (let i = 0; i < team.ourPlans.length; i += 1) {
+        if (Math.abs(leaky.play(team.ourPlans[i], team.theirPlans[i], null).value - 50) > 1e-9) brokenMirrors += 1;
+      }
+      for (let i = 1; i < Math.min(3, team.ourPlans.length); i += 1) {
+        const x = leaky.play(team.ourPlans[0], team.theirPlans[i], null).value;
+        const y = leaky.play(team.ourPlans[i], team.theirPlans[0], null).value;
+        if (Math.abs(x + y - 100) > 1e-9) brokenSwaps += 1;
+      }
+    }
+    check(`${format}: field rule 0 still lets a one-sided Reflect break the mirror`, brokenMirrors > 0, String(brokenMirrors));
+    check(`${format}: and the seat swap`, brokenSwaps > 0, String(brokenSwaps));
+  }
 }
 
 console.log(`${checked} checked, ${failures.length} failed.`);

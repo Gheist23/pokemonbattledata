@@ -1,9 +1,11 @@
 /* The share card: one 1200x630 PNG that a pasted link unfurls into.
  *
  * Two kinds, deliberately different shapes:
- *   TEAM  - two rows of three cells, each with the sprite, the name, the item,
- *           the ability, the nature, the four moves and the six stat bars with
- *           their numbers and their invested Stat Points.
+ *   TEAM  - up to two rows of three cells, each with the sprite, the name, the
+ *           item, the ability, the nature, the four moves and the six stat bars
+ *           with their numbers and their invested Stat Points.  A team of one or
+ *           two draws the SAME cell at a uniform scale (see teamCellBoxes), so a
+ *           short team fills the card instead of floating in it.
  *   EVAL  - four score tiles, the team as a sprite strip, the Team Building
  *           Checks and the critical threats.  Not the six-cell grid.
  *
@@ -178,6 +180,11 @@ export const TEAM = Object.freeze({
   barMaxOther: 230,
 });
 
+// The left column is laid out to END WHERE THE RIGHT ONE DOES (the threat note
+// at 542).  It used to stop at 506 with the strip at 62px, which left a dead
+// band roughly a sixth of the column tall in the lower left.  The space went to
+// the two things worth reading at Discord's ~500px downscale: taller score tiles
+// and a 76px sprite strip (76 + 5*82 = 514, inside the 492+28 column).
 export const EVAL = Object.freeze({
   dividerX: 534,
   dividerTop: 104,
@@ -185,23 +192,23 @@ export const EVAL = Object.freeze({
   leftX: 28,
   leftW: 492,
   tileW: 239,
-  tileH: 118,
+  tileH: 126,
   tileX: [28, 281],
-  tileY: [100, 232],
+  tileY: [100, 240],
   tileRadius: 12,
   tileLabelDX: 16,
   tileLabelDY: 30,
-  tileValueDY: 86,
-  tileBarDY: 96,
+  tileValueDY: 90,
+  tileBarDY: 106,
   tileBarH: 6,
   tileBarInset: 16,
-  stripY: 372,
-  stripSize: 62,
+  stripY: 392,
+  stripSize: 76,
   stripPitch: 82,
-  stripNameBaseline: 450,
+  stripNameBaseline: 486,
   stripNameMaxW: 78,
-  archetypeBaseline: 482,
-  leftNoteBaseline: 506,
+  archetypeBaseline: 516,
+  leftNoteBaseline: 540,
   rightX: 548,
   rightW: 624,
   checksHeadBaseline: 124,
@@ -306,26 +313,98 @@ export function bonusTotal(entry) {
   const list = Array.isArray(entry?.bonuses) ? entry.bonuses : [];
   let total = 0;
   for (let i = 0; i < 6; i += 1) total += clamp(Math.round(num(list[i])), 0, MAX_BONUS_POINTS_PER_STAT);
-  return total;
+  // Per stat AND in total.  engine.js caps the team's whole spend at 66, and
+  // clamping only the six parts let a crafted record render "192/66 pts".
+  return clamp(total, 0, MAX_BONUS_STAT_POINTS);
 }
 
-/** The occupied cells, centred so four Pokemon read as four and not as a grid
- *  with two holes.  Row one takes up to three, row two the rest; each row is
- *  centred in the grid, and a single row is centred vertically too. */
+/** The Stat Points read-out is a VALUE, so it carries a value's colour.  It was
+ *  a fixed PALETTE.good, which made a brand-new 0/66 team read as finished. */
+export function pointsColor(total) {
+  const points = clamp(Math.round(num(total)), 0, MAX_BONUS_STAT_POINTS);
+  if (points >= MAX_BONUS_STAT_POINTS) return PALETTE.good;
+  if (points > 0) return PALETTE.mid;
+  return PALETTE.soft;
+}
+
+/** Three columns is the widest row.  The cell's own text is laid out for that
+ *  width -- a 27-character move in a 153px chip -- so a fourth column would
+ *  shrink the chips, not the margins. */
+export const TEAM_MAX_COLUMNS = 3;
+
+/** Round half up, in a way BOTH renderers agree on.  JS Math.round and Python's
+ *  round() disagree on .5 (Python rounds to even), and the scaled layouts below
+ *  produce exact halves, so neither is used. */
+function halfUp(value) {
+  return Math.floor(value + 0.5);
+}
+
+/** The uniform scale a `columns` x `rows` block of cells may be drawn at,
+ *  floored to 1/100 so the two renderers compute the same number from the same
+ *  doubles and the block can never round its way outside the grid. */
+export function cellScale(columns, rows) {
+  const rowW = columns * TEAM.cellW + (columns - 1) * TEAM.gapX;
+  const blockH = rows * TEAM.cellH + (rows - 1) * TEAM.gapY;
+  return Math.floor(Math.min(TEAM.gridW / rowW, TEAM.gridH / blockH) * 100) / 100;
+}
+
+/** How a team of `count` is split into rows, top row first. */
+function rowSplit(count, columns) {
+  const rows = [];
+  for (let left = count; left > 0; left -= columns) rows.push(Math.min(columns, left));
+  return rows;
+}
+
+/**
+ * The occupied cells: {x, y, w, h, s}.
+ *
+ * Two jobs.  Centring, so four Pokemon read as four and not as a grid with two
+ * holes.  And FILLING: at the fixed 372x232 cell a team of one covered 17% of
+ * the grid and read as a rendering fault -- one small panel in a dark void, an
+ * empty box once Discord scales the card to ~500px.  So the arrangement that
+ * lets the cell grow the most wins, and `s` is the uniform factor the cell is
+ * drawn at: every length and every font size multiplied by one number, so it is
+ * the same design, larger, and not a second layout to keep in step.
+ *
+ * What that picks, and why each is the best available:
+ *   1  one cell, s=2.06 -- height-bound (232 * 2.06 = 478, the whole grid).
+ *      67% of the grid instead of 17%.
+ *   2  one row of two, s=1.50 -- width-bound (2*558 + 21 = 1137 of 1144). 73%.
+ *   3  one row of three, s=1.00 -- already width-bound at full size; stacking
+ *      them 2+1 reaches the same scale (the height then binds at exactly 1.00)
+ *      and gives up the full-width row, so three stays as it was.
+ *   4  3+1, s=1.00 -- 2x2 ties on scale and area; 3+1 keeps the top row the
+ *      same shape as five and six, with the odd cell centred under it.
+ *   5  3+2, s=1.00.  6  3+3, s=1.00.  Both unchanged.
+ */
 export function teamCellBoxes(count) {
   const total = clamp(Math.round(num(count)), 0, 6);
   if (!total) return [];
-  const rows = total > 3 ? [3, total - 3] : [total];
+  let best = null;
+  for (let columns = 1; columns <= TEAM_MAX_COLUMNS; columns += 1) {
+    const rows = rowSplit(total, columns);
+    const widest = Math.max(...rows);
+    const s = cellScale(widest, rows.length);
+    // Bigger cell wins; on a tie the wider first row wins, which is what keeps
+    // four at 3+1 rather than 2x2.
+    if (!best || s > best.s + 1e-9 || (s > best.s - 1e-9 && widest > best.widest)) {
+      best = { s, rows, widest };
+    }
+  }
+  const { s, rows } = best;
+  const cellW = TEAM.cellW * s;
+  const cellH = TEAM.cellH * s;
+  const gapX = TEAM.gapX * s;
+  const gapY = TEAM.gapY * s;
   const boxes = [];
-  const rowH = TEAM.cellH;
-  const blockH = rows.length * rowH + (rows.length - 1) * TEAM.gapY;
-  const y0 = TEAM.gridY + Math.round((TEAM.gridH - blockH) / 2);
+  const blockH = rows.length * cellH + (rows.length - 1) * gapY;
+  const y0 = TEAM.gridY + halfUp((TEAM.gridH - blockH) / 2);
   rows.forEach((n, rowIndex) => {
-    const rowW = n * TEAM.cellW + (n - 1) * TEAM.gapX;
-    const x0 = TEAM.gridX + Math.round((TEAM.gridW - rowW) / 2);
-    const y = y0 + rowIndex * (rowH + TEAM.gapY);
+    const rowW = n * cellW + (n - 1) * gapX;
+    const x0 = TEAM.gridX + halfUp((TEAM.gridW - rowW) / 2);
+    const y = y0 + rowIndex * (cellH + gapY);
     for (let i = 0; i < n; i += 1) {
-      boxes.push({ x: x0 + i * (TEAM.cellW + TEAM.gapX), y, w: TEAM.cellW, h: TEAM.cellH });
+      boxes.push({ x: x0 + i * (cellW + gapX), y, w: cellW, h: cellH, s });
     }
   });
   return boxes;
@@ -505,83 +584,118 @@ function footer(ctx) {
 
 function teamCell(ctx, entry, box, image, itemIcon) {
   const { x, y, w, h } = box;
-  panel(ctx, x, y, w, h, TEAM.cellRadius);
-  const at = (lx, ly) => [x + lx, y + ly];
+  // One factor for the whole cell: lengths, offsets and font sizes alike.  A
+  // cell at s=2.06 is the six-cell design at 206%, not a second layout.
+  const s = num(box.s, 1) || 1;
+  const up = (value) => value * s;
+  const ladder = (sizes) => (s === 1 ? sizes : sizes.map((size) => size * s));
+  const at = (lx, ly) => [x + up(lx), y + up(ly)];
+
+  panel(ctx, x, y, w, h, up(TEAM.cellRadius));
 
   const plate = TEAM.spritePlate;
-  fillRound(ctx, x + plate.x, y + plate.y, plate.w, plate.h, plate.r, PALETTE.cardDeep);
-  const s = TEAM.sprite;
-  if (!art(ctx, image, x + s.x, y + s.y, s.w, s.h)) {
-    drawText(ctx, "?", x + plate.x + plate.w / 2, y + plate.y + plate.h / 2 + 10, {
-      sizes: [28], weight: 700, color: PALETTE.soft, align: "center", maxWidth: plate.w,
+  fillRound(ctx, x + up(plate.x), y + up(plate.y), up(plate.w), up(plate.h), up(plate.r), PALETTE.cardDeep);
+  const art_ = TEAM.sprite;
+  if (!art(ctx, image, x + up(art_.x), y + up(art_.y), up(art_.w), up(art_.h))) {
+    drawText(ctx, "?", ...at(plate.x + plate.w / 2, plate.y + plate.h / 2 + 10), {
+      sizes: [up(28)], weight: 700, color: PALETTE.soft, align: "center", maxWidth: up(plate.w),
     });
   }
 
   drawText(ctx, entry.name || entry.species, ...at(TEAM.textX, TEAM.nameBaseline), {
-    sizes: FONT_LADDER.name, weight: 700, color: PALETTE.text, maxWidth: TEAM.textW,
+    sizes: ladder(FONT_LADDER.name), weight: 700, color: PALETTE.text, maxWidth: up(TEAM.textW),
   });
 
   const item = str(entry.item).trim();
   if (item) {
     const icon = TEAM.itemIcon;
-    const drew = art(ctx, itemIcon, x + icon.x, y + icon.y, icon.w, icon.h);
+    const drew = art(ctx, itemIcon, x + up(icon.x), y + up(icon.y), up(icon.w), up(icon.h));
     drawText(ctx, item, ...at(drew ? TEAM.itemTextX : TEAM.textX, TEAM.itemBaseline), {
-      sizes: FONT_LADDER.item, color: PALETTE.text, maxWidth: drew ? TEAM.itemTextW : TEAM.textW,
+      sizes: ladder(FONT_LADDER.item), color: PALETTE.text, maxWidth: up(drew ? TEAM.itemTextW : TEAM.textW),
     });
   } else {
     drawText(ctx, "No item", ...at(TEAM.textX, TEAM.itemBaseline), {
-      sizes: FONT_LADDER.item, color: PALETTE.soft, maxWidth: TEAM.textW,
+      sizes: ladder(FONT_LADDER.item), color: PALETTE.soft, maxWidth: up(TEAM.textW),
     });
   }
 
   drawText(ctx, str(entry.ability).trim() || "—", ...at(TEAM.textX, TEAM.abilityBaseline), {
-    sizes: FONT_LADDER.ability, color: PALETTE.muted, maxWidth: TEAM.textW,
+    sizes: ladder(FONT_LADDER.ability), color: PALETTE.muted, maxWidth: up(TEAM.textW),
   });
 
   drawText(ctx, natureLabel(entry), ...at(TEAM.textX, TEAM.natureBaseline), {
-    sizes: FONT_LADDER.nature, color: PALETTE.muted, maxWidth: TEAM.natureMaxW,
+    sizes: ladder(FONT_LADDER.nature), color: PALETTE.muted, maxWidth: up(TEAM.natureMaxW),
   });
-  drawText(ctx, `${bonusTotal(entry)}/${MAX_BONUS_STAT_POINTS} pts`, ...at(TEAM.pointsRight, TEAM.natureBaseline), {
-    sizes: FONT_LADDER.points, weight: 700, color: PALETTE.good, align: "right", maxWidth: TEAM.pointsMaxW,
+  const points = bonusTotal(entry);
+  drawText(ctx, `${points}/${MAX_BONUS_STAT_POINTS} pts`, ...at(TEAM.pointsRight, TEAM.natureBaseline), {
+    sizes: ladder(FONT_LADDER.points), weight: 700, color: pointsColor(points),
+    align: "right", maxWidth: up(TEAM.pointsMaxW),
   });
 
   const moves = Array.isArray(entry.moves) ? entry.moves : [];
+  const chipW = up(TEAM.moveColW);
+  const chipH = up(TEAM.moveH);
+  const chipR = up(TEAM.moveRadius);
+  const chipTextW = up(TEAM.moveColW - TEAM.moveInset * 2);
+  const moveSizes = ladder(FONT_LADDER.move);
+  // ONE size for the four chips in a cell: the smallest step any of them needs.
+  // Fitting each chip on its own put "10,000,000 Volt Thunderbolt" a step below
+  // the move beside it -- legible at full size, visibly unbalanced, and gone at
+  // Discord's downscale.  The ladder descends, so the step the widest move needs
+  // fits every narrower one too.
+  let step = 0;
   for (let i = 0; i < 4; i += 1) {
-    const mx = x + TEAM.moveX[i % 2];
-    const my = y + TEAM.moveRowY[Math.floor(i / 2)];
     const move = str(moves[i]).trim();
-    fillRound(ctx, mx, my, TEAM.moveColW, TEAM.moveH, TEAM.moveRadius, PALETTE.cardDeep);
-    strokeRound(ctx, mx, my, TEAM.moveColW, TEAM.moveH, TEAM.moveRadius, PALETTE.line);
-    drawText(ctx, move || "—", mx + TEAM.moveColW / 2, my + 15, {
-      sizes: FONT_LADDER.move, weight: 700, color: move ? PALETTE.text : PALETTE.soft,
-      align: "center", maxWidth: TEAM.moveColW - TEAM.moveInset * 2,
+    if (!move) continue;
+    const fit = fitText(ctx, move, chipTextW, moveSizes, 700);
+    step = Math.max(step, moveSizes.indexOf(fit.size));
+  }
+  const moveSize = moveSizes[Math.max(0, step)];
+  for (let i = 0; i < 4; i += 1) {
+    const mx = x + up(TEAM.moveX[i % 2]);
+    const my = y + up(TEAM.moveRowY[Math.floor(i / 2)]);
+    const move = str(moves[i]).trim();
+    if (!move) {
+      // An empty slot is a RECESS, not a chip.  A filled, outlined pill with an
+      // em-dash in it reads as a move that failed to load -- four of them read
+      // as a broken card.  This is the same hairline the check rows use: it says
+      // "a slot, nothing in it" and stops competing with the real moves.
+      fillRound(ctx, mx, my, chipW, chipH, chipR, PALETTE.hairline);
+      continue;
+    }
+    fillRound(ctx, mx, my, chipW, chipH, chipR, PALETTE.cardDeep);
+    strokeRound(ctx, mx, my, chipW, chipH, chipR, PALETTE.line);
+    drawText(ctx, move, mx + chipW / 2, my + up(15), {
+      sizes: [moveSize], weight: 700, color: PALETTE.text,
+      align: "center", maxWidth: chipTextW,
     });
   }
 
   const stats = entry.stats || {};
-  const up = STAT_CODES.indexOf(str(entry.natureUp).toUpperCase());
-  const down = STAT_CODES.indexOf(str(entry.natureDown).toUpperCase());
+  const natUp = STAT_CODES.indexOf(str(entry.natureUp).toUpperCase());
+  const natDown = STAT_CODES.indexOf(str(entry.natureDown).toUpperCase());
   const bonuses = Array.isArray(entry.bonuses) ? entry.bonuses : [];
+  const colW = up(TEAM.statColW);
   for (let i = 0; i < 6; i += 1) {
     const key = STAT_KEYS[i];
-    const sx = x + TEAM.statX[i % 3];
-    const sy = y + TEAM.statRowY[Math.floor(i / 3)];
+    const sx = x + up(TEAM.statX[i % 3]);
+    const sy = y + up(TEAM.statRowY[Math.floor(i / 3)]);
     const value = Math.round(num(stats[key]));
-    const labelColor = i === up ? PALETTE.natureUp : i === down ? PALETTE.natureDown : PALETTE.muted;
-    drawText(ctx, STAT_LABELS[i], sx, sy + TEAM.statTextDY, {
-      sizes: FONT_LADDER.statLabel, weight: 700, color: labelColor, maxWidth: 40,
+    const labelColor = i === natUp ? PALETTE.natureUp : i === natDown ? PALETTE.natureDown : PALETTE.muted;
+    drawText(ctx, STAT_LABELS[i], sx, sy + up(TEAM.statTextDY), {
+      sizes: ladder(FONT_LADDER.statLabel), weight: 700, color: labelColor, maxWidth: up(40),
     });
-    const valueFit = drawText(ctx, String(value), sx + TEAM.statColW, sy + TEAM.statTextDY, {
-      sizes: FONT_LADDER.statValue, weight: 700, color: PALETTE.text, align: "right", maxWidth: 44,
+    const valueFit = drawText(ctx, String(value), sx + colW, sy + up(TEAM.statTextDY), {
+      sizes: ladder(FONT_LADDER.statValue), weight: 700, color: PALETTE.text, align: "right", maxWidth: up(44),
     });
     const invested = clamp(Math.round(num(bonuses[i])), 0, MAX_BONUS_POINTS_PER_STAT);
     if (invested > 0) {
-      drawText(ctx, `+${invested}`, sx + TEAM.statColW - valueFit.width - TEAM.statGapBeforeValue, sy + TEAM.statTextDY, {
-        sizes: FONT_LADDER.statPoints, weight: 700, color: PALETTE.good, align: "right", maxWidth: 30,
+      drawText(ctx, `+${invested}`, sx + colW - valueFit.width - up(TEAM.statGapBeforeValue), sy + up(TEAM.statTextDY), {
+        sizes: ladder(FONT_LADDER.statPoints), weight: 700, color: PALETTE.good, align: "right", maxWidth: up(30),
       });
     }
-    bar(ctx, sx, sy + TEAM.statBarDY, TEAM.statColW, TEAM.statBarH,
-      statBarWidth(key, value, TEAM.statColW), statColor(value));
+    bar(ctx, sx, sy + up(TEAM.statBarDY), colW, up(TEAM.statBarH),
+      statBarWidth(key, value, colW), statColor(value));
   }
 }
 
@@ -671,8 +785,8 @@ function spriteStrip(ctx, digest, sprites) {
     const x = EVAL.leftX + i * EVAL.stripPitch;
     fillRound(ctx, x, EVAL.stripY, EVAL.stripSize, EVAL.stripSize, 10, PALETTE.cardDeep);
     if (!art(ctx, sprites[i] || null, x, EVAL.stripY, EVAL.stripSize, EVAL.stripSize)) {
-      drawText(ctx, "?", x + EVAL.stripSize / 2, EVAL.stripY + EVAL.stripSize / 2 + 8, {
-        sizes: [22], weight: 700, color: PALETTE.soft, align: "center", maxWidth: EVAL.stripSize,
+      drawText(ctx, "?", x + EVAL.stripSize / 2, EVAL.stripY + EVAL.stripSize / 2 + 10, {
+        sizes: [26], weight: 700, color: PALETTE.soft, align: "center", maxWidth: EVAL.stripSize,
       });
     }
     // A name may be wider than the 62px sprite it sits under, so centring it on
@@ -729,8 +843,11 @@ function checkList(ctx, digest) {
 function threatList(ctx, digest, sprites) {
   const all = Array.isArray(digest?.threats) ? digest.threats : [];
   const rows = all.slice(0, EVAL.threatRows);
-  const topMeta = Math.max(0, Math.round(num(digest?.topMeta)));
-  drawText(ctx, topMeta ? `Critical threats (Top ${topMeta})` : "Critical threats", EVAL.rightX, EVAL.threatsHeadBaseline, {
+  // Just "Critical threats".  The heading used to read "Critical threats (Top
+  // 20)" -- which sounds like "the twenty worst threats" but means "of the Top
+  // 20 of the meta", and the subtitle already says that.  The note below now
+  // says the one thing the heading cannot: how many of them you are looking at.
+  drawText(ctx, "Critical threats", EVAL.rightX, EVAL.threatsHeadBaseline, {
     sizes: FONT_LADDER.sectionHead, weight: 700, color: PALETTE.text, maxWidth: EVAL.rightW,
   });
   rows.forEach((row, i) => {
@@ -753,9 +870,12 @@ function threatList(ctx, digest, sprites) {
       sizes: FONT_LADDER.threatScore, weight: 700, color: tone, align: "right", maxWidth: 40,
     });
   });
+  // Only when there is something the list does not show.  "20 critical threats
+  // in the Top 20" under a heading that said the same thing told a reader
+  // nothing; this says which part of the 20 is on the card.
   const total = Math.max(0, Math.round(num(digest?.threatCount)));
-  if (total) {
-    drawText(ctx, `${total} critical threat${total === 1 ? "" : "s"}${topMeta ? ` in the Top ${topMeta}` : ""}`,
+  if (total > rows.length) {
+    drawText(ctx, `Showing the ${rows.length} worst of ${total}`,
       EVAL.rightX, EVAL.rightNoteBaseline, { sizes: [12], color: PALETTE.soft, maxWidth: EVAL.rightW });
   }
 }

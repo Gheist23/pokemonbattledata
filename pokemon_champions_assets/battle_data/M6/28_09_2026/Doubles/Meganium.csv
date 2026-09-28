@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Meganium,87,move,1,Weather Ball,95.4%,,,,,,,,
-Meganium,87,move,2,Solar Beam,95.4%,,,,,,,,
+Meganium,87,move,1,Solar Beam,95.4%,,,,,,,,
+Meganium,87,move,2,Weather Ball,95.4%,,,,,,,,
 Meganium,87,move,3,Dazzling Gleam,87.8%,,,,,,,,
 Meganium,87,move,4,Protect,81.2%,,,,,,,,
 Meganium,87,move,5,Earth Power,15.2%,,,,,,,,
 Meganium,87,move,6,Synthesis,13.1%,,,,,,,,
 Meganium,87,move,7,Giga Drain,2.7%,,,,,,,,
 Meganium,87,move,8,Pollen Puff,1.6%,,,,,,,,
-Meganium,87,move,9,Ancient Power,1.5%,,,,,,,,
+Meganium,87,move,9,Ancient Power,1.4%,,,,,,,,
 Meganium,87,move,10,Leaf Storm,1.4%,,,,,,,,
 Meganium,87,held_item,1,Meganiumite,98.9%,,,,,,,,
 Meganium,87,held_item,2,Muscle Band,0.1%,,,,,,,,
@@ -29,7 +29,7 @@ Meganium,87,teammate,7,Farigiraf,,,,,,,,,
 Meganium,87,teammate,8,Golisopod,,,,,,,,,
 Meganium,87,teammate,9,Rillaboom,,,,,,,,,
 Meganium,87,teammate,10,Garchomp,,,,,,,,,
-Meganium,87,stat_alignment,1,Modest,80.4%,Sp. Atk,Attack,,,,,,
+Meganium,87,stat_alignment,1,Modest,80.3%,Sp. Atk,Attack,,,,,,
 Meganium,87,stat_alignment,2,Quiet,10.1%,Sp. Atk,Speed,,,,,,
 Meganium,87,stat_alignment,3,Timid,4.9%,Speed,Attack,,,,,,
 Meganium,87,stat_alignment,4,Bold,1.5%,Defense,Attack,,,,,,
@@ -42,7 +42,7 @@ Meganium,87,stat_alignment,10,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Meganium,87,stat_points,1,,19.2%,,,32,0,0,32,0,2
 Meganium,87,stat_points,2,,9.2%,,,2,0,0,32,0,32
 Meganium,87,stat_points,3,,8.8%,,,32,0,2,32,0,0
-Meganium,87,stat_points,4,,7.1%,,,32,0,0,32,2,0
+Meganium,87,stat_points,4,,7.2%,,,32,0,0,32,2,0
 Meganium,87,stat_points,5,,3.7%,,,32,0,1,32,1,0
 Meganium,87,stat_points,6,,2.7%,,,26,0,0,32,0,8
 Meganium,87,stat_points,7,,1.5%,,,22,0,0,32,0,12

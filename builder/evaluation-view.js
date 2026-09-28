@@ -61,7 +61,10 @@ export function openSettingsDialog(current, onSave, options = {}) {
   };
   const section = (title, rows) => h("section", { class: "bd-set-section" }, h("h3", {}, title), h("div", { class: "bd-set-rows" }, rows));
   const body = h("div", { class: "bd-settings" },
-    h("p", { class: "bd-section-note" }, "Applies to Team Evaluation, Suggestions, Optimize, Auto Build and the Tournament Test the next time they run."),
+    // The Tournament Test plays every game out, so its field is the one its own Pokémon set and the
+    // Field section below does not reach it (tournament-test.js TOURNAMENT_FIELD). Saying so here as
+    // well as in the results, because this is where the setting is made.
+    h("p", { class: "bd-section-note" }, "Applies to Team Evaluation, Suggestions, Optimize, Auto Build and the Tournament Test the next time they run. The Tournament Test plays out its own field, so the Field settings below do not change it."),
     h("div", { class: "bd-set-grid" },
       section("What is calculated", [
         row("Top X Meta", "top_meta", count("top_meta", 1, Math.max(1, maxTopMeta), "Top X Meta")),

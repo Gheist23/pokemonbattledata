@@ -15,8 +15,12 @@
 //   - the decision is symmetric: the identical function prices side 1 the same way as side 0;
 //   - the results say which move was held back and why;
 //   - the duel board carries no Trick Room and no Tailwind but does carry the two duellists' own
-//     weather and terrain (the slower setter's, as on entry; never over a pinned field), so a
+//     weather and terrain (the slower setter's, as on entry, and not a field the settings pin), so a
 //     duel is the same number whatever board the caller holds -- and version 1 still is not.
+//
+// And the setter's alternatives (TOURNAMENT_ALT): the condition is weighed against the best of
+// everything `planSide` would otherwise give that lead, not only a Taunt and an attack, so a setter
+// that also carries Spore no longer sets up against a turn the model itself would not have played.
 //
 //   node tests/run-tournament-turn-one.mjs
 //
@@ -30,7 +34,7 @@ import { TeamEvaluator, normalizeSettings, DEFAULT_SETTINGS } from "../builder/t
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
-import { TournamentTest, TOURNAMENT_TURN_ONE, tournamentTurnOneOption } from "../builder/tournament-test.js";
+import { TournamentTest, TOURNAMENT_TURN_ONE, tournamentTurnOneOption, TOURNAMENT_ALT, tournamentAltOption } from "../builder/tournament-test.js";
 import { makeSet } from "../builder/common.js";
 import { storyLine } from "../builder/tournament-view.js";
 
@@ -47,12 +51,12 @@ const check = (label, ok, detail = "") => {
   if (!ok) failures.push(`${label}${detail ? `: ${detail}` : ""}`);
 };
 
-function makeTest(turnOneRule, settings = {}) {
+function makeTest(turnOneRule, settings = {}, options = {}) {
   const engine = new DamageEngine(appData);
   const ev = new TeamEvaluator(null, engine, "Doubles", normalizeSettings({ ...DEFAULT_SETTINGS, ...settings }));
   ev.setMetaRecords(meta.pokemon || []);
   const evaluation = new TeamEvaluation(ev);
-  return new TournamentTest(evaluation, new KnownTeams(knownRaw), new TeamSuggestions(evaluation), { turnOneRule });
+  return new TournamentTest(evaluation, new KnownTeams(knownRaw), new TeamSuggestions(evaluation), { turnOneRule, ...options });
 }
 
 const priced = makeTest(TOURNAMENT_TURN_ONE);
@@ -300,12 +304,21 @@ const slowFoes = [
     check("A duellist's own terrain is on its duel board",
       TERRAINS[now.duelBoard(ourTorkoal, now.opponentMon(indeedee)).t] === "Psychic",
       TERRAINS[now.duelBoard(ourTorkoal, now.opponentMon(indeedee)).t]);
-    // A pinned field is the user's: `kit.weather` is already "" then, so nothing can override it.
+    // A pinned field does not reach a duel board either (TOURNAMENT_FIELD): the board is the only
+    // source of the field, so the duellists' own Drought and Psychic Surge stand whatever the shared
+    // settings say. Under field rule 0 the pin replaced them -- `freshBoard` started on it and
+    // `kit.weather` was "" -- so both versions are asserted here, and the pair is what proves the
+    // stamp selects by version rather than only switching the new behaviour on.
     const pinned = makeTest(TOURNAMENT_TURN_ONE, { weather: "Rain", terrain: "Grassy" });
     const pinnedBoard = pinned.duelBoard(pinned.ourUnit(makeSet(torkoal), 0), pinned.opponentMon(indeedee));
-    check("A weather the settings pin is not overridden by a duellist's Ability",
-      WEATHERS[pinnedBoard.w] === "Rain" && TERRAINS[pinnedBoard.t] === "Grassy",
+    check("A pinned weather and terrain do not reach the duel board: the duellists' own do",
+      WEATHERS[pinnedBoard.w] === "Sun" && TERRAINS[pinnedBoard.t] === "Psychic",
       `${WEATHERS[pinnedBoard.w]} / ${TERRAINS[pinnedBoard.t]}`);
+    const honouring = makeTest(TOURNAMENT_TURN_ONE, { weather: "Rain", terrain: "Grassy" }, { fieldRule: 0 });
+    const honouredBoard = honouring.duelBoard(honouring.ourUnit(makeSet(torkoal), 0), honouring.opponentMon(indeedee));
+    check("Field rule 0 still replays the pinned field",
+      WEATHERS[honouredBoard.w] === "Rain" && TERRAINS[honouredBoard.t] === "Grassy",
+      `${WEATHERS[honouredBoard.w]} / ${TERRAINS[honouredBoard.t]}`);
   }
 
   // --- the bias itself: version 1 reads the caller's board, version 2 does not -----------------
@@ -353,6 +366,58 @@ const slowFoes = [
     const oldOnFresh = oldUnits.ours.map((o) => oldUnits.theirs.map((t) => old.duel(o, t, old.freshBoard())));
     check("Version 1's are not", JSON.stringify(oldOnGameBoard) !== JSON.stringify(oldOnFresh));
   }
+}
+
+// --- 10. the setter's alternatives (TOURNAMENT_ALT) ---------------------------------------------
+
+// `altValue` is what setting up is weighed against. Version 0 asked only for a pre-empting Taunt and
+// the lead's best attack, while `planSide`'s own chain would also give that lead a sleep move,
+// Follow Me / Rage Powder, a spread Speed drop, the Attack / Sp. Atk drops, Will-O-Wisp or Encore --
+// so the alternative was under-priced and the condition was compared against a turn the model would
+// not have played. Version 1 takes the best of all of them, each at the chain's own price.
+{
+  check("TOURNAMENT_ALT is version 1", TOURNAMENT_ALT === 1);
+  for (const off of [null, undefined, false, "", "0", "off", "false", "no", "none", 0, -1, "-5", "0.9"]) {
+    check(`tournamentAltOption(${JSON.stringify(off)}) is off`, tournamentAltOption(off) === 0, String(tournamentAltOption(off)));
+  }
+  check("tournamentAltOption('1.9') truncates to 1", tournamentAltOption("1.9") === 1);
+  check("tournamentAltOption('2') is kept for a later version", tournamentAltOption("2") === 2);
+  check("a value that is not a number is the current alt version", tournamentAltOption("yes") === TOURNAMENT_ALT);
+  check("the default alt option is the current version", makeTest(TOURNAMENT_TURN_ONE).altRule === TOURNAMENT_ALT);
+  check("alt version 0 is kept as 0", makeTest(TOURNAMENT_TURN_ONE, {}, { altRule: 0 }).altRule === 0);
+
+  // A slow Trick Room setter that also carries Spore, against a pair so weak that inverting the
+  // order is worth barely more than a turn (bid 1.035): the attack it would otherwise use is worth
+  // 1.000, but the Spore the chain would really give it is worth 1.500. Version 0 sets Trick Room
+  // against the attack; version 1 puts the Spore in and says the inversion is not worth the turn.
+  const sporeRoomer = { species: "Farigiraf", item: "Sitrus Berry", ability: "Armor Tail", nature: "Relaxed", moves: ["Spore", "Trick Room", "Psychic", "Protect"], bonuses: [32, 0, 32, 0, 2, 0] };
+  const harmless = [
+    member("Wimpod", "Focus Sash", "Wimp Out", "Jolly", ["Struggle Bug", "Aqua Jet", "Protect", "Tackle"]),
+    member("Pichu", "Focus Sash", "Static", "Jolly", ["Thunder Shock", "Nuzzle", "Protect", "Sweet Kiss"]),
+  ];
+  const board = { w: 0, t: 0, tw: [0, 0], tr: 0, trBy: -1, wide: 0, quick: 0 };
+  const alts = {};
+  for (const altRule of [0, 1]) {
+    const test = makeTest(TOURNAMENT_TURN_ONE, {}, { altRule });
+    const ours = [sporeRoomer, torkoal].map((set, i) => test.ourUnit(makeSet(set), i));
+    const theirs = harmless.map((m) => test.opponentMon(m));
+    const mine = ours.map((u) => test.fresh(u, 0, true));
+    const foes = theirs.map((u) => test.fresh(u, 1, true));
+    alts[altRule] = { value: test.altValue(mine[0], mine, foes, board, [true, false], 0), game: game(test, [sporeRoomer, torkoal], harmless) };
+  }
+  check("Version 0 prices this setter's alternative as its attack", Math.abs(alts[0].value - 1) < 1e-9, String(alts[0].value));
+  check("Version 1 prices it as the Spore the chain would really use", Math.abs(alts[1].value - 1.5) < 1e-9, String(alts[1].value));
+  check("Version 0 sets Trick Room against that under-priced alternative", alts[0].game.after.trickRoom === 4 && alts[0].game.after.trickRoomBy === "you", JSON.stringify(alts[0].game.after.trickRoom));
+  check("Version 1 holds it back as not worth the turn", !alts[1].game.after.trickRoom && heldWhy(alts[1].game, 0, "Trick Room") === "notworth",
+    `${alts[1].game.after.trickRoom} / ${heldWhy(alts[1].game, 0, "Trick Room") || "(nothing held back)"}`);
+  check("And the Spore it held it back for actually lands", events(alts[1].game, 0, "sleep").some((e) => e.move === "Spore"),
+    JSON.stringify(alts[1].game.events.filter((e) => e.s === 0).map((e) => `${e.kind}${e.move ? `(${e.move})` : ""}`)));
+
+  // It is not blanket suppression: the committed Trick Room team of section 1 still commits, because
+  // there the inversion is worth more than anything its setter could do instead.
+  const committed = game(makeTest(TOURNAMENT_TURN_ONE), [farigiraf, torkoal], fastFoes);
+  check("A committed Trick Room team still sets it under the widened alternative", committed.after.trickRoom === 4 && committed.after.trickRoomBy === "you",
+    `${committed.after.trickRoom} / ${heldWhy(committed, 0, "Trick Room") || "(nothing held back)"}`);
 }
 
 console.log(`${checked} checked, ${failures.length} failed.`);

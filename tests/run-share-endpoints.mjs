@@ -581,6 +581,22 @@ let liveBucket = null;
   ok(asPage.status === 410, "and 410 for the page");
   ok(html.includes("expired"), "the page says so in words");
   ok(html.includes("assets/tool/team-builder.webp"), "an expired page falls back to a real site image rather than a dead card URL");
+  // ...and it must DESCRIBE that file, not the card's shape.  Announcing a WEBP
+  // as a 1200x630 image/png is three claims a crawler can check and find false.
+  {
+    const tag = (name) => html.match(new RegExp(`<meta property="${name}" content="([^"]*)"`))?.[1] ?? "";
+    const asset = readFileSync(join(root, "assets/tool/team-builder.webp"));
+    ok(asset.subarray(0, 4).toString("ascii") === "RIFF" && asset.subarray(8, 12).toString("ascii") === "WEBP",
+      "the fallback asset really is a WEBP on disk");
+    const vp8 = asset.subarray(12, 16).toString("ascii");
+    ok(vp8 === "VP8 ", `the fallback asset is a lossy VP8 chunk (${JSON.stringify(vp8)})`);
+    const realW = asset.readUInt16LE(26) & 0x3fff;
+    const realH = asset.readUInt16LE(28) & 0x3fff;
+    ok(tag("og:image:type") === "image/webp", `a miss declares image/webp, not PNG (${tag("og:image:type")})`);
+    ok(Number(tag("og:image:width")) === realW && Number(tag("og:image:height")) === realH,
+      `a miss declares the asset's REAL size ${realW}x${realH} (declared ${tag("og:image:width")}x${tag("og:image:height")})`);
+    note(`the miss image is ${realW}x${realH} (${(realW / realH).toFixed(3)}:1, ${asset.length} bytes)`);
+  }
   const asImage = await readImage.onRequestGet({ params: { code }, env: envFor(bucket) });
   ok(asImage.headers.get("x-share-card-reason") === "expired", "the card route knows it expired without reading the record");
 }
@@ -666,6 +682,17 @@ let liveBucket = null;
   }
   const notJson = await create.onRequestPost({ request: postRequest("<xml/>", {}), env });
   ok((await notJson.json()) && notJson.status === 400, "a body that is not JSON is refused");
+
+  // A body of exactly `null` parses, and reading `.record` off it used to throw
+  // a TypeError whose internal message went back to the caller verbatim.  The
+  // refusal must be the endpoint's own sentence, not a JavaScript one.
+  for (const [label, raw] of [["null", "null"], ["a bare number", "7"], ["a bare string", '"hello"'], ["a top-level array", "[]"]]) {
+    const response = await create.onRequestPost({ request: postRequest(raw, {}), env });
+    const body = await response.json();
+    ok(response.status === 400, `a body that is ${label} is refused with 400 (got ${response.status})`);
+    ok(!/Cannot read propert|undefined is not|TypeError|\bof null\b/.test(String(body.error)),
+      `...and the message is the endpoint's own, not a JavaScript error: ${JSON.stringify(body.error)}`);
+  }
   ok(bucket.store.size === 0, "not one refused create stored anything");
 
   // The real guarantee: a body over the cap is refused however it arrives.

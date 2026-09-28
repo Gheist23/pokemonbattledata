@@ -105,11 +105,14 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
       step("5", "Across the teams", `Played against up to ${number(teams)} real recent tournament teams. A score of 50 is even — the same two teams score the same whichever of them is yours, so 50 is what a team scores against itself; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
     h("p", { class: "bd-note bd-tour-limits" },
       "Kept simple on purpose: nobody switches out (Parting Shot lowers the stats but its user stays in), paralysis, poison, screens and stat-boosting moves are left out, and each Pokémon picks its best play without guessing what the other side will do. ",
+      // The board is the only source of the field (tournament-test.js TOURNAMENT_FIELD), so this is
+      // the one place the explainer has to mention the Settings dialog at all.
+      "Every game has a field of its own, set by the Pokémon in it, so the Field settings are not used here. ",
       singles ? "The tournament teams come from Doubles events; in Singles both sides play one Pokémon at a time." : ""));
 }
 
 /**
- * @param {object} s            a snapshot from TournamentTest.run (SNAPSHOT_VERSION, now 6)
+ * @param {object} s            a snapshot from TournamentTest.run (SNAPSHOT_VERSION, now 7)
  * @param {{name:(mon)=>string, sprite:(mon, size)=>Node, running:boolean, loadTeam?:(similar)=>void}} helpers
  */
 export function tournamentAnalysis(s, { name, sprite, running, loadTeam = null }) {
@@ -188,9 +191,17 @@ function verdictCard({ s, n, doubles, bring, theirBring }) {
       h("small", {}, "Average score"),
       h("b", { class: tone }, score(s.average)),
       h("span", {}, "of 100 · 50 is even"),
+      // Both sides commit blind (tournament-test.js TOURNAMENT_BRING), so their bring is not an
+      // answer to ours. Said without "best" on either side, because the same words have to hold for a
+      // team of one, which has no choice to make.
       h("p", { class: "bd-note" }, doubles
-        ? `Each team is scored by your best ${bring} against the ${theirBring} of theirs that do the most against it, played 2 vs 2 from the leads on.`
-        : `Each team is scored by your best ${bring} against the ${theirBring} of theirs that do the most against it, played 1 vs 1.`)));
+        ? `Each team is scored by the ${bring} you would bring against the ${theirBring} they would bring, neither side seeing the other's, played 2 vs 2 from the leads on.`
+        : `Each team is scored by the ${bring} you would bring against the ${theirBring} they would bring, neither side seeing the other's, played 1 vs 1.`),
+      // A setting the Test cannot use has to be said out loud: every game has a field of its own
+      // (tournament-test.js TOURNAMENT_FIELD / ignoredFieldSettings), so a pinned one is ignored.
+      (s.ignoredField || []).length
+        ? h("p", { class: "bd-note" }, `Each game has a field of its own, set by the Pokémon in it, so these settings are not used here: ${joinNames(s.ignoredField)}.`)
+        : null));
 }
 
 // --- what to bring --------------------------------------------------------------------------

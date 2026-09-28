@@ -337,9 +337,18 @@ for (let n = 1; n <= 6; n += 1) {
   for (let a = 0; a < boxes.length; a += 1) {
     for (let b = a + 1; b < boxes.length; b += 1) {
       ok(!overlaps(asBox(boxes[a]), asBox(boxes[b])), `n=${n}: cell ${a} does not overlap cell ${b}`);
+      // Not overlapping is not enough: setting gapX to 0 kept every assertion
+      // above green while fusing the row into one slab, because touching is not
+      // overlapping.  Adjacent cells must be SEPARATED, by the declared gutter.
+      const [p, q] = [boxes[a], boxes[b]];
+      const gapX = Math.max(p.x - (q.x + q.w), q.x - (p.x + p.w));
+      const gapY = Math.max(p.y - (q.y + q.h), q.y - (p.y + p.h));
+      ok(gapX >= TEAM.gapX || gapY >= TEAM.gapY,
+        `n=${n}: cell ${a} and cell ${b} are separated by the declared gutter (x ${gapX}, y ${gapY})`);
     }
   }
 }
+ok(TEAM.gapX > 0 && TEAM.gapY > 0, `the grid declares a positive gutter (${TEAM.gapX} x ${TEAM.gapY})`);
 // four must look intentional: three across, the fourth centred under them
 const four = teamCellBoxes(4);
 ok(four[3].x + four[3].w / 2 === TEAM.gridX + TEAM.gridW / 2, "a four-Pokemon team centres the fourth cell");
@@ -383,6 +392,15 @@ ok(teamCellBoxes(0).length === 0, "an empty team asks for no cells");
   ok(drawn.filter((t) => /^\+\d+$/.test(t)).length >= 6, "invested Stat Points printed beside the stats");
   ok(drawn.includes(FOOTER.leadText) && drawn.includes(FOOTER.brandText),
     `the footer reads "${FOOTER.leadText}${FOOTER.brandText}"`);
+  // ...and it reads the WORDS the owner asked for.  Comparing the drawn run
+  // against FOOTER.leadText alone is a tautology: both sides come from the same
+  // constant, so changing the constant to "Made by someone " passed the check
+  // above unchanged.  These two pin the literal text instead.
+  ok(FOOTER.leadText === "Built with ", `the footer lead-in is "Built with " (it is ${JSON.stringify(FOOTER.leadText)})`);
+  ok(FOOTER.brandText === "championsbattledata.com",
+    `the footer names championsbattledata.com (it is ${JSON.stringify(FOOTER.brandText)})`);
+  ok(drawn.includes("Built with ") && drawn.includes("championsbattledata.com"),
+    'every card draws "Built with championsbattledata.com"');
   ok(drawn.includes("Doubles"), "the format is drawn");
   ok(ops.filter((o) => o.kind === "image").length === 12, "six sprites and six item icons drawn");
 

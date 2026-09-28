@@ -42,7 +42,9 @@
 //            replacement too and the slower setter's weather stands whichever side it is on.
 // Damage is the calc engine's exact expected damage (mean roll x accuracy, halved for
 // moves that need a recharge turn) for the board's weather, terrain, stat stages, burn
-// and Helping Hand.
+// and Helping Hand. Every game has a field of its own and the board is its only source, so the
+// shared Field settings (Weather, Terrain, Trick Room, Tailwind, Reflect, Light Screen) do not
+// apply here -- the results name the ones a run ignored (`ignoredField`).
 // The game's value = 50 + 50 x (our HP left - their HP left), each side's HP as a share
 // of what it brought, kept to 0..100.
 //
@@ -86,9 +88,12 @@ const MATRIX_EVERY = 8; // snapshots between lead-matrix refreshes while running
 const ID_SPAN = 1 << 16;
 const MAX_CACHED_HITS = 400000;
 export const MATCHUP_BANDS = { favourable: 55, unfavourable: 45 };
-// v6: scored under the bring rule (TOURNAMENT_BRING) on top of the seat rule (TOURNAMENT_SEAT), so
-// every earlier snapshot is a different number.
-export const SNAPSHOT_VERSION = 6;
+// v7: the duels are priced for one Mega a side (TOURNAMENT_MEGA), a setter is weighed against every
+// alternative its own chain offers (TOURNAMENT_ALT), the shared Field settings no longer reach the
+// board (TOURNAMENT_FIELD) and `ignoredField` names the ones it ignored, so every earlier snapshot
+// is a different number. v6 scored under the bring rule (TOURNAMENT_BRING) on top of the seat rule
+// (TOURNAMENT_SEAT).
+export const SNAPSHOT_VERSION = 7;
 
 /** The turn-1 rule as a version: 2 keeps turn 1 out of the duel board, 1 prices Tailwind and
  *  Trick Room, 0 forces them.
@@ -107,7 +112,7 @@ export const SNAPSHOT_VERSION = 6;
  *  side's slots -- including the ones the game never brought. That is a reporting bias only (the
  *  headline average comes from `play`, the lead matrix from `cellValue` on a fresh board), but it
  *  reached the "answer" the biggest-threats card names, the `duel` column and the `duels` table.
- *  Version 2 duels on a fresh board carrying only the settings' field and the two duellists' own
+ *  Version 2 duels on a fresh board carrying nothing but the two duellists' own
  *  weather and terrain Abilities, so a duel is a property of the pair and nothing else.
  *
  *  Kept as a stamp on the `team_checks` pattern so a recording made before a rule replays
@@ -182,6 +187,92 @@ export const TOURNAMENT_SEAT = 1;
  *  per-team worst case in `bringTotals`. */
 export const TOURNAMENT_BRING = 1;
 
+/** The field rule as a version: 1 makes the board the only source of the field, 0 lets the shared
+ *  Team Evaluation settings through.
+ *
+ *  Every game has a field of its own: weather and terrain come in with the Pokémon that set them
+ *  (`enter`), Tailwind and Trick Room are turn-1 choices with their own counters, and screens are
+ *  not modelled at all. The shared settings of the Field panel (builder/evaluation-view.js) are a
+ *  different thing: one field pinned for every calculation of Team Evaluation. Under version 0 five
+ *  of the six reached tournament damage. `calc` overrode the settings' weather only when it was
+ *  "None" and terrain only when it was "None", and `freshBoard` started every board on them, so a
+ *  pinned field REPLACED the board's own -- and `prepare` then dropped the Pokémon's own weather /
+ *  terrain Ability from its kit, so nothing could set the real one. Reflect and Light Screen were
+ *  worse than replaced: `calcContext` applies them by SIDE (team-eval.js `screenOn`, keyed on
+ *  `analysis_side`), so "My Team" halved every hit into our side of every game, and the board has no
+ *  screen, no turn count and no Light Clay to price that with. Measured on team1 against the first
+ *  120 tournament teams (Doubles, every other setting default): Reflect "My Team" +7.47 headline
+ *  points, "Threat Team" -5.50, "Both" +2.83; Light Screen "My Team" +5.82, "Threat Team" -6.05,
+ *  "Both" +0.45; weather Rain +5.15, Sand +3.02, Snow +2.50, Sun +1.24; terrain Psychic +1.21,
+ *  Misty -0.46, Grassy -0.45, Electric -0.03. Trick Room and Tailwind moved it by exactly +0.0000,
+ *  because the engine reads them only in `effectiveSpeed` (builder/engine.js:721) and the board
+ *  passes its own Speed state there, never the settings'.
+ *
+ *  Version 1 neutralises all six: the board's weather and terrain are used whatever the settings
+ *  say, `reflect`, `light_screen` and `trick_room` are forced off in the calc context, both sides'
+ *  `tailwind` with them, and `freshBoard` starts empty. A Pokémon's own weather / terrain Ability is
+ *  honoured again whatever is pinned -- "Weather Abilities" in the Rules panel still turns it off,
+ *  because that is a rule about the model and not a field. The snapshot lists what it ignored
+ *  (`ignoredField`) and the results say so, because a silently ignored setting is its own bug.
+ *
+ *  Kept as a stamp on the `team_checks` pattern so a recording made before the rule replays
+ *  byte-identically at its own stamp: version 0 restores the settings-first field. Under the
+ *  default settings (no field pinned) the two versions are the same run. */
+export const TOURNAMENT_FIELD = 1;
+
+/** The Mega rule of the quick duels as a version: 1 duels with the form the slot really plays, 0
+ *  prices every Mega Stone holder as its Mega.
+ *
+ *  One Mega Stone a side is all a bring can spend (`committedMega`, the Companion's
+ *  lead_optimizer/mega_rule.py), and the games honour it everywhere: `plansFor` offers no bring
+ *  with two stones it could avoid, and `membersOf` plays every other holder in its own base form.
+ *  The quick 1-on-1s of the opponent report did not: `playTeam` duelled with `state.ours[o].unit`,
+ *  which is the set as registered, so a team with two stones had BOTH of its holders priced as
+ *  Megas in the duel column. Measured on a team holding Salamencite and Blastoisinite against the
+ *  library's most common sets: Mega Blastoise duels 1.000 into the commonest Kingambit where the
+ *  base form it plays duels 0.500, 1.000 into Milotic against 0.750, and Mega Salamence 0.500 into
+ *  Corviknight against 0.000 -- 6 of the 8 common sets probed move. It reached the page: the
+ *  biggest-threats card answered Milotic with "Mega Blastoise, wins 100%", a form no recommended
+ *  game ever fielded.
+ *
+ *  Version 1 duels with the form the one-Mega rule leaves the slot in, and names it that way: the
+ *  holder that gains the most by Mega-Evolving (`committedMega` over the whole team, which is the
+ *  one the brings commit) keeps its Mega, every other holder duels as its base form with the stone
+ *  still in hand. An empty commitment stays an empty commitment -- a team with no stone at all has
+ *  nothing to spend, exactly as `mega_allowed` of `()` means "no commitment" in the Companion.
+ *  It moves no score: the duels reach only the duel column, the `duels` table and the
+ *  biggest-threats answer (tests/run-tournament-smoke.mjs proves the headline cannot come from
+ *  them), and the headline of the two-stone team above is 58.1075 under both versions.
+ *
+ *  Kept as a stamp on the `team_checks` pattern so a recording made before the rule replays
+ *  byte-identically at its own stamp: version 0 restores the registered form. A team with at most
+ *  one stone holder is the same run under both. */
+export const TOURNAMENT_MEGA = 1;
+
+/** The setter's alternatives as a version: 1 prices every action its own chain would offer, 0 only
+ *  a Taunt and an attack.
+ *
+ *  `altValue` is what setting Tailwind or Trick Room is weighed against (`planSetup`): the lead has
+ *  one action, so the condition must beat the best thing that lead would otherwise do. Version 0
+ *  asked only for a pre-empting Taunt and the lead's best attack, while `planSide`'s own chain would
+ *  also give that lead Spore or another sleep move, Follow Me / Rage Powder, a spread Speed drop,
+ *  Snarl and the other Attack / Sp. Atk drops, Will-O-Wisp and Encore. So the alternative was
+ *  under-priced and setting up was chosen against a turn the model itself would not have played.
+ *
+ *  Version 1 takes the best of every option the chain offers that lead, each at the price the chain
+ *  puts on it. Measured on the bench team of tests/run-tournament-smoke.mjs against 150 teams: the
+ *  headline moves +0.0195 in Doubles (53.3546 -> 53.3742) and 0.0000 in Singles, but 12 of the 150
+ *  matchups change and 11 of them by more than a point (biggest 22.28), and their Trick Room rate
+ *  falls 4.0% -> 2.7% with our Tailwind 18.0% -> 17.3%. On eight real Trick Room teams played as the
+ *  subject against the first 100 teams the move is -2.28 to +0.99 (mean -0.51), and the committed
+ *  one still commits: team685 sets Trick Room in 67 of 100 recommended games (66 before) and scores
+ *  58.03 (58.07 before). Helping Hand is deliberately not among the alternatives: what it is worth
+ *  depends on the partner's chosen action, which is not settled while a bid is being priced.
+ *
+ *  Kept as a stamp on the `team_checks` pattern so a recording made before the rule replays
+ *  byte-identically at its own stamp: version 0 restores the Taunt-or-attack alternative. */
+export const TOURNAMENT_ALT = 1;
+
 /** A rule stamp as a version: 0 (off) for null / undefined / false / "" / "0".
  *
  *  Coerces as `teamCheckRulesOption` does (team-checks.js): a version is a non-negative integer,
@@ -214,6 +305,45 @@ export function tournamentSeatOption(value) {
  *  exactly as `tournamentTurnOneOption` does. */
 export function tournamentBringOption(value) {
   return ruleVersion(value, TOURNAMENT_BRING);
+}
+
+/** A `tournament_field` stamp as a version (`ruleVersion` against TOURNAMENT_FIELD), so it coerces
+ *  exactly as `tournamentTurnOneOption` does. */
+export function tournamentFieldOption(value) {
+  return ruleVersion(value, TOURNAMENT_FIELD);
+}
+
+/** A `tournament_mega` stamp as a version (`ruleVersion` against TOURNAMENT_MEGA), so it coerces
+ *  exactly as `tournamentTurnOneOption` does. */
+export function tournamentMegaOption(value) {
+  return ruleVersion(value, TOURNAMENT_MEGA);
+}
+
+/** A `tournament_alt` stamp as a version (`ruleVersion` against TOURNAMENT_ALT), so it coerces
+ *  exactly as `tournamentTurnOneOption` does. */
+export function tournamentAltOption(value) {
+  return ruleVersion(value, TOURNAMENT_ALT);
+}
+
+/**
+ * The Field settings a run ignores, named as the Settings dialog names them
+ * (builder/evaluation-view.js "Field"). Every game has a field of its own, so a pinned one does not
+ * apply (TOURNAMENT_FIELD) -- and the results have to say so, because a setting that is silently
+ * ignored is its own bug. Empty under the default settings, and empty under field rule 0, which
+ * honours them.
+ */
+export function ignoredFieldSettings(settings) {
+  const s = settings || {};
+  const out = [];
+  const side = (value) => (value === "Both" ? "both sides" : value === "My Team" ? "your team" : "their team");
+  const on = (value) => value && value !== "None";
+  if (on(s.weather)) out.push(`Weather (${s.weather})`);
+  if (on(s.terrain)) out.push(`Terrain (${s.terrain})`);
+  if (s.trick_room) out.push("Trick Room");
+  if (on(s.tailwind)) out.push(`Tailwind (${side(s.tailwind)})`);
+  if (on(s.reflect)) out.push(`Reflect (${side(s.reflect)})`);
+  if (on(s.light_screen)) out.push(`Light Screen (${side(s.light_screen)})`);
+  return out;
 }
 
 const WEATHERS = ["None", "Sun", "Rain", "Sand", "Snow", "Strong Winds"];
@@ -382,17 +512,25 @@ export class TournamentTest {
    * @param {TeamEvaluation} evaluation   its evaluator does every calculation
    * @param {KnownTeams} known            the tournament-team library
    * @param {TeamSuggestions} suggestions for the Stat Points that go with a Nature
-   * @param {{turnOneRule?:number|string, seatRule?:number|string, bringRule?:number|string}} options
+   * @param {{turnOneRule?:number|string, seatRule?:number|string, bringRule?:number|string,
+   *          fieldRule?:number|string, megaRule?:number|string, altRule?:number|string}} options
    *   `turnOneRule`: the turn-1 rule (TOURNAMENT_TURN_ONE); 1 replays the post-turn-1 duel board of
    *   a recording made before version 2, and 0 the forced Tailwind / Trick Room of one made before
    *   version 1 as well. `seatRule`: the seat rule (TOURNAMENT_SEAT); 0 replays the seat-dependent
    *   Speed tie and one-pass Protect of a recording made before it. `bringRule`: the bring rule
    *   (TOURNAMENT_BRING); 0 replays the best-response answer of a recording made before it.
+   *   `fieldRule`: the field rule (TOURNAMENT_FIELD); 0 replays the settings-first field of a
+   *   recording made before it. `megaRule`: the duels' Mega rule (TOURNAMENT_MEGA); 0 replays every
+   *   stone holder duelling as its Mega. `altRule`: the setter's alternatives (TOURNAMENT_ALT); 0
+   *   replays the Taunt-or-attack alternative of a recording made before it.
    */
-  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING } = {}) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT } = {}) {
     this.turnOneRule = tournamentTurnOneOption(turnOneRule);
     this.seatRule = tournamentSeatOption(seatRule);
     this.bringRule = tournamentBringOption(bringRule);
+    this.fieldRule = tournamentFieldOption(fieldRule);
+    this.megaRule = tournamentMegaOption(megaRule);
+    this.altRule = tournamentAltOption(altRule);
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -406,8 +544,10 @@ export class TournamentTest {
     this.redirectMoves = new Set((tables._V250_REDIRECTION_MOVES || ["follow me", "rage powder"]).map(compact).filter((k) => k !== "spotlight"));
     this.speedDropMoves = new Map(Object.entries(tables._V252_SPEED_DROP_MOVES || {}).map(([name, [, spread]]) => [compact(name), Boolean(spread)]));
     const s = this.ev.settings;
-    this.fixedWeather = Math.max(0, WEATHERS.indexOf(s.weather));
-    this.fixedTerrain = Math.max(0, TERRAINS.indexOf(s.terrain));
+    // The board's own field starts empty (TOURNAMENT_FIELD); version 0 starts it on the shared
+    // settings' weather and terrain, which a Pokémon's Ability then could not replace.
+    this.fixedWeather = this.fieldRule >= 1 ? 0 : Math.max(0, WEATHERS.indexOf(s.weather));
+    this.fixedTerrain = this.fieldRule >= 1 ? 0 : Math.max(0, TERRAINS.indexOf(s.terrain));
     this.monCache = new Map();
     this.ourCache = new Map();
     this.archetypeCache = new Map();
@@ -621,8 +761,11 @@ export class TournamentTest {
       burnProof: types.includes("Fire") || BURN_PROOF.has(ability),
       soundProof: ability === "soundproof",
       dark: types.includes("Dark"),
-      weather: s.weather === "None" && s.use_weather_abilities ? WEATHER_SETTERS[field] || "" : "",
-      terrain: s.terrain === "None" ? TERRAIN_SETTERS[field] || "" : "",
+      // Its own weather / terrain Ability, whatever the shared settings pin (TOURNAMENT_FIELD);
+      // "Weather Abilities" in the Rules panel still turns the weather half off, because that is a
+      // rule about the model and not a field. Version 0 drops both when a field is pinned.
+      weather: (this.fieldRule >= 1 || s.weather === "None") && s.use_weather_abilities ? WEATHER_SETTERS[field] || "" : "",
+      terrain: this.fieldRule >= 1 || s.terrain === "None" ? TERRAIN_SETTERS[field] || "" : "",
       sash: item === "focussash",
       sitrus: item === "sitrusberry",
       power: Math.max(Number(stats.attack) || 0, Number(stats.sp_attack) || 0),
@@ -700,13 +843,24 @@ export class TournamentTest {
     const s = this.ev.settings;
     try {
       const ctx = this.ev.calcContext(attacker, def.mon, info.name);
-      if (s.weather === "None") {
+      // The board is the only source of the field (TOURNAMENT_FIELD). Version 0 keeps a pinned
+      // weather or terrain instead of the board's, and keeps the screens, Trick Room and Tailwind
+      // the shared settings apply -- by settings SIDE, which the board has no way to model.
+      const own = this.fieldRule >= 1;
+      if (own || s.weather === "None") {
         const weather = WEATHERS[w === ANY ? 0 : w];
         ctx.weather = weather;
         ctx.attacker_state.weather = weather;
         ctx.defender_state.weather = weather;
       }
-      if (s.terrain === "None") ctx.terrain = TERRAINS[t === ANY ? 0 : t];
+      if (own || s.terrain === "None") ctx.terrain = TERRAINS[t === ANY ? 0 : t];
+      if (own) {
+        ctx.trick_room = false;
+        ctx.reflect = false;
+        ctx.light_screen = false;
+        ctx.attacker_state.tailwind = false;
+        ctx.defender_state.tailwind = false;
+      }
       if (f & 1) ctx.helping_hand = true;
       if (f & 2) ctx.burned = true;
       const result = this.ev.calculate(attacker, def.mon, ctx);
@@ -870,6 +1024,20 @@ export class TournamentTest {
       };
     }
     return this.prepare(unit.baseUnit);
+  }
+
+  /**
+   * Our slots as the quick duels price them (TOURNAMENT_MEGA): one Mega Stone a side is all a bring
+   * can spend, so the holder that gains the most by Mega-Evolving keeps its Mega and every other
+   * holder duels as its own base form, with the stone still in hand. That is the same choice
+   * `committedMega` makes for a bring, taken over the whole team, because the duel column is a
+   * property of the team and not of one game -- and the results name the form it duelled as.
+   * Version 0 duels with the set as registered, so a team with two stones showed two Megas.
+   */
+  duelUnits(units) {
+    if (this.megaRule < 1) return units.map((unit) => unit);
+    const committed = this.committedMega(units.map((_, i) => i), units);
+    return units.map((unit, i) => (i === committed ? unit : this.baseFormUnit(unit)));
   }
 
   /** These Pokémon as they play: one Mega at most, every other holder in its base form. */
@@ -1277,11 +1445,43 @@ export class TournamentTest {
     return { wins, pairs };
   }
 
-  /** What the setter would do instead of setting up: its best attack, or a pre-empting Taunt. */
+  /**
+   * What the setter would do instead of setting up: the best of everything `planSide`'s own chain
+   * would offer that lead, at the price the chain puts on it (TOURNAMENT_ALT). Version 0 asks only
+   * for a pre-empting Taunt and the lead's best attack, which under-prices the turn a Spore or a
+   * Snarl carrier gives up -- the lead has one action, so the condition has to beat the best of
+   * them, not one of them.
+   *
+   * Helping Hand is not among them on purpose: what it is worth depends on the partner's chosen
+   * action (`helpGain` needs the partner's planned attack), which is not settled while a bid is
+   * being priced -- and a partner boosting this lead's attack is not a lead that just set up.
+   */
   altValue(m, mine, foes, board, slower, s) {
-    const taunt = m.k.taunt >= 0 ? this.tauntTarget(m, foes, board, slower[1 - s]) : null;
+    const k = m.k;
+    let best = 0;
+    const bid = (value) => { if (value > best) best = value; };
+    bid(k.taunt >= 0 ? this.tauntTarget(m, foes, board, slower[1 - s])?.value || 0 : 0);
     const pick = this.pickTarget(m, foes, board, mine, true);
-    return Math.max(taunt?.value || 0, pick ? this.attackValue(m, pick, foes, board) : 0);
+    bid(pick ? this.attackValue(m, pick, foes, board) : 0);
+    if (this.altRule < 1) return best;
+    // The rest of the chain, in its own order: sleep, redirection, a spread Speed drop, then the
+    // stat drops, Will-O-Wisp and Encore it weighs against its attack.
+    if (k.sleep >= 0 && this.sleepTarget(m, foes, mine, board)) bid(1.5);
+    if (k.redirect && mine.filter(alive).length > 1) bid(1);
+    if (k.speedDrop >= 0 && this.meanSpeed(foes, board) > this.meanSpeed(mine, board) && this.speedDropUseful(m, mine, foes, board)) bid(1);
+    for (const slot of k.lowers) {
+      const lower = this.lowerPlan(m, slot, mine, foes, board);
+      if (m.u.moves[slot].spread || lower.target) bid(lower.value);
+    }
+    if (k.wisp >= 0) {
+      const burn = this.burnPlan(m, mine, foes, board);
+      if (burn.target) bid(burn.value);
+    }
+    if (k.encore >= 0) {
+      const encore = this.encoreTarget(m, foes, board);
+      if (encore) bid(encore.value);
+    }
+    return best;
   }
 
   /**
@@ -1902,7 +2102,8 @@ export class TournamentTest {
     for (const m of arriving) this.enter(m, active, board, null);
   }
 
-  /** An empty field: the settings' weather and terrain, nobody's Tailwind, no Trick Room. */
+  /** An empty field: no weather, no terrain, nobody's Tailwind, no Trick Room. Under field rule 0 it
+   *  starts on the shared settings' weather and terrain instead (TOURNAMENT_FIELD). */
   freshBoard() {
     return { w: this.fixedWeather, t: this.fixedTerrain, tw: [0, 0], tr: 0, trBy: -1, wide: 0, quick: 0 };
   }
@@ -2033,11 +2234,11 @@ export class TournamentTest {
    * to whoever led there, often neither duellist, and expires after 4 or 5 turns while `duel`
    * counts a race of up to 99 hits.
    *
-   * Weather and terrain stay, because for these two they are not borrowed: `kit.weather` and
-   * `kit.terrain` are already "" whenever the settings pin a field (so this can never override
-   * the user's own weather), and when the settings say "None" a duellist's Drought really is the
-   * field of this 1 vs 1 -- dropping it would score a Torkoal's Eruption or a Pelipper's
-   * Hurricane out of the weather the threat list most needs them priced in. They are applied in
+   * Weather and terrain stay, because for these two they are not borrowed: a duellist's Drought
+   * really is the field of this 1 vs 1 -- dropping it would score a Torkoal's Eruption or a
+   * Pelipper's Hurricane out of the weather the threat list most needs them priced in. The board is
+   * their only source now (TOURNAMENT_FIELD), so a pinned setting cannot stand here either; under
+   * field rule 0 `freshBoard` brings the pinned field in and `kit.weather` is "" instead. They are applied in
    * `turnOne`'s own entry order (fastest in first, each setter overwriting), so the SLOWER
    * setter's field stands, exactly as in a real game; on an exact Speed tie the field of the
    * threat stands, because it is applied second here.
@@ -2131,6 +2332,7 @@ export class TournamentTest {
     const lineups = combinations(ours.length, width).map((idx) => ({ idx, plan: this.fixedPlan(idx.map((i) => ours[i].unit)) }));
     const state = {
       ours, plans, lineups,
+      duelUnits: this.duelUnits(ours.map((o) => o.unit)),
       bringTotals: plans.map(() => ({ value: 0, picked: 0 })),
       mons: ours.map(() => ({ brought: 0, lead: 0, kos: 0, faints: 0, duel: 0, faced: 0 })),
       species: new Map(),
@@ -2300,7 +2502,8 @@ export class TournamentTest {
         if (!mon.out) row.survived += 1;
       }
       state.ours.forEach((o, slot) => {
-        const win = this.duel(o.unit, t, afterTurnOneBoard);
+        // The form this slot really plays: one Mega a side (TOURNAMENT_MEGA, `duelUnits`).
+        const win = this.duel(state.duelUnits[slot], t, afterTurnOneBoard);
         row.perSlot[slot] += win;
         state.mons[slot].duel += win;
         state.mons[slot].faced += 1;
@@ -2500,7 +2703,8 @@ export class TournamentTest {
       }
       let slot = 0;
       for (let o = 1; o < row.perSlot.length; o += 1) if (row.perSlot[o] > row.perSlot[slot]) slot = o;
-      return { ...slotInfo(slot), win: row.perSlot[slot] / Math.max(1, row.count), value: null };
+      // From the quick duels, so named by the form that duelled: one Mega a side (TOURNAMENT_MEGA).
+      return { ...slotInfo(slot, state.duelUnits[slot]), win: row.perSlot[slot] / Math.max(1, row.count), value: null };
     };
     // Singles: how one of ours does over the 1 vs 1 games of the matrix, counting only the
     // Pokémon they actually brought against us and weighting each by how often they did.
@@ -2613,7 +2817,9 @@ export class TournamentTest {
 
     const common = [...speciesRows].sort((a, b) => b.count - a.count || a.species.localeCompare(b.species)).slice(0, 10);
     const duels = {
-      columns: state.ours.map((_, o) => slotInfo(o)),
+      // Named by the forms that duelled (TOURNAMENT_MEGA): one Mega a side, every other stone holder
+      // in its base form, so the column head and the number below it are the same Pokémon.
+      columns: state.ours.map((_, o) => slotInfo(o, state.duelUnits[o])),
       rows: common.map((row) => ({ species: row.species, form: row.form, item: row.item, share: row.count / n, cells: row.perSlot.map((sum) => sum / row.count) })),
     };
 
@@ -2666,6 +2872,8 @@ export class TournamentTest {
       done, tested, total, library: this.known.teams.length, seconds: (Date.now() - started) / 1000,
       format: this.format, bring: Math.min(this.bring, state.ours.length), active: this.active, games: state.games,
       ours: state.ours.map((_, o) => slotInfo(o)),
+      // The Field settings this run ignored, for the results to own up to (TOURNAMENT_FIELD).
+      ignoredField: this.fieldRule >= 1 ? ignoredFieldSettings(this.ev.settings) : [],
       average, bands,
       bestBrings, mostBrought: bestBrings[0] || null,
       turnOne, pokemon, threats, duels, matrix, archetypes,

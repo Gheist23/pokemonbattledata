@@ -34,6 +34,20 @@ const NOSCRIPT_CLOSE = "<!--/SHARE:NOSCRIPT-->";
 
 const KIND_WORD = { eval: "Team Evaluation", team: "Team" };
 
+/** What a page with no card unfurls to: a real, already-deployed site asset
+ *  rather than a dead card URL.  Its type and its true pixel size are declared
+ *  here so the og:image:* trio is never a claim about a different file --
+ *  assets/tool/team-builder.webp is a 1600x839 WEBP (1.907:1, so
+ *  twitter:card=summary_large_image still crops correctly).  If that asset is
+ *  ever replaced, these three lines move with it; the endpoints suite reads the
+ *  file off disk and fails on a mismatch. */
+const MISS_IMAGE = Object.freeze({
+  url: `${SITE_ORIGIN}/assets/tool/team-builder.webp`,
+  type: "image/webp",
+  width: 1600,
+  height: 839,
+});
+
 function htmlResponse(body, status = 200, cacheControl = "public, max-age=3600") {
   return new Response(body, {
     status,
@@ -46,7 +60,7 @@ function htmlResponse(body, status = 200, cacheControl = "public, max-age=3600")
  *  Consistent with pro-tool/index.html:11-20 and team-builder/index.html:11-20:
  *  og:type, og:url, og:title, og:description, og:site_name, og:image, then the
  *  twitter:* trio. */
-function metaBlock({ title, description, page, image, kind }) {
+function metaBlock({ title, description, page, image, kind, imageType = "image/png", imageW = 1200, imageH = 630 }) {
   // A miss has no kind to name, and calling it a "Team" in the tab title while
   // the page says the link is gone reads like a bug.
   const heading = kind
@@ -67,9 +81,12 @@ function metaBlock({ title, description, page, image, kind }) {
     '  <meta property="og:site_name" content="Pokemon Champions Battle Data" />',
     `  <meta property="og:image" content="${escapeHtml(image)}" />`,
     `  <meta property="og:image:secure_url" content="${escapeHtml(image)}" />`,
-    '  <meta property="og:image:type" content="image/png" />',
-    '  <meta property="og:image:width" content="1200" />',
-    '  <meta property="og:image:height" content="630" />',
+    // Declared from the image actually referenced, not from the card's shape:
+    // the miss page falls back to a real site asset, and a .webp announced as a
+    // 1200x630 PNG is three claims a crawler can check and find false.
+    `  <meta property="og:image:type" content="${escapeHtml(imageType)}" />`,
+    `  <meta property="og:image:width" content="${Number(imageW)}" />`,
+    `  <meta property="og:image:height" content="${Number(imageH)}" />`,
     `  <meta property="og:image:alt" content="${escapeHtml(description)}" />`,
     '  <meta name="twitter:card" content="summary_large_image" />',
     `  <meta name="twitter:title" content="${escapeHtml(heading)}" />`,
@@ -138,10 +155,13 @@ async function page(env, request, { record, code, status, note }) {
   const description = digest
     ? cardDescription(digest)
     : note || "Share a Pokemon Champions team or a Team Evaluation result as a picture.";
-  const image = digest
-    ? imageUrl(request, code)
-    : `${SITE_ORIGIN}/assets/tool/team-builder.webp`;
-  const meta = metaBlock({ title, description, page: pageUrl(request, code), image, kind: digest?.kind || "" });
+  const image = digest ? imageUrl(request, code) : MISS_IMAGE.url;
+  const meta = metaBlock({
+    title, description, page: pageUrl(request, code), image, kind: digest?.kind || "",
+    imageType: digest ? "image/png" : MISS_IMAGE.type,
+    imageW: digest ? 1200 : MISS_IMAGE.width,
+    imageH: digest ? 630 : MISS_IMAGE.height,
+  });
   const noscript = noscriptBlock({ title, description, image });
   const payload = escapeJsonForHtml(JSON.stringify({
     code,

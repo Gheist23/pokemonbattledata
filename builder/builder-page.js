@@ -1887,11 +1887,12 @@ async function runTournament() {
 }
 
 // The last finished test survives a reload of the tab, like the last evaluation.
-// v6: the snapshot scored under the bring rule, where both sides commit their bring blind
-// (tournament-test.js SNAPSHOT_VERSION / TOURNAMENT_BRING), on top of v5's seat rule; older ones
-// are dropped, because tournamentAnalysis refuses a snapshot from another version and would only
-// show its spinner.
-const TOURNAMENT_STORE = "cbd.tour.v6";
+// v7: the snapshot's duels are priced for one Mega a side, a setter is weighed against every
+// alternative its own chain offers, and the shared Field settings no longer reach the board
+// (tournament-test.js SNAPSHOT_VERSION / TOURNAMENT_MEGA / TOURNAMENT_ALT / TOURNAMENT_FIELD), on
+// top of v6's bring rule; older ones are dropped, because tournamentAnalysis refuses a snapshot from
+// another version and would only show its spinner.
+const TOURNAMENT_STORE = "cbd.tour.v7";
 
 function rememberTournament(key, snapshot) {
   try {
@@ -1903,7 +1904,7 @@ function rememberTournament(key, snapshot) {
 
 function restoreTournament() {
   try {
-    for (const old of ["cbd.tour.v1", "cbd.tour.v2", "cbd.tour.v3", "cbd.tour.v4", "cbd.tour.v5"]) sessionStorage.removeItem(old);
+    for (const old of ["cbd.tour.v1", "cbd.tour.v2", "cbd.tour.v3", "cbd.tour.v4", "cbd.tour.v5", "cbd.tour.v6"]) sessionStorage.removeItem(old);
     const saved = JSON.parse(sessionStorage.getItem(TOURNAMENT_STORE) || "null");
     const s = saved?.snapshot;
     const lists = ["bestBrings", "pokemon", "threats", "archetypes", "hardest", "easiest"];

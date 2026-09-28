@@ -96,10 +96,13 @@ async function readSubmission(request) {
   }
   let body;
   try {
-    body = JSON.parse(text || "{}");
+    // `|| {}` because JSON.parse("null") is null, and `body.record` on it threw
+    // a TypeError whose internal message was handed straight back to the caller.
+    body = JSON.parse(text || "{}") || {};
   } catch {
     throw Object.assign(new Error("expected JSON"), { status: 400 });
   }
+  if (typeof body !== "object") throw Object.assign(new Error("expected JSON"), { status: 400 });
   return { raw: body.record ?? body.digest, bytes: decodeBase64(body.imageBase64 ?? body.image) };
 }
 

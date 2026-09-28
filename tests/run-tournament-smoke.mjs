@@ -19,7 +19,8 @@ import { TeamEvaluator, normalizeSettings, DEFAULT_SETTINGS } from "../builder/t
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
-import { TournamentTest, SNAPSHOT_VERSION } from "../builder/tournament-test.js";
+import { TournamentTest, SNAPSHOT_VERSION, TOURNAMENT_FIELD, tournamentFieldOption, TOURNAMENT_MEGA, tournamentMegaOption,
+  ignoredFieldSettings } from "../builder/tournament-test.js";
 import { makeSet } from "../builder/common.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -43,13 +44,13 @@ class Probe extends TournamentTest {
   }
 }
 
-function makeTest(format) {
+function makeTest(format, settings = {}, options = {}) {
   const engine = new DamageEngine(appData);
   const meta = JSON.parse(readFileSync(join(root, "data", "builder", `meta-${format.toLowerCase()}.json`), "utf8"));
-  const ev = new TeamEvaluator(null, engine, format, normalizeSettings({ ...DEFAULT_SETTINGS }));
+  const ev = new TeamEvaluator(null, engine, format, normalizeSettings({ ...DEFAULT_SETTINGS, ...settings }));
   ev.setMetaRecords(meta.pokemon || []);
   const evaluation = new TeamEvaluation(ev);
-  return new Probe(evaluation, new KnownTeams(knownRaw), new TeamSuggestions(evaluation));
+  return new Probe(evaluation, new KnownTeams(knownRaw), new TeamSuggestions(evaluation), options);
 }
 
 const BENCH = [
@@ -425,7 +426,7 @@ for (const format of ["Doubles", "Singles"]) {
   runs[format] = { s, seconds: (Date.now() - started) / 1000, values: test.values };
   const size = format === "Singles" ? 3 : 4;
   const doubles = format === "Doubles";
-  check(`${format}: snapshot version ${SNAPSHOT_VERSION}`, s.version === 6 && SNAPSHOT_VERSION === 6);
+  check(`${format}: snapshot version ${SNAPSHOT_VERSION}`, s.version === 7 && SNAPSHOT_VERSION === 7);
   check(`${format}: brings ${size}`, s.bring === size && s.bestBrings.every((b) => b.members.length === size) && s.hardest.every((t) => t.bring.length === size && t.against.length === size),
     JSON.stringify(s.bestBrings.map((b) => b.members.length)));
   check(`${format}: at most ${size} bring options, each the best choice somewhere`, s.bestBrings.length >= 1 && s.bestBrings.length <= size && s.bestBrings.slice(1).every((b) => b.bestRate > 0) && s.bestBrings.every((b) => b.leads.length === (doubles ? 2 : 1)),
@@ -512,6 +513,9 @@ for (const format of ["Doubles", "Singles"]) {
       ...[...s.hardest, ...s.easiest].flatMap((g) => [["game bring", g.bring], ["their bring", g.against]]),
       ...s.pokemon.flatMap((p) => (p.weakPairs || []).map((w) => ["trouble pair", w.members])),
       ...s.threats.filter((t) => t.pairAnswer).map((t) => ["pair answer", t.pairAnswer.members]),
+      // The quick duels price one Mega a side too (TOURNAMENT_MEGA), so the column they are
+      // reported in is a line-up like any other.
+      ["duel column", s.duels.columns],
     ];
     const twoMegas = lineUps.filter(([, list]) => megasIn(list) > 1);
     check(`${format}: no line-up in the results names two Megas`, twoMegas.length === 0,
@@ -520,6 +524,14 @@ for (const format of ["Doubles", "Singles"]) {
     const sides = [...s.hardest, ...s.easiest].flatMap((g) => ["you", "them"].map((side) => g.story.filter((e) => e.side === side).map((e) => e.actor)));
     check(`${format}: no story has two Megas acting on one side`, sides.every((list) => megasIn(list.filter((m, i) => list.findIndex((x) => x.form === m.form) === i)) <= 1),
       JSON.stringify(sides.filter((list) => megasIn(list) > 1).map((list) => list.map((m) => m.form))));
+    // A biggest-threats answer taken from the duels must name the form that duelled, or the card
+    // recommends a Pokémon in a form no game ever fielded (TOURNAMENT_MEGA).
+    const fromDuels = s.threats.filter((t) => t.answer.value === null);
+    check(`${format}: an answer from the duels names the form that duelled`,
+      fromDuels.every((t) => {
+        const col = s.duels.columns.find((c) => c.slot === t.answer.slot);
+        return col && col.form === t.answer.form && (col.stone || "") === (t.answer.stone || "");
+      }), JSON.stringify(fromDuels.map((t) => [t.answer.slot, t.answer.form, t.answer.stone || ""])));
   }
   console.log(`${format}: ${s.tested} teams in ${runs[format].seconds.toFixed(1)} s · average ${s.average.toFixed(1)} · favoured ${s.bands.favourable} / even ${s.bands.even} / behind ${s.bands.unfavourable} · deciles ${JSON.stringify(deciles)} · matrix ${mx.rows.length} x ${mx.columns.length}`);
 }
@@ -550,6 +562,71 @@ for (const format of ["Doubles", "Singles"]) {
     check(`${format}: the headline average never came from the duels`, honest.average === poisoned.average, `${honest.average} vs ${poisoned.average}`);
   }
 }
+
+// --- the shared Field settings do not reach the board (TOURNAMENT_FIELD) -------------------
+// Every game plays out a field of its own -- weather and terrain come in with the Pokemon that set
+// them, Tailwind and Trick Room are turn-1 choices with counters, screens are not modelled -- so the
+// six controls of the Settings dialog's Field section are ignored here, and the snapshot says which
+// were. Under field rule 0 five of them changed every calculation of every game: measured on team1
+// against the first 120 teams, Reflect "My Team" +7.47 headline points, "Threat Team" -5.50, Light
+// Screen "My Team" +5.82, "Threat Team" -6.05, weather Rain +5.15, Sand +3.02, Snow +2.50, Sun
+// +1.24, terrain Psychic +1.21 (Trick Room and Tailwind exactly +0.0000 -- the engine reads them
+// only in effectiveSpeed, which the board drives itself). The whole report has to be identical here,
+// not only the headline, because a pinned field reached every damage number in it.
+{
+  const quick = 30;
+  const sets = () => BENCH.map((set) => makeSet(set));
+  // Everything the page draws, minus the wall clock.
+  const digest = (x) => JSON.stringify({ average: x.average, bands: x.bands, archetypes: x.archetypes, pokemon: x.pokemon, threats: x.threats, duels: x.duels, matrix: x.matrix, bestBrings: x.bestBrings, turnOne: x.turnOne });
+  const base = await makeTest("Doubles").run(sets(), { limit: quick });
+  check("Nothing is reported as ignored when no field is pinned", base.ignoredField.length === 0, JSON.stringify(base.ignoredField));
+  const pins = [["weather", "Sun", "Weather (Sun)"], ["terrain", "Grassy", "Terrain (Grassy)"], ["trick_room", true, "Trick Room"],
+    ["tailwind", "My Team", "Tailwind (your team)"], ["reflect", "My Team", "Reflect (your team)"], ["light_screen", "Threat Team", "Light Screen (their team)"]];
+  for (const [key, value, named] of pins) {
+    const pinned = await makeTest("Doubles", { [key]: value }).run(sets(), { limit: quick });
+    check(`Doubles: a pinned ${key} changes nothing in the report`, digest(pinned) === digest(base), `${pinned.average} vs ${base.average}`);
+    check(`Doubles: and the snapshot says ${key} was ignored`, JSON.stringify(pinned.ignoredField) === JSON.stringify([named]), JSON.stringify(pinned.ignoredField));
+  }
+  // The gate that stops the checks above passing by doing nothing: field rule 0 really does let a
+  // pinned Reflect into the damage, and really does not claim to have ignored it.
+  const leaked = await makeTest("Doubles", { reflect: "My Team" }, { fieldRule: 0 }).run(sets(), { limit: quick });
+  check("Field rule 0 still lets a pinned Reflect into the damage", leaked.average > base.average + 1, `${leaked.average} vs ${base.average}`);
+  check("And field rule 0 claims to ignore nothing", leaked.ignoredField.length === 0, JSON.stringify(leaked.ignoredField));
+  // The board is the only source, both ways round: a Pokemon's own Ability sets the field whatever is
+  // pinned, where field rule 0 dropped it from the kit entirely.
+  const torkoal = makeSet({ species: "Torkoal", item: "Charcoal", ability: "Drought", nature: "Quiet", moves: ["Eruption", "Weather Ball", "Earth Power", "Protect"], bonuses: [32, 0, 0, 32, 2, 0] });
+  const indeedee = makeSet({ species: "Indeedee", form: "Indeedee Female", item: "Psychic Seed", ability: "Psychic Surge", nature: "Timid", moves: ["Expanding Force", "Dazzling Gleam", "Trick Room", "Protect"], bonuses: [2, 0, 0, 32, 0, 32] });
+  const pinnedField = makeTest("Doubles", { weather: "Rain", terrain: "Grassy" });
+  check("A pinned field does not take a Pokemon's own weather or terrain Ability away",
+    pinnedField.ourUnit(torkoal, 0).kit.weather === "Sun" && pinnedField.ourUnit(indeedee, 1).kit.terrain === "Psychic",
+    `${pinnedField.ourUnit(torkoal, 0).kit.weather} / ${pinnedField.ourUnit(indeedee, 1).kit.terrain}`);
+  check("And the board starts empty rather than on the pinned field",
+    pinnedField.freshBoard().w === 0 && pinnedField.freshBoard().t === 0, JSON.stringify(pinnedField.freshBoard()));
+  const oldField = makeTest("Doubles", { weather: "Rain", terrain: "Grassy" }, { fieldRule: 0 });
+  check("Field rule 0 replays both: no Ability in the kit, the pinned field on the board",
+    oldField.ourUnit(torkoal, 0).kit.weather === "" && oldField.ourUnit(indeedee, 1).kit.terrain === "" && oldField.freshBoard().w === 2 && oldField.freshBoard().t === 2,
+    `${oldField.ourUnit(torkoal, 0).kit.weather}|${oldField.ourUnit(indeedee, 1).kit.terrain}|${JSON.stringify(oldField.freshBoard())}`);
+  // "Weather Abilities" is a rule about the model, not a field, so it is still honoured.
+  const noAbilities = makeTest("Doubles", { use_weather_abilities: false });
+  check("Turning Weather Abilities off still turns them off", noAbilities.ourUnit(torkoal, 0).kit.weather === "", noAbilities.ourUnit(torkoal, 0).kit.weather);
+
+  // The stamp, coerced exactly as the others are.
+  check("TOURNAMENT_FIELD is version 1", TOURNAMENT_FIELD === 1);
+  for (const off of [null, undefined, false, "", "0", "off", "false", "no", "none", 0, -1, "-5", "0.9"]) {
+    check(`tournamentFieldOption(${JSON.stringify(off)}) is off`, tournamentFieldOption(off) === 0, String(tournamentFieldOption(off)));
+  }
+  check("tournamentFieldOption('1.9') truncates to 1", tournamentFieldOption("1.9") === 1);
+  check("tournamentFieldOption('2') is kept for a later version", tournamentFieldOption("2") === 2);
+  check("a value that is not a number is the current field version", tournamentFieldOption("yes") === TOURNAMENT_FIELD);
+  check("the default field option is the current version", makeTest("Doubles").fieldRule === TOURNAMENT_FIELD);
+
+  // ignoredFieldSettings names every control of the Field section, by the words the dialog uses.
+  const all = ignoredFieldSettings({ weather: "Sun", terrain: "Misty", trick_room: true, tailwind: "Both", reflect: "My Team", light_screen: "Threat Team" });
+  check("Every Field control is named when every one is pinned",
+    JSON.stringify(all) === JSON.stringify(["Weather (Sun)", "Terrain (Misty)", "Trick Room", "Tailwind (both sides)", "Reflect (your team)", "Light Screen (their team)"]), JSON.stringify(all));
+  check("And none of them when none is pinned", ignoredFieldSettings({ ...DEFAULT_SETTINGS }).length === 0, JSON.stringify(ignoredFieldSettings({ ...DEFAULT_SETTINGS })));
+}
+
 
 for (const format of ["Doubles", "Singles"]) {
   const test = makeTest(format);
@@ -618,6 +695,50 @@ for (const format of ["Doubles", "Singles"]) {
     stonePlans.length === (format === "Singles" ? 10 : 10) && stonePlans.every((p) => megasIn(p.members) === 1),
     `${stonePlans.length} brings, megas ${JSON.stringify(stonePlans.map((p) => megasIn(p.members)))}`);
   check(`${format}: such a bring carries the fewest stones it can`, Math.max(...stonesPer) === (format === "Singles" ? 2 : 3), JSON.stringify(stonesPer));
+
+  // The quick 1-on-1s of the opponent report price one Mega a side too (TOURNAMENT_MEGA). Before the
+  // rule they duelled with the set as registered, so BOTH holders of this team were priced as Megas:
+  // Mega Blastoise duels 0.500 into a Choice Specs Dragapult where the base form it plays duels
+  // 0.000, and 1.000 into a Life Orb Kingambit against 0.500 in Doubles. The card then answered with
+  // a form no recommended game ever fielded.
+  {
+    const duelUnits = test.duelUnits(units);
+    const committed = test.committedMega(units.map((_, i) => i), units);
+    check(`${format}: the duels play exactly one Mega`, duelUnits.filter((u) => test.megaHolder(u)).length === 1 && committed >= 0,
+      duelUnits.map((u) => `${u.form}${u.stone ? `+${u.stone}` : ""}`).join(" | "));
+    check(`${format}: and it is the holder the brings commit to`, duelUnits[committed] === units[committed] && duelUnits[2] !== units[2] && duelUnits[2].stone === "Blastoisinite",
+      `${committed} ${duelUnits[committed].form} / ${duelUnits[2].form}`);
+    check(`${format}: a plain Pokémon duels as itself`, duelUnits[1] === units[1] && duelUnits[3] === units[3]);
+    const foes = [
+      member("Dragapult", "Choice Specs", "Clear Body", "Timid", ["Shadow Ball", "Draco Meteor", "Flamethrower", "U-turn"]),
+      member("Kingambit", "Life Orb", "Supreme Overlord", "Adamant", ["Kowtow Cleave", "Sucker Punch", "Iron Head", "Protect"]),
+      member("Milotic", "Sitrus Berry", "Competitive", "Calm", ["Scald", "Icy Wind", "Recover", "Protect"]),
+      member("Corviknight", "Leftovers", "Pressure", "Impish", ["Brave Bird", "Body Press", "Iron Head", "Roost"]),
+    ].map((m) => test.opponentMon(m));
+    const asBase = foes.map((t) => [test.duel(duelUnits[2], t), test.duel(test.baseFormUnit(units[2]), t), test.duel(units[2], t)]);
+    check(`${format}: the holder that does not Mega-Evolve duels as its base form`, asBase.every(([played, base]) => played === base),
+      JSON.stringify(asBase));
+    check(`${format}: which is a different number from its Mega's, so that is not vacuous`,
+      asBase.filter(([, base, mega]) => Math.abs(base - mega) > 1e-9).length >= 1, JSON.stringify(asBase));
+    // Version 0 replays the registered form, so the stamp selects by version.
+    const old = makeTest(format, {}, { megaRule: 0 });
+    const oldUnits = TWO_STONES.map((set, i) => old.ourUnit(makeSet(set), i));
+    check(`${format}: Mega rule 0 still duels with the set as registered`,
+      old.duelUnits(oldUnits).every((u, i) => u === oldUnits[i]) && old.megaHolder(old.duelUnits(oldUnits)[2]),
+      old.duelUnits(oldUnits).map((u) => u.form).join(" | "));
+  }
+}
+
+// --- the duels' Mega stamp ------------------------------------------------------------------
+{
+  check("TOURNAMENT_MEGA is version 1", TOURNAMENT_MEGA === 1);
+  for (const off of [null, undefined, false, "", "0", "off", "false", "no", "none", 0, -1, "-5", "0.9"]) {
+    check(`tournamentMegaOption(${JSON.stringify(off)}) is off`, tournamentMegaOption(off) === 0, String(tournamentMegaOption(off)));
+  }
+  check("tournamentMegaOption('1.9') truncates to 1", tournamentMegaOption("1.9") === 1);
+  check("tournamentMegaOption('2') is kept for a later version", tournamentMegaOption("2") === 2);
+  check("a value that is not a number is the current Mega version", tournamentMegaOption("yes") === TOURNAMENT_MEGA);
+  check("the default Mega option is the current version", makeTest("Doubles").megaRule === TOURNAMENT_MEGA);
 }
 
 // --- the free runs: the three Pro features behave the same --------------------------------
@@ -791,6 +912,29 @@ for (const format of ["Doubles", "Singles"]) {
     full.includes("on average if you brought these against every team") && !full.includes("when brought against every team"),
     full.match(/[^·]*on average[^·]*/)?.[0] || "");
 
+  // The verdict card's own line about the bring rule. It is a second place the old best-response
+  // reading lived -- "the four of theirs that do the most against it" -- and nothing asserted it, so
+  // it could have stayed false while the explainer was fixed.
+  check("The verdict card says neither side sees the other's bring",
+    full.includes("the four you would bring against the four they would bring, neither side seeing the other's")
+    && render(runs.Singles.s).includes("the three you would bring against the three they would bring, neither side seeing the other's"),
+    full.match(/Each team is scored[^.]*\./)?.[0] || "");
+  check("And nowhere on the page do they answer our choice",
+    !full.includes("do the most against it") && !full.includes("do the most against your"),
+    full.match(/[^.]*do the most[^.]*\./)?.[0] || "");
+
+  // The Field settings the Test cannot honour (tournament-test.js TOURNAMENT_FIELD): a silently
+  // ignored setting is its own bug, so the explainer says so once and the results name the ones a run
+  // actually ignored.
+  check("The explainer says the Field settings are not used here",
+    how.includes("Every game has a field of its own, set by the Pokémon in it, so the Field settings are not used here."), how.slice(-400));
+  check("Nothing is said about ignored settings when none was pinned",
+    !full.includes("so these settings are not used here"), full.match(/[^.]*not used here[^.]*\./)?.[0] || "");
+  const ignoring = render({ ...runs.Doubles.s, ignoredField: ["Reflect (your team)", "Weather (Sun)"] });
+  check("The results name the settings a run ignored",
+    ignoring.includes("Each game has a field of its own, set by the Pokémon in it, so these settings are not used here: Reflect (your team) and Weather (Sun)."),
+    ignoring.match(/[^.]*not used here[^.]*\./)?.[0] || "");
+
   // A lone Pokémon that cannot damage anything: one to bring, the same score against every archetype.
   const lone = await makeTest("Doubles").run([makeSet({ species: "Whimsicott", item: "Focus Sash", ability: "Prankster", nature: "Timid", moves: ["Tailwind", "Encore", "Protect"], bonuses: [2, 0, 0, 32, 0, 32] })], { limit: 80 });
   const loneText = render(lone);
@@ -859,7 +1003,7 @@ for (const format of ["Doubles", "Singles"]) {
     const short = await makeTest("Doubles").run(BENCH.slice(0, 3).map((set) => makeSet(set)), { limit: 40 });
     const shortText = render(short);
     check("A three-Pokémon Doubles team brings three and says they bring four",
-      short.bring === 3 && shortText.includes("Bring these three") && shortText.includes("your best three against the four of theirs")
+      short.bring === 3 && shortText.includes("Bring these three") && shortText.includes("the three you would bring against the four they would bring")
       && !shortText.includes("best four") && !shortText.includes("Bring these four"),
       shortText.match(/[^.]*\bfour\b[^.]*\./)?.[0] || "");
     check("Without a bring size the explainer follows the last results drawn",

@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pinsir,178,move,1,Quick Attack,81.0%,,,,,,,,
 Pinsir,178,move,2,Swords Dance,57.6%,,,,,,,,
-Pinsir,178,move,3,Storm Throw,55.1%,,,,,,,,
-Pinsir,178,move,4,Body Slam,42.4%,,,,,,,,
+Pinsir,178,move,3,Storm Throw,55.0%,,,,,,,,
+Pinsir,178,move,4,Body Slam,42.5%,,,,,,,,
 Pinsir,178,move,5,Thrash,40.1%,,,,,,,,
 Pinsir,178,move,6,Earthquake,35.8%,,,,,,,,
 Pinsir,178,move,7,Guillotine,15.5%,,,,,,,,
 Pinsir,178,move,8,Bulk Up,10.8%,,,,,,,,
 Pinsir,178,move,9,Feint,9.6%,,,,,,,,
-Pinsir,178,move,10,Lunge,8.6%,,,,,,,,
+Pinsir,178,move,10,Lunge,8.5%,,,,,,,,
 Pinsir,178,held_item,1,Pinsirite,93.8%,,,,,,,,
 Pinsir,178,held_item,2,Choice Scarf,2.8%,,,,,,,,
 Pinsir,178,held_item,3,Focus Sash,0.8%,,,,,,,,
@@ -29,7 +29,7 @@ Pinsir,178,teammate,7,Forretress,,,,,,,,,
 Pinsir,178,teammate,8,Vivillon-Fancy,,,,,,,,,
 Pinsir,178,teammate,9,Scizor,,,,,,,,,
 Pinsir,178,teammate,10,Primarina,,,,,,,,,
-Pinsir,178,stat_alignment,1,Jolly,74.6%,Speed,Sp. Atk,,,,,,
+Pinsir,178,stat_alignment,1,Jolly,74.7%,Speed,Sp. Atk,,,,,,
 Pinsir,178,stat_alignment,2,Adamant,21.1%,Attack,Sp. Atk,,,,,,
 Pinsir,178,stat_alignment,3,Impish,1.4%,Defense,Sp. Atk,,,,,,
 Pinsir,178,stat_alignment,4,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
@@ -42,7 +42,7 @@ Pinsir,178,stat_alignment,10,Timid,0.2%,Speed,Attack,,,,,,
 Pinsir,178,stat_points,1,,34.6%,,,1,32,1,0,0,32
 Pinsir,178,stat_points,2,,22.5%,,,2,32,0,0,0,32
 Pinsir,178,stat_points,3,,7.8%,,,1,32,0,0,1,32
-Pinsir,178,stat_points,4,,4.8%,,,0,32,2,0,0,32
+Pinsir,178,stat_points,4,,4.7%,,,0,32,2,0,0,32
 Pinsir,178,stat_points,5,,3.7%,,,0,32,0,0,2,32
 Pinsir,178,stat_points,6,,2.7%,,,3,32,0,0,0,31
 Pinsir,178,stat_points,7,,1.9%,,,32,32,0,0,0,2

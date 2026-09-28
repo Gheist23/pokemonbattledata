@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Falinks,224,move,1,Close Combat,85.5%,,,,,,,,
-Falinks,224,move,2,No Retreat,84.9%,,,,,,,,
-Falinks,224,move,3,Protect,64.5%,,,,,,,,
+Falinks,224,move,2,No Retreat,85.0%,,,,,,,,
+Falinks,224,move,3,Protect,64.4%,,,,,,,,
 Falinks,224,move,4,Rock Slide,40.8%,,,,,,,,
 Falinks,224,move,5,Knock Off,22.5%,,,,,,,,
 Falinks,224,move,6,Iron Head,22.0%,,,,,,,,
 Falinks,224,move,7,High Horsepower,10.4%,,,,,,,,
 Falinks,224,move,8,Throat Chop,9.9%,,,,,,,,
-Falinks,224,move,9,Poison Jab,9.2%,,,,,,,,
-Falinks,224,move,10,Upper Hand,8.2%,,,,,,,,
-Falinks,224,held_item,1,Falinksite,89.2%,,,,,,,,
-Falinks,224,held_item,2,Black Belt,2.8%,,,,,,,,
+Falinks,224,move,9,Poison Jab,9.3%,,,,,,,,
+Falinks,224,move,10,Upper Hand,8.1%,,,,,,,,
+Falinks,224,held_item,1,Falinksite,89.1%,,,,,,,,
+Falinks,224,held_item,2,Black Belt,2.9%,,,,,,,,
 Falinks,224,held_item,3,Choice Scarf,1.3%,,,,,,,,
 Falinks,224,held_item,4,Grassy Seed,1.1%,,,,,,,,
 Falinks,224,held_item,5,Focus Sash,0.9%,,,,,,,,
@@ -29,8 +29,8 @@ Falinks,224,teammate,7,Indeedee-F,,,,,,,,,
 Falinks,224,teammate,8,Volcarona,,,,,,,,,
 Falinks,224,teammate,9,Gholdengo,,,,,,,,,
 Falinks,224,teammate,10,Alcremie,,,,,,,,,
-Falinks,224,stat_alignment,1,Adamant,62.8%,Attack,Sp. Atk,,,,,,
-Falinks,224,stat_alignment,2,Jolly,18.8%,Speed,Sp. Atk,,,,,,
+Falinks,224,stat_alignment,1,Adamant,62.9%,Attack,Sp. Atk,,,,,,
+Falinks,224,stat_alignment,2,Jolly,18.7%,Speed,Sp. Atk,,,,,,
 Falinks,224,stat_alignment,3,Careful,6.3%,Sp. Def,Sp. Atk,,,,,,
 Falinks,224,stat_alignment,4,Impish,4.5%,Defense,Sp. Atk,,,,,,
 Falinks,224,stat_alignment,5,Naughty,2.2%,Attack,Sp. Def,,,,,,
@@ -40,7 +40,7 @@ Falinks,224,stat_alignment,8,Relaxed,0.8%,Defense,Speed,,,,,,
 Falinks,224,stat_alignment,9,Lonely,0.5%,Attack,Defense,,,,,,
 Falinks,224,stat_alignment,10,Serious,0.2%,,,,,,,,
 Falinks,224,stat_points,1,,16.1%,,,2,32,0,0,0,32
-Falinks,224,stat_points,2,,12.6%,,,16,20,0,0,30,0
+Falinks,224,stat_points,2,,12.5%,,,16,20,0,0,30,0
 Falinks,224,stat_points,3,,3.8%,,,0,32,0,0,2,32
 Falinks,224,stat_points,4,,3.7%,,,32,2,0,0,0,32
 Falinks,224,stat_points,5,,3.7%,,,32,32,0,0,2,0

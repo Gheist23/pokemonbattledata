@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Castform,239,move,1,Weather Ball,83.1%,,,,,,,,
-Castform,239,move,2,Hurricane,38.9%,,,,,,,,
+Castform,239,move,2,Hurricane,39.0%,,,,,,,,
 Castform,239,move,3,Protect,36.8%,,,,,,,,
-Castform,239,move,4,Thunder,35.9%,,,,,,,,
+Castform,239,move,4,Thunder,36.0%,,,,,,,,
 Castform,239,move,5,Rain Dance,27.8%,,,,,,,,
 Castform,239,move,6,Blizzard,24.5%,,,,,,,,
 Castform,239,move,7,Energy Ball,19.3%,,,,,,,,
@@ -29,9 +29,9 @@ Castform,239,teammate,7,Tyranitar,,,,,,,,,
 Castform,239,teammate,8,Indeedee-F,,,,,,,,,
 Castform,239,teammate,9,Politoed,,,,,,,,,
 Castform,239,teammate,10,Dragonite,,,,,,,,,
-Castform,239,stat_alignment,1,Modest,65.2%,Sp. Atk,Attack,,,,,,
+Castform,239,stat_alignment,1,Modest,65.1%,Sp. Atk,Attack,,,,,,
 Castform,239,stat_alignment,2,Timid,19.0%,Speed,Attack,,,,,,
-Castform,239,stat_alignment,3,Quiet,7.5%,Sp. Atk,Speed,,,,,,
+Castform,239,stat_alignment,3,Quiet,7.6%,Sp. Atk,Speed,,,,,,
 Castform,239,stat_alignment,4,Mild,3.6%,Sp. Atk,Defense,,,,,,
 Castform,239,stat_alignment,5,Calm,1.6%,Sp. Def,Attack,,,,,,
 Castform,239,stat_alignment,6,Hasty,1.1%,Speed,Defense,,,,,,
@@ -41,7 +41,7 @@ Castform,239,stat_alignment,9,Sassy,0.4%,Sp. Def,Speed,,,,,,
 Castform,239,stat_alignment,10,Jolly,0.3%,Speed,Sp. Atk,,,,,,
 Castform,239,stat_points,1,,18.9%,,,2,0,0,32,0,32
 Castform,239,stat_points,2,,14.7%,,,0,0,2,32,0,32
-Castform,239,stat_points,3,,12.7%,,,32,0,0,32,2,0
+Castform,239,stat_points,3,,12.8%,,,32,0,0,32,2,0
 Castform,239,stat_points,4,,11.1%,,,32,0,0,32,0,2
 Castform,239,stat_points,5,,7.6%,,,32,0,1,32,1,0
 Castform,239,stat_points,6,,4.2%,,,2,0,0,32,32,0

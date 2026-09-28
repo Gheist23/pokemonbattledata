@@ -814,6 +814,23 @@ for (const n of [1, 2, 3, 4, 5]) {
     "eval: a list that shows every threat says nothing about how many are shown");
   ok(texts(short.ops).includes("Critical threats"), "eval: ...but still has its heading");
 
+  // A CLEAN TEAM.  threatCount is how many meta rows were EXAMINED, not how many
+  // came back critical, so zero threats against a live count is good news -- and
+  // "Showing the 0 worst of 20", which is what counting alone produced, is both
+  // broken English and the opposite claim.
+  const clean = render({ ...EVAL_DIGEST, threats: [], threatCount: 20 }, imagesFor(6, 0));
+  const cleanText = texts(clean.ops);
+  ok(!cleanText.some((t) => /Showing the 0\b/.test(t)),
+    `eval: a team with no critical threats never says "Showing the 0 worst" (${cleanText.filter((t) => t.startsWith("Showing")).join(" | ")})`);
+  ok(cleanText.includes("No critical threats"), "eval: a team with no critical threats says so");
+  ok(cleanText.includes("Critical threats"), "eval: ...under the same heading");
+  ok(clean.ops.filter((o) => o.kind === "image").length === 6,
+    "eval: a clean team still draws its six sprites and no threat sprite");
+  // ...and a digest with no evaluation at all still says nothing about threats
+  const bare = render({ ...EVAL_DIGEST, threats: [], threatCount: 0 }, imagesFor(6, 0));
+  ok(!texts(bare.ops).some((t) => t.includes("critical threat") && t !== "Critical threats"),
+    "eval: a digest with nothing evaluated makes no claim about threats");
+
   // THE DEAD GAP.  The left column used to stop at 506 while the right ran to
   // 542 and the footer rule sits at 582, leaving a band roughly a sixth of the
   // column tall with nothing in it.  Both columns must now reach the same depth.

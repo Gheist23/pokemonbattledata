@@ -159,6 +159,7 @@ function evalPanels(digest) {
     return `<li><span class="share-dot" style="background:${SEVERITY_COLOR[key]}"></span><span>${esc(row.label)}</span><span class="share-score" style="color:${SEVERITY_COLOR[key]}">${SEVERITY_WORD[key]}</span></li>`;
   }).join("");
   const counts = digest.checkCounts || {};
+  const shown = (digest.threats || []).length;
   const threats = (digest.threats || []).map((row) => {
     const score = Number(row.score || 0);
     return `<li><span>${esc(row.name)}</span><span class="share-score" style="color:${threatColor(score)}">${esc(String(score))}</span></li>`;
@@ -175,8 +176,8 @@ function evalPanels(digest) {
       <ul class="share-rows">${checks}</ul>
     </section>` : ""}
     ${threats ? `<section class="share-panel">
-      <h2>Critical threats${digest.topMeta ? ` (Top ${Number(digest.topMeta)})` : ""}</h2>
-      ${digest.threatCount ? `<p class="share-note" style="margin-top:0">${Number(digest.threatCount)} critical threat${Number(digest.threatCount) === 1 ? "" : "s"}${digest.topMeta ? ` in the Top ${Number(digest.topMeta)}` : ""}</p>` : ""}
+      <h2>Critical threats</h2>
+      ${shown && digest.threatCount && Number(digest.threatCount) > shown ? `<p class="share-note" style="margin-top:0">Showing the ${shown} worst of ${Number(digest.threatCount)}</p>` : ""}
       <ul class="share-rows">${threats}</ul>
     </section>` : ""}`;
 }

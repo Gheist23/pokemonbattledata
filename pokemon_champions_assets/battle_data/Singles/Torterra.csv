@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Torterra,175,move,1,Shell Smash,69.6%,,,,,,,,
-Torterra,175,move,2,Headlong Rush,57.8%,,,,,,,,
+Torterra,175,move,2,Headlong Rush,57.7%,,,,,,,,
 Torterra,175,move,3,Wood Hammer,47.3%,,,,,,,,
 Torterra,175,move,4,Earthquake,35.7%,,,,,,,,
 Torterra,175,move,5,Rock Blast,32.9%,,,,,,,,
@@ -8,7 +8,7 @@ Torterra,175,move,6,Bullet Seed,26.8%,,,,,,,,
 Torterra,175,move,7,Seed Bomb,14.5%,,,,,,,,
 Torterra,175,move,8,Rock Slide,14.2%,,,,,,,,
 Torterra,175,move,9,Stone Edge,13.3%,,,,,,,,
-Torterra,175,move,10,Heavy Slam,11.4%,,,,,,,,
+Torterra,175,move,10,Heavy Slam,11.3%,,,,,,,,
 Torterra,175,held_item,1,White Herb,29.2%,,,,,,,,
 Torterra,175,held_item,2,Focus Sash,24.1%,,,,,,,,
 Torterra,175,held_item,3,Lum Berry,11.5%,,,,,,,,
@@ -36,7 +36,7 @@ Torterra,175,stat_alignment,4,Careful,5.4%,Sp. Def,Sp. Atk,,,,,,
 Torterra,175,stat_alignment,5,Lonely,1.1%,Attack,Defense,,,,,,
 Torterra,175,stat_alignment,6,Naughty,1.0%,Attack,Sp. Def,,,,,,
 Torterra,175,stat_alignment,7,Relaxed,1.0%,Defense,Speed,,,,,,
-Torterra,175,stat_alignment,8,Sassy,0.8%,Sp. Def,Speed,,,,,,
+Torterra,175,stat_alignment,8,Sassy,0.9%,Sp. Def,Speed,,,,,,
 Torterra,175,stat_alignment,9,Lax,0.8%,Defense,Sp. Def,,,,,,
 Torterra,175,stat_alignment,10,Naive,0.7%,Speed,Sp. Def,,,,,,
 Torterra,175,stat_points,1,,37.2%,,,2,32,0,0,0,32
@@ -45,8 +45,8 @@ Torterra,175,stat_points,3,,3.8%,,,0,32,0,0,2,32
 Torterra,175,stat_points,4,,3.4%,,,0,32,2,0,0,32
 Torterra,175,stat_points,5,,2.1%,,,1,32,0,0,1,32
 Torterra,175,stat_points,6,,1.8%,,,8,32,0,0,0,26
-Torterra,175,stat_points,7,,1.7%,,,0,32,0,0,0,32
-Torterra,175,stat_points,8,,1.7%,,,32,0,32,0,2,0
+Torterra,175,stat_points,7,,1.7%,,,32,0,32,0,2,0
+Torterra,175,stat_points,8,,1.7%,,,0,32,0,0,0,32
 Torterra,175,stat_points,9,,1.2%,,,32,32,0,0,2,0
 Torterra,175,stat_points,10,,1.2%,,,32,32,2,0,0,0
 Torterra,175,ability,1,Overgrow,50.2%,,,,,,,,

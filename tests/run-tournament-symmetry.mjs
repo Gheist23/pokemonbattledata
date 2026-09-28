@@ -7,11 +7,13 @@
 //
 //   MIRROR      a team played against ITSELF, the same bring on both sides, scores exactly 50.
 //   SEAT SWAP   the same two line-ups with the seats exchanged score exactly 100 together.
-//   REPORTED    and so the number the page would print for a team against itself cannot be a win:
-//               `playTeam` takes the bring whose WORST answer is best, and in a zero-sum game
-//               nobody's guarantee against themselves is above even. (It can be below: that is
-//               the bring rule's own pessimism, which is not this rule's business. team8 read
-//               66.06 against itself before the seat rule.)
+//   REPORTED    and so the number the page would print for a team against itself is exactly 50 --
+//               asserted through `chooseBrings`, the production bring decision itself. Before the
+//               seat rule team8 read 66.06 against itself, which a zero-sum game cannot do; while
+//               the bring rule (TOURNAMENT_BRING) was still at version 0 it could also read BELOW
+//               50, because our bring was a guarantee against their best answer while theirs
+//               answered our choice (team4 and team19 read 37.50). Both are gone, so this is an
+//               equality now. Tightened, never loosened.
 //
 // None of them is a number that was measured and written down: they follow from the value being
 // 50 + 50 x (our HP share - their HP share) of a game whose rules never read the side index.

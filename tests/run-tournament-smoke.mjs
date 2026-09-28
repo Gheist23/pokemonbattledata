@@ -696,6 +696,19 @@ for (const format of ["Doubles", "Singles"]) {
     JSON.stringify(pins({ my_stages: "atk:+2", threat_stages: "+2 Attack" })));
   check("Nor a pin of zero against no pin at all", pins({ my_stages: "atk: 0" }) === null, JSON.stringify(pins({ my_stages: "atk: 0" })));
   check("A stat the evaluator does not read is not a pin", pins({ my_stages: "accuracy: +2" }) === null, JSON.stringify(pins({ my_stages: "accuracy: +2" })));
+  // Called without a reader (or with one that throws) it compares the raw text instead: it may
+  // over-report, and must never fall silent, because a silent "50 is even" is the bug it exists for.
+  check("Without a reader a one-sided pin is still reported",
+    JSON.stringify(unevenStagePins({ my_stages: "attack: +2" })) === JSON.stringify({ you: ["attack: +2"], them: [] }),
+    JSON.stringify(unevenStagePins({ my_stages: "attack: +2" })));
+  check("Without a reader the same text on both sides is still even",
+    unevenStagePins({ my_stages: "attack: +2", threat_stages: "attack: +2" }) === null);
+  const broken = () => { throw new Error("no reader"); };
+  check("A reader that throws reports the text rather than falling silent",
+    JSON.stringify(unevenStagePins({ my_stages: "attack: +2" }, broken)) === JSON.stringify({ you: ["attack: +2"], them: [] }),
+    JSON.stringify(unevenStagePins({ my_stages: "attack: +2" }, broken)));
+  check("And with no pin at all a broken reader still says nothing",
+    unevenStagePins({ ...DEFAULT_SETTINGS }, broken) === null, JSON.stringify(unevenStagePins({ ...DEFAULT_SETTINGS }, broken)));
   check("Every stat the evaluator reads can be named",
     JSON.stringify(pins({ my_stages: "atk:+1, def:-1, spa:+2, spd:-2, spe:+3" })?.you)
       === JSON.stringify(["Attack +1", "Defense -1", "Sp. Atk +2", "Sp. Def -2", "Speed +3"]),

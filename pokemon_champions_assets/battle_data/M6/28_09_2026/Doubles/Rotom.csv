@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom,254,move,1,Shadow Ball,64.4%,,,,,,,,
-Rotom,254,move,2,Thunderbolt,50.4%,,,,,,,,
-Rotom,254,move,3,Volt Switch,37.4%,,,,,,,,
-Rotom,254,move,4,Will-O-Wisp,36.0%,,,,,,,,
-Rotom,254,move,5,Protect,31.3%,,,,,,,,
-Rotom,254,move,6,Discharge,26.8%,,,,,,,,
-Rotom,254,move,7,Thunder,24.6%,,,,,,,,
+Rotom,254,move,1,Shadow Ball,64.6%,,,,,,,,
+Rotom,254,move,2,Thunderbolt,50.6%,,,,,,,,
+Rotom,254,move,3,Volt Switch,37.5%,,,,,,,,
+Rotom,254,move,4,Will-O-Wisp,36.1%,,,,,,,,
+Rotom,254,move,5,Protect,31.2%,,,,,,,,
+Rotom,254,move,6,Discharge,26.7%,,,,,,,,
+Rotom,254,move,7,Thunder,24.5%,,,,,,,,
 Rotom,254,move,8,Trick,18.7%,,,,,,,,
 Rotom,254,move,9,Electroweb,16.8%,,,,,,,,
-Rotom,254,move,10,Dark Pulse,14.7%,,,,,,,,
+Rotom,254,move,10,Dark Pulse,14.6%,,,,,,,,
 Rotom,254,held_item,1,Choice Scarf,32.7%,,,,,,,,
 Rotom,254,held_item,2,Focus Sash,16.2%,,,,,,,,
-Rotom,254,held_item,3,Bright Powder,11.9%,,,,,,,,
+Rotom,254,held_item,3,Bright Powder,11.8%,,,,,,,,
 Rotom,254,held_item,4,Magnet,6.8%,,,,,,,,
 Rotom,254,held_item,5,Life Orb,6.1%,,,,,,,,
-Rotom,254,held_item,6,Sitrus Berry,6.1%,,,,,,,,
+Rotom,254,held_item,6,Sitrus Berry,6.0%,,,,,,,,
 Rotom,254,held_item,7,Leftovers,4.5%,,,,,,,,
 Rotom,254,held_item,8,Wide Lens,3.5%,,,,,,,,
 Rotom,254,held_item,9,Quick Claw,2.9%,,,,,,,,
@@ -30,7 +30,7 @@ Rotom,254,teammate,8,Sceptile,,,,,,,,,
 Rotom,254,teammate,9,Gholdengo,,,,,,,,,
 Rotom,254,teammate,10,Chandelure,,,,,,,,,
 Rotom,254,stat_alignment,1,Timid,51.5%,Speed,Attack,,,,,,
-Rotom,254,stat_alignment,2,Modest,26.5%,Sp. Atk,Attack,,,,,,
+Rotom,254,stat_alignment,2,Modest,26.6%,Sp. Atk,Attack,,,,,,
 Rotom,254,stat_alignment,3,Quiet,8.9%,Sp. Atk,Speed,,,,,,
 Rotom,254,stat_alignment,4,Bold,3.9%,Defense,Attack,,,,,,
 Rotom,254,stat_alignment,5,Mild,3.8%,Sp. Atk,Defense,,,,,,
@@ -39,12 +39,12 @@ Rotom,254,stat_alignment,7,Sassy,1.2%,Sp. Def,Speed,,,,,,
 Rotom,254,stat_alignment,8,Hasty,0.8%,Speed,Defense,,,,,,
 Rotom,254,stat_alignment,9,Naive,0.7%,Speed,Sp. Def,,,,,,
 Rotom,254,stat_alignment,10,Serious,0.2%,,,,,,,,
-Rotom,254,stat_points,1,,39.0%,,,2,0,0,32,0,32
+Rotom,254,stat_points,1,,39.1%,,,2,0,0,32,0,32
 Rotom,254,stat_points,2,,11.1%,,,0,0,2,32,0,32
 Rotom,254,stat_points,3,,7.8%,,,32,0,2,32,0,0
 Rotom,254,stat_points,4,,7.4%,,,0,0,0,32,2,32
 Rotom,254,stat_points,5,,2.5%,,,32,0,0,2,0,32
-Rotom,254,stat_points,6,,2.2%,,,0,0,0,32,0,32
+Rotom,254,stat_points,6,,2.3%,,,0,0,0,32,0,32
 Rotom,254,stat_points,7,,1.9%,,,32,0,0,32,2,0
 Rotom,254,stat_points,8,,1.9%,,,0,0,0,32,32,2
 Rotom,254,stat_points,9,,1.8%,,,32,0,0,23,0,11

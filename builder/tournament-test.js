@@ -277,8 +277,9 @@ export const TOURNAMENT_FIELD = 1;
  *  the same run under all three. */
 export const TOURNAMENT_MEGA = 2;
 
-/** The setter's alternatives as a version: 1 prices every action its own chain would offer, 0 only
- *  a Taunt and an attack.
+/** The setter's alternatives as a version: 1 prices every action the chain would offer IN PLACE of
+ *  the condition, 0 only a Taunt and an attack. (Three of the chain are out on purpose; the list at
+ *  the end of this comment says which and why, so it is not read as everything `planSide` can do.)
  *
  *  `altValue` is what setting Tailwind or Trick Room is weighed against (`planSetup`): the lead has
  *  one action, so the condition must beat the best thing that lead would otherwise do. Version 0
@@ -415,6 +416,8 @@ const STAGE_NAMES = [["attack_stage", "Attack"], ["defense_stage", "Defense"], [
  *
  * `readStages` parses one settings string the way the evaluator does -- pass
  * `(text) => ev.applyStages({}, text)`, so this cannot drift from the stages the battle really gets.
+ * Without it (or if it throws) the two settings strings are compared as text instead, which can
+ * over-report but never falls silent.
  * Returns null when both sides are given the same stages (including none at all, and including two
  * different spellings of the same thing), otherwise each side's stages in the words the results use.
  * It is not behind a rule version: every version of every rule here applies the stages, so every one
@@ -426,15 +429,28 @@ const STAGE_NAMES = [["attack_stage", "Attack"], ["defense_stage", "Defense"], [
  */
 export function unevenStagePins(settings, readStages) {
   const s = settings || {};
+  const mineText = String(s.my_stages || "").trim();
+  const theirsText = String(s.threat_stages || "").trim();
+  // The text the two sides were given, compared as text. Used when there is no reader to parse them
+  // with, or when the reader fails: it can over-report (two spellings of one stage read as two pins),
+  // and that is the safe direction, because claiming 50 is even when it is not is the bug this
+  // function exists to stop. Falling silent is the one thing it must never do.
+  const asText = () => (mineText.toLowerCase() === theirsText.toLowerCase()
+    ? null
+    : { you: mineText ? [mineText] : [], them: theirsText ? [theirsText] : [] });
+  if (typeof readStages !== "function") return asText();
+  let failed = false;
   const read = (text) => {
     try {
-      return readStages(String(text || "")) || {};
+      return readStages(text) || {};
     } catch {
+      failed = true;
       return {};
     }
   };
-  const mine = read(s.my_stages);
-  const theirs = read(s.threat_stages);
+  const mine = read(mineText);
+  const theirs = read(theirsText);
+  if (failed) return asText();
   const stage = (stages, key) => {
     const value = Number(stages?.[key]);
     return Number.isFinite(value) ? value : 0;

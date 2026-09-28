@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Garchomp,9,move,1,Protect,80.4%,,,,,,,,
-Garchomp,9,move,2,Rock Slide,44.4%,,,,,,,,
-Garchomp,9,move,3,Dragon Claw,43.5%,,,,,,,,
+Garchomp,9,move,2,Rock Slide,44.3%,,,,,,,,
+Garchomp,9,move,3,Dragon Claw,43.4%,,,,,,,,
 Garchomp,9,move,4,Earthquake,41.3%,,,,,,,,
 Garchomp,9,move,5,Power Gem,36.3%,,,,,,,,
 Garchomp,9,move,6,Flamethrower,30.8%,,,,,,,,
 Garchomp,9,move,7,Draco Meteor,28.9%,,,,,,,,
 Garchomp,9,move,8,Stomping Tantrum,22.1%,,,,,,,,
 Garchomp,9,move,9,Earth Power,21.9%,,,,,,,,
-Garchomp,9,move,10,Dragon Pulse,18.8%,,,,,,,,
-Garchomp,9,held_item,1,Garchompite Z,45.7%,,,,,,,,
-Garchomp,9,held_item,2,Life Orb,26.4%,,,,,,,,
+Garchomp,9,move,10,Dragon Pulse,18.9%,,,,,,,,
+Garchomp,9,held_item,1,Garchompite Z,45.8%,,,,,,,,
+Garchomp,9,held_item,2,Life Orb,26.3%,,,,,,,,
 Garchomp,9,held_item,3,Choice Scarf,9.5%,,,,,,,,
 Garchomp,9,held_item,4,Rocky Helmet,4.4%,,,,,,,,
 Garchomp,9,held_item,5,Sitrus Berry,3.6%,,,,,,,,
@@ -30,7 +30,7 @@ Garchomp,9,teammate,8,Gholdengo,,,,,,,,,
 Garchomp,9,teammate,9,Farigiraf,,,,,,,,,
 Garchomp,9,teammate,10,Sylveon,,,,,,,,,
 Garchomp,9,stat_alignment,1,Modest,35.1%,Sp. Atk,Attack,,,,,,
-Garchomp,9,stat_alignment,2,Jolly,30.7%,Speed,Sp. Atk,,,,,,
+Garchomp,9,stat_alignment,2,Jolly,30.6%,Speed,Sp. Atk,,,,,,
 Garchomp,9,stat_alignment,3,Adamant,20.4%,Attack,Sp. Atk,,,,,,
 Garchomp,9,stat_alignment,4,Timid,9.8%,Speed,Attack,,,,,,
 Garchomp,9,stat_alignment,5,Impish,0.8%,Defense,Sp. Atk,,,,,,
@@ -39,8 +39,8 @@ Garchomp,9,stat_alignment,7,Naive,0.5%,Speed,Sp. Def,,,,,,
 Garchomp,9,stat_alignment,8,Hasty,0.5%,Speed,Defense,,,,,,
 Garchomp,9,stat_alignment,9,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
 Garchomp,9,stat_alignment,10,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Garchomp,9,stat_points,1,,24.9%,,,2,32,0,0,0,32
-Garchomp,9,stat_points,2,,17.5%,,,2,0,0,32,0,32
+Garchomp,9,stat_points,1,,24.8%,,,2,32,0,0,0,32
+Garchomp,9,stat_points,2,,17.6%,,,2,0,0,32,0,32
 Garchomp,9,stat_points,3,,3.6%,,,0,0,5,31,0,30
 Garchomp,9,stat_points,4,,3.1%,,,8,0,6,21,1,30
 Garchomp,9,stat_points,5,,2.9%,,,0,32,0,0,2,32

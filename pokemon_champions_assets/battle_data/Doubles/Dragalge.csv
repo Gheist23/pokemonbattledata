@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Dragalge,145,move,1,Sludge Bomb,80.7%,,,,,,,,
 Dragalge,145,move,2,Protect,75.3%,,,,,,,,
-Dragalge,145,move,3,Draco Meteor,53.9%,,,,,,,,
-Dragalge,145,move,4,Dragon Pulse,46.4%,,,,,,,,
+Dragalge,145,move,3,Draco Meteor,54.0%,,,,,,,,
+Dragalge,145,move,4,Dragon Pulse,46.3%,,,,,,,,
 Dragalge,145,move,5,Flip Turn,27.5%,,,,,,,,
 Dragalge,145,move,6,Thunderbolt,22.5%,,,,,,,,
 Dragalge,145,move,7,Sludge Wave,17.3%,,,,,,,,
@@ -14,7 +14,7 @@ Dragalge,145,held_item,2,Life Orb,13.4%,,,,,,,,
 Dragalge,145,held_item,3,Leftovers,3.7%,,,,,,,,
 Dragalge,145,held_item,4,Poison Barb,2.7%,,,,,,,,
 Dragalge,145,held_item,5,Quick Claw,2.2%,,,,,,,,
-Dragalge,145,held_item,6,White Herb,1.9%,,,,,,,,
+Dragalge,145,held_item,6,White Herb,2.0%,,,,,,,,
 Dragalge,145,held_item,7,Sitrus Berry,1.5%,,,,,,,,
 Dragalge,145,held_item,8,Scope Lens,1.2%,,,,,,,,
 Dragalge,145,held_item,9,Haban Berry,1.2%,,,,,,,,
@@ -30,7 +30,7 @@ Dragalge,145,teammate,8,Sinistcha,,,,,,,,,
 Dragalge,145,teammate,9,Archaludon,,,,,,,,,
 Dragalge,145,teammate,10,Pelipper,,,,,,,,,
 Dragalge,145,stat_alignment,1,Quiet,48.7%,Sp. Atk,Speed,,,,,,
-Dragalge,145,stat_alignment,2,Modest,29.8%,Sp. Atk,Attack,,,,,,
+Dragalge,145,stat_alignment,2,Modest,29.7%,Sp. Atk,Attack,,,,,,
 Dragalge,145,stat_alignment,3,Sassy,6.8%,Sp. Def,Speed,,,,,,
 Dragalge,145,stat_alignment,4,Calm,5.3%,Sp. Def,Attack,,,,,,
 Dragalge,145,stat_alignment,5,Relaxed,4.2%,Defense,Speed,,,,,,
@@ -39,10 +39,10 @@ Dragalge,145,stat_alignment,7,Timid,0.5%,Speed,Attack,,,,,,
 Dragalge,145,stat_alignment,8,Mild,0.4%,Sp. Atk,Defense,,,,,,
 Dragalge,145,stat_alignment,9,Adamant,0.3%,Attack,Sp. Atk,,,,,,
 Dragalge,145,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
-Dragalge,145,stat_points,1,,33.0%,,,32,0,2,32,0,0
+Dragalge,145,stat_points,1,,32.9%,,,32,0,2,32,0,0
 Dragalge,145,stat_points,2,,9.5%,,,32,0,0,32,2,0
 Dragalge,145,stat_points,3,,3.6%,,,29,0,5,32,0,0
-Dragalge,145,stat_points,4,,3.0%,,,2,0,0,32,32,0
+Dragalge,145,stat_points,4,,3.1%,,,2,0,0,32,32,0
 Dragalge,145,stat_points,5,,2.7%,,,0,0,2,32,32,0
 Dragalge,145,stat_points,6,,2.0%,,,0,0,32,32,2,0
 Dragalge,145,stat_points,7,,1.9%,,,32,0,5,29,0,0

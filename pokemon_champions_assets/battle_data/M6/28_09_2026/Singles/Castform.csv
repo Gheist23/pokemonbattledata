@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Castform,251,move,1,Weather Ball,88.2%,,,,,,,,
-Castform,251,move,2,Thunder,52.3%,,,,,,,,
+Castform,251,move,2,Thunder,52.4%,,,,,,,,
 Castform,251,move,3,Shadow Ball,41.5%,,,,,,,,
-Castform,251,move,4,Future Sight,34.4%,,,,,,,,
+Castform,251,move,4,Future Sight,34.5%,,,,,,,,
 Castform,251,move,5,Scald,23.8%,,,,,,,,
 Castform,251,move,6,Ice Beam,21.1%,,,,,,,,
 Castform,251,move,7,Flamethrower,19.7%,,,,,,,,
-Castform,251,move,8,Thunderbolt,18.4%,,,,,,,,
+Castform,251,move,8,Thunderbolt,18.3%,,,,,,,,
 Castform,251,move,9,Thunder Wave,16.0%,,,,,,,,
 Castform,251,move,10,Hurricane,12.5%,,,,,,,,
 Castform,251,held_item,1,Kangaskhanite,33.3%,,,,,,,,
@@ -37,10 +37,10 @@ Castform,251,stat_alignment,5,Calm,0.8%,Sp. Def,Attack,,,,,,
 Castform,251,stat_alignment,6,Hasty,0.6%,Speed,Defense,,,,,,
 Castform,251,stat_alignment,7,Quiet,0.5%,Sp. Atk,Speed,,,,,,
 Castform,251,stat_alignment,8,Lax,0.5%,Defense,Sp. Def,,,,,,
-Castform,251,stat_alignment,9,Mild,0.4%,Sp. Atk,Defense,,,,,,
+Castform,251,stat_alignment,9,Mild,0.3%,Sp. Atk,Defense,,,,,,
 Castform,251,stat_alignment,10,Naive,0.3%,Speed,Sp. Def,,,,,,
-Castform,251,stat_points,1,,34.0%,,,0,0,32,32,0,2
-Castform,251,stat_points,2,,30.0%,,,2,0,0,32,0,32
+Castform,251,stat_points,1,,34.1%,,,0,0,32,32,0,2
+Castform,251,stat_points,2,,29.9%,,,2,0,0,32,0,32
 Castform,251,stat_points,3,,8.6%,,,0,0,0,32,2,32
 Castform,251,stat_points,4,,7.2%,,,32,0,0,32,0,2
 Castform,251,stat_points,5,,4.6%,,,0,0,2,32,0,32

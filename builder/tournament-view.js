@@ -104,8 +104,8 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
             : `Every ${ours} you could bring plays every ${theirs} they could bring. Neither side sees the other's choice: you bring the ${ours} that hold up best against every answer, they bring the ${theirs} that do, and the score is the one game those two choices play.`),
       // "the same two teams score the same whichever of them is yours" was not true of the rule it
       // was written for: the two scores are COMPLEMENTS, not equals. Measured on 60 corpus teams
-      // spread across the library, both formats, through TournamentTest.run: 0 of 179 team pairs
-      // fail to add up to 100 and 0 of 120 mirrors are off 50 -- but e.g. team501 against team1201
+      // spread across the library, both formats, through TournamentTest.run: 0 of 238 team pairs
+      // (119 per format) fail to add up to 100 and 0 of 120 mirrors are off 50 -- but team501 vs team1201
       // scores 43.4934 and team1201 against team501 scores 56.5066. So the sentence says the
       // property that holds.
       step("5", "Across the teams", `Played against up to ${number(teams)} real recent tournament teams. A score of 50 is even — swap the two teams round and the score flips to the other side of 50 by the same amount, so 50 is what a team scores against itself; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),

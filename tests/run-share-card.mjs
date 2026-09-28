@@ -384,11 +384,14 @@ for (let n = 1; n <= 6; n += 1) {
       // Not overlapping is not enough: setting gapX to 0 kept every assertion
       // above green while fusing the row into one slab, because touching is not
       // overlapping.  Adjacent cells must be SEPARATED, by the declared gutter,
-      // which scales with the cell.
+      // which scales with the cell.  The scaled gutter is exact at every scale
+      // this layout uses (21 at 1.5, 14 at 1), so the only slack here is EPS,
+      // against the double arithmetic -- not the half pixel that would have let
+      // a 13.5px gutter through at the design size.
       const [p, q] = [boxes[a], boxes[b]];
       const gapX = Math.max(p.x - (q.x + q.w), q.x - (p.x + p.w));
       const gapY = Math.max(p.y - (q.y + q.h), q.y - (p.y + p.h));
-      ok(gapX >= TEAM.gapX * want.s - 0.5 || gapY >= TEAM.gapY * want.s - 0.5,
+      ok(gapX >= TEAM.gapX * want.s - EPS || gapY >= TEAM.gapY * want.s - EPS,
         `n=${n}: cell ${a} and cell ${b} are separated by the declared gutter (x ${gapX}, y ${gapY})`);
     }
   }

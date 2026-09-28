@@ -873,9 +873,19 @@ function threatList(ctx, digest, sprites) {
   // Only when there is something the list does not show.  "20 critical threats
   // in the Top 20" under a heading that said the same thing told a reader
   // nothing; this says which part of the 20 is on the card.
+  //
+  // `threatCount` is the number of meta rows that were EXAMINED, not the number
+  // that came back critical (share_link_v518.py takes it from
+  // all_top_meta_threat_rows_v462, the whole Top-X, while `threats` holds only
+  // the critical ones).  So an empty list with a live count is a clean team, and
+  // "Showing the 0 worst of 20" is both broken English and the wrong claim: it
+  // gets the good news instead.  Nothing at all is drawn when the digest carries
+  // no evaluation to speak of (no rows AND no count).
   const total = Math.max(0, Math.round(num(digest?.threatCount)));
-  if (total > rows.length) {
-    drawText(ctx, `Showing the ${rows.length} worst of ${total}`,
+  const note = rows.length ? (total > rows.length ? `Showing the ${rows.length} worst of ${total}` : "")
+    : (total ? "No critical threats" : "");
+  if (note) {
+    drawText(ctx, note,
       EVAL.rightX, EVAL.rightNoteBaseline, { sizes: [12], color: PALETTE.soft, maxWidth: EVAL.rightW });
   }
 }

@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Houndoom,139,move,1,Protect,85.5%,,,,,,,,
-Houndoom,139,move,2,Heat Wave,85.4%,,,,,,,,
+Houndoom,139,move,2,Heat Wave,85.5%,,,,,,,,
 Houndoom,139,move,3,Dark Pulse,85.4%,,,,,,,,
-Houndoom,139,move,4,Overheat,25.9%,,,,,,,,
+Houndoom,139,move,4,Overheat,25.8%,,,,,,,,
 Houndoom,139,move,5,Solar Beam,17.6%,,,,,,,,
 Houndoom,139,move,6,Snarl,17.2%,,,,,,,,
 Houndoom,139,move,7,Sludge Bomb,13.9%,,,,,,,,
@@ -39,8 +39,8 @@ Houndoom,139,stat_alignment,7,Naive,0.9%,Speed,Sp. Def,,,,,,
 Houndoom,139,stat_alignment,8,Sassy,0.6%,Sp. Def,Speed,,,,,,
 Houndoom,139,stat_alignment,9,Jolly,0.5%,Speed,Sp. Atk,,,,,,
 Houndoom,139,stat_alignment,10,Relaxed,0.2%,Defense,Speed,,,,,,
-Houndoom,139,stat_points,1,,37.2%,,,2,0,0,32,0,32
-Houndoom,139,stat_points,2,,13.0%,,,1,0,1,32,0,32
+Houndoom,139,stat_points,1,,37.3%,,,2,0,0,32,0,32
+Houndoom,139,stat_points,2,,12.9%,,,1,0,1,32,0,32
 Houndoom,139,stat_points,3,,10.0%,,,0,0,2,32,0,32
 Houndoom,139,stat_points,4,,6.8%,,,0,0,0,32,2,32
 Houndoom,139,stat_points,5,,4.4%,,,0,0,0,32,0,32
@@ -51,4 +51,4 @@ Houndoom,139,stat_points,9,,1.2%,,,1,1,0,32,0,32
 Houndoom,139,stat_points,10,,1.0%,,,6,0,0,32,0,28
 Houndoom,139,ability,1,Flash Fire,87.2%,,,,,,,,
 Houndoom,139,ability,2,Unnerve,9.6%,,,,,,,,
-Houndoom,139,ability,3,Early Bird,3.1%,,,,,,,,
+Houndoom,139,ability,3,Early Bird,3.2%,,,,,,,,

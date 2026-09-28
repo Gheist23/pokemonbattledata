@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Slowking,135,move,1,Chilly Reception,85.1%,,,,,,,,
-Slowking,135,move,2,Scald,73.2%,,,,,,,,
+Slowking,135,move,2,Scald,73.1%,,,,,,,,
 Slowking,135,move,3,Yawn,65.6%,,,,,,,,
-Slowking,135,move,4,Slack Off,44.3%,,,,,,,,
+Slowking,135,move,4,Slack Off,44.2%,,,,,,,,
 Slowking,135,move,5,Ice Beam,24.3%,,,,,,,,
 Slowking,135,move,6,Psychic,17.5%,,,,,,,,
 Slowking,135,move,7,Trick Room,16.7%,,,,,,,,
@@ -13,7 +13,7 @@ Slowking,135,held_item,1,Leftovers,52.8%,,,,,,,,
 Slowking,135,held_item,2,Sitrus Berry,24.6%,,,,,,,,
 Slowking,135,held_item,3,Rocky Helmet,6.0%,,,,,,,,
 Slowking,135,held_item,4,Icy Rock,2.6%,,,,,,,,
-Slowking,135,held_item,5,Light Clay,1.8%,,,,,,,,
+Slowking,135,held_item,5,Light Clay,1.7%,,,,,,,,
 Slowking,135,held_item,6,Lum Berry,1.5%,,,,,,,,
 Slowking,135,held_item,7,Mental Herb,1.0%,,,,,,,,
 Slowking,135,held_item,8,Focus Sash,1.0%,,,,,,,,
@@ -29,9 +29,9 @@ Slowking,135,teammate,7,Charizard,,,,,,,,,
 Slowking,135,teammate,8,Corviknight,,,,,,,,,
 Slowking,135,teammate,9,Gholdengo,,,,,,,,,
 Slowking,135,teammate,10,Hippowdon,,,,,,,,,
-Slowking,135,stat_alignment,1,Calm,42.5%,Sp. Def,Attack,,,,,,
+Slowking,135,stat_alignment,1,Calm,42.4%,Sp. Def,Attack,,,,,,
 Slowking,135,stat_alignment,2,Bold,20.2%,Defense,Attack,,,,,,
-Slowking,135,stat_alignment,3,Sassy,15.4%,Sp. Def,Speed,,,,,,
+Slowking,135,stat_alignment,3,Sassy,15.5%,Sp. Def,Speed,,,,,,
 Slowking,135,stat_alignment,4,Relaxed,11.1%,Defense,Speed,,,,,,
 Slowking,135,stat_alignment,5,Modest,5.9%,Sp. Atk,Attack,,,,,,
 Slowking,135,stat_alignment,6,Quiet,4.0%,Sp. Atk,Speed,,,,,,
@@ -42,7 +42,7 @@ Slowking,135,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
 Slowking,135,stat_points,1,,20.0%,,,31,0,25,0,10,0
 Slowking,135,stat_points,2,,13.3%,,,32,0,32,0,2,0
 Slowking,135,stat_points,3,,10.9%,,,32,0,2,0,32,0
-Slowking,135,stat_points,4,,5.1%,,,31,0,32,0,3,0
+Slowking,135,stat_points,4,,5.2%,,,31,0,32,0,3,0
 Slowking,135,stat_points,5,,3.7%,,,31,0,3,0,32,0
 Slowking,135,stat_points,6,,3.4%,,,32,0,0,2,32,0
 Slowking,135,stat_points,7,,2.6%,,,31,0,30,0,5,0

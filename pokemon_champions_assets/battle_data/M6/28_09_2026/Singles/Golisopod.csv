@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Golisopod,6,move,1,Iron Head,72.1%,,,,,,,,
-Golisopod,6,move,2,Sucker Punch,64.4%,,,,,,,,
+Golisopod,6,move,1,Iron Head,72.0%,,,,,,,,
+Golisopod,6,move,2,Sucker Punch,64.5%,,,,,,,,
 Golisopod,6,move,3,First Impression,61.0%,,,,,,,,
 Golisopod,6,move,4,Leech Life,44.9%,,,,,,,,
 Golisopod,6,move,5,U-turn,33.9%,,,,,,,,
@@ -27,8 +27,8 @@ Golisopod,6,teammate,5,Hippowdon,,,,,,,,,
 Golisopod,6,teammate,6,Gholdengo,,,,,,,,,
 Golisopod,6,teammate,7,Archaludon,,,,,,,,,
 Golisopod,6,teammate,8,Rillaboom,,,,,,,,,
-Golisopod,6,teammate,9,Meowscarada,,,,,,,,,
-Golisopod,6,teammate,10,Mimikyu,,,,,,,,,
+Golisopod,6,teammate,9,Mimikyu,,,,,,,,,
+Golisopod,6,teammate,10,Meowscarada,,,,,,,,,
 Golisopod,6,stat_alignment,1,Adamant,82.8%,Attack,Sp. Atk,,,,,,
 Golisopod,6,stat_alignment,2,Brave,12.1%,Attack,Speed,,,,,,
 Golisopod,6,stat_alignment,3,Careful,1.9%,Sp. Def,Sp. Atk,,,,,,
@@ -46,7 +46,7 @@ Golisopod,6,stat_points,4,,5.6%,,,32,32,0,0,0,2
 Golisopod,6,stat_points,5,,5.5%,,,31,32,0,0,0,3
 Golisopod,6,stat_points,6,,4.0%,,,31,32,3,0,0,0
 Golisopod,6,stat_points,7,,2.1%,,,31,32,2,0,1,0
-Golisopod,6,stat_points,8,,1.9%,,,32,32,1,0,1,0
-Golisopod,6,stat_points,9,,1.9%,,,1,32,1,0,0,32
+Golisopod,6,stat_points,8,,1.9%,,,1,32,1,0,0,32
+Golisopod,6,stat_points,9,,1.9%,,,32,32,1,0,1,0
 Golisopod,6,stat_points,10,,1.4%,,,31,20,0,0,2,13
 Golisopod,6,ability,1,Emergency Exit,100.0%,,,,,,,,

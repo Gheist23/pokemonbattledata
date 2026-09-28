@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Farfetch’d,231,move,1,Brave Bird,60.3%,,,,,,,,
-Farfetch’d,231,move,2,Leaf Blade,45.0%,,,,,,,,
-Farfetch’d,231,move,3,First Impression,37.8%,,,,,,,,
+Farfetch’d,231,move,2,Leaf Blade,45.1%,,,,,,,,
+Farfetch’d,231,move,3,First Impression,37.9%,,,,,,,,
 Farfetch’d,231,move,4,Night Slash,34.1%,,,,,,,,
 Farfetch’d,231,move,5,Slash,31.2%,,,,,,,,
 Farfetch’d,231,move,6,Quick Attack,22.0%,,,,,,,,
@@ -29,7 +29,7 @@ Farfetch’d,231,teammate,7,Primarina,,,,,,,,,
 Farfetch’d,231,teammate,8,Lucario,,,,,,,,,
 Farfetch’d,231,teammate,9,Rillaboom,,,,,,,,,
 Farfetch’d,231,teammate,10,Cinderace,,,,,,,,,
-Farfetch’d,231,stat_alignment,1,Adamant,56.0%,Attack,Sp. Atk,,,,,,
+Farfetch’d,231,stat_alignment,1,Adamant,56.1%,Attack,Sp. Atk,,,,,,
 Farfetch’d,231,stat_alignment,2,Jolly,28.8%,Speed,Sp. Atk,,,,,,
 Farfetch’d,231,stat_alignment,3,Brave,5.4%,Attack,Speed,,,,,,
 Farfetch’d,231,stat_alignment,4,Naughty,2.7%,Attack,Sp. Def,,,,,,
@@ -39,10 +39,10 @@ Farfetch’d,231,stat_alignment,7,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
 Farfetch’d,231,stat_alignment,8,Modest,0.9%,Sp. Atk,Attack,,,,,,
 Farfetch’d,231,stat_alignment,9,Impish,0.8%,Defense,Sp. Atk,,,,,,
 Farfetch’d,231,stat_alignment,10,Relaxed,0.4%,Defense,Speed,,,,,,
-Farfetch’d,231,stat_points,1,,42.5%,,,2,32,0,0,0,32
+Farfetch’d,231,stat_points,1,,42.4%,,,2,32,0,0,0,32
 Farfetch’d,231,stat_points,2,,6.9%,,,0,32,2,0,0,32
-Farfetch’d,231,stat_points,3,,5.6%,,,32,2,0,0,0,32
-Farfetch’d,231,stat_points,4,,5.6%,,,32,32,2,0,0,0
+Farfetch’d,231,stat_points,3,,5.6%,,,32,32,2,0,0,0
+Farfetch’d,231,stat_points,4,,5.6%,,,32,2,0,0,0,32
 Farfetch’d,231,stat_points,5,,5.5%,,,0,32,0,0,2,32
 Farfetch’d,231,stat_points,6,,4.2%,,,32,32,0,0,2,0
 Farfetch’d,231,stat_points,7,,2.7%,,,0,32,0,0,0,32

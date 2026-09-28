@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pikachu,176,move,1,Quick Attack,40.1%,,,,,,,,
-Pikachu,176,move,2,Volt Tackle,37.7%,,,,,,,,
+Pikachu,176,move,2,Volt Tackle,37.6%,,,,,,,,
 Pikachu,176,move,3,Grass Knot,30.9%,,,,,,,,
 Pikachu,176,move,4,Thunderbolt,29.9%,,,,,,,,
 Pikachu,176,move,5,Surf,29.7%,,,,,,,,
@@ -11,7 +11,7 @@ Pikachu,176,move,9,Nuzzle,18.1%,,,,,,,,
 Pikachu,176,move,10,Thunder,16.9%,,,,,,,,
 Pikachu,176,held_item,1,Light Ball,60.8%,,,,,,,,
 Pikachu,176,held_item,2,Focus Sash,22.9%,,,,,,,,
-Pikachu,176,held_item,3,Lum Berry,7.7%,,,,,,,,
+Pikachu,176,held_item,3,Lum Berry,7.6%,,,,,,,,
 Pikachu,176,held_item,4,Choice Scarf,0.6%,,,,,,,,
 Pikachu,176,held_item,5,Focus Band,0.2%,,,,,,,,
 Pikachu,176,held_item,6,Leftovers,0.2%,,,,,,,,
@@ -30,7 +30,7 @@ Pikachu,176,teammate,8,Azumarill,,,,,,,,,
 Pikachu,176,teammate,9,Sirfetch’d,,,,,,,,,
 Pikachu,176,teammate,10,Venusaur,,,,,,,,,
 Pikachu,176,stat_alignment,1,Timid,29.8%,Speed,Attack,,,,,,
-Pikachu,176,stat_alignment,2,Jolly,24.4%,Speed,Sp. Atk,,,,,,
+Pikachu,176,stat_alignment,2,Jolly,24.5%,Speed,Sp. Atk,,,,,,
 Pikachu,176,stat_alignment,3,Adamant,12.2%,Attack,Sp. Atk,,,,,,
 Pikachu,176,stat_alignment,4,Modest,12.0%,Sp. Atk,Attack,,,,,,
 Pikachu,176,stat_alignment,5,Naive,8.1%,Speed,Sp. Def,,,,,,
@@ -49,5 +49,5 @@ Pikachu,176,stat_points,7,,2.5%,,,0,32,0,0,0,32
 Pikachu,176,stat_points,8,,1.9%,,,0,0,2,32,0,32
 Pikachu,176,stat_points,9,,1.8%,,,0,32,0,2,0,32
 Pikachu,176,stat_points,10,,1.5%,,,1,0,0,32,1,32
-Pikachu,176,ability,1,Static,61.1%,,,,,,,,
-Pikachu,176,ability,2,Lightning Rod,38.9%,,,,,,,,
+Pikachu,176,ability,1,Static,61.0%,,,,,,,,
+Pikachu,176,ability,2,Lightning Rod,39.0%,,,,,,,,

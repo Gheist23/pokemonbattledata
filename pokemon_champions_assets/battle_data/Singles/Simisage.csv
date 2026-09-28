@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Simisage,260,move,1,Fake Out,44.2%,,,,,,,,
-Simisage,260,move,2,Leaf Storm,43.9%,,,,,,,,
+Simisage,260,move,2,Leaf Storm,44.0%,,,,,,,,
 Simisage,260,move,3,Rock Slide,35.3%,,,,,,,,
 Simisage,260,move,4,Focus Blast,29.1%,,,,,,,,
-Simisage,260,move,5,Seed Bomb,27.7%,,,,,,,,
+Simisage,260,move,5,Seed Bomb,27.6%,,,,,,,,
 Simisage,260,move,6,Gunk Shot,23.2%,,,,,,,,
 Simisage,260,move,7,Taunt,22.2%,,,,,,,,
 Simisage,260,move,8,Leech Seed,20.9%,,,,,,,,
@@ -18,7 +18,7 @@ Simisage,260,held_item,6,Lum Berry,4.0%,,,,,,,,
 Simisage,260,held_item,7,Expert Belt,3.8%,,,,,,,,
 Simisage,260,held_item,8,Chesto Berry,3.5%,,,,,,,,
 Simisage,260,held_item,9,Light Ball,3.4%,,,,,,,,
-Simisage,260,held_item,10,Leftovers,3.2%,,,,,,,,
+Simisage,260,held_item,10,Leftovers,3.1%,,,,,,,,
 Simisage,260,teammate,1,Simisear,,,,,,,,,
 Simisage,260,teammate,2,Simipour,,,,,,,,,
 Simisage,260,teammate,3,Garchomp,,,,,,,,,
@@ -38,11 +38,11 @@ Simisage,260,stat_alignment,6,Impish,4.3%,Defense,Sp. Atk,,,,,,
 Simisage,260,stat_alignment,7,Bold,3.3%,Defense,Attack,,,,,,
 Simisage,260,stat_alignment,8,Lonely,2.2%,Attack,Defense,,,,,,
 Simisage,260,stat_alignment,9,Calm,1.9%,Sp. Def,Attack,,,,,,
-Simisage,260,stat_alignment,10,Hasty,1.5%,Speed,Defense,,,,,,
-Simisage,260,stat_points,1,,20.1%,,,2,32,0,0,0,32
-Simisage,260,stat_points,2,,17.8%,,,2,0,0,32,0,32
+Simisage,260,stat_alignment,10,Hasty,1.4%,Speed,Defense,,,,,,
+Simisage,260,stat_points,1,,20.0%,,,2,32,0,0,0,32
+Simisage,260,stat_points,2,,17.9%,,,2,0,0,32,0,32
 Simisage,260,stat_points,3,,8.8%,,,1,0,1,32,0,32
-Simisage,260,stat_points,4,,6.6%,,,1,32,1,0,0,32
+Simisage,260,stat_points,4,,6.5%,,,1,32,1,0,0,32
 Simisage,260,stat_points,5,,5.4%,,,0,0,2,32,0,32
 Simisage,260,stat_points,6,,3.5%,,,31,0,32,0,0,3
 Simisage,260,stat_points,7,,2.9%,,,0,32,0,2,0,32

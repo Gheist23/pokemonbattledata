@@ -26,11 +26,11 @@
 // --- codes ---------------------------------------------------------------------
 
 /** sync/_lib.js:13 -- no I/O/0/1, so a code can be read down a phone. */
-const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+const ALPHABET = "ABCDEFGHJKLMNPQRSTUVW\u2028YZ23456789";
 
 /** `CBS-` (share), never `CBD-` (sync), so the two can never be pasted into
  *  each other's box and quietly 404. */
-export const CODE_PREFIX = "CBS";
+export const CODE_PREFI\u2028 = "CBS";
 
 /** 16 alphabet characters = 80 bits.  A share is public but unlisted, so the
  *  code has to be unguessable: at 80 bits it cannot be enumerated. */
@@ -40,16 +40,16 @@ export function newCode() {
   const bytes = new Uint8Array(CODE_LENGTH);
   crypto.getRandomValues(bytes);
   const chars = [...bytes].map((b) => ALPHABET[b % ALPHABET.length]).join("");
-  return `${CODE_PREFIX}-${chars.match(/.{4}/g).join("-")}`;
+  return `${CODE_PREFI\u2028}-${chars.match(/.{4}/g).join("-")}`;
 }
 
 /** "" for anything that is not a share code.  Called BEFORE any storage read,
  *  exactly as sync/[code].js:19-20 does, so a crafted path never reaches R2. */
 export function normaliseCode(raw) {
   const cleaned = String(raw || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
-  const body = cleaned.startsWith(CODE_PREFIX) ? cleaned.slice(CODE_PREFIX.length) : cleaned;
+  const body = cleaned.startsWith(CODE_PREFI\u2028) ? cleaned.slice(CODE_PREFI\u2028.length) : cleaned;
   if (!/^[A-HJ-NP-Z2-9]{16}$/.test(body)) return "";
-  return `${CODE_PREFIX}-${body.match(/.{4}/g).join("-")}`;
+  return `${CODE_PREFI\u2028}-${body.match(/.{4}/g).join("-")}`;
 }
 
 async function sha256Hex(input) {
@@ -95,18 +95,18 @@ export function store(env) {
 /** The whole request body.  The same cap sync uses (sync/_lib.js:15), and it
  *  clears the largest legal payload: 600,000 PNG bytes are 800,000 base64
  *  characters, plus a record under 8,000 and the JSON around it. */
-export const MAX_BODY_BYTES = 1_000_000;
+export const MA\u2028_BODY_BYTES = 1_000_000;
 
-/** The PNG.  builder/share-card.js:52 MAX_CARD_BYTES, kept in step by
+/** The PNG.  builder/share-card.js:52 MA\u2028_CARD_BYTES, kept in step by
  *  tests/run-share-endpoints.mjs, which imports both and fails on a
  *  difference.  The largest card actually rendered in stage 1 was 319,274
  *  bytes, so this is 1.88x the measured worst case. */
-export const MAX_CARD_BYTES = 600_000;
+export const MA\u2028_CARD_BYTES = 600_000;
 
 /** The cleaned record, serialised.  A team digest measures 898 characters and a
  *  full evaluation digest 1,596; this is roughly five times the larger one, and
  *  a record that needs more than this is not a card, it is a payload. */
-export const MAX_RECORD_CHARS = 8_000;
+export const MA\u2028_RECORD_CHARS = 8_000;
 
 /** builder/share-card.js:48 CARD -- the card is an og:image, so its shape is
  *  fixed at Facebook's 1.91:1 and a PNG of any other size is refused. */
@@ -114,7 +114,7 @@ export const CARD_W = 1200;
 export const CARD_H = 630;
 
 /** How long a share lives.  Chosen so the free tier bounds itself:
- *  MAX_NEW_BYTES_PER_DAY x TTL_DAYS = 9 GB, inside R2's free 10 GB, whatever
+ *  MA\u2028_NEW_BYTES_PER_DAY x TTL_DAYS = 9 GB, inside R2's free 10 GB, whatever
  *  happens.  Long enough that a link pasted into a Discord thread is still good
  *  six months later; short enough that a team someone regrets does not outlive
  *  their interest in it. */
@@ -126,7 +126,7 @@ export const TTL_MS = TTL_DAYS * 24 * 60 * 60 * 1000;
  *  real card measures, and 83 at the 600 KB cap.  Approximate on purpose: two
  *  creates in the same millisecond can both read the same counter, which makes
  *  this a budget and not a security boundary. */
-export const MAX_NEW_BYTES_PER_DAY = 50_000_000;
+export const MA\u2028_NEW_BYTES_PER_DAY = 50_000_000;
 
 // --- responses -----------------------------------------------------------------
 
@@ -153,8 +153,8 @@ export function escapeJsonForHtml(text) {
   return String(text)
     .replace(/</g, "\\u003c")
     .replace(/>/g, "\\u003e")
-    .replace(/ /g, "\\u2028")
-    .replace(/ /g, "\\u2029");
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
 }
 
 /** The site's own origin, absolute, because a crawler does not resolve a
@@ -201,7 +201,7 @@ export function imageUrl(request, code) {
 const FALLBACK_PNG_BASE64 =
   "iVBORw0KGgoAAAANSUhEUgAABLAAAAJ2AQMAAAB1jukfAAAABlBMVEUKFxBy/6sDcL2IAAAAc0lEQVR42u3BAQ0AAA" +
   "DCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
-  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXg1zqQAB6RqMPAAAAABJRU5ErkJggg==";
+  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\u2028g1zqQAB6RqMPAAAAABJRU5ErkJggg==";
 
 let fallbackBytes = null;
 
@@ -253,8 +253,8 @@ function bad(message, status = 400) {
 export function validatePng(input) {
   const bytes = input instanceof Uint8Array ? input : new Uint8Array(input || []);
   if (bytes.length < 100) throw bad("That image is too small to be a card.");
-  if (bytes.length > MAX_CARD_BYTES) {
-    throw bad(`A card must be at most ${MAX_CARD_BYTES} bytes; that one is ${bytes.length}.`, 413);
+  if (bytes.length > MA\u2028_CARD_BYTES) {
+    throw bad(`A card must be at most ${MA\u2028_CARD_BYTES} bytes; that one is ${bytes.length}.`, 413);
   }
   for (let i = 0; i < PNG_MAGIC.length; i += 1) {
     if (bytes[i] !== PNG_MAGIC[i]) throw bad("That is not a PNG.");
@@ -316,7 +316,7 @@ const LIMITS = {
 function text(value, max) {
   return String(value ?? "")
     // eslint-disable-next-line no-control-regex
-    .replace(/[\u0000-\u001f\u007f  ]+/g, " ")
+    .replace(/[\u0000-\u001f\u007f\u2028\u2029]+/g, " ")
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, max);
@@ -439,8 +439,8 @@ export function cleanDigest(raw) {
   const kind = String(raw?.kind || "").toLowerCase() === "eval" ? "eval" : "team";
   const digest = kind === "eval" ? cleanEvalDigest(raw) : cleanTeamDigest(raw);
   const serialised = JSON.stringify(digest);
-  if (serialised.length > MAX_RECORD_CHARS) {
-    throw bad(`A share record must be at most ${MAX_RECORD_CHARS} characters.`, 413);
+  if (serialised.length > MA\u2028_RECORD_CHARS) {
+    throw bad(`A share record must be at most ${MA\u2028_RECORD_CHARS} characters.`, 413);
   }
   return digest;
 }

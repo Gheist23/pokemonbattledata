@@ -18,7 +18,12 @@
 import {
   MAX_BONUS_STAT_POINTS, PALETTE, STAT_KEYS, STAT_LABELS, bonusTotal, natureLabel, scoreColor,
   statBarWidth, statColor, threatColor,
-} from "/builder/share-card.js";
+// Relative, not "/builder/share-card.js": this module's own URL is always
+// /share/share-page.js (the page is served at /share/ and at /api/share/<code>
+// and both load it from that absolute path), so "../builder/..." resolves to
+// /builder/... in the browser AND imports in node, which is what lets the guard
+// suite pin the paste format against builder/common.js.
+} from "../builder/share-card.js";
 
 const RECORD_SUFFIX = "?format=json";
 const CODE_SHAPE = /^CBS-[A-HJ-NP-Z2-9]{4}(-[A-HJ-NP-Z2-9]{4}){3}$/;

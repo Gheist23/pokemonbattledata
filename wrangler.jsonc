@@ -16,4 +16,13 @@
   //
   // TWO STEPS, IN THIS ORDER.  This worktree is committed and deployed
   // automatically every few hours, so a binding that names a bucket which does
-  // not exist yet would be
+  // not exist yet would be deployed before anyone could create it:
+  //   1.  npx wrangler r2 bucket create cbd-shares
+  //   2.  put the binding in the array below:
+  //         { "binding": "SHARES", "bucket_name": "cbd-shares" }
+  //
+  // Until step 2 every share route answers 503 "Sharing is not configured on
+  // this server.", exactly as the sync routes do without their namespace
+  // (functions/api/sync/index.js:8).  Nothing else on the site is affected.
+  "r2_buckets": []
+}

@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Glalie,133,move,1,Protect,65.8%,,,,,,,,
-Glalie,133,move,2,Explosion,63.1%,,,,,,,,
+Glalie,133,move,2,Explosion,63.0%,,,,,,,,
 Glalie,133,move,3,Sheer Cold,43.4%,,,,,,,,
 Glalie,133,move,4,Earthquake,40.3%,,,,,,,,
 Glalie,133,move,5,Ice Shard,40.3%,,,,,,,,
@@ -10,8 +10,8 @@ Glalie,133,move,8,Body Slam,24.3%,,,,,,,,
 Glalie,133,move,9,Trailblaze,8.6%,,,,,,,,
 Glalie,133,move,10,Double Team,5.6%,,,,,,,,
 Glalie,133,held_item,1,Glalitite,62.6%,,,,,,,,
-Glalie,133,held_item,2,Leftovers,29.6%,,,,,,,,
-Glalie,133,held_item,3,Focus Sash,1.4%,,,,,,,,
+Glalie,133,held_item,2,Leftovers,29.7%,,,,,,,,
+Glalie,133,held_item,3,Focus Sash,1.5%,,,,,,,,
 Glalie,133,held_item,4,Bright Powder,1.2%,,,,,,,,
 Glalie,133,held_item,5,Sitrus Berry,0.8%,,,,,,,,
 Glalie,133,held_item,6,Silk Scarf,0.8%,,,,,,,,
@@ -45,7 +45,7 @@ Glalie,133,stat_points,3,,2.8%,,,32,0,1,0,1,32
 Glalie,133,stat_points,4,,2.6%,,,32,0,2,0,0,32
 Glalie,133,stat_points,5,,2.2%,,,0,32,2,0,0,32
 Glalie,133,stat_points,6,,2.1%,,,0,32,0,0,0,32
-Glalie,133,stat_points,7,,2.1%,,,32,32,0,0,0,2
+Glalie,133,stat_points,7,,2.0%,,,32,32,0,0,0,2
 Glalie,133,stat_points,8,,1.9%,,,32,0,0,2,0,32
 Glalie,133,stat_points,9,,1.7%,,,2,0,0,32,0,32
 Glalie,133,stat_points,10,,1.6%,,,22,0,24,0,0,20

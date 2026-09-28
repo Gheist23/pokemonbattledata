@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Chimecho,149,move,1,Recover,85.5%,,,,,,,,
+Chimecho,149,move,1,Recover,85.6%,,,,,,,,
 Chimecho,149,move,2,Cosmic Power,55.8%,,,,,,,,
-Chimecho,149,move,3,Stored Power,53.0%,,,,,,,,
+Chimecho,149,move,3,Stored Power,53.1%,,,,,,,,
 Chimecho,149,move,4,Calm Mind,32.8%,,,,,,,,
 Chimecho,149,move,5,Flash Cannon,25.5%,,,,,,,,
 Chimecho,149,move,6,Boomburst,20.3%,,,,,,,,
@@ -9,9 +9,9 @@ Chimecho,149,move,7,Psychic Noise,17.0%,,,,,,,,
 Chimecho,149,move,8,Psychic,11.7%,,,,,,,,
 Chimecho,149,move,9,Dazzling Gleam,11.1%,,,,,,,,
 Chimecho,149,move,10,Shadow Ball,10.9%,,,,,,,,
-Chimecho,149,held_item,1,Chimechite,94.5%,,,,,,,,
+Chimecho,149,held_item,1,Chimechite,94.6%,,,,,,,,
 Chimecho,149,held_item,2,Leftovers,1.2%,,,,,,,,
-Chimecho,149,held_item,3,Sitrus Berry,1.1%,,,,,,,,
+Chimecho,149,held_item,3,Sitrus Berry,1.0%,,,,,,,,
 Chimecho,149,held_item,4,Quick Claw,0.7%,,,,,,,,
 Chimecho,149,held_item,5,Rocky Helmet,0.7%,,,,,,,,
 Chimecho,149,held_item,6,Mental Herb,0.3%,,,,,,,,
@@ -31,7 +31,7 @@ Chimecho,149,teammate,9,Skeledirge,,,,,,,,,
 Chimecho,149,teammate,10,Baxcalibur,,,,,,,,,
 Chimecho,149,stat_alignment,1,Bold,51.2%,Defense,Attack,,,,,,
 Chimecho,149,stat_alignment,2,Modest,27.1%,Sp. Atk,Attack,,,,,,
-Chimecho,149,stat_alignment,3,Calm,16.9%,Sp. Def,Attack,,,,,,
+Chimecho,149,stat_alignment,3,Calm,16.8%,Sp. Def,Attack,,,,,,
 Chimecho,149,stat_alignment,4,Quiet,1.5%,Sp. Atk,Speed,,,,,,
 Chimecho,149,stat_alignment,5,Timid,1.0%,Speed,Attack,,,,,,
 Chimecho,149,stat_alignment,6,Relaxed,0.9%,Defense,Speed,,,,,,
@@ -40,7 +40,7 @@ Chimecho,149,stat_alignment,8,Gentle,0.4%,Sp. Def,Defense,,,,,,
 Chimecho,149,stat_alignment,9,Impish,0.2%,Defense,Sp. Atk,,,,,,
 Chimecho,149,stat_alignment,10,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
 Chimecho,149,stat_points,1,,18.1%,,,32,0,32,0,2,0
-Chimecho,149,stat_points,2,,3.8%,,,32,0,32,0,0,2
+Chimecho,149,stat_points,2,,3.9%,,,32,0,32,0,0,2
 Chimecho,149,stat_points,3,,3.6%,,,32,0,32,2,0,0
 Chimecho,149,stat_points,4,,3.5%,,,32,0,2,0,32,0
 Chimecho,149,stat_points,5,,2.9%,,,32,0,2,32,0,0

@@ -614,8 +614,26 @@ Data comes from two places:
   each bring's per-team WORST case, which is not what "on average when brought against every team"
   says and sat 12.79 points under the headline in Doubles and 15.89 in Singles; it now averages the
   game each bring plays against the bring they commit to, and the copy says "on average if you
-  brought these against every team", which is what that number is - still below the headline, which
-  lets each team have the bring that suits it.
+  brought these against every team", which is what that number is - still below the headline (44.62
+  against 53.35 in Doubles, 43.02 against 51.99 in Singles on the bench team against 150 teams),
+  which lets each team have the bring that suits it. `run-tournament-smoke.mjs` pins both sentences
+  the rule paid for - the explainer's "Neither side sees the other's choice" and step 5's reason 50
+  is even - and asserts the old "they answer with the four that do the most against your choice"
+  never comes back; nothing had asserted the copy before.
+
+  One limit, measured and still open: those sentences are true of the board the page plays under the
+  default settings, but the shared Team Evaluation settings for Reflect and Light Screen are applied
+  BY SIDE (`team-eval.js` `screenOn`), so pinning either of those two to ONE side makes the board
+  asymmetric by INPUT, which no rule in `tournament-test.js` can undo. Measured, round robin of the
+  first 10 corpus teams, Doubles, 12 settings one at a time (45 unordered pairs and 10 mirrors each):
+  a one-sided screen is the only thing that breaks it - `reflect` "My Team" 45 of 45 pairs off 100
+  (worst 49.66), 9 of 10 mirrors off 50 (worst 22.40), headline 58.19; `reflect` "Threat Team" the
+  same with the sign flipped (worst -49.66, mirrors -22.40, headline 41.81), which is what says it is
+  the by-side input and nothing else; `light_screen` "My Team" 44 of 45 (worst 37.63), 9 of 10
+  mirrors (worst 12.50), headline 55.57. Default settings, `reflect` "Both", `light_screen` "Both",
+  `tailwind` "My Team", `tailwind` "Threat Team", `trick_room`, weather Snow, terrain Psychic and
+  terrain Grassy are each 0 of 45 and 0 of 10, headline 50.00. Neutralising the two screens in `calc`
+  is a scoring change of its own and needs its own stamp.
 
   Suggestions keep their order and scores (`run-suggest-vectors.mjs`); what the breakdown
   shows is extra: every layer's share of the score (`score_ledger`, `score_uncapped`; the

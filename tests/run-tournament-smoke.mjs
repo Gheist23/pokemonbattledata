@@ -766,6 +766,31 @@ for (const format of ["Doubles", "Singles"]) {
     && !how.includes("Wide Guard"), how.slice(0, 160));
   check("The Singles explainer brings three and has no partner moves", tournamentExplainer({ format: "Singles" }).textContent.includes("Both sides bring three") && !tournamentExplainer({ format: "Singles" }).textContent.includes("Helping Hand"));
 
+  // The bring rule's own copy (tournament-test.js TOURNAMENT_BRING). Both sides now commit their
+  // bring blind, which is what makes step 5's "50 is even" true: measured on a round robin of the
+  // first 20 tournament teams, all 190 unordered pairs add up to exactly 100 and all 20 teams score
+  // exactly 50 against themselves. Under the rule before it the same step 4 said "they answer with
+  // the four that do the most against your choice" and 170 of those 190 pairs did NOT add up to 100
+  // (mean 10.80, max 31.55), so that wording must not come back. These are the sentences the rule
+  // paid for; nothing else asserted them.
+  check("The explainer says neither side sees the other's bring",
+    how.includes("Neither side sees the other's choice: you both bring the four that hold up best against every answer")
+    && tournamentExplainer({ teams: 2827, format: "Doubles", bring: 3 }).textContent.includes("Neither side sees the other's choice: you bring the three that hold up best against every answer, they bring the four that do"),
+    how.slice(0, 220));
+  check("The explainer no longer says they answer our choice",
+    !how.includes("they answer with") && !how.includes("do the most against your choice"), how.slice(0, 220));
+  check("A one-Pokemon team's explainer says they cannot see it coming",
+    tournamentExplainer({ teams: 2827, format: "Singles", bring: 1 }).textContent.includes("They cannot see it coming, so they bring the three that hold up best against every one of yours"));
+  check("The explainer says WHY 50 is even, not just that it is",
+    how.includes("A score of 50 is even") && how.includes("so 50 is what a team scores against itself"), how.slice(-300));
+  // The bring options card: `bestBrings[].value` is the game each bring plays against the bring they
+  // commit to now, not its own worst case, so the card says "if you brought these" and not "when
+  // brought". Measured on this bench team against 150 teams: Recommended 44.62 against a headline of
+  // 53.35 in Doubles and 43.02 against 51.99 in Singles.
+  check("The bring options card says what its number is",
+    full.includes("on average if you brought these against every team") && !full.includes("when brought against every team"),
+    full.match(/[^·]*on average[^·]*/)?.[0] || "");
+
   // A lone Pokémon that cannot damage anything: one to bring, the same score against every archetype.
   const lone = await makeTest("Doubles").run([makeSet({ species: "Whimsicott", item: "Focus Sash", ability: "Prankster", nature: "Timid", moves: ["Tailwind", "Encore", "Protect"], bonuses: [2, 0, 0, 32, 0, 32] })], { limit: 80 });
   const loneText = render(lone);

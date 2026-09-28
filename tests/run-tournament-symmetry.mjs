@@ -2,8 +2,14 @@
 //
 // The battle model must not care which side a Pokémon sits on. These properties say so, and all of
 // them are asserted here on real tournament teams (data/builder/known-teams.json), in both formats,
-// under the default settings (the shared Reflect / Light Screen / Tailwind settings are applied by
-// SIDE, so pinning one of those makes the board asymmetric by input, not by this rule):
+// under the default settings. One thing outside these rules can still break them: the shared Team
+// Evaluation Reflect and Light Screen settings are applied BY SIDE (team-eval.js screenOn), so
+// pinning either to ONE side makes the board asymmetric by INPUT, not by this rule. Measured on 10
+// corpus teams in Doubles, 45 pairs and 10 mirrors each: reflect "My Team" 45 of 45 pairs off 100
+// (worst 49.66) and 9 of 10 mirrors off 50, "Threat Team" the same with the sign flipped,
+// light_screen "My Team" 44 of 45 (worst 37.63); while either set to "Both", tailwind on either side
+// (the board sets its own, so the setting never reaches it), trick_room, weather and terrain are all
+// 0 of 45 and 0 of 10. Neutralising the two screens is a scoring change and needs its own stamp:
 //
 //   MIRROR      a team played against ITSELF, the same bring on both sides, scores exactly 50.
 //   SEAT SWAP   the same two line-ups with the seats exchanged score exactly 100 together.

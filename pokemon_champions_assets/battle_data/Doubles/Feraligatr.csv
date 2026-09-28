@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Feraligatr,150,move,1,Liquidation,80.7%,,,,,,,,
 Feraligatr,150,move,2,Protect,62.5%,,,,,,,,
-Feraligatr,150,move,3,Ice Punch,38.7%,,,,,,,,
+Feraligatr,150,move,3,Ice Punch,38.8%,,,,,,,,
 Feraligatr,150,move,4,Aqua Jet,33.1%,,,,,,,,
 Feraligatr,150,move,5,Dragon Dance,30.5%,,,,,,,,
 Feraligatr,150,move,6,Double-Edge,26.1%,,,,,,,,
 Feraligatr,150,move,7,Body Slam,20.4%,,,,,,,,
-Feraligatr,150,move,8,Crunch,15.3%,,,,,,,,
+Feraligatr,150,move,8,Crunch,15.4%,,,,,,,,
 Feraligatr,150,move,9,Rock Slide,10.7%,,,,,,,,
-Feraligatr,150,move,10,Swords Dance,9.6%,,,,,,,,
+Feraligatr,150,move,10,Swords Dance,9.7%,,,,,,,,
 Feraligatr,150,held_item,1,Feraligite,65.0%,,,,,,,,
-Feraligatr,150,held_item,2,Life Orb,26.5%,,,,,,,,
+Feraligatr,150,held_item,2,Life Orb,26.6%,,,,,,,,
 Feraligatr,150,held_item,3,Leftovers,2.5%,,,,,,,,
 Feraligatr,150,held_item,4,Mystic Water,1.7%,,,,,,,,
 Feraligatr,150,held_item,5,Quick Claw,1.0%,,,,,,,,
@@ -28,7 +28,7 @@ Feraligatr,150,teammate,6,Whimsicott,,,,,,,,,
 Feraligatr,150,teammate,7,Indeedee-F,,,,,,,,,
 Feraligatr,150,teammate,8,Sinistcha,,,,,,,,,
 Feraligatr,150,teammate,9,Archaludon,,,,,,,,,
-Feraligatr,150,teammate,10,Kingambit,,,,,,,,,
+Feraligatr,150,teammate,10,Golisopod,,,,,,,,,
 Feraligatr,150,stat_alignment,1,Adamant,59.1%,Attack,Sp. Atk,,,,,,
 Feraligatr,150,stat_alignment,2,Jolly,18.2%,Speed,Sp. Atk,,,,,,
 Feraligatr,150,stat_alignment,3,Brave,13.4%,Attack,Speed,,,,,,
@@ -36,11 +36,11 @@ Feraligatr,150,stat_alignment,4,Careful,3.8%,Sp. Def,Sp. Atk,,,,,,
 Feraligatr,150,stat_alignment,5,Impish,1.0%,Defense,Sp. Atk,,,,,,
 Feraligatr,150,stat_alignment,6,Modest,1.0%,Sp. Atk,Attack,,,,,,
 Feraligatr,150,stat_alignment,7,Naughty,0.9%,Attack,Sp. Def,,,,,,
-Feraligatr,150,stat_alignment,8,Serious,0.8%,,,,,,,,
+Feraligatr,150,stat_alignment,8,Serious,0.7%,,,,,,,,
 Feraligatr,150,stat_alignment,9,Sassy,0.5%,Sp. Def,Speed,,,,,,
 Feraligatr,150,stat_alignment,10,Lonely,0.4%,Attack,Defense,,,,,,
 Feraligatr,150,stat_points,1,,15.2%,,,2,32,0,0,0,32
-Feraligatr,150,stat_points,2,,14.6%,,,32,32,0,0,2,0
+Feraligatr,150,stat_points,2,,14.5%,,,32,32,0,0,2,0
 Feraligatr,150,stat_points,3,,4.9%,,,32,32,0,0,0,2
 Feraligatr,150,stat_points,4,,3.8%,,,0,32,0,0,2,32
 Feraligatr,150,stat_points,5,,3.0%,,,32,32,2,0,0,0

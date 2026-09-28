@@ -216,8 +216,12 @@ function bringCard({ s, n, doubles, bring, section, name, sprite }) {
           ? `${leadList.length > 1 ? `Lead ${plus(leadList, name)}` : `Lead with ${held(leadList[0], name)}`}${back.length ? `, then ${joinNames(back.map((m) => held(m, name)))}` : ""}.`
           : joinNames(b.members.map((m) => held(m, name)))),
         // Two different numbers on purpose: `bestRate` is how often this is the best choice, and
-        // `value` is what it averages if you never changed it -- always below the score at the top
-        // of the page, which lets each team have the bring that suits it.
+        // `value` is what it averages if you never changed it -- below the score at the top of the
+        // page, which lets each team have the bring that suits it. Not an identity, just what one
+        // bring for every team costs: measured on the bench team against 150 teams, the Recommended
+        // option reads 44.62 against a headline of 53.35 in Doubles and 43.02 against 51.99 in
+        // Singles (under the previous bring rule, where `value` was each bring's own worst case, the
+        // same gaps were 35.67 / 48.46 and 33.32 / 49.21).
         h("small", {}, `Your best choice against ${pct(b.bestRate)} of the teams · ${score(b.value)} on average if you brought these against every team`)));
   };
   const leadCount = options[0].leads?.length || (doubles ? 2 : 1);

@@ -36,6 +36,7 @@ import {
   CARD, CONTEXT_OPS, ELLIPSIS, EVAL, FONT_LADDER, FOOTER, HEADER, MAX_BONUS_POINTS_PER_STAT,
   MAX_BONUS_STAT_POINTS, MAX_CARD_BYTES, PALETTE, STAT_LABELS, TEAM, bonusTotal, drawEvalCard,
   drawTeamCard, fitText, liveTeam, natureLabel, scoreTone, statBarWidth, statColor, teamCellBoxes,
+  threatColor, threatTone,
 } from "../builder/share-card.js";
 import { BuilderData } from "../builder/common.js";
 import { MAX_BONUS_POINTS_PER_STAT as ENGINE_PER_STAT, MAX_BONUS_STAT_POINTS as ENGINE_TOTAL } from "../builder/engine.js";
@@ -308,9 +309,20 @@ for (const [token, colour] of [["--stat-great", "#188a45"], ["--stat-good", "#a6
   ok(styles.includes(`${token}: ${colour};`), `styles.css still defines ${token}: ${colour}`);
 }
 const builderCss = readFileSync(join(root, "builder", "builder.css"), "utf8");
-for (const colour of [PALETTE.good, PALETTE.mid, PALETTE.bad, PALETTE.line, PALETTE.cardDeep]) {
+for (const colour of [PALETTE.good, PALETTE.mid, PALETTE.bad, PALETTE.line, PALETTE.cardDeep, PALETTE.orange]) {
   ok(builderCss.includes(colour), `builder.css still defines ${colour}`);
 }
+// Threat scores run the OTHER way (higher is more dangerous) and have four
+// bands of their own.  threatTone is not exported from evaluation-view.js, so
+// pin its cut-offs against that file's source text; if it is ever retuned this
+// fails instead of the card quietly disagreeing with the tab.
+const evalView = readFileSync(join(root, "builder", "evaluation-view.js"), "utf8");
+ok(evalView.includes('score >= 75 ? "bad" : score >= 55 ? "orange" : score >= 35 ? "mid" : "good"'),
+  "evaluation-view.js threatTone still cuts at 75 / 55 / 35");
+for (const [score, tone] of [[100, "bad"], [75, "bad"], [74, "orange"], [55, "orange"], [54, "mid"], [35, "mid"], [34, "good"], [0, "good"]]) {
+  ok(threatTone(score) === tone, `threatTone(${score}) is ${tone}`);
+}
+ok(threatColor(80) === PALETTE.bad && threatColor(20) === PALETTE.good, "threat colours run opposite to team scores");
 
 // 2. the grid tiles without overlap, for every team size
 for (let n = 1; n <= 6; n += 1) {
@@ -441,8 +453,7 @@ for (const n of [1, 2, 3, 4, 5]) {
       `worst case: ${op.kind} ${JSON.stringify(op.text ?? "")} stays in one cell`);
   }
   const drawn = texts(ops);
-  ok(drawn.filter((t) => t.includes(ELLIPSIS)).length === 0 || drawn.every((t) => (t.match(/…/g) || []).length <= 1),
-    "no string is elided more than once");
+  ok(drawn.every((t) => (t.match(/…/g) || []).length <= 1), "no string carries more than one ellipsis");
   ok(drawn.includes(WIDEST.item.text), "the 32-character item is drawn in full");
   ok(drawn.includes(WIDEST.move.text), "the widest real move is drawn in full");
   ok(drawn.includes(FOOTER.brandText), "worst case: the footer is still present");

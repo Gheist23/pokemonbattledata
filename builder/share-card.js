@@ -72,6 +72,7 @@ export const PALETTE = Object.freeze({
   statBad: "#e05243",
   track: "rgba(114, 255, 171, 0.16)",
   hairline: "rgba(114, 255, 171, 0.09)",
+  orange: "#fdba74",
 });
 
 /** One family for both renderers.  Two families would be two sets of text
@@ -89,7 +90,7 @@ export const FONT_LADDER = Object.freeze({
   ability: [13, 12, 11],
   nature: [12.5, 11.5, 10.5],
   points: [11.5, 10.5],
-  move: [12, 11, 10],
+  move: [12, 11, 10, 9.5],
   statLabel: [10.5],
   statValue: [11],
   statPoints: [10],
@@ -163,7 +164,7 @@ export const TEAM = Object.freeze({
   moveRowY: [104, 130],
   moveH: 22,
   moveRadius: 6,
-  moveInset: 8,
+  moveInset: 7,
   statColW: 108,
   statGap: 10,
   statX: [14, 132, 250],
@@ -258,6 +259,22 @@ export function scoreTone(score) {
 
 export function scoreColor(score) {
   return PALETTE[scoreTone(num(score))];
+}
+
+/** builder/evaluation-view.js:202-203 threatTone (_v47_threat_score_color):
+ *  higher is MORE dangerous, and it has four bands and its own cut-offs -- not
+ *  scoreTone's two.  Not exported there, so the guard suite asserts the cuts
+ *  against that file's source text instead of letting them drift. */
+export function threatTone(score) {
+  const value = num(score);
+  if (value >= 75) return "bad";
+  if (value >= 55) return "orange";
+  if (value >= 35) return "mid";
+  return "good";
+}
+
+export function threatColor(score) {
+  return PALETTE[threatTone(score)];
 }
 
 /** builder/builder-page.js:310 -- the same four thresholds. */
@@ -729,9 +746,7 @@ function threatList(ctx, digest, sprites) {
       sizes: FONT_LADDER.threatName, color: PALETTE.text, maxWidth: EVAL.threatNameMaxW,
     });
     const score = clamp(Math.round(num(row?.score)), 0, 100);
-    // Higher is more dangerous (evaluation-view.js:201 threatTone), so the
-    // colour runs the other way from a team score.
-    const tone = score >= 70 ? PALETTE.bad : score >= 50 ? PALETTE.mid : PALETTE.good;
+    const tone = threatColor(score);
     bar(ctx, EVAL.threatBarX, y + EVAL.threatBarDY, EVAL.threatBarW, EVAL.threatBarH,
       Math.round((EVAL.threatBarW * score) / 100), tone);
     drawText(ctx, String(score), EVAL.threatScoreRight, y + EVAL.threatNameDY, {

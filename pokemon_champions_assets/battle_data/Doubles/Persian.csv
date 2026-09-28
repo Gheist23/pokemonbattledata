@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Persian,236,move,1,Fake Out,96.8%,,,,,,,,
 Persian,236,move,2,Icy Wind,32.9%,,,,,,,,
-Persian,236,move,3,Feint,30.5%,,,,,,,,
+Persian,236,move,3,Feint,30.6%,,,,,,,,
 Persian,236,move,4,Protect,21.4%,,,,,,,,
-Persian,236,move,5,U-turn,19.8%,,,,,,,,
-Persian,236,move,6,Helping Hand,19.8%,,,,,,,,
+Persian,236,move,5,Helping Hand,19.9%,,,,,,,,
+Persian,236,move,6,U-turn,19.8%,,,,,,,,
 Persian,236,move,7,Endeavor,16.4%,,,,,,,,
 Persian,236,move,8,Bite,14.1%,,,,,,,,
 Persian,236,move,9,Covet,11.4%,,,,,,,,
-Persian,236,move,10,Snarl,10.9%,,,,,,,,
-Persian,236,held_item,1,Focus Sash,43.6%,,,,,,,,
+Persian,236,move,10,Snarl,10.8%,,,,,,,,
+Persian,236,held_item,1,Focus Sash,43.7%,,,,,,,,
 Persian,236,held_item,2,Normal Gem,11.8%,,,,,,,,
 Persian,236,held_item,3,Silk Scarf,10.1%,,,,,,,,
 Persian,236,held_item,4,Life Orb,6.5%,,,,,,,,
@@ -32,7 +32,7 @@ Persian,236,teammate,10,Aerodactyl,,,,,,,,,
 Persian,236,stat_alignment,1,Jolly,31.1%,Speed,Sp. Atk,,,,,,
 Persian,236,stat_alignment,2,Timid,18.9%,Speed,Attack,,,,,,
 Persian,236,stat_alignment,3,Adamant,17.7%,Attack,Sp. Atk,,,,,,
-Persian,236,stat_alignment,4,Naive,8.1%,Speed,Sp. Def,,,,,,
+Persian,236,stat_alignment,4,Naive,8.0%,Speed,Sp. Def,,,,,,
 Persian,236,stat_alignment,5,Hasty,8.0%,Speed,Defense,,,,,,
 Persian,236,stat_alignment,6,Modest,6.4%,Sp. Atk,Attack,,,,,,
 Persian,236,stat_alignment,7,Impish,3.7%,Defense,Sp. Atk,,,,,,
@@ -43,7 +43,7 @@ Persian,236,stat_points,1,,25.1%,,,2,32,0,0,0,32
 Persian,236,stat_points,2,,9.9%,,,2,0,0,32,0,32
 Persian,236,stat_points,3,,8.7%,,,0,0,0,32,2,32
 Persian,236,stat_points,4,,6.2%,,,0,32,2,0,0,32
-Persian,236,stat_points,5,,5.4%,,,0,32,0,0,32,2
+Persian,236,stat_points,5,,5.5%,,,0,32,0,0,32,2
 Persian,236,stat_points,6,,5.0%,,,0,0,0,32,0,32
 Persian,236,stat_points,7,,4.0%,,,0,32,0,0,2,32
 Persian,236,stat_points,8,,3.4%,,,0,0,1,32,1,32

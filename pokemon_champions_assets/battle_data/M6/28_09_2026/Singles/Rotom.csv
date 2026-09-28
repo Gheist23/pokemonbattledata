@@ -1,5 +1,5 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom,254,move,1,Will-O-Wisp,60.6%,,,,,,,,
+Rotom,254,move,1,Will-O-Wisp,60.5%,,,,,,,,
 Rotom,254,move,2,Thunderbolt,55.1%,,,,,,,,
 Rotom,254,move,3,Shadow Ball,52.8%,,,,,,,,
 Rotom,254,move,4,Volt Switch,48.2%,,,,,,,,
@@ -12,7 +12,7 @@ Rotom,254,move,10,Discharge,13.6%,,,,,,,,
 Rotom,254,held_item,1,Choice Scarf,24.3%,,,,,,,,
 Rotom,254,held_item,2,Focus Sash,22.9%,,,,,,,,
 Rotom,254,held_item,3,Focus Band,12.6%,,,,,,,,
-Rotom,254,held_item,4,Leftovers,6.3%,,,,,,,,
+Rotom,254,held_item,4,Leftovers,6.2%,,,,,,,,
 Rotom,254,held_item,5,Sitrus Berry,5.4%,,,,,,,,
 Rotom,254,held_item,6,Life Orb,3.7%,,,,,,,,
 Rotom,254,held_item,7,Wide Lens,2.9%,,,,,,,,
@@ -30,7 +30,7 @@ Rotom,254,teammate,8,Leafeon,,,,,,,,,
 Rotom,254,teammate,9,Salamence,,,,,,,,,
 Rotom,254,teammate,10,Lucario,,,,,,,,,
 Rotom,254,stat_alignment,1,Timid,57.2%,Speed,Attack,,,,,,
-Rotom,254,stat_alignment,2,Modest,20.6%,Sp. Atk,Attack,,,,,,
+Rotom,254,stat_alignment,2,Modest,20.7%,Sp. Atk,Attack,,,,,,
 Rotom,254,stat_alignment,3,Bold,8.8%,Defense,Attack,,,,,,
 Rotom,254,stat_alignment,4,Calm,7.4%,Sp. Def,Attack,,,,,,
 Rotom,254,stat_alignment,5,Mild,2.4%,Sp. Atk,Defense,,,,,,
@@ -41,9 +41,9 @@ Rotom,254,stat_alignment,9,Jolly,0.4%,Speed,Sp. Atk,,,,,,
 Rotom,254,stat_alignment,10,Sassy,0.3%,Sp. Def,Speed,,,,,,
 Rotom,254,stat_points,1,,37.4%,,,2,0,0,32,0,32
 Rotom,254,stat_points,2,,14.7%,,,0,0,0,32,2,32
-Rotom,254,stat_points,3,,7.6%,,,0,0,2,32,0,32
+Rotom,254,stat_points,3,,7.7%,,,0,0,2,32,0,32
 Rotom,254,stat_points,4,,3.9%,,,32,0,32,0,2,0
-Rotom,254,stat_points,5,,2.0%,,,32,0,0,32,0,2
+Rotom,254,stat_points,5,,2.1%,,,32,0,0,32,0,2
 Rotom,254,stat_points,6,,1.8%,,,32,0,32,0,0,2
 Rotom,254,stat_points,7,,1.7%,,,2,0,32,0,32,0
 Rotom,254,stat_points,8,,1.7%,,,32,0,32,2,0,0

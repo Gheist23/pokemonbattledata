@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sandaconda,214,move,1,Earthquake,72.8%,,,,,,,,
+Sandaconda,214,move,1,Earthquake,72.7%,,,,,,,,
 Sandaconda,214,move,2,Stealth Rock,64.7%,,,,,,,,
-Sandaconda,214,move,3,Glare,63.0%,,,,,,,,
+Sandaconda,214,move,3,Glare,62.9%,,,,,,,,
 Sandaconda,214,move,4,Endeavor,38.2%,,,,,,,,
 Sandaconda,214,move,5,Minimize,23.1%,,,,,,,,
 Sandaconda,214,move,6,Rock Tomb,22.0%,,,,,,,,
 Sandaconda,214,move,7,Coil,20.3%,,,,,,,,
 Sandaconda,214,move,8,Body Press,12.7%,,,,,,,,
-Sandaconda,214,move,9,Stone Edge,11.4%,,,,,,,,
+Sandaconda,214,move,9,Stone Edge,11.3%,,,,,,,,
 Sandaconda,214,move,10,Rest,10.6%,,,,,,,,
 Sandaconda,214,held_item,1,Focus Sash,35.2%,,,,,,,,
 Sandaconda,214,held_item,2,Smooth Rock,13.4%,,,,,,,,
@@ -37,8 +37,8 @@ Sandaconda,214,stat_alignment,5,Brave,1.2%,Attack,Speed,,,,,,
 Sandaconda,214,stat_alignment,6,Relaxed,1.2%,Defense,Speed,,,,,,
 Sandaconda,214,stat_alignment,7,Hasty,1.0%,Speed,Defense,,,,,,
 Sandaconda,214,stat_alignment,8,Bold,0.9%,Defense,Attack,,,,,,
-Sandaconda,214,stat_alignment,9,Naughty,0.9%,Attack,Sp. Def,,,,,,
-Sandaconda,214,stat_alignment,10,Naive,0.9%,Speed,Sp. Def,,,,,,
+Sandaconda,214,stat_alignment,9,Naive,0.9%,Speed,Sp. Def,,,,,,
+Sandaconda,214,stat_alignment,10,Naughty,0.9%,Attack,Sp. Def,,,,,,
 Sandaconda,214,stat_points,1,,17.5%,,,2,32,0,0,0,32
 Sandaconda,214,stat_points,2,,9.3%,,,32,0,32,0,2,0
 Sandaconda,214,stat_points,3,,8.9%,,,32,0,2,0,32,0
@@ -50,5 +50,5 @@ Sandaconda,214,stat_points,8,,2.1%,,,0,32,32,0,2,0
 Sandaconda,214,stat_points,9,,1.8%,,,32,0,32,0,0,2
 Sandaconda,214,stat_points,10,,1.7%,,,2,0,32,0,32,0
 Sandaconda,214,ability,1,Sand Spit,72.5%,,,,,,,,
-Sandaconda,214,ability,2,Shed Skin,19.1%,,,,,,,,
-Sandaconda,214,ability,3,Sand Veil,8.4%,,,,,,,,
+Sandaconda,214,ability,2,Shed Skin,19.2%,,,,,,,,
+Sandaconda,214,ability,3,Sand Veil,8.3%,,,,,,,,

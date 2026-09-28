@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Typhlosion,211,move,1,Eruption,70.7%,,,,,,,,
 Typhlosion,211,move,2,Scorching Sands,56.9%,,,,,,,,
-Typhlosion,211,move,3,Shadow Ball,41.3%,,,,,,,,
-Typhlosion,211,move,4,Flamethrower,34.5%,,,,,,,,
+Typhlosion,211,move,3,Shadow Ball,41.2%,,,,,,,,
+Typhlosion,211,move,4,Flamethrower,34.6%,,,,,,,,
 Typhlosion,211,move,5,Burn Up,28.3%,,,,,,,,
-Typhlosion,211,move,6,Focus Blast,27.6%,,,,,,,,
+Typhlosion,211,move,6,Focus Blast,27.5%,,,,,,,,
 Typhlosion,211,move,7,Quick Attack,16.5%,,,,,,,,
 Typhlosion,211,move,8,Endeavor,15.9%,,,,,,,,
-Typhlosion,211,move,9,Overheat,14.7%,,,,,,,,
+Typhlosion,211,move,9,Overheat,14.6%,,,,,,,,
 Typhlosion,211,move,10,Will-O-Wisp,10.6%,,,,,,,,
 Typhlosion,211,held_item,1,Choice Scarf,55.1%,,,,,,,,
-Typhlosion,211,held_item,2,Focus Sash,18.5%,,,,,,,,
+Typhlosion,211,held_item,2,Focus Sash,18.6%,,,,,,,,
 Typhlosion,211,held_item,3,Charcoal,11.6%,,,,,,,,
 Typhlosion,211,held_item,4,Sitrus Berry,3.1%,,,,,,,,
 Typhlosion,211,held_item,5,Life Orb,2.2%,,,,,,,,
@@ -30,9 +30,9 @@ Typhlosion,211,teammate,8,Primarina,,,,,,,,,
 Typhlosion,211,teammate,9,Greninja,,,,,,,,,
 Typhlosion,211,teammate,10,Meowscarada,,,,,,,,,
 Typhlosion,211,stat_alignment,1,Modest,58.3%,Sp. Atk,Attack,,,,,,
-Typhlosion,211,stat_alignment,2,Timid,25.2%,Speed,Attack,,,,,,
+Typhlosion,211,stat_alignment,2,Timid,25.1%,Speed,Attack,,,,,,
 Typhlosion,211,stat_alignment,3,Rash,5.7%,Sp. Atk,Sp. Def,,,,,,
-Typhlosion,211,stat_alignment,4,Mild,3.4%,Sp. Atk,Defense,,,,,,
+Typhlosion,211,stat_alignment,4,Mild,3.5%,Sp. Atk,Defense,,,,,,
 Typhlosion,211,stat_alignment,5,Hasty,2.9%,Speed,Defense,,,,,,
 Typhlosion,211,stat_alignment,6,Naive,1.1%,Speed,Sp. Def,,,,,,
 Typhlosion,211,stat_alignment,7,Adamant,1.0%,Attack,Sp. Atk,,,,,,
@@ -40,7 +40,7 @@ Typhlosion,211,stat_alignment,8,Bold,0.9%,Defense,Attack,,,,,,
 Typhlosion,211,stat_alignment,9,Jolly,0.5%,Speed,Sp. Atk,,,,,,
 Typhlosion,211,stat_alignment,10,Quiet,0.3%,Sp. Atk,Speed,,,,,,
 Typhlosion,211,stat_points,1,,44.8%,,,2,0,0,32,0,32
-Typhlosion,211,stat_points,2,,13.3%,,,0,0,2,32,0,32
+Typhlosion,211,stat_points,2,,13.2%,,,0,0,2,32,0,32
 Typhlosion,211,stat_points,3,,7.0%,,,0,0,0,32,2,32
 Typhlosion,211,stat_points,4,,6.1%,,,0,0,0,32,0,32
 Typhlosion,211,stat_points,5,,5.3%,,,0,2,0,32,0,32

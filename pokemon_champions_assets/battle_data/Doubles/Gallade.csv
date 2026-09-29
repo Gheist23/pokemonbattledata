@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gallade,63,move,1,Sacred Sword,90.8%,,,,,,,,
 Gallade,63,move,2,Psycho Cut,79.7%,,,,,,,,
-Gallade,63,move,3,Wide Guard,38.5%,,,,,,,,
-Gallade,63,move,4,Leaf Blade,37.0%,,,,,,,,
-Gallade,63,move,5,Protect,33.6%,,,,,,,,
-Gallade,63,move,6,Trick Room,29.5%,,,,,,,,
-Gallade,63,move,7,Night Slash,20.2%,,,,,,,,
+Gallade,63,move,3,Wide Guard,38.3%,,,,,,,,
+Gallade,63,move,4,Leaf Blade,37.1%,,,,,,,,
+Gallade,63,move,5,Protect,33.7%,,,,,,,,
+Gallade,63,move,6,Trick Room,29.4%,,,,,,,,
+Gallade,63,move,7,Night Slash,20.3%,,,,,,,,
 Gallade,63,move,8,Shadow Sneak,7.3%,,,,,,,,
 Gallade,63,move,9,Drain Punch,7.1%,,,,,,,,
 Gallade,63,move,10,Rock Slide,6.5%,,,,,,,,
-Gallade,63,held_item,1,Focus Sash,19.7%,,,,,,,,
-Gallade,63,held_item,2,Galladite,16.8%,,,,,,,,
+Gallade,63,held_item,1,Focus Sash,19.6%,,,,,,,,
+Gallade,63,held_item,2,Galladite,16.9%,,,,,,,,
 Gallade,63,held_item,3,Life Orb,11.2%,,,,,,,,
 Gallade,63,held_item,4,Choice Scarf,9.0%,,,,,,,,
 Gallade,63,held_item,5,White Herb,7.6%,,,,,,,,
@@ -30,7 +30,7 @@ Gallade,63,teammate,8,Kingambit,,,,,,,,,
 Gallade,63,teammate,9,Farigiraf,,,,,,,,,
 Gallade,63,teammate,10,Hatterene,,,,,,,,,
 Gallade,63,stat_alignment,1,Adamant,48.0%,Attack,Sp. Atk,,,,,,
-Gallade,63,stat_alignment,2,Brave,22.4%,Attack,Speed,,,,,,
+Gallade,63,stat_alignment,2,Brave,22.3%,Attack,Speed,,,,,,
 Gallade,63,stat_alignment,3,Jolly,21.7%,Speed,Sp. Atk,,,,,,
 Gallade,63,stat_alignment,4,Impish,2.5%,Defense,Sp. Atk,,,,,,
 Gallade,63,stat_alignment,5,Relaxed,1.3%,Defense,Speed,,,,,,
@@ -40,7 +40,7 @@ Gallade,63,stat_alignment,8,Naive,0.5%,Speed,Sp. Def,,,,,,
 Gallade,63,stat_alignment,9,Lonely,0.5%,Attack,Defense,,,,,,
 Gallade,63,stat_alignment,10,Hasty,0.4%,Speed,Defense,,,,,,
 Gallade,63,stat_points,1,,25.0%,,,2,32,0,0,0,32
-Gallade,63,stat_points,2,,16.8%,,,32,32,2,0,0,0
+Gallade,63,stat_points,2,,16.7%,,,32,32,2,0,0,0
 Gallade,63,stat_points,3,,5.7%,,,0,32,2,0,0,32
 Gallade,63,stat_points,4,,4.2%,,,32,32,0,0,2,0
 Gallade,63,stat_points,5,,3.1%,,,0,32,0,0,2,32

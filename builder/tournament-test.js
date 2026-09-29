@@ -31,22 +31,36 @@
 //            it does to the foes is worth more than what it does to the partner, and a
 //            Speed drop is never used when it would hit the partner. A partner knocked out
 //            this way does not count as a knockout for anyone.
-//   Turn 2+  every active Pokémon attacks on the board turn 1 left: Tailwind doubles its
-//            side's Speed for 3 more turns, Trick Room lets slower Pokémon move first for
-//            4 more, Speed and Attack drops stay (a move's guaranteed drop, like Snarl's or
-//            Icy Wind's, applies on every hit), sleep and Encore cost the next turns, a burn
+//   Turns 2-4 three more PLANNED turns, each decided by the same machinery as turn 1
+//            (TOURNAMENT_DEPTH): Protect, Wide and Quick Guard, Helping Hand, sleep, Taunt, Encore,
+//            a stat drop, and a Trick Room or Tailwind that is not up yet are all available on them.
+//            Fake Out and First Impression are not -- they work on the turn their user comes in, and
+//            only turn 1's leads have come in. Protect fails when its user protected the turn before
+//            (TOURNAMENT_GUARD), so a lead cannot refuse every turn of the game for nothing.
+//   Turn 5+  every active Pokémon attacks on the board the first four turns left: Speed and Attack
+//            drops stay (a move's guaranteed drop, like Snarl's or Icy Wind's, applies on every hit),
+//            sleep costs its target kit.sleepTurns actions and Encore IDLE_TURNS, a burn
 //            halves physical damage and takes 1/16 HP a turn, HP carries over, Focus Sash and
-//            Sitrus Berry work once. A Pokémon that faints is replaced from the back until
-//            one side is out or the turn cap is reached. Everyone replaced on the same turn comes
-//            in together, in Speed order, so a replacement's Intimidate reaches the other side's
-//            replacement too and the slower setter's weather stands whichever side it is on.
+//            Sitrus Berry work once. Tailwind's 3 turns and Trick Room's 4 are counted from the turn
+//            they went up and tick on every planned turn after it, so a turn-1 Tailwind is spent by
+//            turn 5 and a turn-1 Trick Room has one turn left. A Pokémon that faints is replaced
+//            from the back until one side is out or the turn cap is reached. Everyone replaced on the
+//            same turn comes in together, in Speed order, so a replacement's Intimidate reaches the
+//            other side's replacement too and the slower setter's weather stands whichever side it is on.
 // Damage is the calc engine's exact expected damage (mean roll x accuracy, halved for
 // moves that need a recharge turn) for the board's weather, terrain, stat stages, burn
-// and Helping Hand. Every game has a field of its own and the board is its only source, so the
+// and Helping Hand. Eruption, Water Spout and Dragon Energy are as strong as the HP their user has
+// left (TOURNAMENT_FALLOFF). Every game has a field of its own and the board is its only source, so the
 // shared Field settings (Weather, Terrain, Trick Room, Tailwind, Reflect, Light Screen) do not
 // apply here -- the results name the ones a run ignored (`ignoredField`).
 // The game's value = 50 + 50 x (our HP left - their HP left), each side's HP as a share
 // of what it brought, kept to 0..100.
+//
+// Every game is played nine times (TOURNAMENT_DEPTH). Each side picks one of three stances for turn
+// 1 -- the line above, everyone who can Protect protecting, or everyone attacking -- and the game is
+// played once for every pair of them. Each side then takes the stance that holds up best against all
+// three of the other's, blind, by the same rule it brings by. So no side is credited for a turn the
+// other side could simply refuse.
 //
 // A matchup is every bring of ours against every bring of theirs. Both sides bring blind: each
 // takes the Pokémon that hold up best against every answer the other could make (ties to the
@@ -66,12 +80,18 @@
 // turn 1. This is the Companion's rule (lead_optimizer/mega_rule.py).
 //
 // The lead matrix: in Doubles every pair of ours plays the pairs they lead with most often,
-// a full 2 vs 2 game of just those four (turn 1 and the fight after it), each of their
+// a full 2 vs 2 game of just those four (the four planned turns and the fight after them,
+// searched exactly as the scoring game is -- TOURNAMENT_DEPTH version 2), each of their
 // Pokémon on its most common tournament set; in Singles every Pokémon of ours plays their
 // most common Pokémon 1 vs 1.
+//
+// Variable-power attacks: a physical or special move the move table lists at 0 power is still an
+// attack when the engine prices it -- Gyro Ball, Electro Ball, Reversal and the rest of the named
+// set (TOURNAMENT_VAR_POWER).
 
 import { compact, intimidateOffsets, makeMon, TERRAIN_SEEDS } from "./engine.js";
 import { mostSimilarTeam } from "./known-teams.js";
+import { resultRecoilShare } from "./self-cost.js";
 import { classifyArchetype, tailwindBeneficiaries } from "./team-checks.js";
 
 const BRING = { Singles: 3, Doubles: 4 };
@@ -81,13 +101,30 @@ const TURN_CAP = { Singles: 12, Doubles: 10 };
 const BRING_OPTIONS = { Singles: 3, Doubles: 4 };
 const TAILWIND_TURNS = 3; // the turns after the one it is set on (4 counting that turn)
 const TRICK_ROOM_TURNS = 4; // the turns after the one it is set on (5 counting that turn)
-const IDLE_TURNS = 2; // sleep (from a sure-hit move) and Encore cost the next two actions
+// Encore costs its target the next two actions. Sleep does NOT use this: a sleep move costs
+// `kit.sleepTurns` actions, which is its own entry in SLEEP_MOVES (Spore 2, every other one 1).
+const IDLE_TURNS = 2;
 const BATCH = 8;
 const MATRIX_ROWS = 40;
 const MATRIX_EVERY = 8; // snapshots between lead-matrix refreshes while running (64 teams)
 const ID_SPAN = 1 << 16;
 const MAX_CACHED_HITS = 400000;
 export const MATCHUP_BANDS = { favourable: 55, unfavourable: 45 };
+// v10: the scoring game is FOUR planned turns, not two, and the lead matrix is that same searched
+// game (TOURNAMENT_DEPTH version 2); Protect fails when its user protected the turn before
+// (TOURNAMENT_GUARD); and a physical or special move the move table lists at 0 power is still an
+// attack when the engine prices it (TOURNAMENT_VAR_POWER). All three change what a cell IS, so every
+// score a v9 snapshot holds is a different number and a restored one would be drawn beside these as
+// though they were comparable. None of them changes how a bring or a stance is CHOSEN, which is why
+// the test stays even (measured bit-exact: a team scores exactly 50 against itself and A against B
+// plus B against A make exactly 100, at every version of every stamp).
+// v9: the game that scores is played TWO planned turns deep and searched (TOURNAMENT_DEPTH), and
+// Eruption, Water Spout and Dragon Energy weaken as their user is hurt (TOURNAMENT_FALLOFF), so every
+// score a v8 snapshot holds is a different number and a restored one would be drawn beside these as
+// though they were comparable. Both rules change what the grid cell IS, not how it is chosen: the
+// bring is still the maximin of the grid and the score is still one of its cells, which is why the
+// test stays even (a team scores exactly 50 against itself and A against B plus B against A make
+// exactly 100, both measured bit-exact under the new rules).
 // v8: `unevenStages` names a stat stage pinned on ONE side, because then a team does not score 50
 // against itself and the results have to say so; and each slot's quick duel is priced in the form
 // the one-Mega rule gives it in the line-up that fights that duel (TOURNAMENT_MEGA version 2), so
@@ -98,7 +135,7 @@ export const MATCHUP_BANDS = { favourable: 55, unfavourable: 45 };
 // (TOURNAMENT_ALT), the shared Field settings no longer reach the board (TOURNAMENT_FIELD) and
 // `ignoredField` names the ones it ignored, so every earlier snapshot is a different number. v6
 // scored under the bring rule (TOURNAMENT_BRING) on top of the seat rule (TOURNAMENT_SEAT).
-export const SNAPSHOT_VERSION = 8;
+export const SNAPSHOT_VERSION = 10;
 
 /** The turn-1 rule as a version: 2 keeps turn 1 out of the duel board, 1 prices Tailwind and
  *  Trick Room, 0 forces them.
@@ -323,6 +360,175 @@ export const TOURNAMENT_MEGA = 2;
  *  byte-identically at its own stamp: version 0 restores the Taunt-or-attack alternative. */
 export const TOURNAMENT_ALT = 1;
 
+/**
+ * How deeply the game that SCORES is played.
+ *
+ * Version 0 is one planned turn: `turnOne` decides everything -- Fake Out, Trick Room, Tailwind,
+ * Protect, Wide and Quick Guard, sleep, Taunt, Encore, Helping Hand -- and then every turn after it
+ * is `pickTarget` only, so from turn 2 on NOBODY protects, switches, sets a condition or uses a
+ * status move again. A side that wins turn 1 therefore meets no answer for the nine turns that
+ * follow: a Trick Room that goes up on turn 1 runs its full five turns unopposed, the foe never
+ * Protects the attack it is about to die to, and its own Trick Room or Tailwind can never go up
+ * because a status move is not something turn 2 can choose. Measured on a Trick Room + Drought team
+ * (Farigiraf / Torkoal / Dragonite-Mega / Incineroar / Golisopod-Mega / Kingambit): 67.53 against 150
+ * teams where twelve library teams played as ours average 50.68, and taking Trick Room off that team
+ * alone costs it 10.81 of those points.
+ *
+ * Version 1 plays TWO planned turns and searches them, for the one game whose value becomes the
+ * matchup score:
+ *   - Turn 2 is planned by the same `planSide` / `planGuards` machinery as turn 1, so Protect, the
+ *     guards, sleep, Taunt, Encore, Helping Hand and a second side's Trick Room or Tailwind are all
+ *     available on it. Fake Out and First Impression are not: they are the turn a Pokémon enters,
+ *     and only turn 1's leads have entered (`firstTurn`).
+ *   - Both sides choose a STANCE for turn 1 and the game is played once for every pair of them, so
+ *     the same matchup is played several times instead of once. The stances are the three a side
+ *     really has: the line `planSide` decides, everyone who can Protect protecting, and everyone
+ *     attacking.
+ *   - Each side then takes its best path, by the same maximin `chooseBrings` already uses for the
+ *     bring: ours is the stance whose WORST case against their three is highest, and theirs is
+ *     chosen BLIND, by its own minimax over its own side of the grid -- not as an answer to ours.
+ *     (The sentence that used to stand here, "theirs is their best answer to it", described the
+ *     first attempt, which `playDeep`'s own comment records as the thing that broke the test's
+ *     evenness: read as a reply, the search is one-sided and a team stops scoring 50 against
+ *     itself.) So a side is never credited for a line the other side can simply refuse.
+ *
+ * Version 2 plays FOUR planned turns, and makes the lead matrix the same searched game:
+ *   - Turns 2, 3 and 4 all go through `plannedTurn` (`play`'s loop over `plannedTurns`), because
+ *     version 1 still left turns 3+ as `pickTarget` and nothing else -- so the ability to Protect or
+ *     use a support move after turn 2 was worth exactly nothing. The TURN BUDGET is unchanged
+ *     (TURN_CAP: 10 in Doubles, 12 in Singles): a deeper plan does not buy a longer game, it
+ *     replaces attack-only turns with planned ones.
+ *     Measured on 20 library teams spread evenly across the library, 60 opponents each, Doubles,
+ *     budget held at 10, the other two new rules off: four planned turns move the headline against
+ *     two by mean 1.62 and up to 4.90 points and reorder 16 of the 20; planning EVERY turn
+ *     (plannedTurns = the turn cap) moves them by mean 4.11, max 14.17, 19 of 20. So four turns take
+ *     39% of the full-depth correction for +25% of the run time, where every turn costs +84%. The
+ *     production run at limit 1000 goes 56.8 s -> 73.2, 73.9 and 75.3 s over three runs on the bench
+ *     team (+29% to +33%), which is the order the owner already tolerates.
+ *   - `cellValue`, the lead matrix's cell, is the searched game too (see it for the numbers): the same
+ *     nine playouts and the same four planned turns as the score, so the Matchups card and the
+ *     headline stop being two different models of one game. It is gated on version >= 2 and not on the
+ *     search being on at all, so a recording at version 1 still gets the unsearched one-turn matrix it
+ *     was drawn with, byte for byte -- a matrix cell is a number in the snapshot like any other, and
+ *     that is what the stamp is for.
+ * It ships with TOURNAMENT_GUARD, because four planned turns amplify the free consecutive Protect
+ * that version 1 could only ever hand out once: a team of six Protect carriers against 150 teams goes
+ * 59.65 (two planned turns) -> 64.73 (four) and back to 61.30 once repeat Protect fails.
+ *
+ * The bring grid is NOT shallow and has not been since version 1: `cellFor` plays the searched game
+ * for every cell, because the bring rule's guarantee is that their blind bring is never a better
+ * answer for them than their best reply, and that only holds while the cell and the score are one
+ * model (tests/run-tournament-bring.mjs). Measured on the bench team against 150 teams: 176.7
+ * searched games a matchup, and searching the grid instead of playing it once costs +84% of the run
+ * at two planned turns and +163% at four -- not the "about four times the whole run" this comment
+ * used to claim for a deepening that had in fact already happened.
+ *
+ * Kept as a stamp so a recording made before the rule replays at its own stamp: version 1 restores
+ * the two planned turns, version 0 the single planned turn and the unsearched lead matrix.
+ */
+export const TOURNAMENT_DEPTH = 2;
+
+/**
+ * Whether Eruption, Water Spout and Dragon Energy weaken as their user is hurt.
+ *
+ * Version 0 is the defect: the test never set `current_hp_percent`, so the engine read its default
+ * of 100 and those three moves were priced at full 150 base power however little HP their user had
+ * left. Measured, Torkoal's Eruption into an Amoonguss in its own Sun: the test returned the same
+ * 3.71786 of the target's HP at 100%, 50% AND 10% HP, while the engine asked properly returns
+ * 371.8%, 186.4% and 36.8%. A Torkoal on a sliver was credited with ten times the damage it can do,
+ * every turn, for up to ten turns.
+ *
+ * Version 1 passes the attacker's live HP to the engine, which already models the falloff
+ * (engine.js's `special === "eruption"`). The HP share is quantised into HP_BUCKETS steps and enters
+ * the damage cache key, but ONLY for the moves that read it -- a cache that ignored HP would hand
+ * back the full-power number for a hurt attacker, which is the very defect being fixed.
+ *
+ * Kept as a stamp so a recording made before the rule replays at its own stamp.
+ */
+export const TOURNAMENT_FALLOFF = 1;
+
+/**
+ * Whether Protect fails when its user protected the turn before.
+ *
+ * Version 0 is free: `planGuards` gives Protect to any lead that would otherwise be knocked out, and
+ * asks nothing about last turn. With one planned turn that could happen once and cost nothing; with
+ * four (TOURNAMENT_DEPTH version 2) the same Pokémon simply refuses every turn of the game. Counted
+ * inside the games, on a team of six Protect carriers against 60 teams in Doubles at four planned
+ * turns: 662,971 Protects over 390,528 planned turns, and 363,856 of them -- 54.9% -- by a Pokémon
+ * that had protected the turn before. That is not a rare edge; it is the majority of every Protect the
+ * model plays. What it is worth, on the same team against 150 teams: 59.65 at two planned turns, 64.73
+ * at four, which is the free refusal being paid for.
+ *
+ * Version 1 records `guardedLast` in `refill` (the one place `guard` is cleared, and it runs at the
+ * end of every turn, so it is exactly "last turn") and refuses the repeat in the two places a Protect
+ * can be chosen: `planGuards`, and `applyStance`'s STANCE_GUARD. Counted the same way: 407,670
+ * Protects and 0 repeats -- so it takes the repeats and not Protect itself -- and the team comes back
+ * to 61.30 against 150 teams.
+ *
+ * AN OUTRIGHT BLOCK IS SLIGHTLY HARSH, and knowingly so. The real game gives a consecutive Protect a
+ * 1/3 success chance (it is 1/3 again on the third turn, and so on), not zero. Pricing it at a third
+ * of its effect was considered and rejected as the less clean of the two: `guard` is a boolean that
+ * every consumer reads as an absolute -- `deal` drops the hit entirely, `statusBlock` returns the word
+ * "Protect", the Fake Out branch turns the flinch off, and the story says the move "is blocked by
+ * Protect". A third of an effect would mean a partial block threaded through all four, a flinch that
+ * half happens, and a story line that has to hedge; and the choice `planGuards` makes is not a value
+ * comparison it could scale (it protects when the lead would DIE, which either happens or does not).
+ * So the model refuses the repeat outright, which errs against the Protect user, and the direction of
+ * the error is stated here rather than hidden. Wide Guard and Quick Guard share Protect's counter in
+ * the real game and do not here, because `guard` is only ever set by Protect and the board keeps no
+ * record of a Wide Guard turn to count -- a separate defect, not fixed by this rule.
+ *
+ * Kept as a stamp so a recording made before the rule replays byte-identically at its own stamp:
+ * version 0 restores the free consecutive Protect.
+ */
+export const TOURNAMENT_GUARD = 1;
+
+/**
+ * Whether a physical or special move the move table lists at 0 power is still an attack.
+ *
+ * Version 0 reads `attack` straight off `ev.damagingMove`, whose test is "physical or special AND
+ * power > 0". Eleven moves fail it for a reason that has nothing to do with being an attack: their
+ * power is not in the table because it is worked out from the board -- the target's weight (Low Kick,
+ * Grass Knot), the two weights (Heavy Slam, Heat Crash), the two Speeds (Gyro Ball, Electro Ball),
+ * the user's own HP (Reversal, Flail), the target's (Hard Press), the user's party (Beat Up) or its
+ * held item (Fling). The engine prices nine of the eleven perfectly well, so the test was fielding
+ * Pokémon whose real attack it treated as a blank move slot. Measured into a Snorlax as a share of
+ * its HP: Machamp's Low Kick 1.2350 (its Close Combat is 1.4167), Archaludon's Hard Press 0.4422,
+ * Venusaur's Grass Knot 0.2718, Machamp's Reversal 0.2193, Raichu's Electro Ball 0.1711, Steelix's
+ * Heavy Slam 0.1573, Emboar's Heat Crash 0.1035, Forretress's Gyro Ball and Tauros's Flail 0.0899.
+ * Beat Up and Fling still come back at 0.0000 -- the party and the item they read are not on this
+ * board -- so they are named here and cost nothing until the engine can price them.
+ *
+ * Version 1 makes exactly those eleven attacks, by name (VAR_POWER_MOVES). A NAMED SET and not a
+ * general relaxation: `damagingMove`'s `power > 0` is also what keeps Protect, Trick Room and every
+ * other status move out of `unit.attacks`, so widening the test would put them in. `damaging` itself
+ * is left alone -- it is a different question (it gates the stat-drop and Speed-drop bookkeeping) and
+ * none of the eleven is one of those moves.
+ *
+ * Measured against 150 teams in Doubles: a team built so that every attack it owns is one of the
+ * eleven (Forretress, Steelix, Machamp, Raichu, Archaludon, Venusaur) goes 9.82 -> 26.27 (+16.45),
+ * because under version 0 five of its six Pokémon had no attack at all -- 0, 0, 0, 0, 1, 0 attacks a
+ * slot against 1, 2, 2, 1, 2, 1 under version 1. On an ordinary six with one Low Kick carrier that
+ * also holds Knock Off it is -0.0002, because that Machamp picks Knock Off anyway -- the rule pays
+ * where a Pokémon has nothing else, which is the case it was wrong about. Of today's 16,962
+ * library members 611 (3.6%) carry one: Low Kick 547, Beat Up 16, Heavy Slam 16, Grass Knot 13, Hard
+ * Press 7, Fling 5, Gyro Ball 3, Reversal 2, Heat Crash 1, Electro Ball 1.
+ *
+ * Kept as a stamp so a recording made before the rule replays byte-identically at its own stamp:
+ * version 0 restores the blank move slot.
+ */
+export const TOURNAMENT_VAR_POWER = 1;
+
+/** The physical and special moves whose LISTED power is 0 because the power is worked out from the
+ *  board -- the target's weight, the two Speeds, the user's HP, its item or its party. A NAMED set
+ *  and not a general relaxation of `damagingMove`: that function's `power > 0` test is also what
+ *  keeps status moves out of `attacks`, so widening it would make Protect an attack
+ *  (TOURNAMENT_VAR_POWER). */
+const VAR_POWER_MOVES = new Set([
+  "lowkick", "grassknot", "heavyslam", "heatcrash", "gyroball", "electroball",
+  "reversal", "flail", "beatup", "hardpress", "fling",
+]);
+
 /** A rule stamp as a version: 0 (off) for null / undefined / false / "" / "0".
  *
  *  Coerces as `teamCheckRulesOption` does (team-checks.js): a version is a non-negative integer,
@@ -373,6 +579,30 @@ export function tournamentMegaOption(value) {
  *  exactly as `tournamentTurnOneOption` does. */
 export function tournamentAltOption(value) {
   return ruleVersion(value, TOURNAMENT_ALT);
+}
+
+/** A `tournament_depth` stamp as a version (`ruleVersion` against TOURNAMENT_DEPTH), so it coerces
+ *  exactly as `tournamentTurnOneOption` does. */
+export function tournamentDepthOption(value) {
+  return ruleVersion(value, TOURNAMENT_DEPTH);
+}
+
+/** A `tournament_falloff` stamp as a version (`ruleVersion` against TOURNAMENT_FALLOFF), so it
+ *  coerces exactly as `tournamentTurnOneOption` does. */
+export function tournamentFalloffOption(value) {
+  return ruleVersion(value, TOURNAMENT_FALLOFF);
+}
+
+/** A `tournament_guard` stamp as a version (`ruleVersion` against TOURNAMENT_GUARD), so it coerces
+ *  exactly as `tournamentTurnOneOption` does. */
+export function tournamentGuardOption(value) {
+  return ruleVersion(value, TOURNAMENT_GUARD);
+}
+
+/** A `tournament_var_power` stamp as a version (`ruleVersion` against TOURNAMENT_VAR_POWER), so it
+ *  coerces exactly as `tournamentTurnOneOption` does. */
+export function tournamentVarPowerOption(value) {
+  return ruleVersion(value, TOURNAMENT_VAR_POWER);
 }
 
 /**
@@ -502,7 +732,28 @@ const SLEEP_MOVES = { spore: 2, sleeppowder: 1, hypnosis: 1, sing: 1, lovelykiss
 const POWDER_MOVES = new Set(["spore", "sleeppowder"]);
 const SLEEP_PROOF = new Set(["insomnia", "vitalspirit", "sweetveil", "comatose", "purifyingsalt"]);
 const BURN_PROOF = new Set(["waterveil", "waterbubble", "thermalexchange", "comatose", "purifyingsalt", "guts"]);
-const NO_HIT = Object.freeze({ slot: -1, frac: 0, lo: 0, hi: 0, priority: 0, spread: false });
+const NO_HIT = Object.freeze({ slot: -1, frac: 0, lo: 0, hi: 0, priority: 0, spread: false, self: 0 });
+
+// The stances a side chooses between on turn 1 when the scoring game is searched
+// (TOURNAMENT_DEPTH). Three, because these are the three a side really has: play the line the model
+// decides, refuse the turn behind Protect, or spend it all on damage.
+const STANCE_PLAN = 0;
+const STANCE_GUARD = 1;
+const STANCE_ATTACK = 2;
+const STANCES = [STANCE_PLAN, STANCE_GUARD, STANCE_ATTACK];
+const STANCE_NAMES = ["planned", "guarded", "all-out"];
+// How finely the attacker's own HP is quantised for the moves whose power reads it (Eruption, Water
+// Spout, Dragon Energy). Eight steps put every bucket inside 12.5% of the true share, and the bucket
+// is only ever part of a cache key for those moves, so nothing else pays for it (TOURNAMENT_FALLOFF).
+const HP_BUCKETS = 8;
+/** An attacker's HP share as one of HP_BUCKETS steps; full HP is the top bucket, whose own top edge
+ *  is 100%, so a healthy attacker reads exactly as it did before the rule. */
+function hpBucket(hp) {
+  const share = Number.isFinite(hp) ? Math.max(0, Math.min(1, hp)) : 1;
+  return Math.max(0, Math.min(HP_BUCKETS - 1, Math.ceil(share * HP_BUCKETS) - 1));
+}
+// The moves whose base power is their user's remaining HP share (engine.js `special === "eruption"`).
+const HP_POWER_MOVES = new Set(["eruption", "waterspout", "dragonenergy"]);
 
 // Turn-1 actions.
 const FAKE_OUT = 1;
@@ -638,15 +889,26 @@ export class TournamentTest {
    *   recording made before it. `megaRule`: the duels' Mega rule (TOURNAMENT_MEGA); 1 replays the
    *   team-wide Mega commitment of a recording made before version 2, and 0 the registered form of
    *   one made before version 1 as well. `altRule`: the setter's alternatives (TOURNAMENT_ALT); 0
-   *   replays the Taunt-or-attack alternative of a recording made before it.
+   *   replays the Taunt-or-attack alternative of a recording made before it. `depthRule`: how deep
+   *   the scoring game is (TOURNAMENT_DEPTH); 1 replays the two planned turns of a recording made
+   *   before version 2, and 0 the single planned turn and the unsearched lead matrix of one made
+   *   before version 1 as well. `falloffRule`: the HP falloff (TOURNAMENT_FALLOFF); 0 replays the
+   *   full-power Eruption of a recording made before it. `guardRule`: the repeat-Protect rule
+   *   (TOURNAMENT_GUARD); 0 replays the free consecutive Protect of a recording made before it.
+   *   `varPowerRule`: the variable-power attacks (TOURNAMENT_VAR_POWER); 0 replays a recording made
+   *   before it, where a 0-power attack was no attack at all.
    */
-  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT } = {}) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER } = {}) {
     this.turnOneRule = tournamentTurnOneOption(turnOneRule);
     this.seatRule = tournamentSeatOption(seatRule);
     this.bringRule = tournamentBringOption(bringRule);
     this.fieldRule = tournamentFieldOption(fieldRule);
     this.megaRule = tournamentMegaOption(megaRule);
     this.altRule = tournamentAltOption(altRule);
+    this.depthRule = tournamentDepthOption(depthRule);
+    this.falloffRule = tournamentFalloffOption(falloffRule);
+    this.guardRule = tournamentGuardOption(guardRule);
+    this.varPowerRule = tournamentVarPowerOption(varPowerRule);
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -777,19 +1039,28 @@ export class TournamentTest {
     const solar = k === "solarbeam" || k === "solarblade";
     const spread = Boolean(meta.spread) && this.format === "Doubles";
     const damaging = this.ev.damagingMove(name) && !NOT_ATTACKS.has(k);
+    // A named variable-power attack (TOURNAMENT_VAR_POWER): the move table lists 0 power because the
+    // power comes off the board, so `damagingMove` says no and the move was not an attack at all.
+    // `damaging` itself is left alone on purpose -- it is a different question (it gates the stat-drop
+    // and Speed-drop bookkeeping) and none of the named set is one of those moves.
+    const varPower = this.varPowerRule >= 1 && !damaging && VAR_POWER_MOVES.has(k)
+      && (category === "physical" || category === "special");
     info = {
       name, key: k, type, priority, listed, solar, spread,
       // "allAdjacent" (Earthquake, Surf, Discharge, Bulldoze...) hits the user's partner too.
       allyHit: spread && meta.target === "allAdjacent",
       physical: category === "physical",
       special: category === "special",
-      attack: damaging && !FIRST_TURN_ONLY.has(k) && !this.ev.selfDestructs(name) && !this.ev.excludedMoves.has(name.toLowerCase()),
+      attack: (damaging || varPower) && !FIRST_TURN_ONLY.has(k) && !this.ev.selfDestructs(name) && !this.ev.excludedMoves.has(name.toLowerCase()),
       damaging,
+      varPower,
       drop: STAT_DROPS[k] || null,
       sound: (meta.flags || []).map((f) => String(f).toLowerCase()).includes("sound"),
       weather: type === "Fire" || type === "Water" || WEATHER_MOVES.has(k),
       terrain: TERRAIN_TYPES.has(type) || TERRAIN_MOVES.has(k) || priority > 0,
       cooldown: solar ? null : this.ev.hasCooldown(name, {}),
+      // Its base power IS its user's remaining HP share (TOURNAMENT_FALLOFF).
+      hpPower: HP_POWER_MOVES.has(k),
     };
     this.moveInfoCache.set(name, info);
     return info;
@@ -812,6 +1083,9 @@ export class TournamentTest {
     // The attacks that leave the partner alone, and whether any does not.
     unit.safeAttacks = unit.attacks.filter((slot) => !unit.moves[slot].allyHit);
     unit.allyHits = unit.safeAttacks.length < unit.attacks.length;
+    // Whether ANY of its attacks reads its own HP, so `strike`'s cache key only widens for the
+    // units that need it (TOURNAMENT_FALLOFF).
+    unit.readsOwnHp = unit.attacks.some((slot) => unit.moves[slot].hpPower);
     unit.grounded = engine.isGrounded(mon, data, null);
     unit.moldBreaker = MOLD_BREAKERS.has(ability);
     unit.grass = types.includes("Grass");
@@ -938,23 +1212,29 @@ export class TournamentTest {
    * One move into one defender on this board, cached with only the parts of the board it depends on.
    * `fx`: 1 = Helping Hand (Doubles), 2 = the attacker is burned (physical moves).
    */
-  moveHit(att, def, slot, board, atk, spa, fx = 0) {
+  moveHit(att, def, slot, board, atk, spa, fx = 0, hp = 1) {
     const info = att.moves[slot];
     if (!info) return NO_HIT;
     const w = info.weather || att.weatherSense || def.weatherSense ? board.w : ANY;
     const t = info.terrain || att.terrainSense || def.terrainSense ? board.t : ANY;
     const stage = info.physical ? atk : info.special ? spa : 0;
     const f = (this.active > 1 ? fx & 1 : 0) | (info.physical ? fx & 2 : 0);
-    const key = (((((att.id * ID_SPAN + def.id) * 4 + slot) * 8 + w) * 8 + t) * 13 + stage + 6) * 4 + f;
+    // Eruption, Water Spout and Dragon Energy are as strong as their user's remaining HP
+    // (TOURNAMENT_FALLOFF). The share is quantised to HP_BUCKETS steps and joins the cache key for
+    // exactly those moves -- a key that ignored it would hand a hurt attacker the full-power number,
+    // which is the defect. Every other move, and every move under rule 0, keeps the top bucket, so
+    // its key only shifts and its number does not move at all.
+    const bucket = this.falloffRule >= 1 && info.hpPower ? hpBucket(hp) : HP_BUCKETS - 1;
+    const key = ((((((att.id * ID_SPAN + def.id) * 4 + slot) * 8 + w) * 8 + t) * 13 + stage + 6) * 4 + f) * HP_BUCKETS + bucket;
     let hit = this.hits.get(key);
     if (hit === undefined) {
-      hit = this.calc(att, def, info, slot, w, t, stage, f);
+      hit = this.calc(att, def, info, slot, w, t, stage, f, bucket);
       this.hits.set(key, hit);
     }
     return hit;
   }
 
-  calc(att, def, info, slot, w, t, stage, f) {
+  calc(att, def, info, slot, w, t, stage, f, bucket = HP_BUCKETS - 1) {
     // Grassy Glide is +1 in Grassy Terrain when its user is on the ground.
     const priority = info.priority + (info.key === "grassyglide" && t === GRASSY && att.grounded ? 1 : 0);
     // Priority the move table does not list is priority the engine cannot see, so its
@@ -963,6 +1243,9 @@ export class TournamentTest {
     if (priority > 0 && priority > info.listed && ((t === PSYCHIC && def.grounded) || (def.kit?.priorityBlock && !att.moldBreaker))) return NO_HIT;
     // The board applies Intimidate on entry, so the engine must not apply it again.
     const attacker = { ...att.mon, _white_herb_restored_v314: true };
+    // The engine already models the falloff; it just needs telling. The bucket's own top edge is
+    // used, so a full-HP attacker is exactly 100 and reads precisely as it did before the rule.
+    if (info.hpPower) attacker.current_hp_percent = Math.round(((bucket + 1) / HP_BUCKETS) * 100);
     if (stage && info.physical) attacker.attack_stage = clampStage((att.mon.attack_stage || 0) + stage);
     if (stage && info.special) attacker.sp_attack_stage = clampStage((att.mon.sp_attack_stage || 0) + stage);
     const s = this.ev.settings;
@@ -1005,8 +1288,16 @@ export class TournamentTest {
       const raw = result.move_accuracy_factor;
       let scale = raw === undefined || raw === null ? 1 : Math.max(0, Math.min(1, Number(raw)));
       if (info.cooldown === null ? this.ev.hasCooldown(info.name, result) : info.cooldown) scale /= 2;
+      // What this move costs ITS OWN USER, as a share of the ATTACKER's max HP (`self_cost`).
+      // `frac` is a share of the DEFENDER's HP, so the recoil cannot ride on it -- and the engine
+      // used to publish its recoil as strings only, which is why this game charged Life Orb's 1.3x
+      // and Flare Blitz's power at nothing (builder/self-cost.js). `rate` is the accuracy and
+      // cooldown part of `scale` WITHOUT the defender's max HP: a move that misses half the time
+      // recoils half as often, and one that fires every other turn recoils every other turn.
+      const rate = scale;
       scale /= maxHp;
-      return { slot, frac: (sum / rolls.length) * scale, lo: lo * scale, hi: hi * scale, priority, spread: info.spread };
+      const self = this.ev.selfCost >= 1 ? resultRecoilShare(result) * rate : 0;
+      return { slot, frac: (sum / rolls.length) * scale, lo: lo * scale, hi: hi * scale, priority, spread: info.spread, self };
     } catch {
       return NO_HIT;
     }
@@ -1018,21 +1309,21 @@ export class TournamentTest {
    * except inside a run of tied twins (seat rule 1), where it is what it was before the run began.
    */
   hitOn(m, target, slot, board, helped = m.helped, pre = m) {
-    return this.moveHit(m.u, target.u, slot, board, pre.atk, pre.spa, (helped ? 1 : 0) | (pre.burn ? 2 : 0));
+    return this.moveHit(m.u, target.u, slot, board, pre.atk, pre.spa, (helped ? 1 : 0) | (pre.burn ? 2 : 0), pre.hp);
   }
 
   /**
    * The attacker's best attack into the defender on this board (ties go to the higher priority).
    * `safe`: only the attacks that leave the attacker's partner alone. `burned`: the attacker is burned.
    */
-  strike(att, def, board, atk = 0, spa = 0, safe = false, burned = false) {
-    const key = ((((att.id * ID_SPAN + def.id) * 8 + board.w) * 8 + board.t) * 169 + (atk + 6) * 13 + spa + 6) * 2 + (burned ? 1 : 0);
+  strike(att, def, board, atk = 0, spa = 0, safe = false, burned = false, hp = 1) {
+    const key = (((((att.id * ID_SPAN + def.id) * 8 + board.w) * 8 + board.t) * 169 + (atk + 6) * 13 + spa + 6) * 2 + (burned ? 1 : 0)) * HP_BUCKETS + (this.falloffRule >= 1 && att.readsOwnHp ? hpBucket(hp) : HP_BUCKETS - 1);
     const cache = safe ? this.bestSafe : this.best;
     let best = cache.get(key);
     if (best !== undefined) return best;
     best = NO_HIT;
     const fx = burned ? 2 : 0;
-    for (const slot of safe ? att.safeAttacks : att.attacks) best = this.better(best, this.moveHit(att, def, slot, board, atk, spa, fx));
+    for (const slot of safe ? att.safeAttacks : att.attacks) best = this.better(best, this.moveHit(att, def, slot, board, atk, spa, fx, hp));
     cache.set(key, best);
     return best;
   }
@@ -1064,7 +1355,7 @@ export class TournamentTest {
   /** The most damage a Pokémon's best attack does to any of these (a share of their HP). */
   threatTo(foe, list, board) {
     let danger = 0;
-    for (const own of list) if (alive(own)) danger = Math.max(danger, Math.min(own.hp, this.strike(foe.u, own.u, board, foe.atk, foe.spa, false, foe.burn).frac));
+    for (const own of list) if (alive(own)) danger = Math.max(danger, Math.min(own.hp, this.strike(foe.u, own.u, board, foe.atk, foe.spa, false, foe.burn, foe.hp).frac));
     return danger;
   }
 
@@ -1196,7 +1487,15 @@ export class TournamentTest {
       const order = [...leads, ...idx.filter((i) => !leads.includes(i))];
       const members = order.map((i) => played.get(i));
       const mean = members.reduce((sum, u) => sum + this.speedOf(u, 0, false, 0), 0) / Math.max(1, members.length);
-      return { idx, order, members, unitAt: played, leads: leads.length, leadKey: members.slice(0, leads.length).map((u) => u.id).join(","), mean };
+      return {
+        idx, order, members, unitAt: played, leads: leads.length,
+        leadKey: members.slice(0, leads.length).map((u) => u.id).join(","),
+        // EVERY member it brings, in the order it brings them: a whole game depends on the two in
+        // reserve as well, so a game cached by `leadKey` alone would be handed to a different bring
+        // that happens to lead with the same pair (`cellFor`).
+        bringKey: members.map((u) => u.id).join(","),
+        mean,
+      };
     });
   }
 
@@ -1218,7 +1517,12 @@ export class TournamentTest {
     return {
       u: unit, k: unit.kit, s, hp: 1, spe: 0, atk: 0, spa: 0, sash: unit.kit.sash, berry: unit.kit.sitrus, out: false, kos: 0,
       flinch: false, guard: false, intimidated: false, lead,
+      // Whether it protected on the turn just ended, so the next one cannot (TOURNAMENT_GUARD).
+      // Set in `refill`, which is the one place `guard` is cleared.
+      guardedLast: false,
       idle: 0, sleep: false, burn: false, helped: false, taunted: false, acted: 0, runTag: 0,
+      // What this turn's own moves owe their user, paid in `endOfTurn` (`oweSelf`, `self_cost`).
+      selfOwed: 0,
     };
   }
 
@@ -1298,6 +1602,34 @@ export class TournamentTest {
   }
 
   /**
+   * The attacker OWES what its own move costs it: recoil and Life Orb, as a share of ITS OWN
+   * max HP (`self_cost`, `calc`'s `self`). Owed ONCE per move use, after the hit or hits it
+   * landed -- which is why it is here and not in `deal`, since a spread move calls `deal` for
+   * every Pokemon it hits and would otherwise pay its recoil two or three times over.
+   *
+   * It is OWED and not paid on the spot, because paying it inside the turn breaks the seat
+   * invariants and those are not negotiable. A turn is ordered and every target chosen before
+   * anything moves, and the mirror holds today because inside a turn each side only ever
+   * damages the OTHER side: whoever moves first still meets a pristine opponent. Recoil is the
+   * first damage a side does to ITSELF mid-turn, and measured on team4 in Doubles it moved a
+   * mirror to 46.44 -- the faster Rillaboom's Life Orb killed it at 3.2% HP, which took it off
+   * the board, which sent the other Rillaboom's Grassy Glide into an Archaludon instead, for
+   * different damage. A Focus Sash goes the same way: its holder is no longer "at full HP" once
+   * its own Life Orb has fired. Paid in `endOfTurn` beside the burn, both sides are charged at
+   * the same point and nothing about it reads the side index, so a team against itself still
+   * scores exactly 50 and a pair of line-ups still 100 together
+   * (tests/run-tournament-symmetry.mjs).
+   *
+   * A move that faints its own user never reaches this: `moveInfo` keeps a self-KO move out of
+   * `attacks` altogether.
+   */
+  oweSelf(att, share) {
+    const cost = Number(share) || 0;
+    if (!(cost > 0) || !att) return;
+    att.selfOwed = (att.selfOwed || 0) + cost;
+  }
+
+  /**
    * Lowers a Pokémon's stats ([Attack, Sp. Atk, Speed] stages). Clear Body and friends stop it,
    * Hyper Cutter keeps its Attack, Defiant / Competitive answer a drop from the other side.
    * Returns the stats that went down (an empty list when none did).
@@ -1356,7 +1688,7 @@ export class TournamentTest {
     let bestScore = -1;
     for (const foe of foes) {
       if (!alive(foe)) continue;
-      let hit = this.strike(m.u, foe.u, board, m.atk, m.spa, false, m.burn);
+      let hit = this.strike(m.u, foe.u, board, m.atk, m.spa, false, m.burn, m.hp);
       if (partner && hit.frac > 0 && m.u.moves[hit.slot].allyHit) hit = this.spareThePartner(m, foe, hit, foes, partner, board);
       if (first >= 0) hit = this.better(hit, this.hitOn(m, foe, first, board, false));
       if (hit.frac <= 0) continue;
@@ -1383,7 +1715,7 @@ export class TournamentTest {
       if (h.spread) for (const other of foes) if (alive(other) && other !== foe) value += this.hitScore(this.hitOn(m, other, h.slot, board, false).frac, other);
       return value;
     };
-    const safe = this.strike(m.u, foe.u, board, m.atk, m.spa, true, m.burn);
+    const safe = this.strike(m.u, foe.u, board, m.atk, m.spa, true, m.burn, m.hp);
     return worth(hit) - this.hitScore(own, partner) > worth(safe) ? hit : safe;
   }
 
@@ -1510,7 +1842,7 @@ export class TournamentTest {
       let saved = 0;
       for (const own of mine) {
         if (!alive(own)) continue;
-        const hit = this.strike(foe.u, own.u, board, foe.atk, foe.spa, false, foe.burn);
+        const hit = this.strike(foe.u, own.u, board, foe.atk, foe.spa, false, foe.burn, foe.hp);
         if (hit.frac <= 0) continue;
         const move = foe.u.moves[hit.slot];
         let cut = 0;
@@ -1543,7 +1875,7 @@ export class TournamentTest {
       let saved = 0;
       for (const own of mine) {
         if (!alive(own)) continue;
-        const hit = this.strike(foe.u, own.u, board, foe.atk, foe.spa, false, false);
+        const hit = this.strike(foe.u, own.u, board, foe.atk, foe.spa, false, false, foe.hp);
         if (hit.frac > 0 && foe.u.moves[hit.slot].physical) saved = Math.max(saved, Math.min(hit.frac, own.hp) * 0.5 * 2);
       }
       const value = saved + 0.12;
@@ -1725,7 +2057,7 @@ export class TournamentTest {
         bump(1 / Math.max(1, carriers), "fakeout");
       }
       // Knocked out first: only the foes that move before this lead at this priority count.
-      const best = this.strike(foe.u, m.u, board, foe.atk, foe.spa, false, foe.burn);
+      const best = this.strike(foe.u, m.u, board, foe.atk, foe.spa, false, foe.burn, foe.hp);
       const before = best.priority > pr || (best.priority === pr && this.speed(foe, board) > sp);
       if (best.frac > 0 && before) incoming += best.frac;
     }
@@ -1734,7 +2066,7 @@ export class TournamentTest {
   }
 
   /** One side's turn-1 plan: one action per lead. */
-  planSide(s, active, board, slower) {
+  planSide(s, active, board, slower, firstTurn = true) {
     const mine = active[s];
     const foes = active[1 - s];
     const foeBlocks = foes.some((f) => alive(f) && f.k.priorityBlock);
@@ -1753,7 +2085,7 @@ export class TournamentTest {
       const k = m.k;
       const a = { m, s, kind: 0, pr: 0, sp: this.speed(m, board), value: 0, target: null, hit: null, slot: -1, move: "" };
       plan.push(a);
-      if (k.fakeOut >= 0 && !foeBlocks) {
+      if (firstTurn && k.fakeOut >= 0 && !foeBlocks) {
         let target = null;
         let targetScore = -1;
         for (const foe of foes) {
@@ -1823,7 +2155,7 @@ export class TournamentTest {
         Object.assign(a, { kind: SPEED_DROP, slot: k.speedDrop, pr: m.u.moves[k.speedDrop].priority, value: 1, move: m.u.moves[k.speedDrop].name });
         continue;
       }
-      const pick = this.pickTarget(m, foes, board, mine, true);
+      const pick = this.pickTarget(m, foes, board, mine, firstTurn);
       if (pick) Object.assign(a, { kind: ATTACK, target: pick.foe, hit: pick.hit, slot: pick.hit.slot, pr: pick.hit.priority, value: this.attackValue(m, pick, foes, board), move: m.u.moves[pick.hit.slot].name });
       for (const slot of k.lowers) {
         const lower = this.lowerPlan(m, slot, mine, foes, board);
@@ -1900,6 +2232,9 @@ export class TournamentTest {
     const decided = [];
     for (const a of all) {
       if (!a.m.k.protect || !protectable(a)) continue;
+      // Protect fails when its user protected the turn before (TOURNAMENT_GUARD). Without this, four
+      // planned turns let a lead refuse every one of them for nothing.
+      if (this.guardRule >= 1 && a.m.guardedLast) continue;
       let incoming = 0;
       let hits = 0;
       for (const x of all) {
@@ -1977,7 +2312,7 @@ export class TournamentTest {
   }
 
   /** Turn 1 for the leads: entry, then one action each. `slower[s]` = side s brought the slower Pokémon. */
-  turnOne(active, board, slower, events) {
+  turnOne(active, board, slower, events, stances = null) {
     // Entry order is by the Speed each one has as it comes in: a Mega Stone holder is still
     // its base form until it Mega-Evolves later in the turn.
     const entrants = [...active[0], ...active[1]].filter(Boolean)
@@ -1986,12 +2321,84 @@ export class TournamentTest {
     board.wide = 0;
     board.quick = 0;
 
-    const plans = [this.planSide(0, active, board, slower), this.planSide(1, active, board, slower)];
+    this.plannedTurn(active, board, slower, 1, events, stances);
+  }
+
+  /**
+   * One PLANNED turn: both sides plan with the full chain (`planSide`), the guards answer what the
+   * other side planned (`planGuards`), and the actions go in priority-then-Speed order.
+   *
+   * Turn 1 is this with the entry Abilities in front of it, and it is what version 0 of
+   * TOURNAMENT_DEPTH plays exactly once -- every turn after it was `pickTarget` and nothing else.
+   * Version 1 plays turn 2 through here too and version 2 turns 3 and 4 as well, so Protect, the
+   * guards, sleep, Taunt, Encore, Helping Hand and a second Trick Room or Tailwind are available on
+   * every one of them. Protect is the one action that is not simply available again: it fails when its
+   * user protected the turn before (TOURNAMENT_GUARD), which is what stops four planned turns from
+   * paying a lead four times for refusing.
+   *
+   * `firstTurn` is `turn <= 1`: Fake Out and First Impression only work on the turn their user came
+   * in, and only turn 1's leads have come in here (a replacement entering later is refilled by
+   * `refill`, which does not plan a turn for it).
+   *
+   * `stances` is null for the ordinary turn, or `[ourStance, theirStance]` while the scoring game is
+   * searched; `board.tr` is 0 on turn 1 for every field rule (`freshBoard`), so passing it to
+   * `orderActions` leaves turn 1 exactly as it was.
+   */
+  /**
+   * Bend a planned side into one of the three stances the search tries (TOURNAMENT_DEPTH).
+   *
+   * STANCE_PLAN is the line `planSide` decided, untouched. STANCE_GUARD has everyone who carries
+   * Protect use it -- the turn a side refuses, which is the answer version 0 could never give to a
+   * lead about to be knocked out from turn 2 on. STANCE_ATTACK has everyone attack, which is the
+   * line that gives up its support to end the game faster.
+   *
+   * `helped` is cleared first on both the plan entry and the Pokemon: Helping Hand is chosen inside
+   * `planSide` and marks its partner there, so overwriting the helper without clearing the mark
+   * would leave a boosted attack with nothing boosting it.
+   */
+  applyStance(plan, stance, active, board) {
+    if (stance === STANCE_PLAN) return plan;
+    for (const a of plan) {
+      a.helped = false;
+      if (a.m) a.m.helped = false;
+    }
+    for (const a of plan) {
+      const m = a.m;
+      if (!m || !alive(m)) continue;
+      if (stance === STANCE_GUARD) {
+        // A Pokemon that protected last turn cannot protect again (TOURNAMENT_GUARD), so the stance
+        // may not hand it a Protect either. Stances are only ever applied to turn 1, where nothing has
+        // protected yet, so this bites nowhere today -- it is here so the stance can never offer a
+        // Protect the turn itself would refuse.
+        if (m.k.protect && !(this.guardRule >= 1 && m.guardedLast)) Object.assign(a, { kind: PROTECT, pr: 4, target: null, hit: null, slot: -1, move: "Protect" });
+        continue;
+      }
+      // STANCE_ATTACK: its best attack, with Fake Out and First Impression out (this is turn 1 of a
+      // searched game, so `pickTarget`'s first-turn moves are the ones `planSide` already offered;
+      // the stance is the all-out line, not a different first-turn trick).
+      const foes = active[1 - a.s];
+      const pick = this.pickTarget(m, foes, board, active[a.s], false);
+      if (pick) {
+        Object.assign(a, {
+          kind: ATTACK, target: pick.foe, hit: pick.hit, slot: pick.hit.slot, pr: pick.hit.priority,
+          value: this.attackValue(m, pick, foes, board), move: m.u.moves[pick.hit.slot].name,
+        });
+      }
+    }
+    return plan;
+  }
+
+  plannedTurn(active, board, slower, turn, events, stances) {
+    board.wide = 0;
+    board.quick = 0;
+    const firstTurn = turn <= 1;
+    const plans = [this.planSide(0, active, board, slower, firstTurn), this.planSide(1, active, board, slower, firstTurn)];
+    if (stances) for (let s = 0; s < 2; s += 1) this.applyStance(plans[s], stances[s], active, board);
     this.planGuards(plans, board);
     // A setup move that was priced and left unused is part of what happened this turn, so the
     // results can say why the condition never went up.
     if (events) for (const plan of plans) for (const a of plan) if (a.held) events.push({ s: a.s, kind: "heldback", actor: a.m.u, move: a.held.move, why: a.held.why });
-    const actions = orderActions([...plans[0], ...plans[1]].filter((a) => a.kind), false, 1, this.seatRule);
+    const actions = orderActions([...plans[0], ...plans[1]].filter((a) => a.kind), board.tr > 0, turn, this.seatRule);
     // Twins the order cannot separate act on the state their run began with (seat rule 1).
     const runs = this.seatRule >= 1 ? tieRuns(actions) : null;
     const redirector = [null, null];
@@ -2034,7 +2441,8 @@ export class TournamentTest {
           events?.push({ s, kind: "blocked", actor: m.u, target: target.u, move: "Fake Out", by });
           continue;
         }
-        this.deal(m, target, this.hitOn(m, target, m.k.fakeOut, board, m.helped, pre), events);
+        const fakeHit = this.hitOn(m, target, m.k.fakeOut, board, m.helped, pre);
+        if (this.deal(m, target, fakeHit, events)) this.oweSelf(m, fakeHit.self);
         target.flinch = true;
         events?.push({ s, kind: "fakeout", actor: m.u, target: target.u });
       } else if (a.kind === TAILWIND) {
@@ -2148,6 +2556,8 @@ export class TournamentTest {
     if (!info) return out;
     const wide = board.wide || 0;
     const quick = board.quick || 0;
+    // One move use owes its own cost once, however many Pokemon it hits (`oweSelf`).
+    let selfCost = 0;
     if (hit.spread) {
       if (wide & (1 << (1 - m.s))) events?.push({ s: m.s, kind: "blocked", actor: m.u, move: info.name, by: "Wide Guard" });
       else {
@@ -2156,6 +2566,7 @@ export class TournamentTest {
           const h = this.hitOn(m, foe, slot, board, m.helped, pre);
           if (h.priority > 0 && quick & (1 << foe.s)) continue;
           if (!this.deal(m, foe, h, events)) continue;
+          selfCost = Math.max(selfCost, h.self || 0);
           const stats = this.afterHit(m, foe, info);
           if (stats.length) out.lowered.push({ m: foe, stats });
         }
@@ -2163,11 +2574,14 @@ export class TournamentTest {
       if (allies && info.allyHit && !(wide & (1 << m.s))) {
         for (const ally of allies) {
           if (!alive(ally) || ally === m) continue;
-          if (!this.deal(m, ally, this.hitOn(m, ally, slot, board, m.helped, pre), events, true)) continue;
+          const h = this.hitOn(m, ally, slot, board, m.helped, pre);
+          if (!this.deal(m, ally, h, events, true)) continue;
+          selfCost = Math.max(selfCost, h.self || 0);
           const stats = this.afterHit(m, ally, info);
           if (stats.length) out.own.push({ m: ally, stats });
         }
       }
+      this.oweSelf(m, selfCost);
       return out;
     }
     let aim = target ? this.redirected(m, target, redirector) : null;
@@ -2179,16 +2593,32 @@ export class TournamentTest {
       return out;
     }
     if (this.deal(m, aim, h, events)) {
+      this.oweSelf(m, h.self);
       const stats = this.afterHit(m, aim, info);
       if (stats.length) out.lowered.push({ m: aim, stats });
     }
     return out;
   }
 
-  /** The end of a turn: a burn takes 1/16 of its HP. */
+  /** The end of a turn: what this turn's own moves cost their user (`oweSelf`), then a burn
+   *  takes 1/16 of its HP. */
   endOfTurn(active, events) {
     for (const side of active) {
       for (const m of side) {
+        // An empty slot is a null here, so the owed cost is read after that check and not before.
+        if (!m) continue;
+        const owed = m.selfOwed || 0;
+        if (owed) {
+          m.selfOwed = 0;
+          if (alive(m)) {
+            m.hp -= owed;
+            if (m.hp <= 1e-9) {
+              m.hp = 0;
+              m.out = true;
+              events?.push({ s: m.s, kind: "recoil", actor: m.u });
+            } else this.berry(m);
+          }
+        }
         if (!alive(m) || !m.burn) continue;
         m.hp -= 1 / 16;
         if (m.hp <= 1e-9) {
@@ -2218,6 +2648,9 @@ export class TournamentTest {
         const m = active[s][slot];
         if (m) {
           m.flinch = false;
+          // Read before `guard` is cleared: this is what the next turn's Protect is refused for
+          // (TOURNAMENT_GUARD). `refill` runs at the end of every turn, so it is exactly "last turn".
+          m.guardedLast = m.guard;
           m.guard = false;
           m.helped = false;
           m.taunted = false;
@@ -2241,6 +2674,71 @@ export class TournamentTest {
     return { w: this.fixedWeather, t: this.fixedTerrain, tw: [0, 0], tr: 0, trBy: -1, wide: 0, quick: 0 };
   }
 
+  /** How many turns of the scoring game are PLANNED rather than attack-only (TOURNAMENT_DEPTH):
+   *  four under version 2, two under version 1. One number, read by every caller that builds a
+   *  `deep` argument (`playDeep` for the search, `playTeam` for the recorded game), because the
+   *  recorded game must be the very game the score came from -- a recorded game one turn shallower
+   *  than the searched one would tell a story that does not add up to the number beside it. */
+  plannedTurns() {
+    return this.depthRule >= 2 ? 4 : 2;
+  }
+
+  /**
+   * The scoring game, searched (TOURNAMENT_DEPTH).
+   *
+   * Both sides pick a turn-1 stance and the game is played once for every pair, `plannedTurns()` deep
+   * (four turns under version 2, two under version 1), so one matchup is played STANCES.length squared
+   * times instead of once. Nine playouts, whatever the depth: the stances are a turn-1 choice, so
+   * deepening the game lengthens each playout and does not add any. Each side then takes
+   * its best path by the same rule `chooseBrings` uses for the bring, and INDEPENDENTLY of the
+   * other: ours is the stance whose worst case against their three is highest, theirs is the stance
+   * whose best case for us is lowest (each ties to the better average, then the lower stance). They
+   * choose blind, exactly as they bring blind -- read as a reply to ours the search would be
+   * one-sided and a team would stop scoring 50 against itself. A side is therefore never credited
+   * for a line the other side can simply refuse, which is what an unanswerable turn 1 was worth
+   * under version 0.
+   *
+   * @returns {{value:number, mean:number, a:number, b:number, grid:number[][]}} the chosen pair
+   */
+  playDeep(ours, theirs) {
+    const grid = STANCES.map((a) => STANCES.map((b) => this.play(ours, theirs, null, false, { stances: [a, b], plannedTurns: this.plannedTurns() }).value));
+    const count = Math.max(1, grid[0]?.length || 0);
+    // Ours: the stance whose WORST case is highest (ties to the better average, then the lower
+    // stance) -- `chooseBrings`'s own rule, on the same grid shape.
+    let best = { value: -1, mean: -1, a: 0 };
+    for (let a = 0; a < grid.length; a += 1) {
+      let low = 101;
+      let sum = 0;
+      for (let b = 0; b < count; b += 1) {
+        const value = grid[a][b];
+        sum += value;
+        if (value < low) low = value;
+      }
+      const mean = sum / count;
+      if (low > best.value + 1e-9 || (Math.abs(low - best.value) <= 1e-9 && (mean > best.mean + 1e-9 || (Math.abs(mean - best.mean) <= 1e-9 && a < best.a)))) {
+        best = { value: low, mean, a };
+      }
+    }
+    // Theirs, computed the same way from their own side of the grid and NOT as an answer to ours:
+    // both sides choose blind, which is what keeps the test even. A stance pair read as a reply
+    // would make the search one-sided, and then a team would stop scoring 50 against itself.
+    let theirBest = { value: 101, mean: 101, b: 0 };
+    for (let b = 0; b < count; b += 1) {
+      let top = -1;
+      let sum = 0;
+      for (let a = 0; a < grid.length; a += 1) {
+        const value = grid[a][b];
+        sum += value;
+        if (value > top) top = value;
+      }
+      const mean = sum / Math.max(1, grid.length);
+      if (top < theirBest.value - 1e-9 || (Math.abs(top - theirBest.value) <= 1e-9 && (mean < theirBest.mean - 1e-9 || (Math.abs(mean - theirBest.mean) <= 1e-9 && b < theirBest.b)))) {
+        theirBest = { value: top, mean, b };
+      }
+    }
+    return { value: grid[best.a][theirBest.b], mean: best.mean, a: best.a, b: theirBest.b, grid };
+  }
+
   /**
    * One game between two brings.
    * @param {object} ours    a plan from plansFor (our side)
@@ -2248,7 +2746,7 @@ export class TournamentTest {
    * @param {Map|null} memo  turn-1 outcomes by leads, for games of the same tournament team
    * @param {boolean} record return what happened on turn 1 and after it
    */
-  play(ours, theirs, memo = null, record = false) {
+  play(ours, theirs, memo = null, record = false, deep = null) {
     const sides = [
       ours.members.map((u, i) => this.fresh(u, 0, i < ours.leads)),
       theirs.members.map((u, i) => this.fresh(u, 1, i < theirs.leads)),
@@ -2258,13 +2756,13 @@ export class TournamentTest {
     const slower = [ours.mean < theirs.mean, theirs.mean < ours.mean];
     let board = this.freshBoard();
     const events = record ? [] : null;
-    const memoKey = memo && !record ? `${ours.leadKey}|${theirs.leadKey}|${slower[0] ? 1 : slower[1] ? 2 : 0}` : "";
+    const memoKey = memo && !record && !deep ? `${ours.leadKey}|${theirs.leadKey}|${slower[0] ? 1 : slower[1] ? 2 : 0}` : "";
     const saved = memoKey ? memo.get(memoKey) : undefined;
     if (saved) {
       board = { ...saved.board, tw: [...saved.board.tw] };
       for (let s = 0; s < 2; s += 1) saved.leads[s].forEach((state, i) => Object.assign(active[s][i], state));
     } else {
-      this.turnOne(active, board, slower, events);
+      this.turnOne(active, board, slower, events, deep ? deep.stances : null);
       if (memoKey) {
         const keep = (m) => ({ hp: m.hp, spe: m.spe, atk: m.atk, spa: m.spa, sash: m.sash, berry: m.berry, out: m.out, kos: m.kos, flinch: m.flinch, guard: m.guard, intimidated: m.intimidated, idle: m.idle, sleep: m.sleep, burn: m.burn });
         memo.set(memoKey, { board: { ...board, tw: [...board.tw] }, leads: [active[0].map(keep), active[1].map(keep)] });
@@ -2276,6 +2774,22 @@ export class TournamentTest {
     const after = record ? this.afterTurnOne(active, board, hpAfterTurnOne, sides) : null;
 
     let turn = 2;
+    // The PLANNED turns after turn 1 (TOURNAMENT_DEPTH: two of them under version 1, four under
+    // version 2). Each one's bookkeeping is the attack-only loop's own: actions, endOfTurn (inside
+    // plannedTurn), then the condition counters, then the refill. Turn 1 deliberately does not tick
+    // the counters, which is what makes a Trick Room set on turn 1 last its five turns; every turn
+    // after it does, planned or not. The loop leaves `turn` at plannedTurns + 1, so the attack-only
+    // loop below finishes the same turn budget (TURN_CAP) it always did -- a deeper plan does not buy
+    // a longer game, it only replaces attack-only turns with planned ones.
+    const plannedTurns = deep ? Math.max(0, Math.trunc(Number(deep.plannedTurns) || 0)) : 0;
+    for (; turn <= plannedTurns; turn += 1) {
+      if (!active[0].some(alive) || !active[1].some(alive)) break;
+      this.plannedTurn(active, board, slower, turn, events, null);
+      if (board.tw[0]) board.tw[0] -= 1;
+      if (board.tw[1]) board.tw[1] -= 1;
+      if (board.tr) board.tr -= 1;
+      this.refill(active, sides, next, board);
+    }
     const actions = [];
     for (; turn <= this.turnCap; turn += 1) {
       if (!active[0].some(alive) || !active[1].some(alive)) break;
@@ -2427,12 +2941,23 @@ export class TournamentTest {
    * A full game of just these Pokémon (all leading, no one behind): our line-up against
    * theirs. Both sides come in as plans, so the one Mega each of them commits to is already
    * settled and the cache is keyed by the forms that really play.
+   *
+   * This is the lead matrix's cell (`refreshMatrix`), and under TOURNAMENT_DEPTH version 2 it is the
+   * SAME searched game the headline is scored by. Up to version 1 it was one unsearched game of one
+   * planned turn, which made the Matchups card contradict the score beside it. Measured on the bench
+   * team of tests/run-tournament-smoke.mjs against 150 teams in Doubles, 2,055 cells: the unsearched
+   * cell and the searched game disagree by more than a point on 69.9% of them (72.5% by more than
+   * 0.01), worst 76.96 points. The headline is 59.457959 either way -- it never reads a matrix cell --
+   * and the run costs no measurable extra time, because `refreshMatrix` runs once every MATRIX_EVERY
+   * snapshots and `this.cells` keeps every cell it has played: measured at limit 1000, 73.7 s with a
+   * shallow matrix against 73.2 s with a searched one, headline 58.605610 in both (and 24.7 s against
+   * 24.2 s at limit 300, headline 57.779901 in both), so the difference is noise in both directions.
    */
   cellValue(ourPlan, theirPlan) {
     const key = `${ourPlan.leadKey}|${theirPlan.leadKey}`;
     let value = this.cells.get(key);
     if (value === undefined) {
-      value = this.play(ourPlan, theirPlan).value;
+      value = this.depthRule >= 2 ? this.playDeep(ourPlan, theirPlan).value : this.play(ourPlan, theirPlan).value;
       this.cells.set(key, value);
     }
     return value;
@@ -2580,6 +3105,23 @@ export class TournamentTest {
     return { value: grid[best.c][theirBest.d], mean: best.mean, c: best.c, d: theirBest.d, totals: grid.map((row) => row[theirBest.d]) };
   }
 
+  /**
+   * One cell of the bring grid. Under TOURNAMENT_DEPTH version 1 the cell is the SEARCHED game, the
+   * same model the matchup is scored by -- the grid picks the bring and the score is one of its
+   * cells, so the two must be the one model. Scoring a cell that a shallower model chose let the
+   * bring rule's own guarantee go, that their blind bring is never a better answer for them than
+   * their best reply (tests/run-tournament-bring.mjs).
+   */
+  cellFor(ours, theirs, memo) {
+    if (this.depthRule < 1) return this.play(ours, theirs, memo).value;
+    const key = `${ours.bringKey}|${theirs.bringKey}`;
+    const saved = this.deepCells.get(key);
+    if (saved !== undefined) return saved;
+    const value = this.playDeep(ours, theirs).value;
+    this.deepCells.set(key, value);
+    return value;
+  }
+
   /** One tournament team: every bring against every bring, then the chosen game once more with its story. */
   playTeam(state, team) {
     if (this.hits.size > MAX_CACHED_HITS) {
@@ -2590,12 +3132,13 @@ export class TournamentTest {
     const theirs = team.members.map((member) => this.opponentMon(member));
     const theirPlans = this.plansFor(theirs);
     const memo = new Map();
+    this.deepCells = new Map();
     // Every bring of ours against every bring of theirs, kept as a grid: under the bring rule
     // (TOURNAMENT_BRING) their own blind choice is read off these very games, so it costs none.
     const grid = [];
     for (let c = 0; c < state.plans.length; c += 1) {
       const row = [];
-      for (let d = 0; d < theirPlans.length; d += 1) row.push(this.play(state.plans[c], theirPlans[d], memo).value);
+      for (let d = 0; d < theirPlans.length; d += 1) row.push(this.cellFor(state.plans[c], theirPlans[d], memo));
       grid.push(row);
       state.games += theirPlans.length;
     }
@@ -2604,7 +3147,15 @@ export class TournamentTest {
     const ourPlan = state.plans[best.c];
     const theirPlan = theirPlans[best.d];
     state.bringTotals[best.c].picked += 1;
-    const game = this.play(ourPlan, theirPlan, null, true);
+    // The game whose value IS the matchup score. Under TOURNAMENT_DEPTH version 1 it is searched
+    // first, then replayed with the chosen stances so that what the results show and what the score
+    // says are one and the same game; under version 0 the score stays the grid cell `chooseBrings`
+    // picked, which is the same game the grid already played.
+    const searched = this.depthRule >= 1 ? this.playDeep(ourPlan, theirPlan) : null;
+    const game = this.play(ourPlan, theirPlan, null, true, searched ? { stances: [searched.a, searched.b], plannedTurns: this.plannedTurns() } : null);
+    // The grid cell IS the searched game under version 1, so the score stays the cell `chooseBrings`
+    // picked under both rules and the recorded game is that very game, replayed for its story.
+    const score = best.value;
 
     // Our Pokémon in the chosen game, and the pair we lead with.
     ourPlan.order.forEach((o, i) => {
@@ -2681,17 +3232,17 @@ export class TournamentTest {
     const archetype = this.archetypeOf(team, theirs);
     const tally = state.archetypes.get(archetype) || { name: archetype, count: 0, value: 0, favourable: 0, even: 0, unfavourable: 0 };
     tally.count += 1;
-    tally.value += best.value;
-    if (best.value >= MATCHUP_BANDS.favourable) tally.favourable += 1;
-    else if (best.value < MATCHUP_BANDS.unfavourable) tally.unfavourable += 1;
+    tally.value += score;
+    if (score >= MATCHUP_BANDS.favourable) tally.favourable += 1;
+    else if (score < MATCHUP_BANDS.unfavourable) tally.unfavourable += 1;
     else tally.even += 1;
     state.archetypes.set(archetype, tally);
-    state.values.set(team.name, best.value);
+    state.values.set(team.name, score);
     state.results.push({
       name: team.name,
       number: teamNumber(team.name),
       archetype,
-      value: best.value,
+      value: score,
       members: theirs.map(who),
       bring: best.c,
       against: theirPlan.members.map(who),

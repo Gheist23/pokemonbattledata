@@ -17,9 +17,10 @@
 //             app switched off) ranked by the app's structural key.
 //   compare   every complete team goes through the same finish chain and the real
 //             Team Evaluation. Another team replaces the anchor only when it wins on
-//             the objective (beats(): red checks, yellow checks, a chosen archetype's
-//             critical requirements, Prioritize Meta's Top X, then a materially better
-//             score: the mean of the four scores minus a point per red threat).
+//             the objective (beats(): red checks, then - with autobuild_meta_priority -
+//             a chosen archetype's critical requirements, Prioritize Meta's Top X and
+//             the yellow checks, then a materially better score: the mean of the four
+//             scores minus a point per red threat).
 //   repair    (Medium/Deep) one member Auto Build added may be swapped for the best
 //             alternative the Auto Build ranking offers, under the same rule. Members
 //             the user kept are never replaced.
@@ -37,6 +38,7 @@
 import { compact } from "./engine.js";
 import { archetypeDisplay, topMetaSize } from "./autobuild-archetype.js";
 import { archetypeRequirements } from "./team-checks.js";
+import { AUTOBUILD_META_PRIORITY, metaPriorityOn, objectiveTiers, promoteMetaTier } from "./autobuild-meta-priority.js";
 
 const TEAM_SIZE = 6;
 const MAX_DEFENSIVE_WARNINGS = 2;
@@ -66,10 +68,11 @@ export const SEARCH_PROFILES = {
 };
 
 /**
- * The objective for complete teams, compared in order (beats()): failing enabled checks
- * (red, then yellow), unmet critical requirements of a chosen archetype, with Prioritize
- * Meta the members Auto Build added from outside the Top X, then
- * T = mean(Synergy, Offense, Defense, Speed) - redThreatWeight x red threats.
+ * The objective for complete teams, compared in order (beats()): failing enabled red checks,
+ * unmet critical requirements of a chosen archetype, with Prioritize Meta the members Auto
+ * Build added from outside the Top X, failing yellow checks, then
+ * T = mean(Synergy, Offense, Defense, Speed) - redThreatWeight x red threats. Before
+ * autobuild_meta_priority the yellow checks came second and Prioritize Meta last.
  * Another team replaces the anchor on T only when it is at least `margin` higher.
  */
 export const SEARCH_OBJECTIVE = { redThreatWeight: 1.0, margin: 1.0, redThreat: 70, yellowThreat: 45 };
@@ -154,18 +157,26 @@ export function additionForPage(addition) {
   };
 }
 
-/** The tiers beats() compares, in order (T, the score, last and only by `margin`). */
-export const OBJECTIVE_TIERS = ["checksRed", "checksYellow", "archetypeUnmet", "metaOutside"];
+/**
+ * The tiers beats() compares, in order (T, the score, last and only by `margin`).
+ * `OBJECTIVE_TIERS` is the order before autobuild_meta_priority, which a recording made
+ * before the rule replays with; production compares OBJECTIVE_TIERS_META_FIRST, where only
+ * the red checks outrank the Top X (builder/autobuild-meta-priority.js).
+ */
+export const OBJECTIVE_TIERS = objectiveTiers(0);
+export const OBJECTIVE_TIERS_META_FIRST = objectiveTiers(AUTOBUILD_META_PRIORITY);
 
 /**
- * Whether team `a` should replace team `b`: red checks, then yellow checks, then a chosen
- * archetype's unmet critical requirements, then (Prioritize Meta) added members outside
- * the Top X - fewer wins each - and only when all of those tie, T by at least `margin`.
+ * Whether team `a` should replace team `b`: red checks, then - with autobuild_meta_priority -
+ * a chosen archetype's unmet critical requirements, added members outside the Top X
+ * (Prioritize Meta) and the yellow checks; before the rule the yellow checks came second
+ * and Prioritize Meta last. Fewer wins each tier, and only when all of them tie does T
+ * decide, by at least `margin`. `rule` is the tier rule's version (0 = the old order).
  */
-export function beats(a, b, margin = SEARCH_OBJECTIVE.margin) {
+export function beats(a, b, margin = SEARCH_OBJECTIVE.margin, rule = AUTOBUILD_META_PRIORITY) {
   if (!b) return true;
   if (!a) return false;
-  for (const tier of OBJECTIVE_TIERS) {
+  for (const tier of objectiveTiers(rule)) {
     const x = Number(a[tier]) || 0;
     const y = Number(b[tier]) || 0;
     if (x !== y) return x < y;
@@ -174,9 +185,9 @@ export function beats(a, b, margin = SEARCH_OBJECTIVE.margin) {
 }
 
 /** The tier on which `a` differs from `b` first ("T" when only the score does, "" when nothing does). */
-export function beatReason(a, b) {
+export function beatReason(a, b, rule = AUTOBUILD_META_PRIORITY) {
   if (!a || !b) return "";
-  for (const tier of OBJECTIVE_TIERS) if ((Number(a[tier]) || 0) !== (Number(b[tier]) || 0)) return tier;
+  for (const tier of objectiveTiers(rule)) if ((Number(a[tier]) || 0) !== (Number(b[tier]) || 0)) return tier;
   return a.T !== b.T ? "T" : "";
 }
 
@@ -276,10 +287,15 @@ export class AutoBuildSearch {
     return state;
   }
 
-  /** Candidate rows by the hard checks, the archetype, Prioritize Meta, check pressure, then score (not cut to 14). */
+  /**
+   * Candidate rows by the hard checks, the archetype, Prioritize Meta, check pressure, then
+   * score (not cut to 14). With autobuild_meta_priority the Prioritize Meta element moves up
+   * to sit immediately after the hard red checks, so a yellow check no longer outranks being
+   * in the Top X; with Prioritize Meta off it is a constant 0 and the move changes nothing.
+   */
   searchOrder(rows) {
     const manual = rows.some((row) => row._manual_archetype_v477);
-    return sortBy(rows, (row) => [
+    return sortBy(rows, (row) => promoteMetaTier([
       (Number(row.defensive_switch_warning_count) || 0) > MAX_DEFENSIVE_WARNINGS ? 1 : 0,
       row._hard_red_checks_v472 ?? 999, row._hard_yellow_checks_v472 ?? 999,
       row.counter_archetype_speed_control_v466 ? 1 : 0,
@@ -287,7 +303,19 @@ export class AutoBuildSearch {
       this.outsideMeta(row) ? 1 : 0,
       Number(Number(row._hard_check_pressure_v472 ?? 9999).toFixed(4)),
       -(Number(row.score) || 0), Number(row.position) || 999999,
-    ]);
+    ], 5, 2, this.metaPriority));
+  }
+
+  /**
+   * The order the one-swap repair tries its `[slot, row]` alternatives in. With Prioritize
+   * Meta the Top X alternatives come first (the objective's tier); autobuild_meta_priority
+   * moves that ahead of the yellow checks, as the objective itself does.
+   */
+  repairOrder(found) {
+    return sortBy(found, ([, row]) => promoteMetaTier([
+      row._hard_red_checks_v472 ?? 999, row._hard_yellow_checks_v472 ?? 999, this.outsideMeta(row) ? 1 : 0,
+      Number(Number(row._hard_check_pressure_v472 ?? 9999).toFixed(4)), -(Number(row.score) || 0),
+    ], 2, 1, this.metaPriority));
   }
 
   /** The app's _v459_structural_key with V464's band (the finalist-set ranking it switched off). */
@@ -530,6 +558,9 @@ export class AutoBuildSearch {
     const b = this.b;
     const search = SEARCH_PROFILES[depth] || SEARCH_PROFILES.deep;
     const profile = this.profiles[search.depth] || this.profiles.medium;
+    // The Prioritize Meta tier rule, as TeamAutoBuild.run() settled it (its constructor
+    // default is production's version); b.order() ranks by the same one.
+    this.metaPriority = b.metaPriority ?? AUTOBUILD_META_PRIORITY;
     this.started = now();
     this.shouldStop = shouldStop;
     this.stopRequested = false;
@@ -656,7 +687,7 @@ export class AutoBuildSearch {
       judged.push(result);
       if (result.error) continue;
       // The anchor keeps its place unless another team is materially better.
-      if (!leader || beats(result.summary, leader.summary, leader.label === "anchor" ? this.objective.margin : 0.001)) leader = result;
+      if (!leader || beats(result.summary, leader.summary, leader.label === "anchor" ? this.objective.margin : 0.001, this.metaPriority)) leader = result;
     }
 
     // 4. The repair: one added member swapped, when the Team Evaluation says so.
@@ -702,11 +733,7 @@ export class AutoBuildSearch {
       const { ranked } = this.filtered(done.rows);
       for (const row of this.b.order(ranked.map((r) => ({ ...r }))).slice(0, ctx.search.repairCandidates)) found.push([slot, row]);
     }
-    // With Prioritize Meta, the Top X alternatives are tried first (the objective's tier).
-    const tries = sortBy(found, ([, row]) => [
-      row._hard_red_checks_v472 ?? 999, row._hard_yellow_checks_v472 ?? 999, this.outsideMeta(row) ? 1 : 0,
-      Number(Number(row._hard_check_pressure_v472 ?? 9999).toFixed(4)), -(Number(row.score) || 0),
-    ]).slice(0, ctx.search.repairCandidates);
+    const tries = this.repairOrder(found).slice(0, ctx.search.repairCandidates);
     let best = null;
     for (const [k, [slot, row]] of tries.entries()) {
       if (this.stopped()) break;
@@ -725,7 +752,7 @@ export class AutoBuildSearch {
       const result = this.judge(swapped, ctx, "swap");
       if (result.error) continue;
       result.swap = { slot, out: leaf.entries[slot].form || leaf.entries[slot].pokemon, in: pick.name };
-      if (beats(result.summary, (best || leader).summary, best ? 0.001 : this.objective.margin)) best = result;
+      if (beats(result.summary, (best || leader).summary, best ? 0.001 : this.objective.margin, this.metaPriority)) best = result;
     }
     if (!best) return null;
     const a = leader.summary;
@@ -742,11 +769,14 @@ export class AutoBuildSearch {
 
   /** Why the chosen team replaced the anchor, as one sentence of the log (the tier beats() decided on). */
   replacedBecause(chosen, anchor, archetype) {
-    const reason = beatReason(chosen, anchor);
+    const reason = beatReason(chosen, anchor, this.metaPriority);
+    // With autobuild_meta_priority only the red checks come before the archetype and the Top X,
+    // so the sentence says "as many red" where it used to say "as many" of both colours.
+    const asManyChecks = metaPriorityOn(this.metaPriority) ? "fails as many red Team Building Checks" : "fails as many Team Building Checks";
     if (reason === "checksRed") return "fails fewer red Team Building Checks";
-    if (reason === "checksYellow") return "fails as many red and fewer yellow Team Building Checks";
-    if (reason === "archetypeUnmet") return `fails as many Team Building Checks and misses fewer critical ${archetype || "archetype"} requirements`;
-    if (reason === "metaOutside") return `fails as many Team Building Checks and adds fewer Pokémon from outside the Top ${this.metaTop} Meta`;
+    if (reason === "checksYellow") return metaPriorityOn(this.metaPriority) ? "fails as many red Team Building Checks and fewer yellow ones" : "fails as many red and fewer yellow Team Building Checks";
+    if (reason === "archetypeUnmet") return `${asManyChecks} and misses fewer critical ${archetype || "archetype"} requirements`;
+    if (reason === "metaOutside") return `${asManyChecks} and adds fewer Pokémon from outside the Top ${this.metaTop} Meta`;
     const gain = Math.round((chosen.T - anchor.T) * 10) / 10;
     return `fails as many Team Building Checks and scores ${gain.toFixed(1)} points more (the average of the four scores, minus 1 per threat at 70 or more)`;
   }
@@ -771,9 +801,12 @@ export class AutoBuildSearch {
       cut: Object.keys(this.cut || {}).filter((k) => this.cut[k]),
       capped: Object.values(this.cut || {}).some(Boolean),
       // The rule the compared teams were ranked by, for the page's note (beats()).
+      // `tiers` is the order they were compared in, so the note can name the steps in the
+      // order they really ran (autobuild_meta_priority moves the Top X above the yellow checks).
       objective: {
         archetype: ctx.manual ? archetypeDisplay(ctx.manual) : "", metaTop: this.metaKeys ? this.metaTop : 0,
         margin: this.objective.margin, redThreatWeight: this.objective.redThreatWeight, redThreat: this.objective.redThreat,
+        tiers: [...objectiveTiers(this.metaPriority)], metaPriority: Number(this.metaPriority) || 0,
       },
     };
     if (!chosen) {

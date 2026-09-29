@@ -18,7 +18,7 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { DamageEngine, compact } from "../builder/engine.js";
-import { TeamChecks, TEAM_CHECK_RULES, V514_CHECKS, V514_NEW_IDS, V514_RELABELLED, COVERAGE_EXTRA_ATTACKS, RENDERED_COMPONENTS, SELECTION_MATRIX, teamCheckRulesOption } from "../builder/team-checks.js";
+import { TeamChecks, TEAM_CHECK_RULES, SELF_COST_ATTACK_RULE, V514_CHECKS, V514_NEW_IDS, V514_RELABELLED, COVERAGE_EXTRA_ATTACKS, RENDERED_COMPONENTS, SELECTION_MATRIX, teamCheckRulesOption } from "../builder/team-checks.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 
 /** The shared fixture's content hash; tests/test_team_check_rules_v514.py asserts it too.
@@ -97,7 +97,12 @@ for (const [move, want] of Object.entries(fixture.move_info)) {
 }
 
 // --- the stamp coercion ----------------------------------------------------------
-check("TEAM_CHECK_RULES is version 1", TEAM_CHECK_RULES === 1);
+// Version 3 is the self-cost `attackOf` rule (team-checks.js SELF_COST_ATTACK_RULE): a move that
+// faints its own user is not one of the team's attacks, and a base power of 1 is a placeholder.
+// The fixture below is still compared at version 1 on both sides, so the shared app/site fixture
+// is untouched by the bump; the new behaviour has its own assertions in tests/run-self-cost.mjs.
+check("TEAM_CHECK_RULES is version 3", TEAM_CHECK_RULES === 3);
+check("the self-cost attackOf rule is that version", SELF_COST_ATTACK_RULE === 3);
 for (const off of [null, undefined, false, "", "0", "off", "false", "no", "none"]) {
   check(`teamCheckRulesOption(${JSON.stringify(off)}) is off`, teamCheckRulesOption(off) === 0);
 }

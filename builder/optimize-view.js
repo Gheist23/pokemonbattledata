@@ -157,6 +157,8 @@ function resultBlock(member, result, props) {
   if (result.ok) {
     parts.push(compareTable(result), changesSection(result, ui, props));
     if (result.speed?.changed) parts.push(speedSection(result, ui));
+  } else if (leadsWithTrade(result)) {
+    parts.push(tradeOffLead(result));
   } else if (result.message) {
     parts.push(h("p", { class: "bd-opt-message" }, result.message));
   }
@@ -602,6 +604,36 @@ function speedList(title, rows, tone) {
 }
 
 /**
+ * Whether the card opens with the trade-off instead of "nothing did clearly better".
+ *
+ * When nothing is suggested, the trade-off IS the answer the player asked for - a spread
+ * that scores better than theirs and what it would cost - so it leads rather than sitting
+ * under a sentence that reads as "no". Only for a result the rule ran on
+ * (builder/optimize-spread-depth.js): before it, that spread had to clear twice the bar and
+ * the card was written for the flat sentence.
+ */
+const leadsWithTrade = (result) => Boolean(!result.ok && result.trade_off && (result.stats?.optimize_spread_depth ?? 0) > 0);
+
+/** The answer in one sentence: a better-scoring spread, and what taking it costs. */
+function tradeOffLead(result) {
+  const trade = result.trade_off;
+  const topMeta = result.stats?.top_meta || trade.top_meta || result.speed?.top_meta || 0;
+  // The sentence already prints the Nature, so the cost does not say it a second time.
+  const reasons = trade.reasons.filter((reason) => !String(reason).startsWith(trade.nature_text));
+  const cost = reasons.length
+    ? `It costs you ${reasons.join("; ")}.`
+    : "The only cost is the change itself, and the gain is small for it.";
+  return h("div", { class: "bd-opt-trade-lead" },
+    h("p", { class: "bd-opt-message" },
+      "A spread scores ",
+      h("strong", {}, signed(trade.delta)),
+      ` more than yours${topMeta ? ` against the Top ${topMeta}` : ""}: ${trade.nature_text} · ${spreadText(trade.bonuses)}`,
+      trade.moves?.length ? ` · ${trade.moves.join(", ")}` : "",
+      `. ${cost}`),
+    result.message ? h("p", { class: "bd-note" }, result.message) : null);
+}
+
+/**
  * The best option the margins held back. Its reasons compare it with the suggestion when
  * there is one (so nothing the two share is listed), else with the current set.
  */
@@ -609,9 +641,12 @@ function tradeOffSection(member, result, props) {
   const trade = result.trade_off;
   const text = `${trade.nature_text} · ${spreadText(trade.bonuses)}${trade.moves?.length ? ` · ${trade.moves.join(", ")}` : ""}`;
   const reasons = trade.reasons.join("; ") || "the gain is small for the change";
-  const against = trade.compared_with === "suggestion"
-    ? [text, " scores ", h("strong", {}, fmt(trade.over_pick)), ` more than the suggestion above (${signed(trade.delta)} against your current set). Compared with the suggestion: ${reasons}.`]
-    : [text, " scores ", h("strong", {}, signed(trade.delta)), ` over your current set, but: ${reasons}.`];
+  // The card already opened with this spread and what it costs: say only what it scores.
+  const against = leadsWithTrade(result)
+    ? [text, " scores ", h("strong", {}, signed(trade.delta)), " against your current set."]
+    : trade.compared_with === "suggestion"
+      ? [text, " scores ", h("strong", {}, fmt(trade.over_pick)), ` more than the suggestion above (${signed(trade.delta)} against your current set). Compared with the suggestion: ${reasons}.`]
+      : [text, " scores ", h("strong", {}, signed(trade.delta)), ` over your current set, but: ${reasons}.`];
   return h("div", { class: "bd-opt-section bd-opt-trade" },
     h("h4", {}, "Closest trade-off"),
     h("p", {}, against),

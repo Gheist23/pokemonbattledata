@@ -32,6 +32,7 @@ import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, s
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
 import { keepPlace } from "./scroll-anchor.js";
 import { OPTIMIZE_DEFAULTS, optimizeView, updateProgress } from "./optimize-view.js";
+import { MESSAGES as SHARE_MESSAGES, ShareError, cardHost, evaluationDigest, shareButton, slotStats, teamDigest } from "./share-client.js";
 
 const root = document.getElementById("builderApp");
 let data;
@@ -195,6 +196,59 @@ function allBoxSets() {
   return getState().boxes.flatMap((box) => box.box.map((entry) => boxEntryToSet(entry, data))).filter((set) => set.species);
 }
 
+// ---- share ------------------------------------------------------------------
+//
+// Pressing Share draws a picture of what is on screen, stores it behind an
+// unlisted link and copies that link (builder/share-client.js). The digest is
+// built when the button is pressed, so it is always the team that is showing;
+// the stats in it come from slotStats, the same call the slot cards use.
+//
+// An empty team is never offered a Share button, and share-client refuses one
+// anyway, so a card can never be a blank grid.
+
+/** The picture host: a canvas, and sprites resolved from this site's own index. */
+function shareHost() {
+  return cardHost(data);
+}
+
+/** "Share team", for wherever the whole team is on screen. */
+function teamShareButton(className = "ghost-button compact") {
+  return shareButton({
+    label: "Share team",
+    title: "Draw this team as a picture and copy a link to it",
+    className,
+    host: shareHost,
+    build: () => teamDigest(data, {
+      sets: sets(),
+      title: currentTeam().title,
+      archetype: currentTeam().archetype,
+      format: format(),
+    }),
+  });
+}
+
+/** "Share result", for the Team Evaluation actions row. */
+function evaluationShareButton() {
+  return shareButton({
+    label: "Share result",
+    title: "Draw this evaluation as a picture and copy a link to it",
+    host: shareHost,
+    build: () => {
+      // The scores belong to the team they were run for. A picture cannot be
+      // corrected once it is posted, so a result the panel is already showing as
+      // out of date is not paired with the team that is on screen now.
+      if (view.evaluationKey !== evaluationKey()) throw new ShareError(SHARE_MESSAGES.stale);
+      return evaluationDigest(data, {
+        result: view.evaluation,
+        sets: sets(),
+        title: currentTeam().title,
+        archetype: currentTeam().archetype,
+        format: format(),
+      });
+    },
+  });
+}
+
 // --- rendering -------------------------------------------------------------------------------
 
 function mount() {
@@ -248,9 +302,14 @@ function renderToolbar() {
 
 function renderTeam() {
   const list = sets();
+  const filled = list.filter((s) => s.species).length;
   clear(hosts.team);
   hosts.team.append(h("div", { class: "bd-panel-head" },
-    h("div", {}, h("h2", {}, currentTeam().title), h("p", {}, `${list.filter((s) => s.species).length}/6 · ${currentTeam().archetype || "Balanced"} · ${format()}`))));
+    h("div", {}, h("h2", {}, currentTeam().title), h("p", {}, `${filled}/6 · ${currentTeam().archetype || "Balanced"} · ${format()}`)),
+    // No Pokemon, no picture to draw, so the button is not offered at all.
+    // bd-share-actions keeps it beside the heading on a phone instead of adding a
+    // line to it, so the team column is exactly as tall as it was (builder.css).
+    filled ? h("div", { class: "bd-actions bd-share-actions" }, teamShareButton()) : null));
   list.forEach((set, index) => {
     try {
       hosts.team.append(slotCard(set, index));
@@ -286,7 +345,8 @@ function slotCard(set, index) {
     return h("button", { type: "button", class: "bd-slot bd-slot-empty", onclick: edit, ...dropHandlers }, h("span", {}, `+ Add Pokémon (slot ${index + 1})`));
   }
   const types = data.types(set.species, set.form, set.item);
-  const stats = data.engine.finalStats({ pokemon_name: set.species, form_name: set.form, item: set.item, nature_name: set.nature, bonuses: set.bonuses });
+  // The share card reads its numbers from this same call, so the two agree.
+  const stats = slotStats(data, set);
   const [up, down] = data.natures[set.nature] || ["", ""];
   const card = h("div", {
     class: "bd-slot",
@@ -930,6 +990,7 @@ function renderEvaluation() {
     hasResult && !view.evaluating
       ? h("div", { class: "bd-actions" },
         h("button", { type: "button", class: "primary-button compact", onclick: () => runEvaluation(key) }, view.evaluationKey === key ? "Run again" : "Evaluate changes"),
+        evaluationShareButton(),
         proPill("evaluation"))
       : null));
   if (!list.length) {
@@ -1742,8 +1803,8 @@ function renderTournament() {
   hosts.main.append(h("div", { class: "bd-panel-head" },
     h("div", {}, h("h2", {}, "Test against Tournament Teams"),
       h("p", {}, singles
-        ? "Plays your team against real recent tournament teams, three against three and one at a time: turn 1 with Fake Out, Tailwind, Trick Room, Intimidate, sleep moves, Taunt and more, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your Pokémon match up 1 vs 1, and which teams and Pokémon give you trouble."
-        : "Plays your team against real recent tournament teams, 2 vs 2 from the leads on: turn 1 with Fake Out, Tailwind, Trick Room, Intimidate, Helping Hand, Wide Guard and more, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your lead pairs match up against theirs, and which teams and Pokémon give you trouble."))));
+        ? "Plays your team against real recent tournament teams, three against three and one at a time: four full turns with Fake Out, Tailwind, Trick Room, Intimidate, Protect, sleep moves, Taunt and more, each side taking the path that holds up best against the other, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your Pokémon match up 1 vs 1, and which teams and Pokémon give you trouble."
+        : "Plays your team against real recent tournament teams, 2 vs 2 from the leads on: four full turns with Fake Out, Tailwind, Trick Room, Intimidate, Protect, Helping Hand, Wide Guard and more, each side taking the path that holds up best against the other, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your lead pairs match up against theirs, and which teams and Pokémon give you trouble."))));
   // The explanation leads until there is a result; after that it is one click away. A team
   // shorter than a full bring brings everyone, so the explanation says the real number.
   const how = tournamentExplainer({ teams: tour.snapshot?.library || 2827, format: format(), bring: tour.snapshot?.bring ?? Math.min(list.length, singles ? 3 : 4) });
@@ -1887,13 +1948,19 @@ async function runTournament() {
 }
 
 // The last finished test survives a reload of the tab, like the last evaluation.
+// v10: the scoring game is four planned turns and the lead matrix is that same searched game, Protect
+// fails when its user protected the turn before, and a variable-power attack (Low Kick, Gyro Ball and
+// the rest of that named set) is an attack at last -- so every score a v9 snapshot holds is a
+// different number (tournament-test.js TOURNAMENT_DEPTH version 2, TOURNAMENT_GUARD,
+// TOURNAMENT_VAR_POWER). v9: the game that scores was two planned turns and searched, and Eruption,
+// Water Spout and Dragon Energy weaken as their user is hurt.
 // v8: the snapshot says when a stat stage is pinned on one side only, because the run honours it
 // and 50 then stops being the even score (tournament-test.js `unevenStages`). Its duels are also
 // priced per duel rather than one Mega a side, so a 1 vs 1 column agrees with the matrix it sits
 // beside. On top of v7's setter weighing and neutralised Field settings, and v6's bring rule.
 // Older ones are dropped, because tournamentAnalysis refuses a snapshot from another version and
 // would only show its spinner.
-const TOURNAMENT_STORE = "cbd.tour.v8";
+const TOURNAMENT_STORE = "cbd.tour.v10";
 
 function rememberTournament(key, snapshot) {
   try {
@@ -1905,7 +1972,7 @@ function rememberTournament(key, snapshot) {
 
 function restoreTournament() {
   try {
-    for (const old of ["cbd.tour.v1", "cbd.tour.v2", "cbd.tour.v3", "cbd.tour.v4", "cbd.tour.v5", "cbd.tour.v6", "cbd.tour.v7"]) sessionStorage.removeItem(old);
+    for (const old of ["cbd.tour.v1", "cbd.tour.v2", "cbd.tour.v3", "cbd.tour.v4", "cbd.tour.v5", "cbd.tour.v6", "cbd.tour.v7", "cbd.tour.v8", "cbd.tour.v9"]) sessionStorage.removeItem(old);
     const saved = JSON.parse(sessionStorage.getItem(TOURNAMENT_STORE) || "null");
     const s = saved?.snapshot;
     const lists = ["bestBrings", "pokemon", "threats", "archetypes", "hardest", "easiest"];
@@ -2024,14 +2091,39 @@ function stopAutoBuild() {
 // ---- import / export ----
 
 function renderImportExport() {
-  const exportText = sets().filter((s) => s.species).map((set) => setToShowdown(set, data)).join("\n\n");
+  const filled = sets().filter((s) => s.species);
+  const exportText = filled.map((set) => setToShowdown(set, data)).join("\n\n");
   const exportArea = h("textarea", { class: "bd-textarea", readonly: true, "aria-label": "Team export" }, exportText);
   const importArea = h("textarea", { class: "bd-textarea", placeholder: "Paste a Showdown team (up to six Pokémon)…", "aria-label": "Team import" });
-  hosts.main.append(
-    h("div", { class: "bd-panel-head" }, h("div", {}, h("h2", {}, "Import / Export"), h("p", {}, "Copy or paste teams in Showdown format. Stat Points go on the EVs line."))),
+  // The second mode of this panel: the team read out of two screenshots of the
+  // game's own team screen instead of pasted text (builder/screenshot-import.js).
+  const fromShots = Boolean(view.importShots);
+  const head = h("div", { class: "bd-panel-head" },
+    h("div", {}, h("h2", {}, "Import / Export"), h("p", {}, fromShots
+      ? "Read a team straight off two screenshots of the game's team screen."
+      : "Copy or paste teams in Showdown format. Stat Points go on the EVs line.")),
+    h("button", {
+      type: "button", class: "ghost-button compact", "aria-pressed": fromShots ? "true" : "false",
+      onclick: () => { view.importShots = !fromShots; renderMain(); },
+    }, fromShots ? "Paste text instead" : "Use in-game screenshots"));
+  if (fromShots) {
+    // Loaded only when it is asked for: the reader carries the game's own glyph
+    // atlas, which nobody who came here to paste text should have to download.
+    const shots = h("div", {}, h("p", { class: "bd-note" }, "Loading…"));
+    hosts.main.append(head, shots);
+    import("./screenshot-import.js")
+      .then(({ screenshotImportView }) => clear(shots).append(screenshotImportView(data, importTeam)))
+      .catch(() => clear(shots).append(problemCard("That did not load", "The screenshot reader could not be loaded. Check your connection and press “Use in-game screenshots” again.")));
+    return;
+  }
+  hosts.main.append(head,
     h("div", { class: "bd-eval-grid" },
       h("div", { class: "bd-field" }, h("span", {}, `Export “${currentTeam().title}”`), exportArea,
-        h("div", { class: "bd-actions" }, h("button", { type: "button", class: "ghost-button compact", onclick: async () => { try { await navigator.clipboard.writeText(exportText); toast("Copied to the clipboard"); } catch { exportArea.select(); } } }, "Copy"))),
+        h("div", { class: "bd-actions" },
+          h("button", { type: "button", class: "ghost-button compact", onclick: async () => { try { await navigator.clipboard.writeText(exportText); toast("Copied to the clipboard"); } catch { exportArea.select(); } } }, "Copy"),
+          // Beside Copy, because this panel is already where people come to get
+          // their team out. Nothing to export means nothing to share.
+          filled.length ? teamShareButton() : null)),
       h("div", { class: "bd-field" }, h("span", {}, "Import"), importArea,
         h("div", { class: "bd-actions" },
           h("button", { type: "button", class: "primary-button compact", onclick: () => importTeam(importArea.value, "new") }, "Import as new team"),

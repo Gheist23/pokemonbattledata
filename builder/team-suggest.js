@@ -730,27 +730,40 @@ export function hitsFromLabel(label) {
   return 99;
 }
 
-/** One of beats / walls / chips / trades / loses: the app's real-answer rule (V494), graded. */
-export function verdictFor(outHits, inHits, oursFirst, theirsFirst) {
+/** One of beats / walls / chips / trades / loses: the app's real-answer rule (V494), graded.
+ *
+ *  `outSelfKo` (`self_cost`): our own best move removes the threat by fainting its user
+ *  (Explosion, Final Gambit, Memento...). Removing something and being removed for it is a
+ *  TRADE, so that is the best this matchup can be graded -- it can still be worse, when the
+ *  threat is faster and would remove us before the move ever goes off. Nothing else moves:
+ *  `VERDICT_VALUE.trades` is already 0.15, so the ledger, the sort and the sentence follow. */
+export function verdictFor(outHits, inHits, oursFirst, theirsFirst, outSelfKo = false) {
   const out = Math.trunc(Number(outHits) || 99);
   const inn = Math.trunc(Number(inHits) || 99);
   if (theirsFirst && inn === 1) return "loses";
   const wins = out < inn;
   const matchesAndFaster = out === inn && Boolean(oursFirst);
-  if (out <= THREATEN_MAX_HITS && (wins || matchesAndFaster)) return "beats";
-  if (inn >= WALL_MIN_INCOMING && wins) return "walls";
+  if (out <= THREATEN_MAX_HITS && (wins || matchesAndFaster)) return outSelfKo ? "trades" : "beats";
+  if (inn >= WALL_MIN_INCOMING && wins) return outSelfKo ? "trades" : "walls";
   if (inn < out) return "loses";
   if (out === inn) return "trades";
   return "chips";
 }
 
-/** The verdict in words, before any calc line. */
-export function verdictSentence(name, verdict, outHits, inHits, oursFirst, theirsFirst) {
+/** The verdict in words, before any calc line.
+ *  `outSelfKo` (`self_cost`): our move removes the threat by fainting its own user, so the
+ *  trade sentence says both halves of it instead of claiming an even speed tie. */
+export function verdictSentence(name, verdict, outHits, inHits, oursFirst, theirsFirst, outSelfKo = false) {
   const hits = (count) => {
     const n = Math.trunc(Number(count) || 99);
     if (n >= 99) return "no reliable KO";
     return n === 1 ? "one hit" : `${n} hits`;
   };
+  if (outSelfKo && verdict === "trades") {
+    const n = Math.trunc(Number(outHits) || 99);
+    if (n <= 3) return `Trades with ${name}: removes it in ${hits(outHits)}, but faints doing it.`;
+    return `Trades with ${name}: the move that answers it faints its own user.`;
+  }
   // Move order is only worth a clause where it decides the exchange: when both need the same
   // number of hits, or when the threat can remove this Pokémon inside the turns it needs.
   const close = (Math.trunc(Number(inHits) || 99)) <= (Math.trunc(Number(outHits) || 99));
@@ -1479,8 +1492,24 @@ export class TeamSuggestions {
     return [outSpeed > inSpeed, inSpeed > outSpeed];
   }
 
-  /** _v494_is_real_answer */
+  /** Whether our own best move against a threat removes the threat by fainting its user.
+   *  One question, asked by `isRealAnswer` and `matchupEvidence`, off the shared name set
+   *  and flags (`TeamEvaluator.selfDestructs`) -- and only under `self_cost` version 1. */
+  outgoingSelfKo(outgoing) {
+    if (this.ev.selfCost < 1) return false;
+    const move = String(outgoing?.move || "");
+    return Boolean(move) && this.ev.selfDestructs(move);
+  }
+
+  /** _v494_is_real_answer
+   *
+   *  `self_cost`: a move that faints its own user is not an answer. This is the one line that
+   *  closes the Final Gambit hole everywhere at once, because `threatMatchup` (:1394),
+   *  `typeFit`'s V494 strike-back and `losesToThreat` all read this function, and Auto Build
+   *  reads those. Before the rule a Final Gambit carrier was offered as the answer to five of
+   *  a team's eight worst threats. */
   isRealAnswer(incoming, outgoing) {
+    if (this.outgoingSelfKo(outgoing)) return false;
     const inHits = this.hitRank(incoming);
     const outHits = this.hitRank(outgoing);
     const [oursFirst, theirsFirst] = this.moveOrder(outgoing, incoming);
@@ -1494,14 +1523,15 @@ export class TeamSuggestions {
   /**
    * V511 `_matchup_evidence`: hits both ways and who moves first, from the engine the Team
    * Evaluation uses (the same two calcs `threatMatchup` runs, so they share its cache).
-   * @returns {null|{outHits: number, inHits: number, oursFirst: boolean, theirsFirst: boolean}}
+   * @returns {null|{outHits: number, inHits: number, oursFirst: boolean, theirsFirst: boolean, outSelfKo: boolean}}
    *   null when the matchup could not be built at all (nothing to measure).
+   *   `outSelfKo`: our own best move removes it by fainting its user (`self_cost`).
    */
   matchupEvidence(profile, threat) {
     const matchup = this.threatMatchup(profile, threat);
     if (!matchup.incoming && !matchup.outgoing) return null;
     const [oursFirst, theirsFirst] = this.moveOrder(matchup.outgoing, matchup.incoming);
-    return { outHits: this.hitRank(matchup.outgoing), inHits: this.hitRank(matchup.incoming), oursFirst, theirsFirst };
+    return { outHits: this.hitRank(matchup.outgoing), inHits: this.hitRank(matchup.incoming), oursFirst, theirsFirst, outSelfKo: this.outgoingSelfKo(matchup.outgoing) };
   }
 
   /** V511 `_type_chart_says_good`: whether typing alone would have listed this as an answer. */
@@ -2422,7 +2452,7 @@ export class TeamSuggestions {
       const evidence = this.matchupEvidence(profile, threat);
       if (!evidence) continue;
       measured += 1;
-      const verdict = verdictFor(evidence.outHits, evidence.inHits, evidence.oursFirst, evidence.theirsFirst);
+      const verdict = verdictFor(evidence.outHits, evidence.inHits, evidence.oursFirst, evidence.theirsFirst, evidence.outSelfKo);
       const value = VERDICT_VALUE[verdict] ?? 0.3;
       const fillsAGap = Boolean(gaps.get(name));
       answerValue += weight * value;
@@ -2432,8 +2462,9 @@ export class TeamSuggestions {
         threat: name, threat_score: r1(Number.isFinite(score) ? score : 0), verdict,
         out_hits: evidence.outHits, in_hits: evidence.inHits, ours_first: evidence.oursFirst, theirs_first: evidence.theirsFirst,
         fills_a_gap: fillsAGap,
-        sentence: verdictSentence(name, verdict, evidence.outHits, evidence.inHits, evidence.oursFirst, evidence.theirsFirst),
+        sentence: verdictSentence(name, verdict, evidence.outHits, evidence.inHits, evidence.oursFirst, evidence.theirsFirst, evidence.outSelfKo),
       };
+      if (evidence.outSelfKo) entry.out_self_ko = true;
       // Threats whose typing flatters this Pokémon while the calc disagrees.
       if (verdict !== "beats" && verdict !== "walls") entry.type_chart_says_good = this.typeChartSaysGood(profile, threat);
       entries.push(entry);

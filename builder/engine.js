@@ -1466,6 +1466,21 @@ export class DamageEngine {
     out.recoil_percent = recoilPercent;
     out.recoil_text = `${recoilPercent} recoil`;
     out.display_percent = `${baseDisplay} (${out.recoil_text})`;
+    // The same recoil AS NUMBERS. The four strings above were the only way out of here, and
+    // they are unusable to a scoring consumer: `recoil_hp_range` is in the ATTACKER's HP
+    // points while `out.max_hp` is the DEFENDER's, so nothing holding a result could turn it
+    // into a share of the user's HP. That is why nine of eleven consumers dropped the cost
+    // entirely (see builder/self-cost.js). Purely additive: every string above keeps the
+    // value it had, and the Damage Calculator, which parses them, does not move.
+    const total = recoilRolls.reduce((sum, v) => sum + v, 0);
+    out.recoil_hp_lo = lo;
+    out.recoil_hp_hi = hi;
+    /** The ATTACKER's max HP, so a consumer can recover any of these as a share itself. */
+    out.recoil_attacker_max_hp = maxHp;
+    out.recoil_share_lo = lo / maxHp;
+    out.recoil_share_hi = hi / maxHp;
+    /** The mean over the damage rolls: what one use costs on average, as a share of the user's max HP. */
+    out.recoil_share = total / recoilRolls.length / maxHp;
     return out;
   }
 

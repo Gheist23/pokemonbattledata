@@ -20,6 +20,7 @@ import { SpeedTiers } from "./speed-tiers.js";
 import { SUGGESTION_DIVERSITY, SUGGESTION_SCORING, TeamSuggestions } from "./team-suggest.js";
 import { TeamAutoBuild } from "./team-autobuild.js";
 import { DeepOptimizer } from "./optimize-deep.js";
+import { OPTIMIZE_SPREAD_DEPTH } from "./optimize-spread-depth.js";
 
 let dataPromise = null;
 let knownTeamsPromise = null;
@@ -193,6 +194,7 @@ self.addEventListener("message", async (event) => {
           keepSpeed: Boolean(payload.keepSpeed),
           lockedMoves: Array.isArray(payload.lockedMoves) ? payload.lockedMoves : [],
           topX: Number(payload.topX) || Number(payload.settings?.top_meta) || 0,
+          optimizeSpreadDepth: OPTIMIZE_SPREAD_DEPTH,
         }, {
           onProgress: (fraction, message, phase) => progress({ fraction, message, phase }),
           shouldStop: () => cancelled.has(id),
@@ -225,6 +227,9 @@ self.addEventListener("message", async (event) => {
           archetype: payload.archetype || "automatic",
           teamArchetype: payload.teamArchetype || "",
           prioritizeMeta: Boolean(payload.prioritizeMeta),
+          // Prioritize Meta's tier above the yellow checks (builder/autobuild-meta-priority.js).
+          // Left out of the request, production's version; 0 restores the order before the rule.
+          autobuildMetaPriority: payload.autobuildMetaPriority,
           box: (payload.box || []).map((set) => (set && set.species ? makeSet(set) : null)).filter(Boolean),
           onProgress: (fraction, message) => progress({ fraction, message }),
           shouldStop: () => cancelled.has(id),

@@ -26,6 +26,13 @@ import { pokemonRecord } from "../tools/builder-meta.mjs";
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
 const appData = JSON.parse(readFileSync(join(root, "data", "builder", "app-data.json"), "utf8"));
+/** The recording's `self_cost` stamp (null: recorded before the rule, so a move that faints its
+ *  own user is still counted as a clean answer and the engine's recoil is still free).
+ *  SELF_COST=0 / =1 replays every recording either way. */
+const selfCostRule = (testCase) => (process.env.SELF_COST === undefined
+  ? (testCase?.record?.rules?.self_cost ?? testCase?.rules?.self_cost ?? null)
+  : process.env.SELF_COST);
+
 const cases = JSON.parse(readFileSync(join(here, "optimize-vectors.json"), "utf8"));
 const siteMeta = JSON.parse(readFileSync(join(root, "data", "builder", "meta-doubles.json"), "utf8"));
 const evalCases = Object.fromEntries(JSON.parse(readFileSync(join(here, "eval-vectors.json"), "utf8")).map((c) => [c.name, c]));
@@ -66,7 +73,7 @@ for (const testCase of cases) {
     if (!records.has(stem) && (call.meta.rows || []).length) records.set(stem, pokemonRecord(stem, call.meta.rows, aliases));
   }
   if (!appPool.length) for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
-  const ev = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? null, checkRules: testCase.record?.rules?.team_checks ?? testCase.rules?.team_checks ?? null });
+  const ev = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? null, checkRules: testCase.record?.rules?.team_checks ?? testCase.rules?.team_checks ?? null, selfCost: selfCostRule(testCase) });
   ev.setMetaRecords([...records.values()]);
   const optimizer = new TeamOptimizer(new TeamEvaluation(ev));
   const label = `${testCase.name} slot ${testCase.slot} ${testCase.entry[0]}`;

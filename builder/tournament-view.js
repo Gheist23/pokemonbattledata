@@ -94,8 +94,10 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
       step("2", "Turn 1", singles
         ? "Each lead picks one action, and they go in priority and Speed order."
         : "Each of the four picks one action, and they go in priority and Speed order."),
-      step("3", "After turn 1", `From turn 2 ${singles ? "both Pokémon attack" : "all four attack"} on the board turn 1 left behind.`),
-      step("4",
+      step("3", "Turns 2, 3 and 4", "Three more full turns, each decided the same way, so a Pokémon can defend itself or set something up instead of attacking. Defending two turns in a row does not work."),
+      step("4", "After turn 4", `From turn 5 ${singles ? "both Pokémon attack" : "all four attack"} on the board the first four turns left behind.`),
+      step("5", "The best path for both sides", "Turn 1 is played three ways for each side and every pairing is played out, so the same game runs nine times. Each side takes the one that holds up best against all three of the other's, without seeing which they picked."),
+      step("6",
         same ? `Both sides bring ${theirs}` : `You bring ${size === 1 ? "your one" : ours}, they bring ${theirs}`,
         same
           ? `Every ${theirs} you could bring plays every ${theirs} they could bring. Neither side sees the other's choice: you both bring the ${theirs} that hold up best against every answer, and the score is the one game those two choices play.`
@@ -108,9 +110,9 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
       // (119 per format) fail to add up to 100 and 0 of 120 mirrors are off 50 -- but team501 vs team1201
       // scores 43.4934 and team1201 against team501 scores 56.5066. So the sentence says the
       // property that holds.
-      step("5", "Across the teams", `Played against up to ${number(teams)} real recent tournament teams. A score of 50 is even — swap the two teams round and the score flips to the other side of 50 by the same amount, so 50 is what a team scores against itself; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
+      step("7", "Across the teams", `Played against up to ${number(teams)} real recent tournament teams. A score of 50 is even — swap the two teams round and the score flips to the other side of 50 by the same amount, so 50 is what a team scores against itself; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
     h("p", { class: "bd-note bd-tour-limits" },
-      "Kept simple on purpose: nobody switches out (Parting Shot lowers the stats but its user stays in), paralysis, poison, screens and stat-boosting moves are left out, and each Pokémon picks its best play without guessing what the other side will do. ",
+      "Kept simple on purpose: nobody switches out (Parting Shot lowers the stats but its user stays in), and paralysis, poison, screens and stat-boosting moves are left out. The first four turns are chosen against everything the other side could do; from turn 5 on each Pokémon simply uses its best attack. ",
       // The board is the only source of the field (tournament-test.js TOURNAMENT_FIELD), so this is
       // the one place the explainer has to mention the Settings dialog at all.
       "Every game has a field of its own, set by the Pokémon in it, so the Field settings are not used here. ",
@@ -118,7 +120,7 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
 }
 
 /**
- * @param {object} s            a snapshot from TournamentTest.run (SNAPSHOT_VERSION, now 8)
+ * @param {object} s            a snapshot from TournamentTest.run (SNAPSHOT_VERSION, now 10)
  * @param {{name:(mon)=>string, sprite:(mon, size)=>Node, running:boolean, loadTeam?:(similar)=>void}} helpers
  */
 export function tournamentAnalysis(s, { name, sprite, running, loadTeam = null }) {
@@ -491,7 +493,7 @@ function gameRow(game, { open, group, doubles, bandPill, name, sprite }) {
     h("div", { class: "bd-tr-game-body" },
       h("p", {}, h("b", {}, "Leads: "), `your ${lineUp(game.bring || [], game.leads)} against their ${lineUp(game.against || [], game.theirLeads)}.`),
       h("p", {}, h("b", {}, "You bring "), names(game.bring || []), ". ", h("b", {}, "They bring "), names(game.against || []), "."),
-      h("p", { class: "bd-tr-game-label" }, "Turn 1"),
+      h("p", { class: "bd-tr-game-label" }, "What happened"),
       h("ul", { class: "bd-tr-story" }, story.length ? story.map((line) => h("li", {}, line))
         // How many are on the field: both sides' leads, which is fewer when our team is small.
         : h("li", {}, (game.leads || 0) + (game.theirLeads || 0) === 2 ? "Both attack." : `All ${word((game.leads || 0) + (game.theirLeads || 0))} attack.`)),

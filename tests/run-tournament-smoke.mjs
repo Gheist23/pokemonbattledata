@@ -1,5 +1,5 @@
 // Scenario checks for Test against Tournament Teams (builder/tournament-test.js):
-// hand-made leads for turn 1, the bring size per format, the snapshot shape (SNAPSHOT_VERSION 8:
+// hand-made leads for turn 1, the bring size per format, the snapshot shape (SNAPSHOT_VERSION 10:
 // the lead matrix, the bring options, the most similar team, the Field settings a run ignored, a stat
 // stage pinned on one side only), and
 // that Tailwind / Fake Out / Intimidate actually move the result. Also: Earthquake-type moves hit the
@@ -449,7 +449,7 @@ for (const format of ["Doubles", "Singles"]) {
   runs[format] = { s, seconds: (Date.now() - started) / 1000, values: test.values };
   const size = format === "Singles" ? 3 : 4;
   const doubles = format === "Doubles";
-  check(`${format}: snapshot version ${SNAPSHOT_VERSION}`, s.version === 8 && SNAPSHOT_VERSION === 8);
+  check(`${format}: snapshot version ${SNAPSHOT_VERSION}`, s.version === 10 && SNAPSHOT_VERSION === 10);
   check(`${format}: brings ${size}`, s.bring === size && s.bestBrings.every((b) => b.members.length === size) && s.hardest.every((t) => t.bring.length === size && t.against.length === size),
     JSON.stringify(s.bestBrings.map((b) => b.members.length)));
   check(`${format}: at most ${size} bring options, each the best choice somewhere`, s.bestBrings.length >= 1 && s.bestBrings.length <= size && s.bestBrings.slice(1).every((b) => b.bestRate > 0) && s.bestBrings.every((b) => b.leads.length === (doubles ? 2 : 1)),
@@ -966,7 +966,17 @@ for (const format of ["Doubles", "Singles"]) {
   for (const [label, sets] of Object.entries(variants)) {
     const s = await makeTest("Doubles").run(sets.map((set) => makeSet(set)), { limit });
     console.log(`Doubles ${label}: average ${s.average.toFixed(1)} (full ${full.average.toFixed(1)}) · favoured ${s.bands.favourable} (full ${full.bands.favourable})`);
-    check(`${label} lowers the favoured count`, s.bands.favourable < full.bands.favourable, `${s.bands.favourable} vs ${full.bands.favourable}`);
+    // Both tools help this team, and the HEADLINE is where the page says so. The favoured count
+    // (>=55) stopped being the statistic to read it by when the scoring game went to four planned
+    // turns (TOURNAMENT_DEPTH version 2), and that is not a regression: each variant swaps a whole
+    // move set, and the replacement moves are now played on three more turns than two ever offered --
+    // the Tailwind variant's Whimsicott keeps Encore and gets to use it on turns 2, 3 and 4 as well,
+    // which wins it more of the middling matchups while its worst ones get worse. Measured on 150
+    // teams: full 55.1838 / 82 favoured / 31 behind; no Tailwind 54.6377 / 86 / 36; no Fake Out or
+    // Intimidate 54.1598 / 82 / 37. So the two claims that hold for BOTH variants are asserted, and
+    // both strictly -- the average falls by more than a quarter point, and more matchups end behind.
+    check(`${label} lowers the headline`, s.average < full.average - 0.25, `${s.average.toFixed(4)} vs ${full.average.toFixed(4)}`);
+    check(`${label} leaves more matchups behind`, s.bands.unfavourable > full.bands.unfavourable, `${s.bands.unfavourable} vs ${full.bands.unfavourable}`);
   }
 }
 
@@ -1066,8 +1076,19 @@ for (const format of ["Doubles", "Singles"]) {
   // "How it works" is deliberately short now: the moves turn 1 can bring are
   // listed once, in the panel description above the button, not again here.
   check("The explainer keeps its steps short", how.includes("Each of the four picks one action, and they go in priority and Speed order.")
-    && how.includes("From turn 2 all four attack on the board turn 1 left behind.")
-    && !how.includes("Wide Guard"), how.slice(0, 160));
+    // FOUR turns are planned since TOURNAMENT_DEPTH version 2, so the slugfest starts on turn 5. Still
+    // no move names here: "Defending two turns in a row does not work" is TOURNAMENT_GUARD said in
+    // plain English, because Protect belongs in the panel description above the button.
+    && how.includes("From turn 5 all four attack on the board the first four turns left behind.")
+    && how.includes("Three more full turns, each decided the same way")
+    && how.includes("Defending two turns in a row does not work.")
+    && how.includes("the same game runs nine times")
+    && !how.includes("Wide Guard") && !how.includes("Protect"), how.slice(0, 160));
+  check("The explainer no longer promises the old two turns",
+    !how.includes("A second full turn") && !how.includes("From turn 3") && !how.includes("the first two turns"), how.slice(0, 260));
+  check("And the limits note counts the planned turns the same way",
+    how.includes("The first four turns are chosen against everything the other side could do; from turn 5 on each Pokémon simply uses its best attack.")
+    && !how.includes("The first two turns are chosen"), how.slice(-500));
   check("The Singles explainer brings three and has no partner moves", tournamentExplainer({ format: "Singles" }).textContent.includes("Both sides bring three") && !tournamentExplainer({ format: "Singles" }).textContent.includes("Helping Hand"));
 
   // The bring rule's own copy (tournament-test.js TOURNAMENT_BRING). Both sides now commit their

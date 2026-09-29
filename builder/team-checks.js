@@ -12,6 +12,7 @@
 // rule change in the app reaches the website with the next export.
 
 import { compact } from "./engine.js";
+import { selfKo } from "./self-cost.js";
 
 export const ARCHETYPE_CHECK_ID = "archetype_fit";
 
@@ -32,7 +33,23 @@ export const ARCHETYPE_CHECK_ID = "archetype_fit";
 // regenerating it rewrites a multi-megabyte file in a worktree the owner's pipeline
 // commits and deploys every few hours. tests/run-singles-smoke.mjs asserts these strings
 // still equal the app's, so the duplication is paid for by a test.
-export const TEAM_CHECK_RULES = 1;
+//
+// Version 3 (SELF_COST_ATTACK_RULE): `attackOf` stops calling a move an attack when the move
+// faints its own user, and stops reading a base power of 1 as a base power at all. Both are the
+// same defect -- a record whose power is a placeholder. Final Gambit is filed in this game's
+// data as a 1-power special move whose real damage is the user's remaining HP, and 36 other
+// moves carry the same placeholder 1 (Seismic Toss, Night Shade, Super Fang, Counter, Metal
+// Burst, the OHKO moves and every Z-move). Team Building Checks read them as the team's best
+// power and counted them in the meta's attacking-type weights, so a Final Gambit was priced as
+// a 1-power Fighting attack and a Z-move as a 1-power anything. Coverage is unaffected in
+// either direction: `_v514_coverage_types` is the union with `damaging_types`, which still
+// reads `power > 0`, so no attacking type is lost. Nothing is attached to version 2 -- the
+// number is the one the coordinated self-cost change set uses -- so a recording stamped 1 OR 2
+// replays the pre-self-cost `attackOf` byte for byte.
+export const TEAM_CHECK_RULES = 3;
+
+/** The `team_checks` version from which `attackOf` refuses a self-KO move and a 1-power record. */
+export const SELF_COST_ATTACK_RULE = 3;
 
 /** A `team_checks` stamp as a version: 0 (off) for null / undefined / false / "" / "0".
  *
@@ -232,14 +249,20 @@ export const COVERAGE_EXTRA_ATTACKS = {
 };
 
 /** ONE definition of "this move attacks", shared by the team's coverage, its best power and
- *  the meta's type weights, so the three cannot drift apart.  Mirrors `attack_of`. */
-function attackOf(move, reading) {
+ *  the meta's type weights, so the three cannot drift apart.  Mirrors `attack_of`.
+ *
+ *  `rules` is the `team_checks` version. From SELF_COST_ATTACK_RULE a move that faints its own
+ *  user is not one of the team's attacks, and a base power of 1 is this game's placeholder for
+ *  "the damage is not the base power", not a 1-power attack. */
+function attackOf(move, reading, rules = 0) {
+  const strict = Number(rules) >= SELF_COST_ATTACK_RULE;
+  if (strict && selfKo(move)) return null;
   const extra = COVERAGE_EXTRA_ATTACKS[compact(move)];
   if (extra) return [pyTitleWord(String(extra[0])), Number(extra[1])];
   if (!reading) return null;
   const [type, , power] = reading;
   const bp = Number(power) || 0;
-  if (!(bp > 0)) return null;
+  if (!(bp > (strict ? 1 : 0))) return null;
   return [pyTitleWord(String(type || "")), bp];
 }
 
@@ -829,7 +852,7 @@ export class TeamChecks {
           // D22 again, through the ONE shared definition: `attackOf` puts the meta's Knock
           // Off, Rock Tomb, Mystical Fire and the other seventeen back into the totals with
           // the same type and power the Companion reads, so the weights cannot drift.
-          const attack = attackOf(move, this.ev.simpleMoveInfo(move));
+          const attack = attackOf(move, this.ev.simpleMoveInfo(move), this.rules);
           if (attack && counts[attack[0]] !== undefined) {
             counts[attack[0]] += 1;
             total += 1;
@@ -883,7 +906,7 @@ export class TeamChecks {
       let best = 0;
       const coverage = new Set(Array.from(profile.damaging_types || [], (t) => String(t)));
       for (const move of profile.moves || []) {
-        const attack = attackOf(move, this.ev.simpleMoveInfo(move));
+        const attack = attackOf(move, this.ev.simpleMoveInfo(move), this.rules);
         if (attack) {
           best = Math.max(best, attack[1]);
           if (attack[0]) coverage.add(attack[0]);

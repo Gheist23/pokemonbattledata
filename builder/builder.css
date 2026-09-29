@@ -1376,6 +1376,11 @@ body.page-team-builder { --max-width: 1520px; }
   .bd-tier-sprite { width: 34px; height: 34px; }
   .bd-tier-bar { display: none; }
   .bd-panel-head .bd-actions { width: 100%; }
+  /* One short Share button stays beside its heading instead of taking a line of
+     its own. Narrow enough for the columns to stack, a heading that grows taller
+     moves everything below it, which slides the page under whoever is reading it
+     (builder/scroll-anchor.js, tests/run-scroll-anchor.mjs). */
+  .bd-panel-head .bd-actions.bd-share-actions { width: auto; }
 }
 
 /* Test against Tournament Teams: builder/tournament.css. */
@@ -1396,4 +1401,30 @@ body.page-team-builder { --max-width: 1520px; }
 
 @media (max-width: 960px) {
   .bd-similar-members { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* --- Import / Export: "Use in-game screenshots" (builder/screenshot-import.js) ------- */
+.bd-shot { display: grid; gap: 0.8rem; }
+.bd-shot-examples { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+.bd-shot-figure { margin: 0; display: grid; gap: 0.3rem; justify-items: center; padding: 0.5rem; border: 1px solid var(--bd-line); border-radius: 10px; background: var(--bd-card-deep); }
+.bd-shot-figure img { width: 100%; max-width: 320px; height: auto; border-radius: 6px; image-rendering: auto; }
+.bd-shot-figure figcaption { font-size: 0.76rem; color: var(--muted); text-align: center; }
+.bd-shot-picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+.bd-shot-pick { display: grid; gap: 0.3rem; min-width: 0; }
+.bd-shot-pick > span { font-family: var(--bd-mono); font-size: 0.74rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.bd-shot-pick em { font-style: normal; font-size: 0.74rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bd-shot-file { font-size: 0.78rem; color: var(--text); }
+.bd-shot-heading { margin: 0.2rem 0 0; font-family: var(--bd-mono); font-size: 0.88rem; }
+.bd-shot-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
+.bd-shot-slot { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.5rem 0.6rem; border: 1px solid var(--bd-line); border-radius: 10px; background: var(--bd-card-deep); }
+.bd-shot-slot p { margin: 0.12rem 0 0; font-size: 0.78rem; color: var(--muted); }
+.bd-shot-slot strong { font-family: var(--bd-mono); font-size: 0.84rem; }
+.bd-shot-nature { font-size: 0.76rem; color: var(--muted); }
+.bd-shot-unsure { border-color: rgba(255, 196, 92, 0.5); }
+.bd-shot-bad { border-color: rgba(255, 120, 120, 0.5); }
+.bd-shot-doubt { color: var(--gold); font-size: 0.78rem; }
+
+@media (max-width: 720px) {
+  .bd-shot-examples,
+  .bd-shot-picks { grid-template-columns: minmax(0, 1fr); }
 }

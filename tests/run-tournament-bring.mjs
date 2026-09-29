@@ -236,14 +236,40 @@ const BENCH = [
 {
   const teams = 40;
   const sets = BENCH.map((set) => makeSet(set));
-  const a = await makeTest("Doubles", { bringRule: 0 }).run(sets, { limit: teams });
-  const b = await makeTest("Doubles").run(sets, { limit: teams });
+  /** Runs a version and keeps BOTH the snapshot and every bring's own pick count. */
+  const runWithPicks = async (options) => {
+    const test = makeTest("Doubles", options);
+    let kept = null;
+    const played = test.playTeam.bind(test);
+    test.playTeam = (state, team) => {
+      played(state, team);
+      kept = state;
+    };
+    const snapshot = await test.run(sets, { limit: teams });
+    return { snapshot, picks: JSON.stringify(kept.plans
+      .map((plan, c) => `${plan.order.slice().sort((x, y) => x - y).join(",")}:${kept.bringTotals[c].picked}`)
+      .sort()) };
+  };
+  const runA = await runWithPicks({ bringRule: 0 });
+  const runB = await runWithPicks({});
+  const a = runA.snapshot;
+  const b = runB.snapshot;
+  const pickedA = runA.picks;
+  const pickedB = runB.picks;
   console.log(`Doubles run (${teams} teams): version 0 headline ${a.average.toFixed(2)}, card ${a.bestBrings[0].value.toFixed(2)} · version ${TOURNAMENT_BRING} headline ${b.average.toFixed(2)}, card ${b.bestBrings[0].value.toFixed(2)} · games ${a.games} / ${b.games}`);
   check("the rule costs no games: the same run plays the same number under both versions", a.games === b.games, `${a.games} vs ${b.games}`);
   // Our own bring is untouched: the same line-ups are the best choice against the same share of
-  // teams. Keyed on the line-up, not the order, because the options are sorted by their score too.
-  const rate = (s) => JSON.stringify(s.bestBrings.map((x) => `${x.members.map((m) => m.slot).join(",")}@${x.bestRate}`).sort());
-  check("our recommended bring does not change: only their answer does", rate(a) === rate(b), `${rate(a)} vs ${rate(b)}`);
+  // teams. Read off EVERY bring's own pick count, not off `bestBrings` -- that list is cut to
+  // BRING_OPTIONS (4 in Doubles) and sorted by a value the rule is entitled to compute differently
+  // (version 0 scores a bring by its worst case, version 1 by their blind answer), so when two
+  // brings are picked EQUALLY OFTEN the cut keeps a different one of them and the old
+  // list-shaped check failed on a tie rather than on a changed choice. Measured on this very run:
+  // both versions pick 0,1,2,3 twelve times, 0,2,3,4 eleven, 0,1,2,4 nine, and 0,1,3,4 and 1,2,3,4
+  // four times each -- identical, but only four of the five fit the card. Comparing every count is
+  // strictly more than the old check did, and it is what the sentence above actually claims.
+  check("our recommended bring does not change: only their answer does", pickedA === pickedB, `${pickedA} vs ${pickedB}`);
+  check("and the one we recommend is the same line-up", JSON.stringify(a.mostBrought.members.map((m) => m.slot)) === JSON.stringify(b.mostBrought.members.map((m) => m.slot)),
+    `${JSON.stringify(a.mostBrought.members.map((m) => m.slot))} vs ${JSON.stringify(b.mostBrought.members.map((m) => m.slot))}`);
   check("the headline cannot fall: their blind bring is never a better answer than their best one", b.average >= a.average - 1e-9, `${a.average} vs ${b.average}`);
   check("the headline does rise on a real team (or the rule would be doing nothing)", b.average > a.average + 0.1, `${a.average} -> ${b.average}`);
   // The card. Version 1's number is the game each bring plays against the bring they commit to, so

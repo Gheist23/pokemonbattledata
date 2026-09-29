@@ -31,6 +31,7 @@ import { compact } from "./engine.js";
 import { GUARANTEED_MOVE_SHARE, describeChanges, effectiveAbility, enforce, formatShare, lockedKeys, moveShares } from "./guaranteed-moves.js";
 import { AutoBuildSearch, additionForPage } from "./autobuild-search.js";
 import { AutoBuildArchetype, archetypeDisplay, archetypeKey, candidateKey, manualArchetype, resolveAutomaticArchetype, topMetaKeys } from "./autobuild-archetype.js";
+import { metaPriorityOption, promoteMetaTier } from "./autobuild-meta-priority.js";
 import { TeamOptimizer } from "./team-optimize.js";
 import { MOVES_NEEDING_SUPPORT, TeamSuggestions, boxCandidates, speedModePlan, uniqueNames } from "./team-suggest.js";
 
@@ -63,13 +64,17 @@ export class TeamAutoBuild {
    *   every set (builder/guaranteed-moves.js); null or 0 = off.
    *   `pairedSpreads`: a pick's Nature gets Stat Points it does not contradict
    *   (builder/nature-spreads.js); left out, the evaluator's own setting decides.
+   *   `autobuildMetaPriority`: Prioritize Meta's tier sits above the yellow checks
+   *   (builder/autobuild-meta-priority.js); left out, production's version; 0 / null the
+   *   order before the rule, which is what a recording without the stamp replays with.
    */
-  constructor(evaluation, { guaranteedMoveShare = GUARANTEED_MOVE_SHARE, pairedSpreads } = {}) {
+  constructor(evaluation, { guaranteedMoveShare = GUARANTEED_MOVE_SHARE, pairedSpreads, autobuildMetaPriority } = {}) {
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.checks = evaluation.checks;
     this.synergy = evaluation.synergy;
     this.sg = new TeamSuggestions(evaluation, { guaranteedMoveShare, pairedSpreads });
+    this.metaPriority = metaPriorityOption(autobuildMetaPriority);
   }
 
   /** The guaranteed moves of an entry on this team: [{move, share}] ([] with the rule off). */
@@ -316,15 +321,19 @@ export class TeamAutoBuild {
     // Prioritize Meta Pokemon (V462/V468) ranks the Top-X meta ahead once the hard checks
     // are settled. In the app that tier sits where the V472 sort above it overwrites it,
     // so the option never changes a pick there; here it stands where V468 meant it to.
+    // autobuild_meta_priority moves that tier up to sit immediately after the hard RED
+    // checks, so a yellow check no longer outranks being in the Top X (see
+    // builder/autobuild-meta-priority.js). With Prioritize Meta off the element is a
+    // constant 0 and the move cannot change an order.
     const lastSlot = ordered.some((row) => row._last_empty_slot_v472);
     const manual = ordered.find((row) => row._manual_archetype_v472)?._manual_archetype_v472 || "";
     const metaPriority = ordered.some((row) => row.prioritized_meta_member_v462);
-    const key = (row) => [
+    const key = (row) => promoteMetaTier([
       lastSlot ? row._mega_red_v472 || 0 : 0, row._hard_red_checks_v472 ?? 999, row._hard_yellow_checks_v472 ?? 999, row.counter_archetype_speed_control_v466 ? 1 : 0,
       manual ? -Number(Number(row._manual_archetype_fit_v472 ?? 50).toFixed(4)) : 0,
       metaPriority && !row.prioritized_meta_member_v462 ? 1 : 0,
       Number(Number(row._hard_check_pressure_v472 ?? 9999).toFixed(5)),
-    ];
+    ], 5, 2, this.metaPriority);
     const sortBy = (list, keyOf) => list.map((row, i) => [row, keyOf(row), i]).sort(([, ka, ia], [, kb, ib]) => {
       for (let j = 0; j < ka.length; j += 1) if (ka[j] !== kb[j]) return ka[j] - kb[j];
       return ia - ib;
@@ -430,6 +439,9 @@ export class TeamAutoBuild {
    * @returns {{entries, spreads, additions, log, error?}}
    */
   run(sets, options = {}) {
+    // The Prioritize Meta tier rule, for both paths (the search reads it off the builder).
+    // Only a run that names it overrides what the constructor was given.
+    if (options && "autobuildMetaPriority" in options) this.metaPriority = metaPriorityOption(options.autobuildMetaPriority);
     if (options.search && options.search !== "companion") return new AutoBuildSearch(this, AUTO_BUILD_PROFILES).run(sets, options);
     return this.runGreedy(sets, options);
   }

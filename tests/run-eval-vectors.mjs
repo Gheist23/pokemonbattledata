@@ -68,6 +68,12 @@ const scoreRule = (testCase) => (process.env.SCORE_RULES === undefined ? scoreSt
 /** The recording's V514 Team Building Checks stamp (null: recorded before the rule, so the
  *  ten pre-V514 ids, the label "Defensive Switch-ins" and the V251 thresholds replay).
  *  TEAM_CHECK_RULES=0 / =1 replays every recording either way. */
+/** The recording's `self_cost` stamp (null: recorded before the rule, so a move that faints its
+ *  own user is still counted as a clean answer and the engine's recoil is still free).
+ *  SELF_COST=0 / =1 replays every recording either way. */
+const selfCostRule = (testCase) => (process.env.SELF_COST === undefined
+  ? (testCase?.record?.rules?.self_cost ?? testCase?.rules?.self_cost ?? null)
+  : process.env.SELF_COST);
 const checkStamp = (testCase) => testCase.record?.rules?.team_checks ?? testCase.rules?.team_checks ?? null;
 const checkRule = (testCase) => (process.env.TEAM_CHECK_RULES === undefined ? checkStamp(testCase) : process.env.TEAM_CHECK_RULES);
 const pairedRule = (testCase) => (process.env.PAIRED_SPREADS === undefined ? pairedStamp(testCase) : process.env.PAIRED_SPREADS);
@@ -104,7 +110,7 @@ const failures = [];
 const byField = new Map();
 for (const testCase of cases) {
   engine.terrainSeeds = seedRule(testCase);
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase) });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase) });
   // The app's meta rows carry their raw battle-data rows; build the site's meta
   // records from exactly those, so data freshness cannot hide a logic difference.
   const metaRows = testCase.record.meta[0]?.rows || [];

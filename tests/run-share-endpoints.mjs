@@ -916,9 +916,23 @@ let liveBucket = null;
   ok(parsed.kv_namespaces?.[0]?.binding === "LICENSES" && parsed.kv_namespaces[0].id === "88038110bbeb4f709e4cf614f67acc3d",
     "the LICENSES KV binding is untouched");
   ok(Array.isArray(parsed.r2_buckets), "wrangler.jsonc has an r2_buckets array");
-  ok(parsed.r2_buckets.length === 0, "which is EMPTY on purpose: this worktree deploys itself every few hours, and a binding naming a bucket that does not exist yet would go live before anyone could create it");
-  ok(wrangler.includes("wrangler r2 bucket create cbd-shares") && wrangler.includes('"binding": "SHARES", "bucket_name": "cbd-shares"'),
-    "and the two steps to switch it on are written down beside it");
+  // The bucket was created on 29 Sep 2026 and the binding went in after it, in
+  // that order, so nothing ever named a bucket that did not exist. These checks
+  // now hold the switched-on state instead of the empty one.
+  ok(parsed.r2_buckets.length === 1,
+    `exactly one R2 binding is declared, not ${parsed.r2_buckets.length}`);
+  ok(parsed.r2_buckets[0].bucket_name === "cbd-shares",
+    `it names the cbd-shares bucket, not "${parsed.r2_buckets[0].bucket_name}"`);
+  // The binding NAME is the one thing a deploy cannot tell you is wrong: a
+  // binding called anything else deploys cleanly and every share route then
+  // answers 503, because store() reads one exact property off env. So read that
+  // property out of the shipped source and require the config to match it,
+  // rather than matching a name spelled twice in this file.
+  const libSource = readFileSync(join(root, "functions/api/share/_lib.js"), "utf8");
+  const readsEnvKey = libSource.match(/export function store\(env\)\s*\{\s*return env\?\.([A-Za-z0-9_]+)/)?.[1];
+  ok(readsEnvKey === "SHARES", `store() reads env.SHARES (found ${readsEnvKey})`);
+  ok(parsed.r2_buckets[0].binding === readsEnvKey,
+    `the binding is named "${readsEnvKey}", the exact property store() reads, not "${parsed.r2_buckets[0].binding}"`);
   ok(parsed.compatibility_flags?.includes("nodejs_compat"), "nodejs_compat is still set");
 }
 

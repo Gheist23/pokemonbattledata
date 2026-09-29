@@ -14,15 +14,19 @@
   // from it, while R2's free tier is 10 GB with 1,000,000 Class A operations a
   // month.
   //
-  // TWO STEPS, IN THIS ORDER.  This worktree is committed and deployed
-  // automatically every few hours, so a binding that names a bucket which does
-  // not exist yet would be deployed before anyone could create it:
-  //   1.  npx wrangler r2 bucket create cbd-shares
-  //   2.  put the binding in the array below:
-  //         { "binding": "SHARES", "bucket_name": "cbd-shares" }
+  // Switched on 29 Sep 2026, in the order this file demanded: the bucket was
+  // created first and the binding added after it, because this worktree is
+  // committed and deployed automatically every few hours and a binding naming a
+  // bucket that did not exist yet would have gone live before anyone could
+  // create it.  Keep that order for any bucket added here later.
   //
-  // Until step 2 every share route answers 503 "Sharing is not configured on
-  // this server.", exactly as the sync routes do without their namespace
-  // (functions/api/sync/index.js:8).  Nothing else on the site is affected.
-  "r2_buckets": []
+  // Without the binding every share route answers 503 "Sharing is not
+  // configured on this server.", exactly as the sync routes do without their
+  // namespace (functions/api/sync/index.js:8), and nothing else is affected.
+  // The binding NAME must stay the exact property functions/api/share/_lib.js
+  // store() reads off env; tests/run-share-endpoints.mjs asserts that pairing,
+  // because any other name deploys cleanly and then 503s every share.
+  "r2_buckets": [
+    { "binding": "SHARES", "bucket_name": "cbd-shares" }
+  ]
 }

@@ -35,6 +35,7 @@ import {
   DamageMemo, PROFILE_HITS, actionProfile, koProfile, minimalResult, raceValue, rollsForHit, turnsToKo,
 } from "./optimize-core.js";
 import { DRAIN_FRACTIONS, FIELD_PLAN_MOVES, NEUTRAL_STATUS, REDIRECTION_MOVES, isFirstTurnOnly, isMultiHit, isSpreadMove } from "./move-traits.js";
+import { selfMaxHpFraction } from "./self-cost.js";
 
 const THREAT_VARIANTS = 3;
 export const WORKING_SET_RANKS = 50;
@@ -61,6 +62,9 @@ export const TUNING = {
   opposingTailwind: 0.15,
 };
 const RECOIL_IMMUNE = new Set(["rockhead", "magicguard"]);
+/** What a race neither side finishes is worth to `raceValue`: a tie counts half. A move that
+ *  faints its own user can never be worth more than that (`self_cost`). */
+const TRADE_RACE_VALUE = 0.5;
 const SPEED_WEATHER = { chlorophyll: "Sun", swiftswim: "Rain", sandrush: "Sand", slushrush: "Snow" };
 const WEATHER_OF = { drizzle: "Rain", drought: "Sun", sandstream: "Sand", snowwarning: "Snow", frostwarning: "Snow", desolateland: "Sun", primordialsea: "Rain", orichalcumpulse: "Sun" };
 const TERRAIN_OF = { electricsurge: "Electric", grassysurge: "Grassy", psychicsurge: "Psychic", mistysurge: "Misty", hadronengine: "Electric" };
@@ -204,8 +208,18 @@ export class OptimizeObjective {
     this.support = statusMoves.length >= 2 || moves.some((m) => REDIRECTION_MOVES.has(compact(m))) || (fakeOut && statusMoves.length >= 1);
     [this.wR, this.wS, this.wK, this.wV = 0] = this.support ? TUNING.weights.support : TUNING.weights.attacker;
     this.chip = this.doubles ? TUNING.chip : [[0, 1]];
-    this.recoilImmune = RECOIL_IMMUNE.has(compact(this.template.ability));
-    this.lifeOrb = compact(this.template.item) === "lifeorb" && !this.recoilImmune;
+    // `self_cost`: Rock Head and Magic Guard are not the same Ability, and this file used to
+    // treat them as one (`RECOIL_IMMUNE`). The engine has it right and is the reference:
+    // Rock Head suppresses ONLY the share of the damage dealt that comes back as recoil, so a
+    // Rock Head Pokemon still pays Life Orb's tenth and still pays Steel Beam, Mind Blown and
+    // Chloroblast their half of its max HP. Magic Guard suppresses the whole block. Version 0
+    // keeps the old "either Ability cancels everything", so a recording replays unchanged.
+    const ability = compact(this.template.ability);
+    this.magicGuard = ability === "magicguard";
+    this.rockHead = ability === "rockhead";
+    this.recoilImmune = RECOIL_IMMUNE.has(ability);
+    this.selfCost = Number(this.ev.selfCost) || 0;
+    this.lifeOrb = compact(this.template.item) === "lifeorb" && !(this.selfCost >= 1 ? this.magicGuard : this.recoilImmune);
   }
 
   /** Moves a team's field is built around, for the moves this member may not lose. */
@@ -424,6 +438,7 @@ export class OptimizeObjective {
     return this.memo.get(cell, key, () => {
       let raw;
       let prof;
+      const selfKo = this.ev.selfDestructs(move);
       try {
         raw = this.calc(mon, row.threat, move, fieldId);
         const lowered = this.dropped(mon, move, record);
@@ -431,27 +446,39 @@ export class OptimizeObjective {
         const hp = Math.trunc(raw.current_hp || raw.max_hp || 0);
         const later = compact(row.threat.item) === "lifeorb" ? Math.floor(hp / 10) : 0;
         const hits = koProfile(extra ? [rollsForHit(raw, 0), ...extra] : [rollsForHit(raw, 0), rollsForHit(raw, 1)], hp, raw.move_accuracy_factor ?? 1, this.chipOutcomes(hp), later);
-        prof = actionProfile(hits, { ...this.cooldownOf(move, raw), selfKo: this.ev.selfDestructs(move) });
+        prof = actionProfile(hits, { ...this.cooldownOf(move, raw), selfKo });
         if (sashLike(row.threat, mon, record)) prof = withSash(prof);
       } catch {
         raw = minimalResult({});
         prof = ZERO_PROFILE;
       }
-      return { prof, prio: attack.prio, move, raw, spread: attack.spread, ...this.recoilOf(record, raw) };
+      // `selfKo` is carried out of here so `score` can price the other half of the move: the
+      // profile above only stops it landing a SECOND hit (optimize-core `actionProfile`), which
+      // left a Final Gambit scored as a Pokemon that removes the threat and then survives.
+      return { prof, prio: attack.prio, move, raw, spread: attack.spread, selfKo, ...this.recoilOf(record, raw) };
     });
   }
 
   /**
    * What an attack costs (or gives back to) its user each time: a share of the damage
    * dealt as recoil, of its own max HP, or HP drained back (negative).
+   *
+   * `self_cost`: the max-HP half is read off the shared classifier (builder/self-cost.js), which
+   * also prices the crash moves -- High Jump Kick, Jump Kick, Supercell Slam and Axe Kick cost
+   * their user half its max HP when they MISS, charged at the chance of missing under this run's
+   * accuracy setting. The engine does not model a miss, so nothing charged it.
    */
   recoilOf(record, raw) {
     const name = String(record.name || "");
     let fraction = "recoil_fraction" in record ? record.recoil_fraction : DAMAGE_RECOIL_FRACTIONS[name];
     if ((fraction === undefined || fraction === null) && (record.flags || []).includes("recoil")) fraction = 1 / 3;
-    if (this.recoilImmune) fraction = 0;
+    // Rock Head cancels this fraction and nothing else; Magic Guard cancels both (see buildTeam).
+    if (this.selfCost >= 1 ? this.rockHead || this.magicGuard : this.recoilImmune) fraction = 0;
     const drain = DRAIN_FRACTIONS[compact(name)] || 0;
-    const maxHp = this.recoilImmune ? 0 : "recoil_max_hp_fraction" in record ? record.recoil_max_hp_fraction : MAX_HP_RECOIL_FRACTIONS[name];
+    const noMaxHp = this.selfCost >= 1 ? this.magicGuard : this.recoilImmune;
+    const maxHp = this.selfCost >= 1
+      ? selfMaxHpFraction(record, { magicGuard: this.magicGuard, accuracy: Number(raw?.move_accuracy_factor ?? 1) })
+      : noMaxHp ? 0 : "recoil_max_hp_fraction" in record ? record.recoil_max_hp_fraction : MAX_HP_RECOIL_FRACTIONS[name];
     let dealt = 0;
     if (fraction || drain) {
       const rolls = rollsForHit(raw, 1);
@@ -622,8 +649,15 @@ export class OptimizeObjective {
         const faster = this.settings.use_speed_tiers ? fasterChance(ours, theirs, context.trickRoom) : 0.5;
         const chance = !this.settings.use_speed_tiers || out.prio === inc.prio ? faster : out.prio > inc.prio ? 1 : 0;
         const first = chance > 0.5 ? 1 : chance < 0.5 ? -1 : 0;
-        const race = chance * raceValue(A, B, true) + (1 - chance) * raceValue(A, B, false);
-        const survive = 0.7 * (1 - B[1]) + 0.3 * (1 - B[2]);
+        // `self_cost`: when the move that answers this row faints its own user, the turn is a
+        // TRADE, whoever moves first. Nothing survives it, so `survive` is 0, and the race can
+        // be worth at most the half a tie is worth -- the same value `raceValue` gives when
+        // neither side finishes the other. Without this the objective read Final Gambit as a
+        // won race followed by a full-health Pokemon.
+        const outSelfKo = this.selfCost >= 1 && Boolean(out.selfKo);
+        const rawRace = chance * raceValue(A, B, true) + (1 - chance) * raceValue(A, B, false);
+        const race = outSelfKo ? Math.min(rawRace, TRADE_RACE_VALUE) : rawRace;
+        const survive = outSelfKo ? 0 : 0.7 * (1 - B[1]) + 0.3 * (1 - B[2]);
         const hit = kOf(A);
         const m = this.wR * race + this.wS * survive + this.wK * hit + this.wV * faster + (this.doubles ? TUNING.spreadCredit * out.spreadK : 0);
         value += context.weight * m;

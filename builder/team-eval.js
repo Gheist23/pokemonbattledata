@@ -8,6 +8,7 @@
 
 import { DamageEngine, PINCH_ABILITIES, applyChainedModifiers, compact, key as engineKey, makeContext, makeMon, pyTitle } from "./engine.js";
 import { PAIRED_SPREADS, pairedOption, pointsForNature } from "./nature-spreads.js";
+import { SELF_COST, selfCostOption, selfKo } from "./self-cost.js";
 import { TEAM_CHECK_RULES, teamCheckRulesOption } from "./team-checks.js";
 
 // --- settings (TEAM_ANALYSIS_DEFAULT_SETTINGS_V35 after every override) ---------
@@ -120,7 +121,10 @@ export function csvTokens(text) {
 // --- small helpers ---------------------------------------------------------------
 
 const RECHARGE_MOVES = new Set(["hyper beam", "giga impact", "frenzy plant", "blast burn", "hydro cannon", "rock wrecker", "roar of time", "prismatic laser", "eternabeam", "meteor assault"]);
-const SELF_KO_MOVES = new Set(["explosion", "selfdestruct", "mistyexplosion", "finalgambit"]);
+// The self-KO names live in builder/self-cost.js now (`selfKo`), because five other files
+// ask the same question and two of them had written out a shorter list of their own.
+/** Added to a self-KO move's own KO label, so a one-hit KO that costs the user its life says so. */
+export const SELF_KO_NOTE = " (the user faints)";
 const SPEED_WEATHER_ABILITIES = { chlorophyll: ["Chlorophyll", "Sun"], "swift swim": ["Swift Swim", "Rain"], "sand rush": ["Sand Rush", "Sand"], "slush rush": ["Slush Rush", "Snow"] };
 const WEATHER_SETTERS = { drizzle: "Rain", drought: "Sun", sandstream: "Sand", snowwarning: "Snow", frostwarning: "Snow", desolateland: "Sun", primordialsea: "Rain", deltastream: "Strong Winds", orichalcumpulse: "Sun" };
 const TERRAIN_SETTERS = { electricsurge: "Electric", grassysurge: "Grassy", psychicsurge: "Psychic", mistysurge: "Misty", hadronengine: "Electric" };
@@ -332,14 +336,19 @@ export class TeamEvaluator {
    *   (builder/nature-spreads.js) instead of with the distribution at its own place in the
    *   usage file's other list. `scoreRules`: the V512 scoring rule (see SCORE_RULES).
    *   `checkRules`: the V514 Team Building Checks rule (see team-checks.js TEAM_CHECK_RULES).
-   *   All three are on in production; a run recorded before one of them replays with it off.
+   *   `selfCost`: what a move costs its own user (see self-cost.js SELF_COST).
+   *   All four are on in production; a run recorded before one of them replays with it off.
    */
-  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES } = {}) {
+  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES, selfCost = SELF_COST } = {}) {
     this.pairedSpreads = pairedOption(pairedSpreads);
     this.scoreRules = scoreRulesOption(scoreRules);
     // V514 Team Building Checks. TeamChecks reads it off the evaluator, so nothing
     // between here and there needs a new argument (builder/team-payload.js included).
     this.checkRules = teamCheckRulesOption(checkRules);
+    // What a move costs its own user (builder/self-cost.js). Read off the evaluator by
+    // Suggestions, Team Building Checks, the deep Optimize objective and Tournament Test,
+    // for the same reason: one value, so the five cannot drift apart.
+    this.selfCost = selfCostOption(selfCost);
     this.data = data;
     this.engine = engine;
     this.format = format === "Singles" ? "Singles" : "Doubles";
@@ -405,10 +414,10 @@ export class TeamEvaluator {
     return (meta.flags || []).some((f) => ["recharge", "cooldown", "mustrecharge"].includes(String(f).toLowerCase()));
   }
 
-  /** _v432_move_self_destructs */
+  /** _v432_move_self_destructs: the shared name set (builder/self-cost.js) first, then the
+   *  move table's own flags. Under `self_cost` version 0 the name set is the four V432 names. */
   selfDestructs(move) {
-    const k = String(move || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
-    if (SELF_KO_MOVES.has(k)) return true;
+    if (selfKo(move, this.selfCost)) return true;
     const meta = this.meta(move);
     const flags = new Set((meta.flags || []).map((f) => String(f).toLowerCase().replace(/[^a-z0-9]+/g, "")));
     const special = String(meta.special || meta.effect || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
@@ -987,13 +996,27 @@ export class TeamEvaluator {
     return result;
   }
 
-  /** v432: a self-KO move that needs two hits never KOs. */
+  /** v432: a self-KO move that needs two hits never KOs.
+   *
+   *  `self_cost`: a self-KO move that DOES remove the target in one hit keeps its KO -- it
+   *  really does remove it -- but it is marked and it says so. `selfKoLimit` already set the
+   *  flag on this branch; `bestV432` dropped it silently, which is why the answer column, the
+   *  Suggestions ledger and Team Building Checks all read a Final Gambit OHKO as free. The
+   *  label is APPENDED, so "Guaranteed OHKO" still reads out of it (`hitsFromLabel`) and the
+   *  reader gets the fact that was missing. */
   bestV432(attacker, defender, moves) {
     const result = this.bestV420(attacker, defender, moves);
     const move = String(result.move || "");
     if (move && this.selfDestructs(move)) {
       const raw = Number.parseInt(result.raw_hits ?? result.hits, 10) || 99;
       if (raw !== 1) Object.assign(result, { hits: 99, full_hits: 99, chance: 0, full_chance: 0, score: 0, label: "No KO (user faints after one use)", full_label: "No KO (user faints after one use)", ko: "No KO (user faints after one use)", self_ko_move_v432: true });
+      else if (this.selfCost >= 1) {
+        result.self_ko_move_v432 = true;
+        for (const field of ["label", "full_label", "ko"]) {
+          const text = String(result[field] || "");
+          if (text && !text.includes(SELF_KO_NOTE)) result[field] = `${text}${SELF_KO_NOTE}`;
+        }
+      }
     }
     return result;
   }
@@ -1176,7 +1199,13 @@ export class TeamEvaluator {
     return s.trick_room ? [o < i, i < o] : [o > i, i > o];
   }
 
-  /** matchup_quality: V35 base with the V494 outsped penalties. */
+  /** matchup_quality: V35 base with the V494 outsped penalties.
+   *
+   *  `self_cost`: when the outgoing move removes the threat by fainting its own user, the
+   *  matchup is a trade, so the quality is capped at 0 -- the smallest form of the same
+   *  correction the V494 outsped-and-OHKO'd branch below makes with `quality -= 400`. It
+   *  cannot rank above an even matchup, and it is not pushed below one either, because the
+   *  threat really is gone. */
   matchupQuality(outgoing, incoming) {
     const outHits = bestRank(outgoing);
     const inHits = bestRank(incoming);
@@ -1188,6 +1217,7 @@ export class TeamEvaluator {
       if (outFirst && !inFirst) quality += 55;
       else if (inFirst && !outFirst) quality -= 55;
     }
+    if (this.selfCost >= 1 && outgoing && this.selfDestructs(String(outgoing.move || ""))) quality = Math.min(quality, 0);
     if (!inFirst) return quality;
     if (inHits === 1) {
       quality -= 400;

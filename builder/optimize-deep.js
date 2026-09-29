@@ -2,9 +2,11 @@
 // Nature, Stat Points and attacking moves against the Top-X meta.
 //
 //  1. Natures: every Nature that does not lower the stat the member attacks with
-//     (or its Speed, unless the team plays Trick Room), each tried on a set of
+//     (or its Speed, unless the team plays Trick Room), and for a support Pokémon none
+//     that raises a category its own attacks never use, each tried on a set of
 //     starting spreads: the current one, the most used ones, role templates and
-//     "just enough Speed to pass X" spreads.
+//     "just enough Speed to pass X" spreads, built on each of those starts in the two
+//     speed contexts the score weighs most (builder/optimize-spread-depth.js).
 //  2. Stat Points: from the best starts of the best Natures, every transfer of
 //     1-32 points between two stats is tried and the best one kept, until none helps
 //     (each stat stays within 0-32, the total at 66).
@@ -40,6 +42,7 @@ import { DamageMemo, STAT_NAMES, fillPoints, legalPoints, natureIndices, pointTo
 import { UTILITY_ATTACKS, suggestBlock } from "./move-traits.js";
 import { enforce, fieldGate, formatShare, lockedKeys, lockedMoves, moveShares, shareOption } from "./guaranteed-moves.js";
 import { recordedMoveKeys, testableMove, usageOption } from "./optimize-usage-moves.js";
+import { SPEED_START_CAP, spreadDepthOption, speedContexts, supportNatures } from "./optimize-spread-depth.js";
 
 /**
  * How much better (in matchup-score points, 0-100) a change must score before it is
@@ -73,6 +76,9 @@ const EPSILON = 1e-9;
 /** How much the one-on-one chance has to move before a change row prints it as news. */
 const RACE_READABLE = 0.1;
 const SCREEN_SHARE = 0.4; // of the evaluations, at most, for screening Natures and starts
+/** What a run with nothing to suggest opens with, and what it opens with when a trade-off exists. */
+const NOTHING_BETTER = "Your current set already plays these matchups best: no Stat Point, Nature or move change we tried did clearly better.";
+const HELD_BACK = "Nothing we tried scored clearly better than your set, so nothing is suggested.";
 
 class Stop extends Error {}
 
@@ -189,6 +195,9 @@ export class DeepOptimizer {
     const keepSpeed = Boolean(options.keepSpeed);
     const testMoves = options.testMoves !== false;
     const topX = Math.max(1, Number(options.topX) || Number(this.ev.settings.top_meta) || 30);
+    // builder/optimize-spread-depth.js: the support-Nature test, the trade-off gate and the
+    // extra starts. 0 restores the blanket filter, the one-point gate and the narrow starts.
+    const spreadRule = spreadDepthOption(options.optimizeSpreadDepth);
 
     const run = { stopped: false, outOfBudget: false, clockCut: false, evaluations: 0, phase: "board", lastTick: Date.now() };
     const report = (fraction, message) => onProgress?.(Math.max(0, Math.min(1, fraction)), message, run.phase);
@@ -335,10 +344,21 @@ export class DeepOptimizer {
     run.phase = "natures";
     const natures = this.natureList(currentNature, baseSet, objective, keepNature);
     if (objective.support) {
-      // A support Pokemon is not turned into an attacker: no Nature that raises an attack
-      // stat unless its own already does.
-      const [up] = natureIndices(this.engine.natures, currentNature);
-      if (up !== 1 && up !== 3) natures.splice(0, natures.length, ...natures.filter((n) => ![1, 3].includes(natureIndices(this.engine.natures, n)[0])));
+      if (spreadRule) {
+        // A support Pokemon is not turned into an attacker, but it still has to hit with the
+        // attacks it carries: only a Nature that raises a category the set never uses is
+        // dropped (builder/optimize-spread-depth.js).
+        const category = (name) => baseSet.attacks.some(({ record }) => String(record.category || "").toLowerCase() === name);
+        const kept = supportNatures(natures, {
+          current: currentNature, indexOf: (n) => natureIndices(this.engine.natures, n)[0],
+          physical: category("physical"), special: category("special"),
+        });
+        natures.splice(0, natures.length, ...kept);
+      } else {
+        // Before the rule: no Nature that raises an attack stat unless its own already does.
+        const [up] = natureIndices(this.engine.natures, currentNature);
+        if (up !== 1 && up !== 3) natures.splice(0, natures.length, ...natures.filter((n) => ![1, 3].includes(natureIndices(this.engine.natures, n)[0])));
+      }
     }
     const starts = this.starts(member, currentPoints, budget);
     const screened = [];
@@ -347,7 +367,7 @@ export class DeepOptimizer {
         if (screenOver()) break;
         report(0.05 + (0.2 * index) / natures.length, `Trying ${nature} (${index + 1} of ${natures.length} Natures)`);
         const tried = [];
-        for (const start of [...starts, ...this.speedStarts(nature, currentPoints, objective, budget.speedStarts)]) {
+        for (const start of [...starts, ...this.speedStarts(nature, currentPoints, objective, budget.speedStarts, { rule: spreadRule, bases: starts })]) {
           if (!allowed(nature, start)) continue;
           tried.push([start, value(nature, start, baseSet)]);
           if (screenOver()) break;
@@ -485,9 +505,16 @@ export class DeepOptimizer {
       currentMoves, guaranteedAdded,
     });
     if (run.stopped && !result.ok) result.message = "Stopped before anything clearly better was found. Run it again and let it finish for the full search.";
-    result.trade_off = this.tradeOff({ objective, bestRaw, pick, baseSet, beforeAll, setAll, afterAll, scoreAll, speedOf, suggested: result.ok });
+    result.trade_off = this.tradeOff({ objective, bestRaw, pick, baseSet, beforeAll, setAll, afterAll, scoreAll, speedOf, suggested: result.ok, rule: spreadRule });
+    // A trade-off is a spread that really does score better, so the run may not also claim the
+    // set already plays these matchups best: it says what held the change back instead. Only
+    // what follows that first sentence (unused points, a set with no moves) still applies.
+    if (spreadRule && result.trade_off && !result.ok && result.message?.startsWith(NOTHING_BETTER)) {
+      result.message = HELD_BACK + result.message.slice(NOTHING_BETTER.length);
+    }
     result.stats = {
       depth, spreads: run.evaluations, natures: screened.length, move_sets: moveReport?.combos || 0, calcs: memo.calcs - calcsBefore, calc_requests: memo.requested, phase_calcs: run.marks,
+      optimize_spread_depth: spreadRule,
       seconds: (Date.now() - started) / 1000, top_meta: objective.topX, threat_sets: objective.rows.length,
       working_set: objective.workingRows.length, working_ranks: Math.min(objective.topX, WORKING_SET_RANKS), stopped: run.stopped, out_of_budget: run.outOfBudget,
       clock_cut: run.clockCut, contexts: objective.contexts.map((c) => c.label), support: objective.support,
@@ -531,25 +558,63 @@ export class DeepOptimizer {
     return out.filter((p) => !seen.has(pointsKey(p)) && seen.add(pointsKey(p)));
   }
 
-  /** "Just enough Speed" starts: the fewest Speed points that pass each of the most common threats in reach. */
-  speedStarts(nature, currentPoints, objective, limit = 8) {
+  /**
+   * "Just enough Speed" starts: the fewest Speed points that pass each of the most common
+   * threats in reach.
+   *
+   * With `optimize_spread_depth` (builder/optimize-spread-depth.js) every start seeds them,
+   * not only the player's own spread, and the benchmarks are read in the two speed contexts
+   * the score weighs most, not only in normal play - a team that plays under its own Tailwind
+   * or against one needs other numbers there. All of them together are capped at
+   * SPEED_START_CAP, so the screening never grows by more than a handful of spreads.
+   *
+   * @param {{rule?: number, bases?: number[][]}} options
+   */
+  speedStarts(nature, currentPoints, objective, limit = 8, { rule = 0, bases = null } = {}) {
     if (objective.speedMode === "trickroom") return [withSpeedPoints(fillPoints(currentPoints), 0)];
-    const speeds = [];
-    for (let sp = 0; sp <= MAX_BONUS_POINTS_PER_STAT; sp += 1) {
-      const points = [...currentPoints];
-      points[5] = sp;
-      speeds.push(Math.trunc(this.engine.effectiveSpeed(objective.mon(nature, points), {})) || 1);
-    }
-    const targets = new Map();
-    for (const row of objective.workingRows) {
-      const theirs = row.speeds[0];
-      if (theirs < speeds[0] || theirs >= speeds[MAX_BONUS_POINTS_PER_STAT]) continue;
-      targets.set(theirs, (targets.get(theirs) || 0) + row.weight);
-    }
+    const seeds = rule && bases?.length ? bases : [currentPoints];
+    const contexts = rule ? speedContexts(objective.contexts) : [{ index: 0, weight: 1, ourTW: false }];
+    const cap = rule ? SPEED_START_CAP : limit;
+    // One base spread in one speed context: our own Speed for every Speed point count, and the
+    // threats that count can actually pass, the most common first. Only the first `cap` of
+    // these are ever read, since each one hands over its first benchmark before any hands over
+    // its second, so the heaviest contexts and the first starts come first.
+    const groups = [];
+    for (const context of contexts) for (const base of seeds) groups.push({ base, context });
+    const ranked = groups.slice(0, cap).map(({ base, context }) => {
+      const speeds = [];
+      for (let sp = 0; sp <= MAX_BONUS_POINTS_PER_STAT; sp += 1) {
+        const points = [...base];
+        points[5] = sp;
+        const state = rule && context.ourTW ? { tailwind: true } : {};
+        speeds.push(Math.trunc(this.engine.effectiveSpeed(objective.mon(nature, points), state)) || 1);
+      }
+      const targets = new Map();
+      for (const row of objective.workingRows) {
+        const theirs = row.speeds[context.index];
+        if (theirs < speeds[0] || theirs >= speeds[MAX_BONUS_POINTS_PER_STAT]) continue;
+        targets.set(theirs, (targets.get(theirs) || 0) + row.weight);
+      }
+      return { base, speeds, targets: [...targets.entries()].sort((a, b) => b[1] - a[1]).slice(0, limit) };
+    });
     const out = [];
-    for (const [theirs] of [...targets.entries()].sort((a, b) => b[1] - a[1]).slice(0, limit)) {
-      const sp = speeds.findIndex((s) => s > theirs);
-      if (sp >= 0) out.push(withSpeedPoints(fillPoints(currentPoints), sp));
+    const seen = new Set();
+    const rounds = Math.max(0, ...ranked.map((group) => group.targets.length));
+    for (let round = 0; round < rounds; round += 1) {
+      for (const group of ranked) {
+        if (out.length >= cap) return out;
+        const target = group.targets[round];
+        if (!target) continue;
+        const sp = group.speeds.findIndex((s) => s > target[0]);
+        if (sp < 0) continue;
+        const points = withSpeedPoints(fillPoints(group.base), sp);
+        // Before the rule the same spread could be handed over twice; with it, once.
+        if (rule) {
+          if (seen.has(pointsKey(points))) continue;
+          seen.add(pointsKey(points));
+        }
+        out.push(points);
+      }
     }
     return out;
   }
@@ -702,13 +767,18 @@ export class DeepOptimizer {
    * moves that did not score clearly enough better), so the player can still weigh it.
    * Its reasons are what it changes compared with the pick (the suggested change, or
    * the current set when nothing is suggested), so nothing the two share is listed.
+   *
+   * This is the answer to "is another spread better than mine?", so with
+   * `optimize_spread_depth` it only has to clear the same MARGINS.minimum bar the suggestion
+   * itself clears. Before the rule the second gate was a whole point, twice that bar, and a
+   * better spread the search had already found was thrown away without a word.
    */
-  tradeOff({ objective, bestRaw, pick, baseSet, beforeAll, setAll, afterAll, scoreAll, speedOf, suggested }) {
+  tradeOff({ objective, bestRaw, pick, baseSet, beforeAll, setAll, afterAll, scoreAll, speedOf, suggested, rule = 0 }) {
     if (!bestRaw) return null;
     const same = bestRaw.nature === pick.nature && pointsKey(bestRaw.points) === pointsKey(pick.points) && bestRaw.moveSet.id === pick.moveSet.id;
     if (same) return null;
     const value = scoreAll(bestRaw.nature, bestRaw.points, bestRaw.moveSet);
-    if (value < afterAll + 0.5 || value < beforeAll + 1) return null;
+    if (value < afterAll + MARGINS.minimum || value < beforeAll + (rule ? MARGINS.minimum : 1)) return null;
     const speed = speedOf(bestRaw.nature, bestRaw.points);
     const pickSpeed = speedOf(pick.nature, pick.points);
     const list = objective.speedList();
@@ -725,6 +795,9 @@ export class DeepOptimizer {
     return {
       nature: bestRaw.nature, nature_text: this.natureText(bestRaw.nature), bonuses: [...bestRaw.points],
       moves: orderMoves(baseSet.moves, bestRaw.moveSet.moves), speed, score: value, delta: value - setAll, over_pick: value - afterAll, reasons,
+      // How many of the Top-X Speed list it no longer passes, so the card can say what the
+      // trade costs without reading it back out of a sentence.
+      speed_lost: lost, top_meta: objective.topX,
       compared_with: suggested ? "suggestion" : "current",
     };
   }
@@ -887,7 +960,7 @@ export class DeepOptimizer {
       } : null,
     };
     if (!result.ok) {
-      result.message = "Your current set already plays these matchups best: no Stat Point, Nature or move change we tried did clearly better.";
+      result.message = NOTHING_BETTER;
       if (unspent) result.message += ` Its ${unspent} unused Stat Point${unspent === 1 ? "" : "s"} did not help in any stat either.`;
       if (movesFromCommon) result.message += ` It has no moves yet, so it was tested with its most common ones (${baseSet.moves.join(", ")}).`;
     }

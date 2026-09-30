@@ -584,6 +584,30 @@ body.bd-modal-open { overflow: hidden; }
   border-bottom: 1px solid var(--bd-line);
 }
 .bd-dialog-head h2 { margin: 0; font-family: var(--bd-mono); font-size: 1rem; }
+.bd-dialog-head-actions { display: flex; align-items: center; gap: 0.4rem; }
+.bd-dialog-help-button { font-size: 1.05rem; font-weight: 700; }
+.bd-dialog-help {
+  margin: 0 0 0.8rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 10px;
+  background: rgba(3, 9, 5, 0.6);
+}
+.bd-search-help { display: grid; gap: 0.45rem; text-align: left; }
+.bd-search-help p { margin: 0; line-height: 1.5; }
+.bd-search-help-line { display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr); gap: 0.6rem; align-items: baseline; }
+.bd-search-help-line code {
+  padding: 0.1rem 0.35rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 6px;
+  background: var(--bd-control);
+  font-family: var(--bd-mono);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+@media (max-width: 560px) {
+  .bd-search-help-line { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
+}
 .bd-icon-button {
   display: grid;
   place-items: center;
@@ -613,6 +637,14 @@ body.bd-modal-open { overflow: hidden; }
 .bd-pick { display: grid; gap: 0.6rem; }
 .bd-pick-list { display: grid; gap: 0.3rem; max-height: 60vh; overflow-y: auto; }
 .bd-dialog-picker .bd-pick-list { max-height: min(60vh, 560px); }
+/* The list shrinks as the search narrows it. A dialog the browser centres would
+   slide up the screen every time it did, with the rows moving out from under
+   the pointer, so the picker is pinned by its top edge instead and only its
+   bottom moves. */
+.bd-dialog-picker { margin-top: 8vh; margin-bottom: auto; }
+@media (max-height: 620px) {
+  .bd-dialog-picker { margin-top: 2vh; }
+}
 .bd-pick-row {
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr) auto;

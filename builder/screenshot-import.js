@@ -78,6 +78,11 @@ export const MESSAGES = {
   mismatch: "The two pictures show different teams. Take both screenshots from the same team without changing anything in between.",
   tooSmall: "The picture is too small to read. Take the screenshot at your phone's own resolution instead of a cropped or shrunk copy.",
   badSpread: "The stat points on one card do not add up to 66, so the numbers were not read correctly. A sharper screenshot usually fixes it.",
+  // One picture chosen and one still to go is not a failure, so the panel says
+  // what is still missing in plain words instead of showing a problem card.
+  needBoth: "Now choose the other picture as well: one has to be the “Moves & More” tab and the other the “Stats” tab.",
+  needStats: "That is the “Moves & More” tab. Now choose a picture of the “Stats” tab as well.",
+  needMoves: "That is the “Stats” tab. Now choose a picture of the “Moves & More” tab as well.",
 };
 
 // --- pixels -------------------------------------------------------------------------
@@ -159,32 +164,57 @@ export function detectCards(image) {
   // thrown out further on, by whether its cards read as one tab or the other.
   // Cards are laid out on a grid: name each one by which band and which
   // column it sits in, so a half-empty team still lines up between the tabs.
-  const bandTops = [...new Set(cards.map((c) => c.y))].sort((a, b) => a - b);
   const median = (list) => [...list].sort((a, b) => a - b)[Math.floor(list.length / 2)];
   const midWidth = median(cards.map((c) => c.w));
   for (const card of cards) {
-    card.row = bandTops.indexOf(card.y);
-    card.col = card.x < width / 2 ? 0 : 1;
-    card.slot = card.row * 2 + card.col;
     card.scale = card.w / CARD_W;
     card.odd = Math.abs(card.w - midWidth) > midWidth * 0.08 || Math.abs(card.h / card.w - CARD_H / CARD_W) > 0.12;
   }
-  cards.sort((a, b) => a.slot - b.slot);
-  return cards.filter((card) => !card.odd);
+  // Which band a card sits in is counted over the cards alone.  The banner that
+  // carries the team's name is a plate of the same colour, and on a wide screen
+  // it is deep enough to pass for a band, which used to push the whole team one
+  // row down: the first Pokemon was filed as slot 3.
+  const team = cards.filter((card) => !card.odd);
+  const bandTops = [...new Set(team.map((c) => c.y))].sort((a, b) => a - b);
+  for (const card of team) {
+    card.row = bandTops.indexOf(card.y);
+    card.col = card.x < width / 2 ? 0 : 1;
+    card.slot = card.row * 2 + card.col;
+  }
+  team.sort((a, b) => a.slot - b.slot);
+  return team;
 }
 
 /** A card resampled to the canonical 421x109 box, as an "ink" map: 0 for the
  *  plate behind the text, 1 for the white of the glyphs, with the antialiasing
  *  in between.  Grey rather than a hard threshold, because at a lower capture
  *  resolution a stroke may never reach full white. */
+const PLATE_GAP = 32;
 function inkMap(image, card) {
-  const ink = new Float32Array(CARD_W * CARD_H);
+  const low = new Float32Array(CARD_W * CARD_H);
   const rgb = [0, 0, 0];
   for (let y = 0; y < CARD_H; y++) {
     for (let x = 0; x < CARD_W; x++) {
       sample(image, card.x + (x + 0.5) * card.w / CARD_W, card.y + (y + 0.5) * card.h / CARD_H, rgb);
-      const low = Math.min(rgb[0], rgb[1], rgb[2]);
-      ink[y * CARD_W + x] = Math.max(0, Math.min(1, (low - 155) / 75));
+      low[y * CARD_W + x] = Math.min(rgb[0], rgb[1], rgb[2]);
+    }
+  }
+  // Two cut-offs, and a mark has to clear both.  The fixed one (155) is the
+  // card body; it is what keeps the faint seam where the heading band meets the
+  // body from reading as writing.  The second is the line's own plate, because
+  // the heading band is lighter than the body and the same word printed on it
+  // crosses a fixed cut-off a pixel early on each side -- which is why the top
+  // move line used to come out in fatter strokes than the other three and match
+  // the atlas worst of the four.
+  const ink = new Float32Array(CARD_W * CARD_H);
+  const line = new Float32Array(CARD_W);
+  for (let y = 0; y < CARD_H; y++) {
+    for (let x = 0; x < CARD_W; x++) line[x] = low[y * CARD_W + x];
+    const plate = line.slice().sort()[CARD_W >> 1];
+    for (let x = 0; x < CARD_W; x++) {
+      const value = low[y * CARD_W + x];
+      const here = Math.min(value - 155, value - plate - PLATE_GAP);
+      ink[y * CARD_W + x] = Math.max(0, Math.min(1, here / 75));
     }
   }
   return ink;
@@ -240,7 +270,33 @@ export { CARD_W, CARD_H, STAT_ROW_TOP, MOVE_ROW_TOP, STAT_COLUMNS, ABILITY_X, IT
 const DIGIT_PITCH = 7;
 const DIGIT_W = 9;
 const GLYPH_H = 15;
-const DIGITS_B64 = "AAAAAAAAAAAAAAAGJjwuDQAAAAM5eoiJWggABBRxajdXfSwBDzeAMAERdlcGFE18FwACZ2kOFVV4EwABXW0VFVd3EgABXHAZFE53FAACYW0YDkF+HgAFamERByOBSgkqeUUGAgZihXGAeh0AAAATXHZtNQMAAAAABRQQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAIYMhoBAAAAAANGjm0KAAACAAAbfYATAAAEAAADVXkSAAAKAAACSHkRAAAPAAABR3kRAAAOAAABR3gRAAAPAAABRncSAAAPAAABRncSAAAOAAABR3gTAAAKAAABO2cQAAAFAAAADScCAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAQMCAAAAAgAbUmheLAIABAEpVF96dyQAAgAFBQYxiFIFAgAAAAAcgFsKAQAAAAAshkMJAAAAAAtkexwHAQAABkqGQwIGBQAALHdWBgAFBAAXb24ZAAADAwZcpXw4HQYBABV1oZGBcC0AAAQhNC4rJAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQMAAAAAAAJAYmhOAgAAAAY2TW6MOQAAAgAAAhiEYgAAAwAAABl5TwAABAAAGnGTOQAABgAAQJumQgAABgAACjyCZQAABAAAAANTfQ0ABAAAAAJWghMABAUVFCqBdwwDAShpe4Z/MwAGAAcxTEgiAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACDwAAAAAAAANJTg8AAgAAACmNdRMACgAAAlyedBEADgAAIm6PbA8AEAAFU2JzZQ0AFgIoXzlXWw4AHwpmaTNjbSIAICWKg2GYnz0AEhdWW2anrjsAAAABARRidhwAAAAAAAAaJQEAAAAAAAACAAAAAAAAAAAAAAAAAAAGJCwpDQAAAAJIiot5PAQAAAdjhFUzDAAAAAppaxkAAAAAABCBk1kvCAAAAA1XeIB/PwQAAAIQHTB5eQ4AAAAAAApJhB8FAAAAAAA7gCAKAAAAAA1hfhAAAAU1RWGIXAQAAA5jfoBiEQAAAAYbJBwKAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEDAAAAAAAGUm91NgAAAAA9aUxDHAAAABNnOwoAAAAAACx+PgkBAAAAAE2ljHZlJgAAAF+7jmZ7ghAAAFafNxEigjMAAER8HQAAfEkBAC+BHgAIhT0AAAx7aDpXiSQAAAA1eY6LUQ4AAAAAFDcvDwAAAAAAAAAAAAAAAAAFCQgIBwEAABdaamxyWxgDARtOYXqiiBoCAAALDTiKawMAAAAAAC56OQAAAAAAAVlxDgAAAAAAGXlNAAAAAAAATIIfAAAAAAAIb2gGAAAAAAAvfTIAAAAAAANbbQ8AAAAAABBVNQAAAAAAAAMWAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAChUXCAAAAAAOT3JySwsABAJCdFpffy8AEAlqbA0Ka1IEEgVjcA0Qak0CDQBGk2NliD4AAwNCpZqbnEEAAApjeEA/gVkHABB4RAAAU3AWAA6ESgAESGwcAAZtdSsuZloSDQAxgIR8cSsAAAAAGzY2IgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEFikjCQAAAAA2doB2OwAAAA1qWyxOZBwAACxxIAAUajUJADVpGgAKd0sRACdvMws3ll8cABFndWOEq2UeAAAqZHCDlFIZAAAABBFOej4SAAAAAAJTfR4DAAEiRWF4TwIAAAU/dXRGBQAAAAACEQgAAAAAAAAAAAAAAAAA";
+const DIGITS_B64 = "AAAAAAAAAAAAAAAFIjgtDQAAAAI3eYODVgkAAxVybThXgjIADDd9MQEUd1oFEU57GQAGZ24NEld3EwADXXUUEVl3EgADXXgXEFJ4FQAFY3YUDEF7IAAJbmkNBid+SQwrgE4EAghki3SFgiIBAAAXYH1xNQIAAAAABxQNAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAEXLRYAAAAAAAJCjW0LAAACAAAdgYUXAAAEAAADWHwYAAAMAAACTXoZAAAQAAACTXoYAAARAAACTXoYAAAQAAABTHkYAAAQAAABS3gXAAAPAAACTHkYAAAIAAABP2kVAAAHAAAAECcGAAACAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgUDAAAAAQAYUGRdLwMAAgEpV15/fyYAAQAEBQY1h0wDAQAAAAAYflQHAQAAAAArhUEGAgAAAAllfh0EAwAAA0mHRQIEBgAALoBbBgACBgAVdXYcAAABAwVerIA9IQgAABR7rJmIdCkAAAMlOzk2KgcAAAAAAAAAAAAAAAAAAAAAAAAAAAABBgQBAAAAAAc9YWZFCQAAAAg5TnCNPAAAAQABAx+BYwQAAwAAACB9WQMBAwAAGnKYPgABBAABPJ2oPwACBQAACUKHaAcCAwAAAARWgBgBAgAAAAJThRwBAgYUEzGFehEBAC1wgo6IOAEFAAk5VksiAgAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGCQAAAAAAAAdRSgUAAQAAAS6TcQcABQAABmGdbgYACgABJ3aMZAYADgAHWWJvXwYADwEpaDZTWwYAGQ5kbzFhcxQAIy+Kh2abpDMBFhtXXmqrsDoABQACBBNjeBUAAAAAAAAZIgEAAAAAAAABAAAAAAAAAAAAAAAAAAAGGBwZCAAAAAE9gYNuLgEAAAZnjFozCQAAAQptaxYAAAAAAxGDk1IfBAAABgtfgol9NgEABQAJEjR9cA0ABAAAAANHfB8EBAAAAAA4eiIIAwAAAAlhehUCAQQoOGKRXAMAABFtkJBlEgAAAAIaKx4EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwkJAQAAAAALTW9nJgAAAAJOcVNBGAAAABlyPgMAAAAAAD1+Ow8EAAAAAV2hgG5eHwAAAnC5h2qBbwoAA22gNQo0gCcDA1h4CwAPfTwHAUB1FAEagzUGAB56XDdfhBoBAANGfYyLSgMAAAADIjorBAAAAAAAAAAAAAAAAAADBwcHBQAAABFQY2lyVxIBABVJXHWnihoBAAEHCjSPbAYAAQAAADGAOQAAAQAAAlxyEQAAAQAAGH5OAQAAAQABS4UiAAAAAgAKeGoGAAAAAQAxizcAAAABAANfehAAAAAAAAxZPQAAAAACAAIVAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABREQBAAAAAAPTm9tRwgAAwJHcVBXeTABCwhnVw0TaEwGDghhXBIXaUkJDANQimpujjgGCANMnZueoTkFBwpldEJHhVgNBhh0PAMGWHMcBBl5OAACUHQcAg5uaSkwdl4MBQI3eoCAdSMBAAAEHTU0GQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGCkgCAAAAAE3cXVvQQQAABJqXCxJbB4CAihrJAAYajsJAS1mHAAUeVUQACJtPQ86nmsVAA1dfG2Fr2oWAQAhV2l5lVQTAQAABRA+fD4PAQAAAAdLeiEFAAEfRGOCUQUBAAM2b3VMCgAAAAAEEAsCAAAAAAAAAAAAAAAA";
+
+/** One pass of a separable 1-2-1 blur over a w x GLYPH_H template. */
+function soften(source, w) {
+  const mid = new Float32Array(source.length), out = new Float32Array(source.length);
+  for (let y = 0; y < GLYPH_H; y++) for (let x = 0; x < w; x++) {
+    const a = source[y * w + Math.max(0, x - 1)], b = source[y * w + x], c = source[y * w + Math.min(w - 1, x + 1)];
+    mid[y * w + x] = (a + 2 * b + c) / 4;
+  }
+  for (let y = 0; y < GLYPH_H; y++) for (let x = 0; x < w; x++) {
+    const a = mid[Math.max(0, y - 1) * w + x], b = mid[y * w + x], c = mid[Math.min(GLYPH_H - 1, y + 1) * w + x];
+    out[y * w + x] = (a + 2 * b + c) / 4;
+  }
+  return out;
+}
+
+/** A template and the same template seen through a smaller capture. The atlas
+ *  was lifted from a full-size screenshot; a phone that records fewer pixels
+ *  hands the reader the same glyph with its strokes smeared, and a sharp
+ *  template is a poor filter for a smeared mark. Each template therefore
+ *  carries two softer copies of itself and a mark is scored against whichever
+ *  of the three it fits best, which is matching at the capture's own sharpness
+ *  rather than assuming one. */
+function blurLevels(source, w) {
+  const once = soften(source, w);
+  return [source, once, soften(once, w)];
+}
 
 function unpack(b64, count, w, h) {
   const binary = atob(b64);
@@ -254,6 +310,7 @@ function unpack(b64, count, w, h) {
 }
 
 const DIGITS = unpack(DIGITS_B64, 10, DIGIT_W, GLYPH_H);
+const DIGIT_LEVELS = DIGITS.map((digit) => blurLevels(digit, DIGIT_W));
 
 /** How alike two ink patches are, 0..1 (cosine similarity: brightness-blind, so
  *  a thinner stroke in a smaller capture still matches). */
@@ -278,20 +335,28 @@ function patch(ink, x0, y0, w, h) {
   return out;
 }
 
-/** Best digit for one grid cell, with the gap to the runner-up. */
+/** Best digit for one grid cell, with the gap to the runner-up.
+ *
+ *  The cell is tried at every offset within +-2 (a capture at another
+ *  resolution is squeezed back into the canonical card, so the 7px grid lands a
+ *  pixel or two off), but all ten digits are always scored against the SAME
+ *  offset and the offset the mark fits best is the one that answers.  Letting
+ *  each digit hunt for its own alignment gave every one of them its best view
+ *  of the mark, which is how a 6 and an 8 came to score alike. */
 function matchDigit(ink, x0, y0) {
-  // +-2 rather than +-1: a capture at another resolution is squeezed back into
-  // the canonical card, and the 7px grid then lands a pixel or two off.
-  const tries = [];
-  for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) tries.push(patch(ink, x0 + dx, y0 + dy, DIGIT_W, GLYPH_H));
-  const scores = [];
-  for (let d = 0; d < 10; d++) {
-    let score = -1;
-    for (const candidate of tries) score = Math.max(score, similarity(candidate, DIGITS[d]));
-    scores.push({ digit: d, score });
+  let ranked = null;
+  for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) {
+    const mark = patch(ink, x0 + dx, y0 + dy, DIGIT_W, GLYPH_H);
+    const scores = [];
+    for (let d = 0; d < 10; d++) {
+      let score = -1;
+      for (const level of DIGIT_LEVELS[d]) score = Math.max(score, similarity(mark, level));
+      scores.push({ digit: d, score });
+    }
+    scores.sort((a, b) => b.score - a.score);
+    if (!ranked || scores[0].score > ranked[0].score) ranked = scores;
   }
-  scores.sort((a, b) => b.score - a.score);
-  return { digit: scores[0].digit, score: scores[0].score, margin: scores[0].score - scores[1].score, ranked: scores };
+  return { digit: ranked[0].digit, score: ranked[0].score, margin: ranked[0].score - ranked[1].score, ranked };
 }
 
 /**
@@ -505,14 +570,14 @@ export function headingBadges(colour) {
 
 // --- letters ------------------------------------------------------------------------
 //
-// The same treatment for the game's text: every character the two example
-// screenshots draw, aligned and averaged over all of its samples. Ten letters
-// (J Q V X Y Z j q v x) never appear in them and have no template; a candidate
+// The same treatment for the game's text: every character the example
+// screenshots draw, aligned and averaged over all of its samples. Eight letters
+// (J Q X Y Z j q x) never appear in them and have no template; a candidate
 // name that uses one is still matched on its other letters and on its shape,
 // but it is held to a higher bar before the reader calls it certain.
-const GLYPH_CHARS = "UnburdeGasySPotcDiClwmRkpKgh-EFOMWHLfIBNTz.A";
-const GLYPH_WIDTHS = [5,7,8,7,4,8,7,11,7,5,6,7,11,8,5,6,9,4,8,4,9,10,8,6,8,8,8,7,8,5,7,11,12,19,4,4,4,4,8,6,5,5,5,8];
-const GLYPHS_B64 = "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";
+const GLYPH_CHARS = "UnburdeGasySPotcDiClwmRkpKgh-EFOMWHLfIBNTz.AVv";
+const GLYPH_WIDTHS = [5,7,8,7,4,8,7,11,7,5,6,7,11,8,5,6,9,4,8,4,9,10,8,6,8,8,8,7,8,5,7,11,12,19,4,4,4,4,8,6,5,5,5,8,8,6];
+const GLYPHS_B64 = "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";
 
 const GLYPHS = (() => {
   const binary = atob(GLYPHS_B64);
@@ -564,6 +629,47 @@ function charCost(ch, ink, x0, w, top, cache) {
 }
 
 /**
+ * The ways one run of ink can be shared between k letters.
+ *
+ * An even split is what k copies of one letter would want.  Real letters differ
+ * in width and meet at a thin join, so the run is also cut at its own thinnest
+ * columns and the alignment keeps whichever of the two reads better.  It
+ * matters most on the top move line, where the game prints over its lighter
+ * heading band in slightly fatter strokes and neighbouring letters touch.
+ */
+function runParts(ink, top, a, b, k, cache) {
+  const key = `runParts|${a}|${b}|${k}`;
+  const known = cache?.get(key);
+  if (known !== undefined) return known;
+  const width = b - a + 1;
+  const even = [];
+  for (let q = 0; q < k; q++) even.push([a + Math.round(q * width / k), a + Math.round((q + 1) * width / k) - 1]);
+  const out = [even];
+  const MIN_PART = 3;
+  const sums = columnInk(ink, top, GLYPH_H, a, b + 1);
+  const cuts = [];
+  for (let c = 1; c < k; c++) {
+    let at = -1, thinnest = Infinity;
+    for (let x = a + MIN_PART; x <= b - MIN_PART + 1; x++) {
+      if (cuts.some((cut) => Math.abs(cut - x) < MIN_PART)) continue;
+      if (sums[x - a] < thinnest) { thinnest = sums[x - a]; at = x; }
+    }
+    if (at < 0) { cuts.length = 0; break; }
+    cuts.push(at);
+  }
+  if (cuts.length === k - 1) {
+    cuts.sort((p, q) => p - q);
+    const thin = [];
+    let start = a;
+    for (const cut of cuts) { thin.push([start, cut - 1]); start = cut; }
+    thin.push([start, b]);
+    if (thin.some(([x0, x1], q) => x1 - x0 + 1 !== even[q][1] - even[q][0] + 1)) out.push(thin);
+  }
+  cache?.set(key, out);
+  return out;
+}
+
+/**
  * Align one candidate name to a line of the card and say how well it fits.
  *
  * The game's text is too small for its letters to come apart cleanly: at the
@@ -610,12 +716,11 @@ export function fitText(ink, top, x0, x1, text, found = inkRuns(ink, top + 1, GL
           // A space is not drawn, so it can never be one of the letters sharing
           // a single run.
           if (chars.slice(i, i + k).includes(" ")) break;
-          let next = here + (k - 1) * 0.2;
-          for (let q = 0; q < k; q++) {
-            const a = found[j][0] + Math.round(q * width / k), b = found[j][0] + Math.round((q + 1) * width / k) - 1;
-            next += charCost(chars[i + q], ink, a, b - a + 1, top + 1, cache);
+          for (const parts of runParts(ink, top + 1, found[j][0], found[j][1], k, cache)) {
+            let next = here + (k - 1) * 0.2;
+            for (const [q, part] of parts.entries()) next += charCost(chars[i + q], ink, part[0], part[1] - part[0] + 1, top + 1, cache);
+            if (next < cost[i + k][j + 1]) cost[i + k][j + 1] = next;
           }
-          if (next < cost[i + k][j + 1]) cost[i + k][j + 1] = next;
         }
       }
     }
@@ -971,7 +1076,7 @@ const pointsLine = (points) => points
  * pictures is saved, named and slotted exactly like a pasted one.
  */
 export function screenshotImportView(data, onImport) {
-  const state = { files: [null, null], result: null, error: "", busy: false };
+  const state = { files: [null, null], result: null, error: "", waiting: "", busy: false };
   const host = h("div", { class: "bd-shot" });
   const textArea = h("textarea", { class: "bd-textarea", "aria-label": "The team that was read" });
 
@@ -985,10 +1090,28 @@ export function screenshotImportView(data, onImport) {
     const ticket = (reading += 1);
     state.result = null;
     state.error = "";
+    state.waiting = "";
     if (!state.files[0] || !state.files[1]) {
-      // One picture on its own is not a failure to read, it is an unfinished choice,
-      // so it gets the sentence that says what is still missing rather than silence.
-      if (state.files[0] || state.files[1]) state.error = MESSAGES.notTwo;
+      // One picture on its own is not a failure to read, it is a choice that is
+      // not finished yet, so it gets a plain note saying what is still missing.
+      const only = state.files[0] || state.files[1];
+      if (!only) { render(); return; }
+      state.waiting = MESSAGES.needBoth;
+      state.busy = true;
+      render();
+      // Which tab the one picture shows is worth reading for: it turns the note
+      // into the exact thing the player still has to take a screenshot of.
+      try {
+        const kind = readScreen(await imageFromFile(only)).kind;
+        if (ticket !== reading) return;
+        if (kind === "moves") state.waiting = MESSAGES.needStats;
+        else if (kind === "stats") state.waiting = MESSAGES.needMoves;
+      } catch (caught) {
+        // A file that will not open is called out once both have been chosen.
+        if (ticket !== reading) return;
+      }
+      if (ticket !== reading) return;
+      state.busy = false;
       render();
       return;
     }
@@ -1057,7 +1180,8 @@ export function screenshotImportView(data, onImport) {
 
   const render = () => {
     clear(results);
-    if (state.busy) results.append(h("p", { class: "bd-note" }, "Reading the pictures…"));
+    if (state.busy) results.append(h("p", { class: "bd-note" }, state.waiting ? "Looking at the picture…" : "Reading the pictures…"));
+    if (state.waiting && !state.busy) results.append(h("p", { class: "bd-note bd-shot-waiting" }, state.waiting));
     if (state.error) results.append(problemCard("That did not work", state.error));
     if (state.result) {
       // append() writes "null" where h() would have dropped it, so the optional

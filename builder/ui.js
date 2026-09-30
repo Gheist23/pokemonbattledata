@@ -59,16 +59,32 @@ export function toast(message, tone = "info") {
 
 let openCount = 0;
 
-export function openDialog({ title = "", body, actions = [], wide = false, className = "", onClose } = {}) {
+export function openDialog({ title = "", body, actions = [], wide = false, className = "", help = null, helpLabel = "What can I type here?", onClose } = {}) {
   const dialog = h("dialog", { class: `bd-dialog ${wide ? "bd-dialog-wide" : ""} ${className}`, "aria-label": title || "Dialog" });
   const close = () => {
     if (!dialog.open) return;
     dialog.close();
   };
+  // A dialog that can explain itself carries a "?" beside its close button, and
+  // what it has to say drops down under the heading rather than floating over
+  // the page: a modal dialog sits in the browser's top layer, where a popover
+  // anchored to the page behind it would be drawn underneath.
+  const helpPanel = help ? h("div", { class: "bd-dialog-help", hidden: true }, help) : null;
+  const helpButton = help ? h("button", {
+    class: "bd-icon-button bd-dialog-help-button", type: "button", "aria-label": helpLabel, title: helpLabel, "aria-expanded": "false",
+    onclick: () => {
+      const showing = helpPanel.hidden;
+      helpPanel.hidden = !showing;
+      helpButton.setAttribute("aria-expanded", showing ? "true" : "false");
+    },
+  }, "?") : null;
   const header = h("header", { class: "bd-dialog-head" },
     h("h2", {}, title),
-    h("button", { class: "bd-icon-button", type: "button", "aria-label": "Close", onclick: close }, "×"));
+    h("div", { class: "bd-dialog-head-actions" },
+      helpButton,
+      h("button", { class: "bd-icon-button", type: "button", "aria-label": "Close", onclick: close }, "×")));
   const content = h("div", { class: "bd-dialog-body" });
+  if (helpPanel) content.append(helpPanel);
   if (body) content.append(body);
   const footer = actions.length ? h("footer", { class: "bd-dialog-foot" }, actions) : null;
   dialog.append(header, content);
@@ -213,10 +229,24 @@ export function select(options, value, onChange, attrs = {}) {
 
 // --- Pokemon picker ---------------------------------------------------------------
 
+/** The same Advanced Search card the Explorer shows behind its "?". */
+export function searchHelpCard() {
+  const line = (term, said) => h("div", { class: "bd-search-help-line" }, h("code", {}, term), h("span", {}, said));
+  return h("div", { class: "bd-search-help" },
+    h("p", {}, "Type a name, a type, an Ability, a move, an item or a Nature. Chain as many as you like with commas: every one of them has to fit."),
+    line("Fake Out, spe>=100", "learns Fake Out and has a Speed stat of 100 or more"),
+    line("type=Dragon", "is a Dragon type, rather than merely knowing Dragon Dance"),
+    line("item=Choice Scarf", "carries it in the battle data"),
+    line("move<=5=Earthquake", "has Earthquake among its five most used moves"),
+    line("ability=Rough Skin", "can have that Ability"),
+    line("teammate=Garchomp", "is one of the Pokémon most often brought alongside Garchomp"),
+    h("p", { class: "bd-note" }, "You can also compare its stats: hp, atk, def, spa, spd, spe and bst, with =, >, <, >= or <=."));
+}
+
 export function pickPokemon(data, { format = "Doubles", title = "Choose a Pokémon", initial = "" } = {}) {
   return new Promise((resolve) => {
     let chosen = null;
-    const input = h("input", { type: "search", class: "bd-search", placeholder: "Search by name or type…", value: initial, autocomplete: "off", "aria-label": "Search Pokémon" });
+    const input = h("input", { type: "search", class: "bd-search", placeholder: "Name, type, move, ability, or spe>=100…", value: initial, autocomplete: "off", "aria-label": "Search Pokémon" });
     const list = h("div", { class: "bd-pick-list", role: "listbox" });
     const render = () => {
       clear(list);
@@ -235,7 +265,11 @@ export function pickPokemon(data, { format = "Doubles", title = "Choose a Pokém
     };
     input.addEventListener("input", render);
     const body = h("div", { class: "bd-pick" }, input, list);
-    const { close } = openDialog({ title, body, className: "bd-dialog-picker", onClose: () => resolve(chosen) });
+    const { close } = openDialog({
+      title, body, className: "bd-dialog-picker",
+      help: searchHelpCard(), helpLabel: "What can I search for?",
+      onClose: () => resolve(chosen),
+    });
     render();
     setTimeout(() => input.focus(), 30);
   });
@@ -277,6 +311,7 @@ export function editSet(data, initialSet, { format = "Doubles", title = "Edit Po
           h("button", { class: "primary-button", type: "button", onclick: async () => {
             const row = await pickPokemon(data, { format });
             if (row) applySpecies(row.species, row.form);
+            else if (!set.species) close();
           } }, "Choose Pokémon")));
         return;
       }
@@ -386,9 +421,15 @@ export function editSet(data, initialSet, { format = "Doubles", title = "Edit Po
         statsHost);
     };
     render();
+    // An empty slot opens straight into the picker. Closing that picker without
+    // choosing anything means the player changed their mind about the slot, so
+    // the editor behind it goes too rather than leaving them looking at a card
+    // that only says "Pick a Pokémon to start." with nothing in it. `result` is
+    // never set, so the slot is told the edit was cancelled, not emptied.
     if (!set.species) setTimeout(async () => {
       const row = await pickPokemon(data, { format });
       if (row) applySpecies(row.species, row.form);
+      else if (!set.species) close();
     }, 0);
   });
 }

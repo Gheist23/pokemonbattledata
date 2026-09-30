@@ -1429,7 +1429,12 @@ async function runSuggestions() {
   if (showing()) renderMain();
 }
 
-async function runEvaluation(key) {
+// The key is what the finished result is filed under, and it is what decides
+// whether the panel says "Run again" or "Evaluate changes". A caller that does
+// not pass one used to file the result under `undefined`, so a run that had
+// just finished was immediately called out of date although nothing had
+// changed; the key a missing argument means is the team as it is right now.
+async function runEvaluation(key = evaluationKey()) {
   if (!canRun("evaluation")) {
     if (isEvaluation(view.evaluation)) openGateDialog("evaluation");
     else renderMain();

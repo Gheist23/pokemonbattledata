@@ -9,6 +9,7 @@
 
 import { DamageEngine, compact, makeMon, normalizeBonuses, STAT_KEYS } from "./engine.js";
 import { setRosterIdentity } from "./known-teams.js";
+import { matchesPlan, parseSearchQuery, quickScore } from "./search-query.js";
 
 export const FORMATS = ["Doubles", "Singles"];
 export const TYPES = ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"];
@@ -51,6 +52,9 @@ export function escapeHtml(value) {
 }
 
 /** Everything the pages need from the exported tables, indexed once. */
+/** What a nature's raised and lowered stat is called, for statup= / statdown=. */
+const NATURE_STAT_NAMES = { ATK: "Attack", DEF: "Defense", SPA: "Sp. Atk", SPD: "Sp. Def", SPE: "Speed" };
+
 export class BuilderData {
   static async load() {
     const appData = await fetchJson("/data/builder/app-data.json");
@@ -112,11 +116,17 @@ export class BuilderData {
       const key = compact(label);
       const identity = this.byShowdown.get(key);
       if (!identity) {
-        this.byShowdown.set(key, { row, label, keys: new Set([key, compact(row.form), compact(row.species)]) });
+        // `keys` are compacted, so a name types the same however it is spelled;
+        // `labels` keeps every spelling as written, because the search language
+        // (builder/search-query.js) matches on the words as the player types
+        // them and "Squawkabilly-Yellow" has to find its hyphen.
+        this.byShowdown.set(key, { row, label, keys: new Set([key, compact(row.form), compact(row.species)]), labels: new Set([label, row.form, row.species]) });
         continue;
       }
       identity.keys.add(compact(row.form));
       identity.keys.add(compact(row.species));
+      identity.labels.add(row.form);
+      identity.labels.add(row.species);
       if (preference(row, label) < preference(identity.row, label)) identity.row = row;
     }
 
@@ -132,6 +142,7 @@ export class BuilderData {
       if (!key || !identity || this.byName.has(key)) return;
       this.byName.set(key, identity);
       identity.keys.add(key);
+      identity.labels.add(name);
     };
     for (const row of this.forms) claim(this.displayNames.get(compact(row.form)), this.byShowdown.get(compact(this.showdownName(row.form))));
     for (const [shown, [, form]] of usageAliases) claim(shown, this.byShowdown.get(compact(this.showdownName(form))));
@@ -369,27 +380,88 @@ export class BuilderData {
     return up && down ? `${name} (+${up}/-${down})` : `${name} (Neutral)`;
   }
 
+  /**
+   * One Pokemon seen the way builder/search-query.js wants to see it, so the
+   * picker answers the same queries as the Explorer's search box.  Everything
+   * is a function because a query rarely asks for more than one of them and
+   * the learnset alone would otherwise be built for all 358 forms on every
+   * keystroke.
+   */
+  searchSource(identity, format = "Doubles") {
+    const { row, keys, labels } = identity;
+    const usage = () => this.usage(format, row.species, row.form);
+    const pairs = (category) => {
+      const record = usage();
+      if (!record) return [];
+      if (category === "move") return record.moves || [];
+      if (category === "held_item") return record.items || [];
+      if (category === "ability") return record.abilities || [];
+      if (category === "stat_alignment") return record.natures || [];
+      if (category === "teammate") return (record.teammates || []).map((name) => [name, 0]);
+      if (category === "stat_points") return (record.spreads || []).map(([percentage, bonuses]) => [(bonuses || []).join("/"), percentage]);
+      return [];
+    };
+    const everyRow = () => ["move", "held_item", "ability", "stat_alignment", "teammate", "stat_points"].flatMap(pairs);
+    const natureArrows = () => (usage()?.natures || []).map(([name]) => this.natures[name] || ["", ""]);
+    return {
+      names: () => [...labels, ...keys].filter(Boolean),
+      types: () => row.types || [],
+      abilities: () => this.abilities(row.species, row.form),
+      learnset: () => this.learnset(row.species, row.form),
+      extraText: () => [row.kind, row.form, row.species].filter(Boolean),
+      battleText: () => everyRow().map(([name]) => name),
+      stat: (key) => (key === "base_stat_total"
+        ? STAT_KEYS.reduce((sum, [, stat]) => sum + Number(row.stats?.[stat] || 0), 0)
+        : Number(row.stats?.[key] || 0)),
+      rows: (category) => pairs(category).map(([name, percentage], index) => ({ label: name, rank: index + 1, percentage: Number(percentage) || 0 })),
+      points: (column) => {
+        const at = ["hp_points", "attack_points", "defense_points", "sp_atk_points", "sp_def_points", "speed_points"].indexOf(column);
+        if (at < 0) return [];
+        return (usage()?.spreads || []).map(([, bonuses]) => Number(bonuses?.[at] || 0));
+      },
+      ranks: () => everyRow().map((_, index) => index + 1),
+      percentages: () => everyRow().map(([, percentage]) => Number(percentage) || 0),
+      statUp: () => natureArrows().map(([up]) => NATURE_STAT_NAMES[up] || ""),
+      statDown: () => natureArrows().map(([, down]) => NATURE_STAT_NAMES[down] || ""),
+    };
+  }
+
   /** Picker rows: one per Pokemon (Showdown identity), labelled with its
    *  Showdown name.  A query matches the Showdown name or any app spelling of
-   *  that Pokemon, so "ninetales-alola" and "alolan ninetales" both find it. */
+   *  that Pokemon, so "ninetales-alola" and "alolan ninetales" both find it,
+   *  and it takes the Explorer's whole search language besides, so
+   *  "move=Fake Out, spe>=100" narrows the picker the same way it narrows the
+   *  Explorer (builder/search-query.js). */
   searchSpecies(query, { limit = 60, format = "Doubles" } = {}) {
-    const q = compact(query);
+    const plan = parseSearchQuery(query);
     const index = this.metaByUsage[format];
     const scored = [];
-    for (const { row, label, keys } of this.byShowdown.values()) {
-      const names = [...keys];
-      let score;
-      if (!q) score = 0;
-      else if (names.some((key) => key === q)) score = 3;
-      else if (names.some((key) => key.startsWith(q))) score = 2;
-      else if (names.some((key) => key.includes(q)) || (row.types || []).some((t) => compact(t) === q)) score = 1;
-      else continue;
+    for (const identity of this.byShowdown.values()) {
+      const { row, label } = identity;
+      let score = 0;
+      if (plan.mode !== "empty") {
+        const source = this.searchSource(identity, format);
+        if (plan.mode === "name") {
+          const hit = quickScore(plan.text, source);
+          if (hit === Number.POSITIVE_INFINITY) continue;
+          score = hit;
+        } else if (!matchesPlan(plan, source)) continue;
+      }
       const usage = row.usage && index ? index.get(compact(row.usage)) : null;
       const position = usage && !row.mega ? usage.position : 9999;
       scored.push({ ...row, label, score, position });
     }
-    scored.sort((a, b) => b.score - a.score || a.position - b.position || a.label.localeCompare(b.label));
-    return scored.slice(0, limit);
+    scored.sort((a, b) => a.score - b.score || a.position - b.position || a.label.localeCompare(b.label));
+    // A plain word is looked for in the Pokemon's own name first, then in its
+    // types and Abilities, then in the battle data, then in its learnset
+    // (builder/search-query.js).  The Explorer can show every one of those and
+    // put the best first because it is a page to read; a picker has one screen
+    // and a limit, so when a word is somebody's name or type it does not also
+    // offer everyone that name appears NEXT to -- "rilla" offers Rillaboom, not
+    // the hundred Pokemon it is most often brought with.  "Fake Out" is nobody's
+    // name, so it still finds everything that can use it.
+    const named = (row) => row.score < 20;
+    return (scored.some(named) ? scored.filter(named) : scored).slice(0, limit);
   }
 }
 

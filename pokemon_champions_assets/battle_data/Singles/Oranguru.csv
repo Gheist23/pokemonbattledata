@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Oranguru,250,move,1,Psychic,79.5%,,,,,,,,
-Oranguru,250,move,2,Trick Room,48.5%,,,,,,,,
-Oranguru,250,move,3,Foul Play,32.4%,,,,,,,,
-Oranguru,250,move,4,Shadow Ball,32.0%,,,,,,,,
-Oranguru,250,move,5,Thunderbolt,23.2%,,,,,,,,
-Oranguru,250,move,6,Yawn,20.7%,,,,,,,,
-Oranguru,250,move,7,Encore,15.2%,,,,,,,,
+Oranguru,250,move,1,Psychic,79.1%,,,,,,,,
+Oranguru,250,move,2,Trick Room,48.3%,,,,,,,,
+Oranguru,250,move,3,Foul Play,32.2%,,,,,,,,
+Oranguru,250,move,4,Shadow Ball,31.5%,,,,,,,,
+Oranguru,250,move,5,Thunderbolt,23.1%,,,,,,,,
+Oranguru,250,move,6,Yawn,20.8%,,,,,,,,
+Oranguru,250,move,7,Encore,15.1%,,,,,,,,
 Oranguru,250,move,8,Instruct,15.1%,,,,,,,,
-Oranguru,250,move,9,Taunt,13.0%,,,,,,,,
+Oranguru,250,move,9,Taunt,13.1%,,,,,,,,
 Oranguru,250,move,10,Energy Ball,11.4%,,,,,,,,
-Oranguru,250,held_item,1,Life Orb,26.7%,,,,,,,,
-Oranguru,250,held_item,2,Red Card,13.7%,,,,,,,,
-Oranguru,250,held_item,3,Light Clay,13.2%,,,,,,,,
+Oranguru,250,held_item,1,Life Orb,26.3%,,,,,,,,
+Oranguru,250,held_item,2,Light Clay,13.4%,,,,,,,,
+Oranguru,250,held_item,3,Red Card,13.4%,,,,,,,,
 Oranguru,250,held_item,4,Leftovers,10.3%,,,,,,,,
-Oranguru,250,held_item,5,Sitrus Berry,8.9%,,,,,,,,
-Oranguru,250,held_item,6,Wise Glasses,3.3%,,,,,,,,
+Oranguru,250,held_item,5,Sitrus Berry,9.2%,,,,,,,,
+Oranguru,250,held_item,6,Wise Glasses,3.4%,,,,,,,,
 Oranguru,250,held_item,7,Colbur Berry,3.1%,,,,,,,,
-Oranguru,250,held_item,8,Lum Berry,3.0%,,,,,,,,
+Oranguru,250,held_item,8,Lum Berry,2.9%,,,,,,,,
 Oranguru,250,held_item,9,Expert Belt,2.5%,,,,,,,,
 Oranguru,250,held_item,10,Mental Herb,2.0%,,,,,,,,
 Oranguru,250,teammate,1,Basculegion,,,,,,,,,
@@ -29,26 +29,26 @@ Oranguru,250,teammate,7,Rillaboom,,,,,,,,,
 Oranguru,250,teammate,8,Simipour,,,,,,,,,
 Oranguru,250,teammate,9,Steelix,,,,,,,,,
 Oranguru,250,teammate,10,Armarouge,,,,,,,,,
-Oranguru,250,stat_alignment,1,Bold,38.1%,Defense,Attack,,,,,,
+Oranguru,250,stat_alignment,1,Bold,37.5%,Defense,Attack,,,,,,
 Oranguru,250,stat_alignment,2,Relaxed,20.1%,Defense,Speed,,,,,,
-Oranguru,250,stat_alignment,3,Modest,13.4%,Sp. Atk,Attack,,,,,,
+Oranguru,250,stat_alignment,3,Modest,13.7%,Sp. Atk,Attack,,,,,,
 Oranguru,250,stat_alignment,4,Timid,8.7%,Speed,Attack,,,,,,
-Oranguru,250,stat_alignment,5,Calm,8.4%,Sp. Def,Attack,,,,,,
-Oranguru,250,stat_alignment,6,Quiet,7.0%,Sp. Atk,Speed,,,,,,
+Oranguru,250,stat_alignment,5,Calm,8.5%,Sp. Def,Attack,,,,,,
+Oranguru,250,stat_alignment,6,Quiet,6.9%,Sp. Atk,Speed,,,,,,
 Oranguru,250,stat_alignment,7,Sassy,1.6%,Sp. Def,Speed,,,,,,
-Oranguru,250,stat_alignment,8,Hasty,0.7%,Speed,Defense,,,,,,
-Oranguru,250,stat_alignment,9,Brave,0.7%,Attack,Speed,,,,,,
+Oranguru,250,stat_alignment,8,Brave,0.9%,Attack,Speed,,,,,,
+Oranguru,250,stat_alignment,9,Hasty,0.7%,Speed,Defense,,,,,,
 Oranguru,250,stat_alignment,10,Mild,0.5%,Sp. Atk,Defense,,,,,,
-Oranguru,250,stat_points,1,,15.9%,,,32,0,32,0,1,1
-Oranguru,250,stat_points,2,,9.2%,,,32,0,32,1,0,0
-Oranguru,250,stat_points,3,,8.6%,,,32,0,32,0,2,0
+Oranguru,250,stat_points,1,,15.7%,,,32,0,32,0,1,1
+Oranguru,250,stat_points,2,,9.0%,,,32,0,32,1,0,0
+Oranguru,250,stat_points,3,,9.0%,,,32,0,32,0,2,0
 Oranguru,250,stat_points,4,,7.5%,,,2,0,32,0,0,32
-Oranguru,250,stat_points,5,,7.5%,,,32,0,32,2,0,0
-Oranguru,250,stat_points,6,,5.7%,,,32,0,20,14,0,0
+Oranguru,250,stat_points,5,,7.4%,,,32,0,32,2,0,0
+Oranguru,250,stat_points,6,,5.6%,,,32,0,20,14,0,0
 Oranguru,250,stat_points,7,,4.1%,,,32,0,2,32,0,0
-Oranguru,250,stat_points,8,,3.7%,,,2,0,32,32,0,0
+Oranguru,250,stat_points,8,,3.8%,,,2,0,32,0,32,0
 Oranguru,250,stat_points,9,,3.7%,,,32,0,2,0,32,0
-Oranguru,250,stat_points,10,,3.7%,,,2,0,32,0,32,0
-Oranguru,250,ability,1,Inner Focus,81.5%,,,,,,,,
+Oranguru,250,stat_points,10,,3.7%,,,2,0,32,32,0,0
+Oranguru,250,ability,1,Inner Focus,81.4%,,,,,,,,
 Oranguru,250,ability,2,Telepathy,16.4%,,,,,,,,
-Oranguru,250,ability,3,Symbiosis,2.0%,,,,,,,,
+Oranguru,250,ability,3,Symbiosis,2.2%,,,,,,,,

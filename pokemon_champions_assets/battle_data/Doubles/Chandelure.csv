@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Chandelure,75,move,1,Shadow Ball,89.7%,,,,,,,,
 Chandelure,75,move,2,Heat Wave,79.9%,,,,,,,,
-Chandelure,75,move,3,Protect,62.6%,,,,,,,,
+Chandelure,75,move,3,Protect,62.5%,,,,,,,,
 Chandelure,75,move,4,Trick Room,35.6%,,,,,,,,
-Chandelure,75,move,5,Energy Ball,32.9%,,,,,,,,
-Chandelure,75,move,6,Flamethrower,18.0%,,,,,,,,
+Chandelure,75,move,5,Energy Ball,33.0%,,,,,,,,
+Chandelure,75,move,6,Flamethrower,18.1%,,,,,,,,
 Chandelure,75,move,7,Calm Mind,10.9%,,,,,,,,
 Chandelure,75,move,8,Overheat,9.0%,,,,,,,,
 Chandelure,75,move,9,Psychic,7.8%,,,,,,,,
@@ -12,10 +12,10 @@ Chandelure,75,move,10,Minimize,7.6%,,,,,,,,
 Chandelure,75,held_item,1,Chandelurite,37.8%,,,,,,,,
 Chandelure,75,held_item,2,Focus Sash,26.4%,,,,,,,,
 Chandelure,75,held_item,3,Choice Scarf,10.3%,,,,,,,,
-Chandelure,75,held_item,4,Life Orb,5.2%,,,,,,,,
+Chandelure,75,held_item,4,Life Orb,5.3%,,,,,,,,
 Chandelure,75,held_item,5,Sitrus Berry,3.1%,,,,,,,,
 Chandelure,75,held_item,6,Colbur Berry,3.0%,,,,,,,,
-Chandelure,75,held_item,7,Charcoal,2.9%,,,,,,,,
+Chandelure,75,held_item,7,Charcoal,2.8%,,,,,,,,
 Chandelure,75,held_item,8,Bright Powder,1.8%,,,,,,,,
 Chandelure,75,held_item,9,Leftovers,1.2%,,,,,,,,
 Chandelure,75,held_item,10,Wise Glasses,0.9%,,,,,,,,
@@ -40,7 +40,7 @@ Chandelure,75,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Chandelure,75,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
 Chandelure,75,stat_alignment,10,Brave,0.1%,Attack,Speed,,,,,,
 Chandelure,75,stat_points,1,,29.6%,,,2,0,0,32,0,32
-Chandelure,75,stat_points,2,,8.9%,,,32,0,2,32,0,0
+Chandelure,75,stat_points,2,,8.8%,,,32,0,2,32,0,0
 Chandelure,75,stat_points,3,,8.6%,,,32,0,1,32,1,0
 Chandelure,75,stat_points,4,,5.1%,,,32,0,0,32,2,0
 Chandelure,75,stat_points,5,,2.6%,,,32,0,0,32,0,2

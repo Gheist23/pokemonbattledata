@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Passimian,256,move,1,Close Combat,55.9%,,,,,,,,
-Passimian,256,move,2,Drain Punch,44.7%,,,,,,,,
-Passimian,256,move,3,Knock Off,37.4%,,,,,,,,
-Passimian,256,move,4,Rock Slide,35.0%,,,,,,,,
-Passimian,256,move,5,Earthquake,30.4%,,,,,,,,
-Passimian,256,move,6,Gunk Shot,29.9%,,,,,,,,
-Passimian,256,move,7,U-turn,23.6%,,,,,,,,
-Passimian,256,move,8,Counter,18.8%,,,,,,,,
-Passimian,256,move,9,Rock Tomb,18.8%,,,,,,,,
-Passimian,256,move,10,Iron Head,15.6%,,,,,,,,
-Passimian,256,held_item,1,Choice Scarf,24.4%,,,,,,,,
-Passimian,256,held_item,2,Focus Sash,21.8%,,,,,,,,
+Passimian,256,move,1,Close Combat,56.0%,,,,,,,,
+Passimian,256,move,2,Drain Punch,44.6%,,,,,,,,
+Passimian,256,move,3,Knock Off,37.1%,,,,,,,,
+Passimian,256,move,4,Rock Slide,35.1%,,,,,,,,
+Passimian,256,move,5,Earthquake,30.9%,,,,,,,,
+Passimian,256,move,6,Gunk Shot,30.3%,,,,,,,,
+Passimian,256,move,7,U-turn,23.4%,,,,,,,,
+Passimian,256,move,8,Counter,18.6%,,,,,,,,
+Passimian,256,move,9,Rock Tomb,18.6%,,,,,,,,
+Passimian,256,move,10,Iron Head,15.5%,,,,,,,,
+Passimian,256,held_item,1,Choice Scarf,24.6%,,,,,,,,
+Passimian,256,held_item,2,Focus Sash,21.7%,,,,,,,,
 Passimian,256,held_item,3,Light Ball,6.8%,,,,,,,,
-Passimian,256,held_item,4,Quick Claw,6.0%,,,,,,,,
-Passimian,256,held_item,5,Expert Belt,5.3%,,,,,,,,
-Passimian,256,held_item,6,Life Orb,5.3%,,,,,,,,
-Passimian,256,held_item,7,Sitrus Berry,5.0%,,,,,,,,
+Passimian,256,held_item,4,Quick Claw,5.9%,,,,,,,,
+Passimian,256,held_item,5,Life Orb,5.3%,,,,,,,,
+Passimian,256,held_item,6,Expert Belt,5.2%,,,,,,,,
+Passimian,256,held_item,7,Sitrus Berry,4.9%,,,,,,,,
 Passimian,256,held_item,8,Black Belt,3.9%,,,,,,,,
 Passimian,256,held_item,9,Rocky Helmet,3.1%,,,,,,,,
 Passimian,256,held_item,10,Roseli Berry,2.6%,,,,,,,,
@@ -27,25 +27,25 @@ Passimian,256,teammate,5,Rillaboom,,,,,,,,,
 Passimian,256,teammate,6,Salamence,,,,,,,,,
 Passimian,256,teammate,7,Baxcalibur,,,,,,,,,
 Passimian,256,teammate,8,Lucario,,,,,,,,,
-Passimian,256,teammate,9,Annihilape,,,,,,,,,
-Passimian,256,teammate,10,Staraptor,,,,,,,,,
-Passimian,256,stat_alignment,1,Adamant,59.7%,Attack,Sp. Atk,,,,,,
-Passimian,256,stat_alignment,2,Jolly,26.7%,Speed,Sp. Atk,,,,,,
-Passimian,256,stat_alignment,3,Impish,5.8%,Defense,Sp. Atk,,,,,,
-Passimian,256,stat_alignment,4,Naive,2.1%,Speed,Sp. Def,,,,,,
+Passimian,256,teammate,9,Staraptor,,,,,,,,,
+Passimian,256,teammate,10,Annihilape,,,,,,,,,
+Passimian,256,stat_alignment,1,Adamant,59.6%,Attack,Sp. Atk,,,,,,
+Passimian,256,stat_alignment,2,Jolly,27.0%,Speed,Sp. Atk,,,,,,
+Passimian,256,stat_alignment,3,Impish,5.7%,Defense,Sp. Atk,,,,,,
+Passimian,256,stat_alignment,4,Naive,2.0%,Speed,Sp. Def,,,,,,
 Passimian,256,stat_alignment,5,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,
 Passimian,256,stat_alignment,6,Naughty,1.4%,Attack,Sp. Def,,,,,,
 Passimian,256,stat_alignment,7,Hasty,1.0%,Speed,Defense,,,,,,
 Passimian,256,stat_alignment,8,Modest,0.6%,Sp. Atk,Attack,,,,,,
 Passimian,256,stat_alignment,9,Gentle,0.5%,Sp. Def,Defense,,,,,,
 Passimian,256,stat_alignment,10,Brave,0.4%,Attack,Speed,,,,,,
-Passimian,256,stat_points,1,,23.7%,,,2,32,0,0,0,32
-Passimian,256,stat_points,2,,12.4%,,,0,32,2,0,0,32
-Passimian,256,stat_points,3,,11.1%,,,18,32,0,0,0,16
+Passimian,256,stat_points,1,,24.0%,,,2,32,0,0,0,32
+Passimian,256,stat_points,2,,12.3%,,,0,32,2,0,0,32
+Passimian,256,stat_points,3,,11.0%,,,18,32,0,0,0,16
 Passimian,256,stat_points,4,,8.3%,,,0,32,0,0,2,32
 Passimian,256,stat_points,5,,3.8%,,,0,32,32,0,0,2
 Passimian,256,stat_points,6,,3.4%,,,4,32,0,0,0,30
-Passimian,256,stat_points,7,,3.3%,,,0,32,0,0,0,32
+Passimian,256,stat_points,7,,3.2%,,,0,32,0,0,0,32
 Passimian,256,stat_points,8,,3.2%,,,20,32,0,0,13,1
 Passimian,256,stat_points,9,,3.1%,,,32,32,2,0,0,0
 Passimian,256,stat_points,10,,2.4%,,,32,32,0,0,0,2

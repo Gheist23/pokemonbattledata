@@ -125,9 +125,28 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     mobileFilterToggle: document.getElementById("mobileFilterToggle")
   };
 
+  // The search language itself lives in builder/search-query.js, because the
+  // Team Builder's "Choose a Pokémon" picker answers the same queries and the
+  // two must not be allowed to drift apart.  This file is a classic script, so
+  // it takes the module through a dynamic import as the page starts, before
+  // anything reads the search box.
+  let parseSearchQuery, addNameSegments, parseClause, isRankFilterField, normalizeField;
+  let compareNumeric, categoryForSearchField, battleNumericFieldName;
+  let bestTextMatchScore, matchTextValues, splitListValue, normalizeForSearch;
+
+  async function loadSearchLanguage() {
+    const language = await import("/builder/search-query.js");
+    ({
+      parseSearchQuery, addNameSegments, parseClause, isRankFilterField, normalizeField,
+      compareNumeric, categoryForSearchField, battleNumericFieldName,
+      bestTextMatchScore, matchTextValues, splitListValue, normalizeForSearch,
+    } = language);
+  }
+
   document.addEventListener("DOMContentLoaded", init);
 
   async function init() {
+    await loadSearchLanguage();
     bindEvents();
     renderLoadingState();
     const loaded = await loadManifestDataset();
@@ -666,62 +685,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     renderCards();
   }
 
-  function parseSearchQuery(rawValue) {
-    const raw = String(rawValue || "").trim();
-    if (!raw) return { mode: "empty", clauses: [], text: "" };
-
-    const clauses = [];
-    const nameParts = [];
-    const clauseRe = /([a-zA-Z_]+)\s*(>=|<=|=|:|>|<)\s*([^,]*?)(?=(?:\s*,\s*)|(?:\s+[a-zA-Z_]+\s*(?:>=|<=|=|:|>|<))|$)/g;
-    let match;
-    let cursor = 0;
-
-    while ((match = clauseRe.exec(raw)) !== null) {
-      addNameSegments(raw.slice(cursor, match.index), nameParts);
-      const parsed = parseClause(match[1], match[2], match[3]);
-      if (parsed) clauses.push(parsed);
-      cursor = clauseRe.lastIndex;
-    }
-    addNameSegments(raw.slice(cursor), nameParts);
-
-    nameParts.forEach((part) => clauses.unshift({ field: "quick", op: ":", value: part }));
-
-    if (!clauses.length) return { mode: "name", text: normalizeForSearch(raw), clauses: [] };
-    const hasOnlyQuick = clauses.every((clause) => clause.field === "quick");
-    if (hasOnlyQuick && clauses.length === 1) return { mode: "name", text: normalizeForSearch(clauses[0].value), clauses };
-    return { mode: "advanced", text: "", clauses };
-  }
-
-  function addNameSegments(segment, parts) {
-    String(segment || "")
-      .split(",")
-      .map((part) => part.trim())
-      .filter(Boolean)
-      .forEach((part) => parts.push(part));
-  }
-
-  function parseClause(field, op, rawValue) {
-    const value = String(rawValue || "").trim().replace(/^,\s*/, "");
-    if (!field || !value) return null;
-
-    const rankMatch = value.match(/^(\d+)\s*(=|:)\s*(.+)$/);
-    if ((op === "<=" || op === ">=" || op === "<" || op === ">") && rankMatch && isRankFilterField(field)) {
-      return {
-        field: normalizeField(field),
-        op: rankMatch[2],
-        value: rankMatch[3].trim(),
-        rankOp: op,
-        rankValue: Number(rankMatch[1])
-      };
-    }
-
-    return { field: normalizeField(field), op, value };
-  }
-
-  function isRankFilterField(field) {
-    return Boolean(categoryForSearchField(normalizeField(field)));
-  }
-
   function matchesQuery(record, plan, format, season) {
     if (plan.mode === "empty") return true;
     if (plan.mode === "name") return quickSearchScore(record, plan.text, format, season) !== Number.POSITIVE_INFINITY;
@@ -759,19 +722,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     if (battleScore !== Number.POSITIVE_INFINITY) return battleScore + 20;
 
     return bestTextMatchScore(learnableMoveSearchValues(record), text) + 30;
-  }
-
-  function bestTextMatchScore(values, query) {
-    let best = Number.POSITIVE_INFINITY;
-    (values || []).forEach((value) => {
-      const candidate = normalizeForSearch(value).trim();
-      if (!candidate || !candidate.includes(query)) return;
-      if (candidate === query) best = Math.min(best, 0);
-      else if (candidate.startsWith(query)) best = Math.min(best, 1);
-      else if (candidate.split(" ").some((part) => part.startsWith(query))) best = Math.min(best, 2);
-      else best = Math.min(best, 3);
-    });
-    return best;
   }
 
   function matchClause(record, clause, format, season) {
@@ -877,73 +827,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     ].filter(Boolean));
   }
 
-  function splitListValue(value) {
-    return String(value || "")
-      .split(/[\/,|;]/)
-      .map((item) => item.trim())
-      .filter(Boolean);
-  }
-
-  function matchTextValues(values, op, query) {
-    const normalized = (values || []).filter(Boolean).map((candidate) => normalizeForSearch(candidate));
-    return normalized.some((candidate) => candidate.includes(query));
-  }
-
-  function categoryForSearchField(field) {
-    const aliases = {
-      move: "move",
-      moves: "move",
-      topmove: "move",
-      item: "held_item",
-      helditem: "held_item",
-      helditems: "held_item",
-      held_item: "held_item",
-      topitem: "held_item",
-      tophelditem: "held_item",
-      ability: "ability",
-      abilities: "ability",
-      topability: "ability",
-      nature: "stat_alignment",
-      natures: "stat_alignment",
-      statalignment: "stat_alignment",
-      alignment: "stat_alignment",
-      teammate: "teammate",
-      teammates: "teammate",
-      topteammate: "teammate",
-      statspread: "stat_points",
-      statspreads: "stat_points",
-      statpoints: "stat_points",
-      evs: "stat_points"
-    };
-    return aliases[field] || "";
-  }
-
-  function battleNumericFieldName(field) {
-    const aliases = {
-      hppoints: "hp_points",
-      hp_points: "hp_points",
-      hppts: "hp_points",
-      atkpoints: "attack_points",
-      attackpoints: "attack_points",
-      attack_points: "attack_points",
-      defpoints: "defense_points",
-      defensepoints: "defense_points",
-      defense_points: "defense_points",
-      spapoints: "sp_atk_points",
-      spatkpoints: "sp_atk_points",
-      spattackpoints: "sp_atk_points",
-      sp_atk_points: "sp_atk_points",
-      spdpoints: "sp_def_points",
-      spdefpoints: "sp_def_points",
-      spdefensepoints: "sp_def_points",
-      sp_def_points: "sp_def_points",
-      spepoints: "speed_points",
-      speedpoints: "speed_points",
-      speed_points: "speed_points"
-    };
-    return aliases[field] || "";
-  }
-
   function battleRowsForSearch(record, format, season = state.selectedSeason) {
     const liveRows = record.battleBySelection?.get(battleSelectionKey(season, format));
     if (Array.isArray(liveRows) && liveRows.length) return liveRows;
@@ -970,19 +853,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       if (aHasPosition !== bHasPosition) return aHasPosition ? -1 : 1;
       return compareByName(a, b);
     });
-  }
-
-  function normalizeField(field) {
-    return normalizeForSearch(field).replace(/[\s_-]+/g, "");
-  }
-
-  function compareNumeric(candidate, op, target) {
-    if (!Number.isFinite(target)) return false;
-    if (op === ">=") return candidate >= target;
-    if (op === "<=") return candidate <= target;
-    if (op === ">") return candidate > target;
-    if (op === "<") return candidate < target;
-    return candidate === target;
   }
 
   function getSummary(record, format, season = state.selectedSeason) {
@@ -2769,10 +2639,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     return normalizeForSearch(value)
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "");
-  }
-
-  function normalizeForSearch(value) {
-    return String(value || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
   }
 
   function initials(name) {

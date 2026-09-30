@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Annihilape,80,move,1,Rage Fist,95.4%,,,,,,,,
 Annihilape,80,move,2,Drain Punch,83.2%,,,,,,,,
-Annihilape,80,move,3,Bulk Up,71.0%,,,,,,,,
+Annihilape,80,move,3,Bulk Up,70.9%,,,,,,,,
 Annihilape,80,move,4,Taunt,56.1%,,,,,,,,
 Annihilape,80,move,5,Stealth Rock,16.8%,,,,,,,,
 Annihilape,80,move,6,Ice Punch,16.6%,,,,,,,,
@@ -30,8 +30,8 @@ Annihilape,80,teammate,8,Archaludon,,,,,,,,,
 Annihilape,80,teammate,9,Charizard,,,,,,,,,
 Annihilape,80,teammate,10,Gholdengo,,,,,,,,,
 Annihilape,80,stat_alignment,1,Adamant,50.5%,Attack,Sp. Atk,,,,,,
-Annihilape,80,stat_alignment,2,Jolly,19.0%,Speed,Sp. Atk,,,,,,
-Annihilape,80,stat_alignment,3,Impish,13.9%,Defense,Sp. Atk,,,,,,
+Annihilape,80,stat_alignment,2,Jolly,19.1%,Speed,Sp. Atk,,,,,,
+Annihilape,80,stat_alignment,3,Impish,13.8%,Defense,Sp. Atk,,,,,,
 Annihilape,80,stat_alignment,4,Careful,13.3%,Sp. Def,Sp. Atk,,,,,,
 Annihilape,80,stat_alignment,5,Brave,0.9%,Attack,Speed,,,,,,
 Annihilape,80,stat_alignment,6,Naughty,0.6%,Attack,Sp. Def,,,,,,
@@ -40,7 +40,7 @@ Annihilape,80,stat_alignment,8,Sassy,0.3%,Sp. Def,Speed,,,,,,
 Annihilape,80,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,
 Annihilape,80,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,
 Annihilape,80,stat_points,1,,7.7%,,,32,15,14,0,0,5
-Annihilape,80,stat_points,2,,7.1%,,,32,32,2,0,0,0
+Annihilape,80,stat_points,2,,7.0%,,,32,32,2,0,0,0
 Annihilape,80,stat_points,3,,4.4%,,,2,32,0,0,0,32
 Annihilape,80,stat_points,4,,4.4%,,,32,2,0,0,0,32
 Annihilape,80,stat_points,5,,3.8%,,,32,32,0,0,0,2

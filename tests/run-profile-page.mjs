@@ -38,10 +38,22 @@
 // Not deployed: tests/ is in deploy.mjs's devOnlyPaths.
 
 import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { registerHooks } from "node:module";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const site = dirname(dirname(fileURLToPath(import.meta.url)));
+
+// app.js pulls the search language in with `import("/builder/search-query.js")`,
+// which is the site root in a browser and the drive root to Node. The suite
+// loads app.js as a module, so it says where the site root is rather than
+// making the page carry a second spelling of the path for the tests' benefit.
+registerHooks({
+  resolve(specifier, context, nextResolve) {
+    if (specifier.startsWith("/")) return { url: pathToFileURL(join(site, specifier)).href, shortCircuit: true };
+    return nextResolve(specifier, context);
+  },
+});
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const failures = [];

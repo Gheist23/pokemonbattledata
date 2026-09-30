@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Garchomp,9,move,1,Protect,81.0%,,,,,,,,
-Garchomp,9,move,2,Rock Slide,42.3%,,,,,,,,
-Garchomp,9,move,3,Dragon Claw,41.4%,,,,,,,,
-Garchomp,9,move,4,Earthquake,39.6%,,,,,,,,
-Garchomp,9,move,5,Power Gem,38.7%,,,,,,,,
-Garchomp,9,move,6,Flamethrower,30.1%,,,,,,,,
-Garchomp,9,move,7,Draco Meteor,28.3%,,,,,,,,
-Garchomp,9,move,8,Earth Power,25.0%,,,,,,,,
-Garchomp,9,move,9,Dragon Pulse,21.7%,,,,,,,,
-Garchomp,9,move,10,Stomping Tantrum,21.0%,,,,,,,,
-Garchomp,9,held_item,1,Garchompite Z,48.1%,,,,,,,,
-Garchomp,9,held_item,2,Life Orb,25.0%,,,,,,,,
+Garchomp,9,move,2,Rock Slide,42.2%,,,,,,,,
+Garchomp,9,move,3,Dragon Claw,41.2%,,,,,,,,
+Garchomp,9,move,4,Earthquake,39.4%,,,,,,,,
+Garchomp,9,move,5,Power Gem,39.0%,,,,,,,,
+Garchomp,9,move,6,Flamethrower,30.0%,,,,,,,,
+Garchomp,9,move,7,Draco Meteor,28.1%,,,,,,,,
+Garchomp,9,move,8,Earth Power,25.3%,,,,,,,,
+Garchomp,9,move,9,Dragon Pulse,22.0%,,,,,,,,
+Garchomp,9,move,10,Stomping Tantrum,20.9%,,,,,,,,
+Garchomp,9,held_item,1,Garchompite Z,48.3%,,,,,,,,
+Garchomp,9,held_item,2,Life Orb,24.9%,,,,,,,,
 Garchomp,9,held_item,3,Choice Scarf,9.1%,,,,,,,,
 Garchomp,9,held_item,4,Rocky Helmet,4.3%,,,,,,,,
 Garchomp,9,held_item,5,Sitrus Berry,3.4%,,,,,,,,
@@ -28,9 +28,9 @@ Garchomp,9,teammate,6,Gholdengo,,,,,,,,,
 Garchomp,9,teammate,7,Basculegion,,,,,,,,,
 Garchomp,9,teammate,8,Whimsicott,,,,,,,,,
 Garchomp,9,teammate,9,Volcarona,,,,,,,,,
-Garchomp,9,teammate,10,Farigiraf,,,,,,,,,
-Garchomp,9,stat_alignment,1,Modest,37.2%,Sp. Atk,Attack,,,,,,
-Garchomp,9,stat_alignment,2,Jolly,29.2%,Speed,Sp. Atk,,,,,,
+Garchomp,9,teammate,10,Raichu,,,,,,,,,
+Garchomp,9,stat_alignment,1,Modest,37.5%,Sp. Atk,Attack,,,,,,
+Garchomp,9,stat_alignment,2,Jolly,29.0%,Speed,Sp. Atk,,,,,,
 Garchomp,9,stat_alignment,3,Adamant,19.5%,Attack,Sp. Atk,,,,,,
 Garchomp,9,stat_alignment,4,Timid,10.0%,Speed,Attack,,,,,,
 Garchomp,9,stat_alignment,5,Impish,0.8%,Defense,Sp. Atk,,,,,,
@@ -40,13 +40,13 @@ Garchomp,9,stat_alignment,8,Hasty,0.4%,Speed,Defense,,,,,,
 Garchomp,9,stat_alignment,9,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
 Garchomp,9,stat_alignment,10,Naughty,0.3%,Attack,Sp. Def,,,,,,
 Garchomp,9,stat_points,1,,23.8%,,,2,32,0,0,0,32
-Garchomp,9,stat_points,2,,19.1%,,,2,0,0,32,0,32
-Garchomp,9,stat_points,3,,3.4%,,,0,0,5,31,0,30
+Garchomp,9,stat_points,2,,19.3%,,,2,0,0,32,0,32
+Garchomp,9,stat_points,3,,3.3%,,,0,0,5,31,0,30
 Garchomp,9,stat_points,4,,2.9%,,,8,0,6,21,1,30
 Garchomp,9,stat_points,5,,2.8%,,,0,32,0,0,2,32
 Garchomp,9,stat_points,6,,2.6%,,,0,32,2,0,0,32
 Garchomp,9,stat_points,7,,1.5%,,,0,0,0,32,2,32
-Garchomp,9,stat_points,8,,1.1%,,,0,0,2,32,0,32
+Garchomp,9,stat_points,8,,1.2%,,,0,0,2,32,0,32
 Garchomp,9,stat_points,9,,1.1%,,,0,32,0,0,0,32
 Garchomp,9,stat_points,10,,1.1%,,,0,32,1,0,1,32
 Garchomp,9,ability,1,Rough Skin,96.8%,,,,,,,,

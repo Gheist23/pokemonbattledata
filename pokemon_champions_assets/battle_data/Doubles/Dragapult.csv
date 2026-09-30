@@ -2,7 +2,7 @@ pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_point
 Dragapult,53,move,1,Protect,61.8%,,,,,,,,
 Dragapult,53,move,2,Shadow Ball,55.9%,,,,,,,,
 Dragapult,53,move,3,Draco Meteor,55.3%,,,,,,,,
-Dragapult,53,move,4,Will-O-Wisp,53.1%,,,,,,,,
+Dragapult,53,move,4,Will-O-Wisp,53.0%,,,,,,,,
 Dragapult,53,move,5,Dragon Darts,30.4%,,,,,,,,
 Dragapult,53,move,6,Phantom Force,29.8%,,,,,,,,
 Dragapult,53,move,7,Psychic Fangs,13.7%,,,,,,,,
@@ -11,7 +11,7 @@ Dragapult,53,move,9,U-turn,12.2%,,,,,,,,
 Dragapult,53,move,10,Flamethrower,11.6%,,,,,,,,
 Dragapult,53,held_item,1,Life Orb,55.2%,,,,,,,,
 Dragapult,53,held_item,2,Focus Sash,21.6%,,,,,,,,
-Dragapult,53,held_item,3,Dragon Fang,2.6%,,,,,,,,
+Dragapult,53,held_item,3,Dragon Fang,2.7%,,,,,,,,
 Dragapult,53,held_item,4,Expert Belt,2.3%,,,,,,,,
 Dragapult,53,held_item,5,Light Clay,2.0%,,,,,,,,
 Dragapult,53,held_item,6,Choice Scarf,1.9%,,,,,,,,
@@ -29,8 +29,8 @@ Dragapult,53,teammate,7,Staraptor,,,,,,,,,
 Dragapult,53,teammate,8,Incineroar,,,,,,,,,
 Dragapult,53,teammate,9,Salamence,,,,,,,,,
 Dragapult,53,teammate,10,Armarouge,,,,,,,,,
-Dragapult,53,stat_alignment,1,Timid,30.8%,Speed,Attack,,,,,,
-Dragapult,53,stat_alignment,2,Modest,28.7%,Sp. Atk,Attack,,,,,,
+Dragapult,53,stat_alignment,1,Timid,30.9%,Speed,Attack,,,,,,
+Dragapult,53,stat_alignment,2,Modest,28.6%,Sp. Atk,Attack,,,,,,
 Dragapult,53,stat_alignment,3,Jolly,19.2%,Speed,Sp. Atk,,,,,,
 Dragapult,53,stat_alignment,4,Adamant,13.0%,Attack,Sp. Atk,,,,,,
 Dragapult,53,stat_alignment,5,Naive,2.4%,Speed,Sp. Def,,,,,,
@@ -41,7 +41,7 @@ Dragapult,53,stat_alignment,9,Mild,0.5%,Sp. Atk,Defense,,,,,,
 Dragapult,53,stat_alignment,10,Rash,0.4%,Sp. Atk,Sp. Def,,,,,,
 Dragapult,53,stat_points,1,,40.5%,,,2,0,0,32,0,32
 Dragapult,53,stat_points,2,,16.2%,,,2,32,0,0,0,32
-Dragapult,53,stat_points,3,,3.7%,,,0,0,1,32,1,32
+Dragapult,53,stat_points,3,,3.6%,,,0,0,1,32,1,32
 Dragapult,53,stat_points,4,,3.3%,,,0,32,0,0,2,32
 Dragapult,53,stat_points,5,,2.9%,,,0,32,2,0,0,32
 Dragapult,53,stat_points,6,,1.9%,,,6,0,0,32,0,28
@@ -49,6 +49,6 @@ Dragapult,53,stat_points,7,,1.6%,,,0,0,0,32,2,32
 Dragapult,53,stat_points,8,,1.5%,,,0,2,0,32,0,32
 Dragapult,53,stat_points,9,,1.4%,,,0,32,0,0,0,32
 Dragapult,53,stat_points,10,,1.2%,,,0,0,2,32,0,32
-Dragapult,53,ability,1,Infiltrator,49.2%,,,,,,,,
+Dragapult,53,ability,1,Infiltrator,49.3%,,,,,,,,
 Dragapult,53,ability,2,Clear Body,37.2%,,,,,,,,
 Dragapult,53,ability,3,Cursed Body,13.6%,,,,,,,,

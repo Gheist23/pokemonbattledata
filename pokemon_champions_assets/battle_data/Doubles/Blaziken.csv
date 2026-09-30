@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Blaziken,59,move,1,Close Combat,67.6%,,,,,,,,
-Blaziken,59,move,2,Flare Blitz,64.9%,,,,,,,,
+Blaziken,59,move,2,Flare Blitz,65.0%,,,,,,,,
 Blaziken,59,move,3,Detect,64.1%,,,,,,,,
 Blaziken,59,move,4,Rock Slide,47.4%,,,,,,,,
-Blaziken,59,move,5,Protect,31.5%,,,,,,,,
+Blaziken,59,move,5,Protect,31.6%,,,,,,,,
 Blaziken,59,move,6,Aura Sphere,21.7%,,,,,,,,
-Blaziken,59,move,7,Heat Wave,20.7%,,,,,,,,
-Blaziken,59,move,8,Coaching,16.2%,,,,,,,,
+Blaziken,59,move,7,Heat Wave,20.6%,,,,,,,,
+Blaziken,59,move,8,Coaching,16.1%,,,,,,,,
 Blaziken,59,move,9,Swords Dance,7.2%,,,,,,,,
 Blaziken,59,move,10,Thunder Punch,7.0%,,,,,,,,
 Blaziken,59,held_item,1,Blazikenite,53.5%,,,,,,,,
-Blaziken,59,held_item,2,Focus Sash,24.6%,,,,,,,,
+Blaziken,59,held_item,2,Focus Sash,24.5%,,,,,,,,
 Blaziken,59,held_item,3,Life Orb,9.7%,,,,,,,,
 Blaziken,59,held_item,4,Expert Belt,1.8%,,,,,,,,
 Blaziken,59,held_item,5,White Herb,1.5%,,,,,,,,
@@ -28,9 +28,9 @@ Blaziken,59,teammate,6,Milotic,,,,,,,,,
 Blaziken,59,teammate,7,Basculegion,,,,,,,,,
 Blaziken,59,teammate,8,Farigiraf,,,,,,,,,
 Blaziken,59,teammate,9,Sneasler,,,,,,,,,
-Blaziken,59,teammate,10,Raichu,,,,,,,,,
+Blaziken,59,teammate,10,Torkoal,,,,,,,,,
 Blaziken,59,stat_alignment,1,Adamant,60.4%,Attack,Sp. Atk,,,,,,
-Blaziken,59,stat_alignment,2,Modest,17.1%,Sp. Atk,Attack,,,,,,
+Blaziken,59,stat_alignment,2,Modest,17.0%,Sp. Atk,Attack,,,,,,
 Blaziken,59,stat_alignment,3,Jolly,10.7%,Speed,Sp. Atk,,,,,,
 Blaziken,59,stat_alignment,4,Timid,4.2%,Speed,Attack,,,,,,
 Blaziken,59,stat_alignment,5,Naughty,1.1%,Attack,Sp. Def,,,,,,
@@ -40,7 +40,7 @@ Blaziken,59,stat_alignment,8,Rash,0.7%,Sp. Atk,Sp. Def,,,,,,
 Blaziken,59,stat_alignment,9,Hasty,0.7%,Speed,Defense,,,,,,
 Blaziken,59,stat_alignment,10,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
 Blaziken,59,stat_points,1,,37.9%,,,2,32,0,0,0,32
-Blaziken,59,stat_points,2,,16.0%,,,2,0,0,32,0,32
+Blaziken,59,stat_points,2,,15.9%,,,2,0,0,32,0,32
 Blaziken,59,stat_points,3,,4.5%,,,0,32,2,0,0,32
 Blaziken,59,stat_points,4,,2.9%,,,12,20,0,0,4,30
 Blaziken,59,stat_points,5,,2.5%,,,0,32,0,0,2,32

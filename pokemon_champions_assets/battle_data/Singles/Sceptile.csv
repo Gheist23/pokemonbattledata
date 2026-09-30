@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sceptile,102,move,1,Dragon Pulse,83.1%,,,,,,,,
-Sceptile,102,move,2,Earth Power,81.0%,,,,,,,,
+Sceptile,102,move,1,Dragon Pulse,83.0%,,,,,,,,
+Sceptile,102,move,2,Earth Power,80.9%,,,,,,,,
 Sceptile,102,move,3,Leaf Storm,73.7%,,,,,,,,
-Sceptile,102,move,4,Shed Tail,45.3%,,,,,,,,
-Sceptile,102,move,5,Vacuum Wave,35.9%,,,,,,,,
+Sceptile,102,move,4,Shed Tail,45.2%,,,,,,,,
+Sceptile,102,move,5,Vacuum Wave,36.0%,,,,,,,,
 Sceptile,102,move,6,Energy Ball,17.9%,,,,,,,,
-Sceptile,102,move,7,Focus Blast,9.8%,,,,,,,,
+Sceptile,102,move,7,Focus Blast,9.9%,,,,,,,,
 Sceptile,102,move,8,Endeavor,8.9%,,,,,,,,
 Sceptile,102,move,9,Giga Drain,6.1%,,,,,,,,
 Sceptile,102,move,10,Substitute,5.6%,,,,,,,,
@@ -34,13 +34,13 @@ Sceptile,102,stat_alignment,2,Modest,34.6%,Sp. Atk,Attack,,,,,,
 Sceptile,102,stat_alignment,3,Adamant,2.1%,Attack,Sp. Atk,,,,,,
 Sceptile,102,stat_alignment,4,Naive,1.9%,Speed,Sp. Def,,,,,,
 Sceptile,102,stat_alignment,5,Hasty,1.6%,Speed,Defense,,,,,,
-Sceptile,102,stat_alignment,6,Mild,1.5%,Sp. Atk,Defense,,,,,,
+Sceptile,102,stat_alignment,6,Mild,1.4%,Sp. Atk,Defense,,,,,,
 Sceptile,102,stat_alignment,7,Rash,1.1%,Sp. Atk,Sp. Def,,,,,,
-Sceptile,102,stat_alignment,8,Jolly,1.0%,Speed,Sp. Atk,,,,,,
+Sceptile,102,stat_alignment,8,Jolly,0.9%,Speed,Sp. Atk,,,,,,
 Sceptile,102,stat_alignment,9,Bold,0.7%,Defense,Attack,,,,,,
 Sceptile,102,stat_alignment,10,Quiet,0.4%,Sp. Atk,Speed,,,,,,
 Sceptile,102,stat_points,1,,53.2%,,,2,0,0,32,0,32
-Sceptile,102,stat_points,2,,11.0%,,,6,0,0,32,0,28
+Sceptile,102,stat_points,2,,10.9%,,,6,0,0,32,0,28
 Sceptile,102,stat_points,3,,4.8%,,,0,0,2,32,0,32
 Sceptile,102,stat_points,4,,3.2%,,,0,0,0,32,2,32
 Sceptile,102,stat_points,5,,2.2%,,,1,0,1,32,0,32

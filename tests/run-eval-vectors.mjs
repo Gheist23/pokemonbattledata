@@ -28,7 +28,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, makeMon, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, makeMon, terrainSeedOption, fieldRequirementOption, threatItemOption , koLabelOption} from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamChecks, classifyArchetype, tailwindBeneficiaries } from "../builder/team-checks.js";
 import { TeamSynergy } from "../builder/team-synergy.js";
@@ -54,6 +54,22 @@ const engine = new DamageEngine(appData);
  *  TERRAIN_SEEDS=0 / =1 replays every recording either way. */
 const seedStamp = (testCase) => testCase.record?.rules?.terrain_seeds ?? testCase.rules?.terrain_seeds ?? null;
 const seedRule = (testCase) => terrainSeedOption(process.env.TERRAIN_SEEDS === undefined ? seedStamp(testCase) : process.env.TERRAIN_SEEDS);
+// V521: Steel Roller fails with no terrain up. A recording made before the rule carries
+// no `field_requirements` stamp and replays with it off, so recorded answers stay the
+// answers the app gave when they were made.
+const fieldStamp = (testCase) => testCase.record?.rules?.field_requirements ?? testCase.rules?.field_requirements ?? null;
+const fieldRule = (testCase) => fieldRequirementOption(
+  process.env.FIELD_REQUIREMENTS === undefined ? fieldStamp(testCase) : process.env.FIELD_REQUIREMENTS);
+// V523: the threat KO line reads like the Damage Calculator's. A recording made
+// before the rule carries no `ko_label` stamp and replays with the old tier label.
+const koLabelStamp = (testCase) => testCase.record?.rules?.ko_label ?? testCase.rules?.ko_label ?? null;
+const koLabelRule = (testCase) => koLabelOption(
+  process.env.KO_LABEL === undefined ? koLabelStamp(testCase) : process.env.KO_LABEL);
+// V522: a threat row names the item its number came from. A recording made before the
+// rule carries no `threat_item` stamp and replays with the old header label.
+const threatItemStamp = (testCase) => testCase.record?.rules?.threat_item ?? testCase.rules?.threat_item ?? null;
+const threatItemRule = (testCase) => threatItemOption(
+  process.env.THREAT_ITEM === undefined ? threatItemStamp(testCase) : process.env.THREAT_ITEM);
 
 const aliases = appData.usageAliases || {};
 const MON_FIELDS = ["pokemon_name", "form_name", "item", "ability", "nature_name", "bonuses", "moves", "analysis_side"];
@@ -110,7 +126,8 @@ const failures = [];
 const byField = new Map();
 for (const testCase of cases) {
   engine.terrainSeeds = seedRule(testCase);
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase) });
+  engine.fieldRequirements = fieldRule(testCase);
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase) });
   // The app's meta rows carry their raw battle-data rows; build the site's meta
   // records from exactly those, so data freshness cannot hide a logic difference.
   const metaRows = testCase.record.meta[0]?.rows || [];
@@ -313,7 +330,7 @@ for (const testCase of cases) {
       const source = recordedMons[i] || {};
       return { species, item, form, ability, moves, nature: source.nature_name, bonuses: source.bonuses };
     });
-    const got = new TeamEvaluation(evaluator).evaluate(sets, { checkSelection: extra.selected_checks });
+    const got = new TeamEvaluation(evaluator, { threatItem: threatItemRule(testCase) }).evaluate(sets, { checkSelection: extra.selected_checks });
     const want = testCase.payload;
     total += 1;
     compare(`${caseLabel(testCase)} payload scores`, ["offense_score", "defense_score", "all_top_meta_threat_rows_v462", "mega_count", "mega_names", "protect_count", "protect_names"], want, got, failures);

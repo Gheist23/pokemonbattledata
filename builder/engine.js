@@ -255,6 +255,62 @@ export function terrainSeedOption(value) {
   if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
   return true;
 }
+/**
+ * Steel Roller fails outright with no terrain up (move_field_requirement_v521.py).
+ * The Companion's calculator showed it hitting for full either way -- 132.86% with
+ * no terrain and 132.86% with Electric Terrain -- while the battle simulation
+ * already refused to offer the move at all without one.
+ */
+export const FIELD_REQUIREMENTS_ON = true;
+
+/**
+ * The `fieldRequirements` option as a flag, the way `terrainSeedOption` reads
+ * `terrainSeeds`: false for null / undefined / false / "" / 0 / "off" / "no". A
+ * recorded run made before the rule carries no `field_requirements` stamp in its
+ * `rules` and replays with it off -- which is what keeps the calc vectors green.
+ * Three of the seven Steel Roller vectors on disk were recorded with no terrain
+ * up and pin the old full-damage answer; they are a record of what the app used
+ * to say, and re-recording four thousand vectors to correct three of them would
+ * throw the rest of that record away.
+ */
+export function fieldRequirementOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
+/**
+ * A Team Evaluation threat row names the item its number was calculated with
+ * (threat_item_shown_v522.py). On by default; off replays a recording made
+ * before the rule, which labelled the header with the most USED item instead of
+ * the one that won -- the 8 recorded evaluations on disk carry the old label and
+ * would otherwise show 41 mismatches that are all the fix working.
+ */
+export const THREAT_ITEM_ON = true;
+
+/** The `threatItem` option as a flag, the way `terrainSeedOption` reads its own. */
+export function threatItemOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
+/**
+ * A threat's KO line reads like the Damage Calculator's (threat_ko_label_v523.py):
+ * the first tier with a real chance, then the first certainty, from the raw rolls
+ * with move accuracy left out of the sentence. The tier walk returns the first
+ * count reaching one half, which is right for the number scoring reads and hid
+ * "23.4% chance to 2HKO" under "Guaranteed 3HKO".
+ */
+export const KO_LABEL_ON = true;
+
+/** The `koLabel` option as a flag, the way `terrainSeedOption` reads its own. */
+export function koLabelOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
 export const STAT_KEYS = [["HP", "hp"], ["ATK", "attack"], ["DEF", "defense"], ["SPA", "sp_attack"], ["SPD", "sp_defense"], ["SPE", "speed"]];
 const STAGE_ATTRS = ["attack_stage", "defense_stage", "sp_attack_stage", "sp_defense_stage", "speed_stage"];
 export const MAX_BONUS_STAT_POINTS = 66;
@@ -445,9 +501,13 @@ export function speciesAndForm(pokemonName, formName = "") {
 // --- the engine ------------------------------------------------------------
 
 export class DamageEngine {
-  constructor(appData, { terrainSeeds = TERRAIN_SEEDS_ON } = {}) {
+  constructor(appData, { terrainSeeds = TERRAIN_SEEDS_ON,
+                        fieldRequirements = FIELD_REQUIREMENTS_ON } = {}) {
     // Off only for a recording made before the rule (see `terrainSeedOption`).
     this.terrainSeeds = terrainSeedOption(terrainSeeds);
+    // Likewise: off only for a recording made before Steel Roller learned it
+    // needs a terrain (see `fieldRequirementOption`).
+    this.fieldRequirements = fieldRequirementOption(fieldRequirements);
     this.data = appData;
     this.typeChart = appData.typeChart || {};
     this.natures = appData.natures || {};
@@ -1249,6 +1309,21 @@ export class DamageEngine {
     const coreCanHit = Math.max(...(coreRolls.length ? coreRolls : [0])) > 0;
     const currentHp = Math.max(1, int(result.current_hp, 1) || 1);
 
+    // Steel Roller fails outright with no terrain up -- not reduced damage,
+    // nothing at all. Its move data carries no `special` (only the description
+    // says so), so it is keyed by name here the way `sheer cold` is below.
+    //
+    // This matches the Companion's move_field_requirement_v521, which was added
+    // for the same reason: the calculator there showed 132.86% with no terrain
+    // and 132.86% with Electric Terrain, the same pair. The app needs an
+    // exception for its MCTS matrix, which is prepared on a deliberately
+    // neutral field; nothing here prepares one -- team-eval's neutral context
+    // is a baseline comparison, and a baseline for Steel Roller with no terrain
+    // really is nothing.
+    if (this.fieldRequirements && moveKey === "steel roller"
+        && String(ctx.terrain || "None") === "None") {
+      return rewriteRolls(result, [0], `${moveName}: fails with no terrain on the field`);
+    }
     if (special === "counter_damage" && coreCanHit) {
       let lastDamage = Math.max(0, int(ctx.last_damage || atkState.last_damage || 0));
       const required = String(meta.counter_category || "any").toLowerCase();

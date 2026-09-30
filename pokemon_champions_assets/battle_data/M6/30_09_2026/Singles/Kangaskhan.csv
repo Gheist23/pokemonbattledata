@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Kangaskhan,96,move,1,Ice Punch,64.0%,,,,,,,,
-Kangaskhan,96,move,2,Sucker Punch,55.1%,,,,,,,,
+Kangaskhan,96,move,2,Sucker Punch,55.0%,,,,,,,,
 Kangaskhan,96,move,3,Fake Out,53.5%,,,,,,,,
-Kangaskhan,96,move,4,Earthquake,53.1%,,,,,,,,
-Kangaskhan,96,move,5,Double-Edge,32.6%,,,,,,,,
-Kangaskhan,96,move,6,Fire Punch,27.9%,,,,,,,,
+Kangaskhan,96,move,4,Earthquake,53.0%,,,,,,,,
+Kangaskhan,96,move,5,Double-Edge,32.7%,,,,,,,,
+Kangaskhan,96,move,6,Fire Punch,28.0%,,,,,,,,
 Kangaskhan,96,move,7,Body Slam,25.3%,,,,,,,,
 Kangaskhan,96,move,8,Drain Punch,15.9%,,,,,,,,
 Kangaskhan,96,move,9,Last Resort,13.2%,,,,,,,,
-Kangaskhan,96,move,10,Thunder Punch,7.4%,,,,,,,,
+Kangaskhan,96,move,10,Thunder Punch,7.3%,,,,,,,,
 Kangaskhan,96,held_item,1,Kangaskhanite,85.9%,,,,,,,,
 Kangaskhan,96,held_item,2,Silk Scarf,8.0%,,,,,,,,
 Kangaskhan,96,held_item,3,Life Orb,1.2%,,,,,,,,
@@ -28,7 +28,7 @@ Kangaskhan,96,teammate,6,Salamence,,,,,,,,,
 Kangaskhan,96,teammate,7,Gholdengo,,,,,,,,,
 Kangaskhan,96,teammate,8,Lucario,,,,,,,,,
 Kangaskhan,96,teammate,9,Hippowdon,,,,,,,,,
-Kangaskhan,96,teammate,10,Aegislash,,,,,,,,,
+Kangaskhan,96,teammate,10,Dragonite,,,,,,,,,
 Kangaskhan,96,stat_alignment,1,Adamant,84.7%,Attack,Sp. Atk,,,,,,
 Kangaskhan,96,stat_alignment,2,Jolly,8.7%,Speed,Sp. Atk,,,,,,
 Kangaskhan,96,stat_alignment,3,Impish,2.2%,Defense,Sp. Atk,,,,,,
@@ -40,15 +40,15 @@ Kangaskhan,96,stat_alignment,8,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
 Kangaskhan,96,stat_alignment,9,Lonely,0.3%,Attack,Defense,,,,,,
 Kangaskhan,96,stat_alignment,10,Serious,0.2%,,,,,,,,
 Kangaskhan,96,stat_points,1,,21.8%,,,2,32,0,0,0,32
-Kangaskhan,96,stat_points,2,,10.0%,,,1,32,1,0,0,32
+Kangaskhan,96,stat_points,2,,10.1%,,,1,32,1,0,0,32
 Kangaskhan,96,stat_points,3,,8.9%,,,32,32,0,0,0,2
 Kangaskhan,96,stat_points,4,,5.2%,,,32,32,2,0,0,0
 Kangaskhan,96,stat_points,5,,3.2%,,,27,32,0,0,0,7
 Kangaskhan,96,stat_points,6,,2.7%,,,32,32,1,0,1,0
 Kangaskhan,96,stat_points,7,,2.5%,,,31,32,0,0,0,3
-Kangaskhan,96,stat_points,8,,2.1%,,,32,32,0,0,2,0
+Kangaskhan,96,stat_points,8,,2.2%,,,32,32,0,0,2,0
 Kangaskhan,96,stat_points,9,,2.0%,,,27,32,1,0,1,5
-Kangaskhan,96,stat_points,10,,1.9%,,,27,25,7,0,0,7
+Kangaskhan,96,stat_points,10,,1.8%,,,27,25,7,0,0,7
 Kangaskhan,96,ability,1,Scrappy,90.3%,,,,,,,,
 Kangaskhan,96,ability,2,Inner Focus,7.7%,,,,,,,,
 Kangaskhan,96,ability,3,Early Bird,2.0%,,,,,,,,

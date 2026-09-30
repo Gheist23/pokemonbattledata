@@ -2,11 +2,11 @@ pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_point
 Pidgeot,158,move,1,Hurricane,98.0%,,,,,,,,
 Pidgeot,158,move,2,Heat Wave,97.5%,,,,,,,,
 Pidgeot,158,move,3,Hyper Beam,49.7%,,,,,,,,
-Pidgeot,158,move,4,Roost,41.0%,,,,,,,,
-Pidgeot,158,move,5,Substitute,40.7%,,,,,,,,
-Pidgeot,158,move,6,Quick Attack,20.6%,,,,,,,,
+Pidgeot,158,move,4,Roost,41.1%,,,,,,,,
+Pidgeot,158,move,5,Substitute,40.6%,,,,,,,,
+Pidgeot,158,move,6,Quick Attack,20.5%,,,,,,,,
 Pidgeot,158,move,7,U-turn,12.9%,,,,,,,,
-Pidgeot,158,move,8,Tailwind,9.3%,,,,,,,,
+Pidgeot,158,move,8,Tailwind,9.4%,,,,,,,,
 Pidgeot,158,move,9,Whirlwind,7.0%,,,,,,,,
 Pidgeot,158,move,10,Feather Dance,5.6%,,,,,,,,
 Pidgeot,158,held_item,1,Pidgeotite,97.7%,,,,,,,,
@@ -31,19 +31,19 @@ Pidgeot,158,teammate,9,Malamar,,,,,,,,,
 Pidgeot,158,teammate,10,Archaludon,,,,,,,,,
 Pidgeot,158,stat_alignment,1,Modest,51.0%,Sp. Atk,Attack,,,,,,
 Pidgeot,158,stat_alignment,2,Timid,44.2%,Speed,Attack,,,,,,
-Pidgeot,158,stat_alignment,3,Mild,1.1%,Sp. Atk,Defense,,,,,,
-Pidgeot,158,stat_alignment,4,Calm,0.5%,Sp. Def,Attack,,,,,,
-Pidgeot,158,stat_alignment,5,Hasty,0.5%,Speed,Defense,,,,,,
+Pidgeot,158,stat_alignment,3,Mild,1.2%,Sp. Atk,Defense,,,,,,
+Pidgeot,158,stat_alignment,4,Hasty,0.5%,Speed,Defense,,,,,,
+Pidgeot,158,stat_alignment,5,Calm,0.5%,Sp. Def,Attack,,,,,,
 Pidgeot,158,stat_alignment,6,Rash,0.5%,Sp. Atk,Sp. Def,,,,,,
 Pidgeot,158,stat_alignment,7,Bold,0.5%,Defense,Attack,,,,,,
 Pidgeot,158,stat_alignment,8,Quiet,0.5%,Sp. Atk,Speed,,,,,,
 Pidgeot,158,stat_alignment,9,Relaxed,0.3%,Defense,Speed,,,,,,
 Pidgeot,158,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
 Pidgeot,158,stat_points,1,,28.0%,,,2,0,0,32,0,32
-Pidgeot,158,stat_points,2,,15.0%,,,29,0,1,32,0,4
+Pidgeot,158,stat_points,2,,14.9%,,,29,0,1,32,0,4
 Pidgeot,158,stat_points,3,,10.7%,,,1,0,1,32,0,32
 Pidgeot,158,stat_points,4,,6.1%,,,1,0,0,32,1,32
-Pidgeot,158,stat_points,5,,5.5%,,,0,0,2,32,0,32
+Pidgeot,158,stat_points,5,,5.6%,,,0,0,2,32,0,32
 Pidgeot,158,stat_points,6,,3.6%,,,0,0,0,32,2,32
 Pidgeot,158,stat_points,7,,2.3%,,,32,0,0,32,0,2
 Pidgeot,158,stat_points,8,,2.0%,,,32,0,2,32,0,0
@@ -51,4 +51,4 @@ Pidgeot,158,stat_points,9,,1.4%,,,0,0,0,32,0,32
 Pidgeot,158,stat_points,10,,1.1%,,,25,0,0,32,0,9
 Pidgeot,158,ability,1,Big Pecks,62.5%,,,,,,,,
 Pidgeot,158,ability,2,Keen Eye,30.6%,,,,,,,,
-Pidgeot,158,ability,3,Tangled Feet,6.9%,,,,,,,,
+Pidgeot,158,ability,3,Tangled Feet,7.0%,,,,,,,,

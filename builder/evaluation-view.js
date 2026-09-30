@@ -227,10 +227,21 @@ function koCounts(threat, key, teamSize) {
 const lines = (text) => String(text || "").split("\n").map((line, i) => (i ? [h("br"), line] : line));
 const isThreatSide = (r) => String(r?.attacker_side || "").toLowerCase() === "threat";
 
-/** One side's attack: "Attacker · Move" over "damage · KO" (plus a condition line). */
+/**
+ * The item this row's number was calculated with. A threat is tried with each of
+ * its top three meta items and the worst one kept, so a Sylveon priced with Life
+ * Orb (5% usage) sat under a header that said Fairy Feather (87%) -- and the
+ * number then looked like a calculation error. `item` is the key the selection
+ * writes; `attacker_item` is the one the strict-items layer writes.
+ */
+const rowItem = (result) => String(result?.item || result?.attacker_item || "").trim();
+
+/** One side's attack: "Attacker (Item) · Move" over "damage · KO". */
 function calcBox(result, name, outcome) {
+  const item = rowItem(result);
   return h("div", { class: `bd-tc-calc ${isThreatSide(result) ? "threat" : "team"}` },
-    h("p", {}, h("strong", {}, name(result.attacker || result.attacker_mon || "")), ` · ${result.move || "—"}`),
+    h("p", {}, h("strong", {}, name(result.attacker || result.attacker_mon || "")),
+      item ? ` (${item})` : "", ` · ${result.move || "—"}`),
     calcTail(result).map((line) => h("p", {}, line)),
     outcome ? h("p", { class: `bd-tc-outcome ${outcome.severity === "critical" ? "critical" : "helpful"}` }, lines(outcome.text)) : null);
 }

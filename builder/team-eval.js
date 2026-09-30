@@ -6,7 +6,7 @@
 // results recorded from the app itself (tests/run-eval-vectors.mjs). Where the
 // app and this file disagree, the app is the reference.
 
-import { DamageEngine, PINCH_ABILITIES, applyChainedModifiers, compact, key as engineKey, makeContext, makeMon, pyTitle } from "./engine.js";
+import { DamageEngine, PINCH_ABILITIES, applyChainedModifiers, compact, key as engineKey, makeContext, makeMon, pyTitle, KO_LABEL_ON, koLabelOption, pyFixed } from "./engine.js";
 import { PAIRED_SPREADS, pairedOption, pointsForNature } from "./nature-spreads.js";
 import { SELF_COST, selfCostOption, selfKo } from "./self-cost.js";
 import { TEAM_CHECK_RULES, teamCheckRulesOption } from "./team-checks.js";
@@ -237,6 +237,37 @@ export function chanceForHits(result, hits, accuracy = 1) {
   return Math.max(0, Math.min(1, sum));
 }
 
+/**
+ * The Damage Calculator's two-part KO line: the first tier with a real chance,
+ * then the first certainty -- from the RAW rolls, with move accuracy left out.
+ *
+ * Accuracy belongs in the score (a move that misses is worth less) and not in a
+ * sentence about what the rolls do; the project already wrote that down. Hyper
+ * Beam's 9 of 16 rolls are 56.2%, and were printed as 51% after its 90%.
+ */
+const KO_CERTAIN = 0.999;
+export function koLineFromRolls(result) {
+  let first = null;
+  let certain = null;
+  for (const hits of [1, 2, 3, 4]) {
+    const chance = chanceForHits(result, hits, 1);
+    if (!(chance > 0)) continue;
+    if (chance >= KO_CERTAIN) { certain = hits; break; }
+    if (!first) first = [hits, chance];
+  }
+  const tier = (hits) => (hits <= 1 ? "OHKO" : `${hits}HKO`);
+  const parts = [];
+  if (first && (certain === null || first[0] < certain)) {
+    // `pyFixed`, not `toFixed`: 9 of 16 rolls is 56.25, which Python formats as
+    // "56.2" (half to even) and JavaScript as "56.3" (half away from zero). The
+    // app is the reference and this string is compared against it.
+    parts.push(`${pyFixed(first[1] * 100, 1)}% chance to ${tier(first[0])}`);
+  }
+  if (certain !== null) parts.push(`Guaranteed ${tier(certain)}`);
+  else if (!first) return "";
+  return parts.join("  ·  ");
+}
+
 /** _v40_chance_for_hits: equal-weight roll convolution, no accuracy. */
 function chanceForHitsV40(rolls, hp, hits) {
   if (!rolls.length || hp <= 0 || hits <= 0) return 0;
@@ -339,7 +370,7 @@ export class TeamEvaluator {
    *   `selfCost`: what a move costs its own user (see self-cost.js SELF_COST).
    *   All four are on in production; a run recorded before one of them replays with it off.
    */
-  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES, selfCost = SELF_COST } = {}) {
+  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES, selfCost = SELF_COST, koLabel = KO_LABEL_ON } = {}) {
     this.pairedSpreads = pairedOption(pairedSpreads);
     this.scoreRules = scoreRulesOption(scoreRules);
     // V514 Team Building Checks. TeamChecks reads it off the evaluator, so nothing
@@ -349,6 +380,8 @@ export class TeamEvaluator {
     // Suggestions, Team Building Checks, the deep Optimize objective and Tournament Test,
     // for the same reason: one value, so the five cannot drift apart.
     this.selfCost = selfCostOption(selfCost);
+    // Off only for a recording made before the rule (see `koLabelOption`).
+    this.koLabel = koLabelOption(koLabel);
     this.data = data;
     this.engine = engine;
     this.format = format === "Singles" ? "Singles" : "Doubles";
@@ -438,6 +471,15 @@ export class TeamEvaluator {
 
   /** _team_analysis_ko_summary_v175 */
   koSummary(result) {
+    const summary = this.koSummaryTiers(result);
+    // Only the words. `score`, `hits` and `chance` are what the ranking reads
+    // and they come through untouched, so no score anywhere moves.
+    if (!this.koLabel || !summary || summary.label === "No damage") return summary;
+    const line = koLineFromRolls(result);
+    return line ? { ...summary, label: line } : summary;
+  }
+
+  koSummaryTiers(result) {
     const rolls = rollsForHit(result, 0);
     const hp = Math.trunc(result?.current_hp || result?.max_hp || 1);
     if (!rolls.length || Math.max(...rolls) <= 0 || hp <= 0) return { score: 0, hits: 99, chance: 0, label: "No damage" };

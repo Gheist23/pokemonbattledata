@@ -15,7 +15,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, makeContext, makeMon, pyFixed, pyRound, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, makeContext, makeMon, pyFixed, pyRound, terrainSeedOption, fieldRequirementOption } from "../builder/engine.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -23,6 +23,13 @@ const appData = JSON.parse(readFileSync(join(root, "data", "builder", "app-data.
 const vectors = JSON.parse(readFileSync(join(here, "calc-vectors.json"), "utf8"));
 const engine = new DamageEngine(appData);
 const seedRule = (vector) => terrainSeedOption(process.env.TERRAIN_SEEDS === undefined ? (vector.rules?.terrain_seeds ?? null) : process.env.TERRAIN_SEEDS);
+// V521: Steel Roller fails with no terrain. A vector recorded before the rule
+// carries no `field_requirements` stamp and replays with it off, so the three
+// no-terrain Steel Roller vectors keep the answer the app gave when they were made.
+const fieldRule = (vector) => fieldRequirementOption(
+  process.env.FIELD_REQUIREMENTS === undefined
+    ? (vector.rules?.field_requirements ?? null)
+    : process.env.FIELD_REQUIREMENTS);
 
 // Formatting helpers first: they carry most of the Python/JS divergence risk.
 const formatCases = [[6.25, "6.2"], [18.75, "18.8"], [31.25, "31.2"], [0.05, "0.1"], [2.675, "2.7"], [100, "100.0"], [43.75, "43.8"]];
@@ -47,6 +54,7 @@ const byField = new Map();
 for (const [index, vector] of vectors.entries()) {
   if (vector.error) continue;
   engine.terrainSeeds = seedRule(vector);
+  engine.fieldRequirements = fieldRule(vector);
   const attacker = makeMon(vector.attacker);
   const defender = makeMon(vector.defender);
   const ctx = makeContext(vector.ctx);

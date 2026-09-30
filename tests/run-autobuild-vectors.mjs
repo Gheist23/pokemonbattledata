@@ -25,7 +25,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, terrainSeedOption, fieldRequirementOption , koLabelOption} from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { KnownTeams } from "../builder/known-teams.js";
@@ -60,6 +60,17 @@ const engine = new DamageEngine(appData);
  *  TERRAIN_SEEDS=0 / =1 replays every recording either way. */
 const seedStamp = (testCase) => testCase.record?.rules?.terrain_seeds ?? testCase.rules?.terrain_seeds ?? null;
 const seedRule = (testCase) => terrainSeedOption(process.env.TERRAIN_SEEDS === undefined ? seedStamp(testCase) : process.env.TERRAIN_SEEDS);
+// V521: Steel Roller fails with no terrain up. A recording made before the rule carries
+// no `field_requirements` stamp and replays with it off, so recorded answers stay the
+// answers the app gave when they were made.
+const fieldStamp = (testCase) => testCase.record?.rules?.field_requirements ?? testCase.rules?.field_requirements ?? null;
+const fieldRule = (testCase) => fieldRequirementOption(
+  process.env.FIELD_REQUIREMENTS === undefined ? fieldStamp(testCase) : process.env.FIELD_REQUIREMENTS);
+// V523: the threat KO line reads like the Damage Calculator's. A recording made
+// before the rule carries no `ko_label` stamp and replays with the old tier label.
+const koLabelStamp = (testCase) => testCase.record?.rules?.ko_label ?? testCase.rules?.ko_label ?? null;
+const koLabelRule = (testCase) => koLabelOption(
+  process.env.KO_LABEL === undefined ? koLabelStamp(testCase) : process.env.KO_LABEL);
 
 const knownTeams = new KnownTeams(JSON.parse(readFileSync(join(root, "data", "builder", "known-teams.json"), "utf8")));
 const aliases = appData.usageAliases || {};
@@ -102,6 +113,7 @@ const byField = new Map();
 let total = 0;
 for (const testCase of cases) {
   engine.terrainSeeds = seedRule(testCase);
+  engine.fieldRequirements = fieldRule(testCase);
   const rec = testCase.record;
   const archetype = testCase.archetype_key || "automatic";
   const prioritizeMeta = Boolean(testCase.dialog?.checkboxes?.autoBuildPrioritizeMetaV462);
@@ -132,7 +144,7 @@ for (const testCase of cases) {
   }
   if (!appPool.length) for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
   const settings = rec._v452_fast_autobuild_payload[0].snapshot?.settings || testCase.settings;
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase) });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;

@@ -12,7 +12,7 @@
 //   v466/v494 a condition banner only when the condition changes the result
 //   checks    Team Building Checks and the archetype (builder/team-checks.js)
 
-import { compact } from "./engine.js";
+import { compact, THREAT_ITEM_ON, threatItemOption } from "./engine.js";
 import { TeamChecks, tailwindBeneficiaries } from "./team-checks.js";
 import { TeamSpeed } from "./team-speed.js";
 import { TeamSynergy } from "./team-synergy.js";
@@ -127,8 +127,10 @@ function primaryCondition(names) {
 
 export class TeamEvaluation {
   /** @param {TeamEvaluator} evaluator */
-  constructor(evaluator) {
+  constructor(evaluator, { threatItem = THREAT_ITEM_ON } = {}) {
     this.ev = evaluator;
+    // Off only for a recording made before the rule (see `threatItemOption`).
+    this.threatItem = threatItemOption(threatItem);
     this.checks = new TeamChecks(evaluator);
     this.synergy = new TeamSynergy(evaluator, this.checks);
     this.speed = new TeamSpeed(evaluator, this.checks, this.synergy);
@@ -255,14 +257,24 @@ export class TeamEvaluation {
       const result = threat[k] || {};
       if (result.weather && result.weather !== "None") weather.add(String(result.weather));
       if (result.terrain && result.terrain !== "None") terrain.add(String(result.terrain));
-      if (k === "their_best" && result.attacker_item) bestItem = String(result.attacker_item);
+      // `item` first: that is the key `bestBetween` writes with the winning
+      // attacker's held item (team-eval.js). `attacker_item` is the strict-items
+      // layer's key. Reading only the latter is why the header fell through to
+      // `top_items[0]` -- the most USED item, not the one that produced the
+      // number -- and labelled a Life Orb calculation "Fairy Feather".
+      if (k === "their_best" && (result.attacker_item || (this.threatItem && result.item))) {
+        bestItem = String(result.attacker_item || result.item);
+      }
     }
     for (const row of threat.breakdown || []) {
       for (const k of ["incoming_result", "outgoing_result", "raw_incoming_result", "raw_outgoing_result"]) {
         const result = row[k] || {};
         if (result.weather && result.weather !== "None") weather.add(String(result.weather));
         if (result.terrain && result.terrain !== "None") terrain.add(String(result.terrain));
-        if (!bestItem && String(result.attacker_side || "").toLowerCase() === "threat" && result.attacker_item) bestItem = String(result.attacker_item);
+        if (!bestItem && String(result.attacker_side || "").toLowerCase() === "threat"
+            && (result.attacker_item || (this.threatItem && result.item))) {
+          bestItem = String(result.attacker_item || result.item);
+        }
       }
     }
     threat.weather_used = [...weather].sort();

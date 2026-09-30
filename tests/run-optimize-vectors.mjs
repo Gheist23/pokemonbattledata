@@ -17,7 +17,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, makeMon, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, makeMon, terrainSeedOption, fieldRequirementOption , koLabelOption} from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamOptimizer } from "../builder/team-optimize.js";
@@ -47,6 +47,17 @@ const engine = new DamageEngine(appData);
  *  TERRAIN_SEEDS=0 / =1 replays every recording either way. */
 const seedStamp = (testCase) => testCase.record?.rules?.terrain_seeds ?? testCase.rules?.terrain_seeds ?? null;
 const seedRule = (testCase) => terrainSeedOption(process.env.TERRAIN_SEEDS === undefined ? seedStamp(testCase) : process.env.TERRAIN_SEEDS);
+// V521: Steel Roller fails with no terrain up. A recording made before the rule carries
+// no `field_requirements` stamp and replays with it off, so recorded answers stay the
+// answers the app gave when they were made.
+const fieldStamp = (testCase) => testCase.record?.rules?.field_requirements ?? testCase.rules?.field_requirements ?? null;
+const fieldRule = (testCase) => fieldRequirementOption(
+  process.env.FIELD_REQUIREMENTS === undefined ? fieldStamp(testCase) : process.env.FIELD_REQUIREMENTS);
+// V523: the threat KO line reads like the Damage Calculator's. A recording made
+// before the rule carries no `ko_label` stamp and replays with the old tier label.
+const koLabelStamp = (testCase) => testCase.record?.rules?.ko_label ?? testCase.rules?.ko_label ?? null;
+const koLabelRule = (testCase) => koLabelOption(
+  process.env.KO_LABEL === undefined ? koLabelStamp(testCase) : process.env.KO_LABEL);
 
 const aliases = appData.usageAliases || {};
 const limit = Number(process.argv[2]) || 30;
@@ -60,6 +71,7 @@ const failures = [];
 let total = 0;
 for (const testCase of cases) {
   engine.terrainSeeds = seedRule(testCase);
+  engine.fieldRequirements = fieldRule(testCase);
   const evalCase = evalCases[testCase.name];
   const records = new Map();
   for (const row of evalCase?.record.meta[0]?.rows || []) {
@@ -73,7 +85,7 @@ for (const testCase of cases) {
     if (!records.has(stem) && (call.meta.rows || []).length) records.set(stem, pokemonRecord(stem, call.meta.rows, aliases));
   }
   if (!appPool.length) for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
-  const ev = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? null, checkRules: testCase.record?.rules?.team_checks ?? testCase.rules?.team_checks ?? null, selfCost: selfCostRule(testCase) });
+  const ev = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? null, checkRules: testCase.record?.rules?.team_checks ?? testCase.rules?.team_checks ?? null, selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase) });
   ev.setMetaRecords([...records.values()]);
   const optimizer = new TeamOptimizer(new TeamEvaluation(ev));
   const label = `${testCase.name} slot ${testCase.slot} ${testCase.entry[0]}`;

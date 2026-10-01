@@ -198,7 +198,7 @@ eq("an unmeasured row says nothing at all", verdictLine({}), "");
 
 // ------------------------------------------------------------------- 2. the switch
 
-eq("production runs version 5", SUGGESTION_SCORING, 5);
+eq("production runs version 6", SUGGESTION_SCORING, 6);
 eq("left out, the rule is on at production's version", suggestionScoringOption(undefined), SUGGESTION_SCORING);
 eq("a recording with no stamp replays with the rule off", suggestionScoringOption(null), 0);
 for (const off of ["off", "0", "false", "no", "none", ""]) eq(`"${off}" switches it off`, suggestionScoringOption(off), 0);
@@ -206,6 +206,9 @@ eq("a version pins that version", suggestionScoringOption(3), 3);
 eq("a stamp read from JSON as a string pins it too", suggestionScoringOption("3"), 3);
 eq("and version 4 pins version 4", suggestionScoringOption(4), 4);
 eq("and version 5 pins version 5", suggestionScoringOption(5), 5);
+// Version 6 scores a swap against the team it would leave behind
+// (`PROJECTED_BASIS_FROM_RULE`, asserted in run-swap-basis.mjs).
+eq("and version 6 pins version 6", suggestionScoringOption(6), 6);
 
 // ------------------------------- 3. V512: a swap is scored against what it replaces
 //

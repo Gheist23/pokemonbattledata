@@ -216,7 +216,7 @@ function archetypeSpeedControlFit(archetype, moves, trSetters, twSetters) {
 // it was tuned with, so its recorded runs still replay.
 
 /** The rule version production runs; a recording stamps it as `rules.suggestion_scoring`. */
-export const SUGGESTION_SCORING = 5;
+export const SUGGESTION_SCORING = 6;
 
 /**
  * What another Trick Room carrier is worth once the plan has 0 / 1 / 2+ setters, per rule
@@ -236,7 +236,11 @@ export const SUGGESTION_SCORING = 5;
 // Version 5 tunes what version 4 added - the reopened-roles term is charged net of the team
 // rather than flat (`outgoingRoleCostV5`) - and changes nothing here either, so its row is
 // version 4's row. Not optional, for the same reason version 4's was not.
-const TRICK_ROOM_BY_SETTERS_BY_RULE = { 2: [22, 12, 2], 3: [22, 10, 0], 4: [22, 10, 0], 5: [22, 10, 0] };
+// Version 6 moves every baseline a swap is measured against onto the team the swap would
+// leave behind, so "swap X -> Y" and "add Y to the team without X" score the identical
+// projected team identically (`PROJECTED_BASIS_FROM_RULE`). It changes no weight here either
+// - it changes what the weights are applied to - and it needs its own row for the same reason.
+const TRICK_ROOM_BY_SETTERS_BY_RULE = { 2: [22, 12, 2], 3: [22, 10, 0], 4: [22, 10, 0], 5: [22, 10, 0], 6: [22, 10, 0] };
 /** `archetypeSpeedControlFit`'s own flat reward, which no version changes. */
 const FLAT_TRICK_ROOM_REWARD = 22;
 /** The version that stopped the coverage layer charging for the same move twice. */
@@ -282,6 +286,30 @@ const REOPEN_ROLES_FROM_RULE = 4;
 // less this slot carries than the team's busiest (`thin`) the only thing that fixes the second.
 /** `outgoing_value_v512.NET_ROLES_FROM_RULE`: the version that nets the term against the team. */
 const NET_ROLES_FROM_RULE = 5;
+
+/**
+ * `suggestion_swap_basis_v524.PROJECTED_BASIS_FROM_RULE`: the version that scores a swap
+ * against the team it would leave behind.
+ *
+ * The owner's report: "when i run Suggestions with a full team, it shows me swapping out
+ * Rillaboom for Persian as best option. When i remove Rillaboom from the team, it shows me to
+ * add Typhlosion as best suggestion." Both lists describe the same six Pokemon, and they
+ * scored them differently because only the `after` side of a suggestion was the projected
+ * team: the checks, the threats, the four axis scores, the typing and synergy fit, the speed
+ * plan, the archetype payoff, the known-team evidence and the field a candidate's set may rely
+ * on all still contained the Pokemon being removed.
+ *
+ * Measured on the app itself, on the owner's own team, removing Rillaboom: Persian 55.4 as a
+ * swap against 73.2 as an add, Incineroar 59.4 against 86.3, Gholdengo 9.2 against 58.2. The
+ * spread is the fault rather than the size - the same removal cost one candidate 17.8 points
+ * and another 49.0, so it re-ordered the list instead of shifting it.
+ *
+ * What stays the six-team's: `outgoingValue` (a genuine cost of replacing, which is why the
+ * invariant is stated net of it), `obeysItemClause` and `projectedSlots`, all three of which
+ * are about the team the swap MAKES, and `swapTargets`, which is a question about the current
+ * team's problems rather than a score baseline.
+ */
+const PROJECTED_BASIS_FROM_RULE = 6;
 // Derived, not borrowed. The two calc-backed terms that actually reorder a list move a row by a
 // median 5.60 ("Answers the team's threats") and 5.30 ("Covers what the team is missing") over
 // 160 deep-scored rows on the four recorded teams; median 5.45. Solving W * 2.3333 / 13.8 = 5.45
@@ -1583,6 +1611,54 @@ export class TeamSuggestions {
     return this.checks.snapshot(slots, selection, { tailwind });
   }
 
+  /**
+   * `suggestion_swap_basis_v524`: the team a swap would leave behind, evaluated.
+   *
+   * Not approximated - `TeamEvaluation.evaluate` is the same full evaluation the current team
+   * got, so the baselines are the five-team's own checks, threats, Offense, Defense, Speed and
+   * Synergy to the digit. Built at most once per swap target, three per scan
+   * (`MAX_SWITCH_TARGETS_V476`), and never for an add, which is already measured against the
+   * team the candidate joins.
+   * @returns {{payload: object, slots: Array, entries: Array, index: number}|null}
+   */
+  basisFor(context, swapTarget) {
+    if (this.suggestionScoring < PROJECTED_BASIS_FROM_RULE || context.autoBuild) return null;
+    const target = String(swapTarget || "").trim();
+    if (!target || context.emptySlot !== null) return null;
+    this._basisCache ||= new Map();
+    const slots = context.teamSlots || [];
+    const key = `${slots.length}|${slots.map(({ entry }) => compact(entry.pokemon) + compact(entry.form)).join(",")}|${compact(target)}`;
+    if (!this._basisCache.has(key)) this._basisCache.set(key, this.buildBasis(context, target));
+    return this._basisCache.get(key);
+  }
+
+  buildBasis(context, target) {
+    const slots = context.teamSlots || [];
+    if (slots.length < 2) return null;
+    const index = this.entryIndexForSwap(context.teamEntries, target);
+    if (index < 0 || index >= slots.length) return null;
+    // Never measure against a team with the wrong member taken out: the resolver answers the
+    // last slot for a label it cannot place, and a silent basis built on that would be worse
+    // than no basis at all.
+    const outgoing = slots[index].entry;
+    const names = [outgoing.pokemon, outgoing.form, this.name(outgoing.form || outgoing.pokemon)];
+    if (!names.some((value) => compact(value) && compact(value) === compact(target))
+        && this.speciesId(outgoing.form || outgoing.pokemon) !== this.speciesId(target)) return null;
+    const sets = slots.filter((_, i) => i !== index).map(({ entry, mon, set }) => set || {
+      species: entry.pokemon, form: entry.form || entry.pokemon, item: entry.item || "",
+      ability: entry.ability || "", moves: [...(entry.moves || [])],
+      nature: mon?.nature_name || mon?.nature || "Serious", bonuses: [...(mon?.bonuses || [0, 0, 0, 0, 0, 0])],
+    });
+    const payload = this.evaluation.evaluate(sets, { checkSelection: context.selection });
+    const basisSlots = (payload.slots || []).map(({ entry, mon, set }) => ({ entry, mon, set }));
+    return { payload, slots: basisSlots, entries: basisSlots.map(({ entry }) => entry), index };
+  }
+
+  /** The slots every baseline is read off: the team the swap leaves, or the team itself. */
+  basisSlotsOf(context) {
+    return context.basisSlots || context.teamSlots;
+  }
+
   /** with_tailwind_payoff(_v403_archetype_features) for a list of slots. */
   featuresFor(slots) {
     const profiles = slots.map(({ entry, mon }) => this.synergy.profile(entry, mon));
@@ -1591,12 +1667,21 @@ export class TeamSuggestions {
 
   /** V378 base row for one candidate. */
   baseRow(meta, context) {
-    const { payload, teamSlots, teamEntries, emptySlot, selection } = context;
+    const { teamSlots, teamEntries, emptySlot, selection } = context;
+    // V524: every baseline is the team this row would leave behind; `teamSlots` and
+    // `teamEntries` stay the whole team, because they are what the projected team is built
+    // from and what Item Clause is checked against.
+    const payload = context.basisPayload || context.payload;
     let { swapTarget } = context;
     const name = String(meta.name || meta.form || meta.pokemon || "").trim();
     if (!name) return null;
     // The field gate reads the team on screen (_v494_field_support_available), which during Auto Build is the start team.
-    const set = meta._candidate_set_v113 ? structuredClone(meta._candidate_set_v113) : this.commonCandidateSet(meta, context.fieldEntries || teamEntries);
+    // V524: a candidate's set may not rely on a terrain or weather the swap destroys, so the
+    // field it is built against is what the remaining team can still turn on. (The owner's
+    // report named this one indirectly: "Swap Rillaboom -> Chesnaught with Grassy Glide".)
+    const set = meta._candidate_set_v113
+      ? structuredClone(meta._candidate_set_v113)
+      : this.commonCandidateSet(meta, context.fieldEntries || context.basisEntries || teamEntries);
     const entry = this.candidateEntry(meta, set);
     const candidateSlot = this.slotFor(entry, teamSlots.length);
     const profile = this.checks.profile(candidateSlot.entry, candidateSlot.mon);
@@ -1628,7 +1713,7 @@ export class TeamSuggestions {
     const introduced = [...afterBad].filter(([k]) => !beforeBad.has(k)).map(([, [label]]) => label);
     const answerCalcs = [];
     const [offenseFit, defenseFit, answers] = this.typeFit(payload, profile, answerCalcs);
-    const teamProfiles = teamSlots.map(({ entry, mon }) => this.checks.profile(entry, mon));
+    const teamProfiles = this.basisSlotsOf(context).map(({ entry, mon }) => this.checks.profile(entry, mon));
     const [synergyFit, covered, stacked] = this.teamFit(teamProfiles, profile);
     const speedFit = this.speedFit(profile);
     const current = Object.fromEntries(["synergy", "offense", "defense", "speed"].map((k) => [k, this.scoreFromPayload(payload, k)]));
@@ -2063,12 +2148,34 @@ export class TeamSuggestions {
     row._v104_detail_severities = sev;
   }
 
-  /** The projected team with the candidate in its slot (_v477_project_candidate_team). */
+  /**
+   * The projected team with the candidate in its slot (_v477_project_candidate_team).
+   *
+   * The app matches the swap target against the entry's SPECIES (`_ta_key(old[0]) == target`,
+   * `part_126.py:111`) and otherwise fills the first empty slot -- of which a full team has
+   * none. So for every Showdown-named target, which is every Mega and every gendered or
+   * suffixed form ("Malamar-Mega", "Indeedee-F", "Urshifu-Rapid-Strike"), the projected team
+   * came back as the current team with the candidate MISSING ENTIRELY, and seven layers scored
+   * that: the archetype payoff, the Trick Room room plan, terrain reach, conditional value,
+   * the V477 coverage metrics and both Item Clause filters. Measured, it cost those rows a
+   * flat 12 points of terrain reach and 3 of archetype payoff against the identical add.
+   *
+   * This is the same species-only match V512 fixed in `entryIndexForSwap` and did not fix
+   * here; both codebases ported it faithfully. Repaired from version 6 only, so every
+   * recording stamped 5 or below replays on the answer it was made with.
+   */
   projectedSlots(context, row) {
     const slots = [...context.teamSlots];
     const target = compact(row.swap_target || "");
     if (target) {
-      const index = context.teamEntries.findIndex((e) => compact(e.pokemon) === target);
+      let index = context.teamEntries.findIndex((e) => compact(e.pokemon) === target);
+      if (index < 0 && this.suggestionScoring >= PROJECTED_BASIS_FROM_RULE) {
+        const resolved = this.entryIndexForSwap(context.teamEntries, row.swap_target);
+        const entry = context.teamEntries[resolved];
+        const names = entry ? [entry.pokemon, entry.form, this.name(entry.form || entry.pokemon)] : [];
+        if (names.some((value) => compact(value) && compact(value) === target)
+            || (entry && this.speciesId(entry.form || entry.pokemon) === this.speciesId(row.swap_target))) index = resolved;
+      }
       if (index >= 0) {
         slots[index] = row._candidate_slot;
         return slots;
@@ -2090,7 +2197,11 @@ export class TeamSuggestions {
     // The app reads base_name, pokemon and form off the row; a suggestion row carries
     // none of them, so both are its name -- a Mega candidate never matches a file.
     const species = String(row.name || "");
-    const found = this.known.completingMember(context.payload?.team || [], species, species);
+    // V524: the team being built is the one this candidate would join, so on a swap the
+    // evidence is the team the swap leaves behind -- otherwise the overlap is counted against a
+    // member on its way out.
+    const ours = (context.basisPayload || context.payload)?.team || [];
+    const found = this.known.completingMember(ours, species, species);
     if (!found) return row;
     const [team, member] = found;
     const out = { ...row, found_in_team_v496: String(team.name || "") };
@@ -2169,8 +2280,13 @@ export class TeamSuggestions {
     // part_115 base (_v466_actual_archetype): a chosen Auto Build archetype is authoritative.
     const beforeArchetype = this.archetypeRow(row._before_check_rows);
     let archetype = String(context.archetype?.key || beforeArchetype?.archetype_key_v403 || beforeArchetype?.archetype || "").trim().toLowerCase();
-    if (!archetype) archetype = classifyArchetype(this.featuresFor(context.teamSlots))[1] || "balanced";
-    const teamFeatures = this.featuresFor(context.teamSlots);
+    // V524: which plan the row is judged against, the setter count the archetype reward is
+    // damped by, and `payoff`'s own `before` are all properties of the team the candidate
+    // joins -- on a swap, the team without the member it replaces. With the whole team here,
+    // "gets more out of the team's Trick Room than the slot does now" fired for an add and not
+    // for the identical swap, a flat 9 points apart on the same six Pokemon.
+    if (!archetype) archetype = classifyArchetype(this.featuresFor(this.basisSlotsOf(context)))[1] || "balanced";
+    const teamFeatures = this.featuresFor(this.basisSlotsOf(context));
     const fit = archetypeSpeedControlFit(archetype, row.moves?.length ? row.moves : row.candidate_entry.moves, Number(teamFeatures.trick_room_setters) || 0, Number(teamFeatures.tailwind_setters) || 0);
     const res = checkResolution(row._before_check_rows, row._after_check_rows);
     const adjustment = fit.adjustment + res.fixes * 5 - res.worsened * 9;
@@ -2349,7 +2465,7 @@ export class TeamSuggestions {
    */
   rescoreStageOne(row, context) {
     const archetype = String(row.strategy_archetype_v466 || "").trim().toLowerCase();
-    const features = this.featuresFor(context.teamSlots);
+    const features = this.featuresFor(this.basisSlotsOf(context));
     const trSetters = Number(features.trick_room_setters) || 0;
     const twSetters = Number(features.tailwind_setters) || 0;
     const pieces = [];
@@ -2516,20 +2632,26 @@ export class TeamSuggestions {
    * @param {number} limit  how many rows the list shows
    * @returns {Array|null} the re-ranked rows, or null when there is nothing to measure against
    */
-  deepRank(pool, payload, limit, onProgress, alternates = null) {
-    const threats = (payload.threats || []).filter((t) => t && typeof t === "object")
-      .map((t, i) => [t, i]).sort((a, b) => -(Number(a[0].score) || 0) - -(Number(b[0].score) || 0) || a[1] - b[1])
-      .map(([t]) => t).slice(0, DEEP_THREATS);
-    if (!threats.length) return null;
-    const totalWeight = threats.reduce((sum, t) => {
-      const score = threatScore(t);
-      return sum + Math.max(1, Number.isFinite(score) ? score : 40);
-    }, 0) || 1;
-    const gaps = teamGapThreats(threats);
+  deepRank(pool, payload, limit, onProgress, alternates = null, context = null) {
+    const measured = this.threatsAndGaps(payload);
+    if (!measured) return null;
+    // V524: "the team's eight worst threats" is a property of a team, and a swap row's team is
+    // the one the swap leaves behind -- the same team the equivalent add is measured against.
+    // One basis per swap target, built in stage one and reused here.
+    const memo = new Map();
+    const basisOf = (row) => {
+      const target = String(row?.swap_target || "").trim();
+      if (!context || String(row?.action_kind || "") !== "swap" || !target) return measured;
+      if (!memo.has(target)) {
+        const basis = this.basisFor({ ...context, swapTarget: target }, target);
+        memo.set(target, (basis && this.threatsAndGaps(basis.payload)) || measured);
+      }
+      return memo.get(target);
+    };
     const shortlist = pool.slice(0, SHORTLIST);
     const tail = pool.slice(SHORTLIST);
     shortlist.forEach((row, index) => {
-      this.scoreOnCalcs(row, threats, totalWeight, gaps);
+      this.scoreOnCalcs(row, ...basisOf(row));
       onProgress?.(index + 1, shortlist.length, row.name);
     });
     let ranked = [...shortlist].sort((a, b) => b.score - a.score || a.position - b.position
@@ -2540,11 +2662,27 @@ export class TeamSuggestions {
     // terms, and a displaced row can be shown at a different slot instead of being dropped.
     if (this.suggestionDiversity && alternates) {
       for (const row of shortlist) {
-        for (const alt of alternates.get(candidateKeyOf(row)) || []) this.scoreOnCalcs(alt, threats, totalWeight, gaps);
+        for (const alt of alternates.get(candidateKeyOf(row)) || []) this.scoreOnCalcs(alt, ...basisOf(alt));
       }
       ranked = selectDiverse(ranked, alternates, Math.min(limit, ranked.length), ANSWER_SPAN, candidateKeyOf, this._diversityReport);
     }
     return [...ranked, ...tail].slice(0, limit).map((row) => this.namedAction(row));
+  }
+
+  /**
+   * The worst `DEEP_THREATS` of one payload, their total weight, and what it has no answer for.
+   * @returns {[Array, number, Map<string, boolean>]|null}
+   */
+  threatsAndGaps(payload) {
+    const threats = ((payload || {}).threats || []).filter((t) => t && typeof t === "object")
+      .map((t, i) => [t, i]).sort((a, b) => -(Number(a[0].score) || 0) - -(Number(b[0].score) || 0) || a[1] - b[1])
+      .map(([t]) => t).slice(0, DEEP_THREATS);
+    if (!threats.length) return null;
+    const totalWeight = threats.reduce((sum, t) => {
+      const score = threatScore(t);
+      return sum + Math.max(1, Number.isFinite(score) ? score : 40);
+    }, 0) || 1;
+    return [threats, totalWeight, teamGapThreats(threats)];
   }
 
   /**
@@ -3223,13 +3361,16 @@ export class TeamSuggestions {
    *   candidates: a ready candidate list in place of the ranked meta.
    */
   run(payload, { selection = null, onProgress, box = null, candidates: given = null } = {}) {
-    const teamSlots = (payload.slots || []).map(({ entry, mon }) => ({ entry: { ...entry, form: mon.form_name || entry.form, ability: mon.ability || entry.ability }, mon }));
+    // `set` is carried through so V524 can re-evaluate the team without one member from the
+    // same sets this evaluation was built from, Nature and Stat Points included.
+    const teamSlots = (payload.slots || []).map(({ entry, mon, set }) => ({ entry: { ...entry, form: mon.form_name || entry.form, ability: mon.ability || entry.ability }, mon, set }));
     const teamEntries = teamSlots.map(({ entry }) => entry);
     const activeNames = teamSlots.map(({ entry, mon }) => this.name(mon.form_name || entry.form || entry.pokemon));
     const emptySlot = teamSlots.length < TEAM_SIZE ? teamSlots.length : null;
     const selected = this.checks.selectedIds(selection);
     const context = { payload, teamSlots, teamEntries, activeNames, emptySlot, selection, selected, swapTarget: "" };
     const targets = emptySlot !== null ? [""] : this.swapTargets(context);
+    this._basisCache = new Map();
     const candidates = given || (box ? boxCandidates(this, box, activeNames) : this.candidates(payload, activeNames));
     const best = new Map();
     const alternates = new Map();
@@ -3246,7 +3387,12 @@ export class TeamSuggestions {
     candidates.forEach((meta, index) => {
       const rows = [];
       for (const target of targets) {
-        const row = this.evaluateCandidate(structuredClone(meta), { ...context, swapTarget: target });
+        // V524: every baseline this row reads is the team the swap would leave behind.
+        const basis = this.basisFor(context, target);
+        const row = this.evaluateCandidate(structuredClone(meta), {
+          ...context, swapTarget: target,
+          basisPayload: basis?.payload, basisSlots: basis?.slots, basisEntries: basis?.entries,
+        });
         if (row && row.score > 0) {
           if (emptySlot === null) {
             row.swap_target = target;
@@ -3289,7 +3435,7 @@ export class TeamSuggestions {
     if (this.suggestionScoring && rows.length) {
       const pool = [...best.values()].sort((a, b) => b.score - a.score || a.position - b.position
         || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
-      const deep = this.deepRank(pool, payload, rows.length, (done, total, name) => onProgress?.(done, total, name, "measuring"), alternates);
+      const deep = this.deepRank(pool, payload, rows.length, (done, total, name) => onProgress?.(done, total, name, "measuring"), alternates, context);
       if (deep) rows = deep;
     }
     const out = { rows, scanned: candidates.length, targets, empty_slot: emptySlot };

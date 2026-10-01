@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Salazzle,133,move,1,Toxic,86.8%,,,,,,,,
 Salazzle,133,move,2,Encore,53.7%,,,,,,,,
-Salazzle,133,move,3,Flamethrower,46.4%,,,,,,,,
+Salazzle,133,move,3,Flamethrower,46.5%,,,,,,,,
 Salazzle,133,move,4,Endeavor,33.8%,,,,,,,,
 Salazzle,133,move,5,Overheat,29.6%,,,,,,,,
 Salazzle,133,move,6,Protect,24.4%,,,,,,,,
@@ -29,9 +29,9 @@ Salazzle,133,teammate,7,Sneasler,,,,,,,,,
 Salazzle,133,teammate,8,Corviknight,,,,,,,,,
 Salazzle,133,teammate,9,Rillaboom,,,,,,,,,
 Salazzle,133,teammate,10,Mimikyu,,,,,,,,,
-Salazzle,133,stat_alignment,1,Timid,84.6%,Speed,Attack,,,,,,
+Salazzle,133,stat_alignment,1,Timid,84.5%,Speed,Attack,,,,,,
 Salazzle,133,stat_alignment,2,Modest,9.1%,Sp. Atk,Attack,,,,,,
-Salazzle,133,stat_alignment,3,Jolly,1.5%,Speed,Sp. Atk,,,,,,
+Salazzle,133,stat_alignment,3,Jolly,1.6%,Speed,Sp. Atk,,,,,,
 Salazzle,133,stat_alignment,4,Hasty,1.5%,Speed,Defense,,,,,,
 Salazzle,133,stat_alignment,5,Calm,0.8%,Sp. Def,Attack,,,,,,
 Salazzle,133,stat_alignment,6,Mild,0.6%,Sp. Atk,Defense,,,,,,
@@ -39,7 +39,7 @@ Salazzle,133,stat_alignment,7,Naive,0.6%,Speed,Sp. Def,,,,,,
 Salazzle,133,stat_alignment,8,Bold,0.6%,Defense,Attack,,,,,,
 Salazzle,133,stat_alignment,9,Impish,0.4%,Defense,Sp. Atk,,,,,,
 Salazzle,133,stat_alignment,10,Adamant,0.1%,Attack,Sp. Atk,,,,,,
-Salazzle,133,stat_points,1,,49.2%,,,2,0,0,32,0,32
+Salazzle,133,stat_points,1,,49.1%,,,2,0,0,32,0,32
 Salazzle,133,stat_points,2,,9.0%,,,0,0,2,32,0,32
 Salazzle,133,stat_points,3,,5.5%,,,32,0,2,0,0,32
 Salazzle,133,stat_points,4,,4.8%,,,0,0,0,32,2,32

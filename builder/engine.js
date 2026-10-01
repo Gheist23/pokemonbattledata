@@ -204,6 +204,113 @@ const SELF_DROP_STAGES = {
   "leaf storm": ["sp_attack", 2], "overheat": ["sp_attack", 2], "fleur cannon": ["sp_attack", 2],
   "make it rain": ["sp_attack", 2], "psycho boost": ["sp_attack", 2], "hyperspace fury": ["defense", 1],
 };
+
+/**
+ * V525 (`move_self_stat_change_v525.py`): a move that changes its user's OWN stats changes them
+ * before the answer lands.
+ *
+ * The owner's report: "Mega Staraptor has Contrary as ability, when attacking Archaludon with
+ * Close Combat it raises its own Defense and Special Defense by +1 before Archaludon answers
+ * with its own attack. So the Threat Calcs should calculate this correctly."
+ *
+ * Measured on the app: Archaludon's answer into that Staraptor goes 81.2-96.2% at +0, 55-65%
+ * with Contrary's +1, and 121.2-143.7% with a plain Close Combat's -1 -- so the old number was
+ * wrong in both directions. `SELF_DROP_STAGES` above is the twelve-move table the app's V494
+ * layer uses for a different question (how much weaker the user's OWN later hits are) and names
+ * one stat each; the full table is `appData.selfStatChanges`, compiled from the game's own move
+ * archive (`mcts/data/move_effects.json`, 72 moves) and exported beside everything else, so both
+ * codebases read one source.
+ */
+export const SELF_STAT_CHANGE_ON = true;
+
+/** The `selfStatChange` option as a flag, the way `terrainSeedOption` reads its own. */
+export function selfStatChangeOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
+
+/**
+ * V527: every move carries the flags the game's own archive does not publish.
+ *
+ * Measured on the app before anything changed: of the game's 954 moves, 855 carried no flags at
+ * all, and of the 577 damaging physical moves 531 had no `contact` flag. This port read the same
+ * data and so had the same hole -- Tackle, Crunch, Drain Punch and Night Slash all answered with
+ * an empty list -- which left every mechanic that asks what KIND of move this is inert for the
+ * great majority of moves: Tough Claws never boosted Crunch, Iron Fist never boosted Drain Punch,
+ * Strong Jaw never boosted Crunch, Sharpness never boosted Night Slash, Reckless never boosted
+ * Double-Edge, Mega Launcher never boosted Water Pulse, and Fluffy and Punk Rock never halved.
+ *
+ * The game's archive cannot supply them: a move's CSV carries power, accuracy, PP and a sentence,
+ * and `Crunch.csv` says nothing about biting. `appData.moveFlags` is compiled from the reference
+ * archive this project already uses to settle form ordering, which holds exactly the same 954
+ * moves and does publish them, so both codebases read one source. Flags are added, never removed.
+ */
+export const MOVE_FLAGS_ON = true;
+
+/** The `moveFlags` option as a flag, the way `selfStatChangeOption` reads its own. */
+export function moveFlagsOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
+
+/** The stats an answer aimed at this Pokemon would read. */
+export const DEFENSIVE_STATS = ["defense", "sp_defense"];
+/** The stats a Pokemon's own later hits read. */
+export const OFFENSIVE_STATS = ["attack", "sp_attack"];
+
+/**
+ * The change as it really happens: Contrary inverts it, Simple doubles it, and White Herb
+ * restores what is left lowered. Clear Body and its family are deliberately absent -- they do
+ * not stop a Pokemon lowering its own stats, which is why the app's rollout exempts a
+ * self-inflicted drop from them too (`mcts/engine.py:_apply_stage`).
+ */
+export function selfStatChangeAfterAbility(changes, ability = "", item = "") {
+  const abilityKey = compact(ability);
+  const itemKey = compact(item);
+  const out = {};
+  for (const [stat, amount] of Object.entries(changes || {})) {
+    let value = Number(amount) || 0;
+    if (abilityKey === "contrary") value = -value;
+    if (abilityKey === "simple") value *= 2;
+    if (value < 0 && itemKey === "whiteherb") value = 0;
+    if (value) out[stat] = Math.max(-6, Math.min(6, value));
+  }
+  return out;
+}
+
+/** Only what an answer aimed at this Pokemon would read. */
+export function defensiveSelfStatChange(changes) {
+  const out = {};
+  for (const stat of DEFENSIVE_STATS) {
+    const amount = Number((changes || {})[stat]) || 0;
+    if (amount) out[stat] = amount;
+  }
+  return out;
+}
+
+/** [stat, signed stages] this move does to the user's own attacking stat. */
+export function offensiveSelfStatChange(changes) {
+  for (const stat of OFFENSIVE_STATS) {
+    const amount = Number((changes || {})[stat]) || 0;
+    if (amount) return [stat, amount];
+  }
+  return ["", 0];
+}
+
+/** A copy of `mon` with the stat stages applied, clamped the way the game clamps them. */
+export function monWithStages(mon, changes) {
+  if (!mon || !changes || !Object.keys(changes).length) return mon;
+  const clone = { ...mon };
+  for (const [stat, amount] of Object.entries(changes)) {
+    const attr = `${stat}_stage`;
+    clone[attr] = Math.max(-6, Math.min(6, (Number(clone[attr]) || 0) + (Number(amount) || 0)));
+  }
+  return clone;
+}
 const RECHARGE_MOVES = new Set("hyperbeam gigaimpact frenzyplant blastburn hydrocannon rockwrecker roaroftime prismaticlaser eternabeam meteorassault".split(" "));
 export const TRIGGERED_ABILITIES = new Set([
   "electromorphosis", "wind power", "flash fire", "motor drive", "sap sipper",
@@ -502,13 +609,31 @@ export function speciesAndForm(pokemonName, formName = "") {
 
 export class DamageEngine {
   constructor(appData, { terrainSeeds = TERRAIN_SEEDS_ON,
-                        fieldRequirements = FIELD_REQUIREMENTS_ON } = {}) {
+                        fieldRequirements = FIELD_REQUIREMENTS_ON,
+                        selfStatChange = SELF_STAT_CHANGE_ON,
+                        moveFlags = MOVE_FLAGS_ON } = {}) {
     // Off only for a recording made before the rule (see `terrainSeedOption`).
     this.terrainSeeds = terrainSeedOption(terrainSeeds);
     // Likewise: off only for a recording made before Steel Roller learned it
     // needs a terrain (see `fieldRequirementOption`).
     this.fieldRequirements = fieldRequirementOption(fieldRequirements);
+    // Likewise: off only for a recording made before a move changed its user's own stats
+    // before the answer landed (see `selfStatChangeOption`).
+    this.selfStatChange = selfStatChangeOption(selfStatChange);
+    // Likewise: off only for a recording made before the moves learned their own flags
+    // (see `moveFlagsOption`).
+    this.moveFlags = moveFlagsOption(moveFlags);
     this.data = appData;
+    // V525: {move key: {stat: signed stages}} for every move that changes its own user,
+    // exported from the game's own move archive. Empty on an older data file, which is the
+    // same as the rule being off.
+    this.selfStatChanges = appData.selfStatChanges || {};
+    // V527: {move key: [flag, ...]} for the 479 moves that carry one, from the reference
+    // archive. Empty on an older data file, which is the same as the rule being off.
+    this.moveFlagTable = appData.moveFlags || {};
+    // Memoised per move. A runner flips the setting between vectors, and that stays correct
+    // because the merge returns early when the rule is off, so nothing is read or written then.
+    this._mergedFlags = new Map();
     this.typeChart = appData.typeChart || {};
     this.natures = appData.natures || {};
     this.moves = appData.moves || {};
@@ -706,10 +831,33 @@ export class DamageEngine {
     return base;
   }
 
+  /**
+   * This move's flags with the archive's added, memoised. `moveMetaBase` caches one object per
+   * move and hands out only copies, and its nested lists are documented as read-only, so a new
+   * array is built here rather than the shared one being pushed onto.
+   */
+  flagsWithTheArchive(name, present) {
+    if (!this.moveFlags) return present;
+    const found = this._mergedFlags.get(name);
+    if (found !== undefined) return found;
+    const extra = this.moveFlagTable[compact(name)];
+    let merged = present;
+    if (extra && extra.length) {
+      const have = new Set((present || []).map((flag) => String(flag).toLowerCase()));
+      let added = false;
+      for (const flag of extra) if (!have.has(flag)) { have.add(flag); added = true; }
+      if (added) merged = [...have].sort();
+    }
+    this._mergedFlags.set(name, merged);
+    return merged;
+  }
+
   /** The final `move_meta` chain for a context. */
   moveMeta(ctx) {
     const name = this.canonicalMoveName(ctx.move_name);
     const meta = { ...this.moveMetaBase(name) };
+    const flags = this.flagsWithTheArchive(name, meta.flags);
+    if (flags !== meta.flags) meta.flags = flags;
     if (ctx.move_type_override) meta.type = pyTitle(ctx.move_type_override);
     if (ctx.move_category_override) meta.category = String(ctx.move_category_override).toLowerCase();
     if (int(ctx.move_power_override) > 0) {
@@ -1235,7 +1383,33 @@ export class DamageEngine {
     result.move_name_v494 = String(canonical || ctx.move_name || "");
     const drop = SELF_DROP_STAGES[clean(canonical || ctx.move_name).toLowerCase()];
     if (drop) result.self_drop_v494 = { stat: drop[0], stages: drop[1] };
+    // V525: only the two Abilities that change what `self_drop_v494` MEANS, and only for a
+    // Pokemon that has one, so every other calculation comes through byte-identical.
+    // Contrary turns the drop into a rise (so the field is cleared -- V494's re-tier would
+    // otherwise weaken a hit that gets stronger) and Simple doubles it.
+    if (this.selfStatChange) {
+      const ability = compact(attacker.ability);
+      if (ability === "contrary" || ability === "simple") {
+        const [stat, amount] = offensiveSelfStatChange(this.selfStatChangeFor(canonical || ctx.move_name, ability, attacker.item));
+        if (stat) {
+          result.self_stat_change_ability_v525 = ability;
+          if (amount < 0) result.self_drop_v494 = { stat, stages: -amount };
+          else {
+            delete result.self_drop_v494;
+            result.self_stat_rise_v525 = { stat, stages: amount };
+          }
+        }
+      }
+    }
     return result;
+  }
+
+  /** What this Pokemon's move does to this Pokemon (V525). */
+  selfStatChangeFor(moveName, ability = "", item = "") {
+    const base = this.selfStatChanges[compact(this.canonicalMoveName(moveName) || moveName)]
+      || this.selfStatChanges[compact(moveName)] || null;
+    if (!base) return {};
+    return selfStatChangeAfterAbility(base, ability, item);
   }
 
   _calcV446(attacker, defender, ctx) {

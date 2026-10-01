@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emolga,230,move,1,Nuzzle,43.2%,,,,,,,,
-Emolga,230,move,2,Air Slash,41.2%,,,,,,,,
-Emolga,230,move,3,Taunt,34.8%,,,,,,,,
+Emolga,230,move,1,Nuzzle,43.6%,,,,,,,,
+Emolga,230,move,2,Air Slash,41.4%,,,,,,,,
+Emolga,230,move,3,Taunt,34.5%,,,,,,,,
 Emolga,230,move,4,Encore,33.2%,,,,,,,,
-Emolga,230,move,5,Protect,24.6%,,,,,,,,
+Emolga,230,move,5,Protect,24.4%,,,,,,,,
 Emolga,230,move,6,Electroweb,22.8%,,,,,,,,
-Emolga,230,move,7,Helping Hand,21.7%,,,,,,,,
-Emolga,230,move,8,Volt Switch,20.1%,,,,,,,,
-Emolga,230,move,9,Speed Swap,18.5%,,,,,,,,
-Emolga,230,move,10,Thunderbolt,14.2%,,,,,,,,
+Emolga,230,move,7,Helping Hand,21.6%,,,,,,,,
+Emolga,230,move,8,Volt Switch,20.0%,,,,,,,,
+Emolga,230,move,9,Speed Swap,18.2%,,,,,,,,
+Emolga,230,move,10,Thunderbolt,14.0%,,,,,,,,
 Emolga,230,held_item,1,Focus Sash,48.3%,,,,,,,,
-Emolga,230,held_item,2,Rocky Helmet,8.5%,,,,,,,,
+Emolga,230,held_item,2,Rocky Helmet,8.3%,,,,,,,,
 Emolga,230,held_item,3,Sitrus Berry,4.9%,,,,,,,,
-Emolga,230,held_item,4,Bright Powder,4.3%,,,,,,,,
-Emolga,230,held_item,5,Light Ball,3.6%,,,,,,,,
-Emolga,230,held_item,6,Magnet,2.7%,,,,,,,,
-Emolga,230,held_item,7,King's Rock,2.7%,,,,,,,,
-Emolga,230,held_item,8,Charti Berry,2.5%,,,,,,,,
+Emolga,230,held_item,4,Bright Powder,4.2%,,,,,,,,
+Emolga,230,held_item,5,Light Ball,3.5%,,,,,,,,
+Emolga,230,held_item,6,Magnet,2.8%,,,,,,,,
+Emolga,230,held_item,7,King's Rock,2.8%,,,,,,,,
+Emolga,230,held_item,8,Charti Berry,2.4%,,,,,,,,
 Emolga,230,held_item,9,Quick Claw,2.2%,,,,,,,,
 Emolga,230,held_item,10,Red Card,2.1%,,,,,,,,
 Emolga,230,teammate,1,Raichu,,,,,,,,,
@@ -26,28 +26,28 @@ Emolga,230,teammate,4,Garchomp,,,,,,,,,
 Emolga,230,teammate,5,Gholdengo,,,,,,,,,
 Emolga,230,teammate,6,Incineroar,,,,,,,,,
 Emolga,230,teammate,7,Meowscarada,,,,,,,,,
-Emolga,230,teammate,8,Lucario,,,,,,,,,
-Emolga,230,teammate,9,Charizard,,,,,,,,,
+Emolga,230,teammate,8,Charizard,,,,,,,,,
+Emolga,230,teammate,9,Lucario,,,,,,,,,
 Emolga,230,teammate,10,Pelipper,,,,,,,,,
-Emolga,230,stat_alignment,1,Timid,48.1%,Speed,Attack,,,,,,
+Emolga,230,stat_alignment,1,Timid,48.0%,Speed,Attack,,,,,,
 Emolga,230,stat_alignment,2,Jolly,16.2%,Speed,Sp. Atk,,,,,,
-Emolga,230,stat_alignment,3,Modest,16.0%,Sp. Atk,Attack,,,,,,
-Emolga,230,stat_alignment,4,Bold,6.2%,Defense,Attack,,,,,,
-Emolga,230,stat_alignment,5,Adamant,4.8%,Attack,Sp. Atk,,,,,,
+Emolga,230,stat_alignment,3,Modest,15.8%,Sp. Atk,Attack,,,,,,
+Emolga,230,stat_alignment,4,Bold,6.1%,Defense,Attack,,,,,,
+Emolga,230,stat_alignment,5,Adamant,5.0%,Attack,Sp. Atk,,,,,,
 Emolga,230,stat_alignment,6,Naive,2.1%,Speed,Sp. Def,,,,,,
 Emolga,230,stat_alignment,7,Hasty,2.0%,Speed,Defense,,,,,,
-Emolga,230,stat_alignment,8,Lonely,1.7%,Attack,Defense,,,,,,
-Emolga,230,stat_alignment,9,Naughty,0.9%,Attack,Sp. Def,,,,,,
+Emolga,230,stat_alignment,8,Lonely,1.8%,Attack,Defense,,,,,,
+Emolga,230,stat_alignment,9,Naughty,1.0%,Attack,Sp. Def,,,,,,
 Emolga,230,stat_alignment,10,Impish,0.4%,Defense,Sp. Atk,,,,,,
-Emolga,230,stat_points,1,,30.6%,,,2,0,0,32,0,32
-Emolga,230,stat_points,2,,8.4%,,,32,0,1,0,1,32
-Emolga,230,stat_points,3,,8.3%,,,0,0,2,32,0,32
-Emolga,230,stat_points,4,,7.1%,,,2,32,0,0,0,32
+Emolga,230,stat_points,1,,30.4%,,,2,0,0,32,0,32
+Emolga,230,stat_points,2,,8.3%,,,32,0,1,0,1,32
+Emolga,230,stat_points,3,,8.2%,,,0,0,2,32,0,32
+Emolga,230,stat_points,4,,7.2%,,,2,32,0,0,0,32
 Emolga,230,stat_points,5,,5.4%,,,32,0,2,0,0,32
-Emolga,230,stat_points,6,,3.6%,,,32,0,32,0,2,0
-Emolga,230,stat_points,7,,3.0%,,,0,0,0,32,2,32
-Emolga,230,stat_points,8,,2.3%,,,32,2,0,0,0,32
-Emolga,230,stat_points,9,,1.8%,,,32,0,0,0,2,32
-Emolga,230,stat_points,10,,1.6%,,,0,32,2,0,0,32
-Emolga,230,ability,1,Motor Drive,75.9%,,,,,,,,
-Emolga,230,ability,2,Static,24.1%,,,,,,,,
+Emolga,230,stat_points,6,,3.5%,,,32,0,32,0,2,0
+Emolga,230,stat_points,7,,3.1%,,,0,0,0,32,2,32
+Emolga,230,stat_points,8,,2.2%,,,32,2,0,0,0,32
+Emolga,230,stat_points,9,,1.8%,,,0,32,2,0,0,32
+Emolga,230,stat_points,10,,1.8%,,,32,0,0,0,2,32
+Emolga,230,ability,1,Motor Drive,75.6%,,,,,,,,
+Emolga,230,ability,2,Static,24.4%,,,,,,,,

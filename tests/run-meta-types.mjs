@@ -433,7 +433,12 @@ check("the sentence says the real day window", /change over the last 7 days/.tes
 check("the pill says the Top X", page.getElementById("metaTypePill").textContent === "Top 30", page.getElementById("metaTypePill").textContent);
 check("the page explains what best means", /same measure as the Team Builder's Offense and Defense overviews/.test(note), note.slice(0, 160));
 check("the note says every Pokemon counts once", /counts once/.test(note), note.slice(0, 260));
-check("the note names both days", note.includes("Sep") && note.split("Sep").length >= 3, note.slice(-160));
+// Two dates, not two Septembers: this asked for "Sep" twice and went red on 1 October, when
+// the note reads "Scored on 1 Oct 2026, changed against 24 Sep 2026". What it is checking is
+// that the note names the day it was scored AND the day it is compared with, so that is what
+// it looks for -- any month, and the year with it, so a bare day number cannot pass for a date.
+const DATES_IN = (text) => String(text || "").match(/\b\d{1,2} [A-Z][a-z]{2} \d{4}\b/g) || [];
+check("the note names both days", DATES_IN(note).length >= 2, `${JSON.stringify(DATES_IN(note))} in ${note.slice(-160)}`);
 check("the note names no internal function", !/[a-zA-Z]+\(\)/.test(note), note.slice(0, 260));
 
 const wantNow = builderScores(season.season, latestDate, "Doubles", 30);

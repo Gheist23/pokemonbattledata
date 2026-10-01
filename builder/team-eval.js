@@ -6,7 +6,7 @@
 // results recorded from the app itself (tests/run-eval-vectors.mjs). Where the
 // app and this file disagree, the app is the reference.
 
-import { DamageEngine, PINCH_ABILITIES, applyChainedModifiers, compact, key as engineKey, makeContext, makeMon, pyTitle, KO_LABEL_ON, koLabelOption, pyFixed } from "./engine.js";
+import { DamageEngine, PINCH_ABILITIES, applyChainedModifiers, compact, defensiveSelfStatChange, key as engineKey, makeContext, makeMon, monWithStages, pyTitle, KO_LABEL_ON, koLabelOption, pyFixed } from "./engine.js";
 import { PAIRED_SPREADS, pairedOption, pointsForNature } from "./nature-spreads.js";
 import { SELF_COST, selfCostOption, selfKo } from "./self-cost.js";
 import { TEAM_CHECK_RULES, teamCheckRulesOption } from "./team-checks.js";
@@ -1224,6 +1224,41 @@ export class TeamEvaluator {
     return [inc, out, ""];
   }
 
+  /**
+   * V525 (`move_self_stat_change_v525.py`): the stat change the first mover applies to ITSELF,
+   * and the variants an answer should be aimed at.
+   *
+   * Only a certainty is applied (`chance == 100`), and only on the defensive stats: Speed can
+   * flip the race order, which would mean re-deciding who moves first and re-running both
+   * directions, so Hammer Arm, Ice Hammer, Scale Shot, V-create and Spin Out are deliberately
+   * left alone. On a speed tie neither side has landed its move before the other, so nothing is
+   * applied.
+   * @returns {{side: string, stages: object, variants: Array, move: string}|null}
+   */
+  selfStatChangeInRace(threatVariants, teamVariants, rawIncoming, rawOutgoing, first) {
+    if (!this.engine.selfStatChange || !first) return null;
+    const side = first === "incoming" ? "threat" : first === "outgoing" ? "team" : "";
+    if (!side) return null;
+    const pool = side === "threat" ? threatVariants : teamVariants;
+    const result = side === "threat" ? rawIncoming : rawOutgoing;
+    const mon = this.resultMon(pool, result);
+    if (!mon) return null;
+    const move = String(result?.move || result?.move_name_v494 || "");
+    if (!move) return null;
+    const stages = defensiveSelfStatChange(this.engine.selfStatChangeFor(move, mon.ability, mon.item));
+    if (!Object.keys(stages).length) return null;
+    return { side, stages, move, variants: pool.map((v) => monWithStages(v, stages)) };
+  }
+
+  /** The variant a result was produced by, by its own attacker label. */
+  resultMon(variants, result) {
+    const wanted = compact(result?.attacker || "");
+    const options = [...(variants || [])];
+    if (!options.length) return null;
+    if (!wanted) return options[0];
+    return options.find((mon) => [mon.form_name, mon.pokemon_name].some((n) => compact(n) === wanted)) || options[0];
+  }
+
   /** _v37_first_token_for_breakdown */
   firstToken(incoming, outgoing) {
     const first = this.firstResult(incoming, outgoing);
@@ -1759,9 +1794,19 @@ export class TeamEvaluator {
 
     teamMons.forEach((teamMon, pairIndex) => {
       const teamVariants = teamVariantSets[pairIndex];
-      const rawIncoming = this.bestBetween(variants, teamVariants);
-      const rawOutgoing = this.bestBetween(teamVariants, variants);
+      let rawIncoming = this.bestBetween(variants, teamVariants);
+      let rawOutgoing = this.bestBetween(teamVariants, variants);
       const first = this.firstToken(rawIncoming, rawOutgoing);
+      // V525: whichever side moves first applies its move's own stat change, and the OTHER
+      // side's calculation is recomputed against it -- not scaled by an approximation, because
+      // `stagedStat` is integer arithmetic at the in-game boundary and the owner compares these
+      // numbers with the Damage Calculator. Close Combat lowers its user's Defense and Sp. Def
+      // by one each, so the answer lands on a frailer Pokemon; Contrary makes it a tougher one.
+      const selfChange = this.selfStatChangeInRace(variants, teamVariants, rawIncoming, rawOutgoing, first);
+      if (selfChange) {
+        if (selfChange.side === "threat") rawOutgoing = this.bestBetween(teamVariants, selfChange.variants);
+        else rawIncoming = this.bestBetween(selfChange.variants, teamVariants);
+      }
       let [incoming, outgoing] = this.applySpeedOrder(rawIncoming, rawOutgoing);
       incoming = { ...incoming };
       outgoing = { ...outgoing };

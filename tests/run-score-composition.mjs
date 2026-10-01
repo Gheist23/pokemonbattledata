@@ -20,7 +20,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, moveFlagsOption, terrainSeedOption } from "../builder/engine.js";
 import { DEFAULT_SETTINGS, SCORE_RULES, TeamEvaluator, normalizeSettings, scoreRulesOption } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TRICK_ROOM_WEIGHTS } from "../builder/team-speed.js";
@@ -64,6 +64,11 @@ const cases = JSON.parse(readFileSync(join(here, "eval-vectors-scoring.json"), "
 function evaluate(testCase, scoreRules) {
   const engine = new DamageEngine(appData);
   engine.terrainSeeds = terrainSeedOption(testCase.record?.rules?.terrain_seeds ?? null);
+  // V527: every move learned the flags the game's archive does not publish, so Tough Claws,
+  // Iron Fist, Strong Jaw, Sharpness, Reckless, Mega Launcher, Fluffy and Punk Rock stopped
+  // being inert -- which moves this team's Defense from 56.826 to 56.625. This recording has
+  // no `move_flags` stamp, so it replays with the rule off, exactly as `terrain_seeds` does.
+  engine.moveFlags = moveFlagsOption(testCase.record?.rules?.move_flags ?? null);
   const records = new Map();
   for (const row of testCase.record.meta[0]?.rows || []) {
     const stem = String(row.pokemon || row.base_name || row.name);

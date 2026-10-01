@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Froslass,35,move,1,Blizzard,98.9%,,,,,,,,
 Froslass,35,move,2,Protect,91.6%,,,,,,,,
-Froslass,35,move,3,Shadow Ball,83.4%,,,,,,,,
-Froslass,35,move,4,Aurora Veil,77.2%,,,,,,,,
-Froslass,35,move,5,Rain Dance,13.0%,,,,,,,,
+Froslass,35,move,3,Shadow Ball,83.5%,,,,,,,,
+Froslass,35,move,4,Aurora Veil,77.1%,,,,,,,,
+Froslass,35,move,5,Rain Dance,12.9%,,,,,,,,
 Froslass,35,move,6,Thunderbolt,7.3%,,,,,,,,
 Froslass,35,move,7,Destiny Bond,5.0%,,,,,,,,
 Froslass,35,move,8,Taunt,4.7%,,,,,,,,
-Froslass,35,move,9,Nasty Plot,3.8%,,,,,,,,
+Froslass,35,move,9,Nasty Plot,3.9%,,,,,,,,
 Froslass,35,move,10,Will-O-Wisp,1.8%,,,,,,,,
 Froslass,35,held_item,1,Froslassite,98.9%,,,,,,,,
 Froslass,35,held_item,2,Focus Sash,0.4%,,,,,,,,
@@ -41,7 +41,7 @@ Froslass,35,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,
 Froslass,35,stat_alignment,10,Serious,0.0%,,,,,,,,
 Froslass,35,stat_points,1,,31.6%,,,2,0,0,32,0,32
 Froslass,35,stat_points,2,,5.2%,,,12,0,1,20,1,32
-Froslass,35,stat_points,3,,4.7%,,,32,0,2,0,0,32
+Froslass,35,stat_points,3,,4.6%,,,32,0,2,0,0,32
 Froslass,35,stat_points,4,,4.1%,,,0,0,2,32,0,32
 Froslass,35,stat_points,5,,3.7%,,,0,0,0,32,2,32
 Froslass,35,stat_points,6,,3.4%,,,32,0,0,2,0,32
@@ -49,5 +49,5 @@ Froslass,35,stat_points,7,,2.6%,,,14,0,0,20,0,32
 Froslass,35,stat_points,8,,2.2%,,,24,0,0,10,0,32
 Froslass,35,stat_points,9,,1.5%,,,32,0,19,0,0,15
 Froslass,35,stat_points,10,,1.4%,,,0,0,0,32,0,32
-Froslass,35,ability,1,Cursed Body,75.9%,,,,,,,,
-Froslass,35,ability,2,Snow Cloak,24.1%,,,,,,,,
+Froslass,35,ability,1,Cursed Body,75.8%,,,,,,,,
+Froslass,35,ability,2,Snow Cloak,24.2%,,,,,,,,

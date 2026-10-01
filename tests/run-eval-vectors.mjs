@@ -28,7 +28,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, makeMon, terrainSeedOption, fieldRequirementOption, threatItemOption , koLabelOption} from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, koLabelOption, makeMon, moveFlagsOption, selfStatChangeOption, terrainSeedOption, threatItemOption } from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamChecks, classifyArchetype, tailwindBeneficiaries } from "../builder/team-checks.js";
 import { TeamSynergy } from "../builder/team-synergy.js";
@@ -60,6 +60,18 @@ const seedRule = (testCase) => terrainSeedOption(process.env.TERRAIN_SEEDS === u
 const fieldStamp = (testCase) => testCase.record?.rules?.field_requirements ?? testCase.rules?.field_requirements ?? null;
 const fieldRule = (testCase) => fieldRequirementOption(
   process.env.FIELD_REQUIREMENTS === undefined ? fieldStamp(testCase) : process.env.FIELD_REQUIREMENTS);
+/** V525: a move changes its user's own stats before the answer lands. A recording made
+    before the rule carries no `self_stat_change` stamp and replays with it off. */
+/** V527: every move learned the flags the game's archive does not publish -- contact,
+    punch, bite, slicing, pulse -- so Tough Claws, Iron Fist, Strong Jaw, Sharpness,
+    Reckless, Mega Launcher, Fluffy and Punk Rock stopped being inert. A vector recorded
+    before the rule carries no `move_flags` stamp and replays with it off. */
+const moveFlagsStamp = (testCase) => testCase.record?.rules?.move_flags ?? testCase.rules?.move_flags ?? null;
+const moveFlagsRule = (testCase) => moveFlagsOption(
+  process.env.MOVE_FLAGS === undefined ? moveFlagsStamp(testCase) : process.env.MOVE_FLAGS);
+const selfStatStamp = (testCase) => testCase.record?.rules?.self_stat_change ?? testCase.rules?.self_stat_change ?? null;
+const selfStatRule = (testCase) => selfStatChangeOption(
+  process.env.SELF_STAT_CHANGE === undefined ? selfStatStamp(testCase) : process.env.SELF_STAT_CHANGE);
 // V523: the threat KO line reads like the Damage Calculator's. A recording made
 // before the rule carries no `ko_label` stamp and replays with the old tier label.
 const koLabelStamp = (testCase) => testCase.record?.rules?.ko_label ?? testCase.rules?.ko_label ?? null;
@@ -109,6 +121,15 @@ function same(a, b) {
   return JSON.stringify(a) === JSON.stringify(b);
 }
 
+// A note for whoever exports `app-data.json` next. The file the site runs was exported before
+// three team checks were added and one was renamed: a fresh export turns
+// `analysisTables._SIMPLE_CHECKS_V187` from 9 rows into 12 and renames `defensive_switch_ins`
+// from "Defensive Switch-ins" to "Shared Weakness". Every recording on disk predates that, so
+// this suite and five others go red on the label alone until they are recorded again. The data
+// file is deliberately left as it is here; see the note in tools/export_web_builder_data.py.
+const renamedCheck = (row) => row;
+let renamedLabels = 0;
+
 function compare(label, fields, want, got, failures) {
   const diffs = [];
   for (const field of fields) {
@@ -127,6 +148,8 @@ const byField = new Map();
 for (const testCase of cases) {
   engine.terrainSeeds = seedRule(testCase);
   engine.fieldRequirements = fieldRule(testCase);
+  engine.selfStatChange = selfStatRule(testCase);
+  engine.moveFlags = moveFlagsRule(testCase);
   const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase) });
   // The app's meta rows carry their raw battle-data rows; build the site's meta
   // records from exactly those, so data freshness cannot hide a logic difference.
@@ -258,7 +281,7 @@ for (const testCase of cases) {
     const want = extra.checks || [];
     total += want.length;
     if (snapshot.rows.length !== want.length) failures.push(`${caseLabel(testCase)} checks: app ${want.map((r) => r.check_id).join(",")} | web ${snapshot.rows.map((r) => r.check_id).join(",")}`);
-    want.forEach((row, i) => compare(`${caseLabel(testCase)} check #${i} ${row.check_id}`, ["check_id", "severity", "pressure", "text", "check_label", "summary_v203", "why_v203", "fix_v203", "score_explanation", "type_rows_v251", "mega_names", "archetype_requirements_v403"], row, snapshot.rows[i], failures));
+    want.forEach((row, i) => compare(`${caseLabel(testCase)} check #${i} ${row.check_id}`, ["check_id", "severity", "pressure", "text", "check_label", "summary_v203", "why_v203", "fix_v203", "score_explanation", "type_rows_v251", "mega_names", "archetype_requirements_v403"], renamedCheck(row), snapshot.rows[i], failures));
     total += 1;
     const snapWant = extra.check_snapshot || {};
     compare(`${caseLabel(testCase)} check snapshot`, ["warnings", "red_count", "yellow_count", "check_pressure", "red_units", "active", "protect", "utility", "utility_moves", "selected_team_checks", "current_archetype_v403"], snapWant, snapshot, failures);
@@ -354,6 +377,6 @@ for (const testCase of cases) {
   }
 }
 for (const failure of failures.slice(0, limit)) console.log(failure);
-console.log(`\n${total} checked, ${failures.length} mismatched (${cases.length} recorded evaluations from ${files.join(", ")}).`);
+console.log(`\n${total} checked, ${failures.length} mismatched${renamedLabels ? ` (${renamedLabels} rows carry the known check rename)` : ""} (${cases.length} recorded evaluations from ${files.join(", ")}).`);
 if (byField.size) console.log("by field:", Object.fromEntries([...byField.entries()].sort((a, b) => b[1] - a[1])));
 process.exitCode = failures.length ? 1 : 0;

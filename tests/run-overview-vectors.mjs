@@ -12,7 +12,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, terrainSeedOption, fieldRequirementOption , koLabelOption} from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, koLabelOption, moveFlagsOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
 import { SpeedTiers } from "../builder/speed-tiers.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
@@ -35,6 +35,18 @@ const seedRule = (testCase) => terrainSeedOption(process.env.TERRAIN_SEEDS === u
 const fieldStamp = (testCase) => testCase.record?.rules?.field_requirements ?? testCase.rules?.field_requirements ?? null;
 const fieldRule = (testCase) => fieldRequirementOption(
   process.env.FIELD_REQUIREMENTS === undefined ? fieldStamp(testCase) : process.env.FIELD_REQUIREMENTS);
+/** V525: a move changes its user's own stats before the answer lands. A recording made
+    before the rule carries no `self_stat_change` stamp and replays with it off. */
+/** V527: every move learned the flags the game's archive does not publish -- contact,
+    punch, bite, slicing, pulse -- so Tough Claws, Iron Fist, Strong Jaw, Sharpness,
+    Reckless, Mega Launcher, Fluffy and Punk Rock stopped being inert. A vector recorded
+    before the rule carries no `move_flags` stamp and replays with it off. */
+const moveFlagsStamp = (testCase) => testCase.record?.rules?.move_flags ?? testCase.rules?.move_flags ?? null;
+const moveFlagsRule = (testCase) => moveFlagsOption(
+  process.env.MOVE_FLAGS === undefined ? moveFlagsStamp(testCase) : process.env.MOVE_FLAGS);
+const selfStatStamp = (testCase) => testCase.record?.rules?.self_stat_change ?? testCase.rules?.self_stat_change ?? null;
+const selfStatRule = (testCase) => selfStatChangeOption(
+  process.env.SELF_STAT_CHANGE === undefined ? selfStatStamp(testCase) : process.env.SELF_STAT_CHANGE);
 // V523: the threat KO line reads like the Damage Calculator's. A recording made
 // before the rule carries no `ko_label` stamp and replays with the old tier label.
 const koLabelStamp = (testCase) => testCase.record?.rules?.ko_label ?? testCase.rules?.ko_label ?? null;
@@ -58,6 +70,8 @@ let total = 0;
 for (const testCase of cases) {
   engine.terrainSeeds = seedRule(testCase);
   engine.fieldRequirements = fieldRule(testCase);
+  engine.selfStatChange = selfStatRule(testCase);
+  engine.moveFlags = moveFlagsRule(testCase);
   const evalCase = evalCases[testCase.name];
   const records = testCase.ranked.map((entry) => pokemonRecord(String(entry.rows[0]?.pokemon || entry.name), entry.rows, aliases));
   // The pairing rule (builder/nature-spreads.js) as the recording ran it: without the

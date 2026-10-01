@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sylveon,18,move,1,Hyper Voice,99.5%,,,,,,,,
 Sylveon,18,move,2,Hyper Beam,74.0%,,,,,,,,
-Sylveon,18,move,3,Quick Attack,67.7%,,,,,,,,
+Sylveon,18,move,3,Quick Attack,67.6%,,,,,,,,
 Sylveon,18,move,4,Detect,64.1%,,,,,,,,
 Sylveon,18,move,5,Protect,30.6%,,,,,,,,
 Sylveon,18,move,6,Yawn,11.7%,,,,,,,,
 Sylveon,18,move,7,Mystical Fire,11.7%,,,,,,,,
 Sylveon,18,move,8,Calm Mind,8.8%,,,,,,,,
 Sylveon,18,move,9,Moonblast,8.1%,,,,,,,,
-Sylveon,18,move,10,Shadow Ball,5.9%,,,,,,,,
-Sylveon,18,held_item,1,Fairy Feather,85.9%,,,,,,,,
+Sylveon,18,move,10,Shadow Ball,6.0%,,,,,,,,
+Sylveon,18,held_item,1,Fairy Feather,85.8%,,,,,,,,
 Sylveon,18,held_item,2,Life Orb,5.1%,,,,,,,,
 Sylveon,18,held_item,3,Leftovers,2.2%,,,,,,,,
 Sylveon,18,held_item,4,Sitrus Berry,1.8%,,,,,,,,
@@ -29,8 +29,8 @@ Sylveon,18,teammate,7,Arcanine-Hisui,,,,,,,,,
 Sylveon,18,teammate,8,Garchomp,,,,,,,,,
 Sylveon,18,teammate,9,Gholdengo,,,,,,,,,
 Sylveon,18,teammate,10,Sneasler,,,,,,,,,
-Sylveon,18,stat_alignment,1,Modest,79.3%,Sp. Atk,Attack,,,,,,
-Sylveon,18,stat_alignment,2,Quiet,14.0%,Sp. Atk,Speed,,,,,,
+Sylveon,18,stat_alignment,1,Modest,79.2%,Sp. Atk,Attack,,,,,,
+Sylveon,18,stat_alignment,2,Quiet,14.1%,Sp. Atk,Speed,,,,,,
 Sylveon,18,stat_alignment,3,Bold,2.4%,Defense,Attack,,,,,,
 Sylveon,18,stat_alignment,4,Timid,2.0%,Speed,Attack,,,,,,
 Sylveon,18,stat_alignment,5,Calm,0.6%,Sp. Def,Attack,,,,,,
@@ -40,7 +40,7 @@ Sylveon,18,stat_alignment,8,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Sylveon,18,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
 Sylveon,18,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
 Sylveon,18,stat_points,1,,12.4%,,,32,0,2,32,0,0
-Sylveon,18,stat_points,2,,5.8%,,,9,0,22,20,0,15
+Sylveon,18,stat_points,2,,5.7%,,,9,0,22,20,0,15
 Sylveon,18,stat_points,3,,5.5%,,,32,0,0,32,0,2
 Sylveon,18,stat_points,4,,4.0%,,,13,0,22,23,0,8
 Sylveon,18,stat_points,5,,2.9%,,,32,0,0,32,2,0

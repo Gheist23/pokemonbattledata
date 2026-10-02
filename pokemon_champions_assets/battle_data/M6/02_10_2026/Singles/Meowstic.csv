@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Meowstic,206,move,1,Reflect,58.1%,,,,,,,,
-Meowstic,206,move,2,Light Screen,54.4%,,,,,,,,
-Meowstic,206,move,3,Yawn,39.5%,,,,,,,,
-Meowstic,206,move,4,Psychic,35.1%,,,,,,,,
-Meowstic,206,move,5,Alluring Voice,28.0%,,,,,,,,
-Meowstic,206,move,6,Expanding Force,16.6%,,,,,,,,
-Meowstic,206,move,7,Thunderbolt,14.4%,,,,,,,,
+Meowstic,206,move,1,Reflect,58.0%,,,,,,,,
+Meowstic,206,move,2,Light Screen,54.3%,,,,,,,,
+Meowstic,206,move,3,Yawn,39.4%,,,,,,,,
+Meowstic,206,move,4,Psychic,35.0%,,,,,,,,
+Meowstic,206,move,5,Alluring Voice,27.9%,,,,,,,,
+Meowstic,206,move,6,Expanding Force,16.5%,,,,,,,,
+Meowstic,206,move,7,Thunderbolt,14.5%,,,,,,,,
 Meowstic,206,move,8,Calm Mind,13.1%,,,,,,,,
-Meowstic,206,move,9,Baton Pass,12.9%,,,,,,,,
-Meowstic,206,move,10,Thunder Wave,12.4%,,,,,,,,
-Meowstic,206,held_item,1,Light Clay,42.6%,,,,,,,,
-Meowstic,206,held_item,2,Meowsticite,28.1%,,,,,,,,
+Meowstic,206,move,9,Baton Pass,13.0%,,,,,,,,
+Meowstic,206,move,10,Thunder Wave,12.3%,,,,,,,,
+Meowstic,206,held_item,1,Light Clay,42.5%,,,,,,,,
+Meowstic,206,held_item,2,Meowsticite,28.2%,,,,,,,,
 Meowstic,206,held_item,3,Eject Button,6.9%,,,,,,,,
 Meowstic,206,held_item,4,Terrain Extender,4.2%,,,,,,,,
 Meowstic,206,held_item,5,Sitrus Berry,3.7%,,,,,,,,
-Meowstic,206,held_item,6,Focus Sash,3.5%,,,,,,,,
+Meowstic,206,held_item,6,Focus Sash,3.6%,,,,,,,,
 Meowstic,206,held_item,7,Leftovers,1.8%,,,,,,,,
 Meowstic,206,held_item,8,Choice Scarf,1.2%,,,,,,,,
 Meowstic,206,held_item,9,Mental Herb,0.7%,,,,,,,,
@@ -28,8 +28,8 @@ Meowstic,206,teammate,6,Archaludon,,,,,,,,,
 Meowstic,206,teammate,7,Cinderace,,,,,,,,,
 Meowstic,206,teammate,8,Primarina,,,,,,,,,
 Meowstic,206,teammate,9,Sneasler,,,,,,,,,
-Meowstic,206,teammate,10,Blastoise,,,,,,,,,
-Meowstic,206,stat_alignment,1,Bold,32.2%,Defense,Attack,,,,,,
+Meowstic,206,teammate,10,Baxcalibur,,,,,,,,,
+Meowstic,206,stat_alignment,1,Bold,32.1%,Defense,Attack,,,,,,
 Meowstic,206,stat_alignment,2,Timid,25.9%,Speed,Attack,,,,,,
 Meowstic,206,stat_alignment,3,Modest,18.5%,Sp. Atk,Attack,,,,,,
 Meowstic,206,stat_alignment,4,Calm,18.0%,Sp. Def,Attack,,,,,,
@@ -39,16 +39,16 @@ Meowstic,206,stat_alignment,7,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
 Meowstic,206,stat_alignment,8,Jolly,0.5%,Speed,Sp. Atk,,,,,,
 Meowstic,206,stat_alignment,9,Impish,0.4%,Defense,Sp. Atk,,,,,,
 Meowstic,206,stat_alignment,10,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Meowstic,206,stat_points,1,,16.7%,,,2,0,0,32,0,32
-Meowstic,206,stat_points,2,,13.7%,,,32,0,32,0,2,0
+Meowstic,206,stat_points,1,,16.8%,,,2,0,0,32,0,32
+Meowstic,206,stat_points,2,,13.6%,,,32,0,32,0,2,0
 Meowstic,206,stat_points,3,,5.2%,,,32,0,24,0,10,0
 Meowstic,206,stat_points,4,,3.7%,,,2,0,32,0,32,0
-Meowstic,206,stat_points,5,,3.5%,,,32,0,14,0,20,0
-Meowstic,206,stat_points,6,,3.4%,,,32,0,25,0,9,0
-Meowstic,206,stat_points,7,,3.3%,,,32,0,2,0,32,0
+Meowstic,206,stat_points,5,,3.4%,,,32,0,14,0,20,0
+Meowstic,206,stat_points,6,,3.4%,,,32,0,2,0,32,0
+Meowstic,206,stat_points,7,,3.3%,,,32,0,25,0,9,0
 Meowstic,206,stat_points,8,,2.8%,,,32,0,0,32,0,2
-Meowstic,206,stat_points,9,,2.4%,,,0,0,2,32,0,32
+Meowstic,206,stat_points,9,,2.3%,,,0,0,2,32,0,32
 Meowstic,206,stat_points,10,,1.7%,,,32,0,2,32,0,0
-Meowstic,206,ability,1,Prankster,92.8%,,,,,,,,
-Meowstic,206,ability,2,Infiltrator,6.5%,,,,,,,,
+Meowstic,206,ability,1,Prankster,92.6%,,,,,,,,
+Meowstic,206,ability,2,Infiltrator,6.7%,,,,,,,,
 Meowstic,206,ability,3,Keen Eye,0.7%,,,,,,,,

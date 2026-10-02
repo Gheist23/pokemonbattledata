@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Inteleon,63,move,1,Snipe Shot,95.2%,,,,,,,,
+Inteleon,63,move,1,Snipe Shot,95.3%,,,,,,,,
 Inteleon,63,move,2,Ice Beam,77.1%,,,,,,,,
-Inteleon,63,move,3,Protect,77.0%,,,,,,,,
-Inteleon,63,move,4,Focus Energy,42.1%,,,,,,,,
+Inteleon,63,move,3,Protect,76.9%,,,,,,,,
+Inteleon,63,move,4,Focus Energy,42.0%,,,,,,,,
 Inteleon,63,move,5,Dark Pulse,23.6%,,,,,,,,
 Inteleon,63,move,6,Vacuum Wave,13.1%,,,,,,,,
 Inteleon,63,move,7,Air Cutter,12.2%,,,,,,,,
-Inteleon,63,move,8,Muddy Water,9.3%,,,,,,,,
-Inteleon,63,move,9,Icy Wind,5.8%,,,,,,,,
-Inteleon,63,move,10,Soak,5.3%,,,,,,,,
+Inteleon,63,move,8,Muddy Water,9.2%,,,,,,,,
+Inteleon,63,move,9,Icy Wind,5.9%,,,,,,,,
+Inteleon,63,move,10,Soak,5.4%,,,,,,,,
 Inteleon,63,held_item,1,Scope Lens,63.6%,,,,,,,,
 Inteleon,63,held_item,2,Focus Sash,15.8%,,,,,,,,
 Inteleon,63,held_item,3,Mystic Water,6.8%,,,,,,,,
@@ -32,7 +32,7 @@ Inteleon,63,teammate,10,Whimsicott,,,,,,,,,
 Inteleon,63,stat_alignment,1,Timid,65.1%,Speed,Attack,,,,,,
 Inteleon,63,stat_alignment,2,Modest,27.8%,Sp. Atk,Attack,,,,,,
 Inteleon,63,stat_alignment,3,Mild,2.1%,Sp. Atk,Defense,,,,,,
-Inteleon,63,stat_alignment,4,Hasty,2.0%,Speed,Defense,,,,,,
+Inteleon,63,stat_alignment,4,Hasty,1.9%,Speed,Defense,,,,,,
 Inteleon,63,stat_alignment,5,Quiet,0.6%,Sp. Atk,Speed,,,,,,
 Inteleon,63,stat_alignment,6,Bold,0.5%,Defense,Attack,,,,,,
 Inteleon,63,stat_alignment,7,Naive,0.5%,Speed,Sp. Def,,,,,,
@@ -44,7 +44,7 @@ Inteleon,63,stat_points,2,,11.4%,,,0,0,2,32,0,32
 Inteleon,63,stat_points,3,,8.6%,,,0,0,0,32,2,32
 Inteleon,63,stat_points,4,,3.9%,,,0,0,0,32,0,32
 Inteleon,63,stat_points,5,,2.3%,,,0,0,1,32,1,32
-Inteleon,63,stat_points,6,,1.0%,,,22,0,0,32,0,12
+Inteleon,63,stat_points,6,,1.1%,,,22,0,0,32,0,12
 Inteleon,63,stat_points,7,,1.0%,,,32,0,0,32,0,2
 Inteleon,63,stat_points,8,,0.7%,,,0,0,0,32,32,2
 Inteleon,63,stat_points,9,,0.7%,,,32,0,2,32,0,0

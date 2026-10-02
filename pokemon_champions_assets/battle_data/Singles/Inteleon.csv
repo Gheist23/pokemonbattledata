@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Inteleon,91,move,1,Snipe Shot,96.0%,,,,,,,,
+Inteleon,91,move,1,Snipe Shot,95.9%,,,,,,,,
 Inteleon,91,move,2,Ice Beam,88.8%,,,,,,,,
 Inteleon,91,move,3,Vacuum Wave,56.9%,,,,,,,,
-Inteleon,91,move,4,Focus Energy,52.1%,,,,,,,,
+Inteleon,91,move,4,Focus Energy,52.0%,,,,,,,,
 Inteleon,91,move,5,Dark Pulse,25.3%,,,,,,,,
 Inteleon,91,move,6,Air Cutter,13.0%,,,,,,,,
 Inteleon,91,move,7,Shadow Ball,8.0%,,,,,,,,
 Inteleon,91,move,8,Aqua Jet,6.5%,,,,,,,,
 Inteleon,91,move,9,Taunt,6.4%,,,,,,,,
 Inteleon,91,move,10,Air Slash,6.4%,,,,,,,,
-Inteleon,91,held_item,1,Scope Lens,50.7%,,,,,,,,
+Inteleon,91,held_item,1,Scope Lens,50.8%,,,,,,,,
 Inteleon,91,held_item,2,Focus Sash,32.6%,,,,,,,,
 Inteleon,91,held_item,3,Life Orb,3.9%,,,,,,,,
 Inteleon,91,held_item,4,Choice Scarf,3.0%,,,,,,,,
@@ -30,8 +30,8 @@ Inteleon,91,teammate,8,Sneasler,,,,,,,,,
 Inteleon,91,teammate,9,Meowscarada,,,,,,,,,
 Inteleon,91,teammate,10,Charizard,,,,,,,,,
 Inteleon,91,stat_alignment,1,Timid,69.6%,Speed,Attack,,,,,,
-Inteleon,91,stat_alignment,2,Modest,21.9%,Sp. Atk,Attack,,,,,,
-Inteleon,91,stat_alignment,3,Hasty,2.2%,Speed,Defense,,,,,,
+Inteleon,91,stat_alignment,2,Modest,22.0%,Sp. Atk,Attack,,,,,,
+Inteleon,91,stat_alignment,3,Hasty,2.3%,Speed,Defense,,,,,,
 Inteleon,91,stat_alignment,4,Naive,2.2%,Speed,Sp. Def,,,,,,
 Inteleon,91,stat_alignment,5,Mild,1.8%,Sp. Atk,Defense,,,,,,
 Inteleon,91,stat_alignment,6,Bold,0.4%,Defense,Attack,,,,,,
@@ -39,7 +39,7 @@ Inteleon,91,stat_alignment,7,Quiet,0.4%,Sp. Atk,Speed,,,,,,
 Inteleon,91,stat_alignment,8,Jolly,0.4%,Speed,Sp. Atk,,,,,,
 Inteleon,91,stat_alignment,9,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
 Inteleon,91,stat_alignment,10,Calm,0.2%,Sp. Def,Attack,,,,,,
-Inteleon,91,stat_points,1,,67.6%,,,2,0,0,32,0,32
+Inteleon,91,stat_points,1,,67.5%,,,2,0,0,32,0,32
 Inteleon,91,stat_points,2,,8.6%,,,0,0,2,32,0,32
 Inteleon,91,stat_points,3,,6.5%,,,0,0,0,32,2,32
 Inteleon,91,stat_points,4,,3.9%,,,0,0,0,32,0,32
@@ -49,5 +49,5 @@ Inteleon,91,stat_points,7,,0.9%,,,32,0,0,32,0,2
 Inteleon,91,stat_points,8,,0.6%,,,32,0,2,32,0,0
 Inteleon,91,stat_points,9,,0.4%,,,0,0,32,32,0,2
 Inteleon,91,stat_points,10,,0.4%,,,1,0,1,32,0,32
-Inteleon,91,ability,1,Sniper,92.5%,,,,,,,,
-Inteleon,91,ability,2,Torrent,7.5%,,,,,,,,
+Inteleon,91,ability,1,Sniper,92.4%,,,,,,,,
+Inteleon,91,ability,2,Torrent,7.6%,,,,,,,,

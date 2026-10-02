@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dedenne,235,move,1,Dazzling Gleam,75.1%,,,,,,,,
-Dedenne,235,move,2,Protect,36.9%,,,,,,,,
-Dedenne,235,move,3,Thunderbolt,36.2%,,,,,,,,
-Dedenne,235,move,4,Electroweb,33.5%,,,,,,,,
-Dedenne,235,move,5,Nuzzle,32.3%,,,,,,,,
-Dedenne,235,move,6,Entrainment,23.5%,,,,,,,,
-Dedenne,235,move,7,Volt Switch,20.2%,,,,,,,,
-Dedenne,235,move,8,Super Fang,18.9%,,,,,,,,
-Dedenne,235,move,9,Helping Hand,17.7%,,,,,,,,
-Dedenne,235,move,10,Grass Knot,15.3%,,,,,,,,
-Dedenne,235,held_item,1,Sitrus Berry,28.7%,,,,,,,,
-Dedenne,235,held_item,2,Choice Scarf,24.0%,,,,,,,,
-Dedenne,235,held_item,3,Focus Sash,20.1%,,,,,,,,
-Dedenne,235,held_item,4,Life Orb,6.5%,,,,,,,,
-Dedenne,235,held_item,5,Fairy Feather,4.2%,,,,,,,,
-Dedenne,235,held_item,6,Electric Seed,2.7%,,,,,,,,
+Dedenne,235,move,1,Dazzling Gleam,75.4%,,,,,,,,
+Dedenne,235,move,2,Protect,36.4%,,,,,,,,
+Dedenne,235,move,3,Thunderbolt,35.5%,,,,,,,,
+Dedenne,235,move,4,Electroweb,34.3%,,,,,,,,
+Dedenne,235,move,5,Nuzzle,31.7%,,,,,,,,
+Dedenne,235,move,6,Entrainment,24.5%,,,,,,,,
+Dedenne,235,move,7,Volt Switch,20.1%,,,,,,,,
+Dedenne,235,move,8,Super Fang,19.0%,,,,,,,,
+Dedenne,235,move,9,Helping Hand,17.5%,,,,,,,,
+Dedenne,235,move,10,Grass Knot,15.4%,,,,,,,,
+Dedenne,235,held_item,1,Sitrus Berry,28.3%,,,,,,,,
+Dedenne,235,held_item,2,Choice Scarf,24.9%,,,,,,,,
+Dedenne,235,held_item,3,Focus Sash,19.8%,,,,,,,,
+Dedenne,235,held_item,4,Life Orb,6.3%,,,,,,,,
+Dedenne,235,held_item,5,Fairy Feather,4.1%,,,,,,,,
+Dedenne,235,held_item,6,Electric Seed,2.8%,,,,,,,,
 Dedenne,235,held_item,7,Air Balloon,1.7%,,,,,,,,
-Dedenne,235,held_item,8,Magnet,1.5%,,,,,,,,
-Dedenne,235,held_item,9,Shuca Berry,1.4%,,,,,,,,
+Dedenne,235,held_item,8,Shuca Berry,1.4%,,,,,,,,
+Dedenne,235,held_item,9,Magnet,1.4%,,,,,,,,
 Dedenne,235,held_item,10,Leftovers,1.4%,,,,,,,,
 Dedenne,235,teammate,1,Toxtricity-Low-Key,,,,,,,,,
 Dedenne,235,teammate,2,Rillaboom,,,,,,,,,
@@ -26,29 +26,29 @@ Dedenne,235,teammate,4,Raichu,,,,,,,,,
 Dedenne,235,teammate,5,Garchomp,,,,,,,,,
 Dedenne,235,teammate,6,Farigiraf,,,,,,,,,
 Dedenne,235,teammate,7,Pincurchin,,,,,,,,,
-Dedenne,235,teammate,8,Salamence,,,,,,,,,
+Dedenne,235,teammate,8,Delphox,,,,,,,,,
 Dedenne,235,teammate,9,Toxtricity,,,,,,,,,
-Dedenne,235,teammate,10,Delphox,,,,,,,,,
-Dedenne,235,stat_alignment,1,Timid,53.1%,Speed,Attack,,,,,,
-Dedenne,235,stat_alignment,2,Modest,22.2%,Sp. Atk,Attack,,,,,,
-Dedenne,235,stat_alignment,3,Mild,9.1%,Sp. Atk,Defense,,,,,,
-Dedenne,235,stat_alignment,4,Bold,4.2%,Defense,Attack,,,,,,
-Dedenne,235,stat_alignment,5,Jolly,3.2%,Speed,Sp. Atk,,,,,,
+Dedenne,235,teammate,10,Salamence,,,,,,,,,
+Dedenne,235,stat_alignment,1,Timid,53.5%,Speed,Attack,,,,,,
+Dedenne,235,stat_alignment,2,Modest,22.0%,Sp. Atk,Attack,,,,,,
+Dedenne,235,stat_alignment,3,Mild,9.0%,Sp. Atk,Defense,,,,,,
+Dedenne,235,stat_alignment,4,Bold,4.3%,Defense,Attack,,,,,,
+Dedenne,235,stat_alignment,5,Jolly,3.1%,Speed,Sp. Atk,,,,,,
 Dedenne,235,stat_alignment,6,Calm,1.5%,Sp. Def,Attack,,,,,,
-Dedenne,235,stat_alignment,7,Quiet,1.5%,Sp. Atk,Speed,,,,,,
-Dedenne,235,stat_alignment,8,Hasty,1.3%,Speed,Defense,,,,,,
-Dedenne,235,stat_alignment,9,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,
+Dedenne,235,stat_alignment,7,Quiet,1.4%,Sp. Atk,Speed,,,,,,
+Dedenne,235,stat_alignment,8,Hasty,1.2%,Speed,Defense,,,,,,
+Dedenne,235,stat_alignment,9,Rash,0.8%,Sp. Atk,Sp. Def,,,,,,
 Dedenne,235,stat_alignment,10,Naive,0.6%,Speed,Sp. Def,,,,,,
-Dedenne,235,stat_points,1,,42.2%,,,2,0,0,32,0,32
-Dedenne,235,stat_points,2,,6.3%,,,0,0,0,32,0,32
-Dedenne,235,stat_points,3,,5.7%,,,0,0,0,32,2,32
-Dedenne,235,stat_points,4,,5.0%,,,32,0,2,0,0,32
-Dedenne,235,stat_points,5,,3.8%,,,17,0,15,30,0,4
-Dedenne,235,stat_points,6,,3.7%,,,3,0,0,32,0,31
-Dedenne,235,stat_points,7,,3.3%,,,0,0,2,32,0,32
-Dedenne,235,stat_points,8,,1.5%,,,32,0,0,2,0,32
-Dedenne,235,stat_points,9,,1.3%,,,17,0,10,29,0,10
+Dedenne,235,stat_points,1,,41.8%,,,2,0,0,32,0,32
+Dedenne,235,stat_points,2,,6.1%,,,0,0,0,32,0,32
+Dedenne,235,stat_points,3,,5.8%,,,0,0,0,32,2,32
+Dedenne,235,stat_points,4,,4.9%,,,32,0,2,0,0,32
+Dedenne,235,stat_points,5,,4.3%,,,17,0,15,30,0,4
+Dedenne,235,stat_points,6,,3.6%,,,3,0,0,32,0,31
+Dedenne,235,stat_points,7,,3.2%,,,0,0,2,32,0,32
+Dedenne,235,stat_points,8,,1.6%,,,17,0,10,29,0,10
+Dedenne,235,stat_points,9,,1.5%,,,32,0,0,2,0,32
 Dedenne,235,stat_points,10,,1.2%,,,1,0,0,32,1,32
-Dedenne,235,ability,1,Plus,56.2%,,,,,,,,
-Dedenne,235,ability,2,Cheek Pouch,35.3%,,,,,,,,
-Dedenne,235,ability,3,Pickup,8.5%,,,,,,,,
+Dedenne,235,ability,1,Plus,56.6%,,,,,,,,
+Dedenne,235,ability,2,Cheek Pouch,35.0%,,,,,,,,
+Dedenne,235,ability,3,Pickup,8.4%,,,,,,,,

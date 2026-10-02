@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Barbaracle,232,move,1,Rock Slide,75.3%,,,,,,,,
+Barbaracle,232,move,1,Rock Slide,75.0%,,,,,,,,
 Barbaracle,232,move,2,Protect,63.3%,,,,,,,,
-Barbaracle,232,move,3,Close Combat,60.0%,,,,,,,,
-Barbaracle,232,move,4,Shell Smash,56.6%,,,,,,,,
-Barbaracle,232,move,5,Liquidation,39.3%,,,,,,,,
-Barbaracle,232,move,6,Aqua Cutter,11.7%,,,,,,,,
-Barbaracle,232,move,7,Cross Chop,11.2%,,,,,,,,
+Barbaracle,232,move,3,Close Combat,59.9%,,,,,,,,
+Barbaracle,232,move,4,Shell Smash,56.4%,,,,,,,,
+Barbaracle,232,move,5,Liquidation,39.2%,,,,,,,,
+Barbaracle,232,move,6,Aqua Cutter,11.8%,,,,,,,,
+Barbaracle,232,move,7,Cross Chop,11.1%,,,,,,,,
 Barbaracle,232,move,8,Poison Jab,10.5%,,,,,,,,
-Barbaracle,232,move,9,Stone Edge,10.2%,,,,,,,,
-Barbaracle,232,move,10,Night Slash,7.8%,,,,,,,,
+Barbaracle,232,move,9,Stone Edge,10.4%,,,,,,,,
+Barbaracle,232,move,10,Night Slash,7.9%,,,,,,,,
 Barbaracle,232,held_item,1,Barbaracite,62.0%,,,,,,,,
 Barbaracle,232,held_item,2,Scope Lens,11.7%,,,,,,,,
-Barbaracle,232,held_item,3,White Herb,7.4%,,,,,,,,
-Barbaracle,232,held_item,4,Focus Sash,5.0%,,,,,,,,
+Barbaracle,232,held_item,3,White Herb,7.2%,,,,,,,,
+Barbaracle,232,held_item,4,Focus Sash,4.9%,,,,,,,,
 Barbaracle,232,held_item,5,Leftovers,1.8%,,,,,,,,
-Barbaracle,232,held_item,6,Expert Belt,1.7%,,,,,,,,
+Barbaracle,232,held_item,6,Expert Belt,1.6%,,,,,,,,
 Barbaracle,232,held_item,7,Life Orb,1.4%,,,,,,,,
-Barbaracle,232,held_item,8,Hard Stone,1.0%,,,,,,,,
-Barbaracle,232,held_item,9,Sitrus Berry,1.0%,,,,,,,,
-Barbaracle,232,held_item,10,Muscle Band,1.0%,,,,,,,,
+Barbaracle,232,held_item,8,Hard Stone,1.1%,,,,,,,,
+Barbaracle,232,held_item,9,Sitrus Berry,0.9%,,,,,,,,
+Barbaracle,232,held_item,10,Muscle Band,0.9%,,,,,,,,
 Barbaracle,232,teammate,1,Indeedee-F,,,,,,,,,
 Barbaracle,232,teammate,2,Rillaboom,,,,,,,,,
 Barbaracle,232,teammate,3,Incineroar,,,,,,,,,
@@ -28,10 +28,10 @@ Barbaracle,232,teammate,6,Gholdengo,,,,,,,,,
 Barbaracle,232,teammate,7,Golisopod,,,,,,,,,
 Barbaracle,232,teammate,8,Sinistcha,,,,,,,,,
 Barbaracle,232,teammate,9,Sneasler,,,,,,,,,
-Barbaracle,232,teammate,10,Pelipper,,,,,,,,,
-Barbaracle,232,stat_alignment,1,Adamant,59.5%,Attack,Sp. Atk,,,,,,
+Barbaracle,232,teammate,10,Kingambit,,,,,,,,,
+Barbaracle,232,stat_alignment,1,Adamant,59.7%,Attack,Sp. Atk,,,,,,
 Barbaracle,232,stat_alignment,2,Jolly,17.4%,Speed,Sp. Atk,,,,,,
-Barbaracle,232,stat_alignment,3,Brave,10.7%,Attack,Speed,,,,,,
+Barbaracle,232,stat_alignment,3,Brave,10.5%,Attack,Speed,,,,,,
 Barbaracle,232,stat_alignment,4,Careful,3.9%,Sp. Def,Sp. Atk,,,,,,
 Barbaracle,232,stat_alignment,5,Sassy,2.4%,Sp. Def,Speed,,,,,,
 Barbaracle,232,stat_alignment,6,Impish,2.3%,Defense,Sp. Atk,,,,,,
@@ -39,16 +39,16 @@ Barbaracle,232,stat_alignment,7,Relaxed,1.6%,Defense,Speed,,,,,,
 Barbaracle,232,stat_alignment,8,Naughty,0.8%,Attack,Sp. Def,,,,,,
 Barbaracle,232,stat_alignment,9,Naive,0.6%,Speed,Sp. Def,,,,,,
 Barbaracle,232,stat_alignment,10,Lonely,0.5%,Attack,Defense,,,,,,
-Barbaracle,232,stat_points,1,,19.5%,,,2,32,0,0,0,32
-Barbaracle,232,stat_points,2,,10.5%,,,32,32,0,0,2,0
-Barbaracle,232,stat_points,3,,4.7%,,,2,32,32,0,0,0
+Barbaracle,232,stat_points,1,,19.3%,,,2,32,0,0,0,32
+Barbaracle,232,stat_points,2,,10.4%,,,32,32,0,0,2,0
+Barbaracle,232,stat_points,3,,4.8%,,,2,32,32,0,0,0
 Barbaracle,232,stat_points,4,,4.2%,,,0,32,0,0,2,32
-Barbaracle,232,stat_points,5,,3.5%,,,0,32,2,0,0,32
-Barbaracle,232,stat_points,6,,3.0%,,,9,32,4,0,6,15
+Barbaracle,232,stat_points,5,,3.6%,,,0,32,2,0,0,32
+Barbaracle,232,stat_points,6,,3.2%,,,9,32,4,0,6,15
 Barbaracle,232,stat_points,7,,2.5%,,,32,32,2,0,0,0
-Barbaracle,232,stat_points,8,,2.0%,,,32,32,0,0,0,2
+Barbaracle,232,stat_points,8,,2.1%,,,32,32,0,0,0,2
 Barbaracle,232,stat_points,9,,2.0%,,,0,32,2,0,32,0
 Barbaracle,232,stat_points,10,,1.7%,,,2,32,0,0,32,0
-Barbaracle,232,ability,1,Tough Claws,74.4%,,,,,,,,
-Barbaracle,232,ability,2,Sniper,21.1%,,,,,,,,
+Barbaracle,232,ability,1,Tough Claws,74.3%,,,,,,,,
+Barbaracle,232,ability,2,Sniper,21.2%,,,,,,,,
 Barbaracle,232,ability,3,Pickpocket,4.5%,,,,,,,,

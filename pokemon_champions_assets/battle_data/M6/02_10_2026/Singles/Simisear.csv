@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Simisear,255,move,1,Flamethrower,41.1%,,,,,,,,
-Simisear,255,move,2,Grass Knot,40.9%,,,,,,,,
+Simisear,255,move,2,Grass Knot,40.8%,,,,,,,,
 Simisear,255,move,3,Scorching Sands,37.4%,,,,,,,,
 Simisear,255,move,4,Yawn,29.8%,,,,,,,,
 Simisear,255,move,5,Will-O-Wisp,28.2%,,,,,,,,
-Simisear,255,move,6,Flare Blitz,26.3%,,,,,,,,
+Simisear,255,move,6,Flare Blitz,26.2%,,,,,,,,
 Simisear,255,move,7,Overheat,25.0%,,,,,,,,
 Simisear,255,move,8,Rock Slide,22.8%,,,,,,,,
 Simisear,255,move,9,Focus Blast,18.4%,,,,,,,,
@@ -30,7 +30,7 @@ Simisear,255,teammate,8,Indeedee,,,,,,,,,
 Simisear,255,teammate,9,Empoleon,,,,,,,,,
 Simisear,255,teammate,10,Lucario,,,,,,,,,
 Simisear,255,stat_alignment,1,Modest,28.9%,Sp. Atk,Attack,,,,,,
-Simisear,255,stat_alignment,2,Timid,25.4%,Speed,Attack,,,,,,
+Simisear,255,stat_alignment,2,Timid,25.3%,Speed,Attack,,,,,,
 Simisear,255,stat_alignment,3,Jolly,15.0%,Speed,Sp. Atk,,,,,,
 Simisear,255,stat_alignment,4,Adamant,9.3%,Attack,Sp. Atk,,,,,,
 Simisear,255,stat_alignment,5,Naive,4.6%,Speed,Sp. Def,,,,,,
@@ -45,9 +45,9 @@ Simisear,255,stat_points,3,,10.7%,,,1,0,1,32,0,32
 Simisear,255,stat_points,4,,4.5%,,,0,0,2,32,0,32
 Simisear,255,stat_points,5,,4.0%,,,1,0,0,32,1,32
 Simisear,255,stat_points,6,,3.1%,,,32,32,0,0,0,2
-Simisear,255,stat_points,7,,2.9%,,,0,2,0,32,0,32
+Simisear,255,stat_points,7,,3.0%,,,0,2,0,32,0,32
 Simisear,255,stat_points,8,,2.7%,,,1,32,0,0,1,32
 Simisear,255,stat_points,9,,2.0%,,,1,32,1,0,0,32
 Simisear,255,stat_points,10,,1.7%,,,0,0,0,32,2,32
-Simisear,255,ability,1,Blaze,90.1%,,,,,,,,
-Simisear,255,ability,2,Gluttony,9.9%,,,,,,,,
+Simisear,255,ability,1,Blaze,90.0%,,,,,,,,
+Simisear,255,ability,2,Gluttony,10.0%,,,,,,,,

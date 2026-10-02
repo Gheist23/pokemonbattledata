@@ -128,7 +128,11 @@ export const SELF_KO_NOTE = " (the user faints)";
 const SPEED_WEATHER_ABILITIES = { chlorophyll: ["Chlorophyll", "Sun"], "swift swim": ["Swift Swim", "Rain"], "sand rush": ["Sand Rush", "Sand"], "slush rush": ["Slush Rush", "Snow"] };
 const WEATHER_SETTERS = { drizzle: "Rain", drought: "Sun", sandstream: "Sand", snowwarning: "Snow", frostwarning: "Snow", desolateland: "Sun", primordialsea: "Rain", deltastream: "Strong Winds", orichalcumpulse: "Sun" };
 const TERRAIN_SETTERS = { electricsurge: "Electric", grassysurge: "Grassy", psychicsurge: "Psychic", mistysurge: "Misty", hadronengine: "Electric" };
-const MANUAL_DAMAGE_ABILITIES = new Set(["anger shell", "beast boost", "berserk", "chilling neigh", "competitive", "defiant", "download", "electromorphosis", "flash fire", "grim neigh", "guard dog", "justified", "moxie", "sap sipper", "storm drain", "stamina", "toxic boost", "water compaction", "weak armor", "wind power"]);
+// Toxic Boost is deliberately NOT here. Its only condition is the user's own poison, which
+// already has its own axis below (attacker_status), and no engine handler reads
+// manual_trigger for it -- so the extra axis only printed the label twice ("Toxic Boost not
+// triggered, Toxic Boost not triggered") and ate scenarios against the 32-combo cap.
+const MANUAL_DAMAGE_ABILITIES = new Set(["anger shell", "beast boost", "berserk", "chilling neigh", "competitive", "defiant", "download", "electromorphosis", "flash fire", "grim neigh", "guard dog", "justified", "moxie", "sap sipper", "storm drain", "stamina", "water compaction", "weak armor", "wind power"]);
 
 // _v49_stone_matches_species reads this hand-written table first (V49/V67).
 const STONE_SPECIES_V67 = {

@@ -176,7 +176,14 @@ export const TYPE_IMMUNITY_ABILITIES = {
   "volt absorb": "Electric", "lightning rod": "Electric", "motor drive": "Electric",
   "sap sipper": "Grass", "earth eater": "Ground",
 };
-export const ATE_ABILITIES = { "pixilate": "Fairy", "aerilate": "Flying", "refrigerate": "Ice", "galvanize": "Electric" };
+// Dragonize is this game's own `-ate` Ability, not a mainline one, and it was
+// missing from both codebases' tables: measured, the other four turn a Normal
+// move into their type at x1.215 and Dragonize left it a x1.000 Normal move.
+// Mega Feraligatr's form forces that Ability, so every Body Slam, Double-Edge,
+// Facade, Giga Impact and Return it has was priced about 1.8x too low, and as
+// normal damage against the Steel and Fairy targets that resist or ignore
+// Dragon. The Companion gained the same entry in `ability_dragonize_v528`.
+export const ATE_ABILITIES = { "pixilate": "Fairy", "aerilate": "Flying", "refrigerate": "Ice", "galvanize": "Electric", "dragonize": "Dragon" };
 const ORB_BOOSTS = {
   "adamant orb": ["Dragon", "Steel"], "lustrous orb": ["Dragon", "Water"],
   "griseous orb": ["Dragon", "Ghost"], "griseous core": ["Dragon", "Ghost"],
@@ -248,6 +255,22 @@ export function selfStatChangeOption(value) {
  * moves and does publish them, so both codebases read one source. Flags are added, never removed.
  */
 export const MOVE_FLAGS_ON = true;
+
+/**
+ * V528: Dragonize is this game's own `-ate` Ability and was missing from the table on both
+ * sides, so Mega Feraligatr's Normal moves were priced as plain, non-STAB Normal hits. Stamped
+ * because a recording made before it has to replay with the four-entry table -- the recorded
+ * Team Evaluation of the Trick Room team moves by 0.34 Offense and 1.11 Defense under it.
+ */
+export const ATE_DRAGONIZE_ON = true;
+
+/** The `ateDragonize` option as a flag, the way `moveFlagsOption` reads its own. */
+export function ateDragonizeOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
 
 /** The `moveFlags` option as a flag, the way `selfStatChangeOption` reads its own. */
 export function moveFlagsOption(value) {
@@ -611,7 +634,8 @@ export class DamageEngine {
   constructor(appData, { terrainSeeds = TERRAIN_SEEDS_ON,
                         fieldRequirements = FIELD_REQUIREMENTS_ON,
                         selfStatChange = SELF_STAT_CHANGE_ON,
-                        moveFlags = MOVE_FLAGS_ON } = {}) {
+                        moveFlags = MOVE_FLAGS_ON,
+                        ateDragonize = ATE_DRAGONIZE_ON } = {}) {
     // Off only for a recording made before the rule (see `terrainSeedOption`).
     this.terrainSeeds = terrainSeedOption(terrainSeeds);
     // Likewise: off only for a recording made before Steel Roller learned it
@@ -623,6 +647,8 @@ export class DamageEngine {
     // Likewise: off only for a recording made before the moves learned their own flags
     // (see `moveFlagsOption`).
     this.moveFlags = moveFlagsOption(moveFlags);
+    // Likewise: off only for a recording made before Dragonize joined the `-ate` table.
+    this.ateDragonize = ateDragonizeOption(ateDragonize);
     this.data = appData;
     // V525: {move key: {stat: signed stages}} for every move that changes its own user,
     // exported from the game's own move archive. Empty on an older data file, which is the
@@ -983,10 +1009,11 @@ export class DamageEngine {
     // base
     const ability = key(attacker.ability);
     const moveName = String(meta.name || "");
-    if (moveType === "Normal" && ATE_ABILITIES[ability] && !["Judgment", "Natural Gift", "Revelation Dance", "Techno Blast", "Multi-Attack"].includes(moveName)) {
+    const ateType = (ability === "dragonize" && !this.ateDragonize) ? undefined : ATE_ABILITIES[ability];
+    if (moveType === "Normal" && ateType && !["Judgment", "Natural Gift", "Revelation Dance", "Techno Blast", "Multi-Attack"].includes(moveName)) {
       meta._ate_converted = true;
-      details.push(`${attacker.ability}: Normal move becomes ${ATE_ABILITIES[ability]}`);
-      moveType = ATE_ABILITIES[ability];
+      details.push(`${attacker.ability}: Normal move becomes ${ateType}`);
+      moveType = ateType;
     }
     // v287
     const item = key(attacker.item);

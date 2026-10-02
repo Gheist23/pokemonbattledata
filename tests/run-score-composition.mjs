@@ -20,7 +20,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, moveFlagsOption, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, ateDragonizeOption, moveFlagsOption, terrainSeedOption } from "../builder/engine.js";
 import { DEFAULT_SETTINGS, SCORE_RULES, TeamEvaluator, normalizeSettings, scoreRulesOption } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TRICK_ROOM_WEIGHTS } from "../builder/team-speed.js";
@@ -69,12 +69,19 @@ function evaluate(testCase, scoreRules) {
   // being inert -- which moves this team's Defense from 56.826 to 56.625. This recording has
   // no `move_flags` stamp, so it replays with the rule off, exactly as `terrain_seeds` does.
   engine.moveFlags = moveFlagsOption(testCase.record?.rules?.move_flags ?? null);
+  // V528: likewise for Dragonize, which moves this team by 0.34 Offense and 1.11 Defense.
+  engine.ateDragonize = ateDragonizeOption(testCase.record?.rules?.ate_dragonize ?? null);
   const records = new Map();
   for (const row of testCase.record.meta[0]?.rows || []) {
     const stem = String(row.pokemon || row.base_name || row.name);
     if (!records.has(stem) && (row.rows || []).length) records.set(stem, pokemonRecord(stem, row.rows, aliases));
   }
-  for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
+  // The recording supplies the whole Top-X pool it was scored against. Topping that up from
+  // today's live meta re-ranks the pool and silently scores a different Top-X than the app did
+  // -- today it swaps the recording's Armarouge for Mega Tyranitar -- so the suite goes red
+  // whenever the daily data moves, and a real regression would be lost in that noise.
+  // `run-autobuild-vectors.mjs` and `run-optimize-vectors.mjs` already guard it this way.
+  if (!records.size) for (const record of siteMeta.pokemon) records.set(record.name, record);
   const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, {
     pairedSpreads: testCase.record?.rules?.paired_spreads ?? null,
     scoreRules,

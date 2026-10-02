@@ -12,7 +12,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, fieldRequirementOption, koLabelOption, moveFlagsOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, koLabelOption, ateDragonizeOption, moveFlagsOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
 import { SpeedTiers } from "../builder/speed-tiers.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
@@ -41,6 +41,12 @@ const fieldRule = (testCase) => fieldRequirementOption(
     punch, bite, slicing, pulse -- so Tough Claws, Iron Fist, Strong Jaw, Sharpness,
     Reckless, Mega Launcher, Fluffy and Punk Rock stopped being inert. A vector recorded
     before the rule carries no `move_flags` stamp and replays with it off. */
+/** V528: Dragonize joined the `-ate` table, so a Mega Feraligatr's Normal moves became
+    Dragon moves at 1.2x. A vector recorded before the rule carries no `ate_dragonize`
+    stamp and replays with the four-entry table. */
+const ateDragonizeStamp = (testCase) => testCase.record?.rules?.ate_dragonize ?? testCase.rules?.ate_dragonize ?? null;
+const ateDragonizeRule = (testCase) => ateDragonizeOption(
+  process.env.ATE_DRAGONIZE === undefined ? ateDragonizeStamp(testCase) : process.env.ATE_DRAGONIZE);
 const moveFlagsStamp = (testCase) => testCase.record?.rules?.move_flags ?? testCase.rules?.move_flags ?? null;
 const moveFlagsRule = (testCase) => moveFlagsOption(
   process.env.MOVE_FLAGS === undefined ? moveFlagsStamp(testCase) : process.env.MOVE_FLAGS);
@@ -72,6 +78,7 @@ for (const testCase of cases) {
   engine.fieldRequirements = fieldRule(testCase);
   engine.selfStatChange = selfStatRule(testCase);
   engine.moveFlags = moveFlagsRule(testCase);
+  engine.ateDragonize = ateDragonizeRule(testCase);
   const evalCase = evalCases[testCase.name];
   const records = testCase.ranked.map((entry) => pokemonRecord(String(entry.rows[0]?.pokemon || entry.name), entry.rows, aliases));
   // The pairing rule (builder/nature-spreads.js) as the recording ran it: without the

@@ -15,7 +15,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, fieldRequirementOption, makeContext, makeMon, pyFixed, pyRound, moveFlagsOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, makeContext, makeMon, pyFixed, pyRound, ateDragonizeOption, moveFlagsOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -37,6 +37,13 @@ const fieldRule = (vector) => fieldRequirementOption(
     punch, bite, slicing, pulse -- so Tough Claws, Iron Fist, Strong Jaw, Sharpness,
     Reckless, Mega Launcher, Fluffy and Punk Rock stopped being inert. A vector recorded
     before the rule carries no `move_flags` stamp and replays with it off. */
+/** V528: Dragonize joined the `-ate` table, so a Mega Feraligatr's Normal moves became
+    Dragon moves at 1.2x. A vector recorded before the rule carries no `ate_dragonize`
+    stamp and replays with the four-entry table. */
+const ateDragonizeRule = (vector) => ateDragonizeOption(
+  process.env.ATE_DRAGONIZE === undefined
+    ? (vector.rules?.ate_dragonize ?? vector.record?.rules?.ate_dragonize ?? null)
+    : process.env.ATE_DRAGONIZE);
 const moveFlagsRule = (vector) => moveFlagsOption(
   process.env.MOVE_FLAGS === undefined
     ? (vector.rules?.move_flags ?? vector.record?.rules?.move_flags ?? null)
@@ -72,6 +79,7 @@ for (const [index, vector] of vectors.entries()) {
   engine.fieldRequirements = fieldRule(vector);
   engine.selfStatChange = selfStatRule(vector);
   engine.moveFlags = moveFlagsRule(vector);
+  engine.ateDragonize = ateDragonizeRule(vector);
   const attacker = makeMon(vector.attacker);
   const defender = makeMon(vector.defender);
   const ctx = makeContext(vector.ctx);

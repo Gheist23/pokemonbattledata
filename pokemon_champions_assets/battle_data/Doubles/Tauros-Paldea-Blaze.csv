@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Tauros-Paldea-Blaze,182,move,1,Raging Bull,85.6%,,,,,,,,
 Tauros-Paldea-Blaze,182,move,2,Close Combat,82.0%,,,,,,,,
-Tauros-Paldea-Blaze,182,move,3,Protect,59.6%,,,,,,,,
+Tauros-Paldea-Blaze,182,move,3,Protect,59.5%,,,,,,,,
 Tauros-Paldea-Blaze,182,move,4,Rock Slide,51.1%,,,,,,,,
 Tauros-Paldea-Blaze,182,move,5,Wild Charge,18.7%,,,,,,,,
 Tauros-Paldea-Blaze,182,move,6,Flare Blitz,17.3%,,,,,,,,
-Tauros-Paldea-Blaze,182,move,7,Earthquake,17.2%,,,,,,,,
+Tauros-Paldea-Blaze,182,move,7,Earthquake,17.3%,,,,,,,,
 Tauros-Paldea-Blaze,182,move,8,High Horsepower,10.4%,,,,,,,,
 Tauros-Paldea-Blaze,182,move,9,Iron Head,8.4%,,,,,,,,
 Tauros-Paldea-Blaze,182,move,10,Flame Charge,6.2%,,,,,,,,
-Tauros-Paldea-Blaze,182,held_item,1,Life Orb,22.1%,,,,,,,,
-Tauros-Paldea-Blaze,182,held_item,2,Choice Scarf,14.5%,,,,,,,,
+Tauros-Paldea-Blaze,182,held_item,1,Life Orb,21.9%,,,,,,,,
+Tauros-Paldea-Blaze,182,held_item,2,Choice Scarf,14.6%,,,,,,,,
 Tauros-Paldea-Blaze,182,held_item,3,Sitrus Berry,12.8%,,,,,,,,
-Tauros-Paldea-Blaze,182,held_item,4,Focus Sash,7.5%,,,,,,,,
+Tauros-Paldea-Blaze,182,held_item,4,Focus Sash,7.6%,,,,,,,,
 Tauros-Paldea-Blaze,182,held_item,5,White Herb,6.6%,,,,,,,,
-Tauros-Paldea-Blaze,182,held_item,6,Expert Belt,5.0%,,,,,,,,
+Tauros-Paldea-Blaze,182,held_item,6,Expert Belt,4.9%,,,,,,,,
 Tauros-Paldea-Blaze,182,held_item,7,Charcoal,4.5%,,,,,,,,
 Tauros-Paldea-Blaze,182,held_item,8,Shell Bell,3.9%,,,,,,,,
 Tauros-Paldea-Blaze,182,held_item,9,Leftovers,3.7%,,,,,,,,
@@ -29,17 +29,17 @@ Tauros-Paldea-Blaze,182,teammate,7,Raichu,,,,,,,,,
 Tauros-Paldea-Blaze,182,teammate,8,Froslass,,,,,,,,,
 Tauros-Paldea-Blaze,182,teammate,9,Golisopod,,,,,,,,,
 Tauros-Paldea-Blaze,182,teammate,10,Garchomp,,,,,,,,,
-Tauros-Paldea-Blaze,182,stat_alignment,1,Adamant,56.1%,Attack,Sp. Atk,,,,,,
-Tauros-Paldea-Blaze,182,stat_alignment,2,Jolly,30.4%,Speed,Sp. Atk,,,,,,
+Tauros-Paldea-Blaze,182,stat_alignment,1,Adamant,56.0%,Attack,Sp. Atk,,,,,,
+Tauros-Paldea-Blaze,182,stat_alignment,2,Jolly,30.5%,Speed,Sp. Atk,,,,,,
 Tauros-Paldea-Blaze,182,stat_alignment,3,Impish,2.8%,Defense,Sp. Atk,,,,,,
 Tauros-Paldea-Blaze,182,stat_alignment,4,Careful,2.3%,Sp. Def,Sp. Atk,,,,,,
 Tauros-Paldea-Blaze,182,stat_alignment,5,Hasty,2.0%,Speed,Defense,,,,,,
-Tauros-Paldea-Blaze,182,stat_alignment,6,Naughty,2.0%,Attack,Sp. Def,,,,,,
+Tauros-Paldea-Blaze,182,stat_alignment,6,Naughty,1.9%,Attack,Sp. Def,,,,,,
 Tauros-Paldea-Blaze,182,stat_alignment,7,Brave,1.8%,Attack,Speed,,,,,,
 Tauros-Paldea-Blaze,182,stat_alignment,8,Naive,1.0%,Speed,Sp. Def,,,,,,
-Tauros-Paldea-Blaze,182,stat_alignment,9,Lonely,0.9%,Attack,Defense,,,,,,
+Tauros-Paldea-Blaze,182,stat_alignment,9,Lonely,1.0%,Attack,Defense,,,,,,
 Tauros-Paldea-Blaze,182,stat_alignment,10,Lax,0.2%,Defense,Sp. Def,,,,,,
-Tauros-Paldea-Blaze,182,stat_points,1,,33.3%,,,2,32,0,0,0,32
+Tauros-Paldea-Blaze,182,stat_points,1,,33.4%,,,2,32,0,0,0,32
 Tauros-Paldea-Blaze,182,stat_points,2,,9.8%,,,0,32,2,0,0,32
 Tauros-Paldea-Blaze,182,stat_points,3,,7.7%,,,0,32,0,0,2,32
 Tauros-Paldea-Blaze,182,stat_points,4,,3.5%,,,32,32,0,0,0,2
@@ -49,6 +49,6 @@ Tauros-Paldea-Blaze,182,stat_points,7,,1.6%,,,2,32,32,0,0,0
 Tauros-Paldea-Blaze,182,stat_points,8,,1.5%,,,1,32,1,0,0,32
 Tauros-Paldea-Blaze,182,stat_points,9,,1.2%,,,0,32,0,0,32,2
 Tauros-Paldea-Blaze,182,stat_points,10,,1.1%,,,1,32,0,0,1,32
-Tauros-Paldea-Blaze,182,ability,1,Intimidate,69.1%,,,,,,,,
+Tauros-Paldea-Blaze,182,ability,1,Intimidate,69.0%,,,,,,,,
 Tauros-Paldea-Blaze,182,ability,2,Anger Point,27.0%,,,,,,,,
 Tauros-Paldea-Blaze,182,ability,3,Cud Chew,3.9%,,,,,,,,

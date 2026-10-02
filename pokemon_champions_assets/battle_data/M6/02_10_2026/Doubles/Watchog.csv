@@ -1,54 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Watchog,257,move,1,Ice Punch,50.8%,,,,,,,,
-Watchog,257,move,2,Super Fang,46.2%,,,,,,,,
-Watchog,257,move,3,Thunder Punch,35.4%,,,,,,,,
-Watchog,257,move,4,Low Kick,34.5%,,,,,,,,
-Watchog,257,move,5,Giga Impact,33.7%,,,,,,,,
-Watchog,257,move,6,Detect,24.9%,,,,,,,,
-Watchog,257,move,7,Crunch,24.8%,,,,,,,,
-Watchog,257,move,8,Double-Edge,23.7%,,,,,,,,
-Watchog,257,move,9,Hypnosis,18.3%,,,,,,,,
-Watchog,257,move,10,Zen Headbutt,14.1%,,,,,,,,
-Watchog,257,held_item,1,Sitrus Berry,17.0%,,,,,,,,
-Watchog,257,held_item,2,Expert Belt,15.0%,,,,,,,,
-Watchog,257,held_item,3,Chople Berry,13.2%,,,,,,,,
-Watchog,257,held_item,4,Silk Scarf,10.0%,,,,,,,,
-Watchog,257,held_item,5,Focus Sash,9.8%,,,,,,,,
-Watchog,257,held_item,6,Iron Ball,8.7%,,,,,,,,
-Watchog,257,held_item,7,Quick Claw,6.6%,,,,,,,,
+Watchog,257,move,1,Ice Punch,50.2%,,,,,,,,
+Watchog,257,move,2,Super Fang,45.6%,,,,,,,,
+Watchog,257,move,3,Thunder Punch,36.1%,,,,,,,,
+Watchog,257,move,4,Giga Impact,34.5%,,,,,,,,
+Watchog,257,move,5,Low Kick,34.1%,,,,,,,,
+Watchog,257,move,6,Detect,24.7%,,,,,,,,
+Watchog,257,move,7,Double-Edge,24.7%,,,,,,,,
+Watchog,257,move,8,Crunch,24.4%,,,,,,,,
+Watchog,257,move,9,Hypnosis,18.0%,,,,,,,,
+Watchog,257,move,10,Zen Headbutt,15.2%,,,,,,,,
+Watchog,257,held_item,1,Sitrus Berry,16.7%,,,,,,,,
+Watchog,257,held_item,2,Expert Belt,14.7%,,,,,,,,
+Watchog,257,held_item,3,Chople Berry,13.1%,,,,,,,,
+Watchog,257,held_item,4,Silk Scarf,11.1%,,,,,,,,
+Watchog,257,held_item,5,Focus Sash,9.7%,,,,,,,,
+Watchog,257,held_item,6,Iron Ball,8.5%,,,,,,,,
+Watchog,257,held_item,7,Quick Claw,6.5%,,,,,,,,
 Watchog,257,held_item,8,Grassy Seed,3.1%,,,,,,,,
-Watchog,257,held_item,9,Wide Lens,2.5%,,,,,,,,
+Watchog,257,held_item,9,Wide Lens,2.4%,,,,,,,,
 Watchog,257,held_item,10,Life Orb,1.9%,,,,,,,,
 Watchog,257,teammate,1,Salamence,,,,,,,,,
 Watchog,257,teammate,2,Basculegion,,,,,,,,,
 Watchog,257,teammate,3,Infernape,,,,,,,,,
 Watchog,257,teammate,4,Floette-Eternal,,,,,,,,,
-Watchog,257,teammate,5,Charizard,,,,,,,,,
-Watchog,257,teammate,6,Simisear,,,,,,,,,
+Watchog,257,teammate,5,Simisear,,,,,,,,,
+Watchog,257,teammate,6,Charizard,,,,,,,,,
 Watchog,257,teammate,7,Hippowdon,,,,,,,,,
 Watchog,257,teammate,8,Kangaskhan,,,,,,,,,
-Watchog,257,teammate,9,Venusaur,,,,,,,,,
-Watchog,257,teammate,10,Rillaboom,,,,,,,,,
-Watchog,257,stat_alignment,1,Adamant,38.7%,Attack,Sp. Atk,,,,,,
-Watchog,257,stat_alignment,2,Impish,30.3%,Defense,Sp. Atk,,,,,,
-Watchog,257,stat_alignment,3,Jolly,11.8%,Speed,Sp. Atk,,,,,,
-Watchog,257,stat_alignment,4,Brave,8.5%,Attack,Speed,,,,,,
+Watchog,257,teammate,9,Ditto,,,,,,,,,
+Watchog,257,teammate,10,Venusaur,,,,,,,,,
+Watchog,257,stat_alignment,1,Adamant,39.5%,Attack,Sp. Atk,,,,,,
+Watchog,257,stat_alignment,2,Impish,29.9%,Defense,Sp. Atk,,,,,,
+Watchog,257,stat_alignment,3,Jolly,11.6%,Speed,Sp. Atk,,,,,,
+Watchog,257,stat_alignment,4,Brave,8.4%,Attack,Speed,,,,,,
 Watchog,257,stat_alignment,5,Relaxed,3.1%,Defense,Speed,,,,,,
-Watchog,257,stat_alignment,6,Sassy,1.9%,Sp. Def,Speed,,,,,,
-Watchog,257,stat_alignment,7,Careful,1.9%,Sp. Def,Sp. Atk,,,,,,
+Watchog,257,stat_alignment,6,Sassy,1.8%,Sp. Def,Speed,,,,,,
+Watchog,257,stat_alignment,7,Careful,1.8%,Sp. Def,Sp. Atk,,,,,,
 Watchog,257,stat_alignment,8,Hasty,1.1%,Speed,Defense,,,,,,
 Watchog,257,stat_alignment,9,Gentle,0.9%,Sp. Def,Defense,,,,,,
 Watchog,257,stat_alignment,10,Naive,0.7%,Speed,Sp. Def,,,,,,
-Watchog,257,stat_points,1,,16.8%,,,0,32,32,0,0,2
-Watchog,257,stat_points,2,,11.3%,,,32,2,32,0,0,0
-Watchog,257,stat_points,3,,10.6%,,,32,32,2,0,0,0
-Watchog,257,stat_points,4,,9.7%,,,0,32,2,0,0,32
-Watchog,257,stat_points,5,,9.4%,,,12,32,11,0,11,0
-Watchog,257,stat_points,6,,6.0%,,,32,32,0,0,0,2
-Watchog,257,stat_points,7,,4.8%,,,2,32,0,0,32,0
+Watchog,257,stat_points,1,,16.5%,,,0,32,32,0,0,2
+Watchog,257,stat_points,2,,11.8%,,,32,32,2,0,0,0
+Watchog,257,stat_points,3,,11.2%,,,32,2,32,0,0,0
+Watchog,257,stat_points,4,,9.6%,,,0,32,2,0,0,32
+Watchog,257,stat_points,5,,9.3%,,,12,32,11,0,11,0
+Watchog,257,stat_points,6,,5.9%,,,32,32,0,0,0,2
+Watchog,257,stat_points,7,,4.7%,,,2,32,0,0,32,0
 Watchog,257,stat_points,8,,4.5%,,,2,32,0,0,0,32
-Watchog,257,stat_points,9,,4.1%,,,0,32,0,0,2,32
-Watchog,257,stat_points,10,,2.0%,,,32,0,21,0,13,0
-Watchog,257,ability,1,Analytic,55.2%,,,,,,,,
-Watchog,257,ability,2,Illuminate,27.4%,,,,,,,,
-Watchog,257,ability,3,Keen Eye,17.4%,,,,,,,,
+Watchog,257,stat_points,9,,4.0%,,,0,32,0,0,2,32
+Watchog,257,stat_points,10,,1.9%,,,32,0,21,0,13,0
+Watchog,257,ability,1,Analytic,55.8%,,,,,,,,
+Watchog,257,ability,2,Illuminate,27.0%,,,,,,,,
+Watchog,257,ability,3,Keen Eye,17.2%,,,,,,,,

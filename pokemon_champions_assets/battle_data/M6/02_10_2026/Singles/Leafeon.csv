@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Leafeon,220,move,1,Leaf Blade,56.3%,,,,,,,,
-Leafeon,220,move,2,Knock Off,54.4%,,,,,,,,
+Leafeon,220,move,2,Knock Off,54.3%,,,,,,,,
 Leafeon,220,move,3,Leech Seed,35.4%,,,,,,,,
-Leafeon,220,move,4,Solar Blade,34.9%,,,,,,,,
+Leafeon,220,move,4,Solar Blade,34.7%,,,,,,,,
 Leafeon,220,move,5,Synthesis,31.7%,,,,,,,,
-Leafeon,220,move,6,Swords Dance,28.2%,,,,,,,,
-Leafeon,220,move,7,Yawn,21.6%,,,,,,,,
-Leafeon,220,move,8,X-Scissor,14.4%,,,,,,,,
-Leafeon,220,move,9,Protect,13.6%,,,,,,,,
+Leafeon,220,move,6,Swords Dance,28.4%,,,,,,,,
+Leafeon,220,move,7,Yawn,21.7%,,,,,,,,
+Leafeon,220,move,8,X-Scissor,14.3%,,,,,,,,
+Leafeon,220,move,9,Protect,13.5%,,,,,,,,
 Leafeon,220,move,10,Charm,12.5%,,,,,,,,
-Leafeon,220,held_item,1,Rocky Helmet,23.9%,,,,,,,,
-Leafeon,220,held_item,2,Life Orb,19.9%,,,,,,,,
+Leafeon,220,held_item,1,Rocky Helmet,23.8%,,,,,,,,
+Leafeon,220,held_item,2,Life Orb,19.8%,,,,,,,,
 Leafeon,220,held_item,3,Leftovers,11.6%,,,,,,,,
 Leafeon,220,held_item,4,Sitrus Berry,9.6%,,,,,,,,
 Leafeon,220,held_item,5,Focus Sash,8.8%,,,,,,,,
-Leafeon,220,held_item,6,Miracle Seed,7.6%,,,,,,,,
+Leafeon,220,held_item,6,Miracle Seed,7.5%,,,,,,,,
 Leafeon,220,held_item,7,Lum Berry,2.1%,,,,,,,,
 Leafeon,220,held_item,8,Expert Belt,2.0%,,,,,,,,
 Leafeon,220,held_item,9,Big Root,1.9%,,,,,,,,
@@ -33,7 +33,7 @@ Leafeon,220,stat_alignment,1,Adamant,38.3%,Attack,Sp. Atk,,,,,,
 Leafeon,220,stat_alignment,2,Impish,35.7%,Defense,Sp. Atk,,,,,,
 Leafeon,220,stat_alignment,3,Jolly,10.6%,Speed,Sp. Atk,,,,,,
 Leafeon,220,stat_alignment,4,Careful,5.5%,Sp. Def,Sp. Atk,,,,,,
-Leafeon,220,stat_alignment,5,Naughty,2.4%,Attack,Sp. Def,,,,,,
+Leafeon,220,stat_alignment,5,Naughty,2.5%,Attack,Sp. Def,,,,,,
 Leafeon,220,stat_alignment,6,Modest,1.7%,Sp. Atk,Attack,,,,,,
 Leafeon,220,stat_alignment,7,Bold,1.5%,Defense,Attack,,,,,,
 Leafeon,220,stat_alignment,8,Lax,1.3%,Defense,Sp. Def,,,,,,
@@ -41,10 +41,10 @@ Leafeon,220,stat_alignment,9,Relaxed,0.6%,Defense,Speed,,,,,,
 Leafeon,220,stat_alignment,10,Naive,0.4%,Speed,Sp. Def,,,,,,
 Leafeon,220,stat_points,1,,13.2%,,,2,32,0,0,0,32
 Leafeon,220,stat_points,2,,7.3%,,,32,2,32,0,0,0
-Leafeon,220,stat_points,3,,5.8%,,,20,15,16,0,0,15
+Leafeon,220,stat_points,3,,5.7%,,,20,15,16,0,0,15
 Leafeon,220,stat_points,4,,5.2%,,,32,0,32,0,0,2
-Leafeon,220,stat_points,5,,3.9%,,,32,0,32,0,2,0
-Leafeon,220,stat_points,6,,3.8%,,,0,32,2,0,0,32
+Leafeon,220,stat_points,5,,3.9%,,,0,32,2,0,0,32
+Leafeon,220,stat_points,6,,3.9%,,,32,0,32,0,2,0
 Leafeon,220,stat_points,7,,3.6%,,,32,32,2,0,0,0
 Leafeon,220,stat_points,8,,3.0%,,,0,32,32,0,0,2
 Leafeon,220,stat_points,9,,2.8%,,,1,32,1,0,0,32

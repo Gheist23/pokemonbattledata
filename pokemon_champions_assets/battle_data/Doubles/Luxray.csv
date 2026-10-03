@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Luxray,221,move,1,Protect,40.6%,,,,,,,,
-Luxray,221,move,2,Psychic Fangs,36.5%,,,,,,,,
+Luxray,221,move,2,Psychic Fangs,36.4%,,,,,,,,
 Luxray,221,move,3,Supercell Slam,35.1%,,,,,,,,
 Luxray,221,move,4,Volt Switch,34.9%,,,,,,,,
 Luxray,221,move,5,Wild Charge,30.0%,,,,,,,,
@@ -9,7 +9,7 @@ Luxray,221,move,7,Superpower,24.3%,,,,,,,,
 Luxray,221,move,8,Ice Fang,23.2%,,,,,,,,
 Luxray,221,move,9,Baby-Doll Eyes,19.0%,,,,,,,,
 Luxray,221,move,10,Play Rough,15.5%,,,,,,,,
-Luxray,221,held_item,1,Sitrus Berry,16.1%,,,,,,,,
+Luxray,221,held_item,1,Sitrus Berry,16.2%,,,,,,,,
 Luxray,221,held_item,2,Choice Scarf,9.5%,,,,,,,,
 Luxray,221,held_item,3,Life Orb,9.2%,,,,,,,,
 Luxray,221,held_item,4,Magnet,9.0%,,,,,,,,
@@ -30,7 +30,7 @@ Luxray,221,teammate,8,Golisopod,,,,,,,,,
 Luxray,221,teammate,9,Dragonite,,,,,,,,,
 Luxray,221,teammate,10,Garchomp,,,,,,,,,
 Luxray,221,stat_alignment,1,Adamant,31.6%,Attack,Sp. Atk,,,,,,
-Luxray,221,stat_alignment,2,Jolly,17.9%,Speed,Sp. Atk,,,,,,
+Luxray,221,stat_alignment,2,Jolly,18.0%,Speed,Sp. Atk,,,,,,
 Luxray,221,stat_alignment,3,Brave,8.9%,Attack,Speed,,,,,,
 Luxray,221,stat_alignment,4,Careful,5.9%,Sp. Def,Sp. Atk,,,,,,
 Luxray,221,stat_alignment,5,Modest,5.5%,Sp. Atk,Attack,,,,,,
@@ -40,12 +40,12 @@ Luxray,221,stat_alignment,8,Relaxed,3.4%,Defense,Speed,,,,,,
 Luxray,221,stat_alignment,9,Naughty,3.2%,Attack,Sp. Def,,,,,,
 Luxray,221,stat_alignment,10,Timid,3.1%,Speed,Attack,,,,,,
 Luxray,221,stat_points,1,,11.4%,,,0,32,1,0,1,32
-Luxray,221,stat_points,2,,5.2%,,,2,32,0,0,0,32
+Luxray,221,stat_points,2,,5.3%,,,2,32,0,0,0,32
 Luxray,221,stat_points,3,,4.9%,,,32,32,1,0,1,0
 Luxray,221,stat_points,4,,4.9%,,,0,32,2,0,0,32
 Luxray,221,stat_points,5,,3.5%,,,2,0,0,32,0,32
 Luxray,221,stat_points,6,,3.4%,,,32,32,0,0,2,0
-Luxray,221,stat_points,7,,2.7%,,,32,32,2,0,0,0
+Luxray,221,stat_points,7,,2.8%,,,32,32,2,0,0,0
 Luxray,221,stat_points,8,,2.2%,,,32,0,32,0,2,0
 Luxray,221,stat_points,9,,2.0%,,,32,32,0,0,0,2
 Luxray,221,stat_points,10,,1.9%,,,0,32,32,0,2,0

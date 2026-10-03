@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Emboar,186,move,1,Flare Blitz,85.6%,,,,,,,,
 Emboar,186,move,2,Sucker Punch,56.1%,,,,,,,,
-Emboar,186,move,3,Close Combat,43.0%,,,,,,,,
+Emboar,186,move,3,Close Combat,43.1%,,,,,,,,
 Emboar,186,move,4,Wild Charge,34.1%,,,,,,,,
 Emboar,186,move,5,Drain Punch,29.8%,,,,,,,,
 Emboar,186,move,6,Earthquake,29.3%,,,,,,,,
@@ -11,7 +11,7 @@ Emboar,186,move,9,Bulk Up,13.8%,,,,,,,,
 Emboar,186,move,10,Flame Charge,7.0%,,,,,,,,
 Emboar,186,held_item,1,Emboarite,76.6%,,,,,,,,
 Emboar,186,held_item,2,Life Orb,6.3%,,,,,,,,
-Emboar,186,held_item,3,Choice Scarf,5.1%,,,,,,,,
+Emboar,186,held_item,3,Choice Scarf,5.0%,,,,,,,,
 Emboar,186,held_item,4,Rocky Helmet,1.9%,,,,,,,,
 Emboar,186,held_item,5,Sitrus Berry,1.7%,,,,,,,,
 Emboar,186,held_item,6,Focus Sash,1.4%,,,,,,,,
@@ -32,14 +32,14 @@ Emboar,186,teammate,10,Golisopod,,,,,,,,,
 Emboar,186,stat_alignment,1,Adamant,65.8%,Attack,Sp. Atk,,,,,,
 Emboar,186,stat_alignment,2,Brave,11.3%,Attack,Speed,,,,,,
 Emboar,186,stat_alignment,3,Jolly,8.9%,Speed,Sp. Atk,,,,,,
-Emboar,186,stat_alignment,4,Impish,3.5%,Defense,Sp. Atk,,,,,,
+Emboar,186,stat_alignment,4,Impish,3.4%,Defense,Sp. Atk,,,,,,
 Emboar,186,stat_alignment,5,Careful,2.5%,Sp. Def,Sp. Atk,,,,,,
 Emboar,186,stat_alignment,6,Sassy,1.8%,Sp. Def,Speed,,,,,,
 Emboar,186,stat_alignment,7,Naive,1.8%,Speed,Sp. Def,,,,,,
 Emboar,186,stat_alignment,8,Naughty,1.3%,Attack,Sp. Def,,,,,,
 Emboar,186,stat_alignment,9,Lonely,1.1%,Attack,Defense,,,,,,
 Emboar,186,stat_alignment,10,Modest,0.5%,Sp. Atk,Attack,,,,,,
-Emboar,186,stat_points,1,,15.2%,,,32,32,2,0,0,0
+Emboar,186,stat_points,1,,15.1%,,,32,32,2,0,0,0
 Emboar,186,stat_points,2,,11.7%,,,32,32,0,0,0,2
 Emboar,186,stat_points,3,,9.3%,,,2,32,0,0,0,32
 Emboar,186,stat_points,4,,6.4%,,,32,32,1,0,1,0
@@ -49,5 +49,5 @@ Emboar,186,stat_points,7,,2.3%,,,2,32,32,0,0,0
 Emboar,186,stat_points,8,,2.3%,,,2,32,0,0,32,0
 Emboar,186,stat_points,9,,1.8%,,,0,32,0,0,2,32
 Emboar,186,stat_points,10,,1.5%,,,10,26,17,0,0,13
-Emboar,186,ability,1,Reckless,68.2%,,,,,,,,
-Emboar,186,ability,2,Blaze,31.8%,,,,,,,,
+Emboar,186,ability,1,Reckless,68.3%,,,,,,,,
+Emboar,186,ability,2,Blaze,31.7%,,,,,,,,

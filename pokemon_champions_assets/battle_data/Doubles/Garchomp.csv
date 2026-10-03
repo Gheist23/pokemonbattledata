@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Garchomp,7,move,1,Protect,81.2%,,,,,,,,
-Garchomp,7,move,2,Power Gem,41.3%,,,,,,,,
+Garchomp,7,move,2,Power Gem,41.4%,,,,,,,,
 Garchomp,7,move,3,Rock Slide,40.3%,,,,,,,,
 Garchomp,7,move,4,Dragon Claw,39.2%,,,,,,,,
 Garchomp,7,move,5,Earthquake,37.9%,,,,,,,,
-Garchomp,7,move,6,Earth Power,28.9%,,,,,,,,
+Garchomp,7,move,6,Earth Power,29.0%,,,,,,,,
 Garchomp,7,move,7,Flamethrower,28.6%,,,,,,,,
 Garchomp,7,move,8,Draco Meteor,27.1%,,,,,,,,
 Garchomp,7,move,9,Dragon Pulse,25.1%,,,,,,,,
 Garchomp,7,move,10,Stomping Tantrum,20.1%,,,,,,,,
 Garchomp,7,held_item,1,Garchompite Z,50.6%,,,,,,,,
-Garchomp,7,held_item,2,Life Orb,23.3%,,,,,,,,
+Garchomp,7,held_item,2,Life Orb,23.2%,,,,,,,,
 Garchomp,7,held_item,3,Choice Scarf,9.0%,,,,,,,,
 Garchomp,7,held_item,4,Rocky Helmet,4.2%,,,,,,,,
 Garchomp,7,held_item,5,Sitrus Berry,3.1%,,,,,,,,
@@ -31,7 +31,7 @@ Garchomp,7,teammate,9,Basculegion,,,,,,,,,
 Garchomp,7,teammate,10,Whimsicott,,,,,,,,,
 Garchomp,7,stat_alignment,1,Modest,39.4%,Sp. Atk,Attack,,,,,,
 Garchomp,7,stat_alignment,2,Jolly,27.4%,Speed,Sp. Atk,,,,,,
-Garchomp,7,stat_alignment,3,Adamant,19.0%,Attack,Sp. Atk,,,,,,
+Garchomp,7,stat_alignment,3,Adamant,18.9%,Attack,Sp. Atk,,,,,,
 Garchomp,7,stat_alignment,4,Timid,10.2%,Speed,Attack,,,,,,
 Garchomp,7,stat_alignment,5,Impish,0.9%,Defense,Sp. Atk,,,,,,
 Garchomp,7,stat_alignment,6,Brave,0.5%,Attack,Speed,,,,,,
@@ -40,7 +40,7 @@ Garchomp,7,stat_alignment,8,Hasty,0.4%,Speed,Defense,,,,,,
 Garchomp,7,stat_alignment,9,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
 Garchomp,7,stat_alignment,10,Naughty,0.3%,Attack,Sp. Def,,,,,,
 Garchomp,7,stat_points,1,,23.0%,,,2,32,0,0,0,32
-Garchomp,7,stat_points,2,,20.6%,,,2,0,0,32,0,32
+Garchomp,7,stat_points,2,,20.7%,,,2,0,0,32,0,32
 Garchomp,7,stat_points,3,,3.0%,,,0,0,5,31,0,30
 Garchomp,7,stat_points,4,,2.7%,,,0,32,0,0,2,32
 Garchomp,7,stat_points,5,,2.7%,,,8,0,6,21,1,30

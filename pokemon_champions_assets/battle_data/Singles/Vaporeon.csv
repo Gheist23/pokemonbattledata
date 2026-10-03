@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Vaporeon,98,move,1,Wish,64.7%,,,,,,,,
 Vaporeon,98,move,2,Flip Turn,51.0%,,,,,,,,
-Vaporeon,98,move,3,Yawn,49.0%,,,,,,,,
+Vaporeon,98,move,3,Yawn,48.9%,,,,,,,,
 Vaporeon,98,move,4,Scald,48.5%,,,,,,,,
 Vaporeon,98,move,5,Protect,45.5%,,,,,,,,
 Vaporeon,98,move,6,Ice Beam,31.3%,,,,,,,,
@@ -30,7 +30,7 @@ Vaporeon,98,teammate,8,Umbreon,,,,,,,,,
 Vaporeon,98,teammate,9,Glimmora,,,,,,,,,
 Vaporeon,98,teammate,10,Lucario,,,,,,,,,
 Vaporeon,98,stat_alignment,1,Bold,36.5%,Defense,Attack,,,,,,
-Vaporeon,98,stat_alignment,2,Relaxed,34.9%,Defense,Speed,,,,,,
+Vaporeon,98,stat_alignment,2,Relaxed,34.8%,Defense,Speed,,,,,,
 Vaporeon,98,stat_alignment,3,Calm,11.3%,Sp. Def,Attack,,,,,,
 Vaporeon,98,stat_alignment,4,Sassy,6.1%,Sp. Def,Speed,,,,,,
 Vaporeon,98,stat_alignment,5,Modest,5.6%,Sp. Atk,Attack,,,,,,
@@ -39,8 +39,8 @@ Vaporeon,98,stat_alignment,7,Quiet,1.0%,Sp. Atk,Speed,,,,,,
 Vaporeon,98,stat_alignment,8,Timid,0.8%,Speed,Attack,,,,,,
 Vaporeon,98,stat_alignment,9,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
 Vaporeon,98,stat_alignment,10,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Vaporeon,98,stat_points,1,,46.2%,,,32,0,32,0,2,0
-Vaporeon,98,stat_points,2,,5.8%,,,32,0,2,0,32,0
+Vaporeon,98,stat_points,1,,46.1%,,,32,0,32,0,2,0
+Vaporeon,98,stat_points,2,,5.9%,,,32,0,2,0,32,0
 Vaporeon,98,stat_points,3,,3.5%,,,32,0,32,2,0,0
 Vaporeon,98,stat_points,4,,3.5%,,,32,0,30,0,4,0
 Vaporeon,98,stat_points,5,,2.7%,,,2,0,32,0,32,0

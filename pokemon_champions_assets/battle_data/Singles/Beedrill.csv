@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Beedrill,173,move,1,Poison Jab,91.5%,,,,,,,,
-Beedrill,173,move,2,Drill Run,75.1%,,,,,,,,
+Beedrill,173,move,2,Drill Run,75.2%,,,,,,,,
 Beedrill,173,move,3,U-turn,72.9%,,,,,,,,
 Beedrill,173,move,4,Fell Stinger,57.9%,,,,,,,,
 Beedrill,173,move,5,Knock Off,33.5%,,,,,,,,
-Beedrill,173,move,6,Lunge,13.4%,,,,,,,,
+Beedrill,173,move,6,Lunge,13.3%,,,,,,,,
 Beedrill,173,move,7,Cross Poison,7.1%,,,,,,,,
 Beedrill,173,move,8,Swords Dance,6.5%,,,,,,,,
 Beedrill,173,move,9,Brick Break,5.6%,,,,,,,,
@@ -29,7 +29,7 @@ Beedrill,173,teammate,7,Araquanid,,,,,,,,,
 Beedrill,173,teammate,8,Hydreigon,,,,,,,,,
 Beedrill,173,teammate,9,Archaludon,,,,,,,,,
 Beedrill,173,teammate,10,Sneasler,,,,,,,,,
-Beedrill,173,stat_alignment,1,Jolly,79.9%,Speed,Sp. Atk,,,,,,
+Beedrill,173,stat_alignment,1,Jolly,80.0%,Speed,Sp. Atk,,,,,,
 Beedrill,173,stat_alignment,2,Adamant,15.8%,Attack,Sp. Atk,,,,,,
 Beedrill,173,stat_alignment,3,Lonely,1.1%,Attack,Defense,,,,,,
 Beedrill,173,stat_alignment,4,Naive,0.7%,Speed,Sp. Def,,,,,,
@@ -45,7 +45,7 @@ Beedrill,173,stat_points,3,,7.7%,,,0,32,0,0,2,32
 Beedrill,173,stat_points,4,,7.1%,,,0,32,2,0,0,32
 Beedrill,173,stat_points,5,,5.2%,,,1,32,0,0,1,32
 Beedrill,173,stat_points,6,,1.9%,,,0,32,0,0,0,32
-Beedrill,173,stat_points,7,,1.3%,,,3,32,0,0,0,31
+Beedrill,173,stat_points,7,,1.2%,,,3,32,0,0,0,31
 Beedrill,173,stat_points,8,,0.9%,,,32,32,0,0,2,0
 Beedrill,173,stat_points,9,,0.6%,,,0,32,1,0,1,32
 Beedrill,173,stat_points,10,,0.6%,,,1,32,2,0,0,31

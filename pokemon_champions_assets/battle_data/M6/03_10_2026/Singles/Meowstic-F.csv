@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Meowstic-F,232,move,1,Alluring Voice,70.6%,,,,,,,,
+Meowstic-F,232,move,1,Alluring Voice,70.5%,,,,,,,,
 Meowstic-F,232,move,2,Psychic,60.3%,,,,,,,,
 Meowstic-F,232,move,3,Thunderbolt,57.5%,,,,,,,,
 Meowstic-F,232,move,4,Dark Pulse,41.6%,,,,,,,,
 Meowstic-F,232,move,5,Nasty Plot,31.8%,,,,,,,,
 Meowstic-F,232,move,6,Expanding Force,26.5%,,,,,,,,
 Meowstic-F,232,move,7,Shadow Ball,21.4%,,,,,,,,
-Meowstic-F,232,move,8,Energy Ball,12.3%,,,,,,,,
+Meowstic-F,232,move,8,Energy Ball,12.2%,,,,,,,,
 Meowstic-F,232,move,9,Calm Mind,11.2%,,,,,,,,
 Meowstic-F,232,move,10,Yawn,8.5%,,,,,,,,
 Meowstic-F,232,held_item,1,Meowsticite,85.5%,,,,,,,,
@@ -39,7 +39,7 @@ Meowstic-F,232,stat_alignment,7,Mild,0.7%,Sp. Atk,Defense,,,,,,
 Meowstic-F,232,stat_alignment,8,Jolly,0.2%,Speed,Sp. Atk,,,,,,
 Meowstic-F,232,stat_alignment,9,Brave,0.2%,Attack,Speed,,,,,,
 Meowstic-F,232,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
-Meowstic-F,232,stat_points,1,,53.7%,,,2,0,0,32,0,32
+Meowstic-F,232,stat_points,1,,53.6%,,,2,0,0,32,0,32
 Meowstic-F,232,stat_points,2,,5.9%,,,0,0,2,32,0,32
 Meowstic-F,232,stat_points,3,,4.8%,,,0,0,0,32,2,32
 Meowstic-F,232,stat_points,4,,3.1%,,,0,0,1,32,1,32
@@ -47,8 +47,8 @@ Meowstic-F,232,stat_points,5,,2.9%,,,5,0,0,32,0,29
 Meowstic-F,232,stat_points,6,,1.9%,,,14,0,20,32,0,0
 Meowstic-F,232,stat_points,7,,1.6%,,,32,0,0,32,0,2
 Meowstic-F,232,stat_points,8,,1.2%,,,0,0,0,32,0,32
-Meowstic-F,232,stat_points,9,,0.7%,,,1,0,0,32,0,32
-Meowstic-F,232,stat_points,10,,0.7%,,,2,0,32,0,32,0
+Meowstic-F,232,stat_points,9,,0.7%,,,2,0,32,32,0,0
+Meowstic-F,232,stat_points,10,,0.7%,,,1,0,0,32,0,32
 Meowstic-F,232,ability,1,Competitive,87.6%,,,,,,,,
 Meowstic-F,232,ability,2,Infiltrator,9.0%,,,,,,,,
 Meowstic-F,232,ability,3,Keen Eye,3.4%,,,,,,,,

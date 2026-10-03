@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Passimian,256,move,1,Close Combat,56.0%,,,,,,,,
-Passimian,256,move,2,Drain Punch,45.7%,,,,,,,,
-Passimian,256,move,3,Knock Off,34.7%,,,,,,,,
+Passimian,256,move,2,Drain Punch,45.6%,,,,,,,,
+Passimian,256,move,3,Knock Off,34.8%,,,,,,,,
 Passimian,256,move,4,Rock Slide,33.8%,,,,,,,,
-Passimian,256,move,5,Earthquake,31.0%,,,,,,,,
-Passimian,256,move,6,Gunk Shot,28.6%,,,,,,,,
-Passimian,256,move,7,U-turn,21.9%,,,,,,,,
-Passimian,256,move,8,Iron Head,17.6%,,,,,,,,
+Passimian,256,move,5,Earthquake,31.1%,,,,,,,,
+Passimian,256,move,6,Gunk Shot,28.7%,,,,,,,,
+Passimian,256,move,7,U-turn,21.8%,,,,,,,,
+Passimian,256,move,8,Iron Head,17.5%,,,,,,,,
 Passimian,256,move,9,Rock Tomb,17.4%,,,,,,,,
 Passimian,256,move,10,Counter,16.7%,,,,,,,,
-Passimian,256,held_item,1,Choice Scarf,24.0%,,,,,,,,
+Passimian,256,held_item,1,Choice Scarf,24.1%,,,,,,,,
 Passimian,256,held_item,2,Focus Sash,20.5%,,,,,,,,
 Passimian,256,held_item,3,Light Ball,6.7%,,,,,,,,
 Passimian,256,held_item,4,Sitrus Berry,5.8%,,,,,,,,
@@ -29,10 +29,10 @@ Passimian,256,teammate,7,Staraptor,,,,,,,,,
 Passimian,256,teammate,8,Baxcalibur,,,,,,,,,
 Passimian,256,teammate,9,Annihilape,,,,,,,,,
 Passimian,256,teammate,10,Lucario,,,,,,,,,
-Passimian,256,stat_alignment,1,Adamant,56.1%,Attack,Sp. Atk,,,,,,
-Passimian,256,stat_alignment,2,Jolly,28.5%,Speed,Sp. Atk,,,,,,
+Passimian,256,stat_alignment,1,Adamant,56.0%,Attack,Sp. Atk,,,,,,
+Passimian,256,stat_alignment,2,Jolly,28.6%,Speed,Sp. Atk,,,,,,
 Passimian,256,stat_alignment,3,Impish,5.9%,Defense,Sp. Atk,,,,,,
-Passimian,256,stat_alignment,4,Naughty,2.2%,Attack,Sp. Def,,,,,,
+Passimian,256,stat_alignment,4,Naughty,2.3%,Attack,Sp. Def,,,,,,
 Passimian,256,stat_alignment,5,Careful,1.9%,Sp. Def,Sp. Atk,,,,,,
 Passimian,256,stat_alignment,6,Naive,1.6%,Speed,Sp. Def,,,,,,
 Passimian,256,stat_alignment,7,Hasty,1.4%,Speed,Defense,,,,,,
@@ -40,8 +40,8 @@ Passimian,256,stat_alignment,8,Brave,0.7%,Attack,Speed,,,,,,
 Passimian,256,stat_alignment,9,Modest,0.6%,Sp. Atk,Attack,,,,,,
 Passimian,256,stat_alignment,10,Gentle,0.5%,Sp. Def,Defense,,,,,,
 Passimian,256,stat_points,1,,25.0%,,,2,32,0,0,0,32
-Passimian,256,stat_points,2,,11.5%,,,0,32,2,0,0,32
-Passimian,256,stat_points,3,,10.2%,,,18,32,0,0,0,16
+Passimian,256,stat_points,2,,11.6%,,,0,32,2,0,0,32
+Passimian,256,stat_points,3,,10.1%,,,18,32,0,0,0,16
 Passimian,256,stat_points,4,,8.6%,,,0,32,0,0,2,32
 Passimian,256,stat_points,5,,4.0%,,,32,32,2,0,0,0
 Passimian,256,stat_points,6,,3.2%,,,0,32,32,0,0,2

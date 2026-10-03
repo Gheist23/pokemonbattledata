@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Luxray,221,move,1,Protect,40.6%,,,,,,,,
 Luxray,221,move,2,Psychic Fangs,36.5%,,,,,,,,
-Luxray,221,move,3,Volt Switch,35.0%,,,,,,,,
-Luxray,221,move,4,Supercell Slam,35.0%,,,,,,,,
+Luxray,221,move,3,Supercell Slam,35.1%,,,,,,,,
+Luxray,221,move,4,Volt Switch,35.0%,,,,,,,,
 Luxray,221,move,5,Wild Charge,30.0%,,,,,,,,
 Luxray,221,move,6,Snarl,26.3%,,,,,,,,
 Luxray,221,move,7,Superpower,24.4%,,,,,,,,
@@ -29,17 +29,17 @@ Luxray,221,teammate,7,Salamence,,,,,,,,,
 Luxray,221,teammate,8,Golisopod,,,,,,,,,
 Luxray,221,teammate,9,Dragonite,,,,,,,,,
 Luxray,221,teammate,10,Garchomp,,,,,,,,,
-Luxray,221,stat_alignment,1,Adamant,31.6%,Attack,Sp. Atk,,,,,,
-Luxray,221,stat_alignment,2,Jolly,18.0%,Speed,Sp. Atk,,,,,,
+Luxray,221,stat_alignment,1,Adamant,31.7%,Attack,Sp. Atk,,,,,,
+Luxray,221,stat_alignment,2,Jolly,17.9%,Speed,Sp. Atk,,,,,,
 Luxray,221,stat_alignment,3,Brave,8.9%,Attack,Speed,,,,,,
-Luxray,221,stat_alignment,4,Careful,5.7%,Sp. Def,Sp. Atk,,,,,,
-Luxray,221,stat_alignment,5,Modest,5.6%,Sp. Atk,Attack,,,,,,
+Luxray,221,stat_alignment,4,Careful,5.8%,Sp. Def,Sp. Atk,,,,,,
+Luxray,221,stat_alignment,5,Modest,5.5%,Sp. Atk,Attack,,,,,,
 Luxray,221,stat_alignment,6,Impish,5.3%,Defense,Sp. Atk,,,,,,
 Luxray,221,stat_alignment,7,Bold,3.8%,Defense,Attack,,,,,,
 Luxray,221,stat_alignment,8,Relaxed,3.4%,Defense,Speed,,,,,,
 Luxray,221,stat_alignment,9,Naughty,3.2%,Attack,Sp. Def,,,,,,
 Luxray,221,stat_alignment,10,Timid,3.2%,Speed,Attack,,,,,,
-Luxray,221,stat_points,1,,11.5%,,,0,32,1,0,1,32
+Luxray,221,stat_points,1,,11.4%,,,0,32,1,0,1,32
 Luxray,221,stat_points,2,,5.1%,,,2,32,0,0,0,32
 Luxray,221,stat_points,3,,5.0%,,,32,32,1,0,1,0
 Luxray,221,stat_points,4,,4.8%,,,0,32,2,0,0,32

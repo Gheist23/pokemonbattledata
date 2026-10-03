@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Emboar,203,move,1,Flare Blitz,84.7%,,,,,,,,
-Emboar,203,move,2,Protect,61.7%,,,,,,,,
+Emboar,203,move,2,Protect,61.6%,,,,,,,,
 Emboar,203,move,3,Drain Punch,42.1%,,,,,,,,
-Emboar,203,move,4,Close Combat,34.9%,,,,,,,,
+Emboar,203,move,4,Close Combat,34.8%,,,,,,,,
 Emboar,203,move,5,Sucker Punch,29.8%,,,,,,,,
 Emboar,203,move,6,Wild Charge,28.3%,,,,,,,,
 Emboar,203,move,7,Head Smash,15.0%,,,,,,,,
 Emboar,203,move,8,Bulk Up,13.2%,,,,,,,,
 Emboar,203,move,9,Storm Throw,11.4%,,,,,,,,
-Emboar,203,move,10,Rock Slide,9.7%,,,,,,,,
-Emboar,203,held_item,1,Emboarite,63.4%,,,,,,,,
+Emboar,203,move,10,Rock Slide,9.8%,,,,,,,,
+Emboar,203,held_item,1,Emboarite,63.3%,,,,,,,,
 Emboar,203,held_item,2,Life Orb,7.5%,,,,,,,,
 Emboar,203,held_item,3,Expert Belt,5.0%,,,,,,,,
 Emboar,203,held_item,4,Sitrus Berry,3.9%,,,,,,,,
@@ -40,7 +40,7 @@ Emboar,203,stat_alignment,8,Sassy,1.1%,Sp. Def,Speed,,,,,,
 Emboar,203,stat_alignment,9,Relaxed,0.8%,Defense,Speed,,,,,,
 Emboar,203,stat_alignment,10,Quiet,0.7%,Sp. Atk,Speed,,,,,,
 Emboar,203,stat_points,1,,23.5%,,,32,32,2,0,0,0
-Emboar,203,stat_points,2,,12.7%,,,32,32,0,0,2,0
+Emboar,203,stat_points,2,,12.6%,,,32,32,0,0,2,0
 Emboar,203,stat_points,3,,7.7%,,,32,32,0,0,0,2
 Emboar,203,stat_points,4,,3.8%,,,32,32,1,0,1,0
 Emboar,203,stat_points,5,,3.3%,,,2,32,0,0,0,32
@@ -49,5 +49,5 @@ Emboar,203,stat_points,7,,2.7%,,,2,32,32,0,0,0
 Emboar,203,stat_points,8,,2.3%,,,0,32,32,0,2,0
 Emboar,203,stat_points,9,,1.9%,,,0,32,2,0,32,0
 Emboar,203,stat_points,10,,1.8%,,,19,17,15,0,15,0
-Emboar,203,ability,1,Reckless,73.1%,,,,,,,,
-Emboar,203,ability,2,Blaze,26.9%,,,,,,,,
+Emboar,203,ability,1,Reckless,73.0%,,,,,,,,
+Emboar,203,ability,2,Blaze,27.0%,,,,,,,,

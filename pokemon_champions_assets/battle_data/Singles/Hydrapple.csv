@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Hydrapple,200,move,1,Fickle Beam,87.2%,,,,,,,,
-Hydrapple,200,move,2,Earth Power,66.4%,,,,,,,,
+Hydrapple,200,move,2,Earth Power,66.3%,,,,,,,,
 Hydrapple,200,move,3,Giga Drain,43.3%,,,,,,,,
 Hydrapple,200,move,4,Recover,33.6%,,,,,,,,
 Hydrapple,200,move,5,Leaf Storm,29.8%,,,,,,,,
 Hydrapple,200,move,6,Yawn,26.8%,,,,,,,,
 Hydrapple,200,move,7,Sucker Punch,23.9%,,,,,,,,
 Hydrapple,200,move,8,Syrup Bomb,15.6%,,,,,,,,
-Hydrapple,200,move,9,Draco Meteor,10.4%,,,,,,,,
-Hydrapple,200,move,10,Hydro Pump,10.4%,,,,,,,,
+Hydrapple,200,move,9,Hydro Pump,10.4%,,,,,,,,
+Hydrapple,200,move,10,Draco Meteor,10.4%,,,,,,,,
 Hydrapple,200,held_item,1,Leftovers,16.1%,,,,,,,,
 Hydrapple,200,held_item,2,Life Orb,13.6%,,,,,,,,
 Hydrapple,200,held_item,3,Quick Claw,12.9%,,,,,,,,
@@ -41,8 +41,8 @@ Hydrapple,200,stat_alignment,9,Serious,0.2%,,,,,,,,
 Hydrapple,200,stat_alignment,10,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
 Hydrapple,200,stat_points,1,,16.0%,,,32,0,0,32,2,0
 Hydrapple,200,stat_points,2,,13.3%,,,32,0,2,32,0,0
-Hydrapple,200,stat_points,3,,6.3%,,,32,0,0,32,0,2
-Hydrapple,200,stat_points,4,,4.7%,,,32,0,32,2,0,0
+Hydrapple,200,stat_points,3,,6.2%,,,32,0,0,32,0,2
+Hydrapple,200,stat_points,4,,4.6%,,,32,0,32,2,0,0
 Hydrapple,200,stat_points,5,,3.5%,,,32,0,32,0,2,0
 Hydrapple,200,stat_points,6,,3.1%,,,2,0,32,32,0,0
 Hydrapple,200,stat_points,7,,2.6%,,,32,0,2,0,32,0

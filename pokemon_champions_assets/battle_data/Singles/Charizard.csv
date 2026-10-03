@@ -1,5 +1,5 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Charizard,12,move,1,Solar Beam,74.9%,,,,,,,,
+Charizard,12,move,1,Solar Beam,75.0%,,,,,,,,
 Charizard,12,move,2,Flamethrower,57.6%,,,,,,,,
 Charizard,12,move,3,Dragon Pulse,43.8%,,,,,,,,
 Charizard,12,move,4,Roost,35.9%,,,,,,,,
@@ -10,7 +10,7 @@ Charizard,12,move,8,Weather Ball,16.3%,,,,,,,,
 Charizard,12,move,9,Dragon Dance,15.3%,,,,,,,,
 Charizard,12,move,10,Overheat,14.1%,,,,,,,,
 Charizard,12,held_item,1,Charizardite Y,76.4%,,,,,,,,
-Charizard,12,held_item,2,Charizardite X,22.2%,,,,,,,,
+Charizard,12,held_item,2,Charizardite X,22.1%,,,,,,,,
 Charizard,12,held_item,3,Choice Scarf,0.2%,,,,,,,,
 Charizard,12,held_item,4,Focus Sash,0.1%,,,,,,,,
 Charizard,12,held_item,5,Life Orb,0.1%,,,,,,,,
@@ -39,7 +39,7 @@ Charizard,12,stat_alignment,7,Hasty,0.2%,Speed,Defense,,,,,,
 Charizard,12,stat_alignment,8,Impish,0.2%,Defense,Sp. Atk,,,,,,
 Charizard,12,stat_alignment,9,Calm,0.2%,Sp. Def,Attack,,,,,,
 Charizard,12,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
-Charizard,12,stat_points,1,,26.1%,,,2,0,0,32,0,32
+Charizard,12,stat_points,1,,26.0%,,,2,0,0,32,0,32
 Charizard,12,stat_points,2,,11.8%,,,2,32,0,0,0,32
 Charizard,12,stat_points,3,,4.7%,,,32,0,15,11,0,8
 Charizard,12,stat_points,4,,3.8%,,,0,0,2,32,0,32

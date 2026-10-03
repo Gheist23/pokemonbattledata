@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emolga,231,move,1,Nuzzle,44.2%,,,,,,,,
-Emolga,231,move,2,Air Slash,41.4%,,,,,,,,
-Emolga,231,move,3,Taunt,33.5%,,,,,,,,
-Emolga,231,move,4,Encore,32.7%,,,,,,,,
+Emolga,231,move,1,Nuzzle,44.3%,,,,,,,,
+Emolga,231,move,2,Air Slash,41.3%,,,,,,,,
+Emolga,231,move,3,Taunt,33.6%,,,,,,,,
+Emolga,231,move,4,Encore,32.8%,,,,,,,,
 Emolga,231,move,5,Protect,25.2%,,,,,,,,
 Emolga,231,move,6,Electroweb,22.7%,,,,,,,,
 Emolga,231,move,7,Helping Hand,21.4%,,,,,,,,
 Emolga,231,move,8,Volt Switch,20.0%,,,,,,,,
-Emolga,231,move,9,Speed Swap,18.3%,,,,,,,,
+Emolga,231,move,9,Speed Swap,18.4%,,,,,,,,
 Emolga,231,move,10,Thunderbolt,13.7%,,,,,,,,
-Emolga,231,held_item,1,Focus Sash,48.4%,,,,,,,,
+Emolga,231,held_item,1,Focus Sash,48.5%,,,,,,,,
 Emolga,231,held_item,2,Rocky Helmet,7.9%,,,,,,,,
 Emolga,231,held_item,3,Sitrus Berry,5.5%,,,,,,,,
 Emolga,231,held_item,4,Bright Powder,4.1%,,,,,,,,
@@ -30,7 +30,7 @@ Emolga,231,teammate,8,Lucario,,,,,,,,,
 Emolga,231,teammate,9,Meowscarada,,,,,,,,,
 Emolga,231,teammate,10,Pelipper,,,,,,,,,
 Emolga,231,stat_alignment,1,Timid,47.6%,Speed,Attack,,,,,,
-Emolga,231,stat_alignment,2,Jolly,16.5%,Speed,Sp. Atk,,,,,,
+Emolga,231,stat_alignment,2,Jolly,16.6%,Speed,Sp. Atk,,,,,,
 Emolga,231,stat_alignment,3,Modest,15.3%,Sp. Atk,Attack,,,,,,
 Emolga,231,stat_alignment,4,Bold,5.8%,Defense,Attack,,,,,,
 Emolga,231,stat_alignment,5,Adamant,4.9%,Attack,Sp. Atk,,,,,,
@@ -40,7 +40,7 @@ Emolga,231,stat_alignment,8,Hasty,2.0%,Speed,Defense,,,,,,
 Emolga,231,stat_alignment,9,Naughty,1.0%,Attack,Sp. Def,,,,,,
 Emolga,231,stat_alignment,10,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
 Emolga,231,stat_points,1,,29.9%,,,2,0,0,32,0,32
-Emolga,231,stat_points,2,,8.2%,,,32,0,1,0,1,32
+Emolga,231,stat_points,2,,8.1%,,,32,0,1,0,1,32
 Emolga,231,stat_points,3,,8.1%,,,0,0,2,32,0,32
 Emolga,231,stat_points,4,,7.4%,,,2,32,0,0,0,32
 Emolga,231,stat_points,5,,5.4%,,,32,0,2,0,0,32
@@ -49,5 +49,5 @@ Emolga,231,stat_points,7,,3.2%,,,32,0,32,0,2,0
 Emolga,231,stat_points,8,,2.3%,,,32,2,0,0,0,32
 Emolga,231,stat_points,9,,2.0%,,,0,32,2,0,0,32
 Emolga,231,stat_points,10,,1.7%,,,32,0,0,0,2,32
-Emolga,231,ability,1,Motor Drive,75.8%,,,,,,,,
-Emolga,231,ability,2,Static,24.2%,,,,,,,,
+Emolga,231,ability,1,Motor Drive,75.7%,,,,,,,,
+Emolga,231,ability,2,Static,24.3%,,,,,,,,

@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Flapple,236,move,1,Grav Apple,99.1%,,,,,,,,
 Flapple,236,move,2,Dragon Rush,69.2%,,,,,,,,
-Flapple,236,move,3,Protect,68.1%,,,,,,,,
+Flapple,236,move,3,Protect,68.0%,,,,,,,,
 Flapple,236,move,4,Sucker Punch,45.3%,,,,,,,,
 Flapple,236,move,5,U-turn,29.5%,,,,,,,,
-Flapple,236,move,6,Dual Wingbeat,22.9%,,,,,,,,
+Flapple,236,move,6,Dual Wingbeat,22.8%,,,,,,,,
 Flapple,236,move,7,Outrage,15.6%,,,,,,,,
 Flapple,236,move,8,Dragon Dance,12.2%,,,,,,,,
 Flapple,236,move,9,Grassy Glide,10.2%,,,,,,,,
@@ -29,9 +29,9 @@ Flapple,236,teammate,7,Indeedee-F,,,,,,,,,
 Flapple,236,teammate,8,Delphox,,,,,,,,,
 Flapple,236,teammate,9,Incineroar,,,,,,,,,
 Flapple,236,teammate,10,Garchomp,,,,,,,,,
-Flapple,236,stat_alignment,1,Adamant,37.3%,Attack,Sp. Atk,,,,,,
+Flapple,236,stat_alignment,1,Adamant,37.4%,Attack,Sp. Atk,,,,,,
 Flapple,236,stat_alignment,2,Jolly,29.9%,Speed,Sp. Atk,,,,,,
-Flapple,236,stat_alignment,3,Brave,21.7%,Attack,Speed,,,,,,
+Flapple,236,stat_alignment,3,Brave,21.6%,Attack,Speed,,,,,,
 Flapple,236,stat_alignment,4,Relaxed,3.8%,Defense,Speed,,,,,,
 Flapple,236,stat_alignment,5,Naughty,1.8%,Attack,Sp. Def,,,,,,
 Flapple,236,stat_alignment,6,Lonely,1.4%,Attack,Defense,,,,,,
@@ -40,7 +40,7 @@ Flapple,236,stat_alignment,8,Hasty,0.9%,Speed,Defense,,,,,,
 Flapple,236,stat_alignment,9,Impish,0.7%,Defense,Sp. Atk,,,,,,
 Flapple,236,stat_alignment,10,Naive,0.5%,Speed,Sp. Def,,,,,,
 Flapple,236,stat_points,1,,36.1%,,,2,32,0,0,0,32
-Flapple,236,stat_points,2,,13.5%,,,32,32,0,0,2,0
+Flapple,236,stat_points,2,,13.4%,,,32,32,0,0,2,0
 Flapple,236,stat_points,3,,6.3%,,,0,32,0,0,2,32
 Flapple,236,stat_points,4,,6.2%,,,32,32,2,0,0,0
 Flapple,236,stat_points,5,,4.7%,,,0,32,2,0,0,32
@@ -50,5 +50,5 @@ Flapple,236,stat_points,8,,1.8%,,,0,32,0,0,0,32
 Flapple,236,stat_points,9,,1.7%,,,8,32,0,0,0,26
 Flapple,236,stat_points,10,,1.5%,,,2,32,32,0,0,0
 Flapple,236,ability,1,Hustle,89.7%,,,,,,,,
-Flapple,236,ability,2,Ripen,9.4%,,,,,,,,
+Flapple,236,ability,2,Ripen,9.5%,,,,,,,,
 Flapple,236,ability,3,Gluttony,0.8%,,,,,,,,

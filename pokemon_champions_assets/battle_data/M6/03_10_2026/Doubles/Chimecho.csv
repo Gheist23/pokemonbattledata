@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Chimecho,209,move,1,Flash Cannon,52.6%,,,,,,,,
-Chimecho,209,move,2,Trick Room,36.9%,,,,,,,,
-Chimecho,209,move,3,Recover,36.9%,,,,,,,,
-Chimecho,209,move,4,Protect,34.8%,,,,,,,,
+Chimecho,209,move,2,Recover,36.9%,,,,,,,,
+Chimecho,209,move,3,Trick Room,36.9%,,,,,,,,
+Chimecho,209,move,4,Protect,34.9%,,,,,,,,
 Chimecho,209,move,5,Psychic,33.7%,,,,,,,,
 Chimecho,209,move,6,Cosmic Power,28.0%,,,,,,,,
 Chimecho,209,move,7,Stored Power,26.3%,,,,,,,,
@@ -32,7 +32,7 @@ Chimecho,209,teammate,10,Sableye,,,,,,,,,
 Chimecho,209,stat_alignment,1,Quiet,28.2%,Sp. Atk,Speed,,,,,,
 Chimecho,209,stat_alignment,2,Modest,23.2%,Sp. Atk,Attack,,,,,,
 Chimecho,209,stat_alignment,3,Bold,18.0%,Defense,Attack,,,,,,
-Chimecho,209,stat_alignment,4,Calm,10.0%,Sp. Def,Attack,,,,,,
+Chimecho,209,stat_alignment,4,Calm,9.9%,Sp. Def,Attack,,,,,,
 Chimecho,209,stat_alignment,5,Relaxed,9.6%,Defense,Speed,,,,,,
 Chimecho,209,stat_alignment,6,Sassy,6.4%,Sp. Def,Speed,,,,,,
 Chimecho,209,stat_alignment,7,Timid,3.7%,Speed,Attack,,,,,,
@@ -40,7 +40,7 @@ Chimecho,209,stat_alignment,8,Mild,0.7%,Sp. Atk,Defense,,,,,,
 Chimecho,209,stat_alignment,9,Quirky,0.1%,,,,,,,,
 Chimecho,209,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
 Chimecho,209,stat_points,1,,18.6%,,,32,0,2,32,0,0
-Chimecho,209,stat_points,2,,5.9%,,,32,0,32,0,2,0
+Chimecho,209,stat_points,2,,5.8%,,,32,0,32,0,2,0
 Chimecho,209,stat_points,3,,4.6%,,,32,0,0,32,2,0
 Chimecho,209,stat_points,4,,4.3%,,,2,0,32,0,32,0
 Chimecho,209,stat_points,5,,2.3%,,,2,0,32,32,0,0

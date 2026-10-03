@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Vaporeon,167,move,1,Scald,54.8%,,,,,,,,
-Vaporeon,167,move,2,Ice Beam,51.7%,,,,,,,,
+Vaporeon,167,move,2,Ice Beam,51.6%,,,,,,,,
 Vaporeon,167,move,3,Calm Mind,46.9%,,,,,,,,
 Vaporeon,167,move,4,Protect,37.0%,,,,,,,,
-Vaporeon,167,move,5,Acid Armor,25.4%,,,,,,,,
-Vaporeon,167,move,6,Muddy Water,25.4%,,,,,,,,
+Vaporeon,167,move,5,Muddy Water,25.4%,,,,,,,,
+Vaporeon,167,move,6,Acid Armor,25.4%,,,,,,,,
 Vaporeon,167,move,7,Detect,21.7%,,,,,,,,
 Vaporeon,167,move,8,Surf,17.1%,,,,,,,,
 Vaporeon,167,move,9,Baton Pass,14.3%,,,,,,,,
@@ -26,8 +26,8 @@ Vaporeon,167,teammate,4,Garchomp,,,,,,,,,
 Vaporeon,167,teammate,5,Pelipper,,,,,,,,,
 Vaporeon,167,teammate,6,Sableye,,,,,,,,,
 Vaporeon,167,teammate,7,Jolteon,,,,,,,,,
-Vaporeon,167,teammate,8,Umbreon,,,,,,,,,
-Vaporeon,167,teammate,9,Raichu,,,,,,,,,
+Vaporeon,167,teammate,8,Raichu,,,,,,,,,
+Vaporeon,167,teammate,9,Umbreon,,,,,,,,,
 Vaporeon,167,teammate,10,Politoed,,,,,,,,,
 Vaporeon,167,stat_alignment,1,Bold,34.2%,Defense,Attack,,,,,,
 Vaporeon,167,stat_alignment,2,Modest,29.3%,Sp. Atk,Attack,,,,,,
@@ -43,7 +43,7 @@ Vaporeon,167,stat_points,1,,10.9%,,,32,0,32,0,2,0
 Vaporeon,167,stat_points,2,,5.7%,,,32,0,2,32,0,0
 Vaporeon,167,stat_points,3,,5.4%,,,32,0,0,32,2,0
 Vaporeon,167,stat_points,4,,4.6%,,,19,0,30,0,17,0
-Vaporeon,167,stat_points,5,,4.1%,,,2,0,32,32,0,0
+Vaporeon,167,stat_points,5,,4.2%,,,2,0,32,32,0,0
 Vaporeon,167,stat_points,6,,3.7%,,,2,0,32,0,32,0
 Vaporeon,167,stat_points,7,,3.4%,,,19,0,17,10,11,9
 Vaporeon,167,stat_points,8,,2.1%,,,32,0,2,0,32,0

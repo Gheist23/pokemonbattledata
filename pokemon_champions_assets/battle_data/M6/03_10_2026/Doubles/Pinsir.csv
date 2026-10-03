@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pinsir,227,move,1,Body Slam,56.0%,,,,,,,,
 Pinsir,227,move,2,Feint,55.9%,,,,,,,,
-Pinsir,227,move,3,Storm Throw,48.4%,,,,,,,,
+Pinsir,227,move,3,Storm Throw,48.5%,,,,,,,,
 Pinsir,227,move,4,Detect,40.0%,,,,,,,,
 Pinsir,227,move,5,Protect,37.7%,,,,,,,,
 Pinsir,227,move,6,Lunge,29.1%,,,,,,,,
@@ -13,7 +13,7 @@ Pinsir,227,held_item,1,Pinsirite,86.0%,,,,,,,,
 Pinsir,227,held_item,2,Expert Belt,1.9%,,,,,,,,
 Pinsir,227,held_item,3,Quick Claw,1.7%,,,,,,,,
 Pinsir,227,held_item,4,Life Orb,1.7%,,,,,,,,
-Pinsir,227,held_item,5,Choice Scarf,1.5%,,,,,,,,
+Pinsir,227,held_item,5,Choice Scarf,1.6%,,,,,,,,
 Pinsir,227,held_item,6,Silver Powder,1.0%,,,,,,,,
 Pinsir,227,held_item,7,Metronome,0.8%,,,,,,,,
 Pinsir,227,held_item,8,Occa Berry,0.7%,,,,,,,,
@@ -37,15 +37,15 @@ Pinsir,227,stat_alignment,5,Impish,1.5%,Defense,Sp. Atk,,,,,,
 Pinsir,227,stat_alignment,6,Serious,1.4%,,,,,,,,
 Pinsir,227,stat_alignment,7,Lonely,1.0%,Attack,Defense,,,,,,
 Pinsir,227,stat_alignment,8,Naughty,1.0%,Attack,Sp. Def,,,,,,
-Pinsir,227,stat_alignment,9,Sassy,1.0%,Sp. Def,Speed,,,,,,
+Pinsir,227,stat_alignment,9,Sassy,0.9%,Sp. Def,Speed,,,,,,
 Pinsir,227,stat_alignment,10,Lax,0.5%,Defense,Sp. Def,,,,,,
 Pinsir,227,stat_points,1,,27.3%,,,2,32,0,0,0,32
 Pinsir,227,stat_points,2,,10.2%,,,32,0,2,0,0,32
 Pinsir,227,stat_points,3,,7.3%,,,0,32,0,0,2,32
 Pinsir,227,stat_points,4,,5.0%,,,1,32,1,0,0,32
 Pinsir,227,stat_points,5,,4.9%,,,0,32,2,0,0,32
-Pinsir,227,stat_points,6,,2.7%,,,0,32,0,0,0,32
-Pinsir,227,stat_points,7,,2.7%,,,2,32,0,0,32,0
+Pinsir,227,stat_points,6,,2.7%,,,2,32,0,0,32,0
+Pinsir,227,stat_points,7,,2.7%,,,0,32,0,0,0,32
 Pinsir,227,stat_points,8,,2.3%,,,13,0,21,0,0,32
 Pinsir,227,stat_points,9,,2.0%,,,32,32,0,0,0,2
 Pinsir,227,stat_points,10,,1.9%,,,32,32,0,0,2,0

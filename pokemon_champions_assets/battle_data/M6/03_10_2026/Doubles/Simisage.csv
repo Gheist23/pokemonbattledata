@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Simisage,260,move,1,Fake Out,61.5%,,,,,,,,
-Simisage,260,move,2,Leaf Storm,37.9%,,,,,,,,
+Simisage,260,move,2,Leaf Storm,37.8%,,,,,,,,
 Simisage,260,move,3,Rock Slide,34.0%,,,,,,,,
-Simisage,260,move,4,Gunk Shot,30.8%,,,,,,,,
+Simisage,260,move,4,Gunk Shot,30.9%,,,,,,,,
 Simisage,260,move,5,Solar Beam,23.4%,,,,,,,,
-Simisage,260,move,6,Protect,20.9%,,,,,,,,
+Simisage,260,move,6,Protect,20.8%,,,,,,,,
 Simisage,260,move,7,Leech Seed,19.8%,,,,,,,,
 Simisage,260,move,8,Helping Hand,19.5%,,,,,,,,
 Simisage,260,move,9,Seed Bomb,17.9%,,,,,,,,
@@ -35,7 +35,7 @@ Simisage,260,stat_alignment,3,Adamant,17.1%,Attack,Sp. Atk,,,,,,
 Simisage,260,stat_alignment,4,Modest,7.5%,Sp. Atk,Attack,,,,,,
 Simisage,260,stat_alignment,5,Mild,5.4%,Sp. Atk,Defense,,,,,,
 Simisage,260,stat_alignment,6,Calm,4.7%,Sp. Def,Attack,,,,,,
-Simisage,260,stat_alignment,7,Impish,4.3%,Defense,Sp. Atk,,,,,,
+Simisage,260,stat_alignment,7,Impish,4.2%,Defense,Sp. Atk,,,,,,
 Simisage,260,stat_alignment,8,Naive,2.8%,Speed,Sp. Def,,,,,,
 Simisage,260,stat_alignment,9,Hasty,2.5%,Speed,Defense,,,,,,
 Simisage,260,stat_alignment,10,Bold,1.0%,Defense,Attack,,,,,,
@@ -48,6 +48,6 @@ Simisage,260,stat_points,6,,3.9%,,,0,0,0,0,0,0
 Simisage,260,stat_points,7,,3.1%,,,2,0,32,0,32,0
 Simisage,260,stat_points,8,,3.1%,,,32,0,17,0,16,1
 Simisage,260,stat_points,9,,2.2%,,,0,32,0,0,7,27
-Simisage,260,stat_points,10,,2.0%,,,0,32,0,0,2,32
+Simisage,260,stat_points,10,,2.0%,,,0,0,17,0,17,32
 Simisage,260,ability,1,Overgrow,80.7%,,,,,,,,
 Simisage,260,ability,2,Gluttony,19.3%,,,,,,,,

@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Slurpuff,212,move,1,Dazzling Gleam,73.0%,,,,,,,,
-Slurpuff,212,move,2,After You,53.6%,,,,,,,,
-Slurpuff,212,move,3,Flamethrower,42.9%,,,,,,,,
+Slurpuff,212,move,2,After You,53.5%,,,,,,,,
+Slurpuff,212,move,3,Flamethrower,43.0%,,,,,,,,
 Slurpuff,212,move,4,Protect,32.0%,,,,,,,,
 Slurpuff,212,move,5,Thunderbolt,25.8%,,,,,,,,
 Slurpuff,212,move,6,Cotton Guard,18.0%,,,,,,,,
@@ -31,17 +31,17 @@ Slurpuff,212,teammate,9,Incineroar,,,,,,,,,
 Slurpuff,212,teammate,10,Salamence,,,,,,,,,
 Slurpuff,212,stat_alignment,1,Modest,49.0%,Sp. Atk,Attack,,,,,,
 Slurpuff,212,stat_alignment,2,Timid,21.8%,Speed,Attack,,,,,,
-Slurpuff,212,stat_alignment,3,Calm,10.4%,Sp. Def,Attack,,,,,,
+Slurpuff,212,stat_alignment,3,Calm,10.5%,Sp. Def,Attack,,,,,,
 Slurpuff,212,stat_alignment,4,Bold,9.9%,Defense,Attack,,,,,,
 Slurpuff,212,stat_alignment,5,Adamant,2.6%,Attack,Sp. Atk,,,,,,
 Slurpuff,212,stat_alignment,6,Jolly,1.9%,Speed,Sp. Atk,,,,,,
-Slurpuff,212,stat_alignment,7,Impish,1.0%,Defense,Sp. Atk,,,,,,
-Slurpuff,212,stat_alignment,8,Quiet,1.0%,Sp. Atk,Speed,,,,,,
+Slurpuff,212,stat_alignment,7,Quiet,1.1%,Sp. Atk,Speed,,,,,,
+Slurpuff,212,stat_alignment,8,Impish,1.0%,Defense,Sp. Atk,,,,,,
 Slurpuff,212,stat_alignment,9,Sassy,0.4%,Sp. Def,Speed,,,,,,
 Slurpuff,212,stat_alignment,10,Mild,0.4%,Sp. Atk,Defense,,,,,,
 Slurpuff,212,stat_points,1,,20.6%,,,0,0,0,32,2,32
 Slurpuff,212,stat_points,2,,7.7%,,,32,0,0,0,2,32
-Slurpuff,212,stat_points,3,,5.8%,,,2,0,0,32,0,32
+Slurpuff,212,stat_points,3,,5.9%,,,2,0,0,32,0,32
 Slurpuff,212,stat_points,4,,4.9%,,,32,0,2,32,0,0
 Slurpuff,212,stat_points,5,,3.3%,,,32,0,2,0,0,32
 Slurpuff,212,stat_points,6,,2.6%,,,2,0,4,32,15,13

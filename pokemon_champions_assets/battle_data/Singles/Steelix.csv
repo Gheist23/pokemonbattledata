@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Steelix,169,move,1,Earthquake,71.6%,,,,,,,,
-Steelix,169,move,2,Body Press,65.0%,,,,,,,,
-Steelix,169,move,3,Heavy Slam,39.0%,,,,,,,,
+Steelix,169,move,2,Body Press,65.1%,,,,,,,,
+Steelix,169,move,3,Heavy Slam,39.1%,,,,,,,,
 Steelix,169,move,4,Stealth Rock,37.5%,,,,,,,,
 Steelix,169,move,5,Iron Defense,30.2%,,,,,,,,
 Steelix,169,move,6,Dragon Tail,16.7%,,,,,,,,
-Steelix,169,move,7,Ice Fang,13.5%,,,,,,,,
+Steelix,169,move,7,Ice Fang,13.6%,,,,,,,,
 Steelix,169,move,8,Gyro Ball,11.8%,,,,,,,,
 Steelix,169,move,9,Fissure,10.1%,,,,,,,,
 Steelix,169,move,10,Rest,9.3%,,,,,,,,
@@ -14,7 +14,7 @@ Steelix,169,held_item,2,Leftovers,15.1%,,,,,,,,
 Steelix,169,held_item,3,Rocky Helmet,13.4%,,,,,,,,
 Steelix,169,held_item,4,Sitrus Berry,8.1%,,,,,,,,
 Steelix,169,held_item,5,Life Orb,7.5%,,,,,,,,
-Steelix,169,held_item,6,Quick Claw,7.0%,,,,,,,,
+Steelix,169,held_item,6,Quick Claw,6.9%,,,,,,,,
 Steelix,169,held_item,7,Chesto Berry,3.0%,,,,,,,,
 Steelix,169,held_item,8,Red Card,2.1%,,,,,,,,
 Steelix,169,held_item,9,Air Balloon,1.1%,,,,,,,,
@@ -29,8 +29,8 @@ Steelix,169,teammate,7,Azumarill,,,,,,,,,
 Steelix,169,teammate,8,Primarina,,,,,,,,,
 Steelix,169,teammate,9,Tyranitar,,,,,,,,,
 Steelix,169,teammate,10,Gyarados,,,,,,,,,
-Steelix,169,stat_alignment,1,Impish,33.1%,Defense,Sp. Atk,,,,,,
-Steelix,169,stat_alignment,2,Adamant,31.0%,Attack,Sp. Atk,,,,,,
+Steelix,169,stat_alignment,1,Impish,33.0%,Defense,Sp. Atk,,,,,,
+Steelix,169,stat_alignment,2,Adamant,31.1%,Attack,Sp. Atk,,,,,,
 Steelix,169,stat_alignment,3,Relaxed,10.1%,Defense,Speed,,,,,,
 Steelix,169,stat_alignment,4,Brave,8.9%,Attack,Speed,,,,,,
 Steelix,169,stat_alignment,5,Careful,8.7%,Sp. Def,Sp. Atk,,,,,,
@@ -44,7 +44,7 @@ Steelix,169,stat_points,2,,12.7%,,,32,32,0,0,0,2
 Steelix,169,stat_points,3,,6.5%,,,32,2,32,0,0,0
 Steelix,169,stat_points,4,,6.3%,,,32,32,0,0,2,0
 Steelix,169,stat_points,5,,6.2%,,,32,32,2,0,0,0
-Steelix,169,stat_points,6,,4.6%,,,32,0,2,0,32,0
+Steelix,169,stat_points,6,,4.7%,,,32,0,2,0,32,0
 Steelix,169,stat_points,7,,4.2%,,,2,32,32,0,0,0
 Steelix,169,stat_points,8,,2.9%,,,31,32,3,0,0,0
 Steelix,169,stat_points,9,,2.7%,,,32,0,32,0,0,2

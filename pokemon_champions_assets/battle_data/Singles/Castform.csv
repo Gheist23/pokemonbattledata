@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Castform,252,move,1,Weather Ball,87.9%,,,,,,,,
-Castform,252,move,2,Thunder,53.8%,,,,,,,,
+Castform,252,move,2,Thunder,53.7%,,,,,,,,
 Castform,252,move,3,Shadow Ball,42.5%,,,,,,,,
-Castform,252,move,4,Future Sight,35.6%,,,,,,,,
+Castform,252,move,4,Future Sight,35.5%,,,,,,,,
 Castform,252,move,5,Ice Beam,21.6%,,,,,,,,
-Castform,252,move,6,Scald,21.0%,,,,,,,,
+Castform,252,move,6,Scald,20.9%,,,,,,,,
 Castform,252,move,7,Thunderbolt,18.0%,,,,,,,,
 Castform,252,move,8,Flamethrower,17.3%,,,,,,,,
 Castform,252,move,9,Thunder Wave,14.9%,,,,,,,,
 Castform,252,move,10,Rain Dance,12.6%,,,,,,,,
-Castform,252,held_item,1,Kangaskhanite,33.7%,,,,,,,,
+Castform,252,held_item,1,Kangaskhanite,33.6%,,,,,,,,
 Castform,252,held_item,2,Focus Sash,21.4%,,,,,,,,
 Castform,252,held_item,3,Choice Scarf,14.2%,,,,,,,,
 Castform,252,held_item,4,Quick Claw,7.4%,,,,,,,,
@@ -29,7 +29,7 @@ Castform,252,teammate,7,Basculegion,,,,,,,,,
 Castform,252,teammate,8,Pelipper,,,,,,,,,
 Castform,252,teammate,9,Meowscarada,,,,,,,,,
 Castform,252,teammate,10,Kangaskhan,,,,,,,,,
-Castform,252,stat_alignment,1,Modest,63.9%,Sp. Atk,Attack,,,,,,
+Castform,252,stat_alignment,1,Modest,63.8%,Sp. Atk,Attack,,,,,,
 Castform,252,stat_alignment,2,Timid,27.3%,Speed,Attack,,,,,,
 Castform,252,stat_alignment,3,Bold,3.1%,Defense,Attack,,,,,,
 Castform,252,stat_alignment,4,Calm,0.9%,Sp. Def,Attack,,,,,,
@@ -48,5 +48,5 @@ Castform,252,stat_points,6,,3.8%,,,32,0,2,32,0,0
 Castform,252,stat_points,7,,2.3%,,,0,0,0,32,0,32
 Castform,252,stat_points,8,,1.8%,,,32,0,32,0,2,0
 Castform,252,stat_points,9,,0.9%,,,32,0,1,32,1,0
-Castform,252,stat_points,10,,0.8%,,,32,0,0,2,0,32
+Castform,252,stat_points,10,,0.8%,,,0,0,32,32,2,0
 Castform,252,ability,1,Forecast,100.0%,,,,,,,,

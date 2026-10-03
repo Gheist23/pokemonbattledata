@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Tyrantrum,220,move,1,Head Smash,80.9%,,,,,,,,
 Tyrantrum,220,move,2,Earthquake,46.5%,,,,,,,,
-Tyrantrum,220,move,3,Outrage,41.0%,,,,,,,,
+Tyrantrum,220,move,3,Outrage,40.9%,,,,,,,,
 Tyrantrum,220,move,4,Ice Fang,30.1%,,,,,,,,
 Tyrantrum,220,move,5,Dragon Dance,28.6%,,,,,,,,
 Tyrantrum,220,move,6,Close Combat,23.9%,,,,,,,,
 Tyrantrum,220,move,7,Fire Fang,19.8%,,,,,,,,
 Tyrantrum,220,move,8,Psychic Fangs,17.6%,,,,,,,,
-Tyrantrum,220,move,9,Crunch,13.4%,,,,,,,,
+Tyrantrum,220,move,9,Crunch,13.3%,,,,,,,,
 Tyrantrum,220,move,10,Thunder Fang,12.9%,,,,,,,,
 Tyrantrum,220,held_item,1,Choice Scarf,34.1%,,,,,,,,
 Tyrantrum,220,held_item,2,Focus Sash,20.0%,,,,,,,,
@@ -29,7 +29,7 @@ Tyrantrum,220,teammate,7,Archaludon,,,,,,,,,
 Tyrantrum,220,teammate,8,Lucario,,,,,,,,,
 Tyrantrum,220,teammate,9,Primarina,,,,,,,,,
 Tyrantrum,220,teammate,10,Greninja,,,,,,,,,
-Tyrantrum,220,stat_alignment,1,Adamant,45.2%,Attack,Sp. Atk,,,,,,
+Tyrantrum,220,stat_alignment,1,Adamant,45.1%,Attack,Sp. Atk,,,,,,
 Tyrantrum,220,stat_alignment,2,Jolly,38.8%,Speed,Sp. Atk,,,,,,
 Tyrantrum,220,stat_alignment,3,Brave,4.9%,Attack,Speed,,,,,,
 Tyrantrum,220,stat_alignment,4,Impish,3.2%,Defense,Sp. Atk,,,,,,
@@ -39,7 +39,7 @@ Tyrantrum,220,stat_alignment,7,Careful,1.2%,Sp. Def,Sp. Atk,,,,,,
 Tyrantrum,220,stat_alignment,8,Relaxed,1.1%,Defense,Speed,,,,,,
 Tyrantrum,220,stat_alignment,9,Naive,0.7%,Speed,Sp. Def,,,,,,
 Tyrantrum,220,stat_alignment,10,Hasty,0.4%,Speed,Defense,,,,,,
-Tyrantrum,220,stat_points,1,,41.6%,,,2,32,0,0,0,32
+Tyrantrum,220,stat_points,1,,41.7%,,,2,32,0,0,0,32
 Tyrantrum,220,stat_points,2,,9.3%,,,0,32,2,0,0,32
 Tyrantrum,220,stat_points,3,,5.5%,,,2,32,32,0,0,0
 Tyrantrum,220,stat_points,4,,4.4%,,,0,32,0,0,2,32

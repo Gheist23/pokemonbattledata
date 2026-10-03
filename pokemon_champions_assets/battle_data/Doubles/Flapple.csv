@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Flapple,236,move,1,Grav Apple,99.1%,,,,,,,,
 Flapple,236,move,2,Dragon Rush,69.2%,,,,,,,,
-Flapple,236,move,3,Protect,67.9%,,,,,,,,
+Flapple,236,move,3,Protect,68.0%,,,,,,,,
 Flapple,236,move,4,Sucker Punch,45.4%,,,,,,,,
 Flapple,236,move,5,U-turn,29.5%,,,,,,,,
 Flapple,236,move,6,Dual Wingbeat,23.0%,,,,,,,,
 Flapple,236,move,7,Outrage,15.7%,,,,,,,,
-Flapple,236,move,8,Dragon Dance,12.1%,,,,,,,,
+Flapple,236,move,8,Dragon Dance,12.2%,,,,,,,,
 Flapple,236,move,9,Grassy Glide,10.2%,,,,,,,,
 Flapple,236,move,10,Aerial Ace,4.3%,,,,,,,,
 Flapple,236,held_item,1,Focus Sash,26.0%,,,,,,,,
@@ -29,10 +29,10 @@ Flapple,236,teammate,7,Indeedee-F,,,,,,,,,
 Flapple,236,teammate,8,Delphox,,,,,,,,,
 Flapple,236,teammate,9,Incineroar,,,,,,,,,
 Flapple,236,teammate,10,Hydrapple,,,,,,,,,
-Flapple,236,stat_alignment,1,Adamant,36.9%,Attack,Sp. Atk,,,,,,
-Flapple,236,stat_alignment,2,Jolly,30.1%,Speed,Sp. Atk,,,,,,
+Flapple,236,stat_alignment,1,Adamant,37.0%,Attack,Sp. Atk,,,,,,
+Flapple,236,stat_alignment,2,Jolly,30.0%,Speed,Sp. Atk,,,,,,
 Flapple,236,stat_alignment,3,Brave,21.9%,Attack,Speed,,,,,,
-Flapple,236,stat_alignment,4,Relaxed,3.9%,Defense,Speed,,,,,,
+Flapple,236,stat_alignment,4,Relaxed,3.8%,Defense,Speed,,,,,,
 Flapple,236,stat_alignment,5,Naughty,1.7%,Attack,Sp. Def,,,,,,
 Flapple,236,stat_alignment,6,Lonely,1.4%,Attack,Defense,,,,,,
 Flapple,236,stat_alignment,7,Careful,1.2%,Sp. Def,Sp. Atk,,,,,,
@@ -46,7 +46,7 @@ Flapple,236,stat_points,4,,6.1%,,,0,32,0,0,2,32
 Flapple,236,stat_points,5,,4.8%,,,0,32,2,0,0,32
 Flapple,236,stat_points,6,,3.3%,,,32,32,0,0,0,2
 Flapple,236,stat_points,7,,3.1%,,,14,27,23,0,2,0
-Flapple,236,stat_points,8,,1.9%,,,0,32,0,0,0,32
+Flapple,236,stat_points,8,,1.8%,,,0,32,0,0,0,32
 Flapple,236,stat_points,9,,1.8%,,,8,32,0,0,0,26
 Flapple,236,stat_points,10,,1.5%,,,0,32,2,0,32,0
 Flapple,236,ability,1,Hustle,89.6%,,,,,,,,

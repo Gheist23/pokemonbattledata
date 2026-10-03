@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pinsir,227,move,1,Body Slam,56.0%,,,,,,,,
-Pinsir,227,move,2,Feint,55.9%,,,,,,,,
+Pinsir,227,move,2,Feint,55.8%,,,,,,,,
 Pinsir,227,move,3,Storm Throw,48.5%,,,,,,,,
 Pinsir,227,move,4,Detect,39.7%,,,,,,,,
 Pinsir,227,move,5,Protect,37.9%,,,,,,,,
 Pinsir,227,move,6,Lunge,29.2%,,,,,,,,
-Pinsir,227,move,7,Close Combat,19.1%,,,,,,,,
+Pinsir,227,move,7,Close Combat,19.2%,,,,,,,,
 Pinsir,227,move,8,Quick Attack,15.8%,,,,,,,,
 Pinsir,227,move,9,X-Scissor,15.4%,,,,,,,,
 Pinsir,227,move,10,Rock Slide,13.6%,,,,,,,,
@@ -40,7 +40,7 @@ Pinsir,227,stat_alignment,8,Naughty,1.0%,Attack,Sp. Def,,,,,,
 Pinsir,227,stat_alignment,9,Sassy,1.0%,Sp. Def,Speed,,,,,,
 Pinsir,227,stat_alignment,10,Lax,0.6%,Defense,Sp. Def,,,,,,
 Pinsir,227,stat_points,1,,27.2%,,,2,32,0,0,0,32
-Pinsir,227,stat_points,2,,10.4%,,,32,0,2,0,0,32
+Pinsir,227,stat_points,2,,10.3%,,,32,0,2,0,0,32
 Pinsir,227,stat_points,3,,7.2%,,,0,32,0,0,2,32
 Pinsir,227,stat_points,4,,5.0%,,,1,32,1,0,0,32
 Pinsir,227,stat_points,5,,4.9%,,,0,32,2,0,0,32
@@ -50,5 +50,5 @@ Pinsir,227,stat_points,8,,2.3%,,,13,0,21,0,0,32
 Pinsir,227,stat_points,9,,2.0%,,,32,32,0,0,0,2
 Pinsir,227,stat_points,10,,1.9%,,,32,32,0,0,2,0
 Pinsir,227,ability,1,Hyper Cutter,70.0%,,,,,,,,
-Pinsir,227,ability,2,Moxie,17.5%,,,,,,,,
+Pinsir,227,ability,2,Moxie,17.6%,,,,,,,,
 Pinsir,227,ability,3,Mold Breaker,12.4%,,,,,,,,

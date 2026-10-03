@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Torterra,170,move,1,Wood Hammer,69.4%,,,,,,,,
-Torterra,170,move,2,Headlong Rush,66.4%,,,,,,,,
-Torterra,170,move,3,Wide Guard,57.5%,,,,,,,,
+Torterra,170,move,2,Headlong Rush,66.3%,,,,,,,,
+Torterra,170,move,3,Wide Guard,57.4%,,,,,,,,
 Torterra,170,move,4,Earthquake,41.9%,,,,,,,,
 Torterra,170,move,5,Protect,29.9%,,,,,,,,
 Torterra,170,move,6,Rock Slide,26.1%,,,,,,,,
@@ -29,7 +29,7 @@ Torterra,170,teammate,7,Farigiraf,,,,,,,,,
 Torterra,170,teammate,8,Incineroar,,,,,,,,,
 Torterra,170,teammate,9,Rillaboom,,,,,,,,,
 Torterra,170,teammate,10,Golisopod,,,,,,,,,
-Torterra,170,stat_alignment,1,Adamant,59.4%,Attack,Sp. Atk,,,,,,
+Torterra,170,stat_alignment,1,Adamant,59.3%,Attack,Sp. Atk,,,,,,
 Torterra,170,stat_alignment,2,Brave,14.5%,Attack,Speed,,,,,,
 Torterra,170,stat_alignment,3,Jolly,7.3%,Speed,Sp. Atk,,,,,,
 Torterra,170,stat_alignment,4,Careful,5.5%,Sp. Def,Sp. Atk,,,,,,
@@ -48,6 +48,6 @@ Torterra,170,stat_points,6,,2.1%,,,32,32,0,0,0,2
 Torterra,170,stat_points,7,,1.7%,,,32,0,2,0,32,0
 Torterra,170,stat_points,8,,1.6%,,,0,32,2,0,0,32
 Torterra,170,stat_points,9,,1.6%,,,0,32,2,0,32,0
-Torterra,170,stat_points,10,,1.4%,,,0,32,32,0,2,0
+Torterra,170,stat_points,10,,1.4%,,,2,32,32,0,0,0
 Torterra,170,ability,1,Shell Armor,60.9%,,,,,,,,
 Torterra,170,ability,2,Overgrow,39.1%,,,,,,,,

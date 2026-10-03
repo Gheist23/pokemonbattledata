@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Castform,240,move,1,Weather Ball,86.8%,,,,,,,,
-Castform,240,move,2,Protect,41.9%,,,,,,,,
+Castform,240,move,2,Protect,41.8%,,,,,,,,
 Castform,240,move,3,Thunder,38.2%,,,,,,,,
 Castform,240,move,4,Hurricane,36.7%,,,,,,,,
 Castform,240,move,5,Blizzard,24.3%,,,,,,,,
 Castform,240,move,6,Rain Dance,23.8%,,,,,,,,
-Castform,240,move,7,Ice Beam,18.3%,,,,,,,,
+Castform,240,move,7,Ice Beam,18.2%,,,,,,,,
 Castform,240,move,8,Energy Ball,16.8%,,,,,,,,
-Castform,240,move,9,Thunderbolt,16.6%,,,,,,,,
-Castform,240,move,10,Solar Beam,14.2%,,,,,,,,
+Castform,240,move,9,Thunderbolt,16.5%,,,,,,,,
+Castform,240,move,10,Solar Beam,14.3%,,,,,,,,
 Castform,240,held_item,1,Life Orb,21.0%,,,,,,,,
 Castform,240,held_item,2,Focus Sash,17.3%,,,,,,,,
 Castform,240,held_item,3,Choice Scarf,14.8%,,,,,,,,
@@ -30,7 +30,7 @@ Castform,240,teammate,8,Rillaboom,,,,,,,,,
 Castform,240,teammate,9,Salamence,,,,,,,,,
 Castform,240,teammate,10,Indeedee-F,,,,,,,,,
 Castform,240,stat_alignment,1,Modest,59.0%,Sp. Atk,Attack,,,,,,
-Castform,240,stat_alignment,2,Timid,20.9%,Speed,Attack,,,,,,
+Castform,240,stat_alignment,2,Timid,21.0%,Speed,Attack,,,,,,
 Castform,240,stat_alignment,3,Quiet,10.0%,Sp. Atk,Speed,,,,,,
 Castform,240,stat_alignment,4,Mild,4.3%,Sp. Atk,Defense,,,,,,
 Castform,240,stat_alignment,5,Calm,2.2%,Sp. Def,Attack,,,,,,
@@ -39,10 +39,10 @@ Castform,240,stat_alignment,7,Bold,0.9%,Defense,Attack,,,,,,
 Castform,240,stat_alignment,8,Serious,0.6%,,,,,,,,
 Castform,240,stat_alignment,9,Sassy,0.4%,Sp. Def,Speed,,,,,,
 Castform,240,stat_alignment,10,Brave,0.3%,Attack,Speed,,,,,,
-Castform,240,stat_points,1,,21.0%,,,2,0,0,32,0,32
+Castform,240,stat_points,1,,21.1%,,,2,0,0,32,0,32
 Castform,240,stat_points,2,,13.0%,,,32,0,0,32,2,0
 Castform,240,stat_points,3,,13.0%,,,0,0,2,32,0,32
-Castform,240,stat_points,4,,8.5%,,,32,0,0,32,0,2
+Castform,240,stat_points,4,,8.4%,,,32,0,0,32,0,2
 Castform,240,stat_points,5,,6.2%,,,32,0,1,32,1,0
 Castform,240,stat_points,6,,5.1%,,,32,0,2,32,0,0
 Castform,240,stat_points,7,,3.9%,,,0,0,0,32,2,32

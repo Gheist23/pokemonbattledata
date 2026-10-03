@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Tauros,246,move,1,Iron Head,38.1%,,,,,,,,
 Tauros,246,move,2,Close Combat,34.8%,,,,,,,,
-Tauros,246,move,3,Raging Bull,34.5%,,,,,,,,
-Tauros,246,move,4,Rock Slide,33.0%,,,,,,,,
-Tauros,246,move,5,Earthquake,31.9%,,,,,,,,
-Tauros,246,move,6,Ice Beam,29.9%,,,,,,,,
-Tauros,246,move,7,Throat Chop,22.6%,,,,,,,,
+Tauros,246,move,3,Raging Bull,34.4%,,,,,,,,
+Tauros,246,move,4,Rock Slide,33.1%,,,,,,,,
+Tauros,246,move,5,Earthquake,31.8%,,,,,,,,
+Tauros,246,move,6,Ice Beam,30.0%,,,,,,,,
+Tauros,246,move,7,Throat Chop,22.5%,,,,,,,,
 Tauros,246,move,8,Thunderbolt,22.4%,,,,,,,,
 Tauros,246,move,9,Fire Blast,19.9%,,,,,,,,
 Tauros,246,move,10,Body Slam,19.3%,,,,,,,,
-Tauros,246,held_item,1,Life Orb,63.7%,,,,,,,,
+Tauros,246,held_item,1,Life Orb,63.8%,,,,,,,,
 Tauros,246,held_item,2,Choice Scarf,8.8%,,,,,,,,
 Tauros,246,held_item,3,Focus Sash,4.7%,,,,,,,,
 Tauros,246,held_item,4,Expert Belt,4.0%,,,,,,,,
@@ -31,7 +31,7 @@ Tauros,246,teammate,9,Salamence,,,,,,,,,
 Tauros,246,teammate,10,Archaludon,,,,,,,,,
 Tauros,246,stat_alignment,1,Jolly,35.3%,Speed,Sp. Atk,,,,,,
 Tauros,246,stat_alignment,2,Adamant,21.6%,Attack,Sp. Atk,,,,,,
-Tauros,246,stat_alignment,3,Naive,12.6%,Speed,Sp. Def,,,,,,
+Tauros,246,stat_alignment,3,Naive,12.7%,Speed,Sp. Def,,,,,,
 Tauros,246,stat_alignment,4,Modest,9.3%,Sp. Atk,Attack,,,,,,
 Tauros,246,stat_alignment,5,Timid,7.9%,Speed,Attack,,,,,,
 Tauros,246,stat_alignment,6,Hasty,3.4%,Speed,Defense,,,,,,
@@ -41,7 +41,7 @@ Tauros,246,stat_alignment,9,Impish,1.4%,Defense,Sp. Atk,,,,,,
 Tauros,246,stat_alignment,10,Naughty,0.9%,Attack,Sp. Def,,,,,,
 Tauros,246,stat_points,1,,22.7%,,,2,32,0,0,0,32
 Tauros,246,stat_points,2,,11.9%,,,0,32,2,0,0,32
-Tauros,246,stat_points,3,,8.7%,,,2,0,0,32,0,32
+Tauros,246,stat_points,3,,8.8%,,,2,0,0,32,0,32
 Tauros,246,stat_points,4,,7.9%,,,0,32,0,0,2,32
 Tauros,246,stat_points,5,,4.4%,,,1,32,0,0,1,32
 Tauros,246,stat_points,6,,4.0%,,,0,2,0,32,0,32

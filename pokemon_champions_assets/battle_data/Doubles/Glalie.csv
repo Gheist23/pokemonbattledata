@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Glalie,180,move,1,Protect,88.3%,,,,,,,,
+Glalie,180,move,1,Protect,88.2%,,,,,,,,
 Glalie,180,move,2,Explosion,83.2%,,,,,,,,
 Glalie,180,move,3,Ice Shard,36.4%,,,,,,,,
 Glalie,180,move,4,Body Slam,29.5%,,,,,,,,
 Glalie,180,move,5,Freeze-Dry,19.8%,,,,,,,,
 Glalie,180,move,6,Earthquake,16.6%,,,,,,,,
-Glalie,180,move,7,Sheer Cold,15.0%,,,,,,,,
+Glalie,180,move,7,Sheer Cold,15.1%,,,,,,,,
 Glalie,180,move,8,Taunt,14.7%,,,,,,,,
 Glalie,180,move,9,Ice Spinner,13.7%,,,,,,,,
 Glalie,180,move,10,Steel Roller,9.5%,,,,,,,,
@@ -28,8 +28,8 @@ Glalie,180,teammate,6,Noivern,,,,,,,,,
 Glalie,180,teammate,7,Sylveon,,,,,,,,,
 Glalie,180,teammate,8,Indeedee-F,,,,,,,,,
 Glalie,180,teammate,9,Rillaboom,,,,,,,,,
-Glalie,180,teammate,10,Kingambit,,,,,,,,,
-Glalie,180,stat_alignment,1,Adamant,47.7%,Attack,Sp. Atk,,,,,,
+Glalie,180,teammate,10,Sneasler,,,,,,,,,
+Glalie,180,stat_alignment,1,Adamant,47.6%,Attack,Sp. Atk,,,,,,
 Glalie,180,stat_alignment,2,Jolly,26.8%,Speed,Sp. Atk,,,,,,
 Glalie,180,stat_alignment,3,Modest,7.4%,Sp. Atk,Attack,,,,,,
 Glalie,180,stat_alignment,4,Timid,3.8%,Speed,Attack,,,,,,
@@ -43,7 +43,7 @@ Glalie,180,stat_points,1,,40.5%,,,2,32,0,0,0,32
 Glalie,180,stat_points,2,,10.2%,,,0,32,2,0,0,32
 Glalie,180,stat_points,3,,4.2%,,,0,32,0,0,2,32
 Glalie,180,stat_points,4,,4.0%,,,0,32,0,0,0,32
-Glalie,180,stat_points,5,,2.9%,,,2,0,32,32,0,0
+Glalie,180,stat_points,5,,3.0%,,,2,0,32,32,0,0
 Glalie,180,stat_points,6,,2.4%,,,32,32,2,0,0,0
 Glalie,180,stat_points,7,,2.0%,,,32,32,0,0,0,2
 Glalie,180,stat_points,8,,2.0%,,,2,0,0,32,0,32

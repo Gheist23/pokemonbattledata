@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Noivern,151,move,1,Draco Meteor,91.3%,,,,,,,,
-Noivern,151,move,2,Flamethrower,63.5%,,,,,,,,
+Noivern,151,move,2,Flamethrower,63.4%,,,,,,,,
 Noivern,151,move,3,Air Slash,52.4%,,,,,,,,
 Noivern,151,move,4,U-turn,33.5%,,,,,,,,
 Noivern,151,move,5,Taunt,31.7%,,,,,,,,
@@ -9,10 +9,10 @@ Noivern,151,move,7,Boomburst,22.5%,,,,,,,,
 Noivern,151,move,8,Hurricane,12.9%,,,,,,,,
 Noivern,151,move,9,Heat Wave,9.3%,,,,,,,,
 Noivern,151,move,10,Super Fang,9.2%,,,,,,,,
-Noivern,151,held_item,1,Choice Scarf,36.7%,,,,,,,,
+Noivern,151,held_item,1,Choice Scarf,36.8%,,,,,,,,
 Noivern,151,held_item,2,Life Orb,26.1%,,,,,,,,
 Noivern,151,held_item,3,Focus Sash,14.1%,,,,,,,,
-Noivern,151,held_item,4,White Herb,4.5%,,,,,,,,
+Noivern,151,held_item,4,White Herb,4.4%,,,,,,,,
 Noivern,151,held_item,5,Expert Belt,2.8%,,,,,,,,
 Noivern,151,held_item,6,Red Card,1.6%,,,,,,,,
 Noivern,151,held_item,7,Dragon Fang,1.4%,,,,,,,,
@@ -29,7 +29,7 @@ Noivern,151,teammate,7,Archaludon,,,,,,,,,
 Noivern,151,teammate,8,Hippowdon,,,,,,,,,
 Noivern,151,teammate,9,Baxcalibur,,,,,,,,,
 Noivern,151,teammate,10,Salamence,,,,,,,,,
-Noivern,151,stat_alignment,1,Timid,62.6%,Speed,Attack,,,,,,
+Noivern,151,stat_alignment,1,Timid,62.5%,Speed,Attack,,,,,,
 Noivern,151,stat_alignment,2,Modest,30.5%,Sp. Atk,Attack,,,,,,
 Noivern,151,stat_alignment,3,Mild,2.0%,Sp. Atk,Defense,,,,,,
 Noivern,151,stat_alignment,4,Hasty,1.4%,Speed,Defense,,,,,,
@@ -39,7 +39,7 @@ Noivern,151,stat_alignment,7,Bold,0.5%,Defense,Attack,,,,,,
 Noivern,151,stat_alignment,8,Jolly,0.4%,Speed,Sp. Atk,,,,,,
 Noivern,151,stat_alignment,9,Calm,0.2%,Sp. Def,Attack,,,,,,
 Noivern,151,stat_alignment,10,Quiet,0.2%,Sp. Atk,Speed,,,,,,
-Noivern,151,stat_points,1,,39.7%,,,2,0,0,32,0,32
+Noivern,151,stat_points,1,,39.8%,,,2,0,0,32,0,32
 Noivern,151,stat_points,2,,20.5%,,,1,0,1,32,0,32
 Noivern,151,stat_points,3,,6.8%,,,1,0,0,32,1,32
 Noivern,151,stat_points,4,,6.4%,,,0,0,2,32,0,32

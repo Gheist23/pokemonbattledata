@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Audino,199,move,1,Healing Wish,58.7%,,,,,,,,
+Audino,199,move,1,Healing Wish,58.6%,,,,,,,,
 Audino,199,move,2,Trick Room,57.3%,,,,,,,,
 Audino,199,move,3,Flamethrower,37.7%,,,,,,,,
 Audino,199,move,4,Encore,36.3%,,,,,,,,
 Audino,199,move,5,Yawn,33.3%,,,,,,,,
 Audino,199,move,6,Ice Beam,21.7%,,,,,,,,
-Audino,199,move,7,Wish,19.7%,,,,,,,,
+Audino,199,move,7,Wish,19.6%,,,,,,,,
 Audino,199,move,8,Dazzling Gleam,19.4%,,,,,,,,
 Audino,199,move,9,Draining Kiss,19.1%,,,,,,,,
-Audino,199,move,10,Calm Mind,16.1%,,,,,,,,
-Audino,199,held_item,1,Audinite,42.5%,,,,,,,,
+Audino,199,move,10,Calm Mind,16.2%,,,,,,,,
+Audino,199,held_item,1,Audinite,42.6%,,,,,,,,
 Audino,199,held_item,2,Sitrus Berry,17.3%,,,,,,,,
-Audino,199,held_item,3,Chople Berry,11.4%,,,,,,,,
+Audino,199,held_item,3,Chople Berry,11.3%,,,,,,,,
 Audino,199,held_item,4,Leftovers,7.7%,,,,,,,,
 Audino,199,held_item,5,Rocky Helmet,4.3%,,,,,,,,
 Audino,199,held_item,6,Mental Herb,3.3%,,,,,,,,
@@ -35,7 +35,7 @@ Audino,199,stat_alignment,3,Modest,13.2%,Sp. Atk,Attack,,,,,,
 Audino,199,stat_alignment,4,Calm,6.8%,Sp. Def,Attack,,,,,,
 Audino,199,stat_alignment,5,Impish,4.5%,Defense,Sp. Atk,,,,,,
 Audino,199,stat_alignment,6,Sassy,4.4%,Sp. Def,Speed,,,,,,
-Audino,199,stat_alignment,7,Brave,2.3%,Attack,Speed,,,,,,
+Audino,199,stat_alignment,7,Brave,2.2%,Attack,Speed,,,,,,
 Audino,199,stat_alignment,8,Quiet,1.8%,Sp. Atk,Speed,,,,,,
 Audino,199,stat_alignment,9,Timid,0.6%,Speed,Attack,,,,,,
 Audino,199,stat_alignment,10,Lax,0.4%,Defense,Sp. Def,,,,,,
@@ -46,7 +46,7 @@ Audino,199,stat_points,4,,3.4%,,,32,0,2,0,32,0
 Audino,199,stat_points,5,,3.4%,,,32,0,2,32,0,0
 Audino,199,stat_points,6,,3.3%,,,32,0,24,0,10,0
 Audino,199,stat_points,7,,2.5%,,,32,0,0,32,2,0
-Audino,199,stat_points,8,,2.0%,,,10,0,24,32,0,0
+Audino,199,stat_points,8,,1.9%,,,10,0,24,32,0,0
 Audino,199,stat_points,9,,1.8%,,,32,0,1,32,1,0
 Audino,199,stat_points,10,,1.7%,,,0,0,2,32,32,0
 Audino,199,ability,1,Regenerator,87.1%,,,,,,,,

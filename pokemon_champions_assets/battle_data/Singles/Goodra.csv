@@ -1,5 +1,5 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Goodra,181,move,1,Draco Meteor,47.6%,,,,,,,,
+Goodra,181,move,1,Draco Meteor,47.7%,,,,,,,,
 Goodra,181,move,2,Flamethrower,46.8%,,,,,,,,
 Goodra,181,move,3,Thunderbolt,40.4%,,,,,,,,
 Goodra,181,move,4,Ice Beam,34.8%,,,,,,,,
@@ -8,8 +8,8 @@ Goodra,181,move,6,Dragon Pulse,19.8%,,,,,,,,
 Goodra,181,move,7,Fire Blast,19.1%,,,,,,,,
 Goodra,181,move,8,Giga Drain,17.9%,,,,,,,,
 Goodra,181,move,9,Sludge Wave,17.8%,,,,,,,,
-Goodra,181,move,10,Rest,14.6%,,,,,,,,
-Goodra,181,held_item,1,Leftovers,23.5%,,,,,,,,
+Goodra,181,move,10,Rest,14.7%,,,,,,,,
+Goodra,181,held_item,1,Leftovers,23.4%,,,,,,,,
 Goodra,181,held_item,2,Sitrus Berry,21.6%,,,,,,,,
 Goodra,181,held_item,3,Expert Belt,11.7%,,,,,,,,
 Goodra,181,held_item,4,Life Orb,6.5%,,,,,,,,
@@ -40,7 +40,7 @@ Goodra,181,stat_alignment,8,Adamant,1.1%,Attack,Sp. Atk,,,,,,
 Goodra,181,stat_alignment,9,Mild,1.0%,Sp. Atk,Defense,,,,,,
 Goodra,181,stat_alignment,10,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
 Goodra,181,stat_points,1,,11.8%,,,32,0,2,32,0,0
-Goodra,181,stat_points,2,,10.4%,,,32,0,0,32,2,0
+Goodra,181,stat_points,2,,10.5%,,,32,0,0,32,2,0
 Goodra,181,stat_points,3,,6.1%,,,32,0,2,0,32,0
 Goodra,181,stat_points,4,,5.2%,,,32,0,0,2,32,0
 Goodra,181,stat_points,5,,4.3%,,,2,0,0,32,32,0
@@ -50,5 +50,5 @@ Goodra,181,stat_points,8,,2.0%,,,0,0,2,32,32,0
 Goodra,181,stat_points,9,,2.0%,,,32,0,0,0,32,2
 Goodra,181,stat_points,10,,1.8%,,,2,0,32,32,0,0
 Goodra,181,ability,1,Gooey,56.0%,,,,,,,,
-Goodra,181,ability,2,Sap Sipper,30.3%,,,,,,,,
-Goodra,181,ability,3,Hydration,13.7%,,,,,,,,
+Goodra,181,ability,2,Sap Sipper,30.4%,,,,,,,,
+Goodra,181,ability,3,Hydration,13.6%,,,,,,,,

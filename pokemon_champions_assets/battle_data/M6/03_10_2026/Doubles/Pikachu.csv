@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pikachu,179,move,1,Fake Out,68.5%,,,,,,,,
 Pikachu,179,move,2,Protect,41.5%,,,,,,,,
-Pikachu,179,move,3,Volt Tackle,32.0%,,,,,,,,
+Pikachu,179,move,3,Volt Tackle,32.1%,,,,,,,,
 Pikachu,179,move,4,Thunderbolt,23.1%,,,,,,,,
 Pikachu,179,move,5,Nuzzle,22.0%,,,,,,,,
 Pikachu,179,move,6,Endeavor,21.6%,,,,,,,,
@@ -38,12 +38,12 @@ Pikachu,179,stat_alignment,6,Hasty,4.1%,Speed,Defense,,,,,,
 Pikachu,179,stat_alignment,7,Naughty,1.5%,Attack,Sp. Def,,,,,,
 Pikachu,179,stat_alignment,8,Mild,1.5%,Sp. Atk,Defense,,,,,,
 Pikachu,179,stat_alignment,9,Quiet,1.0%,Sp. Atk,Speed,,,,,,
-Pikachu,179,stat_alignment,10,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,
+Pikachu,179,stat_alignment,10,Brave,0.9%,Attack,Speed,,,,,,
 Pikachu,179,stat_points,1,,24.1%,,,2,0,0,32,0,32
 Pikachu,179,stat_points,2,,17.9%,,,2,32,0,0,0,32
 Pikachu,179,stat_points,3,,6.6%,,,0,0,32,0,2,32
 Pikachu,179,stat_points,4,,5.9%,,,0,0,2,32,0,32
-Pikachu,179,stat_points,5,,4.8%,,,1,32,1,0,0,32
+Pikachu,179,stat_points,5,,4.7%,,,1,32,1,0,0,32
 Pikachu,179,stat_points,6,,4.5%,,,0,2,0,32,0,32
 Pikachu,179,stat_points,7,,4.0%,,,0,32,2,0,0,32
 Pikachu,179,stat_points,8,,3.3%,,,0,0,0,32,2,32

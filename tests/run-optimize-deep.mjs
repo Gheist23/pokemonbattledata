@@ -246,7 +246,7 @@ async function runOne(teamName, slot, options, label) {
   check(normal.before === was && normal.after === now, `${name}: Speed ${normal.before}->${normal.after} vs Speed Tiers ${was}->${now}`);
   check(normal.now_faster.length === expectFaster, `${name}: now faster than ${normal.now_faster.length}, Speed Tiers says ${expectFaster}`);
   check(normal.now_slower.length === expectSlower, `${name}: now slower than ${normal.now_slower.length}, Speed Tiers says ${expectSlower}`);
-  return { result, seconds, name };
+  return { result, seconds, name, team: teamName, slot };
 }
 
 const runs = [];
@@ -633,11 +633,24 @@ for (const [team, slot, options] of jobs) {
   const labels = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
   // The words the opening sentence uses, where the bars use the short labels above.
   const words = ["HP", "Attack", "Defense", "Special Attack", "Special Defense", "Speed"];
-  const spread = runs.find((r) => r.result.ok && String(r.result.before.bonuses) === String(TEAMS.rough[0].bonuses));
-  check(Boolean(spread), `card: no run over the rough Garchomp (${TEAMS.rough[0].bonuses.join("/")}) to draw - pick another case`);
+  // Chosen by what it can demonstrate, not by a spread typed in here. The rows below check two
+  // different things -- a stat that moved prints a direction and a bar tip, a stat that did not
+  // says "same" and prints neither -- so the case has to contain one of each. Pinning it to the
+  // rough Garchomp meant the suite went red the morning the meta data was rebuilt and that
+  // Pokemon's best spread started moving all six stats: nothing was broken, and the only thing
+  // the guard could say was that it could no longer fail.
+  const showsBoth = (r) => r.result.ok
+    && r.result.before.bonuses.some((v, i) => v !== r.result.after.bonuses[i])
+    && r.result.before.nature !== r.result.after.nature
+    && r.result.before.stats.some((v, i) => v === r.result.after.stats[i]
+      && r.result.before.bonuses[i] === r.result.after.bonuses[i]);
+  const spread = runs.find((r) => r.result.ok && String(r.result.before.bonuses) === String(TEAMS.rough[0].bonuses) && showsBoth(r))
+    || runs.find(showsBoth);
+  check(Boolean(spread), "card: no run changed the spread and the Nature while leaving a stat alone, so the quiet-row checks have nothing to run on");
   if (spread) {
     const { before, after } = spread.result;
-    const set = teamSets("rough")[0];
+    const set = teamSets(spread.team)[spread.slot];
+    console.log(`   card: drawn from ${spread.name} slot ${spread.slot} (${before.nature} ${before.bonuses.join("/")} -> ${after.nature} ${after.bonuses.join("/")})`);
     const compare = blockFor(set, spread.result);
     check(Boolean(compare), "card: the Previously and now block is missing");
     const text = compare?.textContent || "";

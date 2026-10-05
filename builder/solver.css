@@ -19,6 +19,17 @@
   background: var(--bd-panel);
 }
 
+/* Centred between the format and the Solve button, and the first thing to drop to its own line
+   when the bar runs out of room -- it is an instruction, not a control. */
+.bd-solver-controls-hint {
+  flex: 1 1 16rem;
+  margin: 0;
+  text-align: center;
+  color: var(--bd-muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
 .bd-solver-controls-left,
 .bd-solver-controls-right {
   display: flex;
@@ -236,10 +247,17 @@
   margin: 0;
 }
 
+/* The four conditions are one kind of choice and now wear one kind of button, so they are laid
+   out on a grid rather than left to wrap: four buttons of different word-lengths wrapping where
+   they happened to run out of room read as a ragged list of unrelated controls. */
 .bd-solver-chips {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   gap: 0.35rem;
-  flex-wrap: wrap;
+}
+
+.bd-solver-chips > * {
+  width: 100%;
 }
 
 /* --- the answer ------------------------------------------------------------------- */
@@ -412,10 +430,24 @@
 }
 
 /* "How it works" sat straight under the board with nothing between them. */
-.bd-solver-explainer {
+/* What the Solver is, then how it works: one block of reading under the board, so the rule is
+   drawn once at the top of it rather than between every pair of sections. */
+.bd-solver-about {
   padding-top: 2rem;
   margin-top: 1.4rem;
   border-top: 1px solid var(--bd-line);
+}
+
+.bd-solver-about h2 {
+  margin: 0 0 0.6rem;
+}
+
+.bd-solver-about p {
+  max-width: 68ch;
+}
+
+.bd-solver-explainer {
+  padding-top: 1.6rem;
 }
 
 /* --- alive / KO -------------------------------------------------------------------------- */

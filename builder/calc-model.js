@@ -344,12 +344,37 @@ export class CalcModel {
     }
   }
 
+  /**
+   * The defending Pokemon as its own stats column already shows it.
+   *
+   * engine.js applies MANUAL_STAGE_CHANGES to the ATTACKER only, behind
+   * `_manual_trigger_attacker_ability_v290`. Nothing ever applied them to the DEFENDER, so a
+   * Stamina holder read 270 Defense in its column -- the column does apply them, for both sides --
+   * while the hit against it was still priced against 180. The number shown and the number used
+   * were different numbers.
+   *
+   * Only the table is applied here. Beast Boost and Download pick a stat from the OTHER side's
+   * stats and raise an attacking one; neither changes what a Pokemon takes, and the column keeps
+   * its own handling of them.
+   */
+  defenderMon(side) {
+    const defender = this.mon(side);
+    if (!defender.ability || !this.effectActive(side, "ability", defender.ability)) return defender;
+    const changes = MANUAL_STAGE_CHANGES[norm(defender.ability)];
+    if (!changes) return defender;
+    const out = { ...defender };
+    for (const [attr, change] of Object.entries(changes)) {
+      out[attr] = Math.max(-6, Math.min(6, (Number(out[attr]) || 0) + change));
+    }
+    return out;
+  }
+
   calculate(side, index, critical = false) {
     const mon = this.mon(side);
     const move = mon.moves[index];
     if (!move) return null;
     const ctx = this.contextForSide(side, move, critical);
-    return this.engine.calculate(mon, this.mon(other(side)), ctx);
+    return this.engine.calculate(mon, this.defenderMon(other(side)), ctx);
   }
 
   // ---- stats column ----
@@ -529,7 +554,7 @@ export class CalcModel {
     attacker.moves.forEach((move, index) => {
       if (!move) return;
       const ctx = this.contextForSide(side, move, false);
-      const result = this.engine.calculate(attacker, this.mon(other(side)), ctx);
+      const result = this.engine.calculate(attacker, this.defenderMon(other(side)), ctx);
       const rolls = (result.rolls || []).map((v) => Math.max(0, Math.trunc(v)));
       const expected = (rolls.length ? rolls.reduce((s, v) => s + v, 0) / rolls.length : 0) * Math.max(0, Math.min(1, Number(result.move_accuracy_factor ?? 1)));
       const priority = Number(this.engine.moveMeta(ctx).priority || 0);

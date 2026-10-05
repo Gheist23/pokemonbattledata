@@ -521,6 +521,25 @@ const solver = makeSolver();
   ok("and not again on the next turn", !fakeOutTurnTwo);
 }
 
+// A replacement has only just arrived, but `refill` has already run its entry Ability. Marking
+// it just-in without marking it entered made the next turn fire that Ability a second time --
+// a second Intimidate, a second weather set.
+{
+  const state = solver.buildState(board(
+    [row(SUPPORT, { front: true }), row(FAST, { front: true }), row(CAT), row(BULKY)],
+    [row(FAST, { front: true }), row(BULKY, { front: true }), row(CAT), row(SUPPORT)],
+  ));
+  const leaving = state.active[0][1];
+  leaving.hp = 0;
+  leaving.out = true;
+  solver.tickBoard(state);
+  const replacement = state.active[0][1];
+  ok("a replacement came in", replacement && replacement !== leaving,
+     replacement ? replacement.u.key.split("|")[2] : "nobody");
+  ok("it counts as just switched in", replacement.justIn === true);
+  ok("and as already entered, because refill entered it", replacement.entered === true);
+}
+
 // ---------------------------------------------------------------------------
 // 12. A Pokemon cannot be switched in while it is already out
 // ---------------------------------------------------------------------------
@@ -563,6 +582,194 @@ const solver = makeSolver();
   const was = [...state.active[0]];
   solver.applySwitches(state, [stale], 0);
   eq("a stale switch onto a Pokemon that is already out does nothing", state.active[0], was);
+}
+
+// ---------------------------------------------------------------------------
+// 13. A stat drop is reported against the Pokemon it happened to
+// ---------------------------------------------------------------------------
+// Every note used to be built as "<actor> <verb>", and the three events that lower a stat name
+// the Pokemon that went DOWN in `targets`, not in `actor`. So an Icy Wind read "Milotic dropped
+// Speed", which says Milotic's own Speed fell. It is the Speed of what it hits.
+{
+  const state = solver.buildState(board(
+    [row(HITTER, { front: true }), row(SUPPORT, { front: true })],
+    [row(FAST, { front: true }), row(BULKY, { front: true })],
+  ));
+  const mine = state.active[0][0].u;
+  const ally = state.active[0][1].u;
+  const foeOne = state.active[1][0].u;
+  const foeTwo = state.active[1][1].u;
+  const snap = solver.snapshot(state);
+  const record = solver.turnRecord(1, [], [
+    { kind: "speeddrop", actor: mine, targets: [foeOne, foeTwo], own: [] },
+    { kind: "lower", actor: foeOne, targets: [mine], own: [foeTwo], stats: ["atk"] },
+    { kind: "intimidate", actor: foeTwo, targets: [mine, ally] },
+    { kind: "protect", actor: ally },
+  ], snap, snap);
+  const said = record.notes.join(" | ");
+  const name = (unit) => solver.label(unit);
+  ok("a Speed drop names whose Speed fell",
+     record.notes.some((line) => line.includes(`${name(mine)} dropped`) && line.includes(name(foeOne)) && line.includes("Speed")), said);
+  ok("and not the Pokemon that used the move",
+     !record.notes.includes(`${name(mine)} dropped Speed`), said);
+  ok("both Pokemon it hit are named", record.notes.some((line) => line.includes(name(foeOne)) && line.includes(name(foeTwo))), said);
+  ok("a drop that caught the user's own partner is said separately",
+     record.notes.some((line) => line.includes("also dropped") && line.includes(name(foeTwo))), said);
+  ok("the stat is named in words", said.includes("Attack"), said);
+  ok("Intimidate names what it lowered", record.notes.some((line) => line.includes(`${name(foeTwo)} dropped`) && line.includes("Attack")), said);
+  ok("the ordinary notes still read as before", record.notes.includes(`${name(ally)} protected`), said);
+  notes.push(`drops: ${said}`);
+}
+
+// ---------------------------------------------------------------------------
+// 14. Stamina answers a hit
+// ---------------------------------------------------------------------------
+// Nothing in the turn model reacted to being hit. The state carries Attack, Sp. Atk and Speed and
+// no Defense, and the Defense stage a board is set up with is frozen on the cached unit, so a
+// line that hit Archaludon four times priced the fourth hit exactly like the first -- which is
+// most of what makes Archaludon worth bringing.
+{
+  const WALL = set("Archaludon", "Leftovers", "Stamina", "Relaxed",
+    ["Flash Cannon", "Draco Meteor", "Body Press", "Protect"], [32, 0, 16, 0, 16, 2]);
+  const PLAIN = { ...WALL, ability: "Sturdy" };
+  const priced = (mon) => {
+    const state = solver.buildState(board(
+      [row(mon, { front: true }), row(SUPPORT, { front: true }), row(CAT), row(BULKY)],
+      [row(HITTER, { front: true }), row(BULKY, { front: true }), row(CAT), row(SUPPORT)]));
+    const wall = state.active[0][0];
+    const foe = state.active[1][0];
+    const slot = foe.u.moves.findIndex((info) => info.name === "Earthquake");
+    const first = solver.t.hitOn(foe, wall, slot, state.board).frac;
+    solver.t.deal(foe, wall, solver.t.hitOn(foe, wall, slot, state.board), null);
+    return { first, stage: wall.def, second: solver.t.hitOn(foe, wall, slot, state.board).frac };
+  };
+  const stamina = priced(WALL);
+  const sturdy = priced(PLAIN);
+  ok("being hit raises Stamina's Defense by exactly one stage", stamina.stage === 1, String(stamina.stage));
+  ok("and the next hit is priced against the raised Defense", stamina.second < stamina.first,
+     `${stamina.first.toFixed(5)} -> ${stamina.second.toFixed(5)}`);
+  ok("the same Pokemon without Stamina is priced the same twice",
+     Math.abs(sturdy.second - sturdy.first) < 1e-9,
+     `${sturdy.first.toFixed(5)} -> ${sturdy.second.toFixed(5)}`);
+  ok("and the first hit is the same for both", Math.abs(sturdy.first - stamina.first) < 1e-9,
+     `${sturdy.first.toFixed(5)} vs ${stamina.first.toFixed(5)}`);
+  // The seam is the Solver's own: the Tournament Test must never grow a reaction to being hit.
+  // A fresh Tournament Test, built the way the suite builds the Solver's own, must have none.
+  const bare = new TournamentTest(
+    new TeamEvaluation(new TeamEvaluator(null, new DamageEngine(appData), "Doubles", normalizeSettings({ ...DEFAULT_SETTINGS }))),
+    new KnownTeams({ teams: [] }), null);
+  ok("a Tournament Test has no reaction to being hit", bare.onHit === null, String(bare.onHit));
+  notes.push(`stamina: ${stamina.first.toFixed(5)} then ${stamina.second.toFixed(5)}; without it ${sturdy.second.toFixed(5)}`);
+}
+
+// ---------------------------------------------------------------------------
+// 15. The terrain the board says is the terrain that is played
+// ---------------------------------------------------------------------------
+// `board.t` is an INDEX into the engine's terrain order, and the Solver kept a list of its own
+// with Psychic and Misty the other way round. Choosing Psychic Terrain played Misty: Fake Out
+// went through when the game would have refused it, and Dragon moves were halved instead.
+{
+  const field = (terrain) => solver.buildState(board(
+    [row(CAT, { front: true }), row(SUPPORT, { front: true })],
+    [row(HITTER, { front: true }), row(BULKY, { front: true })], { terrain })).board.t;
+  for (const [terrain, index] of [["None", 0], ["Electric", 1], ["Grassy", 2], ["Psychic", 3], ["Misty", 4]]) {
+    eq(`${terrain} Terrain reaches the engine as ${terrain}`, field(terrain), index);
+  }
+  // The weathers, for the same reason.
+  const weather = (name) => solver.buildState(board(
+    [row(CAT, { front: true })], [row(HITTER, { front: true })], { weather: name })).board.w;
+  for (const [name, index] of [["None", 0], ["Sun", 1], ["Rain", 2], ["Sand", 3], ["Snow", 4]]) {
+    eq(`${name} reaches the engine as ${name}`, weather(name), index);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 16. A switch does not invent damage
+// ---------------------------------------------------------------------------
+// The trace compared position i before the turn with position i after it, and `applySwitches`
+// swaps two entries of `sides` -- so on any turn containing a switch it was comparing two
+// different Pokemon. A turn where nobody was touched reported damage, and even healing.
+{
+  // The one waiting in the back is on 60%, which is what makes this case tell the two readings
+  // apart: a positional diff sees "the Pokemon at slot 0 went from 100% to 60%" and calls it
+  // damage, where in fact two Pokemon changed places and neither was touched.
+  const state = solver.buildState(board(
+    [row(CAT, { front: true }), row(SUPPORT, { front: true }), row(HITTER, { hp: 60 }), row(BULKY)],
+    [row(FAST, { front: true }), row(BULKY, { front: true }), row(CAT), row(SUPPORT)]));
+  const PROTECT_KIND = 7;
+  const ours = solver.jointsFor(state, 0, 400)
+    .find((joint) => joint.some((a) => a.kind === SWITCH) && joint.some((a) => a.kind === PROTECT_KIND));
+  const theirs = solver.jointsFor(state, 1, 400).find((joint) => joint.every((a) => a.kind === PROTECT_KIND));
+  ok("a turn of one switch and one Protect is on offer", Boolean(ours), String(Boolean(ours)));
+  ok("and a turn where they only Protect", Boolean(theirs), String(Boolean(theirs)));
+  if (ours && theirs) {
+    const before = solver.snapshot(state);
+    const events = [];
+    solver.applyChosenTurn(state, ours, theirs, 1, events);
+    const record = solver.turnRecord(1, [], events, before, solver.snapshot(state));
+    eq("nothing took damage on a turn where nothing could", record.damage, []);
+    eq("and nothing went down", record.fainted, []);
+    // The Pokemon really did change places, so this is the case that used to lie.
+    ok("the switch really happened",
+       state.active[0].some((m) => m.u.key !== before[0][0].name && true), "sanity");
+    notes.push(`switch turn: ${record.damage.length} damage row(s), ${record.fainted.length} knocked out`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 17. A screen protects the side that is behind it
+// ---------------------------------------------------------------------------
+// The Solver read the screens for `1 - attackSide`. That is the side being hit for every ordinary
+// attack, and the wrong one for a spread move that catches the attacker's own partner: your own
+// Earthquake into your own Pokemon was shielded by the OPPONENT's Reflect and ignored yours.
+{
+  // A fresh Solver per field: the screens are NOT part of the damage cache key, which is right
+  // because one search has one field, but it means one instance cannot be asked about two.
+  const priced = (field) => {
+    const own = makeSolver("Doubles");
+    const state = own.buildState(board(
+      [row(HITTER, { front: true }), row(CAT, { front: true })],
+      [row(BULKY, { front: true }), row(SUPPORT, { front: true })], field));
+    const me = state.active[0][0];
+    const partner = state.active[0][1];
+    const foe = state.active[1][0];
+    const slot = me.u.moves.findIndex((info) => info.name === "Earthquake");
+    return {
+      partner: own.t.hitOn(me, partner, slot, state.board).frac,
+      foe: own.t.hitOn(me, foe, slot, state.board).frac,
+    };
+  };
+  const bare = priced({});
+  const ourReflect = priced({ reflect: [true, false] });
+  const theirReflect = priced({ reflect: [false, true] });
+  ok("our own Reflect protects our partner from our own Earthquake",
+     ourReflect.partner < bare.partner, `${bare.partner.toFixed(5)} -> ${ourReflect.partner.toFixed(5)}`);
+  ok("their Reflect does not", Math.abs(theirReflect.partner - bare.partner) < 1e-9,
+     `${bare.partner.toFixed(5)} -> ${theirReflect.partner.toFixed(5)}`);
+  ok("their Reflect still protects them", theirReflect.foe < bare.foe,
+     `${bare.foe.toFixed(5)} -> ${theirReflect.foe.toFixed(5)}`);
+  ok("and ours does not protect them", Math.abs(ourReflect.foe - bare.foe) < 1e-9,
+     `${bare.foe.toFixed(5)} -> ${ourReflect.foe.toFixed(5)}`);
+  notes.push(`screens: partner ${bare.partner.toFixed(3)} -> ${ourReflect.partner.toFixed(3)} behind our Reflect`);
+}
+
+// ---------------------------------------------------------------------------
+// 18. A Pokemon leaves its stat stages on the field
+// ---------------------------------------------------------------------------
+{
+  const state = solver.buildState(board(
+    [row(CAT, { front: true }), row(SUPPORT, { front: true }), row(HITTER), row(BULKY)],
+    [row(FAST, { front: true }), row(BULKY, { front: true }), row(CAT), row(SUPPORT)]));
+  const leaving = state.active[0][0];
+  leaving.atk = 2;
+  leaving.spe = -1;
+  leaving.def = 1;
+  const move = solver.jointsFor(state, 0, 400).flat().find((a) => a.kind === SWITCH && a.position === 0);
+  ok("a switch is on offer", Boolean(move));
+  solver.applySwitches(state, [move], 0);
+  ok("it really left the field", state.active[0][0] !== leaving);
+  eq("and it took none of its stages with it",
+     [leaving.atk, leaving.spa, leaving.spe, leaving.def], [0, 0, 0, 0]);
 }
 
 for (const line of notes) console.log(line);

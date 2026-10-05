@@ -211,14 +211,20 @@ function restore() {
  */
 function fit() {
   const bring = BRING[state.format];
+  // A picked-up Pokemon is a position, so anything that can move or remove one puts it down.
+  // Every mutation goes through here, which makes a stale index impossible rather than guarded.
+  state.pick = null;
   for (const side of state.sides) {
     side.length = Math.min(side.length, TEAM_SIZE);
     let taken = 0;
     for (const row of side) {
+      // Every row, not only the ones in this battle: the old `front` flag is read by `restore`
+      // to work out the order a saved board meant, so a copy left on a benched Pokemon would
+      // put it back in the front on the next visit and quietly undo the move that benched it.
+      delete row.front;
       if (!row.inSim) continue;
       taken += 1;
       if (taken > bring) row.inSim = false;
-      delete row.front;
     }
   }
   autoField();
@@ -325,7 +331,26 @@ function boardClick(side, index) {
   }
   if (!isFront(side, row)) {
     state.pick = null;
-    row.inSim = !row.inSim;
+    if (row.inSim) {
+      row.inSim = false;
+    } else {
+      // A team is six and only the format's bring plays, so bringing one in has to send one back.
+      // Without this the click did nothing at all whenever the bring was full -- which a fresh
+      // board always is -- because `fit` simply trimmed the one that had just been added.
+      const taken = brought(side);
+      if (taken.length >= BRING[state.format]) {
+        const leaving = taken[taken.length - 1];
+        const rows = state.sides[side];
+        const from = rows.indexOf(row);
+        const to = rows.indexOf(leaving);
+        // They change places as well as swapping their flags, so the one coming in takes the
+        // place in the line that the one it replaced was holding.
+        rows[from] = leaving;
+        rows[to] = row;
+        leaving.inSim = false;
+      }
+      row.inSim = true;
+    }
     fit();
     save();
     render();
@@ -407,6 +432,11 @@ function renderControls() {
         h("span", {}, "Look turns ahead"),
         select(Array.from({ length: LOOKAHEAD_RANGE[1] - LOOKAHEAD_RANGE[0] + 1 }, (_, i) => [String(LOOKAHEAD_RANGE[0] + i), String(LOOKAHEAD_RANGE[0] + i)]),
           String(state.lookahead), (value) => { state.lookahead = Number(value); save(); render(); }, { "aria-label": "Look turns ahead" }))),
+    // The board is clicked, and a board that is clicked has to say so: nothing else on the page
+    // tells you that a sprite is a control.
+    h("p", { class: "bd-solver-controls-hint" },
+      "Click Pok\u00e9mon on the bench to activate/deactivate it, click the Pok\u00e9mon in the front "
+      + "to switch its position with another Pok\u00e9mon."),
     h("div", { class: "bd-solver-controls-right" },
       allowance,
       state.running
@@ -439,7 +469,7 @@ function renderSide(side) {
   const rows = state.sides[side];
   const active = ACTIVE[state.format];
   const bring = BRING[state.format];
-  const brought = rows.filter((row) => row.inSim);
+  const taken = brought(side);
   return h("section", { class: "bd-solver-side", "aria-label": SIDE_LABEL[side] },
     h("div", { class: "bd-solver-side-head" },
       h("h2", {}, SIDE_LABEL[side]),
@@ -462,7 +492,7 @@ function renderSide(side) {
       }, `Add a Pokémon (${rows.length}/${TEAM_SIZE})`)
       : null,
     h("p", { class: "bd-solver-note" },
-      `${brought.length} of ${rows.length} in this battle (${bring} play), ${active} in the front.`));
+      `${taken.length} of ${rows.length} in this battle (${bring} play), ${active} in the front.`));
 }
 
 // --- the field, as a picture ----------------------------------------------------------------
@@ -742,8 +772,9 @@ function renderCard(side, index, row) {
         title: "Fake Out and First Impression only work on the turn their user came in",
         onclick: () => { row.justIn = !row.justIn; save(); render(); },
       }, "Just switched in")),
+    // No "Boosts" caption: every box under it is already labelled Atk, Def, SpA, SpD, Spe, so the
+    // word was a heading over something that did not need one.
     h("div", { class: "bd-solver-stages" },
-      h("span", { class: "bd-field-label" }, "Boosts"),
       STAGES.map(([key, label]) => number(key, label, -6, 6))));
 }
 

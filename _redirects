@@ -30,11 +30,9 @@
 /pokemon/alolan-raichu/moves/ /pokemon/raichu-alola/moves/ 301
 /pokemon/alolan-raichu/teammates/ /pokemon/raichu-alola/teammates/ 301
 /pokemon/archaludon-vs-basculegion-male/ /pokemon/archaludon-vs-basculegion/ 301
-/pokemon/archaludon-vs-floette-form-5/ /pokemon/archaludon-vs-floette-eternal/ 301
 /pokemon/archaludon-vs-hisuian-arcanine/ /pokemon/arcanine-hisui-vs-archaludon/ 301
 /pokemon/archaludon-vs-indeedee-female/ /pokemon/archaludon-vs-indeedee-f/ 301
 /pokemon/armarouge-vs-basculegion-male/ /pokemon/armarouge-vs-basculegion/ 301
-/pokemon/armarouge-vs-floette-form-5/ /pokemon/armarouge-vs-floette-eternal/ 301
 /pokemon/armarouge-vs-hisuian-arcanine/ /pokemon/arcanine-hisui-vs-armarouge/ 301
 /pokemon/armarouge-vs-indeedee-female/ /pokemon/armarouge-vs-indeedee-f/ 301
 /pokemon/basculegion-female /pokemon/basculegion-f/ 301
@@ -46,7 +44,6 @@
 /pokemon/basculegion-male-vs-charizard/ /pokemon/basculegion-vs-charizard/ 301
 /pokemon/basculegion-male-vs-excadrill/ /pokemon/basculegion-vs-excadrill/ 301
 /pokemon/basculegion-male-vs-farigiraf/ /pokemon/basculegion-vs-farigiraf/ 301
-/pokemon/basculegion-male-vs-floette-form-5/ /pokemon/basculegion-vs-floette-eternal/ 301
 /pokemon/basculegion-male-vs-garchomp/ /pokemon/basculegion-vs-garchomp/ 301
 /pokemon/basculegion-male-vs-gardevoir/ /pokemon/basculegion-vs-gardevoir/ 301
 /pokemon/basculegion-male-vs-gholdengo/ /pokemon/basculegion-vs-gholdengo/ 301
@@ -78,38 +75,14 @@
 /pokemon/castform-snowy-form/ /pokemon/castform-snowy/ 301
 /pokemon/castform-sunny-form /pokemon/castform-sunny/ 301
 /pokemon/castform-sunny-form/ /pokemon/castform-sunny/ 301
-/pokemon/charizard-vs-floette-form-5/ /pokemon/charizard-vs-floette-eternal/ 301
 /pokemon/charizard-vs-hisuian-arcanine/ /pokemon/arcanine-hisui-vs-charizard/ 301
 /pokemon/charizard-vs-indeedee-female/ /pokemon/charizard-vs-indeedee-f/ 301
-/pokemon/excadrill-vs-floette-form-5/ /pokemon/excadrill-vs-floette-eternal/ 301
 /pokemon/excadrill-vs-hisuian-arcanine/ /pokemon/arcanine-hisui-vs-excadrill/ 301
 /pokemon/excadrill-vs-indeedee-female/ /pokemon/excadrill-vs-indeedee-f/ 301
-/pokemon/farigiraf-vs-floette-form-5/ /pokemon/farigiraf-vs-floette-eternal/ 301
 /pokemon/farigiraf-vs-hisuian-arcanine/ /pokemon/arcanine-hisui-vs-farigiraf/ 301
 /pokemon/farigiraf-vs-indeedee-female/ /pokemon/farigiraf-vs-indeedee-f/ 301
 /pokemon/floette /pokemon/floette-eternal/ 301
 /pokemon/floette-form-5 /pokemon/floette-eternal/ 301
-/pokemon/floette-form-5-vs-garchomp/ /pokemon/floette-eternal-vs-garchomp/ 301
-/pokemon/floette-form-5-vs-gardevoir/ /pokemon/floette-eternal-vs-gardevoir/ 301
-/pokemon/floette-form-5-vs-gholdengo/ /pokemon/floette-eternal-vs-gholdengo/ 301
-/pokemon/floette-form-5-vs-golisopod/ /pokemon/floette-eternal-vs-golisopod/ 301
-/pokemon/floette-form-5-vs-hisuian-arcanine/ /pokemon/arcanine-hisui-vs-floette-eternal/ 301
-/pokemon/floette-form-5-vs-incineroar/ /pokemon/floette-eternal-vs-incineroar/ 301
-/pokemon/floette-form-5-vs-indeedee-female/ /pokemon/floette-eternal-vs-indeedee-f/ 301
-/pokemon/floette-form-5-vs-indeedee/ /pokemon/floette-eternal-vs-indeedee/ 301
-/pokemon/floette-form-5-vs-kingambit/ /pokemon/floette-eternal-vs-kingambit/ 301
-/pokemon/floette-form-5-vs-milotic/ /pokemon/floette-eternal-vs-milotic/ 301
-/pokemon/floette-form-5-vs-pelipper/ /pokemon/floette-eternal-vs-pelipper/ 301
-/pokemon/floette-form-5-vs-raichu/ /pokemon/floette-eternal-vs-raichu/ 301
-/pokemon/floette-form-5-vs-rillaboom/ /pokemon/floette-eternal-vs-rillaboom/ 301
-/pokemon/floette-form-5-vs-salamence/ /pokemon/floette-eternal-vs-salamence/ 301
-/pokemon/floette-form-5-vs-sinistcha/ /pokemon/floette-eternal-vs-sinistcha/ 301
-/pokemon/floette-form-5-vs-sneasler/ /pokemon/floette-eternal-vs-sneasler/ 301
-/pokemon/floette-form-5-vs-staraptor/ /pokemon/floette-eternal-vs-staraptor/ 301
-/pokemon/floette-form-5-vs-sylveon/ /pokemon/floette-eternal-vs-sylveon/ 301
-/pokemon/floette-form-5-vs-torkoal/ /pokemon/floette-eternal-vs-torkoal/ 301
-/pokemon/floette-form-5-vs-tyranitar/ /pokemon/floette-eternal-vs-tyranitar/ 301
-/pokemon/floette-form-5-vs-whimsicott/ /pokemon/floette-eternal-vs-whimsicott/ 301
 /pokemon/floette-form-5/ /pokemon/floette-eternal/ 301
 /pokemon/floette-form-5/items/ /pokemon/floette-eternal/items/ 301
 /pokemon/floette-form-5/moves/ /pokemon/floette-eternal/moves/ 301
@@ -528,13 +501,6 @@
 /pokemon/farigiraf-vs-basculegion/ /pokemon/basculegion-vs-farigiraf/ 301
 /pokemon/farigiraf-vs-charizard/ /pokemon/charizard-vs-farigiraf/ 301
 /pokemon/farigiraf-vs-excadrill/ /pokemon/excadrill-vs-farigiraf/ 301
-/pokemon/floette-eternal-vs-arcanine-hisui/ /pokemon/arcanine-hisui-vs-floette-eternal/ 301
-/pokemon/floette-eternal-vs-archaludon/ /pokemon/archaludon-vs-floette-eternal/ 301
-/pokemon/floette-eternal-vs-armarouge/ /pokemon/armarouge-vs-floette-eternal/ 301
-/pokemon/floette-eternal-vs-basculegion/ /pokemon/basculegion-vs-floette-eternal/ 301
-/pokemon/floette-eternal-vs-charizard/ /pokemon/charizard-vs-floette-eternal/ 301
-/pokemon/floette-eternal-vs-excadrill/ /pokemon/excadrill-vs-floette-eternal/ 301
-/pokemon/floette-eternal-vs-farigiraf/ /pokemon/farigiraf-vs-floette-eternal/ 301
 /pokemon/garchomp-vs-arcanine-hisui/ /pokemon/arcanine-hisui-vs-garchomp/ 301
 /pokemon/garchomp-vs-archaludon/ /pokemon/archaludon-vs-garchomp/ 301
 /pokemon/garchomp-vs-armarouge/ /pokemon/armarouge-vs-garchomp/ 301
@@ -542,7 +508,6 @@
 /pokemon/garchomp-vs-charizard/ /pokemon/charizard-vs-garchomp/ 301
 /pokemon/garchomp-vs-excadrill/ /pokemon/excadrill-vs-garchomp/ 301
 /pokemon/garchomp-vs-farigiraf/ /pokemon/farigiraf-vs-garchomp/ 301
-/pokemon/garchomp-vs-floette-eternal/ /pokemon/floette-eternal-vs-garchomp/ 301
 /pokemon/gardevoir-vs-arcanine-hisui/ /pokemon/arcanine-hisui-vs-gardevoir/ 301
 /pokemon/gardevoir-vs-archaludon/ /pokemon/archaludon-vs-gardevoir/ 301
 /pokemon/gardevoir-vs-armarouge/ /pokemon/armarouge-vs-gardevoir/ 301
@@ -550,7 +515,6 @@
 /pokemon/gardevoir-vs-charizard/ /pokemon/charizard-vs-gardevoir/ 301
 /pokemon/gardevoir-vs-excadrill/ /pokemon/excadrill-vs-gardevoir/ 301
 /pokemon/gardevoir-vs-farigiraf/ /pokemon/farigiraf-vs-gardevoir/ 301
-/pokemon/gardevoir-vs-floette-eternal/ /pokemon/floette-eternal-vs-gardevoir/ 301
 /pokemon/gardevoir-vs-garchomp/ /pokemon/garchomp-vs-gardevoir/ 301
 /pokemon/gholdengo-vs-arcanine-hisui/ /pokemon/arcanine-hisui-vs-gholdengo/ 301
 /pokemon/gholdengo-vs-archaludon/ /pokemon/archaludon-vs-gholdengo/ 301
@@ -559,7 +523,6 @@
 /pokemon/gholdengo-vs-charizard/ /pokemon/charizard-vs-gholdengo/ 301
 /pokemon/gholdengo-vs-excadrill/ /pokemon/excadrill-vs-gholdengo/ 301
 /pokemon/gholdengo-vs-farigiraf/ /pokemon/farigiraf-vs-gholdengo/ 301
-/pokemon/gholdengo-vs-floette-eternal/ /pokemon/floette-eternal-vs-gholdengo/ 301
 /pokemon/gholdengo-vs-garchomp/ /pokemon/garchomp-vs-gholdengo/ 301
 /pokemon/gholdengo-vs-gardevoir/ /pokemon/gardevoir-vs-gholdengo/ 301
 /pokemon/golisopod-vs-arcanine-hisui/ /pokemon/arcanine-hisui-vs-golisopod/ 301
@@ -569,7 +532,6 @@
 /pokemon/golisopod-vs-charizard/ /pokemon/charizard-vs-golisopod/ 301
 /pokemon/golisopod-vs-excadrill/ /pokemon/excadrill-vs-golisopod/ 301
 /pokemon/golisopod-vs-farigiraf/ /pokemon/farigiraf-vs-golisopod/ 301
-/pokemon/golisopod-vs-floette-eternal/ /pokemon/floette-eternal-vs-golisopod/ 301
 /pokemon/golisopod-vs-garchomp/ /pokemon/garchomp-vs-golisopod/ 301
 /pokemon/golisopod-vs-gardevoir/ /pokemon/gardevoir-vs-golisopod/ 301
 /pokemon/golisopod-vs-gholdengo/ /pokemon/gholdengo-vs-golisopod/ 301
@@ -580,7 +542,6 @@
 /pokemon/incineroar-vs-charizard/ /pokemon/charizard-vs-incineroar/ 301
 /pokemon/incineroar-vs-excadrill/ /pokemon/excadrill-vs-incineroar/ 301
 /pokemon/incineroar-vs-farigiraf/ /pokemon/farigiraf-vs-incineroar/ 301
-/pokemon/incineroar-vs-floette-eternal/ /pokemon/floette-eternal-vs-incineroar/ 301
 /pokemon/incineroar-vs-garchomp/ /pokemon/garchomp-vs-incineroar/ 301
 /pokemon/incineroar-vs-gardevoir/ /pokemon/gardevoir-vs-incineroar/ 301
 /pokemon/incineroar-vs-gholdengo/ /pokemon/gholdengo-vs-incineroar/ 301
@@ -592,7 +553,6 @@
 /pokemon/indeedee-f-vs-charizard/ /pokemon/charizard-vs-indeedee-f/ 301
 /pokemon/indeedee-f-vs-excadrill/ /pokemon/excadrill-vs-indeedee-f/ 301
 /pokemon/indeedee-f-vs-farigiraf/ /pokemon/farigiraf-vs-indeedee-f/ 301
-/pokemon/indeedee-f-vs-floette-eternal/ /pokemon/floette-eternal-vs-indeedee-f/ 301
 /pokemon/indeedee-f-vs-garchomp/ /pokemon/garchomp-vs-indeedee-f/ 301
 /pokemon/indeedee-f-vs-gardevoir/ /pokemon/gardevoir-vs-indeedee-f/ 301
 /pokemon/indeedee-f-vs-gholdengo/ /pokemon/gholdengo-vs-indeedee-f/ 301
@@ -606,7 +566,6 @@
 /pokemon/indeedee-vs-charizard/ /pokemon/charizard-vs-indeedee/ 301
 /pokemon/indeedee-vs-excadrill/ /pokemon/excadrill-vs-indeedee/ 301
 /pokemon/indeedee-vs-farigiraf/ /pokemon/farigiraf-vs-indeedee/ 301
-/pokemon/indeedee-vs-floette-eternal/ /pokemon/floette-eternal-vs-indeedee/ 301
 /pokemon/indeedee-vs-garchomp/ /pokemon/garchomp-vs-indeedee/ 301
 /pokemon/indeedee-vs-gardevoir/ /pokemon/gardevoir-vs-indeedee/ 301
 /pokemon/indeedee-vs-gholdengo/ /pokemon/gholdengo-vs-indeedee/ 301
@@ -619,7 +578,6 @@
 /pokemon/kingambit-vs-charizard/ /pokemon/charizard-vs-kingambit/ 301
 /pokemon/kingambit-vs-excadrill/ /pokemon/excadrill-vs-kingambit/ 301
 /pokemon/kingambit-vs-farigiraf/ /pokemon/farigiraf-vs-kingambit/ 301
-/pokemon/kingambit-vs-floette-eternal/ /pokemon/floette-eternal-vs-kingambit/ 301
 /pokemon/kingambit-vs-garchomp/ /pokemon/garchomp-vs-kingambit/ 301
 /pokemon/kingambit-vs-gardevoir/ /pokemon/gardevoir-vs-kingambit/ 301
 /pokemon/kingambit-vs-gholdengo/ /pokemon/gholdengo-vs-kingambit/ 301
@@ -634,7 +592,6 @@
 /pokemon/metagross-vs-charizard/ /pokemon/charizard-vs-metagross/ 301
 /pokemon/metagross-vs-excadrill/ /pokemon/excadrill-vs-metagross/ 301
 /pokemon/metagross-vs-farigiraf/ /pokemon/farigiraf-vs-metagross/ 301
-/pokemon/metagross-vs-floette-eternal/ /pokemon/floette-eternal-vs-metagross/ 301
 /pokemon/metagross-vs-garchomp/ /pokemon/garchomp-vs-metagross/ 301
 /pokemon/metagross-vs-gardevoir/ /pokemon/gardevoir-vs-metagross/ 301
 /pokemon/metagross-vs-gholdengo/ /pokemon/gholdengo-vs-metagross/ 301
@@ -650,7 +607,6 @@
 /pokemon/milotic-vs-charizard/ /pokemon/charizard-vs-milotic/ 301
 /pokemon/milotic-vs-excadrill/ /pokemon/excadrill-vs-milotic/ 301
 /pokemon/milotic-vs-farigiraf/ /pokemon/farigiraf-vs-milotic/ 301
-/pokemon/milotic-vs-floette-eternal/ /pokemon/floette-eternal-vs-milotic/ 301
 /pokemon/milotic-vs-garchomp/ /pokemon/garchomp-vs-milotic/ 301
 /pokemon/milotic-vs-gardevoir/ /pokemon/gardevoir-vs-milotic/ 301
 /pokemon/milotic-vs-gholdengo/ /pokemon/gholdengo-vs-milotic/ 301
@@ -667,7 +623,6 @@
 /pokemon/pelipper-vs-charizard/ /pokemon/charizard-vs-pelipper/ 301
 /pokemon/pelipper-vs-excadrill/ /pokemon/excadrill-vs-pelipper/ 301
 /pokemon/pelipper-vs-farigiraf/ /pokemon/farigiraf-vs-pelipper/ 301
-/pokemon/pelipper-vs-floette-eternal/ /pokemon/floette-eternal-vs-pelipper/ 301
 /pokemon/pelipper-vs-garchomp/ /pokemon/garchomp-vs-pelipper/ 301
 /pokemon/pelipper-vs-gardevoir/ /pokemon/gardevoir-vs-pelipper/ 301
 /pokemon/pelipper-vs-gholdengo/ /pokemon/gholdengo-vs-pelipper/ 301
@@ -678,6 +633,24 @@
 /pokemon/pelipper-vs-kingambit/ /pokemon/kingambit-vs-pelipper/ 301
 /pokemon/pelipper-vs-metagross/ /pokemon/metagross-vs-pelipper/ 301
 /pokemon/pelipper-vs-milotic/ /pokemon/milotic-vs-pelipper/ 301
+/pokemon/politoed-vs-arcanine-hisui/ /pokemon/arcanine-hisui-vs-politoed/ 301
+/pokemon/politoed-vs-archaludon/ /pokemon/archaludon-vs-politoed/ 301
+/pokemon/politoed-vs-armarouge/ /pokemon/armarouge-vs-politoed/ 301
+/pokemon/politoed-vs-basculegion/ /pokemon/basculegion-vs-politoed/ 301
+/pokemon/politoed-vs-charizard/ /pokemon/charizard-vs-politoed/ 301
+/pokemon/politoed-vs-excadrill/ /pokemon/excadrill-vs-politoed/ 301
+/pokemon/politoed-vs-farigiraf/ /pokemon/farigiraf-vs-politoed/ 301
+/pokemon/politoed-vs-garchomp/ /pokemon/garchomp-vs-politoed/ 301
+/pokemon/politoed-vs-gardevoir/ /pokemon/gardevoir-vs-politoed/ 301
+/pokemon/politoed-vs-gholdengo/ /pokemon/gholdengo-vs-politoed/ 301
+/pokemon/politoed-vs-golisopod/ /pokemon/golisopod-vs-politoed/ 301
+/pokemon/politoed-vs-incineroar/ /pokemon/incineroar-vs-politoed/ 301
+/pokemon/politoed-vs-indeedee-f/ /pokemon/indeedee-f-vs-politoed/ 301
+/pokemon/politoed-vs-indeedee/ /pokemon/indeedee-vs-politoed/ 301
+/pokemon/politoed-vs-kingambit/ /pokemon/kingambit-vs-politoed/ 301
+/pokemon/politoed-vs-metagross/ /pokemon/metagross-vs-politoed/ 301
+/pokemon/politoed-vs-milotic/ /pokemon/milotic-vs-politoed/ 301
+/pokemon/politoed-vs-pelipper/ /pokemon/pelipper-vs-politoed/ 301
 /pokemon/raichu-vs-arcanine-hisui/ /pokemon/arcanine-hisui-vs-raichu/ 301
 /pokemon/raichu-vs-archaludon/ /pokemon/archaludon-vs-raichu/ 301
 /pokemon/raichu-vs-armarouge/ /pokemon/armarouge-vs-raichu/ 301
@@ -685,7 +658,6 @@
 /pokemon/raichu-vs-charizard/ /pokemon/charizard-vs-raichu/ 301
 /pokemon/raichu-vs-excadrill/ /pokemon/excadrill-vs-raichu/ 301
 /pokemon/raichu-vs-farigiraf/ /pokemon/farigiraf-vs-raichu/ 301
-/pokemon/raichu-vs-floette-eternal/ /pokemon/floette-eternal-vs-raichu/ 301
 /pokemon/raichu-vs-garchomp/ /pokemon/garchomp-vs-raichu/ 301
 /pokemon/raichu-vs-gardevoir/ /pokemon/gardevoir-vs-raichu/ 301
 /pokemon/raichu-vs-gholdengo/ /pokemon/gholdengo-vs-raichu/ 301
@@ -697,6 +669,7 @@
 /pokemon/raichu-vs-metagross/ /pokemon/metagross-vs-raichu/ 301
 /pokemon/raichu-vs-milotic/ /pokemon/milotic-vs-raichu/ 301
 /pokemon/raichu-vs-pelipper/ /pokemon/pelipper-vs-raichu/ 301
+/pokemon/raichu-vs-politoed/ /pokemon/politoed-vs-raichu/ 301
 /pokemon/rillaboom-vs-arcanine-hisui/ /pokemon/arcanine-hisui-vs-rillaboom/ 301
 /pokemon/rillaboom-vs-archaludon/ /pokemon/archaludon-vs-rillaboom/ 301
 /pokemon/rillaboom-vs-armarouge/ /pokemon/armarouge-vs-rillaboom/ 301
@@ -704,7 +677,6 @@
 /pokemon/rillaboom-vs-charizard/ /pokemon/charizard-vs-rillaboom/ 301
 /pokemon/rillaboom-vs-excadrill/ /pokemon/excadrill-vs-rillaboom/ 301
 /pokemon/rillaboom-vs-farigiraf/ /pokemon/farigiraf-vs-rillaboom/ 301
-/pokemon/rillaboom-vs-floette-eternal/ /pokemon/floette-eternal-vs-rillaboom/ 301
 /pokemon/rillaboom-vs-garchomp/ /pokemon/garchomp-vs-rillaboom/ 301
 /pokemon/rillaboom-vs-gardevoir/ /pokemon/gardevoir-vs-rillaboom/ 301
 /pokemon/rillaboom-vs-gholdengo/ /pokemon/gholdengo-vs-rillaboom/ 301
@@ -716,6 +688,7 @@
 /pokemon/rillaboom-vs-metagross/ /pokemon/metagross-vs-rillaboom/ 301
 /pokemon/rillaboom-vs-milotic/ /pokemon/milotic-vs-rillaboom/ 301
 /pokemon/rillaboom-vs-pelipper/ /pokemon/pelipper-vs-rillaboom/ 301
+/pokemon/rillaboom-vs-politoed/ /pokemon/politoed-vs-rillaboom/ 301
 /pokemon/rillaboom-vs-raichu/ /pokemon/raichu-vs-rillaboom/ 301
 /pokemon/salamence-vs-arcanine-hisui/ /pokemon/arcanine-hisui-vs-salamence/ 301
 /pokemon/salamence-vs-archaludon/ /pokemon/archaludon-vs-salamence/ 301
@@ -724,7 +697,6 @@
 /pokemon/salamence-vs-charizard/ /pokemon/charizard-vs-salamence/ 301
 /pokemon/salamence-vs-excadrill/ /pokemon/excadrill-vs-salamence/ 301
 /pokemon/salamence-vs-farigiraf/ /pokemon/farigiraf-vs-salamence/ 301
-/pokemon/salamence-vs-floette-eternal/ /pokemon/floette-eternal-vs-salamence/ 301
 /pokemon/salamence-vs-garchomp/ /pokemon/garchomp-vs-salamence/ 301
 /pokemon/salamence-vs-gardevoir/ /pokemon/gardevoir-vs-salamence/ 301
 /pokemon/salamence-vs-gholdengo/ /pokemon/gholdengo-vs-salamence/ 301
@@ -736,6 +708,7 @@
 /pokemon/salamence-vs-metagross/ /pokemon/metagross-vs-salamence/ 301
 /pokemon/salamence-vs-milotic/ /pokemon/milotic-vs-salamence/ 301
 /pokemon/salamence-vs-pelipper/ /pokemon/pelipper-vs-salamence/ 301
+/pokemon/salamence-vs-politoed/ /pokemon/politoed-vs-salamence/ 301
 /pokemon/salamence-vs-raichu/ /pokemon/raichu-vs-salamence/ 301
 /pokemon/salamence-vs-rillaboom/ /pokemon/rillaboom-vs-salamence/ 301
 /pokemon/sinistcha-vs-arcanine-hisui/ /pokemon/arcanine-hisui-vs-sinistcha/ 301
@@ -745,7 +718,6 @@
 /pokemon/sinistcha-vs-charizard/ /pokemon/charizard-vs-sinistcha/ 301
 /pokemon/sinistcha-vs-excadrill/ /pokemon/excadrill-vs-sinistcha/ 301
 /pokemon/sinistcha-vs-farigiraf/ /pokemon/farigiraf-vs-sinistcha/ 301
-/pokemon/sinistcha-vs-floette-eternal/ /pokemon/floette-eternal-vs-sinistcha/ 301
 /pokemon/sinistcha-vs-garchomp/ /pokemon/garchomp-vs-sinistcha/ 301
 /pokemon/sinistcha-vs-gardevoir/ /pokemon/gardevoir-vs-sinistcha/ 301
 /pokemon/sinistcha-vs-gholdengo/ /pokemon/gholdengo-vs-sinistcha/ 301
@@ -757,6 +729,7 @@
 /pokemon/sinistcha-vs-metagross/ /pokemon/metagross-vs-sinistcha/ 301
 /pokemon/sinistcha-vs-milotic/ /pokemon/milotic-vs-sinistcha/ 301
 /pokemon/sinistcha-vs-pelipper/ /pokemon/pelipper-vs-sinistcha/ 301
+/pokemon/sinistcha-vs-politoed/ /pokemon/politoed-vs-sinistcha/ 301
 /pokemon/sinistcha-vs-raichu/ /pokemon/raichu-vs-sinistcha/ 301
 /pokemon/sinistcha-vs-rillaboom/ /pokemon/rillaboom-vs-sinistcha/ 301
 /pokemon/sinistcha-vs-salamence/ /pokemon/salamence-vs-sinistcha/ 301
@@ -767,7 +740,6 @@
 /pokemon/sneasler-vs-charizard/ /pokemon/charizard-vs-sneasler/ 301
 /pokemon/sneasler-vs-excadrill/ /pokemon/excadrill-vs-sneasler/ 301
 /pokemon/sneasler-vs-farigiraf/ /pokemon/farigiraf-vs-sneasler/ 301
-/pokemon/sneasler-vs-floette-eternal/ /pokemon/floette-eternal-vs-sneasler/ 301
 /pokemon/sneasler-vs-garchomp/ /pokemon/garchomp-vs-sneasler/ 301
 /pokemon/sneasler-vs-gardevoir/ /pokemon/gardevoir-vs-sneasler/ 301
 /pokemon/sneasler-vs-gholdengo/ /pokemon/gholdengo-vs-sneasler/ 301
@@ -779,6 +751,7 @@
 /pokemon/sneasler-vs-metagross/ /pokemon/metagross-vs-sneasler/ 301
 /pokemon/sneasler-vs-milotic/ /pokemon/milotic-vs-sneasler/ 301
 /pokemon/sneasler-vs-pelipper/ /pokemon/pelipper-vs-sneasler/ 301
+/pokemon/sneasler-vs-politoed/ /pokemon/politoed-vs-sneasler/ 301
 /pokemon/sneasler-vs-raichu/ /pokemon/raichu-vs-sneasler/ 301
 /pokemon/sneasler-vs-rillaboom/ /pokemon/rillaboom-vs-sneasler/ 301
 /pokemon/sneasler-vs-salamence/ /pokemon/salamence-vs-sneasler/ 301
@@ -790,7 +763,6 @@
 /pokemon/staraptor-vs-charizard/ /pokemon/charizard-vs-staraptor/ 301
 /pokemon/staraptor-vs-excadrill/ /pokemon/excadrill-vs-staraptor/ 301
 /pokemon/staraptor-vs-farigiraf/ /pokemon/farigiraf-vs-staraptor/ 301
-/pokemon/staraptor-vs-floette-eternal/ /pokemon/floette-eternal-vs-staraptor/ 301
 /pokemon/staraptor-vs-garchomp/ /pokemon/garchomp-vs-staraptor/ 301
 /pokemon/staraptor-vs-gardevoir/ /pokemon/gardevoir-vs-staraptor/ 301
 /pokemon/staraptor-vs-gholdengo/ /pokemon/gholdengo-vs-staraptor/ 301
@@ -802,6 +774,7 @@
 /pokemon/staraptor-vs-metagross/ /pokemon/metagross-vs-staraptor/ 301
 /pokemon/staraptor-vs-milotic/ /pokemon/milotic-vs-staraptor/ 301
 /pokemon/staraptor-vs-pelipper/ /pokemon/pelipper-vs-staraptor/ 301
+/pokemon/staraptor-vs-politoed/ /pokemon/politoed-vs-staraptor/ 301
 /pokemon/staraptor-vs-raichu/ /pokemon/raichu-vs-staraptor/ 301
 /pokemon/staraptor-vs-rillaboom/ /pokemon/rillaboom-vs-staraptor/ 301
 /pokemon/staraptor-vs-salamence/ /pokemon/salamence-vs-staraptor/ 301
@@ -814,7 +787,6 @@
 /pokemon/sylveon-vs-charizard/ /pokemon/charizard-vs-sylveon/ 301
 /pokemon/sylveon-vs-excadrill/ /pokemon/excadrill-vs-sylveon/ 301
 /pokemon/sylveon-vs-farigiraf/ /pokemon/farigiraf-vs-sylveon/ 301
-/pokemon/sylveon-vs-floette-eternal/ /pokemon/floette-eternal-vs-sylveon/ 301
 /pokemon/sylveon-vs-garchomp/ /pokemon/garchomp-vs-sylveon/ 301
 /pokemon/sylveon-vs-gardevoir/ /pokemon/gardevoir-vs-sylveon/ 301
 /pokemon/sylveon-vs-gholdengo/ /pokemon/gholdengo-vs-sylveon/ 301
@@ -826,6 +798,7 @@
 /pokemon/sylveon-vs-metagross/ /pokemon/metagross-vs-sylveon/ 301
 /pokemon/sylveon-vs-milotic/ /pokemon/milotic-vs-sylveon/ 301
 /pokemon/sylveon-vs-pelipper/ /pokemon/pelipper-vs-sylveon/ 301
+/pokemon/sylveon-vs-politoed/ /pokemon/politoed-vs-sylveon/ 301
 /pokemon/sylveon-vs-raichu/ /pokemon/raichu-vs-sylveon/ 301
 /pokemon/sylveon-vs-rillaboom/ /pokemon/rillaboom-vs-sylveon/ 301
 /pokemon/sylveon-vs-salamence/ /pokemon/salamence-vs-sylveon/ 301
@@ -839,7 +812,6 @@
 /pokemon/torkoal-vs-charizard/ /pokemon/charizard-vs-torkoal/ 301
 /pokemon/torkoal-vs-excadrill/ /pokemon/excadrill-vs-torkoal/ 301
 /pokemon/torkoal-vs-farigiraf/ /pokemon/farigiraf-vs-torkoal/ 301
-/pokemon/torkoal-vs-floette-eternal/ /pokemon/floette-eternal-vs-torkoal/ 301
 /pokemon/torkoal-vs-garchomp/ /pokemon/garchomp-vs-torkoal/ 301
 /pokemon/torkoal-vs-gardevoir/ /pokemon/gardevoir-vs-torkoal/ 301
 /pokemon/torkoal-vs-gholdengo/ /pokemon/gholdengo-vs-torkoal/ 301
@@ -851,6 +823,7 @@
 /pokemon/torkoal-vs-metagross/ /pokemon/metagross-vs-torkoal/ 301
 /pokemon/torkoal-vs-milotic/ /pokemon/milotic-vs-torkoal/ 301
 /pokemon/torkoal-vs-pelipper/ /pokemon/pelipper-vs-torkoal/ 301
+/pokemon/torkoal-vs-politoed/ /pokemon/politoed-vs-torkoal/ 301
 /pokemon/torkoal-vs-raichu/ /pokemon/raichu-vs-torkoal/ 301
 /pokemon/torkoal-vs-rillaboom/ /pokemon/rillaboom-vs-torkoal/ 301
 /pokemon/torkoal-vs-salamence/ /pokemon/salamence-vs-torkoal/ 301
@@ -865,7 +838,6 @@
 /pokemon/tyranitar-vs-charizard/ /pokemon/charizard-vs-tyranitar/ 301
 /pokemon/tyranitar-vs-excadrill/ /pokemon/excadrill-vs-tyranitar/ 301
 /pokemon/tyranitar-vs-farigiraf/ /pokemon/farigiraf-vs-tyranitar/ 301
-/pokemon/tyranitar-vs-floette-eternal/ /pokemon/floette-eternal-vs-tyranitar/ 301
 /pokemon/tyranitar-vs-garchomp/ /pokemon/garchomp-vs-tyranitar/ 301
 /pokemon/tyranitar-vs-gardevoir/ /pokemon/gardevoir-vs-tyranitar/ 301
 /pokemon/tyranitar-vs-gholdengo/ /pokemon/gholdengo-vs-tyranitar/ 301
@@ -877,6 +849,7 @@
 /pokemon/tyranitar-vs-metagross/ /pokemon/metagross-vs-tyranitar/ 301
 /pokemon/tyranitar-vs-milotic/ /pokemon/milotic-vs-tyranitar/ 301
 /pokemon/tyranitar-vs-pelipper/ /pokemon/pelipper-vs-tyranitar/ 301
+/pokemon/tyranitar-vs-politoed/ /pokemon/politoed-vs-tyranitar/ 301
 /pokemon/tyranitar-vs-raichu/ /pokemon/raichu-vs-tyranitar/ 301
 /pokemon/tyranitar-vs-rillaboom/ /pokemon/rillaboom-vs-tyranitar/ 301
 /pokemon/tyranitar-vs-salamence/ /pokemon/salamence-vs-tyranitar/ 301
@@ -892,7 +865,6 @@
 /pokemon/volcarona-vs-charizard/ /pokemon/charizard-vs-volcarona/ 301
 /pokemon/volcarona-vs-excadrill/ /pokemon/excadrill-vs-volcarona/ 301
 /pokemon/volcarona-vs-farigiraf/ /pokemon/farigiraf-vs-volcarona/ 301
-/pokemon/volcarona-vs-floette-eternal/ /pokemon/floette-eternal-vs-volcarona/ 301
 /pokemon/volcarona-vs-garchomp/ /pokemon/garchomp-vs-volcarona/ 301
 /pokemon/volcarona-vs-gardevoir/ /pokemon/gardevoir-vs-volcarona/ 301
 /pokemon/volcarona-vs-gholdengo/ /pokemon/gholdengo-vs-volcarona/ 301
@@ -904,6 +876,7 @@
 /pokemon/volcarona-vs-metagross/ /pokemon/metagross-vs-volcarona/ 301
 /pokemon/volcarona-vs-milotic/ /pokemon/milotic-vs-volcarona/ 301
 /pokemon/volcarona-vs-pelipper/ /pokemon/pelipper-vs-volcarona/ 301
+/pokemon/volcarona-vs-politoed/ /pokemon/politoed-vs-volcarona/ 301
 /pokemon/volcarona-vs-raichu/ /pokemon/raichu-vs-volcarona/ 301
 /pokemon/volcarona-vs-rillaboom/ /pokemon/rillaboom-vs-volcarona/ 301
 /pokemon/volcarona-vs-salamence/ /pokemon/salamence-vs-volcarona/ 301
@@ -920,7 +893,6 @@
 /pokemon/whimsicott-vs-charizard/ /pokemon/charizard-vs-whimsicott/ 301
 /pokemon/whimsicott-vs-excadrill/ /pokemon/excadrill-vs-whimsicott/ 301
 /pokemon/whimsicott-vs-farigiraf/ /pokemon/farigiraf-vs-whimsicott/ 301
-/pokemon/whimsicott-vs-floette-eternal/ /pokemon/floette-eternal-vs-whimsicott/ 301
 /pokemon/whimsicott-vs-garchomp/ /pokemon/garchomp-vs-whimsicott/ 301
 /pokemon/whimsicott-vs-gardevoir/ /pokemon/gardevoir-vs-whimsicott/ 301
 /pokemon/whimsicott-vs-gholdengo/ /pokemon/gholdengo-vs-whimsicott/ 301
@@ -932,6 +904,7 @@
 /pokemon/whimsicott-vs-metagross/ /pokemon/metagross-vs-whimsicott/ 301
 /pokemon/whimsicott-vs-milotic/ /pokemon/milotic-vs-whimsicott/ 301
 /pokemon/whimsicott-vs-pelipper/ /pokemon/pelipper-vs-whimsicott/ 301
+/pokemon/whimsicott-vs-politoed/ /pokemon/politoed-vs-whimsicott/ 301
 /pokemon/whimsicott-vs-raichu/ /pokemon/raichu-vs-whimsicott/ 301
 /pokemon/whimsicott-vs-rillaboom/ /pokemon/rillaboom-vs-whimsicott/ 301
 /pokemon/whimsicott-vs-salamence/ /pokemon/salamence-vs-whimsicott/ 301

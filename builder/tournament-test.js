@@ -691,8 +691,12 @@ export function unevenStagePins(settings, readStages) {
   return { you: named(mine), them: named(theirs) };
 }
 
-const WEATHERS = ["None", "Sun", "Rain", "Sand", "Snow", "Strong Winds"];
-const TERRAINS = ["None", "Electric", "Grassy", "Psychic", "Misty"];
+// Exported because they are an ORDER, not a list: `board.w` and `board.t` are indices into them,
+// so anything that builds a board has to use these and not a list of its own that happens to hold
+// the same words. The Solver kept its own with Psychic and Misty the other way round, which made
+// choosing Psychic Terrain play Misty and choosing Misty play Psychic.
+export const WEATHERS = ["None", "Sun", "Rain", "Sand", "Snow", "Strong Winds"];
+export const TERRAINS = ["None", "Electric", "Grassy", "Psychic", "Misty"];
 const ANY = 7; // a move the board's weather or terrain does not change
 // The field Abilities the evaluator's autoField honours (team-eval.js WEATHER_SETTERS /
 // TERRAIN_SETTERS; Hadron Engine's terrain is left to the engine there as well).
@@ -1228,7 +1232,7 @@ export class TournamentTest {
    * One move into one defender on this board, cached with only the parts of the board it depends on.
    * `fx`: 1 = Helping Hand (Doubles), 2 = the attacker is burned (physical moves).
    */
-  moveHit(att, def, slot, board, atk, spa, fx = 0, hp = 1) {
+  moveHit(att, def, slot, board, atk, spa, fx = 0, hp = 1, defStage = 0) {
     const info = att.moves[slot];
     if (!info) return NO_HIT;
     const w = info.weather || att.weatherSense || def.weatherSense ? board.w : ANY;
@@ -1241,16 +1245,21 @@ export class TournamentTest {
     // which is the defect. Every other move, and every move under rule 0, keeps the top bucket, so
     // its key only shifts and its number does not move at all.
     const bucket = this.falloffRule >= 1 && info.hpPower ? hpBucket(hp) : HP_BUCKETS - 1;
-    const key = ((((((att.id * ID_SPAN + def.id) * 4 + slot) * 8 + w) * 8 + t) * 13 + stage + 6) * 4 + f) * HP_BUCKETS + bucket;
+    // `defStage` is the defender's Defense stage as it stands NOW, which only a Solver line moves
+    // (Stamina). It has to be in the key for the same reason the attacker's stage is: the cache is
+    // what the whole search reads, and a Pokemon at +1 Defense must not be handed the +0 answer.
+    // Nothing outside the Solver ever passes it, so every other caller keeps a key that merely
+    // shifts and a number that does not move.
+    const key = (((((((att.id * ID_SPAN + def.id) * 4 + slot) * 8 + w) * 8 + t) * 13 + stage + 6) * 13 + clampStage(defStage) + 6) * 4 + f) * HP_BUCKETS + bucket;
     let hit = this.hits.get(key);
     if (hit === undefined) {
-      hit = this.calc(att, def, info, slot, w, t, stage, f, bucket);
+      hit = this.calc(att, def, info, slot, w, t, stage, f, bucket, defStage);
       this.hits.set(key, hit);
     }
     return hit;
   }
 
-  calc(att, def, info, slot, w, t, stage, f, bucket = HP_BUCKETS - 1) {
+  calc(att, def, info, slot, w, t, stage, f, bucket = HP_BUCKETS - 1, defStage = 0) {
     // Grassy Glide is +1 in Grassy Terrain when its user is on the ground.
     const priority = info.priority + (info.key === "grassyglide" && t === GRASSY && att.grounded ? 1 : 0);
     // Priority the move table does not list is priority the engine cannot see, so its
@@ -1265,8 +1274,14 @@ export class TournamentTest {
     if (stage && info.physical) attacker.attack_stage = clampStage((att.mon.attack_stage || 0) + stage);
     if (stage && info.special) attacker.sp_attack_stage = clampStage((att.mon.sp_attack_stage || 0) + stage);
     const s = this.ev.settings;
+    // The engine reads the defender's Defense stage off the Pokemon object -- there is no context
+    // key for it -- so a Pokemon that has been raised during the line is a cloned one. Cloned only
+    // when it has been: every Tournament Test call passes 0 and hands over `def.mon` itself.
+    const defender = defStage
+      ? { ...def.mon, defense_stage: clampStage((def.mon.defense_stage || 0) + defStage) }
+      : def.mon;
     try {
-      const ctx = this.ev.calcContext(attacker, def.mon, info.name);
+      const ctx = this.ev.calcContext(attacker, defender, info.name);
       // The board is the only source of the field (TOURNAMENT_FIELD). Version 0 keeps a pinned
       // weather or terrain instead of the board's, and keeps the screens, Trick Room and Tailwind
       // the shared settings apply -- by settings SIDE, which the board has no way to model.
@@ -1292,7 +1307,10 @@ export class TournamentTest {
       const solver = this.solverField;
       if (solver) {
         const attackSide = att.side === 1 ? 1 : 0;
-        const defendSide = 1 - attackSide;
+        // The side that is being HIT, which is not always the other one: Earthquake catches the
+        // attacker's own partner, and the screen that protects it is its own side's. Taking it as
+        // `1 - attackSide` applied the opponent's Reflect to your partner and left yours off.
+        const defendSide = def.side === 1 ? 1 : 0;
         const physical = info.physical;
         if (physical && solver.reflect[defendSide]) ctx.reflect = true;
         if (info.special && solver.lightScreen[defendSide]) ctx.light_screen = true;
@@ -1313,7 +1331,7 @@ export class TournamentTest {
       }
       if (f & 1) ctx.helping_hand = true;
       if (f & 2) ctx.burned = true;
-      const result = this.ev.calculate(attacker, def.mon, ctx);
+      const result = this.ev.calculate(attacker, defender, ctx);
       this.calcs += 1;
       const rolls = result.rolls || [];
       const maxHp = Number(result.max_hp) || 1;
@@ -1360,7 +1378,8 @@ export class TournamentTest {
    * except inside a run of tied twins (seat rule 1), where it is what it was before the run began.
    */
   hitOn(m, target, slot, board, helped = m.helped, pre = m) {
-    return this.moveHit(m.u, target.u, slot, board, pre.atk, pre.spa, (helped ? 1 : 0) | (pre.burn ? 2 : 0), pre.hp);
+    return this.moveHit(m.u, target.u, slot, board, pre.atk, pre.spa,
+      (helped ? 1 : 0) | (pre.burn ? 2 : 0), pre.hp, target.def || 0);
   }
 
   /**
@@ -1635,6 +1654,15 @@ export class TournamentTest {
     return hit.frac;
   }
 
+  /**
+   * What happens to a Pokemon the moment a move lands on it, beyond the damage.
+   *
+   * Unset here, so the Tournament Test behaves exactly as it always has. The Solver sets it, the
+   * way it sets `rollHit`: it is playing one board out rather than comparing teams, so an Ability
+   * that answers a hit -- Stamina raising its Defense -- changes what the rest of the line costs.
+   */
+  onHit = null;
+
   deal(att, target, hit, events, partner = false) {
     if (!target || target.out || target.guard || hit.frac <= 0) return false;
     let damage = this.rollHit(hit);
@@ -1656,6 +1684,7 @@ export class TournamentTest {
       return true;
     }
     this.berry(target);
+    if (this.onHit) this.onHit(target, att, hit);
     return true;
   }
 

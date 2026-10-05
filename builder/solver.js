@@ -39,6 +39,7 @@
 
 import {
   ACTION_KINDS, ACTIVE_BY_FORMAT, BRING_BY_FORMAT, TURN_CAP_BY_FORMAT, alive, clampStage,
+  WEATHERS as BOARD_WEATHERS, TERRAINS as BOARD_TERRAINS,
 } from "./tournament-test.js";
 import { compact } from "./engine.js";
 
@@ -152,6 +153,28 @@ export class Solver {
     // the expected share; the Solver's rolls to hit and then rolls the damage, which is what
     // decides whether a line actually works.
     this.t.rollHit = (hit) => this.rollDamage(hit);
+    // And this is what a Pokemon does about being hit. The Tournament Test leaves it unset.
+    this.t.onHit = (target) => this.afterBeingHit(target);
+  }
+
+  /**
+   * An Ability that answers a hit.
+   *
+   * Stamina is the one that matters on a board: Archaludon's Defense goes up a stage every time
+   * something lands on it, which is most of what makes it worth bringing. Nothing modelled it --
+   * the turn state carries Attack, Sp. Atk and Speed and no Defense, and the Defense stage the
+   * board starts with is frozen on the cached unit -- so a line that hit Archaludon four times
+   * priced the fourth hit exactly like the first.
+   *
+   * `m.def` is a DELTA on top of the stage the board was set up with, which is why it starts at
+   * zero and why `hitOn` adds the two together rather than replacing one with the other.
+   */
+  afterBeingHit(target) {
+    if (!target || target.out) return;
+    if (compact(target.u.mon.ability || "") !== "stamina") return;
+    // +6 is the ceiling the game has, and the stage the board was set up with counts towards it.
+    const base = target.u.mon.defense_stage || 0;
+    target.def = clampStage(base + (target.def || 0) + 1) - base;
   }
 
   /**
@@ -257,6 +280,11 @@ export class Solver {
         // searched turn re-ran every one of them, which re-applied Intimidate and let a Drought
         // or Drizzle holder overwrite the Weather chosen in the Field popup.
         if (i < onField.length) m.entered = true;
+        // The Defense stage this line has added, on top of the one the board was set up with.
+        m.def = 0;
+        // Which Pokemon this is, for the whole line. `ix` is where it is STANDING and a switch
+        // changes it; this never changes, so the trace can tell what happened to whom.
+        m.tag = i;
         return m;
       });
       sides.push(list);
@@ -273,11 +301,11 @@ export class Solver {
       auroraVeil: [Boolean(field.auroraVeil?.[0]), Boolean(field.auroraVeil?.[1])],
       friendGuard: [Boolean(field.friendGuard?.[0]), Boolean(field.friendGuard?.[1])],
     };
-    const weathers = ["None", "Sun", "Rain", "Sand", "Snow"];
-    const terrains = ["None", "Electric", "Grassy", "Misty", "Psychic"];
     const board = {
-      w: Math.max(0, weathers.indexOf(String(field.weather || "None"))),
-      t: Math.max(0, terrains.indexOf(String(field.terrain || "None"))),
+      // BOARD_WEATHERS and BOARD_TERRAINS are the engine's own order. A list of the same words in
+      // a different order is not the same list: these are indices.
+      w: Math.max(0, BOARD_WEATHERS.indexOf(String(field.weather || "None"))),
+      t: Math.max(0, BOARD_TERRAINS.indexOf(String(field.terrain || "None"))),
       tw: [Number(field.tailwind?.[0]) || 0, Number(field.tailwind?.[1]) || 0],
       tr: field.trickRoom ? 4 : 0,
       trBy: field.trickRoom ? 0 : -1,
@@ -471,6 +499,14 @@ export class Solver {
       out.ix = action.into;
       into.ix = outIx;
       into.justIn = true;
+      // Stat stages are lost the moment a Pokemon leaves the field. Nothing cleared them, so a
+      // Pokemon that had been lowered or boosted kept it on the bench and brought it back in.
+      // The stage the BOARD was set up with stays on the unit: that is the person's description
+      // of the position, not something this line did, and it is in the damage cache key.
+      out.atk = 0;
+      out.spa = 0;
+      out.spe = 0;
+      out.def = 0;
       state.active[s][action.position] = into;
     }
   }
@@ -547,7 +583,9 @@ export class Solver {
 
   /** Everyone's HP, as whole percentages, for a before-and-after. */
   snapshot(state) {
-    return state.sides.map((list) => list.map((m) => ({ name: this.label(m.u), hp: Math.round(m.hp * 100), out: Boolean(m.out) })));
+    return state.sides.map((list) => list.map((m) => ({
+      tag: m.tag, name: this.label(m.u), hp: Math.round(m.hp * 100), out: Boolean(m.out),
+    })));
   }
 
   /**
@@ -619,9 +657,16 @@ export class Solver {
     for (const row of active) for (const m of row) if (m) m.justIn = false;
     this.t.refill(active, sides, next, board);
     // A replacement sent out to fill a gap has only just arrived, so it gets what the game gives
-    // a Pokemon that has only just arrived -- including its entry Ability, on the turn it acts.
+    // a Pokemon that has only just arrived: Fake Out and First Impression on the turn it acts.
+    //
+    // `entered` is set with it, because `refill` has ALREADY run its entry Ability (it calls
+    // `enter` on everything it brings in). Without this the next turn would see `justIn` with no
+    // `entered` and fire that Ability a second time -- a second Intimidate, a second weather set.
     active.forEach((row, s) => row.forEach((m, i) => {
-      if (m && !m.out && before[s][i] !== m.u.id) m.justIn = true;
+      if (m && !m.out && before[s][i] !== m.u.id) {
+        m.justIn = true;
+        m.entered = true;
+      }
     }));
   }
 
@@ -700,25 +745,55 @@ export class Solver {
       protect: "protected", wideguard: "used Wide Guard", quickguard: "used Quick Guard",
       helpinghand: "used Helping Hand", fakeout: "flinched the target with Fake Out",
       tailwind: "set Tailwind", trickroom: "turned Trick Room", redirect: "drew the attacks in",
-      intimidate: "lowered Attack with Intimidate", sleep: "put the target to sleep",
-      taunt: "taunted the target", encore: "locked the target with Encore",
-      burn: "burned the target", speeddrop: "dropped Speed", blocked: "was blocked",
+      sleep: "put the target to sleep", taunt: "taunted the target",
+      encore: "locked the target with Encore", burn: "burned the target", blocked: "was blocked",
     };
+    /**
+     * The events that lower a stat, and whose stat it is.
+     *
+     * These three name the Pokemon that went DOWN in `targets` (the other side) and `own` (this
+     * side, when a spread move catches the partner) -- never in `actor`, which is the one that
+     * used the move. Rendering them as "actor + verb" like the rest produced "Milotic dropped
+     * Speed" for an Icy Wind, which reads as Milotic dropping its own: Icy Wind drops the Speed
+     * of what it hits. `null` means the stats are on the event itself.
+     */
+    const DROPS = { speeddrop: ["spe"], intimidate: ["atk"], lower: null };
+    const STAT_WORDS = { atk: "Attack", spa: "Sp. Atk", spe: "Speed", def: "Defense", spd: "Sp. Def" };
     const notes = [];
+    const add = (line) => { if (line && !notes.includes(line)) notes.push(line); };
+    /** "Garchomp's", "Garchomp's and Amoonguss's". */
+    const whose = (names) => names.map((name) => `${name}${name.endsWith("s") ? "'" : "'s"}`)
+      .join(" and ");
     for (const event of events || []) {
+      if (!event.actor) continue;
+      if (Object.prototype.hasOwnProperty.call(DROPS, event.kind)) {
+        const stats = (DROPS[event.kind] || event.stats || []).map((key) => STAT_WORDS[key] || key);
+        const said = stats.length ? stats.join(" and ") : "stats";
+        const by = this.label(event.actor);
+        const hit = (event.targets || []).map((unit) => this.label(unit));
+        const mine = (event.own || []).map((unit) => this.label(unit));
+        if (hit.length) add(`${by} dropped ${whose(hit)} ${said}`);
+        // A spread move catches the partner too, and that drop is worth saying out loud.
+        if (mine.length) add(`${by} also dropped ${whose(mine)} ${said}`);
+        continue;
+      }
       const what = NOTABLE[event.kind];
-      if (!what || !event.actor) continue;
-      const line = `${this.label(event.actor)} ${what}`;
-      if (!notes.includes(line)) notes.push(line);
+      if (!what) continue;
+      add(`${this.label(event.actor)} ${what}`);
     }
     const damage = [];
     const fainted = [];
+    // Matched by Pokemon, not by position. A switch swaps two entries of `sides`, so comparing
+    // position i before the turn with position i after it compared two DIFFERENT Pokemon and
+    // printed the difference as damage -- a turn where nobody healed reported "Sneasler 75% ->
+    // 100%", and the Pokemon that really took the hit was never mentioned.
     for (let s = 0; s < 2; s += 1) {
-      for (let i = 0; i < after[s].length; i += 1) {
-        const was = before[s][i];
-        const now = after[s][i];
-        if (now.out && !was.out) fainted.push({ side: s, name: now.name });
-        else if (was.hp !== now.hp) damage.push({ side: s, name: now.name, from: was.hp, to: now.hp });
+      const was = new Map(before[s].map((m) => [m.tag, m]));
+      for (const now of after[s]) {
+        const then = was.get(now.tag);
+        if (!then) continue;
+        if (now.out && !then.out) fainted.push({ side: s, name: now.name });
+        else if (then.hp !== now.hp) damage.push({ side: s, name: now.name, from: then.hp, to: now.hp });
       }
     }
     return { turn, plays, notes, damage, fainted, hp: after };

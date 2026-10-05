@@ -2,6 +2,7 @@ import { closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, 
 import { basename, extname, join, relative, sep } from "node:path";
 import { writeSeoPages, REGULATION_KEYWORDS } from "./seo-pages.mjs";
 import { isArchivedSeason } from "./archived-seasons.mjs";
+import { writePokemonSets } from "./pokemon-sets.mjs";
 import { writeBuilderMeta } from "./builder-meta.mjs";
 
 const assetRoot = "pokemon_champions_assets";
@@ -1650,6 +1651,100 @@ const topicPageDefinitions = [
     title: "Pokemon Champions Stat Spreads",
     description: "Pokemon Champions stat spreads and nature usage from current ranked battle data.",
     render: () => `<h2>Common natures</h2>${aggregateTable("stat_alignment", "Doubles", 50)}<h2>Common stat spreads</h2>${aggregateTable("stat_points", "Doubles", 50)}`
+  },
+  {
+    slug: "pokemon-champions-team-builder",
+    query: "pokemon champions team builder",
+    title: "Pokemon Champions Team Builder",
+    description: "A free Pokemon Champions team builder in your browser: build a team against the current ranked meta, see its type coverage and pressure both ways, and get suggestions for an open slot. No account, nothing to install.",
+    render: () => `
+      <p>The <a href="/team-builder/">Team Builder</a> runs in your browser and is free. Pick six, and it scores them
+      against the current ranked meta: average type coverage, average offensive and defensive pressure per type,
+      speed control, Protect and positioning, spread damage, priority and cleanup. A 0% column tells you which type
+      you cannot threaten, and which one is about to threaten you.</p>
+      <p>It reads the same daily ladder data the rest of this site publishes, so the meta it builds against is the
+      one you are about to play. Teams are saved without limit, searched, tagged, duplicated, imported and exported,
+      and they sync to the <a href="/pro-tool/">Companion app</a>.</p>
+      <h2>What people build around right now</h2>${rankedPokemonTable("Doubles", 20)}
+      <h2>The rest of the toolkit</h2>
+      <ul>
+        <li><a href="/damage-calculator/">Damage Calculator</a> with KO odds, Mega Stones, Stat Points and the whole field state.</li>
+        <li><a href="/solver/">Solver</a>: recreate any position and search it for the best move.</li>
+        <li><a href="/pokemon-champions-team-rating/">Team rating</a>: how a finished team is scored, and against what.</li>
+        <li><a href="/pokemon-champions-tournament-teams/">Tournament teams</a>: the registered teams your build is tested against.</li>
+      </ul>`
+  },
+  {
+    slug: "pokemon-champions-team-rating",
+    query: "pokemon champions team rating",
+    title: "Pokemon Champions Team Rating",
+    description: "Rate a Pokemon Champions team against the ranked meta: synergy, offense, defense and speed scores, the team-building checks behind them, and every critical threat with your best answer to it.",
+    render: () => `
+      <p>Team rating here is not a number somebody decided. A team is scored on four axes -- synergy, offense,
+      defense and speed -- and every score opens into the working behind it, so a low one tells you where it came
+      from rather than only how bad it is. Run it from the <a href="/team-builder/">Team Builder</a>.</p>
+      <h2>What is checked</h2>
+      <ul>
+        <li><strong>Team-building checks.</strong> Archetype detection, Mega options, speed control, Protect and
+        positioning, spread damage, priority and cleanup, physical and special pressure, utility and disruption.
+        Each passes or fails with the reason attached and the Pokemon responsible named.</li>
+        <li><strong>Critical Threats.</strong> Every serious threat in the top 40 of the meta, with its real spread
+        and usage, how many of your six it knocks out in one or two hits, how many answers you actually have, and
+        the single best answer you own with the damage roll behind it.</li>
+        <li><strong>Speed.</strong> How many of the meta you move before, with and without Tailwind or Trick Room.</li>
+      </ul>
+      <h2>The meta a team is rated against</h2>${rankedPokemonTable("Doubles", 20)}
+      <p>The same rating runs in the <a href="/pro-tool/">Companion app</a>, and
+      <a href="/pokemon-champions-tournament-teams/">Test against Tournament Teams</a> plays your team against
+      real registered teams rather than scoring it on paper.</p>`
+  },
+  {
+    slug: "pokemon-champions-tournament-teams",
+    query: "pokemon champions tournament teams",
+    title: "Pokemon Champions Tournament Teams",
+    description: "Real registered Pokemon Champions tournament teams, and a test that plays your own team against every one of them: the sets people actually brought, not usage averages.",
+    render: () => `
+      <p>A usage file says what percentage of Rillaboom carry Grassy Glide. A tournament team says what one player
+      actually brought, all six together, with the item, ability, nature and four moves they chose. This site ships
+      thousands of registered teams, and they are used in three places.</p>
+      <h2>Where they are used</h2>
+      <ul>
+        <li><strong>Test against Tournament Teams</strong> in the <a href="/team-builder/">Team Builder</a>: your
+        team plays a short game against each one, for every choice of Pokemon each side can bring, and the result is
+        how often you come out ahead and against which archetypes.</li>
+        <li><strong>The sets in the pickers.</strong> The <a href="/damage-calculator/">Damage Calculator</a> and the
+        <a href="/solver/">Solver</a> offer each Pokemon's distinct tournament sets, not only its most common one --
+        the Mawilite Trick Room build and the Rocky Helmet pivot are different Pokemon to a damage roll.</li>
+        <li><strong>Live Mode</strong> in the <a href="/pro-tool/">Companion app</a>: when five of the six Pokemon it
+        reads from team preview match a registered team, that team's own sets are used instead of usage averages.</li>
+      </ul>
+      <h2>The Pokemon those teams are built around</h2>${rankedPokemonTable("Doubles", 20)}`
+  },
+  {
+    slug: "pokemon-champions-solver",
+    query: "pokemon champions solver",
+    title: "Pokemon Champions Solver",
+    description: "A Pokemon Champions solver: recreate any battle position and play it out thousands of times, with both sides choosing at once, to find the move that really comes out ahead.",
+    render: () => `
+      <p>The <a href="/solver/">Solver</a> takes one position -- both sides, their sets, how much HP everyone has
+      left, the weather, terrain, Trick Room and Tailwind -- and plays it out thousands of times. Both sides choose
+      at the same time and neither sees the other's choice, which is how the game works, and the best move is
+      whatever comes out ahead across those lines.</p>
+      <p>It is the same family of search a Poker Solver or a Chess Engine uses, and it suits Pokemon because Pokemon
+      is a combination of Chess, Poker and Rock / Paper / Scissors. It is not an AI being asked for an opinion:
+      every number it prints is a count of lines that were really played, which is why the answer sharpens the
+      longer it runs.</p>
+      <h2>What it is for</h2>
+      <ul>
+        <li>Replaying a turn you lost, to see what the better line was.</li>
+        <li>Pricing a Protect, a switch or a redirection against what the opponent could do.</li>
+        <li>Finding out whether a position is as bad as it felt: the board's own score says who it favours.</li>
+      </ul>
+      <p>Three complete searches are free. After that it asks for <a href="/pro-tool/plans/">Pro</a>, which also
+      covers unlimited <a href="/pokemon-champions-team-rating/">team rating</a>, Auto Build and
+      <a href="/pokemon-champions-tournament-teams/">Test against Tournament Teams</a>, here and in the
+      <a href="/pro-tool/">Companion app</a>.</p>
+      <h2>The meta a position usually comes from</h2>${rankedPokemonTable("Doubles", 20)}`
   }
 ];
 
@@ -1740,6 +1835,7 @@ function writeSitemap(pokemonPages, topicPages, generatedAt, extraUrls = []) {
     `${siteUrl}/`,
     `${siteUrl}/team-builder/`,
     `${siteUrl}/damage-calculator/`,
+    `${siteUrl}/solver/`,
     `${siteUrl}/meta/`,
     `${siteUrl}/pro-tool/`,
     `${siteUrl}/pro-tool/plans/`,
@@ -1755,7 +1851,7 @@ function writeSitemap(pokemonPages, topicPages, generatedAt, extraUrls = []) {
   const priorityFor = (url) => {
     const path = url.replace(siteUrl, "");
     if (path === "/") return "1.0";
-    if (path === "/team-builder/" || path === "/damage-calculator/") return "1.0";
+    if (path === "/team-builder/" || path === "/damage-calculator/" || path === "/solver/") return "1.0";
     if (path === "/pro-tool/") return "0.9";
     if (/^\/(meta|rankings|pokemon|moves|items|abilities|teams)\/$/.test(path)) return "0.9";
     if (path.startsWith("/pro-tool/")) return "0.8";
@@ -1893,6 +1989,10 @@ const seo = writeSeoPages({
   }
 });
 
+// After the meta files it reads: the sets each Pokemon is really played with, grouped from
+// the registered tournament teams and paired with the usage data (builder/pokemon-sets.js).
+const pokemonSetCount = writePokemonSets();
+
 const sitemapCount = writeSitemap(pokemonPages, topicPages, generatedAt, seo.urls);
 
 console.log(`Generated data/pokemon-index.json with ${pokemon.length} Pokemon, ${pokemonPages.length} profile page(s), and ${topicPages.length} topic page(s).`);
@@ -1900,5 +2000,6 @@ console.log(`Generated ${seo.counts.total} SEO page(s): ${seo.counts.moves} move
 console.log(`Sitemap lists ${sitemapCount} URL(s).`);
 console.log(`_redirects: ${seo.counts.legacyRedirects} old-name and ${seo.counts.redirects} reverse-comparison rule(s); ${seo.counts.staticRedirects} static (limit 2000), ${seo.counts.dynamicRedirects} dynamic (limit 100).`);
 console.log(`Builder meta covers ${builderMetaCount} ranked Pokemon across both formats.`);
+console.log(`data/builder/pokemon-sets.json holds ${pokemonSetCount} tournament set(s).`);
 console.log(`data/descriptions.json holds effect text for ${effectDescriptionCounts.items} held item(s) and ${effectDescriptionCounts.abilities} Abilit(y/ies).`);
 if (skippedMetadataOnly.length) console.warn(`Skipped ${skippedMetadataOnly.length} metadata-only name(s): ${skippedMetadataOnly.join(", ")}`);

@@ -2312,7 +2312,7 @@ export class TeamSuggestions {
     const projected = this.projectedSlots(context, row);
     const projectedProfiles = projected.map(({ entry, mon }) => this.synergy.profile(entry, mon));
     // team_strategy: a redundant Trick Room setter costs 18.
-    const room = roomPlan(projectedProfiles, this.synergy.metaSpeedRows());
+    const room = roomPlan(projectedProfiles, this.synergy.metaSpeedRows(), this.ev?.engine || this.evaluation?.ev?.engine || null);
     if (room.redundant) {
       row.counter_archetype_speed_control_v466 = true;
       before = row.score;
@@ -2883,7 +2883,7 @@ export class TeamSuggestions {
     // team_strategy: a finished team does not carry a Trick Room it cannot use - unless
     // Trick Room is the archetype the team was asked to be.
     if (context.archetype?.key !== "trick room" || context.strictFinishFilters) {
-      if (roomPlan(synergyProfiles, this.synergy.metaSpeedRows()).redundant) misses.push("a Trick Room it cannot use");
+      if (roomPlan(synergyProfiles, this.synergy.metaSpeedRows(), this.ev?.engine || this.evaluation?.ev?.engine || null).redundant) misses.push("a Trick Room it cannot use");
     }
     // field_synergy: nor a terrain that misses half of it.
     if (this.terrainReach(projected).excess) misses.push("a terrain that misses half of it");

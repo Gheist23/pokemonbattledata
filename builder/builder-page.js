@@ -34,6 +34,14 @@ import { keepPlace } from "./scroll-anchor.js";
 import { OPTIMIZE_DEFAULTS, optimizeView, updateProgress } from "./optimize-view.js";
 import { MESSAGES as SHARE_MESSAGES, ShareError, cardHost, evaluationDigest, shareButton, slotStats, teamDigest } from "./share-client.js";
 
+
+// The stale-module guard in the page's HTML watches for the module graph being refused
+// wholesale, which is what a cached module with mismatched exports causes. It cannot see that
+// from the DOM alone -- a page mid-analysis looks the same as a page that never started -- so it
+// reads this instead. An import that fails takes the whole graph with it and this never runs,
+// which is exactly the case the guard is for.
+try { window.__bdPageModuleRan = true; } catch { /* no window: nothing to guard */ }
+
 const root = document.getElementById("builderApp");
 let data;
 let worker;

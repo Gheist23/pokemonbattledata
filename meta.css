@@ -79,6 +79,10 @@
 .meta-panel-down { border-color: rgba(239, 100, 109, 0.22); }
 .meta-panel-offense { border-color: rgba(255, 206, 106, 0.24); }
 .meta-panel-defense { border-color: rgba(143, 184, 255, 0.24); }
+/* The occurrence count is neither of those two questions, so it gets its own colour and the
+   full width: 18 rows read better in two or three columns than in one tall list. */
+.meta-panel-count { border-color: rgba(134, 239, 172, 0.24); margin-top: 0.9rem; }
+.meta-type-count-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 0.3rem; }
 
 .meta-list {
   display: grid;

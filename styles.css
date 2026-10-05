@@ -177,6 +177,32 @@ code {
 .season-select option { color: var(--text); background: #0f1720; }
 .season-select[hidden] { display: none !important; }
 
+/* In the Battle Data panel rather than the nav row. It belongs to the data it filters, so it
+   sits with the count it moves -- and at the panel's own scale, not the 40px the nav controls
+   share, which would tower over the two lines of text beside it.
+
+   The header was a two-item flex row; a third item made the label claim the whole width and
+   push the count onto its own line, so the label is told it may shrink and the other two that
+   they may not. */
+.entry-panel-header > div:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.entry-panel-header .entry-count,
+.entry-panel-header .season-select {
+  flex: 0 0 auto;
+}
+
+.entry-panel-header .season-select {
+  min-height: 30px !important;
+  align-self: center;
+  margin-left: auto;
+  padding: 0 1.7rem 0 0.7rem;
+  background-position: right 0.85rem center, right 0.6rem center;
+  font-size: 0.76rem;
+}
+
 @media (max-width: 760px) {
   .season-select { width: 100%; }
 }
@@ -5140,7 +5166,9 @@ body.page-api::before {
 /* v37 Battle Data header cleanup */
 .page-explorer .entry-panel-header {
   display: grid !important;
-  grid-template-columns: minmax(0, 1fr) auto !important;
+  /* Three columns since the season picker moved in here from the nav row: the label, the
+     picker, the count. Two columns put the count on a second row. */
+  grid-template-columns: minmax(0, 1fr) auto auto !important;
   align-items: end !important;
   gap: 0.85rem !important;
   min-height: 58px !important;
@@ -5157,6 +5185,12 @@ body.page-api::before {
   display: grid !important;
   gap: 0.28rem !important;
   min-width: 0 !important;
+}
+
+/* The picker sits on the text's baseline, not stretched to the row. */
+.page-explorer .entry-panel-header .season-select {
+  align-self: center !important;
+  justify-self: end !important;
 }
 
 .page-explorer .entry-panel-header .stat-label {
@@ -8615,6 +8649,18 @@ body.page-api::before {
 /* A feature that spans both tiers labels both in one eyebrow. */
 .eyebrow-split {
   color: var(--soft);
+}
+
+/* The Solver's demo sits in the same frame as the screenshots beside it, so it
+   gets the screenshot's border, radius and shadow rather than a bare player. */
+.tool-feature-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
 }
 
 .tool-feature-shot figcaption {

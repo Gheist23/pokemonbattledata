@@ -37,7 +37,7 @@ const KIND_WORD = { eval: "Team Evaluation", team: "Team" };
 /** What a page with no card unfurls to: a real, already-deployed site asset
  *  rather than a dead card URL.  Its type and its true pixel size are declared
  *  here so the og:image:* trio is never a claim about a different file --
- *  assets/tool/team-builder.webp is a 1600x839 WEBP (1.907:1, so
+ *  assets/tool/team-builder.webp is a 1600x862 WEBP (1.856:1, so
  *  twitter:card=summary_large_image still crops correctly).  If that asset is
  *  ever replaced, these three lines move with it; the endpoints suite reads the
  *  file off disk and fails on a mismatch. */
@@ -45,7 +45,7 @@ const MISS_IMAGE = Object.freeze({
   url: `${SITE_ORIGIN}/assets/tool/team-builder.webp`,
   type: "image/webp",
   width: 1600,
-  height: 839,
+  height: 862,
 });
 
 function htmlResponse(body, status = 200, cacheControl = "public, max-age=3600") {

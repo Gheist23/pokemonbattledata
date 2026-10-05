@@ -264,6 +264,50 @@ export const MOVE_FLAGS_ON = true;
  */
 export const ATE_DRAGONIZE_ON = true;
 
+/**
+ * V529: the turn-order priority the game's own move archive does not publish either. Measured
+ * on both sides: 56 of the 954 moves have a non-zero priority and both codebases knew 23 of
+ * them, because the table was typed out by hand a move at a time -- Rage Powder but not Follow
+ * Me, Wide Guard but not Quick Guard, Mirror Coat but not Counter. So Roar, Whirlwind, Circle
+ * Throw, Dragon Tail and Teleport resolved at 0 instead of -6 and a fast Pokemon blew the
+ * opponent out of the battle before they could move; Helping Hand (+5) landed after the partner
+ * it boosts; Counter and Mirror Coat (-5), Focus Punch, Beak Blast and Shell Trap (-3) lost the
+ * lateness that IS the move; and Quick Guard, Crafty Shield (+3), Magic Coat and Snatch (+4) all
+ * went at neutral. `appData.movePriority` is compiled from the reference archive, so both sides
+ * read one source. A priority the data already carries is never overwritten.
+ */
+export const MOVE_PRIORITY_ON = true;
+
+/**
+ * V530: a Trick Room plan has to outweigh the attackers the Room turns round. `roomPlan` decided
+ * "supports Trick Room" from two clauses -- at least two slow attackers, and at least half the
+ * attackers slow -- and the second is satisfied EXACTLY by three fast attackers and three slow
+ * ones, which is the shape of an ordinary Tailwind team. So a Tailwind build whose own Salamence
+ * carried the Tailwind was scored under the Trick Room regime, while the app's `speed_mode_v505`
+ * was stripping the Trick Room off its Farigiraf as the move that did not belong. A Pokemon
+ * already faster than the meta's median acts last inside the Room, so those are counted and the
+ * slow attackers have to outnumber them. Only ever a tightening of the two clauses that were
+ * already there. Stamped: `supported` picks the scoring regime, and three recorded Auto Build
+ * scores on the Trick Room team move under it.
+ */
+export const ROOM_PLAN_ON = true;
+
+/** The `roomPlan` option as a flag, the way `moveFlagsOption` reads its own. */
+export function roomPlanOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
+
+/** The `movePriority` option as a flag, the way `moveFlagsOption` reads its own. */
+export function movePriorityOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
+
 /** The `ateDragonize` option as a flag, the way `moveFlagsOption` reads its own. */
 export function ateDragonizeOption(value) {
   if (value === null || value === undefined || value === false) return false;
@@ -635,7 +679,9 @@ export class DamageEngine {
                         fieldRequirements = FIELD_REQUIREMENTS_ON,
                         selfStatChange = SELF_STAT_CHANGE_ON,
                         moveFlags = MOVE_FLAGS_ON,
-                        ateDragonize = ATE_DRAGONIZE_ON } = {}) {
+                        ateDragonize = ATE_DRAGONIZE_ON,
+                        movePriority = MOVE_PRIORITY_ON,
+                        roomPlan = ROOM_PLAN_ON } = {}) {
     // Off only for a recording made before the rule (see `terrainSeedOption`).
     this.terrainSeeds = terrainSeedOption(terrainSeeds);
     // Likewise: off only for a recording made before Steel Roller learned it
@@ -649,6 +695,13 @@ export class DamageEngine {
     this.moveFlags = moveFlagsOption(moveFlags);
     // Likewise: off only for a recording made before Dragonize joined the `-ate` table.
     this.ateDragonize = ateDragonizeOption(ateDragonize);
+    // Likewise: off only for a recording made before the moves learned their own turn-order
+    // priority (see `movePriorityOption`). Turn order decides who acts, so every recorded
+    // rollout made before the rule has to replay with the 23 hand-written values.
+    this.movePriority = movePriorityOption(movePriority);
+    // Likewise: off only for a recording made before a Trick Room plan had to outweigh the
+    // attackers the Room turns round (see `roomPlanOption`).
+    this.roomPlan = roomPlanOption(roomPlan);
     this.data = appData;
     // V525: {move key: {stat: signed stages}} for every move that changes its own user,
     // exported from the game's own move archive. Empty on an older data file, which is the
@@ -657,6 +710,9 @@ export class DamageEngine {
     // V527: {move key: [flag, ...]} for the 479 moves that carry one, from the reference
     // archive. Empty on an older data file, which is the same as the rule being off.
     this.moveFlagTable = appData.moveFlags || {};
+    // V529: {move key: priority} for the 56 moves whose turn order is not neutral, from the
+    // same reference archive. Empty on an older data file, which is the same as the rule off.
+    this.movePriorityTable = appData.movePriority || {};
     // Memoised per move. A runner flips the setting between vectors, and that stays correct
     // because the merge returns early when the rule is off, so nothing is read or written then.
     this._mergedFlags = new Map();
@@ -878,12 +934,28 @@ export class DamageEngine {
     return merged;
   }
 
+  /**
+   * This move's turn-order priority, with the archive's filled in where the data has none.
+   * A non-zero value the data already carries always wins, so nothing already working is
+   * withdrawn -- and all 23 the data did carry agree with the archive anyway, which is the
+   * check that the archive and this game really do order moves the same way.
+   */
+  priorityWithTheArchive(name, present) {
+    if (!this.movePriority) return present;
+    const current = int(present);
+    if (current !== 0) return present;
+    const wanted = this.movePriorityTable[compact(name)];
+    return wanted === undefined ? present : int(wanted);
+  }
+
   /** The final `move_meta` chain for a context. */
   moveMeta(ctx) {
     const name = this.canonicalMoveName(ctx.move_name);
     const meta = { ...this.moveMetaBase(name) };
     const flags = this.flagsWithTheArchive(name, meta.flags);
     if (flags !== meta.flags) meta.flags = flags;
+    const priority = this.priorityWithTheArchive(name, meta.priority);
+    if (priority !== meta.priority) meta.priority = priority;
     if (ctx.move_type_override) meta.type = pyTitle(ctx.move_type_override);
     if (ctx.move_category_override) meta.category = String(ctx.move_category_override).toLowerCase();
     if (int(ctx.move_power_override) > 0) {

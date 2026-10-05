@@ -1,0 +1,831 @@
+/* The Solver page. Three columns on a desktop -- your side, the board and the answer, their
+   side -- stacking to one on a phone, like the Damage Calculator beside it. Everything else
+   (chips, selects, dialogs, sprites) comes from builder.css. */
+
+.bd-solver {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.bd-solver-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 14px;
+  background: var(--bd-panel);
+}
+
+.bd-solver-controls-left,
+.bd-solver-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.bd-solver-depth {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.bd-free-runs {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.bd-solver-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.bd-solver-side,
+.bd-solver-middle > * {
+  border: 1px solid var(--bd-line);
+  border-radius: 14px;
+  background: var(--bd-panel);
+}
+
+.bd-solver-side {
+  padding: 0.7rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.bd-solver-middle {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.bd-solver-side-head {
+  display: flex;
+  flex-wrap: wrap;
+  /* Top left, not middle centre: the heading names the column, so it belongs at the corner the
+     eye starts from rather than floating beside whatever happens to be tallest in the row. */
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.bd-solver-side-head .bd-solver-import {
+  margin-left: auto;
+}
+
+.bd-solver-side-head h2 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.bd-solver-import {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.bd-solver-cards {
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* Every tile looks the same. Where a Pokemon stands is said once, on the board in the middle,
+   and a second tint over here only competed with it. */
+.bd-solver-card {
+  border: 1px solid var(--bd-line);
+  border-radius: 12px;
+  background: var(--bd-control);
+  padding: 0.5rem 0.55rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+/* On the team but sitting this battle out. Still editable -- a set has to be changeable while
+   it is on the bench -- but plainly not part of what is being searched. */
+.bd-solver-card.benched {
+  opacity: 0.6;
+}
+
+.bd-solver-card-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bd-solver-art {
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.bd-solver-card-name {
+  display: grid;
+  min-width: 0;
+}
+
+.bd-solver-card-name strong {
+  font-size: 0.92rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bd-solver-card-name small {
+  color: var(--muted);
+  font-size: 0.74rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bd-solver-card-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.bd-solver-hp {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 1 1 11rem;
+  min-width: 9rem;
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.bd-solver-hp input[type="range"] {
+  flex: 1;
+  min-width: 0;
+  accent-color: var(--brand);
+}
+
+.bd-solver-hp-value {
+  min-width: 2.6rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.bd-solver-stages {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.bd-solver-num {
+  display: grid;
+  gap: 0.1rem;
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.bd-solver-num input {
+  width: 3.1rem;
+  padding: 0.18rem 0.25rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 7px;
+  background: var(--bd-panel);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.76rem;
+  text-align: center;
+}
+
+.bd-solver-add {
+  justify-self: start;
+}
+
+.bd-solver-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+/* --- the field --------------------------------------------------------------------- */
+
+.bd-solver-field {
+  padding: 0.7rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.bd-solver-field-row {
+  display: grid;
+  grid-template-columns: 5.2rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bd-solver-field-row .bd-field-label {
+  margin: 0;
+}
+
+.bd-solver-chips {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+/* --- the answer ------------------------------------------------------------------- */
+
+.bd-solver-results {
+  padding: 0.8rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.bd-solver-idle,
+.bd-solver-error {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.bd-solver-error {
+  color: var(--bad, #f87171);
+}
+
+/* The board's own score, as one bar: the two sides always add to 100, so one fill says both. */
+.bd-solver-bar {
+  position: relative;
+  height: 1.7rem;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(248, 113, 113, 0.22);
+}
+
+.bd-solver-bar-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: rgba(52, 211, 153, 0.32);
+}
+
+.bd-solver-bar-text {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.bd-solver-answer h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.bd-solver-lines {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.bd-solver-line {
+  border: 1px solid var(--bd-line);
+  border-radius: 10px;
+  background: var(--bd-control);
+  padding: 0.4rem 0.55rem;
+}
+
+.bd-solver-line.best {
+  border-color: var(--bd-on-line);
+  background: var(--bd-on);
+}
+
+.bd-solver-line-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.bd-solver-line-text {
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.bd-solver-line-score {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  font-size: 0.86rem;
+  white-space: nowrap;
+}
+
+.bd-solver-line-score[data-tone="good"] { color: var(--good, #34d399); }
+.bd-solver-line-score[data-tone="bad"] { color: var(--bad, #f87171); }
+
+.bd-solver-line-sub {
+  margin-top: 0.1rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.bd-paste {
+  width: 100%;
+  min-height: 15rem;
+  padding: 0.6rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 10px;
+  background: var(--bd-control);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.bd-paste-body {
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* --- the explainer under the board -------------------------------------------------- */
+
+.bd-solver-explainer h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.2rem;
+}
+
+.bd-solver-explainer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.bd-solver-explainer-grid h3 {
+  margin: 0 0 0.3rem;
+  font-size: 0.95rem;
+}
+
+.bd-solver-explainer-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 1100px) {
+  .bd-solver-board {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* The answer comes first on a narrow screen: it is what the page is for, and scrolling past
+     two four-Pokemon columns to reach it would bury it. */
+  .bd-solver-middle { order: -1; }
+}
+
+/* --- the Solver page's own corrections ------------------------------------------------- */
+
+/* The intro is the explanation of the whole tool, so it uses the content width rather than the
+   78ch the builder pages cap body text at -- at 78ch it set three short lines against a very
+   wide empty column. The paragraphs are also spaced so the clarification reads as its own
+   thought rather than as more of the sentence above it. */
+.page-solver .bd-hero .hero-text {
+  max-width: none;
+}
+
+.page-solver .bd-hero .hero-text + .hero-text {
+  margin-top: 0.9rem;
+}
+
+/* "How it works" sat straight under the board with nothing between them. */
+.bd-solver-explainer {
+  padding-top: 2rem;
+  margin-top: 1.4rem;
+  border-top: 1px solid var(--bd-line);
+}
+
+/* --- alive / KO -------------------------------------------------------------------------- */
+
+.bd-solver-alive.ko {
+  border-color: rgba(248, 113, 113, 0.5);
+  background: rgba(248, 113, 113, 0.14);
+  color: var(--bad, #f87171);
+}
+
+/* A Pokemon on 0% HP is out of the battle, and its card says so without being read. */
+.bd-solver-card.knocked-out {
+  opacity: 0.55;
+}
+
+.bd-solver-card.knocked-out .bd-sprite {
+  filter: grayscale(1) brightness(0.7);
+}
+
+/* --- one Pokemon per row in an answer ----------------------------------------------------- */
+
+.bd-solver-line-text {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.bd-solver-line-act {
+  display: block;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+/* --- how it goes from here ----------------------------------------------------------------- */
+
+.bd-solver-story > summary {
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.bd-solver-turns {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.bd-solver-turn {
+  border: 1px solid var(--bd-line);
+  border-left: 3px solid var(--bd-on-line);
+  border-radius: 10px;
+  background: var(--bd-control);
+  padding: 0.4rem 0.6rem;
+  display: grid;
+  gap: 0.18rem;
+  font-size: 0.8rem;
+}
+
+.bd-solver-turn > strong {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.bd-solver-turn-play.side-1,
+.bd-solver-turn-hit.side-1 {
+  color: var(--soft);
+}
+
+.bd-solver-turn-damage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.7rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.bd-solver-turn-notes {
+  color: var(--soft);
+  font-size: 0.76rem;
+}
+
+.bd-solver-turn-ko {
+  color: var(--bad, #f87171);
+  font-weight: 700;
+}
+
+/* --- the field popup ---------------------------------------------------------------------- */
+
+.bd-solver-field-popup {
+  padding: 0;
+  border: 0;
+  background: none;
+  gap: 0.55rem;
+}
+
+.bd-solver-field-popup .bd-solver-field-row {
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+}
+
+.bd-solver-edit-field {
+  margin-left: auto;
+}
+
+
+/* --- the board ---------------------------------------------------------------------------- */
+
+/* The field, as the game shows it: the opponent above with its team beside the heading, ours
+   below with ours. This is the Companion's arrangement, which is the one a player is already
+   reading off their own screen. */
+.bd-solver-scene {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.55rem 0.6rem 0.6rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(23, 42, 74, 0.55) 0%, rgba(16, 32, 58, 0.55) 55%, rgba(11, 24, 48, 0.55) 100%),
+    var(--bd-control);
+}
+
+.bd-solver-scene-field {
+  margin: 0;
+  justify-self: start;
+  padding: 0.18rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(2, 6, 16, 0.4);
+  color: var(--warn, #fcd34d);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.bd-solver-scene-field.empty {
+  color: var(--bd-muted);
+  font-weight: 650;
+}
+
+.bd-solver-scene-side {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.4rem 0.45rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 10px;
+  background: rgba(9, 18, 33, 0.35);
+}
+
+.bd-solver-scene-side[data-side="theirs"] { border-color: rgba(252, 165, 165, 0.3); }
+.bd-solver-scene-side[data-side="ours"] { border-color: rgba(147, 197, 253, 0.3); }
+
+/* The heading and the bench share a line, so the picture keeps its height for the two rows that
+   matter -- the Pokemon actually standing. */
+.bd-solver-scene-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bd-solver-scene-head h3 {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.bd-solver-scene-side[data-side="theirs"] h3 { color: #fca5a5; }
+.bd-solver-scene-side[data-side="ours"] h3 { color: #93c5fd; }
+
+.bd-solver-bench {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+
+.bd-solver-scene-field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.bd-solver-scene-side[data-side="theirs"] .bd-solver-scene-field-row { justify-content: flex-end; }
+
+.bd-solver-scene-gap { height: 0.2rem; }
+
+/* One Pokemon on the board. */
+.bd-solver-tile {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.1rem 0.45rem;
+  min-width: 10.5rem;
+  padding: 0.3rem 0.45rem 0.35rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 8px;
+  background: rgba(3, 8, 20, 0.6);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bd-solver-tile:hover { border-color: var(--bd-line-strong); }
+
+.bd-solver-tile.bench {
+  grid-template-columns: auto;
+  min-width: 0;
+  width: 2.75rem;
+  justify-items: center;
+  gap: 0.15rem;
+  padding: 0.2rem 0.2rem 0.25rem;
+}
+
+/* Out of this battle: greyed, and the HP band says so too -- a green bar under a grey sprite
+   said two different things about one Pokemon. */
+.bd-solver-tile.out { opacity: 0.45; }
+.bd-solver-tile.out img, .bd-solver-tile.down img { filter: grayscale(1) brightness(0.7); }
+
+/* Picked up, waiting for the Pokemon it will change places with. */
+.bd-solver-tile.picked {
+  border-color: var(--bd-accent, #4ade80);
+  animation: bd-solver-blink 0.9s steps(1, end) infinite;
+}
+
+@keyframes bd-solver-blink {
+  0%, 49% { background: rgba(74, 222, 128, 0.22); }
+  50%, 100% { background: rgba(3, 8, 20, 0.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bd-solver-tile.picked { animation: none; background: rgba(74, 222, 128, 0.22); }
+}
+
+.bd-solver-tile-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.bd-solver-tile-hp {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--bd-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.bd-solver-tile-bar {
+  grid-column: 1 / -1;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.2);
+  overflow: hidden;
+}
+
+.bd-solver-tile.bench .bd-solver-tile-bar { height: 3px; width: 100%; }
+
+.bd-solver-tile-bar i {
+  display: block;
+  height: 100%;
+  background: var(--good, #4ade80);
+}
+
+.bd-solver-tile-bar.mid i { background: var(--warn, #fcd34d); }
+.bd-solver-tile-bar.low i, .bd-solver-tile-bar.down i { background: var(--bad, #f87171); }
+.bd-solver-tile-bar.out i { background: rgba(148, 163, 184, 0.55); }
+
+.bd-solver-tile-chips {
+  grid-column: 1 / -1;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--bd-muted);
+}
+
+/* --- what is switched on -------------------------------------------------------------------- */
+
+/* The Damage Calculator's own gesture: a chip that is on is a thing that is working, and
+   clicking it turns that thing off. */
+.bd-solver-effects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 12px;
+  background: var(--bd-control);
+}
+
+.bd-solver-effects.empty { padding: 0.5rem 0.6rem; }
+.bd-solver-effects.empty .bd-solver-note { margin: 0; }
+
+.bd-effect-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.bd-effect-group .bd-effect.static { cursor: default; }
+
+.bd-effect-select {
+  height: 1.7rem;
+  padding: 0 1.3rem 0 0.4rem;
+  font-size: 0.72rem;
+}
+
+/* --- the field row and its popup -------------------------------------------------------------- */
+
+/* Trick Room, the two Tailwinds and Edit Field are one kind of choice, so they are one kind of
+   button. They used to be three pills beside a button, which read as two different controls. */
+.bd-solver-field-button.on {
+  border-color: var(--bd-on-line);
+  background: var(--bd-on);
+  color: var(--bd-text);
+}
+
+.bd-solver-field-popup {
+  display: grid;
+  gap: 0.6rem;
+}
+
+/* One column per side, the same rows in the same order in both, so the two can be read against
+   each other -- the Damage Calculator's Field card, for the same reason. */
+.bd-solver-field-sides {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.bd-solver-side-column {
+  display: grid;
+  align-content: start;
+  gap: 0.3rem;
+  padding: 0.5rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 10px;
+  background: var(--bd-control);
+}
+
+.bd-solver-side-column h4 {
+  margin: 0 0 0.15rem;
+  font-size: 0.68rem;
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--bd-muted);
+}
+
+.bd-solver-side-column .bd-toggle {
+  width: 100%;
+  text-align: left;
+}
+
+@media (max-width: 560px) {
+  .bd-solver-field-sides { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* --- what a tile says about its Pokemon ------------------------------------------------------- */
+
+.bd-solver-card-nature {
+  color: var(--bd-muted);
+}
+
+.bd-solver-card-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.35rem;
+}
+
+.bd-solver-stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  padding: 0.1rem 0.32rem;
+  border-radius: 6px;
+  background: rgba(148, 163, 184, 0.12);
+  font-size: 0.67rem;
+}
+
+.bd-solver-stat b {
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  color: var(--bd-muted);
+}
+
+.bd-solver-stat i {
+  font-style: normal;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.bd-solver-card-moves {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.22rem;
+}
+
+.bd-solver-move {
+  padding: 0.12rem 0.38rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+}

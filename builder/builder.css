@@ -664,6 +664,34 @@ body.bd-modal-open { overflow: hidden; }
 .bd-pick-name small { font-weight: 600; color: var(--soft); font-size: 0.74rem; }
 .bd-pick-types { display: flex; gap: 0.25rem; flex-wrap: wrap; justify-content: flex-end; }
 
+/* A Pokemon with its sets under it. The row stays the row; the sets sit beneath it so the
+   list still reads as one Pokemon per entry, and a set can be loaded in one click instead of
+   loading the most common one and rebuilding it by hand. */
+.bd-pick-entry { display: grid; gap: 0.2rem; }
+.bd-pick-sets { display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0 0.5rem 0.15rem 3.2rem; }
+.bd-pick-set {
+  display: grid;
+  gap: 0.05rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 999px;
+  background: var(--bd-control);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.bd-pick-set:hover { border-color: var(--bd-on-line); background: var(--bd-on); }
+.bd-pick-set strong { font-size: 0.76rem; font-weight: 750; }
+.bd-pick-set small { font-size: 0.68rem; color: var(--soft); }
+.bd-pick-set.blank { opacity: 0.8; }
+/* With the sets in it the list is taller per entry, so it gets more of the screen. */
+.bd-dialog-picker-sets { width: min(44rem, calc(100vw - 2rem)); }
+.bd-dialog-picker-sets .bd-pick-list { max-height: min(66vh, 620px); }
+@media (max-width: 760px) {
+  .bd-pick-sets { padding-left: 0.5rem; }
+}
+
 .bd-editor { display: grid; gap: 0.9rem; }
 .bd-editor-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.9rem; align-items: center; }
 .bd-editor-head .bd-sprite-lg { width: 96px; height: 96px; border: 1px solid var(--bd-line); border-radius: 10px; background: #0b140d; }

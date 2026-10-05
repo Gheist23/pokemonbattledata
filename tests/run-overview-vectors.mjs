@@ -12,7 +12,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, fieldRequirementOption, koLabelOption, ateDragonizeOption, moveFlagsOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, koLabelOption, ateDragonizeOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
 import { SpeedTiers } from "../builder/speed-tiers.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
@@ -47,6 +47,21 @@ const fieldRule = (testCase) => fieldRequirementOption(
 const ateDragonizeStamp = (testCase) => testCase.record?.rules?.ate_dragonize ?? testCase.rules?.ate_dragonize ?? null;
 const ateDragonizeRule = (testCase) => ateDragonizeOption(
   process.env.ATE_DRAGONIZE === undefined ? ateDragonizeStamp(testCase) : process.env.ATE_DRAGONIZE);
+/** V529: 33 moves learned the turn-order priority they really have, so Roar, Dragon Tail,
+    Teleport (-6), Counter (-5), Focus Punch (-3), Helping Hand (+5), Quick Guard (+3) and
+    Follow Me (+2) stopped resolving at 0. Turn order decides who acts, so a vector recorded
+    before the rule carries no `move_priority` stamp and replays with the 23 hand-written
+    values. */
+/** V530: a Trick Room plan has to outweigh the attackers the Room turns round, so an
+    ordinary Tailwind team is no longer scored under the Trick Room regime. `supported`
+    picks the whole speed scoring regime, so a vector recorded before the rule carries no
+    `room_plan` stamp and replays with the two older clauses. */
+const roomPlanStamp = (testCase) => testCase.record?.rules?.room_plan ?? testCase.rules?.room_plan ?? null;
+const roomPlanRule = (testCase) => roomPlanOption(
+  process.env.ROOM_PLAN === undefined ? roomPlanStamp(testCase) : process.env.ROOM_PLAN);
+const movePriorityStamp = (testCase) => testCase.record?.rules?.move_priority ?? testCase.rules?.move_priority ?? null;
+const movePriorityRule = (testCase) => movePriorityOption(
+  process.env.MOVE_PRIORITY === undefined ? movePriorityStamp(testCase) : process.env.MOVE_PRIORITY);
 const moveFlagsStamp = (testCase) => testCase.record?.rules?.move_flags ?? testCase.rules?.move_flags ?? null;
 const moveFlagsRule = (testCase) => moveFlagsOption(
   process.env.MOVE_FLAGS === undefined ? moveFlagsStamp(testCase) : process.env.MOVE_FLAGS);
@@ -78,6 +93,8 @@ for (const testCase of cases) {
   engine.fieldRequirements = fieldRule(testCase);
   engine.selfStatChange = selfStatRule(testCase);
   engine.moveFlags = moveFlagsRule(testCase);
+  engine.movePriority = movePriorityRule(testCase);
+  engine.roomPlan = roomPlanRule(testCase);
   engine.ateDragonize = ateDragonizeRule(testCase);
   const evalCase = evalCases[testCase.name];
   const records = testCase.ranked.map((entry) => pokemonRecord(String(entry.rows[0]?.pokemon || entry.name), entry.rows, aliases));

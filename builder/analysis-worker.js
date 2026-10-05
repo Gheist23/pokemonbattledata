@@ -5,15 +5,17 @@
 // app's analysis (builder/team-eval.js and its companions), checked against app
 // recordings; the Auto Build search, Optimize and the Tournament Test go further.
 //
-// Messages in:  { id, type: "overview" | "evaluate" | "speedTiers" | "suggestions" | "optimize" | "autobuild" | "tournament", payload }
-//               { type: "cancel", payload: { target } } stops a running "tournament", "optimize" or
-//               "autobuild" request (it answers with the best result so far) and the Suggestions check
+// Messages in:  { id, type: "overview" | "evaluate" | "speedTiers" | "suggestions" | "optimize" | "autobuild" | "tournament" | "solver", payload }
+//               { type: "cancel", payload: { target } } stops a running "tournament", "optimize",
+//               "autobuild" or "solver" request (it answers with the best result so far) and the
+//               Suggestions check
 // Messages out: { id, progress } while running, then { id, ok, result | error }
 
 import { BuilderData, makeSet } from "./common.js";
 import { teamOverview } from "./team-overview.js";
 import { KnownTeams, mostSimilarTeam } from "./known-teams.js";
 import { TournamentTest } from "./tournament-test.js";
+import { Solver } from "./solver.js";
 import { TeamEvaluator, normalizeSettings } from "./team-eval.js";
 import { TeamEvaluation } from "./team-payload.js";
 import { SpeedTiers } from "./speed-tiers.js";
@@ -273,6 +275,38 @@ self.addEventListener("message", async (event) => {
         result = await evaluation.tournament.run(sets, {
           limit: Math.max(1, Number(payload.limit) || 1000),
           onSnapshot: (snapshot) => progress({ fraction: snapshot.tested / Math.max(1, snapshot.total), snapshot }),
+          shouldStop: () => cancelled.has(id),
+        });
+      } finally {
+        cancelled.delete(id);
+      }
+      self.postMessage({ id, ok: true, result });
+      return;
+    }
+    if (type === "solver") {
+      // The Solver: one board, searched. Every line is played through the Tournament Test's turn
+      // machinery, so the search runs here for the same reason that one does -- thousands of
+      // damage calculations must not freeze the page. The board arrives as sets and numbers,
+      // which is all structured clone can carry.
+      const { evaluation } = await appEvaluation(payload.format, payload.settings);
+      evaluation.knownTeams ||= await knownTeams();
+      // The Solver gets a TournamentTest of its OWN, never the one the Tournament Test uses.
+      // It replaces `rollHit` on the instance it is handed -- its playouts roll to hit and roll
+      // the damage where the Tournament Test wants the expected share -- and an evaluator is
+      // kept and reused across requests, so sharing one instance would leave random damage on
+      // the next Test against Tournament Teams in this worker. That would move numbers the
+      // recorded parity vectors pin, silently, and only after someone had opened the Solver.
+      evaluation.solverTournament ||= new TournamentTest(evaluation, evaluation.knownTeams || new KnownTeams({ teams: [] }), new TeamSuggestions(evaluation));
+      evaluation.solver ||= new Solver(evaluation.solverTournament);
+      try {
+        result = await evaluation.solver.search(payload.board, {
+          lookahead: payload.lookahead,
+          iterations: Math.max(1, Number(payload.iterations) || 20000),
+          seed: Number(payload.seed) || 1,
+          // A time budget rather than a line count, so the search runs for the same few
+          // seconds on a slow machine as on a fast one and simply plays fewer lines there.
+          deadline: Number(payload.seconds) > 0 ? Date.now() + Number(payload.seconds) * 1000 : 0,
+          onProgress: (value) => progress(value),
           shouldStop: () => cancelled.has(id),
         });
       } finally {

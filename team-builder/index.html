@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Free Pokemon Champions team builder: build and save teams, keep a Box of the Pokemon you own, see your coverage and pressure against the ranked meta, then run Team Evaluation and Auto Build Team. Syncs with the Companion app." />
-  <meta name="keywords" content="Pokemon Champions team builder, Pokemon Champions team rater, Pokemon Champions team evaluation, Pokemon Champions best team, Pokemon Champions auto team builder, VGC team builder, Pokemon Champions Box, Regulation M-A, Regulation M-B, Regulation M-C" />
+  <meta name="description" content="Free Pokemon Champions team builder and team rater: build and save teams, keep a Box of the Pokemon you own, see your coverage and pressure against the ranked meta, rate the finished team on synergy, offense, defense and speed, test it against real tournament teams, and let Auto Build fill the rest. Syncs with the Companion app." />
+  <meta name="keywords" content="Pokemon Champions team builder, Pokemon Champions team rating, Pokemon Champions team rater, Pokemon Champions team evaluation, Pokemon Champions tournament teams, Pokemon Champions best team, Pokemon Champions auto team builder, rate my Pokemon Champions team, VGC team builder, VGC team rater, Pokemon Champions Box, Regulation M-A, Regulation M-B, Regulation M-C" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#050c08" />
   <link rel="canonical" href="https://championsbattledata.com/team-builder/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://championsbattledata.com/team-builder/" />
-  <meta property="og:title" content="Pokemon Champions Team Builder" />
-  <meta property="og:description" content="Build around a Pokemon you like, see how the team holds up against the ladder, and let Auto Build fill the rest. Free, in your browser, synced with the Companion app." />
+  <meta property="og:title" content="Pokemon Champions Team Builder and Team Rating" />
+  <meta property="og:description" content="Build around a Pokemon you like, see how the team rates against the ladder, test it against real tournament teams, and let Auto Build fill the rest. Free, in your browser." />
   <meta property="og:site_name" content="Pokemon Champions Battle Data" />
   <meta property="og:image" content="https://championsbattledata.com/assets/tool/team-builder.webp" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pokemon Champions Team Builder" />
-  <meta name="twitter:description" content="Teams, a Box, coverage against the ranked meta, Team Evaluation and Auto Build." />
+  <meta name="twitter:title" content="Pokemon Champions Team Builder and Team Rating" />
+  <meta name="twitter:description" content="Build around a Pokemon you like, see how the team rates against the ladder, test it against real tournament teams, and let Auto Build fill the rest. Free, in your browser." />
   <meta name="twitter:image" content="https://championsbattledata.com/assets/tool/team-builder.webp" />
-  <title>Team Builder - Pokemon Champions Battle Data</title>
+  <title>Pokemon Champions Team Builder and Team Rating - Free, in Your Browser</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/site.webmanifest" />
   <script type="application/ld+json">
@@ -66,6 +66,7 @@
         </div>
         <a class="ghost-button nav-builder" href="/team-builder/" aria-current="page">Team Builder</a>
         <a class="ghost-button" href="/damage-calculator/">Damage Calc</a>
+        <a class="ghost-button" href="/solver/">Solver</a>
         <a class="ghost-button" href="/meta/">Meta</a>
         <a class="ghost-button" href="/">Explorer</a>
         <a class="ghost-button" href="/api_guide">API</a>
@@ -111,6 +112,7 @@
         <ul>
           <li><a href="/team-builder/">Team Builder</a></li>
           <li><a href="/damage-calculator/">Damage Calculator</a></li>
+          <li><a href="/solver/">Solver</a></li>
           <li><a href="/pro-tool/plans/">Plans and pricing</a></li>
           <li><a href="/pro-tool/">Companion app</a></li>
         </ul>
@@ -139,5 +141,43 @@
   </footer>
 
   <script type="module" src="/builder/builder-page.js"></script>
+  <script>
+  // A stale-module guard. The site asks Cloudflare for `no-cache` on /builder/*; measured on
+  // the live site it answers `max-age=14400`, so a returning visitor pairs today's HTML with
+  // up-to-four-hour-old modules. An ES module graph is all-or-nothing: one cached file whose
+  // exports no longer match its neighbours makes the browser refuse every module, so the page
+  // script never runs and none of ITS error handling runs either -- the visitor just watches
+  // the loading line for ever. This is outside that graph on purpose, so it still runs.
+  (function () {
+    var messages = [];
+    addEventListener("error", function (event) {
+      if (event && event.message) messages.push(String(event.message));
+    }, true);
+    setTimeout(function () {
+      // The page script ran, so the module graph resolved and whatever is on screen is the
+      // page's own doing -- a search in progress, an analysis running, a slow data load it is
+      // reporting itself. Replacing that would throw away working state, which is worse than
+      // the problem this guard exists for.
+      if (window.__bdPageModuleRan) return;
+      var root = document.getElementById("builderApp");
+      if (!root || !root.querySelector(".bd-loading")) return;
+      var why = messages.length ? messages[0] : "";
+      root.innerHTML =
+        '<div class="bd-card bd-error" style="padding:1rem;display:grid;gap:.6rem">' +
+        '<h2 style="margin:0">the Team Builder could not start.</h2>' +
+        '<p style="margin:0">Your browser is almost certainly holding an old copy of this page\u2019s code. ' +
+        'A reload that ignores the cache fixes it: hold <kbd>Ctrl</kbd> (<kbd>Cmd</kbd> on a Mac) and press ' +
+        '<kbd>Shift</kbd>+<kbd>R</kbd>.</p>' +
+        (why ? '<p style="margin:0;opacity:.7;font-size:.82rem">' + why.replace(/[<>&]/g, "") + '</p>' : "") +
+        '<p style="margin:0"><button type="button" class="primary-button" id="bdHardReload">Reload</button> ' +
+        '<a class="ghost-button" href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">Tell us on Discord</a></p>' +
+        "</div>";
+      var button = document.getElementById("bdHardReload");
+      if (button) button.addEventListener("click", function () {
+        location.replace(location.pathname + "?reloaded=" + Date.now() + location.hash);
+      });
+    }, 25000);
+  })();
+  </script>
 </body>
 </html>

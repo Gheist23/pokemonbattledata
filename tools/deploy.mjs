@@ -14,7 +14,7 @@
 import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, renameSync, rmSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { archivedSeasonPaths } from "./archived-seasons.mjs";
+import { archivedSeasonPaths, parkedSnapshotPaths } from "./archived-seasons.mjs";
 
 const cwd = process.cwd();
 const parkRoot = join(cwd, ".wrangler", "deploy-excluded");
@@ -25,7 +25,10 @@ const pagesFileLimit = 20000;
 // `tests` holds the damage-engine parity vectors (several MB of JSON) and
 // their runner; they are for development, not for the published site.
 const devOnlyPaths = [".claude", ".dev.vars", ".license-private-key.txt", "tests"];
-const defaultExcludedPaths = [...devOnlyPaths, ...archivedSeasonPaths];
+// The live season's older dated snapshots as well, so a deployment stays under the
+// 20,000-file cap without anyone remembering to pass --exclude (archived-seasons.mjs).
+const defaultExcludedPaths = [...devOnlyPaths, ...archivedSeasonPaths,
+  ...parkedSnapshotPaths((dir) => readdirSync(dir), cwd.split(/[\\/]/).join("/"))];
 
 function parseArgs(argv) {
   const options = { projectName: "pokemonbattledata", excluded: [...defaultExcludedPaths], extra: [], dryRun: false };

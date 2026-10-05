@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="A companion app for Pokemon Champions Ranked. It scores your team, works out the matchup while team preview is on screen, builds around a Pokemon you like, and carries the daily ladder usage data offline. Free, with Pro for the automatic parts." />
-  <meta name="keywords" content="Pokemon Champions tool, Pokemon Champions matchup, Pokemon Champions damage calculator, Pokemon Champions team builder, Pokemon Champions team evaluation, Pokemon Champions lead calculator, Pokemon Champions live mode, Pokemon Champions desktop app, pokemon champions damage calc, pokemon champions team builder, Pokemon Champions box scan, competitive Pokemon Champions software, Regulation M-A, Regulation M-B, Regulation M-C" />
+  <meta name="description" content="A Pokemon Champions companion for Ranked and Tournaments. It reads your opponent's team straight from team preview and predicts their moves, abilities, items and stats while you play on a Switch or a phone, and brings Battle Mode, a damage calculator, team rating, Auto Build, Top Lead and the Solver with it." />
+  <meta name="keywords" content="Pokemon Champions companion, Pokemon Champions tool, Pokemon Champions app, Pokemon Champions solver, Pokemon Champions team rating, Pokemon Champions matchup, Pokemon Champions damage calculator, Pokemon Champions team builder, Pokemon Champions live mode, Pokemon Champions desktop app, Pokemon Champions box scan, Pokemon Champions tournament teams, competitive Pokemon Champions software, Regulation M-A, Regulation M-B, Regulation M-C" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#050c08" />
   <link rel="canonical" href="https://championsbattledata.com/pro-tool/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://championsbattledata.com/pro-tool/" />
   <meta property="og:title" content="Champions Battle Data Companion" />
-  <meta property="og:description" content="Is my team any good, what should I lead, what should I build, and what is everyone using. Four questions, answered on your own PC." />
+  <meta property="og:description" content="It reads your opponent's team from team preview and predicts their moves, items and stats while you play. Battle Mode, damage calculator, team rating, Top Lead and the Solver." />
   <meta property="og:site_name" content="Pokemon Champions Battle Data" />
   <meta property="og:image" content="https://championsbattledata.com/assets/tool/battle-mode.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Champions Battle Data Companion" />
-  <meta name="twitter:description" content="Is my team any good, what should I lead, what should I build, and what is everyone using. Four questions, answered on your own PC." />
+  <meta name="twitter:description" content="It reads your opponent's team from team preview and predicts their moves, items and stats while you play. Battle Mode, damage calculator, team rating, Top Lead and the Solver." />
   <meta name="twitter:image" content="https://championsbattledata.com/assets/tool/battle-mode.jpg" />
-  <title>Champions Battle Data Companion - Pokemon Champions Desktop App</title>
+  <title>Champions Battle Data Companion - Pokemon Champions Desktop App with Live Team Reading</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/site.webmanifest" />
   <script type="application/ld+json">
@@ -87,6 +87,7 @@
       <div class="nav-actions">
         <a class="ghost-button nav-builder" href="/team-builder/">Team Builder</a>
         <a class="ghost-button" href="/damage-calculator/">Damage Calc</a>
+        <a class="ghost-button" href="/solver/">Solver</a>
         <a class="ghost-button" href="/meta/">Meta</a>
         <a class="ghost-button" href="/">Explorer</a>
         <a class="ghost-button" href="/api_guide">API</a>
@@ -102,8 +103,8 @@
       <div class="hero-copy">
         <p class="eyebrow">Desktop companion &middot; included with Pro</p>
         <h1 id="toolTitle">Champions Battle Data Companion</h1>
-        <p class="hero-text">A companion app for Ranked. It answers the four questions a run actually comes down to: whether your team holds up, what to lead against the six in front of you, what to build next, and what everyone else is using this season.</p>
-        <p class="hero-text">It reads the same daily ladder data this site publishes, works offline once installed, and runs beside the game on your own PC.</p>
+        <p class="hero-text">A companion tool for Ranked and Tournaments, the Companion contains several powerful and unique features that help you analyze each matchup, become a better Player and win more games.</p>
+        <p class="hero-text">Most notably, it automatically reads your opponents Team during Team Preview, play from your Switch/Switch&nbsp;2 or phone while the Companion predicts your opponents Teams moves, abilites, items and stats. It does so by analyzing thousands of recent Tournament teams as well as in-game usage stats to predict your opponents Pokemon, you don't have to enter anything, it all does this for you while you play on your Switch/Switch&nbsp;2 or phone. Just connect your device with the PC and continue playing while the Companion does the rest for you!</p>
         <p class="hero-text">Building a team? The <a href="/team-builder/">Team Builder</a> and the <a href="/damage-calculator/">Damage Calculator</a> run free in your browser, and your Box and teams sync to the Companion. The app is the bonus that comes with Pro: the part that sits beside the game and reads it for you.</p>
         <div class="tool-cta-row">
           <a class="primary-button" href="https://releases.championsbattledata.com/releases/PokemonChampionsTool-latest.zip">Download for Windows</a>
@@ -156,7 +157,7 @@
           <p>Speed Ranking, Import Opponent Team, and the most common moves, items, abilities and spreads for anything on the board are all one click away in the same view.</p>
         </div>
         <figure class="tool-feature-shot">
-          <img src="/assets/tool/battle-mode.webp" width="1600" height="839" alt="Battle Mode showing both teams with stats, moves and items, and a matrix of resists, effective matchups and outspeed counts between them" fetchpriority="high" decoding="async" />
+          <img src="/assets/tool/battle-mode.webp" width="1600" height="862" alt="Battle Mode showing both teams with stats, moves and items, and a matrix of resists, effective matchups and outspeed counts between them" fetchpriority="high" decoding="async" />
           <figcaption>Battle Mode, with the Matchup Overview scored in both directions down the middle.</figcaption>
         </figure>
       </article>
@@ -169,12 +170,31 @@
           <p>Four variants of every matchup are precomputed (neither item active, attacker's item, defender's item, both), so toggling a Life Orb is instant, and any slot can be imported straight from a saved team instead of retyping a spread.</p>
         </div>
         <figure class="tool-feature-shot">
-          <img src="/assets/tool/damage-calculator.webp" width="1600" height="839" alt="Damage calculator with move results, KO odds, and a field panel for weather, terrain, screens and hazards" loading="lazy" decoding="async" />
+          <img src="/assets/tool/damage-calculator.webp" width="1600" height="862" alt="Damage calculator with move results, KO odds, and a field panel for weather, terrain, screens and hazards" loading="lazy" decoding="async" />
           <figcaption>The damage calculator, with the full field state on the board.</figcaption>
         </figure>
       </article>
 
-      <article class="tool-feature" id="team-builder">
+      <article class="tool-feature" id="solver">
+        <div class="tool-feature-copy">
+          <p class="eyebrow">Solver &middot; Pro</p>
+          <h2>Recreate any position and find the best move in it</h2>
+          <p>This is a feature that allows you to recreate any battle scenario and analyze the best moves from that position. It uses a similar search algorithm that is used in Poker Solvers and Chess Engines. This works very well for Pokemon, since Pokemon is a combination of Chess, Poker and Rock/Paper/Scissors. It&rsquo;s exceptionally useful for learning from your past mistakes or even your opponents mistakes.</p>
+          <p>One important clarification, this is not &ldquo;an AI suggests you a move&rdquo;, these are actually thousands of simulated lines where the best next action is emerging from the outcome of these played out lines, that&rsquo;s why it gets gradually better the longer it runs.</p>
+          <p>Set the board up &mdash; both sides, their sets, how much HP everyone has left, the weather, terrain, Trick Room and Tailwind &mdash; and press Solve. Every line is counted, so each answer carries the share of the lines it was played in and the score it came out at, for your side and for theirs. <a href="/solver/">Try the Solver in your browser</a> before installing anything.</p>
+        </div>
+        <figure class="tool-feature-shot">
+          <video class="tool-feature-video" width="1600" height="900" controls preload="none" playsinline
+                 poster="/assets/tool/solver-poster.webp"
+                 aria-label="The Solver running a board: both teams, the field, and the ranked best moves for each side">
+            <source src="/assets/tool/solver-demo.mp4" type="video/mp4" />
+            Your browser cannot play this video. The Solver sets a board up, searches it, and ranks the best move for each side.
+          </video>
+          <figcaption>The Solver, searching one board. Each line carries the share of the simulated lines it was played in.</figcaption>
+        </figure>
+      </article>
+
+      <article class="tool-feature tool-feature-flip" id="team-builder">
         <div class="tool-feature-copy">
           <p class="eyebrow">Team Builder</p>
           <h2>Build around a Pokemon you actually want to use</h2>
@@ -183,12 +203,12 @@
           <p>Teams are saved without limit, searched, tagged by archetype, duplicated, imported and exported.</p>
         </div>
         <figure class="tool-feature-shot">
-          <img src="/assets/tool/team-builder.webp" width="1600" height="839" alt="Team builder showing average type chart and average pressure into the top 30 meta, beside a saved team library" loading="lazy" decoding="async" />
+          <img src="/assets/tool/team-builder.webp" width="1600" height="862" alt="Team builder showing average type chart and average pressure into the top 30 meta, beside a saved team library" loading="lazy" decoding="async" />
           <figcaption>Team Builder, scoring a team against the current top 30.</figcaption>
         </figure>
       </article>
 
-      <article class="tool-feature tool-feature-flip" id="team-evaluation">
+      <article class="tool-feature" id="team-evaluation">
         <div class="tool-feature-copy">
           <p class="eyebrow">Team Evaluation &middot; Pro</p>
           <h2>A straight answer on whether your team holds up</h2>
@@ -198,12 +218,12 @@
           <p><strong>Auto Build Team</strong> runs the same engine in reverse, and it is the most powerful thing in the tool: give it what you own and it assembles a team against the current meta, showing which threats each pick is there to answer as it goes.</p>
         </div>
         <figure class="tool-feature-shot">
-          <img src="/assets/tool/team-evaluation.webp" width="1600" height="839" alt="Team Evaluation with synergy, offense, defense and speed scores, a list of passing team-building checks, and a critical threats panel scoring the top 40 meta against the team" loading="lazy" decoding="async" />
+          <img src="/assets/tool/team-evaluation.webp" width="1600" height="859" alt="Team Evaluation with synergy, offense, defense and speed scores, a list of passing team-building checks, and a critical threats panel scoring the top 40 meta against the team" loading="lazy" decoding="async" />
           <figcaption>Team Evaluation: the scores, the checks behind them, and every critical threat in the top 40 with your best answer to it.</figcaption>
         </figure>
       </article>
 
-      <article class="tool-feature" id="live-mode">
+      <article class="tool-feature tool-feature-flip" id="live-mode">
         <div class="tool-feature-copy">
           <p class="eyebrow">Live Mode &middot; Pro</p>
           <h2>It follows the game while you play</h2>
@@ -226,12 +246,12 @@
         </figure>
       </article>
 
-      <article class="tool-feature tool-feature-flip" id="top-lead">
+      <article class="tool-feature" id="top-lead">
         <div class="tool-feature-copy">
           <p class="eyebrow">Top Lead &middot; Pro</p>
           <h2>A lead choice tested thousands of times over</h2>
           <p>Top Lead runs the opening through a Monte Carlo tree search across every legal four-Pokemon selection on both sides, and ranks the lead and back pairs that come out ahead. Each one carries a simulated win share, a lower-tail safety score for how badly the line can go wrong, and a confidence figure, so a fragile 70% and a reliable 70% do not look identical.</p>
-          <p>The run in this screenshot finished 1,200 simulations in 23.67 seconds. You can also let it run until you press stop, and open any result as an example rollout with the full turn log behind it.</p>
+          <p>The run in this screenshot finished 1,200 simulations in 30.35 seconds. You can also let it run until you press stop, and open any result as an example rollout with the full turn log behind it.</p>
           <p>The resolver is not a heuristic. All 954 moves and 200 abilities are compiled from their descriptions into 240 move operations and 133 ability operations, and the same resolver drives the damage calculator, so the two never disagree.</p>
         </div>
         <figure class="tool-feature-shot">
@@ -240,7 +260,7 @@
         </figure>
       </article>
 
-      <article class="tool-feature" id="battle-data">
+      <article class="tool-feature tool-feature-flip" id="battle-data">
         <div class="tool-feature-copy">
           <p class="eyebrow">The rest of it</p>
           <h2>What else is in there</h2>
@@ -252,7 +272,7 @@
           </ul>
         </div>
         <figure class="tool-feature-shot">
-          <img src="/assets/tool/battle-data.webp" width="1600" height="839" alt="Battle Data browser listing ranked Pokemon with top ability, top item and common moves" loading="lazy" decoding="async" />
+          <img src="/assets/tool/battle-data.webp" width="1600" height="859" alt="Battle Data browser listing ranked Pokemon with top ability, top item and common moves" loading="lazy" decoding="async" />
           <figcaption>The full ranked dataset, searchable offline.</figcaption>
         </figure>
       </article>
@@ -347,6 +367,7 @@
         <ul>
           <li><a href="/team-builder/">Team Builder</a></li>
           <li><a href="/damage-calculator/">Damage Calculator</a></li>
+          <li><a href="/solver/">Solver</a></li>
           <li><a href="/pro-tool/">Champions Battle Data Companion</a></li>
           <li><a href="/pro-tool/plans/">Plans and pricing</a></li>
           <li><a href="/api_guide">Free public API</a></li>

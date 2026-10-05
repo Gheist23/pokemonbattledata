@@ -15,7 +15,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, fieldRequirementOption, makeContext, makeMon, pyFixed, pyRound, ateDragonizeOption, moveFlagsOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, makeContext, makeMon, pyFixed, pyRound, ateDragonizeOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -44,6 +44,23 @@ const ateDragonizeRule = (vector) => ateDragonizeOption(
   process.env.ATE_DRAGONIZE === undefined
     ? (vector.rules?.ate_dragonize ?? vector.record?.rules?.ate_dragonize ?? null)
     : process.env.ATE_DRAGONIZE);
+/** V529: 33 moves learned the turn-order priority they really have, so Roar, Dragon Tail,
+    Teleport (-6), Counter (-5), Focus Punch (-3), Helping Hand (+5), Quick Guard (+3) and
+    Follow Me (+2) stopped resolving at 0. Turn order decides who acts, so a vector recorded
+    before the rule carries no `move_priority` stamp and replays with the 23 hand-written
+    values. */
+/** V530: a Trick Room plan has to outweigh the attackers the Room turns round, so an
+    ordinary Tailwind team is no longer scored under the Trick Room regime. `supported`
+    picks the whole speed scoring regime, so a vector recorded before the rule carries no
+    `room_plan` stamp and replays with the two older clauses. */
+const roomPlanRule = (vector) => roomPlanOption(
+  process.env.ROOM_PLAN === undefined
+    ? (vector.rules?.room_plan ?? vector.record?.rules?.room_plan ?? null)
+    : process.env.ROOM_PLAN);
+const movePriorityRule = (vector) => movePriorityOption(
+  process.env.MOVE_PRIORITY === undefined
+    ? (vector.rules?.move_priority ?? vector.record?.rules?.move_priority ?? null)
+    : process.env.MOVE_PRIORITY);
 const moveFlagsRule = (vector) => moveFlagsOption(
   process.env.MOVE_FLAGS === undefined
     ? (vector.rules?.move_flags ?? vector.record?.rules?.move_flags ?? null)
@@ -79,6 +96,8 @@ for (const [index, vector] of vectors.entries()) {
   engine.fieldRequirements = fieldRule(vector);
   engine.selfStatChange = selfStatRule(vector);
   engine.moveFlags = moveFlagsRule(vector);
+  engine.movePriority = movePriorityRule(vector);
+  engine.roomPlan = roomPlanRule(vector);
   engine.ateDragonize = ateDragonizeRule(vector);
   const attacker = makeMon(vector.attacker);
   const defender = makeMon(vector.defender);

@@ -126,13 +126,17 @@ export function trickRoomSpeedMetrics(ownSpeeds, metaSpeeds, setters, slowAttack
   return metrics;
 }
 
-/** team_strategy.room_plan: is Trick Room backed by slow attackers? */
-export function roomPlan(profiles, metaSpeeds) {
+/** team_strategy.room_plan: is Trick Room backed by slow attackers?
+ *  `engine` carries the V530 rule flag (`engine.roomPlan`); without one the rule is on, which is
+ *  what a direct caller outside a replay wants. */
+export function roomPlan(profiles, metaSpeeds, engine = null) {
+  const harmedRule = engine ? Boolean(engine.roomPlan) : true;
   const speeds = metaSpeeds.map(([, s]) => Number(s)).filter((s) => s > 0);
   const threshold = median(speeds.length ? speeds : [130.0]);
   let setters = 0;
   let beneficiaries = 0;
   let attackers = 0;
+  let harmed = 0;
   for (const profile of profiles) {
     const moves = new Set([...(profile.move_keys || [])].map((m) => String(m).toLowerCase().replace(/[^a-z0-9]/g, "")));
     if (moves.has("trickroom")) setters += 1;
@@ -141,9 +145,22 @@ export function roomPlan(profiles, metaSpeeds) {
       attackers += 1;
       const speed = Number(profile.effective_speed ?? profile.speed ?? 0) || 0;
       if (speed > 0 && speed < threshold * 0.8 && (profile.damaging_count ?? 2) >= 2) beneficiaries += 1;
+      // ... and count the attackers Trick Room would TURN ROUND. A Pokemon already faster
+      // than the meta's median acts first without the Room and last inside it, so it is not
+      // a neutral bystander: it is harmed. Without this the rule read "at least half the
+      // attackers benefit", which a team of three 170+ Speed attackers and three slow ones
+      // satisfies exactly -- so a Tailwind build whose own Salamence carries Tailwind was
+      // scored under the Trick Room regime while `speed_mode_v505` was stripping the Trick
+      // Room off its Farigiraf. Two parts of the app gave opposite answers about one team.
+      else if (speed > threshold) harmed += 1;
     }
   }
-  const supported = beneficiaries >= 2 && beneficiaries >= attackers / 2;
+  // Only ever a tightening of the two clauses that were already here, so no team that was
+  // not supported becomes supported.
+  const supported = beneficiaries >= 2 && beneficiaries >= attackers / 2 && (!harmedRule || beneficiaries > harmed);
+  // `harmed` is deliberately NOT returned: the parity suites compare this whole object against
+  // the app's, and every recorded evaluation on disk holds the three-key shape. It is a step in
+  // the decision, not a fact a caller needs.
   return { setters, beneficiaries, supported, redundant: !supported ? Math.max(0, setters - 1) : 0 };
 }
 
@@ -562,7 +579,7 @@ export class TeamSpeed {
    * @param {object} context  {profiles: synergy profiles, features: archetype features}
    */
   control(team, context) {
-    const fit = roomPlan(context.profiles, this.synergy.metaSpeedRows());
+    const fit = roomPlan(context.profiles, this.synergy.metaSpeedRows(), this.ev.engine);
     const speed = fit.supported ? this.v465(team, context) : this.normal(team);
     speed.room_plan = fit;
     if (fit.redundant) {

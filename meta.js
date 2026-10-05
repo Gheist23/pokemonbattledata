@@ -67,6 +67,8 @@
     typeDefenseLead: document.getElementById("typeDefenseLead"),
     typeOffense: document.getElementById("typeOffense"),
     typeDefense: document.getElementById("typeDefense"),
+    typeCountLead: document.getElementById("typeCountLead"),
+    typeCount: document.getElementById("typeCount"),
     tabs: [...document.querySelectorAll(".meta-tab")],
     formatToggleDoubles: document.getElementById("formatToggleDoubles"),
     formatToggleSingles: document.getElementById("formatToggleSingles"),
@@ -700,6 +702,18 @@
     return out;
   }
 
+  /** How many Pokemon of this group carry each type. A dual type counts for both of its own
+   *  types, once each: the question is how many Pokemon you meet with that type on them. */
+  function typeOccurrences(mons) {
+    const out = Object.fromEntries(TYPE_ORDER.map((type) => [type, 0]));
+    for (const mon of mons) {
+      for (const type of new Set(mon.types || [])) {
+        if (out[type] !== undefined) out[type] += 1;
+      }
+    }
+    return out;
+  }
+
   /** team-eval.js profile(): the damaging moves the group carries, with STAB. */
   function metaDamageMoves(data, mons) {
     const rows = [];
@@ -755,6 +769,10 @@
       count: mons.length,
       partial: mons.filter((mon) => mon.partialMoves).length,
       offense: offenseScores(data, mons),
+      // How many of them ARE each type. A different question from the two scores beside it --
+      // those say how a type fares against the group, this says how much of the group IS that
+      // type, which is the one a builder asks when choosing what to be weak to.
+      occurrences: typeOccurrences(mons),
       defense: moves.length ? Object.fromEntries(TYPE_ORDER.map((type) => [type, defenseScore(data, moves, mons.length, [type])])) : null
     };
   }
@@ -763,6 +781,9 @@
    *  which the row shows as a dash -- never as a 0 it did not earn. */
   function typeRows(now, was, side) {
     const lowerIsBetter = side === "defense";
+    // A count of 0 is a real answer -- no Pokemon of this type is in the Top X -- while a score
+    // of nothing means that day could not be scored at all, so the two are filtered differently.
+    const counting = side === "occurrences";
     return TYPE_ORDER
       .map((type) => {
         const value = now?.[side]?.[type];
@@ -776,7 +797,7 @@
           delta: has && hadBefore ? value - before : null
         };
       })
-      .filter((row) => row.value !== null)
+      .filter((row) => row.value !== null && (!counting || row.value > 0))
       .sort((a, b) => (lowerIsBetter ? a.value - b.value : b.value - a.value) || a.type.localeCompare(b.type));
   }
 
@@ -811,8 +832,10 @@
       setTypeNote(`The type lists need <code>data/builder/app-data.json</code>, which could not be loaded. ${escapeHtml(error.message || "")}`);
       fillList(els.typeOffense, [], "No type scores available.");
       fillList(els.typeDefense, [], "No type scores available.");
+      fillList(els.typeCount, [], "No type counts available.");
       if (els.typeOffenseLead) els.typeOffenseLead.textContent = "";
       if (els.typeDefenseLead) els.typeDefenseLead.textContent = "";
+      if (els.typeCountLead) els.typeCountLead.textContent = "";
       return;
     }
     if (token !== state.typeToken) return;
@@ -824,26 +847,35 @@
 
     const offense = now ? typeRows(now, was, "offense") : [];
     const defense = now ? typeRows(now, was, "defense") : [];
+    const counts = now ? typeRows(now, was, "occurrences") : [];
     renderTypeList(els.typeOffense, els.typeOffenseLead, offense, "offense", scope);
     renderTypeList(els.typeDefense, els.typeDefenseLead, defense, "defense", scope);
+    renderTypeList(els.typeCount, els.typeCountLead, counts, "occurrences", scope);
 
     const partial = Math.max(now?.partial || 0, was?.partial || 0);
     setTypeNote(`<strong>Best</strong> here is the same measure as the Team Builder's Offense and Defense overviews. An attacking type is scored by the average damage multiplier it gets against the typings of the ${escapeHtml(scope)}; a defending type by how much damage the ${escapeHtml(scope)} can put on it, counting every damaging move on their most used sets by type, power and same-type bonus, best two per Pokemon. Every Pokemon in the list counts once, whatever its usage. Scored on ${escapeHtml(formatDate(state.latest?.date))}, changed against ${escapeHtml(formatDate(state.baseline?.date))}.${partial ? ` ${partial} of them had a partly captured move list on one of the two days.` : ""}`);
   }
 
   function renderTypeList(target, lead, rows, side, scope) {
+    if (!target) return;
     const offense = side === "offense";
+    const counting = side === "occurrences";
     const best = rows[0];
     if (lead) {
-      lead.innerHTML = best
-        ? `<strong>Best ${offense ? "offensive" : "defensive"} type against ${escapeHtml(scope)}: ${escapeHtml(best.type)}.</strong> <span>Best to worst, with the change over ${escapeHtml(windowLabel())}.</span>`
-        : "";
+      lead.innerHTML = !best ? ""
+        : counting
+          ? `<strong>Most common type in the ${escapeHtml(scope)}: ${escapeHtml(best.type)}, on ${best.value} of them.</strong> <span>Most to least, with the change over ${escapeHtml(windowLabel())}.</span>`
+          : `<strong>Best ${offense ? "offensive" : "defensive"} type against ${escapeHtml(scope)}: ${escapeHtml(best.type)}.</strong> <span>Best to worst, with the change over ${escapeHtml(windowLabel())}.</span>`;
     }
-    fillList(target, rows.map((row, index) => typeRow(row, index, side)), `No ranked Pokemon in this scope, so there is nothing to score ${offense ? "attacking" : "defending"} types against.`);
+    const empty = counting
+      ? "No ranked Pokemon in this scope, so there is nothing to count."
+      : `No ranked Pokemon in this scope, so there is nothing to score ${offense ? "attacking" : "defending"} types against.`;
+    fillList(target, rows.map((row, index) => typeRow(row, index, side)), empty);
   }
 
   function typeRow(row, index, side) {
     const offense = side === "offense";
+    const counting = side === "occurrences";
     const line = document.createElement("div");
     line.className = "meta-row meta-type-row";
 
@@ -853,8 +885,10 @@
 
     const body = document.createElement("span");
     body.className = "meta-row-body";
-    const score = offense ? `${row.value.toFixed(2)}×` : `${row.value.toFixed(1)}%`;
-    const detail = offense ? "average multiplier" : "damage pressure taken";
+    const score = counting ? String(row.value) : offense ? `${row.value.toFixed(2)}×` : `${row.value.toFixed(1)}%`;
+    const detail = counting
+      ? `Pok\u00e9mon with this type`
+      : offense ? "average multiplier" : "damage pressure taken";
     body.innerHTML = `<strong><span class="meta-type-rank">${index + 1}</span>${escapeHtml(row.type)}</strong><small>${score} ${escapeHtml(detail)}</small>`;
 
     line.append(thumb, body, typeDeltaChip(row, side));
@@ -864,7 +898,27 @@
   /** The arrow and the sign carry the direction, so the colour is never the only
    *  thing saying which way a type moved. On the defending list a rise is a worse
    *  score, and the chip is toned that way round. */
+  /** A whole number of Pokemon, so no decimals and no "better": more of a type is not good or
+   *  bad in itself, it is what the meta is made of. */
+  function typeCountDeltaChip(row) {
+    const chip = document.createElement("span");
+    if (row.delta === null) {
+      chip.className = "meta-delta flat";
+      chip.textContent = "—";
+      chip.title = `${row.type} could not be counted on ${formatDate(state.baseline?.date)}, so there is no change to show yet.`;
+      return chip;
+    }
+    const delta = Math.round(row.delta);
+    chip.className = `meta-delta ${delta === 0 ? "flat" : delta > 0 ? "up" : "down"}`;
+    chip.textContent = `${delta > 0 ? "▲" : delta < 0 ? "▼" : "▪"} ${delta > 0 ? "+" : ""}${delta}`;
+    chip.title = delta === 0
+      ? `${row.type} is on the same number of Pokemon as on ${formatDate(state.baseline?.date)}.`
+      : `${row.type}: ${row.was} on ${formatDate(state.baseline?.date)} → ${row.value} now, ${delta > 0 ? "up" : "down"} ${Math.abs(delta)}.`;
+    return chip;
+  }
+
   function typeDeltaChip(row, side) {
+    if (side === "occurrences") return typeCountDeltaChip(row);
     const offense = side === "offense";
     const chip = document.createElement("span");
     if (row.delta === null) {

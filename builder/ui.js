@@ -59,7 +59,14 @@ export function toast(message, tone = "info") {
 
 let openCount = 0;
 
-export function openDialog({ title = "", body, actions = [], wide = false, className = "", help = null, helpLabel = "What can I type here?", onClose } = {}) {
+/**
+ * `anchorTo` is an element the dialog should open OVER instead of in the middle of the screen --
+ * the Pokemon picker uses it so the list appears on the container it is choosing for, rather than
+ * centred over both of them with no clue which side it belongs to. It stays a modal dialog: only
+ * the position moves, and it falls back to the centre when the element would put it off screen or
+ * when the viewport is too narrow to hold it beside anything.
+ */
+export function openDialog({ title = "", body, actions = [], wide = false, className = "", help = null, helpLabel = "What can I type here?", anchorTo = null, onClose } = {}) {
   const dialog = h("dialog", { class: `bd-dialog ${wide ? "bd-dialog-wide" : ""} ${className}`, "aria-label": title || "Dialog" });
   const close = () => {
     if (!dialog.open) return;
@@ -102,6 +109,7 @@ export function openDialog({ title = "", body, actions = [], wide = false, class
   openCount += 1;
   document.body.classList.add("bd-modal-open");
   dialog.showModal();
+  if (anchorTo) placeOver(dialog, anchorTo);
   return { dialog, body: content, close };
 }
 
@@ -243,7 +251,54 @@ export function searchHelpCard() {
     h("p", { class: "bd-note" }, "You can also compare its stats: hp, atk, def, spa, spd, spe and bst, with =, >, <, >= or <=."));
 }
 
-export function pickPokemon(data, { format = "Doubles", title = "Choose a Pokémon", initial = "" } = {}) {
+/**
+ * Put an open dialog over `target`, inside the viewport.
+ *
+ * Measured after `showModal`, because a dialog has no size until it is open. Below 900px the
+ * centre is kept: on a phone the dialog is as wide as the screen, so anchoring it says nothing
+ * and only risks pushing it off the bottom.
+ */
+function placeOver(dialog, target) {
+  const place = () => {
+    if (!dialog.open) return;
+    if (window.innerWidth < 900) {
+      dialog.style.position = "";
+      dialog.style.left = "";
+      dialog.style.top = "";
+      dialog.style.margin = "";
+      return;
+    }
+    const anchor = target.getBoundingClientRect();
+    const own = dialog.getBoundingClientRect();
+    const margin = 12;
+    const left = Math.min(Math.max(margin, anchor.left + (anchor.width - own.width) / 2),
+      window.innerWidth - own.width - margin);
+    const top = Math.min(Math.max(margin, anchor.top),
+      Math.max(margin, window.innerHeight - own.height - margin));
+    dialog.style.position = "fixed";
+    dialog.style.margin = "0";
+    dialog.style.left = `${Math.round(left)}px`;
+    dialog.style.top = `${Math.round(top)}px`;
+  };
+  place();
+  const again = () => place();
+  window.addEventListener("resize", again);
+  dialog.addEventListener("close", () => window.removeEventListener("resize", again), { once: true });
+}
+
+/**
+ * Choose a Pokemon, and with `sets` the set it is loaded with.
+ *
+ * Without `sets` this is the plain picker it has always been: one row per Pokemon, resolving with
+ * the row. With it, every row carries the sets that Pokemon is really played with underneath
+ * (builder/pokemon-sets.js) -- a blank one, its most common one, and the distinct ones the
+ * tournament teams run -- and the row resolves with `{ row, set }` so the caller can load the set
+ * straight in instead of loading the common one and making the user rebuild it.
+ *
+ * @param {{format?:string, title?:string, initial?:string, anchorTo?:Element,
+ *          sets?:(row:object)=>{id:string,label:string,sub:string,set:object}[]}} options
+ */
+export function pickPokemon(data, { format = "Doubles", title = "Choose a Pokémon", initial = "", anchorTo = null, sets = null } = {}) {
   return new Promise((resolve) => {
     let chosen = null;
     const input = h("input", { type: "search", class: "bd-search", placeholder: "Name, type, move, ability, or spe>=100…", value: initial, autocomplete: "off", "aria-label": "Search Pokémon" });
@@ -253,21 +308,42 @@ export function pickPokemon(data, { format = "Doubles", title = "Choose a Pokém
       const rows = data.searchSpecies(input.value, { format, limit: 120 });
       if (!rows.length) list.append(h("p", { class: "bd-empty" }, "No Pokémon matched."));
       for (const row of rows) {
-        list.append(h("button", {
+        const head = h("button", {
           type: "button",
           class: "bd-pick-row",
-          onclick: () => { chosen = row; close(); },
+          onclick: () => { chosen = sets ? { row, set: null } : row; close(); },
         },
         sprite(`/${row.mini.split("/").map(encodeURIComponent).join("/")}`, "", 40),
         h("span", { class: "bd-pick-name" }, row.label || row.form, row.position < 9999 ? h("small", {}, `#${row.position} ${format}`) : null),
-        h("span", { class: "bd-pick-types" }, (row.types || []).map(typeChip))));
+        h("span", { class: "bd-pick-types" }, (row.types || []).map(typeChip)));
+        if (!sets) {
+          list.append(head);
+          continue;
+        }
+        // The sets this Pokemon is really played with, under its name. Clicking one loads it.
+        let options = [];
+        try {
+          options = sets(row) || [];
+        } catch {
+          options = [];
+        }
+        list.append(h("div", { class: "bd-pick-entry" }, head,
+          options.length
+            ? h("div", { class: "bd-pick-sets" }, options.map((option) => h("button", {
+              type: "button",
+              class: `bd-pick-set${option.id === "blank" ? " blank" : ""}`,
+              title: option.sub || option.label,
+              onclick: () => { chosen = { row, set: option.set }; close(); },
+            }, h("strong", {}, option.label), option.sub ? h("small", {}, option.sub) : null)))
+            : null));
       }
     };
     input.addEventListener("input", render);
     const body = h("div", { class: "bd-pick" }, input, list);
     const { close } = openDialog({
-      title, body, className: "bd-dialog-picker",
+      title, body, className: `bd-dialog-picker${sets ? " bd-dialog-picker-sets" : ""}`,
       help: searchHelpCard(), helpLabel: "What can I search for?",
+      anchorTo,
       onClose: () => resolve(chosen),
     });
     render();

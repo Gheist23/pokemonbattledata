@@ -345,7 +345,9 @@ for (const [team, slot, options] of jobs) {
   // a) A member that has its guaranteed moves keeps them, at both depths.
   const holds = [
     ["rough", 1, ["Kowtow Cleave", "Sucker Punch"]],   // Kingambit
-    ["rough", 2, ["Grassy Glide", "Fake Out"]],        // Rillaboom: its own Grassy Surge powers Grassy Glide
+    // Rillaboom: its own Grassy Surge powers Grassy Glide (97.4%). Fake Out was named here too
+    // until the daily data put it at 94.9%, just under the rule -- the guard below is what said so.
+    ["rough", 2, ["Grassy Glide"]],
     ["sun", 5, ["Make It Rain", "Shadow Ball"]],       // Gholdengo
   ];
   for (const [team, slot, moves] of holds) {

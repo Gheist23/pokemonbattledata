@@ -1,11 +1,20 @@
 // Damage Calculator page: draws CalcModel and wires the controls.
 
-import { BuilderData, NATURE_ORDER, STAT_LABELS, bonusTotal, makeSet, setFromCommon } from "./common.js";
+import { BuilderData, NATURE_ORDER, STAT_LABELS, bonusTotal, makeSet, parseShowdown, setFromCommon } from "./common.js";
+import { loadSetLibrary, setsFor } from "./pokemon-sets.js";
 import { CalcModel, FIELD_LABELS, GENDERS, LEFT, RIGHT, STATUSES, defaultCalcState, defaultMonState, other } from "./calc-model.js";
 import { MAX_BONUS_POINTS_PER_STAT, MAX_BONUS_STAT_POINTS } from "./engine.js";
-import { clear, h, pickPokemon, searchSelect, select, sprite, toast, typeChip } from "./ui.js";
+import { clear, h, openDialog, pickPokemon, searchSelect, select, sprite, toast, typeChip } from "./ui.js";
 import { keepPlace } from "./scroll-anchor.js";
 import { currentTeam, getState, subscribe, teamSets } from "./store.js";
+
+
+// The stale-module guard in the page's HTML watches for the module graph being refused
+// wholesale, which is what a cached module with mismatched exports causes. It cannot see that
+// from the DOM alone -- a page mid-analysis looks the same as a page that never started -- so it
+// reads this instead. An import that fails takes the whole graph with it and this never runs,
+// which is exactly the case the guard is for.
+try { window.__bdPageModuleRan = true; } catch { /* no window: nothing to guard */ }
 
 const STORAGE_KEY = "cbd.calc.v1";
 // How many ranked Pokemon the "Top Doubles/Singles meta" row offers. The chips
@@ -16,6 +25,10 @@ const STAGE_ATTRS = { attack: "attack_stage", defense: "defense_stage", sp_attac
 
 let data;
 let model;
+// The sets each Pokemon is really played with, for the picker. Loaded in the background: the
+// picker falls back to the blank and the most common set until it arrives, which is what it
+// offered before this file existed.
+let setLibrary = null;
 const root = document.getElementById("calcApp");
 
 function save() {
@@ -204,10 +217,21 @@ function renderMon(side) {
   const maxHp = total.hp;
   const currentHp = Math.max(1, Math.ceil((maxHp * entry.hp) / 100));
 
-  const changePokemon = async () => {
-    const row = await pickPokemon(data, { format: state.format, title: side === LEFT ? "Our Pokémon" : "Opposing Pokémon" });
-    if (!row) return;
-    entry.set = setFromCommon(data.commonSet(state.format, row.species, row.form));
+  const changePokemon = async (event) => {
+    // Opened OVER this side's own card, so the list is plainly the one for that side rather than
+    // centred between the two with nothing to say which it belongs to.
+    const anchorTo = event?.currentTarget?.closest(".bd-mon") || null;
+    const choice = await pickPokemon(data, {
+      format: state.format,
+      title: side === LEFT ? "Our Pokémon" : "Opposing Pokémon",
+      anchorTo,
+      sets: (row) => setsFor(data, state.format, row.species, row.form, setLibrary),
+    });
+    if (!choice) return;
+    const { row, set } = choice;
+    entry.set = set
+      ? JSON.parse(JSON.stringify(set))
+      : setFromCommon(data.commonSet(state.format, row.species, row.form));
     resetMonState(side);
     render();
   };
@@ -329,7 +353,8 @@ function renderMon(side) {
 
   return h("section", { class: `bd-card bd-mon bd-side-${side}`, "aria-label": side === LEFT ? "Our Pokémon" : "Opposing Pokémon" },
     h("h2", { class: "bd-card-title" }, side === LEFT ? "Our Pokémon" : "Opposing Pokémon",
-      h("button", { type: "button", class: "ghost-button compact", title: "Swap our and opposing Pokémon", onclick: swapSides }, "⇄ Swap")),
+      h("button", { type: "button", class: "ghost-button compact", title: "Swap our and opposing Pokémon", onclick: swapSides }, "⇄ Swap"),
+      h("button", { type: "button", class: "ghost-button compact", title: "Paste a set as text", onclick: (event) => pasteSet(side, event) }, "Paste set")),
     header, moves, hp, stats, details, renderImport(side));
 }
 
@@ -386,6 +411,41 @@ function renderImport(side) {
     h("div", { class: "bd-import-row" },
       h("div", { class: "bd-import-head" }, h("span", { class: "bd-field-label" }, `Top ${model.state.format} meta`)),
       h("div", { class: "bd-import-chips bd-import-meta" }, metaRow)));
+}
+
+/** Paste one set as text, the way it is written on a team sheet. */
+function pasteSet(side, event) {
+  const anchorTo = event?.currentTarget?.closest(".bd-mon") || null;
+  const area = h("textarea", {
+    class: "bd-paste", rows: "12", spellcheck: "false",
+    placeholder: "Incineroar @ Sitrus Berry\nAbility: Intimidate\nAdamant Nature\nStat Points: 32 HP / 2 Def / 32 SpD\n- Fake Out\n- Flare Blitz\n- Knock Off\n- Parting Shot",
+  });
+  const load = () => {
+    const sets = parseShowdown(area.value, data).filter((set) => set.species && data.speciesEntry(set.species));
+    if (!sets.length) {
+      toast("No set could be read from that text.", "warn");
+      return;
+    }
+    model.state.mons[side].set = sets[0];
+    resetMonState(side);
+    render();
+    toast(`${data.displayName(sets[0].species, sets[0].form) || sets[0].species} loaded${sets.length > 1 ? " (the first of them)" : ""}.`);
+    close();
+  };
+  const { close } = openDialog({
+    title: side === LEFT ? "Paste our Pokémon's set" : "Paste the opposing Pokémon's set",
+    wide: true,
+    anchorTo,
+    body: h("div", { class: "bd-paste-body" },
+      h("p", { class: "bd-note" }, "Item, ability, nature, Stat Points and moves are all read if they are there; anything missing keeps what the slot already has for it."),
+      area),
+    actions: [
+      h("span", { class: "bd-spacer" }),
+      h("button", { class: "ghost-button", type: "button", onclick: () => close() }, "Cancel"),
+      h("button", { class: "primary-button", type: "button", onclick: load }, "Load the set"),
+    ],
+  });
+  setTimeout(() => area.focus(), 30);
 }
 
 function renderField() {
@@ -516,6 +576,10 @@ async function main() {
     document.querySelectorAll("[data-format]").forEach((button) => button.addEventListener("click", () => setFormat(button.dataset.format)));
     subscribe((_state, reason) => { if (reason === "team" || reason === "external" || reason === "sync") render(); });
     render();
+    // The set library is 130 KB and only the picker needs it, so it is fetched after the page is
+    // usable. Until it lands the picker offers the blank and the most common set, which is what
+    // it offered before this existed.
+    loadSetLibrary().then((library) => { setLibrary = library; });
   } catch (error) {
     console.error(error);
     clear(root).append(h("div", { class: "bd-card bd-error" }, h("h2", {}, "The calculator could not load its data."), h("p", {}, "Reload the page. If it keeps happening, tell us on Discord."), h("code", {}, String(error.message || error))));

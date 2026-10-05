@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Pokemon Champions meta trends: the biggest ranked usage rank winners and losers, the largest move, item, and ability usage swings, and the best offensive and defensive types against the top meta over the last 7 to 30 days in Singles and Doubles." />
+  <meta name="description" content="What is rising and falling in the Pokemon Champions ranked meta, day by day: usage changes, the moves, items and abilities that moved with them, the best offensive and defensive types, and how many of the Top X carry each type." />
   <meta name="keywords" content="Pokemon Champions meta, Pokemon Champions meta trends, usage changes, rank winners, rank losers, rising moves, Pokemon Champions doubles meta, Pokemon Champions singles meta, usage stats, Pokemon Champions battle data, pokemon champions tier list, pokemon champions most used pokemon, pokemon champions M5, Regulation M-A, Regulation M-B, Regulation M-C, Pokemon Champions Regulation M-A, Pokemon Champions Regulation M-B, Pokemon Champions Regulation M-C" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#050c08" />
@@ -11,12 +11,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://championsbattledata.com/meta/" />
   <meta property="og:title" content="Pokemon Champions Meta Trends" />
-  <meta property="og:description" content="Track which Pokemon are climbing or falling in ranked usage and which moves, items, and abilities are gaining or losing ground." />
+  <meta property="og:description" content="What is rising and falling in the Pokemon Champions ranked meta, day by day, with the type picture behind it." />
   <meta property="og:site_name" content="Pokemon Champions Battle Data" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Pokemon Champions Meta Trends" />
-  <meta name="twitter:description" content="Track which Pokemon are climbing or falling in ranked usage and which moves, items, and abilities are gaining or losing ground." />
-  <title>Meta Trends - Pokemon Champions Battle Data</title>
+  <meta name="twitter:description" content="What is rising and falling in the Pokemon Champions ranked meta, day by day, with the type picture behind it." />
+  <title>Pokemon Champions Meta Trends - What Is Rising, Falling and Most Used</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/site.webmanifest" />
   <script type="application/ld+json">
@@ -51,6 +51,7 @@
         </div>
         <a class="ghost-button nav-builder" href="/team-builder/">Team Builder</a>
         <a class="ghost-button" href="/damage-calculator/">Damage Calc</a>
+        <a class="ghost-button" href="/solver/">Solver</a>
         <a class="ghost-button" href="/meta/" aria-current="page">Meta</a>
         <a class="ghost-button" href="/">Explorer</a>
         <a class="ghost-button" href="/api_guide">API</a>
@@ -174,6 +175,11 @@
             <div class="meta-list meta-type-list" id="typeDefense"></div>
           </section>
         </div>
+        <section class="meta-panel meta-panel-count" aria-labelledby="typeCountHeading">
+          <h3 id="typeCountHeading">Type occurrences</h3>
+          <p class="meta-type-lead" id="typeCountLead"></p>
+          <div class="meta-list meta-type-list meta-type-count-list" id="typeCount"></div>
+        </section>
         <div class="meta-more">
           <p class="meta-note" id="metaTypeNote"></p>
         </div>

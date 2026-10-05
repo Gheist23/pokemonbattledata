@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Free Pokemon Champions damage calculator: level 50 Stat Points, Mega Stones, KO odds, Sitrus Berry, weather, terrain, screens, Helping Hand, Friend Guard, hazards and every ranked Pokemon's most common set." />
-  <meta name="keywords" content="Pokemon Champions damage calculator, Pokemon Champions damage calc, pokemon champions calc, Pokemon Champions KO calculator, Pokemon Champions stat points, VGC damage calculator, Regulation M-A, Regulation M-B, Regulation M-C" />
+  <meta name="description" content="Free Pokemon Champions damage calculator: level 50 Stat Points, Mega Stones, KO odds, Sitrus Berry, weather, terrain, screens, Helping Hand, Friend Guard and hazards -- with every ranked Pokemon's real tournament sets one click away, and a set you can paste in as text." />
+  <meta name="keywords" content="Pokemon Champions damage calculator, Pokemon Champions damage calc, pokemon champions calc, Pokemon Champions KO calculator, Pokemon Champions sets, Pokemon Champions tournament sets, Pokemon Champions stat points, VGC damage calculator, Regulation M-A, Regulation M-B, Regulation M-C" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#050c08" />
   <link rel="canonical" href="https://championsbattledata.com/damage-calculator/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://championsbattledata.com/damage-calculator/" />
   <meta property="og:title" content="Pokemon Champions Damage Calculator" />
-  <meta property="og:description" content="A Pokemon Champions damage calculator in your browser: KO odds, Mega Stones, Stat Points, field effects and the ranked meta's most common sets." />
+  <meta property="og:description" content="KO odds, Mega Stones, Stat Points and the full field state, with every ranked Pokemon's real tournament sets one click away." />
   <meta property="og:site_name" content="Pokemon Champions Battle Data" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Pokemon Champions Damage Calculator" />
-  <meta name="twitter:description" content="KO odds, Mega Stones, Stat Points and the full field state, with every ranked Pokemon's most common set one click away." />
-  <title>Damage Calculator - Pokemon Champions Battle Data</title>
+  <meta name="twitter:description" content="KO odds, Mega Stones, Stat Points and the full field state, with every ranked Pokemon's real tournament sets one click away." />
+  <title>Pokemon Champions Damage Calculator - KO Odds, Sets and the Whole Field</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/site.webmanifest" />
   <script type="application/ld+json">
@@ -55,6 +55,7 @@
         </div>
         <a class="ghost-button nav-builder" href="/team-builder/">Team Builder</a>
         <a class="ghost-button" href="/damage-calculator/" aria-current="page">Damage Calc</a>
+        <a class="ghost-button" href="/solver/">Solver</a>
         <a class="ghost-button" href="/meta/">Meta</a>
         <a class="ghost-button" href="/">Explorer</a>
         <a class="ghost-button" href="/api_guide">API</a>
@@ -86,6 +87,7 @@
         <ul>
           <li><a href="/team-builder/">Team Builder</a></li>
           <li><a href="/damage-calculator/">Damage Calculator</a></li>
+          <li><a href="/solver/">Solver</a></li>
           <li><a href="/pro-tool/plans/">Plans and pricing</a></li>
           <li><a href="/pro-tool/">Companion app</a></li>
         </ul>
@@ -114,5 +116,43 @@
   </footer>
 
   <script type="module" src="/builder/calc-page.js"></script>
+  <script>
+  // A stale-module guard. The site asks Cloudflare for `no-cache` on /builder/*; measured on
+  // the live site it answers `max-age=14400`, so a returning visitor pairs today's HTML with
+  // up-to-four-hour-old modules. An ES module graph is all-or-nothing: one cached file whose
+  // exports no longer match its neighbours makes the browser refuse every module, so the page
+  // script never runs and none of ITS error handling runs either -- the visitor just watches
+  // the loading line for ever. This is outside that graph on purpose, so it still runs.
+  (function () {
+    var messages = [];
+    addEventListener("error", function (event) {
+      if (event && event.message) messages.push(String(event.message));
+    }, true);
+    setTimeout(function () {
+      // The page script ran, so the module graph resolved and whatever is on screen is the
+      // page's own doing -- a search in progress, an analysis running, a slow data load it is
+      // reporting itself. Replacing that would throw away working state, which is worse than
+      // the problem this guard exists for.
+      if (window.__bdPageModuleRan) return;
+      var root = document.getElementById("calcApp");
+      if (!root || !root.querySelector(".bd-loading")) return;
+      var why = messages.length ? messages[0] : "";
+      root.innerHTML =
+        '<div class="bd-card bd-error" style="padding:1rem;display:grid;gap:.6rem">' +
+        '<h2 style="margin:0">the calculator could not start.</h2>' +
+        '<p style="margin:0">Your browser is almost certainly holding an old copy of this page\u2019s code. ' +
+        'A reload that ignores the cache fixes it: hold <kbd>Ctrl</kbd> (<kbd>Cmd</kbd> on a Mac) and press ' +
+        '<kbd>Shift</kbd>+<kbd>R</kbd>.</p>' +
+        (why ? '<p style="margin:0;opacity:.7;font-size:.82rem">' + why.replace(/[<>&]/g, "") + '</p>' : "") +
+        '<p style="margin:0"><button type="button" class="primary-button" id="bdHardReload">Reload</button> ' +
+        '<a class="ghost-button" href="https://discord.gg/k93eVQzj8c" target="_blank" rel="noopener">Tell us on Discord</a></p>' +
+        "</div>";
+      var button = document.getElementById("bdHardReload");
+      if (button) button.addEventListener("click", function () {
+        location.replace(location.pathname + "?reloaded=" + Date.now() + location.hash);
+      });
+    }, 25000);
+  })();
+  </script>
 </body>
 </html>

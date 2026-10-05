@@ -774,6 +774,21 @@ const BURN = 15;
 // The actions that are status moves (Taunt stops them; Encore locks a Pokémon that used one).
 const STATUS_ACTIONS = new Set([TAILWIND, TRICK_ROOM, REDIRECT, PROTECT, HELPING_HAND, WIDE_GUARD, QUICK_GUARD, SLEEP, TAUNT, ENCORE, BURN]);
 
+/**
+ * The same action kinds, for a second searcher that drives this turn machinery with actions of its
+ * own choosing rather than the ones `planSide` decides (builder/solver.js). Exported rather than
+ * duplicated, so the Solver and the Tournament Test can never disagree about what an action IS.
+ */
+export const ACTION_KINDS = Object.freeze({
+  FAKE_OUT, TAILWIND, TRICK_ROOM, REDIRECT, SPEED_DROP, ATTACK, PROTECT,
+  HELPING_HAND, WIDE_GUARD, QUICK_GUARD, SLEEP, TAUNT, ENCORE, LOWER, BURN,
+});
+
+/** How many each side brings and how many stand on the field, by format. */
+export const BRING_BY_FORMAT = Object.freeze({ ...BRING });
+export const ACTIVE_BY_FORMAT = Object.freeze({ ...ACTIVE });
+export const TURN_CAP_BY_FORMAT = Object.freeze({ ...TURN_CAP });
+
 // What owning the Speed order is worth, on the same currency as hitScore (a knockout is 10).
 // Hand-set, like the Taunt value of 3 and the Wide Guard margin of 0.3 below: a full inversion
 // against a field that can take a whole Pokémon (swing 1, stakes 2) prices at 12, just above a
@@ -799,6 +814,7 @@ const who = (unit) => (unit.stone
   ? { species: unit.species, form: unit.form, item: "", stone: unit.stone }
   : { species: unit.species, form: unit.form, item: unit.item });
 const alive = (m) => Boolean(m && !m.out);
+export { alive, clampStage };
 
 function combinations(size, k) {
   const out = [];
@@ -1269,6 +1285,32 @@ export class TournamentTest {
         ctx.attacker_state.tailwind = false;
         ctx.defender_state.tailwind = false;
       }
+      // The Solver sets a board that the Tournament Test never does: it starts mid-game, so the
+      // screens, Friend Guard and the two conditional counters CAN already be up, and the player
+      // may want the rules themselves switched (items off, abilities off). `solverField` is unset
+      // for every Tournament Test run, so nothing above this line changes for it.
+      const solver = this.solverField;
+      if (solver) {
+        const attackSide = att.side === 1 ? 1 : 0;
+        const defendSide = 1 - attackSide;
+        const physical = info.physical;
+        if (physical && solver.reflect[defendSide]) ctx.reflect = true;
+        if (info.special && solver.lightScreen[defendSide]) ctx.light_screen = true;
+        if (solver.auroraVeil[defendSide]) ctx.aurora_veil = true;
+        if (solver.friendGuard[defendSide]) ctx.friend_guard = true;
+        // Supreme Overlord and Last Respects read how many of the user's own side are down,
+        // and Rage Fist how many times its user has been hit. Both are facts about one Pokemon
+        // rather than about a side, so they are carried on the attacking unit -- which is also
+        // what makes them part of the damage cache key, through `Solver.unitFor`.
+        //
+        // `ctx.times_hit` was the wrong name: the only Rage Fist site in engine.js reads
+        // `ctx.attacker_state.times_hit`, so the counter did nothing and Rage Fist always
+        // priced at its 50 base power. The Damage Calculator writes the working key.
+        ctx.fainted_allies = Math.max(0, Math.min(5, Number(att.faintedAllies) || 0));
+        if (ctx.attacker_state) {
+          ctx.attacker_state.times_hit = Math.max(0, Math.min(6, Number(att.timesHit) || 0));
+        }
+      }
       if (f & 1) ctx.helping_hand = true;
       if (f & 2) ctx.burned = true;
       const result = this.ev.calculate(attacker, def.mon, ctx);
@@ -1297,7 +1339,16 @@ export class TournamentTest {
       const rate = scale;
       scale /= maxHp;
       const self = this.ev.selfCost >= 1 ? resultRecoilShare(result) * rate : 0;
-      return { slot, frac: (sum / rolls.length) * scale, lo: lo * scale, hi: hi * scale, priority, spread: info.spread, self };
+      // `frac` is the EXPECTED share -- the mean roll, scaled by accuracy and by the cooldown --
+      // and every planning decision is made on it, which is right: you choose on expectation.
+      // `odds` and the unscaled roll range are what a caller needs to play the hit out as the
+      // game plays it instead: roll to hit, then roll the damage. `rollHit` is where that
+      // happens, and the Tournament Test leaves it alone.
+      return {
+        slot, frac: (sum / rolls.length) * scale, lo: lo * scale, hi: hi * scale,
+        odds: rate, rollLo: lo / maxHp, rollHigh: hi / maxHp,
+        priority, spread: info.spread, self,
+      };
     } catch {
       return NO_HIT;
     }
@@ -1571,9 +1622,23 @@ export class TournamentTest {
    * `partner`: the attacker hit its own partner, so a knockout is not the attacker's.
    * True when the hit landed.
    */
+  /**
+   * The share of the defender's HP this hit actually takes off.
+   *
+   * The expected share, which is what the Tournament Test wants: its games are scored by
+   * comparing teams, and a comparison made on averages needs no repetition to be stable.
+   * builder/solver.js replaces this with one that rolls to hit and then rolls the damage,
+   * because a Solver is answering a different question -- whether a line WORKS, which turns on
+   * whether a roll reaches a knockout and whether a 70% move lands at all.
+   */
+  rollHit(hit) {
+    return hit.frac;
+  }
+
   deal(att, target, hit, events, partner = false) {
     if (!target || target.out || target.guard || hit.frac <= 0) return false;
-    let damage = hit.frac;
+    let damage = this.rollHit(hit);
+    if (damage <= 0) return false;
     if (target.sash && target.hp >= 0.999 && damage >= target.hp) {
       damage = target.hp - 0.01;
       target.sash = false;
@@ -2388,13 +2453,23 @@ export class TournamentTest {
     return plan;
   }
 
-  plannedTurn(active, board, slower, turn, events, stances) {
+  /**
+   * `given` is `[ourPlan, theirPlan]` when the caller has ALREADY decided both sides' actions --
+   * which is what the Solver does for the turn it is searching (builder/solver.js). The planning
+   * chain is then skipped entirely: `planSide` would overwrite the chosen actions and `planGuards`
+   * would answer a plan nobody made. Everything after it is the ordinary turn, so a searched turn
+   * and a played turn resolve through one piece of code. Null everywhere else, so nothing that
+   * existed before this reads differently.
+   */
+  plannedTurn(active, board, slower, turn, events, stances, given = null) {
     board.wide = 0;
     board.quick = 0;
     const firstTurn = turn <= 1;
-    const plans = [this.planSide(0, active, board, slower, firstTurn), this.planSide(1, active, board, slower, firstTurn)];
-    if (stances) for (let s = 0; s < 2; s += 1) this.applyStance(plans[s], stances[s], active, board);
-    this.planGuards(plans, board);
+    const plans = given || [this.planSide(0, active, board, slower, firstTurn), this.planSide(1, active, board, slower, firstTurn)];
+    if (!given) {
+      if (stances) for (let s = 0; s < 2; s += 1) this.applyStance(plans[s], stances[s], active, board);
+      this.planGuards(plans, board);
+    }
     // A setup move that was priced and left unused is part of what happened this turn, so the
     // results can say why the condition never went up.
     if (events) for (const plan of plans) for (const a of plan) if (a.held) events.push({ s: a.s, kind: "heldback", actor: a.m.u, move: a.held.move, why: a.held.why });
@@ -2470,6 +2545,13 @@ export class TournamentTest {
     board.wide = 0;
     board.quick = 0;
     this.endOfTurn(active, events);
+    // What each side actually did, for a caller that wants to report the turn. The Tournament
+    // Test ignores it -- every call site drops it -- so this is observationally inert for the
+    // recorded vectors; it exists because the Solver's trace has no other way to learn what the
+    // planner chose, and the entries are the guard-corrected ones (`planGuards` rewrites them in
+    // place before the action loop), which is what the turn really did rather than what it meant
+    // to do.
+    return plans;
   }
 
   /** Sleep, Taunt, Encore, Will-O-Wisp and the status stat drops (Charm, Parting Shot...). */

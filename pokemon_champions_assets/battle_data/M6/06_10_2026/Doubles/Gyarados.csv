@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gyarados,93,move,1,Waterfall,91.1%,,,,,,,,
-Gyarados,93,move,2,Protect,55.1%,,,,,,,,
+Gyarados,93,move,2,Protect,55.0%,,,,,,,,
 Gyarados,93,move,3,Dragon Dance,48.9%,,,,,,,,
-Gyarados,93,move,4,Crunch,44.4%,,,,,,,,
+Gyarados,93,move,4,Crunch,44.3%,,,,,,,,
 Gyarados,93,move,5,Ice Fang,35.0%,,,,,,,,
-Gyarados,93,move,6,Earthquake,21.8%,,,,,,,,
-Gyarados,93,move,7,Power Whip,21.1%,,,,,,,,
+Gyarados,93,move,6,Earthquake,21.9%,,,,,,,,
+Gyarados,93,move,7,Power Whip,21.0%,,,,,,,,
 Gyarados,93,move,8,Temper Flare,10.4%,,,,,,,,
-Gyarados,93,move,9,Taunt,7.8%,,,,,,,,
-Gyarados,93,move,10,Stone Edge,7.5%,,,,,,,,
-Gyarados,93,held_item,1,Gyaradosite,50.1%,,,,,,,,
+Gyarados,93,move,9,Taunt,7.7%,,,,,,,,
+Gyarados,93,move,10,Stone Edge,7.4%,,,,,,,,
+Gyarados,93,held_item,1,Gyaradosite,50.2%,,,,,,,,
 Gyarados,93,held_item,2,Sitrus Berry,10.9%,,,,,,,,
-Gyarados,93,held_item,3,Leftovers,6.6%,,,,,,,,
+Gyarados,93,held_item,3,Leftovers,6.7%,,,,,,,,
 Gyarados,93,held_item,4,Rocky Helmet,5.5%,,,,,,,,
 Gyarados,93,held_item,5,Life Orb,5.1%,,,,,,,,
 Gyarados,93,held_item,6,Choice Scarf,4.0%,,,,,,,,
@@ -33,12 +33,12 @@ Gyarados,93,stat_alignment,1,Adamant,51.0%,Attack,Sp. Atk,,,,,,
 Gyarados,93,stat_alignment,2,Jolly,29.3%,Speed,Sp. Atk,,,,,,
 Gyarados,93,stat_alignment,3,Impish,6.8%,Defense,Sp. Atk,,,,,,
 Gyarados,93,stat_alignment,4,Careful,4.2%,Sp. Def,Sp. Atk,,,,,,
-Gyarados,93,stat_alignment,5,Brave,2.5%,Attack,Speed,,,,,,
-Gyarados,93,stat_alignment,6,Lonely,1.4%,Attack,Defense,,,,,,
+Gyarados,93,stat_alignment,5,Brave,2.6%,Attack,Speed,,,,,,
+Gyarados,93,stat_alignment,6,Lonely,1.3%,Attack,Defense,,,,,,
 Gyarados,93,stat_alignment,7,Modest,1.0%,Sp. Atk,Attack,,,,,,
 Gyarados,93,stat_alignment,8,Naughty,1.0%,Attack,Sp. Def,,,,,,
-Gyarados,93,stat_alignment,9,Relaxed,0.4%,Defense,Speed,,,,,,
-Gyarados,93,stat_alignment,10,Naive,0.4%,Speed,Sp. Def,,,,,,
+Gyarados,93,stat_alignment,9,Naive,0.4%,Speed,Sp. Def,,,,,,
+Gyarados,93,stat_alignment,10,Relaxed,0.4%,Defense,Speed,,,,,,
 Gyarados,93,stat_points,1,,22.5%,,,2,32,0,0,0,32
 Gyarados,93,stat_points,2,,5.3%,,,32,32,2,0,0,0
 Gyarados,93,stat_points,3,,5.2%,,,0,32,2,0,0,32
@@ -46,8 +46,8 @@ Gyarados,93,stat_points,4,,3.0%,,,5,31,0,0,0,30
 Gyarados,93,stat_points,5,,2.4%,,,0,32,0,0,2,32
 Gyarados,93,stat_points,6,,2.1%,,,32,32,0,0,2,0
 Gyarados,93,stat_points,7,,2.0%,,,32,32,0,0,0,2
-Gyarados,93,stat_points,8,,2.0%,,,1,32,1,0,0,32
+Gyarados,93,stat_points,8,,1.9%,,,1,32,1,0,0,32
 Gyarados,93,stat_points,9,,1.3%,,,11,25,0,0,0,30
-Gyarados,93,stat_points,10,,1.2%,,,32,0,32,0,2,0
-Gyarados,93,ability,1,Intimidate,91.1%,,,,,,,,
-Gyarados,93,ability,2,Moxie,8.9%,,,,,,,,
+Gyarados,93,stat_points,10,,1.1%,,,32,0,32,0,2,0
+Gyarados,93,ability,1,Intimidate,91.0%,,,,,,,,
+Gyarados,93,ability,2,Moxie,9.0%,,,,,,,,

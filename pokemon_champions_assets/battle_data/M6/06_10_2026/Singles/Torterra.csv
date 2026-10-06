@@ -2,11 +2,11 @@ pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_point
 Torterra,176,move,1,Shell Smash,68.5%,,,,,,,,
 Torterra,176,move,2,Headlong Rush,55.5%,,,,,,,,
 Torterra,176,move,3,Wood Hammer,46.7%,,,,,,,,
-Torterra,176,move,4,Earthquake,37.7%,,,,,,,,
+Torterra,176,move,4,Earthquake,37.8%,,,,,,,,
 Torterra,176,move,5,Rock Blast,33.3%,,,,,,,,
 Torterra,176,move,6,Bullet Seed,25.6%,,,,,,,,
 Torterra,176,move,7,Seed Bomb,15.2%,,,,,,,,
-Torterra,176,move,8,Rock Slide,13.4%,,,,,,,,
+Torterra,176,move,8,Rock Slide,13.3%,,,,,,,,
 Torterra,176,move,9,Stone Edge,13.3%,,,,,,,,
 Torterra,176,move,10,Heavy Slam,10.4%,,,,,,,,
 Torterra,176,held_item,1,White Herb,30.4%,,,,,,,,
@@ -30,9 +30,9 @@ Torterra,176,teammate,8,Blastoise,,,,,,,,,
 Torterra,176,teammate,9,Baxcalibur,,,,,,,,,
 Torterra,176,teammate,10,Armarouge,,,,,,,,,
 Torterra,176,stat_alignment,1,Jolly,43.7%,Speed,Sp. Atk,,,,,,
-Torterra,176,stat_alignment,2,Adamant,34.3%,Attack,Sp. Atk,,,,,,
+Torterra,176,stat_alignment,2,Adamant,34.2%,Attack,Sp. Atk,,,,,,
 Torterra,176,stat_alignment,3,Impish,7.4%,Defense,Sp. Atk,,,,,,
-Torterra,176,stat_alignment,4,Careful,5.1%,Sp. Def,Sp. Atk,,,,,,
+Torterra,176,stat_alignment,4,Careful,5.2%,Sp. Def,Sp. Atk,,,,,,
 Torterra,176,stat_alignment,5,Naughty,1.2%,Attack,Sp. Def,,,,,,
 Torterra,176,stat_alignment,6,Sassy,1.2%,Sp. Def,Speed,,,,,,
 Torterra,176,stat_alignment,7,Relaxed,1.1%,Defense,Speed,,,,,,
@@ -40,7 +40,7 @@ Torterra,176,stat_alignment,8,Lonely,1.0%,Attack,Defense,,,,,,
 Torterra,176,stat_alignment,9,Lax,0.8%,Defense,Sp. Def,,,,,,
 Torterra,176,stat_alignment,10,Brave,0.7%,Attack,Speed,,,,,,
 Torterra,176,stat_points,1,,35.2%,,,2,32,0,0,0,32
-Torterra,176,stat_points,2,,6.9%,,,1,32,1,0,0,32
+Torterra,176,stat_points,2,,6.8%,,,1,32,1,0,0,32
 Torterra,176,stat_points,3,,4.0%,,,0,32,0,0,2,32
 Torterra,176,stat_points,4,,3.2%,,,0,32,2,0,0,32
 Torterra,176,stat_points,5,,2.4%,,,1,32,0,0,1,32
@@ -49,5 +49,5 @@ Torterra,176,stat_points,7,,1.9%,,,32,0,32,0,2,0
 Torterra,176,stat_points,8,,1.7%,,,8,32,0,0,0,26
 Torterra,176,stat_points,9,,1.6%,,,0,32,0,0,0,32
 Torterra,176,stat_points,10,,1.5%,,,32,32,2,0,0,0
-Torterra,176,ability,1,Shell Armor,51.9%,,,,,,,,
-Torterra,176,ability,2,Overgrow,48.1%,,,,,,,,
+Torterra,176,ability,1,Shell Armor,52.0%,,,,,,,,
+Torterra,176,ability,2,Overgrow,48.0%,,,,,,,,

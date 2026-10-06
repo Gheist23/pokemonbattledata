@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Tyranitar,44,move,1,Knock Off,77.4%,,,,,,,,
-Tyranitar,44,move,2,Stone Edge,52.1%,,,,,,,,
-Tyranitar,44,move,3,Ice Punch,43.7%,,,,,,,,
-Tyranitar,44,move,4,Stealth Rock,37.6%,,,,,,,,
+Tyranitar,44,move,2,Stone Edge,52.2%,,,,,,,,
+Tyranitar,44,move,3,Ice Punch,43.8%,,,,,,,,
+Tyranitar,44,move,4,Stealth Rock,37.5%,,,,,,,,
 Tyranitar,44,move,5,Earthquake,37.3%,,,,,,,,
 Tyranitar,44,move,6,Dragon Dance,20.8%,,,,,,,,
 Tyranitar,44,move,7,Rock Tomb,16.2%,,,,,,,,
 Tyranitar,44,move,8,Rock Slide,11.1%,,,,,,,,
 Tyranitar,44,move,9,Roar,10.0%,,,,,,,,
-Tyranitar,44,move,10,Taunt,9.3%,,,,,,,,
-Tyranitar,44,held_item,1,Tyranitarite,47.3%,,,,,,,,
+Tyranitar,44,move,10,Taunt,9.4%,,,,,,,,
+Tyranitar,44,held_item,1,Tyranitarite,47.4%,,,,,,,,
 Tyranitar,44,held_item,2,Sitrus Berry,11.4%,,,,,,,,
 Tyranitar,44,held_item,3,Leftovers,10.2%,,,,,,,,
 Tyranitar,44,held_item,4,Smooth Rock,9.0%,,,,,,,,
@@ -29,9 +29,9 @@ Tyranitar,44,teammate,7,Gholdengo,,,,,,,,,
 Tyranitar,44,teammate,8,Corviknight,,,,,,,,,
 Tyranitar,44,teammate,9,Excadrill,,,,,,,,,
 Tyranitar,44,teammate,10,Baxcalibur,,,,,,,,,
-Tyranitar,44,stat_alignment,1,Adamant,46.9%,Attack,Sp. Atk,,,,,,
+Tyranitar,44,stat_alignment,1,Adamant,47.0%,Attack,Sp. Atk,,,,,,
 Tyranitar,44,stat_alignment,2,Careful,23.2%,Sp. Def,Sp. Atk,,,,,,
-Tyranitar,44,stat_alignment,3,Jolly,12.0%,Speed,Sp. Atk,,,,,,
+Tyranitar,44,stat_alignment,3,Jolly,12.1%,Speed,Sp. Atk,,,,,,
 Tyranitar,44,stat_alignment,4,Impish,7.2%,Defense,Sp. Atk,,,,,,
 Tyranitar,44,stat_alignment,5,Modest,4.4%,Sp. Atk,Attack,,,,,,
 Tyranitar,44,stat_alignment,6,Brave,1.5%,Attack,Speed,,,,,,
@@ -45,7 +45,7 @@ Tyranitar,44,stat_points,3,,7.9%,,,2,32,0,0,0,32
 Tyranitar,44,stat_points,4,,6.3%,,,32,2,0,0,32,0
 Tyranitar,44,stat_points,5,,6.0%,,,32,32,2,0,0,0
 Tyranitar,44,stat_points,6,,4.1%,,,32,32,0,0,0,2
-Tyranitar,44,stat_points,7,,3.2%,,,30,6,1,0,7,22
+Tyranitar,44,stat_points,7,,3.3%,,,30,6,1,0,7,22
 Tyranitar,44,stat_points,8,,1.9%,,,32,0,32,0,2,0
 Tyranitar,44,stat_points,9,,1.8%,,,32,0,0,0,32,2
 Tyranitar,44,stat_points,10,,1.1%,,,0,32,0,0,2,32

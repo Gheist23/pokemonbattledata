@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Staraptor,45,move,1,Close Combat,95.0%,,,,,,,,
 Staraptor,45,move,2,Brave Bird,89.6%,,,,,,,,
-Staraptor,45,move,3,Roost,80.1%,,,,,,,,
+Staraptor,45,move,3,Roost,80.2%,,,,,,,,
 Staraptor,45,move,4,Blaze Kick,47.0%,,,,,,,,
-Staraptor,45,move,5,U-turn,18.9%,,,,,,,,
+Staraptor,45,move,5,U-turn,18.8%,,,,,,,,
 Staraptor,45,move,6,Final Gambit,12.6%,,,,,,,,
 Staraptor,45,move,7,Substitute,10.8%,,,,,,,,
-Staraptor,45,move,8,Whirlwind,7.5%,,,,,,,,
+Staraptor,45,move,8,Whirlwind,7.6%,,,,,,,,
 Staraptor,45,move,9,Quick Attack,7.1%,,,,,,,,
 Staraptor,45,move,10,Dual Wingbeat,6.3%,,,,,,,,
-Staraptor,45,held_item,1,Staraptite,84.9%,,,,,,,,
+Staraptor,45,held_item,1,Staraptite,85.0%,,,,,,,,
 Staraptor,45,held_item,2,Choice Scarf,12.6%,,,,,,,,
 Staraptor,45,held_item,3,Life Orb,0.5%,,,,,,,,
 Staraptor,45,held_item,4,Focus Sash,0.3%,,,,,,,,
@@ -32,7 +32,7 @@ Staraptor,45,teammate,10,Gholdengo,,,,,,,,,
 Staraptor,45,stat_alignment,1,Jolly,72.6%,Speed,Sp. Atk,,,,,,
 Staraptor,45,stat_alignment,2,Adamant,20.6%,Attack,Sp. Atk,,,,,,
 Staraptor,45,stat_alignment,3,Impish,1.7%,Defense,Sp. Atk,,,,,,
-Staraptor,45,stat_alignment,4,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,
+Staraptor,45,stat_alignment,4,Careful,1.6%,Sp. Def,Sp. Atk,,,,,,
 Staraptor,45,stat_alignment,5,Naive,0.8%,Speed,Sp. Def,,,,,,
 Staraptor,45,stat_alignment,6,Naughty,0.7%,Attack,Sp. Def,,,,,,
 Staraptor,45,stat_alignment,7,Lonely,0.6%,Attack,Defense,,,,,,
@@ -41,7 +41,7 @@ Staraptor,45,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,
 Staraptor,45,stat_alignment,10,Timid,0.2%,Speed,Attack,,,,,,
 Staraptor,45,stat_points,1,,31.7%,,,2,32,0,0,0,32
 Staraptor,45,stat_points,2,,9.4%,,,32,2,0,0,0,32
-Staraptor,45,stat_points,3,,7.7%,,,31,3,0,0,0,32
+Staraptor,45,stat_points,3,,7.6%,,,31,3,0,0,0,32
 Staraptor,45,stat_points,4,,5.8%,,,1,32,1,0,0,32
 Staraptor,45,stat_points,5,,4.4%,,,0,32,2,0,0,32
 Staraptor,45,stat_points,6,,3.9%,,,0,32,0,0,2,32

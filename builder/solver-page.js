@@ -435,8 +435,8 @@ function renderControls() {
     // The board is clicked, and a board that is clicked has to say so: nothing else on the page
     // tells you that a sprite is a control.
     h("p", { class: "bd-solver-controls-hint" },
-      "Click Pok\u00e9mon on the bench to activate/deactivate it, click the Pok\u00e9mon in the front "
-      + "to switch its position with another Pok\u00e9mon."),
+      "Click the Pok\u00e9mon on the bench to activate/deactivate it, click the Pok\u00e9mon "
+      + "in the front to switch its position with another Pok\u00e9mon."),
     h("div", { class: "bd-solver-controls-right" },
       allowance,
       state.running
@@ -557,11 +557,6 @@ function sceneTile(side, index, row, benched) {
   if (down) classes.push("down");
   if (out) classes.push("out");
   if (picked) classes.push("picked");
-  const how = picked
-    ? "Click another Pokémon to change places with it, or click away to stop."
-    : benched
-      ? "Click to take it out of the battle, or to put it back."
-      : "Click to pick it up, then click another to change their places.";
   const bits = [];
   if (row.status) bits.push((STATUSES.find(([value]) => value === row.status) || [])[1] || "");
   for (const [key, label] of STAGES) {
@@ -571,7 +566,6 @@ function sceneTile(side, index, row, benched) {
   return h("button", {
     type: "button",
     class: classes.join(" "),
-    title: `${name} · ${out ? "on the team, not in this battle" : "in this battle"}\n${how}`,
     "aria-label": `${name}, ${out ? "not in this battle" : benched ? "in the back" : "in the front"}`,
     onclick: (event) => { event.stopPropagation(); boardClick(side, index); },
   },
@@ -980,12 +974,14 @@ function bar(value) {
 /**
  * One line of an answer.
  *
- * `mine` is false for "Their best answer". Each side's statistics are kept in that side's own
- * frame -- ours is the board value from our view, theirs is 100 minus it -- so a signed delta
- * printed straight from `row.score` flipped meaning between the two lists: on a board you were
- * losing, every move of yours was a red negative and every answer of theirs a green positive,
- * which reads as "their moves are the good ones". Both lists therefore print where the board
- * ENDS UP for YOU, on the same 0-100 scale the bar above uses. Green is always good for you.
+ * Each side's statistics are kept in that side's OWN frame -- ours is the board value from our
+ * view, theirs is 100 minus it -- and each list now prints its own side's number. Your moves are
+ * green when they leave the board in your favour and red when they do not; their answers are
+ * always red, because red is their side everywhere else on this page. The two numbers that
+ * describe one line still add up to 100, so they can be read against each other.
+ *
+ * Both lists used to print the board from YOUR side, so that green always meant good for you.
+ * That made "Their best answer" a column of numbers about you, under a heading about them.
  */
 function actionText(action) {
   // A switch already reads as an arrow ("→ Incineroar"), so it does not take the colon a move does.
@@ -1000,15 +996,17 @@ function lineRow(row, index, mine) {
   const text = row.actions.length
     ? h("span", { class: "bd-solver-line-text" }, row.actions.map((action) => h("span", { class: "bd-solver-line-act" }, actionText(action))))
     : h("span", { class: "bd-solver-line-text" }, "Nothing it can do");
-  const yours = mine ? row.score : 100 - row.score;
+  const shown = row.score;
   return h("li", { class: `bd-solver-line${index === 0 ? " best" : ""}` },
     h("div", { class: "bd-solver-line-main" },
       text,
       h("span", {
         class: "bd-solver-line-score",
-        "data-tone": yours >= 50 ? "good" : "bad",
-        title: `If this line is played, the board ends up at ${yours.toFixed(1)} out of 100 for you. 50 is even.`,
-      }, yours.toFixed(1))),
+        "data-tone": mine ? (shown >= 50 ? "good" : "bad") : "them",
+        title: mine
+          ? `If this line is played, the board ends up at ${shown.toFixed(1)} out of 100 for you. 50 is even.`
+          : `If this line is played, the board ends up at ${shown.toFixed(1)} out of 100 for them. 50 is even.`,
+      }, shown.toFixed(1))),
     h("div", { class: "bd-solver-line-sub" }, `${(row.share * 100).toFixed(0)}% of the lines, ${row.played} played`));
 }
 

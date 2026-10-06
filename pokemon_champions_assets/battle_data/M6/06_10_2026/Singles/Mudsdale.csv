@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Mudsdale,165,move,1,Earthquake,79.1%,,,,,,,,
-Mudsdale,165,move,2,Body Press,77.4%,,,,,,,,
+Mudsdale,165,move,2,Body Press,77.3%,,,,,,,,
 Mudsdale,165,move,3,Stealth Rock,56.5%,,,,,,,,
 Mudsdale,165,move,4,Roar,46.3%,,,,,,,,
-Mudsdale,165,move,5,Rest,30.0%,,,,,,,,
+Mudsdale,165,move,5,Rest,29.9%,,,,,,,,
 Mudsdale,165,move,6,Fissure,16.8%,,,,,,,,
 Mudsdale,165,move,7,Iron Defense,14.5%,,,,,,,,
 Mudsdale,165,move,8,Smack Down,12.8%,,,,,,,,
@@ -12,7 +12,7 @@ Mudsdale,165,move,10,Stone Edge,7.6%,,,,,,,,
 Mudsdale,165,held_item,1,Leftovers,30.6%,,,,,,,,
 Mudsdale,165,held_item,2,Sitrus Berry,25.5%,,,,,,,,
 Mudsdale,165,held_item,3,Rocky Helmet,17.3%,,,,,,,,
-Mudsdale,165,held_item,4,Chesto Berry,16.2%,,,,,,,,
+Mudsdale,165,held_item,4,Chesto Berry,16.1%,,,,,,,,
 Mudsdale,165,held_item,5,Lum Berry,3.6%,,,,,,,,
 Mudsdale,165,held_item,6,Quick Claw,2.4%,,,,,,,,
 Mudsdale,165,held_item,7,Red Card,0.6%,,,,,,,,
@@ -29,21 +29,21 @@ Mudsdale,165,teammate,7,Charizard,,,,,,,,,
 Mudsdale,165,teammate,8,Garchomp,,,,,,,,,
 Mudsdale,165,teammate,9,Mimikyu,,,,,,,,,
 Mudsdale,165,teammate,10,Dragonite,,,,,,,,,
-Mudsdale,165,stat_alignment,1,Impish,60.0%,Defense,Sp. Atk,,,,,,
-Mudsdale,165,stat_alignment,2,Careful,16.7%,Sp. Def,Sp. Atk,,,,,,
-Mudsdale,165,stat_alignment,3,Adamant,9.6%,Attack,Sp. Atk,,,,,,
-Mudsdale,165,stat_alignment,4,Relaxed,5.3%,Defense,Speed,,,,,,
+Mudsdale,165,stat_alignment,1,Impish,59.9%,Defense,Sp. Atk,,,,,,
+Mudsdale,165,stat_alignment,2,Careful,16.8%,Sp. Def,Sp. Atk,,,,,,
+Mudsdale,165,stat_alignment,3,Adamant,9.5%,Attack,Sp. Atk,,,,,,
+Mudsdale,165,stat_alignment,4,Relaxed,5.4%,Defense,Speed,,,,,,
 Mudsdale,165,stat_alignment,5,Brave,2.9%,Attack,Speed,,,,,,
 Mudsdale,165,stat_alignment,6,Sassy,2.5%,Sp. Def,Speed,,,,,,
 Mudsdale,165,stat_alignment,7,Bold,1.2%,Defense,Attack,,,,,,
 Mudsdale,165,stat_alignment,8,Lonely,0.4%,Attack,Defense,,,,,,
-Mudsdale,165,stat_alignment,9,Jolly,0.4%,Speed,Sp. Atk,,,,,,
-Mudsdale,165,stat_alignment,10,Naughty,0.4%,Attack,Sp. Def,,,,,,
-Mudsdale,165,stat_points,1,,29.5%,,,32,0,32,0,2,0
+Mudsdale,165,stat_alignment,9,Naughty,0.4%,Attack,Sp. Def,,,,,,
+Mudsdale,165,stat_alignment,10,Jolly,0.4%,Speed,Sp. Atk,,,,,,
+Mudsdale,165,stat_points,1,,29.4%,,,32,0,32,0,2,0
 Mudsdale,165,stat_points,2,,10.0%,,,32,2,32,0,0,0
 Mudsdale,165,stat_points,3,,6.9%,,,32,0,2,0,32,0
 Mudsdale,165,stat_points,4,,4.6%,,,2,0,32,0,32,0
-Mudsdale,165,stat_points,5,,2.4%,,,32,2,0,0,32,0
+Mudsdale,165,stat_points,5,,2.5%,,,32,2,0,0,32,0
 Mudsdale,165,stat_points,6,,2.4%,,,2,32,32,0,0,0
 Mudsdale,165,stat_points,7,,2.2%,,,32,0,32,0,0,0
 Mudsdale,165,stat_points,8,,1.9%,,,32,32,0,0,2,0

@@ -354,6 +354,8 @@
 
 .bd-solver-line-score[data-tone="good"] { color: var(--good, #34d399); }
 .bd-solver-line-score[data-tone="bad"] { color: var(--bad, #f87171); }
+/* Their own score, under their own heading: their side is red on the bar and on the board. */
+.bd-solver-line-score[data-tone="them"] { color: var(--bad, #f87171); }
 
 .bd-solver-line-sub {
   margin-top: 0.1rem;

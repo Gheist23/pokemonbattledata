@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Garchomp,1,move,1,Earthquake,69.3%,,,,,,,,
-Garchomp,1,move,2,Stealth Rock,42.7%,,,,,,,,
-Garchomp,1,move,3,Dragon Tail,28.3%,,,,,,,,
-Garchomp,1,move,4,Draco Meteor,27.7%,,,,,,,,
+Garchomp,1,move,2,Stealth Rock,42.8%,,,,,,,,
+Garchomp,1,move,3,Dragon Tail,28.2%,,,,,,,,
+Garchomp,1,move,4,Draco Meteor,27.6%,,,,,,,,
 Garchomp,1,move,5,Flamethrower,26.0%,,,,,,,,
 Garchomp,1,move,6,Outrage,25.7%,,,,,,,,
-Garchomp,1,move,7,Earth Power,22.5%,,,,,,,,
+Garchomp,1,move,7,Earth Power,22.4%,,,,,,,,
 Garchomp,1,move,8,Rock Tomb,21.0%,,,,,,,,
 Garchomp,1,move,9,Scale Shot,19.5%,,,,,,,,
 Garchomp,1,move,10,Power Gem,18.8%,,,,,,,,
@@ -30,7 +30,7 @@ Garchomp,1,teammate,8,Archaludon,,,,,,,,,
 Garchomp,1,teammate,9,Charizard,,,,,,,,,
 Garchomp,1,teammate,10,Corviknight,,,,,,,,,
 Garchomp,1,stat_alignment,1,Jolly,26.4%,Speed,Sp. Atk,,,,,,
-Garchomp,1,stat_alignment,2,Adamant,21.1%,Attack,Sp. Atk,,,,,,
+Garchomp,1,stat_alignment,2,Adamant,21.2%,Attack,Sp. Atk,,,,,,
 Garchomp,1,stat_alignment,3,Timid,19.4%,Speed,Attack,,,,,,
 Garchomp,1,stat_alignment,4,Impish,16.7%,Defense,Sp. Atk,,,,,,
 Garchomp,1,stat_alignment,5,Modest,9.2%,Sp. Atk,Attack,,,,,,
@@ -39,7 +39,7 @@ Garchomp,1,stat_alignment,7,Naive,2.3%,Speed,Sp. Def,,,,,,
 Garchomp,1,stat_alignment,8,Hasty,0.5%,Speed,Defense,,,,,,
 Garchomp,1,stat_alignment,9,Naughty,0.4%,Attack,Sp. Def,,,,,,
 Garchomp,1,stat_alignment,10,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
-Garchomp,1,stat_points,1,,28.1%,,,2,32,0,0,0,32
+Garchomp,1,stat_points,1,,28.2%,,,2,32,0,0,0,32
 Garchomp,1,stat_points,2,,21.4%,,,2,0,0,32,0,32
 Garchomp,1,stat_points,3,,5.5%,,,0,32,2,0,0,32
 Garchomp,1,stat_points,4,,3.7%,,,32,0,32,0,2,0

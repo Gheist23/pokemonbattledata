@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Araquanid,89,move,1,Sticky Web,81.8%,,,,,,,,
 Araquanid,89,move,2,Mirror Coat,73.4%,,,,,,,,
-Araquanid,89,move,3,Liquidation,68.8%,,,,,,,,
+Araquanid,89,move,3,Liquidation,68.7%,,,,,,,,
 Araquanid,89,move,4,Leech Life,30.1%,,,,,,,,
-Araquanid,89,move,5,Surf,24.8%,,,,,,,,
+Araquanid,89,move,5,Surf,24.9%,,,,,,,,
 Araquanid,89,move,6,Ice Beam,18.4%,,,,,,,,
 Araquanid,89,move,7,Lunge,13.2%,,,,,,,,
 Araquanid,89,move,8,Endeavor,11.0%,,,,,,,,
 Araquanid,89,move,9,Icy Wind,9.1%,,,,,,,,
-Araquanid,89,move,10,Hydro Pump,8.9%,,,,,,,,
+Araquanid,89,move,10,Hydro Pump,8.8%,,,,,,,,
 Araquanid,89,held_item,1,Sitrus Berry,40.6%,,,,,,,,
 Araquanid,89,held_item,2,Mystic Water,18.3%,,,,,,,,
 Araquanid,89,held_item,3,Leftovers,8.1%,,,,,,,,
@@ -37,7 +37,7 @@ Araquanid,89,stat_alignment,5,Brave,3.1%,Attack,Speed,,,,,,
 Araquanid,89,stat_alignment,6,Bold,2.4%,Defense,Attack,,,,,,
 Araquanid,89,stat_alignment,7,Calm,2.2%,Sp. Def,Attack,,,,,,
 Araquanid,89,stat_alignment,8,Sassy,2.0%,Sp. Def,Speed,,,,,,
-Araquanid,89,stat_alignment,9,Relaxed,2.0%,Defense,Speed,,,,,,
+Araquanid,89,stat_alignment,9,Relaxed,1.9%,Defense,Speed,,,,,,
 Araquanid,89,stat_alignment,10,Quiet,1.7%,Sp. Atk,Speed,,,,,,
 Araquanid,89,stat_points,1,,17.8%,,,32,32,2,0,0,0
 Araquanid,89,stat_points,2,,6.1%,,,28,0,0,32,0,6
@@ -46,8 +46,8 @@ Araquanid,89,stat_points,4,,4.8%,,,32,32,0,0,2,0
 Araquanid,89,stat_points,5,,3.6%,,,32,0,2,32,0,0
 Araquanid,89,stat_points,6,,2.7%,,,32,0,2,0,32,0
 Araquanid,89,stat_points,7,,2.4%,,,26,0,0,32,0,8
-Araquanid,89,stat_points,8,,1.8%,,,32,2,32,0,0,0
-Araquanid,89,stat_points,9,,1.8%,,,28,32,0,0,0,6
+Araquanid,89,stat_points,8,,1.8%,,,28,32,0,0,0,6
+Araquanid,89,stat_points,9,,1.8%,,,32,2,32,0,0,0
 Araquanid,89,stat_points,10,,1.8%,,,32,16,18,0,0,0
 Araquanid,89,ability,1,Water Bubble,99.1%,,,,,,,,
 Araquanid,89,ability,2,Water Absorb,0.9%,,,,,,,,

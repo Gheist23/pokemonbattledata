@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dragonite,24,move,1,Roost,55.7%,,,,,,,,
-Dragonite,24,move,2,Flamethrower,51.3%,,,,,,,,
-Dragonite,24,move,3,Extreme Speed,50.4%,,,,,,,,
-Dragonite,24,move,4,Draco Meteor,40.1%,,,,,,,,
-Dragonite,24,move,5,Thunderbolt,35.9%,,,,,,,,
-Dragonite,24,move,6,Earthquake,28.4%,,,,,,,,
+Dragonite,24,move,1,Roost,55.8%,,,,,,,,
+Dragonite,24,move,2,Flamethrower,51.4%,,,,,,,,
+Dragonite,24,move,3,Extreme Speed,50.3%,,,,,,,,
+Dragonite,24,move,4,Draco Meteor,40.0%,,,,,,,,
+Dragonite,24,move,5,Thunderbolt,36.0%,,,,,,,,
+Dragonite,24,move,6,Earthquake,28.3%,,,,,,,,
 Dragonite,24,move,7,Air Slash,22.3%,,,,,,,,
-Dragonite,24,move,8,Dragon Tail,19.1%,,,,,,,,
-Dragonite,24,move,9,Dragon Pulse,16.9%,,,,,,,,
+Dragonite,24,move,8,Dragon Tail,19.0%,,,,,,,,
+Dragonite,24,move,9,Dragon Pulse,17.0%,,,,,,,,
 Dragonite,24,move,10,Ice Beam,15.2%,,,,,,,,
 Dragonite,24,held_item,1,Dragoninite,57.4%,,,,,,,,
 Dragonite,24,held_item,2,Rocky Helmet,23.5%,,,,,,,,
@@ -29,7 +29,7 @@ Dragonite,24,teammate,7,Golisopod,,,,,,,,,
 Dragonite,24,teammate,8,Gholdengo,,,,,,,,,
 Dragonite,24,teammate,9,Meowscarada,,,,,,,,,
 Dragonite,24,teammate,10,Baxcalibur,,,,,,,,,
-Dragonite,24,stat_alignment,1,Modest,43.4%,Sp. Atk,Attack,,,,,,
+Dragonite,24,stat_alignment,1,Modest,43.5%,Sp. Atk,Attack,,,,,,
 Dragonite,24,stat_alignment,2,Adamant,19.1%,Attack,Sp. Atk,,,,,,
 Dragonite,24,stat_alignment,3,Timid,15.0%,Speed,Attack,,,,,,
 Dragonite,24,stat_alignment,4,Impish,10.0%,Defense,Sp. Atk,,,,,,
@@ -42,7 +42,7 @@ Dragonite,24,stat_alignment,10,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
 Dragonite,24,stat_points,1,,20.4%,,,2,0,0,32,0,32
 Dragonite,24,stat_points,2,,10.4%,,,1,0,1,32,0,32
 Dragonite,24,stat_points,3,,4.8%,,,2,32,0,0,0,32
-Dragonite,24,stat_points,4,,3.1%,,,31,0,25,0,0,10
+Dragonite,24,stat_points,4,,3.0%,,,31,0,25,0,0,10
 Dragonite,24,stat_points,5,,2.9%,,,31,1,13,0,8,13
 Dragonite,24,stat_points,6,,2.5%,,,31,0,13,0,8,14
 Dragonite,24,stat_points,7,,2.3%,,,9,0,1,24,0,32

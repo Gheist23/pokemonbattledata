@@ -190,10 +190,69 @@ function expiryNote(record) {
   return `This link works until ${new Date(at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}.`;
 }
 
+/**
+ * One list from the meta page, shared.
+ *
+ * The rows arrive already written out -- the page that drew them is the only thing that knows
+ * whether a number is a multiplier, a percentage or a count -- so this draws them as they came
+ * and never works any of it out again. The sign is in the text of every change, so the colour
+ * is never the only thing saying which way a type moved.
+ */
+/** The folder a row's picture lives in, or "" when the digest names none. */
+function iconFolder(digest) {
+  return digest.icons === "type" ? "types" : digest.icons === "pokemon" ? "pokemon" : "";
+}
+
+function metaPanel(digest) {
+  const folder = iconFolder(digest);
+  const rows = (digest.rows || []).map((row, index) => {
+    const tone = row.tone === "good" ? PALETTE.good : row.tone === "bad" ? PALETTE.bad : "";
+    // The key is a name, so the path is built here. An onerror drops the picture rather than
+    // leaving a broken frame in the middle of the row.
+    const art = folder && row.icon
+      ? `<img class="share-row-icon" src="/pokemon_champions_assets/${folder}/${encodeURIComponent(row.icon)}.png"`
+        + ` alt="" width="26" height="26" loading="lazy" onerror="this.remove()" />`
+      : "";
+    return `<li><span class="share-rank">${index + 1}</span>${art}<span>${esc(row.label)}</span>`
+      + `<span class="share-score">${esc(row.value)}</span>`
+      + `${row.delta ? `<span class="share-delta"${tone ? ` style="color:${tone}"` : ""}>${esc(row.delta)}</span>` : ""}</li>`;
+  }).join("");
+  if (!rows) return "";
+  return `<section class="share-panel"><h2>${esc(digest.measure || "The list")}</h2>`
+    + `<ul class="share-rows">${rows}</ul></section>`;
+}
+
+function renderMeta(payload, record, digest) {
+  const image = payload.imageUrl || "";
+  const page = payload.pageUrl || location.href;
+  const subtitle = [digest.scope, digest.format, digest.measure].filter(Boolean).join(" \u00b7 ");
+  view.innerHTML = `
+    <p class="eyebrow">Shared from the meta page \u00b7 championsbattledata.com</p>
+    <h1>${esc(digest.title)}</h1>
+    <p class="share-sub">${esc(subtitle)}</p>
+    ${image ? `<div class="share-frame"><img src="${esc(image)}" width="1200" height="630" alt="${esc(digest.title)}" /></div>` : ""}
+    <div class="share-actions">
+      <button class="primary-button" type="button" data-share="link">Copy the link</button>
+      ${image ? `<a class="ghost-button" href="${esc(image)}" download="champions-${esc(payload.code || "share")}.png">Download the image</a>` : ""}
+      <a class="ghost-button" href="/meta/?format=${encodeURIComponent(digest.format || "Doubles")}">Open the meta page</a>
+    </div>
+    <p class="share-note">${esc([digest.note, expiryNote(record)].filter(Boolean).join(" "))}</p>
+    ${metaPanel(digest)}
+    <p class="share-built">Built with <a href="/meta/">championsbattledata.com/meta/</a></p>`;
+
+  view.removeAttribute("role");
+  view.removeAttribute("aria-live");
+  const linkButton = view.querySelector('[data-share="link"]');
+  if (linkButton) linkButton.addEventListener("click", () => copy(page, "Link copied."));
+  document.title = `${digest.title} - Meta - Pokemon Champions`;
+}
+
 function render(payload) {
   const record = payload?.record;
   const digest = record?.digest;
   if (!digest) return renderGone(payload);
+  // A meta section has no team in it, so the team page would describe it as "0 Pokemon".
+  if (digest.kind === "meta") return renderMeta(payload, record, digest);
   const isEval = digest.kind === "eval";
   const names = (digest.team || []).map((entry) => entry.name || entry.species).filter(Boolean);
   const subtitle = isEval

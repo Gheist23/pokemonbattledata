@@ -411,6 +411,11 @@ export function cleanMetaDigest(raw) {
       const label = text(row?.label, LIMITS.label);
       if (!label) return null;
       const out = { label, value: text(row?.value, LIMITS.value) };
+      // A plain asset key -- "Water", "Tauros-Paldea-Combat" -- never a path or a URL. Anything
+      // that could address another host is dropped rather than cleaned, because a half-cleaned
+      // address is the one that gets through.
+      const icon = text(row?.icon, LIMITS.name);
+      if (icon && !/[/\\:?#]/.test(icon)) out.icon = icon;
       const delta = text(row?.delta, LIMITS.delta);
       if (delta) out.delta = delta;
       const tone = String(row?.tone || "").toLowerCase();
@@ -430,6 +435,10 @@ export function cleanMetaDigest(raw) {
     const value = text(raw[key], limit);
     if (value) digest[key] = value;
   }
+  // Which folder those keys name. Nothing else is accepted, so a row can only ever point at one
+  // of the two the site already serves.
+  const icons = String(raw.icons || "").toLowerCase();
+  if (icons === "type" || icons === "pokemon") digest.icons = icons;
   return digest;
 }
 

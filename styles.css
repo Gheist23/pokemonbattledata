@@ -9532,6 +9532,75 @@ a.answer-card:focus-visible {
 
 .meta-calc-button:hover { color: #e6fffb; }
 
+/* The ? beside the toggle. A sibling of the toggle, not a member of it: the toggle is a pair of
+   mutually exclusive choices, and a help button inside that group would be read out as a third
+   way of scoring. Round, the size of the text beside it, and never the only thing on the row. */
+.meta-help-button {
+  flex: 0 0 auto;
+  width: 1.55rem;
+  height: 1.55rem;
+  padding: 0;
+  border: 1px solid var(--bd-line, rgba(114, 255, 171, 0.22));
+  border-radius: 999px;
+  background: none;
+  color: var(--muted, #9fb6b2);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.meta-help-button:hover { color: #e6fffb; border-color: var(--good, #34d399); }
+
+.meta-help-dialog .meta-help-lead { color: var(--muted, #9fb6b2); }
+
+.meta-help-dialog h3 {
+  margin: 1.35rem 0 0.35rem;
+  font-size: 1rem;
+}
+
+.meta-help-dialog h4 {
+  margin: 0.9rem 0 0.3rem;
+  font-size: 0.86rem;
+  color: var(--good, #34d399);
+}
+
+.meta-help-dialog p,
+.meta-help-dialog li { font-size: 0.84rem; line-height: 1.6; }
+
+.meta-help-dialog ul { margin: 0.35rem 0 0; padding-left: 1.1rem; }
+
+.meta-help-example {
+  margin-top: 0.4rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--bd-line, rgba(114, 255, 171, 0.22));
+  border-radius: var(--radius-md, 10px);
+  background: rgba(5, 13, 8, 0.45);
+}
+
+.meta-help-example h3 { margin-top: 0; }
+
+/* The sums are lined up on purpose -- they are meant to be read down the column and checked. */
+.meta-help-sum {
+  margin: 0.35rem 0 0.5rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-md, 10px);
+  background: rgba(5, 13, 8, 0.6);
+  color: var(--text, #e8fff6);
+  font-family: "Cascadia Code", "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.76rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.meta-help-sum b { color: var(--good, #34d399); }
+
+@media (max-width: 620px) {
+  .meta-help-sum { font-size: 0.7rem; }
+}
+
 .meta-calc-button.is-on {
   background: rgba(88, 220, 196, 0.16);
   color: #e6fffb;

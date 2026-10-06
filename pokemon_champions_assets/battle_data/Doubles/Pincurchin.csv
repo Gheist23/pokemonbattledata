@@ -1,5 +1,5 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pincurchin,82,move,1,Rising Voltage,87.1%,,,,,,,,
+Pincurchin,82,move,1,Rising Voltage,87.0%,,,,,,,,
 Pincurchin,82,move,2,Protect,67.5%,,,,,,,,
 Pincurchin,82,move,3,Sucker Punch,52.0%,,,,,,,,
 Pincurchin,82,move,4,Scald,38.7%,,,,,,,,
@@ -39,7 +39,7 @@ Pincurchin,82,stat_alignment,7,Calm,3.0%,Sp. Def,Attack,,,,,,
 Pincurchin,82,stat_alignment,8,Adamant,1.9%,Attack,Sp. Atk,,,,,,
 Pincurchin,82,stat_alignment,9,Mild,0.5%,Sp. Atk,Defense,,,,,,
 Pincurchin,82,stat_alignment,10,Impish,0.4%,Defense,Sp. Atk,,,,,,
-Pincurchin,82,stat_points,1,,25.8%,,,32,0,0,32,2,0
+Pincurchin,82,stat_points,1,,25.7%,,,32,0,0,32,2,0
 Pincurchin,82,stat_points,2,,10.3%,,,32,0,2,32,0,0
 Pincurchin,82,stat_points,3,,9.8%,,,32,2,0,32,0,0
 Pincurchin,82,stat_points,4,,3.7%,,,0,0,2,32,32,0
@@ -48,6 +48,6 @@ Pincurchin,82,stat_points,6,,2.5%,,,0,0,32,32,2,0
 Pincurchin,82,stat_points,7,,2.0%,,,2,0,32,32,0,0
 Pincurchin,82,stat_points,8,,1.9%,,,2,0,32,0,32,0
 Pincurchin,82,stat_points,9,,1.7%,,,32,32,0,0,2,0
-Pincurchin,82,stat_points,10,,1.6%,,,32,0,2,0,32,0
+Pincurchin,82,stat_points,10,,1.6%,,,2,0,0,32,32,0
 Pincurchin,82,ability,1,Electric Surge,97.6%,,,,,,,,
 Pincurchin,82,ability,2,Lightning Rod,2.4%,,,,,,,,

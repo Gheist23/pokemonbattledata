@@ -303,8 +303,10 @@ self.addEventListener("message", async (event) => {
           lookahead: payload.lookahead,
           iterations: Math.max(1, Number(payload.iterations) || 20000),
           seed: Number(payload.seed) || 1,
-          // A time budget rather than a line count, so the search runs for the same few
-          // seconds on a slow machine as on a fast one and simply plays fewer lines there.
+          // The run normally ends when its answer stops changing. These two are the walls
+          // behind that: the deadline is the only one that bounds a board which never settles,
+          // so it is kept even though it is no longer what usually ends the run.
+          settleLines: Math.max(0, Math.trunc(Number(payload.settleLines) || 0)),
           deadline: Number(payload.seconds) > 0 ? Date.now() + Number(payload.seconds) * 1000 : 0,
           onProgress: (value) => progress(value),
           shouldStop: () => cancelled.has(id),

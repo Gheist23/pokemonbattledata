@@ -166,6 +166,8 @@
               <button type="button" class="meta-calc-button is-on" id="metaCalcMultiplier" aria-pressed="true">Average multiplier</button>
               <button type="button" class="meta-calc-button" id="metaCalcPressure" aria-pressed="false">Damage pressure</button>
             </div>
+            <button type="button" class="meta-help-button" id="metaTypeHelpOpen"
+              aria-haspopup="dialog" aria-label="How these numbers are worked out">?</button>
           </div>
         </div>
         <div class="meta-duo">
@@ -220,6 +222,108 @@
     <p>Pokemon Champions ranked usage stats for Regulation M-A, Regulation M-B and Regulation M-C, rebuilt daily from ladder snapshots.</p>
     <p>This fan-made project is not affiliated with, endorsed by, or sponsored by Pokemon, Nintendo, Game Freak, or Creatures Inc. <a href="/license.html">License</a>.</p>
   </footer>
+
+  <dialog class="detail-dialog meta-help-dialog" id="metaTypeHelp" aria-labelledby="metaTypeHelpTitle">
+    <div class="dialog-inner">
+      <div class="dialog-actions" aria-label="Explanation actions">
+        <button class="close-button" type="button" id="metaTypeHelpClose" aria-label="Close the explanation">×</button>
+      </div>
+      <div class="detail-content">
+        <h2 id="metaTypeHelpTitle">How the type scores are worked out</h2>
+        <p class="meta-help-lead">Both lists always use the same measure as each other &mdash; the toggle picks which one.
+          The two measures ask genuinely different questions, so a type can do well on one and badly on the other.</p>
+
+        <section class="meta-help-example" aria-label="The example used below">
+          <h3>A meta of three, to follow along with</h3>
+          <p>Everything below is worked out on this imaginary Top 3, so you can check every sum yourself.</p>
+          <ul>
+            <li><b>Rillaboom</b> (Grass) &mdash; Wood Hammer (Grass, 120), High Horsepower (Ground, 95)</li>
+            <li><b>Kingambit</b> (Dark/Steel) &mdash; Iron Head (Steel, 80), Sucker Punch (Dark, 70)</li>
+            <li><b>Milotic</b> (Water) &mdash; Surf (Water, 90), Ice Beam (Ice, 90)</li>
+          </ul>
+        </section>
+
+        <section class="meta-help-measure">
+          <h3>Average multiplier</h3>
+          <p>Just the type chart. No move power, no damage &mdash; only how well types match up.</p>
+
+          <h4>Attacking</h4>
+          <p>Pick a type, look up what it gets against each Pokemon in the list, and average those numbers.
+            Their moves are not involved at all; only what they <em>are</em>.</p>
+          <pre class="meta-help-sum">Fighting into Rillaboom (Grass)        1×
+Fighting into Kingambit (Dark/Steel)   2× and 2× again  =  4×
+Fighting into Milotic (Water)          1×
+
+(1 + 4 + 1) &divide; 3  =  <b data-help-number="offense-multiplier">2.00</b>×</pre>
+          <p>A Pokemon with two types multiplies both halves &mdash; that is where Kingambit&rsquo;s 4× comes from.
+            Every Pokemon counts once, however popular it is. Higher is better, best first.</p>
+
+          <h4>Defending</h4>
+          <p>Turn it around: what do the list&rsquo;s own attacking moves get against that type? Average inside each
+            Pokemon first, then across them, so a Pokemon carrying two moves of one type does not get two votes.</p>
+          <pre class="meta-help-sum">Rillaboom  Wood Hammer 0.5×, High Horsepower 0.5×   →  0.5
+Kingambit  Iron Head 1×, Sucker Punch 1×           →  1.0
+Milotic    Surf 1×, Ice Beam 1×                    →  1.0
+
+(0.5 + 1.0 + 1.0) &divide; 3  =  <b data-help-number="defense-multiplier">0.83</b>×</pre>
+          <p>This one asks about a <em>pure</em> type: &ldquo;Bug 0.83×&rdquo; is about an imaginary pure&ndash;Bug Pokemon,
+            not about the Bug&ndash;types in the list. Taking less is better, so the defending list puts the
+            smallest number first.</p>
+        </section>
+
+        <section class="meta-help-measure">
+          <h3>Damage pressure</h3>
+          <p>This one counts real moves. Each attacking move is scored by its power, its same&ndash;type bonus and the
+            type chart: <b>40 × (power &divide; 80) × same&ndash;type bonus × multiplier</b>, and no single move may score
+            more than 100. For a feel for the scale: an 80&ndash;power move with no same&ndash;type bonus, hitting for normal
+            damage, is exactly 40 points.</p>
+
+          <h4>Attacking</h4>
+          <p>Only the moves of that type the list actually carries. Here just Rillaboom brings a Grass move:
+            Wood Hammer, 120 power, with the same&ndash;type bonus, which is 40 × (120 &divide; 80) × 1.5 = 90 points before
+            the chart.</p>
+          <pre class="meta-help-sum">onto Rillaboom (Grass)        90 × 0.5×  =  45
+onto Kingambit (Dark/Steel)   90 × 0.5×  =  45
+onto Milotic (Water)          90 × 2×    =  180, held at 100
+
+(45 + 45 + 100) &divide; 3  =  <b data-help-number="offense-pressure">63.3</b>%</pre>
+          <p>In this same meta <b>Fighting scores 0.0%</b> here, while it wins the attacking list above at 2.00×.
+            Nobody brings a Fighting move, so it puts no damage on anyone. That is a real answer, not missing data,
+            and it is the clearest sign that the two measures are not two views of one number.</p>
+
+          <h4>Defending</h4>
+          <p>Score every attacking move in the list against that one type, then take each Pokemon&rsquo;s best two and
+            average them &mdash; and average those across the list.</p>
+          <pre class="meta-help-sum">Rillaboom  Wood Hammer 100 (held), High Horsepower 47.5
+           best two  →  73.75
+Kingambit  Sucker Punch 52.5, Iron Head 30
+           best two  →  41.25
+Milotic    Surf 33.75, Ice Beam 22.5
+           best two  →  28.125
+
+(73.75 + 41.25 + 28.125) &divide; 3  =  <b data-help-number="defense-pressure">47.7</b>%</pre>
+          <p>The best two are picked again for every type, because the chart changes which moves hurt. Taking less is
+            better, so this list also puts the smallest number first.</p>
+        </section>
+
+        <section class="meta-help-measure">
+          <h3>Worth knowing either way</h3>
+          <ul>
+            <li>Only attacking moves count. Protect, Fake Out, Tailwind and the rest are left out, so a Pokemon
+              contributes whichever of its most used moves do damage &mdash; sometimes only one, occasionally none.</li>
+            <li>The moves are the day&rsquo;s most used ones, counted equally. They are not one recorded set, so two
+              moves that were never carried together can both count.</li>
+            <li>A move with no fixed power is counted as 70, and every power is kept between 20 and 180.</li>
+            <li>If a Pokemon&rsquo;s most used item is its own Mega stone, it is read as the Mega &mdash; its typing,
+              its name and its moves.</li>
+            <li>Only types are involved. Abilities that change matchups do not appear in any of these numbers.</li>
+            <li>A dash in place of a change means that earlier day could not be scored at all, which is not the same
+              as a 0.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </dialog>
 
   <dialog class="detail-dialog" id="metaDialog" aria-labelledby="metaDetailTitle">
     <div class="dialog-inner">

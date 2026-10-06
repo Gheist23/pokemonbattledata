@@ -35,8 +35,8 @@ import { fileURLToPath } from "node:url";
 import {
   CARD, CONTEXT_OPS, ELLIPSIS, EVAL, FONT_LADDER, FOOTER, HEADER, MAX_BONUS_POINTS_PER_STAT,
   MAX_BONUS_STAT_POINTS, MAX_CARD_BYTES, PALETTE, STAT_LABELS, TEAM, bonusTotal, cellScale,
-  drawEvalCard, drawTeamCard, fitText, liveTeam, natureLabel, pointsColor, scoreTone, statBarWidth,
-  statColor, teamCellBoxes, threatColor, threatTone,
+  META, drawEvalCard, drawMetaCard, drawTeamCard, fitText, liveTeam, natureLabel, pointsColor,
+  scoreTone, spriteRequests, statBarWidth, statColor, teamCellBoxes, threatColor, threatTone,
 } from "../builder/share-card.js";
 import { BuilderData } from "../builder/common.js";
 import { MAX_BONUS_POINTS_PER_STAT as ENGINE_PER_STAT, MAX_BONUS_STAT_POINTS as ENGINE_TOTAL } from "../builder/engine.js";
@@ -894,6 +894,171 @@ for (const n of [1, 2, 3, 4, 5]) {
 
 // 10. the byte cap is above every sample actually rendered
 ok(MAX_CARD_BYTES >= 319274, `MAX_CARD_BYTES ${MAX_CARD_BYTES} clears the largest rendered sample (319274 bytes, the longest-name team)`);
+
+// 11. the meta card ----------------------------------------------------------
+//
+// This section exists because of a real defect: the number and the change were
+// drawn from two LEFT edges a fixed distance apart, so a wide number ran
+// straight into the change beside it and "77.5%" came out smeared over
+// "0.0".  Every other card in this file was already read box by box; the meta
+// card was not read at all, which is how a card with text drawn on text passed
+// 3,763 checks.
+{
+  const metaDigest = (rows, extra = {}) => ({
+    v: 1, kind: "meta", title: "Best offensive types", format: "Doubles", scope: "Top 30",
+    measure: "Damage pressure", note: "6 Oct 2026 against 29 Sep 2026",
+    brand: "championsbattledata.com/meta/", rows, ...extra,
+  });
+  const drawMeta = (digest) => {
+    const ctx = new RecordingContext();
+    const out = drawMetaCard(ctx, digest, {});
+    return { ops: content(ctx.ops), texts: content(ctx.ops).filter((o) => o.kind === "text"), out };
+  };
+
+  // The widest content the page can really hand it: the longest label it allows, a three-digit
+  // percentage, and a two-digit change with an arrow and a sign.
+  const longestName = widest(Object.values(appData.pokemon || {}).map((row) => row.name || "").filter(Boolean), 16, 700);
+  const hardRows = (n) => Array.from({ length: n }, (_, i) => ({
+    label: longestName.text,
+    value: "100.0%",
+    delta: i % 3 === 0 ? "\u25b2 +10.0" : i % 3 === 1 ? "\u25bc -10.0" : "\u25aa 0.0",
+    tone: i % 3 === 0 ? "good" : i % 3 === 1 ? "bad" : "",
+  }));
+  const typeRows = (n) => Array.from({ length: n }, (_, i) => ({
+    label: ["Fighting", "Electric", "Psychic", "Dragon", "Normal", "Flying"][i % 6],
+    value: `${(100 - i * 3).toFixed(1)}%`,
+    delta: `\u25bc -${(i + 0.5).toFixed(1)}`,
+    tone: i % 2 ? "bad" : "good",
+  }));
+
+  for (const [name, rows] of [["eighteen real type rows", typeRows(18)], ["the widest content it allows", hardRows(18)]]) {
+    const { ops, texts: drawn } = drawMeta(metaDigest(rows));
+    const outside = ops.find((op) => !inside(op, { x: 0, y: 0, w: CARD.W, h: CARD.H }));
+    ok(!outside, `meta, ${name}: every op inside the 1200x630 canvas`
+      + `${outside ? ` (${outside.kind} ${JSON.stringify(outside.text ?? "")} at ${outside.x0.toFixed(1)},${outside.y0.toFixed(1)})` : ""}`);
+
+    const hits = [];
+    for (let a = 0; a < drawn.length; a += 1) {
+      for (let b = a + 1; b < drawn.length; b += 1) {
+        if (overlaps(drawn[a], drawn[b])) hits.push(`${JSON.stringify(drawn[a].text)} over ${JSON.stringify(drawn[b].text)}`);
+      }
+    }
+    ok(hits.length === 0, `meta, ${name}: no two pieces of text overlap (${hits.slice(0, 3).join("; ") || "none"})`);
+  }
+
+  // The columns themselves: in every row the number ends before the change begins, and the
+  // change stays inside the width the layout reserves for it.
+  {
+    const { texts: drawn } = drawMeta(metaDigest(typeRows(18)));
+    const centre = (op) => ({ x: (op.x0 + op.x1) / 2, y: (op.y0 + op.y1) / 2 });
+    const rowsSeen = [];
+    for (let i = 0; i < META.rows * 2; i += 1) {
+      const box = {
+        x: META.colX[i < META.rows ? 0 : 1],
+        y: META.top + (i % META.rows) * META.rowH,
+        w: META.colW,
+        h: META.rowH - 8,
+      };
+      const cell = drawn.filter((op) => {
+        const c = centre(op);
+        return c.x >= box.x && c.x <= box.x + box.w && c.y >= box.y && c.y <= box.y + box.h;
+      });
+      if (cell.length) rowsSeen.push(cell);
+    }
+    ok(rowsSeen.length === 18 && rowsSeen.every((cell) => cell.length === 4),
+      `meta: all 18 rows carry a place, a name, a number and a change `
+      + `(${rowsSeen.length} rows, sizes ${[...new Set(rowsSeen.map((c) => c.length))].join("/")})`);
+    const bad = rowsSeen.filter((cell) => {
+      const sorted = [...cell].sort((a, b) => a.x0 - b.x0);
+      const change = sorted.at(-1);
+      const number = sorted.at(-2);
+      return number.x1 > change.x0 + EPS || change.x1 - change.x0 > META.deltaW + EPS;
+    });
+    ok(bad.length === 0, `meta: in every row the number ends before the change starts (${bad.length} did not)`);
+  }
+
+  // What it does with more and with less than it has room for.
+  ok(drawMeta(metaDigest(typeRows(30))).out.cells === META.rows * 2,
+    `meta: more rows than the two columns hold are cut at ${META.rows * 2}`);
+  ok(drawMeta(metaDigest(typeRows(3))).out.cells === 3, "meta: three rows draw three rows");
+  const noDelta = drawMeta(metaDigest([{ label: "Water", value: "0.92\u00d7" }]));
+  ok(noDelta.texts.some((o) => o.text === "0.92\u00d7"), "meta: a row with no change still draws its number");
+
+  // The footer names the page the card came from, not just the site.
+  ok(drawMeta(metaDigest(typeRows(4))).texts.some((o) => o.text === "championsbattledata.com/meta/"),
+    "meta: the footer carries the page the digest asked for");
+  ok(drawMeta(metaDigest(typeRows(4), { brand: "" })).texts.some((o) => o.text === "championsbattledata.com/meta/"),
+    "meta: and falls back to the meta page, not the bare site, when the digest names none");
+
+  // --- the picture beside each row -------------------------------------------
+  //
+  // A digest names its pictures by a plain key and says which folder they come from; the HOST
+  // turns that into a path. These checks are about what the card asks for and where it puts
+  // what it gets back -- never about a URL, because a digest may not carry one.
+  {
+    const withIcons = (n, icons = "type") => metaDigest(
+      typeRows(n).map((row) => ({ ...row, icon: row.label })), { icons },
+    );
+    ok(spriteRequests(withIcons(18)).length === 18, "meta: one picture is asked for per row");
+    ok(spriteRequests(withIcons(18)).every((r, i) => r.slot === "rowIcons" && r.index === i && r.icons === "type" && r.icon),
+      "meta: each request names its row, its folder and its key");
+    ok(spriteRequests(withIcons(30)).length === META.rows * 2,
+      "meta: no picture is asked for for a row that will not be drawn");
+    ok(spriteRequests(metaDigest(typeRows(4))).length === 0,
+      "meta: a digest that names no folder asks for nothing");
+    ok(spriteRequests(withIcons(4, "elsewhere")).length === 0,
+      "meta: a folder the site does not serve asks for nothing");
+    ok(spriteRequests(withIcons(4)).every((r) => !/[/:]/.test(r.icon)),
+      "meta: a request carries a key, never a path");
+
+    // Drawn with pictures: each one sits inside its own row and clear of the text.
+    const art = { width: 64, height: 64 };
+    const ctx = new RecordingContext();
+    drawMetaCard(ctx, withIcons(18), { rowIcons: Array.from({ length: 18 }, () => art) });
+    const ops = content(ctx.ops);
+    const images = ops.filter((o) => o.kind === "image");
+    ok(images.length === 18, `meta: one picture is drawn per row (${images.length})`);
+    ok(images.every((op) => Math.abs((op.x1 - op.x0) - META.iconSize) < EPS && Math.abs((op.y1 - op.y0) - META.iconSize) < EPS),
+      "meta: every picture is drawn at the size the layout declares");
+    const outside = images.find((op) => !inside(op, { x: 0, y: 0, w: CARD.W, h: CARD.H }));
+    ok(!outside, "meta: every picture is inside the canvas");
+    const clashes = [];
+    for (const image of images) {
+      for (const text of ops.filter((o) => o.kind === "text")) {
+        if (overlaps(image, text)) clashes.push(JSON.stringify(text.text));
+      }
+    }
+    ok(clashes.length === 0, `meta: no picture is drawn over any text (${clashes.slice(0, 3).join(", ") || "none"})`);
+
+    // Each picture belongs to the row it was asked for, not the one above or below it.
+    const strayed = images.filter((op, i) => {
+      const box = {
+        x: META.colX[i < META.rows ? 0 : 1],
+        y: META.top + (i % META.rows) * META.rowH,
+        w: META.colW,
+        h: META.rowH - 8,
+      };
+      return !inside(op, box);
+    });
+    ok(strayed.length === 0, `meta: every picture sits in its own row (${strayed.length} did not)`);
+
+    // The name makes room for it, and gives the room back when there is none.
+    const nameWith = ops.filter((o) => o.kind === "text" && o.text === typeRows(1)[0].label)[0];
+    ok(nameWith && nameWith.x0 >= META.colX[0] + META.labelXWithIcon - EPS,
+      `meta: the name starts after the picture (${nameWith ? nameWith.x0.toFixed(1) : "no name drawn"})`);
+    const bare = new RecordingContext();
+    drawMetaCard(bare, withIcons(18), {});
+    const bareName = content(bare.ops).filter((o) => o.kind === "text" && o.text === typeRows(1)[0].label)[0];
+    ok(bareName && Math.abs(bareName.x0 - (META.colX[0] + META.labelX)) < 1,
+      "meta: with no picture the name starts where it used to");
+    ok(content(bare.ops).every((o) => o.kind !== "image"),
+      "meta: a card given no pictures draws none");
+  }
+
+  // Nothing fetchable, same rule as the team card.
+  const hostile = drawMeta(metaDigest([{ label: "https://evil.example/x", value: "1.0\u00d7" }]));
+  ok(hostile.ops.every((op) => op.kind !== "image"), "meta: the meta card loads no images at all");
+}
 
 for (const failure of failures.slice(0, 40)) console.log(`FAILED ${failure}`);
 console.log(`\n${checks} checks, ${failures.length} failed.`);

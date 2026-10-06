@@ -71,6 +71,32 @@ check("meta.css stacks the two panels on a phone", /@media \(max-width: 900px\) 
 // A dynamic import inside a handler is a different thing and is allowed -- the Share button
 // fetches builder/share-client.js only when somebody presses it, so a reader who never
 // shares never pays for it.
+/* ------------------------------------------- the explanation beside the toggle */
+
+const helpButton = pageHtml.match(/<button[^>]*id="metaTypeHelpOpen"[^>]*>/);
+check("the Type matchups heading offers a way to ask how the numbers are made", !!helpButton,
+  "no #metaTypeHelpOpen in meta/index.html");
+check("and it says what it is for, not just \"?\"",
+  /aria-label="[^"]*worked out[^"]*"/.test(helpButton?.[0] || ""), helpButton?.[0]);
+// Inside the toggle it would be read out as a third way of scoring, beside the two real ones.
+const toggleStart = pageHtml.indexOf('class="meta-calc-toggle"');
+const toggleInside = pageHtml.slice(toggleStart, pageHtml.indexOf("</div>", toggleStart));
+check("it sits beside the scoring toggle, not inside it",
+  toggleStart > 0 && !toggleInside.includes("metaTypeHelpOpen"),
+  "the help button is inside the group of scoring choices, where it reads as a third choice");
+check("the explanation is its own dialog", /<dialog[^>]*id="metaTypeHelp"/.test(pageHtml));
+// The profile dialog writes the Pokemon it is showing into the address bar; an explanation that
+// belongs to no Pokemon must not borrow it.
+const helpStart = pageHtml.indexOf('id="metaTypeHelp"');
+const helpDialog = pageHtml.slice(helpStart, pageHtml.indexOf("</dialog>", helpStart));
+check("and not the Pokemon profile one, which would put a name in the address bar",
+  helpStart > 0 && !helpDialog.includes("metaDialogContent"),
+  "the explanation is sharing the profile dialog");
+check("it can be closed", /id="metaTypeHelpClose"/.test(pageHtml));
+check("the explanation never names a function or an internal field",
+  !/[a-zA-Z]+\(\)|typeCalc|offensePressure|defenseScore|settleLines/.test(helpDialog),
+  "plain English only, like the note beside it");
+
 check("meta.js does not import the builder modules at load",
   !/^\s*import\b[^\n]*builder\//m.test(pageJs), "the page is a plain script");
 check("and any builder module it does use is fetched on demand",
@@ -704,7 +730,34 @@ check("on the toggle the hand-built defending winner is Water", handDefensePress
 check("and its score is 47.7%", handDefensePressure[0]?.shown === "47.7", handDefensePressure[0]?.shown);
 // Without Kingambit: (73.75 + 28.125) / 2 = 50.9375, so the change is -3.2.
 check("its change is -3.2", handDefensePressure[0]?.delta === "▼ -3.2", handDefensePressure[0]?.delta);
+const handOffensePressure = readList(handPage, "typeOffense");
 await setCalc(handPage, "multiplier");
+
+// THE EXPLANATION AGAINST THE ARITHMETIC.
+//
+// The popup walks through this exact three-Pokemon meta, with the four answers written out in
+// the page. They are a promise about what the code does, so they are read back out of the HTML
+// and checked against what the code just did with the same three Pokemon. Change a formula and
+// this goes red, instead of the explanation quietly describing a calculation nobody performs.
+{
+  const stated = (name) => (pageHtml.match(new RegExp(`data-help-number="${name}">([^<]+)`)) || [])[1];
+  const pairs = [
+    ["offense-multiplier", handOffense[0]?.shown, `${handOffense[0]?.type} attacking`],
+    ["defense-multiplier", handDefense[0]?.shown, `${handDefense[0]?.type} defending`],
+    ["offense-pressure", handOffensePressure[0]?.shown, `${handOffensePressure[0]?.type} attacking under pressure`],
+    ["defense-pressure", handDefensePressure[0]?.shown, `${handDefensePressure[0]?.type} defending under pressure`],
+  ];
+  for (const [name, got, what] of pairs) {
+    check(`the explanation's ${name.replace("-", " ")} is what this meta really scores`,
+      stated(name) === got, `the page says ${stated(name)}, the ${what} row says ${got}`);
+  }
+  // The sharpest thing the popup claims: the same type wins one attacking list and scores nothing
+  // on the other. If that ever stopped being true the explanation would be teaching the wrong idea.
+  const fightingPressure = handOffensePressure.find((r) => r.type === "Fighting");
+  check("and Fighting really does win on multiplier while scoring 0 on pressure",
+    handOffense[0]?.type === "Fighting" && fightingPressure?.shown === "0.0",
+    `${handOffense[0]?.type} leads the multiplier list; Fighting pressure is ${fightingPressure?.shown}`);
+}
 check("the sentence counts only the Pokemon that are ranked",
   handPage.getElementById("typeOffenseLead").textContent.startsWith("Best offensive type against Top 3 Meta: Fighting."),
   handPage.getElementById("typeOffenseLead").textContent.slice(0, 120));

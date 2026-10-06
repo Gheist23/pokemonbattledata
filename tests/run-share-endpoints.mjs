@@ -31,8 +31,8 @@ import { setToShowdown } from "../builder/common.js";
 import { showdownFor } from "../share/share-page.js";
 import {
   CARD_H, CARD_W, MAX_BODY_BYTES, MAX_CARD_BYTES, MAX_NEW_BYTES_PER_DAY, MAX_RECORD_CHARS,
-  TTL_DAYS, TTL_MS, cardDescription, cleanDigest, escapeHtml, fallbackPng, imageKey, newCode,
-  normaliseCode, recordKey, usageKey, validatePng,
+  TTL_DAYS, TTL_MS, cardDescription, cardTitle, cleanDigest, cleanMetaDigest, escapeHtml,
+  fallbackPng, imageKey, newCode, normaliseCode, recordKey, usageKey, validatePng,
 } from "../functions/api/share/_lib.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -963,6 +963,63 @@ let liveBucket = null;
     "resolved against this site's own origin -- never a string out of a request body");
   // and the routes never widen CORS on the write path
   ok(!/access-control-allow-origin/i.test(sources[1][1]), "the create route sends no CORS header, so a third-party page cannot read its answer");
+}
+
+// 23. one section of the meta page ----------------------------------------------
+//
+// The rows arrive ALREADY WRITTEN OUT, because the page that drew them is the only thing that
+// knows whether a number is a multiplier, a percentage or a count.  So the cleaner's job is not
+// to understand them -- it is to make sure nothing in them can address another host.
+{
+  const rowsOf = (n) => Array.from({ length: n }, (_, i) => ({
+    label: `Type${i}`, value: `${i}.0%`, delta: "\u25b2 +1.0", tone: i % 2 ? "good" : "bad", icon: `Type${i}`,
+  }));
+  const good = {
+    kind: "meta", title: "Best offensive types", format: "Doubles", scope: "Top 30",
+    measure: "Damage pressure", note: "6 Oct 2026 against 29 Sep 2026",
+    brand: "championsbattledata.com/meta/", icons: "type", rows: rowsOf(18),
+  };
+  const clean = cleanMetaDigest(good);
+  ok(clean.kind === "meta" && clean.rows.length === 18, "a meta digest survives the cleaner whole");
+  ok(clean.icons === "type", "and keeps the folder its pictures come from");
+  ok(clean.rows.every((row, i) => row.label === `Type${i}` && row.icon === `Type${i}`),
+    "every row keeps its name and its picture key");
+  ok(cleanDigest(good).kind === "meta", "and cleanDigest dispatches to it on kind alone");
+
+  ok(cleanMetaDigest({ ...good, rows: rowsOf(40) }).rows.length === 18,
+    "more rows than a card can hold are cut, not refused");
+  let refused = "";
+  try { cleanMetaDigest({ ...good, rows: [] }); } catch (error) { refused = String(error?.message || ""); }
+  ok(/at least one row/i.test(refused), `a section with no rows is refused in words (${refused})`);
+
+  // The folder is an allowlist of two, because it becomes a path on this site.
+  for (const asked of ["type", "pokemon"]) {
+    ok(cleanMetaDigest({ ...good, icons: asked }).icons === asked, `icons "${asked}" is kept`);
+  }
+  for (const asked of ["../../etc", "https://evil.example", "sprites", "", null, 7]) {
+    ok(cleanMetaDigest({ ...good, icons: asked }).icons === undefined,
+      `icons ${JSON.stringify(asked)} is dropped, so no row can name a folder this site does not serve`);
+  }
+
+  // A picture KEY may never be a path or an address. The row stays; only the key goes.
+  for (const key of ["../../secret", "a/b", "https://evil.example/x.png", "C:\\evil", "x?y", "x#y", "//evil"]) {
+    const out = cleanMetaDigest({ ...good, rows: [{ label: "Water", value: "1.0", icon: key }] });
+    ok(out.rows.length === 1 && out.rows[0].icon === undefined,
+      `a picture key ${JSON.stringify(key)} is dropped while the row survives`);
+  }
+  ok(JSON.stringify(cleanMetaDigest({ ...good, rows: [{ label: "Water", value: "1.0", icon: "https://evil.example/x.png" }] })).includes("evil") === false,
+    "nothing fetchable survives anywhere in a meta digest");
+
+  // Tone is a word this site draws, not arbitrary text.
+  const toned = cleanMetaDigest({ ...good, rows: [{ label: "Water", value: "1", tone: "javascript:alert(1)" }] });
+  ok(toned.rows[0].tone === undefined, "a tone that is not good or bad is dropped");
+
+  // What an unfurler is told about it.
+  ok(cardTitle(clean) === "Best offensive types", "the card title is the section's own heading");
+  const described = cardDescription(clean);
+  ok(described.includes("Top 30") && described.includes("Doubles") && described.includes("Damage pressure"),
+    `the description names the scope, the format and the measure (${described.slice(0, 80)})`);
+  ok(described.length <= 300, `and stays inside what a preview shows (${described.length} chars)`);
 }
 
 for (const line of notes) console.log(`note: ${line}`);

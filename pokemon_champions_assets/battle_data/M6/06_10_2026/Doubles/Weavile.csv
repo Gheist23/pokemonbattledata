@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Weavile,76,move,1,Fake Out,79.9%,,,,,,,,
 Weavile,76,move,2,Knock Off,75.7%,,,,,,,,
-Weavile,76,move,3,Triple Axel,44.9%,,,,,,,,
+Weavile,76,move,3,Triple Axel,45.0%,,,,,,,,
 Weavile,76,move,4,Ice Spinner,44.9%,,,,,,,,
 Weavile,76,move,5,Protect,30.4%,,,,,,,,
 Weavile,76,move,6,Low Kick,18.4%,,,,,,,,
 Weavile,76,move,7,Throat Chop,16.1%,,,,,,,,
 Weavile,76,move,8,Ice Shard,15.5%,,,,,,,,
 Weavile,76,move,9,Taunt,10.2%,,,,,,,,
-Weavile,76,move,10,Brick Break,8.9%,,,,,,,,
-Weavile,76,held_item,1,Focus Sash,64.7%,,,,,,,,
+Weavile,76,move,10,Brick Break,8.8%,,,,,,,,
+Weavile,76,held_item,1,Focus Sash,64.6%,,,,,,,,
 Weavile,76,held_item,2,Life Orb,9.3%,,,,,,,,
-Weavile,76,held_item,3,Wide Lens,6.1%,,,,,,,,
+Weavile,76,held_item,3,Wide Lens,6.2%,,,,,,,,
 Weavile,76,held_item,4,Expert Belt,2.5%,,,,,,,,
 Weavile,76,held_item,5,King's Rock,2.2%,,,,,,,,
 Weavile,76,held_item,6,White Herb,1.8%,,,,,,,,
@@ -29,7 +29,7 @@ Weavile,76,teammate,7,Salamence,,,,,,,,,
 Weavile,76,teammate,8,Whimsicott,,,,,,,,,
 Weavile,76,teammate,9,Indeedee-F,,,,,,,,,
 Weavile,76,teammate,10,Gholdengo,,,,,,,,,
-Weavile,76,stat_alignment,1,Jolly,80.9%,Speed,Sp. Atk,,,,,,
+Weavile,76,stat_alignment,1,Jolly,80.8%,Speed,Sp. Atk,,,,,,
 Weavile,76,stat_alignment,2,Adamant,13.7%,Attack,Sp. Atk,,,,,,
 Weavile,76,stat_alignment,3,Hasty,1.4%,Speed,Defense,,,,,,
 Weavile,76,stat_alignment,4,Naughty,1.0%,Attack,Sp. Def,,,,,,
@@ -40,8 +40,8 @@ Weavile,76,stat_alignment,8,Impish,0.4%,Defense,Sp. Atk,,,,,,
 Weavile,76,stat_alignment,9,Timid,0.2%,Speed,Attack,,,,,,
 Weavile,76,stat_alignment,10,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
 Weavile,76,stat_points,1,,53.7%,,,2,32,0,0,0,32
-Weavile,76,stat_points,2,,14.5%,,,0,32,2,0,0,32
-Weavile,76,stat_points,3,,9.9%,,,0,32,0,0,2,32
+Weavile,76,stat_points,2,,14.4%,,,0,32,2,0,0,32
+Weavile,76,stat_points,3,,10.0%,,,0,32,0,0,2,32
 Weavile,76,stat_points,4,,4.1%,,,0,32,0,0,0,32
 Weavile,76,stat_points,5,,2.1%,,,6,32,0,0,0,28
 Weavile,76,stat_points,6,,1.4%,,,3,32,0,0,0,31

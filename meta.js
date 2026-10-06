@@ -65,6 +65,9 @@
     usageMoreButton: document.getElementById("usageMoreButton"),
     typePill: document.getElementById("metaTypePill"),
     typeNote: document.getElementById("metaTypeNote"),
+    typeHelpOpen: document.getElementById("metaTypeHelpOpen"),
+    typeHelp: document.getElementById("metaTypeHelp"),
+    typeHelpClose: document.getElementById("metaTypeHelpClose"),
     calcMultiplier: document.getElementById("metaCalcMultiplier"),
     calcPressure: document.getElementById("metaCalcPressure"),
     typeOffenseLead: document.getElementById("typeOffenseLead"),
@@ -113,15 +116,37 @@
     const setCalc = (calc) => {
       if (state.typeCalc === calc) return;
       state.typeCalc = calc;
-      for (const [button, name] of [[els.calcMultiplier, "multiplier"], [els.calcPressure, "pressure"]]) {
-        if (!button) continue;
-        button.classList.toggle("is-on", name === calc);
-        button.setAttribute("aria-pressed", name === calc ? "true" : "false");
-      }
+      syncCalcButtons();
       writeStateToLocation();
       renderTypeChanges();
     };
     wireShareButtons();
+    // The explanation of the two measures. Its own dialog rather than the profile one, because
+    // that one puts the Pokemon it is showing into the address bar, and this belongs to no
+    // Pokemon. Opened the same way, so a browser without showModal still gets it.
+    const showHelp = () => {
+      if (!els.typeHelp) return;
+      if (typeof els.typeHelp.showModal === "function") {
+        if (!els.typeHelp.open) els.typeHelp.showModal();
+      } else {
+        els.typeHelp.setAttribute("open", "");
+      }
+      els.typeHelp.querySelector(".dialog-inner")?.scrollTo?.(0, 0);
+      els.typeHelpClose?.focus?.();
+    };
+    const hideHelp = () => {
+      if (!els.typeHelp) return;
+      if (typeof els.typeHelp.close === "function" && els.typeHelp.open) els.typeHelp.close();
+      else els.typeHelp.removeAttribute("open");
+      // Back to the button that opened it, so a keyboard is not left at the top of the page.
+      els.typeHelpOpen?.focus?.();
+    };
+    els.typeHelpOpen?.addEventListener("click", showHelp);
+    els.typeHelpClose?.addEventListener("click", hideHelp);
+    // Clicking the backdrop is the gesture the profile dialog already answers to.
+    els.typeHelp?.addEventListener("click", (event) => {
+      if (event.target === els.typeHelp) hideHelp();
+    });
     els.calcMultiplier?.addEventListener("click", () => setCalc("multiplier"));
     els.calcPressure?.addEventListener("click", () => setCalc("pressure"));
     els.scope?.addEventListener("change", () => {
@@ -198,11 +223,20 @@
     if (els.formatLabel) els.formatLabel.textContent = state.format;
     if (els.range) els.range.value = String(state.rangeDays);
     if (els.scope) els.scope.value = String(state.scope);
+    syncCalcButtons();
     els.tabs.forEach((tab) => {
       const active = tab.dataset.category === state.category;
       tab.classList.toggle("active", active);
       tab.setAttribute("aria-selected", String(active));
     });
+  }
+
+  function syncCalcButtons() {
+    for (const [button, name] of [[els.calcMultiplier, "multiplier"], [els.calcPressure, "pressure"]]) {
+      if (!button) continue;
+      button.classList.toggle("is-on", name === state.typeCalc);
+      button.setAttribute("aria-pressed", name === state.typeCalc ? "true" : "false");
+    }
   }
 
   function readStateFromLocation() {
@@ -216,6 +250,8 @@
     else if ([10, 20, 30, 40, 50, 100].includes(Number(scope))) state.scope = Number(scope);
     const category = params.get("category");
     if (category && CATEGORY_SINGULAR[category]) state.category = category;
+    const calc = params.get("calc");
+    if (calc === "pressure" || calc === "multiplier") state.typeCalc = calc;
   }
 
   function writeStateToLocation(extra = {}) {
@@ -224,6 +260,7 @@
     params.set("range", String(state.rangeDays));
     params.set("scope", String(state.scope));
     params.set("category", state.category);
+    params.set("calc", state.typeCalc);
     const pokemon = "pokemon" in extra ? extra.pokemon : state.activeName;
     if (pokemon) params.set("pokemon", pokemon);
     const url = `${window.location.pathname}?${params.toString()}`;
@@ -943,7 +980,16 @@
       if (rank) label = label.slice((rank.textContent || "").length).trim();
       const detail = (small ? small.textContent : "").trim();
       const chipText = (chip ? chip.textContent : "").trim();
+      // The row is already showing a picture; its file name is the key the card and the shared
+      // page need. Taking it from the row rather than working it out again means a row whose
+      // picture fell back to a second candidate shares the one a reader can actually see.
+      const art = row.querySelector("img");
+      const icon = art
+        ? decodeURIComponent(String(art.getAttribute("src") || "").split("/").pop() || "")
+          .replace(/\.(png|webp|jpe?g|gif|avif)$/i, "")
+        : "";
       return {
+        icon,
         label,
         // The number only, not the words after it: the card says what the measure is once, at
         // the top, instead of eighteen times down the side.
@@ -954,7 +1000,12 @@
     }).filter((row) => row.label);
   }
 
-  /** A canvas host with no art: a meta card draws text and panels only. */
+  /** Which folder a list's pictures come from. */
+  function iconKindFor(listId) {
+    return String(listId || "").startsWith("type") ? "type" : "pokemon";
+  }
+
+  /** A canvas host that loads the one picture a meta row carries. */
   function metaCardHost() {
     return {
       createCanvas(width, height) {
@@ -963,9 +1014,18 @@
         canvas.height = height;
         return canvas;
       },
-      loadImage() {
-        return null;
+      loadImage(request) {
+        const folder = request.icons === "type" ? "types" : "pokemon";
+        const src = resolveAssetCandidate(`${ROOT}/${folder}/${request.icon}.png`);
+        if (!src) return null;
+        return new Promise((resolve) => {
+          const image = new Image();
+          image.onload = () => resolve(image);
+          image.onerror = () => resolve(null);
+          image.src = src;
+        });
       },
+      fonts: document.fonts ? document.fonts.ready.catch(() => null) : null,
     };
   }
 
@@ -992,6 +1052,7 @@
         : `Change over ${windowLabel()}`;
       const answer = await createShare({
         kind: "meta",
+        icons: iconKindFor(listId),
         title: heading,
         format: state.format,
         scope: scopePillFor(button),

@@ -11,7 +11,7 @@
 import { BuilderData, makeSet, monFromSet, parseShowdown, setFromCommon } from "./common.js";
 import { STAT_KEYS } from "./engine.js";
 import { FREE_RUNS, canRun, freeRunsLeft, isPro, recordRun } from "./pro.js";
-import { LOOKAHEAD_RANGE, DEFAULT_LOOKAHEAD, SOLVER_FEATURE, SWITCH } from "./solver.js";
+import { LOOKAHEAD_RANGE, DEFAULT_LOOKAHEAD, SETTLE_LINES, SOLVER_FEATURE, SWITCH } from "./solver.js";
 import { clear, editSet, h, openDialog, pickPokemon, segmented, select, sprite, toast } from "./ui.js";
 import { currentTeam, getState, subscribe, teamSets } from "./store.js";
 
@@ -25,19 +25,29 @@ try { window.__bdPageModuleRan = true; } catch { /* no window: nothing to guard 
 
 const STORAGE_KEY = "cbd.solver.v1";
 /**
- * How long a search runs before it answers.
+ * When a search stops.
  *
- * A fixed budget, because pressing Solve should be the whole gesture: the answer arrives without
- * anyone having to decide when it is ready. Twenty seconds is between one and two million lines
- * on an ordinary laptop, which is far past the point where the order of the top few stops
- * moving on any board tested here.
+ * Not after a set time. The run ends when the order of the top lines has stopped changing on
+ * both sides and stayed that way for SETTLE_LINES lines -- so an easy board answers quickly and
+ * a hard one is given the work it needs, instead of both getting the same twenty seconds.
+ *
+ * This is the wall behind that: a board where the two best lines are genuinely tied may never
+ * settle, and nobody should sit in front of a spinner for ever. A run that hits it says so,
+ * rather than presenting what it has as a settled answer.
  *
  * Stop is still there, and it still works -- it ends the run early and reports what has been
  * played so far -- but nothing waits for it.
  */
-const SEARCH_SECONDS = 20;
-/** The page's own deadline for the whole request: the budget, plus room for the worker's load. */
-const SEARCH_TIMEOUT_MS = SEARCH_SECONDS * 1000 + 40000;
+const SEARCH_CAP_SECONDS = 90;
+/**
+ * How long the page waits with NOTHING arriving before it gives up on the worker.
+ *
+ * A silence, not a duration: a legitimate run is now of unknown length, so timing the whole
+ * request would reject the slow boards this change exists to serve. The window has to cover the
+ * worker's cold start -- it loads the battle data before the first line is played and says
+ * nothing while it does -- which is why it is this long.
+ */
+const PROGRESS_SILENCE_MS = 45000;
 const BRING = { Doubles: 4, Singles: 3 };
 const ACTIVE = { Doubles: 2, Singles: 1 };
 /** A team is six; the bring is how many of them are in the simulation. */
@@ -547,6 +557,12 @@ function sceneSide(side) {
     ...(side === 0 ? [field, head] : [head, field]));
 }
 
+// What HP decides on a board tile, in one place each. The tile draws them and `paintTileHp`
+// writes them, and the two could drift apart the moment either kept its own copy.
+const tileHpWidth = (row) => Math.max(0, Math.min(100, row.hp));
+const tileBarClass = (row) => `bd-solver-tile-bar${!row.inSim ? " out" : row.hp <= 0 ? " down" : row.hp <= 20 ? " low" : row.hp <= 50 ? " mid" : ""}`;
+const tileHpText = (row) => (!row.inSim ? "out" : row.hp <= 0 ? "fainted" : `${Math.round(row.hp)}%`);
+
 /** One Pokemon on the board. Clicked, never dragged -- see `boardClick`. */
 function sceneTile(side, index, row, benched) {
   const set = row.set;
@@ -568,16 +584,42 @@ function sceneTile(side, index, row, benched) {
   return h("button", {
     type: "button",
     class: classes.join(" "),
+    // Which row this is, so a change to one Pokemon can be painted without redrawing the page.
+    // Position cannot stand in for it: the bench and the field are two separate containers and
+    // neither is in row order.
+    dataset: { tile: `${side}:${index}` },
     "aria-label": `${name}, ${out ? "not in this battle" : benched ? "in the back" : "in the front"}`,
     onclick: (event) => { event.stopPropagation(); boardClick(side, index); },
   },
   sprite(data.sprite(set.species, set.form, set.item), "", benched ? 30 : 34),
   benched ? null : h("span", { class: "bd-solver-tile-name" }, name),
-  benched ? null : h("span", { class: "bd-solver-tile-hp" },
-    out ? "out" : down ? "fainted" : `${Math.round(row.hp)}%`),
-  h("span", { class: `bd-solver-tile-bar${out ? " out" : down ? " down" : row.hp <= 20 ? " low" : row.hp <= 50 ? " mid" : ""}` },
-    h("i", { style: { width: `${Math.max(0, Math.min(100, row.hp))}%` } })),
+  benched ? null : h("span", { class: "bd-solver-tile-hp" }, tileHpText(row)),
+  h("span", { class: tileBarClass(row) },
+    h("i", { style: { width: `${tileHpWidth(row)}%` } })),
   !benched && bits.length ? h("span", { class: "bd-solver-tile-chips" }, bits.join(" · ")) : null);
+}
+
+/**
+ * Write one Pokemon's HP onto its tile on the board, without redrawing the page.
+ *
+ * A redraw on every step of a slider would replace the node the person is dragging, so the drag
+ * would stop dead; this writes the three things that changed and nothing else. It is a no-op
+ * when that tile is not on screen, which is the case while the board is being rebuilt.
+ */
+function paintTileHp(side, index, row) {
+  const tile = root.querySelector(`.bd-solver-tile[data-tile="${side}:${index}"]`);
+  if (!tile) return;
+  const bar = tile.querySelector(".bd-solver-tile-bar");
+  if (bar) {
+    // The colour as well as the width: a bar left green at 15% is worse than one that did not
+    // move at all, because it reads as a Pokemon that is fine.
+    bar.className = tileBarClass(row);
+    const fill = bar.firstElementChild;
+    if (fill) fill.style.width = `${tileHpWidth(row)}%`;
+  }
+  // Only a standing Pokemon carries the percentage; a benched tile is the sprite and the bar.
+  const text = tile.querySelector(".bd-solver-tile-hp");
+  if (text) text.textContent = tileHpText(row);
 }
 
 // --- what is switched on --------------------------------------------------------------------
@@ -749,11 +791,14 @@ function renderCard(side, index, row) {
             row.hp = Number(event.target.value) || 0;
             event.target.closest(".bd-solver-hp").querySelector(".bd-solver-hp-value").textContent = hpText(row.hp, maxHp);
             save();
-            // Crossing 0 or leaving it changes who is standing on the board above, so that
-            // redraw cannot wait for the next render.
+            // Crossing 0 or leaving it changes WHO is standing on the board above -- the
+            // Pokemon moves between the field and the bench -- so that redraw cannot wait.
+            // Every other step only changes how full one bar is, which is painted in place.
             if ((was > 0) !== (row.hp > 0)) {
               fit();
               render();
+            } else {
+              paintTileHp(side, index, row);
             }
           },
         }),
@@ -1049,11 +1094,16 @@ function renderStory(result) {
 
 /** The one line that changes while a search runs. Held so `onProgress` can write it in place. */
 let progressLine = null;
+/** Restarts the silence watch. Held because the progress callback is made before the watch is. */
+let touchGuard = null;
 
 function progressText(p) {
   if (!p) return "Loading the battle data for the search…";
   const rate = p.elapsed > 0 ? Math.round(p.played / p.elapsed).toLocaleString() : "0";
-  return `${p.played.toLocaleString()} lines played · ${p.elapsed.toFixed(1)}s · ${rate} a second · the board favours you ${p.value.toFixed(0)}`;
+  // How close the answer is to standing still, which is the thing that ends the run -- without
+  // it a run of unknown length looks like one that has hung.
+  const settling = p.settling > 0 ? `settling ${Math.round(p.settling * 100)}%` : "still moving";
+  return `${p.played.toLocaleString()} lines played · ${p.elapsed.toFixed(1)}s · ${rate} a second · the board favours you ${p.value.toFixed(0)} · ${settling}`;
 }
 
 function renderResults() {
@@ -1072,18 +1122,29 @@ function renderResults() {
         progressLine),
       h("p", { class: "bd-solver-note" },
         "Every line rolls to hit and rolls its damage, so the answer is an average over samples "
-        + `and it keeps sharpening. It answers after about ${SEARCH_SECONDS} seconds.`));
+        + "and it keeps sharpening. It stops on its own once the order of the top lines has "
+        + `stopped changing, usually a few seconds, and never later than ${SEARCH_CAP_SECONDS}.`));
   }
   const result = state.result;
   if (!result) {
     return h("div", { class: "bd-solver-results" },
-      h("p", { class: "bd-solver-idle" }, `Set the board up and press Solve. Both sides pick at the same time, neither sees the other, and the answer is whatever comes out ahead across the lines that get played. It takes about ${SEARCH_SECONDS} seconds.`));
+      h("p", { class: "bd-solver-idle" }, "Set the board up and press Solve. Both sides pick at the same time, neither sees the other, and the answer is whatever comes out ahead across the lines that get played. It runs until the order of the top lines stops changing, which is usually a few seconds."));
   }
   const side = (title, rows, mine) => h("div", { class: "bd-solver-answer" },
     h("h3", {}, title),
     h("ol", { class: "bd-solver-lines" }, rows.slice(0, 6).map((row, index) => lineRow(row, index, mine))));
+  // How the run ended, said plainly. A settled answer and one that ran out of time are not the
+  // same thing, and only one of them is finished.
+  const ending = result.settled
+    ? h("p", { class: "bd-solver-note bd-solver-ending settled" },
+      `The answer settled: the order of the top lines held steady for ${SETTLE_LINES.toLocaleString()} lines, so more searching was not going to change it.`)
+    : state.stopped
+      ? h("p", { class: "bd-solver-note bd-solver-ending" }, "You stopped this one early, so the order of the top lines may still have been moving.")
+      : h("p", { class: "bd-solver-note bd-solver-ending" },
+        `This one reached the ${SEARCH_CAP_SECONDS}-second limit with the order of the top lines still moving, so it is the best it had rather than a settled answer. That usually means the two best lines are close to even.`);
   return h("div", { class: "bd-solver-results" },
     bar(result.value),
+    ending,
     // The scale, said once. Without it nobody can tell whether 59.1 is a lot or nothing.
     h("p", { class: "bd-solver-note" }, "Every number below is where the board ends up for you if that line is played, out of 100. 50 is even."),
     side("Your best move", result.ours, true),
@@ -1153,12 +1214,16 @@ async function solve() {
     board,
     lookahead: state.lookahead,
     seed: (Date.now() ^ (Math.random() * 0xffffffff)) >>> 0,
-    // The cap is a backstop; `seconds` is what actually ends the run, so the answer is as
-    // good as this machine can make it in that time rather than a fixed number of lines.
+    // `settleLines` is what normally ends the run. The other two are walls behind it: `seconds`
+    // is the only thing that produces a deadline in the worker, so dropping it would leave a
+    // board that never settles running until the line count ran out.
     iterations: 200000000,
-    seconds: SEARCH_SECONDS,
+    seconds: SEARCH_CAP_SECONDS,
+    settleLines: SETTLE_LINES,
   }, (progress) => {
     state.progress = progress;
+    // Something arrived, so the worker is alive: the silence watch starts again from here.
+    if (touchGuard) touchGuard();
     // NOT render(). A full redraw arrives about eighteen times a second while the search runs,
     // and it replaces every node in the page -- including the Stop button, between the mousedown
     // and the mouseup, so the click never completed and Stop appeared dead. Only the one line
@@ -1168,23 +1233,29 @@ async function solve() {
   state.runId = request.requestId;
   let guard = 0;
   try {
-    // The worker ends the run itself at SEARCH_SECONDS. This is the backstop for a worker that
-    // never answers AT ALL -- its own battle-data load stalling, or an answer that is lost -- which
-    // left the spinner up for ever with nothing in the console and a Stop button that had nothing
-    // to stop. The allowance is the budget plus the same wait the page gives its own loads.
+    // The backstop for a worker that goes QUIET -- its own battle-data load stalling, or an answer
+    // that is lost -- which left the spinner up for ever with nothing in the console and a Stop
+    // button that had nothing to stop. It watches for silence rather than for a long run,
+    // because a long run is now the normal way a hard board is answered.
     const result = await Promise.race([request, new Promise((_keep, fail) => {
-      guard = setTimeout(() => {
-        // Not an answer, so nothing is reported and nothing is charged. `stopSearch` is what the
-        // Stop button does: it marks the run stopped, which is what keeps `recordRun` from firing
-        // if a late answer ever arrives, and tells the worker to drop the run.
-        stopSearch();
-        fail(new Error(`The search did not answer within ${Math.round(SEARCH_TIMEOUT_MS / 1000)} seconds. Press Solve to try again.`));
-      }, SEARCH_TIMEOUT_MS);
+      const arm = () => {
+        if (guard) clearTimeout(guard);
+        guard = setTimeout(() => {
+          // Not an answer, so nothing is reported and nothing is charged. `stopSearch` is what the
+          // Stop button does: it marks the run stopped, which is what keeps `recordRun` from firing
+          // if a late answer ever arrives, and tells the worker to drop the run.
+          stopSearch();
+          fail(new Error(`The search went quiet for ${Math.round(PROGRESS_SILENCE_MS / 1000)} seconds. Press Solve to try again.`));
+        }, PROGRESS_SILENCE_MS);
+      };
+      touchGuard = arm;
+      arm();
     })]);
     state.result = result.error ? null : result;
     state.error = result.error || "";
-    // Only a search that ran its full budget counts against the free allowance.
-    if (!result.error && result.played > 0 && !state.stopped) recordRun(SOLVER_FEATURE);
+    // Only a search that answered in full counts against the free allowance -- which a settled
+    // one did, even if Stop was pressed in the moment it was coming back.
+    if (!result.error && result.played > 0 && (result.settled || !state.stopped)) recordRun(SOLVER_FEATURE);
   } catch (error) {
     state.error = error.message || "The search stopped.";
   } finally {
@@ -1194,6 +1265,7 @@ async function solve() {
     state.running = false;
     state.runId = 0;
     progressLine = null;
+    touchGuard = null;
     render();
   }
 }

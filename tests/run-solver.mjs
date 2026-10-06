@@ -29,7 +29,7 @@ import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
 import { TournamentTest } from "../builder/tournament-test.js";
-import { Solver, SWITCH, MAX_JOINTS, SEARCH_DEPTH } from "../builder/solver.js";
+import { Solver, SETTLE_LINES, SWITCH, MAX_JOINTS, SEARCH_DEPTH, hasSettled } from "../builder/solver.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -421,9 +421,9 @@ const solver = makeSolver();
 // ---------------------------------------------------------------------------
 // The guard replaces the whole app with "reload without the cache" when the module graph was
 // refused. Its first test was "is a .bd-loading still on screen after 25 seconds", which a
-// RUNNING search also answers yes to -- the Solver now runs until the visitor presses Stop, so
-// pressing Solve within the first 25 seconds had the page wiped out from under it. The guard
-// now asks the page script whether it ran at all, which is the thing it actually wants to know.
+// RUNNING search also answers yes to -- a search runs until its answer settles, which on a hard
+// board is far longer than 25 seconds, so pressing Solve had the page wiped out from under it.
+// The guard now asks the page script whether it ran at all, which is the thing it wants to know.
 {
   const pages = [
     ["solver/index.html", "builder/solver-page.js", "solverApp"],
@@ -999,6 +999,115 @@ const solver = makeSolver();
   eq("and so does a Sleep Powder carrier, which used to sleep for one",
      sleepy(["Sleep Powder", "Pollen Puff", "Rage Powder", "Protect"]), 2);
 }
+
+// ---------------------------------------------------------------------------
+// 10. stopping when the answer has settled
+// ---------------------------------------------------------------------------
+// The search ends when the ORDER of the top lines has stopped changing on both sides, not after
+// a set time. Two of these checks are about the ways that rule could go wrong quietly: if it
+// ever removed the line ceiling, or outranked Stop, this suite would HANG rather than fail --
+// it supplies no clock and nothing to press -- so both are pinned here.
+//
+// A one-action board is used on purpose (space is 1 x 1, so the leader can never flip) and the
+// whole section costs well under a second. It does not stop exactly AT the floor: the test is
+// only taken when a slice hands the thread back, about eighteen times a second, so the line
+// count lands a little past it -- which is why these checks are inequalities, not equalities.
+{
+  const ONLY = set("Ditto", "Focus Sash", "Limber", "Hardy", ["Transform"], [0, 0, 0, 0, 0, 0]);
+  const tiny = board([row(ONLY, { front: true })], [row(ONLY, { front: true })], {});
+  const singles = new Solver(solver.t);
+  singles.format = "Singles";
+
+  const off = await singles.search(tiny, { iterations: 400, lookahead: 2 });
+  ok("a search with no settle window set is unchanged", off.settled === false && off.played === 400,
+    `settled=${off.settled} played=${off.played}`);
+
+  const settled = await singles.search(tiny, { settleLines: 1000, iterations: 200000, lookahead: 2 });
+  ok("a settling search ends itself", settled.settled === true && settled.played < 200000,
+    `settled=${settled.settled} played=${settled.played}`);
+  ok("and only after twice the window, so it cannot answer off a handful of lines",
+    settled.played >= 2000, String(settled.played));
+
+  // THE RULE ITSELF. Watching the search from outside cannot separate the window from the floor:
+  // the test is only taken when a slice hands the thread back, and one slice is thousands of
+  // lines, so a run stops well past both whichever of them is doing the work. These read it.
+  ok("the window alone is not enough -- a quiet start is not a settled answer",
+    hasSettled(1500, 400, 1000) === false, "played 1500, held since 400, window 1000");
+  ok("the floor alone is not enough either -- the order has to have stood still",
+    hasSettled(9000, 8500, 1000) === false, "played 9000, held since 8500, window 1000");
+  ok("both together end the run", hasSettled(2000, 1000, 1000) === true);
+  ok("the floor is exactly twice the window", hasSettled(1999, 0, 1000) === false && hasSettled(2000, 0, 1000) === true);
+  ok("and with no window set nothing ever settles",
+    hasSettled(1e9, 0, 0) === false && hasSettled(1e9, 0, -5) === false);
+
+  // WHO IS LEADING. The order is meaningless until every action has been tried once, because
+  // `select` hands those first visits out one at a time; a leader read before then is an artefact
+  // of that walk, and the hold would start on it.
+  ok("nobody leads while an action is still unplayed",
+    solver.leaderOf([{ n: 9, sum: 900 }, { n: 0, sum: 0 }]) === -1);
+  ok("the leader is the action with the most lines",
+    solver.leaderOf([{ n: 3, sum: 30 }, { n: 9, sum: 10 }]) === 1);
+  ok("a tie on lines is broken by the better mean, exactly as the answer is ranked",
+    solver.leaderOf([{ n: 5, sum: 10 }, { n: 5, sum: 40 }]) === 1);
+
+  // The two that would hang rather than fail.
+  const capped = await singles.search(tiny, { settleLines: 1000000, iterations: 500, lookahead: 2 });
+  ok("the line ceiling still ends a search that has not settled",
+    capped.played === 500 && capped.settled === false, `settled=${capped.settled} played=${capped.played}`);
+
+  const stopped = await singles.search(tiny, { settleLines: 1000, iterations: 200000000, lookahead: 2, shouldStop: () => true });
+  ok("Stop still ends a search that would otherwise run on",
+    stopped.settled === false && stopped.played > 0 && stopped.played < 200000000,
+    `settled=${stopped.settled} played=${stopped.played}`);
+
+  // The one that decides the ORDER of the two breaks: a window of 1 is satisfied on the second
+  // slice, and this stops on the second slice too, so both want to end the same run at the same
+  // moment. Stop has to win, or a run the person ended would be reported as a settled answer.
+  let slice = 0;
+  const raced = await singles.search(tiny, {
+    settleLines: 1, iterations: 200000000, lookahead: 2, shouldStop: () => (slice += 1) >= 2,
+  });
+  ok("and when Stop and settling land on the same slice, Stop wins",
+    raced.settled === false, `settled=${raced.settled} after ${slice} slice(s)`);
+
+  // What the page draws while it waits.
+  const seen = [];
+  await singles.search(tiny, { settleLines: 1000, iterations: 200000, lookahead: 2, onProgress: (p) => seen.push(p.settling) });
+  ok("every progress report carries how close the answer is to standing still",
+    seen.length > 0 && seen.every((value) => typeof value === "number" && value >= 0 && value <= 1),
+    `${seen.length} report(s), first ${seen[0]}, last ${seen.at(-1)}`);
+  ok("and it starts at nothing, so a run cannot look finished on its first slice",
+    seen[0] === 0, String(seen[0]));
+  // The number has to be about the RUN, not about one of its two conditions. It once tracked the
+  // window alone, so on an easy board it reached 1 while the floor still had tens of thousands of
+  // lines to go, and the page read "settling 100%" through the back half of the wait.
+  //
+  // The window has to be WIDER THAN ONE SLICE to show it: with a narrow one the hold is already
+  // satisfied on the slice after the leader appears, the floor never binds, and a run stops on
+  // the first report that could read 100% whether or not the floor is in the number.
+  const wide = [];
+  await singles.search(tiny, { settleLines: 50000, iterations: 200000000, lookahead: 2, onProgress: (p) => wide.push(p.settling) });
+  ok("it reaches the end only on the slice the run actually stops on",
+    wide.length > 2 && wide.slice(0, -1).every((value) => value < 1),
+    `${wide.filter((v) => v >= 1).length} of ${wide.length} report(s) read as finished`);
+
+  // The leader it watches is the row the page prints first -- if those two ever disagreed the
+  // search would settle on one answer and show another.
+  const real = board(
+    [row(HITTER, { front: true }), row(SUPPORT, { front: true }), row(CAT), row(BULKY)],
+    [row(BULKY, { front: true }), row(CAT, { front: true }), row(SUPPORT), row(HITTER)],
+  );
+  const run = await solver.search(real, { iterations: 3000, lookahead: 2, seed: 7 });
+  const leaderMatches = (rows) => rows.length > 0 && rows[0] === [...rows].sort((a, b) => b.played - a.played || b.score - a.score)[0];
+  ok("the ranking the answer is read off is the one the settle test watches",
+    leaderMatches(run.ours) && leaderMatches(run.theirs));
+
+  // The window the page tells people about is the one the search uses.
+  ok("the window is exported for the page to name", Number.isInteger(SETTLE_LINES) && SETTLE_LINES > 0,
+    String(SETTLE_LINES));
+  notes.push(`settle: ${settled.played.toLocaleString()} lines on a one-action board, window ${SETTLE_LINES.toLocaleString()}`);
+}
+
 
 for (const line of notes) console.log(line);
 if (failures.length) {

@@ -32,7 +32,7 @@ const DATA_CLOSE = "<!--/SHARE:DATA-->";
 const NOSCRIPT_OPEN = "<!--SHARE:NOSCRIPT-->";
 const NOSCRIPT_CLOSE = "<!--/SHARE:NOSCRIPT-->";
 
-const KIND_WORD = { eval: "Team Evaluation", team: "Team" };
+const KIND_WORD = { eval: "Team Evaluation", meta: "Meta", team: "Team" };
 
 /** What a page with no card unfurls to: a real, already-deployed site asset
  *  rather than a dead card URL.  Its type and its true pixel size are declared

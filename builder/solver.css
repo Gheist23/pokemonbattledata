@@ -228,6 +228,17 @@
   line-height: 1.5;
 }
 
+/* How the run ended. The settled one is the good news, so it carries the same green the page
+   uses for a score in your favour -- but it says it in words too, because colour is never the
+   only thing carrying a meaning here. */
+.bd-solver-ending {
+  margin: 0.15rem 0 0;
+}
+
+.bd-solver-ending.settled {
+  color: var(--good, #34d399);
+}
+
 /* --- the field --------------------------------------------------------------------- */
 
 .bd-solver-field {

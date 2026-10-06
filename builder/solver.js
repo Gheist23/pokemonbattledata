@@ -80,6 +80,37 @@ const DAMAGE_ROLLS = 16;
 export const EXPLORATION = 14;
 /** How long one slice of the search may hold the thread before the page is given back. */
 export const SLICE_MS = 55;
+/**
+ * How many lines the leading move on BOTH sides must hold before the answer counts as settled.
+ *
+ * It is a count of lines and not a number of seconds on purpose: settling is a property of how
+ * much the search has seen, so a slower machine should take longer to get there rather than
+ * answer from less work. The search may not stop before twice this many lines in total.
+ *
+ * 150,000 was measured, not guessed: over 15 runs (four Doubles boards -- even, mirror, one side
+ * nearly dead, and a wide one -- plus a Singles board, each on three seeds) the leader on one
+ * board last changed 207,000 lines in, so a shorter window would have answered early there. At
+ * this window every one of the 15 agreed with a full 30-second run; the next window down
+ * (100,000) disagreed on one of them.
+ */
+export const SETTLE_LINES = 150000;
+
+/**
+ * Has the answer stood still long enough to stop?
+ *
+ * Two conditions, and both matter. The window is the real test: the leading line on both sides
+ * has not changed for `settleLines` lines. The floor -- twice that in total -- is what stops a
+ * board answering off its first few thousand lines just because nothing had moved yet; early on,
+ * nothing having moved means almost nothing has been tried.
+ *
+ * It is a function rather than two terms inside the loop so that it can be read directly: the
+ * loop only consults it when a slice hands the thread back, so a suite watching from outside
+ * cannot tell the two conditions apart.
+ */
+export function hasSettled(played, heldSince, settleLines) {
+  if (!(settleLines > 0)) return false;
+  return played >= 2 * settleLines && played - heldSince >= settleLines;
+}
 
 const tick = () => new Promise((resolve) => setTimeout(resolve, 0));
 const clamp01 = (value) => Math.max(0, Math.min(1, Number(value) || 0));
@@ -1028,6 +1059,31 @@ export class Solver {
 
   // --- the search ------------------------------------------------------------------------
 
+  /**
+   * Which action one side is leading with, by the same key `report` ranks by: lines played
+   * first, mean second.
+   *
+   * -1 while any action is still unplayed, because `select` hands the first visit out one action
+   * at a time -- until every one has a line the order is an artefact of that walk, not an answer,
+   * and a settle test that trusted it would stop on the first slice.
+   */
+  leaderOf(stats) {
+    let best = -1;
+    let bestPlayed = -1;
+    let bestScore = -Infinity;
+    for (let i = 0; i < stats.length; i += 1) {
+      const entry = stats[i];
+      if (!entry.n) return -1;
+      const score = entry.sum / entry.n;
+      if (entry.n > bestPlayed || (entry.n === bestPlayed && score > bestScore)) {
+        bestPlayed = entry.n;
+        bestScore = score;
+        best = i;
+      }
+    }
+    return best;
+  }
+
   /** UCB1 over one side's own statistics. Unvisited actions come first, in their own order. */
   select(stats, total) {
     let best = -1;
@@ -1138,11 +1194,15 @@ export class Solver {
    * line is scored by how often it works, not by what it does on a roll nobody gets.
    *
    * @param {SolverSetup} setup
+   * `settleLines` turns on the settle test: 0 (the default) leaves the search exactly as it was,
+   * bounded by `iterations`, `deadline` and `shouldStop` and nothing else.
+   *
    * @param {{lookahead?:number, iterations?:number, deadline?:number, seed?:number,
+   *          settleLines?:number,
    *          onProgress?:(progress:object)=>void, shouldStop?:()=>boolean}} options
    */
   async search(setup, { lookahead = DEFAULT_LOOKAHEAD, iterations = 4000, deadline = 0, seed = 1,
-    onProgress = null, shouldStop = null } = {}) {
+    settleLines = 0, onProgress = null, shouldStop = null } = {}) {
     this.t.resetCaches();
     this.unitCache.clear();
     this.random = randomFrom(seed);
@@ -1160,6 +1220,13 @@ export class Solver {
     let total = 0;
     const started = Date.now();
     let sliceStart = started;
+    // What is watched is the ORDER of the top lines -- the row the page prints first for each
+    // side -- not the board value beside it. The value is a running mean over every line played,
+    // so its step shrinks as 1/played whatever the search is doing: it goes quiet early on a
+    // board that is still changing its mind, which would stop the run on the wrong thing.
+    let leading = [-1, -1];
+    let heldSince = 0;
+    let settled = false;
     while (played < iterations) {
       const state = this.cloneState(base);
       const walked = [];
@@ -1190,18 +1257,43 @@ export class Solver {
       total += value;
       played += 1;
       if (Date.now() - sliceStart >= SLICE_MS) {
+        let holding = false;
+        let settling = 0;
+        if (settleLines > 0) {
+          const ourLead = this.leaderOf(root.stats[0]);
+          const theirLead = this.leaderOf(root.stats[1]);
+          if (ourLead < 0 || theirLead < 0 || ourLead !== leading[0] || theirLead !== leading[1]) {
+            // Both -1 tests are needed. Without them a slice where one side is still handing out
+            // first visits matches the starting [-1, -1] and the hold begins before the order
+            // means anything.
+            leading = [ourLead, theirLead];
+            heldSince = played;
+          } else {
+            // Both conditions, not just the window: this is 1 exactly when `hasSettled` is
+            // true, so the page can never show a finished number on a run that continues.
+            settling = Math.min(1, (played - heldSince) / settleLines, played / (2 * settleLines));
+            holding = hasSettled(played, heldSince, settleLines);
+          }
+        }
         if (onProgress) {
           onProgress({
             played, iterations, value: total / played,
             elapsed: (Date.now() - started) / 1000,
             calcs: this.t.calcs,
             nodes: nodes.size,
+            settling,
           });
         }
         await tick();
         sliceStart = Date.now();
+        // Order matters: a run the person ended, or one that hit its wall, is never reported as
+        // settled.
         if (shouldStop && shouldStop()) break;
         if (deadline && Date.now() >= deadline) break;
+        if (holding) {
+          settled = true;
+          break;
+        }
       }
     }
 
@@ -1227,6 +1319,7 @@ export class Solver {
       played,
       seconds: (Date.now() - started) / 1000,
       calcs: this.t.calcs,
+      settled,
       value: played ? total / played : 50,
       ours,
       theirs,

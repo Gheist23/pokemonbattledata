@@ -930,28 +930,46 @@ export const META = Object.freeze({
   top: 108,
   rowH: 50,
   rows: 9,
+  // With a picture beside it the name starts further in; without one the place number is all
+  // that comes first, so the two are kept apart rather than leaving a hole in every row.
   labelX: 46,
-  valueRight: 92,
+  iconX: 32,
+  iconSize: 28,
+  labelXWithIcon: 70,
+  // Measured from the row's right edge: the change sits in the last DELTA_W of it, the number
+  // ends where that column begins, and the name is given whatever is left.
   deltaRight: 16,
+  deltaW: 76,
+  gap: 12,
   noteBaseline: 572,
 });
 
 /** One row: the place, the name, the number, and how it moved. */
-function metaRow(ctx, row, x, y, w, index) {
-  panel(ctx, x, y, w, META.rowH - 8, 10);
-  const midY = y + (META.rowH - 8) / 2 + 5;
+function metaRow(ctx, row, x, y, w, index, icon = null) {
+  const rowH = META.rowH - 8;
+  panel(ctx, x, y, w, rowH, 10);
+  const midY = y + rowH / 2 + 5;
+  const deltaRight = x + w - META.deltaRight;
+  const valueRight = deltaRight - META.deltaW;
+  const labelX = x + (icon ? META.labelXWithIcon : META.labelX);
   drawText(ctx, String(index + 1), x + 14, midY, { sizes: [13], weight: 700, color: PALETTE.soft });
-  drawText(ctx, str(row?.label), x + META.labelX, midY, {
-    sizes: [16, 15, 14], weight: 700, color: PALETTE.text, maxWidth: w - META.labelX - META.valueRight - 70,
+  if (icon) {
+    const size = META.iconSize;
+    ctx.drawImage(icon, x + META.iconX, y + (rowH - size) / 2, size, size);
+  }
+  drawText(ctx, str(row?.label), labelX, midY, {
+    sizes: [16, 15, 14], weight: 700, color: PALETTE.text, maxWidth: valueRight - labelX - META.gap,
   });
-  drawText(ctx, str(row?.value), x + w - META.valueRight, midY, {
-    sizes: [15, 14], weight: 700, color: PALETTE.text,
+  drawText(ctx, str(row?.value), valueRight, midY, {
+    sizes: [15, 14], weight: 700, color: PALETTE.text, align: "right", maxWidth: 96,
   });
   const delta = str(row?.delta).trim();
   if (delta) {
     // The sign is in the text, so the colour is never the only thing saying which way it went.
     const tone = row?.tone === "good" ? PALETTE.good : row?.tone === "bad" ? PALETTE.bad : PALETTE.soft;
-    drawText(ctx, delta, x + w - META.deltaRight - 62, midY, { sizes: [13], weight: 700, color: tone });
+    drawText(ctx, delta, deltaRight, midY, {
+      sizes: [13], weight: 700, color: tone, align: "right", maxWidth: META.deltaW - 6,
+    });
   }
 }
 
@@ -971,10 +989,11 @@ export function drawMetaCard(ctx, digest, images = {}) {
     pill: str(digest?.format) || "Doubles",
     note: "Meta",
   });
+  const icons = Array.isArray(images?.rowIcons) ? images.rowIcons : [];
   rows.slice(0, META.rows * 2).forEach((row, i) => {
     const column = i < META.rows ? 0 : 1;
     const y = META.top + (i % META.rows) * META.rowH;
-    metaRow(ctx, row, META.colX[column], y, META.colW, i);
+    metaRow(ctx, row, META.colX[column], y, META.colW, i, icons[i] || null);
   });
   const note = str(digest?.note).trim();
   if (note) {
@@ -1000,6 +1019,17 @@ export function drawCard(ctx, digest, images = {}) {
  *  this module or in the digest may carry a path or a URL. */
 export function spriteRequests(digest) {
   const out = [];
+  // A meta row names its picture by a plain key -- a type name, or a Pokemon's name -- and the
+  // host turns that into a path. No URL ever travels in a digest.
+  if (str(digest?.kind) === "meta") {
+    const kind = str(digest?.icons);
+    if (kind !== "type" && kind !== "pokemon") return out;
+    (Array.isArray(digest?.rows) ? digest.rows : []).slice(0, META.rows * 2).forEach((row, index) => {
+      const key = str(row?.icon).trim();
+      if (key) out.push({ slot: "rowIcons", index, icons: kind, icon: key });
+    });
+    return out;
+  }
   liveTeam(digest).forEach((entry, index) => {
     out.push({ slot: "sprites", index, species: entry.species, form: entry.form || entry.species, item: entry.item || "" });
     if (str(digest?.kind) !== "eval" && str(entry.item).trim()) {
@@ -1033,7 +1063,7 @@ export async function renderCardBlob(digest, host) {
     throw new Error("renderCardBlob needs a host with createCanvas and loadImage");
   }
   if (host.fonts) await host.fonts;
-  const images = { sprites: [], items: [], threatSprites: [] };
+  const images = { sprites: [], items: [], threatSprites: [], rowIcons: [] };
   const requests = spriteRequests(digest);
   const loaded = await Promise.all(requests.map(async (request) => {
     try {

@@ -39,7 +39,7 @@ import { SpeedTiers } from "../builder/speed-tiers.js";
 import { makeSet } from "../builder/common.js";
 import { OptimizeObjective } from "../builder/optimize-objective.js";
 import { DamageMemo, koProfile, rollsForHit, pointTotal } from "../builder/optimize-core.js";
-import { DeepOptimizer, DEPTHS } from "../builder/optimize-deep.js";
+import { DeepOptimizer, DEPTHS, RACE_READABLE } from "../builder/optimize-deep.js";
 import { suggestBlock, UTILITY_ATTACKS } from "../builder/move-traits.js";
 import { MOVES_NEEDING_SUPPORT } from "../builder/team-suggest.js";
 import { GUARANTEED_MOVE_SHARE } from "../builder/guaranteed-moves.js";
@@ -444,6 +444,44 @@ for (const [team, slot, options] of jobs) {
     };
   };
 
+
+  /**
+   * The per-threat attribution behind "What changes in battle", rebuilt from a second objective:
+   * {rank -> {points, silent}} and the headline it has to add up to.
+   *
+   * `points` is that rank's own share of the headline, every item set of that threat together, in
+   * the units the card sorts by. `silent` marks a rank the panel may leave out of the list: it
+   * has no sentence to print and its one-on-one chance did not move enough to read, so there is
+   * nothing to show -- the score keeps it either way.
+   */
+  const attributionFor = (sets, slot, before, after) => {
+    const objective = new OptimizeObjective(new TeamOptimizer(evaluation), sets, slot, { topX: TOP });
+    const plan = reader.planContext(objective);
+    const rows = objective.rows;
+    const detailFor = (side) => objective.score(side.nature, side.bonuses, objective.moveSet((side.moves || []).filter(Boolean)), { detail: true, rows });
+    const b = detailFor(before);
+    const a = detailFor(after);
+    const weights = b.per.reduce((sum, item) => sum + item.row.weight, 0) || 1;
+    const byRank = new Map();
+    b.per.forEach((x, i) => {
+      const y = a.per[i];
+      const entry = byRank.get(x.row.rank) || { weight: 0, pick: null, pickDelta: -1, name: x.row.name };
+      entry.weight += x.row.weight * (y.value - x.value);
+      if (Math.abs(y.value - x.value) > entry.pickDelta) {
+        entry.pickDelta = Math.abs(y.value - x.value);
+        entry.pick = [x, y];
+      }
+      byRank.set(x.row.rank, entry);
+    });
+    for (const entry of byRank.values()) {
+      const [x, y] = entry.pick;
+      entry.points = (100 * entry.weight) / weights;
+      entry.silent = !reader.changeLines(objective, x, y, plan).length
+        && Math.abs(y.contexts[plan.index].race - x.contexts[plan.index].race) < RACE_READABLE;
+    }
+    return { byRank, delta: a.score - b.score };
+  };
+
   // a) A saved set missing a guaranteed move: "Previously" is scored from the saved moves.
   for (const [team, slot, override, move] of [
     ["rough", 2, { moves: ["Fake Out", "Wood Hammer", "U-turn", "High Horsepower"] }, "Grassy Glide"],
@@ -470,8 +508,29 @@ for (const [team, slot, options] of jobs) {
     check(Math.abs(r.delta - (suggested.score - saved.score)) < 1e-6, `${label}: the headline change is ${r.delta.toFixed(2)}, everything Apply changes is worth ${(suggested.score - saved.score).toFixed(2)}`);
     // The chips over the table and the "What changes in battle" rows read the same side.
     check(JSON.stringify(r.before.counts) === JSON.stringify(saved.counts), `${label}: the counts beside Previously are ${JSON.stringify(r.before.counts)}, the saved moves give ${JSON.stringify(saved.counts)}`);
-    const sum = (r.changes || []).reduce((total, c) => total + c.points, 0);
-    check(Math.abs(sum - r.delta) < 0.25, `${label}: the change rows add up to ${sum.toFixed(2)}, the headline says ${r.delta.toFixed(2)}`);
+    // The change rows carry the headline, threat by threat. The rows the card SHOWS do not add
+    // up to it on their own, and are not meant to: a threat whose matchup moved without a
+    // sentence to print, and without its one-on-one chance moving enough to read, is left out of
+    // the LIST -- never out of the score. So this checks the two things the panel really
+    // promises, both exactly, instead of putting a tolerance on the visible sum. A tolerance
+    // there is a pin on how much weight the quiet threats happen to carry in today's Top X: it
+    // stood at 0.23 of its 0.25 the day before Politoed and Mega Floette swapped ranks 30 and 31.
+    const attribution = attributionFor(sets, slot, { nature: set.nature, bonuses: set.bonuses, moves: override.moves }, r.after);
+    check(Math.abs(attribution.delta - r.delta) < 1e-6, `${label}: threat by threat the board moves ${attribution.delta.toFixed(4)}, the headline says ${r.delta.toFixed(4)}`);
+    let shownSum = 0;
+    let quietSum = 0;
+    for (const [rank, entry] of attribution.byRank) {
+      const shown = (r.changes || []).find((c) => c.rank === rank);
+      if (shown) {
+        check(Math.abs(shown.points - entry.points) < 1e-6, `${label}: #${rank} ${shown.name} is credited ${shown.points.toFixed(4)} points, that threat moved the score by ${entry.points.toFixed(4)}`);
+        shownSum += entry.points;
+      } else {
+        check(entry.silent || Math.abs(entry.points) < 0.005, `${label}: #${rank} ${entry.name} moved the score by ${entry.points.toFixed(4)} points and has something to say about it, but the card leaves it out`);
+        quietSum += entry.points;
+      }
+    }
+    check(Math.abs(shownSum + quietSum - r.delta) < 1e-6, `${label}: the rows shown (${shownSum.toFixed(4)}) and the threats with nothing to say (${quietSum.toFixed(4)}) add up to ${(shownSum + quietSum).toFixed(4)}, the headline says ${r.delta.toFixed(4)}`);
+    check((r.changes || []).every((c) => attribution.byRank.has(c.rank)), `${label}: the card lists #${(r.changes || []).find((c) => !attribution.byRank.has(c.rank))?.rank}, which is not a rank on the board`);
     console.log(`   ${label.padEnd(42)} ${r.before.score.toFixed(2)} -> ${r.after.score.toFixed(2)} (${r.delta >= 0 ? "+" : ""}${r.delta.toFixed(2)}); the search measured from ${withMove.score.toFixed(2)}`);
   }
 

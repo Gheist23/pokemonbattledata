@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Vanilluxe,64,move,1,Freeze-Dry,91.1%,,,,,,,,
 Vanilluxe,64,move,2,Blizzard,87.2%,,,,,,,,
-Vanilluxe,64,move,3,Ice Shard,76.8%,,,,,,,,
-Vanilluxe,64,move,4,Aurora Veil,54.9%,,,,,,,,
-Vanilluxe,64,move,5,Taunt,44.3%,,,,,,,,
+Vanilluxe,64,move,3,Ice Shard,76.9%,,,,,,,,
+Vanilluxe,64,move,4,Aurora Veil,54.8%,,,,,,,,
+Vanilluxe,64,move,5,Taunt,44.4%,,,,,,,,
 Vanilluxe,64,move,6,Sheer Cold,21.1%,,,,,,,,
 Vanilluxe,64,move,7,Mirror Coat,7.3%,,,,,,,,
 Vanilluxe,64,move,8,Explosion,6.2%,,,,,,,,
 Vanilluxe,64,move,9,Flash Cannon,2.7%,,,,,,,,
 Vanilluxe,64,move,10,Frost Breath,1.5%,,,,,,,,
-Vanilluxe,64,held_item,1,Never-Melt Ice,52.2%,,,,,,,,
-Vanilluxe,64,held_item,2,Light Clay,34.0%,,,,,,,,
+Vanilluxe,64,held_item,1,Never-Melt Ice,52.4%,,,,,,,,
+Vanilluxe,64,held_item,2,Light Clay,33.9%,,,,,,,,
 Vanilluxe,64,held_item,3,Focus Sash,4.3%,,,,,,,,
-Vanilluxe,64,held_item,4,Choice Scarf,2.4%,,,,,,,,
+Vanilluxe,64,held_item,4,Choice Scarf,2.3%,,,,,,,,
 Vanilluxe,64,held_item,5,Sitrus Berry,2.0%,,,,,,,,
 Vanilluxe,64,held_item,6,Leftovers,1.0%,,,,,,,,
 Vanilluxe,64,held_item,7,Icy Rock,1.0%,,,,,,,,
@@ -29,7 +29,7 @@ Vanilluxe,64,teammate,7,Mimikyu,,,,,,,,,
 Vanilluxe,64,teammate,8,Baxcalibur,,,,,,,,,
 Vanilluxe,64,teammate,9,Hippowdon,,,,,,,,,
 Vanilluxe,64,teammate,10,Glimmora,,,,,,,,,
-Vanilluxe,64,stat_alignment,1,Modest,67.3%,Sp. Atk,Attack,,,,,,
+Vanilluxe,64,stat_alignment,1,Modest,67.4%,Sp. Atk,Attack,,,,,,
 Vanilluxe,64,stat_alignment,2,Timid,9.3%,Speed,Attack,,,,,,
 Vanilluxe,64,stat_alignment,3,Bold,8.8%,Defense,Attack,,,,,,
 Vanilluxe,64,stat_alignment,4,Calm,4.7%,Sp. Def,Attack,,,,,,
@@ -39,14 +39,14 @@ Vanilluxe,64,stat_alignment,7,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,
 Vanilluxe,64,stat_alignment,8,Sassy,0.8%,Sp. Def,Speed,,,,,,
 Vanilluxe,64,stat_alignment,9,Jolly,0.5%,Speed,Sp. Atk,,,,,,
 Vanilluxe,64,stat_alignment,10,Adamant,0.4%,Attack,Sp. Atk,,,,,,
-Vanilluxe,64,stat_points,1,,8.4%,,,25,0,1,25,0,15
-Vanilluxe,64,stat_points,2,,7.6%,,,23,0,0,23,0,20
+Vanilluxe,64,stat_points,1,,8.5%,,,25,0,1,25,0,15
+Vanilluxe,64,stat_points,2,,7.5%,,,23,0,0,23,0,20
 Vanilluxe,64,stat_points,3,,4.2%,,,2,0,0,32,0,32
-Vanilluxe,64,stat_points,4,,3.5%,,,32,0,2,32,0,0
+Vanilluxe,64,stat_points,4,,3.4%,,,32,0,2,32,0,0
 Vanilluxe,64,stat_points,5,,2.8%,,,25,0,0,32,1,8
-Vanilluxe,64,stat_points,6,,2.4%,,,31,0,3,32,0,0
-Vanilluxe,64,stat_points,7,,2.3%,,,32,0,0,32,0,2
-Vanilluxe,64,stat_points,8,,2.2%,,,29,0,2,32,3,0
+Vanilluxe,64,stat_points,6,,2.3%,,,31,0,3,32,0,0
+Vanilluxe,64,stat_points,7,,2.3%,,,29,0,2,32,3,0
+Vanilluxe,64,stat_points,8,,2.3%,,,32,0,0,32,0,2
 Vanilluxe,64,stat_points,9,,1.9%,,,25,0,0,32,0,9
 Vanilluxe,64,stat_points,10,,1.9%,,,25,0,0,32,2,7
 Vanilluxe,64,ability,1,Snow Warning,98.6%,,,,,,,,

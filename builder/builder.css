@@ -672,7 +672,9 @@ body.bd-modal-open { overflow: hidden; }
 .bd-pick-set {
   display: grid;
   gap: 0.05rem;
-  padding: 0.2rem 0.5rem;
+  /* A pill is rounded by its full height, so the curve bites into the ends of the text: the two
+     lines inside need more room at the sides than a square chip would. */
+  padding: 0.3rem 0.85rem;
   border: 1px solid var(--bd-line);
   border-radius: 999px;
   background: var(--bd-control);

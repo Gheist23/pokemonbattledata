@@ -1613,6 +1613,33 @@ export class TournamentTest {
       events?.push({ s: m.s, kind: "terrain", actor: m.u, value: k.terrain });
     }
     if (!k.intimidate) return;
+    this.intimidateFrom(m, active, events);
+  }
+
+  /**
+   * A Pokemon that has just Mega-Evolved, arriving in its new form.
+   *
+   * Weather and terrain are set again, because that is the whole point: Mega Charizard Y's
+   * Drought replaces the Rain a Drizzle holder put up a moment earlier. Intimidate is NOT fired
+   * again when the Pokemon already had it before the stone was used -- Mega Salamence keeps
+   * Salamence's, and lowering one Attack twice for a single entry is not what the game does.
+   * Mega Manectric, which GAINS Intimidate, does fire it.
+   */
+  megaEnter(m, active, board, events, hadIntimidate) {
+    const k = m.k;
+    if (k.weather) {
+      board.w = WEATHERS.indexOf(k.weather);
+      events?.push({ s: m.s, kind: "weather", actor: m.u, value: k.weather });
+    }
+    if (k.terrain) {
+      board.t = TERRAINS.indexOf(k.terrain);
+      events?.push({ s: m.s, kind: "terrain", actor: m.u, value: k.terrain });
+    }
+    if (k.intimidate && !hadIntimidate) this.intimidateFrom(m, active, events);
+  }
+
+  /** The Attack drop itself, shared by an entry and a Mega Evolution. */
+  intimidateFrom(m, active, events) {
     const source = m.u.intimidateMon || m.u.mon;
     const lowered = [];
     for (const foe of active[1 - m.s]) {

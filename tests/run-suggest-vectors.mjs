@@ -125,7 +125,17 @@ const koLabelStamp = (testCase) => testCase.record?.rules?.ko_label ?? testCase.
 const koLabelRule = (testCase) => koLabelOption(
   process.env.KO_LABEL === undefined ? koLabelStamp(testCase) : process.env.KO_LABEL);
 
-const knownTeams = new KnownTeams(JSON.parse(readFileSync(join(root, "data", "builder", "known-teams.json"), "utf8")));
+// The tournament library the recordings were MADE with, not the one the site ships today.
+//
+// A recording is a statement about what the app computed from a set of inputs, and this suite
+// proves the port computes the same thing from the same inputs. Every other input is already
+// frozen inside the recording -- "every candidate the app scored carries its raw battle-data
+// rows" -- and the library was the one that leaked: it was read live, so replacing the
+// tournament teams made 18 rows disagree about `found_in_team_v496`, which is the NAME of the
+// team a suggested set came from. Nothing was wrong with the port or the app; they both moved
+// on and the recording could not. Frozen here, the library may be replaced as often as the
+// tournaments are, and this suite keeps proving the one thing it is for.
+const knownTeams = new KnownTeams(JSON.parse(readFileSync(join(root, "tests", "known-teams-recorded.json"), "utf8")));
 const aliases = appData.usageAliases || {};
 const only = process.argv[2] && process.argv[2] !== "all" ? process.argv[2] : null;
 const limit = Number(process.argv[3] || 15);

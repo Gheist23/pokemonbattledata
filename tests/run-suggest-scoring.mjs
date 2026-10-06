@@ -1007,9 +1007,10 @@ if (quick) {
       ok(`V517: ${label} - one row per Pokemon`,
         new Set(on.rows.map((r) => compact(r.form || r.name))).size === on.rows.length,
         on.rows.map((r) => r.name).join(", "));
-      ok(`V517: ${label} - no target over the cap unless the cap really gave way`,
-        after.rows <= cap || (report.yielded || []).length > 0,
-        `${after.name} ${after.rows}/${on.rows.length} with cap ${cap}: ${JSON.stringify(after.counts)}`);
+      // One yield buys exactly one row. The old reading excused ANY overrun once a single yield
+      // was recorded, so a rule that handed one target the whole list would still have passed.
+      eq(`V517: ${label} - every row over the cap is one yield, no more`,
+        after.counts.reduce((sum, [, rows]) => sum + Math.max(0, rows - cap), 0), (report.yielded || []).length);
       ok(`V517: ${label} - every yield beat the margin`,
         (report.yielded || []).every(([taken, allowed]) => allowed === null || taken - allowed > ANSWER_SPAN_HERE),
         JSON.stringify(report.yielded));
@@ -1029,13 +1030,35 @@ if (quick) {
     {
       const off = shownRows(OWNER_TEAM, SUGGESTION_SCORING, 0);
       const on = shownRows(OWNER_TEAM, SUGGESTION_SCORING, 1);
+      const report = on.diversity_v517 || {};
       const worstOff = Math.min(...off.rows.map((r) => Number(r.score)));
       const worstOn = Math.min(...on.rows.map((r) => Number(r.score)));
       notes.push(`  V517 worst shown row: ${worstOff} -> ${worstOn}`);
       ok("V517: no padding - the worst shown row never falls by more than ANSWER_SPAN",
         worstOff - worstOn <= ANSWER_SPAN_HERE, `${worstOff} -> ${worstOn}`);
-      ok("V517: and the owner's team reaches about a third", topShare(on.rows).share <= 5 / 14 + 1e-9,
-        `${topShare(on.rows).rows}/${on.rows.length}`);
+      // The share the rule GUARANTEES, as the identity its selection loop produces rather than as
+      // a number one data set happened to give. A target only ever passes the cap through the
+      // give-way branch, and that branch records exactly one yield -- so the rows above the cap
+      // ARE the yields, and each of them had to beat ANSWER_SPAN. With nothing yielded the top
+      // share is the cap itself, 5 of 14 on a three-target team, which is where "about a third"
+      // came from: the zero-yield case of this identity, not a separate promise. On the 05 Oct
+      // meta this team yielded nothing and sat at 5/14; on the 06 Oct meta the alternates at the
+      // other two slots fell 18-22 points behind, the cap gave way four times, and the top target
+      // is 9/14. Padding to the cap would have shown rows at 62.9 in place of rows at 83-87,
+      // which is exactly what the give-way clause exists to refuse.
+      const share = topShare(on.rows);
+      const yields = (report.yielded || []).length;
+      const over = share.counts.reduce((sum, [, rows]) => sum + Math.max(0, rows - report.cap), 0);
+      notes.push(`  V517 owner's team: ${share.name} ${share.rows}/${on.rows.length}, cap ${report.cap} over ${report.offered} target(s), ${yields} yield(s)`);
+      eq("V517: the cap is the one the list geometry gives", report.cap,
+        Math.ceil(on.rows.length / Math.max(1, report.offered || 1)));
+      eq("V517: every row a target takes over the cap is one recorded yield", over, yields);
+      ok("V517: and every one of those yields beat ANSWER_SPAN",
+        (report.yielded || []).every(([taken, allowed]) => allowed === null || taken - allowed > ANSWER_SPAN_HERE),
+        JSON.stringify(report.yielded));
+      ok("V517: so no target exceeds the cap plus what the margin paid for",
+        share.rows <= report.cap + yields,
+        `${share.name} ${share.rows}/${on.rows.length}, cap ${report.cap} + ${yields} yield(s)`);
     }
   }
 

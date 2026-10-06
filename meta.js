@@ -31,6 +31,8 @@
     format: "Doubles",
     rangeDays: 7,
     scope: 30,
+    // How both type lists are scored: "multiplier" (the default) or "pressure".
+    typeCalc: "multiplier",
     category: "move",
     usageExpanded: false,
     rankExpanded: false,
@@ -63,6 +65,8 @@
     usageMoreButton: document.getElementById("usageMoreButton"),
     typePill: document.getElementById("metaTypePill"),
     typeNote: document.getElementById("metaTypeNote"),
+    calcMultiplier: document.getElementById("metaCalcMultiplier"),
+    calcPressure: document.getElementById("metaCalcPressure"),
     typeOffenseLead: document.getElementById("typeOffenseLead"),
     typeDefenseLead: document.getElementById("typeDefenseLead"),
     typeOffense: document.getElementById("typeOffense"),
@@ -104,6 +108,22 @@
       writeStateToLocation();
       refresh();
     });
+    // One calculation for both lists, chosen here. Only this section reads it, so only this
+    // section is redrawn.
+    const setCalc = (calc) => {
+      if (state.typeCalc === calc) return;
+      state.typeCalc = calc;
+      for (const [button, name] of [[els.calcMultiplier, "multiplier"], [els.calcPressure, "pressure"]]) {
+        if (!button) continue;
+        button.classList.toggle("is-on", name === calc);
+        button.setAttribute("aria-pressed", name === calc ? "true" : "false");
+      }
+      writeStateToLocation();
+      renderTypeChanges();
+    };
+    wireShareButtons();
+    els.calcMultiplier?.addEventListener("click", () => setCalc("multiplier"));
+    els.calcPressure?.addEventListener("click", () => setCalc("pressure"));
     els.scope?.addEventListener("change", () => {
       state.scope = els.scope.value === "all" ? "all" : Number(els.scope.value) || 30;
       writeStateToLocation();
@@ -758,6 +778,80 @@
     return clamp100(scores.reduce((a, b) => a + b, 0) / Math.max(1, scores.length));
   }
 
+  /**
+   * The multiplier mirror of `defenseScore`: the average damage multiplier the group's own
+   * attacks get against this defending type.
+   *
+   * Averaged within a Pokemon first and then over the Pokemon, so every member counts once --
+   * the same rule the offence list keeps. Without that a Pokemon carrying four moves of one type
+   * would speak four times.
+   */
+  function defenseMultipliers(data, moves, mons) {
+    const byOwner = new Map();
+    for (const move of moves) {
+      if (!byOwner.has(move.owner)) byOwner.set(move.owner, []);
+      byOwner.get(move.owner).push(move);
+    }
+    const out = {};
+    for (const type of TYPE_ORDER) {
+      const perOwner = [];
+      for (const list of byOwner.values()) {
+        const values = list.map((move) => Math.max(0, typeMultiplier(data.chart, move.type, [type])));
+        perOwner.push(values.reduce((a, b) => a + b, 0) / values.length);
+      }
+      out[type] = perOwner.length ? perOwner.reduce((a, b) => a + b, 0) / perOwner.length : 1;
+    }
+    return out;
+  }
+
+  /**
+   * The pressure mirror of `offenseScores`: how much damage an attacking type really puts on the
+   * group, using the moves of that type the group actually carries.
+   *
+   * Priced the way the defending list is priced -- power, same-type bonus and the multiplier into
+   * each member, best two per attacker -- then averaged over the members it is aimed at. The
+   * average is over the Pokemon that CARRY such a move, not over all of them: the question is how
+   * hard this type hits when it is brought, and dividing by the ones that never bring it would
+   * answer a different one. A type nobody carries scores 0, which is the honest answer rather
+   * than "no data" -- the meta really does put no damage of that type on anybody.
+   */
+  function offensePressure(data, moves, mons) {
+    const out = {};
+    for (const type of TYPE_ORDER) {
+      const ofType = moves.filter((move) => move.type === type);
+      if (!ofType.length || !mons.length) {
+        out[type] = 0;
+        continue;
+      }
+      // Grouped by the Pokemon carrying the move. `defenseScore` cannot be reused here: it walks
+      // owner indices 0..n over the WHOLE group, and the carriers of one type are a scattered
+      // handful of those indices -- passing their count made it read the wrong Pokemon and score
+      // a common attacking type at zero.
+      const byOwner = new Map();
+      for (const move of ofType) {
+        if (!byOwner.has(move.owner)) byOwner.set(move.owner, []);
+        byOwner.get(move.owner).push(move);
+      }
+      const perTarget = mons.map((mon) => {
+        const against = mon.types.length ? mon.types : ["Normal"];
+        const scores = [];
+        for (const list of byOwner.values()) {
+          const best = list
+            .map((move) => {
+              const multiplier = Math.max(0, typeMultiplier(data.chart, move.type, against));
+              return clamp100(40 * (move.power / 80) * Math.max(1, move.stab) * multiplier);
+            })
+            .sort((a, b) => b - a)
+            .slice(0, 2);
+          scores.push(best.reduce((a, b) => a + b, 0) / best.length);
+        }
+        return scores.reduce((a, b) => a + b, 0) / scores.length;
+      });
+      out[type] = clamp100(perTarget.reduce((a, b) => a + b, 0) / perTarget.length);
+    }
+    return out;
+  }
+
   /** Both scores for one day, or null for a day that ranks nobody in scope.
    *  A day whose Top X carries no damaging move at all has no defence score
    *  rather than eighteen zeroes. */
@@ -769,6 +863,10 @@
       count: mons.length,
       partial: mons.filter((mon) => mon.partialMoves).length,
       offense: offenseScores(data, mons),
+      // The same two questions asked the other way round, so the toggle can put either
+      // calculation on BOTH lists rather than one measure per side.
+      offensePressure: moves.length ? offensePressure(data, moves, mons) : null,
+      defenseMultiplier: moves.length ? defenseMultipliers(data, moves, mons) : null,
       // How many of them ARE each type. A different question from the two scores beside it --
       // those say how a type fares against the group, this says how much of the group IS that
       // type, which is the one a builder asks when choosing what to be weak to.
@@ -779,15 +877,25 @@
 
   /** Best first. A type the earlier day cannot score carries no change at all,
    *  which the row shows as a dash -- never as a 0 it did not earn. */
+  /** The field on a day's scores that this list reads, under the calculation in force. */
+  function typeField(side) {
+    if (side === "occurrences") return "occurrences";
+    if (state.typeCalc === "pressure") return side === "offense" ? "offensePressure" : "defense";
+    return side === "offense" ? "offense" : "defenseMultiplier";
+  }
+
   function typeRows(now, was, side) {
+    // Lower is better for the defending list under either calculation: less multiplier taken and
+    // less damage taken are the same kind of good.
     const lowerIsBetter = side === "defense";
+    const field = typeField(side);
     // A count of 0 is a real answer -- no Pokemon of this type is in the Top X -- while a score
     // of nothing means that day could not be scored at all, so the two are filtered differently.
-    const counting = side === "occurrences";
+    const counting = field === "occurrences";
     return TYPE_ORDER
       .map((type) => {
-        const value = now?.[side]?.[type];
-        const before = was?.[side]?.[type];
+        const value = now?.[field]?.[type];
+        const before = was?.[field]?.[type];
         const has = Number.isFinite(value);
         const hadBefore = Number.isFinite(before);
         return {
@@ -799,6 +907,114 @@
       })
       .filter((row) => row.value !== null && (!counting || row.value > 0))
       .sort((a, b) => (lowerIsBetter ? a.value - b.value : b.value - a.value) || a.type.localeCompare(b.type));
+  }
+
+
+  /* ------------------------------------------------------ sharing a section */
+
+  /**
+   * A list on this page as a link that unfurls into a picture of it.
+   *
+   * The rows are read off the PAGE rather than recomputed. The page is the only thing that knows
+   * how each number should read -- a multiplier, a percentage or a count -- so a card that worked
+   * any of it out again could disagree with what the reader is looking at, and the whole point of
+   * the picture is that it is what they saw.
+   */
+
+  /** The scope pill that governs a list: the nearest ancestor that has one. */
+  function scopePillFor(node) {
+    for (let at = node; at; at = at.parentElement) {
+      const pill = at.querySelector ? at.querySelector(".pill") : null;
+      if (pill) return pill.textContent.trim();
+    }
+    return "";
+  }
+
+  /** The rows a list is showing, in the words it is showing them in. */
+  function shareRows(listId) {
+    const list = document.getElementById(listId);
+    if (!list) return [];
+    return [...list.querySelectorAll(".meta-row")].slice(0, 18).map((row) => {
+      const strong = row.querySelector(".meta-row-body strong");
+      const small = row.querySelector(".meta-row-body small");
+      const rank = row.querySelector(".meta-type-rank");
+      const chip = row.querySelector("[data-tone]") || row.querySelector(".meta-row-chip, .meta-delta");
+      let label = (strong ? strong.textContent : "").trim();
+      if (rank) label = label.slice((rank.textContent || "").length).trim();
+      const detail = (small ? small.textContent : "").trim();
+      const chipText = (chip ? chip.textContent : "").trim();
+      return {
+        label,
+        // The number only, not the words after it: the card says what the measure is once, at
+        // the top, instead of eighteen times down the side.
+        value: detail.split(" ")[0] || detail,
+        delta: chipText,
+        tone: (chip && chip.getAttribute("data-tone")) || "",
+      };
+    }).filter((row) => row.label);
+  }
+
+  /** A canvas host with no art: a meta card draws text and panels only. */
+  function metaCardHost() {
+    return {
+      createCanvas(width, height) {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        return canvas;
+      },
+      loadImage() {
+        return null;
+      },
+    };
+  }
+
+  async function shareList(button) {
+    const listId = button.dataset.shareList;
+    const headingId = button.dataset.shareHeading;
+    const rows = shareRows(listId);
+    const was = button.dataset.label || button.textContent;
+    button.dataset.label = was;
+    if (!rows.length) {
+      button.textContent = "Nothing to share yet";
+      window.setTimeout(() => { button.textContent = was; }, 2400);
+      return;
+    }
+    button.disabled = true;
+    button.textContent = "Making a link\u2026";
+    try {
+      const { createShare, copyShareLink } = await import("/builder/share-client.js");
+      const headingNode = document.getElementById(headingId);
+      const heading = headingNode ? headingNode.textContent.replace(/[\u25b2\u25bc]/g, "").trim() : "Pokemon Champions meta";
+      const measure = listId.startsWith("type")
+        ? (listId === "typeCount" ? "Pok\u00e9mon with this type"
+          : state.typeCalc === "pressure" ? "Damage pressure" : "Average multiplier")
+        : `Change over ${windowLabel()}`;
+      const answer = await createShare({
+        kind: "meta",
+        title: heading,
+        format: state.format,
+        scope: scopePillFor(button),
+        measure,
+        note: `${formatDate(state.latest && state.latest.date) || ""} against ${formatDate(state.baseline && state.baseline.date) || ""}`.trim(),
+        brand: "championsbattledata.com/meta/",
+        rows,
+      }, metaCardHost());
+      await copyShareLink(answer.pageUrl);
+      button.textContent = "Link copied";
+    } catch (error) {
+      button.textContent = "Could not share";
+      if (error && error.message) console.warn("share:", error.message);
+    } finally {
+      button.disabled = false;
+      window.setTimeout(() => { button.textContent = was; }, 2600);
+    }
+  }
+
+  function wireShareButtons() {
+    for (const button of document.querySelectorAll("[data-share-list]")) {
+      button.addEventListener("click", () => shareList(button));
+    }
   }
 
   /* --------------------------------------------------- type lists: render */
@@ -853,7 +1069,12 @@
     renderTypeList(els.typeCount, els.typeCountLead, counts, "occurrences", scope);
 
     const partial = Math.max(now?.partial || 0, was?.partial || 0);
-    setTypeNote(`<strong>Best</strong> here is the same measure as the Team Builder's Offense and Defense overviews. An attacking type is scored by the average damage multiplier it gets against the typings of the ${escapeHtml(scope)}; a defending type by how much damage the ${escapeHtml(scope)} can put on it, counting every damaging move on their most used sets by type, power and same-type bonus, best two per Pokemon. Every Pokemon in the list counts once, whatever its usage. Scored on ${escapeHtml(formatDate(state.latest?.date))}, changed against ${escapeHtml(formatDate(state.baseline?.date))}.${partial ? ` ${partial} of them had a partly captured move list on one of the two days.` : ""}`);
+    // The note describes whichever calculation is in force, because the two measure different
+    // things and a reader who toggles has to be told what changed.
+    const howScored = state.typeCalc === "pressure"
+      ? `Both lists are scored by <strong>damage pressure</strong>, counting every damaging move on the most used sets of the ${escapeHtml(scope)} by type, power and same-type bonus, best two per Pokemon. An attacking type is scored by how much damage the moves of that type they carry put on them, averaged over the Pokemon that carry one -- a type none of them carries scores 0. A defending type is scored by how much damage they can put on it.`
+      : `Both lists are scored by the <strong>average damage multiplier</strong>. An attacking type is scored by what it gets against the typings of the ${escapeHtml(scope)}; a defending type by what their own attacks get against it. Every Pokemon in the list counts once, whatever its usage.`;
+    setTypeNote(`${howScored} Scored on ${escapeHtml(formatDate(state.latest?.date))}, changed against ${escapeHtml(formatDate(state.baseline?.date))}.${partial ? ` ${partial} of them had a partly captured move list on one of the two days.` : ""}`);
   }
 
   function renderTypeList(target, lead, rows, side, scope) {
@@ -885,10 +1106,16 @@
 
     const body = document.createElement("span");
     body.className = "meta-row-body";
-    const score = counting ? String(row.value) : offense ? `${row.value.toFixed(2)}×` : `${row.value.toFixed(1)}%`;
+    // The number follows the CALCULATION, not the side: both lists are the same measure now.
+    const pressure = state.typeCalc === "pressure";
+    const score = counting
+      ? String(row.value)
+      : pressure ? `${row.value.toFixed(1)}%` : `${row.value.toFixed(2)}×`;
     const detail = counting
       ? `Pok\u00e9mon with this type`
-      : offense ? "average multiplier" : "damage pressure taken";
+      : pressure
+        ? (offense ? "damage pressure put on them" : "damage pressure taken")
+        : "average multiplier";
     body.innerHTML = `<strong><span class="meta-type-rank">${index + 1}</span>${escapeHtml(row.type)}</strong><small>${score} ${escapeHtml(detail)}</small>`;
 
     line.append(thumb, body, typeDeltaChip(row, side));
@@ -927,17 +1154,19 @@
       chip.title = `No score for ${row.type} on ${formatDate(state.baseline?.date)}, so there is no change to show yet.`;
       return chip;
     }
-    const digits = offense ? 2 : 1;
+    const pressure = state.typeCalc === "pressure";
+    const digits = pressure ? 1 : 2;
     const delta = Number(row.delta.toFixed(digits));
     const better = offense ? delta > 0 : delta < 0;
     const tone = delta === 0 ? "flat" : better ? "up" : "down";
     const arrow = delta > 0 ? "▲" : delta < 0 ? "▼" : "▪";
     chip.className = `meta-delta ${tone}`;
     chip.textContent = `${arrow} ${delta > 0 ? "+" : ""}${delta.toFixed(digits)}`;
-    const unit = offense ? "×" : " points";
+    const sign = pressure ? "%" : "×";
+    const unit = pressure ? " points" : "×";
     chip.title = delta === 0
       ? `${row.type} scores the same as on ${formatDate(state.baseline?.date)}.`
-      : `${row.type}: ${row.was.toFixed(digits)}${offense ? "×" : "%"} on ${formatDate(state.baseline?.date)} → ${row.value.toFixed(digits)}${offense ? "×" : "%"} now, ${delta > 0 ? "up" : "down"} ${Math.abs(delta).toFixed(digits)}${unit}. ${better ? "Better" : "Worse"} for this type.`;
+      : `${row.type}: ${row.was.toFixed(digits)}${sign} on ${formatDate(state.baseline?.date)} → ${row.value.toFixed(digits)}${sign} now, ${delta > 0 ? "up" : "down"} ${Math.abs(delta).toFixed(digits)}${unit}. ${better ? "Better" : "Worse"} for this type.`;
     return chip;
   }
 

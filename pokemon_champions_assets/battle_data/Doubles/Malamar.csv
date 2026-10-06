@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Malamar,77,move,1,Superpower,87.9%,,,,,,,,
-Malamar,77,move,2,Protect,53.0%,,,,,,,,
+Malamar,77,move,2,Protect,52.9%,,,,,,,,
 Malamar,77,move,3,Knock Off,51.7%,,,,,,,,
 Malamar,77,move,4,Trick Room,39.4%,,,,,,,,
 Malamar,77,move,5,Skill Swap,32.7%,,,,,,,,
 Malamar,77,move,6,Psycho Cut,23.8%,,,,,,,,
-Malamar,77,move,7,Throat Chop,17.6%,,,,,,,,
+Malamar,77,move,7,Throat Chop,17.5%,,,,,,,,
 Malamar,77,move,8,Topsy-Turvy,11.2%,,,,,,,,
-Malamar,77,move,9,Night Slash,9.5%,,,,,,,,
-Malamar,77,move,10,Psych Up,7.9%,,,,,,,,
+Malamar,77,move,9,Night Slash,9.4%,,,,,,,,
+Malamar,77,move,10,Psych Up,8.0%,,,,,,,,
 Malamar,77,held_item,1,Malamarite,47.0%,,,,,,,,
 Malamar,77,held_item,2,Sitrus Berry,9.4%,,,,,,,,
 Malamar,77,held_item,3,Choice Scarf,8.5%,,,,,,,,
@@ -16,7 +16,7 @@ Malamar,77,held_item,4,Leftovers,8.3%,,,,,,,,
 Malamar,77,held_item,5,Roseli Berry,7.7%,,,,,,,,
 Malamar,77,held_item,6,Focus Sash,6.0%,,,,,,,,
 Malamar,77,held_item,7,Quick Claw,2.1%,,,,,,,,
-Malamar,77,held_item,8,Iron Ball,1.7%,,,,,,,,
+Malamar,77,held_item,8,Iron Ball,1.8%,,,,,,,,
 Malamar,77,held_item,9,Tanga Berry,1.2%,,,,,,,,
 Malamar,77,held_item,10,Rocky Helmet,0.8%,,,,,,,,
 Malamar,77,teammate,1,Indeedee-F,,,,,,,,,
@@ -30,7 +30,7 @@ Malamar,77,teammate,8,Rillaboom,,,,,,,,,
 Malamar,77,teammate,9,Gardevoir,,,,,,,,,
 Malamar,77,teammate,10,Sneasler,,,,,,,,,
 Malamar,77,stat_alignment,1,Adamant,22.6%,Attack,Sp. Atk,,,,,,
-Malamar,77,stat_alignment,2,Relaxed,16.9%,Defense,Speed,,,,,,
+Malamar,77,stat_alignment,2,Relaxed,16.8%,Defense,Speed,,,,,,
 Malamar,77,stat_alignment,3,Jolly,15.1%,Speed,Sp. Atk,,,,,,
 Malamar,77,stat_alignment,4,Brave,13.8%,Attack,Speed,,,,,,
 Malamar,77,stat_alignment,5,Sassy,10.8%,Sp. Def,Speed,,,,,,
@@ -44,8 +44,8 @@ Malamar,77,stat_points,2,,7.9%,,,32,0,2,0,32,0
 Malamar,77,stat_points,3,,7.4%,,,32,32,0,0,2,0
 Malamar,77,stat_points,4,,5.8%,,,32,0,12,0,22,0
 Malamar,77,stat_points,5,,4.4%,,,2,32,0,0,0,32
-Malamar,77,stat_points,6,,1.9%,,,2,0,32,0,32,0
-Malamar,77,stat_points,7,,1.9%,,,32,0,0,0,2,32
+Malamar,77,stat_points,6,,1.9%,,,32,0,0,0,2,32
+Malamar,77,stat_points,7,,1.9%,,,2,0,32,0,32,0
 Malamar,77,stat_points,8,,1.9%,,,32,0,32,0,2,0
 Malamar,77,stat_points,9,,1.7%,,,0,32,0,0,2,32
 Malamar,77,stat_points,10,,1.7%,,,0,32,2,0,32,0

@@ -36,6 +36,8 @@ const STORAGE_KEY = "cbd.solver.v1";
  * played so far -- but nothing waits for it.
  */
 const SEARCH_SECONDS = 20;
+/** The page's own deadline for the whole request: the budget, plus room for the worker's load. */
+const SEARCH_TIMEOUT_MS = SEARCH_SECONDS * 1000 + 40000;
 const BRING = { Doubles: 4, Singles: 3 };
 const ACTIVE = { Doubles: 2, Singles: 1 };
 /** A team is six; the bring is how many of them are in the simulation. */
@@ -1002,7 +1004,11 @@ function lineRow(row, index, mine) {
       text,
       h("span", {
         class: "bd-solver-line-score",
-        "data-tone": mine ? (shown >= 50 ? "good" : "bad") : "them",
+        // Your side is green and theirs is red, whatever the numbers say. The colour is whose
+        // score it is, not whether it is a good one -- the number already says that, and tying
+        // the colour to a threshold made your own column flip red on a board you were losing,
+        // beside a red column of theirs, so neither colour meant a side any more.
+        "data-tone": mine ? "us" : "them",
         title: mine
           ? `If this line is played, the board ends up at ${shown.toFixed(1)} out of 100 for you. 50 is even.`
           : `If this line is played, the board ends up at ${shown.toFixed(1)} out of 100 for them. 50 is even.`,
@@ -1160,8 +1166,21 @@ async function solve() {
     if (progressLine) progressLine.textContent = progressText(progress);
   });
   state.runId = request.requestId;
+  let guard = 0;
   try {
-    const result = await request;
+    // The worker ends the run itself at SEARCH_SECONDS. This is the backstop for a worker that
+    // never answers AT ALL -- its own battle-data load stalling, or an answer that is lost -- which
+    // left the spinner up for ever with nothing in the console and a Stop button that had nothing
+    // to stop. The allowance is the budget plus the same wait the page gives its own loads.
+    const result = await Promise.race([request, new Promise((_keep, fail) => {
+      guard = setTimeout(() => {
+        // Not an answer, so nothing is reported and nothing is charged. `stopSearch` is what the
+        // Stop button does: it marks the run stopped, which is what keeps `recordRun` from firing
+        // if a late answer ever arrives, and tells the worker to drop the run.
+        stopSearch();
+        fail(new Error(`The search did not answer within ${Math.round(SEARCH_TIMEOUT_MS / 1000)} seconds. Press Solve to try again.`));
+      }, SEARCH_TIMEOUT_MS);
+    })]);
     state.result = result.error ? null : result;
     state.error = result.error || "";
     // Only a search that ran its full budget counts against the free allowance.
@@ -1169,6 +1188,9 @@ async function solve() {
   } catch (error) {
     state.error = error.message || "The search stopped.";
   } finally {
+    // Cleared whichever way the race ended, so a run the person stopped can never be timed out
+    // afterwards and a finished run leaves no timer behind.
+    if (guard) clearTimeout(guard);
     state.running = false;
     state.runId = 0;
     progressLine = null;

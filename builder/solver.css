@@ -354,7 +354,9 @@
 
 .bd-solver-line-score[data-tone="good"] { color: var(--good, #34d399); }
 .bd-solver-line-score[data-tone="bad"] { color: var(--bad, #f87171); }
-/* Their own score, under their own heading: their side is red on the bar and on the board. */
+/* Each side's own colour, under its own heading: yours is green and theirs is red, the same two
+   colours the bar above and the board itself use for the two sides. */
+.bd-solver-line-score[data-tone="us"] { color: var(--good, #34d399); }
 .bd-solver-line-score[data-tone="them"] { color: var(--bad, #f87171); }
 
 .bd-solver-line-sub {

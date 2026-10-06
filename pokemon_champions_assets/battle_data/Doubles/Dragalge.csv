@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Dragalge,151,move,1,Sludge Bomb,78.7%,,,,,,,,
-Dragalge,151,move,2,Protect,74.9%,,,,,,,,
+Dragalge,151,move,2,Protect,75.0%,,,,,,,,
 Dragalge,151,move,3,Draco Meteor,54.3%,,,,,,,,
 Dragalge,151,move,4,Dragon Pulse,45.7%,,,,,,,,
 Dragalge,151,move,5,Flip Turn,25.7%,,,,,,,,
 Dragalge,151,move,6,Thunderbolt,21.7%,,,,,,,,
 Dragalge,151,move,7,Sludge Wave,18.9%,,,,,,,,
-Dragalge,151,move,8,Scald,15.6%,,,,,,,,
+Dragalge,151,move,8,Scald,15.5%,,,,,,,,
 Dragalge,151,move,9,Toxic,10.0%,,,,,,,,
 Dragalge,151,move,10,Focus Blast,8.0%,,,,,,,,
-Dragalge,151,held_item,1,Dragalgite,65.7%,,,,,,,,
+Dragalge,151,held_item,1,Dragalgite,65.8%,,,,,,,,
 Dragalge,151,held_item,2,Life Orb,12.7%,,,,,,,,
-Dragalge,151,held_item,3,Leftovers,3.9%,,,,,,,,
+Dragalge,151,held_item,3,Leftovers,3.8%,,,,,,,,
 Dragalge,151,held_item,4,Quick Claw,2.7%,,,,,,,,
 Dragalge,151,held_item,5,Poison Barb,2.4%,,,,,,,,
 Dragalge,151,held_item,6,White Herb,2.3%,,,,,,,,
@@ -29,7 +29,7 @@ Dragalge,151,teammate,7,Torkoal,,,,,,,,,
 Dragalge,151,teammate,8,Armarouge,,,,,,,,,
 Dragalge,151,teammate,9,Archaludon,,,,,,,,,
 Dragalge,151,teammate,10,Milotic,,,,,,,,,
-Dragalge,151,stat_alignment,1,Quiet,46.5%,Sp. Atk,Speed,,,,,,
+Dragalge,151,stat_alignment,1,Quiet,46.4%,Sp. Atk,Speed,,,,,,
 Dragalge,151,stat_alignment,2,Modest,29.8%,Sp. Atk,Attack,,,,,,
 Dragalge,151,stat_alignment,3,Sassy,7.5%,Sp. Def,Speed,,,,,,
 Dragalge,151,stat_alignment,4,Calm,5.8%,Sp. Def,Attack,,,,,,
@@ -39,9 +39,9 @@ Dragalge,151,stat_alignment,7,Timid,0.8%,Speed,Attack,,,,,,
 Dragalge,151,stat_alignment,8,Mild,0.6%,Sp. Atk,Defense,,,,,,
 Dragalge,151,stat_alignment,9,Adamant,0.2%,Attack,Sp. Atk,,,,,,
 Dragalge,151,stat_alignment,10,Gentle,0.2%,Sp. Def,Defense,,,,,,
-Dragalge,151,stat_points,1,,30.1%,,,32,0,2,32,0,0
+Dragalge,151,stat_points,1,,30.2%,,,32,0,2,32,0,0
 Dragalge,151,stat_points,2,,9.9%,,,32,0,0,32,2,0
-Dragalge,151,stat_points,3,,3.9%,,,0,0,2,32,32,0
+Dragalge,151,stat_points,3,,4.0%,,,0,0,2,32,32,0
 Dragalge,151,stat_points,4,,3.5%,,,2,0,0,32,32,0
 Dragalge,151,stat_points,5,,2.7%,,,29,0,5,32,0,0
 Dragalge,151,stat_points,6,,2.1%,,,2,0,32,32,0,0
@@ -49,6 +49,6 @@ Dragalge,151,stat_points,7,,2.0%,,,0,0,32,32,2,0
 Dragalge,151,stat_points,8,,1.4%,,,32,0,2,0,32,0
 Dragalge,151,stat_points,9,,1.4%,,,32,0,5,29,0,0
 Dragalge,151,stat_points,10,,1.3%,,,32,0,0,32,0,0
-Dragalge,151,ability,1,Adaptability,85.2%,,,,,,,,
+Dragalge,151,ability,1,Adaptability,85.1%,,,,,,,,
 Dragalge,151,ability,2,Poison Point,11.8%,,,,,,,,
-Dragalge,151,ability,3,Poison Touch,3.0%,,,,,,,,
+Dragalge,151,ability,3,Poison Touch,3.1%,,,,,,,,

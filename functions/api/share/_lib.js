@@ -307,6 +307,14 @@ const LIMITS = {
   bonuses: 6,
   checks: 16,
   threats: 6,
+  // Eighteen types is the longest a meta section gets, and the card draws two columns of nine.
+  rows: 18,
+  value: 16,
+  delta: 16,
+  measure: 48,
+  scope: 32,
+  note: 180,
+  brand: 64,
 };
 
 /** One line of plain text: no C0 control characters, no DEL, no runaway
@@ -388,6 +396,43 @@ export function cleanTeamDigest(raw) {
   return digest;
 }
 
+/**
+ * One section of the meta page: a title, a list of rows, and what the numbers mean.
+ *
+ * Deliberately dumb: the rows arrive already formatted, because the page that drew them is the
+ * only thing that knows whether a number is a multiplier, a percentage or a count, and a card
+ * that re-derived any of it could disagree with the page it came from.
+ */
+export function cleanMetaDigest(raw) {
+  if (!raw || typeof raw !== "object") throw bad("missing digest");
+  const rows = (Array.isArray(raw.rows) ? raw.rows : [])
+    .slice(0, LIMITS.rows)
+    .map((row) => {
+      const label = text(row?.label, LIMITS.label);
+      if (!label) return null;
+      const out = { label, value: text(row?.value, LIMITS.value) };
+      const delta = text(row?.delta, LIMITS.delta);
+      if (delta) out.delta = delta;
+      const tone = String(row?.tone || "").toLowerCase();
+      if (tone === "good" || tone === "bad") out.tone = tone;
+      return out;
+    })
+    .filter(Boolean);
+  if (!rows.length) throw bad("A shared section needs at least one row.");
+  const digest = {
+    v: int(raw.v, 1, 99, 1),
+    kind: "meta",
+    title: text(raw.title, LIMITS.title) || "Pokemon Champions meta",
+    format: cleanFormat(raw.format),
+    rows,
+  };
+  for (const [key, limit] of [["measure", LIMITS.measure], ["scope", LIMITS.scope], ["note", LIMITS.note], ["brand", LIMITS.brand]]) {
+    const value = text(raw[key], limit);
+    if (value) digest[key] = value;
+  }
+  return digest;
+}
+
 export function cleanEvalDigest(raw) {
   if (!raw || typeof raw !== "object") throw bad("missing digest");
   const scores = raw.scores && typeof raw.scores === "object" ? raw.scores : {};
@@ -434,8 +479,10 @@ export function cleanEvalDigest(raw) {
 
 /** Clean by kind, then refuse anything over the record cap. */
 export function cleanDigest(raw) {
-  const kind = String(raw?.kind || "").toLowerCase() === "eval" ? "eval" : "team";
-  const digest = kind === "eval" ? cleanEvalDigest(raw) : cleanTeamDigest(raw);
+  const asked = String(raw?.kind || "").toLowerCase();
+  const kind = asked === "eval" || asked === "meta" ? asked : "team";
+  const digest = kind === "meta" ? cleanMetaDigest(raw)
+    : kind === "eval" ? cleanEvalDigest(raw) : cleanTeamDigest(raw);
   const serialised = JSON.stringify(digest);
   if (serialised.length > MAX_RECORD_CHARS) {
     throw bad(`A share record must be at most ${MAX_RECORD_CHARS} characters.`, 413);
@@ -472,12 +519,21 @@ export function teamNames(digest) {
 
 export function cardTitle(digest) {
   const title = text(digest?.title, LIMITS.title);
+  if (digest?.kind === "meta") return title || "Pokemon Champions meta";
   if (digest?.kind === "eval") return title || "Team Evaluation";
   return title || "Pokemon Champions Team";
 }
 
 export function cardDescription(digest) {
   const format = cleanFormat(digest?.format);
+  if (digest?.kind === "meta") {
+    // The first few rows, which is what the number in the picture says anyway.
+    const rows = (Array.isArray(digest.rows) ? digest.rows : []).slice(0, 5)
+      .map((row) => `${row.label} ${row.value}`.trim())
+      .filter(Boolean);
+    const head = [digest.scope, format, digest.measure].filter(Boolean).join(" - ");
+    return `${head}${rows.length ? `: ${rows.join(", ")}` : ""}`.slice(0, 300);
+  }
   if (digest?.kind === "eval") {
     const scores = digest.scores || {};
     const parts = [

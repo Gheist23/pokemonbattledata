@@ -772,6 +772,234 @@ const solver = makeSolver();
      [leaving.atk, leaving.spa, leaving.spe, leaving.def], [0, 0, 0, 0]);
 }
 
+// ---------------------------------------------------------------------------
+// 19. Mega Evolution is a decision, and it happens in the right order
+// ---------------------------------------------------------------------------
+// Every stone holder used to be built already Mega-Evolved, with the Mega's Ability live from the
+// first turn. Two things were wrong with that. A side could search both of its stone holders as
+// Megas, which no battle allows. And the Ability arrived too early: on a board with Pelipper
+// standing beside Charizard, the Solver resolved Mega Charizard Y's Drought as an ENTRY, before
+// Pelipper's Drizzle, so the board ended up in Rain. The game does the opposite -- the rain is
+// already up, and Mega Evolution replaces it with Sun.
+{
+  const ZARD = set("Charizard", "Charizardite Y", "Blaze", "Timid",
+    ["Heat Wave", "Air Slash", "Solar Beam", "Protect"], [4, 0, 0, 30, 0, 32]);
+  const PELI = set("Pelipper", "Focus Sash", "Drizzle", "Modest",
+    ["Hurricane", "Weather Ball", "Tailwind", "Protect"], [32, 0, 0, 32, 0, 2]);
+  const WEATHER = ["None", "Sun", "Rain", "Sand", "Snow", "Strong Winds"];
+  const state = solver.buildState(board(
+    [row(ZARD, { front: true }), row(PELI, { front: true }), row(CAT), row(BULKY)],
+    [row(HITTER, { front: true }), row(BULKY, { front: true }), row(CAT), row(SUPPORT)],
+    { weather: "Rain" }));
+  const zard = state.active[0][0];
+
+  eq("a stone holder stands in its base form", zard.u.form, "Charizard");
+  eq("with its base Ability", zard.u.mon.ability, "Blaze");
+  ok("and the stone is still in its hand", Boolean(zard.mega), String(Boolean(zard.mega)));
+  eq("which would make it", zard.mega.form, "Mega Charizard Y");
+  eq("the board starts in the weather the board says", WEATHER[state.board.w], "Rain");
+
+  const joints = solver.jointsFor(state, 0, 400);
+  const offered = joints.filter((joint) => joint.some((a) => a.mega));
+  ok("using the stone is on offer", offered.length > 0, String(offered.length));
+  ok("but never twice in one turn", joints.every((joint) => joint.filter((a) => a.mega).length <= 1));
+  ok("and never on the Pokemon that is leaving the field",
+     joints.every((joint) => joint.every((a) => !(a.mega && a.kind === SWITCH))));
+  // The same move is offered both ways, so not using the stone stays a real choice.
+  const plain = joints.filter((joint) => joint.every((a) => !a.mega));
+  ok("not using it is still on offer", plain.length > 0, String(plain.length));
+
+  const chosen = offered.find((joint) => joint[0] && joint[0].mega);
+  const events = [];
+  solver.applyChosenTurn(state, chosen, solver.jointsFor(state, 1, 10)[0], 1, events);
+  eq("it Mega-Evolved", state.active[0][0].u.form, "Mega Charizard Y");
+  eq("and gained the Mega's Ability", state.active[0][0].u.mon.ability, "Drought");
+  eq("whose weather replaced the one already up", WEATHER[state.board.w], "Sun");
+  ok("the trace says it happened", events.some((e) => e.kind === "mega"),
+     events.map((e) => e.kind).join(","));
+  // And the report a reader sees says it in words, with the weather it brought.
+  const said = solver.turnRecord(1, [], events, solver.snapshot(state), solver.snapshot(state)).notes;
+  ok("the report names the Mega Evolution", said.some((line) => /Mega Evolved/.test(line)), said.join(" | "));
+  ok("and the weather it set", said.some((line) => /set Sun/.test(line)), said.join(" | "));
+  ok("the side has spent its one Mega Evolution", state.megaUsed[0] === true);
+  ok("so nothing on that side is offered another",
+     solver.jointsFor(state, 0, 400).every((joint) => joint.every((a) => !a.mega)));
+
+  // One line using the stone must not spend it for every other line.
+  const fresh = solver.cloneState(state);
+  ok("a copy of the board carries the spent stone", fresh.megaUsed[0] === true);
+  const untouched = solver.buildState(board(
+    [row(ZARD, { front: true }), row(PELI, { front: true })],
+    [row(HITTER, { front: true }), row(BULKY, { front: true })]));
+  const copy = solver.cloneState(untouched);
+  copy.megaUsed[0] = true;
+  ok("and spending it on a copy does not spend it on the board", untouched.megaUsed[0] === false);
+
+  // A board someone describes as ALREADY Mega has no Mega Evolution left to make.
+  const already = solver.buildState(board(
+    [{ ...row(ZARD, { front: true }), set: { ...ZARD, form: "Mega Charizard Y", item: "" } }, row(PELI, { front: true })],
+    [row(HITTER, { front: true }), row(BULKY, { front: true })]));
+  ok("a board that is already Mega has used its Mega Evolution", already.megaUsed[0] === true);
+  notes.push(`mega: ${offered.length} of ${joints.length} openings use the stone; Rain -> Sun on evolving`);
+}
+
+// Intimidate is not fired twice for one entry.
+//
+// `prepare` attributes the BASE form's Intimidate to the Mega unit's entry, because the
+// Tournament Test never swaps units and has to put it somewhere. The Solver does swap, so the
+// base fires its own Intimidate as it comes in and the Mega must not fire it again. Mega
+// Salamence's own Ability is Aerilate; what it inherits is the attribution, not the Ability.
+{
+  const MENCE = set("Salamence", "Salamencite", "Intimidate", "Jolly",
+    ["Double-Edge", "Dragon Claw", "Protect", "Tailwind"], [4, 32, 0, 0, 0, 30]);
+  const state = solver.buildState(board(
+    [row(MENCE, { front: true }), row(SUPPORT, { front: true }), row(CAT), row(BULKY)],
+    [row(HITTER, { front: true }), row(BULKY, { front: true }), row(CAT), row(SUPPORT)]));
+  ok("the base form has Intimidate", state.active[0][0].k.intimidate === true);
+  ok("and so does the Mega unit's kit, which is why this has to be guarded",
+     solver.t.prepare(state.active[0][0].mega).kit.intimidate === true);
+  const before = state.active[1].map((m) => m.atk);
+  // No switch in the chosen turn: a switch would bring our own Intimidate holder in and lower
+  // their Attack for a reason that has nothing to do with the stone.
+  // Everyone Protects, so the only thing that can happen on this turn is the Mega Evolution.
+  const GUARD = 7;
+  const joints = solver.jointsFor(state, 0, 400);
+  const chosen = joints.find((joint) => joint[0] && joint[0].mega && joint[0].kind === GUARD
+    && joint.every((a) => a.kind === GUARD));
+  const quiet = solver.jointsFor(state, 1, 400).find((joint) => joint.every((a) => a.kind === GUARD));
+  ok("Salamence can use its stone while Protecting", Boolean(chosen));
+  ok("and they can all Protect too", Boolean(quiet));
+  if (chosen && quiet) {
+    solver.applyChosenTurn(state, chosen, quiet, 1, []);
+    eq("it Mega-Evolved", state.active[0][0].u.form, "Mega Salamence");
+    eq("into its own Ability", state.active[0][0].u.mon.ability, "Aerilate");
+    const after = state.active[1].map((m) => m.atk);
+    eq("and nobody's Attack was lowered a second time", after, before);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 20. A knockout is worth the same to both sides
+// ---------------------------------------------------------------------------
+// The board value took each side's MEAN surviving HP over the Pokemon THAT SIDE brought, so two
+// different denominators priced the same knockout differently: with two against four, losing one
+// of ours cost 25 points and losing one of theirs gained 12.5 -- and a two-against-four board
+// still opened at an even 50, which said it was level.
+{
+  const full = (n) => Array.from({ length: n }, (_, i) => row(i === 0 ? HITTER : i === 1 ? SUPPORT : i === 2 ? CAT : BULKY, { front: i < 2 }));
+  const value = (ours, theirs, hurt) => {
+    const state = solver.buildState(board(full(ours), full(theirs)));
+    if (hurt) {
+      const side = hurt > 0 ? 1 : 0;
+      state.sides[side][0].hp = 0;
+      state.sides[side][0].out = true;
+    }
+    return solver.valueOf(state);
+  };
+  const even = value(4, 4, 0);
+  near("four against four is even", even, 50, 0.001);
+  near("losing one of ours costs 12.5", value(4, 4, -1), 50 - 12.5, 0.001);
+  near("and taking one of theirs gains the same", value(4, 4, 1), 50 + 12.5, 0.001);
+  // The short side: two against four is NOT level, and a knockout is still worth 12.5 either way.
+  const short = value(2, 4, 0);
+  ok("two against four is not called even", Math.abs(short - 50) > 1, short.toFixed(2));
+  near("a knockout costs us the same on a short board", short - value(2, 4, -1), 12.5, 0.001);
+  near("and gains us the same", value(2, 4, 1) - short, 12.5, 0.001);
+  // A+B = 100 still, whichever way round the sides are.
+  const mirrored = (() => {
+    const state = solver.buildState(board(full(4), full(2)));
+    return solver.valueOf(state);
+  })();
+  near("the same board from the other side adds up to 100", short + mirrored, 100, 0.001);
+  notes.push(`value: 4v4 ${even.toFixed(2)}, 2v4 ${short.toFixed(2)}, 4v2 ${mirrored.toFixed(2)}`);
+}
+
+// ---------------------------------------------------------------------------
+// 21. Grassy Glide is fast in Grassy Terrain on a searched turn too
+// ---------------------------------------------------------------------------
+// The planner read a move's priority from the computed hit and the Solver read it from the static
+// move table, so the SAME Grassy Glide moved first on a planned turn and last on a searched one.
+{
+  const RILLA = set("Rillaboom", "Assault Vest", "Grassy Surge", "Adamant",
+    ["Grassy Glide", "Wood Hammer", "High Horsepower", "U-turn"], [32, 32, 0, 0, 0, 2]);
+  const priority = (terrain) => {
+    const state = solver.buildState(board(
+      [row(RILLA, { front: true }), row(SUPPORT, { front: true })],
+      [row(FAST, { front: true }), row(BULKY, { front: true })], { terrain }));
+    const slot = state.active[0][0].u.moves.findIndex((info) => info.name === "Grassy Glide");
+    const joint = solver.jointsFor(state, 0, 400).find((j) => j[0] && j[0].slot === slot && j[0].kind === 6 && !j[0].mega);
+    if (!joint) return null;
+    return solver.planFor(state, joint, 0)[0].pr;
+  };
+  eq("Grassy Glide is ordinary without the terrain", priority("None"), 0);
+  eq("and moves first with it", priority("Grassy"), 1);
+}
+
+// ---------------------------------------------------------------------------
+// 22. Poison, bad poison and freeze cost something
+// ---------------------------------------------------------------------------
+{
+  const after = (status, turns = 1) => {
+    const state = solver.buildState(board(
+      [row(HITTER, { front: true, status }), row(SUPPORT, { front: true })],
+      [row(BULKY, { front: true }), row(CAT, { front: true })]));
+    const m = state.active[0][0];
+    const seen = [];
+    for (let i = 0; i < turns; i += 1) {
+      solver.residual(state);
+      seen.push(Math.round(m.hp * 1000) / 1000);
+    }
+    return seen;
+  };
+  eq("poison takes an eighth a turn", after("poison", 2), [0.875, 0.75]);
+  // Bad poison starts at a sixteenth and takes one more each turn: 2/16 then 3/16 from a board
+  // that cannot say how long it has been going.
+  const toxic = after("toxic", 2);
+  ok("bad poison takes more each turn", toxic[0] > toxic[1] && (1 - toxic[0]) < (toxic[0] - toxic[1]),
+     toxic.join(" -> "));
+  eq("a healthy Pokemon loses nothing", after("", 2), [1, 1]);
+  eq("and neither does a burned one, which the turn model pays for itself", after("burn", 1), [1]);
+
+  // Frozen: it cannot act until it thaws, and it thaws about one turn in five.
+  const state = solver.buildState(board(
+    [row(HITTER, { front: true, status: "freeze" }), row(SUPPORT, { front: true })],
+    [row(BULKY, { front: true }), row(CAT, { front: true })]));
+  ok("the board marks it frozen", state.active[0][0].frozen === true);
+  let stuck = 0;
+  let thawed = 0;
+  for (let i = 0; i < 200; i += 1) {
+    const one = solver.buildState(board(
+      [row(HITTER, { front: true, status: "freeze" }), row(SUPPORT, { front: true })],
+      [row(BULKY, { front: true }), row(CAT, { front: true })]));
+    solver.thaw(one);
+    if (one.active[0][0].frozen) stuck += 1; else thawed += 1;
+    if (one.active[0][0].idle > 0) continue;
+  }
+  ok("a frozen Pokemon usually stays frozen for the turn", stuck > thawed, `${stuck} stuck, ${thawed} thawed`);
+  ok("but it does thaw sometimes", thawed > 0, String(thawed));
+  const frozen = solver.buildState(board(
+    [row(HITTER, { front: true, status: "freeze" }), row(SUPPORT, { front: true })],
+    [row(BULKY, { front: true }), row(CAT, { front: true })]));
+  let blocked = 0;
+  for (let i = 0; i < 40; i += 1) {
+    const one = solver.cloneState(frozen);
+    solver.thaw(one);
+    if (one.active[0][0].idle > 0) blocked += 1;
+  }
+  ok("and while it is frozen it cannot act", blocked > 0, String(blocked));
+
+  // Sleep no longer depends on the sleeper's own moveset.
+  const sleepy = (moves) => {
+    const SET = set("Amoonguss", "Sitrus Berry", "Regenerator", "Calm", moves, [32, 0, 2, 0, 32, 0]);
+    return solver.buildState(board(
+      [row(SET, { front: true, status: "sleep" }), row(SUPPORT, { front: true })],
+      [row(BULKY, { front: true }), row(CAT, { front: true })])).active[0][0].idle;
+  };
+  eq("a Spore carrier sleeps for two turns", sleepy(["Spore", "Pollen Puff", "Rage Powder", "Protect"]), 2);
+  eq("and so does a Sleep Powder carrier, which used to sleep for one",
+     sleepy(["Sleep Powder", "Pollen Puff", "Rage Powder", "Protect"]), 2);
+}
+
 for (const line of notes) console.log(line);
 if (failures.length) {
   console.error(`\n${checked} checks, ${failures.length} failed:`);

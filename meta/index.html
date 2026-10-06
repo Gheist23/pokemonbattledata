@@ -66,8 +66,7 @@
     <section class="hero section-shell meta-hero" aria-labelledby="metaTitle">
       <div class="hero-copy">
         <p class="eyebrow">Pokemon Champions Meta Trends</p>
-        <h1 id="metaTitle">What moved in the meta</h1>
-        <p class="hero-text">Compare two ranked snapshots to see which Pokemon climbed or dropped in usage rank, which moves, held items, and abilities gained or lost the most ground, and which attacking and defending types the top meta is weakest to right now. Pick any Pokemon to open its full change breakdown.</p>
+        <h1 id="metaTitle">Meta</h1>
         <p class="meta-window" id="metaWindow" aria-live="polite">Loading snapshots…</p>
       </div>
 
@@ -115,11 +114,11 @@
         </div>
         <div class="meta-duo">
           <section class="meta-panel meta-panel-up" aria-labelledby="rankWinnersHeading">
-            <h3 id="rankWinnersHeading"><span class="meta-arrow up" aria-hidden="true">▲</span> Rank winners</h3>
+            <div class="meta-sub-heading"><h3 id="rankWinnersHeading"><span class="meta-arrow up" aria-hidden="true">▲</span> Rank winners</h3><button type="button" class="meta-share-button" data-share-list="rankWinners" data-share-heading="rankWinnersHeading">Share</button></div>
             <div class="meta-list" id="rankWinners"></div>
           </section>
           <section class="meta-panel meta-panel-down" aria-labelledby="rankLosersHeading">
-            <h3 id="rankLosersHeading"><span class="meta-arrow down" aria-hidden="true">▼</span> Rank losers</h3>
+            <div class="meta-sub-heading"><h3 id="rankLosersHeading"><span class="meta-arrow down" aria-hidden="true">▼</span> Rank losers</h3><button type="button" class="meta-share-button" data-share-list="rankLosers" data-share-heading="rankLosersHeading">Share</button></div>
             <div class="meta-list" id="rankLosers"></div>
           </section>
         </div>
@@ -142,11 +141,11 @@
         </div>
         <div class="meta-duo">
           <section class="meta-panel meta-panel-up" aria-labelledby="usageRisingHeading">
-            <h3 id="usageRisingHeading"><span class="meta-arrow up" aria-hidden="true">▲</span> Rising</h3>
+            <div class="meta-sub-heading"><h3 id="usageRisingHeading"><span class="meta-arrow up" aria-hidden="true">▲</span> Rising</h3><button type="button" class="meta-share-button" data-share-list="usageRising" data-share-heading="usageRisingHeading">Share</button></div>
             <div class="meta-list" id="usageRising"></div>
           </section>
           <section class="meta-panel meta-panel-down" aria-labelledby="usageFallingHeading">
-            <h3 id="usageFallingHeading"><span class="meta-arrow down" aria-hidden="true">▼</span> Falling</h3>
+            <div class="meta-sub-heading"><h3 id="usageFallingHeading"><span class="meta-arrow down" aria-hidden="true">▼</span> Falling</h3><button type="button" class="meta-share-button" data-share-list="usageFalling" data-share-heading="usageFallingHeading">Share</button></div>
             <div class="meta-list" id="usageFalling"></div>
           </section>
         </div>
@@ -161,16 +160,22 @@
             <p class="eyebrow">Type matchups</p>
             <h2 id="typeHeading">Type changes</h2>
           </div>
-          <span class="pill" id="metaTypePill">Top 30</span>
+          <div class="panel-heading-controls">
+            <span class="pill" id="metaTypePill">Top 30</span>
+            <div class="meta-calc-toggle" role="group" aria-label="How the types are scored">
+              <button type="button" class="meta-calc-button is-on" id="metaCalcMultiplier" aria-pressed="true">Average multiplier</button>
+              <button type="button" class="meta-calc-button" id="metaCalcPressure" aria-pressed="false">Damage pressure</button>
+            </div>
+          </div>
         </div>
         <div class="meta-duo">
           <section class="meta-panel meta-panel-offense" aria-labelledby="typeOffenseHeading">
-            <h3 id="typeOffenseHeading">Best offensive types</h3>
+            <div class="meta-sub-heading"><h3 id="typeOffenseHeading">Best offensive types</h3><button type="button" class="meta-share-button" data-share-list="typeOffense" data-share-heading="typeOffenseHeading">Share</button></div>
             <p class="meta-type-lead" id="typeOffenseLead"></p>
             <div class="meta-list meta-type-list" id="typeOffense"></div>
           </section>
           <section class="meta-panel meta-panel-defense" aria-labelledby="typeDefenseHeading">
-            <h3 id="typeDefenseHeading">Best defensive types</h3>
+            <div class="meta-sub-heading"><h3 id="typeDefenseHeading">Best defensive types</h3><button type="button" class="meta-share-button" data-share-list="typeDefense" data-share-heading="typeDefenseHeading">Share</button></div>
             <p class="meta-type-lead" id="typeDefenseLead"></p>
             <div class="meta-list meta-type-list" id="typeDefense"></div>
           </section>

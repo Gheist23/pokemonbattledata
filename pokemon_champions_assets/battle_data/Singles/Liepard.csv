@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Liepard,191,move,1,Encore,84.2%,,,,,,,,
-Liepard,191,move,2,Foul Play,79.9%,,,,,,,,
-Liepard,191,move,3,Copycat,71.2%,,,,,,,,
-Liepard,191,move,4,Protect,56.7%,,,,,,,,
+Liepard,191,move,2,Foul Play,79.8%,,,,,,,,
+Liepard,191,move,3,Copycat,71.3%,,,,,,,,
+Liepard,191,move,4,Protect,56.6%,,,,,,,,
 Liepard,191,move,5,Yawn,13.7%,,,,,,,,
-Liepard,191,move,6,Taunt,11.7%,,,,,,,,
-Liepard,191,move,7,Fake Out,10.1%,,,,,,,,
-Liepard,191,move,8,Substitute,9.0%,,,,,,,,
+Liepard,191,move,6,Taunt,11.6%,,,,,,,,
+Liepard,191,move,7,Fake Out,10.0%,,,,,,,,
+Liepard,191,move,8,Substitute,9.1%,,,,,,,,
 Liepard,191,move,9,Thunder Wave,8.5%,,,,,,,,
 Liepard,191,move,10,Baton Pass,8.4%,,,,,,,,
 Liepard,191,held_item,1,Focus Sash,39.7%,,,,,,,,
 Liepard,191,held_item,2,Sitrus Berry,16.5%,,,,,,,,
-Liepard,191,held_item,3,Leftovers,10.3%,,,,,,,,
-Liepard,191,held_item,4,Bright Powder,5.6%,,,,,,,,
-Liepard,191,held_item,5,Eject Button,5.3%,,,,,,,,
+Liepard,191,held_item,3,Leftovers,10.4%,,,,,,,,
+Liepard,191,held_item,4,Bright Powder,5.5%,,,,,,,,
+Liepard,191,held_item,5,Eject Button,5.2%,,,,,,,,
 Liepard,191,held_item,6,Choice Scarf,2.4%,,,,,,,,
-Liepard,191,held_item,7,Lum Berry,2.3%,,,,,,,,
+Liepard,191,held_item,7,Lum Berry,2.2%,,,,,,,,
 Liepard,191,held_item,8,Black Glasses,1.9%,,,,,,,,
 Liepard,191,held_item,9,Normal Gem,1.9%,,,,,,,,
 Liepard,191,held_item,10,Mental Herb,1.9%,,,,,,,,
@@ -27,20 +27,20 @@ Liepard,191,teammate,5,Primarina,,,,,,,,,
 Liepard,191,teammate,6,Baxcalibur,,,,,,,,,
 Liepard,191,teammate,7,Meowscarada,,,,,,,,,
 Liepard,191,teammate,8,Sneasler,,,,,,,,,
-Liepard,191,teammate,9,Charizard,,,,,,,,,
-Liepard,191,teammate,10,Rillaboom,,,,,,,,,
+Liepard,191,teammate,9,Rillaboom,,,,,,,,,
+Liepard,191,teammate,10,Charizard,,,,,,,,,
 Liepard,191,stat_alignment,1,Bold,23.3%,Defense,Attack,,,,,,
 Liepard,191,stat_alignment,2,Jolly,17.8%,Speed,Sp. Atk,,,,,,
-Liepard,191,stat_alignment,3,Impish,16.9%,Defense,Sp. Atk,,,,,,
+Liepard,191,stat_alignment,3,Impish,16.8%,Defense,Sp. Atk,,,,,,
 Liepard,191,stat_alignment,4,Relaxed,9.7%,Defense,Speed,,,,,,
 Liepard,191,stat_alignment,5,Adamant,8.5%,Attack,Sp. Atk,,,,,,
-Liepard,191,stat_alignment,6,Timid,6.1%,Speed,Attack,,,,,,
+Liepard,191,stat_alignment,6,Timid,6.0%,Speed,Attack,,,,,,
 Liepard,191,stat_alignment,7,Careful,2.6%,Sp. Def,Sp. Atk,,,,,,
 Liepard,191,stat_alignment,8,Naive,2.0%,Speed,Sp. Def,,,,,,
 Liepard,191,stat_alignment,9,Brave,1.8%,Attack,Speed,,,,,,
 Liepard,191,stat_alignment,10,Sassy,1.4%,Sp. Def,Speed,,,,,,
-Liepard,191,stat_points,1,,33.9%,,,32,0,32,0,2,0
-Liepard,191,stat_points,2,,6.8%,,,2,32,0,0,0,32
+Liepard,191,stat_points,1,,34.0%,,,32,0,32,0,2,0
+Liepard,191,stat_points,2,,6.7%,,,2,32,0,0,0,32
 Liepard,191,stat_points,3,,3.6%,,,32,0,2,0,0,32
 Liepard,191,stat_points,4,,3.3%,,,32,0,1,0,1,32
 Liepard,191,stat_points,5,,2.7%,,,2,0,32,0,32,0
@@ -49,6 +49,6 @@ Liepard,191,stat_points,7,,2.5%,,,32,0,30,0,4,0
 Liepard,191,stat_points,8,,2.1%,,,32,0,0,0,2,32
 Liepard,191,stat_points,9,,1.9%,,,0,32,0,0,2,32
 Liepard,191,stat_points,10,,1.9%,,,32,0,0,0,0,32
-Liepard,191,ability,1,Prankster,94.0%,,,,,,,,
+Liepard,191,ability,1,Prankster,94.1%,,,,,,,,
 Liepard,191,ability,2,Unburden,5.7%,,,,,,,,
 Liepard,191,ability,3,Limber,0.3%,,,,,,,,

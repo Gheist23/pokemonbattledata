@@ -9495,3 +9495,83 @@ a.answer-card:focus-visible {
 .move-info-button .asset-label {
   pointer-events: none;
 }
+
+/* --- the Type Matchups calculation toggle ------------------------------------------------- */
+
+/* Beside the scope pill, because it answers the same kind of question: the pill says WHICH
+   Pokemon are being scored and this says HOW. */
+.panel-heading-controls {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.meta-calc-toggle {
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid rgba(88, 220, 196, 0.23);
+  border-radius: 999px;
+  background: rgba(8, 20, 20, 0.5);
+}
+
+.meta-calc-button {
+  padding: 0.3rem 0.66rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--muted, #9fb6b2);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.meta-calc-button:hover { color: #e6fffb; }
+
+.meta-calc-button.is-on {
+  background: rgba(88, 220, 196, 0.16);
+  color: #e6fffb;
+}
+
+@media (max-width: 560px) {
+  .panel-heading { flex-wrap: wrap; }
+  .meta-calc-button { padding: 0.3rem 0.5rem; font-size: 0.68rem; }
+}
+
+/* --- sharing a meta list ------------------------------------------------------------------ */
+
+/* The heading and its Share button on one line, so the button belongs to the list under it and
+   not to the section as a whole. */
+.meta-sub-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.meta-sub-heading h3 { margin: 0; }
+
+.meta-share-button {
+  flex: 0 0 auto;
+  padding: 0.26rem 0.62rem;
+  border: 1px solid rgba(88, 220, 196, 0.23);
+  border-radius: 999px;
+  background: rgba(8, 20, 20, 0.5);
+  color: var(--muted, #9fb6b2);
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.meta-share-button:hover:not(:disabled) {
+  border-color: rgba(88, 220, 196, 0.5);
+  color: #e6fffb;
+}
+
+.meta-share-button:disabled { opacity: 0.6; cursor: default; }

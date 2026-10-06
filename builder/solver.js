@@ -52,6 +52,8 @@ export const SWITCH = -1;
 export const SOLVER_FEATURE = "solver";
 /** Turns of the game the search looks at, including the one it is choosing. */
 export const DEFAULT_LOOKAHEAD = 4;
+/** How long a Pokemon a board calls Asleep stays asleep. Two, as a Spore gives. */
+export const SOLVER_SLEEP_TURNS = 2;
 export const LOOKAHEAD_RANGE = [2, 8];
 /** How many of a Pokemon's own actions are kept, best first, so the statistics stay meaningful. */
 export const TOP_PER_SLOT = 8;
@@ -130,10 +132,12 @@ export const STATUS_EFFECTS = Object.freeze({
   "": { turn: "", mon: "" },
   burn: { turn: "burn", mon: "Burned" },
   sleep: { turn: "sleep", mon: "Asleep" },
-  poison: { turn: "", mon: "Poisoned" },
-  toxic: { turn: "", mon: "Badly Poisoned" },
+  poison: { turn: "poison", mon: "Poisoned" },
+  toxic: { turn: "toxic", mon: "Badly Poisoned" },
+  // Paralysis is already modelled where it matters: the Pokemon is built with the condition on
+  // it and the engine halves its Speed. Only the one-in-four lost turn is missing.
   paralysis: { turn: "", mon: "Paralyzed" },
-  freeze: { turn: "", mon: "Frozen" },
+  freeze: { turn: "freeze", mon: "Frozen" },
 });
 
 export class Solver {
@@ -249,6 +253,30 @@ export class Solver {
   }
 
   /**
+   * The same Pokemon before its stone is used.
+   *
+   * `prepare` already builds `unit.base` -- the Tournament Test has always known that a stone
+   * holder walks in as its base form -- and `baseFormUnit` wraps it. What that wrapper does not
+   * carry is the three fields the Solver's own damage branch reads off a unit, so they are added
+   * here: without `side` the screens of side 0 would protect both sides, and without the two
+   * counters Last Respects and Rage Fist would price at nothing.
+   */
+  baseUnitFor(unit, side) {
+    const bare = this.t.baseFormUnit(unit);
+    if (bare === unit) return unit;
+    bare.side = side;
+    bare.faintedAllies = unit.faintedAllies;
+    bare.timesHit = unit.timesHit;
+    return this.t.prepare(bare);
+  }
+
+  /** Whether this Pokemon is holding a stone its side has not used yet. */
+  canMega(state, s, position) {
+    const m = state.active[s][position];
+    return Boolean(m && !m.out && m.mega && !state.megaUsed[s]);
+  }
+
+  /**
    * The board as the turn machinery wants it: `sides[s]` with the ones on the field first (which
    * is what `refill` assumes), `active[s]` pointing into it, and `next[s]` past them.
    */
@@ -256,14 +284,22 @@ export class Solver {
     const sides = [];
     const active = [];
     const next = [];
+    const megaUsed = [false, false];
     for (let s = 0; s < 2; s += 1) {
       const rows = (setup.sides[s] || []).filter((row) => row && row.set && row.set.species).slice(0, this.bring);
       const onField = rows.filter((row) => row.front).slice(0, this.activeCount);
       const back = rows.filter((row) => !onField.includes(row));
       const ordered = [...onField, ...back];
       const list = ordered.map((row, i) => {
-        const unit = this.unitFor(row, i, s);
+        const mega = this.unitFor(row, i, s);
+        // Everything stands in its base form: a stone does nothing until its owner chooses to
+        // use it, and choosing is what the search now does.
+        const unit = this.baseUnitFor(mega, s);
+        // A board can also be described with a Pokemon ALREADY in its Mega form -- someone
+        // recreating the middle of a game -- and then that side's one Mega Evolution is gone.
+        if (unit === mega && /^mega\b/i.test(String(mega.form || ""))) megaUsed[s] = true;
         const m = this.t.fresh(unit, s, i < onField.length);
+        m.mega = unit === mega ? null : mega;
         m.ix = i;
         m.hp = clamp01(Number(row.hp === undefined ? 100 : row.hp) / 100);
         m.out = m.hp <= 0;
@@ -272,7 +308,21 @@ export class Solver {
         m.spe = clampStage(Math.trunc(Number(row.spe) || 0));
         const condition = (STATUS_EFFECTS[String(row.status || "")] || STATUS_EFFECTS[""]).turn;
         m.burn = condition === "burn" && !m.k.burnProof;
-        m.idle = condition === "sleep" ? Math.max(1, m.k.sleepTurns || 2) : 0;
+        // Not `m.k.sleepTurns`: that is how long THIS Pokemon's own sleep move puts somebody
+        // ELSE out -- Spore two turns, the rest one -- which is a fact about its moveset and has
+        // nothing to do with how long it has been asleep. An Amoonguss carrying Sleep Powder woke
+        // a full turn earlier than the identical Amoonguss carrying Spore. A board does not say
+        // how many turns are left, so it gets the model's own sleep, which is also what every
+        // Pokemon with no sleep move was already getting.
+        m.idle = condition === "sleep" ? SOLVER_SLEEP_TURNS : 0;
+        // The three the turn model had no idea about. Each costs something every turn, and a
+        // board that says a Pokemon is poisoned meant nothing at all until now.
+        m.psn = condition === "poison";
+        m.tox = condition === "toxic";
+        // A badly poisoned Pokemon has been poisoned for some number of turns already and the
+        // board cannot say how many, so it starts where the game starts: one sixteenth.
+        m.toxTurns = condition === "toxic" ? 1 : 0;
+        m.frozen = condition === "freeze";
         m.sleep = condition === "sleep";
         m.justIn = Boolean(row.justIn);
         // Already on the field, so already entered: the board describes a game in progress and
@@ -312,12 +362,16 @@ export class Solver {
       wide: 0,
       quick: 0,
     };
+    // `entrySpeedOf`, not `u.entrySpeed`: that field is null for everything that is not a stone
+    // holder, so this read 0 for an ordinary side and judged whichever side happened to carry a
+    // stone the faster one. Now that nothing stands in its Mega form it would have been 0 for
+    // both sides always, and `planSide` reads it for its Trick Room and setup decisions.
     const mean = (list) => {
       const live = list.filter(alive);
-      return live.length ? live.reduce((sum, m) => sum + (m.u.entrySpeed || 0), 0) / live.length : 0;
+      return live.length ? live.reduce((sum, m) => sum + this.t.entrySpeedOf(m.u), 0) / live.length : 0;
     };
     const slower = [mean(sides[0]) < mean(sides[1]), mean(sides[1]) < mean(sides[0])];
-    return { sides, active, next, board, slower };
+    return { sides, active, next, board, slower, megaUsed };
   }
 
   /** A copy that a line can be played on without touching the board it came from. */
@@ -330,6 +384,8 @@ export class Solver {
       next: [...base.next],
       board: { ...base.board, tw: [...base.board.tw] },
       slower: [...base.slower],
+      // Copied, not shared: one line's Mega Evolution must not be spent for every other line.
+      megaUsed: [...base.megaUsed],
     };
   }
 
@@ -454,7 +510,18 @@ export class Solver {
 
     if (!out.length) out.push({ position, kind: 0, value: 0, wait: true });
     out.sort((a, b) => b.value - a.value);
-    return out.slice(0, TOP_PER_SLOT);
+    const kept = out.slice(0, TOP_PER_SLOT);
+    // Mega Evolution does not take the turn, so it is not an action of its own: it is a flag on
+    // whatever this Pokemon was going to do anyway. Added AFTER the cut so that offering the
+    // choice never pushes a real move off the list -- the Pokemon keeps every option it had, and
+    // gains the same options again with the stone used.
+    //
+    // Not on a switch: a Pokemon that is leaving the field does not Mega Evolve on its way out.
+    if (!this.canMega(state, s, position)) return kept;
+    const evolving = kept
+      .filter((a) => a.kind !== SWITCH && !a.wait)
+      .map((a) => ({ ...a, mega: true }));
+    return [...kept, ...evolving];
   }
 
   /** Every combination of what the Pokemon on the field could do, capped.
@@ -473,6 +540,9 @@ export class Solver {
       const taken = joint.filter((a) => a.kind === SWITCH).map((a) => a.into);
       return new Set(taken).size === taken.length;
     });
+    // One Mega Evolution a side, for the whole battle. Both Pokemon reaching for the stone in the
+    // same turn is not a turn either.
+    joints = joints.filter((joint) => joint.filter((a) => a.mega).length <= 1);
     joints.sort((a, b) => b.reduce((sum, x) => sum + x.value, 0) - a.reduce((sum, x) => sum + x.value, 0));
     return joints.slice(0, Math.max(1, cap));
   }
@@ -543,7 +613,20 @@ export class Solver {
         entry.partner = state.active[s][action.partner];
         if (!alive(entry.partner)) continue;
       }
-      if (action.kind === ATTACK) entry.hit = { slot: action.slot, spread: Boolean(info.spread) };
+      if (action.kind === ATTACK) {
+        entry.hit = { slot: action.slot, spread: Boolean(info.spread) };
+        // Priority the static move table does not list. Grassy Glide is +1 in Grassy Terrain for
+        // a grounded user, and only the computed hit knows it -- the planner's own entries read
+        // `pick.hit.priority`, so a PLANNED Grassy Glide moved first and a SEARCHED one moved
+        // last on the very same board. A spread move has no single target, so it is priced
+        // against the first live foe, which is where `plannedTurn` aims it anyway; the terrain
+        // bonus does not depend on which foe it is.
+        const aim = target || foes.find(alive) || null;
+        if (aim) {
+          const hit = this.t.hitOn(m, aim, action.slot, state.board, m.helped);
+          if (hit && hit.priority !== undefined) entry.pr = hit.priority;
+        }
+      }
       plan.push(entry);
     }
     return plan;
@@ -551,8 +634,14 @@ export class Solver {
 
   /** The value of a board, from our side: 50 is even. */
   valueOf(state) {
-    const share = (list) => (list.length ? list.reduce((sum, m) => sum + Math.max(0, m.hp), 0) / list.length : 0);
-    return Math.max(0, Math.min(100, 50 + 50 * (share(state.sides[0]) - share(state.sides[1]))));
+    // ONE denominator for both sides. A mean over each side's OWN bring made a knockout worth a
+    // different number of points to each of them: with two brought against four, losing one of
+    // ours cost 25 and losing one of theirs gained 12.5, and the board still opened at an even
+    // 50 -- which said a two-against-four board was level. Now a knockout is worth 50/n whoever
+    // loses it, and a short side starts behind, which is what being short means.
+    const total = (list) => list.reduce((sum, m) => sum + Math.max(0, m.hp), 0);
+    const n = Math.max(1, state.sides[0].length, state.sides[1].length);
+    return Math.max(0, Math.min(100, 50 + (50 * (total(state.sides[0]) - total(state.sides[1]))) / n));
   }
 
   /**
@@ -599,18 +688,93 @@ export class Solver {
     const { active, sides, next, board, slower } = state;
     this.applySwitches(state, ourJoint, 0);
     this.applySwitches(state, theirJoint, 1);
-    // A Pokemon that came in this turn gets its entry Ability, exactly as a replacement does.
+    // A Pokemon that came in this turn gets its entry Ability, exactly as a replacement does --
+    // and in the same order `refill` uses, fastest first, so that the SLOWER one's weather is the
+    // one left on the board. Walking the seats instead meant side 1 always won a weather war.
+    const arriving = [];
     for (let s = 0; s < 2; s += 1) {
-      for (const m of active[s]) if (m && m.justIn && !m.entered) { m.entered = true; this.t.enter(m, active, board, null); }
+      for (const m of active[s]) if (m && m.justIn && !m.entered) { m.entered = true; arriving.push(m); }
     }
+    arriving.sort((a, b) => this.t.entrySpeedOf(b.u) - this.t.entrySpeedOf(a.u));
+    for (const m of arriving) this.t.enter(m, active, board, events);
+    this.applyMegas(state, [ourJoint, theirJoint], events);
+    this.thaw(state);
     const plans = [this.planFor(state, ourJoint, 0), this.planFor(state, theirJoint, 1)];
     this.t.plannedTurn(active, board, slower, turn, events, null, plans);
     this.tickBoard(state);
   }
 
+  /**
+   * The Mega Evolutions chosen this turn, in the order the game resolves them.
+   *
+   * After the switches and after the entry Abilities, before any move: that is where the game
+   * puts it, and it is what makes the user's example come out right. Pelipper is standing with
+   * Drizzle, so the board is already Rain; Charizard then Mega-Evolves and Drought replaces it
+   * with Sun. Running it any earlier would have let the Rain overwrite the Sun.
+   *
+   * The faster Pokemon evolves first when both sides do it at once, so the slower one's weather
+   * is the one left standing -- the same rule `refill` uses for two replacements arriving
+   * together.
+   */
+  applyMegas(state, joints, events) {
+    const { active, board } = state;
+    const going = [];
+    for (let s = 0; s < 2; s += 1) {
+      for (const action of joints[s] || []) {
+        if (!action || !action.mega) continue;
+        const m = active[s][action.position];
+        if (!m || m.out || !m.mega || state.megaUsed[s]) continue;
+        state.megaUsed[s] = true;
+        going.push(m);
+        break;
+      }
+    }
+    if (!going.length) return;
+    going.sort((a, b) => this.t.entrySpeedOf(b.u) - this.t.entrySpeedOf(a.u));
+    for (const m of going) {
+      const was = m.u;
+      const hadIntimidate = Boolean(m.k.intimidate);
+      m.u = this.t.prepare(m.mega);
+      m.k = m.u.kit;
+      m.mega = null;
+      events?.push({ s: m.s, kind: "mega", actor: was, value: this.label(m.u) });
+      this.t.megaEnter(m, active, board, events, hadIntimidate);
+    }
+  }
+
+  /**
+   * The planner's own Mega Evolution, for the turns below the searched depth.
+   *
+   * The planner has no opinion about a stone, so without this a line would stay in its base form
+   * for ever after the second turn -- which would make the base form look better than it is. It
+   * takes the one on the field with the most to gain, which is what a player does by default.
+   */
+  autoMega(state, events) {
+    const { active, board } = state;
+    for (let s = 0; s < 2; s += 1) {
+      if (state.megaUsed[s]) continue;
+      let best = null;
+      for (const m of active[s]) {
+        if (!m || m.out || !m.mega) continue;
+        if (!best || this.t.megaValue(m.mega) > this.t.megaValue(best.mega)) best = m;
+      }
+      if (!best) continue;
+      state.megaUsed[s] = true;
+      const was = best.u;
+      const hadIntimidate = Boolean(best.k.intimidate);
+      best.u = this.t.prepare(best.mega);
+      best.k = best.u.kit;
+      best.mega = null;
+      events?.push({ s: best.s, kind: "mega", actor: was, value: this.label(best.u) });
+      this.t.megaEnter(best, active, board, events, hadIntimidate);
+    }
+  }
+
   /** The planner's turn, for the tail below the searched depth. Returns what it chose. */
   applyPlannedTurn(state, turn, events) {
     const { active, board, slower } = state;
+    this.autoMega(state, events);
+    this.thaw(state);
     const plans = this.t.plannedTurn(active, board, slower, turn, events, null);
     this.tickBoard(state);
     return plans;
@@ -644,8 +808,61 @@ export class Solver {
   }
 
   /** The counters that run down at the end of every turn, and the empty slots filled. */
+  /**
+   * The conditions that take HP at the end of a turn.
+   *
+   * Burn is paid by `TournamentTest.endOfTurn`, which is the Tournament Test's own and must not
+   * learn anything new. Poison and bad poison are the Solver's, so they are paid here -- an
+   * eighth, and a sixteenth more each turn to a ceiling of fifteen sixteenths, which is where the
+   * game stops counting.
+   */
+  residual(state) {
+    for (const row of state.active) {
+      for (const m of row) {
+        if (!m || m.out) continue;
+        let cost = 0;
+        if (m.psn) cost = 1 / 8;
+        else if (m.tox) {
+          m.toxTurns = Math.min(15, (m.toxTurns || 1) + 1);
+          cost = Math.min(15, m.toxTurns) / 16;
+        }
+        if (!cost) continue;
+        m.hp -= cost;
+        if (m.hp <= 1e-9) {
+          m.hp = 0;
+          m.out = true;
+        } else {
+          this.t.berry(m);
+        }
+      }
+    }
+  }
+
+  /**
+   * Thawing, before anything is chosen.
+   *
+   * A frozen Pokemon does not act, and has one chance in five of thawing each turn. The turn
+   * machinery already knows how to skip a Pokemon that cannot act -- it is the counter sleep
+   * uses -- so freezing borrows it rather than growing a second one.
+   */
+  thaw(state) {
+    for (const row of state.active) {
+      for (const m of row) {
+        if (!m || m.out || !m.frozen) continue;
+        if (this.random() < 0.2) {
+          m.frozen = false;
+          continue;
+        }
+        m.idle = Math.max(m.idle, 1);
+      }
+    }
+  }
+
   tickBoard(state) {
     const { active, sides, next, board } = state;
+    // Before the empty slots are filled, so a Pokemon that goes down to its own poison is
+    // replaced on the same turn as one that was knocked out by a move.
+    this.residual(state);
     if (board.tw[0]) board.tw[0] -= 1;
     if (board.tw[1]) board.tw[1] -= 1;
     if (board.tr) board.tr -= 1;
@@ -766,6 +983,16 @@ export class Solver {
       .join(" and ");
     for (const event of events || []) {
       if (!event.actor) continue;
+      // Mega Evolution, and the weather or terrain it brings with it. Worth saying out loud now
+      // that it is a choice the search makes rather than something true from the first turn.
+      if (event.kind === "mega") {
+        add(`${this.label(event.actor)} Mega Evolved`);
+        continue;
+      }
+      if (event.kind === "weather" || event.kind === "terrain") {
+        add(`${this.label(event.actor)} set ${event.value}`);
+        continue;
+      }
       if (Object.prototype.hasOwnProperty.call(DROPS, event.kind)) {
         const stats = (DROPS[event.kind] || event.stats || []).map((key) => STAT_WORDS[key] || key);
         const said = stats.length ? stats.join(" and ") : "stats";
@@ -819,6 +1046,7 @@ export class Solver {
   }
 
   /** A joint action's identity, so a reported row can be matched back to the action it came from. */
+  /** Two lines that differ only in whether the stone was used are two different lines. */
   keyOf(joint) {
     return joint.map((a) => `${a.position}:${a.kind}:${a.slot ?? ""}:${a.target ?? ""}:${a.into ?? ""}`).join("|");
   }

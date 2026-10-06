@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Slowbro,100,move,1,Slack Off,84.5%,,,,,,,,
-Slowbro,100,move,2,Scald,78.7%,,,,,,,,
+Slowbro,100,move,2,Scald,78.8%,,,,,,,,
 Slowbro,100,move,3,Iron Defense,53.9%,,,,,,,,
-Slowbro,100,move,4,Ice Beam,41.4%,,,,,,,,
+Slowbro,100,move,4,Ice Beam,41.3%,,,,,,,,
 Slowbro,100,move,5,Body Press,34.7%,,,,,,,,
 Slowbro,100,move,6,Calm Mind,19.8%,,,,,,,,
-Slowbro,100,move,7,Psychic,12.2%,,,,,,,,
+Slowbro,100,move,7,Psychic,12.3%,,,,,,,,
 Slowbro,100,move,8,Flamethrower,11.6%,,,,,,,,
 Slowbro,100,move,9,Yawn,11.2%,,,,,,,,
 Slowbro,100,move,10,Trick Room,7.3%,,,,,,,,
@@ -18,7 +18,7 @@ Slowbro,100,held_item,6,Expert Belt,0.8%,,,,,,,,
 Slowbro,100,held_item,7,Lum Berry,0.6%,,,,,,,,
 Slowbro,100,held_item,8,Kasib Berry,0.5%,,,,,,,,
 Slowbro,100,held_item,9,Quick Claw,0.3%,,,,,,,,
-Slowbro,100,held_item,10,Eject Button,0.2%,,,,,,,,
+Slowbro,100,held_item,10,Focus Sash,0.2%,,,,,,,,
 Slowbro,100,teammate,1,Toxapex,,,,,,,,,
 Slowbro,100,teammate,2,Garchomp,,,,,,,,,
 Slowbro,100,teammate,3,Snorlax,,,,,,,,,
@@ -39,7 +39,7 @@ Slowbro,100,stat_alignment,7,Impish,0.3%,Defense,Sp. Atk,,,,,,
 Slowbro,100,stat_alignment,8,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
 Slowbro,100,stat_alignment,9,Timid,0.2%,Speed,Attack,,,,,,
 Slowbro,100,stat_alignment,10,Adamant,0.1%,Attack,Sp. Atk,,,,,,
-Slowbro,100,stat_points,1,,27.6%,,,32,0,32,0,2,0
+Slowbro,100,stat_points,1,,27.7%,,,32,0,32,0,2,0
 Slowbro,100,stat_points,2,,8.7%,,,32,0,32,2,0,0
 Slowbro,100,stat_points,3,,7.4%,,,31,0,32,0,3,0
 Slowbro,100,stat_points,4,,6.7%,,,32,0,2,0,32,0
@@ -51,4 +51,4 @@ Slowbro,100,stat_points,9,,1.6%,,,31,0,32,0,2,1
 Slowbro,100,stat_points,10,,1.5%,,,31,0,3,0,32,0
 Slowbro,100,ability,1,Regenerator,88.1%,,,,,,,,
 Slowbro,100,ability,2,Oblivious,10.3%,,,,,,,,
-Slowbro,100,ability,3,Own Tempo,1.6%,,,,,,,,
+Slowbro,100,ability,3,Own Tempo,1.7%,,,,,,,,

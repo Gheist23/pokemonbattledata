@@ -67,7 +67,15 @@ check("the delta chip has room for the arrow at phone width", /\.meta-type-list 
 check("the section keeps the page's own two-column layout", /class="meta-duo"/.test(pageHtml.slice(pageHtml.indexOf('id="typeHeading"'))));
 // 390px: .meta-duo collapses to one column at 900px and the row shrinks at 620px.
 check("meta.css stacks the two panels on a phone", /@media \(max-width: 900px\) \{\s*\.meta-duo \{ grid-template-columns: 1fr; \}/.test(pageCss));
-check("meta.js does not import the builder modules", !/\bimport\b[^\n]*builder\//.test(pageJs), "the page is a plain script");
+// The page must still LOAD as a plain script: no builder module in its graph when it starts.
+// A dynamic import inside a handler is a different thing and is allowed -- the Share button
+// fetches builder/share-client.js only when somebody presses it, so a reader who never
+// shares never pays for it.
+check("meta.js does not import the builder modules at load",
+  !/^\s*import\b[^\n]*builder\//m.test(pageJs), "the page is a plain script");
+check("and any builder module it does use is fetched on demand",
+  !/builder\//.test(pageJs) || /await import\([^)]*builder\//.test(pageJs),
+  (pageJs.match(/[^\n]*builder\/[^\n]*/) || [""])[0].trim().slice(0, 120));
 
 /* ---------------------------------------------------------------- tiny DOM */
 
@@ -298,7 +306,8 @@ function buildMetaPage(document) {
     "rankWinners", "rankLosers", "usageRising", "usageFalling",
     "metaTypePill", "metaTypeNote", "typeOffenseLead", "typeDefenseLead", "typeOffense", "typeDefense"]) add("div", id);
   for (const id of ["metaRange", "metaScope"]) add("select", id);
-  for (const id of ["rankMoreButton", "usageMoreButton", "formatToggleDoubles", "formatToggleSingles", "metaDialogClose"]) add("button", id);
+  for (const id of ["rankMoreButton", "usageMoreButton", "formatToggleDoubles", "formatToggleSingles", "metaDialogClose",
+    "metaCalcMultiplier", "metaCalcPressure"]) add("button", id);
   for (const category of ["move", "held_item", "ability"]) {
     const tab = add("button", "", "meta-tab");
     tab.dataset.category = category;
@@ -330,6 +339,23 @@ async function openMetaPage(fetchImpl, { search = "" } = {}) {
     await sleep(25);
   }
   return document;
+}
+
+/**
+ * Switch the type lists to the other calculation and wait for them to be redrawn.
+ *
+ * Both lists are one measure at a time now -- average multiplier by default, damage pressure on
+ * the toggle -- so a check that wants a particular measure has to say which.
+ */
+async function setCalc(document, calc) {
+  const button = document.getElementById(calc === "pressure" ? "metaCalcPressure" : "metaCalcMultiplier");
+  const before = document.querySelector("#typeDefense .meta-row-body")?.textContent || "";
+  button.dispatch("click");
+  for (let tries = 0; tries < 400; tries += 1) {
+    const now = document.querySelector("#typeDefense .meta-row-body")?.textContent || "";
+    if (now && now !== before) return;
+    await sleep(25);
+  }
 }
 
 /** One list as the page drew it: "1Ice1.08× average multiplier" -> {type, value}. */
@@ -419,7 +445,8 @@ const note = page.getElementById("metaTypeNote").textContent;
 check("the attacking list has all 18 types", offense.length === 18, `${offense.length} row(s)`);
 check("the defending list has all 18 types", defense.length === 18, `${defense.length} row(s)`);
 check("the attacking list is a multiplier", offense.every((row) => row.unit === "×"), offense[0]?.unit);
-check("the defending list is a pressure", defense.every((row) => row.unit === "%"), defense[0]?.unit);
+// Both lists are the same measure by default, which is what lets a reader compare them.
+check("the defending list is a multiplier too, by default", defense.every((row) => row.unit === "×"), defense[0]?.unit);
 check("the attacking list runs best first", offense.every((row, i) => i === 0 || offense[i - 1].value >= row.value),
   offense.map((r) => `${r.type} ${r.shown}`).join(" | "));
 check("the defending list runs best first", defense.every((row, i) => i === 0 || defense[i - 1].value <= row.value),
@@ -431,7 +458,7 @@ check("the defending list says the same thing",
   defenseLead.startsWith(`Best defensive type against Top 30 Meta: ${defense[0]?.type}.`), defenseLead.slice(0, 120));
 check("the sentence says the real day window", /change over the last 7 days/.test(offenseLead), offenseLead.slice(0, 160));
 check("the pill says the Top X", page.getElementById("metaTypePill").textContent === "Top 30", page.getElementById("metaTypePill").textContent);
-check("the page explains what best means", /same measure as the Team Builder's Offense and Defense overviews/.test(note), note.slice(0, 160));
+check("the page explains what the number is", /Both lists are scored by the <strong>average damage multiplier<\/strong>|average damage multiplier/.test(note), note.slice(0, 160));
 check("the note says every Pokemon counts once", /counts once/.test(note), note.slice(0, 260));
 // Two dates, not two Septembers: this asked for "Sep" twice and went red on 1 October, when
 // the note reads "Scored on 1 Oct 2026, changed against 24 Sep 2026". What it is checking is
@@ -453,16 +480,24 @@ if (wantNow && wantWas) {
   check("the attacking order is the Team Builder's",
     offense.map((row) => row.type).join(",") === wantOffense.map(([type]) => type).join(","),
     `page ${offense.map((r) => r.type).join(",")}\n    builder ${wantOffense.map(([t]) => t).join(",")}`);
-  check("the defending order is the Team Builder's",
-    defense.map((row) => row.type).join(",") === wantDefense.map(([type]) => type).join(","),
-    `page ${defense.map((r) => r.type).join(",")}\n    builder ${wantDefense.map(([t]) => t).join(",")}`);
+  // The default-mode order is not the builder's pressure order and is not meant to be: it is the
+  // multiplier order, and the pressure order is checked against the builder on the toggle below.
 
   const badOffense = offense.filter((row) => row.shown !== wantNow.offense[row.type].toFixed(2));
   check("every attacking score is the Team Builder's", badOffense.length === 0,
     badOffense.slice(0, 4).map((row) => `${row.type} page ${row.shown} builder ${wantNow.offense[row.type].toFixed(2)}`).join("; "));
-  const badDefense = defense.filter((row) => row.shown !== wantNow.defense[row.type].toFixed(1));
-  check("every defending score is the Team Builder's", badDefense.length === 0,
+  // The defending list is the Team Builder's pressure measure ON THE TOGGLE. By default both
+  // lists are the average multiplier, which is the measure the two sides can be read against
+  // each other in; the pressure one is still here, one click away, and still has to agree with
+  // the Team Builder to the digit.
+  await setCalc(page, "pressure");
+  const defensePressure = readList(page, "typeDefense");
+  const badDefense = defensePressure.filter((row) => row.shown !== wantNow.defense[row.type].toFixed(1));
+  check("every defending score is the Team Builder's, on the pressure toggle", badDefense.length === 0,
     badDefense.slice(0, 4).map((row) => `${row.type} page ${row.shown} builder ${wantNow.defense[row.type].toFixed(1)}`).join("; "));
+  check("the defending order is the Team Builder's, on the pressure toggle",
+    defensePressure.map((row) => row.type).join(",") === wantDefense.map(([type]) => type).join(","),
+    `page ${defensePressure.map((r) => r.type).join(",")}\n    builder ${wantDefense.map(([t]) => t).join(",")}`);
 
   // The change: today's score minus the score on the earliest day in the window,
   // both scored the same way, with the sign and the arrow the page prints.
@@ -470,9 +505,24 @@ if (wantNow && wantWas) {
   const badOffenseDelta = offense.filter((row) => row.delta !== chip(Number((wantNow.offense[row.type] - wantWas.offense[row.type]).toFixed(2)), 2));
   check("every attacking change is today minus the earliest day in the window", badOffenseDelta.length === 0,
     badOffenseDelta.slice(0, 4).map((row) => `${row.type} page ${row.delta} want ${chip(Number((wantNow.offense[row.type] - wantWas.offense[row.type]).toFixed(2)), 2)}`).join("; "));
-  const badDefenseDelta = defense.filter((row) => row.delta !== chip(Number((wantNow.defense[row.type] - wantWas.defense[row.type]).toFixed(1)), 1));
+  const badDefenseDelta = defensePressure.filter((row) => row.delta !== chip(Number((wantNow.defense[row.type] - wantWas.defense[row.type]).toFixed(1)), 1));
   check("every defending change is today minus the earliest day in the window", badDefenseDelta.length === 0,
     badDefenseDelta.slice(0, 4).map((row) => `${row.type} page ${row.delta} want ${chip(Number((wantNow.defense[row.type] - wantWas.defense[row.type]).toFixed(1)), 1)}`).join("; "));
+  // Back to the default, so everything after this reads the page as a visitor first sees it.
+  await setCalc(page, "multiplier");
+
+  // The default, which is the whole point of the change: both lists are the same measure, so a
+  // reader can hold them against each other. Every row of both carries the multiplier sign.
+  check("by default both lists are the average multiplier",
+    offense.every((row) => row.unit === "\u00d7") && defense.every((row) => row.unit === "\u00d7"),
+    `${offense[0]?.shown}${offense[0]?.unit} / ${defense[0]?.shown}${defense[0]?.unit}`);
+  // Lower is better for a defending type under either measure, so the list opens on the smallest.
+  check("the defending list opens on the type that takes the least",
+    defense.every((row, i) => i === 0 || Number(row.shown) >= Number(defense[i - 1].shown)),
+    defense.slice(0, 4).map((r) => `${r.type} ${r.shown}`).join(" | "));
+  check("and the attacking list opens on the type that gets the most",
+    offense.every((row, i) => i === 0 || Number(row.shown) <= Number(offense[i - 1].shown)),
+    offense.slice(0, 4).map((r) => `${r.type} ${r.shown}`).join(" | "));
 
   // Colour is never the only signal, and a rise on the defending list is a worse
   // score, so it is toned the other way round.
@@ -550,16 +600,23 @@ check("its sentence names the Top X from the URL",
 check("and the day window it really compared",
   new RegExp(`change over the last ${singlesWindow.days} days`).test(singles.getElementById("typeOffenseLead").textContent),
   singles.getElementById("typeOffenseLead").textContent.slice(0, 160));
-check("the Singles scores are the Team Builder's Singles scores",
-  !!wantSingles && singlesOffense.every((row) => row.shown === wantSingles.offense[row.type].toFixed(2))
-  && singlesDefense.every((row) => row.shown === wantSingles.defense[row.type].toFixed(1)),
+check("the Singles attacking scores are the Team Builder's Singles scores",
+  !!wantSingles && singlesOffense.every((row) => row.shown === wantSingles.offense[row.type].toFixed(2)),
   singlesOffense.slice(0, 3).map((row) => `${row.type} page ${row.shown} builder ${wantSingles?.offense[row.type]?.toFixed(2)}`).join("; "));
+// The defending measure the Team Builder also owns is the pressure one, so that half is read on
+// the toggle. The default multiplier is this page's own measure and is checked on its own above.
+await setCalc(singles, "pressure");
+const singlesDefensePressure = readList(singles, "typeDefense");
+check("and the Singles defending scores are its Singles scores, on the pressure toggle",
+  !!wantSingles && singlesDefensePressure.every((row) => row.shown === wantSingles.defense[row.type].toFixed(1)),
+  singlesDefensePressure.slice(0, 3).map((row) => `${row.type} page ${row.shown} builder ${wantSingles?.defense[row.type]?.toFixed(1)}`).join("; "));
 check("and the Singles changes are against the Singles baseline day",
-  !!wantSinglesWas && singlesDefense.every((row) => {
+  !!wantSinglesWas && singlesDefensePressure.every((row) => {
     const delta = Number((wantSingles.defense[row.type] - wantSinglesWas.defense[row.type]).toFixed(1));
     return row.delta === `${delta > 0 ? "▲" : delta < 0 ? "▼" : "▪"} ${delta > 0 ? "+" : ""}${delta.toFixed(1)}`;
   }),
-  singlesDefense.slice(0, 3).map((row) => `${row.type} ${row.delta}`).join("; "));
+  singlesDefensePressure.slice(0, 3).map((row) => `${row.type} ${row.delta}`).join("; "));
+await setCalc(singles, "multiplier");
 
 // "All Pokemon" is the whole ranked list, which is also the most the Team
 // Builder's Top-X can be.
@@ -616,15 +673,38 @@ check("and its score is 2.00x", handOffense[0]?.shown === "2.00", handOffense[0]
 // Two days earlier, without Kingambit: (1 + 1) / 2 = 1.00, so the change is +1.00.
 check("its change is +1.00", handOffense[0]?.delta === "▲ +1.00", handOffense[0]?.delta);
 
+// Bug defending by default -- the same question as the attacking list, asked the other way
+// round: what each Pokemon's own moves get against it, averaged per Pokemon and then over them.
+//   Rillaboom  Wood Hammer (Grass) 0.5, High Horsepower (Ground) 0.5  -> 0.5
+//   Kingambit  Iron Head (Steel) 1,     Sucker Punch (Dark) 1         -> 1
+//   Milotic    Surf (Water) 1,          Ice Beam (Ice) 1              -> 1
+//   (0.5 + 1 + 1) / 3 = 0.8333
+check("by default the hand-built defending winner is Bug", handDefense[0]?.type === "Bug",
+  handDefense.slice(0, 3).map((r) => `${r.type} ${r.shown}`).join(" | "));
+check("and its score is 0.83x", handDefense[0]?.shown === "0.83", handDefense[0]?.shown);
+// Two days earlier, without Kingambit: (0.5 + 1) / 2 = 0.75, so Bug now takes 0.08 more. A rise
+// is worse for a defending type, so the chip is toned down even though the arrow points up.
+check("its change is +0.08, read to the same two places as the score",
+  handDefense[0]?.delta === "▲ +0.08", handDefense[0]?.delta);
+check("and the default list runs from least taken to most",
+  handDefense.every((row, i) => i === 0 || Number(row.shown) >= Number(handDefense[i - 1].shown)),
+  handDefense.map((r) => r.shown).join(" "));
+
+// The same section on the toggle: damage pressure, which is the measure the Team Builder shares.
+await setCalc(handPage, "pressure");
+const handDefensePressure = readList(handPage, "typeDefense");
+
 // Water defending, move by move, each Pokemon's best two averaged:
 //   Rillaboom  Wood Hammer 40*(120/80)*1.5*2 = 180 -> 100, High Horsepower 40*(95/80)*1*1 = 47.5   -> 73.75
 //   Kingambit  Iron Head 40*(80/80)*1.5*0.5 = 30,     Sucker Punch 40*(70/80)*1.5*1 = 52.5         -> 41.25
 //   Milotic    Surf 40*(90/80)*1.5*0.5 = 33.75,       Ice Beam 40*(90/80)*1*0.5 = 22.5             -> 28.125
 //   (73.75 + 41.25 + 28.125) / 3 = 47.708...
-check("the hand-built defending winner is Water", handDefense[0]?.type === "Water", handDefense.slice(0, 3).map((r) => `${r.type} ${r.shown}`).join(" | "));
-check("and its score is 47.7%", handDefense[0]?.shown === "47.7", handDefense[0]?.shown);
+check("on the toggle the hand-built defending winner is Water", handDefensePressure[0]?.type === "Water",
+  handDefensePressure.slice(0, 3).map((r) => `${r.type} ${r.shown}`).join(" | "));
+check("and its score is 47.7%", handDefensePressure[0]?.shown === "47.7", handDefensePressure[0]?.shown);
 // Without Kingambit: (73.75 + 28.125) / 2 = 50.9375, so the change is -3.2.
-check("its change is -3.2", handDefense[0]?.delta === "▼ -3.2", handDefense[0]?.delta);
+check("its change is -3.2", handDefensePressure[0]?.delta === "▼ -3.2", handDefensePressure[0]?.delta);
+await setCalc(handPage, "multiplier");
 check("the sentence counts only the Pokemon that are ranked",
   handPage.getElementById("typeOffenseLead").textContent.startsWith("Best offensive type against Top 3 Meta: Fighting."),
   handPage.getElementById("typeOffenseLead").textContent.slice(0, 120));
@@ -662,8 +742,16 @@ const statusDefense = readList(statusPage, "typeDefense");
 check("typings can still be compared", statusOffense[0]?.delta === "▲ +1.00", statusOffense[0]?.delta);
 check("pressure cannot, so it shows a dash", statusDefense.every((row) => row.delta === "—"),
   statusDefense.slice(0, 3).map((r) => `${r.type} ${r.delta}`).join(" | "));
-check("the defending list is still scored for today", statusDefense[0]?.type === "Water" && statusDefense[0]?.shown === "47.7",
+check("the defending list is still scored for today", statusDefense[0]?.type === "Bug" && statusDefense[0]?.shown === "0.83",
   `${statusDefense[0]?.type} ${statusDefense[0]?.shown}`);
+// Neither defending measure can be compared without moves on the other day, and both still
+// score today, so the toggle behaves the same way.
+await setCalc(statusPage, "pressure");
+const statusPressure = readList(statusPage, "typeDefense");
+check("and so is the pressure one, still without a change",
+  statusPressure[0]?.type === "Water" && statusPressure[0]?.shown === "47.7"
+  && statusPressure.every((row) => row.delta === "—"),
+  `${statusPressure[0]?.type} ${statusPressure[0]?.shown} ${statusPressure[0]?.delta}`);
 
 console.log(`${checks - failures.length}/${checks} check(s) passed.`);
 for (const failure of failures) console.error(`FAIL ${failure}`);

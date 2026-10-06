@@ -114,18 +114,33 @@ for (const [raw, want] of [["Mega Meowstic", "Meowstic-M-Mega"], ["Mega Meowstic
 }
 
 // Tournament library: both app spellings of a Pokemon are the same roster member.
-const team1471 = (form) => [
-  { pokemon: "Garchomp", form: "Garchomp", item: "Life Orb", moves: [] },
-  { pokemon: "Incineroar", form: "Incineroar", item: "", moves: [] },
-  { pokemon: "Whimsicott", form: "Whimsicott", item: "", moves: [] },
-  { pokemon: "Sylveon", form: "Sylveon", item: "", moves: [] },
-  { pokemon: "Basculegion", form, item: "Mystic Water", moves: [] },
-];
-for (const form of ["Basculegion", "Basculegion Male"]) {
-  const found = known.completingMember(team1471(form), "Charizard", "Charizard");
-  const similar = mostSimilarTeam(known, team1471(form));
-  check(`Basculegion|${form} completes team1471`, found?.[0].name === "team1471.txt", found?.[0].name || "not found");
-  check(`Basculegion|${form} is shared with the similar team`, similar && !similar.notInIt.length, similar?.notInIt.map((e) => e.form).join(", "));
+//
+// The team is taken FROM the library rather than typed in here. It used to be five members
+// copied out of team1471, which is a file name -- and the morning the tournament teams were
+// replaced that team was gone, so the check failed for a reason that had nothing to do with
+// spellings. What it really guards is that "Basculegion" and "Basculegion Male" name one roster
+// member: the same partial team must complete to the same library team whichever is written.
+const taName = (member) => String(member.form || member.species || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+const basculegionTeam = known.teams.find((team) => team.members.some((m) => taName(m).startsWith("basculegion")));
+check("the library still has a Basculegion team to ask about", Boolean(basculegionTeam),
+  `${known.teams.length} teams`);
+if (basculegionTeam) {
+  // Five of its six, Basculegion among them, and the sixth is what has to be found.
+  const members = basculegionTeam.members;
+  const missing = members.find((m) => !taName(m).startsWith("basculegion")) || members[0];
+  const partial = (form) => members
+    .filter((m) => m !== missing)
+    .map((m) => (taName(m).startsWith("basculegion")
+      ? { pokemon: "Basculegion", form, item: m.item || "", moves: [] }
+      : { pokemon: m.species, form: m.form || m.species, item: m.item || "", moves: [] }));
+  for (const form of ["Basculegion", "Basculegion Male"]) {
+    const found = known.completingMember(partial(form), missing.species, missing.form || missing.species);
+    const similar = mostSimilarTeam(known, partial(form));
+    check(`Basculegion|${form} completes ${basculegionTeam.name}`,
+      found?.[0].name === basculegionTeam.name, found?.[0].name || "not found");
+    check(`Basculegion|${form} is shared with the similar team`,
+      similar && !similar.notInIt.length, similar?.notInIt.map((e) => e.form).join(", "));
+  }
 }
 check("Rotom Heat and Heat Rotom are one roster member", JSON.stringify(known.rosterCounts([{ pokemon: "Rotom", form: "Rotom Heat" }])) === JSON.stringify(known.rosterCounts([{ pokemon: "Heat Rotom", form: "Heat Rotom" }])));
 check("Indeedee and Indeedee-F stay two roster members", JSON.stringify(known.rosterCounts([{ pokemon: "Indeedee", form: "Indeedee" }])) !== JSON.stringify(known.rosterCounts([{ pokemon: "Indeedee", form: "Indeedee Female" }])));

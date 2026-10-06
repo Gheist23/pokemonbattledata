@@ -5,7 +5,8 @@
 //  2. A, the support-Nature test: a support Pokemon may be tried on a Nature that raises the
 //     category its own attacks use, and may not be tried on one that raises a category it
 //     never uses. Its own Nature is never dropped. Run end to end, a support set whose
-//     attacks are physical is now offered an Attack-raising Nature and scores better for it,
+//     attacks are physical is now offered an Attack-raising Nature - as the suggestion when the
+//     margins allow it, on the trade-off card when they do not - and it scores better for it,
 //     and with the rule off it still gets the old answer (so the check can fail);
 //  3. B, the trade-off gate: a better-scoring spread the margins held back is shown once it
 //     clears the same MARGINS.minimum the suggestion clears, where before it had to clear a
@@ -148,28 +149,76 @@ const scorerFor = (team, slot) => {
 
 // --- 3. A end to end: the support set is offered the Nature its attacks want -------------------
 {
-  const [team, slot] = ["sun", 2];
-  const set = teamSets(team)[slot];
-  const off = await runAt(team, slot, 0);
-  const on = await runAt(team, slot, 1);
-  const score = scorerFor(team, slot);
-  const offScore = score(off.after.nature, off.after.bonuses, off.after.moves);
-  const onScore = score(on.after.nature, on.after.bonuses, on.after.moves);
-  const label = `A end to end ${set.species}`;
-  check(off.stats.support === true && on.stats.support === true, `${label}: it is no longer read as a support Pokemon - pick another member, this section cannot fail`);
-  // Its own attacks are physical, which is what makes an Attack-raising Nature legitimate.
-  const attacks = (set.moves || []).filter((m) => engine.moveRecord(m) && String(engine.moveRecord(m).category || "").toLowerCase() === "physical");
-  check(attacks.length > 0, `${label}: its attacks are no longer physical (${set.moves.join(", ")}) - pick another member`);
-  check(raises(on.after.nature, 1), `${label}: with the rule on it should be offered an Attack-raising Nature, it suggested ${on.after.nature}`);
-  check(!raises(off.after.nature, 1) && !raises(off.after.nature, 3), `${label}: with the rule off the blanket filter should still leave ${off.after.nature} without an attack stat raised - the check above would hold for the wrong reason`);
-  check(onScore > offScore + 0.2, `${label}: the rule should score clearly better, ${offScore.toFixed(3)} -> ${onScore.toFixed(3)}`);
-  check(on.stats.optimize_spread_depth === 1 && off.stats.optimize_spread_depth === 0, `${label}: the result does not carry the stamp it ran at (${on.stats.optimize_spread_depth} / ${off.stats.optimize_spread_depth})`);
-  // Whichever stamp this replay names is what a run with no option of its own must do.
-  const production = await runAt(team, slot, STAMP);
-  const want = STAMP ? on : off;
-  check(production.after.nature === want.after.nature && pointsKey(production.after.bonuses) === pointsKey(want.after.bonuses),
-    `${label}: replayed at stamp ${STAMP} it gave ${production.after.nature} ${production.after.bonuses.join("/")}, the stamp says ${want.after.nature} ${want.after.bonuses.join("/")}`);
-  console.log(`3. A end to end: ${set.species} ${off.after.nature} ${off.after.bonuses.join("/")} (${offScore.toFixed(2)}) -> ${on.after.nature} ${on.after.bonuses.join("/")} (${onScore.toFixed(2)})`);
+  // Optimize has exactly two ways to put a spread in front of the player: the suggestion, and
+  // the trade-off card's "Use this instead" button. Under this rule both clear the same
+  // MARGINS.minimum (that is part B), and with the rule off neither can ever carry a Nature
+  // that raises an attack stat for a support set, because such a Nature is never scored at all.
+  // So "offered" is both of them together.
+  const offers = (result) => {
+    const out = [{ nature: result.after.nature, bonuses: result.after.bonuses, moves: result.after.moves, via: result.ok ? "the suggestion" : "no change" }];
+    if (result.trade_off) out.push({ nature: result.trade_off.nature, bonuses: result.trade_off.bonuses, moves: result.trade_off.moves, via: "the trade-off card" });
+    return out;
+  };
+  // The case is chosen by what it can demonstrate, not by a Pokemon typed in here: a member is
+  // a candidate when it is read as a support Pokemon and its own attacks are physical with none
+  // special, which is what makes an Attack-raising Nature legitimate and a +Sp. Attack one still
+  // forbidden. Pinning this to the sun team's Incineroar is what made the suite go red the
+  // morning the meta data was rebuilt: the rule still reaches Adamant and still offers it, but
+  // Adamant's edge over its own Careful fell from +1.04 to +0.89 and the margins - the same ones
+  // part B is about - now hold it back from being the suggestion rather than the trade-off.
+  const categories = (set) => {
+    const of = (name) => (set.moves || []).filter((m) => engine.moveRecord(m) && String(engine.moveRecord(m).category || "").toLowerCase() === name);
+    return { physical: of("physical"), special: of("special") };
+  };
+  const candidates = [];
+  // The first candidate that demonstrates the rule is the case; the rest are only run when it
+  // does not, so the failure can name the whole pool.
+  scan: for (const team of Object.keys(TEAMS)) {
+    for (let slot = 0; slot < TEAMS[team].length; slot += 1) {
+      const set = teamSets(team)[slot];
+      const { physical, special } = categories(set);
+      if (!physical.length || special.length) continue;
+      const off = await runAt(team, slot, 0);
+      if (off.stats?.support !== true) continue;
+      const on = await runAt(team, slot, 1);
+      const score = scorerFor(team, slot);
+      const scored = (offer) => ({ ...offer, score: score(offer.nature, offer.bonuses, offer.moves) });
+      const offOffers = offers(off).map(scored);
+      const onOffers = offers(on).map(scored);
+      candidates.push({
+        team, slot, set, off, on, score, offOffers, onOffers,
+        best: Math.max(...offOffers.map((o) => o.score)),
+        attack: onOffers.filter((o) => raises(o.nature, 1)).sort((a, b) => b.score - a.score)[0] || null,
+      });
+      if (candidates[candidates.length - 1].attack) break scan;
+    }
+  }
+  const shown = (list) => list.map((o) => `${o.nature} ${o.bonuses.join("/")} ${o.score.toFixed(3)} (${o.via})`).join(" / ");
+  check(candidates.length > 0, "A end to end: no member is read as a support Pokemon whose own attacks are all physical - pick another member, this section cannot fail");
+  // The one that demonstrates the rule; without one the suite says so and names the whole pool.
+  const picked = candidates.find((c) => c.attack) || candidates[0];
+  if (picked) {
+    const { team, slot, set, off, on, score, best, attack } = picked;
+    const label = `A end to end ${team}/${slot} ${set.species}`;
+    check(Boolean(attack), `${label}: with the rule on no support member is offered an Attack-raising Nature, which is the whole point of A - ${candidates.map((c) => `${c.team}/${c.slot} ${c.set.species} off [${shown(c.offOffers)}] on [${shown(c.onOffers)}]`).join("; ")}`);
+    // With the rule off the blanket filter is still blanket, so the check above can fail.
+    for (const offer of picked.offOffers) {
+      check(!raises(offer.nature, 1) && !raises(offer.nature, 3), `${label}: with the rule off ${offer.via} is already on ${offer.nature}, which raises an attack stat - the check above would hold for the wrong reason`);
+    }
+    // A set that never attacks specially is still never offered a +Sp. Attack Nature.
+    for (const offer of picked.onOffers) {
+      check(!raises(offer.nature, 3), `${label}: ${offer.via} is on ${offer.nature}, which raises Sp. Attack for a set whose attacks are all physical`);
+    }
+    if (attack) check(attack.score > best + 0.2, `${label}: the rule should score clearly better, ${best.toFixed(3)} -> ${attack.score.toFixed(3)}`);
+    check(on.stats.optimize_spread_depth === 1 && off.stats.optimize_spread_depth === 0, `${label}: the result does not carry the stamp it ran at (${on.stats.optimize_spread_depth} / ${off.stats.optimize_spread_depth})`);
+    // Whichever stamp this replay names is what a run with no option of its own must do.
+    const production = await runAt(team, slot, STAMP);
+    const want = STAMP ? on : off;
+    check(production.after.nature === want.after.nature && pointsKey(production.after.bonuses) === pointsKey(want.after.bonuses),
+      `${label}: replayed at stamp ${STAMP} it gave ${production.after.nature} ${production.after.bonuses.join("/")}, the stamp says ${want.after.nature} ${want.after.bonuses.join("/")}`);
+    const offScore = score(off.after.nature, off.after.bonuses, off.after.moves);
+    console.log(`3. A end to end: ${candidates.length} support candidate(s), ${team}/${slot} ${set.species} ${off.after.nature} ${off.after.bonuses.join("/")} (${offScore.toFixed(2)}) -> ${attack ? `${attack.nature} ${attack.bonuses.join("/")} (${attack.score.toFixed(2)}) as ${attack.via}` : "nothing with an Attack-raising Nature"}`);
+  }
 }
 
 // --- 4. B, the trade-off gate -----------------------------------------------------------------

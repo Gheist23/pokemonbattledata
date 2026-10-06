@@ -73,8 +73,13 @@ export const DEPTHS = {
 const TEMPLATES = [[2, 32, 0, 0, 0, 32], [2, 0, 0, 32, 0, 32], [32, 32, 0, 0, 2, 0], [32, 0, 0, 32, 2, 0], [32, 0, 32, 0, 2, 0], [32, 0, 2, 0, 32, 0], [32, 2, 16, 0, 16, 0]];
 const MEMO_MEMBERS = 1; // the member whose calcs stay cached for "Run again" (tens of MB)
 const EPSILON = 1e-9;
-/** How much the one-on-one chance has to move before a change row prints it as news. */
-const RACE_READABLE = 0.1;
+/**
+ * How much the one-on-one chance has to move before a change row prints it as news.
+ *
+ * Exported so the suite can check WHICH rows the panel is allowed to leave out, rather than
+ * pinning a tolerance to how much weight those rows happen to carry in today's Top X.
+ */
+export const RACE_READABLE = 0.1;
 const SCREEN_SHARE = 0.4; // of the evaluations, at most, for screening Natures and starts
 /** What a run with nothing to suggest opens with, and what it opens with when a trade-off exists. */
 const NOTHING_BETTER = "Your current set already plays these matchups best: no Stat Point, Nature or move change we tried did clearly better.";

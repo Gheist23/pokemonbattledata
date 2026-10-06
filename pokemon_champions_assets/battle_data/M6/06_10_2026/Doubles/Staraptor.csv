@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Staraptor,22,move,1,Close Combat,97.8%,,,,,,,,
 Staraptor,22,move,2,Brave Bird,81.5%,,,,,,,,
-Staraptor,22,move,3,Protect,79.3%,,,,,,,,
+Staraptor,22,move,3,Protect,79.2%,,,,,,,,
 Staraptor,22,move,4,Roost,43.0%,,,,,,,,
-Staraptor,22,move,5,Tailwind,40.4%,,,,,,,,
+Staraptor,22,move,5,Tailwind,40.3%,,,,,,,,
 Staraptor,22,move,6,Dual Wingbeat,16.8%,,,,,,,,
 Staraptor,22,move,7,Final Gambit,15.2%,,,,,,,,
 Staraptor,22,move,8,U-turn,13.5%,,,,,,,,
@@ -16,7 +16,7 @@ Staraptor,22,held_item,4,Sharp Beak,0.2%,,,,,,,,
 Staraptor,22,held_item,5,Life Orb,0.1%,,,,,,,,
 Staraptor,22,held_item,6,Sitrus Berry,0.1%,,,,,,,,
 Staraptor,22,held_item,7,Quick Claw,0.1%,,,,,,,,
-Staraptor,22,held_item,8,White Herb,0.1%,,,,,,,,
+Staraptor,22,held_item,8,White Herb,0.0%,,,,,,,,
 Staraptor,22,held_item,9,Leftovers,0.0%,,,,,,,,
 Staraptor,22,held_item,10,Expert Belt,0.0%,,,,,,,,
 Staraptor,22,teammate,1,Rillaboom,,,,,,,,,
@@ -29,8 +29,8 @@ Staraptor,22,teammate,7,Whimsicott,,,,,,,,,
 Staraptor,22,teammate,8,Milotic,,,,,,,,,
 Staraptor,22,teammate,9,Indeedee-F,,,,,,,,,
 Staraptor,22,teammate,10,Farigiraf,,,,,,,,,
-Staraptor,22,stat_alignment,1,Jolly,78.8%,Speed,Sp. Atk,,,,,,
-Staraptor,22,stat_alignment,2,Adamant,16.5%,Attack,Sp. Atk,,,,,,
+Staraptor,22,stat_alignment,1,Jolly,78.7%,Speed,Sp. Atk,,,,,,
+Staraptor,22,stat_alignment,2,Adamant,16.6%,Attack,Sp. Atk,,,,,,
 Staraptor,22,stat_alignment,3,Careful,1.8%,Sp. Def,Sp. Atk,,,,,,
 Staraptor,22,stat_alignment,4,Impish,0.5%,Defense,Sp. Atk,,,,,,
 Staraptor,22,stat_alignment,5,Hasty,0.4%,Speed,Defense,,,,,,
@@ -41,12 +41,12 @@ Staraptor,22,stat_alignment,9,Lonely,0.3%,Attack,Defense,,,,,,
 Staraptor,22,stat_alignment,10,Timid,0.2%,Speed,Attack,,,,,,
 Staraptor,22,stat_points,1,,16.6%,,,2,32,0,0,0,32
 Staraptor,22,stat_points,2,,10.8%,,,32,2,0,0,0,32
-Staraptor,22,stat_points,3,,6.3%,,,29,1,0,0,4,32
+Staraptor,22,stat_points,3,,6.2%,,,29,1,0,0,4,32
 Staraptor,22,stat_points,4,,5.8%,,,32,0,0,0,2,32
 Staraptor,22,stat_points,5,,5.1%,,,32,17,0,0,0,17
 Staraptor,22,stat_points,6,,3.5%,,,15,19,0,0,0,32
 Staraptor,22,stat_points,7,,2.5%,,,0,32,0,0,2,32
-Staraptor,22,stat_points,8,,2.2%,,,0,32,2,0,0,32
+Staraptor,22,stat_points,8,,2.3%,,,0,32,2,0,0,32
 Staraptor,22,stat_points,9,,2.1%,,,31,1,0,0,2,32
 Staraptor,22,stat_points,10,,2.0%,,,19,15,0,0,0,32
 Staraptor,22,ability,1,Intimidate,96.6%,,,,,,,,

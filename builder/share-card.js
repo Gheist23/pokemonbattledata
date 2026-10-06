@@ -568,16 +568,16 @@ function header(ctx, { title, subtitle, pill, note }) {
 
 /** The line the owner asked for, centred, in two runs so the domain can carry
  *  the brand colour. */
-function footer(ctx) {
+function footer(ctx, brand = FOOTER.brandText) {
   rule(ctx, FOOTER.ruleY);
   const size = FONT_LADDER.footer[0];
   ctx.font = fontOf(size, 400);
   const leadW = num(ctx.measureText(FOOTER.leadText)?.width, 0);
   ctx.font = fontOf(size, 700);
-  const brandW = num(ctx.measureText(FOOTER.brandText)?.width, 0);
+  const brandW = num(ctx.measureText(brand)?.width, 0);
   const x = Math.round((CARD.W - (leadW + brandW)) / 2);
   drawText(ctx, FOOTER.leadText, x, FOOTER.baseline, { sizes: [size], color: PALETTE.muted });
-  drawText(ctx, FOOTER.brandText, x + leadW, FOOTER.baseline, { sizes: [size], weight: 700, color: PALETTE.good });
+  drawText(ctx, brand, x + leadW, FOOTER.baseline, { sizes: [size], weight: 700, color: PALETTE.good });
 }
 
 // --- the team card -------------------------------------------------------------
@@ -921,9 +921,76 @@ export function drawEvalCard(ctx, digest, images = {}) {
   return { kind: "eval", cells: 4 };
 }
 
+// --- the meta card -------------------------------------------------------------
+
+/** Two columns of nine, which is how eighteen types fit without shrinking the text. */
+export const META = Object.freeze({
+  colX: [28, 614],
+  colW: 558,
+  top: 108,
+  rowH: 50,
+  rows: 9,
+  labelX: 46,
+  valueRight: 92,
+  deltaRight: 16,
+  noteBaseline: 572,
+});
+
+/** One row: the place, the name, the number, and how it moved. */
+function metaRow(ctx, row, x, y, w, index) {
+  panel(ctx, x, y, w, META.rowH - 8, 10);
+  const midY = y + (META.rowH - 8) / 2 + 5;
+  drawText(ctx, String(index + 1), x + 14, midY, { sizes: [13], weight: 700, color: PALETTE.soft });
+  drawText(ctx, str(row?.label), x + META.labelX, midY, {
+    sizes: [16, 15, 14], weight: 700, color: PALETTE.text, maxWidth: w - META.labelX - META.valueRight - 70,
+  });
+  drawText(ctx, str(row?.value), x + w - META.valueRight, midY, {
+    sizes: [15, 14], weight: 700, color: PALETTE.text,
+  });
+  const delta = str(row?.delta).trim();
+  if (delta) {
+    // The sign is in the text, so the colour is never the only thing saying which way it went.
+    const tone = row?.tone === "good" ? PALETTE.good : row?.tone === "bad" ? PALETTE.bad : PALETTE.soft;
+    drawText(ctx, delta, x + w - META.deltaRight - 62, midY, { sizes: [13], weight: 700, color: tone });
+  }
+}
+
+/**
+ * One section of the meta page, as a card.
+ *
+ * Deliberately the plainest of the three: a list of rows with a number each and how it moved.
+ * It is made to be read at a glance in a Reddit or X timeline, where the picture is all anyone
+ * sees, so the footer carries the page it came from rather than the bare site.
+ */
+export function drawMetaCard(ctx, digest, images = {}) {
+  background(ctx);
+  const rows = Array.isArray(digest?.rows) ? digest.rows : [];
+  header(ctx, {
+    title: str(digest?.title).trim() || "Pokemon Champions meta",
+    subtitle: [str(digest?.scope), str(digest?.format), str(digest?.measure)].filter(Boolean).join(" \u00b7 "),
+    pill: str(digest?.format) || "Doubles",
+    note: "Meta",
+  });
+  rows.slice(0, META.rows * 2).forEach((row, i) => {
+    const column = i < META.rows ? 0 : 1;
+    const y = META.top + (i % META.rows) * META.rowH;
+    metaRow(ctx, row, META.colX[column], y, META.colW, i);
+  });
+  const note = str(digest?.note).trim();
+  if (note) {
+    drawText(ctx, note, META.colX[0], META.noteBaseline, {
+      sizes: FONT_LADDER.note, color: PALETTE.soft, maxWidth: CARD.W - META.colX[0] * 2,
+    });
+  }
+  footer(ctx, str(digest?.brand).trim() || "championsbattledata.com/meta/");
+  return { kind: "meta", cells: Math.min(rows.length, META.rows * 2) };
+}
+
 /** Dispatch on the digest's kind. */
 export function drawCard(ctx, digest, images = {}) {
-  return str(digest?.kind) === "eval" ? drawEvalCard(ctx, digest, images) : drawTeamCard(ctx, digest, images);
+  const kind = str(digest?.kind);
+  if (kind === "meta") return drawMetaCard(ctx, digest, images);
+  return kind === "eval" ? drawEvalCard(ctx, digest, images) : drawTeamCard(ctx, digest, images);
 }
 
 // --- how many images a digest needs -------------------------------------------

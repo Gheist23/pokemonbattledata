@@ -56,7 +56,7 @@ import { inflateSync } from "node:zlib";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { BuilderData, parseShowdown } from "../builder/common.js";
-import { MOVE_ROW_TOP, MOVE_TEXT_X, cropCard, detectCards, fitText, readTeamScreenshots, MESSAGES } from "../builder/screenshot-import.js";
+import { MOVE_ROW_TOP, MOVE_TEXT_X, cropCard, detectCards, fitText, readTeamScreenshots, MESSAGES, onlyBlindDifference } from "../builder/screenshot-import.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -391,10 +391,27 @@ for (const message of Object.values(MESSAGES)) {
 
 // =============================================================================
 
+// --- two names one letter apart, and that letter has no template -------------------------------
+//
+// The glyph table carries 46 characters and neither "X" nor "Y" is among them, so "Charizardite X"
+// and "Charizardite Y" fit the marks EQUALLY WELL -- every glyph they share costs the same and the
+// one that differs is untemplated on both sides. The sort is stable, so the winner was whichever
+// the candidate list offered first, which is always the X: a Charizard holding Charizardite Y
+// imported as Mega Charizard X, and a Raichu holding Raichunite Y as Mega Raichu X. The reader now
+// says it cannot tell instead of guessing. Those are the only two pairs in the game shaped this way.
+ok("the two stone names one untellable letter apart are recognised as untellable",
+  onlyBlindDifference("Charizardite X", "Charizardite Y") === true
+  && onlyBlindDifference("Raichunite X", "Raichunite Y") === true);
+ok("a difference the reader CAN see is an ordinary reading, not a blind one",
+  onlyBlindDifference("Sitrus Berry", "Citrus Berry") === false);
+ok("a difference in length is not blind", onlyBlindDifference("Charizardite X", "Charizardite") === false);
+ok("identical names are not blind", onlyBlindDifference("Life Orb", "Life Orb") === false);
+
 console.log(`\n${checked} checks, ${failures.length} failed`);
 if (failures.length) {
   for (const failure of failures) console.log(`  FAIL  ${failure}`);
   process.exit(1);
 }
+
 console.log("screenshot import: OK");
 process.exit(0);

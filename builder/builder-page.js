@@ -31,6 +31,8 @@ import { resetTournamentView, SNAPSHOT_VERSION, tournamentAnalysis, tournamentEx
 import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, segmented, select, sprite, switchRow, toast, typeChip } from "./ui.js";
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
 import { keepPlace } from "./scroll-anchor.js";
+import { cleanCampaignCode, installCampaignTeams } from "./campaign-teams.js";
+import { BANNER_STEPS, trackCampaign } from "./campaign-track.js";
 import { OPTIMIZE_DEFAULTS, optimizeView, updateProgress } from "./optimize-view.js";
 import { MESSAGES as SHARE_MESSAGES, ShareError, cardHost, evaluationDigest, shareButton, slotStats, teamDigest } from "./share-client.js";
 
@@ -1817,10 +1819,17 @@ function renderTournament() {
     h("div", {}, h("h2", {}, "Test against Tournament Teams"),
       h("p", {}, singles
         ? "Plays your team against real recent tournament teams, three against three and one at a time: four full turns with Fake Out, Tailwind, Trick Room, Intimidate, Protect, sleep moves, Taunt and more, each side taking the path that holds up best against the other, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your Pokémon match up 1 vs 1, and which teams and Pokémon give you trouble."
-        : "Plays your team against real recent tournament teams, 2 vs 2 from the leads on: four full turns with Fake Out, Tailwind, Trick Room, Intimidate, Protect, Helping Hand, Wide Guard and more, each side taking the path that holds up best against the other, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your lead pairs match up against theirs, and which teams and Pokémon give you trouble."))));
+        : "Plays your team against real recent tournament teams, 2 vs 2 from the leads on: four full turns with Fake Out, Tailwind, Trick Room, Intimidate, Protect, Helping Hand, Wide Guard and more, each side taking the path that holds up best against the other, then the fight that follows. Shows how often you are favoured, which of yours to bring, how your lead pairs match up against theirs, and which teams and Pokémon give you trouble."),
+      // Two things a reader has to know BEFORE pressing Run, and this is now the only place that
+      // says either: the explainer used to carry them and no longer does. Nobody switching out is
+      // the one real simplification left in the model, and a Field setting that is silently
+      // ignored is its own bug -- the results card names the ones a run ignored, but only after it
+      // has already run.
+      h("p", { class: "bd-note" },
+        "Nobody switches out mid-game, and every game sets its own field from the Pokémon in it, so the Field settings are not used here."))));
   // The explanation leads until there is a result; after that it is one click away. A team
   // shorter than a full bring brings everyone, so the explanation says the real number.
-  const how = tournamentExplainer({ teams: tour.snapshot?.library || 2827, format: format(), bring: tour.snapshot?.bring ?? Math.min(list.length, singles ? 3 : 4) });
+  const how = tournamentExplainer({ teams: tour.snapshot?.library || 1945, format: format(), bring: tour.snapshot?.bring ?? Math.min(list.length, singles ? 3 : 4) });
   hosts.main.append(tour.snapshot || tour.running ? h("details", { class: "bd-tour-howto" }, h("summary", {}, "How the test works"), how) : how);
   if (!list.length) {
     hosts.main.append(h("div", { class: "bd-gate" }, h("h3", {}, "Nothing to test yet"), h("p", {}, "Add at least one Pokémon to the team first.")));
@@ -1973,7 +1982,7 @@ async function runTournament() {
 // beside. On top of v7's setter weighing and neutralised Field settings, and v6's bring rule.
 // Older ones are dropped, because tournamentAnalysis refuses a snapshot from another version and
 // would only show its spinner.
-const TOURNAMENT_STORE = "cbd.tour.v10";
+const TOURNAMENT_STORE = "cbd.tour.v11";
 
 function rememberTournament(key, snapshot) {
   try {
@@ -1985,7 +1994,7 @@ function rememberTournament(key, snapshot) {
 
 function restoreTournament() {
   try {
-    for (const old of ["cbd.tour.v1", "cbd.tour.v2", "cbd.tour.v3", "cbd.tour.v4", "cbd.tour.v5", "cbd.tour.v6", "cbd.tour.v7", "cbd.tour.v8", "cbd.tour.v9"]) sessionStorage.removeItem(old);
+    for (const old of ["cbd.tour.v1", "cbd.tour.v2", "cbd.tour.v3", "cbd.tour.v4", "cbd.tour.v5", "cbd.tour.v6", "cbd.tour.v7", "cbd.tour.v8", "cbd.tour.v9", "cbd.tour.v10"]) sessionStorage.removeItem(old);
     const saved = JSON.parse(sessionStorage.getItem(TOURNAMENT_STORE) || "null");
     const s = saved?.snapshot;
     const lists = ["bestBrings", "pokemon", "threats", "archetypes", "hardest", "easiest"];
@@ -2176,6 +2185,78 @@ function syncFormatSwitch() {
 // starts a fresh team with that Pokemon in slot 1, so the visitor never has to
 // answer "which of your six should it replace?" before they have a team.
 
+// --- creator collaborations: /team-builder/?campaign=giuseppe -------------------------
+//
+// The teams from a video, already in the library when the visitor arrives.
+// championsbattledata.com/giuseppe redirects straight here (_redirects), so
+// this IS the landing page: there is nothing between the URL read out in the
+// video and the teams being on screen.
+//
+// The campaign a visitor arrived on, so the two things they can do next from
+// the banner can be counted as well. Not persisted: a campaign is one visit,
+// and a number that keeps counting a week later says nothing useful.
+let campaignOnScreen = "";
+//
+// The rules live in builder/campaign-teams.js and the counting in
+// builder/campaign-track.js; this is only the wiring, and it is deliberately
+// unable to throw into boot(): somebody who followed a link off YouTube gets
+// the Team Builder either way.
+
+async function handleCampaignParam() {
+  const params = new URLSearchParams(location.search);
+  const code = cleanCampaignCode(params.get("campaign"));
+  if (!code) return;
+  // Counted before anything can go wrong, because this is the click the video
+  // bought: it has to be recorded even if the teams themselves fail to load.
+  trackCampaign(code, "land");
+  const force = params.get("again") === "1";
+  const only = Math.max(0, Math.min(20, Number(params.get("team")) || 0));
+  // The parameter goes before anything slow happens, so a reload is a plain
+  // Team Builder and the library does not grow by five every time.
+  history.replaceState(null, "", location.pathname);
+  let answer;
+  try {
+    answer = await installCampaignTeams(code, {
+      parse: (text) => parseShowdown(text, data),
+      add: (sets, title) => newTeam(sets.slice(0, TEAM_SIZE), data, title),
+      setFormat,
+    }, { force, only });
+  } catch (error) {
+    console.error(error);
+    return;
+  }
+  // The second step: the teams really are in the library and on screen. `land`
+  // without `builder` is a visitor who arrived and got nothing, which is the one
+  // failure this counter exists to make visible.
+  if (answer.loaded) {
+    trackCampaign(code, "builder");
+    campaignOnScreen = code;
+  }
+  if (!answer.loaded) return;
+  // The format may have changed under us (campaign-teams.js sets it from the
+  // file), so the meta the overview scores against is reloaded before it draws.
+  await data.loadMeta(format());
+  view.tab = "overview";
+  view.overview = null;
+  view.overviewKey = "";
+  renderAll();
+  const banner = document.getElementById("campaignBanner");
+  if (banner) {
+    banner.hidden = false;
+    // "from PokeGiuseppe's VIDEO", never "from PokeGiuseppe": a creator covering
+    // the meta is showing teams that came off tournament results, and saying they
+    // are his would put a claim in his mouth that his own audience knows is wrong.
+    const name = answer.campaign?.creator?.name || "";
+    const who = name ? `${name}'s video` : "the video";
+    banner.querySelector("[data-count]").textContent = String(answer.loaded);
+    banner.querySelector("[data-who]").textContent = who;
+    const link = banner.querySelector("[data-channel]");
+    const url = answer.campaign?.video?.url || answer.campaign?.creator?.url || "";
+    if (link && url) { link.href = url; link.hidden = false; } else if (link) link.hidden = true;
+  }
+  toast(`${answer.loaded} team${answer.loaded === 1 ? "" : "s"} added to your library`);
+}
+
 async function handleAddParam() {
   const params = new URLSearchParams(location.search);
   const wanted = params.get("add") || params.get("build");
@@ -2230,15 +2311,25 @@ async function main() {
       renderAll();
     });
     onSyncStatus(() => renderToolbar());
+    // Before handleAddParam: a link can only ever carry one of the two, and the
+    // campaign's teams are the whole reason that visitor is here.
+    await handleCampaignParam();
     await handleAddParam();
     initSync(data);
     refreshLicence().then(() => renderToolbar());
-    document.getElementById("addBanner")?.querySelectorAll("[data-action]").forEach((button) => button.addEventListener("click", () => {
-      view.tab = button.dataset.action;
-      renderAll();
-      document.getElementById("addBanner").hidden = true;
-      if (button.dataset.action === "auto") root.scrollIntoView({ behavior: "smooth", block: "start" });
-    }));
+    ["addBanner", "campaignBanner"].forEach((id) => {
+      document.getElementById(id)?.querySelectorAll("button[data-action]").forEach((button) => button.addEventListener("click", () => {
+        // The third step of a collaboration's funnel: the visitor did not just
+        // land, they asked the site to do something with the team.
+        if (id === "campaignBanner" && campaignOnScreen) {
+          trackCampaign(campaignOnScreen, BANNER_STEPS[button.dataset.action]);
+        }
+        view.tab = button.dataset.action;
+        renderAll();
+        document.getElementById(id).hidden = true;
+        if (button.dataset.action === "auto") root.scrollIntoView({ behavior: "smooth", block: "start" });
+      }));
+    });
   } catch (error) {
     console.error(error);
     clear(root).append(h("div", { class: "bd-card bd-error" }, h("h2", {}, "The Team Builder could not load its data."), h("p", {}, "Reload the page. If it keeps happening, tell us on Discord."), h("code", {}, String(error.message || error))));

@@ -1,0 +1,47 @@
+{
+  "code": "giuseppe",
+  "howToFill": "Paste each team's Showdown export into teams[].showdown, give it a title and a one-line note, then run: node tools/build-campaign.mjs giuseppe . championsbattledata.com/giuseppe redirects straight into the Team Builder (_redirects) and builder/campaign-teams.js reads this file there. The tool fills in generatedAt and each team's members from data/builder/app-data.json: that list is the proof every paste resolves, and tests/run-campaign.mjs fails if a paste is here without it, which is what stops a mistyped name silently dropping a Pokemon out of a team. Leave a team's showdown empty and it is simply skipped.",
+  "creator": {
+    "name": "PokeGiuseppe",
+    "url": "https://www.youtube.com/@PokeGiuseppe"
+  },
+  "video": {
+    "title": "The 5 Best Teams in Pokemon Champions",
+    "url": ""
+  },
+  "format": "Doubles",
+  "season": "M-7",
+  "generatedAt": "2026-10-08T10:46:04.000Z",
+  "teams": [
+    {
+      "title": "",
+      "note": "",
+      "showdown": "",
+      "members": []
+    },
+    {
+      "title": "",
+      "note": "",
+      "showdown": "",
+      "members": []
+    },
+    {
+      "title": "",
+      "note": "",
+      "showdown": "",
+      "members": []
+    },
+    {
+      "title": "",
+      "note": "",
+      "showdown": "",
+      "members": []
+    },
+    {
+      "title": "",
+      "note": "",
+      "showdown": "",
+      "members": []
+    }
+  ]
+}

@@ -78,7 +78,7 @@ export function tournamentProgress(snapshot) {
  * out and it falls back to the size of the last results drawn, then to the full bring size.
  * The tournament teams always have six, so their side always brings four (Doubles) or three.
  */
-export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 0 } = {}) {
+export function tournamentExplainer({ teams = 1945, format = "Doubles", bring = 0 } = {}) {
   const singles = format === "Singles";
   const full = singles ? 3 : 4;
   const theirs = word(full);
@@ -89,12 +89,12 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
   return h("div", { class: "bd-tour-explain" },
     h("div", { class: "bd-tour-how" },
       step("1", "The leads", singles
-        ? "Both sides lead with the Pokémon that does the most on turn 1. Intimidate and weather or terrain Abilities trigger as it comes in."
+        ? "Both sides lead with the Pokémon that does the most on turn 1. Intimidate and weather or terrain Abilities trigger as it comes in. The tournament teams come from Doubles events; in Singles both sides play one Pokémon at a time."
         : "Both sides lead with the two Pokémon that do the most on turn 1, so every game starts as your pair against their pair. Intimidate and weather or terrain Abilities trigger as they come in."),
       step("2", "Turn 1", singles
         ? "Each lead picks one action, and they go in priority and Speed order."
         : "Each of the four picks one action, and they go in priority and Speed order."),
-      step("3", "Turns 2, 3 and 4", "Three more full turns, each decided the same way, so a Pokémon can defend itself or set something up instead of attacking. Defending two turns in a row does not work."),
+      step("3", "Turns 2, 3 and 4", "Three more full turns, each decided the same way, so a Pokémon can defend itself or set something up instead of attacking."),
       step("4", "After turn 4", `From turn 5 ${singles ? "both Pokémon attack" : "all four attack"} on the board the first four turns left behind.`),
       step("5", "The best path for both sides", "Turn 1 is played three ways for each side and every pairing is played out, so the same game runs nine times. Each side takes the one that holds up best against all three of the other's, without seeing which they picked."),
       step("6",
@@ -110,13 +110,8 @@ export function tournamentExplainer({ teams = 2827, format = "Doubles", bring = 
       // (119 per format) fail to add up to 100 and 0 of 120 mirrors are off 50 -- but team501 vs team1201
       // scores 43.4934 and team1201 against team501 scores 56.5066. So the sentence says the
       // property that holds.
-      step("7", "Across the teams", `Played against up to ${number(teams)} real recent tournament teams. A score of 50 is even — swap the two teams round and the score flips to the other side of 50 by the same amount, so 50 is what a team scores against itself; ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
-    h("p", { class: "bd-note bd-tour-limits" },
-      "Kept simple on purpose: nobody switches out (Parting Shot lowers the stats but its user stays in), and paralysis, poison, screens and stat-boosting moves are left out. The first four turns are chosen against everything the other side could do; from turn 5 on each Pokémon simply uses its best attack. ",
-      // The board is the only source of the field (tournament-test.js TOURNAMENT_FIELD), so this is
-      // the one place the explainer has to mention the Settings dialog at all.
-      "Every game has a field of its own, set by the Pokémon in it, so the Field settings are not used here. ",
-      singles ? "The tournament teams come from Doubles events; in Singles both sides play one Pokémon at a time." : ""));
+      step("7", "Across the teams", `Played against up to ${number(teams)} real recent tournament teams. A score of 50 is even, ${MATCHUP_BANDS.favourable} or more favours you, under ${MATCHUP_BANDS.unfavourable} favours them.`)),
+  );
 }
 
 /**

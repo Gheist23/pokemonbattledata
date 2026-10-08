@@ -37,6 +37,14 @@
 /builder/*
   Cache-Control: no-cache, max-age=0, must-revalidate
 
+# A campaign's teams are edited between the link going up and the video going
+# out, so a visitor who followed it early must not be served their own cached
+# copy of the empty file on the day. builder/campaign-teams.js also asks for it
+# with `cache: "no-store"`, because Cloudflare has overridden this header on
+# /builder/*.js before.
+/data/campaigns/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
 /team-builder/*
   Cache-Control: no-cache, max-age=0, must-revalidate
 

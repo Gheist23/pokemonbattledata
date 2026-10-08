@@ -79,7 +79,7 @@ check("TOURNAMENT_DEPTH plays four planned turns", TOURNAMENT_DEPTH >= 2, String
 check("TOURNAMENT_FALLOFF is on", TOURNAMENT_FALLOFF >= 1);
 check("TOURNAMENT_GUARD is on", TOURNAMENT_GUARD >= 1);
 check("TOURNAMENT_VAR_POWER is on", TOURNAMENT_VAR_POWER >= 1);
-check("the snapshot version moved with them", SNAPSHOT_VERSION === 10, String(SNAPSHOT_VERSION));
+check("the snapshot version moved with them", SNAPSHOT_VERSION === 11, String(SNAPSHOT_VERSION));
 for (const [name, fn, current] of [
   ["depth", tournamentDepthOption, TOURNAMENT_DEPTH],
   ["falloff", tournamentFalloffOption, TOURNAMENT_FALLOFF],
@@ -124,7 +124,7 @@ check("the variable-power rule moves the score", Math.abs(varOnly.average - off.
 // The direction is the point of the work: this team was over-rated, so it must come DOWN.
 check("the deepened test rates the Trick Room team lower, not higher", both.average < off.average - 1,
   `${off.average.toFixed(3)} -> ${both.average.toFixed(3)}`);
-check("the snapshot says 10 whatever the rules", off.version === 10 && both.version === 10);
+check("the snapshot says 11 whatever the rules", off.version === 11 && both.version === 11);
 
 // --- 2. the search really runs, four turns deep -------------------------------------------------
 {

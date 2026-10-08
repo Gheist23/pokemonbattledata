@@ -50,7 +50,7 @@ import { TeamEvaluator, normalizeSettings, DEFAULT_SETTINGS } from "../builder/t
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
-import { TournamentTest, TOURNAMENT_SEAT, TOURNAMENT_TURN_ONE, tournamentSeatOption, tournamentTurnOneOption,
+import { TournamentTest, TOURNAMENT_EFFECTS, tournamentEffectsOption, TOURNAMENT_SEAT, TOURNAMENT_TURN_ONE, tournamentSeatOption, tournamentTurnOneOption,
   unevenStagePins, ignoredFieldSettings } from "../builder/tournament-test.js";
 import { makeSet } from "../builder/common.js";
 
@@ -58,6 +58,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
 const appData = JSON.parse(readFileSync(join(root, "data", "builder", "app-data.json"), "utf8"));
 const knownRaw = JSON.parse(readFileSync(join(root, "data", "builder", "known-teams.json"), "utf8"));
+const moveEffects = JSON.parse(readFileSync(join(root, "data", "builder", "move-effects.json"), "utf8"));
 const limit = Number(process.argv[2]) || 12;
 
 let checked = 0;
@@ -73,7 +74,10 @@ function makeTest(format, options = {}, settings = {}) {
   const ev = new TeamEvaluator(null, engine, format, normalizeSettings({ ...DEFAULT_SETTINGS, ...settings }));
   ev.setMetaRecords(meta.pokemon || []);
   const evaluation = new TeamEvaluation(ev);
-  return new TournamentTest(evaluation, new KnownTeams(knownRaw), new TeamSuggestions(evaluation), options);
+  // The registry production runs with. An invariant guard that ran WITHOUT it would be checking
+  // a configuration nobody ships: the expectations the effects add are exactly the thing most
+  // likely to break "a team scores exactly 50 against itself".
+  return new TournamentTest(evaluation, new KnownTeams(knownRaw), new TeamSuggestions(evaluation), { effects: moveEffects, ...options });
 }
 
 /** A tournament member as one of OUR sets, with the Stat Points opponentMon gives it. */
@@ -351,6 +355,106 @@ for (const format of ["Doubles", "Singles"]) {
   }
 }
 
+// --- the compiled move and Ability effects (TOURNAMENT_EFFECTS) --------------------------------
+//
+// The evenness checks above run with the registry loaded, which is the point: expectations are
+// exactly the thing most likely to break "a team scores exactly 50 against itself", and the first
+// attempt DID break it. Applying a flinch the moment the hit landed made the loss depend on who
+// acted first, so in a mirror the Pokemon listed first flinched the other and was never flinched
+// back -- 9 of 42 Doubles mirrors stopped being exactly 50, worst 23.79 off. It is accumulated and
+// read through `freezeRun` now, like every other piece of state a run of simultaneous actions
+// must see as it was.
+{
+  const test = makeTest("Doubles");
+  check("the effects rule is version 1", TOURNAMENT_EFFECTS === 1);
+  check("its stamp coerces like every other one", tournamentEffectsOption(0) === 0
+    && tournamentEffectsOption(null) === 0 && tournamentEffectsOption("1.9") === 1
+    && tournamentEffectsOption("yes") === TOURNAMENT_EFFECTS);
+  check("a run given the registry has the rule on", test.effectsOn === true);
+  check("and one given none leaves every new mechanic alone",
+    makeTest("Doubles", { effects: null }).effectsOn === false);
+  check("version 0 is off even with the registry in hand",
+    makeTest("Doubles", { effectsRule: 0 }).effectsOn === false);
+
+  // The registry itself: what it carries is what the mechanics read.
+  const fx = (name) => test.effectsOf(name);
+  check("a flinch chance is read from the registry",
+    (fx("Rock Slide") || []).some((e) => e.op === "flinch" && e.chance === 30),
+    JSON.stringify(fx("Rock Slide")));
+  check("so is a burn chance", (fx("Scald") || []).some((e) => e.op === "status" && e.chance === 30));
+  check("so is a stat drop", (fx("Crunch") || []).some((e) => e.op === "stage" && e.chance === 20));
+
+  // The three retaliation moves. Before this rule every one of them dealt exactly 0 in this
+  // test, because it never recorded the damage they are made of -- a Pokemon carrying one was
+  // playing with three moves.
+  const info = (name) => test.moveInfo(name);
+  check("Counter, Metal Burst and Mirror Coat are known to be retaliation moves",
+    info("Counter").counter && info("Metal Burst").counter && info("Mirror Coat").counter);
+  check("and an ordinary attack is not", info("Rock Slide").counter === false);
+  check("a contact move is known to make contact", info("Close Combat").contact === true);
+  check("and a ranged one is not", info("Thunderbolt").contact === false);
+
+  // The Abilities, read from the registry rather than a list kept here.
+  check("Rough Skin answers a contact move with an eighth", test.contactAnswerOf("roughskin") === 0.125);
+  check("Iron Barbs does the same, though the registry has no entry for it",
+    test.contactAnswerOf("ironbarbs") === 0.125);
+  check("an Ability that answers nothing costs nothing", test.contactAnswerOf("blaze") === 0);
+  check("Limber cannot be paralysed", test.abilityImmunity("limber", "paralysis") === true);
+  check("Immunity cannot be poisoned", test.abilityImmunity("immunity", "poison") === true);
+  // Leaf Guard only works in sun and Flower Veil only protects allies. Claiming either outright
+  // would tell the model a Pokemon cannot be burned when it can be, which is worse than silence.
+  check("a conditional immunity is not claimed", test.abilityImmunity("leafguard", "burn") === false);
+  check("nor an ally-scoped one", test.abilityImmunity("flowerveil", "burn") === false);
+
+  // --- the status slot ---------------------------------------------------------------------
+  //
+  // A Pokemon carries ONE condition, so the probabilities in the slot can never add up to more
+  // than a whole one: two 60% sleeps are not a 120% sleep, and something certainly burned cannot
+  // also be poisoned.
+  const slot = (kit = {}) => ({
+    st: { brn: 0, psn: 0, tox: 0, par: 0, slp: 0, frz: 0 }, hp: 1, out: false,
+    k: { burnProof: false, poisonProof: false, paraProof: false, sleepProof: false, ...kit },
+  });
+  {
+    const one = slot();
+    check("a status lands as often as it is given", test.applyStatus(one, "sleep", 0.6) === 0.6);
+    check("and a second one can only have what is left",
+      Math.abs(test.applyStatus(one, "burn", 0.6) - 0.4) < 1e-9, String(one.st.brn));
+    const total = Object.values(one.st).reduce((a, b) => a + b, 0);
+    check("so the slot never holds more than one whole condition", Math.abs(total - 1) < 1e-9, String(total));
+    check("and a third gets nothing", test.applyStatus(one, "paralysis", 0.5) === 0);
+  }
+  check("a Fire type cannot be burned", test.applyStatus(slot({ burnProof: true }), "burn", 1) === 0);
+  check("a Steel type cannot be poisoned", test.applyStatus(slot({ poisonProof: true }), "poison", 1) === 0);
+  check("an Electric type cannot be paralysed", test.applyStatus(slot({ paraProof: true }), "paralysis", 1) === 0);
+  check("Insomnia cannot be put to sleep", test.applyStatus(slot({ sleepProof: true }), "sleep", 1) === 0);
+  check("a condition the model does not carry is refused", test.applyStatus(slot(), "nonsense", 1) === 0);
+
+  // What each condition costs an action, read the way an action reads it.
+  const scale = (st) => test.actionScale({ flinchP: 0, st: { brn: 0, psn: 0, tox: 0, par: 0, slp: 0, frz: 0, ...st } });
+  check("sleep costs the whole action", scale({ slp: 1 }) === 0);
+  check("half-asleep costs half of it", scale({ slp: 0.5 }) === 0.5);
+  check("paralysis costs a quarter", scale({ par: 1 }) === 0.75);
+  check("freeze costs the whole action", scale({ frz: 1 }) === 0);
+  check("a burn costs an action nothing -- it costs damage instead", scale({ brn: 1 }) === 1);
+  check("poison costs an action nothing either", scale({ psn: 1, tox: 1 }) === 1);
+
+  // Status-move accuracy, which used to be ignored entirely: every one of these landed outright.
+  const acc = (name) => test.accuracyOf({ name });
+  check("Hypnosis lands three times in five", Math.abs(acc("Hypnosis") - 0.6) < 1e-9, String(acc("Hypnosis")));
+  check("Thunder Wave nine times in ten", Math.abs(acc("Thunder Wave") - 0.9) < 1e-9, String(acc("Thunder Wave")));
+  check("Will-O-Wisp seventeen times in twenty", Math.abs(acc("Will-O-Wisp") - 0.85) < 1e-9, String(acc("Will-O-Wisp")));
+  check("and a move that cannot miss lands every time", acc("Swords Dance") === 1, String(acc("Swords Dance")));
+
+  // The move decides WHICH condition, from its own compiled effect -- the planner's slot is
+  // called BURN because Will-O-Wisp is what it looks for, but Thunder Wave and Toxic reach it too.
+  const statusOf = (name) => (test.effectsOf(name) || []).find((e) => e.op === "status" && e.target === "target")?.status;
+  check("Thunder Wave is paralysis, not a burn", String(statusOf("Thunder Wave")).includes("paral"), String(statusOf("Thunder Wave")));
+  check("Toxic is a bad poison", /toxic|badly/.test(String(statusOf("Toxic"))), String(statusOf("Toxic")));
+  check("Will-O-Wisp really is a burn", String(statusOf("Will-O-Wisp")) === "burn", String(statusOf("Will-O-Wisp")));
+}
+
 console.log(`${checked} checked, ${failures.length} failed.`);
 for (const line of failures) console.log(`  FAIL ${line}`);
+
 process.exit(failures.length ? 1 : 0);

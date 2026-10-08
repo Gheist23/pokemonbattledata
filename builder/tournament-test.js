@@ -108,8 +108,25 @@ const BATCH = 8;
 const MATRIX_ROWS = 40;
 const MATRIX_EVERY = 8; // snapshots between lead-matrix refreshes while running (64 teams)
 const ID_SPAN = 1 << 16;
-const MAX_CACHED_HITS = 400000;
+const MAX_CACHED_HITS = 1500000;
 export const MATCHUP_BANDS = { favourable: 55, unfavourable: 45 };
+// v11: the compiled move and Ability effects are modelled (TOURNAMENT_EFFECTS). Counter, Metal
+// Burst and Mirror Coat deal damage at all for the first time -- all three scored exactly 0
+// before, because the Test never recorded the damage they are made of; Defense and Sp. Def stages
+// exist at all for the first time (`def` was read when pricing a hit and written nowhere, so
+// every defensive stat change in the game was invisible); the secondary effects damaging moves
+// carry -- flinch, burn, poison, paralysis, stat drops -- are modelled as expectations; poison and
+// the weather chip, Leftovers, draining moves and the Abilities that answer a contact move (Rough
+// Skin, Iron Barbs, Rocky Helmet) are settled at the end of the turn; and paralysis halves Speed.
+// Every one of those changes what a cell IS, so every score a v10 snapshot holds is a different
+// number and a restored one would be drawn beside these as though they were comparable.
+//
+// None of it changes how a bring or a stance is CHOSEN, and the test stays even: measured
+// bit-exact with the registry loaded, 208 of 208 mirrors score exactly 50 and 432 of 432 seat
+// swaps make exactly 100. That is what the expectations are FOR. The first attempt applied a
+// flinch the moment the hit landed, which made the loss depend on who acted first -- in a mirror
+// the Pokemon listed first flinched the other and was never flinched back, and 9 of 42 Doubles
+// mirrors stopped being exactly 50. It is accumulated and read through `freezeRun` now.
 // v10: the scoring game is FOUR planned turns, not two, and the lead matrix is that same searched
 // game (TOURNAMENT_DEPTH version 2); Protect fails when its user protected the turn before
 // (TOURNAMENT_GUARD); and a physical or special move the move table lists at 0 power is still an
@@ -135,7 +152,7 @@ export const MATCHUP_BANDS = { favourable: 55, unfavourable: 45 };
 // (TOURNAMENT_ALT), the shared Field settings no longer reach the board (TOURNAMENT_FIELD) and
 // `ignoredField` names the ones it ignored, so every earlier snapshot is a different number. v6
 // scored under the bring rule (TOURNAMENT_BRING) on top of the seat rule (TOURNAMENT_SEAT).
-export const SNAPSHOT_VERSION = 10;
+export const SNAPSHOT_VERSION = 11;
 
 /** The turn-1 rule as a version: 2 keeps turn 1 out of the duel board, 1 prices Tailwind and
  *  Trick Room, 0 forces them.
@@ -519,6 +536,36 @@ export const TOURNAMENT_GUARD = 1;
  */
 export const TOURNAMENT_VAR_POWER = 1;
 
+/**
+ * The compiled move and Ability effects, as a version: 1 models them, 0 replays a run made
+ * before them.
+ *
+ * What version 1 adds, all of it from the same compiled registry the Companion's own battle
+ * simulation reads (`data/builder/move-effects.json`):
+ *
+ *   * the three retaliation moves. Counter, Metal Burst and Mirror Coat are priced from the
+ *     damage their user took this turn, which the Test never recorded -- so all three dealt
+ *     exactly 0 and a Pokemon carrying one was playing with three moves.
+ *   * Defense and Sp. Def stages. `def` was READ when pricing a hit and never written anywhere,
+ *     so every defensive stat change in the game was invisible: Iron Defense did nothing and
+ *     Crunch's drop did nothing.
+ *   * stat-boosting moves -- Swords Dance, Nasty Plot, Calm Mind, Bulk Up, Dragon Dance.
+ *   * residual damage and healing settled at end of turn: poison, Leftovers, the weather chip,
+ *     Grassy Terrain, draining moves, and the Abilities that answer a contact move (Rough Skin,
+ *     Iron Barbs, Rocky Helmet).
+ *   * a status move's accuracy. Hypnosis, Sing, Will-O-Wisp, Thunder Wave and Toxic all landed
+ *     with certainty while every attack was discounted by its own accuracy.
+ *   * the secondary effects every damaging move carries, as expectations: a 30% burn is 0.3 of a
+ *     burn, a 30% flinch is 0.3 of an action lost. Never a coin flip -- see `effectsRule` in the
+ *     README and the note on `deal`. A roll would break the two properties the whole test rests
+ *     on, measured: with the Solver's own rolls installed, 41 of 66 mirrors stopped being exactly
+ *     50 and only 15 of 135 seat swaps still summed to 100.
+ *
+ * Expectation, not sampling, is the load-bearing choice. It keeps a team's score against itself
+ * exactly 50 and a seat swap exactly 100, which is what "a score of 50 is even" means on the page.
+ */
+export const TOURNAMENT_EFFECTS = 1;
+
 /** The physical and special moves whose LISTED power is 0 because the power is worked out from the
  *  board -- the target's weight, the two Speeds, the user's HP, its item or its party. A NAMED set
  *  and not a general relaxation of `damagingMove`: that function's `power > 0` test is also what
@@ -603,6 +650,12 @@ export function tournamentGuardOption(value) {
  *  coerces exactly as `tournamentTurnOneOption` does. */
 export function tournamentVarPowerOption(value) {
   return ruleVersion(value, TOURNAMENT_VAR_POWER);
+}
+
+/** A `tournament_effects` stamp as a version (`ruleVersion` against TOURNAMENT_EFFECTS), so it
+ *  coerces exactly as `tournamentTurnOneOption` does. */
+export function tournamentEffectsOption(value) {
+  return ruleVersion(value, TOURNAMENT_EFFECTS);
 }
 
 /**
@@ -736,6 +789,14 @@ const SLEEP_MOVES = { spore: 2, sleeppowder: 1, hypnosis: 1, sing: 1, lovelykiss
 const POWDER_MOVES = new Set(["spore", "sleeppowder"]);
 const SLEEP_PROOF = new Set(["insomnia", "vitalspirit", "sweetveil", "comatose", "purifyingsalt"]);
 const BURN_PROOF = new Set(["waterveil", "waterbubble", "thermalexchange", "comatose", "purifyingsalt", "guts"]);
+/** Beyond the registry's own `status_immunity`: Poison Heal is fed by poison rather than hurt by
+ *  it, and Comatose is permanently asleep so nothing else can land. */
+const POISON_PROOF = new Set(["poisonheal", "comatose"]);
+const PARA_PROOF = new Set(["comatose"]);
+/** Magma Armor says so outright; Comatose is already asleep so nothing else lands. */
+const FREEZE_PROOF = new Set(["magmaarmor", "comatose"]);
+/** Iron Barbs is Rough Skin by another name and the registry has no entry for it. */
+const CONTACT_ANSWER = new Map([["ironbarbs", 1 / 8]]);
 const NO_HIT = Object.freeze({ slot: -1, frac: 0, lo: 0, hi: 0, priority: 0, spread: false, self: 0 });
 
 // The stances a side chooses between on turn 1 when the scoring game is searched
@@ -888,7 +949,13 @@ function freezeRun(actions, runs, i) {
     const m = actions[j].m;
     // atk / spa / burn as well, so twins strike with the stats they had before either moved: a
     // Mystical Fire between two identical Indeedee lowered only the one listed second otherwise.
-    actions[j].pre = { tag, out: m.out, flinch: m.flinch, idle: m.idle, taunted: m.taunted, atk: m.atk, spa: m.spa, burn: m.burn };
+    actions[j].pre = { tag, out: m.out, flinch: m.flinch, idle: m.idle, taunted: m.taunted, atk: m.atk, spa: m.spa, burn: m.burn,
+      // The expectations join the snapshot for the same reason the stages did: a run of
+      // simultaneous actions must see the state as it was before any of them moved.
+      flinchP: m.flinchP || 0, took: m.took || 0,
+      // A copy, not the object: the run must see the conditions as they stood before any of its
+      // actions landed one.
+      st: m.st ? { ...m.st } : null };
     m.runTag = tag;
   }
 }
@@ -918,7 +985,7 @@ export class TournamentTest {
    *   `varPowerRule`: the variable-power attacks (TOURNAMENT_VAR_POWER); 0 replays a recording made
    *   before it, where a 0-power attack was no attack at all.
    */
-  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER } = {}) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, effects = null } = {}) {
     this.turnOneRule = tournamentTurnOneOption(turnOneRule);
     this.seatRule = tournamentSeatOption(seatRule);
     this.bringRule = tournamentBringOption(bringRule);
@@ -929,6 +996,14 @@ export class TournamentTest {
     this.falloffRule = tournamentFalloffOption(falloffRule);
     this.guardRule = tournamentGuardOption(guardRule);
     this.varPowerRule = tournamentVarPowerOption(varPowerRule);
+    this.effectsRule = tournamentEffectsOption(effectsRule);
+    // The compiled move and Ability effects. Handed in rather than fetched, because this file is
+    // run from a Worker, from node and from six suites; `effectsOn` is the one gate every new
+    // rule below asks, so a run with no registry behaves exactly as it did before them.
+    this.effects = effects && typeof effects === "object" ? effects : null;
+    this.moveEffects = this.effects?.moves || null;
+    this.abilityEffects = this.effects?.abilities || null;
+    this.effectsOn = this.effectsRule >= 1 && Boolean(this.moveEffects);
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -1047,6 +1122,48 @@ export class TournamentTest {
   }
 
   /** What one move does in the model (cached by name). */
+  /**
+   * Is this Ability's holder immune to a status?
+   *
+   * UNCONDITIONAL entries only. Leaf Guard works in sun and Flower Veil protects Grass allies;
+   * both depend on the board, and claiming either unconditionally would be a worse answer than
+   * leaving it out -- a Pokemon that cannot be burned when it can be is a Pokemon the model will
+   * never try to burn.
+   */
+  abilityImmunity(ability, status) {
+    const list = this.abilityEffects?.[ability];
+    if (!list) return false;
+    for (const fx of list) {
+      if (fx.op !== "status_immunity" || fx.condition || fx.scope) continue;
+      const statuses = (fx.statuses || []).map((entry) => String(entry).toLowerCase());
+      if (statuses.includes("all") || statuses.includes(status)) return true;
+    }
+    return false;
+  }
+
+  /** What a contact move costs its user against this Ability, as a share of the attacker's HP. */
+  contactAnswerOf(ability) {
+    const list = this.abilityEffects?.[ability];
+    if (list) {
+      for (const fx of list) {
+        if (fx.op === "on_contact_damage_attacker") return Math.max(0, Number(fx.fraction) || 0);
+      }
+    }
+    return CONTACT_ANSWER.get(ability) || 0;
+  }
+
+  /**
+   * The compiled effects of one move, or null. Keyed the way the registry is keyed.
+   *
+   * The registry is phrase-matched from the game's own move text, so it was audited rather than
+   * trusted before any of it was wired in: all 151 probabilistic effects carry a chance that
+   * appears as a percentage in that same text, and all 185 stat changes agree with it on which
+   * side they point at and which way they go.
+   */
+  effectsOf(name) {
+    return this.moveEffects?.[compact(name)] || null;
+  }
+
   moveInfo(name) {
     let info = this.moveInfoCache.get(name);
     if (info) return info;
@@ -1057,6 +1174,13 @@ export class TournamentTest {
     const listed = this.ev.movePriority(name);
     const priority = PRIORITY_FIX[k] ?? listed;
     const solar = k === "solarbeam" || k === "solarblade";
+    // The compiled effects, and the two things read straight off the move rather than out of them.
+    // `contact` decides whether Rough Skin answers; `counter` is the three moves priced from the
+    // damage their user took, which have to miss the damage cache because that changes within a turn.
+    const fx = this.effectsOf(name);
+    const flags = new Set((meta.flags || []).map((flag) => String(flag).toLowerCase().replace(/[^a-z0-9]+/g, "")));
+    const contact = flags.has("contact");
+    const counter = String(meta.special || "").toLowerCase() === "counter_damage";
     const spread = Boolean(meta.spread) && this.format === "Doubles";
     const damaging = this.ev.damagingMove(name) && !NOT_ATTACKS.has(k);
     // A named variable-power attack (TOURNAMENT_VAR_POWER): the move table lists 0 power because the
@@ -1081,6 +1205,9 @@ export class TournamentTest {
       cooldown: solar ? null : this.ev.hasCooldown(name, {}),
       // Its base power IS its user's remaining HP share (TOURNAMENT_FALLOFF).
       hpPower: HP_POWER_MOVES.has(k),
+      // The compiled registry's own answer for this move (TOURNAMENT_EFFECTS), plus the two
+      // things read off the move itself rather than out of its effects.
+      fx, contact, counter,
     };
     this.moveInfoCache.set(name, info);
     return info;
@@ -1169,6 +1296,24 @@ export class TournamentTest {
       sleepProof: SLEEP_PROOF.has(ability),
       powderProof: types.includes("Grass") || ability === "overcoat" || item === "safetygoggles",
       burnProof: types.includes("Fire") || BURN_PROOF.has(ability),
+      // Its own max HP in whole points. `hp` on the board is a SHARE of it, and the engine prices
+      // a retaliation move from whole points, so the two have to be converted somewhere.
+      maxHp: Math.max(1, Number(stats.hp) || 1),
+      // Whether any of its moves is priced from the damage it has taken. Asked once so the hot
+      // cache key can skip the extra field for the Pokemon that do not carry one.
+      hasCounter: unit.moves.some((move) => move.counter),
+      // Steel and Poison cannot be poisoned, and Immunity says so outright; Electric types and
+      // Limber cannot be paralysed. Both are in the registry as `status_immunity`, read here so
+      // the two codebases cannot drift.
+      poisonProof: types.includes("Steel") || types.includes("Poison")
+        || this.abilityImmunity(ability, "poison") || POISON_PROOF.has(ability),
+      paraProof: types.includes("Electric") || this.abilityImmunity(ability, "paralysis") || PARA_PROOF.has(ability),
+      // Its OWN immunity, not sleep's: an Ice type cannot be frozen, and Insomnia -- which keeps a
+      // Pokemon awake -- does nothing about ice.
+      freezeProof: types.includes("Ice") || this.abilityImmunity(ability, "freeze") || FREEZE_PROOF.has(ability),
+      // What a contact move costs its user against this Pokemon: Rough Skin and Iron Barbs take
+      // an eighth, Rocky Helmet a sixth. A share of the ATTACKER's own max HP.
+      contactAnswer: (item === "rockyhelmet" ? 1 / 6 : 0) + this.contactAnswerOf(ability),
       soundProof: ability === "soundproof",
       dark: types.includes("Dark"),
       // Its own weather / terrain Ability, whatever the shared settings pin (TOURNAMENT_FIELD);
@@ -1187,6 +1332,12 @@ export class TournamentTest {
       // `play`) is the honest change and is not made here.
       sash: item === "focussash",
       sitrus: item === "sitrusberry",
+      // A sixteenth back at the end of every turn.
+      leftovers: item === "leftovers" || item === "blacksludge",
+      // The weather that hurts it, if any: sand spares Rock, Ground and Steel, snow spares Ice.
+      chippedBy: !types.includes("Rock") && !types.includes("Ground") && !types.includes("Steel")
+        ? WEATHERS.indexOf("Sand")
+        : !types.includes("Ice") ? WEATHERS.indexOf("Snow") : 0,
       power: Math.max(Number(stats.attack) || 0, Number(stats.sp_attack) || 0),
     };
     kit.lead = (kit.fakeOut >= 0 ? 3 : 0) + (kit.tailwind ? 3 : 0) + (kit.trickRoom ? 3 : 0) + (kit.intimidate ? 2 : 0)
@@ -1232,7 +1383,7 @@ export class TournamentTest {
    * One move into one defender on this board, cached with only the parts of the board it depends on.
    * `fx`: 1 = Helping Hand (Doubles), 2 = the attacker is burned (physical moves).
    */
-  moveHit(att, def, slot, board, atk, spa, fx = 0, hp = 1, defStage = 0) {
+  moveHit(att, def, slot, board, atk, spa, fx = 0, hp = 1, defStage = 0, took = 0) {
     const info = att.moves[slot];
     if (!info) return NO_HIT;
     const w = info.weather || att.weatherSense || def.weatherSense ? board.w : ANY;
@@ -1250,6 +1401,9 @@ export class TournamentTest {
     // what the whole search reads, and a Pokemon at +1 Defense must not be handed the +0 answer.
     // Nothing outside the Solver ever passes it, so every other caller keeps a key that merely
     // shifts and a number that does not move.
+    if (this.effectsOn && info.counter) {
+      return this.calc(att, def, info, slot, w, t, stage, f, bucket, defStage, took);
+    }
     const key = (((((((att.id * ID_SPAN + def.id) * 4 + slot) * 8 + w) * 8 + t) * 13 + stage + 6) * 13 + clampStage(defStage) + 6) * 4 + f) * HP_BUCKETS + bucket;
     let hit = this.hits.get(key);
     if (hit === undefined) {
@@ -1259,7 +1413,7 @@ export class TournamentTest {
     return hit;
   }
 
-  calc(att, def, info, slot, w, t, stage, f, bucket = HP_BUCKETS - 1, defStage = 0) {
+  calc(att, def, info, slot, w, t, stage, f, bucket = HP_BUCKETS - 1, defStage = 0, took = 0) {
     // Grassy Glide is +1 in Grassy Terrain when its user is on the ground.
     const priority = info.priority + (info.key === "grassyglide" && t === GRASSY && att.grounded ? 1 : 0);
     // Priority the move table does not list is priority the engine cannot see, so its
@@ -1331,6 +1485,11 @@ export class TournamentTest {
       }
       if (f & 1) ctx.helping_hand = true;
       if (f & 2) ctx.burned = true;
+      // What the attacker took this turn, in whole HP, which is the only thing Counter, Metal
+      // Burst and Mirror Coat are made of. `took` is a share of the attacker's own max HP.
+      if (this.effectsOn && info.counter && took > 0) {
+        ctx.last_damage = Math.max(1, Math.round(took * (att.kit?.maxHp || 1)));
+      }
       const result = this.ev.calculate(attacker, defender, ctx);
       this.calcs += 1;
       const rolls = result.rolls || [];
@@ -1379,21 +1538,25 @@ export class TournamentTest {
    */
   hitOn(m, target, slot, board, helped = m.helped, pre = m) {
     return this.moveHit(m.u, target.u, slot, board, pre.atk, pre.spa,
-      (helped ? 1 : 0) | (pre.burn ? 2 : 0), pre.hp, target.def || 0);
+      (helped ? 1 : 0) | (pre.burn ? 2 : 0), pre.hp, target.def || 0, pre.took || 0);
   }
 
   /**
    * The attacker's best attack into the defender on this board (ties go to the higher priority).
    * `safe`: only the attacks that leave the attacker's partner alone. `burned`: the attacker is burned.
    */
-  strike(att, def, board, atk = 0, spa = 0, safe = false, burned = false, hp = 1) {
-    const key = (((((att.id * ID_SPAN + def.id) * 8 + board.w) * 8 + board.t) * 169 + (atk + 6) * 13 + spa + 6) * 2 + (burned ? 1 : 0)) * HP_BUCKETS + (this.falloffRule >= 1 && att.readsOwnHp ? hpBucket(hp) : HP_BUCKETS - 1);
+  strike(att, def, board, atk = 0, spa = 0, safe = false, burned = false, hp = 1, took = 0) {
+    // `took` joins the key, bucketed the way the HP share is: a retaliation move is worth what
+    // its user has taken, so a key that ignored it would hand back the answer for an untouched
+    // Pokemon for the rest of the run. Every other move ignores it, so their key merely shifts.
+    const tookBucket = this.effectsOn && att.kit?.hasCounter ? hpBucket(Math.max(0, Math.min(1, took))) : HP_BUCKETS - 1;
+    const key = ((((((att.id * ID_SPAN + def.id) * 8 + board.w) * 8 + board.t) * 169 + (atk + 6) * 13 + spa + 6) * 2 + (burned ? 1 : 0)) * HP_BUCKETS + (this.falloffRule >= 1 && att.readsOwnHp ? hpBucket(hp) : HP_BUCKETS - 1)) * HP_BUCKETS + tookBucket;
     const cache = safe ? this.bestSafe : this.best;
     let best = cache.get(key);
     if (best !== undefined) return best;
     best = NO_HIT;
     const fx = burned ? 2 : 0;
-    for (const slot of safe ? att.safeAttacks : att.attacks) best = this.better(best, this.moveHit(att, def, slot, board, atk, spa, fx, hp));
+    for (const slot of safe ? att.safeAttacks : att.attacks) best = this.better(best, this.moveHit(att, def, slot, board, atk, spa, fx, hp, 0, took));
     cache.set(key, best);
     return best;
   }
@@ -1414,7 +1577,11 @@ export class TournamentTest {
   }
 
   speed(m, board) {
-    return this.speedOf(m.u, board.w, board.tw[m.s] > 0, m.spe);
+    const base = this.speedOf(m.u, board.w, board.tw[m.s] > 0, m.spe);
+    // Paralysis halves Speed. As an expectation it halves the share of it that is paralysed,
+    // which is also what makes Nuzzle and Thunder Wave worth anything to the planner: before
+    // this they inflicted a condition that did not slow anybody down.
+    return this.effectsOn && m.st?.par > 0 ? base * (1 - 0.5 * m.st.par) : base;
   }
 
   /** The Speed a unit has as it comes in (a Mega Stone holder's base form). */
@@ -1425,7 +1592,7 @@ export class TournamentTest {
   /** The most damage a Pokémon's best attack does to any of these (a share of their HP). */
   threatTo(foe, list, board) {
     let danger = 0;
-    for (const own of list) if (alive(own)) danger = Math.max(danger, Math.min(own.hp, this.strike(foe.u, own.u, board, foe.atk, foe.spa, false, foe.burn, foe.hp).frac));
+    for (const own of list) if (alive(own)) danger = Math.max(danger, Math.min(own.hp, this.strike(foe.u, own.u, board, foe.atk, foe.spa, false, foe.burn, foe.hp, foe.took || 0).frac));
     return danger;
   }
 
@@ -1593,6 +1760,29 @@ export class TournamentTest {
       idle: 0, sleep: false, burn: false, helped: false, taunted: false, acted: 0, runTag: 0,
       // What this turn's own moves owe their user, paid in `endOfTurn` (`oweSelf`, `self_cost`).
       selfOwed: 0,
+      // --- the compiled effects (TOURNAMENT_EFFECTS) ---------------------------------------
+      // Defence stages. `def` was already READ when a hit was priced and written NOWHERE, so
+      // every defensive stat change in the game was invisible; `spd` never existed at all.
+      def: 0, spd: 0,
+      // Damage taken THIS turn, as a share of this Pokemon's own max HP. Counter, Metal Burst and
+      // Mirror Coat are priced from it; without it all three dealt exactly 0.
+      took: 0,
+      // Residual damage owed, settled in `endOfTurn`: poison, the weather chip, a contact
+      // Ability's answer. Negative heals (Leftovers, Grassy Terrain, a draining move).
+      resid: 0,
+      // How much of its action this Pokemon still has when it acts. Set from the FROZEN run
+      // state at the top of its action, never while another Pokemon is mid-move.
+      outScale: 1,
+      // The chance it has been made to flinch this turn, accumulated as independent chances.
+      // Read through `freezeRun`, so a flinch caused inside a run of simultaneous actions cannot
+      // reach the actions in that same run -- which is what keeps two twins even.
+      flinchP: 0,
+      // The status slot, as probabilities. A Pokemon carries ONE condition, so these can never
+      // add up to more than 1 -- `applyStatus` is the only thing that writes them and it only
+      // ever fills the share that is still free. `toxTurns` counts how long the bad poison has
+      // been on, because that damage grows.
+      st: { brn: 0, psn: 0, tox: 0, par: 0, slp: 0, frz: 0 },
+      toxTurns: 0,
     };
   }
 
@@ -1690,9 +1880,20 @@ export class TournamentTest {
    */
   onHit = null;
 
-  deal(att, target, hit, events, partner = false) {
+  deal(att, target, hit, events, partner = false, pre = null) {
     if (!target || target.out || target.guard || hit.frac <= 0) return false;
     let damage = this.rollHit(hit);
+    // What the attacker has left of its action. A Pokemon with a 30% chance of flinching does
+    // 70% of what it would have done -- the same multiplication accuracy has always used, applied
+    // at the one place every landed hit passes through.
+    if (this.effectsOn && att.outScale < 1) damage *= Math.max(0, att.outScale);
+    // A burn halves what a physical move does, in proportion to how burned its user is. Read
+    // from the FROZEN run, like `outScale` and `pre.atk` before it: a burn landed by the first
+    // action of a run must not reach the second one, or the two stop being simultaneous.
+    const burn = (pre || att).st?.brn || 0;
+    if (this.effectsOn && burn > 0 && att.u.moves[hit.slot]?.physical) {
+      damage *= 1 - 0.5 * burn;
+    }
     if (damage <= 0) return false;
     if (target.sash && target.hp >= 0.999 && damage >= target.hp) {
       damage = target.hp - 0.01;
@@ -1711,8 +1912,141 @@ export class TournamentTest {
       return true;
     }
     this.berry(target);
+    if (this.effectsOn) {
+      // Counter, Metal Burst and Mirror Coat read this.
+      target.took += damage;
+      this.answerContact(att, target, hit);
+      this.secondaries(att, target, hit);
+      // A draining move gives its user back a share of what it just dealt. Credited to the owed
+      // pile like everything else, so nothing changes the board in the middle of a turn.
+      const drain = (att.u.moves[hit.slot]?.fx || []).find((fx) => fx.op === "drain");
+      if (drain && alive(att)) {
+        const share = Math.max(0, Number(drain.fraction) || 0.5);
+        att.resid -= damage * (target.k.maxHp / Math.max(1, att.k.maxHp)) * share;
+      }
+    }
     if (this.onHit) this.onHit(target, att, hit);
     return true;
+  }
+
+  /**
+   * What a contact move costs its user: Rough Skin, Iron Barbs and Rocky Helmet.
+   *
+   * OWED, never paid here. Taking HP off the attacker in the middle of a turn can knock it out
+   * mid-turn, and that moves the other side's targets -- the recorded failure took a mirror from
+   * 50.00 to 46.44 for exactly this reason. `endOfTurn` settles it, walking both sides the same way.
+   */
+  answerContact(att, target, hit) {
+    const info = att.u.moves[hit.slot];
+    if (!info?.contact || !alive(att)) return;
+    const share = target.k.contactAnswer || 0;
+    if (share > 0) att.resid += share;
+  }
+
+  /**
+   * The secondary effects of the move that just landed, as expectations.
+   *
+   * A 30% burn is three tenths of a burn, not a coin flip: `p` scales what the effect DOES. That
+   * is what keeps a team's score against itself exactly 50 -- a sampled effect lands on whichever
+   * hit happens to be nth in a shared stream, so swapping the two seats gives the same hits
+   * different numbers.
+   */
+  secondaries(att, target, hit) {
+    const info = att.u.moves[hit.slot];
+    const list = info?.fx;
+    if (!list || !alive(target) || att.k.sheerForce || target.k.secondaryProof) return;
+    for (const fx of list) {
+      const p = Math.max(0, Math.min(1, (Number(fx.chance) || 100) / 100));
+      if (p <= 0) continue;
+      if (fx.op === "flinch" && fx.target === "target") {
+        // Accumulated, not applied: `freezeRun` decides which actions can see it.
+        target.flinchP = 1 - (1 - target.flinchP) * (1 - p);
+      } else if (fx.op === "status" && fx.target === "target") {
+        this.inflict(target, String(fx.status || ""), p);
+      } else if (fx.op === "stage" && fx.target === "target" && Number(fx.amount) < 0) {
+        // `afterHit` already applies this move's sure drop from the model's own table, and that
+        // path knows about Defiant and Competitive answering it. Applying the registry's copy as
+        // well made one Snarl -2 Sp. Atk and one Icy Wind -2 Speed.
+        if (info.drop) continue;
+        this.shiftStages(target, fx.stats, Number(fx.amount) * p);
+      } else if (fx.op === "stage" && fx.target === "user" && Number(fx.amount) > 0) {
+        this.shiftStages(att, fx.stats, Number(fx.amount) * p);
+      }
+    }
+  }
+
+  /**
+   * How much of an action a Pokemon has, given what it is carrying. Read from the FROZEN run
+   * state, so a condition inflicted inside a run of simultaneous actions cannot reach them.
+   */
+  actionScale(pre) {
+    const st = pre.st;
+    const flinch = 1 - (pre.flinchP || 0);
+    if (!st) return Math.max(0, flinch);
+    return Math.max(0, flinch * (1 - st.slp) * (1 - st.frz) * (1 - 0.25 * st.par));
+  }
+
+  /** How much of the status slot is still free: 1 on a clean Pokemon, 0 on a fully statused one. */
+  statusFree(unit) {
+    const st = unit.st;
+    if (!st) return unit.burn || unit.sleep ? 0 : 1;
+    return Math.max(0, 1 - (st.brn + st.psn + st.tox + st.par + st.slp + st.frz))
+      - (unit.burn || unit.sleep ? 1 : 0);
+  }
+
+  /**
+   * One status condition, as the chance of carrying it.
+   *
+   * Only the share of the slot that is FREE can be filled: a Pokemon already certainly burned
+   * cannot also be poisoned, and two 60% sleeps are not a 120% sleep. The immunities are asked
+   * first, and they are the same ones the boolean path has always asked.
+   */
+  applyStatus(target, status, chance) {
+    if (!alive(target) || !target.st) return 0;
+    const kind = String(status || "").toLowerCase();
+    const field = kind === "burn" ? "brn"
+      : kind === "poison" ? "psn"
+        : kind === "badly_poisoned" || kind === "toxic" ? "tox"
+          : kind === "paralysis" ? "par"
+            : kind === "sleep" ? "slp"
+              : kind === "freeze" ? "frz" : "";
+    if (!field) return 0;
+    if (field === "brn" && target.k.burnProof) return 0;
+    if ((field === "psn" || field === "tox") && target.k.poisonProof) return 0;
+    if (field === "par" && target.k.paraProof) return 0;
+    if (field === "slp" && target.k.sleepProof) return 0;
+    if (field === "frz" && target.k.freezeProof) return 0;
+    const room = Math.min(Math.max(0, Number(chance) || 0), this.statusFree(target));
+    if (room <= 0) return 0;
+    target.st[field] += room;
+    return room;
+  }
+
+  /** A status condition as an expectation. Nothing here ever exceeds one whole condition. */
+  inflict(target, status, p) {
+    this.applyStatus(target, status, p);
+  }
+
+  /** A stat change spread over the five stages this model carries, in whole steps only. */
+  shiftStages(unit, stats, amount) {
+    if (!alive(unit) || !Array.isArray(stats) || !amount) return;
+    if (amount < 0 && unit.k.statProof) return;
+    for (const raw of stats) {
+      const stat = String(raw || "").toLowerCase();
+      const field = stat === "attack" ? "atk" : stat === "special_attack" || stat === "sp_attack" || stat === "spatk" ? "spa"
+        : stat === "defense" ? "def" : stat === "special_defense" || stat === "sp_defense" || stat === "spdef" ? "spd"
+          : stat === "speed" ? "spe" : "";
+      if (!field) continue;
+      if (field === "atk" && amount < 0 && unit.k.hyperCutter) continue;
+      // The REMAINDER is carried and only whole stages are spent. A fractional stage would land
+      // in the damage cache key and multiply the number of entries -- measured at +147% engine
+      // calls -- for a difference smaller than one step of the stage table.
+      const carry = `${field}Part`;
+      const total = (unit[carry] || 0) + amount;
+      const whole = total < 0 ? Math.ceil(total) : Math.floor(total);
+      unit[carry] = total - whole;
+      if (whole) unit[field] = clampStage((unit[field] || 0) + whole);
+    }
   }
 
   berry(target) {
@@ -1778,6 +2112,21 @@ export class TournamentTest {
     return done;
   }
 
+  /**
+   * How often this move lands, as a share of 1.
+   *
+   * A move the table gives no accuracy for cannot miss, which is what "--" means in the game's
+   * own move list, so it is 1. Attacks have always been discounted by this through the engine's
+   * `move_accuracy_factor`; this is the same number for the moves that do not deal damage.
+   */
+  accuracyOf(info) {
+    const raw = this.ev.meta(info?.name || "")?.accuracy;
+    if (raw === undefined || raw === null || raw === "") return 1;
+    const value = Number(String(raw).replace("%", ""));
+    if (!Number.isFinite(value) || value <= 0) return 1;
+    return Math.max(0, Math.min(1, value / 100));
+  }
+
   /** An attack's sure stat drop after it landed (Sheer Force, Shield Dust and Covert Cloak remove it). */
   afterHit(m, target, info) {
     if (!info.drop || !alive(target) || m.k.sheerForce || target.k.secondaryProof) return [];
@@ -1809,7 +2158,7 @@ export class TournamentTest {
     let bestScore = -1;
     for (const foe of foes) {
       if (!alive(foe)) continue;
-      let hit = this.strike(m.u, foe.u, board, m.atk, m.spa, false, m.burn, m.hp);
+      let hit = this.strike(m.u, foe.u, board, m.atk, m.spa, false, m.burn, m.hp, m.took || 0);
       if (partner && hit.frac > 0 && m.u.moves[hit.slot].allyHit) hit = this.spareThePartner(m, foe, hit, foes, partner, board);
       if (first >= 0) hit = this.better(hit, this.hitOn(m, foe, first, board, false));
       if (hit.frac <= 0) continue;
@@ -1836,7 +2185,7 @@ export class TournamentTest {
       if (h.spread) for (const other of foes) if (alive(other) && other !== foe) value += this.hitScore(this.hitOn(m, other, h.slot, board, false).frac, other);
       return value;
     };
-    const safe = this.strike(m.u, foe.u, board, m.atk, m.spa, true, m.burn, m.hp);
+    const safe = this.strike(m.u, foe.u, board, m.atk, m.spa, true, m.burn, m.hp, m.took || 0);
     return worth(hit) - this.hitScore(own, partner) > worth(safe) ? hit : safe;
   }
 
@@ -1893,7 +2242,8 @@ export class TournamentTest {
     let best = null;
     let bestScore = -1;
     for (const foe of foes) {
-      if (!this.canStatus(m, foe, info, foes) || foe.idle > 0 || foe.sleep || foe.burn || foe.k.sleepProof) continue;
+      if (!this.canStatus(m, foe, info, foes) || foe.idle > 0 || foe.k.sleepProof) continue;
+      if (this.effectsOn ? this.statusFree(foe) <= 0 : (foe.sleep || foe.burn)) continue;
       if (m.k.powder && foe.k.powderProof) continue;
       if (foe.u.grounded && (board.t === ELECTRIC || board.t === MISTY)) continue;
       const score = (foe.k.tailwind || foe.k.trickRoom ? 1 : 0) + this.threatTo(foe, mine, board);
@@ -1963,7 +2313,7 @@ export class TournamentTest {
       let saved = 0;
       for (const own of mine) {
         if (!alive(own)) continue;
-        const hit = this.strike(foe.u, own.u, board, foe.atk, foe.spa, false, foe.burn, foe.hp);
+        const hit = this.strike(foe.u, own.u, board, foe.atk, foe.spa, false, foe.burn, foe.hp, foe.took || 0);
         if (hit.frac <= 0) continue;
         const move = foe.u.moves[hit.slot];
         let cut = 0;
@@ -1992,7 +2342,8 @@ export class TournamentTest {
     const info = m.u.moves[m.k.wisp];
     let best = { value: 0, target: null };
     for (const foe of foes) {
-      if (!this.canStatus(m, foe, info, foes) || foe.k.burnProof || foe.burn || foe.sleep) continue;
+      if (!this.canStatus(m, foe, info, foes) || foe.k.burnProof) continue;
+      if (this.effectsOn ? this.statusFree(foe) <= 0 : (foe.burn || foe.sleep)) continue;
       let saved = 0;
       for (const own of mine) {
         if (!alive(own)) continue;
@@ -2178,7 +2529,7 @@ export class TournamentTest {
         bump(1 / Math.max(1, carriers), "fakeout");
       }
       // Knocked out first: only the foes that move before this lead at this priority count.
-      const best = this.strike(foe.u, m.u, board, foe.atk, foe.spa, false, foe.burn, foe.hp);
+      const best = this.strike(foe.u, m.u, board, foe.atk, foe.spa, false, foe.burn, foe.hp, foe.took || 0);
       const before = best.priority > pr || (best.priority === pr && this.speed(foe, board) > sp);
       if (best.frac > 0 && before) incoming += best.frac;
     }
@@ -2539,6 +2890,10 @@ export class TournamentTest {
       if (runs && runs[i] === i) freezeRun(actions, runs, i);
       const pre = a.pre || m;
       if (pre.out || pre.flinch) continue;
+      // What this action is worth, from the state as it stood before its run began: the chance
+      // it was made to flinch, and every condition that costs it an action. Sleep and freeze
+      // cost the whole thing, paralysis a quarter of it.
+      m.outScale = this.effectsOn ? this.actionScale(pre) : 1;
       if (pre.idle > 0) {
         m.idle -= 1;
         continue;
@@ -2600,7 +2955,7 @@ export class TournamentTest {
     }
     board.wide = 0;
     board.quick = 0;
-    this.endOfTurn(active, events);
+    this.endOfTurn(active, events, board);
     // What each side actually did, for a caller that wants to report the turn. The Tournament
     // Test ignores it -- every call site drops it -- so this is observationally inert for the
     // recorded vectors; it exists because the Solver's trace has no other way to learn what the
@@ -2642,8 +2997,21 @@ export class TournamentTest {
       return;
     }
     if (a.kind === SLEEP) {
-      if (target.sleep || target.burn || target.k.sleepProof || (m.k.powder && target.k.powderProof) || (target.u.grounded && (board.t === ELECTRIC || board.t === MISTY))) {
+      const blocked = target.k.sleepProof || (m.k.powder && target.k.powderProof)
+        || (target.u.grounded && (board.t === ELECTRIC || board.t === MISTY));
+      if (blocked || (this.effectsOn ? this.statusFree(target) <= 0 : (target.sleep || target.burn))) {
         events?.push({ s, kind: "fails", actor: m.u, target: target.u, move: a.move });
+        return;
+      }
+      if (this.effectsOn) {
+        // Sleep Powder lands three times in four, Hypnosis three times in five. The target is
+        // that much asleep, and it wears off over the next turns the way a sleep does.
+        const landed = this.applyStatus(target, "sleep", this.accuracyOf(info));
+        if (landed <= 0) {
+          events?.push({ s, kind: "fails", actor: m.u, target: target.u, move: a.move });
+          return;
+        }
+        events?.push({ s, kind: "sleep", actor: m.u, target: target.u, move: a.move, value: String(m.k.sleepTurns) });
         return;
       }
       target.sleep = true;
@@ -2669,6 +3037,24 @@ export class TournamentTest {
       target.idle = Math.max(target.idle, IDLE_TURNS);
       events?.push({ s, kind: "encore", actor: m.u, target: target.u, value: String(IDLE_TURNS) });
     } else if (a.kind === BURN) {
+      // The move's own compiled effect decides WHICH condition it leaves: the slot is called
+      // BURN because Will-O-Wisp is the one the planner looks for, but Thunder Wave, Toxic and
+      // Poison Powder reach the same branch and are not burns.
+      if (this.effectsOn) {
+        const wanted = (info?.fx || []).find((fx) => fx.op === "status" && fx.target === "target");
+        const kind = String(wanted?.status || "burn").toLowerCase();
+        if (this.statusFree(target) <= 0) {
+          events?.push({ s, kind: "fails", actor: m.u, target: target.u, move: a.move });
+          return;
+        }
+        const landed = this.applyStatus(target, kind, this.accuracyOf(info));
+        if (landed <= 0) {
+          events?.push({ s, kind: "fails", actor: m.u, target: target.u, move: a.move });
+          return;
+        }
+        events?.push({ s, kind: "burn", actor: m.u, target: target.u, move: a.move });
+        return;
+      }
       if (target.burn || target.sleep || target.k.burnProof) {
         events?.push({ s, kind: "fails", actor: m.u, target: target.u, move: a.move });
         return;
@@ -2703,7 +3089,7 @@ export class TournamentTest {
           if (!alive(foe)) continue;
           const h = this.hitOn(m, foe, slot, board, m.helped, pre);
           if (h.priority > 0 && quick & (1 << foe.s)) continue;
-          if (!this.deal(m, foe, h, events)) continue;
+          if (!this.deal(m, foe, h, events, false, pre)) continue;
           selfCost = Math.max(selfCost, h.self || 0);
           const stats = this.afterHit(m, foe, info);
           if (stats.length) out.lowered.push({ m: foe, stats });
@@ -2713,7 +3099,7 @@ export class TournamentTest {
         for (const ally of allies) {
           if (!alive(ally) || ally === m) continue;
           const h = this.hitOn(m, ally, slot, board, m.helped, pre);
-          if (!this.deal(m, ally, h, events, true)) continue;
+          if (!this.deal(m, ally, h, events, true, pre)) continue;
           selfCost = Math.max(selfCost, h.self || 0);
           const stats = this.afterHit(m, ally, info);
           if (stats.length) out.own.push({ m: ally, stats });
@@ -2730,7 +3116,7 @@ export class TournamentTest {
       events?.push({ s: m.s, kind: "blocked", actor: m.u, target: aim.u, move: info.name, by: "Quick Guard" });
       return out;
     }
-    if (this.deal(m, aim, h, events)) {
+    if (this.deal(m, aim, h, events, false, pre)) {
       this.oweSelf(m, h.self);
       const stats = this.afterHit(m, aim, info);
       if (stats.length) out.lowered.push({ m: aim, stats });
@@ -2740,7 +3126,7 @@ export class TournamentTest {
 
   /** The end of a turn: what this turn's own moves cost their user (`oweSelf`), then a burn
    *  takes 1/16 of its HP. */
-  endOfTurn(active, events) {
+  endOfTurn(active, events, board = null) {
     for (const side of active) {
       for (const m of side) {
         // An empty slot is a null here, so the owed cost is read after that check and not before.
@@ -2755,6 +3141,44 @@ export class TournamentTest {
               m.out = true;
               events?.push({ s: m.s, kind: "recoil", actor: m.u });
             } else this.berry(m);
+          }
+        }
+        // Residuals and the answers to contact moves, settled together and only now: poison and
+        // the weather chip take HP, Leftovers and a drain give it back. Both sides are walked the
+        // same way by the loop above, which is what keeps the turn even.
+        if (this.effectsOn && alive(m)) {
+          // Leftovers and Black Sludge give a sixteenth back; Grassy Terrain gives a sixteenth to
+          // everything standing on the ground; sand and hail take a sixteenth from everything not
+          // built for them. These are the four the comments promised and nothing delivered.
+          if (m.k.leftovers) m.resid -= 1 / 16;
+          if (board && board.t === GRASSY && m.u.grounded) m.resid -= 1 / 16;
+          if (board && m.k.chippedBy && board.w === m.k.chippedBy) m.resid += 1 / 16;
+          const st = m.st;
+          // Poison takes an eighth; a bad poison grows by a sixteenth every turn it has been on,
+          // which is what makes it worth more than plain poison on a long game. A burn takes a
+          // sixteenth. All of them in proportion to how likely the condition is.
+          m.toxTurns = st.tox > 0 ? (m.toxTurns || 0) + 1 : 0;
+          const chip = (1 / 8) * st.psn
+            + (1 / 16) * st.tox * Math.min(15, m.toxTurns)
+            + (1 / 16) * st.brn;
+          const owed = (m.resid || 0) + chip;
+          m.resid = 0;
+          // Sleep wears off -- one to three turns, so about half of it goes each turn -- and a
+          // freeze thaws a fifth of the way. Neither is cleared outright: the share that has
+          // woken up is simply no longer asleep.
+          st.slp *= 0.5;
+          st.frz *= 0.8;
+          if (st.slp < 1e-6) st.slp = 0;
+          if (st.frz < 1e-6) st.frz = 0;
+          if (owed > 0) {
+            m.hp -= owed;
+            if (m.hp <= 1e-9) {
+              m.hp = 0;
+              m.out = true;
+              events?.push({ s: m.s, kind: "residual", actor: m.u });
+            } else this.berry(m);
+          } else if (owed < 0) {
+            m.hp = Math.min(1, m.hp - owed);
           }
         }
         if (!alive(m) || !m.burn) continue;
@@ -2793,6 +3217,11 @@ export class TournamentTest {
           m.helped = false;
           m.taunted = false;
           m.acted = 0;
+          // Per-TURN only. A flinch is spent on the turn it was caused and the damage a
+          // retaliation move answers is this turn's; poison and paralysis are conditions and stay.
+          m.outScale = 1;
+          m.flinchP = 0;
+          m.took = 0;
           if (!m.out) continue;
         }
         const incoming = next[s] < sides[s].length ? sides[s][next[s]++] : null;
@@ -2956,9 +3385,13 @@ export class TournamentTest {
         if (runs && runs[i] === i) freezeRun(actions, runs, i);
         const pre = a.pre || a.m;
         if (pre.out) continue;
+        // From turn 5 the game is attacks only, and this loop never set the action scale -- so
+        // sleep, freeze and paralysis cost nothing for the whole back half of the game. The
+        // planned turns set it at the top of each action; this is the same line.
+        a.m.outScale = this.effectsOn ? this.actionScale(pre) : 1;
         this.attack(a.m, a.target, a.hit, active[1 - a.s], active[a.s], board, null, null, pre);
       }
-      this.endOfTurn(active, null);
+      this.endOfTurn(active, null, board);
       if (board.tw[0]) board.tw[0] -= 1;
       if (board.tw[1]) board.tw[1] -= 1;
       if (board.tr) board.tr -= 1;
@@ -2996,7 +3429,20 @@ export class TournamentTest {
       }
     }
     const share = pairs ? first / pairs : 0.5;
-    const state = (m) => (m.out ? "" : m.sleep && m.idle > 0 ? "asleep" : m.idle > 0 ? "stuck" : m.burn ? "burned" : "");
+    const state = (m) => {
+      if (m.out) return "";
+      if (m.sleep && m.idle > 0) return "asleep";
+      if (m.idle > 0) return "stuck";
+      if (m.burn) return "burned";
+      // The condition it is most likely carrying, named only once it is more likely than not --
+      // "half poisoned" is not a thing a reader can picture.
+      const st = m.st;
+      if (!st) return "";
+      const worst = [["asleep", st.slp], ["frozen", st.frz], ["badly poisoned", st.tox],
+        ["poisoned", st.psn], ["paralysed", st.par], ["burned", st.brn]]
+        .reduce((best, row) => (row[1] > best[1] ? row : best), ["", 0]);
+      return worst[1] > 0.5 ? worst[0] : "";
+    };
     return {
       faster: share > 0.5 ? "you" : share < 0.5 ? "them" : "split",
       tailwind: { you: board.tw[0], them: board.tw[1] },

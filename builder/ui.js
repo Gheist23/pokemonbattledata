@@ -3,6 +3,7 @@
 
 import { NATURE_ORDER, STAT_LABELS, bonusTotal, escapeHtml, makeSet, setFromCommon, typeIcon } from "./common.js";
 import { MAX_BONUS_POINTS_PER_STAT, MAX_BONUS_STAT_POINTS, compact } from "./engine.js";
+import { loadSetLibrary, setsFor } from "./pokemon-sets.js";
 
 export function h(tag, attrs = {}, ...children) {
   const node = document.createElement(tag);
@@ -195,7 +196,10 @@ export function searchSelect({ options, value = "", placeholder = "Search…", o
     onChange?.(current);
   };
   input.addEventListener("focus", open);
-  input.addEventListener("input", () => { active = 0; render(); list.hidden = false; });
+  // -1, not 0: with `allowEmpty` the list always carries a "(none)" row at the top, so
+  // highlighting index 0 after every keystroke meant Enter chose "(none)" and CLEARED the field
+  // the visitor had just typed into. -1 highlights nothing, and Enter resolves it below.
+  input.addEventListener("input", () => { active = -1; render(); list.hidden = false; });
   input.addEventListener("blur", () => setTimeout(closeList, 120));
   input.addEventListener("keydown", (event) => {
     if (event.key === "ArrowDown" || event.key === "ArrowUp") {
@@ -206,7 +210,11 @@ export function searchSelect({ options, value = "", placeholder = "Search…", o
       list.children[active]?.scrollIntoView({ block: "nearest" });
     } else if (event.key === "Enter") {
       event.preventDefault();
-      const option = shown[Math.max(0, active)];
+      // Nothing highlighted and something typed: take the first real match, stepping over the
+      // "(none)" row. Nothing typed: the top of the list, which is what the arrows would reach.
+      const typed = input.value.trim().length > 0;
+      const fallback = allowEmpty && typed && shown.length > 1 ? 1 : 0;
+      const option = shown[active >= 0 ? active : fallback];
       if (option) pick(option.value);
     } else if (event.key === "Escape") {
       event.stopPropagation();
@@ -273,7 +281,12 @@ function placeOver(dialog, target) {
     const margin = 12;
     const left = Math.min(Math.max(margin, anchor.left + (anchor.width - own.width) / 2),
       window.innerWidth - own.width - margin);
-    const top = Math.min(Math.max(margin, anchor.top),
+    // A little ABOVE the card rather than level with its top. Lined up exactly, the list hung
+    // low enough that its last rows were the first thing off the bottom of the screen on a laptop,
+    // and the Pokemon it belongs to was behind it rather than beside it. The two clamps still
+    // decide in the end, so it can never be pushed off the top or the bottom.
+    const lift = 64;
+    const top = Math.min(Math.max(margin, anchor.top - lift),
       Math.max(margin, window.innerHeight - own.height - margin));
     dialog.style.position = "fixed";
     dialog.style.margin = "0";
@@ -283,7 +296,17 @@ function placeOver(dialog, target) {
   place();
   const again = () => place();
   window.addEventListener("resize", again);
-  dialog.addEventListener("close", () => window.removeEventListener("resize", again), { once: true });
+  // The dialog is measured the moment it opens, but its list is filled in AFTERWARDS -- the
+  // picker renders its rows once the dialog exists. So the first measurement was of an empty box,
+  // the "keep it on screen" clamp was computed against a height that was about to triple, and the
+  // Pokemon list hung a couple of hundred pixels past the bottom of the window with no way to
+  // reach the last rows. Watching the box re-places it the moment it has its real size.
+  const watcher = typeof ResizeObserver === "function" ? new ResizeObserver(again) : null;
+  watcher?.observe(dialog);
+  dialog.addEventListener("close", () => {
+    window.removeEventListener("resize", again);
+    watcher?.disconnect();
+  }, { once: true });
 }
 
 /**
@@ -378,6 +401,32 @@ export function editSet(data, initialSet, { format = "Doubles", title = "Edit Po
       render();
     };
 
+    /**
+     * What the picker handed back. With sets offered it is `{row, set}`, and a null `set` means
+     * the NAME was clicked rather than one of the sets under it -- which still means "the most
+     * common one", exactly as it does in the Damage Calculator.
+     */
+    const applyChoice = (choice) => {
+      if (!choice) return false;
+      const row = choice.row || choice;
+      if (choice.set) {
+        // A copy: the library entry is shared with every other slot that offers it.
+        set = JSON.parse(JSON.stringify(choice.set));
+        if (!set.ability) set.ability = data.abilities(set.species, set.form)[0] || "";
+        render();
+        return true;
+      }
+      applySpecies(row.species, row.form);
+      return true;
+    };
+
+    // The same list the Damage Calculator offers under each name: the most common set, a blank
+    // one, and every set the tournament library really plays. Null until it arrives, which
+    // `setsFor` reads as "just the two built-in ones".
+    let setLibrary = null;
+    loadSetLibrary().then((library) => { setLibrary = library; }).catch(() => {});
+    const setsOption = (row) => setsFor(data, format, row.species, row.form, setLibrary);
+
     const render = () => {
       clear(body);
       footerSave.disabled = !set.species;
@@ -385,9 +434,8 @@ export function editSet(data, initialSet, { format = "Doubles", title = "Edit Po
         body.append(h("div", { class: "bd-editor-empty" },
           h("p", {}, "Pick a Pokémon to start. Its most common ranked set is filled in for you."),
           h("button", { class: "primary-button", type: "button", onclick: async () => {
-            const row = await pickPokemon(data, { format });
-            if (row) applySpecies(row.species, row.form);
-            else if (!set.species) close();
+            const choice = await pickPokemon(data, { format, sets: setsOption });
+            if (!applyChoice(choice) && !set.species) close();
           } }, "Choose Pokémon")));
         return;
       }
@@ -400,8 +448,7 @@ export function editSet(data, initialSet, { format = "Doubles", title = "Edit Po
           h("div", { class: "bd-type-row" }, types.map(typeChip)),
           h("div", { class: "bd-editor-head-actions" },
             h("button", { class: "ghost-button compact", type: "button", onclick: async () => {
-              const row = await pickPokemon(data, { format, title: "Change Pokémon" });
-              if (row) applySpecies(row.species, row.form);
+              applyChoice(await pickPokemon(data, { format, title: "Change Pokémon", sets: setsOption }));
             } }, "Change Pokémon"),
             h("button", { class: "ghost-button compact", type: "button", title: "Most common ranked set for this Pokémon", onclick: () => applySpecies(set.species, set.form) }, "Most common set"))));
 
@@ -503,9 +550,8 @@ export function editSet(data, initialSet, { format = "Doubles", title = "Edit Po
     // that only says "Pick a Pokémon to start." with nothing in it. `result` is
     // never set, so the slot is told the edit was cancelled, not emptied.
     if (!set.species) setTimeout(async () => {
-      const row = await pickPokemon(data, { format });
-      if (row) applySpecies(row.species, row.form);
-      else if (!set.species) close();
+      const choice = await pickPokemon(data, { format, sets: setsOption });
+      if (!applyChoice(choice) && !set.species) close();
     }, 0);
   });
 }

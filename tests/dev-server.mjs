@@ -43,6 +43,12 @@ function memoryBucket() {
       return { key };
     },
     async delete(key) { store.delete(key); },
+    /** functions/api/campaign/[code].js counts by listing. One page is plenty
+     *  for a dev server, so `truncated` is always false here. */
+    async list({ prefix = "", limit = 1000 } = {}) {
+      const keys = [...store.keys()].filter((key) => key.startsWith(prefix)).sort().slice(0, limit);
+      return { objects: keys.map((key) => object(key, store.get(key))), truncated: false, cursor: undefined };
+    },
   };
 }
 
@@ -71,6 +77,7 @@ const syncCode = await import(pathToFileURL(join(root, "functions/api/sync/[code
 const shareIndex = await import(pathToFileURL(join(root, "functions/api/share/index.js")).href);
 const shareCode = await import(pathToFileURL(join(root, "functions/api/share/[code].js")).href);
 const shareImage = await import(pathToFileURL(join(root, "functions/api/share/img/[code].js")).href);
+const campaign = await import(pathToFileURL(join(root, "functions/api/campaign/[code].js")).href);
 
 async function toRequest(req, url) {
   const chunks = [];
@@ -116,6 +123,16 @@ createServer(async (req, res) => {
       if (!["GET", "HEAD"].includes(req.method)) return send(res, new Response("", { status: 405 }));
       const params = { code: decodeURIComponent(shareOne[1]) };
       return send(res, await shareCode.onRequestGet({ request: await toRequest(req, url), params, env }));
+    }
+    // --- campaign counters: the creator-collaboration funnel ---
+    const campaignOne = url.pathname.match(/^\/api\/campaign\/([^/]+)$/);
+    if (campaignOne) {
+      const params = { code: decodeURIComponent(campaignOne[1]) };
+      const request = await toRequest(req, url);
+      if (req.method === "OPTIONS") return send(res, campaign.onRequestOptions());
+      if (req.method === "POST") return send(res, await campaign.onRequestPost({ request, params, env }));
+      if (req.method === "GET") return send(res, await campaign.onRequestGet({ request, params, env }));
+      return send(res, new Response("", { status: 405 }));
     }
     let path = normalize(decodeURIComponent(url.pathname)).replace(/^([/\\])+/, "");
     let file = join(root, path);

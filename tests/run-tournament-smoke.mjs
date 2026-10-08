@@ -449,7 +449,7 @@ for (const format of ["Doubles", "Singles"]) {
   runs[format] = { s, seconds: (Date.now() - started) / 1000, values: test.values };
   const size = format === "Singles" ? 3 : 4;
   const doubles = format === "Doubles";
-  check(`${format}: snapshot version ${SNAPSHOT_VERSION}`, s.version === 10 && SNAPSHOT_VERSION === 10);
+  check(`${format}: snapshot version ${SNAPSHOT_VERSION}`, s.version === 11 && SNAPSHOT_VERSION === 11);
   check(`${format}: brings ${size}`, s.bring === size && s.bestBrings.every((b) => b.members.length === size) && s.hardest.every((t) => t.bring.length === size && t.against.length === size),
     JSON.stringify(s.bestBrings.map((b) => b.members.length)));
   check(`${format}: at most ${size} bring options, each the best choice somewhere`, s.bestBrings.length >= 1 && s.bestBrings.length <= size && s.bestBrings.slice(1).every((b) => b.bestRate > 0) && s.bestBrings.every((b) => b.leads.length === (doubles ? 2 : 1)),
@@ -1077,18 +1077,17 @@ for (const format of ["Doubles", "Singles"]) {
   // listed once, in the panel description above the button, not again here.
   check("The explainer keeps its steps short", how.includes("Each of the four picks one action, and they go in priority and Speed order.")
     // FOUR turns are planned since TOURNAMENT_DEPTH version 2, so the slugfest starts on turn 5. Still
-    // no move names here: "Defending two turns in a row does not work" is TOURNAMENT_GUARD said in
-    // plain English, because Protect belongs in the panel description above the button.
+    // no move names here -- Protect belongs in the panel description above the button, which is also
+    // where TOURNAMENT_GUARD is now said in plain English.
     && how.includes("From turn 5 all four attack on the board the first four turns left behind.")
     && how.includes("Three more full turns, each decided the same way")
-    && how.includes("Defending two turns in a row does not work.")
     && how.includes("the same game runs nine times")
     && !how.includes("Wide Guard") && !how.includes("Protect"), how.slice(0, 160));
   check("The explainer no longer promises the old two turns",
-    !how.includes("A second full turn") && !how.includes("From turn 3") && !how.includes("the first two turns"), how.slice(0, 260));
-  check("And the limits note counts the planned turns the same way",
-    how.includes("The first four turns are chosen against everything the other side could do; from turn 5 on each Pokémon simply uses its best attack.")
-    && !how.includes("The first two turns are chosen"), how.slice(-500));
+    !how.includes("A second full turn") && !how.includes("From turn 3") && !how.includes("the first two turns")
+    // The limits note that used to repeat the count is gone; its negative half is the part that
+    // still means something, so it moves here rather than being dropped with the sentence.
+    && !how.includes("The first two turns are chosen"), how.slice(0, 260));
   check("The Singles explainer brings three and has no partner moves", tournamentExplainer({ format: "Singles" }).textContent.includes("Both sides bring three") && !tournamentExplainer({ format: "Singles" }).textContent.includes("Helping Hand"));
 
   // The bring rule's own copy (tournament-test.js TOURNAMENT_BRING). Both sides now commit their
@@ -1106,8 +1105,16 @@ for (const format of ["Doubles", "Singles"]) {
     !how.includes("they answer with") && !how.includes("do the most against your choice"), how.slice(0, 220));
   check("A one-Pokemon team's explainer says they cannot see it coming",
     tournamentExplainer({ teams: 2827, format: "Singles", bring: 1 }).textContent.includes("They cannot see it coming, so they bring the three that hold up best against every one of yours"));
-  check("The explainer says WHY 50 is even, not just that it is",
-    how.includes("A score of 50 is even") && how.includes("so 50 is what a team scores against itself"), how.slice(-300));
+  // The sentence that explained WHY 50 is even was removed deliberately. The property it described
+  // is still true and still guarded -- run-tournament-symmetry.mjs asserts a team scores exactly 50
+  // against itself and that a seat swap sums to exactly 100 -- so what goes is the explanation on
+  // the page, not the behaviour. The comment above this block stays: it is the only record that the
+  // two scores are COMPLEMENTS rather than equals, which is the thing a future rewrite gets wrong.
+  check("The explainer still gives the reader the scale",
+    how.includes("A score of 50 is even") && /5[0-9] or more favours you/.test(how) && /under 4[0-9] favours them/.test(how),
+    how.slice(-300));
+  check("And no longer explains why, which is what was asked for",
+    !how.includes("so 50 is what a team scores against itself") && !how.includes("swap the two teams round"), how.slice(-300));
   // The bring options card: `bestBrings[].value` is the game each bring plays against the bring they
   // commit to now, not its own worst case, so the card says "if you brought these" and not "when
   // brought". Measured on this bench team against 150 teams: Recommended 44.62 against a headline of
@@ -1130,8 +1137,12 @@ for (const format of ["Doubles", "Singles"]) {
   // The Field settings the Test cannot honour (tournament-test.js TOURNAMENT_FIELD): a silently
   // ignored setting is its own bug, so the explainer says so once and the results name the ones a run
   // actually ignored.
-  check("The explainer says the Field settings are not used here",
-    how.includes("Every game has a field of its own, set by the Pokémon in it, so the Field settings are not used here."), how.slice(-400));
+  // The explainer no longer carries this sentence. The claim is not gone from the site: the results
+  // card names the settings a run actually ignored (asserted just below) and the Settings dialog
+  // says it where the controls are. What a reader loses is the warning BEFORE a run, which is why
+  // the panel description above the Run button now carries it instead.
+  check("The explainer no longer repeats the Field note",
+    !how.includes("so the Field settings are not used here"), how.slice(-400));
   check("Nothing is said about ignored settings when none was pinned",
     !full.includes("so these settings are not used here"), full.match(/[^.]*not used here[^.]*\./)?.[0] || "");
   const ignoring = render({ ...runs.Doubles.s, ignoredField: ["Reflect (your team)", "Weather (Sun)"] });

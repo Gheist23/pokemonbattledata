@@ -32,6 +32,27 @@ let knownTeamsPromise = null;
  * A failed load is not kept: the next request tries again, instead of the whole session
  * running without the "Found in similar team" bonus.
  */
+/**
+ * The compiled move and Ability effects the Tournament Test models (loaded on first use).
+ *
+ * A failed load is not kept, the way the team library's is not: the next request tries again
+ * rather than leaving the whole session running a simpler simulation than it says it does.
+ */
+let moveEffectsPromise = null;
+function moveEffects() {
+  moveEffectsPromise ||= fetch("/data/builder/move-effects.json", { cache: "no-cache" })
+    .then((response) => (response.ok ? response.json() : null))
+    .catch(() => null)
+    .then((payload) => {
+      if (!payload) {
+        moveEffectsPromise = null;
+        console.warn("The move and Ability effects could not be loaded; they are tried again on the next request.");
+      }
+      return payload;
+    });
+  return moveEffectsPromise;
+}
+
 function knownTeams() {
   knownTeamsPromise ||= fetch("/data/builder/known-teams.json", { cache: "no-cache" })
     .then((response) => (response.ok ? response.json() : null))
@@ -270,7 +291,8 @@ self.addEventListener("message", async (event) => {
       const { evaluation } = await appEvaluation(payload.format, payload.settings);
       evaluation.knownTeams ||= await knownTeams();
       if (!evaluation.knownTeams) throw new Error("The tournament teams could not be loaded. Check the connection and try again.");
-      evaluation.tournament ||= new TournamentTest(evaluation, evaluation.knownTeams, new TeamSuggestions(evaluation));
+      evaluation.tournament ||= new TournamentTest(evaluation, evaluation.knownTeams, new TeamSuggestions(evaluation),
+        { effects: await moveEffects() });
       try {
         result = await evaluation.tournament.run(sets, {
           limit: Math.max(1, Number(payload.limit) || 1000),

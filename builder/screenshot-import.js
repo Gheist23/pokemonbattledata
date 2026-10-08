@@ -842,15 +842,43 @@ export function headingGender(colour) {
 const SURE_SCORE = 0.70;
 const SURE_MARGIN = 0.06;
 
+/**
+ * True when two names differ ONLY in characters the reader has no template for.
+ *
+ * Then no amount of looking at the picture can separate them: every glyph they share fits the
+ * same, and the ones that differ cost the same `NO_TEMPLATE_COST` on both sides. The scores come
+ * out equal and the winner is decided by the order the candidates happened to arrive in, which is
+ * not a reading at all.
+ */
+export function onlyBlindDifference(a, b) {
+  const x = [...String(a)];
+  const y = [...String(b)];
+  if (x.length !== y.length) return false;
+  let differences = 0;
+  for (let i = 0; i < x.length; i += 1) {
+    if (x[i] === y[i]) continue;
+    if (GLYPHS.has(x[i]) || GLYPHS.has(y[i])) return false;
+    differences += 1;
+  }
+  return differences > 0;
+}
+
 function bestOf(ranked) {
   if (!ranked.length) return { text: "", score: 0, sure: false, choices: [] };
   const best = ranked[0];
   const margin = ranked.length > 1 ? best.score - ranked[1].score : 1;
+  // The ones this reader is BLIND to, as opposed to merely unsure of: same score, and what
+  // separates them is a character the glyph table does not carry. Naming them is the difference
+  // between "check this" and "it is one of these two and the picture cannot say which".
+  const blind = ranked
+    .filter((row) => row !== best && row.score === best.score && onlyBlindDifference(best.text, row.text))
+    .map((row) => row.text);
   return {
     text: best.text,
     score: best.score,
     margin,
-    sure: best.score >= SURE_SCORE && margin >= SURE_MARGIN && !best.unknown,
+    sure: best.score >= SURE_SCORE && margin >= SURE_MARGIN && !best.unknown && !blind.length,
+    blind,
     choices: ranked.slice(0, 5).map((row) => row.text),
   };
 }
@@ -1001,7 +1029,12 @@ function readSlot(data, statsCard, movesCard, slot) {
     // An empty item line is a Pokemon holding nothing, which readMovesCard
     // marks sure; an empty one that is NOT sure is a line it failed to read.
     if (!field.text && !field.sure) doubts.push(`${label} could not be read and was left empty`);
-    else if (field.text && !field.sure) doubts.push(`${label} may not be right`);
+    // Told apart from "may not be right" on purpose: this one will not come good with a sharper
+    // picture, so the player is told which two it is between and that only they can choose.
+    else if (field.blind?.length) {
+      doubts.push(`${label} is ${[field.text, ...field.blind].join(" or ")} \u2014 they are written the same`
+        + " apart from one letter this reader cannot see, so please set it yourself");
+    } else if (field.text && !field.sure) doubts.push(`${label} may not be right`);
   }
   // A move line with writing on it that came back empty is said out loud rather
   // than quietly dropped: the set would import with three moves and no warning.

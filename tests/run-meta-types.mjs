@@ -449,17 +449,29 @@ function builderScores(season, date, format, topX) {
 const metaIndex = JSON.parse(read("data", "meta", "index.json"));
 const season = metaIndex.seasons[0];
 const latestDate = season.dates[0];
-// pickBaselineDate with the page's default 7-day window: the oldest day still
-// inside it, or the nearest earlier day when none is.
-const baselineDate = (() => {
+// pickBaselineDate with the page's default 7-day window: the oldest day still inside it, or the
+// nearest earlier day when none is.
+//
+// Across seasons, not inside one. A season's first day has no earlier day of its own, so looking
+// only in `season.dates` returned nothing and the run died in path.join instead of failing a
+// check -- which is exactly what happened on the morning M7 opened. The page itself always
+// reached across the boundary; this now asks the same question it does.
+const baseline = (() => {
   const stamp = (value) => {
     const m = /^(\d{2})_(\d{2})_(\d{4})$/.exec(value);
     return Date.UTC(Number(m[3]), Number(m[2]) - 1, Number(m[1]));
   };
-  const older = season.dates.filter((date) => stamp(date) < stamp(latestDate));
-  const inWindow = older.filter((date) => stamp(date) >= stamp(latestDate) - 7 * 86400000);
+  const days = [];
+  for (const entry of metaIndex.seasons) {
+    if (!(entry.formats || []).includes("Doubles")) continue;
+    for (const date of entry.dates) days.push({ season: entry.season, date });
+  }
+  days.sort((a, b) => stamp(b.date) - stamp(a.date));
+  const older = days.filter((day) => stamp(day.date) < stamp(latestDate));
+  const inWindow = older.filter((day) => stamp(day.date) >= stamp(latestDate) - 7 * 86400000);
   return inWindow.length ? inWindow.at(-1) : older[0];
 })();
+const baselineDate = baseline?.date;
 
 const page = await openMetaPage(diskFetch());
 const offense = readList(page, "typeOffense");
@@ -495,7 +507,9 @@ check("the note names both days", DATES_IN(note).length >= 2, `${JSON.stringify(
 check("the note names no internal function", !/[a-zA-Z]+\(\)/.test(note), note.slice(0, 260));
 
 const wantNow = builderScores(season.season, latestDate, "Doubles", 30);
-const wantWas = builderScores(season.season, baselineDate, "Doubles", 30);
+const wantWas = builderScores(baseline?.season, baselineDate, "Doubles", 30);
+check("there is a day to compare the newest one against", !!baseline,
+  "no earlier day in any season, so nothing could be compared");
 check(`the battle data for ${latestDate} is in the repo`, !!wantNow);
 check(`the battle data for ${baselineDate} is in the repo`, !!wantWas);
 

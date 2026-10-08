@@ -1595,7 +1595,17 @@ export class DamageEngine {
     // really is nothing.
     if (this.fieldRequirements && moveKey === "steel roller"
         && String(ctx.terrain || "None") === "None") {
-      return rewriteRolls(result, [0], `${moveName}: fails with no terrain on the field`);
+      // display_percent as well as the rolls. The Damage Calculator prints that field first
+      // (calc-page.js) and falls back to `percent` only when it is missing, so rewriting the rolls
+      // alone left a move that does nothing labelled with the damage it would have done --
+      // measured against the app as 0 dealt and "274.1 - 323%" printed. It is set HERE and not in
+      // `rewriteRolls`, which Counter, Metal Burst and Mirror Coat call as an intermediate step
+      // before working out their real damage.
+      // Sixteen zeros, not one: every other result carries the full roll spread, and the app
+      // returns sixteen here too, so a reader comparing the two sees the same shape.
+      const failed = rewriteRolls(result, coreRolls.map(() => 0), `${moveName}: fails with no terrain on the field`);
+      failed.display_percent = String(failed.percent || "0-0%").replace(/(\d)-(?=\d)/, "$1 - ");
+      return failed;
     }
     if (special === "counter_damage" && coreCanHit) {
       let lastDamage = Math.max(0, int(ctx.last_damage || atkState.last_damage || 0));
@@ -1849,7 +1859,12 @@ export class DamageEngine {
     }
     let weather = String(ctx.weather);
     if (["air lock", "cloud nine"].includes(key(attacker.ability)) || ["air lock", "cloud nine"].includes(key(defender.ability))) weather = "None";
-    if (key(attacker.item) === "utility umbrella" || key(defender.item) === "utility umbrella") weather = "None";
+    // Utility Umbrella shelters its holder from SUN and RAIN. It does nothing about snow or sand,
+    // and treating it as suppressing every weather was invisible for as long as the defensive
+    // readers were handed the raw context -- the moment they were not, an Ice type under snow
+    // lost its 1.5x Defence and a Rock type under sand its 1.5x Sp. Def, which is a 50% error.
+    if ((key(attacker.item) === "utility umbrella" || key(defender.item) === "utility umbrella")
+        && (weather === "Sun" || weather === "Rain")) weather = "None";
     const weatherCtx = { ...ctx, weather };
     let moveType = this.modifiedMoveType(attacker, pyTitle(meta.type || "Normal"), meta, details);
     meta.type = moveType;
@@ -1875,7 +1890,16 @@ export class DamageEngine {
     if (ctx.protect && !(atkAbility === "unseen fist" && flags.has("contact"))) return bare("Protect blocks the move.");
     const blocked = this.abilityBlocksDamage(attacker, defender, moveType, meta);
     if (blocked) return bare(`${blocked} grants immunity.`);
-    if (moveType === "Ground" && !groundedDefender && !meta.hits_airborne) return bare("Target is airborne and immune to Ground.");
+    // Mold Breaker ignores Levitate, and `abilityBlocksDamage` already lets it through -- but
+    // this check then refused the same hit by a second route, because `isGrounded` knows nothing
+    // about the attacker. The pass above only changed which refusal was printed. Only the ABILITY
+    // is ignored: a Flying type and an Air Balloon are still off the ground.
+    const levitateOnly = !groundedDefender
+      && key(defender.ability) === "levitate"
+      && !(this.pokemon(defender.pokemon_name, defender.form_name).types || []).includes("Flying")
+      && key(defender.item) !== "air balloon";
+    const airborne = !groundedDefender && !(MOLD_BREAKERS.has(key(attacker.ability)) && levitateOnly);
+    if (moveType === "Ground" && airborne && !meta.hits_airborne) return bare("Target is airborne and immune to Ground.");
     const priority = int(meta.priority);
     if (priority > 0 && groundedDefender && String(ctx.terrain) === "Psychic") return bare("Psychic Terrain blocks priority.");
     if (priority > 0 && ["armor tail", "dazzling", "queenly majesty"].includes(defAbility) && !moldBreaker) return bare(`${defender.ability} blocks priority.`);
@@ -1950,7 +1974,11 @@ export class DamageEngine {
     if (atkState.power_spot) powerMods.push(["Power Spot", 1.3]);
     if (atkState.steely_spirit && moveType === "Steel") powerMods.push(["Steely Spirit", 1.5]);
 
-    const [attack, defense] = this.attackDefenseValues(attacker, defender, meta, category, ctx, details);
+    // `weatherCtx`, not `ctx`: this reads the weather to decide Orichalcum Pulse, Solar Power,
+    // Snow's Defence for Ice types and Sand's Sp. Def for Rock types, and handing it the raw
+    // context meant Cloud Nine, Air Lock and Utility Umbrella suppressed the weather everywhere
+    // EXCEPT here. Every other field is the same object.
+    const [attack, defense] = this.attackDefenseValues(attacker, defender, meta, category, weatherCtx, details);
     const levelFactor = Math.floor((2 * int(attacker.level, 50)) / 5) + 2;
     const hits = hitCount(attacker, meta, ctx);
     let rawHitPowers = Array(hits).fill(rawPower);
@@ -2019,7 +2047,9 @@ export class DamageEngine {
     });
 
     let accuracyPercent = 100.0;
-    if (ctx.use_move_accuracies_v47 !== false) accuracyPercent = this.moveAccuracyPercent(moveName, ctx);
+    // Likewise: Thunder and Hurricane never miss in rain and Blizzard never misses in snow, so
+    // a suppressed weather has to reach the accuracy too.
+    if (ctx.use_move_accuracies_v47 !== false) accuracyPercent = this.moveAccuracyPercent(moveName, weatherCtx);
     const result = resultRecord(
       attacker, defender, moveName, totals, maxHp, currentHp,
       [`Move: ${moveName} / ${moveType} / ${pyTitle(category)}`, `Attack used: ${attack}`, `Defense used: ${defense}`, `Hits: ${rawHitPowers.length}`, ...details],

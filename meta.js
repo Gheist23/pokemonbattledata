@@ -958,16 +958,38 @@
    * the picture is that it is what they saw.
    */
 
-  /** The scope pill that governs a list: the nearest ancestor that has one. */
+  /**
+   * The scope pill that governs a list.
+   *
+   * The nearest ancestor holding ANY pill was the wrong question: the usage section sits inside
+   * the same shell as the rank section, so it found the rank section's "Top 30" and shared a
+   * scope that was not its own. The section is the unit that owns a pill.
+   */
   function scopePillFor(node) {
-    for (let at = node; at; at = at.parentElement) {
-      const pill = at.querySelector ? at.querySelector(".pill") : null;
-      if (pill) return pill.textContent.trim();
-    }
-    return "";
+    const section = node?.closest?.("section") || null;
+    const pill = section?.querySelector?.(".pill") || null;
+    return pill ? pill.textContent.trim() : "";
   }
 
   /** The rows a list is showing, in the words it is showing them in. */
+  /**
+   * The tone of a change chip, from the class the page draws it with.
+   *
+   * `data-tone` was the wrong place to look: nothing on this page sets it, so every row on every
+   * shared card came out grey. The chip already carries the answer -- and on the defending type
+   * list "up" is the GOOD direction, because the page tones that list the other way round, so
+   * reading the class rather than the sign is also the only way to get it right.
+   */
+  function chipTone(chip) {
+    if (!chip) return "";
+    const explicit = chip.getAttribute("data-tone");
+    if (explicit) return explicit;
+    const cls = chip.className || "";
+    if (/\bup\b/.test(cls)) return "good";
+    if (/\bdown\b/.test(cls)) return "bad";
+    return "";
+  }
+
   function shareRows(listId) {
     const list = document.getElementById(listId);
     if (!list) return [];
@@ -980,6 +1002,11 @@
       if (rank) label = label.slice((rank.textContent || "").length).trim();
       const detail = (small ? small.textContent : "").trim();
       const chipText = (chip ? chip.textContent : "").trim();
+      // A TYPE row's detail begins with its number and then says what the number means, so the
+      // card takes the number and says the measure once at the top. Every other list puts its
+      // meaning in the whole line -- "#12 -> #7", "Garchomp - 3.2% -> 4.1%" -- and taking the
+      // first word of those shared a rank where a number belongs, or a Pokemon's name.
+      const value = String(listId).startsWith("type") ? (detail.split(" ")[0] || detail) : detail;
       // The row is already showing a picture; its file name is the key the card and the shared
       // page need. Taking it from the row rather than working it out again means a row whose
       // picture fell back to a second candidate shares the one a reader can actually see.
@@ -991,11 +1018,9 @@
       return {
         icon,
         label,
-        // The number only, not the words after it: the card says what the measure is once, at
-        // the top, instead of eighteen times down the side.
-        value: detail.split(" ")[0] || detail,
+        value,
         delta: chipText,
-        tone: (chip && chip.getAttribute("data-tone")) || "",
+        tone: chipTone(chip),
       };
     }).filter((row) => row.label);
   }
@@ -1061,8 +1086,10 @@
         brand: "championsbattledata.com/meta/",
         rows,
       }, metaCardHost());
-      await copyShareLink(answer.pageUrl);
-      button.textContent = "Link copied";
+      // `copyShareLink` answers false when the browser refuses and it had to show the link
+      // instead. Saying "Link copied" then sends the reader to paste nothing.
+      const copied = await copyShareLink(answer.pageUrl);
+      button.textContent = copied ? "Link copied" : "Link ready";
     } catch (error) {
       button.textContent = "Could not share";
       if (error && error.message) console.warn("share:", error.message);

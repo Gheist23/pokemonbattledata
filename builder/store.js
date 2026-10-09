@@ -259,6 +259,24 @@ export function deleteTeam(id) {
   }, "team");
 }
 
+/**
+ * Drop the starting "My Team" placeholder once something else has filled the
+ * library.
+ *
+ * Only ever an untouched (`pristine`) team with nothing in it, which is the one
+ * the store invents for a brand new browser -- a team the visitor has typed a
+ * single Pokemon into lost that flag and is kept. No tombstone either: it was
+ * never synced, so there is no deletion for the Companion to hear about.
+ */
+export function dropEmptyPlaceholders() {
+  update((s) => {
+    const keep = s.teams.filter((t) => !(t.pristine && t.team.every((entry) => !entry[0])));
+    if (!keep.length || keep.length === s.teams.length) return;
+    s.teams = keep;
+    if (!keep.some((t) => t.id === s.selectedTeamId)) s.selectedTeamId = keep[0].id;
+  }, "team");
+}
+
 export function renameTeam(id, title, archetype) {
   update((s) => {
     const team = s.teams.find((t) => t.id === id);

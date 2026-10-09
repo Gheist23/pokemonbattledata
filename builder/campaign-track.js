@@ -13,11 +13,6 @@
 
 const ID_KEY = "cbd.visitor";
 
-/** What the campaign banner's two buttons mean to the funnel. Here rather than
- *  inline at the call, so the one place that decides a step name is the one
- *  place functions/api/campaign/[code].js's STEPS has to agree with. */
-export const BANNER_STEPS = { evaluation: "evaluation", auto: "autobuild" };
-
 /** The browser's own id for itself. Random, kept locally, never sent anywhere
  *  but to this site's own endpoint. Falls back to a per-page id when storage is
  *  refused, which costs a little accuracy and nothing else. */

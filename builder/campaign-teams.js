@@ -64,7 +64,8 @@ export async function loadCampaign(code) {
  * @param {string}   code        the campaign, from ?campaign=
  * @param {object}   deps
  * @param {Function} deps.parse  a Showdown paste -> sets
- * @param {Function} deps.add    (sets, title) -> adds a team and selects it
+ * @param {Function} deps.add    (sets, title) -> adds a team, returns it
+ * @param {Function} [deps.select] (id) -> opens that team
  * @param {Function} [deps.setFormat]
  * @param {Function} [deps.fetchCampaign] to read the file some other way (tests)
  * @param {object}   [options]   { force } to load again over the once-only rule;
@@ -94,9 +95,12 @@ export async function installCampaignTeams(code, deps, { force = false, only = 0
   if (deps.setFormat && (format === "Singles" || format === "Doubles")) deps.setFormat(format);
 
   const titles = [];
-  // Backwards, because each team added becomes the selected one: the visitor
-  // ends up looking at the FIRST team of the video, not the last.
-  for (let index = teams.length - 1; index >= 0; index -= 1) {
+  // Forwards: the library column draws the teams in the order they were added,
+  // so this is the order they are numbered in the video. The first one is then
+  // selected explicitly at the end -- adding a team selects it, so without that
+  // the visitor would be left looking at team five.
+  let first = null;
+  for (let index = 0; index < teams.length; index += 1) {
     if (only && index !== only - 1) continue;
     const entry = teams[index];
     const paste = String(entry?.showdown || "").trim();
@@ -109,10 +113,13 @@ export async function installCampaignTeams(code, deps, { force = false, only = 0
     }
     if (!sets.length) continue;
     const title = String(entry?.title || "").trim() || `${campaign?.creator?.name || clean} team ${index + 1}`;
-    deps.add(sets.slice(0, 6), title);
-    titles.unshift(title);
+    const created = deps.add(sets.slice(0, 6), title);
+    if (!first && created && created.id) first = created.id;
+    titles.push(title);
   }
 
+  // The video's first team is what is open when the page settles.
+  if (first && deps.select) deps.select(first);
   if (titles.length) remember(clean);
   return { loaded: titles.length, titles, campaign };
 }

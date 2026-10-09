@@ -28,7 +28,7 @@ import { TeamEvaluator, normalizeSettings, DEFAULT_SETTINGS } from "../builder/t
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
-import { TournamentTest } from "../builder/tournament-test.js";
+import { TournamentTest, WEATHERS as BOARD_WEATHERS } from "../builder/tournament-test.js";
 import { Solver, SETTLE_LINES, SWITCH, MAX_JOINTS, SEARCH_DEPTH, hasSettled } from "../builder/solver.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -74,6 +74,8 @@ const BULKY = set("Amoonguss", "Sitrus Berry", "Regenerator", "Calm", ["Spore", 
 const HITTER = set("Garchomp", "Life Orb", "Rough Skin", "Jolly", ["Earthquake", "Dragon Claw", "Rock Slide", "Protect"], [2, 32, 0, 0, 0, 32]);
 const SUPPORT = set("Whimsicott", "Focus Sash", "Prankster", "Timid", ["Tailwind", "Moonblast", "Encore", "Protect"], [2, 0, 0, 32, 0, 32]);
 const CAT = set("Incineroar", "Sitrus Berry", "Intimidate", "Careful", ["Fake Out", "Flare Blitz", "Knock Off", "Parting Shot"], [32, 0, 2, 0, 32, 0]);
+/** Drizzle, so that "has this Pokemon arrived on the field?" can be read off the weather. */
+const RAIN = set("Pelipper", "Focus Sash", "Drizzle", "Modest", ["Hurricane", "Hydro Pump", "Tailwind", "Protect"], [32, 0, 0, 32, 2, 0]);
 
 const row = (s, extra = {}) => ({ set: s, hp: 100, front: false, ...extra });
 
@@ -1106,6 +1108,93 @@ const solver = makeSolver();
   ok("the window is exported for the page to name", Number.isInteger(SETTLE_LINES) && SETTLE_LINES > 0,
     String(SETTLE_LINES));
   notes.push(`settle: ${settled.played.toLocaleString()} lines on a one-action board, window ${SETTLE_LINES.toLocaleString()}`);
+}
+
+
+// ---------------------------------------------------------------------------
+// 23. A side can stand alone in Doubles
+// ---------------------------------------------------------------------------
+{
+  // The seats are the Pokemon marked front, and an empty seat stays empty. Seating the first
+  // `activeCount` of the list instead put whoever was next on the BENCH onto the field, which is
+  // a board the game cannot be in.
+  const lone = solver.buildState(board(
+    [row(FAST, { front: true }), row(BULKY), row(HITTER)],
+    [row(HITTER, { front: true }), row(CAT, { front: true })],
+  ));
+  ok("a Doubles side keeps both of its seats", lone.active[0].length === 2, String(lone.active[0].length));
+  ok("the one marked front is the one standing", lone.active[0][0] && lone.active[0][0].u.species === "Dragapult");
+  ok("the other seat is empty, not the next Pokemon off the bench", lone.active[0][1] === null,
+    lone.active[0][1] ? lone.active[0][1].u.species : "null");
+  ok("the bench begins at the Pokemon that never came on", lone.next[0] === 1, String(lone.next[0]));
+  const waiting = solver.slotCandidates(lone, 0, 1);
+  ok("nothing acts in an empty seat", waiting.length === 1 && waiting[0].wait === true,
+    JSON.stringify(waiting.map((a) => a.move || a.kind)));
+  // Both sides still get a turn out of it: the empty seat must not collapse the action space.
+  ok("the side standing alone still has openings", solver.jointsFor(lone, 0).length > 1,
+    String(solver.jointsFor(lone, 0).length));
+}
+
+{
+  // The end of the turn: the game sends the next Pokemon into an empty seat, and it ARRIVES --
+  // entry Ability and all. The old bench pointer counted seats rather than bodies, so this one
+  // was skipped and could never come on at all.
+  //
+  // This board is the ENGINE's to answer, not one the page can build: `standingOf` stands up any
+  // Pokemon in the battle that still has HP, so the page never sends an empty seat with a
+  // healthy bench behind it. Here that shape is made directly, because it is the only way to
+  // watch the pointer send the right Pokemon out.
+  const state = solver.buildState(board(
+    [row(FAST, { front: true }), row(RAIN), row(CAT)],
+    [row(HITTER, { front: true }), row(BULKY, { front: true })],
+  ));
+  ok("the board starts with no weather", state.board.w === 0, String(state.board.w));
+  solver.tickBoard(state);
+  ok("a Pokemon with HP left walks into the empty seat",
+    state.active[0][1] && state.active[0][1].u.species === "Pelipper",
+    state.active[0][1] ? state.active[0][1].u.species : "nobody");
+  ok("it really arrives, so its Drizzle is on the board",
+    state.board.w === BOARD_WEATHERS.indexOf("Rain"), String(state.board.w));
+  ok("and it counts as just switched in", state.active[0][1] && state.active[0][1].justIn === true);
+  solver.tickBoard(state);
+  ok("standing through a turn spends that", state.active[0][1] && state.active[0][1].justIn === false);
+}
+
+{
+  // A knocked-out Pokemon is not a replacement. `refill` takes whatever is next off the bench
+  // whatever its HP and `enter` fires that Pokemon's entry Ability, so the bodies walked onto the
+  // field one a turn: measured on this very board, a fainted Pelipper put up Rain and then a
+  // fainted Incineroar lowered both of the other side's Attack.
+  const state = solver.buildState(board(
+    [row(FAST, { front: true }), row(HITTER, { hp: 0 }), row(RAIN, { hp: 0 }), row(CAT, { hp: 0 })],
+    [row(HITTER, { front: true }), row(BULKY, { front: true })],
+  ));
+  for (let turn = 0; turn < 3; turn += 1) solver.tickBoard(state);
+  ok("a fainted Pokemon never walks onto the field", state.active[0][1] === null,
+    state.active[0][1] ? state.active[0][1].u.species : "null");
+  ok("so its weather is never put up", state.board.w === 0, String(state.board.w));
+  ok("and its Intimidate never fires",
+    state.active[1].every((m) => !m || m.atk === 0), state.active[1].map((m) => (m ? m.atk : "-")).join(","));
+}
+
+{
+  // The position this is all for: one Pokemon left against two. It is searched, it is answered,
+  // and it is scored as the losing position it is.
+  const alone = board(
+    [row(FAST, { front: true }), row(CAT, { hp: 0 })],
+    [row(HITTER, { front: true }), row(BULKY, { front: true })],
+  );
+  const result = await solver.search(alone, { iterations: 600, lookahead: 3, seed: 3 });
+  ok("a side standing alone is searched, not refused", !result.error, String(result.error));
+  ok("it plays its lines", result.played === 600, String(result.played));
+  ok("and being a Pokemon down is worth being behind", result.value < 50, result.value.toFixed(2));
+  ok("the side that is down still gets a move named for it",
+    result.ours.length > 0 && result.ours[0].actions.length === 1,
+    JSON.stringify(result.ours[0] ? result.ours[0].actions.length : null));
+  ok("and the full side answers with both of its Pokemon",
+    result.theirs.length > 0 && result.theirs[0].actions.length === 2,
+    JSON.stringify(result.theirs[0] ? result.theirs[0].actions.length : null));
+  notes.push(`alone: 1v2 scores ${result.value.toFixed(1)}, our best = ${result.ours[0].actions.map((a) => `${a.name}: ${a.move}`).join(" · ")}`);
 }
 
 

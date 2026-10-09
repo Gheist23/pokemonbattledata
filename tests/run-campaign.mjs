@@ -42,7 +42,6 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { BuilderData, parseShowdown } from "../builder/common.js";
 import { cleanCampaignCode, installCampaignTeams } from "../builder/campaign-teams.js";
-import { BANNER_STEPS } from "../builder/campaign-track.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -58,6 +57,7 @@ const ok = (label, passed, detail = "") => {
 const same = (label, got, want) => ok(label, JSON.stringify(got) === JSON.stringify(want), `got ${JSON.stringify(got)}, wanted ${JSON.stringify(want)}`);
 
 const read = (...parts) => readFileSync(join(root, ...parts), "utf8");
+const not_in = (text, needle) => !text.includes(needle);
 
 // --- 0. the code filter -------------------------------------------------------------------
 
@@ -138,12 +138,20 @@ function fakeCampaign(teams, extra = {}) {
 function harness(campaign) {
   const added = [];
   const formats = [];
+  const selected = [];
   return {
     added,
     formats,
+    selected,
     deps: {
       parse: (text) => parseShowdown(text, data),
-      add: (sets, title) => added.push({ title, names: sets.map((set) => data.setName(set)) }),
+      // The real one is store.js's newTeam, which returns the team it made.
+      add: (sets, title) => {
+        const team = { id: `team-${added.length + 1}`, title, names: sets.map((set) => data.setName(set)) };
+        added.push(team);
+        return team;
+      },
+      select: (id) => selected.push(id),
       setFormat: (value) => formats.push(value),
       fetchCampaign: async () => campaign,
     },
@@ -151,18 +159,23 @@ function harness(campaign) {
 }
 
 {
-  const { added, formats, deps } = harness(fakeCampaign([
+  const { added, formats, selected, deps } = harness(fakeCampaign([
     { title: "One", showdown: PASTE_ONE },
     { title: "Two", showdown: PASTE_TWO },
   ]));
   const answer = await installCampaignTeams("demo", deps);
   same("both teams land", answer.loaded, 2);
-  // Each team added becomes the selected one, so the LAST added is what the
-  // visitor sees: adding backwards is what leaves team one open.
-  same("they are added last-first", added.map((team) => team.title), ["Two", "One"]);
+  // The library column draws them in the order they were added, so that order
+  // IS what the visitor reads: team one at the top, the way the video numbers
+  // them. Adding a team also selects it, which is why the first one has to be
+  // asked for again at the end.
+  same("they are added in reading order", added.map((team) => team.title), ["One", "Two"]);
   same("the titles are reported in reading order", answer.titles, ["One", "Two"]);
+  // By title, not by position: "the first one added" would still be satisfied
+  // by an installer that added them backwards.
+  same("the video's first team is the one left open", selected, [added.find((team) => team.title === "One").id]);
   same("the format is set before any team is read", formats, ["Doubles"]);
-  same("the first team is the video's first", added[added.length - 1].names, ["Incineroar", "Charizard-Mega-Y"]);
+  same("and that first team is the video's first", added[0].names, ["Incineroar", "Charizard-Mega-Y"]);
 }
 
 {
@@ -174,6 +187,23 @@ function harness(campaign) {
   const answer = await installCampaignTeams("demo", deps);
   same("an empty slot and an unreadable paste are skipped, the rest lands", answer.loaded, 1);
   same("and it is the readable one", added.map((team) => team.title), ["Good"]);
+}
+
+{
+  // Nothing installed, nothing opened: a select() on a team that was never made
+  // would leave the Team Builder pointing at nothing.
+  const { selected, deps } = harness(fakeCampaign([{ title: "Empty", showdown: "" }]));
+  await installCampaignTeams("demo", deps);
+  same("a campaign that installs nothing opens nothing", selected, []);
+}
+
+{
+  // The older deps shape, without select: the page must still work if a caller
+  // (or a test) hands over only the two functions the file documents as needed.
+  const { added, deps } = harness(fakeCampaign([{ title: "One", showdown: PASTE_ONE }]));
+  delete deps.select;
+  same("no select hook, the teams still land", (await installCampaignTeams("demo", deps)).loaded, 1);
+  same("and it is the right one", added.map((team) => team.title), ["One"]);
 }
 
 {
@@ -235,6 +265,45 @@ function harness(campaign) {
 }
 
 {
+  // The empty "My Team" the store invents for a brand new browser sat above the
+  // creator's five, which is the first thing somebody arriving off the video
+  // looks at. This is the real store, not a stand-in.
+  const store = new Map();
+  globalThis.localStorage = {
+    getItem: (key) => (store.has(key) ? store.get(key) : null),
+    setItem: (key, value) => store.set(key, String(value)),
+    removeItem: (key) => store.delete(key),
+  };
+  try {
+    const s = await import("../builder/store.js");
+    const sets = parseShowdown(PASTE_ONE, data);
+    same("a new browser starts with the placeholder", s.getState().teams.map((t) => t.title), ["My Team"]);
+    const one = s.newTeam(sets, data, "Team 1");
+    s.newTeam(sets, data, "Team 2");
+    s.selectTeam(one.id);
+    s.dropEmptyPlaceholders();
+    same("the placeholder goes once a campaign's teams are in",
+      s.getState().teams.map((t) => t.title), ["Team 1", "Team 2"]);
+    same("the video's first team is still the open one", s.getState().selectedTeamId, one.id);
+
+    // An empty team is only a placeholder if the store made it. One the visitor
+    // made themselves is theirs, however empty it is.
+    const mine = s.newTeam(null, data, "Scratch");
+    s.dropEmptyPlaceholders();
+    ok("an empty team the visitor made is kept", s.getState().teams.some((t) => t.id === mine.id));
+
+    // And a placeholder they typed into is not a placeholder any more.
+    s.selectTeam(s.getState().teams[0].id);
+    s.setSlot(0, sets[0], data);
+    const titles = s.getState().teams.map((t) => t.title);
+    s.dropEmptyPlaceholders();
+    same("nothing else is ever dropped", s.getState().teams.map((t) => t.title), titles);
+  } finally {
+    delete globalThis.localStorage;
+  }
+}
+
+{
   const deps = {
     parse: (text) => parseShowdown(text, data),
     add: () => { throw new Error("nothing should be added"); },
@@ -277,8 +346,12 @@ ok("the campaign files are served uncached", read("_headers").includes("/data/ca
 const builderPage = read("builder", "builder-page.js");
 ok("the builder reads ?campaign=", builderPage.includes('params.get("campaign")'));
 ok("it clears the parameter so a reload is a plain builder", /history\.replaceState\(null, "", location\.pathname\);/.test(builderPage));
-ok("it has a banner to show", read("team-builder", "index.html").includes('id="campaignBanner"'));
-ok("the banner counts the teams", read("team-builder", "index.html").includes("data-count"));
+// No banner: a visitor from the video gets the Team Builder with the five teams
+// in it and nothing explaining itself on top. The only thing that must survive is
+// that the teams are ADDED, never set over what the visitor already had.
+ok("no campaign banner is left behind",
+   not_in(read("team-builder", "index.html"), "campaignBanner")
+   && not_in(builderPage, "campaignBanner"));
 ok("the teams are ADDED, never set", builderPage.includes("newTeam(sets.slice(0, TEAM_SIZE), data, title)") && !/campaign[\s\S]{0,400}setTeamSets/.test(builderPage));
 
 // --- 6. the counter ------------------------------------------------------------------------
@@ -304,11 +377,17 @@ const stepsLine = fn.match(/const STEPS = \[(.*?)\];/s)?.[1] || "";
 const allowed = [...stepsLine.matchAll(/"([a-z]+)"/g)].map((match) => match[1]);
 ok("the endpoint declares its steps", allowed.length > 0, JSON.stringify(declared.slice(0, 3)));
 // Every step the site can send: the literals passed straight to trackCampaign,
-// plus the banner's two, which come from BANNER_STEPS rather than from the call.
+// plus the two that come from the CAMPAIGN_TABS map rather than from the call.
+const tabSteps = [...(builderPage.match(/const CAMPAIGN_TABS = \{([^}]*)\}/)?.[1] || "")
+  .matchAll(/"([a-z]+)"/g)].map((match) => match[1]);
 const sent = new Set([
   ...[...builderPage.matchAll(/trackCampaign\([^;]*?"([a-z]+)"[^;]*?\);/g)].map((match) => match[1]),
-  ...Object.values(BANNER_STEPS),
+  ...tabSteps,
 ]);
+ok("the funnel still has its later steps after the banner went",
+   tabSteps.length >= 2, `found ${JSON.stringify(tabSteps)}`);
+ok("and they are only sent for a campaign visitor",
+   /function trackCampaignTab[\s\S]{0,160}if \(!campaignOnScreen\) return;/.test(builderPage));
 ok("the site really does send steps", sent.size >= 3, `found ${[...sent].join(", ")}`);
 for (const step of sent) ok(`the endpoint accepts the step "${step}" the site sends`, allowed.includes(step));
 

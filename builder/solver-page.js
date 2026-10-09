@@ -37,8 +37,15 @@ const STORAGE_KEY = "cbd.solver.v1";
  *
  * Stop is still there, and it still works -- it ends the run early and reports what has been
  * played so far -- but nothing waits for it.
+ *
+ * It is twice what it was, because SETTLE_LINES is. The floor an answer must stand through is a
+ * count of LINES, so this wall has to hold the slowest client that count is meant to serve, not
+ * the fastest. Measured by emulating slower clients: at 90 seconds a device about three times
+ * slower than a desktop could no longer settle at all, and was told its board was a near-tie
+ * instead. Only a board that is NOT settling ever reaches this wall, and that is the board
+ * worth the extra time.
  */
-const SEARCH_CAP_SECONDS = 90;
+const SEARCH_CAP_SECONDS = 180;
 /**
  * How long the page waits with NOTHING arriving before it gives up on the worker.
  *
@@ -226,6 +233,10 @@ function fit() {
   // A picked-up Pokemon is a position, so anything that can move or remove one puts it down.
   // Every mutation goes through here, which makes a stale index impossible rather than guarded.
   state.pick = null;
+  // And the same for a complaint about the board: every change comes through here, so a refusal
+  // cannot outlive the thing it was refusing. It used to -- "give a fainted one some HP back"
+  // stayed on screen word for word after the person had done exactly that.
+  state.error = "";
   for (const side of state.sides) {
     side.length = Math.min(side.length, TEAM_SIZE);
     let taken = 0;
@@ -482,6 +493,7 @@ function renderSide(side) {
   const active = ACTIVE[state.format];
   const bring = BRING[state.format];
   const taken = brought(side);
+  const standing = standingOf(side);
   return h("section", { class: "bd-solver-side", "aria-label": SIDE_LABEL[side] },
     h("div", { class: "bd-solver-side-head" },
       h("h2", {}, SIDE_LABEL[side]),
@@ -504,7 +516,7 @@ function renderSide(side) {
       }, `Add a Pokémon (${rows.length}/${TEAM_SIZE})`)
       : null,
     h("p", { class: "bd-solver-note" },
-      `${taken.length} of ${rows.length} in this battle (${bring} play), ${active} in the front.`));
+      `${taken.length} of ${rows.length} in this battle (${bring} play), ${standing.length} of ${active} on the field.`));
 }
 
 // --- the field, as a picture ----------------------------------------------------------------
@@ -551,8 +563,21 @@ function sceneSide(side) {
     h("h3", {}, SIDE_LABEL[side]),
     h("div", { class: "bd-solver-bench" },
       rows.map((row, index) => (standing.includes(row) ? null : sceneTile(side, index, row, true)))));
+  // The seats the format has, with the empty ones drawn rather than left out: a side down to
+  // one Pokemon is a real board, and a row with a single tile and nothing beside it reads as a
+  // picture that has lost something. Nothing is stored for this -- the seats are the format's,
+  // the full ones are `standingOf`, and the difference is what is drawn.
+  const empty = Math.max(0, ACTIVE[state.format] - standing.length);
   const field = h("div", { class: "bd-solver-scene-field-row" },
-    standing.map((row) => sceneTile(side, rows.indexOf(row), row, false)));
+    standing.map((row) => sceneTile(side, rows.indexOf(row), row, false)),
+    // The click is stopped here and goes nowhere else. Without that it reached the document,
+    // which is what puts a picked-up Pokemon down -- so dropping one on the seat beside it, the
+    // obvious thing to try, cancelled the move with nothing on screen to say it had.
+    Array.from({ length: empty }, () => h("div", {
+      class: "bd-solver-tile empty",
+      title: "Nobody is standing in this seat",
+      onclick: (event) => event.stopPropagation(),
+    }, "Empty")));
   return h("div", { class: "bd-solver-scene-side", "data-side": side === 0 ? "ours" : "theirs" },
     ...(side === 0 ? [field, head] : [head, field]));
 }
@@ -1032,9 +1057,13 @@ function bar(value) {
  */
 function actionText(action) {
   // A switch already reads as an arrow ("→ Incineroar"), so it does not take the colon a move does.
+  // "and Mega Evolve" is part of the line, not decoration: the same move with and without the
+  // stone are two different lines with two different scores, and printed the same they read as
+  // one row listed twice.
+  const mega = action.mega ? " + Mega Evolve" : "";
   return action.kind === SWITCH
     ? `${action.name} ${action.move}`
-    : `${action.name}: ${action.move}${action.target ? ` → ${action.target}` : ""}`;
+    : `${action.name}: ${action.move}${action.target ? ` → ${action.target}` : ""}${mega}`;
 }
 
 function lineRow(row, index, mine) {
@@ -1097,12 +1126,26 @@ let progressLine = null;
 /** Restarts the silence watch. Held because the progress callback is made before the watch is. */
 let touchGuard = null;
 
+/**
+ * The highest `settling` this run has reached.
+ *
+ * `settling` drops to zero the moment the leading line changes, and the words for zero were the
+ * same words a run shows before it has got going -- so somebody watching saw "settling 51%" turn
+ * back into "still moving" with nothing to say why. The old window usually ended the run before
+ * that could happen; at 300,000 lines it happens in front of them, measured nine seconds into a
+ * sixteen-second wait. A count starting again is not a stall and must not read like one.
+ */
+let settlingPeak = 0;
+
 function progressText(p) {
   if (!p) return "Loading the battle data for the search…";
   const rate = p.elapsed > 0 ? Math.round(p.played / p.elapsed).toLocaleString() : "0";
   // How close the answer is to standing still, which is the thing that ends the run -- without
   // it a run of unknown length looks like one that has hung.
-  const settling = p.settling > 0 ? `settling ${Math.round(p.settling * 100)}%` : "still moving";
+  if (p.settling > settlingPeak) settlingPeak = p.settling;
+  const settling = p.settling > 0
+    ? `settling ${Math.round(p.settling * 100)}%`
+    : settlingPeak > 0.1 ? "the leading line changed, counting again" : "still moving";
   return `${p.played.toLocaleString()} lines played · ${p.elapsed.toFixed(1)}s · ${rate} a second · the board favours you ${p.value.toFixed(0)} · ${settling}`;
 }
 
@@ -1123,12 +1166,13 @@ function renderResults() {
       h("p", { class: "bd-solver-note" },
         "Every line rolls to hit and rolls its damage, so the answer is an average over samples "
         + "and it keeps sharpening. It stops on its own once the order of the top lines has "
-        + `stopped changing, usually a few seconds, and never later than ${SEARCH_CAP_SECONDS}.`));
+        + "stopped changing. How long that takes is the board, the number of turns you asked it to "
+        + `look ahead and how fast this device is; it is never later than ${SEARCH_CAP_SECONDS} seconds.`));
   }
   const result = state.result;
   if (!result) {
     return h("div", { class: "bd-solver-results" },
-      h("p", { class: "bd-solver-idle" }, "Set the board up and press Solve. Both sides pick at the same time, neither sees the other, and the answer is whatever comes out ahead across the lines that get played. It runs until the order of the top lines stops changing, which is usually a few seconds."));
+      h("p", { class: "bd-solver-idle" }, "Set the board up and press Solve. Both sides pick at the same time, neither sees the other, and the answer is whatever comes out ahead across the lines that get played. It runs until the order of the top lines stops changing, which takes longer on a crowded board, at a deeper look-ahead, and on a slower device."));
   }
   const side = (title, rows, mine) => h("div", { class: "bd-solver-answer" },
     h("h3", {}, title),
@@ -1141,7 +1185,13 @@ function renderResults() {
     : state.stopped
       ? h("p", { class: "bd-solver-note bd-solver-ending" }, "You stopped this one early, so the order of the top lines may still have been moving.")
       : h("p", { class: "bd-solver-note bd-solver-ending" },
-        `This one reached the ${SEARCH_CAP_SECONDS}-second limit with the order of the top lines still moving, so it is the best it had rather than a settled answer. That usually means the two best lines are close to even.`);
+        // Two different things end a run at the wall, and they need different words. A board
+        // whose top lines were still changing after the floor really is close to even. A run
+        // that never got THROUGH the floor was stopped by this device being slow, and telling
+        // that person their board is a near-tie is wrong about their board.
+        result.played >= 2 * SETTLE_LINES
+          ? `This one reached the ${SEARCH_CAP_SECONDS}-second limit with the order of the top lines still moving, so it is the best it had rather than a settled answer. That usually means the two best lines are close to even.`
+          : `This one reached the ${SEARCH_CAP_SECONDS}-second limit after ${result.played.toLocaleString()} lines, and an answer has to stand through ${(2 * SETTLE_LINES).toLocaleString()} of them before it counts as settled. It is the best it had. Fewer turns of look-ahead, or a faster device, would get there.`);
   return h("div", { class: "bd-solver-results" },
     bar(result.value),
     ending,
@@ -1193,12 +1243,26 @@ async function solve() {
     }),
     field: state.field,
   };
-  const short = [0, 1].filter((side) => standingOf(side).length < ACTIVE[state.format]);
-  if (short.length) {
-    const need = ACTIVE[state.format];
-    state.error = need > 1
-      ? `${short.map((side) => SIDE_LABEL[side]).join(" and ")} needs ${need} Pokémon on the field. Click one in the back to bring it into this battle.`
-      : `${short.map((side) => SIDE_LABEL[side]).join(" and ")} needs a Pokémon on the field.`;
+  // Fewer than the format's count is a board, not a mistake. A Doubles side standing alone --
+  // its partner knocked out, or only one brought to the battle -- is the position a player most
+  // wants an answer for, and the search has never asked for more than one alive a side.
+  //
+  // The empty seat is searched as an empty seat: nothing acts in it. It also stays empty for the
+  // whole line, and that is not a limitation -- `standingOf` promotes any Pokemon in the battle
+  // that still has HP, so a seat is only ever empty here because that side has nobody left to
+  // put in it. (The engine does walk a replacement in mid-line when somebody faints; that is
+  // `refill`, and it is a different moment.)
+  const empty = [0, 1].filter((side) => !standingOf(side).length);
+  if (empty.length) {
+    // Three different boards arrive here and they need three different answers. What they must
+    // not do is name a control the person has not got: a side with nothing on it was being told
+    // to click one in the back and to heal a fainted one, and had neither.
+    const why = (side) => {
+      if (!state.sides[side].length) return `has no Pokémon on it. Add one below.`;
+      if (!brought(side).length) return "has nobody in this battle. Click one on the board to bring it in.";
+      return "is knocked out. Give one of them some HP back, or bring in one that is still standing.";
+    };
+    state.error = empty.map((side) => `${SIDE_LABEL[side]} ${why(side)}`).join(" ");
     render();
     return;
   }
@@ -1206,6 +1270,7 @@ async function solve() {
   state.stopped = false;
   state.error = "";
   state.progress = null;
+  settlingPeak = 0;
   state.result = null;
   render();
   const request = analysis("solver", {

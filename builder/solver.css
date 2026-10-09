@@ -674,6 +674,24 @@
 
 .bd-solver-tile:hover { border-color: var(--bd-line-strong); }
 
+/* A seat with nobody in it. Not a button: there is nothing to click on an empty seat, and one
+   that looked clickable would be the only tile on the board that did nothing. */
+.bd-solver-tile.empty {
+  display: grid;
+  place-items: center;
+  min-height: 2.6rem;
+  border-style: dashed;
+  background: transparent;
+  color: var(--bd-muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.bd-solver-tile.empty:hover { border-color: var(--bd-line); }
+
 .bd-solver-tile.bench {
   grid-template-columns: auto;
   min-width: 0;

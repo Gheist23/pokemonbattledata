@@ -92,8 +92,32 @@ export const SLICE_MS = 55;
  * board last changed 207,000 lines in, so a shorter window would have answered early there. At
  * this window every one of the 15 agreed with a full 30-second run; the next window down
  * (100,000) disagreed on one of them.
+ *
+ * 300,000 is twice that, and it was asked for rather than measured into: a longer window is a
+ * stricter test of "the order has stopped changing". What WAS measured is the cost, over 27 runs
+ * on six boards -- even, wide, nearly decided, the widest the page can build, a Singles board
+ * and a Doubles board with one Pokemon standing alone -- at both the default look-ahead and the
+ * deepest the page offers. Every one of them still settles, and the time roughly doubles: a
+ * Doubles board that answered in 8 or 9 seconds answers in 15 to 24. On most runs it is the
+ * FLOOR that ends them rather than the window -- the leader stopped moving long before 600,000
+ * lines and the rest is waiting the floor out.
+ *
+ * SEARCH_CAP_SECONDS moved with it, 90 seconds to 180. The floor is a count of LINES, so how
+ * much slower than this desktop a client may be and still reach it is arithmetic: emulating
+ * slower clients by shrinking the budget, 150,000 settled at 5x slower and first failed at 6x,
+ * while 300,000 fails at 4x. Headroom of about 3x is a phone, and what that client lost was not
+ * the answer -- it is the same search stopped later -- but the right to be told its answer had
+ * settled. Doubling the wall puts the headroom back where the old window had it. The wall is
+ * only ever reached by a board that is NOT settling, which is the board worth more search.
+ *
+ * What the longer window buys: on 3 of 11 board-and-seed pairs the leading line changed after
+ * 300,000 lines, which the shorter window was structurally unable to see. Be honest about what
+ * that is worth. On an even board the board value barely moved with the name (49.94 to 49.95),
+ * so there it is a steadier choice between near-ties rather than a different verdict about the
+ * position; on the board with one side standing alone the two lines differed in kind -- switch
+ * out and attack, against Protect and Tailwind.
  */
-export const SETTLE_LINES = 150000;
+export const SETTLE_LINES = 300000;
 
 /**
  * Has the answer stood still long enough to stop?
@@ -310,6 +334,21 @@ export class Solver {
   /**
    * The board as the turn machinery wants it: `sides[s]` with the ones on the field first (which
    * is what `refill` assumes), `active[s]` pointing into it, and `next[s]` past them.
+   *
+   * A side may stand with FEWER than the format's count -- a Doubles board where somebody is
+   * down to their last Pokemon -- and then the other seat is empty. Empty, not "whoever is next
+   * on the bench": seating the first `activeCount` of the list put a BENCH Pokemon on the field,
+   * which is a board the game cannot be in, and the report then named a move for a Pokemon the
+   * person had left in the back.
+   *
+   * `next` counted seats the same way, which is why the two errors hid each other: the Pokemon
+   * the pointer skipped was the one that had been wrongly seated. They have to move together.
+   * Pad the seats without moving the pointer and the first Pokemon on the bench can never be
+   * sent out as a replacement at all.
+   *
+   * Padded with null rather than left short, because `refill` walks `active[s]` by its CURRENT
+   * length: a seat that is not there cannot be filled later, so a side standing alone with a
+   * Pokemon still on the bench would never get it onto the field.
    */
   buildState(setup) {
     const sides = [];
@@ -369,8 +408,12 @@ export class Solver {
         return m;
       });
       sides.push(list);
-      active.push(list.slice(0, this.activeCount).map((m) => m || null));
-      next.push(Math.min(this.activeCount, list.length));
+      // The seats, in order, and an empty one is null. `list` is the ones on the field followed
+      // by the bench, so the first `onField.length` of it are exactly the ones standing.
+      active.push(Array.from({ length: this.activeCount }, (_, i) => (i < onField.length ? list[i] : null)));
+      // The bench begins where the field ends -- the number of Pokemon STANDING, not the number
+      // of seats the format has.
+      next.push(onField.length);
     }
     const field = setup.field || {};
     // Everything the board itself does not carry -- screens, Friend Guard, the rule switches and
@@ -890,7 +933,9 @@ export class Solver {
   }
 
   tickBoard(state) {
-    const { active, sides, next, board } = state;
+    // Not `sides`: what goes to `refill` is `benchFor(state)`, and a binding left here would
+    // read as though the raw list still did.
+    const { active, next, board } = state;
     // Before the empty slots are filled, so a Pokemon that goes down to its own poison is
     // replaced on the same turn as one that was knocked out by a move.
     this.residual(state);
@@ -903,7 +948,7 @@ export class Solver {
     // flag for the rest of the line.
     const before = active.map((row) => row.map((m) => (m && !m.out ? m.u.id : null)));
     for (const row of active) for (const m of row) if (m) m.justIn = false;
-    this.t.refill(active, sides, next, board);
+    this.t.refill(active, this.benchFor(state), next, board);
     // A replacement sent out to fill a gap has only just arrived, so it gets what the game gives
     // a Pokemon that has only just arrived: Fake Out and First Impression on the turn it acts.
     //
@@ -916,6 +961,37 @@ export class Solver {
         m.entered = true;
       }
     }));
+  }
+
+  /**
+   * `sides`, with the bench narrowed to the Pokemon that can still be sent out.
+   *
+   * `refill` takes whatever is next off the bench without asking whether it is still standing,
+   * and `enter` then fires that Pokemon's entry Ability. So the bodies walked onto the field one
+   * a turn, each one setting its weather and its Intimidate: measured, a fainted Pelipper put up
+   * Rain and then a fainted Incineroar lowered both of the other side's Attack.
+   *
+   * READ THIS BEFORE ASSUMING IT IS ONLY ABOUT THE NEW CASE. It is not. Any board with a
+   * knocked-out Pokemon behind the field reaches it, which the HP slider produces on an ordinary
+   * two-standing board, and over 357 page-shaped boards (6,325 turns) 41 walk-ons fired -- not
+   * one of them on a board with a side standing alone. Boards people have already answered
+   * answer differently now: measured on one, the value moved 32.04 to 29.93 and the top line
+   * changed which Pokemon it aimed at. That is the fix working, and it is still a change to
+   * answers that were given before.
+   *
+   * Narrowing what is handed over rather than teaching `refill` to check: that method is the
+   * Tournament Test's own and every recorded game was played through it exactly as it is.
+   *
+   * The first `next[s]` entries are passed through untouched, because `next` indexes into this
+   * list and nothing may shift under it. Only the bench behind that is filtered, and it drops
+   * both the fainted and anyone already standing -- the second is what keeps a Pokemon that a
+   * switch moved down the list from being sent out while it is on the field.
+   */
+  benchFor({ sides, active, next }) {
+    return sides.map((list, s) => [
+      ...list.slice(0, next[s]),
+      ...list.slice(next[s]).filter((m) => !m.out && !active[s].includes(m)),
+    ]);
   }
 
   /** Whether there is anything left to play. */
@@ -1104,7 +1180,10 @@ export class Solver {
   /** A joint action's identity, so a reported row can be matched back to the action it came from. */
   /** Two lines that differ only in whether the stone was used are two different lines. */
   keyOf(joint) {
-    return joint.map((a) => `${a.position}:${a.kind}:${a.slot ?? ""}:${a.target ?? ""}:${a.into ?? ""}`).join("|");
+    // The stone is part of the identity, not only of the display: the comment above has always
+    // said so and the key did not carry it, so a line and the same line with the stone used --
+    // two rows with two different scores -- came out with one key between them.
+    return joint.map((a) => `${a.position}:${a.kind}:${a.slot ?? ""}:${a.target ?? ""}:${a.into ?? ""}:${a.mega ? "M" : ""}`).join("|");
   }
 
   /** What one side's statistics say, best first. */
@@ -1121,6 +1200,10 @@ export class Solver {
             ? this.label(state.active[s][a.partner].u)
             : "",
         kind: a.kind,
+        // Whether this line spends the stone. Two joints that differ only in that are two
+        // different lines with two different scores, so the page has to be able to tell them
+        // apart -- without it the answer showed the same row twice.
+        mega: Boolean(a.mega),
       })),
       played: stats[i].n,
       share: total ? stats[i].n / total : 0,

@@ -238,10 +238,23 @@ check("splitNumeric reads a trailing sign as a nature mark", splitNumeric("252+ 
 check("splitNumeric reads a percent", splitNumeric("60%"), { pre: "", amount: 60, post: "", pct: "%", word: "" });
 check("splitNumeric refuses a word", splitNumeric("adamant"), null);
 
+// The baseline these instructions are applied to, read from the data rather
+// than written down: it is Rillaboom's most common Doubles spread, and the
+// ladder moves it. `spread(...)` is that baseline with the named stats set, so
+// the table says what each instruction CHANGES instead of restating the whole
+// spread and going red the next time the meta shifts.
+const BASE_BONUSES = setFromCommon(botData.commonSet("Doubles", "Rillaboom", "Rillaboom")).bonuses;
+const STAT = { hp: 0, atk: 1, def: 2, spa: 3, spd: 4, spe: 5 };
+const spread = (changes) => {
+  const bonuses = [...BASE_BONUSES];
+  for (const [stat, value] of Object.entries(changes)) bonuses[STAT[stat]] = value;
+  return bonuses;
+};
+
 const TABLE = [
-  ["32 atk", { bonuses: [32, 32, 0, 0, 0, 2] }, ["32 Atk"], []],
-  ["atk 32, spe 32", { bonuses: [32, 32, 0, 0, 0, 32] }, ["32 Atk", "32 Spe"], []],
-  ["0 hp", { bonuses: [0, 32, 0, 0, 0, 2] }, ["0 HP"], []],
+  ["32 atk", { bonuses: spread({ atk: 32 }) }, ["32 Atk"], []],
+  ["atk 32, spe 32", { bonuses: spread({ atk: 32, spe: 32 }) }, ["32 Atk", "32 Spe"], []],
+  ["0 hp", { bonuses: spread({ hp: 0 }) }, ["0 HP"], []],
   ["Life Orb", { item: "Life Orb" }, ["Life Orb"], []],
   ["no item", { item: "" }, ["no item"], []],
   ["miracle seed", { item: "Miracle Seed" }, ["Miracle Seed"], []],
@@ -250,9 +263,9 @@ const TABLE = [
   ["Rough Skin", { ability: "Rough Skin" }, ["Rough Skin"], []],
   ["adamant", { nature: "Adamant" }, ["Adamant"], []],
   ["timid nature", { nature: "Timid" }, ["Timid"], []],
-  ["252+ Atk / 0- Spe", { bonuses: [32, 32, 0, 0, 0, 0], nature: "Brave" }, ["32 Atk", "0 Spe", "Brave (from the + and − marks)"], []],
+  ["252+ Atk / 0- Spe", { bonuses: spread({ atk: 32, spe: 0 }), nature: "Brave" }, ["32 Atk", "0 Spe", "Brave (from the + and − marks)"], []],
   ["252+ Atk / 0- SpA", { nature: "Adamant" }, ["32 Atk", "0 SpA", "Adamant (from the + and − marks)"], []],
-  ["99 spa", { bonuses: [32, 32, 0, 32, 0, 2] }, ["32 SpA"], []],
+  ["99 spa", { bonuses: spread({ spa: 32 }) }, ["32 SpA"], []],
 ];
 for (const [text, wantSet, wantRead, wantUnread] of TABLE) {
   const got = parse(text);

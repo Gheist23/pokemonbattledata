@@ -11,37 +11,307 @@
   },
   "format": "Doubles",
   "season": "M-7",
-  "generatedAt": "2026-10-08T10:46:04.000Z",
+  "generatedAt": "2026-10-08T17:54:25.170Z",
   "teams": [
     {
-      "title": "",
-      "note": "",
-      "showdown": "",
-      "members": []
+      "title": "Team 1 · Mega Salamence",
+      "note": "Mega Salamence and Mega Tyranitar, with Excadrill running in the sand.",
+      "showdown": "Salamence-Mega @ Salamencite\nAbility: Aerilate\nLevel: 50\nEVs: 2 HP / 32 SpA / 32 Spe\nTimid Nature\n- Hyper Voice\n- Draco Meteor\n- Flamethrower\n- Protect\n\nTyranitar-Mega @ Tyranitarite\nAbility: Sand Stream\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nJolly Nature\n- Rock Slide\n- Knock Off\n- Low Kick\n- Protect\n\nCorviknight @ Psychic Seed\nAbility: Mirror Armor\nLevel: 50\nEVs: 32 Atk / 2 SpD / 32 Spe\nCareful Nature\n- Brave Bird\n- Power Trip\n- Bulk Up\n- Roost\n\nExcadrill @ Focus Sash\nAbility: Sand Rush\nLevel: 50\nEVs: 32 Atk / 1 Def / 1 SpD / 32 Spe\nAdamant Nature\n- Iron Head\n- Protect\n- Rock Slide\n- High Horsepower\n\nIndeedee @ Choice Scarf\nAbility: Psychic Surge\nLevel: 50\nEVs: 2 HP / 32 SpA / 32 Spe\nModest Nature\n- Expanding Force\n- Mystical Fire\n- Trick\n- Protect\n\nSneasler @ Mental Herb\nAbility: Unburden\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nAdamant Nature\n- Dire Claw\n- Close Combat\n- Coaching\n- Protect",
+      "members": [
+        {
+          "name": "Salamence-Mega",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Mega%20Salamence.png",
+          "item": "Salamencite",
+          "types": [
+            "Dragon",
+            "Flying"
+          ]
+        },
+        {
+          "name": "Tyranitar-Mega",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Mega%20Tyranitar.png",
+          "item": "Tyranitarite",
+          "types": [
+            "Rock",
+            "Dark"
+          ]
+        },
+        {
+          "name": "Corviknight",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Corviknight.png",
+          "item": "Psychic Seed",
+          "types": [
+            "Flying",
+            "Steel"
+          ]
+        },
+        {
+          "name": "Excadrill",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Excadrill.png",
+          "item": "Focus Sash",
+          "types": [
+            "Ground",
+            "Steel"
+          ]
+        },
+        {
+          "name": "Indeedee",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Indeedee.png",
+          "item": "Choice Scarf",
+          "types": [
+            "Psychic",
+            "Normal"
+          ]
+        },
+        {
+          "name": "Sneasler",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Sneasler.png",
+          "item": "Mental Herb",
+          "types": [
+            "Fighting",
+            "Poison"
+          ]
+        }
+      ]
     },
     {
-      "title": "",
-      "note": "",
-      "showdown": "",
-      "members": []
+      "title": "Team 2 · Mega Staraptor",
+      "note": "Mega Staraptor setting Tailwind, Mega Raichu Y with No Guard Zap Cannon.",
+      "showdown": "Raichu-Mega-Y @ Raichunite Y\nAbility: No Guard\nLevel: 50\nEVs: 25 HP / 15 Def / 26 Spe\nTimid Nature\n- Zap Cannon\n- Focus Blast\n- Fake Out\n- Protect\n\nArmarouge @ Life Orb\nAbility: Flash Fire\nLevel: 50\nEVs: 2 Def / 32 SpA / 32 Spe\nTimid Nature\n- Expanding Force\n- Armor Cannon\n- Wide Guard\n- Protect\n\nSneasler @ Psychic Seed\nAbility: Unburden\nLevel: 50\nEVs: 26 HP / 10 Atk / 11 Def / 2 SpD / 17 Spe\nAdamant Nature\n- Close Combat\n- Dire Claw\n- Protect\n- Rock Tomb\n\nStaraptor-Mega @ Staraptite\nAbility: Contrary\nLevel: 50\nEVs: 25 HP / 9 Atk / 32 Spe\nJolly Nature\n- Close Combat\n- Brave Bird\n- Tailwind\n- Protect\n\nIndeedee-F @ Rocky Helmet\nAbility: Psychic Surge\nLevel: 50\nEVs: 32 HP / 32 Def / 2 SpD\nBold Nature\n- Psychic\n- Follow Me\n- Helping Hand\n- Protect\n\nKingambit @ Focus Sash\nAbility: Defiant\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nAdamant Nature\n- Kowtow Cleave\n- Sucker Punch\n- Iron Head\n- Low Kick",
+      "members": [
+        {
+          "name": "Raichu-Mega-Y",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Mega%20Raichu%20Y.png",
+          "item": "Raichunite Y",
+          "types": [
+            "Electric"
+          ]
+        },
+        {
+          "name": "Armarouge",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Armarouge.png",
+          "item": "Life Orb",
+          "types": [
+            "Fire",
+            "Psychic"
+          ]
+        },
+        {
+          "name": "Sneasler",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Sneasler.png",
+          "item": "Psychic Seed",
+          "types": [
+            "Fighting",
+            "Poison"
+          ]
+        },
+        {
+          "name": "Staraptor-Mega",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Mega%20Staraptor.png",
+          "item": "Staraptite",
+          "types": [
+            "Fighting",
+            "Flying"
+          ]
+        },
+        {
+          "name": "Indeedee-F",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Indeedee%20Female.png",
+          "item": "Rocky Helmet",
+          "types": [
+            "Psychic",
+            "Normal"
+          ]
+        },
+        {
+          "name": "Kingambit",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Kingambit.png",
+          "item": "Focus Sash",
+          "types": [
+            "Dark",
+            "Steel"
+          ]
+        }
+      ]
     },
     {
-      "title": "",
-      "note": "",
-      "showdown": "",
-      "members": []
+      "title": "Team 3 · Trick Room Sun",
+      "note": "Torkoal sun under Trick Room, with Mega Gardevoir and two Expanding Forces.",
+      "showdown": "Armarouge @ Life Orb\nAbility: Flash Fire\nLevel: 50\nEVs: 32 HP / 32 SpA / 2 SpD\nQuiet Nature\n- Expanding Force\n- Armor Cannon\n- Trick Room\n- Protect\n\nIndeedee-F @ Colbur Berry\nAbility: Psychic Surge\nLevel: 50\nEVs: 32 HP / 32 Def / 2 SpD\nRelaxed Nature\n- Follow Me\n- Psychic\n- Helping Hand\n- Trick Room\n\nTorkoal @ Charcoal\nAbility: Drought\nLevel: 50\nEVs: 32 HP / 2 Def / 32 SpA\nQuiet Nature\n- Eruption\n- Weather Ball\n- Helping Hand\n- Protect\n\nSneasler @ Psychic Seed\nAbility: Unburden\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nAdamant Nature\n- Dire Claw\n- Close Combat\n- Throat Chop\n- Protect\n\nGardevoir-Mega @ Gardevoirite\nAbility: Pixilate\nLevel: 50\nEVs: 29 HP / 32 SpA / 5 Spe\nModest Nature\n- Protect\n- Expanding Force\n- Hyper Voice\n- Trick Room\n\nKingambit @ Chople Berry\nAbility: Defiant\nLevel: 50\nEVs: 32 HP / 25 Atk / 9 Def\nAdamant Nature\n- Kowtow Cleave\n- Iron Head\n- Sucker Punch\n- Low Kick",
+      "members": [
+        {
+          "name": "Armarouge",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Armarouge.png",
+          "item": "Life Orb",
+          "types": [
+            "Fire",
+            "Psychic"
+          ]
+        },
+        {
+          "name": "Indeedee-F",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Indeedee%20Female.png",
+          "item": "Colbur Berry",
+          "types": [
+            "Psychic",
+            "Normal"
+          ]
+        },
+        {
+          "name": "Torkoal",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Torkoal.png",
+          "item": "Charcoal",
+          "types": [
+            "Fire"
+          ]
+        },
+        {
+          "name": "Sneasler",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Sneasler.png",
+          "item": "Psychic Seed",
+          "types": [
+            "Fighting",
+            "Poison"
+          ]
+        },
+        {
+          "name": "Gardevoir-Mega",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Mega%20Gardevoir.png",
+          "item": "Gardevoirite",
+          "types": [
+            "Psychic",
+            "Fairy"
+          ]
+        },
+        {
+          "name": "Kingambit",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Kingambit.png",
+          "item": "Chople Berry",
+          "types": [
+            "Dark",
+            "Steel"
+          ]
+        }
+      ]
     },
     {
-      "title": "",
-      "note": "",
-      "showdown": "",
-      "members": []
+      "title": "Team 4 · Mega Golisopod",
+      "note": "Mega Golisopod with Pelipper rain and a Mega Gardevoir Trick Room mode.",
+      "showdown": "Golisopod-Mega @ Golisopite\nAbility: Tough Claws\nLevel: 50\nEVs: 32 HP / 32 Atk / 2 SpD\nAdamant Nature\n- Protect\n- Iron Head\n- Swords Dance\n- Leech Life\n\nIndeedee-F @ Colbur Berry\nAbility: Psychic Surge\nLevel: 50\nEVs: 32 HP / 25 Def / 9 SpD\nCalm Nature\n- Follow Me\n- Psychic\n- Helping Hand\n- Trick Room\n\nGardevoir-Mega @ Gardevoirite\nAbility: Trace\nLevel: 50\nEVs: 29 HP / 32 SpA / 5 Spe\nModest Nature\n- Hyper Voice\n- Protect\n- Expanding Force\n- Trick Room\n\nPelipper @ Focus Sash\nAbility: Drizzle\nLevel: 50\nEVs: 2 HP / 32 SpA / 32 Spe\nModest Nature\n- Protect\n- Tailwind\n- Weather Ball\n- Hurricane\n\nBasculegion @ Choice Scarf\nAbility: Adaptability\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nJolly Nature\n- Last Respects\n- Wave Crash\n- Flip Turn\n- Aqua Jet\n\nSneasler @ Psychic Seed\nAbility: Unburden\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nAdamant Nature\n- Protect\n- Close Combat\n- Rock Slide\n- Dire Claw",
+      "members": [
+        {
+          "name": "Golisopod-Mega",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Mega%20Golisopod.png",
+          "item": "Golisopite",
+          "types": [
+            "Bug",
+            "Steel"
+          ]
+        },
+        {
+          "name": "Indeedee-F",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Indeedee%20Female.png",
+          "item": "Colbur Berry",
+          "types": [
+            "Psychic",
+            "Normal"
+          ]
+        },
+        {
+          "name": "Gardevoir-Mega",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Mega%20Gardevoir.png",
+          "item": "Gardevoirite",
+          "types": [
+            "Psychic",
+            "Fairy"
+          ]
+        },
+        {
+          "name": "Pelipper",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Pelipper.png",
+          "item": "Focus Sash",
+          "types": [
+            "Water",
+            "Flying"
+          ]
+        },
+        {
+          "name": "Basculegion",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Basculegion%20Male.png",
+          "item": "Choice Scarf",
+          "types": [
+            "Water",
+            "Ghost"
+          ]
+        },
+        {
+          "name": "Sneasler",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Sneasler.png",
+          "item": "Psychic Seed",
+          "types": [
+            "Fighting",
+            "Poison"
+          ]
+        }
+      ]
     },
     {
-      "title": "",
-      "note": "",
-      "showdown": "",
-      "members": []
+      "title": "Team 5 · Mega Garchomp Z",
+      "note": "Mega Garchomp Z special attacker, Mega Raichu Y and Rillaboom support.",
+      "showdown": "Gholdengo @ Life Orb\nAbility: Good as Gold\nLevel: 50\nEVs: 27 HP / 7 SpA / 23 SpD / 9 Spe\nModest Nature\n- Make It Rain\n- Shadow Ball\n- Nasty Plot\n- Protect\n\nGarchomp-Mega-Z @ Garchompite Z\nAbility: Levitate\nLevel: 50\nEVs: 2 HP / 32 SpA / 32 Spe\nModest Nature\n- Dragon Pulse\n- Earth Power\n- Power Gem\n- Protect\n\nIncineroar @ Sitrus Berry\nAbility: Intimidate\nLevel: 50\nEVs: 32 HP / 23 Def / 4 SpD / 7 Spe\nCareful Nature\n- Fake Out\n- Flare Blitz\n- Parting Shot\n- Darkest Lariat\n\nRaichu-Mega-Y @ Raichunite Y\nAbility: No Guard\nLevel: 50\nEVs: 32 HP / 2 Def / 32 Spe\nTimid Nature\n- Zap Cannon\n- Focus Blast\n- Fake Out\n- Protect\n\nVolcarona @ Rocky Helmet\nAbility: Flame Body\nLevel: 50\nEVs: 32 HP / 11 Def / 23 Spe\nTimid Nature\n- Overheat\n- Struggle Bug\n- Rage Powder\n- Tailwind\n\nRillaboom @ Miracle Seed\nAbility: Grassy Surge\nLevel: 50\nEVs: 28 HP / 28 Atk / 10 Spe\nAdamant Nature\n- Fake Out\n- Grassy Glide\n- Wood Hammer\n- U-turn",
+      "members": [
+        {
+          "name": "Gholdengo",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Gholdengo.png",
+          "item": "Life Orb",
+          "types": [
+            "Steel",
+            "Ghost"
+          ]
+        },
+        {
+          "name": "Garchomp-Mega-Z",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Mega%20Garchomp%20Z.png",
+          "item": "Garchompite Z",
+          "types": [
+            "Dragon"
+          ]
+        },
+        {
+          "name": "Incineroar",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Incineroar.png",
+          "item": "Sitrus Berry",
+          "types": [
+            "Fire",
+            "Dark"
+          ]
+        },
+        {
+          "name": "Raichu-Mega-Y",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Mega%20Raichu%20Y.png",
+          "item": "Raichunite Y",
+          "types": [
+            "Electric"
+          ]
+        },
+        {
+          "name": "Volcarona",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Volcarona.png",
+          "item": "Rocky Helmet",
+          "types": [
+            "Bug",
+            "Fire"
+          ]
+        },
+        {
+          "name": "Rillaboom",
+          "sprite": "/pokemon_champions_assets/pokemon_mini/Rillaboom.png",
+          "item": "Miracle Seed",
+          "types": [
+            "Grass"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -22,7 +22,8 @@ import {
   setFromCommon, setToBoxEntry, setToShowdown,
 } from "./common.js";
 import {
-  addBox, addToBox, currentBox, currentTeam, deleteBox, deleteTeam, duplicateTeam, getState, newTeam,
+  addBox, addToBox, currentBox, currentTeam, deleteBox, deleteTeam, dropEmptyPlaceholders, duplicateTeam,
+  getState, newTeam,
   removeFromBox, renameBox, renameTeam, replaceBoxEntry, selectBox, selectTeam, setFormat, setOverviewTop, setSetting, setSlot, setTeamSets,
   subscribe, swapSlots, teamSets,
 } from "./store.js";
@@ -32,7 +33,7 @@ import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, s
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
 import { keepPlace } from "./scroll-anchor.js";
 import { cleanCampaignCode, installCampaignTeams } from "./campaign-teams.js";
-import { BANNER_STEPS, trackCampaign } from "./campaign-track.js";
+import { trackCampaign } from "./campaign-track.js";
 import { OPTIMIZE_DEFAULTS, optimizeView, updateProgress } from "./optimize-view.js";
 import { MESSAGES as SHARE_MESSAGES, ShareError, cardHost, evaluationDigest, shareButton, slotStats, teamDigest } from "./share-client.js";
 
@@ -292,13 +293,17 @@ function renderToolbar() {
     ["io", "Import / Export"],
   ];
   const status = syncStatus();
+  // The third step of a collaboration's funnel: the visitor did not just land and
+  // get five teams, they asked the site to do something with one. Sent once per
+  // tab per visit, and only when this page was opened on a campaign link -- the
+  // counter is about that collaboration, not about everyone who opens a tab.
   clear(hosts.toolbar).append(
     ...tabs.map(([id, label]) => h("button", {
       type: "button",
       class: `bd-tab ${view.tab === id ? "on" : ""}`,
       role: "tab",
       "aria-selected": view.tab === id ? "true" : "false",
-      onclick: () => { view.tab = id; renderAll(); },
+      onclick: () => { trackCampaignTab(id); view.tab = id; renderAll(); },
     }, label)),
     h("button", { type: "button", class: "bd-tab", onclick: openEvaluationSettings, title: "Settings for Team Evaluation, Suggestions, Optimize, Auto Build and the Tournament Test" }, "Settings"),
     h("span", { class: "bd-spacer" }),
@@ -2196,6 +2201,17 @@ function syncFormatSwitch() {
 // the banner can be counted as well. Not persisted: a campaign is one visit,
 // and a number that keeps counting a week later says nothing useful.
 let campaignOnScreen = "";
+/** Which tabs count as using a campaign's team, and the step each one sends. */
+const CAMPAIGN_TABS = { evaluation: "evaluation", auto: "autobuild" };
+const trackedTabs = new Set();
+
+function trackCampaignTab(tab) {
+  if (!campaignOnScreen) return;
+  const step = CAMPAIGN_TABS[tab];
+  if (!step || trackedTabs.has(step)) return;
+  trackedTabs.add(step);
+  trackCampaign(campaignOnScreen, step);
+}
 //
 // The rules live in builder/campaign-teams.js and the counting in
 // builder/campaign-track.js; this is only the wiring, and it is deliberately
@@ -2219,6 +2235,7 @@ async function handleCampaignParam() {
     answer = await installCampaignTeams(code, {
       parse: (text) => parseShowdown(text, data),
       add: (sets, title) => newTeam(sets.slice(0, TEAM_SIZE), data, title),
+      select: selectTeam,
       setFormat,
     }, { force, only });
   } catch (error) {
@@ -2233,6 +2250,9 @@ async function handleCampaignParam() {
     campaignOnScreen = code;
   }
   if (!answer.loaded) return;
+  // The empty starting team would otherwise sit above the creator's five, which
+  // is the first thing somebody arriving off the video looks at.
+  dropEmptyPlaceholders();
   // The format may have changed under us (campaign-teams.js sets it from the
   // file), so the meta the overview scores against is reloaded before it draws.
   await data.loadMeta(format());
@@ -2240,20 +2260,6 @@ async function handleCampaignParam() {
   view.overview = null;
   view.overviewKey = "";
   renderAll();
-  const banner = document.getElementById("campaignBanner");
-  if (banner) {
-    banner.hidden = false;
-    // "from PokeGiuseppe's VIDEO", never "from PokeGiuseppe": a creator covering
-    // the meta is showing teams that came off tournament results, and saying they
-    // are his would put a claim in his mouth that his own audience knows is wrong.
-    const name = answer.campaign?.creator?.name || "";
-    const who = name ? `${name}'s video` : "the video";
-    banner.querySelector("[data-count]").textContent = String(answer.loaded);
-    banner.querySelector("[data-who]").textContent = who;
-    const link = banner.querySelector("[data-channel]");
-    const url = answer.campaign?.video?.url || answer.campaign?.creator?.url || "";
-    if (link && url) { link.href = url; link.hidden = false; } else if (link) link.hidden = true;
-  }
   toast(`${answer.loaded} team${answer.loaded === 1 ? "" : "s"} added to your library`);
 }
 
@@ -2317,19 +2323,12 @@ async function main() {
     await handleAddParam();
     initSync(data);
     refreshLicence().then(() => renderToolbar());
-    ["addBanner", "campaignBanner"].forEach((id) => {
-      document.getElementById(id)?.querySelectorAll("button[data-action]").forEach((button) => button.addEventListener("click", () => {
-        // The third step of a collaboration's funnel: the visitor did not just
-        // land, they asked the site to do something with the team.
-        if (id === "campaignBanner" && campaignOnScreen) {
-          trackCampaign(campaignOnScreen, BANNER_STEPS[button.dataset.action]);
-        }
-        view.tab = button.dataset.action;
-        renderAll();
-        document.getElementById(id).hidden = true;
-        if (button.dataset.action === "auto") root.scrollIntoView({ behavior: "smooth", block: "start" });
-      }));
-    });
+    document.getElementById("addBanner")?.querySelectorAll("button[data-action]").forEach((button) => button.addEventListener("click", () => {
+      view.tab = button.dataset.action;
+      renderAll();
+      document.getElementById("addBanner").hidden = true;
+      if (button.dataset.action === "auto") root.scrollIntoView({ behavior: "smooth", block: "start" });
+    }));
   } catch (error) {
     console.error(error);
     clear(root).append(h("div", { class: "bd-card bd-error" }, h("h2", {}, "The Team Builder could not load its data."), h("p", {}, "Reload the page. If it keeps happening, tell us on Discord."), h("code", {}, String(error.message || error))));

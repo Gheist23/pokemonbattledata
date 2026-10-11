@@ -1,39 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Victreebel,232,move,1,Sludge Bomb,87.5%,,,,,,,,
-Victreebel,232,move,2,Sleep Powder,87.5%,,,,,,,,
-Victreebel,232,move,3,Leaf Storm,58.3%,,,,,,,,
-Victreebel,232,move,4,Sunny Day,45.8%,,,,,,,,
-Victreebel,232,move,5,Giga Drain,29.2%,,,,,,,,
-Victreebel,232,move,6,Strength Sap,29.2%,,,,,,,,
-Victreebel,232,move,7,Protect,25.0%,,,,,,,,
-Victreebel,232,move,8,Sucker Punch,8.3%,,,,,,,,
-Victreebel,232,move,9,Poison Jab,8.3%,,,,,,,,
-Victreebel,232,move,10,Power Whip,8.3%,,,,,,,,
-Victreebel,232,held_item,1,Victreebelite,95.8%,,,,,,,,
-Victreebel,232,held_item,2,Expert Belt,4.2%,,,,,,,,
-Victreebel,232,teammate,1,Sneasler,,,,,,,,,
-Victreebel,232,teammate,2,Armarouge,,,,,,,,,
-Victreebel,232,teammate,3,Absol,,,,,,,,,
-Victreebel,232,teammate,4,Sylveon,,,,,,,,,
-Victreebel,232,teammate,5,Indeedee,,,,,,,,,
-Victreebel,232,teammate,6,Sableye,,,,,,,,,
-Victreebel,232,teammate,7,Incineroar,,,,,,,,,
-Victreebel,232,teammate,8,Indeedee-F,,,,,,,,,
-Victreebel,232,teammate,9,Ninetales-Alola,,,,,,,,,
-Victreebel,232,teammate,10,Flapple,,,,,,,,,
-Victreebel,232,stat_alignment,1,Timid,45.8%,Speed,Attack,,,,,,
-Victreebel,232,stat_alignment,2,Modest,29.2%,Sp. Atk,Attack,,,,,,
-Victreebel,232,stat_alignment,3,Lax,12.5%,Defense,Sp. Def,,,,,,
-Victreebel,232,stat_alignment,4,Adamant,8.3%,Attack,Sp. Atk,,,,,,
-Victreebel,232,stat_alignment,5,Naive,4.2%,Speed,Sp. Def,,,,,,
-Victreebel,232,stat_points,1,,41.7%,,,11,0,0,25,0,30
-Victreebel,232,stat_points,2,,12.5%,,,32,0,0,32,0,2
-Victreebel,232,stat_points,3,,12.5%,,,32,0,21,0,0,13
-Victreebel,232,stat_points,4,,8.3%,,,32,0,0,32,2,0
-Victreebel,232,stat_points,5,,8.3%,,,32,32,0,0,0,2
-Victreebel,232,stat_points,6,,4.2%,,,2,0,0,32,0,32
-Victreebel,232,stat_points,7,,4.2%,,,20,0,0,24,0,22
-Victreebel,232,stat_points,8,,4.2%,,,29,0,0,32,0,5
-Victreebel,232,stat_points,9,,4.2%,,,32,0,1,32,1,0
-Victreebel,232,ability,1,Chlorophyll,79.2%,,,,,,,,
-Victreebel,232,ability,2,Gluttony,20.8%,,,,,,,,
+Victreebel,214,move,1,Sludge Bomb,87.5%,,,,,,,,
+Victreebel,214,move,2,Sleep Powder,80.2%,,,,,,,,
+Victreebel,214,move,3,Protect,43.8%,,,,,,,,
+Victreebel,214,move,4,Leaf Storm,39.6%,,,,,,,,
+Victreebel,214,move,5,Strength Sap,30.7%,,,,,,,,
+Victreebel,214,move,6,Energy Ball,29.7%,,,,,,,,
+Victreebel,214,move,7,Sunny Day,28.6%,,,,,,,,
+Victreebel,214,move,8,Giga Drain,22.9%,,,,,,,,
+Victreebel,214,move,9,Weather Ball,15.1%,,,,,,,,
+Victreebel,214,move,10,Sucker Punch,4.7%,,,,,,,,
+Victreebel,214,held_item,1,Victreebelite,67.7%,,,,,,,,
+Victreebel,214,held_item,2,Focus Sash,27.1%,,,,,,,,
+Victreebel,214,held_item,3,Expert Belt,4.2%,,,,,,,,
+Victreebel,214,held_item,4,Life Orb,1.0%,,,,,,,,
+Victreebel,214,teammate,1,Sylveon,,,,,,,,,
+Victreebel,214,teammate,2,Torkoal,,,,,,,,,
+Victreebel,214,teammate,3,Absol,,,,,,,,,
+Victreebel,214,teammate,4,Indeedee,,,,,,,,,
+Victreebel,214,teammate,5,Sneasler,,,,,,,,,
+Victreebel,214,teammate,6,Farigiraf,,,,,,,,,
+Victreebel,214,teammate,7,Typhlosion-Hisui,,,,,,,,,
+Victreebel,214,teammate,8,Charizard,,,,,,,,,
+Victreebel,214,teammate,9,Incineroar,,,,,,,,,
+Victreebel,214,teammate,10,Wigglytuff,,,,,,,,,
+Victreebel,214,stat_alignment,1,Modest,49.5%,Sp. Atk,Attack,,,,,,
+Victreebel,214,stat_alignment,2,Timid,38.0%,Speed,Attack,,,,,,
+Victreebel,214,stat_alignment,3,Lax,7.3%,Defense,Sp. Def,,,,,,
+Victreebel,214,stat_alignment,4,Adamant,3.6%,Attack,Sp. Atk,,,,,,
+Victreebel,214,stat_alignment,5,Brave,1.0%,Attack,Speed,,,,,,
+Victreebel,214,stat_alignment,6,Naive,0.5%,Speed,Sp. Def,,,,,,
+Victreebel,214,stat_points,1,,36.5%,,,11,0,0,25,0,30
+Victreebel,214,stat_points,2,,27.1%,,,0,0,0,32,0,25
+Victreebel,214,stat_points,3,,8.9%,,,32,0,0,32,2,0
+Victreebel,214,stat_points,4,,7.3%,,,32,0,21,0,0,13
+Victreebel,214,stat_points,5,,6.3%,,,2,0,0,32,0,32
+Victreebel,214,stat_points,6,,2.6%,,,32,32,0,0,2,0
+Victreebel,214,stat_points,7,,2.1%,,,12,0,0,32,0,22
+Victreebel,214,stat_points,8,,2.1%,,,29,0,0,32,0,5
+Victreebel,214,stat_points,9,,1.6%,,,32,0,0,32,0,2
+Victreebel,214,stat_points,10,,1.6%,,,32,0,1,32,1,0
+Victreebel,214,ability,1,Chlorophyll,96.9%,,,,,,,,
+Victreebel,214,ability,2,Gluttony,3.1%,,,,,,,,

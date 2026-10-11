@@ -1,0 +1,38 @@
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Castform,256,move,1,Weather Ball,72.7%,,,,,,,,
+Castform,256,move,2,Solar Beam,51.5%,,,,,,,,
+Castform,256,move,3,Ice Beam,50.5%,,,,,,,,
+Castform,256,move,4,Sunny Day,37.4%,,,,,,,,
+Castform,256,move,5,Scald,33.3%,,,,,,,,
+Castform,256,move,6,Icy Wind,29.3%,,,,,,,,
+Castform,256,move,7,Thunderbolt,29.3%,,,,,,,,
+Castform,256,move,8,Thunder Wave,21.2%,,,,,,,,
+Castform,256,move,9,Flamethrower,17.2%,,,,,,,,
+Castform,256,move,10,Rain Dance,13.1%,,,,,,,,
+Castform,256,held_item,1,Focus Sash,29.3%,,,,,,,,
+Castform,256,held_item,2,Rocky Helmet,29.3%,,,,,,,,
+Castform,256,held_item,3,Life Orb,23.2%,,,,,,,,
+Castform,256,held_item,4,Choice Scarf,5.1%,,,,,,,,
+Castform,256,held_item,5,Sitrus Berry,1.0%,,,,,,,,
+Castform,256,teammate,1,Rillaboom,,,,,,,,,
+Castform,256,teammate,2,Basculegion,,,,,,,,,
+Castform,256,teammate,3,Salamence,,,,,,,,,
+Castform,256,teammate,4,Wigglytuff,,,,,,,,,
+Castform,256,teammate,5,Tauros-Paldea-Aqua,,,,,,,,,
+Castform,256,teammate,6,Stunfisk-Galar,,,,,,,,,
+Castform,256,teammate,7,Torkoal,,,,,,,,,
+Castform,256,teammate,8,Kingambit,,,,,,,,,
+Castform,256,teammate,9,Aurorus,,,,,,,,,
+Castform,256,teammate,10,Toucannon,,,,,,,,,
+Castform,256,stat_alignment,1,Bold,41.4%,Defense,Attack,,,,,,
+Castform,256,stat_alignment,2,Modest,36.4%,Sp. Atk,Attack,,,,,,
+Castform,256,stat_alignment,3,Timid,21.2%,Speed,Attack,,,,,,
+Castform,256,stat_alignment,4,Naughty,1.0%,Attack,Sp. Def,,,,,,
+Castform,256,stat_points,1,,33.3%,,,2,0,0,32,0,32
+Castform,256,stat_points,2,,29.3%,,,30,0,30,4,2,0
+Castform,256,stat_points,3,,20.2%,,,30,0,0,32,0,4
+Castform,256,stat_points,4,,12.1%,,,0,0,32,32,0,2
+Castform,256,stat_points,5,,3.0%,,,26,0,4,32,4,0
+Castform,256,stat_points,6,,1.0%,,,1,1,4,5,1,4
+Castform,256,stat_points,7,,1.0%,,,32,0,0,32,0,2
+Castform,256,ability,1,Forecast,100.0%,,,,,,,,

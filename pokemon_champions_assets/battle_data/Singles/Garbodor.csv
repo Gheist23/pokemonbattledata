@@ -1,34 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Garbodor,252,move,1,Explosion,97.7%,,,,,,,,
-Garbodor,252,move,2,Toxic Spikes,93.2%,,,,,,,,
-Garbodor,252,move,3,Gunk Shot,88.6%,,,,,,,,
-Garbodor,252,move,4,Spikes,86.4%,,,,,,,,
-Garbodor,252,move,5,Curse,4.5%,,,,,,,,
-Garbodor,252,move,6,Protect,4.5%,,,,,,,,
-Garbodor,252,move,7,Pain Split,4.5%,,,,,,,,
-Garbodor,252,move,8,Fling,4.5%,,,,,,,,
-Garbodor,252,move,9,Poison Jab,4.5%,,,,,,,,
-Garbodor,252,move,10,Rest,2.3%,,,,,,,,
-Garbodor,252,held_item,1,Focus Sash,86.4%,,,,,,,,
-Garbodor,252,held_item,2,Normal Gem,6.8%,,,,,,,,
-Garbodor,252,held_item,3,Light Ball,4.5%,,,,,,,,
-Garbodor,252,held_item,4,Chesto Berry,2.3%,,,,,,,,
-Garbodor,252,teammate,1,Clefable,,,,,,,,,
-Garbodor,252,teammate,2,Meowscarada,,,,,,,,,
-Garbodor,252,teammate,3,Garchomp,,,,,,,,,
-Garbodor,252,teammate,4,Volcarona,,,,,,,,,
-Garbodor,252,teammate,5,Starmie,,,,,,,,,
-Garbodor,252,teammate,6,Beedrill,,,,,,,,,
-Garbodor,252,teammate,7,Dragonite,,,,,,,,,
-Garbodor,252,teammate,8,Charizard,,,,,,,,,
-Garbodor,252,teammate,9,Archaludon,,,,,,,,,
-Garbodor,252,teammate,10,Gallade,,,,,,,,,
-Garbodor,252,stat_alignment,1,Adamant,93.2%,Attack,Sp. Atk,,,,,,
-Garbodor,252,stat_alignment,2,Impish,6.8%,Defense,Sp. Atk,,,,,,
-Garbodor,252,stat_points,1,,86.4%,,,4,32,2,0,20,8
-Garbodor,252,stat_points,2,,4.5%,,,30,0,28,0,0,8
-Garbodor,252,stat_points,3,,4.5%,,,32,32,0,0,0,2
-Garbodor,252,stat_points,4,,2.3%,,,2,32,0,0,0,32
-Garbodor,252,stat_points,5,,2.3%,,,32,0,32,0,2,0
-Garbodor,252,ability,1,Weak Armor,93.2%,,,,,,,,
-Garbodor,252,ability,2,Aftermath,6.8%,,,,,,,,
+Garbodor,223,move,1,Explosion,97.5%,,,,,,,,
+Garbodor,223,move,2,Gunk Shot,74.8%,,,,,,,,
+Garbodor,223,move,3,Stomping Tantrum,44.7%,,,,,,,,
+Garbodor,223,move,4,Seed Bomb,40.6%,,,,,,,,
+Garbodor,223,move,5,Toxic Spikes,33.6%,,,,,,,,
+Garbodor,223,move,6,Spikes,31.4%,,,,,,,,
+Garbodor,223,move,7,Toxic,22.9%,,,,,,,,
+Garbodor,223,move,8,Haze,21.1%,,,,,,,,
+Garbodor,223,move,9,Thief,21.1%,,,,,,,,
+Garbodor,223,move,10,Rock Blast,3.3%,,,,,,,,
+Garbodor,223,held_item,1,Silk Scarf,40.6%,,,,,,,,
+Garbodor,223,held_item,2,Focus Sash,30.7%,,,,,,,,
+Garbodor,223,held_item,3,Normal Gem,22.3%,,,,,,,,
+Garbodor,223,held_item,4,White Herb,2.9%,,,,,,,,
+Garbodor,223,held_item,5,Chesto Berry,1.6%,,,,,,,,
+Garbodor,223,held_item,6,Light Ball,0.8%,,,,,,,,
+Garbodor,223,held_item,7,Red Card,0.6%,,,,,,,,
+Garbodor,223,held_item,8,King's Rock,0.4%,,,,,,,,
+Garbodor,223,held_item,9,Leftovers,0.2%,,,,,,,,
+Garbodor,223,teammate,1,Basculegion,,,,,,,,,
+Garbodor,223,teammate,2,Mimikyu,,,,,,,,,
+Garbodor,223,teammate,3,Metagross,,,,,,,,,
+Garbodor,223,teammate,4,Luxray,,,,,,,,,
+Garbodor,223,teammate,5,Lucario,,,,,,,,,
+Garbodor,223,teammate,6,Garchomp,,,,,,,,,
+Garbodor,223,teammate,7,Clefable,,,,,,,,,
+Garbodor,223,teammate,8,Ampharos,,,,,,,,,
+Garbodor,223,teammate,9,Camerupt,,,,,,,,,
+Garbodor,223,teammate,10,Glaceon,,,,,,,,,
+Garbodor,223,stat_alignment,1,Adamant,96.5%,Attack,Sp. Atk,,,,,,
+Garbodor,223,stat_alignment,2,Impish,2.3%,Defense,Sp. Atk,,,,,,
+Garbodor,223,stat_alignment,3,Calm,0.6%,Sp. Def,Attack,,,,,,
+Garbodor,223,stat_alignment,4,Jolly,0.4%,Speed,Sp. Atk,,,,,,
+Garbodor,223,stat_alignment,5,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
+Garbodor,223,stat_points,1,,61.9%,,,2,32,0,0,0,32
+Garbodor,223,stat_points,2,,30.7%,,,4,32,2,0,20,8
+Garbodor,223,stat_points,3,,2.9%,,,6,25,32,0,0,3
+Garbodor,223,stat_points,4,,1.6%,,,32,0,32,0,2,0
+Garbodor,223,stat_points,5,,0.8%,,,30,0,28,0,0,8
+Garbodor,223,stat_points,6,,0.6%,,,17,32,0,0,0,17
+Garbodor,223,stat_points,7,,0.6%,,,32,0,0,0,22,12
+Garbodor,223,stat_points,8,,0.4%,,,32,32,0,0,0,2
+Garbodor,223,stat_points,9,,0.2%,,,0,2,0,0,32,32
+Garbodor,223,stat_points,10,,0.2%,,,0,32,1,0,1,32
+Garbodor,223,ability,1,Weak Armor,97.5%,,,,,,,,
+Garbodor,223,ability,2,Aftermath,2.3%,,,,,,,,
+Garbodor,223,ability,3,Stench,0.2%,,,,,,,,

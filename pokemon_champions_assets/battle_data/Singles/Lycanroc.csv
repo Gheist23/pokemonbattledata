@@ -1,36 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Lycanroc,232,move,1,Taunt,68.0%,,,,,,,,
-Lycanroc,232,move,2,Endeavor,68.0%,,,,,,,,
-Lycanroc,232,move,3,Stealth Rock,65.0%,,,,,,,,
-Lycanroc,232,move,4,Accelerock,44.7%,,,,,,,,
-Lycanroc,232,move,5,Fire Fang,36.9%,,,,,,,,
-Lycanroc,232,move,6,Stone Edge,25.2%,,,,,,,,
-Lycanroc,232,move,7,Close Combat,20.4%,,,,,,,,
-Lycanroc,232,move,8,Play Rough,19.4%,,,,,,,,
-Lycanroc,232,move,9,Rock Tomb,18.4%,,,,,,,,
-Lycanroc,232,move,10,Swords Dance,12.6%,,,,,,,,
-Lycanroc,232,held_item,1,Focus Sash,66.0%,,,,,,,,
-Lycanroc,232,held_item,2,Life Orb,32.0%,,,,,,,,
-Lycanroc,232,held_item,3,Hard Stone,1.9%,,,,,,,,
-Lycanroc,232,teammate,1,Snorlax,,,,,,,,,
-Lycanroc,232,teammate,2,Absol,,,,,,,,,
-Lycanroc,232,teammate,3,Lucario,,,,,,,,,
-Lycanroc,232,teammate,4,Slurpuff,,,,,,,,,
-Lycanroc,232,teammate,5,Gyarados,,,,,,,,,
-Lycanroc,232,teammate,6,Garchomp,,,,,,,,,
-Lycanroc,232,teammate,7,Rotom-Heat,,,,,,,,,
-Lycanroc,232,teammate,8,Torterra,,,,,,,,,
-Lycanroc,232,teammate,9,Skarmory,,,,,,,,,
-Lycanroc,232,teammate,10,Hippowdon,,,,,,,,,
-Lycanroc,232,stat_alignment,1,Jolly,72.8%,Speed,Sp. Atk,,,,,,
-Lycanroc,232,stat_alignment,2,Adamant,20.4%,Attack,Sp. Atk,,,,,,
-Lycanroc,232,stat_alignment,3,Naive,5.8%,Speed,Sp. Def,,,,,,
-Lycanroc,232,stat_alignment,4,Modest,1.0%,Sp. Atk,Attack,,,,,,
-Lycanroc,232,stat_points,1,,74.8%,,,2,32,0,0,0,32
-Lycanroc,232,stat_points,2,,12.6%,,,1,32,0,0,1,32
-Lycanroc,232,stat_points,3,,5.8%,,,0,32,0,0,0,32
-Lycanroc,232,stat_points,4,,5.8%,,,0,32,2,0,0,32
-Lycanroc,232,stat_points,5,,1.0%,,,0,32,0,0,2,32
-Lycanroc,232,ability,1,Steadfast,63.1%,,,,,,,,
-Lycanroc,232,ability,2,Sand Rush,31.1%,,,,,,,,
-Lycanroc,232,ability,3,Keen Eye,5.8%,,,,,,,,
+Lycanroc,246,move,1,Endeavor,60.2%,,,,,,,,
+Lycanroc,246,move,2,Accelerock,53.4%,,,,,,,,
+Lycanroc,246,move,3,Stealth Rock,52.7%,,,,,,,,
+Lycanroc,246,move,4,Taunt,51.5%,,,,,,,,
+Lycanroc,246,move,5,Close Combat,34.1%,,,,,,,,
+Lycanroc,246,move,6,Play Rough,29.5%,,,,,,,,
+Lycanroc,246,move,7,Stone Edge,22.3%,,,,,,,,
+Lycanroc,246,move,8,Fire Fang,19.7%,,,,,,,,
+Lycanroc,246,move,9,Rock Tomb,19.3%,,,,,,,,
+Lycanroc,246,move,10,Drill Run,16.3%,,,,,,,,
+Lycanroc,246,held_item,1,Focus Sash,60.6%,,,,,,,,
+Lycanroc,246,held_item,2,Life Orb,29.5%,,,,,,,,
+Lycanroc,246,held_item,3,Hard Stone,4.2%,,,,,,,,
+Lycanroc,246,held_item,4,Expert Belt,1.1%,,,,,,,,
+Lycanroc,246,teammate,1,Lucario,,,,,,,,,
+Lycanroc,246,teammate,2,Slurpuff,,,,,,,,,
+Lycanroc,246,teammate,3,Gyarados,,,,,,,,,
+Lycanroc,246,teammate,4,Snorlax,,,,,,,,,
+Lycanroc,246,teammate,5,Absol,,,,,,,,,
+Lycanroc,246,teammate,6,Tyranitar,,,,,,,,,
+Lycanroc,246,teammate,7,Gholdengo,,,,,,,,,
+Lycanroc,246,teammate,8,Excadrill,,,,,,,,,
+Lycanroc,246,teammate,9,Garchomp,,,,,,,,,
+Lycanroc,246,teammate,10,Steelix,,,,,,,,,
+Lycanroc,246,stat_alignment,1,Jolly,54.9%,Speed,Sp. Atk,,,,,,
+Lycanroc,246,stat_alignment,2,Adamant,32.2%,Attack,Sp. Atk,,,,,,
+Lycanroc,246,stat_alignment,3,Naive,6.8%,Speed,Sp. Def,,,,,,
+Lycanroc,246,stat_alignment,4,Hasty,4.9%,Speed,Defense,,,,,,
+Lycanroc,246,stat_alignment,5,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Lycanroc,246,stat_alignment,6,Modest,0.4%,Sp. Atk,Attack,,,,,,
+Lycanroc,246,stat_points,1,,56.1%,,,2,32,0,0,0,32
+Lycanroc,246,stat_points,2,,11.0%,,,1,32,0,0,1,32
+Lycanroc,246,stat_points,3,,7.6%,,,0,32,0,0,0,32
+Lycanroc,246,stat_points,4,,5.7%,,,0,32,0,0,2,32
+Lycanroc,246,stat_points,5,,5.3%,,,1,25,8,0,0,32
+Lycanroc,246,stat_points,6,,4.2%,,,1,32,1,0,0,32
+Lycanroc,246,stat_points,7,,2.7%,,,32,32,2,0,0,0
+Lycanroc,246,stat_points,8,,2.3%,,,0,32,2,0,0,32
+Lycanroc,246,stat_points,9,,2.3%,,,2,32,0,0,32,0
+Lycanroc,246,stat_points,10,,1.5%,,,11,32,0,0,0,23
+Lycanroc,246,ability,1,Steadfast,59.5%,,,,,,,,
+Lycanroc,246,ability,2,Sand Rush,32.6%,,,,,,,,
+Lycanroc,246,ability,3,Keen Eye,8.0%,,,,,,,,

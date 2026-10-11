@@ -1,51 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Forretress,152,move,1,Stealth Rock,73.2%,,,,,,,,
-Forretress,152,move,2,Volt Switch,49.6%,,,,,,,,
-Forretress,152,move,3,Rapid Spin,41.5%,,,,,,,,
-Forretress,152,move,4,Body Press,40.6%,,,,,,,,
-Forretress,152,move,5,Spikes,31.9%,,,,,,,,
-Forretress,152,move,6,Explosion,25.7%,,,,,,,,
-Forretress,152,move,7,Iron Defense,23.6%,,,,,,,,
-Forretress,152,move,8,Pain Split,21.0%,,,,,,,,
-Forretress,152,move,9,Toxic Spikes,16.9%,,,,,,,,
-Forretress,152,move,10,Ice Spinner,11.9%,,,,,,,,
-Forretress,152,held_item,1,Red Card,30.0%,,,,,,,,
-Forretress,152,held_item,2,Rocky Helmet,20.6%,,,,,,,,
-Forretress,152,held_item,3,Leftovers,16.7%,,,,,,,,
-Forretress,152,held_item,4,Sitrus Berry,13.2%,,,,,,,,
-Forretress,152,held_item,5,Light Clay,9.5%,,,,,,,,
-Forretress,152,held_item,6,Normal Gem,5.8%,,,,,,,,
-Forretress,152,held_item,7,Life Orb,0.8%,,,,,,,,
-Forretress,152,held_item,8,Mental Herb,0.6%,,,,,,,,
-Forretress,152,held_item,9,Smooth Rock,0.6%,,,,,,,,
-Forretress,152,held_item,10,Chesto Berry,0.5%,,,,,,,,
-Forretress,152,teammate,1,Garchomp,,,,,,,,,
-Forretress,152,teammate,2,Lucario,,,,,,,,,
-Forretress,152,teammate,3,Salamence,,,,,,,,,
-Forretress,152,teammate,4,Meowscarada,,,,,,,,,
-Forretress,152,teammate,5,Golisopod,,,,,,,,,
-Forretress,152,teammate,6,Volcarona,,,,,,,,,
-Forretress,152,teammate,7,Pawmot,,,,,,,,,
-Forretress,152,teammate,8,Greninja,,,,,,,,,
-Forretress,152,teammate,9,Kleavor,,,,,,,,,
-Forretress,152,teammate,10,Araquanid,,,,,,,,,
-Forretress,152,stat_alignment,1,Relaxed,32.1%,Defense,Speed,,,,,,
-Forretress,152,stat_alignment,2,Impish,17.1%,Defense,Sp. Atk,,,,,,
-Forretress,152,stat_alignment,3,Sassy,16.0%,Sp. Def,Speed,,,,,,
-Forretress,152,stat_alignment,4,Adamant,9.4%,Attack,Sp. Atk,,,,,,
-Forretress,152,stat_alignment,5,Careful,8.6%,Sp. Def,Sp. Atk,,,,,,
-Forretress,152,stat_alignment,6,Calm,8.4%,Sp. Def,Attack,,,,,,
-Forretress,152,stat_alignment,7,Brave,6.7%,Attack,Speed,,,,,,
-Forretress,152,stat_alignment,8,Bold,1.8%,Defense,Attack,,,,,,
-Forretress,152,stat_points,1,,20.2%,,,32,0,32,0,2,0
-Forretress,152,stat_points,2,,11.9%,,,25,0,11,0,30,0
-Forretress,152,stat_points,3,,11.6%,,,32,0,2,0,32,0
-Forretress,152,stat_points,4,,11.1%,,,32,0,10,0,24,0
-Forretress,152,stat_points,5,,5.5%,,,32,2,32,0,0,0
-Forretress,152,stat_points,6,,4.4%,,,31,4,23,0,8,0
-Forretress,152,stat_points,7,,3.8%,,,31,0,32,0,0,3
-Forretress,152,stat_points,8,,3.8%,,,32,32,2,0,0,0
-Forretress,152,stat_points,9,,3.2%,,,31,3,32,0,0,0
-Forretress,152,stat_points,10,,3.1%,,,31,0,32,0,3,0
-Forretress,152,ability,1,Sturdy,97.3%,,,,,,,,
-Forretress,152,ability,2,Overcoat,2.7%,,,,,,,,
+Forretress,157,move,1,Stealth Rock,79.0%,,,,,,,,
+Forretress,157,move,2,Rapid Spin,46.5%,,,,,,,,
+Forretress,157,move,3,Volt Switch,44.5%,,,,,,,,
+Forretress,157,move,4,Body Press,36.9%,,,,,,,,
+Forretress,157,move,5,Explosion,30.9%,,,,,,,,
+Forretress,157,move,6,Spikes,28.7%,,,,,,,,
+Forretress,157,move,7,Toxic Spikes,21.6%,,,,,,,,
+Forretress,157,move,8,Pain Split,16.5%,,,,,,,,
+Forretress,157,move,9,Iron Defense,15.7%,,,,,,,,
+Forretress,157,move,10,Ice Spinner,13.8%,,,,,,,,
+Forretress,157,held_item,1,Red Card,26.1%,,,,,,,,
+Forretress,157,held_item,2,Rocky Helmet,24.0%,,,,,,,,
+Forretress,157,held_item,3,Sitrus Berry,14.0%,,,,,,,,
+Forretress,157,held_item,4,Leftovers,11.5%,,,,,,,,
+Forretress,157,held_item,5,Light Clay,8.3%,,,,,,,,
+Forretress,157,held_item,6,Normal Gem,5.4%,,,,,,,,
+Forretress,157,held_item,7,Mental Herb,5.1%,,,,,,,,
+Forretress,157,held_item,8,Quick Claw,1.5%,,,,,,,,
+Forretress,157,held_item,9,Damp Rock,1.2%,,,,,,,,
+Forretress,157,held_item,10,Life Orb,0.5%,,,,,,,,
+Forretress,157,teammate,1,Garchomp,,,,,,,,,
+Forretress,157,teammate,2,Golisopod,,,,,,,,,
+Forretress,157,teammate,3,Salamence,,,,,,,,,
+Forretress,157,teammate,4,Volcarona,,,,,,,,,
+Forretress,157,teammate,5,Araquanid,,,,,,,,,
+Forretress,157,teammate,6,Lucario,,,,,,,,,
+Forretress,157,teammate,7,Kleavor,,,,,,,,,
+Forretress,157,teammate,8,Pawmot,,,,,,,,,
+Forretress,157,teammate,9,Whimsicott,,,,,,,,,
+Forretress,157,teammate,10,Mimikyu,,,,,,,,,
+Forretress,157,stat_alignment,1,Relaxed,31.3%,Defense,Speed,,,,,,
+Forretress,157,stat_alignment,2,Impish,17.2%,Defense,Sp. Atk,,,,,,
+Forretress,157,stat_alignment,3,Careful,14.5%,Sp. Def,Sp. Atk,,,,,,
+Forretress,157,stat_alignment,4,Adamant,12.0%,Attack,Sp. Atk,,,,,,
+Forretress,157,stat_alignment,5,Brave,7.4%,Attack,Speed,,,,,,
+Forretress,157,stat_alignment,6,Sassy,7.3%,Sp. Def,Speed,,,,,,
+Forretress,157,stat_alignment,7,Calm,6.2%,Sp. Def,Attack,,,,,,
+Forretress,157,stat_alignment,8,Jolly,2.7%,Speed,Sp. Atk,,,,,,
+Forretress,157,stat_alignment,9,Bold,1.1%,Defense,Attack,,,,,,
+Forretress,157,stat_alignment,10,Lax,0.3%,Defense,Sp. Def,,,,,,
+Forretress,157,stat_points,1,,16.9%,,,32,0,32,0,2,0
+Forretress,157,stat_points,2,,13.9%,,,32,0,2,0,32,0
+Forretress,157,stat_points,3,,7.5%,,,32,0,10,0,24,0
+Forretress,157,stat_points,4,,6.2%,,,31,0,32,0,3,0
+Forretress,157,stat_points,5,,5.9%,,,25,0,11,0,30,0
+Forretress,157,stat_points,6,,5.0%,,,32,32,2,0,0,0
+Forretress,157,stat_points,7,,4.7%,,,32,2,32,0,0,0
+Forretress,157,stat_points,8,,4.5%,,,31,3,32,0,0,0
+Forretress,157,stat_points,9,,2.6%,,,0,32,0,32,0,2
+Forretress,157,stat_points,10,,2.4%,,,31,0,32,0,0,3
+Forretress,157,ability,1,Sturdy,98.2%,,,,,,,,
+Forretress,157,ability,2,Overcoat,1.8%,,,,,,,,

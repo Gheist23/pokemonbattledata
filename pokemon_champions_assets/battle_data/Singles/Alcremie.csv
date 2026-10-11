@@ -1,46 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Alcremie,209,move,1,Alluring Voice,78.3%,,,,,,,,
-Alcremie,209,move,2,Calm Mind,46.5%,,,,,,,,
-Alcremie,209,move,3,Recover,45.6%,,,,,,,,
-Alcremie,209,move,4,Acid Armor,38.7%,,,,,,,,
-Alcremie,209,move,5,Mystical Fire,37.3%,,,,,,,,
-Alcremie,209,move,6,Giga Drain,32.3%,,,,,,,,
-Alcremie,209,move,7,Psychic,30.4%,,,,,,,,
-Alcremie,209,move,8,Misty Terrain,18.4%,,,,,,,,
-Alcremie,209,move,9,Draining Kiss,17.1%,,,,,,,,
-Alcremie,209,move,10,Energy Ball,15.2%,,,,,,,,
-Alcremie,209,held_item,1,Leftovers,46.1%,,,,,,,,
-Alcremie,209,held_item,2,Quick Claw,18.4%,,,,,,,,
-Alcremie,209,held_item,3,Life Orb,14.7%,,,,,,,,
-Alcremie,209,held_item,4,Expert Belt,7.8%,,,,,,,,
-Alcremie,209,held_item,5,Sitrus Berry,6.5%,,,,,,,,
-Alcremie,209,held_item,6,Bright Powder,3.2%,,,,,,,,
-Alcremie,209,held_item,7,Babiri Berry,1.8%,,,,,,,,
-Alcremie,209,held_item,8,Kebia Berry,0.9%,,,,,,,,
-Alcremie,209,held_item,9,Rocky Helmet,0.5%,,,,,,,,
-Alcremie,209,teammate,1,Garchomp,,,,,,,,,
-Alcremie,209,teammate,2,Charizard,,,,,,,,,
-Alcremie,209,teammate,3,Gyarados,,,,,,,,,
-Alcremie,209,teammate,4,Gengar,,,,,,,,,
-Alcremie,209,teammate,5,Ninetales-Alola,,,,,,,,,
-Alcremie,209,teammate,6,Glimmora,,,,,,,,,
-Alcremie,209,teammate,7,Gholdengo,,,,,,,,,
-Alcremie,209,teammate,8,Delphox,,,,,,,,,
-Alcremie,209,teammate,9,Azumarill,,,,,,,,,
-Alcremie,209,teammate,10,Barbaracle,,,,,,,,,
-Alcremie,209,stat_alignment,1,Modest,47.9%,Sp. Atk,Attack,,,,,,
-Alcremie,209,stat_alignment,2,Bold,31.8%,Defense,Attack,,,,,,
-Alcremie,209,stat_alignment,3,Calm,16.1%,Sp. Def,Attack,,,,,,
-Alcremie,209,stat_alignment,4,Serious,4.1%,,,,,,,,
-Alcremie,209,stat_points,1,,31.3%,,,32,0,0,32,2,0
-Alcremie,209,stat_points,2,,25.3%,,,32,0,32,0,2,0
-Alcremie,209,stat_points,3,,11.1%,,,31,0,0,32,3,0
-Alcremie,209,stat_points,4,,6.5%,,,32,0,32,2,0,0
-Alcremie,209,stat_points,5,,4.1%,,,2,0,32,32,0,0
-Alcremie,209,stat_points,6,,4.1%,,,31,0,32,3,0,0
-Alcremie,209,stat_points,7,,3.2%,,,31,0,25,0,10,0
-Alcremie,209,stat_points,8,,3.2%,,,20,0,32,0,14,0
-Alcremie,209,stat_points,9,,2.3%,,,32,0,2,0,32,0
-Alcremie,209,stat_points,10,,1.8%,,,5,0,29,0,32,0
-Alcremie,209,ability,1,Aroma Veil,62.7%,,,,,,,,
-Alcremie,209,ability,2,Sweet Veil,37.3%,,,,,,,,
+Alcremie,198,move,1,Calm Mind,62.4%,,,,,,,,
+Alcremie,198,move,2,Alluring Voice,57.6%,,,,,,,,
+Alcremie,198,move,3,Acid Armor,48.8%,,,,,,,,
+Alcremie,198,move,4,Draining Kiss,39.4%,,,,,,,,
+Alcremie,198,move,5,Recover,36.1%,,,,,,,,
+Alcremie,198,move,6,Giga Drain,35.9%,,,,,,,,
+Alcremie,198,move,7,Mystical Fire,28.5%,,,,,,,,
+Alcremie,198,move,8,Psychic,26.4%,,,,,,,,
+Alcremie,198,move,9,Misty Terrain,20.6%,,,,,,,,
+Alcremie,198,move,10,Stored Power,19.2%,,,,,,,,
+Alcremie,198,held_item,1,Leftovers,41.7%,,,,,,,,
+Alcremie,198,held_item,2,Quick Claw,20.4%,,,,,,,,
+Alcremie,198,held_item,3,Sitrus Berry,14.6%,,,,,,,,
+Alcremie,198,held_item,4,Life Orb,6.7%,,,,,,,,
+Alcremie,198,held_item,5,Fairy Feather,3.9%,,,,,,,,
+Alcremie,198,held_item,6,Big Root,3.5%,,,,,,,,
+Alcremie,198,held_item,7,Babiri Berry,2.2%,,,,,,,,
+Alcremie,198,held_item,8,Expert Belt,2.2%,,,,,,,,
+Alcremie,198,held_item,9,Rocky Helmet,1.2%,,,,,,,,
+Alcremie,198,held_item,10,Bright Powder,0.9%,,,,,,,,
+Alcremie,198,teammate,1,Charizard,,,,,,,,,
+Alcremie,198,teammate,2,Gengar,,,,,,,,,
+Alcremie,198,teammate,3,Toxapex,,,,,,,,,
+Alcremie,198,teammate,4,Azumarill,,,,,,,,,
+Alcremie,198,teammate,5,Barbaracle,,,,,,,,,
+Alcremie,198,teammate,6,Garchomp,,,,,,,,,
+Alcremie,198,teammate,7,Gyarados,,,,,,,,,
+Alcremie,198,teammate,8,Salamence,,,,,,,,,
+Alcremie,198,teammate,9,Glimmora,,,,,,,,,
+Alcremie,198,teammate,10,Gholdengo,,,,,,,,,
+Alcremie,198,stat_alignment,1,Modest,37.7%,Sp. Atk,Attack,,,,,,
+Alcremie,198,stat_alignment,2,Calm,33.2%,Sp. Def,Attack,,,,,,
+Alcremie,198,stat_alignment,3,Bold,24.5%,Defense,Attack,,,,,,
+Alcremie,198,stat_alignment,4,Sassy,2.6%,Sp. Def,Speed,,,,,,
+Alcremie,198,stat_alignment,5,Serious,1.1%,,,,,,,,
+Alcremie,198,stat_alignment,6,Timid,0.5%,Speed,Attack,,,,,,
+Alcremie,198,stat_alignment,7,Relaxed,0.4%,Defense,Speed,,,,,,
+Alcremie,198,stat_points,1,,25.7%,,,32,0,0,32,2,0
+Alcremie,198,stat_points,2,,15.3%,,,32,0,32,0,2,0
+Alcremie,198,stat_points,3,,6.8%,,,24,0,0,10,32,0
+Alcremie,198,stat_points,4,,5.6%,,,31,0,0,32,3,0
+Alcremie,198,stat_points,5,,5.3%,,,32,0,2,0,32,0
+Alcremie,198,stat_points,6,,4.7%,,,32,0,32,2,0,0
+Alcremie,198,stat_points,7,,3.6%,,,32,0,25,0,9,0
+Alcremie,198,stat_points,8,,2.9%,,,31,0,25,0,10,0
+Alcremie,198,stat_points,9,,2.9%,,,31,0,20,0,15,0
+Alcremie,198,stat_points,10,,2.6%,,,21,0,32,4,9,0
+Alcremie,198,ability,1,Aroma Veil,71.6%,,,,,,,,
+Alcremie,198,ability,2,Sweet Veil,28.4%,,,,,,,,

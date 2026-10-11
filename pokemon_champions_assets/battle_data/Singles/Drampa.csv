@@ -1,46 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Drampa,193,move,1,Flamethrower,52.4%,,,,,,,,
-Drampa,193,move,2,Hyper Voice,50.4%,,,,,,,,
-Drampa,193,move,3,Roost,46.3%,,,,,,,,
-Drampa,193,move,4,Draco Meteor,46.0%,,,,,,,,
-Drampa,193,move,5,Dragon Pulse,43.5%,,,,,,,,
-Drampa,193,move,6,Thunderbolt,36.3%,,,,,,,,
-Drampa,193,move,7,Energy Ball,28.5%,,,,,,,,
-Drampa,193,move,8,Calm Mind,25.2%,,,,,,,,
-Drampa,193,move,9,Earth Power,17.2%,,,,,,,,
-Drampa,193,move,10,Fire Blast,13.9%,,,,,,,,
-Drampa,193,held_item,1,Drampanite,77.6%,,,,,,,,
-Drampa,193,held_item,2,Sitrus Berry,8.9%,,,,,,,,
-Drampa,193,held_item,3,Expert Belt,6.6%,,,,,,,,
-Drampa,193,held_item,4,Life Orb,3.6%,,,,,,,,
-Drampa,193,held_item,5,Chople Berry,1.7%,,,,,,,,
-Drampa,193,held_item,6,Focus Sash,1.7%,,,,,,,,
-Drampa,193,teammate,1,Golisopod,,,,,,,,,
-Drampa,193,teammate,2,Hatterene,,,,,,,,,
-Drampa,193,teammate,3,Ninetales-Alola,,,,,,,,,
-Drampa,193,teammate,4,Toxtricity,,,,,,,,,
-Drampa,193,teammate,5,Annihilape,,,,,,,,,
-Drampa,193,teammate,6,Garchomp,,,,,,,,,
-Drampa,193,teammate,7,Gliscor,,,,,,,,,
-Drampa,193,teammate,8,Primarina,,,,,,,,,
-Drampa,193,teammate,9,Mimikyu,,,,,,,,,
-Drampa,193,teammate,10,Baxcalibur,,,,,,,,,
-Drampa,193,stat_alignment,1,Quiet,43.2%,Sp. Atk,Speed,,,,,,
-Drampa,193,stat_alignment,2,Modest,22.2%,Sp. Atk,Attack,,,,,,
-Drampa,193,stat_alignment,3,Calm,19.1%,Sp. Def,Attack,,,,,,
-Drampa,193,stat_alignment,4,Bold,10.5%,Defense,Attack,,,,,,
-Drampa,193,stat_alignment,5,Relaxed,4.7%,Defense,Speed,,,,,,
-Drampa,193,stat_alignment,6,Timid,0.3%,Speed,Attack,,,,,,
-Drampa,193,stat_points,1,,33.2%,,,32,0,2,32,0,0
-Drampa,193,stat_points,2,,19.1%,,,2,0,0,32,32,0
-Drampa,193,stat_points,3,,11.9%,,,32,0,0,32,2,0
-Drampa,193,stat_points,4,,8.3%,,,32,0,25,0,0,9
-Drampa,193,stat_points,5,,5.3%,,,32,0,32,0,2,0
-Drampa,193,stat_points,6,,4.4%,,,2,0,32,32,0,0
-Drampa,193,stat_points,7,,3.6%,,,17,0,0,10,32,7
-Drampa,193,stat_points,8,,3.3%,,,32,0,0,32,0,2
-Drampa,193,stat_points,9,,2.5%,,,32,0,0,2,32,0
-Drampa,193,stat_points,10,,1.9%,,,0,0,32,32,2,0
-Drampa,193,ability,1,Berserk,65.4%,,,,,,,,
-Drampa,193,ability,2,Cloud Nine,19.7%,,,,,,,,
-Drampa,193,ability,3,Sap Sipper,15.0%,,,,,,,,
+Drampa,189,move,1,Flamethrower,59.8%,,,,,,,,
+Drampa,189,move,2,Dragon Pulse,51.2%,,,,,,,,
+Drampa,189,move,3,Roost,49.3%,,,,,,,,
+Drampa,189,move,4,Thunderbolt,45.0%,,,,,,,,
+Drampa,189,move,5,Hyper Voice,44.8%,,,,,,,,
+Drampa,189,move,6,Draco Meteor,40.5%,,,,,,,,
+Drampa,189,move,7,Energy Ball,25.6%,,,,,,,,
+Drampa,189,move,8,Calm Mind,21.5%,,,,,,,,
+Drampa,189,move,9,Earth Power,12.9%,,,,,,,,
+Drampa,189,move,10,Fire Blast,12.6%,,,,,,,,
+Drampa,189,held_item,1,Drampanite,74.5%,,,,,,,,
+Drampa,189,held_item,2,Sitrus Berry,4.7%,,,,,,,,
+Drampa,189,held_item,3,Expert Belt,4.1%,,,,,,,,
+Drampa,189,held_item,4,Quick Claw,3.7%,,,,,,,,
+Drampa,189,held_item,5,Haban Berry,3.2%,,,,,,,,
+Drampa,189,held_item,6,Focus Sash,2.3%,,,,,,,,
+Drampa,189,held_item,7,Life Orb,2.2%,,,,,,,,
+Drampa,189,held_item,8,Chople Berry,2.0%,,,,,,,,
+Drampa,189,held_item,9,Wise Glasses,1.2%,,,,,,,,
+Drampa,189,held_item,10,Zoom Lens,1.1%,,,,,,,,
+Drampa,189,teammate,1,Golisopod,,,,,,,,,
+Drampa,189,teammate,2,Ninetales-Alola,,,,,,,,,
+Drampa,189,teammate,3,Hatterene,,,,,,,,,
+Drampa,189,teammate,4,Toxtricity,,,,,,,,,
+Drampa,189,teammate,5,Garchomp,,,,,,,,,
+Drampa,189,teammate,6,Annihilape,,,,,,,,,
+Drampa,189,teammate,7,Gliscor,,,,,,,,,
+Drampa,189,teammate,8,Primarina,,,,,,,,,
+Drampa,189,teammate,9,Mimikyu,,,,,,,,,
+Drampa,189,teammate,10,Hippowdon,,,,,,,,,
+Drampa,189,stat_alignment,1,Quiet,41.6%,Sp. Atk,Speed,,,,,,
+Drampa,189,stat_alignment,2,Modest,22.8%,Sp. Atk,Attack,,,,,,
+Drampa,189,stat_alignment,3,Calm,17.9%,Sp. Def,Attack,,,,,,
+Drampa,189,stat_alignment,4,Bold,15.5%,Defense,Attack,,,,,,
+Drampa,189,stat_alignment,5,Relaxed,2.0%,Defense,Speed,,,,,,
+Drampa,189,stat_alignment,6,Timid,0.1%,Speed,Attack,,,,,,
+Drampa,189,stat_alignment,7,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Drampa,189,stat_points,1,,30.2%,,,32,0,2,32,0,0
+Drampa,189,stat_points,2,,18.4%,,,2,0,0,32,32,0
+Drampa,189,stat_points,3,,9.6%,,,32,0,25,0,0,9
+Drampa,189,stat_points,4,,7.7%,,,32,0,0,32,2,0
+Drampa,189,stat_points,5,,7.4%,,,32,0,32,0,2,0
+Drampa,189,stat_points,6,,5.5%,,,32,0,0,32,0,2
+Drampa,189,stat_points,7,,2.8%,,,2,0,32,32,0,0
+Drampa,189,stat_points,8,,2.8%,,,32,0,0,32,0,0
+Drampa,189,stat_points,9,,2.1%,,,31,0,3,32,0,0
+Drampa,189,stat_points,10,,1.6%,,,32,0,1,32,1,0
+Drampa,189,ability,1,Berserk,70.8%,,,,,,,,
+Drampa,189,ability,2,Cloud Nine,16.2%,,,,,,,,
+Drampa,189,ability,3,Sap Sipper,13.0%,,,,,,,,

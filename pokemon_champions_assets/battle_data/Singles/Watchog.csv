@@ -1,32 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Watchog,257,move,1,Gunk Shot,54.5%,,,,,,,,
-Watchog,257,move,2,Crunch,50.0%,,,,,,,,
-Watchog,257,move,3,Giga Impact,50.0%,,,,,,,,
-Watchog,257,move,4,Ice Punch,50.0%,,,,,,,,
-Watchog,257,move,5,Attract,45.5%,,,,,,,,
-Watchog,257,move,6,Thunder Wave,45.5%,,,,,,,,
-Watchog,257,move,7,Seed Bomb,27.3%,,,,,,,,
-Watchog,257,move,8,Thunder Punch,27.3%,,,,,,,,
-Watchog,257,move,9,Double-Edge,22.7%,,,,,,,,
-Watchog,257,move,10,Flamethrower,22.7%,,,,,,,,
-Watchog,257,held_item,1,Life Orb,45.5%,,,,,,,,
-Watchog,257,held_item,2,Normal Gem,31.8%,,,,,,,,
-Watchog,257,held_item,3,Focus Sash,18.2%,,,,,,,,
-Watchog,257,held_item,4,Expert Belt,4.5%,,,,,,,,
-Watchog,257,teammate,1,Sceptile,,,,,,,,,
-Watchog,257,teammate,2,Sharpedo,,,,,,,,,
-Watchog,257,teammate,3,Grimmsnarl,,,,,,,,,
-Watchog,257,teammate,4,Staraptor,,,,,,,,,
-Watchog,257,teammate,5,Lucario,,,,,,,,,
-Watchog,257,teammate,6,Stunfisk-Galar,,,,,,,,,
-Watchog,257,teammate,7,Talonflame,,,,,,,,,
-Watchog,257,teammate,8,Florges,,,,,,,,,
-Watchog,257,teammate,9,Basculegion,,,,,,,,,
-Watchog,257,teammate,10,Archaludon,,,,,,,,,
-Watchog,257,stat_alignment,1,Adamant,77.3%,Attack,Sp. Atk,,,,,,
-Watchog,257,stat_alignment,2,Naughty,22.7%,Attack,Sp. Def,,,,,,
-Watchog,257,stat_points,1,,50.0%,,,32,32,2,0,0,0
-Watchog,257,stat_points,2,,22.7%,,,2,32,0,0,0,32
-Watchog,257,stat_points,3,,22.7%,,,2,32,32,0,0,0
-Watchog,257,stat_points,4,,4.5%,,,6,32,7,0,21,0
-Watchog,257,ability,1,Analytic,100.0%,,,,,,,,
+Watchog,255,move,1,Ice Punch,74.5%,,,,,,,,
+Watchog,255,move,2,Gunk Shot,68.9%,,,,,,,,
+Watchog,255,move,3,Seed Bomb,37.7%,,,,,,,,
+Watchog,255,move,4,Thunder Punch,37.7%,,,,,,,,
+Watchog,255,move,5,Super Fang,34.9%,,,,,,,,
+Watchog,255,move,6,Giga Impact,28.3%,,,,,,,,
+Watchog,255,move,7,Thunder Wave,21.7%,,,,,,,,
+Watchog,255,move,8,Double-Edge,17.9%,,,,,,,,
+Watchog,255,move,9,Fire Punch,17.9%,,,,,,,,
+Watchog,255,move,10,Crunch,11.3%,,,,,,,,
+Watchog,255,held_item,1,Life Orb,50.9%,,,,,,,,
+Watchog,255,held_item,2,Focus Sash,36.8%,,,,,,,,
+Watchog,255,held_item,3,Normal Gem,6.6%,,,,,,,,
+Watchog,255,held_item,4,Silk Scarf,1.9%,,,,,,,,
+Watchog,255,held_item,5,Expert Belt,1.9%,,,,,,,,
+Watchog,255,held_item,6,Zoom Lens,0.9%,,,,,,,,
+Watchog,255,teammate,1,Basculegion,,,,,,,,,
+Watchog,255,teammate,2,Lucario,,,,,,,,,
+Watchog,255,teammate,3,Florges,,,,,,,,,
+Watchog,255,teammate,4,Staraptor,,,,,,,,,
+Watchog,255,teammate,5,Archaludon,,,,,,,,,
+Watchog,255,teammate,6,Golisopod,,,,,,,,,
+Watchog,255,teammate,7,Sceptile,,,,,,,,,
+Watchog,255,teammate,8,Gliscor,,,,,,,,,
+Watchog,255,teammate,9,Primarina,,,,,,,,,
+Watchog,255,teammate,10,Gyarados,,,,,,,,,
+Watchog,255,stat_alignment,1,Adamant,74.5%,Attack,Sp. Atk,,,,,,
+Watchog,255,stat_alignment,2,Jolly,17.9%,Speed,Sp. Atk,,,,,,
+Watchog,255,stat_alignment,3,Naughty,4.7%,Attack,Sp. Def,,,,,,
+Watchog,255,stat_alignment,4,Brave,2.8%,Attack,Speed,,,,,,
+Watchog,255,stat_points,1,,51.9%,,,32,32,2,0,0,0
+Watchog,255,stat_points,2,,17.0%,,,2,32,0,0,0,32
+Watchog,255,stat_points,3,,12.3%,,,0,32,0,0,2,32
+Watchog,255,stat_points,4,,6.6%,,,0,32,0,0,0,32
+Watchog,255,stat_points,5,,4.7%,,,2,32,32,0,0,0
+Watchog,255,stat_points,6,,2.8%,,,30,32,3,0,1,0
+Watchog,255,stat_points,7,,1.9%,,,32,32,0,0,0,2
+Watchog,255,stat_points,8,,0.9%,,,6,32,2,0,26,0
+Watchog,255,stat_points,9,,0.9%,,,6,32,7,0,21,0
+Watchog,255,stat_points,10,,0.9%,,,32,2,32,0,0,0
+Watchog,255,ability,1,Analytic,85.8%,,,,,,,,
+Watchog,255,ability,2,Keen Eye,12.3%,,,,,,,,
+Watchog,255,ability,3,Illuminate,1.9%,,,,,,,,

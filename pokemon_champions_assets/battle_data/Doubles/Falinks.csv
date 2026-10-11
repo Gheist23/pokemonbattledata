@@ -1,37 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Falinks,193,move,1,No Retreat,98.4%,,,,,,,,
-Falinks,193,move,2,Close Combat,97.7%,,,,,,,,
-Falinks,193,move,3,Knock Off,53.5%,,,,,,,,
-Falinks,193,move,4,Protect,49.6%,,,,,,,,
-Falinks,193,move,5,Rock Slide,47.3%,,,,,,,,
-Falinks,193,move,6,Helping Hand,45.7%,,,,,,,,
-Falinks,193,move,7,Iron Head,4.7%,,,,,,,,
-Falinks,193,move,8,Body Press,1.6%,,,,,,,,
-Falinks,193,move,9,Brick Break,0.8%,,,,,,,,
-Falinks,193,move,10,Throat Chop,0.8%,,,,,,,,
-Falinks,193,held_item,1,Falinksite,54.3%,,,,,,,,
-Falinks,193,held_item,2,Sitrus Berry,45.7%,,,,,,,,
-Falinks,193,teammate,1,Rillaboom,,,,,,,,,
-Falinks,193,teammate,2,Indeedee,,,,,,,,,
-Falinks,193,teammate,3,Ditto,,,,,,,,,
-Falinks,193,teammate,4,Salamence,,,,,,,,,
-Falinks,193,teammate,5,Floette-Eternal,,,,,,,,,
-Falinks,193,teammate,6,Ninetales,,,,,,,,,
-Falinks,193,teammate,7,Whimsicott,,,,,,,,,
-Falinks,193,teammate,8,Farigiraf,,,,,,,,,
-Falinks,193,teammate,9,Weavile,,,,,,,,,
-Falinks,193,teammate,10,Pyroar,,,,,,,,,
-Falinks,193,stat_alignment,1,Careful,45.7%,Sp. Def,Sp. Atk,,,,,,
-Falinks,193,stat_alignment,2,Adamant,42.6%,Attack,Sp. Atk,,,,,,
-Falinks,193,stat_alignment,3,Jolly,10.1%,Speed,Sp. Atk,,,,,,
-Falinks,193,stat_alignment,4,Impish,1.6%,Defense,Sp. Atk,,,,,,
-Falinks,193,stat_points,1,,45.7%,,,32,0,0,0,32,2
-Falinks,193,stat_points,2,,37.2%,,,6,32,0,0,0,28
-Falinks,193,stat_points,3,,4.7%,,,32,13,0,0,0,21
-Falinks,193,stat_points,4,,3.1%,,,32,1,1,0,15,17
-Falinks,193,stat_points,5,,3.1%,,,32,5,2,0,27,0
-Falinks,193,stat_points,6,,2.3%,,,2,32,0,0,0,32
-Falinks,193,stat_points,7,,1.6%,,,0,32,2,0,0,32
-Falinks,193,stat_points,8,,1.6%,,,21,0,21,0,10,14
-Falinks,193,stat_points,9,,0.8%,,,6,6,1,0,22,31
-Falinks,193,ability,1,Defiant,100.0%,,,,,,,,
+Falinks,204,move,1,No Retreat,97.8%,,,,,,,,
+Falinks,204,move,2,Close Combat,85.1%,,,,,,,,
+Falinks,204,move,3,Knock Off,47.5%,,,,,,,,
+Falinks,204,move,4,Protect,46.0%,,,,,,,,
+Falinks,204,move,5,Helping Hand,37.3%,,,,,,,,
+Falinks,204,move,6,Rock Slide,32.2%,,,,,,,,
+Falinks,204,move,7,Megahorn,10.5%,,,,,,,,
+Falinks,204,move,8,Iron Head,8.0%,,,,,,,,
+Falinks,204,move,9,Brick Break,6.5%,,,,,,,,
+Falinks,204,move,10,Rest,4.7%,,,,,,,,
+Falinks,204,held_item,1,Falinksite,58.0%,,,,,,,,
+Falinks,204,held_item,2,Sitrus Berry,36.6%,,,,,,,,
+Falinks,204,held_item,3,Quick Claw,5.1%,,,,,,,,
+Falinks,204,held_item,4,Bright Powder,0.4%,,,,,,,,
+Falinks,204,teammate,1,Rillaboom,,,,,,,,,
+Falinks,204,teammate,2,Indeedee,,,,,,,,,
+Falinks,204,teammate,3,Ditto,,,,,,,,,
+Falinks,204,teammate,4,Salamence,,,,,,,,,
+Falinks,204,teammate,5,Floette-Eternal,,,,,,,,,
+Falinks,204,teammate,6,Whimsicott,,,,,,,,,
+Falinks,204,teammate,7,Farigiraf,,,,,,,,,
+Falinks,204,teammate,8,Gholdengo,,,,,,,,,
+Falinks,204,teammate,9,Ninetales,,,,,,,,,
+Falinks,204,teammate,10,Incineroar,,,,,,,,,
+Falinks,204,stat_alignment,1,Adamant,44.6%,Attack,Sp. Atk,,,,,,
+Falinks,204,stat_alignment,2,Careful,40.9%,Sp. Def,Sp. Atk,,,,,,
+Falinks,204,stat_alignment,3,Jolly,8.0%,Speed,Sp. Atk,,,,,,
+Falinks,204,stat_alignment,4,Relaxed,5.1%,Defense,Speed,,,,,,
+Falinks,204,stat_alignment,5,Impish,1.4%,Defense,Sp. Atk,,,,,,
+Falinks,204,stat_points,1,,39.5%,,,32,0,0,0,32,2
+Falinks,204,stat_points,2,,17.4%,,,6,32,0,0,0,28
+Falinks,204,stat_points,3,,10.5%,,,2,32,0,0,0,32
+Falinks,204,stat_points,4,,6.9%,,,32,32,2,0,0,0
+Falinks,204,stat_points,5,,5.8%,,,16,20,0,0,30,0
+Falinks,204,stat_points,6,,5.1%,,,0,32,32,0,2,0
+Falinks,204,stat_points,7,,5.1%,,,2,32,0,0,32,0
+Falinks,204,stat_points,8,,2.2%,,,32,13,0,0,0,21
+Falinks,204,stat_points,9,,1.4%,,,32,0,3,0,31,0
+Falinks,204,stat_points,10,,1.4%,,,32,1,1,0,15,17
+Falinks,204,ability,1,Defiant,99.3%,,,,,,,,
+Falinks,204,ability,2,Battle Armor,0.7%,,,,,,,,

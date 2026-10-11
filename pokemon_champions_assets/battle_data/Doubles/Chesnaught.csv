@@ -1,49 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Chesnaught,116,move,1,Spiky Shield,91.2%,,,,,,,,
-Chesnaught,116,move,2,Body Press,46.0%,,,,,,,,
-Chesnaught,116,move,3,Belly Drum,45.0%,,,,,,,,
-Chesnaught,116,move,4,Drain Punch,43.6%,,,,,,,,
-Chesnaught,116,move,5,Wide Guard,42.0%,,,,,,,,
-Chesnaught,116,move,6,Grassy Glide,41.7%,,,,,,,,
-Chesnaught,116,move,7,Wood Hammer,41.3%,,,,,,,,
-Chesnaught,116,move,8,Feint,8.0%,,,,,,,,
-Chesnaught,116,move,9,Leech Seed,6.6%,,,,,,,,
-Chesnaught,116,move,10,Iron Defense,6.2%,,,,,,,,
-Chesnaught,116,held_item,1,Chesnaughtite,83.4%,,,,,,,,
-Chesnaught,116,held_item,2,Sitrus Berry,4.8%,,,,,,,,
-Chesnaught,116,held_item,3,Grassy Seed,4.2%,,,,,,,,
-Chesnaught,116,held_item,4,Life Orb,3.1%,,,,,,,,
-Chesnaught,116,held_item,5,Coba Berry,1.4%,,,,,,,,
-Chesnaught,116,held_item,6,Rocky Helmet,1.2%,,,,,,,,
-Chesnaught,116,held_item,7,Leftovers,0.9%,,,,,,,,
-Chesnaught,116,held_item,8,White Herb,0.7%,,,,,,,,
-Chesnaught,116,held_item,9,Focus Sash,0.3%,,,,,,,,
-Chesnaught,116,teammate,1,Rillaboom,,,,,,,,,
-Chesnaught,116,teammate,2,Pelipper,,,,,,,,,
-Chesnaught,116,teammate,3,Incineroar,,,,,,,,,
-Chesnaught,116,teammate,4,Archaludon,,,,,,,,,
-Chesnaught,116,teammate,5,Primarina,,,,,,,,,
-Chesnaught,116,teammate,6,Slowking-Galar,,,,,,,,,
-Chesnaught,116,teammate,7,Basculegion-F,,,,,,,,,
-Chesnaught,116,teammate,8,Scovillain,,,,,,,,,
-Chesnaught,116,teammate,9,Mamoswine,,,,,,,,,
-Chesnaught,116,teammate,10,Metagross,,,,,,,,,
-Chesnaught,116,stat_alignment,1,Relaxed,33.6%,Defense,Speed,,,,,,
-Chesnaught,116,stat_alignment,2,Adamant,20.1%,Attack,Sp. Atk,,,,,,
-Chesnaught,116,stat_alignment,3,Impish,19.9%,Defense,Sp. Atk,,,,,,
-Chesnaught,116,stat_alignment,4,Careful,17.5%,Sp. Def,Sp. Atk,,,,,,
-Chesnaught,116,stat_alignment,5,Brave,7.1%,Attack,Speed,,,,,,
-Chesnaught,116,stat_alignment,6,Sassy,1.7%,Sp. Def,Speed,,,,,,
-Chesnaught,116,stat_alignment,7,Lonely,0.2%,Attack,Defense,,,,,,
-Chesnaught,116,stat_points,1,,40.1%,,,32,0,8,0,26,0
-Chesnaught,116,stat_points,2,,10.7%,,,26,0,8,0,25,7
-Chesnaught,116,stat_points,3,,7.3%,,,32,32,0,0,2,0
-Chesnaught,116,stat_points,4,,6.1%,,,32,0,32,0,2,0
-Chesnaught,116,stat_points,5,,3.8%,,,32,0,2,0,32,0
-Chesnaught,116,stat_points,6,,3.6%,,,29,3,2,0,32,0
-Chesnaught,116,stat_points,7,,3.3%,,,32,32,2,0,0,0
-Chesnaught,116,stat_points,8,,2.9%,,,0,32,9,0,25,0
-Chesnaught,116,stat_points,9,,2.4%,,,29,0,12,0,25,0
-Chesnaught,116,stat_points,10,,1.9%,,,16,23,1,0,26,0
-Chesnaught,116,ability,1,Bulletproof,98.6%,,,,,,,,
-Chesnaught,116,ability,2,Overgrow,1.4%,,,,,,,,
+Chesnaught,123,move,1,Spiky Shield,90.6%,,,,,,,,
+Chesnaught,123,move,2,Drain Punch,51.0%,,,,,,,,
+Chesnaught,123,move,3,Belly Drum,49.0%,,,,,,,,
+Chesnaught,123,move,4,Grassy Glide,47.8%,,,,,,,,
+Chesnaught,123,move,5,Body Press,40.4%,,,,,,,,
+Chesnaught,123,move,6,Wood Hammer,35.0%,,,,,,,,
+Chesnaught,123,move,7,Wide Guard,30.8%,,,,,,,,
+Chesnaught,123,move,8,Leech Seed,10.0%,,,,,,,,
+Chesnaught,123,move,9,Iron Defense,9.2%,,,,,,,,
+Chesnaught,123,move,10,High Horsepower,6.8%,,,,,,,,
+Chesnaught,123,held_item,1,Chesnaughtite,85.1%,,,,,,,,
+Chesnaught,123,held_item,2,Sitrus Berry,5.9%,,,,,,,,
+Chesnaught,123,held_item,3,Life Orb,2.1%,,,,,,,,
+Chesnaught,123,held_item,4,Grassy Seed,1.9%,,,,,,,,
+Chesnaught,123,held_item,5,Black Belt,1.7%,,,,,,,,
+Chesnaught,123,held_item,6,Leftovers,1.1%,,,,,,,,
+Chesnaught,123,held_item,7,Rocky Helmet,0.8%,,,,,,,,
+Chesnaught,123,held_item,8,Coba Berry,0.6%,,,,,,,,
+Chesnaught,123,held_item,9,White Herb,0.3%,,,,,,,,
+Chesnaught,123,held_item,10,Electric Seed,0.3%,,,,,,,,
+Chesnaught,123,teammate,1,Rillaboom,,,,,,,,,
+Chesnaught,123,teammate,2,Pelipper,,,,,,,,,
+Chesnaught,123,teammate,3,Archaludon,,,,,,,,,
+Chesnaught,123,teammate,4,Incineroar,,,,,,,,,
+Chesnaught,123,teammate,5,Basculegion-F,,,,,,,,,
+Chesnaught,123,teammate,6,Indeedee-F,,,,,,,,,
+Chesnaught,123,teammate,7,Araquanid,,,,,,,,,
+Chesnaught,123,teammate,8,Slowking-Galar,,,,,,,,,
+Chesnaught,123,teammate,9,Farigiraf,,,,,,,,,
+Chesnaught,123,teammate,10,Aegislash,,,,,,,,,
+Chesnaught,123,stat_alignment,1,Relaxed,27.3%,Defense,Speed,,,,,,
+Chesnaught,123,stat_alignment,2,Adamant,24.2%,Attack,Sp. Atk,,,,,,
+Chesnaught,123,stat_alignment,3,Careful,21.9%,Sp. Def,Sp. Atk,,,,,,
+Chesnaught,123,stat_alignment,4,Impish,14.5%,Defense,Sp. Atk,,,,,,
+Chesnaught,123,stat_alignment,5,Brave,9.6%,Attack,Speed,,,,,,
+Chesnaught,123,stat_alignment,6,Sassy,2.4%,Sp. Def,Speed,,,,,,
+Chesnaught,123,stat_alignment,7,Lonely,0.1%,Attack,Defense,,,,,,
+Chesnaught,123,stat_points,1,,32.0%,,,32,0,8,0,26,0
+Chesnaught,123,stat_points,2,,7.5%,,,32,32,0,0,2,0
+Chesnaught,123,stat_points,3,,7.0%,,,26,0,8,0,25,7
+Chesnaught,123,stat_points,4,,4.1%,,,32,0,32,0,2,0
+Chesnaught,123,stat_points,5,,3.4%,,,32,0,2,0,32,0
+Chesnaught,123,stat_points,6,,2.8%,,,17,24,10,0,15,0
+Chesnaught,123,stat_points,7,,2.3%,,,12,0,31,0,23,0
+Chesnaught,123,stat_points,8,,2.2%,,,31,32,0,0,3,0
+Chesnaught,123,stat_points,9,,2.1%,,,32,32,0,0,0,2
+Chesnaught,123,stat_points,10,,1.9%,,,16,10,22,0,18,0
+Chesnaught,123,ability,1,Bulletproof,98.3%,,,,,,,,
+Chesnaught,123,ability,2,Overgrow,1.7%,,,,,,,,

@@ -1,53 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scolipede,86,move,1,Earthquake,54.2%,,,,,,,,
-Scolipede,86,move,2,Baton Pass,52.9%,,,,,,,,
-Scolipede,86,move,3,Swords Dance,48.7%,,,,,,,,
-Scolipede,86,move,4,Iron Defense,46.4%,,,,,,,,
-Scolipede,86,move,5,Protect,45.1%,,,,,,,,
-Scolipede,86,move,6,Leech Life,42.8%,,,,,,,,
-Scolipede,86,move,7,Substitute,32.2%,,,,,,,,
-Scolipede,86,move,8,Gunk Shot,20.8%,,,,,,,,
-Scolipede,86,move,9,Poison Jab,17.3%,,,,,,,,
-Scolipede,86,move,10,Megahorn,7.7%,,,,,,,,
-Scolipede,86,held_item,1,Scolipite,26.5%,,,,,,,,
-Scolipede,86,held_item,2,Focus Sash,23.0%,,,,,,,,
-Scolipede,86,held_item,3,Sitrus Berry,11.9%,,,,,,,,
-Scolipede,86,held_item,4,Leftovers,9.9%,,,,,,,,
-Scolipede,86,held_item,5,Mental Herb,7.8%,,,,,,,,
-Scolipede,86,held_item,6,Lum Berry,3.9%,,,,,,,,
-Scolipede,86,held_item,7,Silver Powder,2.7%,,,,,,,,
-Scolipede,86,held_item,8,Red Card,1.9%,,,,,,,,
-Scolipede,86,held_item,9,Bright Powder,1.7%,,,,,,,,
-Scolipede,86,held_item,10,White Herb,1.5%,,,,,,,,
-Scolipede,86,teammate,1,Clefable,,,,,,,,,
-Scolipede,86,teammate,2,Garchomp,,,,,,,,,
-Scolipede,86,teammate,3,Gholdengo,,,,,,,,,
-Scolipede,86,teammate,4,Volcarona,,,,,,,,,
-Scolipede,86,teammate,5,Archaludon,,,,,,,,,
-Scolipede,86,teammate,6,Espathra,,,,,,,,,
-Scolipede,86,teammate,7,Malamar,,,,,,,,,
-Scolipede,86,teammate,8,Primarina,,,,,,,,,
-Scolipede,86,teammate,9,Gyarados,,,,,,,,,
-Scolipede,86,teammate,10,Raichu,,,,,,,,,
-Scolipede,86,stat_alignment,1,Adamant,40.7%,Attack,Sp. Atk,,,,,,
-Scolipede,86,stat_alignment,2,Jolly,23.3%,Speed,Sp. Atk,,,,,,
-Scolipede,86,stat_alignment,3,Impish,15.9%,Defense,Sp. Atk,,,,,,
-Scolipede,86,stat_alignment,4,Careful,7.4%,Sp. Def,Sp. Atk,,,,,,
-Scolipede,86,stat_alignment,5,Timid,5.4%,Speed,Attack,,,,,,
-Scolipede,86,stat_alignment,6,Lax,3.6%,Defense,Sp. Def,,,,,,
-Scolipede,86,stat_alignment,7,Calm,2.5%,Sp. Def,Attack,,,,,,
-Scolipede,86,stat_alignment,8,Bold,1.2%,Defense,Attack,,,,,,
-Scolipede,86,stat_alignment,9,Lonely,0.0%,Attack,Defense,,,,,,
-Scolipede,86,stat_points,1,,12.5%,,,2,32,0,0,0,32
-Scolipede,86,stat_points,2,,4.3%,,,24,20,0,0,0,22
-Scolipede,86,stat_points,3,,4.3%,,,32,0,2,0,0,32
-Scolipede,86,stat_points,4,,3.6%,,,17,31,0,0,0,18
-Scolipede,86,stat_points,5,,3.6%,,,0,32,32,0,0,2
-Scolipede,86,stat_points,6,,3.6%,,,32,0,32,0,2,0
-Scolipede,86,stat_points,7,,3.2%,,,32,0,11,0,13,10
-Scolipede,86,stat_points,8,,2.7%,,,32,32,0,0,0,2
-Scolipede,86,stat_points,9,,2.7%,,,32,0,2,0,32,0
-Scolipede,86,stat_points,10,,2.5%,,,32,0,0,0,2,32
-Scolipede,86,ability,1,Speed Boost,93.1%,,,,,,,,
-Scolipede,86,ability,2,Swarm,6.3%,,,,,,,,
-Scolipede,86,ability,3,Poison Point,0.6%,,,,,,,,
+Scolipede,87,move,1,Baton Pass,51.6%,,,,,,,,
+Scolipede,87,move,2,Earthquake,50.8%,,,,,,,,
+Scolipede,87,move,3,Protect,49.6%,,,,,,,,
+Scolipede,87,move,4,Swords Dance,49.4%,,,,,,,,
+Scolipede,87,move,5,Iron Defense,44.8%,,,,,,,,
+Scolipede,87,move,6,Leech Life,39.9%,,,,,,,,
+Scolipede,87,move,7,Substitute,30.3%,,,,,,,,
+Scolipede,87,move,8,Poison Jab,20.6%,,,,,,,,
+Scolipede,87,move,9,Gunk Shot,19.7%,,,,,,,,
+Scolipede,87,move,10,Megahorn,9.0%,,,,,,,,
+Scolipede,87,held_item,1,Scolipite,25.7%,,,,,,,,
+Scolipede,87,held_item,2,Focus Sash,24.5%,,,,,,,,
+Scolipede,87,held_item,3,Sitrus Berry,14.2%,,,,,,,,
+Scolipede,87,held_item,4,Leftovers,9.2%,,,,,,,,
+Scolipede,87,held_item,5,Mental Herb,7.4%,,,,,,,,
+Scolipede,87,held_item,6,Life Orb,3.5%,,,,,,,,
+Scolipede,87,held_item,7,Lum Berry,2.9%,,,,,,,,
+Scolipede,87,held_item,8,Bright Powder,1.4%,,,,,,,,
+Scolipede,87,held_item,9,Psychic Seed,1.4%,,,,,,,,
+Scolipede,87,held_item,10,Red Card,1.3%,,,,,,,,
+Scolipede,87,teammate,1,Clefable,,,,,,,,,
+Scolipede,87,teammate,2,Garchomp,,,,,,,,,
+Scolipede,87,teammate,3,Gholdengo,,,,,,,,,
+Scolipede,87,teammate,4,Archaludon,,,,,,,,,
+Scolipede,87,teammate,5,Volcarona,,,,,,,,,
+Scolipede,87,teammate,6,Primarina,,,,,,,,,
+Scolipede,87,teammate,7,Gyarados,,,,,,,,,
+Scolipede,87,teammate,8,Charizard,,,,,,,,,
+Scolipede,87,teammate,9,Umbreon,,,,,,,,,
+Scolipede,87,teammate,10,Espathra,,,,,,,,,
+Scolipede,87,stat_alignment,1,Adamant,40.7%,Attack,Sp. Atk,,,,,,
+Scolipede,87,stat_alignment,2,Jolly,22.7%,Speed,Sp. Atk,,,,,,
+Scolipede,87,stat_alignment,3,Impish,15.2%,Defense,Sp. Atk,,,,,,
+Scolipede,87,stat_alignment,4,Careful,9.5%,Sp. Def,Sp. Atk,,,,,,
+Scolipede,87,stat_alignment,5,Lax,3.9%,Defense,Sp. Def,,,,,,
+Scolipede,87,stat_alignment,6,Timid,3.1%,Speed,Attack,,,,,,
+Scolipede,87,stat_alignment,7,Bold,3.0%,Defense,Attack,,,,,,
+Scolipede,87,stat_alignment,8,Calm,1.7%,Sp. Def,Attack,,,,,,
+Scolipede,87,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,
+Scolipede,87,stat_alignment,10,Sassy,0.0%,Sp. Def,Speed,,,,,,
+Scolipede,87,stat_points,1,,11.4%,,,2,32,0,0,0,32
+Scolipede,87,stat_points,2,,4.6%,,,0,32,32,0,0,2
+Scolipede,87,stat_points,3,,4.5%,,,24,20,0,0,0,22
+Scolipede,87,stat_points,4,,4.2%,,,32,0,0,0,2,32
+Scolipede,87,stat_points,5,,2.9%,,,0,32,2,0,0,32
+Scolipede,87,stat_points,6,,2.7%,,,32,0,32,0,2,0
+Scolipede,87,stat_points,7,,2.7%,,,32,0,2,0,32,0
+Scolipede,87,stat_points,8,,2.5%,,,32,0,2,0,0,32
+Scolipede,87,stat_points,9,,2.4%,,,32,32,2,0,0,0
+Scolipede,87,stat_points,10,,2.4%,,,32,32,0,0,0,2
+Scolipede,87,ability,1,Speed Boost,94.4%,,,,,,,,
+Scolipede,87,ability,2,Swarm,5.1%,,,,,,,,
+Scolipede,87,ability,3,Poison Point,0.5%,,,,,,,,

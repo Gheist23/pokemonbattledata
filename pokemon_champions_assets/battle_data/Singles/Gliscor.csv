@@ -1,51 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gliscor,137,move,1,Earthquake,92.0%,,,,,,,,
-Gliscor,137,move,2,Stealth Rock,48.3%,,,,,,,,
-Gliscor,137,move,3,Toxic,47.7%,,,,,,,,
-Gliscor,137,move,4,Swords Dance,20.5%,,,,,,,,
-Gliscor,137,move,5,Knock Off,20.4%,,,,,,,,
-Gliscor,137,move,6,Ice Fang,20.4%,,,,,,,,
-Gliscor,137,move,7,Protect,16.3%,,,,,,,,
-Gliscor,137,move,8,Dual Wingbeat,14.5%,,,,,,,,
-Gliscor,137,move,9,Substitute,13.0%,,,,,,,,
-Gliscor,137,move,10,Psychic Fangs,12.8%,,,,,,,,
-Gliscor,137,held_item,1,Leftovers,26.3%,,,,,,,,
-Gliscor,137,held_item,2,Sitrus Berry,16.9%,,,,,,,,
-Gliscor,137,held_item,3,Rocky Helmet,13.6%,,,,,,,,
-Gliscor,137,held_item,4,Expert Belt,11.0%,,,,,,,,
-Gliscor,137,held_item,5,Focus Sash,7.7%,,,,,,,,
-Gliscor,137,held_item,6,Soft Sand,5.0%,,,,,,,,
-Gliscor,137,held_item,7,Passho Berry,4.5%,,,,,,,,
-Gliscor,137,held_item,8,Light Ball,2.7%,,,,,,,,
-Gliscor,137,held_item,9,Life Orb,2.3%,,,,,,,,
-Gliscor,137,held_item,10,Red Card,1.8%,,,,,,,,
-Gliscor,137,teammate,1,Golisopod,,,,,,,,,
-Gliscor,137,teammate,2,Charizard,,,,,,,,,
-Gliscor,137,teammate,3,Primarina,,,,,,,,,
-Gliscor,137,teammate,4,Ninetales-Alola,,,,,,,,,
-Gliscor,137,teammate,5,Baxcalibur,,,,,,,,,
-Gliscor,137,teammate,6,Umbreon,,,,,,,,,
-Gliscor,137,teammate,7,Metagross,,,,,,,,,
-Gliscor,137,teammate,8,Garchomp,,,,,,,,,
-Gliscor,137,teammate,9,Lucario,,,,,,,,,
-Gliscor,137,teammate,10,Annihilape,,,,,,,,,
-Gliscor,137,stat_alignment,1,Adamant,34.6%,Attack,Sp. Atk,,,,,,
-Gliscor,137,stat_alignment,2,Jolly,22.7%,Speed,Sp. Atk,,,,,,
-Gliscor,137,stat_alignment,3,Careful,22.0%,Sp. Def,Sp. Atk,,,,,,
-Gliscor,137,stat_alignment,4,Impish,18.7%,Defense,Sp. Atk,,,,,,
-Gliscor,137,stat_alignment,5,Bold,1.6%,Defense,Attack,,,,,,
-Gliscor,137,stat_alignment,6,Relaxed,0.3%,Defense,Speed,,,,,,
-Gliscor,137,stat_alignment,7,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Gliscor,137,stat_points,1,,16.4%,,,2,32,0,0,0,32
-Gliscor,137,stat_points,2,,7.5%,,,31,5,2,0,28,0
-Gliscor,137,stat_points,3,,7.3%,,,25,29,0,0,0,12
-Gliscor,137,stat_points,4,,5.9%,,,32,32,2,0,0,0
-Gliscor,137,stat_points,5,,4.8%,,,31,0,3,0,32,0
-Gliscor,137,stat_points,6,,4.8%,,,32,0,32,0,2,0
-Gliscor,137,stat_points,7,,3.7%,,,31,5,1,0,28,1
-Gliscor,137,stat_points,8,,3.6%,,,32,32,0,0,0,2
-Gliscor,137,stat_points,9,,3.4%,,,3,32,0,0,0,31
-Gliscor,137,stat_points,10,,2.5%,,,32,2,32,0,0,0
-Gliscor,137,ability,1,Poison Heal,61.1%,,,,,,,,
-Gliscor,137,ability,2,Hyper Cutter,35.1%,,,,,,,,
-Gliscor,137,ability,3,Sand Veil,3.8%,,,,,,,,
+Gliscor,131,move,1,Earthquake,88.5%,,,,,,,,
+Gliscor,131,move,2,Stealth Rock,46.7%,,,,,,,,
+Gliscor,131,move,3,Toxic,44.3%,,,,,,,,
+Gliscor,131,move,4,Ice Fang,22.7%,,,,,,,,
+Gliscor,131,move,5,Protect,17.8%,,,,,,,,
+Gliscor,131,move,6,Swords Dance,16.1%,,,,,,,,
+Gliscor,131,move,7,Knock Off,15.3%,,,,,,,,
+Gliscor,131,move,8,U-turn,14.8%,,,,,,,,
+Gliscor,131,move,9,Dual Wingbeat,14.5%,,,,,,,,
+Gliscor,131,move,10,Substitute,12.3%,,,,,,,,
+Gliscor,131,held_item,1,Leftovers,30.9%,,,,,,,,
+Gliscor,131,held_item,2,Rocky Helmet,14.7%,,,,,,,,
+Gliscor,131,held_item,3,Sitrus Berry,12.6%,,,,,,,,
+Gliscor,131,held_item,4,Focus Sash,7.5%,,,,,,,,
+Gliscor,131,held_item,5,Expert Belt,5.2%,,,,,,,,
+Gliscor,131,held_item,6,Yache Berry,3.3%,,,,,,,,
+Gliscor,131,held_item,7,Choice Scarf,3.3%,,,,,,,,
+Gliscor,131,held_item,8,Light Ball,3.0%,,,,,,,,
+Gliscor,131,held_item,9,Life Orb,2.6%,,,,,,,,
+Gliscor,131,held_item,10,Passho Berry,2.0%,,,,,,,,
+Gliscor,131,teammate,1,Primarina,,,,,,,,,
+Gliscor,131,teammate,2,Golisopod,,,,,,,,,
+Gliscor,131,teammate,3,Charizard,,,,,,,,,
+Gliscor,131,teammate,4,Garchomp,,,,,,,,,
+Gliscor,131,teammate,5,Lucario,,,,,,,,,
+Gliscor,131,teammate,6,Umbreon,,,,,,,,,
+Gliscor,131,teammate,7,Metagross,,,,,,,,,
+Gliscor,131,teammate,8,Baxcalibur,,,,,,,,,
+Gliscor,131,teammate,9,Ninetales-Alola,,,,,,,,,
+Gliscor,131,teammate,10,Mimikyu,,,,,,,,,
+Gliscor,131,stat_alignment,1,Adamant,30.4%,Attack,Sp. Atk,,,,,,
+Gliscor,131,stat_alignment,2,Careful,24.6%,Sp. Def,Sp. Atk,,,,,,
+Gliscor,131,stat_alignment,3,Jolly,22.2%,Speed,Sp. Atk,,,,,,
+Gliscor,131,stat_alignment,4,Impish,19.5%,Defense,Sp. Atk,,,,,,
+Gliscor,131,stat_alignment,5,Bold,2.0%,Defense,Attack,,,,,,
+Gliscor,131,stat_alignment,6,Relaxed,0.6%,Defense,Speed,,,,,,
+Gliscor,131,stat_alignment,7,Lax,0.5%,Defense,Sp. Def,,,,,,
+Gliscor,131,stat_alignment,8,Brave,0.2%,Attack,Speed,,,,,,
+Gliscor,131,stat_alignment,9,Calm,0.1%,Sp. Def,Attack,,,,,,
+Gliscor,131,stat_alignment,10,Sassy,0.0%,Sp. Def,Speed,,,,,,
+Gliscor,131,stat_points,1,,15.0%,,,2,32,0,0,0,32
+Gliscor,131,stat_points,2,,5.7%,,,32,0,32,0,2,0
+Gliscor,131,stat_points,3,,4.6%,,,31,5,2,0,28,0
+Gliscor,131,stat_points,4,,4.1%,,,31,0,3,0,32,0
+Gliscor,131,stat_points,5,,3.8%,,,32,32,0,0,0,2
+Gliscor,131,stat_points,6,,3.5%,,,32,0,2,0,32,0
+Gliscor,131,stat_points,7,,3.1%,,,32,32,2,0,0,0
+Gliscor,131,stat_points,8,,2.9%,,,32,2,32,0,0,0
+Gliscor,131,stat_points,9,,2.8%,,,25,29,0,0,0,12
+Gliscor,131,stat_points,10,,2.7%,,,31,0,32,0,3,0
+Gliscor,131,ability,1,Poison Heal,56.3%,,,,,,,,
+Gliscor,131,ability,2,Hyper Cutter,36.0%,,,,,,,,
+Gliscor,131,ability,3,Sand Veil,7.7%,,,,,,,,

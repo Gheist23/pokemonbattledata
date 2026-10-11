@@ -1,51 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pincurchin,103,move,1,Rising Voltage,85.5%,,,,,,,,
-Pincurchin,103,move,2,Protect,76.2%,,,,,,,,
-Pincurchin,103,move,3,Sucker Punch,65.2%,,,,,,,,
-Pincurchin,103,move,4,Scald,51.9%,,,,,,,,
-Pincurchin,103,move,5,Discharge,31.1%,,,,,,,,
-Pincurchin,103,move,6,Electroweb,15.4%,,,,,,,,
-Pincurchin,103,move,7,Muddy Water,10.0%,,,,,,,,
-Pincurchin,103,move,8,Recover,9.9%,,,,,,,,
-Pincurchin,103,move,9,Acupressure,8.7%,,,,,,,,
-Pincurchin,103,move,10,Toxic Spikes,6.4%,,,,,,,,
-Pincurchin,103,held_item,1,Magnet,35.5%,,,,,,,,
-Pincurchin,103,held_item,2,Electric Seed,17.6%,,,,,,,,
-Pincurchin,103,held_item,3,Life Orb,17.3%,,,,,,,,
-Pincurchin,103,held_item,4,Terrain Extender,7.6%,,,,,,,,
-Pincurchin,103,held_item,5,Sitrus Berry,6.8%,,,,,,,,
-Pincurchin,103,held_item,6,Focus Sash,3.7%,,,,,,,,
-Pincurchin,103,held_item,7,Bright Powder,3.4%,,,,,,,,
-Pincurchin,103,held_item,8,Quick Claw,2.1%,,,,,,,,
-Pincurchin,103,held_item,9,Leftovers,1.6%,,,,,,,,
-Pincurchin,103,held_item,10,Shuca Berry,1.1%,,,,,,,,
-Pincurchin,103,teammate,1,Camerupt,,,,,,,,,
-Pincurchin,103,teammate,2,Indeedee-F,,,,,,,,,
-Pincurchin,103,teammate,3,Farigiraf,,,,,,,,,
-Pincurchin,103,teammate,4,Pelipper,,,,,,,,,
-Pincurchin,103,teammate,5,Raichu-Alola,,,,,,,,,
-Pincurchin,103,teammate,6,Raichu,,,,,,,,,
-Pincurchin,103,teammate,7,Garchomp,,,,,,,,,
-Pincurchin,103,teammate,8,Rillaboom,,,,,,,,,
-Pincurchin,103,teammate,9,Sceptile,,,,,,,,,
-Pincurchin,103,teammate,10,Staraptor,,,,,,,,,
-Pincurchin,103,stat_alignment,1,Quiet,67.8%,Sp. Atk,Speed,,,,,,
-Pincurchin,103,stat_alignment,2,Modest,12.1%,Sp. Atk,Attack,,,,,,
-Pincurchin,103,stat_alignment,3,Sassy,8.0%,Sp. Def,Speed,,,,,,
-Pincurchin,103,stat_alignment,4,Brave,5.4%,Attack,Speed,,,,,,
-Pincurchin,103,stat_alignment,5,Bold,3.4%,Defense,Attack,,,,,,
-Pincurchin,103,stat_alignment,6,Relaxed,2.1%,Defense,Speed,,,,,,
-Pincurchin,103,stat_alignment,7,Calm,0.7%,Sp. Def,Attack,,,,,,
-Pincurchin,103,stat_alignment,8,Adamant,0.5%,Attack,Sp. Atk,,,,,,
-Pincurchin,103,stat_points,1,,32.9%,,,32,0,0,32,2,0
-Pincurchin,103,stat_points,2,,16.0%,,,32,2,0,32,0,0
-Pincurchin,103,stat_points,3,,9.7%,,,32,0,2,32,0,0
-Pincurchin,103,stat_points,4,,5.9%,,,20,1,2,31,12,0
-Pincurchin,103,stat_points,5,,5.7%,,,2,0,32,32,0,0
-Pincurchin,103,stat_points,6,,5.5%,,,32,32,0,0,2,0
-Pincurchin,103,stat_points,7,,3.8%,,,28,0,13,0,25,0
-Pincurchin,103,stat_points,8,,3.4%,,,32,0,17,0,17,0
-Pincurchin,103,stat_points,9,,3.3%,,,32,0,1,32,1,0
-Pincurchin,103,stat_points,10,,2.8%,,,10,0,32,21,2,0
-Pincurchin,103,ability,1,Electric Surge,99.5%,,,,,,,,
-Pincurchin,103,ability,2,Lightning Rod,0.5%,,,,,,,,
+Pincurchin,100,move,1,Rising Voltage,89.3%,,,,,,,,
+Pincurchin,100,move,2,Protect,79.1%,,,,,,,,
+Pincurchin,100,move,3,Sucker Punch,67.9%,,,,,,,,
+Pincurchin,100,move,4,Scald,48.9%,,,,,,,,
+Pincurchin,100,move,5,Discharge,20.1%,,,,,,,,
+Pincurchin,100,move,6,Electroweb,16.7%,,,,,,,,
+Pincurchin,100,move,7,Hydro Pump,8.3%,,,,,,,,
+Pincurchin,100,move,8,Thunderbolt,7.5%,,,,,,,,
+Pincurchin,100,move,9,Muddy Water,7.4%,,,,,,,,
+Pincurchin,100,move,10,Acupressure,7.1%,,,,,,,,
+Pincurchin,100,held_item,1,Magnet,41.6%,,,,,,,,
+Pincurchin,100,held_item,2,Sitrus Berry,13.7%,,,,,,,,
+Pincurchin,100,held_item,3,Life Orb,10.9%,,,,,,,,
+Pincurchin,100,held_item,4,Electric Seed,10.8%,,,,,,,,
+Pincurchin,100,held_item,5,Terrain Extender,6.5%,,,,,,,,
+Pincurchin,100,held_item,6,Expert Belt,4.2%,,,,,,,,
+Pincurchin,100,held_item,7,Focus Sash,3.0%,,,,,,,,
+Pincurchin,100,held_item,8,Leftovers,2.6%,,,,,,,,
+Pincurchin,100,held_item,9,Bright Powder,1.6%,,,,,,,,
+Pincurchin,100,held_item,10,Quick Claw,1.6%,,,,,,,,
+Pincurchin,100,teammate,1,Indeedee-F,,,,,,,,,
+Pincurchin,100,teammate,2,Raichu-Alola,,,,,,,,,
+Pincurchin,100,teammate,3,Farigiraf,,,,,,,,,
+Pincurchin,100,teammate,4,Camerupt,,,,,,,,,
+Pincurchin,100,teammate,5,Raichu,,,,,,,,,
+Pincurchin,100,teammate,6,Rillaboom,,,,,,,,,
+Pincurchin,100,teammate,7,Staraptor,,,,,,,,,
+Pincurchin,100,teammate,8,Pelipper,,,,,,,,,
+Pincurchin,100,teammate,9,Jolteon,,,,,,,,,
+Pincurchin,100,teammate,10,Garchomp,,,,,,,,,
+Pincurchin,100,stat_alignment,1,Quiet,76.3%,Sp. Atk,Speed,,,,,,
+Pincurchin,100,stat_alignment,2,Modest,7.5%,Sp. Atk,Attack,,,,,,
+Pincurchin,100,stat_alignment,3,Sassy,6.4%,Sp. Def,Speed,,,,,,
+Pincurchin,100,stat_alignment,4,Brave,4.8%,Attack,Speed,,,,,,
+Pincurchin,100,stat_alignment,5,Relaxed,1.9%,Defense,Speed,,,,,,
+Pincurchin,100,stat_alignment,6,Bold,1.6%,Defense,Attack,,,,,,
+Pincurchin,100,stat_alignment,7,Calm,1.1%,Sp. Def,Attack,,,,,,
+Pincurchin,100,stat_alignment,8,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Pincurchin,100,stat_alignment,9,Adamant,0.2%,Attack,Sp. Atk,,,,,,
+Pincurchin,100,stat_alignment,10,Mild,0.0%,Sp. Atk,Defense,,,,,,
+Pincurchin,100,stat_points,1,,33.0%,,,32,0,0,32,2,0
+Pincurchin,100,stat_points,2,,20.9%,,,32,2,0,32,0,0
+Pincurchin,100,stat_points,3,,10.4%,,,32,0,2,32,0,0
+Pincurchin,100,stat_points,4,,3.2%,,,32,0,1,32,1,0
+Pincurchin,100,stat_points,5,,2.9%,,,32,0,0,29,5,0
+Pincurchin,100,stat_points,6,,2.3%,,,32,32,0,0,2,0
+Pincurchin,100,stat_points,7,,2.3%,,,20,1,2,31,12,0
+Pincurchin,100,stat_points,8,,2.2%,,,2,0,32,32,0,0
+Pincurchin,100,stat_points,9,,1.7%,,,32,0,15,0,19,0
+Pincurchin,100,stat_points,10,,1.6%,,,32,0,17,0,17,0
+Pincurchin,100,ability,1,Electric Surge,98.5%,,,,,,,,
+Pincurchin,100,ability,2,Lightning Rod,1.5%,,,,,,,,

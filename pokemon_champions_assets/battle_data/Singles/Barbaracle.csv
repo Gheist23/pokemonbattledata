@@ -1,43 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Barbaracle,140,move,1,Close Combat,95.2%,,,,,,,,
-Barbaracle,140,move,2,Shell Smash,94.1%,,,,,,,,
-Barbaracle,140,move,3,Rock Blast,72.8%,,,,,,,,
-Barbaracle,140,move,4,Poison Jab,39.9%,,,,,,,,
-Barbaracle,140,move,5,Shadow Claw,25.9%,,,,,,,,
-Barbaracle,140,move,6,Earthquake,18.9%,,,,,,,,
-Barbaracle,140,move,7,Liquidation,13.1%,,,,,,,,
-Barbaracle,140,move,8,Rock Slide,9.9%,,,,,,,,
-Barbaracle,140,move,9,Stone Edge,8.5%,,,,,,,,
-Barbaracle,140,move,10,Dragon Claw,4.2%,,,,,,,,
-Barbaracle,140,held_item,1,Barbaracite,98.4%,,,,,,,,
-Barbaracle,140,held_item,2,Focus Sash,1.3%,,,,,,,,
-Barbaracle,140,held_item,3,Shuca Berry,0.2%,,,,,,,,
-Barbaracle,140,held_item,4,Scope Lens,0.1%,,,,,,,,
-Barbaracle,140,teammate,1,Indeedee,,,,,,,,,
-Barbaracle,140,teammate,2,Hippowdon,,,,,,,,,
-Barbaracle,140,teammate,3,Blastoise,,,,,,,,,
-Barbaracle,140,teammate,4,Garchomp,,,,,,,,,
-Barbaracle,140,teammate,5,Charizard,,,,,,,,,
-Barbaracle,140,teammate,6,Dragapult,,,,,,,,,
-Barbaracle,140,teammate,7,Archaludon,,,,,,,,,
-Barbaracle,140,teammate,8,Mimikyu,,,,,,,,,
-Barbaracle,140,teammate,9,Corviknight,,,,,,,,,
-Barbaracle,140,teammate,10,Primarina,,,,,,,,,
-Barbaracle,140,stat_alignment,1,Jolly,51.1%,Speed,Sp. Atk,,,,,,
-Barbaracle,140,stat_alignment,2,Adamant,46.2%,Attack,Sp. Atk,,,,,,
-Barbaracle,140,stat_alignment,3,Naive,1.5%,Speed,Sp. Def,,,,,,
-Barbaracle,140,stat_alignment,4,Hasty,0.5%,Speed,Defense,,,,,,
-Barbaracle,140,stat_alignment,5,Calm,0.5%,Sp. Def,Attack,,,,,,
-Barbaracle,140,stat_alignment,6,Brave,0.3%,Attack,Speed,,,,,,
-Barbaracle,140,stat_points,1,,21.7%,,,2,32,0,0,0,32
-Barbaracle,140,stat_points,2,,19.2%,,,10,32,0,0,0,24
-Barbaracle,140,stat_points,3,,7.3%,,,12,32,0,0,0,22
-Barbaracle,140,stat_points,4,,5.6%,,,12,30,0,0,0,24
-Barbaracle,140,stat_points,5,,5.4%,,,24,21,0,0,8,13
-Barbaracle,140,stat_points,6,,3.7%,,,32,32,0,0,2,0
-Barbaracle,140,stat_points,7,,3.1%,,,19,32,0,0,0,15
-Barbaracle,140,stat_points,8,,2.8%,,,15,32,0,0,0,19
-Barbaracle,140,stat_points,9,,2.3%,,,6,32,1,0,0,27
-Barbaracle,140,stat_points,10,,2.2%,,,0,32,0,0,2,32
-Barbaracle,140,ability,1,Tough Claws,98.9%,,,,,,,,
-Barbaracle,140,ability,2,Sniper,1.1%,,,,,,,,
+Barbaracle,141,move,1,Shell Smash,91.3%,,,,,,,,
+Barbaracle,141,move,2,Close Combat,91.2%,,,,,,,,
+Barbaracle,141,move,3,Rock Blast,64.0%,,,,,,,,
+Barbaracle,141,move,4,Poison Jab,36.9%,,,,,,,,
+Barbaracle,141,move,5,Shadow Claw,27.8%,,,,,,,,
+Barbaracle,141,move,6,Earthquake,21.2%,,,,,,,,
+Barbaracle,141,move,7,Liquidation,15.6%,,,,,,,,
+Barbaracle,141,move,8,Rock Slide,10.1%,,,,,,,,
+Barbaracle,141,move,9,Stone Edge,9.8%,,,,,,,,
+Barbaracle,141,move,10,Dragon Claw,8.3%,,,,,,,,
+Barbaracle,141,held_item,1,Barbaracite,96.1%,,,,,,,,
+Barbaracle,141,held_item,2,Focus Sash,2.4%,,,,,,,,
+Barbaracle,141,held_item,3,Rindo Berry,0.6%,,,,,,,,
+Barbaracle,141,held_item,4,Air Balloon,0.2%,,,,,,,,
+Barbaracle,141,held_item,5,Scope Lens,0.2%,,,,,,,,
+Barbaracle,141,held_item,6,White Herb,0.1%,,,,,,,,
+Barbaracle,141,held_item,7,Red Card,0.1%,,,,,,,,
+Barbaracle,141,held_item,8,Sitrus Berry,0.1%,,,,,,,,
+Barbaracle,141,held_item,9,Shuca Berry,0.1%,,,,,,,,
+Barbaracle,141,held_item,10,Choice Scarf,0.0%,,,,,,,,
+Barbaracle,141,teammate,1,Indeedee,,,,,,,,,
+Barbaracle,141,teammate,2,Garchomp,,,,,,,,,
+Barbaracle,141,teammate,3,Hippowdon,,,,,,,,,
+Barbaracle,141,teammate,4,Charizard,,,,,,,,,
+Barbaracle,141,teammate,5,Mimikyu,,,,,,,,,
+Barbaracle,141,teammate,6,Archaludon,,,,,,,,,
+Barbaracle,141,teammate,7,Blastoise,,,,,,,,,
+Barbaracle,141,teammate,8,Dragapult,,,,,,,,,
+Barbaracle,141,teammate,9,Volcarona,,,,,,,,,
+Barbaracle,141,teammate,10,Primarina,,,,,,,,,
+Barbaracle,141,stat_alignment,1,Adamant,56.0%,Attack,Sp. Atk,,,,,,
+Barbaracle,141,stat_alignment,2,Jolly,42.4%,Speed,Sp. Atk,,,,,,
+Barbaracle,141,stat_alignment,3,Naive,0.6%,Speed,Sp. Def,,,,,,
+Barbaracle,141,stat_alignment,4,Impish,0.6%,Defense,Sp. Atk,,,,,,
+Barbaracle,141,stat_alignment,5,Hasty,0.2%,Speed,Defense,,,,,,
+Barbaracle,141,stat_alignment,6,Calm,0.2%,Sp. Def,Attack,,,,,,
+Barbaracle,141,stat_alignment,7,Brave,0.1%,Attack,Speed,,,,,,
+Barbaracle,141,stat_points,1,,25.0%,,,2,32,0,0,0,32
+Barbaracle,141,stat_points,2,,16.9%,,,10,32,0,0,0,24
+Barbaracle,141,stat_points,3,,6.4%,,,24,21,0,0,8,13
+Barbaracle,141,stat_points,4,,5.7%,,,32,32,0,0,2,0
+Barbaracle,141,stat_points,5,,3.4%,,,12,32,0,0,0,22
+Barbaracle,141,stat_points,6,,2.9%,,,15,32,0,0,0,19
+Barbaracle,141,stat_points,7,,2.8%,,,12,30,0,0,0,24
+Barbaracle,141,stat_points,8,,2.7%,,,8,32,0,0,5,21
+Barbaracle,141,stat_points,9,,2.7%,,,16,31,0,0,0,19
+Barbaracle,141,stat_points,10,,2.6%,,,26,32,0,0,0,8
+Barbaracle,141,ability,1,Tough Claws,96.9%,,,,,,,,
+Barbaracle,141,ability,2,Sniper,2.6%,,,,,,,,
+Barbaracle,141,ability,3,Pickpocket,0.4%,,,,,,,,

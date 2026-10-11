@@ -1,46 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Infernape,191,move,1,Flare Blitz,61.4%,,,,,,,,
-Infernape,191,move,2,Close Combat,59.3%,,,,,,,,
-Infernape,191,move,3,Fake Out,50.0%,,,,,,,,
-Infernape,191,move,4,Protect,38.6%,,,,,,,,
-Infernape,191,move,5,Rock Slide,31.4%,,,,,,,,
-Infernape,191,move,6,Thunder Punch,23.6%,,,,,,,,
-Infernape,191,move,7,Aura Sphere,21.4%,,,,,,,,
-Infernape,191,move,8,Mach Punch,14.3%,,,,,,,,
-Infernape,191,move,9,Nasty Plot,14.3%,,,,,,,,
-Infernape,191,move,10,Heat Wave,10.7%,,,,,,,,
-Infernape,191,held_item,1,Focus Sash,43.6%,,,,,,,,
-Infernape,191,held_item,2,Life Orb,40.7%,,,,,,,,
-Infernape,191,held_item,3,Black Belt,13.6%,,,,,,,,
-Infernape,191,held_item,4,Passho Berry,0.7%,,,,,,,,
-Infernape,191,held_item,5,Iron Ball,0.7%,,,,,,,,
-Infernape,191,held_item,6,Choice Scarf,0.7%,,,,,,,,
-Infernape,191,teammate,1,Rillaboom,,,,,,,,,
-Infernape,191,teammate,2,Floette-Eternal,,,,,,,,,
-Infernape,191,teammate,3,Farigiraf,,,,,,,,,
-Infernape,191,teammate,4,Greninja,,,,,,,,,
-Infernape,191,teammate,5,Garchomp,,,,,,,,,
-Infernape,191,teammate,6,Basculegion,,,,,,,,,
-Infernape,191,teammate,7,Aerodactyl,,,,,,,,,
-Infernape,191,teammate,8,Tyranitar,,,,,,,,,
-Infernape,191,teammate,9,Gengar,,,,,,,,,
-Infernape,191,teammate,10,Scizor,,,,,,,,,
-Infernape,191,stat_alignment,1,Adamant,34.3%,Attack,Sp. Atk,,,,,,
-Infernape,191,stat_alignment,2,Jolly,28.6%,Speed,Sp. Atk,,,,,,
-Infernape,191,stat_alignment,3,Modest,15.7%,Sp. Atk,Attack,,,,,,
-Infernape,191,stat_alignment,4,Naive,13.6%,Speed,Sp. Def,,,,,,
-Infernape,191,stat_alignment,5,Timid,5.0%,Speed,Attack,,,,,,
-Infernape,191,stat_alignment,6,Lonely,2.1%,Attack,Defense,,,,,,
-Infernape,191,stat_alignment,7,Quiet,0.7%,Sp. Atk,Speed,,,,,,
-Infernape,191,stat_points,1,,41.4%,,,2,32,0,0,0,32
-Infernape,191,stat_points,2,,13.6%,,,2,0,0,32,0,32
-Infernape,191,stat_points,3,,11.4%,,,0,32,2,0,0,32
-Infernape,191,stat_points,4,,10.0%,,,0,32,0,0,2,32
-Infernape,191,stat_points,5,,7.1%,,,0,32,0,0,0,32
-Infernape,191,stat_points,6,,5.0%,,,0,0,2,32,0,32
-Infernape,191,stat_points,7,,5.0%,,,0,17,0,17,0,32
-Infernape,191,stat_points,8,,2.1%,,,0,32,0,0,32,2
-Infernape,191,stat_points,9,,2.1%,,,28,0,0,26,0,12
-Infernape,191,stat_points,10,,1.4%,,,0,32,0,2,0,32
-Infernape,191,ability,1,Blaze,57.1%,,,,,,,,
-Infernape,191,ability,2,Iron Fist,42.9%,,,,,,,,
+Infernape,189,move,1,Close Combat,57.0%,,,,,,,,
+Infernape,189,move,2,Fake Out,50.9%,,,,,,,,
+Infernape,189,move,3,Flare Blitz,45.6%,,,,,,,,
+Infernape,189,move,4,Protect,39.7%,,,,,,,,
+Infernape,189,move,5,Thunder Punch,30.9%,,,,,,,,
+Infernape,189,move,6,Rock Slide,30.4%,,,,,,,,
+Infernape,189,move,7,Aura Sphere,19.0%,,,,,,,,
+Infernape,189,move,8,Fire Punch,16.5%,,,,,,,,
+Infernape,189,move,9,Heat Wave,14.7%,,,,,,,,
+Infernape,189,move,10,Drain Punch,14.4%,,,,,,,,
+Infernape,189,held_item,1,Focus Sash,48.4%,,,,,,,,
+Infernape,189,held_item,2,Life Orb,30.9%,,,,,,,,
+Infernape,189,held_item,3,Black Belt,7.6%,,,,,,,,
+Infernape,189,held_item,4,Expert Belt,2.5%,,,,,,,,
+Infernape,189,held_item,5,White Herb,2.0%,,,,,,,,
+Infernape,189,held_item,6,Sitrus Berry,1.5%,,,,,,,,
+Infernape,189,held_item,7,Wise Glasses,1.0%,,,,,,,,
+Infernape,189,held_item,8,Muscle Band,0.8%,,,,,,,,
+Infernape,189,held_item,9,Shuca Berry,0.5%,,,,,,,,
+Infernape,189,held_item,10,Iron Ball,0.5%,,,,,,,,
+Infernape,189,teammate,1,Rillaboom,,,,,,,,,
+Infernape,189,teammate,2,Floette-Eternal,,,,,,,,,
+Infernape,189,teammate,3,Basculegion,,,,,,,,,
+Infernape,189,teammate,4,Farigiraf,,,,,,,,,
+Infernape,189,teammate,5,Tyranitar,,,,,,,,,
+Infernape,189,teammate,6,Greninja,,,,,,,,,
+Infernape,189,teammate,7,Aerodactyl,,,,,,,,,
+Infernape,189,teammate,8,Gengar,,,,,,,,,
+Infernape,189,teammate,9,Milotic,,,,,,,,,
+Infernape,189,teammate,10,Garchomp,,,,,,,,,
+Infernape,189,stat_alignment,1,Jolly,37.2%,Speed,Sp. Atk,,,,,,
+Infernape,189,stat_alignment,2,Adamant,30.4%,Attack,Sp. Atk,,,,,,
+Infernape,189,stat_alignment,3,Modest,13.7%,Sp. Atk,Attack,,,,,,
+Infernape,189,stat_alignment,4,Naive,6.8%,Speed,Sp. Def,,,,,,
+Infernape,189,stat_alignment,5,Timid,6.1%,Speed,Attack,,,,,,
+Infernape,189,stat_alignment,6,Brave,2.3%,Attack,Speed,,,,,,
+Infernape,189,stat_alignment,7,Gentle,2.3%,Sp. Def,Defense,,,,,,
+Infernape,189,stat_alignment,8,Lonely,0.8%,Attack,Defense,,,,,,
+Infernape,189,stat_alignment,9,Hasty,0.3%,Speed,Defense,,,,,,
+Infernape,189,stat_alignment,10,Quiet,0.3%,Sp. Atk,Speed,,,,,,
+Infernape,189,stat_points,1,,51.9%,,,2,32,0,0,0,32
+Infernape,189,stat_points,2,,17.2%,,,2,0,0,32,0,32
+Infernape,189,stat_points,3,,5.3%,,,0,32,2,0,0,32
+Infernape,189,stat_points,4,,4.3%,,,6,32,0,0,0,28
+Infernape,189,stat_points,5,,3.5%,,,0,32,0,0,2,32
+Infernape,189,stat_points,6,,3.3%,,,0,32,0,0,0,32
+Infernape,189,stat_points,7,,2.5%,,,0,17,0,17,0,32
+Infernape,189,stat_points,8,,2.3%,,,2,32,0,0,32,0
+Infernape,189,stat_points,9,,2.0%,,,32,32,1,0,1,0
+Infernape,189,stat_points,10,,1.8%,,,0,0,2,32,0,32
+Infernape,189,ability,1,Blaze,50.4%,,,,,,,,
+Infernape,189,ability,2,Iron Fist,49.6%,,,,,,,,

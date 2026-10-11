@@ -1,34 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Lycanroc,196,move,1,Rock Slide,100.0%,,,,,,,,
-Lycanroc,196,move,2,Accelerock,62.9%,,,,,,,,
-Lycanroc,196,move,3,Double Team,54.8%,,,,,,,,
-Lycanroc,196,move,4,Last Resort,54.8%,,,,,,,,
-Lycanroc,196,move,5,Endeavor,33.9%,,,,,,,,
-Lycanroc,196,move,6,Psychic Fangs,31.5%,,,,,,,,
-Lycanroc,196,move,7,Close Combat,28.2%,,,,,,,,
-Lycanroc,196,move,8,Protect,18.5%,,,,,,,,
-Lycanroc,196,move,9,Taunt,10.5%,,,,,,,,
-Lycanroc,196,move,10,Drill Run,4.0%,,,,,,,,
-Lycanroc,196,held_item,1,Focus Sash,97.6%,,,,,,,,
-Lycanroc,196,held_item,2,King's Rock,1.6%,,,,,,,,
-Lycanroc,196,held_item,3,Life Orb,0.8%,,,,,,,,
-Lycanroc,196,teammate,1,Hippowdon,,,,,,,,,
-Lycanroc,196,teammate,2,Salamence,,,,,,,,,
-Lycanroc,196,teammate,3,Talonflame,,,,,,,,,
-Lycanroc,196,teammate,4,Trevenant,,,,,,,,,
-Lycanroc,196,teammate,5,Sandaconda,,,,,,,,,
-Lycanroc,196,teammate,6,Tyranitar,,,,,,,,,
-Lycanroc,196,teammate,7,Garchomp,,,,,,,,,
-Lycanroc,196,teammate,8,Farigiraf,,,,,,,,,
-Lycanroc,196,teammate,9,Chandelure,,,,,,,,,
-Lycanroc,196,teammate,10,Kingambit,,,,,,,,,
-Lycanroc,196,stat_alignment,1,Adamant,78.2%,Attack,Sp. Atk,,,,,,
-Lycanroc,196,stat_alignment,2,Jolly,21.8%,Speed,Sp. Atk,,,,,,
-Lycanroc,196,stat_points,1,,82.3%,,,2,32,0,0,0,32
-Lycanroc,196,stat_points,2,,10.5%,,,0,32,0,0,2,32
-Lycanroc,196,stat_points,3,,4.0%,,,0,32,2,0,0,32
-Lycanroc,196,stat_points,4,,2.4%,,,0,32,0,0,0,32
-Lycanroc,196,stat_points,5,,0.8%,,,1,32,0,0,0,32
-Lycanroc,196,ability,1,Sand Rush,93.5%,,,,,,,,
-Lycanroc,196,ability,2,Keen Eye,4.0%,,,,,,,,
-Lycanroc,196,ability,3,Steadfast,2.4%,,,,,,,,
+Lycanroc,190,move,1,Rock Slide,94.2%,,,,,,,,
+Lycanroc,190,move,2,Close Combat,53.6%,,,,,,,,
+Lycanroc,190,move,3,Psychic Fangs,47.2%,,,,,,,,
+Lycanroc,190,move,4,Accelerock,41.2%,,,,,,,,
+Lycanroc,190,move,5,Protect,38.5%,,,,,,,,
+Lycanroc,190,move,6,Endeavor,18.7%,,,,,,,,
+Lycanroc,190,move,7,Double Team,17.9%,,,,,,,,
+Lycanroc,190,move,8,Last Resort,17.9%,,,,,,,,
+Lycanroc,190,move,9,Taunt,13.2%,,,,,,,,
+Lycanroc,190,move,10,Howl,10.3%,,,,,,,,
+Lycanroc,190,held_item,1,Focus Sash,77.0%,,,,,,,,
+Lycanroc,190,held_item,2,King's Rock,11.1%,,,,,,,,
+Lycanroc,190,held_item,3,Chople Berry,5.8%,,,,,,,,
+Lycanroc,190,held_item,4,Life Orb,5.0%,,,,,,,,
+Lycanroc,190,held_item,5,Hard Stone,1.1%,,,,,,,,
+Lycanroc,190,teammate,1,Tyranitar,,,,,,,,,
+Lycanroc,190,teammate,2,Garchomp,,,,,,,,,
+Lycanroc,190,teammate,3,Venusaur,,,,,,,,,
+Lycanroc,190,teammate,4,Salamence,,,,,,,,,
+Lycanroc,190,teammate,5,Hippowdon,,,,,,,,,
+Lycanroc,190,teammate,6,Rillaboom,,,,,,,,,
+Lycanroc,190,teammate,7,Charizard,,,,,,,,,
+Lycanroc,190,teammate,8,Sneasler,,,,,,,,,
+Lycanroc,190,teammate,9,Blaziken,,,,,,,,,
+Lycanroc,190,teammate,10,Trevenant,,,,,,,,,
+Lycanroc,190,stat_alignment,1,Jolly,53.0%,Speed,Sp. Atk,,,,,,
+Lycanroc,190,stat_alignment,2,Adamant,46.4%,Attack,Sp. Atk,,,,,,
+Lycanroc,190,stat_alignment,3,Timid,0.5%,Speed,Attack,,,,,,
+Lycanroc,190,stat_points,1,,59.9%,,,2,32,0,0,0,32
+Lycanroc,190,stat_points,2,,20.1%,,,0,32,2,0,0,32
+Lycanroc,190,stat_points,3,,11.3%,,,0,32,0,0,2,32
+Lycanroc,190,stat_points,4,,3.2%,,,11,32,0,0,0,23
+Lycanroc,190,stat_points,5,,2.4%,,,1,32,1,0,0,32
+Lycanroc,190,stat_points,6,,0.8%,,,0,32,0,0,0,32
+Lycanroc,190,stat_points,7,,0.8%,,,0,32,1,0,1,32
+Lycanroc,190,stat_points,8,,0.5%,,,0,32,1,0,0,32
+Lycanroc,190,stat_points,9,,0.5%,,,1,32,0,0,0,32
+Lycanroc,190,stat_points,10,,0.5%,,,26,32,0,0,0,8
+Lycanroc,190,ability,1,Sand Rush,78.6%,,,,,,,,
+Lycanroc,190,ability,2,Steadfast,14.0%,,,,,,,,
+Lycanroc,190,ability,3,Keen Eye,7.4%,,,,,,,,

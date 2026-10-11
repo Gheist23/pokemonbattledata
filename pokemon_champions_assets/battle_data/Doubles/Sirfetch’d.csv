@@ -1,41 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sirfetch’d,100,move,1,Meteor Assault,83.4%,,,,,,,,
-Sirfetch’d,100,move,2,Close Combat,69.9%,,,,,,,,
-Sirfetch’d,100,move,3,Detect,68.0%,,,,,,,,
-Sirfetch’d,100,move,4,Leaf Blade,48.5%,,,,,,,,
-Sirfetch’d,100,move,5,Feint,33.1%,,,,,,,,
-Sirfetch’d,100,move,6,First Impression,20.3%,,,,,,,,
-Sirfetch’d,100,move,7,Poison Jab,15.3%,,,,,,,,
-Sirfetch’d,100,move,8,Brave Bird,10.9%,,,,,,,,
-Sirfetch’d,100,move,9,Protect,10.1%,,,,,,,,
-Sirfetch’d,100,move,10,Night Slash,10.0%,,,,,,,,
-Sirfetch’d,100,held_item,1,Leek,70.9%,,,,,,,,
-Sirfetch’d,100,held_item,2,Life Orb,11.8%,,,,,,,,
-Sirfetch’d,100,held_item,3,Black Belt,8.7%,,,,,,,,
-Sirfetch’d,100,held_item,4,Choice Scarf,6.4%,,,,,,,,
-Sirfetch’d,100,held_item,5,Focus Sash,2.1%,,,,,,,,
-Sirfetch’d,100,held_item,6,Sitrus Berry,0.1%,,,,,,,,
-Sirfetch’d,100,teammate,1,Indeedee-F,,,,,,,,,
-Sirfetch’d,100,teammate,2,Farigiraf,,,,,,,,,
-Sirfetch’d,100,teammate,3,Incineroar,,,,,,,,,
-Sirfetch’d,100,teammate,4,Metagross,,,,,,,,,
-Sirfetch’d,100,teammate,5,Garchomp,,,,,,,,,
-Sirfetch’d,100,teammate,6,Whimsicott,,,,,,,,,
-Sirfetch’d,100,teammate,7,Salamence,,,,,,,,,
-Sirfetch’d,100,teammate,8,Armarouge,,,,,,,,,
-Sirfetch’d,100,teammate,9,Gardevoir,,,,,,,,,
-Sirfetch’d,100,teammate,10,Rillaboom,,,,,,,,,
-Sirfetch’d,100,stat_alignment,1,Adamant,50.4%,Attack,Sp. Atk,,,,,,
-Sirfetch’d,100,stat_alignment,2,Brave,39.6%,Attack,Speed,,,,,,
-Sirfetch’d,100,stat_alignment,3,Jolly,10.0%,Speed,Sp. Atk,,,,,,
-Sirfetch’d,100,stat_points,1,,22.5%,,,32,32,0,0,2,0
-Sirfetch’d,100,stat_points,2,,18.2%,,,2,32,0,0,0,32
-Sirfetch’d,100,stat_points,3,,13.9%,,,32,32,2,0,0,0
-Sirfetch’d,100,stat_points,4,,3.6%,,,18,32,0,0,0,16
-Sirfetch’d,100,stat_points,5,,3.0%,,,3,32,0,0,0,31
-Sirfetch’d,100,stat_points,6,,3.0%,,,10,30,0,0,26,0
-Sirfetch’d,100,stat_points,7,,2.7%,,,32,32,0,0,0,2
-Sirfetch’d,100,stat_points,8,,2.6%,,,24,32,0,0,0,10
-Sirfetch’d,100,stat_points,9,,2.0%,,,0,32,0,0,18,16
-Sirfetch’d,100,stat_points,10,,2.0%,,,0,32,21,0,13,0
-Sirfetch’d,100,ability,1,Scrappy,100.0%,,,,,,,,
+Sirfetch’d,104,move,1,Meteor Assault,78.8%,,,,,,,,
+Sirfetch’d,104,move,2,Close Combat,67.4%,,,,,,,,
+Sirfetch’d,104,move,3,Detect,61.4%,,,,,,,,
+Sirfetch’d,104,move,4,Leaf Blade,50.5%,,,,,,,,
+Sirfetch’d,104,move,5,Feint,28.8%,,,,,,,,
+Sirfetch’d,104,move,6,First Impression,17.6%,,,,,,,,
+Sirfetch’d,104,move,7,Night Slash,16.6%,,,,,,,,
+Sirfetch’d,104,move,8,Poison Jab,14.5%,,,,,,,,
+Sirfetch’d,104,move,9,Protect,13.8%,,,,,,,,
+Sirfetch’d,104,move,10,Brave Bird,13.2%,,,,,,,,
+Sirfetch’d,104,held_item,1,Leek,74.3%,,,,,,,,
+Sirfetch’d,104,held_item,2,Life Orb,8.5%,,,,,,,,
+Sirfetch’d,104,held_item,3,Black Belt,7.3%,,,,,,,,
+Sirfetch’d,104,held_item,4,Choice Scarf,6.5%,,,,,,,,
+Sirfetch’d,104,held_item,5,Focus Sash,2.9%,,,,,,,,
+Sirfetch’d,104,held_item,6,Grassy Seed,0.3%,,,,,,,,
+Sirfetch’d,104,held_item,7,Iron Ball,0.2%,,,,,,,,
+Sirfetch’d,104,held_item,8,Expert Belt,0.1%,,,,,,,,
+Sirfetch’d,104,held_item,9,Sitrus Berry,0.1%,,,,,,,,
+Sirfetch’d,104,teammate,1,Farigiraf,,,,,,,,,
+Sirfetch’d,104,teammate,2,Indeedee-F,,,,,,,,,
+Sirfetch’d,104,teammate,3,Incineroar,,,,,,,,,
+Sirfetch’d,104,teammate,4,Armarouge,,,,,,,,,
+Sirfetch’d,104,teammate,5,Gardevoir,,,,,,,,,
+Sirfetch’d,104,teammate,6,Golisopod,,,,,,,,,
+Sirfetch’d,104,teammate,7,Torkoal,,,,,,,,,
+Sirfetch’d,104,teammate,8,Camerupt,,,,,,,,,
+Sirfetch’d,104,teammate,9,Whimsicott,,,,,,,,,
+Sirfetch’d,104,teammate,10,Metagross,,,,,,,,,
+Sirfetch’d,104,stat_alignment,1,Adamant,46.3%,Attack,Sp. Atk,,,,,,
+Sirfetch’d,104,stat_alignment,2,Brave,43.7%,Attack,Speed,,,,,,
+Sirfetch’d,104,stat_alignment,3,Jolly,8.8%,Speed,Sp. Atk,,,,,,
+Sirfetch’d,104,stat_alignment,4,Careful,1.0%,Sp. Def,Sp. Atk,,,,,,
+Sirfetch’d,104,stat_alignment,5,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Sirfetch’d,104,stat_points,1,,25.3%,,,32,32,0,0,2,0
+Sirfetch’d,104,stat_points,2,,15.9%,,,2,32,0,0,0,32
+Sirfetch’d,104,stat_points,3,,13.3%,,,32,32,2,0,0,0
+Sirfetch’d,104,stat_points,4,,4.2%,,,3,32,0,0,0,31
+Sirfetch’d,104,stat_points,5,,3.1%,,,22,32,0,0,0,12
+Sirfetch’d,104,stat_points,6,,3.0%,,,18,32,0,0,0,16
+Sirfetch’d,104,stat_points,7,,2.2%,,,0,32,17,0,17,0
+Sirfetch’d,104,stat_points,8,,1.9%,,,0,32,2,0,0,32
+Sirfetch’d,104,stat_points,9,,1.7%,,,24,32,0,0,0,10
+Sirfetch’d,104,stat_points,10,,1.5%,,,28,32,0,0,0,6
+Sirfetch’d,104,ability,1,Scrappy,99.9%,,,,,,,,
+Sirfetch’d,104,ability,2,Steadfast,0.1%,,,,,,,,

@@ -1,40 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom-Mow,223,move,1,Leaf Storm,100.0%,,,,,,,,
-Rotom-Mow,223,move,2,Thunderbolt,68.0%,,,,,,,,
-Rotom-Mow,223,move,3,Protect,52.0%,,,,,,,,
-Rotom-Mow,223,move,4,Volt Switch,28.0%,,,,,,,,
-Rotom-Mow,223,move,5,Electroweb,28.0%,,,,,,,,
-Rotom-Mow,223,move,6,Eerie Impulse,26.0%,,,,,,,,
-Rotom-Mow,223,move,7,Helping Hand,20.0%,,,,,,,,
-Rotom-Mow,223,move,8,Will-O-Wisp,18.0%,,,,,,,,
-Rotom-Mow,223,move,9,Shadow Ball,16.0%,,,,,,,,
-Rotom-Mow,223,move,10,Thunder Wave,16.0%,,,,,,,,
-Rotom-Mow,223,held_item,1,Sitrus Berry,44.0%,,,,,,,,
-Rotom-Mow,223,held_item,2,Choice Scarf,28.0%,,,,,,,,
-Rotom-Mow,223,held_item,3,Leftovers,20.0%,,,,,,,,
-Rotom-Mow,223,held_item,4,Wide Lens,6.0%,,,,,,,,
-Rotom-Mow,223,held_item,5,Focus Sash,2.0%,,,,,,,,
-Rotom-Mow,223,teammate,1,Sneasler,,,,,,,,,
-Rotom-Mow,223,teammate,2,Garchomp,,,,,,,,,
-Rotom-Mow,223,teammate,3,Dragonite,,,,,,,,,
-Rotom-Mow,223,teammate,4,Gholdengo,,,,,,,,,
-Rotom-Mow,223,teammate,5,Golisopod,,,,,,,,,
-Rotom-Mow,223,teammate,6,Incineroar,,,,,,,,,
-Rotom-Mow,223,teammate,7,Lucario,,,,,,,,,
-Rotom-Mow,223,teammate,8,Primarina,,,,,,,,,
-Rotom-Mow,223,teammate,9,Basculegion,,,,,,,,,
-Rotom-Mow,223,teammate,10,Tyranitar,,,,,,,,,
-Rotom-Mow,223,stat_alignment,1,Modest,74.0%,Sp. Atk,Attack,,,,,,
-Rotom-Mow,223,stat_alignment,2,Bold,20.0%,Defense,Attack,,,,,,
-Rotom-Mow,223,stat_alignment,3,Timid,6.0%,Speed,Attack,,,,,,
-Rotom-Mow,223,stat_points,1,,24.0%,,,2,0,0,32,0,32
-Rotom-Mow,223,stat_points,2,,16.0%,,,0,0,32,32,0,0
-Rotom-Mow,223,stat_points,3,,14.0%,,,32,0,0,0,2,32
-Rotom-Mow,223,stat_points,4,,12.0%,,,32,0,0,25,0,9
-Rotom-Mow,223,stat_points,5,,12.0%,,,32,0,0,32,0,2
-Rotom-Mow,223,stat_points,6,,6.0%,,,11,0,0,32,23,0
-Rotom-Mow,223,stat_points,7,,4.0%,,,32,0,0,2,0,32
-Rotom-Mow,223,stat_points,8,,4.0%,,,32,0,18,0,16,0
-Rotom-Mow,223,stat_points,9,,2.0%,,,0,0,0,25,9,32
-Rotom-Mow,223,stat_points,10,,2.0%,,,0,0,32,32,2,0
-Rotom-Mow,223,ability,1,Levitate,100.0%,,,,,,,,
+Rotom-Mow,219,move,1,Leaf Storm,97.6%,,,,,,,,
+Rotom-Mow,219,move,2,Thunderbolt,70.2%,,,,,,,,
+Rotom-Mow,219,move,3,Protect,42.3%,,,,,,,,
+Rotom-Mow,219,move,4,Electroweb,32.1%,,,,,,,,
+Rotom-Mow,219,move,5,Will-O-Wisp,28.0%,,,,,,,,
+Rotom-Mow,219,move,6,Volt Switch,27.4%,,,,,,,,
+Rotom-Mow,219,move,7,Helping Hand,26.8%,,,,,,,,
+Rotom-Mow,219,move,8,Eerie Impulse,11.9%,,,,,,,,
+Rotom-Mow,219,move,9,Shadow Ball,11.3%,,,,,,,,
+Rotom-Mow,219,move,10,Thunder Wave,11.3%,,,,,,,,
+Rotom-Mow,219,held_item,1,Sitrus Berry,44.6%,,,,,,,,
+Rotom-Mow,219,held_item,2,Choice Scarf,29.8%,,,,,,,,
+Rotom-Mow,219,held_item,3,Leftovers,16.1%,,,,,,,,
+Rotom-Mow,219,held_item,4,Rocky Helmet,3.6%,,,,,,,,
+Rotom-Mow,219,held_item,5,Life Orb,2.4%,,,,,,,,
+Rotom-Mow,219,held_item,6,Wide Lens,1.8%,,,,,,,,
+Rotom-Mow,219,held_item,7,Focus Sash,0.6%,,,,,,,,
+Rotom-Mow,219,held_item,8,Air Balloon,0.6%,,,,,,,,
+Rotom-Mow,219,held_item,9,Psychic Seed,0.6%,,,,,,,,
+Rotom-Mow,219,teammate,1,Garchomp,,,,,,,,,
+Rotom-Mow,219,teammate,2,Sneasler,,,,,,,,,
+Rotom-Mow,219,teammate,3,Dragonite,,,,,,,,,
+Rotom-Mow,219,teammate,4,Basculegion,,,,,,,,,
+Rotom-Mow,219,teammate,5,Gholdengo,,,,,,,,,
+Rotom-Mow,219,teammate,6,Raichu,,,,,,,,,
+Rotom-Mow,219,teammate,7,Indeedee-F,,,,,,,,,
+Rotom-Mow,219,teammate,8,Armarouge,,,,,,,,,
+Rotom-Mow,219,teammate,9,Incineroar,,,,,,,,,
+Rotom-Mow,219,teammate,10,Primarina,,,,,,,,,
+Rotom-Mow,219,stat_alignment,1,Modest,32.1%,Sp. Atk,Attack,,,,,,
+Rotom-Mow,219,stat_alignment,2,Timid,25.6%,Speed,Attack,,,,,,
+Rotom-Mow,219,stat_alignment,3,Bold,20.2%,Defense,Attack,,,,,,
+Rotom-Mow,219,stat_alignment,4,Calm,19.6%,Sp. Def,Attack,,,,,,
+Rotom-Mow,219,stat_alignment,5,Mild,2.4%,Sp. Atk,Defense,,,,,,
+Rotom-Mow,219,stat_points,1,,23.8%,,,2,0,0,32,0,32
+Rotom-Mow,219,stat_points,2,,14.9%,,,32,0,9,10,0,15
+Rotom-Mow,219,stat_points,3,,12.5%,,,32,0,0,0,2,32
+Rotom-Mow,219,stat_points,4,,11.3%,,,0,0,32,32,0,0
+Rotom-Mow,219,stat_points,5,,6.5%,,,0,0,0,32,2,32
+Rotom-Mow,219,stat_points,6,,5.4%,,,32,0,0,32,0,2
+Rotom-Mow,219,stat_points,7,,5.4%,,,32,0,3,6,16,9
+Rotom-Mow,219,stat_points,8,,4.8%,,,32,0,0,25,0,9
+Rotom-Mow,219,stat_points,9,,3.0%,,,32,0,2,0,32,0
+Rotom-Mow,219,stat_points,10,,2.4%,,,0,0,0,32,32,2
+Rotom-Mow,219,ability,1,Levitate,100.0%,,,,,,,,

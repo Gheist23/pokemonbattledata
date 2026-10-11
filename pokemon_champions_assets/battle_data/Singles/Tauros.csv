@@ -1,36 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tauros,249,move,1,Ice Beam,68.8%,,,,,,,,
-Tauros,249,move,2,Shadow Ball,66.7%,,,,,,,,
-Tauros,249,move,3,Thunderbolt,66.7%,,,,,,,,
-Tauros,249,move,4,Fire Blast,64.6%,,,,,,,,
-Tauros,249,move,5,Earthquake,31.3%,,,,,,,,
-Tauros,249,move,6,Iron Head,29.2%,,,,,,,,
-Tauros,249,move,7,Stone Edge,18.8%,,,,,,,,
-Tauros,249,move,8,Outrage,16.7%,,,,,,,,
-Tauros,249,move,9,Close Combat,14.6%,,,,,,,,
-Tauros,249,move,10,Rock Tomb,12.5%,,,,,,,,
-Tauros,249,held_item,1,Life Orb,68.8%,,,,,,,,
-Tauros,249,held_item,2,Focus Sash,16.7%,,,,,,,,
-Tauros,249,held_item,3,Choice Scarf,12.5%,,,,,,,,
-Tauros,249,held_item,4,Expert Belt,2.1%,,,,,,,,
-Tauros,249,teammate,1,Garchomp,,,,,,,,,
-Tauros,249,teammate,2,Starmie,,,,,,,,,
-Tauros,249,teammate,3,Archaludon,,,,,,,,,
-Tauros,249,teammate,4,Zoroark-Hisui,,,,,,,,,
-Tauros,249,teammate,5,Klefki,,,,,,,,,
-Tauros,249,teammate,6,Blaziken,,,,,,,,,
-Tauros,249,teammate,7,Venusaur,,,,,,,,,
-Tauros,249,teammate,8,Jolteon,,,,,,,,,
-Tauros,249,teammate,9,Dragonite,,,,,,,,,
-Tauros,249,teammate,10,Rhyperior,,,,,,,,,
-Tauros,249,stat_alignment,1,Timid,66.7%,Speed,Attack,,,,,,
-Tauros,249,stat_alignment,2,Adamant,29.2%,Attack,Sp. Atk,,,,,,
-Tauros,249,stat_alignment,3,Jolly,2.1%,Speed,Sp. Atk,,,,,,
-Tauros,249,stat_alignment,4,Modest,2.1%,Sp. Atk,Attack,,,,,,
-Tauros,249,stat_points,1,,64.6%,,,2,0,0,32,0,32
-Tauros,249,stat_points,2,,18.8%,,,2,32,0,0,0,32
-Tauros,249,stat_points,3,,12.5%,,,1,32,1,0,0,32
-Tauros,249,stat_points,4,,2.1%,,,1,1,0,32,0,32
-Tauros,249,stat_points,5,,2.1%,,,32,0,0,32,2,0
-Tauros,249,ability,1,Sheer Force,85.4%,,,,,,,,
-Tauros,249,ability,2,Intimidate,14.6%,,,,,,,,
+Tauros,243,move,1,Ice Beam,48.5%,,,,,,,,
+Tauros,243,move,2,Thunderbolt,43.4%,,,,,,,,
+Tauros,243,move,3,Shadow Ball,35.0%,,,,,,,,
+Tauros,243,move,4,Close Combat,32.1%,,,,,,,,
+Tauros,243,move,5,Fire Blast,27.4%,,,,,,,,
+Tauros,243,move,6,Earthquake,25.5%,,,,,,,,
+Tauros,243,move,7,Iron Head,20.4%,,,,,,,,
+Tauros,243,move,8,Flamethrower,19.7%,,,,,,,,
+Tauros,243,move,9,Rock Slide,15.7%,,,,,,,,
+Tauros,243,move,10,Double-Edge,13.5%,,,,,,,,
+Tauros,243,held_item,1,Life Orb,61.7%,,,,,,,,
+Tauros,243,held_item,2,Focus Sash,13.1%,,,,,,,,
+Tauros,243,held_item,3,Expert Belt,10.2%,,,,,,,,
+Tauros,243,held_item,4,Choice Scarf,7.7%,,,,,,,,
+Tauros,243,held_item,5,Chople Berry,4.0%,,,,,,,,
+Tauros,243,held_item,6,Silk Scarf,2.2%,,,,,,,,
+Tauros,243,held_item,7,Eject Button,0.7%,,,,,,,,
+Tauros,243,held_item,8,Sitrus Berry,0.4%,,,,,,,,
+Tauros,243,teammate,1,Garchomp,,,,,,,,,
+Tauros,243,teammate,2,Dragonite,,,,,,,,,
+Tauros,243,teammate,3,Venusaur,,,,,,,,,
+Tauros,243,teammate,4,Gyarados,,,,,,,,,
+Tauros,243,teammate,5,Archaludon,,,,,,,,,
+Tauros,243,teammate,6,Starmie,,,,,,,,,
+Tauros,243,teammate,7,Steelix,,,,,,,,,
+Tauros,243,teammate,8,Torterra,,,,,,,,,
+Tauros,243,teammate,9,Lucario,,,,,,,,,
+Tauros,243,teammate,10,Zoroark-Hisui,,,,,,,,,
+Tauros,243,stat_alignment,1,Timid,36.1%,Speed,Attack,,,,,,
+Tauros,243,stat_alignment,2,Adamant,17.2%,Attack,Sp. Atk,,,,,,
+Tauros,243,stat_alignment,3,Naive,15.3%,Speed,Sp. Def,,,,,,
+Tauros,243,stat_alignment,4,Jolly,9.5%,Speed,Sp. Atk,,,,,,
+Tauros,243,stat_alignment,5,Brave,8.8%,Attack,Speed,,,,,,
+Tauros,243,stat_alignment,6,Hasty,6.9%,Speed,Defense,,,,,,
+Tauros,243,stat_alignment,7,Careful,4.0%,Sp. Def,Sp. Atk,,,,,,
+Tauros,243,stat_alignment,8,Modest,1.8%,Sp. Atk,Attack,,,,,,
+Tauros,243,stat_alignment,9,Serious,0.4%,,,,,,,,
+Tauros,243,stat_points,1,,35.4%,,,2,0,0,32,0,32
+Tauros,243,stat_points,2,,19.3%,,,2,32,0,0,0,32
+Tauros,243,stat_points,3,,8.8%,,,1,32,0,32,1,0
+Tauros,243,stat_points,4,,6.9%,,,0,2,0,32,0,32
+Tauros,243,stat_points,5,,6.2%,,,21,20,0,0,0,25
+Tauros,243,stat_points,6,,5.8%,,,0,32,0,2,0,32
+Tauros,243,stat_points,7,,4.0%,,,0,32,2,0,0,32
+Tauros,243,stat_points,8,,3.6%,,,1,32,1,0,0,32
+Tauros,243,stat_points,9,,2.9%,,,1,32,0,0,1,32
+Tauros,243,stat_points,10,,2.2%,,,0,0,15,26,0,25
+Tauros,243,ability,1,Sheer Force,79.2%,,,,,,,,
+Tauros,243,ability,2,Intimidate,20.8%,,,,,,,,

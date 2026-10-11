@@ -1,51 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emolga,195,move,1,Nuzzle,61.0%,,,,,,,,
-Emolga,195,move,2,Roost,51.7%,,,,,,,,
-Emolga,195,move,3,Encore,47.3%,,,,,,,,
-Emolga,195,move,4,Air Slash,46.3%,,,,,,,,
-Emolga,195,move,5,Volt Switch,39.4%,,,,,,,,
-Emolga,195,move,6,Charm,39.0%,,,,,,,,
-Emolga,195,move,7,Taunt,35.6%,,,,,,,,
-Emolga,195,move,8,Light Screen,20.6%,,,,,,,,
-Emolga,195,move,9,Eerie Impulse,12.7%,,,,,,,,
-Emolga,195,move,10,Electro Ball,11.1%,,,,,,,,
-Emolga,195,held_item,1,Rocky Helmet,40.3%,,,,,,,,
-Emolga,195,held_item,2,Focus Sash,29.5%,,,,,,,,
-Emolga,195,held_item,3,King's Rock,26.0%,,,,,,,,
-Emolga,195,held_item,4,Bright Powder,1.3%,,,,,,,,
-Emolga,195,held_item,5,Lum Berry,0.6%,,,,,,,,
-Emolga,195,held_item,6,Sitrus Berry,0.6%,,,,,,,,
-Emolga,195,held_item,7,Yache Berry,0.3%,,,,,,,,
-Emolga,195,held_item,8,Mental Herb,0.3%,,,,,,,,
-Emolga,195,held_item,9,Leftovers,0.3%,,,,,,,,
-Emolga,195,held_item,10,Light Ball,0.3%,,,,,,,,
-Emolga,195,teammate,1,Garchomp,,,,,,,,,
-Emolga,195,teammate,2,Lucario,,,,,,,,,
-Emolga,195,teammate,3,Volcarona,,,,,,,,,
-Emolga,195,teammate,4,Hippowdon,,,,,,,,,
-Emolga,195,teammate,5,Toxapex,,,,,,,,,
-Emolga,195,teammate,6,Gholdengo,,,,,,,,,
-Emolga,195,teammate,7,Mimikyu,,,,,,,,,
-Emolga,195,teammate,8,Hawlucha,,,,,,,,,
-Emolga,195,teammate,9,Palafin,,,,,,,,,
-Emolga,195,teammate,10,Golisopod,,,,,,,,,
-Emolga,195,stat_alignment,1,Bold,40.0%,Defense,Attack,,,,,,
-Emolga,195,stat_alignment,2,Timid,35.2%,Speed,Attack,,,,,,
-Emolga,195,stat_alignment,3,Adamant,20.6%,Attack,Sp. Atk,,,,,,
-Emolga,195,stat_alignment,4,Mild,1.6%,Sp. Atk,Defense,,,,,,
-Emolga,195,stat_alignment,5,Calm,1.6%,Sp. Def,Attack,,,,,,
-Emolga,195,stat_alignment,6,Hardy,0.3%,,,,,,,,
-Emolga,195,stat_alignment,7,Jolly,0.3%,Speed,Sp. Atk,,,,,,
-Emolga,195,stat_alignment,8,Impish,0.3%,Defense,Sp. Atk,,,,,,
-Emolga,195,stat_points,1,,15.6%,,,32,0,32,0,2,0
-Emolga,195,stat_points,2,,13.7%,,,2,0,32,0,0,32
-Emolga,195,stat_points,3,,13.3%,,,0,32,2,0,0,32
-Emolga,195,stat_points,4,,11.1%,,,2,0,0,32,0,32
-Emolga,195,stat_points,5,,9.2%,,,32,0,32,2,0,0
-Emolga,195,stat_points,6,,7.6%,,,32,0,32,0,0,0
-Emolga,195,stat_points,7,,7.0%,,,32,0,2,0,32,0
-Emolga,195,stat_points,8,,6.7%,,,1,0,0,32,1,32
-Emolga,195,stat_points,9,,5.1%,,,29,0,32,0,0,5
-Emolga,195,stat_points,10,,2.5%,,,0,0,0,32,0,32
-Emolga,195,ability,1,Motor Drive,58.7%,,,,,,,,
-Emolga,195,ability,2,Static,41.3%,,,,,,,,
+Emolga,210,move,1,Nuzzle,58.3%,,,,,,,,
+Emolga,210,move,2,Encore,51.8%,,,,,,,,
+Emolga,210,move,3,Roost,45.7%,,,,,,,,
+Emolga,210,move,4,Charm,42.4%,,,,,,,,
+Emolga,210,move,5,Volt Switch,38.7%,,,,,,,,
+Emolga,210,move,6,Air Slash,38.5%,,,,,,,,
+Emolga,210,move,7,Taunt,34.2%,,,,,,,,
+Emolga,210,move,8,Eerie Impulse,13.1%,,,,,,,,
+Emolga,210,move,9,Light Screen,12.1%,,,,,,,,
+Emolga,210,move,10,Discharge,11.9%,,,,,,,,
+Emolga,210,held_item,1,Rocky Helmet,37.8%,,,,,,,,
+Emolga,210,held_item,2,Focus Sash,24.7%,,,,,,,,
+Emolga,210,held_item,3,King's Rock,15.9%,,,,,,,,
+Emolga,210,held_item,4,Sitrus Berry,9.4%,,,,,,,,
+Emolga,210,held_item,5,Bright Powder,3.6%,,,,,,,,
+Emolga,210,held_item,6,Red Card,2.5%,,,,,,,,
+Emolga,210,held_item,7,Eject Button,2.2%,,,,,,,,
+Emolga,210,held_item,8,Choice Scarf,1.5%,,,,,,,,
+Emolga,210,held_item,9,Leftovers,0.6%,,,,,,,,
+Emolga,210,held_item,10,Lum Berry,0.3%,,,,,,,,
+Emolga,210,teammate,1,Garchomp,,,,,,,,,
+Emolga,210,teammate,2,Lucario,,,,,,,,,
+Emolga,210,teammate,3,Golisopod,,,,,,,,,
+Emolga,210,teammate,4,Primarina,,,,,,,,,
+Emolga,210,teammate,5,Hippowdon,,,,,,,,,
+Emolga,210,teammate,6,Toxapex,,,,,,,,,
+Emolga,210,teammate,7,Mimikyu,,,,,,,,,
+Emolga,210,teammate,8,Volcarona,,,,,,,,,
+Emolga,210,teammate,9,Gholdengo,,,,,,,,,
+Emolga,210,teammate,10,Meowscarada,,,,,,,,,
+Emolga,210,stat_alignment,1,Timid,40.0%,Speed,Attack,,,,,,
+Emolga,210,stat_alignment,2,Bold,36.3%,Defense,Attack,,,,,,
+Emolga,210,stat_alignment,3,Adamant,9.7%,Attack,Sp. Atk,,,,,,
+Emolga,210,stat_alignment,4,Modest,3.6%,Sp. Atk,Attack,,,,,,
+Emolga,210,stat_alignment,5,Jolly,2.8%,Speed,Sp. Atk,,,,,,
+Emolga,210,stat_alignment,6,Mild,2.8%,Sp. Atk,Defense,,,,,,
+Emolga,210,stat_alignment,7,Calm,2.1%,Sp. Def,Attack,,,,,,
+Emolga,210,stat_alignment,8,Naive,1.8%,Speed,Sp. Def,,,,,,
+Emolga,210,stat_alignment,9,Hasty,0.3%,Speed,Defense,,,,,,
+Emolga,210,stat_alignment,10,Impish,0.3%,Defense,Sp. Atk,,,,,,
+Emolga,210,stat_points,1,,11.3%,,,32,0,32,0,2,0
+Emolga,210,stat_points,2,,8.6%,,,32,0,32,0,0,2
+Emolga,210,stat_points,3,,8.3%,,,2,0,0,32,0,32
+Emolga,210,stat_points,4,,6.5%,,,2,0,32,0,0,32
+Emolga,210,stat_points,5,,6.3%,,,0,32,2,0,0,32
+Emolga,210,stat_points,6,,5.8%,,,32,0,2,0,0,32
+Emolga,210,stat_points,7,,5.4%,,,32,0,32,0,0,0
+Emolga,210,stat_points,8,,4.3%,,,32,0,32,2,0,0
+Emolga,210,stat_points,9,,4.0%,,,1,0,0,32,1,32
+Emolga,210,stat_points,10,,4.0%,,,29,0,30,0,0,7
+Emolga,210,ability,1,Motor Drive,57.6%,,,,,,,,
+Emolga,210,ability,2,Static,42.4%,,,,,,,,

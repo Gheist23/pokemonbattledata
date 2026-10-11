@@ -1,43 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Farfetch’d,245,move,1,Slash,45.8%,,,,,,,,
-Farfetch’d,245,move,2,Close Combat,44.1%,,,,,,,,
-Farfetch’d,245,move,3,Night Slash,42.4%,,,,,,,,
-Farfetch’d,245,move,4,Swords Dance,39.0%,,,,,,,,
-Farfetch’d,245,move,5,Leaf Blade,37.3%,,,,,,,,
-Farfetch’d,245,move,6,Agility,32.2%,,,,,,,,
-Farfetch’d,245,move,7,Brave Bird,28.8%,,,,,,,,
-Farfetch’d,245,move,8,Baton Pass,20.3%,,,,,,,,
-Farfetch’d,245,move,9,Substitute,18.6%,,,,,,,,
-Farfetch’d,245,move,10,Flail,18.6%,,,,,,,,
-Farfetch’d,245,held_item,1,Leek,45.8%,,,,,,,,
-Farfetch’d,245,held_item,2,Focus Sash,33.9%,,,,,,,,
-Farfetch’d,245,held_item,3,Choice Scarf,13.6%,,,,,,,,
-Farfetch’d,245,held_item,4,Red Card,5.1%,,,,,,,,
-Farfetch’d,245,held_item,5,Chesto Berry,1.7%,,,,,,,,
-Farfetch’d,245,teammate,1,Sirfetch’d,,,,,,,,,
-Farfetch’d,245,teammate,2,Polteageist,,,,,,,,,
-Farfetch’d,245,teammate,3,Raichu-Alola,,,,,,,,,
-Farfetch’d,245,teammate,4,Sinistcha,,,,,,,,,
-Farfetch’d,245,teammate,5,Delphox,,,,,,,,,
-Farfetch’d,245,teammate,6,Primarina,,,,,,,,,
-Farfetch’d,245,teammate,7,Pincurchin,,,,,,,,,
-Farfetch’d,245,teammate,8,Indeedee,,,,,,,,,
-Farfetch’d,245,teammate,9,Garchomp,,,,,,,,,
-Farfetch’d,245,teammate,10,Archaludon,,,,,,,,,
-Farfetch’d,245,stat_alignment,1,Jolly,76.3%,Speed,Sp. Atk,,,,,,
-Farfetch’d,245,stat_alignment,2,Naive,11.9%,Speed,Sp. Def,,,,,,
-Farfetch’d,245,stat_alignment,3,Lonely,6.8%,Attack,Defense,,,,,,
-Farfetch’d,245,stat_alignment,4,Adamant,1.7%,Attack,Sp. Atk,,,,,,
-Farfetch’d,245,stat_alignment,5,Naughty,1.7%,Attack,Sp. Def,,,,,,
-Farfetch’d,245,stat_alignment,6,Impish,1.7%,Defense,Sp. Atk,,,,,,
-Farfetch’d,245,stat_points,1,,30.5%,,,18,25,0,0,0,23
-Farfetch’d,245,stat_points,2,,22.0%,,,2,32,0,0,0,32
-Farfetch’d,245,stat_points,3,,15.3%,,,32,2,0,0,0,32
-Farfetch’d,245,stat_points,4,,13.6%,,,32,0,0,0,0,32
-Farfetch’d,245,stat_points,5,,6.8%,,,0,32,0,0,0,32
-Farfetch’d,245,stat_points,6,,5.1%,,,32,0,8,0,2,24
-Farfetch’d,245,stat_points,7,,3.4%,,,32,32,2,0,0,0
-Farfetch’d,245,stat_points,8,,1.7%,,,0,32,2,0,0,32
-Farfetch’d,245,stat_points,9,,1.7%,,,32,2,32,0,0,0
-Farfetch’d,245,ability,1,Defiant,98.3%,,,,,,,,
-Farfetch’d,245,ability,2,Inner Focus,1.7%,,,,,,,,
+Farfetch’d,231,move,1,Brave Bird,70.8%,,,,,,,,
+Farfetch’d,231,move,2,Night Slash,48.7%,,,,,,,,
+Farfetch’d,231,move,3,Leaf Blade,39.6%,,,,,,,,
+Farfetch’d,231,move,4,Close Combat,29.4%,,,,,,,,
+Farfetch’d,231,move,5,Slash,26.8%,,,,,,,,
+Farfetch’d,231,move,6,Feint,26.8%,,,,,,,,
+Farfetch’d,231,move,7,First Impression,22.4%,,,,,,,,
+Farfetch’d,231,move,8,Swords Dance,20.6%,,,,,,,,
+Farfetch’d,231,move,9,Quick Attack,19.0%,,,,,,,,
+Farfetch’d,231,move,10,Flail,15.9%,,,,,,,,
+Farfetch’d,231,held_item,1,Leek,61.2%,,,,,,,,
+Farfetch’d,231,held_item,2,Focus Sash,22.7%,,,,,,,,
+Farfetch’d,231,held_item,3,Choice Scarf,13.5%,,,,,,,,
+Farfetch’d,231,held_item,4,Red Card,0.8%,,,,,,,,
+Farfetch’d,231,held_item,5,Chesto Berry,0.3%,,,,,,,,
+Farfetch’d,231,teammate,1,Primarina,,,,,,,,,
+Farfetch’d,231,teammate,2,Lucario,,,,,,,,,
+Farfetch’d,231,teammate,3,Garchomp,,,,,,,,,
+Farfetch’d,231,teammate,4,Salamence,,,,,,,,,
+Farfetch’d,231,teammate,5,Ceruledge,,,,,,,,,
+Farfetch’d,231,teammate,6,Meowscarada,,,,,,,,,
+Farfetch’d,231,teammate,7,Rillaboom,,,,,,,,,
+Farfetch’d,231,teammate,8,Sirfetch’d,,,,,,,,,
+Farfetch’d,231,teammate,9,Polteageist,,,,,,,,,
+Farfetch’d,231,teammate,10,Gholdengo,,,,,,,,,
+Farfetch’d,231,stat_alignment,1,Adamant,54.2%,Attack,Sp. Atk,,,,,,
+Farfetch’d,231,stat_alignment,2,Jolly,39.3%,Speed,Sp. Atk,,,,,,
+Farfetch’d,231,stat_alignment,3,Lonely,2.6%,Attack,Defense,,,,,,
+Farfetch’d,231,stat_alignment,4,Naive,1.8%,Speed,Sp. Def,,,,,,
+Farfetch’d,231,stat_alignment,5,Brave,1.0%,Attack,Speed,,,,,,
+Farfetch’d,231,stat_alignment,6,Modest,0.5%,Sp. Atk,Attack,,,,,,
+Farfetch’d,231,stat_alignment,7,Naughty,0.3%,Attack,Sp. Def,,,,,,
+Farfetch’d,231,stat_alignment,8,Impish,0.3%,Defense,Sp. Atk,,,,,,
+Farfetch’d,231,stat_points,1,,22.1%,,,32,32,0,0,0,2
+Farfetch’d,231,stat_points,2,,19.5%,,,2,32,0,0,0,32
+Farfetch’d,231,stat_points,3,,13.3%,,,32,2,0,0,0,32
+Farfetch’d,231,stat_points,4,,12.0%,,,18,25,0,0,0,23
+Farfetch’d,231,stat_points,5,,8.3%,,,6,32,0,0,0,28
+Farfetch’d,231,stat_points,6,,6.0%,,,19,32,7,0,0,8
+Farfetch’d,231,stat_points,7,,5.7%,,,32,32,2,0,0,0
+Farfetch’d,231,stat_points,8,,5.5%,,,32,0,0,0,0,32
+Farfetch’d,231,stat_points,9,,1.8%,,,32,0,8,0,2,24
+Farfetch’d,231,stat_points,10,,1.6%,,,0,32,0,0,2,32
+Farfetch’d,231,ability,1,Defiant,93.0%,,,,,,,,
+Farfetch’d,231,ability,2,Inner Focus,7.0%,,,,,,,,

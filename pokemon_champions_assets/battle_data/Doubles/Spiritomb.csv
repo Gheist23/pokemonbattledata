@@ -1,50 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Spiritomb,121,move,1,Trick Room,99.8%,,,,,,,,
-Spiritomb,121,move,2,Foul Play,55.1%,,,,,,,,
-Spiritomb,121,move,3,Snarl,43.5%,,,,,,,,
-Spiritomb,121,move,4,Will-O-Wisp,40.1%,,,,,,,,
-Spiritomb,121,move,5,Destiny Bond,28.3%,,,,,,,,
-Spiritomb,121,move,6,Ally Switch,26.9%,,,,,,,,
-Spiritomb,121,move,7,Dark Pulse,16.0%,,,,,,,,
-Spiritomb,121,move,8,Skill Swap,11.4%,,,,,,,,
-Spiritomb,121,move,9,Rain Dance,10.4%,,,,,,,,
-Spiritomb,121,move,10,Poltergeist,10.0%,,,,,,,,
-Spiritomb,121,held_item,1,Roseli Berry,34.3%,,,,,,,,
-Spiritomb,121,held_item,2,Sitrus Berry,29.5%,,,,,,,,
-Spiritomb,121,held_item,3,Iron Ball,11.2%,,,,,,,,
-Spiritomb,121,held_item,4,Black Glasses,8.2%,,,,,,,,
-Spiritomb,121,held_item,5,Focus Sash,8.0%,,,,,,,,
-Spiritomb,121,held_item,6,Leftovers,6.6%,,,,,,,,
-Spiritomb,121,held_item,7,Psychic Seed,1.4%,,,,,,,,
-Spiritomb,121,held_item,8,White Herb,0.6%,,,,,,,,
-Spiritomb,121,held_item,9,Grassy Seed,0.2%,,,,,,,,
-Spiritomb,121,teammate,1,Golisopod,,,,,,,,,
-Spiritomb,121,teammate,2,Incineroar,,,,,,,,,
-Spiritomb,121,teammate,3,Torkoal,,,,,,,,,
-Spiritomb,121,teammate,4,Camerupt,,,,,,,,,
-Spiritomb,121,teammate,5,Drampa,,,,,,,,,
-Spiritomb,121,teammate,6,Indeedee-F,,,,,,,,,
-Spiritomb,121,teammate,7,Sneasler,,,,,,,,,
-Spiritomb,121,teammate,8,Froslass,,,,,,,,,
-Spiritomb,121,teammate,9,Tyranitar,,,,,,,,,
-Spiritomb,121,teammate,10,Avalugg-Hisui,,,,,,,,,
-Spiritomb,121,stat_alignment,1,Sassy,46.5%,Sp. Def,Speed,,,,,,
-Spiritomb,121,stat_alignment,2,Relaxed,18.4%,Defense,Speed,,,,,,
-Spiritomb,121,stat_alignment,3,Quiet,15.2%,Sp. Atk,Speed,,,,,,
-Spiritomb,121,stat_alignment,4,Lonely,10.2%,Attack,Defense,,,,,,
-Spiritomb,121,stat_alignment,5,Brave,8.4%,Attack,Speed,,,,,,
-Spiritomb,121,stat_alignment,6,Calm,0.6%,Sp. Def,Attack,,,,,,
-Spiritomb,121,stat_alignment,7,Impish,0.6%,Defense,Sp. Atk,,,,,,
-Spiritomb,121,stat_alignment,8,Adamant,0.2%,Attack,Sp. Atk,,,,,,
-Spiritomb,121,stat_points,1,,16.6%,,,32,0,12,0,22,0
-Spiritomb,121,stat_points,2,,10.4%,,,32,32,0,0,2,0
-Spiritomb,121,stat_points,3,,8.2%,,,14,0,15,32,5,0
-Spiritomb,121,stat_points,4,,8.2%,,,32,0,7,0,27,0
-Spiritomb,121,stat_points,5,,7.8%,,,32,0,2,0,32,0
-Spiritomb,121,stat_points,6,,7.4%,,,0,32,32,0,2,0
-Spiritomb,121,stat_points,7,,5.8%,,,32,0,1,32,1,0
-Spiritomb,121,stat_points,8,,4.6%,,,32,0,32,0,2,0
-Spiritomb,121,stat_points,9,,3.4%,,,32,0,10,0,24,0
-Spiritomb,121,stat_points,10,,3.4%,,,32,0,13,0,21,0
-Spiritomb,121,ability,1,Infiltrator,83.0%,,,,,,,,
-Spiritomb,121,ability,2,Pressure,17.0%,,,,,,,,
+Spiritomb,119,move,1,Trick Room,97.1%,,,,,,,,
+Spiritomb,119,move,2,Snarl,53.3%,,,,,,,,
+Spiritomb,119,move,3,Foul Play,50.8%,,,,,,,,
+Spiritomb,119,move,4,Will-O-Wisp,42.7%,,,,,,,,
+Spiritomb,119,move,5,Destiny Bond,23.5%,,,,,,,,
+Spiritomb,119,move,6,Ally Switch,18.7%,,,,,,,,
+Spiritomb,119,move,7,Skill Swap,12.6%,,,,,,,,
+Spiritomb,119,move,8,Dark Pulse,11.3%,,,,,,,,
+Spiritomb,119,move,9,Helping Hand,9.8%,,,,,,,,
+Spiritomb,119,move,10,Sucker Punch,9.3%,,,,,,,,
+Spiritomb,119,held_item,1,Sitrus Berry,31.8%,,,,,,,,
+Spiritomb,119,held_item,2,Roseli Berry,27.2%,,,,,,,,
+Spiritomb,119,held_item,3,Leftovers,14.5%,,,,,,,,
+Spiritomb,119,held_item,4,Iron Ball,9.8%,,,,,,,,
+Spiritomb,119,held_item,5,Black Glasses,3.0%,,,,,,,,
+Spiritomb,119,held_item,6,Focus Sash,2.9%,,,,,,,,
+Spiritomb,119,held_item,7,Grassy Seed,2.6%,,,,,,,,
+Spiritomb,119,held_item,8,Rocky Helmet,2.3%,,,,,,,,
+Spiritomb,119,held_item,9,Mental Herb,2.1%,,,,,,,,
+Spiritomb,119,held_item,10,Wide Lens,1.8%,,,,,,,,
+Spiritomb,119,teammate,1,Torkoal,,,,,,,,,
+Spiritomb,119,teammate,2,Incineroar,,,,,,,,,
+Spiritomb,119,teammate,3,Sneasler,,,,,,,,,
+Spiritomb,119,teammate,4,Golisopod,,,,,,,,,
+Spiritomb,119,teammate,5,Froslass,,,,,,,,,
+Spiritomb,119,teammate,6,Drampa,,,,,,,,,
+Spiritomb,119,teammate,7,Raichu,,,,,,,,,
+Spiritomb,119,teammate,8,Camerupt,,,,,,,,,
+Spiritomb,119,teammate,9,Indeedee,,,,,,,,,
+Spiritomb,119,teammate,10,Rillaboom,,,,,,,,,
+Spiritomb,119,stat_alignment,1,Sassy,60.4%,Sp. Def,Speed,,,,,,
+Spiritomb,119,stat_alignment,2,Relaxed,13.3%,Defense,Speed,,,,,,
+Spiritomb,119,stat_alignment,3,Quiet,6.6%,Sp. Atk,Speed,,,,,,
+Spiritomb,119,stat_alignment,4,Careful,5.3%,Sp. Def,Sp. Atk,,,,,,
+Spiritomb,119,stat_alignment,5,Brave,3.9%,Attack,Speed,,,,,,
+Spiritomb,119,stat_alignment,6,Lonely,3.7%,Attack,Defense,,,,,,
+Spiritomb,119,stat_alignment,7,Impish,2.8%,Defense,Sp. Atk,,,,,,
+Spiritomb,119,stat_alignment,8,Adamant,1.8%,Attack,Sp. Atk,,,,,,
+Spiritomb,119,stat_alignment,9,Bold,1.4%,Defense,Attack,,,,,,
+Spiritomb,119,stat_alignment,10,Calm,0.8%,Sp. Def,Attack,,,,,,
+Spiritomb,119,stat_points,1,,20.6%,,,32,0,12,0,22,0
+Spiritomb,119,stat_points,2,,13.6%,,,32,0,2,0,32,0
+Spiritomb,119,stat_points,3,,8.9%,,,32,0,7,0,27,0
+Spiritomb,119,stat_points,4,,6.4%,,,32,0,17,0,17,0
+Spiritomb,119,stat_points,5,,5.5%,,,32,32,0,0,2,0
+Spiritomb,119,stat_points,6,,4.5%,,,23,0,17,0,26,0
+Spiritomb,119,stat_points,7,,3.8%,,,32,0,20,0,14,0
+Spiritomb,119,stat_points,8,,3.4%,,,32,0,19,0,15,0
+Spiritomb,119,stat_points,9,,3.0%,,,14,0,15,32,5,0
+Spiritomb,119,stat_points,10,,2.8%,,,32,0,17,5,12,0
+Spiritomb,119,ability,1,Infiltrator,78.3%,,,,,,,,
+Spiritomb,119,ability,2,Pressure,21.7%,,,,,,,,

@@ -1,42 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Glaceon,156,move,1,Freeze-Dry,100.0%,,,,,,,,
-Glaceon,156,move,2,Blizzard,96.3%,,,,,,,,
-Glaceon,156,move,3,Weather Ball,52.5%,,,,,,,,
-Glaceon,156,move,4,Shadow Ball,47.1%,,,,,,,,
-Glaceon,156,move,5,Protect,33.5%,,,,,,,,
-Glaceon,156,move,6,Detect,26.9%,,,,,,,,
-Glaceon,156,move,7,Calm Mind,12.0%,,,,,,,,
-Glaceon,156,move,8,Ice Shard,12.0%,,,,,,,,
-Glaceon,156,move,9,Mud Shot,4.5%,,,,,,,,
-Glaceon,156,move,10,Substitute,4.1%,,,,,,,,
-Glaceon,156,held_item,1,Bright Powder,76.0%,,,,,,,,
-Glaceon,156,held_item,2,Never-Melt Ice,10.7%,,,,,,,,
-Glaceon,156,held_item,3,Leftovers,9.5%,,,,,,,,
-Glaceon,156,held_item,4,Life Orb,2.5%,,,,,,,,
-Glaceon,156,held_item,5,Grassy Seed,0.8%,,,,,,,,
-Glaceon,156,held_item,6,Choice Scarf,0.4%,,,,,,,,
-Glaceon,156,teammate,1,Garchomp,,,,,,,,,
-Glaceon,156,teammate,2,Charizard,,,,,,,,,
-Glaceon,156,teammate,3,Aerodactyl,,,,,,,,,
-Glaceon,156,teammate,4,Venusaur,,,,,,,,,
-Glaceon,156,teammate,5,Abomasnow,,,,,,,,,
-Glaceon,156,teammate,6,Froslass,,,,,,,,,
-Glaceon,156,teammate,7,Ninetales-Alola,,,,,,,,,
-Glaceon,156,teammate,8,Rillaboom,,,,,,,,,
-Glaceon,156,teammate,9,Indeedee,,,,,,,,,
-Glaceon,156,teammate,10,Basculegion,,,,,,,,,
-Glaceon,156,stat_alignment,1,Modest,94.6%,Sp. Atk,Attack,,,,,,
-Glaceon,156,stat_alignment,2,Quiet,5.0%,Sp. Atk,Speed,,,,,,
-Glaceon,156,stat_alignment,3,Timid,0.4%,Speed,Attack,,,,,,
-Glaceon,156,stat_points,1,,39.7%,,,32,0,0,32,0,2
-Glaceon,156,stat_points,2,,13.2%,,,2,0,0,32,0,32
-Glaceon,156,stat_points,3,,9.1%,,,32,0,4,20,10,0
-Glaceon,156,stat_points,4,,7.0%,,,31,0,0,20,7,8
-Glaceon,156,stat_points,5,,5.4%,,,24,0,0,32,10,0
-Glaceon,156,stat_points,6,,4.1%,,,24,0,0,10,15,17
-Glaceon,156,stat_points,7,,3.7%,,,0,0,28,32,6,0
-Glaceon,156,stat_points,8,,3.3%,,,32,0,2,32,0,0
-Glaceon,156,stat_points,9,,2.5%,,,0,0,20,32,14,0
-Glaceon,156,stat_points,10,,2.1%,,,24,0,2,30,0,10
-Glaceon,156,ability,1,Snow Cloak,89.7%,,,,,,,,
-Glaceon,156,ability,2,Ice Body,10.3%,,,,,,,,
+Glaceon,155,move,1,Freeze-Dry,98.9%,,,,,,,,
+Glaceon,155,move,2,Blizzard,93.5%,,,,,,,,
+Glaceon,155,move,3,Protect,43.5%,,,,,,,,
+Glaceon,155,move,4,Shadow Ball,41.4%,,,,,,,,
+Glaceon,155,move,5,Weather Ball,33.3%,,,,,,,,
+Glaceon,155,move,6,Detect,28.5%,,,,,,,,
+Glaceon,155,move,7,Ice Shard,17.7%,,,,,,,,
+Glaceon,155,move,8,Calm Mind,12.8%,,,,,,,,
+Glaceon,155,move,9,Icy Wind,7.0%,,,,,,,,
+Glaceon,155,move,10,Mirror Coat,5.8%,,,,,,,,
+Glaceon,155,held_item,1,Bright Powder,60.0%,,,,,,,,
+Glaceon,155,held_item,2,Never-Melt Ice,21.6%,,,,,,,,
+Glaceon,155,held_item,3,Leftovers,9.3%,,,,,,,,
+Glaceon,155,held_item,4,Life Orb,5.2%,,,,,,,,
+Glaceon,155,held_item,5,Occa Berry,1.7%,,,,,,,,
+Glaceon,155,held_item,6,Focus Sash,0.8%,,,,,,,,
+Glaceon,155,held_item,7,Quick Claw,0.6%,,,,,,,,
+Glaceon,155,held_item,8,Choice Scarf,0.3%,,,,,,,,
+Glaceon,155,held_item,9,Grassy Seed,0.3%,,,,,,,,
+Glaceon,155,teammate,1,Garchomp,,,,,,,,,
+Glaceon,155,teammate,2,Froslass,,,,,,,,,
+Glaceon,155,teammate,3,Abomasnow,,,,,,,,,
+Glaceon,155,teammate,4,Charizard,,,,,,,,,
+Glaceon,155,teammate,5,Aerodactyl,,,,,,,,,
+Glaceon,155,teammate,6,Venusaur,,,,,,,,,
+Glaceon,155,teammate,7,Ninetales-Alola,,,,,,,,,
+Glaceon,155,teammate,8,Sneasler,,,,,,,,,
+Glaceon,155,teammate,9,Incineroar,,,,,,,,,
+Glaceon,155,teammate,10,Indeedee,,,,,,,,,
+Glaceon,155,stat_alignment,1,Modest,79.3%,Sp. Atk,Attack,,,,,,
+Glaceon,155,stat_alignment,2,Quiet,13.5%,Sp. Atk,Speed,,,,,,
+Glaceon,155,stat_alignment,3,Timid,4.6%,Speed,Attack,,,,,,
+Glaceon,155,stat_alignment,4,Sassy,1.5%,Sp. Def,Speed,,,,,,
+Glaceon,155,stat_alignment,5,Relaxed,0.9%,Defense,Speed,,,,,,
+Glaceon,155,stat_alignment,6,Calm,0.2%,Sp. Def,Attack,,,,,,
+Glaceon,155,stat_points,1,,25.9%,,,32,0,0,32,0,2
+Glaceon,155,stat_points,2,,14.2%,,,32,0,0,32,2,0
+Glaceon,155,stat_points,3,,8.5%,,,2,0,0,32,0,32
+Glaceon,155,stat_points,4,,7.2%,,,32,0,4,20,10,0
+Glaceon,155,stat_points,5,,5.0%,,,24,0,0,32,10,0
+Glaceon,155,stat_points,6,,4.6%,,,0,0,28,32,6,0
+Glaceon,155,stat_points,7,,4.1%,,,26,0,0,30,0,10
+Glaceon,155,stat_points,8,,4.0%,,,24,0,0,10,15,17
+Glaceon,155,stat_points,9,,3.5%,,,31,0,0,20,7,8
+Glaceon,155,stat_points,10,,2.7%,,,32,0,2,32,0,0
+Glaceon,155,ability,1,Snow Cloak,88.4%,,,,,,,,
+Glaceon,155,ability,2,Ice Body,11.6%,,,,,,,,

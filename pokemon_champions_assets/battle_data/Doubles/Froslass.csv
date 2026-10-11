@@ -1,45 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Froslass,42,move,1,Blizzard,98.8%,,,,,,,,
-Froslass,42,move,2,Protect,92.9%,,,,,,,,
-Froslass,42,move,3,Shadow Ball,91.0%,,,,,,,,
-Froslass,42,move,4,Aurora Veil,76.4%,,,,,,,,
-Froslass,42,move,5,Thunderbolt,8.0%,,,,,,,,
-Froslass,42,move,6,Rain Dance,7.7%,,,,,,,,
-Froslass,42,move,7,Taunt,7.1%,,,,,,,,
-Froslass,42,move,8,Destiny Bond,6.4%,,,,,,,,
-Froslass,42,move,9,Weather Ball,2.0%,,,,,,,,
-Froslass,42,move,10,Will-O-Wisp,1.7%,,,,,,,,
-Froslass,42,held_item,1,Froslassite,97.9%,,,,,,,,
-Froslass,42,held_item,2,Focus Sash,0.6%,,,,,,,,
-Froslass,42,held_item,3,Choice Scarf,0.3%,,,,,,,,
-Froslass,42,held_item,4,Focus Band,0.0%,,,,,,,,
+Froslass,42,move,1,Blizzard,98.9%,,,,,,,,
+Froslass,42,move,2,Protect,93.6%,,,,,,,,
+Froslass,42,move,3,Shadow Ball,90.8%,,,,,,,,
+Froslass,42,move,4,Aurora Veil,75.4%,,,,,,,,
+Froslass,42,move,5,Thunderbolt,8.5%,,,,,,,,
+Froslass,42,move,6,Rain Dance,7.5%,,,,,,,,
+Froslass,42,move,7,Taunt,6.3%,,,,,,,,
+Froslass,42,move,8,Destiny Bond,6.0%,,,,,,,,
+Froslass,42,move,9,Nasty Plot,2.6%,,,,,,,,
+Froslass,42,move,10,Weather Ball,1.3%,,,,,,,,
+Froslass,42,held_item,1,Froslassite,98.6%,,,,,,,,
+Froslass,42,held_item,2,Focus Sash,0.3%,,,,,,,,
+Froslass,42,held_item,3,Choice Scarf,0.2%,,,,,,,,
+Froslass,42,held_item,4,Wide Lens,0.1%,,,,,,,,
+Froslass,42,held_item,5,Quick Claw,0.1%,,,,,,,,
+Froslass,42,held_item,6,Expert Belt,0.1%,,,,,,,,
+Froslass,42,held_item,7,Focus Band,0.0%,,,,,,,,
+Froslass,42,held_item,8,Never-Melt Ice,0.0%,,,,,,,,
 Froslass,42,teammate,1,Rillaboom,,,,,,,,,
 Froslass,42,teammate,2,Sneasler,,,,,,,,,
 Froslass,42,teammate,3,Kingambit,,,,,,,,,
-Froslass,42,teammate,4,Garchomp,,,,,,,,,
-Froslass,42,teammate,5,Incineroar,,,,,,,,,
-Froslass,42,teammate,6,Basculegion,,,,,,,,,
-Froslass,42,teammate,7,Arcanine-Hisui,,,,,,,,,
-Froslass,42,teammate,8,Volcarona,,,,,,,,,
-Froslass,42,teammate,9,Raichu,,,,,,,,,
+Froslass,42,teammate,4,Incineroar,,,,,,,,,
+Froslass,42,teammate,5,Garchomp,,,,,,,,,
+Froslass,42,teammate,6,Volcarona,,,,,,,,,
+Froslass,42,teammate,7,Basculegion,,,,,,,,,
+Froslass,42,teammate,8,Raichu,,,,,,,,,
+Froslass,42,teammate,9,Arcanine-Hisui,,,,,,,,,
 Froslass,42,teammate,10,Archaludon,,,,,,,,,
-Froslass,42,stat_alignment,1,Timid,78.1%,Speed,Attack,,,,,,
+Froslass,42,stat_alignment,1,Timid,77.2%,Speed,Attack,,,,,,
 Froslass,42,stat_alignment,2,Modest,21.7%,Sp. Atk,Attack,,,,,,
-Froslass,42,stat_alignment,3,Bold,0.1%,Defense,Attack,,,,,,
-Froslass,42,stat_alignment,4,Hasty,0.1%,Speed,Defense,,,,,,
-Froslass,42,stat_alignment,5,Naive,0.0%,Speed,Sp. Def,,,,,,
-Froslass,42,stat_alignment,6,Mild,0.0%,Sp. Atk,Defense,,,,,,
-Froslass,42,stat_alignment,7,Quiet,0.0%,Sp. Atk,Speed,,,,,,
-Froslass,42,stat_alignment,8,Rash,0.0%,Sp. Atk,Sp. Def,,,,,,
-Froslass,42,stat_points,1,,25.2%,,,2,0,0,32,0,32
-Froslass,42,stat_points,2,,5.2%,,,12,0,1,20,1,32
-Froslass,42,stat_points,3,,3.7%,,,32,0,2,0,0,32
-Froslass,42,stat_points,4,,3.0%,,,32,0,0,2,0,32
-Froslass,42,stat_points,5,,2.9%,,,14,0,0,20,0,32
-Froslass,42,stat_points,6,,2.8%,,,0,0,0,32,2,32
-Froslass,42,stat_points,7,,2.5%,,,20,0,4,12,0,30
-Froslass,42,stat_points,8,,2.4%,,,20,0,0,18,0,28
-Froslass,42,stat_points,9,,2.0%,,,8,0,8,12,6,32
-Froslass,42,stat_points,10,,1.8%,,,15,0,10,9,0,32
-Froslass,42,ability,1,Cursed Body,84.4%,,,,,,,,
-Froslass,42,ability,2,Snow Cloak,15.6%,,,,,,,,
+Froslass,42,stat_alignment,3,Hasty,0.4%,Speed,Defense,,,,,,
+Froslass,42,stat_alignment,4,Calm,0.2%,Sp. Def,Attack,,,,,,
+Froslass,42,stat_alignment,5,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Froslass,42,stat_alignment,6,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Froslass,42,stat_alignment,7,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
+Froslass,42,stat_alignment,8,Bold,0.1%,Defense,Attack,,,,,,
+Froslass,42,stat_alignment,9,Quiet,0.0%,Sp. Atk,Speed,,,,,,
+Froslass,42,stat_alignment,10,Naive,0.0%,Speed,Sp. Def,,,,,,
+Froslass,42,stat_points,1,,24.0%,,,2,0,0,32,0,32
+Froslass,42,stat_points,2,,5.1%,,,12,0,1,20,1,32
+Froslass,42,stat_points,3,,3.8%,,,32,0,2,0,0,32
+Froslass,42,stat_points,4,,3.4%,,,0,0,0,32,2,32
+Froslass,42,stat_points,5,,2.7%,,,14,0,0,20,0,32
+Froslass,42,stat_points,6,,2.7%,,,32,0,0,2,0,32
+Froslass,42,stat_points,7,,2.5%,,,0,0,2,32,0,32
+Froslass,42,stat_points,8,,1.9%,,,15,0,10,9,0,32
+Froslass,42,stat_points,9,,1.9%,,,8,0,8,12,6,32
+Froslass,42,stat_points,10,,1.9%,,,20,0,4,12,0,30
+Froslass,42,ability,1,Cursed Body,81.9%,,,,,,,,
+Froslass,42,ability,2,Snow Cloak,18.1%,,,,,,,,

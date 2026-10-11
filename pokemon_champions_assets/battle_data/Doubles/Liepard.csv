@@ -1,42 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Liepard,185,move,1,Fake Out,79.1%,,,,,,,,
-Liepard,185,move,2,Encore,75.5%,,,,,,,,
-Liepard,185,move,3,Snarl,54.6%,,,,,,,,
-Liepard,185,move,4,Charm,39.9%,,,,,,,,
-Liepard,185,move,5,Sunny Day,36.2%,,,,,,,,
-Liepard,185,move,6,Throat Chop,32.5%,,,,,,,,
-Liepard,185,move,7,Fake Tears,14.7%,,,,,,,,
-Liepard,185,move,8,Nasty Plot,10.4%,,,,,,,,
-Liepard,185,move,9,Thunder Wave,9.2%,,,,,,,,
-Liepard,185,move,10,Grass Knot,8.6%,,,,,,,,
-Liepard,185,held_item,1,Focus Sash,86.5%,,,,,,,,
-Liepard,185,held_item,2,Electric Seed,8.6%,,,,,,,,
-Liepard,185,held_item,3,Psychic Seed,4.9%,,,,,,,,
-Liepard,185,teammate,1,Volcarona,,,,,,,,,
-Liepard,185,teammate,2,Staraptor,,,,,,,,,
-Liepard,185,teammate,3,Pyroar,,,,,,,,,
-Liepard,185,teammate,4,Floette-Eternal,,,,,,,,,
-Liepard,185,teammate,5,Toxapex,,,,,,,,,
-Liepard,185,teammate,6,Dragapult,,,,,,,,,
-Liepard,185,teammate,7,Sylveon,,,,,,,,,
-Liepard,185,teammate,8,Milotic,,,,,,,,,
-Liepard,185,teammate,9,Kangaskhan,,,,,,,,,
-Liepard,185,teammate,10,Raichu,,,,,,,,,
-Liepard,185,stat_alignment,1,Jolly,33.1%,Speed,Sp. Atk,,,,,,
-Liepard,185,stat_alignment,2,Hasty,28.2%,Speed,Defense,,,,,,
-Liepard,185,stat_alignment,3,Timid,26.4%,Speed,Attack,,,,,,
-Liepard,185,stat_alignment,4,Modest,10.4%,Sp. Atk,Attack,,,,,,
-Liepard,185,stat_alignment,5,Bold,1.2%,Defense,Attack,,,,,,
-Liepard,185,stat_alignment,6,Calm,0.6%,Sp. Def,Attack,,,,,,
-Liepard,185,stat_points,1,,32.5%,,,2,32,0,0,0,32
-Liepard,185,stat_points,2,,28.2%,,,0,2,0,32,0,32
-Liepard,185,stat_points,3,,19.6%,,,2,0,0,32,0,32
-Liepard,185,stat_points,4,,5.5%,,,32,0,0,0,2,32
-Liepard,185,stat_points,5,,4.9%,,,32,0,1,0,1,32
-Liepard,185,stat_points,6,,3.7%,,,32,0,2,0,0,32
-Liepard,185,stat_points,7,,3.1%,,,32,0,0,2,0,32
-Liepard,185,stat_points,8,,1.2%,,,31,0,21,0,10,4
-Liepard,185,stat_points,9,,0.6%,,,19,0,9,0,9,29
-Liepard,185,stat_points,10,,0.6%,,,32,0,0,4,30,0
-Liepard,185,ability,1,Prankster,82.2%,,,,,,,,
-Liepard,185,ability,2,Unburden,17.8%,,,,,,,,
+Liepard,197,move,1,Fake Out,74.6%,,,,,,,,
+Liepard,197,move,2,Encore,72.2%,,,,,,,,
+Liepard,197,move,3,Charm,43.7%,,,,,,,,
+Liepard,197,move,4,Snarl,39.5%,,,,,,,,
+Liepard,197,move,5,Sunny Day,35.6%,,,,,,,,
+Liepard,197,move,6,Fake Tears,26.9%,,,,,,,,
+Liepard,197,move,7,Throat Chop,22.8%,,,,,,,,
+Liepard,197,move,8,Rain Dance,12.9%,,,,,,,,
+Liepard,197,move,9,Knock Off,9.9%,,,,,,,,
+Liepard,197,move,10,Screech,9.3%,,,,,,,,
+Liepard,197,held_item,1,Focus Sash,78.1%,,,,,,,,
+Liepard,197,held_item,2,Electric Seed,4.2%,,,,,,,,
+Liepard,197,held_item,3,Chople Berry,3.9%,,,,,,,,
+Liepard,197,held_item,4,Colbur Berry,3.3%,,,,,,,,
+Liepard,197,held_item,5,Roseli Berry,3.0%,,,,,,,,
+Liepard,197,held_item,6,Psychic Seed,2.4%,,,,,,,,
+Liepard,197,held_item,7,Black Glasses,1.8%,,,,,,,,
+Liepard,197,held_item,8,Iron Ball,0.9%,,,,,,,,
+Liepard,197,held_item,9,Sitrus Berry,0.6%,,,,,,,,
+Liepard,197,held_item,10,Light Clay,0.6%,,,,,,,,
+Liepard,197,teammate,1,Staraptor,,,,,,,,,
+Liepard,197,teammate,2,Volcarona,,,,,,,,,
+Liepard,197,teammate,3,Sylveon,,,,,,,,,
+Liepard,197,teammate,4,Pyroar,,,,,,,,,
+Liepard,197,teammate,5,Rillaboom,,,,,,,,,
+Liepard,197,teammate,6,Kangaskhan,,,,,,,,,
+Liepard,197,teammate,7,Milotic,,,,,,,,,
+Liepard,197,teammate,8,Sinistcha,,,,,,,,,
+Liepard,197,teammate,9,Floette-Eternal,,,,,,,,,
+Liepard,197,teammate,10,Dragapult,,,,,,,,,
+Liepard,197,stat_alignment,1,Jolly,30.8%,Speed,Sp. Atk,,,,,,
+Liepard,197,stat_alignment,2,Timid,21.3%,Speed,Attack,,,,,,
+Liepard,197,stat_alignment,3,Hasty,17.4%,Speed,Defense,,,,,,
+Liepard,197,stat_alignment,4,Modest,7.2%,Sp. Atk,Attack,,,,,,
+Liepard,197,stat_alignment,5,Adamant,6.9%,Attack,Sp. Atk,,,,,,
+Liepard,197,stat_alignment,6,Bold,5.4%,Defense,Attack,,,,,,
+Liepard,197,stat_alignment,7,Serious,5.1%,,,,,,,,
+Liepard,197,stat_alignment,8,Impish,4.2%,Defense,Sp. Atk,,,,,,
+Liepard,197,stat_alignment,9,Calm,0.9%,Sp. Def,Attack,,,,,,
+Liepard,197,stat_alignment,10,Relaxed,0.9%,Defense,Speed,,,,,,
+Liepard,197,stat_points,1,,25.4%,,,2,32,0,0,0,32
+Liepard,197,stat_points,2,,16.8%,,,2,0,0,32,0,32
+Liepard,197,stat_points,3,,15.9%,,,0,2,0,32,0,32
+Liepard,197,stat_points,4,,5.1%,,,0,0,32,0,32,2
+Liepard,197,stat_points,5,,5.1%,,,32,0,2,0,0,32
+Liepard,197,stat_points,6,,4.2%,,,5,32,0,0,0,29
+Liepard,197,stat_points,7,,3.0%,,,32,0,0,2,0,32
+Liepard,197,stat_points,8,,2.7%,,,32,0,0,0,2,32
+Liepard,197,stat_points,9,,2.4%,,,28,0,14,0,21,3
+Liepard,197,stat_points,10,,2.4%,,,32,0,1,0,1,32
+Liepard,197,ability,1,Prankster,91.3%,,,,,,,,
+Liepard,197,ability,2,Unburden,8.7%,,,,,,,,

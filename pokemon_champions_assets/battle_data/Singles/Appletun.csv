@@ -1,37 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Appletun,238,move,1,Apple Acid,96.6%,,,,,,,,
-Appletun,238,move,2,Recover,67.0%,,,,,,,,
-Appletun,238,move,3,Leech Seed,62.5%,,,,,,,,
-Appletun,238,move,4,Amnesia,38.6%,,,,,,,,
-Appletun,238,move,5,Sucker Punch,27.3%,,,,,,,,
-Appletun,238,move,6,Dragon Pulse,27.3%,,,,,,,,
-Appletun,238,move,7,Hyper Beam,27.3%,,,,,,,,
-Appletun,238,move,8,Iron Defense,25.0%,,,,,,,,
-Appletun,238,move,9,Dragon Tail,9.1%,,,,,,,,
-Appletun,238,move,10,Protect,5.7%,,,,,,,,
-Appletun,238,held_item,1,Sitrus Berry,33.0%,,,,,,,,
-Appletun,238,held_item,2,Yache Berry,25.0%,,,,,,,,
-Appletun,238,held_item,3,Leftovers,10.2%,,,,,,,,
-Appletun,238,held_item,4,Light Clay,3.4%,,,,,,,,
-Appletun,238,held_item,5,Rocky Helmet,1.1%,,,,,,,,
-Appletun,238,teammate,1,Samurott,,,,,,,,,
-Appletun,238,teammate,2,Stunfisk-Galar,,,,,,,,,
-Appletun,238,teammate,3,Florges,,,,,,,,,
-Appletun,238,teammate,4,Golisopod,,,,,,,,,
-Appletun,238,teammate,5,Garchomp,,,,,,,,,
-Appletun,238,teammate,6,Basculegion,,,,,,,,,
-Appletun,238,teammate,7,Steelix,,,,,,,,,
-Appletun,238,teammate,8,Mawile,,,,,,,,,
-Appletun,238,teammate,9,Spiritomb,,,,,,,,,
-Appletun,238,teammate,10,Serperior,,,,,,,,,
-Appletun,238,stat_alignment,1,Sassy,44.3%,Sp. Def,Speed,,,,,,
-Appletun,238,stat_alignment,2,Modest,27.3%,Sp. Atk,Attack,,,,,,
-Appletun,238,stat_alignment,3,Relaxed,20.5%,Defense,Speed,,,,,,
-Appletun,238,stat_alignment,4,Bold,4.5%,Defense,Attack,,,,,,
-Appletun,238,stat_alignment,5,Careful,3.4%,Sp. Def,Sp. Atk,,,,,,
-Appletun,238,stat_points,1,,44.3%,,,32,0,2,0,32,0
-Appletun,238,stat_points,2,,27.3%,,,32,0,0,32,2,0
-Appletun,238,stat_points,3,,25.0%,,,32,0,32,0,2,0
-Appletun,238,stat_points,4,,3.4%,,,32,0,14,0,20,0
-Appletun,238,ability,1,Thick Fat,72.7%,,,,,,,,
-Appletun,238,ability,2,Ripen,27.3%,,,,,,,,
+Appletun,230,move,1,Apple Acid,97.3%,,,,,,,,
+Appletun,230,move,2,Dragon Pulse,48.6%,,,,,,,,
+Appletun,230,move,3,Sucker Punch,45.7%,,,,,,,,
+Appletun,230,move,4,Hyper Beam,45.2%,,,,,,,,
+Appletun,230,move,5,Leech Seed,37.3%,,,,,,,,
+Appletun,230,move,6,Recover,35.3%,,,,,,,,
+Appletun,230,move,7,Iron Defense,22.2%,,,,,,,,
+Appletun,230,move,8,Amnesia,21.7%,,,,,,,,
+Appletun,230,move,9,Protect,12.8%,,,,,,,,
+Appletun,230,move,10,Dragon Tail,8.4%,,,,,,,,
+Appletun,230,held_item,1,Sitrus Berry,26.7%,,,,,,,,
+Appletun,230,held_item,2,Leftovers,14.1%,,,,,,,,
+Appletun,230,held_item,3,Yache Berry,6.9%,,,,,,,,
+Appletun,230,held_item,4,Light Clay,4.2%,,,,,,,,
+Appletun,230,held_item,5,Rocky Helmet,2.2%,,,,,,,,
+Appletun,230,held_item,6,Life Orb,0.5%,,,,,,,,
+Appletun,230,held_item,7,Haban Berry,0.2%,,,,,,,,
+Appletun,230,teammate,1,Mawile,,,,,,,,,
+Appletun,230,teammate,2,Sylveon,,,,,,,,,
+Appletun,230,teammate,3,Snorlax,,,,,,,,,
+Appletun,230,teammate,4,Conkeldurr,,,,,,,,,
+Appletun,230,teammate,5,Chandelure,,,,,,,,,
+Appletun,230,teammate,6,Garchomp,,,,,,,,,
+Appletun,230,teammate,7,Golisopod,,,,,,,,,
+Appletun,230,teammate,8,Basculegion,,,,,,,,,
+Appletun,230,teammate,9,Hippowdon,,,,,,,,,
+Appletun,230,teammate,10,Samurott,,,,,,,,,
+Appletun,230,stat_alignment,1,Modest,48.4%,Sp. Atk,Attack,,,,,,
+Appletun,230,stat_alignment,2,Sassy,21.2%,Sp. Def,Speed,,,,,,
+Appletun,230,stat_alignment,3,Bold,12.8%,Defense,Attack,,,,,,
+Appletun,230,stat_alignment,4,Calm,10.4%,Sp. Def,Attack,,,,,,
+Appletun,230,stat_alignment,5,Relaxed,5.9%,Defense,Speed,,,,,,
+Appletun,230,stat_alignment,6,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
+Appletun,230,stat_alignment,7,Quiet,0.5%,Sp. Atk,Speed,,,,,,
+Appletun,230,stat_points,1,,48.4%,,,32,0,0,32,2,0
+Appletun,230,stat_points,2,,26.4%,,,32,0,2,0,32,0
+Appletun,230,stat_points,3,,9.9%,,,32,0,32,0,2,0
+Appletun,230,stat_points,4,,6.2%,,,32,0,24,0,10,0
+Appletun,230,stat_points,5,,3.2%,,,32,0,10,0,24,0
+Appletun,230,stat_points,6,,2.0%,,,32,0,31,0,0,3
+Appletun,230,stat_points,7,,1.0%,,,24,0,12,0,30,0
+Appletun,230,stat_points,8,,1.0%,,,32,0,14,0,20,0
+Appletun,230,stat_points,9,,0.7%,,,32,0,22,0,12,0
+Appletun,230,stat_points,10,,0.5%,,,0,0,2,32,32,0
+Appletun,230,ability,1,Ripen,56.3%,,,,,,,,
+Appletun,230,ability,2,Thick Fat,43.7%,,,,,,,,

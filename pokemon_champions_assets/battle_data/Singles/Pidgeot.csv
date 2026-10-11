@@ -1,42 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pidgeot,180,move,1,Heat Wave,99.8%,,,,,,,,
-Pidgeot,180,move,2,Hurricane,99.0%,,,,,,,,
-Pidgeot,180,move,3,Substitute,58.0%,,,,,,,,
-Pidgeot,180,move,4,Hyper Beam,55.1%,,,,,,,,
-Pidgeot,180,move,5,Roost,43.3%,,,,,,,,
-Pidgeot,180,move,6,U-turn,18.8%,,,,,,,,
-Pidgeot,180,move,7,Quick Attack,7.3%,,,,,,,,
-Pidgeot,180,move,8,Feather Dance,5.7%,,,,,,,,
-Pidgeot,180,move,9,Tailwind,4.5%,,,,,,,,
-Pidgeot,180,move,10,Protect,3.7%,,,,,,,,
-Pidgeot,180,held_item,1,Pidgeotite,98.8%,,,,,,,,
-Pidgeot,180,held_item,2,Bright Powder,0.8%,,,,,,,,
-Pidgeot,180,held_item,3,Life Orb,0.2%,,,,,,,,
-Pidgeot,180,held_item,4,Red Card,0.2%,,,,,,,,
-Pidgeot,180,teammate,1,Espathra,,,,,,,,,
-Pidgeot,180,teammate,2,Gholdengo,,,,,,,,,
-Pidgeot,180,teammate,3,Clefable,,,,,,,,,
-Pidgeot,180,teammate,4,Arboliva,,,,,,,,,
-Pidgeot,180,teammate,5,Empoleon,,,,,,,,,
-Pidgeot,180,teammate,6,Garchomp,,,,,,,,,
-Pidgeot,180,teammate,7,Swampert,,,,,,,,,
-Pidgeot,180,teammate,8,Snorlax,,,,,,,,,
-Pidgeot,180,teammate,9,Medicham,,,,,,,,,
-Pidgeot,180,teammate,10,Tinkaton,,,,,,,,,
-Pidgeot,180,stat_alignment,1,Modest,49.8%,Sp. Atk,Attack,,,,,,
-Pidgeot,180,stat_alignment,2,Timid,48.4%,Speed,Attack,,,,,,
-Pidgeot,180,stat_alignment,3,Mild,1.6%,Sp. Atk,Defense,,,,,,
-Pidgeot,180,stat_alignment,4,Jolly,0.2%,Speed,Sp. Atk,,,,,,
-Pidgeot,180,stat_points,1,,20.6%,,,1,0,1,32,0,32
-Pidgeot,180,stat_points,2,,18.0%,,,29,0,1,32,0,4
-Pidgeot,180,stat_points,3,,16.1%,,,2,0,0,32,0,32
-Pidgeot,180,stat_points,4,,7.6%,,,31,0,6,25,0,4
-Pidgeot,180,stat_points,5,,5.3%,,,1,0,0,32,1,32
-Pidgeot,180,stat_points,6,,5.3%,,,32,0,0,32,2,0
-Pidgeot,180,stat_points,7,,4.3%,,,31,0,2,32,1,0
-Pidgeot,180,stat_points,8,,3.7%,,,0,0,8,26,0,32
-Pidgeot,180,stat_points,9,,3.7%,,,32,0,2,32,0,0
-Pidgeot,180,stat_points,10,,3.3%,,,29,0,0,21,0,16
-Pidgeot,180,ability,1,Big Pecks,80.2%,,,,,,,,
-Pidgeot,180,ability,2,Keen Eye,13.7%,,,,,,,,
-Pidgeot,180,ability,3,Tangled Feet,6.1%,,,,,,,,
+Pidgeot,163,move,1,Hurricane,99.5%,,,,,,,,
+Pidgeot,163,move,2,Heat Wave,98.8%,,,,,,,,
+Pidgeot,163,move,3,Hyper Beam,60.8%,,,,,,,,
+Pidgeot,163,move,4,Substitute,44.9%,,,,,,,,
+Pidgeot,163,move,5,Roost,39.9%,,,,,,,,
+Pidgeot,163,move,6,U-turn,18.6%,,,,,,,,
+Pidgeot,163,move,7,Quick Attack,10.1%,,,,,,,,
+Pidgeot,163,move,8,Tailwind,8.3%,,,,,,,,
+Pidgeot,163,move,9,Feather Dance,6.0%,,,,,,,,
+Pidgeot,163,move,10,Uproar,4.6%,,,,,,,,
+Pidgeot,163,held_item,1,Pidgeotite,98.6%,,,,,,,,
+Pidgeot,163,held_item,2,King's Rock,0.6%,,,,,,,,
+Pidgeot,163,held_item,3,Bright Powder,0.5%,,,,,,,,
+Pidgeot,163,held_item,4,Focus Band,0.1%,,,,,,,,
+Pidgeot,163,held_item,5,Quick Claw,0.1%,,,,,,,,
+Pidgeot,163,held_item,6,Life Orb,0.1%,,,,,,,,
+Pidgeot,163,held_item,7,Red Card,0.1%,,,,,,,,
+Pidgeot,163,teammate,1,Espathra,,,,,,,,,
+Pidgeot,163,teammate,2,Gholdengo,,,,,,,,,
+Pidgeot,163,teammate,3,Garchomp,,,,,,,,,
+Pidgeot,163,teammate,4,Clefable,,,,,,,,,
+Pidgeot,163,teammate,5,Arboliva,,,,,,,,,
+Pidgeot,163,teammate,6,Swampert,,,,,,,,,
+Pidgeot,163,teammate,7,Medicham,,,,,,,,,
+Pidgeot,163,teammate,8,Tinkaton,,,,,,,,,
+Pidgeot,163,teammate,9,Slurpuff,,,,,,,,,
+Pidgeot,163,teammate,10,Empoleon,,,,,,,,,
+Pidgeot,163,stat_alignment,1,Timid,48.8%,Speed,Attack,,,,,,
+Pidgeot,163,stat_alignment,2,Modest,45.0%,Sp. Atk,Attack,,,,,,
+Pidgeot,163,stat_alignment,3,Mild,5.9%,Sp. Atk,Defense,,,,,,
+Pidgeot,163,stat_alignment,4,Bold,0.3%,Defense,Attack,,,,,,
+Pidgeot,163,stat_alignment,5,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Pidgeot,163,stat_points,1,,22.8%,,,2,0,0,32,0,32
+Pidgeot,163,stat_points,2,,22.1%,,,1,0,1,32,0,32
+Pidgeot,163,stat_points,3,,9.4%,,,29,0,1,32,0,4
+Pidgeot,163,stat_points,4,,8.3%,,,0,0,2,32,0,32
+Pidgeot,163,stat_points,5,,5.5%,,,1,0,0,32,1,32
+Pidgeot,163,stat_points,6,,4.2%,,,1,0,0,30,3,32
+Pidgeot,163,stat_points,7,,3.3%,,,31,0,6,25,0,4
+Pidgeot,163,stat_points,8,,3.1%,,,32,0,2,32,0,0
+Pidgeot,163,stat_points,9,,3.1%,,,29,0,0,21,0,16
+Pidgeot,163,stat_points,10,,2.9%,,,32,0,0,32,2,0
+Pidgeot,163,ability,1,Big Pecks,69.7%,,,,,,,,
+Pidgeot,163,ability,2,Keen Eye,20.4%,,,,,,,,
+Pidgeot,163,ability,3,Tangled Feet,9.9%,,,,,,,,

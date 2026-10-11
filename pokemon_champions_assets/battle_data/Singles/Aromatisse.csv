@@ -1,36 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aromatisse,247,move,1,Trick Room,90.2%,,,,,,,,
-Aromatisse,247,move,2,Moonblast,60.8%,,,,,,,,
-Aromatisse,247,move,3,Misty Explosion,54.9%,,,,,,,,
-Aromatisse,247,move,4,Thunderbolt,43.1%,,,,,,,,
-Aromatisse,247,move,5,Light Screen,37.3%,,,,,,,,
-Aromatisse,247,move,6,Reflect,37.3%,,,,,,,,
-Aromatisse,247,move,7,Nasty Plot,35.3%,,,,,,,,
-Aromatisse,247,move,8,Encore,25.5%,,,,,,,,
-Aromatisse,247,move,9,Calm Mind,9.8%,,,,,,,,
-Aromatisse,247,move,10,Energy Ball,2.0%,,,,,,,,
-Aromatisse,247,held_item,1,Sitrus Berry,45.1%,,,,,,,,
-Aromatisse,247,held_item,2,Light Clay,37.3%,,,,,,,,
-Aromatisse,247,held_item,3,Focus Sash,17.6%,,,,,,,,
-Aromatisse,247,teammate,1,Steelix,,,,,,,,,
-Aromatisse,247,teammate,2,Samurott,,,,,,,,,
-Aromatisse,247,teammate,3,Stunfisk-Galar,,,,,,,,,
-Aromatisse,247,teammate,4,Florges,,,,,,,,,
-Aromatisse,247,teammate,5,Gyarados,,,,,,,,,
-Aromatisse,247,teammate,6,Golurk,,,,,,,,,
-Aromatisse,247,teammate,7,Glimmora,,,,,,,,,
-Aromatisse,247,teammate,8,Garchomp,,,,,,,,,
-Aromatisse,247,teammate,9,Delphox,,,,,,,,,
-Aromatisse,247,teammate,10,Dragapult,,,,,,,,,
-Aromatisse,247,stat_alignment,1,Quiet,37.3%,Sp. Atk,Speed,,,,,,
-Aromatisse,247,stat_alignment,2,Relaxed,35.3%,Defense,Speed,,,,,,
-Aromatisse,247,stat_alignment,3,Calm,25.5%,Sp. Def,Attack,,,,,,
-Aromatisse,247,stat_alignment,4,Bold,2.0%,Defense,Attack,,,,,,
-Aromatisse,247,stat_points,1,,37.3%,,,32,0,32,0,2,0
-Aromatisse,247,stat_points,2,,33.3%,,,32,0,2,32,0,0
-Aromatisse,247,stat_points,3,,17.6%,,,32,0,21,0,13,0
-Aromatisse,247,stat_points,4,,7.8%,,,31,0,0,0,32,3
-Aromatisse,247,stat_points,5,,2.0%,,,0,0,2,32,32,0
-Aromatisse,247,stat_points,6,,2.0%,,,32,0,13,21,0,0
-Aromatisse,247,ability,1,Aroma Veil,98.0%,,,,,,,,
-Aromatisse,247,ability,2,Healer,2.0%,,,,,,,,
+Aromatisse,249,move,1,Trick Room,95.5%,,,,,,,,
+Aromatisse,249,move,2,Moonblast,73.2%,,,,,,,,
+Aromatisse,249,move,3,Encore,49.5%,,,,,,,,
+Aromatisse,249,move,4,Misty Explosion,35.4%,,,,,,,,
+Aromatisse,249,move,5,Calm Mind,29.8%,,,,,,,,
+Aromatisse,249,move,6,Light Screen,17.2%,,,,,,,,
+Aromatisse,249,move,7,Reflect,17.2%,,,,,,,,
+Aromatisse,249,move,8,Draining Kiss,16.7%,,,,,,,,
+Aromatisse,249,move,9,Substitute,16.2%,,,,,,,,
+Aromatisse,249,move,10,Thunderbolt,14.6%,,,,,,,,
+Aromatisse,249,held_item,1,Sitrus Berry,44.4%,,,,,,,,
+Aromatisse,249,held_item,2,Light Clay,16.2%,,,,,,,,
+Aromatisse,249,held_item,3,Focus Sash,12.6%,,,,,,,,
+Aromatisse,249,held_item,4,Kebia Berry,5.1%,,,,,,,,
+Aromatisse,249,held_item,5,Shell Bell,4.0%,,,,,,,,
+Aromatisse,249,held_item,6,Wise Glasses,2.0%,,,,,,,,
+Aromatisse,249,held_item,7,Leftovers,1.5%,,,,,,,,
+Aromatisse,249,teammate,1,Sneasler,,,,,,,,,
+Aromatisse,249,teammate,2,Dragonite,,,,,,,,,
+Aromatisse,249,teammate,3,Espeon,,,,,,,,,
+Aromatisse,249,teammate,4,Golisopod,,,,,,,,,
+Aromatisse,249,teammate,5,Baxcalibur,,,,,,,,,
+Aromatisse,249,teammate,6,Salamence,,,,,,,,,
+Aromatisse,249,teammate,7,Basculegion,,,,,,,,,
+Aromatisse,249,teammate,8,Steelix,,,,,,,,,
+Aromatisse,249,teammate,9,Stunfisk-Galar,,,,,,,,,
+Aromatisse,249,teammate,10,Florges,,,,,,,,,
+Aromatisse,249,stat_alignment,1,Quiet,44.9%,Sp. Atk,Speed,,,,,,
+Aromatisse,249,stat_alignment,2,Sassy,18.2%,Sp. Def,Speed,,,,,,
+Aromatisse,249,stat_alignment,3,Relaxed,17.7%,Defense,Speed,,,,,,
+Aromatisse,249,stat_alignment,4,Calm,6.6%,Sp. Def,Attack,,,,,,
+Aromatisse,249,stat_alignment,5,Bold,6.6%,Defense,Attack,,,,,,
+Aromatisse,249,stat_alignment,6,Modest,6.1%,Sp. Atk,Attack,,,,,,
+Aromatisse,249,stat_points,1,,25.3%,,,32,0,11,21,2,0
+Aromatisse,249,stat_points,2,,24.2%,,,32,0,32,0,2,0
+Aromatisse,249,stat_points,3,,15.7%,,,32,0,2,32,0,0
+Aromatisse,249,stat_points,4,,14.6%,,,0,0,2,32,32,0
+Aromatisse,249,stat_points,5,,4.5%,,,32,0,21,0,13,0
+Aromatisse,249,stat_points,6,,4.0%,,,2,0,32,32,0,0
+Aromatisse,249,stat_points,7,,4.0%,,,31,0,30,0,5,0
+Aromatisse,249,stat_points,8,,2.0%,,,0,0,32,32,0,2
+Aromatisse,249,stat_points,9,,2.0%,,,31,0,0,0,32,3
+Aromatisse,249,stat_points,10,,1.5%,,,32,0,0,32,2,0
+Aromatisse,249,ability,1,Aroma Veil,83.3%,,,,,,,,
+Aromatisse,249,ability,2,Healer,16.7%,,,,,,,,

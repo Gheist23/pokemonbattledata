@@ -1,36 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Oranguru,241,move,1,Trick Room,90.1%,,,,,,,,
-Oranguru,241,move,2,Psychic Noise,84.5%,,,,,,,,
-Oranguru,241,move,3,Energy Ball,66.2%,,,,,,,,
-Oranguru,241,move,4,Hyper Voice,64.8%,,,,,,,,
-Oranguru,241,move,5,Encore,28.2%,,,,,,,,
-Oranguru,241,move,6,Taunt,14.1%,,,,,,,,
-Oranguru,241,move,7,Psychic,14.1%,,,,,,,,
-Oranguru,241,move,8,Foul Play,12.7%,,,,,,,,
-Oranguru,241,move,9,Pain Split,8.5%,,,,,,,,
-Oranguru,241,move,10,Shadow Ball,5.6%,,,,,,,,
-Oranguru,241,held_item,1,Sitrus Berry,93.0%,,,,,,,,
-Oranguru,241,held_item,2,Life Orb,5.6%,,,,,,,,
-Oranguru,241,held_item,3,Light Clay,1.4%,,,,,,,,
-Oranguru,241,teammate,1,Feraligatr,,,,,,,,,
-Oranguru,241,teammate,2,Manectric,,,,,,,,,
-Oranguru,241,teammate,3,Clawitzer,,,,,,,,,
-Oranguru,241,teammate,4,Talonflame,,,,,,,,,
-Oranguru,241,teammate,5,Torterra,,,,,,,,,
-Oranguru,241,teammate,6,Furfrou,,,,,,,,,
-Oranguru,241,teammate,7,Simisear,,,,,,,,,
-Oranguru,241,teammate,8,Squawkabilly,,,,,,,,,
-Oranguru,241,teammate,9,Tauros-Paldea-Aqua,,,,,,,,,
-Oranguru,241,teammate,10,Ariados,,,,,,,,,
-Oranguru,241,stat_alignment,1,Sassy,64.8%,Sp. Def,Speed,,,,,,
-Oranguru,241,stat_alignment,2,Calm,26.8%,Sp. Def,Attack,,,,,,
-Oranguru,241,stat_alignment,3,Relaxed,5.6%,Defense,Speed,,,,,,
-Oranguru,241,stat_alignment,4,Careful,1.4%,Sp. Def,Sp. Atk,,,,,,
-Oranguru,241,stat_alignment,5,Bold,1.4%,Defense,Attack,,,,,,
-Oranguru,241,stat_points,1,,64.8%,,,32,0,0,2,32,0
-Oranguru,241,stat_points,2,,19.7%,,,32,0,2,0,32,0
-Oranguru,241,stat_points,3,,8.5%,,,32,0,0,0,15,19
-Oranguru,241,stat_points,4,,5.6%,,,32,0,20,14,0,0
-Oranguru,241,stat_points,5,,1.4%,,,32,0,30,0,4,0
-Oranguru,241,ability,1,Inner Focus,98.6%,,,,,,,,
-Oranguru,241,ability,2,Telepathy,1.4%,,,,,,,,
+Oranguru,252,move,1,Trick Room,74.5%,,,,,,,,
+Oranguru,252,move,2,Psychic Noise,70.3%,,,,,,,,
+Oranguru,252,move,3,Hyper Voice,56.4%,,,,,,,,
+Oranguru,252,move,4,Energy Ball,47.3%,,,,,,,,
+Oranguru,252,move,5,Psychic,27.3%,,,,,,,,
+Oranguru,252,move,6,Encore,20.0%,,,,,,,,
+Oranguru,252,move,7,Foul Play,20.0%,,,,,,,,
+Oranguru,252,move,8,Focus Blast,13.9%,,,,,,,,
+Oranguru,252,move,9,Shadow Ball,12.7%,,,,,,,,
+Oranguru,252,move,10,Hyper Beam,10.9%,,,,,,,,
+Oranguru,252,held_item,1,Sitrus Berry,64.8%,,,,,,,,
+Oranguru,252,held_item,2,Life Orb,13.9%,,,,,,,,
+Oranguru,252,held_item,3,Lum Berry,11.5%,,,,,,,,
+Oranguru,252,held_item,4,Light Ball,4.8%,,,,,,,,
+Oranguru,252,held_item,5,Light Clay,3.0%,,,,,,,,
+Oranguru,252,held_item,6,Psychic Seed,1.8%,,,,,,,,
+Oranguru,252,teammate,1,Feraligatr,,,,,,,,,
+Oranguru,252,teammate,2,Manectric,,,,,,,,,
+Oranguru,252,teammate,3,Clawitzer,,,,,,,,,
+Oranguru,252,teammate,4,Torterra,,,,,,,,,
+Oranguru,252,teammate,5,Simisear,,,,,,,,,
+Oranguru,252,teammate,6,Talonflame,,,,,,,,,
+Oranguru,252,teammate,7,Decidueye,,,,,,,,,
+Oranguru,252,teammate,8,Steelix,,,,,,,,,
+Oranguru,252,teammate,9,Stunfisk-Galar,,,,,,,,,
+Oranguru,252,teammate,10,Florges,,,,,,,,,
+Oranguru,252,stat_alignment,1,Sassy,44.2%,Sp. Def,Speed,,,,,,
+Oranguru,252,stat_alignment,2,Calm,18.2%,Sp. Def,Attack,,,,,,
+Oranguru,252,stat_alignment,3,Modest,14.5%,Sp. Atk,Attack,,,,,,
+Oranguru,252,stat_alignment,4,Relaxed,14.5%,Defense,Speed,,,,,,
+Oranguru,252,stat_alignment,5,Bold,7.9%,Defense,Attack,,,,,,
+Oranguru,252,stat_alignment,6,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
+Oranguru,252,stat_points,1,,44.2%,,,32,0,0,2,32,0
+Oranguru,252,stat_points,2,,14.5%,,,32,0,2,0,32,0
+Oranguru,252,stat_points,3,,12.7%,,,32,0,20,14,0,0
+Oranguru,252,stat_points,4,,12.1%,,,32,0,2,32,0,0
+Oranguru,252,stat_points,5,,4.8%,,,32,0,32,2,0,0
+Oranguru,252,stat_points,6,,4.2%,,,32,0,0,0,15,19
+Oranguru,252,stat_points,7,,2.4%,,,32,0,32,0,2,0
+Oranguru,252,stat_points,8,,1.8%,,,5,0,0,32,29,0
+Oranguru,252,stat_points,9,,1.8%,,,32,0,20,0,5,9
+Oranguru,252,stat_points,10,,0.6%,,,0,0,32,32,2,0
+Oranguru,252,ability,1,Inner Focus,98.8%,,,,,,,,
+Oranguru,252,ability,2,Telepathy,0.6%,,,,,,,,
+Oranguru,252,ability,3,Symbiosis,0.6%,,,,,,,,

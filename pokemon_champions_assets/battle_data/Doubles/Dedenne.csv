@@ -1,33 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dedenne,229,move,1,Electroweb,73.5%,,,,,,,,
-Dedenne,229,move,2,Nuzzle,73.5%,,,,,,,,
-Dedenne,229,move,3,Super Fang,61.8%,,,,,,,,
-Dedenne,229,move,4,Helping Hand,44.1%,,,,,,,,
-Dedenne,229,move,5,Protect,26.5%,,,,,,,,
-Dedenne,229,move,6,Dazzling Gleam,26.5%,,,,,,,,
-Dedenne,229,move,7,Entrainment,23.5%,,,,,,,,
-Dedenne,229,move,8,Volt Switch,17.6%,,,,,,,,
-Dedenne,229,move,9,Discharge,14.7%,,,,,,,,
-Dedenne,229,move,10,Grass Knot,14.7%,,,,,,,,
-Dedenne,229,held_item,1,Shuca Berry,44.1%,,,,,,,,
-Dedenne,229,held_item,2,Choice Scarf,29.4%,,,,,,,,
-Dedenne,229,held_item,3,Focus Sash,26.5%,,,,,,,,
-Dedenne,229,teammate,1,Gardevoir,,,,,,,,,
-Dedenne,229,teammate,2,Indeedee-F,,,,,,,,,
-Dedenne,229,teammate,3,Cinderace,,,,,,,,,
-Dedenne,229,teammate,4,Ninetales-Alola,,,,,,,,,
-Dedenne,229,teammate,5,Staraptor,,,,,,,,,
-Dedenne,229,teammate,6,Salamence,,,,,,,,,
-Dedenne,229,teammate,7,Toxtricity,,,,,,,,,
-Dedenne,229,teammate,8,Charizard,,,,,,,,,
-Dedenne,229,teammate,9,Garchomp,,,,,,,,,
-Dedenne,229,teammate,10,Whimsicott,,,,,,,,,
-Dedenne,229,stat_alignment,1,Timid,100.0%,Speed,Attack,,,,,,
-Dedenne,229,stat_points,1,,47.1%,,,32,0,0,0,2,32
-Dedenne,229,stat_points,2,,17.6%,,,2,0,0,32,0,32
-Dedenne,229,stat_points,3,,14.7%,,,0,0,2,32,0,32
-Dedenne,229,stat_points,4,,11.8%,,,32,0,0,2,0,32
-Dedenne,229,stat_points,5,,8.8%,,,17,0,15,30,0,4
-Dedenne,229,ability,1,Cheek Pouch,58.8%,,,,,,,,
-Dedenne,229,ability,2,Plus,23.5%,,,,,,,,
-Dedenne,229,ability,3,Pickup,17.6%,,,,,,,,
+Dedenne,205,move,1,Dazzling Gleam,59.9%,,,,,,,,
+Dedenne,205,move,2,Super Fang,57.6%,,,,,,,,
+Dedenne,205,move,3,Nuzzle,53.9%,,,,,,,,
+Dedenne,205,move,4,Thunderbolt,51.7%,,,,,,,,
+Dedenne,205,move,5,Grass Knot,30.9%,,,,,,,,
+Dedenne,205,move,6,Helping Hand,28.3%,,,,,,,,
+Dedenne,205,move,7,Iron Tail,26.4%,,,,,,,,
+Dedenne,205,move,8,Electroweb,26.4%,,,,,,,,
+Dedenne,205,move,9,Entrainment,15.2%,,,,,,,,
+Dedenne,205,move,10,Sunny Day,11.5%,,,,,,,,
+Dedenne,205,held_item,1,Life Orb,26.4%,,,,,,,,
+Dedenne,205,held_item,2,Sitrus Berry,26.0%,,,,,,,,
+Dedenne,205,held_item,3,Shuca Berry,16.4%,,,,,,,,
+Dedenne,205,held_item,4,Choice Scarf,14.9%,,,,,,,,
+Dedenne,205,held_item,5,Focus Sash,7.8%,,,,,,,,
+Dedenne,205,held_item,6,Kebia Berry,5.9%,,,,,,,,
+Dedenne,205,held_item,7,Leftovers,1.9%,,,,,,,,
+Dedenne,205,held_item,8,King's Rock,0.7%,,,,,,,,
+Dedenne,205,teammate,1,Sinistcha,,,,,,,,,
+Dedenne,205,teammate,2,Torterra,,,,,,,,,
+Dedenne,205,teammate,3,Aurorus,,,,,,,,,
+Dedenne,205,teammate,4,Hawlucha,,,,,,,,,
+Dedenne,205,teammate,5,Basculegion,,,,,,,,,
+Dedenne,205,teammate,6,Ninetales-Alola,,,,,,,,,
+Dedenne,205,teammate,7,Indeedee,,,,,,,,,
+Dedenne,205,teammate,8,Politoed,,,,,,,,,
+Dedenne,205,teammate,9,Tauros-Paldea-Blaze,,,,,,,,,
+Dedenne,205,teammate,10,Heracross,,,,,,,,,
+Dedenne,205,stat_alignment,1,Timid,75.5%,Speed,Attack,,,,,,
+Dedenne,205,stat_alignment,2,Modest,24.2%,Sp. Atk,Attack,,,,,,
+Dedenne,205,stat_alignment,3,Calm,0.4%,Sp. Def,Attack,,,,,,
+Dedenne,205,stat_points,1,,29.7%,,,2,0,0,32,0,32
+Dedenne,205,stat_points,2,,28.3%,,,0,0,2,32,0,32
+Dedenne,205,stat_points,3,,16.7%,,,32,0,0,0,2,32
+Dedenne,205,stat_points,4,,13.4%,,,22,0,0,15,0,29
+Dedenne,205,stat_points,5,,4.8%,,,32,0,0,2,0,32
+Dedenne,205,stat_points,6,,2.2%,,,0,0,0,32,2,32
+Dedenne,205,stat_points,7,,2.2%,,,17,0,15,30,0,4
+Dedenne,205,stat_points,8,,1.1%,,,30,0,7,0,0,29
+Dedenne,205,stat_points,9,,0.7%,,,17,0,16,29,0,4
+Dedenne,205,stat_points,10,,0.4%,,,2,0,32,0,32,0
+Dedenne,205,ability,1,Cheek Pouch,79.2%,,,,,,,,
+Dedenne,205,ability,2,Plus,17.8%,,,,,,,,
+Dedenne,205,ability,3,Pickup,3.0%,,,,,,,,

@@ -1,52 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Swalot,196,move,1,Toxic,73.7%,,,,,,,,
-Swalot,196,move,2,Self-Destruct,51.6%,,,,,,,,
-Swalot,196,move,3,Gunk Shot,47.1%,,,,,,,,
-Swalot,196,move,4,Protect,43.8%,,,,,,,,
-Swalot,196,move,5,Encore,30.5%,,,,,,,,
-Swalot,196,move,6,Body Press,25.6%,,,,,,,,
-Swalot,196,move,7,Acid Armor,17.2%,,,,,,,,
-Swalot,196,move,8,Toxic Spikes,16.2%,,,,,,,,
-Swalot,196,move,9,Yawn,13.3%,,,,,,,,
-Swalot,196,move,10,Amnesia,9.1%,,,,,,,,
-Swalot,196,held_item,1,Normal Gem,41.6%,,,,,,,,
-Swalot,196,held_item,2,Air Balloon,26.0%,,,,,,,,
-Swalot,196,held_item,3,Leftovers,14.6%,,,,,,,,
-Swalot,196,held_item,4,Rocky Helmet,8.1%,,,,,,,,
-Swalot,196,held_item,5,Mental Herb,4.2%,,,,,,,,
-Swalot,196,held_item,6,Sitrus Berry,3.2%,,,,,,,,
-Swalot,196,held_item,7,Chesto Berry,1.6%,,,,,,,,
-Swalot,196,held_item,8,Quick Claw,0.3%,,,,,,,,
-Swalot,196,held_item,9,Life Orb,0.3%,,,,,,,,
-Swalot,196,teammate,1,Basculegion,,,,,,,,,
-Swalot,196,teammate,2,Ampharos,,,,,,,,,
-Swalot,196,teammate,3,Steelix,,,,,,,,,
-Swalot,196,teammate,4,Glaceon,,,,,,,,,
-Swalot,196,teammate,5,Crabominable,,,,,,,,,
-Swalot,196,teammate,6,Garchomp,,,,,,,,,
-Swalot,196,teammate,7,Charizard,,,,,,,,,
-Swalot,196,teammate,8,Gyarados,,,,,,,,,
-Swalot,196,teammate,9,Lucario,,,,,,,,,
-Swalot,196,teammate,10,Empoleon,,,,,,,,,
-Swalot,196,stat_alignment,1,Adamant,41.9%,Attack,Sp. Atk,,,,,,
-Swalot,196,stat_alignment,2,Bold,16.6%,Defense,Attack,,,,,,
-Swalot,196,stat_alignment,3,Impish,16.6%,Defense,Sp. Atk,,,,,,
-Swalot,196,stat_alignment,4,Careful,7.1%,Sp. Def,Sp. Atk,,,,,,
-Swalot,196,stat_alignment,5,Modest,5.8%,Sp. Atk,Attack,,,,,,
-Swalot,196,stat_alignment,6,Relaxed,5.5%,Defense,Speed,,,,,,
-Swalot,196,stat_alignment,7,Jolly,3.2%,Speed,Sp. Atk,,,,,,
-Swalot,196,stat_alignment,8,Calm,1.9%,Sp. Def,Attack,,,,,,
-Swalot,196,stat_alignment,9,Brave,1.0%,Attack,Speed,,,,,,
-Swalot,196,stat_alignment,10,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Swalot,196,stat_points,1,,41.6%,,,32,32,2,0,0,0
-Swalot,196,stat_points,2,,30.2%,,,32,0,32,0,2,0
-Swalot,196,stat_points,3,,4.2%,,,32,0,20,13,0,1
-Swalot,196,stat_points,4,,4.2%,,,32,0,23,0,3,8
-Swalot,196,stat_points,5,,4.2%,,,32,0,25,0,9,0
-Swalot,196,stat_points,6,,3.2%,,,16,0,11,0,12,27
-Swalot,196,stat_points,7,,2.6%,,,32,0,6,0,0,28
-Swalot,196,stat_points,8,,1.6%,,,32,0,2,0,32,0
-Swalot,196,stat_points,9,,1.6%,,,32,0,7,0,27,0
-Swalot,196,stat_points,10,,1.3%,,,16,0,32,0,18,0
-Swalot,196,ability,1,Sticky Hold,59.7%,,,,,,,,
-Swalot,196,ability,2,Liquid Ooze,40.3%,,,,,,,,
+Swalot,193,move,1,Toxic,47.8%,,,,,,,,
+Swalot,193,move,2,Gunk Shot,43.3%,,,,,,,,
+Swalot,193,move,3,Self-Destruct,36.9%,,,,,,,,
+Swalot,193,move,4,Encore,33.7%,,,,,,,,
+Swalot,193,move,5,Protect,27.0%,,,,,,,,
+Swalot,193,move,6,Toxic Spikes,21.2%,,,,,,,,
+Swalot,193,move,7,Body Press,21.2%,,,,,,,,
+Swalot,193,move,8,Yawn,19.6%,,,,,,,,
+Swalot,193,move,9,Knock Off,14.2%,,,,,,,,
+Swalot,193,move,10,Poison Jab,12.9%,,,,,,,,
+Swalot,193,held_item,1,Normal Gem,25.4%,,,,,,,,
+Swalot,193,held_item,2,Air Balloon,23.8%,,,,,,,,
+Swalot,193,held_item,3,Poison Barb,12.4%,,,,,,,,
+Swalot,193,held_item,4,Leftovers,10.4%,,,,,,,,
+Swalot,193,held_item,5,Sitrus Berry,9.1%,,,,,,,,
+Swalot,193,held_item,6,Chesto Berry,6.0%,,,,,,,,
+Swalot,193,held_item,7,Rocky Helmet,5.7%,,,,,,,,
+Swalot,193,held_item,8,Quick Claw,2.5%,,,,,,,,
+Swalot,193,held_item,9,Life Orb,2.2%,,,,,,,,
+Swalot,193,held_item,10,Mental Herb,1.5%,,,,,,,,
+Swalot,193,teammate,1,Basculegion,,,,,,,,,
+Swalot,193,teammate,2,Garchomp,,,,,,,,,
+Swalot,193,teammate,3,Glaceon,,,,,,,,,
+Swalot,193,teammate,4,Crabominable,,,,,,,,,
+Swalot,193,teammate,5,Ampharos,,,,,,,,,
+Swalot,193,teammate,6,Steelix,,,,,,,,,
+Swalot,193,teammate,7,Kingambit,,,,,,,,,
+Swalot,193,teammate,8,Salamence,,,,,,,,,
+Swalot,193,teammate,9,Charizard,,,,,,,,,
+Swalot,193,teammate,10,Falinks,,,,,,,,,
+Swalot,193,stat_alignment,1,Adamant,25.5%,Attack,Sp. Atk,,,,,,
+Swalot,193,stat_alignment,2,Impish,21.8%,Defense,Sp. Atk,,,,,,
+Swalot,193,stat_alignment,3,Bold,17.3%,Defense,Attack,,,,,,
+Swalot,193,stat_alignment,4,Gentle,12.4%,Sp. Def,Defense,,,,,,
+Swalot,193,stat_alignment,5,Relaxed,6.8%,Defense,Speed,,,,,,
+Swalot,193,stat_alignment,6,Calm,5.3%,Sp. Def,Attack,,,,,,
+Swalot,193,stat_alignment,7,Careful,2.7%,Sp. Def,Sp. Atk,,,,,,
+Swalot,193,stat_alignment,8,Modest,2.4%,Sp. Atk,Attack,,,,,,
+Swalot,193,stat_alignment,9,Naughty,2.2%,Attack,Sp. Def,,,,,,
+Swalot,193,stat_alignment,10,Sassy,1.7%,Sp. Def,Speed,,,,,,
+Swalot,193,stat_points,1,,25.4%,,,32,32,2,0,0,0
+Swalot,193,stat_points,2,,16.8%,,,32,0,32,0,2,0
+Swalot,193,stat_points,3,,12.4%,,,2,32,0,0,32,0
+Swalot,193,stat_points,4,,7.6%,,,32,0,27,0,7,0
+Swalot,193,stat_points,5,,5.0%,,,32,0,29,0,5,0
+Swalot,193,stat_points,6,,4.7%,,,32,0,32,0,0,0
+Swalot,193,stat_points,7,,3.2%,,,32,0,7,0,27,0
+Swalot,193,stat_points,8,,2.2%,,,0,32,32,0,0,2
+Swalot,193,stat_points,9,,2.1%,,,32,0,2,0,32,0
+Swalot,193,stat_points,10,,1.9%,,,32,0,20,13,0,1
+Swalot,193,ability,1,Sticky Hold,47.4%,,,,,,,,
+Swalot,193,ability,2,Liquid Ooze,40.0%,,,,,,,,
+Swalot,193,ability,3,Gluttony,12.5%,,,,,,,,

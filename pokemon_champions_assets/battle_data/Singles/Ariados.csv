@@ -1,44 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ariados,197,move,1,Sticky Web,70.7%,,,,,,,,
-Ariados,197,move,2,Toxic Thread,58.3%,,,,,,,,
-Ariados,197,move,3,Toxic Spikes,46.9%,,,,,,,,
-Ariados,197,move,4,Megahorn,25.7%,,,,,,,,
-Ariados,197,move,5,Poison Jab,25.4%,,,,,,,,
-Ariados,197,move,6,First Impression,21.8%,,,,,,,,
-Ariados,197,move,7,Swords Dance,21.5%,,,,,,,,
-Ariados,197,move,8,Sucker Punch,15.6%,,,,,,,,
-Ariados,197,move,9,Knock Off,13.7%,,,,,,,,
-Ariados,197,move,10,Toxic,13.4%,,,,,,,,
-Ariados,197,held_item,1,Focus Sash,70.4%,,,,,,,,
-Ariados,197,held_item,2,Quick Claw,21.5%,,,,,,,,
-Ariados,197,held_item,3,Sitrus Berry,2.3%,,,,,,,,
-Ariados,197,held_item,4,Red Card,0.7%,,,,,,,,
-Ariados,197,held_item,5,Life Orb,0.3%,,,,,,,,
-Ariados,197,teammate,1,Vivillon-Fancy,,,,,,,,,
-Ariados,197,teammate,2,Garchomp,,,,,,,,,
-Ariados,197,teammate,3,Greninja,,,,,,,,,
-Ariados,197,teammate,4,Meowscarada,,,,,,,,,
-Ariados,197,teammate,5,Musharna,,,,,,,,,
-Ariados,197,teammate,6,Glimmora,,,,,,,,,
-Ariados,197,teammate,7,Ninetales-Alola,,,,,,,,,
-Ariados,197,teammate,8,Tyranitar,,,,,,,,,
-Ariados,197,teammate,9,Archaludon,,,,,,,,,
-Ariados,197,teammate,10,Delphox,,,,,,,,,
-Ariados,197,stat_alignment,1,Jolly,45.9%,Speed,Sp. Atk,,,,,,
-Ariados,197,stat_alignment,2,Adamant,41.7%,Attack,Sp. Atk,,,,,,
-Ariados,197,stat_alignment,3,Impish,9.8%,Defense,Sp. Atk,,,,,,
-Ariados,197,stat_alignment,4,Brave,2.0%,Attack,Speed,,,,,,
-Ariados,197,stat_alignment,5,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
-Ariados,197,stat_points,1,,30.6%,,,2,32,0,0,0,32
-Ariados,197,stat_points,2,,23.5%,,,32,32,2,0,0,0
-Ariados,197,stat_points,3,,13.7%,,,32,0,1,0,1,32
-Ariados,197,stat_points,4,,8.5%,,,0,32,0,0,0,32
-Ariados,197,stat_points,5,,5.9%,,,32,0,2,0,0,32
-Ariados,197,stat_points,6,,5.5%,,,11,0,30,0,0,25
-Ariados,197,stat_points,7,,5.5%,,,32,0,0,0,2,32
-Ariados,197,stat_points,8,,4.2%,,,32,0,32,0,2,0
-Ariados,197,stat_points,9,,1.0%,,,0,8,13,0,13,32
-Ariados,197,stat_points,10,,0.7%,,,0,32,2,0,0,32
-Ariados,197,ability,1,Insomnia,58.0%,,,,,,,,
-Ariados,197,ability,2,Swarm,38.1%,,,,,,,,
-Ariados,197,ability,3,Sniper,3.9%,,,,,,,,
+Ariados,203,move,1,Sticky Web,81.7%,,,,,,,,
+Ariados,203,move,2,Toxic Thread,65.4%,,,,,,,,
+Ariados,203,move,3,Toxic Spikes,43.0%,,,,,,,,
+Ariados,203,move,4,First Impression,40.1%,,,,,,,,
+Ariados,203,move,5,Sucker Punch,22.7%,,,,,,,,
+Ariados,203,move,6,Knock Off,20.2%,,,,,,,,
+Ariados,203,move,7,Poison Jab,15.7%,,,,,,,,
+Ariados,203,move,8,Megahorn,12.1%,,,,,,,,
+Ariados,203,move,9,Lunge,10.3%,,,,,,,,
+Ariados,203,move,10,Disable,9.5%,,,,,,,,
+Ariados,203,held_item,1,Focus Sash,74.9%,,,,,,,,
+Ariados,203,held_item,2,Quick Claw,10.3%,,,,,,,,
+Ariados,203,held_item,3,Sitrus Berry,3.6%,,,,,,,,
+Ariados,203,held_item,4,Scope Lens,1.9%,,,,,,,,
+Ariados,203,held_item,5,Life Orb,1.9%,,,,,,,,
+Ariados,203,held_item,6,Rocky Helmet,0.6%,,,,,,,,
+Ariados,203,held_item,7,Red Card,0.3%,,,,,,,,
+Ariados,203,teammate,1,Garchomp,,,,,,,,,
+Ariados,203,teammate,2,Basculegion,,,,,,,,,
+Ariados,203,teammate,3,Vivillon-Fancy,,,,,,,,,
+Ariados,203,teammate,4,Kingambit,,,,,,,,,
+Ariados,203,teammate,5,Raichu,,,,,,,,,
+Ariados,203,teammate,6,Delphox,,,,,,,,,
+Ariados,203,teammate,7,Salamence,,,,,,,,,
+Ariados,203,teammate,8,Greninja,,,,,,,,,
+Ariados,203,teammate,9,Glimmora,,,,,,,,,
+Ariados,203,teammate,10,Meowscarada,,,,,,,,,
+Ariados,203,stat_alignment,1,Jolly,44.9%,Speed,Sp. Atk,,,,,,
+Ariados,203,stat_alignment,2,Adamant,41.5%,Attack,Sp. Atk,,,,,,
+Ariados,203,stat_alignment,3,Impish,7.9%,Defense,Sp. Atk,,,,,,
+Ariados,203,stat_alignment,4,Lonely,2.2%,Attack,Defense,,,,,,
+Ariados,203,stat_alignment,5,Hasty,1.8%,Speed,Defense,,,,,,
+Ariados,203,stat_alignment,6,Brave,1.5%,Attack,Speed,,,,,,
+Ariados,203,stat_alignment,7,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Ariados,203,stat_points,1,,34.6%,,,2,32,0,0,0,32
+Ariados,203,stat_points,2,,9.9%,,,32,32,2,0,0,0
+Ariados,203,stat_points,3,,7.6%,,,32,0,0,0,2,32
+Ariados,203,stat_points,4,,7.2%,,,0,32,0,0,0,32
+Ariados,203,stat_points,5,,6.9%,,,32,0,2,0,0,32
+Ariados,203,stat_points,6,,6.2%,,,32,0,1,0,1,32
+Ariados,203,stat_points,7,,4.1%,,,0,32,0,0,26,8
+Ariados,203,stat_points,8,,4.0%,,,0,32,1,0,1,32
+Ariados,203,stat_points,9,,3.2%,,,30,0,23,0,13,0
+Ariados,203,stat_points,10,,2.9%,,,0,32,2,0,0,32
+Ariados,203,ability,1,Insomnia,67.6%,,,,,,,,
+Ariados,203,ability,2,Swarm,25.9%,,,,,,,,
+Ariados,203,ability,3,Sniper,6.5%,,,,,,,,

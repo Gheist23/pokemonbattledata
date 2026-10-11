@@ -1,47 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Samurott,210,move,1,Ice Beam,89.3%,,,,,,,,
-Samurott,210,move,2,Surf,78.5%,,,,,,,,
-Samurott,210,move,3,Flip Turn,51.9%,,,,,,,,
-Samurott,210,move,4,Grass Knot,51.4%,,,,,,,,
-Samurott,210,move,5,Vacuum Wave,47.2%,,,,,,,,
-Samurott,210,move,6,Aqua Jet,27.1%,,,,,,,,
-Samurott,210,move,7,Encore,26.6%,,,,,,,,
-Samurott,210,move,8,Hydro Pump,11.2%,,,,,,,,
-Samurott,210,move,9,Drill Run,10.3%,,,,,,,,
-Samurott,210,move,10,Upper Hand,5.6%,,,,,,,,
-Samurott,210,held_item,1,Choice Scarf,35.5%,,,,,,,,
-Samurott,210,held_item,2,Life Orb,22.4%,,,,,,,,
-Samurott,210,held_item,3,Focus Sash,11.2%,,,,,,,,
-Samurott,210,held_item,4,Sitrus Berry,10.3%,,,,,,,,
-Samurott,210,held_item,5,Red Card,10.3%,,,,,,,,
-Samurott,210,held_item,6,Mystic Water,5.6%,,,,,,,,
-Samurott,210,held_item,7,Lum Berry,2.8%,,,,,,,,
-Samurott,210,held_item,8,Expert Belt,1.4%,,,,,,,,
-Samurott,210,held_item,9,Rocky Helmet,0.5%,,,,,,,,
-Samurott,210,teammate,1,Steelix,,,,,,,,,
-Samurott,210,teammate,2,Stunfisk-Galar,,,,,,,,,
-Samurott,210,teammate,3,Florges,,,,,,,,,
-Samurott,210,teammate,4,Garchomp,,,,,,,,,
-Samurott,210,teammate,5,Golisopod,,,,,,,,,
-Samurott,210,teammate,6,Gallade,,,,,,,,,
-Samurott,210,teammate,7,Scizor,,,,,,,,,
-Samurott,210,teammate,8,Armarouge,,,,,,,,,
-Samurott,210,teammate,9,Appletun,,,,,,,,,
-Samurott,210,teammate,10,Gyarados,,,,,,,,,
-Samurott,210,stat_alignment,1,Modest,72.9%,Sp. Atk,Attack,,,,,,
-Samurott,210,stat_alignment,2,Quiet,15.9%,Sp. Atk,Speed,,,,,,
-Samurott,210,stat_alignment,3,Naughty,10.3%,Attack,Sp. Def,,,,,,
-Samurott,210,stat_alignment,4,Hasty,0.5%,Speed,Defense,,,,,,
-Samurott,210,stat_alignment,5,Impish,0.5%,Defense,Sp. Atk,,,,,,
-Samurott,210,stat_points,1,,35.5%,,,2,0,0,32,0,32
-Samurott,210,stat_points,2,,24.3%,,,32,0,2,32,0,0
-Samurott,210,stat_points,3,,11.2%,,,32,0,0,31,0,3
-Samurott,210,stat_points,4,,10.3%,,,2,32,0,32,0,0
-Samurott,210,stat_points,5,,8.4%,,,31,0,0,32,0,3
-Samurott,210,stat_points,6,,3.3%,,,21,3,0,32,10,0
-Samurott,210,stat_points,7,,2.3%,,,21,0,1,32,12,0
-Samurott,210,stat_points,8,,1.4%,,,20,0,0,32,10,4
-Samurott,210,stat_points,9,,1.4%,,,32,0,0,32,0,2
-Samurott,210,stat_points,10,,1.4%,,,32,0,0,32,2,0
-Samurott,210,ability,1,Torrent,64.0%,,,,,,,,
-Samurott,210,ability,2,Shell Armor,36.0%,,,,,,,,
+Samurott,218,move,1,Ice Beam,92.1%,,,,,,,,
+Samurott,218,move,2,Surf,81.7%,,,,,,,,
+Samurott,218,move,3,Grass Knot,65.8%,,,,,,,,
+Samurott,218,move,4,Vacuum Wave,61.6%,,,,,,,,
+Samurott,218,move,5,Flip Turn,39.0%,,,,,,,,
+Samurott,218,move,6,Encore,21.0%,,,,,,,,
+Samurott,218,move,7,Aqua Jet,16.0%,,,,,,,,
+Samurott,218,move,8,Hydro Pump,10.4%,,,,,,,,
+Samurott,218,move,9,Drill Run,7.1%,,,,,,,,
+Samurott,218,move,10,Upper Hand,2.3%,,,,,,,,
+Samurott,218,held_item,1,Sitrus Berry,31.4%,,,,,,,,
+Samurott,218,held_item,2,Choice Scarf,28.0%,,,,,,,,
+Samurott,218,held_item,3,Life Orb,18.0%,,,,,,,,
+Samurott,218,held_item,4,Focus Sash,7.1%,,,,,,,,
+Samurott,218,held_item,5,Red Card,4.8%,,,,,,,,
+Samurott,218,held_item,6,Expert Belt,3.5%,,,,,,,,
+Samurott,218,held_item,7,Mystic Water,2.5%,,,,,,,,
+Samurott,218,held_item,8,Lum Berry,1.9%,,,,,,,,
+Samurott,218,held_item,9,Rindo Berry,1.2%,,,,,,,,
+Samurott,218,held_item,10,Leftovers,1.2%,,,,,,,,
+Samurott,218,teammate,1,Stunfisk-Galar,,,,,,,,,
+Samurott,218,teammate,2,Florges,,,,,,,,,
+Samurott,218,teammate,3,Steelix,,,,,,,,,
+Samurott,218,teammate,4,Garchomp,,,,,,,,,
+Samurott,218,teammate,5,Golisopod,,,,,,,,,
+Samurott,218,teammate,6,Cinderace,,,,,,,,,
+Samurott,218,teammate,7,Heliolisk,,,,,,,,,
+Samurott,218,teammate,8,Gallade,,,,,,,,,
+Samurott,218,teammate,9,Gardevoir,,,,,,,,,
+Samurott,218,teammate,10,Charizard,,,,,,,,,
+Samurott,218,stat_alignment,1,Modest,80.8%,Sp. Atk,Attack,,,,,,
+Samurott,218,stat_alignment,2,Quiet,7.4%,Sp. Atk,Speed,,,,,,
+Samurott,218,stat_alignment,3,Naughty,7.1%,Attack,Sp. Def,,,,,,
+Samurott,218,stat_alignment,4,Hasty,3.9%,Speed,Defense,,,,,,
+Samurott,218,stat_alignment,5,Jolly,0.7%,Speed,Sp. Atk,,,,,,
+Samurott,218,stat_alignment,6,Impish,0.2%,Defense,Sp. Atk,,,,,,
+Samurott,218,stat_points,1,,30.7%,,,2,0,0,32,0,32
+Samurott,218,stat_points,2,,28.2%,,,32,0,2,32,0,0
+Samurott,218,stat_points,3,,17.5%,,,31,0,0,32,0,3
+Samurott,218,stat_points,4,,7.1%,,,2,32,0,32,0,0
+Samurott,218,stat_points,5,,4.8%,,,32,0,0,31,0,3
+Samurott,218,stat_points,6,,3.2%,,,32,0,0,32,2,0
+Samurott,218,stat_points,7,,1.2%,,,21,0,1,32,12,0
+Samurott,218,stat_points,8,,1.2%,,,21,3,0,32,10,0
+Samurott,218,stat_points,9,,1.1%,,,1,0,23,32,10,0
+Samurott,218,stat_points,10,,1.1%,,,31,0,0,32,3,0
+Samurott,218,ability,1,Shell Armor,51.7%,,,,,,,,
+Samurott,218,ability,2,Torrent,48.3%,,,,,,,,

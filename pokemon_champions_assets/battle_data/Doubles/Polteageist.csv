@@ -1,34 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Polteageist,246,move,1,Shadow Ball,91.7%,,,,,,,,
-Polteageist,246,move,2,Strength Sap,91.7%,,,,,,,,
-Polteageist,246,move,3,Trick Room,58.3%,,,,,,,,
-Polteageist,246,move,4,Light Screen,41.7%,,,,,,,,
-Polteageist,246,move,5,Shell Smash,41.7%,,,,,,,,
-Polteageist,246,move,6,Stored Power,33.3%,,,,,,,,
-Polteageist,246,move,7,Will-O-Wisp,16.7%,,,,,,,,
-Polteageist,246,move,8,Giga Drain,8.3%,,,,,,,,
-Polteageist,246,move,9,Dark Pulse,8.3%,,,,,,,,
-Polteageist,246,move,10,Psychic,8.3%,,,,,,,,
-Polteageist,246,held_item,1,Sitrus Berry,41.7%,,,,,,,,
-Polteageist,246,held_item,2,Focus Sash,33.3%,,,,,,,,
-Polteageist,246,held_item,3,Mental Herb,16.7%,,,,,,,,
-Polteageist,246,held_item,4,White Herb,8.3%,,,,,,,,
-Polteageist,246,teammate,1,Staraptor,,,,,,,,,
-Polteageist,246,teammate,2,Raichu,,,,,,,,,
-Polteageist,246,teammate,3,Garchomp,,,,,,,,,
-Polteageist,246,teammate,4,Incineroar,,,,,,,,,
-Polteageist,246,teammate,5,Glimmora,,,,,,,,,
-Polteageist,246,teammate,6,Sinistcha,,,,,,,,,
-Polteageist,246,teammate,7,Charizard,,,,,,,,,
-Polteageist,246,teammate,8,Floette-Eternal,,,,,,,,,
-Polteageist,246,teammate,9,Indeedee-F,,,,,,,,,
-Polteageist,246,teammate,10,Squawkabilly-Yellow,,,,,,,,,
-Polteageist,246,stat_alignment,1,Sassy,58.3%,Sp. Def,Speed,,,,,,
-Polteageist,246,stat_alignment,2,Timid,33.3%,Speed,Attack,,,,,,
-Polteageist,246,stat_alignment,3,Modest,8.3%,Sp. Atk,Attack,,,,,,
-Polteageist,246,stat_points,1,,41.7%,,,32,0,2,0,32,0
-Polteageist,246,stat_points,2,,33.3%,,,0,0,1,32,1,32
-Polteageist,246,stat_points,3,,16.7%,,,32,0,26,1,7,0
-Polteageist,246,stat_points,4,,8.3%,,,2,0,17,26,0,21
-Polteageist,246,ability,1,Cursed Body,91.7%,,,,,,,,
-Polteageist,246,ability,2,Weak Armor,8.3%,,,,,,,,
+Polteageist,234,move,1,Shadow Ball,98.2%,,,,,,,,
+Polteageist,234,move,2,Shell Smash,74.5%,,,,,,,,
+Polteageist,234,move,3,Stored Power,65.5%,,,,,,,,
+Polteageist,234,move,4,Baton Pass,63.6%,,,,,,,,
+Polteageist,234,move,5,Strength Sap,30.9%,,,,,,,,
+Polteageist,234,move,6,Trick Room,16.4%,,,,,,,,
+Polteageist,234,move,7,Light Screen,13.6%,,,,,,,,
+Polteageist,234,move,8,Will-O-Wisp,11.8%,,,,,,,,
+Polteageist,234,move,9,Protect,9.1%,,,,,,,,
+Polteageist,234,move,10,Calm Mind,7.3%,,,,,,,,
+Polteageist,234,held_item,1,White Herb,59.1%,,,,,,,,
+Polteageist,234,held_item,2,Focus Sash,15.5%,,,,,,,,
+Polteageist,234,held_item,3,Sitrus Berry,13.6%,,,,,,,,
+Polteageist,234,held_item,4,Grassy Seed,7.3%,,,,,,,,
+Polteageist,234,held_item,5,Mental Herb,1.8%,,,,,,,,
+Polteageist,234,held_item,6,Life Orb,1.8%,,,,,,,,
+Polteageist,234,held_item,7,Eject Button,0.9%,,,,,,,,
+Polteageist,234,teammate,1,Rillaboom,,,,,,,,,
+Polteageist,234,teammate,2,Blaziken,,,,,,,,,
+Polteageist,234,teammate,3,Zoroark,,,,,,,,,
+Polteageist,234,teammate,4,Lycanroc,,,,,,,,,
+Polteageist,234,teammate,5,Indeedee-F,,,,,,,,,
+Polteageist,234,teammate,6,Garchomp,,,,,,,,,
+Polteageist,234,teammate,7,Floette-Eternal,,,,,,,,,
+Polteageist,234,teammate,8,Alakazam,,,,,,,,,
+Polteageist,234,teammate,9,Gardevoir,,,,,,,,,
+Polteageist,234,teammate,10,Charizard,,,,,,,,,
+Polteageist,234,stat_alignment,1,Bold,50.9%,Defense,Attack,,,,,,
+Polteageist,234,stat_alignment,2,Modest,18.2%,Sp. Atk,Attack,,,,,,
+Polteageist,234,stat_alignment,3,Timid,15.5%,Speed,Attack,,,,,,
+Polteageist,234,stat_alignment,4,Sassy,15.5%,Sp. Def,Speed,,,,,,
+Polteageist,234,stat_points,1,,40.0%,,,32,0,32,0,2,0
+Polteageist,234,stat_points,2,,15.5%,,,0,0,1,32,1,32
+Polteageist,234,stat_points,3,,14.5%,,,32,0,2,0,32,0
+Polteageist,234,stat_points,4,,10.0%,,,9,0,32,1,2,22
+Polteageist,234,stat_points,5,,7.3%,,,23,0,25,0,0,18
+Polteageist,234,stat_points,6,,5.5%,,,32,0,11,3,15,5
+Polteageist,234,stat_points,7,,1.8%,,,30,0,15,0,1,20
+Polteageist,234,stat_points,8,,1.8%,,,32,0,0,6,0,28
+Polteageist,234,stat_points,9,,1.8%,,,32,0,26,1,7,0
+Polteageist,234,stat_points,10,,0.9%,,,2,0,17,26,0,21
+Polteageist,234,ability,1,Cursed Body,50.0%,,,,,,,,
+Polteageist,234,ability,2,Weak Armor,50.0%,,,,,,,,

@@ -1,47 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Avalugg,203,move,1,Body Press,98.0%,,,,,,,,
-Avalugg,203,move,2,Mirror Coat,91.8%,,,,,,,,
-Avalugg,203,move,3,Recover,85.1%,,,,,,,,
-Avalugg,203,move,4,Iron Defense,77.3%,,,,,,,,
-Avalugg,203,move,5,Heavy Slam,16.1%,,,,,,,,
-Avalugg,203,move,6,Icicle Spear,13.7%,,,,,,,,
-Avalugg,203,move,7,Ice Spinner,6.7%,,,,,,,,
-Avalugg,203,move,8,Avalanche,6.3%,,,,,,,,
-Avalugg,203,move,9,Earthquake,2.0%,,,,,,,,
-Avalugg,203,move,10,Rapid Spin,1.6%,,,,,,,,
-Avalugg,203,held_item,1,Rocky Helmet,66.7%,,,,,,,,
-Avalugg,203,held_item,2,Electric Seed,13.3%,,,,,,,,
-Avalugg,203,held_item,3,Leftovers,12.9%,,,,,,,,
-Avalugg,203,held_item,4,Sitrus Berry,2.4%,,,,,,,,
-Avalugg,203,held_item,5,Babiri Berry,1.6%,,,,,,,,
-Avalugg,203,held_item,6,Red Card,1.2%,,,,,,,,
-Avalugg,203,held_item,7,Occa Berry,0.8%,,,,,,,,
-Avalugg,203,held_item,8,Expert Belt,0.8%,,,,,,,,
-Avalugg,203,held_item,9,Light Clay,0.4%,,,,,,,,
-Avalugg,203,teammate,1,Gengar,,,,,,,,,
-Avalugg,203,teammate,2,Mamoswine,,,,,,,,,
-Avalugg,203,teammate,3,Hydreigon,,,,,,,,,
-Avalugg,203,teammate,4,Vivillon-Fancy,,,,,,,,,
-Avalugg,203,teammate,5,Grimmsnarl,,,,,,,,,
-Avalugg,203,teammate,6,Garchomp,,,,,,,,,
-Avalugg,203,teammate,7,Kingambit,,,,,,,,,
-Avalugg,203,teammate,8,Raichu,,,,,,,,,
-Avalugg,203,teammate,9,Victreebel,,,,,,,,,
-Avalugg,203,teammate,10,Banette,,,,,,,,,
-Avalugg,203,stat_alignment,1,Impish,60.0%,Defense,Sp. Atk,,,,,,
-Avalugg,203,stat_alignment,2,Careful,32.9%,Sp. Def,Sp. Atk,,,,,,
-Avalugg,203,stat_alignment,3,Relaxed,4.7%,Defense,Speed,,,,,,
-Avalugg,203,stat_alignment,4,Adamant,1.2%,Attack,Sp. Atk,,,,,,
-Avalugg,203,stat_alignment,5,Lax,0.8%,Defense,Sp. Def,,,,,,
-Avalugg,203,stat_alignment,6,Brave,0.4%,Attack,Speed,,,,,,
-Avalugg,203,stat_points,1,,60.0%,,,32,0,32,0,2,0
-Avalugg,203,stat_points,2,,13.3%,,,1,19,32,0,0,14
-Avalugg,203,stat_points,3,,5.9%,,,32,0,32,0,0,0
-Avalugg,203,stat_points,4,,5.1%,,,32,0,32,0,0,2
-Avalugg,203,stat_points,5,,5.1%,,,32,2,32,0,0,0
-Avalugg,203,stat_points,6,,4.7%,,,31,0,32,0,0,3
-Avalugg,203,stat_points,7,,3.1%,,,31,3,32,0,0,0
-Avalugg,203,stat_points,8,,0.8%,,,2,32,32,0,0,0
-Avalugg,203,stat_points,9,,0.8%,,,31,0,32,0,3,0
-Avalugg,203,stat_points,10,,0.8%,,,31,32,3,0,0,0
-Avalugg,203,ability,1,Sturdy,100.0%,,,,,,,,
+Avalugg,209,move,1,Body Press,98.8%,,,,,,,,
+Avalugg,209,move,2,Mirror Coat,82.3%,,,,,,,,
+Avalugg,209,move,3,Recover,82.2%,,,,,,,,
+Avalugg,209,move,4,Iron Defense,79.8%,,,,,,,,
+Avalugg,209,move,5,Icicle Spear,20.7%,,,,,,,,
+Avalugg,209,move,6,Avalanche,9.7%,,,,,,,,
+Avalugg,209,move,7,Heavy Slam,9.1%,,,,,,,,
+Avalugg,209,move,8,Ice Spinner,5.8%,,,,,,,,
+Avalugg,209,move,9,Icicle Crash,4.3%,,,,,,,,
+Avalugg,209,move,10,Earthquake,2.1%,,,,,,,,
+Avalugg,209,held_item,1,Rocky Helmet,53.8%,,,,,,,,
+Avalugg,209,held_item,2,Leftovers,13.2%,,,,,,,,
+Avalugg,209,held_item,3,Quick Claw,12.0%,,,,,,,,
+Avalugg,209,held_item,4,Sitrus Berry,8.9%,,,,,,,,
+Avalugg,209,held_item,5,Electric Seed,6.1%,,,,,,,,
+Avalugg,209,held_item,6,Occa Berry,2.5%,,,,,,,,
+Avalugg,209,held_item,7,Red Card,1.0%,,,,,,,,
+Avalugg,209,held_item,8,Babiri Berry,0.6%,,,,,,,,
+Avalugg,209,held_item,9,Light Clay,0.6%,,,,,,,,
+Avalugg,209,held_item,10,Focus Band,0.3%,,,,,,,,
+Avalugg,209,teammate,1,Garchomp,,,,,,,,,
+Avalugg,209,teammate,2,Vivillon-Fancy,,,,,,,,,
+Avalugg,209,teammate,3,Mamoswine,,,,,,,,,
+Avalugg,209,teammate,4,Gengar,,,,,,,,,
+Avalugg,209,teammate,5,Hydreigon,,,,,,,,,
+Avalugg,209,teammate,6,Grimmsnarl,,,,,,,,,
+Avalugg,209,teammate,7,Rillaboom,,,,,,,,,
+Avalugg,209,teammate,8,Kingambit,,,,,,,,,
+Avalugg,209,teammate,9,Glimmora,,,,,,,,,
+Avalugg,209,teammate,10,Salamence,,,,,,,,,
+Avalugg,209,stat_alignment,1,Impish,53.2%,Defense,Sp. Atk,,,,,,
+Avalugg,209,stat_alignment,2,Relaxed,21.8%,Defense,Speed,,,,,,
+Avalugg,209,stat_alignment,3,Careful,16.6%,Sp. Def,Sp. Atk,,,,,,
+Avalugg,209,stat_alignment,4,Bold,3.0%,Defense,Attack,,,,,,
+Avalugg,209,stat_alignment,5,Brave,2.8%,Attack,Speed,,,,,,
+Avalugg,209,stat_alignment,6,Sassy,1.2%,Sp. Def,Speed,,,,,,
+Avalugg,209,stat_alignment,7,Adamant,1.0%,Attack,Sp. Atk,,,,,,
+Avalugg,209,stat_alignment,8,Lax,0.3%,Defense,Sp. Def,,,,,,
+Avalugg,209,stat_points,1,,44.0%,,,32,0,32,0,2,0
+Avalugg,209,stat_points,2,,19.6%,,,32,2,32,0,0,0
+Avalugg,209,stat_points,3,,8.5%,,,32,0,32,0,0,0
+Avalugg,209,stat_points,4,,5.1%,,,1,19,32,0,0,14
+Avalugg,209,stat_points,5,,4.5%,,,31,3,32,0,0,0
+Avalugg,209,stat_points,6,,2.7%,,,32,2,0,0,32,0
+Avalugg,209,stat_points,7,,2.4%,,,0,32,32,0,2,0
+Avalugg,209,stat_points,8,,2.4%,,,31,0,32,0,3,0
+Avalugg,209,stat_points,9,,2.4%,,,32,0,32,0,0,2
+Avalugg,209,stat_points,10,,2.1%,,,31,0,32,0,0,3
+Avalugg,209,ability,1,Sturdy,94.5%,,,,,,,,
+Avalugg,209,ability,2,Ice Body,3.0%,,,,,,,,
+Avalugg,209,ability,3,Own Tempo,2.5%,,,,,,,,

@@ -1,49 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mr. Rime,220,move,1,Protect,62.3%,,,,,,,,
-Mr. Rime,220,move,2,Fake Out,57.4%,,,,,,,,
-Mr. Rime,220,move,3,Psychic,41.0%,,,,,,,,
-Mr. Rime,220,move,4,Freeze-Dry,34.4%,,,,,,,,
-Mr. Rime,220,move,5,Ice Beam,34.4%,,,,,,,,
-Mr. Rime,220,move,6,Sheer Cold,32.8%,,,,,,,,
-Mr. Rime,220,move,7,Hypnosis,16.4%,,,,,,,,
-Mr. Rime,220,move,8,Focus Blast,14.8%,,,,,,,,
-Mr. Rime,220,move,9,Thunderbolt,14.8%,,,,,,,,
-Mr. Rime,220,move,10,Nasty Plot,13.1%,,,,,,,,
-Mr. Rime,220,held_item,1,Life Orb,31.1%,,,,,,,,
-Mr. Rime,220,held_item,2,Sitrus Berry,24.6%,,,,,,,,
-Mr. Rime,220,held_item,3,Focus Sash,19.7%,,,,,,,,
-Mr. Rime,220,held_item,4,Iron Ball,11.5%,,,,,,,,
-Mr. Rime,220,held_item,5,Leftovers,6.6%,,,,,,,,
-Mr. Rime,220,held_item,6,Mental Herb,3.3%,,,,,,,,
-Mr. Rime,220,held_item,7,Never-Melt Ice,3.3%,,,,,,,,
-Mr. Rime,220,teammate,1,Rillaboom,,,,,,,,,
-Mr. Rime,220,teammate,2,Farigiraf,,,,,,,,,
-Mr. Rime,220,teammate,3,Incineroar,,,,,,,,,
-Mr. Rime,220,teammate,4,Drampa,,,,,,,,,
-Mr. Rime,220,teammate,5,Ninetales-Alola,,,,,,,,,
-Mr. Rime,220,teammate,6,Hawlucha,,,,,,,,,
-Mr. Rime,220,teammate,7,Indeedee-F,,,,,,,,,
-Mr. Rime,220,teammate,8,Trevenant,,,,,,,,,
-Mr. Rime,220,teammate,9,Raichu,,,,,,,,,
-Mr. Rime,220,teammate,10,Tyranitar,,,,,,,,,
-Mr. Rime,220,stat_alignment,1,Quiet,32.8%,Sp. Atk,Speed,,,,,,
-Mr. Rime,220,stat_alignment,2,Timid,24.6%,Speed,Attack,,,,,,
-Mr. Rime,220,stat_alignment,3,Calm,16.4%,Sp. Def,Attack,,,,,,
-Mr. Rime,220,stat_alignment,4,Modest,8.2%,Sp. Atk,Attack,,,,,,
-Mr. Rime,220,stat_alignment,5,Hasty,6.6%,Speed,Defense,,,,,,
-Mr. Rime,220,stat_alignment,6,Bold,6.6%,Defense,Attack,,,,,,
-Mr. Rime,220,stat_alignment,7,Sassy,3.3%,Sp. Def,Speed,,,,,,
-Mr. Rime,220,stat_alignment,8,Relaxed,1.6%,Defense,Speed,,,,,,
-Mr. Rime,220,stat_points,1,,32.8%,,,32,0,2,32,0,0
-Mr. Rime,220,stat_points,2,,16.4%,,,32,0,32,0,2,0
-Mr. Rime,220,stat_points,3,,14.8%,,,0,0,2,32,0,32
-Mr. Rime,220,stat_points,4,,9.8%,,,2,0,0,32,0,32
-Mr. Rime,220,stat_points,5,,8.2%,,,32,0,0,32,2,0
-Mr. Rime,220,stat_points,6,,6.6%,,,0,2,0,32,0,32
-Mr. Rime,220,stat_points,7,,4.9%,,,2,0,32,0,32,0
-Mr. Rime,220,stat_points,8,,3.3%,,,32,0,2,0,32,0
-Mr. Rime,220,stat_points,9,,1.6%,,,32,0,15,0,19,0
-Mr. Rime,220,stat_points,10,,1.6%,,,32,0,23,0,0,11
-Mr. Rime,220,ability,1,Screen Cleaner,60.7%,,,,,,,,
-Mr. Rime,220,ability,2,Ice Body,23.0%,,,,,,,,
-Mr. Rime,220,ability,3,Tangled Feet,16.4%,,,,,,,,
+Mr. Rime,208,move,1,Fake Out,57.4%,,,,,,,,
+Mr. Rime,208,move,2,Protect,45.0%,,,,,,,,
+Mr. Rime,208,move,3,Freeze-Dry,43.4%,,,,,,,,
+Mr. Rime,208,move,4,Sheer Cold,42.6%,,,,,,,,
+Mr. Rime,208,move,5,Blizzard,36.7%,,,,,,,,
+Mr. Rime,208,move,6,Psychic,31.1%,,,,,,,,
+Mr. Rime,208,move,7,Trick Room,27.1%,,,,,,,,
+Mr. Rime,208,move,8,Expanding Force,19.5%,,,,,,,,
+Mr. Rime,208,move,9,Skill Swap,12.7%,,,,,,,,
+Mr. Rime,208,move,10,Ice Beam,12.7%,,,,,,,,
+Mr. Rime,208,held_item,1,Focus Sash,30.3%,,,,,,,,
+Mr. Rime,208,held_item,2,Leftovers,19.9%,,,,,,,,
+Mr. Rime,208,held_item,3,Choice Scarf,12.7%,,,,,,,,
+Mr. Rime,208,held_item,4,Sitrus Berry,11.6%,,,,,,,,
+Mr. Rime,208,held_item,5,Quick Claw,8.8%,,,,,,,,
+Mr. Rime,208,held_item,6,Life Orb,8.0%,,,,,,,,
+Mr. Rime,208,held_item,7,Iron Ball,2.8%,,,,,,,,
+Mr. Rime,208,held_item,8,Psychic Seed,2.4%,,,,,,,,
+Mr. Rime,208,held_item,9,Never-Melt Ice,2.0%,,,,,,,,
+Mr. Rime,208,held_item,10,Mental Herb,0.8%,,,,,,,,
+Mr. Rime,208,teammate,1,Hawlucha,,,,,,,,,
+Mr. Rime,208,teammate,2,Snorlax,,,,,,,,,
+Mr. Rime,208,teammate,3,Raichu,,,,,,,,,
+Mr. Rime,208,teammate,4,Ninetales-Alola,,,,,,,,,
+Mr. Rime,208,teammate,5,Incineroar,,,,,,,,,
+Mr. Rime,208,teammate,6,Sneasler,,,,,,,,,
+Mr. Rime,208,teammate,7,Vivillon-Fancy,,,,,,,,,
+Mr. Rime,208,teammate,8,Arcanine-Hisui,,,,,,,,,
+Mr. Rime,208,teammate,9,Samurott-Hisui,,,,,,,,,
+Mr. Rime,208,teammate,10,Rillaboom,,,,,,,,,
+Mr. Rime,208,stat_alignment,1,Timid,36.3%,Speed,Attack,,,,,,
+Mr. Rime,208,stat_alignment,2,Modest,23.1%,Sp. Atk,Attack,,,,,,
+Mr. Rime,208,stat_alignment,3,Quiet,23.1%,Sp. Atk,Speed,,,,,,
+Mr. Rime,208,stat_alignment,4,Calm,8.8%,Sp. Def,Attack,,,,,,
+Mr. Rime,208,stat_alignment,5,Hasty,2.8%,Speed,Defense,,,,,,
+Mr. Rime,208,stat_alignment,6,Relaxed,2.8%,Defense,Speed,,,,,,
+Mr. Rime,208,stat_alignment,7,Bold,2.4%,Defense,Attack,,,,,,
+Mr. Rime,208,stat_alignment,8,Sassy,0.8%,Sp. Def,Speed,,,,,,
+Mr. Rime,208,stat_points,1,,19.5%,,,32,0,0,32,2,0
+Mr. Rime,208,stat_points,2,,17.5%,,,2,0,0,32,0,32
+Mr. Rime,208,stat_points,3,,16.3%,,,32,0,2,32,0,0
+Mr. Rime,208,stat_points,4,,12.7%,,,32,0,32,0,2,0
+Mr. Rime,208,stat_points,5,,8.8%,,,11,0,32,0,0,23
+Mr. Rime,208,stat_points,6,,6.8%,,,0,0,2,32,32,0
+Mr. Rime,208,stat_points,7,,3.6%,,,0,0,2,32,0,32
+Mr. Rime,208,stat_points,8,,2.8%,,,0,2,0,32,0,32
+Mr. Rime,208,stat_points,9,,2.4%,,,32,0,0,32,0,2
+Mr. Rime,208,stat_points,10,,2.4%,,,32,0,2,0,0,32
+Mr. Rime,208,ability,1,Ice Body,54.2%,,,,,,,,
+Mr. Rime,208,ability,2,Screen Cleaner,41.8%,,,,,,,,
+Mr. Rime,208,ability,3,Tangled Feet,4.0%,,,,,,,,

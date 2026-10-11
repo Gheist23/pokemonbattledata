@@ -1,35 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Salazzle,173,move,1,Fake Out,90.3%,,,,,,,,
-Salazzle,173,move,2,Sludge Bomb,67.2%,,,,,,,,
-Salazzle,173,move,3,Dragon Cheer,40.0%,,,,,,,,
-Salazzle,173,move,4,Flamethrower,32.8%,,,,,,,,
-Salazzle,173,move,5,Overheat,30.8%,,,,,,,,
-Salazzle,173,move,6,Nasty Plot,27.7%,,,,,,,,
-Salazzle,173,move,7,Heat Wave,17.9%,,,,,,,,
-Salazzle,173,move,8,Protect,15.4%,,,,,,,,
-Salazzle,173,move,9,Encore,15.4%,,,,,,,,
-Salazzle,173,move,10,Sludge Wave,13.3%,,,,,,,,
-Salazzle,173,held_item,1,Focus Sash,82.1%,,,,,,,,
-Salazzle,173,held_item,2,Life Orb,7.7%,,,,,,,,
-Salazzle,173,held_item,3,Air Balloon,3.1%,,,,,,,,
-Salazzle,173,held_item,4,Red Card,3.1%,,,,,,,,
-Salazzle,173,held_item,5,Grassy Seed,3.1%,,,,,,,,
-Salazzle,173,held_item,6,Wise Glasses,1.0%,,,,,,,,
-Salazzle,173,teammate,1,Salamence,,,,,,,,,
-Salazzle,173,teammate,2,Farigiraf,,,,,,,,,
-Salazzle,173,teammate,3,Kingambit,,,,,,,,,
-Salazzle,173,teammate,4,Tyranitar,,,,,,,,,
-Salazzle,173,teammate,5,Sneasler,,,,,,,,,
-Salazzle,173,teammate,6,Rillaboom,,,,,,,,,
-Salazzle,173,teammate,7,Gholdengo,,,,,,,,,
-Salazzle,173,teammate,8,Inteleon,,,,,,,,,
-Salazzle,173,teammate,9,Archaludon,,,,,,,,,
-Salazzle,173,teammate,10,Raichu,,,,,,,,,
-Salazzle,173,stat_alignment,1,Timid,92.8%,Speed,Attack,,,,,,
-Salazzle,173,stat_alignment,2,Modest,7.2%,Sp. Atk,Attack,,,,,,
-Salazzle,173,stat_points,1,,91.8%,,,2,0,0,32,0,32
-Salazzle,173,stat_points,2,,4.1%,,,19,0,10,0,10,27
-Salazzle,173,stat_points,3,,2.6%,,,1,0,0,32,1,32
-Salazzle,173,stat_points,4,,1.5%,,,32,0,2,0,0,32
-Salazzle,173,ability,1,Oblivious,75.4%,,,,,,,,
-Salazzle,173,ability,2,Corrosion,24.6%,,,,,,,,
+Salazzle,193,move,1,Fake Out,86.5%,,,,,,,,
+Salazzle,193,move,2,Sludge Bomb,62.8%,,,,,,,,
+Salazzle,193,move,3,Dragon Cheer,42.4%,,,,,,,,
+Salazzle,193,move,4,Overheat,32.6%,,,,,,,,
+Salazzle,193,move,5,Flamethrower,29.4%,,,,,,,,
+Salazzle,193,move,6,Heat Wave,20.7%,,,,,,,,
+Salazzle,193,move,7,Protect,19.3%,,,,,,,,
+Salazzle,193,move,8,Encore,15.6%,,,,,,,,
+Salazzle,193,move,9,Nasty Plot,15.6%,,,,,,,,
+Salazzle,193,move,10,Acid Spray,11.5%,,,,,,,,
+Salazzle,193,held_item,1,Focus Sash,74.4%,,,,,,,,
+Salazzle,193,held_item,2,Life Orb,7.8%,,,,,,,,
+Salazzle,193,held_item,3,Charcoal,4.0%,,,,,,,,
+Salazzle,193,held_item,4,Air Balloon,3.5%,,,,,,,,
+Salazzle,193,held_item,5,Passho Berry,2.9%,,,,,,,,
+Salazzle,193,held_item,6,Red Card,1.7%,,,,,,,,
+Salazzle,193,held_item,7,Grassy Seed,1.7%,,,,,,,,
+Salazzle,193,held_item,8,Shuca Berry,1.2%,,,,,,,,
+Salazzle,193,held_item,9,Black Belt,0.9%,,,,,,,,
+Salazzle,193,held_item,10,Mental Herb,0.6%,,,,,,,,
+Salazzle,193,teammate,1,Salamence,,,,,,,,,
+Salazzle,193,teammate,2,Farigiraf,,,,,,,,,
+Salazzle,193,teammate,3,Kingambit,,,,,,,,,
+Salazzle,193,teammate,4,Rillaboom,,,,,,,,,
+Salazzle,193,teammate,5,Sneasler,,,,,,,,,
+Salazzle,193,teammate,6,Tyranitar,,,,,,,,,
+Salazzle,193,teammate,7,Archaludon,,,,,,,,,
+Salazzle,193,teammate,8,Inteleon,,,,,,,,,
+Salazzle,193,teammate,9,Raichu,,,,,,,,,
+Salazzle,193,teammate,10,Gholdengo,,,,,,,,,
+Salazzle,193,stat_alignment,1,Timid,90.2%,Speed,Attack,,,,,,
+Salazzle,193,stat_alignment,2,Modest,8.4%,Sp. Atk,Attack,,,,,,
+Salazzle,193,stat_alignment,3,Hasty,1.2%,Speed,Defense,,,,,,
+Salazzle,193,stat_alignment,4,Adamant,0.3%,Attack,Sp. Atk,,,,,,
+Salazzle,193,stat_points,1,,86.7%,,,2,0,0,32,0,32
+Salazzle,193,stat_points,2,,2.3%,,,19,0,10,0,10,27
+Salazzle,193,stat_points,3,,2.3%,,,32,0,2,0,0,32
+Salazzle,193,stat_points,4,,2.0%,,,32,0,0,2,0,32
+Salazzle,193,stat_points,5,,1.4%,,,1,0,0,32,1,32
+Salazzle,193,stat_points,6,,1.2%,,,0,0,2,32,0,32
+Salazzle,193,stat_points,7,,0.9%,,,1,0,1,32,0,32
+Salazzle,193,stat_points,8,,0.6%,,,0,0,0,32,0,32
+Salazzle,193,stat_points,9,,0.6%,,,0,0,1,32,1,32
+Salazzle,193,stat_points,10,,0.6%,,,18,0,8,0,8,32
+Salazzle,193,ability,1,Oblivious,66.3%,,,,,,,,
+Salazzle,193,ability,2,Corrosion,33.7%,,,,,,,,

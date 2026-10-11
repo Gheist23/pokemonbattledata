@@ -1,47 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scizor,101,move,1,Bullet Punch,94.2%,,,,,,,,
-Scizor,101,move,2,Protect,86.8%,,,,,,,,
-Scizor,101,move,3,Bug Bite,86.2%,,,,,,,,
-Scizor,101,move,4,Close Combat,43.4%,,,,,,,,
-Scizor,101,move,5,Swords Dance,21.3%,,,,,,,,
-Scizor,101,move,6,Tailwind,10.8%,,,,,,,,
-Scizor,101,move,7,U-turn,10.7%,,,,,,,,
-Scizor,101,move,8,Dual Wingbeat,10.7%,,,,,,,,
-Scizor,101,move,9,Iron Head,6.7%,,,,,,,,
-Scizor,101,move,10,Feint,4.9%,,,,,,,,
-Scizor,101,held_item,1,Life Orb,56.3%,,,,,,,,
-Scizor,101,held_item,2,Scizorite,20.1%,,,,,,,,
-Scizor,101,held_item,3,Expert Belt,5.8%,,,,,,,,
-Scizor,101,held_item,4,Focus Sash,5.5%,,,,,,,,
-Scizor,101,held_item,5,Occa Berry,3.5%,,,,,,,,
-Scizor,101,held_item,6,Muscle Band,2.6%,,,,,,,,
-Scizor,101,held_item,7,Metal Coat,2.3%,,,,,,,,
-Scizor,101,held_item,8,White Herb,1.6%,,,,,,,,
-Scizor,101,held_item,9,Silver Powder,1.2%,,,,,,,,
-Scizor,101,held_item,10,Psychic Seed,0.5%,,,,,,,,
-Scizor,101,teammate,1,Tyranitar,,,,,,,,,
-Scizor,101,teammate,2,Milotic,,,,,,,,,
-Scizor,101,teammate,3,Staraptor,,,,,,,,,
-Scizor,101,teammate,4,Rillaboom,,,,,,,,,
-Scizor,101,teammate,5,Excadrill,,,,,,,,,
-Scizor,101,teammate,6,Sneasler,,,,,,,,,
-Scizor,101,teammate,7,Garchomp,,,,,,,,,
-Scizor,101,teammate,8,Scovillain,,,,,,,,,
-Scizor,101,teammate,9,Farigiraf,,,,,,,,,
-Scizor,101,teammate,10,Archaludon,,,,,,,,,
-Scizor,101,stat_alignment,1,Adamant,78.3%,Attack,Sp. Atk,,,,,,
-Scizor,101,stat_alignment,2,Brave,13.2%,Attack,Speed,,,,,,
-Scizor,101,stat_alignment,3,Jolly,6.7%,Speed,Sp. Atk,,,,,,
-Scizor,101,stat_alignment,4,Careful,1.7%,Sp. Def,Sp. Atk,,,,,,
-Scizor,101,stat_alignment,5,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Scizor,101,stat_points,1,,19.9%,,,32,32,0,0,2,0
-Scizor,101,stat_points,2,,11.9%,,,14,32,2,0,0,18
-Scizor,101,stat_points,3,,11.2%,,,32,32,0,0,0,2
-Scizor,101,stat_points,4,,10.1%,,,24,32,0,0,0,10
-Scizor,101,stat_points,5,,4.5%,,,32,32,2,0,0,0
-Scizor,101,stat_points,6,,4.0%,,,29,32,0,0,0,5
-Scizor,101,stat_points,7,,3.4%,,,32,22,0,0,0,12
-Scizor,101,stat_points,8,,2.7%,,,27,7,0,0,32,0
-Scizor,101,stat_points,9,,2.4%,,,2,32,0,0,0,32
-Scizor,101,stat_points,10,,2.2%,,,28,32,6,0,0,0
-Scizor,101,ability,1,Technician,100.0%,,,,,,,,
+Scizor,96,move,1,Bullet Punch,96.2%,,,,,,,,
+Scizor,96,move,2,Protect,81.0%,,,,,,,,
+Scizor,96,move,3,Bug Bite,73.7%,,,,,,,,
+Scizor,96,move,4,Close Combat,43.1%,,,,,,,,
+Scizor,96,move,5,Swords Dance,23.5%,,,,,,,,
+Scizor,96,move,6,Dual Wingbeat,19.3%,,,,,,,,
+Scizor,96,move,7,U-turn,11.5%,,,,,,,,
+Scizor,96,move,8,Tailwind,8.1%,,,,,,,,
+Scizor,96,move,9,Trailblaze,6.5%,,,,,,,,
+Scizor,96,move,10,Knock Off,4.5%,,,,,,,,
+Scizor,96,held_item,1,Life Orb,48.9%,,,,,,,,
+Scizor,96,held_item,2,Scizorite,24.3%,,,,,,,,
+Scizor,96,held_item,3,Focus Sash,4.3%,,,,,,,,
+Scizor,96,held_item,4,Expert Belt,3.9%,,,,,,,,
+Scizor,96,held_item,5,Occa Berry,3.3%,,,,,,,,
+Scizor,96,held_item,6,Metal Coat,3.1%,,,,,,,,
+Scizor,96,held_item,7,Persim Berry,3.0%,,,,,,,,
+Scizor,96,held_item,8,White Herb,1.8%,,,,,,,,
+Scizor,96,held_item,9,Sitrus Berry,1.7%,,,,,,,,
+Scizor,96,held_item,10,Muscle Band,1.5%,,,,,,,,
+Scizor,96,teammate,1,Tyranitar,,,,,,,,,
+Scizor,96,teammate,2,Milotic,,,,,,,,,
+Scizor,96,teammate,3,Garchomp,,,,,,,,,
+Scizor,96,teammate,4,Sneasler,,,,,,,,,
+Scizor,96,teammate,5,Rillaboom,,,,,,,,,
+Scizor,96,teammate,6,Staraptor,,,,,,,,,
+Scizor,96,teammate,7,Excadrill,,,,,,,,,
+Scizor,96,teammate,8,Scovillain,,,,,,,,,
+Scizor,96,teammate,9,Pelipper,,,,,,,,,
+Scizor,96,teammate,10,Whimsicott,,,,,,,,,
+Scizor,96,stat_alignment,1,Adamant,75.3%,Attack,Sp. Atk,,,,,,
+Scizor,96,stat_alignment,2,Brave,15.6%,Attack,Speed,,,,,,
+Scizor,96,stat_alignment,3,Jolly,5.7%,Speed,Sp. Atk,,,,,,
+Scizor,96,stat_alignment,4,Careful,1.7%,Sp. Def,Sp. Atk,,,,,,
+Scizor,96,stat_alignment,5,Impish,1.1%,Defense,Sp. Atk,,,,,,
+Scizor,96,stat_alignment,6,Rash,0.2%,Sp. Atk,Sp. Def,,,,,,
+Scizor,96,stat_alignment,7,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Scizor,96,stat_alignment,8,Lonely,0.1%,Attack,Defense,,,,,,
+Scizor,96,stat_alignment,9,Naughty,0.0%,Attack,Sp. Def,,,,,,
+Scizor,96,stat_points,1,,23.5%,,,32,32,0,0,2,0
+Scizor,96,stat_points,2,,11.0%,,,14,32,2,0,0,18
+Scizor,96,stat_points,3,,10.8%,,,32,32,0,0,0,2
+Scizor,96,stat_points,4,,7.1%,,,24,32,0,0,0,10
+Scizor,96,stat_points,5,,5.5%,,,32,32,2,0,0,0
+Scizor,96,stat_points,6,,3.5%,,,2,32,0,0,0,32
+Scizor,96,stat_points,7,,2.0%,,,29,32,0,0,0,5
+Scizor,96,stat_points,8,,1.9%,,,30,32,0,0,3,1
+Scizor,96,stat_points,9,,1.9%,,,28,32,6,0,0,0
+Scizor,96,stat_points,10,,1.5%,,,0,32,32,0,2,0
+Scizor,96,ability,1,Technician,98.4%,,,,,,,,
+Scizor,96,ability,2,Swarm,1.3%,,,,,,,,
+Scizor,96,ability,3,Light Metal,0.3%,,,,,,,,

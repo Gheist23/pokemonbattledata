@@ -1,45 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Quaquaval,155,move,1,Aqua Step,99.6%,,,,,,,,
-Quaquaval,155,move,2,Close Combat,98.4%,,,,,,,,
-Quaquaval,155,move,3,Protect,45.5%,,,,,,,,
-Quaquaval,155,move,4,Ice Spinner,38.5%,,,,,,,,
-Quaquaval,155,move,5,Detect,38.1%,,,,,,,,
-Quaquaval,155,move,6,Aqua Jet,20.1%,,,,,,,,
-Quaquaval,155,move,7,Taunt,14.3%,,,,,,,,
-Quaquaval,155,move,8,Knock Off,12.3%,,,,,,,,
-Quaquaval,155,move,9,Acrobatics,11.5%,,,,,,,,
-Quaquaval,155,move,10,Upper Hand,8.6%,,,,,,,,
-Quaquaval,155,held_item,1,Focus Sash,30.3%,,,,,,,,
-Quaquaval,155,held_item,2,Life Orb,20.9%,,,,,,,,
-Quaquaval,155,held_item,3,White Herb,15.2%,,,,,,,,
-Quaquaval,155,held_item,4,Choice Scarf,13.5%,,,,,,,,
-Quaquaval,155,held_item,5,Psychic Seed,10.2%,,,,,,,,
-Quaquaval,155,held_item,6,Expert Belt,3.7%,,,,,,,,
-Quaquaval,155,held_item,7,Payapa Berry,2.9%,,,,,,,,
-Quaquaval,155,held_item,8,Mystic Water,1.6%,,,,,,,,
-Quaquaval,155,held_item,9,Rindo Berry,0.8%,,,,,,,,
-Quaquaval,155,held_item,10,Grassy Seed,0.8%,,,,,,,,
-Quaquaval,155,teammate,1,Salamence,,,,,,,,,
-Quaquaval,155,teammate,2,Dragonite,,,,,,,,,
-Quaquaval,155,teammate,3,Snorlax,,,,,,,,,
-Quaquaval,155,teammate,4,Kingambit,,,,,,,,,
-Quaquaval,155,teammate,5,Rillaboom,,,,,,,,,
-Quaquaval,155,teammate,6,Farigiraf,,,,,,,,,
-Quaquaval,155,teammate,7,Swampert,,,,,,,,,
-Quaquaval,155,teammate,8,Whimsicott,,,,,,,,,
-Quaquaval,155,teammate,9,Pelipper,,,,,,,,,
-Quaquaval,155,teammate,10,Klefki,,,,,,,,,
-Quaquaval,155,stat_alignment,1,Jolly,49.6%,Speed,Sp. Atk,,,,,,
-Quaquaval,155,stat_alignment,2,Adamant,47.1%,Attack,Sp. Atk,,,,,,
-Quaquaval,155,stat_alignment,3,Brave,1.6%,Attack,Speed,,,,,,
-Quaquaval,155,stat_alignment,4,Impish,1.6%,Defense,Sp. Atk,,,,,,
-Quaquaval,155,stat_points,1,,61.9%,,,2,32,0,0,0,32
-Quaquaval,155,stat_points,2,,11.5%,,,0,32,0,0,2,32
-Quaquaval,155,stat_points,3,,8.2%,,,1,32,0,0,1,32
-Quaquaval,155,stat_points,4,,6.1%,,,11,20,8,0,1,26
-Quaquaval,155,stat_points,5,,4.9%,,,9,24,0,0,1,32
-Quaquaval,155,stat_points,6,,4.5%,,,0,32,2,0,0,32
-Quaquaval,155,stat_points,7,,1.6%,,,24,32,10,0,0,0
-Quaquaval,155,stat_points,8,,0.8%,,,32,32,2,0,0,0
-Quaquaval,155,stat_points,9,,0.4%,,,32,20,4,0,0,10
-Quaquaval,155,ability,1,Moxie,100.0%,,,,,,,,
+Quaquaval,176,move,1,Close Combat,94.2%,,,,,,,,
+Quaquaval,176,move,2,Aqua Step,94.2%,,,,,,,,
+Quaquaval,176,move,3,Ice Spinner,42.8%,,,,,,,,
+Quaquaval,176,move,4,Detect,38.3%,,,,,,,,
+Quaquaval,176,move,5,Protect,34.8%,,,,,,,,
+Quaquaval,176,move,6,Aqua Jet,20.8%,,,,,,,,
+Quaquaval,176,move,7,Triple Axel,18.9%,,,,,,,,
+Quaquaval,176,move,8,Knock Off,16.7%,,,,,,,,
+Quaquaval,176,move,9,Taunt,7.6%,,,,,,,,
+Quaquaval,176,move,10,Acrobatics,6.4%,,,,,,,,
+Quaquaval,176,held_item,1,Focus Sash,31.7%,,,,,,,,
+Quaquaval,176,held_item,2,White Herb,17.7%,,,,,,,,
+Quaquaval,176,held_item,3,Life Orb,15.2%,,,,,,,,
+Quaquaval,176,held_item,4,Choice Scarf,10.5%,,,,,,,,
+Quaquaval,176,held_item,5,Mystic Water,5.1%,,,,,,,,
+Quaquaval,176,held_item,6,Psychic Seed,5.1%,,,,,,,,
+Quaquaval,176,held_item,7,Payapa Berry,3.5%,,,,,,,,
+Quaquaval,176,held_item,8,Expert Belt,3.3%,,,,,,,,
+Quaquaval,176,held_item,9,Sitrus Berry,2.5%,,,,,,,,
+Quaquaval,176,held_item,10,Metronome,2.1%,,,,,,,,
+Quaquaval,176,teammate,1,Dragonite,,,,,,,,,
+Quaquaval,176,teammate,2,Whimsicott,,,,,,,,,
+Quaquaval,176,teammate,3,Rillaboom,,,,,,,,,
+Quaquaval,176,teammate,4,Incineroar,,,,,,,,,
+Quaquaval,176,teammate,5,Salamence,,,,,,,,,
+Quaquaval,176,teammate,6,Farigiraf,,,,,,,,,
+Quaquaval,176,teammate,7,Kingambit,,,,,,,,,
+Quaquaval,176,teammate,8,Meganium,,,,,,,,,
+Quaquaval,176,teammate,9,Garchomp,,,,,,,,,
+Quaquaval,176,teammate,10,Snorlax,,,,,,,,,
+Quaquaval,176,stat_alignment,1,Adamant,43.2%,Attack,Sp. Atk,,,,,,
+Quaquaval,176,stat_alignment,2,Jolly,42.0%,Speed,Sp. Atk,,,,,,
+Quaquaval,176,stat_alignment,3,Brave,9.7%,Attack,Speed,,,,,,
+Quaquaval,176,stat_alignment,4,Naive,3.7%,Speed,Sp. Def,,,,,,
+Quaquaval,176,stat_alignment,5,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Quaquaval,176,stat_alignment,6,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
+Quaquaval,176,stat_points,1,,55.1%,,,2,32,0,0,0,32
+Quaquaval,176,stat_points,2,,12.3%,,,0,32,0,0,2,32
+Quaquaval,176,stat_points,3,,10.3%,,,1,32,0,0,1,32
+Quaquaval,176,stat_points,4,,3.5%,,,0,32,0,0,0,32
+Quaquaval,176,stat_points,5,,3.1%,,,11,20,8,0,1,26
+Quaquaval,176,stat_points,6,,3.1%,,,29,32,0,0,5,0
+Quaquaval,176,stat_points,7,,2.5%,,,0,32,2,0,0,32
+Quaquaval,176,stat_points,8,,2.5%,,,9,24,0,0,1,32
+Quaquaval,176,stat_points,9,,2.5%,,,25,10,0,0,22,9
+Quaquaval,176,stat_points,10,,1.6%,,,13,32,0,0,17,4
+Quaquaval,176,ability,1,Moxie,100.0%,,,,,,,,

@@ -1,50 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Kleavor,63,move,1,Stone Axe,99.5%,,,,,,,,
-Kleavor,63,move,2,X-Scissor,87.7%,,,,,,,,
-Kleavor,63,move,3,Protect,57.1%,,,,,,,,
-Kleavor,63,move,4,Night Slash,40.1%,,,,,,,,
-Kleavor,63,move,5,Close Combat,33.0%,,,,,,,,
-Kleavor,63,move,6,Tailwind,22.3%,,,,,,,,
-Kleavor,63,move,7,U-turn,17.8%,,,,,,,,
-Kleavor,63,move,8,Rock Slide,15.6%,,,,,,,,
-Kleavor,63,move,9,Feint,13.5%,,,,,,,,
-Kleavor,63,move,10,Aerial Ace,6.5%,,,,,,,,
-Kleavor,63,held_item,1,Focus Sash,48.0%,,,,,,,,
-Kleavor,63,held_item,2,Choice Scarf,31.1%,,,,,,,,
-Kleavor,63,held_item,3,Life Orb,14.2%,,,,,,,,
-Kleavor,63,held_item,4,White Herb,3.6%,,,,,,,,
-Kleavor,63,held_item,5,Wide Lens,1.7%,,,,,,,,
-Kleavor,63,held_item,6,Psychic Seed,0.4%,,,,,,,,
-Kleavor,63,held_item,7,Quick Claw,0.3%,,,,,,,,
-Kleavor,63,held_item,8,Expert Belt,0.3%,,,,,,,,
-Kleavor,63,held_item,9,Sitrus Berry,0.2%,,,,,,,,
-Kleavor,63,held_item,10,Mental Herb,0.1%,,,,,,,,
-Kleavor,63,teammate,1,Garchomp,,,,,,,,,
-Kleavor,63,teammate,2,Whimsicott,,,,,,,,,
-Kleavor,63,teammate,3,Rillaboom,,,,,,,,,
-Kleavor,63,teammate,4,Raichu,,,,,,,,,
-Kleavor,63,teammate,5,Kingambit,,,,,,,,,
-Kleavor,63,teammate,6,Gardevoir,,,,,,,,,
-Kleavor,63,teammate,7,Indeedee-F,,,,,,,,,
-Kleavor,63,teammate,8,Salamence,,,,,,,,,
-Kleavor,63,teammate,9,Sneasler,,,,,,,,,
-Kleavor,63,teammate,10,Gholdengo,,,,,,,,,
-Kleavor,63,stat_alignment,1,Adamant,50.4%,Attack,Sp. Atk,,,,,,
-Kleavor,63,stat_alignment,2,Jolly,47.8%,Speed,Sp. Atk,,,,,,
-Kleavor,63,stat_alignment,3,Naughty,1.0%,Attack,Sp. Def,,,,,,
-Kleavor,63,stat_alignment,4,Brave,0.6%,Attack,Speed,,,,,,
-Kleavor,63,stat_alignment,5,Lonely,0.2%,Attack,Defense,,,,,,
-Kleavor,63,stat_alignment,6,Careful,0.0%,Sp. Def,Sp. Atk,,,,,,
-Kleavor,63,stat_points,1,,65.6%,,,2,32,0,0,0,32
-Kleavor,63,stat_points,2,,13.7%,,,0,32,0,0,2,32
-Kleavor,63,stat_points,3,,4.5%,,,0,32,2,0,0,32
-Kleavor,63,stat_points,4,,2.7%,,,27,32,0,0,0,7
-Kleavor,63,stat_points,5,,2.1%,,,0,28,0,0,6,32
-Kleavor,63,stat_points,6,,1.5%,,,0,28,9,0,22,7
-Kleavor,63,stat_points,7,,1.5%,,,2,32,0,0,12,20
-Kleavor,63,stat_points,8,,1.4%,,,28,25,0,0,6,7
-Kleavor,63,stat_points,9,,0.9%,,,0,32,0,0,0,32
-Kleavor,63,stat_points,10,,0.9%,,,0,32,1,0,1,32
-Kleavor,63,ability,1,Sharpness,99.7%,,,,,,,,
-Kleavor,63,ability,2,Sheer Force,0.2%,,,,,,,,
-Kleavor,63,ability,3,Swarm,0.0%,,,,,,,,
+Kleavor,65,move,1,Stone Axe,99.1%,,,,,,,,
+Kleavor,65,move,2,X-Scissor,90.6%,,,,,,,,
+Kleavor,65,move,3,Protect,52.6%,,,,,,,,
+Kleavor,65,move,4,Night Slash,39.7%,,,,,,,,
+Kleavor,65,move,5,Close Combat,34.4%,,,,,,,,
+Kleavor,65,move,6,Tailwind,26.4%,,,,,,,,
+Kleavor,65,move,7,Feint,15.1%,,,,,,,,
+Kleavor,65,move,8,U-turn,13.0%,,,,,,,,
+Kleavor,65,move,9,Rock Slide,12.0%,,,,,,,,
+Kleavor,65,move,10,Aerial Ace,6.2%,,,,,,,,
+Kleavor,65,held_item,1,Focus Sash,47.4%,,,,,,,,
+Kleavor,65,held_item,2,Choice Scarf,29.8%,,,,,,,,
+Kleavor,65,held_item,3,Life Orb,14.0%,,,,,,,,
+Kleavor,65,held_item,4,White Herb,3.1%,,,,,,,,
+Kleavor,65,held_item,5,Wide Lens,1.7%,,,,,,,,
+Kleavor,65,held_item,6,Quick Claw,0.9%,,,,,,,,
+Kleavor,65,held_item,7,Psychic Seed,0.6%,,,,,,,,
+Kleavor,65,held_item,8,Muscle Band,0.6%,,,,,,,,
+Kleavor,65,held_item,9,Expert Belt,0.5%,,,,,,,,
+Kleavor,65,held_item,10,Sitrus Berry,0.4%,,,,,,,,
+Kleavor,65,teammate,1,Garchomp,,,,,,,,,
+Kleavor,65,teammate,2,Whimsicott,,,,,,,,,
+Kleavor,65,teammate,3,Rillaboom,,,,,,,,,
+Kleavor,65,teammate,4,Raichu,,,,,,,,,
+Kleavor,65,teammate,5,Sneasler,,,,,,,,,
+Kleavor,65,teammate,6,Gholdengo,,,,,,,,,
+Kleavor,65,teammate,7,Indeedee-F,,,,,,,,,
+Kleavor,65,teammate,8,Salamence,,,,,,,,,
+Kleavor,65,teammate,9,Indeedee,,,,,,,,,
+Kleavor,65,teammate,10,Kingambit,,,,,,,,,
+Kleavor,65,stat_alignment,1,Adamant,54.4%,Attack,Sp. Atk,,,,,,
+Kleavor,65,stat_alignment,2,Jolly,44.0%,Speed,Sp. Atk,,,,,,
+Kleavor,65,stat_alignment,3,Brave,0.7%,Attack,Speed,,,,,,
+Kleavor,65,stat_alignment,4,Naughty,0.5%,Attack,Sp. Def,,,,,,
+Kleavor,65,stat_alignment,5,Lonely,0.2%,Attack,Defense,,,,,,
+Kleavor,65,stat_alignment,6,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Kleavor,65,stat_alignment,7,Naive,0.1%,Speed,Sp. Def,,,,,,
+Kleavor,65,stat_alignment,8,Careful,0.0%,Sp. Def,Sp. Atk,,,,,,
+Kleavor,65,stat_points,1,,62.9%,,,2,32,0,0,0,32
+Kleavor,65,stat_points,2,,13.9%,,,0,32,0,0,2,32
+Kleavor,65,stat_points,3,,7.3%,,,0,32,2,0,0,32
+Kleavor,65,stat_points,4,,1.6%,,,27,32,0,0,0,7
+Kleavor,65,stat_points,5,,1.2%,,,2,32,0,0,12,20
+Kleavor,65,stat_points,6,,1.1%,,,0,32,0,0,0,32
+Kleavor,65,stat_points,7,,1.1%,,,0,28,9,0,22,7
+Kleavor,65,stat_points,8,,1.0%,,,0,28,0,0,6,32
+Kleavor,65,stat_points,9,,0.9%,,,0,32,1,0,1,32
+Kleavor,65,stat_points,10,,0.7%,,,28,25,0,0,6,7
+Kleavor,65,ability,1,Sharpness,99.4%,,,,,,,,
+Kleavor,65,ability,2,Sheer Force,0.4%,,,,,,,,
+Kleavor,65,ability,3,Swarm,0.2%,,,,,,,,

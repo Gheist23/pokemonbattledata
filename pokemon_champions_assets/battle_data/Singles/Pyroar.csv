@@ -1,51 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pyroar,116,move,1,Flamethrower,96.8%,,,,,,,,
-Pyroar,116,move,2,Overheat,76.8%,,,,,,,,
-Pyroar,116,move,3,Yawn,54.2%,,,,,,,,
-Pyroar,116,move,4,Hyper Voice,33.0%,,,,,,,,
-Pyroar,116,move,5,Protect,30.2%,,,,,,,,
-Pyroar,116,move,6,Scorching Sands,22.8%,,,,,,,,
-Pyroar,116,move,7,Substitute,15.4%,,,,,,,,
-Pyroar,116,move,8,Flame Charge,14.0%,,,,,,,,
-Pyroar,116,move,9,Will-O-Wisp,11.2%,,,,,,,,
-Pyroar,116,move,10,Dark Pulse,11.0%,,,,,,,,
-Pyroar,116,held_item,1,Pyroarite,98.8%,,,,,,,,
-Pyroar,116,held_item,2,Sitrus Berry,0.2%,,,,,,,,
-Pyroar,116,held_item,3,Choice Scarf,0.2%,,,,,,,,
-Pyroar,116,held_item,4,Red Card,0.2%,,,,,,,,
-Pyroar,116,held_item,5,Life Orb,0.1%,,,,,,,,
-Pyroar,116,held_item,6,Focus Sash,0.1%,,,,,,,,
-Pyroar,116,held_item,7,Heat Rock,0.0%,,,,,,,,
-Pyroar,116,held_item,8,Air Balloon,0.0%,,,,,,,,
-Pyroar,116,held_item,9,Normal Gem,0.0%,,,,,,,,
-Pyroar,116,teammate,1,Garchomp,,,,,,,,,
-Pyroar,116,teammate,2,Primarina,,,,,,,,,
-Pyroar,116,teammate,3,Archaludon,,,,,,,,,
-Pyroar,116,teammate,4,Rillaboom,,,,,,,,,
-Pyroar,116,teammate,5,Corviknight,,,,,,,,,
-Pyroar,116,teammate,6,Indeedee,,,,,,,,,
-Pyroar,116,teammate,7,Gyarados,,,,,,,,,
-Pyroar,116,teammate,8,Mimikyu,,,,,,,,,
-Pyroar,116,teammate,9,Baxcalibur,,,,,,,,,
-Pyroar,116,teammate,10,Basculegion,,,,,,,,,
-Pyroar,116,stat_alignment,1,Timid,53.3%,Speed,Attack,,,,,,
-Pyroar,116,stat_alignment,2,Modest,43.1%,Sp. Atk,Attack,,,,,,
-Pyroar,116,stat_alignment,3,Calm,2.0%,Sp. Def,Attack,,,,,,
-Pyroar,116,stat_alignment,4,Hasty,1.0%,Speed,Defense,,,,,,
-Pyroar,116,stat_alignment,5,Bold,0.2%,Defense,Attack,,,,,,
-Pyroar,116,stat_alignment,6,Quiet,0.2%,Sp. Atk,Speed,,,,,,
-Pyroar,116,stat_alignment,7,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Pyroar,116,stat_alignment,8,Jolly,0.0%,Speed,Sp. Atk,,,,,,
-Pyroar,116,stat_points,1,,48.3%,,,2,0,0,32,0,32
-Pyroar,116,stat_points,2,,6.9%,,,10,0,0,32,0,24
-Pyroar,116,stat_points,3,,5.2%,,,6,0,1,32,0,27
-Pyroar,116,stat_points,4,,5.2%,,,0,0,2,32,0,32
-Pyroar,116,stat_points,5,,4.1%,,,0,0,0,32,2,32
-Pyroar,116,stat_points,6,,3.4%,,,8,0,0,31,0,27
-Pyroar,116,stat_points,7,,2.7%,,,4,0,0,32,0,30
-Pyroar,116,stat_points,8,,1.6%,,,30,0,0,32,0,4
-Pyroar,116,stat_points,9,,1.5%,,,7,0,0,32,0,27
-Pyroar,116,stat_points,10,,1.5%,,,14,0,0,32,1,19
-Pyroar,116,ability,1,Unnerve,84.3%,,,,,,,,
-Pyroar,116,ability,2,Moxie,8.6%,,,,,,,,
-Pyroar,116,ability,3,Rivalry,7.1%,,,,,,,,
+Pyroar,115,move,1,Flamethrower,96.0%,,,,,,,,
+Pyroar,115,move,2,Overheat,75.8%,,,,,,,,
+Pyroar,115,move,3,Yawn,53.5%,,,,,,,,
+Pyroar,115,move,4,Hyper Voice,34.4%,,,,,,,,
+Pyroar,115,move,5,Protect,30.4%,,,,,,,,
+Pyroar,115,move,6,Scorching Sands,22.0%,,,,,,,,
+Pyroar,115,move,7,Flame Charge,14.7%,,,,,,,,
+Pyroar,115,move,8,Substitute,14.4%,,,,,,,,
+Pyroar,115,move,9,Will-O-Wisp,11.0%,,,,,,,,
+Pyroar,115,move,10,Dark Pulse,11.0%,,,,,,,,
+Pyroar,115,held_item,1,Pyroarite,98.4%,,,,,,,,
+Pyroar,115,held_item,2,Choice Scarf,0.4%,,,,,,,,
+Pyroar,115,held_item,3,Focus Sash,0.3%,,,,,,,,
+Pyroar,115,held_item,4,Sitrus Berry,0.2%,,,,,,,,
+Pyroar,115,held_item,5,Life Orb,0.2%,,,,,,,,
+Pyroar,115,held_item,6,Red Card,0.1%,,,,,,,,
+Pyroar,115,held_item,7,Air Balloon,0.1%,,,,,,,,
+Pyroar,115,held_item,8,Spell Tag,0.0%,,,,,,,,
+Pyroar,115,held_item,9,Heat Rock,0.0%,,,,,,,,
+Pyroar,115,held_item,10,Normal Gem,0.0%,,,,,,,,
+Pyroar,115,teammate,1,Garchomp,,,,,,,,,
+Pyroar,115,teammate,2,Primarina,,,,,,,,,
+Pyroar,115,teammate,3,Corviknight,,,,,,,,,
+Pyroar,115,teammate,4,Rillaboom,,,,,,,,,
+Pyroar,115,teammate,5,Archaludon,,,,,,,,,
+Pyroar,115,teammate,6,Indeedee,,,,,,,,,
+Pyroar,115,teammate,7,Baxcalibur,,,,,,,,,
+Pyroar,115,teammate,8,Gyarados,,,,,,,,,
+Pyroar,115,teammate,9,Mimikyu,,,,,,,,,
+Pyroar,115,teammate,10,Basculegion,,,,,,,,,
+Pyroar,115,stat_alignment,1,Timid,54.7%,Speed,Attack,,,,,,
+Pyroar,115,stat_alignment,2,Modest,41.9%,Sp. Atk,Attack,,,,,,
+Pyroar,115,stat_alignment,3,Calm,1.9%,Sp. Def,Attack,,,,,,
+Pyroar,115,stat_alignment,4,Hasty,0.8%,Speed,Defense,,,,,,
+Pyroar,115,stat_alignment,5,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Pyroar,115,stat_alignment,6,Bold,0.2%,Defense,Attack,,,,,,
+Pyroar,115,stat_alignment,7,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Pyroar,115,stat_alignment,8,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
+Pyroar,115,stat_alignment,9,Lonely,0.0%,Attack,Defense,,,,,,
+Pyroar,115,stat_alignment,10,Jolly,0.0%,Speed,Sp. Atk,,,,,,
+Pyroar,115,stat_points,1,,48.4%,,,2,0,0,32,0,32
+Pyroar,115,stat_points,2,,7.2%,,,10,0,0,32,0,24
+Pyroar,115,stat_points,3,,5.0%,,,0,0,2,32,0,32
+Pyroar,115,stat_points,4,,4.7%,,,0,0,0,32,2,32
+Pyroar,115,stat_points,5,,4.2%,,,6,0,1,32,0,27
+Pyroar,115,stat_points,6,,3.2%,,,8,0,0,31,0,27
+Pyroar,115,stat_points,7,,3.0%,,,4,0,0,32,0,30
+Pyroar,115,stat_points,8,,1.7%,,,7,0,0,32,0,27
+Pyroar,115,stat_points,9,,1.5%,,,30,0,0,32,0,4
+Pyroar,115,stat_points,10,,1.4%,,,14,0,0,32,1,19
+Pyroar,115,ability,1,Unnerve,84.0%,,,,,,,,
+Pyroar,115,ability,2,Moxie,9.0%,,,,,,,,
+Pyroar,115,ability,3,Rivalry,7.0%,,,,,,,,

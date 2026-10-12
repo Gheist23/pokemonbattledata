@@ -1,41 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Chimecho,221,move,1,Trick Room,59.1%,,,,,,,,
-Chimecho,221,move,2,Flash Cannon,56.1%,,,,,,,,
-Chimecho,221,move,3,Psychic,46.3%,,,,,,,,
-Chimecho,221,move,4,Calm Mind,33.5%,,,,,,,,
-Chimecho,221,move,5,Cosmic Power,27.4%,,,,,,,,
-Chimecho,221,move,6,Protect,26.8%,,,,,,,,
-Chimecho,221,move,7,Stored Power,18.3%,,,,,,,,
-Chimecho,221,move,8,Baton Pass,15.2%,,,,,,,,
-Chimecho,221,move,9,Boomburst,15.2%,,,,,,,,
-Chimecho,221,move,10,Dazzling Gleam,14.6%,,,,,,,,
-Chimecho,221,held_item,1,Chimechite,96.3%,,,,,,,,
-Chimecho,221,held_item,2,Focus Sash,3.7%,,,,,,,,
-Chimecho,221,teammate,1,Incineroar,,,,,,,,,
-Chimecho,221,teammate,2,Sinistcha,,,,,,,,,
-Chimecho,221,teammate,3,Pelipper,,,,,,,,,
-Chimecho,221,teammate,4,Kommo-o,,,,,,,,,
-Chimecho,221,teammate,5,Archaludon,,,,,,,,,
-Chimecho,221,teammate,6,Rillaboom,,,,,,,,,
-Chimecho,221,teammate,7,Garchomp,,,,,,,,,
-Chimecho,221,teammate,8,Talonflame,,,,,,,,,
-Chimecho,221,teammate,9,Froslass,,,,,,,,,
-Chimecho,221,teammate,10,Tyranitar,,,,,,,,,
-Chimecho,221,stat_alignment,1,Quiet,29.3%,Sp. Atk,Speed,,,,,,
-Chimecho,221,stat_alignment,2,Modest,27.4%,Sp. Atk,Attack,,,,,,
-Chimecho,221,stat_alignment,3,Bold,18.3%,Defense,Attack,,,,,,
-Chimecho,221,stat_alignment,4,Calm,8.5%,Sp. Def,Attack,,,,,,
-Chimecho,221,stat_alignment,5,Sassy,7.3%,Sp. Def,Speed,,,,,,
-Chimecho,221,stat_alignment,6,Relaxed,5.5%,Defense,Speed,,,,,,
-Chimecho,221,stat_alignment,7,Timid,3.7%,Speed,Attack,,,,,,
-Chimecho,221,stat_points,1,,15.2%,,,24,0,10,32,0,0
-Chimecho,221,stat_points,2,,15.2%,,,32,0,2,32,0,0
-Chimecho,221,stat_points,3,,13.4%,,,32,0,10,24,0,0
-Chimecho,221,stat_points,4,,12.8%,,,2,0,32,0,32,0
-Chimecho,221,stat_points,5,,5.5%,,,32,0,17,0,17,0
-Chimecho,221,stat_points,6,,5.5%,,,32,0,32,0,2,0
-Chimecho,221,stat_points,7,,4.9%,,,25,0,9,32,0,0
-Chimecho,221,stat_points,8,,3.7%,,,1,0,29,19,17,0
-Chimecho,221,stat_points,9,,3.7%,,,32,0,2,0,0,32
-Chimecho,221,stat_points,10,,3.0%,,,24,0,32,0,10,0
-Chimecho,221,ability,1,Levitate,100.0%,,,,,,,,
+Chimecho,216,move,1,Trick Room,59.7%,,,,,,,,
+Chimecho,216,move,2,Psychic,51.7%,,,,,,,,
+Chimecho,216,move,3,Flash Cannon,49.2%,,,,,,,,
+Chimecho,216,move,4,Cosmic Power,32.9%,,,,,,,,
+Chimecho,216,move,5,Protect,31.1%,,,,,,,,
+Chimecho,216,move,6,Calm Mind,27.4%,,,,,,,,
+Chimecho,216,move,7,Recover,21.5%,,,,,,,,
+Chimecho,216,move,8,Stored Power,20.9%,,,,,,,,
+Chimecho,216,move,9,Heal Pulse,16.0%,,,,,,,,
+Chimecho,216,move,10,Baton Pass,11.1%,,,,,,,,
+Chimecho,216,held_item,1,Chimechite,96.6%,,,,,,,,
+Chimecho,216,held_item,2,Focus Sash,1.8%,,,,,,,,
+Chimecho,216,held_item,3,Leftovers,1.5%,,,,,,,,
+Chimecho,216,teammate,1,Sinistcha,,,,,,,,,
+Chimecho,216,teammate,2,Incineroar,,,,,,,,,
+Chimecho,216,teammate,3,Rillaboom,,,,,,,,,
+Chimecho,216,teammate,4,Sylveon,,,,,,,,,
+Chimecho,216,teammate,5,Pelipper,,,,,,,,,
+Chimecho,216,teammate,6,Archaludon,,,,,,,,,
+Chimecho,216,teammate,7,Kommo-o,,,,,,,,,
+Chimecho,216,teammate,8,Garchomp,,,,,,,,,
+Chimecho,216,teammate,9,Aromatisse,,,,,,,,,
+Chimecho,216,teammate,10,Froslass,,,,,,,,,
+Chimecho,216,stat_alignment,1,Quiet,31.7%,Sp. Atk,Speed,,,,,,
+Chimecho,216,stat_alignment,2,Bold,25.2%,Defense,Attack,,,,,,
+Chimecho,216,stat_alignment,3,Modest,15.4%,Sp. Atk,Attack,,,,,,
+Chimecho,216,stat_alignment,4,Relaxed,13.2%,Defense,Speed,,,,,,
+Chimecho,216,stat_alignment,5,Calm,8.9%,Sp. Def,Attack,,,,,,
+Chimecho,216,stat_alignment,6,Sassy,3.7%,Sp. Def,Speed,,,,,,
+Chimecho,216,stat_alignment,7,Timid,1.8%,Speed,Attack,,,,,,
+Chimecho,216,stat_points,1,,16.0%,,,32,0,2,32,0,0
+Chimecho,216,stat_points,2,,11.7%,,,32,0,32,0,2,0
+Chimecho,216,stat_points,3,,11.1%,,,24,0,10,32,0,0
+Chimecho,216,stat_points,4,,8.9%,,,2,0,32,0,32,0
+Chimecho,216,stat_points,5,,8.9%,,,32,0,10,24,0,0
+Chimecho,216,stat_points,6,,6.5%,,,32,0,17,0,17,0
+Chimecho,216,stat_points,7,,4.3%,,,24,0,32,0,10,0
+Chimecho,216,stat_points,8,,4.0%,,,32,0,25,0,9,0
+Chimecho,216,stat_points,9,,3.1%,,,32,0,16,0,18,0
+Chimecho,216,stat_points,10,,2.8%,,,32,0,1,14,19,0
+Chimecho,216,ability,1,Levitate,100.0%,,,,,,,,

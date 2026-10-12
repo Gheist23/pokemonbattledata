@@ -1,40 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Bastiodon,236,move,1,Body Press,62.0%,,,,,,,,
-Bastiodon,236,move,2,Wide Guard,53.3%,,,,,,,,
-Bastiodon,236,move,3,Iron Defense,52.2%,,,,,,,,
-Bastiodon,236,move,4,Metal Burst,39.1%,,,,,,,,
-Bastiodon,236,move,5,Roar,30.4%,,,,,,,,
-Bastiodon,236,move,6,Fissure,27.2%,,,,,,,,
-Bastiodon,236,move,7,Iron Head,26.1%,,,,,,,,
-Bastiodon,236,move,8,Protect,22.8%,,,,,,,,
-Bastiodon,236,move,9,Foul Play,18.5%,,,,,,,,
-Bastiodon,236,move,10,Rock Tomb,16.3%,,,,,,,,
-Bastiodon,236,held_item,1,Leftovers,45.7%,,,,,,,,
-Bastiodon,236,held_item,2,Rocky Helmet,37.0%,,,,,,,,
-Bastiodon,236,held_item,3,Sitrus Berry,8.7%,,,,,,,,
-Bastiodon,236,held_item,4,Chople Berry,6.5%,,,,,,,,
-Bastiodon,236,held_item,5,Quick Claw,1.1%,,,,,,,,
-Bastiodon,236,held_item,6,Shell Bell,1.1%,,,,,,,,
-Bastiodon,236,teammate,1,Zoroark-Hisui,,,,,,,,,
-Bastiodon,236,teammate,2,Tyranitar,,,,,,,,,
-Bastiodon,236,teammate,3,Mawile,,,,,,,,,
-Bastiodon,236,teammate,4,Drampa,,,,,,,,,
-Bastiodon,236,teammate,5,Alcremie,,,,,,,,,
-Bastiodon,236,teammate,6,Farigiraf,,,,,,,,,
-Bastiodon,236,teammate,7,Staraptor,,,,,,,,,
-Bastiodon,236,teammate,8,Golisopod,,,,,,,,,
-Bastiodon,236,teammate,9,Typhlosion,,,,,,,,,
-Bastiodon,236,teammate,10,Milotic,,,,,,,,,
-Bastiodon,236,stat_alignment,1,Sassy,66.3%,Sp. Def,Speed,,,,,,
-Bastiodon,236,stat_alignment,2,Relaxed,23.9%,Defense,Speed,,,,,,
-Bastiodon,236,stat_alignment,3,Impish,5.4%,Defense,Sp. Atk,,,,,,
-Bastiodon,236,stat_alignment,4,Careful,4.3%,Sp. Def,Sp. Atk,,,,,,
-Bastiodon,236,stat_points,1,,32.6%,,,32,0,2,0,32,0
-Bastiodon,236,stat_points,2,,19.6%,,,2,0,32,0,32,0
-Bastiodon,236,stat_points,3,,16.3%,,,32,2,0,0,32,0
-Bastiodon,236,stat_points,4,,14.1%,,,32,0,32,0,2,0
-Bastiodon,236,stat_points,5,,7.6%,,,32,21,0,0,13,0
-Bastiodon,236,stat_points,6,,5.4%,,,32,0,26,0,8,0
-Bastiodon,236,stat_points,7,,4.3%,,,32,0,12,0,22,0
-Bastiodon,236,ability,1,Sturdy,60.9%,,,,,,,,
-Bastiodon,236,ability,2,Soundproof,39.1%,,,,,,,,
+Bastiodon,235,move,1,Body Press,67.8%,,,,,,,,
+Bastiodon,235,move,2,Iron Defense,57.0%,,,,,,,,
+Bastiodon,235,move,3,Wide Guard,48.3%,,,,,,,,
+Bastiodon,235,move,4,Protect,34.9%,,,,,,,,
+Bastiodon,235,move,5,Metal Burst,28.2%,,,,,,,,
+Bastiodon,235,move,6,Foul Play,28.2%,,,,,,,,
+Bastiodon,235,move,7,Fissure,27.5%,,,,,,,,
+Bastiodon,235,move,8,Iron Head,19.5%,,,,,,,,
+Bastiodon,235,move,9,Roar,18.8%,,,,,,,,
+Bastiodon,235,move,10,Guard Split,13.4%,,,,,,,,
+Bastiodon,235,held_item,1,Leftovers,50.3%,,,,,,,,
+Bastiodon,235,held_item,2,Rocky Helmet,26.8%,,,,,,,,
+Bastiodon,235,held_item,3,Chople Berry,7.4%,,,,,,,,
+Bastiodon,235,held_item,4,Sitrus Berry,5.4%,,,,,,,,
+Bastiodon,235,held_item,5,Shuca Berry,3.4%,,,,,,,,
+Bastiodon,235,held_item,6,Wide Lens,2.7%,,,,,,,,
+Bastiodon,235,held_item,7,Muscle Band,2.0%,,,,,,,,
+Bastiodon,235,held_item,8,Quick Claw,0.7%,,,,,,,,
+Bastiodon,235,held_item,9,Shell Bell,0.7%,,,,,,,,
+Bastiodon,235,held_item,10,Life Orb,0.7%,,,,,,,,
+Bastiodon,235,teammate,1,Zoroark-Hisui,,,,,,,,,
+Bastiodon,235,teammate,2,Sinistcha,,,,,,,,,
+Bastiodon,235,teammate,3,Tyranitar,,,,,,,,,
+Bastiodon,235,teammate,4,Whimsicott,,,,,,,,,
+Bastiodon,235,teammate,5,Milotic,,,,,,,,,
+Bastiodon,235,teammate,6,Golisopod,,,,,,,,,
+Bastiodon,235,teammate,7,Farigiraf,,,,,,,,,
+Bastiodon,235,teammate,8,Mawile,,,,,,,,,
+Bastiodon,235,teammate,9,Drampa,,,,,,,,,
+Bastiodon,235,teammate,10,Alcremie,,,,,,,,,
+Bastiodon,235,stat_alignment,1,Sassy,44.3%,Sp. Def,Speed,,,,,,
+Bastiodon,235,stat_alignment,2,Careful,22.8%,Sp. Def,Sp. Atk,,,,,,
+Bastiodon,235,stat_alignment,3,Relaxed,22.8%,Defense,Speed,,,,,,
+Bastiodon,235,stat_alignment,4,Adamant,5.4%,Attack,Sp. Atk,,,,,,
+Bastiodon,235,stat_alignment,5,Impish,4.0%,Defense,Sp. Atk,,,,,,
+Bastiodon,235,stat_alignment,6,Quiet,0.7%,Sp. Atk,Speed,,,,,,
+Bastiodon,235,stat_points,1,,20.8%,,,32,0,2,0,32,0
+Bastiodon,235,stat_points,2,,16.8%,,,32,0,32,0,2,0
+Bastiodon,235,stat_points,3,,13.4%,,,32,2,0,0,32,0
+Bastiodon,235,stat_points,4,,12.1%,,,2,0,32,0,32,0
+Bastiodon,235,stat_points,5,,10.7%,,,32,0,12,0,22,0
+Bastiodon,235,stat_points,6,,8.7%,,,20,0,14,0,32,0
+Bastiodon,235,stat_points,7,,4.7%,,,32,21,0,0,13,0
+Bastiodon,235,stat_points,8,,3.4%,,,0,0,32,0,32,2
+Bastiodon,235,stat_points,9,,3.4%,,,7,25,2,0,32,0
+Bastiodon,235,stat_points,10,,3.4%,,,32,0,26,0,8,0
+Bastiodon,235,ability,1,Soundproof,52.3%,,,,,,,,
+Bastiodon,235,ability,2,Sturdy,47.7%,,,,,,,,

@@ -1,36 +1,40 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Flapple,240,move,1,Dragon Rush,100.0%,,,,,,,,
-Flapple,240,move,2,Grav Apple,100.0%,,,,,,,,
-Flapple,240,move,3,Protect,59.4%,,,,,,,,
-Flapple,240,move,4,U-turn,40.6%,,,,,,,,
-Flapple,240,move,5,Dragon Dance,37.7%,,,,,,,,
-Flapple,240,move,6,Dual Wingbeat,33.3%,,,,,,,,
-Flapple,240,move,7,Sucker Punch,27.5%,,,,,,,,
-Flapple,240,move,8,Grassy Glide,1.4%,,,,,,,,
-Flapple,240,held_item,1,Focus Sash,42.0%,,,,,,,,
-Flapple,240,held_item,2,Choice Scarf,40.6%,,,,,,,,
-Flapple,240,held_item,3,Life Orb,8.7%,,,,,,,,
-Flapple,240,held_item,4,Miracle Seed,5.8%,,,,,,,,
-Flapple,240,held_item,5,Sitrus Berry,2.9%,,,,,,,,
-Flapple,240,teammate,1,Sableye,,,,,,,,,
-Flapple,240,teammate,2,Maushold-Four,,,,,,,,,
-Flapple,240,teammate,3,Delphox,,,,,,,,,
-Flapple,240,teammate,4,Milotic,,,,,,,,,
-Flapple,240,teammate,5,Gengar,,,,,,,,,
-Flapple,240,teammate,6,Squawkabilly-Yellow,,,,,,,,,
-Flapple,240,teammate,7,Garchomp,,,,,,,,,
-Flapple,240,teammate,8,Farigiraf,,,,,,,,,
-Flapple,240,teammate,9,Indeedee-F,,,,,,,,,
-Flapple,240,teammate,10,Pawmot,,,,,,,,,
-Flapple,240,stat_alignment,1,Jolly,66.7%,Speed,Sp. Atk,,,,,,
-Flapple,240,stat_alignment,2,Brave,21.7%,Attack,Speed,,,,,,
-Flapple,240,stat_alignment,3,Adamant,11.6%,Attack,Sp. Atk,,,,,,
-Flapple,240,stat_points,1,,73.9%,,,2,32,0,0,0,32
-Flapple,240,stat_points,2,,17.4%,,,32,32,0,0,2,0
-Flapple,240,stat_points,3,,2.9%,,,14,32,0,0,20,0
-Flapple,240,stat_points,4,,1.4%,,,0,32,0,2,0,32
-Flapple,240,stat_points,5,,1.4%,,,32,0,0,0,0,32
-Flapple,240,stat_points,6,,1.4%,,,32,32,0,0,0,2
-Flapple,240,stat_points,7,,1.4%,,,32,32,2,0,0,0
-Flapple,240,ability,1,Hustle,97.1%,,,,,,,,
-Flapple,240,ability,2,Ripen,2.9%,,,,,,,,
+Flapple,243,move,1,Grav Apple,100.0%,,,,,,,,
+Flapple,243,move,2,Dragon Rush,96.0%,,,,,,,,
+Flapple,243,move,3,Protect,49.5%,,,,,,,,
+Flapple,243,move,4,U-turn,43.4%,,,,,,,,
+Flapple,243,move,5,Dual Wingbeat,42.4%,,,,,,,,
+Flapple,243,move,6,Sucker Punch,31.3%,,,,,,,,
+Flapple,243,move,7,Dragon Dance,26.3%,,,,,,,,
+Flapple,243,move,8,Outrage,4.0%,,,,,,,,
+Flapple,243,move,9,Recycle,3.0%,,,,,,,,
+Flapple,243,move,10,Leech Seed,3.0%,,,,,,,,
+Flapple,243,held_item,1,Choice Scarf,43.4%,,,,,,,,
+Flapple,243,held_item,2,Focus Sash,37.4%,,,,,,,,
+Flapple,243,held_item,3,Life Orb,6.1%,,,,,,,,
+Flapple,243,held_item,4,Sitrus Berry,5.1%,,,,,,,,
+Flapple,243,held_item,5,Miracle Seed,4.0%,,,,,,,,
+Flapple,243,held_item,6,Wide Lens,4.0%,,,,,,,,
+Flapple,243,teammate,1,Sableye,,,,,,,,,
+Flapple,243,teammate,2,Delphox,,,,,,,,,
+Flapple,243,teammate,3,Maushold-Four,,,,,,,,,
+Flapple,243,teammate,4,Milotic,,,,,,,,,
+Flapple,243,teammate,5,Gengar,,,,,,,,,
+Flapple,243,teammate,6,Meowstic,,,,,,,,,
+Flapple,243,teammate,7,Squawkabilly-Yellow,,,,,,,,,
+Flapple,243,teammate,8,Zoroark-Hisui,,,,,,,,,
+Flapple,243,teammate,9,Ninetales-Alola,,,,,,,,,
+Flapple,243,teammate,10,Samurott-Hisui,,,,,,,,,
+Flapple,243,stat_alignment,1,Jolly,66.7%,Speed,Sp. Atk,,,,,,
+Flapple,243,stat_alignment,2,Brave,22.2%,Attack,Speed,,,,,,
+Flapple,243,stat_alignment,3,Adamant,11.1%,Attack,Sp. Atk,,,,,,
+Flapple,243,stat_points,1,,71.7%,,,2,32,0,0,0,32
+Flapple,243,stat_points,2,,19.2%,,,32,32,0,0,2,0
+Flapple,243,stat_points,3,,3.0%,,,32,32,1,0,0,1
+Flapple,243,stat_points,4,,2.0%,,,14,32,0,0,20,0
+Flapple,243,stat_points,5,,1.0%,,,0,32,0,2,0,32
+Flapple,243,stat_points,6,,1.0%,,,32,0,0,0,0,32
+Flapple,243,stat_points,7,,1.0%,,,32,32,0,0,0,2
+Flapple,243,stat_points,8,,1.0%,,,32,32,2,0,0,0
+Flapple,243,ability,1,Hustle,94.9%,,,,,,,,
+Flapple,243,ability,2,Ripen,5.1%,,,,,,,,

@@ -1,47 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scolipede,207,move,1,Protect,86.0%,,,,,,,,
-Scolipede,207,move,2,Swords Dance,60.7%,,,,,,,,
-Scolipede,207,move,3,Baton Pass,53.3%,,,,,,,,
-Scolipede,207,move,4,Poison Jab,41.6%,,,,,,,,
-Scolipede,207,move,5,Leech Life,37.0%,,,,,,,,
-Scolipede,207,move,6,Megahorn,21.0%,,,,,,,,
-Scolipede,207,move,7,Gunk Shot,19.8%,,,,,,,,
-Scolipede,207,move,8,Rock Tomb,15.6%,,,,,,,,
-Scolipede,207,move,9,Earthquake,13.6%,,,,,,,,
-Scolipede,207,move,10,Stomping Tantrum,13.2%,,,,,,,,
-Scolipede,207,held_item,1,Scolipite,45.1%,,,,,,,,
-Scolipede,207,held_item,2,Focus Sash,17.1%,,,,,,,,
-Scolipede,207,held_item,3,Leftovers,12.8%,,,,,,,,
-Scolipede,207,held_item,4,Electric Seed,12.1%,,,,,,,,
-Scolipede,207,held_item,5,Life Orb,10.1%,,,,,,,,
-Scolipede,207,held_item,6,Big Root,1.2%,,,,,,,,
-Scolipede,207,held_item,7,Golisopite,0.8%,,,,,,,,
-Scolipede,207,held_item,8,Wide Lens,0.4%,,,,,,,,
-Scolipede,207,held_item,9,Psychic Seed,0.4%,,,,,,,,
-Scolipede,207,teammate,1,Raichu,,,,,,,,,
-Scolipede,207,teammate,2,Sinistcha,,,,,,,,,
-Scolipede,207,teammate,3,Rillaboom,,,,,,,,,
-Scolipede,207,teammate,4,Incineroar,,,,,,,,,
-Scolipede,207,teammate,5,Staraptor,,,,,,,,,
-Scolipede,207,teammate,6,Archaludon,,,,,,,,,
-Scolipede,207,teammate,7,Sableye,,,,,,,,,
-Scolipede,207,teammate,8,Politoed,,,,,,,,,
-Scolipede,207,teammate,9,Milotic,,,,,,,,,
-Scolipede,207,teammate,10,Hydreigon,,,,,,,,,
-Scolipede,207,stat_alignment,1,Adamant,52.1%,Attack,Sp. Atk,,,,,,
-Scolipede,207,stat_alignment,2,Jolly,41.2%,Speed,Sp. Atk,,,,,,
-Scolipede,207,stat_alignment,3,Impish,3.9%,Defense,Sp. Atk,,,,,,
-Scolipede,207,stat_alignment,4,Brave,1.6%,Attack,Speed,,,,,,
-Scolipede,207,stat_alignment,5,Naive,1.2%,Speed,Sp. Def,,,,,,
-Scolipede,207,stat_points,1,,15.2%,,,0,32,2,0,0,32
-Scolipede,207,stat_points,2,,9.3%,,,4,32,0,0,0,30
-Scolipede,207,stat_points,3,,8.9%,,,2,32,0,0,0,32
-Scolipede,207,stat_points,4,,8.9%,,,32,0,1,0,32,1
-Scolipede,207,stat_points,5,,7.4%,,,14,30,1,0,10,11
-Scolipede,207,stat_points,6,,6.2%,,,32,11,1,0,1,21
-Scolipede,207,stat_points,7,,6.2%,,,32,32,2,0,0,0
-Scolipede,207,stat_points,8,,5.8%,,,32,0,1,0,22,11
-Scolipede,207,stat_points,9,,3.9%,,,32,0,0,0,21,13
-Scolipede,207,stat_points,10,,3.5%,,,32,0,1,0,15,18
-Scolipede,207,ability,1,Speed Boost,98.1%,,,,,,,,
-Scolipede,207,ability,2,Poison Point,1.9%,,,,,,,,
+Scolipede,202,move,1,Protect,88.9%,,,,,,,,
+Scolipede,202,move,2,Swords Dance,57.9%,,,,,,,,
+Scolipede,202,move,3,Baton Pass,52.9%,,,,,,,,
+Scolipede,202,move,4,Leech Life,43.0%,,,,,,,,
+Scolipede,202,move,5,Poison Jab,38.9%,,,,,,,,
+Scolipede,202,move,6,Megahorn,21.9%,,,,,,,,
+Scolipede,202,move,7,Gunk Shot,19.7%,,,,,,,,
+Scolipede,202,move,8,Earthquake,12.0%,,,,,,,,
+Scolipede,202,move,9,Superpower,11.1%,,,,,,,,
+Scolipede,202,move,10,Rock Tomb,9.6%,,,,,,,,
+Scolipede,202,held_item,1,Scolipite,40.9%,,,,,,,,
+Scolipede,202,held_item,2,Focus Sash,17.5%,,,,,,,,
+Scolipede,202,held_item,3,Leftovers,12.7%,,,,,,,,
+Scolipede,202,held_item,4,Electric Seed,7.5%,,,,,,,,
+Scolipede,202,held_item,5,Life Orb,6.7%,,,,,,,,
+Scolipede,202,held_item,6,Red Card,5.3%,,,,,,,,
+Scolipede,202,held_item,7,Sitrus Berry,1.4%,,,,,,,,
+Scolipede,202,held_item,8,Occa Berry,1.4%,,,,,,,,
+Scolipede,202,held_item,9,Poison Barb,1.2%,,,,,,,,
+Scolipede,202,held_item,10,Rocky Helmet,1.2%,,,,,,,,
+Scolipede,202,teammate,1,Raichu,,,,,,,,,
+Scolipede,202,teammate,2,Rillaboom,,,,,,,,,
+Scolipede,202,teammate,3,Incineroar,,,,,,,,,
+Scolipede,202,teammate,4,Sinistcha,,,,,,,,,
+Scolipede,202,teammate,5,Milotic,,,,,,,,,
+Scolipede,202,teammate,6,Sableye,,,,,,,,,
+Scolipede,202,teammate,7,Archaludon,,,,,,,,,
+Scolipede,202,teammate,8,Hydreigon,,,,,,,,,
+Scolipede,202,teammate,9,Staraptor,,,,,,,,,
+Scolipede,202,teammate,10,Malamar,,,,,,,,,
+Scolipede,202,stat_alignment,1,Adamant,46.9%,Attack,Sp. Atk,,,,,,
+Scolipede,202,stat_alignment,2,Jolly,42.1%,Speed,Sp. Atk,,,,,,
+Scolipede,202,stat_alignment,3,Careful,4.3%,Sp. Def,Sp. Atk,,,,,,
+Scolipede,202,stat_alignment,4,Impish,2.4%,Defense,Sp. Atk,,,,,,
+Scolipede,202,stat_alignment,5,Brave,1.7%,Attack,Speed,,,,,,
+Scolipede,202,stat_alignment,6,Naughty,1.2%,Attack,Sp. Def,,,,,,
+Scolipede,202,stat_alignment,7,Naive,0.7%,Speed,Sp. Def,,,,,,
+Scolipede,202,stat_alignment,8,Sassy,0.7%,Sp. Def,Speed,,,,,,
+Scolipede,202,stat_points,1,,15.4%,,,0,32,2,0,0,32
+Scolipede,202,stat_points,2,,10.3%,,,32,0,1,0,32,1
+Scolipede,202,stat_points,3,,9.1%,,,2,32,0,0,0,32
+Scolipede,202,stat_points,4,,6.0%,,,4,32,0,0,0,30
+Scolipede,202,stat_points,5,,4.6%,,,14,30,1,0,10,11
+Scolipede,202,stat_points,6,,4.1%,,,32,0,8,0,26,0
+Scolipede,202,stat_points,7,,3.8%,,,32,11,1,0,1,21
+Scolipede,202,stat_points,8,,3.8%,,,32,32,2,0,0,0
+Scolipede,202,stat_points,9,,3.6%,,,32,0,1,0,22,11
+Scolipede,202,stat_points,10,,3.4%,,,32,32,0,0,0,2
+Scolipede,202,ability,1,Speed Boost,93.3%,,,,,,,,
+Scolipede,202,ability,2,Poison Point,6.0%,,,,,,,,
+Scolipede,202,ability,3,Swarm,0.7%,,,,,,,,

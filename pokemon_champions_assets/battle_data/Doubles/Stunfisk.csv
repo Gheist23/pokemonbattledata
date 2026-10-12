@@ -1,42 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Stunfisk,235,move,1,Earth Power,100.0%,,,,,,,,
-Stunfisk,235,move,2,Sludge Bomb,70.6%,,,,,,,,
-Stunfisk,235,move,3,Thunderbolt,63.7%,,,,,,,,
-Stunfisk,235,move,4,Scald,46.1%,,,,,,,,
-Stunfisk,235,move,5,Yawn,36.3%,,,,,,,,
-Stunfisk,235,move,6,Protect,28.4%,,,,,,,,
-Stunfisk,235,move,7,Thunder,25.5%,,,,,,,,
-Stunfisk,235,move,8,Stealth Rock,12.7%,,,,,,,,
-Stunfisk,235,move,9,Electroweb,9.8%,,,,,,,,
-Stunfisk,235,move,10,Fissure,4.9%,,,,,,,,
-Stunfisk,235,held_item,1,Leftovers,52.0%,,,,,,,,
-Stunfisk,235,held_item,2,Quick Claw,25.5%,,,,,,,,
-Stunfisk,235,held_item,3,Air Balloon,9.8%,,,,,,,,
-Stunfisk,235,held_item,4,Electric Seed,4.9%,,,,,,,,
-Stunfisk,235,held_item,5,Sitrus Berry,3.9%,,,,,,,,
-Stunfisk,235,held_item,6,Zoom Lens,2.0%,,,,,,,,
-Stunfisk,235,held_item,7,Bright Powder,1.0%,,,,,,,,
-Stunfisk,235,held_item,8,Life Orb,1.0%,,,,,,,,
-Stunfisk,235,teammate,1,Slowbro-Galar,,,,,,,,,
-Stunfisk,235,teammate,2,Swampert,,,,,,,,,
-Stunfisk,235,teammate,3,Pelipper,,,,,,,,,
-Stunfisk,235,teammate,4,Malamar,,,,,,,,,
-Stunfisk,235,teammate,5,Skeledirge,,,,,,,,,
-Stunfisk,235,teammate,6,Incineroar,,,,,,,,,
-Stunfisk,235,teammate,7,Basculegion,,,,,,,,,
-Stunfisk,235,teammate,8,Azumarill,,,,,,,,,
-Stunfisk,235,teammate,9,Kleavor,,,,,,,,,
-Stunfisk,235,teammate,10,Sinistcha,,,,,,,,,
-Stunfisk,235,stat_alignment,1,Quiet,86.3%,Sp. Atk,Speed,,,,,,
-Stunfisk,235,stat_alignment,2,Modest,8.8%,Sp. Atk,Attack,,,,,,
-Stunfisk,235,stat_alignment,3,Relaxed,4.9%,Defense,Speed,,,,,,
-Stunfisk,235,stat_points,1,,70.6%,,,32,0,2,32,0,0
-Stunfisk,235,stat_points,2,,9.8%,,,32,0,15,19,0,0
-Stunfisk,235,stat_points,3,,6.9%,,,32,0,0,32,2,0
-Stunfisk,235,stat_points,4,,4.9%,,,32,0,4,0,30,0
-Stunfisk,235,stat_points,5,,3.9%,,,5,0,0,29,32,0
-Stunfisk,235,stat_points,6,,2.0%,,,32,0,24,0,10,0
-Stunfisk,235,stat_points,7,,1.0%,,,17,0,16,32,1,0
-Stunfisk,235,stat_points,8,,1.0%,,,31,0,3,32,0,0
-Stunfisk,235,ability,1,Static,95.1%,,,,,,,,
-Stunfisk,235,ability,2,Sand Veil,4.9%,,,,,,,,
+Stunfisk,239,move,1,Earth Power,98.5%,,,,,,,,
+Stunfisk,239,move,2,Sludge Bomb,59.6%,,,,,,,,
+Stunfisk,239,move,3,Thunderbolt,56.6%,,,,,,,,
+Stunfisk,239,move,4,Scald,41.2%,,,,,,,,
+Stunfisk,239,move,5,Yawn,40.4%,,,,,,,,
+Stunfisk,239,move,6,Protect,30.9%,,,,,,,,
+Stunfisk,239,move,7,Thunder,30.9%,,,,,,,,
+Stunfisk,239,move,8,Muddy Water,10.3%,,,,,,,,
+Stunfisk,239,move,9,Stealth Rock,9.6%,,,,,,,,
+Stunfisk,239,move,10,Electroweb,9.6%,,,,,,,,
+Stunfisk,239,held_item,1,Leftovers,40.4%,,,,,,,,
+Stunfisk,239,held_item,2,Quick Claw,19.9%,,,,,,,,
+Stunfisk,239,held_item,3,Life Orb,14.0%,,,,,,,,
+Stunfisk,239,held_item,4,Air Balloon,8.8%,,,,,,,,
+Stunfisk,239,held_item,5,Electric Seed,5.1%,,,,,,,,
+Stunfisk,239,held_item,6,Magnet,3.7%,,,,,,,,
+Stunfisk,239,held_item,7,Sitrus Berry,2.9%,,,,,,,,
+Stunfisk,239,held_item,8,Shell Bell,1.5%,,,,,,,,
+Stunfisk,239,held_item,9,Zoom Lens,1.5%,,,,,,,,
+Stunfisk,239,held_item,10,Grassy Seed,1.5%,,,,,,,,
+Stunfisk,239,teammate,1,Skeledirge,,,,,,,,,
+Stunfisk,239,teammate,2,Swampert,,,,,,,,,
+Stunfisk,239,teammate,3,Pelipper,,,,,,,,,
+Stunfisk,239,teammate,4,Slowbro-Galar,,,,,,,,,
+Stunfisk,239,teammate,5,Malamar,,,,,,,,,
+Stunfisk,239,teammate,6,Incineroar,,,,,,,,,
+Stunfisk,239,teammate,7,Basculegion,,,,,,,,,
+Stunfisk,239,teammate,8,Kingambit,,,,,,,,,
+Stunfisk,239,teammate,9,Azumarill,,,,,,,,,
+Stunfisk,239,teammate,10,Kleavor,,,,,,,,,
+Stunfisk,239,stat_alignment,1,Quiet,80.1%,Sp. Atk,Speed,,,,,,
+Stunfisk,239,stat_alignment,2,Modest,12.5%,Sp. Atk,Attack,,,,,,
+Stunfisk,239,stat_alignment,3,Relaxed,5.9%,Defense,Speed,,,,,,
+Stunfisk,239,stat_alignment,4,Bold,1.5%,Defense,Attack,,,,,,
+Stunfisk,239,stat_points,1,,55.1%,,,32,0,2,32,0,0
+Stunfisk,239,stat_points,2,,10.3%,,,18,0,15,32,1,0
+Stunfisk,239,stat_points,3,,7.4%,,,32,0,15,19,0,0
+Stunfisk,239,stat_points,4,,6.6%,,,32,0,0,32,2,0
+Stunfisk,239,stat_points,5,,5.1%,,,32,0,4,0,30,0
+Stunfisk,239,stat_points,6,,2.9%,,,5,0,0,29,32,0
+Stunfisk,239,stat_points,7,,2.9%,,,32,0,23,0,11,0
+Stunfisk,239,stat_points,8,,2.2%,,,16,0,16,32,2,0
+Stunfisk,239,stat_points,9,,1.5%,,,18,0,0,32,16,0
+Stunfisk,239,stat_points,10,,1.5%,,,32,0,17,0,17,0
+Stunfisk,239,ability,1,Static,84.6%,,,,,,,,
+Stunfisk,239,ability,2,Sand Veil,14.0%,,,,,,,,
+Stunfisk,239,ability,3,Limber,1.5%,,,,,,,,

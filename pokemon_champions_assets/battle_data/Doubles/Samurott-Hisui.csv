@@ -1,48 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Samurott-Hisui,105,move,1,Sacred Sword,90.9%,,,,,,,,
-Samurott-Hisui,105,move,2,Aqua Cutter,64.2%,,,,,,,,
-Samurott-Hisui,105,move,3,Ceaseless Edge,48.1%,,,,,,,,
-Samurott-Hisui,105,move,4,Night Slash,47.7%,,,,,,,,
-Samurott-Hisui,105,move,5,Sucker Punch,38.1%,,,,,,,,
-Samurott-Hisui,105,move,6,Protect,37.0%,,,,,,,,
-Samurott-Hisui,105,move,7,Detect,24.0%,,,,,,,,
-Samurott-Hisui,105,move,8,Razor Shell,23.8%,,,,,,,,
-Samurott-Hisui,105,move,9,Flip Turn,8.2%,,,,,,,,
-Samurott-Hisui,105,move,10,X-Scissor,5.9%,,,,,,,,
-Samurott-Hisui,105,held_item,1,Scope Lens,22.5%,,,,,,,,
-Samurott-Hisui,105,held_item,2,Life Orb,20.5%,,,,,,,,
-Samurott-Hisui,105,held_item,3,Choice Scarf,18.3%,,,,,,,,
-Samurott-Hisui,105,held_item,4,Focus Sash,16.4%,,,,,,,,
-Samurott-Hisui,105,held_item,5,Expert Belt,7.3%,,,,,,,,
-Samurott-Hisui,105,held_item,6,Black Glasses,5.9%,,,,,,,,
-Samurott-Hisui,105,held_item,7,Sitrus Berry,2.9%,,,,,,,,
-Samurott-Hisui,105,held_item,8,Mystic Water,1.9%,,,,,,,,
-Samurott-Hisui,105,held_item,9,Chople Berry,1.1%,,,,,,,,
-Samurott-Hisui,105,held_item,10,Muscle Band,0.8%,,,,,,,,
-Samurott-Hisui,105,teammate,1,Sneasler,,,,,,,,,
-Samurott-Hisui,105,teammate,2,Garchomp,,,,,,,,,
-Samurott-Hisui,105,teammate,3,Rillaboom,,,,,,,,,
-Samurott-Hisui,105,teammate,4,Froslass,,,,,,,,,
-Samurott-Hisui,105,teammate,5,Raichu,,,,,,,,,
-Samurott-Hisui,105,teammate,6,Whimsicott,,,,,,,,,
-Samurott-Hisui,105,teammate,7,Indeedee-F,,,,,,,,,
-Samurott-Hisui,105,teammate,8,Metagross,,,,,,,,,
-Samurott-Hisui,105,teammate,9,Volcarona,,,,,,,,,
-Samurott-Hisui,105,teammate,10,Indeedee,,,,,,,,,
-Samurott-Hisui,105,stat_alignment,1,Adamant,70.9%,Attack,Sp. Atk,,,,,,
-Samurott-Hisui,105,stat_alignment,2,Jolly,24.6%,Speed,Sp. Atk,,,,,,
-Samurott-Hisui,105,stat_alignment,3,Brave,3.4%,Attack,Speed,,,,,,
-Samurott-Hisui,105,stat_alignment,4,Hasty,0.5%,Speed,Defense,,,,,,
-Samurott-Hisui,105,stat_alignment,5,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
-Samurott-Hisui,105,stat_alignment,6,Naughty,0.2%,Attack,Sp. Def,,,,,,
-Samurott-Hisui,105,stat_points,1,,50.3%,,,2,32,0,0,0,32
-Samurott-Hisui,105,stat_points,2,,10.3%,,,0,32,0,0,2,32
-Samurott-Hisui,105,stat_points,3,,4.5%,,,0,32,2,0,0,32
-Samurott-Hisui,105,stat_points,4,,3.4%,,,0,32,0,0,0,32
-Samurott-Hisui,105,stat_points,5,,3.2%,,,32,32,0,0,2,0
-Samurott-Hisui,105,stat_points,6,,3.1%,,,18,32,0,0,5,11
-Samurott-Hisui,105,stat_points,7,,2.8%,,,4,28,0,0,8,26
-Samurott-Hisui,105,stat_points,8,,2.3%,,,4,32,0,0,0,30
-Samurott-Hisui,105,stat_points,9,,1.9%,,,2,32,0,0,32,0
-Samurott-Hisui,105,stat_points,10,,1.6%,,,10,32,0,0,10,14
-Samurott-Hisui,105,ability,1,Sharpness,100.0%,,,,,,,,
+Samurott-Hisui,101,move,1,Sacred Sword,89.5%,,,,,,,,
+Samurott-Hisui,101,move,2,Aqua Cutter,64.5%,,,,,,,,
+Samurott-Hisui,101,move,3,Ceaseless Edge,50.7%,,,,,,,,
+Samurott-Hisui,101,move,4,Night Slash,46.3%,,,,,,,,
+Samurott-Hisui,101,move,5,Sucker Punch,37.9%,,,,,,,,
+Samurott-Hisui,101,move,6,Protect,35.1%,,,,,,,,
+Samurott-Hisui,101,move,7,Detect,24.7%,,,,,,,,
+Samurott-Hisui,101,move,8,Razor Shell,23.2%,,,,,,,,
+Samurott-Hisui,101,move,9,Flip Turn,9.2%,,,,,,,,
+Samurott-Hisui,101,move,10,X-Scissor,5.1%,,,,,,,,
+Samurott-Hisui,101,held_item,1,Life Orb,23.8%,,,,,,,,
+Samurott-Hisui,101,held_item,2,Scope Lens,20.2%,,,,,,,,
+Samurott-Hisui,101,held_item,3,Choice Scarf,17.2%,,,,,,,,
+Samurott-Hisui,101,held_item,4,Focus Sash,15.6%,,,,,,,,
+Samurott-Hisui,101,held_item,5,Expert Belt,6.3%,,,,,,,,
+Samurott-Hisui,101,held_item,6,Black Glasses,5.2%,,,,,,,,
+Samurott-Hisui,101,held_item,7,Sitrus Berry,3.4%,,,,,,,,
+Samurott-Hisui,101,held_item,8,Leftovers,2.8%,,,,,,,,
+Samurott-Hisui,101,held_item,9,Mystic Water,1.3%,,,,,,,,
+Samurott-Hisui,101,held_item,10,Chople Berry,0.8%,,,,,,,,
+Samurott-Hisui,101,teammate,1,Garchomp,,,,,,,,,
+Samurott-Hisui,101,teammate,2,Sneasler,,,,,,,,,
+Samurott-Hisui,101,teammate,3,Rillaboom,,,,,,,,,
+Samurott-Hisui,101,teammate,4,Whimsicott,,,,,,,,,
+Samurott-Hisui,101,teammate,5,Raichu,,,,,,,,,
+Samurott-Hisui,101,teammate,6,Froslass,,,,,,,,,
+Samurott-Hisui,101,teammate,7,Indeedee-F,,,,,,,,,
+Samurott-Hisui,101,teammate,8,Volcarona,,,,,,,,,
+Samurott-Hisui,101,teammate,9,Metagross,,,,,,,,,
+Samurott-Hisui,101,teammate,10,Indeedee,,,,,,,,,
+Samurott-Hisui,101,stat_alignment,1,Adamant,70.1%,Attack,Sp. Atk,,,,,,
+Samurott-Hisui,101,stat_alignment,2,Jolly,24.8%,Speed,Sp. Atk,,,,,,
+Samurott-Hisui,101,stat_alignment,3,Brave,3.5%,Attack,Speed,,,,,,
+Samurott-Hisui,101,stat_alignment,4,Naughty,0.7%,Attack,Sp. Def,,,,,,
+Samurott-Hisui,101,stat_alignment,5,Hasty,0.3%,Speed,Defense,,,,,,
+Samurott-Hisui,101,stat_alignment,6,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Samurott-Hisui,101,stat_alignment,7,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Samurott-Hisui,101,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
+Samurott-Hisui,101,stat_points,1,,48.3%,,,2,32,0,0,0,32
+Samurott-Hisui,101,stat_points,2,,8.4%,,,0,32,0,0,2,32
+Samurott-Hisui,101,stat_points,3,,5.8%,,,0,32,2,0,0,32
+Samurott-Hisui,101,stat_points,4,,4.7%,,,2,32,0,0,32,0
+Samurott-Hisui,101,stat_points,5,,2.7%,,,18,32,0,0,5,11
+Samurott-Hisui,101,stat_points,6,,2.5%,,,0,32,0,0,0,32
+Samurott-Hisui,101,stat_points,7,,2.3%,,,32,32,0,0,2,0
+Samurott-Hisui,101,stat_points,8,,2.3%,,,4,28,0,0,8,26
+Samurott-Hisui,101,stat_points,9,,1.5%,,,4,32,0,0,0,30
+Samurott-Hisui,101,stat_points,10,,1.4%,,,24,32,6,0,0,4
+Samurott-Hisui,101,ability,1,Sharpness,99.9%,,,,,,,,
+Samurott-Hisui,101,ability,2,Torrent,0.1%,,,,,,,,

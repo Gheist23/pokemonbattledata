@@ -1,50 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Chimecho,132,move,1,Recover,86.0%,,,,,,,,
-Chimecho,132,move,2,Stored Power,47.3%,,,,,,,,
-Chimecho,132,move,3,Cosmic Power,46.1%,,,,,,,,
-Chimecho,132,move,4,Calm Mind,35.7%,,,,,,,,
-Chimecho,132,move,5,Flash Cannon,25.6%,,,,,,,,
-Chimecho,132,move,6,Psychic Noise,20.6%,,,,,,,,
-Chimecho,132,move,7,Taunt,17.3%,,,,,,,,
-Chimecho,132,move,8,Psychic,16.9%,,,,,,,,
-Chimecho,132,move,9,Shadow Ball,16.0%,,,,,,,,
-Chimecho,132,move,10,Boomburst,13.6%,,,,,,,,
-Chimecho,132,held_item,1,Chimechite,93.9%,,,,,,,,
-Chimecho,132,held_item,2,Sitrus Berry,2.2%,,,,,,,,
-Chimecho,132,held_item,3,Mental Herb,1.5%,,,,,,,,
-Chimecho,132,held_item,4,Leftovers,1.1%,,,,,,,,
-Chimecho,132,held_item,5,Focus Sash,0.4%,,,,,,,,
-Chimecho,132,held_item,6,Damp Rock,0.3%,,,,,,,,
-Chimecho,132,held_item,7,Red Card,0.2%,,,,,,,,
-Chimecho,132,held_item,8,Colbur Berry,0.1%,,,,,,,,
-Chimecho,132,held_item,9,Big Root,0.0%,,,,,,,,
-Chimecho,132,teammate,1,Garchomp,,,,,,,,,
-Chimecho,132,teammate,2,Glimmora,,,,,,,,,
-Chimecho,132,teammate,3,Salamence,,,,,,,,,
-Chimecho,132,teammate,4,Primarina,,,,,,,,,
-Chimecho,132,teammate,5,Meowscarada,,,,,,,,,
-Chimecho,132,teammate,6,Tyranitar,,,,,,,,,
-Chimecho,132,teammate,7,Volcarona,,,,,,,,,
-Chimecho,132,teammate,8,Greninja,,,,,,,,,
-Chimecho,132,teammate,9,Ninetales-Alola,,,,,,,,,
-Chimecho,132,teammate,10,Rillaboom,,,,,,,,,
-Chimecho,132,stat_alignment,1,Bold,50.1%,Defense,Attack,,,,,,
-Chimecho,132,stat_alignment,2,Modest,24.4%,Sp. Atk,Attack,,,,,,
-Chimecho,132,stat_alignment,3,Calm,20.9%,Sp. Def,Attack,,,,,,
-Chimecho,132,stat_alignment,4,Timid,2.1%,Speed,Attack,,,,,,
-Chimecho,132,stat_alignment,5,Relaxed,2.1%,Defense,Speed,,,,,,
-Chimecho,132,stat_alignment,6,Sassy,0.2%,Sp. Def,Speed,,,,,,
-Chimecho,132,stat_alignment,7,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Chimecho,132,stat_alignment,8,Naughty,0.1%,Attack,Sp. Def,,,,,,
-Chimecho,132,stat_alignment,9,Bashful,0.0%,,,,,,,,
-Chimecho,132,stat_points,1,,11.7%,,,32,0,32,0,2,0
-Chimecho,132,stat_points,2,,4.4%,,,32,0,22,0,12,0
-Chimecho,132,stat_points,3,,4.2%,,,32,0,2,0,32,0
-Chimecho,132,stat_points,4,,4.0%,,,25,0,30,0,0,11
-Chimecho,132,stat_points,5,,3.2%,,,32,0,30,4,0,0
-Chimecho,132,stat_points,6,,3.1%,,,32,0,32,2,0,0
-Chimecho,132,stat_points,7,,3.0%,,,32,0,2,32,0,0
-Chimecho,132,stat_points,8,,2.9%,,,31,0,32,0,0,3
-Chimecho,132,stat_points,9,,2.9%,,,31,0,32,0,3,0
-Chimecho,132,stat_points,10,,2.8%,,,31,0,19,0,10,6
-Chimecho,132,ability,1,Levitate,100.0%,,,,,,,,
+Chimecho,135,move,1,Recover,85.2%,,,,,,,,
+Chimecho,135,move,2,Stored Power,47.2%,,,,,,,,
+Chimecho,135,move,3,Cosmic Power,46.1%,,,,,,,,
+Chimecho,135,move,4,Calm Mind,35.4%,,,,,,,,
+Chimecho,135,move,5,Flash Cannon,24.4%,,,,,,,,
+Chimecho,135,move,6,Psychic Noise,20.1%,,,,,,,,
+Chimecho,135,move,7,Shadow Ball,17.2%,,,,,,,,
+Chimecho,135,move,8,Psychic,16.2%,,,,,,,,
+Chimecho,135,move,9,Taunt,15.4%,,,,,,,,
+Chimecho,135,move,10,Boomburst,14.0%,,,,,,,,
+Chimecho,135,held_item,1,Chimechite,94.6%,,,,,,,,
+Chimecho,135,held_item,2,Sitrus Berry,1.8%,,,,,,,,
+Chimecho,135,held_item,3,Mental Herb,1.1%,,,,,,,,
+Chimecho,135,held_item,4,Leftovers,0.9%,,,,,,,,
+Chimecho,135,held_item,5,Focus Sash,0.6%,,,,,,,,
+Chimecho,135,held_item,6,Lum Berry,0.2%,,,,,,,,
+Chimecho,135,held_item,7,Damp Rock,0.2%,,,,,,,,
+Chimecho,135,held_item,8,Red Card,0.1%,,,,,,,,
+Chimecho,135,held_item,9,Rocky Helmet,0.1%,,,,,,,,
+Chimecho,135,held_item,10,Colbur Berry,0.1%,,,,,,,,
+Chimecho,135,teammate,1,Garchomp,,,,,,,,,
+Chimecho,135,teammate,2,Glimmora,,,,,,,,,
+Chimecho,135,teammate,3,Salamence,,,,,,,,,
+Chimecho,135,teammate,4,Primarina,,,,,,,,,
+Chimecho,135,teammate,5,Meowscarada,,,,,,,,,
+Chimecho,135,teammate,6,Tyranitar,,,,,,,,,
+Chimecho,135,teammate,7,Toxapex,,,,,,,,,
+Chimecho,135,teammate,8,Archaludon,,,,,,,,,
+Chimecho,135,teammate,9,Greninja,,,,,,,,,
+Chimecho,135,teammate,10,Volcarona,,,,,,,,,
+Chimecho,135,stat_alignment,1,Bold,49.3%,Defense,Attack,,,,,,
+Chimecho,135,stat_alignment,2,Modest,25.8%,Sp. Atk,Attack,,,,,,
+Chimecho,135,stat_alignment,3,Calm,20.0%,Sp. Def,Attack,,,,,,
+Chimecho,135,stat_alignment,4,Timid,2.4%,Speed,Attack,,,,,,
+Chimecho,135,stat_alignment,5,Relaxed,2.1%,Defense,Speed,,,,,,
+Chimecho,135,stat_alignment,6,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Chimecho,135,stat_alignment,7,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Chimecho,135,stat_alignment,8,Naughty,0.0%,Attack,Sp. Def,,,,,,
+Chimecho,135,stat_alignment,9,Bashful,0.0%,,,,,,,,
+Chimecho,135,stat_points,1,,13.1%,,,32,0,32,0,2,0
+Chimecho,135,stat_points,2,,3.9%,,,32,0,2,0,32,0
+Chimecho,135,stat_points,3,,3.7%,,,32,0,22,0,12,0
+Chimecho,135,stat_points,4,,3.5%,,,32,0,2,32,0,0
+Chimecho,135,stat_points,5,,3.2%,,,25,0,30,0,0,11
+Chimecho,135,stat_points,6,,3.0%,,,31,0,32,0,0,3
+Chimecho,135,stat_points,7,,2.9%,,,32,0,32,2,0,0
+Chimecho,135,stat_points,8,,2.9%,,,32,0,30,4,0,0
+Chimecho,135,stat_points,9,,2.8%,,,31,0,19,0,10,6
+Chimecho,135,stat_points,10,,2.8%,,,32,0,0,32,0,2
+Chimecho,135,ability,1,Levitate,100.0%,,,,,,,,

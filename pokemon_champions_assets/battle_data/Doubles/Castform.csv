@@ -1,34 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Castform,253,move,1,Weather Ball,100.0%,,,,,,,,
-Castform,253,move,2,Thunder,65.9%,,,,,,,,
-Castform,253,move,3,Icy Wind,63.6%,,,,,,,,
-Castform,253,move,4,Scald,63.6%,,,,,,,,
-Castform,253,move,5,Solar Beam,29.5%,,,,,,,,
-Castform,253,move,6,Rain Dance,27.3%,,,,,,,,
-Castform,253,move,7,Hurricane,27.3%,,,,,,,,
-Castform,253,move,8,Energy Ball,4.5%,,,,,,,,
-Castform,253,move,9,Ice Beam,4.5%,,,,,,,,
-Castform,253,move,10,Thunder Wave,4.5%,,,,,,,,
-Castform,253,held_item,1,Choice Scarf,72.7%,,,,,,,,
-Castform,253,held_item,2,Sitrus Berry,22.7%,,,,,,,,
-Castform,253,held_item,3,Expert Belt,2.3%,,,,,,,,
-Castform,253,held_item,4,Focus Sash,2.3%,,,,,,,,
-Castform,253,teammate,1,Archaludon,,,,,,,,,
-Castform,253,teammate,2,Froslass,,,,,,,,,
-Castform,253,teammate,3,Ninetales-Alola,,,,,,,,,
+Castform,253,move,2,Thunder,76.8%,,,,,,,,
+Castform,253,move,3,Icy Wind,68.8%,,,,,,,,
+Castform,253,move,4,Scald,61.6%,,,,,,,,
+Castform,253,move,5,Hurricane,18.8%,,,,,,,,
+Castform,253,move,6,Protect,17.0%,,,,,,,,
+Castform,253,move,7,Solar Beam,14.3%,,,,,,,,
+Castform,253,move,8,Energy Ball,12.5%,,,,,,,,
+Castform,253,move,9,Rain Dance,10.7%,,,,,,,,
+Castform,253,move,10,Blizzard,8.0%,,,,,,,,
+Castform,253,held_item,1,Choice Scarf,68.8%,,,,,,,,
+Castform,253,held_item,2,Life Orb,14.3%,,,,,,,,
+Castform,253,held_item,3,Sitrus Berry,8.9%,,,,,,,,
+Castform,253,held_item,4,Focus Sash,6.3%,,,,,,,,
+Castform,253,held_item,5,Quick Claw,0.9%,,,,,,,,
+Castform,253,held_item,6,Expert Belt,0.9%,,,,,,,,
+Castform,253,teammate,1,Ninetales-Alola,,,,,,,,,
+Castform,253,teammate,2,Rillaboom,,,,,,,,,
+Castform,253,teammate,3,Froslass,,,,,,,,,
 Castform,253,teammate,4,Salamence,,,,,,,,,
-Castform,253,teammate,5,Rillaboom,,,,,,,,,
-Castform,253,teammate,6,Cinderace,,,,,,,,,
-Castform,253,teammate,7,Floette-Eternal,,,,,,,,,
-Castform,253,teammate,8,Basculegion,,,,,,,,,
-Castform,253,teammate,9,Venusaur,,,,,,,,,
-Castform,253,teammate,10,Ninetales,,,,,,,,,
-Castform,253,stat_alignment,1,Modest,43.2%,Sp. Atk,Attack,,,,,,
-Castform,253,stat_alignment,2,Timid,34.1%,Speed,Attack,,,,,,
-Castform,253,stat_alignment,3,Calm,22.7%,Sp. Def,Attack,,,,,,
-Castform,253,stat_points,1,,68.2%,,,2,0,0,32,0,32
-Castform,253,stat_points,2,,22.7%,,,2,0,0,32,32,0
-Castform,253,stat_points,3,,4.5%,,,0,0,2,32,0,32
-Castform,253,stat_points,4,,2.3%,,,0,0,0,32,2,32
-Castform,253,stat_points,5,,2.3%,,,32,0,0,32,2,0
+Castform,253,teammate,5,Cinderace,,,,,,,,,
+Castform,253,teammate,6,Archaludon,,,,,,,,,
+Castform,253,teammate,7,Charizard,,,,,,,,,
+Castform,253,teammate,8,Ninetales,,,,,,,,,
+Castform,253,teammate,9,Basculegion,,,,,,,,,
+Castform,253,teammate,10,Venusaur,,,,,,,,,
+Castform,253,stat_alignment,1,Modest,73.2%,Sp. Atk,Attack,,,,,,
+Castform,253,stat_alignment,2,Timid,17.0%,Speed,Attack,,,,,,
+Castform,253,stat_alignment,3,Calm,8.9%,Sp. Def,Attack,,,,,,
+Castform,253,stat_alignment,4,Sassy,0.9%,Sp. Def,Speed,,,,,,
+Castform,253,stat_points,1,,71.4%,,,2,0,0,32,0,32
+Castform,253,stat_points,2,,9.8%,,,0,0,0,32,2,32
+Castform,253,stat_points,3,,8.9%,,,2,0,0,32,32,0
+Castform,253,stat_points,4,,6.3%,,,32,0,0,32,0,2
+Castform,253,stat_points,5,,1.8%,,,0,0,2,32,0,32
+Castform,253,stat_points,6,,0.9%,,,32,0,0,32,2,0
+Castform,253,stat_points,7,,0.9%,,,32,0,32,0,2,0
 Castform,253,ability,1,Forecast,100.0%,,,,,,,,

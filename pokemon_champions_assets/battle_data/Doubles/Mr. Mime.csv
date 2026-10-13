@@ -1,53 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mr. Mime,166,move,1,Wide Guard,85.9%,,,,,,,,
-Mr. Mime,166,move,2,Fake Out,75.7%,,,,,,,,
-Mr. Mime,166,move,3,Dazzling Gleam,38.3%,,,,,,,,
-Mr. Mime,166,move,4,Expanding Force,36.1%,,,,,,,,
-Mr. Mime,166,move,5,Ally Switch,28.7%,,,,,,,,
-Mr. Mime,166,move,6,Trick Room,21.9%,,,,,,,,
-Mr. Mime,166,move,7,Icy Wind,17.5%,,,,,,,,
-Mr. Mime,166,move,8,Psychic,16.6%,,,,,,,,
-Mr. Mime,166,move,9,Encore,14.5%,,,,,,,,
-Mr. Mime,166,move,10,Protect,10.8%,,,,,,,,
-Mr. Mime,166,held_item,1,Sitrus Berry,27.5%,,,,,,,,
-Mr. Mime,166,held_item,2,Focus Sash,18.0%,,,,,,,,
-Mr. Mime,166,held_item,3,Rocky Helmet,8.4%,,,,,,,,
-Mr. Mime,166,held_item,4,Grassy Seed,8.4%,,,,,,,,
-Mr. Mime,166,held_item,5,Mental Herb,8.0%,,,,,,,,
-Mr. Mime,166,held_item,6,Wide Lens,6.8%,,,,,,,,
-Mr. Mime,166,held_item,7,Leftovers,5.6%,,,,,,,,
-Mr. Mime,166,held_item,8,Psychic Seed,4.3%,,,,,,,,
-Mr. Mime,166,held_item,9,Fairy Feather,2.7%,,,,,,,,
-Mr. Mime,166,held_item,10,Kebia Berry,2.5%,,,,,,,,
-Mr. Mime,166,teammate,1,Rillaboom,,,,,,,,,
-Mr. Mime,166,teammate,2,Tyranitar,,,,,,,,,
-Mr. Mime,166,teammate,3,Indeedee-F,,,,,,,,,
-Mr. Mime,166,teammate,4,Lucario,,,,,,,,,
-Mr. Mime,166,teammate,5,Excadrill,,,,,,,,,
-Mr. Mime,166,teammate,6,Charizard,,,,,,,,,
-Mr. Mime,166,teammate,7,Salamence,,,,,,,,,
-Mr. Mime,166,teammate,8,Sinistcha,,,,,,,,,
-Mr. Mime,166,teammate,9,Raichu,,,,,,,,,
-Mr. Mime,166,teammate,10,Chandelure,,,,,,,,,
-Mr. Mime,166,stat_alignment,1,Timid,37.1%,Speed,Attack,,,,,,
-Mr. Mime,166,stat_alignment,2,Bold,36.2%,Defense,Attack,,,,,,
-Mr. Mime,166,stat_alignment,3,Modest,11.2%,Sp. Atk,Attack,,,,,,
-Mr. Mime,166,stat_alignment,4,Relaxed,6.5%,Defense,Speed,,,,,,
-Mr. Mime,166,stat_alignment,5,Quiet,3.8%,Sp. Atk,Speed,,,,,,
-Mr. Mime,166,stat_alignment,6,Calm,2.2%,Sp. Def,Attack,,,,,,
-Mr. Mime,166,stat_alignment,7,Sassy,2.0%,Sp. Def,Speed,,,,,,
-Mr. Mime,166,stat_alignment,8,Mild,0.9%,Sp. Atk,Defense,,,,,,
-Mr. Mime,166,stat_alignment,9,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
-Mr. Mime,166,stat_points,1,,14.5%,,,25,0,14,0,0,27
-Mr. Mime,166,stat_points,2,,11.8%,,,32,0,32,0,2,0
-Mr. Mime,166,stat_points,3,,9.2%,,,0,0,0,32,2,32
-Mr. Mime,166,stat_points,4,,8.0%,,,32,0,2,32,0,0
-Mr. Mime,166,stat_points,5,,6.9%,,,2,0,0,32,0,32
-Mr. Mime,166,stat_points,6,,5.7%,,,19,0,15,0,32,0
-Mr. Mime,166,stat_points,7,,4.6%,,,32,0,32,0,0,2
-Mr. Mime,166,stat_points,8,,3.7%,,,31,0,28,0,7,0
-Mr. Mime,166,stat_points,9,,3.2%,,,32,0,32,2,0,0
-Mr. Mime,166,stat_points,10,,2.7%,,,25,0,25,0,0,16
-Mr. Mime,166,ability,1,Soundproof,61.0%,,,,,,,,
-Mr. Mime,166,ability,2,Filter,34.4%,,,,,,,,
-Mr. Mime,166,ability,3,Technician,4.6%,,,,,,,,
+Mr. Mime,158,move,1,Wide Guard,78.9%,,,,,,,,
+Mr. Mime,158,move,2,Fake Out,75.5%,,,,,,,,
+Mr. Mime,158,move,3,Dazzling Gleam,45.4%,,,,,,,,
+Mr. Mime,158,move,4,Expanding Force,43.1%,,,,,,,,
+Mr. Mime,158,move,5,Ally Switch,26.2%,,,,,,,,
+Mr. Mime,158,move,6,Trick Room,21.2%,,,,,,,,
+Mr. Mime,158,move,7,Psychic,14.8%,,,,,,,,
+Mr. Mime,158,move,8,Icy Wind,12.8%,,,,,,,,
+Mr. Mime,158,move,9,Helping Hand,12.1%,,,,,,,,
+Mr. Mime,158,move,10,Protect,11.2%,,,,,,,,
+Mr. Mime,158,held_item,1,Focus Sash,28.6%,,,,,,,,
+Mr. Mime,158,held_item,2,Sitrus Berry,23.1%,,,,,,,,
+Mr. Mime,158,held_item,3,Rocky Helmet,7.9%,,,,,,,,
+Mr. Mime,158,held_item,4,Grassy Seed,7.4%,,,,,,,,
+Mr. Mime,158,held_item,5,Leftovers,5.2%,,,,,,,,
+Mr. Mime,158,held_item,6,Psychic Seed,4.2%,,,,,,,,
+Mr. Mime,158,held_item,7,Mental Herb,3.7%,,,,,,,,
+Mr. Mime,158,held_item,8,Kasib Berry,3.4%,,,,,,,,
+Mr. Mime,158,held_item,9,Wide Lens,3.1%,,,,,,,,
+Mr. Mime,158,held_item,10,Eject Button,2.3%,,,,,,,,
+Mr. Mime,158,teammate,1,Rillaboom,,,,,,,,,
+Mr. Mime,158,teammate,2,Charizard,,,,,,,,,
+Mr. Mime,158,teammate,3,Indeedee-F,,,,,,,,,
+Mr. Mime,158,teammate,4,Tyranitar,,,,,,,,,
+Mr. Mime,158,teammate,5,Indeedee,,,,,,,,,
+Mr. Mime,158,teammate,6,Incineroar,,,,,,,,,
+Mr. Mime,158,teammate,7,Sinistcha,,,,,,,,,
+Mr. Mime,158,teammate,8,Raichu,,,,,,,,,
+Mr. Mime,158,teammate,9,Salamence,,,,,,,,,
+Mr. Mime,158,teammate,10,Lucario,,,,,,,,,
+Mr. Mime,158,stat_alignment,1,Timid,38.9%,Speed,Attack,,,,,,
+Mr. Mime,158,stat_alignment,2,Bold,35.1%,Defense,Attack,,,,,,
+Mr. Mime,158,stat_alignment,3,Modest,9.9%,Sp. Atk,Attack,,,,,,
+Mr. Mime,158,stat_alignment,4,Relaxed,5.6%,Defense,Speed,,,,,,
+Mr. Mime,158,stat_alignment,5,Sassy,3.9%,Sp. Def,Speed,,,,,,
+Mr. Mime,158,stat_alignment,6,Quiet,2.5%,Sp. Atk,Speed,,,,,,
+Mr. Mime,158,stat_alignment,7,Calm,1.5%,Sp. Def,Attack,,,,,,
+Mr. Mime,158,stat_alignment,8,Mild,0.9%,Sp. Atk,Defense,,,,,,
+Mr. Mime,158,stat_alignment,9,Hasty,0.8%,Speed,Defense,,,,,,
+Mr. Mime,158,stat_alignment,10,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
+Mr. Mime,158,stat_points,1,,15.4%,,,32,0,32,0,2,0
+Mr. Mime,158,stat_points,2,,13.1%,,,2,0,0,32,0,32
+Mr. Mime,158,stat_points,3,,7.6%,,,0,0,0,32,2,32
+Mr. Mime,158,stat_points,4,,7.4%,,,25,0,14,0,0,27
+Mr. Mime,158,stat_points,5,,5.2%,,,32,0,2,32,0,0
+Mr. Mime,158,stat_points,6,,4.6%,,,32,0,32,0,0,2
+Mr. Mime,158,stat_points,7,,3.3%,,,32,0,10,0,24,0
+Mr. Mime,158,stat_points,8,,3.2%,,,25,0,25,0,0,16
+Mr. Mime,158,stat_points,9,,3.1%,,,32,0,32,2,0,0
+Mr. Mime,158,stat_points,10,,2.7%,,,19,0,15,0,32,0
+Mr. Mime,158,ability,1,Soundproof,63.3%,,,,,,,,
+Mr. Mime,158,ability,2,Filter,32.9%,,,,,,,,
+Mr. Mime,158,ability,3,Technician,3.8%,,,,,,,,

@@ -1,49 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mr. Mime,236,move,1,Dazzling Gleam,81.7%,,,,,,,,
-Mr. Mime,236,move,2,Psychic,72.4%,,,,,,,,
-Mr. Mime,236,move,3,Mystical Fire,45.9%,,,,,,,,
-Mr. Mime,236,move,4,Energy Ball,41.1%,,,,,,,,
-Mr. Mime,236,move,5,Focus Blast,38.9%,,,,,,,,
-Mr. Mime,236,move,6,Icy Wind,27.6%,,,,,,,,
-Mr. Mime,236,move,7,Charge Beam,13.1%,,,,,,,,
-Mr. Mime,236,move,8,Encore,8.8%,,,,,,,,
-Mr. Mime,236,move,9,Fake Out,8.6%,,,,,,,,
-Mr. Mime,236,move,10,Sucker Punch,8.6%,,,,,,,,
-Mr. Mime,236,held_item,1,Choice Scarf,47.4%,,,,,,,,
-Mr. Mime,236,held_item,2,Focus Sash,38.7%,,,,,,,,
-Mr. Mime,236,held_item,3,Babiri Berry,3.6%,,,,,,,,
-Mr. Mime,236,held_item,4,Sitrus Berry,2.7%,,,,,,,,
-Mr. Mime,236,held_item,5,Bright Powder,2.7%,,,,,,,,
-Mr. Mime,236,held_item,6,Light Clay,1.7%,,,,,,,,
-Mr. Mime,236,held_item,7,Air Balloon,1.1%,,,,,,,,
-Mr. Mime,236,held_item,8,Life Orb,0.8%,,,,,,,,
-Mr. Mime,236,held_item,9,Terrain Extender,0.6%,,,,,,,,
-Mr. Mime,236,held_item,10,Wise Glasses,0.4%,,,,,,,,
-Mr. Mime,236,teammate,1,Charizard,,,,,,,,,
-Mr. Mime,236,teammate,2,Basculegion,,,,,,,,,
-Mr. Mime,236,teammate,3,Blaziken,,,,,,,,,
-Mr. Mime,236,teammate,4,Kingambit,,,,,,,,,
-Mr. Mime,236,teammate,5,Vivillon-Fancy,,,,,,,,,
-Mr. Mime,236,teammate,6,Azumarill,,,,,,,,,
-Mr. Mime,236,teammate,7,Pidgeot,,,,,,,,,
-Mr. Mime,236,teammate,8,Skeledirge,,,,,,,,,
-Mr. Mime,236,teammate,9,Lopunny,,,,,,,,,
-Mr. Mime,236,teammate,10,Gyarados,,,,,,,,,
-Mr. Mime,236,stat_alignment,1,Modest,60.4%,Sp. Atk,Attack,,,,,,
-Mr. Mime,236,stat_alignment,2,Timid,25.7%,Speed,Attack,,,,,,
-Mr. Mime,236,stat_alignment,3,Hasty,8.6%,Speed,Defense,,,,,,
-Mr. Mime,236,stat_alignment,4,Bold,4.8%,Defense,Attack,,,,,,
-Mr. Mime,236,stat_alignment,5,Quiet,0.6%,Sp. Atk,Speed,,,,,,
-Mr. Mime,236,stat_points,1,,36.6%,,,0,0,0,32,0,32
-Mr. Mime,236,stat_points,2,,25.9%,,,2,0,0,32,0,32
-Mr. Mime,236,stat_points,3,,12.6%,,,32,0,0,32,0,2
-Mr. Mime,236,stat_points,4,,8.2%,,,0,0,0,32,2,32
-Mr. Mime,236,stat_points,5,,4.2%,,,32,0,32,0,0,2
-Mr. Mime,236,stat_points,6,,3.2%,,,32,0,0,32,2,0
-Mr. Mime,236,stat_points,7,,2.3%,,,3,0,0,32,0,31
-Mr. Mime,236,stat_points,8,,2.1%,,,0,0,0,2,32,32
-Mr. Mime,236,stat_points,9,,1.3%,,,0,0,2,20,17,27
-Mr. Mime,236,stat_points,10,,0.6%,,,31,0,32,3,0,0
-Mr. Mime,236,ability,1,Filter,59.0%,,,,,,,,
-Mr. Mime,236,ability,2,Technician,27.0%,,,,,,,,
-Mr. Mime,236,ability,3,Soundproof,13.9%,,,,,,,,
+Mr. Mime,220,move,1,Dazzling Gleam,79.2%,,,,,,,,
+Mr. Mime,220,move,2,Psychic,73.5%,,,,,,,,
+Mr. Mime,220,move,3,Mystical Fire,42.3%,,,,,,,,
+Mr. Mime,220,move,4,Energy Ball,34.7%,,,,,,,,
+Mr. Mime,220,move,5,Icy Wind,25.1%,,,,,,,,
+Mr. Mime,220,move,6,Focus Blast,24.5%,,,,,,,,
+Mr. Mime,220,move,7,Encore,22.6%,,,,,,,,
+Mr. Mime,220,move,8,Thunder Wave,15.4%,,,,,,,,
+Mr. Mime,220,move,9,Taunt,9.8%,,,,,,,,
+Mr. Mime,220,move,10,Charge Beam,8.8%,,,,,,,,
+Mr. Mime,220,held_item,1,Choice Scarf,51.0%,,,,,,,,
+Mr. Mime,220,held_item,2,Focus Sash,31.1%,,,,,,,,
+Mr. Mime,220,held_item,3,Bright Powder,2.9%,,,,,,,,
+Mr. Mime,220,held_item,4,Chesto Berry,2.8%,,,,,,,,
+Mr. Mime,220,held_item,5,Light Clay,2.8%,,,,,,,,
+Mr. Mime,220,held_item,6,Life Orb,2.2%,,,,,,,,
+Mr. Mime,220,held_item,7,Sitrus Berry,2.0%,,,,,,,,
+Mr. Mime,220,held_item,8,Babiri Berry,1.7%,,,,,,,,
+Mr. Mime,220,held_item,9,Rocky Helmet,0.7%,,,,,,,,
+Mr. Mime,220,held_item,10,Terrain Extender,0.7%,,,,,,,,
+Mr. Mime,220,teammate,1,Charizard,,,,,,,,,
+Mr. Mime,220,teammate,2,Blaziken,,,,,,,,,
+Mr. Mime,220,teammate,3,Kingambit,,,,,,,,,
+Mr. Mime,220,teammate,4,Basculegion,,,,,,,,,
+Mr. Mime,220,teammate,5,Skeledirge,,,,,,,,,
+Mr. Mime,220,teammate,6,Azumarill,,,,,,,,,
+Mr. Mime,220,teammate,7,Pidgeot,,,,,,,,,
+Mr. Mime,220,teammate,8,Raichu,,,,,,,,,
+Mr. Mime,220,teammate,9,Dragonite,,,,,,,,,
+Mr. Mime,220,teammate,10,Lopunny,,,,,,,,,
+Mr. Mime,220,stat_alignment,1,Modest,66.4%,Sp. Atk,Attack,,,,,,
+Mr. Mime,220,stat_alignment,2,Timid,18.3%,Speed,Attack,,,,,,
+Mr. Mime,220,stat_alignment,3,Hasty,4.9%,Speed,Defense,,,,,,
+Mr. Mime,220,stat_alignment,4,Calm,3.9%,Sp. Def,Attack,,,,,,
+Mr. Mime,220,stat_alignment,5,Bold,3.9%,Defense,Attack,,,,,,
+Mr. Mime,220,stat_alignment,6,Quiet,2.4%,Sp. Atk,Speed,,,,,,
+Mr. Mime,220,stat_alignment,7,Relaxed,0.1%,Defense,Speed,,,,,,
+Mr. Mime,220,stat_points,1,,33.7%,,,2,0,0,32,0,32
+Mr. Mime,220,stat_points,2,,22.5%,,,0,0,0,32,0,32
+Mr. Mime,220,stat_points,3,,16.5%,,,32,0,0,32,0,2
+Mr. Mime,220,stat_points,4,,5.9%,,,0,0,0,32,2,32
+Mr. Mime,220,stat_points,5,,3.2%,,,32,0,0,0,32,2
+Mr. Mime,220,stat_points,6,,2.9%,,,32,0,32,0,0,2
+Mr. Mime,220,stat_points,7,,2.9%,,,32,0,0,32,2,0
+Mr. Mime,220,stat_points,8,,2.3%,,,3,0,0,32,0,31
+Mr. Mime,220,stat_points,9,,1.8%,,,32,0,2,0,0,32
+Mr. Mime,220,stat_points,10,,1.4%,,,7,0,2,32,0,25
+Mr. Mime,220,ability,1,Filter,62.6%,,,,,,,,
+Mr. Mime,220,ability,2,Technician,23.0%,,,,,,,,
+Mr. Mime,220,ability,3,Soundproof,14.4%,,,,,,,,

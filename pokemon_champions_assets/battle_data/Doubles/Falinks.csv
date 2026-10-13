@@ -1,42 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Falinks,199,move,1,No Retreat,98.6%,,,,,,,,
-Falinks,199,move,2,Close Combat,81.0%,,,,,,,,
-Falinks,199,move,3,Protect,52.8%,,,,,,,,
-Falinks,199,move,4,Knock Off,35.9%,,,,,,,,
-Falinks,199,move,5,Rock Slide,31.4%,,,,,,,,
-Falinks,199,move,6,Helping Hand,23.3%,,,,,,,,
-Falinks,199,move,7,Iron Head,20.1%,,,,,,,,
-Falinks,199,move,8,Throat Chop,14.2%,,,,,,,,
-Falinks,199,move,9,Brick Break,12.0%,,,,,,,,
-Falinks,199,move,10,Megahorn,10.8%,,,,,,,,
-Falinks,199,held_item,1,Falinksite,73.4%,,,,,,,,
-Falinks,199,held_item,2,Sitrus Berry,22.8%,,,,,,,,
-Falinks,199,held_item,3,Quick Claw,3.6%,,,,,,,,
-Falinks,199,held_item,4,Bright Powder,0.2%,,,,,,,,
-Falinks,199,teammate,1,Rillaboom,,,,,,,,,
-Falinks,199,teammate,2,Salamence,,,,,,,,,
-Falinks,199,teammate,3,Indeedee,,,,,,,,,
-Falinks,199,teammate,4,Gholdengo,,,,,,,,,
-Falinks,199,teammate,5,Ditto,,,,,,,,,
-Falinks,199,teammate,6,Floette-Eternal,,,,,,,,,
-Falinks,199,teammate,7,Farigiraf,,,,,,,,,
-Falinks,199,teammate,8,Sinistcha,,,,,,,,,
-Falinks,199,teammate,9,Whimsicott,,,,,,,,,
-Falinks,199,teammate,10,Indeedee-F,,,,,,,,,
-Falinks,199,stat_alignment,1,Adamant,58.2%,Attack,Sp. Atk,,,,,,
-Falinks,199,stat_alignment,2,Careful,25.5%,Sp. Def,Sp. Atk,,,,,,
-Falinks,199,stat_alignment,3,Jolly,11.7%,Speed,Sp. Atk,,,,,,
-Falinks,199,stat_alignment,4,Relaxed,3.6%,Defense,Speed,,,,,,
-Falinks,199,stat_alignment,5,Impish,0.9%,Defense,Sp. Atk,,,,,,
-Falinks,199,stat_points,1,,24.6%,,,32,0,0,0,32,2
-Falinks,199,stat_points,2,,13.5%,,,6,32,0,0,0,28
-Falinks,199,stat_points,3,,12.6%,,,16,20,0,0,30,0
-Falinks,199,stat_points,4,,8.6%,,,32,32,2,0,0,0
-Falinks,199,stat_points,5,,7.0%,,,2,32,0,0,0,32
-Falinks,199,stat_points,6,,4.1%,,,0,32,0,0,3,31
-Falinks,199,stat_points,7,,3.6%,,,0,32,32,0,2,0
-Falinks,199,stat_points,8,,3.6%,,,32,1,1,0,1,31
-Falinks,199,stat_points,9,,3.2%,,,2,32,0,0,32,0
-Falinks,199,stat_points,10,,2.9%,,,22,30,0,0,0,14
-Falinks,199,ability,1,Defiant,97.1%,,,,,,,,
-Falinks,199,ability,2,Battle Armor,2.9%,,,,,,,,
+Falinks,212,move,1,No Retreat,98.0%,,,,,,,,
+Falinks,212,move,2,Close Combat,82.9%,,,,,,,,
+Falinks,212,move,3,Protect,60.2%,,,,,,,,
+Falinks,212,move,4,Rock Slide,40.5%,,,,,,,,
+Falinks,212,move,5,Knock Off,29.8%,,,,,,,,
+Falinks,212,move,6,Iron Head,18.0%,,,,,,,,
+Falinks,212,move,7,Helping Hand,15.8%,,,,,,,,
+Falinks,212,move,8,Throat Chop,14.0%,,,,,,,,
+Falinks,212,move,9,Brick Break,11.1%,,,,,,,,
+Falinks,212,move,10,Megahorn,8.6%,,,,,,,,
+Falinks,212,held_item,1,Falinksite,80.3%,,,,,,,,
+Falinks,212,held_item,2,Sitrus Berry,15.5%,,,,,,,,
+Falinks,212,held_item,3,Quick Claw,2.5%,,,,,,,,
+Falinks,212,held_item,4,Focus Sash,0.8%,,,,,,,,
+Falinks,212,held_item,5,Roseli Berry,0.5%,,,,,,,,
+Falinks,212,held_item,6,Shell Bell,0.3%,,,,,,,,
+Falinks,212,held_item,7,Bright Powder,0.2%,,,,,,,,
+Falinks,212,teammate,1,Rillaboom,,,,,,,,,
+Falinks,212,teammate,2,Indeedee-F,,,,,,,,,
+Falinks,212,teammate,3,Sinistcha,,,,,,,,,
+Falinks,212,teammate,4,Farigiraf,,,,,,,,,
+Falinks,212,teammate,5,Gholdengo,,,,,,,,,
+Falinks,212,teammate,6,Salamence,,,,,,,,,
+Falinks,212,teammate,7,Whimsicott,,,,,,,,,
+Falinks,212,teammate,8,Indeedee,,,,,,,,,
+Falinks,212,teammate,9,Ditto,,,,,,,,,
+Falinks,212,teammate,10,Floette-Eternal,,,,,,,,,
+Falinks,212,stat_alignment,1,Adamant,68.0%,Attack,Sp. Atk,,,,,,
+Falinks,212,stat_alignment,2,Careful,17.4%,Sp. Def,Sp. Atk,,,,,,
+Falinks,212,stat_alignment,3,Jolly,11.1%,Speed,Sp. Atk,,,,,,
+Falinks,212,stat_alignment,4,Relaxed,2.5%,Defense,Speed,,,,,,
+Falinks,212,stat_alignment,5,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Falinks,212,stat_alignment,6,Modest,0.3%,Sp. Atk,Attack,,,,,,
+Falinks,212,stat_points,1,,17.8%,,,32,0,0,0,32,2
+Falinks,212,stat_points,2,,12.0%,,,6,32,0,0,0,28
+Falinks,212,stat_points,3,,10.6%,,,16,20,0,0,30,0
+Falinks,212,stat_points,4,,7.7%,,,2,32,0,0,0,32
+Falinks,212,stat_points,5,,6.2%,,,32,32,2,0,0,0
+Falinks,212,stat_points,6,,4.0%,,,0,32,0,0,0,32
+Falinks,212,stat_points,7,,3.8%,,,0,32,0,0,3,31
+Falinks,212,stat_points,8,,2.6%,,,0,32,2,0,0,32
+Falinks,212,stat_points,9,,2.5%,,,0,32,32,0,2,0
+Falinks,212,stat_points,10,,2.5%,,,16,32,0,0,0,18
+Falinks,212,ability,1,Defiant,98.0%,,,,,,,,
+Falinks,212,ability,2,Battle Armor,2.0%,,,,,,,,

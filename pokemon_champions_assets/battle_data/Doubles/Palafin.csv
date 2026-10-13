@@ -1,48 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Palafin,131,move,1,Wave Crash,78.1%,,,,,,,,
-Palafin,131,move,2,Jet Punch,76.0%,,,,,,,,
-Palafin,131,move,3,Protect,71.5%,,,,,,,,
-Palafin,131,move,4,Flip Turn,61.1%,,,,,,,,
-Palafin,131,move,5,Close Combat,48.8%,,,,,,,,
-Palafin,131,move,6,Drain Punch,22.5%,,,,,,,,
-Palafin,131,move,7,Ice Punch,21.4%,,,,,,,,
-Palafin,131,move,8,Haze,7.2%,,,,,,,,
-Palafin,131,move,9,Bulk Up,3.7%,,,,,,,,
-Palafin,131,move,10,Liquidation,2.9%,,,,,,,,
-Palafin,131,held_item,1,Mystic Water,63.3%,,,,,,,,
-Palafin,131,held_item,2,Choice Scarf,13.1%,,,,,,,,
-Palafin,131,held_item,3,Life Orb,9.9%,,,,,,,,
-Palafin,131,held_item,4,Leftovers,4.2%,,,,,,,,
-Palafin,131,held_item,5,Eject Button,3.8%,,,,,,,,
-Palafin,131,held_item,6,Shell Bell,2.2%,,,,,,,,
-Palafin,131,held_item,7,Focus Sash,1.6%,,,,,,,,
-Palafin,131,held_item,8,Lum Berry,0.8%,,,,,,,,
-Palafin,131,held_item,9,Sitrus Berry,0.3%,,,,,,,,
-Palafin,131,held_item,10,Bright Powder,0.3%,,,,,,,,
-Palafin,131,teammate,1,Rillaboom,,,,,,,,,
-Palafin,131,teammate,2,Incineroar,,,,,,,,,
-Palafin,131,teammate,3,Garchomp,,,,,,,,,
-Palafin,131,teammate,4,Gengar,,,,,,,,,
-Palafin,131,teammate,5,Farigiraf,,,,,,,,,
-Palafin,131,teammate,6,Raichu,,,,,,,,,
-Palafin,131,teammate,7,Sceptile,,,,,,,,,
-Palafin,131,teammate,8,Camerupt,,,,,,,,,
-Palafin,131,teammate,9,Pincurchin,,,,,,,,,
-Palafin,131,teammate,10,Salamence,,,,,,,,,
-Palafin,131,stat_alignment,1,Adamant,74.8%,Attack,Sp. Atk,,,,,,
-Palafin,131,stat_alignment,2,Jolly,21.6%,Speed,Sp. Atk,,,,,,
-Palafin,131,stat_alignment,3,Lonely,2.3%,Attack,Defense,,,,,,
-Palafin,131,stat_alignment,4,Careful,1.0%,Sp. Def,Sp. Atk,,,,,,
-Palafin,131,stat_alignment,5,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Palafin,131,stat_alignment,6,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Palafin,131,stat_points,1,,29.0%,,,32,32,0,0,0,2
-Palafin,131,stat_points,2,,12.3%,,,8,30,0,0,0,28
-Palafin,131,stat_points,3,,10.8%,,,2,32,0,0,0,32
-Palafin,131,stat_points,4,,5.2%,,,16,16,1,0,1,32
-Palafin,131,stat_points,5,,4.0%,,,15,32,19,0,0,0
-Palafin,131,stat_points,6,,3.8%,,,0,32,2,0,0,32
-Palafin,131,stat_points,7,,2.8%,,,20,32,0,0,0,14
-Palafin,131,stat_points,8,,2.5%,,,0,30,18,0,18,0
-Palafin,131,stat_points,9,,2.2%,,,0,32,0,0,2,32
-Palafin,131,stat_points,10,,1.8%,,,3,31,0,0,0,32
-Palafin,131,ability,1,Zero to Hero,100.0%,,,,,,,,
+Palafin,132,move,1,Jet Punch,76.6%,,,,,,,,
+Palafin,132,move,2,Wave Crash,73.6%,,,,,,,,
+Palafin,132,move,3,Flip Turn,65.1%,,,,,,,,
+Palafin,132,move,4,Protect,62.8%,,,,,,,,
+Palafin,132,move,5,Close Combat,50.0%,,,,,,,,
+Palafin,132,move,6,Ice Punch,26.9%,,,,,,,,
+Palafin,132,move,7,Drain Punch,22.8%,,,,,,,,
+Palafin,132,move,8,Haze,5.5%,,,,,,,,
+Palafin,132,move,9,Bulk Up,5.3%,,,,,,,,
+Palafin,132,move,10,Liquidation,3.8%,,,,,,,,
+Palafin,132,held_item,1,Mystic Water,54.7%,,,,,,,,
+Palafin,132,held_item,2,Choice Scarf,15.3%,,,,,,,,
+Palafin,132,held_item,3,Life Orb,12.7%,,,,,,,,
+Palafin,132,held_item,4,Sitrus Berry,4.5%,,,,,,,,
+Palafin,132,held_item,5,Leftovers,3.8%,,,,,,,,
+Palafin,132,held_item,6,Eject Button,2.3%,,,,,,,,
+Palafin,132,held_item,7,Focus Sash,2.0%,,,,,,,,
+Palafin,132,held_item,8,Shell Bell,1.7%,,,,,,,,
+Palafin,132,held_item,9,Wacan Berry,0.6%,,,,,,,,
+Palafin,132,held_item,10,Expert Belt,0.6%,,,,,,,,
+Palafin,132,teammate,1,Rillaboom,,,,,,,,,
+Palafin,132,teammate,2,Incineroar,,,,,,,,,
+Palafin,132,teammate,3,Garchomp,,,,,,,,,
+Palafin,132,teammate,4,Gengar,,,,,,,,,
+Palafin,132,teammate,5,Farigiraf,,,,,,,,,
+Palafin,132,teammate,6,Raichu,,,,,,,,,
+Palafin,132,teammate,7,Archaludon,,,,,,,,,
+Palafin,132,teammate,8,Pelipper,,,,,,,,,
+Palafin,132,teammate,9,Salamence,,,,,,,,,
+Palafin,132,teammate,10,Volcarona,,,,,,,,,
+Palafin,132,stat_alignment,1,Adamant,73.5%,Attack,Sp. Atk,,,,,,
+Palafin,132,stat_alignment,2,Jolly,21.0%,Speed,Sp. Atk,,,,,,
+Palafin,132,stat_alignment,3,Lonely,3.6%,Attack,Defense,,,,,,
+Palafin,132,stat_alignment,4,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
+Palafin,132,stat_alignment,5,Naughty,0.4%,Attack,Sp. Def,,,,,,
+Palafin,132,stat_alignment,6,Sassy,0.3%,Sp. Def,Speed,,,,,,
+Palafin,132,stat_alignment,7,Brave,0.2%,Attack,Speed,,,,,,
+Palafin,132,stat_alignment,8,Hasty,0.1%,Speed,Defense,,,,,,
+Palafin,132,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Palafin,132,stat_points,1,,26.7%,,,32,32,0,0,0,2
+Palafin,132,stat_points,2,,11.7%,,,2,32,0,0,0,32
+Palafin,132,stat_points,3,,8.3%,,,8,30,0,0,0,28
+Palafin,132,stat_points,4,,4.5%,,,0,32,2,0,0,32
+Palafin,132,stat_points,5,,3.2%,,,15,32,19,0,0,0
+Palafin,132,stat_points,6,,3.1%,,,2,32,0,0,32,0
+Palafin,132,stat_points,7,,3.0%,,,16,16,1,0,1,32
+Palafin,132,stat_points,8,,2.9%,,,0,32,0,0,0,32
+Palafin,132,stat_points,9,,2.7%,,,20,32,0,0,0,14
+Palafin,132,stat_points,10,,2.3%,,,0,32,0,0,2,32
+Palafin,132,ability,1,Zero to Hero,100.0%,,,,,,,,

@@ -1,46 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Passimian,230,move,1,Close Combat,78.6%,,,,,,,,
-Passimian,230,move,2,Knock Off,57.3%,,,,,,,,
-Passimian,230,move,3,Upper Hand,51.5%,,,,,,,,
-Passimian,230,move,4,Feint,39.3%,,,,,,,,
-Passimian,230,move,5,Rock Slide,37.4%,,,,,,,,
-Passimian,230,move,6,Coaching,23.8%,,,,,,,,
-Passimian,230,move,7,Protect,21.8%,,,,,,,,
-Passimian,230,move,8,Quick Guard,21.8%,,,,,,,,
-Passimian,230,move,9,Drain Punch,20.4%,,,,,,,,
-Passimian,230,move,10,Rock Tomb,12.1%,,,,,,,,
-Passimian,230,held_item,1,Black Belt,41.7%,,,,,,,,
-Passimian,230,held_item,2,Expert Belt,32.0%,,,,,,,,
-Passimian,230,held_item,3,Choice Scarf,8.3%,,,,,,,,
-Passimian,230,held_item,4,Focus Sash,5.8%,,,,,,,,
-Passimian,230,held_item,5,Psychic Seed,5.8%,,,,,,,,
-Passimian,230,held_item,6,Life Orb,3.9%,,,,,,,,
-Passimian,230,held_item,7,Sitrus Berry,1.0%,,,,,,,,
-Passimian,230,held_item,8,Roseli Berry,1.0%,,,,,,,,
-Passimian,230,held_item,9,Payapa Berry,0.5%,,,,,,,,
-Passimian,230,teammate,1,Rillaboom,,,,,,,,,
-Passimian,230,teammate,2,Gholdengo,,,,,,,,,
-Passimian,230,teammate,3,Garchomp,,,,,,,,,
-Passimian,230,teammate,4,Volcarona,,,,,,,,,
-Passimian,230,teammate,5,Swampert,,,,,,,,,
-Passimian,230,teammate,6,Armarouge,,,,,,,,,
-Passimian,230,teammate,7,Raichu,,,,,,,,,
-Passimian,230,teammate,8,Pelipper,,,,,,,,,
-Passimian,230,teammate,9,Manectric,,,,,,,,,
-Passimian,230,teammate,10,Incineroar,,,,,,,,,
-Passimian,230,stat_alignment,1,Adamant,87.9%,Attack,Sp. Atk,,,,,,
-Passimian,230,stat_alignment,2,Jolly,9.7%,Speed,Sp. Atk,,,,,,
-Passimian,230,stat_alignment,3,Careful,1.9%,Sp. Def,Sp. Atk,,,,,,
-Passimian,230,stat_alignment,4,Sassy,0.5%,Sp. Def,Speed,,,,,,
-Passimian,230,stat_points,1,,31.6%,,,0,32,0,0,2,32
-Passimian,230,stat_points,2,,21.8%,,,32,20,0,0,0,14
-Passimian,230,stat_points,3,,14.1%,,,2,32,0,0,0,32
-Passimian,230,stat_points,4,,12.1%,,,4,32,0,0,0,30
-Passimian,230,stat_points,5,,6.8%,,,20,32,0,0,2,12
-Passimian,230,stat_points,6,,5.8%,,,32,0,17,0,17,0
-Passimian,230,stat_points,7,,2.4%,,,32,32,0,0,2,0
-Passimian,230,stat_points,8,,1.9%,,,26,8,0,0,32,0
-Passimian,230,stat_points,9,,1.0%,,,26,32,0,0,0,8
-Passimian,230,stat_points,10,,1.0%,,,32,2,0,0,32,0
-Passimian,230,ability,1,Defiant,93.7%,,,,,,,,
-Passimian,230,ability,2,Receiver,6.3%,,,,,,,,
+Passimian,238,move,1,Close Combat,79.1%,,,,,,,,
+Passimian,238,move,2,Knock Off,53.8%,,,,,,,,
+Passimian,238,move,3,Upper Hand,45.6%,,,,,,,,
+Passimian,238,move,4,Rock Slide,43.0%,,,,,,,,
+Passimian,238,move,5,Feint,32.9%,,,,,,,,
+Passimian,238,move,6,Protect,25.3%,,,,,,,,
+Passimian,238,move,7,Coaching,22.2%,,,,,,,,
+Passimian,238,move,8,Drain Punch,20.3%,,,,,,,,
+Passimian,238,move,9,Quick Guard,18.7%,,,,,,,,
+Passimian,238,move,10,Rock Tomb,13.0%,,,,,,,,
+Passimian,238,held_item,1,Black Belt,32.9%,,,,,,,,
+Passimian,238,held_item,2,Expert Belt,30.1%,,,,,,,,
+Passimian,238,held_item,3,Choice Scarf,17.4%,,,,,,,,
+Passimian,238,held_item,4,Focus Sash,4.7%,,,,,,,,
+Passimian,238,held_item,5,Life Orb,4.4%,,,,,,,,
+Passimian,238,held_item,6,Psychic Seed,4.1%,,,,,,,,
+Passimian,238,held_item,7,Sitrus Berry,2.2%,,,,,,,,
+Passimian,238,held_item,8,White Herb,1.3%,,,,,,,,
+Passimian,238,held_item,9,Roseli Berry,1.3%,,,,,,,,
+Passimian,238,held_item,10,Electric Seed,1.3%,,,,,,,,
+Passimian,238,teammate,1,Rillaboom,,,,,,,,,
+Passimian,238,teammate,2,Gholdengo,,,,,,,,,
+Passimian,238,teammate,3,Garchomp,,,,,,,,,
+Passimian,238,teammate,4,Incineroar,,,,,,,,,
+Passimian,238,teammate,5,Volcarona,,,,,,,,,
+Passimian,238,teammate,6,Pelipper,,,,,,,,,
+Passimian,238,teammate,7,Golisopod,,,,,,,,,
+Passimian,238,teammate,8,Armarouge,,,,,,,,,
+Passimian,238,teammate,9,Swampert,,,,,,,,,
+Passimian,238,teammate,10,Manectric,,,,,,,,,
+Passimian,238,stat_alignment,1,Adamant,76.6%,Attack,Sp. Atk,,,,,,
+Passimian,238,stat_alignment,2,Jolly,16.8%,Speed,Sp. Atk,,,,,,
+Passimian,238,stat_alignment,3,Careful,2.8%,Sp. Def,Sp. Atk,,,,,,
+Passimian,238,stat_alignment,4,Brave,2.2%,Attack,Speed,,,,,,
+Passimian,238,stat_alignment,5,Lonely,1.3%,Attack,Defense,,,,,,
+Passimian,238,stat_alignment,6,Sassy,0.3%,Sp. Def,Speed,,,,,,
+Passimian,238,stat_points,1,,26.6%,,,0,32,0,0,2,32
+Passimian,238,stat_points,2,,20.6%,,,2,32,0,0,0,32
+Passimian,238,stat_points,3,,17.7%,,,32,20,0,0,0,14
+Passimian,238,stat_points,4,,7.9%,,,4,32,0,0,0,30
+Passimian,238,stat_points,5,,5.4%,,,20,32,0,0,2,12
+Passimian,238,stat_points,6,,3.8%,,,32,0,17,0,17,0
+Passimian,238,stat_points,7,,2.5%,,,22,32,0,0,0,12
+Passimian,238,stat_points,8,,2.5%,,,32,32,2,0,0,0
+Passimian,238,stat_points,9,,1.9%,,,0,32,0,0,4,30
+Passimian,238,stat_points,10,,1.6%,,,0,32,2,0,0,32
+Passimian,238,ability,1,Defiant,90.2%,,,,,,,,
+Passimian,238,ability,2,Receiver,9.8%,,,,,,,,

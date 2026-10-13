@@ -1,40 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Flapple,243,move,1,Grav Apple,100.0%,,,,,,,,
-Flapple,243,move,2,Dragon Rush,96.0%,,,,,,,,
-Flapple,243,move,3,Protect,49.5%,,,,,,,,
-Flapple,243,move,4,U-turn,43.4%,,,,,,,,
-Flapple,243,move,5,Dual Wingbeat,42.4%,,,,,,,,
-Flapple,243,move,6,Sucker Punch,31.3%,,,,,,,,
-Flapple,243,move,7,Dragon Dance,26.3%,,,,,,,,
-Flapple,243,move,8,Outrage,4.0%,,,,,,,,
-Flapple,243,move,9,Recycle,3.0%,,,,,,,,
-Flapple,243,move,10,Leech Seed,3.0%,,,,,,,,
-Flapple,243,held_item,1,Choice Scarf,43.4%,,,,,,,,
-Flapple,243,held_item,2,Focus Sash,37.4%,,,,,,,,
-Flapple,243,held_item,3,Life Orb,6.1%,,,,,,,,
-Flapple,243,held_item,4,Sitrus Berry,5.1%,,,,,,,,
-Flapple,243,held_item,5,Miracle Seed,4.0%,,,,,,,,
-Flapple,243,held_item,6,Wide Lens,4.0%,,,,,,,,
-Flapple,243,teammate,1,Sableye,,,,,,,,,
-Flapple,243,teammate,2,Delphox,,,,,,,,,
-Flapple,243,teammate,3,Maushold-Four,,,,,,,,,
-Flapple,243,teammate,4,Milotic,,,,,,,,,
-Flapple,243,teammate,5,Gengar,,,,,,,,,
-Flapple,243,teammate,6,Meowstic,,,,,,,,,
-Flapple,243,teammate,7,Squawkabilly-Yellow,,,,,,,,,
-Flapple,243,teammate,8,Zoroark-Hisui,,,,,,,,,
-Flapple,243,teammate,9,Ninetales-Alola,,,,,,,,,
-Flapple,243,teammate,10,Samurott-Hisui,,,,,,,,,
-Flapple,243,stat_alignment,1,Jolly,66.7%,Speed,Sp. Atk,,,,,,
-Flapple,243,stat_alignment,2,Brave,22.2%,Attack,Speed,,,,,,
-Flapple,243,stat_alignment,3,Adamant,11.1%,Attack,Sp. Atk,,,,,,
-Flapple,243,stat_points,1,,71.7%,,,2,32,0,0,0,32
-Flapple,243,stat_points,2,,19.2%,,,32,32,0,0,2,0
-Flapple,243,stat_points,3,,3.0%,,,32,32,1,0,0,1
-Flapple,243,stat_points,4,,2.0%,,,14,32,0,0,20,0
-Flapple,243,stat_points,5,,1.0%,,,0,32,0,2,0,32
-Flapple,243,stat_points,6,,1.0%,,,32,0,0,0,0,32
-Flapple,243,stat_points,7,,1.0%,,,32,32,0,0,0,2
-Flapple,243,stat_points,8,,1.0%,,,32,32,2,0,0,0
-Flapple,243,ability,1,Hustle,94.9%,,,,,,,,
-Flapple,243,ability,2,Ripen,5.1%,,,,,,,,
+Flapple,241,move,1,Grav Apple,96.3%,,,,,,,,
+Flapple,241,move,2,Dragon Rush,83.8%,,,,,,,,
+Flapple,241,move,3,Sucker Punch,53.9%,,,,,,,,
+Flapple,241,move,4,Protect,49.4%,,,,,,,,
+Flapple,241,move,5,U-turn,34.9%,,,,,,,,
+Flapple,241,move,6,Dual Wingbeat,29.9%,,,,,,,,
+Flapple,241,move,7,Dragon Dance,17.0%,,,,,,,,
+Flapple,241,move,8,Outrage,11.6%,,,,,,,,
+Flapple,241,move,9,Grassy Glide,6.2%,,,,,,,,
+Flapple,241,move,10,Recycle,5.0%,,,,,,,,
+Flapple,241,held_item,1,Focus Sash,36.9%,,,,,,,,
+Flapple,241,held_item,2,Choice Scarf,29.0%,,,,,,,,
+Flapple,241,held_item,3,Life Orb,13.3%,,,,,,,,
+Flapple,241,held_item,4,Wide Lens,8.7%,,,,,,,,
+Flapple,241,held_item,5,Sitrus Berry,7.5%,,,,,,,,
+Flapple,241,held_item,6,Miracle Seed,2.9%,,,,,,,,
+Flapple,241,held_item,7,Quick Claw,1.7%,,,,,,,,
+Flapple,241,teammate,1,Sableye,,,,,,,,,
+Flapple,241,teammate,2,Delphox,,,,,,,,,
+Flapple,241,teammate,3,Maushold-Four,,,,,,,,,
+Flapple,241,teammate,4,Milotic,,,,,,,,,
+Flapple,241,teammate,5,Farigiraf,,,,,,,,,
+Flapple,241,teammate,6,Indeedee-F,,,,,,,,,
+Flapple,241,teammate,7,Camerupt,,,,,,,,,
+Flapple,241,teammate,8,Spiritomb,,,,,,,,,
+Flapple,241,teammate,9,Indeedee,,,,,,,,,
+Flapple,241,teammate,10,Sneasler,,,,,,,,,
+Flapple,241,stat_alignment,1,Jolly,42.7%,Speed,Sp. Atk,,,,,,
+Flapple,241,stat_alignment,2,Brave,32.4%,Attack,Speed,,,,,,
+Flapple,241,stat_alignment,3,Adamant,17.0%,Attack,Sp. Atk,,,,,,
+Flapple,241,stat_alignment,4,Serious,3.3%,,,,,,,,
+Flapple,241,stat_alignment,5,Naughty,2.9%,Attack,Sp. Def,,,,,,
+Flapple,241,stat_alignment,6,Modest,1.7%,Sp. Atk,Attack,,,,,,
+Flapple,241,stat_points,1,,46.1%,,,2,32,0,0,0,32
+Flapple,241,stat_points,2,,24.1%,,,32,32,0,0,2,0
+Flapple,241,stat_points,3,,7.5%,,,32,32,2,0,0,0
+Flapple,241,stat_points,4,,5.4%,,,24,32,0,0,10,0
+Flapple,241,stat_points,5,,3.7%,,,0,32,2,0,0,32
+Flapple,241,stat_points,6,,2.9%,,,0,32,32,0,0,2
+Flapple,241,stat_points,7,,2.5%,,,7,32,0,0,27,0
+Flapple,241,stat_points,8,,2.1%,,,32,32,1,0,0,1
+Flapple,241,stat_points,9,,1.7%,,,2,0,0,32,0,32
+Flapple,241,stat_points,10,,0.8%,,,9,32,0,0,0,25
+Flapple,241,ability,1,Hustle,92.5%,,,,,,,,
+Flapple,241,ability,2,Ripen,7.5%,,,,,,,,

@@ -1,43 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pidgeot,187,move,1,Hurricane,99.5%,,,,,,,,
-Pidgeot,187,move,2,Heat Wave,94.0%,,,,,,,,
-Pidgeot,187,move,3,Tailwind,90.1%,,,,,,,,
-Pidgeot,187,move,4,Protect,88.9%,,,,,,,,
-Pidgeot,187,move,5,Hyper Beam,14.2%,,,,,,,,
-Pidgeot,187,move,6,Sunny Day,7.5%,,,,,,,,
-Pidgeot,187,move,7,U-turn,1.7%,,,,,,,,
-Pidgeot,187,move,8,Roost,1.2%,,,,,,,,
-Pidgeot,187,move,9,Quick Attack,1.0%,,,,,,,,
-Pidgeot,187,move,10,Substitute,0.7%,,,,,,,,
-Pidgeot,187,held_item,1,Pidgeotite,98.5%,,,,,,,,
-Pidgeot,187,held_item,2,Focus Sash,0.7%,,,,,,,,
-Pidgeot,187,held_item,3,Sharp Beak,0.2%,,,,,,,,
-Pidgeot,187,teammate,1,Excadrill,,,,,,,,,
-Pidgeot,187,teammate,2,Tyranitar,,,,,,,,,
-Pidgeot,187,teammate,3,Gholdengo,,,,,,,,,
-Pidgeot,187,teammate,4,Tsareena,,,,,,,,,
-Pidgeot,187,teammate,5,Kommo-o,,,,,,,,,
-Pidgeot,187,teammate,6,Sneasler,,,,,,,,,
-Pidgeot,187,teammate,7,Indeedee,,,,,,,,,
-Pidgeot,187,teammate,8,Garchomp,,,,,,,,,
-Pidgeot,187,teammate,9,Rillaboom,,,,,,,,,
-Pidgeot,187,teammate,10,Kingambit,,,,,,,,,
-Pidgeot,187,stat_alignment,1,Timid,87.3%,Speed,Attack,,,,,,
-Pidgeot,187,stat_alignment,2,Modest,10.6%,Sp. Atk,Attack,,,,,,
-Pidgeot,187,stat_alignment,3,Quiet,1.0%,Sp. Atk,Speed,,,,,,
-Pidgeot,187,stat_alignment,4,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
-Pidgeot,187,stat_alignment,5,Gentle,0.3%,Sp. Def,Defense,,,,,,
-Pidgeot,187,stat_alignment,6,Adamant,0.3%,Attack,Sp. Atk,,,,,,
-Pidgeot,187,stat_points,1,,55.7%,,,2,0,0,32,0,32
-Pidgeot,187,stat_points,2,,12.2%,,,1,0,1,32,0,32
-Pidgeot,187,stat_points,3,,6.9%,,,0,0,0,32,2,32
-Pidgeot,187,stat_points,4,,5.7%,,,0,0,2,32,0,32
-Pidgeot,187,stat_points,5,,3.1%,,,1,0,0,32,1,32
-Pidgeot,187,stat_points,6,,3.1%,,,13,0,0,31,0,22
-Pidgeot,187,stat_points,7,,2.4%,,,0,0,1,32,1,32
-Pidgeot,187,stat_points,8,,2.1%,,,13,0,0,21,0,32
-Pidgeot,187,stat_points,9,,1.7%,,,29,0,0,21,0,16
-Pidgeot,187,stat_points,10,,1.2%,,,32,0,1,0,1,32
-Pidgeot,187,ability,1,Big Pecks,64.2%,,,,,,,,
-Pidgeot,187,ability,2,Keen Eye,26.2%,,,,,,,,
-Pidgeot,187,ability,3,Tangled Feet,9.6%,,,,,,,,
+Pidgeot,188,move,1,Hurricane,99.5%,,,,,,,,
+Pidgeot,188,move,2,Heat Wave,95.0%,,,,,,,,
+Pidgeot,188,move,3,Protect,90.9%,,,,,,,,
+Pidgeot,188,move,4,Tailwind,84.5%,,,,,,,,
+Pidgeot,188,move,5,Hyper Beam,14.4%,,,,,,,,
+Pidgeot,188,move,6,Sunny Day,5.0%,,,,,,,,
+Pidgeot,188,move,7,Roost,4.8%,,,,,,,,
+Pidgeot,188,move,8,U-turn,1.1%,,,,,,,,
+Pidgeot,188,move,9,Whirlwind,0.9%,,,,,,,,
+Pidgeot,188,move,10,Round,0.9%,,,,,,,,
+Pidgeot,188,held_item,1,Pidgeotite,97.8%,,,,,,,,
+Pidgeot,188,held_item,2,Damp Rock,0.6%,,,,,,,,
+Pidgeot,188,held_item,3,Focus Sash,0.5%,,,,,,,,
+Pidgeot,188,held_item,4,Sharp Beak,0.2%,,,,,,,,
+Pidgeot,188,held_item,5,Life Orb,0.2%,,,,,,,,
+Pidgeot,188,held_item,6,Leftovers,0.1%,,,,,,,,
+Pidgeot,188,teammate,1,Tyranitar,,,,,,,,,
+Pidgeot,188,teammate,2,Excadrill,,,,,,,,,
+Pidgeot,188,teammate,3,Gholdengo,,,,,,,,,
+Pidgeot,188,teammate,4,Tsareena,,,,,,,,,
+Pidgeot,188,teammate,5,Kommo-o,,,,,,,,,
+Pidgeot,188,teammate,6,Rillaboom,,,,,,,,,
+Pidgeot,188,teammate,7,Sneasler,,,,,,,,,
+Pidgeot,188,teammate,8,Kingambit,,,,,,,,,
+Pidgeot,188,teammate,9,Garchomp,,,,,,,,,
+Pidgeot,188,teammate,10,Maushold-Four,,,,,,,,,
+Pidgeot,188,stat_alignment,1,Timid,80.8%,Speed,Attack,,,,,,
+Pidgeot,188,stat_alignment,2,Modest,13.7%,Sp. Atk,Attack,,,,,,
+Pidgeot,188,stat_alignment,3,Mild,3.3%,Sp. Atk,Defense,,,,,,
+Pidgeot,188,stat_alignment,4,Quiet,0.7%,Sp. Atk,Speed,,,,,,
+Pidgeot,188,stat_alignment,5,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,
+Pidgeot,188,stat_alignment,6,Calm,0.2%,Sp. Def,Attack,,,,,,
+Pidgeot,188,stat_alignment,7,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Pidgeot,188,stat_alignment,8,Adamant,0.2%,Attack,Sp. Atk,,,,,,
+Pidgeot,188,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,
+Pidgeot,188,stat_points,1,,58.0%,,,2,0,0,32,0,32
+Pidgeot,188,stat_points,2,,8.8%,,,1,0,1,32,0,32
+Pidgeot,188,stat_points,3,,5.3%,,,0,0,0,32,2,32
+Pidgeot,188,stat_points,4,,3.3%,,,0,0,2,32,0,32
+Pidgeot,188,stat_points,5,,3.3%,,,13,0,0,21,0,32
+Pidgeot,188,stat_points,6,,3.3%,,,32,0,0,32,0,2
+Pidgeot,188,stat_points,7,,2.3%,,,1,0,0,32,1,32
+Pidgeot,188,stat_points,8,,1.8%,,,13,0,0,31,0,22
+Pidgeot,188,stat_points,9,,1.7%,,,0,0,1,32,1,32
+Pidgeot,188,stat_points,10,,1.5%,,,29,0,0,21,0,16
+Pidgeot,188,ability,1,Big Pecks,64.5%,,,,,,,,
+Pidgeot,188,ability,2,Keen Eye,28.4%,,,,,,,,
+Pidgeot,188,ability,3,Tangled Feet,7.1%,,,,,,,,

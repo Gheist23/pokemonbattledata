@@ -1,51 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Torterra,150,move,1,Headlong Rush,81.7%,,,,,,,,
-Torterra,150,move,2,Wood Hammer,80.5%,,,,,,,,
-Torterra,150,move,3,Wide Guard,58.2%,,,,,,,,
-Torterra,150,move,4,Protect,45.4%,,,,,,,,
-Torterra,150,move,5,Rock Slide,42.5%,,,,,,,,
-Torterra,150,move,6,Shell Smash,28.3%,,,,,,,,
-Torterra,150,move,7,Earthquake,20.1%,,,,,,,,
-Torterra,150,move,8,Seed Bomb,8.6%,,,,,,,,
-Torterra,150,move,9,Heavy Slam,7.5%,,,,,,,,
-Torterra,150,move,10,Rock Blast,6.8%,,,,,,,,
-Torterra,150,held_item,1,White Herb,45.1%,,,,,,,,
-Torterra,150,held_item,2,Life Orb,27.8%,,,,,,,,
-Torterra,150,held_item,3,Focus Sash,4.3%,,,,,,,,
-Torterra,150,held_item,4,Sitrus Berry,3.8%,,,,,,,,
-Torterra,150,held_item,5,Miracle Seed,3.7%,,,,,,,,
-Torterra,150,held_item,6,Leftovers,3.0%,,,,,,,,
-Torterra,150,held_item,7,Soft Sand,2.2%,,,,,,,,
-Torterra,150,held_item,8,Iron Ball,1.6%,,,,,,,,
-Torterra,150,held_item,9,Wide Lens,0.9%,,,,,,,,
-Torterra,150,held_item,10,Chesto Berry,0.4%,,,,,,,,
-Torterra,150,teammate,1,Indeedee-F,,,,,,,,,
-Torterra,150,teammate,2,Sneasler,,,,,,,,,
-Torterra,150,teammate,3,Sinistcha,,,,,,,,,
-Torterra,150,teammate,4,Incineroar,,,,,,,,,
-Torterra,150,teammate,5,Farigiraf,,,,,,,,,
-Torterra,150,teammate,6,Glimmora,,,,,,,,,
-Torterra,150,teammate,7,Kingambit,,,,,,,,,
-Torterra,150,teammate,8,Golisopod,,,,,,,,,
-Torterra,150,teammate,9,Charizard,,,,,,,,,
-Torterra,150,teammate,10,Basculegion,,,,,,,,,
-Torterra,150,stat_alignment,1,Adamant,56.6%,Attack,Sp. Atk,,,,,,
-Torterra,150,stat_alignment,2,Brave,25.5%,Attack,Speed,,,,,,
-Torterra,150,stat_alignment,3,Jolly,9.9%,Speed,Sp. Atk,,,,,,
-Torterra,150,stat_alignment,4,Impish,2.8%,Defense,Sp. Atk,,,,,,
-Torterra,150,stat_alignment,5,Careful,2.7%,Sp. Def,Sp. Atk,,,,,,
-Torterra,150,stat_alignment,6,Relaxed,2.0%,Defense,Speed,,,,,,
-Torterra,150,stat_alignment,7,Bold,0.4%,Defense,Attack,,,,,,
-Torterra,150,stat_alignment,8,Modest,0.1%,Sp. Atk,Attack,,,,,,
-Torterra,150,stat_points,1,,12.3%,,,2,32,0,0,0,32
-Torterra,150,stat_points,2,,10.9%,,,0,32,2,0,32,0
-Torterra,150,stat_points,3,,8.1%,,,32,31,3,0,0,0
-Torterra,150,stat_points,4,,8.1%,,,32,32,0,0,2,0
-Torterra,150,stat_points,5,,4.9%,,,23,32,0,0,0,11
-Torterra,150,stat_points,6,,3.8%,,,0,32,0,0,2,32
-Torterra,150,stat_points,7,,3.8%,,,0,32,2,0,0,32
-Torterra,150,stat_points,8,,3.6%,,,15,31,0,0,20,0
-Torterra,150,stat_points,9,,3.3%,,,32,13,21,0,0,0
-Torterra,150,stat_points,10,,2.9%,,,32,11,15,0,0,8
-Torterra,150,ability,1,Shell Armor,56.5%,,,,,,,,
-Torterra,150,ability,2,Overgrow,43.5%,,,,,,,,
+Torterra,157,move,1,Wood Hammer,78.8%,,,,,,,,
+Torterra,157,move,2,Headlong Rush,72.3%,,,,,,,,
+Torterra,157,move,3,Wide Guard,52.3%,,,,,,,,
+Torterra,157,move,4,Protect,45.4%,,,,,,,,
+Torterra,157,move,5,Rock Slide,38.7%,,,,,,,,
+Torterra,157,move,6,Shell Smash,31.6%,,,,,,,,
+Torterra,157,move,7,Earthquake,25.7%,,,,,,,,
+Torterra,157,move,8,Heavy Slam,9.0%,,,,,,,,
+Torterra,157,move,9,Rock Blast,8.6%,,,,,,,,
+Torterra,157,move,10,Seed Bomb,8.6%,,,,,,,,
+Torterra,157,held_item,1,White Herb,41.8%,,,,,,,,
+Torterra,157,held_item,2,Life Orb,23.5%,,,,,,,,
+Torterra,157,held_item,3,Sitrus Berry,7.2%,,,,,,,,
+Torterra,157,held_item,4,Focus Sash,3.8%,,,,,,,,
+Torterra,157,held_item,5,Miracle Seed,3.6%,,,,,,,,
+Torterra,157,held_item,6,Leftovers,2.9%,,,,,,,,
+Torterra,157,held_item,7,Soft Sand,2.8%,,,,,,,,
+Torterra,157,held_item,8,Yache Berry,1.4%,,,,,,,,
+Torterra,157,held_item,9,Iron Ball,1.2%,,,,,,,,
+Torterra,157,held_item,10,Chesto Berry,0.9%,,,,,,,,
+Torterra,157,teammate,1,Indeedee-F,,,,,,,,,
+Torterra,157,teammate,2,Sinistcha,,,,,,,,,
+Torterra,157,teammate,3,Sneasler,,,,,,,,,
+Torterra,157,teammate,4,Incineroar,,,,,,,,,
+Torterra,157,teammate,5,Farigiraf,,,,,,,,,
+Torterra,157,teammate,6,Kingambit,,,,,,,,,
+Torterra,157,teammate,7,Basculegion,,,,,,,,,
+Torterra,157,teammate,8,Charizard,,,,,,,,,
+Torterra,157,teammate,9,Tyranitar,,,,,,,,,
+Torterra,157,teammate,10,Glimmora,,,,,,,,,
+Torterra,157,stat_alignment,1,Adamant,48.2%,Attack,Sp. Atk,,,,,,
+Torterra,157,stat_alignment,2,Brave,23.6%,Attack,Speed,,,,,,
+Torterra,157,stat_alignment,3,Jolly,13.0%,Speed,Sp. Atk,,,,,,
+Torterra,157,stat_alignment,4,Careful,6.8%,Sp. Def,Sp. Atk,,,,,,
+Torterra,157,stat_alignment,5,Relaxed,3.8%,Defense,Speed,,,,,,
+Torterra,157,stat_alignment,6,Impish,2.2%,Defense,Sp. Atk,,,,,,
+Torterra,157,stat_alignment,7,Sassy,0.8%,Sp. Def,Speed,,,,,,
+Torterra,157,stat_alignment,8,Modest,0.7%,Sp. Atk,Attack,,,,,,
+Torterra,157,stat_alignment,9,Naughty,0.4%,Attack,Sp. Def,,,,,,
+Torterra,157,stat_alignment,10,Bold,0.4%,Defense,Attack,,,,,,
+Torterra,157,stat_points,1,,14.4%,,,2,32,0,0,0,32
+Torterra,157,stat_points,2,,8.3%,,,0,32,2,0,32,0
+Torterra,157,stat_points,3,,7.2%,,,32,32,0,0,2,0
+Torterra,157,stat_points,4,,6.4%,,,32,31,3,0,0,0
+Torterra,157,stat_points,5,,5.0%,,,32,13,21,0,0,0
+Torterra,157,stat_points,6,,4.1%,,,11,11,23,0,21,0
+Torterra,157,stat_points,7,,3.8%,,,0,32,2,0,0,32
+Torterra,157,stat_points,8,,3.2%,,,11,21,0,0,15,19
+Torterra,157,stat_points,9,,3.1%,,,15,31,0,0,20,0
+Torterra,157,stat_points,10,,3.0%,,,23,32,0,0,0,11
+Torterra,157,ability,1,Shell Armor,60.0%,,,,,,,,
+Torterra,157,ability,2,Overgrow,40.0%,,,,,,,,

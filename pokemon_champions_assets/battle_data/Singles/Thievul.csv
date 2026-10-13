@@ -1,52 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Thievul,246,move,1,Dark Pulse,76.2%,,,,,,,,
-Thievul,246,move,2,Burning Jealousy,67.6%,,,,,,,,
-Thievul,246,move,3,Taunt,51.9%,,,,,,,,
-Thievul,246,move,4,Grass Knot,37.8%,,,,,,,,
-Thievul,246,move,5,Nasty Plot,31.5%,,,,,,,,
-Thievul,246,move,6,Foul Play,20.1%,,,,,,,,
-Thievul,246,move,7,Parting Shot,20.1%,,,,,,,,
-Thievul,246,move,8,First Impression,14.6%,,,,,,,,
-Thievul,246,move,9,Psychic,14.3%,,,,,,,,
-Thievul,246,move,10,Snarl,12.3%,,,,,,,,
-Thievul,246,held_item,1,Black Glasses,33.8%,,,,,,,,
-Thievul,246,held_item,2,Red Card,28.1%,,,,,,,,
-Thievul,246,held_item,3,Life Orb,12.3%,,,,,,,,
-Thievul,246,held_item,4,Focus Sash,10.3%,,,,,,,,
-Thievul,246,held_item,5,Psychic Seed,6.0%,,,,,,,,
-Thievul,246,held_item,6,Sitrus Berry,4.3%,,,,,,,,
-Thievul,246,held_item,7,Chople Berry,3.4%,,,,,,,,
-Thievul,246,held_item,8,Grassy Seed,0.6%,,,,,,,,
-Thievul,246,held_item,9,Choice Scarf,0.3%,,,,,,,,
-Thievul,246,teammate,1,Empoleon,,,,,,,,,
-Thievul,246,teammate,2,Salamence,,,,,,,,,
-Thievul,246,teammate,3,Meowscarada,,,,,,,,,
-Thievul,246,teammate,4,Mamoswine,,,,,,,,,
-Thievul,246,teammate,5,Grapploct,,,,,,,,,
-Thievul,246,teammate,6,Bellibolt,,,,,,,,,
-Thievul,246,teammate,7,Garchomp,,,,,,,,,
-Thievul,246,teammate,8,Glimmora,,,,,,,,,
-Thievul,246,teammate,9,Archaludon,,,,,,,,,
-Thievul,246,teammate,10,Scolipede,,,,,,,,,
-Thievul,246,stat_alignment,1,Timid,43.8%,Speed,Attack,,,,,,
-Thievul,246,stat_alignment,2,Modest,33.8%,Sp. Atk,Attack,,,,,,
-Thievul,246,stat_alignment,3,Mild,13.8%,Sp. Atk,Defense,,,,,,
-Thievul,246,stat_alignment,4,Bold,2.3%,Defense,Attack,,,,,,
-Thievul,246,stat_alignment,5,Rash,2.0%,Sp. Atk,Sp. Def,,,,,,
-Thievul,246,stat_alignment,6,Calm,1.7%,Sp. Def,Attack,,,,,,
-Thievul,246,stat_alignment,7,Jolly,0.9%,Speed,Sp. Atk,,,,,,
-Thievul,246,stat_alignment,8,Impish,0.9%,Defense,Sp. Atk,,,,,,
-Thievul,246,stat_alignment,9,Sassy,0.6%,Sp. Def,Speed,,,,,,
-Thievul,246,stat_alignment,10,Adamant,0.3%,Attack,Sp. Atk,,,,,,
-Thievul,246,stat_points,1,,30.7%,,,2,0,0,32,0,32
-Thievul,246,stat_points,2,,23.2%,,,32,0,0,32,0,2
-Thievul,246,stat_points,3,,11.7%,,,2,10,0,32,0,22
-Thievul,246,stat_points,4,,7.7%,,,4,0,1,32,0,29
-Thievul,246,stat_points,5,,6.6%,,,32,0,2,0,0,32
-Thievul,246,stat_points,6,,5.7%,,,32,0,2,32,0,0
-Thievul,246,stat_points,7,,3.2%,,,32,0,32,0,2,0
-Thievul,246,stat_points,8,,2.6%,,,0,0,0,32,2,32
-Thievul,246,stat_points,9,,2.0%,,,32,0,0,32,2,0
-Thievul,246,stat_points,10,,1.7%,,,32,0,23,0,11,0
-Thievul,246,ability,1,Stakeout,51.3%,,,,,,,,
-Thievul,246,ability,2,Unburden,48.7%,,,,,,,,
+Thievul,241,move,1,Dark Pulse,69.8%,,,,,,,,
+Thievul,241,move,2,Burning Jealousy,57.8%,,,,,,,,
+Thievul,241,move,3,Taunt,44.2%,,,,,,,,
+Thievul,241,move,4,Grass Knot,41.3%,,,,,,,,
+Thievul,241,move,5,Nasty Plot,39.7%,,,,,,,,
+Thievul,241,move,6,Foul Play,32.5%,,,,,,,,
+Thievul,241,move,7,Parting Shot,24.0%,,,,,,,,
+Thievul,241,move,8,Psychic,14.4%,,,,,,,,
+Thievul,241,move,9,Sucker Punch,14.2%,,,,,,,,
+Thievul,241,move,10,Shadow Ball,10.3%,,,,,,,,
+Thievul,241,held_item,1,Red Card,30.0%,,,,,,,,
+Thievul,241,held_item,2,Focus Sash,22.3%,,,,,,,,
+Thievul,241,held_item,3,Black Glasses,14.8%,,,,,,,,
+Thievul,241,held_item,4,Psychic Seed,13.3%,,,,,,,,
+Thievul,241,held_item,5,Life Orb,6.7%,,,,,,,,
+Thievul,241,held_item,6,Rocky Helmet,5.5%,,,,,,,,
+Thievul,241,held_item,7,Sitrus Berry,3.1%,,,,,,,,
+Thievul,241,held_item,8,Chople Berry,1.5%,,,,,,,,
+Thievul,241,held_item,9,Grassy Seed,1.0%,,,,,,,,
+Thievul,241,held_item,10,Choice Scarf,0.9%,,,,,,,,
+Thievul,241,teammate,1,Salamence,,,,,,,,,
+Thievul,241,teammate,2,Empoleon,,,,,,,,,
+Thievul,241,teammate,3,Meowscarada,,,,,,,,,
+Thievul,241,teammate,4,Gyarados,,,,,,,,,
+Thievul,241,teammate,5,Gholdengo,,,,,,,,,
+Thievul,241,teammate,6,Indeedee,,,,,,,,,
+Thievul,241,teammate,7,Milotic,,,,,,,,,
+Thievul,241,teammate,8,Scolipede,,,,,,,,,
+Thievul,241,teammate,9,Clefable,,,,,,,,,
+Thievul,241,teammate,10,Arcanine,,,,,,,,,
+Thievul,241,stat_alignment,1,Modest,43.6%,Sp. Atk,Attack,,,,,,
+Thievul,241,stat_alignment,2,Timid,26.4%,Speed,Attack,,,,,,
+Thievul,241,stat_alignment,3,Jolly,7.6%,Speed,Sp. Atk,,,,,,
+Thievul,241,stat_alignment,4,Mild,7.3%,Sp. Atk,Defense,,,,,,
+Thievul,241,stat_alignment,5,Relaxed,6.5%,Defense,Speed,,,,,,
+Thievul,241,stat_alignment,6,Sassy,3.1%,Sp. Def,Speed,,,,,,
+Thievul,241,stat_alignment,7,Calm,1.6%,Sp. Def,Attack,,,,,,
+Thievul,241,stat_alignment,8,Bold,1.2%,Defense,Attack,,,,,,
+Thievul,241,stat_alignment,9,Rash,1.0%,Sp. Atk,Sp. Def,,,,,,
+Thievul,241,stat_alignment,10,Impish,1.0%,Defense,Sp. Atk,,,,,,
+Thievul,241,stat_points,1,,33.9%,,,2,0,0,32,0,32
+Thievul,241,stat_points,2,,15.0%,,,32,0,0,32,0,2
+Thievul,241,stat_points,3,,6.7%,,,0,0,0,32,2,32
+Thievul,241,stat_points,4,,6.5%,,,32,0,0,0,2,32
+Thievul,241,stat_points,5,,6.5%,,,32,2,32,0,0,0
+Thievul,241,stat_points,6,,6.4%,,,2,10,0,32,0,22
+Thievul,241,stat_points,7,,5.3%,,,0,0,2,32,0,32
+Thievul,241,stat_points,8,,3.3%,,,4,0,1,32,0,29
+Thievul,241,stat_points,9,,3.1%,,,32,0,15,0,19,0
+Thievul,241,stat_points,10,,2.8%,,,32,0,2,0,0,32
+Thievul,241,ability,1,Unburden,51.8%,,,,,,,,
+Thievul,241,ability,2,Stakeout,41.6%,,,,,,,,
+Thievul,241,ability,3,Run Away,6.5%,,,,,,,,

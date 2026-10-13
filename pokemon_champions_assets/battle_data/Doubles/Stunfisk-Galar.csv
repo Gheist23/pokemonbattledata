@@ -1,34 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Stunfisk-Galar,249,move,1,Protect,100.0%,,,,,,,,
-Stunfisk-Galar,249,move,2,Snap Trap,100.0%,,,,,,,,
-Stunfisk-Galar,249,move,3,Yawn,80.4%,,,,,,,,
-Stunfisk-Galar,249,move,4,Foul Play,60.8%,,,,,,,,
-Stunfisk-Galar,249,move,5,Fissure,21.6%,,,,,,,,
-Stunfisk-Galar,249,move,6,Ice Fang,9.8%,,,,,,,,
-Stunfisk-Galar,249,move,7,Stomping Tantrum,9.8%,,,,,,,,
-Stunfisk-Galar,249,move,8,Rock Slide,7.8%,,,,,,,,
-Stunfisk-Galar,249,move,9,Earthquake,7.8%,,,,,,,,
-Stunfisk-Galar,249,move,10,Sucker Punch,2.0%,,,,,,,,
-Stunfisk-Galar,249,held_item,1,Binding Band,58.8%,,,,,,,,
-Stunfisk-Galar,249,held_item,2,Leftovers,39.2%,,,,,,,,
-Stunfisk-Galar,249,held_item,3,Focus Sash,2.0%,,,,,,,,
-Stunfisk-Galar,249,teammate,1,Salamence,,,,,,,,,
-Stunfisk-Galar,249,teammate,2,Tyranitar,,,,,,,,,
-Stunfisk-Galar,249,teammate,3,Excadrill,,,,,,,,,
-Stunfisk-Galar,249,teammate,4,Indeedee,,,,,,,,,
-Stunfisk-Galar,249,teammate,5,Sneasler,,,,,,,,,
-Stunfisk-Galar,249,teammate,6,Rillaboom,,,,,,,,,
-Stunfisk-Galar,249,teammate,7,Indeedee-F,,,,,,,,,
-Stunfisk-Galar,249,teammate,8,Dragonite,,,,,,,,,
-Stunfisk-Galar,249,teammate,9,Gardevoir,,,,,,,,,
-Stunfisk-Galar,249,teammate,10,Glimmora,,,,,,,,,
-Stunfisk-Galar,249,stat_alignment,1,Relaxed,78.4%,Defense,Speed,,,,,,
-Stunfisk-Galar,249,stat_alignment,2,Adamant,19.6%,Attack,Sp. Atk,,,,,,
-Stunfisk-Galar,249,stat_alignment,3,Impish,2.0%,Defense,Sp. Atk,,,,,,
-Stunfisk-Galar,249,stat_points,1,,58.8%,,,32,0,3,0,31,0
-Stunfisk-Galar,249,stat_points,2,,19.6%,,,31,0,19,0,16,0
-Stunfisk-Galar,249,stat_points,3,,9.8%,,,32,0,16,0,18,0
-Stunfisk-Galar,249,stat_points,4,,7.8%,,,32,32,2,0,0,0
-Stunfisk-Galar,249,stat_points,5,,2.0%,,,0,9,31,0,26,0
-Stunfisk-Galar,249,stat_points,6,,2.0%,,,32,0,32,0,2,0
-Stunfisk-Galar,249,ability,1,Mimicry,100.0%,,,,,,,,
+Stunfisk-Galar,254,move,1,Snap Trap,100.0%,,,,,,,,
+Stunfisk-Galar,254,move,2,Protect,98.2%,,,,,,,,
+Stunfisk-Galar,254,move,3,Yawn,87.5%,,,,,,,,
+Stunfisk-Galar,254,move,4,Earthquake,42.0%,,,,,,,,
+Stunfisk-Galar,254,move,5,Foul Play,32.1%,,,,,,,,
+Stunfisk-Galar,254,move,6,Terrain Pulse,11.6%,,,,,,,,
+Stunfisk-Galar,254,move,7,Fissure,9.8%,,,,,,,,
+Stunfisk-Galar,254,move,8,Ice Fang,4.5%,,,,,,,,
+Stunfisk-Galar,254,move,9,Stomping Tantrum,4.5%,,,,,,,,
+Stunfisk-Galar,254,move,10,Rock Slide,3.6%,,,,,,,,
+Stunfisk-Galar,254,held_item,1,Binding Band,43.8%,,,,,,,,
+Stunfisk-Galar,254,held_item,2,Rocky Helmet,37.5%,,,,,,,,
+Stunfisk-Galar,254,held_item,3,Leftovers,17.9%,,,,,,,,
+Stunfisk-Galar,254,held_item,4,Focus Sash,0.9%,,,,,,,,
+Stunfisk-Galar,254,teammate,1,Salamence,,,,,,,,,
+Stunfisk-Galar,254,teammate,2,Sneasler,,,,,,,,,
+Stunfisk-Galar,254,teammate,3,Incineroar,,,,,,,,,
+Stunfisk-Galar,254,teammate,4,Farigiraf,,,,,,,,,
+Stunfisk-Galar,254,teammate,5,Tyranitar,,,,,,,,,
+Stunfisk-Galar,254,teammate,6,Excadrill,,,,,,,,,
+Stunfisk-Galar,254,teammate,7,Indeedee,,,,,,,,,
+Stunfisk-Galar,254,teammate,8,Volcarona,,,,,,,,,
+Stunfisk-Galar,254,teammate,9,Sylveon,,,,,,,,,
+Stunfisk-Galar,254,teammate,10,Golisopod,,,,,,,,,
+Stunfisk-Galar,254,stat_alignment,1,Relaxed,40.2%,Defense,Speed,,,,,,
+Stunfisk-Galar,254,stat_alignment,2,Sassy,36.6%,Sp. Def,Speed,,,,,,
+Stunfisk-Galar,254,stat_alignment,3,Adamant,21.4%,Attack,Sp. Atk,,,,,,
+Stunfisk-Galar,254,stat_alignment,4,Brave,0.9%,Attack,Speed,,,,,,
+Stunfisk-Galar,254,stat_alignment,5,Impish,0.9%,Defense,Sp. Atk,,,,,,
+Stunfisk-Galar,254,stat_points,1,,36.6%,,,32,0,14,0,20,0
+Stunfisk-Galar,254,stat_points,2,,29.5%,,,32,0,3,0,31,0
+Stunfisk-Galar,254,stat_points,3,,11.6%,,,0,0,0,0,0,0
+Stunfisk-Galar,254,stat_points,4,,8.9%,,,31,0,19,0,16,0
+Stunfisk-Galar,254,stat_points,5,,4.5%,,,32,0,16,0,18,0
+Stunfisk-Galar,254,stat_points,6,,3.6%,,,32,32,2,0,0,0
+Stunfisk-Galar,254,stat_points,7,,2.7%,,,32,0,32,0,2,0
+Stunfisk-Galar,254,stat_points,8,,0.9%,,,0,9,31,0,26,0
+Stunfisk-Galar,254,stat_points,9,,0.9%,,,0,32,2,0,32,0
+Stunfisk-Galar,254,stat_points,10,,0.9%,,,32,32,0,0,2,0
+Stunfisk-Galar,254,ability,1,Mimicry,100.0%,,,,,,,,

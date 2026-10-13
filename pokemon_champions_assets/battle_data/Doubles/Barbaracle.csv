@@ -1,43 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Barbaracle,228,move,1,Rock Slide,96.3%,,,,,,,,
-Barbaracle,228,move,2,Protect,94.0%,,,,,,,,
-Barbaracle,228,move,3,Close Combat,89.4%,,,,,,,,
-Barbaracle,228,move,4,Shell Smash,61.3%,,,,,,,,
-Barbaracle,228,move,5,Assurance,17.5%,,,,,,,,
-Barbaracle,228,move,6,Liquidation,9.7%,,,,,,,,
-Barbaracle,228,move,7,Stone Edge,7.8%,,,,,,,,
-Barbaracle,228,move,8,Brick Break,6.9%,,,,,,,,
-Barbaracle,228,move,9,Rock Polish,4.1%,,,,,,,,
-Barbaracle,228,move,10,Night Slash,3.2%,,,,,,,,
-Barbaracle,228,held_item,1,Barbaracite,91.7%,,,,,,,,
-Barbaracle,228,held_item,2,Scope Lens,5.1%,,,,,,,,
-Barbaracle,228,held_item,3,White Herb,2.3%,,,,,,,,
-Barbaracle,228,held_item,4,Rindo Berry,0.9%,,,,,,,,
-Barbaracle,228,teammate,1,Farigiraf,,,,,,,,,
-Barbaracle,228,teammate,2,Indeedee-F,,,,,,,,,
-Barbaracle,228,teammate,3,Beedrill,,,,,,,,,
-Barbaracle,228,teammate,4,Rotom-Heat,,,,,,,,,
-Barbaracle,228,teammate,5,Krookodile,,,,,,,,,
-Barbaracle,228,teammate,6,Vanilluxe,,,,,,,,,
-Barbaracle,228,teammate,7,Armarouge,,,,,,,,,
-Barbaracle,228,teammate,8,Incineroar,,,,,,,,,
-Barbaracle,228,teammate,9,Sinistcha,,,,,,,,,
-Barbaracle,228,teammate,10,Volcarona,,,,,,,,,
-Barbaracle,228,stat_alignment,1,Adamant,67.3%,Attack,Sp. Atk,,,,,,
-Barbaracle,228,stat_alignment,2,Jolly,20.7%,Speed,Sp. Atk,,,,,,
-Barbaracle,228,stat_alignment,3,Brave,9.2%,Attack,Speed,,,,,,
-Barbaracle,228,stat_alignment,4,Careful,2.3%,Sp. Def,Sp. Atk,,,,,,
-Barbaracle,228,stat_alignment,5,Impish,0.5%,Defense,Sp. Atk,,,,,,
-Barbaracle,228,stat_points,1,,42.9%,,,2,32,0,0,0,32
-Barbaracle,228,stat_points,2,,6.9%,,,24,21,4,0,5,12
-Barbaracle,228,stat_points,3,,6.5%,,,22,25,0,0,3,16
-Barbaracle,228,stat_points,4,,6.0%,,,32,32,0,0,2,0
-Barbaracle,228,stat_points,5,,5.5%,,,27,32,0,0,0,7
-Barbaracle,228,stat_points,6,,4.1%,,,0,32,0,0,0,32
-Barbaracle,228,stat_points,7,,3.7%,,,32,25,0,0,9,0
-Barbaracle,228,stat_points,8,,3.7%,,,32,32,0,0,0,2
-Barbaracle,228,stat_points,9,,3.2%,,,23,15,0,0,10,18
-Barbaracle,228,stat_points,10,,2.8%,,,0,32,15,0,19,0
-Barbaracle,228,ability,1,Tough Claws,88.0%,,,,,,,,
-Barbaracle,228,ability,2,Sniper,9.7%,,,,,,,,
-Barbaracle,228,ability,3,Pickpocket,2.3%,,,,,,,,
+Barbaracle,229,move,1,Rock Slide,89.5%,,,,,,,,
+Barbaracle,229,move,2,Protect,88.2%,,,,,,,,
+Barbaracle,229,move,3,Close Combat,77.4%,,,,,,,,
+Barbaracle,229,move,4,Shell Smash,57.7%,,,,,,,,
+Barbaracle,229,move,5,Liquidation,18.5%,,,,,,,,
+Barbaracle,229,move,6,Stone Edge,10.5%,,,,,,,,
+Barbaracle,229,move,7,Cross Chop,10.0%,,,,,,,,
+Barbaracle,229,move,8,Assurance,10.0%,,,,,,,,
+Barbaracle,229,move,9,Night Slash,9.0%,,,,,,,,
+Barbaracle,229,move,10,Brick Break,7.9%,,,,,,,,
+Barbaracle,229,held_item,1,Barbaracite,81.0%,,,,,,,,
+Barbaracle,229,held_item,2,Scope Lens,8.5%,,,,,,,,
+Barbaracle,229,held_item,3,White Herb,5.6%,,,,,,,,
+Barbaracle,229,held_item,4,Leftovers,2.6%,,,,,,,,
+Barbaracle,229,held_item,5,Life Orb,1.8%,,,,,,,,
+Barbaracle,229,held_item,6,Rindo Berry,0.5%,,,,,,,,
+Barbaracle,229,teammate,1,Indeedee-F,,,,,,,,,
+Barbaracle,229,teammate,2,Farigiraf,,,,,,,,,
+Barbaracle,229,teammate,3,Armarouge,,,,,,,,,
+Barbaracle,229,teammate,4,Incineroar,,,,,,,,,
+Barbaracle,229,teammate,5,Rotom-Heat,,,,,,,,,
+Barbaracle,229,teammate,6,Vanilluxe,,,,,,,,,
+Barbaracle,229,teammate,7,Beedrill,,,,,,,,,
+Barbaracle,229,teammate,8,Krookodile,,,,,,,,,
+Barbaracle,229,teammate,9,Rillaboom,,,,,,,,,
+Barbaracle,229,teammate,10,Volcarona,,,,,,,,,
+Barbaracle,229,stat_alignment,1,Adamant,58.7%,Attack,Sp. Atk,,,,,,
+Barbaracle,229,stat_alignment,2,Jolly,20.0%,Speed,Sp. Atk,,,,,,
+Barbaracle,229,stat_alignment,3,Brave,16.2%,Attack,Speed,,,,,,
+Barbaracle,229,stat_alignment,4,Careful,4.1%,Sp. Def,Sp. Atk,,,,,,
+Barbaracle,229,stat_alignment,5,Naughty,0.8%,Attack,Sp. Def,,,,,,
+Barbaracle,229,stat_alignment,6,Impish,0.3%,Defense,Sp. Atk,,,,,,
+Barbaracle,229,stat_points,1,,27.9%,,,2,32,0,0,0,32
+Barbaracle,229,stat_points,2,,10.8%,,,32,32,0,0,2,0
+Barbaracle,229,stat_points,3,,6.7%,,,32,2,0,0,0,32
+Barbaracle,229,stat_points,4,,3.8%,,,24,21,4,0,5,12
+Barbaracle,229,stat_points,5,,3.8%,,,27,32,0,0,0,7
+Barbaracle,229,stat_points,6,,3.6%,,,22,25,0,0,3,16
+Barbaracle,229,stat_points,7,,3.3%,,,0,32,0,0,2,32
+Barbaracle,229,stat_points,8,,2.6%,,,0,32,14,0,20,0
+Barbaracle,229,stat_points,9,,2.3%,,,0,32,0,0,0,32
+Barbaracle,229,stat_points,10,,2.1%,,,25,32,0,0,9,0
+Barbaracle,229,ability,1,Tough Claws,82.3%,,,,,,,,
+Barbaracle,229,ability,2,Sniper,16.4%,,,,,,,,
+Barbaracle,229,ability,3,Pickpocket,1.3%,,,,,,,,

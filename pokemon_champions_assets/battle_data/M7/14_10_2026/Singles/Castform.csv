@@ -1,0 +1,51 @@
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Castform,255,move,1,Thief,45.0%,,,,,,,,
+Castform,255,move,2,Body Slam,44.8%,,,,,,,,
+Castform,255,move,3,Facade,44.4%,,,,,,,,
+Castform,255,move,4,Avalanche,44.4%,,,,,,,,
+Castform,255,move,5,Weather Ball,44.0%,,,,,,,,
+Castform,255,move,6,Thunderbolt,23.6%,,,,,,,,
+Castform,255,move,7,Sunny Day,19.0%,,,,,,,,
+Castform,255,move,8,Solar Beam,17.4%,,,,,,,,
+Castform,255,move,9,Ice Beam,16.1%,,,,,,,,
+Castform,255,move,10,Blizzard,14.5%,,,,,,,,
+Castform,255,held_item,1,Meganiumite,44.4%,,,,,,,,
+Castform,255,held_item,2,Focus Sash,17.6%,,,,,,,,
+Castform,255,held_item,3,Choice Scarf,11.0%,,,,,,,,
+Castform,255,held_item,4,Rocky Helmet,9.5%,,,,,,,,
+Castform,255,held_item,5,Life Orb,6.8%,,,,,,,,
+Castform,255,held_item,6,Sitrus Berry,2.1%,,,,,,,,
+Castform,255,held_item,7,Quick Claw,2.1%,,,,,,,,
+Castform,255,held_item,8,Chesto Berry,0.6%,,,,,,,,
+Castform,255,held_item,9,Focus Band,0.4%,,,,,,,,
+Castform,255,held_item,10,Leftovers,0.4%,,,,,,,,
+Castform,255,teammate,1,Basculegion,,,,,,,,,
+Castform,255,teammate,2,Decidueye-Hisui,,,,,,,,,
+Castform,255,teammate,3,Archaludon,,,,,,,,,
+Castform,255,teammate,4,Persian,,,,,,,,,
+Castform,255,teammate,5,Watchog,,,,,,,,,
+Castform,255,teammate,6,Froslass,,,,,,,,,
+Castform,255,teammate,7,Torkoal,,,,,,,,,
+Castform,255,teammate,8,Rillaboom,,,,,,,,,
+Castform,255,teammate,9,Salamence,,,,,,,,,
+Castform,255,teammate,10,Wigglytuff,,,,,,,,,
+Castform,255,stat_alignment,1,Serious,44.6%,,,,,,,,
+Castform,255,stat_alignment,2,Modest,19.4%,Sp. Atk,Attack,,,,,,
+Castform,255,stat_alignment,3,Timid,19.0%,Speed,Attack,,,,,,
+Castform,255,stat_alignment,4,Bold,12.2%,Defense,Attack,,,,,,
+Castform,255,stat_alignment,5,Calm,2.3%,Sp. Def,Attack,,,,,,
+Castform,255,stat_alignment,6,Quiet,1.2%,Sp. Atk,Speed,,,,,,
+Castform,255,stat_alignment,7,Hasty,0.6%,Speed,Defense,,,,,,
+Castform,255,stat_alignment,8,Impish,0.4%,Defense,Sp. Atk,,,,,,
+Castform,255,stat_alignment,9,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Castform,255,stat_points,1,,44.4%,,,1,2,3,4,5,6
+Castform,255,stat_points,2,,25.8%,,,2,0,0,32,0,32
+Castform,255,stat_points,3,,9.5%,,,30,0,30,4,2,0
+Castform,255,stat_points,4,,4.1%,,,30,0,0,32,0,4
+Castform,255,stat_points,5,,3.7%,,,0,0,1,32,1,32
+Castform,255,stat_points,6,,2.5%,,,0,0,32,32,0,2
+Castform,255,stat_points,7,,2.3%,,,32,0,0,32,0,2
+Castform,255,stat_points,8,,2.1%,,,0,0,0,32,32,0
+Castform,255,stat_points,9,,0.8%,,,0,0,0,32,2,32
+Castform,255,stat_points,10,,0.6%,,,0,0,2,32,32,0
+Castform,255,ability,1,Forecast,100.0%,,,,,,,,

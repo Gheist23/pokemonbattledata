@@ -1,51 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Houndoom,126,move,1,Protect,95.3%,,,,,,,,
-Houndoom,126,move,2,Heat Wave,93.4%,,,,,,,,
-Houndoom,126,move,3,Dark Pulse,86.3%,,,,,,,,
-Houndoom,126,move,4,Overheat,26.6%,,,,,,,,
-Houndoom,126,move,5,Snarl,20.4%,,,,,,,,
-Houndoom,126,move,6,Solar Beam,17.6%,,,,,,,,
-Houndoom,126,move,7,Scorching Sands,13.0%,,,,,,,,
-Houndoom,126,move,8,Nasty Plot,11.8%,,,,,,,,
-Houndoom,126,move,9,Sludge Bomb,9.7%,,,,,,,,
-Houndoom,126,move,10,Destiny Bond,9.3%,,,,,,,,
-Houndoom,126,held_item,1,Houndoominite,82.2%,,,,,,,,
-Houndoom,126,held_item,2,Focus Sash,10.4%,,,,,,,,
-Houndoom,126,held_item,3,Expert Belt,3.2%,,,,,,,,
-Houndoom,126,held_item,4,Life Orb,2.3%,,,,,,,,
-Houndoom,126,held_item,5,Charcoal,0.7%,,,,,,,,
-Houndoom,126,held_item,6,Wise Glasses,0.6%,,,,,,,,
-Houndoom,126,held_item,7,Black Glasses,0.5%,,,,,,,,
-Houndoom,126,held_item,8,Iron Ball,0.1%,,,,,,,,
-Houndoom,126,held_item,9,Wide Lens,0.0%,,,,,,,,
-Houndoom,126,teammate,1,Whimsicott,,,,,,,,,
-Houndoom,126,teammate,2,Torkoal,,,,,,,,,
-Houndoom,126,teammate,3,Venusaur,,,,,,,,,
-Houndoom,126,teammate,4,Indeedee-F,,,,,,,,,
-Houndoom,126,teammate,5,Annihilape,,,,,,,,,
-Houndoom,126,teammate,6,Sneasler,,,,,,,,,
-Houndoom,126,teammate,7,Ninetales,,,,,,,,,
-Houndoom,126,teammate,8,Farigiraf,,,,,,,,,
-Houndoom,126,teammate,9,Garchomp,,,,,,,,,
-Houndoom,126,teammate,10,Dragapult,,,,,,,,,
-Houndoom,126,stat_alignment,1,Timid,73.6%,Speed,Attack,,,,,,
-Houndoom,126,stat_alignment,2,Modest,20.0%,Sp. Atk,Attack,,,,,,
-Houndoom,126,stat_alignment,3,Hasty,3.5%,Speed,Defense,,,,,,
-Houndoom,126,stat_alignment,4,Quiet,0.9%,Sp. Atk,Speed,,,,,,
-Houndoom,126,stat_alignment,5,Naive,0.8%,Speed,Sp. Def,,,,,,
-Houndoom,126,stat_alignment,6,Calm,0.6%,Sp. Def,Attack,,,,,,
-Houndoom,126,stat_alignment,7,Bold,0.3%,Defense,Attack,,,,,,
-Houndoom,126,stat_alignment,8,Jolly,0.2%,Speed,Sp. Atk,,,,,,
-Houndoom,126,stat_points,1,,35.2%,,,2,0,0,32,0,32
-Houndoom,126,stat_points,2,,10.9%,,,1,0,1,32,0,32
-Houndoom,126,stat_points,3,,9.6%,,,0,0,2,32,0,32
-Houndoom,126,stat_points,4,,7.1%,,,0,0,0,32,2,32
-Houndoom,126,stat_points,5,,4.2%,,,1,0,0,30,7,28
-Houndoom,126,stat_points,6,,3.6%,,,1,1,0,32,0,32
-Houndoom,126,stat_points,7,,3.2%,,,32,0,0,32,0,2
-Houndoom,126,stat_points,8,,2.7%,,,0,2,0,32,0,32
-Houndoom,126,stat_points,9,,2.6%,,,0,0,32,32,2,0
-Houndoom,126,stat_points,10,,2.5%,,,0,0,0,32,0,32
-Houndoom,126,ability,1,Flash Fire,92.5%,,,,,,,,
-Houndoom,126,ability,2,Unnerve,5.3%,,,,,,,,
-Houndoom,126,ability,3,Early Bird,2.2%,,,,,,,,
+Houndoom,124,move,1,Protect,95.0%,,,,,,,,
+Houndoom,124,move,2,Heat Wave,93.9%,,,,,,,,
+Houndoom,124,move,3,Dark Pulse,86.0%,,,,,,,,
+Houndoom,124,move,4,Overheat,24.0%,,,,,,,,
+Houndoom,124,move,5,Snarl,20.5%,,,,,,,,
+Houndoom,124,move,6,Solar Beam,17.7%,,,,,,,,
+Houndoom,124,move,7,Scorching Sands,14.2%,,,,,,,,
+Houndoom,124,move,8,Nasty Plot,11.9%,,,,,,,,
+Houndoom,124,move,9,Sludge Bomb,10.8%,,,,,,,,
+Houndoom,124,move,10,Destiny Bond,9.0%,,,,,,,,
+Houndoom,124,held_item,1,Houndoominite,83.3%,,,,,,,,
+Houndoom,124,held_item,2,Focus Sash,9.2%,,,,,,,,
+Houndoom,124,held_item,3,Expert Belt,3.3%,,,,,,,,
+Houndoom,124,held_item,4,Life Orb,2.1%,,,,,,,,
+Houndoom,124,held_item,5,Charcoal,0.6%,,,,,,,,
+Houndoom,124,held_item,6,Black Glasses,0.4%,,,,,,,,
+Houndoom,124,held_item,7,Wise Glasses,0.4%,,,,,,,,
+Houndoom,124,held_item,8,Choice Scarf,0.4%,,,,,,,,
+Houndoom,124,held_item,9,Iron Ball,0.1%,,,,,,,,
+Houndoom,124,held_item,10,Sitrus Berry,0.0%,,,,,,,,
+Houndoom,124,teammate,1,Whimsicott,,,,,,,,,
+Houndoom,124,teammate,2,Torkoal,,,,,,,,,
+Houndoom,124,teammate,3,Venusaur,,,,,,,,,
+Houndoom,124,teammate,4,Indeedee-F,,,,,,,,,
+Houndoom,124,teammate,5,Sneasler,,,,,,,,,
+Houndoom,124,teammate,6,Ninetales,,,,,,,,,
+Houndoom,124,teammate,7,Annihilape,,,,,,,,,
+Houndoom,124,teammate,8,Farigiraf,,,,,,,,,
+Houndoom,124,teammate,9,Garchomp,,,,,,,,,
+Houndoom,124,teammate,10,Rillaboom,,,,,,,,,
+Houndoom,124,stat_alignment,1,Timid,73.1%,Speed,Attack,,,,,,
+Houndoom,124,stat_alignment,2,Modest,21.3%,Sp. Atk,Attack,,,,,,
+Houndoom,124,stat_alignment,3,Hasty,3.3%,Speed,Defense,,,,,,
+Houndoom,124,stat_alignment,4,Naive,0.8%,Speed,Sp. Def,,,,,,
+Houndoom,124,stat_alignment,5,Quiet,0.7%,Sp. Atk,Speed,,,,,,
+Houndoom,124,stat_alignment,6,Calm,0.5%,Sp. Def,Attack,,,,,,
+Houndoom,124,stat_alignment,7,Bold,0.2%,Defense,Attack,,,,,,
+Houndoom,124,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Houndoom,124,stat_alignment,9,Relaxed,0.0%,Defense,Speed,,,,,,
+Houndoom,124,stat_points,1,,36.5%,,,2,0,0,32,0,32
+Houndoom,124,stat_points,2,,10.8%,,,1,0,1,32,0,32
+Houndoom,124,stat_points,3,,10.4%,,,0,0,2,32,0,32
+Houndoom,124,stat_points,4,,7.5%,,,0,0,0,32,2,32
+Houndoom,124,stat_points,5,,3.3%,,,1,0,0,30,7,28
+Houndoom,124,stat_points,6,,3.1%,,,1,1,0,32,0,32
+Houndoom,124,stat_points,7,,3.1%,,,32,0,0,32,0,2
+Houndoom,124,stat_points,8,,2.7%,,,0,0,32,32,2,0
+Houndoom,124,stat_points,9,,2.3%,,,0,0,0,32,0,32
+Houndoom,124,stat_points,10,,2.3%,,,0,2,0,32,0,32
+Houndoom,124,ability,1,Flash Fire,92.1%,,,,,,,,
+Houndoom,124,ability,2,Unnerve,6.2%,,,,,,,,
+Houndoom,124,ability,3,Early Bird,1.7%,,,,,,,,

@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gengar,22,move,1,Shadow Ball,83.0%,,,,,,,,
-Gengar,22,move,2,Sludge Wave,74.6%,,,,,,,,
-Gengar,22,move,3,Icy Wind,64.3%,,,,,,,,
-Gengar,22,move,4,Destiny Bond,35.4%,,,,,,,,
-Gengar,22,move,5,Protect,25.4%,,,,,,,,
-Gengar,22,move,6,Nasty Plot,16.7%,,,,,,,,
+Gengar,22,move,1,Shadow Ball,82.9%,,,,,,,,
+Gengar,22,move,2,Sludge Wave,74.0%,,,,,,,,
+Gengar,22,move,3,Icy Wind,63.6%,,,,,,,,
+Gengar,22,move,4,Destiny Bond,36.5%,,,,,,,,
+Gengar,22,move,5,Protect,25.6%,,,,,,,,
+Gengar,22,move,6,Nasty Plot,16.4%,,,,,,,,
 Gengar,22,move,7,Hex,15.0%,,,,,,,,
-Gengar,22,move,8,Perish Song,12.6%,,,,,,,,
+Gengar,22,move,8,Perish Song,13.1%,,,,,,,,
 Gengar,22,move,9,Toxic Spikes,10.0%,,,,,,,,
-Gengar,22,move,10,Sludge Bomb,8.9%,,,,,,,,
-Gengar,22,held_item,1,Gengarite,70.4%,,,,,,,,
-Gengar,22,held_item,2,Focus Sash,27.0%,,,,,,,,
+Gengar,22,move,10,Sludge Bomb,9.0%,,,,,,,,
+Gengar,22,held_item,1,Gengarite,70.2%,,,,,,,,
+Gengar,22,held_item,2,Focus Sash,27.1%,,,,,,,,
 Gengar,22,held_item,3,Choice Scarf,1.0%,,,,,,,,
-Gengar,22,held_item,4,Life Orb,0.3%,,,,,,,,
-Gengar,22,held_item,5,Air Balloon,0.3%,,,,,,,,
+Gengar,22,held_item,4,Air Balloon,0.3%,,,,,,,,
+Gengar,22,held_item,5,Life Orb,0.3%,,,,,,,,
 Gengar,22,held_item,6,Wide Lens,0.1%,,,,,,,,
 Gengar,22,held_item,7,Leftovers,0.1%,,,,,,,,
 Gengar,22,held_item,8,Wise Glasses,0.0%,,,,,,,,
 Gengar,22,held_item,9,Focus Band,0.0%,,,,,,,,
-Gengar,22,held_item,10,Sitrus Berry,0.0%,,,,,,,,
+Gengar,22,held_item,10,Expert Belt,0.0%,,,,,,,,
 Gengar,22,teammate,1,Garchomp,,,,,,,,,
 Gengar,22,teammate,2,Primarina,,,,,,,,,
 Gengar,22,teammate,3,Corviknight,,,,,,,,,
@@ -28,8 +28,8 @@ Gengar,22,teammate,6,Archaludon,,,,,,,,,
 Gengar,22,teammate,7,Gyarados,,,,,,,,,
 Gengar,22,teammate,8,Golisopod,,,,,,,,,
 Gengar,22,teammate,9,Hippowdon,,,,,,,,,
-Gengar,22,teammate,10,Raichu,,,,,,,,,
-Gengar,22,stat_alignment,1,Timid,89.3%,Speed,Attack,,,,,,
+Gengar,22,teammate,10,Salamence,,,,,,,,,
+Gengar,22,stat_alignment,1,Timid,89.4%,Speed,Attack,,,,,,
 Gengar,22,stat_alignment,2,Modest,9.1%,Sp. Atk,Attack,,,,,,
 Gengar,22,stat_alignment,3,Hasty,0.5%,Speed,Defense,,,,,,
 Gengar,22,stat_alignment,4,Naive,0.3%,Speed,Sp. Def,,,,,,
@@ -38,15 +38,15 @@ Gengar,22,stat_alignment,6,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Gengar,22,stat_alignment,7,Jolly,0.1%,Speed,Sp. Atk,,,,,,
 Gengar,22,stat_alignment,8,Calm,0.1%,Sp. Def,Attack,,,,,,
 Gengar,22,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
-Gengar,22,stat_alignment,10,Quiet,0.0%,Sp. Atk,Speed,,,,,,
-Gengar,22,stat_points,1,,39.6%,,,2,0,0,32,0,32
-Gengar,22,stat_points,2,,6.4%,,,14,0,0,20,0,32
-Gengar,22,stat_points,3,,5.9%,,,0,0,2,32,0,32
+Gengar,22,stat_alignment,10,Adamant,0.0%,Attack,Sp. Atk,,,,,,
+Gengar,22,stat_points,1,,39.7%,,,2,0,0,32,0,32
+Gengar,22,stat_points,2,,6.2%,,,14,0,0,20,0,32
+Gengar,22,stat_points,3,,5.7%,,,0,0,2,32,0,32
 Gengar,22,stat_points,4,,5.6%,,,10,0,0,24,0,32
 Gengar,22,stat_points,5,,5.3%,,,1,0,1,32,0,32
 Gengar,22,stat_points,6,,3.4%,,,24,0,0,10,0,32
-Gengar,22,stat_points,7,,2.6%,,,0,0,0,32,2,32
-Gengar,22,stat_points,8,,2.4%,,,16,0,2,16,0,32
-Gengar,22,stat_points,9,,2.2%,,,12,0,0,22,0,32
-Gengar,22,stat_points,10,,2.0%,,,29,0,0,5,0,32
+Gengar,22,stat_points,7,,2.7%,,,0,0,0,32,2,32
+Gengar,22,stat_points,8,,2.4%,,,29,0,0,5,0,32
+Gengar,22,stat_points,9,,2.3%,,,16,0,2,16,0,32
+Gengar,22,stat_points,10,,2.1%,,,12,0,0,22,0,32
 Gengar,22,ability,1,Cursed Body,100.0%,,,,,,,,

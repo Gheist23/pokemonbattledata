@@ -1,48 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Polteageist,221,move,1,Shell Smash,80.8%,,,,,,,,
-Polteageist,221,move,2,Shadow Ball,79.1%,,,,,,,,
-Polteageist,221,move,3,Baton Pass,62.5%,,,,,,,,
-Polteageist,221,move,4,Stored Power,55.3%,,,,,,,,
-Polteageist,221,move,5,Strength Sap,45.3%,,,,,,,,
-Polteageist,221,move,6,Dark Pulse,13.3%,,,,,,,,
-Polteageist,221,move,7,Giga Drain,12.2%,,,,,,,,
-Polteageist,221,move,8,Protect,10.0%,,,,,,,,
-Polteageist,221,move,9,Trick Room,9.4%,,,,,,,,
-Polteageist,221,move,10,Calm Mind,6.8%,,,,,,,,
-Polteageist,221,held_item,1,White Herb,50.8%,,,,,,,,
-Polteageist,221,held_item,2,Focus Sash,33.6%,,,,,,,,
-Polteageist,221,held_item,3,Spell Tag,6.5%,,,,,,,,
-Polteageist,221,held_item,4,Sitrus Berry,3.7%,,,,,,,,
-Polteageist,221,held_item,5,Grassy Seed,2.8%,,,,,,,,
-Polteageist,221,held_item,6,Psychic Seed,1.5%,,,,,,,,
-Polteageist,221,held_item,7,Mental Herb,0.4%,,,,,,,,
-Polteageist,221,held_item,8,Life Orb,0.4%,,,,,,,,
-Polteageist,221,held_item,9,Eject Button,0.2%,,,,,,,,
-Polteageist,221,teammate,1,Indeedee-F,,,,,,,,,
-Polteageist,221,teammate,2,Garchomp,,,,,,,,,
-Polteageist,221,teammate,3,Incineroar,,,,,,,,,
-Polteageist,221,teammate,4,Floette-Eternal,,,,,,,,,
-Polteageist,221,teammate,5,Charizard,,,,,,,,,
-Polteageist,221,teammate,6,Gardevoir,,,,,,,,,
-Polteageist,221,teammate,7,Typhlosion-Hisui,,,,,,,,,
-Polteageist,221,teammate,8,Sinistcha,,,,,,,,,
-Polteageist,221,teammate,9,Rillaboom,,,,,,,,,
-Polteageist,221,teammate,10,Salamence,,,,,,,,,
-Polteageist,221,stat_alignment,1,Bold,39.7%,Defense,Attack,,,,,,
-Polteageist,221,stat_alignment,2,Modest,25.9%,Sp. Atk,Attack,,,,,,
-Polteageist,221,stat_alignment,3,Timid,23.7%,Speed,Attack,,,,,,
-Polteageist,221,stat_alignment,4,Calm,5.9%,Sp. Def,Attack,,,,,,
-Polteageist,221,stat_alignment,5,Sassy,4.1%,Sp. Def,Speed,,,,,,
-Polteageist,221,stat_alignment,6,Mild,0.7%,Sp. Atk,Defense,,,,,,
-Polteageist,221,stat_points,1,,15.5%,,,2,0,0,32,0,32
-Polteageist,221,stat_points,2,,10.9%,,,32,0,32,0,2,0
-Polteageist,221,stat_points,3,,10.0%,,,2,0,32,0,0,32
-Polteageist,221,stat_points,4,,8.7%,,,0,0,0,32,2,32
-Polteageist,221,stat_points,5,,6.5%,,,6,0,2,32,26,0
-Polteageist,221,stat_points,6,,5.4%,,,0,0,0,32,0,32
-Polteageist,221,stat_points,7,,5.0%,,,32,0,2,32,0,0
-Polteageist,221,stat_points,8,,5.0%,,,0,0,0,32,32,2
-Polteageist,221,stat_points,9,,4.1%,,,0,0,1,32,1,32
-Polteageist,221,stat_points,10,,3.9%,,,32,0,0,2,0,32
-Polteageist,221,ability,1,Weak Armor,53.2%,,,,,,,,
-Polteageist,221,ability,2,Cursed Body,46.8%,,,,,,,,
+Polteageist,214,move,1,Shadow Ball,81.8%,,,,,,,,
+Polteageist,214,move,2,Shell Smash,81.4%,,,,,,,,
+Polteageist,214,move,3,Baton Pass,61.2%,,,,,,,,
+Polteageist,214,move,4,Stored Power,47.3%,,,,,,,,
+Polteageist,214,move,5,Strength Sap,40.7%,,,,,,,,
+Polteageist,214,move,6,Dark Pulse,21.2%,,,,,,,,
+Polteageist,214,move,7,Giga Drain,15.8%,,,,,,,,
+Polteageist,214,move,8,Protect,10.1%,,,,,,,,
+Polteageist,214,move,9,Trick Room,7.9%,,,,,,,,
+Polteageist,214,move,10,Trick,5.9%,,,,,,,,
+Polteageist,214,held_item,1,White Herb,41.5%,,,,,,,,
+Polteageist,214,held_item,2,Focus Sash,39.3%,,,,,,,,
+Polteageist,214,held_item,3,Choice Scarf,5.9%,,,,,,,,
+Polteageist,214,held_item,4,Spell Tag,3.8%,,,,,,,,
+Polteageist,214,held_item,5,Psychic Seed,3.4%,,,,,,,,
+Polteageist,214,held_item,6,Sitrus Berry,2.5%,,,,,,,,
+Polteageist,214,held_item,7,Grassy Seed,1.8%,,,,,,,,
+Polteageist,214,held_item,8,Payapa Berry,1.0%,,,,,,,,
+Polteageist,214,held_item,9,Mental Herb,0.3%,,,,,,,,
+Polteageist,214,held_item,10,Life Orb,0.3%,,,,,,,,
+Polteageist,214,teammate,1,Floette-Eternal,,,,,,,,,
+Polteageist,214,teammate,2,Indeedee-F,,,,,,,,,
+Polteageist,214,teammate,3,Typhlosion-Hisui,,,,,,,,,
+Polteageist,214,teammate,4,Salamence,,,,,,,,,
+Polteageist,214,teammate,5,Sinistcha,,,,,,,,,
+Polteageist,214,teammate,6,Charizard,,,,,,,,,
+Polteageist,214,teammate,7,Garchomp,,,,,,,,,
+Polteageist,214,teammate,8,Corviknight,,,,,,,,,
+Polteageist,214,teammate,9,Hippowdon,,,,,,,,,
+Polteageist,214,teammate,10,Incineroar,,,,,,,,,
+Polteageist,214,stat_alignment,1,Bold,33.0%,Defense,Attack,,,,,,
+Polteageist,214,stat_alignment,2,Timid,32.7%,Speed,Attack,,,,,,
+Polteageist,214,stat_alignment,3,Modest,23.8%,Sp. Atk,Attack,,,,,,
+Polteageist,214,stat_alignment,4,Calm,6.0%,Sp. Def,Attack,,,,,,
+Polteageist,214,stat_alignment,5,Sassy,2.7%,Sp. Def,Speed,,,,,,
+Polteageist,214,stat_alignment,6,Mild,1.8%,Sp. Atk,Defense,,,,,,
+Polteageist,214,stat_alignment,7,Relaxed,0.1%,Defense,Speed,,,,,,
+Polteageist,214,stat_points,1,,26.6%,,,2,0,0,32,0,32
+Polteageist,214,stat_points,2,,7.9%,,,0,0,0,32,2,32
+Polteageist,214,stat_points,3,,6.5%,,,32,0,32,0,2,0
+Polteageist,214,stat_points,4,,5.9%,,,2,0,32,0,0,32
+Polteageist,214,stat_points,5,,5.3%,,,2,0,32,17,0,15
+Polteageist,214,stat_points,6,,4.6%,,,0,0,32,12,0,22
+Polteageist,214,stat_points,7,,4.1%,,,0,0,0,32,0,32
+Polteageist,214,stat_points,8,,3.9%,,,32,0,2,32,0,0
+Polteageist,214,stat_points,9,,3.8%,,,6,0,2,32,26,0
+Polteageist,214,stat_points,10,,3.8%,,,0,0,0,32,32,2
+Polteageist,214,ability,1,Weak Armor,51.8%,,,,,,,,
+Polteageist,214,ability,2,Cursed Body,48.2%,,,,,,,,

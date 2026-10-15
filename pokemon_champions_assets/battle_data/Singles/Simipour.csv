@@ -1,52 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simipour,251,move,1,Ice Beam,75.5%,,,,,,,,
-Simipour,251,move,2,Focus Blast,61.8%,,,,,,,,
-Simipour,251,move,3,Hydro Pump,48.0%,,,,,,,,
-Simipour,251,move,4,Grass Knot,41.5%,,,,,,,,
-Simipour,251,move,5,Fake Out,25.5%,,,,,,,,
-Simipour,251,move,6,Surf,24.7%,,,,,,,,
-Simipour,251,move,7,Flip Turn,21.7%,,,,,,,,
-Simipour,251,move,8,Scald,21.3%,,,,,,,,
-Simipour,251,move,9,Taunt,9.6%,,,,,,,,
-Simipour,251,move,10,Belch,9.3%,,,,,,,,
-Simipour,251,held_item,1,Choice Scarf,32.5%,,,,,,,,
-Simipour,251,held_item,2,Focus Sash,32.1%,,,,,,,,
-Simipour,251,held_item,3,Sitrus Berry,9.3%,,,,,,,,
-Simipour,251,held_item,4,Lum Berry,7.5%,,,,,,,,
-Simipour,251,held_item,5,Expert Belt,7.5%,,,,,,,,
-Simipour,251,held_item,6,Life Orb,7.0%,,,,,,,,
-Simipour,251,held_item,7,Mystic Water,3.1%,,,,,,,,
-Simipour,251,held_item,8,Damp Rock,0.5%,,,,,,,,
-Simipour,251,held_item,9,Rindo Berry,0.3%,,,,,,,,
-Simipour,251,held_item,10,Wide Lens,0.3%,,,,,,,,
-Simipour,251,teammate,1,Simisear,,,,,,,,,
-Simipour,251,teammate,2,Furfrou,,,,,,,,,
-Simipour,251,teammate,3,Wyrdeer,,,,,,,,,
-Simipour,251,teammate,4,Maushold-Four,,,,,,,,,
-Simipour,251,teammate,5,Scolipede,,,,,,,,,
-Simipour,251,teammate,6,Simisage,,,,,,,,,
-Simipour,251,teammate,7,Gholdengo,,,,,,,,,
-Simipour,251,teammate,8,Stunfisk-Galar,,,,,,,,,
-Simipour,251,teammate,9,Rillaboom,,,,,,,,,
-Simipour,251,teammate,10,Mimikyu,,,,,,,,,
-Simipour,251,stat_alignment,1,Timid,44.7%,Speed,Attack,,,,,,
-Simipour,251,stat_alignment,2,Modest,42.4%,Sp. Atk,Attack,,,,,,
-Simipour,251,stat_alignment,3,Mild,5.7%,Sp. Atk,Defense,,,,,,
-Simipour,251,stat_alignment,4,Naive,2.5%,Speed,Sp. Def,,,,,,
-Simipour,251,stat_alignment,5,Rash,2.3%,Sp. Atk,Sp. Def,,,,,,
-Simipour,251,stat_alignment,6,Jolly,1.4%,Speed,Sp. Atk,,,,,,
-Simipour,251,stat_alignment,7,Adamant,0.5%,Attack,Sp. Atk,,,,,,
-Simipour,251,stat_alignment,8,Hasty,0.3%,Speed,Defense,,,,,,
-Simipour,251,stat_alignment,9,Bold,0.2%,Defense,Attack,,,,,,
-Simipour,251,stat_points,1,,34.3%,,,2,0,0,32,0,32
-Simipour,251,stat_points,2,,25.6%,,,1,0,1,32,0,32
-Simipour,251,stat_points,3,,10.7%,,,1,0,0,32,1,32
-Simipour,251,stat_points,4,,8.5%,,,5,0,0,32,0,29
-Simipour,251,stat_points,5,,6.2%,,,21,0,17,0,0,28
-Simipour,251,stat_points,6,,3.0%,,,32,0,0,32,2,0
-Simipour,251,stat_points,7,,1.9%,,,0,17,0,17,0,32
-Simipour,251,stat_points,8,,1.7%,,,0,0,2,32,0,32
-Simipour,251,stat_points,9,,1.4%,,,0,0,0,32,2,32
-Simipour,251,stat_points,10,,1.2%,,,0,2,0,32,0,32
-Simipour,251,ability,1,Torrent,93.5%,,,,,,,,
-Simipour,251,ability,2,Gluttony,6.5%,,,,,,,,
+Simipour,250,move,1,Ice Beam,80.3%,,,,,,,,
+Simipour,250,move,2,Focus Blast,56.4%,,,,,,,,
+Simipour,250,move,3,Hydro Pump,45.4%,,,,,,,,
+Simipour,250,move,4,Grass Knot,41.9%,,,,,,,,
+Simipour,250,move,5,Fake Out,27.6%,,,,,,,,
+Simipour,250,move,6,Scald,27.1%,,,,,,,,
+Simipour,250,move,7,Flip Turn,24.0%,,,,,,,,
+Simipour,250,move,8,Surf,23.6%,,,,,,,,
+Simipour,250,move,9,Nasty Plot,10.4%,,,,,,,,
+Simipour,250,move,10,Belch,9.8%,,,,,,,,
+Simipour,250,held_item,1,Choice Scarf,38.0%,,,,,,,,
+Simipour,250,held_item,2,Focus Sash,27.6%,,,,,,,,
+Simipour,250,held_item,3,Sitrus Berry,9.6%,,,,,,,,
+Simipour,250,held_item,4,Expert Belt,6.0%,,,,,,,,
+Simipour,250,held_item,5,Lum Berry,5.3%,,,,,,,,
+Simipour,250,held_item,6,Life Orb,5.3%,,,,,,,,
+Simipour,250,held_item,7,Bright Powder,4.9%,,,,,,,,
+Simipour,250,held_item,8,Mystic Water,2.2%,,,,,,,,
+Simipour,250,held_item,9,Damp Rock,0.3%,,,,,,,,
+Simipour,250,held_item,10,Wacan Berry,0.2%,,,,,,,,
+Simipour,250,teammate,1,Simisear,,,,,,,,,
+Simipour,250,teammate,2,Furfrou,,,,,,,,,
+Simipour,250,teammate,3,Wyrdeer,,,,,,,,,
+Simipour,250,teammate,4,Scolipede,,,,,,,,,
+Simipour,250,teammate,5,Simisage,,,,,,,,,
+Simipour,250,teammate,6,Maushold-Four,,,,,,,,,
+Simipour,250,teammate,7,Rillaboom,,,,,,,,,
+Simipour,250,teammate,8,Mimikyu,,,,,,,,,
+Simipour,250,teammate,9,Infernape,,,,,,,,,
+Simipour,250,teammate,10,Stunfisk-Galar,,,,,,,,,
+Simipour,250,stat_alignment,1,Modest,45.0%,Sp. Atk,Attack,,,,,,
+Simipour,250,stat_alignment,2,Timid,41.0%,Speed,Attack,,,,,,
+Simipour,250,stat_alignment,3,Mild,6.9%,Sp. Atk,Defense,,,,,,
+Simipour,250,stat_alignment,4,Jolly,1.8%,Speed,Sp. Atk,,,,,,
+Simipour,250,stat_alignment,5,Naive,1.8%,Speed,Sp. Def,,,,,,
+Simipour,250,stat_alignment,6,Rash,1.7%,Sp. Atk,Sp. Def,,,,,,
+Simipour,250,stat_alignment,7,Hasty,1.3%,Speed,Defense,,,,,,
+Simipour,250,stat_alignment,8,Adamant,0.3%,Attack,Sp. Atk,,,,,,
+Simipour,250,stat_alignment,9,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Simipour,250,stat_alignment,10,Bold,0.1%,Defense,Attack,,,,,,
+Simipour,250,stat_points,1,,42.0%,,,2,0,0,32,0,32
+Simipour,250,stat_points,2,,20.4%,,,1,0,1,32,0,32
+Simipour,250,stat_points,3,,8.7%,,,1,0,0,32,1,32
+Simipour,250,stat_points,4,,6.1%,,,5,0,0,32,0,29
+Simipour,250,stat_points,5,,4.9%,,,32,0,1,32,1,0
+Simipour,250,stat_points,6,,4.4%,,,21,0,17,0,0,28
+Simipour,250,stat_points,7,,2.2%,,,0,0,2,32,0,32
+Simipour,250,stat_points,8,,2.1%,,,32,0,0,32,2,0
+Simipour,250,stat_points,9,,2.0%,,,0,2,0,32,0,32
+Simipour,250,stat_points,10,,1.3%,,,0,17,0,17,0,32
+Simipour,250,ability,1,Torrent,93.8%,,,,,,,,
+Simipour,250,ability,2,Gluttony,6.2%,,,,,,,,

@@ -1,48 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gourgeist,261,move,1,Poltergeist,63.1%,,,,,,,,
-Gourgeist,261,move,2,Will-O-Wisp,58.3%,,,,,,,,
-Gourgeist,261,move,3,Rock Slide,52.4%,,,,,,,,
-Gourgeist,261,move,4,Trick-or-Treat,45.2%,,,,,,,,
-Gourgeist,261,move,5,Trick Room,32.1%,,,,,,,,
-Gourgeist,261,move,6,Leech Seed,27.4%,,,,,,,,
-Gourgeist,261,move,7,Scary Face,26.2%,,,,,,,,
-Gourgeist,261,move,8,Seed Bomb,17.9%,,,,,,,,
-Gourgeist,261,move,9,Power Whip,15.5%,,,,,,,,
-Gourgeist,261,move,10,Protect,11.9%,,,,,,,,
-Gourgeist,261,held_item,1,Choice Scarf,40.5%,,,,,,,,
-Gourgeist,261,held_item,2,Life Orb,17.9%,,,,,,,,
-Gourgeist,261,held_item,3,Leftovers,14.3%,,,,,,,,
-Gourgeist,261,held_item,4,Sitrus Berry,13.1%,,,,,,,,
-Gourgeist,261,held_item,5,Normal Gem,6.0%,,,,,,,,
-Gourgeist,261,held_item,6,Psychic Seed,4.8%,,,,,,,,
-Gourgeist,261,held_item,7,Rocky Helmet,3.6%,,,,,,,,
+Gourgeist,261,move,1,Poltergeist,62.8%,,,,,,,,
+Gourgeist,261,move,2,Will-O-Wisp,52.1%,,,,,,,,
+Gourgeist,261,move,3,Rock Slide,51.1%,,,,,,,,
+Gourgeist,261,move,4,Trick-or-Treat,43.6%,,,,,,,,
+Gourgeist,261,move,5,Trick Room,35.1%,,,,,,,,
+Gourgeist,261,move,6,Leech Seed,24.5%,,,,,,,,
+Gourgeist,261,move,7,Scary Face,23.4%,,,,,,,,
+Gourgeist,261,move,8,Seed Bomb,19.1%,,,,,,,,
+Gourgeist,261,move,9,Protect,17.0%,,,,,,,,
+Gourgeist,261,move,10,Power Whip,13.8%,,,,,,,,
+Gourgeist,261,held_item,1,Choice Scarf,37.2%,,,,,,,,
+Gourgeist,261,held_item,2,Life Orb,19.1%,,,,,,,,
+Gourgeist,261,held_item,3,Leftovers,12.8%,,,,,,,,
+Gourgeist,261,held_item,4,Sitrus Berry,11.7%,,,,,,,,
+Gourgeist,261,held_item,5,Normal Gem,5.3%,,,,,,,,
+Gourgeist,261,held_item,6,Iron Ball,4.3%,,,,,,,,
+Gourgeist,261,held_item,7,Psychic Seed,4.3%,,,,,,,,
+Gourgeist,261,held_item,8,Rocky Helmet,3.2%,,,,,,,,
+Gourgeist,261,held_item,9,Focus Sash,2.1%,,,,,,,,
 Gourgeist,261,teammate,1,Gengar,,,,,,,,,
-Gourgeist,261,teammate,2,Garchomp,,,,,,,,,
-Gourgeist,261,teammate,3,Gardevoir,,,,,,,,,
+Gourgeist,261,teammate,2,Gardevoir,,,,,,,,,
+Gourgeist,261,teammate,3,Garchomp,,,,,,,,,
 Gourgeist,261,teammate,4,Staraptor,,,,,,,,,
 Gourgeist,261,teammate,5,Indeedee-F,,,,,,,,,
-Gourgeist,261,teammate,6,Metagross,,,,,,,,,
-Gourgeist,261,teammate,7,Scizor,,,,,,,,,
-Gourgeist,261,teammate,8,Goodra-Hisui,,,,,,,,,
-Gourgeist,261,teammate,9,Incineroar,,,,,,,,,
-Gourgeist,261,teammate,10,Slowking-Galar,,,,,,,,,
-Gourgeist,261,stat_alignment,1,Jolly,65.5%,Speed,Sp. Atk,,,,,,
-Gourgeist,261,stat_alignment,2,Naive,11.9%,Speed,Sp. Def,,,,,,
-Gourgeist,261,stat_alignment,3,Sassy,7.1%,Sp. Def,Speed,,,,,,
-Gourgeist,261,stat_alignment,4,Impish,6.0%,Defense,Sp. Atk,,,,,,
-Gourgeist,261,stat_alignment,5,Relaxed,4.8%,Defense,Speed,,,,,,
-Gourgeist,261,stat_alignment,6,Careful,3.6%,Sp. Def,Sp. Atk,,,,,,
-Gourgeist,261,stat_alignment,7,Brave,1.2%,Attack,Speed,,,,,,
-Gourgeist,261,stat_points,1,,35.7%,,,29,0,0,0,5,32
-Gourgeist,261,stat_points,2,,11.9%,,,0,32,2,0,0,32
-Gourgeist,261,stat_points,3,,11.9%,,,32,0,2,0,32,0
-Gourgeist,261,stat_points,4,,10.7%,,,10,29,14,0,0,13
-Gourgeist,261,stat_points,5,,8.3%,,,32,0,0,0,2,32
-Gourgeist,261,stat_points,6,,4.8%,,,2,32,0,0,0,32
-Gourgeist,261,stat_points,7,,4.8%,,,2,32,32,0,0,0
-Gourgeist,261,stat_points,8,,3.6%,,,3,29,11,0,0,23
-Gourgeist,261,stat_points,9,,3.6%,,,32,0,19,0,15,0
-Gourgeist,261,stat_points,10,,2.4%,,,0,32,0,0,2,32
-Gourgeist,261,ability,1,Frisk,84.5%,,,,,,,,
-Gourgeist,261,ability,2,Insomnia,10.7%,,,,,,,,
-Gourgeist,261,ability,3,Pickup,4.8%,,,,,,,,
+Gourgeist,261,teammate,6,Scizor,,,,,,,,,
+Gourgeist,261,teammate,7,Goodra-Hisui,,,,,,,,,
+Gourgeist,261,teammate,8,Slowking-Galar,,,,,,,,,
+Gourgeist,261,teammate,9,Metagross,,,,,,,,,
+Gourgeist,261,teammate,10,Talonflame,,,,,,,,,
+Gourgeist,261,stat_alignment,1,Jolly,64.9%,Speed,Sp. Atk,,,,,,
+Gourgeist,261,stat_alignment,2,Naive,10.6%,Speed,Sp. Def,,,,,,
+Gourgeist,261,stat_alignment,3,Sassy,10.6%,Sp. Def,Speed,,,,,,
+Gourgeist,261,stat_alignment,4,Impish,5.3%,Defense,Sp. Atk,,,,,,
+Gourgeist,261,stat_alignment,5,Relaxed,4.3%,Defense,Speed,,,,,,
+Gourgeist,261,stat_alignment,6,Careful,3.2%,Sp. Def,Sp. Atk,,,,,,
+Gourgeist,261,stat_alignment,7,Brave,1.1%,Attack,Speed,,,,,,
+Gourgeist,261,stat_points,1,,33.0%,,,29,0,0,0,5,32
+Gourgeist,261,stat_points,2,,14.9%,,,32,0,2,0,32,0
+Gourgeist,261,stat_points,3,,10.6%,,,0,32,2,0,0,32
+Gourgeist,261,stat_points,4,,9.6%,,,10,29,14,0,0,13
+Gourgeist,261,stat_points,5,,7.4%,,,32,0,0,0,2,32
+Gourgeist,261,stat_points,6,,6.4%,,,3,29,11,0,0,23
+Gourgeist,261,stat_points,7,,4.3%,,,0,32,0,0,2,32
+Gourgeist,261,stat_points,8,,4.3%,,,2,32,0,0,0,32
+Gourgeist,261,stat_points,9,,4.3%,,,2,32,32,0,0,0
+Gourgeist,261,stat_points,10,,3.2%,,,32,0,19,0,15,0
+Gourgeist,261,ability,1,Frisk,86.2%,,,,,,,,
+Gourgeist,261,ability,2,Insomnia,9.6%,,,,,,,,
+Gourgeist,261,ability,3,Pickup,4.3%,,,,,,,,

@@ -1,46 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simisage,250,move,1,Seed Bomb,93.4%,,,,,,,,
-Simisage,250,move,2,Rock Slide,78.1%,,,,,,,,
-Simisage,250,move,3,Belch,75.5%,,,,,,,,
-Simisage,250,move,4,Thief,73.8%,,,,,,,,
-Simisage,250,move,5,Fake Out,18.5%,,,,,,,,
-Simisage,250,move,6,Protect,14.9%,,,,,,,,
-Simisage,250,move,7,Gunk Shot,10.6%,,,,,,,,
-Simisage,250,move,8,Endure,7.3%,,,,,,,,
-Simisage,250,move,9,Throat Chop,7.3%,,,,,,,,
-Simisage,250,move,10,Leech Seed,7.0%,,,,,,,,
-Simisage,250,held_item,1,Focus Sash,86.4%,,,,,,,,
-Simisage,250,held_item,2,Zoom Lens,6.3%,,,,,,,,
-Simisage,250,held_item,3,Wide Lens,3.6%,,,,,,,,
-Simisage,250,held_item,4,Grassy Seed,1.7%,,,,,,,,
-Simisage,250,held_item,5,Sitrus Berry,0.7%,,,,,,,,
-Simisage,250,held_item,6,Life Orb,0.7%,,,,,,,,
-Simisage,250,held_item,7,Occa Berry,0.3%,,,,,,,,
-Simisage,250,held_item,8,White Herb,0.3%,,,,,,,,
-Simisage,250,teammate,1,Basculegion,,,,,,,,,
-Simisage,250,teammate,2,Raichu,,,,,,,,,
-Simisage,250,teammate,3,Pelipper,,,,,,,,,
-Simisage,250,teammate,4,Watchog,,,,,,,,,
-Simisage,250,teammate,5,Indeedee,,,,,,,,,
-Simisage,250,teammate,6,Garchomp,,,,,,,,,
-Simisage,250,teammate,7,Simipour,,,,,,,,,
-Simisage,250,teammate,8,Sableye,,,,,,,,,
-Simisage,250,teammate,9,Metagross,,,,,,,,,
-Simisage,250,teammate,10,Pyroar,,,,,,,,,
-Simisage,250,stat_alignment,1,Adamant,84.4%,Attack,Sp. Atk,,,,,,
-Simisage,250,stat_alignment,2,Jolly,8.9%,Speed,Sp. Atk,,,,,,
-Simisage,250,stat_alignment,3,Timid,4.0%,Speed,Attack,,,,,,
-Simisage,250,stat_alignment,4,Serious,1.7%,,,,,,,,
-Simisage,250,stat_alignment,5,Calm,0.7%,Sp. Def,Attack,,,,,,
-Simisage,250,stat_alignment,6,Lonely,0.3%,Attack,Defense,,,,,,
-Simisage,250,stat_points,1,,83.1%,,,0,32,2,0,0,32
-Simisage,250,stat_points,2,,7.3%,,,2,32,0,0,0,32
-Simisage,250,stat_points,3,,3.6%,,,0,0,1,32,1,32
-Simisage,250,stat_points,4,,1.7%,,,0,0,7,32,17,10
-Simisage,250,stat_points,5,,1.7%,,,0,32,1,0,1,32
-Simisage,250,stat_points,6,,1.3%,,,0,32,2,0,32,0
-Simisage,250,stat_points,7,,0.7%,,,10,0,27,12,17,0
-Simisage,250,stat_points,8,,0.3%,,,2,32,0,32,0,0
-Simisage,250,stat_points,9,,0.3%,,,7,0,2,28,0,29
-Simisage,250,ability,1,Overgrow,94.7%,,,,,,,,
-Simisage,250,ability,2,Gluttony,5.3%,,,,,,,,
+Simisage,252,move,1,Seed Bomb,89.8%,,,,,,,,
+Simisage,252,move,2,Rock Slide,75.9%,,,,,,,,
+Simisage,252,move,3,Belch,72.7%,,,,,,,,
+Simisage,252,move,4,Thief,70.8%,,,,,,,,
+Simisage,252,move,5,Fake Out,21.0%,,,,,,,,
+Simisage,252,move,6,Protect,14.9%,,,,,,,,
+Simisage,252,move,7,Gunk Shot,10.5%,,,,,,,,
+Simisage,252,move,8,Helping Hand,7.6%,,,,,,,,
+Simisage,252,move,9,Endure,7.0%,,,,,,,,
+Simisage,252,move,10,Throat Chop,7.0%,,,,,,,,
+Simisage,252,held_item,1,Focus Sash,82.9%,,,,,,,,
+Simisage,252,held_item,2,Zoom Lens,6.0%,,,,,,,,
+Simisage,252,held_item,3,Wide Lens,3.5%,,,,,,,,
+Simisage,252,held_item,4,Rocky Helmet,2.2%,,,,,,,,
+Simisage,252,held_item,5,Sitrus Berry,1.6%,,,,,,,,
+Simisage,252,held_item,6,Grassy Seed,1.6%,,,,,,,,
+Simisage,252,held_item,7,Life Orb,1.0%,,,,,,,,
+Simisage,252,held_item,8,Occa Berry,0.3%,,,,,,,,
+Simisage,252,held_item,9,White Herb,0.3%,,,,,,,,
+Simisage,252,held_item,10,Choice Scarf,0.3%,,,,,,,,
+Simisage,252,teammate,1,Basculegion,,,,,,,,,
+Simisage,252,teammate,2,Raichu,,,,,,,,,
+Simisage,252,teammate,3,Pelipper,,,,,,,,,
+Simisage,252,teammate,4,Watchog,,,,,,,,,
+Simisage,252,teammate,5,Indeedee,,,,,,,,,
+Simisage,252,teammate,6,Garchomp,,,,,,,,,
+Simisage,252,teammate,7,Kommo-o,,,,,,,,,
+Simisage,252,teammate,8,Simipour,,,,,,,,,
+Simisage,252,teammate,9,Sableye,,,,,,,,,
+Simisage,252,teammate,10,Metagross,,,,,,,,,
+Simisage,252,stat_alignment,1,Adamant,81.0%,Attack,Sp. Atk,,,,,,
+Simisage,252,stat_alignment,2,Jolly,9.5%,Speed,Sp. Atk,,,,,,
+Simisage,252,stat_alignment,3,Timid,6.0%,Speed,Attack,,,,,,
+Simisage,252,stat_alignment,4,Serious,1.6%,,,,,,,,
+Simisage,252,stat_alignment,5,Hasty,0.6%,Speed,Defense,,,,,,
+Simisage,252,stat_alignment,6,Calm,0.6%,Sp. Def,Attack,,,,,,
+Simisage,252,stat_alignment,7,Lonely,0.3%,Attack,Defense,,,,,,
+Simisage,252,stat_alignment,8,Modest,0.3%,Sp. Atk,Attack,,,,,,
+Simisage,252,stat_points,1,,79.7%,,,0,32,2,0,0,32
+Simisage,252,stat_points,2,,7.0%,,,2,32,0,0,0,32
+Simisage,252,stat_points,3,,3.8%,,,0,0,1,32,1,32
+Simisage,252,stat_points,4,,2.2%,,,25,0,4,0,5,32
+Simisage,252,stat_points,5,,1.6%,,,0,0,7,32,17,10
+Simisage,252,stat_points,6,,1.6%,,,0,32,1,0,1,32
+Simisage,252,stat_points,7,,1.3%,,,0,32,2,0,32,0
+Simisage,252,stat_points,8,,1.0%,,,20,26,0,0,0,20
+Simisage,252,stat_points,9,,0.6%,,,0,0,0,32,2,32
+Simisage,252,stat_points,10,,0.6%,,,10,0,27,12,17,0
+Simisage,252,ability,1,Overgrow,94.3%,,,,,,,,
+Simisage,252,ability,2,Gluttony,5.7%,,,,,,,,

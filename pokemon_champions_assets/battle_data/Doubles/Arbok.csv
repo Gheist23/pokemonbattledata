@@ -1,53 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Arbok,242,move,1,Gunk Shot,70.9%,,,,,,,,
-Arbok,242,move,2,Coil,41.2%,,,,,,,,
-Arbok,242,move,3,Glare,40.4%,,,,,,,,
-Arbok,242,move,4,Snarl,38.0%,,,,,,,,
-Arbok,242,move,5,Earthquake,34.3%,,,,,,,,
-Arbok,242,move,6,Protect,33.3%,,,,,,,,
-Arbok,242,move,7,Pain Split,19.4%,,,,,,,,
-Arbok,242,move,8,Beat Up,19.4%,,,,,,,,
-Arbok,242,move,9,Rock Slide,13.5%,,,,,,,,
-Arbok,242,move,10,Breaking Swipe,12.1%,,,,,,,,
-Arbok,242,held_item,1,Bright Powder,23.4%,,,,,,,,
-Arbok,242,held_item,2,White Herb,17.6%,,,,,,,,
-Arbok,242,held_item,3,Choice Scarf,14.3%,,,,,,,,
-Arbok,242,held_item,4,Sitrus Berry,11.9%,,,,,,,,
-Arbok,242,held_item,5,Payapa Berry,5.3%,,,,,,,,
-Arbok,242,held_item,6,Wide Lens,5.0%,,,,,,,,
-Arbok,242,held_item,7,Air Balloon,4.4%,,,,,,,,
-Arbok,242,held_item,8,Leftovers,3.4%,,,,,,,,
-Arbok,242,held_item,9,Rocky Helmet,3.0%,,,,,,,,
-Arbok,242,held_item,10,Quick Claw,2.4%,,,,,,,,
-Arbok,242,teammate,1,Raichu,,,,,,,,,
-Arbok,242,teammate,2,Volcarona,,,,,,,,,
-Arbok,242,teammate,3,Snorlax,,,,,,,,,
-Arbok,242,teammate,4,Ninetales-Alola,,,,,,,,,
-Arbok,242,teammate,5,Hawlucha,,,,,,,,,
-Arbok,242,teammate,6,Goodra-Hisui,,,,,,,,,
-Arbok,242,teammate,7,Absol,,,,,,,,,
-Arbok,242,teammate,8,Milotic,,,,,,,,,
-Arbok,242,teammate,9,Rillaboom,,,,,,,,,
-Arbok,242,teammate,10,Aggron,,,,,,,,,
-Arbok,242,stat_alignment,1,Adamant,35.0%,Attack,Sp. Atk,,,,,,
-Arbok,242,stat_alignment,2,Jolly,27.3%,Speed,Sp. Atk,,,,,,
-Arbok,242,stat_alignment,3,Timid,19.0%,Speed,Attack,,,,,,
-Arbok,242,stat_alignment,4,Careful,9.5%,Sp. Def,Sp. Atk,,,,,,
-Arbok,242,stat_alignment,5,Gentle,4.4%,Sp. Def,Defense,,,,,,
-Arbok,242,stat_alignment,6,Sassy,1.2%,Sp. Def,Speed,,,,,,
-Arbok,242,stat_alignment,7,Modest,1.0%,Sp. Atk,Attack,,,,,,
-Arbok,242,stat_alignment,8,Hasty,0.6%,Speed,Defense,,,,,,
-Arbok,242,stat_alignment,9,Naughty,0.6%,Attack,Sp. Def,,,,,,
-Arbok,242,stat_alignment,10,Relaxed,0.6%,Defense,Speed,,,,,,
-Arbok,242,stat_points,1,,26.7%,,,32,0,2,0,0,32
-Arbok,242,stat_points,2,,17.2%,,,2,32,0,0,0,32
-Arbok,242,stat_points,3,,16.4%,,,18,28,1,0,5,14
-Arbok,242,stat_points,4,,6.1%,,,32,15,0,0,19,0
-Arbok,242,stat_points,5,,5.0%,,,30,30,0,0,1,5
-Arbok,242,stat_points,6,,4.4%,,,0,32,0,0,32,2
-Arbok,242,stat_points,7,,4.2%,,,32,19,0,0,0,15
-Arbok,242,stat_points,8,,3.0%,,,12,32,0,0,0,22
-Arbok,242,stat_points,9,,2.6%,,,18,32,0,0,16,0
-Arbok,242,stat_points,10,,1.8%,,,32,0,13,0,21,0
-Arbok,242,ability,1,Intimidate,99.2%,,,,,,,,
-Arbok,242,ability,2,Shed Skin,0.8%,,,,,,,,
+Arbok,239,move,1,Gunk Shot,66.5%,,,,,,,,
+Arbok,239,move,2,Coil,39.8%,,,,,,,,
+Arbok,239,move,3,Glare,36.9%,,,,,,,,
+Arbok,239,move,4,Snarl,36.9%,,,,,,,,
+Arbok,239,move,5,Protect,34.3%,,,,,,,,
+Arbok,239,move,6,Earthquake,31.0%,,,,,,,,
+Arbok,239,move,7,Pain Split,17.8%,,,,,,,,
+Arbok,239,move,8,Beat Up,17.8%,,,,,,,,
+Arbok,239,move,9,Breaking Swipe,13.2%,,,,,,,,
+Arbok,239,move,10,Rock Slide,12.8%,,,,,,,,
+Arbok,239,held_item,1,Bright Powder,20.7%,,,,,,,,
+Arbok,239,held_item,2,White Herb,18.4%,,,,,,,,
+Arbok,239,held_item,3,Choice Scarf,13.2%,,,,,,,,
+Arbok,239,held_item,4,Sitrus Berry,9.1%,,,,,,,,
+Arbok,239,held_item,5,Payapa Berry,5.5%,,,,,,,,
+Arbok,239,held_item,6,Wide Lens,5.5%,,,,,,,,
+Arbok,239,held_item,7,Rocky Helmet,4.6%,,,,,,,,
+Arbok,239,held_item,8,Leftovers,4.2%,,,,,,,,
+Arbok,239,held_item,9,Air Balloon,3.4%,,,,,,,,
+Arbok,239,held_item,10,Poison Barb,3.3%,,,,,,,,
+Arbok,239,teammate,1,Raichu,,,,,,,,,
+Arbok,239,teammate,2,Volcarona,,,,,,,,,
+Arbok,239,teammate,3,Absol,,,,,,,,,
+Arbok,239,teammate,4,Snorlax,,,,,,,,,
+Arbok,239,teammate,5,Ninetales-Alola,,,,,,,,,
+Arbok,239,teammate,6,Milotic,,,,,,,,,
+Arbok,239,teammate,7,Hawlucha,,,,,,,,,
+Arbok,239,teammate,8,Farigiraf,,,,,,,,,
+Arbok,239,teammate,9,Rotom-Heat,,,,,,,,,
+Arbok,239,teammate,10,Aggron,,,,,,,,,
+Arbok,239,stat_alignment,1,Adamant,32.3%,Attack,Sp. Atk,,,,,,
+Arbok,239,stat_alignment,2,Jolly,25.4%,Speed,Sp. Atk,,,,,,
+Arbok,239,stat_alignment,3,Timid,17.5%,Speed,Attack,,,,,,
+Arbok,239,stat_alignment,4,Careful,9.5%,Sp. Def,Sp. Atk,,,,,,
+Arbok,239,stat_alignment,5,Sassy,5.6%,Sp. Def,Speed,,,,,,
+Arbok,239,stat_alignment,6,Impish,3.6%,Defense,Sp. Atk,,,,,,
+Arbok,239,stat_alignment,7,Gentle,3.2%,Sp. Def,Defense,,,,,,
+Arbok,239,stat_alignment,8,Hasty,0.7%,Speed,Defense,,,,,,
+Arbok,239,stat_alignment,9,Modest,0.7%,Sp. Atk,Attack,,,,,,
+Arbok,239,stat_alignment,10,Relaxed,0.6%,Defense,Speed,,,,,,
+Arbok,239,stat_points,1,,23.1%,,,32,0,2,0,0,32
+Arbok,239,stat_points,2,,17.4%,,,18,28,1,0,5,14
+Arbok,239,stat_points,3,,16.1%,,,2,32,0,0,0,32
+Arbok,239,stat_points,4,,4.9%,,,32,15,0,0,19,0
+Arbok,239,stat_points,5,,4.7%,,,0,32,2,0,32,0
+Arbok,239,stat_points,6,,4.5%,,,30,30,0,0,1,5
+Arbok,239,stat_points,7,,3.3%,,,18,32,0,0,16,0
+Arbok,239,stat_points,8,,3.2%,,,0,32,0,0,32,2
+Arbok,239,stat_points,9,,3.0%,,,32,19,0,0,0,15
+Arbok,239,stat_points,10,,2.2%,,,12,32,0,0,0,22
+Arbok,239,ability,1,Intimidate,93.1%,,,,,,,,
+Arbok,239,ability,2,Unnerve,4.7%,,,,,,,,
+Arbok,239,ability,3,Shed Skin,2.2%,,,,,,,,

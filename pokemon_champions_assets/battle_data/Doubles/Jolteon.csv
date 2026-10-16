@@ -1,50 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Jolteon,123,move,1,Protect,39.5%,,,,,,,,
-Jolteon,123,move,2,Thunderbolt,38.9%,,,,,,,,
-Jolteon,123,move,3,Shadow Ball,38.8%,,,,,,,,
-Jolteon,123,move,4,Detect,37.1%,,,,,,,,
-Jolteon,123,move,5,Rising Voltage,35.8%,,,,,,,,
-Jolteon,123,move,6,Volt Switch,29.7%,,,,,,,,
-Jolteon,123,move,7,Discharge,27.0%,,,,,,,,
-Jolteon,123,move,8,Weather Ball,24.3%,,,,,,,,
-Jolteon,123,move,9,Electroweb,23.5%,,,,,,,,
-Jolteon,123,move,10,Alluring Voice,18.1%,,,,,,,,
-Jolteon,123,held_item,1,Life Orb,35.0%,,,,,,,,
-Jolteon,123,held_item,2,Focus Sash,23.0%,,,,,,,,
-Jolteon,123,held_item,3,Magnet,11.7%,,,,,,,,
-Jolteon,123,held_item,4,Air Balloon,10.1%,,,,,,,,
-Jolteon,123,held_item,5,Choice Scarf,4.5%,,,,,,,,
-Jolteon,123,held_item,6,Electric Seed,3.1%,,,,,,,,
-Jolteon,123,held_item,7,Sitrus Berry,1.8%,,,,,,,,
-Jolteon,123,held_item,8,Expert Belt,1.5%,,,,,,,,
-Jolteon,123,held_item,9,Lum Berry,1.4%,,,,,,,,
-Jolteon,123,held_item,10,Rocky Helmet,1.2%,,,,,,,,
-Jolteon,123,teammate,1,Raichu,,,,,,,,,
-Jolteon,123,teammate,2,Ninetales-Alola,,,,,,,,,
-Jolteon,123,teammate,3,Garchomp,,,,,,,,,
-Jolteon,123,teammate,4,Sceptile,,,,,,,,,
-Jolteon,123,teammate,5,Pelipper,,,,,,,,,
-Jolteon,123,teammate,6,Milotic,,,,,,,,,
-Jolteon,123,teammate,7,Incineroar,,,,,,,,,
-Jolteon,123,teammate,8,Sneasler,,,,,,,,,
-Jolteon,123,teammate,9,Basculegion,,,,,,,,,
-Jolteon,123,teammate,10,Corviknight,,,,,,,,,
-Jolteon,123,stat_alignment,1,Timid,77.6%,Speed,Attack,,,,,,
-Jolteon,123,stat_alignment,2,Modest,19.1%,Sp. Atk,Attack,,,,,,
-Jolteon,123,stat_alignment,3,Bold,1.3%,Defense,Attack,,,,,,
-Jolteon,123,stat_alignment,4,Hasty,1.2%,Speed,Defense,,,,,,
-Jolteon,123,stat_alignment,5,Naive,0.4%,Speed,Sp. Def,,,,,,
-Jolteon,123,stat_alignment,6,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Jolteon,123,stat_alignment,7,Calm,0.2%,Sp. Def,Attack,,,,,,
-Jolteon,123,stat_points,1,,50.5%,,,2,0,0,32,0,32
-Jolteon,123,stat_points,2,,16.2%,,,0,0,0,32,2,32
-Jolteon,123,stat_points,3,,12.2%,,,0,0,2,32,0,32
-Jolteon,123,stat_points,4,,5.0%,,,1,0,1,32,0,32
-Jolteon,123,stat_points,5,,2.5%,,,32,0,2,0,0,32
-Jolteon,123,stat_points,6,,1.7%,,,0,0,0,32,0,32
-Jolteon,123,stat_points,7,,1.0%,,,1,0,0,32,1,32
-Jolteon,123,stat_points,8,,0.8%,,,0,0,5,32,0,29
-Jolteon,123,stat_points,9,,0.8%,,,32,0,0,2,0,32
-Jolteon,123,stat_points,10,,0.6%,,,1,0,0,32,0,32
-Jolteon,123,ability,1,Volt Absorb,92.3%,,,,,,,,
-Jolteon,123,ability,2,Quick Feet,7.7%,,,,,,,,
+Jolteon,125,move,1,Thunderbolt,40.0%,,,,,,,,
+Jolteon,125,move,2,Protect,38.6%,,,,,,,,
+Jolteon,125,move,3,Shadow Ball,38.1%,,,,,,,,
+Jolteon,125,move,4,Detect,37.1%,,,,,,,,
+Jolteon,125,move,5,Rising Voltage,33.7%,,,,,,,,
+Jolteon,125,move,6,Volt Switch,30.7%,,,,,,,,
+Jolteon,125,move,7,Discharge,27.7%,,,,,,,,
+Jolteon,125,move,8,Electroweb,24.3%,,,,,,,,
+Jolteon,125,move,9,Weather Ball,23.0%,,,,,,,,
+Jolteon,125,move,10,Alluring Voice,17.8%,,,,,,,,
+Jolteon,125,held_item,1,Life Orb,34.1%,,,,,,,,
+Jolteon,125,held_item,2,Focus Sash,21.3%,,,,,,,,
+Jolteon,125,held_item,3,Magnet,13.5%,,,,,,,,
+Jolteon,125,held_item,4,Air Balloon,9.4%,,,,,,,,
+Jolteon,125,held_item,5,Choice Scarf,4.7%,,,,,,,,
+Jolteon,125,held_item,6,Electric Seed,2.8%,,,,,,,,
+Jolteon,125,held_item,7,Sitrus Berry,2.3%,,,,,,,,
+Jolteon,125,held_item,8,Lum Berry,1.9%,,,,,,,,
+Jolteon,125,held_item,9,Expert Belt,1.4%,,,,,,,,
+Jolteon,125,held_item,10,Shuca Berry,1.2%,,,,,,,,
+Jolteon,125,teammate,1,Raichu,,,,,,,,,
+Jolteon,125,teammate,2,Ninetales-Alola,,,,,,,,,
+Jolteon,125,teammate,3,Sceptile,,,,,,,,,
+Jolteon,125,teammate,4,Garchomp,,,,,,,,,
+Jolteon,125,teammate,5,Pelipper,,,,,,,,,
+Jolteon,125,teammate,6,Incineroar,,,,,,,,,
+Jolteon,125,teammate,7,Milotic,,,,,,,,,
+Jolteon,125,teammate,8,Sneasler,,,,,,,,,
+Jolteon,125,teammate,9,Basculegion,,,,,,,,,
+Jolteon,125,teammate,10,Zoroark-Hisui,,,,,,,,,
+Jolteon,125,stat_alignment,1,Timid,76.1%,Speed,Attack,,,,,,
+Jolteon,125,stat_alignment,2,Modest,18.9%,Sp. Atk,Attack,,,,,,
+Jolteon,125,stat_alignment,3,Hasty,2.3%,Speed,Defense,,,,,,
+Jolteon,125,stat_alignment,4,Bold,1.6%,Defense,Attack,,,,,,
+Jolteon,125,stat_alignment,5,Naive,0.3%,Speed,Sp. Def,,,,,,
+Jolteon,125,stat_alignment,6,Calm,0.3%,Sp. Def,Attack,,,,,,
+Jolteon,125,stat_alignment,7,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Jolteon,125,stat_alignment,8,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Jolteon,125,stat_points,1,,48.3%,,,2,0,0,32,0,32
+Jolteon,125,stat_points,2,,17.6%,,,0,0,0,32,2,32
+Jolteon,125,stat_points,3,,12.3%,,,0,0,2,32,0,32
+Jolteon,125,stat_points,4,,4.2%,,,1,0,1,32,0,32
+Jolteon,125,stat_points,5,,2.2%,,,32,0,2,0,0,32
+Jolteon,125,stat_points,6,,1.7%,,,0,0,0,32,0,32
+Jolteon,125,stat_points,7,,1.1%,,,32,0,0,2,0,32
+Jolteon,125,stat_points,8,,1.0%,,,1,0,0,32,1,32
+Jolteon,125,stat_points,9,,0.8%,,,0,0,2,32,32,0
+Jolteon,125,stat_points,10,,0.6%,,,0,0,5,32,0,29
+Jolteon,125,ability,1,Volt Absorb,92.5%,,,,,,,,
+Jolteon,125,ability,2,Quick Feet,7.5%,,,,,,,,

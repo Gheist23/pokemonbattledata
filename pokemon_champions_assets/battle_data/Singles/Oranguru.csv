@@ -1,53 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Oranguru,255,move,1,Trick Room,68.9%,,,,,,,,
-Oranguru,255,move,2,Psychic,52.1%,,,,,,,,
-Oranguru,255,move,3,Thunderbolt,28.8%,,,,,,,,
-Oranguru,255,move,4,Foul Play,27.5%,,,,,,,,
-Oranguru,255,move,5,Yawn,26.2%,,,,,,,,
-Oranguru,255,move,6,Psychic Noise,24.3%,,,,,,,,
-Oranguru,255,move,7,Hyper Voice,17.5%,,,,,,,,
-Oranguru,255,move,8,Energy Ball,17.1%,,,,,,,,
-Oranguru,255,move,9,Reflect,15.7%,,,,,,,,
-Oranguru,255,move,10,Encore,15.2%,,,,,,,,
-Oranguru,255,held_item,1,Sitrus Berry,40.7%,,,,,,,,
-Oranguru,255,held_item,2,Leftovers,19.9%,,,,,,,,
-Oranguru,255,held_item,3,Life Orb,6.6%,,,,,,,,
-Oranguru,255,held_item,4,Choice Scarf,5.1%,,,,,,,,
-Oranguru,255,held_item,5,Lum Berry,3.5%,,,,,,,,
-Oranguru,255,held_item,6,Light Ball,3.5%,,,,,,,,
-Oranguru,255,held_item,7,Light Clay,2.4%,,,,,,,,
-Oranguru,255,held_item,8,Psychic Seed,1.9%,,,,,,,,
-Oranguru,255,held_item,9,Rocky Helmet,0.9%,,,,,,,,
-Oranguru,255,held_item,10,Focus Band,0.8%,,,,,,,,
-Oranguru,255,teammate,1,Feraligatr,,,,,,,,,
-Oranguru,255,teammate,2,Annihilape,,,,,,,,,
-Oranguru,255,teammate,3,Primarina,,,,,,,,,
-Oranguru,255,teammate,4,Heracross,,,,,,,,,
-Oranguru,255,teammate,5,Manectric,,,,,,,,,
-Oranguru,255,teammate,6,Gardevoir,,,,,,,,,
-Oranguru,255,teammate,7,Vaporeon,,,,,,,,,
-Oranguru,255,teammate,8,Dragonite,,,,,,,,,
-Oranguru,255,teammate,9,Torterra,,,,,,,,,
-Oranguru,255,teammate,10,Clawitzer,,,,,,,,,
-Oranguru,255,stat_alignment,1,Calm,25.8%,Sp. Def,Attack,,,,,,
-Oranguru,255,stat_alignment,2,Modest,19.1%,Sp. Atk,Attack,,,,,,
-Oranguru,255,stat_alignment,3,Sassy,16.2%,Sp. Def,Speed,,,,,,
-Oranguru,255,stat_alignment,4,Relaxed,15.6%,Defense,Speed,,,,,,
-Oranguru,255,stat_alignment,5,Bold,15.4%,Defense,Attack,,,,,,
-Oranguru,255,stat_alignment,6,Careful,3.3%,Sp. Def,Sp. Atk,,,,,,
-Oranguru,255,stat_alignment,7,Timid,2.4%,Speed,Attack,,,,,,
-Oranguru,255,stat_alignment,8,Quiet,1.4%,Sp. Atk,Speed,,,,,,
-Oranguru,255,stat_alignment,9,Mild,0.9%,Sp. Atk,Defense,,,,,,
-Oranguru,255,stat_points,1,,16.2%,,,32,0,32,0,2,0
-Oranguru,255,stat_points,2,,14.1%,,,32,0,2,0,32,0
-Oranguru,255,stat_points,3,,13.5%,,,32,0,0,2,32,0
-Oranguru,255,stat_points,4,,10.8%,,,12,0,12,25,10,6
-Oranguru,255,stat_points,5,,7.5%,,,12,0,32,0,2,20
-Oranguru,255,stat_points,6,,6.0%,,,32,0,2,32,0,0
-Oranguru,255,stat_points,7,,5.9%,,,32,0,19,0,15,0
-Oranguru,255,stat_points,8,,4.5%,,,32,0,32,2,0,0
-Oranguru,255,stat_points,9,,2.5%,,,32,0,20,14,0,0
-Oranguru,255,stat_points,10,,2.2%,,,12,0,12,30,10,1
-Oranguru,255,ability,1,Inner Focus,94.7%,,,,,,,,
-Oranguru,255,ability,2,Telepathy,5.1%,,,,,,,,
-Oranguru,255,ability,3,Symbiosis,0.2%,,,,,,,,
+Oranguru,256,move,1,Trick Room,67.2%,,,,,,,,
+Oranguru,256,move,2,Psychic,51.1%,,,,,,,,
+Oranguru,256,move,3,Foul Play,27.8%,,,,,,,,
+Oranguru,256,move,4,Yawn,27.6%,,,,,,,,
+Oranguru,256,move,5,Thunderbolt,26.8%,,,,,,,,
+Oranguru,256,move,6,Psychic Noise,23.4%,,,,,,,,
+Oranguru,256,move,7,Energy Ball,17.3%,,,,,,,,
+Oranguru,256,move,8,Encore,17.0%,,,,,,,,
+Oranguru,256,move,9,Hyper Voice,16.4%,,,,,,,,
+Oranguru,256,move,10,Reflect,14.8%,,,,,,,,
+Oranguru,256,held_item,1,Sitrus Berry,38.2%,,,,,,,,
+Oranguru,256,held_item,2,Leftovers,18.7%,,,,,,,,
+Oranguru,256,held_item,3,Life Orb,6.6%,,,,,,,,
+Oranguru,256,held_item,4,Choice Scarf,4.7%,,,,,,,,
+Oranguru,256,held_item,5,Light Ball,4.3%,,,,,,,,
+Oranguru,256,held_item,6,Light Clay,3.3%,,,,,,,,
+Oranguru,256,held_item,7,Lum Berry,3.1%,,,,,,,,
+Oranguru,256,held_item,8,Psychic Seed,2.9%,,,,,,,,
+Oranguru,256,held_item,9,Focus Sash,2.3%,,,,,,,,
+Oranguru,256,held_item,10,Mental Herb,0.9%,,,,,,,,
+Oranguru,256,teammate,1,Feraligatr,,,,,,,,,
+Oranguru,256,teammate,2,Annihilape,,,,,,,,,
+Oranguru,256,teammate,3,Primarina,,,,,,,,,
+Oranguru,256,teammate,4,Heracross,,,,,,,,,
+Oranguru,256,teammate,5,Dragonite,,,,,,,,,
+Oranguru,256,teammate,6,Manectric,,,,,,,,,
+Oranguru,256,teammate,7,Gardevoir,,,,,,,,,
+Oranguru,256,teammate,8,Vaporeon,,,,,,,,,
+Oranguru,256,teammate,9,Torkoal,,,,,,,,,
+Oranguru,256,teammate,10,Mimikyu,,,,,,,,,
+Oranguru,256,stat_alignment,1,Calm,25.5%,Sp. Def,Attack,,,,,,
+Oranguru,256,stat_alignment,2,Modest,18.2%,Sp. Atk,Attack,,,,,,
+Oranguru,256,stat_alignment,3,Bold,16.0%,Defense,Attack,,,,,,
+Oranguru,256,stat_alignment,4,Sassy,15.8%,Sp. Def,Speed,,,,,,
+Oranguru,256,stat_alignment,5,Relaxed,15.5%,Defense,Speed,,,,,,
+Oranguru,256,stat_alignment,6,Timid,3.2%,Speed,Attack,,,,,,
+Oranguru,256,stat_alignment,7,Careful,2.9%,Sp. Def,Sp. Atk,,,,,,
+Oranguru,256,stat_alignment,8,Quiet,1.5%,Sp. Atk,Speed,,,,,,
+Oranguru,256,stat_alignment,9,Mild,1.2%,Sp. Atk,Defense,,,,,,
+Oranguru,256,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
+Oranguru,256,stat_points,1,,14.9%,,,32,0,32,0,2,0
+Oranguru,256,stat_points,2,,14.7%,,,32,0,2,0,32,0
+Oranguru,256,stat_points,3,,11.9%,,,32,0,0,2,32,0
+Oranguru,256,stat_points,4,,9.4%,,,12,0,12,25,10,6
+Oranguru,256,stat_points,5,,6.6%,,,12,0,32,0,2,20
+Oranguru,256,stat_points,6,,6.4%,,,32,0,2,32,0,0
+Oranguru,256,stat_points,7,,5.3%,,,32,0,19,0,15,0
+Oranguru,256,stat_points,8,,5.2%,,,32,0,32,2,0,0
+Oranguru,256,stat_points,9,,3.1%,,,0,0,2,32,32,0
+Oranguru,256,stat_points,10,,2.2%,,,32,0,20,14,0,0
+Oranguru,256,ability,1,Inner Focus,92.0%,,,,,,,,
+Oranguru,256,ability,2,Telepathy,7.0%,,,,,,,,
+Oranguru,256,ability,3,Symbiosis,1.0%,,,,,,,,

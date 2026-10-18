@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Mawile,51,move,1,Play Rough,98.0%,,,,,,,,
-Mawile,51,move,2,Sucker Punch,91.6%,,,,,,,,
-Mawile,51,move,3,Fire Fang,68.5%,,,,,,,,
-Mawile,51,move,4,Swords Dance,36.4%,,,,,,,,
-Mawile,51,move,5,Ice Punch,31.4%,,,,,,,,
-Mawile,51,move,6,Iron Head,25.7%,,,,,,,,
-Mawile,51,move,7,Thunder Punch,19.1%,,,,,,,,
-Mawile,51,move,8,Psychic Fangs,10.7%,,,,,,,,
-Mawile,51,move,9,Knock Off,10.5%,,,,,,,,
+Mawile,51,move,2,Sucker Punch,91.8%,,,,,,,,
+Mawile,51,move,3,Fire Fang,68.4%,,,,,,,,
+Mawile,51,move,4,Swords Dance,36.8%,,,,,,,,
+Mawile,51,move,5,Ice Punch,31.1%,,,,,,,,
+Mawile,51,move,6,Iron Head,25.6%,,,,,,,,
+Mawile,51,move,7,Thunder Punch,19.3%,,,,,,,,
+Mawile,51,move,8,Knock Off,10.6%,,,,,,,,
+Mawile,51,move,9,Psychic Fangs,10.5%,,,,,,,,
 Mawile,51,move,10,Brick Break,1.7%,,,,,,,,
 Mawile,51,held_item,1,Mawilite,99.3%,,,,,,,,
 Mawile,51,held_item,2,Sitrus Berry,0.1%,,,,,,,,
 Mawile,51,held_item,3,Air Balloon,0.1%,,,,,,,,
 Mawile,51,held_item,4,Life Orb,0.0%,,,,,,,,
-Mawile,51,held_item,5,Eject Button,0.0%,,,,,,,,
+Mawile,51,held_item,5,Rocky Helmet,0.0%,,,,,,,,
 Mawile,51,held_item,6,Focus Sash,0.0%,,,,,,,,
-Mawile,51,held_item,7,Quick Claw,0.0%,,,,,,,,
-Mawile,51,held_item,8,Rocky Helmet,0.0%,,,,,,,,
-Mawile,51,held_item,9,Choice Scarf,0.0%,,,,,,,,
+Mawile,51,held_item,7,Eject Button,0.0%,,,,,,,,
+Mawile,51,held_item,8,Quick Claw,0.0%,,,,,,,,
+Mawile,51,held_item,9,Muscle Band,0.0%,,,,,,,,
 Mawile,51,held_item,10,Leftovers,0.0%,,,,,,,,
 Mawile,51,teammate,1,Mimikyu,,,,,,,,,
 Mawile,51,teammate,2,Primarina,,,,,,,,,
@@ -30,21 +30,21 @@ Mawile,51,teammate,8,Hatterene,,,,,,,,,
 Mawile,51,teammate,9,Basculegion,,,,,,,,,
 Mawile,51,teammate,10,Hydreigon,,,,,,,,,
 Mawile,51,stat_alignment,1,Adamant,88.5%,Attack,Sp. Atk,,,,,,
-Mawile,51,stat_alignment,2,Brave,9.4%,Attack,Speed,,,,,,
+Mawile,51,stat_alignment,2,Brave,9.5%,Attack,Speed,,,,,,
 Mawile,51,stat_alignment,3,Impish,0.6%,Defense,Sp. Atk,,,,,,
 Mawile,51,stat_alignment,4,Jolly,0.4%,Speed,Sp. Atk,,,,,,
-Mawile,51,stat_alignment,5,Lax,0.4%,Defense,Sp. Def,,,,,,
+Mawile,51,stat_alignment,5,Lax,0.3%,Defense,Sp. Def,,,,,,
 Mawile,51,stat_alignment,6,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
 Mawile,51,stat_alignment,7,Naughty,0.1%,Attack,Sp. Def,,,,,,
-Mawile,51,stat_alignment,8,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Mawile,51,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,
+Mawile,51,stat_alignment,8,Lonely,0.1%,Attack,Defense,,,,,,
+Mawile,51,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
 Mawile,51,stat_alignment,10,Relaxed,0.0%,Defense,Speed,,,,,,
-Mawile,51,stat_points,1,,39.9%,,,32,32,0,0,2,0
-Mawile,51,stat_points,2,,17.4%,,,32,32,2,0,0,0
-Mawile,51,stat_points,3,,7.1%,,,32,32,0,0,0,2
+Mawile,51,stat_points,1,,39.8%,,,32,32,0,0,2,0
+Mawile,51,stat_points,2,,17.7%,,,32,32,2,0,0,0
+Mawile,51,stat_points,3,,7.0%,,,32,32,0,0,0,2
 Mawile,51,stat_points,4,,3.8%,,,32,30,0,0,4,0
 Mawile,51,stat_points,5,,2.9%,,,32,32,1,0,1,0
-Mawile,51,stat_points,6,,2.0%,,,30,32,0,0,0,4
+Mawile,51,stat_points,6,,2.2%,,,30,32,0,0,0,4
 Mawile,51,stat_points,7,,1.7%,,,6,32,0,0,0,28
 Mawile,51,stat_points,8,,1.2%,,,30,16,0,0,0,20
 Mawile,51,stat_points,9,,1.1%,,,16,32,0,0,0,18

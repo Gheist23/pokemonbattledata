@@ -1,49 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Beedrill,166,move,1,Poison Jab,92.4%,,,,,,,,
-Beedrill,166,move,2,Protect,83.4%,,,,,,,,
-Beedrill,166,move,3,U-turn,79.3%,,,,,,,,
-Beedrill,166,move,4,Drill Run,65.5%,,,,,,,,
-Beedrill,166,move,5,Fell Stinger,19.4%,,,,,,,,
-Beedrill,166,move,6,Lunge,16.3%,,,,,,,,
-Beedrill,166,move,7,Cross Poison,6.8%,,,,,,,,
-Beedrill,166,move,8,Knock Off,5.9%,,,,,,,,
-Beedrill,166,move,9,Brick Break,5.1%,,,,,,,,
-Beedrill,166,move,10,Pin Missile,4.5%,,,,,,,,
-Beedrill,166,held_item,1,Beedrillite,97.3%,,,,,,,,
-Beedrill,166,held_item,2,Poison Barb,1.1%,,,,,,,,
-Beedrill,166,held_item,3,Focus Sash,0.7%,,,,,,,,
-Beedrill,166,held_item,4,Oran Berry,0.5%,,,,,,,,
-Beedrill,166,held_item,5,Scope Lens,0.3%,,,,,,,,
-Beedrill,166,held_item,6,Expert Belt,0.0%,,,,,,,,
-Beedrill,166,held_item,7,Silver Powder,0.0%,,,,,,,,
-Beedrill,166,held_item,8,Houndoominite,0.0%,,,,,,,,
-Beedrill,166,teammate,1,Incineroar,,,,,,,,,
-Beedrill,166,teammate,2,Sneasler,,,,,,,,,
-Beedrill,166,teammate,3,Farigiraf,,,,,,,,,
-Beedrill,166,teammate,4,Rillaboom,,,,,,,,,
-Beedrill,166,teammate,5,Pelipper,,,,,,,,,
-Beedrill,166,teammate,6,Indeedee-F,,,,,,,,,
-Beedrill,166,teammate,7,Archaludon,,,,,,,,,
-Beedrill,166,teammate,8,Indeedee,,,,,,,,,
-Beedrill,166,teammate,9,Garchomp,,,,,,,,,
-Beedrill,166,teammate,10,Whimsicott,,,,,,,,,
-Beedrill,166,stat_alignment,1,Jolly,64.3%,Speed,Sp. Atk,,,,,,
-Beedrill,166,stat_alignment,2,Adamant,34.5%,Attack,Sp. Atk,,,,,,
-Beedrill,166,stat_alignment,3,Brave,0.5%,Attack,Speed,,,,,,
-Beedrill,166,stat_alignment,4,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Beedrill,166,stat_alignment,5,Hasty,0.2%,Speed,Defense,,,,,,
-Beedrill,166,stat_alignment,6,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Beedrill,166,stat_alignment,7,Bashful,0.0%,,,,,,,,
-Beedrill,166,stat_alignment,8,Naive,0.0%,Speed,Sp. Def,,,,,,
-Beedrill,166,stat_points,1,,52.3%,,,2,32,0,0,0,32
-Beedrill,166,stat_points,2,,17.6%,,,0,32,0,0,2,32
-Beedrill,166,stat_points,3,,16.2%,,,0,32,2,0,0,32
-Beedrill,166,stat_points,4,,3.0%,,,0,32,0,0,0,32
-Beedrill,166,stat_points,5,,1.7%,,,0,32,3,0,0,31
-Beedrill,166,stat_points,6,,1.1%,,,22,2,16,0,0,26
-Beedrill,166,stat_points,7,,1.0%,,,1,32,0,0,1,32
-Beedrill,166,stat_points,8,,1.0%,,,0,32,2,0,32,0
-Beedrill,166,stat_points,9,,0.8%,,,1,32,1,0,0,32
-Beedrill,166,stat_points,10,,0.7%,,,0,30,5,0,0,31
-Beedrill,166,ability,1,Sniper,58.5%,,,,,,,,
-Beedrill,166,ability,2,Swarm,41.5%,,,,,,,,
+Beedrill,167,move,1,Poison Jab,92.5%,,,,,,,,
+Beedrill,167,move,2,Protect,83.9%,,,,,,,,
+Beedrill,167,move,3,U-turn,78.5%,,,,,,,,
+Beedrill,167,move,4,Drill Run,64.8%,,,,,,,,
+Beedrill,167,move,5,Fell Stinger,19.7%,,,,,,,,
+Beedrill,167,move,6,Lunge,15.7%,,,,,,,,
+Beedrill,167,move,7,Cross Poison,6.8%,,,,,,,,
+Beedrill,167,move,8,Knock Off,6.3%,,,,,,,,
+Beedrill,167,move,9,Brick Break,5.8%,,,,,,,,
+Beedrill,167,move,10,X-Scissor,4.3%,,,,,,,,
+Beedrill,167,held_item,1,Beedrillite,97.5%,,,,,,,,
+Beedrill,167,held_item,2,Poison Barb,0.9%,,,,,,,,
+Beedrill,167,held_item,3,Focus Sash,0.6%,,,,,,,,
+Beedrill,167,held_item,4,Oran Berry,0.5%,,,,,,,,
+Beedrill,167,held_item,5,Scope Lens,0.2%,,,,,,,,
+Beedrill,167,held_item,6,Expert Belt,0.1%,,,,,,,,
+Beedrill,167,held_item,7,Choice Scarf,0.0%,,,,,,,,
+Beedrill,167,held_item,8,Silver Powder,0.0%,,,,,,,,
+Beedrill,167,held_item,9,Life Orb,0.0%,,,,,,,,
+Beedrill,167,held_item,10,Houndoominite,0.0%,,,,,,,,
+Beedrill,167,teammate,1,Incineroar,,,,,,,,,
+Beedrill,167,teammate,2,Rillaboom,,,,,,,,,
+Beedrill,167,teammate,3,Sneasler,,,,,,,,,
+Beedrill,167,teammate,4,Farigiraf,,,,,,,,,
+Beedrill,167,teammate,5,Indeedee-F,,,,,,,,,
+Beedrill,167,teammate,6,Pelipper,,,,,,,,,
+Beedrill,167,teammate,7,Archaludon,,,,,,,,,
+Beedrill,167,teammate,8,Garchomp,,,,,,,,,
+Beedrill,167,teammate,9,Whimsicott,,,,,,,,,
+Beedrill,167,teammate,10,Indeedee,,,,,,,,,
+Beedrill,167,stat_alignment,1,Jolly,65.0%,Speed,Sp. Atk,,,,,,
+Beedrill,167,stat_alignment,2,Adamant,33.7%,Attack,Sp. Atk,,,,,,
+Beedrill,167,stat_alignment,3,Brave,0.6%,Attack,Speed,,,,,,
+Beedrill,167,stat_alignment,4,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Beedrill,167,stat_alignment,5,Hasty,0.2%,Speed,Defense,,,,,,
+Beedrill,167,stat_alignment,6,Gentle,0.1%,Sp. Def,Defense,,,,,,
+Beedrill,167,stat_alignment,7,Bashful,0.0%,,,,,,,,
+Beedrill,167,stat_alignment,8,Docile,0.0%,,,,,,,,
+Beedrill,167,stat_alignment,9,Naive,0.0%,Speed,Sp. Def,,,,,,
+Beedrill,167,stat_points,1,,52.6%,,,2,32,0,0,0,32
+Beedrill,167,stat_points,2,,17.3%,,,0,32,0,0,2,32
+Beedrill,167,stat_points,3,,15.7%,,,0,32,2,0,0,32
+Beedrill,167,stat_points,4,,3.2%,,,0,32,0,0,0,32
+Beedrill,167,stat_points,5,,1.5%,,,0,32,3,0,0,31
+Beedrill,167,stat_points,6,,0.9%,,,22,2,16,0,0,26
+Beedrill,167,stat_points,7,,0.9%,,,1,32,0,0,1,32
+Beedrill,167,stat_points,8,,0.8%,,,0,32,2,0,32,0
+Beedrill,167,stat_points,9,,0.7%,,,0,30,5,0,0,31
+Beedrill,167,stat_points,10,,0.6%,,,1,32,1,0,0,32
+Beedrill,167,ability,1,Sniper,59.5%,,,,,,,,
+Beedrill,167,ability,2,Swarm,40.5%,,,,,,,,

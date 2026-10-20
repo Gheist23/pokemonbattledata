@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Staraptor,47,move,1,Close Combat,95.5%,,,,,,,,
-Staraptor,47,move,2,Brave Bird,89.2%,,,,,,,,
-Staraptor,47,move,3,Roost,79.9%,,,,,,,,
-Staraptor,47,move,4,Blaze Kick,55.1%,,,,,,,,
-Staraptor,47,move,5,U-turn,16.1%,,,,,,,,
+Staraptor,47,move,2,Brave Bird,89.1%,,,,,,,,
+Staraptor,47,move,3,Roost,80.0%,,,,,,,,
+Staraptor,47,move,4,Blaze Kick,54.7%,,,,,,,,
+Staraptor,47,move,5,U-turn,16.2%,,,,,,,,
 Staraptor,47,move,6,Final Gambit,15.4%,,,,,,,,
 Staraptor,47,move,7,Substitute,7.5%,,,,,,,,
-Staraptor,47,move,8,Whirlwind,7.3%,,,,,,,,
+Staraptor,47,move,8,Whirlwind,7.4%,,,,,,,,
 Staraptor,47,move,9,Dual Wingbeat,6.6%,,,,,,,,
-Staraptor,47,move,10,Quick Attack,6.1%,,,,,,,,
+Staraptor,47,move,10,Quick Attack,6.2%,,,,,,,,
 Staraptor,47,held_item,1,Staraptite,86.9%,,,,,,,,
 Staraptor,47,held_item,2,Choice Scarf,11.1%,,,,,,,,
 Staraptor,47,held_item,3,Life Orb,0.3%,,,,,,,,
@@ -29,8 +29,8 @@ Staraptor,47,teammate,7,Meowscarada,,,,,,,,,
 Staraptor,47,teammate,8,Hippowdon,,,,,,,,,
 Staraptor,47,teammate,9,Greninja,,,,,,,,,
 Staraptor,47,teammate,10,Baxcalibur,,,,,,,,,
-Staraptor,47,stat_alignment,1,Jolly,75.8%,Speed,Sp. Atk,,,,,,
-Staraptor,47,stat_alignment,2,Adamant,18.4%,Attack,Sp. Atk,,,,,,
+Staraptor,47,stat_alignment,1,Jolly,75.5%,Speed,Sp. Atk,,,,,,
+Staraptor,47,stat_alignment,2,Adamant,18.6%,Attack,Sp. Atk,,,,,,
 Staraptor,47,stat_alignment,3,Careful,2.1%,Sp. Def,Sp. Atk,,,,,,
 Staraptor,47,stat_alignment,4,Impish,1.4%,Defense,Sp. Atk,,,,,,
 Staraptor,47,stat_alignment,5,Naughty,0.7%,Attack,Sp. Def,,,,,,
@@ -39,15 +39,15 @@ Staraptor,47,stat_alignment,7,Brave,0.3%,Attack,Speed,,,,,,
 Staraptor,47,stat_alignment,8,Lonely,0.3%,Attack,Defense,,,,,,
 Staraptor,47,stat_alignment,9,Hasty,0.3%,Speed,Defense,,,,,,
 Staraptor,47,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
-Staraptor,47,stat_points,1,,27.5%,,,2,32,0,0,0,32
+Staraptor,47,stat_points,1,,27.9%,,,2,32,0,0,0,32
 Staraptor,47,stat_points,2,,9.3%,,,32,2,0,0,0,32
-Staraptor,47,stat_points,3,,8.4%,,,31,3,0,0,0,32
+Staraptor,47,stat_points,3,,8.3%,,,31,3,0,0,0,32
 Staraptor,47,stat_points,4,,5.7%,,,1,32,1,0,0,32
-Staraptor,47,stat_points,5,,4.0%,,,27,7,0,0,0,32
+Staraptor,47,stat_points,5,,3.8%,,,27,7,0,0,0,32
 Staraptor,47,stat_points,6,,3.6%,,,0,32,2,0,0,32
-Staraptor,47,stat_points,7,,3.2%,,,0,32,0,0,2,32
+Staraptor,47,stat_points,7,,3.3%,,,0,32,0,0,2,32
 Staraptor,47,stat_points,8,,1.8%,,,1,32,0,0,1,32
-Staraptor,47,stat_points,9,,1.7%,,,32,32,0,0,0,2
-Staraptor,47,stat_points,10,,1.6%,,,31,0,0,0,3,32
-Staraptor,47,ability,1,Intimidate,91.8%,,,,,,,,
-Staraptor,47,ability,2,Reckless,8.2%,,,,,,,,
+Staraptor,47,stat_points,9,,1.8%,,,32,32,0,0,0,2
+Staraptor,47,stat_points,10,,1.5%,,,32,0,0,0,2,32
+Staraptor,47,ability,1,Intimidate,91.7%,,,,,,,,
+Staraptor,47,ability,2,Reckless,8.3%,,,,,,,,

@@ -2669,6 +2669,11 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     }
   }
 
+  // There is a game now. This file is a classic script and the banner is a module, so it is
+  // pulled in dynamically -- which also means a browser that cannot load it simply does not get
+  // the offer, rather than failing the Explorer.
+  import("/builder/play-banner.js").then((module) => module.offerPlay()).catch(() => {});
+
   function escapeHtml(value) {
     return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
   }

@@ -81,13 +81,51 @@ const doubles = await time("Doubles evaluation (same team)", () => D.evaluation.
 for (const key of ["synergy_score", "offense_score", "defense_score"]) check(`Singles ${key} is a score`, finite(singles[key]), String(singles[key]));
 check("Singles Speed score is a score", finite(singles.speed?.score), String(singles.speed?.score));
 check("Singles evaluation lists critical threats", Array.isArray(singles.threats) && singles.threats.length > 0, String(singles.threats?.length));
-// Each threat is the Singles meta's row at its rank (a Mega or regional form carries its species' name).
+// Each threat is the Singles meta's row AT ITS RANK. team-eval.js stamps base_name and
+// position onto every threat from the meta records the evaluator was given (its `canonical`
+// map), so looking each rank up in meta-singles.json is what proves those records were the
+// SINGLES ladder: the rank -> Pokemon pairing is the only thing that tells the two ladders
+// apart, and the "would reject the Doubles list" check below measures that it still does.
+// Every expectation is READ OUT OF the meta file -- naming today's #27 would pin the suite to
+// one ladder snapshot, and the daily rebuild would turn it red on its own (it did: Heat Rotom
+// entered the Singles Top 30 on 15 Oct 2026, and its species label "Heat Rotom" is not a
+// substring of the display name "Rotom-Heat", which is all the old substring rule compared).
 const key = (v) => String(v || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-const fromSingles = (t) => {
-  const row = S.meta.pokemon.find((r) => Number(r.position) === Number(t.position));
-  return Boolean(row) && Number(t.position) <= TOP && key(t.name).includes(key(row.species));
+const rowAt = (meta, position) => (meta.pokemon || []).find((r) => Number(r.position) === Number(position));
+// The label the player reads is the row's Pokemon or a Mega of it ("Mega Raichu Y"), and a
+// variant label can be written "Team/Form"; nothing else counts.
+const shownNames = (t) => {
+  const shown = String(t.name || "").split("/").pop().trim();
+  return [shown, shown.replace(/^mega[\s-]+/i, "").replace(/\s+[XYZ]$/i, "").trim()];
 };
-check("Singles threats come from the Singles Top 30", singles.threats.every(fromSingles), singles.threats.filter((t) => !fromSingles(t)).map((t) => `${t.name}#${t.position}`).join(", "));
+// True only if the threat IS that meta's row at that rank: the base name is the row's own
+// display name, and the shown label is one of the three spellings that row carries.
+const pairsWith = (meta) => (t) => {
+  const row = rowAt(meta, t.position);
+  if (!row) return false;
+  const spellings = [row.name, row.form, row.species].map(key);
+  return key(t.base_name) === key(row.name) && shownNames(t).some((n) => spellings.includes(key(n)));
+};
+const offSingles = singles.threats.filter((t) => !(Number(t.position) <= TOP && pairsWith(S.meta)(t)));
+check("Singles threats come from the Singles Top 30", offSingles.length === 0,
+  offSingles.map((t) => `${t.name}#${t.position} vs ${rowAt(S.meta, t.position)?.name || "no row"}`).join(", "));
+// base_name is the field the rank pairing is read from, so an export that stopped carrying it
+// has to report as a missing field, not as a list that happens to pair with nothing.
+check("every Singles threat carries the base name the rank check reads",
+  singles.threats.every((t) => String(t.base_name || "").trim()), singles.threats.filter((t) => !String(t.base_name || "").trim()).map((t) => `#${t.position}`).join(", "));
+check("no rank appears twice in the Singles threats",
+  new Set(singles.threats.map((t) => Number(t.position))).size === singles.threats.length, singles.threats.map((t) => t.position).join(","));
+// THE CHECK ABOVE MUST FAIL IF THE DOUBLES LIST LEAKS IN. Both ladders rank 262 Pokemon and
+// share names, so what separates them is WHICH Pokemon sits at each rank: today they agree on
+// one rank in thirty. Measuring that here means the pairing check cannot quietly decay into
+// one that would pass with the two formats swapped.
+const alsoDoubles = singles.threats.filter(pairsWith(D.meta));
+check("the Singles rank pairing would reject the Doubles ladder", alsoDoubles.length * 4 <= singles.threats.length,
+  `${alsoDoubles.length}/${singles.threats.length} Singles threats also sit at that rank in Doubles: ${alsoDoubles.map((t) => `${t.name}#${t.position}`).join(", ")}`);
+// And the mirror, so the Doubles side is held to its own ladder too.
+const offDoubles = doubles.threats.filter((t) => !(Number(t.position) <= TOP && pairsWith(D.meta)(t)));
+check("Doubles threats come from the Doubles Top 30", offDoubles.length === 0,
+  offDoubles.map((t) => `${t.name}#${t.position} vs ${rowAt(D.meta, t.position)?.name || "no row"}`).join(", "));
 const rowIds = (payload) => payload.checks.rows.map((r) => r.check_id);
 check("Singles has no Spread Damage check", !rowIds(singles).includes("spread_damage"), rowIds(singles).join(","));
 check("Doubles keeps the Spread Damage check", rowIds(doubles).includes("spread_damage"), rowIds(doubles).join(","));
@@ -210,6 +248,10 @@ check("Projected detail has before/after scores", finite(detail?.scores?.before?
 // --- Optimize (Quick) ---------------------------------------------------------------------
 const optimized = await time("Singles Optimize Quick (Garchomp)", () => new DeepOptimizer(S.evaluation).run(sets, 0, { depth: "quick", topX: TOP }, {}));
 check("Optimize finishes", optimized.ok === true, optimized.message || "");
+// Six numbers, then the two rules about them. An `after` without a spread used to read as legal:
+// the empty list sums to 0, which is under the cap, and `[].every()` is true.
+check("Optimize returns a spread of six", (optimized.after?.bonuses || []).length === 6,
+  JSON.stringify(optimized.after?.bonuses));
 check("Optimize keeps a legal spread", (optimized.after?.bonuses || []).reduce((a, b) => a + b, 0) <= 66 && optimized.after.bonuses.every((v) => v >= 0 && v <= 32), JSON.stringify(optimized.after?.bonuses));
 check("Optimize never scores worse than the set", Number(optimized.delta) >= -1e-9, String(optimized.delta));
 check("Optimize speed contexts are Singles-safe", (optimized.contexts || []).length > 0 && optimized.contexts.every((c) => !/spread|partner/i.test(c.label)), JSON.stringify(optimized.contexts));

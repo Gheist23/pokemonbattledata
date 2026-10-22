@@ -798,6 +798,30 @@
 
 /* --- the field row and its popup -------------------------------------------------------------- */
 
+/* A counted condition: the button that switches it on, and how many turns of it are left. The
+   button takes the room that is going and the picker only what it needs, so a row of them lines
+   up with the uncounted buttons beside it instead of each one being as wide as its own words.
+   Built the same way as .bd-effect-group, which is the same idea in the strip above the board. */
+.bd-solver-turns {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.bd-solver-turns > button {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.bd-solver-turns-select {
+  flex: 0 0 auto;
+  width: auto;
+  height: 1.7rem;
+  padding: 0 1.3rem 0 0.4rem;
+  font-size: 0.72rem;
+}
+
 /* Trick Room, the two Tailwinds and Edit Field are one kind of choice, so they are one kind of
    button. They used to be three pills beside a button, which read as two different controls. */
 .bd-solver-field-button.on {
@@ -894,3 +918,17 @@
   font-size: 0.68rem;
   font-weight: 700;
 }
+
+/* The possible sets one trace was played against. Closed-sheet only: on an open board the sets
+   are on the tiles already and repeating them under the story is noise. */
+.bd-solver-story-sets ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1rem;
+  font-size: 0.78rem;
+  color: var(--bd-muted);
+}
+
+.bd-solver-story-sets li { margin-bottom: 0.15rem; }
+
+/* The way out of the Solver and into a game against it. */
+.bd-solver-play { white-space: nowrap; }

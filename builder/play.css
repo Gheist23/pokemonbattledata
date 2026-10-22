@@ -1,0 +1,1079 @@
+/* The Play page: a battle against the Solver.
+ *
+ * The field is laid out the way a player already reads one -- the opponent above with its bench
+ * beside its name, you below with yours -- which is the same arrangement the Solver's board uses
+ * and the one Pokemon Showdown taught everyone. Everything is `bd-play-` so none of it reaches
+ * another page.
+ *
+ * `--bd-muted` is not one of the builder's own variables, so this file does not use it: the
+ * builder theme is defined in builder.css and this stays inside it. */
+
+.page-play .bd-play-app {
+  display: grid;
+  gap: 0.9rem;
+}
+
+/* --- the tab strip and the record ------------------------------------------------------- */
+
+.bd-play-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.bd-play-record {
+  margin-left: auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--bd-good);
+  background: var(--bd-card-deep);
+  border: 1px solid var(--bd-line);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+}
+
+.bd-play-note {
+  margin: 0.3rem 0 0;
+  font-size: 0.82rem;
+  opacity: 0.78;
+}
+
+.bd-play-note.targeting {
+  color: var(--bd-mid);
+  opacity: 1;
+  font-weight: 700;
+}
+
+.bd-play-error {
+  margin: 0 0 0.5rem;
+  color: var(--bd-bad);
+  font-size: 0.85rem;
+}
+
+.bd-linkish {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--bd-good);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* --- setup ------------------------------------------------------------------------------- */
+
+.bd-play-setup { display: grid; gap: 0.9rem; }
+
+.bd-play-intro h2 { margin: 0 0 0.35rem; }
+.bd-play-intro p { margin: 0 0 0.7rem; opacity: 0.85; max-width: 62ch; }
+
+.bd-play-setup-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.bd-play-team-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.bd-play-team {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 10px;
+  background: var(--bd-control);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bd-play-team.on { border-color: var(--bd-on-line); background: var(--bd-on); }
+.bd-play-team-mons { display: flex; gap: 0.1rem; }
+
+.bd-play-team-head h3 { margin: 0; }
+
+.bd-play-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.5rem;
+  margin: 0.7rem 0;
+}
+
+.bd-play-slot {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas: "art body" "art tools";
+  gap: 0.15rem 0.5rem;
+  align-items: center;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 10px;
+  background: var(--bd-card-deep);
+}
+
+.bd-play-slot-art { grid-area: art; display: flex; align-items: center; }
+.bd-play-slot-body { grid-area: body; display: grid; min-width: 0; }
+.bd-play-slot-body small { font-size: 0.72rem; opacity: 0.72; }
+.bd-play-slot-moves { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bd-play-slot-tools { grid-area: tools; display: flex; align-items: center; gap: 0.4rem; }
+
+.bd-play-team-select {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.bd-play-team-select > span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.bd-play-team-select .bd-select { min-width: 12rem; }
+
+.bd-play-sheet-row {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--bd-line);
+}
+.bd-play-sheet-row .bd-play-note { margin: 0; max-width: 62ch; }
+
+/* --- team preview ------------------------------------------------------------------------- */
+
+.bd-play-preview { display: grid; gap: 0.9rem; }
+.bd-play-preview-head h2 { margin: 0 0 0.3rem; }
+.bd-play-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0.9rem;
+}
+.bd-play-preview-side h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.bd-play-preview-side.ours h3 { color: #93c5fd; }
+.bd-play-preview-side.theirs h3 { color: #fca5a5; }
+.bd-play-preview-list { display: grid; gap: 0.3rem; }
+
+.bd-play-preview-mon {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 10px;
+  background: var(--bd-control);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+.bd-play-preview-mon.pick { cursor: pointer; }
+.bd-play-preview-mon.pick:hover { border-color: var(--bd-on-line); }
+.bd-play-preview-mon.on { border-color: var(--bd-on-line); background: var(--bd-on); }
+.bd-play-preview-name { font-weight: 800; font-size: 0.86rem; }
+.bd-play-preview-order {
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 0.8;
+  white-space: nowrap;
+}
+.bd-play-preview-order.lead { background: rgba(114, 255, 171, 0.18); color: var(--bd-good); opacity: 1; }
+
+.bd-play-tag {
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bd-good);
+}
+.bd-play-tag.back { color: inherit; opacity: 0.6; }
+.bd-play-tag.out { color: var(--bd-bad); }
+.bd-play-edit { padding: 0.15rem 0.5rem; font-size: 0.72rem; }
+
+.bd-play-start { display: flex; justify-content: center; }
+.bd-play-go { min-width: 12rem; font-size: 1rem; padding: 0.6rem 1.4rem; }
+
+/* --- the field ---------------------------------------------------------------------------- */
+
+.bd-play-battle {
+  display: grid;
+  /* A touch more of the window for the field, now that the message sits under our side instead
+     of between the two. The transcript keeps its column and simply gets a little narrower. */
+  grid-template-columns: minmax(0, 1fr) 18rem;
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.bd-play-field-wrap { display: grid; gap: 0.7rem; min-width: 0; }
+
+.bd-play-field {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.9rem 0.9rem 0.7rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 14px;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(114, 255, 171, 0.06), transparent 60%),
+    var(--bd-card-deep);
+}
+
+.bd-play-weather {
+  justify-self: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.bd-play-stage { display: grid; gap: 0.4rem; }
+.bd-play-stage.playing { cursor: pointer; }
+
+.bd-play-party-row { display: flex; align-items: center; gap: 0.6rem; }
+/* Theirs above the field and to the right, ours below it and to the left: the diagonal the game
+   itself uses, so the two rows read as two sides of a table rather than one list of twelve. */
+.bd-play-party-row.theirs { justify-content: flex-end; }
+.bd-play-party-row.ours { justify-content: flex-start; }
+.bd-play-party { display: flex; gap: 0.2rem; }
+
+.bd-play-side-name {
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.bd-play-party-row.theirs .bd-play-side-name { color: #fca5a5; }
+.bd-play-party-row.ours .bd-play-side-name { color: #93c5fd; }
+
+.bd-play-pip {
+  display: inline-flex;
+  padding: 0.1rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 6px;
+  background: var(--bd-control);
+}
+.bd-play-pip.down { opacity: 0.5; }
+.bd-play-pip.down img { filter: grayscale(1) brightness(0.7); }
+
+/* A fainted Pokemon is CROSSED OUT. Greying one out reads as "not brought" -- which is what the
+   tiles beside it mean -- so the two states looked the same at a glance. Drawn rather than an
+   image: two gradients at right angles, which scale with whatever they are put on. */
+.bd-play-pip.down::after,
+.bd-play-mon.down::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1.5px), rgba(248, 70, 70, 0.95) calc(50% - 1.5px), rgba(248, 70, 70, 0.95) calc(50% + 1.5px), transparent calc(50% + 1.5px)),
+    linear-gradient(to bottom left, transparent calc(50% - 1.5px), rgba(248, 70, 70, 0.95) calc(50% - 1.5px), rgba(248, 70, 70, 0.95) calc(50% + 1.5px), transparent calc(50% + 1.5px));
+}
+.bd-play-pip { position: relative; }
+.bd-play-mon.down::after { border-radius: 10px; opacity: 0.85; }
+/* Left at team preview: on the team, not in this battle. */
+.bd-play-pip.benched { opacity: 0.3; border-style: dashed; }
+.bd-play-pip.benched img { filter: grayscale(1); }
+.bd-play-pip.standing { border-color: var(--bd-on-line); box-shadow: 0 0 0 1px var(--bd-on-line); }
+
+.bd-play-actives { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.bd-play-actives.theirs { justify-content: flex-end; }
+.bd-play-actives.ours { justify-content: flex-start; }
+
+.bd-play-middle {
+  display: grid;
+  gap: 0.15rem;
+  justify-items: center;
+  min-height: 2.4rem;
+  align-content: center;
+}
+
+/* What is happening, one line at a time, while the turn plays out. It has a row of its own
+   under our Pokemon, so however long the sentence it can never land on top of one. */
+.bd-play-caption {
+  min-height: 1.5rem;
+  justify-self: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+.bd-play-caption.showing { opacity: 1; transform: none; background: rgba(255, 255, 255, 0.07); }
+.bd-play-caption.ours { color: #bfdbfe; }
+.bd-play-caption.theirs { color: #fecaca; }
+
+.bd-play-turn {
+  justify-self: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  padding: 0.1rem 0;
+}
+
+.bd-play-mon {
+  display: grid;
+  grid-template-columns: auto minmax(7rem, 1fr);
+  grid-template-areas: "art name" "art hp" "art text" "art chips";
+  align-items: center;
+  gap: 0.05rem 0.5rem;
+  min-width: 12rem;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 10px;
+  background: var(--bd-control);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.bd-play-mon.empty {
+  display: grid;
+  place-items: center;
+  min-height: 4rem;
+  border-style: dashed;
+  background: transparent;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.bd-play-mon img { grid-area: art; }
+.bd-play-mon-name { grid-area: name; font-weight: 800; font-size: 0.86rem; }
+.bd-play-mon.down { opacity: 0.45; }
+.bd-play-mon.down img { filter: grayscale(1) brightness(0.7); }
+
+.bd-play-mon.targetable {
+  cursor: pointer;
+  border-color: var(--bd-mid);
+  box-shadow: 0 0 0 2px rgba(242, 207, 91, 0.25);
+}
+.bd-play-mon.targetable:hover { background: rgba(242, 207, 91, 0.12); }
+
+.bd-play-hp {
+  grid-area: hp;
+  display: block;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.bd-play-hp-fill { display: block; height: 100%; background: var(--bd-good); }
+.bd-play-hp-fill.mid { background: var(--bd-mid); }
+.bd-play-hp-fill.low { background: var(--bd-bad); }
+.bd-play-hp-text { grid-area: text; font-size: 0.72rem; opacity: 0.8; }
+.bd-play-chips { grid-area: chips; font-size: 0.68rem; color: var(--bd-mid); }
+
+/* --- choosing the turn ---------------------------------------------------------------------- */
+
+.bd-play-controls {
+  padding: 0.7rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 14px;
+  background: var(--bd-card);
+}
+
+.bd-play-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 0.6rem;
+}
+
+.bd-play-slot-choice {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.5rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 10px;
+  background: var(--bd-card-deep);
+}
+.bd-play-slot-choice.done { border-color: var(--bd-on-line); }
+
+.bd-play-choice-head { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+.bd-play-picked { font-size: 0.76rem; color: var(--bd-good); font-weight: 700; }
+.bd-play-picked.none { color: inherit; opacity: 0.5; font-weight: 400; }
+
+.bd-play-moves {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.3rem;
+}
+
+.bd-play-move,
+.bd-play-switch {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 8px;
+  background: var(--bd-control);
+  color: inherit;
+  font: inherit;
+  font-size: 0.8rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bd-play-move:hover,
+.bd-play-switch:hover { border-color: var(--bd-line-strong); }
+.bd-play-move.on,
+.bd-play-switch.on { border-color: var(--bd-on-line); background: var(--bd-on); }
+.bd-play-move.mega { border-left: 3px solid var(--bd-mid); }
+.bd-play-move-name { font-weight: 700; }
+.bd-play-move-tag {
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bd-mid);
+}
+
+.bd-play-switches { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+.bd-play-switch { font-size: 0.74rem; padding: 0.25rem 0.5rem; }
+
+.bd-play-submit {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.7rem;
+  flex-wrap: wrap;
+}
+/* Keep the three control buttons on one row.
+   `!important` is needed and is not laziness: styles.css makes EVERY .ghost-button full width on
+   a phone, with !important, so that the header's season picker, format switch and Discord button
+   stack. That rule is right for the header and wrong for a row of three small buttons, and it
+   cannot be narrowed without moving the header around. Overridden locally, the way
+   .bd-library-actions already overrides the same rule. */
+.bd-play-submit :is(.primary-button, .ghost-button) { width: auto !important; flex: 0 0 auto; }
+
+/* Resign sits NEXT TO Clear, not pushed to the far end: the only thing with an automatic
+   margin on this row is the hint, so the three buttons stay together and the sentence takes
+   whatever is left. Two automatic margins on one wrapping row is what put each button on a
+   line of its own at phone width. */
+.bd-play-resign { opacity: 0.7; }
+
+/* --- the result ------------------------------------------------------------------------------ */
+
+.bd-play-result { text-align: center; }
+.bd-play-result h2 { margin: 0 0 0.2rem; }
+.bd-play-result.won h2 { color: var(--bd-good); }
+.bd-play-result.lost h2 { color: var(--bd-bad); }
+.bd-play-result .bd-play-submit { justify-content: center; }
+
+/* --- the log ---------------------------------------------------------------------------------- */
+
+.bd-play-log-wrap {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.7rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 14px;
+  background: var(--bd-card);
+  min-width: 0;
+}
+.bd-play-log-wrap h3 { margin: 0; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.7; }
+
+.bd-play-log {
+  display: grid;
+  gap: 0.5rem;
+  max-height: 32rem;
+  overflow-y: auto;
+  font-size: 0.78rem;
+}
+
+.bd-play-log-turn {
+  display: grid;
+  gap: 0.15rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--bd-line);
+}
+.bd-play-log-lines { display: grid; gap: 0.1rem; }
+.bd-play-log-line { font-size: 0.76rem; line-height: 1.35; }
+.bd-play-log-line.side-0 { color: #bfdbfe; }
+.bd-play-log-line.side-1 { color: #fecaca; }
+.bd-play-log-line.hurt { opacity: 0.82; }
+.bd-play-log-line.ko { color: var(--bd-bad); font-weight: 800; }
+
+.bd-play-log-turn strong { font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.65; }
+.bd-play-log-plays { display: grid; gap: 0.1rem; }
+.bd-play-log-play.side-0 { color: #93c5fd; }
+.bd-play-log-play.side-1 { color: #fca5a5; }
+.bd-play-log-notes { opacity: 0.7; font-size: 0.74rem; }
+.bd-play-log-damage { display: grid; gap: 0.05rem; font-size: 0.74rem; opacity: 0.85; }
+.bd-play-log-hit.side-0 { color: #93c5fd; }
+.bd-play-log-hit.side-1 { color: #fca5a5; }
+.bd-play-log-ko { color: var(--bd-bad); font-weight: 700; font-size: 0.74rem; }
+
+/* --- the leaderboard ---------------------------------------------------------------------------- */
+
+.bd-play-board { display: grid; gap: 0.9rem; }
+.bd-play-board-head { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+.bd-play-board-head h2 { margin: 0; }
+
+.bd-play-tables {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 0.8rem;
+}
+
+.bd-play-table h3 { margin: 0 0 0.5rem; font-size: 0.9rem; }
+.bd-play-table table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+.bd-play-table th {
+  text-align: left;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  padding-bottom: 0.3rem;
+}
+.bd-play-table td { padding: 0.2rem 0; border-top: 1px solid var(--bd-line); }
+.bd-play-table td:first-child { opacity: 0.5; width: 1.6rem; }
+
+.bd-play-name-input {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 8px;
+  background: var(--bd-control);
+  color: inherit;
+  font: inherit;
+}
+
+@media (max-width: 920px) {
+  .bd-play-battle { grid-template-columns: minmax(0, 1fr); }
+  .bd-play-log { max-height: 18rem; }
+}
+
+@media (max-width: 620px) {
+  .bd-play-moves { grid-template-columns: minmax(0, 1fr); }
+  .bd-play-mon { min-width: 0; width: 100%; }
+  .bd-play-actives { flex-direction: column; }
+  .bd-play-banner { flex-direction: column; align-items: flex-start; }
+  .bd-play-banner .bd-play-banner-actions { margin-left: 0; }
+}
+
+/* A board with five columns does not fit a phone, and a leaderboard that is cut off at the
+   right is a leaderboard with no game count on it. */
+.bd-play-table { overflow-x: auto; }
+.bd-play-table table { min-width: 17rem; }
+
+/* --- playing a turn out -------------------------------------------------------------------- */
+/*
+ * Each beat is twice what it was: a turn that was over in three seconds had happened before
+ * anybody read it. A Doubles turn now runs about six, and the field can be clicked to skip.
+ *
+ * THESE DURATIONS ARE ALSO IN JAVASCRIPT. `BEAT` in builder/play-anim.js holds the same numbers,
+ * because a CSS animation must last exactly as long as the class carrying it -- shorter and the
+ * tile stands still at the end of its own beat, longer and the animation is cut off halfway.
+ * tests/run-play-anim.mjs reads this file and asserts the two agree.
+ *
+ * Effects are drawn on `.bd-play-fx`, a layer in front of each Pokemon, rather than as more
+ * transforms on the tile. The tile MOVES -- tackles, recoils, slumps -- and the layer DRAWS --
+ * a screen, an impact, a streak. Protect used to be a glow on the tile, which read as "this one
+ * is selected" rather than "that attack was blocked".
+ */
+
+:root {
+  /* How much longer than the base every beat runs. The page sets this to match the pace the
+     animation itself is using (PACES in builder/play-anim.js), so a CSS animation always lasts
+     exactly as long as the class carrying it. */
+  --beat-scale: 2;
+  --beat-send: 300ms;
+  /* The strike alone is quick: everything else in a turn is meant to be read, and a strike is
+     movement. Read off the reference recording, where the whole out-and-back is about half a
+     second while the turn around it is unhurried. */
+  --beat-move: 150ms;
+  --beat-hit: 400ms;
+  --beat-crit: 480ms;
+  --beat-residual: 320ms;
+  --beat-miss: 340ms;
+  --beat-protect: 360ms;
+  --beat-flinch: 340ms;
+  --beat-faint: 520ms;
+  --beat-switch: 420ms;
+  --beat-note: 560ms;
+}
+
+.bd-play-mon { position: relative; transition: transform 160ms ease, opacity 240ms ease, filter 180ms ease; }
+.bd-play-hp-fill { transition: width calc(var(--beat-hit) * var(--beat-scale)) cubic-bezier(0.22, 1, 0.36, 1), background-color 220ms ease; }
+
+/* The layer effects are drawn on. Empty and invisible until a step puts a class on it; never in
+   the way of a click, and outside the grid, so it cannot disturb the tile's layout. */
+.bd-play-fx {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 10px;
+}
+.bd-play-fx::before,
+.bd-play-fx::after { content: none; }
+
+/* --- the attack ----------------------------------------------------------------------------- */
+/*
+ * It ARRIVES. `--to-x` and `--to-y` are the measured distance from this tile to the one it is
+ * hitting, written on by builder/play-anim.js, so the attacker crosses the field and stops on
+ * its target the way the reference recording does -- rather than twitching 24 pixels in roughly
+ * the right direction, which is what this was.
+ *
+ * Fast, too: out in a third of the beat, contact, home by two thirds, and the rest of the beat
+ * standing still. Everything else in a turn is deliberately unhurried; a strike is movement, and
+ * movement that dawdles reads as weightless.
+ */
+@keyframes bd-tackle {
+  0% { transform: none; }
+  34% { transform: translate(calc(var(--to-x, 0px) * 0.92), calc(var(--to-y, 0px) * 0.92)) scale(1.08); }
+  48% { transform: translate(calc(var(--to-x, 0px) * 0.84), calc(var(--to-y, 0px) * 0.84)) scale(1.06); }
+  68% { transform: translate(calc(var(--to-x, 0px) * -0.06), calc(var(--to-y, 0px) * -0.06)) scale(0.98); }
+  100% { transform: none; }
+}
+.bd-play-mon.is-tackle {
+  animation: bd-tackle calc(var(--beat-move) * var(--beat-scale)) cubic-bezier(0.34, 0, 0.2, 1);
+  z-index: 5;
+}
+
+/* A move that strikes nobody -- Protect, Tailwind, Trick Room, Swords Dance. It gathers itself
+   where it stands: a lift, and a ring drawing inwards. Nothing travels, because nothing does. */
+@keyframes bd-focus {
+  0% { transform: none; }
+  40% { transform: translateY(-6px) scale(1.04); }
+  70% { transform: translateY(-3px) scale(1.02); }
+  100% { transform: none; }
+}
+/* Starts only a little wider than the tile: a ring that begins at 1.7 spends its first half
+   drawn across whatever is standing above and below. */
+@keyframes bd-gather {
+  0% { opacity: 0; transform: scale(1.32); }
+  35% { opacity: 1; transform: scale(1.12); }
+  100% { opacity: 0; transform: scale(0.82); }
+}
+.bd-play-mon.is-focus { animation: bd-focus calc(var(--beat-move) * var(--beat-scale)) ease-in-out; z-index: 2; }
+.bd-play-fx.fx-focus::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  border: 2px solid rgba(190, 242, 100, 0.75);
+  box-shadow: inset 0 0 16px rgba(190, 242, 100, 0.22);
+  animation: bd-gather calc(var(--beat-move) * var(--beat-scale)) ease-out;
+}
+
+/* --- taking a hit --------------------------------------------------------------------------- */
+@keyframes bd-shake {
+  10%, 90% { transform: translateX(-4px); }
+  30%, 70% { transform: translateX(4px); }
+  50% { transform: translateX(-2px); }
+}
+@keyframes bd-shake-hard {
+  8%, 92% { transform: translateX(-8px) rotate(-1.6deg); }
+  26%, 74% { transform: translateX(8px) rotate(1.6deg); }
+  50% { transform: translateX(-5px) scale(0.98); }
+}
+@keyframes bd-flash {
+  0%, 100% { filter: none; }
+  22% { filter: brightness(2) saturate(0.35); }
+  44% { filter: none; }
+}
+.bd-play-mon.is-hit { animation: bd-shake calc(var(--beat-hit) * var(--beat-scale)) ease, bd-flash calc(var(--beat-hit) * var(--beat-scale)) ease; }
+.bd-play-mon.is-hit-hard { animation: bd-shake-hard calc(var(--beat-hit) * var(--beat-scale)) ease, bd-flash calc(var(--beat-hit) * var(--beat-scale)) ease; }
+
+/* The impact itself: a burst where the hit landed, expanding and gone. */
+@keyframes bd-burst {
+  0% { opacity: 0; transform: scale(0.3); }
+  18% { opacity: 1; transform: scale(0.8); }
+  100% { opacity: 0; transform: scale(1.9); }
+}
+.bd-play-fx.fx-impact::before,
+.bd-play-fx.fx-impact-hard::before {
+  content: "";
+  position: absolute;
+  left: 34px;
+  top: 50%;
+  width: 72px;
+  height: 72px;
+  margin: -36px 0 0 -36px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 214, 140, 0.75) 32%, rgba(255, 128, 80, 0) 70%);
+  animation: bd-burst calc(var(--beat-hit) * var(--beat-scale)) ease-out;
+}
+.bd-play-fx.fx-impact-hard::before {
+  width: 104px;
+  height: 104px;
+  margin: -52px 0 0 -52px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.98) 0%, rgba(255, 180, 110, 0.85) 28%, rgba(248, 113, 113, 0.55) 48%, rgba(248, 113, 113, 0) 72%);
+}
+/* A hard hit also cracks the tile's edge for an instant. */
+.bd-play-fx.fx-impact-hard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  border: 2px solid rgba(248, 113, 113, 0.8);
+  animation: bd-burst calc(var(--beat-hit) * var(--beat-scale)) ease-out;
+}
+
+/* A critical hit. Bigger, whiter and slower than any ordinary hit, because it is the one thing
+   about a hit that cannot be read off the health bar afterwards. */
+@keyframes bd-crit-flare {
+  0% { opacity: 0; transform: scale(0.25) rotate(0deg); }
+  14% { opacity: 1; transform: scale(1) rotate(10deg); }
+  100% { opacity: 0; transform: scale(2.3) rotate(32deg); }
+}
+@keyframes bd-crit-ring {
+  0% { opacity: 0.95; transform: scale(0.5); border-width: 4px; }
+  100% { opacity: 0; transform: scale(1.75); border-width: 1px; }
+}
+.bd-play-fx.fx-crit::before {
+  content: "";
+  position: absolute;
+  left: 34px;
+  top: 50%;
+  width: 128px;
+  height: 128px;
+  margin: -64px 0 0 -64px;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 0deg, rgba(255, 255, 255, 0.95) 0deg 14deg, transparent 14deg 90deg,
+      rgba(255, 255, 255, 0.95) 90deg 104deg, transparent 104deg 180deg,
+      rgba(255, 255, 255, 0.95) 180deg 194deg, transparent 194deg 270deg,
+      rgba(255, 255, 255, 0.95) 270deg 284deg, transparent 284deg 360deg),
+    radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 224, 130, 0.9) 30%, rgba(248, 113, 113, 0) 68%);
+  animation: bd-crit-flare calc(var(--beat-crit) * var(--beat-scale)) cubic-bezier(0.2, 0, 0.3, 1);
+}
+.bd-play-fx.fx-crit::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 14px;
+  border: 4px solid rgba(255, 235, 160, 0.95);
+  box-shadow: 0 0 26px rgba(255, 204, 92, 0.75);
+  animation: bd-crit-ring calc(var(--beat-crit) * var(--beat-scale)) ease-out;
+}
+
+/* --- Protect: a screen in front of it ------------------------------------------------------- */
+/*
+ * A real barrier rather than a glow. It drops in, holds, and fades: `bd-screen` does the whole
+ * beat so the hold is visible. The bright edge sits on the side FACING the other team -- the top
+ * for ours, which stand below the field, the bottom for theirs.
+ */
+@keyframes bd-screen {
+  0% { opacity: 0; transform: scale(0.82); }
+  18% { opacity: 1; transform: scale(1.04); }
+  30% { transform: scale(1); }
+  72% { opacity: 1; }
+  100% { opacity: 0; transform: scale(1.03); }
+}
+@keyframes bd-sheen {
+  0% { transform: translateX(-130%) skewX(-18deg); }
+  60%, 100% { transform: translateX(230%) skewX(-18deg); }
+}
+/* The Pokemon braces behind it: a small pull-back AWAY from the other team, which is what makes
+   the screen read as something it put up rather than something laid over it. */
+@keyframes bd-brace-down {
+  22% { transform: translateY(5px) scale(0.97); }
+  70% { transform: translateY(3px) scale(0.98); }
+}
+@keyframes bd-brace-up {
+  22% { transform: translateY(-5px) scale(0.97); }
+  70% { transform: translateY(-3px) scale(0.98); }
+}
+.bd-play-mon.is-protect { animation: bd-brace-down calc(var(--beat-protect) * var(--beat-scale)) ease; }
+.bd-play-mon[data-side="1"].is-protect { animation-name: bd-brace-up; }
+
+.bd-play-fx.fx-protect::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(186, 230, 253, 0.42) 0%, rgba(125, 211, 252, 0.16) 45%, rgba(56, 189, 248, 0.1) 100%);
+  border: 2px solid rgba(186, 230, 253, 0.92);
+  box-shadow:
+    0 0 20px rgba(125, 211, 252, 0.75),
+    inset 0 0 26px rgba(186, 230, 253, 0.4);
+  animation: bd-screen calc(var(--beat-protect) * var(--beat-scale)) ease-out;
+}
+/* The sheen that makes it read as glass rather than as a coloured box. */
+.bd-play-fx.fx-protect::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.55) 50%, transparent 100%);
+  width: 45%;
+  animation: bd-sheen calc(var(--beat-protect) * var(--beat-scale)) ease-out;
+}
+/* The facing edge, brightest where the attack comes from. */
+.bd-play-mon[data-side="0"] .bd-play-fx.fx-protect::before { border-top-width: 4px; border-top-color: #e0f2fe; }
+.bd-play-mon[data-side="1"] .bd-play-fx.fx-protect::before { border-bottom-width: 4px; border-bottom-color: #e0f2fe; }
+
+/* --- a miss --------------------------------------------------------------------------------- */
+/* It steps aside and the attack goes past: the tile dodges, the layer draws the streak. */
+@keyframes bd-dodge {
+  0% { transform: none; opacity: 1; }
+  28% { transform: translateX(16px) skewX(-7deg); opacity: 0.4; }
+  58% { transform: translateX(-5px) skewX(2deg); opacity: 0.85; }
+  100% { transform: none; opacity: 1; }
+}
+@keyframes bd-streak {
+  0% { opacity: 0; transform: translateX(-60%) skewX(-20deg); }
+  30% { opacity: 0.9; }
+  100% { opacity: 0; transform: translateX(120%) skewX(-20deg); }
+}
+.bd-play-mon.is-miss { animation: bd-dodge calc(var(--beat-miss) * var(--beat-scale)) ease; }
+.bd-play-fx.fx-miss::before {
+  content: "";
+  position: absolute;
+  top: 12%;
+  left: 0;
+  width: 38%;
+  height: 76%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(226, 232, 240, 0.75), transparent);
+  animation: bd-streak calc(var(--beat-miss) * var(--beat-scale)) ease-out;
+}
+
+/* --- flinching ------------------------------------------------------------------------------ */
+/* It starts, stops, and loses the turn. */
+@keyframes bd-flinch {
+  20% { transform: scale(0.94) translateY(2px); }
+  40% { transform: scale(1.02) translateY(-3px); }
+  60% { transform: scale(0.96); }
+  80% { transform: scale(1.01); }
+}
+@keyframes bd-stall {
+  0% { opacity: 0; transform: scale(0.7); }
+  25% { opacity: 1; transform: scale(1.08); }
+  70% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.1); }
+}
+.bd-play-mon.is-flinch { animation: bd-flinch calc(var(--beat-flinch) * var(--beat-scale)) ease; }
+.bd-play-fx.fx-flinch::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  border: 2px dashed rgba(251, 191, 36, 0.85);
+  box-shadow: inset 0 0 18px rgba(251, 191, 36, 0.28);
+  animation: bd-stall calc(var(--beat-flinch) * var(--beat-scale)) ease-out;
+}
+
+/* --- the end of the turn -------------------------------------------------------------------- */
+/* The weather, a burn, Leftovers. A tint washes over it: down for damage, up for recovery.
+   A critical hit is drawn above, with the hits, because that is what one is. */
+@keyframes bd-chip {
+  35% { transform: translateY(3px); filter: brightness(0.8) saturate(1.35); }
+}
+@keyframes bd-mend {
+  35% { transform: translateY(-3px); filter: brightness(1.28) saturate(1.2); }
+}
+@keyframes bd-wash {
+  0% { opacity: 0; }
+  35% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.bd-play-mon.is-chip { animation: bd-chip calc(var(--beat-residual) * var(--beat-scale)) ease; }
+.bd-play-mon.is-mend { animation: bd-mend calc(var(--beat-residual) * var(--beat-scale)) ease; }
+.bd-play-fx.fx-chip::before,
+.bd-play-fx.fx-mend::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  animation: bd-wash calc(var(--beat-residual) * var(--beat-scale)) ease-out;
+}
+.bd-play-fx.fx-chip::before { background: linear-gradient(180deg, rgba(248, 113, 113, 0) 0%, rgba(248, 113, 113, 0.3) 100%); }
+.bd-play-fx.fx-mend::before { background: linear-gradient(0deg, rgba(74, 222, 128, 0) 0%, rgba(74, 222, 128, 0.3) 100%); }
+
+/* --- going down ----------------------------------------------------------------------------- */
+@keyframes bd-faint {
+  0% { transform: none; opacity: 1; }
+  25% { transform: translateY(-4px) scale(1.02); }
+  100% { transform: translateY(20px) scale(0.86); opacity: 0.22; filter: grayscale(1) brightness(0.6); }
+}
+@keyframes bd-fade-out {
+  0% { opacity: 0.85; }
+  100% { opacity: 0; }
+}
+.bd-play-mon.is-faint { animation: bd-faint calc(var(--beat-faint) * var(--beat-scale)) cubic-bezier(0.4, 0, 0.9, 0.6) forwards; }
+.bd-play-fx.fx-faint::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: radial-gradient(ellipse at 50% 60%, rgba(15, 23, 42, 0.6), transparent 70%);
+  animation: bd-fade-out calc(var(--beat-faint) * var(--beat-scale)) ease-in;
+}
+
+/* --- coming and going ------------------------------------------------------------------------ */
+@keyframes bd-leave {
+  to { transform: translateY(14px) scale(0.8); opacity: 0; }
+}
+@keyframes bd-enter {
+  0% { transform: translateY(16px) scale(0.8); opacity: 0; }
+  60% { transform: translateY(-3px) scale(1.03); opacity: 1; }
+  100% { transform: none; opacity: 1; }
+}
+@keyframes bd-arrive {
+  0% { opacity: 0.9; transform: scale(0.5); }
+  100% { opacity: 0; transform: scale(1.4); }
+}
+.bd-play-mon.is-leave { animation: bd-leave calc(calc(var(--beat-switch) * var(--beat-scale)) / 2) ease-in forwards; }
+.bd-play-mon.is-enter { animation: bd-enter calc(var(--beat-send) * var(--beat-scale)) cubic-bezier(0.22, 1, 0.36, 1); }
+.bd-play-fx.fx-arrive::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 14px;
+  border: 2px solid rgba(114, 255, 171, 0.8);
+  animation: bd-arrive calc(var(--beat-send) * var(--beat-scale)) ease-out;
+}
+
+/* Somebody who has asked their machine not to animate things gets the captions, the bars and the
+   effects' colour, and none of the movement. The turn still plays out in order, which is the
+   part that matters. */
+@media (prefers-reduced-motion: reduce) {
+  .bd-play-mon.is-tackle,
+  .bd-play-mon.is-focus,
+  .bd-play-mon.is-hit,
+  .bd-play-mon.is-hit-hard,
+  .bd-play-mon.is-miss,
+  .bd-play-mon.is-protect,
+  .bd-play-mon.is-flinch,
+  .bd-play-mon.is-chip,
+  .bd-play-mon.is-mend,
+  .bd-play-mon.is-faint,
+  .bd-play-mon.is-leave,
+  .bd-play-mon.is-enter { animation: none; }
+  .bd-play-fx::before,
+  .bd-play-fx::after { animation: none !important; }
+  .bd-play-hp-fill { transition: none; }
+  .bd-play-caption { transition: none; }
+  .bd-play-mon.is-faint { opacity: 0.4; filter: grayscale(1); }
+}
+
+/* --- the damage, as a number ------------------------------------------------------------------ */
+/*
+ * "-80%" floating off the Pokemon that took it. The health bar says the same thing, but it says
+ * it afterwards and slowly; this is the part that makes a hit land. Taken from the reference
+ * recording, where it is the most legible thing on the screen.
+ */
+@keyframes bd-damage-float {
+  0% { opacity: 0; transform: translate(-50%, 6px) scale(0.7); }
+  18% { opacity: 1; transform: translate(-50%, -6px) scale(1.12); }
+  32% { transform: translate(-50%, -10px) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -34px) scale(0.95); }
+}
+.bd-play-damage {
+  position: absolute;
+  left: 42px;
+  top: 6px;
+  transform: translate(-50%, 0);
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #fecaca;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75), 0 0 12px rgba(248, 113, 113, 0.8);
+  pointer-events: none;
+  white-space: nowrap;
+  animation: bd-damage-float calc(var(--beat-hit) * var(--beat-scale)) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.bd-play-damage.crit {
+  color: #fff3c4;
+  font-size: 1.25rem;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.8), 0 0 16px rgba(255, 204, 92, 0.95);
+}
+@media (prefers-reduced-motion: reduce) {
+  .bd-play-damage { animation: none; opacity: 1; transform: translate(-50%, -10px); }
+}
+
+/* --- Mega Evolution --------------------------------------------------------------------------- */
+/*
+ * It had no styling at all -- a bare browser button in the middle of a dark panel. Mega Evolving
+ * is a once-a-battle decision that changes what the Pokemon IS, so it gets a control that looks
+ * like a choice rather than like a form field: a gem, and a pill that comes alive when it is
+ * armed. The sweep only runs while it is on, so nothing animates on an idle screen.
+ */
+.bd-play-mega-toggle {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem 0.2rem 0.45rem;
+  border: 1px solid rgba(217, 149, 247, 0.45);
+  border-radius: 999px;
+  background: rgba(217, 149, 247, 0.09);
+  color: #f0c9fb;
+  font: inherit;
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+.bd-play-mega-toggle:hover {
+  border-color: rgba(217, 149, 247, 0.8);
+  background: rgba(217, 149, 247, 0.16);
+  color: #fae8ff;
+}
+
+/* The stone. A rotated square reads as a gem at this size and costs no image. */
+.bd-play-mega-gem {
+  width: 11px;
+  height: 11px;
+  flex: 0 0 auto;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, #f0abfc 0%, #a78bfa 50%, #38bdf8 100%);
+  box-shadow: 0 0 7px rgba(217, 149, 247, 0.75);
+  transition: box-shadow 160ms ease, transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes bd-mega-flow {
+  to { background-position: -300% 0; }
+}
+@keyframes bd-mega-gem {
+  to { transform: rotate(405deg); }
+}
+.bd-play-mega-toggle.on {
+  border-color: transparent;
+  color: #180a22;
+  background: linear-gradient(110deg, #f0abfc, #a78bfa, #38bdf8, #f0abfc);
+  background-size: 300% 100%;
+  animation: bd-mega-flow 3.2s linear infinite;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35), 0 0 18px rgba(167, 139, 250, 0.6);
+}
+.bd-play-mega-toggle.on .bd-play-mega-gem {
+  background: #fff;
+  box-shadow: 0 0 10px #fff, 0 0 18px rgba(255, 255, 255, 0.8);
+  animation: bd-mega-gem 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* A Mega's move list, marked the same colour as the control that armed it. */

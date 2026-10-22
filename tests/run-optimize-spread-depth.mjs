@@ -154,30 +154,45 @@ const scorerFor = (team, slot) => {
   // MARGINS.minimum (that is part B), and with the rule off neither can ever carry a Nature
   // that raises an attack stat for a support set, because such a Nature is never scored at all.
   // So "offered" is both of them together.
+  // `delta` is what each offer gains over the player's own set on Optimize's own scale, which
+  // is the bar it decides by (MARGINS.minimum); the "no change" entry gains nothing by
+  // definition.
   const offers = (result) => {
-    const out = [{ nature: result.after.nature, bonuses: result.after.bonuses, moves: result.after.moves, via: result.ok ? "the suggestion" : "no change" }];
-    if (result.trade_off) out.push({ nature: result.trade_off.nature, bonuses: result.trade_off.bonuses, moves: result.trade_off.moves, via: "the trade-off card" });
+    const out = [{ nature: result.after.nature, bonuses: result.after.bonuses, moves: result.after.moves, via: result.ok ? "the suggestion" : "no change", delta: result.delta }];
+    if (result.trade_off) out.push({ nature: result.trade_off.nature, bonuses: result.trade_off.bonuses, moves: result.trade_off.moves, via: "the trade-off card", delta: result.trade_off.delta });
     return out;
   };
   // The case is chosen by what it can demonstrate, not by a Pokemon typed in here: a member is
-  // a candidate when it is read as a support Pokemon and its own attacks are physical with none
-  // special, which is what makes an Attack-raising Nature legitimate and a +Sp. Attack one still
-  // forbidden. Pinning this to the sun team's Incineroar is what made the suite go red the
-  // morning the meta data was rebuilt: the rule still reaches Adamant and still offers it, but
-  // Adamant's edge over its own Careful fell from +1.04 to +0.89 and the margins - the same ones
-  // part B is about - now hold it back from being the suggestion rather than the trade-off.
+  // a candidate when it is read as a support Pokemon, its own attacks are physical with none
+  // special (which is what makes an Attack-raising Nature legitimate and a +Sp. Attack one still
+  // forbidden), and its own Nature raises neither attack stat - a set already on Adamant is kept
+  // there by both stamps, so it could not tell the rule from the blanket filter either way.
+  //
+  // HOW MUCH better the unlocked Nature scores is a property of the ladder, not of the rule, so
+  // no number is named here any more. Measured on this very fixture (sun/2 Incineroar) as the
+  // daily meta rebuild moved under it, with the rule's code untouched throughout: +0.889 on
+  // 06 Oct, +0.383 / +0.381 / +0.377 on 17-19 Oct and +0.151 on 20 Oct, because the
+  // blanket-filtered control caught up (it now reaches Careful 32/14/0/0/15/5 instead of
+  // Impish 32/0/2/0/27/5) while the rule went on reaching Adamant and offering it every single
+  // day. A typed "+0.2" turned that into a red suite with nothing wrong. What the rule owes the
+  // player has no magnitude of its own, and that is what is checked below: it is reachable at
+  // all, the control cannot reach it, a +Sp. Attack Nature is still never offered, it scores
+  // strictly better than anything the control offers (both runs are deterministic, so the
+  // comparison is exact), and its gain clears the MARGINS.minimum bar Optimize offers anything
+  // at - all of it read off the run and the product's own constants.
   const categories = (set) => {
     const of = (name) => (set.moves || []).filter((m) => engine.moveRecord(m) && String(engine.moveRecord(m).category || "").toLowerCase() === name);
     return { physical: of("physical"), special: of("special") };
   };
   const candidates = [];
-  // The first candidate that demonstrates the rule is the case; the rest are only run when it
-  // does not, so the failure can name the whole pool.
-  scan: for (const team of Object.keys(TEAMS)) {
+  // Every candidate is measured, not just the first that happens to demonstrate the rule: the
+  // weakest one is what the checks hold on, and a failure can name the whole pool.
+  for (const team of Object.keys(TEAMS)) {
     for (let slot = 0; slot < TEAMS[team].length; slot += 1) {
       const set = teamSets(team)[slot];
       const { physical, special } = categories(set);
       if (!physical.length || special.length) continue;
+      if (raises(set.nature, 1) || raises(set.nature, 3)) continue;
       const off = await runAt(team, slot, 0);
       if (off.stats?.support !== true) continue;
       const on = await runAt(team, slot, 1);
@@ -190,35 +205,50 @@ const scorerFor = (team, slot) => {
         best: Math.max(...offOffers.map((o) => o.score)),
         attack: onOffers.filter((o) => raises(o.nature, 1)).sort((a, b) => b.score - a.score)[0] || null,
       });
-      if (candidates[candidates.length - 1].attack) break scan;
     }
   }
   const shown = (list) => list.map((o) => `${o.nature} ${o.bonuses.join("/")} ${o.score.toFixed(3)} (${o.via})`).join(" / ");
+  const pool = () => candidates.map((c) => `${c.team}/${c.slot} ${c.set.species} off [${shown(c.offOffers)}] on [${shown(c.onOffers)}]`).join("; ");
   check(candidates.length > 0, "A end to end: no member is read as a support Pokemon whose own attacks are all physical - pick another member, this section cannot fail");
-  // The one that demonstrates the rule; without one the suite says so and names the whole pool.
-  const picked = candidates.find((c) => c.attack) || candidates[0];
-  if (picked) {
-    const { team, slot, set, off, on, score, best, attack } = picked;
-    const label = `A end to end ${team}/${slot} ${set.species}`;
-    check(Boolean(attack), `${label}: with the rule on no support member is offered an Attack-raising Nature, which is the whole point of A - ${candidates.map((c) => `${c.team}/${c.slot} ${c.set.species} off [${shown(c.offOffers)}] on [${shown(c.onOffers)}]`).join("; ")}`);
+  const offered = candidates.filter((c) => c.attack);
+  check(offered.length > 0, `A end to end: with the rule on no support member is offered an Attack-raising Nature, which is the whole point of A - ${pool()}`);
+  for (const c of candidates) {
+    const label = `A end to end ${c.team}/${c.slot} ${c.set.species}`;
     // With the rule off the blanket filter is still blanket, so the check above can fail.
-    for (const offer of picked.offOffers) {
+    for (const offer of c.offOffers) {
       check(!raises(offer.nature, 1) && !raises(offer.nature, 3), `${label}: with the rule off ${offer.via} is already on ${offer.nature}, which raises an attack stat - the check above would hold for the wrong reason`);
     }
     // A set that never attacks specially is still never offered a +Sp. Attack Nature.
-    for (const offer of picked.onOffers) {
+    for (const offer of c.onOffers) {
       check(!raises(offer.nature, 3), `${label}: ${offer.via} is on ${offer.nature}, which raises Sp. Attack for a set whose attacks are all physical`);
     }
-    if (attack) check(attack.score > best + 0.2, `${label}: the rule should score clearly better, ${best.toFixed(3)} -> ${attack.score.toFixed(3)}`);
+    if (!c.attack) continue;
+    // It scores better for it: better than everything the blanket filter can put in front of
+    // the player, measured by a second, independent objective over the same team. Both runs are
+    // deterministic (section 7) and the rule-off run is the control, so this needs no margin.
+    check(c.attack.score > c.best + 1e-9,
+      `${label}: the Nature the rule unlocks (${c.attack.nature} ${c.attack.bonuses.join("/")} ${c.attack.score.toFixed(3)}, ${c.attack.via}) does not score better than what the blanket filter already offers [${shown(c.offOffers)}]`);
+    // And the gain is one Optimize itself acts on, at the product's own bar rather than a
+    // number typed in here: nothing under MARGINS.minimum over the player's set is ever offered.
+    check(c.attack.delta >= MARGINS.minimum - 1e-9,
+      `${label}: ${c.attack.via} carries ${c.attack.nature} for only ${Number(c.attack.delta).toFixed(3)} over the set's own spread, under the MARGINS.minimum (${MARGINS.minimum}) bar Optimize offers anything at`);
+  }
+  // The member whose gain is largest is the one the stamps are replayed on; ties keep team order.
+  const picked = [...offered].sort((a, b) => (b.attack.score - b.best) - (a.attack.score - a.best))[0] || candidates[0];
+  if (picked) {
+    const { team, slot, set, off, on } = picked;
+    const label = `A end to end ${team}/${slot} ${set.species}`;
     check(on.stats.optimize_spread_depth === 1 && off.stats.optimize_spread_depth === 0, `${label}: the result does not carry the stamp it ran at (${on.stats.optimize_spread_depth} / ${off.stats.optimize_spread_depth})`);
     // Whichever stamp this replay names is what a run with no option of its own must do.
     const production = await runAt(team, slot, STAMP);
     const want = STAMP ? on : off;
     check(production.after.nature === want.after.nature && pointsKey(production.after.bonuses) === pointsKey(want.after.bonuses),
       `${label}: replayed at stamp ${STAMP} it gave ${production.after.nature} ${production.after.bonuses.join("/")}, the stamp says ${want.after.nature} ${want.after.bonuses.join("/")}`);
-    const offScore = score(off.after.nature, off.after.bonuses, off.after.moves);
-    console.log(`3. A end to end: ${candidates.length} support candidate(s), ${team}/${slot} ${set.species} ${off.after.nature} ${off.after.bonuses.join("/")} (${offScore.toFixed(2)}) -> ${attack ? `${attack.nature} ${attack.bonuses.join("/")} (${attack.score.toFixed(2)}) as ${attack.via}` : "nothing with an Attack-raising Nature"}`);
   }
+  // The gains are printed, not asserted: they are what today's ladder makes of the rule.
+  const gain = (c) => `${c.attack.score >= c.best ? "+" : ""}${(c.attack.score - c.best).toFixed(2)}`;
+  const line = (c) => `${c.team}/${c.slot} ${c.set.species} ${c.off.after.nature} ${c.off.after.bonuses.join("/")} (${c.best.toFixed(2)}) -> ${c.attack ? `${c.attack.nature} ${c.attack.bonuses.join("/")} (${c.attack.score.toFixed(2)}, ${gain(c)}, ${c.attack.via})` : "nothing with an Attack-raising Nature"}`;
+  console.log(`3. A end to end: ${candidates.length} support candidate(s), ${offered.length} offered an Attack-raising Nature: ${candidates.map(line).join("; ")}`);
 }
 
 // --- 4. B, the trade-off gate -----------------------------------------------------------------

@@ -21,6 +21,7 @@ import {
   BuilderData, STAT_LABELS, TEAM_SIZE, boxEntryToSet, isEmptySet, makeSet, parseShowdown,
   setFromCommon, setToBoxEntry, setToShowdown,
 } from "./common.js";
+import { offerPlay } from "./play-banner.js";
 import {
   addBox, addToBox, currentBox, currentTeam, deleteBox, deleteTeam, dropEmptyPlaceholders, duplicateTeam,
   getState, newTeam,
@@ -2336,3 +2337,5 @@ async function main() {
 }
 
 main();
+// Once the page is up, and only once a visit: there is a game now.
+offerPlay();

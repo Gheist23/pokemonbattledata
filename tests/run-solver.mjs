@@ -77,7 +77,10 @@ const CAT = set("Incineroar", "Sitrus Berry", "Intimidate", "Careful", ["Fake Ou
 /** Drizzle, so that "has this Pokemon arrived on the field?" can be read off the weather. */
 const RAIN = set("Pelipper", "Focus Sash", "Drizzle", "Modest", ["Hurricane", "Hydro Pump", "Tailwind", "Protect"], [32, 0, 0, 32, 2, 0]);
 
+/** A stone holder, so "is the rolled set shown with its item?" can be asked. */
+const STONE = set("Charizard", "Charizardite Y", "Blaze", "Timid", ["Heat Wave", "Protect", "Solar Beam", "Air Slash"], [2, 0, 0, 32, 0, 32]);
 const row = (s, extra = {}) => ({ set: s, hp: 100, front: false, ...extra });
+
 
 function board(ourRows, theirRows, field = {}) {
   return { sides: [ourRows, theirRows], field };
@@ -1195,6 +1198,78 @@ const solver = makeSolver();
     result.theirs.length > 0 && result.theirs[0].actions.length === 2,
     JSON.stringify(result.theirs[0] ? result.theirs[0].actions.length : null));
   notes.push(`alone: 1v2 scores ${result.value.toFixed(1)}, our best = ${result.ours[0].actions.map((a) => `${a.name}: ${a.move}`).join(" · ")}`);
+}
+
+
+// ---------------------------------------------------------------------------
+// 24. A board whose sets are not known
+// ---------------------------------------------------------------------------
+{
+  // `searchClosed` searches a POOL of possible boards at once: same Pokemon, same HP, different
+  // rolls of what they carry. The root is one bandit whose arms are action NAMES, because an
+  // index means a different move on a different board.
+  const one = board(
+    [row(HITTER, { front: true }), row(CAT, { front: true }), row(BULKY)],
+    [row(FAST, { front: true }), row(SUPPORT, { front: true }), row(RAIN)],
+  );
+
+  // The degenerate pool: every possible board is the same board. The answer must then be the
+  // answer the ordinary search gives, or the pooling is doing something of its own.
+  const same = Array.from({ length: 4 }, () => one);
+  const pooled = await solver.searchClosed(same, { iterations: 1200, lookahead: 3, seed: 21 });
+  const plain = await solver.search(one, { iterations: 1200, lookahead: 3, seed: 21 });
+  ok("a pool of identical boards searches without error", !pooled.error, String(pooled.error));
+  eq("the pool is reported", pooled.pool, 4);
+  eq("every line is counted once", pooled.ours.reduce((sum, r) => sum + r.played, 0), pooled.played);
+  eq("and once for the other side too", pooled.theirs.reduce((sum, r) => sum + r.played, 0), pooled.played);
+  ok("with one board repeated, every action exists on all of them",
+    pooled.ours.every((r) => r.rolls === 4) && pooled.theirs.every((r) => r.rolls === 4));
+  ok("and the action space is the same size as the ordinary search's",
+    pooled.space[0] === plain.space[0] && pooled.space[1] === plain.space[1],
+    `${pooled.space} vs ${plain.space}`);
+  const topMove = (rows) => rows[0].actions.map((a) => `${a.name}:${a.move}`).join("|");
+  ok("and it names a real turn for both sides", topMove(pooled.ours).length > 0 && topMove(pooled.theirs).length > 0);
+
+  // A pool that really varies: the availability column has to mean something.
+  const swapped = board(
+    [row(HITTER, { front: true }), row(CAT, { front: true }), row(BULKY)],
+    [row(FAST, { front: true }), row(BULKY, { front: true }), row(RAIN)],
+  );
+  const mixed = [one, one, swapped, swapped];
+  const varied = await solver.searchClosed(mixed, { iterations: 1500, lookahead: 3, seed: 22 });
+  ok("a varying pool searches too", !varied.error, String(varied.error));
+  ok("an action that only some boards offer is marked as such",
+    varied.theirs.some((r) => r.rolls < r.pool), "every row claimed to exist on every board");
+  ok("no row claims to exist on more boards than there are",
+    varied.theirs.every((r) => r.rolls <= r.pool && r.rolls >= 1));
+  ok("the rows carry a score and a line count",
+    varied.ours.every((r) => Number.isFinite(r.score) && r.played >= 0));
+
+  // The story is a turn that could really have been played, and it says which board it was on.
+  ok("the story is played out", varied.story && varied.story.turns.length > 0);
+  ok("and it shows the sets that board rolled",
+    Array.isArray(varied.story?.sets) && varied.story.sets.length === 2
+    && varied.story.sets[1].every((m) => typeof m.name === "string"));
+
+  // A stone holder is shown holding its stone, not standing blank: the Solver stands everything
+  // in its base form, so reading the unit on the field would say "no item".
+  const stoned = board(
+    [row(HITTER, { front: true }), row(CAT, { front: true })],
+    [row(STONE, { front: true }), row(SUPPORT, { front: true })],
+  );
+  const held = await solver.searchClosed([stoned, stoned], { iterations: 400, lookahead: 2, seed: 23 });
+  const theirSets = held.story?.sets?.[1] || [];
+  ok("a rolled stone holder is shown with its stone",
+    theirSets.some((m) => /ite/i.test(m.item || "")), JSON.stringify(theirSets.map((m) => m.item)));
+
+  // It settles, on the pooled leader rather than on an index.
+  const settling = await solver.searchClosed(same, { iterations: 200000, lookahead: 2, seed: 24, settleLines: 400 });
+  ok("a closed search settles on its own", settling.settled === true && settling.played < 200000,
+    `settled=${settling.settled} played=${settling.played}`);
+  ok("and not before the floor", settling.played >= 800, String(settling.played));
+
+  notes.push(`closed: pool of ${varied.pool}, ${varied.space[0]} x ${varied.space[1]} arms, `
+    + `${varied.theirs.filter((r) => r.rolls < r.pool).length} of ${varied.theirs.length} of their rows are board-dependent`);
 }
 
 

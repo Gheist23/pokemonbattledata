@@ -220,6 +220,19 @@ async function runOne(teamName, slot, options, label) {
   for (const move of set.moves) {
     if (!optimizer.opt.damaging(move) || UTILITY_ATTACKS.has(compact(move)) || ev.movePriority(move) > 0) check(after.moves.includes(move), `${name}: ${move} (support, utility or priority) was dropped`);
   }
+  // `testMoves: false` switches the move test off, so there is no move report to read: the
+  // kept list, the move options and the trade-off all belong to that test. What still has to
+  // hold is that nothing takes a saved move away except the guaranteed-moves rule, which runs
+  // either way (its backstop fills a missing locked move even when no move is tested).
+  const movesTested = Boolean(result.moves_tested);
+  if (options.testMoves === false) {
+    check(!movesTested, `${name}: testMoves: false still produced a move report (${JSON.stringify(result.moves_tested)})`);
+    const replaced = new Set((result.guaranteed?.added || []).map((a) => compact(a.replaced)).filter(Boolean));
+    const lost = (set.moves || []).filter((m) => m && !after.moves.some((x) => compact(x) === compact(m)) && !replaced.has(compact(m)));
+    check(!lost.length, `${name}: testMoves: false dropped ${lost.join(", ")} although the move test never ran`);
+  } else {
+    check(movesTested, `${name}: the move test ran but reported nothing`);
+  }
   // A move nearly every team of this Pokemon runs stays on the set, and is never offered
   // away in the move options, the trade-off or the alternatives. Weather and terrain moves
   // are left out here: whether one counts depends on the team, which section 7 checks.
@@ -229,8 +242,11 @@ async function runOne(teamName, slot, options, label) {
     if (!shares.has(k) || MOVES_NEEDING_SUPPORT[k]) continue;
     const label = `${name}: ${move} (on ${shares.get(k)}% of its teams)`;
     check(after.moves.some((m) => compact(m) === k), `${label} was dropped from the suggestion`);
-    check((result.moves_tested?.kept || []).some((x) => compact(x.move) === k), `${label} is not in the kept list`);
-    for (const option of result.moves_tested?.options || []) check(!option.removed.some((m) => compact(m) === k), `${label} is offered away by a move option (+${option.added.join("/")})`);
+    // Only where the move test ran: the kept list is that test's own report.
+    if (movesTested) {
+      check((result.moves_tested.kept || []).some((x) => compact(x.move) === k), `${label} is not in the kept list`);
+      for (const option of result.moves_tested.options || []) check(!option.removed.some((m) => compact(m) === k), `${label} is offered away by a move option (+${option.added.join("/")})`);
+    }
     if (result.trade_off) check(result.trade_off.moves.some((m) => compact(m) === k), `${label} is dropped by the trade-off`);
     for (const alt of result.alternatives || []) check((alt.moves || []).some((m) => compact(m) === k), `${label} is dropped by the ${alt.kind} alternative`);
   }
@@ -251,7 +267,11 @@ async function runOne(teamName, slot, options, label) {
 
 const runs = [];
 const jobs = quickOnly
-  ? [["sun", 3, { depth: "quick" }], ["rough", 0, { depth: "quick" }]]
+  // The `testMoves: false` run is in --quick too: it is the only one with no move report,
+  // so leaving it out of --quick is what let a move-report check sit on it unnoticed. The
+  // Incineroar run is there for section 9, which needs a run that moves the spread and the
+  // Nature while leaving a stat alone and had nothing to work with in --quick.
+  ? [["sun", 3, { depth: "quick" }], ["rough", 0, { depth: "quick" }], ["sun", 1, { depth: "quick", testMoves: false }], ["sun", 2, { depth: "quick" }]]
   : [
     ["sun", 0, { depth: "quick" }], ["sun", 2, { depth: "quick" }], ["sun", 3, { depth: "quick" }], ["sun", 4, { depth: "quick" }],
     ["rough", 0, { depth: "quick" }], ["rough", 1, { depth: "quick" }], ["rough", 2, { depth: "quick" }],
@@ -705,7 +725,12 @@ for (const [team, slot, options] of jobs) {
       && r.result.before.bonuses[i] === r.result.after.bonuses[i]);
   const spread = runs.find((r) => r.result.ok && String(r.result.before.bonuses) === String(TEAMS.rough[0].bonuses) && showsBoth(r))
     || runs.find(showsBoth);
-  check(Boolean(spread), "card: no run changed the spread and the Nature while leaving a stat alone, so the quiet-row checks have nothing to run on");
+  // --quick runs a handful of members, so whether one of them happens to change the spread
+  // and the Nature while leaving a stat alone is the luck of the day's data: it is not a
+  // fault in the card. The full run has the members to find a case and still fails here if
+  // it cannot; --quick says out loud that it skipped the rows instead.
+  if (!spread && quickOnly) console.log("   card: no --quick run changed the spread and the Nature while leaving a stat alone today, so the quiet-row checks are skipped (the full run checks them)");
+  else check(Boolean(spread), "card: no run changed the spread and the Nature while leaving a stat alone, so the quiet-row checks have nothing to run on");
   if (spread) {
     const { before, after } = spread.result;
     const set = teamSets(spread.team)[spread.slot];

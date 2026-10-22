@@ -1,0 +1,38 @@
+# Line endings, settled in the repository rather than in each machine's git config.
+#
+# WHY THIS FILE EXISTS. `core.autocrlf=true` writes CRLF into the working tree on checkout, and
+# every tool in this project writes LF -- Node, Python, the page generators, the editors. A file
+# that is checked out and then PARTLY rewritten therefore ends up carrying both, line by line.
+# Measured on 20 Oct 2026 before this file was added: 2,702 of the generated pages and every one
+# of the battle-data CSVs were mixed, and only 76 source files were cleanly LF.
+#
+# Nothing is functionally broken by that -- browsers and Node do not care -- but a test that
+# reads a source file and matches a literal containing a newline is, and one was: the picker
+# suite's "it does so before it binds the search box" check failed for weeks on line endings
+# alone while the site behaved correctly.
+#
+# `eol=lf` removes the conversion instead of arguing with it. Git stores LF, checks out LF on
+# every platform, and the tools write LF, so there is nothing left to mix. It also OVERRIDES
+# core.autocrlf, which is the point: a local git setting fixes one machine, and this holds for
+# anything that clones the repository -- another desktop, a CI runner, the daily pipeline.
+#
+# Nothing here wants CRLF. The files are served to browsers by Cloudflare Pages and read by Node
+# and Python; no Windows tool in this project needs it, and Notepad has read LF since 2018.
+* text=auto eol=lf
+
+# Bytes. Declared rather than left to the heuristic, so nothing can ever decide to translate one
+# of them: a single byte changed in a sprite or the Companion's release zip is a broken file.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.mp4   binary
+*.webm  binary
+*.zip   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.pdf   binary

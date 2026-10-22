@@ -1885,7 +1885,14 @@ export class DamageEngine {
     const moldBreaker = MOLD_BREAKERS.has(atkAbility);
     const groundedAttacker = this.isGrounded(attacker, atkData, atkState);
     const groundedDefender = this.isGrounded(defender, defData, defState);
-    const critical = Boolean(ctx.critical || (meta.always_critical && !ctx._mcts_ignore_guaranteed_crit));
+    // Battle Armor and Shell Armor: this Pokemon cannot be critically hit. Nothing in this file
+    // checked for them, so Flower Trick, Storm Throw, Frost Breath, Surging Strikes and Wicked
+    // Blow -- the five that always crit -- were dealing x1.50 through both Abilities everywhere
+    // on the site, including in the Damage Calculator. Mold Breaker, Teravolt and Turboblaze
+    // ignore the Ability, as they do every other one.
+    const critProof = (defAbility === "battle armor" || defAbility === "shell armor") && !moldBreaker;
+    const critical = !critProof
+      && Boolean(ctx.critical || (meta.always_critical && !ctx._mcts_ignore_guaranteed_crit));
 
     if (ctx.protect && !(atkAbility === "unseen fist" && flags.has("contact"))) return bare("Protect blocks the move.");
     const blocked = this.abilityBlocksDamage(attacker, defender, moveType, meta);

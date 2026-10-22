@@ -227,9 +227,41 @@ for (const testCase of cases) {
     const stem = String(meta.base_name || meta.pokemon || meta.name);
     if (!records.has(stem) && (meta.rows || []).length) records.set(stem, pokemonRecord(stem, meta.rows, aliases));
   }
-  for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
+  // Today's meta file fills in a record the recording never captured, BEHIND every recorded
+  // position. The MERGE here used to keep each live record's own rank, and the rank was the
+  // second input to leak into a replay, exactly like the tournament library above.
+  //
+  // A team member is never a candidate, so no candidate row carries one, and the recording's
+  // Top-X holds only the members that were already ranked inside it. `sun` has Whimsicott on the
+  // team: when these runs were recorded (21 Sep) it sat at meta rank 21, one place outside the
+  // replayed Top-20, so the live file's copy of it landed outside the Top-X and changed nothing.
+  // The real ladder then carried it to rank 14, and from there the live file walked it INTO the
+  // replay's Top-20, pushed the recorded Sylveon (rank 20) out of it, and moved the team's threat
+  // list, its four evaluation scores and every candidate's projected scores: 2309 mismatches over
+  // the three `sun` recordings, every one of them about today's ladder and none about the port.
+  // Ranked behind the recording the same replay is 0 mismatched on the 21 Sep file and on today's.
+  //
+  // The live record may still SUPPLY a Pokemon the recording has nothing for (an uncaptured team
+  // member's usage sets); it may not say where anything stands. Ranking is the recording's.
+  const recordedFloor = Math.max(0, ...[...records.values()].map((r) => Number(r.position) || 0));
+  for (const record of siteMeta.pokemon) {
+    if (records.has(record.name)) continue;
+    records.set(record.name, { ...record, position: recordedFloor + (Number(record.position) || 0) + 1 });
+  }
   const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
+  // Derived from the recording, not named here: the Top-X the site replays must be the Top-X the
+  // app recorded, in its order. Everything below is measured against that list, so when a live
+  // record reaches it again this says so in one line instead of several thousand score diffs.
+  const recordedTopX = (evalFor(testCase)?.record.meta[0]?.rows || []).map((row) => String(row.pokemon || row.base_name || row.name));
+  if (recordedTopX.length) {
+    total += 1;
+    // `base_name` is the record's own stem; `name` is the Mega form when the top item is a stone.
+    const replayedTopX = evaluator.topMeta(recordedTopX.length).map((entry) => String(entry.base_name || entry.name));
+    if (replayedTopX.join("|") !== recordedTopX.join("|")) {
+      failures.push(`${label} replayed Top-X is not the recording's (a live meta record entered the replay's ranking)\n    app ${recordedTopX.join(",")}\n    web ${replayedTopX.join(",")}`);
+    }
+  }
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;
   const recordedMons = evalFor(testCase)?.record.team_mons.at(-1)?.mons || [];

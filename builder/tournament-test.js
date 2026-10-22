@@ -566,6 +566,27 @@ export const TOURNAMENT_VAR_POWER = 1;
  */
 export const TOURNAMENT_EFFECTS = 1;
 
+/**
+ * Whether a hit is priced against the Pokemon ACTUALLY STANDING THERE -- its live HP and its
+ * status -- rather than against the full-health, status-free Pokemon its team sheet describes.
+ *
+ * 0 by default, ON PURPOSE. Turning it on moves every damage number the Tournament Test produces,
+ * and those numbers are published: the site's evaluation scores, several thousand recorded parity
+ * vectors and the Companion desktop app all agree on the current ones. The played game asks for
+ * version 1, because a battle should price a Dragonite at 3% HP as a Dragonite at 3% HP; nothing
+ * there is recorded or compared against the app.
+ *
+ * What version 1 turns on:
+ *   * the defender's live HP, so Multiscale and Shadow Shield stop halving damage below full;
+ *   * the attacker's live HP, so Blaze, Torrent, Overgrow and Swarm can finally activate;
+ *   * the defender's status, so a burned or poisoned defender is priced as one.
+ */
+export const TOURNAMENT_LIVE_HP = 0;
+
+/** The six conditions, as the damage calculator names them. Mirrors solver.js's STATUS_EFFECTS;
+ *  kept here as a plain index so a row's condition can go in a cache key as a small number. */
+const LIVE_STATUS = ["", "Burned", "Poisoned", "Badly Poisoned", "Asleep", "Frozen"];
+
 /** The physical and special moves whose LISTED power is 0 because the power is worked out from the
  *  board -- the target's weight, the two Speeds, the user's HP, its item or its party. A NAMED set
  *  and not a general relaxation of `damagingMove`: that function's `power > 0` test is also what
@@ -985,7 +1006,7 @@ export class TournamentTest {
    *   `varPowerRule`: the variable-power attacks (TOURNAMENT_VAR_POWER); 0 replays a recording made
    *   before it, where a 0-power attack was no attack at all.
    */
-  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, effects = null } = {}) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, liveHpRule = TOURNAMENT_LIVE_HP, effects = null } = {}) {
     this.turnOneRule = tournamentTurnOneOption(turnOneRule);
     this.seatRule = tournamentSeatOption(seatRule);
     this.bringRule = tournamentBringOption(bringRule);
@@ -997,6 +1018,7 @@ export class TournamentTest {
     this.guardRule = tournamentGuardOption(guardRule);
     this.varPowerRule = tournamentVarPowerOption(varPowerRule);
     this.effectsRule = tournamentEffectsOption(effectsRule);
+    this.liveHpRule = ruleVersion(liveHpRule, 1);
     // The compiled move and Ability effects. Handed in rather than fetched, because this file is
     // run from a Worker, from node and from six suites; `effectsOn` is the one gate every new
     // rule below asks, so a run with no registry behaves exactly as it did before them.
@@ -1383,7 +1405,8 @@ export class TournamentTest {
    * One move into one defender on this board, cached with only the parts of the board it depends on.
    * `fx`: 1 = Helping Hand (Doubles), 2 = the attacker is burned (physical moves).
    */
-  moveHit(att, def, slot, board, atk, spa, fx = 0, hp = 1, defStage = 0, took = 0) {
+  moveHit(att, def, slot, board, atk, spa, fx = 0, hp = 1, defStage = 0, took = 0, critical = false,
+    defHp = 1, defStatus = 0) {
     const info = att.moves[slot];
     if (!info) return NO_HIT;
     const w = info.weather || att.weatherSense || def.weatherSense ? board.w : ANY;
@@ -1395,25 +1418,50 @@ export class TournamentTest {
     // exactly those moves -- a key that ignored it would hand a hurt attacker the full-power number,
     // which is the defect. Every other move, and every move under rule 0, keeps the top bucket, so
     // its key only shifts and its number does not move at all.
-    const bucket = this.falloffRule >= 1 && info.hpPower ? hpBucket(hp) : HP_BUCKETS - 1;
+    const bucket = (this.liveHpRule >= 1 || (this.falloffRule >= 1 && info.hpPower))
+      ? hpBucket(hp) : HP_BUCKETS - 1;
+    // Under the old rule the defender is always a full-health, status-free team-sheet Pokemon, so
+    // these are pinned and the key merely widens by a constant: every existing caller keeps the
+    // number it had.
+    const live = this.liveHpRule >= 1;
+    const defBucket = live ? hpBucket(defHp) : HP_BUCKETS - 1;
+    const defCond = live ? (Number(defStatus) || 0) : 0;
     // `defStage` is the defender's Defense stage as it stands NOW, which only a Solver line moves
     // (Stamina). It has to be in the key for the same reason the attacker's stage is: the cache is
     // what the whole search reads, and a Pokemon at +1 Defense must not be handed the +0 answer.
     // Nothing outside the Solver ever passes it, so every other caller keeps a key that merely
     // shifts and a number that does not move.
-    if (this.effectsOn && info.counter) {
-      return this.calc(att, def, info, slot, w, t, stage, f, bucket, defStage, took);
+    // A critical hit is not cached, for the same reason a counter move is not: it is asked for
+    // a handful of times a turn by a played game, never by the search, so a factor in the key
+    // would cost every other caller a wider key to buy nothing. Going straight to `calc` leaves
+    // the key -- and therefore every cached number in the run -- exactly as it was.
+    if (critical || (this.effectsOn && info.counter)) {
+      return this.calc(att, def, info, slot, w, t, stage, f, bucket, defStage, took, critical, defBucket, defCond);
     }
-    const key = (((((((att.id * ID_SPAN + def.id) * 4 + slot) * 8 + w) * 8 + t) * 13 + stage + 6) * 13 + clampStage(defStage) + 6) * 4 + f) * HP_BUCKETS + bucket;
+    // Mixed radix, one factor a line. It was a single nested expression and grew a tenth level
+    // of parentheses that did not close; written this way the arithmetic is the same and the
+    // nesting cannot be miscounted. Every factor that changes the answer has to be in here --
+    // a key blind to one of them hands back the first answer for every value of it.
+    let key = att.id * ID_SPAN + def.id;
+    key = key * 4 + slot;
+    key = key * 8 + w;
+    key = key * 8 + t;
+    key = key * 13 + stage + 6;
+    key = key * 13 + clampStage(defStage) + 6;
+    key = key * 4 + f;
+    key = key * HP_BUCKETS + bucket;
+    key = key * HP_BUCKETS + defBucket;
+    key = key * LIVE_STATUS.length + defCond;
     let hit = this.hits.get(key);
     if (hit === undefined) {
-      hit = this.calc(att, def, info, slot, w, t, stage, f, bucket, defStage);
+      hit = this.calc(att, def, info, slot, w, t, stage, f, bucket, defStage, 0, false, defBucket, defCond);
       this.hits.set(key, hit);
     }
     return hit;
   }
 
-  calc(att, def, info, slot, w, t, stage, f, bucket = HP_BUCKETS - 1, defStage = 0, took = 0) {
+  calc(att, def, info, slot, w, t, stage, f, bucket = HP_BUCKETS - 1, defStage = 0, took = 0, critical = false,
+    defBucket = HP_BUCKETS - 1, defCond = 0) {
     // Grassy Glide is +1 in Grassy Terrain when its user is on the ground.
     const priority = info.priority + (info.key === "grassyglide" && t === GRASSY && att.grounded ? 1 : 0);
     // Priority the move table does not list is priority the engine cannot see, so its
@@ -1424,18 +1472,34 @@ export class TournamentTest {
     const attacker = { ...att.mon, _white_herb_restored_v314: true };
     // The engine already models the falloff; it just needs telling. The bucket's own top edge is
     // used, so a full-HP attacker is exactly 100 and reads precisely as it did before the rule.
-    if (info.hpPower) attacker.current_hp_percent = Math.round(((bucket + 1) / HP_BUCKETS) * 100);
+    // The bucket's own top edge, so a full-health Pokemon is exactly 100 and reads precisely as
+    // it did before either rule.
+    if (info.hpPower || this.liveHpRule >= 1) {
+      attacker.current_hp_percent = Math.round(((bucket + 1) / HP_BUCKETS) * 100);
+    }
     if (stage && info.physical) attacker.attack_stage = clampStage((att.mon.attack_stage || 0) + stage);
     if (stage && info.special) attacker.sp_attack_stage = clampStage((att.mon.sp_attack_stage || 0) + stage);
     const s = this.ev.settings;
     // The engine reads the defender's Defense stage off the Pokemon object -- there is no context
     // key for it -- so a Pokemon that has been raised during the line is a cloned one. Cloned only
     // when it has been: every Tournament Test call passes 0 and hands over `def.mon` itself.
-    const defender = defStage
+    // Cloned only when something has to be written onto it: every Tournament Test call under the
+    // old rule passes a zero stage and hands over `def.mon` itself.
+    const live = this.liveHpRule >= 1;
+    const defender = (defStage || live)
       ? { ...def.mon, defense_stage: clampStage((def.mon.defense_stage || 0) + defStage) }
       : def.mon;
+    if (live) {
+      // Multiscale and Shadow Shield halve damage at FULL health only; without this they halved
+      // it all game. And a burned or poisoned defender was priced as a healthy one.
+      defender.current_hp_percent = Math.round(((defBucket + 1) / HP_BUCKETS) * 100);
+      defender.status = LIVE_STATUS[defCond] || "";
+    }
     try {
       const ctx = this.ev.calcContext(attacker, defender, info.name);
+      // The engine does the rest: x1.5, x2.25 under Sniper, screens skipped, and in `stageFor`
+      // the attacker's negative stages and the defender's positive ones ignored.
+      if (critical) ctx.critical = true;
       // The board is the only source of the field (TOURNAMENT_FIELD). Version 0 keeps a pinned
       // weather or terrain instead of the board's, and keeps the screens, Trick Room and Tailwind
       // the shared settings apply -- by settings SIDE, which the board has no way to model.
@@ -1536,9 +1600,28 @@ export class TournamentTest {
    * `pre` is the attacker's own state to strike with, which is the attacker itself everywhere
    * except inside a run of tied twins (seat rule 1), where it is what it was before the run began.
    */
-  hitOn(m, target, slot, board, helped = m.helped, pre = m) {
+  /**
+   * @param {boolean} [critical] price this hit as a critical hit. Only a played game asks for
+   *   this; every search and every evaluation leaves it false and is unaffected.
+   */
+  hitOn(m, target, slot, board, helped = m.helped, pre = m, critical = false) {
     return this.moveHit(m.u, target.u, slot, board, pre.atk, pre.spa,
-      (helped ? 1 : 0) | (pre.burn ? 2 : 0), pre.hp, target.def || 0, pre.took || 0);
+      (helped ? 1 : 0) | (pre.burn ? 2 : 0), pre.hp, target.def || 0, pre.took || 0, critical,
+      // What is actually standing there (TOURNAMENT_LIVE_HP). Read off the row even when the
+      // rule is off, because `moveHit` then pins them to the old constants itself -- one place
+      // to look rather than two.
+      target.hp, this.conditionOf(target));
+  }
+
+  /** A row's condition as an index into LIVE_STATUS, so it can go in a cache key. */
+  conditionOf(m) {
+    if (!m) return 0;
+    if (m.burn) return 1;
+    if (m.tox) return 3;
+    if (m.psn) return 2;
+    if (m.sleep) return 4;
+    if (m.frozen) return 5;
+    return 0;
   }
 
   /**

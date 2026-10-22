@@ -196,6 +196,11 @@ const CASES = [
   const guarded = makeContext({ move_name: "Crunch", battle_format: "Doubles", protect: true });
   const through = engine.calculate(card("Unseen Fist"), card("Synchronize"), guarded);
   const blocked = engine.calculate(card("Synchronize"), card("Synchronize"), guarded);
+  // Asked first, because the check below is a disjunction over two lists and BOTH are empty when
+  // the calculation did not answer at all -- `[].every()` is true, so a missing answer read as a
+  // successful Protect.
+  ok("the guarded calculation answered", Boolean(blocked) && Array.isArray(blocked.rolls),
+     JSON.stringify(blocked));
   ok("Protect still blocks an ordinary move", (blocked?.rolls || []).every((v) => Number(v) === 0)
      || /protect/i.test(String(blocked?.summary || "") + String((blocked?.details || []).join(" "))),
      JSON.stringify(blocked?.summary));

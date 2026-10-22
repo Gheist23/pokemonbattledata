@@ -12,12 +12,42 @@
 
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
+import { readFileSync } from "node:fs";
+import { DatabaseSync } from "node:sqlite";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const port = Number(process.env.PORT || 8790);
 const kv = new Map();
+
+/** Enough of a D1 binding for functions/api/play, over node:sqlite. Lives only as long as the
+ *  process, exactly like the KV and bucket stand-ins above. */
+function memoryDatabase() {
+  const db = new DatabaseSync(":memory:");
+  db.exec(readFileSync(join(root, "functions", "api", "play", "schema.sql"), "utf8"));
+  const make = (sql) => {
+    const api = {
+      _sql: sql,
+      _args: [],
+      bind(...values) { api._args = values; return api; },
+      async first() { return db.prepare(sql).all(...api._args)[0] || null; },
+      async all() { return { results: db.prepare(sql).all(...api._args) }; },
+      async run() { db.prepare(sql).run(...api._args); return { success: true }; },
+    };
+    return api;
+  };
+  return {
+    prepare: make,
+    async batch(list) {
+      return list.map((entry) => {
+        if (/^\s*select/i.test(entry._sql)) return { results: db.prepare(entry._sql).all(...entry._args) };
+        db.prepare(entry._sql).run(...entry._args);
+        return { success: true };
+      });
+    },
+  };
+}
 
 /** Enough of an R2 bucket for functions/api/share: the four calls it makes, over
  *  a Map. The same shape tests/run-share-endpoints.mjs stubs. */
@@ -58,6 +88,11 @@ const env = {
     async put(key, value) { kv.set(key, String(value)); },
   },
   SHARES: memoryBucket(),
+  PLAY: memoryDatabase(),
+  // The live ladder refuses a second DIFFERENT game from one device inside five seconds, which
+  // is right there and wrong here: clicking through games to try the page out would answer 429
+  // and show no rating. Switched off for local work only.
+  PLAY_REPORT_GAP_MS: "0",
   // The share page is the static /share/index.html with three blocks replaced;
   // on Pages that comes from the asset binding, here straight off disk.
   ASSETS: {
@@ -78,6 +113,8 @@ const shareIndex = await import(pathToFileURL(join(root, "functions/api/share/in
 const shareCode = await import(pathToFileURL(join(root, "functions/api/share/[code].js")).href);
 const shareImage = await import(pathToFileURL(join(root, "functions/api/share/img/[code].js")).href);
 const campaign = await import(pathToFileURL(join(root, "functions/api/campaign/[code].js")).href);
+const playReport = await import(pathToFileURL(join(root, "functions/api/play/report.js")).href);
+const playBoard = await import(pathToFileURL(join(root, "functions/api/play/leaderboard.js")).href);
 
 async function toRequest(req, url) {
   const chunks = [];
@@ -123,6 +160,15 @@ createServer(async (req, res) => {
       if (!["GET", "HEAD"].includes(req.method)) return send(res, new Response("", { status: 405 }));
       const params = { code: decodeURIComponent(shareOne[1]) };
       return send(res, await shareCode.onRequestGet({ request: await toRequest(req, url), params, env }));
+    }
+    // --- the /play/ ladder, over a real sqlite database in memory ---
+    if (url.pathname === "/api/play/report") {
+      if (req.method !== "POST") return send(res, new Response("", { status: 405 }));
+      return send(res, await playReport.onRequestPost({ request: await toRequest(req, url), env }));
+    }
+    if (url.pathname === "/api/play/leaderboard") {
+      if (!["GET", "HEAD"].includes(req.method)) return send(res, new Response("", { status: 405 }));
+      return send(res, await playBoard.onRequestGet({ request: await toRequest(req, url), env }));
     }
     // --- campaign counters: the creator-collaboration funnel ---
     const campaignOne = url.pathname.match(/^\/api\/campaign\/([^/]+)$/);

@@ -138,6 +138,7 @@ globalThis.window = globalThis;
 globalThis.requestAnimationFrame = (fn) => setTimeout(() => fn(0), 0);
 
 const { BuilderData } = await import("../builder/common.js");
+const { compact } = await import("../builder/engine.js");
 const { openDialog, pickPokemon, editSet, searchHelpCard } = await import("../builder/ui.js");
 const language = await import("../builder/search-query.js");
 
@@ -149,7 +150,12 @@ const find = (query, limit = 400) => data.searchSpecies(query, { format: "Double
 // 1. one language, not two
 // =============================================================================
 
-const appSource = readFileSync(join(root, "app.js"), "utf8");
+// Source text is read with its line endings flattened: this worktree holds a
+// mix of LF and CRLF files (git's core.autocrlf is on), and whether a file
+// happens to carry a \r is not something these checks are about.
+const source = (...parts) => readFileSync(join(root, ...parts), "utf8").replace(/\r\n/g, "\n");
+
+const appSource = source("app.js");
 const MOVED = [
   "parseSearchQuery", "addNameSegments", "parseClause", "isRankFilterField",
   "bestTextMatchScore", "splitListValue", "matchTextValues",
@@ -163,9 +169,21 @@ for (const name of MOVED) {
 }
 ok("the Explorer takes the language from the shared module",
   /await import\("\/builder\/search-query\.js"\)/.test(appSource), "no dynamic import of the module in app.js");
-ok("and it does so before it binds the search box",
-  appSource.indexOf("await loadSearchLanguage();") < appSource.indexOf("bindEvents();\n    renderLoadingState();"),
-  "the language has to be in hand before the first render");
+{
+  // Inside init(), and in this order -- not "somewhere earlier in the file",
+  // which a stray mention would satisfy, and not pinned to how the three lines
+  // happen to be indented.
+  const body = appSource.match(/\basync function init\(\)\s*\{([\s\S]*?)\n\s*\}/)?.[1] ?? "";
+  ok("the Explorer's start-up is one init()", Boolean(body), "no async function init() in app.js");
+  const at = (call) => body.indexOf(call);
+  ok("and it does so before it binds the search box",
+    at("await loadSearchLanguage()") >= 0
+      && at("await loadSearchLanguage()") < at("bindEvents()")
+      && at("await loadSearchLanguage()") < at("renderLoadingState()"),
+    `the language has to be in hand before the first render -- init() does ${
+      ["await loadSearchLanguage()", "bindEvents()", "renderLoadingState()"]
+        .filter((call) => at(call) >= 0).sort((a, b) => at(a) - at(b)).join(" then ") || "none of the three"}`);
+}
 
 // The parser answers the same shapes both sides rely on.
 same("a plain word is a name query", language.parseSearchQuery("Rillaboom").mode, "name");
@@ -230,7 +248,29 @@ ok("an Ability is found by name", find("grassy surge").includes("Rillaboom"));
 ok("a move nobody is named after finds everything that learns it",
   find("fake out").includes("Rillaboom") && find("fake out").includes("Incineroar") && find("fake out").length > 20);
 ok("an empty query is the whole ladder in order", find("", 6).length === 6);
-same("and it starts at the top of the meta", find("", 1), ["Rillaboom"]);
+{
+  // Whoever today's ladder put first, worked out from the meta file rather than
+  // named: the daily rebuild moves the top of the meta, and the thing worth
+  // guarding is that the picker starts there, not who is standing there today.
+  // A Mega is not a laddered identity of its own, so it is not a candidate
+  // (searchSpecies sends one to the back of the list).
+  const pickerLabel = new Map(); // compact(ladder name) -> the row the picker would show
+  for (const { row, label } of data.byShowdown.values()) {
+    if (row.mega || !row.usage) continue;
+    const key = compact(row.usage);
+    const held = pickerLabel.get(key);
+    if (held === undefined || label.localeCompare(held) < 0) pickerLabel.set(key, label);
+  }
+  const ladder = data.meta.Doubles.pokemon
+    .slice().sort((a, b) => a.position - b.position)
+    .map((row) => pickerLabel.get(compact(row.name)))
+    .filter(Boolean);
+  ok("the ladder has rows the picker can show", ladder.length > 50, `${ladder.length} of ${data.meta.Doubles.pokemon.length} meta rows resolved`);
+  same("and it starts at the top of the meta", find("", 1), ladder.slice(0, 1));
+  // ...and carries on down it: an empty query is the ladder's own order, not
+  // alphabetical and not the table's.
+  same("and goes on down the ladder from there", find("", 6), ladder.slice(0, 6));
+}
 ok("every spelling of a name still works",
   ["alolan ninetales", "ninetales-alola", "Ninetales-Alola"].every((query) => find(query).includes("Ninetales-Alola")));
 same("including a second ladder name for one app form", find("Squawkabilly-Yellow"), ["Squawkabilly"]);
@@ -334,7 +374,7 @@ const settle = () => new Promise((resolve) => setTimeout(resolve, 0));
 // 6. the picker does not jump
 // =============================================================================
 
-const css = readFileSync(join(root, "builder", "builder.css"), "utf8");
+const css = source("builder", "builder.css");
 // The rule that pins it is the one that also lets the bottom move; a second
 // copy inside a media query must not be able to stand in for it.
 const pickerRule = css.match(/\.bd-dialog-picker\s*\{[^}]*margin-bottom:\s*auto[^}]*\}/)?.[0] || "";
@@ -347,7 +387,7 @@ ok("the heading's buttons sit in a row", /\.bd-dialog-head-actions \{[^}]*displa
 // 7. an evaluation that just ran is not called out of date
 // =============================================================================
 
-const page = readFileSync(join(root, "builder", "builder-page.js"), "utf8");
+const page = source("builder", "builder-page.js");
 ok("runEvaluation files its result under the team as it is now",
   /async function runEvaluation\(key = evaluationKey\(\)\)/.test(page),
   "a caller that passes no key would file the result under `undefined`, and the panel would ask to evaluate changes that were never made");

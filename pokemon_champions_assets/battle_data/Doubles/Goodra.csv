@@ -1,54 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Goodra,209,move,1,Protect,41.7%,,,,,,,,
-Goodra,209,move,2,Dragon Pulse,40.4%,,,,,,,,
-Goodra,209,move,3,Draco Meteor,33.5%,,,,,,,,
-Goodra,209,move,4,Thunderbolt,29.6%,,,,,,,,
-Goodra,209,move,5,Flamethrower,24.1%,,,,,,,,
-Goodra,209,move,6,Ice Beam,22.5%,,,,,,,,
-Goodra,209,move,7,Giga Drain,21.1%,,,,,,,,
-Goodra,209,move,8,Fire Blast,16.1%,,,,,,,,
-Goodra,209,move,9,Life Dew,15.1%,,,,,,,,
-Goodra,209,move,10,Muddy Water,14.6%,,,,,,,,
-Goodra,209,held_item,1,Leftovers,25.3%,,,,,,,,
-Goodra,209,held_item,2,Life Orb,13.4%,,,,,,,,
-Goodra,209,held_item,3,Haban Berry,9.2%,,,,,,,,
-Goodra,209,held_item,4,Sitrus Berry,8.7%,,,,,,,,
-Goodra,209,held_item,5,Expert Belt,5.9%,,,,,,,,
-Goodra,209,held_item,6,Quick Claw,4.9%,,,,,,,,
-Goodra,209,held_item,7,Grassy Seed,3.3%,,,,,,,,
-Goodra,209,held_item,8,Wise Glasses,3.2%,,,,,,,,
-Goodra,209,held_item,9,White Herb,3.2%,,,,,,,,
-Goodra,209,held_item,10,Chesto Berry,2.5%,,,,,,,,
+Goodra,209,move,1,Dragon Pulse,39.9%,,,,,,,,
+Goodra,209,move,2,Protect,39.2%,,,,,,,,
+Goodra,209,move,3,Draco Meteor,34.8%,,,,,,,,
+Goodra,209,move,4,Thunderbolt,27.5%,,,,,,,,
+Goodra,209,move,5,Flamethrower,23.5%,,,,,,,,
+Goodra,209,move,6,Ice Beam,21.3%,,,,,,,,
+Goodra,209,move,7,Giga Drain,20.7%,,,,,,,,
+Goodra,209,move,8,Fire Blast,16.6%,,,,,,,,
+Goodra,209,move,9,Sludge Bomb,15.4%,,,,,,,,
+Goodra,209,move,10,Life Dew,14.9%,,,,,,,,
+Goodra,209,held_item,1,Leftovers,26.1%,,,,,,,,
+Goodra,209,held_item,2,Life Orb,12.5%,,,,,,,,
+Goodra,209,held_item,3,Sitrus Berry,10.4%,,,,,,,,
+Goodra,209,held_item,4,Haban Berry,8.9%,,,,,,,,
+Goodra,209,held_item,5,Expert Belt,5.3%,,,,,,,,
+Goodra,209,held_item,6,Quick Claw,4.4%,,,,,,,,
+Goodra,209,held_item,7,Wise Glasses,3.0%,,,,,,,,
+Goodra,209,held_item,8,Grassy Seed,3.0%,,,,,,,,
+Goodra,209,held_item,9,White Herb,2.8%,,,,,,,,
+Goodra,209,held_item,10,Big Root,2.4%,,,,,,,,
 Goodra,209,teammate,1,Archaludon,,,,,,,,,
 Goodra,209,teammate,2,Rillaboom,,,,,,,,,
 Goodra,209,teammate,3,Pelipper,,,,,,,,,
 Goodra,209,teammate,4,Sneasler,,,,,,,,,
-Goodra,209,teammate,5,Swampert,,,,,,,,,
-Goodra,209,teammate,6,Raichu,,,,,,,,,
+Goodra,209,teammate,5,Raichu,,,,,,,,,
+Goodra,209,teammate,6,Swampert,,,,,,,,,
 Goodra,209,teammate,7,Whimsicott,,,,,,,,,
 Goodra,209,teammate,8,Metagross,,,,,,,,,
-Goodra,209,teammate,9,Basculegion,,,,,,,,,
+Goodra,209,teammate,9,Incineroar,,,,,,,,,
 Goodra,209,teammate,10,Staraptor,,,,,,,,,
-Goodra,209,stat_alignment,1,Modest,36.1%,Sp. Atk,Attack,,,,,,
-Goodra,209,stat_alignment,2,Quiet,15.6%,Sp. Atk,Speed,,,,,,
-Goodra,209,stat_alignment,3,Bold,12.6%,Defense,Attack,,,,,,
-Goodra,209,stat_alignment,4,Calm,9.5%,Sp. Def,Attack,,,,,,
-Goodra,209,stat_alignment,5,Timid,9.1%,Speed,Attack,,,,,,
-Goodra,209,stat_alignment,6,Adamant,4.6%,Attack,Sp. Atk,,,,,,
-Goodra,209,stat_alignment,7,Sassy,2.6%,Sp. Def,Speed,,,,,,
+Goodra,209,stat_alignment,1,Modest,37.7%,Sp. Atk,Attack,,,,,,
+Goodra,209,stat_alignment,2,Quiet,14.0%,Sp. Atk,Speed,,,,,,
+Goodra,209,stat_alignment,3,Bold,12.3%,Defense,Attack,,,,,,
+Goodra,209,stat_alignment,4,Calm,9.2%,Sp. Def,Attack,,,,,,
+Goodra,209,stat_alignment,5,Timid,7.4%,Speed,Attack,,,,,,
+Goodra,209,stat_alignment,6,Adamant,4.9%,Attack,Sp. Atk,,,,,,
+Goodra,209,stat_alignment,7,Sassy,2.8%,Sp. Def,Speed,,,,,,
 Goodra,209,stat_alignment,8,Gentle,2.6%,Sp. Def,Defense,,,,,,
-Goodra,209,stat_alignment,9,Mild,1.3%,Sp. Atk,Defense,,,,,,
-Goodra,209,stat_alignment,10,Rash,1.3%,Sp. Atk,Sp. Def,,,,,,
-Goodra,209,stat_points,1,,12.3%,,,32,0,2,32,0,0
-Goodra,209,stat_points,2,,5.6%,,,0,0,0,32,0,32
-Goodra,209,stat_points,3,,5.6%,,,32,0,0,32,0,2
-Goodra,209,stat_points,4,,4.2%,,,0,0,20,32,2,12
-Goodra,209,stat_points,5,,4.1%,,,2,0,0,32,32,0
-Goodra,209,stat_points,6,,3.8%,,,0,0,32,32,2,0
-Goodra,209,stat_points,7,,3.7%,,,0,0,2,32,32,0
-Goodra,209,stat_points,8,,3.1%,,,32,0,32,0,2,0
-Goodra,209,stat_points,9,,3.0%,,,0,0,22,32,12,0
-Goodra,209,stat_points,10,,2.6%,,,0,0,0,32,2,32
-Goodra,209,ability,1,Gooey,43.8%,,,,,,,,
+Goodra,209,stat_alignment,9,Relaxed,2.1%,Defense,Speed,,,,,,
+Goodra,209,stat_alignment,10,Mild,1.2%,Sp. Atk,Defense,,,,,,
+Goodra,209,stat_points,1,,12.8%,,,32,0,2,32,0,0
+Goodra,209,stat_points,2,,4.5%,,,0,0,0,32,0,32
+Goodra,209,stat_points,3,,4.5%,,,32,0,0,32,0,2
+Goodra,209,stat_points,4,,3.9%,,,2,0,0,32,32,0
+Goodra,209,stat_points,5,,3.8%,,,0,0,32,32,2,0
+Goodra,209,stat_points,6,,3.5%,,,0,0,20,32,2,12
+Goodra,209,stat_points,7,,3.3%,,,0,0,2,32,32,0
+Goodra,209,stat_points,8,,2.6%,,,32,0,32,0,2,0
+Goodra,209,stat_points,9,,2.6%,,,32,0,0,32,2,0
+Goodra,209,stat_points,10,,2.4%,,,0,0,22,32,12,0
+Goodra,209,ability,1,Gooey,44.5%,,,,,,,,
 Goodra,209,ability,2,Sap Sipper,37.2%,,,,,,,,
-Goodra,209,ability,3,Hydration,19.0%,,,,,,,,
+Goodra,209,ability,3,Hydration,18.3%,,,,,,,,

@@ -11,8 +11,10 @@
 import { BuilderData, makeSet, monFromSet, parseShowdown, setFromCommon } from "./common.js";
 import { STAT_KEYS } from "./engine.js";
 import { FREE_RUNS, canRun, freeRunsLeft, isPro, recordRun } from "./pro.js";
-import { LOOKAHEAD_RANGE, DEFAULT_LOOKAHEAD, SETTLE_LINES, SOLVER_FEATURE, SWITCH } from "./solver.js";
+import { FIELD_TURNS, fieldTurns, LOOKAHEAD_RANGE, DEFAULT_LOOKAHEAD, SETTLE_LINES, SOLVER_FEATURE, SWITCH } from "./solver.js";
+import { blankSet } from "./pokemon-sets.js";
 import { clear, editSet, h, openDialog, pickPokemon, segmented, select, sprite, toast } from "./ui.js";
+import { offerPlay } from "./play-banner.js";
 import { currentTeam, getState, subscribe, teamSets } from "./store.js";
 
 
@@ -74,8 +76,16 @@ let requestId = 0;
 const pending = new Map();
 const root = document.getElementById("solverApp");
 
+/** How many possible boards a closed search draws. Measured: the answer is unstable at 8, and
+ *  settles from 16 up; 24 costs about half a second of the run and buys the margin. */
+const SHEET_POOL = 24;
+
 const state = {
   format: "Doubles",
+  // "closed" -- the sets are not known and are rolled from the usage data -- or "open", which is
+  // the board you describe in full. Closed is the default because it is the normal case: you can
+  // see what is standing opposite you, not what it is holding.
+  sheet: "closed",
   sides: [[], []],
   field: emptyField(),
   lookahead: DEFAULT_LOOKAHEAD,
@@ -157,12 +167,66 @@ const emptyRow = (set, inSim = false) => ({
   itemOff: false, abilityOff: false, faintedAllies: 0, timesHit: 0,
 });
 
+const compactName = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+/** Whether the board is being described in full. */
+const isOpen = () => state.sheet === "open";
+
+/**
+ * What the person has actually said about a closed tile.
+ *
+ * Read off the tile rather than tracked beside it: on a closed board a tile starts blank, so
+ * anything on it was put there on purpose. `bonuses` counts as said only when some points have
+ * been spent, because a blank set carries six zeroes and a Nature of Serious.
+ */
+function fixedOf(row) {
+  const set = row.set || {};
+  const moves = (set.moves || []).filter((move) => String(move || "").trim());
+  const spent = (set.bonuses || []).some((value) => Number(value) > 0);
+  return {
+    moves,
+    item: set.item || "",
+    ability: row.abilitySaid ? set.ability || "" : "",
+    nature: spent || (set.nature && set.nature !== "Serious") ? set.nature || "" : "",
+    bonuses: spent ? [...set.bonuses] : null,
+  };
+}
+
+/** A tile with nothing said about it: the Pokemon, and no claims. */
+function blankRowSet(row) {
+  const set = row.set || {};
+  return blankSet(data, set.species, set.form);
+}
+
+/** Move every row between the two sheets, keeping the other sheet's version to come back to. */
+function convertSheet(next) {
+  for (const side of state.sides) {
+    for (const row of side) {
+      if (!row?.set?.species) continue;
+      if (next === "closed") {
+        row.openSet = makeSet(row.set);
+        row.set = blankRowSet(row);
+        delete row.abilitySaid;
+      } else {
+        row.set = row.openSet ? makeSet(row.openSet) : setFromCommon(data.commonSet(state.format, row.set.species, row.set.form));
+        delete row.openSet;
+      }
+    }
+  }
+  state.sheet = next;
+  state.result = null;
+  state.error = "";
+}
+
 /** Everything about the battle that is not a Pokemon.
  *  A declaration rather than a const arrow: `state` below is built at module load and calls it,
  *  which a const in the temporal dead zone cannot answer. */
 function emptyField() {
   return {
     weather: "None", terrain: "None", trickRoom: false, tailwind: [0, 0],
+    // How many turns of Trick Room are left, for when it is switched on. Tailwind needs no
+    // second field: its count IS how the board says whose Tailwind is up.
+    trickRoomTurns: FIELD_TURNS.trickRoom.max,
     reflect: [false, false], lightScreen: [false, false], auroraVeil: [false, false],
     friendGuard: [false, false],
     // Whether the person has said what the weather is. A Pokemon with Drought standing on the
@@ -175,8 +239,8 @@ function emptyField() {
 function save() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      format: state.format, sides: state.sides, field: state.field, lookahead: state.lookahead,
-      importTeamId: state.importTeamId,
+      format: state.format, sheet: state.sheet, sides: state.sides, field: state.field,
+      lookahead: state.lookahead, importTeamId: state.importTeamId,
     }));
   } catch {
     // storage unavailable: the page still works for this visit
@@ -189,6 +253,9 @@ function restore() {
     if (!raw || !Array.isArray(raw.sides) || raw.sides.length !== 2) return false;
     if (!raw.sides.some((side) => side.some((row) => row?.set?.species))) return false;
     state.format = raw.format === "Singles" ? "Singles" : "Doubles";
+    // A board saved before this existed was described in full, so it IS an open sheet. Flipping
+    // it to blank tiles on the next visit would read as lost work.
+    state.sheet = raw.sheet === "open" || raw.sheet === "closed" ? raw.sheet : "open";
     state.sides = raw.sides.map((side) => {
       const rows = side.filter((row) => row?.set?.species).map((row) => {
         const kept = { ...emptyRow(makeSet(row.set)), ...row, set: makeSet(row.set) };
@@ -211,6 +278,12 @@ function restore() {
       const saved = raw.field?.[key];
       state.field[key] = Array.isArray(saved) ? [...saved] : emptyField()[key];
     }
+    // The counts, as the board will read them. A board saved before they could be set says
+    // `true` or 3 for a Tailwind and nothing at all for Trick Room, and all three come back as
+    // the full count they have always meant. Clamped here rather than only where the board is
+    // built, so the picker is never handed a number it has no option for.
+    state.field.tailwind = [0, 1].map((s) => fieldTurns("tailwind", state.field.tailwind[s]));
+    state.field.trickRoomTurns = fieldTurns("trickRoom", state.field.trickRoomTurns, true);
     state.lookahead = Math.max(LOOKAHEAD_RANGE[0], Math.min(LOOKAHEAD_RANGE[1], Number(raw.lookahead) || DEFAULT_LOOKAHEAD));
     state.importTeamId = raw.importTeamId || "";
     fit();
@@ -405,7 +478,8 @@ async function startingBoard() {
       const row = rows[index];
       index += 1;
       if (!row) break;
-      const set = setFromCommon(data.commonSet(state.format, row.species, row.form));
+      const common = setFromCommon(data.commonSet(state.format, row.species, row.form));
+      const set = isOpen() ? common : blankSet(data, row.species, row.form);
       if (data.engine.isMegaStone(set.item)) {
         if (stones) continue;
         stones += 1;
@@ -451,6 +525,16 @@ function renderControls() {
           save();
           render();
         }, { "aria-label": "Battle format" }),
+      segmented([["closed", "Closed Team Sheet"], ["open", "Open Team Sheet"]],
+        state.sheet, (value) => {
+          if (value === state.sheet) return;
+          convertSheet(value);
+          save();
+          render();
+          toast(value === "closed"
+            ? "Closed sheet: the tiles start blank and the sets are rolled from the usage data. Fill in anything you know."
+            : "Open sheet: every set on the board is taken as known.");
+        }, { "aria-label": "Team sheet" }),
       h("label", { class: "bd-solver-depth" },
         h("span", {}, "Look turns ahead"),
         select(Array.from({ length: LOOKAHEAD_RANGE[1] - LOOKAHEAD_RANGE[0] + 1 }, (_, i) => [String(LOOKAHEAD_RANGE[0] + i), String(LOOKAHEAD_RANGE[0] + i)]),
@@ -461,6 +545,8 @@ function renderControls() {
       "Click the Pok\u00e9mon on the bench to activate/deactivate it, click the Pok\u00e9mon "
       + "in the front to switch its position with another Pok\u00e9mon."),
     h("div", { class: "bd-solver-controls-right" },
+      // The same search, with somebody on the other side of it.
+      h("a", { class: "ghost-button bd-solver-play", href: "/play/" }, "Play against AI"),
       allowance,
       state.running
         ? h("button", { type: "button", class: "ghost-button", onclick: () => stopSearch() }, "Stop")
@@ -508,7 +594,8 @@ function renderSide(side) {
         onclick: async () => {
           const choice = await pickPokemon(data, { format: state.format, title: `Add to ${SIDE_LABEL[side].toLowerCase()}` });
           if (!choice) return;
-          rows.push(emptyRow(setFromCommon(data.commonSet(state.format, choice.row ? choice.row.species : choice.species, choice.row ? choice.row.form : choice.form))));
+          const picked = setFromCommon(data.commonSet(state.format, choice.row ? choice.row.species : choice.species, choice.row ? choice.row.form : choice.form));
+          rows.push(emptyRow(isOpen() ? picked : blankSet(data, picked.species, picked.form)));
           fit();
           save();
           render();
@@ -544,9 +631,12 @@ function inPlay() {
   const out = [];
   if (field.weather !== "None") out.push(field.weather);
   if (field.terrain !== "None") out.push(`${field.terrain} Terrain`);
-  if (field.trickRoom) out.push("Trick Room");
-  if (field.tailwind[0] > 0) out.push("Your Tailwind");
-  if (field.tailwind[1] > 0) out.push("Their Tailwind");
+  // The two counted conditions say how much of them is left: on a board recreated from the
+  // middle of a game "Trick Room" alone is only half of what is in play.
+  if (field.trickRoom) out.push(`Trick Room (${turnsSaid(fieldTurns("trickRoom", field.trickRoomTurns, true))})`);
+  for (const side of [0, 1]) {
+    if (field.tailwind[side] > 0) out.push(`${side === 0 ? "Your" : "Their"} Tailwind (${turnsSaid(fieldTurns("tailwind", field.tailwind[side]))})`);
+  }
   for (const [key, label] of [["reflect", "Reflect"], ["lightScreen", "Light Screen"],
     ["auroraVeil", "Aurora Veil"], ["friendGuard", "Friend Guard"]]) {
     if (field[key][0]) out.push(`Your ${label}`);
@@ -666,10 +756,14 @@ function renderEffects() {
   };
   if (field.weather !== "None") pushField(field.weather, true, () => { field.weather = "None"; field.weatherSet = true; }, "In play. Click to clear it.");
   if (field.terrain !== "None") pushField(`${field.terrain} Terrain`, true, () => { field.terrain = "None"; field.terrainSet = true; }, "In play. Click to clear it.");
-  pushField("Trick Room", field.trickRoom, () => { field.trickRoom = false; }, "In play. Click to clear it.");
+  // The counted ones say how many turns are left in the chip's title; the count itself is set in
+  // the field row under the board, and in the Field popup.
+  pushField("Trick Room", field.trickRoom, () => { field.trickRoom = false; },
+    `${turnsSaid(fieldTurns("trickRoom", field.trickRoomTurns, true))}. Click to clear it.`);
   for (const side of [0, 1]) {
     const who = side === 0 ? "Your" : "Their";
-    pushField(`${who} Tailwind`, field.tailwind[side] > 0, () => { field.tailwind[side] = 0; }, "In play. Click to clear it.");
+    pushField(`${who} Tailwind`, field.tailwind[side] > 0, () => { field.tailwind[side] = 0; },
+      `${turnsSaid(fieldTurns("tailwind", field.tailwind[side]))}. Click to clear it.`);
     for (const [key, label] of [["reflect", "Reflect"], ["lightScreen", "Light Screen"],
       ["auroraVeil", "Aurora Veil"], ["friendGuard", "Friend Guard"]]) {
       pushField(`${who} ${label}`, field[key][side], () => { field[key][side] = false; }, "In play. Click to clear it.");
@@ -738,6 +832,33 @@ function countersFor(row) {
 }
 
 /**
+ * What a tile says about its Pokemon.
+ *
+ * On an open board that is the whole set. On a closed one it is only what the person has told
+ * it: a tile they have not touched is not a Pokemon with no item and the first Ability on the
+ * list, it is one whose item and Ability are about to be rolled. Saying "No item, Sand Veil" of
+ * it would be putting a claim in their mouth -- and the wrong claim, since Sand Veil is the 2.2%
+ * Ability and the roll will almost always give Rough Skin.
+ */
+function cardLine(row) {
+  const set = row.set || {};
+  if (isOpen()) return [set.item || "No item", set.ability].filter(Boolean).join(" \u00b7 ");
+  const said = [];
+  if (set.item) said.push(set.item);
+  if (row.abilitySaid && set.ability) said.push(set.ability);
+  if (!said.length) return "Item and Ability rolled from the usage data";
+  return said.join(" \u00b7 ");
+}
+
+/** The same for the Nature line: unspent points are not a Serious Nature, they are no answer. */
+function cardNature(row) {
+  const set = row.set || {};
+  const spent = (set.bonuses || []).some((value) => Number(value) > 0);
+  if (isOpen() || spent || (set.nature && set.nature !== "Serious")) return `${set.nature || "Serious"} nature`;
+  return "Nature and points rolled";
+}
+
+/**
  * One Pokemon of a team, as an editable tile.
  *
  * It says what the Pokemon IS -- its item, Ability, Nature, moves and the stats it ends up with
@@ -780,6 +901,10 @@ function renderCard(side, index, row) {
             state.sides[side].splice(index, 1);
             fit();
           } else {
+            // On a closed board, choosing an Ability is a claim about the Pokemon -- but every
+            // set carries one, so the set alone cannot say whether it was chosen or defaulted.
+            // Only a change away from the blank's own first Ability counts as having said it.
+            if (!isOpen() && compactName(next.ability) !== compactName(row.set?.ability)) row.abilitySaid = true;
             row.set = next;
           }
           save();
@@ -788,8 +913,8 @@ function renderCard(side, index, row) {
       }, sprite(data.sprite(set.species, set.form, set.item, { full: true }), "", 56, "bd-sprite bd-sprite-lg")),
       h("div", { class: "bd-solver-card-name" },
         h("strong", {}, monLabel(set)),
-        h("small", {}, [set.item || "No item", set.ability].filter(Boolean).join(" \u00b7 ")),
-        h("small", { class: "bd-solver-card-nature" }, `${set.nature || "Serious"} nature`)),
+        h("small", {}, cardLine(row)),
+        h("small", { class: "bd-solver-card-nature" }, cardNature(row))),
       h("button", {
         type: "button",
         class: `bd-chip bd-solver-alive${down ? " ko" : " on"}`,
@@ -804,7 +929,8 @@ function renderCard(side, index, row) {
     ,
     moves.length
       ? h("div", { class: "bd-solver-card-moves" }, moves.map((move) => h("span", { class: "bd-solver-move" }, move)))
-      : h("p", { class: "bd-solver-note" }, "No moves yet."),
+      : h("p", { class: "bd-solver-note" },
+        isOpen() ? "No moves yet." : "Moves rolled from the usage data. Add any you have seen."),
     h("div", { class: "bd-solver-card-row" },
       h("label", { class: "bd-solver-hp" },
         h("span", {}, "HP"),
@@ -917,15 +1043,93 @@ function pasteSide(side) {
   area.focus();
 }
 
+/** "3 turns left", for the picker and for the strip above the board. */
+function turnsSaid(turns) {
+  return turns === 1 ? "1 turn left" : `${turns} turns left`;
+}
+
+/** Every count one of these conditions can be on, as the picker's options. */
+function turnOptions(key) {
+  const spec = FIELD_TURNS[key];
+  const out = [];
+  for (let n = spec.max; n >= spec.min; n -= 1) out.push([String(n), turnsSaid(n)]);
+  return out;
+}
+
+/**
+ * A field condition that is counted: the button that switches it on, and how many turns of it
+ * are left beside it.
+ *
+ * Off, there is no count to show -- a number of turns of something that is not up says nothing.
+ * On, it starts at the full count, which is the board the page built before this existed.
+ *
+ * It redraws its own two children rather than leaning on the page's `render`, because it is
+ * drawn in two places that are redrawn differently: the row under the board goes through
+ * `render`, while the Field popup deliberately does not re-render the page under it and a
+ * `render` would not reach the nodes the dialog owns anyway.
+ *
+ * `after` is what the place it is drawn in does once the field has changed.
+ */
+function turnsControl({ key, label, title, buttonClass, isOn, setOn, getTurns, setTurns, after }) {
+  const host = h("span", { class: "bd-solver-turns" });
+  const draw = () => {
+    const on = isOn();
+    clear(host).append(h("button", {
+      type: "button", class: `${buttonClass}${on ? " on" : ""}`,
+      "aria-pressed": on ? "true" : "false", title,
+      onclick: () => { setOn(!on); after(); draw(); },
+    }, label));
+    if (!on) return;
+    host.append(select(turnOptions(key), String(fieldTurns(key, getTurns(), true)), (value) => {
+      setTurns(Number(value));
+      after();
+    }, { class: "bd-select bd-solver-turns-select", "aria-label": `${label}: turns left` }));
+  };
+  draw();
+  return host;
+}
+
+/**
+ * The page redraws itself after a field change; the popup only saves.
+ *
+ * The two are not interchangeable. Re-rendering the page while the Field popup is open would
+ * rebuild the board underneath it and leave the dialog's own nodes untouched, so the popup saves
+ * and lets `onClose` redraw -- which is what every other control in it already does.
+ */
+const FIELD_SAVED = () => { save(); render(); };
+const FIELD_SAVED_IN_POPUP = () => { save(); };
+
+/** Trick Room, and how many turns of it are left. */
+function trickRoomControl(buttonClass, after = FIELD_SAVED) {
+  const field = state.field;
+  return turnsControl({
+    key: "trickRoom", label: "Trick Room", buttonClass, after,
+    title: "Five turns in which the slower Pokemon moves first, counting the one it was set on.",
+    isOn: () => Boolean(field.trickRoom),
+    setOn: (on) => { field.trickRoom = on; },
+    getTurns: () => field.trickRoomTurns,
+    setTurns: (turns) => { field.trickRoomTurns = turns; },
+  });
+}
+
+/** One side's Tailwind, and how many turns of it are left. The count IS the switch: a side with
+ *  no Tailwind has none left. */
+function tailwindControl(side, buttonClass, { label, after = FIELD_SAVED } = {}) {
+  const field = state.field;
+  const whose = side === 0 ? "your" : "their";
+  return turnsControl({
+    key: "tailwind", label: label || `${side === 0 ? "Your" : "Their"} Tailwind`, buttonClass, after,
+    title: `Four turns of doubled Speed for ${whose} side, counting the one it was set on.`,
+    isOn: () => field.tailwind[side] > 0,
+    setOn: (on) => { field.tailwind[side] = on ? FIELD_TURNS.tailwind.max : 0; },
+    getTurns: () => field.tailwind[side],
+    setTurns: (turns) => { field.tailwind[side] = turns; },
+  });
+}
+
 function renderField() {
   const field = state.field;
   const row = (label, node) => h("div", { class: "bd-solver-field-row" }, h("span", { class: "bd-field-label" }, label), node);
-  // One look for every button in this row. Trick Room and the two Tailwinds used to be pills and
-  // Edit Field a button, which read as two different kinds of control for one kind of choice.
-  const toggle = (label, on, onClick, title = "") => h("button", {
-    type: "button", class: `ghost-button compact bd-solver-field-button${on ? " on" : ""}`,
-    "aria-pressed": on ? "true" : "false", title, onclick: onClick,
-  }, label);
   return h("div", { class: "bd-solver-field" },
     row("Weather", select(WEATHERS.map((w) => [w, w]), field.weather, (value) => {
       field.weather = value;
@@ -942,12 +1146,12 @@ function renderField() {
     h("div", { class: "bd-solver-field-row" },
       h("span", { class: "bd-field-label" }, "In play"),
       h("div", { class: "bd-solver-chips" },
-        toggle("Trick Room", field.trickRoom, () => { field.trickRoom = !field.trickRoom; save(); render(); },
-          "Five turns in which the slower Pokemon moves first."),
-        toggle("Your Tailwind", field.tailwind[0] > 0, () => { field.tailwind[0] = field.tailwind[0] > 0 ? 0 : 3; save(); render(); },
-          "Three turns of doubled Speed for your side."),
-        toggle("Their Tailwind", field.tailwind[1] > 0, () => { field.tailwind[1] = field.tailwind[1] > 0 ? 0 : 3; save(); render(); },
-          "Three turns of doubled Speed for their side."),
+        // One look for every button in this row. Trick Room and the two Tailwinds used to be
+        // pills and Edit Field a button, which read as two different kinds of control for one
+        // kind of choice.
+        trickRoomControl("ghost-button compact bd-solver-field-button"),
+        tailwindControl(0, "ghost-button compact bd-solver-field-button"),
+        tailwindControl(1, "ghost-button compact bd-solver-field-button"),
         h("button", {
           type: "button", class: "ghost-button compact bd-solver-field-button",
           title: "Screens and Friend Guard, for each side",
@@ -971,20 +1175,19 @@ function renderField() {
 function editField() {
   const field = state.field;
   const redraw = () => { save(); render(); };
+  // Tailwind is not here: it is the one row in this column that is COUNTED, so it is drawn by
+  // `tailwindControl` with its turns picker beside it. The four below are either up or not.
   const ROWS = [
-    ["Tailwind", "tailwind", "Three turns of doubled Speed for that side."],
     ["Reflect", "reflect", "Halves the physical damage that side takes."],
     ["Light Screen", "lightScreen", "Halves the special damage that side takes."],
     ["Aurora Veil", "auroraVeil", "Halves both."],
     ["Friend Guard", "friendGuard", "An ally with Friend Guard cuts the damage its partner takes."],
   ];
-  const on = (key, s) => (key === "tailwind" ? field.tailwind[s] > 0 : Boolean(field[key][s]));
-  const set = (key, s, value) => {
-    if (key === "tailwind") field.tailwind[s] = value ? 3 : 0;
-    else field[key][s] = value;
-  };
+  const on = (key, s) => Boolean(field[key][s]);
+  const set = (key, s, value) => { field[key][s] = value; };
   const column = (s) => h("div", { class: "bd-solver-side-column" },
     h("h4", {}, SIDE_LABEL[s]),
+    tailwindControl(s, "bd-toggle", { label: "Tailwind", after: FIELD_SAVED_IN_POPUP }),
     ROWS.map(([label, key, title]) => h("button", {
       type: "button",
       class: `bd-toggle${on(key, s) ? " on" : ""}`,
@@ -1011,23 +1214,14 @@ function editField() {
         select(TERRAINS.map((x) => [x, x]), field.terrain, (value) => { field.terrain = value; field.terrainSet = true; save(); }, { "aria-label": "Terrain" })),
       h("div", { class: "bd-solver-field-row" },
         h("span", { class: "bd-field-label" }, "In play"),
-        h("button", {
-          type: "button",
-          class: `bd-toggle${field.trickRoom ? " on" : ""}`,
-          "aria-pressed": field.trickRoom ? "true" : "false",
-          title: "Five turns in which the slower Pokemon moves first.",
-          onclick: (event) => {
-            field.trickRoom = !field.trickRoom;
-            event.currentTarget.classList.toggle("on", field.trickRoom);
-            event.currentTarget.setAttribute("aria-pressed", field.trickRoom ? "true" : "false");
-            save();
-          },
-        }, "Trick Room")),
+        trickRoomControl("bd-toggle", FIELD_SAVED_IN_POPUP)),
       h("div", { class: "bd-solver-field-sides" }, column(0), column(1)),
       h("p", { class: "bd-solver-note" },
-        "The weather, terrain, Trick Room and Tailwind are played out turn by turn. The screens "
-        + "are applied to every damage roll in the search. Each Pokémon's own item, Ability and "
-        + "counters are in the strip above the board.")),
+        "The weather, terrain, Trick Room and Tailwind are played out turn by turn, so Trick "
+        + "Room and Tailwind are set in turns remaining: pick how many are left, counting the "
+        + "turn the search is about to play. The screens are applied to every damage roll in "
+        + "the search. Each Pokémon's own item, Ability and counters are in the strip above the "
+        + "board.")),
     actions: [
       h("span", { class: "bd-spacer" }),
       h("button", { class: "primary-button", type: "button", onclick: () => { close(); redraw(); } }, "Done"),
@@ -1087,7 +1281,12 @@ function lineRow(row, index, mine) {
           ? `If this line is played, the board ends up at ${shown.toFixed(1)} out of 100 for you. 50 is even.`
           : `If this line is played, the board ends up at ${shown.toFixed(1)} out of 100 for them. 50 is even.`,
       }, shown.toFixed(1))),
-    h("div", { class: "bd-solver-line-sub" }, `${(row.share * 100).toFixed(0)}% of the lines, ${row.played} played`));
+    h("div", { class: "bd-solver-line-sub" },
+      `${(row.share * 100).toFixed(0)}% of the lines, ${row.played} played`
+      // On a closed board this is the number that matters most: how many of the possible sets
+      // can play this at all. It IS the chance the Pokemon has the move, read off the usage
+      // data, and a line only a third of the sets can play is not comparable to one they all can.
+      + (row.pool ? ` · possible on ${row.rolls} of ${row.pool} sets` : "")));
 }
 
 /**
@@ -1105,6 +1304,15 @@ function renderStory(result) {
     h("p", { class: "bd-solver-note" },
       `Both sides playing the line above, then ${story.turns.length - 1} more turn${story.turns.length === 2 ? "" : "s"} `
       + `the search decides for itself. The board ends at ${story.value.toFixed(1)} out of 100 for you.`),
+    // Which of the possible boards this one was. Without it the trace shows the other side using
+    // moves the tiles call unknown, and nothing says where they came from.
+    story.sets
+      ? h("div", { class: "bd-solver-story-sets" },
+        h("p", { class: "bd-solver-note" }, "Played out against one of the possible sets:"),
+        h("ul", {}, story.sets.map((side, index) => h("li", {},
+          h("b", {}, index === 0 ? "Yours: " : "Theirs: "),
+          side.map((mon) => `${mon.name}${mon.item ? ` @ ${mon.item}` : ""} (${(mon.moves || []).join(", ") || "no moves"})`).join(" \u00b7 ")))))
+      : null,
     h("ol", { class: "bd-solver-turns" }, story.turns.map((turn) => h("li", { class: "bd-solver-turn" },
       h("strong", {}, `Turn ${turn.turn}`),
       turn.plays.length
@@ -1197,6 +1405,15 @@ function renderResults() {
     ending,
     // The scale, said once. Without it nobody can tell whether 59.1 is a lot or nothing.
     h("p", { class: "bd-solver-note" }, "Every number below is where the board ends up for you if that line is played, out of 100. 50 is even."),
+    // What a closed answer is and is not. Their row is not a prediction of one move; it is the
+    // best reply across the sets they might have, and the score beside it is conditional on the
+    // sets that can play it.
+    result.pool
+      ? h("p", { class: "bd-solver-note" },
+        `The sets were not known, so this was searched against ${result.pool} possible versions of `
+        + "the board, rolled from the usage data and from the sets tournament teams really brought. "
+        + "Their rows are the best replies across those, not a prediction of one move.")
+      : null,
     side("Your best move", result.ours, true),
     side("Their best answer", result.theirs, false),
     renderStory(result),
@@ -1231,10 +1448,14 @@ async function solve() {
   // `front` is worked out here rather than stored, from the line the board shows -- so what is
   // searched and what is drawn cannot disagree about who is standing.
   const board = {
+    sheet: state.sheet,
     sides: [0, 1].map((side) => {
       const standing = standingOf(side);
       return brought(side).map((row) => ({
         set: row.set, hp: row.hp, front: standing.includes(row), justIn: row.justIn,
+        // On a closed board the set above is only the blank the tile shows; what the search
+        // needs is the species it is rolling and the facts the person has pinned on it.
+        fixed: isOpen() ? null : fixedOf(row),
         status: row.status,
         atk: row.atk, def: row.def, spa: row.spa, spd: row.spd, spe: row.spe,
         itemOff: row.itemOff, abilityOff: row.abilityOff,
@@ -1278,6 +1499,8 @@ async function solve() {
     settings: getState().settings || {},
     board,
     lookahead: state.lookahead,
+    sheet: state.sheet,
+    pool: SHEET_POOL,
     seed: (Date.now() ^ (Math.random() * 0xffffffff)) >>> 0,
     // `settleLines` is what normally ends the run. The other two are walls behind it: `seconds`
     // is the only thing that produces a deadline in the worker, so dropping it would leave a
@@ -1400,3 +1623,5 @@ async function start() {
 }
 
 start();
+// Once the page is up, and only once a visit: there is a game now.
+offerPlay();

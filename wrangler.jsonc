@@ -28,5 +28,23 @@
   // because any other name deploys cleanly and then 503s every share.
   "r2_buckets": [
     { "binding": "SHARES", "bucket_name": "cbd-shares" }
+  ],
+  // The /play/ ladder: players, teams and the whole log of every game played against the Solver
+  // (functions/api/play/*).  SQL and not KV or R2 because a leaderboard is a sorted read over
+  // thousands of rows, which is the one shape neither of the other two does.
+  //
+  // Created 20 Oct 2026, in the order this file demands and for the same reason the bucket above
+  // names: the database was created first and the binding added after it, because this worktree
+  // is committed and deployed automatically every few hours and a binding naming a database that
+  // did not exist yet would have gone live before anyone could create it.
+  //
+  // The schema is functions/api/play/schema.sql and is applied by hand:
+  //   npx wrangler d1 execute cbd-play --remote --file functions/api/play/schema.sql
+  //
+  // Without the binding every /api/play route answers 503 and the page says so plainly -- the
+  // game itself still plays and the local record is still kept, because none of that needs a
+  // server.
+  "d1_databases": [
+    { "binding": "PLAY", "database_name": "cbd-play", "database_id": "7c9efb58-7aab-45c6-8ae3-0902f262fdd4" }
   ]
 }

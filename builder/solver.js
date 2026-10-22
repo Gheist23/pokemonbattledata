@@ -54,7 +54,7 @@ export const SOLVER_FEATURE = "solver";
 export const DEFAULT_LOOKAHEAD = 4;
 /** How long a Pokemon a board calls Asleep stays asleep. Two, as a Spore gives. */
 export const SOLVER_SLEEP_TURNS = 2;
-export const LOOKAHEAD_RANGE = [2, 8];
+export const LOOKAHEAD_RANGE = [2, 12];
 /** How many of a Pokemon's own actions are kept, best first, so the statistics stay meaningful. */
 export const TOP_PER_SLOT = 8;
 /** The cap on one side's joint actions, after the per-slot cut. */
@@ -172,14 +172,67 @@ const who = (unit) => ({ species: unit.species, form: unit.form, item: unit.item
  * and sleep change what happens DURING the turn, and the rest change the damage, so they are
  * put on the Pokemon the calculator reads instead.
  *
+ * `guardedLast` says the Pokemon protected on the turn just ended, so it cannot protect on this
+ * one; `mega` says it has ALREADY Mega-Evolved, so it stands in its Mega form and that side's one
+ * Mega Evolution is spent; `sash` and `berry` say whether a Focus Sash is still unbroken and a
+ * Sitrus Berry still uneaten; `critStage` is what Focus Energy has added. All default to what a
+ * fresh Pokemon of that set would have, which is exactly what every caller that does not set them
+ * used to get.
+ *
  * @typedef {{set: object, hp: number, front: boolean, justIn?: boolean, status?: string,
  *            atk?: number, def?: number, spa?: number, spd?: number, spe?: number}} SolverRow
- * @typedef {{weather?: string, terrain?: string, trickRoom?: boolean, tailwind?: boolean[],
- *            reflect?: boolean[], lightScreen?: boolean[], auroraVeil?: boolean[],
+ * `tailwind` is a COUNT per side -- how many turns of it are left, 0 for a side that has none --
+ * and `trickRoomTurns` is the same number for Trick Room, which `trickRoom` switches on. Both go
+ * through `fieldTurns`, so a caller that only knows whether the thing is up (`true`, or no count
+ * at all) still gets the board it has always got.
+ *
+ * @typedef {{weather?: string, terrain?: string, trickRoom?: boolean, trickRoomTurns?: number,
+ *            tailwind?: number[], reflect?: boolean[], lightScreen?: boolean[],
+ *            auroraVeil?: boolean[],
  *            friendGuard?: boolean[], faintedAllies?: number[], timesHit?: number[],
  *            items?: boolean, abilities?: boolean, weatherAbilities?: boolean}} SolverField
  * @typedef {{sides: SolverRow[][], field: SolverField}} SolverSetup
  */
+
+/**
+ * The field conditions that are COUNTED, and what their counts may be.
+ *
+ * These are the only two: Trick Room, as `board.tr`, and each side's Tailwind, as `board.tw[s]`.
+ * The weather, the terrain and the screens are not counted anywhere in the turn model -- the
+ * weather and terrain are an index into an ordered list and the screens are booleans handed to
+ * the damage calculation -- so there is no remaining-turn number for them to carry, and giving
+ * them one would mean teaching the turn model to expire them.
+ *
+ * The number is turns remaining INCLUDING the turn about to be played, which is exactly what
+ * `tickBoard` counts down: a 1 is an effect that works this turn and is gone next.
+ *
+ * `max` is both the range's top and the default, and the two are the same number on purpose. It
+ * is the most the game can leave on a board at the start of a turn -- Trick Room lasts five turns
+ * counting the one it is set on, so four remain once that turn has ended, and Tailwind four, so
+ * three remain -- and it is the value this page has always put on the board for an effect
+ * switched on. So a board nobody touches is the board it was before this existed.
+ */
+export const FIELD_TURNS = Object.freeze({
+  trickRoom: Object.freeze({ label: "Trick Room", min: 1, max: 4 }),
+  tailwind: Object.freeze({ label: "Tailwind", min: 1, max: 3 }),
+});
+
+/**
+ * One field condition's remaining turns, as the board must carry it.
+ *
+ * `on` says whether the effect is up when that is held apart from the count (Trick Room, which
+ * has a flag of its own); left out, the count itself says it, which is how Tailwind is described.
+ * Anything up with no usable count gets the default, so `tailwind: [true, false]` and
+ * `trickRoom: true` -- all a caller older than this could say -- still mean what they meant.
+ */
+export function fieldTurns(key, value, on) {
+  const spec = FIELD_TURNS[key];
+  if (!spec) return 0;
+  if (!(on === undefined ? Number(value) > 0 : on)) return 0;
+  const turns = Math.trunc(Number(value));
+  if (!Number.isFinite(turns) || turns <= 0) return spec.max;
+  return Math.max(spec.min, Math.min(spec.max, turns));
+}
 
 /** The game's conditions, and what each one is to the two readers that care.
  *  `turn` is what the turn model carries itself; `mon` is what the damage calculator reads. */
@@ -363,8 +416,13 @@ export class Solver {
       const list = ordered.map((row, i) => {
         const mega = this.unitFor(row, i, s);
         // Everything stands in its base form: a stone does nothing until its owner chooses to
-        // use it, and choosing is what the search now does.
-        const unit = this.baseUnitFor(mega, s);
+        // use it, and choosing is what the search now does. Unless the row says this one has
+        // already used it, in which case it stands as the Mega and the side's stone is spent --
+        // which is how a game in progress describes a Pokemon that Mega-Evolved on an earlier
+        // turn. Without that the opponent searched every line believing it still had its Mega
+        // Evolution to come, as a Pokemon with the base form's stats and the wrong Ability.
+        const alreadyMega = Boolean(row.mega) && mega !== null && mega !== undefined;
+        const unit = alreadyMega ? mega : this.baseUnitFor(mega, s);
         // A board can also be described with a Pokemon ALREADY in its Mega form -- someone
         // recreating the middle of a game -- and then that side's one Mega Evolution is gone.
         if (unit === mega && /^mega\b/i.test(String(mega.form || ""))) megaUsed[s] = true;
@@ -389,12 +447,23 @@ export class Solver {
         // board that says a Pokemon is poisoned meant nothing at all until now.
         m.psn = condition === "poison";
         m.tox = condition === "toxic";
-        // A badly poisoned Pokemon has been poisoned for some number of turns already and the
-        // board cannot say how many, so it starts where the game starts: one sixteenth.
-        m.toxTurns = condition === "toxic" ? 1 : 0;
+        // A badly poisoned Pokemon has been poisoned for some number of turns already. A board
+        // that says how many is believed; one that does not starts where the game starts.
+        m.toxTurns = condition === "toxic"
+          ? Math.max(1, Math.trunc(Number(row.toxTurns) || 1))
+          : 0;
         m.frozen = condition === "freeze";
         m.sleep = condition === "sleep";
         m.justIn = Boolean(row.justIn);
+        // Protected on the turn just ended, so it cannot protect on this one (TOURNAMENT_GUARD).
+        // `slotCandidates` reads this; without it every searched board offered Protect again.
+        m.guardedLast = Boolean(row.guardedLast);
+        // A Focus Sash breaks once and a Sitrus Berry is eaten once. `fresh` sets both from the
+        // KIT -- a fact about the set, not about this battle -- so a board describing a game in
+        // progress has to be able to say they are gone.
+        if (row.sash !== undefined) m.sash = Boolean(row.sash);
+        if (row.berry !== undefined) m.berry = Boolean(row.berry);
+        if (row.critStage !== undefined) m.critStage = Math.max(0, Math.trunc(Number(row.critStage) || 0));
         // Already on the field, so already entered: the board describes a game in progress and
         // its entry Abilities resolved before the person described it. Without this the first
         // searched turn re-ran every one of them, which re-applied Intimidate and let a Drought
@@ -430,8 +499,12 @@ export class Solver {
       // a different order is not the same list: these are indices.
       w: Math.max(0, BOARD_WEATHERS.indexOf(String(field.weather || "None"))),
       t: Math.max(0, BOARD_TERRAINS.indexOf(String(field.terrain || "None"))),
-      tw: [Number(field.tailwind?.[0]) || 0, Number(field.tailwind?.[1]) || 0],
-      tr: field.trickRoom ? 4 : 0,
+      // Turns remaining, not flags: a board recreated from the middle of a game is as likely to
+      // have one turn of Trick Room left as a full four, and which of the two it is decides
+      // whether a line can outlast it. `fieldTurns` is what keeps an older caller -- one that
+      // only ever said whether the thing was up -- on the board it used to get.
+      tw: [fieldTurns("tailwind", field.tailwind?.[0]), fieldTurns("tailwind", field.tailwind?.[1])],
+      tr: fieldTurns("trickRoom", field.trickRoomTurns, Boolean(field.trickRoom)),
       trBy: field.trickRoom ? 0 : -1,
       wide: 0,
       quick: 0,
@@ -478,7 +551,7 @@ export class Solver {
    * is not in the list rather than in the list doing nothing. `value` is a rough ordering, used
    * only to decide which actions survive the per-slot cut -- the search itself ignores it.
    */
-  slotCandidates(state, s, position) {
+  slotCandidates(state, s, position, { cap = TOP_PER_SLOT } = {}) {
     const m = state.active[s][position];
     if (!alive(m)) return [{ kind: 0, label: "", value: 0, wait: true }];
     const t = this.t;
@@ -584,7 +657,9 @@ export class Solver {
 
     if (!out.length) out.push({ position, kind: 0, value: 0, wait: true });
     out.sort((a, b) => b.value - a.value);
-    const kept = out.slice(0, TOP_PER_SLOT);
+    // The search keeps a shortlist; a person playing the game is entitled to every move their
+    // Pokemon really has, so the caller can ask for the whole list.
+    const kept = cap > 0 ? out.slice(0, cap) : out;
     // Mega Evolution does not take the turn, so it is not an action of its own: it is a flag on
     // whatever this Pokemon was going to do anyway. Added AFTER the cut so that offering the
     // choice never pushes a real move off the list -- the Pokemon keeps every option it had, and
@@ -738,6 +813,10 @@ export class Solver {
         name: this.label(m.u),
         move: action.kind === SWITCH ? action.move : action.move,
         target,
+        // Which side the target is on. A mirror match puts the same name on both sides, and
+        // "Rillaboom: Wood Hammer -> Rillaboom" does not say whose: it reads as a Pokemon
+        // hitting itself. The line that prints it needs to know.
+        targetSide: target ? 1 - s : undefined,
         kind: action.kind,
       });
     }
@@ -1061,9 +1140,28 @@ export class Solver {
    * anyway: it is what the turn did, whoever did it.
    */
   turnRecord(turn, chosen, events, before, after) {
+    // A name on BOTH sides is ambiguous the moment it is printed on its own. In a mirror match
+    // every line read as a Pokemon attacking itself, so a shared name is said as "the opposing
+    // one"; an unshared one is left alone, because saying it of every target would be noise on
+    // the boards where there is nothing to tell apart.
+    const sideNames = (side) => new Set((before?.[side] || []).map((m) => m.name));
+    const mine = sideNames(0);
+    const yours = sideNames(1);
+    const shared = new Set([...mine].filter((name) => yours.has(name)));
+    const aim = (play) => {
+      if (!play.target) return "";
+      const across = play.targetSide !== undefined && play.targetSide !== play.side;
+      return ` \u2192 ${across && shared.has(play.target) ? `the opposing ${play.target}` : play.target}`;
+    };
     const plays = (chosen || []).map((play) => ({
       side: play.side,
-      text: play.kind === SWITCH ? `${play.name} ${play.move}` : `${play.name}: ${play.move}${play.target ? ` \u2192 ${play.target}` : ""}`,
+      // A switch is said in words. In a list of things that happened it was "Sneasler \u2192
+      // Rillaboom", which is the same shape an attack takes -- and next to "Garchomp: Earthquake
+      // \u2192 Golisopod" it reads as Sneasler hitting Rillaboom. The ranked answer on the Solver
+      // page keeps the arrow, where there is nothing to confuse it with.
+      text: play.kind === SWITCH
+        ? `${play.name} switched out for ${String(play.move || "").replace(/^\s*\u2192\s*/, "")}`
+        : `${play.name}: ${play.move}${aim(play)}`,
     }));
     const NOTABLE = {
       protect: "protected", wideguard: "used Wide Guard", quickguard: "used Quick Guard",
@@ -1175,6 +1273,25 @@ export class Solver {
       }
     }
     return best < 0 ? 0 : best;
+  }
+
+  /**
+   * What one action IS, independently of which possible board it was read off.
+   *
+   * `keyOf` is an index key: it says "slot 0's action number 3", which is a different move on a
+   * different board. Under a Closed Team Sheet that is not an identity, so this names the move
+   * itself. A switch is named by the place on the bench, which IS stable -- who is on the bench
+   * is known, only what they are carrying is not.
+   */
+  nameOf(action) {
+    if (!action || action.wait || !action.kind) return `${action?.position ?? 0}:wait`;
+    if (action.kind === SWITCH) return `${action.position}:switch:${action.into}`;
+    return `${action.position}:${action.kind}:${compact(action.move || "")}:${action.target ?? -1}:${action.mega ? "M" : ""}`;
+  }
+
+  /** The same, for a whole side's turn. */
+  jointName(joint) {
+    return (joint || []).map((action) => this.nameOf(action)).join("|");
   }
 
   /** A joint action's identity, so a reported row can be matched back to the action it came from. */
@@ -1408,6 +1525,271 @@ export class Solver {
       theirs,
       space: [root.joints[0].length, root.joints[1].length],
     };
+  }
+
+  /**
+   * Search a board whose sets are not known: one bandit over a pool of possible boards.
+   *
+   * `boards` is the pool -- the same Pokemon, the same HP, the same field, each with a different
+   * roll of what they are carrying. Every line picks one and plays it out. The root's statistics
+   * are pooled across the pool by action NAME, so "Garchomp: Earthquake at Incineroar" is one arm
+   * whether or not this line's Garchomp is the Choice Scarf one.
+   *
+   * The arm an action is pulled against is its AVAILABILITY, not the whole run. A move only half
+   * the possible sets have is offered on half the lines, and judging it by the run's total would
+   * make it look unexplored for ever. This is the one correction that separates Information Set
+   * MCTS from running the same bandit on a board that keeps changing underneath it.
+   *
+   * Everything below the root is per-board and exactly as it is in `search`: the node key carries
+   * the board's index, so two possible boards never share a node.
+   */
+  async searchClosed(boards, { lookahead = DEFAULT_LOOKAHEAD, iterations = 4000, deadline = 0,
+    seed = 1, settleLines = 0, onProgress = null, shouldStop = null } = {}) {
+    this.t.resetCaches();
+    this.unitCache.clear();
+    this.random = randomFrom(seed);
+    const bases = boards.map((board) => this.buildState(board));
+    const usable = bases.filter((base) => base.active[0].some(alive) && base.active[1].some(alive));
+    if (!usable.length) return { error: "Both sides need at least one Pokemon on the field." };
+    const depthWanted = Math.max(LOOKAHEAD_RANGE[0], Math.min(LOOKAHEAD_RANGE[1], Math.trunc(lookahead) || DEFAULT_LOOKAHEAD));
+    const searched = Math.min(SEARCH_DEPTH, depthWanted);
+    const pool = usable.length;
+
+    // One joint list per possible board, and one pooled arm per distinct action name.
+    const joints = usable.map((base) => [this.jointsFor(base, 0), this.jointsFor(base, 1)]);
+    const arms = [new Map(), new Map()];
+    const index = usable.map(() => [new Map(), new Map()]);
+    for (let d = 0; d < pool; d += 1) {
+      for (let s = 0; s < 2; s += 1) {
+        joints[d][s].forEach((joint, i) => {
+          const name = this.jointName(joint);
+          index[d][s].set(name, i);
+          if (!arms[s].has(name)) arms[s].set(name, { name, n: 0, sum: 0, avail: 0, rolls: 0, shown: [d, i] });
+        });
+      }
+    }
+    if (!arms[0].size || !arms[1].size) return { error: "Neither side has an action on this board." };
+    for (let s = 0; s < 2; s += 1) {
+      for (const [name, arm] of arms[s]) arm.rolls = index.reduce((sum, row) => sum + (row[s].has(name) ? 1 : 0), 0);
+    }
+
+    const nodes = new Map();
+    let played = 0;
+    let total = 0;
+    const started = Date.now();
+    let sliceStart = started;
+    let leading = ["", ""];
+    let heldSince = 0;
+    let settled = false;
+
+    /** UCB over the arms this board offers, counted against how often each was offered. */
+    const choose = (s, d) => {
+      let best = null;
+      let bestScore = -Infinity;
+      for (const [name, at] of index[d][s]) {
+        const arm = arms[s].get(name);
+        if (!arm.n) return { name, at };
+        const score = arm.sum / arm.n + EXPLORATION * Math.sqrt(Math.log(Math.max(2, arm.avail)) / arm.n);
+        if (score > bestScore) {
+          bestScore = score;
+          best = { name, at };
+        }
+      }
+      return best || { name: [...index[d][s].keys()][0], at: 0 };
+    };
+
+    while (played < iterations) {
+      const d = Math.min(pool - 1, Math.floor(this.random() * pool));
+      const base = usable[d];
+      const state = this.cloneState(base);
+      const walked = [];
+      const ours = choose(0, d);
+      const theirs = choose(1, d);
+      // Every arm this board offered was a real choice on this line, so every one of them is
+      // charged an appearance. Only the two that were taken are charged a result.
+      for (let s = 0; s < 2; s += 1) for (const name of index[d][s].keys()) arms[s].get(name).avail += 1;
+      let key = `${d}|`;
+      let node = null;
+      this.applyChosenTurn(state, joints[d][0][ours.at], joints[d][1][theirs.at], 1, null);
+      key = `${key}${ours.at},${theirs.at}|`;
+      node = this.stillPlaying(state) && searched > 1
+        ? this.nodeAt(nodes, `${key}${this.shapeOf(state)}`, state, 1)
+        : null;
+      for (let depth = 1; depth < searched && node; depth += 1) {
+        const a = this.select(node.stats[0], node.total);
+        const b = this.select(node.stats[1], node.total);
+        walked.push([node, a, b]);
+        this.applyChosenTurn(state, node.joints[0][a], node.joints[1][b], depth + 1, null);
+        key = `${key}${a},${b}|`;
+        node = this.stillPlaying(state) && depth + 1 < searched
+          ? this.nodeAt(nodes, `${key}${this.shapeOf(state)}`, state, depth + 1)
+          : null;
+      }
+      for (let turn = walked.length + 2; turn <= depthWanted; turn += 1) {
+        if (!this.stillPlaying(state)) break;
+        this.applyPlannedTurn(state, turn, null);
+      }
+      const value = this.valueOf(state);
+      const ourArm = arms[0].get(ours.name);
+      const theirArm = arms[1].get(theirs.name);
+      ourArm.n += 1;
+      ourArm.sum += value;
+      theirArm.n += 1;
+      theirArm.sum += 100 - value;
+      for (const [visited, a, b] of walked) {
+        visited.stats[0][a].n += 1;
+        visited.stats[0][a].sum += value;
+        visited.stats[1][b].n += 1;
+        visited.stats[1][b].sum += 100 - value;
+        visited.total += 1;
+      }
+      total += value;
+      played += 1;
+      if (Date.now() - sliceStart >= SLICE_MS) {
+        let holding = false;
+        let settling = 0;
+        if (settleLines > 0) {
+          // The leader is a NAME here, not an index: under a pool of boards an index is not an
+          // identity, so watching one would watch a different move from slice to slice.
+          const ourLead = this.poolLeader(arms[0]);
+          const theirLead = this.poolLeader(arms[1]);
+          if (!ourLead || !theirLead || ourLead !== leading[0] || theirLead !== leading[1]) {
+            leading = [ourLead, theirLead];
+            heldSince = played;
+          } else {
+            settling = Math.min(1, (played - heldSince) / settleLines, played / (2 * settleLines));
+            holding = hasSettled(played, heldSince, settleLines);
+          }
+        }
+        if (onProgress) {
+          onProgress({
+            played, iterations, value: total / played,
+            elapsed: (Date.now() - started) / 1000,
+            calcs: this.t.calcs, nodes: nodes.size, settling, pool,
+          });
+        }
+        await tick();
+        sliceStart = Date.now();
+        if (shouldStop && shouldStop()) break;
+        if (deadline && Date.now() >= deadline) break;
+        if (holding) {
+          settled = true;
+          break;
+        }
+      }
+    }
+
+    const ours = this.reportPooled(arms[0], joints, usable, 0, played, pool);
+    const theirs = this.reportPooled(arms[1], joints, usable, 1, played, pool);
+    // The story is one possible board played out, and it says which: a trace that showed the
+    // hidden side using moves the tiles call unknown, with nothing to say where they came from,
+    // would read as a bug.
+    let story = null;
+    if (ours.length && theirs.length) {
+      try {
+        // One board where BOTH leading answers exist, so the trace is a turn that could really
+        // have been played; our own board if no single one offers both.
+        let d = index.findIndex((row) => row[0].has(ours[0].key) && row[1].has(theirs[0].key));
+        if (d < 0) d = ours[0].shown[0];
+        const ourAt = index[d][0].get(ours[0].key) ?? ours[0].shown[1];
+        const theirAt = index[d][1].get(theirs[0].key) ?? 0;
+        story = this.playLine(usable[d], joints[d][0][ourAt], joints[d][1][theirAt], depthWanted, { trace: true });
+        if (story) story.sets = this.rollShown(usable[d]);
+      } catch {
+        story = null;
+      }
+    }
+    return {
+      format: this.format,
+      lookahead: depthWanted,
+      searchedTurns: searched,
+      nodes: nodes.size,
+      seed, story, played, pool,
+      seconds: (Date.now() - started) / 1000,
+      calcs: this.t.calcs,
+      settled,
+      value: played ? total / played : 50,
+      ours, theirs,
+      space: [arms[0].size, arms[1].size],
+    };
+  }
+
+  /** The arm the answer is read off: most played, ties to the better score. The settle test
+   *  watches this, so it has to be the same rule the report's first row uses. */
+  poolLeader(arms) {
+    let best = "";
+    let bestPlayed = -1;
+    let bestScore = -Infinity;
+    for (const [name, arm] of arms) {
+      if (!arm.n) return "";
+      const score = arm.sum / arm.n;
+      if (arm.n > bestPlayed || (arm.n === bestPlayed && score > bestScore)) {
+        bestPlayed = arm.n;
+        bestScore = score;
+        best = name;
+      }
+    }
+    return best;
+  }
+
+  /** What the hidden sides were rolled as on one possible board, so the story can show them. */
+  rollShown(base) {
+    // `m.u` is the BASE unit: a stone holder stands in its base form until it chooses to evolve,
+    // and `baseUnitFor` blanks the item to stop the stone re-evolving it. So the set this rolled
+    // Pokemon really holds is on `m.mega` when there is one, and showing `m.u` would tell the
+    // person their opponent came in with no item at all.
+    return base.sides.map((list) => list.map((m) => {
+      const held = m.mega || m.u;
+      return { name: this.label(held), item: held.item || "", moves: [...(held.mon?.moves || [])] };
+    }));
+  }
+
+  /**
+   * One side's pooled arms as rows the page can print.
+   *
+   * Three numbers, not one. `rolls` is in how many of the possible boards this action existed at
+   * all -- which IS the chance the hidden Pokemon has that move, and the honest reading of the
+   * usage data. `score` is what the line was worth on the boards where it was played, which is a
+   * conditional statement and not a promise. `played` is how much search went into it.
+   */
+  reportPooled(arms, joints, bases, s, total, pool) {
+    const rows = [];
+    for (const [name, arm] of arms) {
+      const [d, at] = arm.shown;
+      const joint = joints[d][s][at];
+      const state = bases[d];
+      rows.push({
+        key: name,
+        shown: arm.shown,
+        actions: joint.filter((a) => !a.wait).map((a) => ({
+          who: who(state.active[s][a.position].u),
+          name: this.label(state.active[s][a.position].u),
+          move: a.move,
+          target: a.target >= 0 && state.active[1 - s][a.target]
+            ? this.label(state.active[1 - s][a.target].u)
+            : a.kind === HELPING_HAND && state.active[s][a.partner]
+              ? this.label(state.active[s][a.partner].u)
+              : "",
+          kind: a.kind,
+          mega: Boolean(a.mega),
+        })),
+        // The actions themselves, so a caller that has to PLAY this row -- the game against the
+        // Solver does -- can hand them straight to `applyChosenTurn` rather than trying to match
+        // a printed line back to the action it came from.
+        raw: joint.map((a) => ({
+          position: a.position, kind: a.kind, slot: a.slot ?? null, target: a.target ?? -1,
+          into: a.into ?? null, partner: a.partner ?? null, pr: a.pr ?? 0,
+          move: a.move || "", spread: Boolean(a.spread), mega: Boolean(a.mega), wait: Boolean(a.wait),
+        })),
+        played: arm.n,
+        share: total ? arm.n / total : 0,
+        score: arm.n ? arm.sum / arm.n : 0,
+        rolls: arm.rolls,
+        pool,
+      });
+    }
+    rows.sort((a, b) => b.played - a.played || b.score - a.score);
+    return rows;
   }
 
   /**

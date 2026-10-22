@@ -51,6 +51,9 @@
 /damage-calculator/*
   Cache-Control: no-cache, max-age=0, must-revalidate
 
+/play/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
 /assets/*
   Cache-Control: public, max-age=3600, s-maxage=86400
 

@@ -747,7 +747,10 @@ if (quick) {
     }
     const pool = [...best.values()].sort((a, b) => b.score - a.score || a.position - b.position || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
     const rows = scoring ? sg.deepRank(pool, payload, top) : pool.slice(0, top);
-    return { rows, pool, archetype: String(pool[0]?.strategy_archetype_v466 || "") };
+    // `setters` is the count the damping table is read at, taken off the team rather than
+    // assumed, so the withdrawal the assertions below expect is derived and not named.
+    return { rows, pool, archetype: String(pool[0]?.strategy_archetype_v466 || ""),
+      setters: Number(sg.featuresFor(teamSlots).trick_room_setters) || 0 };
   }
 
   /**
@@ -806,9 +809,95 @@ if (quick) {
   notes.push(`  before, best 8: ${before.rows.slice(0, 8).map((r) => `${r.name} ${r.score.toFixed(1)}`).join(", ")}`);
   notes.push(`  after,  best 8: ${after.rows.slice(0, 8).map((r) => `${r.name} ${r.score.toFixed(1)} (${(r.threat_answers_v511 || []).length}/${r.threats_measured_v511 || 0})`).join(", ")}`);
 
-  ok("the pool really is full of Trick Room carriers", poolCarriers >= 10, `${poolCarriers}`);
-  ok("before the rule, the top 20 was full of them", beforeTop.length >= 5, `${beforeTop.length}/20`);
-  ok("after it, far fewer of them are there", afterTop.length * 2 < beforeTop.length, `before ${beforeTop.length}, after ${afterTop.length}`);
+  // RE-DERIVED on the 20 Oct meta, which turned the old form of this red at 3/20 with nothing in
+  // the site changed.
+  //
+  // Three checks here used to be counts of one day's list: "the pool holds at least 10 carriers",
+  // "at least 5 of the old top 20 carry Trick Room", "the new top 20 holds less than half as
+  // many". The middle one is not a fact about the rule at all - whether the OLD weights floated a
+  // carrier into the top 20 depends on how strong that week's NON-carriers are. On 20 Oct the old
+  // top 20 opens Mega Malamar, Mega Golisopod, Azumarill, Decidueye-Hisui, Grapploct and only
+  // 3 of 20 carry the move, while the same rule still empties the list on both teams measured in
+  // 5b below (one setter short 14/14 -> 0/13, six slots 6/13 -> 0/14). The third was pinned to the
+  // second and could not even be satisfied on a day when the old list holds no carrier at all:
+  // 0 * 2 < 0 is false.
+  //
+  // What the rule promises is per candidate, so that is what is measured, and every number it is
+  // measured against is read off the team or off the rule's own table:
+  //
+  //   * the withdrawal is `trickRoomReward(0) - trickRoomReward(setters)` - the damping table's
+  //     own arithmetic - and `setters` is counted off the team by `featuresFor`;
+  //   * every carrier the pool still holds has exactly that much taken off, on the ledger line
+  //     the breakdown shows the reader, and nothing that does not carry the move is touched;
+  //   * a carrier the withdrawal pushes under the pool's own `score > 0` floor has to have been
+  //     within the withdrawal of that floor to start with;
+  //   * so no carrier rises and the middle of them sinks a long way, measured on ONE stage so the
+  //     calc-backed re-rank cannot flatter the result;
+  //   * and the list the reader ends up with is no more weighted towards carriers than the pool
+  //     they were drawn from, give or take the single row a genuinely good carrier can buy -
+  //     because the term is a price and not a veto.
+  //
+  // None of that can be made vacuous by a quiet week: the unit is a carrier, not a chart position.
+  // A changed damping table, a rule that stopped firing, or an archetype that stopped being
+  // detected each turn it red.
+  const withdrawal = trickRoomReward(0) - trickRoomReward(before.setters);
+  const speedPlanDelta = (row) => ((row.score_ledger || []).find((piece) => piece.key === "speed_plan_v511") || {}).delta;
+  const afterByName = new Map(after.pool.map((row) => [compact(row.name), row]));
+  const priced = [];    // still scored, and the reward withdrawn to the point
+  const mispriced = []; // still scored, and it was not
+  const dropped = [];   // the withdrawal took it under the pool's own score > 0 floor
+  for (const row of before.pool.filter(carriesTrickRoom)) {
+    const scored = afterByName.get(compact(row.name));
+    if (!scored) dropped.push(row);
+    else (speedPlanDelta(scored) === -withdrawal ? priced : mispriced).push(scored);
+  }
+  const untouched = after.pool.filter((row) => !carriesTrickRoom(row) && speedPlanDelta(row) !== undefined);
+  notes.push(`  ${before.setters} setters, so the damping table withdraws ${withdrawal}: ${priced.length} carrier(s) priced, ${mispriced.length} mispriced, ${dropped.length} priced out of the pool, ${untouched.length} non-carrier(s) touched`);
+
+  ok("the pool holds Trick Room carriers to measure the rule on at all", poolCarriers > 0, `${poolCarriers}`);
+  eq("and the team it is measured on is the two-setter one the table is read at", before.setters, 2);
+  ok("every Trick Room carrier still scored has the flat reward withdrawn, to the point",
+    !mispriced.length, mispriced.map((row) => `${row.name} ${speedPlanDelta(row)} (want ${-withdrawal})`).join(", "));
+  ok("and the ones the withdrawal priced out of the pool were within it of the floor",
+    dropped.every((row) => Number(row.score) <= withdrawal + 1e-9),
+    dropped.map((row) => `${row.name} ${row.score}`).join(", "));
+  ok("while nothing that does not carry the move is touched by it",
+    !untouched.length, untouched.map((row) => `${row.name} ${speedPlanDelta(row)}`).join(", "));
+
+  // The consequence, on the stage-one ordering of the same candidates, so the only difference
+  // between the two numbers is the rule itself. A carrier priced out of the pool counts as having
+  // sunk past the end of it.
+  const positionsOf = (pool) => new Map(pool.map((row, index) => [compact(row.name), index]));
+  const wasAt = positionsOf(before.pool);
+  const nowAt = positionsOf(after.pool);
+  const median = (values) => [...values].sort((a, b) => a - b)[Math.floor(values.length / 2)];
+  const sankTo = (row) => nowAt.get(compact(row.name)) ?? after.pool.length;
+  const carrierMoves = before.pool.filter(carriesTrickRoom)
+    .map((row) => ({ name: row.name, from: wasAt.get(compact(row.name)), to: sankTo(row) }));
+  const rose = carrierMoves.filter((move) => move.to < move.from);
+  // Where the middle carrier ends up, against where the middle Pokemon that does NOT carry the
+  // move ends up. Stated as the two medians against each other rather than against yesterday's
+  // number: both are read off the same pool on the same day, so the comparison says what the rule
+  // is for - carrying Trick Room on a team that already sets it buys nothing, so a carrier ranks
+  // behind a Pokemon that does not - and it cannot be satisfied by the pool merely being long.
+  const middleCarrier = median(carrierMoves.map((move) => move.to));
+  const middleOther = median(after.pool.filter((row) => !carriesTrickRoom(row)).map((row) => nowAt.get(compact(row.name))));
+  notes.push(`  median place in the ${before.pool.length}-deep pool: carrier ${median(carrierMoves.map((m) => m.from))} -> ${middleCarrier}, non-carrier ${middleOther}`);
+  ok("so the rule lifts no Trick Room carrier up the list",
+    !rose.length, rose.map((move) => `${move.name} ${move.from} -> ${move.to}`).join(", "));
+  ok("and the middle of them ends up behind the middle Pokemon that does not carry it",
+    middleCarrier > middleOther, `carrier ${middleCarrier}, non-carrier ${middleOther}`);
+  const windowOf = (pool) => pool.slice(0, after.rows.length).filter(carriesTrickRoom).length;
+  ok("the same window of the same stage never holds more of them with the rule on",
+    windowOf(after.pool) <= windowOf(before.pool), `off ${windowOf(before.pool)}, on ${windowOf(after.pool)}`);
+  ok("and holds strictly fewer wherever the old weights put any there at all",
+    !windowOf(before.pool) || windowOf(after.pool) < windowOf(before.pool),
+    `off ${windowOf(before.pool)}, on ${windowOf(after.pool)}`);
+  // A price, not a veto: a carrier may still earn a row, but the list is not weighted towards
+  // them - which is the complaint itself ("every Pokemon with Trick Room") stated as a ratio.
+  ok("the shown list is no more weighted towards them than the pool they came from",
+    afterTop.length <= (poolCarriers / before.pool.length) * after.rows.length + 1,
+    `${afterTop.length}/${after.rows.length} shown vs ${poolCarriers}/${before.pool.length} scored`);
   ok("every shown row was measured against the team's worst threats",
     after.rows.every((row) => Number(row.threats_measured_v511) > 0), `${after.rows.filter((r) => !r.threats_measured_v511).map((r) => r.name).join(", ")}`);
   ok("the shown rows are in score order", after.rows.every((row, i) => i === 0 || after.rows[i - 1].score >= row.score));

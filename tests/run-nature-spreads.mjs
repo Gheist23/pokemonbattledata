@@ -208,6 +208,11 @@ for (const format of ["Doubles", "Singles"]) {
   });
   check("the loadable similar team has no Nature fighting its Stat Points", wrong.length === 0,
     wrong.map((m) => `${m.species} ${m.nature} ${m.bonuses.join("/")}`).join("; "));
+  // The count comes first. Without it a `similar` that came back empty -- or without members at
+  // all -- satisfied both this and the Nature check above, because neither has anything to be
+  // false about over an empty list.
+  check("the similar team came back with a full team on it", (similar?.members || []).length === 6,
+    String((similar?.members || []).length));
   check("every similar-team member carries six Stat Points", (similar?.members || []).every((m) => m.bonuses?.length === 6));
 
   // The Suggestions row for a candidate that completes a tournament team carries the same pairing.

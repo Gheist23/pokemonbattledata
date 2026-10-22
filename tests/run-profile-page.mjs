@@ -599,6 +599,12 @@ if (protect) {
   const accuracy = (protect.infoPayload.facts.find(([label]) => label === "Accuracy") || [])[1];
   check("a never-miss move reads 100 in the popover", accuracy === "100", `read ${accuracy}`);
 }
+// Every button must HAVE facts before "none of them says 101" means anything: a popover that
+// carries no facts satisfies it without being looked at, and a payload that stopped being built
+// would have passed this silently.
+check("every move popover carries its facts", moveButtons.length > 0
+  && moveButtons.every((button) => (button.infoPayload?.facts || []).length > 0),
+  `${moveButtons.length} button(s), ${moveButtons.filter((b) => !(b.infoPayload?.facts || []).length).length} without facts`);
 check("no move popover reads 101",
   moveButtons.every((button) => (button.infoPayload?.facts || []).every(([, value]) => value !== "101")));
 

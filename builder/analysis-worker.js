@@ -14,8 +14,11 @@
 import { BuilderData, makeSet } from "./common.js";
 import { teamOverview } from "./team-overview.js";
 import { KnownTeams, mostSimilarTeam } from "./known-teams.js";
-import { TournamentTest } from "./tournament-test.js";
+import { BRING_BY_FORMAT, TERRAINS, TournamentTest, WEATHERS } from "./tournament-test.js";
 import { Solver } from "./solver.js";
+import { HiddenSets } from "./hidden-sets.js";
+import { PLAY_LOOKAHEAD, PLAY_POOL, PlayGame, THINK_MS, teamFromKnown } from "./play-game.js";
+import { loadSetLibrary } from "./pokemon-sets.js";
 import { TeamEvaluator, normalizeSettings } from "./team-eval.js";
 import { TeamEvaluation } from "./team-payload.js";
 import { SpeedTiers } from "./speed-tiers.js";
@@ -94,6 +97,119 @@ function transferable(payload) {
 }
 
 const cancelled = new Set();
+
+/**
+ * The games in play, by id.
+ *
+ * A tab plays one at a time, but a reload leaves the old one behind, so the map is capped and the
+ * oldest is dropped rather than held for ever.
+ */
+const games = new Map();
+
+function keepGame(id, game) {
+  if (games.size > 4) games.delete(games.keys().next().value);
+  games.set(id, game);
+}
+
+/** The opponent's whole team: one real tournament team, all six of it. */
+function foeTeam(data, format, known, rng) {
+  const teams = known?.teams || [];
+  if (!teams.length) return { name: "", sets: [] };
+  const team = teams[Math.min(teams.length - 1, Math.floor(rng() * teams.length))];
+  return { name: team.name || "", sets: teamFromKnown(data, format, team) };
+}
+
+/**
+ * The four of the six the opponent brings, and the order it leads in.
+ *
+ * Which four is not arbitrary -- a sheet brings the four that suit the matchup -- but choosing
+ * them properly means searching every bring against every bring, which is the Tournament Test's
+ * whole job and far too slow to put in front of somebody waiting for a battle. They are taken by
+ * ladder rank instead, which is the one thing this side knows about its own team for nothing.
+ */
+function foeBring(data, format, sets) {
+  const bring = BRING_BY_FORMAT[format];
+  return sets
+    .map((set, index) => ({ set, index, at: data.usage(format, set.species, set.form)?.position ?? 9999 }))
+    .sort((a, b) => a.at - b.at)
+    .slice(0, bring)
+    .sort((a, b) => a.index - b.index)
+    .map((row) => row.set);
+}
+
+/** What a team preview is allowed to say about the other side: who, and nothing else. */
+function previewMon(data, set) {
+  return {
+    species: set.species,
+    form: set.form,
+    name: data.setName ? data.setName(set) : set.species,
+    sprite: data.sprite(set.species, set.form, ""),
+  };
+}
+
+/** Teams dealt but not yet brought, by id. A reload leaves one behind, so the map is capped. */
+const previews = new Map();
+
+/**
+ * The view, with the weather and the terrain said in words.
+ *
+ * `view.field.weather` and `.terrain` are INDICES into the engine's own ordered lists, and the
+ * page used to carry its own copy of those lists to read them with. That copy had Psychic and
+ * Misty the other way round, so Indeedee's Psychic Surge came up on screen as Misty Terrain.
+ *
+ * The translation belongs here rather than on the page because the lists live in
+ * tournament-test.js, and importing that into the page would drag the whole engine -- some four
+ * hundred kilobytes of it -- into the main thread for the sake of two arrays of five strings.
+ * The worker already has it. So the field arrives already named, and the page has no order of
+ * its own to get wrong.
+ */
+function named(view) {
+  return {
+    ...view,
+    field: {
+      ...view.field,
+      weather: WEATHERS[view.field.weather] || "None",
+      terrain: TERRAINS[view.field.terrain] || "None",
+    },
+  };
+}
+
+/** mulberry32, the same one the search uses: a run carries its seed, so its pool is reproducible. */
+function rollerFrom(seed) {
+  let state = (seed >>> 0) || 1;
+  return function next() {
+    state = (state + 0x6d2b79f5) >>> 0;
+    let z = state;
+    z = Math.imul(z ^ (z >>> 15), z | 1);
+    z ^= z + Math.imul(z ^ (z >>> 7), z | 61);
+    return ((z ^ (z >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/**
+ * The pool of possible boards a Closed Team Sheet search runs over.
+ *
+ * Same Pokemon, same HP, same stages, same field -- a different roll of what each one is
+ * carrying. A row's `fixed` is what the person has pinned on its tile, and every roll honours
+ * all of it; the rest comes from the sets real teams brought, or from the usage percentages when
+ * that Pokemon has none on file.
+ */
+async function possibleBoards(data, format, board, pool, seed) {
+  const library = await loadSetLibrary();
+  const hidden = new HiddenSets(data, format, library);
+  const rng = rollerFrom(seed);
+  const boards = [];
+  for (let d = 0; d < pool; d += 1) {
+    const sides = board.sides.map((rows) => {
+      const rolled = hidden.rollSide(rows.map((row) => ({
+        species: row.set?.species, form: row.set?.form, fixed: row.fixed || null,
+      })), rng);
+      return rows.map((row, i) => ({ ...row, set: rolled[i].set }));
+    });
+    boards.push({ ...board, sides });
+  }
+  return boards;
+}
 
 /** The closest tournament team, with the Stat Points its Natures go with (so it can be loaded as a team). */
 function similarTeam(evaluation, built) {
@@ -305,12 +421,148 @@ self.addEventListener("message", async (event) => {
       self.postMessage({ id, ok: true, result });
       return;
     }
+    if (type === "play") {
+      // A game against the Solver. Everything about it lives here: the board, whose turn it is,
+      // what the opponent has been shown of the player's team, and the log.
+      const { data, evaluation } = await appEvaluation(payload.format, payload.settings);
+      evaluation.knownTeams ||= await knownTeams();
+      // A game gets its OWN engine, for two reasons.
+      //
+      // It must have the compiled move and Ability effects. `solverTournament` is built without
+      // them, so a played game had no flinches, no secondary burns or paralysis and no
+      // critical-hit data at all -- the registry was shipped and never read. The Solver page
+      // shares that instance, so adding them there would have changed every answer the Solver
+      // gives, which is a different decision from this one.
+      //
+      // And it must not share a cache with a search that resets it. `searchClosed` begins by
+      // clearing the caches and restarting the unit numbering those caches are keyed on, so a
+      // board held across a search reads whatever the search filed under its old numbers.
+      evaluation.playTournament ||= new TournamentTest(
+        evaluation,
+        evaluation.knownTeams || new KnownTeams({ teams: [] }),
+        new TeamSuggestions(evaluation),
+        // A battle prices a hit against the Pokemon actually standing there: its live HP and its
+        // status. The evaluation deliberately does not (TOURNAMENT_LIVE_HP), because its numbers
+        // are published and compared against the Companion; a played game's are neither.
+        { effects: await moveEffects(), liveHpRule: 1 },
+      );
+      evaluation.playSolver ||= new Solver(evaluation.playTournament);
+      const library = await loadSetLibrary();
+
+      if (payload.action === "new") {
+        // A page cached before the team preview existed. It sends the four it brings and expects
+        // a started game back, so it gets one; see the note on this handler above.
+        const seed = Number(payload.seed) || 1;
+        const foe = foeTeam(data, payload.format, evaluation.knownTeams, rollerFrom(seed));
+        // A page cached from before the toggle existed played the closed sheet, which is what it
+        // still gets -- and closed games are not rated, which is the right answer for a client
+        // that does not know the rule.
+        const game = new PlayGame(evaluation.playSolver, data, payload.format, library, { sheet: "closed" });
+        const view = game.start({
+          player: payload.team || [],
+          foe: foeBring(data, payload.format, foe.sets),
+          seed,
+        });
+        game.foeName = foe.name;
+        const gameId = `g${id}`;
+        keepGame(gameId, game);
+        self.postMessage({ id, ok: true, result: { gameId, view: named(view), options: game.options(), foeName: foe.name } });
+        return;
+      }
+
+      if (payload.action === "preview") {
+        // The teams are dealt here and remembered, so the four you pick are brought against the
+        // very team you were shown rather than against a fresh roll.
+        const seed = Number(payload.seed) || 1;
+        const foe = foeTeam(data, payload.format, evaluation.knownTeams, rollerFrom(seed));
+        const previewId = `p${id}`;
+        if (previews.size > 4) previews.delete(previews.keys().next().value);
+        previews.set(previewId, { foe, seed, format: payload.format });
+        self.postMessage({
+          id,
+          ok: true,
+          result: {
+            previewId,
+            foeName: foe.name,
+            foe: foe.sets.map((set) => previewMon(data, set)),
+          },
+        });
+        return;
+      }
+
+      if (payload.action === "start") {
+        const prep = previews.get(payload.previewId);
+        if (!prep) {
+          self.postMessage({ id, ok: true, result: { error: "Those teams are gone. Deal again." } });
+          return;
+        }
+        const game = new PlayGame(evaluation.playSolver, data, payload.format, library,
+          { sheet: payload.sheet === "closed" ? "closed" : "open" });
+        // `payload.team` is the four you picked, in the order you picked them: the first
+        // ACTIVE_BY_FORMAT of them lead and the rest wait behind, which is exactly what
+        // PlayGame.start already means by the order of the list.
+        const view = game.start({
+          player: payload.team || [],
+          foe: foeBring(data, payload.format, prep.foe.sets),
+          seed: prep.seed,
+        });
+        game.foeName = prep.foe.name;
+        const gameId = `g${id}`;
+        keepGame(gameId, game);
+        previews.delete(payload.previewId);
+        self.postMessage({
+          id,
+          ok: true,
+          // `sheet` comes back from the GAME rather than from the request, so the page shows what
+          // is actually being played rather than what it asked for.
+          result: { gameId, view: named(view), options: game.options(), foeName: prep.foe.name, sheet: game.sheet },
+        });
+        return;
+      }
+
+      const game = games.get(payload.gameId);
+      if (!game) {
+        self.postMessage({ id, ok: true, result: { error: "That game is over. Start a new one." } });
+        return;
+      }
+      if (payload.action === "turn") {
+        const options = game.options();
+        const ourJoint = game.jointFrom(options, payload.chosen || []);
+        progress({ stage: "thinking" });
+        const { joint, thinking } = await game.chooseFoe({
+          thinkMs: Math.max(300, Math.min(10000, Number(payload.thinkMs) || THINK_MS)),
+          lookahead: Math.max(2, Math.min(12, Math.trunc(Number(payload.lookahead) || PLAY_LOOKAHEAD))),
+          pool: Math.max(2, Math.min(32, Math.trunc(Number(payload.pool) || PLAY_POOL))),
+        });
+        const record = game.resolve(ourJoint, joint);
+        const view = game.view();
+        self.postMessage({
+          id,
+          ok: true,
+          result: {
+            view: named(view),
+            options: view.over ? [] : game.options(),
+            record,
+            thinking: { played: thinking?.played || 0, pool: thinking?.pool || 0, seconds: thinking?.seconds || 0 },
+          },
+        });
+        if (view.over) games.delete(payload.gameId);
+        return;
+      }
+      if (payload.action === "resign") {
+        games.delete(payload.gameId);
+        self.postMessage({ id, ok: true, result: { resigned: true } });
+        return;
+      }
+      self.postMessage({ id, ok: true, result: { error: "Unknown play action." } });
+      return;
+    }
     if (type === "solver") {
       // The Solver: one board, searched. Every line is played through the Tournament Test's turn
       // machinery, so the search runs here for the same reason that one does -- thousands of
       // damage calculations must not freeze the page. The board arrives as sets and numbers,
       // which is all structured clone can carry.
-      const { evaluation } = await appEvaluation(payload.format, payload.settings);
+      const { data, evaluation } = await appEvaluation(payload.format, payload.settings);
       evaluation.knownTeams ||= await knownTeams();
       // The Solver gets a TournamentTest of its OWN, never the one the Tournament Test uses.
       // It replaces `rollHit` on the instance it is handed -- its playouts roll to hit and roll
@@ -320,8 +572,18 @@ self.addEventListener("message", async (event) => {
       // recorded parity vectors pin, silently, and only after someone had opened the Solver.
       evaluation.solverTournament ||= new TournamentTest(evaluation, evaluation.knownTeams || new KnownTeams({ teams: [] }), new TeamSuggestions(evaluation));
       evaluation.solver ||= new Solver(evaluation.solverTournament);
+      // A closed sheet is not one board but many: the sets are rolled, and the answer is the move
+      // that does best across the possible boards rather than against one guess at theirs.
+      const closed = payload.sheet === "closed";
+      const pool = closed
+        ? await possibleBoards(data, payload.format, payload.board,
+          Math.max(2, Math.min(64, Math.trunc(Number(payload.pool) || 24))), Number(payload.seed) || 1)
+        : null;
       try {
-        result = await evaluation.solver.search(payload.board, {
+        const run = closed
+          ? (options) => evaluation.solver.searchClosed(pool, options)
+          : (options) => evaluation.solver.search(payload.board, options);
+        result = await run({
           lookahead: payload.lookahead,
           iterations: Math.max(1, Number(payload.iterations) || 20000),
           seed: Number(payload.seed) || 1,

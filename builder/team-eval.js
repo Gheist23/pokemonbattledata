@@ -313,6 +313,20 @@ function normalizeKoText(text) {
 }
 
 /** _v45_turn_hits_for_move */
+/**
+ * A CHARGING move's hits, in turns.
+ *
+ * Not the same length as a recharge. Hyper Beam spends its turn AFTER the hit and the last hit
+ * needs no recharge, so n hits take 2n-1 turns; Electro Shot spends it BEFORE and every hit
+ * needs one, so n hits take 2n. A Power Herb pays for exactly one, which is the recharge shape
+ * again -- and for a one-hit KO, no extra turn at all.
+ */
+function chargeTurnsForMove(rawHits, herb) {
+  const hits = Number.parseInt(rawHits, 10) || 99;
+  if (hits <= 0 || hits >= 90) return hits;
+  return herb ? hits * 2 - 1 : hits * 2;
+}
+
 function turnHitsForMove(rawHits, recharge) {
   const hits = Number.parseInt(rawHits, 10) || 99;
   if (!recharge || hits <= 1 || hits >= 90) return hits;
@@ -439,9 +453,33 @@ export class TeamEvaluator {
   }
 
   /** _v45_move_has_recharge / _v48_move_has_cooldown_for_result */
+  /**
+   * Whether this move spends a turn charging, on the board this result describes.
+   *
+   * `chargeMoves` is {move key: the weather that releases it}, exported from the same compiled
+   * registry the played game reads (`export_charge_moves`). Before it, the only charging move
+   * the KO layer knew was the literal string "solarbeam" -- so Electro Shot, Solar Blade,
+   * Meteor Beam, Sky Attack, Fly, Dig, Dive, Bounce and Phantom Force were every one of them
+   * priced as a move that comes round every turn at full power.
+   */
+  chargesMove(move, result) {
+    const table = this.engine?.data?.chargeMoves;
+    if (!table) return false;
+    const skip = table[compact(move)];
+    if (skip === undefined) return false;
+    if (skip && String(skip).trim().toLowerCase() === String(result?.weather || "").trim().toLowerCase()) return false;
+    return true;
+  }
+
+  /** A Power Herb pays for one charge. */
+  chargeHerb(result) {
+    return compact(result?.attacker_item || "") === "powerherb";
+  }
+
   hasCooldown(move, result) {
     const clean = String(move || "").trim();
     if (!clean) return false;
+    if (this.chargesMove(clean, result)) return true;
     if (compact(clean) === "solarbeam") return String(result?.weather || "").trim().toLowerCase() !== "sun";
     if (RECHARGE_MOVES.has(clean.toLowerCase())) return true;
     const meta = this.meta(clean);
@@ -528,9 +566,11 @@ export class TeamEvaluator {
       const [hits, chance] = chosen;
       base = { score: koPoints(hits, chance), hits, chance, label: hits < 90 ? koLabelForHits(hits, chance) : "No KO", raw_hits: hits };
       const cooldown = this.hasCooldown(move, result);
-      const turns = turnHitsForMove(hits, cooldown);
+      const charging = this.chargesMove(move, result);
+      const turns = charging ? chargeTurnsForMove(hits, this.chargeHerb(result)) : turnHitsForMove(hits, cooldown);
       base.hits = turns;
       base.recharge_move = cooldown;
+      base.charge_move = charging;
       if (cooldown && hits > 1 && hits < 90) base.label = turnLabel(hits, turns, chance, true);
     }
     return this.selfKoLimit(move, base);
@@ -541,10 +581,12 @@ export class TeamEvaluator {
     const out = { ...ko };
     const raw = Number.parseInt(out.hits, 10) || 99;
     const cooldown = this.hasCooldown(move, result);
-    const turns = turnHitsForMove(raw, cooldown);
+    const charging = this.chargesMove(move, result);
+    const turns = charging ? chargeTurnsForMove(raw, this.chargeHerb(result)) : turnHitsForMove(raw, cooldown);
     out.raw_hits = raw;
     out.hits = turns;
     out.recharge_move = cooldown;
+    out.charge_move = charging;
     if (cooldown && raw > 1 && raw < 90) {
       const chance = Number(out.chance) || 0;
       out.label = turnLabel(raw, turns, chance, true);
@@ -878,8 +920,14 @@ export class TeamEvaluator {
   teamCandidate(attacker, defender, move, span) {
     const high = span.max_result || {};
     const low = span.min_result || {};
-    const ko = this.koSummary(high);
-    const lowKo = this.koSummary(low);
+    // Priced the way the plain best is priced, cooldown and all. `bestV366` compares this
+    // candidate against `bestV304`'s result and takes the better of the two; `bestV304` goes
+    // through `applyCooldown` and this did not, so the two were on different scales. A move
+    // that costs a turn looked better as a range candidate than as itself, and the range
+    // candidate won -- which turned Archaludon's Electro Shot into a "conditional" row whose
+    // two ends both read "Guaranteed 2HKO", hiding the four turns it really takes.
+    const ko = this.applyCooldown(move, this.koSummary(high), high);
+    const lowKo = this.applyCooldown(move, this.koSummary(low), low);
     const full = fullKoSummaryV40(high, 10);
     const speed = this.engine.effectiveSpeed(makeMon(attacker), {});
     const a = this.display(attacker);

@@ -91,36 +91,23 @@ let failures = 0;
 let checked = 0;
 const byField = new Map();
 /**
- * A vector the Companion records WRONG, and the one kind this suite is allowed to skip.
+ * NOTHING IS SKIPPED.
  *
- * Battle Armor and Shell Armor mean a Pokemon cannot be critically hit. The website's engine
- * enforces that; the Companion's does not, so a vector recorded with the crit toggle ON against
- * one of those Abilities holds a number x1.50 too high and the two sides can never agree on it.
+ * Battle Armor and Shell Armor mean a Pokemon cannot be critically hit, and this suite used to
+ * skip the vectors that turned on. First six of them, because the Companion crit through those
+ * Abilities and this engine did not; then three, once the Companion was fixed and the vectors
+ * re-recorded, because of the last difference between the two -- a Pokemon standing in a MEGA
+ * FORM while its set records some other Ability (a randomly generated Mega Scolipede carrying
+ * Delphoxite with Purifying Salt). The Companion resolved the Mega and saw its Shell Armor;
+ * this engine read the Ability the set named.
  *
- * Matched BY REASON, never by index: anything else that diverges still goes red, and once the
- * Companion is fixed and the vectors re-recorded this stops matching anything and the count
- * printed at the end falls to zero. The defender's Ability is read AFTER the Mega Stone is
- * applied, because the calculator Mega-Evolves a stone holder -- which is the whole reason these
- * read as Mold Breaker and Competitive in the recording and are Shell Armor in the sum.
+ * Those three are now checked like every other vector, because `DamageEngine.critProofAbility`
+ * resolves the same Mega the Companion does. That matters beyond tidiness: those three were the
+ * ONLY vectors in the file that exercised the crit-immunity read in `attackDefenseValues`, so
+ * while they were skipped that fix could be reverted and this suite stayed green.
  */
-const CRIT_PROOF = new Set(["battle armor", "shell armor"]);
-const CRIT_MOLD_BREAKERS = new Set(["mold breaker", "teravolt", "turboblaze"]);
-let knownCritProof = 0;
-function appCritsThroughArmour(vector) {
-  if (!vector.ctx || !vector.ctx.critical) return false;
-  const d = vector.defender || {};
-  if (CRIT_MOLD_BREAKERS.has(String(vector.attacker?.ability || "").toLowerCase().trim())) return false;
-  let ability = String(d.ability || "").toLowerCase().trim();
-  const form = engine.pokemon(d.pokemon_name, d.form_name);
-  if (engine.isMegaStone && engine.isMegaStone(d.item) && form && (form.abilities || []).length) {
-    ability = String(form.abilities[0] || "").toLowerCase().trim();
-  }
-  return CRIT_PROOF.has(ability);
-}
-
 for (const [index, vector] of vectors.entries()) {
   if (vector.error) continue;
-  if (appCritsThroughArmour(vector)) { knownCritProof += 1; continue; }
   engine.terrainSeeds = seedRule(vector);
   engine.fieldRequirements = fieldRule(vector);
   engine.selfStatChange = selfStatRule(vector);
@@ -159,10 +146,5 @@ for (const [index, vector] of vectors.entries()) {
   }
 }
 console.log(`\n${checked} vectors checked, ${failures} mismatched.`);
-if (knownCritProof) {
-  console.log(`${knownCritProof} skipped: recorded with the crit toggle on against Battle Armor or `
-    + "Shell Armor, which the Companion crits through and this engine does not. Fix the Companion, "
-    + "re-record, and this number goes to zero.");
-}
 if (byField.size) console.log("Mismatched fields:", Object.fromEntries(byField));
 process.exitCode = Math.min(failures, 255);

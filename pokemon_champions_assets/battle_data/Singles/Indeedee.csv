@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Indeedee,16,move,1,Expanding Force,99.7%,,,,,,,,
-Indeedee,16,move,2,Mystical Fire,95.1%,,,,,,,,
-Indeedee,16,move,3,Encore,66.8%,,,,,,,,
-Indeedee,16,move,4,Dazzling Gleam,49.4%,,,,,,,,
+Indeedee,16,move,2,Mystical Fire,95.0%,,,,,,,,
+Indeedee,16,move,3,Encore,67.1%,,,,,,,,
+Indeedee,16,move,4,Dazzling Gleam,49.2%,,,,,,,,
 Indeedee,16,move,5,Healing Wish,27.8%,,,,,,,,
-Indeedee,16,move,6,Trick,22.1%,,,,,,,,
-Indeedee,16,move,7,Psychic Noise,10.1%,,,,,,,,
+Indeedee,16,move,6,Trick,22.0%,,,,,,,,
+Indeedee,16,move,7,Psychic Noise,9.9%,,,,,,,,
 Indeedee,16,move,8,Trick Room,6.8%,,,,,,,,
-Indeedee,16,move,9,Shadow Ball,5.3%,,,,,,,,
-Indeedee,16,move,10,Substitute,5.3%,,,,,,,,
-Indeedee,16,held_item,1,Terrain Extender,33.9%,,,,,,,,
-Indeedee,16,held_item,2,Focus Sash,33.5%,,,,,,,,
+Indeedee,16,move,9,Substitute,5.4%,,,,,,,,
+Indeedee,16,move,10,Shadow Ball,5.3%,,,,,,,,
+Indeedee,16,held_item,1,Focus Sash,33.8%,,,,,,,,
+Indeedee,16,held_item,2,Terrain Extender,33.6%,,,,,,,,
 Indeedee,16,held_item,3,Choice Scarf,28.6%,,,,,,,,
 Indeedee,16,held_item,4,Life Orb,1.9%,,,,,,,,
 Indeedee,16,held_item,5,Psychic Seed,0.7%,,,,,,,,
@@ -29,8 +29,8 @@ Indeedee,16,teammate,7,Hippowdon,,,,,,,,,
 Indeedee,16,teammate,8,Lucario,,,,,,,,,
 Indeedee,16,teammate,9,Archaludon,,,,,,,,,
 Indeedee,16,teammate,10,Charizard,,,,,,,,,
-Indeedee,16,stat_alignment,1,Timid,72.6%,Speed,Attack,,,,,,
-Indeedee,16,stat_alignment,2,Modest,24.1%,Sp. Atk,Attack,,,,,,
+Indeedee,16,stat_alignment,1,Timid,72.7%,Speed,Attack,,,,,,
+Indeedee,16,stat_alignment,2,Modest,24.0%,Sp. Atk,Attack,,,,,,
 Indeedee,16,stat_alignment,3,Quiet,1.5%,Sp. Atk,Speed,,,,,,
 Indeedee,16,stat_alignment,4,Bold,0.7%,Defense,Attack,,,,,,
 Indeedee,16,stat_alignment,5,Hasty,0.2%,Speed,Defense,,,,,,
@@ -39,15 +39,15 @@ Indeedee,16,stat_alignment,7,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Indeedee,16,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
 Indeedee,16,stat_alignment,9,Relaxed,0.1%,Defense,Speed,,,,,,
 Indeedee,16,stat_alignment,10,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Indeedee,16,stat_points,1,,48.4%,,,2,0,0,32,0,32
-Indeedee,16,stat_points,2,,10.7%,,,0,0,2,32,0,32
-Indeedee,16,stat_points,3,,10.2%,,,0,0,0,32,2,32
-Indeedee,16,stat_points,4,,2.8%,,,32,0,2,32,0,0
-Indeedee,16,stat_points,5,,2.6%,,,2,0,23,14,0,27
+Indeedee,16,stat_points,1,,48.8%,,,2,0,0,32,0,32
+Indeedee,16,stat_points,2,,10.6%,,,0,0,2,32,0,32
+Indeedee,16,stat_points,3,,10.0%,,,0,0,0,32,2,32
+Indeedee,16,stat_points,4,,2.7%,,,32,0,2,32,0,0
+Indeedee,16,stat_points,5,,2.5%,,,2,0,23,14,0,27
 Indeedee,16,stat_points,6,,2.0%,,,0,0,0,32,0,32
-Indeedee,16,stat_points,7,,1.6%,,,14,0,7,18,1,26
+Indeedee,16,stat_points,7,,1.7%,,,14,0,7,18,1,26
 Indeedee,16,stat_points,8,,1.2%,,,2,0,23,15,0,26
-Indeedee,16,stat_points,9,,1.2%,,,8,0,0,32,0,26
+Indeedee,16,stat_points,9,,1.1%,,,8,0,0,32,0,26
 Indeedee,16,stat_points,10,,1.0%,,,12,0,0,32,0,22
 Indeedee,16,ability,1,Psychic Surge,99.9%,,,,,,,,
 Indeedee,16,ability,2,Inner Focus,0.1%,,,,,,,,

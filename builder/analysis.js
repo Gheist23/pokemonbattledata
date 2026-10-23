@@ -55,7 +55,9 @@ const SCREENS = new Set(["reflect", "lightscreen", "auroraveil"]);
 const REDIRECTION = new Set(["followme", "ragepowder", "spotlight"]);
 const PIVOTS = new Set(["uturn", "voltswitch", "flipturn", "partingshot", "chillyreception", "teleport"]);
 const TRAP_MOVES = new Set(["meanlook", "block", "spiderweb", "infestation", "firespin", "whirlpool", "sandtomb", "magmastorm", "thousandwaves", "anchorshot", "spiritshackle"]);
-const WEATHER_ABILITY = { drizzle: "Rain", primordialsea: "Rain", drought: "Sun", orichalcumpulse: "Sun", desolateland: "Sun", sandstream: "Sand", sandspit: "Sand", snowwarning: "Snow", snowcloak: "Snow" };
+// The Abilities that SET weather. `snowcloak` is not one -- it boosts evasiveness in snow and
+// summons none; it is in WEATHER_USE above, which is the table that wants it.
+const WEATHER_ABILITY = { drizzle: "Rain", primordialsea: "Rain", drought: "Sun", orichalcumpulse: "Sun", desolateland: "Sun", sandstream: "Sand", sandspit: "Sand", snowwarning: "Snow" };
 const TERRAIN_ABILITY = { electricsurge: "Electric", hadronengine: "Electric", grassysurge: "Grassy", psychicsurge: "Psychic", mistysurge: "Misty" };
 
 export const ARCHETYPES = ["Auto", "Balanced", "Offense", "Hyper Offense", "Bulky Offense", "Trick Room", "Tailwind", "Rain", "Sun", "Sand", "Snow", "Terrain", "Setup", "Goodstuff", "Stall"];

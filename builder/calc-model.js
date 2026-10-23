@@ -62,9 +62,12 @@ const WEATHER_REQUIREMENTS = {
   "sand rush": "Sand", "sand force": "Sand", "sand veil": "Sand",
   "slush rush": "Snow", "ice body": "Snow", "snow cloak": "Snow",
 };
+// Abilities that PUT weather up. Snow Cloak is deliberately not here: it boosts evasiveness in
+// snow and summons none, so listing it conjured Snow onto the board from a Pokemon that only
+// dodges better in it. It belongs to WEATHER_REQUIREMENTS above, where it already is.
 const WEATHER_SETTERS = {
   "drizzle": "Rain", "primordial sea": "Rain", "drought": "Sun", "orichalcum pulse": "Sun", "desolate land": "Sun",
-  "sand stream": "Sand", "snow warning": "Snow", "snow cloak": "Snow",
+  "sand stream": "Sand", "snow warning": "Snow",
 };
 const TERRAIN_SETTERS = { "electric surge": "Electric", "hadron engine": "Electric", "grassy surge": "Grassy", "psychic surge": "Psychic", "misty surge": "Misty" };
 const WIND_MOVES = new Set(["air cutter", "bleakwind storm", "blizzard", "fairy wind", "gust", "heat wave", "hurricane", "icy wind", "petal blizzard", "sandsear storm", "sandstorm", "springtide storm", "tailwind", "twister", "whirlwind", "wildbolt storm"]);

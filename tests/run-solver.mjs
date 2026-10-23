@@ -14,7 +14,9 @@
 //      the incoming attack protects, a Pokemon that is about to be knocked out switches, and a
 //      lethal attack is taken;
 //   5. the statistics: every line is counted exactly once, the shares add to 1, and a longer
-//      search concentrates them (which is what "it gets better the longer it runs" means).
+//      search concentrates them (which is what "it gets better the longer it runs" means);
+//   6. the counted conditions: Trick Room and each side's Tailwind are turns REMAINING, and a
+//      count is played out -- a two-turn Trick Room orders exactly two turns and then stops.
 //
 //   node tests/run-solver.mjs
 //
@@ -29,7 +31,8 @@ import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
 import { TournamentTest, WEATHERS as BOARD_WEATHERS } from "../builder/tournament-test.js";
-import { Solver, SETTLE_LINES, SWITCH, MAX_JOINTS, SEARCH_DEPTH, hasSettled } from "../builder/solver.js";
+import { Solver, SETTLE_LINES, SWITCH, MAX_JOINTS, SEARCH_DEPTH, hasSettled,
+  FIELD_TURNS, fieldTurns } from "../builder/solver.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -1270,6 +1273,104 @@ const solver = makeSolver();
 
   notes.push(`closed: pool of ${varied.pool}, ${varied.space[0]} x ${varied.space[1]} arms, `
     + `${varied.theirs.filter((r) => r.rolls < r.pool).length} of ${varied.theirs.length} of their rows are board-dependent`);
+}
+
+
+// ---------------------------------------------------------------------------
+// 25. The turns a field condition has left
+// ---------------------------------------------------------------------------
+// Trick Room and the two Tailwinds are COUNTERS on the board, and the page could only switch
+// them on. So every board was built as though the condition had just been set, which is the
+// wrong board for the one moment the Solver exists for: the middle of a game.
+{
+  const made = (field) => solver.buildState(board(
+    [row(HITTER, { front: true }), row(CAT, { front: true })],
+    [row(FAST, { front: true }), row(BULKY, { front: true })], field)).board;
+
+  // These two and no others. The weather and the terrain are an index into an ordered list and
+  // the screens are booleans the damage calculation reads: nothing in the turn model counts any
+  // of them down, so there is no remaining-turn number for them to carry.
+  eq("Trick Room and Tailwind are the counted conditions", Object.keys(FIELD_TURNS).sort(), ["tailwind", "trickRoom"]);
+  eq("a count runs from one turn to the most the game can leave on a board",
+     [FIELD_TURNS.trickRoom.min, FIELD_TURNS.trickRoom.max, FIELD_TURNS.tailwind.min, FIELD_TURNS.tailwind.max],
+     [1, 4, 1, 3]);
+
+  // Nothing moves for a board that does not say: switched on with no count is the full count,
+  // which is exactly what the page put on the board before a count could be set at all.
+  const full = made({ trickRoom: true, tailwind: [3, 0] });
+  ok("an effect switched on with no count is the full count", full.tr === 4 && full.tw[0] === 3,
+     `tr=${full.tr} tw=${full.tw}`);
+  const flags = made({ trickRoom: true, tailwind: [true, false] });
+  ok("a caller that can only say whether it is up gets the board it always got",
+     flags.tr === 4 && flags.tw[0] === 1, `tr=${flags.tr} tw=${flags.tw}`);
+
+  const mid = made({ trickRoom: true, trickRoomTurns: 2, tailwind: [1, 3] });
+  ok("a count reaches the board", mid.tr === 2 && mid.tw[0] === 1 && mid.tw[1] === 3,
+     `tr=${mid.tr} tw=${mid.tw}`);
+  const silly = made({ trickRoom: true, trickRoomTurns: 99, tailwind: [0, 42] });
+  ok("a count outside the range is clamped to it", silly.tr === 4 && silly.tw[1] === 3,
+     `tr=${silly.tr} tw=${silly.tw}`);
+  const none = made({ trickRoom: false, trickRoomTurns: 2, tailwind: [0, 0] });
+  ok("a count on something switched off is not on the board",
+     none.tr === 0 && none.trBy === -1 && none.tw[0] === 0, `tr=${none.tr} trBy=${none.trBy}`);
+  eq("nothing else is counted", fieldTurns("weather", 3, true), 0);
+
+  // What the turn machinery is HANDED, turn by turn. `plannedTurn` is where `board.tr` decides
+  // the order of a turn, so this is the test of whether a count is honoured rather than merely
+  // stored: it reads the counter off the board every turn of a played-out line.
+  const handed = (field, turns = 6) => {
+    const state = solver.cloneState(solver.buildState(board(
+      [row(BULKY, { front: true })], [row(BULKY, { front: true })], field)));
+    const real = solver.t.plannedTurn.bind(solver.t);
+    const log = [];
+    solver.t.plannedTurn = (active, b, ...rest) => { log.push([b.tr, b.tw[0]]); return real(active, b, ...rest); };
+    try {
+      for (let turn = 1; turn <= turns; turn += 1) {
+        if (!solver.stillPlaying(state)) break;
+        solver.applyPlannedTurn(state, turn, null);
+      }
+    } finally { solver.t.plannedTurn = real; }
+    return log;
+  };
+  eq("a two-turn Trick Room and a one-turn Tailwind are counted down and gone",
+     handed({ trickRoom: true, trickRoomTurns: 2, tailwind: [1, 0] }),
+     [[2, 1], [1, 0], [0, 0], [0, 0], [0, 0], [0, 0]]);
+  eq("and the full counts last exactly as long as the game gives them",
+     handed({ trickRoom: true, tailwind: [3, 0] }),
+     [[4, 3], [3, 2], [2, 1], [1, 0], [0, 0], [0, 0]]);
+
+  // And the ORDER of a turn really follows the count. Our slow Pokemon stands at full HP and
+  // every one of theirs is at 10%, which our attack always knocks out: on a turn we move FIRST
+  // their Pokemon never acts and we take nothing at all, and on a turn we move second we do.
+  // No Life Orb, no weather and no condition on either side, so our HP moving is their attack
+  // landing and nothing else.
+  const singles = makeSolver("Singles");
+  const SLOW = set("Rhyperior", "Assault Vest", "Solid Rock", "Adamant", ["Earthquake", "Rock Slide", "Megahorn", "Protect"], [32, 2, 0, 0, 32, 0]);
+  const QUICK = set("Dragapult", "Focus Sash", "Clear Body", "Timid", ["Dragon Pulse", "Shadow Ball", "Flamethrower", "Protect"], [2, 0, 0, 0, 0, 32]);
+  const weMovedFirst = (trickRoomTurns, turns = 3) => {
+    const base = singles.buildState(board(
+      [row(SLOW, { front: true })],
+      [row(QUICK, { front: true, hp: 10 }), row(QUICK, { hp: 10 }), row(QUICK, { hp: 10 }), row(QUICK, { hp: 10 })],
+      { trickRoom: trickRoomTurns > 0, trickRoomTurns }));
+    const ours = singles.slotCandidates(base, 0, 0).find((a) => a.move === "Earthquake");
+    const theirs = singles.slotCandidates(base, 1, 0).find((a) => a.move === "Dragon Pulse");
+    if (!ours || !theirs) return ["neither side was offered the move this reads"];
+    const state = singles.cloneState(base);
+    const out = [];
+    let was = state.active[0][0].hp;
+    for (let turn = 1; turn <= turns; turn += 1) {
+      singles.applyChosenTurn(state, [{ ...ours }], [{ ...theirs }], turn, null);
+      const mine = state.active[0][0];
+      const now = mine && !mine.out ? mine.hp : 0;
+      out.push(now >= was - 1e-9);
+      was = now;
+    }
+    return out;
+  };
+  eq("a two-turn Trick Room moves our slow Pokemon first for exactly two turns", weMovedFirst(2), [true, true, false]);
+  eq("a one-turn Trick Room, for exactly one", weMovedFirst(1), [true, false, false]);
+  eq("the full count, for all three searched turns", weMovedFirst(4), [true, true, true]);
+  eq("and with no Trick Room our slow Pokemon never moves first", weMovedFirst(0), [false, false, false]);
 }
 
 

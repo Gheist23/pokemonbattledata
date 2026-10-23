@@ -814,6 +814,12 @@
   min-width: 0;
 }
 
+/* Two of the row's columns while the picker is there, so the button keeps its own name on one
+   line. The row is auto-fit, so on a narrow one this is simply the whole width. */
+.bd-solver-chips > .bd-solver-turns.counting {
+  grid-column: span 2;
+}
+
 .bd-solver-turns-select {
   flex: 0 0 auto;
   width: auto;

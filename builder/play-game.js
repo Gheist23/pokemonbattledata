@@ -21,20 +21,79 @@
 // model has, and without it the opponent plays worse the longer the game goes on.
 
 import { HiddenSets } from "./hidden-sets.js";
-import { ACTIVE_BY_FORMAT, BRING_BY_FORMAT, TERRAINS, WEATHERS, alive } from "./tournament-test.js";
-import { SWITCH } from "./solver.js";
+import { ACTION_KINDS, ACTIVE_BY_FORMAT, AIMED_AT_FOE, BRING_BY_FORMAT, TERRAINS, WEATHERS, alive } from "./tournament-test.js";
+import { SOLVER_SLEEP_TURNS, SWITCH } from "./solver.js";
 import { pointsForNature } from "./nature-spreads.js";
 import { makeSet } from "./common.js";
 import { compact } from "./engine.js";
 
 /** How many possible versions of the player's team the opponent searches over. */
 export const PLAY_POOL = 16;
+
+/**
+ * How many ways the player's unrevealed back is allowed to be, on an OPEN team sheet.
+ *
+ * Two standing out of four brought, from six, is C(4,2) = 6 ways at the start of a game and
+ * fewer after that, so the cap is only ever reached on a board where almost nothing has been
+ * shown. Each way is a whole board the opponent searches, so this multiplies its thinking.
+ */
+export const OPEN_BACK_BOARDS = 8;
+
+/** Every way to choose `k` of `sets`, in order, up to `cap`. */
+function chooseSets(sets, k, cap) {
+  if (k <= 0) return [[]];
+  if (sets.length < k) return [];
+  const out = [];
+  const pick = (start, acc) => {
+    if (out.length >= cap) return;
+    if (acc.length === k) { out.push([...acc]); return; }
+    for (let i = start; i < sets.length && out.length < cap; i += 1) {
+      acc.push(sets[i]);
+      pick(i + 1, acc);
+      acc.pop();
+    }
+  };
+  pick(0, []);
+  return out;
+}
 /** How long the opponent is given to choose, in milliseconds. A game is not a study. */
 export const THINK_MS = 2600;
+
+/**
+ * The bounds a dynamic search plan may move between (`PlayGame.planSearch`).
+ *
+ * The opponent used to spend exactly THINK_MS on every turn of every game, whether the position
+ * was a forced recapture or a four-way branch with both sides at full health. The budget is the
+ * same on average; it is spent where it buys something.
+ */
+export const THINK_RANGE = [1200, 5200];
+/** Turns of look-ahead the plan may ask for. The first two are SEARCHED (solver.js SEARCH_DEPTH);
+ *  the rest are played out by the heuristic planner, which is cheap -- so a longer tail costs
+ *  little and is worth most when the board is narrow enough for a line to mean something. */
+export const LOOKAHEAD_BAND = [6, 12];
 /** Turns ahead the opponent looks. */
 export const PLAY_LOOKAHEAD = 10;
 /** Nobody wants a game that never ends; past this the fuller side wins on what is left. */
 export const TURN_LIMIT = 40;
+
+/**
+ * The six conditions, as the model's probability slot, the board's boolean, and a sentence.
+ *
+ * `applyStatus` decides WHICH slot from the move's own word; this maps that slot to everything
+ * else that has to change when the condition becomes a fact.
+ */
+const STATUS_SLOT = {
+  burn: "brn", poison: "psn", badly_poisoned: "tox", toxic: "tox",
+  paralysis: "par", sleep: "slp", freeze: "frz",
+};
+const CONDITIONS = {
+  brn: { said: "was burned" },
+  psn: { said: "was poisoned" },
+  tox: { said: "was badly poisoned" },
+  slp: { said: "fell asleep" },
+  frz: { said: "was frozen solid" },
+  par: { said: "was paralysed" },
+};
 
 /**
  * The chance a hit is critical, by critical-hit stage. The game's own table.
@@ -96,6 +155,34 @@ const LEEK_HOLDERS = new Set(["farfetchd", "sirfetchd", "farfetchdgalar"]);
  * turn into a log line or move a recorded parity number.
  */
 const ATTEMPT = "play:attempt";
+/** A condition that really landed this turn, rolled from the chance the engine would have added. */
+const STATUS = "play:status";
+/**
+ * The registry ops a played turn can carry out, and so the ones that make a move choosable.
+ *
+ * A screen and a hazard are deliberately absent: this model has no Reflect and no Stealth Rock,
+ * and offering the move would be offering one that does nothing. The move is still DRAWN on the
+ * sheet -- all four always are -- and says it cannot be used.
+ */
+const RUNNABLE_OPS = new Set(["status", "stage", "heal", "weather_heal", "flinch"]);
+
+/**
+ * The moves the SEARCH already has a kind for, by name.
+ *
+ * Nothing here may ever be re-offered as an EFFECT: when one of these is missing from a slot's
+ * candidates it is missing because a RULE OF THE GAME removed it this turn -- Protect cannot be
+ * used twice running, Fake Out only works on the turn its user came in -- and handing it back
+ * is handing back a rule. The slot-indexed kinds (Fake Out, the sleep move, Taunt, Encore,
+ * Will-O-Wisp, the stat drops) are read off the unit's own kit instead, which is where the
+ * search records which slot each of them is.
+ */
+const MODELLED_MOVES = new Set(["tailwind", "trickroom", "helpinghand", "wideguard", "quickguard",
+  "followme", "ragepowder", "taunt", "encore", "willowisp", "fakeout", "firstimpression"]);
+/** What a registry op DID, for the line that reports it. A condition says itself; these do not. */
+const EFFECT_SAID = { heal: "and regained health", flinch: "and made it flinch" };
+/** The registry's words for an op aimed at the other side, as opposed to at the user's own. */
+/** The chance a frozen Pokemon thaws at the end of a turn, as the games have it: one in five. */
+const FREEZE_THAW = 0.2;
 const ENTERED = "play:entered";
 const SETTLED = "play:settled";
 
@@ -165,7 +252,35 @@ export function teamFromKnown(data, format, team) {
 }
 
 /** One Pokemon as the page draws it. `full` is for the side whose sheet you are allowed to see. */
-function monView(m, full) {
+/**
+ * A condition a played turn has pinned to certainty, in the two vocabularies that need it:
+ * what the SCREEN says, and the key `STATUS_EFFECTS` in solver.js is indexed by, which is what
+ * a board handed to the opponent's search must carry.
+ */
+const PINNED_SAID = [["slp", "Asleep", "sleep"], ["frz", "Frozen", "freeze"], ["brn", "Burned", "burn"],
+  ["tox", "Badly poisoned", "toxic"], ["psn", "Poisoned", "poison"], ["par", "Paralysed", "paralysis"]];
+/** The same condition as the key a row carries into `buildState`. */
+function pinnedKey(m) {
+  const st = m.st;
+  if (!st) return "";
+  if ((m.idle || 0) > 0 && (st.slp || 0) > 0) return "sleep";
+  for (const [slot, , key] of PINNED_SAID) if ((st[slot] || 0) >= 1) return key;
+  return "";
+}
+function pinned(m) {
+  const st = m.st;
+  if (!st) return "";
+  // A SLEEP IS COUNTED IN TURNS, NOT IN SHARE. `endOfTurn` halves `st.slp` every turn, which is
+  // how the expectation layer models a sleep wearing off -- so by the time the turn is over and
+  // the screen is drawn, a Pokemon that has just been put to sleep holds 0.5, not 1. What makes
+  // it a FACT in a played game is `idle`, the number of turns it will not act for, and that is
+  // what the tile has to read. Reading the share alone showed nothing on a sleeping Pokemon.
+  if ((m.idle || 0) > 0 && (st.slp || 0) > 0) return "Asleep";
+  for (const [slot, said] of PINNED_SAID) if ((st[slot] || 0) >= 1) return said;
+  return "";
+}
+
+function monView(m, full, record) {
   const held = m.mega || m.u;
   // `m.u` is whatever is STANDING THERE: the base form until it Mega Evolves and the Mega
   // afterwards, because `applyMegas` swaps the two over. So the form is the one to draw and the
@@ -182,13 +297,38 @@ function monView(m, full) {
     // it has evolved.
     mega: evolved,
     item: full ? held.item || "" : "",
+    ability: full ? held.mon?.ability || "" : "",
+    // Separate from `item`/`ability`/`moves`, which stay empty for a side whose sheet we do not
+    // have. This is the part of it the game has SHOWN us, and it is all a tile may reveal.
+    revealed: full ? null : {
+      moves: [...(record?.moves || [])],
+      item: record?.item || "",
+      ability: record?.ability || "",
+    },
     hp: Math.max(0, Math.round(m.hp * 100)),
     out: Boolean(m.out),
-    status: m.sleep ? "Asleep" : m.frozen ? "Frozen" : m.burn ? "Burned" : m.tox ? "Badly poisoned" : m.psn ? "Poisoned" : "",
+    // EVERY condition is read off the probability slot, because in a played game that is where
+    // every condition lives: `applyStatus` pins the slot to 1 and writes no boolean beside it.
+    // Reading the booleans first showed nothing at all -- a Pokemon put to sleep by a Sleep
+    // Powder had `st.slp === 1` and an empty `status` on its tile. The booleans are still read
+    // after, because they are what the engine sets with the effects registry off.
+    status: pinned(m) || (m.sleep ? "Asleep" : m.frozen ? "Frozen" : m.burn ? "Burned"
+      : m.tox ? "Badly poisoned" : m.psn ? "Poisoned" : ""),
+    // Why a move may be refused this turn, so the screen can say so rather than dropping it.
+    guardedLast: Boolean(m.guardedLast),
+    justIn: Boolean(m.justIn),
     atk: m.atk || 0,
     spa: m.spa || 0,
     spe: m.spe || 0,
     def: m.def || 0,
+    // The Sp. Def stage, which `fresh` has always kept and this has never passed on -- so an
+    // Acid Spray or a Calm Mind was invisible on the one screen that lists the stages.
+    spd: m.spd || 0,
+    // The rest of the sheet, for a side whose sheet we have: the Nature and the Stat Points,
+    // which decide every number on the Pokemon and were the one part of "all the info" the
+    // panel could not say. `stat_spread_label` is the evaluator's own formatting of the pair.
+    nature: full ? held.mon?.nature_name || "" : "",
+    spread: full ? held.mon?.stat_spread_label || "" : "",
     moves: full ? [...(held.mon?.moves || [])] : [],
   };
 }
@@ -216,6 +356,15 @@ export class PlayGame {
     this.log = [];
     /** What the opponent has actually seen of the player's team, by team position. */
     this.seen = [];
+    /**
+     * And the mirror: what the PLAYER has seen of the opponent's team, by team position.
+     *
+     * The same rules in the same direction -- a move is learnt by being used, an item by being
+     * spent, an Ability by doing something. This is what "all known info" means on their side,
+     * and it is the whole of what their tile and their sheet may show. It is kept whatever sheet
+     * is being played, because on an open sheet it is a subset of what is already on the table.
+     */
+    this.shown = [];
   }
 
   /**
@@ -228,6 +377,11 @@ export class PlayGame {
     this.turn = 0;
     this.log = [];
     this.seen = player.map(() => ({ moves: [] }));
+    // The player's WHOLE six, not just the four they brought. Team preview shows both sides all
+    // six, so the Solver legitimately knows them; what it must not know is which of them are
+    // sitting in the back (`possibleBoards`).
+    this.playerTeam = player.map((set) => set);
+    this.shown = foe.map(() => ({ moves: [] }));
     this.board = {
       sides: [
         player.slice(0, this.bring).map((set, i) => ({ set, hp: 100, front: i < this.active, justIn: i < this.active })),
@@ -278,9 +432,16 @@ export class PlayGame {
     for (const m of arriving) this.solver.t.enter(m, this.state.active, this.state.board, events);
   }
 
-  /** Everything the player's screen needs. Their own sheet in full; ours only as revealed. */
+  /**
+   * Everything the player's screen needs. Their own sheet in full, and ours too when the sheet
+   * is OPEN -- that is what an open sheet means, and it was only ever honoured in one
+   * direction: the Solver was handed the player's real sets while the player was still shown
+   * "not shown yet" for every one of ours. `revealed` is still filled in for a closed sheet.
+   */
   view() {
-    const sides = this.state.sides.map((list, s) => list.map((m) => monView(m, s === 0)));
+    const open = this.sheet === "open";
+    const sides = this.state.sides.map((list, s) =>
+      list.map((m) => monView(m, s === 0 || open, s === 1 ? this.shown[m.tag] : null)));
     const standing = this.state.active.map((row) => row.map((m) => (m ? m.tag : null)));
     const board = this.state.board;
     return {
@@ -323,7 +484,7 @@ export class PlayGame {
   options() {
     return this.state.active[0].map((m, position) => {
       if (!alive(m)) return { position, empty: true, actions: [] };
-      const actions = this.solver.slotCandidates(this.state, 0, position, { cap: 0 });
+      const actions = this.slotActions(position, this.solver.slotCandidates(this.state, 0, position, { cap: 0 }));
       return {
         position,
         empty: false,
@@ -333,6 +494,7 @@ export class PlayGame {
           id: `${position}:${i}`,
           kind: a.kind,
           move: a.move,
+          ops: a.ops || null,
           slot: a.slot ?? null,
           target: a.target ?? -1,
           targetName: a.target >= 0 && this.state.active[1][a.target]
@@ -349,6 +511,94 @@ export class PlayGame {
     });
   }
 
+  /**
+   * The search's candidates, plus one for every move on the sheet the search has no bid for.
+   *
+   * The search generates actions for the kinds it can PRICE. Measured over ten turns, that left
+   * a Thunder Wave, a Toxic and a Nasty Plot with no action at all -- so the slot offered three
+   * moves and the fourth could not be chosen, which is the whole of the "only three moves" bug.
+   * Each of those gets an `EFFECT` action here, which the turn machinery runs off the registry.
+   * One per live foe for a move aimed at a foe, one for a move aimed at its user.
+   */
+  slotActions(position, candidates) {
+    const m = this.state.active[0][position];
+    if (!m) return candidates;
+    // Locked into landing a two-turn move: `slotCandidates` has already cut the list to that one
+    // move, and this function's whole job is to ADD moves the search has no kind for -- which
+    // would hand the lock straight back (TOURNAMENT_CHARGE).
+    if (m.charging) return candidates;
+    const offered = new Set(candidates.map((a) => (a.move ? compact(a.move) : "")).filter(Boolean));
+    const modelled = this.modelledSlots(m);
+    const extra = [];
+    (m.u.moves || []).forEach((info, slot) => {
+      if (!info?.name || offered.has(compact(info.name))) return;
+      // A MOVE THE SEARCH HAS NO KIND FOR, never one it declined this turn. Three gates, and
+      // each of them was a real bug before it was there:
+      //   * an ATTACK is already a kind, so a damaging move is never missing for want of one.
+      //     Without this, Fake Out came back every turn as a free certain flinch at +3 priority
+      //     and a Thunderbolt aimed at a Ground type still paralysed it, because the EFFECT
+      //     path runs a move's secondary without the damage and without any of the gates that
+      //     go with it (Sheer Force, Shield Dust, a Covert Cloak, "can this even touch it").
+      //   * a move whose slot or name the kit records IS priced; its absence is a game rule.
+      //   * every one of its ops has to be runnable, not merely one of them. Rest is
+      //     cure_status + heal + sleep: running the two we have left it healing to full and
+      //     then failing to sleep, which is the opposite of what Rest is for.
+      if (info.damaging || info.attack) return;
+      if (modelled.has(slot) || MODELLED_MOVES.has(compact(info.name))) return;
+      const ops = info.fx || [];
+      if (!ops.length || !ops.every((fx) => RUNNABLE_OPS.has(String(fx.op || "")))) return;
+      const aimed = ops.some((fx) => AIMED_AT_FOE.has(String(fx.target || "")));
+      if (!aimed) {
+        extra.push({ kind: ACTION_KINDS.EFFECT, slot, ops, move: info.name, target: null, pr: info.priority || 0 });
+        return;
+      }
+      this.state.active[1].forEach((foe, i) => {
+        if (!alive(foe)) return;
+        extra.push({ kind: ACTION_KINDS.EFFECT, slot, ops, move: info.name, target: i, pr: info.priority || 0 });
+      });
+    });
+    if (!extra.length) return candidates;
+    // The same mega twins `slotCandidates` adds to everything else, and for the same reason:
+    // Mega Evolution is a flag on whatever the Pokemon was going to do, not an action of its
+    // own. Without them, arming the stone made every status move vanish from the sheet and a
+    // Pokemon holding four of them never showed a Mega Evolve button at all.
+    const twins = this.solver.canMega(this.state, 0, position)
+      ? extra.map((a) => ({ ...a, mega: true })) : [];
+    return [...candidates, ...extra, ...twins];
+  }
+
+  /**
+   * The move slots this Pokemon's kit already accounts for.
+   *
+   * The kit is where `unitFor` writes down which slot holds the Fake Out, the sleep move, the
+   * Taunt, the Encore, the Will-O-Wisp and the stat drops. A slot in here has a kind, so the
+   * search can price it, so its absence from a slot's candidates is a decision and not a gap.
+   */
+  modelledSlots(m) {
+    const k = m.k || {};
+    const slots = new Set();
+    for (const slot of [k.fakeOut, k.firstImpression, k.sleep, k.taunt, k.encore, k.wisp, k.speedDrop]) {
+      if (Number.isInteger(slot) && slot >= 0) slots.add(slot);
+    }
+    for (const slot of k.lowers || []) if (Number.isInteger(slot) && slot >= 0) slots.add(slot);
+    // Protect and its family are recorded as a flag rather than a slot, so they go by name.
+    (m.u.moves || []).forEach((info, slot) => {
+      if (info?.name && this.solver.t.protectMoves.has(compact(info.name))) slots.add(slot);
+    });
+    return slots;
+  }
+
+  /**
+   * Whether the opponent has SEEN this Pokemon of the player's.
+   *
+   * `entered` is set when a Pokemon first stands on the field and is never cleared, so it is
+   * exactly "has this been shown". A Pokemon that came in and went back out stays revealed,
+   * which is right -- the opponent watched it.
+   */
+  revealed(m) {
+    return Boolean(m && (m.entered || this.state.active[0].includes(m)));
+  }
+
   /** The pool of possible boards the opponent searches: our team as it is, theirs as it might be. */
   possibleBoards(pool = PLAY_POOL) {
     const boards = [];
@@ -361,13 +611,29 @@ export class PlayGame {
     // sampling. Rolling a pool of sixteen identical boards would only make the opponent think
     // sixteen times as slowly for the same answer.
     if (this.sheet === "open") {
-      return [{
-        sides: [
-          foeRows.map((m) => this.rowOf(m, 1, this.setOf(m))),
-          playerRows.map((m) => this.rowOf(m, 0, this.setOf(m))),
-        ],
+      // An open sheet means the SETS are open, not the bring. Team preview shows all six of
+      // each side and never says which four came or which two are waiting, so a Pokemon that
+      // has not stood on the field yet is still a question -- and handing the opponent the
+      // real one let it play around a Pokemon it had no way of knowing was there.
+      //
+      // So: everything it has seen is true, and each Pokemon it has NOT seen is one of the
+      // player's six that is still unaccounted for. One board per way that could be, capped.
+      const seenRows = playerRows.filter((m) => this.revealed(m));
+      const unseen = playerRows.filter((m) => !this.revealed(m));
+      const used = new Set(seenRows.map((m) => compact(m.u.species)));
+      const spare = (this.playerTeam || [])
+        .filter((set) => !used.has(compact(set.species)))
+        .slice(0, 6);
+      const ours = foeRows.map((m) => this.rowOf(m, 1, this.setOf(m)));
+      const known = seenRows.map((m) => this.rowOf(m, 0, this.setOf(m)));
+      const ways = chooseSets(spare, unseen.length, OPEN_BACK_BOARDS);
+      if (!unseen.length || !ways.length) {
+        return [{ sides: [ours, playerRows.map((m) => this.rowOf(m, 0, this.setOf(m)))], field: this.fieldOf() }];
+      }
+      return ways.map((sets) => ({
+        sides: [ours, [...known, ...unseen.map((m, i) => this.rowOf(m, 0, sets[i]))]],
         field: this.fieldOf(),
-      }];
+      }));
     }
     for (let d = 0; d < pool; d += 1) {
       const rolled = this.hidden.rollSide(playerRows.map((m) => ({
@@ -401,7 +667,17 @@ export class PlayGame {
       hp: Math.max(0, Math.round(m.hp * 100)),
       front: this.state.active[side].includes(m),
       justIn: Boolean(m.justIn),
-      status: m.sleep ? "sleep" : m.frozen ? "freeze" : m.burn ? "burn" : m.tox ? "toxic" : m.psn ? "poison" : "",
+      // THE PINNED SLOT FIRST, and paralysis at all.
+      //
+      // This is the one bridge from the live board to the boards the opponent searches
+      // (`possibleBoards` -> `searchClosed` -> `buildState`, which rebuilds every row from
+      // `row.status`). It read only the legacy booleans, and a played game sets none of them --
+      // every condition lives in the probability slot -- so a Pokemon the player had just put
+      // to sleep was handed to the opponent wide awake. It searched every line with its own
+      // paralysed Pokemon at full Speed, and with the player's burned Pokemon dealing full
+      // physical damage and taking no end-of-turn chip.
+      status: pinnedKey(m) || (m.sleep ? "sleep" : m.frozen ? "freeze" : m.burn ? "burn"
+        : m.tox ? "toxic" : m.psn ? "poison" : ""),
       atk: m.atk || 0, spa: m.spa || 0, spe: m.spe || 0, def: m.def || 0,
       // Protected on the turn just ended, so it cannot protect on this one. Without this every
       // board the opponent searched said it had not, and it protected every turn of the game
@@ -418,6 +694,10 @@ export class PlayGame {
       toxTurns: Math.max(0, Math.trunc(Number(m.toxTurns) || 0)),
       // Focus Energy and Dragon Cheer, which raise the crit stage for the rest of the battle.
       critStage: Math.max(0, Math.trunc(Number(m.critStage) || 0)),
+      // Part-way through a two-turn move, as a move KEY. Without it every board the opponent
+      // searches has a Pokemon that is free to act -- and one that is away on Fly standing there
+      // to be hit. `buildState` finds the slot again from the key.
+      charging: m.charging || "",
       // Already Mega Evolved. The set above is always the base one, so this is the only thing
       // saying the stone has been spent and the Pokemon is standing there in its Mega form.
       mega: this.alreadyMega(m),
@@ -476,14 +756,14 @@ export class PlayGame {
    * Record what our side SHOWED the opponent this turn: an item that was spent, an Ability that
    * did something visible. See the note at the top of this file for what counts.
    */
-  learnFrom(events, heldBefore) {
+  learnFrom(events, heldBefore, side, into) {
     const show = (m, key, value) => {
       if (!m || !value) return;
-      const seen = (this.seen[m.tag] ||= { moves: [] });
+      const seen = (into[m.tag] ||= { moves: [] });
       if (!seen[key]) seen[key] = value;
     };
 
-    for (const m of this.state.sides[0]) {
+    for (const m of this.state.sides[side]) {
       const was = heldBefore.get(m.tag);
       if (!was) continue;
       // A Mega Evolution shows the stone and the Mega's own Ability at once.
@@ -500,8 +780,37 @@ export class PlayGame {
     for (const event of events || []) {
       if (!event || !event.actor) continue;
       if (!ABILITY_TELLS.has(event.kind)) continue;
-      const m = this.monFor(event.actor.u || event.actor, 0);
+      const m = this.monFor(event.actor.u || event.actor, side);
       if (m) show(m, "ability", m.u.mon?.ability || "");
+    }
+  }
+
+  /**
+   * A condition is still a FACT at the end of the turn, or it is over.
+   *
+   * `endOfTurn` wears a sleep off by decaying it -- `st.slp *= 0.5`, `st.frz *= 0.8` -- which is
+   * how the expectation layer prices "it will wake up soon" without ever deciding when. In a
+   * played game that leaves a Pokemon neither asleep nor awake: the tile stopped saying
+   * "Asleep" while `actionScale` still took a quarter of its turn away, and the half-free
+   * status slot read as a 50% chance that the next Thunder Wave would land and wipe the sleep.
+   *
+   * So the two that decay are decided here instead, once a turn, the way the game decides them:
+   * a sleep lasts the turns `idle` counts and then ends; a freeze thaws one turn in five.
+   * Everything else is permanent and is simply held at the certainty it was pinned to.
+   */
+  settleConditions() {
+    for (const side of this.state.sides) {
+      for (const m of side) {
+        const st = m.st;
+        if (!st) continue;
+        if (st.slp > 0) {
+          if ((m.idle || 0) > 0) st.slp = 1;
+          else st.slp = 0;
+        }
+        if (st.frz > 0 && st.frz < 1) {
+          if (this.rng() < FREEZE_THAW) { st.frz = 0; m.frozen = false; } else st.frz = 1;
+        }
+      }
     }
   }
 
@@ -517,11 +826,16 @@ export class PlayGame {
     // Psychic and Misty the other way round, which did not merely mislabel the field -- this
     // field goes into the boards the opponent searches, so a game under Psychic Terrain was
     // being played out by the opponent under Misty.
+    // The COUNTS, not whether they are up. `buildState` takes a number of turns for each of
+    // these; flattening them to booleans handed the opponent a board where a Trick Room with one
+    // turn left had its full four, so it searched lines that outlast a Trick Room which is about
+    // to end -- and planned around a Tailwind it was going to lose.
     return {
       weather: WEATHERS[board.w] || "None",
       terrain: TERRAINS[board.t] || "None",
       trickRoom: board.tr > 0,
-      tailwind: [board.tw[0] > 0, board.tw[1] > 0],
+      trickRoomTurns: Math.max(0, board.tr || 0),
+      tailwind: [Math.max(0, board.tw[0] || 0), Math.max(0, board.tw[1] || 0)],
     };
   }
 
@@ -551,16 +865,72 @@ export class PlayGame {
     });
   }
 
-  async chooseFoe({ thinkMs = THINK_MS, lookahead = PLAY_LOOKAHEAD, pool = PLAY_POOL } = {}) {
+  /**
+   * How hard to think about THIS turn, and how far ahead to look.
+   *
+   * Three things about the position are read, all of them already computed for other reasons:
+   *
+   *   `width`  -- how many distinct actions the opponent actually has here, summed over the
+   *               Pokemon it has standing. This is the branching factor, and it is what decides
+   *               whether a fixed number of lines is a thorough search or a glance.
+   *   `boards` -- how many possible versions of the player's team it is searching at once. Every
+   *               line has to be played on one of them, so the work is width x boards.
+   *   `alive`  -- how much game is left. A 1v1 endgame is a different question from a full board.
+   *
+   * The plan: spend the time where the branching is, and look further ahead when the board is
+   * narrow enough for a long line to still mean something. A settle window is passed as well, so
+   * a position with one obvious answer stops early instead of burning the whole deadline -- the
+   * player gets the turn back, and the answer is the same one.
+   *
+   * The caller's values are CEILINGS, never floors: the tests drive this with thinkMs 100-400.
+   */
+  planSearch({ thinkMs = THINK_MS, lookahead = PLAY_LOOKAHEAD, pool = PLAY_POOL } = {}) {
     const boards = this.possibleBoards(pool);
-    const result = await this.solver.searchClosed(boards, {
-      lookahead,
+    const state = this.state;
+    let width = 0;
+    state.active[1].forEach((m, position) => {
+      if (!alive(m)) return;
+      try {
+        width += this.solver.slotCandidates(state, 1, position, { cap: 0 }).length;
+      } catch { width += 1; }
+    });
+    const alive0 = state.sides[0].filter(alive).length;
+    const alive1 = state.sides[1].filter(alive).length;
+    const left = alive0 + alive1;
+    // The work one line costs, relative to a plain board: wide positions and big pools both
+    // mean the same fixed number of lines says less about any one action.
+    const load = Math.max(0.5, (width / 12) * Math.max(1, boards.length / 3));
+    // Time goes UP with the load and DOWN as the game empties out: an endgame is narrow, and the
+    // same budget settles it several times over. The multiplier is deliberately capped well
+    // short of double, so a busy board is a little slower rather than a wait -- measured, a full
+    // Doubles board comes out near 3.5s and a 1v1 endgame at the floor, against the flat 2.6s
+    // every turn of every game used to get.
+    const wanted = THINK_MS * Math.min(1.35, Math.max(0.55, load * 0.45)) * (left <= 3 ? 0.55 : left <= 5 ? 0.8 : 1);
+    const ms = Math.round(Math.max(THINK_RANGE[0], Math.min(THINK_RANGE[1], Math.min(wanted, thinkMs * 2))));
+    // A narrow board can afford a longer tail; a wide one should buy more lines instead.
+    const depth = width <= 10 ? LOOKAHEAD_BAND[1] : width <= 20 ? lookahead : LOOKAHEAD_BAND[0];
+    return {
+      boards,
+      thinkMs: Math.min(ms, Math.max(200, thinkMs * 2)),
+      lookahead: Math.max(LOOKAHEAD_BAND[0], Math.min(LOOKAHEAD_BAND[1], depth)),
+      // Stop once the leading action has held for this many lines. Scaled to the load so a wide
+      // board is not called settled on the strength of a few hundred lines.
+      settleLines: Math.round(Math.max(400, 900 * load)),
+      why: { width, boards: boards.length, alive: [alive1, alive0], load: Number(load.toFixed(2)) },
+    };
+  }
+
+  async chooseFoe({ thinkMs = THINK_MS, lookahead = PLAY_LOOKAHEAD, pool = PLAY_POOL } = {}) {
+    const plan = this.planSearch({ thinkMs, lookahead, pool });
+    const result = await this.solver.searchClosed(plan.boards, {
+      lookahead: plan.lookahead,
       iterations: 100000000,
       seed: (this.seed ^ ((this.turn + 1) * 0x9e3779b1)) >>> 0,
-      deadline: Date.now() + Math.max(200, thinkMs),
+      deadline: Date.now() + Math.max(200, plan.thinkMs),
+      settleLines: plan.settleLines,
     });
-    if (result.error || !result.ours?.length) return { joint: [], thinking: result };
-    return { joint: this.readJoint(result.ours[0].raw || []), thinking: result };
+    if (result.error || !result.ours?.length) return { joint: [], thinking: { ...result, plan } };
+    return { joint: this.readJoint(result.ours[0].raw || []), thinking: { ...result, plan } };
   }
 
   /** The player's chosen action ids, back into the actions they name. */
@@ -595,6 +965,9 @@ export class PlayGame {
       joint.push({
         position, kind: pick.kind, slot: pick.slot, target: pick.target,
         into: pick.into, partner: pick.partner, pr: pick.pr, move: pick.move,
+        // The registry ops an EFFECT action runs. They travel with the action because
+        // `statusMove` reads them off it rather than looking the move up again.
+        ops: pick.ops || null,
         spread: pick.spread, mega,
       });
     });
@@ -653,18 +1026,23 @@ export class PlayGame {
         }
       }
     }
-    // What the player showed us this turn. A move is only revealed by being used, which is
-    // exactly the information a real opponent gets.
-    for (const action of ourJoint) {
-      if (!action || action.wait || !action.move || action.kind === -1) continue;
-      const m = this.state.active[0][action.position];
-      if (!m) continue;
-      const list = (this.seen[m.tag] ||= { moves: [] }).moves;
-      if (!list.some((move) => compact(move) === compact(action.move))) list.push(action.move);
-    }
-    // What our side is carrying into this turn, so an item that is spent during it can be told
+    // What each side showed the other this turn. A move is only revealed by being used, which is
+    // exactly the information a real opponent gets -- and exactly what a real player gets back.
+    const showMoves = (joint, side, into) => {
+      for (const action of joint) {
+        if (!action || action.wait || !action.move || action.kind === -1) continue;
+        const m = this.state.active[side][action.position];
+        if (!m) continue;
+        const list = (into[m.tag] ||= { moves: [] }).moves;
+        if (!list.some((move) => compact(move) === compact(action.move))) list.push(action.move);
+      }
+    };
+    showMoves(ourJoint, 0, this.seen);
+    showMoves(theirJoint, 1, this.shown);
+    // What each side is carrying into this turn, so an item that is spent during it can be told
     // apart from one that was already gone.
-    const heldBefore = new Map(this.state.sides[0].map((m) => [m.tag, { sash: m.sash, berry: m.berry, mega: Boolean(m.mega) }]));
+    const heldBefore = this.state.sides.map((list) =>
+      new Map(list.map((m) => [m.tag, { sash: m.sash, berry: m.berry, mega: Boolean(m.mega) }])));
     // Read BEFORE the turn, because this is the only moment either survives: a joint action's
     // `position` means what it says until `applySwitches` moves Pokemon between the field and
     // the bench, and `ix` is where each Pokemon sits in its side's list before that same swap.
@@ -688,7 +1066,9 @@ export class PlayGame {
       this.solver.random = borrowed;
       watch.release();
     }
-    this.learnFrom(events, heldBefore);
+    this.settleConditions();
+    this.learnFrom(events, heldBefore[0], 0, this.seen);
+    this.learnFrom(events, heldBefore[1], 1, this.shown);
     // Focus Energy is lost the moment its user leaves the field. Kept on the row, which follows
     // a Pokemon onto the bench, it would still be there when it came back.
     for (let s = 0; s < 2; s += 1) {
@@ -847,6 +1227,51 @@ export class PlayGame {
       return landed;
     });
 
+    // A CONDITION IS ROLLED, ONCE, AND THEN IT IS A FACT. `applyStatus` is called first and does
+    // all the work that is not the chance -- the move's word to a slot, the Ability immunities,
+    // the "already has one" check -- and returns how much room it took. That number IS the
+    // chance this turn, so it is what gets rolled; on a miss the room is handed straight back.
+    // THE ROLL AN EFFECT MOVE USES. `runEffectOps` has no randomness of its own -- it lives in
+    // the engine, which prices rather than rolls -- so a played turn lends it this one and takes
+    // it back in `release`, exactly as it does with the decorated methods.
+    const hadRoll = Object.prototype.hasOwnProperty.call(t, "effectRoll");
+    const wasRoll = t.effectRoll;
+    t.effectRoll = () => game.rng();
+    undo.push(() => { if (hadRoll) t.effectRoll = wasRoll; else delete t.effectRoll; });
+
+    decorate("applyStatus", (was) => function applyStatus(target, status, chance) {
+      // ONE CONDITION AT A TIME, and a Pokemon that has one cannot take another.
+      //
+      // `statusFree` cannot be asked this, because the expectation layer WEARS A SLEEP OFF by
+      // decaying it -- `endOfTurn` does `st.slp *= 0.5` -- so a Pokemon this game pinned asleep
+      // reads as half free the next turn. That leftover room was being rolled as the chance a
+      // new status lands: a Thunder Wave on a sleeping Pokemon succeeded about half the time,
+      // wiped the sleep, and handed the opponent back the turns it was going to lose.
+      if (target?.st && Object.keys(target.st).some((key) => (target.st[key] || 0) >= 1)) return 0;
+      const room = was.call(this, target, status, chance);
+      if (!(room > 0) || !target || !target.st) return room;
+      const field = STATUS_SLOT[String(status || "").toLowerCase()] || "";
+      if (!field) return room;
+      if (game.rng() >= room) {
+        // It did not happen. Give the room back so nothing downstream prices a chance that was
+        // already resolved.
+        target.st[field] = Math.max(0, (target.st[field] || 0) - room);
+        return 0;
+      }
+      for (const key of Object.keys(target.st)) target.st[key] = 0;
+      target.st[field] = 1;
+      // NO BOOLEAN IS SET BESIDE IT. `m.burn` and `m.sleep` are the representation the engine
+      // uses with the effects registry OFF, and writing both counts the condition twice: a burn
+      // chipped a sixteenth for `st.brn` and another sixteenth for `m.burn`, so a burned Pokemon
+      // lost an eighth a turn, and `statusFree` went negative. The slot is the whole of it --
+      // `speed()`, the end-of-turn chip, the burn's halving of a physical attack and the damage
+      // cache's `conditionOf` all read it, and at 1 every one of them prices a fact.
+      if (field === "tox") target.toxTurns = Math.max(1, target.toxTurns || 1);
+      if (field === "slp") target.idle = Math.max(target.idle || 0, SOLVER_SLEEP_TURNS);
+      events.push({ kind: STATUS, mon: target, field });
+      return room;
+    });
+
     decorate("rollHit", (was) => function rollHit(...args) {
       const roll = was.apply(this, args);
       if (watch.last) watch.last.roll = roll;
@@ -975,16 +1400,55 @@ export class PlayGame {
      * actually left it. Run at the one moment that is true for everyone: `refill`, which is
      * after every drop of HP has been settled and before the first replacement arrives.
      */
+    // Steps waiting for the action that caused them to be announced first. See the STATUS
+    // branch above; flushed by `release` after any event that pushes a step of its own.
+    const pending = [];
+    // Each remembers how long the list was when it was held, so it waits for a step of its own
+    // action to be pushed and no longer.
+    const release = () => {
+      while (pending.length && pending[0].at < steps.length) {
+        const { step } = pending.shift();
+        steps.push(step);
+      }
+    };
+    const releaseAll = () => { while (pending.length) steps.push(pending.shift().step); };
+
+    /**
+     * WHY a Pokemon's health moved at the end of the turn.
+     *
+     * `endOfTurn` knows the cause and keeps none of it -- it settles everything owed into one
+     * number -- so the same four questions it asked are asked again here, in its order, against
+     * the same board. Without this the turn ends with "was worn down", which is true of a burn,
+     * a sandstorm and a Rocky Helmet alike and tells the player nothing about which.
+     */
+    const causeOf = (m) => {
+      const st = m.st || {};
+      if ((st.brn || 0) >= 1) return "burn";
+      if ((st.tox || 0) >= 1) return "tox";
+      if ((st.psn || 0) >= 1) return "psn";
+      const field = this.state.board;
+      if (m.k?.chippedBy && field.w === m.k.chippedBy) return WEATHERS[field.w] || "";
+      if (field.t === TERRAINS.indexOf("Grassy") && m.u?.grounded) return "grassy";
+      if (m.k?.leftovers) return "leftovers";
+      return "";
+    };
+
     let settled = false;
     const settle = () => {
       settled = true;
+      // EVERYTHING HELD COMES OUT FIRST. A condition from a move's secondary has no event of
+      // its own to release it -- `secondaries` calls `applyStatus` and pushes nothing -- so a
+      // burn from the turn's LAST attack stayed held, and the end-of-turn chip was drawn before
+      // the line saying it had been burned. The end of the turn is the last moment at which
+      // "after the thing that caused it" still means anything.
+      releaseAll();
       for (let s = 0; s < 2; s += 1) {
         for (const m of this.state.sides[s]) {
           const key = seatKey(s, m.tag);
           if (!hp.has(key)) continue;
           const now = percent(m.hp);
           if (now !== hp.get(key)) {
-            steps.push({ kind: "residual", side: s, tag: m.tag, from: hp.get(key), to: now });
+            steps.push({ kind: "residual", side: s, tag: m.tag, from: hp.get(key), to: now, cause: causeOf(m) });
             hp.set(key, now);
           }
           if (m.out) faint(m);
@@ -994,6 +1458,10 @@ export class PlayGame {
 
     for (let i = 0; i < events.length; i += 1) {
       const event = events[i];
+      // A held status goes out as soon as the action that caused it has said anything of its
+      // own. `release` is called before each event rather than after, so the step that triggers
+      // it -- the "X used Y" or the note -- is already on the list.
+      release();
       if (event.kind === ATTEMPT) {
         const target = event.target;
         if (!target) continue;
@@ -1016,6 +1484,33 @@ export class PlayGame {
           // The roll to hit came up short. `odds` is the move's accuracy folded with its
           // cooldown, so this is "it did not happen" rather than strictly "it missed".
           steps.push({ kind: "miss", ...who });
+        }
+        continue;
+      }
+      // A STATUS MOVE THAT MISSED. `runEffectOps` rolls the move's accuracy once for the whole
+      // move, and a miss has to be shown -- it is the same thing a missed attack is, and
+      // without a step for it the move simply did nothing on screen with nothing said.
+      if (event.kind === "missed") {
+        const actor = this.monFor(event.actor, event.s);
+        const victim = event.target ? this.monFor(event.target, 1 - event.s) : null;
+        if (actor) ensureMove(actor);
+        // Keyed on whoever it missed, exactly as the attack path keys it: `sentenceFor` reads
+        // the step's side and tag to say "It missed X". A move aimed at its own user that
+        // missed has nobody to name, so it is keyed on the user.
+        const at = victim || actor;
+        if (at) steps.push({ kind: "miss", side: at.s, tag: at.tag });
+        continue;
+      }
+      if (event.kind === STATUS) {
+        // HELD, not pushed. A status move deals no damage, so nothing has triggered the "X used
+        // Y" step yet -- `ensureMove` is lazy and fires on a consequence. Pushing here put the
+        // sleep on screen before the Sleep Powder that caused it. It goes out as soon as
+        // anything else about this action does.
+        if (event.mon) {
+          pending.push({
+            at: steps.length,
+            step: { kind: "status", side: event.mon.s, tag: event.mon.tag, condition: event.field },
+          });
         }
         continue;
       }
@@ -1066,6 +1561,35 @@ export class PlayGame {
         if (victim) steps.push({ kind: "flinch", side: victim.s, tag: victim.tag });
         continue;
       }
+      // A Mega Evolution gets a step of its own as well as its line, because the sprite has to
+      // change on screen at that moment rather than when the turn is over.
+      //
+      // NOT by `monFor(event.actor)`: the event's actor is the unit as it was BEFORE evolving,
+      // and by the time this runs the board holds the Mega -- so matching on the unit found
+      // nothing and no step was ever emitted. The event carries its own side and the Mega's
+      // label, which between them name exactly one standing Pokemon.
+      if (event.kind === "mega" && event.s !== undefined) {
+        const m = (this.state.active[event.s] || [])
+          .find((x) => x && this.solver.label(x.u) === event.value);
+        // THE MEGA'S NAME AND ITS FORM TRAVEL ON THE STEP. The animation would otherwise read
+        // them off whichever board the page is holding, and during a playout that is the board
+        // the turn STARTED from -- where this Pokemon has not evolved. Asking it for a sprite
+        // returned the base artwork, which is what was already on the tile, so the swap was a
+        // no-op for the opponent and only looked right for us by accident of timing.
+        if (m) {
+          pending.push({
+            at: steps.length,
+            step: {
+              kind: "mega",
+              side: m.s,
+              tag: m.tag,
+              name: event.value || this.solver.label(m.u),
+              species: m.u.species,
+              form: m.u.form || "",
+            },
+          });
+        }
+      }
       const text = this.noteFor(event);
       if (!text) continue;
       const actor = this.monFor(event.actor, event.s);
@@ -1073,6 +1597,7 @@ export class PlayGame {
       steps.push(actor ? { kind: "note", text, side: actor.s, tag: actor.tag } : { kind: "note", text });
     }
     if (!settled) settle();
+    releaseAll();
     return steps;
   }
 
@@ -1100,6 +1625,16 @@ export class PlayGame {
         if ((event.targets || []).length) lines.push(`${by} dropped ${list(event.targets)}'s ${said}`);
         if ((event.own || []).length) lines.push(`${by} also dropped ${list(event.own)}'s ${said}`);
         return lines.join("; ");
+      }
+      // A move run straight off the registry. The CONDITION it inflicts gets its own step and
+      // says itself, so this line is about the move being used -- and it has to exist, because
+      // it is the step the pending condition waits for. Without it the poison was announced
+      // after the poison damage had already been shown.
+      case "effect": {
+        const did = (event.did || []).filter((word) => !STATUS_SLOT[String(word).toLowerCase()]);
+        const said = did.map((word) => EFFECT_SAID[word] || word).join(" and ");
+        if (event.target) return `${by} used ${event.move} on ${name(event.target)}`;
+        return said ? `${by} used ${event.move} — ${said}` : `${by} used ${event.move}`;
       }
       case "blocked": return `${by}'s ${event.move} was blocked${event.by ? ` by ${event.by}` : ""}`;
       case "fails": return `${by}'s ${event.move} failed`;

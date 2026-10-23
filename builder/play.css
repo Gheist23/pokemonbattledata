@@ -64,7 +64,19 @@
 
 /* --- setup ------------------------------------------------------------------------------- */
 
-.bd-play-setup { display: grid; gap: 0.9rem; }
+/* "Play the Solver" on the left, "My Team" on the right -- the two cards are emitted in that
+   order by `renderSetup`, so source order is the column order. The team card gets the wider
+   track because it holds six Pokemon; the Battle button spans both so it stays under them
+   rather than landing beside the team. Collapses at the same 920px the battle screen does. */
+.bd-play-setup {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.bd-play-setup > .bd-play-error,
+.bd-play-setup > .bd-play-start { grid-column: 1 / -1; }
 
 .bd-play-intro h2 { margin: 0 0 0.35rem; }
 .bd-play-intro p { margin: 0 0 0.7rem; opacity: 0.85; max-width: 62ch; }
@@ -236,6 +248,11 @@
 }
 
 .bd-play-weather {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
   justify-self: center;
   font-size: 0.72rem;
   font-weight: 800;
@@ -323,13 +340,18 @@
 .bd-play-caption.ours { color: #bfdbfe; }
 .bd-play-caption.theirs { color: #fecaca; }
 
+/* ONE opacity. There were two in this block and the later one won, so the `opacity: 1` added
+   when the turn counter moved inside `.bd-play-weather` was dead -- and because opacity
+   multiplies down the tree, the counter rendered at 0.75 x 0.55, fainter than the weather text
+   beside it rather than the bright thing on that line it was meant to be. */
 .bd-play-turn {
+  color: var(--bd-good);
+  opacity: 1;
   justify-self: center;
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.55;
   padding: 0.1rem 0;
 }
 
@@ -568,6 +590,14 @@
 @media (max-width: 920px) {
   .bd-play-battle { grid-template-columns: minmax(0, 1fr); }
   .bd-play-log { max-height: 18rem; }
+  /* One column again, and the team grid stops asking for two 15rem tracks inside it -- which is
+     what would otherwise push the page wider than a phone. */
+  .bd-play-setup { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 1180px) {
+  /* Inside the narrower right-hand column two 15rem slots no longer fit side by side. */
+  .bd-play-setup .bd-play-team-grid { grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); }
 }
 
 @media (max-width: 620px) {
@@ -612,6 +642,8 @@
   --beat-hit: 400ms;
   --beat-crit: 480ms;
   --beat-residual: 320ms;
+  --beat-status: 420ms;
+  --beat-mega: 520ms;
   --beat-miss: 340ms;
   --beat-protect: 360ms;
   --beat-flinch: 340ms;
@@ -911,6 +943,59 @@
 .bd-play-fx.fx-chip::before { background: linear-gradient(180deg, rgba(248, 113, 113, 0) 0%, rgba(248, 113, 113, 0.3) 100%); }
 .bd-play-fx.fx-mend::before { background: linear-gradient(0deg, rgba(74, 222, 128, 0) 0%, rgba(74, 222, 128, 0.3) 100%); }
 
+/* --- a condition landing ------------------------------------------------------------------- */
+/* Each condition has the colour the game gives it, so it is read before the words are. */
+@keyframes bd-status-land {
+  0% { opacity: 0; transform: scale(0.75); }
+  25% { opacity: 1; transform: scale(1.06); }
+  70% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.04); }
+}
+@keyframes bd-status-shudder {
+  20% { transform: translateX(-3px); }
+  45% { transform: translateX(3px); }
+  70% { transform: translateX(-2px); }
+}
+.bd-play-mon.is-status { animation: bd-status-shudder calc(var(--beat-status) * var(--beat-scale)) ease; }
+.bd-play-fx[class*="fx-status-"]::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  border: 2px solid currentColor;
+  box-shadow: inset 0 0 20px currentColor;
+  opacity: 0.85;
+  animation: bd-status-land calc(var(--beat-status) * var(--beat-scale)) ease-out;
+}
+.bd-play-fx.fx-status-brn { color: #fb923c; }
+.bd-play-fx.fx-status-psn,
+.bd-play-fx.fx-status-tox { color: #c084fc; }
+.bd-play-fx.fx-status-par { color: #facc15; }
+.bd-play-fx.fx-status-slp { color: #94a3b8; }
+.bd-play-fx.fx-status-frz { color: #67e8f9; }
+
+/* --- Mega Evolution ---------------------------------------------------------------------------- */
+/* The one moment a Pokemon becomes something else. The same aurora the Mega control wears. */
+@keyframes bd-mega-burst {
+  0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+  30% { opacity: 1; transform: scale(1.15) rotate(90deg); }
+  100% { opacity: 0; transform: scale(1.8) rotate(200deg); }
+}
+@keyframes bd-mega-rise {
+  35% { transform: translateY(-10px) scale(1.1); }
+  70% { transform: translateY(-3px) scale(1.04); }
+}
+.bd-play-mon.is-mega { animation: bd-mega-rise calc(var(--beat-mega) * var(--beat-scale)) cubic-bezier(0.22, 1, 0.36, 1); z-index: 4; }
+.bd-play-fx.fx-mega::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 16px;
+  background: conic-gradient(from 0deg, rgba(240, 171, 252, 0.9), rgba(167, 139, 250, 0.5),
+    rgba(56, 189, 248, 0.9), rgba(167, 139, 250, 0.5), rgba(240, 171, 252, 0.9));
+  animation: bd-mega-burst calc(var(--beat-mega) * var(--beat-scale)) ease-out;
+}
+
 /* --- going down ----------------------------------------------------------------------------- */
 @keyframes bd-faint {
   0% { transform: none; opacity: 1; }
@@ -966,6 +1051,8 @@
   .bd-play-mon.is-miss,
   .bd-play-mon.is-protect,
   .bd-play-mon.is-flinch,
+  .bd-play-mon.is-status,
+  .bd-play-mon.is-mega,
   .bd-play-mon.is-chip,
   .bd-play-mon.is-mend,
   .bd-play-mon.is-faint,
@@ -1076,4 +1163,83 @@
   animation: bd-mega-gem 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* A move the game will not take this turn. Shown, not hidden: the rule is the game's and the
+   player should see it applied rather than watch a move disappear. */
+.bd-play-move.refused {
+  opacity: 0.42;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+.bd-play-move.refused .bd-play-move-tag {
+  color: var(--bd-bad);
+  font-size: 0.56rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-weight: 700;
+  white-space: normal;
+  line-height: 1.2;
+}
+
 /* A Mega's move list, marked the same colour as the control that armed it. */
+.bd-play-move.mega {
+  border-left: 3px solid #c084fc;
+  background: linear-gradient(90deg, rgba(192, 132, 252, 0.14), var(--bd-control) 60%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bd-play-mega-toggle.on { animation: none; background: linear-gradient(110deg, #f0abfc, #38bdf8); }
+  .bd-play-mega-toggle.on .bd-play-mega-gem { animation: none; }
+}
+
+/* --- the controls bar ---------------------------------------------------------------------- */
+
+/* Speaker, Clear, Resign, then the hint. The speaker is off until it is pressed. */
+.bd-play-music {
+  min-width: 2.4rem;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.35rem 0.5rem;
+}
+.bd-play-music.on { border-color: var(--bd-on-line); background: var(--bd-on); }
+.bd-play-pace { display: inline-flex; align-items: center; gap: 0.35rem; }
+.bd-play-pace > span {
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.bd-play-pace .bd-select { padding: 0.15rem 1.5rem 0.15rem 0.5rem; font-size: 0.72rem; min-width: 0; }
+.bd-play-hint { margin-left: auto; text-align: right; }
+
+.bd-play-conditions { opacity: 0.75; }
+.bd-play-unrated { color: var(--bd-bad); opacity: 0.85; }
+
+/* --- looking a Pokemon up ---------------------------------------------------------------------- */
+.bd-play-info { display: grid; gap: 0.6rem; min-width: min(22rem, 80vw); }
+.bd-play-info-head { display: flex; align-items: center; gap: 0.8rem; }
+.bd-play-info-head strong { font-size: 1rem; }
+.bd-play-info-row { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 0.6rem; align-items: start; }
+.bd-play-info-key {
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  padding-top: 0.15rem;
+}
+.bd-play-info-value { font-size: 0.86rem; font-weight: 700; }
+.bd-play-info-unknown { opacity: 0.5; font-weight: 400; font-style: italic; }
+.bd-play-info-moves { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.25rem; }
+.bd-play-info-move {
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 8px;
+  background: var(--bd-control);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+/* The party sprites are buttons now -- you can click one to look it up -- so they need the
+   button reset. The border, padding and background are already set where the pip is styled. */
+.bd-play-pip { font: inherit; color: inherit; cursor: pointer; }
+.bd-play-pip[disabled] { cursor: default; }

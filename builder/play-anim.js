@@ -41,6 +41,8 @@ export const BEAT = {
   hit: 400,
   crit: 480,
   residual: 320,
+  status: 420,
+  mega: 520,
   miss: 340,
   protect: 360,
   flinch: 340,
@@ -49,6 +51,23 @@ export const BEAT = {
   // The one that is NOT halved: a line of text takes as long to read as it ever did, and this is
   // the beat that exists purely to be read.
   note: 560,
+};
+
+/** What a condition is called when it lands. Keyed by the model's own probability slot. */
+const CONDITION_SAID = {
+  brn: "was burned", psn: "was poisoned", tox: "was badly poisoned",
+  slp: "fell asleep", frz: "was frozen solid", par: "was paralysed",
+};
+
+/** Why the health bar moved at the end of a turn, in the game's own words. */
+const RESIDUAL_SAID = {
+  burn: "was hurt by its burn",
+  psn: "was hurt by the poison",
+  tox: "was hurt by the poison",
+  Sand: "was buffeted by the sandstorm",
+  Snow: "was pelted by the hail",
+  grassy: "was healed by the Grassy Terrain",
+  leftovers: "restored a little health",
 };
 
 /** A hit worth a bigger shake, in percentage points of health. */
@@ -87,9 +106,18 @@ export function sentenceFor(step, nameOf) {
     // every hit buries the lines that matter. A critical hit is the exception, because it is
     // the one thing about a hit that a player cannot read off the bar.
     case "hit": return step.crit ? "A critical hit!" : "";
-    case "residual":
-      if (step.to > step.from) return `${who} recovered`;
-      return `${who} was worn down`;
+    // Named, not merely noticed. A burn, a sandstorm, a Grassy Terrain and a Leftovers all move
+    // the health bar at the end of a turn, and which one it was is the whole of the information.
+    case "residual": {
+      const said = RESIDUAL_SAID[step.cause];
+      if (said) return `${who} ${said}`;
+      return step.to > step.from ? `${who} recovered` : `${who} was worn down`;
+    }
+    // A condition that really landed. Said out loud, because it changes every turn after this
+    // one and there is nothing on the health bar to read it off.
+    case "status": return `${who} ${CONDITION_SAID[step.condition] || "was afflicted"}!`;
+    // The line is the engine's own note; this step exists so the sprite changes with it.
+    case "mega": return "";
     // The three results the reference recording always says out loud, because none of them can
     // be read off a health bar: nothing happened, and the reason differs every time.
     case "miss": return `It missed ${who}!`;
@@ -105,7 +133,8 @@ export function sentenceFor(step, nameOf) {
   }
 }
 
-export function createTurnPlayer({ monEl, monInfo, freeSeat, sideBox, nameOf, caption, pace = DEFAULT_PACE }) {
+export function createTurnPlayer({ monEl, monInfo, freeSeat, sideBox, nameOf, caption,
+  spriteFor = () => "", pace = DEFAULT_PACE }) {
   // Every beat below is the BASE length multiplied by this. The stylesheet multiplies its own
   // `--beat-*` by `--beat-scale` in exactly the same way, and the page sets the two together, so
   // an animation always lasts precisely as long as the class carrying it.
@@ -273,6 +302,30 @@ export function createTurnPlayer({ monEl, monInfo, freeSeat, sideBox, nameOf, ca
       case "miss":
         await beat(el, "is-miss", paced(BEAT.miss), "fx-miss");
         return;
+      case "status":
+        await beat(el, "is-status", paced(BEAT.status), `fx-status-${item.condition || "brn"}`);
+        return;
+      case "mega": {
+        // The sprite becomes the Mega's HERE, not when the turn finishes. `monInfo` reads the
+        // board the worker sent, where it has already evolved.
+        //
+        // Only the sprite and the name. `swapIn` is for a Pokemon ARRIVING: it clears the stat
+        // chips and sets the health bar to where the turn left it, and a Mega Evolution is
+        // neither -- the same Pokemon is still standing there with the Attack drop it was just
+        // given, and its health has not yet been through this turn's attacks.
+        if (el) {
+          // THE STEP'S OWN SPECIES AND FORM. `monInfo` answers from the board still on screen,
+          // which during a playout is the one from before the turn -- so it hands back the base
+          // artwork and the swap does nothing. These were written at the moment of evolution.
+          const art = item.species ? spriteFor(item.species, item.form) : "";
+          const img = el.querySelector("img");
+          if (img && art) img.src = art;
+          const name = el.querySelector(".bd-play-mon-name");
+          if (name && item.name) name.textContent = item.name;
+        }
+        await beat(el, "is-mega", paced(BEAT.mega), "fx-mega");
+        return;
+      }
       case "protect":
         // The screen goes up in FRONT of it -- see `.bd-play-fx.fx-protect` in play.css, which
         // anchors the bright edge to whichever side of the tile faces the other team.

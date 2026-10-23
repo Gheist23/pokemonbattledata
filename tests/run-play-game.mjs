@@ -35,7 +35,7 @@ import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
 import { ACTION_KINDS, TournamentTest } from "../builder/tournament-test.js";
 import { Solver } from "../builder/solver.js";
-import { PlayGame, TURN_LIMIT, teamFromKnown } from "../builder/play-game.js";
+import { PlayGame, OPEN_BACK_BOARDS, THINK_RANGE, LOOKAHEAD_BAND, TURN_LIMIT, teamFromKnown } from "../builder/play-game.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -145,10 +145,42 @@ const FOE = teamFromKnown(data, FORMAT, known.teams[0]).slice(0, 4);
 
   // An open sheet has exactly ONE possible board, because nothing is unknown. Rolling a pool of
   // identical boards would only make the opponent think many times over for the same answer.
+  // Four brought from four: nothing about the bring is in doubt, so there is one board.
   const openBoards = shown.possibleBoards();
-  ok("an open sheet searches one board", openBoards.length === 1, String(openBoards.length));
+  ok("an open sheet with nothing left to guess searches one board", openBoards.length === 1,
+    String(openBoards.length));
   ok("a closed sheet searches a pool", hiddenGame.possibleBoards().length > 1,
     String(hiddenGame.possibleBoards().length));
+
+  // ...but a real game brings FOUR OF SIX, and which two are waiting in the back is not on the
+  // team sheet. An open sheet opens the SETS; it does not say who came.
+  const six = topTeam(6);
+  const bringer = new PlayGame(solver, data, FORMAT, library, { sheet: "open" });
+  bringer.start({ player: six, foe: FOE, seed: 21 });
+  const ways = bringer.possibleBoards();
+  ok("with two of six still unseen the opponent searches several boards", ways.length > 1,
+    String(ways.length));
+  ok("and never more than the cap", ways.length <= OPEN_BACK_BOARDS, String(ways.length));
+  // The two STANDING are the same on every board -- those it has watched come out.
+  const fronts = ways.map((b) => b.sides[1].filter((r) => r.front).map((r) => r.set.species).join(","));
+  ok("the Pokemon it has seen are the same on every board", new Set(fronts).size === 1,
+    JSON.stringify(fronts));
+  // The back is not.
+  const backs = ways.map((b) => b.sides[1].filter((r) => !r.front).map((r) => r.set.species).sort().join(","));
+  ok("the back is different on every board", new Set(backs).size === ways.length,
+    JSON.stringify(backs));
+  // Every guess is drawn from the player's own six, never invented.
+  const sixNames = new Set(six.map((s) => s.species));
+  ok("and every guess is one of the player's own six",
+    ways.every((b) => b.sides[1].every((r) => sixNames.has(r.set.species))),
+    JSON.stringify(backs));
+
+  // Once a Pokemon has actually stood on the field it stops being a guess.
+  const seenAll = new PlayGame(solver, data, FORMAT, library, { sheet: "open" });
+  seenAll.start({ player: six, foe: FOE, seed: 21 });
+  for (const m of seenAll.state.sides[0]) m.entered = true;
+  ok("when everything has been shown there is one board again",
+    seenAll.possibleBoards().length === 1, String(seenAll.possibleBoards().length));
 
   // In the opponent's own board, side 1 is the player (the Solver scores side 0 as itself).
   const asSeen = openBoards[0].sides[1];
@@ -555,6 +587,117 @@ const isMegaForm = (form) => String(form || "").trim().toLowerCase().startsWith(
 }
 
 // ---------------------------------------------------------------------------
+// 14. a closed sheet learns an item and an Ability, by being shown them
+// ---------------------------------------------------------------------------
+{
+  const hidden = new PlayGame(solver, data, FORMAT, library, { sheet: "closed" });
+  hidden.start({ player: PLAYER, foe: FOE, seed: 91 });
+  const mine = hidden.state.sides[0][0];
+
+  // Nothing is known before anything has happened. The whole point of the closed sheet is that
+  // the opponent has to find out; a guess it did not earn is the same defect as showing it the
+  // sheet outright.
+  ok("nothing is known at the start", !hidden.seen[mine.tag]?.item && !hidden.seen[mine.tag]?.ability,
+    JSON.stringify(hidden.seen[mine.tag] || null));
+  const blind = hidden.possibleBoards(1)[0].sides[1][0];
+  // `|| true` made this one unfailable. What it is really for: before anything has been shown,
+  // the record the pool is built from is EMPTY -- a rolled board gets a sampled set precisely
+  // because there is nothing pinned yet.
+  ok("the pool is given a set to roll from", Boolean(blind && blind.set));
+  ok("and nothing has been shown to pin it with",
+    hidden.seen.every((r) => !r.item && !r.ability && (r.moves || []).length === 0),
+    JSON.stringify(hidden.seen));
+
+  // A Focus Sash that breaks, or a Sitrus Berry that is eaten, shows which item it was.
+  const before = new Map(hidden.state.sides[0].map((m) => [m.tag, { sash: m.sash, berry: m.berry, mega: Boolean(m.mega) }]));
+  mine.sash = false;
+  hidden.learnFrom([], before, 0, hidden.seen);
+  if (mine.u.item) {
+    ok("an item that was spent is learned", hidden.seen[mine.tag]?.item === mine.u.item,
+      JSON.stringify({ learned: hidden.seen[mine.tag]?.item, real: mine.u.item }));
+  }
+
+  // An Ability that DID something -- the weather, the terrain, an Intimidate -- is learned; one
+  // that merely exists is not.
+  const quiet = new PlayGame(solver, data, FORMAT, library, { sheet: "closed" });
+  quiet.start({ player: PLAYER, foe: FOE, seed: 92 });
+  const actor = quiet.state.sides[0][0];
+  quiet.learnFrom([{ kind: "intimidate", actor: actor.u }], new Map(), 0, quiet.seen);
+  ok("an Ability that did something is learned",
+    quiet.seen[actor.tag]?.ability === (actor.u.mon?.ability || ""),
+    JSON.stringify({ learned: quiet.seen[actor.tag]?.ability, real: actor.u.mon?.ability }));
+
+  const mute = new PlayGame(solver, data, FORMAT, library, { sheet: "closed" });
+  mute.start({ player: PLAYER, foe: FOE, seed: 93 });
+  const still = mute.state.sides[0][0];
+  // A hit is not an Ability showing itself.
+  mute.learnFrom([{ kind: "hit", actor: still.u }], new Map(), 0, mute.seen);
+  ok("an Ability that merely exists is NOT learned", !mute.seen[still.tag]?.ability,
+    JSON.stringify(mute.seen[still.tag] || null));
+
+  // BOTH ARGUMENTS HAVE TO MATTER. Every call above passes side 0 and `seen`, so a `learnFrom`
+  // that ignored them and wrote to `this.seen` for side 0 regardless would satisfy all of them.
+  // The mirror -- side 1, into `shown` -- is what the player's "look at this Pokemon" dialog
+  // reads, and it is only correct if the side and the table are both honoured.
+  const theirs = new PlayGame(solver, data, FORMAT, library, { sheet: "closed" });
+  theirs.start({ player: PLAYER, foe: FOE, seed: 96 });
+  const foeMon = theirs.state.sides[1][0];
+  theirs.learnFrom([{ kind: "intimidate", actor: foeMon.u }], new Map(), 1, theirs.shown);
+  ok("an Ability the OPPONENT shows is filed under what we have seen of them",
+    theirs.shown[foeMon.tag]?.ability === (foeMon.u.mon?.ability || ""),
+    JSON.stringify({ learned: theirs.shown[foeMon.tag]?.ability, real: foeMon.u.mon?.ability }));
+  ok("and not under what they have seen of us",
+    theirs.seen.every((r) => !r.ability), JSON.stringify(theirs.seen));
+  // And the side really is read: the same event filed as side 0 must find nobody, because that
+  // unit stands on side 1.
+  const crossed = new PlayGame(solver, data, FORMAT, library, { sheet: "closed" });
+  crossed.start({ player: PLAYER, foe: FOE, seed: 97 });
+  crossed.learnFrom([{ kind: "intimidate", actor: crossed.state.sides[1][0].u }], new Map(), 0, crossed.seen);
+  ok("an event attributed to the wrong side learns nothing",
+    crossed.seen.every((r) => !r.ability), JSON.stringify(crossed.seen));
+
+  // And what is learned reaches the pool, where `HiddenSets.honours` pins it.
+  const told = new PlayGame(solver, data, FORMAT, library, { sheet: "closed" });
+  told.start({ player: PLAYER, foe: FOE, seed: 94 });
+  const shown = told.state.sides[0][0];
+  told.seen[shown.tag] = { moves: [], item: shown.u.item || "Leftovers", ability: shown.u.mon?.ability || "Levitate" };
+  const row = told.possibleBoards(1)[0].sides[1].find((r) => r);
+  ok("the pool is told what was shown", Boolean(row), "no row came back");
+  const boards = told.possibleBoards(6);
+  const pinned = boards.every((board) => {
+    const seat = board.sides[1][0];
+    return compact(seat.set.item || "") === compact(told.seen[shown.tag].item);
+  });
+  ok("and every rolled board honours the item it was shown", pinned,
+    JSON.stringify(boards.slice(0, 3).map((b) => b.sides[1][0].set.item)));
+}
+
+// ---------------------------------------------------------------------------
+// 15. the opponent is told how long the field conditions have left
+// ---------------------------------------------------------------------------
+{
+  // `buildState` takes a NUMBER of turns for Trick Room and each side's Tailwind. Handing it
+  // booleans gave a Trick Room with one turn left its full four, so the opponent searched lines
+  // that outlast a Trick Room about to end.
+  const field = new PlayGame(solver, data, FORMAT, library);
+  field.start({ player: PLAYER, foe: FOE, seed: 95 });
+  field.state.board.tr = 1;
+  field.state.board.tw = [2, 0];
+  const seen = field.fieldOf();
+  ok("one turn of Trick Room is reported as one", seen.trickRoomTurns === 1, String(seen.trickRoomTurns));
+  ok("and it is still reported as being up", seen.trickRoom === true, String(seen.trickRoom));
+  ok("a two-turn Tailwind is reported as two", seen.tailwind[0] === 2, JSON.stringify(seen.tailwind));
+  ok("and a side with none as none", seen.tailwind[1] === 0, JSON.stringify(seen.tailwind));
+  // And it survives the rebuild, which is the only thing that matters.
+  const built = solver.buildState(field.possibleBoards(1)[0]);
+  ok("the rebuilt board keeps the one turn", built.board.tr === 1, String(built.board.tr));
+  ok("and the two", built.board.tw[0] === 2, JSON.stringify(built.board.tw));
+  field.state.board.tr = 0;
+  ok("and no Trick Room stays no Trick Room",
+    solver.buildState(field.possibleBoards(1)[0]).board.tr === 0);
+}
+
+// ---------------------------------------------------------------------------
 // 2. the player sees every move they have
 // ---------------------------------------------------------------------------
 {
@@ -792,19 +935,154 @@ const isMegaForm = (form) => String(form || "").trim().toLowerCase().startsWith(
   notes.push(`mirror: ${aimed[0]?.text} | plain: ${flat.plays.find((p) => p.text.includes("→"))?.text}`);
 }
 
+/** The same set with a different four moves, for a sheet the search has no bid for. */
+const withMoves = (set, moves) => makeSet({ ...set, moves: [...moves] });
+const compactName = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
 // ---------------------------------------------------------------------------
-// 6. the player's screen does not carry the opponent's sheet
+// 6. a CLOSED sheet does not carry the opponent's sheet; an OPEN one carries both
 // ---------------------------------------------------------------------------
 {
-  const peek = new PlayGame(solver, data, FORMAT, library);
+  // A CLOSED sheet. This block used to be run on the DEFAULT game, which is an OPEN sheet, so
+  // it pinned the hiding as though it were unconditional -- and that is what made the open
+  // sheet one-directional: the Solver was handed the player's real sets while the player was
+  // shown "not shown yet" for every one of the Solver's.
+  const peek = new PlayGame(solver, data, FORMAT, library, { sheet: "closed" });
   const view = peek.start({ player: PLAYER, foe: FOE, seed: 14 });
   ok("our own sets are on our own side", view.sides[0].every((m) => m.moves.length > 0),
     JSON.stringify(view.sides[0].map((m) => [m.name, m.moves.length])));
-  ok("and theirs are not on theirs", view.sides[1].every((m) => m.moves.length === 0),
+  ok("and on a closed sheet theirs are not on theirs", view.sides[1].every((m) => m.moves.length === 0),
     JSON.stringify(view.sides[1].map((m) => m.moves)));
   ok("their items are not either", view.sides[1].every((m) => !m.item));
   ok("what IS shown is what a player can see", view.sides[1].every((m) =>
     typeof m.species === "string" && typeof m.hp === "number"));
+
+  // ...but what the game HAS shown is on the view, separately, so a player can look a Pokemon up
+  // and see exactly the moves it has used. The mirror of what the opponent learns about us.
+  ok("their tile carries a revealed record, and it starts empty",
+    view.sides[1].every((m) => m.revealed && m.revealed.moves.length === 0 && !m.revealed.item),
+    JSON.stringify(view.sides[1].map((m) => m.revealed)));
+  ok("ours carries none, because ours is all known",
+    view.sides[0].every((m) => m.revealed === null));
+
+  // An OPEN sheet is open in BOTH directions. The Solver is given the player's real sets
+  // (`possibleBoards` returns the one true board, checked in 1b); this is the other half.
+  const shown = new PlayGame(solver, data, FORMAT, library, { sheet: "open" });
+  const open = shown.start({ player: PLAYER, foe: FOE, seed: 14 });
+  ok("on an open sheet their moves are on their side too",
+    open.sides[1].every((m) => m.moves.length > 0),
+    JSON.stringify(open.sides[1].map((m) => [m.name, m.moves.length])));
+  ok("their items as well", open.sides[1].every((m) => typeof m.item === "string"));
+  ok("their Ability as well", open.sides[1].every((m) => m.ability));
+  // The rest of the sheet, which no amount of watching ever reveals.
+  ok("and the Nature and Stat Points, on both sides",
+    open.sides[0].every((m) => m.nature) && open.sides[1].every((m) => m.nature),
+    JSON.stringify(open.sides[1].map((m) => [m.name, m.nature, m.spread])));
+  ok("a Sp. Def stage is carried, which the view never used to pass on",
+    open.sides[0].every((m) => typeof m.spd === "number"));
+  ok("nothing is left to reveal, because nothing is hidden",
+    open.sides[1].every((m) => m.revealed === null));
+  // A closed sheet must NOT have gained any of it.
+  ok("a closed sheet still says nothing about their Nature",
+    view.sides[1].every((m) => !m.nature && !m.spread),
+    JSON.stringify(view.sides[1].map((m) => [m.name, m.nature, m.spread])));
+}
+
+// ---------------------------------------------------------------------------
+// 6b. a move is learnt by being used, in BOTH directions
+// ---------------------------------------------------------------------------
+{
+  const mirror = new PlayGame(solver, data, FORMAT, library);
+  mirror.start({ player: PLAYER, foe: FOE, seed: 31 });
+  const usedByThem = new Set();
+  for (let turn = 0; turn < 6 && !mirror.over(); turn += 1) {
+    const options = mirror.options();
+    if (!options.some((slot) => !slot.empty)) break;
+    const ours = mirror.jointFrom(options, options.map((slot) => (slot.empty ? undefined : slot.actions[0]?.id)));
+    // THEIR joint comes from the opponent, not from `jointFrom`: `options` and `jointFrom` are
+    // the PLAYER's, they take no side, and feeding side 0's options in as side 1's choices
+    // resolves a turn in which the opponent's Pokemon use whatever move happens to sit in the
+    // same slot. `chooseFoe` is the only thing that speaks for side 1.
+    const { joint: theirs } = await mirror.chooseFoe({ thinkMs: 120, lookahead: 1, pool: 1 });
+    // A SWITCH is not a move, and its `move` field carries the arriving Pokemon's NAME -- so
+    // counting it put "Grimmsnarl" in the list of moves they had used.
+    for (const action of theirs) {
+      if (!action?.move || action.wait || action.kind === -1 || action.into !== null) continue;
+      usedByThem.add(compactName(action.move));
+    }
+    mirror.resolve(ours, theirs);
+  }
+  const learnt = new Set(mirror.shown.flatMap((r) => (r?.moves || []).map(compactName)));
+  ok("every move they used is now on our record of them",
+    [...usedByThem].every((move) => learnt.has(move)),
+    `used ${JSON.stringify([...usedByThem])} learnt ${JSON.stringify([...learnt])}`);
+  ok("and nothing they did NOT use is", [...learnt].every((move) => usedByThem.has(move)),
+    JSON.stringify([...learnt].filter((move) => !usedByThem.has(move))));
+  ok("our own record of us is kept at the same time", mirror.seen.some((r) => r.moves.length > 0));
+  notes.push(`mirror: we learnt ${learnt.size} of their moves`);
+}
+
+// ---------------------------------------------------------------------------
+// 6c. every move on the sheet can be chosen, and a status move really lands
+// ---------------------------------------------------------------------------
+{
+  // Four moves the SEARCH has no bid for: a paralysis, a poison, a self-boost and a heal. Before
+  // the EFFECT action kind each produced no action at all, so the slot offered three moves and
+  // the fourth could not be picked. See ACTION_KINDS.EFFECT in tournament-test.js.
+  const sheet = ["Thunder Wave", "Toxic", "Nasty Plot", "Recover"];
+  const caster = withMoves(PLAYER[0], sheet);
+  const player = [caster, PLAYER[1], PLAYER[2], PLAYER[3]];
+  const game = new PlayGame(solver, data, FORMAT, library);
+  game.start({ player, foe: FOE, seed: 21 });
+  const slot = game.options()[0];
+  const offered = new Set((slot.actions || []).map((a) => compactName(a.move || "")));
+  const missing = sheet.filter((move) => !offered.has(compactName(move)));
+  ok("every move the search cannot price is still offered", missing.length === 0,
+    `missing ${JSON.stringify(missing)} of ${JSON.stringify([...offered])}`);
+  ok("and each carries the registry ops that make it work",
+    sheet.every((move) => {
+      const action = (slot.actions || []).find((a) => compactName(a.move || "") === compactName(move));
+      return action && Array.isArray(action.ops) && action.ops.length > 0;
+    }));
+
+  // Chosen, it LANDS -- and it is said before the damage it causes.
+  let pinned = 0;
+  let saidBeforeChip = 0;
+  for (let seed = 1; seed <= 12; seed += 1) {
+    const one = new PlayGame(solver, data, FORMAT, library);
+    one.start({ player: [withMoves(PLAYER[0], ["Thunder Wave", "Protect", ...sheet.slice(2)]), PLAYER[1], PLAYER[2], PLAYER[3]], foe: FOE, seed: seed * 29 });
+    const options = one.options();
+    const wave = (options[0].actions || []).find((a) => compactName(a.move || "") === "thunderwave");
+    if (!wave) continue;
+    const ours = one.jointFrom(options, [wave.id, options[1]?.actions?.[0]?.id]);
+    const { joint } = await one.chooseFoe({ thinkMs: 100, lookahead: 1, pool: 1 });
+    const rec = one.resolve(ours, joint);
+    const steps = rec.stream || [];
+    const at = steps.findIndex((s) => s.kind === "status");
+    if (at < 0) continue;
+    pinned += 1;
+    // THE CONDITION COMES AFTER THE MOVE THAT CAUSED IT. This is the whole point of the
+    // pending/release hold in `streamFrom`, and it has to be checked against something the
+    // hold actually moves. It was checked against a residual carrying `cause: "par"`, and no
+    // residual can ever carry that -- paralysis takes no HP -- so the index was always -1 and
+    // the assertion could not fail: deleting the entire hold left the suite green.
+    //
+    // Our caster's own "X used Y" is the step the hold waits for, so its index is the test.
+    const caster = steps.findIndex((s) => s.kind === "move" && s.side === 0 && s.tag === options[0].tag);
+    const casterSaid = steps.findIndex((s) => s.kind === "note" && s.side === 0
+      && /thunder wave/i.test(s.text || ""));
+    const after = Math.max(caster, casterSaid);
+    if (after >= 0 && at > after) saidBeforeChip += 1;
+    notes.push(`effect order: ${steps.slice(0, Math.min(at + 2, steps.length)).map((s) => s.kind).join(" ")}`);
+    const hit = one.view().sides[1].find((m) => m.status === "Paralysed");
+    ok(`a landed paralysis is on the tile (seed ${seed * 29})`, Boolean(hit),
+      JSON.stringify(one.view().sides[1].map((m) => [m.name, m.status])));
+    break;
+  }
+  ok("a 90%-accurate paralysis lands when it is chosen", pinned > 0);
+  ok("and it is announced after the move that caused it", pinned > 0 && saidBeforeChip === pinned,
+    `${saidBeforeChip} of ${pinned}`);
+  notes.push(`effect moves: all ${sheet.length} offered, paralysis pinned`);
 }
 
 // ---------------------------------------------------------------------------
@@ -1162,6 +1440,42 @@ const tagOf = (record, side, name) => {
 }
 
 for (const line of notes) console.log(line);
+// ---------------------------------------------------------------------------
+// 16. the search plan is chosen from the position, not fixed
+// ---------------------------------------------------------------------------
+{
+  const planner = new PlayGame(solver, data, FORMAT, library, { sheet: "open" });
+  planner.start({ player: topTeam(6), foe: FOE, seed: 41 });
+  const full = planner.planSearch();
+  ok("a plan says what it read off the board",
+    full.why && typeof full.why.width === "number" && typeof full.why.boards === "number",
+    JSON.stringify(full.why));
+  ok("it stays inside the time band",
+    full.thinkMs >= THINK_RANGE[0] && full.thinkMs <= THINK_RANGE[1], String(full.thinkMs));
+  ok("and inside the look-ahead band",
+    full.lookahead >= LOOKAHEAD_BAND[0] && full.lookahead <= LOOKAHEAD_BAND[1], String(full.lookahead));
+  ok("it asks for a settle window, so an obvious board can stop early", full.settleLines > 0,
+    String(full.settleLines));
+  ok("the width it measured is the opponent's real action count", full.why.width > 0, String(full.why.width));
+
+  // An emptier board is a narrower question: fewer Pokemon, so less time and a longer tail.
+  const endgame = new PlayGame(solver, data, FORMAT, library, { sheet: "open" });
+  endgame.start({ player: topTeam(6), foe: FOE, seed: 41 });
+  for (const m of endgame.state.sides[0].slice(1)) { m.hp = 0; m.out = true; }
+  for (const m of endgame.state.sides[1].slice(1)) { m.hp = 0; m.out = true; }
+  const small = endgame.planSearch();
+  ok("an endgame is given less time than a full board", small.thinkMs <= full.thinkMs,
+    `${small.thinkMs} vs ${full.thinkMs}`);
+  ok("and is allowed to look further ahead", small.lookahead >= full.lookahead,
+    `${small.lookahead} vs ${full.lookahead}`);
+  console.log(`plan: full board ${full.thinkMs}ms depth ${full.lookahead} (width ${full.why.width}, ${full.why.boards} boards)`
+    + ` | endgame ${small.thinkMs}ms depth ${small.lookahead} (width ${small.why.width})`);
+
+  // The caller's value is a CEILING: the suites drive this with 100-400ms and must stay quick.
+  const tiny = planner.planSearch({ thinkMs: 200 });
+  ok("a caller asking for 200ms is not given seconds", tiny.thinkMs <= 400, String(tiny.thinkMs));
+}
+
 if (failures.length) {
   console.error(`\n${checked} checks, ${failures.length} failed:`);
   for (const line of failures) console.error(`  - ${line}`);

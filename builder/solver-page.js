@@ -1074,6 +1074,9 @@ function turnsControl({ key, label, title, buttonClass, isOn, setOn, getTurns, s
   const host = h("span", { class: "bd-solver-turns" });
   const draw = () => {
     const on = isOn();
+    // Switched on it carries a picker as well as its button, and says so: in a row of buttons it
+    // needs the room of two of them, or it squeezes both into one column and wraps its own name.
+    host.className = `bd-solver-turns${on ? " counting" : ""}`;
     clear(host).append(h("button", {
       type: "button", class: `${buttonClass}${on ? " on" : ""}`,
       "aria-pressed": on ? "true" : "false", title,

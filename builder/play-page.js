@@ -292,7 +292,10 @@ function renderTeamCard() {
   }
   return h("div", { class: "bd-card bd-play-team-card" },
     h("div", { class: "bd-play-team-head" },
-      h("h3", {}, state.teamName || "Your team"),
+      // The column's own name when the team has no title of its own. The preview screen and the
+      // party row keep "Your team": there the Pokemon are on a board beside the opponent's and
+      // "yours" is the distinction that matters, where here it is a column heading.
+      h("h3", {}, state.teamName || "My Team"),
       h("p", { class: "bd-play-note" },
         `All six come to the battle. You choose the ${BRING[state.format]} you bring once you have `
         + "seen what you are up against."),
@@ -455,6 +458,9 @@ async function startGame() {
       previewId: state.previewId,
       sheet: state.sheet,
       team: broughtSets(),
+      // The whole six, so the opponent chooses its own four against the team preview it was
+      // shown rather than against the four you picked -- which it has no way of knowing.
+      six: state.team,
     });
     if (answer.error) {
       // The deal has been forgotten -- a reload, or the tab left long enough to be evicted.
@@ -594,16 +600,11 @@ async function playOut(record) {
       const row = document.querySelector(`.bd-play-actives.${side === 0 ? "ours" : "theirs"}`);
       return row ? row.getBoundingClientRect() : null;
     },
-    nameOf: (side, tag) => {
-      const mon = monAt(side, tag);
-      if (!mon) return "";
-      const name = mon.name || mon.species;
-      // A name on BOTH sides names two Pokemon. The log says "the opposing X" for exactly this,
-      // and a caption that reads "Garchomp used Earthquake" in a mirror match names neither.
-      const mirrored = (state.view?.sides?.[1 - side] || [])
-        .some((other) => (other.name || other.species) === name);
-      return mirrored && side === 1 ? `the opposing ${name}` : name;
-    },
+    nameOf: (side, tag) => nameFor(state.view, side, tag),
+    // A sprite for a form the board on screen does not know about yet -- the Mega a Pokemon is
+    // becoming in the middle of this turn. No item: `data.sprite` runs a Mega Stone holder
+    // through `battleForm` and would draw the Mega before it had evolved.
+    spriteFor: (species, form) => data.sprite(species, form, "", { full: true }),
     caption: (text, side) => {
       state.caption = text;
       state.captionSide = side ?? null;
@@ -626,6 +627,66 @@ async function playOut(record) {
 function monAt(side, tag) {
   if (tag === null || tag === undefined) return null;
   return (state.view?.sides?.[side] || []).find((entry) => entry.tag === tag) || null;
+}
+
+/**
+ * Everything known about one Pokemon, laid out the way the Team Builder lays a set out.
+ *
+ * KNOWN is the operative word. Ours is open to us -- it is our team. Theirs is only what the
+ * game has actually shown: the moves it has used, the item and the Ability if it has given
+ * either away. A closed sheet that filled this in from the real set would hand over exactly the
+ * thing the closed sheet exists to withhold.
+ */
+function showMon(view, side, tag) {
+  const mon = monByTag(view, side, tag);
+  if (!mon) return;
+  // Under an OPEN team sheet both sheets are open, so the opponent's panel is as full as our
+  // own. Under a closed one only what it has shown us, which is the whole point of that mode.
+  const known = side === 0 || state.sheet === "open";
+  const row = (label, value) => h("div", { class: "bd-play-info-row" },
+    h("span", { class: "bd-play-info-key" }, label),
+    h("span", { class: "bd-play-info-value" }, value));
+  // A FUNCTION, NOT A NODE. One element cannot be in three rows: appending it to the second
+  // MOVES it out of the first, which left the Item row blank instead of "not shown yet".
+  const unknown = () => h("span", { class: "bd-play-info-unknown" }, "not shown yet");
+  const stages = [["atk", "Attack"], ["spa", "Sp. Atk"], ["spe", "Speed"], ["def", "Defense"], ["spd", "Sp. Def"]]
+    .map(([key, name]) => (mon[key] ? `${name} ${mon[key] > 0 ? "+" : ""}${mon[key]}` : ""))
+    .filter(Boolean);
+  // Ours is read straight off the sheet. Theirs is read off what the game has SHOWN us -- the
+  // moves they have used, an item they have spent, an Ability that has done something -- which
+  // is the same information they are getting about us, and the honest answer to "all known info".
+  const seen = mon.revealed || { moves: [], item: "", ability: "" };
+  const item = known ? mon.item : seen.item;
+  const ability = known ? mon.ability : seen.ability;
+  const moves = (known ? mon.moves || [] : seen.moves || []).filter(Boolean);
+  const dialog = openDialog({
+    title: mon.name || mon.species,
+    body: h("div", { class: "bd-play-info" },
+      h("div", { class: "bd-play-info-head" },
+        sprite(data.sprite(mon.species, mon.form, "", { full: true }), "", 72, "bd-sprite bd-sprite-lg"),
+        h("div", {},
+          h("strong", {}, mon.name || mon.species),
+          h("div", { class: "bd-play-note" },
+            `${mon.out ? "Fainted" : `${mon.hp}% left`}${mon.status ? ` · ${mon.status}` : ""}`),
+          stages.length ? h("div", { class: "bd-play-note" }, stages.join(" · ")) : null)),
+      row("Item", item || (known ? "No item" : unknown())),
+      row("Ability", ability || (known ? "—" : unknown())),
+      // Only on an open sheet: a Nature and a Stat spread are never "revealed" by watching.
+      known && mon.nature ? row("Nature", mon.nature) : null,
+      known && mon.spread ? row("Stat Points", String(mon.spread).replace(/^Current:\s*/, "")) : null,
+      row("Moves", moves.length
+        ? h("div", { class: "bd-play-info-moves" }, moves.map((move) => h("span", { class: "bd-play-info-move" }, move)))
+        : (known ? "—" : unknown())),
+      // Only once SOMETHING is known: with nothing shown the Moves row already says so, and
+      // both lines together read as two different facts about the same empty list.
+      known || moves.length === 0 || moves.length >= 4 ? null
+        : row("", h("span", { class: "bd-play-info-unknown" },
+          `${4 - moves.length} more not shown yet`)),
+      known ? null : h("p", { class: "bd-play-note" },
+        "Only what this Pokémon has shown you. It learns about yours the same way.")),
+    actions: [h("button", { class: "primary-button", type: "button", onclick: () => dialog.close() }, "Close")],
+    wide: true,
+  });
 }
 
 /** The tag standing in the way of a name, for the fallback stream. */
@@ -716,11 +777,19 @@ function renderStage(view) {
     h("span", { class: "bd-play-side-name" }, "The Solver"),
     h("div", { class: "bd-play-party" }, partyOf(view, 1))),
   h("div", { class: "bd-play-field" },
+    // Nothing stands between the two sides. The turn and the conditions share the line above the
+    // field, and the message has a row of its own below our Pokemon -- so the two teams face
+    // each other across an empty board, which is the whole point of a battlefield.
     h("div", { class: "bd-play-weather" },
-      [conditionsOf(view).join(" · ") || "Clear",
-        state.sheet === "open" ? "Open sheet" : "Closed sheet · unrated"].join(" — ")),
+      h("span", { class: "bd-play-turn" }, view.turn ? `Turn ${view.turn}` : "The teams come out"),
+      // Just the field. Which sheet is being played is a setup choice and is said there; on the
+      // battlefield it is noise above the Pokemon. A closed sheet still says so, because that
+      // one changes whether the game counts.
+      h("span", { class: "bd-play-conditions" }, conditionsOf(view).join(" · ") || "Clear"),
+      state.sheet === "open"
+        ? null
+        : h("span", { class: "bd-play-unrated" }, "Closed sheet · unrated")),
     h("div", { class: "bd-play-actives theirs" }, activesOf(view, 1)),
-    h("div", { class: "bd-play-turn" }, view.turn ? `Turn ${view.turn}` : "The teams come out"),
     h("div", { class: "bd-play-actives ours" }, activesOf(view, 0)),
     // BELOW our Pokemon, not between the two sides. Sitting in the middle it split the field in
     // half and pushed the two teams apart; the game it is modelled on puts the message under
@@ -756,8 +825,12 @@ function conditionsOf(view) {
  */
 function partyOf(view, side) {
   const inPlay = view.sides[side] || [];
+  // Named by the BASE form, like the sprite beside it: a Garchomp holding its stone is a
+  // Garchomp until it Mega Evolves, and `setName` would call it "Garchomp-Mega-Z" from the
+  // first turn. Once it is on the board the battler's own name is used instead, which becomes
+  // the Mega's the moment it evolves.
   const whole = side === 0
-    ? state.team.map((set) => ({ species: set.species, form: set.form, name: data.setName ? data.setName(set) : set.species }))
+    ? state.team.map((set) => ({ species: set.species, form: set.form, name: set.form || set.species }))
     : state.foe.map((mon) => ({ species: mon.species, form: mon.form, name: mon.name || mon.species }));
   // Paired on SPECIES, not on species-and-form: a team cannot hold two of one species, and a
   // Mega Evolution changes the form -- which used to break the pairing and draw the Pokemon
@@ -790,10 +863,19 @@ function partyOf(view, side) {
     const label = mon
       ? `${name}${mon.out ? " — fainted" : ` — ${mon.hp}%`}${standing ? ", on the field" : ""}`
       : `${entry.name}${side === 0 ? " — not brought" : " — not seen yet"}`;
-    return h("span", {
+    return h("button", {
+      type: "button",
       class: `bd-play-pip${!mon ? " benched" : ""}${mon?.out ? " down" : ""}${standing ? " standing" : ""}`,
-      title: label,
+      title: mon ? `${label} — click to look` : label,
       "aria-label": label,
+      // DISABLED WHILE THE TURN PLAYS, like the tiles above. Every pip sits inside
+      // `.bd-play-stage`, whose click skips the rest of the animation, so an enabled pip both
+      // threw the turn away and opened a card -- and the card was built from the board as it was
+      // BEFORE the turn, because that is what is still on screen while it plays.
+      disabled: !mon || state.animating ? true : undefined,
+      // `state.view`, not the view this render closed over: by the time anyone clicks, the turn
+      // may have finished and moved on.
+      onclick: mon ? () => showMon(state.view, side, mon.tag) : undefined,
     }, sprite(data.sprite(species, form, ""), "", 26));
   });
 }
@@ -830,8 +912,9 @@ function renderMon(mon, side, position) {
     "data-side": String(side),
     "data-tag": String(mon.tag),
     class: `bd-play-mon${mon.out ? " down" : ""} active${canTarget ? " targetable" : ""}`,
-    disabled: !canTarget || undefined,
-    onclick: canTarget ? () => chooseTarget(position) : undefined,
+    disabled: state.animating && !canTarget ? true : undefined,
+    onclick: canTarget ? () => chooseTarget(position) : () => showMon(state.view, side, mon.tag),
+    title: canTarget ? undefined : `Look at ${mon.name || mon.species}`,
   },
   // No item: `data.sprite` runs it through `battleForm`, which draws a Mega Stone holder as its
   // Mega before it has evolved. The form is already the Mega's once it has.
@@ -876,7 +959,7 @@ function renderControls(view) {
     state.targeting
       ? h("p", { class: "bd-play-note targeting" }, `Pick a target for ${state.targeting.action.move}.`)
       : null,
-    h("div", { class: "bd-play-slots" }, slots.map((slot) => renderSlotChoice(slot))),
+    h("div", { class: "bd-play-slots" }, slots.map((slot) => renderSlotChoice(slot, view))),
     h("div", { class: "bd-play-submit" },
       // Off by default, and the speaker is the only thing that turns it on. Left of Clear.
       h("button", {
@@ -924,7 +1007,25 @@ async function musicForBattle(on) {
   state.musicOn = music.playing;
 }
 
-function renderSlotChoice(slot) {
+/**
+ * Why the game will not take this move this turn, or "" when it will.
+ *
+ * Only the two rules that really remove a move are named; anything else gets the plain sentence
+ * rather than a guess at a reason.
+ */
+function whyRefused(move, mon) {
+  const name = String(move || "").toLowerCase().replace(/[^a-z]/g, "");
+  if (!mon) return "Not available this turn";
+  if (mon.guardedLast && /^(protect|detect|spikyshield|banefulbunker|silktrap|kingsshield|obstruct|burningbulwark)$/.test(name)) {
+    return "It protected last turn, so it cannot protect again";
+  }
+  if (!mon.justIn && (name === "fakeout" || name === "firstimpression")) {
+    return "Only on the turn it comes in";
+  }
+  return "Not available this turn";
+}
+
+function renderSlotChoice(slot, view) {
   const chosen = state.chosen[slot.position];
   const canMega = slot.actions.some((a) => a.mega);
   const megaOn = Boolean(state.mega[slot.position]) && canMega;
@@ -977,7 +1078,25 @@ function renderSlotChoice(slot) {
         h("i", { class: "bd-play-mega-gem", "aria-hidden": "true" }),
         h("span", { class: "bd-play-mega-text" }, "Mega Evolve"))
         : null),
-    h("div", { class: "bd-play-moves" }, [...byMove.values()].map((group) => {
+    // ALL FOUR, always. A move the game will not take this turn is drawn refused, with the
+    // reason, rather than quietly left out -- see `whyRefused`.
+    h("div", { class: "bd-play-moves" }, (() => {
+      const mon = monByTag(view, 0, (view.standing[0] || [])[slot.position]);
+      const offered = [...byMove.values()];
+      const have = new Set(offered.map((group) => compactName(group[0].move)));
+      const refused = (mon?.moves || [])
+        .filter(Boolean)
+        .filter((move) => !have.has(compactName(move)))
+        .map((move) => h("button", {
+          type: "button",
+          class: "bd-play-move refused",
+          disabled: true,
+          title: whyRefused(move, mon),
+          "aria-label": `${move}. ${whyRefused(move, mon)}`,
+        },
+        h("span", { class: "bd-play-move-name" }, move),
+        h("span", { class: "bd-play-move-tag" }, whyRefused(move, mon))));
+      return [...offered.map((group) => {
       const first = group[0];
       const on = picked && picked.move === first.move && Boolean(picked.mega) === megaOn;
       return h("button", {
@@ -1013,7 +1132,8 @@ function renderSlotChoice(slot) {
       },
       h("span", { class: "bd-play-move-name" }, first.move),
       first.spread ? h("span", { class: "bd-play-move-tag" }, "Spread") : null);
-    })),
+      }), ...refused];
+    })()),
     switches.length
       ? h("div", { class: "bd-play-switches" }, switches.map((action) => {
         const on = Boolean(picked && picked.id === action.id);
@@ -1099,6 +1219,23 @@ function renderResult(view) {
 }
 
 /**
+ * A Pokemon's name, as the turn should say it.
+ *
+ * A name on BOTH sides names two Pokemon, so theirs is "the opposing X". The sides are read at
+ * the moment of asking rather than from the names the turn started with, because a Mega
+ * Evolution renames a Pokemon mid-turn: two Garchomps that both evolve are both
+ * "Mega Garchomp Z" from that point on, and a rule settled before the turn would not know it.
+ */
+function nameFor(view, side, tag) {
+  const mon = monByTag(view, side, tag);
+  if (!mon) return "";
+  const name = mon.name || mon.species;
+  const mirrored = (view?.sides?.[1 - side] || [])
+    .some((other) => (other.name || other.species) === name);
+  return mirrored && side === 1 ? `the opposing ${name}` : name;
+}
+
+/**
  * What happened, as a transcript of the turn you watched.
  *
  * Built from the STREAM -- the same ordered list the animation plays, through the same
@@ -1112,10 +1249,10 @@ function renderResult(view) {
  */
 function renderLog(view) {
   const line = (step, index) => {
-    const text = sentenceFor(step, (side, tag) => {
-      const mon = monByTag(view, side, tag);
-      return mon ? (mon.name || mon.species) : "";
-    });
+    // THE SAME NAMES THE ANIMATION USED. This had its own lookup with no mirror rule, so the
+    // caption said "the opposing Mega Garchomp Z" while the transcript beside it said
+    // "Mega Garchomp Z" for both of them -- and in a mirror match the transcript named neither.
+    const text = sentenceFor(step, (side, tag) => nameFor(view, side, tag));
     if (!text) return null;
     const hurt = step.kind === "hit" || step.kind === "faint"
       || (step.kind === "residual" && step.to < step.from);

@@ -14,7 +14,7 @@
 import { BuilderData, makeSet } from "./common.js";
 import { teamOverview } from "./team-overview.js";
 import { KnownTeams, mostSimilarTeam } from "./known-teams.js";
-import { BRING_BY_FORMAT, TERRAINS, TournamentTest, WEATHERS } from "./tournament-test.js";
+import { ACTIVE_BY_FORMAT, BRING_BY_FORMAT, TERRAINS, TournamentTest, WEATHERS } from "./tournament-test.js";
 import { Solver } from "./solver.js";
 import { HiddenSets } from "./hidden-sets.js";
 import { PLAY_LOOKAHEAD, PLAY_POOL, PlayGame, THINK_MS, teamFromKnown } from "./play-game.js";
@@ -122,27 +122,74 @@ function foeTeam(data, format, known, rng) {
 /**
  * The four of the six the opponent brings, and the order it leads in.
  *
- * Which four is not arbitrary -- a sheet brings the four that suit the matchup -- but choosing
- * them properly means searching every bring against every bring, which is the Tournament Test's
- * whole job and far too slow to put in front of somebody waiting for a battle. They are taken by
- * ladder rank instead, which is the one thing this side knows about its own team for nothing.
+ * Searching every bring against every bring is the Tournament Test's whole job and far too slow
+ * to put in front of somebody waiting for a battle. What IS affordable is the exchange each of
+ * its six makes against each of the player's six -- one `strike` apiece, which is a cached
+ * best-move lookup -- and that is enough to answer the two questions a sheet actually asks:
+ *
+ *   who hurts this team        `off`  the share its best move takes off the average opponent
+ *   who survives this team     `def`  the share their best move takes off it
+ *
+ * The value is `off - 0.82 * def`, the same weighting the turn engine itself scores a board
+ * with, so a Pokemon that trades badly is not brought merely for hitting hard. The best four
+ * come, and the two best of those LEAD -- which is the part that was missing entirely: the old
+ * ordering was the team-list order, so the lead pair was whichever two the sheet happened to
+ * list first and had nothing to do with the team across from it.
+ *
+ * `against` is the player's SIX, not the four they brought: both sides choose from a team
+ * preview that shows six and says nothing about who is coming. Without it (an old page, or the
+ * legacy "new" action) this falls back to ladder rank, which is what it always did.
  */
-function foeBring(data, format, sets) {
+function foeBring(data, format, sets, { against = null, tournament = null } = {}) {
   const bring = BRING_BY_FORMAT[format];
-  return sets
+  const byRank = () => sets
     .map((set, index) => ({ set, index, at: data.usage(format, set.species, set.form)?.position ?? 9999 }))
     .sort((a, b) => a.at - b.at)
     .slice(0, bring)
     .sort((a, b) => a.index - b.index)
     .map((row) => row.set);
+  const foes = (against || []).filter((s) => s && s.species);
+  if (!foes.length || !tournament || sets.length <= bring) return byRank();
+  try {
+    const t = tournament;
+    const board = t.freshBoard();
+    const ours = sets.map((set, i) => t.ourUnit(set, i));
+    const theirs = foes.map((set, i) => t.ourUnit(set, i));
+    const n = Math.max(1, theirs.length);
+    const rows = ours.map((unit, index) => {
+      let off = 0;
+      let def = 0;
+      for (const foe of theirs) {
+        off += t.strike(unit, foe, board).frac || 0;
+        def += t.strike(foe, unit, board).frac || 0;
+      }
+      return { set: sets[index], index, value: off / n - 0.82 * (def / n) };
+    });
+    const chosen = [...rows].sort((a, b) => b.value - a.value || a.index - b.index).slice(0, bring);
+    // The best two LEAD; the rest wait behind in their own order. `PlayGame.start` reads the
+    // list's order as exactly that.
+    const leads = chosen.slice(0, ACTIVE_BY_FORMAT[format]);
+    const back = chosen.slice(ACTIVE_BY_FORMAT[format]).sort((a, b) => a.index - b.index);
+    return [...leads, ...back].map((row) => row.set);
+  } catch {
+    // A matchup this cannot price is not a reason to refuse to deal a game.
+    return byRank();
+  }
 }
 
-/** What a team preview is allowed to say about the other side: who, and nothing else. */
+/**
+ * What a team preview is allowed to say about the other side: who, and nothing else.
+ *
+ * Named by its BASE form. `setName` would say "Emboar-Mega" for a stone holder, which tells you
+ * it is carrying a Mega Stone -- a thing a team preview does not show you, and a thing the
+ * opponent's own sheet is supposed to keep. It is also simply wrong until it evolves: the
+ * Pokemon standing there is an Emboar.
+ */
 function previewMon(data, set) {
   return {
     species: set.species,
     form: set.form,
-    name: data.setName ? data.setName(set) : set.species,
+    name: set.form || set.species,
     sprite: data.sprite(set.species, set.form, ""),
   };
 }
@@ -444,7 +491,11 @@ self.addEventListener("message", async (event) => {
         // A battle prices a hit against the Pokemon actually standing there: its live HP and its
         // status. The evaluation deliberately does not (TOURNAMENT_LIVE_HP), because its numbers
         // are published and compared against the Companion; a played game's are neither.
-        { effects: await moveEffects(), liveHpRule: 1 },
+        // A two-turn move actually takes two turns here (TOURNAMENT_CHARGE). The evaluation
+        // deliberately does not model that either -- it halves the damage instead, which is an
+        // average over the two turns -- and a battle happens on one of them, which is how
+        // Electro Shot came to fire on the spot with no rain up.
+        { effects: await moveEffects(), liveHpRule: 1, chargeRule: 1 },
       );
       evaluation.playSolver ||= new Solver(evaluation.playTournament);
       const library = await loadSetLibrary();
@@ -460,7 +511,10 @@ self.addEventListener("message", async (event) => {
         const game = new PlayGame(evaluation.playSolver, data, payload.format, library, { sheet: "closed" });
         const view = game.start({
           player: payload.team || [],
-          foe: foeBring(data, payload.format, foe.sets),
+          // The legacy "new" action sends only the four it brings, so the opponent chooses
+          // against those; `foeBring` falls back to ladder rank when there is nothing to price.
+          foe: foeBring(data, payload.format, foe.sets,
+            { against: payload.team || [], tournament: evaluation.playTournament }),
           seed,
         });
         game.foeName = foe.name;
@@ -503,7 +557,12 @@ self.addEventListener("message", async (event) => {
         // PlayGame.start already means by the order of the list.
         const view = game.start({
           player: payload.team || [],
-          foe: foeBring(data, payload.format, prep.foe.sets),
+          // Against the player's SIX when the page sends them -- that is what a team preview
+          // shows -- and against the four it brought otherwise.
+          foe: foeBring(data, payload.format, prep.foe.sets, {
+            against: (Array.isArray(payload.six) && payload.six.length ? payload.six : payload.team) || [],
+            tournament: evaluation.playTournament,
+          }),
           seed: prep.seed,
         });
         game.foeName = prep.foe.name;
@@ -570,7 +629,14 @@ self.addEventListener("message", async (event) => {
       // kept and reused across requests, so sharing one instance would leave random damage on
       // the next Test against Tournament Teams in this worker. That would move numbers the
       // recorded parity vectors pin, silently, and only after someone had opened the Solver.
-      evaluation.solverTournament ||= new TournamentTest(evaluation, evaluation.knownTeams || new KnownTeams({ teams: [] }), new TeamSuggestions(evaluation));
+      // ...and it gets the compiled move and Ability effects, which it went without for a long
+      // time: flinch, secondary status, criticals and two-turn moves were all shipped and never
+      // read on this page, so the Solver answered about a game with no flinches in it and with
+      // Electro Shot landing on the spot. It is safe to give them to THIS instance precisely
+      // because it is its own: `evaluation.tournament` above is the one the recorded parity
+      // vectors pin, and it is untouched.
+      evaluation.solverTournament ||= new TournamentTest(evaluation, evaluation.knownTeams || new KnownTeams({ teams: [] }), new TeamSuggestions(evaluation),
+        { effects: await moveEffects(), chargeRule: 1 });
       evaluation.solver ||= new Solver(evaluation.solverTournament);
       // A closed sheet is not one board but many: the sets are rolled, and the answer is the move
       // that does best across the possible boards rather than against one guess at theirs.

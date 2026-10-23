@@ -44,7 +44,7 @@ import {
 import { compact } from "./engine.js";
 
 const { FAKE_OUT, TAILWIND, TRICK_ROOM, REDIRECT, ATTACK, PROTECT, HELPING_HAND,
-  WIDE_GUARD, QUICK_GUARD, SLEEP, TAUNT, ENCORE, LOWER, BURN } = ACTION_KINDS;
+  WIDE_GUARD, QUICK_GUARD, SLEEP, TAUNT, ENCORE, LOWER, BURN, EFFECT } = ACTION_KINDS;
 
 /** A switch is not one of the turn's actions: it resolves before all of them. */
 export const SWITCH = -1;
@@ -469,6 +469,18 @@ export class Solver {
         // searched turn re-ran every one of them, which re-applied Intimidate and let a Drought
         // or Drizzle holder overwrite the Weather chosen in the Field popup.
         if (i < onField.length) m.entered = true;
+        // Part-way through a two-turn move. The live board can be in the middle of one, and a
+        // rebuilt board that cannot say so hands the opponent a Pokemon that is free to do
+        // anything -- and a Fly user that is standing there to be hit. `hidden` is not carried
+        // because it follows from the move: only `charge_then` stays on the field.
+        if (row.charging) {
+          const slot = (m.u.moves || []).findIndex((info) => info && info.key === String(row.charging));
+          if (slot >= 0) {
+            m.charging = String(row.charging);
+            m.chargeSlot = slot;
+            m.hidden = String(m.u.moves[slot].charge?.op || "") !== "charge_then";
+          }
+        }
         // The Defense stage this line has added, on top of the one the board was set up with.
         m.def = 0;
         // Which Pokemon this is, for the whole line. `ix` is where it is STANDING and a switch
@@ -562,6 +574,25 @@ export class Solver {
     const liveFoes = foes.map((f, i) => [f, i]).filter(([f]) => alive(f));
     const out = [];
     const add = (entry) => out.push({ position, ...entry });
+
+    // Part-way through a two-turn move (TOURNAMENT_CHARGE): the only thing on offer is landing
+    // it. A charge cannot be abandoned for something else, so every other action -- including
+    // Protect and switching out -- is off the list, and this returns BEFORE they are built.
+    // WHICH foe it lands on is still a real choice, so a spread move offers one action and a
+    // single-target one offers a target apiece, exactly as the ordinary attack path below does.
+    if (m.charging && m.chargeSlot >= 0 && u.moves[m.chargeSlot]) {
+      const info = u.moves[m.chargeSlot];
+      const slot = m.chargeSlot;
+      if (info.spread) {
+        const frac = liveFoes.reduce((sum, [foe]) => sum + t.hitOn(m, foe, slot, state.board).frac, 0);
+        add({ kind: ATTACK, slot, target: -1, move: info.name, spread: true, value: frac * 10 });
+      } else {
+        for (const [foe, fp] of liveFoes) {
+          add({ kind: ATTACK, slot, target: fp, move: info.name, value: t.hitOn(m, foe, slot, state.board).frac * 10 });
+        }
+      }
+      return out.length ? out : [{ kind: 0, label: "", value: 0, wait: true }];
+    }
 
     u.moves.forEach((info, slot) => {
       if (!info || !info.name) return;
@@ -754,6 +785,10 @@ export class Solver {
         pr: action.pr === undefined ? info.priority : action.pr,
         sp: this.t.speed(m, state.board),
       };
+      // An EFFECT action's registry ops travel ON the action -- this is the only field in the
+      // entry the move table cannot supply -- so a plan built without them ran a Thunder Wave
+      // that did nothing and reported it as a move that failed.
+      if (action.kind === EFFECT) entry.ops = action.ops || [];
       if (action.kind === PROTECT) entry.pr = 4;
       if (action.kind === FAKE_OUT) entry.pr = 3;
       if (action.kind === WIDE_GUARD || action.kind === QUICK_GUARD) entry.pr = 3;
@@ -1350,7 +1385,10 @@ export class Solver {
     const parts = [];
     for (let s = 0; s < 2; s += 1) {
       parts.push(state.active[s].map((m) => (m
-        ? `${m.u.id}${m.out ? "x" : ""}${m.justIn ? "j" : ""}${m.guardedLast ? "g" : ""}`
+        // `charging` joins the key because a Pokemon locked into landing Fly has a different
+        // action space from the same Pokemon standing free, and the tree would otherwise reuse
+        // one node's statistics for both.
+        ? `${m.u.id}${m.out ? "x" : ""}${m.justIn ? "j" : ""}${m.guardedLast ? "g" : ""}${m.charging ? `c${m.charging}` : ""}`
         : "-")).join("."));
       parts.push(state.sides[s].map((m) => `${m.u.id}${m.out ? "x" : ""}`).join("."));
     }

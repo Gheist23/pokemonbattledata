@@ -796,6 +796,27 @@ export class DamageEngine {
   }
 
   /** AssetManager.get_pokemon: types, stats, weight (placeholder when unknown). */
+  /**
+   * Is this defender immune to a critical hit?
+   *
+   * A Pokemon standing in a MEGA FORM has that form's Ability, whatever Ability the set it was
+   * built from records -- a randomly generated vector can put Purifying Salt on a Mega Scolipede
+   * and the Mega's own Ability is what it would really have. The Companion resolves the form
+   * here and this engine read the set, which is the whole of the disagreement between them on
+   * critical hits, and the reason three recorded vectors had to be skipped.
+   */
+  critProofAbility(defender, recorded) {
+    const proof = (name) => name === "battle armor" || name === "shell armor";
+    const form = String(defender?.form_name || "");
+    if (/^mega/i.test(form)) {
+      const record = this.pokemon(defender.pokemon_name, form);
+      const own = record && (record.abilities || []).length === 1
+        ? String(record.abilities[0] || "").toLowerCase().trim() : "";
+      if (own) return proof(own);
+    }
+    return proof(recorded);
+  }
+
   pokemon(pokemonName, formName = "") {
     const record = this.formRecord(pokemonName, formName);
     if (record) return record;
@@ -1373,10 +1394,17 @@ export class DamageEngine {
     const atkItem = key(attacker.item);
     const defItem = key(defender.item);
     const moveName = String(meta.name || ctx.move_name);
-    const isCritical = Boolean(ctx.critical || meta.always_critical);
+    const moldBreaker = MOLD_BREAKERS.has(atkAbility);
+    // THE SAME GUARD AS THE DAMAGE MULTIPLIER, and it has to be here too. A critical hit does
+    // two things -- it multiplies, and it ignores the attacker's lowered Attack and the
+    // defender's raised Defense -- and the two are decided by two separate reads of
+    // `ctx.critical`. Guarding only the multiplier left Battle Armor and Shell Armor still being
+    // hit through their own Defense boosts: measured against a freshly recorded vector, a
+    // Sceptile into a +2 Mega Slowbro came out at 39-47 where the app said 20-24.
+    const critProof = this.critProofAbility(defender, defAbility) && !moldBreaker;
+    const isCritical = !critProof && Boolean(ctx.critical || meta.always_critical);
     const atkOffsets = intimidateOffsets(defender, attacker);
     const defOffsets = intimidateOffsets(attacker, defender);
-    const moldBreaker = MOLD_BREAKERS.has(atkAbility);
     const defenderUnaware = defAbility === "unaware" && !moldBreaker;
     const attackerUnaware = atkAbility === "unaware";
 
@@ -1890,7 +1918,10 @@ export class DamageEngine {
     // Blow -- the five that always crit -- were dealing x1.50 through both Abilities everywhere
     // on the site, including in the Damage Calculator. Mold Breaker, Teravolt and Turboblaze
     // ignore the Ability, as they do every other one.
-    const critProof = (defAbility === "battle armor" || defAbility === "shell armor") && !moldBreaker;
+    // Its own, because this is a different function from the one that guards the stat reads --
+    // `attackDefenseValues` decides what a crit IGNORES, this decides what it MULTIPLIES, and a
+    // crit-proof defender needs both.
+    const critProof = this.critProofAbility(defender, defAbility) && !moldBreaker;
     const critical = !critProof
       && Boolean(ctx.critical || (meta.always_critical && !ctx._mcts_ignore_guaranteed_crit));
 

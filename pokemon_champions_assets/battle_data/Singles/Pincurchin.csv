@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pincurchin,148,move,1,Rising Voltage,88.8%,,,,,,,,
-Pincurchin,148,move,2,Memento,75.1%,,,,,,,,
-Pincurchin,148,move,3,Sucker Punch,57.8%,,,,,,,,
-Pincurchin,148,move,4,Spikes,36.3%,,,,,,,,
+Pincurchin,148,move,2,Memento,74.7%,,,,,,,,
+Pincurchin,148,move,3,Sucker Punch,57.5%,,,,,,,,
+Pincurchin,148,move,4,Spikes,36.2%,,,,,,,,
 Pincurchin,148,move,5,Scald,36.0%,,,,,,,,
 Pincurchin,148,move,6,Toxic Spikes,24.7%,,,,,,,,
 Pincurchin,148,move,7,Self-Destruct,9.4%,,,,,,,,
-Pincurchin,148,move,8,Thunder Wave,9.2%,,,,,,,,
-Pincurchin,148,move,9,Recover,9.0%,,,,,,,,
+Pincurchin,148,move,8,Thunder Wave,9.3%,,,,,,,,
+Pincurchin,148,move,9,Recover,9.1%,,,,,,,,
 Pincurchin,148,move,10,Pain Split,8.1%,,,,,,,,
-Pincurchin,148,held_item,1,Terrain Extender,49.2%,,,,,,,,
-Pincurchin,148,held_item,2,Electric Seed,12.5%,,,,,,,,
+Pincurchin,148,held_item,1,Terrain Extender,49.0%,,,,,,,,
+Pincurchin,148,held_item,2,Electric Seed,12.7%,,,,,,,,
 Pincurchin,148,held_item,3,Focus Sash,10.1%,,,,,,,,
 Pincurchin,148,held_item,4,Life Orb,4.8%,,,,,,,,
-Pincurchin,148,held_item,5,Air Balloon,4.5%,,,,,,,,
-Pincurchin,148,held_item,6,Shuca Berry,4.0%,,,,,,,,
-Pincurchin,148,held_item,7,Sitrus Berry,3.4%,,,,,,,,
+Pincurchin,148,held_item,5,Air Balloon,4.6%,,,,,,,,
+Pincurchin,148,held_item,6,Shuca Berry,3.9%,,,,,,,,
+Pincurchin,148,held_item,7,Sitrus Berry,3.3%,,,,,,,,
 Pincurchin,148,held_item,8,Magnet,3.1%,,,,,,,,
 Pincurchin,148,held_item,9,Quick Claw,2.3%,,,,,,,,
 Pincurchin,148,held_item,10,Eject Button,1.6%,,,,,,,,
@@ -30,24 +30,24 @@ Pincurchin,148,teammate,8,Salamence,,,,,,,,,
 Pincurchin,148,teammate,9,Baxcalibur,,,,,,,,,
 Pincurchin,148,teammate,10,Indeedee,,,,,,,,,
 Pincurchin,148,stat_alignment,1,Quiet,35.2%,Sp. Atk,Speed,,,,,,
-Pincurchin,148,stat_alignment,2,Relaxed,18.6%,Defense,Speed,,,,,,
+Pincurchin,148,stat_alignment,2,Relaxed,18.3%,Defense,Speed,,,,,,
 Pincurchin,148,stat_alignment,3,Modest,15.5%,Sp. Atk,Attack,,,,,,
 Pincurchin,148,stat_alignment,4,Bold,13.5%,Defense,Attack,,,,,,
-Pincurchin,148,stat_alignment,5,Sassy,5.4%,Sp. Def,Speed,,,,,,
-Pincurchin,148,stat_alignment,6,Impish,3.0%,Defense,Sp. Atk,,,,,,
-Pincurchin,148,stat_alignment,7,Calm,3.0%,Sp. Def,Attack,,,,,,
+Pincurchin,148,stat_alignment,5,Sassy,5.5%,Sp. Def,Speed,,,,,,
+Pincurchin,148,stat_alignment,6,Calm,3.0%,Sp. Def,Attack,,,,,,
+Pincurchin,148,stat_alignment,7,Impish,2.9%,Defense,Sp. Atk,,,,,,
 Pincurchin,148,stat_alignment,8,Adamant,2.2%,Attack,Sp. Atk,,,,,,
 Pincurchin,148,stat_alignment,9,Brave,1.7%,Attack,Speed,,,,,,
-Pincurchin,148,stat_alignment,10,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
-Pincurchin,148,stat_points,1,,20.0%,,,32,0,32,0,2,0
+Pincurchin,148,stat_alignment,10,Careful,1.2%,Sp. Def,Sp. Atk,,,,,,
+Pincurchin,148,stat_points,1,,19.8%,,,32,0,32,0,2,0
 Pincurchin,148,stat_points,2,,17.8%,,,32,0,2,32,0,0
 Pincurchin,148,stat_points,3,,10.8%,,,32,0,0,32,2,0
 Pincurchin,148,stat_points,4,,4.3%,,,32,0,32,2,0,0
 Pincurchin,148,stat_points,5,,3.8%,,,32,2,0,32,0,0
-Pincurchin,148,stat_points,6,,2.3%,,,32,0,1,32,1,0
+Pincurchin,148,stat_points,6,,2.2%,,,32,0,1,32,1,0
 Pincurchin,148,stat_points,7,,2.1%,,,32,0,2,0,32,0
 Pincurchin,148,stat_points,8,,2.0%,,,2,0,32,32,0,0
-Pincurchin,148,stat_points,9,,1.9%,,,32,0,25,0,9,0
-Pincurchin,148,stat_points,10,,1.5%,,,2,0,32,0,32,0
-Pincurchin,148,ability,1,Electric Surge,99.2%,,,,,,,,
-Pincurchin,148,ability,2,Lightning Rod,0.8%,,,,,,,,
+Pincurchin,148,stat_points,9,,1.8%,,,32,0,25,0,9,0
+Pincurchin,148,stat_points,10,,1.6%,,,2,0,32,0,32,0
+Pincurchin,148,ability,1,Electric Surge,99.1%,,,,,,,,
+Pincurchin,148,ability,2,Lightning Rod,0.9%,,,,,,,,

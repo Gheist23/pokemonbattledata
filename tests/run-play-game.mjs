@@ -609,12 +609,22 @@ const isMegaForm = (form) => String(form || "").trim().toLowerCase().startsWith(
     JSON.stringify(hidden.seen));
 
   // A Focus Sash that breaks, or a Sitrus Berry that is eaten, shows which item it was.
+  //
+  // The Pokemon has to be one that actually HOLDS one: `learnFrom` compares the before and
+  // after, so clearing a flag that was already false teaches nothing, correctly. This used to
+  // take `sides[0][0]` on faith -- and the day the usage file put a White Herb on the top of
+  // the ladder instead of a Focus Sash, it failed for a reason that had nothing to do with the
+  // code. The usage file is rebuilt daily (data/builder/meta-doubles.json), so anything pinned
+  // to what the metagame happens to be holding is pinned to the weather.
+  const spender = hidden.state.sides[0].find((m) => m.sash) || hidden.state.sides[0].find((m) => m.berry);
   const before = new Map(hidden.state.sides[0].map((m) => [m.tag, { sash: m.sash, berry: m.berry, mega: Boolean(m.mega) }]));
-  mine.sash = false;
-  hidden.learnFrom([], before, 0, hidden.seen);
-  if (mine.u.item) {
-    ok("an item that was spent is learned", hidden.seen[mine.tag]?.item === mine.u.item,
-      JSON.stringify({ learned: hidden.seen[mine.tag]?.item, real: mine.u.item }));
+  if (spender) {
+    if (spender.sash) spender.sash = false; else spender.berry = false;
+    hidden.learnFrom([], before, 0, hidden.seen);
+    ok("an item that was spent is learned", hidden.seen[spender.tag]?.item === spender.u.item,
+      JSON.stringify({ learned: hidden.seen[spender.tag]?.item, real: spender.u.item }));
+  } else {
+    notes.push("no Focus Sash or Sitrus on the ladder team today; the spent-item check had nothing to spend");
   }
 
   // An Ability that DID something -- the weather, the terrain, an Intimidate -- is learned; one
@@ -1223,7 +1233,12 @@ const tagOf = (record, side, name) => {
     ok("and the bucket agrees about how much it took", landed.length === 0
       || record.damage.concat(record.fainted).some((row) => tagOf(record, 1, row.name) === swap.inTag),
       JSON.stringify(record.damage));
-    ok("the Pokemon that came in is on the field afterwards", away.view().standing[1].includes(swap.inTag));
+    // ...unless the hit it took knocked it out, which is a legitimate outcome of the very hit
+    // the assertions above require it to have taken.
+    const inView = away.view().sides[1].find((m) => m.tag === swap.inTag);
+    ok("the Pokemon that came in is on the field afterwards, or it fainted taking the hit",
+      away.view().standing[1].includes(swap.inTag) || Boolean(inView?.out),
+      JSON.stringify({ standing: away.view().standing[1], inTag: swap.inTag, out: inView?.out, hp: inView?.hp }));
   }
 }
 

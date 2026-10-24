@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Camerupt,210,move,1,Earth Power,87.2%,,,,,,,,
+Camerupt,210,move,1,Earth Power,87.4%,,,,,,,,
 Camerupt,210,move,2,Ancient Power,59.2%,,,,,,,,
-Camerupt,210,move,3,Flamethrower,52.1%,,,,,,,,
-Camerupt,210,move,4,Eruption,36.3%,,,,,,,,
-Camerupt,210,move,5,Flash Cannon,32.6%,,,,,,,,
-Camerupt,210,move,6,Fire Blast,21.6%,,,,,,,,
+Camerupt,210,move,3,Flamethrower,52.4%,,,,,,,,
+Camerupt,210,move,4,Eruption,36.0%,,,,,,,,
+Camerupt,210,move,5,Flash Cannon,33.1%,,,,,,,,
+Camerupt,210,move,6,Fire Blast,21.3%,,,,,,,,
 Camerupt,210,move,7,Yawn,12.1%,,,,,,,,
-Camerupt,210,move,8,Rock Slide,9.4%,,,,,,,,
+Camerupt,210,move,8,Rock Slide,9.2%,,,,,,,,
 Camerupt,210,move,9,Will-O-Wisp,8.6%,,,,,,,,
-Camerupt,210,move,10,Stealth Rock,8.3%,,,,,,,,
-Camerupt,210,held_item,1,Cameruptite,80.4%,,,,,,,,
-Camerupt,210,held_item,2,Sitrus Berry,5.1%,,,,,,,,
-Camerupt,210,held_item,3,Focus Sash,4.8%,,,,,,,,
+Camerupt,210,move,10,Stealth Rock,8.2%,,,,,,,,
+Camerupt,210,held_item,1,Cameruptite,80.5%,,,,,,,,
+Camerupt,210,held_item,2,Sitrus Berry,4.9%,,,,,,,,
+Camerupt,210,held_item,3,Focus Sash,4.9%,,,,,,,,
 Camerupt,210,held_item,4,Chesto Berry,3.0%,,,,,,,,
 Camerupt,210,held_item,5,Quick Claw,1.1%,,,,,,,,
-Camerupt,210,held_item,6,Leftovers,0.9%,,,,,,,,
-Camerupt,210,held_item,7,Zoom Lens,0.7%,,,,,,,,
+Camerupt,210,held_item,6,Leftovers,1.0%,,,,,,,,
+Camerupt,210,held_item,7,Zoom Lens,0.6%,,,,,,,,
 Camerupt,210,held_item,8,Air Balloon,0.6%,,,,,,,,
 Camerupt,210,held_item,9,Shuca Berry,0.5%,,,,,,,,
 Camerupt,210,held_item,10,Choice Scarf,0.4%,,,,,,,,
@@ -29,26 +29,26 @@ Camerupt,210,teammate,7,Rillaboom,,,,,,,,,
 Camerupt,210,teammate,8,Golisopod,,,,,,,,,
 Camerupt,210,teammate,9,Kingambit,,,,,,,,,
 Camerupt,210,teammate,10,Hydreigon,,,,,,,,,
-Camerupt,210,stat_alignment,1,Quiet,58.2%,Sp. Atk,Speed,,,,,,
-Camerupt,210,stat_alignment,2,Modest,17.9%,Sp. Atk,Attack,,,,,,
-Camerupt,210,stat_alignment,3,Calm,7.0%,Sp. Def,Attack,,,,,,
-Camerupt,210,stat_alignment,4,Relaxed,6.5%,Defense,Speed,,,,,,
-Camerupt,210,stat_alignment,5,Adamant,2.7%,Attack,Sp. Atk,,,,,,
-Camerupt,210,stat_alignment,6,Sassy,2.5%,Sp. Def,Speed,,,,,,
-Camerupt,210,stat_alignment,7,Bold,2.5%,Defense,Attack,,,,,,
-Camerupt,210,stat_alignment,8,Brave,1.4%,Attack,Speed,,,,,,
+Camerupt,210,stat_alignment,1,Quiet,57.6%,Sp. Atk,Speed,,,,,,
+Camerupt,210,stat_alignment,2,Modest,18.7%,Sp. Atk,Attack,,,,,,
+Camerupt,210,stat_alignment,3,Calm,6.9%,Sp. Def,Attack,,,,,,
+Camerupt,210,stat_alignment,4,Relaxed,6.6%,Defense,Speed,,,,,,
+Camerupt,210,stat_alignment,5,Adamant,2.6%,Attack,Sp. Atk,,,,,,
+Camerupt,210,stat_alignment,6,Bold,2.6%,Defense,Attack,,,,,,
+Camerupt,210,stat_alignment,7,Sassy,2.5%,Sp. Def,Speed,,,,,,
+Camerupt,210,stat_alignment,8,Brave,1.3%,Attack,Speed,,,,,,
 Camerupt,210,stat_alignment,9,Mild,0.4%,Sp. Atk,Defense,,,,,,
 Camerupt,210,stat_alignment,10,Timid,0.3%,Speed,Attack,,,,,,
-Camerupt,210,stat_points,1,,39.3%,,,32,0,2,32,0,0
-Camerupt,210,stat_points,2,,7.3%,,,32,0,0,32,2,0
+Camerupt,210,stat_points,1,,39.4%,,,32,0,2,32,0,0
+Camerupt,210,stat_points,2,,7.5%,,,32,0,0,32,2,0
 Camerupt,210,stat_points,3,,2.9%,,,4,0,30,0,32,0
 Camerupt,210,stat_points,4,,2.6%,,,0,0,2,32,32,0
-Camerupt,210,stat_points,5,,2.2%,,,32,0,32,2,0,0
+Camerupt,210,stat_points,5,,2.1%,,,32,0,32,2,0,0
 Camerupt,210,stat_points,6,,2.0%,,,32,0,1,32,1,0
-Camerupt,210,stat_points,7,,2.0%,,,32,0,0,2,32,0
-Camerupt,210,stat_points,8,,2.0%,,,32,32,0,0,2,0
+Camerupt,210,stat_points,7,,1.9%,,,32,0,0,2,32,0
+Camerupt,210,stat_points,8,,1.9%,,,32,0,2,0,32,0
 Camerupt,210,stat_points,9,,1.9%,,,30,0,0,32,4,0
-Camerupt,210,stat_points,10,,1.9%,,,32,0,2,0,32,0
-Camerupt,210,ability,1,Solid Rock,87.7%,,,,,,,,
+Camerupt,210,stat_points,10,,1.9%,,,32,32,0,0,2,0
+Camerupt,210,ability,1,Solid Rock,87.8%,,,,,,,,
 Camerupt,210,ability,2,Anger Point,7.5%,,,,,,,,
-Camerupt,210,ability,3,Magma Armor,4.8%,,,,,,,,
+Camerupt,210,ability,3,Magma Armor,4.7%,,,,,,,,

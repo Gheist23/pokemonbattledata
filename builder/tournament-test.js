@@ -1655,7 +1655,14 @@ export class TournamentTest {
       if (hi <= 0) return NO_HIT;
       const raw = result.move_accuracy_factor;
       let scale = raw === undefined || raw === null ? 1 : Math.max(0, Math.min(1, Number(raw)));
-      if (info.cooldown === null ? this.ev.hasCooldown(info.name, result) : info.cooldown) scale /= 2;
+      // Halving the damage is an AMORTIZATION: it exists because the turn engine fires the move
+      // every turn and the real one does not. When TOURNAMENT_CHARGE is on, the engine spends
+      // the charging turn for real -- so applying both charges the move twice over, and in the
+      // Solver's rolling mode the halved `scale` becomes a 50% chance of doing nothing at all.
+      const amortize = this.chargeOn && info.charge
+        ? false
+        : (info.cooldown === null ? this.ev.hasCooldown(info.name, result) : info.cooldown);
+      if (amortize) scale /= 2;
       // What this move costs ITS OWN USER, as a share of the ATTACKER's max HP (`self_cost`).
       // `frac` is a share of the DEFENDER's HP, so the recoil cannot ride on it -- and the engine
       // used to publish its recoil as strings only, which is why this game charged Life Orb's 1.3x

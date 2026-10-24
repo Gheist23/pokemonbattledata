@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Beedrill,172,move,1,Poison Jab,90.1%,,,,,,,,
+Beedrill,172,move,1,Poison Jab,90.0%,,,,,,,,
 Beedrill,172,move,2,Protect,81.3%,,,,,,,,
-Beedrill,172,move,3,U-turn,77.0%,,,,,,,,
-Beedrill,172,move,4,Drill Run,63.7%,,,,,,,,
-Beedrill,172,move,5,Fell Stinger,22.5%,,,,,,,,
-Beedrill,172,move,6,Lunge,15.8%,,,,,,,,
-Beedrill,172,move,7,Knock Off,9.0%,,,,,,,,
-Beedrill,172,move,8,Cross Poison,8.9%,,,,,,,,
-Beedrill,172,move,9,X-Scissor,4.9%,,,,,,,,
-Beedrill,172,move,10,Pin Missile,3.9%,,,,,,,,
-Beedrill,172,held_item,1,Beedrillite,97.1%,,,,,,,,
+Beedrill,172,move,3,U-turn,76.8%,,,,,,,,
+Beedrill,172,move,4,Drill Run,63.9%,,,,,,,,
+Beedrill,172,move,5,Fell Stinger,22.6%,,,,,,,,
+Beedrill,172,move,6,Lunge,16.1%,,,,,,,,
+Beedrill,172,move,7,Cross Poison,9.1%,,,,,,,,
+Beedrill,172,move,8,Knock Off,9.0%,,,,,,,,
+Beedrill,172,move,9,X-Scissor,4.8%,,,,,,,,
+Beedrill,172,move,10,Pin Missile,3.8%,,,,,,,,
+Beedrill,172,held_item,1,Beedrillite,97.0%,,,,,,,,
 Beedrill,172,held_item,2,Poison Barb,0.8%,,,,,,,,
-Beedrill,172,held_item,3,Scope Lens,0.6%,,,,,,,,
-Beedrill,172,held_item,4,Oran Berry,0.5%,,,,,,,,
-Beedrill,172,held_item,5,Focus Sash,0.5%,,,,,,,,
+Beedrill,172,held_item,3,Scope Lens,0.7%,,,,,,,,
+Beedrill,172,held_item,4,Focus Sash,0.5%,,,,,,,,
+Beedrill,172,held_item,5,Oran Berry,0.4%,,,,,,,,
 Beedrill,172,held_item,6,Metronome,0.1%,,,,,,,,
 Beedrill,172,held_item,7,Bright Powder,0.1%,,,,,,,,
 Beedrill,172,held_item,8,Occa Berry,0.1%,,,,,,,,
@@ -30,24 +30,24 @@ Beedrill,172,teammate,8,Garchomp,,,,,,,,,
 Beedrill,172,teammate,9,Whimsicott,,,,,,,,,
 Beedrill,172,teammate,10,Indeedee,,,,,,,,,
 Beedrill,172,stat_alignment,1,Jolly,63.8%,Speed,Sp. Atk,,,,,,
-Beedrill,172,stat_alignment,2,Adamant,32.6%,Attack,Sp. Atk,,,,,,
-Beedrill,172,stat_alignment,3,Brave,0.6%,Attack,Speed,,,,,,
-Beedrill,172,stat_alignment,4,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
-Beedrill,172,stat_alignment,5,Lonely,0.4%,Attack,Defense,,,,,,
+Beedrill,172,stat_alignment,2,Adamant,32.5%,Attack,Sp. Atk,,,,,,
+Beedrill,172,stat_alignment,3,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
+Beedrill,172,stat_alignment,4,Brave,0.6%,Attack,Speed,,,,,,
+Beedrill,172,stat_alignment,5,Lonely,0.5%,Attack,Defense,,,,,,
 Beedrill,172,stat_alignment,6,Sassy,0.4%,Sp. Def,Speed,,,,,,
 Beedrill,172,stat_alignment,7,Gentle,0.3%,Sp. Def,Defense,,,,,,
 Beedrill,172,stat_alignment,8,Naive,0.3%,Speed,Sp. Def,,,,,,
 Beedrill,172,stat_alignment,9,Mild,0.3%,Sp. Atk,Defense,,,,,,
 Beedrill,172,stat_alignment,10,Naughty,0.2%,Attack,Sp. Def,,,,,,
-Beedrill,172,stat_points,1,,47.5%,,,2,32,0,0,0,32
-Beedrill,172,stat_points,2,,16.3%,,,0,32,0,0,2,32
-Beedrill,172,stat_points,3,,14.2%,,,0,32,2,0,0,32
-Beedrill,172,stat_points,4,,3.2%,,,0,32,0,0,0,32
+Beedrill,172,stat_points,1,,47.7%,,,2,32,0,0,0,32
+Beedrill,172,stat_points,2,,15.9%,,,0,32,0,0,2,32
+Beedrill,172,stat_points,3,,13.7%,,,0,32,2,0,0,32
+Beedrill,172,stat_points,4,,3.3%,,,0,32,0,0,0,32
 Beedrill,172,stat_points,5,,1.3%,,,13,32,0,0,0,21
-Beedrill,172,stat_points,6,,1.3%,,,0,32,3,0,0,31
+Beedrill,172,stat_points,6,,1.2%,,,0,32,3,0,0,31
 Beedrill,172,stat_points,7,,1.1%,,,1,32,1,0,0,32
 Beedrill,172,stat_points,8,,0.9%,,,1,32,0,0,1,32
-Beedrill,172,stat_points,9,,0.8%,,,0,30,5,0,0,31
-Beedrill,172,stat_points,10,,0.8%,,,32,32,2,0,0,0
-Beedrill,172,ability,1,Sniper,62.7%,,,,,,,,
-Beedrill,172,ability,2,Swarm,37.3%,,,,,,,,
+Beedrill,172,stat_points,9,,0.9%,,,0,30,5,0,0,31
+Beedrill,172,stat_points,10,,0.7%,,,32,32,2,0,0,0
+Beedrill,172,ability,1,Sniper,62.2%,,,,,,,,
+Beedrill,172,ability,2,Swarm,37.8%,,,,,,,,

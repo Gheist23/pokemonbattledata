@@ -1315,6 +1315,11 @@ export class TournamentTest {
       // with the rest of the move; whether the delay actually APPLIES depends on the board's
       // weather and the user's item, so that is decided per action in `chargeDelay`.
       charge: Array.isArray(fx) ? fx.find((op) => CHARGE_OPS.has(String(op?.op || ""))) || null : null,
+      // "can hit a target using a move such as Protect" (Feint, Phantom Force, Tearful Look) and
+      // "Cannot be redirected" (Snipe Shot). `bypass_protect` was shipped to the browser and read
+      // by nothing at all; `ignore_redirection` had no op on a move anywhere until now.
+      bypassProtect: Array.isArray(fx) ? fx.some((op) => String(op?.op || "") === "bypass_protect") : false,
+      ignoreRedirect: Array.isArray(fx) ? fx.some((op) => String(op?.op || "") === "ignore_redirection") : false,
     };
     this.moveInfoCache.set(name, info);
     return info;
@@ -2085,7 +2090,9 @@ export class TournamentTest {
     // `target.hidden` is a Pokemon part-way through Fly, Dig, Dive, Bounce or Phantom Force: it
     // is not on the field to be hit. The narrowest seam for it -- every landed hit of every
     // caller passes through here, exactly as `target.guard` does for a Protect.
-    if (!target || target.out || target.guard || target.hidden || hit.frac <= 0) return false;
+    if (!target || target.out || target.hidden || hit.frac <= 0) return false;
+    // A Protect stops it unless the move's own text says it can hit through one.
+    if (target.guard && !(this.effectsOn && att.u.moves[hit.slot]?.bypassProtect)) return false;
     let damage = this.rollHit(hit);
     // What the attacker has left of its action. A Pokemon with a 30% chance of flinching does
     // 70% of what it would have done -- the same multiplication accuracy has always used, applied
@@ -2569,9 +2576,11 @@ export class TournamentTest {
   }
 
   /** A single-target move after a Follow Me / Rage Powder goes to the redirector. */
-  redirected(m, target, redirector) {
+  redirected(m, target, redirector, info = null) {
     if (!redirector || redirector.out || redirector === target) return target;
     if (redirector.k.rage && m.u.grass) return target;
+    // Snipe Shot says so itself; Stalwart and Propeller Tail say it as an Ability.
+    if (this.effectsOn && info?.ignoreRedirect) return target;
     return redirector;
   }
 
@@ -3495,7 +3504,7 @@ export class TournamentTest {
       this.oweSelf(m, selfCost);
       return out;
     }
-    let aim = target ? this.redirected(m, target, redirector) : null;
+    let aim = target ? this.redirected(m, target, redirector, info) : null;
     if (!aim || aim.out) aim = foes.find(alive) || null;
     if (!aim) return out;
     const h = this.hitOn(m, aim, slot, board, m.helped, pre);

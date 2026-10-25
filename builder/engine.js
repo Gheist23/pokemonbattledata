@@ -478,7 +478,22 @@ export function threatItemOption(value) {
  */
 export const KO_LABEL_ON = true;
 
+/**
+ * V535: a move that spends a turn charging spends it in the KO count too (Electro Shot is a
+ * four-turn KO out of rain, not a two-turn one). A recording made before the rule carries no
+ * `charge_ko` stamp and replays with the old count, exactly as every other stamped rule does --
+ * which is what lets a recording from an older app run keep replaying as the app that made it.
+ */
+export const CHARGE_KO_ON = true;
+
 /** The `koLabel` option as a flag, the way `terrainSeedOption` reads its own. */
+export function chargeKoOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
+
 export function koLabelOption(value) {
   if (value === null || value === undefined || value === false) return false;
   const text = String(value).trim().toLowerCase();

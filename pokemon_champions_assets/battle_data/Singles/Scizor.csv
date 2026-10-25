@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Scizor,37,move,1,Bullet Punch,99.5%,,,,,,,,
 Scizor,37,move,2,U-turn,77.4%,,,,,,,,
-Scizor,37,move,3,Roost,66.4%,,,,,,,,
-Scizor,37,move,4,Swords Dance,34.9%,,,,,,,,
-Scizor,37,move,5,Close Combat,27.5%,,,,,,,,
-Scizor,37,move,6,Curse,24.1%,,,,,,,,
-Scizor,37,move,7,Knock Off,23.8%,,,,,,,,
-Scizor,37,move,8,Defog,16.2%,,,,,,,,
-Scizor,37,move,9,Scary Face,6.1%,,,,,,,,
+Scizor,37,move,3,Roost,66.2%,,,,,,,,
+Scizor,37,move,4,Swords Dance,34.7%,,,,,,,,
+Scizor,37,move,5,Close Combat,28.5%,,,,,,,,
+Scizor,37,move,6,Knock Off,24.1%,,,,,,,,
+Scizor,37,move,7,Curse,23.0%,,,,,,,,
+Scizor,37,move,8,Defog,15.9%,,,,,,,,
+Scizor,37,move,9,Scary Face,6.4%,,,,,,,,
 Scizor,37,move,10,Dual Wingbeat,6.0%,,,,,,,,
-Scizor,37,held_item,1,Rocky Helmet,50.6%,,,,,,,,
-Scizor,37,held_item,2,Scizorite,17.7%,,,,,,,,
-Scizor,37,held_item,3,Sitrus Berry,16.7%,,,,,,,,
+Scizor,37,held_item,1,Rocky Helmet,52.0%,,,,,,,,
+Scizor,37,held_item,2,Scizorite,17.5%,,,,,,,,
+Scizor,37,held_item,3,Sitrus Berry,15.6%,,,,,,,,
 Scizor,37,held_item,4,Life Orb,5.3%,,,,,,,,
 Scizor,37,held_item,5,Metal Coat,2.9%,,,,,,,,
-Scizor,37,held_item,6,Leftovers,2.7%,,,,,,,,
-Scizor,37,held_item,7,Lum Berry,1.0%,,,,,,,,
+Scizor,37,held_item,6,Leftovers,2.6%,,,,,,,,
+Scizor,37,held_item,7,Lum Berry,0.9%,,,,,,,,
 Scizor,37,held_item,8,Occa Berry,0.9%,,,,,,,,
 Scizor,37,held_item,9,Focus Sash,0.9%,,,,,,,,
 Scizor,37,held_item,10,Expert Belt,0.3%,,,,,,,,
@@ -29,9 +29,9 @@ Scizor,37,teammate,7,Gholdengo,,,,,,,,,
 Scizor,37,teammate,8,Raichu,,,,,,,,,
 Scizor,37,teammate,9,Umbreon,,,,,,,,,
 Scizor,37,teammate,10,Salamence,,,,,,,,,
-Scizor,37,stat_alignment,1,Adamant,37.4%,Attack,Sp. Atk,,,,,,
-Scizor,37,stat_alignment,2,Relaxed,30.9%,Defense,Speed,,,,,,
-Scizor,37,stat_alignment,3,Impish,25.3%,Defense,Sp. Atk,,,,,,
+Scizor,37,stat_alignment,1,Adamant,37.1%,Attack,Sp. Atk,,,,,,
+Scizor,37,stat_alignment,2,Relaxed,31.0%,Defense,Speed,,,,,,
+Scizor,37,stat_alignment,3,Impish,25.4%,Defense,Sp. Atk,,,,,,
 Scizor,37,stat_alignment,4,Brave,2.9%,Attack,Speed,,,,,,
 Scizor,37,stat_alignment,5,Careful,1.9%,Sp. Def,Sp. Atk,,,,,,
 Scizor,37,stat_alignment,6,Jolly,0.6%,Speed,Sp. Atk,,,,,,
@@ -39,16 +39,16 @@ Scizor,37,stat_alignment,7,Sassy,0.3%,Sp. Def,Speed,,,,,,
 Scizor,37,stat_alignment,8,Bold,0.2%,Defense,Attack,,,,,,
 Scizor,37,stat_alignment,9,Naughty,0.1%,Attack,Sp. Def,,,,,,
 Scizor,37,stat_alignment,10,Lax,0.1%,Defense,Sp. Def,,,,,,
-Scizor,37,stat_points,1,,30.3%,,,32,2,32,0,0,0
-Scizor,37,stat_points,2,,11.8%,,,31,3,32,0,0,0
-Scizor,37,stat_points,3,,11.2%,,,32,0,32,0,2,0
-Scizor,37,stat_points,4,,5.9%,,,32,32,2,0,0,0
-Scizor,37,stat_points,5,,3.3%,,,32,32,0,0,0,2
+Scizor,37,stat_points,1,,31.1%,,,32,2,32,0,0,0
+Scizor,37,stat_points,2,,11.4%,,,32,0,32,0,2,0
+Scizor,37,stat_points,3,,11.0%,,,31,3,32,0,0,0
+Scizor,37,stat_points,4,,5.8%,,,32,32,2,0,0,0
+Scizor,37,stat_points,5,,3.2%,,,32,32,0,0,0,2
 Scizor,37,stat_points,6,,2.9%,,,32,32,0,0,2,0
 Scizor,37,stat_points,7,,1.2%,,,2,32,0,0,0,32
-Scizor,37,stat_points,8,,1.0%,,,30,4,32,0,0,0
-Scizor,37,stat_points,9,,0.9%,,,30,32,1,0,3,0
-Scizor,37,stat_points,10,,0.9%,,,32,0,32,0,0,2
+Scizor,37,stat_points,8,,0.9%,,,32,0,32,0,0,2
+Scizor,37,stat_points,9,,0.9%,,,30,4,32,0,0,0
+Scizor,37,stat_points,10,,0.9%,,,30,32,1,0,3,0
 Scizor,37,ability,1,Technician,98.9%,,,,,,,,
 Scizor,37,ability,2,Swarm,0.6%,,,,,,,,
 Scizor,37,ability,3,Light Metal,0.5%,,,,,,,,

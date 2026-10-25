@@ -25,7 +25,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, fieldRequirementOption, koLabelOption, ateDragonizeOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, koLabelOption, ateDragonizeOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption, chargeKoOption} from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { KnownTeams } from "../builder/known-teams.js";
@@ -104,6 +104,12 @@ const selfStatRule = (testCase) => selfStatChangeOption(
 const koLabelStamp = (testCase) => testCase.record?.rules?.ko_label ?? testCase.rules?.ko_label ?? null;
 const koLabelRule = (testCase) => koLabelOption(
   process.env.KO_LABEL === undefined ? koLabelStamp(testCase) : process.env.KO_LABEL);
+// V535: a charging move spends its charging turn in the KO count. A recording made before the
+// rule carries no `charge_ko` stamp and replays with the old count, so an older recording keeps
+// replaying as the app that made it. CHARGE_KO=0 / =1 replays every recording either way.
+const chargeKoStamp = (testCase) => testCase.record?.rules?.charge_ko ?? testCase.rules?.charge_ko ?? null;
+const chargeKoRule = (testCase) => chargeKoOption(
+  process.env.CHARGE_KO === undefined ? chargeKoStamp(testCase) : process.env.CHARGE_KO);
 
 const knownTeams = new KnownTeams(JSON.parse(readFileSync(join(root, "data", "builder", "known-teams.json"), "utf8")));
 const aliases = appData.usageAliases || {};
@@ -182,7 +188,7 @@ for (const testCase of cases) {
   }
   if (!appPool.length) for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
   const settings = rec._v452_fast_autobuild_payload[0].snapshot?.settings || testCase.settings;
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase) });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;

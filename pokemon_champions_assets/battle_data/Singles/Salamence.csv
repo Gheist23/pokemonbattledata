@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Salamence,15,move,1,Double-Edge,73.5%,,,,,,,,
-Salamence,15,move,2,Earthquake,72.0%,,,,,,,,
+Salamence,15,move,1,Double-Edge,73.2%,,,,,,,,
+Salamence,15,move,2,Earthquake,71.9%,,,,,,,,
 Salamence,15,move,3,Dragon Dance,69.2%,,,,,,,,
 Salamence,15,move,4,Roost,54.2%,,,,,,,,
-Salamence,15,move,5,Draco Meteor,29.7%,,,,,,,,
-Salamence,15,move,6,Fire Blast,23.1%,,,,,,,,
+Salamence,15,move,5,Draco Meteor,29.5%,,,,,,,,
+Salamence,15,move,6,Fire Blast,23.0%,,,,,,,,
 Salamence,15,move,7,Flamethrower,13.1%,,,,,,,,
 Salamence,15,move,8,Hyper Voice,10.9%,,,,,,,,
 Salamence,15,move,9,Outrage,9.2%,,,,,,,,
-Salamence,15,move,10,Temper Flare,6.0%,,,,,,,,
-Salamence,15,held_item,1,Salamencite,93.1%,,,,,,,,
+Salamence,15,move,10,Temper Flare,6.1%,,,,,,,,
+Salamence,15,held_item,1,Salamencite,93.0%,,,,,,,,
 Salamence,15,held_item,2,Choice Scarf,3.4%,,,,,,,,
 Salamence,15,held_item,3,Life Orb,1.4%,,,,,,,,
 Salamence,15,held_item,4,Rocky Helmet,0.7%,,,,,,,,
@@ -29,18 +29,18 @@ Salamence,15,teammate,7,Golisopod,,,,,,,,,
 Salamence,15,teammate,8,Mimikyu,,,,,,,,,
 Salamence,15,teammate,9,Meowscarada,,,,,,,,,
 Salamence,15,teammate,10,Baxcalibur,,,,,,,,,
-Salamence,15,stat_alignment,1,Adamant,42.8%,Attack,Sp. Atk,,,,,,
+Salamence,15,stat_alignment,1,Adamant,42.9%,Attack,Sp. Atk,,,,,,
 Salamence,15,stat_alignment,2,Jolly,18.2%,Speed,Sp. Atk,,,,,,
-Salamence,15,stat_alignment,3,Naive,16.4%,Speed,Sp. Def,,,,,,
+Salamence,15,stat_alignment,3,Naive,16.2%,Speed,Sp. Def,,,,,,
 Salamence,15,stat_alignment,4,Modest,7.6%,Sp. Atk,Attack,,,,,,
 Salamence,15,stat_alignment,5,Timid,5.4%,Speed,Attack,,,,,,
 Salamence,15,stat_alignment,6,Naughty,3.1%,Attack,Sp. Def,,,,,,
 Salamence,15,stat_alignment,7,Careful,2.3%,Sp. Def,Sp. Atk,,,,,,
 Salamence,15,stat_alignment,8,Hasty,1.0%,Speed,Defense,,,,,,
-Salamence,15,stat_alignment,9,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Salamence,15,stat_alignment,9,Impish,0.9%,Defense,Sp. Atk,,,,,,
 Salamence,15,stat_alignment,10,Lonely,0.5%,Attack,Defense,,,,,,
 Salamence,15,stat_points,1,,14.3%,,,1,32,1,0,0,32
-Salamence,15,stat_points,2,,14.0%,,,2,32,0,0,0,32
+Salamence,15,stat_points,2,,14.2%,,,2,32,0,0,0,32
 Salamence,15,stat_points,3,,4.2%,,,2,0,0,32,0,32
 Salamence,15,stat_points,4,,3.2%,,,1,0,1,32,0,32
 Salamence,15,stat_points,5,,2.5%,,,1,32,0,0,1,32
@@ -49,5 +49,5 @@ Salamence,15,stat_points,7,,1.9%,,,0,16,0,18,0,32
 Salamence,15,stat_points,8,,1.8%,,,0,32,2,0,0,32
 Salamence,15,stat_points,9,,1.3%,,,29,1,2,0,2,32
 Salamence,15,stat_points,10,,1.3%,,,0,32,0,0,2,32
-Salamence,15,ability,1,Intimidate,98.6%,,,,,,,,
-Salamence,15,ability,2,Moxie,1.4%,,,,,,,,
+Salamence,15,ability,1,Intimidate,98.5%,,,,,,,,
+Salamence,15,ability,2,Moxie,1.5%,,,,,,,,

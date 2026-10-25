@@ -28,7 +28,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, fieldRequirementOption, koLabelOption, makeMon, ateDragonizeOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption, threatItemOption } from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, koLabelOption, makeMon, ateDragonizeOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption, threatItemOption, chargeKoOption} from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamChecks, classifyArchetype, tailwindBeneficiaries } from "../builder/team-checks.js";
 import { TeamSynergy } from "../builder/team-synergy.js";
@@ -98,6 +98,12 @@ const selfStatRule = (testCase) => selfStatChangeOption(
 const koLabelStamp = (testCase) => testCase.record?.rules?.ko_label ?? testCase.rules?.ko_label ?? null;
 const koLabelRule = (testCase) => koLabelOption(
   process.env.KO_LABEL === undefined ? koLabelStamp(testCase) : process.env.KO_LABEL);
+// V535: a charging move spends its charging turn in the KO count. A recording made before the
+// rule carries no `charge_ko` stamp and replays with the old count, so an older recording keeps
+// replaying as the app that made it. CHARGE_KO=0 / =1 replays every recording either way.
+const chargeKoStamp = (testCase) => testCase.record?.rules?.charge_ko ?? testCase.rules?.charge_ko ?? null;
+const chargeKoRule = (testCase) => chargeKoOption(
+  process.env.CHARGE_KO === undefined ? chargeKoStamp(testCase) : process.env.CHARGE_KO);
 // V522: a threat row names the item its number came from. A recording made before the
 // rule carries no `threat_item` stamp and replays with the old header label.
 const threatItemStamp = (testCase) => testCase.record?.rules?.threat_item ?? testCase.rules?.threat_item ?? null;
@@ -174,7 +180,7 @@ for (const testCase of cases) {
   engine.movePriority = movePriorityRule(testCase);
   engine.roomPlan = roomPlanRule(testCase);
   engine.ateDragonize = ateDragonizeRule(testCase);
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase) });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   // The app's meta rows carry their raw battle-data rows; build the site's meta
   // records from exactly those, so data freshness cannot hide a logic difference.
   const metaRows = testCase.record.meta[0]?.rows || [];

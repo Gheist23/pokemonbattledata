@@ -295,6 +295,40 @@ function playTurn(solver, state, ourMove, theirMove = null, turn = 1) {
     `${solver.shapeOf(free)} vs ${solver.shapeOf(mid)}`);
 }
 
+// ---------------------------------------------------------------------------
+// 9. two clauses the browser was shipped and never read
+// ---------------------------------------------------------------------------
+{
+  const moves = effects.moves || {};
+  ok("the exporter ships ignore_redirection", (effects.moveOps || []).includes("ignore_redirection"));
+  ok("Snipe Shot carries it", (moves.snipeshot || []).some((fx) => fx.op === "ignore_redirection"));
+  ok("Tearful Look carries bypass_protect", (moves.tearfullook || []).some((fx) => fx.op === "bypass_protect"));
+  ok("and Feint still does", (moves.feint || []).some((fx) => fx.op === "bypass_protect"));
+
+  const solver = makeSolver();
+  // A Protect does not stop a move whose own text says it can hit through one.
+  const guard = solver.buildState(board(
+    [row(set("Incineroar", "Safety Goggles", "Intimidate", "Careful",
+      ["Feint", "Flare Blitz", "Knock Off", "Parting Shot"], [32, 0, 2, 0, 32, 0]), { front: true })],
+    [row(BULKY, { front: true })],
+  ));
+  const guarded = guard.active[1][0];
+  guarded.guard = true;
+  const hpBefore = guarded.hp;
+  playTurn(solver, guard, "Feint");
+  ok("Feint hits through a Protect", guarded.hp < hpBefore, `${guarded.hp} vs ${hpBefore}`);
+
+  // ...and an ordinary move still does not.
+  const stopped = solver.buildState(board(
+    [row(ARCH, { front: true })], [row(BULKY, { front: true })],
+  ));
+  stopped.active[1][0].guard = true;
+  const stillFull = stopped.active[1][0].hp;
+  playTurn(solver, stopped, "Flash Cannon");
+  ok("a Protect still stops everything else", stopped.active[1][0].hp === stillFull,
+    `${stopped.active[1][0].hp} vs ${stillFull}`);
+}
+
 for (const note of notes) console.log(note);
 if (failures.length) {
   console.error(`\n${failures.length} of ${checked} checks failed:`);

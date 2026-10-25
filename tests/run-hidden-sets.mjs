@@ -66,7 +66,14 @@ const hidden = new HiddenSets(data, "Doubles", library);
   const garchomp = data.usage("Doubles", "Garchomp", "Garchomp");
   const published = garchomp.moves.map(([, percent]) => percent / 100);
   const sum = published.reduce((a, b) => a + b, 0);
-  near("Garchomp's published rates fall short of four moves", sum, 3.732, 0.001);
+  // NOT a pinned constant. This was `3.732`, which is what the sum happened to be the day the
+  // test was written -- data/builder/meta-doubles.json is rebuilt every morning from the ladder
+  // and the number moves with it (3.724 the day this comment was added). What the test is
+  // actually about is the SHAPE: ten published rows, a real tail, so they add to less than four
+  // moves and more than three -- and `projectRates` puts them back on exactly four below.
+  ok("Garchomp's published rates fall short of four moves", sum > 3 && sum < 4, String(sum));
+  ok("and there are ten of them, which is why they fall short",
+    garchomp.moves.length === 10, String(garchomp.moves.length));
   const q = projectRates(published, 4);
   near("the projection puts them back on exactly four", q.reduce((a, b) => a + b, 0), 4, 1e-9);
   ok("and nothing is above certainty", q.every((value) => value <= 1 + 1e-12));

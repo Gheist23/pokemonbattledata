@@ -6,7 +6,7 @@
 // results recorded from the app itself (tests/run-eval-vectors.mjs). Where the
 // app and this file disagree, the app is the reference.
 
-import { DamageEngine, PINCH_ABILITIES, applyChainedModifiers, compact, defensiveSelfStatChange, key as engineKey, makeContext, makeMon, monWithStages, pyTitle, KO_LABEL_ON, koLabelOption, pyFixed } from "./engine.js";
+import { DamageEngine, PINCH_ABILITIES, applyChainedModifiers, compact, defensiveSelfStatChange, key as engineKey, makeContext, makeMon, monWithStages, pyTitle, KO_LABEL_ON, koLabelOption, CHARGE_KO_ON, chargeKoOption, pyFixed } from "./engine.js";
 import { PAIRED_SPREADS, pairedOption, pointsForNature } from "./nature-spreads.js";
 import { SELF_COST, selfCostOption, selfKo } from "./self-cost.js";
 import { TEAM_CHECK_RULES, teamCheckRulesOption } from "./team-checks.js";
@@ -388,7 +388,7 @@ export class TeamEvaluator {
    *   `selfCost`: what a move costs its own user (see self-cost.js SELF_COST).
    *   All four are on in production; a run recorded before one of them replays with it off.
    */
-  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES, selfCost = SELF_COST, koLabel = KO_LABEL_ON } = {}) {
+  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES, selfCost = SELF_COST, koLabel = KO_LABEL_ON, chargeKo = CHARGE_KO_ON } = {}) {
     this.pairedSpreads = pairedOption(pairedSpreads);
     this.scoreRules = scoreRulesOption(scoreRules);
     // V514 Team Building Checks. TeamChecks reads it off the evaluator, so nothing
@@ -400,6 +400,7 @@ export class TeamEvaluator {
     this.selfCost = selfCostOption(selfCost);
     // Off only for a recording made before the rule (see `koLabelOption`).
     this.koLabel = koLabelOption(koLabel);
+    this.chargeKo = chargeKoOption(chargeKo);
     this.data = data;
     this.engine = engine;
     this.format = format === "Singles" ? "Singles" : "Doubles";
@@ -463,6 +464,7 @@ export class TeamEvaluator {
    * priced as a move that comes round every turn at full power.
    */
   chargesMove(move, result) {
+    if (!this.chargeKo) return false;
     const table = this.engine?.data?.chargeMoves;
     if (!table) return false;
     const skip = table[compact(move)];

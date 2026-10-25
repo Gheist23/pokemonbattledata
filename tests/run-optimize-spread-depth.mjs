@@ -254,9 +254,28 @@ const scorerFor = (team, slot) => {
 // --- 4. B, the trade-off gate -----------------------------------------------------------------
 const cards = [];
 {
-  const jobs = [["sun", 0], ["sun", 3], ["sun", 4], ["sun", 5], ["rough", 0]];
+  // The five that showed the property when this was written come first, because they are the
+  // fast path and usually still do. If none of them does any more, keep going through the rest:
+  // what the test is about is that SOME member shows a spread the whole-point gate hid, and
+  // which member that is depends on data/builder/meta-doubles.json, which is rebuilt every
+  // morning from the ladder. Pinning it to five hand-picked slots made a daily refresh look
+  // like a regression ("pick another team", the message below says so itself).
+  const preferred = [["sun", 0], ["sun", 3], ["sun", 4], ["sun", 5], ["rough", 0]];
+  const rest = [];
+  for (const name of Object.keys(TEAMS)) {
+    for (let slot = 0; slot < teamSets(name).length; slot += 1) {
+      if (!teamSets(name)[slot]) continue;
+      if (!preferred.some(([t, s]) => t === name && s === slot)) rest.push([name, slot]);
+    }
+  }
+  const jobs = [...preferred, ...rest];
   let lowered = 0;
+  let scanned = 0;
   for (const [team, slot] of jobs) {
+    // Stop as soon as both things the section needs have been seen: the whole list is three
+    // teams' worth of full optimizer runs and this section already takes most of a minute.
+    if (lowered > 0 && cards.length > 0 && scanned >= preferred.length) break;
+    scanned += 1;
     const off = await runAt(team, slot, 0);
     const on = await runAt(team, slot, 1);
     const name = `${team}/${slot} ${teamSets(team)[slot].species}`;

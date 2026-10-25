@@ -35,7 +35,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { compact, DamageEngine, fieldRequirementOption, koLabelOption, ateDragonizeOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
+import { compact, DamageEngine, fieldRequirementOption, koLabelOption, ateDragonizeOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption, chargeKoOption} from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { KnownTeams } from "../builder/known-teams.js";
@@ -124,6 +124,12 @@ const selfStatRule = (testCase) => selfStatChangeOption(
 const koLabelStamp = (testCase) => testCase.record?.rules?.ko_label ?? testCase.rules?.ko_label ?? null;
 const koLabelRule = (testCase) => koLabelOption(
   process.env.KO_LABEL === undefined ? koLabelStamp(testCase) : process.env.KO_LABEL);
+// V535: a charging move spends its charging turn in the KO count. A recording made before the
+// rule carries no `charge_ko` stamp and replays with the old count, so an older recording keeps
+// replaying as the app that made it. CHARGE_KO=0 / =1 replays every recording either way.
+const chargeKoStamp = (testCase) => testCase.record?.rules?.charge_ko ?? testCase.rules?.charge_ko ?? null;
+const chargeKoRule = (testCase) => chargeKoOption(
+  process.env.CHARGE_KO === undefined ? chargeKoStamp(testCase) : process.env.CHARGE_KO);
 
 // The tournament library the recordings were MADE with, not the one the site ships today.
 //
@@ -248,7 +254,7 @@ for (const testCase of cases) {
     if (records.has(record.name)) continue;
     records.set(record.name, { ...record, position: recordedFloor + (Number(record.position) || 0) + 1 });
   }
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase) });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   // Derived from the recording, not named here: the Top-X the site replays must be the Top-X the
   // app recorded, in its order. Everything below is measured against that list, so when a live

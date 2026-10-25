@@ -1491,6 +1491,47 @@ for (const line of notes) console.log(line);
   ok("a caller asking for 200ms is not given seconds", tiny.thinkMs <= 400, String(tiny.thinkMs));
 }
 
+// ---------------------------------------------------------------------------
+// 17. a move with no effect on what is standing there is still a legal choice
+// ---------------------------------------------------------------------------
+{
+  // The opponent may switch before it lands, and then it matters: a Fighting move aimed at a
+  // Ghost becomes a Fighting move aimed at whatever replaced it. The SEARCH still prunes it --
+  // for the search the board is fixed and the damage really is zero -- so the two lists differ.
+  const immune = new PlayGame(solver, data, FORMAT, library, { sheet: "open" });
+  const press = makeSet({ ...data.commonSet(FORMAT, "Archaludon", "Archaludon"),
+    moves: ["Body Press", "Flash Cannon", "Dragon Pulse", "Electro Shot"] });
+  const ghost = makeSet({ ...data.commonSet(FORMAT, "Dragapult", "Dragapult"),
+    moves: ["Dragon Darts", "Phantom Force", "Protect", "Tailwind"] });
+  immune.start({ player: [press, press], foe: [ghost, ghost], seed: 5 });
+  const state = immune.state;
+  const frac = solver.t.hitOn(state.active[0][0], state.active[1][0], 0, state.board).frac;
+  ok("Body Press really does nothing to a Ghost", frac === 0, String(frac));
+
+  const uncut = solver.slotCandidates(state, 0, 0, { cap: 0 });
+  const searched = solver.slotCandidates(state, 0, 0, {});
+  const offered = uncut.filter((a) => a.move === "Body Press");
+  ok("the player is still offered it", offered.length > 0, JSON.stringify(uncut.map((a) => a.move)));
+  ok("and it is marked as having no effect", offered.every((a) => a.noEffect === true && a.value === 0),
+    JSON.stringify(offered));
+  ok("the search does not waste a line on it", !searched.some((a) => a.move === "Body Press"),
+    JSON.stringify(searched.map((a) => a.move)));
+
+  // ...and playing it says so, rather than the move vanishing from the turn.
+  const options = immune.options();
+  const pick = options[0]?.actions?.find((a) => a.move === "Body Press");
+  ok("it reaches the player's own action sheet", Boolean(pick),
+    JSON.stringify((options[0]?.actions || []).map((a) => a.move)));
+  if (pick) {
+    const ours = immune.jointFrom(options, [pick.id, options[1]?.actions?.[0]?.id]);
+    const theirs = foeJointBy(immune.state, (list) => list.find((a) => !a.wait));
+    const record = immune.resolve(ours, theirs);
+    const said = record.stream.filter((s) => s.kind === "note" && /had no effect on/i.test(s.text || ""));
+    ok("the play-out says it had no effect", said.length > 0,
+      JSON.stringify(record.stream.filter((s) => s.kind === "note").map((s) => s.text)));
+  }
+}
+
 if (failures.length) {
   console.error(`\n${checked} checks, ${failures.length} failed:`);
   for (const line of failures) console.error(`  - ${line}`);

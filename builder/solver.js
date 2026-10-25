@@ -601,7 +601,12 @@ export class Solver {
         if (!m.justIn) return;
         for (const [foe, fp] of liveFoes) {
           if (foe.k.flinchProof) continue;
-          if (t.hitOn(m, foe, slot, state.board, false).frac <= 0) continue;
+          if (t.hitOn(m, foe, slot, state.board, false).frac <= 0) {
+            // Same rule as the ordinary attacks below: a Fake Out a Ghost is immune to still
+            // flinches whatever is switched into that slot, so the player keeps the option.
+            if (cap === 0) add({ kind: FAKE_OUT, slot, target: fp, move: info.name, value: 0, noEffect: true });
+            continue;
+          }
           add({ kind: FAKE_OUT, slot, target: fp, move: info.name, value: 6 + t.threatTo(foe, mine, state.board) });
         }
         return;
@@ -611,11 +616,25 @@ export class Solver {
         if (info.spread) {
           const frac = liveFoes.reduce((sum, [foe]) => sum + t.hitOn(m, foe, slot, state.board).frac, 0);
           if (frac > 0) add({ kind: ATTACK, slot, target: -1, move: info.name, spread: true, value: frac * 10 });
+          // Every foe standing is immune to it -- an Earthquake into two Flying types. It still
+          // hits whatever comes down into either slot, so the player keeps the option.
+          else if (cap === 0) add({ kind: ATTACK, slot, target: -1, move: info.name, spread: true, value: 0, noEffect: true });
           return;
         }
         for (const [foe, fp] of liveFoes) {
           const hit = t.hitOn(m, foe, slot, state.board);
-          if (hit.frac <= 0) continue;
+          if (hit.frac <= 0) {
+            // A move the Pokemon standing there is immune to is still a legal choice, and
+            // sometimes the right one: the opponent may switch something into that slot before
+            // it lands, and a Normal move aimed at a Ghost becomes a Normal move aimed at
+            // whatever replaced it. Offered on the UNCUT list only -- that is the player's own
+            // (`PlayGame.options`), where every legal action belongs. The search keeps pruning
+            // it, because for the search the board is fixed and the damage really is zero.
+            if (cap === 0) {
+              add({ kind: ATTACK, slot, target: fp, move: info.name, value: 0, noEffect: true });
+            }
+            continue;
+          }
           add({ kind: ATTACK, slot, target: fp, move: info.name, value: t.hitScore(hit.frac, foe) });
         }
         return;

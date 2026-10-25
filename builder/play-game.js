@@ -1211,6 +1211,9 @@ export class PlayGame {
         // Why nothing will happen, if nothing will: `deal`'s own door, asked in `deal`'s own
         // order, while the answers are still true. "" means the hit goes through to the roll.
         refused: !target ? "gone" : target.out ? "gone" : target.guard ? "guarded"
+          // Part-way through Fly, Dig, Dive, Bounce or Phantom Force: it is not there to be
+          // hit, which is a different sentence from "it had no effect on it".
+          : target.hidden ? "away"
           : !hit || hit.frac <= 0 ? "nothing" : "",
         roll: undefined,
         crit,
@@ -1478,6 +1481,8 @@ export class PlayGame {
           // Nothing anywhere records this. `deal` turns a hit away for a Protect without a word,
           // so the attack a Protect stopped was simply missing from the turn.
           steps.push({ kind: "note", ...who, text: `${this.solver.label(target.u)} blocked ${move}` });
+        } else if (event.refused === "away") {
+          steps.push({ kind: "note", ...who, text: `${this.solver.label(target.u)} is out of reach` });
         } else if (event.refused === "nothing") {
           steps.push({ kind: "note", ...who, text: `${move} had no effect on ${this.solver.label(target.u)}` });
         } else if (!event.refused && event.roll !== undefined && event.roll <= 0) {

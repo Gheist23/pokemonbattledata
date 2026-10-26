@@ -177,10 +177,33 @@ function playTurn(solver, state, ourMove, theirMove = null, turn = 1) {
   playTurn(solver, wet, "Electro Shot");
   ok("in rain Electro Shot fires at once", wet.active[1][0].hp < hp, `${wet.active[1][0].hp} vs ${hp}`);
   ok("and nothing is left charging", wet.active[0][0].charging === "");
+  // The move's own text: "in the first turn the user raises its Sp. Atk by one stage and in the
+  // second turn it attacks; in rain the user needs no charge turn". Rain removes the TURN, not
+  // the raise -- so in rain it raises Sp. Atk and attacks on the same turn, and the raise has to
+  // be priced into that attack rather than only into the next one.
+  ok("and the Sp. Atk raise is still paid", wet.active[0][0].spa === 1, String(wet.active[0][0].spa));
 
   const dry = solver.buildState(board([row(ARCH, { front: true })], [row(BULKY, { front: true })]));
   playTurn(solver, dry, "Electro Shot");
   ok("with no rain it charges instead", dry.active[0][0].charging === "electroshot");
+  ok("and the raise is paid on that charging turn", dry.active[0][0].spa === 1, String(dry.active[0][0].spa));
+
+  // ...and the raise really reaches the damage, not just the row: the same board in rain hits
+  // harder than one where the rule is off, with nothing else different.
+  const flat = makeSolver({ charge: 0 });
+  const flatWet = flat.buildState(board(
+    [row(ARCH, { front: true })], [row(BULKY, { front: true })], { weather: "Rain" },
+  ));
+  flat.t.rollHit = (h) => h.frac;
+  solver.t.rollHit = (h) => h.frac;
+  const boosted = solver.buildState(board(
+    [row(ARCH, { front: true })], [row(BULKY, { front: true })], { weather: "Rain" },
+  ));
+  playTurn(flat, flatWet, "Electro Shot");
+  playTurn(solver, boosted, "Electro Shot");
+  ok("and the boosted hit is the harder one",
+    boosted.active[1][0].hp < flatWet.active[1][0].hp,
+    `${boosted.active[1][0].hp} vs ${flatWet.active[1][0].hp}`);
 
   const sunny = solver.buildState(board(
     [row(SUN, { front: true })], [row(BULKY, { front: true })], { weather: "Sun" },
@@ -192,11 +215,20 @@ function playTurn(solver, state, ourMove, theirMove = null, turn = 1) {
   playTurn(solver, shade, "Solar Beam");
   ok("and charges out of it", shade.active[0][0].charging === "solarbeam");
 
-  const herb = solver.buildState(board([row(ARCH_HERB, { front: true })], [row(BULKY, { front: true })]));
+  // A target that SURVIVES the first Electro Shot, so there is still something to aim the second
+  // one at. Amoonguss does not any more: skipping the charge turn no longer skips the +1 Sp. Atk
+  // that goes with it, and the boosted hit knocks it out -- which left turn two with no live foe
+  // and no action, and read as "the Power Herb did not wear off".
+  const TOUGH = set("Archaludon", "Leftovers", "Stamina", "Calm",
+    ["Flash Cannon", "Body Press", "Dragon Pulse", "Protect"], [32, 0, 32, 0, 2, 0]);
+  const herb = solver.buildState(board([row(ARCH_HERB, { front: true })], [row(TOUGH, { front: true })]));
   const herbHp = herb.active[1][0].hp;
   playTurn(solver, herb, "Electro Shot");
   ok("a Power Herb pays for the charge", herb.active[1][0].hp < herbHp);
   ok("and is spent doing it", herb.active[0][0].herbUsed === true);
+  ok("and the charging boost is paid even though the charge was skipped",
+    herb.active[0][0].spa === 1, String(herb.active[0][0].spa));
+  ok("and the foe is still standing for the next one", !herb.active[1][0].out);
   playTurn(solver, herb, "Electro Shot", null, 2);
   ok("so the next one charges normally", herb.active[0][0].charging === "electroshot");
 }

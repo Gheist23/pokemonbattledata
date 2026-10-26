@@ -69,6 +69,31 @@ const TEAMS = {
     { species: "Kingambit", item: "Black Glasses", ability: "Supreme Overlord", nature: "Modest", moves: ["Sucker Punch", "Kowtow Cleave", "Iron Head", "Protect"], bonuses: [0, 0, 0, 0, 0, 0] },
     { species: "Rillaboom", item: "Assault Vest", ability: "Grassy Surge", nature: "Adamant", moves: ["Fake Out", "Grassy Glide", "Wood Hammer", "U-turn"], bonuses: [32, 32, 0, 0, 0, 2] },
   ],
+  // THE SECTION-B FIXTURE, and a real tournament team rather than a hand-made one.
+  //
+  // B needs a member whose better spread is worth between MARGINS.minimum and a whole point:
+  // under that it is never offered at all, over it the old whole-point gate showed it too, and
+  // either way the lowered gate cannot be told from the one it replaced. Slot 2 (Venusaur) gains
+  // 0.67 over its own spread, so it sits in that window, and its run suggests nothing while
+  // still carrying the trade-off -- which is also the only shape that draws the card section 6
+  // reads. Picked by scanning every team in data/builder/known-teams.json rather than typed by
+  // hand, because the hand-typed slots stopped showing the property when the ladder data moved
+  // under them. Each member keeps its own most-common spread, the spread the site would start it
+  // at: from an all-zero one almost ANY spread wins by more than a whole point, which is the
+  // opposite of the case B is looking for.
+  //
+  // One trap, if this ever has to be re-picked: scan it the way `runAt` runs it, rebuilding the
+  // sets for every single run. A scan that builds one array per team and reuses it measures each
+  // slot against a team the previous slot's run has already written back into, and the candidate
+  // it reports does not reproduce from a clean team.
+  tenth: [
+    { species: "Charizard", form: "Charizard", item: "Charizardite Y", ability: "Blaze", nature: "Timid", moves: ["Heat Wave", "Solar Beam", "Weather Ball", "Protect"], bonuses: [2, 0, 0, 32, 0, 32] },
+    { species: "Pelipper", form: "Pelipper", item: "Sitrus Berry", ability: "Drizzle", nature: "Bold", moves: ["Hurricane", "Wide Guard", "Weather Ball", "Tailwind"], bonuses: [2, 0, 0, 32, 0, 32] },
+    { species: "Venusaur", form: "Venusaur", item: "Life Orb", ability: "Chlorophyll", nature: "Modest", moves: ["Leaf Storm", "Sludge Bomb", "Earth Power", "Protect"], bonuses: [2, 0, 0, 32, 0, 32] },
+    { species: "Archaludon", form: "Archaludon", item: "Leftovers", ability: "Stamina", nature: "Calm", moves: ["Electro Shot", "Dragon Pulse", "Flash Cannon", "Protect"], bonuses: [30, 0, 1, 0, 28, 7] },
+    { species: "Garchomp", form: "Garchomp", item: "Garchompite Z", ability: "Rough Skin", nature: "Timid", moves: ["Draco Meteor", "Earth Power", "Power Gem", "Protect"], bonuses: [2, 32, 0, 0, 0, 32] },
+    { species: "Grimmsnarl", form: "Grimmsnarl", item: "Light Clay", ability: "Prankster", nature: "Impish", moves: ["Spirit Break", "Reflect", "Light Screen", "Parting Shot"], bonuses: [32, 0, 19, 0, 15, 0] },
+  ],
   // A Trick Room team: there the Speed starts are one spread with no Speed at all, either way.
   tr: [
     { species: "Hatterene", item: "Life Orb", ability: "Magic Bounce", nature: "Quiet", moves: ["Dazzling Gleam", "Trick Room", "Expanding Force", "Protect"], bonuses: [32, 0, 2, 32, 0, 0] },
@@ -260,7 +285,9 @@ const cards = [];
   // which member that is depends on data/builder/meta-doubles.json, which is rebuilt every
   // morning from the ladder. Pinning it to five hand-picked slots made a daily refresh look
   // like a regression ("pick another team", the message below says so itself).
-  const preferred = [["sun", 0], ["sun", 3], ["sun", 4], ["sun", 5], ["rough", 0]];
+  // gambit/1 is the member the property was found on, so it goes first; the other two keep
+  // the breadth the old list had. Every job scanned is still held to all of B's checks.
+  const preferred = [["tenth", 2], ["sun", 0], ["rough", 0]];
   const rest = [];
   for (const name of Object.keys(TEAMS)) {
     for (let slot = 0; slot < teamSets(name).length; slot += 1) {

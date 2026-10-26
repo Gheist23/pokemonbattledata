@@ -23541,7 +23541,13 @@
      "physical",
      90
     ]
-   }
+   },
+   "conditional_power_ops": [
+    {
+     "op": "power_if_gravity",
+     "multiplier": 1.5
+    }
+   ]
   },
   "Gravity": {
    "type": "Psychic",

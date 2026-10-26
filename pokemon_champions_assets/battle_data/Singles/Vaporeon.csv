@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Vaporeon,121,move,1,Scald,66.7%,,,,,,,,
-Vaporeon,121,move,2,Wish,48.0%,,,,,,,,
-Vaporeon,121,move,3,Acid Armor,36.2%,,,,,,,,
-Vaporeon,121,move,4,Yawn,36.0%,,,,,,,,
-Vaporeon,121,move,5,Calm Mind,35.8%,,,,,,,,
-Vaporeon,121,move,6,Flip Turn,33.4%,,,,,,,,
-Vaporeon,121,move,7,Protect,27.7%,,,,,,,,
-Vaporeon,121,move,8,Ice Beam,26.8%,,,,,,,,
+Vaporeon,121,move,1,Scald,66.8%,,,,,,,,
+Vaporeon,121,move,2,Wish,47.5%,,,,,,,,
+Vaporeon,121,move,3,Acid Armor,36.4%,,,,,,,,
+Vaporeon,121,move,4,Calm Mind,36.0%,,,,,,,,
+Vaporeon,121,move,5,Yawn,35.8%,,,,,,,,
+Vaporeon,121,move,6,Flip Turn,32.9%,,,,,,,,
+Vaporeon,121,move,7,Protect,27.5%,,,,,,,,
+Vaporeon,121,move,8,Ice Beam,26.7%,,,,,,,,
 Vaporeon,121,move,9,Baton Pass,21.6%,,,,,,,,
-Vaporeon,121,move,10,Rest,14.9%,,,,,,,,
-Vaporeon,121,held_item,1,Leftovers,54.5%,,,,,,,,
-Vaporeon,121,held_item,2,Sitrus Berry,19.2%,,,,,,,,
+Vaporeon,121,move,10,Rest,15.1%,,,,,,,,
+Vaporeon,121,held_item,1,Leftovers,54.3%,,,,,,,,
+Vaporeon,121,held_item,2,Sitrus Berry,19.3%,,,,,,,,
 Vaporeon,121,held_item,3,Chesto Berry,11.0%,,,,,,,,
 Vaporeon,121,held_item,4,Rocky Helmet,3.2%,,,,,,,,
 Vaporeon,121,held_item,5,Lum Berry,1.7%,,,,,,,,
 Vaporeon,121,held_item,6,Damp Rock,1.5%,,,,,,,,
-Vaporeon,121,held_item,7,Choice Scarf,1.3%,,,,,,,,
+Vaporeon,121,held_item,7,Choice Scarf,1.4%,,,,,,,,
 Vaporeon,121,held_item,8,Mystic Water,1.1%,,,,,,,,
 Vaporeon,121,held_item,9,Iron Ball,0.8%,,,,,,,,
-Vaporeon,121,held_item,10,Bright Powder,0.7%,,,,,,,,
+Vaporeon,121,held_item,10,Mental Herb,0.7%,,,,,,,,
 Vaporeon,121,teammate,1,Garchomp,,,,,,,,,
 Vaporeon,121,teammate,2,Sylveon,,,,,,,,,
 Vaporeon,121,teammate,3,Golisopod,,,,,,,,,
@@ -27,27 +27,27 @@ Vaporeon,121,teammate,5,Espeon,,,,,,,,,
 Vaporeon,121,teammate,6,Jolteon,,,,,,,,,
 Vaporeon,121,teammate,7,Lucario,,,,,,,,,
 Vaporeon,121,teammate,8,Mimikyu,,,,,,,,,
-Vaporeon,121,teammate,9,Glimmora,,,,,,,,,
-Vaporeon,121,teammate,10,Flareon,,,,,,,,,
+Vaporeon,121,teammate,9,Flareon,,,,,,,,,
+Vaporeon,121,teammate,10,Charizard,,,,,,,,,
 Vaporeon,121,stat_alignment,1,Bold,45.1%,Defense,Attack,,,,,,
-Vaporeon,121,stat_alignment,2,Relaxed,18.0%,Defense,Speed,,,,,,
+Vaporeon,121,stat_alignment,2,Relaxed,17.9%,Defense,Speed,,,,,,
 Vaporeon,121,stat_alignment,3,Calm,15.1%,Sp. Def,Attack,,,,,,
-Vaporeon,121,stat_alignment,4,Sassy,8.8%,Sp. Def,Speed,,,,,,
-Vaporeon,121,stat_alignment,5,Modest,8.4%,Sp. Atk,Attack,,,,,,
-Vaporeon,121,stat_alignment,6,Quiet,1.6%,Sp. Atk,Speed,,,,,,
+Vaporeon,121,stat_alignment,4,Sassy,8.6%,Sp. Def,Speed,,,,,,
+Vaporeon,121,stat_alignment,5,Modest,8.5%,Sp. Atk,Attack,,,,,,
+Vaporeon,121,stat_alignment,6,Quiet,1.5%,Sp. Atk,Speed,,,,,,
 Vaporeon,121,stat_alignment,7,Timid,1.2%,Speed,Attack,,,,,,
 Vaporeon,121,stat_alignment,8,Impish,0.9%,Defense,Sp. Atk,,,,,,
 Vaporeon,121,stat_alignment,9,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
 Vaporeon,121,stat_alignment,10,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Vaporeon,121,stat_points,1,,30.8%,,,32,0,32,0,2,0
-Vaporeon,121,stat_points,2,,8.3%,,,32,0,2,0,32,0
-Vaporeon,121,stat_points,3,,4.2%,,,2,0,32,0,32,0
-Vaporeon,121,stat_points,4,,3.3%,,,32,0,32,2,0,0
+Vaporeon,121,stat_points,1,,30.7%,,,32,0,32,0,2,0
+Vaporeon,121,stat_points,2,,8.2%,,,32,0,2,0,32,0
+Vaporeon,121,stat_points,3,,4.4%,,,2,0,32,0,32,0
+Vaporeon,121,stat_points,4,,3.4%,,,32,0,32,2,0,0
 Vaporeon,121,stat_points,5,,2.3%,,,32,0,30,0,4,0
-Vaporeon,121,stat_points,6,,2.3%,,,32,0,0,2,32,0
-Vaporeon,121,stat_points,7,,2.3%,,,32,0,32,0,0,2
-Vaporeon,121,stat_points,8,,1.8%,,,2,0,0,32,32,0
-Vaporeon,121,stat_points,9,,1.4%,,,32,0,32,0,0,0
-Vaporeon,121,stat_points,10,,1.3%,,,32,0,0,12,0,22
-Vaporeon,121,ability,1,Water Absorb,94.0%,,,,,,,,
-Vaporeon,121,ability,2,Hydration,6.0%,,,,,,,,
+Vaporeon,121,stat_points,6,,2.3%,,,32,0,32,0,0,2
+Vaporeon,121,stat_points,7,,2.2%,,,32,0,0,2,32,0
+Vaporeon,121,stat_points,8,,1.7%,,,2,0,0,32,32,0
+Vaporeon,121,stat_points,9,,1.4%,,,32,0,0,12,0,22
+Vaporeon,121,stat_points,10,,1.4%,,,32,0,32,0,0,0
+Vaporeon,121,ability,1,Water Absorb,93.8%,,,,,,,,
+Vaporeon,121,ability,2,Hydration,6.2%,,,,,,,,

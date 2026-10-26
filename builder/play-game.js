@@ -164,7 +164,26 @@ const STATUS = "play:status";
  * and offering the move would be offering one that does nothing. The move is still DRAWN on the
  * sheet -- all four always are -- and says it cannot be used.
  */
-const RUNNABLE_OPS = new Set(["status", "stage", "heal", "weather_heal", "flinch"]);
+// `electric_boost` is here for a reason worth stating: `:549` requires EVERY op of a move to
+// be runnable, and Charge's ops are now [electric_boost, stage]. Shipping the op without adding
+// it here would have taken Charge OUT of the played game's move sheet -- a data-only change
+// would have been strictly worse than not shipping it at all.
+const RUNNABLE_OPS = new Set(["status", "stage", "heal", "weather_heal", "flinch", "electric_boost"]);
+// `volatile` is deliberately NOT in that set, which is worth stating because Attract DOES ship
+// with its clause intact -- data/builder/move-effects.json carries
+// `attract: [{op: "volatile", status: "infatuation", condition: "opposite_gender"}]`, because
+// `volatile` has always been on the exporter's WEB_MOVE_OPS list. Four things would each have to
+// change before adding it here meant anything, and any one of them alone is fatal:
+//   * there is no gender anywhere in the site's data. app-data.json's species carry none, and
+//     neither the turn engine, the Solver nor this file has a gender field -- so a ported
+//     `opposite_gender` could only answer "unknown" and pass, exactly as the Companion's does;
+//   * `runEffectOps` has no `volatile` branch, so the op would run and do nothing;
+//   * the per-row condition vector (`tournament-test.js` `st`) has six slots -- brn, psn, tox,
+//     par, slp, frz -- and no volatile slot to record infatuation in;
+//   * `actionScale` is the only place an action is reduced, and it multiplies flinch, sleep,
+//     freeze and paralysis; an infatuation that costs a share of a turn would have to join it.
+// Adding the op to this set without those would offer Attract in the move sheet and have it do
+// nothing, which is worse than not offering it.
 
 /**
  * The moves the SEARCH already has a kind for, by name.
@@ -698,6 +717,11 @@ export class PlayGame {
       // searches has a Pokemon that is free to act -- and one that is away on Fly standing there
       // to be hit. `buildState` finds the slot again from the key.
       charging: m.charging || "",
+      // Carrying Charge's Electric Boost, restored by `buildState` (builder/solver.js). Without
+      // it the one bridge from the live board to the boards the opponent searches dropped the
+      // flag, so the opponent planned against an Electric move priced at half what it will do --
+      // and the restore on the other side was dead code in production.
+      charged: Boolean(m.charged),
       // Already Mega Evolved. The set above is always the base one, so this is the only thing
       // saying the stone has been spent and the Pokemon is standing there in its Mega form.
       mega: this.alreadyMega(m),
@@ -1096,7 +1120,13 @@ export class PlayGame {
       if (!action || action.wait || !action.kind || action.kind === SWITCH) continue;
       const m = this.state.active[s][action.position];
       if (!m) continue;
-      const aim = action.target >= 0 ? this.state.active[1 - s][action.target] : null;
+      // A numeric seat is the only thing that counts as aimed: `action.target >= 0` is true for
+      // the `null` a self-aimed action carries, because null coerces to 0 (see `aimedSeat` in
+      // builder/solver.js, where the same coercion dropped the action outright). Harmless here
+      // -- an out-of-range read gives undefined and the line below turns that into null -- and
+      // written out so the next reader does not have to work that out.
+      const seat = typeof action.target === "number" && action.target >= 0 ? action.target : -1;
+      const aim = seat >= 0 ? this.state.active[1 - s][seat] : null;
       // Whether the move actually strikes something, which the page needs to animate it: a
       // Pokemon using Protect must not charge across the field. It cannot be inferred from the
       // step -- a spread move carries no target either, and an attack stopped by Protect lands
@@ -1110,6 +1140,17 @@ export class PlayGame {
         // A spread move has no one target, so the step says none rather than naming whichever
         // of the two or three it happened to resolve against first.
         spread: Boolean(action.spread),
+        // A move that shares its hits out has no ONE target either, even though it is not a
+        // spread move: Dragon Darts into two foes was declared as a single-target attack, so
+        // the page named one of them and lunged at it while both were being hit. `seat < 0` is
+        // the test and not `splitsHits` alone, because with one foe left the solver aims the
+        // move normally and that one really is its target.
+        // KNOWN AND ACCEPTED: this is decided BEFORE the turn resolves, so if a foe Protects
+        // and the darts collapse onto the survivor, the caption still reads as shared and the
+        // lunge still has no one target. It is cosmetic -- the `hit` steps below say which
+        // Pokemon lost how much -- and naming a foe here instead would name one of the two in
+        // the genuinely split case, which is the thing this flag exists to stop.
+        shared: Boolean(seat < 0 && this.solver.t.splitsHits(info)),
         target: aim ? { side: 1 - s, tag: aim.tag } : null,
       });
     }
@@ -1168,12 +1209,30 @@ export class PlayGame {
     // `deal` itself is handed the finished number and has no idea what produced it.
     let lastAsked = null;
     let rawHitOn = null;
+    let rawDart = null;
     decorate("hitOn", (was) => {
       rawHitOn = was;
       return function hitOn(...args) {
         const hit = was.apply(this, args);
-        lastAsked = { args, hit };
+        lastAsked = { args, hit, halved: false };
         return hit;
+      };
+    });
+
+    // A split move (Dragon Darts) halves the hit `hitOn` returned, and `dart` returns a COPY --
+    // so the identity check below stopped matching and every critical dart was silently dropped
+    // back to its ordinary damage. The record follows the copy, and remembers that it was
+    // halved so the re-priced critical hit can be halved the same way: `rawHitOn` prices BOTH
+    // darts into one target, so re-pricing without halving would make a critical dart land at
+    // full two-dart strength, which is further wrong than dropping the crit was.
+    decorate("dart", (was) => {
+      rawDart = was;
+      return function dart(hit) {
+        const half = was.call(this, hit);
+        if (lastAsked && lastAsked.hit === hit && half !== hit) {
+          lastAsked = { args: lastAsked.args, hit: half, halved: true };
+        }
+        return half;
       };
     });
 
@@ -1192,7 +1251,8 @@ export class PlayGame {
         // checked by identity -- if the hit did not come from the call we recorded, we do not
         // know how to re-price it and the crit is dropped rather than guessed.
         if (lastAsked && lastAsked.hit === hit && rawHitOn) {
-          const priced = rawHitOn.apply(this, [...lastAsked.args.slice(0, 6), true]);
+          const full = rawHitOn.apply(this, [...lastAsked.args.slice(0, 6), true]);
+          const priced = lastAsked.halved && full && rawDart ? rawDart.call(this, full) : full;
           if (priced && priced.frac > 0) {
             crit = true;
             hit = priced;
@@ -1379,7 +1439,7 @@ export class PlayGame {
       const decl = declared[m.s] ? declared[m.s].get(m.tag) : null;
       moved.add(seatKey(m.s, m.tag));
       if (!decl || !decl.move) return;
-      let target = decl.spread ? null : aim || decl.target;
+      let target = decl.spread || decl.shared ? null : aim || decl.target;
       if (target && !aim && replaced.has(seatKey(target.side, target.tag))) {
         target = { side: target.side, tag: replaced.get(seatKey(target.side, target.tag)) };
       }

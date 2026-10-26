@@ -15,7 +15,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, fieldRequirementOption, makeContext, makeMon, pyFixed, pyRound, ateDragonizeOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, makeContext, makeMon, pyFixed, pyRound, ateDragonizeOption, formTypeOption, gravityPowerOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -40,6 +40,19 @@ const fieldRule = (vector) => fieldRequirementOption(
 /** V528: Dragonize joined the `-ate` table, so a Mega Feraligatr's Normal moves became
     Dragon moves at 1.2x. A vector recorded before the rule carries no `ate_dragonize`
     stamp and replays with the four-entry table. */
+/** Raging Bull takes its user's form's type (Paldean Tauros: Combat/Blaze/Aqua Breed become
+    Fighting/Fire/Water). A vector recorded before the rule carries no `form_type` stamp and
+    replays with the move's listed Normal, which is what it was recorded at. */
+/** Gravity raises Grav Apple's power by half. A vector recorded before the rule carries no
+    `gravity_power` stamp and replays with the flat power. */
+const gravityPowerRule = (vector) => gravityPowerOption(
+  process.env.GRAVITY_POWER === undefined
+    ? (vector.rules?.gravity_power ?? vector.record?.rules?.gravity_power ?? null)
+    : process.env.GRAVITY_POWER);
+const formTypeRule = (vector) => formTypeOption(
+  process.env.FORM_TYPE === undefined
+    ? (vector.rules?.form_type ?? vector.record?.rules?.form_type ?? null)
+    : process.env.FORM_TYPE);
 const ateDragonizeRule = (vector) => ateDragonizeOption(
   process.env.ATE_DRAGONIZE === undefined
     ? (vector.rules?.ate_dragonize ?? vector.record?.rules?.ate_dragonize ?? null)
@@ -115,6 +128,8 @@ for (const [index, vector] of vectors.entries()) {
   engine.movePriority = movePriorityRule(vector);
   engine.roomPlan = roomPlanRule(vector);
   engine.ateDragonize = ateDragonizeRule(vector);
+  engine.formType = formTypeRule(vector);
+  engine.gravityPower = gravityPowerRule(vector);
   const attacker = makeMon(vector.attacker);
   const defender = makeMon(vector.defender);
   const ctx = makeContext(vector.ctx);

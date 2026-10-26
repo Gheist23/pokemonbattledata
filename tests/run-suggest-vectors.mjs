@@ -35,7 +35,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { compact, DamageEngine, fieldRequirementOption, koLabelOption, ateDragonizeOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption, chargeKoOption} from "../builder/engine.js";
+import { compact, DamageEngine, fieldRequirementOption, koLabelOption, ateDragonizeOption, formTypeOption, gravityPowerOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption, chargeKoOption} from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { KnownTeams } from "../builder/known-teams.js";
@@ -96,6 +96,19 @@ const fieldRule = (testCase) => fieldRequirementOption(
     Dragon moves at 1.2x. A vector recorded before the rule carries no `ate_dragonize`
     stamp and replays with the four-entry table. */
 const ateDragonizeStamp = (testCase) => testCase.record?.rules?.ate_dragonize ?? testCase.rules?.ate_dragonize ?? null;
+/** Raging Bull takes its user's form's type (Paldean Tauros: Combat/Blaze/Aqua Breed become
+    Fighting/Fire/Water). A vector recorded before the rule carries no `form_type` stamp and
+    replays with the move's listed Normal, which is what it was recorded at. */
+/** Gravity raises Grav Apple's power by half. A vector recorded before the rule carries no
+    `gravity_power` stamp and replays with the flat power. */
+const gravityPowerRule = (testCase) => gravityPowerOption(
+  process.env.GRAVITY_POWER === undefined
+    ? (testCase.rules?.gravity_power ?? testCase.record?.rules?.gravity_power ?? null)
+    : process.env.GRAVITY_POWER);
+const formTypeRule = (testCase) => formTypeOption(
+  process.env.FORM_TYPE === undefined
+    ? (testCase.rules?.form_type ?? testCase.record?.rules?.form_type ?? null)
+    : process.env.FORM_TYPE);
 const ateDragonizeRule = (testCase) => ateDragonizeOption(
   process.env.ATE_DRAGONIZE === undefined ? ateDragonizeStamp(testCase) : process.env.ATE_DRAGONIZE);
 /** V529: 33 moves learned the turn-order priority they really have, so Roar, Dragon Tail,
@@ -217,6 +230,8 @@ for (const testCase of cases) {
   engine.movePriority = movePriorityRule(testCase);
   engine.roomPlan = roomPlanRule(testCase);
   engine.ateDragonize = ateDragonizeRule(testCase);
+  engine.formType = formTypeRule(testCase);
+  engine.gravityPower = gravityPowerRule(testCase);
   if (only && testCase.name !== only) continue;
   // A recording made with the guaranteed-move rule says so in its label.
   const label = `${testCase.name}${stampOf(testCase) ? " guaranteed" : ""}${scoringStamp(testCase) ? ` scoring v${scoringStamp(testCase)}` : ""}`;

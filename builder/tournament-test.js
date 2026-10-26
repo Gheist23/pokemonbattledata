@@ -1054,6 +1054,9 @@ function freezeRun(actions, runs, i) {
       // The charge state joins the snapshot for the same reason: within a run of simultaneous
       // actions, whether a Pokemon was already charging is a fact about the state BEFORE the run.
       charging: m.charging || "", chargeSlot: m.chargeSlot ?? -1, hidden: Boolean(m.hidden),
+      // Likewise for the Electric Boost: whether the user was already charged is a fact about
+      // the state BEFORE the run, and `hitOn` prices every hit from this snapshot.
+      charged: Boolean(m.charged),
       st: m.st ? { ...m.st } : null };
     m.runTag = tag;
   }
@@ -1137,6 +1140,10 @@ export class TournamentTest {
     this.gen = (this.gen || 0) + 1;
     this.nextId = 0;
     this.hits = new Map();
+    // A charged attacker's Electric move is a DIFFERENT number for the same key, and the key is
+    // already past the integer range a double holds exactly, so it gets a store of its own
+    // rather than a wider key. See `moveHit`.
+    this.chargedHits = new Map();
     this.best = new Map();
     this.bestSafe = new Map();
     this.speeds = new Map();
@@ -1320,6 +1327,10 @@ export class TournamentTest {
       // by nothing at all; `ignore_redirection` had no op on a move anywhere until now.
       bypassProtect: Array.isArray(fx) ? fx.some((op) => String(op?.op || "") === "bypass_protect") : false,
       ignoreRedirect: Array.isArray(fx) ? fx.some((op) => String(op?.op || "") === "ignore_redirection") : false,
+      // Dragon Darts: "If there are 2 opposing Pokemon each of them is attacked once." The two
+      // darts were already fired -- the move table carries `hits: 2` and the damage engine
+      // multiplies by it -- but both landed on one foe. This says to share them out instead.
+      splitHits: Array.isArray(fx) ? fx.some((op) => String(op?.op || "") === "split_hits_across_targets") : false,
     };
     this.moveInfoCache.set(name, info);
     return info;
@@ -1493,7 +1504,8 @@ export class TournamentTest {
 
   /**
    * One move into one defender on this board, cached with only the parts of the board it depends on.
-   * `fx`: 1 = Helping Hand (Doubles), 2 = the attacker is burned (physical moves).
+   * `fx`: 1 = Helping Hand (Doubles), 2 = the attacker is burned (physical moves),
+   * 4 = the attacker has the Electric Boost (Electric moves only).
    */
   moveHit(att, def, slot, board, atk, spa, fx = 0, hp = 1, defStage = 0, took = 0, critical = false,
     defHp = 1, defStatus = 0) {
@@ -1502,7 +1514,8 @@ export class TournamentTest {
     const w = info.weather || att.weatherSense || def.weatherSense ? board.w : ANY;
     const t = info.terrain || att.terrainSense || def.terrainSense ? board.t : ANY;
     const stage = info.physical ? atk : info.special ? spa : 0;
-    const f = (this.active > 1 ? fx & 1 : 0) | (info.physical ? fx & 2 : 0);
+    const f = (this.active > 1 ? fx & 1 : 0) | (info.physical ? fx & 2 : 0)
+      | (this.effectsOn && info.type === "Electric" ? fx & 4 : 0);
     // Eruption, Water Spout and Dragon Energy are as strong as their user's remaining HP
     // (TOURNAMENT_FALLOFF). The share is quantised to HP_BUCKETS steps and joins the cache key for
     // exactly those moves -- a key that ignored it would hand a hurt attacker the full-power number,
@@ -1538,14 +1551,21 @@ export class TournamentTest {
     key = key * 8 + t;
     key = key * 13 + stage + 6;
     key = key * 13 + clampStage(defStage) + 6;
-    key = key * 4 + f;
+    // Bits 1 and 2 only. The Electric Boost (bit 4) selects a SEPARATE store below instead of
+    // widening this key: a charged attacker now reaches the search as well as the played game
+    // (the live board carries the flag through `rowOf`), so bypassing the cache for it made the
+    // opponent's search re-price every Electric hit while a charged Pokemon was on the field --
+    // and this key is already past the integer range a double holds exactly, so `* 8 + f` is
+    // not available either.
+    key = key * 4 + (f & 3);
     key = key * HP_BUCKETS + bucket;
     key = key * HP_BUCKETS + defBucket;
     key = key * LIVE_STATUS.length + defCond;
-    let hit = this.hits.get(key);
+    const store = (f & 4) ? this.chargedHits : this.hits;
+    let hit = store.get(key);
     if (hit === undefined) {
       hit = this.calc(att, def, info, slot, w, t, stage, f, bucket, defStage, 0, false, defBucket, defCond);
-      this.hits.set(key, hit);
+      store.set(key, hit);
     }
     return hit;
   }
@@ -1639,6 +1659,10 @@ export class TournamentTest {
       }
       if (f & 1) ctx.helping_hand = true;
       if (f & 2) ctx.burned = true;
+      // The key `builder/engine.js` reads for Charge's doubling. Safe to write onto
+      // `ctx.attacker_state`: `team-eval.js` creates it fresh per call and re-spreads it before
+      // handing it to the engine.
+      if (f & 4) ctx.attacker_state.charged = true;
       // What the attacker took this turn, in whole HP, which is the only thing Counter, Metal
       // Burst and Mirror Coat are made of. `took` is a share of the attacker's own max HP.
       if (this.effectsOn && info.counter && took > 0) {
@@ -1703,7 +1727,9 @@ export class TournamentTest {
    */
   hitOn(m, target, slot, board, helped = m.helped, pre = m, critical = false) {
     return this.moveHit(m.u, target.u, slot, board, pre.atk, pre.spa,
-      (helped ? 1 : 0) | (pre.burn ? 2 : 0), pre.hp, target.def || 0, pre.took || 0, critical,
+      // 4 is the Electric Boost. Read from the frozen run like `burn` and the stages, so a
+      // Charge used inside a run of simultaneous actions cannot reach the actions in that run.
+      (helped ? 1 : 0) | (pre.burn ? 2 : 0) | (pre.charged ? 4 : 0), pre.hp, target.def || 0, pre.took || 0, critical,
       // What is actually standing there (TOURNAMENT_LIVE_HP). Read off the row even when the
       // rule is off, because `moveHit` then pins them to the old constants itself -- one place
       // to look rather than two.
@@ -1989,6 +2015,11 @@ export class TournamentTest {
       hidden: false,
       // A Power Herb is spent on the charge it pays for, so it can only do that once.
       herbUsed: false,
+      // CHARGE: "The user gains the Electric Boost status", which doubles its next Electric
+      // move and is spent on it. A scalar for the same reason `charging` is one: `solver.js
+      // cloneState` shallow-copies a row with `{ ...m }`, so an object would be shared between
+      // search lines.
+      charged: false,
     };
   }
 
@@ -2249,7 +2280,7 @@ export class TournamentTest {
    * Returns what it DID, in words, so the turn can be reported. An op this model does not carry
    * -- a screen, a hazard -- is left out of that list rather than silently counted as done.
    */
-  runEffectOps(m, target, a, active, events) {
+  runEffectOps(m, target, a, active, events, board = null) {
     const info = m.u.moves[a.slot];
     const roll = this.effectRoll;
     const did = [];
@@ -2290,11 +2321,15 @@ export class TournamentTest {
           // until the registry learnt the clause, and the three fractions are read here exactly
           // as the Companion reads them (mcts/engine.py).
           const share = fx.op === "weather_heal"
-            ? Math.max(0, Math.min(1, weatherHealShare(fx, WEATHERS[board.w])))
+            ? Math.max(0, Math.min(1, weatherHealShare(fx, WEATHERS[board ? board.w : this.fixedWeather])))
             : Math.max(0, Math.min(1, Number(fx.fraction) || 0));
           if (share <= 0 || at.hp >= 1) continue;
           at.hp = Math.min(1, at.hp + share);
           did.push("heal");
+        } else if (fx.op === "electric_boost") {
+          // Charge. Its other op is the +1 Sp. Def, applied by the `stage` branch as usual.
+          at.charged = true;
+          did.push("charged itself");
         } else if (fx.op === "flinch") {
           if (at.k.flinchProof || at.k.secondaryProof) continue;
           at.flinchP = 1 - (1 - at.flinchP) * (1 - chance);
@@ -2390,7 +2425,28 @@ export class TournamentTest {
       events?.push({ s, kind: "release", actor: m.u, move: info.name });
       return false;
     }
-    if (!this.chargeDelay(m, info, board)) return false;
+    if (!this.chargeDelay(m, info, board)) {
+      // THE CHARGE TURN IS SKIPPED, NOT THE CHARGING EFFECT. Electro Shot's own text is "in the
+      // first turn the user raises its Sp. Atk by one stage and in the second turn it attacks;
+      // in rain the user needs no charge turn, and the same with a Power Herb" -- so in rain it
+      // raises Sp. Atk AND attacks on the same turn. Paying `on_charge` only inside
+      // `beginCharge` lost the boost in exactly the cases the move is built for.
+      const nested = info.charge.on_charge;
+      if (nested && String(nested.op || "") === "stage") {
+        const before = { atk: m.atk, spa: m.spa };
+        this.shiftStages(m, nested.stats || [], Number(nested.amount) || 0);
+        // ...and THIS turn's hit has to be priced with it. Damage reads the frozen run state
+        // (`pre.atk` / `pre.spa`), which was taken before the action began, so the raise would
+        // otherwise only reach the NEXT turn -- which is the one case this move never has.
+        // Each action owns its own `pre` (`freezeRun`), so this reaches nothing else in the run.
+        if (pre && pre !== m) {
+          if (m.atk !== before.atk) pre.atk = m.atk;
+          if (m.spa !== before.spa) pre.spa = m.spa;
+        }
+        events?.push({ s, kind: "charge-boost", actor: m.u, move: info.name });
+      }
+      return false;
+    }
     this.beginCharge(m, info, slot, events, s);
     return true;
   }
@@ -2514,6 +2570,49 @@ export class TournamentTest {
   }
 
   /**
+   * Does this move share its hits out over the foes, here, now?
+   *
+   * Three things have to be true, and the last two are why this is a method and not the flag:
+   * the registry has to be on (without it the move has no ops at all), the move has to carry
+   * the op, and there has to be more than one Pokemon a side -- in Singles "each of them is
+   * attacked once" is one Pokemon attacked twice, which is what the move already did.
+   */
+  splitsHits(info) {
+    return Boolean(this.effectsOn && info && info.splitHits && this.active > 1);
+  }
+
+  /**
+   * One of two darts: the whole hit, halved.
+   *
+   * `calc` priced this hit as BOTH darts into one defender (it reads the move table's `hits: 2`),
+   * so a single dart is half of it -- and halving the priced hit rather than re-pricing one dart
+   * is what keeps the two darts summing to exactly what the Damage Calculator still shows.
+   * Every roll field has to be halved, not just `frac`: a played game reads `rollLo`/`rollHigh`
+   * and ignores `frac` once `odds` is set (builder/solver.js rollDamage), so halving `frac`
+   * alone would have left the played game hitting full strength twice.
+   * `odds`, `priority` and `self` are per move USE, not per dart, and stay as they are.
+   */
+  dart(hit) {
+    if (!hit || !(hit.frac > 0)) return hit;
+    return { ...hit, frac: hit.frac / 2, lo: hit.lo / 2, hi: hit.hi / 2,
+      rollLo: hit.rollLo / 2, rollHigh: hit.rollHigh / 2 };
+  }
+
+  /**
+   * Can this foe actually take a dart?
+   *
+   * The three refusals are `deal`'s own, in the same order: it is not there (fainted, or away
+   * mid-Fly), it is behind a Protect this move cannot bypass, or the move does nothing to it.
+   * A dart `deal` refuses is thrown away rather than given to the other foe, so a split has to
+   * be decided on this and not on `alive` alone.
+   */
+  dartLands(m, foe, slot, board, info, pre = m) {
+    if (!alive(foe) || foe.hidden) return false;
+    if (foe.guard && !(this.effectsOn && info.bypassProtect)) return false;
+    return this.hitOn(m, foe, slot, board, m.helped, pre).frac > 0;
+  }
+
+  /**
    * The foe this attacker hits hardest: a knockout first, then the most damage for the target's HP.
    * `allies` is the attacker's own side (for moves that hit the partner too); `firstTurn` lets a
    * lead use First Impression.
@@ -2559,6 +2658,23 @@ export class TournamentTest {
   /** What a planned attack is worth: the target's share, plus the other foes a spread move hits. */
   attackValue(m, pick, foes, board, helped = false) {
     const hit = helped ? this.hitOn(m, pick.foe, pick.hit.slot, board, true) : pick.hit;
+    // A split move is worth a HALF of itself on each foe rather than all of itself on one. The
+    // two halves add up to about what one whole dart pair was worth, so the planner goes on
+    // choosing the move about as often as it did; what changes is that the value now follows the
+    // foes' own HP, which is the whole point of sharing the darts out. Priced here and not in
+    // `pickTarget`, which still ranks the move's slots by both darts into one foe: that is the
+    // move's total damage and the right number to rank slots by.
+    if (this.splitsHits(m.u.moves[hit.slot])) {
+      // The same basis resolution uses (`dartLands`), so the planner prices what will actually
+      // happen: with one foe unable to take a dart the other takes both, which is the ordinary
+      // single-target value below.
+      const takers = foes.filter((foe) => this.dartLands(m, foe, hit.slot, board, m.u.moves[hit.slot]));
+      if (takers.length > 1) {
+        let shared = 0;
+        for (const foe of takers) shared += this.hitScore(this.dart(this.hitOn(m, foe, hit.slot, board, helped)).frac, foe);
+        return shared;
+      }
+    }
     let value = this.hitScore(hit.frac, pick.foe);
     if (hit.spread) for (const other of foes) if (alive(other) && other !== pick.foe) value += this.hitScore(this.hitOn(m, other, hit.slot, board, helped).frac, other);
     return value;
@@ -2900,7 +3016,17 @@ export class TournamentTest {
       // Knocked out first: only the foes that move before this lead at this priority count.
       const best = this.strike(foe.u, m.u, board, foe.atk, foe.spa, false, foe.burn, foe.hp, foe.took || 0);
       const before = best.priority > pr || (best.priority === pr && this.speed(foe, board) > sp);
-      if (best.frac > 0 && before) incoming += best.frac;
+      // `strike` is cached per attacker/defender and has no idea how many of OUR side are
+      // standing, so a split move comes back as both darts into this one lead. It is not:
+      // with two of us able to take a dart this lead takes one, and counting both here
+      // inflated the knockout risk enough to change which setup move a lead is bid for.
+      const incomingInfo = best.frac > 0 ? foe.u.moves[best.slot] : null;
+      let share = best.frac;
+      if (incomingInfo && this.splitsHits(incomingInfo)
+          && mine.filter((x) => this.dartLands(foe, x, best.slot, board, incomingInfo)).length > 1) {
+        share = this.dart(best).frac;
+      }
+      if (share > 0 && before) incoming += share;
     }
     if (incoming >= m.hp && !(m.sash && m.hp >= 0.999)) bump(0.9, "ko");
     return { p, why };
@@ -3031,18 +3157,47 @@ export class TournamentTest {
   helpGain(b, foes, board) {
     const m = b.m;
     const info = m.u.moves[b.slot];
-    const targets = info.spread ? foes.filter(alive) : b.target ? [b.target] : [];
+    // A split move is helped on every dart, so its gain is counted over the foes that take one
+    // and each dart is the halved hit -- the same basis `attack()` resolves it on.
+    const takers = this.splitsHits(info)
+      ? foes.filter((foe) => this.dartLands(m, foe, b.slot, board, info)) : [];
+    const split = takers.length > 1;
+    const targets = split ? takers : info.spread ? foes.filter(alive) : b.target ? [b.target] : [];
+    const share = (hit) => (split ? this.dart(hit) : hit).frac;
     let gain = 0;
-    for (const foe of targets) gain += this.hitScore(this.hitOn(m, foe, b.slot, board, true).frac, foe) - this.hitScore(this.hitOn(m, foe, b.slot, board, false).frac, foe);
+    for (const foe of targets) gain += this.hitScore(share(this.hitOn(m, foe, b.slot, board, true)), foe) - this.hitScore(share(this.hitOn(m, foe, b.slot, board, false)), foe);
     return gain;
   }
 
-  /** What planned action x does to Pokémon `target` (0 when it cannot reach it). */
-  plannedDamage(x, target, board) {
+  /**
+   * What planned action x does to Pokemon `target` (0 when it cannot reach it).
+   *
+   * `foes` is x's own opposing side, and only a SPLIT move needs it: Dragon Darts reaches every
+   * foe that can take a dart whoever `pickTarget` named, so without it the Protect planner read
+   * both darts into the named foe and nothing at all into the other one. Callers that cannot
+   * reach a split move leave it out (the Wide Guard loop filters to `info.spread`, which a split
+   * move deliberately is not; the Quick Guard loop filters to `x.pr > 0`, and it is priority 0).
+   */
+  plannedDamage(x, target, board, foes = null) {
     if (x.kind === FAKE_OUT) return x.target === target ? this.hitOn(x.m, target, x.m.k.fakeOut, board, x.helped).frac : 0;
     if (x.kind !== ATTACK && x.kind !== SPEED_DROP && !(x.kind === LOWER && x.m.u.moves[x.slot].damaging)) return 0;
     const info = x.m.u.moves[x.slot];
     if (x.s !== target.s) {
+      if (foes && this.splitsHits(info)) {
+        // KNOWN AND ACCEPTED: `planGuards` asks this while it is still DECIDING who Protects, so
+        // no planned Protect has reached `m.guard` yet and both foes look like takers. If one
+        // of them then Protects, resolution collapses the darts onto the survivor and deals it
+        // twice what was predicted here. The guard planner is a bid, not a promise -- it
+        // already ignores the other side's Protect for every other move -- and the alternative
+        // is to resolve the Protect decisions twice.
+        const takers = foes.filter((foe) => this.dartLands(x.m, foe, x.slot, board, info));
+        if (takers.length > 1) {
+          return takers.includes(target) ? this.dart(this.hitOn(x.m, target, x.slot, board, x.helped)).frac : 0;
+        }
+        // One taker gets BOTH darts; nobody else is touched.
+        return takers.length === 1 && takers[0] === target
+          ? this.hitOn(x.m, target, x.slot, board, x.helped).frac : 0;
+      }
       if (info.spread || x.target === target) return this.hitOn(x.m, target, x.slot, board, x.helped).frac;
       return 0;
     }
@@ -3071,6 +3226,9 @@ export class TournamentTest {
     // Protects, and the choices are applied together. In one sequential pass side 0's Protect
     // takes its own attack out of the damage side 1 then prices its Protect against, so in a
     // mirror side 0's Salamence Protected and side 1's identical Salamence did not.
+    // x's opposing side, for `plannedDamage`'s split branch. Derived from the plans rather than
+    // from `active`, which this method is not given; every Pokemon that can attack has an entry.
+    const sideMons = (s) => all.filter((y) => y.s === s).map((y) => y.m);
     const decided = [];
     for (const a of all) {
       if (!a.m.k.protect || !protectable(a)) continue;
@@ -3081,7 +3239,7 @@ export class TournamentTest {
       let hits = 0;
       for (const x of all) {
         if (x.m === a.m || guarded(x, a.m)) continue;
-        const frac = this.plannedDamage(x, a.m, board);
+        const frac = this.plannedDamage(x, a.m, board, sideMons(1 - x.s));
         if (frac <= 0) continue;
         incoming += frac;
         hits += 1;
@@ -3285,6 +3443,16 @@ export class TournamentTest {
           continue;
         }
       }
+      // The Electric Boost is spent by the user's next ELECTRIC move, whatever that move does:
+      // the Companion clears it on any move whose type is Electric regardless of category
+      // (`mcts/engine.py _consume_move_use_resources`), so Thunder Wave, Volt Switch, Electroweb
+      // and Charge itself all spend it. Cleared HERE, before the kind dispatch, which reproduces
+      // that ordering exactly -- the Companion clears before the ops are applied, so Charge
+      // clears then sets and two Charges running keep the boost.
+      if (this.chargeOn && m.charged) {
+        const used = a.hit ? a.hit.slot : a.slot;
+        if (used >= 0 && m.u.moves[used]?.type === "Electric") m.charged = false;
+      }
       m.acted = a.kind;
       if (a.kind === PROTECT) {
         m.guard = true;
@@ -3370,7 +3538,7 @@ export class TournamentTest {
     // has no target to resolve, redirect or be blocked by, so it is settled before any of that
     // is attempted. `redirected` on a null target would have aimed it at a foe.
     if (a.kind === EFFECT && !(a.ops || []).some((fx) => AIMED_AT_FOE.has(String(fx.target || "")))) {
-      const { did, missed } = this.runEffectOps(m, null, a, active, events);
+      const { did, missed } = this.runEffectOps(m, null, a, active, events, board);
       if (missed) events?.push({ s, kind: "missed", actor: m.u, target: null, move: a.move });
       else events?.push({ s, kind: "effect", actor: m.u, target: null, move: a.move, did });
       return;
@@ -3453,7 +3621,7 @@ export class TournamentTest {
       target.burn = true;
       events?.push({ s, kind: "burn", actor: m.u, target: target.u, move: a.move });
     } else if (a.kind === EFFECT) {
-      const { did, missed } = this.runEffectOps(m, target, a, active, events);
+      const { did, missed } = this.runEffectOps(m, target, a, active, events, board);
       if (missed) events?.push({ s, kind: "missed", actor: m.u, target: target.u, move: a.move });
       else if (!did.length) events?.push({ s, kind: "fails", actor: m.u, target: target.u, move: a.move });
       else events?.push({ s, kind: "effect", actor: m.u, target: target.u, move: a.move, did });
@@ -3504,8 +3672,40 @@ export class TournamentTest {
       this.oweSelf(m, selfCost);
       return out;
     }
+    // REDIRECTION IS RESOLVED FIRST, above the split. Follow Me and Rage Powder pull a
+    // single-target move onto their user, and Dragon Darts is a single-target move -- splitting
+    // before this asked the redirector nothing at all, so it could not protect its partner from
+    // the move, and `ignore_redirection` would have been honoured for a move that does not
+    // carry it.
     let aim = target ? this.redirected(m, target, redirector, info) : null;
     if (!aim || aim.out) aim = foes.find(alive) || null;
+    // DRAGON DARTS, and deliberately NOT through `hit.spread`: this move is not a spread move,
+    // so it takes neither the 0.75 multiplier a spread move takes nor the Wide Guard that blocks
+    // one. A redirected one is not shared out at all: both darts follow the redirect.
+    if (this.splitsHits(info) && aim !== redirector) {
+      // Decided on the foes that can actually TAKE a dart, not on the ones merely standing. A
+      // dart `deal` refuses -- a Fairy type against this Dragon move, a Protect, a Pokemon
+      // part-way through Fly -- used to be dropped on the floor, so one immune foe halved the
+      // move instead of the other foe taking both darts, which is what the games do.
+      const takers = foes.filter((foe) => this.dartLands(m, foe, slot, board, info, pre));
+      if (takers.length > 1) {
+        for (const foe of takers) {
+          const h = this.dart(this.hitOn(m, foe, slot, board, m.helped, pre));
+          if (h.priority > 0 && quick & (1 << foe.s)) continue;
+          if (!this.deal(m, foe, h, events, false, pre)) continue;
+          // Owed once for the move, not once per dart -- the same `Math.max` the spread branch
+          // above uses, for the same reason.
+          selfCost = Math.max(selfCost, h.self || 0);
+          const stats = this.afterHit(m, foe, info);
+          if (stats.length) out.lowered.push({ m: foe, stats });
+        }
+        this.oweSelf(m, selfCost);
+        return out;
+      }
+      // Exactly one foe can take them, so it takes BOTH -- the single-target path below, aimed
+      // at that foe rather than at whoever `pickTarget` named, which may be the Protecting one.
+      if (takers.length === 1) aim = takers[0];
+    }
     if (!aim) return out;
     const h = this.hitOn(m, aim, slot, board, m.helped, pre);
     if (h.priority > 0 && quick & (1 << aim.s)) {
@@ -3624,6 +3824,12 @@ export class TournamentTest {
           m.charging = "";
           m.chargeSlot = -1;
           m.hidden = false;
+          // And the Electric Boost goes with it: it is a volatile, and a Pokemon that leaves the
+          // field loses its volatiles. The Companion does NOT clear it here -- `_switch` zeroes
+          // thirteen other volatiles and not this one -- so this is the website being right and
+          // the Companion being wrong; `mcts/engine.py` is corrected in the same change rather
+          // than this line being left faithful to a defect.
+          m.charged = false;
         }
         const incoming = next[s] < sides[s].length ? sides[s][next[s]++] : null;
         active[s][slot] = incoming;
@@ -4113,8 +4319,9 @@ export class TournamentTest {
 
   /** One tournament team: every bring against every bring, then the chosen game once more with its story. */
   playTeam(state, team) {
-    if (this.hits.size > MAX_CACHED_HITS) {
+    if (this.hits.size + this.chargedHits.size > MAX_CACHED_HITS) {
       this.hits.clear();
+      this.chargedHits.clear();
       this.best.clear();
       this.bestSafe.clear();
     }

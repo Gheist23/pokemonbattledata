@@ -196,6 +196,25 @@ const MEMORY_TYPES = {
   "ghost memory": "Ghost", "grass memory": "Grass", "ground memory": "Ground", "ice memory": "Ice",
   "poison memory": "Poison", "psychic memory": "Psychic", "rock memory": "Rock", "steel memory": "Steel", "water memory": "Water",
 };
+// RAGING BULL: "This move's type depends on the user's form." Hand-written here, keyed on the
+// move NAME, because the compiled registry does not reach this file -- it is loaded once in
+// builder/analysis-worker.js and threaded only into the turn engine, never into the damage
+// engine. The keys are the registry's own tokens (`type_from_user_form`) with the spaces taken
+// out, so `compact(form_name).includes(token)` matches the way the Companion's own
+// `self._key(token) in form` does.
+// Aura Wheel says the same sentence and is deliberately absent: Morpeko has one form in this
+// game, so its listed Electric is already right and an entry here would be a no-op dressed as
+// a fix (pct_tool94/tests/test_move_clauses_v536.py pins that).
+const RAGING_BULL_FORM_TYPES = { combatbreed: "Fighting", blazebreed: "Fire", aquabreed: "Water" };
+/** The type this form makes Raging Bull, or "" when the form carries no breed token. */
+function ragingBullType(formName) {
+  const form = compact(formName || "");
+  if (!form) return "";
+  for (const [token, typed] of Object.entries(RAGING_BULL_FORM_TYPES)) {
+    if (form.includes(token)) return typed;
+  }
+  return "";
+}
 const MOLD_BREAKERS = new Set(["mold breaker", "teravolt", "turboblaze"]);
 const INTIMIDATE_BLOCKERS = new Set(["clear body", "white smoke", "full metal body", "inner focus", "oblivious", "own tempo", "scrappy"]);
 const DAMAGE_RECOIL_FRACTIONS = {
@@ -494,6 +513,41 @@ export function chargeKoOption(value) {
   return true;
 }
 
+/**
+ * Does Raging Bull take its user's form's type?
+ *
+ * On, except for a recording made before the rule: tests/calc-vectors.json index 2358 is the
+ * exact case -- a Paldean Tauros Aqua Breed using Raging Bull into a Water/Dark Mega Greninja --
+ * and it was recorded when the website typed the move Normal, so replaying it with the rule on
+ * would turn a faithful recording red. Same shape as `chargeKoOption` above.
+ */
+export const FORM_TYPE_ON = true;
+
+/**
+ * Does Gravity raise Grav Apple's power by half?
+ *
+ * On, except for a recording made before the rule. No recorded vector moves today -- the two
+ * Grav Apple vectors in tests/calc-vectors.json are both `gravity: false`, and the 134 vectors
+ * with Gravity up use other moves -- but the stamp is what keeps that true for the next
+ * recording, and the Companion's own calculator gained the same rule in the same change
+ * (pokemon_champions_tool/grav_apple_gravity_v537.py).
+ */
+export const GRAVITY_POWER_ON = true;
+
+export function gravityPowerOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
+
+export function formTypeOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
+
 export function koLabelOption(value) {
   if (value === null || value === undefined || value === false) return false;
   const text = String(value).trim().toLowerCase();
@@ -696,7 +750,9 @@ export class DamageEngine {
                         moveFlags = MOVE_FLAGS_ON,
                         ateDragonize = ATE_DRAGONIZE_ON,
                         movePriority = MOVE_PRIORITY_ON,
-                        roomPlan = ROOM_PLAN_ON } = {}) {
+                        roomPlan = ROOM_PLAN_ON,
+                        formType = FORM_TYPE_ON,
+                        gravityPower = GRAVITY_POWER_ON } = {}) {
     // Off only for a recording made before the rule (see `terrainSeedOption`).
     this.terrainSeeds = terrainSeedOption(terrainSeeds);
     // Likewise: off only for a recording made before Steel Roller learned it
@@ -717,6 +773,12 @@ export class DamageEngine {
     // Likewise: off only for a recording made before a Trick Room plan had to outweigh the
     // attackers the Room turns round (see `roomPlanOption`).
     this.roomPlan = roomPlanOption(roomPlan);
+    // Likewise: off only for a recording made before Raging Bull read its user's form
+    // (see `formTypeOption`).
+    this.formType = formTypeOption(formType);
+    // Likewise: off only for a recording made before Gravity raised Grav Apple's power
+    // (see `gravityPowerOption`).
+    this.gravityPower = gravityPowerOption(gravityPower);
     this.data = appData;
     // V525: {move key: {stat: signed stages}} for every move that changes its own user,
     // exported from the game's own move archive. Empty on an older data file, which is the
@@ -1117,8 +1179,17 @@ export class DamageEngine {
     // base
     const ability = key(attacker.ability);
     const moveName = String(meta.name || "");
+    // RAGING BULL's type comes from the user's form, and that has to be decided BEFORE an -ate
+    // Ability goes looking for a Normal move: a Paldean breed's move is Fighting, Fire or Water,
+    // not Normal, so Pixilate has nothing to convert. Without this the Ability converted it to
+    // Fairy, the form rule then overrode the type, and `_ate_converted` was left set -- so the
+    // move still carried the 1.2x for a conversion that had been thrown away.
+    // A plain Tauros carries no breed token, so `formType` is "" and -ate applies as it always
+    // did; this is why the guard is the resolved type and not the move's name.
+    const formType = this.formType && moveName === "Raging Bull"
+      ? ragingBullType(attacker.form_name) : "";
     const ateType = (ability === "dragonize" && !this.ateDragonize) ? undefined : ATE_ABILITIES[ability];
-    if (moveType === "Normal" && ateType && !["Judgment", "Natural Gift", "Revelation Dance", "Techno Blast", "Multi-Attack"].includes(moveName)) {
+    if (moveType === "Normal" && !formType && ateType && !["Judgment", "Natural Gift", "Revelation Dance", "Techno Blast", "Multi-Attack"].includes(moveName)) {
       meta._ate_converted = true;
       details.push(`${attacker.ability}: Normal move becomes ${ateType}`);
       moveType = ateType;
@@ -1137,6 +1208,12 @@ export class DamageEngine {
     if (moveName === "Revelation Dance") {
       const types = this.pokemon(attacker.pokemon_name, attacker.form_name).types || [];
       if (types.length) return pyTitle(types[0]);
+    }
+    // Placed exactly where Revelation Dance is, and for the same reason: Normalize still wins
+    // over both (it converts every move and is charged its own 1.2x for doing so).
+    if (formType) {
+      details.push(`Raging Bull: ${attacker.form_name} makes it ${formType}`);
+      return formType;
     }
     if (moveName === "Judgment" && PLATE_TYPES[item]) return PLATE_TYPES[item];
     if (moveName === "Techno Blast" && DRIVE_TYPES[item]) return DRIVE_TYPES[item];
@@ -1378,8 +1455,24 @@ export class DamageEngine {
         triggered = String(ctx.terrain) === String(condition.terrain || "");
       } else if (op === "weather_power" && moveKey !== "hydrosteam") {
         triggered = String(ctx.weather) === String(condition.weather || "");
+      } else if (op === "power_if_gravity" && this.gravityPower) {
+        // Grav Apple: "power is boosted by 50% when the Gravity status is active". Gravity is a
+        // damage-time context flag here and nothing else: this file reads it for GROUNDING
+        // (`isGrounded`), the turn model has no gravity counter and no way for the move Gravity
+        // to set one, and the only producer on the site is the Discord bot's
+        // `!calc ... field gravity` (functions/api/discord/_damage.js). So this branch is
+        // correct on the Damage Calculator's own context and does nothing on the surfaces that
+        // play turns out, until Gravity becomes a board condition.
+        triggered = Boolean(ctx.gravity);
       }
-      if (triggered) power = Math.max(0, Math.trunc(power * factor));
+      if (triggered) {
+        power = Math.max(0, Math.trunc(power * factor));
+        // Said in the same words the Companion says it in (`part_095.py`'s own loop), for all
+        // six ops and not only the new one: this loop reported nothing at all before, so the
+        // five it already knew applied their multiplier silently. `details` is not a compared
+        // field in any recorded suite, which is why this can be brought into line now.
+        details.push(`${moveName}: ${op} power x${factor}`);
+      }
     }
     const filtered = effectOp(meta, "power_if_target_status");
     if (filtered && moveKey !== "hex" && moveKey !== "infernal parade") {

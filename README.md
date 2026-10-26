@@ -706,6 +706,51 @@ Data comes from two places:
   ranked Pokemon with their usage (moves, items, Abilities, and Natures and Stat Points as
   deep as the app reads them), used by every analysis and the calculator's "Top meta" picks.
 
+  Move clauses the compiled registry states and the browser could not read. The registry is
+  exported by `pct_tool94/tools/export_web_builder_data.py`, and a move's op reaches the browser
+  only if it is on that file's `WEB_MOVE_OPS` list - so a clause can be correct in the
+  Companion's data, read by its simulation engine, and simply absent here. Where the Companion's
+  own engine was only partly right, both sides were corrected together; each entry below says
+  which. Five clauses were missing:
+
+  - Dragon Darts ("if there are 2 opposing Pokemon each of them is attacked once"): both darts
+    went into one foe. `split_hits_across_targets` now shares them out in the turn engine's
+    target loop - deliberately not through `hit.spread`, so neither the 0.75 spread multiplier
+    nor Wide Guard applies - and the lone-foe damage the Damage Calculator shows is unchanged
+    (the hit count has always come from `app-data.json`'s `moves["Dragon Darts"].hits`).
+    `node tests/run-split-hits.mjs`. The Companion's engine splits the same way and on the same
+    basis (`mcts/engine.py` `_resolve_targets` / `_dart_lands`): a dart aimed at an immune,
+    Protecting or semi-invulnerable foe is not thrown away, the other foe takes both, and a
+    redirected Dragon Darts follows Follow Me / Rage Powder whole rather than being shared out.
+  - Charge ("the user gains the Electric Boost status"): the damage engine has doubled a charged
+    Electric move all along, but nothing could SET the flag, so Charge was a +1 Sp. Def status
+    move. `electric_boost` now sets it, any Electric move spends it whatever its category, and
+    leaving the field loses it. Reachable in the PLAYED game and a described Solver board only:
+    the search has no kind for it, so Team Evaluation, Auto Build, Suggestions and Optimize
+    still never use Charge. `node tests/run-electric-boost.mjs`.
+  - Raging Bull ("this move's type depends on the user's form"): priced as the listed Normal, so
+    a Paldean breed lost its STAB and read the type chart wrongly in both directions - it said
+    "no effect" against a Ghost type where a Fire or Water breed lands. `DamageEngine` takes
+    `{formType}` (on by default; `null` = off, how a recording made before the rule replays -
+    `calc-vectors.json` index 2358 is exactly this case).
+  - Grav Apple ("power is boosted by 50% when the Gravity status is active"): `DamageEngine`
+    takes `{gravityPower}`, stamped `gravity_power`, and reads the op from
+    `app-data.json`'s `conditional_power_ops`. Gravity is a damage-time context flag here and
+    nothing more - the turn model has no gravity counter and no move can set one, so the boost
+    reaches the Damage Calculator and the Discord bot's `!calc ... field gravity`, and does
+    nothing on the surfaces that play turns out.
+  - Both of the last two are checked by `node tests/run-form-type-and-gravity.mjs`, and both were
+    one-sided: the Companion's own Damage Calculator omitted them too, so
+    `pokemon_champions_tool/raging_bull_type_v537.py` and `grav_apple_gravity_v537.py` ship with
+    them. A change has to start there.
+
+  Sheer Cold and Attract were checked and deliberately left alone. All four one-hit KO moves
+  already work here, Ice exemption included, through `moves[].special` in `app-data.json`; and
+  Attract already ships with its `opposite_gender` condition, which would answer "unknown" and
+  pass exactly as the Companion's does, because the site has no gender data at all. The reasons
+  are written at the two decision points (`WEB_MOVE_OPS` and `RUNNABLE_OPS`) so neither is
+  "fixed" into an op no reader consumes.
+
 Team Evaluation (Suggestions live inside an evaluation), Auto Build and Test against
 Tournament Teams each run free three times per browser, then ask for Pro (`FREE_RUNS` in
 `builder/pro.js`). The count is deliberately never shown for Team Evaluation and Auto Build;

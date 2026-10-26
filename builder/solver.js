@@ -48,6 +48,19 @@ const { FAKE_OUT, TAILWIND, TRICK_ROOM, REDIRECT, ATTACK, PROTECT, HELPING_HAND,
 
 /** A switch is not one of the turn's actions: it resolves before all of them. */
 export const SWITCH = -1;
+
+/**
+ * Which foe seat an action is aimed at, or -1 when it is aimed at its own user.
+ *
+ * `action.target >= 0` is NOT that test, and the difference was a silent bug: a self-aimed
+ * action carries `target: null` (builder/play-game.js builds its EFFECT actions that way) and
+ * `null >= 0` is TRUE, because null coerces to 0. So a self-aimed action read as "aimed at the
+ * foe standing in seat 0", and `planFor` then dropped it for having no live target there --
+ * which is why Charge, Moonlight, Morning Sun and Synthesis could be chosen in the played game
+ * and did nothing at all, reporting nothing. A numeric seat is the only thing that counts as
+ * aimed, so -1, null and undefined all mean "at itself".
+ */
+const aimedSeat = (action) => (typeof action.target === "number" && action.target >= 0 ? action.target : -1);
 /** The free-run feature name this shares with Team Evaluation, Auto Build and the Tournament Test. */
 export const SOLVER_FEATURE = "solver";
 /** Turns of the game the search looks at, including the one it is choosing. */
@@ -481,6 +494,10 @@ export class Solver {
             m.hidden = String(m.u.moves[slot].charge?.op || "") !== "charge_then";
           }
         }
+        // Carrying the Electric Boost (Charge). Same reason as `charging` above: a live board
+        // can be in the middle of one, and a rebuilt board that cannot say so prices the
+        // opponent's next Electric move at half what it will really do.
+        if (row.charged) m.charged = true;
         // The Defense stage this line has added, on top of the one the board was set up with.
         m.def = 0;
         // Which Pokemon this is, for the whole line. `ix` is where it is STANDING and a switch
@@ -619,6 +636,23 @@ export class Solver {
           // Every foe standing is immune to it -- an Earthquake into two Flying types. It still
           // hits whatever comes down into either slot, so the player keeps the option.
           else if (cap === 0) add({ kind: ATTACK, slot, target: -1, move: info.name, spread: true, value: 0, noEffect: true });
+          return;
+        }
+        // A move that shares its hits out has no target to CHOOSE: both foes are hit whichever
+        // one is named, so it is one option worth both halves rather than two identical options
+        // worth half each. (Dragon Darts; `splitsHits` is false in Singles and with one foe
+        // standing, where both darts go into the one target and the loop below is right.)
+        // `dartLands` is the basis resolution uses: a foe that cannot take a dart (immune,
+        // behind a Protect, away mid-Fly) does not get one, and the other foe takes both --
+        // which is the ordinary per-foe loop below, not this branch.
+        const takers = t.splitsHits(info)
+          ? liveFoes.filter(([foe]) => t.dartLands(m, foe, slot, state.board, info))
+          : [];
+        if (takers.length > 1) {
+          let shared = 0;
+          for (const [foe] of takers) shared += t.hitScore(t.dart(t.hitOn(m, foe, slot, state.board)).frac, foe);
+          if (shared > 0) add({ kind: ATTACK, slot, target: -1, move: info.name, value: shared });
+          else if (cap === 0) add({ kind: ATTACK, slot, target: -1, move: info.name, value: 0, noEffect: true });
           return;
         }
         for (const [foe, fp] of liveFoes) {
@@ -776,6 +810,10 @@ export class Solver {
       out.spa = 0;
       out.spe = 0;
       out.def = 0;
+      // Charge's Electric Boost is a volatile and goes with them. `refill` clears it on the
+      // faint path; this is the other way off the field, and it is the one both the search and
+      // the played game take for a CHOSEN switch.
+      out.charged = false;
       state.active[s][action.position] = into;
     }
   }
@@ -790,8 +828,9 @@ export class Solver {
       const info = m.u.moves[action.slot];
       if (!info) continue;
       const foes = state.active[1 - s];
-      const target = action.target >= 0 ? foes[action.target] : null;
-      if (action.target >= 0 && !alive(target)) continue;
+      const seat = aimedSeat(action);
+      const target = seat >= 0 ? foes[seat] : null;
+      if (seat >= 0 && !alive(target)) continue;
       const entry = {
         m,
         s,
@@ -1407,7 +1446,9 @@ export class Solver {
         // `charging` joins the key because a Pokemon locked into landing Fly has a different
         // action space from the same Pokemon standing free, and the tree would otherwise reuse
         // one node's statistics for both.
-        ? `${m.u.id}${m.out ? "x" : ""}${m.justIn ? "j" : ""}${m.guardedLast ? "g" : ""}${m.charging ? `c${m.charging}` : ""}`
+        // `charged` joins it for the same reason: the same Pokemon with and without the boost
+        // prices its Electric moves differently, so the two are not one node.
+        ? `${m.u.id}${m.out ? "x" : ""}${m.justIn ? "j" : ""}${m.guardedLast ? "g" : ""}${m.charging ? `c${m.charging}` : ""}${m.charged ? "e" : ""}`
         : "-")).join("."));
       parts.push(state.sides[s].map((m) => `${m.u.id}${m.out ? "x" : ""}`).join("."));
     }

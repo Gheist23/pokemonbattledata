@@ -20,7 +20,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, ateDragonizeOption, moveFlagsOption, movePriorityOption, roomPlanOption, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, ateDragonizeOption, formTypeOption, gravityPowerOption, moveFlagsOption, movePriorityOption, roomPlanOption, terrainSeedOption } from "../builder/engine.js";
 import { DEFAULT_SETTINGS, SCORE_RULES, TeamEvaluator, normalizeSettings, scoreRulesOption } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TRICK_ROOM_WEIGHTS } from "../builder/team-speed.js";
@@ -71,6 +71,8 @@ function evaluate(testCase, scoreRules) {
   engine.moveFlags = moveFlagsOption(testCase.record?.rules?.move_flags ?? null);
   // V528: likewise for Dragonize, which moves this team by 0.34 Offense and 1.11 Defense.
   engine.ateDragonize = ateDragonizeOption(testCase.record?.rules?.ate_dragonize ?? null);
+  engine.formType = formTypeOption(testCase.record?.rules?.form_type ?? null);
+  engine.gravityPower = gravityPowerOption(testCase.record?.rules?.gravity_power ?? null);
   // V529: and likewise for turn-order priority, which decides who acts.
   engine.movePriority = movePriorityOption(testCase.record?.rules?.move_priority ?? null);
   // V530: and the Trick Room plan rule, which picks the speed scoring regime.

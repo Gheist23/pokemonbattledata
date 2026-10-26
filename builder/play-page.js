@@ -245,7 +245,7 @@ function renderSetup() {
   return h("div", { class: "bd-play-setup" },
     state.error ? h("p", { class: "bd-play-error" }, state.error) : null,
     h("div", { class: "bd-card bd-play-intro" },
-      h("h2", {}, "Play the Solver"),
+      h("h2", {}, "Play the Solver (Testing Phase)"),
       h("p", {},
         "The same search that runs on the Solver page. It brings a real tournament team and looks "
         + "ten turns ahead."),

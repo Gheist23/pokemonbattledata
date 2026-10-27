@@ -708,6 +708,12 @@ export class PlayGame {
       // broken turns ago.
       sash: Boolean(m.sash),
       berry: Boolean(m.berry),
+      // An Oran still uneaten, and how much of a cure berry is left (a share, not a flag: a
+      // condition here is a probability and the berry is spent in proportion). Without these
+      // the opponent searched every board as though a Lum Berry that cured a Spore three turns
+      // ago were still in hand -- the same defect `sash` and `berry` above were given.
+      oran: Boolean(m.oran),
+      cure: Math.min(1, Math.max(0, Number(m.cure) || 0)),
       // How long the bad poison has been on, because that damage grows. A board that cannot say
       // starts it at one turn, which is wrong for a Pokemon six turns in.
       toxTurns: Math.max(0, Math.trunc(Number(m.toxTurns) || 0)),
@@ -795,8 +801,11 @@ export class PlayGame {
         show(m, "item", m.u.item || "");
         show(m, "ability", m.u.mon?.ability || "");
       }
-      // A Focus Sash that broke, or a Sitrus Berry that was eaten, shows which it was.
-      if ((was.sash && !m.sash) || (was.berry && !m.berry)) show(m, "item", m.u.item || "");
+      // A Focus Sash that broke, or a berry that was eaten, shows which it was -- an Oran and
+      // a cure berry as much as a Sitrus. `cure` is compared as a share: any of it spent is
+      // the berry showing itself, which is what the player sees happen.
+      if ((was.sash && !m.sash) || (was.berry && !m.berry) || (was.oran && !m.oran)
+        || ((was.cure || 0) > (m.cure || 0))) show(m, "item", m.u.item || "");
     }
 
     // Abilities that DID something: the weather, the terrain, an Intimidate, a redirection. The
@@ -1066,7 +1075,7 @@ export class PlayGame {
     // What each side is carrying into this turn, so an item that is spent during it can be told
     // apart from one that was already gone.
     const heldBefore = this.state.sides.map((list) =>
-      new Map(list.map((m) => [m.tag, { sash: m.sash, berry: m.berry, mega: Boolean(m.mega) }])));
+      new Map(list.map((m) => [m.tag, { sash: m.sash, berry: m.berry, oran: m.oran, cure: m.cure, mega: Boolean(m.mega) }])));
     // Read BEFORE the turn, because this is the only moment either survives: a joint action's
     // `position` means what it says until `applySwitches` moves Pokemon between the field and
     // the bench, and `ix` is where each Pokemon sits in its side's list before that same swap.

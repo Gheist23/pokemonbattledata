@@ -1538,7 +1538,13 @@ function basePageHtml({ title, description, keywords, canonicalUrl, jsonLd, stat
     .replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${escapeHtml(description)}" />`)
     .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`)
     .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, `<script type="application/ld+json">\n  ${JSON.stringify(jsonLd, null, 2).replace(/\n/g, "\n  ")}\n  </script>`)
-    .replace('<main>', `<main>\n    ${staticContent}`);
+    .replace('<main>', `<main>\n    ${staticContent}`)
+    // The top Discord button belongs to the landing page only. Every page here is built from
+    // index.html as a template, so without this line all 2,700-odd of them inherit it -- and a
+    // nav that asks a reader to join a chat server is noise on a Pokemon detail page. The
+    // /api_guide page keeps a button of its own, pointing at the bot's OAuth invite rather than
+    // the server, and that page is hand-written rather than generated here.
+    .replace(/\s*<a class="discord-button" href="https:\/\/discord\.gg\/[^"]*"[^>]*>Discord<\/a>/, '');
   if (pokemonSlug) {
     html = html.replace('<script src="app.js" defer></script>', `<script>window.__POKEMON_SLUG__ = ${JSON.stringify(pokemonSlug)};</script>\n  <script src="app.js" defer></script>`);
   }

@@ -25,7 +25,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, fieldRequirementOption, koLabelOption, ateDragonizeOption, formTypeOption, gravityPowerOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption, chargeKoOption} from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, koLabelOption, ateDragonizeOption, formTypeOption, gravityPowerOption, auraGuardOption, guardDogOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption, chargeKoOption} from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { KnownTeams } from "../builder/known-teams.js";
@@ -81,6 +81,18 @@ const ateDragonizeStamp = (testCase) => testCase.record?.rules?.ate_dragonize ??
     replays with the move's listed Normal, which is what it was recorded at. */
 /** Gravity raises Grav Apple's power by half. A vector recorded before the rule carries no
     `gravity_power` stamp and replays with the flat power. */
+/** Aura Guard halves the contact damage its holder takes. A vector recorded before the rule
+    carries no `aura_guard` stamp and replays un-halved. */
+/** Guard Dog turns Intimidate round instead of taking the drop. A vector recorded before the
+    rule carries no `guard_dog` stamp and replays with the -1. */
+const guardDogRule = (testCase) => guardDogOption(
+  process.env.GUARD_DOG === undefined
+    ? (testCase.rules?.guard_dog ?? testCase.record?.rules?.guard_dog ?? null)
+    : process.env.GUARD_DOG);
+const auraGuardRule = (testCase) => auraGuardOption(
+  process.env.AURA_GUARD === undefined
+    ? (testCase.rules?.aura_guard ?? testCase.record?.rules?.aura_guard ?? null)
+    : process.env.AURA_GUARD);
 const gravityPowerRule = (testCase) => gravityPowerOption(
   process.env.GRAVITY_POWER === undefined
     ? (testCase.rules?.gravity_power ?? testCase.record?.rules?.gravity_power ?? null)
@@ -173,6 +185,8 @@ for (const testCase of cases) {
   engine.ateDragonize = ateDragonizeRule(testCase);
   engine.formType = formTypeRule(testCase);
   engine.gravityPower = gravityPowerRule(testCase);
+  engine.auraGuard = auraGuardRule(testCase);
+  engine.guardDog = guardDogRule(testCase);
   const rec = testCase.record;
   const archetype = testCase.archetype_key || "automatic";
   const prioritizeMeta = Boolean(testCase.dialog?.checkboxes?.autoBuildPrioritizeMetaV462);

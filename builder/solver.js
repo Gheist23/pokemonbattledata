@@ -188,7 +188,8 @@ const who = (unit) => ({ species: unit.species, form: unit.form, item: unit.item
  * `guardedLast` says the Pokemon protected on the turn just ended, so it cannot protect on this
  * one; `mega` says it has ALREADY Mega-Evolved, so it stands in its Mega form and that side's one
  * Mega Evolution is spent; `sash` and `berry` say whether a Focus Sash is still unbroken and a
- * Sitrus Berry still uneaten; `critStage` is what Focus Energy has added. All default to what a
+ * Sitrus Berry still uneaten, `oran` and `cure` the same for an Oran and for a cure berry;
+ * `critStage` is what Focus Energy has added. All default to what a
  * fresh Pokemon of that set would have, which is exactly what every caller that does not set them
  * used to get.
  *
@@ -476,6 +477,12 @@ export class Solver {
         // progress has to be able to say they are gone.
         if (row.sash !== undefined) m.sash = Boolean(row.sash);
         if (row.berry !== undefined) m.berry = Boolean(row.berry);
+        // The same for an Oran Berry and for a cure berry (Lum, Chesto, Cheri, Pecha, Rawst,
+        // Aspear). `cure` is clamped to 0..1 rather than coerced to a boolean because it is a
+        // SHARE -- a condition is a probability and the berry is spent in proportion -- and a
+        // boolean would hand a half-spent berry back whole.
+        if (row.oran !== undefined) m.oran = Boolean(row.oran);
+        if (row.cure !== undefined) m.cure = Math.min(1, Math.max(0, Number(row.cure) || 0));
         if (row.critStage !== undefined) m.critStage = Math.max(0, Math.trunc(Number(row.critStage) || 0));
         // Already on the field, so already entered: the board describes a game in progress and
         // its entry Abilities resolved before the person described it. Without this the first

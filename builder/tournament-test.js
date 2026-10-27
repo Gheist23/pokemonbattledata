@@ -609,6 +609,43 @@ export const TOURNAMENT_LIVE_HP = 0;
  */
 export const TOURNAMENT_CHARGE = 0;
 
+/**
+ * Whether the berries other than the Sitrus Berry exist: the Oran Berry, and the six that
+ * cure a status condition (Lum, Chesto, Cheri, Pecha, Rawst, Aspear).
+ *
+ * The game has exactly 28 berries -- one item icon each, and game8's Pokemon Champions berry
+ * list names the same 28 and none besides. 18 of them halve a super-effective hit of their
+ * type (Chilan halves any Normal hit) and are applied by the damage engine; the other 10
+ * heal, cure or restore, and of those this engine knew exactly ONE: the Sitrus Berry.
+ *
+ * What that cost, summed usage share across every species and format in the shipped battle
+ * data: Sitrus 4867 on 400 species, then the resistance berries (Chople 293, Colbur 292,
+ * Shuca 195, Occa 133, Roseli 114, ...), then Lum 290 on 79 species and Chesto 140 on 29. So
+ * the third and fourth most carried berries in the format did nothing whatsoever: a Lum Berry
+ * holder sat through a Spore it should have shrugged off, and a Chesto holder stayed asleep.
+ *
+ * 0 by default, ON PURPOSE, for the reason TOURNAMENT_LIVE_HP and TOURNAMENT_CHARGE are: a
+ * cured Spore or a healed Oran moves the Tournament Test's numbers, and those numbers are
+ * published -- the site's evaluation scores, several thousand recorded parity vectors and the
+ * Companion desktop app all agree on the current ones. The PLAYED game asks for version 1,
+ * because a battle should let a Lum Berry do what the item says it does.
+ *
+ * What version 1 turns on:
+ *   * the Oran Berry: a FLAT 10 HP at half health or below, which is a different share for
+ *     every holder (10 of 160 is a sixteenth, 10 of 110 nearly a tenth) and is therefore NOT
+ *     the 10% that a percentage scale reads off the number, nor Sitrus's quarter;
+ *   * the six cure berries, each clearing only its own condition, spent IN PROPORTION because
+ *     a condition here is a probability -- see `applyStatus`.
+ *
+ * NOT here, and not anywhere: the Persim Berry, which cures confusion only. This engine does
+ * not model confusion -- `st` has no `cnf` field -- so its holder gets no cure, which is the
+ * truth rather than a pretence. Nor the Leppa Berry, which restores PP where there is no PP.
+ * The resistance berries are the damage engine's (`RESIST_BERRIES` in engine.js) and are
+ * applied to every qualifying hit rather than to the first one only; consuming them after one
+ * hit needs a second damage store, the way the Electric Boost needed one, and is not this.
+ */
+export const TOURNAMENT_BERRY = 0;
+
 /** The registry ops that mean "this move does not finish this turn". `two_turn_carry` is here
  *  because it is the same shape; the list is what `moveInfo` looks for and what the exporter's
  *  WEB_MOVE_OPS must ship, or `fx` arrives without them and the rule is inert. */
@@ -709,6 +746,10 @@ export function tournamentVarPowerOption(value) {
 /** A `tournament_charge` stamp as a version (`ruleVersion` against TOURNAMENT_CHARGE). */
 export function tournamentChargeOption(value) {
   return ruleVersion(value, TOURNAMENT_CHARGE);
+}
+
+export function tournamentBerryOption(value) {
+  return ruleVersion(value, TOURNAMENT_BERRY);
 }
 
 export function tournamentEffectsOption(value) {
@@ -842,6 +883,28 @@ const STAT_DROPS = {
   partingshot: [-1, -1, 0], nobleroar: [-1, -1, 0], eerieimpulse: [0, -2, 0], confide: [0, -1, 0],
 };
 // Sleep moves and how many actions the target loses (sure hits two, the rest one).
+/**
+ * The berries that cure a status condition, and the `st` fields each one clears.
+ *
+ * Verbatim from the game: Lum "Cures any status condition or confusion", Chesto "Cures being
+ * sleep", Cheri "Cures being paralyzed", Pecha "Cures being poisoned or badly poisoned",
+ * Rawst "Cures being burned", Aspear "Cures being frozen". Each one adds "Disappears for the
+ * duration of the battle after a single use."
+ *
+ * PERSIM IS DELIBERATELY ABSENT. It cures confusion only, and `st` has no field for it.
+ * Mapping it to an empty list would read as "modelled, and does nothing"; leaving it out says
+ * what is true -- its holder gets no cure here. The day `st` grows a `cnf`, this is the one
+ * line that changes. See TOURNAMENT_BERRY.
+ */
+const CURE_BERRIES = {
+  lumberry: ["brn", "psn", "tox", "par", "slp", "frz"],
+  chestoberry: ["slp"],
+  cheriberry: ["par"],
+  pechaberry: ["psn", "tox"],
+  rawstberry: ["brn"],
+  aspearberry: ["frz"],
+};
+
 const SLEEP_MOVES = { spore: 2, sleeppowder: 1, hypnosis: 1, sing: 1, lovelykiss: 1, grasswhistle: 1 };
 const POWDER_MOVES = new Set(["spore", "sleeppowder"]);
 const SLEEP_PROOF = new Set(["insomnia", "vitalspirit", "sweetveil", "comatose", "purifyingsalt"]);
@@ -1087,7 +1150,7 @@ export class TournamentTest {
    *   `varPowerRule`: the variable-power attacks (TOURNAMENT_VAR_POWER); 0 replays a recording made
    *   before it, where a 0-power attack was no attack at all.
    */
-  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, liveHpRule = TOURNAMENT_LIVE_HP, chargeRule = TOURNAMENT_CHARGE, effects = null } = {}) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, liveHpRule = TOURNAMENT_LIVE_HP, chargeRule = TOURNAMENT_CHARGE, berryRule = TOURNAMENT_BERRY, effects = null } = {}) {
     this.turnOneRule = tournamentTurnOneOption(turnOneRule);
     this.seatRule = tournamentSeatOption(seatRule);
     this.bringRule = tournamentBringOption(bringRule);
@@ -1101,6 +1164,7 @@ export class TournamentTest {
     this.effectsRule = tournamentEffectsOption(effectsRule);
     this.liveHpRule = ruleVersion(liveHpRule, 1);
     this.chargeRule = tournamentChargeOption(chargeRule);
+    this.berryRule = tournamentBerryOption(berryRule);
     // The compiled move and Ability effects. Handed in rather than fetched, because this file is
     // run from a Worker, from node and from six suites; `effectsOn` is the one gate every new
     // rule below asks, so a run with no registry behaves exactly as it did before them.
@@ -1110,6 +1174,10 @@ export class TournamentTest {
     this.effectsOn = this.effectsRule >= 1 && Boolean(this.moveEffects);
     // Two-turn moves are read out of the registry, so they need it as well as their own rule.
     this.chargeOn = this.chargeRule >= 1 && this.effectsOn;
+    // The berries need no registry: an Oran heals off the holder's own max HP and a cure berry
+    // clears a field of `st`, both of which this file owns. So this one rule is the whole gate,
+    // and the cure half is additionally inside `applyStatus`, which already requires `st`.
+    this.berryOn = this.berryRule >= 1;
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -1455,6 +1523,13 @@ export class TournamentTest {
       // `play`) is the honest change and is not made here.
       sash: item === "focussash",
       sitrus: item === "sitrusberry",
+      // Oran restores a FLAT 10 HP, so what it is worth is a question about THIS holder: 10
+      // of 160 is a sixteenth, 10 of 110 nearly a tenth. Stored as the share of its own
+      // maximum it heals, because a share is the only currency `hp` has here. Sitrus beside it
+      // is a quarter of the maximum whoever holds it, which is why that one needs no stat.
+      oran: item === "oranberry" ? 10 / Math.max(1, Number(stats.hp) || 1) : 0,
+      // Which fields of `st` a cure berry clears, or null for every other item.
+      cures: CURE_BERRIES[item] || null,
       // A sixteenth back at the end of every turn.
       leftovers: item === "leftovers" || item === "blacksludge",
       // The weather that hurts it, if any: sand spares Rock, Ground and Steel, snow spares Ice.
@@ -1975,6 +2050,12 @@ export class TournamentTest {
   fresh(unit, s, lead) {
     return {
       u: unit, k: unit.kit, s, hp: 1, spe: 0, atk: 0, spa: 0, sash: unit.kit.sash, berry: unit.kit.sitrus, out: false, kos: 0,
+      // An Oran Berry still uneaten, and how much of a cure berry is left. `cure` is a SHARE
+      // and not a flag, because a condition here is a probability and the berry is spent in
+      // the same proportion: see `applyStatus`. Both are set whatever TOURNAMENT_BERRY says,
+      // so a round trip through a described board is the same shape either way; with the rule
+      // off nothing reads them.
+      oran: unit.kit.oran > 0, cure: unit.kit.cures ? 1 : 0,
       flinch: false, guard: false, intimidated: false, lead,
       // Whether it protected on the turn just ended, so the next one cannot (TOURNAMENT_GUARD).
       // Set in `refill`, which is the one place `guard` is cleared.
@@ -2261,6 +2342,22 @@ export class TournamentTest {
     const room = Math.min(Math.max(0, Number(chance) || 0), this.statusFree(target));
     if (room <= 0) return 0;
     target.st[field] += room;
+    // A cure berry eats the condition the moment it lands and is then gone (TOURNAMENT_BERRY).
+    // A condition here is a PROBABILITY, so the berry is spent in the same proportion: a 30%
+    // burn uses 0.3 of a Rawst and leaves 0.7 for a later one. That IS the expectation of
+    // "cures the first status and disappears" -- with chance 0.3 the berry was the thing that
+    // got used. A boolean would instead cure a 30% burn outright AND throw the whole berry
+    // away, which is wrong in both directions at once, and it would break the two properties
+    // the whole test rests on the way a coin flip does (see TOURNAMENT_EFFECTS).
+    const cures = this.berryOn ? target.k.cures : null;
+    if (cures && target.cure > 0 && cures.includes(field)) {
+      const eaten = Math.min(room, target.cure);
+      target.st[field] -= eaten;
+      target.cure -= eaten;
+      // What actually STUCK, which is what the callers report: a status the berry ate did not
+      // land, and `landed <= 0` is already their word for that.
+      return room - eaten;
+    }
     return room;
   }
 
@@ -2473,9 +2570,15 @@ export class TournamentTest {
   }
 
   berry(target) {
-    if (target.berry && !target.out && target.hp <= 0.5) {
+    if (target.out || target.hp > 0.5) return;
+    if (target.berry) {
       target.hp = Math.min(1, target.hp + 0.25);
       target.berry = false;
+    } else if (this.berryOn && target.oran) {
+      // A flat 10 HP, as the share of its own maximum the kit worked out. No Pokemon holds
+      // two items, so this and the Sitrus above are never both available.
+      target.hp = Math.min(1, target.hp + target.k.oran);
+      target.oran = false;
     }
   }
 
@@ -2596,6 +2699,50 @@ export class TournamentTest {
     if (!hit || !(hit.frac > 0)) return hit;
     return { ...hit, frac: hit.frac / 2, lo: hit.lo / 2, hi: hit.hi / 2,
       rollLo: hit.rollLo / 2, rollHigh: hit.rollHigh / 2 };
+  }
+
+  /**
+   * What the target has to be ABOUT TO do for this move to work, or "" when it does not care.
+   *
+   * Two moves ask (Sucker Punch, Upper Hand) and both are priority attacks, so the question is
+   * only ever asked of a move that is already going first.
+   */
+  requirementOf(info) {
+    const fx = info?.fx;
+    if (!Array.isArray(fx)) return "";
+    for (const op of fx) {
+      const name = String(op?.op || "");
+      if (name === "requires_target_damaging_move" || name === "requires_target_priority_move") return name;
+    }
+    return "";
+  }
+
+  /**
+   * Is that requirement met, on this board, at this moment?
+   *
+   * Sucker Punch's own text: "This move fails unless the target has chosen an attack AND HAS
+   * NOT YET ATTACKED during the turn this move is used." Both halves matter, and the second is
+   * the one that is easy to miss: a target that already moved -- because it was faster at the
+   * same priority, or used Fake Out, Extreme Speed or Protect first -- makes the move fail,
+   * however good it looks. Upper Hand asks the same question of a PRIORITY move.
+   *
+   * The target's intention is read off the ordered action list rather than from its row,
+   * because that is the only thing that knows what it chose and has not done yet. A target
+   * that is switching has no entry there at all, which is a failure too.
+   */
+  requirementMet(need, action, actions) {
+    const target = action.target;
+    if (!target || !alive(target) || target.acted) return false;
+    const theirs = actions.find((x) => x.m === target && x.kind);
+    if (!theirs) return false;
+    const slot = theirs.hit ? theirs.hit.slot : theirs.slot;
+    const info = slot >= 0 ? target.u.moves[slot] : null;
+    if (!info) return false;
+    // "chosen an attack": judged on the MOVE and not on the action's kind, so a damaging move
+    // that the planner filed as a stat drop or a Fake Out still counts as one. `varPower` is in
+    // it because Eruption and friends are listed at 0 power and are attacks all the same.
+    if (need === "requires_target_damaging_move") return Boolean(info.damaging || info.varPower);
+    return Number(info.priority || 0) > 0;
   }
 
   /**
@@ -3453,6 +3600,18 @@ export class TournamentTest {
         const used = a.hit ? a.hit.slot : a.slot;
         if (used >= 0 && m.u.moves[used]?.type === "Electric") m.charged = false;
       }
+      // SUCKER PUNCH / UPPER HAND fail when the target is not about to do what they need. The
+      // website never asked: the ops reach the browser only now, and without them Sucker Punch
+      // was a 70 BP priority move that could not fail at all.
+      if (this.effectsOn) {
+        const need = this.requirementOf(m.u.moves[a.hit ? a.hit.slot : a.slot]);
+        if (need && !this.requirementMet(need, a, actions)) {
+          events?.push({ s, kind: "fails", actor: m.u, target: a.target?.u,
+                         move: m.u.moves[a.hit ? a.hit.slot : a.slot]?.name || a.move });
+          m.acted = a.kind;
+          continue;
+        }
+      }
       m.acted = a.kind;
       if (a.kind === PROTECT) {
         m.guard = true;
@@ -3938,7 +4097,7 @@ export class TournamentTest {
     } else {
       this.turnOne(active, board, slower, events, deep ? deep.stances : null);
       if (memoKey) {
-        const keep = (m) => ({ hp: m.hp, spe: m.spe, atk: m.atk, spa: m.spa, sash: m.sash, berry: m.berry, out: m.out, kos: m.kos, flinch: m.flinch, guard: m.guard, intimidated: m.intimidated, idle: m.idle, sleep: m.sleep, burn: m.burn });
+        const keep = (m) => ({ hp: m.hp, spe: m.spe, atk: m.atk, spa: m.spa, sash: m.sash, berry: m.berry, oran: m.oran, cure: m.cure, out: m.out, kos: m.kos, flinch: m.flinch, guard: m.guard, intimidated: m.intimidated, idle: m.idle, sleep: m.sleep, burn: m.burn });
         memo.set(memoKey, { board: { ...board, tw: [...board.tw] }, leads: [active[0].map(keep), active[1].map(keep)] });
       }
     }

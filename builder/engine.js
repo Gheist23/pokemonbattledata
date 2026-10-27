@@ -400,7 +400,7 @@ export function monWithStages(mon, changes) {
 const RECHARGE_MOVES = new Set("hyperbeam gigaimpact frenzyplant blastburn hydrocannon rockwrecker roaroftime prismaticlaser eternabeam meteorassault".split(" "));
 export const TRIGGERED_ABILITIES = new Set([
   "electromorphosis", "wind power", "flash fire", "motor drive", "sap sipper",
-  "storm drain", "steam engine", "weak armor", "justified", "rattled",
+  "storm drain", "steam engine", "weak armor", "justified", "rattled", "thermal exchange",
   "berserk", "stamina", "water compaction", "anger shell", "moxie",
   "beast boost", "chilling neigh", "grim neigh", "download",
 ]);
@@ -411,6 +411,10 @@ export const MANUAL_STAGE_CHANGES = {
   "steam engine": { speed_stage: 6 },
   "weak armor": { defense_stage: -1, speed_stage: 2 },
   "justified": { attack_stage: 1 },
+  // "When the Pokemon takes damage from a Fire-type move, its Attack stat is boosted by 1
+  // stage." The burn half of the Ability travels separately, as a `status_immunity` op in the
+  // compiled registry, which the turn engine already reads.
+  "thermal exchange": { attack_stage: 1 },
   "rattled": { speed_stage: 1 },
   "berserk": { sp_attack_stage: 1 },
   "stamina": { defense_stage: 1 },
@@ -533,6 +537,42 @@ export const FORM_TYPE_ON = true;
  * (pokemon_champions_tool/grav_apple_gravity_v537.py).
  */
 export const GRAVITY_POWER_ON = true;
+
+/**
+ * Does Aura Guard halve the contact damage its holder takes?
+ *
+ * On, except for a recording made before the rule. It is needed: tests/calc-vectors.json index
+ * 2038 is a Facade into a Lucario holding Lucarionite Z, and the calculator Mega-evolves a stone
+ * holder -- so the defender is really Mega Lucario Z, whose Ability is Aura Guard, and the
+ * recorded answer is the un-halved one from before either codebase knew the Ability.
+ */
+export const AURA_GUARD_ON = true;
+
+/**
+ * Does Guard Dog turn Intimidate round instead of taking the drop?
+ *
+ * On, except for a recording made before the rule. It is needed, and not for the reason you
+ * would look first: no calc vector pairs an Intimidate attacker with a Guard Dog defender, so
+ * `run-calc-vectors` stays green either way -- but `run-suggest-vectors` moves on ten rows,
+ * all of them Mabosstiff, because a Guard Dog holder that GAINS a stage against Intimidate
+ * becomes an answer to Mega Salamence that it was not before. Checking one recorded suite is
+ * not checking all of them.
+ */
+export const GUARD_DOG_ON = true;
+
+export function guardDogOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
+
+export function auraGuardOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
 
 export function gravityPowerOption(value) {
   if (value === null || value === undefined || value === false) return false;
@@ -752,7 +792,9 @@ export class DamageEngine {
                         movePriority = MOVE_PRIORITY_ON,
                         roomPlan = ROOM_PLAN_ON,
                         formType = FORM_TYPE_ON,
-                        gravityPower = GRAVITY_POWER_ON } = {}) {
+                        gravityPower = GRAVITY_POWER_ON,
+                        auraGuard = AURA_GUARD_ON,
+                        guardDog = GUARD_DOG_ON } = {}) {
     // Off only for a recording made before the rule (see `terrainSeedOption`).
     this.terrainSeeds = terrainSeedOption(terrainSeeds);
     // Likewise: off only for a recording made before Steel Roller learned it
@@ -779,6 +821,10 @@ export class DamageEngine {
     // Likewise: off only for a recording made before Gravity raised Grav Apple's power
     // (see `gravityPowerOption`).
     this.gravityPower = gravityPowerOption(gravityPower);
+    // Likewise: off only for a recording made before Aura Guard halved contact damage.
+    this.auraGuard = auraGuardOption(auraGuard);
+    // Likewise: off only for a recording made before Guard Dog turned Intimidate round.
+    this.guardDog = guardDogOption(guardDog);
     this.data = appData;
     // V525: {move key: {stat: signed stages}} for every move that changes its own user,
     // exported from the game's own move archive. Empty on an older data file, which is the
@@ -1511,8 +1557,8 @@ export class DamageEngine {
     // Sceptile into a +2 Mega Slowbro came out at 39-47 where the app said 20-24.
     const critProof = this.critProofAbility(defender, defAbility) && !moldBreaker;
     const isCritical = !critProof && Boolean(ctx.critical || meta.always_critical);
-    const atkOffsets = intimidateOffsets(defender, attacker);
-    const defOffsets = intimidateOffsets(attacker, defender);
+    const atkOffsets = intimidateOffsets(defender, attacker, this.guardDog);
+    const defOffsets = intimidateOffsets(attacker, defender, this.guardDog);
     const defenderUnaware = defAbility === "unaware" && !moldBreaker;
     const attackerUnaware = atkAbility === "unaware";
 
@@ -2161,6 +2207,9 @@ export class DamageEngine {
     const fullHp = currentHp >= maxHp;
     if ((defAbility === "multiscale" || defAbility === "shadow shield") && fullHp && !moldBreaker) finalMods.push([defender.ability, 0.5]);
     if (defAbility === "fluffy" && flags.has("contact") && !moldBreaker) finalMods.push([defender.ability, 0.5]);
+    // Aura Guard: "Halves the damage the Pokemon takes from contact moves." Mega Lucario Z is
+    // its only holder and was taking full contact damage everywhere.
+    if (this.auraGuard && defAbility === "aura guard" && flags.has("contact") && !moldBreaker) finalMods.push([defender.ability, 0.5]);
     if (defAbility === "fluffy" && moveType === "Fire" && !moldBreaker) finalMods.push([defender.ability, 2.0]);
     if (["filter", "solid rock", "prism armor"].includes(defAbility) && eff > 1 && !moldBreaker) finalMods.push([defender.ability, 0.75]);
     if (defAbility === "punk rock" && flags.has("sound") && !moldBreaker) finalMods.push([defender.ability, 0.5]);
@@ -2265,11 +2314,18 @@ export function terrainSeedMon(engine, mon, ctx, stateName, details) {
 }
 
 // Exported for the Tournament Test, which applies Intimidate once on entry instead of per calc.
-export function intimidateOffsets(source, target) {
+export function intimidateOffsets(source, target, guardDogOn = GUARD_DOG_ON) {
   const offsets = { attack_stage: 0, sp_attack_stage: 0 };
   if (key(source.ability) !== "intimidate") return offsets;
   if (target._white_herb_restored_v314) return offsets;
   const targetAbility = key(target.ability);
+  // GUARD DOG is not a blocker, and that is why it is tested before the blocker set rather
+  // than added to it: "Intimidate does not work on the Pokemon. Instead, it boosts the
+  // Pokemon's Attack stat by 1 stage." A blocker returns 0; this returns +1. Without it the
+  // Ability fell through to the -1 below -- two stages away from the game, which is x2.25 on
+  // every physical hit, against the format's most common lead Ability.
+  // `builder/tournament-test.js intimidateFrom` already had this; only the damage side did not.
+  if (guardDogOn && targetAbility === "guard dog") return { attack_stage: 1, sp_attack_stage: 0 };
   if (INTIMIDATE_BLOCKERS.has(targetAbility) || key(target.item) === "white herb") return offsets;
   offsets.attack_stage = -1;
   if (targetAbility === "defiant") offsets.attack_stage += 2;

@@ -15,7 +15,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, fieldRequirementOption, makeContext, makeMon, pyFixed, pyRound, ateDragonizeOption, formTypeOption, gravityPowerOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, makeContext, makeMon, pyFixed, pyRound, ateDragonizeOption, formTypeOption, gravityPowerOption, auraGuardOption, guardDogOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -45,6 +45,18 @@ const fieldRule = (vector) => fieldRequirementOption(
     replays with the move's listed Normal, which is what it was recorded at. */
 /** Gravity raises Grav Apple's power by half. A vector recorded before the rule carries no
     `gravity_power` stamp and replays with the flat power. */
+/** Aura Guard halves the contact damage its holder takes. A vector recorded before the rule
+    carries no `aura_guard` stamp and replays un-halved. */
+/** Guard Dog turns Intimidate round instead of taking the drop. A vector recorded before the
+    rule carries no `guard_dog` stamp and replays with the -1. */
+const guardDogRule = (vector) => guardDogOption(
+  process.env.GUARD_DOG === undefined
+    ? (vector.rules?.guard_dog ?? vector.record?.rules?.guard_dog ?? null)
+    : process.env.GUARD_DOG);
+const auraGuardRule = (vector) => auraGuardOption(
+  process.env.AURA_GUARD === undefined
+    ? (vector.rules?.aura_guard ?? vector.record?.rules?.aura_guard ?? null)
+    : process.env.AURA_GUARD);
 const gravityPowerRule = (vector) => gravityPowerOption(
   process.env.GRAVITY_POWER === undefined
     ? (vector.rules?.gravity_power ?? vector.record?.rules?.gravity_power ?? null)
@@ -130,6 +142,8 @@ for (const [index, vector] of vectors.entries()) {
   engine.ateDragonize = ateDragonizeRule(vector);
   engine.formType = formTypeRule(vector);
   engine.gravityPower = gravityPowerRule(vector);
+  engine.auraGuard = auraGuardRule(vector);
+  engine.guardDog = guardDogRule(vector);
   const attacker = makeMon(vector.attacker);
   const defender = makeMon(vector.defender);
   const ctx = makeContext(vector.ctx);

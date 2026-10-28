@@ -79,10 +79,22 @@ check("api_guide.html has one nav-actions row", guideNav.length > 0);
 check("api_guide.html offers no API button", !/href="\/api_guide"/.test(guideNav), guideNav.match(/href="\/api_guide"[^>]*>[^<]*/)?.[0] || "");
 check("api.html offers no API button", !/href="\/api_guide"/.test(apiHtmlNav));
 check("/api-rules/ still links to the API guide", /href="\/api_guide"/.test(rulesNav));
+// The header's Discord button belongs to the landing page only, so it is no longer in this
+// list. The page still has a Discord call to action, two of them, in the body: "Join Discord"
+// and "Add free Discord Bot to Your Server". The long one is there and not in the header
+// because it does not fit: this file's own width estimate put the row at 1333px against the
+// 1180px the `.page-api` rule caps it to, which is exactly what the check below is for.
 check("api_guide.html keeps its other buttons",
-  ["Team Builder", "Damage Calc", "Meta", "Explorer", "Download Battle Data", "API Rules", "Companion", "Pro", "Discord"]
+  ["Team Builder", "Damage Calc", "Meta", "Explorer", "Download Battle Data", "API Rules", "Companion", "Pro"]
     .every((label) => navLabels(guideNav).includes(label)),
   navLabels(guideNav).join(" | "));
+check("api_guide.html has no Discord button in the header",
+  !navLabels(guideNav).some((label) => /discord/i.test(label)), navLabels(guideNav).join(" | "));
+check("but it does invite the bot in the body",
+  />Add free Discord Bot to Your Server</.test(read("api_guide.html")));
+check("and only the landing page carries the header Discord button",
+  /<a class="discord-button" href="https:\/\/discord\.gg\//.test(read("index.html"))
+  && !/<a class="discord-button" href="https:\/\/discord\.gg\//.test(read("api_guide.html")));
 
 const css = read("styles.css");
 // The breakpoint itself is a measurement, not a contract: with the API button

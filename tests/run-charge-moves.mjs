@@ -17,7 +17,8 @@
 //   4. the escapes: the move's own weather releases it at once, and a Power Herb pays for one;
 //   5. a semi-invulnerable user cannot be hit while it is away;
 //   6. the lock: a charging Pokemon is offered its charging move and nothing else -- no Protect,
-//      no switch, and `slotActions` does not hand the extras back;
+//      no switch, and `slotActions` does not hand the extras back -- and that includes the
+//      TARGET: it attacks the seat it was started against, not one re-chosen when it lands;
 //   7. the release lands, and the state is cleared;
 //   8. leaving the field cancels a charge, and a described board can carry one.
 //
@@ -282,6 +283,62 @@ function playTurn(solver, state, ourMove, theirMove = null, turn = 1) {
     locked.map((a) => a.move || a.kind).join(","));
   ok("so no Protect", !locked.some((a) => a.move === "Protect"));
   ok("and no switch", !locked.some((a) => a.kind === -1));
+}
+
+// ---------------------------------------------------------------------------
+// 6b. the lock includes the TARGET
+// ---------------------------------------------------------------------------
+{
+  // The move was locked and the target was not: a seat apiece was offered when it landed, so the
+  // target could be moved between starting the move and landing it. The game does not allow
+  // that -- a charging Pokemon attacks the slot it chose.
+  const solver = makeSolver();
+  const state = solver.buildState(board(
+    [row(ARCH, { front: true }), row(HITTER)],
+    [row(BULKY, { front: true }), row(HITTER, { front: true })],
+  ));
+  const arch = state.active[0][0];
+  const slot = arch.u.moves.findIndex((info) => info && /electro shot/i.test(info.name || ""));
+  ok("Electro Shot is on the sheet", slot >= 0, String(slot));
+  ok("nothing is locked before it starts", arch.chargeTarget === -1, String(arch.chargeTarget));
+
+  // Aimed at seat 1, which is the far foe rather than the one a free choice would pick first.
+  solver.t.beginCharge(arch, arch.u.moves[slot], slot, null, 0, 1);
+  ok("the charge remembers the seat", arch.chargeTarget === 1, String(arch.chargeTarget));
+  const locked = solver.slotCandidates(state, 0, 0, { cap: 0 });
+  ok("exactly one action is offered", locked.length === 1, String(locked.length));
+  ok("and it is aimed at the seat it was started against", locked[0].target === 1,
+    JSON.stringify(locked.map((a) => a.target)));
+
+  // THE ONE EXCEPTION. If the original target is gone the game picks a new one, so the free
+  // choice comes back -- and only then.
+  state.active[1][1].out = true;
+  state.active[1][1].hp = 0;
+  const bereaved = solver.slotCandidates(state, 0, 0, { cap: 0 });
+  ok("a target that has fainted gives the choice back", bereaved.every((a) => a.target === 0),
+    JSON.stringify(bereaved.map((a) => a.target)));
+
+  // A board that cannot say which seat reads as "no single target" and keeps the old behaviour,
+  // so an older recording replays as it did.
+  state.active[1][1].out = false;
+  state.active[1][1].hp = 1;
+  arch.chargeTarget = -1;
+  const unlocked = solver.slotCandidates(state, 0, 0, { cap: 0 });
+  ok("with no seat recorded both targets are offered", unlocked.length === 2,
+    JSON.stringify(unlocked.map((a) => a.target)));
+
+  // And the lock is cleared when the move lands, not carried into the next one.
+  arch.chargeTarget = 1;
+  const pre = { ...arch, charging: arch.charging };
+  solver.t.chargeStep(arch, pre, slot, state.board, null, 0, 1);
+  ok("landing it clears the lock", arch.chargeTarget === -1 && arch.chargeSlot === -1,
+    `${arch.chargeTarget} / ${arch.chargeSlot}`);
+
+  // It travels on the row, so the opponent searching a rebuilt board sees the same lock.
+  const play = readFileSync(join(root, "builder", "play-game.js"), "utf8");
+  ok("the row carries it", /chargeTarget: m\.chargeTarget \?\? -1,/.test(play));
+  const solverSource = readFileSync(join(root, "builder", "solver.js"), "utf8");
+  ok("and a described board can say it", /row\.chargeTarget !== undefined/.test(solverSource));
 }
 
 // ---------------------------------------------------------------------------

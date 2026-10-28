@@ -336,6 +336,9 @@ function monView(m, full, record) {
     // Why a move may be refused this turn, so the screen can say so rather than dropping it.
     guardedLast: Boolean(m.guardedLast),
     justIn: Boolean(m.justIn),
+    // Beside `status` and not inside it: a confusion stacks with a major status, so a burned
+    // and confused Pokemon has to be able to say both.
+    confused: Number(m.st?.cnf) || 0,
     atk: m.atk || 0,
     spa: m.spa || 0,
     spe: m.spe || 0,
@@ -551,6 +554,9 @@ export class PlayGame {
     const extra = [];
     (m.u.moves || []).forEach((info, slot) => {
       if (!info?.name || offered.has(compact(info.name))) return;
+      // Out of PP, not offered (TOURNAMENT_PP). The person is entitled to every move their
+      // Pokemon really has -- and a move with no PP left is one it does not have right now.
+      if (!this.solver.t.hasPp(m, slot)) return;
       // A MOVE THE SEARCH HAS NO KIND FOR, never one it declined this turn. Three gates, and
       // each of them was a real bug before it was there:
       //   * an ATTACK is already a kind, so a damaging move is never missing for want of one.
@@ -714,6 +720,20 @@ export class PlayGame {
       // ago were still in hand -- the same defect `sash` and `berry` above were given.
       oran: Boolean(m.oran),
       cure: Math.min(1, Math.max(0, Number(m.cure) || 0)),
+      // How confused it is (TOURNAMENT_CONFUSION). A SHARE, like `cure`: in this model a
+      // condition is a probability. It needs a field of its own rather than riding on
+      // `status`, because a confusion is a VOLATILE and stacks with a major status -- a
+      // Pokemon can be burned and confused at once, and one string cannot say both.
+      confused: Math.min(1, Math.max(0, Number(m.st?.cnf) || 0)),
+      // PP left per move slot, and whether the Leppa Berry is still in hand. Without these
+      // every board the opponent searched handed its moves back full -- it would plan around
+      // an attack that has not been available for ten turns.
+      pp: Array.isArray(m.pp) ? m.pp.map((n) => Math.max(0, Math.trunc(Number(n) || 0))) : [],
+      leppa: Boolean(m.leppa),
+      // Whether the type resistance berry is still uneaten (TOURNAMENT_RBERRY). Without it
+      // every board the opponent searched handed a Chople Berry back whole and planned
+      // around a halving that was spent on turn one.
+      rberry: Boolean(m.rberry),
       // How long the bad poison has been on, because that damage grows. A board that cannot say
       // starts it at one turn, which is wrong for a Pokemon six turns in.
       toxTurns: Math.max(0, Math.trunc(Number(m.toxTurns) || 0)),
@@ -723,6 +743,9 @@ export class PlayGame {
       // searches has a Pokemon that is free to act -- and one that is away on Fly standing there
       // to be hit. `buildState` finds the slot again from the key.
       charging: m.charging || "",
+      // The seat the charge was aimed at, so the opponent searching a rebuilt board sees the
+      // same lock the player does: a charging Pokemon attacks the slot it chose.
+      chargeTarget: m.chargeTarget ?? -1,
       // Carrying Charge's Electric Boost, restored by `buildState` (builder/solver.js). Without
       // it the one bridge from the live board to the boards the opponent searches dropped the
       // flag, so the opponent planned against an Electric move priced at half what it will do --
@@ -805,7 +828,9 @@ export class PlayGame {
       // a cure berry as much as a Sitrus. `cure` is compared as a share: any of it spent is
       // the berry showing itself, which is what the player sees happen.
       if ((was.sash && !m.sash) || (was.berry && !m.berry) || (was.oran && !m.oran)
-        || ((was.cure || 0) > (m.cure || 0))) show(m, "item", m.u.item || "");
+        || ((was.cure || 0) > (m.cure || 0))
+        || (was.leppa && !m.leppa)
+        || (was.rberry && !m.rberry)) show(m, "item", m.u.item || "");
     }
 
     // Abilities that DID something: the weather, the terrain, an Intimidate, a redirection. The
@@ -1075,7 +1100,7 @@ export class PlayGame {
     // What each side is carrying into this turn, so an item that is spent during it can be told
     // apart from one that was already gone.
     const heldBefore = this.state.sides.map((list) =>
-      new Map(list.map((m) => [m.tag, { sash: m.sash, berry: m.berry, oran: m.oran, cure: m.cure, mega: Boolean(m.mega) }])));
+      new Map(list.map((m) => [m.tag, { sash: m.sash, berry: m.berry, oran: m.oran, cure: m.cure, leppa: m.leppa, rberry: m.rberry, mega: Boolean(m.mega) }])));
     // Read BEFORE the turn, because this is the only moment either survives: a joint action's
     // `position` means what it says until `applySwitches` moves Pokemon between the field and
     // the bench, and `ix` is where each Pokemon sits in its side's list before that same swap.
@@ -1643,8 +1668,15 @@ export class PlayGame {
       // nothing and no step was ever emitted. The event carries its own side and the Mega's
       // label, which between them name exactly one standing Pokemon.
       if (event.kind === "mega" && event.s !== undefined) {
-        const m = (this.state.active[event.s] || [])
-          .find((x) => x && this.solver.label(x.u) === event.value);
+        // THE EVENT CARRIES ITS OWN SEAT NOW. Matching `value` against the standing rows'
+        // labels was the one thing between a Mega Evolution and its animation, and when it
+        // missed it missed quietly: no row, no step, no sprite swap, no flash -- and the
+        // turn read as though nothing had happened. `tag` is the row's index, so it cannot
+        // be ambiguous and cannot miss. The label match stays only as a fallback for a
+        // recorded stream made before the event carried a tag.
+        const rows = this.state.active[event.s] || [];
+        const m = (event.tag !== undefined ? rows.find((x) => x && x.tag === event.tag) : null)
+          || rows.find((x) => x && this.solver.label(x.u) === event.value);
         // THE MEGA'S NAME AND ITS FORM TRAVEL ON THE STEP. The animation would otherwise read
         // them off whichever board the page is holding, and during a playout that is the board
         // the turn STARTED from -- where this Pokemon has not evolved. Asking it for a sprite
@@ -1658,8 +1690,10 @@ export class PlayGame {
               side: m.s,
               tag: m.tag,
               name: event.value || this.solver.label(m.u),
-              species: m.u.species,
-              form: m.u.form || "",
+              // From the EVENT first: it was written at the moment of evolution, while the
+              // row is whatever the board holds by the time this runs.
+              species: event.species || m.u.species,
+              form: event.form !== undefined ? event.form : (m.u.form || ""),
             },
           });
         }

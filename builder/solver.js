@@ -483,6 +483,20 @@ export class Solver {
         // boolean would hand a half-spent berry back whole.
         if (row.oran !== undefined) m.oran = Boolean(row.oran);
         if (row.cure !== undefined) m.cure = Math.min(1, Math.max(0, Number(row.cure) || 0));
+        // A board describing a game in progress can say a Pokemon is confused. There is no
+        // boolean for it beside `m.burn` and the rest, because a confusion is a volatile and
+        // the share IS the state -- so it goes straight into the probability slot.
+        if (row.confused !== undefined && m.st) m.st.cnf = clamp01(Number(row.confused) || 0);
+        // PP as the board left them, and the Leppa Berry if it is still in hand. Clamped to
+        // each move's own maximum, so a board cannot describe a move with more PP than it has.
+        if (Array.isArray(row.pp) && Array.isArray(m.pp)) {
+          for (let i = 0; i < m.pp.length; i += 1) {
+            if (row.pp[i] === undefined) continue;
+            m.pp[i] = Math.max(0, Math.min(m.pp[i], Math.trunc(Number(row.pp[i]) || 0)));
+          }
+        }
+        if (row.leppa !== undefined) m.leppa = Boolean(row.leppa);
+        if (row.rberry !== undefined) m.rberry = Boolean(row.rberry);
         if (row.critStage !== undefined) m.critStage = Math.max(0, Math.trunc(Number(row.critStage) || 0));
         // Already on the field, so already entered: the board describes a game in progress and
         // its entry Abilities resolved before the person described it. Without this the first
@@ -498,6 +512,13 @@ export class Solver {
           if (slot >= 0) {
             m.charging = String(row.charging);
             m.chargeSlot = slot;
+            // The seat it was aimed at, so a rebuilt board keeps the lock. A board that does
+            // not say leaves it at -1, which reads as "no single target" and gives back the
+            // free choice -- the old behaviour, for a board that cannot say better.
+            if (row.chargeTarget !== undefined) {
+              const seat = Math.trunc(Number(row.chargeTarget));
+              m.chargeTarget = Number.isFinite(seat) && seat >= 0 ? seat : -1;
+            }
             m.hidden = String(m.u.moves[slot].charge?.op || "") !== "charge_then";
           }
         }
@@ -611,7 +632,15 @@ export class Solver {
         const frac = liveFoes.reduce((sum, [foe]) => sum + t.hitOn(m, foe, slot, state.board).frac, 0);
         add({ kind: ATTACK, slot, target: -1, move: info.name, spread: true, value: frac * 10 });
       } else {
-        for (const [foe, fp] of liveFoes) {
+        // LOCKED TO THE SEAT IT WAS AIMED AT. A charging Pokemon attacks the slot it chose;
+        // offering a target apiece let the target be moved between starting the move and
+        // landing it, which the game does not allow. The one exception is the original
+        // target being GONE -- the game picks a new one then, so the free choice comes back
+        // and only then.
+        const locked = m.chargeTarget >= 0 && alive(foes[m.chargeTarget])
+          ? liveFoes.filter(([, fp]) => fp === m.chargeTarget)
+          : liveFoes;
+        for (const [foe, fp] of locked) {
           add({ kind: ATTACK, slot, target: fp, move: info.name, value: t.hitOn(m, foe, slot, state.board).frac * 10 });
         }
       }
@@ -620,6 +649,9 @@ export class Solver {
 
     u.moves.forEach((info, slot) => {
       if (!info || !info.name) return;
+      // Out of PP, out of the list (TOURNAMENT_PP). With the rule off this is always true,
+      // so the list is exactly the one every caller had.
+      if (!t.hasPp(m, slot)) return;
       const key = info.key;
       if (key === "fakeout") {
         if (!m.justIn) return;
@@ -821,6 +853,9 @@ export class Solver {
       // faint path; this is the other way off the field, and it is the one both the search and
       // the played game take for a CHOSEN switch.
       out.charged = false;
+      // A confusion is a volatile too, and goes with them. The major status does NOT -- that
+      // follows a Pokemon to the bench and back, which is why only this one field is wiped.
+      if (out.st) out.st.cnf = 0;
       state.active[s][action.position] = into;
     }
   }
@@ -990,7 +1025,17 @@ export class Solver {
       m.u = this.t.prepare(m.mega);
       m.k = m.u.kit;
       m.mega = null;
-      events?.push({ s: m.s, kind: "mega", actor: was, value: this.label(m.u) });
+      // THE SEAT TRAVELS WITH IT, and so do the species and form. The animation needs to
+      // know which tile to swap and what to draw there, and play-game.js used to work that
+      // out by matching `value` against `label(row.u)` over the standing rows -- a lookup
+      // that can miss (two rows with the same label, a label that is spelled differently by
+      // the time it is compared) and that FAILED SILENTLY when it did: no row, no step, no
+      // animation, and nothing anywhere saying so. `tag` is the row's own index and cannot
+      // be ambiguous, so with these on the event the step needs no lookup at all.
+      events?.push({
+        s: m.s, kind: "mega", actor: was, value: this.label(m.u),
+        tag: m.tag, species: m.u.species, form: m.u.form || "",
+      });
       this.t.megaEnter(m, active, board, events, hadIntimidate);
     }
   }
@@ -1018,7 +1063,12 @@ export class Solver {
       best.u = this.t.prepare(best.mega);
       best.k = best.u.kit;
       best.mega = null;
-      events?.push({ s: best.s, kind: "mega", actor: was, value: this.label(best.u) });
+      // Same shape as `applyMegas` above, for the same reason: the step must not depend on
+      // a name lookup that can come up empty.
+      events?.push({
+        s: best.s, kind: "mega", actor: was, value: this.label(best.u),
+        tag: best.tag, species: best.u.species, form: best.u.form || "",
+      });
       this.t.megaEnter(best, active, board, events, hadIntimidate);
     }
   }

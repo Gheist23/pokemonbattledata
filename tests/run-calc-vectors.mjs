@@ -15,7 +15,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, fieldRequirementOption, makeContext, makeMon, pyFixed, pyRound, ateDragonizeOption, formTypeOption, gravityPowerOption, auraGuardOption, guardDogOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, makeContext, makeMon, pyFixed, pyRound, ateDragonizeOption, formTypeOption, gravityPowerOption, auraGuardOption, fairyAuraOption, guardDogOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption } from "../builder/engine.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -53,6 +53,13 @@ const guardDogRule = (vector) => guardDogOption(
   process.env.GUARD_DOG === undefined
     ? (vector.rules?.guard_dog ?? vector.record?.rules?.guard_dog ?? null)
     : process.env.GUARD_DOG);
+/** Fairy Aura lifts every Fairy-type attack on the field by a third. A vector recorded
+    before the rule carries no `fairy_aura` stamp and replays with the un-boosted
+    number -- in both directions, because either side's aura counts. */
+const fairyAuraRule = (vector) => fairyAuraOption(
+  process.env.FAIRY_AURA === undefined
+    ? (vector.rules?.fairy_aura ?? vector.record?.rules?.fairy_aura ?? null)
+    : process.env.FAIRY_AURA);
 const auraGuardRule = (vector) => auraGuardOption(
   process.env.AURA_GUARD === undefined
     ? (vector.rules?.aura_guard ?? vector.record?.rules?.aura_guard ?? null)
@@ -143,6 +150,7 @@ for (const [index, vector] of vectors.entries()) {
   engine.formType = formTypeRule(vector);
   engine.gravityPower = gravityPowerRule(vector);
   engine.auraGuard = auraGuardRule(vector);
+  engine.fairyAura = fairyAuraRule(vector);
   engine.guardDog = guardDogRule(vector);
   const attacker = makeMon(vector.attacker);
   const defender = makeMon(vector.defender);

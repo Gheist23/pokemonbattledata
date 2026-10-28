@@ -89,7 +89,7 @@
 // attack when the engine prices it -- Gyro Ball, Electro Ball, Reversal and the rest of the named
 // set (TOURNAMENT_VAR_POWER).
 
-import { compact, intimidateOffsets, makeMon, TERRAIN_SEEDS } from "./engine.js";
+import { compact, intimidateOffsets, makeMon, RESIST_BERRIES, TERRAIN_SEEDS } from "./engine.js";
 import { mostSimilarTeam } from "./known-teams.js";
 import { resultRecoilShare } from "./self-cost.js";
 import { classifyArchetype, tailwindBeneficiaries } from "./team-checks.js";
@@ -646,6 +646,147 @@ export const TOURNAMENT_CHARGE = 0;
  */
 export const TOURNAMENT_BERRY = 0;
 
+/**
+ * Whether a DEFENSIVE stat change is priced on the stat it actually changed.
+ *
+ * `shiftStages` has written `unit.spd` since TOURNAMENT_EFFECTS added it, and nothing has
+ * ever read it: `hitOn` passed `target.def` whatever the move was, and `calc` wrote it to
+ * `defense_stage`. So an Acid Spray, the Sp. Def half of a Calm Mind and the self-drop of a
+ * Close Combat were all tracked on the row and then ignored by every number -- the stage was
+ * there, and a special attack went through it as though the Pokemon had not moved.
+ *
+ * TOURNAMENT_EFFECTS's own note says it turns on "Defense and Sp. Def stages". It turned on
+ * half of that: the bookkeeping. This is the other half.
+ *
+ * 0 by default, ON PURPOSE, for the reason TOURNAMENT_LIVE_HP and TOURNAMENT_CHARGE are: it
+ * moves damage numbers the Tournament Test publishes, and the site's evaluation scores,
+ * several thousand recorded parity vectors and the Companion all agree on the current ones.
+ * The PLAYED game asks for version 1, because a Pokemon whose Sp. Def has been dropped two
+ * stages should take a special hit like one.
+ *
+ * What version 1 turns on: a special move reads the defender's Sp. Def stage and a physical
+ * one its Defense stage, each written to its own field. Under rule 0 both read the Defense
+ * stage, which is bit-identical to what every existing caller already gets.
+ */
+export const TOURNAMENT_STAGES = 0;
+
+/**
+ * Whether CONFUSION exists.
+ *
+ * Twenty moves ship a `volatile` confusion op to the browser -- Axe Kick, Confuse Ray,
+ * Dynamic Punch, Water Pulse and the rest -- and this engine did nothing with `volatile`
+ * ops at all, so the secondary effect of all twenty was inert and the Persim Berry had
+ * nothing to cure. `st` had no field for it.
+ *
+ * CONFUSION IS NOT A MAJOR STATUS, and that is the thing to get right: it stacks with one.
+ * A burned Pokemon can be confused as well, so `cnf` is kept out of `statusFree` -- putting
+ * it in the sum would have let a confusion block a Will-O-Wisp, which the game does not do.
+ * It has its own room instead: `confuse` fills at most one whole confusion.
+ *
+ * WHAT IS MODELLED is the lost action: a confused Pokemon hurts itself instead of acting one
+ * time in three, so `actionScale` keeps a third of `cnf` back. It wears off the way a sleep
+ * does, as a share each turn.
+ *
+ * WHAT IS NOT MODELLED is the self-hit's own damage. A confusion hit is a 40-power typeless
+ * physical attack on itself, and pricing it would mean a damage calculation for a move that
+ * is not in anyone's move list -- the engine prices a hit from a move SLOT. The lost action
+ * is the larger of the two effects by a long way, and the smaller one is left out rather
+ * than guessed at. Stated here so it is a known gap and not a surprise.
+ *
+ * 0 by default, ON PURPOSE, for the reason the four rules above are: it moves numbers the
+ * Tournament Test publishes. The PLAYED game asks for version 1.
+ */
+export const TOURNAMENT_CONFUSION = 0;
+
+/**
+ * Whether a move runs out of PP.
+ *
+ * `app-data.json` has carried a `pp` for all 955 moves since it was first exported, and
+ * nothing here looked at it: `moveInfo` dropped the field, the row had no counter, and every
+ * move could be used for ever. The Leppa Berry therefore had nothing to restore, which is
+ * why it was documented as unmodellable.
+ *
+ * IT REALLY BINDS. A played game runs to TURN_LIMIT = 40 turns, and 177 of the game's moves
+ * have 8 PP (185 have 12, 231 have 16). Eight uses of an 8-PP move is well inside 40 turns,
+ * so this is not bookkeeping for its own sake.
+ *
+ * WHAT VERSION 1 TURNS ON:
+ *   * a per-move counter on the row, seeded from the move's own PP;
+ *   * one spent per action, on the turn a two-turn move is STARTED and not again when it
+ *     lands -- which is what the Companion does (`_consume_move_use_resources`);
+ *   * a move at 0 is not offered, by either action generator;
+ *   * the Leppa Berry restores 10 PP to a move that has just run out, capped at that move's
+ *     own maximum, and is then gone.
+ *
+ * NO STRUGGLE. A Pokemon whose every move is out keeps its switches and otherwise waits,
+ * which `slotCandidates` already answers with when it has nothing to offer. Four moves at
+ * the 8-PP floor is 32 uses against 40 turns, so the case is reachable but rare, and a
+ * Struggle nobody can model correctly would be worse than a turn spent doing nothing.
+ *
+ * 0 by default, ON PURPOSE: it changes which actions the Tournament Test can choose, and
+ * its numbers are published. The PLAYED game asks for version 1.
+ */
+export const TOURNAMENT_PP = 0;
+
+/**
+ * Whether a TYPE RESISTANCE BERRY is eaten after the one hit it halves.
+ *
+ * The 18 of them work off the defender's item inside the damage engine, so they applied to
+ * every qualifying hit for the whole game: a Chople Berry holder took half from every
+ * Fighting move it ever met, where the game gives it half from one. After Sitrus they are the
+ * most carried berries in the format -- Chople 293 usage points, Colbur 292, Shuca 195,
+ * Occa 133, Roseli 114, around 1,030 together -- so this was the largest berry defect left.
+ *
+ * HOW THE UN-HALVED NUMBER IS ASKED FOR. The engine applies the berry from `defender.item`,
+ * and the only way to get the number without it is to hand it a defender with no item. That
+ * is safe because a Pokemon holding a resistance berry holds nothing else, so clearing the
+ * item removes exactly the berry. It needs a SECOND damage store, because the cache key is
+ * already past the integer range a double holds exactly and cannot take another factor --
+ * the same reason Charge's Electric Boost got `chargedHits` instead of a wider key.
+ *
+ * WHICH hit the berry halved is not worked out here: `builder/engine.js` reports it as
+ * `resist_berry_active`, because deciding it means knowing type effectiveness and that is
+ * the engine's job, not this file's.
+ *
+ * 0 by default, ON PURPOSE: it moves damage numbers the Tournament Test publishes. The
+ * PLAYED game asks for version 1.
+ */
+export const TOURNAMENT_RBERRY = 0;
+
+/**
+ * Whether EMERGENCY EXIT takes its holder off the field.
+ *
+ * The game: "When the Pokemon's HP drops below half, it switches out." Its holder is
+ * Golisopod, which is rank 8 in Doubles and rank 5 in Singles and stands in 164 of the 1,946
+ * registered teams -- so this is not a corner. It was one of twelve Abilities missing from
+ * the compiled registry and the only expensive one.
+ *
+ * AT THE END OF THE TURN, NOT THE MOMENT OF THE HIT, and that is a deliberate approximation.
+ * This engine has no forced switch at all, and one in the middle of a turn breaks seat
+ * rule 1: every decision is taken against the state as it stands before ANY action and the
+ * choices are applied together, which is what keeps a team's score against itself exactly 50
+ * and a seat swap exactly 100. Moving a Pokemon off the field after the targets were chosen
+ * would undo that for a mechanic one Pokemon has.
+ *
+ * WHAT THE APPROXIMATION LOSES: the holder does not escape a SECOND hit landing in the same
+ * turn. In the game it would be gone before the next attacker moved.
+ * WHAT IT MODELS: the switch itself -- Golisopod leaves, somebody comes in, and that arrival
+ * triggers like any other (its Intimidate, its weather). That is what makes Golisopod a
+ * pivot, and it was entirely absent.
+ *
+ * The Companion gets it exactly, at the moment of the hit, because the Eject Button already
+ * resolved there (`mcts/engine.py _after_hit_items`). The two therefore differ by one turn of
+ * timing on this one Ability; no recorded number compares them, because the parity suites do
+ * not run this turn engine.
+ *
+ * 0 by default, ON PURPOSE, like every rule above it. The PLAYED game asks for version 1.
+ */
+export const TOURNAMENT_BAIL = 0;
+
+/** What a Leppa Berry gives back. The game: "Restores 10 PP to a move when its PP is fully
+ *  depleted." */
+const LEPPA_PP = 10;
+
 /** The registry ops that mean "this move does not finish this turn". `two_turn_carry` is here
  *  because it is the same shape; the list is what `moveInfo` looks for and what the exporter's
  *  WEB_MOVE_OPS must ship, or `fx` arrives without them and the rule is inert. */
@@ -750,6 +891,26 @@ export function tournamentChargeOption(value) {
 
 export function tournamentBerryOption(value) {
   return ruleVersion(value, TOURNAMENT_BERRY);
+}
+
+export function tournamentStagesOption(value) {
+  return ruleVersion(value, TOURNAMENT_STAGES);
+}
+
+export function tournamentConfusionOption(value) {
+  return ruleVersion(value, TOURNAMENT_CONFUSION);
+}
+
+export function tournamentPpOption(value) {
+  return ruleVersion(value, TOURNAMENT_PP);
+}
+
+export function tournamentRberryOption(value) {
+  return ruleVersion(value, TOURNAMENT_RBERRY);
+}
+
+export function tournamentBailOption(value) {
+  return ruleVersion(value, TOURNAMENT_BAIL);
 }
 
 export function tournamentEffectsOption(value) {
@@ -891,18 +1052,24 @@ const STAT_DROPS = {
  * Rawst "Cures being burned", Aspear "Cures being frozen". Each one adds "Disappears for the
  * duration of the battle after a single use."
  *
- * PERSIM IS DELIBERATELY ABSENT. It cures confusion only, and `st` has no field for it.
- * Mapping it to an empty list would read as "modelled, and does nothing"; leaving it out says
- * what is true -- its holder gets no cure here. The day `st` grows a `cnf`, this is the one
- * line that changes. See TOURNAMENT_BERRY.
+ * The Persim Berry is here now. It was deliberately absent while `st` had no `cnf` field --
+ * mapping it to an empty list would have read as "modelled, and does nothing" -- and
+ * TOURNAMENT_CONFUSION gave it one, so it cures what it says it cures. A holder only gets
+ * the cure with BOTH rules on, because with no confusion in the model there is nothing to
+ * cure. See TOURNAMENT_BERRY and TOURNAMENT_CONFUSION.
  */
 const CURE_BERRIES = {
-  lumberry: ["brn", "psn", "tox", "par", "slp", "frz"],
+  // "Cures any status condition OR CONFUSION" -- `cnf` is why Lum is worth more than any of
+  // the single-condition berries.
+  lumberry: ["brn", "psn", "tox", "par", "slp", "frz", "cnf"],
   chestoberry: ["slp"],
   cheriberry: ["par"],
   pechaberry: ["psn", "tox"],
   rawstberry: ["brn"],
   aspearberry: ["frz"],
+  // "Cures being confused." It used to be deliberately absent, because there was no `cnf`
+  // for it to clear; TOURNAMENT_CONFUSION gave it one.
+  persimberry: ["cnf"],
 };
 
 const SLEEP_MOVES = { spore: 2, sleeppowder: 1, hypnosis: 1, sing: 1, lovelykiss: 1, grasswhistle: 1 };
@@ -1116,7 +1283,8 @@ function freezeRun(actions, runs, i) {
       // actions landed one.
       // The charge state joins the snapshot for the same reason: within a run of simultaneous
       // actions, whether a Pokemon was already charging is a fact about the state BEFORE the run.
-      charging: m.charging || "", chargeSlot: m.chargeSlot ?? -1, hidden: Boolean(m.hidden),
+      charging: m.charging || "", chargeSlot: m.chargeSlot ?? -1,
+      chargeTarget: m.chargeTarget ?? -1, hidden: Boolean(m.hidden),
       // Likewise for the Electric Boost: whether the user was already charged is a fact about
       // the state BEFORE the run, and `hitOn` prices every hit from this snapshot.
       charged: Boolean(m.charged),
@@ -1150,7 +1318,7 @@ export class TournamentTest {
    *   `varPowerRule`: the variable-power attacks (TOURNAMENT_VAR_POWER); 0 replays a recording made
    *   before it, where a 0-power attack was no attack at all.
    */
-  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, liveHpRule = TOURNAMENT_LIVE_HP, chargeRule = TOURNAMENT_CHARGE, berryRule = TOURNAMENT_BERRY, effects = null } = {}) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, liveHpRule = TOURNAMENT_LIVE_HP, chargeRule = TOURNAMENT_CHARGE, berryRule = TOURNAMENT_BERRY, stagesRule = TOURNAMENT_STAGES, confusionRule = TOURNAMENT_CONFUSION, ppRule = TOURNAMENT_PP, rberryRule = TOURNAMENT_RBERRY, bailRule = TOURNAMENT_BAIL, effects = null } = {}) {
     this.turnOneRule = tournamentTurnOneOption(turnOneRule);
     this.seatRule = tournamentSeatOption(seatRule);
     this.bringRule = tournamentBringOption(bringRule);
@@ -1165,6 +1333,11 @@ export class TournamentTest {
     this.liveHpRule = ruleVersion(liveHpRule, 1);
     this.chargeRule = tournamentChargeOption(chargeRule);
     this.berryRule = tournamentBerryOption(berryRule);
+    this.stagesRule = tournamentStagesOption(stagesRule);
+    this.confusionRule = tournamentConfusionOption(confusionRule);
+    this.ppRule = tournamentPpOption(ppRule);
+    this.rberryRule = tournamentRberryOption(rberryRule);
+    this.bailRule = tournamentBailOption(bailRule);
     // The compiled move and Ability effects. Handed in rather than fetched, because this file is
     // run from a Worker, from node and from six suites; `effectsOn` is the one gate every new
     // rule below asks, so a run with no registry behaves exactly as it did before them.
@@ -1178,6 +1351,19 @@ export class TournamentTest {
     // clears a field of `st`, both of which this file owns. So this one rule is the whole gate,
     // and the cure half is additionally inside `applyStatus`, which already requires `st`.
     this.berryOn = this.berryRule >= 1;
+    // The defensive stage a special move really goes through. Needs no registry: the stage
+    // is on the row and the field name is the engine's own.
+    this.stagesOn = this.stagesRule >= 1;
+    // Confusion is read out of the registry's `volatile` ops, so it needs those as well as
+    // its own rule -- the same shape `chargeOn` has.
+    this.confusionOn = this.confusionRule >= 1 && this.effectsOn;
+    // PP need no registry: the number is on the move record.
+    this.ppOn = this.ppRule >= 1;
+    // The resistance berries need no registry either: the type table is engine.js's.
+    this.resistBerryOn = this.rberryRule >= 1;
+    // Emergency Exit needs no registry: the Ability is read off the set by name, the way
+    // every other kit entry is.
+    this.bailOn = this.bailRule >= 1;
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -1212,6 +1398,11 @@ export class TournamentTest {
     // already past the integer range a double holds exactly, so it gets a store of its own
     // rather than a wider key. See `moveHit`.
     this.chargedHits = new Map();
+    // The same numbers with the defender's resistance berry already eaten
+    // (TOURNAMENT_RBERRY). Two more stores rather than two more key factors, for the reason
+    // `chargedHits` exists: the key is already past what a double holds exactly.
+    this.spentBerryHits = new Map();
+    this.chargedSpentBerryHits = new Map();
     this.best = new Map();
     this.bestSafe = new Map();
     this.speeds = new Map();
@@ -1369,6 +1560,9 @@ export class TournamentTest {
       && (category === "physical" || category === "special");
     info = {
       name, key: k, type, priority, listed, solar, spread,
+      // The move's own PP (TOURNAMENT_PP). It has always been on the move record and this
+      // dropped it, so nothing downstream could count uses.
+      pp: Math.max(0, Math.trunc(Number(meta.pp) || 0)),
       // "allAdjacent" (Earthquake, Surf, Discharge, Bulldoze...) hits the user's partner too.
       allyHit: spread && meta.target === "allAdjacent",
       physical: category === "physical",
@@ -1505,6 +1699,10 @@ export class TournamentTest {
       // What a contact move costs its user against this Pokemon: Rough Skin and Iron Barbs take
       // an eighth, Rocky Helmet a sixth. A share of the ATTACKER's own max HP.
       contactAnswer: (item === "rockyhelmet" ? 1 / 6 : 0) + this.contactAnswerOf(ability),
+      // Own Tempo. Read from the registry rather than hand-listed, because that is where the
+      // immunity already ships: `{op: "status_immunity", statuses: ["confusion"]}`, the same
+      // shape `paraProof` and `freezeProof` above read for their own conditions.
+      confusionProof: this.abilityImmunity(ability, "confusion"),
       soundProof: ability === "soundproof",
       dark: types.includes("Dark"),
       // Its own weather / terrain Ability, whatever the shared settings pin (TOURNAMENT_FIELD);
@@ -1528,6 +1726,22 @@ export class TournamentTest {
       // maximum it heals, because a share is the only currency `hp` has here. Sitrus beside it
       // is a quarter of the maximum whoever holds it, which is why that one needs no stat.
       oran: item === "oranberry" ? 10 / Math.max(1, Number(stats.hp) || 1) : 0,
+      // A Leppa Berry, which restores PP to a move that has run out (TOURNAMENT_PP).
+      leppa: item === "leppaberry",
+      // The type a resistance berry answers, or "" (TOURNAMENT_RBERRY). The table is
+      // engine.js's own, so the two halves cannot drift apart over which berry answers what.
+      rberry: RESIST_BERRIES[String(mon.item || "").trim().toLowerCase()] || "",
+      // Emergency Exit (Golisopod): leaves the field when a hit takes it below half
+      // (TOURNAMENT_BAIL).
+      // `ability` here is the COMPACT form (`compact(mon.ability)`), so there is no space in it:
+      // the spaced spelling matched nothing and this flag was false for every Golisopod.
+      //
+      // IT IS THE BASE FORM'S. Mega Golisopod has Tough Claws, and all 164 registered teams that
+      // bring a Golisopod also bring Golisopite -- so this fires on the turns before the stone
+      // is used, and for the whole game on a side that spends its one Mega Evolution elsewhere.
+      // `prepare` rebuilds the kit from the Mega's own set when it evolves, so the flag goes
+      // away by itself and nothing here has to undo it.
+      emergencyExit: ability === "emergencyexit",
       // Which fields of `st` a cure berry clears, or null for every other item.
       cures: CURE_BERRIES[item] || null,
       // A sixteenth back at the end of every turn.
@@ -1583,9 +1797,14 @@ export class TournamentTest {
    * 4 = the attacker has the Electric Boost (Electric moves only).
    */
   moveHit(att, def, slot, board, atk, spa, fx = 0, hp = 1, defStage = 0, took = 0, critical = false,
-    defHp = 1, defStatus = 0) {
+    defHp = 1, defStatus = 0, defSpStage = 0, berrySpent = false) {
     const info = att.moves[slot];
     if (!info) return NO_HIT;
+    // THE STAGE THE MOVE ACTUALLY GOES THROUGH (TOURNAMENT_STAGES). A special move reads the
+    // defender's Sp. Def stage, a physical one its Defense stage. Under rule 0 both read the
+    // Defense stage, which is what every caller got before and keeps getting -- so the cache
+    // key below does not widen and no existing number moves.
+    const defending = this.stagesOn && info.special ? defSpStage : defStage;
     const w = info.weather || att.weatherSense || def.weatherSense ? board.w : ANY;
     const t = info.terrain || att.terrainSense || def.terrainSense ? board.t : ANY;
     const stage = info.physical ? atk : info.special ? spa : 0;
@@ -1614,7 +1833,7 @@ export class TournamentTest {
     // would cost every other caller a wider key to buy nothing. Going straight to `calc` leaves
     // the key -- and therefore every cached number in the run -- exactly as it was.
     if (critical || (this.effectsOn && info.counter)) {
-      return this.calc(att, def, info, slot, w, t, stage, f, bucket, defStage, took, critical, defBucket, defCond);
+      return this.calc(att, def, info, slot, w, t, stage, f, bucket, defending, took, critical, defBucket, defCond, berrySpent);
     }
     // Mixed radix, one factor a line. It was a single nested expression and grew a tenth level
     // of parentheses that did not close; written this way the arithmetic is the same and the
@@ -1625,7 +1844,7 @@ export class TournamentTest {
     key = key * 8 + w;
     key = key * 8 + t;
     key = key * 13 + stage + 6;
-    key = key * 13 + clampStage(defStage) + 6;
+    key = key * 13 + clampStage(defending) + 6;
     // Bits 1 and 2 only. The Electric Boost (bit 4) selects a SEPARATE store below instead of
     // widening this key: a charged attacker now reaches the search as well as the played game
     // (the live board carries the flag through `rowOf`), so bypassing the cache for it made the
@@ -1636,17 +1855,22 @@ export class TournamentTest {
     key = key * HP_BUCKETS + bucket;
     key = key * HP_BUCKETS + defBucket;
     key = key * LIVE_STATUS.length + defCond;
-    const store = (f & 4) ? this.chargedHits : this.hits;
+    // Four stores, two bits: the Electric Boost and the eaten resistance berry. Each is a
+    // separate store rather than a wider key, for the reason stated above the key.
+    const spent = this.resistBerryOn && berrySpent;
+    const store = spent
+      ? ((f & 4) ? this.chargedSpentBerryHits : this.spentBerryHits)
+      : ((f & 4) ? this.chargedHits : this.hits);
     let hit = store.get(key);
     if (hit === undefined) {
-      hit = this.calc(att, def, info, slot, w, t, stage, f, bucket, defStage, 0, false, defBucket, defCond);
+      hit = this.calc(att, def, info, slot, w, t, stage, f, bucket, defending, 0, false, defBucket, defCond, berrySpent);
       store.set(key, hit);
     }
     return hit;
   }
 
   calc(att, def, info, slot, w, t, stage, f, bucket = HP_BUCKETS - 1, defStage = 0, took = 0, critical = false,
-    defBucket = HP_BUCKETS - 1, defCond = 0) {
+    defBucket = HP_BUCKETS - 1, defCond = 0, berrySpent = false) {
     // Grassy Glide is +1 in Grassy Terrain when its user is on the ground.
     const priority = info.priority + (info.key === "grassyglide" && t === GRASSY && att.grounded ? 1 : 0);
     // Priority the move table does not list is priority the engine cannot see, so its
@@ -1671,9 +1895,20 @@ export class TournamentTest {
     // Cloned only when something has to be written onto it: every Tournament Test call under the
     // old rule passes a zero stage and hands over `def.mon` itself.
     const live = this.liveHpRule >= 1;
-    const defender = (defStage || live)
-      ? { ...def.mon, defense_stage: clampStage((def.mon.defense_stage || 0) + defStage) }
+    // THE FIELD THE STAGE BELONGS TO. `defStage` arrives already chosen by category in
+    // `moveHit`; writing it to `defense_stage` for a special move would have put a Sp. Def
+    // drop on the wrong stat, which is worse than ignoring it. Under rule 0 the stage is
+    // always the Defense one and this is the field it always was.
+    const stageField = this.stagesOn && info.special ? "sp_defense_stage" : "defense_stage";
+    // THE BERRY IS ALREADY GONE (TOURNAMENT_RBERRY): the engine halves from the defender's
+    // item, so the un-halved number is asked for by handing it a defender with no item. A
+    // Pokemon holding a resistance berry holds nothing else, so this removes exactly the
+    // berry and no other effect with it.
+    const spentBerry = this.resistBerryOn && berrySpent && Boolean(def.kit?.rberry);
+    const defender = (defStage || live || spentBerry)
+      ? { ...def.mon, [stageField]: clampStage((def.mon[stageField] || 0) + defStage) }
       : def.mon;
+    if (spentBerry) defender.item = "";
     if (live) {
       // Multiscale and Shadow Shield halve damage at FULL health only; without this they halved
       // it all game. And a burned or poisoned defender was priced as a healthy one.
@@ -1785,6 +2020,10 @@ export class TournamentTest {
         slot, frac: (sum / rolls.length) * scale, lo: lo * scale, hi: hi * scale,
         odds: rate, rollLo: lo / maxHp, rollHigh: hi / maxHp,
         priority, spread: info.spread, self,
+        // Was the defender's resistance berry what halved this hit (TOURNAMENT_RBERRY)?
+        // The damage engine answers it, because deciding it means knowing type
+        // effectiveness -- `deal` reads this and eats the berry, consulting no type chart.
+        rberry: Boolean(result.resist_berry_active),
       };
     } catch {
       return NO_HIT;
@@ -1808,7 +2047,12 @@ export class TournamentTest {
       // What is actually standing there (TOURNAMENT_LIVE_HP). Read off the row even when the
       // rule is off, because `moveHit` then pins them to the old constants itself -- one place
       // to look rather than two.
-      target.hp, this.conditionOf(target));
+      target.hp, this.conditionOf(target),
+      // The Sp. Def stage, for a special move (TOURNAMENT_STAGES). Passed always and chosen
+      // inside `moveHit`, which is the only place that knows whether the move is special.
+      target.spd || 0,
+      // Whether this target's resistance berry has already been eaten (TOURNAMENT_RBERRY).
+      Boolean(target.k.rberry) && !target.rberry);
   }
 
   /**
@@ -2056,6 +2300,17 @@ export class TournamentTest {
       // so a round trip through a described board is the same shape either way; with the rule
       // off nothing reads them.
       oran: unit.kit.oran > 0, cure: unit.kit.cures ? 1 : 0,
+      // PP per move slot, from each move's own maximum, and whether the Leppa Berry is still
+      // in hand (TOURNAMENT_PP). Seeded whatever the rule says, so a round trip through a
+      // described board is the same shape either way; with the rule off nothing reads them.
+      pp: (unit.moves || []).map((info) => Math.max(0, Math.trunc(Number(info?.pp) || 0))),
+      leppa: Boolean(unit.kit.leppa),
+      // Whether the resistance berry is still uneaten (TOURNAMENT_RBERRY).
+      rberry: Boolean(unit.kit.rberry),
+      // Set by a hit that took this Pokemon below half and consumed by `refill` at the end
+      // of the same turn (TOURNAMENT_BAIL). Within-turn only, so it never has to survive a
+      // round trip through a described board.
+      bailing: false,
       flinch: false, guard: false, intimidated: false, lead,
       // Whether it protected on the turn just ended, so the next one cannot (TOURNAMENT_GUARD).
       // Set in `refill`, which is the one place `guard` is cleared.
@@ -2084,13 +2339,19 @@ export class TournamentTest {
       // add up to more than 1 -- `applyStatus` is the only thing that writes them and it only
       // ever fills the share that is still free. `toxTurns` counts how long the bad poison has
       // been on, because that damage grows.
-      st: { brn: 0, psn: 0, tox: 0, par: 0, slp: 0, frz: 0 },
+      // `cnf` is a VOLATILE and sits in the same object only for convenience: it is
+      // deliberately absent from `statusFree`, because a confusion does not fill the major
+      // status slot and must not block a burn.
+      st: { brn: 0, psn: 0, tox: 0, par: 0, slp: 0, frz: 0, cnf: 0 },
       toxTurns: 0,
       // --- two-turn moves (TOURNAMENT_CHARGE) ----------------------------------------------
       // The move this Pokemon is part-way through, as a move KEY ("" when it is not charging),
       // and the slot it was used from. Scalars, not an object, because `solver.js cloneState`
       // shallow-copies a mon state and an object would be shared between search lines.
       charging: "", chargeSlot: -1,
+      // WHICH foe the charge was aimed at. The move is locked to the target it was started
+      // against, not re-chosen when it lands; -1 is a spread move or no target.
+      chargeTarget: -1,
       // Away from the field while it charges (Fly, Dig, Dive, Bounce, Phantom Force): `deal`
       // refuses every hit on it, the same line that refuses a hit on a Protect.
       hidden: false,
@@ -2205,6 +2466,15 @@ export class TournamentTest {
     if (!target || target.out || target.hidden || hit.frac <= 0) return false;
     // A Protect stops it unless the move's own text says it can hit through one.
     if (target.guard && !(this.effectsOn && att.u.moves[hit.slot]?.bypassProtect)) return false;
+    // THE BERRY IS EATEN BY THE HIT IT HALVED (TOURNAMENT_RBERRY). `hit.rberry` is the damage
+    // engine's own answer to "was the berry what halved this one", so no type chart is
+    // consulted here. Spent before the damage is rolled, which does not change this hit --
+    // the number already has the halving in it -- and makes every later one full.
+    if (this.resistBerryOn && hit.rberry && target.rberry) target.rberry = false;
+    // EMERGENCY EXIT: the share before this hit, because the threshold has to be CROSSED and
+    // not merely stood below -- a holder already under half must not bail out of every later
+    // hit as well. Read here, before the damage is taken off.
+    const wasAboveHalf = this.bailOn && target.k.emergencyExit && target.hp > 0.5;
     let damage = this.rollHit(hit);
     // What the attacker has left of its action. A Pokemon with a 30% chance of flinching does
     // 70% of what it would have done -- the same multiplication accuracy has always used, applied
@@ -2238,6 +2508,10 @@ export class TournamentTest {
     if (this.effectsOn) {
       // Counter, Metal Burst and Mirror Coat read this.
       target.took += damage;
+      // ...and now it is below half, so it leaves at the end of the turn. Flagged rather
+      // than moved: a Pokemon taken off the field in the middle of a turn breaks seat
+      // rule 1, and `refill` is the one place that already moves Pokemon safely.
+      if (wasAboveHalf && target.hp > 0 && target.hp <= 0.5) target.bailing = true;
       this.answerContact(att, target, hit);
       this.secondaries(att, target, hit);
       // A draining move gives its user back a share of what it just dealt. Credited to the owed
@@ -2294,6 +2568,10 @@ export class TournamentTest {
         this.shiftStages(target, fx.stats, Number(fx.amount) * p);
       } else if (fx.op === "stage" && fx.target === "user" && Number(fx.amount) > 0) {
         this.shiftStages(att, fx.stats, Number(fx.amount) * p);
+      } else if (fx.op === "volatile" && fx.target === "target"
+        && String(fx.status || "").toLowerCase() === "confusion") {
+        // Twenty moves carry this and the engine read none of them.
+        this.confuse(target, p);
       }
     }
   }
@@ -2306,7 +2584,11 @@ export class TournamentTest {
     const st = pre.st;
     const flinch = 1 - (pre.flinchP || 0);
     if (!st) return Math.max(0, flinch);
-    return Math.max(0, flinch * (1 - st.slp) * (1 - st.frz) * (1 - 0.25 * st.par));
+    // A confused Pokemon hurts itself instead of acting one time in three, so a third of the
+    // confusion is an action it does not get. Its own factor beside the others, because a
+    // confusion is independent of them: a Pokemon can be both asleep and confused.
+    return Math.max(0, flinch * (1 - st.slp) * (1 - st.frz) * (1 - 0.25 * st.par)
+      * (1 - (st.cnf || 0) / 3));
   }
 
   /** How much of the status slot is still free: 1 on a clean Pokemon, 0 on a fully statused one. */
@@ -2364,6 +2646,32 @@ export class TournamentTest {
   /** A status condition as an expectation. Nothing here ever exceeds one whole condition. */
   inflict(target, status, p) {
     this.applyStatus(target, status, p);
+  }
+
+  /**
+   * Confusion, as the chance of carrying it (TOURNAMENT_CONFUSION).
+   *
+   * Its own room, not the major status slot: a confusion stacks with a burn, so the share
+   * that can be filled is whatever is left of ONE confusion rather than of one condition.
+   * Own Tempo refuses it, the way the proofs refuse the others.
+   */
+  confuse(target, chance) {
+    if (!this.confusionOn || !alive(target) || !target.st) return 0;
+    if (target.k.confusionProof) return 0;
+    const room = Math.min(Math.max(0, Number(chance) || 0), Math.max(0, 1 - (target.st.cnf || 0)));
+    if (room <= 0) return 0;
+    target.st.cnf = (target.st.cnf || 0) + room;
+    // A cure berry eats it the moment it lands, exactly as it does a major status, and in
+    // the same proportion -- the Persim Berry cures confusion and nothing else, which is why
+    // it was the one cure berry with no entry before this.
+    const cures = this.berryOn ? target.k.cures : null;
+    if (cures && target.cure > 0 && cures.includes("cnf")) {
+      const eaten = Math.min(room, target.cure);
+      target.st.cnf -= eaten;
+      target.cure -= eaten;
+      return room - eaten;
+    }
+    return room;
   }
 
   /**
@@ -2486,7 +2794,7 @@ export class TournamentTest {
    * text says so ("The user's Sp. Atk stat is boosted by 1 stage on the turn this move is used"
    * -- Electro Shot, Meteor Beam), and a `semi_invulnerable` user goes away until it lands.
    */
-  beginCharge(m, info, slot, events, s) {
+  beginCharge(m, info, slot, events, s, target = -1) {
     const op = info.charge;
     const nested = op.on_charge;
     if (nested && String(nested.op || "") === "stage") {
@@ -2494,6 +2802,10 @@ export class TournamentTest {
     }
     m.charging = info.key;
     m.chargeSlot = slot;
+    // THE SEAT IT WAS AIMED AT. A charging Pokemon attacks the slot it chose, and the
+    // action list offers that one target when it lands -- see `slotCandidates`. Kept as a
+    // number so -1 means "no single target" (a spread move) rather than "seat 0".
+    m.chargeTarget = Number.isInteger(target) && target >= 0 ? target : -1;
     // `charge_then` stands there and can be hit; the others are away (Fly, Dig, Dive, Bounce,
     // Phantom Force), which `deal` reads as a refusal on every hit aimed at them.
     m.hidden = String(op.op || "") !== "charge_then";
@@ -2504,12 +2816,13 @@ export class TournamentTest {
    * The one place both action loops ask "does this move use finish this turn?".
    * Returns true when the action was spent charging and the caller must move on.
    */
-  chargeStep(m, pre, slot, board, events, s) {
+  chargeStep(m, pre, slot, board, events, s, target = -1) {
     const info = m.u.moves[slot];
     if (!info?.charge) return false;
     if (pre.charging === info.key) {
       m.charging = "";
       m.chargeSlot = -1;
+      m.chargeTarget = -1;
       m.hidden = false;
       // `effect` is the op's OTHER nested slot, and the opposite of `on_charge`: what the move
       // does when it lands rather than when it is started (Geomancy's +2 Sp. Atk / Sp. Def /
@@ -2544,7 +2857,7 @@ export class TournamentTest {
       }
       return false;
     }
-    this.beginCharge(m, info, slot, events, s);
+    this.beginCharge(m, info, slot, events, s, target);
     return true;
   }
 
@@ -2567,6 +2880,36 @@ export class TournamentTest {
       unit[carry] = total - whole;
       if (whole) unit[field] = clampStage((unit[field] || 0) + whole);
     }
+  }
+
+  /**
+   * Can this Pokemon still use the move in `slot`? (TOURNAMENT_PP)
+   *
+   * True whenever the rule is off or the slot has no counter, so every existing caller keeps
+   * the list it had.
+   */
+  hasPp(m, slot) {
+    if (!this.ppOn || !m || !Array.isArray(m.pp)) return true;
+    const left = m.pp[slot];
+    return left === undefined ? true : left > 0;
+  }
+
+  /**
+   * One PP off the move just used, and the Leppa Berry if that emptied it.
+   *
+   * "Restores 10 PP to a move when its PP is fully depleted" -- capped at the move's own
+   * maximum, because 10 into a 8-PP move cannot leave it above full, and the berry is then
+   * gone. `play-game.js` reveals it by comparing `leppa` across the turn, the same way it
+   * reveals a broken Sash or an eaten Sitrus.
+   */
+  spendPp(m, slot) {
+    if (!this.ppOn || !m || !Array.isArray(m.pp) || !(slot >= 0)) return;
+    if (m.pp[slot] === undefined) return;
+    m.pp[slot] = Math.max(0, m.pp[slot] - 1);
+    if (m.pp[slot] > 0 || !m.leppa) return;
+    const max = Math.max(0, Math.trunc(Number(m.u.moves?.[slot]?.pp) || 0));
+    m.pp[slot] = Math.min(max, LEPPA_PP);
+    m.leppa = false;
   }
 
   berry(target) {
@@ -3579,13 +3922,21 @@ export class TournamentTest {
         m.acted = a.kind;
         continue;
       }
+      // ONE PP OFF THE MOVE (TOURNAMENT_PP). Before the charge branch on purpose: a two-turn
+      // move pays on the turn it is STARTED and not again when it lands, which is what the
+      // Companion does. An action reached with `m.charging` already set IS that landing, so
+      // it is skipped -- the charge turn, where `charging` is not yet set, is the one that
+      // paid.
+      if (this.ppOn && !m.charging) this.spendPp(m, a.hit ? a.hit.slot : a.slot);
       // A move that does not finish this turn (TOURNAMENT_CHARGE). The charge turn is ordered
       // and spent exactly like any other action -- it simply deals no damage. Read from `pre`,
       // like every other condition, so a run of simultaneous actions sees the state its run
       // began with. The move is picked from the same place the ATTACK branch below picks it.
       if (this.chargeOn) {
         const slot = a.hit ? a.hit.slot : a.slot;
-        if (slot >= 0 && this.chargeStep(m, pre, slot, board, events, s)) {
+        // `a.target` is the seat the action was aimed at, which is what the charge locks to.
+        if (slot >= 0 && this.chargeStep(m, pre, slot, board, events, s,
+          a.target === null || a.target === undefined ? -1 : Number(a.target))) {
           m.acted = a.kind;
           continue;
         }
@@ -3921,6 +4272,10 @@ export class TournamentTest {
           // Sleep wears off -- one to three turns, so about half of it goes each turn -- and a
           // freeze thaws a fifth of the way. Neither is cleared outright: the share that has
           // woken up is simply no longer asleep.
+          // Confusion runs one to four turns, so rather more than half of it is still there
+          // after one -- 0.6 against sleep's 0.5, which is one to three.
+          st.cnf *= 0.6;
+          if (st.cnf < 1e-6) st.cnf = 0;
           st.slp *= 0.5;
           st.frz *= 0.8;
           if (st.slp < 1e-6) st.slp = 0;
@@ -3960,6 +4315,63 @@ export class TournamentTest {
    */
   refill(active, sides, next, board) {
     const arriving = [];
+    // EMERGENCY EXIT, before the fainted are replaced (TOURNAMENT_BAIL). The swap is the one
+    // `applySwitches` makes -- the leaver goes to the BENCH and keeps its HP, so it can come
+    // back -- rather than `refill`'s own replacement, which only ever advances `next[s]` and
+    // loses the Pokemon for good. A fainted holder is not bailing anywhere, and one with
+    // nothing left on the bench stays where it is.
+    if (this.bailOn) {
+      for (let s = 0; s < 2; s += 1) {
+        for (let slot = 0; slot < active[s].length; slot += 1) {
+          const out = active[s][slot];
+          if (!out || !out.bailing) continue;
+          out.bailing = false;
+          if (out.out || out.hp <= 0) continue;
+          let into = null;
+          for (let j = next[s]; j < sides[s].length; j += 1) {
+            const bench = sides[s][j];
+            if (bench && !bench.out && bench.hp > 0 && !active[s].includes(bench)) { into = bench; break; }
+          }
+          if (!into) continue;
+          const outIx = out.ix;
+          const intoIx = into.ix;
+          sides[s][outIx] = into;
+          sides[s][intoIx] = out;
+          out.ix = intoIx;
+          into.ix = outIx;
+          into.justIn = true;
+          // Stat stages are lost the moment a Pokemon leaves the field, exactly as in
+          // `applySwitches`, and so are its volatiles.
+          out.atk = 0;
+          out.spa = 0;
+          out.spe = 0;
+          out.def = 0;
+          out.spd = 0;
+          out.charged = false;
+          out.charging = "";
+          out.chargeSlot = -1;
+          out.chargeTarget = -1;
+          out.hidden = false;
+          if (out.st) out.st.cnf = 0;
+          // The per-TURN bookkeeping the loop below would have done for it. It is on the
+          // bench now, so that loop never reaches it, and it must not come back next turn
+          // still holding this turn's flinch or counted as having protected.
+          out.flinch = false;
+          out.guardedLast = out.guard;
+          out.guard = false;
+          out.helped = false;
+          out.taunted = false;
+          out.acted = 0;
+          out.outScale = 1;
+          out.flinchP = 0;
+          out.took = 0;
+          active[s][slot] = into;
+          // It arrives with the rest, so seat rule 1 still holds: everyone replaced this turn
+          // is on the field before ANY of them triggers.
+          arriving.push(into);
+        }
+      }
+    }
     for (let s = 0; s < 2; s += 1) {
       for (let slot = 0; slot < active[s].length; slot += 1) {
         const m = active[s][slot];
@@ -3979,9 +4391,10 @@ export class TournamentTest {
           m.took = 0;
           if (!m.out) continue;
           // It is leaving the field, so whatever it was charging is abandoned -- and it must not
-          // come back still locked to that move, nor still counted as away.
+          // come back still locked to that move, nor to that target, nor still counted as away.
           m.charging = "";
           m.chargeSlot = -1;
+          m.chargeTarget = -1;
           m.hidden = false;
           // And the Electric Boost goes with it: it is a volatile, and a Pokemon that leaves the
           // field loses its volatiles. The Companion does NOT clear it here -- `_switch` zeroes

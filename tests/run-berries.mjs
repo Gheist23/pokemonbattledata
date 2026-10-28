@@ -19,8 +19,9 @@
 //   3. each cure berry clears its OWN status and leaves every other one standing;
 //   4. a cure berry is spent IN PROPORTION, because a condition here is a probability: four 30%
 //      burns use up one Rawst, and the fourth one sticks;
-//   5. Persim is deliberately absent -- it cures confusion only and this engine has no `cnf`
-//      field, so its holder gets no cure and the model does not pretend otherwise;
+//   5. Persim cures confusion -- it has since TOURNAMENT_CONFUSION gave the engine a `cnf`
+//      field -- and with the confusion rule off there is still nothing for it to cure, which is
+//      the state this suite's engine is in;
 //   6. a cured status reports as not landed, so the turn says "fails" rather than "slept";
 //   7. both states survive a round trip through a described board, like `sash` and `berry`.
 //
@@ -297,17 +298,27 @@ function standing(item, hp = 100) {
 // 5. Persim is deliberately absent
 // ---------------------------------------------------------------------------
 {
+  // THIS SECTION USED TO SAY THE OPPOSITE. Persim cures confusion only, and when the berries
+  // landed `st` had no `cnf` field, so its holder deliberately got no cure -- mapping it to an
+  // empty list would have read as "modelled, and does nothing". TOURNAMENT_CONFUSION gave the
+  // engine a confusion, so Persim now cures what it says it cures, and what is left of the old
+  // note is the part that is still true: with the confusion rule OFF there is nothing to cure.
   const { solver, m } = standing("Persim Berry");
-  ok("a Persim holder gets no cure, because confusion is not modelled", m.k.cures === null,
+  ok("a Persim holder now carries a cure", (m.k.cures || []).includes("cnf"),
     JSON.stringify(m.k.cures));
-  ok("and carries no cure budget", m.cure === 0, String(m.cure));
-  ok("`st` really has no confusion field", m.st && !("cnf" in m.st), Object.keys(m.st || {}).join(","));
+  ok("and a cure budget", m.cure === 1, String(m.cure));
+  ok("`st` has a confusion field", m.st && "cnf" in m.st, Object.keys(m.st || {}).join(","));
+  // With the confusion rule off -- which is this suite's engine -- it still cures nothing,
+  // because nothing can confuse anybody.
+  ok("but this engine models no confusion", solver.t.confusionOn === false);
+  ok("so the Persim Berry stays in hand", solver.t.confuse(m, 1) === 0 && m.cure === 1);
   const landed = solver.t.applyStatus(m, "burn", 1);
-  ok("so a burn lands on it as on any other item", landed === 1 && m.st.brn === 1);
-  // The same for the two berries nobody carries and that cure nothing this engine has:
-  // Chilan is a resistance berry, Leppa restores PP and there are no PP here.
+  ok("and a burn lands on it as on any other item", landed === 1 && m.st.brn === 1);
+  ok("with the Persim Berry untouched", m.cure === 1, String(m.cure));
+  // Leppa restores PP, which is TOURNAMENT_PP's business and not a cure: no `cures` entry.
   const pp = standing("Leppa Berry");
-  ok("a Leppa holder likewise gets no cure (no PP in this engine)", pp.m.k.cures === null);
+  ok("a Leppa holder carries no cure", pp.m.k.cures === null, JSON.stringify(pp.m.k.cures));
+  ok("it carries a PP restore instead", pp.m.k.leppa === true && pp.m.leppa === true);
 }
 
 // ---------------------------------------------------------------------------

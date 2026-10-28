@@ -898,7 +898,13 @@ function renderMon(mon, side, position) {
   const bar = Math.max(0, Math.min(100, mon.hp));
   const chips = [];
   if (mon.status) chips.push(mon.status);
-  for (const [key, label] of [["atk", "Atk"], ["spa", "SpA"], ["spe", "Spe"], ["def", "Def"]]) {
+  // Its own chip, because a confusion is not a major status and can sit beside one.
+  if ((mon.confused || 0) > 0) chips.push("Confused");
+  // Sp. Def was the one stage the tile never showed, although the row has carried it since
+  // TOURNAMENT_EFFECTS and `monView` passes it on: an Acid Spray or a Calm Mind moved a stat
+  // and the screen said nothing. The detail panel has listed all five all along (`stages`
+  // above), so the tile was the only place disagreeing with it.
+  for (const [key, label] of [["atk", "Atk"], ["spa", "SpA"], ["spe", "Spe"], ["def", "Def"], ["spd", "SpD"]]) {
     const stage = Number(mon[key]) || 0;
     if (stage) chips.push(`${label} ${stage > 0 ? "+" : ""}${stage}`);
   }

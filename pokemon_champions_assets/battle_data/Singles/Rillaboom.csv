@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Rillaboom,19,move,1,Grassy Glide,98.0%,,,,,,,,
-Rillaboom,19,move,2,Drum Beating,62.0%,,,,,,,,
-Rillaboom,19,move,3,U-turn,61.9%,,,,,,,,
-Rillaboom,19,move,4,High Horsepower,55.5%,,,,,,,,
-Rillaboom,19,move,5,Knock Off,47.1%,,,,,,,,
-Rillaboom,19,move,6,Swords Dance,13.1%,,,,,,,,
+Rillaboom,19,move,2,Drum Beating,62.2%,,,,,,,,
+Rillaboom,19,move,3,U-turn,62.0%,,,,,,,,
+Rillaboom,19,move,4,High Horsepower,55.7%,,,,,,,,
+Rillaboom,19,move,5,Knock Off,46.9%,,,,,,,,
+Rillaboom,19,move,6,Swords Dance,13.0%,,,,,,,,
 Rillaboom,19,move,7,Wood Hammer,13.0%,,,,,,,,
 Rillaboom,19,move,8,Superpower,12.1%,,,,,,,,
-Rillaboom,19,move,9,Leech Seed,9.0%,,,,,,,,
-Rillaboom,19,move,10,Taunt,8.6%,,,,,,,,
-Rillaboom,19,held_item,1,Miracle Seed,32.8%,,,,,,,,
-Rillaboom,19,held_item,2,Life Orb,22.6%,,,,,,,,
-Rillaboom,19,held_item,3,Lum Berry,9.8%,,,,,,,,
-Rillaboom,19,held_item,4,Terrain Extender,7.6%,,,,,,,,
-Rillaboom,19,held_item,5,Grassy Seed,7.2%,,,,,,,,
-Rillaboom,19,held_item,6,Focus Sash,6.9%,,,,,,,,
-Rillaboom,19,held_item,7,Leftovers,5.2%,,,,,,,,
-Rillaboom,19,held_item,8,Sitrus Berry,3.5%,,,,,,,,
+Rillaboom,19,move,9,Leech Seed,8.8%,,,,,,,,
+Rillaboom,19,move,10,Taunt,8.5%,,,,,,,,
+Rillaboom,19,held_item,1,Miracle Seed,33.1%,,,,,,,,
+Rillaboom,19,held_item,2,Life Orb,22.7%,,,,,,,,
+Rillaboom,19,held_item,3,Lum Berry,9.7%,,,,,,,,
+Rillaboom,19,held_item,4,Terrain Extender,7.5%,,,,,,,,
+Rillaboom,19,held_item,5,Grassy Seed,7.3%,,,,,,,,
+Rillaboom,19,held_item,6,Focus Sash,6.8%,,,,,,,,
+Rillaboom,19,held_item,7,Leftovers,5.1%,,,,,,,,
+Rillaboom,19,held_item,8,Sitrus Berry,3.6%,,,,,,,,
 Rillaboom,19,held_item,9,Rocky Helmet,0.9%,,,,,,,,
 Rillaboom,19,held_item,10,Expert Belt,0.9%,,,,,,,,
 Rillaboom,19,teammate,1,Garchomp,,,,,,,,,
@@ -28,24 +28,24 @@ Rillaboom,19,teammate,6,Gholdengo,,,,,,,,,
 Rillaboom,19,teammate,7,Baxcalibur,,,,,,,,,
 Rillaboom,19,teammate,8,Hippowdon,,,,,,,,,
 Rillaboom,19,teammate,9,Dragonite,,,,,,,,,
-Rillaboom,19,teammate,10,Salamence,,,,,,,,,
+Rillaboom,19,teammate,10,Charizard,,,,,,,,,
 Rillaboom,19,stat_alignment,1,Adamant,89.4%,Attack,Sp. Atk,,,,,,
-Rillaboom,19,stat_alignment,2,Careful,4.6%,Sp. Def,Sp. Atk,,,,,,
+Rillaboom,19,stat_alignment,2,Careful,4.5%,Sp. Def,Sp. Atk,,,,,,
 Rillaboom,19,stat_alignment,3,Jolly,2.1%,Speed,Sp. Atk,,,,,,
 Rillaboom,19,stat_alignment,4,Impish,1.9%,Defense,Sp. Atk,,,,,,
 Rillaboom,19,stat_alignment,5,Brave,1.2%,Attack,Speed,,,,,,
 Rillaboom,19,stat_alignment,6,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Rillaboom,19,stat_alignment,7,Naughty,0.2%,Attack,Sp. Def,,,,,,
-Rillaboom,19,stat_alignment,8,Lonely,0.1%,Attack,Defense,,,,,,
-Rillaboom,19,stat_alignment,9,Relaxed,0.1%,Defense,Speed,,,,,,
+Rillaboom,19,stat_alignment,8,Relaxed,0.1%,Defense,Speed,,,,,,
+Rillaboom,19,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,
 Rillaboom,19,stat_alignment,10,Hasty,0.0%,Speed,Defense,,,,,,
 Rillaboom,19,stat_points,1,,31.2%,,,32,32,0,0,0,2
-Rillaboom,19,stat_points,2,,9.0%,,,32,32,2,0,0,0
-Rillaboom,19,stat_points,3,,7.3%,,,18,32,7,0,0,9
+Rillaboom,19,stat_points,2,,9.1%,,,32,32,2,0,0,0
+Rillaboom,19,stat_points,3,,7.2%,,,18,32,7,0,0,9
 Rillaboom,19,stat_points,4,,6.5%,,,32,32,0,0,2,0
-Rillaboom,19,stat_points,5,,4.7%,,,2,32,0,0,0,32
-Rillaboom,19,stat_points,6,,3.0%,,,1,32,1,0,0,32
-Rillaboom,19,stat_points,7,,1.9%,,,32,32,1,0,1,0
+Rillaboom,19,stat_points,5,,4.6%,,,2,32,0,0,0,32
+Rillaboom,19,stat_points,6,,2.9%,,,1,32,1,0,0,32
+Rillaboom,19,stat_points,7,,1.8%,,,32,32,1,0,1,0
 Rillaboom,19,stat_points,8,,1.8%,,,32,2,0,0,32,0
 Rillaboom,19,stat_points,9,,1.0%,,,26,32,0,0,0,8
 Rillaboom,19,stat_points,10,,0.9%,,,0,32,2,0,0,32

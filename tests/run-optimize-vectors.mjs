@@ -17,7 +17,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, fieldRequirementOption, koLabelOption, makeMon, ateDragonizeOption, formTypeOption, gravityPowerOption, auraGuardOption, guardDogOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption, chargeKoOption} from "../builder/engine.js";
+import { DamageEngine, fieldRequirementOption, koLabelOption, makeMon, ateDragonizeOption, formTypeOption, gravityPowerOption, auraGuardOption, fairyAuraOption, guardDogOption, moveFlagsOption, movePriorityOption, roomPlanOption, selfStatChangeOption, terrainSeedOption, chargeKoOption} from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamOptimizer } from "../builder/team-optimize.js";
@@ -76,6 +76,13 @@ const guardDogRule = (testCase) => guardDogOption(
   process.env.GUARD_DOG === undefined
     ? (testCase.rules?.guard_dog ?? testCase.record?.rules?.guard_dog ?? null)
     : process.env.GUARD_DOG);
+/** Fairy Aura lifts every Fairy-type attack on the field by a third. A test case recorded
+    before the rule carries no `fairy_aura` stamp and replays with the un-boosted
+    number -- in both directions, because either side's aura counts. */
+const fairyAuraRule = (testCase) => fairyAuraOption(
+  process.env.FAIRY_AURA === undefined
+    ? (testCase.record?.rules?.fairy_aura ?? testCase.rules?.fairy_aura ?? null)
+    : process.env.FAIRY_AURA);
 const auraGuardRule = (testCase) => auraGuardOption(
   process.env.AURA_GUARD === undefined
     ? (testCase.rules?.aura_guard ?? testCase.record?.rules?.aura_guard ?? null)
@@ -144,6 +151,7 @@ for (const testCase of cases) {
   engine.formType = formTypeRule(testCase);
   engine.gravityPower = gravityPowerRule(testCase);
   engine.auraGuard = auraGuardRule(testCase);
+  engine.fairyAura = fairyAuraRule(testCase);
   engine.guardDog = guardDogRule(testCase);
   const evalCase = evalCases[testCase.name];
   const records = new Map();

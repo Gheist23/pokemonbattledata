@@ -590,6 +590,14 @@ function battleSummary(rows) {
     summary.values[category] = unique(ranked.map(rowLabel).filter(Boolean));
     summary.rows.push(...ranked.map(compactBattleRow));
   }
+  // THE RANK, named. It was only ever reachable by scanning `rows` for the game's own
+  // `column_position` and taking the smallest, which is what `lightweightBattleSummary` does
+  // for the index -- so `summary.battleSummary.<season>.<format>.position` did not exist and
+  // an API consumer had to know that detail to find a rank at all. Same figure, said out loud.
+  const positions = summary.rows
+    .map((row) => numberOrNull(row.column_position ?? row.position))
+    .filter((value) => Number.isFinite(value) && value > 0);
+  summary.position = positions.length ? Math.min(...positions) : null;
   return summary;
 }
 
@@ -692,6 +700,59 @@ function writeApiData(manifest) {
     if (slugs.size === 1) aliases[key] = [...slugs][0];
   }
 
+  // A RANK, NOT A POKEMON. /api/pokemon/<name> answers "what is this species doing", and
+  // the question people actually bring to a ladder is the other way round: "who is at
+  // position 7". Reaching that through the species endpoint means one request per species
+  // and then a client-side sort, so the ordering is published directly -- one file, every
+  // season and both formats, served to callers by functions/api/rankings/index.js.
+  //
+  // It carries the ordinal and the names needed to follow it up, and NOT a usage
+  // percentage: the battle data has no species-level percentage to carry. `position` comes
+  // from the game's own column order, which is the ranking.
+  const rankings = {};
+  for (const record of manifest.pokemon) {
+    const slug = record.slug || slugify(record.battleName || record.name);
+    for (const [season, formats] of Object.entries(record.summary?.battleSummary || {})) {
+      for (const [format, summary] of Object.entries(formats || {})) {
+        // Two shapes reach here depending on which record this is: the lightweight one carries
+        // `position` outright, the full one carries `rows` and the position lives on them as
+        // the game's own `column_position`. Both are read, because keying on only the first
+        // produced a rankings file with zero entries and no error -- the quietest possible
+        // failure. `Math.min` matches what `lightweightBattleSummary` does.
+        const positions = [Number(summary?.position), ...(summary?.rows || [])
+          .map((row) => Number(row?.column_position ?? row?.position))]
+          .filter((value) => Number.isFinite(value) && value > 0);
+        if (!positions.length) continue;
+        const position = Math.min(...positions);
+        rankings[season] ||= {};
+        rankings[season][format] ||= [];
+        rankings[season][format].push({
+          position,
+          name: record.name,
+          battleName: record.battleName || record.name,
+          slug,
+          showdownId: record.showdownId || ""
+        });
+      }
+    }
+  }
+  // Ordered once here rather than by every caller. The name breaks a tie so the list is
+  // stable between two builds of the same data.
+  for (const formats of Object.values(rankings)) {
+    for (const list of Object.values(formats)) {
+      list.sort((a, b) => a.position - b.position || a.name.localeCompare(b.name));
+    }
+  }
+  const rankingFormats = unique(Object.values(rankings).flatMap((formats) => Object.keys(formats))).sort();
+  writeFileSync(join(apiDir, "rankings.json"), `${JSON.stringify({
+    generatedAt: manifest.generatedAt,
+    dataVersion: manifest.dataVersion,
+    seasons: Object.keys(rankings).sort(compareSeason),
+    formats: rankingFormats,
+    counts: Object.fromEntries(Object.entries(rankings).map(([season, formats]) =>
+      [season, Object.fromEntries(Object.entries(formats).map(([format, list]) => [format, list.length]))])),
+    rankings
+  })}\n`);
   writeFileSync(join(apiDir, "lookup.json"), `${JSON.stringify({
     generatedAt: manifest.generatedAt,
     dataVersion: manifest.dataVersion,
@@ -942,6 +1003,30 @@ for (const file of csvFilesRecursive(battleDir)) {
   } else {
     record.battleSummary[season] ||= {};
     record.battleSummary[season][format] = battleSummary(normalizedRows);
+  }
+}
+
+// A PAST SEASON'S OWN STANDING. `record.battleSummary[season]` is filled only by a
+// NON-DAILY battle-data CSV, and only the live season has those: every archived season is a
+// run of daily snapshots. So `summary.battleSummary` carried exactly one key, "Current",
+// and an API consumer wanting M6's rank had no way to it except ~260 per-Pokemon requests
+// for that season -- which is the load the request behind this change asked to avoid.
+//
+// A season's own figure is its LAST snapshot: the standings as that season closed. The date
+// is chosen with `compareDailySource`, the same comparator the folder list uses (it sorts
+// newest first), so "newest" means one thing in both places rather than two.
+//
+// Never over-writes a season that has a non-daily CSV of its own, so the live season keeps
+// the figure it always had and no existing consumer moves.
+for (const record of records.values()) {
+  for (const [season, byDate] of Object.entries(record.dailyBattleSummary || {})) {
+    const newest = Object.keys(byDate || {})
+      .sort((a, b) => compareDailySource({ season, date: a }, { season, date: b }))[0];
+    if (!newest) continue;
+    record.battleSummary[season] ||= {};
+    for (const [format, summary] of Object.entries(byDate[newest] || {})) {
+      record.battleSummary[season][format] ||= summary;
+    }
   }
 }
 
@@ -2004,6 +2089,7 @@ const sitemapCount = writeSitemap(pokemonPages, topicPages, generatedAt, seo.url
 console.log(`Generated data/pokemon-index.json with ${pokemon.length} Pokemon, ${pokemonPages.length} profile page(s), and ${topicPages.length} topic page(s).`);
 console.log(`Generated ${seo.counts.total} SEO page(s): ${seo.counts.moves} move, ${seo.counts.items} item, ${seo.counts.abilities} ability, plus per-Pokemon, comparison, team, meta and ranking pages.`);
 console.log(`Sitemap lists ${sitemapCount} URL(s).`);
+console.log(`data/api/rankings.json published, and every season now carries its own battleSummary.`);
 console.log(`_redirects: ${seo.counts.legacyRedirects} old-name and ${seo.counts.redirects} reverse-comparison rule(s); ${seo.counts.staticRedirects} static (limit 2000), ${seo.counts.dynamicRedirects} dynamic (limit 100).`);
 console.log(`Builder meta covers ${builderMetaCount} ranked Pokemon across both formats.`);
 console.log(`data/builder/pokemon-sets.json holds ${pokemonSetCount} tournament set(s).`);

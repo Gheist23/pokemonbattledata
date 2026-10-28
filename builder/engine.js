@@ -549,6 +549,28 @@ export const GRAVITY_POWER_ON = true;
 export const AURA_GUARD_ON = true;
 
 /**
+ * Does Fairy Aura lift every Fairy-type attack ON THE FIELD by a third?
+ *
+ * The game's own text, as the compiled registry has it: "Boosts the power of the
+ * Fairy-type moves of all Pokemon on the field by 33%." Its only holder is MEGA FLOETTE --
+ * the base Floette has Flower Veil and Symbiosis, so the Ability is reached through the
+ * stone and `effectiveMegaMon` has to resolve both mons before this is asked.
+ *
+ * FIELD-WIDE MEANS BOTH SIDES. "all Pokemon on the field" is not "the holder": a 1v1
+ * calculation sees two Pokemon and both of them are standing, so a Fairy move aimed INTO
+ * Mega Floette is lifted exactly as much as one coming out of it. It does not stack, which
+ * is what one multiplier for any number of holders means.
+ *
+ * Aura Break would turn the boost into a 25% reduction, and NO POKEMON IN THE GAME HAS IT:
+ * the 215 Abilities the game ships (its own metadata) include neither Aura Break nor Dark
+ * Aura, so there is nothing for the reversal to reverse.
+ *
+ * On, except for a recording made before the rule. Every vector on disk holds the
+ * un-boosted number, in both directions.
+ */
+export const FAIRY_AURA_ON = true;
+
+/**
  * Does Guard Dog turn Intimidate round instead of taking the drop?
  *
  * On, except for a recording made before the rule. It is needed, and not for the reason you
@@ -561,6 +583,13 @@ export const AURA_GUARD_ON = true;
 export const GUARD_DOG_ON = true;
 
 export function guardDogOption(value) {
+  if (value === null || value === undefined || value === false) return false;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
+  return true;
+}
+
+export function fairyAuraOption(value) {
   if (value === null || value === undefined || value === false) return false;
   const text = String(value).trim().toLowerCase();
   if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return false;
@@ -794,7 +823,8 @@ export class DamageEngine {
                         formType = FORM_TYPE_ON,
                         gravityPower = GRAVITY_POWER_ON,
                         auraGuard = AURA_GUARD_ON,
-                        guardDog = GUARD_DOG_ON } = {}) {
+                        guardDog = GUARD_DOG_ON,
+                        fairyAura = FAIRY_AURA_ON } = {}) {
     // Off only for a recording made before the rule (see `terrainSeedOption`).
     this.terrainSeeds = terrainSeedOption(terrainSeeds);
     // Likewise: off only for a recording made before Steel Roller learned it
@@ -825,6 +855,9 @@ export class DamageEngine {
     this.auraGuard = auraGuardOption(auraGuard);
     // Likewise: off only for a recording made before Guard Dog turned Intimidate round.
     this.guardDog = guardDogOption(guardDog);
+    // Likewise: off only for a recording made before Fairy Aura lifted every Fairy attack
+    // on the field (see `fairyAuraOption`).
+    this.fairyAura = fairyAuraOption(fairyAura);
     this.data = appData;
     // V525: {move key: {stat: signed stages}} for every move that changes its own user,
     // exported from the game's own move archive. Empty on an older data file, which is the
@@ -2145,6 +2178,17 @@ export class DamageEngine {
     if (atkAbility === "sharpness" && flags.has("slicing")) powerMods.push([attacker.ability, 1.5]);
     if (atkAbility === "reckless" && (flags.has("recoil") || flags.has("crash"))) powerMods.push([attacker.ability, 1.2]);
     if (atkAbility === "punk rock" && flags.has("sound")) powerMods.push([attacker.ability, 1.3]);
+    // Fairy Aura: field-wide, so EITHER side having it lifts a Fairy move, and it does not
+    // stack. In `powerMods` rather than `finalMods` because the game calls it a power boost,
+    // and INSIDE the chain rather than multiplied onto the finished power -- the chain
+    // multiplies in 4096ths and rounds once, and a calculator a point out turns a guaranteed
+    // KO into a roll. `moveType` here is the EFFECTIVE type, so Pixilate's converted Normal
+    // move counts as the Fairy it has become. `atkAbility` and `defAbility` are read off the
+    // Mega-resolved mons, which is the only way Mega Floette is ever seen.
+    if (this.fairyAura && moveType === "Fairy"
+      && (atkAbility === "fairy aura" || defAbility === "fairy aura")) {
+      powerMods.push(["Fairy Aura", 1.33]);
+    }
     if (atkAbility === "technician" && rawPower <= 60) powerMods.push([attacker.ability, 1.5]);
     if (atkAbility === "sheer force" && flags.has("secondary")) powerMods.push([attacker.ability, 1.3]);
     if (atkAbility === "sand force" && weather === "Sand" && ["Rock", "Ground", "Steel"].includes(moveType)) powerMods.push([attacker.ability, 1.3]);
@@ -2220,7 +2264,13 @@ export class DamageEngine {
     if (atkItem === "expert belt" && eff > 1) finalMods.push([attacker.item, 1.2]);
     if (atkItem === "life orb") finalMods.push([attacker.item, 1.3]);
     const berryType = RESIST_BERRIES[defItem];
-    if (berryType === moveType && (eff > 1 || berryType === "Normal")) finalMods.push([defender.item, 0.5]);
+    // Reported as well as applied. A resistance berry halves ONE hit and is then eaten, and
+    // only the caller knows whether this holder has already eaten it -- so the answer has to
+    // say whether the berry was what halved this particular hit. Without it the turn engine
+    // would have to work out type effectiveness for itself to know, which is the one thing
+    // it has no business duplicating.
+    const resistBerryUsed = berryType === moveType && (eff > 1 || berryType === "Normal");
+    if (resistBerryUsed) finalMods.push([defender.item, 0.5]);
 
     const totals = Array(16).fill(0);
     rawHitPowers.forEach((hitPower, h) => {
@@ -2249,7 +2299,8 @@ export class DamageEngine {
       attacker, defender, moveName, totals, maxHp, currentHp,
       [`Move: ${moveName} / ${moveType} / ${pyTitle(category)}`, `Attack used: ${attack}`, `Defense used: ${defense}`, `Hits: ${rawHitPowers.length}`, ...details],
       warnings,
-      { hit_count: rawHitPowers.length, move_accuracy_percent: accuracyPercent, move_accuracy_factor: clamp(accuracyPercent / 100, 0, 1) },
+      { hit_count: rawHitPowers.length, move_accuracy_percent: accuracyPercent, move_accuracy_factor: clamp(accuracyPercent / 100, 0, 1),
+        resist_berry_active: resistBerryUsed },
     );
     if (fullHp && rawHitPowers.length === 1 && defItem === "focus sash" && Math.max(...totals) >= currentHp) {
       result.ko = "Focus Sash prevents an OHKO from full HP";

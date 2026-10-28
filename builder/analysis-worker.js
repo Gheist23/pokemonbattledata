@@ -495,7 +495,7 @@ self.addEventListener("message", async (event) => {
         // deliberately does not model that either -- it halves the damage instead, which is an
         // average over the two turns -- and a battle happens on one of them, which is how
         // Electro Shot came to fire on the spot with no rain up.
-        { effects: await moveEffects(), liveHpRule: 1, chargeRule: 1, berryRule: 1 },
+        { effects: await moveEffects(), liveHpRule: 1, chargeRule: 1, berryRule: 1, stagesRule: 1, confusionRule: 1, ppRule: 1, rberryRule: 1, bailRule: 1 },
       );
       evaluation.playSolver ||= new Solver(evaluation.playTournament);
       const library = await loadSetLibrary();
@@ -636,7 +636,7 @@ self.addEventListener("message", async (event) => {
       // because it is its own: `evaluation.tournament` above is the one the recorded parity
       // vectors pin, and it is untouched.
       evaluation.solverTournament ||= new TournamentTest(evaluation, evaluation.knownTeams || new KnownTeams({ teams: [] }), new TeamSuggestions(evaluation),
-        { effects: await moveEffects(), chargeRule: 1, berryRule: 1 });
+        { effects: await moveEffects(), chargeRule: 1, berryRule: 1, stagesRule: 1, confusionRule: 1, ppRule: 1, rberryRule: 1, bailRule: 1 });
       evaluation.solver ||= new Solver(evaluation.solverTournament);
       // A closed sheet is not one board but many: the sets are rolled, and the answer is the move
       // that does best across the possible boards rather than against one guess at theirs.

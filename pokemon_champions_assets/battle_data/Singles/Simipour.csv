@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Simipour,248,move,1,Ice Beam,77.1%,,,,,,,,
-Simipour,248,move,2,Focus Blast,56.1%,,,,,,,,
+Simipour,248,move,2,Focus Blast,56.0%,,,,,,,,
 Simipour,248,move,3,Hydro Pump,46.9%,,,,,,,,
 Simipour,248,move,4,Grass Knot,42.2%,,,,,,,,
 Simipour,248,move,5,Surf,27.9%,,,,,,,,
 Simipour,248,move,6,Scald,26.8%,,,,,,,,
 Simipour,248,move,7,Fake Out,22.3%,,,,,,,,
-Simipour,248,move,8,Flip Turn,17.5%,,,,,,,,
+Simipour,248,move,8,Flip Turn,17.6%,,,,,,,,
 Simipour,248,move,9,Taunt,14.9%,,,,,,,,
 Simipour,248,move,10,Nasty Plot,8.1%,,,,,,,,
 Simipour,248,held_item,1,Focus Sash,30.4%,,,,,,,,
@@ -38,11 +38,11 @@ Simipour,248,stat_alignment,6,Rash,2.3%,Sp. Atk,Sp. Def,,,,,,
 Simipour,248,stat_alignment,7,Jolly,1.6%,Speed,Sp. Atk,,,,,,
 Simipour,248,stat_alignment,8,Adamant,1.5%,Attack,Sp. Atk,,,,,,
 Simipour,248,stat_alignment,9,Bold,1.1%,Defense,Attack,,,,,,
-Simipour,248,stat_alignment,10,Relaxed,0.6%,Defense,Speed,,,,,,
+Simipour,248,stat_alignment,10,Impish,0.6%,Defense,Sp. Atk,,,,,,
 Simipour,248,stat_points,1,,39.9%,,,2,0,0,32,0,32
 Simipour,248,stat_points,2,,20.7%,,,1,0,1,32,0,32
 Simipour,248,stat_points,3,,4.5%,,,32,0,2,32,0,0
-Simipour,248,stat_points,4,,3.8%,,,0,0,0,32,2,32
+Simipour,248,stat_points,4,,3.9%,,,0,0,0,32,2,32
 Simipour,248,stat_points,5,,3.8%,,,0,0,0,32,0,32
 Simipour,248,stat_points,6,,3.2%,,,0,2,0,32,0,32
 Simipour,248,stat_points,7,,3.2%,,,1,0,0,32,1,32

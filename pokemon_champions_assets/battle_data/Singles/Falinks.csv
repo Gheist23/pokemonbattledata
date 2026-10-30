@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Falinks,231,move,1,No Retreat,90.2%,,,,,,,,
 Falinks,231,move,2,Close Combat,89.3%,,,,,,,,
-Falinks,231,move,3,Knock Off,46.6%,,,,,,,,
+Falinks,231,move,3,Knock Off,46.7%,,,,,,,,
 Falinks,231,move,4,Poison Jab,37.0%,,,,,,,,
-Falinks,231,move,5,Rock Slide,23.1%,,,,,,,,
+Falinks,231,move,5,Rock Slide,23.2%,,,,,,,,
 Falinks,231,move,6,High Horsepower,20.0%,,,,,,,,
 Falinks,231,move,7,Iron Head,19.2%,,,,,,,,
 Falinks,231,move,8,Throat Chop,12.9%,,,,,,,,
@@ -12,7 +12,7 @@ Falinks,231,move,10,Upper Hand,5.0%,,,,,,,,
 Falinks,231,held_item,1,Falinksite,87.9%,,,,,,,,
 Falinks,231,held_item,2,Focus Sash,5.1%,,,,,,,,
 Falinks,231,held_item,3,Black Belt,2.1%,,,,,,,,
-Falinks,231,held_item,4,Sitrus Berry,1.0%,,,,,,,,
+Falinks,231,held_item,4,Sitrus Berry,0.9%,,,,,,,,
 Falinks,231,held_item,5,Coba Berry,0.8%,,,,,,,,
 Falinks,231,held_item,6,Chesto Berry,0.7%,,,,,,,,
 Falinks,231,held_item,7,Red Card,0.5%,,,,,,,,
@@ -24,8 +24,8 @@ Falinks,231,teammate,2,Mimikyu,,,,,,,,,
 Falinks,231,teammate,3,Basculegion,,,,,,,,,
 Falinks,231,teammate,4,Dragapult,,,,,,,,,
 Falinks,231,teammate,5,Gholdengo,,,,,,,,,
-Falinks,231,teammate,6,Ninetales-Alola,,,,,,,,,
-Falinks,231,teammate,7,Meowscarada,,,,,,,,,
+Falinks,231,teammate,6,Meowscarada,,,,,,,,,
+Falinks,231,teammate,7,Ninetales-Alola,,,,,,,,,
 Falinks,231,teammate,8,Kingambit,,,,,,,,,
 Falinks,231,teammate,9,Archaludon,,,,,,,,,
 Falinks,231,teammate,10,Charizard,,,,,,,,,
@@ -39,10 +39,10 @@ Falinks,231,stat_alignment,7,Lonely,0.3%,Attack,Defense,,,,,,
 Falinks,231,stat_alignment,8,Hasty,0.3%,Speed,Defense,,,,,,
 Falinks,231,stat_alignment,9,Modest,0.2%,Sp. Atk,Attack,,,,,,
 Falinks,231,stat_alignment,10,Gentle,0.2%,Sp. Def,Defense,,,,,,
-Falinks,231,stat_points,1,,31.2%,,,2,32,0,0,0,32
+Falinks,231,stat_points,1,,31.1%,,,2,32,0,0,0,32
 Falinks,231,stat_points,2,,7.3%,,,0,32,2,0,0,32
 Falinks,231,stat_points,3,,6.6%,,,32,32,2,0,0,0
-Falinks,231,stat_points,4,,6.2%,,,1,32,1,0,0,32
+Falinks,231,stat_points,4,,6.1%,,,1,32,1,0,0,32
 Falinks,231,stat_points,5,,5.5%,,,0,32,0,0,2,32
 Falinks,231,stat_points,6,,5.0%,,,1,32,0,0,1,32
 Falinks,231,stat_points,7,,4.7%,,,32,32,0,0,0,2

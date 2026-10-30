@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Liepard,197,move,1,Encore,73.0%,,,,,,,,
-Liepard,197,move,2,Foul Play,71.9%,,,,,,,,
-Liepard,197,move,3,Copycat,49.1%,,,,,,,,
+Liepard,197,move,2,Foul Play,72.0%,,,,,,,,
+Liepard,197,move,3,Copycat,49.2%,,,,,,,,
 Liepard,197,move,4,Protect,43.4%,,,,,,,,
 Liepard,197,move,5,Substitute,27.3%,,,,,,,,
 Liepard,197,move,6,Yawn,15.6%,,,,,,,,
 Liepard,197,move,7,Taunt,14.2%,,,,,,,,
-Liepard,197,move,8,Baton Pass,13.2%,,,,,,,,
+Liepard,197,move,8,Baton Pass,13.1%,,,,,,,,
 Liepard,197,move,9,Double Team,10.6%,,,,,,,,
-Liepard,197,move,10,Knock Off,10.4%,,,,,,,,
+Liepard,197,move,10,Knock Off,10.3%,,,,,,,,
 Liepard,197,held_item,1,Focus Sash,33.3%,,,,,,,,
 Liepard,197,held_item,2,Leftovers,21.1%,,,,,,,,
 Liepard,197,held_item,3,Sitrus Berry,11.2%,,,,,,,,
@@ -29,8 +29,8 @@ Liepard,197,teammate,7,Lucario,,,,,,,,,
 Liepard,197,teammate,8,Meowscarada,,,,,,,,,
 Liepard,197,teammate,9,Greninja,,,,,,,,,
 Liepard,197,teammate,10,Cinderace,,,,,,,,,
-Liepard,197,stat_alignment,1,Jolly,25.8%,Speed,Sp. Atk,,,,,,
-Liepard,197,stat_alignment,2,Bold,19.5%,Defense,Attack,,,,,,
+Liepard,197,stat_alignment,1,Jolly,25.7%,Speed,Sp. Atk,,,,,,
+Liepard,197,stat_alignment,2,Bold,19.6%,Defense,Attack,,,,,,
 Liepard,197,stat_alignment,3,Impish,15.5%,Defense,Sp. Atk,,,,,,
 Liepard,197,stat_alignment,4,Timid,7.5%,Speed,Attack,,,,,,
 Liepard,197,stat_alignment,5,Adamant,6.5%,Attack,Sp. Atk,,,,,,
@@ -39,9 +39,9 @@ Liepard,197,stat_alignment,7,Naive,3.6%,Speed,Sp. Def,,,,,,
 Liepard,197,stat_alignment,8,Careful,3.2%,Sp. Def,Sp. Atk,,,,,,
 Liepard,197,stat_alignment,9,Calm,3.2%,Sp. Def,Attack,,,,,,
 Liepard,197,stat_alignment,10,Modest,1.9%,Sp. Atk,Attack,,,,,,
-Liepard,197,stat_points,1,,28.0%,,,32,0,32,0,2,0
+Liepard,197,stat_points,1,,28.1%,,,32,0,32,0,2,0
 Liepard,197,stat_points,2,,9.5%,,,2,32,0,0,0,32
-Liepard,197,stat_points,3,,3.8%,,,32,0,32,0,0,2
+Liepard,197,stat_points,3,,3.7%,,,32,0,32,0,0,2
 Liepard,197,stat_points,4,,3.2%,,,32,0,2,0,0,32
 Liepard,197,stat_points,5,,2.6%,,,0,32,0,2,0,32
 Liepard,197,stat_points,6,,2.3%,,,2,0,0,32,0,32
@@ -49,6 +49,6 @@ Liepard,197,stat_points,7,,2.3%,,,32,0,1,0,1,32
 Liepard,197,stat_points,8,,2.3%,,,32,0,32,0,0,0
 Liepard,197,stat_points,9,,2.0%,,,0,0,32,0,2,32
 Liepard,197,stat_points,10,,1.8%,,,0,32,0,0,0,32
-Liepard,197,ability,1,Prankster,92.5%,,,,,,,,
-Liepard,197,ability,2,Unburden,6.4%,,,,,,,,
+Liepard,197,ability,1,Prankster,92.6%,,,,,,,,
+Liepard,197,ability,2,Unburden,6.3%,,,,,,,,
 Liepard,197,ability,3,Limber,1.1%,,,,,,,,

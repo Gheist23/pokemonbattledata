@@ -508,7 +508,11 @@ self.addEventListener("message", async (event) => {
         // A page cached from before the toggle existed played the closed sheet, which is what it
         // still gets -- and closed games are not rated, which is the right answer for a client
         // that does not know the rule.
-        const game = new PlayGame(evaluation.playSolver, data, payload.format, library, { sheet: "closed" });
+        // `pickReplacement`: the real game asks the player who comes in after a knockout. Off
+        // everywhere else, because a caller that does not answer would sit on an unfinished
+        // turn -- see the constructor.
+        const game = new PlayGame(evaluation.playSolver, data, payload.format, library,
+          { sheet: "closed", pickReplacement: true });
         const view = game.start({
           player: payload.team || [],
           // The legacy "new" action sends only the four it brings, so the opponent chooses
@@ -600,9 +604,33 @@ self.addEventListener("message", async (event) => {
           ok: true,
           result: {
             view: named(view),
-            options: view.over ? [] : game.options(),
+            // NO ACTIONS WHILE A REPLACEMENT IS OPEN. One of ours went down and the player
+            // has not said who comes in, so a seat is still empty -- offering actions for it
+            // would be offering moves to nobody. The view carries the choice; the next
+            // message is a "replace".
+            options: view.over || view.replacement ? [] : game.options(),
             record,
             thinking: { played: thinking?.played || 0, pool: thinking?.pool || 0, seconds: thinking?.seconds || 0 },
+          },
+        });
+        if (view.over) games.delete(payload.gameId);
+        return;
+      }
+      // WHO COMES IN NEXT, when one of ours is knocked out and more than one is on the
+      // bench. The turn is already resolved and waiting on this: `chooseReplacement` brings
+      // the chosen one in and finishes the refill, both sides together.
+      if (payload.action === "replace") {
+        const took = game.chooseReplacement(payload.tag);
+        const view = game.view();
+        self.postMessage({
+          id,
+          ok: true,
+          result: {
+            view: named(view),
+            options: view.over || view.replacement ? [] : game.options(),
+            // False when the tag was not one of the choices -- the page then just redraws
+            // the same question rather than losing the turn.
+            replaced: took,
           },
         });
         if (view.over) games.delete(payload.gameId);

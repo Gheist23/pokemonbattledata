@@ -172,9 +172,15 @@ const SHARED_WEAK_GATE = 3;              // the user's literal condition, kept a
 const SHARED_RESIST_DISCOUNT = 0.5;
 const SHARED_RED_EXPOSURE = 4.0;         // 5.4%
 const SHARED_YELLOW_EXPOSURE = 3.0;      // 23.9% cumulative
-const LEAD_BAR = 5.6;                    // 25th percentile of 42,405 real lead pairs
-const LEAD_RED_FRACTION = 0.27;          // <= 4 of 15 -> 1.7%
-const LEAD_YELLOW_FRACTION = 0.55;       // <= 8 of 15 -> 11.9% cumulative
+// Re-measured 29 Oct 2026 over the whole registered library -- 1,945 teams, 29,175 lead pairs --
+// because a calibration comment that has drifted is worse than none. The bar still sits where it
+// was put: pair scores run from -0.75 to 17.58 with a median of 8.09, and 27.4% of pairs fall
+// below 5.6 against the 25% it was set at. The two SEVERITY rates have drifted as the library
+// grew, and the figures below are the fresh ones; the thresholds themselves are unchanged, so no
+// recorded reading moves.
+const LEAD_BAR = 5.6;                    // 25th percentile when set; 27.4% of pairs now fall below
+const LEAD_RED_FRACTION = 0.27;          // <= 4 of 15 -> 3.1% of teams (1.7% when set)
+const LEAD_YELLOW_FRACTION = 0.55;       // <= 8 of 15 -> 18.1% cumulative (11.9% when set)
 // V514 revision: field severity is a WEIGHT, not a line count. `problems.length >= 2 -> red`
 // is what the app's pre-V514 rule did, so adding one rule mechanically promoted any team that
 // already had one problem -- the owner's own Doubles Trick Room team went yellow -> red on

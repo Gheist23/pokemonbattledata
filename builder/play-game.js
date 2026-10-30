@@ -366,11 +366,18 @@ export class PlayGame {
    *   "open" is the default and is what the ladder rates: it is the same game every time, so a
    *   rating means something. "closed" is the harder-to-read opponent, and is not rated.
    */
-  constructor(solver, data, format, library = null, { sheet = "open" } = {}) {
+  constructor(solver, data, format, library = null, { sheet = "open", pickReplacement = false } = {}) {
     this.solver = solver;
     this.data = data;
     this.format = format;
     this.sheet = sheet === "closed" ? "closed" : "open";
+    // WHETHER THE PLAYER PICKS who comes in after a knockout. OFF by default, on purpose: a
+    // caller that does not look at `view.replacement` would sit on a turn that never finishes,
+    // and several already exist (the suites play whole games in a loop). The worker that runs
+    // the real game turns it on, which is the only place a person is there to answer.
+    this.pickReplacement = Boolean(pickReplacement);
+    // The refill a turn is waiting on while the player picks who comes in, or null.
+    this.heldRefill = null;
     this.hidden = new HiddenSets(data, format, library);
     this.active = ACTIVE_BY_FORMAT[format];
     this.bring = BRING_BY_FORMAT[format];
@@ -472,15 +479,105 @@ export class PlayGame {
       sides,
       standing,
       field: {
-        weather: board.w,
-        terrain: board.t,
+        // IN WORDS, not as the index. `board.w` is a position in WEATHERS and this handed it over
+        // raw, while the page prints what it is given -- so Pelipper's Drizzle showed the field
+        // banner as "2" instead of "Rain". `rowOf`'s board has said it in words all along, which
+        // is why the opponent's side of it was right and only the player's was not.
+        weather: WEATHERS[board.w] || "None",
+        terrain: TERRAINS[board.t] || "None",
+        // WITH THE TURNS LEFT. The boolean said a Trick Room was up and not that it ends after
+        // this turn, which is the whole question when deciding what to do under one. `rowOf`
+        // already carried the counts for the opponent's search, with a comment saying why
+        // flattening them was wrong there; it was equally wrong here.
         trickRoom: board.tr > 0,
+        trickRoomTurns: Math.max(0, board.tr || 0),
         tailwind: [board.tw[0] > 0, board.tw[1] > 0],
+        tailwindTurns: [Math.max(0, board.tw[0] || 0), Math.max(0, board.tw[1] || 0)],
+        // Weather and terrain have NO remaining-turn count to give: this engine sets them only
+        // from a Pokemon's own Ability (`unit.kit.weather` / `kit.terrain`), never from a move,
+        // and nothing counts them down -- they last while the setter stands. Showing a number
+        // there would mean inventing a duration the model does not have.
       },
       value: Math.round(this.solver.valueOf(this.state) * 10) / 10,
       over: this.over(),
+      // WAITING FOR A CHOICE. Non-null means the turn is not finished: one of ours went down
+      // and more than one is left on the bench, so who comes in is the player's to say.
+      // `chooseReplacement(tag)` answers it; with one or no bench Pokemon this stays null and
+      // the turn runs straight through as it always did.
+      replacement: this.heldRefill ? { choices: this.replacementChoices() } : null,
       log: this.log,
     };
+  }
+
+  /**
+   * Is a replacement OURS to choose this turn?
+   *
+   * Only when there is a real choice: an empty seat of ours, and more than one Pokemon on
+   * the bench still standing. With exactly one there is nothing to decide and the turn runs
+   * straight through, which is also what keeps every existing game and every test unchanged.
+   */
+  replacementNeeded() {
+    if (!this.pickReplacement) return false;
+    const empty = this.state.active[0].filter((m) => !m || m.out).length;
+    if (!empty) return false;
+    return this.replacementChoices().length > 1;
+  }
+
+  /** The Pokemon that could come in, as the tiles name them. */
+  replacementChoices() {
+    const standing = this.state.active[0];
+    return this.state.sides[0]
+      .filter((m) => m && !m.out && m.hp > 0 && !standing.includes(m))
+      .map((m) => ({ tag: m.tag, name: this.solver.label(m.u), hp: Math.max(0, Math.round(m.hp * 100)) }));
+  }
+
+  /**
+   * Bring `tag` in, and finish the turn that was waiting for it.
+   *
+   * The choice is made by REORDERING THE LIST `refill` WILL READ so the chosen Pokemon sits
+   * exactly where `next[0]` points, and then letting the held call run: it takes the next one
+   * off the bench as it always has, and that one is now the chosen one. Nothing in the engine
+   * learns about a choice, which is why seat rule 1 and the arrival order are untouched.
+   *
+   * THE LIST IS THE DERIVED ONE, not `state.sides[0]`: `tickBoard` hands `refill` the output of
+   * `benchFor`, with the fainted and the standing filtered out, and that array is already built
+   * when the call is held. Reordering `sides` instead reached nothing -- measured, choosing
+   * Incineroar brought Garchomp in. `m.ix` is an index into `sides` and is deliberately NOT
+   * touched: the derived list is a different array, and `applySwitches` reads `ix` against
+   * `sides`, exactly as it does for the sequential pick this replaces.
+   */
+  chooseReplacement(tag) {
+    const held = this.heldRefill;
+    if (!held) return false;
+    const wanted = Math.trunc(Number(tag));
+    const allowed = new Set(this.replacementChoices().map((choice) => choice.tag));
+    if (!allowed.has(wanted)) return false;
+    const bench = held.args?.[1]?.[0];
+    const slot = this.state.next[0];
+    if (!Array.isArray(bench) || slot >= bench.length) return false;
+    const at = bench.findIndex((m) => m && m.tag === wanted);
+    if (at < 0) return false;
+    if (at !== slot) {
+      const other = bench[slot];
+      bench[slot] = bench[at];
+      bench[at] = other;
+    }
+    this.heldRefill = null;
+    // `tickBoard` marks the arrivals `justIn` and `entered` AFTER it calls `refill`, and that
+    // pass already ran -- over an empty seat, because the call was held. So it is done here, the
+    // same way and for the same reason: `justIn` is what lets a replacement use Fake Out and
+    // First Impression (`slotCandidates` refuses both without it), and `entered` is what stops
+    // its entry Ability firing a second time next turn. Measured: without this the Pokemon the
+    // player chose arrived unable to use Fake Out.
+    const before = this.state.active[0].map((m) => (m && !m.out ? m.u.id : null));
+    held.run();
+    this.state.active[0].forEach((m, i) => {
+      if (m && !m.out && before[i] !== m.u.id) {
+        m.justIn = true;
+        m.entered = true;
+      }
+    });
+    return true;
   }
 
   /** null while the game is on, else who won and why. */
@@ -1384,6 +1481,20 @@ export class PlayGame {
 
     decorate("refill", (was) => function refill(...args) {
       events.push({ kind: SETTLED });
+      // THE PLAYER CHOOSES WHO COMES IN, when there is anything to choose. `refill` takes the
+      // next one off the bench, so the order a team was typed in decided it. Held here and
+      // run once the choice is made -- the WHOLE step, both sides together, because seat
+      // rule 1 says everyone replaced this turn is on the field before any of them triggers.
+      // Filling only the opponent first would send its Intimidate at an empty seat.
+      if (game.replacementNeeded()) {
+        // The ARGUMENTS travel with it. `refill` is handed `benchFor(state)`, a list DERIVED
+        // from `sides` with the fainted and the standing filtered out, and it is already
+        // built by the time this runs -- so reordering `state.sides` afterwards reaches
+        // nothing. Measured: choosing Incineroar brought Garchomp in. The choice has to
+        // reorder the list refill will actually read.
+        game.heldRefill = { args, run: () => was.apply(this, args) };
+        return undefined;
+      }
       return was.apply(this, args);
     });
 

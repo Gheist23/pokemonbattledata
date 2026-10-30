@@ -19,7 +19,10 @@
 //   4. a Normal move Pixilate has turned Fairy is lifted, one that stays Normal is not;
 //   5. IT DOES NOT STACK: two holders on the field are one multiplier, not two;
 //   6. the exact numbers the Companion gives, pinned side by side -- this is a parity rule and
-//      a drift of one point is the whole thing it has to catch.
+//      a drift of one point is the whole thing it has to catch;
+//   7. DARK AURA and AURA BREAK, against invented holders: the game has none, because it
+//      ships no legendaries at all and reassigned Fairy Aura to Mega Floette instead. They
+//      are modelled so the day it reassigns those two as well, it already works.
 //
 //   node tests/run-fairy-aura.mjs
 //
@@ -28,7 +31,8 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DamageEngine, makeMon, makeContext, FAIRY_AURA_ON, fairyAuraOption } from "../builder/engine.js";
+import { DamageEngine, makeMon, makeContext, FAIRY_AURA_ON, fairyAuraOption,
+  AURA_ABILITIES, AURA_BOOST, AURA_BREAK_FACTOR } from "../builder/engine.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -146,6 +150,75 @@ const low = (range) => Number(String(range).split("-")[0]);
     ok(`${label}, rule on, matches the Companion`, roll(on, a, d, move) === expectOn,
       `${roll(on, a, d, move)} vs ${expectOn}`);
   }
+}
+
+// ---------------------------------------------------------------------------
+// 7. the other two auras, and Aura Break
+// ---------------------------------------------------------------------------
+{
+  // NEITHER HAS A HOLDER IN THE GAME. Champions ships no legendaries at all -- 236 species, no
+  // Xerneas, no Yveltal, no Zygarde -- and gave Fairy Aura to Mega Floette instead, which is the
+  // game reassigning a legendary's Ability into its own roster. So Dark Aura and Aura Break are
+  // modelled against INVENTED holders here: the point is that the day the game reassigns them
+  // the same way, it already works, and that neither touches the other's type.
+  ok("the table holds both auras",
+    AURA_ABILITIES["fairy aura"] === "Fairy" && AURA_ABILITIES["dark aura"] === "Dark",
+    JSON.stringify(AURA_ABILITIES));
+  ok("the boost is the registry's own figure", AURA_BOOST === 1.33, String(AURA_BOOST));
+  // 1 + 1352/4096 = 1.330078125 is the exact multiplier (Bulbapedia writes it as a mixed
+  // fraction, which is where its "33%" comes from). 1.33 is 0.006% away -- under a point on any
+  // roll in the game -- and is what the compiled registry carries, so both halves agree.
+  ok("and within a rounding of the exact one", Math.abs(AURA_BOOST - (1 + 1352 / 4096)) < 0.0001);
+  ok("Aura Break divides by 1 1/3", AURA_BREAK_FACTOR === 0.75, String(AURA_BREAK_FACTOR));
+
+  const invented = (ability) => mon("Garchomp", "Garchomp", "Leftovers", ability,
+    ["Earthquake", "Protect", "Dragon Claw", "Rock Slide"]);
+  const caster = mon("Sylveon", "Sylveon", "Leftovers", "Cute Charm",
+    ["Moonblast", "Dark Pulse", "Protect", "Wish"]);
+  const breaker = mon("Sylveon", "Sylveon", "Leftovers", "Aura Break",
+    ["Moonblast", "Dark Pulse", "Protect", "Wish"]);
+  const plain = invented("Rough Skin");
+  const fairy = invented("Fairy Aura");
+  const dark = invented("Dark Aura");
+  const e = engineWith(true);
+
+  // Pinned side by side with the Companion, which gives the same seven numbers.
+  const PINNED = [
+    ["no aura, Moonblast", caster, plain, "Moonblast", "140-168"],
+    ["no aura, Dark Pulse", caster, plain, "Dark Pulse", "39-47"],
+    ["Fairy Aura lifts Moonblast", caster, fairy, "Moonblast", "186-222"],
+    ["Fairy Aura leaves Dark Pulse", caster, fairy, "Dark Pulse", "39-47"],
+    ["Dark Aura lifts Dark Pulse", caster, dark, "Dark Pulse", "52-62"],
+    ["Dark Aura leaves Moonblast", caster, dark, "Moonblast", "140-168"],
+    ["Aura Break reverses Fairy Aura", breaker, fairy, "Moonblast", "104-126"],
+    ["Aura Break alone does nothing", breaker, plain, "Moonblast", "140-168"],
+  ];
+  for (const [label, a, d, move, expected] of PINNED) {
+    ok(`${label} matches the Companion`, roll(e, a, d, move) === expected,
+      `${roll(e, a, d, move)} vs ${expected}`);
+    notes.push(`${label.padEnd(32)} ${roll(e, a, d, move)}`);
+  }
+
+  // IT DOES NOT STACK. Two holders standing is one multiplier, not two: 1.33 squared would be
+  // 1.77, and that is the number this has to exclude.
+  const both = roll(e, mon("Sylveon", "Sylveon", "Leftovers", "Fairy Aura",
+    ["Moonblast", "Dark Pulse", "Protect", "Wish"]), fairy, "Moonblast");
+  ok("two Fairy Auras are one boost", both === "186-222", `${both} vs 186-222`);
+
+  // Aura Break on the DEFENDER reverses it too: one anywhere on the field is enough.
+  const defenderBreaks = roll(e, caster, invented("Aura Break"), "Moonblast");
+  ok("Aura Break on the defender alone does nothing (no aura to reverse)",
+    defenderBreaks === "140-168", defenderBreaks);
+  // Fairy Aura on the attacker, Aura Break on the defender.
+  const attackerAura = mon("Sylveon", "Sylveon", "Leftovers", "Fairy Aura",
+    ["Moonblast", "Dark Pulse", "Protect", "Wish"]);
+  const crossed = roll(e, attackerAura, invented("Aura Break"), "Moonblast");
+  ok("an aura on one side and the Break on the other is reversed", crossed === "104-126", crossed);
+
+  // The rule gate covers all three, because they are one code path.
+  const off = engineWith(false);
+  ok("rule 0 leaves Dark Aura alone too", roll(off, caster, dark, "Dark Pulse") === "39-47",
+    roll(off, caster, dark, "Dark Pulse"));
 }
 
 // ---------------------------------------------------------------------------

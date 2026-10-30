@@ -515,6 +515,53 @@ function afterChoice() {
   if (turnReady()) sendTurn();
 }
 
+/**
+ * Tell the worker who comes in, and take the board it answers with.
+ *
+ * Deliberately NOT `sendTurn`: the turn is already resolved and played out on screen, so there
+ * is nothing to animate and nothing for the Solver to think about -- only a seat to fill. The
+ * worker answers `replaced: false` when the tag was not one of the choices, and then the same
+ * question is simply drawn again rather than the turn being lost.
+ */
+async function sendReplacement(tag) {
+  if (state.thinking || state.animating || !state.gameId) return;
+  state.thinking = true;
+  render();
+  let answer;
+  try {
+    answer = await ask("play", {
+      action: "replace",
+      format: state.format,
+      settings: getState().settings || {},
+      gameId: state.gameId,
+      tag,
+    });
+  } catch (error) {
+    state.error = error.message || "That Pokemon could not be brought in.";
+    state.thinking = false;
+    render();
+    return;
+  }
+  state.thinking = false;
+  if (answer.error) {
+    state.error = answer.error;
+    state.screen = "setup";
+    state.gameId = "";
+    state.view = null;
+    state.options = [];
+    render();
+    return;
+  }
+  state.view = answer.view;
+  state.options = answer.options || [];
+  state.chosen = [];
+  state.mega = [];
+  state.targeting = null;
+  if (answer.view.over) await musicForBattle(false);
+  render();
+  if (answer.view.over) finishGame(resultOf(answer.view.over));
+}
+
 async function sendTurn() {
   if (state.thinking || state.animating || !state.gameId) return;
   state.thinking = true;
@@ -810,9 +857,15 @@ function conditionsOf(view) {
   // copy of the engine's lists, and that copy had Psychic and Misty the other way round.
   if (view.field.weather && view.field.weather !== "None") out.push(view.field.weather);
   if (view.field.terrain && view.field.terrain !== "None") out.push(`${view.field.terrain} Terrain`);
-  if (view.field.trickRoom) out.push("Trick Room");
-  if (view.field.tailwind[0]) out.push("Your Tailwind");
-  if (view.field.tailwind[1]) out.push("Their Tailwind");
+  // WITH THE TURNS LEFT, where there are any. A Trick Room that ends after this turn is a
+  // different position from one with four to run, and the banner said the same thing for both.
+  // Weather and terrain get no number because the engine has none for them: an Ability sets
+  // them and nothing ends them, so they last while the setter stands.
+  const left = (turns) => (turns > 0 ? ` (${turns})` : "");
+  if (view.field.trickRoom) out.push(`Trick Room${left(view.field.trickRoomTurns)}`);
+  const tw = view.field.tailwindTurns || [0, 0];
+  if (view.field.tailwind[0]) out.push(`Your Tailwind${left(tw[0])}`);
+  if (view.field.tailwind[1]) out.push(`Their Tailwind${left(tw[1])}`);
   return out;
 }
 
@@ -946,8 +999,29 @@ function chooseTarget(position) {
   afterChoice();
 }
 
+/**
+ * Who comes in next, when one of ours is down and there is a choice.
+ *
+ * `refill` used to take the next one off the bench, so the order a team was typed in decided
+ * it. The turn is already resolved and waiting: until a choice is sent, a seat is empty and
+ * the worker offers no actions.
+ */
+function renderReplacement(view) {
+  const choices = view.replacement?.choices || [];
+  return h("div", { class: "bd-play-controls" },
+    h("p", { class: "bd-play-note targeting" },
+      choices.length > 1 ? "Choose who comes in next." : "Bringing in your last Pokemon."),
+    h("div", { class: "bd-play-slots" }, choices.map((choice) => h("button", {
+      type: "button",
+      class: "ghost-button bd-play-replacement",
+      onclick: () => sendReplacement(choice.tag),
+    }, `${choice.name} · ${choice.hp}%`))));
+}
+
 function renderControls(view) {
   if (view.over) return renderResult(view);
+  // Before `animating`: the turn has played out and the only thing left is the choice.
+  if (view.replacement && !state.animating) return renderReplacement(view);
   if (state.animating) {
     return h("div", { class: "bd-play-controls" },
       h("p", { class: "bd-play-note" }, "Playing out the turn… click the field to skip."));

@@ -169,6 +169,28 @@ export const RESIST_BERRIES = {
   "charti berry": "Rock", "kasib berry": "Ghost", "haban berry": "Dragon", "colbur berry": "Dark",
   "babiri berry": "Steel", "roseli berry": "Fairy",
 };
+/**
+ * The auras: an Ability that lifts its type for EVERY Pokemon on the field, not just its
+ * holder's. The multiplier is 1 + 1352/4096 = 1.330078125 -- Bulbapedia writes it as a mixed
+ * fraction, which is where the "33%" beside it comes from. 1.33 is used because that is what
+ * the game's own text says and what the compiled registry carries, and the two differ by
+ * 0.006% -- less than one point on any damage roll in the game.
+ *
+ * AURA BREAK reverses them: the same moves are divided by 1 1/3 instead, which is a 25%
+ * reduction. One Aura Break anywhere on the field reverses every aura there.
+ *
+ * ONLY FAIRY AURA HAS A HOLDER TODAY. Champions ships no legendaries at all -- 236 species,
+ * no Xerneas, no Yveltal, no Zygarde -- and gave Fairy Aura to MEGA FLOETTE instead, which is
+ * the game reassigning a legendary's Ability to something in its roster. Dark Aura and Aura
+ * Break have nobody today and could be reassigned the same way, which is why this is a table
+ * rather than one Ability special-cased: the day a holder arrives, it already works.
+ */
+export const AURA_ABILITIES = { "fairy aura": "Fairy", "dark aura": "Dark" };
+export const AURA_BOOST = 1.33;
+/** What Aura Break turns an aura into: divided by 1 1/3, so three quarters. */
+export const AURA_BREAK_FACTOR = 0.75;
+export const AURA_BREAK = "aura break";
+
 export const PINCH_ABILITIES = { "blaze": "Fire", "torrent": "Water", "overgrow": "Grass", "swarm": "Bug" };
 export const TYPE_IMMUNITY_ABILITIES = {
   "levitate": "Ground", "flash fire": "Fire", "well-baked body": "Fire",
@@ -2178,16 +2200,24 @@ export class DamageEngine {
     if (atkAbility === "sharpness" && flags.has("slicing")) powerMods.push([attacker.ability, 1.5]);
     if (atkAbility === "reckless" && (flags.has("recoil") || flags.has("crash"))) powerMods.push([attacker.ability, 1.2]);
     if (atkAbility === "punk rock" && flags.has("sound")) powerMods.push([attacker.ability, 1.3]);
-    // Fairy Aura: field-wide, so EITHER side having it lifts a Fairy move, and it does not
-    // stack. In `powerMods` rather than `finalMods` because the game calls it a power boost,
-    // and INSIDE the chain rather than multiplied onto the finished power -- the chain
-    // multiplies in 4096ths and rounds once, and a calculator a point out turns a guaranteed
-    // KO into a roll. `moveType` here is the EFFECTIVE type, so Pixilate's converted Normal
-    // move counts as the Fairy it has become. `atkAbility` and `defAbility` are read off the
-    // Mega-resolved mons, which is the only way Mega Floette is ever seen.
-    if (this.fairyAura && moveType === "Fairy"
-      && (atkAbility === "fairy aura" || defAbility === "fairy aura")) {
-      powerMods.push(["Fairy Aura", 1.33]);
+    // THE AURAS (Fairy Aura, Dark Aura), and Aura Break reversing them. Field-wide, so EITHER
+    // side having one lifts the move, and they do NOT stack: one multiplier however many
+    // holders are standing. In `powerMods` rather than `finalMods` because the game calls it a
+    // power boost, and INSIDE the chain rather than multiplied onto the finished power -- the
+    // chain multiplies in 4096ths and rounds once, and a calculator a point out turns a
+    // guaranteed KO into a roll. `moveType` is the EFFECTIVE type, so Pixilate's converted
+    // Normal move counts as the Fairy it has become, and `atkAbility`/`defAbility` are read
+    // off the Mega-resolved mons, which is the only way Mega Floette is ever seen.
+    //
+    // Mold Breaker does NOT get past an aura -- it is not the defender resisting something,
+    // it is the field being different -- so there is deliberately no `moldBreaker` here.
+    if (this.fairyAura) {
+      const auraOn = AURA_ABILITIES[atkAbility] === moveType || AURA_ABILITIES[defAbility] === moveType;
+      if (auraOn) {
+        const broken = atkAbility === AURA_BREAK || defAbility === AURA_BREAK;
+        powerMods.push([broken ? "Aura Break" : `${pyTitle(moveType)} Aura`,
+          broken ? AURA_BREAK_FACTOR : AURA_BOOST]);
+      }
     }
     if (atkAbility === "technician" && rawPower <= 60) powerMods.push([attacker.ability, 1.5]);
     if (atkAbility === "sheer force" && flags.has("secondary")) powerMods.push([attacker.ability, 1.3]);

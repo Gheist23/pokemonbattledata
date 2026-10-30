@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Lucario,7,move,1,Dark Pulse,73.2%,,,,,,,,
-Lucario,7,move,2,Nasty Plot,58.9%,,,,,,,,
-Lucario,7,move,3,Aura Sphere,56.4%,,,,,,,,
-Lucario,7,move,4,Flash Cannon,51.2%,,,,,,,,
-Lucario,7,move,5,Vacuum Wave,44.1%,,,,,,,,
-Lucario,7,move,6,Steel Beam,32.1%,,,,,,,,
+Lucario,7,move,2,Nasty Plot,58.7%,,,,,,,,
+Lucario,7,move,3,Aura Sphere,56.6%,,,,,,,,
+Lucario,7,move,4,Flash Cannon,51.0%,,,,,,,,
+Lucario,7,move,5,Vacuum Wave,44.2%,,,,,,,,
+Lucario,7,move,6,Steel Beam,32.3%,,,,,,,,
 Lucario,7,move,7,Close Combat,17.4%,,,,,,,,
 Lucario,7,move,8,Swords Dance,14.3%,,,,,,,,
 Lucario,7,move,9,Bullet Punch,11.5%,,,,,,,,
@@ -14,8 +14,8 @@ Lucario,7,held_item,2,Lucarionite,19.4%,,,,,,,,
 Lucario,7,held_item,3,Focus Sash,0.5%,,,,,,,,
 Lucario,7,held_item,4,Choice Scarf,0.1%,,,,,,,,
 Lucario,7,held_item,5,Life Orb,0.1%,,,,,,,,
-Lucario,7,held_item,6,Air Balloon,0.0%,,,,,,,,
-Lucario,7,held_item,7,Expert Belt,0.0%,,,,,,,,
+Lucario,7,held_item,6,Expert Belt,0.0%,,,,,,,,
+Lucario,7,held_item,7,Air Balloon,0.0%,,,,,,,,
 Lucario,7,held_item,8,Quick Claw,0.0%,,,,,,,,
 Lucario,7,held_item,9,Black Belt,0.0%,,,,,,,,
 Lucario,7,held_item,10,Metal Coat,0.0%,,,,,,,,
@@ -29,8 +29,8 @@ Lucario,7,teammate,7,Rillaboom,,,,,,,,,
 Lucario,7,teammate,8,Archaludon,,,,,,,,,
 Lucario,7,teammate,9,Baxcalibur,,,,,,,,,
 Lucario,7,teammate,10,Salamence,,,,,,,,,
-Lucario,7,stat_alignment,1,Timid,55.6%,Speed,Attack,,,,,,
-Lucario,7,stat_alignment,2,Modest,25.1%,Sp. Atk,Attack,,,,,,
+Lucario,7,stat_alignment,1,Timid,55.7%,Speed,Attack,,,,,,
+Lucario,7,stat_alignment,2,Modest,25.0%,Sp. Atk,Attack,,,,,,
 Lucario,7,stat_alignment,3,Jolly,10.3%,Speed,Sp. Atk,,,,,,
 Lucario,7,stat_alignment,4,Adamant,7.4%,Attack,Sp. Atk,,,,,,
 Lucario,7,stat_alignment,5,Naive,0.6%,Speed,Sp. Def,,,,,,
@@ -39,11 +39,11 @@ Lucario,7,stat_alignment,7,Bold,0.1%,Defense,Attack,,,,,,
 Lucario,7,stat_alignment,8,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
 Lucario,7,stat_alignment,9,Naughty,0.1%,Attack,Sp. Def,,,,,,
 Lucario,7,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Lucario,7,stat_points,1,,49.3%,,,2,0,0,32,0,32
+Lucario,7,stat_points,1,,49.4%,,,2,0,0,32,0,32
 Lucario,7,stat_points,2,,10.9%,,,2,32,0,0,0,32
 Lucario,7,stat_points,3,,6.4%,,,4,0,0,32,0,30
-Lucario,7,stat_points,4,,3.1%,,,10,31,1,0,0,24
-Lucario,7,stat_points,5,,3.0%,,,0,0,2,32,0,32
+Lucario,7,stat_points,4,,3.0%,,,10,31,1,0,0,24
+Lucario,7,stat_points,5,,2.9%,,,0,0,2,32,0,32
 Lucario,7,stat_points,6,,1.6%,,,1,0,0,32,1,32
 Lucario,7,stat_points,7,,1.6%,,,32,0,6,6,3,19
 Lucario,7,stat_points,8,,1.2%,,,0,0,0,32,2,32

@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Persian,247,move,1,Power Gem,44.8%,,,,,,,,
-Persian,247,move,2,Shadow Ball,42.1%,,,,,,,,
-Persian,247,move,3,Thunder,42.0%,,,,,,,,
-Persian,247,move,4,Dark Pulse,33.7%,,,,,,,,
-Persian,247,move,5,Fake Out,33.1%,,,,,,,,
-Persian,247,move,6,Icy Wind,27.5%,,,,,,,,
-Persian,247,move,7,Water Pulse,21.3%,,,,,,,,
-Persian,247,move,8,Feint,15.9%,,,,,,,,
-Persian,247,move,9,Endeavor,15.0%,,,,,,,,
-Persian,247,move,10,Snarl,13.6%,,,,,,,,
-Persian,247,held_item,1,Meowsticite,41.9%,,,,,,,,
-Persian,247,held_item,2,Focus Sash,21.0%,,,,,,,,
+Persian,247,move,1,Power Gem,44.7%,,,,,,,,
+Persian,247,move,2,Shadow Ball,41.9%,,,,,,,,
+Persian,247,move,3,Thunder,41.8%,,,,,,,,
+Persian,247,move,4,Dark Pulse,33.9%,,,,,,,,
+Persian,247,move,5,Fake Out,33.2%,,,,,,,,
+Persian,247,move,6,Icy Wind,27.1%,,,,,,,,
+Persian,247,move,7,Water Pulse,20.7%,,,,,,,,
+Persian,247,move,8,Feint,16.1%,,,,,,,,
+Persian,247,move,9,Endeavor,14.9%,,,,,,,,
+Persian,247,move,10,Snarl,13.3%,,,,,,,,
+Persian,247,held_item,1,Meowsticite,41.6%,,,,,,,,
+Persian,247,held_item,2,Focus Sash,21.2%,,,,,,,,
 Persian,247,held_item,3,Normal Gem,9.0%,,,,,,,,
-Persian,247,held_item,4,Choice Scarf,7.4%,,,,,,,,
-Persian,247,held_item,5,Life Orb,6.4%,,,,,,,,
-Persian,247,held_item,6,Silk Scarf,4.6%,,,,,,,,
-Persian,247,held_item,7,Expert Belt,2.0%,,,,,,,,
-Persian,247,held_item,8,King's Rock,2.0%,,,,,,,,
+Persian,247,held_item,4,Choice Scarf,7.3%,,,,,,,,
+Persian,247,held_item,5,Life Orb,6.3%,,,,,,,,
+Persian,247,held_item,6,Silk Scarf,4.7%,,,,,,,,
+Persian,247,held_item,7,King's Rock,2.0%,,,,,,,,
+Persian,247,held_item,8,Expert Belt,1.9%,,,,,,,,
 Persian,247,held_item,9,Sitrus Berry,0.8%,,,,,,,,
-Persian,247,held_item,10,Rocky Helmet,0.7%,,,,,,,,
+Persian,247,held_item,10,Rocky Helmet,0.8%,,,,,,,,
 Persian,247,teammate,1,Basculegion,,,,,,,,,
 Persian,247,teammate,2,Archaludon,,,,,,,,,
 Persian,247,teammate,3,Castform,,,,,,,,,
@@ -29,26 +29,26 @@ Persian,247,teammate,7,Garchomp,,,,,,,,,
 Persian,247,teammate,8,Lopunny,,,,,,,,,
 Persian,247,teammate,9,Dragalge,,,,,,,,,
 Persian,247,teammate,10,Kleavor,,,,,,,,,
-Persian,247,stat_alignment,1,Serious,42.2%,,,,,,,,
-Persian,247,stat_alignment,2,Timid,16.5%,Speed,Attack,,,,,,
+Persian,247,stat_alignment,1,Serious,42.0%,,,,,,,,
+Persian,247,stat_alignment,2,Timid,16.3%,Speed,Attack,,,,,,
 Persian,247,stat_alignment,3,Jolly,15.1%,Speed,Sp. Atk,,,,,,
-Persian,247,stat_alignment,4,Adamant,12.1%,Attack,Sp. Atk,,,,,,
+Persian,247,stat_alignment,4,Adamant,12.2%,Attack,Sp. Atk,,,,,,
 Persian,247,stat_alignment,5,Naive,4.7%,Speed,Sp. Def,,,,,,
 Persian,247,stat_alignment,6,Hasty,4.6%,Speed,Defense,,,,,,
-Persian,247,stat_alignment,7,Naughty,1.3%,Attack,Sp. Def,,,,,,
-Persian,247,stat_alignment,8,Modest,1.1%,Sp. Atk,Attack,,,,,,
+Persian,247,stat_alignment,7,Naughty,1.5%,Attack,Sp. Def,,,,,,
+Persian,247,stat_alignment,8,Modest,1.2%,Sp. Atk,Attack,,,,,,
 Persian,247,stat_alignment,9,Lonely,0.6%,Attack,Defense,,,,,,
 Persian,247,stat_alignment,10,Brave,0.5%,Attack,Speed,,,,,,
-Persian,247,stat_points,1,,42.0%,,,1,2,3,4,5,6
-Persian,247,stat_points,2,,14.7%,,,2,32,0,0,0,32
-Persian,247,stat_points,3,,8.7%,,,2,0,0,32,0,32
-Persian,247,stat_points,4,,4.0%,,,1,0,1,32,0,32
-Persian,247,stat_points,5,,3.8%,,,0,32,2,0,0,32
+Persian,247,stat_points,1,,41.8%,,,1,2,3,4,5,6
+Persian,247,stat_points,2,,14.8%,,,2,32,0,0,0,32
+Persian,247,stat_points,3,,8.6%,,,2,0,0,32,0,32
+Persian,247,stat_points,4,,4.0%,,,0,32,2,0,0,32
+Persian,247,stat_points,5,,3.9%,,,1,0,1,32,0,32
 Persian,247,stat_points,6,,3.4%,,,1,32,1,0,0,32
 Persian,247,stat_points,7,,2.6%,,,0,32,0,0,2,32
-Persian,247,stat_points,8,,2.1%,,,1,32,0,10,0,23
-Persian,247,stat_points,9,,1.4%,,,0,2,0,32,0,32
+Persian,247,stat_points,8,,2.0%,,,1,32,0,10,0,23
+Persian,247,stat_points,9,,1.5%,,,0,2,0,32,0,32
 Persian,247,stat_points,10,,1.2%,,,32,32,0,0,2,0
-Persian,247,ability,1,Technician,52.1%,,,,,,,,
-Persian,247,ability,2,Limber,43.6%,,,,,,,,
-Persian,247,ability,3,Unnerve,4.3%,,,,,,,,
+Persian,247,ability,1,Technician,51.7%,,,,,,,,
+Persian,247,ability,2,Limber,43.8%,,,,,,,,
+Persian,247,ability,3,Unnerve,4.5%,,,,,,,,

@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Florges,195,move,1,Moonblast,61.7%,,,,,,,,
-Florges,195,move,2,Pollen Puff,60.5%,,,,,,,,
+Florges,195,move,1,Moonblast,61.8%,,,,,,,,
+Florges,195,move,2,Pollen Puff,60.6%,,,,,,,,
 Florges,195,move,3,Protect,56.5%,,,,,,,,
-Florges,195,move,4,Dazzling Gleam,37.5%,,,,,,,,
-Florges,195,move,5,Calm Mind,32.0%,,,,,,,,
+Florges,195,move,4,Dazzling Gleam,37.6%,,,,,,,,
+Florges,195,move,5,Calm Mind,31.9%,,,,,,,,
 Florges,195,move,6,Giga Drain,26.6%,,,,,,,,
-Florges,195,move,7,Helping Hand,17.7%,,,,,,,,
-Florges,195,move,8,Synthesis,15.1%,,,,,,,,
+Florges,195,move,7,Helping Hand,17.5%,,,,,,,,
+Florges,195,move,8,Synthesis,15.2%,,,,,,,,
 Florges,195,move,9,Draining Kiss,13.3%,,,,,,,,
-Florges,195,move,10,Psychic,11.0%,,,,,,,,
-Florges,195,held_item,1,Leftovers,32.7%,,,,,,,,
-Florges,195,held_item,2,Sitrus Berry,12.1%,,,,,,,,
+Florges,195,move,10,Psychic,10.9%,,,,,,,,
+Florges,195,held_item,1,Leftovers,32.9%,,,,,,,,
+Florges,195,held_item,2,Sitrus Berry,12.2%,,,,,,,,
 Florges,195,held_item,3,Grassy Seed,11.5%,,,,,,,,
-Florges,195,held_item,4,Fairy Feather,9.6%,,,,,,,,
-Florges,195,held_item,5,Life Orb,5.5%,,,,,,,,
-Florges,195,held_item,6,Big Root,5.3%,,,,,,,,
-Florges,195,held_item,7,Choice Scarf,5.1%,,,,,,,,
+Florges,195,held_item,4,Fairy Feather,9.7%,,,,,,,,
+Florges,195,held_item,5,Life Orb,5.6%,,,,,,,,
+Florges,195,held_item,6,Big Root,5.2%,,,,,,,,
+Florges,195,held_item,7,Choice Scarf,5.0%,,,,,,,,
 Florges,195,held_item,8,Bright Powder,2.9%,,,,,,,,
 Florges,195,held_item,9,Kebia Berry,1.8%,,,,,,,,
 Florges,195,held_item,10,Wise Glasses,1.7%,,,,,,,,
@@ -27,27 +27,27 @@ Florges,195,teammate,5,Tyranitar,,,,,,,,,
 Florges,195,teammate,6,Sneasler,,,,,,,,,
 Florges,195,teammate,7,Garchomp,,,,,,,,,
 Florges,195,teammate,8,Whimsicott,,,,,,,,,
-Florges,195,teammate,9,Pelipper,,,,,,,,,
-Florges,195,teammate,10,Raichu,,,,,,,,,
-Florges,195,stat_alignment,1,Modest,36.2%,Sp. Atk,Attack,,,,,,
-Florges,195,stat_alignment,2,Bold,35.6%,Defense,Attack,,,,,,
-Florges,195,stat_alignment,3,Calm,11.7%,Sp. Def,Attack,,,,,,
+Florges,195,teammate,9,Raichu,,,,,,,,,
+Florges,195,teammate,10,Pelipper,,,,,,,,,
+Florges,195,stat_alignment,1,Modest,36.3%,Sp. Atk,Attack,,,,,,
+Florges,195,stat_alignment,2,Bold,35.7%,Defense,Attack,,,,,,
+Florges,195,stat_alignment,3,Calm,11.6%,Sp. Def,Attack,,,,,,
 Florges,195,stat_alignment,4,Quiet,5.0%,Sp. Atk,Speed,,,,,,
 Florges,195,stat_alignment,5,Timid,4.9%,Speed,Attack,,,,,,
 Florges,195,stat_alignment,6,Relaxed,2.6%,Defense,Speed,,,,,,
 Florges,195,stat_alignment,7,Sassy,1.6%,Sp. Def,Speed,,,,,,
 Florges,195,stat_alignment,8,Mild,0.8%,Sp. Atk,Defense,,,,,,
 Florges,195,stat_alignment,9,Hasty,0.7%,Speed,Defense,,,,,,
-Florges,195,stat_alignment,10,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Florges,195,stat_alignment,10,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
 Florges,195,stat_points,1,,16.3%,,,32,0,32,0,2,0
-Florges,195,stat_points,2,,6.8%,,,2,0,32,32,0,0
+Florges,195,stat_points,2,,6.7%,,,2,0,32,32,0,0
 Florges,195,stat_points,3,,5.4%,,,0,0,2,32,32,0
 Florges,195,stat_points,4,,4.9%,,,2,0,0,32,0,32
 Florges,195,stat_points,5,,3.6%,,,2,0,0,32,32,0
-Florges,195,stat_points,6,,3.6%,,,32,0,6,28,0,0
+Florges,195,stat_points,6,,3.5%,,,32,0,6,28,0,0
 Florges,195,stat_points,7,,3.3%,,,32,0,32,2,0,0
 Florges,195,stat_points,8,,2.7%,,,32,0,2,32,0,0
 Florges,195,stat_points,9,,2.5%,,,32,0,0,32,2,0
-Florges,195,stat_points,10,,2.4%,,,32,0,0,32,0,2
-Florges,195,ability,1,Flower Veil,76.1%,,,,,,,,
-Florges,195,ability,2,Symbiosis,23.9%,,,,,,,,
+Florges,195,stat_points,10,,2.4%,,,0,0,32,32,2,0
+Florges,195,ability,1,Flower Veil,76.0%,,,,,,,,
+Florges,195,ability,2,Symbiosis,24.0%,,,,,,,,

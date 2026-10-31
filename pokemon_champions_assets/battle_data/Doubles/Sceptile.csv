@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sceptile,55,move,1,Dragon Pulse,94.9%,,,,,,,,
 Sceptile,55,move,2,Earth Power,92.4%,,,,,,,,
-Sceptile,55,move,3,Detect,68.8%,,,,,,,,
-Sceptile,55,move,4,Energy Ball,63.7%,,,,,,,,
+Sceptile,55,move,3,Detect,68.7%,,,,,,,,
+Sceptile,55,move,4,Energy Ball,63.6%,,,,,,,,
 Sceptile,55,move,5,Leaf Storm,24.0%,,,,,,,,
 Sceptile,55,move,6,Protect,23.5%,,,,,,,,
 Sceptile,55,move,7,Giga Drain,11.0%,,,,,,,,
@@ -13,7 +13,7 @@ Sceptile,55,held_item,1,Sceptilite,93.2%,,,,,,,,
 Sceptile,55,held_item,2,White Herb,1.2%,,,,,,,,
 Sceptile,55,held_item,3,Psychic Seed,1.2%,,,,,,,,
 Sceptile,55,held_item,4,Electric Seed,0.9%,,,,,,,,
-Sceptile,55,held_item,5,Sitrus Berry,0.8%,,,,,,,,
+Sceptile,55,held_item,5,Sitrus Berry,0.9%,,,,,,,,
 Sceptile,55,held_item,6,Focus Sash,0.6%,,,,,,,,
 Sceptile,55,held_item,7,Grassy Seed,0.3%,,,,,,,,
 Sceptile,55,held_item,8,Miracle Seed,0.2%,,,,,,,,
@@ -40,13 +40,13 @@ Sceptile,55,stat_alignment,8,Naive,0.3%,Speed,Sp. Def,,,,,,
 Sceptile,55,stat_alignment,9,Jolly,0.3%,Speed,Sp. Atk,,,,,,
 Sceptile,55,stat_alignment,10,Quiet,0.2%,Sp. Atk,Speed,,,,,,
 Sceptile,55,stat_points,1,,51.8%,,,2,0,0,32,0,32
-Sceptile,55,stat_points,2,,16.6%,,,1,0,1,32,0,32
+Sceptile,55,stat_points,2,,16.5%,,,1,0,1,32,0,32
 Sceptile,55,stat_points,3,,5.0%,,,0,0,2,32,0,32
 Sceptile,55,stat_points,4,,4.8%,,,0,0,0,32,2,32
 Sceptile,55,stat_points,5,,1.6%,,,0,0,0,32,0,32
 Sceptile,55,stat_points,6,,0.7%,,,9,0,0,32,0,25
-Sceptile,55,stat_points,7,,0.6%,,,3,0,0,32,0,31
-Sceptile,55,stat_points,8,,0.6%,,,4,0,0,32,0,30
+Sceptile,55,stat_points,7,,0.6%,,,4,0,0,32,0,30
+Sceptile,55,stat_points,8,,0.6%,,,3,0,0,32,0,31
 Sceptile,55,stat_points,9,,0.5%,,,13,0,0,32,0,21
 Sceptile,55,stat_points,10,,0.5%,,,11,0,0,32,0,23
 Sceptile,55,ability,1,Overgrow,80.5%,,,,,,,,

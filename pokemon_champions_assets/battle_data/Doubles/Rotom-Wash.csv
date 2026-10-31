@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Rotom-Wash,71,move,1,Hydro Pump,93.4%,,,,,,,,
-Rotom-Wash,71,move,2,Will-O-Wisp,62.6%,,,,,,,,
+Rotom-Wash,71,move,2,Will-O-Wisp,62.5%,,,,,,,,
 Rotom-Wash,71,move,3,Thunderbolt,57.8%,,,,,,,,
 Rotom-Wash,71,move,4,Protect,44.1%,,,,,,,,
 Rotom-Wash,71,move,5,Volt Switch,39.1%,,,,,,,,
@@ -9,7 +9,7 @@ Rotom-Wash,71,move,7,Discharge,18.0%,,,,,,,,
 Rotom-Wash,71,move,8,Trick,13.9%,,,,,,,,
 Rotom-Wash,71,move,9,Light Screen,10.6%,,,,,,,,
 Rotom-Wash,71,move,10,Shadow Ball,5.4%,,,,,,,,
-Rotom-Wash,71,held_item,1,Sitrus Berry,28.7%,,,,,,,,
+Rotom-Wash,71,held_item,1,Sitrus Berry,28.6%,,,,,,,,
 Rotom-Wash,71,held_item,2,Choice Scarf,24.0%,,,,,,,,
 Rotom-Wash,71,held_item,3,Leftovers,22.3%,,,,,,,,
 Rotom-Wash,71,held_item,4,Wide Lens,5.9%,,,,,,,,
@@ -29,14 +29,14 @@ Rotom-Wash,71,teammate,7,Indeedee-F,,,,,,,,,
 Rotom-Wash,71,teammate,8,Whimsicott,,,,,,,,,
 Rotom-Wash,71,teammate,9,Excadrill,,,,,,,,,
 Rotom-Wash,71,teammate,10,Sinistcha,,,,,,,,,
-Rotom-Wash,71,stat_alignment,1,Modest,44.1%,Sp. Atk,Attack,,,,,,
+Rotom-Wash,71,stat_alignment,1,Modest,44.0%,Sp. Atk,Attack,,,,,,
 Rotom-Wash,71,stat_alignment,2,Timid,22.2%,Speed,Attack,,,,,,
 Rotom-Wash,71,stat_alignment,3,Bold,19.5%,Defense,Attack,,,,,,
 Rotom-Wash,71,stat_alignment,4,Calm,10.0%,Sp. Def,Attack,,,,,,
 Rotom-Wash,71,stat_alignment,5,Quiet,2.2%,Sp. Atk,Speed,,,,,,
 Rotom-Wash,71,stat_alignment,6,Mild,0.5%,Sp. Atk,Defense,,,,,,
 Rotom-Wash,71,stat_alignment,7,Relaxed,0.5%,Defense,Speed,,,,,,
-Rotom-Wash,71,stat_alignment,8,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Rotom-Wash,71,stat_alignment,8,Sassy,0.3%,Sp. Def,Speed,,,,,,
 Rotom-Wash,71,stat_alignment,9,Jolly,0.2%,Speed,Sp. Atk,,,,,,
 Rotom-Wash,71,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,
 Rotom-Wash,71,stat_points,1,,15.0%,,,2,0,0,32,0,32
@@ -44,7 +44,7 @@ Rotom-Wash,71,stat_points,2,,4.4%,,,32,0,0,32,0,2
 Rotom-Wash,71,stat_points,3,,3.3%,,,32,0,2,32,0,0
 Rotom-Wash,71,stat_points,4,,3.2%,,,32,0,0,32,2,0
 Rotom-Wash,71,stat_points,5,,2.7%,,,0,0,2,32,0,32
-Rotom-Wash,71,stat_points,6,,2.4%,,,0,0,0,32,2,32
+Rotom-Wash,71,stat_points,6,,2.5%,,,0,0,0,32,2,32
 Rotom-Wash,71,stat_points,7,,2.3%,,,32,0,13,0,9,12
 Rotom-Wash,71,stat_points,8,,1.8%,,,32,0,1,32,1,0
 Rotom-Wash,71,stat_points,9,,1.5%,,,32,0,32,0,2,0

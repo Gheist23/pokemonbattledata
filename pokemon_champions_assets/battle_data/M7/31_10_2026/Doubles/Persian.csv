@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Persian,242,move,1,Fake Out,76.6%,,,,,,,,
-Persian,242,move,2,Icy Wind,49.6%,,,,,,,,
-Persian,242,move,3,Taunt,25.5%,,,,,,,,
-Persian,242,move,4,Snarl,23.3%,,,,,,,,
-Persian,242,move,5,Round,23.0%,,,,,,,,
-Persian,242,move,6,Feint,20.9%,,,,,,,,
-Persian,242,move,7,Protect,18.8%,,,,,,,,
-Persian,242,move,8,Endeavor,14.9%,,,,,,,,
+Persian,242,move,1,Fake Out,76.7%,,,,,,,,
+Persian,242,move,2,Icy Wind,49.5%,,,,,,,,
+Persian,242,move,3,Taunt,25.4%,,,,,,,,
+Persian,242,move,4,Snarl,23.5%,,,,,,,,
+Persian,242,move,5,Round,22.9%,,,,,,,,
+Persian,242,move,6,Feint,21.1%,,,,,,,,
+Persian,242,move,7,Protect,18.9%,,,,,,,,
+Persian,242,move,8,Endeavor,15.0%,,,,,,,,
 Persian,242,move,9,Bite,12.9%,,,,,,,,
 Persian,242,move,10,Water Pulse,12.8%,,,,,,,,
 Persian,242,held_item,1,Focus Sash,36.4%,,,,,,,,
@@ -17,8 +17,8 @@ Persian,242,held_item,5,Chople Berry,7.0%,,,,,,,,
 Persian,242,held_item,6,Life Orb,5.3%,,,,,,,,
 Persian,242,held_item,7,Focus Band,5.0%,,,,,,,,
 Persian,242,held_item,8,Wise Glasses,3.6%,,,,,,,,
-Persian,242,held_item,9,Wide Lens,3.0%,,,,,,,,
-Persian,242,held_item,10,Quick Claw,2.8%,,,,,,,,
+Persian,242,held_item,9,Wide Lens,3.1%,,,,,,,,
+Persian,242,held_item,10,Quick Claw,2.7%,,,,,,,,
 Persian,242,teammate,1,Sylveon,,,,,,,,,
 Persian,242,teammate,2,Rillaboom,,,,,,,,,
 Persian,242,teammate,3,Indeedee,,,,,,,,,
@@ -29,18 +29,18 @@ Persian,242,teammate,7,Raichu,,,,,,,,,
 Persian,242,teammate,8,Farigiraf,,,,,,,,,
 Persian,242,teammate,9,Primarina,,,,,,,,,
 Persian,242,teammate,10,Gardevoir,,,,,,,,,
-Persian,242,stat_alignment,1,Timid,26.5%,Speed,Attack,,,,,,
-Persian,242,stat_alignment,2,Jolly,25.6%,Speed,Sp. Atk,,,,,,
+Persian,242,stat_alignment,1,Timid,26.3%,Speed,Attack,,,,,,
+Persian,242,stat_alignment,2,Jolly,25.7%,Speed,Sp. Atk,,,,,,
 Persian,242,stat_alignment,3,Hasty,17.6%,Speed,Defense,,,,,,
-Persian,242,stat_alignment,4,Adamant,16.6%,Attack,Sp. Atk,,,,,,
+Persian,242,stat_alignment,4,Adamant,16.7%,Attack,Sp. Atk,,,,,,
 Persian,242,stat_alignment,5,Modest,4.9%,Sp. Atk,Attack,,,,,,
 Persian,242,stat_alignment,6,Naive,3.0%,Speed,Sp. Def,,,,,,
 Persian,242,stat_alignment,7,Careful,1.6%,Sp. Def,Sp. Atk,,,,,,
 Persian,242,stat_alignment,8,Brave,0.8%,Attack,Speed,,,,,,
 Persian,242,stat_alignment,9,Lonely,0.8%,Attack,Defense,,,,,,
 Persian,242,stat_alignment,10,Serious,0.7%,,,,,,,,
-Persian,242,stat_points,1,,26.6%,,,2,0,0,32,0,32
-Persian,242,stat_points,2,,16.3%,,,2,32,0,0,0,32
+Persian,242,stat_points,1,,26.5%,,,2,0,0,32,0,32
+Persian,242,stat_points,2,,16.2%,,,2,32,0,0,0,32
 Persian,242,stat_points,3,,7.1%,,,0,0,0,32,0,32
 Persian,242,stat_points,4,,5.6%,,,0,32,0,0,2,32
 Persian,242,stat_points,5,,5.0%,,,1,0,1,32,0,32
@@ -50,5 +50,5 @@ Persian,242,stat_points,8,,4.0%,,,0,0,2,32,0,32
 Persian,242,stat_points,9,,3.9%,,,32,32,2,0,0,0
 Persian,242,stat_points,10,,1.7%,,,0,0,20,0,14,32
 Persian,242,ability,1,Technician,89.3%,,,,,,,,
-Persian,242,ability,2,Unnerve,10.1%,,,,,,,,
+Persian,242,ability,2,Unnerve,10.0%,,,,,,,,
 Persian,242,ability,3,Limber,0.7%,,,,,,,,

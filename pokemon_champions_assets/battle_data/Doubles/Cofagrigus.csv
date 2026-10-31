@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Cofagrigus,164,move,1,Trick Room,81.2%,,,,,,,,
-Cofagrigus,164,move,2,Will-O-Wisp,55.6%,,,,,,,,
-Cofagrigus,164,move,3,Shadow Ball,55.0%,,,,,,,,
-Cofagrigus,164,move,4,Body Press,44.8%,,,,,,,,
+Cofagrigus,164,move,2,Will-O-Wisp,55.5%,,,,,,,,
+Cofagrigus,164,move,3,Shadow Ball,54.9%,,,,,,,,
+Cofagrigus,164,move,4,Body Press,44.7%,,,,,,,,
 Cofagrigus,164,move,5,Ally Switch,23.6%,,,,,,,,
 Cofagrigus,164,move,6,Iron Defense,15.1%,,,,,,,,
 Cofagrigus,164,move,7,Protect,15.1%,,,,,,,,
-Cofagrigus,164,move,8,Destiny Bond,14.9%,,,,,,,,
-Cofagrigus,164,move,9,Hex,9.8%,,,,,,,,
-Cofagrigus,164,move,10,Disable,8.3%,,,,,,,,
+Cofagrigus,164,move,8,Destiny Bond,15.0%,,,,,,,,
+Cofagrigus,164,move,9,Hex,9.9%,,,,,,,,
+Cofagrigus,164,move,10,Disable,8.2%,,,,,,,,
 Cofagrigus,164,held_item,1,Leftovers,32.7%,,,,,,,,
-Cofagrigus,164,held_item,2,Sitrus Berry,22.2%,,,,,,,,
-Cofagrigus,164,held_item,3,Colbur Berry,9.1%,,,,,,,,
+Cofagrigus,164,held_item,2,Sitrus Berry,22.3%,,,,,,,,
+Cofagrigus,164,held_item,3,Colbur Berry,9.0%,,,,,,,,
 Cofagrigus,164,held_item,4,Mental Herb,7.5%,,,,,,,,
 Cofagrigus,164,held_item,5,Rocky Helmet,5.1%,,,,,,,,
 Cofagrigus,164,held_item,6,Kasib Berry,4.5%,,,,,,,,
-Cofagrigus,164,held_item,7,Quick Claw,3.3%,,,,,,,,
+Cofagrigus,164,held_item,7,Quick Claw,3.2%,,,,,,,,
 Cofagrigus,164,held_item,8,Focus Sash,2.2%,,,,,,,,
 Cofagrigus,164,held_item,9,Psychic Seed,1.8%,,,,,,,,
 Cofagrigus,164,held_item,10,Grassy Seed,1.4%,,,,,,,,
@@ -29,17 +29,17 @@ Cofagrigus,164,teammate,7,Kingambit,,,,,,,,,
 Cofagrigus,164,teammate,8,Camerupt,,,,,,,,,
 Cofagrigus,164,teammate,9,Sylveon,,,,,,,,,
 Cofagrigus,164,teammate,10,Primarina,,,,,,,,,
-Cofagrigus,164,stat_alignment,1,Relaxed,33.4%,Defense,Speed,,,,,,
+Cofagrigus,164,stat_alignment,1,Relaxed,33.5%,Defense,Speed,,,,,,
 Cofagrigus,164,stat_alignment,2,Sassy,24.3%,Sp. Def,Speed,,,,,,
 Cofagrigus,164,stat_alignment,3,Calm,13.6%,Sp. Def,Attack,,,,,,
 Cofagrigus,164,stat_alignment,4,Bold,12.9%,Defense,Attack,,,,,,
 Cofagrigus,164,stat_alignment,5,Quiet,7.1%,Sp. Atk,Speed,,,,,,
-Cofagrigus,164,stat_alignment,6,Modest,5.7%,Sp. Atk,Attack,,,,,,
+Cofagrigus,164,stat_alignment,6,Modest,5.6%,Sp. Atk,Attack,,,,,,
 Cofagrigus,164,stat_alignment,7,Brave,0.9%,Attack,Speed,,,,,,
 Cofagrigus,164,stat_alignment,8,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
 Cofagrigus,164,stat_alignment,9,Mild,0.6%,Sp. Atk,Defense,,,,,,
 Cofagrigus,164,stat_alignment,10,Impish,0.5%,Defense,Sp. Atk,,,,,,
-Cofagrigus,164,stat_points,1,,13.8%,,,32,0,32,0,2,0
+Cofagrigus,164,stat_points,1,,13.9%,,,32,0,32,0,2,0
 Cofagrigus,164,stat_points,2,,12.6%,,,32,0,2,0,32,0
 Cofagrigus,164,stat_points,3,,7.3%,,,2,0,32,0,32,0
 Cofagrigus,164,stat_points,4,,4.4%,,,0,0,2,32,32,0
@@ -48,5 +48,5 @@ Cofagrigus,164,stat_points,6,,2.5%,,,32,0,0,32,2,0
 Cofagrigus,164,stat_points,7,,2.4%,,,32,0,17,0,17,0
 Cofagrigus,164,stat_points,8,,2.4%,,,32,0,5,0,29,0
 Cofagrigus,164,stat_points,9,,2.3%,,,32,0,0,0,32,0
-Cofagrigus,164,stat_points,10,,2.1%,,,2,0,0,32,32,0
+Cofagrigus,164,stat_points,10,,2.2%,,,2,0,0,32,32,0
 Cofagrigus,164,ability,1,Mummy,100.0%,,,,,,,,

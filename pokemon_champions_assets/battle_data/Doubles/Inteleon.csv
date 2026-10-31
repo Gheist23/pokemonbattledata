@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Inteleon,82,move,1,Snipe Shot,97.7%,,,,,,,,
 Inteleon,82,move,2,Ice Beam,76.5%,,,,,,,,
-Inteleon,82,move,3,Protect,74.7%,,,,,,,,
-Inteleon,82,move,4,Focus Energy,31.4%,,,,,,,,
+Inteleon,82,move,3,Protect,74.6%,,,,,,,,
+Inteleon,82,move,4,Focus Energy,31.3%,,,,,,,,
 Inteleon,82,move,5,Dark Pulse,25.9%,,,,,,,,
 Inteleon,82,move,6,Air Cutter,13.3%,,,,,,,,
 Inteleon,82,move,7,Vacuum Wave,13.0%,,,,,,,,
-Inteleon,82,move,8,Icy Wind,11.1%,,,,,,,,
+Inteleon,82,move,8,Icy Wind,11.0%,,,,,,,,
 Inteleon,82,move,9,Soak,7.5%,,,,,,,,
 Inteleon,82,move,10,Muddy Water,7.3%,,,,,,,,
-Inteleon,82,held_item,1,Scope Lens,65.7%,,,,,,,,
+Inteleon,82,held_item,1,Scope Lens,65.8%,,,,,,,,
 Inteleon,82,held_item,2,Focus Sash,14.9%,,,,,,,,
 Inteleon,82,held_item,3,Mystic Water,4.8%,,,,,,,,
 Inteleon,82,held_item,4,Life Orb,4.6%,,,,,,,,
@@ -22,8 +22,8 @@ Inteleon,82,held_item,10,Rindo Berry,0.6%,,,,,,,,
 Inteleon,82,teammate,1,Rillaboom,,,,,,,,,
 Inteleon,82,teammate,2,Raichu,,,,,,,,,
 Inteleon,82,teammate,3,Indeedee-F,,,,,,,,,
-Inteleon,82,teammate,4,Pelipper,,,,,,,,,
-Inteleon,82,teammate,5,Sneasler,,,,,,,,,
+Inteleon,82,teammate,4,Sneasler,,,,,,,,,
+Inteleon,82,teammate,5,Pelipper,,,,,,,,,
 Inteleon,82,teammate,6,Whimsicott,,,,,,,,,
 Inteleon,82,teammate,7,Dragapult,,,,,,,,,
 Inteleon,82,teammate,8,Garchomp,,,,,,,,,
@@ -32,7 +32,7 @@ Inteleon,82,teammate,10,Golisopod,,,,,,,,,
 Inteleon,82,stat_alignment,1,Timid,64.3%,Speed,Attack,,,,,,
 Inteleon,82,stat_alignment,2,Modest,27.8%,Sp. Atk,Attack,,,,,,
 Inteleon,82,stat_alignment,3,Hasty,2.6%,Speed,Defense,,,,,,
-Inteleon,82,stat_alignment,4,Mild,2.1%,Sp. Atk,Defense,,,,,,
+Inteleon,82,stat_alignment,4,Mild,2.2%,Sp. Atk,Defense,,,,,,
 Inteleon,82,stat_alignment,5,Quiet,0.6%,Sp. Atk,Speed,,,,,,
 Inteleon,82,stat_alignment,6,Bold,0.5%,Defense,Attack,,,,,,
 Inteleon,82,stat_alignment,7,Calm,0.5%,Sp. Def,Attack,,,,,,
@@ -41,7 +41,7 @@ Inteleon,82,stat_alignment,9,Jolly,0.4%,Speed,Sp. Atk,,,,,,
 Inteleon,82,stat_alignment,10,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
 Inteleon,82,stat_points,1,,50.9%,,,2,0,0,32,0,32
 Inteleon,82,stat_points,2,,10.4%,,,0,0,0,32,2,32
-Inteleon,82,stat_points,3,,10.3%,,,0,0,2,32,0,32
+Inteleon,82,stat_points,3,,10.4%,,,0,0,2,32,0,32
 Inteleon,82,stat_points,4,,5.1%,,,0,0,1,32,1,32
 Inteleon,82,stat_points,5,,4.0%,,,0,0,0,32,0,32
 Inteleon,82,stat_points,6,,1.6%,,,32,0,0,32,0,2

@@ -2,8 +2,8 @@ pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_point
 Noivern,165,move,1,Draco Meteor,87.7%,,,,,,,,
 Noivern,165,move,2,Flamethrower,59.6%,,,,,,,,
 Noivern,165,move,3,Air Slash,50.3%,,,,,,,,
-Noivern,165,move,4,Switcheroo,28.1%,,,,,,,,
-Noivern,165,move,5,U-turn,28.1%,,,,,,,,
+Noivern,165,move,4,U-turn,28.1%,,,,,,,,
+Noivern,165,move,5,Switcheroo,28.0%,,,,,,,,
 Noivern,165,move,6,Taunt,26.7%,,,,,,,,
 Noivern,165,move,7,Boomburst,20.6%,,,,,,,,
 Noivern,165,move,8,Hurricane,13.5%,,,,,,,,
@@ -15,8 +15,8 @@ Noivern,165,held_item,3,Focus Sash,12.8%,,,,,,,,
 Noivern,165,held_item,4,White Herb,5.3%,,,,,,,,
 Noivern,165,held_item,5,Rocky Helmet,4.6%,,,,,,,,
 Noivern,165,held_item,6,King's Rock,2.5%,,,,,,,,
-Noivern,165,held_item,7,Dragon Fang,1.7%,,,,,,,,
-Noivern,165,held_item,8,Wise Glasses,1.6%,,,,,,,,
+Noivern,165,held_item,7,Wise Glasses,1.7%,,,,,,,,
+Noivern,165,held_item,8,Dragon Fang,1.6%,,,,,,,,
 Noivern,165,held_item,9,Wide Lens,1.6%,,,,,,,,
 Noivern,165,held_item,10,Expert Belt,1.5%,,,,,,,,
 Noivern,165,teammate,1,Golisopod,,,,,,,,,
@@ -33,14 +33,14 @@ Noivern,165,stat_alignment,1,Timid,61.6%,Speed,Attack,,,,,,
 Noivern,165,stat_alignment,2,Modest,31.7%,Sp. Atk,Attack,,,,,,
 Noivern,165,stat_alignment,3,Bold,1.7%,Defense,Attack,,,,,,
 Noivern,165,stat_alignment,4,Hasty,1.4%,Speed,Defense,,,,,,
-Noivern,165,stat_alignment,5,Mild,1.2%,Sp. Atk,Defense,,,,,,
+Noivern,165,stat_alignment,5,Mild,1.3%,Sp. Atk,Defense,,,,,,
 Noivern,165,stat_alignment,6,Calm,0.6%,Sp. Def,Attack,,,,,,
 Noivern,165,stat_alignment,7,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
 Noivern,165,stat_alignment,8,Jolly,0.3%,Speed,Sp. Atk,,,,,,
 Noivern,165,stat_alignment,9,Adamant,0.2%,Attack,Sp. Atk,,,,,,
 Noivern,165,stat_alignment,10,Quiet,0.2%,Sp. Atk,Speed,,,,,,
-Noivern,165,stat_points,1,,42.0%,,,2,0,0,32,0,32
-Noivern,165,stat_points,2,,14.4%,,,1,0,1,32,0,32
+Noivern,165,stat_points,1,,42.1%,,,2,0,0,32,0,32
+Noivern,165,stat_points,2,,14.3%,,,1,0,1,32,0,32
 Noivern,165,stat_points,3,,5.7%,,,0,0,2,32,0,32
 Noivern,165,stat_points,4,,5.3%,,,0,0,0,32,2,32
 Noivern,165,stat_points,5,,4.1%,,,1,0,0,32,1,32
@@ -50,5 +50,5 @@ Noivern,165,stat_points,8,,2.0%,,,0,0,1,32,1,32
 Noivern,165,stat_points,9,,1.3%,,,1,0,0,32,0,32
 Noivern,165,stat_points,10,,1.1%,,,7,0,0,32,0,27
 Noivern,165,ability,1,Frisk,52.3%,,,,,,,,
-Noivern,165,ability,2,Infiltrator,46.1%,,,,,,,,
+Noivern,165,ability,2,Infiltrator,46.2%,,,,,,,,
 Noivern,165,ability,3,Telepathy,1.6%,,,,,,,,

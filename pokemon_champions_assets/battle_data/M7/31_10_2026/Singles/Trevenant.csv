@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Trevenant,201,move,1,Leech Seed,76.0%,,,,,,,,
-Trevenant,201,move,2,Horn Leech,56.3%,,,,,,,,
+Trevenant,201,move,2,Horn Leech,56.4%,,,,,,,,
 Trevenant,201,move,3,Protect,52.3%,,,,,,,,
-Trevenant,201,move,4,Will-O-Wisp,47.4%,,,,,,,,
+Trevenant,201,move,4,Will-O-Wisp,47.5%,,,,,,,,
 Trevenant,201,move,5,Curse,29.1%,,,,,,,,
-Trevenant,201,move,6,Substitute,23.8%,,,,,,,,
+Trevenant,201,move,6,Substitute,23.7%,,,,,,,,
 Trevenant,201,move,7,Poltergeist,18.1%,,,,,,,,
-Trevenant,201,move,8,Toxic,12.0%,,,,,,,,
+Trevenant,201,move,8,Toxic,11.9%,,,,,,,,
 Trevenant,201,move,9,Phantom Force,11.5%,,,,,,,,
 Trevenant,201,move,10,Trick Room,7.1%,,,,,,,,
 Trevenant,201,held_item,1,Sitrus Berry,85.7%,,,,,,,,
@@ -32,21 +32,21 @@ Trevenant,201,teammate,10,Tyranitar,,,,,,,,,
 Trevenant,201,stat_alignment,1,Impish,43.1%,Defense,Sp. Atk,,,,,,
 Trevenant,201,stat_alignment,2,Careful,26.3%,Sp. Def,Sp. Atk,,,,,,
 Trevenant,201,stat_alignment,3,Adamant,9.5%,Attack,Sp. Atk,,,,,,
-Trevenant,201,stat_alignment,4,Bold,6.0%,Defense,Attack,,,,,,
+Trevenant,201,stat_alignment,4,Bold,5.9%,Defense,Attack,,,,,,
 Trevenant,201,stat_alignment,5,Jolly,3.1%,Speed,Sp. Atk,,,,,,
 Trevenant,201,stat_alignment,6,Calm,3.0%,Sp. Def,Attack,,,,,,
 Trevenant,201,stat_alignment,7,Brave,2.9%,Attack,Speed,,,,,,
 Trevenant,201,stat_alignment,8,Relaxed,2.2%,Defense,Speed,,,,,,
 Trevenant,201,stat_alignment,9,Sassy,1.5%,Sp. Def,Speed,,,,,,
 Trevenant,201,stat_alignment,10,Lonely,0.8%,Attack,Defense,,,,,,
-Trevenant,201,stat_points,1,,25.1%,,,32,0,32,0,2,0
-Trevenant,201,stat_points,2,,14.3%,,,32,0,2,0,32,0
-Trevenant,201,stat_points,3,,4.6%,,,2,0,32,0,32,0
+Trevenant,201,stat_points,1,,25.3%,,,32,0,32,0,2,0
+Trevenant,201,stat_points,2,,14.2%,,,32,0,2,0,32,0
+Trevenant,201,stat_points,3,,4.5%,,,2,0,32,0,32,0
 Trevenant,201,stat_points,4,,2.2%,,,2,32,0,0,0,32
-Trevenant,201,stat_points,5,,2.1%,,,32,2,0,0,32,0
+Trevenant,201,stat_points,5,,2.0%,,,32,0,14,0,20,0
 Trevenant,201,stat_points,6,,2.0%,,,32,0,32,0,0,0
-Trevenant,201,stat_points,7,,2.0%,,,32,32,2,0,0,0
-Trevenant,201,stat_points,8,,2.0%,,,32,0,14,0,20,0
+Trevenant,201,stat_points,7,,2.0%,,,32,2,0,0,32,0
+Trevenant,201,stat_points,8,,2.0%,,,32,32,2,0,0,0
 Trevenant,201,stat_points,9,,1.8%,,,31,0,32,0,3,0
 Trevenant,201,stat_points,10,,1.7%,,,32,10,24,0,0,0
 Trevenant,201,ability,1,Harvest,93.7%,,,,,,,,

@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Kommo-o,41,move,1,Clanging Scales,94.5%,,,,,,,,
-Kommo-o,41,move,2,Protect,91.4%,,,,,,,,
+Kommo-o,41,move,2,Protect,91.3%,,,,,,,,
 Kommo-o,41,move,3,Aura Sphere,86.7%,,,,,,,,
 Kommo-o,41,move,4,Clangorous Soul,62.3%,,,,,,,,
 Kommo-o,41,move,5,Flamethrower,21.7%,,,,,,,,
@@ -9,8 +9,8 @@ Kommo-o,41,move,7,Flash Cannon,4.1%,,,,,,,,
 Kommo-o,41,move,8,Drain Punch,3.9%,,,,,,,,
 Kommo-o,41,move,9,Body Press,3.1%,,,,,,,,
 Kommo-o,41,move,10,Iron Defense,1.8%,,,,,,,,
-Kommo-o,41,held_item,1,Leftovers,48.3%,,,,,,,,
-Kommo-o,41,held_item,2,Life Orb,31.8%,,,,,,,,
+Kommo-o,41,held_item,1,Leftovers,48.2%,,,,,,,,
+Kommo-o,41,held_item,2,Life Orb,31.7%,,,,,,,,
 Kommo-o,41,held_item,3,Sitrus Berry,5.7%,,,,,,,,
 Kommo-o,41,held_item,4,Dragon Fang,4.6%,,,,,,,,
 Kommo-o,41,held_item,5,Focus Sash,1.3%,,,,,,,,
@@ -30,7 +30,7 @@ Kommo-o,41,teammate,8,Raichu,,,,,,,,,
 Kommo-o,41,teammate,9,Armarouge,,,,,,,,,
 Kommo-o,41,teammate,10,Metagross,,,,,,,,,
 Kommo-o,41,stat_alignment,1,Modest,69.7%,Sp. Atk,Attack,,,,,,
-Kommo-o,41,stat_alignment,2,Timid,20.0%,Speed,Attack,,,,,,
+Kommo-o,41,stat_alignment,2,Timid,19.9%,Speed,Attack,,,,,,
 Kommo-o,41,stat_alignment,3,Quiet,2.3%,Sp. Atk,Speed,,,,,,
 Kommo-o,41,stat_alignment,4,Bold,2.0%,Defense,Attack,,,,,,
 Kommo-o,41,stat_alignment,5,Adamant,1.3%,Attack,Sp. Atk,,,,,,
@@ -40,7 +40,7 @@ Kommo-o,41,stat_alignment,8,Impish,0.6%,Defense,Sp. Atk,,,,,,
 Kommo-o,41,stat_alignment,9,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
 Kommo-o,41,stat_alignment,10,Mild,0.4%,Sp. Atk,Defense,,,,,,
 Kommo-o,41,stat_points,1,,26.9%,,,2,0,0,32,0,32
-Kommo-o,41,stat_points,2,,8.7%,,,11,0,1,20,2,32
+Kommo-o,41,stat_points,2,,8.6%,,,11,0,1,20,2,32
 Kommo-o,41,stat_points,3,,3.5%,,,10,0,0,24,0,32
 Kommo-o,41,stat_points,4,,3.0%,,,1,0,0,32,1,32
 Kommo-o,41,stat_points,5,,2.5%,,,4,0,0,30,0,32

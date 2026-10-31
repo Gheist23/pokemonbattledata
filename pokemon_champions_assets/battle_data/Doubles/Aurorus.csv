@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Aurorus,165,move,1,Blizzard,65.2%,,,,,,,,
-Aurorus,165,move,2,Protect,61.3%,,,,,,,,
+Aurorus,165,move,2,Protect,61.4%,,,,,,,,
 Aurorus,165,move,3,Ancient Power,53.9%,,,,,,,,
 Aurorus,165,move,4,Freeze-Dry,43.2%,,,,,,,,
 Aurorus,165,move,5,Aurora Veil,36.0%,,,,,,,,
 Aurorus,165,move,6,Earth Power,29.7%,,,,,,,,
-Aurorus,165,move,7,Hyper Voice,29.0%,,,,,,,,
+Aurorus,165,move,7,Hyper Voice,29.1%,,,,,,,,
 Aurorus,165,move,8,Round,8.7%,,,,,,,,
-Aurorus,165,move,9,Thunderbolt,6.5%,,,,,,,,
-Aurorus,165,move,10,Weather Ball,6.0%,,,,,,,,
+Aurorus,165,move,9,Thunderbolt,6.6%,,,,,,,,
+Aurorus,165,move,10,Weather Ball,5.9%,,,,,,,,
 Aurorus,165,held_item,1,Focus Sash,22.5%,,,,,,,,
-Aurorus,165,held_item,2,Never-Melt Ice,16.5%,,,,,,,,
+Aurorus,165,held_item,2,Never-Melt Ice,16.4%,,,,,,,,
 Aurorus,165,held_item,3,Light Clay,12.1%,,,,,,,,
-Aurorus,165,held_item,4,Life Orb,10.4%,,,,,,,,
-Aurorus,165,held_item,5,Sitrus Berry,7.3%,,,,,,,,
+Aurorus,165,held_item,4,Life Orb,10.5%,,,,,,,,
+Aurorus,165,held_item,5,Sitrus Berry,7.2%,,,,,,,,
 Aurorus,165,held_item,6,Chople Berry,4.9%,,,,,,,,
 Aurorus,165,held_item,7,Leftovers,4.2%,,,,,,,,
 Aurorus,165,held_item,8,Quick Claw,3.9%,,,,,,,,
@@ -29,9 +29,9 @@ Aurorus,165,teammate,7,Golisopod,,,,,,,,,
 Aurorus,165,teammate,8,Camerupt,,,,,,,,,
 Aurorus,165,teammate,9,Primarina,,,,,,,,,
 Aurorus,165,teammate,10,Armarouge,,,,,,,,,
-Aurorus,165,stat_alignment,1,Modest,39.4%,Sp. Atk,Attack,,,,,,
+Aurorus,165,stat_alignment,1,Modest,39.5%,Sp. Atk,Attack,,,,,,
 Aurorus,165,stat_alignment,2,Quiet,31.9%,Sp. Atk,Speed,,,,,,
-Aurorus,165,stat_alignment,3,Timid,9.4%,Speed,Attack,,,,,,
+Aurorus,165,stat_alignment,3,Timid,9.5%,Speed,Attack,,,,,,
 Aurorus,165,stat_alignment,4,Bold,6.4%,Defense,Attack,,,,,,
 Aurorus,165,stat_alignment,5,Calm,3.5%,Sp. Def,Attack,,,,,,
 Aurorus,165,stat_alignment,6,Relaxed,3.0%,Defense,Speed,,,,,,
@@ -39,15 +39,15 @@ Aurorus,165,stat_alignment,7,Sassy,2.5%,Sp. Def,Speed,,,,,,
 Aurorus,165,stat_alignment,8,Mild,2.2%,Sp. Atk,Defense,,,,,,
 Aurorus,165,stat_alignment,9,Gentle,0.4%,Sp. Def,Defense,,,,,,
 Aurorus,165,stat_alignment,10,Hasty,0.3%,Speed,Defense,,,,,,
-Aurorus,165,stat_points,1,,13.7%,,,32,0,2,32,0,0
+Aurorus,165,stat_points,1,,13.8%,,,32,0,2,32,0,0
 Aurorus,165,stat_points,2,,8.5%,,,32,0,0,32,2,0
 Aurorus,165,stat_points,3,,8.2%,,,2,0,0,32,0,32
-Aurorus,165,stat_points,4,,4.0%,,,2,0,32,32,0,0
+Aurorus,165,stat_points,4,,4.1%,,,2,0,32,32,0,0
 Aurorus,165,stat_points,5,,3.7%,,,2,0,0,32,32,0
 Aurorus,165,stat_points,6,,3.0%,,,0,0,2,32,0,32
-Aurorus,165,stat_points,7,,2.5%,,,0,0,0,32,32,2
+Aurorus,165,stat_points,7,,2.4%,,,0,0,0,32,32,2
 Aurorus,165,stat_points,8,,1.8%,,,32,0,0,32,0,2
-Aurorus,165,stat_points,9,,1.5%,,,0,0,32,32,0,2
-Aurorus,165,stat_points,10,,1.5%,,,0,0,0,32,2,32
+Aurorus,165,stat_points,9,,1.5%,,,0,0,0,32,2,32
+Aurorus,165,stat_points,10,,1.5%,,,0,0,32,32,0,2
 Aurorus,165,ability,1,Snow Warning,67.2%,,,,,,,,
 Aurorus,165,ability,2,Refrigerate,32.8%,,,,,,,,

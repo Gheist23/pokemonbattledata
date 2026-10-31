@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Greninja,28,move,1,Ice Beam,88.8%,,,,,,,,
-Greninja,28,move,2,Dark Pulse,86.8%,,,,,,,,
+Greninja,28,move,2,Dark Pulse,86.7%,,,,,,,,
 Greninja,28,move,3,Sludge Wave,73.8%,,,,,,,,
 Greninja,28,move,4,Water Shuriken,47.0%,,,,,,,,
 Greninja,28,move,5,Surf,37.3%,,,,,,,,
 Greninja,28,move,6,Grass Knot,13.4%,,,,,,,,
 Greninja,28,move,7,Hydro Pump,8.7%,,,,,,,,
 Greninja,28,move,8,Mud Shot,6.4%,,,,,,,,
-Greninja,28,move,9,Gunk Shot,6.3%,,,,,,,,
+Greninja,28,move,9,Gunk Shot,6.2%,,,,,,,,
 Greninja,28,move,10,Toxic Spikes,4.0%,,,,,,,,
 Greninja,28,held_item,1,Greninjite,46.2%,,,,,,,,
 Greninja,28,held_item,2,Focus Sash,32.9%,,,,,,,,
@@ -29,9 +29,9 @@ Greninja,28,teammate,7,Golisopod,,,,,,,,,
 Greninja,28,teammate,8,Cinderace,,,,,,,,,
 Greninja,28,teammate,9,Lucario,,,,,,,,,
 Greninja,28,teammate,10,Corviknight,,,,,,,,,
-Greninja,28,stat_alignment,1,Timid,48.1%,Speed,Attack,,,,,,
+Greninja,28,stat_alignment,1,Timid,48.2%,Speed,Attack,,,,,,
 Greninja,28,stat_alignment,2,Modest,38.8%,Sp. Atk,Attack,,,,,,
-Greninja,28,stat_alignment,3,Rash,5.5%,Sp. Atk,Sp. Def,,,,,,
+Greninja,28,stat_alignment,3,Rash,5.4%,Sp. Atk,Sp. Def,,,,,,
 Greninja,28,stat_alignment,4,Naive,3.2%,Speed,Sp. Def,,,,,,
 Greninja,28,stat_alignment,5,Hasty,1.8%,Speed,Defense,,,,,,
 Greninja,28,stat_alignment,6,Mild,1.0%,Sp. Atk,Defense,,,,,,
@@ -39,9 +39,9 @@ Greninja,28,stat_alignment,7,Adamant,0.4%,Attack,Sp. Atk,,,,,,
 Greninja,28,stat_alignment,8,Jolly,0.4%,Speed,Sp. Atk,,,,,,
 Greninja,28,stat_alignment,9,Naughty,0.3%,Attack,Sp. Def,,,,,,
 Greninja,28,stat_alignment,10,Bold,0.1%,Defense,Attack,,,,,,
-Greninja,28,stat_points,1,,59.3%,,,2,0,0,32,0,32
+Greninja,28,stat_points,1,,59.4%,,,2,0,0,32,0,32
 Greninja,28,stat_points,2,,6.9%,,,0,0,2,32,0,32
-Greninja,28,stat_points,3,,5.3%,,,0,2,0,32,0,32
+Greninja,28,stat_points,3,,5.2%,,,0,2,0,32,0,32
 Greninja,28,stat_points,4,,3.6%,,,0,0,0,32,2,32
 Greninja,28,stat_points,5,,2.8%,,,6,0,0,32,0,28
 Greninja,28,stat_points,6,,1.6%,,,0,0,0,32,0,32

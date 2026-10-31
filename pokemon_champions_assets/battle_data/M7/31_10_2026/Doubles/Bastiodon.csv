@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Bastiodon,218,move,1,Body Press,79.6%,,,,,,,,
-Bastiodon,218,move,2,Wide Guard,58.1%,,,,,,,,
+Bastiodon,218,move,2,Wide Guard,58.0%,,,,,,,,
 Bastiodon,218,move,3,Iron Defense,46.9%,,,,,,,,
 Bastiodon,218,move,4,Metal Burst,38.0%,,,,,,,,
-Bastiodon,218,move,5,Protect,32.2%,,,,,,,,
-Bastiodon,218,move,6,Foul Play,27.6%,,,,,,,,
+Bastiodon,218,move,5,Protect,32.0%,,,,,,,,
+Bastiodon,218,move,6,Foul Play,27.3%,,,,,,,,
 Bastiodon,218,move,7,Heavy Slam,15.8%,,,,,,,,
-Bastiodon,218,move,8,Fissure,13.8%,,,,,,,,
-Bastiodon,218,move,9,Steel Roller,10.9%,,,,,,,,
-Bastiodon,218,move,10,Roar,10.4%,,,,,,,,
-Bastiodon,218,held_item,1,Leftovers,34.6%,,,,,,,,
-Bastiodon,218,held_item,2,Rocky Helmet,13.3%,,,,,,,,
-Bastiodon,218,held_item,3,Air Balloon,10.7%,,,,,,,,
-Bastiodon,218,held_item,4,Sitrus Berry,9.6%,,,,,,,,
+Bastiodon,218,move,8,Fissure,13.7%,,,,,,,,
+Bastiodon,218,move,9,Steel Roller,11.0%,,,,,,,,
+Bastiodon,218,move,10,Roar,10.3%,,,,,,,,
+Bastiodon,218,held_item,1,Leftovers,34.5%,,,,,,,,
+Bastiodon,218,held_item,2,Rocky Helmet,13.6%,,,,,,,,
+Bastiodon,218,held_item,3,Air Balloon,10.6%,,,,,,,,
+Bastiodon,218,held_item,4,Sitrus Berry,9.7%,,,,,,,,
 Bastiodon,218,held_item,5,Chople Berry,5.6%,,,,,,,,
-Bastiodon,218,held_item,6,Red Card,2.8%,,,,,,,,
-Bastiodon,218,held_item,7,Grassy Seed,2.8%,,,,,,,,
+Bastiodon,218,held_item,6,Grassy Seed,2.8%,,,,,,,,
+Bastiodon,218,held_item,7,Red Card,2.8%,,,,,,,,
 Bastiodon,218,held_item,8,Chesto Berry,2.5%,,,,,,,,
 Bastiodon,218,held_item,9,Quick Claw,1.7%,,,,,,,,
 Bastiodon,218,held_item,10,Shell Bell,1.5%,,,,,,,,
@@ -28,26 +28,26 @@ Bastiodon,218,teammate,6,Farigiraf,,,,,,,,,
 Bastiodon,218,teammate,7,Staraptor,,,,,,,,,
 Bastiodon,218,teammate,8,Glimmora,,,,,,,,,
 Bastiodon,218,teammate,9,Arcanine-Hisui,,,,,,,,,
-Bastiodon,218,teammate,10,Gengar,,,,,,,,,
-Bastiodon,218,stat_alignment,1,Relaxed,37.8%,Defense,Speed,,,,,,
-Bastiodon,218,stat_alignment,2,Impish,19.9%,Defense,Sp. Atk,,,,,,
+Bastiodon,218,teammate,10,Golisopod,,,,,,,,,
+Bastiodon,218,stat_alignment,1,Relaxed,37.4%,Defense,Speed,,,,,,
+Bastiodon,218,stat_alignment,2,Impish,20.1%,Defense,Sp. Atk,,,,,,
 Bastiodon,218,stat_alignment,3,Sassy,17.0%,Sp. Def,Speed,,,,,,
 Bastiodon,218,stat_alignment,4,Careful,12.1%,Sp. Def,Sp. Atk,,,,,,
 Bastiodon,218,stat_alignment,5,Brave,4.7%,Attack,Speed,,,,,,
 Bastiodon,218,stat_alignment,6,Bold,3.4%,Defense,Attack,,,,,,
-Bastiodon,218,stat_alignment,7,Adamant,2.3%,Attack,Sp. Atk,,,,,,
+Bastiodon,218,stat_alignment,7,Adamant,2.4%,Attack,Sp. Atk,,,,,,
 Bastiodon,218,stat_alignment,8,Quiet,0.7%,Sp. Atk,Speed,,,,,,
 Bastiodon,218,stat_alignment,9,Calm,0.7%,Sp. Def,Attack,,,,,,
 Bastiodon,218,stat_alignment,10,Jolly,0.6%,Speed,Sp. Atk,,,,,,
-Bastiodon,218,stat_points,1,,26.2%,,,32,0,32,0,2,0
-Bastiodon,218,stat_points,2,,18.8%,,,32,0,2,0,32,0
+Bastiodon,218,stat_points,1,,26.0%,,,32,0,32,0,2,0
+Bastiodon,218,stat_points,2,,18.6%,,,32,0,2,0,32,0
 Bastiodon,218,stat_points,3,,10.4%,,,2,0,32,0,32,0
 Bastiodon,218,stat_points,4,,3.1%,,,32,32,0,0,2,0
 Bastiodon,218,stat_points,5,,2.9%,,,32,32,2,0,0,0
-Bastiodon,218,stat_points,6,,2.2%,,,0,0,32,0,32,0
-Bastiodon,218,stat_points,7,,2.1%,,,22,0,12,0,32,0
-Bastiodon,218,stat_points,8,,2.1%,,,2,32,32,0,0,0
-Bastiodon,218,stat_points,9,,2.0%,,,0,32,32,0,2,0
+Bastiodon,218,stat_points,6,,2.3%,,,0,32,32,0,2,0
+Bastiodon,218,stat_points,7,,2.1%,,,0,0,32,0,32,0
+Bastiodon,218,stat_points,8,,2.1%,,,22,0,12,0,32,0
+Bastiodon,218,stat_points,9,,2.0%,,,2,32,32,0,0,0
 Bastiodon,218,stat_points,10,,1.9%,,,32,0,12,0,22,0
-Bastiodon,218,ability,1,Sturdy,59.3%,,,,,,,,
-Bastiodon,218,ability,2,Soundproof,40.7%,,,,,,,,
+Bastiodon,218,ability,1,Sturdy,59.5%,,,,,,,,
+Bastiodon,218,ability,2,Soundproof,40.5%,,,,,,,,

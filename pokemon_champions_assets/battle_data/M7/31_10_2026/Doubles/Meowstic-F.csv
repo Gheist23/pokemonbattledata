@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Meowstic-F,103,move,1,Expanding Force,97.3%,,,,,,,,
 Meowstic-F,103,move,2,Protect,92.9%,,,,,,,,
-Meowstic-F,103,move,3,Thunderbolt,77.8%,,,,,,,,
-Meowstic-F,103,move,4,Fake Out,68.6%,,,,,,,,
+Meowstic-F,103,move,3,Thunderbolt,77.7%,,,,,,,,
+Meowstic-F,103,move,4,Fake Out,68.5%,,,,,,,,
 Meowstic-F,103,move,5,Alluring Voice,17.4%,,,,,,,,
 Meowstic-F,103,move,6,Dark Pulse,12.3%,,,,,,,,
 Meowstic-F,103,move,7,Shadow Ball,7.4%,,,,,,,,
@@ -30,8 +30,8 @@ Meowstic-F,103,teammate,8,Incineroar,,,,,,,,,
 Meowstic-F,103,teammate,9,Whimsicott,,,,,,,,,
 Meowstic-F,103,teammate,10,Armarouge,,,,,,,,,
 Meowstic-F,103,stat_alignment,1,Timid,84.2%,Speed,Attack,,,,,,
-Meowstic-F,103,stat_alignment,2,Modest,12.8%,Sp. Atk,Attack,,,,,,
-Meowstic-F,103,stat_alignment,3,Bold,0.7%,Defense,Attack,,,,,,
+Meowstic-F,103,stat_alignment,2,Modest,12.9%,Sp. Atk,Attack,,,,,,
+Meowstic-F,103,stat_alignment,3,Bold,0.8%,Defense,Attack,,,,,,
 Meowstic-F,103,stat_alignment,4,Hasty,0.5%,Speed,Defense,,,,,,
 Meowstic-F,103,stat_alignment,5,Quiet,0.5%,Sp. Atk,Speed,,,,,,
 Meowstic-F,103,stat_alignment,6,Mild,0.4%,Sp. Atk,Defense,,,,,,
@@ -39,7 +39,7 @@ Meowstic-F,103,stat_alignment,7,Calm,0.4%,Sp. Def,Attack,,,,,,
 Meowstic-F,103,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
 Meowstic-F,103,stat_alignment,9,Serious,0.1%,,,,,,,,
 Meowstic-F,103,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
-Meowstic-F,103,stat_points,1,,72.6%,,,2,0,0,32,0,32
+Meowstic-F,103,stat_points,1,,72.5%,,,2,0,0,32,0,32
 Meowstic-F,103,stat_points,2,,6.5%,,,0,0,2,32,0,32
 Meowstic-F,103,stat_points,3,,3.6%,,,0,0,0,32,2,32
 Meowstic-F,103,stat_points,4,,1.5%,,,1,0,1,32,0,32

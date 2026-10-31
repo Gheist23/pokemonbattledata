@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Audino,125,move,1,Trick Room,80.6%,,,,,,,,
 Audino,125,move,2,Simple Beam,74.3%,,,,,,,,
-Audino,125,move,3,Heal Pulse,56.9%,,,,,,,,
-Audino,125,move,4,Protect,48.6%,,,,,,,,
+Audino,125,move,3,Heal Pulse,57.0%,,,,,,,,
+Audino,125,move,4,Protect,48.5%,,,,,,,,
 Audino,125,move,5,Life Dew,31.3%,,,,,,,,
 Audino,125,move,6,Yawn,17.3%,,,,,,,,
 Audino,125,move,7,Ally Switch,12.2%,,,,,,,,
@@ -29,17 +29,17 @@ Audino,125,teammate,7,Indeedee-F,,,,,,,,,
 Audino,125,teammate,8,Sinistcha,,,,,,,,,
 Audino,125,teammate,9,Whimsicott,,,,,,,,,
 Audino,125,teammate,10,Rillaboom,,,,,,,,,
-Audino,125,stat_alignment,1,Relaxed,46.1%,Defense,Speed,,,,,,
+Audino,125,stat_alignment,1,Relaxed,46.0%,Defense,Speed,,,,,,
 Audino,125,stat_alignment,2,Sassy,18.4%,Sp. Def,Speed,,,,,,
 Audino,125,stat_alignment,3,Bold,15.2%,Defense,Attack,,,,,,
-Audino,125,stat_alignment,4,Calm,6.2%,Sp. Def,Attack,,,,,,
+Audino,125,stat_alignment,4,Calm,6.3%,Sp. Def,Attack,,,,,,
 Audino,125,stat_alignment,5,Modest,4.8%,Sp. Atk,Attack,,,,,,
 Audino,125,stat_alignment,6,Timid,4.3%,Speed,Attack,,,,,,
 Audino,125,stat_alignment,7,Quiet,1.6%,Sp. Atk,Speed,,,,,,
 Audino,125,stat_alignment,8,Impish,1.0%,Defense,Sp. Atk,,,,,,
 Audino,125,stat_alignment,9,Jolly,0.8%,Speed,Sp. Atk,,,,,,
 Audino,125,stat_alignment,10,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
-Audino,125,stat_points,1,,22.3%,,,32,0,32,0,2,0
+Audino,125,stat_points,1,,22.4%,,,32,0,32,0,2,0
 Audino,125,stat_points,2,,8.2%,,,32,0,24,0,10,0
 Audino,125,stat_points,3,,7.9%,,,32,0,14,0,20,0
 Audino,125,stat_points,4,,7.6%,,,32,0,9,0,25,0
@@ -50,5 +50,5 @@ Audino,125,stat_points,8,,2.5%,,,32,0,10,0,24,0
 Audino,125,stat_points,9,,1.8%,,,32,0,17,0,17,0
 Audino,125,stat_points,10,,1.6%,,,32,0,32,0,0,0
 Audino,125,ability,1,Healer,69.0%,,,,,,,,
-Audino,125,ability,2,Regenerator,29.7%,,,,,,,,
+Audino,125,ability,2,Regenerator,29.8%,,,,,,,,
 Audino,125,ability,3,Klutz,1.3%,,,,,,,,

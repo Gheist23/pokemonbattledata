@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Feraligatr,146,move,1,Liquidation,79.3%,,,,,,,,
 Feraligatr,146,move,2,Protect,66.7%,,,,,,,,
-Feraligatr,146,move,3,Ice Punch,39.5%,,,,,,,,
+Feraligatr,146,move,3,Ice Punch,39.6%,,,,,,,,
 Feraligatr,146,move,4,Dragon Dance,36.9%,,,,,,,,
-Feraligatr,146,move,5,Double-Edge,28.7%,,,,,,,,
-Feraligatr,146,move,6,Aqua Jet,28.5%,,,,,,,,
+Feraligatr,146,move,5,Double-Edge,28.6%,,,,,,,,
+Feraligatr,146,move,6,Aqua Jet,28.6%,,,,,,,,
 Feraligatr,146,move,7,Body Slam,18.2%,,,,,,,,
 Feraligatr,146,move,8,Crunch,14.5%,,,,,,,,
 Feraligatr,146,move,9,Rock Slide,12.6%,,,,,,,,
-Feraligatr,146,move,10,Slash,10.0%,,,,,,,,
+Feraligatr,146,move,10,Slash,9.9%,,,,,,,,
 Feraligatr,146,held_item,1,Feraligite,63.4%,,,,,,,,
 Feraligatr,146,held_item,2,Life Orb,29.5%,,,,,,,,
 Feraligatr,146,held_item,3,Mystic Water,1.6%,,,,,,,,
@@ -30,7 +30,7 @@ Feraligatr,146,teammate,8,Archaludon,,,,,,,,,
 Feraligatr,146,teammate,9,Raichu,,,,,,,,,
 Feraligatr,146,teammate,10,Kingambit,,,,,,,,,
 Feraligatr,146,stat_alignment,1,Adamant,64.9%,Attack,Sp. Atk,,,,,,
-Feraligatr,146,stat_alignment,2,Jolly,16.5%,Speed,Sp. Atk,,,,,,
+Feraligatr,146,stat_alignment,2,Jolly,16.6%,Speed,Sp. Atk,,,,,,
 Feraligatr,146,stat_alignment,3,Brave,10.4%,Attack,Speed,,,,,,
 Feraligatr,146,stat_alignment,4,Careful,2.5%,Sp. Def,Sp. Atk,,,,,,
 Feraligatr,146,stat_alignment,5,Modest,1.8%,Sp. Atk,Attack,,,,,,
@@ -39,8 +39,8 @@ Feraligatr,146,stat_alignment,7,Naive,0.4%,Speed,Sp. Def,,,,,,
 Feraligatr,146,stat_alignment,8,Sassy,0.4%,Sp. Def,Speed,,,,,,
 Feraligatr,146,stat_alignment,9,Naughty,0.4%,Attack,Sp. Def,,,,,,
 Feraligatr,146,stat_alignment,10,Lonely,0.3%,Attack,Defense,,,,,,
-Feraligatr,146,stat_points,1,,18.1%,,,2,32,0,0,0,32
-Feraligatr,146,stat_points,2,,9.1%,,,32,32,0,0,2,0
+Feraligatr,146,stat_points,1,,18.2%,,,2,32,0,0,0,32
+Feraligatr,146,stat_points,2,,9.0%,,,32,32,0,0,2,0
 Feraligatr,146,stat_points,3,,4.6%,,,0,32,0,0,2,32
 Feraligatr,146,stat_points,4,,3.9%,,,32,32,0,0,0,2
 Feraligatr,146,stat_points,5,,3.3%,,,32,32,2,0,0,0

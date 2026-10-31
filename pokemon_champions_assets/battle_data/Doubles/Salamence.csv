@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Salamence,16,move,1,Protect,91.2%,,,,,,,,
-Salamence,16,move,2,Hyper Voice,88.8%,,,,,,,,
-Salamence,16,move,3,Tailwind,61.2%,,,,,,,,
-Salamence,16,move,4,Draco Meteor,60.6%,,,,,,,,
+Salamence,16,move,2,Hyper Voice,88.7%,,,,,,,,
+Salamence,16,move,3,Tailwind,61.1%,,,,,,,,
+Salamence,16,move,4,Draco Meteor,60.5%,,,,,,,,
 Salamence,16,move,5,Flamethrower,36.5%,,,,,,,,
 Salamence,16,move,6,Double-Edge,12.6%,,,,,,,,
 Salamence,16,move,7,Dragon Pulse,11.8%,,,,,,,,
@@ -10,7 +10,7 @@ Salamence,16,move,8,Heat Wave,8.0%,,,,,,,,
 Salamence,16,move,9,Dragon Claw,3.7%,,,,,,,,
 Salamence,16,move,10,Dragon Dance,2.7%,,,,,,,,
 Salamence,16,held_item,1,Salamencite,95.8%,,,,,,,,
-Salamence,16,held_item,2,Life Orb,0.7%,,,,,,,,
+Salamence,16,held_item,2,Life Orb,0.8%,,,,,,,,
 Salamence,16,held_item,3,Haban Berry,0.7%,,,,,,,,
 Salamence,16,held_item,4,Choice Scarf,0.6%,,,,,,,,
 Salamence,16,held_item,5,Focus Sash,0.5%,,,,,,,,
@@ -31,7 +31,7 @@ Salamence,16,teammate,9,Milotic,,,,,,,,,
 Salamence,16,teammate,10,Indeedee,,,,,,,,,
 Salamence,16,stat_alignment,1,Timid,53.3%,Speed,Attack,,,,,,
 Salamence,16,stat_alignment,2,Modest,27.7%,Sp. Atk,Attack,,,,,,
-Salamence,16,stat_alignment,3,Hasty,5.1%,Speed,Defense,,,,,,
+Salamence,16,stat_alignment,3,Hasty,5.2%,Speed,Defense,,,,,,
 Salamence,16,stat_alignment,4,Adamant,4.1%,Attack,Sp. Atk,,,,,,
 Salamence,16,stat_alignment,5,Naive,3.3%,Speed,Sp. Def,,,,,,
 Salamence,16,stat_alignment,6,Jolly,3.0%,Speed,Sp. Atk,,,,,,
@@ -43,7 +43,7 @@ Salamence,16,stat_points,1,,41.7%,,,2,0,0,32,0,32
 Salamence,16,stat_points,2,,4.9%,,,1,0,0,32,1,32
 Salamence,16,stat_points,3,,3.3%,,,2,32,0,0,0,32
 Salamence,16,stat_points,4,,2.7%,,,0,0,0,32,2,32
-Salamence,16,stat_points,5,,2.3%,,,8,0,0,26,0,32
+Salamence,16,stat_points,5,,2.4%,,,8,0,0,26,0,32
 Salamence,16,stat_points,6,,2.2%,,,1,0,1,32,0,32
 Salamence,16,stat_points,7,,2.0%,,,13,0,0,15,20,18
 Salamence,16,stat_points,8,,1.6%,,,0,0,2,32,0,32

@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Swampert,35,move,1,Earthquake,88.8%,,,,,,,,
 Swampert,35,move,2,Flip Turn,72.9%,,,,,,,,
-Swampert,35,move,3,Stealth Rock,48.8%,,,,,,,,
+Swampert,35,move,3,Stealth Rock,48.7%,,,,,,,,
 Swampert,35,move,4,Ice Punch,48.3%,,,,,,,,
-Swampert,35,move,5,Wave Crash,47.2%,,,,,,,,
-Swampert,35,move,6,Yawn,46.2%,,,,,,,,
+Swampert,35,move,5,Wave Crash,47.3%,,,,,,,,
+Swampert,35,move,6,Yawn,46.1%,,,,,,,,
 Swampert,35,move,7,Roar,4.2%,,,,,,,,
 Swampert,35,move,8,Mirror Coat,3.8%,,,,,,,,
 Swampert,35,move,9,Bulk Up,3.7%,,,,,,,,
 Swampert,35,move,10,Ice Beam,3.4%,,,,,,,,
-Swampert,35,held_item,1,Swampertite,48.0%,,,,,,,,
-Swampert,35,held_item,2,Sitrus Berry,35.1%,,,,,,,,
+Swampert,35,held_item,1,Swampertite,48.1%,,,,,,,,
+Swampert,35,held_item,2,Sitrus Berry,35.0%,,,,,,,,
 Swampert,35,held_item,3,Leftovers,7.0%,,,,,,,,
 Swampert,35,held_item,4,Rindo Berry,3.7%,,,,,,,,
 Swampert,35,held_item,5,Rocky Helmet,2.0%,,,,,,,,
@@ -29,8 +29,8 @@ Swampert,35,teammate,7,Dragonite,,,,,,,,,
 Swampert,35,teammate,8,Baxcalibur,,,,,,,,,
 Swampert,35,teammate,9,Basculegion,,,,,,,,,
 Swampert,35,teammate,10,Charizard,,,,,,,,,
-Swampert,35,stat_alignment,1,Adamant,42.2%,Attack,Sp. Atk,,,,,,
-Swampert,35,stat_alignment,2,Relaxed,15.2%,Defense,Speed,,,,,,
+Swampert,35,stat_alignment,1,Adamant,42.3%,Attack,Sp. Atk,,,,,,
+Swampert,35,stat_alignment,2,Relaxed,15.1%,Defense,Speed,,,,,,
 Swampert,35,stat_alignment,3,Impish,11.8%,Defense,Sp. Atk,,,,,,
 Swampert,35,stat_alignment,4,Sassy,11.7%,Sp. Def,Speed,,,,,,
 Swampert,35,stat_alignment,5,Jolly,8.8%,Speed,Sp. Atk,,,,,,
@@ -40,7 +40,7 @@ Swampert,35,stat_alignment,8,Brave,1.0%,Attack,Speed,,,,,,
 Swampert,35,stat_alignment,9,Bold,0.7%,Defense,Attack,,,,,,
 Swampert,35,stat_alignment,10,Naughty,0.4%,Attack,Sp. Def,,,,,,
 Swampert,35,stat_points,1,,21.7%,,,2,32,0,0,0,32
-Swampert,35,stat_points,2,,12.2%,,,32,0,32,0,2,0
+Swampert,35,stat_points,2,,12.1%,,,32,0,32,0,2,0
 Swampert,35,stat_points,3,,7.2%,,,0,32,2,0,0,32
 Swampert,35,stat_points,4,,6.8%,,,32,0,2,0,32,0
 Swampert,35,stat_points,5,,3.8%,,,32,0,21,0,13,0
@@ -48,6 +48,6 @@ Swampert,35,stat_points,6,,3.4%,,,32,0,30,0,4,0
 Swampert,35,stat_points,7,,3.1%,,,8,32,0,0,0,26
 Swampert,35,stat_points,8,,2.0%,,,32,0,20,0,14,0
 Swampert,35,stat_points,9,,1.5%,,,32,2,32,0,0,0
-Swampert,35,stat_points,10,,1.4%,,,0,32,0,0,2,32
+Swampert,35,stat_points,10,,1.4%,,,12,32,0,0,0,22
 Swampert,35,ability,1,Torrent,82.2%,,,,,,,,
 Swampert,35,ability,2,Damp,17.8%,,,,,,,,

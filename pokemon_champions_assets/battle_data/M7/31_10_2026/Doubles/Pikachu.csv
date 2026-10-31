@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pikachu,190,move,1,Fake Out,74.9%,,,,,,,,
-Pikachu,190,move,2,Protect,39.4%,,,,,,,,
+Pikachu,190,move,1,Fake Out,75.0%,,,,,,,,
+Pikachu,190,move,2,Protect,39.6%,,,,,,,,
 Pikachu,190,move,3,Volt Tackle,29.4%,,,,,,,,
 Pikachu,190,move,4,Thunderbolt,28.2%,,,,,,,,
-Pikachu,190,move,5,Nuzzle,21.4%,,,,,,,,
-Pikachu,190,move,6,Endeavor,19.1%,,,,,,,,
-Pikachu,190,move,7,Rising Voltage,15.1%,,,,,,,,
-Pikachu,190,move,8,Feint,15.1%,,,,,,,,
-Pikachu,190,move,9,Surf,14.0%,,,,,,,,
-Pikachu,190,move,10,Helping Hand,13.8%,,,,,,,,
-Pikachu,190,held_item,1,Light Ball,77.8%,,,,,,,,
-Pikachu,190,held_item,2,Focus Sash,20.2%,,,,,,,,
+Pikachu,190,move,5,Nuzzle,21.2%,,,,,,,,
+Pikachu,190,move,6,Endeavor,19.0%,,,,,,,,
+Pikachu,190,move,7,Rising Voltage,15.3%,,,,,,,,
+Pikachu,190,move,8,Feint,15.2%,,,,,,,,
+Pikachu,190,move,9,Surf,13.9%,,,,,,,,
+Pikachu,190,move,10,Helping Hand,13.7%,,,,,,,,
+Pikachu,190,held_item,1,Light Ball,78.0%,,,,,,,,
+Pikachu,190,held_item,2,Focus Sash,20.0%,,,,,,,,
 Pikachu,190,held_item,3,Quick Claw,0.3%,,,,,,,,
 Pikachu,190,held_item,4,Air Balloon,0.3%,,,,,,,,
 Pikachu,190,held_item,5,Sitrus Berry,0.2%,,,,,,,,
@@ -29,23 +29,23 @@ Pikachu,190,teammate,7,Whimsicott,,,,,,,,,
 Pikachu,190,teammate,8,Venusaur,,,,,,,,,
 Pikachu,190,teammate,9,Blastoise,,,,,,,,,
 Pikachu,190,teammate,10,Incineroar,,,,,,,,,
-Pikachu,190,stat_alignment,1,Jolly,27.9%,Speed,Sp. Atk,,,,,,
-Pikachu,190,stat_alignment,2,Timid,24.6%,Speed,Attack,,,,,,
-Pikachu,190,stat_alignment,3,Modest,14.9%,Sp. Atk,Attack,,,,,,
+Pikachu,190,stat_alignment,1,Jolly,27.7%,Speed,Sp. Atk,,,,,,
+Pikachu,190,stat_alignment,2,Timid,24.7%,Speed,Attack,,,,,,
+Pikachu,190,stat_alignment,3,Modest,15.0%,Sp. Atk,Attack,,,,,,
 Pikachu,190,stat_alignment,4,Naive,9.1%,Speed,Sp. Def,,,,,,
-Pikachu,190,stat_alignment,5,Hasty,8.0%,Speed,Defense,,,,,,
+Pikachu,190,stat_alignment,5,Hasty,8.1%,Speed,Defense,,,,,,
 Pikachu,190,stat_alignment,6,Adamant,5.7%,Attack,Sp. Atk,,,,,,
 Pikachu,190,stat_alignment,7,Quiet,1.9%,Sp. Atk,Speed,,,,,,
 Pikachu,190,stat_alignment,8,Bold,1.8%,Defense,Attack,,,,,,
 Pikachu,190,stat_alignment,9,Rash,1.6%,Sp. Atk,Sp. Def,,,,,,
 Pikachu,190,stat_alignment,10,Mild,1.2%,Sp. Atk,Defense,,,,,,
-Pikachu,190,stat_points,1,,24.0%,,,2,0,0,32,0,32
-Pikachu,190,stat_points,2,,12.7%,,,2,32,0,0,0,32
-Pikachu,190,stat_points,3,,8.1%,,,0,0,2,0,32,32
-Pikachu,190,stat_points,4,,6.1%,,,0,0,0,32,2,32
+Pikachu,190,stat_points,1,,24.2%,,,2,0,0,32,0,32
+Pikachu,190,stat_points,2,,12.6%,,,2,32,0,0,0,32
+Pikachu,190,stat_points,3,,8.0%,,,0,0,2,0,32,32
+Pikachu,190,stat_points,4,,6.2%,,,0,0,0,32,2,32
 Pikachu,190,stat_points,5,,5.4%,,,0,2,0,32,0,32
 Pikachu,190,stat_points,6,,4.8%,,,0,0,2,32,0,32
-Pikachu,190,stat_points,7,,4.5%,,,1,32,1,0,0,32
+Pikachu,190,stat_points,7,,4.4%,,,1,32,1,0,0,32
 Pikachu,190,stat_points,8,,3.1%,,,0,32,0,0,0,32
 Pikachu,190,stat_points,9,,2.9%,,,0,0,0,32,0,32
 Pikachu,190,stat_points,10,,1.8%,,,32,0,0,32,0,2

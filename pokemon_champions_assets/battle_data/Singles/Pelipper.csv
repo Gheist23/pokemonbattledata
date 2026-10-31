@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pelipper,48,move,1,Hurricane,96.4%,,,,,,,,
 Pelipper,48,move,2,U-turn,84.9%,,,,,,,,
-Pelipper,48,move,3,Ice Beam,71.1%,,,,,,,,
+Pelipper,48,move,3,Ice Beam,71.0%,,,,,,,,
 Pelipper,48,move,4,Surf,52.1%,,,,,,,,
 Pelipper,48,move,5,Weather Ball,35.7%,,,,,,,,
 Pelipper,48,move,6,Tailwind,14.6%,,,,,,,,
-Pelipper,48,move,7,Roost,12.7%,,,,,,,,
+Pelipper,48,move,7,Roost,12.8%,,,,,,,,
 Pelipper,48,move,8,Hydro Pump,8.9%,,,,,,,,
 Pelipper,48,move,9,Quick Attack,5.6%,,,,,,,,
 Pelipper,48,move,10,Rain Dance,5.2%,,,,,,,,
-Pelipper,48,held_item,1,Damp Rock,75.6%,,,,,,,,
+Pelipper,48,held_item,1,Damp Rock,75.5%,,,,,,,,
 Pelipper,48,held_item,2,Focus Sash,8.0%,,,,,,,,
 Pelipper,48,held_item,3,Choice Scarf,5.9%,,,,,,,,
 Pelipper,48,held_item,4,Sitrus Berry,3.2%,,,,,,,,
@@ -25,8 +25,8 @@ Pelipper,48,teammate,3,Golisopod,,,,,,,,,
 Pelipper,48,teammate,4,Garchomp,,,,,,,,,
 Pelipper,48,teammate,5,Basculegion,,,,,,,,,
 Pelipper,48,teammate,6,Mimikyu,,,,,,,,,
-Pelipper,48,teammate,7,Pawmot,,,,,,,,,
-Pelipper,48,teammate,8,Meowscarada,,,,,,,,,
+Pelipper,48,teammate,7,Meowscarada,,,,,,,,,
+Pelipper,48,teammate,8,Pawmot,,,,,,,,,
 Pelipper,48,teammate,9,Baxcalibur,,,,,,,,,
 Pelipper,48,teammate,10,Charizard,,,,,,,,,
 Pelipper,48,stat_alignment,1,Modest,32.4%,Sp. Atk,Attack,,,,,,
@@ -41,7 +41,7 @@ Pelipper,48,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
 Pelipper,48,stat_alignment,10,Rash,0.2%,Sp. Atk,Sp. Def,,,,,,
 Pelipper,48,stat_points,1,,15.4%,,,2,0,0,32,0,32
 Pelipper,48,stat_points,2,,11.9%,,,32,0,32,0,2,0
-Pelipper,48,stat_points,3,,10.4%,,,32,0,16,0,18,0
+Pelipper,48,stat_points,3,,10.3%,,,32,0,16,0,18,0
 Pelipper,48,stat_points,4,,5.9%,,,32,0,2,32,0,0
 Pelipper,48,stat_points,5,,4.8%,,,32,0,0,32,2,0
 Pelipper,48,stat_points,6,,4.4%,,,32,0,32,2,0,0

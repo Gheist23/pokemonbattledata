@@ -159,6 +159,23 @@ function checkRow(row) {
     details.push(h("div", { class: "bd-req-list" }, row.type_rows_v251.map((t) => h("span", { class: `bd-req ${t.severity === "red" ? "missing" : "watch"}` },
       h("img", { src: `/pokemon_champions_assets/types/${t.type}.png`, alt: "", width: 14, height: 14 }), `${t.type}: ${t.weak} weak and ${t.switch_ins} switch ins`))));
   }
+  // THE FIFTEEN LEAD PAIRS, so the count can be checked. The row says "an estimated 9 of your
+  // 15 lead pairs are worth leading with" and the check has always carried the scored pairs in
+  // its payload -- but nothing rendered them, in either codebase, so the reader could not see
+  // WHICH nine, nor which pair the fix would help most. Highest score first, as the check
+  // sorted them, so the pair just under the bar is the one sitting next to the last green chip.
+  if ((row.lead_pairs_v514 || []).length) {
+    const bar = Number(row.lead_bar_v514) || 0;
+    details.push(h("p", { class: "bd-note" },
+      `Each pair's turn-one tools, scored; ${bar} or more is worth leading with.`));
+    details.push(h("div", { class: "bd-req-list" }, row.lead_pairs_v514.map((pair) => h(
+      "span",
+      { class: `bd-req ${pair.playable ? "met" : "missing"}` },
+      // TWO DECIMALS, not one: the bar is 5.6 and scores land on 5.58, which rounds to "5.6"
+      // and then sits there in red next to a line saying 5.6 or more is enough.
+      `${pair.members[0]} + ${pair.members[1]} ${Number(pair.score).toFixed(2)}`,
+    ))));
+  }
   const summary = row.summary_v203 || row.summary || row.text;
   const title = row.check_label || row.check_id;
   const head = h("div", { class: "bd-check-main" },

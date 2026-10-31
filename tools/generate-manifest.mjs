@@ -1167,6 +1167,48 @@ function categoryRows(summary, category) {
     .sort((a, b) => numberOrZero(a.rank) - numberOrZero(b.rank) || percentNumber(b.percentage) - percentNumber(a.percentage));
 }
 
+const FORMATS_FOR_SUBPAGES = ["Doubles", "Singles"];
+
+/**
+ * Does this Pokemon have rows of `category` in EITHER format?
+ *
+ * This is the same question `writeSeoPages` asks before it writes a subpage (`hasRows` there,
+ * over both formats), and the reason it has to be asked twice: the profile page is written
+ * first and cannot look for a file that does not exist yet.
+ */
+function hasCategoryRows(record, category) {
+  return FORMATS_FOR_SUBPAGES.some((format) => categoryRows(summaryFor(record, format), category).length > 0);
+}
+
+/**
+ * The "More X data" links, pointed at the page that actually holds the data.
+ *
+ * THE SUBPAGES BELONG TO THE RECORD, NOT TO THE FORM. `writeSeoPages` walks records and
+ * writes `/pokemon/<record.slug>/moves|items|teammates/` and `/teams/<record.slug>/`, so a
+ * form page -- 87 of them, nearly all Megas plus Aegislash-Blade and the Castform weathers --
+ * has no subpage of its own. It linked to four anyway, under its OWN slug, which was 348 dead
+ * links sitting on exactly the pages that have least to show.
+ *
+ * They are not dropped, because the data the reader wants does exist: it is filed under the
+ * base record, which is what `page.sourceRecord` already is on a form page. So the links move
+ * there and carry that Pokemon's name, which also stops them claiming to be about the form.
+ * The row test is the same one `writeSeoPages` makes with `hasRows` before writing the page,
+ * and `/teams/` is gated on the TEAMMATE rows because that is what gates it there.
+ */
+function subpageLinks(record, page) {
+  const out = [];
+  const slug = record.slug || slugify(record.battleName || record.name);
+  const owner = page.slug === slug ? page.name : (record.battleName || record.name);
+  const add = (href, label) => out.push(`<li><a href="${escapeHtml(href)}">${escapeHtml(label)}</a></li>`);
+  if (hasCategoryRows(record, "move")) add(`/pokemon/${slug}/moves/`, `${owner} moves and usage`);
+  if (hasCategoryRows(record, "held_item")) add(`/pokemon/${slug}/items/`, `${owner} held items`);
+  if (hasCategoryRows(record, "teammate")) {
+    add(`/pokemon/${slug}/teammates/`, `${owner} teammates`);
+    add(`/teams/${slug}/`, `${owner} team building`);
+  }
+  return out;
+}
+
 function summaryFor(record, format = "Doubles") {
   const bySeason = record.summary?.battleSummary || {};
   const current = bySeason.Current?.[format];
@@ -1598,10 +1640,7 @@ function pokemonStaticContent(page) {
       ${forms.length ? `<h2>Related forms</h2><ul class="static-sprite-list">${forms.map((form) => `<li><span class="static-name-cell">${spriteImg(lookupSprite("mini", form.savedName, form.name), { className: "static-mini-sprite" })}<a href="/pokemon/${escapeHtml(form.slug)}/">${escapeHtml(form.name)}</a></span></li>`).join("")}</ul>` : ""}
       <h2>More ${escapeHtml(page.name)} data</h2>
       <ul class="static-link-list">
-        <li><a href="/pokemon/${escapeHtml(page.slug)}/moves/">${escapeHtml(page.name)} moves and usage</a></li>
-        <li><a href="/pokemon/${escapeHtml(page.slug)}/items/">${escapeHtml(page.name)} held items</a></li>
-        <li><a href="/pokemon/${escapeHtml(page.slug)}/teammates/">${escapeHtml(page.name)} teammates</a></li>
-        <li><a href="/teams/${escapeHtml(page.slug)}/">${escapeHtml(page.name)} team building</a></li>
+        ${subpageLinks(record, page).join("\n        ")}
         <li><a href="/rankings/most-used/">Most used Pokemon Champions Pokemon</a></li>
         <li><a href="/meta/doubles/">Pokemon Champions Doubles meta</a></li>
       </ul>
@@ -1776,9 +1815,11 @@ const topicPageDefinitions = [
       from rather than only how bad it is. Run it from the <a href="/team-builder/">Team Builder</a>.</p>
       <h2>What is checked</h2>
       <ul>
-        <li><strong>Team-building checks.</strong> Archetype detection, Mega options, speed control, Protect and
-        positioning, spread damage, priority and cleanup, physical and special pressure, utility and disruption.
-        Each passes or fails with the reason attached and the Pokemon responsible named.</li>
+        <li><strong>Team-building checks.</strong> Thirteen of them, and you choose which ones speak: archetype
+        fit, Speed Control, Protect / Positioning, Spread Damage, Priority or Cleanup, Physical Damage, Special
+        Damage, Utility / Disruption, Shared Weakness, Field / Weather Consistency, Coverage Gaps, Speed Tiers and
+        Lead Viability. Each one is good, needs attention or a problem, with the reason attached and the Pokemon
+        responsible named.</li>
         <li><strong>Critical Threats.</strong> Every serious threat in the top 40 of the meta, with its real spread
         and usage, how many of your six it knocks out in one or two hits, how many answers you actually have, and
         the single best answer you own with the damage roll behind it.</li>
@@ -1927,6 +1968,11 @@ function writeSitemap(pokemonPages, topicPages, generatedAt, extraUrls = []) {
     `${siteUrl}/team-builder/`,
     `${siteUrl}/damage-calculator/`,
     `${siteUrl}/solver/`,
+    // /play/ was the one tool page missing from this list while its own page says
+    // `robots: index, follow` -- it invited indexing and was never submitted. The four pages
+    // genuinely left out all say `noindex` instead: /404.html, /share/ and the two
+    // post-purchase pages under /pro-tool/.
+    `${siteUrl}/play/`,
     `${siteUrl}/meta/`,
     `${siteUrl}/pro-tool/`,
     `${siteUrl}/pro-tool/plans/`,

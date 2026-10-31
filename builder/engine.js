@@ -92,6 +92,11 @@ function floorDiv(a, b) {
  */
 const MEMO_LIMIT = 50000;
 
+/** Ground moves whose Grassy Terrain halving is written by hand below, so their own
+ *  `terrain_power` operation must not run as well. The app keeps the same list in
+ *  `field_power_once_v546.py`; Solar Beam's weather twin is handled beside it. */
+const TERRAIN_HALVED_BY_HAND = new Set(["earthquake", "bulldoze", "magnitude"]);
+
 function stringMemo(fn) {
   const cache = new Map();
   return (text) => {
@@ -1552,9 +1557,24 @@ export class DamageEngine {
         triggered = actual === wanted;
       } else if (op === "power_if_target_switching") {
         triggered = Boolean(ctx.defender_switching);
-      } else if (op === "terrain_power" && moveKey !== "earthquake" && moveKey !== "psyblade") {
+      // A FIELD'S REDUCTION APPLIES ONCE. These two exclusion lists are here because the
+      // same reductions are also written by hand above -- Solar Beam halved in Rain / Sand /
+      // Snow (`special === "solar_beam"`), and Earthquake, Bulldoze and Magnitude halved in
+      // Grassy Terrain against a grounded defender -- so a move named by both is reduced
+      // twice. The lists already held `earthquake`, `psyblade` and `hydrosteam` and simply
+      // missed the rest: Solar Beam and Solar Blade carry `weather_power` operations and
+      // Bulldoze and Magnitude carry a Grassy `terrain_power` one, and before the move data
+      // was re-exported the site did not have those operations at all, so nothing showed.
+      // Measured on the app, which has the identical pair: Mega Charizard X's Solar Beam into
+      // Farigiraf read 22-26 in rain against 83-98 in clear, where one halving gives 41-49.
+      // The hand-written branch is the one kept, because it is the more careful of the two:
+      // Grassy Terrain only weakens a Ground move against a target standing in the grass, and
+      // it checks `groundedDefender` where the operation checks only the terrain's name.
+      // The app does the same from `field_power_once_v546.py`.
+      } else if (op === "terrain_power" && moveKey !== "psyblade"
+                 && !(TERRAIN_HALVED_BY_HAND.has(moveKey) && String(condition.terrain || "") === "Grassy")) {
         triggered = String(ctx.terrain) === String(condition.terrain || "");
-      } else if (op === "weather_power" && moveKey !== "hydrosteam") {
+      } else if (op === "weather_power" && moveKey !== "hydrosteam" && special !== "solar_beam") {
         triggered = String(ctx.weather) === String(condition.weather || "");
       } else if (op === "power_if_gravity" && this.gravityPower) {
         // Grav Apple: "power is boosted by 50% when the Gravity status is active". Gravity is a

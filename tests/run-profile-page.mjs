@@ -5,9 +5,10 @@
 //   node tests/run-profile-page.mjs
 //
 // It covers:
-//   * the top button row on the API pages: /api_guide and its old /api.html
-//     URL no longer offer an "API" button back to the page you are standing
-//     on, /api-rules/ still does, and styles.css carries the rule that keeps
+//   * the top button row on the API page: /api_guide no longer offers an
+//     "API" button back to the page you are standing on, the old /api.html
+//     URL is a redirect to it rather than a second copy of the page,
+//     /api-rules/ still does, and styles.css carries the rule that keeps
 //     the remaining buttons on one row (with a width estimate, so adding a
 //     tenth button to that header fails here rather than in the browser);
 //   * a Pokemon profile: the move, held item and Ability names are buttons
@@ -72,12 +73,18 @@ const navLabels = (nav) => [...nav.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/g)]
   .filter(Boolean);
 
 const guideNav = navOf(read("api_guide.html"));
-const apiHtmlNav = navOf(read("api.html"));
 const rulesNav = navOf(read("api-rules", "index.html"));
 
 check("api_guide.html has one nav-actions row", guideNav.length > 0);
 check("api_guide.html offers no API button", !/href="\/api_guide"/.test(guideNav), guideNav.match(/href="\/api_guide"[^>]*>[^<]*/)?.[0] || "");
-check("api.html offers no API button", !/href="\/api_guide"/.test(apiHtmlNav));
+// `api.html` WAS A SECOND COPY OF THIS PAGE and it had gone stale: no /api/rankings
+// endpoint, the old "Add Bot to Your Server" label, and a season tree still showing M4 as
+// the one being collected. It was never reachable -- `_redirects` sends /api.html to
+// /api_guide, and a redirect wins over a static file -- so nobody saw it, which is exactly
+// why it drifted. The file is gone; what matters is that the old URL still arrives.
+check("the old /api.html URL redirects to the guide",
+  /^\/api\.html\s+\/api_guide\s+30[12]\s*$/m.test(read("_redirects")));
+check("and there is no second copy of the page left", !existsSync(join(site, "api.html")));
 check("/api-rules/ still links to the API guide", /href="\/api_guide"/.test(rulesNav));
 // The header's Discord button belongs to the landing page only, so it is no longer in this
 // list. The page still has a Discord call to action, two of them, in the body: "Join Discord"

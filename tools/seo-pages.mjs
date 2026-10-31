@@ -579,6 +579,10 @@ export function writeSeoPages(ctx) {
 
   /* --------------------------------------------- per-Pokémon subpages */
 
+  /** The same test the subpage loop makes with `hasRows`, asked before the page is written. */
+  const hasSubpageRows = (record, category) =>
+    FORMATS.some((format) => categoryRows(summaryFor(record, format), category).length > 0);
+
   const SUBPAGES = [
     { segment: "moves", category: "move", label: "Moves", noun: "moveset",
       lead: (name) => `Every move ${name} runs in Pokemon Champions ranked battles, with usage percentages for Doubles and Singles.` },
@@ -664,11 +668,19 @@ export function writeSeoPages(ctx) {
           h1: title,
           lead,
           body: pokemonHero(record) + tables.join(""),
+          // Only the sibling subpages that WILL be written: `hasRows` is decided per category,
+          // so a Pokemon with move rows and no teammate rows gets a moves page and no
+          // teammates page, and a link to the second would be dead. `/teams/` is gated on the
+          // teammate rows because that is what the team-page loop below gates it on. The
+          // profile page applies the same rule from the other side -- see `subpageLinks` in
+          // generate-manifest.mjs, which had to be fixed for 348 dead links.
           related: linkList(`More ${record.name} data`, [
             { href: `/pokemon/${record.slug}/`, label: `${record.name} profile` },
-            ...SUBPAGES.filter((other) => other.segment !== sub.segment)
+            ...SUBPAGES.filter((other) => other.segment !== sub.segment && hasSubpageRows(record, other.category))
               .map((other) => ({ href: `/pokemon/${record.slug}/${other.segment}/`, label: `${record.name} ${other.label.toLowerCase()}` })),
-            { href: `/teams/${record.slug}/`, label: `${record.name} teams` }
+            ...(hasSubpageRows(record, "teammate")
+              ? [{ href: `/teams/${record.slug}/`, label: `${record.name} teams` }]
+              : [])
           ])
         })
       });

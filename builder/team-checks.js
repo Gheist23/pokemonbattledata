@@ -84,7 +84,7 @@ export const V514_CHECKS = [
   ["speed_tiers", "Speed Tiers",
     "Checks whether too many of the team sit at almost the same Speed, so one opposing Tailwind or Icy Wind changes the turn order for all of them at once."],
   ["lead_viability", "Lead Viability",
-    "Estimates how many of your fifteen lead pairs are worth bringing, from the turn-one tools each pair has. It is an estimate, not a played-out game."],
+    "Estimates how many of your fifteen lead pairs are worth leading with, from the turn-one tools each pair has. It is an estimate, not a played-out game."],
 ];
 
 /** The id does NOT change: every saved selection and all eight other references stay. */
@@ -335,7 +335,7 @@ const SINGLES_NO_EFFECT = new Set(["followme", "ragepowder", "spotlight", "helpi
 // `CheckRules.lead_viability` returns None in a Singles format, which removes the row there
 // too. Every term in that check is about a PAIR (fifteen pairs, only one Fake Out lands, two
 // Trick Room setters in one lead, Wide Guard, Helping Hand, redirection); a Singles lead is one
-// Pokemon, so "an estimated N of your 15 lead pairs are worth bringing" is a number about
+// Pokemon, so "an estimated N of your 15 lead pairs are worth leading with" is a number about
 // something the format does not have. There is a real Singles lead question, but this check
 // does not measure it and answering a different question under the same name would be
 // dishonest. coverage_gaps and speed_tiers are format-neutral and stay.
@@ -360,7 +360,7 @@ const SINGLES_DESCRIPTIONS = {
   // A check that cannot run has to say so where the player chooses it. Without this line the
   // Singles Customize list offered "Lead Viability", described it in terms of fifteen lead
   // PAIRS, let the player tick it, and then showed no row at all.
-  lead_viability: "Doubles only: estimates how many of your fifteen lead pairs are worth bringing. In Singles a lead is one Pokémon, not a pair, so this check is skipped.",
+  lead_viability: "Doubles only: estimates how many of your fifteen lead pairs are worth leading with. In Singles a lead is one Pokémon, not a pair, so this check is skipped.",
 };
 
 /** Whether an evaluator (or a stand-in with a `format`) is in Singles. */
@@ -1443,16 +1443,34 @@ export class TeamChecks {
         "give one of the two a turn-one tool, or add a third Pokemon so there is a choice", 2.0,
         `Needs attention = the only lead pair misses the playable bar of ${LEAD_BAR}.`, extra);
     }
-    if (playable <= redBar || playable <= yellowBar) {
-      const pieces = pairs.slice(0, 2).map((p) => `${p.members[0]} with ${p.members[1]}`);
+    // `redBar <= yellowBar` always (0.27 < 0.55 of the same total), so the old
+    // `playable <= redBar || playable <= yellowBar` was the second test twice.
+    if (playable <= yellowBar) {
+      const names = (list) => list.map((p) => `${p.members[0]} with ${p.members[1]}`);
+      const playablePairs = pairs.filter((p) => p.playable);
       const weak = pairs.filter((p) => !p.playable);
-      let why = `Your best openings are ${simpleJoin(pieces, 2)}.`;
-      if (weak.length) {
-        why += ` ${weak.length < NUMBER_WORDS.length ? countWord(weak.length) : weak.length} pair${weak.length !== 1 ? "s" : ""} have little more than raw damage between them.`;
+      let why;
+      if (playablePairs.length) {
+        // ONLY PAIRS THAT REACH THE BAR may be called an opening. This used to name the two
+        // HIGHEST-SCORING pairs whether or not they were playable, so 42 of the 1,945
+        // registered teams read "an estimated 0 of your 15 lead pairs are worth leading with"
+        // and then "Your best openings are ..." in the next breath -- the row contradicting
+        // itself about the very pairs it had just rejected.
+        why = playablePairs.length === 1
+          ? `Your one playable opening is ${names(playablePairs)[0]}.`
+          : `Your best openings are ${simpleJoin(names(playablePairs.slice(0, 2)), 2)}.`;
+        if (weak.length) {
+          why += ` ${weak.length < NUMBER_WORDS.length ? countWord(weak.length) : weak.length} pair${weak.length !== 1 ? "s" : ""} have little more than raw damage between them.`;
+        }
+      } else {
+        // Nothing reaches the bar. Naming the closest pairs is still useful -- that is where
+        // one turn-one tool would do the most good -- but they are not openings yet, and the
+        // weak-pair count would only repeat the total.
+        why = `Not one of your ${total} lead pairs has a turn-one tool to open with; the closest are ${simpleJoin(names(pairs.slice(0, 2)), 2)}.`;
       }
       why += ` ${honest}`;
       const fix = "give another Pokemon a turn-one tool so more pairs can open";
-      const summary = `an estimated ${playable} of your ${total} lead pairs are worth bringing`;
+      const summary = `an estimated ${playable} of your ${total} lead pairs are worth leading with`;
       if (playable <= redBar) {
         return this.row("lead_viability", "red", summary, why, fix, 4.4,
           `Problem = ${redBar} or fewer of the ${total} lead pairs reach the playable bar.`, extra);
@@ -1461,7 +1479,7 @@ export class TeamChecks {
         `Needs attention = ${yellowBar} or fewer of the ${total} lead pairs reach the playable bar.`, extra);
     }
     return this.row("lead_viability", "good",
-      `an estimated ${playable} of your ${total} lead pairs are worth bringing, judged from each pair's turn-one tools rather than a played-out game`,
+      `an estimated ${playable} of your ${total} lead pairs are worth leading with, judged from each pair's turn-one tools rather than a played-out game`,
       "Most openings have a turn-one tool, so the lead choice stays a real choice.", "", 0,
       `Good = more than ${yellowBar} of the ${total} lead pairs reach the playable bar.`, extra);
   }

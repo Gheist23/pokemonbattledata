@@ -477,7 +477,7 @@
     "fix": "give another Pokemon a turn-one tool so more pairs can open",
     "pressure": 2.0,
     "severity": "yellow",
-    "summary": "an estimated 5 of your 15 lead pairs are worth bringing",
+    "summary": "an estimated 5 of your 15 lead pairs are worth leading with",
     "threshold": "Needs attention = 8 or fewer of the 15 lead pairs reach the playable bar.",
     "why": "Your best openings are Arcanine-Hisui with Sylveon, Charizard with Arcanine-Hisui. 10 pairs have little more than raw damage between them. This is an estimate from each pair's turn-one tools, not a played-out game."
    },
@@ -865,9 +865,9 @@
     "fix": "give another Pokemon a turn-one tool so more pairs can open",
     "pressure": 4.4,
     "severity": "red",
-    "summary": "an estimated 0 of your 15 lead pairs are worth bringing",
+    "summary": "an estimated 0 of your 15 lead pairs are worth leading with",
     "threshold": "Problem = 4 or fewer of the 15 lead pairs reach the playable bar.",
-    "why": "Your best openings are Alakazam with Gengar, Alakazam with Grimmsnarl. 15 pairs have little more than raw damage between them. This is an estimate from each pair's turn-one tools, not a played-out game."
+    "why": "Not one of your 15 lead pairs has a turn-one tool to open with; the closest are Alakazam with Gengar, Alakazam with Grimmsnarl. This is an estimate from each pair's turn-one tools, not a played-out game."
    },
    "speed_tiers": {
     "check_id": "speed_tiers",
@@ -1248,9 +1248,9 @@
     "fix": "give another Pokemon a turn-one tool so more pairs can open",
     "pressure": 4.4,
     "severity": "red",
-    "summary": "an estimated 0 of your 15 lead pairs are worth bringing",
+    "summary": "an estimated 0 of your 15 lead pairs are worth leading with",
     "threshold": "Problem = 4 or fewer of the 15 lead pairs reach the playable bar.",
-    "why": "Your best openings are Alakazam with Milotic, Hariyama with Alakazam. 15 pairs have little more than raw damage between them. This is an estimate from each pair's turn-one tools, not a played-out game."
+    "why": "Not one of your 15 lead pairs has a turn-one tool to open with; the closest are Alakazam with Milotic, Hariyama with Alakazam. This is an estimate from each pair's turn-one tools, not a played-out game."
    },
    "speed_tiers": {
     "check_id": "speed_tiers",
@@ -1623,7 +1623,7 @@
     "fix": "give another Pokemon a turn-one tool so more pairs can open",
     "pressure": 2.0,
     "severity": "yellow",
-    "summary": "an estimated 5 of your 15 lead pairs are worth bringing",
+    "summary": "an estimated 5 of your 15 lead pairs are worth leading with",
     "threshold": "Needs attention = 8 or fewer of the 15 lead pairs reach the playable bar.",
     "why": "Your best openings are Arcanine-Hisui with Sylveon, Charizard with Arcanine-Hisui. 10 pairs have little more than raw damage between them. This is an estimate from each pair's turn-one tools, not a played-out game."
    },
@@ -1645,6 +1645,361 @@
     "summary": "the Top Meta is not loaded yet, so the contested Speed range cannot be measured",
     "threshold": "Not measured = there is no Top Meta, so there is no contested Speed range.",
     "why": "Nothing has been measured here: this check compares the team's Speeds against the range the Top Meta contests, and there is no Top Meta to compare them with."
+   }
+  },
+  "oneopening": {
+   "coverage_gaps": {
+    "check_id": "coverage_gaps",
+    "extra": {
+     "best_added_types_v514": [
+      {
+       "covers": 1,
+       "type": "Electric"
+      },
+      {
+       "covers": 1,
+       "type": "Grass"
+      }
+     ],
+     "coverage_attacking_types_v514": [
+      "Normal",
+      "Fire",
+      "Fighting",
+      "Poison",
+      "Ground",
+      "Flying",
+      "Psychic",
+      "Rock",
+      "Dragon",
+      "Dark",
+      "Steel"
+     ],
+     "coverage_bars_v514": {
+      "red": 8,
+      "yellow": 5
+     },
+     "coverage_gap_count_v514": 1,
+     "coverage_resisted_count_v514": 0,
+     "coverage_rows_v514": [
+      {
+       "best_multiplier": 1.0,
+       "name": "Milotic",
+       "types": [
+        "Water"
+       ]
+      }
+     ],
+     "coverage_top_x_v514": 30,
+     "meta_provisional_v514": false
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "only 1 of the Top 30 lacks a super-effective answer (Milotic), which is a normal amount to live with",
+    "threshold": "Good = fewer than 5 of the Top 30 without a super-effective answer.",
+    "why": "The team can bring super-effective damage to almost everything it will meet. The one it cannot is listed so you can decide whether to live with them."
+   },
+   "defensive_switch_ins": {
+    "check_id": "defensive_switch_ins",
+    "extra": {
+     "exposed": [],
+     "gated_types_v514": [
+      {
+       "exposure": 2.0,
+       "immunities": 2,
+       "meta_weight": 1.0,
+       "switch_ins": 2,
+       "type": "Ground",
+       "weak": 3
+      }
+     ],
+     "immune_counts": {
+      "Bug": 0,
+      "Dark": 0,
+      "Dragon": 0,
+      "Electric": 1,
+      "Fairy": 0,
+      "Fighting": 0,
+      "Fire": 0,
+      "Flying": 0,
+      "Ghost": 1,
+      "Grass": 0,
+      "Ground": 2,
+      "Ice": 0,
+      "Normal": 0,
+      "Poison": 2,
+      "Psychic": 1,
+      "Rock": 0,
+      "Steel": 0,
+      "Water": 0
+     },
+     "meta_provisional_v514": false,
+     "meta_type_weights_v514": {
+      "Bug": 0.5,
+      "Dark": 1.0,
+      "Dragon": 0.8,
+      "Electric": 0.6,
+      "Fairy": 0.8,
+      "Fighting": 1.0,
+      "Fire": 1.6,
+      "Flying": 0.6,
+      "Ghost": 0.6,
+      "Grass": 1.0,
+      "Ground": 1.0,
+      "Ice": 0.6,
+      "Normal": 2.8,
+      "Poison": 0.5,
+      "Psychic": 1.4,
+      "Rock": 1.0,
+      "Steel": 1.6,
+      "Water": 0.8
+     },
+     "meta_weighted_v514": true,
+     "resist_counts": {
+      "Bug": 4,
+      "Dark": 2,
+      "Dragon": 2,
+      "Electric": 1,
+      "Fairy": 2,
+      "Fighting": 2,
+      "Fire": 2,
+      "Flying": 3,
+      "Ghost": 2,
+      "Grass": 3,
+      "Ground": 2,
+      "Ice": 0,
+      "Normal": 3,
+      "Poison": 4,
+      "Psychic": 4,
+      "Rock": 2,
+      "Steel": 2,
+      "Water": 1
+     },
+     "severe": [],
+     "type_rows_v251": [],
+     "weak_counts": {
+      "Bug": 2,
+      "Dark": 1,
+      "Dragon": 1,
+      "Electric": 1,
+      "Fairy": 2,
+      "Fighting": 2,
+      "Fire": 2,
+      "Flying": 1,
+      "Ghost": 0,
+      "Grass": 1,
+      "Ground": 3,
+      "Ice": 1,
+      "Normal": 0,
+      "Poison": 0,
+      "Psychic": 1,
+      "Rock": 1,
+      "Steel": 1,
+      "Water": 2
+     }
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "three of your six lose to Ground, but two of the team resist it or are immune to it, so no attacking type hits enough of the team at once to matter",
+    "threshold": "Good = no attacking type reaches the weighted exposure bar with 3 or more members weak to it.",
+    "why": "One Ground attacker cannot reach enough of the team at once. That, and not how often the Top 30 attacks with Ground, is what keeps this green: it would still be green if that type were used at exactly the average rate."
+   },
+   "field_weather_consistency": {
+    "check_id": "field_weather_consistency",
+    "extra": {
+     "field_available_v514": [
+      "psychic",
+      "sand",
+      "terrain",
+      "weather"
+     ],
+     "field_problem_weights_v514": [],
+     "field_weight_v514": 0,
+     "problems": []
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "weather and terrain choices have no obvious internal conflict.",
+    "threshold": "Good = field dependencies have matching support and no detected conflict.",
+    "why": "The detected field tools support the current team instead of blocking it."
+   },
+   "lead_viability": {
+    "check_id": "lead_viability",
+    "extra": {
+     "lead_bar_v514": 5.6,
+     "lead_pair_count_v514": 15,
+     "lead_pairs_v514": [
+      {
+       "members": [
+        "Excadrill",
+        "Tyranitar-Mega"
+       ],
+       "playable": true,
+       "score": 5.6866666666666665
+      },
+      {
+       "members": [
+        "Salamence-Mega",
+        "Tyranitar-Mega"
+       ],
+       "playable": false,
+       "score": 5.586666666666666
+      },
+      {
+       "members": [
+        "Tyranitar-Mega",
+        "Indeedee"
+       ],
+       "playable": false,
+       "score": 5.586666666666666
+      },
+      {
+       "members": [
+        "Excadrill",
+        "Indeedee"
+       ],
+       "playable": false,
+       "score": 5.393333333333333
+      },
+      {
+       "members": [
+        "Excadrill",
+        "Salamence-Mega"
+       ],
+       "playable": false,
+       "score": 5.393333333333333
+      },
+      {
+       "members": [
+        "Salamence-Mega",
+        "Indeedee"
+       ],
+       "playable": false,
+       "score": 5.293333333333333
+      },
+      {
+       "members": [
+        "Tyranitar-Mega",
+        "Sneasler"
+       ],
+       "playable": false,
+       "score": 4.773333333333333
+      },
+      {
+       "members": [
+        "Excadrill",
+        "Sneasler"
+       ],
+       "playable": false,
+       "score": 4.58
+      },
+      {
+       "members": [
+        "Indeedee",
+        "Sneasler"
+       ],
+       "playable": false,
+       "score": 4.4799999999999995
+      },
+      {
+       "members": [
+        "Salamence-Mega",
+        "Sneasler"
+       ],
+       "playable": false,
+       "score": 4.4799999999999995
+      },
+      {
+       "members": [
+        "Tyranitar-Mega",
+        "Corviknight"
+       ],
+       "playable": false,
+       "score": 3.66
+      },
+      {
+       "members": [
+        "Excadrill",
+        "Corviknight"
+       ],
+       "playable": false,
+       "score": 3.466666666666667
+      },
+      {
+       "members": [
+        "Indeedee",
+        "Corviknight"
+       ],
+       "playable": false,
+       "score": 3.3666666666666663
+      },
+      {
+       "members": [
+        "Salamence-Mega",
+        "Corviknight"
+       ],
+       "playable": false,
+       "score": 3.3666666666666663
+      },
+      {
+       "members": [
+        "Corviknight",
+        "Sneasler"
+       ],
+       "playable": false,
+       "score": 2.5533333333333332
+      }
+     ],
+     "lead_playable_v514": 1,
+     "lead_severity_bars_v514": {
+      "red": 4,
+      "yellow": 8
+     }
+    },
+    "fix": "give another Pokemon a turn-one tool so more pairs can open",
+    "pressure": 4.4,
+    "severity": "red",
+    "summary": "an estimated 1 of your 15 lead pairs are worth leading with",
+    "threshold": "Problem = 4 or fewer of the 15 lead pairs reach the playable bar.",
+    "why": "Your one playable opening is Excadrill with Tyranitar-Mega. 14 pairs have little more than raw damage between them. This is an estimate from each pair's turn-one tools, not a played-out game."
+   },
+   "speed_tiers": {
+    "check_id": "speed_tiers",
+    "extra": {
+     "meta_provisional_v514": false,
+     "speed_band_v514": [
+      70.0,
+      167.0
+     ],
+     "speed_cluster_v514": {
+      "band": [
+       70.0,
+       167.0
+      ],
+      "high": 154.0,
+      "low": 135.0,
+      "members": [
+       "Tyranitar-Mega",
+       "Indeedee",
+       "Excadrill"
+      ],
+      "width": 19.0
+     },
+     "speed_flip_v514": {
+      "count": 1,
+      "name": "Pelipper",
+      "speed": 117.0
+     },
+     "speed_gate_v514": ""
+    },
+    "fix": "",
+    "pressure": 0.0,
+    "severity": "good",
+    "summary": "the team's Speeds are spread out enough that one Tailwind cannot reorder all of it at once",
+    "threshold": "Good = no group of 4 sits inside 20 Speed points in the range the Top 30 contests.",
+    "why": "No large group of the team shares a Speed tier inside the range the meta contests."
    }
   },
   "owner": {
@@ -1990,7 +2345,7 @@
     "fix": "",
     "pressure": 0.0,
     "severity": "good",
-    "summary": "an estimated 15 of your 15 lead pairs are worth bringing, judged from each pair's turn-one tools rather than a played-out game",
+    "summary": "an estimated 15 of your 15 lead pairs are worth leading with, judged from each pair's turn-one tools rather than a played-out game",
     "threshold": "Good = more than 8 of the 15 lead pairs reach the playable bar.",
     "why": "Most openings have a turn-one tool, so the lead choice stays a real choice."
    },
@@ -2613,7 +2968,7 @@
     "fix": "give another Pokemon a turn-one tool so more pairs can open",
     "pressure": 2.0,
     "severity": "yellow",
-    "summary": "an estimated 5 of your 15 lead pairs are worth bringing",
+    "summary": "an estimated 5 of your 15 lead pairs are worth leading with",
     "threshold": "Needs attention = 8 or fewer of the 15 lead pairs reach the playable bar.",
     "why": "Your best openings are Arcanine-Hisui with Sylveon, Charizard with Arcanine-Hisui. 10 pairs have little more than raw damage between them. This is an estimate from each pair's turn-one tools, not a played-out game."
    },
@@ -2654,7 +3009,7 @@
    }
   }
  },
- "fixture_id": "732f370f3404f0d5382a815eea31c03c",
+ "fixture_id": "c9beba0a1923697f1e7d0cf81b01e331",
  "labels": {
   "coverage_gaps": "Coverage Gaps",
   "defensive_switch_ins": "Shared Weakness",
@@ -4460,6 +4815,234 @@
     "types": [
      "Steel",
      "Ghost"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   }
+  ],
+  "oneopening": [
+   {
+    "_v514_attack": 187,
+    "_v514_best_power": 95,
+    "_v514_coverage_types": [
+     "Ground",
+     "Rock",
+     "Steel"
+    ],
+    "_v514_sp_attack": 63,
+    "ability": "Sand Rush",
+    "damaging_types": [
+     "Ground",
+     "Rock",
+     "Steel"
+    ],
+    "move_keys": [
+     "highhorsepower",
+     "ironhead",
+     "protect",
+     "rockslide"
+    ],
+    "moves": [
+     "Iron Head",
+     "High Horsepower",
+     "Rock Slide",
+     "Protect"
+    ],
+    "name": "Excadrill",
+    "priority": false,
+    "speed": 154,
+    "terrain_set": [],
+    "types": [
+     "Ground",
+     "Steel"
+    ],
+    "weather_set": [],
+    "weather_use": [
+     "sand"
+    ]
+   },
+   {
+    "_v514_attack": 148,
+    "_v514_best_power": 130,
+    "_v514_coverage_types": [
+     "Dragon",
+     "Fire",
+     "Normal"
+    ],
+    "_v514_sp_attack": 172,
+    "ability": "Aerilate",
+    "damaging_types": [
+     "Dragon",
+     "Fire",
+     "Normal"
+    ],
+    "move_keys": [
+     "dracometeor",
+     "flamethrower",
+     "hypervoice",
+     "protect"
+    ],
+    "moves": [
+     "Hyper Voice",
+     "Draco Meteor",
+     "Flamethrower",
+     "Protect"
+    ],
+    "name": "Salamence-Mega",
+    "priority": false,
+    "speed": 189,
+    "terrain_set": [],
+    "types": [
+     "Dragon",
+     "Flying"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 216,
+    "_v514_best_power": 80,
+    "_v514_coverage_types": [
+     "Dark",
+     "Fighting",
+     "Rock"
+    ],
+    "_v514_sp_attack": 103,
+    "ability": "Sand Stream",
+    "damaging_types": [
+     "Fighting",
+     "Rock"
+    ],
+    "move_keys": [
+     "knockoff",
+     "lowkick",
+     "protect",
+     "rockslide"
+    ],
+    "moves": [
+     "Rock Slide",
+     "Knock Off",
+     "Low Kick",
+     "Protect"
+    ],
+    "name": "Tyranitar-Mega",
+    "priority": false,
+    "speed": 135,
+    "terrain_set": [],
+    "types": [
+     "Rock",
+     "Dark"
+    ],
+    "weather_set": [
+     "sand"
+    ],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 76,
+    "_v514_best_power": 80,
+    "_v514_coverage_types": [
+     "Fire",
+     "Psychic"
+    ],
+    "_v514_sp_attack": 172,
+    "ability": "Psychic Surge",
+    "damaging_types": [
+     "Psychic"
+    ],
+    "move_keys": [
+     "expandingforce",
+     "mysticalfire",
+     "protect",
+     "trick"
+    ],
+    "moves": [
+     "Expanding Force",
+     "Mystical Fire",
+     "Trick",
+     "Protect"
+    ],
+    "name": "Indeedee",
+    "priority": false,
+    "speed": 147,
+    "terrain_set": [
+     "psychic"
+    ],
+    "types": [
+     "Psychic",
+     "Normal"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 108,
+    "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Dark",
+     "Flying"
+    ],
+    "_v514_sp_attack": 65,
+    "ability": "Mirror Armor",
+    "damaging_types": [
+     "Dark",
+     "Flying"
+    ],
+    "move_keys": [
+     "bravebird",
+     "bulkup",
+     "powertrip",
+     "roost"
+    ],
+    "moves": [
+     "Brave Bird",
+     "Power Trip",
+     "Bulk Up",
+     "Roost"
+    ],
+    "name": "Corviknight",
+    "priority": false,
+    "speed": 104,
+    "terrain_set": [],
+    "types": [
+     "Flying",
+     "Steel"
+    ],
+    "weather_set": [],
+    "weather_use": []
+   },
+   {
+    "_v514_attack": 200,
+    "_v514_best_power": 120,
+    "_v514_coverage_types": [
+     "Fighting",
+     "Poison"
+    ],
+    "_v514_sp_attack": 54,
+    "ability": "Unburden",
+    "damaging_types": [
+     "Fighting",
+     "Poison"
+    ],
+    "move_keys": [
+     "closecombat",
+     "coaching",
+     "direclaw",
+     "protect"
+    ],
+    "moves": [
+     "Dire Claw",
+     "Close Combat",
+     "Coaching",
+     "Protect"
+    ],
+    "name": "Sneasler",
+    "priority": false,
+    "speed": 172,
+    "terrain_set": [],
+    "types": [
+     "Fighting",
+     "Poison"
     ],
     "weather_set": [],
     "weather_use": []

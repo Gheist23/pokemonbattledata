@@ -29,7 +29,7 @@ import { TeamEvaluator } from "../builder/team-eval.js";
  *  identical either way, and regenerating one copy without the other still fails on both
  *  sides.  Regenerate with tests/gen_team_check_fixture_v514.py in the Companion repository,
  *  which writes both copies and prints the id. */
-const FIXTURE_ID = "732f370f3404f0d5382a815eea31c03c";
+const FIXTURE_ID = "c9beba0a1923697f1e7d0cf81b01e331";
 
 /** The ten ids the Customize list offered before V514, in order. */
 const PRE_V514_IDS = [

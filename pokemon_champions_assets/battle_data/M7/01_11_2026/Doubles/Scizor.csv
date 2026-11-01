@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scizor,85,move,1,Bullet Punch,96.9%,,,,,,,,
+Scizor,85,move,1,Bullet Punch,97.0%,,,,,,,,
 Scizor,85,move,2,Bug Bite,71.3%,,,,,,,,
-Scizor,85,move,3,Protect,66.4%,,,,,,,,
+Scizor,85,move,3,Protect,66.5%,,,,,,,,
 Scizor,85,move,4,Swords Dance,36.7%,,,,,,,,
 Scizor,85,move,5,Close Combat,28.4%,,,,,,,,
 Scizor,85,move,6,Dual Wingbeat,25.5%,,,,,,,,
@@ -9,8 +9,8 @@ Scizor,85,move,7,U-turn,10.3%,,,,,,,,
 Scizor,85,move,8,Knock Off,8.7%,,,,,,,,
 Scizor,85,move,9,Tailwind,7.1%,,,,,,,,
 Scizor,85,move,10,Trailblaze,5.4%,,,,,,,,
-Scizor,85,held_item,1,Scizorite,33.9%,,,,,,,,
-Scizor,85,held_item,2,Life Orb,32.6%,,,,,,,,
+Scizor,85,held_item,1,Scizorite,34.0%,,,,,,,,
+Scizor,85,held_item,2,Life Orb,32.7%,,,,,,,,
 Scizor,85,held_item,3,Metal Coat,7.1%,,,,,,,,
 Scizor,85,held_item,4,Focus Sash,5.7%,,,,,,,,
 Scizor,85,held_item,5,Occa Berry,3.6%,,,,,,,,
@@ -29,9 +29,9 @@ Scizor,85,teammate,7,Pelipper,,,,,,,,,
 Scizor,85,teammate,8,Incineroar,,,,,,,,,
 Scizor,85,teammate,9,Charizard,,,,,,,,,
 Scizor,85,teammate,10,Archaludon,,,,,,,,,
-Scizor,85,stat_alignment,1,Adamant,79.0%,Attack,Sp. Atk,,,,,,
-Scizor,85,stat_alignment,2,Brave,9.2%,Attack,Speed,,,,,,
-Scizor,85,stat_alignment,3,Jolly,4.5%,Speed,Sp. Atk,,,,,,
+Scizor,85,stat_alignment,1,Adamant,78.9%,Attack,Sp. Atk,,,,,,
+Scizor,85,stat_alignment,2,Brave,9.3%,Attack,Speed,,,,,,
+Scizor,85,stat_alignment,3,Jolly,4.4%,Speed,Sp. Atk,,,,,,
 Scizor,85,stat_alignment,4,Careful,2.6%,Sp. Def,Sp. Atk,,,,,,
 Scizor,85,stat_alignment,5,Impish,1.6%,Defense,Sp. Atk,,,,,,
 Scizor,85,stat_alignment,6,Naughty,0.9%,Attack,Sp. Def,,,,,,
@@ -42,7 +42,7 @@ Scizor,85,stat_alignment,10,Sassy,0.3%,Sp. Def,Speed,,,,,,
 Scizor,85,stat_points,1,,20.9%,,,32,32,0,0,2,0
 Scizor,85,stat_points,2,,10.5%,,,32,32,2,0,0,0
 Scizor,85,stat_points,3,,6.8%,,,32,32,0,0,0,2
-Scizor,85,stat_points,4,,6.2%,,,2,32,0,0,0,32
+Scizor,85,stat_points,4,,6.1%,,,2,32,0,0,0,32
 Scizor,85,stat_points,5,,2.8%,,,2,32,32,0,0,0
 Scizor,85,stat_points,6,,2.4%,,,0,32,0,0,2,32
 Scizor,85,stat_points,7,,2.3%,,,14,32,2,0,0,18

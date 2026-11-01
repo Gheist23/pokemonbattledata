@@ -1166,14 +1166,16 @@ export class DamageEngine {
       meta.power = int(ctx.move_power_override);
       if (meta.type && meta.category) delete meta.missing_metadata;
     }
-    // V445 drops the spread modifier for a single target, but the description
-    // registry sits outside it and restores `spread` for the moves it has
-    // structural data for, so in the app the rule only reaches the others.
-    const targets = ctx.actual_spread_targets_v445;
-    if (targets !== undefined && targets !== null && int(targets) <= 1 && !meta.registry_spread) {
-      meta.spread_capable_v445 = Boolean(meta.spread);
-      meta.spread = false;
-    }
+    // V547: a spread move keeps its 0.75 in Doubles -- all of them, or none of them. V445
+    // declared the app's calculator panel a one-target panel and cleared `spread`, but the
+    // description registry runs outside that layer and wrote each move's own `spread` straight
+    // back, so the rule reached only the three moves whose registry row says nothing about
+    // spreading -- Haze, Perish Song and Make It Rain, of which only the last deals damage.
+    // It read 156 where its 68 siblings read 117, decided by nothing but whether a CSV row
+    // happened to mention spreading. This engine mirrored that exception set exactly, through
+    // a `registry_spread` flag the exporter wrote for no other purpose. The app has withdrawn
+    // the rule, so the mirror goes with it. `registry_spread` stays in app-data.json because
+    // team-autobuild.js reads it as an alias of `spread`; nothing here does.
     delete meta.registry_spread;
     return meta;
   }

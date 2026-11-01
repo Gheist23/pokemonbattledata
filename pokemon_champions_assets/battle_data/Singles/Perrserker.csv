@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Perrserker,245,move,1,Iron Head,72.1%,,,,,,,,
-Perrserker,245,move,2,Fake Out,49.2%,,,,,,,,
-Perrserker,245,move,3,Metal Burst,40.2%,,,,,,,,
-Perrserker,245,move,4,Close Combat,38.7%,,,,,,,,
-Perrserker,245,move,5,Knock Off,23.3%,,,,,,,,
-Perrserker,245,move,6,Stealth Rock,20.5%,,,,,,,,
+Perrserker,245,move,1,Iron Head,72.4%,,,,,,,,
+Perrserker,245,move,2,Fake Out,49.5%,,,,,,,,
+Perrserker,245,move,3,Metal Burst,40.3%,,,,,,,,
+Perrserker,245,move,4,Close Combat,38.5%,,,,,,,,
+Perrserker,245,move,5,Knock Off,23.0%,,,,,,,,
+Perrserker,245,move,6,Stealth Rock,20.4%,,,,,,,,
 Perrserker,245,move,7,Play Rough,16.5%,,,,,,,,
-Perrserker,245,move,8,U-turn,11.5%,,,,,,,,
-Perrserker,245,move,9,Iron Tail,10.7%,,,,,,,,
-Perrserker,245,move,10,Taunt,10.3%,,,,,,,,
-Perrserker,245,held_item,1,Focus Sash,37.6%,,,,,,,,
-Perrserker,245,held_item,2,Life Orb,9.4%,,,,,,,,
+Perrserker,245,move,8,U-turn,11.4%,,,,,,,,
+Perrserker,245,move,9,Taunt,10.6%,,,,,,,,
+Perrserker,245,move,10,Iron Tail,10.6%,,,,,,,,
+Perrserker,245,held_item,1,Focus Sash,37.7%,,,,,,,,
+Perrserker,245,held_item,2,Life Orb,9.3%,,,,,,,,
 Perrserker,245,held_item,3,Metal Coat,6.9%,,,,,,,,
-Perrserker,245,held_item,4,Air Balloon,6.7%,,,,,,,,
+Perrserker,245,held_item,4,Air Balloon,6.6%,,,,,,,,
 Perrserker,245,held_item,5,Quick Claw,6.5%,,,,,,,,
-Perrserker,245,held_item,6,Sitrus Berry,6.1%,,,,,,,,
-Perrserker,245,held_item,7,Rocky Helmet,5.2%,,,,,,,,
-Perrserker,245,held_item,8,Bright Powder,5.0%,,,,,,,,
+Perrserker,245,held_item,6,Sitrus Berry,6.0%,,,,,,,,
+Perrserker,245,held_item,7,Rocky Helmet,5.1%,,,,,,,,
+Perrserker,245,held_item,8,Bright Powder,4.9%,,,,,,,,
 Perrserker,245,held_item,9,Leftovers,4.7%,,,,,,,,
 Perrserker,245,held_item,10,Choice Scarf,2.6%,,,,,,,,
 Perrserker,245,teammate,1,Garchomp,,,,,,,,,
@@ -29,26 +29,26 @@ Perrserker,245,teammate,7,Lucario,,,,,,,,,
 Perrserker,245,teammate,8,Primarina,,,,,,,,,
 Perrserker,245,teammate,9,Incineroar,,,,,,,,,
 Perrserker,245,teammate,10,Meowscarada,,,,,,,,,
-Perrserker,245,stat_alignment,1,Adamant,50.2%,Attack,Sp. Atk,,,,,,
-Perrserker,245,stat_alignment,2,Brave,20.3%,Attack,Speed,,,,,,
+Perrserker,245,stat_alignment,1,Adamant,50.3%,Attack,Sp. Atk,,,,,,
+Perrserker,245,stat_alignment,2,Brave,20.2%,Attack,Speed,,,,,,
 Perrserker,245,stat_alignment,3,Careful,7.0%,Sp. Def,Sp. Atk,,,,,,
-Perrserker,245,stat_alignment,4,Impish,6.4%,Defense,Sp. Atk,,,,,,
+Perrserker,245,stat_alignment,4,Impish,6.5%,Defense,Sp. Atk,,,,,,
 Perrserker,245,stat_alignment,5,Jolly,5.0%,Speed,Sp. Atk,,,,,,
 Perrserker,245,stat_alignment,6,Timid,2.8%,Speed,Attack,,,,,,
 Perrserker,245,stat_alignment,7,Naughty,2.8%,Attack,Sp. Def,,,,,,
 Perrserker,245,stat_alignment,8,Relaxed,2.5%,Defense,Speed,,,,,,
 Perrserker,245,stat_alignment,9,Sassy,1.0%,Sp. Def,Speed,,,,,,
 Perrserker,245,stat_alignment,10,Lax,0.4%,Defense,Sp. Def,,,,,,
-Perrserker,245,stat_points,1,,24.5%,,,32,32,2,0,0,0
-Perrserker,245,stat_points,2,,11.0%,,,32,32,0,0,2,0
-Perrserker,245,stat_points,3,,7.4%,,,2,32,0,0,0,32
+Perrserker,245,stat_points,1,,24.4%,,,32,32,2,0,0,0
+Perrserker,245,stat_points,2,,10.9%,,,32,32,0,0,2,0
+Perrserker,245,stat_points,3,,7.3%,,,2,32,0,0,0,32
 Perrserker,245,stat_points,4,,6.1%,,,2,32,32,0,0,0
 Perrserker,245,stat_points,5,,4.3%,,,0,32,2,0,0,32
-Perrserker,245,stat_points,6,,3.5%,,,32,0,2,0,32,0
+Perrserker,245,stat_points,6,,3.6%,,,32,0,2,0,32,0
 Perrserker,245,stat_points,7,,2.8%,,,0,32,32,0,2,0
-Perrserker,245,stat_points,8,,2.8%,,,2,0,0,32,0,32
-Perrserker,245,stat_points,9,,2.7%,,,30,32,4,0,0,0
-Perrserker,245,stat_points,10,,2.3%,,,32,32,0,0,0,0
-Perrserker,245,ability,1,Tough Claws,52.2%,,,,,,,,
-Perrserker,245,ability,2,Steely Spirit,38.9%,,,,,,,,
-Perrserker,245,ability,3,Battle Armor,8.9%,,,,,,,,
+Perrserker,245,stat_points,8,,2.7%,,,2,0,0,32,0,32
+Perrserker,245,stat_points,9,,2.6%,,,30,32,4,0,0,0
+Perrserker,245,stat_points,10,,2.6%,,,32,32,0,0,0,0
+Perrserker,245,ability,1,Tough Claws,51.9%,,,,,,,,
+Perrserker,245,ability,2,Steely Spirit,39.1%,,,,,,,,
+Perrserker,245,ability,3,Battle Armor,9.0%,,,,,,,,

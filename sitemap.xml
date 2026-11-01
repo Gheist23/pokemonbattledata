@@ -2701,13 +2701,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/dragon-pulse/</loc>
+    <loc>https://championsbattledata.com/moves/flamethrower/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/flamethrower/</loc>
+    <loc>https://championsbattledata.com/moves/dragon-pulse/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -2725,13 +2725,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/body-slam/</loc>
+    <loc>https://championsbattledata.com/moves/fire-spin/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/fire-spin/</loc>
+    <loc>https://championsbattledata.com/moves/body-slam/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -2989,12 +2989,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/weather-ball/</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/memento/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
@@ -3091,25 +3085,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/cross-poison/</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/first-impression/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/string-shot/</loc>
+    <loc>https://championsbattledata.com/moves/cross-poison/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/poison-jab/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/moves/string-shot/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -3242,6 +3236,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/round/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/moves/weather-ball/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -4057,6 +4057,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/moves/venoshock/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/moves/acrobatics/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
@@ -4741,12 +4747,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/venoshock/</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/overdrive/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
@@ -4951,12 +4951,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/red-card/</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/items/spell-tag/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
@@ -5012,6 +5006,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/hard-stone/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/red-card/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>

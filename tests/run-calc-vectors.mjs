@@ -117,6 +117,11 @@ const FIELDS = [
   "hit_count", "move_accuracy_percent", "attacker_speed", "defender_speed", "speed_tie",
   "focus_sash_active", "sturdy_active", "sitrus_berry_active", "sitrus_heal", "max_hp",
   "current_hp", "summary", "charged_state_active", "recharge_move", "self_drop_v494",
+  // V548: the modifiers the calculation named, as one line. The only compared field that
+  // says WHY a number is what it is, so a modifier applied on one side and not the other
+  // is a text difference here instead of hiding inside a range. See run-modifier-line.mjs
+  // for the cases a random vector will not reach (a suppressed weather, a refused crit).
+  "modifier_line",
 ];
 
 let failures = 0;

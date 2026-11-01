@@ -137,6 +137,10 @@ function renderResults() {
       h("h2", { class: "bd-verdict-title" }, koHeading(selectedSide, selectedMove)),
       h("p", { class: "bd-verdict-ko" }, model.formatKoOdds(result)),
       h("p", { class: "bd-verdict-damage" }, `Damage: ${result.range} HP  |  ${result.percent}`, result.recoil_text ? h("span", { class: "bd-recoil" }, ` · ${result.recoil_text}`) : null),
+      // V548: the modifiers behind that number, named. The engine publishes them as
+      // `modifier_line` (and one `details` entry each) exactly when it applied them, so a
+      // suppressed weather and a refused critical hit are absent rather than announced.
+      result.modifier_line ? h("p", { class: "bd-verdict-mods" }, result.modifier_line) : null,
       h("p", { class: "bd-verdict-note" }, [result.ko, ...(result.warnings || []).slice(0, 2).map((w) => `Missing exact data: ${w}`)].filter(Boolean).join("  |  ")),
       h("p", { class: "bd-verdict-speed" }, speedLine(result, selectedSide)));
   } else {

@@ -2285,6 +2285,13 @@ export class DamageEngine {
     else if (weather === "Rain" && moveType === "Water") generalMods.push(["Rain", 1.5]);
     else if (weather === "Rain" && moveType === "Fire") generalMods.push(["Rain", 0.5]);
     if (critical) generalMods.push(["Critical", 1.5]);
+    // V548: an applied modifier is NAMED, not just applied. Mirrors
+    // `damage_modifier_detail_v548.py`: one `details` entry per modifier, which `resultRecord`
+    // joins into `modifier_line` -- a field all 3000 calc vectors compare, so the two engines
+    // cannot drift apart on this line. `weather` is the SUPPRESSED weather and `moveType` the
+    // settled type, which is what makes the line true rather than plausible. Fixed-damage
+    // moves need no guard here: `fixed` returns above, before generalMods exists.
+    for (const [label, amount] of generalMods) details.push(`${MODIFIER_PREFIX}${label} ×${amount}`);
 
     const hasStab = (atkData.types || []).includes(moveType) || atkAbility === "protean" || atkAbility === "libero";
     const stab = hasStab && atkAbility === "adaptability" ? 2.0 : hasStab ? 1.5 : 1.0;
@@ -2473,6 +2480,22 @@ export function koText(rolls, hp) {
   return "No guaranteed 2HKO from raw damage";
 }
 
+/** The one spelling both engines share; `damage_modifier_detail_v548.py` holds the other copy. */
+export const MODIFIER_PREFIX = "Damage modifier: ";
+export const MODIFIER_SEPARATOR = "  ·  ";
+
+/** The named modifiers that survived the calculation, as the panel and the calc page show them. */
+export function modifierLine(details) {
+  const parts = [];
+  for (const entry of details || []) {
+    const text = String(entry);
+    if (!text.startsWith(MODIFIER_PREFIX)) continue;
+    const rest = text.slice(MODIFIER_PREFIX.length).trim();
+    if (rest && !parts.includes(rest)) parts.push(rest);
+  }
+  return parts.join(MODIFIER_SEPARATOR);
+}
+
 function resultRecord(attacker, defender, moveName, rolls, maxHp, currentHp, details, warnings, extra = null) {
   rolls = (rolls && rolls.length ? rolls : [0]).map((v) => Math.max(0, Math.trunc(v)));
   const lo = Math.min(...rolls);
@@ -2490,6 +2513,7 @@ function resultRecord(attacker, defender, moveName, rolls, maxHp, currentHp, det
     current_hp: Math.trunc(currentHp),
     max_hp: Math.trunc(maxHp),
     random_rolls_visible: false,
+    modifier_line: modifierLine(details),
   };
   if (extra) Object.assign(result, extra);
   return result;

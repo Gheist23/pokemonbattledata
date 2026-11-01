@@ -324,6 +324,7 @@
 .bd-verdict-title { margin: 0.15rem 0 0; font-family: var(--bd-mono); font-size: clamp(1rem, 2vw, 1.25rem); color: #fff3b0; }
 .bd-verdict-ko { font-size: 1.02rem; font-weight: 800; color: #fff3b0; }
 .bd-verdict-damage { font-family: var(--bd-mono); font-size: 0.84rem; color: #d7f7e3; }
+.bd-verdict-mods { font-family: var(--bd-mono); font-size: 0.74rem; color: #c7d7f0; }
 .bd-verdict-note,
 .bd-verdict-speed { font-size: 0.78rem; color: var(--muted); }
 .bd-effects {

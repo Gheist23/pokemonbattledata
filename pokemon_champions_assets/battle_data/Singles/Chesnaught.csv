@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Chesnaught,162,move,1,Body Press,78.4%,,,,,,,,
 Chesnaught,162,move,2,Iron Defense,66.1%,,,,,,,,
-Chesnaught,162,move,3,Synthesis,65.4%,,,,,,,,
+Chesnaught,162,move,3,Synthesis,65.3%,,,,,,,,
 Chesnaught,162,move,4,Earthquake,36.9%,,,,,,,,
 Chesnaught,162,move,5,Leech Seed,30.6%,,,,,,,,
 Chesnaught,162,move,6,Wood Hammer,20.6%,,,,,,,,
@@ -17,8 +17,8 @@ Chesnaught,162,held_item,5,Focus Sash,0.7%,,,,,,,,
 Chesnaught,162,held_item,6,Big Root,0.5%,,,,,,,,
 Chesnaught,162,held_item,7,Lum Berry,0.4%,,,,,,,,
 Chesnaught,162,held_item,8,Life Orb,0.3%,,,,,,,,
-Chesnaught,162,held_item,9,Quick Claw,0.2%,,,,,,,,
-Chesnaught,162,held_item,10,Shed Shell,0.2%,,,,,,,,
+Chesnaught,162,held_item,9,Black Belt,0.2%,,,,,,,,
+Chesnaught,162,held_item,10,Quick Claw,0.2%,,,,,,,,
 Chesnaught,162,teammate,1,Toxapex,,,,,,,,,
 Chesnaught,162,teammate,2,Corviknight,,,,,,,,,
 Chesnaught,162,teammate,3,Slowbro,,,,,,,,,
@@ -29,9 +29,9 @@ Chesnaught,162,teammate,7,Snorlax,,,,,,,,,
 Chesnaught,162,teammate,8,Tyranitar,,,,,,,,,
 Chesnaught,162,teammate,9,Skeledirge,,,,,,,,,
 Chesnaught,162,teammate,10,Charizard,,,,,,,,,
-Chesnaught,162,stat_alignment,1,Impish,70.8%,Defense,Sp. Atk,,,,,,
-Chesnaught,162,stat_alignment,2,Adamant,9.7%,Attack,Sp. Atk,,,,,,
-Chesnaught,162,stat_alignment,3,Careful,9.0%,Sp. Def,Sp. Atk,,,,,,
+Chesnaught,162,stat_alignment,1,Impish,70.7%,Defense,Sp. Atk,,,,,,
+Chesnaught,162,stat_alignment,2,Adamant,9.8%,Attack,Sp. Atk,,,,,,
+Chesnaught,162,stat_alignment,3,Careful,8.9%,Sp. Def,Sp. Atk,,,,,,
 Chesnaught,162,stat_alignment,4,Relaxed,3.2%,Defense,Speed,,,,,,
 Chesnaught,162,stat_alignment,5,Bold,2.8%,Defense,Attack,,,,,,
 Chesnaught,162,stat_alignment,6,Brave,1.6%,Attack,Speed,,,,,,
@@ -39,15 +39,15 @@ Chesnaught,162,stat_alignment,7,Jolly,1.1%,Speed,Sp. Atk,,,,,,
 Chesnaught,162,stat_alignment,8,Sassy,0.7%,Sp. Def,Speed,,,,,,
 Chesnaught,162,stat_alignment,9,Naughty,0.5%,Attack,Sp. Def,,,,,,
 Chesnaught,162,stat_alignment,10,Lonely,0.2%,Attack,Defense,,,,,,
-Chesnaught,162,stat_points,1,,44.4%,,,32,0,32,0,2,0
+Chesnaught,162,stat_points,1,,44.3%,,,32,0,32,0,2,0
 Chesnaught,162,stat_points,2,,5.0%,,,32,2,32,0,0,0
 Chesnaught,162,stat_points,3,,4.4%,,,32,0,2,0,32,0
-Chesnaught,162,stat_points,4,,3.5%,,,32,0,32,0,0,2
+Chesnaught,162,stat_points,4,,3.6%,,,32,0,32,0,0,2
 Chesnaught,162,stat_points,5,,2.7%,,,2,32,32,0,0,0
-Chesnaught,162,stat_points,6,,2.3%,,,32,32,2,0,0,0
+Chesnaught,162,stat_points,6,,2.4%,,,32,32,2,0,0,0
 Chesnaught,162,stat_points,7,,1.9%,,,32,32,0,0,2,0
 Chesnaught,162,stat_points,8,,1.9%,,,32,0,32,0,0,0
 Chesnaught,162,stat_points,9,,1.4%,,,32,0,28,0,6,0
-Chesnaught,162,stat_points,10,,1.1%,,,2,0,32,0,32,0
+Chesnaught,162,stat_points,10,,1.1%,,,32,0,18,0,16,0
 Chesnaught,162,ability,1,Bulletproof,93.3%,,,,,,,,
 Chesnaught,162,ability,2,Overgrow,6.7%,,,,,,,,

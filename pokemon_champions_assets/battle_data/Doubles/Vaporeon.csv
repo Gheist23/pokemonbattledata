@@ -2,7 +2,7 @@ pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_point
 Vaporeon,166,move,1,Scald,57.2%,,,,,,,,
 Vaporeon,166,move,2,Ice Beam,50.6%,,,,,,,,
 Vaporeon,166,move,3,Calm Mind,44.7%,,,,,,,,
-Vaporeon,166,move,4,Protect,39.3%,,,,,,,,
+Vaporeon,166,move,4,Protect,39.2%,,,,,,,,
 Vaporeon,166,move,5,Muddy Water,31.7%,,,,,,,,
 Vaporeon,166,move,6,Acid Armor,23.3%,,,,,,,,
 Vaporeon,166,move,7,Detect,17.8%,,,,,,,,
@@ -10,10 +10,10 @@ Vaporeon,166,move,8,Surf,14.9%,,,,,,,,
 Vaporeon,166,move,9,Shadow Ball,13.2%,,,,,,,,
 Vaporeon,166,move,10,Baton Pass,12.1%,,,,,,,,
 Vaporeon,166,held_item,1,Leftovers,46.6%,,,,,,,,
-Vaporeon,166,held_item,2,Sitrus Berry,15.5%,,,,,,,,
+Vaporeon,166,held_item,2,Sitrus Berry,15.6%,,,,,,,,
 Vaporeon,166,held_item,3,Mystic Water,8.9%,,,,,,,,
 Vaporeon,166,held_item,4,Life Orb,4.5%,,,,,,,,
-Vaporeon,166,held_item,5,Grassy Seed,3.3%,,,,,,,,
+Vaporeon,166,held_item,5,Grassy Seed,3.4%,,,,,,,,
 Vaporeon,166,held_item,6,Quick Claw,2.8%,,,,,,,,
 Vaporeon,166,held_item,7,Shell Bell,2.3%,,,,,,,,
 Vaporeon,166,held_item,8,Psychic Seed,2.2%,,,,,,,,
@@ -48,6 +48,6 @@ Vaporeon,166,stat_points,6,,2.8%,,,2,0,32,0,32,0
 Vaporeon,166,stat_points,7,,2.5%,,,32,0,2,0,32,0
 Vaporeon,166,stat_points,8,,2.2%,,,0,0,27,7,32,0
 Vaporeon,166,stat_points,9,,1.8%,,,32,0,32,0,0,2
-Vaporeon,166,stat_points,10,,1.8%,,,32,0,32,2,0,0
-Vaporeon,166,ability,1,Water Absorb,92.2%,,,,,,,,
-Vaporeon,166,ability,2,Hydration,7.8%,,,,,,,,
+Vaporeon,166,stat_points,10,,1.7%,,,32,0,32,2,0,0
+Vaporeon,166,ability,1,Water Absorb,92.1%,,,,,,,,
+Vaporeon,166,ability,2,Hydration,7.9%,,,,,,,,

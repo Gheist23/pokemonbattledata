@@ -1,36 +1,36 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom,256,move,1,Will-O-Wisp,62.2%,,,,,,,,
+Rotom,256,move,1,Will-O-Wisp,62.4%,,,,,,,,
 Rotom,256,move,2,Thunderbolt,57.2%,,,,,,,,
-Rotom,256,move,3,Volt Switch,56.9%,,,,,,,,
+Rotom,256,move,3,Volt Switch,57.1%,,,,,,,,
 Rotom,256,move,4,Shadow Ball,48.1%,,,,,,,,
-Rotom,256,move,5,Hex,35.7%,,,,,,,,
+Rotom,256,move,5,Hex,35.9%,,,,,,,,
 Rotom,256,move,6,Trick,19.1%,,,,,,,,
-Rotom,256,move,7,Thunder Wave,17.4%,,,,,,,,
-Rotom,256,move,8,Pain Split,15.5%,,,,,,,,
-Rotom,256,move,9,Light Screen,15.1%,,,,,,,,
-Rotom,256,move,10,Nasty Plot,11.9%,,,,,,,,
+Rotom,256,move,7,Thunder Wave,17.3%,,,,,,,,
+Rotom,256,move,8,Pain Split,15.4%,,,,,,,,
+Rotom,256,move,9,Light Screen,15.0%,,,,,,,,
+Rotom,256,move,10,Nasty Plot,11.8%,,,,,,,,
 Rotom,256,held_item,1,Choice Scarf,23.7%,,,,,,,,
-Rotom,256,held_item,2,Focus Sash,18.7%,,,,,,,,
-Rotom,256,held_item,3,Sitrus Berry,10.9%,,,,,,,,
-Rotom,256,held_item,4,Life Orb,9.2%,,,,,,,,
-Rotom,256,held_item,5,Leftovers,7.8%,,,,,,,,
-Rotom,256,held_item,6,Light Clay,4.9%,,,,,,,,
+Rotom,256,held_item,2,Focus Sash,19.0%,,,,,,,,
+Rotom,256,held_item,3,Sitrus Berry,10.8%,,,,,,,,
+Rotom,256,held_item,4,Life Orb,9.1%,,,,,,,,
+Rotom,256,held_item,5,Leftovers,7.9%,,,,,,,,
+Rotom,256,held_item,6,Light Clay,5.0%,,,,,,,,
 Rotom,256,held_item,7,Wide Lens,4.0%,,,,,,,,
-Rotom,256,held_item,8,Rocky Helmet,3.3%,,,,,,,,
-Rotom,256,held_item,9,Wise Glasses,3.0%,,,,,,,,
+Rotom,256,held_item,8,Rocky Helmet,3.2%,,,,,,,,
+Rotom,256,held_item,9,Wise Glasses,2.9%,,,,,,,,
 Rotom,256,held_item,10,Bright Powder,2.8%,,,,,,,,
 Rotom,256,teammate,1,Garchomp,,,,,,,,,
 Rotom,256,teammate,2,Primarina,,,,,,,,,
 Rotom,256,teammate,3,Charizard,,,,,,,,,
 Rotom,256,teammate,4,Milotic,,,,,,,,,
 Rotom,256,teammate,5,Arcanine-Hisui,,,,,,,,,
-Rotom,256,teammate,6,Mimikyu,,,,,,,,,
-Rotom,256,teammate,7,Lucario,,,,,,,,,
+Rotom,256,teammate,6,Lucario,,,,,,,,,
+Rotom,256,teammate,7,Mimikyu,,,,,,,,,
 Rotom,256,teammate,8,Zoroark-Hisui,,,,,,,,,
 Rotom,256,teammate,9,Gengar,,,,,,,,,
-Rotom,256,teammate,10,Snorlax,,,,,,,,,
-Rotom,256,stat_alignment,1,Timid,51.0%,Speed,Attack,,,,,,
-Rotom,256,stat_alignment,2,Modest,22.9%,Sp. Atk,Attack,,,,,,
+Rotom,256,teammate,10,Incineroar,,,,,,,,,
+Rotom,256,stat_alignment,1,Timid,51.1%,Speed,Attack,,,,,,
+Rotom,256,stat_alignment,2,Modest,22.8%,Sp. Atk,Attack,,,,,,
 Rotom,256,stat_alignment,3,Bold,13.1%,Defense,Attack,,,,,,
 Rotom,256,stat_alignment,4,Calm,6.8%,Sp. Def,Attack,,,,,,
 Rotom,256,stat_alignment,5,Hasty,1.9%,Speed,Defense,,,,,,
@@ -40,7 +40,7 @@ Rotom,256,stat_alignment,8,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,
 Rotom,256,stat_alignment,9,Relaxed,0.5%,Defense,Speed,,,,,,
 Rotom,256,stat_alignment,10,Adamant,0.3%,Attack,Sp. Atk,,,,,,
 Rotom,256,stat_points,1,,34.7%,,,2,0,0,32,0,32
-Rotom,256,stat_points,2,,5.9%,,,0,0,2,32,0,32
+Rotom,256,stat_points,2,,5.8%,,,0,0,2,32,0,32
 Rotom,256,stat_points,3,,5.1%,,,0,0,0,32,0,32
 Rotom,256,stat_points,4,,4.4%,,,32,0,32,0,0,2
 Rotom,256,stat_points,5,,4.0%,,,32,0,32,2,0,0
@@ -48,5 +48,5 @@ Rotom,256,stat_points,6,,2.7%,,,0,0,32,32,2,0
 Rotom,256,stat_points,7,,2.7%,,,32,0,17,0,17,0
 Rotom,256,stat_points,8,,2.6%,,,26,0,3,21,16,0
 Rotom,256,stat_points,9,,2.4%,,,32,0,2,32,0,0
-Rotom,256,stat_points,10,,2.3%,,,32,0,0,32,0,2
+Rotom,256,stat_points,10,,2.2%,,,32,0,0,32,0,2
 Rotom,256,ability,1,Levitate,100.0%,,,,,,,,

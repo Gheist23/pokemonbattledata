@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Medicham,160,move,1,Close Combat,61.4%,,,,,,,,
-Medicham,160,move,2,Fake Out,51.3%,,,,,,,,
-Medicham,160,move,3,Psycho Cut,28.5%,,,,,,,,
+Medicham,160,move,2,Fake Out,51.4%,,,,,,,,
+Medicham,160,move,3,Psycho Cut,28.6%,,,,,,,,
 Medicham,160,move,4,Skill Swap,23.1%,,,,,,,,
-Medicham,160,move,5,Rock Slide,21.2%,,,,,,,,
-Medicham,160,move,6,Ice Punch,19.3%,,,,,,,,
-Medicham,160,move,7,Zen Headbutt,19.3%,,,,,,,,
+Medicham,160,move,5,Rock Slide,21.1%,,,,,,,,
+Medicham,160,move,6,Zen Headbutt,19.3%,,,,,,,,
+Medicham,160,move,7,Ice Punch,19.3%,,,,,,,,
 Medicham,160,move,8,Drain Punch,18.1%,,,,,,,,
 Medicham,160,move,9,Trick Room,16.7%,,,,,,,,
 Medicham,160,move,10,Protect,15.9%,,,,,,,,
 Medicham,160,held_item,1,Medichamite,40.6%,,,,,,,,
-Medicham,160,held_item,2,Focus Sash,20.2%,,,,,,,,
-Medicham,160,held_item,3,Choice Scarf,8.1%,,,,,,,,
+Medicham,160,held_item,2,Focus Sash,20.3%,,,,,,,,
+Medicham,160,held_item,3,Choice Scarf,8.0%,,,,,,,,
 Medicham,160,held_item,4,Life Orb,5.7%,,,,,,,,
-Medicham,160,held_item,5,Sitrus Berry,4.1%,,,,,,,,
+Medicham,160,held_item,5,Sitrus Berry,4.0%,,,,,,,,
 Medicham,160,held_item,6,Iron Ball,3.7%,,,,,,,,
 Medicham,160,held_item,7,Quick Claw,2.8%,,,,,,,,
 Medicham,160,held_item,8,Roseli Berry,2.8%,,,,,,,,
-Medicham,160,held_item,9,Bright Powder,2.5%,,,,,,,,
-Medicham,160,held_item,10,Expert Belt,1.7%,,,,,,,,
+Medicham,160,held_item,9,Bright Powder,2.4%,,,,,,,,
+Medicham,160,held_item,10,Expert Belt,1.6%,,,,,,,,
 Medicham,160,teammate,1,Rillaboom,,,,,,,,,
 Medicham,160,teammate,2,Whimsicott,,,,,,,,,
 Medicham,160,teammate,3,Farigiraf,,,,,,,,,
@@ -30,9 +30,9 @@ Medicham,160,teammate,8,Sylveon,,,,,,,,,
 Medicham,160,teammate,9,Charizard,,,,,,,,,
 Medicham,160,teammate,10,Torkoal,,,,,,,,,
 Medicham,160,stat_alignment,1,Adamant,37.1%,Attack,Sp. Atk,,,,,,
-Medicham,160,stat_alignment,2,Jolly,32.7%,Speed,Sp. Atk,,,,,,
+Medicham,160,stat_alignment,2,Jolly,32.8%,Speed,Sp. Atk,,,,,,
 Medicham,160,stat_alignment,3,Brave,16.5%,Attack,Speed,,,,,,
-Medicham,160,stat_alignment,4,Careful,4.0%,Sp. Def,Sp. Atk,,,,,,
+Medicham,160,stat_alignment,4,Careful,3.9%,Sp. Def,Sp. Atk,,,,,,
 Medicham,160,stat_alignment,5,Sassy,1.9%,Sp. Def,Speed,,,,,,
 Medicham,160,stat_alignment,6,Impish,1.7%,Defense,Sp. Atk,,,,,,
 Medicham,160,stat_alignment,7,Naughty,1.6%,Attack,Sp. Def,,,,,,
@@ -40,14 +40,14 @@ Medicham,160,stat_alignment,8,Relaxed,1.6%,Defense,Speed,,,,,,
 Medicham,160,stat_alignment,9,Naive,0.8%,Speed,Sp. Def,,,,,,
 Medicham,160,stat_alignment,10,Quiet,0.5%,Sp. Atk,Speed,,,,,,
 Medicham,160,stat_points,1,,35.3%,,,2,32,0,0,0,32
-Medicham,160,stat_points,2,,7.6%,,,32,32,2,0,0,0
-Medicham,160,stat_points,3,,5.8%,,,32,32,0,0,2,0
+Medicham,160,stat_points,2,,7.5%,,,32,32,2,0,0,0
+Medicham,160,stat_points,3,,6.0%,,,32,32,0,0,2,0
 Medicham,160,stat_points,4,,5.8%,,,0,32,2,0,0,32
-Medicham,160,stat_points,5,,3.6%,,,0,32,0,0,2,32
+Medicham,160,stat_points,5,,3.7%,,,0,32,0,0,2,32
 Medicham,160,stat_points,6,,2.3%,,,0,32,0,0,0,32
 Medicham,160,stat_points,7,,2.2%,,,32,32,1,0,1,0
 Medicham,160,stat_points,8,,1.6%,,,32,0,5,0,16,13
-Medicham,160,stat_points,9,,1.5%,,,32,32,0,0,0,2
+Medicham,160,stat_points,9,,1.4%,,,32,32,0,0,0,2
 Medicham,160,stat_points,10,,1.2%,,,32,0,32,0,2,0
-Medicham,160,ability,1,Pure Power,88.4%,,,,,,,,
-Medicham,160,ability,2,Telepathy,11.6%,,,,,,,,
+Medicham,160,ability,1,Pure Power,88.5%,,,,,,,,
+Medicham,160,ability,2,Telepathy,11.5%,,,,,,,,

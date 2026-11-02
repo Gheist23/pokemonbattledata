@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Leafeon,215,move,1,Leaf Blade,60.8%,,,,,,,,
+Leafeon,215,move,1,Leaf Blade,60.7%,,,,,,,,
 Leafeon,215,move,2,Knock Off,49.4%,,,,,,,,
 Leafeon,215,move,3,Leech Seed,39.9%,,,,,,,,
 Leafeon,215,move,4,Solar Blade,33.2%,,,,,,,,
 Leafeon,215,move,5,Swords Dance,30.5%,,,,,,,,
 Leafeon,215,move,6,Synthesis,30.5%,,,,,,,,
-Leafeon,215,move,7,Yawn,19.5%,,,,,,,,
+Leafeon,215,move,7,Yawn,19.4%,,,,,,,,
 Leafeon,215,move,8,Charm,14.4%,,,,,,,,
 Leafeon,215,move,9,X-Scissor,12.0%,,,,,,,,
 Leafeon,215,move,10,Protect,10.5%,,,,,,,,
@@ -40,7 +40,7 @@ Leafeon,215,stat_alignment,8,Lonely,0.8%,Attack,Defense,,,,,,
 Leafeon,215,stat_alignment,9,Rash,0.7%,Sp. Atk,Sp. Def,,,,,,
 Leafeon,215,stat_alignment,10,Lax,0.6%,Defense,Sp. Def,,,,,,
 Leafeon,215,stat_points,1,,14.0%,,,2,32,0,0,0,32
-Leafeon,215,stat_points,2,,8.9%,,,32,0,32,0,2,0
+Leafeon,215,stat_points,2,,8.8%,,,32,0,32,0,2,0
 Leafeon,215,stat_points,3,,5.5%,,,32,2,32,0,0,0
 Leafeon,215,stat_points,4,,5.1%,,,32,0,32,0,0,2
 Leafeon,215,stat_points,5,,4.1%,,,31,0,32,0,3,0
@@ -48,6 +48,6 @@ Leafeon,215,stat_points,6,,3.0%,,,0,32,32,0,0,2
 Leafeon,215,stat_points,7,,2.7%,,,0,32,0,0,2,32
 Leafeon,215,stat_points,8,,2.7%,,,1,32,1,0,0,32
 Leafeon,215,stat_points,9,,2.6%,,,31,0,32,0,0,3
-Leafeon,215,stat_points,10,,2.5%,,,0,32,2,0,0,32
-Leafeon,215,ability,1,Chlorophyll,88.1%,,,,,,,,
-Leafeon,215,ability,2,Leaf Guard,11.9%,,,,,,,,
+Leafeon,215,stat_points,10,,2.6%,,,0,32,2,0,0,32
+Leafeon,215,ability,1,Chlorophyll,88.0%,,,,,,,,
+Leafeon,215,ability,2,Leaf Guard,12.0%,,,,,,,,

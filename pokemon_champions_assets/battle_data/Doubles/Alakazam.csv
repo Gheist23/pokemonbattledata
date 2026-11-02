@@ -1,8 +1,8 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Alakazam,77,move,1,Expanding Force,87.9%,,,,,,,,
-Alakazam,77,move,2,Protect,72.9%,,,,,,,,
+Alakazam,77,move,2,Protect,72.8%,,,,,,,,
 Alakazam,77,move,3,Focus Blast,43.7%,,,,,,,,
-Alakazam,77,move,4,Shadow Ball,39.9%,,,,,,,,
+Alakazam,77,move,4,Shadow Ball,40.0%,,,,,,,,
 Alakazam,77,move,5,Dazzling Gleam,34.7%,,,,,,,,
 Alakazam,77,move,6,Speed Swap,30.1%,,,,,,,,
 Alakazam,77,move,7,Psychic,15.3%,,,,,,,,
@@ -30,8 +30,8 @@ Alakazam,77,teammate,8,Garchomp,,,,,,,,,
 Alakazam,77,teammate,9,Basculegion,,,,,,,,,
 Alakazam,77,teammate,10,Incineroar,,,,,,,,,
 Alakazam,77,stat_alignment,1,Timid,66.2%,Speed,Attack,,,,,,
-Alakazam,77,stat_alignment,2,Modest,27.4%,Sp. Atk,Attack,,,,,,
-Alakazam,77,stat_alignment,3,Hasty,2.4%,Speed,Defense,,,,,,
+Alakazam,77,stat_alignment,2,Modest,27.3%,Sp. Atk,Attack,,,,,,
+Alakazam,77,stat_alignment,3,Hasty,2.5%,Speed,Defense,,,,,,
 Alakazam,77,stat_alignment,4,Mild,1.3%,Sp. Atk,Defense,,,,,,
 Alakazam,77,stat_alignment,5,Naive,0.7%,Speed,Sp. Def,,,,,,
 Alakazam,77,stat_alignment,6,Bold,0.7%,Defense,Attack,,,,,,
@@ -40,7 +40,7 @@ Alakazam,77,stat_alignment,8,Quiet,0.3%,Sp. Atk,Speed,,,,,,
 Alakazam,77,stat_alignment,9,Jolly,0.2%,Speed,Sp. Atk,,,,,,
 Alakazam,77,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
 Alakazam,77,stat_points,1,,44.2%,,,2,0,0,32,0,32
-Alakazam,77,stat_points,2,,16.0%,,,0,0,0,32,2,32
+Alakazam,77,stat_points,2,,16.1%,,,0,0,0,32,2,32
 Alakazam,77,stat_points,3,,11.1%,,,0,0,2,32,0,32
 Alakazam,77,stat_points,4,,6.1%,,,1,0,1,32,0,32
 Alakazam,77,stat_points,5,,3.5%,,,0,0,0,32,0,32
@@ -50,5 +50,5 @@ Alakazam,77,stat_points,8,,0.6%,,,32,0,0,32,0,2
 Alakazam,77,stat_points,9,,0.6%,,,32,0,2,0,0,32
 Alakazam,77,stat_points,10,,0.5%,,,32,0,25,5,3,1
 Alakazam,77,ability,1,Inner Focus,59.3%,,,,,,,,
-Alakazam,77,ability,2,Magic Guard,34.1%,,,,,,,,
+Alakazam,77,ability,2,Magic Guard,34.2%,,,,,,,,
 Alakazam,77,ability,3,Synchronize,6.6%,,,,,,,,

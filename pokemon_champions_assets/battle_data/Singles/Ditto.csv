@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Ditto,64,move,1,Transform,100.0%,,,,,,,,
 Ditto,64,held_item,1,Choice Scarf,82.9%,,,,,,,,
-Ditto,64,held_item,2,Focus Sash,5.8%,,,,,,,,
+Ditto,64,held_item,2,Focus Sash,5.9%,,,,,,,,
 Ditto,64,held_item,3,Quick Claw,5.4%,,,,,,,,
 Ditto,64,held_item,4,Red Card,1.5%,,,,,,,,
 Ditto,64,held_item,5,Sitrus Berry,0.8%,,,,,,,,
@@ -19,9 +19,9 @@ Ditto,64,teammate,6,Charizard,,,,,,,,,
 Ditto,64,teammate,7,Lucario,,,,,,,,,
 Ditto,64,teammate,8,Mimikyu,,,,,,,,,
 Ditto,64,teammate,9,Archaludon,,,,,,,,,
-Ditto,64,teammate,10,Baxcalibur,,,,,,,,,
+Ditto,64,teammate,10,Dragonite,,,,,,,,,
 Ditto,64,stat_alignment,1,Relaxed,23.0%,Defense,Speed,,,,,,
-Ditto,64,stat_alignment,2,Sassy,10.9%,Sp. Def,Speed,,,,,,
+Ditto,64,stat_alignment,2,Sassy,11.0%,Sp. Def,Speed,,,,,,
 Ditto,64,stat_alignment,3,Jolly,8.5%,Speed,Sp. Atk,,,,,,
 Ditto,64,stat_alignment,4,Serious,7.6%,,,,,,,,
 Ditto,64,stat_alignment,5,Timid,6.7%,Speed,Attack,,,,,,
@@ -31,7 +31,7 @@ Ditto,64,stat_alignment,8,Quiet,3.9%,Sp. Atk,Speed,,,,,,
 Ditto,64,stat_alignment,9,Hasty,3.7%,Speed,Defense,,,,,,
 Ditto,64,stat_alignment,10,Adamant,2.9%,Attack,Sp. Atk,,,,,,
 Ditto,64,stat_points,1,,18.5%,,,32,0,0,0,0,0
-Ditto,64,stat_points,2,,11.1%,,,32,0,32,0,2,0
+Ditto,64,stat_points,2,,11.0%,,,32,0,32,0,2,0
 Ditto,64,stat_points,3,,7.1%,,,32,0,2,0,32,0
 Ditto,64,stat_points,4,,6.5%,,,32,2,32,0,0,0
 Ditto,64,stat_points,5,,5.9%,,,32,0,2,0,0,32

@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Chimecho,196,move,1,Flash Cannon,57.3%,,,,,,,,
-Chimecho,196,move,2,Trick Room,47.4%,,,,,,,,
-Chimecho,196,move,3,Psychic,46.7%,,,,,,,,
+Chimecho,196,move,1,Flash Cannon,57.2%,,,,,,,,
+Chimecho,196,move,2,Trick Room,47.3%,,,,,,,,
+Chimecho,196,move,3,Psychic,46.6%,,,,,,,,
 Chimecho,196,move,4,Protect,37.4%,,,,,,,,
 Chimecho,196,move,5,Recover,31.2%,,,,,,,,
-Chimecho,196,move,6,Calm Mind,23.8%,,,,,,,,
-Chimecho,196,move,7,Stored Power,22.7%,,,,,,,,
-Chimecho,196,move,8,Cosmic Power,19.2%,,,,,,,,
-Chimecho,196,move,9,Boomburst,14.2%,,,,,,,,
-Chimecho,196,move,10,Dazzling Gleam,9.9%,,,,,,,,
-Chimecho,196,held_item,1,Chimechite,92.1%,,,,,,,,
+Chimecho,196,move,6,Calm Mind,23.7%,,,,,,,,
+Chimecho,196,move,7,Stored Power,22.8%,,,,,,,,
+Chimecho,196,move,8,Cosmic Power,19.1%,,,,,,,,
+Chimecho,196,move,9,Boomburst,14.1%,,,,,,,,
+Chimecho,196,move,10,Dazzling Gleam,10.0%,,,,,,,,
+Chimecho,196,held_item,1,Chimechite,91.9%,,,,,,,,
 Chimecho,196,held_item,2,Leftovers,2.3%,,,,,,,,
 Chimecho,196,held_item,3,Sitrus Berry,1.2%,,,,,,,,
-Chimecho,196,held_item,4,Choice Scarf,0.7%,,,,,,,,
+Chimecho,196,held_item,4,Choice Scarf,0.9%,,,,,,,,
 Chimecho,196,held_item,5,Focus Sash,0.7%,,,,,,,,
 Chimecho,196,held_item,6,Colbur Berry,0.4%,,,,,,,,
 Chimecho,196,held_item,7,Twisted Spoon,0.3%,,,,,,,,
@@ -23,30 +23,30 @@ Chimecho,196,teammate,1,Incineroar,,,,,,,,,
 Chimecho,196,teammate,2,Garchomp,,,,,,,,,
 Chimecho,196,teammate,3,Indeedee-F,,,,,,,,,
 Chimecho,196,teammate,4,Sinistcha,,,,,,,,,
-Chimecho,196,teammate,5,Tyranitar,,,,,,,,,
-Chimecho,196,teammate,6,Archaludon,,,,,,,,,
+Chimecho,196,teammate,5,Archaludon,,,,,,,,,
+Chimecho,196,teammate,6,Tyranitar,,,,,,,,,
 Chimecho,196,teammate,7,Rillaboom,,,,,,,,,
 Chimecho,196,teammate,8,Pelipper,,,,,,,,,
 Chimecho,196,teammate,9,Sylveon,,,,,,,,,
 Chimecho,196,teammate,10,Torkoal,,,,,,,,,
-Chimecho,196,stat_alignment,1,Quiet,28.7%,Sp. Atk,Speed,,,,,,
-Chimecho,196,stat_alignment,2,Modest,28.0%,Sp. Atk,Attack,,,,,,
-Chimecho,196,stat_alignment,3,Bold,14.0%,Defense,Attack,,,,,,
-Chimecho,196,stat_alignment,4,Calm,11.5%,Sp. Def,Attack,,,,,,
+Chimecho,196,stat_alignment,1,Quiet,28.5%,Sp. Atk,Speed,,,,,,
+Chimecho,196,stat_alignment,2,Modest,28.2%,Sp. Atk,Attack,,,,,,
+Chimecho,196,stat_alignment,3,Bold,14.1%,Defense,Attack,,,,,,
+Chimecho,196,stat_alignment,4,Calm,11.4%,Sp. Def,Attack,,,,,,
 Chimecho,196,stat_alignment,5,Relaxed,8.0%,Defense,Speed,,,,,,
 Chimecho,196,stat_alignment,6,Sassy,6.9%,Sp. Def,Speed,,,,,,
 Chimecho,196,stat_alignment,7,Timid,2.5%,Speed,Attack,,,,,,
 Chimecho,196,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Chimecho,196,stat_alignment,9,Brave,0.2%,Attack,Speed,,,,,,
 Chimecho,196,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
-Chimecho,196,stat_points,1,,23.9%,,,32,0,2,32,0,0
+Chimecho,196,stat_points,1,,23.7%,,,32,0,2,32,0,0
 Chimecho,196,stat_points,2,,5.5%,,,32,0,0,32,2,0
-Chimecho,196,stat_points,3,,5.3%,,,32,0,32,0,2,0
-Chimecho,196,stat_points,4,,3.4%,,,27,0,10,0,29,0
+Chimecho,196,stat_points,3,,5.2%,,,32,0,32,0,2,0
+Chimecho,196,stat_points,4,,3.5%,,,27,0,10,0,29,0
 Chimecho,196,stat_points,5,,3.0%,,,2,0,32,0,32,0
 Chimecho,196,stat_points,6,,2.5%,,,2,0,32,32,0,0
 Chimecho,196,stat_points,7,,2.1%,,,24,0,32,0,10,0
 Chimecho,196,stat_points,8,,1.7%,,,32,0,32,0,0,2
 Chimecho,196,stat_points,9,,1.5%,,,32,0,2,0,32,0
-Chimecho,196,stat_points,10,,1.4%,,,32,0,14,0,20,0
+Chimecho,196,stat_points,10,,1.4%,,,0,0,0,32,2,32
 Chimecho,196,ability,1,Levitate,100.0%,,,,,,,,

@@ -900,6 +900,10 @@ export class DamageEngine {
     // because the merge returns early when the rule is off, so nothing is read or written then.
     this._mergedFlags = new Map();
     this.typeChart = appData.typeChart || {};
+    // Heavy Metal doubles its holder's weight and Light Metal halves it, for the four
+    // weight-based moves. Its own small table because this engine is never handed
+    // move-effects.json, which is where the Ability registry lives.
+    this.abilityWeights = appData.abilityWeights || {};
     this.natures = appData.natures || {};
     this.moves = appData.moves || {};
     this.moveByCompact = new Map();
@@ -1245,6 +1249,41 @@ export class DamageEngine {
     return true;
   }
 
+  /**
+   * What a Pokemon weighs, in kilograms, with its Ability counted.
+   *
+   * `app-data.json` carries a weight for 355 of the game's 358 forms. Floored at 0.1 kg,
+   * which is the Companion's own floor (`_effective_weight`), so a missing weight can never
+   * divide by zero in the ratio below.
+   */
+  weightOf(mon) {
+    const record = this.pokemon(mon?.pokemon_name, mon?.form_name) || {};
+    let weight = Number(record.weight) || 0;
+    const multiplier = this.abilityWeights[String(mon?.ability || "").trim()];
+    if (multiplier) weight *= Number(multiplier) || 1;
+    return Math.max(0.1, weight);
+  }
+
+  /** Low Kick and Grass Knot: the heavier the target, the harder it lands. */
+  weightPower(weight) {
+    if (weight < 10) return 20;
+    if (weight < 25) return 40;
+    if (weight < 50) return 60;
+    if (weight < 100) return 80;
+    if (weight < 200) return 100;
+    return 120;
+  }
+
+  /** Heavy Slam and Heat Crash: how many times the target's weight the user is. */
+  weightRatioPower(attackerWeight, defenderWeight) {
+    const ratio = attackerWeight / Math.max(0.1, defenderWeight);
+    if (ratio >= 5) return 120;
+    if (ratio >= 4) return 100;
+    if (ratio >= 3) return 80;
+    if (ratio >= 2) return 60;
+    return 40;
+  }
+
   typeMultiplier(attackingType, defendingTypes) {
     let multiplier = 1.0;
     const chart = this.typeChart[pyTitle(attackingType)] || {};
@@ -1389,7 +1428,11 @@ export class DamageEngine {
     const special = String(meta.special || "");
     const moveType = pyTitle(meta.type || "Normal");
     const atkData = this.pokemon(attacker.pokemon_name, attacker.form_name);
-    const defData = this.pokemon(defender.pokemon_name, defender.form_name);
+    // MAGIC POWDER and Soak rewrite what a Pokemon IS, and nothing else carries that: the
+    // record comes from the species data, which does not know about a move used two turns
+    // ago. `types_override` is set by the turn engine on the mon it hands down.
+    let defData = this.pokemon(defender.pokemon_name, defender.form_name);
+    if (defender.types_override?.length) defData = { ...defData, types: [...defender.types_override] };
 
     // --- base (part_001) ---
     if (special === "weather_ball" && ["Sun", "Rain", "Sand", "Snow"].includes(ctx.weather)) {
@@ -1559,6 +1602,21 @@ export class DamageEngine {
         triggered = actual === wanted;
       } else if (op === "power_if_target_switching") {
         triggered = Boolean(ctx.defender_switching);
+      // THE WEIGHT MOVES set an ABSOLUTE power rather than multiplying the listed one, which
+      // is why they are handled here and not through `factor`: Low Kick, Grass Knot, Heavy
+      // Slam and Heat Crash all list power 0, so until now they dealt nothing at all -- 227
+      // appearances across the registered teams. The tables are the Companion's
+      // (`mcts/engine.py`, `power_by_target_weight` / `power_by_weight_ratio`).
+      } else if (op === "power_by_target_weight") {
+        power = this.weightPower(this.weightOf(defender));
+        details.push(`${moveName}: ${this.weightOf(defender).toFixed(1)} kg -> ${power} BP`);
+        continue;
+      } else if (op === "power_by_weight_ratio") {
+        const mine = this.weightOf(attacker);
+        const theirs = this.weightOf(defender);
+        power = this.weightRatioPower(mine, theirs);
+        details.push(`${moveName}: ${mine.toFixed(1)} kg vs ${theirs.toFixed(1)} kg -> ${power} BP`);
+        continue;
       // A FIELD'S REDUCTION APPLIES ONCE. These two exclusion lists are here because the
       // same reductions are also written by hand above -- Solar Beam halved in Rain / Sand /
       // Snow (`special === "solar_beam"`), and Earthquake, Bulldoze and Magnitude halved in
@@ -2104,7 +2162,11 @@ export class DamageEngine {
   /** v287 — the damage formula. */
   _calcV287(attacker, defender, ctx) {
     const atkData = this.pokemon(attacker.pokemon_name, attacker.form_name);
-    const defData = this.pokemon(defender.pokemon_name, defender.form_name);
+    // MAGIC POWDER and Soak rewrite what a Pokemon IS, and nothing else carries that: the
+    // record comes from the species data, which does not know about a move used two turns
+    // ago. `types_override` is set by the turn engine on the mon it hands down.
+    let defData = this.pokemon(defender.pokemon_name, defender.form_name);
+    if (defender.types_override?.length) defData = { ...defData, types: [...defender.types_override] };
     const meta = this.moveMeta(ctx);
     const details = [];
     const warnings = [];

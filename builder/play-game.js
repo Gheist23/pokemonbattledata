@@ -188,7 +188,13 @@ const RUNNABLE_OPS = new Set(["status", "stage", "heal", "weather_heal", "flinch
   // Skill Swap, Entrainment and Role Play, which rebuild the unit to change its Ability.
   "swap_abilities", "set_ability", "copy_ability",
   // Trick and Switcheroo.
-  "swap_items"]);
+  "swap_items",
+  // Speed Swap, Magnet Rise and Destiny Bond.
+  "swap_stats", "magnet_rise", "destiny_bond",
+  // Magic Powder and Soak.
+  "set_type",
+  // Copycat.
+  "repeat_last_move"]);
 // `volatile` is deliberately NOT in that set, which is worth stating because Attract DOES ship
 // with its clause intact -- data/builder/move-effects.json carries
 // `attract: [{op: "volatile", status: "infatuation", condition: "opposite_gender"}]`, because
@@ -1131,6 +1137,31 @@ export class PlayGame {
     return { joint: this.readJoint(result.ours[0].raw || []), thinking: { ...result, plan } };
   }
 
+  /**
+   * FRISK: its holder knows what the other side is holding, at once.
+   *
+   * The mechanical half of an information Ability, and in this game it is a real one: the
+   * opponent plays against a POOL of rolled versions of the player's team, and `seen` is the
+   * only thing that pins a member of it. A Frisk holder on the opponent's side therefore
+   * stops it guessing the item and makes it play against the Focus Sash that is really there.
+   *
+   * `shown` is the same record kept the other way round, for what the player has been shown.
+   */
+  frisk() {
+    const holder = (side) => (this.state.active[side] || [])
+      .some((m) => m && !m.out && compact(m.u.mon?.ability || "") === "frisk");
+    const reveal = (from, into) => {
+      for (const m of this.state.active[from] || []) {
+        if (!m || m.out) continue;
+        const row = into[m.tag] || (into[m.tag] = { moves: [] });
+        row.item = m.u.mon?.item || "";
+      }
+    };
+    // The opponent frisking US fills `seen`; us frisking THEM fills `shown`.
+    if (holder(1)) reveal(0, this.seen);
+    if (holder(0)) reveal(1, this.shown);
+  }
+
   /** The player's chosen action ids, back into the actions they name. */
   /**
    * The player's chosen ids, as a joint action the turn can be played with.
@@ -1267,6 +1298,7 @@ export class PlayGame {
     this.settleConditions();
     this.learnFrom(events, heldBefore[0], 0, this.seen);
     this.learnFrom(events, heldBefore[1], 1, this.shown);
+    this.frisk();
     // Focus Energy is lost the moment its user leaves the field. Kept on the row, which follows
     // a Pokemon onto the bench, it would still be there when it came back.
     for (let s = 0; s < 2; s += 1) {

@@ -1962,6 +1962,30 @@ export class TournamentTest {
     return had;
   }
 
+  /**
+   * The same Pokemon as a different type (Magic Powder, Soak).
+   *
+   * `types_override` rides on the MON, because that object is what the damage engine is
+   * handed and the species record it would otherwise read knows nothing about a move used
+   * two turns ago. The kit's own `types` is rebuilt with it, so the hazards and everything
+   * else that asks the kit agree with the damage calculation.
+   */
+  typedUnit(unit, types) {
+    const wanted = (types || []).map((x) => String(x)).filter(Boolean);
+    if (!wanted.length) return null;
+    const cacheKey = `_types_${wanted.join('/').toLowerCase()}`;
+    if (unit[cacheKey] === undefined) {
+      const mon = { ...unit.mon, bonuses: [...(unit.mon.bonuses || [])], types_override: wanted };
+      unit[cacheKey] = {
+        key: `${unit.key}|ty:${wanted.join('/')}`, mon, species: unit.species, form: unit.form,
+        item: unit.item || "", display: unit.display,
+        baseForm: unit.baseForm, baseAbility: unit.baseAbility, side: unit.side,
+        faintedAllies: unit.faintedAllies, timesHit: unit.timesHit,
+      };
+    }
+    return unit[cacheKey] ? this.prepare(unit[cacheKey]) : null;
+  }
+
   /** Put a different Ability on a Pokemon that is standing. Returns what it had. */
   setAbility(m, abilityName) {
     if (!this.abilityOpsOn || !m || m.out) return null;
@@ -1971,6 +1995,12 @@ export class TournamentTest {
     m.u = next;
     m.k = next.kit;
     return had;
+  }
+
+  /** The form this Ability leaves the field in, for good (Zero to Hero). */
+  switchOutFormOf(ability) {
+    const fx = this.abilityOp(ability, "switch_out_form");
+    return fx ? String(fx.form || "") : null;
   }
 
   /** Whether this Ability stops the other side eating its berries (Unnerve). */
@@ -2075,7 +2105,10 @@ export class TournamentTest {
     const mon = unit.mon;
     const engine = this.ev.engine;
     const data = engine.pokemon(mon.pokemon_name, mon.form_name) || {};
-    const types = data.types || [];
+    // `types_override` first: Magic Powder and Soak rewrite what a Pokemon is, and the
+    // species record cannot know that. The kit has to agree with the damage engine, which
+    // reads the same field off the mon.
+    const types = (mon.types_override?.length ? mon.types_override : data.types) || [];
     const ability = compact(mon.ability);
     const item = compact(mon.item);
     unit.moves = (mon.moves || []).map((move) => this.moveInfo(move));
@@ -2203,6 +2236,7 @@ export class TournamentTest {
       accuracyBoost: this.accuracyBoostOf(ability),
       dropProof: this.dropProofOf(ability),
       unnerve: this.unnervesOf(ability),
+      switchOutForm: this.switchOutFormOf(ability),
       itemProof: Boolean(this.abilityOp(ability, "item_removal_immunity")),
       stanceChange: this.stanceChangeOf(ability),
       hazardOnDamage: this.hazardOnDamageOf(ability),
@@ -2630,6 +2664,19 @@ export class TournamentTest {
     return hit.frac > best.frac + 1e-9 || (hit.frac > 0 && Math.abs(hit.frac - best.frac) <= 1e-9 && hit.priority > best.priority) ? hit : best;
   }
 
+  /**
+   * Is this Pokemon on the ground RIGHT NOW?
+   *
+   * `unit.grounded` is a fact about the set and is shared by every Pokemon built from it;
+   * Magnet Rise is a fact about one Pokemon for five turns, so it has to be asked here. Every
+   * reader of `grounded` goes through this.
+   */
+  grounded(m) {
+    if (!m || !m.u) return false;
+    if (this.abilityOpsOn && m.levitateTurns > 0) return false;
+    return Boolean(m.u.grounded);
+  }
+
   speedOf(unit, w, tailwind, stage) {
     const key = ((unit.id * 8 + w) * 2 + (tailwind ? 1 : 0)) * 13 + stage + 6;
     let speed = this.speeds.get(key);
@@ -2642,7 +2689,12 @@ export class TournamentTest {
   }
 
   speed(m, board) {
-    const base = this.speedOf(m.u, board.w, board.tw[m.s] > 0, m.spe);
+    // SPEED SWAP put somebody else's raw Speed on this Pokemon. The stage, the weather and a
+    // Tailwind still apply to it, so the swap is folded in as the ratio between the two raw
+    // numbers rather than replacing the finished figure.
+    const swapped = this.abilityOpsOn && m.speedSwap > 0
+      ? m.speedSwap / Math.max(1, this.speedOf(m.u, 0, false, 0)) : 1;
+    const base = this.speedOf(m.u, board.w, board.tw[m.s] > 0, m.spe) * swapped;
     // Paralysis halves Speed. As an expectation it halves the share of it that is paralysed,
     // which is also what makes Nuzzle and Thunder Wave worth anything to the planner: before
     // this they inflicted a condition that did not slow anybody down.
@@ -2845,6 +2897,12 @@ export class TournamentTest {
       // and through the same loop as a bail-out (TOURNAMENT_PIVOT).
       pivoting: false,
       pivotKeepsState: false,
+      // MAGNET RISE: turns left off the ground. SPEED SWAP: a raw Speed that is not this
+      // Pokemon's own. DESTINY BOND: it takes its killer with it. All three are per-POKEMON
+      // and not per-unit, because a unit is shared between everything built from the same set.
+      levitateTurns: 0,
+      speedSwap: 0,
+      destinyBond: false,
       flinch: false, guard: false, intimidated: false, lead,
       // Whether it protected on the turn just ended, so the next one cannot (TOURNAMENT_GUARD).
       // Set in `refill`, which is the one place `guard` is cleared.
@@ -3067,6 +3125,13 @@ export class TournamentTest {
       if (partner) {
         events?.push({ s: att.s, kind: "partnerko", actor: att.u, target: target.u, move: att.u.moves[hit.slot]?.name || "" });
         return true;
+      }
+      // DESTINY BOND: the Pokemon that just went down takes its killer with it.
+      if (this.abilityOpsOn && target.destinyBond && alive(att)) {
+        target.destinyBond = false;
+        att.hp = 0;
+        att.out = true;
+        events?.push({ s: target.s, kind: "destinybond", actor: target.u, target: att.u });
       }
       att.kos += 1;
       events?.push({ s: att.s, kind: "ko", actor: att.u, target: target.u });
@@ -3422,6 +3487,58 @@ export class TournamentTest {
         this.setItem(m, theirItem);
         this.setItem(target, mineItem);
         did.push("swapped items");
+        continue;
+      }
+      if (fx.op === "repeat_last_move") {
+        // COPYCAT runs the last move used on the field again.
+        //
+        // WHAT IT DOES AND WHAT IT DOES NOT. The copied move's registry ops are run, which is
+        // what Copycat is brought for -- a second Fake Out, Protect, Tailwind or Trick Room.
+        // A copied move that deals DAMAGE is not re-dispatched: damage is resolved by the
+        // action loop from a plan built before this move ran, and there is no way to inject
+        // an extra attack into it from here. That half is still missing and is said so out
+        // loud rather than left to look like it works.
+        if (!this.abilityOpsOn || !board?.lastMove) continue;
+        const copied = this.moveInfo(board.lastMove);
+        const copiedOps = (copied?.fx || []).filter((e) => e.op !== "repeat_last_move");
+        if (!copiedOps.length) { did.push(`could not copy ${board.lastMove}`); continue; }
+        const out = this.runEffectOps(m, target, { slot: a.slot, ops: copiedOps }, active, events, board);
+        did.push(`copied ${board.lastMove}`, ...(out.did || []));
+        continue;
+      }
+      if (fx.op === "set_type") {
+        // MAGIC POWDER and Soak: the target becomes one type and nothing else.
+        if (!this.abilityOpsOn || !target) continue;
+        const next = this.typedUnit(target.u, fx.types || []);
+        if (!next) continue;
+        target.u = next;
+        target.k = next.kit;
+        did.push(`made it ${(fx.types || []).join("/")}`);
+        continue;
+      }
+      if (fx.op === "swap_stats") {
+        // SPEED SWAP trades the two raw Speeds.
+        if (!this.abilityOpsOn || !target) continue;
+        if (!(fx.stats || []).map((s) => String(s).toLowerCase()).includes("speed")) continue;
+        const mineRaw = m.speedSwap || this.speedOf(m.u, 0, false, 0);
+        const theirRaw = target.speedSwap || this.speedOf(target.u, 0, false, 0);
+        m.speedSwap = theirRaw;
+        target.speedSwap = mineRaw;
+        did.push("swapped Speed");
+        continue;
+      }
+      if (fx.op === "magnet_rise") {
+        // MAGNET RISE lifts its user off the ground for five turns.
+        if (!this.abilityOpsOn) continue;
+        m.levitateTurns = Math.max(1, Math.trunc(Number(fx.turns) || 5));
+        did.push("rose off the ground");
+        continue;
+      }
+      if (fx.op === "destiny_bond") {
+        // DESTINY BOND: whoever knocks it out this turn goes with it.
+        if (!this.abilityOpsOn) continue;
+        m.destinyBond = true;
+        did.push("is bonded");
         continue;
       }
       if (fx.op === "swap_abilities") {
@@ -3830,6 +3947,29 @@ export class TournamentTest {
     return true;
   }
 
+  /**
+   * ZERO TO HERO: Palafin comes back from the bench as its Hero Form, and stays that way.
+   *
+   * Called wherever a Pokemon leaves the field -- a chosen switch, a pivot, a bail-out -- and
+   * it swaps the unit the way `stanceUnit` does for Aegislash. Once only: the Hero Form has no
+   * `switch_out_form` of its own, so the second trip through here finds nothing to do.
+   */
+  leaveField(m) {
+    if (!this.abilityOpsOn || !m || !m.k?.switchOutForm) return false;
+    const next = this.stanceUnit(m.u, m.k.switchOutForm);
+    if (!next || next === m.u) return false;
+    m.u = next;
+    m.k = next.kit;
+    return true;
+  }
+
+  /** One turn off a Magnet Rise, and a Destiny Bond lasts only the turn it was set. */
+  tickVolatiles(m) {
+    if (!m) return;
+    if (m.levitateTurns > 0) m.levitateTurns -= 1;
+    m.destinyBond = false;
+  }
+
   /** One turn off a Cursed Body, at the end of the turn, beside the field's own counts. */
   tickDisable(m) {
     if (!m || !(m.disabledTurns > 0)) return;
@@ -4181,7 +4321,7 @@ export class TournamentTest {
       if (!this.canStatus(m, foe, info, foes) || foe.idle > 0 || foe.k.sleepProof) continue;
       if (this.effectsOn ? this.statusFree(foe) <= 0 : (foe.sleep || foe.burn)) continue;
       if (m.k.powder && foe.k.powderProof) continue;
-      if (foe.u.grounded && (board.t === ELECTRIC || board.t === MISTY)) continue;
+      if (this.grounded(foe) && (board.t === ELECTRIC || board.t === MISTY)) continue;
       const score = (foe.k.tailwind || foe.k.trickRoom ? 1 : 0) + this.threatTo(foe, mine, board);
       if (score > bestScore) {
         bestScore = score;
@@ -4925,6 +5065,13 @@ export class TournamentTest {
         }
       }
       m.acted = a.kind;
+      // The last move used on the field, for Copycat. Written before the move resolves, so a
+      // Copycat later in the same turn copies what went before it and never itself.
+      {
+        const usedSlot = a.hit ? a.hit.slot : a.slot;
+        const usedName = usedSlot >= 0 ? (m.u.moves[usedSlot]?.name || "") : "";
+        if (board && usedName && m.u.moves[usedSlot]?.key !== "copycat") board.lastMove = usedName;
+      }
       if (a.kind === PROTECT) {
         m.guard = true;
         events?.push({ s, kind: "protect", actor: m.u });
@@ -5032,7 +5179,7 @@ export class TournamentTest {
     }
     if (a.kind === SLEEP) {
       const blocked = target.k.sleepProof || (m.k.powder && target.k.powderProof)
-        || (target.u.grounded && (board.t === ELECTRIC || board.t === MISTY));
+        || (this.grounded(target) && (board.t === ELECTRIC || board.t === MISTY));
       if (blocked || (this.effectsOn ? this.statusFree(target) <= 0 : (target.sleep || target.burn))) {
         events?.push({ s, kind: "fails", actor: m.u, target: target.u, move: a.move });
         return;
@@ -5230,7 +5377,7 @@ export class TournamentTest {
           if (m.k.leftovers) m.resid -= 1 / 16;
           // AQUA RING, beside Leftovers and settled the same way.
           if (this.abilityOpsOn && m.aquaRing) m.resid -= 1 / 16;
-          if (board && board.t === GRASSY && m.u.grounded) m.resid -= 1 / 16;
+          if (board && board.t === GRASSY && this.grounded(m)) m.resid -= 1 / 16;
           if (board && m.k.chippedBy && board.w === m.k.chippedBy) m.resid += 1 / 16;
           const st = m.st;
           // Poison takes an eighth; a bad poison grows by a sixteenth every turn it has been on,
@@ -5343,6 +5490,7 @@ export class TournamentTest {
           out.chargeTarget = -1;
           out.hidden = false;
           if (out.st) out.st.cnf = 0;
+          this.leaveField(out);
           // The per-TURN bookkeeping the loop below would have done for it. It is on the
           // bench now, so that loop never reaches it, and it must not come back next turn
           // still holding this turn's flinch or counted as having protected.
@@ -5428,7 +5576,7 @@ export class TournamentTest {
     const packed = board.hz?.[m.s] || 0;
     if (!packed) return;
     if (compact(m.u.mon?.item || "") === "heavydutyboots") return;
-    const grounded = Boolean(m.u.grounded);
+    const grounded = this.grounded(m);
     const magicGuard = Boolean(m.k.magicGuard);
 
     const rocks = hazardLayers(packed, "stealth_rock");

@@ -301,11 +301,91 @@ for (const name of ["Psych Up", "Topsy-Turvy", "Pain Split", "Aqua Ring", "Leech
     offState.active[0][0].u.mon.item);
 }
 
+/* ---------------------------------------------------- Speed Swap, Magnet Rise, Destiny Bond */
+{
+  const { solver, state, me, foe } = board(1);
+  const mine = solver.t.speed(me, state.board);
+  const theirs = solver.t.speed(foe, state.board);
+  ok("the two start at different Speeds", Math.abs(mine - theirs) > 1, `${mine} / ${theirs}`);
+  use(solver, state, me, foe, "Speed Swap");
+  ok("Speed Swap trades them",
+    Math.abs(solver.t.speed(me, state.board) - theirs) < 1.5
+    && Math.abs(solver.t.speed(foe, state.board) - mine) < 1.5,
+    `${solver.t.speed(me, state.board)} / ${solver.t.speed(foe, state.board)}`);
+
+  const mr = board(1);
+  ok("it is on the ground to begin with", solver.t.grounded(mr.me) === true);
+  use(mr.solver, mr.state, mr.me, null, "Magnet Rise");
+  ok("Magnet Rise lifts it off", mr.solver.t.grounded(mr.me) === false);
+  ok("for five turns", mr.me.levitateTurns === 5, String(mr.me.levitateTurns));
+  for (let i = 0; i < 5; i += 1) mr.solver.t.tickVolatiles(mr.me);
+  ok("and then it comes down", mr.solver.t.grounded(mr.me) === true);
+
+  const db = board(1);
+  use(db.solver, db.state, db.foe, null, "Destiny Bond");
+  ok("Destiny Bond is up", db.foe.destinyBond === true);
+  const slot = db.me.u.moves.findIndex((i) => i?.damaging);
+  db.solver.t.deal(db.me, db.foe, { slot, frac: 3, lo: 3, hi: 3, odds: 1, rollLo: 3, rollHigh: 3,
+    priority: 0, spread: false, self: 0, rberry: false }, null, false, null, db.state.active[0], db.state.board);
+  ok("the Pokemon that knocked it out goes with it", db.foe.out === true && db.me.out === true,
+    `target=${db.foe.out} killer=${db.me.out}`);
+  // ...and it lasts only the turn it was set
+  const gone = board(1);
+  use(gone.solver, gone.state, gone.foe, null, "Destiny Bond");
+  gone.solver.t.tickVolatiles(gone.foe);
+  ok("and is gone by the next turn", gone.foe.destinyBond === false);
+
+  const off = board(0);
+  use(off.solver, off.state, off.me, off.foe, "Speed Swap");
+  ok("rule 0: none of the three happens", (off.me.speedSwap || 0) === 0, String(off.me.speedSwap));
+  notes.push(`Speed Swap: ${mine.toFixed(0)} <-> ${theirs.toFixed(0)}`);
+}
+
+/* ---------------------------------------------------- Magic Powder */
+{
+  const { solver, state, me, foe } = board(1);
+  const was = [...(foe.k.types || [])];
+  const slot = me.u.moves.findIndex((i) => i?.damaging);
+  const before = solver.t.moveHit(me.u, foe.u, slot, state.board, 0, 0, 0, 1, 0, 0, false, 1, 0, 0, false);
+  use(solver, state, me, foe, "Magic Powder");
+  ok("Magic Powder makes the target Psychic", JSON.stringify(foe.k.types) === JSON.stringify(["Psychic"]),
+    JSON.stringify(foe.k.types));
+  ok("and the damage engine agrees -- the override rides on the mon",
+    JSON.stringify(foe.u.mon.types_override) === JSON.stringify(["Psychic"]),
+    JSON.stringify(foe.u.mon.types_override));
+  const after = solver.t.moveHit(me.u, foe.u, slot, state.board, 0, 0, 0, 1, 0, 0, false, 1, 0, 0, false);
+  ok("so the effectiveness really changed", Math.abs(after.frac - before.frac) > 1e-6,
+    `${before.frac} -> ${after.frac}`);
+  notes.push(`Magic Powder: ${was.join('/')} -> Psychic, ${(before.frac * 100).toFixed(1)}% -> ${(after.frac * 100).toFixed(1)}%`);
+}
+
+/* ---------------------------------------------------- Copycat, and what it cannot copy */
+{
+  const { solver, state, me, foe } = board(1);
+  state.board.lastMove = "Nasty Plot";
+  const { did } = use(solver, state, me, foe, "Copycat");
+  ok("Copycat runs the last move's ops", (me.spa || 0) > 0, `spa=${me.spa} did=${JSON.stringify(did)}`);
+  ok("and says what it copied", (did || []).some((x) => /copied Nasty Plot/.test(String(x))),
+    JSON.stringify(did));
+
+  // A damaging move has no ops to copy, and Copycat says so rather than looking like it worked.
+  const dmg = board(1);
+  dmg.state.board.lastMove = "Dragon Claw";
+  const out = use(dmg.solver, dmg.state, dmg.me, dmg.foe, "Copycat");
+  ok("a move it cannot copy is reported, not silently dropped",
+    (out.did || []).some((x) => /could not copy/.test(String(x))), JSON.stringify(out.did));
+
+  const none = board(1);
+  const quiet = use(none.solver, none.state, none.me, none.foe, "Copycat");
+  ok("with nothing to copy it does nothing", (quiet.did || []).length === 0, JSON.stringify(quiet.did));
+}
+
 /* ---------------------------------------------------- offered on the sheet */
 {
   const page = readFileSync(join(root, "builder", "play-game.js"), "utf8");
   for (const op of ["copy_stages", "invert_stages", "pain_split", "aqua_ring", "leech_seed", "revive_ally",
-    "swap_abilities", "set_ability", "copy_ability"]) {
+    "swap_abilities", "set_ability", "copy_ability",
+    "swap_stats", "magnet_rise", "destiny_bond", "set_type", "repeat_last_move"]) {
     ok(`${op} is runnable, so its move is offered`, page.includes(`"${op}"`), op);
   }
 }

@@ -899,6 +899,8 @@ export class Solver {
       // A confusion is a volatile too, and goes with them. The major status does NOT -- that
       // follows a Pokemon to the bench and back, which is why only this one field is wiped.
       if (out.st) out.st.cnf = 0;
+      // ZERO TO HERO: Palafin leaves as Zero and will come back as Hero.
+      this.t.leaveField(out);
       // NATURAL CURE: the condition goes with the stages, which is the one Ability for which
       // the line above is not the whole truth (TOURNAMENT_ABILITY_OPS).
       if (this.t.abilityOpsOn && out.k.cureOnSwitchOut && out.st) {
@@ -1265,6 +1267,7 @@ export class Solver {
     this.t.tickField(board);
     // ...and one turn off any move a Cursed Body shut off (TOURNAMENT_ABILITY_OPS).
     for (const side of active) for (const m of side) this.t.tickDisable(m);
+    for (const side of active) for (const m of side) this.t.tickVolatiles(m);
     // Standing through a turn spends "just switched in". Nothing used to clear it -- not
     // `refill`, not `fresh` -- so a Pokemon marked just-in was offered Fake Out and First
     // Impression at EVERY searched turn, and one that switched in during the search kept the

@@ -202,8 +202,20 @@ function board(bailRule, { hp = 100, bench = 2 } = {}) {
     /emergencyExit: ability === "emergencyexit",/.test(source));
   ok("the hit reads the share BEFORE it lands",
     /const wasAboveHalf = this\.bailOn && target\.k\.emergencyExit && target\.hp > 0\.5;/.test(source));
+  // `refill` is still the one place that moves it, but the line is no longer a lone
+  // `!out.bailing` test: TOURNAMENT_PIVOT made U-turn and Parting Shot leave through the very
+  // same loop, so a bail-out and a pivot cannot each claim the same seat. Both flags, and the
+  // count below, so no THIRD place can start moving a bailing Pokemon unnoticed.
   ok("and refill is where it actually moves",
-    /if \(!out \|\| !out\.bailing\) continue;/.test(source));
+    /const bails = Boolean\(out && out\.bailing && this\.bailOn\);/.test(source));
+  ok("a pivot leaves through the same loop",
+    /const pivots = Boolean\(out && out\.pivoting && this\.pivotOn\);/.test(source));
+  // Four places in CODE: set on the fresh Pokemon, raised by the hit, read in refill, cleared
+  // there. Comments are skipped -- the comment explaining the rule says "bailing" too.
+  const touches = source.split(String.fromCharCode(10))
+    .filter((line) => !line.trim().startsWith("//") && !line.trim().startsWith("*"))
+    .filter((line) => line.includes("bailing")).length;
+  ok("and nothing anywhere else touches the flag", touches === 4, String(touches));
   const worker = readFileSync(join(root, "builder", "analysis-worker.js"), "utf8");
   ok("the played game asks for the rule at both sites",
     (worker.match(/bailRule: 1/g) || []).length === 2);

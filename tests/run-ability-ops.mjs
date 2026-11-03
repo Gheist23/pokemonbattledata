@@ -41,6 +41,7 @@ import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
 import { TournamentTest, TOURNAMENT_ABILITY_OPS, tournamentAbilityOpsOption } from "../builder/tournament-test.js";
 import { Solver } from "../builder/solver.js";
+import { PlayGame, teamFromKnown } from "../builder/play-game.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -517,6 +518,83 @@ for (const [ability, field] of CONTACT) {
     ok("rule 0: the form never changes", /shield/i.test(off.state.active[0][0].u.form),
       off.state.active[0][0].u.form);
     notes.push(`Stance Change: ${aegis.form} draws the blade to attack`);
+  }
+}
+
+/* -------------------------------------------- 7h. Frisk */
+{
+  // Frisk is an INFORMATION Ability, and in this game information is mechanical: the
+  // opponent plays against a pool of rolled versions of the player's team, and `seen` is the
+  // only thing that pins one. A Frisk holder on the opponent's side therefore stops it
+  // guessing the item and makes it play against the Focus Sash that is really there.
+  const library = read("data", "builder", "pokemon-sets.json").sets;
+  const known = new KnownTeams(knownRaw);
+  const solver = makeSolver(1);
+  const game = new PlayGame(solver, data, FORMAT, library, { pickReplacement: false });
+  const mine = [setFor("Garchomp", { item: "Focus Sash" }), setFor("Dragonite", { item: "Leftovers" }),
+    setFor("Garchomp"), setFor("Dragonite")];
+  const foe = teamFromKnown(data, FORMAT, known.teams[0]).slice(0, 6);
+  game.start({ player: mine, foe, seed: 3 });
+  const itemsKnown = () => (game.seen || []).filter((row) => row && row.item).length;
+  ok("the opponent starts knowing no items of ours", itemsKnown() === 0, String(itemsKnown()));
+  // put Frisk on the opponent's lead and let it look
+  const theirLead = game.state.active[1][0];
+  solver.t.setAbility(theirLead, "Frisk");
+  game.frisk();
+  ok("a Frisk holder opposite us learns what we hold", itemsKnown() > 0, String(itemsKnown()));
+  ok("and it is the real item", (game.seen || []).some((row) => row && row.item === "Focus Sash"),
+    JSON.stringify((game.seen || []).map((r) => r && r.item)));
+
+  // ...and OUR Frisk fills `shown`, which is what the view reads for the other side.
+  const ours = new PlayGame(makeSolver(1), data, FORMAT, library, { pickReplacement: false });
+  ours.start({ player: mine, foe, seed: 3 });
+  ours.solver.t.setAbility(ours.state.active[0][0], "Frisk");
+  ours.frisk();
+  ok("our own Frisk fills what we have been shown",
+    (ours.shown || []).filter((row) => row && row.item).length > 0,
+    JSON.stringify((ours.shown || []).map((r) => r && r.item)));
+  notes.push(`Frisk: the opponent pinned ${itemsKnown()} of our items`);
+}
+
+/* -------------------------------------------- 7i. Zero to Hero */
+{
+  // Built from the species data, not from `setFor`: Palafin is in the game but not in the
+  // Doubles meta list, and a skipped check reads exactly like a passing one.
+  const palaBase = data.commonSet(FORMAT, "Palafin", "Palafin Zero Form")
+    || data.commonSet(FORMAT, "Palafin", "Palafin");
+  const pala = palaBase && palaBase.moves?.length
+    ? makeSet({ ...palaBase, moves: [...palaBase.moves], ability: "Zero to Hero" }) : null;
+  ok("the game really has a Palafin to test with", Boolean(pala), String(palaBase && palaBase.form));
+  if (pala) {
+    // Its own board, because `duel` seats two a side and this needs somebody on the bench
+    // to switch to -- without one the swap never happens and the checks below never run.
+    const build = (rule) => {
+      const s = makeSolver(rule);
+      const st = s.buildState({
+        sides: [[row(pala, { front: true }), row(ANY, { front: true }), row(ANY)],
+          [row(ANY, { front: true }), row(ANY, { front: true }), row(ANY)]],
+        field: {},
+      });
+      return { solver: s, state: st, me: st.active[0][0] };
+    };
+    const on = build(1);
+    ok("Zero to Hero is read onto the kit", on.me.k.switchOutForm === "Hero",
+      String(on.me.k.switchOutForm));
+    ok("it starts as the form its sheet names", !/hero/i.test(on.me.u.form), on.me.u.form);
+    const bench = on.state.sides[0].find((x) => x && !on.state.active[0].includes(x));
+    if (bench) {
+      on.solver.applySwitches(on.state, [{ kind: -1, position: 0, into: bench.ix }], 0);
+      ok("and comes off the field as its Hero Form", /hero/i.test(on.me.u.form), on.me.u.form);
+      notes.push(`Zero to Hero: ${pala.form} -> ${on.me.u.form}`);
+    }
+    const off = build(0);
+    const b2 = off.state.sides[0].find((x) => x && !off.state.active[0].includes(x));
+    if (b2) {
+      off.solver.applySwitches(off.state, [{ kind: -1, position: 0, into: b2.ix }], 0);
+      ok("rule 0: the form does not change", !/hero/i.test(off.me.u.form), off.me.u.form);
+    }
+  } else {
+    notes.push("Zero to Hero: no Palafin in the meta, skipped");
   }
 }
 

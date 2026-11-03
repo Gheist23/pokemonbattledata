@@ -554,8 +554,11 @@ self.addEventListener("message", async (event) => {
           self.postMessage({ id, ok: true, result: { error: "Those teams are gone. Deal again." } });
           return;
         }
+        // `pickReplacement` belongs on EVERY game a person plays, and this -- the
+        // preview/start pair -- is the live one. It was set only on the legacy "new" action
+        // above, so every real game picked the replacement itself off the bench order.
         const game = new PlayGame(evaluation.playSolver, data, payload.format, library,
-          { sheet: payload.sheet === "closed" ? "closed" : "open" });
+          { sheet: payload.sheet === "closed" ? "closed" : "open", pickReplacement: true });
         // `payload.team` is the four you picked, in the order you picked them: the first
         // ACTIVE_BY_FORMAT of them lead and the rest wait behind, which is exactly what
         // PlayGame.start already means by the order of the list.

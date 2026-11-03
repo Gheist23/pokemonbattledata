@@ -172,8 +172,17 @@ function playUntilAsked(game, solver, { team, seed = 5, cap = 30 }) {
   ok("with the option off the game is never asked", !view.replacement, JSON.stringify(view.replacement));
   ok("and `replacementNeeded` refuses outright", game.replacementNeeded() === false);
   ok("so the game keeps playing", turns > 1, String(turns));
+  // EVERY game the worker builds, not just one of them. The first version of this check was
+  // `/pickReplacement: true/.test(worker)` -- one match anywhere -- and it stayed green while
+  // the live path went without: the flag was on the legacy "new" action and missing from the
+  // preview/start pair that every real game actually goes through, so the website picked the
+  // replacement itself off the bench order. Found 3 Nov 2026 by playing it, not by a suite.
   const worker = readFileSync(join(root, "builder", "analysis-worker.js"), "utf8");
-  ok("and the worker is the one that turns it on", /pickReplacement: true/.test(worker));
+  const built = worker.match(/new PlayGame\([\s\S]*?\);/g) || [];
+  ok("the worker builds at least the two games it is known to", built.length >= 2, String(built.length));
+  const without = built.filter((call) => !/pickReplacement:\s*true/.test(call));
+  ok("and every one of them asks the player who comes in next", without.length === 0,
+    without.map((call) => call.replace(/\s+/g, " ")).join(" | "));
 }
 
 // ---------------------------------------------------------------------------

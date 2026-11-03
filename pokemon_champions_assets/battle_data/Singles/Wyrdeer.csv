@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Wyrdeer,231,move,1,Psyshield Bash,82.1%,,,,,,,,
 Wyrdeer,231,move,2,Lunge,37.9%,,,,,,,,
-Wyrdeer,231,move,3,Earthquake,26.8%,,,,,,,,
+Wyrdeer,231,move,3,Earthquake,26.9%,,,,,,,,
 Wyrdeer,231,move,4,Double-Edge,25.1%,,,,,,,,
-Wyrdeer,231,move,5,Trick Room,24.2%,,,,,,,,
-Wyrdeer,231,move,6,Earth Power,19.1%,,,,,,,,
+Wyrdeer,231,move,5,Trick Room,24.3%,,,,,,,,
+Wyrdeer,231,move,6,Earth Power,19.0%,,,,,,,,
 Wyrdeer,231,move,7,Extrasensory,17.6%,,,,,,,,
 Wyrdeer,231,move,8,Thunderbolt,15.2%,,,,,,,,
 Wyrdeer,231,move,9,Wild Charge,9.6%,,,,,,,,
@@ -29,7 +29,7 @@ Wyrdeer,231,teammate,7,Metagross,,,,,,,,,
 Wyrdeer,231,teammate,8,Gallade,,,,,,,,,
 Wyrdeer,231,teammate,9,Venusaur,,,,,,,,,
 Wyrdeer,231,teammate,10,Kleavor,,,,,,,,,
-Wyrdeer,231,stat_alignment,1,Brave,25.7%,Attack,Speed,,,,,,
+Wyrdeer,231,stat_alignment,1,Brave,25.6%,Attack,Speed,,,,,,
 Wyrdeer,231,stat_alignment,2,Adamant,23.9%,Attack,Sp. Atk,,,,,,
 Wyrdeer,231,stat_alignment,3,Modest,12.8%,Sp. Atk,Attack,,,,,,
 Wyrdeer,231,stat_alignment,4,Impish,10.0%,Defense,Sp. Atk,,,,,,
@@ -41,7 +41,7 @@ Wyrdeer,231,stat_alignment,9,Bold,2.5%,Defense,Attack,,,,,,
 Wyrdeer,231,stat_alignment,10,Quiet,1.5%,Sp. Atk,Speed,,,,,,
 Wyrdeer,231,stat_points,1,,27.5%,,,32,32,2,0,0,0
 Wyrdeer,231,stat_points,2,,6.3%,,,32,0,32,0,2,0
-Wyrdeer,231,stat_points,3,,5.0%,,,32,2,32,0,0,0
+Wyrdeer,231,stat_points,3,,4.9%,,,32,2,32,0,0,0
 Wyrdeer,231,stat_points,4,,3.4%,,,0,32,32,0,2,0
 Wyrdeer,231,stat_points,5,,2.9%,,,0,0,8,32,25,0
 Wyrdeer,231,stat_points,6,,2.7%,,,32,32,0,0,2,0
@@ -50,5 +50,5 @@ Wyrdeer,231,stat_points,8,,2.4%,,,2,32,32,0,0,0
 Wyrdeer,231,stat_points,9,,1.9%,,,2,0,32,0,32,0
 Wyrdeer,231,stat_points,10,,1.7%,,,0,32,0,0,2,32
 Wyrdeer,231,ability,1,Intimidate,69.2%,,,,,,,,
-Wyrdeer,231,ability,2,Frisk,19.7%,,,,,,,,
+Wyrdeer,231,ability,2,Frisk,19.6%,,,,,,,,
 Wyrdeer,231,ability,3,Sap Sipper,11.2%,,,,,,,,

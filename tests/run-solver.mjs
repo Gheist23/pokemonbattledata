@@ -1287,13 +1287,24 @@ const solver = makeSolver();
     [row(HITTER, { front: true }), row(CAT, { front: true })],
     [row(FAST, { front: true }), row(BULKY, { front: true })], field)).board;
 
-  // These two and no others. The weather and the terrain are an index into an ordered list and
-  // the screens are booleans the damage calculation reads: nothing in the turn model counts any
-  // of them down, so there is no remaining-turn number for them to carry.
-  eq("Trick Room and Tailwind are the counted conditions", Object.keys(FIELD_TURNS).sort(), ["tailwind", "trickRoom"]);
+  // FOUR counted conditions since 3 Nov 2026. This check used to read "Trick Room and
+  // Tailwind and no others", beside a comment explaining that the weather and the terrain
+  // were an index into a list that nothing counted down -- which was true, and was the
+  // defect: a Pelipper's Rain never stopped. TOURNAMENT_FIELD_TURNS gave them counts.
+  // The screens are still booleans the damage calculation reads and still have none.
+  eq("the counted conditions", Object.keys(FIELD_TURNS).sort(),
+     ["tailwind", "terrain", "trickRoom", "weather"]);
   eq("a count runs from one turn to the most the game can leave on a board",
      [FIELD_TURNS.trickRoom.min, FIELD_TURNS.trickRoom.max, FIELD_TURNS.tailwind.min, FIELD_TURNS.tailwind.max],
      [1, 4, 1, 3]);
+  // Weather and terrain are the two whose top and whose DEFAULT are different numbers: eight
+  // behind a rock or a Terrain Extender, five without one.
+  eq("weather and terrain run five turns, or eight with the item",
+     [FIELD_TURNS.weather.max, FIELD_TURNS.weather.def, FIELD_TURNS.terrain.max, FIELD_TURNS.terrain.def],
+     [8, 5, 8, 5]);
+  eq("and the two older ones still default to their own top",
+     [FIELD_TURNS.trickRoom.def ?? FIELD_TURNS.trickRoom.max, FIELD_TURNS.tailwind.def ?? FIELD_TURNS.tailwind.max],
+     [4, 3]);
 
   // Nothing moves for a board that does not say: switched on with no count is the full count,
   // which is exactly what the page put on the board before a count could be set at all.
@@ -1313,7 +1324,13 @@ const solver = makeSolver();
   const none = made({ trickRoom: false, trickRoomTurns: 2, tailwind: [0, 0] });
   ok("a count on something switched off is not on the board",
      none.tr === 0 && none.trBy === -1 && none.tw[0] === 0, `tr=${none.tr} trBy=${none.trBy}`);
-  eq("nothing else is counted", fieldTurns("weather", 3, true), 0);
+  // The weather is counted NOW, and a described board's own number reaches it -- this check
+  // used to read "nothing else is counted" and asserted 0 for exactly this call.
+  eq("a described weather count reaches the board", fieldTurns("weather", 3, true), 3);
+  eq("and an unknown condition is still counted by nobody", fieldTurns("screens", 3, true), 0);
+  eq("a weather that is up with no count gets the plain five, not the rocked eight",
+     fieldTurns("weather", 0, true), 5);
+  eq("and one that is not up gets nothing", fieldTurns("weather", 3, false), 0);
 
   // What the turn machinery is HANDED, turn by turn. `plannedTurn` is where `board.tr` decides
   // the order of a turn, so this is the test of whether a count is honoured rather than merely
@@ -1373,6 +1390,83 @@ const solver = makeSolver();
   eq("and with no Trick Room our slow Pokemon never moves first", weMovedFirst(0), [false, false, false]);
 }
 
+
+// ---------------------------------------------------------------------------
+// THE BOARD'S OWN HP AND STATUS ARE WHAT THE DAMAGE IS PRICED AGAINST.
+//
+// The Solver page has an HP slider on every Pokemon and a status picker beside it, and the
+// engine it was given priced every hit against the full-health, status-free Pokemon the team
+// sheet describes (TOURNAMENT_LIVE_HP, 0 by default). Measured 3 Nov 2026: Garchomp's Dragon
+// Claw into a Dragonite the board put at 1% HP read 51.5%, because Multiscale halves damage
+// only at FULL health and the engine still thought it was there; the true number is 102.9%.
+// The Solver answered that a guaranteed knockout was a half-health hit.
+//
+// `evaluation.tournament` -- the Tournament Test proper, which the recorded parity vectors and
+// the Companion both pin -- stays on rule 0. This is about the Solver's own instance.
+// ---------------------------------------------------------------------------
+{
+  const liveSolver = (liveHpRule) => {
+    const evaluation = makeEvaluation("Doubles");
+    return new Solver(new TournamentTest(evaluation, new KnownTeams(knownRaw),
+      new TeamSuggestions(evaluation), { liveHpRule }));
+  };
+  const MULTI = set("Dragonite", "", "Multiscale", "Adamant",
+    ["Dragon Claw", "Extreme Speed", "Protect", "Roost"], [32, 32, 0, 0, 0, 0]);
+  const hitAt = (solver, hp) => {
+    const state = solver.buildState({
+      sides: [[row(HITTER, { front: true }), row(SUPPORT, { front: true })],
+        [row(MULTI, { front: true, hp }), row(SUPPORT, { front: true })]],
+      field: {},
+    });
+    const att = state.active[0][0];
+    const def = state.active[1][0];
+    const slot = att.u.moves.findIndex((m) => m && /dragon claw/i.test(m.name));
+    const hit = solver.t.moveHit(att.u, def.u, slot, state.board, 0, 0, 0, att.hp, 0, 0, false,
+      def.hp, 0, 0, false);
+    return hit ? hit.frac : 0;
+  };
+
+  const off = liveSolver(0);
+  const on = liveSolver(1);
+  const offFull = hitAt(off, 100);
+  const offHurt = hitAt(off, 1);
+  const onFull = hitAt(on, 100);
+  const onHurt = hitAt(on, 1);
+  ok("rule 0 prices a Dragonite at 1% HP exactly as one at full", Math.abs(offFull - offHurt) < 1e-9,
+    `${(offFull * 100).toFixed(1)}% vs ${(offHurt * 100).toFixed(1)}%`);
+  ok("rule 1 leaves a FULL-health one alone, because Multiscale really is up",
+    Math.abs(onFull - offFull) < 1e-9, `${(onFull * 100).toFixed(1)}% vs ${(offFull * 100).toFixed(1)}%`);
+  ok("and prices the hurt one without Multiscale, which is about twice as much",
+    onHurt > offHurt * 1.8, `${(onHurt * 100).toFixed(1)}% vs ${(offHurt * 100).toFixed(1)}%`);
+  notes.push(`live HP: Dragon Claw into Dragonite at 1% -- rule 0 ${(offHurt * 100).toFixed(1)}%, rule 1 ${(onHurt * 100).toFixed(1)}%`);
+
+  // ...and the worker gives the Solver page the rule, while the recorded Tournament Test keeps
+  // the default. Both halves, because either one alone would read as coverage.
+  const worker = readFileSync(join(root, "builder", "analysis-worker.js"), "utf8");
+  const solverCall = worker.match(/evaluation\.solverTournament \|\|= new TournamentTest\([\s\S]*?\);/);
+  ok("the worker builds the Solver's own Tournament Test", Boolean(solverCall));
+  ok("and asks it to price the board's live HP and status",
+    Boolean(solverCall) && /liveHpRule:\s*1/.test(solverCall[0]),
+    solverCall ? solverCall[0].replace(/\s+/g, " ").slice(0, 140) : "");
+  const properCall = worker.match(/evaluation\.tournament \|\|= new TournamentTest\([\s\S]*?\);/);
+  ok("while the recorded Tournament Test is left on the default",
+    Boolean(properCall) && !/liveHpRule/.test(properCall[0]),
+    properCall ? properCall[0].replace(/\s+/g, " ").slice(0, 140) : "");
+
+  // THE TWO ENGINES A PERSON PLAYS AGAINST MUST AGREE. The Solver page and /play/ both
+  // describe a live battle, so a rule that is right for one is right for the other -- and
+  // every divergence so far has been an oversight rather than a decision: the Solver was
+  // missing `liveHpRule` while carrying all seven rules around it, and both were missing
+  // `shieldRule` because Disguise had never been exported. Compared as SETS of rule names, so
+  // this says nothing about the order they are written in.
+  const ruleSet = (call) => (call.match(/(\w+Rule):\s*(\d+)/g) || []).sort().join(",");
+  const playCall = worker.match(/evaluation\.playTournament \|\|= new TournamentTest\([\s\S]*?\);/);
+  ok("the worker builds the played game's own Tournament Test", Boolean(playCall));
+  ok("and it asks for exactly the rules the Solver asks for",
+    Boolean(playCall) && Boolean(solverCall) && ruleSet(playCall[0]) === ruleSet(solverCall[0]),
+    `play=${playCall ? ruleSet(playCall[0]) : "?"} solver=${solverCall ? ruleSet(solverCall[0]) : "?"}`);
+  notes.push(`live rules: ${playCall ? ruleSet(playCall[0]) : "?"}`);
+}
 
 for (const line of notes) console.log(line);
 if (failures.length) {

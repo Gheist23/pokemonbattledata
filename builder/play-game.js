@@ -21,7 +21,7 @@
 // model has, and without it the opponent plays worse the longer the game goes on.
 
 import { HiddenSets } from "./hidden-sets.js";
-import { ACTION_KINDS, ACTIVE_BY_FORMAT, AIMED_AT_FOE, BRING_BY_FORMAT, TERRAINS, WEATHERS, alive } from "./tournament-test.js";
+import { ACTION_KINDS, ACTIVE_BY_FORMAT, AIMED_AT_FOE, BRING_BY_FORMAT, TERRAINS, WEATHERS, alive, hazardLayers } from "./tournament-test.js";
 import { SOLVER_SLEEP_TURNS, SWITCH } from "./solver.js";
 import { pointsForNature } from "./nature-spreads.js";
 import { makeSet } from "./common.js";
@@ -168,7 +168,27 @@ const STATUS = "play:status";
 // be runnable, and Charge's ops are now [electric_boost, stage]. Shipping the op without adding
 // it here would have taken Charge OUT of the played game's move sheet -- a data-only change
 // would have been strictly worse than not shipping it at all.
-const RUNNABLE_OPS = new Set(["status", "stage", "heal", "weather_heal", "flinch", "electric_boost"]);
+// `weather` and `terrain` joined when TOURNAMENT_FIELD_TURNS gave `runEffectOps` a branch for
+// them; before that Rain Dance and the terrain moves were refused on the sheet, which is how
+// a move that does nothing shows up to a player.
+const RUNNABLE_OPS = new Set(["status", "stage", "heal", "weather_heal", "flinch", "electric_boost",
+  "weather", "terrain",
+  // ...and the entry hazards, laid and swept (TOURNAMENT_HAZARDS). Stealth Rock, Spikes,
+  // Toxic Spikes, Sticky Web, Rapid Spin, Mortal Spin, Defog and Tidy Up were all refused
+  // on the sheet while the engine had no branch for their ops.
+  "hazard", "clear_user_hazards", "clear_field_conditions", "clear_substitutes_hazards",
+  "clear_user_bindings",
+  // ...and the six that act on the board rather than on a slot: Psych Up, Topsy-Turvy,
+  // Pain Split, Aqua Ring, Leech Seed and Revival Blessing.
+  "copy_stages", "invert_stages", "pain_split", "aqua_ring", "leech_seed", "revive_ally",
+  // Parting Shot, Baton Pass, Chilly Reception and Teleport (TOURNAMENT_PIVOT). The
+  // damaging pivots -- U-turn, Flip Turn, Volt Switch -- are ATTACKS and were always
+  // offered; they just never switched anybody out.
+  "pivot",
+  // Skill Swap, Entrainment and Role Play, which rebuild the unit to change its Ability.
+  "swap_abilities", "set_ability", "copy_ability",
+  // Trick and Switcheroo.
+  "swap_items"]);
 // `volatile` is deliberately NOT in that set, which is worth stating because Attract DOES ship
 // with its clause intact -- data/builder/move-effects.json carries
 // `attract: [{op: "volatile", status: "infatuation", condition: "opposite_gender"}]`, because
@@ -251,6 +271,16 @@ export function randomFrom(seed) {
  * sheet names. Drawing them independently of the Nature is what puts points into the stat a
  * Pokemon's own Nature lowers, which real teams never do.
  */
+/** One side's packed hazards, as `buildState` and the page both want to read them. */
+function describeHazards(packed) {
+  return {
+    stealthRock: hazardLayers(packed || 0, "stealth_rock"),
+    spikes: hazardLayers(packed || 0, "spikes"),
+    toxicSpikes: hazardLayers(packed || 0, "toxic_spikes"),
+    stickyWeb: hazardLayers(packed || 0, "sticky_web"),
+  };
+}
+
 export function teamFromKnown(data, format, team) {
   return (team.members || []).map((member) => {
     const [species, form] = data.resolve(member.species, member.form || member.species);
@@ -493,10 +523,13 @@ export class PlayGame {
         trickRoomTurns: Math.max(0, board.tr || 0),
         tailwind: [board.tw[0] > 0, board.tw[1] > 0],
         tailwindTurns: [Math.max(0, board.tw[0] || 0), Math.max(0, board.tw[1] || 0)],
-        // Weather and terrain have NO remaining-turn count to give: this engine sets them only
-        // from a Pokemon's own Ability (`unit.kit.weather` / `kit.terrain`), never from a move,
-        // and nothing counts them down -- they last while the setter stands. Showing a number
-        // there would mean inventing a duration the model does not have.
+        // ...and the same for weather and terrain, which DO have a count now
+        // (TOURNAMENT_FIELD_TURNS): five turns, eight behind a rock or a Terrain Extender. 0 is
+        // a field with no timer -- a pinned one, or a game played with the rule off -- and the
+        // page draws no number for it rather than claiming it ends this turn.
+        weatherTurns: Math.max(0, board.wt || 0),
+        terrainTurns: Math.max(0, board.tt || 0),
+        hazards: [describeHazards(board.hz?.[0]), describeHazards(board.hz?.[1])],
       },
       value: Math.round(this.solver.valueOf(this.state) * 10) / 10,
       over: this.over(),
@@ -654,6 +687,8 @@ export class PlayGame {
       // Out of PP, not offered (TOURNAMENT_PP). The person is entitled to every move their
       // Pokemon really has -- and a move with no PP left is one it does not have right now.
       if (!this.solver.t.hasPp(m, slot)) return;
+      // ...and a move a Cursed Body shut off is one it does not have right now either.
+      if (this.solver.t.slotDisabled(m, slot)) return;
       // A MOVE THE SEARCH HAS NO KIND FOR, never one it declined this turn. Three gates, and
       // each of them was a real bug before it was there:
       //   * an ATTACK is already a kind, so a damaging move is never missing for want of one.
@@ -991,6 +1026,14 @@ export class PlayGame {
       trickRoom: board.tr > 0,
       trickRoomTurns: Math.max(0, board.tr || 0),
       tailwind: [Math.max(0, board.tw[0] || 0), Math.max(0, board.tw[1] || 0)],
+      // The weather and terrain counts for the same reason as the two above: without them the
+      // opponent searches a board whose Rain has five turns left when it has one, and plans
+      // a line that outlasts weather it is about to lose.
+      weatherTurns: Math.max(0, board.wt || 0),
+      terrainTurns: Math.max(0, board.tt || 0),
+      // The hazards go with them, for the same reason: without these the opponent searches a
+      // field with nothing on it and switches freely into a Stealth Rock it cannot see.
+      hazards: [describeHazards(board.hz?.[0]), describeHazards(board.hz?.[1])],
     };
   }
 
@@ -1197,7 +1240,7 @@ export class PlayGame {
     // What each side is carrying into this turn, so an item that is spent during it can be told
     // apart from one that was already gone.
     const heldBefore = this.state.sides.map((list) =>
-      new Map(list.map((m) => [m.tag, { sash: m.sash, berry: m.berry, oran: m.oran, cure: m.cure, leppa: m.leppa, rberry: m.rberry, mega: Boolean(m.mega) }])));
+      new Map(list.map((m) => [m.tag, { sash: m.sash, berry: m.berry, oran: m.oran, cure: m.cure, leppa: m.leppa, rberry: m.rberry, mega: Boolean(m.mega), busted: Boolean(m.busted) }])));
     // Read BEFORE the turn, because this is the only moment either survives: a joint action's
     // `position` means what it says until `applySwitches` moves Pokemon between the field and
     // the bench, and `ix` is where each Pokemon sits in its side's list before that same swap.
@@ -1433,7 +1476,12 @@ export class PlayGame {
     t.effectRoll = () => game.rng();
     undo.push(() => { if (hadRoll) t.effectRoll = wasRoll; else delete t.effectRoll; });
 
-    decorate("applyStatus", (was) => function applyStatus(target, status, chance) {
+    // `source` is passed STRAIGHT THROUGH, and the signature says so. The engine's own
+    // `applyStatus` grew a fourth argument for Corrosion and Synchronize
+    // (TOURNAMENT_ABILITY_OPS); a three-argument decorator here would have swallowed it and
+    // those two Abilities would have worked everywhere EXCEPT in a played game -- which is
+    // the one place they are for.
+    decorate("applyStatus", (was) => function applyStatus(target, status, chance, source = null) {
       // ONE CONDITION AT A TIME, and a Pokemon that has one cannot take another.
       //
       // `statusFree` cannot be asked this, because the expectation layer WEARS A SLEEP OFF by
@@ -1442,7 +1490,7 @@ export class PlayGame {
       // new status lands: a Thunder Wave on a sleeping Pokemon succeeded about half the time,
       // wiped the sleep, and handed the opponent back the turns it was going to lose.
       if (target?.st && Object.keys(target.st).some((key) => (target.st[key] || 0) >= 1)) return 0;
-      const room = was.call(this, target, status, chance);
+      const room = was.call(this, target, status, chance, source);
       if (!(room > 0) || !target || !target.st) return room;
       const field = STATUS_SLOT[String(status || "").toLowerCase()] || "";
       if (!field) return room;

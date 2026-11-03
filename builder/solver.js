@@ -39,7 +39,7 @@
 
 import {
   ACTION_KINDS, ACTIVE_BY_FORMAT, BRING_BY_FORMAT, TURN_CAP_BY_FORMAT, alive, clampStage,
-  WEATHERS as BOARD_WEATHERS, TERRAINS as BOARD_TERRAINS,
+  WEATHERS as BOARD_WEATHERS, TERRAINS as BOARD_TERRAINS, setHazardLayers,
 } from "./tournament-test.js";
 import { compact } from "./engine.js";
 
@@ -229,6 +229,12 @@ const who = (unit) => ({ species: unit.species, form: unit.form, item: unit.item
 export const FIELD_TURNS = Object.freeze({
   trickRoom: Object.freeze({ label: "Trick Room", min: 1, max: 4 }),
   tailwind: Object.freeze({ label: "Tailwind", min: 1, max: 3 }),
+  // Weather and terrain last five turns, or eight when whoever set them holds the matching
+  // rock or a Terrain Extender -- so `max` and the default are DIFFERENT numbers here, which
+  // is why `def` exists. Eight is the most a board can be shown carrying; five is what a
+  // board that says only "it is raining" gets (TOURNAMENT_FIELD_TURNS).
+  weather: Object.freeze({ label: "Weather", min: 1, max: 8, def: 5 }),
+  terrain: Object.freeze({ label: "Terrain", min: 1, max: 8, def: 5 }),
 });
 
 /**
@@ -239,12 +245,29 @@ export const FIELD_TURNS = Object.freeze({
  * Anything up with no usable count gets the default, so `tailwind: [true, false]` and
  * `trickRoom: true` -- all a caller older than this could say -- still mean what they meant.
  */
+/**
+ * One side's hazards, as the board packs them.
+ *
+ * Takes what a described board says -- `{ stealthRock: true, spikes: 2 }` -- and nothing is
+ * the same as none, so a caller older than this gets an empty side.
+ */
+export function hazardsFrom(described) {
+  if (!described) return 0;
+  let packed = 0;
+  const layers = (value) => (value === true ? 1 : Math.max(0, Math.trunc(Number(value) || 0)));
+  packed = setHazardLayers(packed, "stealth_rock", layers(described.stealthRock));
+  packed = setHazardLayers(packed, "spikes", layers(described.spikes));
+  packed = setHazardLayers(packed, "toxic_spikes", layers(described.toxicSpikes));
+  packed = setHazardLayers(packed, "sticky_web", layers(described.stickyWeb));
+  return packed;
+}
+
 export function fieldTurns(key, value, on) {
   const spec = FIELD_TURNS[key];
   if (!spec) return 0;
   if (!(on === undefined ? Number(value) > 0 : on)) return 0;
   const turns = Math.trunc(Number(value));
-  if (!Number.isFinite(turns) || turns <= 0) return spec.max;
+  if (!Number.isFinite(turns) || turns <= 0) return spec.def ?? spec.max;
   return Math.max(spec.min, Math.min(spec.max, turns));
 }
 
@@ -545,6 +568,10 @@ export class Solver {
     // Everything the board itself does not carry -- screens, Friend Guard, the rule switches and
     // the two conditional counters -- is handed to the damage calculation instead, which is the
     // only reader that can honour it (`TournamentTest.solverField`).
+    // THE BENCH, for the two things that need it and are handed only the field: Revival
+    // Blessing (who is down) and a pivot move (is there anybody to switch to). Set here beside
+    // `solverField`, which is the same kind of side-channel and is set in the same place.
+    this.t.benchPool = sides;
     this.t.solverField = {
       reflect: [Boolean(field.reflect?.[0]), Boolean(field.reflect?.[1])],
       lightScreen: [Boolean(field.lightScreen?.[0]), Boolean(field.lightScreen?.[1])],
@@ -562,6 +589,18 @@ export class Solver {
       // only ever said whether the thing was up -- on the board it used to get.
       tw: [fieldTurns("tailwind", field.tailwind?.[0]), fieldTurns("tailwind", field.tailwind?.[1])],
       tr: fieldTurns("trickRoom", field.trickRoomTurns, Boolean(field.trickRoom)),
+      // Weather and terrain, the same way (TOURNAMENT_FIELD_TURNS). ZERO MEANS NO TIMER, not
+      // "gone": a Tournament Test board with a PINNED field must not have it rained off after
+      // five turns, and under rule 0 every count stays 0 so nothing expires anywhere -- which
+      // is exactly the board every caller older than this rule was getting.
+      wt: this.t.fieldTurnsOn ? fieldTurns("weather", field.weatherTurns,
+        String(field.weather || "None") !== "None") : 0,
+      tt: this.t.fieldTurnsOn ? fieldTurns("terrain", field.terrainTurns,
+        String(field.terrain || "None") !== "None") : 0,
+      // Entry hazards, packed one integer a side (TOURNAMENT_HAZARDS). A described board can
+      // say what is already down -- that is what the Solver page's own hazard switches mean --
+      // and a game that has not laid any starts at nothing.
+      hz: [hazardsFrom(field.hazards?.[0]), hazardsFrom(field.hazards?.[1])],
       trBy: field.trickRoom ? 0 : -1,
       wide: 0,
       quick: 0,
@@ -586,7 +625,9 @@ export class Solver {
       sides,
       active,
       next: [...base.next],
-      board: { ...base.board, tw: [...base.board.tw] },
+      // `hz` copies the way `tw` does, and for the same reason: a shared reference would
+      // put one searched line's Stealth Rock on every other board (TOURNAMENT_HAZARDS).
+      board: { ...base.board, tw: [...base.board.tw], hz: [...(base.board.hz || [0, 0])] },
       slower: [...base.slower],
       // Copied, not shared: one line's Mega Evolution must not be spent for every other line.
       megaUsed: [...base.megaUsed],
@@ -652,6 +693,8 @@ export class Solver {
       // Out of PP, out of the list (TOURNAMENT_PP). With the rule off this is always true,
       // so the list is exactly the one every caller had.
       if (!t.hasPp(m, slot)) return;
+      // Shut off by a Cursed Body (TOURNAMENT_ABILITY_OPS), the same way and in the same place.
+      if (t.slotDisabled(m, slot)) return;
       const key = info.key;
       if (key === "fakeout") {
         if (!m.justIn) return;
@@ -856,6 +899,14 @@ export class Solver {
       // A confusion is a volatile too, and goes with them. The major status does NOT -- that
       // follows a Pokemon to the bench and back, which is why only this one field is wiped.
       if (out.st) out.st.cnf = 0;
+      // NATURAL CURE: the condition goes with the stages, which is the one Ability for which
+      // the line above is not the whole truth (TOURNAMENT_ABILITY_OPS).
+      if (this.t.abilityOpsOn && out.k.cureOnSwitchOut && out.st) {
+        for (const key of Object.keys(out.st)) out.st[key] = 0;
+        out.burn = false;
+        out.sleep = false;
+        out.idle = 0;
+      }
       state.active[s][action.position] = into;
     }
   }
@@ -986,6 +1037,7 @@ export class Solver {
     arriving.sort((a, b) => this.t.entrySpeedOf(b.u) - this.t.entrySpeedOf(a.u));
     for (const m of arriving) this.t.enter(m, active, board, events);
     this.applyMegas(state, [ourJoint, theirJoint], events);
+    this.applyStances(state, [ourJoint, theirJoint], events);
     this.thaw(state);
     const plans = [this.planFor(state, ourJoint, 0), this.planFor(state, theirJoint, 1)];
     this.t.plannedTurn(active, board, slower, turn, events, null, plans);
@@ -1041,6 +1093,44 @@ export class Solver {
   }
 
   /**
+   * STANCE CHANGE, before anybody acts.
+   *
+   * Here and not when the move lands, for the reason `applyMegas` is here: the form decides
+   * the stats the hit is computed from, and `planFor` below builds every hit AFTER this runs.
+   * Swapping later would price a Blade Forme attack with Shield Forme's Attack.
+   *
+   * With no joints -- the planner's own turns, below the searched depth -- a holder is put in
+   * its attacking form, which is what a Pokemon that is attacking every turn would be in.
+   */
+  applyStances(state, joints, events) {
+    if (!this.t.abilityOpsOn) return;
+    for (let s = 0; s < 2; s += 1) {
+      state.active[s].forEach((m, position) => {
+        if (!m || m.out) return;
+        const stance = m.k.stanceChange;
+        if (!stance) return;
+        const action = joints ? (joints[s] || []).find((a) => a && a.position === position) : null;
+        const move = action && action.slot !== undefined && action.slot !== null
+          ? m.u.moves[action.slot] : null;
+        // The shield move puts it back; anything that deals damage draws the blade. A switch,
+        // a wait or a status move that is not the shield move leaves it exactly as it stands.
+        let want = null;
+        if (move && stance.shieldMove && move.key === stance.shieldMove) want = stance.shieldForm;
+        else if (move && move.damaging) want = stance.attackForm;
+        else if (!joints) want = stance.attackForm;
+        if (!want) return;
+        const next = this.t.stanceUnit(m.u, want);
+        if (!next || next === m.u) return;
+        const was = m.u;
+        m.u = next;
+        m.k = next.kit;
+        events?.push({ s: m.s, kind: "stance", actor: was, value: this.label(next),
+          tag: m.tag, species: next.species, form: next.form || "" });
+      });
+    }
+  }
+
+  /**
    * The planner's own Mega Evolution, for the turns below the searched depth.
    *
    * The planner has no opinion about a stone, so without this a line would stay in its base form
@@ -1077,6 +1167,7 @@ export class Solver {
   applyPlannedTurn(state, turn, events) {
     const { active, board, slower } = state;
     this.autoMega(state, events);
+    this.applyStances(state, null, events);
     this.thaw(state);
     const plans = this.t.plannedTurn(active, board, slower, turn, events, null);
     this.tickBoard(state);
@@ -1171,6 +1262,9 @@ export class Solver {
     if (board.tw[0]) board.tw[0] -= 1;
     if (board.tw[1]) board.tw[1] -= 1;
     if (board.tr) board.tr -= 1;
+    this.t.tickField(board);
+    // ...and one turn off any move a Cursed Body shut off (TOURNAMENT_ABILITY_OPS).
+    for (const side of active) for (const m of side) this.t.tickDisable(m);
     // Standing through a turn spends "just switched in". Nothing used to clear it -- not
     // `refill`, not `fresh` -- so a Pokemon marked just-in was offered Fake Out and First
     // Impression at EVERY searched turn, and one that switched in during the search kept the

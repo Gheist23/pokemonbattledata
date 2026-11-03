@@ -20,6 +20,7 @@ import { getState, teamSets } from "./store.js";
 import { loadRecord, playerName, recordGame, setPlayerName } from "./play-record.js";
 import { DEFAULT_PACE, PACES, createTurnPlayer, sentenceFor, streamFromRecord } from "./play-anim.js";
 import { BattleMusic } from "./play-music.js";
+import { armMega } from "./play-choice.js";
 
 try { window.__bdPageModuleRan = true; } catch { /* no window: nothing to guard */ }
 
@@ -1141,8 +1142,14 @@ function renderSlotChoice(slot, view) {
           onclick: () => {
             // One stone a side. Arming the second seat used to be allowed and then silently
             // ignored by the game, so the player watched the Pokemon they chose stay as it was
-            // with nothing said about it.
-            if (!megaOn) state.mega = [];
+            // with nothing said about it. Clearing the toggles is only half of that: the other
+            // seat's CHOSEN ACTION carries the stone too, and `jointFrom` spends the side's one
+            // Mega Evolution on the lowest seat that asks -- so disarming on screen while
+            // leaving the pick armed evolved the wrong Pokemon. `armMega` takes both off.
+            if (!megaOn) {
+              state.chosen = armMega(state.options, state.chosen, slot.position);
+              state.mega = [];
+            }
             state.mega[slot.position] = !megaOn;
             // Keep whatever they had chosen, in the other form of it.
             const was = slot.actions.find((a) => a.id === state.chosen[slot.position]);

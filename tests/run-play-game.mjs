@@ -484,14 +484,20 @@ const isMegaForm = (form) => String(form || "").trim().toLowerCase().startsWith(
   }
 
   // ONE MEGA EVOLUTION A SIDE. Both seats could be armed and the second was silently ignored.
+  //
+  // THIS TEAM CANNOT EXERCISE IT and says so rather than passing quietly: both seats need a
+  // stone, and PLAYER brings one. It read like coverage for as long as it has been here --
+  // and the defect it would have caught (which of the two evolves, not how many) shipped.
+  // `tests/run-play-mega.mjs` builds the two-stone board and checks both halves.
   const megas = options.map((slot) => (slot.actions || []).find((a) => a.mega));
   if (megas[0] && megas[1]) {
     const joint = law.jointFrom(options, [megas[0].id, megas[1].id]);
     ok("only one Mega Evolution a side survives the choice",
       joint.filter((a) => a.mega).length === 1,
       JSON.stringify(joint.map((a) => Boolean(a.mega))));
+  } else {
+    notes.push("one Mega a side: not exercised here, this team brings one stone -- see run-play-mega.mjs");
   }
-
   // A SPENT FOCUS SASH AND AN EATEN BERRY STAY SPENT on the board the opponent searches. `fresh`
   // reads both off the kit, which is a fact about the SET, so they used to come back every turn.
   const kept = new PlayGame(solver, data, FORMAT, library);

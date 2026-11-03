@@ -495,7 +495,7 @@ self.addEventListener("message", async (event) => {
         // deliberately does not model that either -- it halves the damage instead, which is an
         // average over the two turns -- and a battle happens on one of them, which is how
         // Electro Shot came to fire on the spot with no rain up.
-        { effects: await moveEffects(), liveHpRule: 1, chargeRule: 1, berryRule: 1, stagesRule: 1, confusionRule: 1, ppRule: 1, rberryRule: 1, bailRule: 1 },
+        { effects: await moveEffects(), liveHpRule: 1, chargeRule: 1, berryRule: 1, stagesRule: 1, confusionRule: 1, ppRule: 1, rberryRule: 1, bailRule: 1, shieldRule: 1, fieldTurnsRule: 1, abilityOpsRule: 1, hazardsRule: 1, pivotRule: 1 },
       );
       evaluation.playSolver ||= new Solver(evaluation.playTournament);
       const library = await loadSetLibrary();
@@ -666,8 +666,17 @@ self.addEventListener("message", async (event) => {
       // Electro Shot landing on the spot. It is safe to give them to THIS instance precisely
       // because it is its own: `evaluation.tournament` above is the one the recorded parity
       // vectors pin, and it is untouched.
+      // `liveHpRule`: THE SOLVER BOARD SAYS WHAT EVERY POKEMON HAS LEFT -- that is what the HP
+      // slider on the page is -- and without this the damage was priced against the full-health,
+      // status-free Pokemon the team sheet describes. Measured 3 Nov 2026: Garchomp's Dragon Claw
+      // into a Dragonite the board put at 1% HP read 51.5%, because Multiscale was still halving
+      // it; the true number is 102.9%. The Solver answered that a guaranteed knockout was a
+      // half-health hit. It also kept Blaze, Torrent, Overgrow and Swarm from ever switching on
+      // and ignored a defender's burn. The played game has asked for version 1 since it was
+      // written, and the Companion's own resolution path passes live HP and status into the
+      // damage call -- so this instance was the odd one out of all three.
       evaluation.solverTournament ||= new TournamentTest(evaluation, evaluation.knownTeams || new KnownTeams({ teams: [] }), new TeamSuggestions(evaluation),
-        { effects: await moveEffects(), chargeRule: 1, berryRule: 1, stagesRule: 1, confusionRule: 1, ppRule: 1, rberryRule: 1, bailRule: 1 });
+        { effects: await moveEffects(), liveHpRule: 1, chargeRule: 1, berryRule: 1, stagesRule: 1, confusionRule: 1, ppRule: 1, rberryRule: 1, bailRule: 1, shieldRule: 1, fieldTurnsRule: 1, abilityOpsRule: 1, hazardsRule: 1, pivotRule: 1 });
       evaluation.solver ||= new Solver(evaluation.solverTournament);
       // A closed sheet is not one board but many: the sets are rolled, and the answer is the move
       // that does best across the possible boards rather than against one guess at theirs.

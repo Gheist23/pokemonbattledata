@@ -783,6 +783,157 @@ export const TOURNAMENT_RBERRY = 0;
  */
 export const TOURNAMENT_BAIL = 0;
 
+/**
+ * Disguise: the first hit a Mimikyu takes costs it an eighth of its maximum instead
+ * (TOURNAMENT_SHIELD).
+ *
+ * The Companion has modelled it since the registry shipped -- `first_damage_shield` in
+ * `mcts/data/ability_effects.json`, read by `_survival_adjust_damage` -- and this engine had
+ * no idea: the op was not on the exporter's WEB_ABILITY_OPS whitelist, so Disguise reached
+ * the website as an Ability with no effects at all and a Mimikyu took the first hit in full.
+ * Reported 3 Nov 2026 from a played game.
+ *
+ * The damage is capped at what the Pokemon actually has, exactly as the Companion caps it:
+ * `min(before, hp_cost_fraction)`. A Mimikyu already below an eighth therefore still goes
+ * down to the hit that breaks the disguise, which is what the app does and what the game does.
+ *
+ * This game has no Busted form in its own data (`species` lists one Mimikyu form), so nothing
+ * is renamed; the broken disguise is a flag on the Pokemon and the stats never change -- which
+ * is also true of the real Busted Form.
+ *
+ * 0 by default, ON PURPOSE, like every rule above it. The PLAYED game and the Solver both ask
+ * for version 1.
+ */
+export const TOURNAMENT_SHIELD = 0;
+
+/**
+ * Whether weather and terrain RUN OUT, and whether the moves that set them do anything
+ * (TOURNAMENT_FIELD_TURNS).
+ *
+ * Two halves of one gap, both measured 3 Nov 2026 in a played game:
+ *
+ *   * nothing ever counted `board.w` or `board.t` down. Tailwind and Trick Room have had
+ *     timers all along, so a Pelipper's Rain simply never stopped -- nine turns in, still
+ *     raining. The Companion gets this right (`weather_turns`, `terrain_turns`).
+ *   * the weather and terrain MOVES -- Rain Dance, Sunny Day, Sandstorm, Snowscape and the
+ *     four terrain moves -- compiled to `weather` / `terrain` ops that `runEffectOps` had no
+ *     branch for, so using one did nothing at all. They were not even offered: `play-game.js`
+ *     only offers a status move whose every op is runnable, so they came out greyed.
+ *
+ * Five turns, or EIGHT when whoever set it holds the matching rock (Damp, Heat, Smooth, Icy)
+ * or a Terrain Extender -- the Companion's own numbers (`mcts/engine.py`, `_WEATHER_ROCKS`).
+ *
+ * A count of 0 means NO TIMER rather than "gone", which is what keeps a pinned field (the
+ * Rules panel's own weather, `freshBoard`) permanent and what makes rule 0 a no-op: under it
+ * every count stays 0 and nothing anywhere expires.
+ *
+ * 0 by default, ON PURPOSE, like every rule above it. The played game and the Solver ask for 1.
+ */
+export const TOURNAMENT_FIELD_TURNS = 0;
+
+/**
+ * Whether the turn engine READS the Ability registry it is shipped (TOURNAMENT_ABILITY_OPS).
+ *
+ * Measured 3 Nov 2026, and the number is the finding: **62 of the game's 215 Abilities did
+ * nothing at all in a played game**, 935 appearances across the registered teams. Two causes,
+ * and the first is the surprising one:
+ *
+ *   * of the 19 Ability ops the exporter ships, the engine read SIX. The other thirteen --
+ *     `on_hit_status_attacker`, `stat_drop_immunity`, `damage_taken`, `stat_multiplier` and
+ *     the rest -- arrived in `move-effects.json` every day and no line of code ever looked at
+ *     them. Flame Body is the biggest single Ability in the library at 329 appearances and it
+ *     was inert;
+ *   * and 22 more Abilities the Companion models were not on the whitelist at all
+ *     ([[champions-web-effects-whitelist]] -- the Disguise shape).
+ *
+ * This rule is the reader. Each op is applied at the seam that already exists for its kind:
+ * a contact answer beside Rough Skin's, a stat refusal beside Clear Body's, an accuracy
+ * multiplier in `accuracyOf`.
+ *
+ * 0 by default, ON PURPOSE, like every rule above it: it moves numbers, and the Tournament
+ * Test's are published. The played game and the Solver ask for 1.
+ */
+export const TOURNAMENT_ABILITY_OPS = 0;
+
+/**
+ * Entry hazards (TOURNAMENT_HAZARDS).
+ *
+ * The turn engine had NO hazard model at all -- not a layer, not a counter, nothing. Stealth
+ * Rock, Spikes, Toxic Spikes, Sticky Web, Stone Axe and Ceaseless Edge all compile to a
+ * `hazard` op that `runEffectOps` had no branch for, so using one did nothing and the move was
+ * not even offered; and Toxic Debris, the 56-appearance Ability that lays Toxic Spikes when
+ * its holder is hit, had nothing to lay them into. (Hazards do exist in the DAMAGE calculator,
+ * as a described board state -- `engine.js hazardAdjustedHp` -- which is a different thing:
+ * that is the Solver being told what is already on the field, not a game putting it there.)
+ *
+ * 0 by default, ON PURPOSE, like every rule above it.
+ */
+export const TOURNAMENT_HAZARDS = 0;
+
+/**
+ * A pivot move switches its user out (TOURNAMENT_PIVOT).
+ *
+ * THE BIGGEST ONE OF ALL, measured 3 Nov 2026: **1,530 appearances across the registered
+ * teams** -- Parting Shot 856, U-turn 515, Flip Turn 110, Volt Switch 25, Baton Pass 20,
+ * Chilly Reception 3, Shed Tail 1 -- and not one of them left the field. The `pivot` op was
+ * never on the exporter's WEB_MOVE_OPS list, so the website was not sent it, and a U-turn was
+ * an ordinary 70 BP attack that just stood there afterwards.
+ *
+ * It is flagged and NOT swapped on the spot, which is how Emergency Exit already does it
+ * (TOURNAMENT_BAIL): a Pokemon taken off the field in the middle of a turn breaks seat rule 1,
+ * and `refill` is the one place that moves Pokemon safely. Both flags are read by the same
+ * loop there, so a pivot and a bail-out cannot fight over the same seat.
+ *
+ * Baton Pass carries `pass_state`, and is the one that KEEPS its stat stages.
+ *
+ * 0 by default, ON PURPOSE, like every rule above it.
+ */
+export const TOURNAMENT_PIVOT = 0;
+
+/**
+ * The four hazards, packed into ONE integer a side.
+ *
+ * Packed rather than an object because the board is COPIED in four places and every copy
+ * spreads it shallowly (`{ ...board, tw: [...board.tw] }`). A nested object would be shared
+ * by reference between a searched line and the board it came from, so one line's Stealth Rock
+ * would appear in every other -- the worst kind of bug to find. An array of two numbers
+ * copies exactly the way `tw` already does, so it joins the same `[...]` at each site.
+ */
+const HAZARD_SPEC = Object.freeze({
+  stealth_rock: Object.freeze({ shift: 0, bits: 1, max: 1 }),
+  spikes: Object.freeze({ shift: 1, bits: 2, max: 3 }),
+  toxic_spikes: Object.freeze({ shift: 3, bits: 2, max: 2 }),
+  sticky_web: Object.freeze({ shift: 5, bits: 1, max: 1 }),
+});
+
+/** How many layers of one hazard a side is carrying. */
+export function hazardLayers(packed, kind) {
+  const spec = HAZARD_SPEC[kind];
+  if (!spec) return 0;
+  return (Math.trunc(packed || 0) >> spec.shift) & ((1 << spec.bits) - 1);
+}
+
+/** The same side with one hazard set to `layers`, capped at what the game allows. */
+export function setHazardLayers(packed, kind, layers) {
+  const spec = HAZARD_SPEC[kind];
+  if (!spec) return Math.trunc(packed || 0);
+  const mask = ((1 << spec.bits) - 1) << spec.shift;
+  const value = Math.max(0, Math.min(spec.max, Math.trunc(layers || 0)));
+  return ((Math.trunc(packed || 0) & ~mask) | (value << spec.shift)) >>> 0;
+}
+
+/** What Spikes costs on the way in, by how many layers are down. */
+const SPIKE_SHARE = Object.freeze([0, 1 / 8, 1 / 6, 1 / 4]);
+/** What a Stealth Rock costs at neutral effectiveness. */
+const STEALTH_ROCK_SHARE = 1 / 8;
+
+/** Which weather each rock extends, and the item that extends a terrain. The Companion's
+ *  table (`mcts/engine.py _WEATHER_ROCKS`), keyed the way `compact` keys an item. */
+const WEATHER_ROCKS = Object.freeze({ heatrock: "Sun", damprock: "Rain", smoothrock: "Sand", icyrock: "Snow" });
+const TERRAIN_EXTENDER = "terrainextender";
+const FIELD_TURNS_PLAIN = 5;
+const FIELD_TURNS_EXTENDED = 8;
+
 /** What a Leppa Berry gives back. The game: "Restores 10 PP to a move when its PP is fully
  *  depleted." */
 const LEPPA_PP = 10;
@@ -911,6 +1062,26 @@ export function tournamentRberryOption(value) {
 
 export function tournamentBailOption(value) {
   return ruleVersion(value, TOURNAMENT_BAIL);
+}
+
+export function tournamentShieldOption(value) {
+  return ruleVersion(value, TOURNAMENT_SHIELD);
+}
+
+export function tournamentFieldTurnsOption(value) {
+  return ruleVersion(value, TOURNAMENT_FIELD_TURNS);
+}
+
+export function tournamentAbilityOpsOption(value) {
+  return ruleVersion(value, TOURNAMENT_ABILITY_OPS);
+}
+
+export function tournamentHazardsOption(value) {
+  return ruleVersion(value, TOURNAMENT_HAZARDS);
+}
+
+export function tournamentPivotOption(value) {
+  return ruleVersion(value, TOURNAMENT_PIVOT);
 }
 
 export function tournamentEffectsOption(value) {
@@ -1318,7 +1489,7 @@ export class TournamentTest {
    *   `varPowerRule`: the variable-power attacks (TOURNAMENT_VAR_POWER); 0 replays a recording made
    *   before it, where a 0-power attack was no attack at all.
    */
-  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, liveHpRule = TOURNAMENT_LIVE_HP, chargeRule = TOURNAMENT_CHARGE, berryRule = TOURNAMENT_BERRY, stagesRule = TOURNAMENT_STAGES, confusionRule = TOURNAMENT_CONFUSION, ppRule = TOURNAMENT_PP, rberryRule = TOURNAMENT_RBERRY, bailRule = TOURNAMENT_BAIL, effects = null } = {}) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, liveHpRule = TOURNAMENT_LIVE_HP, chargeRule = TOURNAMENT_CHARGE, berryRule = TOURNAMENT_BERRY, stagesRule = TOURNAMENT_STAGES, confusionRule = TOURNAMENT_CONFUSION, ppRule = TOURNAMENT_PP, rberryRule = TOURNAMENT_RBERRY, bailRule = TOURNAMENT_BAIL, shieldRule = TOURNAMENT_SHIELD, fieldTurnsRule = TOURNAMENT_FIELD_TURNS, abilityOpsRule = TOURNAMENT_ABILITY_OPS, hazardsRule = TOURNAMENT_HAZARDS, pivotRule = TOURNAMENT_PIVOT, effects = null } = {}) {
     this.turnOneRule = tournamentTurnOneOption(turnOneRule);
     this.seatRule = tournamentSeatOption(seatRule);
     this.bringRule = tournamentBringOption(bringRule);
@@ -1338,6 +1509,11 @@ export class TournamentTest {
     this.ppRule = tournamentPpOption(ppRule);
     this.rberryRule = tournamentRberryOption(rberryRule);
     this.bailRule = tournamentBailOption(bailRule);
+    this.shieldRule = tournamentShieldOption(shieldRule);
+    this.fieldTurnsRule = tournamentFieldTurnsOption(fieldTurnsRule);
+    this.abilityOpsRule = tournamentAbilityOpsOption(abilityOpsRule);
+    this.hazardsRule = tournamentHazardsOption(hazardsRule);
+    this.pivotRule = tournamentPivotOption(pivotRule);
     // The compiled move and Ability effects. Handed in rather than fetched, because this file is
     // run from a Worker, from node and from six suites; `effectsOn` is the one gate every new
     // rule below asks, so a run with no registry behaves exactly as it did before them.
@@ -1364,6 +1540,11 @@ export class TournamentTest {
     // Emergency Exit needs no registry: the Ability is read off the set by name, the way
     // every other kit entry is.
     this.bailOn = this.bailRule >= 1;
+    this.shieldOn = this.shieldRule >= 1;
+    this.fieldTurnsOn = this.fieldTurnsRule >= 1;
+    this.abilityOpsOn = this.abilityOpsRule >= 1;
+    this.hazardsOn = this.hazardsRule >= 1;
+    this.pivotOn = this.pivotRule >= 1;
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -1508,6 +1689,293 @@ export class TournamentTest {
       if (statuses.includes("all") || statuses.includes(status)) return true;
     }
     return false;
+  }
+
+  /**
+   * What the first hit costs this Ability's holder instead of the damage, as a share of its
+   * maximum, or 0. Disguise is the only one: `{op: "first_damage_shield", hp_cost_fraction: 0.125}`.
+   */
+  damageShieldOf(ability) {
+    const list = this.abilityEffects?.[ability];
+    if (!list) return 0;
+    for (const fx of list) {
+      if (fx.op === "first_damage_shield") return Math.max(0, Number(fx.hp_cost_fraction) || 0);
+    }
+    return 0;
+  }
+
+  /** One op off an Ability's registry row, or null. */
+  abilityOp(ability, op) {
+    const list = this.abilityEffects?.[ability];
+    if (!list) return null;
+    return list.find((fx) => fx.op === op) || null;
+  }
+
+  /**
+   * The status this Ability gives whoever touches its holder: Flame Body, Static, Poison
+   * Point, Cute Charm's cousins. `chance` is a PERCENTAGE in the registry and a share here,
+   * because a condition in this engine is a probability (see `applyStatus`).
+   */
+  contactStatusOf(ability) {
+    const fx = this.abilityOp(ability, "on_hit_status_attacker");
+    if (!fx || String(fx.trigger || "contact") !== "contact") return null;
+    return { status: String(fx.status || ""), chance: Math.max(0, Math.min(1, (Number(fx.chance) || 0) / 100)) };
+  }
+
+  /** The mirror: the status its holder gives what IT touches (Poison Touch). */
+  touchStatusOf(ability) {
+    const fx = this.abilityOp(ability, "on_contact_status_target");
+    if (!fx) return null;
+    return { status: String(fx.status || ""), chance: Math.max(0, Math.min(1, (Number(fx.chance) || 0) / 100)) };
+  }
+
+  /** How much this Ability multiplies its holder's accuracy by (Compound Eyes). */
+  accuracyBoostOf(ability) {
+    const fx = this.abilityOp(ability, "accuracy_multiplier");
+    return fx ? Math.max(0, Number(fx.multiplier) || 1) : 1;
+  }
+
+  /**
+   * The stats this Ability will not let anyone lower (Big Pecks, Keen Eye, Illuminate).
+   * Named in the engine's own spelling, so `shiftStages` can compare without translating.
+   */
+  dropProofOf(ability) {
+    const fx = this.abilityOp(ability, "stat_drop_immunity");
+    if (!fx) return null;
+    const fields = new Set();
+    for (const raw of fx.stats || []) {
+      const stat = String(raw || "").toLowerCase();
+      const field = stat === "attack" ? "atk"
+        : stat === "special_attack" || stat === "sp_attack" || stat === "spatk" ? "spa"
+          : stat === "defense" ? "def"
+            : stat === "special_defense" || stat === "sp_defense" || stat === "spdef" ? "spd"
+              : stat === "speed" ? "spe" : "";
+      if (field) fields.add(field);
+    }
+    return fields.size ? fields : null;
+  }
+
+  /** Whether this Ability takes the item off whoever touches its holder (Pickpocket). */
+  pickpocketsOf(ability) {
+    return Boolean(this.abilityOp(ability, "steal_attacker_item_on_contact"));
+  }
+
+  /** Whether this Ability takes the item off whatever its holder damages (Magician). */
+  magicianOf(ability) {
+    return Boolean(this.abilityOp(ability, "steal_item_on_damage"));
+  }
+
+  /** The Ability this one puts on whoever touches its holder (Mummy). */
+  contactAbilityOf(ability) {
+    const fx = this.abilityOp(ability, "contact_set_attacker_ability");
+    return fx ? String(fx.ability || "") : null;
+  }
+
+  /** The stat this Ability drops on whoever touches its holder (Gooey). */
+  contactStageOf(ability) {
+    const fx = this.abilityOp(ability, "on_hit_stage_attacker");
+    if (!fx || String(fx.trigger || "contact") !== "contact") return null;
+    return { stat: String(fx.stat || ""), amount: Number(fx.amount) || 0,
+      chance: Math.max(0, Math.min(1, (Number(fx.chance) ?? 100) / 100)) };
+  }
+
+  /** The conditions this Ability sends back to whoever inflicted them (Synchronize). */
+  reflectsStatus(ability) {
+    const fx = this.abilityOp(ability, "reflect_major_status");
+    if (!fx) return null;
+    return new Set((fx.statuses || []).map((s) => String(s).toLowerCase()));
+  }
+
+  /** The statuses this Ability may inflict THROUGH a type immunity (Corrosion). */
+  bypassesTypeImmunity(ability) {
+    const fx = this.abilityOp(ability, "bypass_status_type_immunity");
+    if (!fx) return null;
+    const list = Array.isArray(fx.status) ? fx.status : [fx.status];
+    return new Set(list.filter(Boolean).map((s) => String(s).toLowerCase()));
+  }
+
+  /**
+   * Whether this Ability raises the priority of its holder's Flying moves at full HP.
+   *
+   * The registry row is prose (`priority_modifier` with a `description` and no numbers), so
+   * the RULE is here and only the membership is data: an Ability that does not carry the op
+   * is not Gale Wings however it is spelled.
+   */
+  galeWingsOf(ability) {
+    return ability === "galewings" && Boolean(this.abilityOp(ability, "priority_modifier"));
+  }
+
+  /** The move this Ability shuts off on whoever damaged its holder (Cursed Body). */
+  disableOnDamageOf(ability) {
+    const fx = this.abilityOp(ability, "on_damage_disable_attacker");
+    if (!fx) return null;
+    return {
+      chance: Math.max(0, Math.min(1, (Number(fx.chance) ?? 0) / 100)),
+      turns: Math.max(1, Math.trunc(Number(fx.turns) || 1)),
+    };
+  }
+
+  /** Whether this Ability cures its holder's condition as it leaves the field (Natural Cure). */
+  curesOnSwitchOut(ability) {
+    return Boolean(this.abilityOp(ability, "switch_out_cure"));
+  }
+
+  /** Whose stat stages this Ability clears when it arrives (Curious Medicine). */
+  entryClearsStages(ability) {
+    const fx = this.abilityOp(ability, "entry_clear_stages");
+    return fx ? String(fx.target || "allies") : null;
+  }
+
+  /** Whether arriving sweeps the screens off both sides (Screen Cleaner). */
+  entryClearsScreens(ability) {
+    return Boolean(this.abilityOp(ability, "entry_screen_cleaner"));
+  }
+
+  /** How much this Ability raises one random stat and lowers another by, at end of turn (Moody). */
+  moodyOf(ability) {
+    const fx = this.abilityOp(ability, "end_turn_random_stages");
+    if (!fx) return null;
+    return { raise: Number(fx.raise) || 0, lower: Number(fx.lower) || 0 };
+  }
+
+  /** The hazard this Ability lays on whoever hit its holder with a physical move (Toxic Debris). */
+  hazardOnDamageOf(ability) {
+    const fx = this.abilityOp(ability, "on_physical_damage_hazard");
+    if (!fx) return null;
+    return { hazard: String(fx.hazard || ""), max: Math.max(1, Math.trunc(Number(fx.max_layers) || 1)) };
+  }
+
+  /** The two forms this Ability flips between, and the move that flips it back (Stance Change). */
+  stanceChangeOf(ability) {
+    const fx = this.abilityOp(ability, "move_form_change");
+    if (!fx) return null;
+    return {
+      attackForm: String(fx.attack_form || ""),
+      shieldForm: String(fx.shield_form || ""),
+      shieldMove: compact(String(fx.shield_move || "")),
+    };
+  }
+
+  /**
+   * The same Pokemon in another of its own forms.
+   *
+   * The registry names the form in one word -- "Blade", "Shield" -- and the species data
+   * spells it out ("Aegislash Blade Forme"), so the word is matched against the forms this
+   * species actually has. Built the way `baseFormUnit` builds a Mega holder's base form, and
+   * cached on the unit for the same reason: `prepare` is not free and this is asked every turn.
+   */
+  stanceUnit(unit, word) {
+    const wanted = compact(word);
+    if (!wanted) return null;
+    const cacheKey = `_stance_${wanted}`;
+    if (unit[cacheKey] === undefined) {
+      // `speciesByName` is the engine's own index, keyed the way `compact` keys a name.
+      const entry = this.ev.engine.speciesByName?.get(compact(unit.species));
+      const named = ((entry && entry.forms) || [])
+        .map((f) => String(f.form || ""))
+        .find((name) => compact(name).includes(wanted));
+      if (!named || compact(named) === compact(unit.mon.form_name)) {
+        unit[cacheKey] = null;
+      } else {
+        const mon = { ...unit.mon, bonuses: [...(unit.mon.bonuses || [])], form_name: named };
+        unit[cacheKey] = {
+          key: `${unit.key}|${wanted}`, mon, species: unit.species, form: named,
+          item: unit.item || "", display: `${compact(unit.species)}|${compact(named)}`,
+          baseForm: unit.baseForm, baseAbility: unit.baseAbility, side: unit.side,
+          faintedAllies: unit.faintedAllies, timesHit: unit.timesHit,
+        };
+      }
+    }
+    return unit[cacheKey] ? this.prepare(unit[cacheKey]) : null;
+  }
+
+  /**
+   * The same Pokemon with a different Ability.
+   *
+   * `stanceUnit` for a FORM; this is the same trick for an Ability, and it is what Skill Swap,
+   * Entrainment, Role Play and Mummy need: the kit -- every proof, every multiplier, every
+   * flag this engine reads -- is computed from the Ability when the unit is built, so there is
+   * no way to change one without building the unit again. Cached on the unit, because a turn
+   * can ask for the same swap twice and `prepare` is not free.
+   */
+  abilityUnit(unit, abilityName) {
+    const wanted = String(abilityName || "").trim();
+    if (!wanted || compact(wanted) === compact(unit.mon.ability)) return null;
+    const cacheKey = `_ability_${compact(wanted)}`;
+    if (unit[cacheKey] === undefined) {
+      const mon = { ...unit.mon, bonuses: [...(unit.mon.bonuses || [])], ability: wanted };
+      unit[cacheKey] = {
+        key: `${unit.key}|ab:${compact(wanted)}`, mon, species: unit.species, form: unit.form,
+        item: unit.item || "", display: unit.display,
+        baseForm: unit.baseForm, baseAbility: unit.baseAbility, side: unit.side,
+        faintedAllies: unit.faintedAllies, timesHit: unit.timesHit,
+      };
+    }
+    return unit[cacheKey] ? this.prepare(unit[cacheKey]) : null;
+  }
+
+  /**
+   * The same Pokemon holding something else, or nothing.
+   *
+   * `abilityUnit` for an Ability; this is the same trick for the ITEM, and Knock Off, Trick,
+   * Thief and Covet all need it: a Focus Sash, a Sitrus, a Leppa, a resistance berry, a
+   * weather rock and Heavy-Duty Boots are all read off the kit, so taking an item away means
+   * building the unit again.
+   */
+  itemUnit(unit, itemName) {
+    const wanted = String(itemName || "");
+    if (compact(wanted) === compact(unit.mon.item || "")) return null;
+    const cacheKey = `_item_${compact(wanted) || "none"}`;
+    if (unit[cacheKey] === undefined) {
+      const mon = { ...unit.mon, bonuses: [...(unit.mon.bonuses || [])], item: wanted };
+      unit[cacheKey] = {
+        key: `${unit.key}|it:${compact(wanted) || "none"}`, mon, species: unit.species,
+        form: unit.form, item: wanted, display: unit.display,
+        baseForm: unit.baseForm, baseAbility: unit.baseAbility, side: unit.side,
+        faintedAllies: unit.faintedAllies, timesHit: unit.timesHit,
+      };
+    }
+    return unit[cacheKey] ? this.prepare(unit[cacheKey]) : null;
+  }
+
+  /**
+   * Put a different item on a Pokemon that is standing, and reseat the flags that came off
+   * the old one. Returns what it was holding.
+   *
+   * The flags matter as much as the kit: `fresh` copies `sash`, `berry`, `oran`, `cure`,
+   * `leppa` and `rberry` onto the live Pokemon when it is built, so a unit swapped underneath
+   * them would leave a Focus Sash that is no longer held still saving its holder.
+   */
+  setItem(m, itemName) {
+    if (!this.abilityOpsOn || !m || m.out) return null;
+    const next = this.itemUnit(m.u, itemName);
+    if (!next) return null;
+    const had = m.u.mon.item || "";
+    m.u = next;
+    m.k = next.kit;
+    m.sash = next.kit.sash;
+    m.berry = next.kit.sitrus;
+    m.oran = next.kit.oran > 0;
+    m.cure = next.kit.cures ? 1 : 0;
+    m.leppa = Boolean(next.kit.leppa);
+    m.rberry = Boolean(next.kit.rberry);
+    return had;
+  }
+
+  /** Put a different Ability on a Pokemon that is standing. Returns what it had. */
+  setAbility(m, abilityName) {
+    if (!this.abilityOpsOn || !m || m.out) return null;
+    const next = this.abilityUnit(m.u, abilityName);
+    if (!next) return null;
+    const had = m.u.mon.ability;
+    m.u = next;
+    m.k = next.kit;
+    return had;
+  }
+
+  /** Whether this Ability stops the other side eating its berries (Unnerve). */
+  unnervesOf(ability) {
+    return Boolean(this.abilityOp(ability, "unnerve"));
   }
 
   /** What a contact move costs its user against this Ability, as a share of the attacker's HP. */
@@ -1666,6 +2134,12 @@ export class TournamentTest {
       lowers: unit.moves.map((info, slot) => (info.drop && (info.drop[0] < 0 || info.drop[1] < 0) && (info.attack || !info.damaging) ? slot : -1))
         .filter((slot) => slot >= 0 && !(unit.moves[slot].damaging && ability === "sheerforce")),
       prankster: ability === "prankster",
+      // GALE WINGS: +1 priority on a Flying move while its holder is at FULL HP
+      // (TOURNAMENT_ABILITY_OPS). Keyed by name like Prankster above, and for the same reason
+      // the Companion keys it by name (`PRIORITY_ABILITIES_APPLIED_BY_KEY`): the registry's
+      // `priority_modifier` op carries a sentence of prose and no numbers, so there is nothing
+      // in the data to read. The registry still decides WHO has it -- see `galeWingsOf`.
+      galeWings: this.galeWingsOf(ability),
       intimidate: Boolean(unit.intimidateMon),
       flinchProof: FLINCH_PROOF.has(ability) || item === "covertcloak",
       // Clear Body and friends stop every stat drop; Shield Dust and Covert Cloak stop the ones
@@ -1705,6 +2179,9 @@ export class TournamentTest {
       confusionProof: this.abilityImmunity(ability, "confusion"),
       soundProof: ability === "soundproof",
       dark: types.includes("Dark"),
+      // The Pokemon's own types. `dark` above was the only thing the kit knew about them, and
+      // Stealth Rock is priced against the whole list (TOURNAMENT_HAZARDS).
+      types: [...types],
       // Its own weather / terrain Ability, whatever the shared settings pin (TOURNAMENT_FIELD);
       // "Weather Abilities" in the Rules panel still turns the weather half off, because that is a
       // rule about the model and not a field. Version 0 drops both when a field is pinned.
@@ -1719,7 +2196,34 @@ export class TournamentTest {
       // Snarl, 26 Protect, 23 Icy Wind, 15 Trick Room, 9 Helping Hand, 7 Encore, 5 Taunt, 4
       // Will-O-Wisp, 3 Sleep Powder and 3 Tailwind. Modelling the lock itself (from turn 2, in
       // `play`) is the honest change and is not made here.
+      // The Ability registry, read at last (TOURNAMENT_ABILITY_OPS). All of these are null or
+      // 1 for an Ability that does not carry the op, so each rule is self-gating.
+      contactStatus: this.contactStatusOf(ability),
+      touchStatus: this.touchStatusOf(ability),
+      accuracyBoost: this.accuracyBoostOf(ability),
+      dropProof: this.dropProofOf(ability),
+      unnerve: this.unnervesOf(ability),
+      itemProof: Boolean(this.abilityOp(ability, "item_removal_immunity")),
+      stanceChange: this.stanceChangeOf(ability),
+      hazardOnDamage: this.hazardOnDamageOf(ability),
+      moody: this.moodyOf(ability),
+      cureOnSwitchOut: this.curesOnSwitchOut(ability),
+      entryClearStages: this.entryClearsStages(ability),
+      entryScreenCleaner: this.entryClearsScreens(ability),
+      disableOnDamage: this.disableOnDamageOf(ability),
+      contactStage: this.contactStageOf(ability),
+      contactAbility: this.contactAbilityOf(ability),
+      pickpocket: this.pickpocketsOf(ability),
+      magician: this.magicianOf(ability),
+      reflectStatus: this.reflectsStatus(ability),
+      bypassTypeImmunity: this.bypassesTypeImmunity(ability),
+      // Whether the poison immunity is the TYPE's rather than the Ability's: Corrosion goes
+      // through a Steel or Poison type and not through Immunity.
+      poisonProofByType: types.includes("Steel") || types.includes("Poison"),
       sash: item === "focussash",
+      // Disguise (TOURNAMENT_SHIELD): what the first hit costs instead of the damage, as a
+      // share of this Pokemon's maximum. 0 for everyone else, so the rule is self-gating.
+      shield: this.damageShieldOf(ability),
       sitrus: item === "sitrusberry",
       // Oran restores a FLAT 10 HP, so what it is worth is a question about THIS holder: 10
       // of 160 is a sixteenth, 10 of 110 nearly a tenth. Stored as the share of its own
@@ -1866,7 +2370,27 @@ export class TournamentTest {
       hit = this.calc(att, def, info, slot, w, t, stage, f, bucket, defending, 0, false, defBucket, defCond, berrySpent);
       store.set(key, hit);
     }
-    return hit;
+    return this.galeWings(att, def, info, hit, hp, t);
+  }
+
+  /**
+   * GALE WINGS, applied to a finished hit.
+   *
+   * HERE and not in `calc`, because `calc` is the cached one and its key carries the
+   * attacker's HP only as one of eight BUCKETS -- the top bucket is everything above 87.5%,
+   * and this Ability wants exactly full. `hp` is the real share, so the question is asked of
+   * the number the caller actually passed.
+   *
+   * The priority blocks are re-asked for the same reason `calc` asks them: a move lifted to
+   * +1 can be refused by Psychic Terrain or by Armor Tail, Dazzling and Queenly Majesty, and
+   * a boost that ignored them would let a Pokemon move first through a block that exists to
+   * stop exactly that.
+   */
+  galeWings(att, def, info, hit, hp, t) {
+    if (!this.abilityOpsOn || !att.kit?.galeWings || !hit || hit.frac <= 0) return hit;
+    if (info.type !== "Flying" || !(Number(hp) >= 1)) return hit;
+    if ((t === PSYCHIC && def.grounded) || (def.kit?.priorityBlock && !att.moldBreaker)) return hit;
+    return { ...hit, priority: (hit.priority || 0) + 1 };
   }
 
   calc(att, def, info, slot, w, t, stage, f, bucket = HP_BUCKETS - 1, defStage = 0, took = 0, critical = false,
@@ -2294,6 +2818,12 @@ export class TournamentTest {
   fresh(unit, s, lead) {
     return {
       u: unit, k: unit.kit, s, hp: 1, spe: 0, atk: 0, spa: 0, sash: unit.kit.sash, berry: unit.kit.sitrus, out: false, kos: 0,
+      // Disguise, still whole. Spent once and never again, like the sash beside it.
+      busted: false,
+      // CURSED BODY: which of its four moves is shut off, and for how many more turns.
+      // -1 is none, which is what every Pokemon starts and almost all of them stay.
+      disabledSlot: -1,
+      disabledTurns: 0,
       // An Oran Berry still uneaten, and how much of a cure berry is left. `cure` is a SHARE
       // and not a flag, because a condition here is a probability and the berry is spent in
       // the same proportion: see `applyStatus`. Both are set whatever TOURNAMENT_BERRY says,
@@ -2311,6 +2841,10 @@ export class TournamentTest {
       // of the same turn (TOURNAMENT_BAIL). Within-turn only, so it never has to survive a
       // round trip through a described board.
       bailing: false,
+      // A pivot move has been used and this one leaves at the end of the turn, the same way
+      // and through the same loop as a bail-out (TOURNAMENT_PIVOT).
+      pivoting: false,
+      pivotKeepsState: false,
       flinch: false, guard: false, intimidated: false, lead,
       // Whether it protected on the turn just ended, so the next one cannot (TOURNAMENT_GUARD).
       // Set in `refill`, which is the one place `guard` is cleared.
@@ -2375,11 +2909,34 @@ export class TournamentTest {
     const k = m.k;
     if (k.weather) {
       board.w = WEATHERS.indexOf(k.weather);
+      board.wt = this.fieldLength(m.u, k.weather);
       events?.push({ s: m.s, kind: "weather", actor: m.u, value: k.weather });
     }
     if (k.terrain) {
       board.t = TERRAINS.indexOf(k.terrain);
+      board.tt = this.fieldLength(m.u, null);
       events?.push({ s: m.s, kind: "terrain", actor: m.u, value: k.terrain });
+    }
+    this.takeHazards(m, board, events);
+    if (this.abilityOpsOn) {
+      // CURIOUS MEDICINE wipes its own side's stat stages as it arrives.
+      if (k.entryClearStages) {
+        const row = k.entryClearStages === "allies" || k.entryClearStages === "ally"
+          ? (active[m.s] || []).filter((x) => x && x !== m) : (active[m.s] || []);
+        for (const at of row) {
+          if (!alive(at)) continue;
+          at.atk = 0; at.spa = 0; at.spe = 0; at.def = 0; at.spd = 0;
+        }
+        events?.push({ s: m.s, kind: "clearstages", actor: m.u });
+      }
+      // SCREEN CLEANER takes the screens off BOTH sides as it arrives.
+      if (k.entryScreenCleaner && this.solverField) {
+        const f = this.solverField;
+        f.reflect = [false, false];
+        f.lightScreen = [false, false];
+        f.auroraVeil = [false, false];
+        events?.push({ s: m.s, kind: "screenclean", actor: m.u });
+      }
     }
     if (!k.intimidate) return;
     this.intimidateFrom(m, active, events);
@@ -2398,10 +2955,12 @@ export class TournamentTest {
     const k = m.k;
     if (k.weather) {
       board.w = WEATHERS.indexOf(k.weather);
+      board.wt = this.fieldLength(m.u, k.weather);
       events?.push({ s: m.s, kind: "weather", actor: m.u, value: k.weather });
     }
     if (k.terrain) {
       board.t = TERRAINS.indexOf(k.terrain);
+      board.tt = this.fieldLength(m.u, null);
       events?.push({ s: m.s, kind: "terrain", actor: m.u, value: k.terrain });
     }
     if (k.intimidate && !hadIntimidate) this.intimidateFrom(m, active, events);
@@ -2459,7 +3018,7 @@ export class TournamentTest {
    */
   onHit = null;
 
-  deal(att, target, hit, events, partner = false, pre = null) {
+  deal(att, target, hit, events, partner = false, pre = null, attackers = null, board = null) {
     // `target.hidden` is a Pokemon part-way through Fly, Dig, Dive, Bounce or Phantom Force: it
     // is not on the field to be hit. The narrowest seam for it -- every landed hit of every
     // caller passes through here, exactly as `target.guard` does for a Protect.
@@ -2488,6 +3047,15 @@ export class TournamentTest {
       damage *= 1 - 0.5 * burn;
     }
     if (damage <= 0) return false;
+    // DISGUISE, and before the sash: the hit does not land at all, so there is nothing for a
+    // Focus Sash to survive. Capped at what it has left, exactly as the Companion caps it
+    // (`_survival_adjust_damage`), so a Mimikyu already under an eighth goes down to the hit
+    // that breaks the disguise.
+    if (this.shieldOn && target.k.shield > 0 && !target.busted) {
+      target.busted = true;
+      damage = Math.min(target.hp, target.k.shield);
+      events?.push({ s: target.s, kind: "disguise", actor: target.u, target: target.u });
+    }
     if (target.sash && target.hp >= 0.999 && damage >= target.hp) {
       damage = target.hp - 0.01;
       target.sash = false;
@@ -2504,7 +3072,40 @@ export class TournamentTest {
       events?.push({ s: att.s, kind: "ko", actor: att.u, target: target.u });
       return true;
     }
-    this.berry(target);
+    // MAGICIAN: the attacker takes the item off whatever it just damaged.
+    if (this.abilityOpsOn && att.k.magician && alive(target) && alive(att)
+      && target.u.mon.item && !att.u.mon.item && !target.k.itemProof) {
+      const taken = target.u.mon.item;
+      this.setItem(target, "");
+      this.setItem(att, taken);
+    }
+    // TOXIC DEBRIS lays Toxic Spikes on whoever hit it with a PHYSICAL move.
+    const debris = target.k.hazardOnDamage;
+    if (this.hazardsOn && debris && board && att.u.moves[hit.slot]?.physical && alive(target)) {
+      const at = att.s;
+      const have = hazardLayers(board.hz[at], debris.hazard);
+      if (have < debris.max) board.hz[at] = setHazardLayers(board.hz[at], debris.hazard, have + 1);
+    }
+    // CURSED BODY shuts off the move that hit it. HERE and not in `answerContact`, which is
+    // the contact-only path: this Ability answers ANY damaging move, and putting it there
+    // meant a Rock Slide into a Cursed Body holder was perfectly safe.
+    //
+    // ROLLED, not priced: a move is either on the sheet next turn or it is not, and there is
+    // no half of it to offer. The roll is the one a played turn lends the engine
+    // (`effectRoll`); with none to hand -- the expectation engine, where this rule is off
+    // anyway -- nothing happens, which is honest rather than a 30%-disabled move that no
+    // action list can represent.
+    const curse = target.k.disableOnDamage;
+    if (this.abilityOpsOn && curse && curse.chance > 0 && alive(att) && att.disabledTurns <= 0
+      && hit.slot >= 0) {
+      const curseRoll = this.effectRoll;
+      if (curseRoll && curseRoll() < curse.chance) {
+        att.disabledSlot = hit.slot;
+        att.disabledTurns = curse.turns;
+      }
+    }
+    // `attackers` is the attacking SIDE, not just `att`: Unnerve works from either seat.
+    this.berry(target, attackers || [att]);
     if (this.effectsOn) {
       // Counter, Metal Burst and Mirror Coat read this.
       target.took += damage;
@@ -2538,6 +3139,39 @@ export class TournamentTest {
     if (!info?.contact || !alive(att)) return;
     const share = target.k.contactAnswer || 0;
     if (share > 0) att.resid += share;
+    if (!this.abilityOpsOn) return;
+    // FLAME BODY, STATIC, POISON POINT (`on_hit_status_attacker`) -- the biggest Ability in
+    // the library at 329 appearances, and inert until now: the op has been shipped in
+    // `move-effects.json` all along and nothing read it. A 30% burn is 0.3 of a burn here,
+    // the same expectation every other chance in this engine is (see `applyStatus`).
+    //
+    // Shield Dust and a Covert Cloak answer secondaries, not an Ability's own contact answer,
+    // so they are deliberately not consulted -- `contactAnswer` above does not consult them
+    // either, and Rough Skin hurts through both.
+    const theirs = target.k.contactStatus;
+    if (theirs && theirs.chance > 0 && alive(target)) {
+      this.applyStatus(att, theirs.status, theirs.chance, target);
+    }
+    // POISON TOUCH, the mirror: the ATTACKER's Ability statuses what it touched.
+    const ours = att.k.touchStatus;
+    if (ours && ours.chance > 0 && alive(target)) {
+      this.applyStatus(target, ours.status, ours.chance, att);
+    }
+    // PICKPOCKET: touching it costs the attacker its item, if the thief has a free hand.
+    if (this.abilityOpsOn && target.k.pickpocket && alive(target) && alive(att)
+      && att.u.mon.item && !target.u.mon.item && !att.k.itemProof) {
+      const taken = att.u.mon.item;
+      this.setItem(att, "");
+      this.setItem(target, taken);
+    }
+    // MUMMY: touching it makes the attacker a Mummy too.
+    const spread = target.k.contactAbility;
+    if (spread && alive(target) && alive(att)) this.setAbility(att, spread);
+    // GOOEY: touching it costs the attacker a stage of Speed.
+    const drop = target.k.contactStage;
+    if (drop && drop.amount && drop.chance > 0 && alive(target)) {
+      this.shiftStages(att, [drop.stat], drop.amount * drop.chance);
+    }
   }
 
   /**
@@ -2555,6 +3189,21 @@ export class TournamentTest {
     for (const fx of list) {
       const p = Math.max(0, Math.min(1, (Number(fx.chance) || 100) / 100));
       if (p <= 0) continue;
+      // KNOCK OFF and THIEF are DAMAGING moves, so their registry ops arrive HERE and not in
+      // `runEffectOps` -- the same trap Cursed Body fell into. Trick and Switcheroo are status
+      // moves and are handled there; these two are handled here, and both call `setItem`.
+      if (fx.op === "remove_item") {
+        if (this.abilityOpsOn && !target.k.itemProof && target.u.mon.item) this.setItem(target, "");
+        continue;
+      }
+      if (fx.op === "steal_item") {
+        if (this.abilityOpsOn && !target.k.itemProof && target.u.mon.item && !att.u.mon.item) {
+          const taken = target.u.mon.item;
+          this.setItem(target, "");
+          this.setItem(att, taken);
+        }
+        continue;
+      }
       if (fx.op === "flinch" && fx.target === "target") {
         // Accumulated, not applied: `freezeRun` decides which actions can see it.
         target.flinchP = 1 - (1 - target.flinchP) * (1 - p);
@@ -2606,7 +3255,14 @@ export class TournamentTest {
    * cannot also be poisoned, and two 60% sleeps are not a 120% sleep. The immunities are asked
    * first, and they are the same ones the boolean path has always asked.
    */
-  applyStatus(target, status, chance) {
+  /**
+   * Put a condition on a Pokemon, as a share.
+   *
+   * `source` is optional and new (TOURNAMENT_ABILITY_OPS): Corrosion poisons THROUGH a Steel
+   * or Poison type, and Synchronize sends what it is given straight back. A caller that does
+   * not pass one gets exactly what it always got.
+   */
+  applyStatus(target, status, chance, source = null) {
     if (!alive(target) || !target.st) return 0;
     const kind = String(status || "").toLowerCase();
     const field = kind === "burn" ? "brn"
@@ -2617,7 +3273,10 @@ export class TournamentTest {
               : kind === "freeze" ? "frz" : "";
     if (!field) return 0;
     if (field === "brn" && target.k.burnProof) return 0;
-    if ((field === "psn" || field === "tox") && target.k.poisonProof) return 0;
+    // CORROSION goes through the TYPE's immunity and not through an Ability's.
+    const corrodes = this.abilityOpsOn && source?.k?.bypassTypeImmunity?.has(kind)
+      && target.k.poisonProofByType;
+    if ((field === "psn" || field === "tox") && target.k.poisonProof && !corrodes) return 0;
     if (field === "par" && target.k.paraProof) return 0;
     if (field === "slp" && target.k.sleepProof) return 0;
     if (field === "frz" && target.k.freezeProof) return 0;
@@ -2640,7 +3299,27 @@ export class TournamentTest {
       // land, and `landed <= 0` is already their word for that.
       return room - eaten;
     }
+    this.synchronize(target, source, kind, room);
     return room;
+  }
+
+  /**
+   * SYNCHRONIZE: what it is given, whoever gave it gets.
+   *
+   * `reflecting` guards the one-step recursion -- two Synchronize holders would otherwise
+   * send a burn back and forth for ever -- and the reflected copy carries no source, so it
+   * cannot bounce again from the other end either.
+   */
+  synchronize(target, source, kind, room) {
+    if (!this.abilityOpsOn || this.reflecting || room <= 0) return;
+    if (!source || source === target || source.s === target.s) return;
+    if (!target.k.reflectStatus?.has(kind)) return;
+    this.reflecting = true;
+    try {
+      this.applyStatus(source, kind, room);
+    } finally {
+      this.reflecting = false;
+    }
   }
 
   /** A status condition as an expectation. Nothing here ever exceeds one whole condition. */
@@ -2694,11 +3373,183 @@ export class TournamentTest {
     // a turn being played: a 90%-accurate Nasty Plot became +1.8 Sp. Atk, and `shiftStages`
     // spends whole stages, so it gave +1 and carried the rest. Rolled here, the move either
     // happens or it misses, and what happens happens at full strength.
-    if (roll && roll() >= this.accuracyOf(info)) return { did, missed: true };
+    if (roll && roll() >= this.accuracyOf(info, m)) return { did, missed: true };
     for (const fx of a.ops || []) {
       const chance = Math.max(0, Math.min(1, (Number(fx.chance) || 100) / 100));
       if (chance <= 0) continue;
       if (roll && roll() >= chance) continue;
+      // THE FIELD IS NOT A TARGET. Weather and terrain are set on the board, so they are
+      // handled HERE and not inside the per-target loop below: a `weather` op carries no
+      // target word, `effectTargets` hands back nothing for it, and a branch down there
+      // would never run at all. (It did not, the first time this was written.)
+      //
+      // Rain Dance, Sunny Day, Sandstorm, Snowscape, Hail, Chilly Reception and the four
+      // terrain moves (TOURNAMENT_FIELD_TURNS). They have been shipped in the registry for as
+      // long as it has existed and there was no branch for either op, so using one did
+      // nothing -- and `play-game.js` offers only a status move whose every op is runnable,
+      // so they were refused on the sheet rather than failing visibly.
+      // ENTRY HAZARDS, laid on a SIDE and not on a target, so they are handled up here with
+      // the field for the same reason (TOURNAMENT_HAZARDS).
+      // SIX MOVES THAT ACT ON THE BOARD RATHER THAN ON A TARGET SLOT, so they are handled
+      // here with the field ops and not inside the per-target loop below
+      // (TOURNAMENT_ABILITY_OPS). Each one compiled to an op the engine had no branch for, so
+      // the move did nothing and was refused on the sheet.
+      // THE THREE THAT CHANGE AN ABILITY. Each rebuilds the unit, because the kit is computed
+      // from the Ability when the unit is built (TOURNAMENT_ABILITY_OPS).
+      // KNOCK OFF, TRICK, THIEF, COVET: the item changes hands, or goes altogether.
+      if (fx.op === "remove_item") {
+        if (!this.abilityOpsOn || !target) continue;
+        if (target.k.itemProof) { did.push("it would not let go"); continue; }
+        const had = this.setItem(target, "");
+        if (had) did.push(`knocked off its ${had}`);
+        continue;
+      }
+      if (fx.op === "steal_item") {
+        if (!this.abilityOpsOn || !target) continue;
+        if (m.u.mon.item || target.k.itemProof || !target.u.mon.item) continue;
+        const taken = target.u.mon.item;
+        this.setItem(target, "");
+        this.setItem(m, taken);
+        did.push(`took its ${taken}`);
+        continue;
+      }
+      if (fx.op === "swap_items") {
+        if (!this.abilityOpsOn || !target) continue;
+        if (target.k.itemProof) continue;
+        const mineItem = m.u.mon.item || "";
+        const theirItem = target.u.mon.item || "";
+        if (!mineItem && !theirItem) continue;
+        this.setItem(m, theirItem);
+        this.setItem(target, mineItem);
+        did.push("swapped items");
+        continue;
+      }
+      if (fx.op === "swap_abilities") {
+        // SKILL SWAP: the two trade.
+        if (!this.abilityOpsOn || !target) continue;
+        const mine = m.u.mon.ability;
+        const theirs = target.u.mon.ability;
+        this.setAbility(m, theirs);
+        this.setAbility(target, mine);
+        did.push("swapped Abilities");
+        continue;
+      }
+      if (fx.op === "set_ability") {
+        // ENTRAINMENT: the target is given the USER's Ability.
+        if (!this.abilityOpsOn || !target) continue;
+        const from = String(fx.source || "user") === "user" ? m : target;
+        if (this.setAbility(target, from.u.mon.ability)) did.push(`gave it ${from.u.mon.ability}`);
+        continue;
+      }
+      if (fx.op === "copy_ability") {
+        // ROLE PLAY: the USER takes the target's.
+        if (!this.abilityOpsOn || !target) continue;
+        const from = String(fx.source || "target") === "target" ? target : m;
+        if (this.setAbility(m, from.u.mon.ability)) did.push(`copied ${from.u.mon.ability}`);
+        continue;
+      }
+      if (fx.op === "copy_stages") {
+        // PSYCH UP: the user takes the target's stat stages, exactly as they stand.
+        if (!this.abilityOpsOn || !target) continue;
+        for (const field of STAGE_FIELDS) m[field] = target[field] || 0;
+        did.push("copied the stages");
+        continue;
+      }
+      if (fx.op === "invert_stages") {
+        // TOPSY-TURVY: every stage the target has, the other way round.
+        if (!this.abilityOpsOn || !target) continue;
+        for (const field of STAGE_FIELDS) target[field] = -(target[field] || 0);
+        did.push("turned the stages round");
+        continue;
+      }
+      if (fx.op === "pain_split") {
+        // PAIN SPLIT averages the two ABSOLUTE HP totals, so it is worked out in points and
+        // put back as each one's own share -- `hp` here is a fraction of that Pokemon's
+        // maximum, and averaging the fractions would be a different move.
+        if (!this.abilityOpsOn || !target || !alive(m) || !alive(target)) continue;
+        const mine = Math.max(1, m.k.maxHp || 1);
+        const theirs = Math.max(1, target.k.maxHp || 1);
+        const pool = (m.hp * mine + target.hp * theirs) / 2;
+        m.hp = Math.max(0, Math.min(1, pool / mine));
+        target.hp = Math.max(0, Math.min(1, pool / theirs));
+        did.push("split the pain");
+        continue;
+      }
+      if (fx.op === "aqua_ring") {
+        // AQUA RING: a sixteenth back at the end of every turn, for as long as it stands.
+        if (!this.abilityOpsOn) continue;
+        m.aquaRing = true;
+        did.push("surrounded itself in water");
+        continue;
+      }
+      if (fx.op === "leech_seed") {
+        // LEECH SEED: a seeded Pokemon gives an eighth a turn to the side that seeded it.
+        // A Grass type cannot be seeded.
+        if (!this.abilityOpsOn || !target || !alive(target)) continue;
+        if ((target.k.types || []).includes("Grass")) { did.push("it had no effect"); continue; }
+        target.seededBy = m.s;
+        did.push("seeded it");
+        continue;
+      }
+      if (fx.op === "revive_ally") {
+        // REVIVAL BLESSING brings one knocked-out team-mate back, at a share of its maximum.
+        if (!this.abilityOpsOn) continue;
+        const share = Math.max(0, Math.min(1, Number(fx.fraction) || 0.5));
+        const bench = (this.benchPool?.[m.s] || []).find((x) => x && x.out);
+        if (!bench) { did.push("but there was nobody to bring back"); continue; }
+        bench.out = false;
+        bench.hp = share;
+        if (bench.st) for (const key of Object.keys(bench.st)) bench.st[key] = 0;
+        did.push("brought a team-mate back");
+        continue;
+      }
+      if (fx.op === "hazard") {
+        if (!this.hazardsOn || !board) continue;
+        const kind = String(fx.hazard || "");
+        // `side: "foe"` is the registry's own word; Stone Axe and Ceaseless Edge carry no
+        // side at all and lay them on the side they hit, which is the same side.
+        const at = 1 - m.s;
+        const have = hazardLayers(board.hz[at], kind);
+        const cap = Math.max(1, Math.trunc(Number(fx.max_layers) || 1));
+        if (have >= cap) continue;
+        board.hz[at] = setHazardLayers(board.hz[at], kind, have + 1);
+        did.push(kind.replace(/_/g, " "));
+        continue;
+      }
+      if (fx.op === "clear_user_hazards" || fx.op === "clear_field_conditions"
+        || fx.op === "clear_substitutes_hazards") {
+        if (!this.hazardsOn || !board) continue;
+        // Rapid Spin and Mortal Spin sweep the USER's side; Defog and Tidy Up sweep both.
+        const scope = String(fx.scope || "");
+        const sides = fx.op === "clear_user_hazards" && scope !== "all" ? [m.s] : [0, 1];
+        let swept = false;
+        for (const side of sides) {
+          if (!board.hz[side]) continue;
+          board.hz[side] = 0;
+          swept = true;
+        }
+        if (swept) did.push("cleared the hazards");
+        continue;
+      }
+      if (fx.op === "weather" || fx.op === "terrain") {
+        if (!this.fieldTurnsOn || !board) continue;
+        if (fx.op === "weather") {
+          const weather = String(fx.weather || "");
+          const index = WEATHERS.indexOf(weather);
+          if (index < 0 || board.w === index) continue;
+          board.w = index;
+          board.wt = this.fieldLength(m.u, weather);
+          did.push(weather);
+        } else {
+          const terrain = String(fx.terrain || "");
+          const index = TERRAINS.indexOf(terrain);
+          if (index < 0 || board.t === index) continue;
+          board.t = index;
+          board.tt = this.fieldLength(m.u, null);
+          did.push(`${terrain} Terrain`);
+        }
+        continue;
+      }
       // EVERY TARGET WORD THE REGISTRY USES, not the two that were recognised. `target` and
       // everything else was read as "the user", so a Cotton Spore dropped its OWN Speed and a
       // Coaching boosted the user instead of the ally it is for.
@@ -2871,6 +3722,10 @@ export class TournamentTest {
           : stat === "speed" ? "spe" : "";
       if (!field) continue;
       if (field === "atk" && amount < 0 && unit.k.hyperCutter) continue;
+      // Big Pecks keeps its Defense, Keen Eye and Illuminate their accuracy
+      // (TOURNAMENT_ABILITY_OPS). `stat_drop_immunity` has been shipped since the registry
+      // existed and had no reader; `statProof` above is the all-stats one and is hand-listed.
+      if (amount < 0 && this.abilityOpsOn && unit.k.dropProof?.has(field)) continue;
       // The REMAINDER is carried and only whole stages are spent. A fractional stage would land
       // in the damage cache key and multiply the number of entries -- measured at +147% engine
       // calls -- for a difference smaller than one step of the stage table.
@@ -2888,6 +3743,100 @@ export class TournamentTest {
    * True whenever the rule is off or the slot has no counter, so every existing caller keeps
    * the list it had.
    */
+  /**
+   * Whether this slot is shut off right now (Cursed Body, TOURNAMENT_ABILITY_OPS).
+   *
+   * Asked beside `hasPp` by every action generator there is -- `solver.js slotCandidates`,
+   * `play-game.js slotActions` and the planner -- because a move the game will not let you
+   * use has to be missing from ALL of them or the search plans a turn the board refuses.
+   */
+  slotDisabled(m, slot) {
+    return Boolean(this.abilityOpsOn && m && m.disabledTurns > 0 && m.disabledSlot === slot);
+  }
+
+  /**
+   * MOODY: one stat up two stages, another down one, at the end of every turn.
+   *
+   * ROLLED, like Cursed Body and for the same reason: there is no half of a stat stage to
+   * carry, and `shiftStages` spends whole ones. With no roll lent to it -- the expectation
+   * engine, where this rule is off anyway -- nothing happens, which beats inventing an
+   * average Pokemon that is permanently +0.4 in everything.
+   */
+  moodyStages(m) {
+    if (!this.abilityOpsOn || !m?.k?.moody || !alive(m)) return;
+    const roll = this.effectRoll;
+    if (!roll) return;
+    const names = ["attack", "defense", "special_attack", "special_defense", "speed"];
+    const pick = (list) => list[Math.min(list.length - 1, Math.floor(roll() * list.length))];
+    const up = pick(names);
+    const down = pick(names.filter((n) => n !== up));
+    if (m.k.moody.raise) this.shiftStages(m, [up], m.k.moody.raise);
+    if (m.k.moody.lower) this.shiftStages(m, [down], m.k.moody.lower);
+  }
+
+  /**
+   * LEECH SEED, settled BEFORE the residual loop and not inside it.
+   *
+   * The loop walks side 0 and then side 1, spending each Pokemon's `resid` as it reaches it.
+   * A seeded Pokemon on side 1 crediting a drinker on side 0 therefore credited somebody
+   * whose residual had already been paid, and the heal vanished -- measured: the target lost
+   * its eighth and the seeder gained nothing. Both sides are owed here, before either is paid.
+   *
+   * The drinker gains the same number of POINTS the seeded one loses, which is a different
+   * SHARE for each of them.
+   */
+  leechSeed(active) {
+    if (!this.abilityOpsOn) return;
+    for (const side of active) {
+      for (const m of side) {
+        if (!m || m.out) continue;
+        if (m.seededBy !== 0 && m.seededBy !== 1) continue;
+        m.resid = (m.resid || 0) + 1 / 8;
+        const drinker = (active[m.seededBy] || []).find((x) => x && !x.out);
+        if (!drinker) continue;
+        const points = (1 / 8) * (m.k.maxHp || 1);
+        drinker.resid = (drinker.resid || 0) - points / Math.max(1, drinker.k.maxHp || 1);
+      }
+    }
+  }
+
+  /**
+   * Does this move take its user off the field, and does it carry its stages with it?
+   *
+   * One reader for both kinds: U-turn, Flip Turn and Volt Switch are ATTACKS and go through
+   * `attack`; Parting Shot, Baton Pass, Chilly Reception and Teleport are status moves and go
+   * through `runEffectOps`. Both ask here.
+   */
+  pivotOf(info) {
+    if (!this.pivotOn) return null;
+    const fx = (info?.fx || []).find((e) => e.op === "pivot");
+    return fx ? { keepsState: Boolean(fx.pass_state) } : null;
+  }
+
+  /** Flag the user to leave at the end of the turn -- but only if it has somewhere to go. */
+  markPivot(m, info, sides, active) {
+    const pivot = this.pivotOf(info);
+    if (!pivot || !alive(m)) return false;
+    // Nothing ON THE BENCH, nothing to switch to, so the move simply does its damage. It is
+    // `refill`'s own test, asked here so the flag never outlives the turn that set it -- and
+    // it has to exclude whoever is STANDING, or a Doubles partner counts as a bench Pokemon
+    // and a side down to its last two flags a switch that `refill` then cannot make.
+    const standing = active?.[m.s] || [];
+    const bench = (sides?.[m.s] || []).some((x) => x && x !== m && !x.out && x.hp > 0
+      && !standing.includes(x));
+    if (!bench) return false;
+    m.pivoting = true;
+    m.pivotKeepsState = pivot.keepsState;
+    return true;
+  }
+
+  /** One turn off a Cursed Body, at the end of the turn, beside the field's own counts. */
+  tickDisable(m) {
+    if (!m || !(m.disabledTurns > 0)) return;
+    m.disabledTurns -= 1;
+    if (m.disabledTurns <= 0) { m.disabledTurns = 0; m.disabledSlot = -1; }
+  }
+
   hasPp(m, slot) {
     if (!this.ppOn || !m || !Array.isArray(m.pp)) return true;
     const left = m.pp[slot];
@@ -2912,8 +3861,12 @@ export class TournamentTest {
     m.leppa = false;
   }
 
-  berry(target) {
+  berry(target, foes = null) {
     if (target.out || target.hp > 0.5) return;
+    // UNNERVE: while it is standing, the other side cannot eat a berry at all
+    // (TOURNAMENT_ABILITY_OPS). `foes` is optional -- a caller that does not know the other
+    // side gets exactly the behaviour it always had.
+    if (this.abilityOpsOn && foes && foes.some((f) => f && !f.out && f.k.unnerve)) return;
     if (target.berry) {
       target.hp = Math.min(1, target.hp + 0.25);
       target.berry = false;
@@ -2988,12 +3941,20 @@ export class TournamentTest {
    * own move list, so it is 1. Attacks have always been discounted by this through the engine's
    * `move_accuracy_factor`; this is the same number for the moves that do not deal damage.
    */
-  accuracyOf(info) {
+  /**
+   * How likely this move is to land, for its user.
+   *
+   * `user` is optional and new: Compound Eyes multiplies its holder's accuracy by 1.3
+   * (TOURNAMENT_ABILITY_OPS, `accuracy_multiplier`). A caller that does not pass one gets
+   * exactly the number it always got.
+   */
+  accuracyOf(info, user = null) {
     const raw = this.ev.meta(info?.name || "")?.accuracy;
     if (raw === undefined || raw === null || raw === "") return 1;
     const value = Number(String(raw).replace("%", ""));
     if (!Number.isFinite(value) || value <= 0) return 1;
-    return Math.max(0, Math.min(1, value / 100));
+    const boost = this.abilityOpsOn ? (user?.k?.accuracyBoost || 1) : 1;
+    return Math.max(0, Math.min(1, (value / 100) * boost));
   }
 
   /** An attack's sure stat drop after it landed (Sheer Force, Shield Dust and Covert Cloak remove it). */
@@ -4009,6 +4970,10 @@ export class TournamentTest {
       } else if (a.kind === ATTACK || a.kind === LOWER) {
         const hit = a.hit || { slot: a.slot, spread: m.u.moves[a.slot].spread };
         const done = this.attack(m, a.target || foes.find(alive) || null, hit, foes, active[s], board, redirector[1 - s], events, pre);
+        // U-TURN, FLIP TURN, VOLT SWITCH: the attack lands and then its user leaves.
+        if (this.markPivot(m, m.u.moves[hit.slot], this.benchPool, active)) {
+          events?.push({ s, kind: "pivot", actor: m.u, move: m.u.moves[hit.slot]?.name || a.move });
+        }
         const drops = [...done.lowered, ...done.own];
         if (drops.length) events?.push({ s, kind: "lower", actor: m.u, move: m.u.moves[hit.slot].name, targets: done.lowered.map((x) => x.m.u), own: done.own.map((x) => x.m.u), stats: drops[0].stats });
       }
@@ -4132,6 +5097,11 @@ export class TournamentTest {
       events?.push({ s, kind: "burn", actor: m.u, target: target.u, move: a.move });
     } else if (a.kind === EFFECT) {
       const { did, missed } = this.runEffectOps(m, target, a, active, events, board);
+      // PARTING SHOT, BATON PASS, CHILLY RECEPTION, TELEPORT: the move resolves and then its
+      // user leaves. Not on a miss -- a move that did not happen does not switch anybody.
+      if (!missed && this.markPivot(m, m.u.moves[a.slot], this.benchPool, active)) {
+        events?.push({ s: m.s, kind: "pivot", actor: m.u, move: m.u.moves[a.slot]?.name || a.move });
+      }
       if (missed) events?.push({ s, kind: "missed", actor: m.u, target: target.u, move: a.move });
       else if (!did.length) events?.push({ s, kind: "fails", actor: m.u, target: target.u, move: a.move });
       else events?.push({ s, kind: "effect", actor: m.u, target: target.u, move: a.move, did });
@@ -4163,7 +5133,7 @@ export class TournamentTest {
           if (!alive(foe)) continue;
           const h = this.hitOn(m, foe, slot, board, m.helped, pre);
           if (h.priority > 0 && quick & (1 << foe.s)) continue;
-          if (!this.deal(m, foe, h, events, false, pre)) continue;
+          if (!this.deal(m, foe, h, events, false, pre, allies, board)) continue;
           selfCost = Math.max(selfCost, h.self || 0);
           const stats = this.afterHit(m, foe, info);
           if (stats.length) out.lowered.push({ m: foe, stats });
@@ -4173,7 +5143,7 @@ export class TournamentTest {
         for (const ally of allies) {
           if (!alive(ally) || ally === m) continue;
           const h = this.hitOn(m, ally, slot, board, m.helped, pre);
-          if (!this.deal(m, ally, h, events, true, pre)) continue;
+          if (!this.deal(m, ally, h, events, true, pre, allies, board)) continue;
           selfCost = Math.max(selfCost, h.self || 0);
           const stats = this.afterHit(m, ally, info);
           if (stats.length) out.own.push({ m: ally, stats });
@@ -4202,7 +5172,7 @@ export class TournamentTest {
         for (const foe of takers) {
           const h = this.dart(this.hitOn(m, foe, slot, board, m.helped, pre));
           if (h.priority > 0 && quick & (1 << foe.s)) continue;
-          if (!this.deal(m, foe, h, events, false, pre)) continue;
+          if (!this.deal(m, foe, h, events, false, pre, allies, board)) continue;
           // Owed once for the move, not once per dart -- the same `Math.max` the spread branch
           // above uses, for the same reason.
           selfCost = Math.max(selfCost, h.self || 0);
@@ -4222,7 +5192,7 @@ export class TournamentTest {
       events?.push({ s: m.s, kind: "blocked", actor: m.u, target: aim.u, move: info.name, by: "Quick Guard" });
       return out;
     }
-    if (this.deal(m, aim, h, events, false, pre)) {
+    if (this.deal(m, aim, h, events, false, pre, allies, board)) {
       this.oweSelf(m, h.self);
       const stats = this.afterHit(m, aim, info);
       if (stats.length) out.lowered.push({ m: aim, stats });
@@ -4233,6 +5203,7 @@ export class TournamentTest {
   /** The end of a turn: what this turn's own moves cost their user (`oweSelf`), then a burn
    *  takes 1/16 of its HP. */
   endOfTurn(active, events, board = null) {
+    this.leechSeed(active);
     for (const side of active) {
       for (const m of side) {
         // An empty slot is a null here, so the owed cost is read after that check and not before.
@@ -4246,7 +5217,7 @@ export class TournamentTest {
               m.hp = 0;
               m.out = true;
               events?.push({ s: m.s, kind: "recoil", actor: m.u });
-            } else this.berry(m);
+            } else this.berry(m, active[1 - m.s]);
           }
         }
         // Residuals and the answers to contact moves, settled together and only now: poison and
@@ -4257,6 +5228,8 @@ export class TournamentTest {
           // everything standing on the ground; sand and hail take a sixteenth from everything not
           // built for them. These are the four the comments promised and nothing delivered.
           if (m.k.leftovers) m.resid -= 1 / 16;
+          // AQUA RING, beside Leftovers and settled the same way.
+          if (this.abilityOpsOn && m.aquaRing) m.resid -= 1 / 16;
           if (board && board.t === GRASSY && m.u.grounded) m.resid -= 1 / 16;
           if (board && m.k.chippedBy && board.w === m.k.chippedBy) m.resid += 1 / 16;
           const st = m.st;
@@ -4286,18 +5259,19 @@ export class TournamentTest {
               m.hp = 0;
               m.out = true;
               events?.push({ s: m.s, kind: "residual", actor: m.u });
-            } else this.berry(m);
+            } else this.berry(m, active[1 - m.s]);
           } else if (owed < 0) {
             m.hp = Math.min(1, m.hp - owed);
           }
         }
+        this.moodyStages(m);
         if (!alive(m) || !m.burn) continue;
         m.hp -= 1 / 16;
         if (m.hp <= 1e-9) {
           m.hp = 0;
           m.out = true;
           events?.push({ s: m.s, kind: "burnout", actor: m.u });
-        } else this.berry(m);
+        } else this.berry(m, active[1 - m.s]);
       }
     }
   }
@@ -4320,12 +5294,20 @@ export class TournamentTest {
     // back -- rather than `refill`'s own replacement, which only ever advances `next[s]` and
     // loses the Pokemon for good. A fainted holder is not bailing anywhere, and one with
     // nothing left on the bench stays where it is.
-    if (this.bailOn) {
+    // ...and a PIVOT move's user leaves through the very same loop (TOURNAMENT_PIVOT), so a
+    // bail-out and a U-turn cannot fight over one seat. Baton Pass is the one that keeps its
+    // stages, which is the only difference between the two.
+    if (this.bailOn || this.pivotOn) {
       for (let s = 0; s < 2; s += 1) {
         for (let slot = 0; slot < active[s].length; slot += 1) {
           const out = active[s][slot];
-          if (!out || !out.bailing) continue;
+          const bails = Boolean(out && out.bailing && this.bailOn);
+          const pivots = Boolean(out && out.pivoting && this.pivotOn);
+          if (!out || (!bails && !pivots)) continue;
+          const keepsState = pivots && out.pivotKeepsState;
           out.bailing = false;
+          out.pivoting = false;
+          out.pivotKeepsState = false;
           if (out.out || out.hp <= 0) continue;
           let into = null;
           for (let j = next[s]; j < sides[s].length; j += 1) {
@@ -4341,7 +5323,15 @@ export class TournamentTest {
           into.ix = outIx;
           into.justIn = true;
           // Stat stages are lost the moment a Pokemon leaves the field, exactly as in
-          // `applySwitches`, and so are its volatiles.
+          // `applySwitches`, and so are its volatiles -- unless this is a BATON PASS, whose
+          // whole point is that they go to whoever comes in.
+          if (keepsState) {
+            into.atk = out.atk || 0;
+            into.spa = out.spa || 0;
+            into.spe = out.spe || 0;
+            into.def = out.def || 0;
+            into.spd = out.spd || 0;
+          }
           out.atk = 0;
           out.spa = 0;
           out.spe = 0;
@@ -4417,7 +5407,89 @@ export class TournamentTest {
   /** An empty field: no weather, no terrain, nobody's Tailwind, no Trick Room. Under field rule 0 it
    *  starts on the shared settings' weather and terrain instead (TOURNAMENT_FIELD). */
   freshBoard() {
-    return { w: this.fixedWeather, t: this.fixedTerrain, tw: [0, 0], tr: 0, trBy: -1, wide: 0, quick: 0 };
+    // `wt`/`tt` start at 0, which means NO TIMER: a field pinned in the Rules panel must not
+    // rain itself off after five turns (TOURNAMENT_FIELD_TURNS).
+    return { w: this.fixedWeather, t: this.fixedTerrain, tw: [0, 0], tr: 0, trBy: -1, wide: 0, quick: 0, wt: 0, tt: 0, hz: [0, 0] };
+  }
+
+  /**
+   * What the field already holds, paid by whoever has just walked into it (TOURNAMENT_HAZARDS).
+   *
+   * Called from `enter`, which is the one door onto the field: a lead, a chosen switch and a
+   * replacement after a knockout all come through it.
+   *
+   * Heavy-Duty Boots steps over all four. Magic Guard pays no DAMAGE but is still poisoned and
+   * still caught by the web, because neither of those is damage. Spikes, Toxic Spikes and
+   * Sticky Web reach the ground only; Stealth Rock reaches everyone and is priced against the
+   * Rock type chart, exactly as `engine.js hazardAdjustedHp` prices it for a described board.
+   */
+  takeHazards(m, board, events) {
+    if (!this.hazardsOn || !board || !alive(m)) return;
+    const packed = board.hz?.[m.s] || 0;
+    if (!packed) return;
+    if (compact(m.u.mon?.item || "") === "heavydutyboots") return;
+    const grounded = Boolean(m.u.grounded);
+    const magicGuard = Boolean(m.k.magicGuard);
+
+    const rocks = hazardLayers(packed, "stealth_rock");
+    if (rocks && !magicGuard) {
+      const multiplier = this.ev.engine.typeMultiplier("Rock", m.k.types || []);
+      const share = STEALTH_ROCK_SHARE * (Number(multiplier) || 1);
+      if (share > 0) this.hazardDamage(m, share, events, "stealth rock");
+    }
+    if (grounded) {
+      const spikes = hazardLayers(packed, "spikes");
+      if (spikes && !magicGuard) this.hazardDamage(m, SPIKE_SHARE[spikes] || 0, events, "spikes");
+      const toxic = hazardLayers(packed, "toxic_spikes");
+      if (toxic) {
+        // A grounded POISON type soaks them up instead of being poisoned by them.
+        if ((m.k.types || []).includes("Poison")) {
+          board.hz[m.s] = setHazardLayers(board.hz[m.s], "toxic_spikes", 0);
+        } else {
+          this.applyStatus(m, toxic >= 2 ? "toxic" : "poison", 1);
+        }
+      }
+      if (hazardLayers(packed, "sticky_web")) this.shiftStages(m, ["speed"], -1);
+    }
+  }
+
+  /** One share of a Pokemon's maximum, taken on the way in. */
+  hazardDamage(m, share, events, what) {
+    if (!(share > 0) || !alive(m)) return;
+    m.hp -= share;
+    if (m.hp <= 1e-9) {
+      m.hp = 0;
+      m.out = true;
+      events?.push({ s: m.s, kind: "hazardko", actor: m.u, value: what });
+      return;
+    }
+    events?.push({ s: m.s, kind: "hazard", actor: m.u, value: what });
+  }
+
+  /** How long a field this unit sets lasts: five turns, or eight with the right item. */
+  fieldLength(unit, weather) {
+    if (!this.fieldTurnsOn) return 0;
+    const item = compact(unit?.mon?.item || unit?.item || "");
+    if (weather) return WEATHER_ROCKS[item] === weather ? FIELD_TURNS_EXTENDED : FIELD_TURNS_PLAIN;
+    return item === TERRAIN_EXTENDER ? FIELD_TURNS_EXTENDED : FIELD_TURNS_PLAIN;
+  }
+
+  /**
+   * One turn off the weather and the terrain, and blow out whichever has run its course.
+   *
+   * Called from `Solver.tickBoard` (every searched and every played turn) and from the two
+   * long-game loops below. A count of 0 is left alone -- that is a field with no timer.
+   */
+  tickField(board) {
+    if (!this.fieldTurnsOn || !board) return;
+    if (board.wt > 0) {
+      board.wt -= 1;
+      if (board.wt <= 0) { board.w = 0; board.wt = 0; }
+    }
+    if (board.tt > 0) {
+      board.tt -= 1;
+      if (board.tt <= 0) { board.t = 0; board.tt = 0; }
+    }
   }
 
   /** How many turns of the scoring game are PLANNED rather than attack-only (TOURNAMENT_DEPTH):
@@ -4505,18 +5577,18 @@ export class TournamentTest {
     const memoKey = memo && !record && !deep ? `${ours.leadKey}|${theirs.leadKey}|${slower[0] ? 1 : slower[1] ? 2 : 0}` : "";
     const saved = memoKey ? memo.get(memoKey) : undefined;
     if (saved) {
-      board = { ...saved.board, tw: [...saved.board.tw] };
+      board = { ...saved.board, tw: [...saved.board.tw], hz: [...(saved.board.hz || [0, 0])] };
       for (let s = 0; s < 2; s += 1) saved.leads[s].forEach((state, i) => Object.assign(active[s][i], state));
     } else {
       this.turnOne(active, board, slower, events, deep ? deep.stances : null);
       if (memoKey) {
-        const keep = (m) => ({ hp: m.hp, spe: m.spe, atk: m.atk, spa: m.spa, sash: m.sash, berry: m.berry, oran: m.oran, cure: m.cure, out: m.out, kos: m.kos, flinch: m.flinch, guard: m.guard, intimidated: m.intimidated, idle: m.idle, sleep: m.sleep, burn: m.burn });
-        memo.set(memoKey, { board: { ...board, tw: [...board.tw] }, leads: [active[0].map(keep), active[1].map(keep)] });
+        const keep = (m) => ({ hp: m.hp, spe: m.spe, atk: m.atk, spa: m.spa, sash: m.sash, berry: m.berry, oran: m.oran, cure: m.cure, out: m.out, kos: m.kos, flinch: m.flinch, guard: m.guard, intimidated: m.intimidated, idle: m.idle, sleep: m.sleep, burn: m.burn, busted: m.busted });
+        memo.set(memoKey, { board: { ...board, tw: [...board.tw], hz: [...(board.hz || [0, 0])] }, leads: [active[0].map(keep), active[1].map(keep)] });
       }
     }
     const hpAfterTurnOne = record ? sides.map((list) => list.map((m) => Math.round(m.hp * 100))) : null;
     this.refill(active, sides, next, board);
-    const boardAfterTurnOne = record ? { ...board, tw: [...board.tw] } : null;
+    const boardAfterTurnOne = record ? { ...board, tw: [...board.tw], hz: [...(board.hz || [0, 0])] } : null;
     const after = record ? this.afterTurnOne(active, board, hpAfterTurnOne, sides) : null;
 
     let turn = 2;
@@ -4534,6 +5606,7 @@ export class TournamentTest {
       if (board.tw[0]) board.tw[0] -= 1;
       if (board.tw[1]) board.tw[1] -= 1;
       if (board.tr) board.tr -= 1;
+      this.tickField(board);
       this.refill(active, sides, next, board);
     }
     const actions = [];
@@ -4578,6 +5651,7 @@ export class TournamentTest {
       if (board.tw[0]) board.tw[0] -= 1;
       if (board.tw[1]) board.tw[1] -= 1;
       if (board.tr) board.tr -= 1;
+      this.tickField(board);
       this.refill(active, sides, next, board);
     }
     let left0 = 0;

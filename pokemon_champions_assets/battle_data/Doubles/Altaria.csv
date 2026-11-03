@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Altaria,100,move,1,Protect,69.4%,,,,,,,,
-Altaria,100,move,2,Tailwind,57.7%,,,,,,,,
-Altaria,100,move,3,Hyper Voice,47.0%,,,,,,,,
-Altaria,100,move,4,Will-O-Wisp,31.3%,,,,,,,,
-Altaria,100,move,5,Roost,22.5%,,,,,,,,
+Altaria,100,move,1,Protect,69.3%,,,,,,,,
+Altaria,100,move,2,Tailwind,57.6%,,,,,,,,
+Altaria,100,move,3,Hyper Voice,47.1%,,,,,,,,
+Altaria,100,move,4,Will-O-Wisp,31.2%,,,,,,,,
+Altaria,100,move,5,Roost,22.6%,,,,,,,,
 Altaria,100,move,6,Ice Beam,20.9%,,,,,,,,
 Altaria,100,move,7,Draco Meteor,16.6%,,,,,,,,
-Altaria,100,move,8,Dragon Pulse,16.0%,,,,,,,,
-Altaria,100,move,9,Flamethrower,15.6%,,,,,,,,
-Altaria,100,move,10,Cotton Guard,11.8%,,,,,,,,
-Altaria,100,held_item,1,Altarianite,54.1%,,,,,,,,
-Altaria,100,held_item,2,Haban Berry,19.2%,,,,,,,,
+Altaria,100,move,8,Dragon Pulse,16.1%,,,,,,,,
+Altaria,100,move,9,Flamethrower,15.5%,,,,,,,,
+Altaria,100,move,10,Cotton Guard,11.9%,,,,,,,,
+Altaria,100,held_item,1,Altarianite,54.2%,,,,,,,,
+Altaria,100,held_item,2,Haban Berry,19.1%,,,,,,,,
 Altaria,100,held_item,3,Sitrus Berry,6.7%,,,,,,,,
 Altaria,100,held_item,4,Leftovers,5.4%,,,,,,,,
 Altaria,100,held_item,5,Focus Sash,2.9%,,,,,,,,
@@ -30,12 +30,12 @@ Altaria,100,teammate,8,Dragapult,,,,,,,,,
 Altaria,100,teammate,9,Kingambit,,,,,,,,,
 Altaria,100,teammate,10,Garchomp,,,,,,,,,
 Altaria,100,stat_alignment,1,Modest,37.7%,Sp. Atk,Attack,,,,,,
-Altaria,100,stat_alignment,2,Timid,24.0%,Speed,Attack,,,,,,
-Altaria,100,stat_alignment,3,Calm,12.4%,Sp. Def,Attack,,,,,,
+Altaria,100,stat_alignment,2,Timid,23.9%,Speed,Attack,,,,,,
+Altaria,100,stat_alignment,3,Calm,12.5%,Sp. Def,Attack,,,,,,
 Altaria,100,stat_alignment,4,Bold,7.6%,Defense,Attack,,,,,,
 Altaria,100,stat_alignment,5,Adamant,3.2%,Attack,Sp. Atk,,,,,,
-Altaria,100,stat_alignment,6,Careful,3.1%,Sp. Def,Sp. Atk,,,,,,
-Altaria,100,stat_alignment,7,Quiet,3.0%,Sp. Atk,Speed,,,,,,
+Altaria,100,stat_alignment,6,Quiet,3.1%,Sp. Atk,Speed,,,,,,
+Altaria,100,stat_alignment,7,Careful,3.0%,Sp. Def,Sp. Atk,,,,,,
 Altaria,100,stat_alignment,8,Jolly,2.7%,Speed,Sp. Atk,,,,,,
 Altaria,100,stat_alignment,9,Impish,1.8%,Defense,Sp. Atk,,,,,,
 Altaria,100,stat_alignment,10,Sassy,1.6%,Sp. Def,Speed,,,,,,
@@ -43,7 +43,7 @@ Altaria,100,stat_points,1,,12.4%,,,32,0,5,0,0,29
 Altaria,100,stat_points,2,,4.9%,,,32,0,0,32,0,2
 Altaria,100,stat_points,3,,4.8%,,,2,0,0,32,0,32
 Altaria,100,stat_points,4,,3.2%,,,32,0,2,32,0,0
-Altaria,100,stat_points,5,,2.7%,,,32,0,2,0,32,0
+Altaria,100,stat_points,5,,2.8%,,,32,0,2,0,32,0
 Altaria,100,stat_points,6,,1.9%,,,32,0,0,32,2,0
 Altaria,100,stat_points,7,,1.7%,,,0,0,0,32,32,2
 Altaria,100,stat_points,8,,1.5%,,,0,0,0,32,2,32

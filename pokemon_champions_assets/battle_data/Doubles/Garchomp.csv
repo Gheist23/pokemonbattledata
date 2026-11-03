@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Garchomp,3,move,1,Protect,63.1%,,,,,,,,
-Garchomp,3,move,2,Rock Slide,58.0%,,,,,,,,
-Garchomp,3,move,3,Dragon Claw,53.1%,,,,,,,,
-Garchomp,3,move,4,Earthquake,52.4%,,,,,,,,
+Garchomp,3,move,2,Rock Slide,58.1%,,,,,,,,
+Garchomp,3,move,3,Dragon Claw,53.2%,,,,,,,,
+Garchomp,3,move,4,Earthquake,52.5%,,,,,,,,
 Garchomp,3,move,5,Stomping Tantrum,39.6%,,,,,,,,
-Garchomp,3,move,6,Power Gem,30.4%,,,,,,,,
+Garchomp,3,move,6,Power Gem,30.3%,,,,,,,,
 Garchomp,3,move,7,Earth Power,29.3%,,,,,,,,
 Garchomp,3,move,8,Dragon Pulse,21.0%,,,,,,,,
 Garchomp,3,move,9,Draco Meteor,14.1%,,,,,,,,
@@ -30,7 +30,7 @@ Garchomp,3,teammate,8,Pelipper,,,,,,,,,
 Garchomp,3,teammate,9,Basculegion,,,,,,,,,
 Garchomp,3,teammate,10,Raichu,,,,,,,,,
 Garchomp,3,stat_alignment,1,Adamant,36.8%,Attack,Sp. Atk,,,,,,
-Garchomp,3,stat_alignment,2,Jolly,26.2%,Speed,Sp. Atk,,,,,,
+Garchomp,3,stat_alignment,2,Jolly,26.3%,Speed,Sp. Atk,,,,,,
 Garchomp,3,stat_alignment,3,Modest,25.0%,Sp. Atk,Attack,,,,,,
 Garchomp,3,stat_alignment,4,Timid,8.9%,Speed,Attack,,,,,,
 Garchomp,3,stat_alignment,5,Impish,0.6%,Defense,Sp. Atk,,,,,,
@@ -41,7 +41,7 @@ Garchomp,3,stat_alignment,9,Naive,0.3%,Speed,Sp. Def,,,,,,
 Garchomp,3,stat_alignment,10,Naughty,0.2%,Attack,Sp. Def,,,,,,
 Garchomp,3,stat_points,1,,31.4%,,,2,32,0,0,0,32
 Garchomp,3,stat_points,2,,15.1%,,,2,0,0,32,0,32
-Garchomp,3,stat_points,3,,3.5%,,,0,0,4,30,0,32
+Garchomp,3,stat_points,3,,3.4%,,,0,0,4,30,0,32
 Garchomp,3,stat_points,4,,3.0%,,,0,32,0,0,2,32
 Garchomp,3,stat_points,5,,2.6%,,,0,32,2,0,0,32
 Garchomp,3,stat_points,6,,2.0%,,,0,0,0,32,2,32

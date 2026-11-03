@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Kangaskhan,76,move,1,Ice Punch,77.1%,,,,,,,,
-Kangaskhan,76,move,2,Earthquake,73.1%,,,,,,,,
-Kangaskhan,76,move,3,Body Slam,56.8%,,,,,,,,
+Kangaskhan,76,move,2,Earthquake,73.0%,,,,,,,,
+Kangaskhan,76,move,3,Body Slam,56.7%,,,,,,,,
 Kangaskhan,76,move,4,Circle Throw,33.9%,,,,,,,,
 Kangaskhan,76,move,5,Sucker Punch,33.4%,,,,,,,,
-Kangaskhan,76,move,6,Fake Out,28.8%,,,,,,,,
+Kangaskhan,76,move,6,Fake Out,28.9%,,,,,,,,
 Kangaskhan,76,move,7,Double-Edge,18.8%,,,,,,,,
-Kangaskhan,76,move,8,Fire Punch,17.4%,,,,,,,,
+Kangaskhan,76,move,8,Fire Punch,17.5%,,,,,,,,
 Kangaskhan,76,move,9,Drain Punch,11.6%,,,,,,,,
 Kangaskhan,76,move,10,Thunder Punch,6.8%,,,,,,,,
 Kangaskhan,76,held_item,1,Kangaskhanite,93.3%,,,,,,,,
@@ -14,8 +14,8 @@ Kangaskhan,76,held_item,2,Silk Scarf,2.7%,,,,,,,,
 Kangaskhan,76,held_item,3,Life Orb,0.6%,,,,,,,,
 Kangaskhan,76,held_item,4,Metronome,0.5%,,,,,,,,
 Kangaskhan,76,held_item,5,Sitrus Berry,0.4%,,,,,,,,
-Kangaskhan,76,held_item,6,Leftovers,0.3%,,,,,,,,
-Kangaskhan,76,held_item,7,Chople Berry,0.3%,,,,,,,,
+Kangaskhan,76,held_item,6,Chople Berry,0.3%,,,,,,,,
+Kangaskhan,76,held_item,7,Leftovers,0.3%,,,,,,,,
 Kangaskhan,76,held_item,8,Focus Sash,0.3%,,,,,,,,
 Kangaskhan,76,held_item,9,Rocky Helmet,0.2%,,,,,,,,
 Kangaskhan,76,held_item,10,Normal Gem,0.2%,,,,,,,,
@@ -29,7 +29,7 @@ Kangaskhan,76,teammate,7,Primarina,,,,,,,,,
 Kangaskhan,76,teammate,8,Mimikyu,,,,,,,,,
 Kangaskhan,76,teammate,9,Archaludon,,,,,,,,,
 Kangaskhan,76,teammate,10,Gholdengo,,,,,,,,,
-Kangaskhan,76,stat_alignment,1,Adamant,90.2%,Attack,Sp. Atk,,,,,,
+Kangaskhan,76,stat_alignment,1,Adamant,90.1%,Attack,Sp. Atk,,,,,,
 Kangaskhan,76,stat_alignment,2,Jolly,5.3%,Speed,Sp. Atk,,,,,,
 Kangaskhan,76,stat_alignment,3,Impish,1.5%,Defense,Sp. Atk,,,,,,
 Kangaskhan,76,stat_alignment,4,Brave,0.9%,Attack,Speed,,,,,,
@@ -39,8 +39,8 @@ Kangaskhan,76,stat_alignment,7,Naughty,0.3%,Attack,Sp. Def,,,,,,
 Kangaskhan,76,stat_alignment,8,Lonely,0.3%,Attack,Defense,,,,,,
 Kangaskhan,76,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,
 Kangaskhan,76,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Kangaskhan,76,stat_points,1,,34.7%,,,27,32,1,0,6,0
-Kangaskhan,76,stat_points,2,,9.3%,,,2,32,0,0,0,32
+Kangaskhan,76,stat_points,1,,34.6%,,,27,32,1,0,6,0
+Kangaskhan,76,stat_points,2,,9.4%,,,2,32,0,0,0,32
 Kangaskhan,76,stat_points,3,,6.0%,,,32,32,0,0,0,2
 Kangaskhan,76,stat_points,4,,5.7%,,,1,32,1,0,0,32
 Kangaskhan,76,stat_points,5,,4.1%,,,32,32,2,0,0,0

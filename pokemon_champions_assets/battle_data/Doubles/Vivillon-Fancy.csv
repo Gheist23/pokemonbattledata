@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Vivillon-Fancy,64,move,1,Sleep Powder,97.8%,,,,,,,,
 Vivillon-Fancy,64,move,2,Hurricane,79.6%,,,,,,,,
-Vivillon-Fancy,64,move,3,Protect,68.2%,,,,,,,,
-Vivillon-Fancy,64,move,4,Rage Powder,67.4%,,,,,,,,
-Vivillon-Fancy,64,move,5,Tailwind,29.7%,,,,,,,,
-Vivillon-Fancy,64,move,6,Pollen Puff,23.6%,,,,,,,,
+Vivillon-Fancy,64,move,3,Protect,68.1%,,,,,,,,
+Vivillon-Fancy,64,move,4,Rage Powder,67.3%,,,,,,,,
+Vivillon-Fancy,64,move,5,Tailwind,29.8%,,,,,,,,
+Vivillon-Fancy,64,move,6,Pollen Puff,23.7%,,,,,,,,
 Vivillon-Fancy,64,move,7,Rain Dance,5.6%,,,,,,,,
-Vivillon-Fancy,64,move,8,Bug Buzz,4.8%,,,,,,,,
+Vivillon-Fancy,64,move,8,Bug Buzz,4.9%,,,,,,,,
 Vivillon-Fancy,64,move,9,Struggle Bug,4.2%,,,,,,,,
 Vivillon-Fancy,64,move,10,U-turn,2.9%,,,,,,,,
 Vivillon-Fancy,64,held_item,1,Focus Sash,79.2%,,,,,,,,
@@ -18,7 +18,7 @@ Vivillon-Fancy,64,held_item,6,Bright Powder,0.5%,,,,,,,,
 Vivillon-Fancy,64,held_item,7,Sitrus Berry,0.4%,,,,,,,,
 Vivillon-Fancy,64,held_item,8,Focus Band,0.2%,,,,,,,,
 Vivillon-Fancy,64,held_item,9,Occa Berry,0.1%,,,,,,,,
-Vivillon-Fancy,64,held_item,10,Rocky Helmet,0.1%,,,,,,,,
+Vivillon-Fancy,64,held_item,10,Sharp Beak,0.1%,,,,,,,,
 Vivillon-Fancy,64,teammate,1,Incineroar,,,,,,,,,
 Vivillon-Fancy,64,teammate,2,Rillaboom,,,,,,,,,
 Vivillon-Fancy,64,teammate,3,Gengar,,,,,,,,,
@@ -35,12 +35,12 @@ Vivillon-Fancy,64,stat_alignment,3,Hasty,1.0%,Speed,Defense,,,,,,
 Vivillon-Fancy,64,stat_alignment,4,Calm,0.5%,Sp. Def,Attack,,,,,,
 Vivillon-Fancy,64,stat_alignment,5,Bold,0.5%,Defense,Attack,,,,,,
 Vivillon-Fancy,64,stat_alignment,6,Mild,0.5%,Sp. Atk,Defense,,,,,,
-Vivillon-Fancy,64,stat_alignment,7,Quiet,0.5%,Sp. Atk,Speed,,,,,,
+Vivillon-Fancy,64,stat_alignment,7,Quiet,0.4%,Sp. Atk,Speed,,,,,,
 Vivillon-Fancy,64,stat_alignment,8,Jolly,0.4%,Speed,Sp. Atk,,,,,,
 Vivillon-Fancy,64,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,
 Vivillon-Fancy,64,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
 Vivillon-Fancy,64,stat_points,1,,50.6%,,,2,0,0,32,0,32
-Vivillon-Fancy,64,stat_points,2,,8.0%,,,0,0,2,32,0,32
+Vivillon-Fancy,64,stat_points,2,,7.9%,,,0,0,2,32,0,32
 Vivillon-Fancy,64,stat_points,3,,6.3%,,,0,0,1,32,1,32
 Vivillon-Fancy,64,stat_points,4,,5.5%,,,0,0,10,24,0,32
 Vivillon-Fancy,64,stat_points,5,,3.2%,,,0,0,0,32,2,32
@@ -50,5 +50,5 @@ Vivillon-Fancy,64,stat_points,8,,2.3%,,,32,0,0,2,0,32
 Vivillon-Fancy,64,stat_points,9,,2.1%,,,32,0,2,0,0,32
 Vivillon-Fancy,64,stat_points,10,,1.5%,,,0,0,24,5,5,32
 Vivillon-Fancy,64,ability,1,Compound Eyes,95.7%,,,,,,,,
-Vivillon-Fancy,64,ability,2,Friend Guard,3.2%,,,,,,,,
+Vivillon-Fancy,64,ability,2,Friend Guard,3.3%,,,,,,,,
 Vivillon-Fancy,64,ability,3,Shield Dust,1.0%,,,,,,,,

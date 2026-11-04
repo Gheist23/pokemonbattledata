@@ -1,14 +1,30 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Absol,18,move,1,Swords Dance,100.0%,,,,,,,,
-Absol,18,move,2,Close Combat,100.0%,,,,,,,,
-Absol,18,move,3,Night Slash,100.0%,,,,,,,,
-Absol,18,move,4,Shadow Claw,100.0%,,,,,,,,
-Absol,18,held_item,1,Absolite Z,100.0%,,,,,,,,
-Absol,18,teammate,1,Blastoise,,,,,,,,,
-Absol,18,teammate,2,Garchomp,,,,,,,,,
-Absol,18,teammate,3,Indeedee,,,,,,,,,
-Absol,18,teammate,4,Sneasler,,,,,,,,,
-Absol,18,teammate,5,Armarouge,,,,,,,,,
-Absol,18,stat_alignment,1,Jolly,100.0%,Speed,Sp. Atk,,,,,,
-Absol,18,stat_points,1,,100.0%,,,2,32,0,0,0,32
-Absol,18,ability,1,Justified,100.0%,,,,,,,,
+Absol,41,move,1,Close Combat,100.0%,,,,,,,,
+Absol,41,move,2,Swords Dance,94.8%,,,,,,,,
+Absol,41,move,3,Shadow Claw,94.8%,,,,,,,,
+Absol,41,move,4,Sucker Punch,84.5%,,,,,,,,
+Absol,41,move,5,Night Slash,15.5%,,,,,,,,
+Absol,41,move,6,Foul Play,5.2%,,,,,,,,
+Absol,41,move,7,Ice Beam,5.2%,,,,,,,,
+Absol,41,held_item,1,Absolite Z,94.8%,,,,,,,,
+Absol,41,held_item,2,Absolite,5.2%,,,,,,,,
+Absol,41,teammate,1,Garchomp,,,,,,,,,
+Absol,41,teammate,2,Golisopod,,,,,,,,,
+Absol,41,teammate,3,Gholdengo,,,,,,,,,
+Absol,41,teammate,4,Empoleon,,,,,,,,,
+Absol,41,teammate,5,Greninja,,,,,,,,,
+Absol,41,teammate,6,Ninetales-Alola,,,,,,,,,
+Absol,41,teammate,7,Swampert,,,,,,,,,
+Absol,41,teammate,8,Archaludon,,,,,,,,,
+Absol,41,teammate,9,Gengar,,,,,,,,,
+Absol,41,teammate,10,Lucario,,,,,,,,,
+Absol,41,stat_alignment,1,Jolly,93.1%,Speed,Sp. Atk,,,,,,
+Absol,41,stat_alignment,2,Naive,5.2%,Speed,Sp. Def,,,,,,
+Absol,41,stat_alignment,3,Adamant,1.7%,Attack,Sp. Atk,,,,,,
+Absol,41,stat_points,1,,39.7%,,,0,32,2,0,0,32
+Absol,41,stat_points,2,,25.9%,,,19,19,16,0,0,12
+Absol,41,stat_points,3,,15.5%,,,2,32,0,0,0,32
+Absol,41,stat_points,4,,12.1%,,,1,32,1,0,0,32
+Absol,41,stat_points,5,,5.2%,,,2,0,0,32,0,32
+Absol,41,stat_points,6,,1.7%,,,19,12,5,0,0,30
+Absol,41,ability,1,Justified,100.0%,,,,,,,,

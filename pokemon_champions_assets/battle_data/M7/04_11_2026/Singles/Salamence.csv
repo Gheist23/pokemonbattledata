@@ -1,53 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Salamence,15,move,1,Double-Edge,72.4%,,,,,,,,
-Salamence,15,move,2,Earthquake,71.3%,,,,,,,,
-Salamence,15,move,3,Dragon Dance,69.2%,,,,,,,,
-Salamence,15,move,4,Roost,54.6%,,,,,,,,
-Salamence,15,move,5,Draco Meteor,28.6%,,,,,,,,
-Salamence,15,move,6,Fire Blast,22.6%,,,,,,,,
-Salamence,15,move,7,Flamethrower,12.9%,,,,,,,,
-Salamence,15,move,8,Hyper Voice,11.0%,,,,,,,,
-Salamence,15,move,9,Outrage,9.7%,,,,,,,,
-Salamence,15,move,10,Temper Flare,6.1%,,,,,,,,
-Salamence,15,held_item,1,Salamencite,92.7%,,,,,,,,
-Salamence,15,held_item,2,Choice Scarf,3.6%,,,,,,,,
-Salamence,15,held_item,3,Life Orb,1.4%,,,,,,,,
-Salamence,15,held_item,4,Rocky Helmet,0.7%,,,,,,,,
-Salamence,15,held_item,5,Focus Sash,0.2%,,,,,,,,
-Salamence,15,held_item,6,Lum Berry,0.2%,,,,,,,,
-Salamence,15,held_item,7,Glimmoranite,0.1%,,,,,,,,
-Salamence,15,held_item,8,Sitrus Berry,0.1%,,,,,,,,
-Salamence,15,held_item,9,Expert Belt,0.1%,,,,,,,,
-Salamence,15,held_item,10,Haban Berry,0.1%,,,,,,,,
-Salamence,15,teammate,1,Primarina,,,,,,,,,
-Salamence,15,teammate,2,Garchomp,,,,,,,,,
-Salamence,15,teammate,3,Hippowdon,,,,,,,,,
-Salamence,15,teammate,4,Gholdengo,,,,,,,,,
-Salamence,15,teammate,5,Archaludon,,,,,,,,,
-Salamence,15,teammate,6,Lucario,,,,,,,,,
-Salamence,15,teammate,7,Golisopod,,,,,,,,,
-Salamence,15,teammate,8,Mimikyu,,,,,,,,,
-Salamence,15,teammate,9,Meowscarada,,,,,,,,,
-Salamence,15,teammate,10,Baxcalibur,,,,,,,,,
-Salamence,15,stat_alignment,1,Adamant,43.5%,Attack,Sp. Atk,,,,,,
-Salamence,15,stat_alignment,2,Jolly,18.1%,Speed,Sp. Atk,,,,,,
-Salamence,15,stat_alignment,3,Naive,15.6%,Speed,Sp. Def,,,,,,
-Salamence,15,stat_alignment,4,Modest,7.6%,Sp. Atk,Attack,,,,,,
-Salamence,15,stat_alignment,5,Timid,5.4%,Speed,Attack,,,,,,
-Salamence,15,stat_alignment,6,Naughty,3.0%,Attack,Sp. Def,,,,,,
-Salamence,15,stat_alignment,7,Careful,2.3%,Sp. Def,Sp. Atk,,,,,,
-Salamence,15,stat_alignment,8,Hasty,1.0%,Speed,Defense,,,,,,
-Salamence,15,stat_alignment,9,Impish,0.9%,Defense,Sp. Atk,,,,,,
-Salamence,15,stat_alignment,10,Lonely,0.5%,Attack,Defense,,,,,,
-Salamence,15,stat_points,1,,14.6%,,,1,32,1,0,0,32
-Salamence,15,stat_points,2,,14.4%,,,2,32,0,0,0,32
-Salamence,15,stat_points,3,,4.3%,,,2,0,0,32,0,32
-Salamence,15,stat_points,4,,3.0%,,,1,0,1,32,0,32
-Salamence,15,stat_points,5,,2.4%,,,1,32,0,0,1,32
-Salamence,15,stat_points,6,,2.0%,,,0,32,2,0,0,32
-Salamence,15,stat_points,7,,1.9%,,,0,16,0,18,0,32
-Salamence,15,stat_points,8,,1.9%,,,21,15,0,0,0,30
-Salamence,15,stat_points,9,,1.4%,,,29,1,2,0,2,32
-Salamence,15,stat_points,10,,1.4%,,,0,32,0,0,2,32
-Salamence,15,ability,1,Intimidate,98.3%,,,,,,,,
-Salamence,15,ability,2,Moxie,1.7%,,,,,,,,
+Salamence,13,move,1,Dragon Dance,85.7%,,,,,,,,
+Salamence,13,move,2,Earthquake,85.0%,,,,,,,,
+Salamence,13,move,3,Double-Edge,84.2%,,,,,,,,
+Salamence,13,move,4,Roost,69.9%,,,,,,,,
+Salamence,13,move,5,Fire Blast,20.3%,,,,,,,,
+Salamence,13,move,6,Draco Meteor,18.0%,,,,,,,,
+Salamence,13,move,7,Outrage,9.0%,,,,,,,,
+Salamence,13,move,8,Flamethrower,6.8%,,,,,,,,
+Salamence,13,move,9,Hydro Pump,6.0%,,,,,,,,
+Salamence,13,move,10,Thrash,5.3%,,,,,,,,
+Salamence,13,held_item,1,Salamencite,93.2%,,,,,,,,
+Salamence,13,held_item,2,Life Orb,3.0%,,,,,,,,
+Salamence,13,held_item,3,Haban Berry,2.3%,,,,,,,,
+Salamence,13,held_item,4,Wise Glasses,1.5%,,,,,,,,
+Salamence,13,teammate,1,Hippowdon,,,,,,,,,
+Salamence,13,teammate,2,Primarina,,,,,,,,,
+Salamence,13,teammate,3,Garchomp,,,,,,,,,
+Salamence,13,teammate,4,Scizor,,,,,,,,,
+Salamence,13,teammate,5,Aegislash,,,,,,,,,
+Salamence,13,teammate,6,Charizard,,,,,,,,,
+Salamence,13,teammate,7,Archaludon,,,,,,,,,
+Salamence,13,teammate,8,Samurott-Hisui,,,,,,,,,
+Salamence,13,teammate,9,Basculegion,,,,,,,,,
+Salamence,13,teammate,10,Araquanid,,,,,,,,,
+Salamence,13,stat_alignment,1,Adamant,45.9%,Attack,Sp. Atk,,,,,,
+Salamence,13,stat_alignment,2,Jolly,27.1%,Speed,Sp. Atk,,,,,,
+Salamence,13,stat_alignment,3,Naive,12.8%,Speed,Sp. Def,,,,,,
+Salamence,13,stat_alignment,4,Modest,6.8%,Sp. Atk,Attack,,,,,,
+Salamence,13,stat_alignment,5,Naughty,4.5%,Attack,Sp. Def,,,,,,
+Salamence,13,stat_alignment,6,Rash,2.3%,Sp. Atk,Sp. Def,,,,,,
+Salamence,13,stat_alignment,7,Timid,0.8%,Speed,Attack,,,,,,
+Salamence,13,stat_points,1,,19.5%,,,15,28,0,0,0,23
+Salamence,13,stat_points,2,,17.3%,,,21,13,0,0,0,32
+Salamence,13,stat_points,3,,9.8%,,,2,32,0,0,0,32
+Salamence,13,stat_points,4,,7.5%,,,1,32,1,0,0,32
+Salamence,13,stat_points,5,,6.0%,,,15,32,0,0,9,10
+Salamence,13,stat_points,6,,5.3%,,,4,32,0,0,0,30
+Salamence,13,stat_points,7,,3.0%,,,1,32,1,7,0,25
+Salamence,13,stat_points,8,,3.0%,,,21,15,0,0,0,30
+Salamence,13,stat_points,9,,3.0%,,,21,27,0,0,0,18
+Salamence,13,stat_points,10,,3.0%,,,31,0,0,32,0,3
+Salamence,13,ability,1,Intimidate,100.0%,,,,,,,,

@@ -1,14 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom-Heat,22,move,1,Pain Split,100.0%,,,,,,,,
-Rotom-Heat,22,move,2,Will-O-Wisp,100.0%,,,,,,,,
-Rotom-Heat,22,move,3,Overheat,100.0%,,,,,,,,
-Rotom-Heat,22,move,4,Volt Switch,100.0%,,,,,,,,
-Rotom-Heat,22,held_item,1,Sitrus Berry,100.0%,,,,,,,,
-Rotom-Heat,22,teammate,1,Dragonite,,,,,,,,,
-Rotom-Heat,22,teammate,2,Tyranitar,,,,,,,,,
-Rotom-Heat,22,teammate,3,Primarina,,,,,,,,,
-Rotom-Heat,22,teammate,4,Golisopod,,,,,,,,,
-Rotom-Heat,22,teammate,5,Gholdengo,,,,,,,,,
-Rotom-Heat,22,stat_alignment,1,Bold,100.0%,Defense,Attack,,,,,,
-Rotom-Heat,22,stat_points,1,,100.0%,,,32,0,11,0,23,0
-Rotom-Heat,22,ability,1,Levitate,100.0%,,,,,,,,
+Rotom-Heat,46,move,1,Overheat,100.0%,,,,,,,,
+Rotom-Heat,46,move,2,Will-O-Wisp,93.6%,,,,,,,,
+Rotom-Heat,46,move,3,Volt Switch,72.3%,,,,,,,,
+Rotom-Heat,46,move,4,Thunderbolt,51.1%,,,,,,,,
+Rotom-Heat,46,move,5,Pain Split,44.7%,,,,,,,,
+Rotom-Heat,46,move,6,Nasty Plot,25.5%,,,,,,,,
+Rotom-Heat,46,move,7,Foul Play,4.3%,,,,,,,,
+Rotom-Heat,46,move,8,Thunder Wave,4.3%,,,,,,,,
+Rotom-Heat,46,move,9,Substitute,2.1%,,,,,,,,
+Rotom-Heat,46,move,10,Discharge,2.1%,,,,,,,,
+Rotom-Heat,46,held_item,1,Sitrus Berry,48.9%,,,,,,,,
+Rotom-Heat,46,held_item,2,Passho Berry,12.8%,,,,,,,,
+Rotom-Heat,46,held_item,3,Leftovers,10.6%,,,,,,,,
+Rotom-Heat,46,held_item,4,Wide Lens,10.6%,,,,,,,,
+Rotom-Heat,46,held_item,5,Zoom Lens,6.4%,,,,,,,,
+Rotom-Heat,46,held_item,6,Rocky Helmet,6.4%,,,,,,,,
+Rotom-Heat,46,held_item,7,Lum Berry,2.1%,,,,,,,,
+Rotom-Heat,46,held_item,8,Choice Scarf,2.1%,,,,,,,,
+Rotom-Heat,46,teammate,1,Garchomp,,,,,,,,,
+Rotom-Heat,46,teammate,2,Raichu,,,,,,,,,
+Rotom-Heat,46,teammate,3,Tyranitar,,,,,,,,,
+Rotom-Heat,46,teammate,4,Golisopod,,,,,,,,,
+Rotom-Heat,46,teammate,5,Ditto,,,,,,,,,
+Rotom-Heat,46,teammate,6,Toxapex,,,,,,,,,
+Rotom-Heat,46,teammate,7,Corviknight,,,,,,,,,
+Rotom-Heat,46,teammate,8,Umbreon,,,,,,,,,
+Rotom-Heat,46,teammate,9,Venusaur,,,,,,,,,
+Rotom-Heat,46,teammate,10,Primarina,,,,,,,,,
+Rotom-Heat,46,stat_alignment,1,Bold,40.4%,Defense,Attack,,,,,,
+Rotom-Heat,46,stat_alignment,2,Modest,38.3%,Sp. Atk,Attack,,,,,,
+Rotom-Heat,46,stat_alignment,3,Calm,17.0%,Sp. Def,Attack,,,,,,
+Rotom-Heat,46,stat_alignment,4,Timid,4.3%,Speed,Attack,,,,,,
+Rotom-Heat,46,stat_points,1,,23.4%,,,23,0,0,32,2,9
+Rotom-Heat,46,stat_points,2,,14.9%,,,32,0,2,32,0,0
+Rotom-Heat,46,stat_points,3,,12.8%,,,32,0,0,2,32,0
+Rotom-Heat,46,stat_points,4,,8.5%,,,31,0,24,0,10,1
+Rotom-Heat,46,stat_points,5,,8.5%,,,32,0,32,0,2,0
+Rotom-Heat,46,stat_points,6,,4.3%,,,30,0,27,0,7,2
+Rotom-Heat,46,stat_points,7,,4.3%,,,32,0,14,0,13,7
+Rotom-Heat,46,stat_points,8,,2.1%,,,0,0,2,32,0,32
+Rotom-Heat,46,stat_points,9,,2.1%,,,26,0,0,13,20,7
+Rotom-Heat,46,stat_points,10,,2.1%,,,26,0,32,7,0,1
+Rotom-Heat,46,ability,1,Levitate,100.0%,,,,,,,,

@@ -1,14 +1,25 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Arcanine-Hisui,1,move,1,Protect,100.0%,,,,,,,,
-Arcanine-Hisui,1,move,2,Flare Blitz,100.0%,,,,,,,,
-Arcanine-Hisui,1,move,3,Head Smash,100.0%,,,,,,,,
-Arcanine-Hisui,1,move,4,Wild Charge,100.0%,,,,,,,,
-Arcanine-Hisui,1,held_item,1,Life Orb,100.0%,,,,,,,,
-Arcanine-Hisui,1,teammate,1,Staraptor,,,,,,,,,
-Arcanine-Hisui,1,teammate,2,Garchomp,,,,,,,,,
-Arcanine-Hisui,1,teammate,3,Whimsicott,,,,,,,,,
-Arcanine-Hisui,1,teammate,4,Eelektross,,,,,,,,,
-Arcanine-Hisui,1,teammate,5,Basculegion,,,,,,,,,
-Arcanine-Hisui,1,stat_alignment,1,Jolly,100.0%,Speed,Sp. Atk,,,,,,
-Arcanine-Hisui,1,stat_points,1,,100.0%,,,0,32,0,0,0,32
-Arcanine-Hisui,1,ability,1,Rock Head,100.0%,,,,,,,,
+Arcanine-Hisui,51,move,1,Protect,100.0%,,,,,,,,
+Arcanine-Hisui,51,move,2,Flare Blitz,100.0%,,,,,,,,
+Arcanine-Hisui,51,move,3,Extreme Speed,85.7%,,,,,,,,
+Arcanine-Hisui,51,move,4,Head Smash,57.1%,,,,,,,,
+Arcanine-Hisui,51,move,5,Rock Slide,42.9%,,,,,,,,
+Arcanine-Hisui,51,move,6,Wild Charge,14.3%,,,,,,,,
+Arcanine-Hisui,51,held_item,1,Focus Sash,85.7%,,,,,,,,
+Arcanine-Hisui,51,held_item,2,Life Orb,14.3%,,,,,,,,
+Arcanine-Hisui,51,teammate,1,Staraptor,,,,,,,,,
+Arcanine-Hisui,51,teammate,2,Raichu,,,,,,,,,
+Arcanine-Hisui,51,teammate,3,Primarina,,,,,,,,,
+Arcanine-Hisui,51,teammate,4,Rillaboom,,,,,,,,,
+Arcanine-Hisui,51,teammate,5,Gholdengo,,,,,,,,,
+Arcanine-Hisui,51,teammate,6,Whimsicott,,,,,,,,,
+Arcanine-Hisui,51,teammate,7,Salamence,,,,,,,,,
+Arcanine-Hisui,51,teammate,8,Garchomp,,,,,,,,,
+Arcanine-Hisui,51,teammate,9,Glaceon,,,,,,,,,
+Arcanine-Hisui,51,teammate,10,Froslass,,,,,,,,,
+Arcanine-Hisui,51,stat_alignment,1,Jolly,100.0%,Speed,Sp. Atk,,,,,,
+Arcanine-Hisui,51,stat_points,1,,57.1%,,,2,32,0,0,0,32
+Arcanine-Hisui,51,stat_points,2,,14.3%,,,0,32,0,0,0,32
+Arcanine-Hisui,51,stat_points,3,,14.3%,,,1,32,0,0,1,32
+Arcanine-Hisui,51,stat_points,4,,14.3%,,,1,32,1,0,0,32
+Arcanine-Hisui,51,ability,1,Rock Head,100.0%,,,,,,,,

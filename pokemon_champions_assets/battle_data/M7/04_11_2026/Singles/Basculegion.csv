@@ -1,17 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Basculegion,12,move,1,Aqua Jet,100.0%,,,,,,,,
-Basculegion,12,move,2,Wave Crash,100.0%,,,,,,,,
-Basculegion,12,move,3,Last Respects,100.0%,,,,,,,,
-Basculegion,12,move,4,Agility,100.0%,,,,,,,,
-Basculegion,12,held_item,1,Focus Sash,100.0%,,,,,,,,
-Basculegion,12,teammate,1,Staraptor,,,,,,,,,
-Basculegion,12,teammate,2,Archaludon,,,,,,,,,
-Basculegion,12,teammate,3,Lucario,,,,,,,,,
-Basculegion,12,teammate,4,Hippowdon,,,,,,,,,
-Basculegion,12,teammate,5,Greninja,,,,,,,,,
-Basculegion,12,teammate,6,Primarina,,,,,,,,,
-Basculegion,12,teammate,7,Rillaboom,,,,,,,,,
-Basculegion,12,teammate,8,Gholdengo,,,,,,,,,
-Basculegion,12,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
-Basculegion,12,stat_points,1,,100.0%,,,0,32,2,0,0,32
-Basculegion,12,ability,1,Adaptability,100.0%,,,,,,,,
+Basculegion,3,move,1,Last Respects,100.0%,,,,,,,,
+Basculegion,3,move,2,Aqua Jet,99.4%,,,,,,,,
+Basculegion,3,move,3,Wave Crash,91.0%,,,,,,,,
+Basculegion,3,move,4,Flip Turn,53.0%,,,,,,,,
+Basculegion,3,move,5,Substitute,22.3%,,,,,,,,
+Basculegion,3,move,6,Agility,22.3%,,,,,,,,
+Basculegion,3,move,7,Liquidation,4.8%,,,,,,,,
+Basculegion,3,move,8,Endeavor,4.2%,,,,,,,,
+Basculegion,3,move,9,Outrage,1.5%,,,,,,,,
+Basculegion,3,move,10,Scary Face,0.6%,,,,,,,,
+Basculegion,3,held_item,1,Choice Scarf,39.8%,,,,,,,,
+Basculegion,3,held_item,2,Spell Tag,20.5%,,,,,,,,
+Basculegion,3,held_item,3,Mystic Water,14.5%,,,,,,,,
+Basculegion,3,held_item,4,Life Orb,13.3%,,,,,,,,
+Basculegion,3,held_item,5,Focus Sash,6.0%,,,,,,,,
+Basculegion,3,held_item,6,Sitrus Berry,3.9%,,,,,,,,
+Basculegion,3,held_item,7,Kasib Berry,1.2%,,,,,,,,
+Basculegion,3,held_item,8,Colbur Berry,0.9%,,,,,,,,
+Basculegion,3,teammate,1,Pawmot,,,,,,,,,
+Basculegion,3,teammate,2,Lucario,,,,,,,,,
+Basculegion,3,teammate,3,Mimikyu,,,,,,,,,
+Basculegion,3,teammate,4,Garchomp,,,,,,,,,
+Basculegion,3,teammate,5,Archaludon,,,,,,,,,
+Basculegion,3,teammate,6,Banette,,,,,,,,,
+Basculegion,3,teammate,7,Dragonite,,,,,,,,,
+Basculegion,3,teammate,8,Kingambit,,,,,,,,,
+Basculegion,3,teammate,9,Charizard,,,,,,,,,
+Basculegion,3,teammate,10,Primarina,,,,,,,,,
+Basculegion,3,stat_alignment,1,Adamant,56.6%,Attack,Sp. Atk,,,,,,
+Basculegion,3,stat_alignment,2,Jolly,38.6%,Speed,Sp. Atk,,,,,,
+Basculegion,3,stat_alignment,3,Brave,4.8%,Attack,Speed,,,,,,
+Basculegion,3,stat_points,1,,28.6%,,,2,32,0,0,0,32
+Basculegion,3,stat_points,2,,18.7%,,,0,32,2,0,0,32
+Basculegion,3,stat_points,3,,11.1%,,,0,32,5,0,0,29
+Basculegion,3,stat_points,4,,7.8%,,,4,32,25,0,5,0
+Basculegion,3,stat_points,5,,3.9%,,,17,32,0,0,0,17
+Basculegion,3,stat_points,6,,3.0%,,,0,32,27,0,6,1
+Basculegion,3,stat_points,7,,2.7%,,,2,32,32,0,0,0
+Basculegion,3,stat_points,8,,2.4%,,,0,32,1,0,1,32
+Basculegion,3,stat_points,9,,2.4%,,,0,32,19,0,0,15
+Basculegion,3,stat_points,10,,1.8%,,,10,32,19,0,5,0
+Basculegion,3,ability,1,Adaptability,95.5%,,,,,,,,
+Basculegion,3,ability,2,Swift Swim,4.5%,,,,,,,,

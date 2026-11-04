@@ -1,54 +1,37 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Milotic,20,move,1,Protect,68.3%,,,,,,,,
-Milotic,20,move,2,Scald,65.3%,,,,,,,,
-Milotic,20,move,3,Ice Beam,60.7%,,,,,,,,
-Milotic,20,move,4,Icy Wind,42.7%,,,,,,,,
-Milotic,20,move,5,Muddy Water,35.3%,,,,,,,,
-Milotic,20,move,6,Recover,28.8%,,,,,,,,
-Milotic,20,move,7,Coil,25.7%,,,,,,,,
-Milotic,20,move,8,Hypnosis,23.1%,,,,,,,,
-Milotic,20,move,9,Life Dew,15.1%,,,,,,,,
-Milotic,20,move,10,Haze,5.5%,,,,,,,,
-Milotic,20,held_item,1,Leftovers,58.6%,,,,,,,,
-Milotic,20,held_item,2,Sitrus Berry,24.7%,,,,,,,,
-Milotic,20,held_item,3,Psychic Seed,3.9%,,,,,,,,
-Milotic,20,held_item,4,Grassy Seed,2.0%,,,,,,,,
-Milotic,20,held_item,5,Mystic Water,1.7%,,,,,,,,
-Milotic,20,held_item,6,Rindo Berry,1.2%,,,,,,,,
-Milotic,20,held_item,7,Wide Lens,1.1%,,,,,,,,
-Milotic,20,held_item,8,Rocky Helmet,1.0%,,,,,,,,
-Milotic,20,held_item,9,Life Orb,0.9%,,,,,,,,
-Milotic,20,held_item,10,Choice Scarf,0.9%,,,,,,,,
-Milotic,20,teammate,1,Rillaboom,,,,,,,,,
-Milotic,20,teammate,2,Tyranitar,,,,,,,,,
-Milotic,20,teammate,3,Sneasler,,,,,,,,,
-Milotic,20,teammate,4,Gholdengo,,,,,,,,,
-Milotic,20,teammate,5,Garchomp,,,,,,,,,
-Milotic,20,teammate,6,Staraptor,,,,,,,,,
-Milotic,20,teammate,7,Excadrill,,,,,,,,,
-Milotic,20,teammate,8,Incineroar,,,,,,,,,
-Milotic,20,teammate,9,Raichu,,,,,,,,,
-Milotic,20,teammate,10,Salamence,,,,,,,,,
-Milotic,20,stat_alignment,1,Modest,37.0%,Sp. Atk,Attack,,,,,,
-Milotic,20,stat_alignment,2,Calm,30.8%,Sp. Def,Attack,,,,,,
-Milotic,20,stat_alignment,3,Bold,23.5%,Defense,Attack,,,,,,
-Milotic,20,stat_alignment,4,Timid,3.4%,Speed,Attack,,,,,,
-Milotic,20,stat_alignment,5,Quiet,2.3%,Sp. Atk,Speed,,,,,,
-Milotic,20,stat_alignment,6,Relaxed,1.1%,Defense,Speed,,,,,,
-Milotic,20,stat_alignment,7,Sassy,0.9%,Sp. Def,Speed,,,,,,
-Milotic,20,stat_alignment,8,Mild,0.3%,Sp. Atk,Defense,,,,,,
-Milotic,20,stat_alignment,9,Serious,0.1%,,,,,,,,
-Milotic,20,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
-Milotic,20,stat_points,1,,8.3%,,,32,0,32,0,2,0
-Milotic,20,stat_points,2,,4.2%,,,32,0,2,32,0,0
-Milotic,20,stat_points,3,,2.8%,,,32,0,17,8,5,4
-Milotic,20,stat_points,4,,2.3%,,,32,0,32,2,0,0
-Milotic,20,stat_points,5,,1.9%,,,32,0,29,0,5,0
-Milotic,20,stat_points,6,,1.7%,,,32,0,10,17,5,2
-Milotic,20,stat_points,7,,1.6%,,,32,0,0,32,2,0
-Milotic,20,stat_points,8,,1.6%,,,20,0,20,4,8,14
-Milotic,20,stat_points,9,,1.4%,,,2,0,32,32,0,0
-Milotic,20,stat_points,10,,1.4%,,,32,0,17,10,0,7
-Milotic,20,ability,1,Competitive,98.7%,,,,,,,,
-Milotic,20,ability,2,Marvel Scale,0.9%,,,,,,,,
-Milotic,20,ability,3,Cute Charm,0.4%,,,,,,,,
+Milotic,16,move,1,Ice Beam,86.5%,,,,,,,,
+Milotic,16,move,2,Scald,82.7%,,,,,,,,
+Milotic,16,move,3,Protect,80.8%,,,,,,,,
+Milotic,16,move,4,Dragon Tail,42.3%,,,,,,,,
+Milotic,16,move,5,Icy Wind,40.4%,,,,,,,,
+Milotic,16,move,6,Muddy Water,17.3%,,,,,,,,
+Milotic,16,move,7,Coil,17.3%,,,,,,,,
+Milotic,16,move,8,Hypnosis,17.3%,,,,,,,,
+Milotic,16,move,9,Recover,15.4%,,,,,,,,
+Milotic,16,held_item,1,Sitrus Berry,82.7%,,,,,,,,
+Milotic,16,held_item,2,Leftovers,9.6%,,,,,,,,
+Milotic,16,held_item,3,Psychic Seed,7.7%,,,,,,,,
+Milotic,16,teammate,1,Tyranitar,,,,,,,,,
+Milotic,16,teammate,2,Excadrill,,,,,,,,,
+Milotic,16,teammate,3,Staraptor,,,,,,,,,
+Milotic,16,teammate,4,Gholdengo,,,,,,,,,
+Milotic,16,teammate,5,Whimsicott,,,,,,,,,
+Milotic,16,teammate,6,Sinistcha,,,,,,,,,
+Milotic,16,teammate,7,Salamence,,,,,,,,,
+Milotic,16,teammate,8,Indeedee,,,,,,,,,
+Milotic,16,teammate,9,Sneasler,,,,,,,,,
+Milotic,16,teammate,10,Rillaboom,,,,,,,,,
+Milotic,16,stat_alignment,1,Bold,51.9%,Defense,Attack,,,,,,
+Milotic,16,stat_alignment,2,Modest,32.7%,Sp. Atk,Attack,,,,,,
+Milotic,16,stat_alignment,3,Calm,15.4%,Sp. Def,Attack,,,,,,
+Milotic,16,stat_points,1,,42.3%,,,31,0,22,10,0,3
+Milotic,16,stat_points,2,,21.2%,,,32,0,32,0,2,0
+Milotic,16,stat_points,3,,9.6%,,,32,0,0,32,2,0
+Milotic,16,stat_points,4,,7.7%,,,32,0,21,0,11,2
+Milotic,16,stat_points,5,,3.8%,,,32,0,17,8,5,4
+Milotic,16,stat_points,6,,3.8%,,,32,0,29,0,5,0
+Milotic,16,stat_points,7,,1.9%,,,22,0,1,17,0,26
+Milotic,16,stat_points,8,,1.9%,,,32,0,9,0,25,0
+Milotic,16,stat_points,9,,1.9%,,,32,0,11,16,6,1
+Milotic,16,stat_points,10,,1.9%,,,32,0,13,8,5,8
+Milotic,16,ability,1,Competitive,100.0%,,,,,,,,

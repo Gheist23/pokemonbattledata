@@ -1,54 +1,36 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gardevoir,71,move,1,Hyper Voice,75.9%,,,,,,,,
-Gardevoir,71,move,2,Mystical Fire,74.6%,,,,,,,,
-Gardevoir,71,move,3,Vacuum Wave,72.8%,,,,,,,,
-Gardevoir,71,move,4,Psychic Noise,51.3%,,,,,,,,
-Gardevoir,71,move,5,Moonblast,22.1%,,,,,,,,
-Gardevoir,71,move,6,Psychic,20.4%,,,,,,,,
-Gardevoir,71,move,7,Thunderbolt,16.0%,,,,,,,,
-Gardevoir,71,move,8,Psyshock,9.3%,,,,,,,,
-Gardevoir,71,move,9,Calm Mind,7.0%,,,,,,,,
-Gardevoir,71,move,10,Expanding Force,6.7%,,,,,,,,
-Gardevoir,71,held_item,1,Gardevoirite,82.2%,,,,,,,,
-Gardevoir,71,held_item,2,Focus Sash,6.5%,,,,,,,,
-Gardevoir,71,held_item,3,Choice Scarf,4.6%,,,,,,,,
-Gardevoir,71,held_item,4,Sitrus Berry,1.5%,,,,,,,,
-Gardevoir,71,held_item,5,Life Orb,0.7%,,,,,,,,
-Gardevoir,71,held_item,6,Expert Belt,0.5%,,,,,,,,
-Gardevoir,71,held_item,7,Leftovers,0.5%,,,,,,,,
-Gardevoir,71,held_item,8,Air Balloon,0.4%,,,,,,,,
-Gardevoir,71,held_item,9,Light Clay,0.4%,,,,,,,,
-Gardevoir,71,held_item,10,Quick Claw,0.4%,,,,,,,,
-Gardevoir,71,teammate,1,Garchomp,,,,,,,,,
-Gardevoir,71,teammate,2,Charizard,,,,,,,,,
-Gardevoir,71,teammate,3,Hippowdon,,,,,,,,,
-Gardevoir,71,teammate,4,Gholdengo,,,,,,,,,
-Gardevoir,71,teammate,5,Mimikyu,,,,,,,,,
-Gardevoir,71,teammate,6,Archaludon,,,,,,,,,
-Gardevoir,71,teammate,7,Basculegion,,,,,,,,,
-Gardevoir,71,teammate,8,Cinderace,,,,,,,,,
-Gardevoir,71,teammate,9,Corviknight,,,,,,,,,
-Gardevoir,71,teammate,10,Meowscarada,,,,,,,,,
-Gardevoir,71,stat_alignment,1,Modest,76.3%,Sp. Atk,Attack,,,,,,
-Gardevoir,71,stat_alignment,2,Timid,15.7%,Speed,Attack,,,,,,
-Gardevoir,71,stat_alignment,3,Bold,4.2%,Defense,Attack,,,,,,
-Gardevoir,71,stat_alignment,4,Calm,1.4%,Sp. Def,Attack,,,,,,
-Gardevoir,71,stat_alignment,5,Quiet,1.0%,Sp. Atk,Speed,,,,,,
-Gardevoir,71,stat_alignment,6,Mild,0.3%,Sp. Atk,Defense,,,,,,
-Gardevoir,71,stat_alignment,7,Relaxed,0.3%,Defense,Speed,,,,,,
-Gardevoir,71,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,
-Gardevoir,71,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Gardevoir,71,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
-Gardevoir,71,stat_points,1,,18.7%,,,2,0,0,32,0,32
-Gardevoir,71,stat_points,2,,14.1%,,,32,0,0,14,0,20
-Gardevoir,71,stat_points,3,,8.6%,,,32,0,26,5,1,2
-Gardevoir,71,stat_points,4,,5.1%,,,32,0,0,8,5,21
-Gardevoir,71,stat_points,5,,2.4%,,,0,0,2,32,0,32
-Gardevoir,71,stat_points,6,,2.2%,,,32,0,24,5,0,5
-Gardevoir,71,stat_points,7,,2.0%,,,32,0,0,32,0,2
-Gardevoir,71,stat_points,8,,1.9%,,,0,0,0,32,2,32
-Gardevoir,71,stat_points,9,,1.8%,,,32,0,2,32,0,0
-Gardevoir,71,stat_points,10,,1.4%,,,32,0,0,32,2,0
-Gardevoir,71,ability,1,Trace,91.9%,,,,,,,,
-Gardevoir,71,ability,2,Synchronize,7.1%,,,,,,,,
-Gardevoir,71,ability,3,Telepathy,1.0%,,,,,,,,
+Gardevoir,47,move,1,Vacuum Wave,100.0%,,,,,,,,
+Gardevoir,47,move,2,Hyper Voice,91.3%,,,,,,,,
+Gardevoir,47,move,3,Mystical Fire,91.3%,,,,,,,,
+Gardevoir,47,move,4,Psychic Noise,87.0%,,,,,,,,
+Gardevoir,47,move,5,Moonblast,8.7%,,,,,,,,
+Gardevoir,47,move,6,Psyshock,6.5%,,,,,,,,
+Gardevoir,47,move,7,Thunderbolt,6.5%,,,,,,,,
+Gardevoir,47,move,8,Psychic,4.3%,,,,,,,,
+Gardevoir,47,move,9,Encore,2.2%,,,,,,,,
+Gardevoir,47,move,10,Calm Mind,2.2%,,,,,,,,
+Gardevoir,47,held_item,1,Gardevoirite,91.3%,,,,,,,,
+Gardevoir,47,held_item,2,Expert Belt,6.5%,,,,,,,,
+Gardevoir,47,held_item,3,Focus Sash,2.2%,,,,,,,,
+Gardevoir,47,teammate,1,Garchomp,,,,,,,,,
+Gardevoir,47,teammate,2,Scizor,,,,,,,,,
+Gardevoir,47,teammate,3,Aegislash,,,,,,,,,
+Gardevoir,47,teammate,4,Ninetales-Alola,,,,,,,,,
+Gardevoir,47,teammate,5,Dragonite,,,,,,,,,
+Gardevoir,47,teammate,6,Salamence,,,,,,,,,
+Gardevoir,47,teammate,7,Samurott-Hisui,,,,,,,,,
+Gardevoir,47,teammate,8,Araquanid,,,,,,,,,
+Gardevoir,47,teammate,9,Volcarona,,,,,,,,,
+Gardevoir,47,teammate,10,Archaludon,,,,,,,,,
+Gardevoir,47,stat_alignment,1,Modest,97.8%,Sp. Atk,Attack,,,,,,
+Gardevoir,47,stat_alignment,2,Bold,2.2%,Defense,Attack,,,,,,
+Gardevoir,47,stat_points,1,,32.6%,,,32,0,26,0,3,5
+Gardevoir,47,stat_points,2,,32.6%,,,32,0,29,5,0,0
+Gardevoir,47,stat_points,3,,17.4%,,,32,0,0,8,5,21
+Gardevoir,47,stat_points,4,,6.5%,,,32,0,0,22,12,0
+Gardevoir,47,stat_points,5,,2.2%,,,2,0,0,32,0,32
+Gardevoir,47,stat_points,6,,2.2%,,,28,0,0,18,0,20
+Gardevoir,47,stat_points,7,,2.2%,,,30,0,1,15,0,20
+Gardevoir,47,stat_points,8,,2.2%,,,32,0,26,5,2,1
+Gardevoir,47,stat_points,9,,2.2%,,,32,0,32,1,0,1
+Gardevoir,47,ability,1,Trace,100.0%,,,,,,,,

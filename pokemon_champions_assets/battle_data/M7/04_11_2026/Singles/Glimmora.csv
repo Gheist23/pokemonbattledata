@@ -1,53 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Glimmora,18,move,1,Power Gem,86.6%,,,,,,,,
-Glimmora,18,move,2,Earth Power,64.0%,,,,,,,,
-Glimmora,18,move,3,Sludge Wave,60.5%,,,,,,,,
-Glimmora,18,move,4,Stealth Rock,55.3%,,,,,,,,
-Glimmora,18,move,5,Energy Ball,34.6%,,,,,,,,
-Glimmora,18,move,6,Mortal Spin,18.0%,,,,,,,,
-Glimmora,18,move,7,Mud Shot,16.4%,,,,,,,,
-Glimmora,18,move,8,Dazzling Gleam,14.1%,,,,,,,,
-Glimmora,18,move,9,Sludge Bomb,13.6%,,,,,,,,
-Glimmora,18,move,10,Spiky Shield,10.8%,,,,,,,,
-Glimmora,18,held_item,1,Focus Sash,53.1%,,,,,,,,
-Glimmora,18,held_item,2,Glimmoranite,26.9%,,,,,,,,
-Glimmora,18,held_item,3,Air Balloon,9.9%,,,,,,,,
-Glimmora,18,held_item,4,Choice Scarf,4.8%,,,,,,,,
-Glimmora,18,held_item,5,Red Card,1.8%,,,,,,,,
-Glimmora,18,held_item,6,Leftovers,1.8%,,,,,,,,
-Glimmora,18,held_item,7,Sitrus Berry,0.4%,,,,,,,,
-Glimmora,18,held_item,8,Rocky Helmet,0.3%,,,,,,,,
-Glimmora,18,held_item,9,Life Orb,0.2%,,,,,,,,
-Glimmora,18,held_item,10,Shuca Berry,0.2%,,,,,,,,
-Glimmora,18,teammate,1,Garchomp,,,,,,,,,
-Glimmora,18,teammate,2,Primarina,,,,,,,,,
-Glimmora,18,teammate,3,Golisopod,,,,,,,,,
-Glimmora,18,teammate,4,Dragonite,,,,,,,,,
-Glimmora,18,teammate,5,Hippowdon,,,,,,,,,
-Glimmora,18,teammate,6,Corviknight,,,,,,,,,
-Glimmora,18,teammate,7,Lucario,,,,,,,,,
-Glimmora,18,teammate,8,Gholdengo,,,,,,,,,
-Glimmora,18,teammate,9,Mimikyu,,,,,,,,,
-Glimmora,18,teammate,10,Umbreon,,,,,,,,,
-Glimmora,18,stat_alignment,1,Timid,58.7%,Speed,Attack,,,,,,
-Glimmora,18,stat_alignment,2,Modest,33.0%,Sp. Atk,Attack,,,,,,
-Glimmora,18,stat_alignment,3,Calm,3.5%,Sp. Def,Attack,,,,,,
-Glimmora,18,stat_alignment,4,Bold,2.8%,Defense,Attack,,,,,,
-Glimmora,18,stat_alignment,5,Jolly,0.5%,Speed,Sp. Atk,,,,,,
-Glimmora,18,stat_alignment,6,Impish,0.3%,Defense,Sp. Atk,,,,,,
-Glimmora,18,stat_alignment,7,Hasty,0.2%,Speed,Defense,,,,,,
-Glimmora,18,stat_alignment,8,Naive,0.2%,Speed,Sp. Def,,,,,,
-Glimmora,18,stat_alignment,9,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
-Glimmora,18,stat_alignment,10,Adamant,0.2%,Attack,Sp. Atk,,,,,,
-Glimmora,18,stat_points,1,,38.9%,,,1,0,1,32,0,32
-Glimmora,18,stat_points,2,,19.7%,,,2,0,0,32,0,32
-Glimmora,18,stat_points,3,,14.3%,,,1,0,0,32,1,32
-Glimmora,18,stat_points,4,,2.6%,,,0,0,0,32,2,32
-Glimmora,18,stat_points,5,,2.5%,,,0,0,2,32,0,32
-Glimmora,18,stat_points,6,,1.5%,,,0,0,0,32,0,32
-Glimmora,18,stat_points,7,,0.9%,,,0,0,1,32,1,32
-Glimmora,18,stat_points,8,,0.6%,,,32,0,2,0,32,0
-Glimmora,18,stat_points,9,,0.6%,,,32,0,2,0,0,32
-Glimmora,18,stat_points,10,,0.6%,,,32,0,0,0,2,32
-Glimmora,18,ability,1,Toxic Debris,94.4%,,,,,,,,
-Glimmora,18,ability,2,Corrosion,5.6%,,,,,,,,
+Glimmora,25,move,1,Power Gem,92.6%,,,,,,,,
+Glimmora,25,move,2,Earth Power,66.0%,,,,,,,,
+Glimmora,25,move,3,Sludge Wave,50.0%,,,,,,,,
+Glimmora,25,move,4,Stealth Rock,40.4%,,,,,,,,
+Glimmora,25,move,5,Energy Ball,37.2%,,,,,,,,
+Glimmora,25,move,6,Mortal Spin,26.6%,,,,,,,,
+Glimmora,25,move,7,Mud Shot,23.4%,,,,,,,,
+Glimmora,25,move,8,Dazzling Gleam,22.3%,,,,,,,,
+Glimmora,25,move,9,Sludge Bomb,17.0%,,,,,,,,
+Glimmora,25,move,10,Rock Polish,6.4%,,,,,,,,
+Glimmora,25,held_item,1,Focus Sash,57.4%,,,,,,,,
+Glimmora,25,held_item,2,Glimmoranite,31.9%,,,,,,,,
+Glimmora,25,held_item,3,Choice Scarf,3.2%,,,,,,,,
+Glimmora,25,held_item,4,Air Balloon,3.2%,,,,,,,,
+Glimmora,25,held_item,5,Red Card,3.2%,,,,,,,,
+Glimmora,25,held_item,6,Leftovers,1.1%,,,,,,,,
+Glimmora,25,teammate,1,Garchomp,,,,,,,,,
+Glimmora,25,teammate,2,Metagross,,,,,,,,,
+Glimmora,25,teammate,3,Hippowdon,,,,,,,,,
+Glimmora,25,teammate,4,Dragonite,,,,,,,,,
+Glimmora,25,teammate,5,Primarina,,,,,,,,,
+Glimmora,25,teammate,6,Umbreon,,,,,,,,,
+Glimmora,25,teammate,7,Archaludon,,,,,,,,,
+Glimmora,25,teammate,8,Rotom-Wash,,,,,,,,,
+Glimmora,25,teammate,9,Golisopod,,,,,,,,,
+Glimmora,25,teammate,10,Charizard,,,,,,,,,
+Glimmora,25,stat_alignment,1,Timid,50.0%,Speed,Attack,,,,,,
+Glimmora,25,stat_alignment,2,Modest,42.6%,Sp. Atk,Attack,,,,,,
+Glimmora,25,stat_alignment,3,Bold,3.2%,Defense,Attack,,,,,,
+Glimmora,25,stat_alignment,4,Impish,3.2%,Defense,Sp. Atk,,,,,,
+Glimmora,25,stat_alignment,5,Calm,1.1%,Sp. Def,Attack,,,,,,
+Glimmora,25,stat_points,1,,53.2%,,,1,0,1,32,0,32
+Glimmora,25,stat_points,2,,24.5%,,,1,0,0,32,1,32
+Glimmora,25,stat_points,3,,5.3%,,,2,0,0,32,0,32
+Glimmora,25,stat_points,4,,4.3%,,,32,0,0,0,2,32
+Glimmora,25,stat_points,5,,3.2%,,,31,0,30,0,1,2
+Glimmora,25,stat_points,6,,3.2%,,,32,0,32,0,2,0
+Glimmora,25,stat_points,7,,2.1%,,,0,0,0,32,0,32
+Glimmora,25,stat_points,8,,2.1%,,,15,0,0,32,1,18
+Glimmora,25,stat_points,9,,1.1%,,,22,0,0,23,0,21
+Glimmora,25,stat_points,10,,1.1%,,,31,0,0,0,32,3
+Glimmora,25,ability,1,Toxic Debris,95.7%,,,,,,,,
+Glimmora,25,ability,2,Corrosion,4.3%,,,,,,,,

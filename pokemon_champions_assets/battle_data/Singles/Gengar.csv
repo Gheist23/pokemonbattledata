@@ -1,19 +1,37 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gengar,8,move,1,Destiny Bond,100.0%,,,,,,,,
-Gengar,8,move,2,Shadow Ball,100.0%,,,,,,,,
-Gengar,8,move,3,Sludge Wave,100.0%,,,,,,,,
-Gengar,8,move,4,Icy Wind,50.0%,,,,,,,,
-Gengar,8,move,5,Toxic Spikes,50.0%,,,,,,,,
-Gengar,8,held_item,1,Focus Sash,100.0%,,,,,,,,
-Gengar,8,teammate,1,Dragonite,,,,,,,,,
-Gengar,8,teammate,2,Snorlax,,,,,,,,,
-Gengar,8,teammate,3,Blaziken,,,,,,,,,
-Gengar,8,teammate,4,Hippowdon,,,,,,,,,
-Gengar,8,teammate,5,Primarina,,,,,,,,,
-Gengar,8,teammate,6,Golisopod,,,,,,,,,
-Gengar,8,teammate,7,Rillaboom,,,,,,,,,
-Gengar,8,teammate,8,Meowscarada,,,,,,,,,
-Gengar,8,teammate,9,Archaludon,,,,,,,,,
-Gengar,8,stat_alignment,1,Timid,100.0%,Speed,Attack,,,,,,
-Gengar,8,stat_points,1,,100.0%,,,2,0,0,32,0,32
-Gengar,8,ability,1,Cursed Body,100.0%,,,,,,,,
+Gengar,18,move,1,Shadow Ball,95.3%,,,,,,,,
+Gengar,18,move,2,Icy Wind,79.4%,,,,,,,,
+Gengar,18,move,3,Sludge Wave,74.8%,,,,,,,,
+Gengar,18,move,4,Destiny Bond,33.6%,,,,,,,,
+Gengar,18,move,5,Protect,27.1%,,,,,,,,
+Gengar,18,move,6,Toxic Spikes,18.7%,,,,,,,,
+Gengar,18,move,7,Nasty Plot,15.0%,,,,,,,,
+Gengar,18,move,8,Sludge Bomb,14.0%,,,,,,,,
+Gengar,18,move,9,Perish Song,10.3%,,,,,,,,
+Gengar,18,move,10,Sucker Punch,8.4%,,,,,,,,
+Gengar,18,held_item,1,Gengarite,58.9%,,,,,,,,
+Gengar,18,held_item,2,Focus Sash,41.1%,,,,,,,,
+Gengar,18,teammate,1,Garchomp,,,,,,,,,
+Gengar,18,teammate,2,Primarina,,,,,,,,,
+Gengar,18,teammate,3,Mimikyu,,,,,,,,,
+Gengar,18,teammate,4,Archaludon,,,,,,,,,
+Gengar,18,teammate,5,Basculegion,,,,,,,,,
+Gengar,18,teammate,6,Lucario,,,,,,,,,
+Gengar,18,teammate,7,Golisopod,,,,,,,,,
+Gengar,18,teammate,8,Raichu,,,,,,,,,
+Gengar,18,teammate,9,Kingambit,,,,,,,,,
+Gengar,18,teammate,10,Ninetales-Alola,,,,,,,,,
+Gengar,18,stat_alignment,1,Timid,57.9%,Speed,Attack,,,,,,
+Gengar,18,stat_alignment,2,Modest,33.6%,Sp. Atk,Attack,,,,,,
+Gengar,18,stat_alignment,3,Rash,8.4%,Sp. Atk,Sp. Def,,,,,,
+Gengar,18,stat_points,1,,33.6%,,,0,0,2,32,0,32
+Gengar,18,stat_points,2,,17.8%,,,2,0,0,32,0,32
+Gengar,18,stat_points,3,,9.3%,,,14,0,0,20,0,32
+Gengar,18,stat_points,4,,9.3%,,,24,0,0,0,21,21
+Gengar,18,stat_points,5,,8.4%,,,0,9,0,32,0,25
+Gengar,18,stat_points,6,,4.7%,,,0,0,0,32,2,32
+Gengar,18,stat_points,7,,4.7%,,,24,0,0,10,0,32
+Gengar,18,stat_points,8,,2.8%,,,23,0,0,20,0,23
+Gengar,18,stat_points,9,,1.9%,,,10,0,0,24,0,32
+Gengar,18,stat_points,10,,1.9%,,,12,0,4,20,0,30
+Gengar,18,ability,1,Cursed Body,100.0%,,,,,,,,

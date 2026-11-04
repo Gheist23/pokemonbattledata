@@ -1,22 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Garchomp,9,move,1,Earth Power,100.0%,,,,,,,,
-Garchomp,9,move,2,Flamethrower,100.0%,,,,,,,,
-Garchomp,9,move,3,Dragon Pulse,50.0%,,,,,,,,
-Garchomp,9,move,4,Power Gem,50.0%,,,,,,,,
-Garchomp,9,move,5,Draco Meteor,50.0%,,,,,,,,
-Garchomp,9,move,6,Surf,50.0%,,,,,,,,
-Garchomp,9,held_item,1,Garchompite Z,100.0%,,,,,,,,
-Garchomp,9,teammate,1,Charizard,,,,,,,,,
-Garchomp,9,teammate,2,Blastoise,,,,,,,,,
-Garchomp,9,teammate,3,Absol,,,,,,,,,
-Garchomp,9,teammate,4,Hippowdon,,,,,,,,,
-Garchomp,9,teammate,5,Primarina,,,,,,,,,
-Garchomp,9,teammate,6,Mimikyu,,,,,,,,,
-Garchomp,9,teammate,7,Rillaboom,,,,,,,,,
-Garchomp,9,teammate,8,Indeedee,,,,,,,,,
-Garchomp,9,teammate,9,Sneasler,,,,,,,,,
-Garchomp,9,teammate,10,Armarouge,,,,,,,,,
-Garchomp,9,stat_alignment,1,Timid,100.0%,Speed,Attack,,,,,,
-Garchomp,9,stat_points,1,,50.0%,,,0,2,0,32,0,32
-Garchomp,9,stat_points,2,,50.0%,,,1,0,0,32,0,32
-Garchomp,9,ability,1,Rough Skin,100.0%,,,,,,,,
+Garchomp,1,move,1,Earthquake,70.2%,,,,,,,,
+Garchomp,1,move,2,Outrage,38.4%,,,,,,,,
+Garchomp,1,move,3,Stealth Rock,35.9%,,,,,,,,
+Garchomp,1,move,4,Flamethrower,33.1%,,,,,,,,
+Garchomp,1,move,5,Draco Meteor,24.3%,,,,,,,,
+Garchomp,1,move,6,Poison Jab,22.5%,,,,,,,,
+Garchomp,1,move,7,Power Gem,22.4%,,,,,,,,
+Garchomp,1,move,8,Rock Tomb,21.7%,,,,,,,,
+Garchomp,1,move,9,Earth Power,21.5%,,,,,,,,
+Garchomp,1,move,10,Rock Slide,18.8%,,,,,,,,
+Garchomp,1,held_item,1,Choice Scarf,35.7%,,,,,,,,
+Garchomp,1,held_item,2,Garchompite Z,33.6%,,,,,,,,
+Garchomp,1,held_item,3,Focus Sash,9.5%,,,,,,,,
+Garchomp,1,held_item,4,Sitrus Berry,9.2%,,,,,,,,
+Garchomp,1,held_item,5,Haban Berry,3.9%,,,,,,,,
+Garchomp,1,held_item,6,Roseli Berry,2.8%,,,,,,,,
+Garchomp,1,held_item,7,Rocky Helmet,1.9%,,,,,,,,
+Garchomp,1,held_item,8,Lum Berry,1.2%,,,,,,,,
+Garchomp,1,held_item,9,Leftovers,0.7%,,,,,,,,
+Garchomp,1,held_item,10,Scope Lens,0.4%,,,,,,,,
+Garchomp,1,teammate,1,Primarina,,,,,,,,,
+Garchomp,1,teammate,2,Archaludon,,,,,,,,,
+Garchomp,1,teammate,3,Mimikyu,,,,,,,,,
+Garchomp,1,teammate,4,Charizard,,,,,,,,,
+Garchomp,1,teammate,5,Golisopod,,,,,,,,,
+Garchomp,1,teammate,6,Basculegion,,,,,,,,,
+Garchomp,1,teammate,7,Scizor,,,,,,,,,
+Garchomp,1,teammate,8,Hippowdon,,,,,,,,,
+Garchomp,1,teammate,9,Raichu,,,,,,,,,
+Garchomp,1,teammate,10,Gholdengo,,,,,,,,,
+Garchomp,1,stat_alignment,1,Jolly,30.5%,Speed,Sp. Atk,,,,,,
+Garchomp,1,stat_alignment,2,Adamant,24.6%,Attack,Sp. Atk,,,,,,
+Garchomp,1,stat_alignment,3,Timid,18.1%,Speed,Attack,,,,,,
+Garchomp,1,stat_alignment,4,Impish,11.1%,Defense,Sp. Atk,,,,,,
+Garchomp,1,stat_alignment,5,Modest,9.5%,Sp. Atk,Attack,,,,,,
+Garchomp,1,stat_alignment,6,Naive,2.8%,Speed,Sp. Def,,,,,,
+Garchomp,1,stat_alignment,7,Careful,2.5%,Sp. Def,Sp. Atk,,,,,,
+Garchomp,1,stat_alignment,8,Relaxed,0.7%,Defense,Speed,,,,,,
+Garchomp,1,stat_alignment,9,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Garchomp,1,stat_points,1,,36.1%,,,2,32,0,0,0,32
+Garchomp,1,stat_points,2,,15.7%,,,2,0,0,32,0,32
+Garchomp,1,stat_points,3,,11.3%,,,0,32,2,0,0,32
+Garchomp,1,stat_points,4,,3.5%,,,0,0,2,32,0,32
+Garchomp,1,stat_points,5,,2.8%,,,0,0,2,30,2,32
+Garchomp,1,stat_points,6,,2.6%,,,32,0,31,0,0,3
+Garchomp,1,stat_points,7,,2.5%,,,4,0,0,32,0,30
+Garchomp,1,stat_points,8,,1.8%,,,0,2,0,32,0,32
+Garchomp,1,stat_points,9,,1.6%,,,1,0,0,32,0,32
+Garchomp,1,stat_points,10,,1.6%,,,32,0,26,0,5,3
+Garchomp,1,ability,1,Rough Skin,100.0%,,,,,,,,

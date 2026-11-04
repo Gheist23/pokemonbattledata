@@ -1,53 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Vileplume,137,move,1,Strength Sap,87.2%,,,,,,,,
-Vileplume,137,move,2,Leech Seed,74.4%,,,,,,,,
-Vileplume,137,move,3,Giga Drain,55.1%,,,,,,,,
-Vileplume,137,move,4,Toxic,38.7%,,,,,,,,
-Vileplume,137,move,5,Sludge Bomb,32.1%,,,,,,,,
-Vileplume,137,move,6,Moonblast,24.2%,,,,,,,,
-Vileplume,137,move,7,Sludge Wave,15.8%,,,,,,,,
-Vileplume,137,move,8,Acid Spray,13.4%,,,,,,,,
-Vileplume,137,move,9,Sleep Powder,10.1%,,,,,,,,
-Vileplume,137,move,10,Weather Ball,9.0%,,,,,,,,
-Vileplume,137,held_item,1,Rocky Helmet,29.8%,,,,,,,,
-Vileplume,137,held_item,2,Leftovers,25.2%,,,,,,,,
-Vileplume,137,held_item,3,Big Root,16.9%,,,,,,,,
-Vileplume,137,held_item,4,Sitrus Berry,7.4%,,,,,,,,
-Vileplume,137,held_item,5,Life Orb,7.2%,,,,,,,,
-Vileplume,137,held_item,6,Bright Powder,2.2%,,,,,,,,
-Vileplume,137,held_item,7,Zoom Lens,2.0%,,,,,,,,
-Vileplume,137,held_item,8,Focus Sash,1.9%,,,,,,,,
-Vileplume,137,held_item,9,Wide Lens,1.0%,,,,,,,,
-Vileplume,137,held_item,10,Quick Claw,0.9%,,,,,,,,
-Vileplume,137,teammate,1,Garchomp,,,,,,,,,
-Vileplume,137,teammate,2,Charizard,,,,,,,,,
-Vileplume,137,teammate,3,Primarina,,,,,,,,,
-Vileplume,137,teammate,4,Golisopod,,,,,,,,,
-Vileplume,137,teammate,5,Dragonite,,,,,,,,,
-Vileplume,137,teammate,6,Baxcalibur,,,,,,,,,
-Vileplume,137,teammate,7,Salamence,,,,,,,,,
-Vileplume,137,teammate,8,Mimikyu,,,,,,,,,
-Vileplume,137,teammate,9,Metagross,,,,,,,,,
-Vileplume,137,teammate,10,Umbreon,,,,,,,,,
-Vileplume,137,stat_alignment,1,Bold,64.9%,Defense,Attack,,,,,,
-Vileplume,137,stat_alignment,2,Calm,13.9%,Sp. Def,Attack,,,,,,
-Vileplume,137,stat_alignment,3,Timid,8.0%,Speed,Attack,,,,,,
-Vileplume,137,stat_alignment,4,Modest,7.3%,Sp. Atk,Attack,,,,,,
-Vileplume,137,stat_alignment,5,Relaxed,2.7%,Defense,Speed,,,,,,
-Vileplume,137,stat_alignment,6,Sassy,1.1%,Sp. Def,Speed,,,,,,
-Vileplume,137,stat_alignment,7,Quiet,1.0%,Sp. Atk,Speed,,,,,,
-Vileplume,137,stat_alignment,8,Impish,0.3%,Defense,Sp. Atk,,,,,,
-Vileplume,137,stat_alignment,9,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
-Vileplume,137,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Vileplume,137,stat_points,1,,31.1%,,,32,0,32,0,2,0
-Vileplume,137,stat_points,2,,6.1%,,,31,0,32,0,3,0
-Vileplume,137,stat_points,3,,4.9%,,,32,0,2,0,32,0
-Vileplume,137,stat_points,4,,4.2%,,,2,0,0,32,0,32
-Vileplume,137,stat_points,5,,4.2%,,,32,0,32,2,0,0
-Vileplume,137,stat_points,6,,3.5%,,,2,0,32,0,32,0
-Vileplume,137,stat_points,7,,2.7%,,,31,0,31,0,4,0
-Vileplume,137,stat_points,8,,2.4%,,,32,0,32,0,0,2
-Vileplume,137,stat_points,9,,2.1%,,,1,0,1,32,0,32
-Vileplume,137,stat_points,10,,1.7%,,,32,0,2,32,0,0
-Vileplume,137,ability,1,Effect Spore,84.7%,,,,,,,,
-Vileplume,137,ability,2,Chlorophyll,15.3%,,,,,,,,
+Vileplume,128,move,1,Sludge Bomb,100.0%,,,,,,,,
+Vileplume,128,move,2,Giga Drain,100.0%,,,,,,,,
+Vileplume,128,move,3,Strength Sap,100.0%,,,,,,,,
+Vileplume,128,move,4,Leech Seed,100.0%,,,,,,,,
+Vileplume,128,held_item,1,Big Root,100.0%,,,,,,,,
+Vileplume,128,teammate,1,Ninetales-Alola,,,,,,,,,
+Vileplume,128,teammate,2,Dragonite,,,,,,,,,
+Vileplume,128,teammate,3,Garchomp,,,,,,,,,
+Vileplume,128,teammate,4,Lucario,,,,,,,,,
+Vileplume,128,teammate,5,Sylveon,,,,,,,,,
+Vileplume,128,stat_alignment,1,Bold,100.0%,Defense,Attack,,,,,,
+Vileplume,128,stat_points,1,,100.0%,,,32,0,32,0,2,0
+Vileplume,128,ability,1,Effect Spore,100.0%,,,,,,,,

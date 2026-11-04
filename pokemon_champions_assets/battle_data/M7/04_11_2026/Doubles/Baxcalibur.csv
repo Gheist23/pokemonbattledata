@@ -1,53 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Baxcalibur,59,move,1,Glaive Rush,91.9%,,,,,,,,
-Baxcalibur,59,move,2,Protect,76.8%,,,,,,,,
-Baxcalibur,59,move,3,Ice Shard,76.4%,,,,,,,,
-Baxcalibur,59,move,4,Icicle Crash,39.9%,,,,,,,,
-Baxcalibur,59,move,5,High Horsepower,29.3%,,,,,,,,
-Baxcalibur,59,move,6,Dragon Dance,17.2%,,,,,,,,
-Baxcalibur,59,move,7,Swords Dance,16.1%,,,,,,,,
-Baxcalibur,59,move,8,Earthquake,13.5%,,,,,,,,
-Baxcalibur,59,move,9,Icicle Spear,7.4%,,,,,,,,
-Baxcalibur,59,move,10,Iron Head,7.1%,,,,,,,,
-Baxcalibur,59,held_item,1,Baxcalibrite,63.0%,,,,,,,,
-Baxcalibur,59,held_item,2,Life Orb,14.6%,,,,,,,,
-Baxcalibur,59,held_item,3,Focus Sash,4.6%,,,,,,,,
-Baxcalibur,59,held_item,4,Choice Scarf,3.6%,,,,,,,,
-Baxcalibur,59,held_item,5,Leftovers,2.5%,,,,,,,,
-Baxcalibur,59,held_item,6,Never-Melt Ice,2.4%,,,,,,,,
-Baxcalibur,59,held_item,7,Sitrus Berry,2.1%,,,,,,,,
-Baxcalibur,59,held_item,8,Chople Berry,0.8%,,,,,,,,
-Baxcalibur,59,held_item,9,Dragon Fang,0.8%,,,,,,,,
-Baxcalibur,59,held_item,10,Expert Belt,0.8%,,,,,,,,
-Baxcalibur,59,teammate,1,Rillaboom,,,,,,,,,
-Baxcalibur,59,teammate,2,Sneasler,,,,,,,,,
-Baxcalibur,59,teammate,3,Ninetales-Alola,,,,,,,,,
-Baxcalibur,59,teammate,4,Incineroar,,,,,,,,,
-Baxcalibur,59,teammate,5,Kingambit,,,,,,,,,
-Baxcalibur,59,teammate,6,Raichu,,,,,,,,,
-Baxcalibur,59,teammate,7,Gholdengo,,,,,,,,,
-Baxcalibur,59,teammate,8,Volcarona,,,,,,,,,
-Baxcalibur,59,teammate,9,Garchomp,,,,,,,,,
-Baxcalibur,59,teammate,10,Milotic,,,,,,,,,
-Baxcalibur,59,stat_alignment,1,Adamant,73.8%,Attack,Sp. Atk,,,,,,
-Baxcalibur,59,stat_alignment,2,Jolly,13.7%,Speed,Sp. Atk,,,,,,
-Baxcalibur,59,stat_alignment,3,Brave,4.6%,Attack,Speed,,,,,,
-Baxcalibur,59,stat_alignment,4,Careful,2.8%,Sp. Def,Sp. Atk,,,,,,
-Baxcalibur,59,stat_alignment,5,Impish,1.3%,Defense,Sp. Atk,,,,,,
-Baxcalibur,59,stat_alignment,6,Lonely,0.7%,Attack,Defense,,,,,,
-Baxcalibur,59,stat_alignment,7,Naughty,0.7%,Attack,Sp. Def,,,,,,
-Baxcalibur,59,stat_alignment,8,Sassy,0.4%,Sp. Def,Speed,,,,,,
-Baxcalibur,59,stat_alignment,9,Relaxed,0.4%,Defense,Speed,,,,,,
-Baxcalibur,59,stat_alignment,10,Hasty,0.3%,Speed,Defense,,,,,,
-Baxcalibur,59,stat_points,1,,18.0%,,,2,32,0,0,0,32
-Baxcalibur,59,stat_points,2,,7.0%,,,32,32,0,0,2,0
-Baxcalibur,59,stat_points,3,,4.8%,,,32,32,0,0,0,2
-Baxcalibur,59,stat_points,4,,3.4%,,,32,32,2,0,0,0
-Baxcalibur,59,stat_points,5,,3.3%,,,0,32,2,0,0,32
-Baxcalibur,59,stat_points,6,,3.2%,,,0,32,0,0,2,32
-Baxcalibur,59,stat_points,7,,2.2%,,,32,2,0,0,0,32
-Baxcalibur,59,stat_points,8,,1.7%,,,1,32,1,0,0,32
-Baxcalibur,59,stat_points,9,,1.4%,,,32,15,6,0,0,13
-Baxcalibur,59,stat_points,10,,1.3%,,,21,16,3,0,0,26
-Baxcalibur,59,ability,1,Thermal Exchange,95.0%,,,,,,,,
-Baxcalibur,59,ability,2,Ice Body,5.0%,,,,,,,,
+Baxcalibur,54,move,1,Protect,100.0%,,,,,,,,
+Baxcalibur,54,move,2,Ice Shard,100.0%,,,,,,,,
+Baxcalibur,54,move,3,High Horsepower,100.0%,,,,,,,,
+Baxcalibur,54,move,4,Glaive Rush,100.0%,,,,,,,,
+Baxcalibur,54,held_item,1,Focus Sash,100.0%,,,,,,,,
+Baxcalibur,54,teammate,1,Raichu,,,,,,,,,
+Baxcalibur,54,teammate,2,Garchomp,,,,,,,,,
+Baxcalibur,54,teammate,3,Talonflame,,,,,,,,,
+Baxcalibur,54,teammate,4,Farigiraf,,,,,,,,,
+Baxcalibur,54,teammate,5,Kingambit,,,,,,,,,
+Baxcalibur,54,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
+Baxcalibur,54,stat_points,1,,100.0%,,,2,32,0,0,0,32
+Baxcalibur,54,ability,1,Thermal Exchange,100.0%,,,,,,,,

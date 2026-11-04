@@ -1,28 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Primarina,1,move,1,Encore,100.0%,,,,,,,,
-Primarina,1,move,2,Moonblast,100.0%,,,,,,,,
-Primarina,1,move,3,Aqua Jet,75.0%,,,,,,,,
-Primarina,1,move,4,Surf,50.0%,,,,,,,,
-Primarina,1,move,5,Sparkling Aria,50.0%,,,,,,,,
-Primarina,1,move,6,Calm Mind,25.0%,,,,,,,,
-Primarina,1,held_item,1,Leftovers,50.0%,,,,,,,,
-Primarina,1,held_item,2,Sitrus Berry,25.0%,,,,,,,,
-Primarina,1,held_item,3,Focus Sash,25.0%,,,,,,,,
-Primarina,1,teammate,1,Dragonite,,,,,,,,,
-Primarina,1,teammate,2,Hippowdon,,,,,,,,,
-Primarina,1,teammate,3,Golisopod,,,,,,,,,
-Primarina,1,teammate,4,Rillaboom,,,,,,,,,
-Primarina,1,teammate,5,Charizard,,,,,,,,,
-Primarina,1,teammate,6,Gengar,,,,,,,,,
-Primarina,1,teammate,7,Tyranitar,,,,,,,,,
-Primarina,1,teammate,8,Staraptor,,,,,,,,,
-Primarina,1,teammate,9,Garchomp,,,,,,,,,
-Primarina,1,teammate,10,Lucario,,,,,,,,,
-Primarina,1,stat_alignment,1,Modest,50.0%,Sp. Atk,Attack,,,,,,
-Primarina,1,stat_alignment,2,Quiet,25.0%,Sp. Atk,Speed,,,,,,
-Primarina,1,stat_alignment,3,Bold,25.0%,Defense,Attack,,,,,,
-Primarina,1,stat_points,1,,25.0%,,,2,0,0,32,0,32
-Primarina,1,stat_points,2,,25.0%,,,32,0,18,2,0,14
-Primarina,1,stat_points,3,,25.0%,,,32,0,20,14,0,0
-Primarina,1,stat_points,4,,25.0%,,,32,0,32,0,2,0
-Primarina,1,ability,1,Torrent,100.0%,,,,,,,,
+Primarina,2,move,1,Moonblast,100.0%,,,,,,,,
+Primarina,2,move,2,Sparkling Aria,64.0%,,,,,,,,
+Primarina,2,move,3,Encore,57.4%,,,,,,,,
+Primarina,2,move,4,Aqua Jet,55.9%,,,,,,,,
+Primarina,2,move,5,Surf,28.6%,,,,,,,,
+Primarina,2,move,6,Calm Mind,22.4%,,,,,,,,
+Primarina,2,move,7,Flip Turn,21.9%,,,,,,,,
+Primarina,2,move,8,Psychic Noise,17.1%,,,,,,,,
+Primarina,2,move,9,Substitute,10.5%,,,,,,,,
+Primarina,2,move,10,Misty Terrain,6.6%,,,,,,,,
+Primarina,2,held_item,1,Sitrus Berry,45.2%,,,,,,,,
+Primarina,2,held_item,2,Air Balloon,14.5%,,,,,,,,
+Primarina,2,held_item,3,Leftovers,14.0%,,,,,,,,
+Primarina,2,held_item,4,Focus Sash,12.8%,,,,,,,,
+Primarina,2,held_item,5,Chesto Berry,4.6%,,,,,,,,
+Primarina,2,held_item,6,Rindo Berry,3.1%,,,,,,,,
+Primarina,2,held_item,7,Mystic Water,2.8%,,,,,,,,
+Primarina,2,held_item,8,Choice Scarf,1.5%,,,,,,,,
+Primarina,2,held_item,9,Rocky Helmet,1.0%,,,,,,,,
+Primarina,2,held_item,10,Lum Berry,0.5%,,,,,,,,
+Primarina,2,teammate,1,Garchomp,,,,,,,,,
+Primarina,2,teammate,2,Charizard,,,,,,,,,
+Primarina,2,teammate,3,Hippowdon,,,,,,,,,
+Primarina,2,teammate,4,Mimikyu,,,,,,,,,
+Primarina,2,teammate,5,Archaludon,,,,,,,,,
+Primarina,2,teammate,6,Aegislash,,,,,,,,,
+Primarina,2,teammate,7,Salamence,,,,,,,,,
+Primarina,2,teammate,8,Golisopod,,,,,,,,,
+Primarina,2,teammate,9,Raichu,,,,,,,,,
+Primarina,2,teammate,10,Meowscarada,,,,,,,,,
+Primarina,2,stat_alignment,1,Modest,72.2%,Sp. Atk,Attack,,,,,,
+Primarina,2,stat_alignment,2,Bold,9.9%,Defense,Attack,,,,,,
+Primarina,2,stat_alignment,3,Quiet,9.2%,Sp. Atk,Speed,,,,,,
+Primarina,2,stat_alignment,4,Hardy,4.1%,,,,,,,,
+Primarina,2,stat_alignment,5,Timid,1.5%,Speed,Attack,,,,,,
+Primarina,2,stat_alignment,6,Relaxed,1.5%,Defense,Speed,,,,,,
+Primarina,2,stat_alignment,7,Rash,1.3%,Sp. Atk,Sp. Def,,,,,,
+Primarina,2,stat_alignment,8,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Primarina,2,stat_points,1,,12.0%,,,2,0,0,32,0,32
+Primarina,2,stat_points,2,,8.7%,,,32,0,20,14,0,0
+Primarina,2,stat_points,3,,7.7%,,,32,0,25,0,0,9
+Primarina,2,stat_points,4,,5.9%,,,26,0,21,6,0,13
+Primarina,2,stat_points,5,,5.9%,,,32,0,7,12,0,15
+Primarina,2,stat_points,6,,4.1%,,,32,0,11,1,0,22
+Primarina,2,stat_points,7,,4.1%,,,32,0,20,8,0,6
+Primarina,2,stat_points,8,,3.8%,,,32,0,0,14,7,13
+Primarina,2,stat_points,9,,3.6%,,,32,0,0,32,0,2
+Primarina,2,stat_points,10,,3.1%,,,32,0,22,4,8,0
+Primarina,2,ability,1,Torrent,94.6%,,,,,,,,
+Primarina,2,ability,2,Liquid Voice,5.4%,,,,,,,,

@@ -1,52 +1,27 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Eelektross,109,move,1,Flamethrower,57.1%,,,,,,,,
-Eelektross,109,move,2,Thunderbolt,50.0%,,,,,,,,
-Eelektross,109,move,3,Dragon Pulse,46.7%,,,,,,,,
-Eelektross,109,move,4,Giga Drain,39.4%,,,,,,,,
-Eelektross,109,move,5,Supercell Slam,26.5%,,,,,,,,
-Eelektross,109,move,6,Drain Punch,22.7%,,,,,,,,
-Eelektross,109,move,7,Coil,20.2%,,,,,,,,
-Eelektross,109,move,8,Grass Knot,13.9%,,,,,,,,
-Eelektross,109,move,9,Dragon Tail,11.9%,,,,,,,,
-Eelektross,109,move,10,Rest,9.5%,,,,,,,,
-Eelektross,109,held_item,1,Eelektrossite,75.3%,,,,,,,,
-Eelektross,109,held_item,2,Rocky Helmet,10.7%,,,,,,,,
-Eelektross,109,held_item,3,Sitrus Berry,4.5%,,,,,,,,
-Eelektross,109,held_item,4,Quick Claw,1.7%,,,,,,,,
-Eelektross,109,held_item,5,Leftovers,1.6%,,,,,,,,
-Eelektross,109,held_item,6,Expert Belt,1.3%,,,,,,,,
-Eelektross,109,held_item,7,Life Orb,1.1%,,,,,,,,
-Eelektross,109,held_item,8,Magnet,1.1%,,,,,,,,
-Eelektross,109,held_item,9,Bright Powder,0.5%,,,,,,,,
-Eelektross,109,held_item,10,Lum Berry,0.4%,,,,,,,,
-Eelektross,109,teammate,1,Garchomp,,,,,,,,,
-Eelektross,109,teammate,2,Glimmora,,,,,,,,,
-Eelektross,109,teammate,3,Primarina,,,,,,,,,
-Eelektross,109,teammate,4,Lucario,,,,,,,,,
-Eelektross,109,teammate,5,Golisopod,,,,,,,,,
-Eelektross,109,teammate,6,Mimikyu,,,,,,,,,
-Eelektross,109,teammate,7,Meowscarada,,,,,,,,,
-Eelektross,109,teammate,8,Basculegion,,,,,,,,,
-Eelektross,109,teammate,9,Archaludon,,,,,,,,,
-Eelektross,109,teammate,10,Baxcalibur,,,,,,,,,
-Eelektross,109,stat_alignment,1,Modest,46.7%,Sp. Atk,Attack,,,,,,
-Eelektross,109,stat_alignment,2,Adamant,15.1%,Attack,Sp. Atk,,,,,,
-Eelektross,109,stat_alignment,3,Bold,7.7%,Defense,Attack,,,,,,
-Eelektross,109,stat_alignment,4,Quiet,4.3%,Sp. Atk,Speed,,,,,,
-Eelektross,109,stat_alignment,5,Timid,4.2%,Speed,Attack,,,,,,
-Eelektross,109,stat_alignment,6,Jolly,3.7%,Speed,Sp. Atk,,,,,,
-Eelektross,109,stat_alignment,7,Impish,3.7%,Defense,Sp. Atk,,,,,,
-Eelektross,109,stat_alignment,8,Relaxed,3.6%,Defense,Speed,,,,,,
-Eelektross,109,stat_alignment,9,Careful,3.1%,Sp. Def,Sp. Atk,,,,,,
-Eelektross,109,stat_alignment,10,Brave,3.0%,Attack,Speed,,,,,,
-Eelektross,109,stat_points,1,,7.9%,,,32,0,2,32,0,0
-Eelektross,109,stat_points,2,,7.2%,,,32,0,32,0,2,0
-Eelektross,109,stat_points,3,,4.6%,,,32,0,0,32,2,0
-Eelektross,109,stat_points,4,,4.4%,,,32,0,1,32,1,0
-Eelektross,109,stat_points,5,,4.1%,,,2,0,0,32,0,32
-Eelektross,109,stat_points,6,,3.8%,,,32,0,0,32,0,2
-Eelektross,109,stat_points,7,,3.4%,,,28,0,0,32,0,6
-Eelektross,109,stat_points,8,,2.5%,,,32,32,0,0,0,2
-Eelektross,109,stat_points,9,,2.1%,,,32,32,2,0,0,0
-Eelektross,109,stat_points,10,,2.0%,,,2,32,0,0,0,32
-Eelektross,109,ability,1,Levitate,100.0%,,,,,,,,
+Eelektross,100,move,1,Flamethrower,100.0%,,,,,,,,
+Eelektross,100,move,2,Grass Knot,80.0%,,,,,,,,
+Eelektross,100,move,3,Thunderbolt,80.0%,,,,,,,,
+Eelektross,100,move,4,U-turn,60.0%,,,,,,,,
+Eelektross,100,move,5,Giga Drain,20.0%,,,,,,,,
+Eelektross,100,move,6,Dragon Pulse,20.0%,,,,,,,,
+Eelektross,100,move,7,Volt Switch,20.0%,,,,,,,,
+Eelektross,100,move,8,Supercell Slam,20.0%,,,,,,,,
+Eelektross,100,held_item,1,Eelektrossite,80.0%,,,,,,,,
+Eelektross,100,held_item,2,Rocky Helmet,20.0%,,,,,,,,
+Eelektross,100,teammate,1,Garchomp,,,,,,,,,
+Eelektross,100,teammate,2,Snorlax,,,,,,,,,
+Eelektross,100,teammate,3,Slowking-Galar,,,,,,,,,
+Eelektross,100,teammate,4,Hawlucha,,,,,,,,,
+Eelektross,100,teammate,5,Meowscarada,,,,,,,,,
+Eelektross,100,teammate,6,Charizard,,,,,,,,,
+Eelektross,100,teammate,7,Umbreon,,,,,,,,,
+Eelektross,100,teammate,8,Whimsicott,,,,,,,,,
+Eelektross,100,teammate,9,Primarina,,,,,,,,,
+Eelektross,100,teammate,10,Golisopod,,,,,,,,,
+Eelektross,100,stat_alignment,1,Modest,80.0%,Sp. Atk,Attack,,,,,,
+Eelektross,100,stat_alignment,2,Timid,20.0%,Speed,Attack,,,,,,
+Eelektross,100,stat_points,1,,60.0%,,,31,0,3,32,0,0
+Eelektross,100,stat_points,2,,20.0%,,,2,0,0,32,0,32
+Eelektross,100,stat_points,3,,20.0%,,,31,0,18,17,0,0
+Eelektross,100,ability,1,Levitate,100.0%,,,,,,,,

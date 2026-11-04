@@ -1,14 +1,36 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Snorlax,15,move,1,Yawn,100.0%,,,,,,,,
-Snorlax,15,move,2,Ice Punch,100.0%,,,,,,,,
-Snorlax,15,move,3,Earthquake,100.0%,,,,,,,,
-Snorlax,15,move,4,Supercell Slam,100.0%,,,,,,,,
-Snorlax,15,held_item,1,Sitrus Berry,100.0%,,,,,,,,
-Snorlax,15,teammate,1,Gengar,,,,,,,,,
-Snorlax,15,teammate,2,Dragonite,,,,,,,,,
-Snorlax,15,teammate,3,Blaziken,,,,,,,,,
-Snorlax,15,teammate,4,Rillaboom,,,,,,,,,
-Snorlax,15,teammate,5,Archaludon,,,,,,,,,
-Snorlax,15,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
-Snorlax,15,stat_points,1,,100.0%,,,21,30,13,0,2,0
-Snorlax,15,ability,1,Thick Fat,100.0%,,,,,,,,
+Snorlax,69,move,1,Yawn,88.2%,,,,,,,,
+Snorlax,69,move,2,Earthquake,82.4%,,,,,,,,
+Snorlax,69,move,3,Ice Punch,76.5%,,,,,,,,
+Snorlax,69,move,4,Double-Edge,47.1%,,,,,,,,
+Snorlax,69,move,5,Encore,17.6%,,,,,,,,
+Snorlax,69,move,6,Fissure,17.6%,,,,,,,,
+Snorlax,69,move,7,Supercell Slam,17.6%,,,,,,,,
+Snorlax,69,move,8,Self-Destruct,11.8%,,,,,,,,
+Snorlax,69,move,9,Rest,11.8%,,,,,,,,
+Snorlax,69,move,10,Thunder Punch,11.8%,,,,,,,,
+Snorlax,69,held_item,1,Chople Berry,41.2%,,,,,,,,
+Snorlax,69,held_item,2,Leftovers,29.4%,,,,,,,,
+Snorlax,69,held_item,3,Sitrus Berry,17.6%,,,,,,,,
+Snorlax,69,held_item,4,Chesto Berry,11.8%,,,,,,,,
+Snorlax,69,teammate,1,Garchomp,,,,,,,,,
+Snorlax,69,teammate,2,Slowking-Galar,,,,,,,,,
+Snorlax,69,teammate,3,Meowscarada,,,,,,,,,
+Snorlax,69,teammate,4,Altaria,,,,,,,,,
+Snorlax,69,teammate,5,Aegislash,,,,,,,,,
+Snorlax,69,teammate,6,Dragonite,,,,,,,,,
+Snorlax,69,teammate,7,Rillaboom,,,,,,,,,
+Snorlax,69,teammate,8,Gengar,,,,,,,,,
+Snorlax,69,teammate,9,Blaziken,,,,,,,,,
+Snorlax,69,teammate,10,Lucario,,,,,,,,,
+Snorlax,69,stat_alignment,1,Adamant,58.8%,Attack,Sp. Atk,,,,,,
+Snorlax,69,stat_alignment,2,Impish,35.3%,Defense,Sp. Atk,,,,,,
+Snorlax,69,stat_alignment,3,Careful,5.9%,Sp. Def,Sp. Atk,,,,,,
+Snorlax,69,stat_points,1,,29.4%,,,2,32,32,0,0,0
+Snorlax,69,stat_points,2,,17.6%,,,21,30,13,0,2,0
+Snorlax,69,stat_points,3,,17.6%,,,28,2,32,0,4,0
+Snorlax,69,stat_points,4,,11.8%,,,2,30,32,0,2,0
+Snorlax,69,stat_points,5,,11.8%,,,32,0,32,0,2,0
+Snorlax,69,stat_points,6,,5.9%,,,22,0,32,0,12,0
+Snorlax,69,stat_points,7,,5.9%,,,32,2,0,0,32,0
+Snorlax,69,ability,1,Thick Fat,100.0%,,,,,,,,

@@ -1,53 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Florges,202,move,1,Moonblast,82.0%,,,,,,,,
-Florges,202,move,2,Calm Mind,79.6%,,,,,,,,
-Florges,202,move,3,Synthesis,52.0%,,,,,,,,
-Florges,202,move,4,Giga Drain,39.8%,,,,,,,,
-Florges,202,move,5,Draining Kiss,29.5%,,,,,,,,
-Florges,202,move,6,Psychic,15.5%,,,,,,,,
-Florges,202,move,7,Psychic Noise,15.0%,,,,,,,,
-Florges,202,move,8,Baton Pass,10.3%,,,,,,,,
-Florges,202,move,9,Skill Swap,9.0%,,,,,,,,
-Florges,202,move,10,Chilling Water,7.9%,,,,,,,,
-Florges,202,held_item,1,Leftovers,36.4%,,,,,,,,
-Florges,202,held_item,2,Sitrus Berry,26.0%,,,,,,,,
-Florges,202,held_item,3,Big Root,11.2%,,,,,,,,
-Florges,202,held_item,4,Fairy Feather,5.5%,,,,,,,,
-Florges,202,held_item,5,Quick Claw,2.4%,,,,,,,,
-Florges,202,held_item,6,Choice Scarf,2.3%,,,,,,,,
-Florges,202,held_item,7,Babiri Berry,2.2%,,,,,,,,
-Florges,202,held_item,8,Lum Berry,1.4%,,,,,,,,
-Florges,202,held_item,9,Rocky Helmet,1.3%,,,,,,,,
-Florges,202,held_item,10,Life Orb,1.3%,,,,,,,,
-Florges,202,teammate,1,Garchomp,,,,,,,,,
-Florges,202,teammate,2,Golisopod,,,,,,,,,
-Florges,202,teammate,3,Charizard,,,,,,,,,
-Florges,202,teammate,4,Cinderace,,,,,,,,,
-Florges,202,teammate,5,Dragonite,,,,,,,,,
-Florges,202,teammate,6,Corviknight,,,,,,,,,
-Florges,202,teammate,7,Lucario,,,,,,,,,
-Florges,202,teammate,8,Archaludon,,,,,,,,,
-Florges,202,teammate,9,Baxcalibur,,,,,,,,,
-Florges,202,teammate,10,Rillaboom,,,,,,,,,
-Florges,202,stat_alignment,1,Calm,44.8%,Sp. Def,Attack,,,,,,
-Florges,202,stat_alignment,2,Bold,24.2%,Defense,Attack,,,,,,
-Florges,202,stat_alignment,3,Modest,21.6%,Sp. Atk,Attack,,,,,,
-Florges,202,stat_alignment,4,Timid,3.5%,Speed,Attack,,,,,,
-Florges,202,stat_alignment,5,Mild,1.4%,Sp. Atk,Defense,,,,,,
-Florges,202,stat_alignment,6,Relaxed,1.4%,Defense,Speed,,,,,,
-Florges,202,stat_alignment,7,Gentle,1.1%,Sp. Def,Defense,,,,,,
-Florges,202,stat_alignment,8,Sassy,0.8%,Sp. Def,Speed,,,,,,
-Florges,202,stat_alignment,9,Quiet,0.8%,Sp. Atk,Speed,,,,,,
-Florges,202,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,
-Florges,202,stat_points,1,,11.2%,,,32,0,32,0,2,0
-Florges,202,stat_points,2,,7.8%,,,32,0,0,2,32,0
-Florges,202,stat_points,3,,7.5%,,,32,0,2,0,32,0
-Florges,202,stat_points,4,,4.6%,,,2,0,0,32,32,0
-Florges,202,stat_points,5,,4.0%,,,32,0,2,32,0,0
-Florges,202,stat_points,6,,3.7%,,,32,0,32,2,0,0
-Florges,202,stat_points,7,,3.1%,,,32,0,0,0,32,2
-Florges,202,stat_points,8,,2.9%,,,32,0,0,32,2,0
-Florges,202,stat_points,9,,2.4%,,,16,0,0,18,32,0
-Florges,202,stat_points,10,,2.2%,,,0,0,32,32,2,0
-Florges,202,ability,1,Flower Veil,79.9%,,,,,,,,
-Florges,202,ability,2,Symbiosis,20.1%,,,,,,,,
+Florges,139,move,1,Synthesis,100.0%,,,,,,,,
+Florges,139,move,2,Energy Ball,100.0%,,,,,,,,
+Florges,139,move,3,Moonblast,100.0%,,,,,,,,
+Florges,139,move,4,Psychic Noise,100.0%,,,,,,,,
+Florges,139,held_item,1,Air Balloon,100.0%,,,,,,,,
+Florges,139,teammate,1,Tyranitar,,,,,,,,,
+Florges,139,teammate,2,Blaziken,,,,,,,,,
+Florges,139,teammate,3,Garchomp,,,,,,,,,
+Florges,139,teammate,4,Rotom-Wash,,,,,,,,,
+Florges,139,teammate,5,Golisopod,,,,,,,,,
+Florges,139,stat_alignment,1,Modest,100.0%,Sp. Atk,Attack,,,,,,
+Florges,139,stat_points,1,,100.0%,,,32,0,2,32,0,0
+Florges,139,ability,1,Flower Veil,100.0%,,,,,,,,

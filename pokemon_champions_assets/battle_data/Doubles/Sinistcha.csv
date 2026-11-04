@@ -1,53 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sinistcha,21,move,1,Matcha Gotcha,97.2%,,,,,,,,
-Sinistcha,21,move,2,Rage Powder,92.8%,,,,,,,,
-Sinistcha,21,move,3,Protect,55.1%,,,,,,,,
-Sinistcha,21,move,4,Trick Room,54.5%,,,,,,,,
-Sinistcha,21,move,5,Life Dew,41.6%,,,,,,,,
-Sinistcha,21,move,6,Shadow Ball,22.0%,,,,,,,,
-Sinistcha,21,move,7,Strength Sap,21.6%,,,,,,,,
-Sinistcha,21,move,8,Psych Up,2.5%,,,,,,,,
-Sinistcha,21,move,9,Scald,2.0%,,,,,,,,
-Sinistcha,21,move,10,Imprison,1.7%,,,,,,,,
-Sinistcha,21,held_item,1,Sitrus Berry,25.1%,,,,,,,,
-Sinistcha,21,held_item,2,Colbur Berry,15.8%,,,,,,,,
-Sinistcha,21,held_item,3,Rocky Helmet,11.6%,,,,,,,,
-Sinistcha,21,held_item,4,Leftovers,9.9%,,,,,,,,
-Sinistcha,21,held_item,5,Occa Berry,7.8%,,,,,,,,
-Sinistcha,21,held_item,6,Kasib Berry,7.4%,,,,,,,,
-Sinistcha,21,held_item,7,Focus Sash,5.2%,,,,,,,,
-Sinistcha,21,held_item,8,Big Root,3.3%,,,,,,,,
-Sinistcha,21,held_item,9,Eject Button,3.2%,,,,,,,,
-Sinistcha,21,held_item,10,Coba Berry,2.9%,,,,,,,,
-Sinistcha,21,teammate,1,Incineroar,,,,,,,,,
-Sinistcha,21,teammate,2,Tyranitar,,,,,,,,,
-Sinistcha,21,teammate,3,Staraptor,,,,,,,,,
-Sinistcha,21,teammate,4,Sneasler,,,,,,,,,
-Sinistcha,21,teammate,5,Archaludon,,,,,,,,,
-Sinistcha,21,teammate,6,Indeedee-F,,,,,,,,,
-Sinistcha,21,teammate,7,Pelipper,,,,,,,,,
-Sinistcha,21,teammate,8,Milotic,,,,,,,,,
-Sinistcha,21,teammate,9,Gholdengo,,,,,,,,,
-Sinistcha,21,teammate,10,Excadrill,,,,,,,,,
-Sinistcha,21,stat_alignment,1,Bold,46.8%,Defense,Attack,,,,,,
-Sinistcha,21,stat_alignment,2,Calm,21.8%,Sp. Def,Attack,,,,,,
-Sinistcha,21,stat_alignment,3,Modest,9.9%,Sp. Atk,Attack,,,,,,
-Sinistcha,21,stat_alignment,4,Relaxed,9.4%,Defense,Speed,,,,,,
-Sinistcha,21,stat_alignment,5,Sassy,5.5%,Sp. Def,Speed,,,,,,
-Sinistcha,21,stat_alignment,6,Quiet,3.5%,Sp. Atk,Speed,,,,,,
-Sinistcha,21,stat_alignment,7,Timid,2.1%,Speed,Attack,,,,,,
-Sinistcha,21,stat_alignment,8,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Sinistcha,21,stat_alignment,9,Gentle,0.2%,Sp. Def,Defense,,,,,,
-Sinistcha,21,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
-Sinistcha,21,stat_points,1,,14.7%,,,32,0,14,0,20,0
-Sinistcha,21,stat_points,2,,8.4%,,,32,0,4,0,30,0
-Sinistcha,21,stat_points,3,,6.3%,,,32,0,2,0,32,0
-Sinistcha,21,stat_points,4,,3.9%,,,29,0,14,0,23,0
-Sinistcha,21,stat_points,5,,3.9%,,,32,0,14,0,19,1
-Sinistcha,21,stat_points,6,,3.3%,,,32,0,32,0,2,0
-Sinistcha,21,stat_points,7,,2.0%,,,32,0,32,2,0,0
-Sinistcha,21,stat_points,8,,1.9%,,,32,0,10,0,24,0
-Sinistcha,21,stat_points,9,,1.8%,,,32,0,0,32,2,0
-Sinistcha,21,stat_points,10,,1.8%,,,2,0,32,0,32,0
-Sinistcha,21,ability,1,Hospitality,97.3%,,,,,,,,
-Sinistcha,21,ability,2,Heatproof,2.7%,,,,,,,,
+Sinistcha,12,move,1,Protect,100.0%,,,,,,,,
+Sinistcha,12,move,2,Shadow Ball,100.0%,,,,,,,,
+Sinistcha,12,move,3,Rage Powder,100.0%,,,,,,,,
+Sinistcha,12,move,4,Matcha Gotcha,100.0%,,,,,,,,
+Sinistcha,12,held_item,1,Kasib Berry,100.0%,,,,,,,,
+Sinistcha,12,teammate,1,Tyranitar,,,,,,,,,
+Sinistcha,12,teammate,2,Salamence,,,,,,,,,
+Sinistcha,12,teammate,3,Rotom-Wash,,,,,,,,,
+Sinistcha,12,teammate,4,Excadrill,,,,,,,,,
+Sinistcha,12,teammate,5,Corviknight,,,,,,,,,
+Sinistcha,12,stat_alignment,1,Bold,100.0%,Defense,Attack,,,,,,
+Sinistcha,12,stat_points,1,,100.0%,,,32,0,4,0,24,6
+Sinistcha,12,ability,1,Hospitality,100.0%,,,,,,,,

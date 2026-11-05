@@ -1,33 +1,38 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Golisopod,23,move,1,Leech Life,100.0%,,,,,,,,
-Golisopod,23,move,2,Iron Head,86.1%,,,,,,,,
-Golisopod,23,move,3,Protect,80.6%,,,,,,,,
-Golisopod,23,move,4,Sucker Punch,80.6%,,,,,,,,
-Golisopod,23,move,5,Bulk Up,19.4%,,,,,,,,
-Golisopod,23,move,6,First Impression,13.9%,,,,,,,,
-Golisopod,23,move,7,Drill Run,11.1%,,,,,,,,
-Golisopod,23,move,8,Swords Dance,8.3%,,,,,,,,
-Golisopod,23,held_item,1,Golisopite,100.0%,,,,,,,,
-Golisopod,23,teammate,1,Archaludon,,,,,,,,,
-Golisopod,23,teammate,2,Sneasler,,,,,,,,,
-Golisopod,23,teammate,3,Politoed,,,,,,,,,
-Golisopod,23,teammate,4,Farigiraf,,,,,,,,,
-Golisopod,23,teammate,5,Pelipper,,,,,,,,,
-Golisopod,23,teammate,6,Raichu,,,,,,,,,
-Golisopod,23,teammate,7,Incineroar,,,,,,,,,
-Golisopod,23,teammate,8,Basculegion-F,,,,,,,,,
-Golisopod,23,teammate,9,Salamence,,,,,,,,,
-Golisopod,23,teammate,10,Garchomp,,,,,,,,,
-Golisopod,23,stat_alignment,1,Adamant,69.4%,Attack,Sp. Atk,,,,,,
-Golisopod,23,stat_alignment,2,Careful,16.7%,Sp. Def,Sp. Atk,,,,,,
-Golisopod,23,stat_alignment,3,Brave,13.9%,Attack,Speed,,,,,,
-Golisopod,23,stat_points,1,,30.6%,,,32,32,0,0,2,0
-Golisopod,23,stat_points,2,,22.2%,,,32,32,0,0,1,1
-Golisopod,23,stat_points,3,,16.7%,,,32,1,1,0,32,0
-Golisopod,23,stat_points,4,,13.9%,,,32,32,0,0,0,2
-Golisopod,23,stat_points,5,,5.6%,,,24,27,0,0,0,15
-Golisopod,23,stat_points,6,,2.8%,,,28,25,0,0,11,2
-Golisopod,23,stat_points,7,,2.8%,,,31,10,2,0,23,0
-Golisopod,23,stat_points,8,,2.8%,,,31,32,0,0,3,0
-Golisopod,23,stat_points,9,,2.8%,,,32,32,0,0,1,0
-Golisopod,23,ability,1,Emergency Exit,100.0%,,,,,,,,
+Golisopod,19,move,1,Leech Life,99.5%,,,,,,,,
+Golisopod,19,move,2,Sucker Punch,84.1%,,,,,,,,
+Golisopod,19,move,3,Iron Head,74.0%,,,,,,,,
+Golisopod,19,move,4,Protect,62.1%,,,,,,,,
+Golisopod,19,move,5,Swords Dance,34.4%,,,,,,,,
+Golisopod,19,move,6,Drill Run,18.8%,,,,,,,,
+Golisopod,19,move,7,First Impression,6.9%,,,,,,,,
+Golisopod,19,move,8,Close Combat,6.2%,,,,,,,,
+Golisopod,19,move,9,Liquidation,4.7%,,,,,,,,
+Golisopod,19,move,10,Rock Slide,2.4%,,,,,,,,
+Golisopod,19,held_item,1,Golisopite,100.0%,,,,,,,,
+Golisopod,19,teammate,1,Archaludon,,,,,,,,,
+Golisopod,19,teammate,2,Pelipper,,,,,,,,,
+Golisopod,19,teammate,3,Sneasler,,,,,,,,,
+Golisopod,19,teammate,4,Basculegion-F,,,,,,,,,
+Golisopod,19,teammate,5,Raichu,,,,,,,,,
+Golisopod,19,teammate,6,Farigiraf,,,,,,,,,
+Golisopod,19,teammate,7,Garchomp,,,,,,,,,
+Golisopod,19,teammate,8,Indeedee-F,,,,,,,,,
+Golisopod,19,teammate,9,Grimmsnarl,,,,,,,,,
+Golisopod,19,teammate,10,Politoed,,,,,,,,,
+Golisopod,19,stat_alignment,1,Adamant,76.7%,Attack,Sp. Atk,,,,,,
+Golisopod,19,stat_alignment,2,Brave,21.3%,Attack,Speed,,,,,,
+Golisopod,19,stat_alignment,3,Careful,1.7%,Sp. Def,Sp. Atk,,,,,,
+Golisopod,19,stat_alignment,4,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Golisopod,19,stat_alignment,5,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Golisopod,19,stat_points,1,,33.0%,,,32,32,0,0,2,0
+Golisopod,19,stat_points,2,,7.8%,,,32,32,0,0,1,1
+Golisopod,19,stat_points,3,,7.2%,,,32,31,0,0,1,2
+Golisopod,19,stat_points,4,,5.0%,,,32,32,0,0,0,2
+Golisopod,19,stat_points,5,,2.8%,,,31,31,0,0,3,1
+Golisopod,19,stat_points,6,,2.6%,,,32,32,2,0,0,0
+Golisopod,19,stat_points,7,,2.4%,,,27,18,9,0,12,0
+Golisopod,19,stat_points,8,,2.3%,,,32,31,0,0,3,0
+Golisopod,19,stat_points,9,,2.2%,,,0,32,32,0,2,0
+Golisopod,19,stat_points,10,,2.1%,,,31,32,3,0,0,0
+Golisopod,19,ability,1,Emergency Exit,100.0%,,,,,,,,

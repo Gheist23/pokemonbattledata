@@ -1,27 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Eelektross,100,move,1,Flamethrower,100.0%,,,,,,,,
-Eelektross,100,move,2,Grass Knot,80.0%,,,,,,,,
-Eelektross,100,move,3,Thunderbolt,80.0%,,,,,,,,
-Eelektross,100,move,4,U-turn,60.0%,,,,,,,,
-Eelektross,100,move,5,Giga Drain,20.0%,,,,,,,,
-Eelektross,100,move,6,Dragon Pulse,20.0%,,,,,,,,
-Eelektross,100,move,7,Volt Switch,20.0%,,,,,,,,
-Eelektross,100,move,8,Supercell Slam,20.0%,,,,,,,,
-Eelektross,100,held_item,1,Eelektrossite,80.0%,,,,,,,,
-Eelektross,100,held_item,2,Rocky Helmet,20.0%,,,,,,,,
-Eelektross,100,teammate,1,Garchomp,,,,,,,,,
-Eelektross,100,teammate,2,Snorlax,,,,,,,,,
-Eelektross,100,teammate,3,Slowking-Galar,,,,,,,,,
-Eelektross,100,teammate,4,Hawlucha,,,,,,,,,
-Eelektross,100,teammate,5,Meowscarada,,,,,,,,,
-Eelektross,100,teammate,6,Charizard,,,,,,,,,
-Eelektross,100,teammate,7,Umbreon,,,,,,,,,
-Eelektross,100,teammate,8,Whimsicott,,,,,,,,,
-Eelektross,100,teammate,9,Primarina,,,,,,,,,
-Eelektross,100,teammate,10,Golisopod,,,,,,,,,
-Eelektross,100,stat_alignment,1,Modest,80.0%,Sp. Atk,Attack,,,,,,
-Eelektross,100,stat_alignment,2,Timid,20.0%,Speed,Attack,,,,,,
-Eelektross,100,stat_points,1,,60.0%,,,31,0,3,32,0,0
-Eelektross,100,stat_points,2,,20.0%,,,2,0,0,32,0,32
-Eelektross,100,stat_points,3,,20.0%,,,31,0,18,17,0,0
-Eelektross,100,ability,1,Levitate,100.0%,,,,,,,,
+Eelektross,126,move,1,Flamethrower,79.2%,,,,,,,,
+Eelektross,126,move,2,Dragon Pulse,76.9%,,,,,,,,
+Eelektross,126,move,3,Thunderbolt,66.9%,,,,,,,,
+Eelektross,126,move,4,Grass Knot,48.5%,,,,,,,,
+Eelektross,126,move,5,Giga Drain,25.4%,,,,,,,,
+Eelektross,126,move,6,Coil,14.6%,,,,,,,,
+Eelektross,126,move,7,Drain Punch,13.1%,,,,,,,,
+Eelektross,126,move,8,Supercell Slam,12.3%,,,,,,,,
+Eelektross,126,move,9,Outrage,11.5%,,,,,,,,
+Eelektross,126,move,10,Volt Switch,10.0%,,,,,,,,
+Eelektross,126,held_item,1,Eelektrossite,77.7%,,,,,,,,
+Eelektross,126,held_item,2,Rocky Helmet,13.8%,,,,,,,,
+Eelektross,126,held_item,3,Sitrus Berry,3.1%,,,,,,,,
+Eelektross,126,held_item,4,Quick Claw,3.1%,,,,,,,,
+Eelektross,126,held_item,5,Leftovers,1.5%,,,,,,,,
+Eelektross,126,held_item,6,Expert Belt,0.8%,,,,,,,,
+Eelektross,126,teammate,1,Garchomp,,,,,,,,,
+Eelektross,126,teammate,2,Primarina,,,,,,,,,
+Eelektross,126,teammate,3,Golisopod,,,,,,,,,
+Eelektross,126,teammate,4,Arcanine-Hisui,,,,,,,,,
+Eelektross,126,teammate,5,Mawile,,,,,,,,,
+Eelektross,126,teammate,6,Empoleon,,,,,,,,,
+Eelektross,126,teammate,7,Hydreigon,,,,,,,,,
+Eelektross,126,teammate,8,Archaludon,,,,,,,,,
+Eelektross,126,teammate,9,Inteleon,,,,,,,,,
+Eelektross,126,teammate,10,Dragonite,,,,,,,,,
+Eelektross,126,stat_alignment,1,Modest,76.2%,Sp. Atk,Attack,,,,,,
+Eelektross,126,stat_alignment,2,Adamant,13.1%,Attack,Sp. Atk,,,,,,
+Eelektross,126,stat_alignment,3,Sassy,2.3%,Sp. Def,Speed,,,,,,
+Eelektross,126,stat_alignment,4,Relaxed,2.3%,Defense,Speed,,,,,,
+Eelektross,126,stat_alignment,5,Timid,1.5%,Speed,Attack,,,,,,
+Eelektross,126,stat_alignment,6,Quiet,1.5%,Sp. Atk,Speed,,,,,,
+Eelektross,126,stat_alignment,7,Bold,1.5%,Defense,Attack,,,,,,
+Eelektross,126,stat_alignment,8,Impish,1.5%,Defense,Sp. Atk,,,,,,
+Eelektross,126,stat_points,1,,25.4%,,,28,0,0,32,0,6
+Eelektross,126,stat_points,2,,24.6%,,,31,0,0,32,3,0
+Eelektross,126,stat_points,3,,10.8%,,,31,5,0,0,30,0
+Eelektross,126,stat_points,4,,8.5%,,,31,0,18,17,0,0
+Eelektross,126,stat_points,5,,6.2%,,,32,0,6,21,7,0
+Eelektross,126,stat_points,6,,4.6%,,,32,0,19,5,10,0
+Eelektross,126,stat_points,7,,3.8%,,,31,0,21,12,0,2
+Eelektross,126,stat_points,8,,3.1%,,,32,0,32,0,2,0
+Eelektross,126,stat_points,9,,2.3%,,,31,0,3,32,0,0
+Eelektross,126,stat_points,10,,2.3%,,,31,0,15,0,20,0
+Eelektross,126,ability,1,Levitate,100.0%,,,,,,,,

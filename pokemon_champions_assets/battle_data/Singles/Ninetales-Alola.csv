@@ -1,37 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ninetales-Alola,40,move,1,Aurora Veil,100.0%,,,,,,,,
-Ninetales-Alola,40,move,2,Freeze-Dry,93.4%,,,,,,,,
-Ninetales-Alola,40,move,3,Encore,86.9%,,,,,,,,
-Ninetales-Alola,40,move,4,Misty Terrain,36.1%,,,,,,,,
-Ninetales-Alola,40,move,5,Blizzard,34.4%,,,,,,,,
-Ninetales-Alola,40,move,6,Foul Play,26.2%,,,,,,,,
-Ninetales-Alola,40,move,7,Moonblast,19.7%,,,,,,,,
-Ninetales-Alola,40,move,8,Safeguard,1.6%,,,,,,,,
-Ninetales-Alola,40,move,9,Pain Split,1.6%,,,,,,,,
-Ninetales-Alola,40,held_item,1,Light Clay,70.5%,,,,,,,,
-Ninetales-Alola,40,held_item,2,Rocky Helmet,24.6%,,,,,,,,
-Ninetales-Alola,40,held_item,3,Focus Sash,4.9%,,,,,,,,
-Ninetales-Alola,40,teammate,1,Garchomp,,,,,,,,,
-Ninetales-Alola,40,teammate,2,Dragonite,,,,,,,,,
-Ninetales-Alola,40,teammate,3,Lucario,,,,,,,,,
-Ninetales-Alola,40,teammate,4,Swampert,,,,,,,,,
-Ninetales-Alola,40,teammate,5,Absol,,,,,,,,,
-Ninetales-Alola,40,teammate,6,Gengar,,,,,,,,,
-Ninetales-Alola,40,teammate,7,Gardevoir,,,,,,,,,
-Ninetales-Alola,40,teammate,8,Samurott-Hisui,,,,,,,,,
-Ninetales-Alola,40,teammate,9,Aegislash,,,,,,,,,
-Ninetales-Alola,40,teammate,10,Ceruledge,,,,,,,,,
-Ninetales-Alola,40,stat_alignment,1,Timid,62.3%,Speed,Attack,,,,,,
-Ninetales-Alola,40,stat_alignment,2,Bold,31.1%,Defense,Attack,,,,,,
-Ninetales-Alola,40,stat_alignment,3,Modest,6.6%,Sp. Atk,Attack,,,,,,
-Ninetales-Alola,40,stat_points,1,,26.2%,,,27,0,13,0,0,26
-Ninetales-Alola,40,stat_points,2,,23.0%,,,31,0,24,4,0,7
-Ninetales-Alola,40,stat_points,3,,13.1%,,,1,0,1,32,0,32
-Ninetales-Alola,40,stat_points,4,,6.6%,,,2,0,0,32,0,32
-Ninetales-Alola,40,stat_points,5,,6.6%,,,32,0,5,29,0,0
-Ninetales-Alola,40,stat_points,6,,4.9%,,,32,0,0,2,0,32
-Ninetales-Alola,40,stat_points,7,,4.9%,,,32,0,2,0,0,32
-Ninetales-Alola,40,stat_points,8,,3.3%,,,1,0,0,32,1,32
-Ninetales-Alola,40,stat_points,9,,3.3%,,,32,0,32,2,0,0
-Ninetales-Alola,40,stat_points,10,,1.6%,,,3,0,1,32,1,29
-Ninetales-Alola,40,ability,1,Snow Warning,100.0%,,,,,,,,
+Ninetales-Alola,34,move,1,Aurora Veil,95.6%,,,,,,,,
+Ninetales-Alola,34,move,2,Encore,79.5%,,,,,,,,
+Ninetales-Alola,34,move,3,Freeze-Dry,79.4%,,,,,,,,
+Ninetales-Alola,34,move,4,Blizzard,63.1%,,,,,,,,
+Ninetales-Alola,34,move,5,Moonblast,39.4%,,,,,,,,
+Ninetales-Alola,34,move,6,Misty Terrain,16.5%,,,,,,,,
+Ninetales-Alola,34,move,7,Foul Play,6.9%,,,,,,,,
+Ninetales-Alola,34,move,8,Pain Split,4.8%,,,,,,,,
+Ninetales-Alola,34,move,9,Dark Pulse,3.3%,,,,,,,,
+Ninetales-Alola,34,move,10,Ice Shard,2.2%,,,,,,,,
+Ninetales-Alola,34,held_item,1,Light Clay,87.1%,,,,,,,,
+Ninetales-Alola,34,held_item,2,Rocky Helmet,4.4%,,,,,,,,
+Ninetales-Alola,34,held_item,3,Choice Scarf,3.4%,,,,,,,,
+Ninetales-Alola,34,held_item,4,Focus Sash,2.1%,,,,,,,,
+Ninetales-Alola,34,held_item,5,Icy Rock,1.1%,,,,,,,,
+Ninetales-Alola,34,held_item,6,Expert Belt,0.6%,,,,,,,,
+Ninetales-Alola,34,held_item,7,Sitrus Berry,0.5%,,,,,,,,
+Ninetales-Alola,34,held_item,8,Life Orb,0.3%,,,,,,,,
+Ninetales-Alola,34,held_item,9,Eject Button,0.2%,,,,,,,,
+Ninetales-Alola,34,held_item,10,Never-Melt Ice,0.2%,,,,,,,,
+Ninetales-Alola,34,teammate,1,Garchomp,,,,,,,,,
+Ninetales-Alola,34,teammate,2,Lucario,,,,,,,,,
+Ninetales-Alola,34,teammate,3,Charizard,,,,,,,,,
+Ninetales-Alola,34,teammate,4,Archaludon,,,,,,,,,
+Ninetales-Alola,34,teammate,5,Golisopod,,,,,,,,,
+Ninetales-Alola,34,teammate,6,Gyarados,,,,,,,,,
+Ninetales-Alola,34,teammate,7,Baxcalibur,,,,,,,,,
+Ninetales-Alola,34,teammate,8,Swampert,,,,,,,,,
+Ninetales-Alola,34,teammate,9,Absol,,,,,,,,,
+Ninetales-Alola,34,teammate,10,Hippowdon,,,,,,,,,
+Ninetales-Alola,34,stat_alignment,1,Timid,80.6%,Speed,Attack,,,,,,
+Ninetales-Alola,34,stat_alignment,2,Modest,10.0%,Sp. Atk,Attack,,,,,,
+Ninetales-Alola,34,stat_alignment,3,Bold,5.6%,Defense,Attack,,,,,,
+Ninetales-Alola,34,stat_alignment,4,Calm,3.1%,Sp. Def,Attack,,,,,,
+Ninetales-Alola,34,stat_alignment,5,Relaxed,0.6%,Defense,Speed,,,,,,
+Ninetales-Alola,34,stat_alignment,6,Hasty,0.1%,Speed,Defense,,,,,,
+Ninetales-Alola,34,stat_points,1,,19.8%,,,2,0,0,32,0,32
+Ninetales-Alola,34,stat_points,2,,6.6%,,,27,0,13,0,0,26
+Ninetales-Alola,34,stat_points,3,,5.0%,,,27,0,7,0,0,32
+Ninetales-Alola,34,stat_points,4,,4.9%,,,31,0,9,0,0,26
+Ninetales-Alola,34,stat_points,5,,3.6%,,,32,0,2,0,0,32
+Ninetales-Alola,34,stat_points,6,,3.2%,,,1,0,1,32,0,32
+Ninetales-Alola,34,stat_points,7,,3.1%,,,27,0,10,0,0,29
+Ninetales-Alola,34,stat_points,8,,2.9%,,,31,0,6,0,0,29
+Ninetales-Alola,34,stat_points,9,,2.5%,,,27,0,27,0,0,12
+Ninetales-Alola,34,stat_points,10,,2.3%,,,31,0,3,0,0,32
+Ninetales-Alola,34,ability,1,Snow Warning,100.0%,,,,,,,,

@@ -1,22 +1,40 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Altaria,91,move,1,Hyper Voice,100.0%,,,,,,,,
-Altaria,91,move,2,Roost,100.0%,,,,,,,,
-Altaria,91,move,3,Flamethrower,100.0%,,,,,,,,
-Altaria,91,move,4,Sleep Talk,57.1%,,,,,,,,
-Altaria,91,move,5,Dragon Pulse,28.6%,,,,,,,,
-Altaria,91,move,6,Cotton Guard,14.3%,,,,,,,,
-Altaria,91,held_item,1,Altarianite,100.0%,,,,,,,,
-Altaria,91,teammate,1,Garchomp,,,,,,,,,
-Altaria,91,teammate,2,Snorlax,,,,,,,,,
-Altaria,91,teammate,3,Slowking-Galar,,,,,,,,,
-Altaria,91,teammate,4,Aegislash,,,,,,,,,
-Altaria,91,teammate,5,Meowscarada,,,,,,,,,
-Altaria,91,teammate,6,Metagross,,,,,,,,,
-Altaria,91,teammate,7,Lucario,,,,,,,,,
-Altaria,91,teammate,8,Talonflame,,,,,,,,,
-Altaria,91,teammate,9,Araquanid,,,,,,,,,
-Altaria,91,teammate,10,Mimikyu,,,,,,,,,
-Altaria,91,stat_alignment,1,Modest,100.0%,Sp. Atk,Attack,,,,,,
-Altaria,91,stat_points,1,,85.7%,,,25,0,0,32,0,9
-Altaria,91,stat_points,2,,14.3%,,,31,0,1,30,0,4
-Altaria,91,ability,1,Natural Cure,100.0%,,,,,,,,
+Altaria,113,move,1,Roost,99.4%,,,,,,,,
+Altaria,113,move,2,Cotton Guard,90.0%,,,,,,,,
+Altaria,113,move,3,Hyper Voice,83.9%,,,,,,,,
+Altaria,113,move,4,Flamethrower,60.6%,,,,,,,,
+Altaria,113,move,5,Fire Spin,20.6%,,,,,,,,
+Altaria,113,move,6,Dragon Dance,14.4%,,,,,,,,
+Altaria,113,move,7,Double-Edge,13.9%,,,,,,,,
+Altaria,113,move,8,Sleep Talk,5.0%,,,,,,,,
+Altaria,113,move,9,Heat Wave,3.3%,,,,,,,,
+Altaria,113,move,10,Will-O-Wisp,2.2%,,,,,,,,
+Altaria,113,held_item,1,Altarianite,99.4%,,,,,,,,
+Altaria,113,held_item,2,Rocky Helmet,0.6%,,,,,,,,
+Altaria,113,teammate,1,Garchomp,,,,,,,,,
+Altaria,113,teammate,2,Gholdengo,,,,,,,,,
+Altaria,113,teammate,3,Lucario,,,,,,,,,
+Altaria,113,teammate,4,Rillaboom,,,,,,,,,
+Altaria,113,teammate,5,Glimmora,,,,,,,,,
+Altaria,113,teammate,6,Slowking-Galar,,,,,,,,,
+Altaria,113,teammate,7,Samurott-Hisui,,,,,,,,,
+Altaria,113,teammate,8,Meowscarada,,,,,,,,,
+Altaria,113,teammate,9,Staraptor,,,,,,,,,
+Altaria,113,teammate,10,Grimmsnarl,,,,,,,,,
+Altaria,113,stat_alignment,1,Modest,63.9%,Sp. Atk,Attack,,,,,,
+Altaria,113,stat_alignment,2,Calm,15.0%,Sp. Def,Attack,,,,,,
+Altaria,113,stat_alignment,3,Adamant,14.4%,Attack,Sp. Atk,,,,,,
+Altaria,113,stat_alignment,4,Bold,6.1%,Defense,Attack,,,,,,
+Altaria,113,stat_alignment,5,Jolly,0.6%,Speed,Sp. Atk,,,,,,
+Altaria,113,stat_points,1,,13.9%,,,12,30,0,0,0,24
+Altaria,113,stat_points,2,,13.3%,,,32,0,32,0,2,0
+Altaria,113,stat_points,3,,10.6%,,,32,0,0,27,3,4
+Altaria,113,stat_points,4,,10.0%,,,31,0,13,13,0,9
+Altaria,113,stat_points,5,,7.8%,,,31,0,0,20,10,5
+Altaria,113,stat_points,6,,7.2%,,,29,0,0,32,3,2
+Altaria,113,stat_points,7,,6.7%,,,27,0,10,20,0,9
+Altaria,113,stat_points,8,,6.1%,,,25,0,0,32,0,9
+Altaria,113,stat_points,9,,3.9%,,,31,0,0,32,0,3
+Altaria,113,stat_points,10,,3.3%,,,32,0,32,1,0,1
+Altaria,113,ability,1,Natural Cure,67.8%,,,,,,,,
+Altaria,113,ability,2,Cloud Nine,32.2%,,,,,,,,

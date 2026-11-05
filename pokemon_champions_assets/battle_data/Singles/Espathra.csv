@@ -1,20 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Espathra,89,move,1,Protect,100.0%,,,,,,,,
-Espathra,89,move,2,Shadow Ball,100.0%,,,,,,,,
-Espathra,89,move,3,Dazzling Gleam,100.0%,,,,,,,,
-Espathra,89,move,4,Lumina Crash,100.0%,,,,,,,,
-Espathra,89,held_item,1,Focus Sash,100.0%,,,,,,,,
-Espathra,89,teammate,1,Lucario,,,,,,,,,
-Espathra,89,teammate,2,Greninja,,,,,,,,,
-Espathra,89,teammate,3,Archaludon,,,,,,,,,
-Espathra,89,teammate,4,Vivillon-Fancy,,,,,,,,,
-Espathra,89,teammate,5,Mimikyu,,,,,,,,,
-Espathra,89,teammate,6,Charizard,,,,,,,,,
-Espathra,89,teammate,7,Raichu,,,,,,,,,
-Espathra,89,teammate,8,Clefable,,,,,,,,,
-Espathra,89,teammate,9,Garchomp,,,,,,,,,
-Espathra,89,teammate,10,Hippowdon,,,,,,,,,
-Espathra,89,stat_alignment,1,Modest,100.0%,Sp. Atk,Attack,,,,,,
-Espathra,89,stat_points,1,,62.5%,,,2,0,0,32,0,32
-Espathra,89,stat_points,2,,37.5%,,,1,0,1,32,0,32
-Espathra,89,ability,1,Speed Boost,100.0%,,,,,,,,
+Espathra,69,move,1,Lumina Crash,94.2%,,,,,,,,
+Espathra,69,move,2,Protect,82.4%,,,,,,,,
+Espathra,69,move,3,Dazzling Gleam,64.2%,,,,,,,,
+Espathra,69,move,4,Shadow Ball,53.5%,,,,,,,,
+Espathra,69,move,5,Calm Mind,34.4%,,,,,,,,
+Espathra,69,move,6,Baton Pass,34.2%,,,,,,,,
+Espathra,69,move,7,Hypnosis,7.2%,,,,,,,,
+Espathra,69,move,8,Hex,6.9%,,,,,,,,
+Espathra,69,move,9,Substitute,6.1%,,,,,,,,
+Espathra,69,move,10,Stored Power,4.4%,,,,,,,,
+Espathra,69,held_item,1,Focus Sash,58.9%,,,,,,,,
+Espathra,69,held_item,2,Leftovers,10.6%,,,,,,,,
+Espathra,69,held_item,3,Sitrus Berry,8.9%,,,,,,,,
+Espathra,69,held_item,4,Grassy Seed,4.5%,,,,,,,,
+Espathra,69,held_item,5,Kasib Berry,4.4%,,,,,,,,
+Espathra,69,held_item,6,Colbur Berry,3.2%,,,,,,,,
+Espathra,69,held_item,7,Psychic Seed,2.9%,,,,,,,,
+Espathra,69,held_item,8,Terrain Extender,2.7%,,,,,,,,
+Espathra,69,held_item,9,Light Clay,1.6%,,,,,,,,
+Espathra,69,held_item,10,Mental Herb,1.5%,,,,,,,,
+Espathra,69,teammate,1,Clefable,,,,,,,,,
+Espathra,69,teammate,2,Lucario,,,,,,,,,
+Espathra,69,teammate,3,Mimikyu,,,,,,,,,
+Espathra,69,teammate,4,Dragonite,,,,,,,,,
+Espathra,69,teammate,5,Basculegion,,,,,,,,,
+Espathra,69,teammate,6,Primarina,,,,,,,,,
+Espathra,69,teammate,7,Garchomp,,,,,,,,,
+Espathra,69,teammate,8,Glimmora,,,,,,,,,
+Espathra,69,teammate,9,Charizard,,,,,,,,,
+Espathra,69,teammate,10,Archaludon,,,,,,,,,
+Espathra,69,stat_alignment,1,Modest,55.2%,Sp. Atk,Attack,,,,,,
+Espathra,69,stat_alignment,2,Timid,18.2%,Speed,Attack,,,,,,
+Espathra,69,stat_alignment,3,Bold,14.4%,Defense,Attack,,,,,,
+Espathra,69,stat_alignment,4,Calm,12.2%,Sp. Def,Attack,,,,,,
+Espathra,69,stat_points,1,,40.5%,,,1,0,1,32,0,32
+Espathra,69,stat_points,2,,6.9%,,,1,0,0,32,1,32
+Espathra,69,stat_points,3,,6.3%,,,2,0,0,32,0,32
+Espathra,69,stat_points,4,,4.6%,,,31,0,5,0,30,0
+Espathra,69,stat_points,5,,4.2%,,,23,0,30,0,13,0
+Espathra,69,stat_points,6,,4.2%,,,31,0,0,0,3,32
+Espathra,69,stat_points,7,,3.1%,,,32,0,32,0,2,0
+Espathra,69,stat_points,8,,2.9%,,,32,0,0,0,32,2
+Espathra,69,stat_points,9,,2.8%,,,28,0,0,0,20,18
+Espathra,69,stat_points,10,,2.7%,,,2,0,16,0,16,32
+Espathra,69,ability,1,Speed Boost,99.9%,,,,,,,,
+Espathra,69,ability,2,Frisk,0.1%,,,,,,,,

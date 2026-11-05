@@ -1,14 +1,37 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Florges,139,move,1,Synthesis,100.0%,,,,,,,,
-Florges,139,move,2,Energy Ball,100.0%,,,,,,,,
-Florges,139,move,3,Moonblast,100.0%,,,,,,,,
-Florges,139,move,4,Psychic Noise,100.0%,,,,,,,,
-Florges,139,held_item,1,Air Balloon,100.0%,,,,,,,,
-Florges,139,teammate,1,Tyranitar,,,,,,,,,
-Florges,139,teammate,2,Blaziken,,,,,,,,,
-Florges,139,teammate,3,Garchomp,,,,,,,,,
-Florges,139,teammate,4,Rotom-Wash,,,,,,,,,
-Florges,139,teammate,5,Golisopod,,,,,,,,,
-Florges,139,stat_alignment,1,Modest,100.0%,Sp. Atk,Attack,,,,,,
-Florges,139,stat_points,1,,100.0%,,,32,0,2,32,0,0
-Florges,139,ability,1,Flower Veil,100.0%,,,,,,,,
+Florges,191,move,1,Moonblast,100.0%,,,,,,,,
+Florges,191,move,2,Synthesis,63.6%,,,,,,,,
+Florges,191,move,3,Psychic Noise,59.1%,,,,,,,,
+Florges,191,move,4,Energy Ball,40.9%,,,,,,,,
+Florges,191,move,5,Wish,27.3%,,,,,,,,
+Florges,191,move,6,Protect,22.7%,,,,,,,,
+Florges,191,move,7,Baton Pass,22.7%,,,,,,,,
+Florges,191,move,8,Substitute,18.2%,,,,,,,,
+Florges,191,move,9,Calm Mind,18.2%,,,,,,,,
+Florges,191,move,10,Giga Drain,9.1%,,,,,,,,
+Florges,191,held_item,1,Air Balloon,36.4%,,,,,,,,
+Florges,191,held_item,2,Leftovers,31.8%,,,,,,,,
+Florges,191,held_item,3,Sitrus Berry,22.7%,,,,,,,,
+Florges,191,held_item,4,Big Root,4.5%,,,,,,,,
+Florges,191,teammate,1,Tyranitar,,,,,,,,,
+Florges,191,teammate,2,Golisopod,,,,,,,,,
+Florges,191,teammate,3,Blaziken,,,,,,,,,
+Florges,191,teammate,4,Garchomp,,,,,,,,,
+Florges,191,teammate,5,Rotom-Wash,,,,,,,,,
+Florges,191,teammate,6,Salamence,,,,,,,,,
+Florges,191,teammate,7,Absol,,,,,,,,,
+Florges,191,teammate,8,Empoleon,,,,,,,,,
+Florges,191,teammate,9,Indeedee,,,,,,,,,
+Florges,191,teammate,10,Dragonite,,,,,,,,,
+Florges,191,stat_alignment,1,Modest,68.2%,Sp. Atk,Attack,,,,,,
+Florges,191,stat_alignment,2,Relaxed,22.7%,Defense,Speed,,,,,,
+Florges,191,stat_alignment,3,Calm,9.1%,Sp. Def,Attack,,,,,,
+Florges,191,stat_points,1,,36.4%,,,32,0,2,32,0,0
+Florges,191,stat_points,2,,22.7%,,,32,0,32,0,2,0
+Florges,191,stat_points,3,,18.2%,,,32,0,1,32,1,0
+Florges,191,stat_points,4,,9.1%,,,32,0,0,32,2,0
+Florges,191,stat_points,5,,4.5%,,,0,0,0,0,32,0
+Florges,191,stat_points,6,,4.5%,,,32,0,2,0,32,0
+Florges,191,stat_points,7,,4.5%,,,2,0,0,32,32,0
+Florges,191,ability,1,Flower Veil,95.5%,,,,,,,,
+Florges,191,ability,2,Symbiosis,4.5%,,,,,,,,

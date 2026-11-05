@@ -1,36 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Snorlax,69,move,1,Yawn,88.2%,,,,,,,,
-Snorlax,69,move,2,Earthquake,82.4%,,,,,,,,
-Snorlax,69,move,3,Ice Punch,76.5%,,,,,,,,
-Snorlax,69,move,4,Double-Edge,47.1%,,,,,,,,
-Snorlax,69,move,5,Encore,17.6%,,,,,,,,
-Snorlax,69,move,6,Fissure,17.6%,,,,,,,,
-Snorlax,69,move,7,Supercell Slam,17.6%,,,,,,,,
-Snorlax,69,move,8,Self-Destruct,11.8%,,,,,,,,
-Snorlax,69,move,9,Rest,11.8%,,,,,,,,
-Snorlax,69,move,10,Thunder Punch,11.8%,,,,,,,,
-Snorlax,69,held_item,1,Chople Berry,41.2%,,,,,,,,
-Snorlax,69,held_item,2,Leftovers,29.4%,,,,,,,,
-Snorlax,69,held_item,3,Sitrus Berry,17.6%,,,,,,,,
-Snorlax,69,held_item,4,Chesto Berry,11.8%,,,,,,,,
-Snorlax,69,teammate,1,Garchomp,,,,,,,,,
-Snorlax,69,teammate,2,Slowking-Galar,,,,,,,,,
-Snorlax,69,teammate,3,Meowscarada,,,,,,,,,
-Snorlax,69,teammate,4,Altaria,,,,,,,,,
-Snorlax,69,teammate,5,Aegislash,,,,,,,,,
-Snorlax,69,teammate,6,Dragonite,,,,,,,,,
-Snorlax,69,teammate,7,Rillaboom,,,,,,,,,
-Snorlax,69,teammate,8,Gengar,,,,,,,,,
-Snorlax,69,teammate,9,Blaziken,,,,,,,,,
-Snorlax,69,teammate,10,Lucario,,,,,,,,,
-Snorlax,69,stat_alignment,1,Adamant,58.8%,Attack,Sp. Atk,,,,,,
-Snorlax,69,stat_alignment,2,Impish,35.3%,Defense,Sp. Atk,,,,,,
-Snorlax,69,stat_alignment,3,Careful,5.9%,Sp. Def,Sp. Atk,,,,,,
-Snorlax,69,stat_points,1,,29.4%,,,2,32,32,0,0,0
-Snorlax,69,stat_points,2,,17.6%,,,21,30,13,0,2,0
-Snorlax,69,stat_points,3,,17.6%,,,28,2,32,0,4,0
-Snorlax,69,stat_points,4,,11.8%,,,2,30,32,0,2,0
-Snorlax,69,stat_points,5,,11.8%,,,32,0,32,0,2,0
-Snorlax,69,stat_points,6,,5.9%,,,22,0,32,0,12,0
-Snorlax,69,stat_points,7,,5.9%,,,32,2,0,0,32,0
-Snorlax,69,ability,1,Thick Fat,100.0%,,,,,,,,
+Snorlax,68,move,1,Earthquake,63.7%,,,,,,,,
+Snorlax,68,move,2,Ice Punch,62.8%,,,,,,,,
+Snorlax,68,move,3,Yawn,53.0%,,,,,,,,
+Snorlax,68,move,4,Fissure,31.7%,,,,,,,,
+Snorlax,68,move,5,Self-Destruct,29.4%,,,,,,,,
+Snorlax,68,move,6,Supercell Slam,21.6%,,,,,,,,
+Snorlax,68,move,7,Counter,20.0%,,,,,,,,
+Snorlax,68,move,8,Smack Down,19.5%,,,,,,,,
+Snorlax,68,move,9,Rest,16.9%,,,,,,,,
+Snorlax,68,move,10,Heat Crash,15.3%,,,,,,,,
+Snorlax,68,held_item,1,Leftovers,43.8%,,,,,,,,
+Snorlax,68,held_item,2,Chople Berry,22.4%,,,,,,,,
+Snorlax,68,held_item,3,Sitrus Berry,17.1%,,,,,,,,
+Snorlax,68,held_item,4,Chesto Berry,10.4%,,,,,,,,
+Snorlax,68,held_item,5,Lum Berry,3.1%,,,,,,,,
+Snorlax,68,held_item,6,Normal Gem,1.5%,,,,,,,,
+Snorlax,68,held_item,7,Muscle Band,1.0%,,,,,,,,
+Snorlax,68,held_item,8,Silk Scarf,0.3%,,,,,,,,
+Snorlax,68,held_item,9,Leppa Berry,0.2%,,,,,,,,
+Snorlax,68,held_item,10,Quick Claw,0.1%,,,,,,,,
+Snorlax,68,teammate,1,Lucario,,,,,,,,,
+Snorlax,68,teammate,2,Garchomp,,,,,,,,,
+Snorlax,68,teammate,3,Archaludon,,,,,,,,,
+Snorlax,68,teammate,4,Mimikyu,,,,,,,,,
+Snorlax,68,teammate,5,Primarina,,,,,,,,,
+Snorlax,68,teammate,6,Dragonite,,,,,,,,,
+Snorlax,68,teammate,7,Gyarados,,,,,,,,,
+Snorlax,68,teammate,8,Gholdengo,,,,,,,,,
+Snorlax,68,teammate,9,Basculegion,,,,,,,,,
+Snorlax,68,teammate,10,Golisopod,,,,,,,,,
+Snorlax,68,stat_alignment,1,Adamant,45.3%,Attack,Sp. Atk,,,,,,
+Snorlax,68,stat_alignment,2,Impish,32.9%,Defense,Sp. Atk,,,,,,
+Snorlax,68,stat_alignment,3,Careful,20.7%,Sp. Def,Sp. Atk,,,,,,
+Snorlax,68,stat_alignment,4,Sassy,0.8%,Sp. Def,Speed,,,,,,
+Snorlax,68,stat_alignment,5,Relaxed,0.3%,Defense,Speed,,,,,,
+Snorlax,68,stat_points,1,,10.6%,,,32,0,32,0,2,0
+Snorlax,68,stat_points,2,,9.2%,,,32,0,2,0,32,0
+Snorlax,68,stat_points,3,,9.1%,,,2,30,32,0,2,0
+Snorlax,68,stat_points,4,,8.7%,,,22,0,32,0,12,0
+Snorlax,68,stat_points,5,,7.3%,,,2,32,32,0,0,0
+Snorlax,68,stat_points,6,,5.1%,,,32,2,32,0,0,0
+Snorlax,68,stat_points,7,,4.7%,,,0,32,32,0,2,0
+Snorlax,68,stat_points,8,,4.2%,,,21,30,13,0,2,0
+Snorlax,68,stat_points,9,,3.3%,,,12,32,22,0,0,0
+Snorlax,68,stat_points,10,,2.9%,,,6,30,30,0,0,0
+Snorlax,68,ability,1,Thick Fat,85.5%,,,,,,,,
+Snorlax,68,ability,2,Immunity,13.8%,,,,,,,,
+Snorlax,68,ability,3,Gluttony,0.8%,,,,,,,,

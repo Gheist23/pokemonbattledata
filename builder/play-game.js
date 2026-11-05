@@ -250,6 +250,19 @@ const ACTING = new Set(["protect", "wideguard", "quickguard", "helpinghand", "fa
 
 /** The stats an event lowered, when the event does not carry them itself. */
 const DROPPED = { speeddrop: ["spe"], intimidate: ["atk"], lower: null };
+
+/* Why a Pokemon lost its turn (TOURNAMENT_ACTION_ROLL's `lostturn`).
+ *
+ * Confusion says only that it IS confused, which is true of both the game and this model. The
+ * game then has it hurt itself and this model does not -- the self-damage is a bespoke 40 BP
+ * attack against the Pokemon's own Defense, not a flat share of its HP -- so claiming it here
+ * would be putting a number on screen that nothing charged. */
+const LOST_TURN_SAID = {
+  flinch: "flinched and could not move!",
+  paralysis: "is paralysed and could not move!",
+  freeze: "is frozen solid!",
+  confusion: "is confused!",
+};
 const STAT_WORDS = { atk: "Attack", spa: "Sp. Atk", spe: "Speed", def: "Defense", spd: "Sp. Def" };
 
 /** Whole percent, the way `monView` and the page's HP bar read it. */
@@ -1843,6 +1856,17 @@ export class PlayGame {
         if (m) steps.push({ kind: "protect", side: m.s, tag: m.tag });
         continue;
       }
+      // A LOST TURN (TOURNAMENT_ACTION_ROLL). Not in ACTING -- it used no move, so no "used X"
+      // step -- and it reuses the flinch step because that is already the one that means "this
+      // Pokemon did nothing and here is why", animation and all.
+      if (event.kind === "lostturn") {
+        const m = this.monFor(event.actor, event.s);
+        if (m) {
+          steps.push({ kind: "flinch", side: m.s, tag: m.tag,
+            text: `${this.solver.label(m.u)} ${LOST_TURN_SAID[event.why] || "could not move!"}` });
+        }
+        continue;
+      }
       if (event.kind === "fakeout") {
         ensureMove(this.monFor(event.actor, event.s));
         // The one flinch this model has as a fact rather than a share of an action. The hit is
@@ -1935,6 +1959,7 @@ export class PlayGame {
         if (event.target) return `${by} used ${event.move} on ${name(event.target)}`;
         return said ? `${by} used ${event.move} — ${said}` : `${by} used ${event.move}`;
       }
+      case "lostturn": return `${by} ${LOST_TURN_SAID[event.why] || "could not move!"}`;
       case "blocked": return `${by}'s ${event.move} was blocked${event.by ? ` by ${event.by}` : ""}`;
       case "fails": return `${by}'s ${event.move} failed`;
       case "taunted": return `${by} is taunted and could not use ${event.move}`;

@@ -1,23 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Torkoal,61,move,1,Eruption,100.0%,,,,,,,,
-Torkoal,61,move,2,Protect,66.7%,,,,,,,,
-Torkoal,61,move,3,Weather Ball,66.7%,,,,,,,,
-Torkoal,61,move,4,Earth Power,66.7%,,,,,,,,
-Torkoal,61,move,5,Substitute,33.3%,,,,,,,,
-Torkoal,61,move,6,Heat Wave,33.3%,,,,,,,,
-Torkoal,61,move,7,Clear Smog,33.3%,,,,,,,,
-Torkoal,61,held_item,1,Charcoal,100.0%,,,,,,,,
-Torkoal,61,teammate,1,Indeedee-F,,,,,,,,,
-Torkoal,61,teammate,2,Armarouge,,,,,,,,,
-Torkoal,61,teammate,3,Venusaur,,,,,,,,,
-Torkoal,61,teammate,4,Alakazam,,,,,,,,,
-Torkoal,61,teammate,5,Ampharos,,,,,,,,,
-Torkoal,61,teammate,6,Camerupt,,,,,,,,,
-Torkoal,61,teammate,7,Garchomp,,,,,,,,,
-Torkoal,61,teammate,8,Conkeldurr,,,,,,,,,
-Torkoal,61,teammate,9,Vivillon-Fancy,,,,,,,,,
-Torkoal,61,teammate,10,Floette-Eternal,,,,,,,,,
-Torkoal,61,stat_alignment,1,Quiet,100.0%,Sp. Atk,Speed,,,,,,
-Torkoal,61,stat_points,1,,66.7%,,,32,0,0,32,2,0
-Torkoal,61,stat_points,2,,33.3%,,,32,0,2,32,0,0
-Torkoal,61,ability,1,Drought,100.0%,,,,,,,,
+Torkoal,33,move,1,Eruption,97.7%,,,,,,,,
+Torkoal,33,move,2,Weather Ball,67.5%,,,,,,,,
+Torkoal,33,move,3,Protect,65.2%,,,,,,,,
+Torkoal,33,move,4,Earth Power,47.2%,,,,,,,,
+Torkoal,33,move,5,Solar Beam,23.3%,,,,,,,,
+Torkoal,33,move,6,Helping Hand,21.7%,,,,,,,,
+Torkoal,33,move,7,Heat Wave,18.9%,,,,,,,,
+Torkoal,33,move,8,Sunny Day,15.5%,,,,,,,,
+Torkoal,33,move,9,Substitute,9.5%,,,,,,,,
+Torkoal,33,move,10,Flamethrower,6.4%,,,,,,,,
+Torkoal,33,held_item,1,Charcoal,85.6%,,,,,,,,
+Torkoal,33,held_item,2,Sitrus Berry,5.2%,,,,,,,,
+Torkoal,33,held_item,3,Leftovers,3.7%,,,,,,,,
+Torkoal,33,held_item,4,Life Orb,3.0%,,,,,,,,
+Torkoal,33,held_item,5,Wise Glasses,2.2%,,,,,,,,
+Torkoal,33,held_item,6,Shuca Berry,0.2%,,,,,,,,
+Torkoal,33,held_item,7,Choice Scarf,0.1%,,,,,,,,
+Torkoal,33,teammate,1,Farigiraf,,,,,,,,,
+Torkoal,33,teammate,2,Indeedee-F,,,,,,,,,
+Torkoal,33,teammate,3,Garchomp,,,,,,,,,
+Torkoal,33,teammate,4,Sneasler,,,,,,,,,
+Torkoal,33,teammate,5,Basculegion,,,,,,,,,
+Torkoal,33,teammate,6,Vivillon-Fancy,,,,,,,,,
+Torkoal,33,teammate,7,Armarouge,,,,,,,,,
+Torkoal,33,teammate,8,Kangaskhan,,,,,,,,,
+Torkoal,33,teammate,9,Kingambit,,,,,,,,,
+Torkoal,33,teammate,10,Blastoise,,,,,,,,,
+Torkoal,33,stat_alignment,1,Quiet,89.4%,Sp. Atk,Speed,,,,,,
+Torkoal,33,stat_alignment,2,Modest,5.8%,Sp. Atk,Attack,,,,,,
+Torkoal,33,stat_alignment,3,Relaxed,2.6%,Defense,Speed,,,,,,
+Torkoal,33,stat_alignment,4,Bold,1.8%,Defense,Attack,,,,,,
+Torkoal,33,stat_alignment,5,Calm,0.2%,Sp. Def,Attack,,,,,,
+Torkoal,33,stat_alignment,6,Timid,0.1%,Speed,Attack,,,,,,
+Torkoal,33,stat_points,1,,38.7%,,,32,0,0,32,2,0
+Torkoal,33,stat_points,2,,30.3%,,,32,0,2,32,0,0
+Torkoal,33,stat_points,3,,6.0%,,,32,0,1,32,1,0
+Torkoal,33,stat_points,4,,4.2%,,,24,0,0,25,17,0
+Torkoal,33,stat_points,5,,4.0%,,,32,0,10,20,4,0
+Torkoal,33,stat_points,6,,3.8%,,,32,0,0,32,0,2
+Torkoal,33,stat_points,7,,3.5%,,,30,0,0,32,4,0
+Torkoal,33,stat_points,8,,2.8%,,,19,0,0,32,0,15
+Torkoal,33,stat_points,9,,1.9%,,,18,0,16,32,0,0
+Torkoal,33,stat_points,10,,1.0%,,,16,0,0,32,18,0
+Torkoal,33,ability,1,Drought,99.8%,,,,,,,,
+Torkoal,33,ability,2,Shell Armor,0.2%,,,,,,,,

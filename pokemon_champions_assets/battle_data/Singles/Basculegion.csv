@@ -1,44 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Basculegion,3,move,1,Last Respects,100.0%,,,,,,,,
-Basculegion,3,move,2,Aqua Jet,99.4%,,,,,,,,
-Basculegion,3,move,3,Wave Crash,91.0%,,,,,,,,
-Basculegion,3,move,4,Flip Turn,53.0%,,,,,,,,
-Basculegion,3,move,5,Substitute,22.3%,,,,,,,,
-Basculegion,3,move,6,Agility,22.3%,,,,,,,,
-Basculegion,3,move,7,Liquidation,4.8%,,,,,,,,
-Basculegion,3,move,8,Endeavor,4.2%,,,,,,,,
-Basculegion,3,move,9,Outrage,1.5%,,,,,,,,
-Basculegion,3,move,10,Scary Face,0.6%,,,,,,,,
-Basculegion,3,held_item,1,Choice Scarf,39.8%,,,,,,,,
-Basculegion,3,held_item,2,Spell Tag,20.5%,,,,,,,,
-Basculegion,3,held_item,3,Mystic Water,14.5%,,,,,,,,
-Basculegion,3,held_item,4,Life Orb,13.3%,,,,,,,,
-Basculegion,3,held_item,5,Focus Sash,6.0%,,,,,,,,
-Basculegion,3,held_item,6,Sitrus Berry,3.9%,,,,,,,,
-Basculegion,3,held_item,7,Kasib Berry,1.2%,,,,,,,,
-Basculegion,3,held_item,8,Colbur Berry,0.9%,,,,,,,,
-Basculegion,3,teammate,1,Pawmot,,,,,,,,,
-Basculegion,3,teammate,2,Lucario,,,,,,,,,
-Basculegion,3,teammate,3,Mimikyu,,,,,,,,,
-Basculegion,3,teammate,4,Garchomp,,,,,,,,,
-Basculegion,3,teammate,5,Archaludon,,,,,,,,,
-Basculegion,3,teammate,6,Banette,,,,,,,,,
-Basculegion,3,teammate,7,Dragonite,,,,,,,,,
-Basculegion,3,teammate,8,Kingambit,,,,,,,,,
-Basculegion,3,teammate,9,Charizard,,,,,,,,,
-Basculegion,3,teammate,10,Primarina,,,,,,,,,
-Basculegion,3,stat_alignment,1,Adamant,56.6%,Attack,Sp. Atk,,,,,,
-Basculegion,3,stat_alignment,2,Jolly,38.6%,Speed,Sp. Atk,,,,,,
-Basculegion,3,stat_alignment,3,Brave,4.8%,Attack,Speed,,,,,,
-Basculegion,3,stat_points,1,,28.6%,,,2,32,0,0,0,32
-Basculegion,3,stat_points,2,,18.7%,,,0,32,2,0,0,32
-Basculegion,3,stat_points,3,,11.1%,,,0,32,5,0,0,29
-Basculegion,3,stat_points,4,,7.8%,,,4,32,25,0,5,0
-Basculegion,3,stat_points,5,,3.9%,,,17,32,0,0,0,17
-Basculegion,3,stat_points,6,,3.0%,,,0,32,27,0,6,1
-Basculegion,3,stat_points,7,,2.7%,,,2,32,32,0,0,0
-Basculegion,3,stat_points,8,,2.4%,,,0,32,1,0,1,32
-Basculegion,3,stat_points,9,,2.4%,,,0,32,19,0,0,15
-Basculegion,3,stat_points,10,,1.8%,,,10,32,19,0,5,0
-Basculegion,3,ability,1,Adaptability,95.5%,,,,,,,,
-Basculegion,3,ability,2,Swift Swim,4.5%,,,,,,,,
+Basculegion,8,move,1,Last Respects,99.8%,,,,,,,,
+Basculegion,8,move,2,Aqua Jet,96.2%,,,,,,,,
+Basculegion,8,move,3,Wave Crash,91.1%,,,,,,,,
+Basculegion,8,move,4,Flip Turn,51.0%,,,,,,,,
+Basculegion,8,move,5,Agility,31.5%,,,,,,,,
+Basculegion,8,move,6,Substitute,19.8%,,,,,,,,
+Basculegion,8,move,7,Endeavor,2.3%,,,,,,,,
+Basculegion,8,move,8,Liquidation,1.8%,,,,,,,,
+Basculegion,8,move,9,Psychic Fangs,1.7%,,,,,,,,
+Basculegion,8,move,10,Waterfall,1.1%,,,,,,,,
+Basculegion,8,held_item,1,Choice Scarf,44.9%,,,,,,,,
+Basculegion,8,held_item,2,Spell Tag,27.1%,,,,,,,,
+Basculegion,8,held_item,3,Mystic Water,9.4%,,,,,,,,
+Basculegion,8,held_item,4,Life Orb,9.0%,,,,,,,,
+Basculegion,8,held_item,5,Focus Sash,7.4%,,,,,,,,
+Basculegion,8,held_item,6,Sitrus Berry,1.1%,,,,,,,,
+Basculegion,8,held_item,7,Kasib Berry,0.4%,,,,,,,,
+Basculegion,8,held_item,8,Muscle Band,0.2%,,,,,,,,
+Basculegion,8,held_item,9,Rocky Helmet,0.1%,,,,,,,,
+Basculegion,8,held_item,10,Leftovers,0.1%,,,,,,,,
+Basculegion,8,teammate,1,Lucario,,,,,,,,,
+Basculegion,8,teammate,2,Garchomp,,,,,,,,,
+Basculegion,8,teammate,3,Mimikyu,,,,,,,,,
+Basculegion,8,teammate,4,Dragonite,,,,,,,,,
+Basculegion,8,teammate,5,Pawmot,,,,,,,,,
+Basculegion,8,teammate,6,Archaludon,,,,,,,,,
+Basculegion,8,teammate,7,Hippowdon,,,,,,,,,
+Basculegion,8,teammate,8,Charizard,,,,,,,,,
+Basculegion,8,teammate,9,Golisopod,,,,,,,,,
+Basculegion,8,teammate,10,Primarina,,,,,,,,,
+Basculegion,8,stat_alignment,1,Adamant,58.0%,Attack,Sp. Atk,,,,,,
+Basculegion,8,stat_alignment,2,Jolly,39.2%,Speed,Sp. Atk,,,,,,
+Basculegion,8,stat_alignment,3,Brave,2.2%,Attack,Speed,,,,,,
+Basculegion,8,stat_alignment,4,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Basculegion,8,stat_alignment,5,Hasty,0.1%,Speed,Defense,,,,,,
+Basculegion,8,stat_alignment,6,Naive,0.1%,Speed,Sp. Def,,,,,,
+Basculegion,8,stat_alignment,7,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Basculegion,8,stat_alignment,8,Lonely,0.0%,Attack,Defense,,,,,,
+Basculegion,8,stat_alignment,9,Timid,0.0%,Speed,Attack,,,,,,
+Basculegion,8,stat_points,1,,33.1%,,,2,32,0,0,0,32
+Basculegion,8,stat_points,2,,15.1%,,,0,32,2,0,0,32
+Basculegion,8,stat_points,3,,5.7%,,,0,32,5,0,0,29
+Basculegion,8,stat_points,4,,3.5%,,,0,32,1,0,1,32
+Basculegion,8,stat_points,5,,3.5%,,,4,32,30,0,0,0
+Basculegion,8,stat_points,6,,2.4%,,,0,32,16,0,0,18
+Basculegion,8,stat_points,7,,2.3%,,,0,24,13,0,0,29
+Basculegion,8,stat_points,8,,2.1%,,,0,32,0,0,2,32
+Basculegion,8,stat_points,9,,2.0%,,,2,28,18,0,0,18
+Basculegion,8,stat_points,10,,1.4%,,,8,32,18,0,5,3
+Basculegion,8,ability,1,Adaptability,97.3%,,,,,,,,
+Basculegion,8,ability,2,Swift Swim,2.4%,,,,,,,,
+Basculegion,8,ability,3,Mold Breaker,0.4%,,,,,,,,

@@ -1,40 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Blaziken,29,move,1,Close Combat,80.8%,,,,,,,,
-Blaziken,29,move,2,Flare Blitz,60.3%,,,,,,,,
-Blaziken,29,move,3,Swords Dance,53.8%,,,,,,,,
-Blaziken,29,move,4,Thunder Punch,44.9%,,,,,,,,
-Blaziken,29,move,5,Poison Jab,35.9%,,,,,,,,
-Blaziken,29,move,6,Fire Punch,35.9%,,,,,,,,
-Blaziken,29,move,7,Protect,28.2%,,,,,,,,
-Blaziken,29,move,8,Detect,23.1%,,,,,,,,
-Blaziken,29,move,9,High Jump Kick,14.1%,,,,,,,,
-Blaziken,29,move,10,Rock Slide,6.4%,,,,,,,,
-Blaziken,29,held_item,1,Blazikenite,74.4%,,,,,,,,
-Blaziken,29,held_item,2,Life Orb,21.8%,,,,,,,,
-Blaziken,29,held_item,3,Focus Sash,2.6%,,,,,,,,
-Blaziken,29,held_item,4,Sitrus Berry,1.3%,,,,,,,,
-Blaziken,29,teammate,1,Mimikyu,,,,,,,,,
-Blaziken,29,teammate,2,Hippowdon,,,,,,,,,
-Blaziken,29,teammate,3,Gyarados,,,,,,,,,
-Blaziken,29,teammate,4,Corviknight,,,,,,,,,
-Blaziken,29,teammate,5,Aegislash,,,,,,,,,
-Blaziken,29,teammate,6,Clefable,,,,,,,,,
-Blaziken,29,teammate,7,Basculegion,,,,,,,,,
-Blaziken,29,teammate,8,Archaludon,,,,,,,,,
-Blaziken,29,teammate,9,Banette,,,,,,,,,
-Blaziken,29,teammate,10,Victreebel,,,,,,,,,
-Blaziken,29,stat_alignment,1,Adamant,92.3%,Attack,Sp. Atk,,,,,,
-Blaziken,29,stat_alignment,2,Impish,3.8%,Defense,Sp. Atk,,,,,,
-Blaziken,29,stat_alignment,3,Naughty,2.6%,Attack,Sp. Def,,,,,,
-Blaziken,29,stat_alignment,4,Modest,1.3%,Sp. Atk,Attack,,,,,,
-Blaziken,29,stat_points,1,,35.9%,,,20,12,2,0,0,32
-Blaziken,29,stat_points,2,,20.5%,,,2,32,0,0,0,32
-Blaziken,29,stat_points,3,,12.8%,,,0,32,0,0,2,32
-Blaziken,29,stat_points,4,,9.0%,,,0,32,2,0,0,32
-Blaziken,29,stat_points,5,,6.4%,,,16,32,0,0,0,18
-Blaziken,29,stat_points,6,,3.8%,,,16,20,0,0,0,30
-Blaziken,29,stat_points,7,,3.8%,,,32,0,30,0,1,3
-Blaziken,29,stat_points,8,,2.6%,,,0,32,0,5,0,29
-Blaziken,29,stat_points,9,,1.3%,,,0,32,1,0,1,32
-Blaziken,29,stat_points,10,,1.3%,,,2,0,0,32,0,32
-Blaziken,29,ability,1,Speed Boost,100.0%,,,,,,,,
+Blaziken,32,move,1,Flare Blitz,87.5%,,,,,,,,
+Blaziken,32,move,2,Close Combat,69.9%,,,,,,,,
+Blaziken,32,move,3,Thunder Punch,49.4%,,,,,,,,
+Blaziken,32,move,4,Detect,47.2%,,,,,,,,
+Blaziken,32,move,5,Swords Dance,27.9%,,,,,,,,
+Blaziken,32,move,6,Protect,27.3%,,,,,,,,
+Blaziken,32,move,7,High Jump Kick,21.9%,,,,,,,,
+Blaziken,32,move,8,Stone Edge,20.7%,,,,,,,,
+Blaziken,32,move,9,Rock Slide,10.2%,,,,,,,,
+Blaziken,32,move,10,Baton Pass,9.0%,,,,,,,,
+Blaziken,32,held_item,1,Blazikenite,72.3%,,,,,,,,
+Blaziken,32,held_item,2,Life Orb,18.7%,,,,,,,,
+Blaziken,32,held_item,3,Focus Sash,5.2%,,,,,,,,
+Blaziken,32,held_item,4,Sitrus Berry,1.4%,,,,,,,,
+Blaziken,32,held_item,5,Bright Powder,0.8%,,,,,,,,
+Blaziken,32,held_item,6,Light Ball,0.4%,,,,,,,,
+Blaziken,32,held_item,7,Air Balloon,0.4%,,,,,,,,
+Blaziken,32,held_item,8,Charcoal,0.2%,,,,,,,,
+Blaziken,32,held_item,9,Expert Belt,0.2%,,,,,,,,
+Blaziken,32,held_item,10,White Herb,0.1%,,,,,,,,
+Blaziken,32,teammate,1,Garchomp,,,,,,,,,
+Blaziken,32,teammate,2,Archaludon,,,,,,,,,
+Blaziken,32,teammate,3,Mimikyu,,,,,,,,,
+Blaziken,32,teammate,4,Gyarados,,,,,,,,,
+Blaziken,32,teammate,5,Indeedee,,,,,,,,,
+Blaziken,32,teammate,6,Greninja,,,,,,,,,
+Blaziken,32,teammate,7,Basculegion,,,,,,,,,
+Blaziken,32,teammate,8,Primarina,,,,,,,,,
+Blaziken,32,teammate,9,Gengar,,,,,,,,,
+Blaziken,32,teammate,10,Corviknight,,,,,,,,,
+Blaziken,32,stat_alignment,1,Adamant,78.1%,Attack,Sp. Atk,,,,,,
+Blaziken,32,stat_alignment,2,Jolly,12.7%,Speed,Sp. Atk,,,,,,
+Blaziken,32,stat_alignment,3,Modest,2.7%,Sp. Atk,Attack,,,,,,
+Blaziken,32,stat_alignment,4,Naughty,1.4%,Attack,Sp. Def,,,,,,
+Blaziken,32,stat_alignment,5,Impish,1.4%,Defense,Sp. Atk,,,,,,
+Blaziken,32,stat_alignment,6,Careful,1.3%,Sp. Def,Sp. Atk,,,,,,
+Blaziken,32,stat_alignment,7,Brave,0.8%,Attack,Speed,,,,,,
+Blaziken,32,stat_alignment,8,Calm,0.5%,Sp. Def,Attack,,,,,,
+Blaziken,32,stat_alignment,9,Lonely,0.4%,Attack,Defense,,,,,,
+Blaziken,32,stat_alignment,10,Naive,0.3%,Speed,Sp. Def,,,,,,
+Blaziken,32,stat_points,1,,44.3%,,,2,32,0,0,0,32
+Blaziken,32,stat_points,2,,10.6%,,,0,32,2,0,0,32
+Blaziken,32,stat_points,3,,5.2%,,,16,32,0,0,0,18
+Blaziken,32,stat_points,4,,3.6%,,,4,32,0,0,0,30
+Blaziken,32,stat_points,5,,3.6%,,,20,12,2,0,0,32
+Blaziken,32,stat_points,6,,2.6%,,,2,0,0,32,0,32
+Blaziken,32,stat_points,7,,2.5%,,,30,6,15,0,0,15
+Blaziken,32,stat_points,8,,2.1%,,,14,20,0,0,0,32
+Blaziken,32,stat_points,9,,1.7%,,,0,32,0,0,2,32
+Blaziken,32,stat_points,10,,1.6%,,,16,20,0,0,0,30
+Blaziken,32,ability,1,Speed Boost,99.7%,,,,,,,,
+Blaziken,32,ability,2,Blaze,0.3%,,,,,,,,

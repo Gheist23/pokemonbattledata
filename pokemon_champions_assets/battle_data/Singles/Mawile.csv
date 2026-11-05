@@ -1,28 +1,36 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mawile,52,move,1,Fire Fang,100.0%,,,,,,,,
-Mawile,52,move,2,Play Rough,100.0%,,,,,,,,
-Mawile,52,move,3,Sucker Punch,97.4%,,,,,,,,
-Mawile,52,move,4,Ice Punch,76.3%,,,,,,,,
-Mawile,52,move,5,Thunder Punch,13.2%,,,,,,,,
-Mawile,52,move,6,Swords Dance,5.3%,,,,,,,,
-Mawile,52,move,7,Iron Head,5.3%,,,,,,,,
-Mawile,52,move,8,Rock Tomb,2.6%,,,,,,,,
-Mawile,52,held_item,1,Mawilite,100.0%,,,,,,,,
-Mawile,52,teammate,1,Primarina,,,,,,,,,
-Mawile,52,teammate,2,Mimikyu,,,,,,,,,
-Mawile,52,teammate,3,Charizard,,,,,,,,,
-Mawile,52,teammate,4,Garchomp,,,,,,,,,
-Mawile,52,teammate,5,Reuniclus,,,,,,,,,
-Mawile,52,teammate,6,Greninja,,,,,,,,,
-Mawile,52,teammate,7,Archaludon,,,,,,,,,
-Mawile,52,teammate,8,Cinderace,,,,,,,,,
-Mawile,52,teammate,9,Rotom-Heat,,,,,,,,,
-Mawile,52,teammate,10,Venusaur,,,,,,,,,
-Mawile,52,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
-Mawile,52,stat_points,1,,68.4%,,,32,32,0,0,2,0
-Mawile,52,stat_points,2,,13.2%,,,32,32,0,0,1,1
-Mawile,52,stat_points,3,,10.5%,,,30,27,0,0,8,1
-Mawile,52,stat_points,4,,2.6%,,,19,24,0,0,0,23
-Mawile,52,stat_points,5,,2.6%,,,22,26,0,0,0,18
-Mawile,52,stat_points,6,,2.6%,,,30,32,1,0,0,3
-Mawile,52,ability,1,Intimidate,100.0%,,,,,,,,
+Mawile,54,move,1,Play Rough,99.0%,,,,,,,,
+Mawile,54,move,2,Sucker Punch,89.4%,,,,,,,,
+Mawile,54,move,3,Fire Fang,82.1%,,,,,,,,
+Mawile,54,move,4,Ice Punch,52.9%,,,,,,,,
+Mawile,54,move,5,Iron Head,19.9%,,,,,,,,
+Mawile,54,move,6,Swords Dance,18.8%,,,,,,,,
+Mawile,54,move,7,Thunder Punch,14.2%,,,,,,,,
+Mawile,54,move,8,Knock Off,6.8%,,,,,,,,
+Mawile,54,move,9,Psychic Fangs,6.8%,,,,,,,,
+Mawile,54,move,10,Rock Tomb,4.6%,,,,,,,,
+Mawile,54,held_item,1,Mawilite,100.0%,,,,,,,,
+Mawile,54,teammate,1,Mimikyu,,,,,,,,,
+Mawile,54,teammate,2,Charizard,,,,,,,,,
+Mawile,54,teammate,3,Primarina,,,,,,,,,
+Mawile,54,teammate,4,Garchomp,,,,,,,,,
+Mawile,54,teammate,5,Archaludon,,,,,,,,,
+Mawile,54,teammate,6,Greninja,,,,,,,,,
+Mawile,54,teammate,7,Basculegion,,,,,,,,,
+Mawile,54,teammate,8,Hydreigon,,,,,,,,,
+Mawile,54,teammate,9,Reuniclus,,,,,,,,,
+Mawile,54,teammate,10,Hippowdon,,,,,,,,,
+Mawile,54,stat_alignment,1,Adamant,93.5%,Attack,Sp. Atk,,,,,,
+Mawile,54,stat_alignment,2,Brave,6.5%,Attack,Speed,,,,,,
+Mawile,54,stat_points,1,,51.9%,,,32,32,0,0,2,0
+Mawile,54,stat_points,2,,13.1%,,,32,32,2,0,0,0
+Mawile,54,stat_points,3,,5.2%,,,32,32,0,0,0,2
+Mawile,54,stat_points,4,,3.5%,,,28,32,0,0,0,6
+Mawile,54,stat_points,5,,2.9%,,,32,30,0,0,4,0
+Mawile,54,stat_points,6,,2.9%,,,30,32,0,0,0,4
+Mawile,54,stat_points,7,,2.8%,,,32,32,1,0,1,0
+Mawile,54,stat_points,8,,1.9%,,,28,32,1,0,5,0
+Mawile,54,stat_points,9,,1.4%,,,19,24,0,0,0,23
+Mawile,54,stat_points,10,,1.1%,,,14,28,0,0,0,24
+Mawile,54,ability,1,Intimidate,97.7%,,,,,,,,
+Mawile,54,ability,2,Hyper Cutter,2.3%,,,,,,,,

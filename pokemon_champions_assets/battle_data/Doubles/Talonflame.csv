@@ -1,21 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Talonflame,47,move,1,Tailwind,100.0%,,,,,,,,
-Talonflame,47,move,2,Protect,75.0%,,,,,,,,
-Talonflame,47,move,3,Flare Blitz,75.0%,,,,,,,,
-Talonflame,47,move,4,Dual Wingbeat,75.0%,,,,,,,,
-Talonflame,47,move,5,Whirlwind,25.0%,,,,,,,,
-Talonflame,47,move,6,Brave Bird,25.0%,,,,,,,,
-Talonflame,47,move,7,Upper Hand,25.0%,,,,,,,,
-Talonflame,47,held_item,1,Sharp Beak,100.0%,,,,,,,,
-Talonflame,47,teammate,1,Raichu,,,,,,,,,
-Talonflame,47,teammate,2,Garchomp,,,,,,,,,
-Talonflame,47,teammate,3,Farigiraf,,,,,,,,,
-Talonflame,47,teammate,4,Kingambit,,,,,,,,,
-Talonflame,47,teammate,5,Baxcalibur,,,,,,,,,
-Talonflame,47,teammate,6,Tyranitar,,,,,,,,,
-Talonflame,47,teammate,7,Staraptor,,,,,,,,,
-Talonflame,47,teammate,8,Gholdengo,,,,,,,,,
-Talonflame,47,teammate,9,Sinistcha,,,,,,,,,
-Talonflame,47,stat_alignment,1,Jolly,100.0%,Speed,Sp. Atk,,,,,,
-Talonflame,47,stat_points,1,,100.0%,,,2,32,0,0,0,32
-Talonflame,47,ability,1,Gale Wings,100.0%,,,,,,,,
+Talonflame,53,move,1,Tailwind,99.7%,,,,,,,,
+Talonflame,53,move,2,Brave Bird,58.0%,,,,,,,,
+Talonflame,53,move,3,Protect,55.8%,,,,,,,,
+Talonflame,53,move,4,Flare Blitz,48.3%,,,,,,,,
+Talonflame,53,move,5,Dual Wingbeat,30.9%,,,,,,,,
+Talonflame,53,move,6,Will-O-Wisp,23.7%,,,,,,,,
+Talonflame,53,move,7,Quick Guard,19.6%,,,,,,,,
+Talonflame,53,move,8,Whirlwind,19.2%,,,,,,,,
+Talonflame,53,move,9,Taunt,14.2%,,,,,,,,
+Talonflame,53,move,10,Air Slash,7.3%,,,,,,,,
+Talonflame,53,held_item,1,Sharp Beak,46.1%,,,,,,,,
+Talonflame,53,held_item,2,Life Orb,13.2%,,,,,,,,
+Talonflame,53,held_item,3,Focus Sash,9.5%,,,,,,,,
+Talonflame,53,held_item,4,Expert Belt,8.8%,,,,,,,,
+Talonflame,53,held_item,5,Charcoal,7.9%,,,,,,,,
+Talonflame,53,held_item,6,Bright Powder,5.0%,,,,,,,,
+Talonflame,53,held_item,7,Shell Bell,4.1%,,,,,,,,
+Talonflame,53,held_item,8,Charti Berry,0.3%,,,,,,,,
+Talonflame,53,held_item,9,Leftovers,0.3%,,,,,,,,
+Talonflame,53,held_item,10,Wide Lens,0.3%,,,,,,,,
+Talonflame,53,teammate,1,Kingambit,,,,,,,,,
+Talonflame,53,teammate,2,Raichu,,,,,,,,,
+Talonflame,53,teammate,3,Garchomp,,,,,,,,,
+Talonflame,53,teammate,4,Rillaboom,,,,,,,,,
+Talonflame,53,teammate,5,Sneasler,,,,,,,,,
+Talonflame,53,teammate,6,Gholdengo,,,,,,,,,
+Talonflame,53,teammate,7,Tyranitar,,,,,,,,,
+Talonflame,53,teammate,8,Basculegion,,,,,,,,,
+Talonflame,53,teammate,9,Staraptor,,,,,,,,,
+Talonflame,53,teammate,10,Sinistcha,,,,,,,,,
+Talonflame,53,stat_alignment,1,Jolly,77.9%,Speed,Sp. Atk,,,,,,
+Talonflame,53,stat_alignment,2,Adamant,11.4%,Attack,Sp. Atk,,,,,,
+Talonflame,53,stat_alignment,3,Timid,7.3%,Speed,Attack,,,,,,
+Talonflame,53,stat_alignment,4,Naughty,3.5%,Attack,Sp. Def,,,,,,
+Talonflame,53,stat_points,1,,62.5%,,,2,32,0,0,0,32
+Talonflame,53,stat_points,2,,6.9%,,,14,15,5,0,0,32
+Talonflame,53,stat_points,3,,5.7%,,,7,32,0,0,0,27
+Talonflame,53,stat_points,4,,5.4%,,,0,0,2,32,0,32
+Talonflame,53,stat_points,5,,4.1%,,,6,32,1,0,0,27
+Talonflame,53,stat_points,6,,4.1%,,,32,32,0,0,0,2
+Talonflame,53,stat_points,7,,3.2%,,,1,32,0,0,0,32
+Talonflame,53,stat_points,8,,3.2%,,,2,32,5,0,0,27
+Talonflame,53,stat_points,9,,1.9%,,,1,0,1,32,1,31
+Talonflame,53,stat_points,10,,0.9%,,,5,32,0,0,0,29
+Talonflame,53,ability,1,Gale Wings,99.7%,,,,,,,,
+Talonflame,53,ability,2,Flame Body,0.3%,,,,,,,,

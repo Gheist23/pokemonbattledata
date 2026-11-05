@@ -1,43 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sneasler,36,move,1,Close Combat,98.5%,,,,,,,,
-Sneasler,36,move,2,Dire Claw,95.5%,,,,,,,,
-Sneasler,36,move,3,Throat Chop,65.7%,,,,,,,,
-Sneasler,36,move,4,Swords Dance,41.8%,,,,,,,,
-Sneasler,36,move,5,Fake Out,35.8%,,,,,,,,
-Sneasler,36,move,6,Night Slash,11.9%,,,,,,,,
-Sneasler,36,move,7,Acrobatics,11.9%,,,,,,,,
-Sneasler,36,move,8,U-turn,10.4%,,,,,,,,
-Sneasler,36,move,9,Shadow Claw,9.0%,,,,,,,,
-Sneasler,36,move,10,Fire Punch,6.0%,,,,,,,,
-Sneasler,36,held_item,1,Normal Gem,34.3%,,,,,,,,
-Sneasler,36,held_item,2,Psychic Seed,28.4%,,,,,,,,
-Sneasler,36,held_item,3,White Herb,13.4%,,,,,,,,
-Sneasler,36,held_item,4,Choice Scarf,10.4%,,,,,,,,
-Sneasler,36,held_item,5,Air Balloon,4.5%,,,,,,,,
-Sneasler,36,held_item,6,Red Card,4.5%,,,,,,,,
-Sneasler,36,held_item,7,Sitrus Berry,3.0%,,,,,,,,
-Sneasler,36,held_item,8,Grassy Seed,1.5%,,,,,,,,
-Sneasler,36,teammate,1,Garchomp,,,,,,,,,
-Sneasler,36,teammate,2,Golisopod,,,,,,,,,
-Sneasler,36,teammate,3,Blastoise,,,,,,,,,
-Sneasler,36,teammate,4,Indeedee,,,,,,,,,
-Sneasler,36,teammate,5,Archaludon,,,,,,,,,
-Sneasler,36,teammate,6,Delphox,,,,,,,,,
-Sneasler,36,teammate,7,Primarina,,,,,,,,,
-Sneasler,36,teammate,8,Armarouge,,,,,,,,,
-Sneasler,36,teammate,9,Basculegion,,,,,,,,,
-Sneasler,36,teammate,10,Glimmora,,,,,,,,,
-Sneasler,36,stat_alignment,1,Adamant,98.5%,Attack,Sp. Atk,,,,,,
-Sneasler,36,stat_alignment,2,Impish,1.5%,Defense,Sp. Atk,,,,,,
-Sneasler,36,stat_points,1,,23.9%,,,2,32,0,0,0,32
-Sneasler,36,stat_points,2,,13.4%,,,0,32,0,0,0,32
-Sneasler,36,stat_points,3,,13.4%,,,0,32,2,0,0,32
-Sneasler,36,stat_points,4,,7.5%,,,0,32,2,0,32,0
-Sneasler,36,stat_points,5,,6.0%,,,5,32,0,0,0,29
-Sneasler,36,stat_points,6,,6.0%,,,23,32,0,0,0,11
-Sneasler,36,stat_points,7,,4.5%,,,18,32,5,0,0,11
-Sneasler,36,stat_points,8,,3.0%,,,4,32,0,0,0,30
-Sneasler,36,stat_points,9,,3.0%,,,31,30,0,0,0,5
-Sneasler,36,stat_points,10,,1.5%,,,0,27,0,0,9,30
-Sneasler,36,ability,1,Unburden,89.6%,,,,,,,,
-Sneasler,36,ability,2,Poison Touch,10.4%,,,,,,,,
+Sneasler,38,move,1,Close Combat,99.3%,,,,,,,,
+Sneasler,38,move,2,Dire Claw,94.4%,,,,,,,,
+Sneasler,38,move,3,Throat Chop,55.0%,,,,,,,,
+Sneasler,38,move,4,Swords Dance,51.5%,,,,,,,,
+Sneasler,38,move,5,Fake Out,33.4%,,,,,,,,
+Sneasler,38,move,6,Fire Punch,20.8%,,,,,,,,
+Sneasler,38,move,7,Acrobatics,8.1%,,,,,,,,
+Sneasler,38,move,8,U-turn,8.1%,,,,,,,,
+Sneasler,38,move,9,Shadow Claw,6.3%,,,,,,,,
+Sneasler,38,move,10,Rock Slide,5.4%,,,,,,,,
+Sneasler,38,held_item,1,Psychic Seed,36.5%,,,,,,,,
+Sneasler,38,held_item,2,Normal Gem,25.9%,,,,,,,,
+Sneasler,38,held_item,3,Air Balloon,8.7%,,,,,,,,
+Sneasler,38,held_item,4,Choice Scarf,6.5%,,,,,,,,
+Sneasler,38,held_item,5,Grassy Seed,5.7%,,,,,,,,
+Sneasler,38,held_item,6,Focus Sash,5.2%,,,,,,,,
+Sneasler,38,held_item,7,White Herb,3.4%,,,,,,,,
+Sneasler,38,held_item,8,Sitrus Berry,3.2%,,,,,,,,
+Sneasler,38,held_item,9,Life Orb,1.3%,,,,,,,,
+Sneasler,38,held_item,10,Black Belt,1.1%,,,,,,,,
+Sneasler,38,teammate,1,Indeedee,,,,,,,,,
+Sneasler,38,teammate,2,Archaludon,,,,,,,,,
+Sneasler,38,teammate,3,Garchomp,,,,,,,,,
+Sneasler,38,teammate,4,Blastoise,,,,,,,,,
+Sneasler,38,teammate,5,Golisopod,,,,,,,,,
+Sneasler,38,teammate,6,Primarina,,,,,,,,,
+Sneasler,38,teammate,7,Starmie,,,,,,,,,
+Sneasler,38,teammate,8,Rillaboom,,,,,,,,,
+Sneasler,38,teammate,9,Charizard,,,,,,,,,
+Sneasler,38,teammate,10,Zoroark-Hisui,,,,,,,,,
+Sneasler,38,stat_alignment,1,Adamant,93.0%,Attack,Sp. Atk,,,,,,
+Sneasler,38,stat_alignment,2,Jolly,4.8%,Speed,Sp. Atk,,,,,,
+Sneasler,38,stat_alignment,3,Naive,1.1%,Speed,Sp. Def,,,,,,
+Sneasler,38,stat_alignment,4,Impish,0.5%,Defense,Sp. Atk,,,,,,
+Sneasler,38,stat_alignment,5,Brave,0.5%,Attack,Speed,,,,,,
+Sneasler,38,stat_alignment,6,Lonely,0.0%,Attack,Defense,,,,,,
+Sneasler,38,stat_alignment,7,Careful,0.0%,Sp. Def,Sp. Atk,,,,,,
+Sneasler,38,stat_alignment,8,Naughty,0.0%,Attack,Sp. Def,,,,,,
+Sneasler,38,stat_points,1,,27.0%,,,2,32,0,0,0,32
+Sneasler,38,stat_points,2,,4.3%,,,28,32,0,0,0,6
+Sneasler,38,stat_points,3,,4.0%,,,29,32,0,0,0,5
+Sneasler,38,stat_points,4,,3.6%,,,0,32,2,0,0,32
+Sneasler,38,stat_points,5,,3.6%,,,4,32,0,0,0,30
+Sneasler,38,stat_points,6,,3.5%,,,0,32,0,0,0,32
+Sneasler,38,stat_points,7,,3.1%,,,27,32,2,0,0,5
+Sneasler,38,stat_points,8,,3.0%,,,32,32,0,0,0,2
+Sneasler,38,stat_points,9,,2.6%,,,0,32,2,0,32,0
+Sneasler,38,stat_points,10,,2.4%,,,28,32,1,0,0,5
+Sneasler,38,ability,1,Unburden,87.6%,,,,,,,,
+Sneasler,38,ability,2,Poison Touch,12.3%,,,,,,,,
+Sneasler,38,ability,3,Pressure,0.1%,,,,,,,,

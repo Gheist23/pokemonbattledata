@@ -891,6 +891,69 @@ export const TOURNAMENT_HAZARDS = 0;
 export const TOURNAMENT_PIVOT = 0;
 
 /**
+ * What a move costs ITS OWN USER is charged IN FULL when it lands (TOURNAMENT_SELF_ROLL).
+ *
+ * `hit.self` is an EXPECTATION: the share the move costs its user, multiplied by `rate` -- the
+ * move's accuracy and its cooldown. That is exactly right for the Tournament Test, which fires
+ * every move every turn and never rolls anything: a 90% move recoils 90% as often, so charging
+ * 0.9 of the cost every turn is the mean.
+ *
+ * It is WRONG the moment the same number is handed to an engine that rolls, and both live ones
+ * do. `Solver.rollDamage` rolls the accuracy itself (`hit.odds`) and returns 0 on a miss, `deal`
+ * then returns false and `oweSelf` is never reached -- so a miss already costs nothing. A LANDED
+ * hit was still charged the discounted share, which is the same discount applied twice.
+ *
+ * MEASURED 4 Nov 2026, and it is what the user saw: a meta Mimikyu (Life Orb) used Play Rough,
+ * 90% accurate, and was charged 0.1 * 0.9 = 9% instead of 10%. With the Disguise absorbing an
+ * Armor Cannon (-12.5%) and Grassy Terrain healing (+6.25%) it stood at 84.75%, shown as 85%,
+ * where the game has it at 83.75% -- 84%. Every Life Orb holder in /play/ and on the Solver
+ * board was paying 0.9x to 0.99x of its item, and a recoil move the same.
+ *
+ * `selfFull` is that share with no `rate` in it at all. The cooldown half of `rate` is rolled in
+ * the same place and by the same number (`odds` IS `rate`), so a move on cooldown that fires has
+ * also already paid for its turn off and must not be discounted for it either.
+ *
+ * 0 by default, like every rule above it: the recorded Tournament Test never rolls, so it keeps
+ * asking for `self` and replays byte for byte.
+ */
+export const TOURNAMENT_SELF_ROLL = 0;
+
+/**
+ * A turn is either HAD or LOST, not discounted (TOURNAMENT_ACTION_ROLL).
+ *
+ * `actionScale` prices an action as an EXPECTATION and `outScale` multiplies the damage by it.
+ * For the Tournament Test that is exactly right. For a played game it is wrong twice over.
+ *
+ * MEASURED 4 Nov 2026, with the rule off:
+ *
+ *   * a PARALYSED Pokemon did 0.75x damage every single turn, instead of acting in full and
+ *     losing one turn in four;
+ *   * a CONFUSED one did 0.667x every turn, instead of hurting itself one turn in three;
+ *   * a 30% chance to FLINCH cost 0.7x damage for the rest of the game -- `flinchP` is
+ *     accumulated as a probability and NOTHING ever rolled it into a flinch;
+ *   * and a FROZEN one did no damage but still acted, because of the second fault:
+ *
+ * `outScale` HAS EXACTLY ONE READER (`deal`, on damage). The action dispatch never consults it,
+ * so Protect, Trick Room, Tailwind, Follow Me, Will-O-Wisp, Spore and every hazard landed at
+ * full effect from a Pokemon that was frozen solid or had just been made to flinch. No scale
+ * factor can express that: you cannot set three quarters of a Trick Room.
+ *
+ * So the rule does not scale anything -- it SKIPS THE ACTION, which is the only thing that
+ * costs a status move too.
+ *
+ * SLEEP IS DELIBERATELY NOT ROLLED HERE. It already runs through `idle`, and the loop above
+ * `continue`s on that before this is reached (`applyStatus` sets `idle` when it lands a sleep),
+ * so rolling it again would charge the same lost turn twice.
+ *
+ * Rolled through `effectRoll`, the seam the played game provides and the same one Curse and the
+ * secondary effects already use; with no roller to hand -- the Solver board and the expectation
+ * engine -- the caller keeps `actionScale` and nothing changes.
+ *
+ * 0 by default, like every rule above it.
+ */
+export const TOURNAMENT_ACTION_ROLL = 0;
+
+/**
  * The four hazards, packed into ONE integer a side.
  *
  * Packed rather than an object because the board is COPIED in four places and every copy
@@ -1082,6 +1145,16 @@ export function tournamentHazardsOption(value) {
 
 export function tournamentPivotOption(value) {
   return ruleVersion(value, TOURNAMENT_PIVOT);
+}
+
+/** A `self_roll` stamp as a version; coerces exactly as `tournamentPivotOption`. */
+export function tournamentSelfRollOption(value) {
+  return ruleVersion(value, TOURNAMENT_SELF_ROLL);
+}
+
+/** An `action_roll` stamp as a version; coerces exactly as `tournamentPivotOption`. */
+export function tournamentActionRollOption(value) {
+  return ruleVersion(value, TOURNAMENT_ACTION_ROLL);
 }
 
 export function tournamentEffectsOption(value) {
@@ -1489,7 +1562,7 @@ export class TournamentTest {
    *   `varPowerRule`: the variable-power attacks (TOURNAMENT_VAR_POWER); 0 replays a recording made
    *   before it, where a 0-power attack was no attack at all.
    */
-  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, liveHpRule = TOURNAMENT_LIVE_HP, chargeRule = TOURNAMENT_CHARGE, berryRule = TOURNAMENT_BERRY, stagesRule = TOURNAMENT_STAGES, confusionRule = TOURNAMENT_CONFUSION, ppRule = TOURNAMENT_PP, rberryRule = TOURNAMENT_RBERRY, bailRule = TOURNAMENT_BAIL, shieldRule = TOURNAMENT_SHIELD, fieldTurnsRule = TOURNAMENT_FIELD_TURNS, abilityOpsRule = TOURNAMENT_ABILITY_OPS, hazardsRule = TOURNAMENT_HAZARDS, pivotRule = TOURNAMENT_PIVOT, effects = null } = {}) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, liveHpRule = TOURNAMENT_LIVE_HP, chargeRule = TOURNAMENT_CHARGE, berryRule = TOURNAMENT_BERRY, stagesRule = TOURNAMENT_STAGES, confusionRule = TOURNAMENT_CONFUSION, ppRule = TOURNAMENT_PP, rberryRule = TOURNAMENT_RBERRY, bailRule = TOURNAMENT_BAIL, shieldRule = TOURNAMENT_SHIELD, fieldTurnsRule = TOURNAMENT_FIELD_TURNS, abilityOpsRule = TOURNAMENT_ABILITY_OPS, hazardsRule = TOURNAMENT_HAZARDS, pivotRule = TOURNAMENT_PIVOT, selfRollRule = TOURNAMENT_SELF_ROLL, actionRollRule = TOURNAMENT_ACTION_ROLL, effects = null } = {}) {
     this.turnOneRule = tournamentTurnOneOption(turnOneRule);
     this.seatRule = tournamentSeatOption(seatRule);
     this.bringRule = tournamentBringOption(bringRule);
@@ -1514,6 +1587,8 @@ export class TournamentTest {
     this.abilityOpsRule = tournamentAbilityOpsOption(abilityOpsRule);
     this.hazardsRule = tournamentHazardsOption(hazardsRule);
     this.pivotRule = tournamentPivotOption(pivotRule);
+    this.selfRollRule = tournamentSelfRollOption(selfRollRule);
+    this.actionRollRule = tournamentActionRollOption(actionRollRule);
     // The compiled move and Ability effects. Handed in rather than fetched, because this file is
     // run from a Worker, from node and from six suites; `effectsOn` is the one gate every new
     // rule below asks, so a run with no registry behaves exactly as it did before them.
@@ -1545,6 +1620,8 @@ export class TournamentTest {
     this.abilityOpsOn = this.abilityOpsRule >= 1;
     this.hazardsOn = this.hazardsRule >= 1;
     this.pivotOn = this.pivotRule >= 1;
+    this.selfRollOn = this.selfRollRule >= 1;
+    this.actionRollOn = this.actionRollRule >= 1;
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -2569,6 +2646,9 @@ export class TournamentTest {
       const rate = scale;
       scale /= maxHp;
       const self = this.ev.selfCost >= 1 ? resultRecoilShare(result) * rate : 0;
+    // ...and the same share with NO `rate` in it, for an engine that rolls the accuracy and the
+    // cooldown for itself (TOURNAMENT_SELF_ROLL, `selfShare`).
+    const selfFull = this.ev.selfCost >= 1 ? resultRecoilShare(result) : 0;
       // `frac` is the EXPECTED share -- the mean roll, scaled by accuracy and by the cooldown --
       // and every planning decision is made on it, which is right: you choose on expectation.
       // `odds` and the unscaled roll range are what a caller needs to play the hit out as the
@@ -2577,7 +2657,7 @@ export class TournamentTest {
       return {
         slot, frac: (sum / rolls.length) * scale, lo: lo * scale, hi: hi * scale,
         odds: rate, rollLo: lo / maxHp, rollHigh: hi / maxHp,
-        priority, spread: info.spread, self,
+        priority, spread: info.spread, self, selfFull,
         // Was the defender's resistance berry what halved this hit (TOURNAMENT_RBERRY)?
         // The damage engine answers it, because deciding it means knowing type
         // effectiveness -- `deal` reads this and eats the berry, consulting no type chart.
@@ -3294,6 +3374,32 @@ export class TournamentTest {
    * How much of an action a Pokemon has, given what it is carrying. Read from the FROZEN run
    * state, so a condition inflicted inside a run of simultaneous actions cannot reach them.
    */
+  /**
+   * Was this turn LOST (TOURNAMENT_ACTION_ROLL)?
+   *
+   * Returns the reason it was lost, "" when the Pokemon acts in full, and `null` when there is
+   * no roller to ask -- in which case the caller keeps `actionScale`'s expectation and behaves
+   * exactly as it always has.
+   *
+   * Each cause is an INDEPENDENT draw with the same mean as the factor it replaces, so the
+   * average over many turns is unchanged and only the variance appears -- which is the whole
+   * point: a played game has to pick one outcome, not average them.
+   *
+   * Sleep is absent on purpose; see TOURNAMENT_ACTION_ROLL. `idle` already took that turn.
+   */
+  actionLost(pre) {
+    const roll = this.effectRoll;
+    if (!roll || !pre) return null;
+    if (roll() < (pre.flinchP || 0)) return "flinch";
+    const st = pre.st;
+    if (!st) return "";
+    if (roll() < (st.frz || 0)) return "freeze";
+    // A paralysed Pokemon loses one turn in four, a confused one one in three.
+    if (roll() < 0.25 * (st.par || 0)) return "paralysis";
+    if (roll() < (st.cnf || 0) / 3) return "confusion";
+    return "";
+  }
+
   actionScale(pre) {
     const st = pre.st;
     const flinch = 1 - (pre.flinchP || 0);
@@ -4040,6 +4146,19 @@ export class TournamentTest {
    * A move that faints its own user never reaches this: `moveInfo` keeps a self-KO move out of
    * `attacks` altogether.
    */
+  /**
+   * What THIS hit costs its user, for the engine asking (TOURNAMENT_SELF_ROLL).
+   *
+   * The Tournament Test wants the expectation, `self`. An engine that rolls the accuracy and the
+   * cooldown itself -- the Solver and the played game, the only two the rule is on for -- wants
+   * the undiscounted `selfFull`, because a miss already costs it nothing: `rollDamage` returns 0,
+   * `deal` returns false, and no owe site is reached at all.
+   */
+  selfShare(hit) {
+    if (!hit) return 0;
+    return this.selfRollOn ? (hit.selfFull || 0) : (hit.self || 0);
+  }
+
   oweSelf(att, share) {
     const cost = Number(share) || 0;
     if (!(cost > 0) || !att) return;
@@ -5013,6 +5132,22 @@ export class TournamentTest {
       // it was made to flinch, and every condition that costs it an action. Sleep and freeze
       // cost the whole thing, paralysis a quarter of it.
       m.outScale = this.effectsOn ? this.actionScale(pre) : 1;
+      // TOURNAMENT_ACTION_ROLL: with a roller to hand the turn is had or lost outright, and a
+      // lost one costs the WHOLE action -- the Protect, the Trick Room, the Tailwind -- which is
+      // why this `continue`s instead of scaling anything. Below `idle`, so a sleep that already
+      // took the turn is not charged for a second time.
+      if (this.effectsOn && this.actionRollOn) {
+        const lost = this.actionLost(pre);
+        if (lost !== null) {
+          if (lost) {
+            m.outScale = 0;
+            events?.push({ s, kind: "lostturn", actor: m.u, why: lost });
+            continue;
+          }
+          // It acts, and it acts IN FULL: no expectation discount on top of a roll.
+          m.outScale = 1;
+        }
+      }
       if (pre.idle > 0) {
         m.idle -= 1;
         continue;
@@ -5095,7 +5230,7 @@ export class TournamentTest {
           continue;
         }
         const fakeHit = this.hitOn(m, target, m.k.fakeOut, board, m.helped, pre);
-        if (this.deal(m, target, fakeHit, events)) this.oweSelf(m, fakeHit.self);
+        if (this.deal(m, target, fakeHit, events)) this.oweSelf(m, this.selfShare(fakeHit));
         target.flinch = true;
         events?.push({ s, kind: "fakeout", actor: m.u, target: target.u });
       } else if (a.kind === TAILWIND) {
@@ -5281,7 +5416,7 @@ export class TournamentTest {
           const h = this.hitOn(m, foe, slot, board, m.helped, pre);
           if (h.priority > 0 && quick & (1 << foe.s)) continue;
           if (!this.deal(m, foe, h, events, false, pre, allies, board)) continue;
-          selfCost = Math.max(selfCost, h.self || 0);
+          selfCost = Math.max(selfCost, this.selfShare(h));
           const stats = this.afterHit(m, foe, info);
           if (stats.length) out.lowered.push({ m: foe, stats });
         }
@@ -5291,7 +5426,7 @@ export class TournamentTest {
           if (!alive(ally) || ally === m) continue;
           const h = this.hitOn(m, ally, slot, board, m.helped, pre);
           if (!this.deal(m, ally, h, events, true, pre, allies, board)) continue;
-          selfCost = Math.max(selfCost, h.self || 0);
+          selfCost = Math.max(selfCost, this.selfShare(h));
           const stats = this.afterHit(m, ally, info);
           if (stats.length) out.own.push({ m: ally, stats });
         }
@@ -5322,7 +5457,7 @@ export class TournamentTest {
           if (!this.deal(m, foe, h, events, false, pre, allies, board)) continue;
           // Owed once for the move, not once per dart -- the same `Math.max` the spread branch
           // above uses, for the same reason.
-          selfCost = Math.max(selfCost, h.self || 0);
+          selfCost = Math.max(selfCost, this.selfShare(h));
           const stats = this.afterHit(m, foe, info);
           if (stats.length) out.lowered.push({ m: foe, stats });
         }
@@ -5340,7 +5475,7 @@ export class TournamentTest {
       return out;
     }
     if (this.deal(m, aim, h, events, false, pre, allies, board)) {
-      this.oweSelf(m, h.self);
+      this.oweSelf(m, this.selfShare(h));
       const stats = this.afterHit(m, aim, info);
       if (stats.length) out.lowered.push({ m: aim, stats });
     }
@@ -5789,6 +5924,14 @@ export class TournamentTest {
         // sleep, freeze and paralysis cost nothing for the whole back half of the game. The
         // planned turns set it at the top of each action; this is the same line.
         a.m.outScale = this.effectsOn ? this.actionScale(pre) : 1;
+        // ...and the same roll for the back half of the game (TOURNAMENT_ACTION_ROLL).
+        if (this.effectsOn && this.actionRollOn) {
+          const lost = this.actionLost(pre);
+          if (lost !== null) {
+            if (lost) { a.m.outScale = 0; continue; }
+            a.m.outScale = 1;
+          }
+        }
         // The second, attack-only loop runs turns 5..cap and never enters `plannedTurn`, so a
         // charge move would otherwise fire on the spot for the whole back half of a game.
         if (this.chargeOn && a.hit && a.hit.slot >= 0

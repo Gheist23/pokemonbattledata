@@ -1,40 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scizor,20,move,1,Bullet Punch,100.0%,,,,,,,,
-Scizor,20,move,2,U-turn,85.4%,,,,,,,,
-Scizor,20,move,3,Close Combat,57.3%,,,,,,,,
-Scizor,20,move,4,Swords Dance,46.6%,,,,,,,,
-Scizor,20,move,5,Roost,41.7%,,,,,,,,
-Scizor,20,move,6,Knock Off,18.4%,,,,,,,,
-Scizor,20,move,7,Curse,15.5%,,,,,,,,
-Scizor,20,move,8,Dual Wingbeat,14.6%,,,,,,,,
-Scizor,20,move,9,Scary Face,11.7%,,,,,,,,
-Scizor,20,move,10,Defog,4.9%,,,,,,,,
-Scizor,20,held_item,1,Metal Coat,36.9%,,,,,,,,
-Scizor,20,held_item,2,Rocky Helmet,35.0%,,,,,,,,
-Scizor,20,held_item,3,Scizorite,16.5%,,,,,,,,
-Scizor,20,held_item,4,Sitrus Berry,10.7%,,,,,,,,
-Scizor,20,held_item,5,Life Orb,1.0%,,,,,,,,
-Scizor,20,teammate,1,Garchomp,,,,,,,,,
-Scizor,20,teammate,2,Primarina,,,,,,,,,
-Scizor,20,teammate,3,Salamence,,,,,,,,,
-Scizor,20,teammate,4,Archaludon,,,,,,,,,
-Scizor,20,teammate,5,Slowking-Galar,,,,,,,,,
-Scizor,20,teammate,6,Mimikyu,,,,,,,,,
-Scizor,20,teammate,7,Charizard,,,,,,,,,
-Scizor,20,teammate,8,Hippowdon,,,,,,,,,
-Scizor,20,teammate,9,Gardevoir,,,,,,,,,
-Scizor,20,teammate,10,Umbreon,,,,,,,,,
-Scizor,20,stat_alignment,1,Adamant,53.4%,Attack,Sp. Atk,,,,,,
-Scizor,20,stat_alignment,2,Relaxed,38.8%,Defense,Speed,,,,,,
-Scizor,20,stat_alignment,3,Impish,7.8%,Defense,Sp. Atk,,,,,,
-Scizor,20,stat_points,1,,27.2%,,,32,32,2,0,0,0
-Scizor,20,stat_points,2,,25.2%,,,32,2,32,0,0,0
-Scizor,20,stat_points,3,,16.5%,,,32,32,0,0,2,0
-Scizor,20,stat_points,4,,7.8%,,,32,13,21,0,0,0
-Scizor,20,stat_points,5,,6.8%,,,31,3,32,0,0,0
-Scizor,20,stat_points,6,,6.8%,,,32,0,32,0,2,0
-Scizor,20,stat_points,7,,3.9%,,,32,1,32,0,1,0
-Scizor,20,stat_points,8,,1.9%,,,32,0,22,0,12,0
-Scizor,20,stat_points,9,,1.9%,,,32,0,30,0,4,0
-Scizor,20,stat_points,10,,1.0%,,,26,32,0,0,0,8
-Scizor,20,ability,1,Technician,100.0%,,,,,,,,
+Scizor,44,move,1,Bullet Punch,97.3%,,,,,,,,
+Scizor,44,move,2,U-turn,72.4%,,,,,,,,
+Scizor,44,move,3,Roost,60.5%,,,,,,,,
+Scizor,44,move,4,Knock Off,39.8%,,,,,,,,
+Scizor,44,move,5,Swords Dance,37.3%,,,,,,,,
+Scizor,44,move,6,Close Combat,31.6%,,,,,,,,
+Scizor,44,move,7,Defog,17.5%,,,,,,,,
+Scizor,44,move,8,Curse,16.3%,,,,,,,,
+Scizor,44,move,9,Dual Wingbeat,6.2%,,,,,,,,
+Scizor,44,move,10,Brick Break,3.5%,,,,,,,,
+Scizor,44,held_item,1,Rocky Helmet,53.1%,,,,,,,,
+Scizor,44,held_item,2,Scizorite,18.1%,,,,,,,,
+Scizor,44,held_item,3,Life Orb,9.9%,,,,,,,,
+Scizor,44,held_item,4,Sitrus Berry,9.4%,,,,,,,,
+Scizor,44,held_item,5,Metal Coat,8.3%,,,,,,,,
+Scizor,44,held_item,6,Leftovers,0.8%,,,,,,,,
+Scizor,44,held_item,7,Lum Berry,0.2%,,,,,,,,
+Scizor,44,held_item,8,Expert Belt,0.1%,,,,,,,,
+Scizor,44,held_item,9,Focus Sash,0.1%,,,,,,,,
+Scizor,44,held_item,10,Scope Lens,0.0%,,,,,,,,
+Scizor,44,teammate,1,Garchomp,,,,,,,,,
+Scizor,44,teammate,2,Primarina,,,,,,,,,
+Scizor,44,teammate,3,Charizard,,,,,,,,,
+Scizor,44,teammate,4,Mimikyu,,,,,,,,,
+Scizor,44,teammate,5,Glimmora,,,,,,,,,
+Scizor,44,teammate,6,Dragonite,,,,,,,,,
+Scizor,44,teammate,7,Hippowdon,,,,,,,,,
+Scizor,44,teammate,8,Salamence,,,,,,,,,
+Scizor,44,teammate,9,Archaludon,,,,,,,,,
+Scizor,44,teammate,10,Umbreon,,,,,,,,,
+Scizor,44,stat_alignment,1,Adamant,39.9%,Attack,Sp. Atk,,,,,,
+Scizor,44,stat_alignment,2,Relaxed,30.0%,Defense,Speed,,,,,,
+Scizor,44,stat_alignment,3,Impish,17.7%,Defense,Sp. Atk,,,,,,
+Scizor,44,stat_alignment,4,Brave,10.9%,Attack,Speed,,,,,,
+Scizor,44,stat_alignment,5,Bold,1.1%,Defense,Attack,,,,,,
+Scizor,44,stat_alignment,6,Hasty,0.1%,Speed,Defense,,,,,,
+Scizor,44,stat_alignment,7,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Scizor,44,stat_alignment,8,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Scizor,44,stat_alignment,9,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Scizor,44,stat_points,1,,26.1%,,,32,2,32,0,0,0
+Scizor,44,stat_points,2,,12.7%,,,32,1,32,0,1,0
+Scizor,44,stat_points,3,,11.4%,,,32,32,2,0,0,0
+Scizor,44,stat_points,4,,6.9%,,,32,0,32,0,2,0
+Scizor,44,stat_points,5,,6.7%,,,31,3,32,0,0,0
+Scizor,44,stat_points,6,,3.2%,,,32,32,0,0,0,0
+Scizor,44,stat_points,7,,2.9%,,,32,0,32,0,0,2
+Scizor,44,stat_points,8,,2.5%,,,2,32,0,0,0,32
+Scizor,44,stat_points,9,,2.5%,,,32,0,30,0,4,0
+Scizor,44,stat_points,10,,2.1%,,,32,32,0,0,0,2
+Scizor,44,ability,1,Technician,98.9%,,,,,,,,
+Scizor,44,ability,2,Swarm,1.0%,,,,,,,,
+Scizor,44,ability,3,Light Metal,0.1%,,,,,,,,

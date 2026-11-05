@@ -1,14 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aegislash,48,move,1,Shadow Sneak,100.0%,,,,,,,,
-Aegislash,48,move,2,Psycho Cut,100.0%,,,,,,,,
-Aegislash,48,move,3,Iron Head,100.0%,,,,,,,,
-Aegislash,48,move,4,King's Shield,100.0%,,,,,,,,
-Aegislash,48,held_item,1,Occa Berry,100.0%,,,,,,,,
-Aegislash,48,teammate,1,Garchomp,,,,,,,,,
-Aegislash,48,teammate,2,Floette-Eternal,,,,,,,,,
-Aegislash,48,teammate,3,Incineroar,,,,,,,,,
-Aegislash,48,teammate,4,Rillaboom,,,,,,,,,
-Aegislash,48,teammate,5,Sneasler,,,,,,,,,
-Aegislash,48,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
-Aegislash,48,stat_points,1,,100.0%,,,23,32,0,0,0,11
-Aegislash,48,ability,1,Stance Change,100.0%,,,,,,,,
+Aegislash,63,move,1,Shadow Sneak,82.3%,,,,,,,,
+Aegislash,63,move,2,Poltergeist,75.0%,,,,,,,,
+Aegislash,63,move,3,King's Shield,62.2%,,,,,,,,
+Aegislash,63,move,4,Iron Head,48.8%,,,,,,,,
+Aegislash,63,move,5,Close Combat,46.3%,,,,,,,,
+Aegislash,63,move,6,Rock Slide,36.0%,,,,,,,,
+Aegislash,63,move,7,Psycho Cut,24.4%,,,,,,,,
+Aegislash,63,move,8,Wide Guard,18.9%,,,,,,,,
+Aegislash,63,move,9,Sacred Sword,5.5%,,,,,,,,
+Aegislash,63,move,10,Swords Dance,0.6%,,,,,,,,
+Aegislash,63,held_item,1,Focus Sash,46.3%,,,,,,,,
+Aegislash,63,held_item,2,Occa Berry,28.7%,,,,,,,,
+Aegislash,63,held_item,3,Leftovers,15.9%,,,,,,,,
+Aegislash,63,held_item,4,Spell Tag,4.3%,,,,,,,,
+Aegislash,63,held_item,5,Sitrus Berry,3.0%,,,,,,,,
+Aegislash,63,held_item,6,Kasib Berry,0.6%,,,,,,,,
+Aegislash,63,held_item,7,Mental Herb,0.6%,,,,,,,,
+Aegislash,63,held_item,8,Air Balloon,0.6%,,,,,,,,
+Aegislash,63,teammate,1,Incineroar,,,,,,,,,
+Aegislash,63,teammate,2,Garchomp,,,,,,,,,
+Aegislash,63,teammate,3,Golisopod,,,,,,,,,
+Aegislash,63,teammate,4,Vanilluxe,,,,,,,,,
+Aegislash,63,teammate,5,Kommo-o,,,,,,,,,
+Aegislash,63,teammate,6,Inteleon,,,,,,,,,
+Aegislash,63,teammate,7,Scovillain,,,,,,,,,
+Aegislash,63,teammate,8,Sneasler,,,,,,,,,
+Aegislash,63,teammate,9,Rillaboom,,,,,,,,,
+Aegislash,63,teammate,10,Floette-Eternal,,,,,,,,,
+Aegislash,63,stat_alignment,1,Adamant,99.4%,Attack,Sp. Atk,,,,,,
+Aegislash,63,stat_alignment,2,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
+Aegislash,63,stat_points,1,,36.0%,,,1,32,0,0,1,32
+Aegislash,63,stat_points,2,,28.7%,,,23,32,0,0,0,11
+Aegislash,63,stat_points,3,,18.9%,,,32,32,0,0,2,0
+Aegislash,63,stat_points,4,,7.9%,,,18,22,1,0,0,25
+Aegislash,63,stat_points,5,,3.0%,,,0,32,2,0,32,0
+Aegislash,63,stat_points,6,,1.8%,,,18,20,2,0,1,25
+Aegislash,63,stat_points,7,,0.6%,,,2,32,0,0,0,32
+Aegislash,63,stat_points,8,,0.6%,,,22,21,0,0,0,23
+Aegislash,63,stat_points,9,,0.6%,,,27,32,0,0,0,7
+Aegislash,63,stat_points,10,,0.6%,,,32,0,0,0,32,0
+Aegislash,63,ability,1,Stance Change,100.0%,,,,,,,,

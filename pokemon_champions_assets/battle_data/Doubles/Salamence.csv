@@ -1,38 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Salamence,18,move,1,Protect,96.0%,,,,,,,,
-Salamence,18,move,2,Hyper Voice,92.0%,,,,,,,,
-Salamence,18,move,3,Draco Meteor,84.0%,,,,,,,,
-Salamence,18,move,4,Flamethrower,54.0%,,,,,,,,
-Salamence,18,move,5,Tailwind,46.0%,,,,,,,,
-Salamence,18,move,6,Heat Wave,8.0%,,,,,,,,
-Salamence,18,move,7,Double-Edge,6.0%,,,,,,,,
-Salamence,18,move,8,Hurricane,4.0%,,,,,,,,
-Salamence,18,move,9,Hyper Beam,4.0%,,,,,,,,
-Salamence,18,move,10,Fire Blast,2.0%,,,,,,,,
-Salamence,18,held_item,1,Salamencite,94.0%,,,,,,,,
-Salamence,18,held_item,2,Life Orb,4.0%,,,,,,,,
-Salamence,18,held_item,3,Choice Scarf,2.0%,,,,,,,,
-Salamence,18,teammate,1,Sneasler,,,,,,,,,
-Salamence,18,teammate,2,Tyranitar,,,,,,,,,
-Salamence,18,teammate,3,Excadrill,,,,,,,,,
-Salamence,18,teammate,4,Rillaboom,,,,,,,,,
-Salamence,18,teammate,5,Rotom-Wash,,,,,,,,,
-Salamence,18,teammate,6,Primarina,,,,,,,,,
-Salamence,18,teammate,7,Corviknight,,,,,,,,,
-Salamence,18,teammate,8,Glimmora,,,,,,,,,
-Salamence,18,teammate,9,Sinistcha,,,,,,,,,
-Salamence,18,teammate,10,Golisopod,,,,,,,,,
-Salamence,18,stat_alignment,1,Timid,64.0%,Speed,Attack,,,,,,
-Salamence,18,stat_alignment,2,Modest,30.0%,Sp. Atk,Attack,,,,,,
-Salamence,18,stat_alignment,3,Hasty,6.0%,Speed,Defense,,,,,,
-Salamence,18,stat_points,1,,34.0%,,,1,0,0,32,1,32
-Salamence,18,stat_points,2,,26.0%,,,2,0,0,32,0,32
-Salamence,18,stat_points,3,,12.0%,,,17,0,3,10,18,18
-Salamence,18,stat_points,4,,10.0%,,,13,0,0,15,20,18
-Salamence,18,stat_points,5,,4.0%,,,0,0,0,32,0,32
-Salamence,18,stat_points,6,,4.0%,,,1,0,0,24,9,32
-Salamence,18,stat_points,7,,4.0%,,,15,0,0,0,28,23
-Salamence,18,stat_points,8,,2.0%,,,1,0,1,31,1,32
-Salamence,18,stat_points,9,,2.0%,,,19,0,0,0,15,32
-Salamence,18,stat_points,10,,2.0%,,,20,0,0,30,3,13
-Salamence,18,ability,1,Intimidate,100.0%,,,,,,,,
+Salamence,20,move,1,Protect,96.6%,,,,,,,,
+Salamence,20,move,2,Hyper Voice,92.1%,,,,,,,,
+Salamence,20,move,3,Draco Meteor,61.8%,,,,,,,,
+Salamence,20,move,4,Tailwind,58.6%,,,,,,,,
+Salamence,20,move,5,Flamethrower,45.3%,,,,,,,,
+Salamence,20,move,6,Double-Edge,19.3%,,,,,,,,
+Salamence,20,move,7,Fire Blast,5.9%,,,,,,,,
+Salamence,20,move,8,Hyper Beam,3.2%,,,,,,,,
+Salamence,20,move,9,Heat Wave,3.1%,,,,,,,,
+Salamence,20,move,10,Hurricane,2.9%,,,,,,,,
+Salamence,20,held_item,1,Salamencite,95.4%,,,,,,,,
+Salamence,20,held_item,2,Life Orb,2.1%,,,,,,,,
+Salamence,20,held_item,3,Choice Scarf,1.1%,,,,,,,,
+Salamence,20,held_item,4,Wide Lens,0.9%,,,,,,,,
+Salamence,20,held_item,5,Haban Berry,0.4%,,,,,,,,
+Salamence,20,held_item,6,Rocky Helmet,0.2%,,,,,,,,
+Salamence,20,held_item,7,Sitrus Berry,0.1%,,,,,,,,
+Salamence,20,teammate,1,Sneasler,,,,,,,,,
+Salamence,20,teammate,2,Kingambit,,,,,,,,,
+Salamence,20,teammate,3,Basculegion,,,,,,,,,
+Salamence,20,teammate,4,Rillaboom,,,,,,,,,
+Salamence,20,teammate,5,Charizard,,,,,,,,,
+Salamence,20,teammate,6,Tyranitar,,,,,,,,,
+Salamence,20,teammate,7,Whimsicott,,,,,,,,,
+Salamence,20,teammate,8,Excadrill,,,,,,,,,
+Salamence,20,teammate,9,Sylveon,,,,,,,,,
+Salamence,20,teammate,10,Indeedee-F,,,,,,,,,
+Salamence,20,stat_alignment,1,Modest,41.6%,Sp. Atk,Attack,,,,,,
+Salamence,20,stat_alignment,2,Timid,37.9%,Speed,Attack,,,,,,
+Salamence,20,stat_alignment,3,Hasty,14.6%,Speed,Defense,,,,,,
+Salamence,20,stat_alignment,4,Naive,2.6%,Speed,Sp. Def,,,,,,
+Salamence,20,stat_alignment,5,Jolly,2.2%,Speed,Sp. Atk,,,,,,
+Salamence,20,stat_alignment,6,Adamant,0.9%,Attack,Sp. Atk,,,,,,
+Salamence,20,stat_alignment,7,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Salamence,20,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Salamence,20,stat_alignment,9,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Salamence,20,stat_points,1,,31.8%,,,2,0,0,32,0,32
+Salamence,20,stat_points,2,,7.6%,,,1,0,0,24,9,32
+Salamence,20,stat_points,3,,6.1%,,,1,0,0,32,1,32
+Salamence,20,stat_points,4,,4.7%,,,15,0,0,0,31,20
+Salamence,20,stat_points,5,,3.6%,,,0,0,0,32,0,32
+Salamence,20,stat_points,6,,3.6%,,,5,0,0,20,9,32
+Salamence,20,stat_points,7,,2.6%,,,13,0,0,15,20,18
+Salamence,20,stat_points,8,,2.4%,,,17,0,3,10,18,18
+Salamence,20,stat_points,9,,2.2%,,,13,1,0,0,28,24
+Salamence,20,stat_points,10,,2.1%,,,1,0,1,32,0,32
+Salamence,20,ability,1,Intimidate,99.2%,,,,,,,,
+Salamence,20,ability,2,Moxie,0.8%,,,,,,,,

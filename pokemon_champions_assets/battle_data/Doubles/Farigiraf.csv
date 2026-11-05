@@ -1,41 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Farigiraf,8,move,1,Trick Room,100.0%,,,,,,,,
-Farigiraf,8,move,2,Psychic,67.9%,,,,,,,,
-Farigiraf,8,move,3,Helping Hand,62.8%,,,,,,,,
-Farigiraf,8,move,4,Imprison,37.2%,,,,,,,,
-Farigiraf,8,move,5,Expanding Force,30.8%,,,,,,,,
-Farigiraf,8,move,6,Hyper Voice,29.5%,,,,,,,,
-Farigiraf,8,move,7,Thunderbolt,25.6%,,,,,,,,
-Farigiraf,8,move,8,Roar,16.7%,,,,,,,,
-Farigiraf,8,move,9,Rain Dance,11.5%,,,,,,,,
-Farigiraf,8,move,10,Protect,10.3%,,,,,,,,
-Farigiraf,8,held_item,1,Sitrus Berry,70.5%,,,,,,,,
-Farigiraf,8,held_item,2,Colbur Berry,24.4%,,,,,,,,
-Farigiraf,8,held_item,3,Grassy Seed,3.8%,,,,,,,,
-Farigiraf,8,held_item,4,Mental Herb,1.3%,,,,,,,,
-Farigiraf,8,teammate,1,Garchomp,,,,,,,,,
-Farigiraf,8,teammate,2,Kingambit,,,,,,,,,
-Farigiraf,8,teammate,3,Charizard,,,,,,,,,
-Farigiraf,8,teammate,4,Whimsicott,,,,,,,,,
-Farigiraf,8,teammate,5,Raichu,,,,,,,,,
-Farigiraf,8,teammate,6,Staraptor,,,,,,,,,
-Farigiraf,8,teammate,7,Sylveon,,,,,,,,,
-Farigiraf,8,teammate,8,Rillaboom,,,,,,,,,
-Farigiraf,8,teammate,9,Tyranitar,,,,,,,,,
-Farigiraf,8,teammate,10,Incineroar,,,,,,,,,
-Farigiraf,8,stat_alignment,1,Relaxed,39.7%,Defense,Speed,,,,,,
-Farigiraf,8,stat_alignment,2,Modest,32.1%,Sp. Atk,Attack,,,,,,
-Farigiraf,8,stat_alignment,3,Bold,25.6%,Defense,Attack,,,,,,
-Farigiraf,8,stat_alignment,4,Quiet,1.3%,Sp. Atk,Speed,,,,,,
-Farigiraf,8,stat_alignment,5,Sassy,1.3%,Sp. Def,Speed,,,,,,
-Farigiraf,8,stat_points,1,,24.4%,,,0,0,20,12,12,22
-Farigiraf,8,stat_points,2,,16.7%,,,22,0,32,0,12,0
-Farigiraf,8,stat_points,3,,11.5%,,,29,0,20,0,17,0
-Farigiraf,8,stat_points,4,,9.0%,,,31,0,20,0,15,0
-Farigiraf,8,stat_points,5,,7.7%,,,15,0,32,0,19,0
-Farigiraf,8,stat_points,6,,7.7%,,,26,0,1,32,0,7
-Farigiraf,8,stat_points,7,,6.4%,,,31,0,22,0,13,0
-Farigiraf,8,stat_points,8,,6.4%,,,32,0,32,2,0,0
-Farigiraf,8,stat_points,9,,3.8%,,,31,0,0,24,11,0
-Farigiraf,8,stat_points,10,,1.3%,,,18,0,30,0,18,0
-Farigiraf,8,ability,1,Armor Tail,100.0%,,,,,,,,
+Farigiraf,13,move,1,Trick Room,94.4%,,,,,,,,
+Farigiraf,13,move,2,Psychic,54.2%,,,,,,,,
+Farigiraf,13,move,3,Helping Hand,51.4%,,,,,,,,
+Farigiraf,13,move,4,Protect,49.5%,,,,,,,,
+Farigiraf,13,move,5,Thunderbolt,34.9%,,,,,,,,
+Farigiraf,13,move,6,Expanding Force,26.9%,,,,,,,,
+Farigiraf,13,move,7,Hyper Voice,18.8%,,,,,,,,
+Farigiraf,13,move,8,Imprison,17.5%,,,,,,,,
+Farigiraf,13,move,9,Twin Beam,10.0%,,,,,,,,
+Farigiraf,13,move,10,Roar,7.4%,,,,,,,,
+Farigiraf,13,held_item,1,Sitrus Berry,80.6%,,,,,,,,
+Farigiraf,13,held_item,2,Colbur Berry,8.2%,,,,,,,,
+Farigiraf,13,held_item,3,Focus Sash,2.3%,,,,,,,,
+Farigiraf,13,held_item,4,Mental Herb,2.0%,,,,,,,,
+Farigiraf,13,held_item,5,Twisted Spoon,1.6%,,,,,,,,
+Farigiraf,13,held_item,6,Grassy Seed,1.4%,,,,,,,,
+Farigiraf,13,held_item,7,Psychic Seed,1.3%,,,,,,,,
+Farigiraf,13,held_item,8,Rocky Helmet,0.9%,,,,,,,,
+Farigiraf,13,held_item,9,Leftovers,0.8%,,,,,,,,
+Farigiraf,13,held_item,10,Wise Glasses,0.3%,,,,,,,,
+Farigiraf,13,teammate,1,Garchomp,,,,,,,,,
+Farigiraf,13,teammate,2,Charizard,,,,,,,,,
+Farigiraf,13,teammate,3,Sylveon,,,,,,,,,
+Farigiraf,13,teammate,4,Kingambit,,,,,,,,,
+Farigiraf,13,teammate,5,Rillaboom,,,,,,,,,
+Farigiraf,13,teammate,6,Incineroar,,,,,,,,,
+Farigiraf,13,teammate,7,Raichu,,,,,,,,,
+Farigiraf,13,teammate,8,Camerupt,,,,,,,,,
+Farigiraf,13,teammate,9,Golisopod,,,,,,,,,
+Farigiraf,13,teammate,10,Archaludon,,,,,,,,,
+Farigiraf,13,stat_alignment,1,Bold,45.2%,Defense,Attack,,,,,,
+Farigiraf,13,stat_alignment,2,Relaxed,14.8%,Defense,Speed,,,,,,
+Farigiraf,13,stat_alignment,3,Quiet,13.7%,Sp. Atk,Speed,,,,,,
+Farigiraf,13,stat_alignment,4,Modest,9.6%,Sp. Atk,Attack,,,,,,
+Farigiraf,13,stat_alignment,5,Sassy,8.3%,Sp. Def,Speed,,,,,,
+Farigiraf,13,stat_alignment,6,Calm,7.1%,Sp. Def,Attack,,,,,,
+Farigiraf,13,stat_alignment,7,Timid,1.1%,Speed,Attack,,,,,,
+Farigiraf,13,stat_alignment,8,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Farigiraf,13,stat_alignment,9,Impish,0.0%,Defense,Sp. Atk,,,,,,
+Farigiraf,13,stat_points,1,,6.8%,,,27,0,20,0,19,0
+Farigiraf,13,stat_points,2,,4.9%,,,32,0,12,0,22,0
+Farigiraf,13,stat_points,3,,3.6%,,,29,0,20,0,17,0
+Farigiraf,13,stat_points,4,,3.6%,,,32,0,20,0,14,0
+Farigiraf,13,stat_points,5,,2.9%,,,32,0,9,0,25,0
+Farigiraf,13,stat_points,6,,2.8%,,,32,0,21,0,11,2
+Farigiraf,13,stat_points,7,,2.6%,,,32,0,14,0,20,0
+Farigiraf,13,stat_points,8,,2.4%,,,31,0,22,0,13,0
+Farigiraf,13,stat_points,9,,2.3%,,,31,0,11,0,24,0
+Farigiraf,13,stat_points,10,,2.3%,,,32,0,2,32,0,0
+Farigiraf,13,ability,1,Armor Tail,99.1%,,,,,,,,
+Farigiraf,13,ability,2,Sap Sipper,0.7%,,,,,,,,
+Farigiraf,13,ability,3,Cud Chew,0.2%,,,,,,,,

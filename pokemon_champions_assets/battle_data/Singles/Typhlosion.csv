@@ -1,14 +1,37 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Typhlosion,113,move,1,Endeavor,100.0%,,,,,,,,
-Typhlosion,113,move,2,Rock Tomb,100.0%,,,,,,,,
-Typhlosion,113,move,3,Burn Up,100.0%,,,,,,,,
-Typhlosion,113,move,4,Scorching Sands,100.0%,,,,,,,,
-Typhlosion,113,held_item,1,Focus Sash,100.0%,,,,,,,,
-Typhlosion,113,teammate,1,Clefable,,,,,,,,,
-Typhlosion,113,teammate,2,Samurott-Hisui,,,,,,,,,
-Typhlosion,113,teammate,3,Corviknight,,,,,,,,,
-Typhlosion,113,teammate,4,Sneasler,,,,,,,,,
-Typhlosion,113,teammate,5,Baxcalibur,,,,,,,,,
-Typhlosion,113,stat_alignment,1,Modest,100.0%,Sp. Atk,Attack,,,,,,
-Typhlosion,113,stat_points,1,,100.0%,,,0,2,0,32,0,32
-Typhlosion,113,ability,1,Flash Fire,100.0%,,,,,,,,
+Typhlosion,148,move,1,Scorching Sands,80.0%,,,,,,,,
+Typhlosion,148,move,2,Eruption,55.7%,,,,,,,,
+Typhlosion,148,move,3,Will-O-Wisp,50.0%,,,,,,,,
+Typhlosion,148,move,4,Endeavor,44.3%,,,,,,,,
+Typhlosion,148,move,5,Overheat,37.1%,,,,,,,,
+Typhlosion,148,move,6,Burn Up,31.4%,,,,,,,,
+Typhlosion,148,move,7,Rock Tomb,28.6%,,,,,,,,
+Typhlosion,148,move,8,Shadow Ball,17.1%,,,,,,,,
+Typhlosion,148,move,9,Flare Blitz,15.7%,,,,,,,,
+Typhlosion,148,move,10,Wild Charge,15.7%,,,,,,,,
+Typhlosion,148,held_item,1,Choice Scarf,55.7%,,,,,,,,
+Typhlosion,148,held_item,2,Focus Sash,28.6%,,,,,,,,
+Typhlosion,148,held_item,3,Focus Band,15.7%,,,,,,,,
+Typhlosion,148,teammate,1,Lucario,,,,,,,,,
+Typhlosion,148,teammate,2,Dragonite,,,,,,,,,
+Typhlosion,148,teammate,3,Baxcalibur,,,,,,,,,
+Typhlosion,148,teammate,4,Glimmora,,,,,,,,,
+Typhlosion,148,teammate,5,Hippowdon,,,,,,,,,
+Typhlosion,148,teammate,6,Decidueye,,,,,,,,,
+Typhlosion,148,teammate,7,Clefable,,,,,,,,,
+Typhlosion,148,teammate,8,Samurott-Hisui,,,,,,,,,
+Typhlosion,148,teammate,9,Corviknight,,,,,,,,,
+Typhlosion,148,teammate,10,Sneasler,,,,,,,,,
+Typhlosion,148,stat_alignment,1,Modest,47.1%,Sp. Atk,Attack,,,,,,
+Typhlosion,148,stat_alignment,2,Mild,34.3%,Sp. Atk,Defense,,,,,,
+Typhlosion,148,stat_alignment,3,Adamant,15.7%,Attack,Sp. Atk,,,,,,
+Typhlosion,148,stat_alignment,4,Timid,2.9%,Speed,Attack,,,,,,
+Typhlosion,148,stat_points,1,,34.3%,,,0,0,0,32,0,32
+Typhlosion,148,stat_points,2,,18.6%,,,0,2,0,32,0,32
+Typhlosion,148,stat_points,3,,15.7%,,,2,0,0,32,0,32
+Typhlosion,148,stat_points,4,,15.7%,,,2,32,0,0,0,32
+Typhlosion,148,stat_points,5,,10.0%,,,0,0,0,32,2,32
+Typhlosion,148,stat_points,6,,2.9%,,,0,0,2,32,0,32
+Typhlosion,148,stat_points,7,,2.9%,,,0,0,14,32,0,20
+Typhlosion,148,ability,1,Flash Fire,84.3%,,,,,,,,
+Typhlosion,148,ability,2,Blaze,15.7%,,,,,,,,

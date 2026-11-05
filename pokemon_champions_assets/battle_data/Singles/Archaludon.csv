@@ -1,51 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Archaludon,5,move,1,Thunderbolt,81.4%,,,,,,,,
-Archaludon,5,move,2,Draco Meteor,74.4%,,,,,,,,
-Archaludon,5,move,3,Flash Cannon,67.0%,,,,,,,,
-Archaludon,5,move,4,Stealth Rock,43.3%,,,,,,,,
-Archaludon,5,move,5,Dark Pulse,21.2%,,,,,,,,
-Archaludon,5,move,6,Dragon Pulse,20.2%,,,,,,,,
-Archaludon,5,move,7,Aura Sphere,16.7%,,,,,,,,
-Archaludon,5,move,8,Dragon Tail,16.3%,,,,,,,,
-Archaludon,5,move,9,Foul Play,10.3%,,,,,,,,
-Archaludon,5,move,10,Roar,9.6%,,,,,,,,
-Archaludon,5,held_item,1,Sitrus Berry,46.5%,,,,,,,,
-Archaludon,5,held_item,2,White Herb,14.1%,,,,,,,,
-Archaludon,5,held_item,3,Air Balloon,10.9%,,,,,,,,
-Archaludon,5,held_item,4,Scope Lens,9.3%,,,,,,,,
-Archaludon,5,held_item,5,Shuca Berry,4.8%,,,,,,,,
-Archaludon,5,held_item,6,Leftovers,4.2%,,,,,,,,
-Archaludon,5,held_item,7,Red Card,2.6%,,,,,,,,
-Archaludon,5,held_item,8,Expert Belt,2.2%,,,,,,,,
-Archaludon,5,held_item,9,Dragon Fang,1.9%,,,,,,,,
-Archaludon,5,held_item,10,Wide Lens,1.3%,,,,,,,,
-Archaludon,5,teammate,1,Garchomp,,,,,,,,,
-Archaludon,5,teammate,2,Primarina,,,,,,,,,
-Archaludon,5,teammate,3,Hippowdon,,,,,,,,,
-Archaludon,5,teammate,4,Basculegion,,,,,,,,,
-Archaludon,5,teammate,5,Mimikyu,,,,,,,,,
-Archaludon,5,teammate,6,Charizard,,,,,,,,,
-Archaludon,5,teammate,7,Lucario,,,,,,,,,
-Archaludon,5,teammate,8,Starmie,,,,,,,,,
-Archaludon,5,teammate,9,Metagross,,,,,,,,,
-Archaludon,5,teammate,10,Golisopod,,,,,,,,,
-Archaludon,5,stat_alignment,1,Modest,61.9%,Sp. Atk,Attack,,,,,,
-Archaludon,5,stat_alignment,2,Bold,16.0%,Defense,Attack,,,,,,
-Archaludon,5,stat_alignment,3,Timid,8.3%,Speed,Attack,,,,,,
-Archaludon,5,stat_alignment,4,Calm,6.7%,Sp. Def,Attack,,,,,,
-Archaludon,5,stat_alignment,5,Rash,3.2%,Sp. Atk,Sp. Def,,,,,,
-Archaludon,5,stat_alignment,6,Relaxed,2.2%,Defense,Speed,,,,,,
-Archaludon,5,stat_alignment,7,Quiet,1.3%,Sp. Atk,Speed,,,,,,
-Archaludon,5,stat_alignment,8,Impish,0.3%,Defense,Sp. Atk,,,,,,
-Archaludon,5,stat_points,1,,26.3%,,,2,0,0,32,0,32
-Archaludon,5,stat_points,2,,9.6%,,,32,0,19,7,0,8
-Archaludon,5,stat_points,3,,7.4%,,,28,0,0,25,0,13
-Archaludon,5,stat_points,4,,6.4%,,,32,0,2,0,32,0
-Archaludon,5,stat_points,5,,4.5%,,,23,0,0,32,0,11
-Archaludon,5,stat_points,6,,4.5%,,,32,0,11,0,15,8
-Archaludon,5,stat_points,7,,4.2%,,,32,0,15,10,0,9
-Archaludon,5,stat_points,8,,3.5%,,,26,0,0,32,0,8
-Archaludon,5,stat_points,9,,3.2%,,,0,0,0,32,2,32
-Archaludon,5,stat_points,10,,3.2%,,,32,0,0,0,32,2
-Archaludon,5,ability,1,Stamina,65.4%,,,,,,,,
-Archaludon,5,ability,2,Sturdy,34.6%,,,,,,,,
+Archaludon,4,move,1,Flash Cannon,72.1%,,,,,,,,
+Archaludon,4,move,2,Draco Meteor,69.4%,,,,,,,,
+Archaludon,4,move,3,Thunderbolt,68.0%,,,,,,,,
+Archaludon,4,move,4,Stealth Rock,38.0%,,,,,,,,
+Archaludon,4,move,5,Dark Pulse,26.4%,,,,,,,,
+Archaludon,4,move,6,Dragon Pulse,20.3%,,,,,,,,
+Archaludon,4,move,7,Aura Sphere,16.1%,,,,,,,,
+Archaludon,4,move,8,Electro Shot,16.1%,,,,,,,,
+Archaludon,4,move,9,Dragon Tail,14.4%,,,,,,,,
+Archaludon,4,move,10,Steel Beam,14.2%,,,,,,,,
+Archaludon,4,held_item,1,Sitrus Berry,23.8%,,,,,,,,
+Archaludon,4,held_item,2,Leftovers,12.5%,,,,,,,,
+Archaludon,4,held_item,3,White Herb,10.9%,,,,,,,,
+Archaludon,4,held_item,4,Air Balloon,10.6%,,,,,,,,
+Archaludon,4,held_item,5,Expert Belt,9.2%,,,,,,,,
+Archaludon,4,held_item,6,Choice Scarf,8.0%,,,,,,,,
+Archaludon,4,held_item,7,Scope Lens,7.9%,,,,,,,,
+Archaludon,4,held_item,8,Red Card,6.6%,,,,,,,,
+Archaludon,4,held_item,9,Dragon Fang,3.2%,,,,,,,,
+Archaludon,4,held_item,10,Wide Lens,2.4%,,,,,,,,
+Archaludon,4,teammate,1,Garchomp,,,,,,,,,
+Archaludon,4,teammate,2,Primarina,,,,,,,,,
+Archaludon,4,teammate,3,Mimikyu,,,,,,,,,
+Archaludon,4,teammate,4,Lucario,,,,,,,,,
+Archaludon,4,teammate,5,Charizard,,,,,,,,,
+Archaludon,4,teammate,6,Basculegion,,,,,,,,,
+Archaludon,4,teammate,7,Golisopod,,,,,,,,,
+Archaludon,4,teammate,8,Hippowdon,,,,,,,,,
+Archaludon,4,teammate,9,Rillaboom,,,,,,,,,
+Archaludon,4,teammate,10,Dragonite,,,,,,,,,
+Archaludon,4,stat_alignment,1,Modest,51.8%,Sp. Atk,Attack,,,,,,
+Archaludon,4,stat_alignment,2,Timid,18.0%,Speed,Attack,,,,,,
+Archaludon,4,stat_alignment,3,Bold,15.8%,Defense,Attack,,,,,,
+Archaludon,4,stat_alignment,4,Calm,9.8%,Sp. Def,Attack,,,,,,
+Archaludon,4,stat_alignment,5,Relaxed,1.1%,Defense,Speed,,,,,,
+Archaludon,4,stat_alignment,6,Quiet,0.9%,Sp. Atk,Speed,,,,,,
+Archaludon,4,stat_alignment,7,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Archaludon,4,stat_alignment,8,Rash,0.5%,Sp. Atk,Sp. Def,,,,,,
+Archaludon,4,stat_alignment,9,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
+Archaludon,4,stat_alignment,10,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Archaludon,4,stat_points,1,,27.1%,,,2,0,0,32,0,32
+Archaludon,4,stat_points,2,,7.5%,,,30,0,0,25,1,10
+Archaludon,4,stat_points,3,,3.8%,,,32,0,2,0,32,0
+Archaludon,4,stat_points,4,,3.6%,,,0,0,0,32,2,32
+Archaludon,4,stat_points,5,,2.2%,,,32,0,0,25,1,8
+Archaludon,4,stat_points,6,,2.0%,,,0,0,0,32,0,32
+Archaludon,4,stat_points,7,,1.9%,,,0,0,2,32,0,32
+Archaludon,4,stat_points,8,,1.9%,,,32,0,0,0,32,2
+Archaludon,4,stat_points,9,,1.5%,,,32,0,32,2,0,0
+Archaludon,4,stat_points,10,,1.4%,,,26,0,0,32,0,8
+Archaludon,4,ability,1,Stamina,61.6%,,,,,,,,
+Archaludon,4,ability,2,Sturdy,38.4%,,,,,,,,

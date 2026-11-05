@@ -1,24 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gallade,56,move,1,Sacred Sword,100.0%,,,,,,,,
-Gallade,56,move,2,Destiny Bond,80.6%,,,,,,,,
-Gallade,56,move,3,Leaf Blade,80.6%,,,,,,,,
-Gallade,56,move,4,Triple Axel,80.6%,,,,,,,,
-Gallade,56,move,5,Shadow Claw,19.4%,,,,,,,,
-Gallade,56,move,6,Shadow Sneak,19.4%,,,,,,,,
-Gallade,56,move,7,Psycho Cut,19.4%,,,,,,,,
-Gallade,56,held_item,1,Galladite,80.6%,,,,,,,,
-Gallade,56,held_item,2,Focus Sash,19.4%,,,,,,,,
-Gallade,56,teammate,1,Banette,,,,,,,,,
-Gallade,56,teammate,2,Indeedee,,,,,,,,,
-Gallade,56,teammate,3,Basculegion,,,,,,,,,
-Gallade,56,teammate,4,Mimikyu,,,,,,,,,
-Gallade,56,teammate,5,Pawmot,,,,,,,,,
-Gallade,56,teammate,6,Clefable,,,,,,,,,
-Gallade,56,teammate,7,Absol,,,,,,,,,
-Gallade,56,teammate,8,Empoleon,,,,,,,,,
-Gallade,56,teammate,9,Hippowdon,,,,,,,,,
-Gallade,56,teammate,10,Archaludon,,,,,,,,,
-Gallade,56,stat_alignment,1,Jolly,80.6%,Speed,Sp. Atk,,,,,,
-Gallade,56,stat_alignment,2,Adamant,19.4%,Attack,Sp. Atk,,,,,,
-Gallade,56,stat_points,1,,100.0%,,,2,32,0,0,0,32
-Gallade,56,ability,1,Sharpness,100.0%,,,,,,,,
+Gallade,72,move,1,Sacred Sword,92.0%,,,,,,,,
+Gallade,72,move,2,Leaf Blade,73.6%,,,,,,,,
+Gallade,72,move,3,Triple Axel,54.7%,,,,,,,,
+Gallade,72,move,4,Psycho Cut,53.1%,,,,,,,,
+Gallade,72,move,5,Shadow Sneak,45.7%,,,,,,,,
+Gallade,72,move,6,Destiny Bond,35.9%,,,,,,,,
+Gallade,72,move,7,Night Slash,8.5%,,,,,,,,
+Gallade,72,move,8,Shadow Claw,7.8%,,,,,,,,
+Gallade,72,move,9,Close Combat,7.5%,,,,,,,,
+Gallade,72,move,10,Zen Headbutt,4.8%,,,,,,,,
+Gallade,72,held_item,1,Galladite,49.9%,,,,,,,,
+Gallade,72,held_item,2,Focus Sash,22.3%,,,,,,,,
+Gallade,72,held_item,3,Lum Berry,8.8%,,,,,,,,
+Gallade,72,held_item,4,Life Orb,8.5%,,,,,,,,
+Gallade,72,held_item,5,Scope Lens,5.1%,,,,,,,,
+Gallade,72,held_item,6,Choice Scarf,4.1%,,,,,,,,
+Gallade,72,held_item,7,Black Belt,0.1%,,,,,,,,
+Gallade,72,teammate,1,Basculegion,,,,,,,,,
+Gallade,72,teammate,2,Indeedee,,,,,,,,,
+Gallade,72,teammate,3,Banette,,,,,,,,,
+Gallade,72,teammate,4,Blaziken,,,,,,,,,
+Gallade,72,teammate,5,Greninja,,,,,,,,,
+Gallade,72,teammate,6,Garchomp,,,,,,,,,
+Gallade,72,teammate,7,Primarina,,,,,,,,,
+Gallade,72,teammate,8,Archaludon,,,,,,,,,
+Gallade,72,teammate,9,Charizard,,,,,,,,,
+Gallade,72,teammate,10,Mimikyu,,,,,,,,,
+Gallade,72,stat_alignment,1,Jolly,57.2%,Speed,Sp. Atk,,,,,,
+Gallade,72,stat_alignment,2,Adamant,42.7%,Attack,Sp. Atk,,,,,,
+Gallade,72,stat_alignment,3,Brave,0.1%,Attack,Speed,,,,,,
+Gallade,72,stat_points,1,,52.9%,,,2,32,0,0,0,32
+Gallade,72,stat_points,2,,18.5%,,,0,32,2,0,0,32
+Gallade,72,stat_points,3,,5.2%,,,6,32,0,0,0,28
+Gallade,72,stat_points,4,,4.8%,,,16,28,0,0,14,8
+Gallade,72,stat_points,5,,4.4%,,,32,25,9,0,0,0
+Gallade,72,stat_points,6,,3.2%,,,0,32,0,0,2,32
+Gallade,72,stat_points,7,,2.4%,,,32,32,2,0,0,0
+Gallade,72,stat_points,8,,2.1%,,,26,32,0,0,0,8
+Gallade,72,stat_points,9,,1.3%,,,32,25,0,0,0,9
+Gallade,72,stat_points,10,,0.7%,,,8,32,1,0,0,25
+Gallade,72,ability,1,Sharpness,83.7%,,,,,,,,
+Gallade,72,ability,2,Justified,16.2%,,,,,,,,
+Gallade,72,ability,3,Steadfast,0.1%,,,,,,,,

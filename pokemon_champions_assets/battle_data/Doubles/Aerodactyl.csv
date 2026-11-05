@@ -1,19 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aerodactyl,65,move,1,Rock Slide,100.0%,,,,,,,,
-Aerodactyl,65,move,2,Tailwind,100.0%,,,,,,,,
-Aerodactyl,65,move,3,Dual Wingbeat,100.0%,,,,,,,,
-Aerodactyl,65,move,4,Protect,50.0%,,,,,,,,
-Aerodactyl,65,move,5,Wide Guard,50.0%,,,,,,,,
-Aerodactyl,65,held_item,1,Focus Sash,50.0%,,,,,,,,
-Aerodactyl,65,held_item,2,Aerodactylite,50.0%,,,,,,,,
-Aerodactyl,65,teammate,1,Charizard,,,,,,,,,
-Aerodactyl,65,teammate,2,Garchomp,,,,,,,,,
-Aerodactyl,65,teammate,3,Kingambit,,,,,,,,,
-Aerodactyl,65,teammate,4,Floette-Eternal,,,,,,,,,
-Aerodactyl,65,teammate,5,Sylveon,,,,,,,,,
-Aerodactyl,65,teammate,6,Sneasler,,,,,,,,,
-Aerodactyl,65,teammate,7,Farigiraf,,,,,,,,,
-Aerodactyl,65,stat_alignment,1,Jolly,100.0%,Speed,Sp. Atk,,,,,,
-Aerodactyl,65,stat_points,1,,50.0%,,,2,32,0,0,0,32
-Aerodactyl,65,stat_points,2,,50.0%,,,16,12,1,0,5,32
-Aerodactyl,65,ability,1,Unnerve,100.0%,,,,,,,,
+Aerodactyl,41,move,1,Rock Slide,99.4%,,,,,,,,
+Aerodactyl,41,move,2,Tailwind,90.4%,,,,,,,,
+Aerodactyl,41,move,3,Dual Wingbeat,84.1%,,,,,,,,
+Aerodactyl,41,move,4,Protect,62.2%,,,,,,,,
+Aerodactyl,41,move,5,Wide Guard,40.9%,,,,,,,,
+Aerodactyl,41,move,6,Ice Fang,16.3%,,,,,,,,
+Aerodactyl,41,move,7,Taunt,3.2%,,,,,,,,
+Aerodactyl,41,move,8,Bulldoze,1.4%,,,,,,,,
+Aerodactyl,41,move,9,Earthquake,0.8%,,,,,,,,
+Aerodactyl,41,move,10,Psychic Fangs,0.6%,,,,,,,,
+Aerodactyl,41,held_item,1,Aerodactylite,67.0%,,,,,,,,
+Aerodactyl,41,held_item,2,Focus Sash,27.6%,,,,,,,,
+Aerodactyl,41,held_item,3,Wide Lens,5.0%,,,,,,,,
+Aerodactyl,41,held_item,4,White Herb,0.3%,,,,,,,,
+Aerodactyl,41,held_item,5,King's Rock,0.2%,,,,,,,,
+Aerodactyl,41,teammate,1,Charizard,,,,,,,,,
+Aerodactyl,41,teammate,2,Garchomp,,,,,,,,,
+Aerodactyl,41,teammate,3,Kingambit,,,,,,,,,
+Aerodactyl,41,teammate,4,Sylveon,,,,,,,,,
+Aerodactyl,41,teammate,5,Farigiraf,,,,,,,,,
+Aerodactyl,41,teammate,6,Sneasler,,,,,,,,,
+Aerodactyl,41,teammate,7,Whimsicott,,,,,,,,,
+Aerodactyl,41,teammate,8,Meganium,,,,,,,,,
+Aerodactyl,41,teammate,9,Floette-Eternal,,,,,,,,,
+Aerodactyl,41,teammate,10,Venusaur,,,,,,,,,
+Aerodactyl,41,stat_alignment,1,Jolly,95.5%,Speed,Sp. Atk,,,,,,
+Aerodactyl,41,stat_alignment,2,Adamant,4.5%,Attack,Sp. Atk,,,,,,
+Aerodactyl,41,stat_points,1,,58.3%,,,2,32,0,0,0,32
+Aerodactyl,41,stat_points,2,,8.5%,,,16,12,1,0,5,32
+Aerodactyl,41,stat_points,3,,6.6%,,,28,20,5,0,0,13
+Aerodactyl,41,stat_points,4,,5.1%,,,12,9,13,0,0,32
+Aerodactyl,41,stat_points,5,,4.0%,,,6,28,0,0,0,32
+Aerodactyl,41,stat_points,6,,3.2%,,,10,20,1,0,3,32
+Aerodactyl,41,stat_points,7,,1.9%,,,16,13,0,0,5,32
+Aerodactyl,41,stat_points,8,,1.8%,,,0,32,2,0,0,32
+Aerodactyl,41,stat_points,9,,1.6%,,,20,7,7,0,0,32
+Aerodactyl,41,stat_points,10,,1.6%,,,22,12,0,0,0,32
+Aerodactyl,41,ability,1,Unnerve,98.7%,,,,,,,,
+Aerodactyl,41,ability,2,Rock Head,1.0%,,,,,,,,
+Aerodactyl,41,ability,3,Pressure,0.3%,,,,,,,,

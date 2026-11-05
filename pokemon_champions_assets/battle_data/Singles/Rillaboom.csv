@@ -1,43 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rillaboom,26,move,1,Grassy Glide,97.8%,,,,,,,,
-Rillaboom,26,move,2,Drum Beating,73.1%,,,,,,,,
-Rillaboom,26,move,3,Knock Off,64.5%,,,,,,,,
-Rillaboom,26,move,4,U-turn,60.2%,,,,,,,,
-Rillaboom,26,move,5,High Horsepower,22.6%,,,,,,,,
-Rillaboom,26,move,6,Superpower,21.5%,,,,,,,,
-Rillaboom,26,move,7,Endeavor,18.3%,,,,,,,,
-Rillaboom,26,move,8,Taunt,17.2%,,,,,,,,
-Rillaboom,26,move,9,Swords Dance,11.8%,,,,,,,,
-Rillaboom,26,move,10,Wood Hammer,8.6%,,,,,,,,
-Rillaboom,26,held_item,1,Miracle Seed,43.0%,,,,,,,,
-Rillaboom,26,held_item,2,Life Orb,23.7%,,,,,,,,
-Rillaboom,26,held_item,3,Expert Belt,14.0%,,,,,,,,
-Rillaboom,26,held_item,4,Lum Berry,4.3%,,,,,,,,
-Rillaboom,26,held_item,5,Focus Sash,4.3%,,,,,,,,
-Rillaboom,26,held_item,6,Terrain Extender,4.3%,,,,,,,,
-Rillaboom,26,held_item,7,Choice Scarf,3.2%,,,,,,,,
-Rillaboom,26,held_item,8,Sitrus Berry,2.2%,,,,,,,,
-Rillaboom,26,held_item,9,Rocky Helmet,1.1%,,,,,,,,
-Rillaboom,26,teammate,1,Primarina,,,,,,,,,
-Rillaboom,26,teammate,2,Garchomp,,,,,,,,,
-Rillaboom,26,teammate,3,Hippowdon,,,,,,,,,
-Rillaboom,26,teammate,4,Raichu,,,,,,,,,
-Rillaboom,26,teammate,5,Gholdengo,,,,,,,,,
-Rillaboom,26,teammate,6,Lucario,,,,,,,,,
-Rillaboom,26,teammate,7,Basculegion,,,,,,,,,
-Rillaboom,26,teammate,8,Dragonite,,,,,,,,,
-Rillaboom,26,teammate,9,Archaludon,,,,,,,,,
-Rillaboom,26,teammate,10,Greninja,,,,,,,,,
-Rillaboom,26,stat_alignment,1,Adamant,96.8%,Attack,Sp. Atk,,,,,,
-Rillaboom,26,stat_alignment,2,Jolly,3.2%,Speed,Sp. Atk,,,,,,
-Rillaboom,26,stat_points,1,,25.8%,,,32,32,2,0,0,0
-Rillaboom,26,stat_points,2,,19.4%,,,32,32,0,0,0,2
-Rillaboom,26,stat_points,3,,14.0%,,,30,32,0,0,0,4
-Rillaboom,26,stat_points,4,,6.5%,,,24,32,0,0,0,10
-Rillaboom,26,stat_points,5,,5.4%,,,20,32,4,0,0,10
-Rillaboom,26,stat_points,6,,5.4%,,,32,31,0,0,0,3
-Rillaboom,26,stat_points,7,,3.2%,,,1,32,1,0,0,32
-Rillaboom,26,stat_points,8,,3.2%,,,18,32,7,0,0,9
-Rillaboom,26,stat_points,9,,2.2%,,,0,32,2,0,0,32
-Rillaboom,26,stat_points,10,,2.2%,,,32,32,0,0,2,0
-Rillaboom,26,ability,1,Grassy Surge,100.0%,,,,,,,,
+Rillaboom,11,move,1,Grassy Glide,95.2%,,,,,,,,
+Rillaboom,11,move,2,Drum Beating,73.2%,,,,,,,,
+Rillaboom,11,move,3,U-turn,50.7%,,,,,,,,
+Rillaboom,11,move,4,High Horsepower,48.2%,,,,,,,,
+Rillaboom,11,move,5,Knock Off,33.0%,,,,,,,,
+Rillaboom,11,move,6,Superpower,32.1%,,,,,,,,
+Rillaboom,11,move,7,Swords Dance,31.0%,,,,,,,,
+Rillaboom,11,move,8,Wood Hammer,15.2%,,,,,,,,
+Rillaboom,11,move,9,Taunt,5.2%,,,,,,,,
+Rillaboom,11,move,10,Endeavor,4.5%,,,,,,,,
+Rillaboom,11,held_item,1,Life Orb,38.7%,,,,,,,,
+Rillaboom,11,held_item,2,Miracle Seed,28.9%,,,,,,,,
+Rillaboom,11,held_item,3,Lum Berry,8.5%,,,,,,,,
+Rillaboom,11,held_item,4,Choice Scarf,5.2%,,,,,,,,
+Rillaboom,11,held_item,5,Focus Sash,4.6%,,,,,,,,
+Rillaboom,11,held_item,6,Grassy Seed,4.6%,,,,,,,,
+Rillaboom,11,held_item,7,Terrain Extender,4.0%,,,,,,,,
+Rillaboom,11,held_item,8,Leftovers,1.8%,,,,,,,,
+Rillaboom,11,held_item,9,Sitrus Berry,1.1%,,,,,,,,
+Rillaboom,11,held_item,10,Expert Belt,0.8%,,,,,,,,
+Rillaboom,11,teammate,1,Garchomp,,,,,,,,,
+Rillaboom,11,teammate,2,Lucario,,,,,,,,,
+Rillaboom,11,teammate,3,Primarina,,,,,,,,,
+Rillaboom,11,teammate,4,Archaludon,,,,,,,,,
+Rillaboom,11,teammate,5,Hippowdon,,,,,,,,,
+Rillaboom,11,teammate,6,Gholdengo,,,,,,,,,
+Rillaboom,11,teammate,7,Charizard,,,,,,,,,
+Rillaboom,11,teammate,8,Basculegion,,,,,,,,,
+Rillaboom,11,teammate,9,Dragonite,,,,,,,,,
+Rillaboom,11,teammate,10,Mimikyu,,,,,,,,,
+Rillaboom,11,stat_alignment,1,Adamant,93.9%,Attack,Sp. Atk,,,,,,
+Rillaboom,11,stat_alignment,2,Jolly,4.1%,Speed,Sp. Atk,,,,,,
+Rillaboom,11,stat_alignment,3,Careful,1.2%,Sp. Def,Sp. Atk,,,,,,
+Rillaboom,11,stat_alignment,4,Impish,0.5%,Defense,Sp. Atk,,,,,,
+Rillaboom,11,stat_alignment,5,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Rillaboom,11,stat_alignment,6,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Rillaboom,11,stat_alignment,7,Brave,0.0%,Attack,Speed,,,,,,
+Rillaboom,11,stat_points,1,,18.2%,,,32,32,0,0,0,2
+Rillaboom,11,stat_points,2,,12.2%,,,20,32,4,0,0,10
+Rillaboom,11,stat_points,3,,7.7%,,,2,32,0,0,0,32
+Rillaboom,11,stat_points,4,,7.0%,,,32,32,0,0,2,0
+Rillaboom,11,stat_points,5,,5.8%,,,18,32,7,0,0,9
+Rillaboom,11,stat_points,6,,4.2%,,,32,32,2,0,0,0
+Rillaboom,11,stat_points,7,,3.4%,,,24,32,0,0,1,9
+Rillaboom,11,stat_points,8,,2.9%,,,24,32,0,0,0,10
+Rillaboom,11,stat_points,9,,2.8%,,,1,32,1,0,0,32
+Rillaboom,11,stat_points,10,,1.7%,,,20,32,0,0,4,10
+Rillaboom,11,ability,1,Grassy Surge,100.0%,,,,,,,,

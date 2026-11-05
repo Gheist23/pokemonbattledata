@@ -1,41 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Corviknight,16,move,1,Roost,100.0%,,,,,,,,
-Corviknight,16,move,2,U-turn,72.5%,,,,,,,,
-Corviknight,16,move,3,Iron Defense,66.7%,,,,,,,,
-Corviknight,16,move,4,Body Press,55.8%,,,,,,,,
-Corviknight,16,move,5,Brave Bird,30.8%,,,,,,,,
-Corviknight,16,move,6,Bulk Up,21.7%,,,,,,,,
-Corviknight,16,move,7,Iron Head,18.3%,,,,,,,,
-Corviknight,16,move,8,Taunt,12.5%,,,,,,,,
-Corviknight,16,move,9,Defog,12.5%,,,,,,,,
-Corviknight,16,move,10,Substitute,5.8%,,,,,,,,
-Corviknight,16,held_item,1,Rocky Helmet,80.8%,,,,,,,,
-Corviknight,16,held_item,2,Leftovers,15.0%,,,,,,,,
-Corviknight,16,held_item,3,Sitrus Berry,4.2%,,,,,,,,
-Corviknight,16,teammate,1,Garchomp,,,,,,,,,
-Corviknight,16,teammate,2,Primarina,,,,,,,,,
-Corviknight,16,teammate,3,Hippowdon,,,,,,,,,
-Corviknight,16,teammate,4,Raichu,,,,,,,,,
-Corviknight,16,teammate,5,Aegislash,,,,,,,,,
-Corviknight,16,teammate,6,Blaziken,,,,,,,,,
-Corviknight,16,teammate,7,Mimikyu,,,,,,,,,
-Corviknight,16,teammate,8,Basculegion,,,,,,,,,
-Corviknight,16,teammate,9,Gyarados,,,,,,,,,
-Corviknight,16,teammate,10,Indeedee,,,,,,,,,
-Corviknight,16,stat_alignment,1,Impish,61.7%,Defense,Sp. Atk,,,,,,
-Corviknight,16,stat_alignment,2,Relaxed,20.8%,Defense,Speed,,,,,,
-Corviknight,16,stat_alignment,3,Careful,15.8%,Sp. Def,Sp. Atk,,,,,,
-Corviknight,16,stat_alignment,4,Sassy,1.7%,Sp. Def,Speed,,,,,,
-Corviknight,16,stat_points,1,,36.7%,,,32,0,32,0,2,0
-Corviknight,16,stat_points,2,,15.8%,,,32,0,5,0,29,0
-Corviknight,16,stat_points,3,,9.2%,,,26,0,32,0,2,6
-Corviknight,16,stat_points,4,,5.8%,,,30,0,25,0,9,2
-Corviknight,16,stat_points,5,,5.8%,,,32,0,0,0,27,7
-Corviknight,16,stat_points,6,,4.2%,,,32,0,20,0,14,0
-Corviknight,16,stat_points,7,,3.3%,,,32,1,31,0,2,0
-Corviknight,16,stat_points,8,,1.7%,,,32,0,2,0,32,0
-Corviknight,16,stat_points,9,,1.7%,,,32,0,9,0,25,0
-Corviknight,16,stat_points,10,,1.7%,,,32,0,28,0,0,6
-Corviknight,16,ability,1,Pressure,63.3%,,,,,,,,
-Corviknight,16,ability,2,Mirror Armor,35.8%,,,,,,,,
-Corviknight,16,ability,3,Unnerve,0.8%,,,,,,,,
+Corviknight,13,move,1,Roost,99.6%,,,,,,,,
+Corviknight,13,move,2,U-turn,75.0%,,,,,,,,
+Corviknight,13,move,3,Iron Defense,54.9%,,,,,,,,
+Corviknight,13,move,4,Body Press,50.2%,,,,,,,,
+Corviknight,13,move,5,Brave Bird,30.8%,,,,,,,,
+Corviknight,13,move,6,Iron Head,25.2%,,,,,,,,
+Corviknight,13,move,7,Defog,19.5%,,,,,,,,
+Corviknight,13,move,8,Bulk Up,17.6%,,,,,,,,
+Corviknight,13,move,9,Taunt,12.4%,,,,,,,,
+Corviknight,13,move,10,Curse,6.2%,,,,,,,,
+Corviknight,13,held_item,1,Rocky Helmet,75.8%,,,,,,,,
+Corviknight,13,held_item,2,Leftovers,14.9%,,,,,,,,
+Corviknight,13,held_item,3,Sitrus Berry,8.0%,,,,,,,,
+Corviknight,13,held_item,4,Psychic Seed,0.4%,,,,,,,,
+Corviknight,13,held_item,5,Sharp Beak,0.2%,,,,,,,,
+Corviknight,13,held_item,6,Leppa Berry,0.1%,,,,,,,,
+Corviknight,13,held_item,7,Lum Berry,0.1%,,,,,,,,
+Corviknight,13,held_item,8,King's Rock,0.0%,,,,,,,,
+Corviknight,13,teammate,1,Garchomp,,,,,,,,,
+Corviknight,13,teammate,2,Primarina,,,,,,,,,
+Corviknight,13,teammate,3,Charizard,,,,,,,,,
+Corviknight,13,teammate,4,Hippowdon,,,,,,,,,
+Corviknight,13,teammate,5,Gengar,,,,,,,,,
+Corviknight,13,teammate,6,Mimikyu,,,,,,,,,
+Corviknight,13,teammate,7,Raichu,,,,,,,,,
+Corviknight,13,teammate,8,Glimmora,,,,,,,,,
+Corviknight,13,teammate,9,Indeedee,,,,,,,,,
+Corviknight,13,teammate,10,Umbreon,,,,,,,,,
+Corviknight,13,stat_alignment,1,Impish,55.3%,Defense,Sp. Atk,,,,,,
+Corviknight,13,stat_alignment,2,Relaxed,26.9%,Defense,Speed,,,,,,
+Corviknight,13,stat_alignment,3,Careful,11.6%,Sp. Def,Sp. Atk,,,,,,
+Corviknight,13,stat_alignment,4,Sassy,3.6%,Sp. Def,Speed,,,,,,
+Corviknight,13,stat_alignment,5,Bold,2.0%,Defense,Attack,,,,,,
+Corviknight,13,stat_alignment,6,Jolly,0.4%,Speed,Sp. Atk,,,,,,
+Corviknight,13,stat_alignment,7,Lonely,0.2%,Attack,Defense,,,,,,
+Corviknight,13,stat_alignment,8,Brave,0.0%,Attack,Speed,,,,,,
+Corviknight,13,stat_points,1,,32.2%,,,32,0,32,0,2,0
+Corviknight,13,stat_points,2,,6.4%,,,32,0,5,0,29,0
+Corviknight,13,stat_points,3,,6.2%,,,32,0,28,0,0,6
+Corviknight,13,stat_points,4,,5.0%,,,32,0,2,0,32,0
+Corviknight,13,stat_points,5,,4.8%,,,32,0,16,0,18,0
+Corviknight,13,stat_points,6,,3.2%,,,32,0,25,0,9,0
+Corviknight,13,stat_points,7,,2.0%,,,32,0,32,0,0,2
+Corviknight,13,stat_points,8,,1.5%,,,32,0,9,0,25,0
+Corviknight,13,stat_points,9,,1.2%,,,28,0,32,0,0,6
+Corviknight,13,stat_points,10,,1.2%,,,32,0,0,0,31,3
+Corviknight,13,ability,1,Pressure,59.1%,,,,,,,,
+Corviknight,13,ability,2,Mirror Armor,39.5%,,,,,,,,
+Corviknight,13,ability,3,Unnerve,1.5%,,,,,,,,

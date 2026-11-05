@@ -1,30 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Absol,41,move,1,Close Combat,100.0%,,,,,,,,
-Absol,41,move,2,Swords Dance,94.8%,,,,,,,,
-Absol,41,move,3,Shadow Claw,94.8%,,,,,,,,
-Absol,41,move,4,Sucker Punch,84.5%,,,,,,,,
-Absol,41,move,5,Night Slash,15.5%,,,,,,,,
-Absol,41,move,6,Foul Play,5.2%,,,,,,,,
-Absol,41,move,7,Ice Beam,5.2%,,,,,,,,
-Absol,41,held_item,1,Absolite Z,94.8%,,,,,,,,
-Absol,41,held_item,2,Absolite,5.2%,,,,,,,,
-Absol,41,teammate,1,Garchomp,,,,,,,,,
-Absol,41,teammate,2,Golisopod,,,,,,,,,
-Absol,41,teammate,3,Gholdengo,,,,,,,,,
-Absol,41,teammate,4,Empoleon,,,,,,,,,
-Absol,41,teammate,5,Greninja,,,,,,,,,
-Absol,41,teammate,6,Ninetales-Alola,,,,,,,,,
-Absol,41,teammate,7,Swampert,,,,,,,,,
-Absol,41,teammate,8,Archaludon,,,,,,,,,
-Absol,41,teammate,9,Gengar,,,,,,,,,
-Absol,41,teammate,10,Lucario,,,,,,,,,
-Absol,41,stat_alignment,1,Jolly,93.1%,Speed,Sp. Atk,,,,,,
-Absol,41,stat_alignment,2,Naive,5.2%,Speed,Sp. Def,,,,,,
-Absol,41,stat_alignment,3,Adamant,1.7%,Attack,Sp. Atk,,,,,,
-Absol,41,stat_points,1,,39.7%,,,0,32,2,0,0,32
-Absol,41,stat_points,2,,25.9%,,,19,19,16,0,0,12
-Absol,41,stat_points,3,,15.5%,,,2,32,0,0,0,32
-Absol,41,stat_points,4,,12.1%,,,1,32,1,0,0,32
-Absol,41,stat_points,5,,5.2%,,,2,0,0,32,0,32
-Absol,41,stat_points,6,,1.7%,,,19,12,5,0,0,30
-Absol,41,ability,1,Justified,100.0%,,,,,,,,
+Absol,64,move,1,Shadow Claw,97.3%,,,,,,,,
+Absol,64,move,2,Swords Dance,91.4%,,,,,,,,
+Absol,64,move,3,Sucker Punch,83.7%,,,,,,,,
+Absol,64,move,4,Close Combat,83.6%,,,,,,,,
+Absol,64,move,5,Night Slash,9.6%,,,,,,,,
+Absol,64,move,6,Substitute,8.0%,,,,,,,,
+Absol,64,move,7,Psycho Cut,4.9%,,,,,,,,
+Absol,64,move,8,Shadow Sneak,4.8%,,,,,,,,
+Absol,64,move,9,Detect,2.0%,,,,,,,,
+Absol,64,move,10,Mean Look,1.8%,,,,,,,,
+Absol,64,held_item,1,Absolite Z,99.2%,,,,,,,,
+Absol,64,held_item,2,Absolite,0.8%,,,,,,,,
+Absol,64,teammate,1,Garchomp,,,,,,,,,
+Absol,64,teammate,2,Ninetales-Alola,,,,,,,,,
+Absol,64,teammate,3,Swampert,,,,,,,,,
+Absol,64,teammate,4,Lucario,,,,,,,,,
+Absol,64,teammate,5,Archaludon,,,,,,,,,
+Absol,64,teammate,6,Hippowdon,,,,,,,,,
+Absol,64,teammate,7,Glimmora,,,,,,,,,
+Absol,64,teammate,8,Gyarados,,,,,,,,,
+Absol,64,teammate,9,Rotom-Heat,,,,,,,,,
+Absol,64,teammate,10,Gholdengo,,,,,,,,,
+Absol,64,stat_alignment,1,Jolly,49.2%,Speed,Sp. Atk,,,,,,
+Absol,64,stat_alignment,2,Adamant,48.1%,Attack,Sp. Atk,,,,,,
+Absol,64,stat_alignment,3,Impish,1.8%,Defense,Sp. Atk,,,,,,
+Absol,64,stat_alignment,4,Naive,0.8%,Speed,Sp. Def,,,,,,
+Absol,64,stat_alignment,5,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Absol,64,stat_points,1,,28.7%,,,2,32,0,0,0,32
+Absol,64,stat_points,2,,12.0%,,,1,32,1,0,0,32
+Absol,64,stat_points,3,,8.5%,,,19,16,23,0,0,8
+Absol,64,stat_points,4,,5.7%,,,11,32,1,0,0,22
+Absol,64,stat_points,5,,5.5%,,,19,19,16,0,0,12
+Absol,64,stat_points,6,,5.1%,,,0,32,2,0,0,32
+Absol,64,stat_points,7,,4.6%,,,19,12,5,0,0,30
+Absol,64,stat_points,8,,3.8%,,,1,32,0,0,1,32
+Absol,64,stat_points,9,,2.9%,,,26,30,0,0,0,10
+Absol,64,stat_points,10,,2.5%,,,3,32,23,0,0,8
+Absol,64,ability,1,Justified,80.9%,,,,,,,,
+Absol,64,ability,2,Super Luck,14.0%,,,,,,,,
+Absol,64,ability,3,Pressure,5.1%,,,,,,,,

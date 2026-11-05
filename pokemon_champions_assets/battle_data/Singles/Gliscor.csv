@@ -1,28 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gliscor,51,move,1,Stealth Rock,100.0%,,,,,,,,
-Gliscor,51,move,2,Earthquake,100.0%,,,,,,,,
-Gliscor,51,move,3,Spikes,61.5%,,,,,,,,
-Gliscor,51,move,4,U-turn,61.5%,,,,,,,,
-Gliscor,51,move,5,Toxic,33.3%,,,,,,,,
-Gliscor,51,move,6,Thief,20.5%,,,,,,,,
-Gliscor,51,move,7,Rock Tomb,17.9%,,,,,,,,
-Gliscor,51,move,8,Toxic Spikes,5.1%,,,,,,,,
-Gliscor,51,held_item,1,Red Card,82.1%,,,,,,,,
-Gliscor,51,held_item,2,Metronome,17.9%,,,,,,,,
-Gliscor,51,teammate,1,Clefable,,,,,,,,,
-Gliscor,51,teammate,2,Venusaur,,,,,,,,,
-Gliscor,51,teammate,3,Tyranitar,,,,,,,,,
-Gliscor,51,teammate,4,Milotic,,,,,,,,,
-Gliscor,51,teammate,5,Ceruledge,,,,,,,,,
-Gliscor,51,teammate,6,Raichu,,,,,,,,,
-Gliscor,51,teammate,7,Victreebel,,,,,,,,,
-Gliscor,51,teammate,8,Basculegion,,,,,,,,,
-Gliscor,51,teammate,9,Pawmot,,,,,,,,,
-Gliscor,51,teammate,10,Kingambit,,,,,,,,,
-Gliscor,51,stat_alignment,1,Impish,82.1%,Defense,Sp. Atk,,,,,,
-Gliscor,51,stat_alignment,2,Adamant,17.9%,Attack,Sp. Atk,,,,,,
-Gliscor,51,stat_points,1,,61.5%,,,32,2,32,0,0,0
-Gliscor,51,stat_points,2,,20.5%,,,32,0,32,0,2,0
-Gliscor,51,stat_points,3,,17.9%,,,0,32,0,0,0,32
-Gliscor,51,ability,1,Poison Heal,76.9%,,,,,,,,
-Gliscor,51,ability,2,Hyper Cutter,23.1%,,,,,,,,
+Gliscor,97,move,1,Earthquake,89.4%,,,,,,,,
+Gliscor,97,move,2,Stealth Rock,71.4%,,,,,,,,
+Gliscor,97,move,3,Toxic,52.0%,,,,,,,,
+Gliscor,97,move,4,Rock Tomb,48.7%,,,,,,,,
+Gliscor,97,move,5,Swords Dance,23.1%,,,,,,,,
+Gliscor,97,move,6,U-turn,22.7%,,,,,,,,
+Gliscor,97,move,7,Rock Slide,20.5%,,,,,,,,
+Gliscor,97,move,8,Dual Wingbeat,19.8%,,,,,,,,
+Gliscor,97,move,9,Spikes,14.7%,,,,,,,,
+Gliscor,97,move,10,High Horsepower,10.6%,,,,,,,,
+Gliscor,97,held_item,1,Metronome,33.7%,,,,,,,,
+Gliscor,97,held_item,2,Focus Sash,26.7%,,,,,,,,
+Gliscor,97,held_item,3,Sitrus Berry,12.5%,,,,,,,,
+Gliscor,97,held_item,4,Red Card,11.7%,,,,,,,,
+Gliscor,97,held_item,5,Rocky Helmet,10.3%,,,,,,,,
+Gliscor,97,held_item,6,Leftovers,2.9%,,,,,,,,
+Gliscor,97,held_item,7,Grassy Seed,1.1%,,,,,,,,
+Gliscor,97,held_item,8,Light Ball,0.7%,,,,,,,,
+Gliscor,97,held_item,9,Lum Berry,0.4%,,,,,,,,
+Gliscor,97,teammate,1,Blaziken,,,,,,,,,
+Gliscor,97,teammate,2,Clefable,,,,,,,,,
+Gliscor,97,teammate,3,Raichu,,,,,,,,,
+Gliscor,97,teammate,4,Empoleon,,,,,,,,,
+Gliscor,97,teammate,5,Arboliva,,,,,,,,,
+Gliscor,97,teammate,6,Indeedee,,,,,,,,,
+Gliscor,97,teammate,7,Golisopod,,,,,,,,,
+Gliscor,97,teammate,8,Sneasler,,,,,,,,,
+Gliscor,97,teammate,9,Lucario,,,,,,,,,
+Gliscor,97,teammate,10,Greninja,,,,,,,,,
+Gliscor,97,stat_alignment,1,Impish,39.6%,Defense,Sp. Atk,,,,,,
+Gliscor,97,stat_alignment,2,Adamant,34.8%,Attack,Sp. Atk,,,,,,
+Gliscor,97,stat_alignment,3,Jolly,23.1%,Speed,Sp. Atk,,,,,,
+Gliscor,97,stat_alignment,4,Careful,2.6%,Sp. Def,Sp. Atk,,,,,,
+Gliscor,97,stat_points,1,,54.2%,,,0,32,0,0,0,32
+Gliscor,97,stat_points,2,,15.4%,,,32,2,32,0,0,0
+Gliscor,97,stat_points,3,,8.8%,,,32,0,10,0,24,0
+Gliscor,97,stat_points,4,,7.3%,,,27,0,32,0,7,0
+Gliscor,97,stat_points,5,,4.8%,,,32,0,32,0,2,0
+Gliscor,97,stat_points,6,,2.6%,,,31,2,1,0,30,2
+Gliscor,97,stat_points,7,,2.2%,,,31,0,25,0,10,0
+Gliscor,97,stat_points,8,,1.5%,,,1,32,1,0,0,32
+Gliscor,97,stat_points,9,,1.1%,,,2,32,0,0,0,32
+Gliscor,97,stat_points,10,,1.1%,,,32,0,32,0,0,2
+Gliscor,97,ability,1,Hyper Cutter,56.4%,,,,,,,,
+Gliscor,97,ability,2,Poison Heal,42.5%,,,,,,,,
+Gliscor,97,ability,3,Sand Veil,1.1%,,,,,,,,

@@ -1,41 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Clefable,27,move,1,Moonblast,90.4%,,,,,,,,
-Clefable,27,move,2,Flamethrower,88.0%,,,,,,,,
-Clefable,27,move,3,Stealth Rock,54.2%,,,,,,,,
-Clefable,27,move,4,Moonlight,44.6%,,,,,,,,
-Clefable,27,move,5,Thunderbolt,30.1%,,,,,,,,
-Clefable,27,move,6,Cosmic Power,26.5%,,,,,,,,
-Clefable,27,move,7,Encore,19.3%,,,,,,,,
-Clefable,27,move,8,Thunder Wave,15.7%,,,,,,,,
-Clefable,27,move,9,Stored Power,10.8%,,,,,,,,
-Clefable,27,move,10,Calm Mind,9.6%,,,,,,,,
-Clefable,27,held_item,1,Clefablite,48.2%,,,,,,,,
-Clefable,27,held_item,2,Life Orb,28.9%,,,,,,,,
-Clefable,27,held_item,3,Leftovers,13.3%,,,,,,,,
-Clefable,27,held_item,4,Rocky Helmet,8.4%,,,,,,,,
-Clefable,27,held_item,5,Bright Powder,1.2%,,,,,,,,
-Clefable,27,teammate,1,Gliscor,,,,,,,,,
-Clefable,27,teammate,2,Basculegion,,,,,,,,,
-Clefable,27,teammate,3,Tyranitar,,,,,,,,,
-Clefable,27,teammate,4,Ceruledge,,,,,,,,,
-Clefable,27,teammate,5,Venusaur,,,,,,,,,
-Clefable,27,teammate,6,Milotic,,,,,,,,,
-Clefable,27,teammate,7,Pawmot,,,,,,,,,
-Clefable,27,teammate,8,Blaziken,,,,,,,,,
-Clefable,27,teammate,9,Banette,,,,,,,,,
-Clefable,27,teammate,10,Hippowdon,,,,,,,,,
-Clefable,27,stat_alignment,1,Modest,62.7%,Sp. Atk,Attack,,,,,,
-Clefable,27,stat_alignment,2,Bold,36.1%,Defense,Attack,,,,,,
-Clefable,27,stat_alignment,3,Calm,1.2%,Sp. Def,Attack,,,,,,
-Clefable,27,stat_points,1,,28.9%,,,32,0,0,32,2,0
-Clefable,27,stat_points,2,,12.0%,,,30,0,32,4,0,0
-Clefable,27,stat_points,3,,10.8%,,,32,0,32,0,2,0
-Clefable,27,stat_points,4,,8.4%,,,31,0,32,0,0,3
-Clefable,27,stat_points,5,,7.2%,,,26,0,0,17,0,23
-Clefable,27,stat_points,6,,7.2%,,,31,0,0,17,0,18
-Clefable,27,stat_points,7,,4.8%,,,21,0,0,18,0,27
-Clefable,27,stat_points,8,,3.6%,,,25,0,0,17,0,24
-Clefable,27,stat_points,9,,3.6%,,,31,0,1,11,0,23
-Clefable,27,stat_points,10,,2.4%,,,25,0,0,17,1,23
-Clefable,27,ability,1,Unaware,62.7%,,,,,,,,
-Clefable,27,ability,2,Magic Guard,37.3%,,,,,,,,
+Clefable,29,move,1,Moonblast,86.1%,,,,,,,,
+Clefable,29,move,2,Flamethrower,65.8%,,,,,,,,
+Clefable,29,move,3,Moonlight,61.6%,,,,,,,,
+Clefable,29,move,4,Stealth Rock,33.7%,,,,,,,,
+Clefable,29,move,5,Cosmic Power,27.1%,,,,,,,,
+Clefable,29,move,6,Calm Mind,25.9%,,,,,,,,
+Clefable,29,move,7,Encore,25.9%,,,,,,,,
+Clefable,29,move,8,Stored Power,23.8%,,,,,,,,
+Clefable,29,move,9,Thunder Wave,14.0%,,,,,,,,
+Clefable,29,move,10,Fire Blast,7.1%,,,,,,,,
+Clefable,29,held_item,1,Clefablite,83.0%,,,,,,,,
+Clefable,29,held_item,2,Leftovers,5.7%,,,,,,,,
+Clefable,29,held_item,3,Sitrus Berry,3.1%,,,,,,,,
+Clefable,29,held_item,4,Rocky Helmet,2.9%,,,,,,,,
+Clefable,29,held_item,5,Life Orb,2.0%,,,,,,,,
+Clefable,29,held_item,6,Babiri Berry,1.9%,,,,,,,,
+Clefable,29,held_item,7,Focus Sash,0.8%,,,,,,,,
+Clefable,29,held_item,8,Mental Herb,0.5%,,,,,,,,
+Clefable,29,held_item,9,Bright Powder,0.1%,,,,,,,,
+Clefable,29,held_item,10,Air Balloon,0.0%,,,,,,,,
+Clefable,29,teammate,1,Basculegion,,,,,,,,,
+Clefable,29,teammate,2,Dragonite,,,,,,,,,
+Clefable,29,teammate,3,Pawmot,,,,,,,,,
+Clefable,29,teammate,4,Garchomp,,,,,,,,,
+Clefable,29,teammate,5,Lucario,,,,,,,,,
+Clefable,29,teammate,6,Volcarona,,,,,,,,,
+Clefable,29,teammate,7,Kingambit,,,,,,,,,
+Clefable,29,teammate,8,Hippowdon,,,,,,,,,
+Clefable,29,teammate,9,Espathra,,,,,,,,,
+Clefable,29,teammate,10,Samurott-Hisui,,,,,,,,,
+Clefable,29,stat_alignment,1,Modest,48.0%,Sp. Atk,Attack,,,,,,
+Clefable,29,stat_alignment,2,Bold,42.2%,Defense,Attack,,,,,,
+Clefable,29,stat_alignment,3,Calm,9.6%,Sp. Def,Attack,,,,,,
+Clefable,29,stat_alignment,4,Timid,0.1%,Speed,Attack,,,,,,
+Clefable,29,stat_alignment,5,Relaxed,0.0%,Defense,Speed,,,,,,
+Clefable,29,stat_points,1,,11.4%,,,32,0,32,0,2,0
+Clefable,29,stat_points,2,,8.7%,,,26,0,0,17,0,23
+Clefable,29,stat_points,3,,7.3%,,,25,0,0,17,0,24
+Clefable,29,stat_points,4,,7.0%,,,31,0,32,0,3,0
+Clefable,29,stat_points,5,,3.0%,,,31,0,1,11,0,23
+Clefable,29,stat_points,6,,2.9%,,,31,0,0,17,0,18
+Clefable,29,stat_points,7,,2.7%,,,1,0,1,32,0,32
+Clefable,29,stat_points,8,,2.6%,,,31,0,1,0,11,23
+Clefable,29,stat_points,9,,2.3%,,,31,0,27,0,8,0
+Clefable,29,stat_points,10,,2.0%,,,32,0,0,0,21,13
+Clefable,29,ability,1,Unaware,86.8%,,,,,,,,
+Clefable,29,ability,2,Magic Guard,12.7%,,,,,,,,
+Clefable,29,ability,3,Cute Charm,0.6%,,,,,,,,

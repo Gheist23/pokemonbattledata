@@ -1,28 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Kommo-o,20,move,1,Aura Sphere,100.0%,,,,,,,,
-Kommo-o,20,move,2,Clanging Scales,100.0%,,,,,,,,
-Kommo-o,20,move,3,Protect,95.8%,,,,,,,,
-Kommo-o,20,move,4,Flamethrower,64.6%,,,,,,,,
-Kommo-o,20,move,5,Clangorous Soul,33.3%,,,,,,,,
-Kommo-o,20,move,6,Vacuum Wave,6.3%,,,,,,,,
-Kommo-o,20,held_item,1,Life Orb,62.5%,,,,,,,,
-Kommo-o,20,held_item,2,Leftovers,33.3%,,,,,,,,
-Kommo-o,20,held_item,3,Focus Sash,4.2%,,,,,,,,
-Kommo-o,20,teammate,1,Gardevoir,,,,,,,,,
-Kommo-o,20,teammate,2,Indeedee-F,,,,,,,,,
-Kommo-o,20,teammate,3,Absol,,,,,,,,,
-Kommo-o,20,teammate,4,Sneasler,,,,,,,,,
-Kommo-o,20,teammate,5,Armarouge,,,,,,,,,
-Kommo-o,20,teammate,6,Incineroar,,,,,,,,,
-Kommo-o,20,teammate,7,Basculegion,,,,,,,,,
-Kommo-o,20,teammate,8,Kingambit,,,,,,,,,
-Kommo-o,20,teammate,9,Raichu,,,,,,,,,
-Kommo-o,20,teammate,10,Whimsicott,,,,,,,,,
-Kommo-o,20,stat_alignment,1,Modest,100.0%,Sp. Atk,Attack,,,,,,
-Kommo-o,20,stat_points,1,,39.6%,,,1,0,0,32,1,32
-Kommo-o,20,stat_points,2,,27.1%,,,2,0,0,32,0,32
-Kommo-o,20,stat_points,3,,20.8%,,,10,0,0,30,0,26
-Kommo-o,20,stat_points,4,,12.5%,,,27,0,0,11,0,28
-Kommo-o,20,ability,1,Soundproof,83.3%,,,,,,,,
-Kommo-o,20,ability,2,Overcoat,14.6%,,,,,,,,
-Kommo-o,20,ability,3,Bulletproof,2.1%,,,,,,,,
+Kommo-o,28,move,1,Clanging Scales,96.6%,,,,,,,,
+Kommo-o,28,move,2,Protect,91.7%,,,,,,,,
+Kommo-o,28,move,3,Aura Sphere,89.3%,,,,,,,,
+Kommo-o,28,move,4,Flamethrower,57.1%,,,,,,,,
+Kommo-o,28,move,5,Clangorous Soul,29.7%,,,,,,,,
+Kommo-o,28,move,6,Vacuum Wave,23.1%,,,,,,,,
+Kommo-o,28,move,7,Iron Defense,2.8%,,,,,,,,
+Kommo-o,28,move,8,Body Press,2.8%,,,,,,,,
+Kommo-o,28,move,9,Shadow Claw,2.5%,,,,,,,,
+Kommo-o,28,move,10,Focus Blast,1.2%,,,,,,,,
+Kommo-o,28,held_item,1,Life Orb,55.3%,,,,,,,,
+Kommo-o,28,held_item,2,Leftovers,24.7%,,,,,,,,
+Kommo-o,28,held_item,3,Focus Sash,13.3%,,,,,,,,
+Kommo-o,28,held_item,4,Grassy Seed,2.7%,,,,,,,,
+Kommo-o,28,held_item,5,Roseli Berry,1.9%,,,,,,,,
+Kommo-o,28,held_item,6,Sitrus Berry,0.9%,,,,,,,,
+Kommo-o,28,held_item,7,Scope Lens,0.3%,,,,,,,,
+Kommo-o,28,held_item,8,Dragon Fang,0.3%,,,,,,,,
+Kommo-o,28,held_item,9,Haban Berry,0.3%,,,,,,,,
+Kommo-o,28,held_item,10,Payapa Berry,0.1%,,,,,,,,
+Kommo-o,28,teammate,1,Indeedee-F,,,,,,,,,
+Kommo-o,28,teammate,2,Armarouge,,,,,,,,,
+Kommo-o,28,teammate,3,Gardevoir,,,,,,,,,
+Kommo-o,28,teammate,4,Sneasler,,,,,,,,,
+Kommo-o,28,teammate,5,Absol,,,,,,,,,
+Kommo-o,28,teammate,6,Rillaboom,,,,,,,,,
+Kommo-o,28,teammate,7,Kingambit,,,,,,,,,
+Kommo-o,28,teammate,8,Incineroar,,,,,,,,,
+Kommo-o,28,teammate,9,Gengar,,,,,,,,,
+Kommo-o,28,teammate,10,Basculegion,,,,,,,,,
+Kommo-o,28,stat_alignment,1,Modest,90.1%,Sp. Atk,Attack,,,,,,
+Kommo-o,28,stat_alignment,2,Timid,6.2%,Speed,Attack,,,,,,
+Kommo-o,28,stat_alignment,3,Impish,2.6%,Defense,Sp. Atk,,,,,,
+Kommo-o,28,stat_alignment,4,Quiet,0.3%,Sp. Atk,Speed,,,,,,
+Kommo-o,28,stat_alignment,5,Adamant,0.3%,Attack,Sp. Atk,,,,,,
+Kommo-o,28,stat_alignment,6,Jolly,0.2%,Speed,Sp. Atk,,,,,,
+Kommo-o,28,stat_alignment,7,Naive,0.2%,Speed,Sp. Def,,,,,,
+Kommo-o,28,stat_alignment,8,Bold,0.2%,Defense,Attack,,,,,,
+Kommo-o,28,stat_points,1,,38.4%,,,1,0,0,32,1,32
+Kommo-o,28,stat_points,2,,21.8%,,,2,0,0,32,0,32
+Kommo-o,28,stat_points,3,,6.3%,,,1,0,1,32,0,32
+Kommo-o,28,stat_points,4,,3.3%,,,3,0,0,31,0,32
+Kommo-o,28,stat_points,5,,3.3%,,,10,0,0,24,0,32
+Kommo-o,28,stat_points,6,,3.0%,,,25,0,0,11,1,29
+Kommo-o,28,stat_points,7,,2.6%,,,11,0,1,20,2,32
+Kommo-o,28,stat_points,8,,2.5%,,,21,0,32,0,0,13
+Kommo-o,28,stat_points,9,,2.5%,,,25,0,0,30,0,11
+Kommo-o,28,stat_points,10,,2.4%,,,9,0,0,26,0,31
+Kommo-o,28,ability,1,Soundproof,76.7%,,,,,,,,
+Kommo-o,28,ability,2,Bulletproof,15.9%,,,,,,,,
+Kommo-o,28,ability,3,Overcoat,7.4%,,,,,,,,

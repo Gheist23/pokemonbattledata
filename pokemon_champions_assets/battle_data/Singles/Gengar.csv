@@ -1,37 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gengar,18,move,1,Shadow Ball,95.3%,,,,,,,,
-Gengar,18,move,2,Icy Wind,79.4%,,,,,,,,
-Gengar,18,move,3,Sludge Wave,74.8%,,,,,,,,
-Gengar,18,move,4,Destiny Bond,33.6%,,,,,,,,
-Gengar,18,move,5,Protect,27.1%,,,,,,,,
-Gengar,18,move,6,Toxic Spikes,18.7%,,,,,,,,
-Gengar,18,move,7,Nasty Plot,15.0%,,,,,,,,
-Gengar,18,move,8,Sludge Bomb,14.0%,,,,,,,,
-Gengar,18,move,9,Perish Song,10.3%,,,,,,,,
-Gengar,18,move,10,Sucker Punch,8.4%,,,,,,,,
-Gengar,18,held_item,1,Gengarite,58.9%,,,,,,,,
-Gengar,18,held_item,2,Focus Sash,41.1%,,,,,,,,
-Gengar,18,teammate,1,Garchomp,,,,,,,,,
-Gengar,18,teammate,2,Primarina,,,,,,,,,
-Gengar,18,teammate,3,Mimikyu,,,,,,,,,
-Gengar,18,teammate,4,Archaludon,,,,,,,,,
-Gengar,18,teammate,5,Basculegion,,,,,,,,,
-Gengar,18,teammate,6,Lucario,,,,,,,,,
-Gengar,18,teammate,7,Golisopod,,,,,,,,,
-Gengar,18,teammate,8,Raichu,,,,,,,,,
-Gengar,18,teammate,9,Kingambit,,,,,,,,,
-Gengar,18,teammate,10,Ninetales-Alola,,,,,,,,,
-Gengar,18,stat_alignment,1,Timid,57.9%,Speed,Attack,,,,,,
-Gengar,18,stat_alignment,2,Modest,33.6%,Sp. Atk,Attack,,,,,,
-Gengar,18,stat_alignment,3,Rash,8.4%,Sp. Atk,Sp. Def,,,,,,
-Gengar,18,stat_points,1,,33.6%,,,0,0,2,32,0,32
-Gengar,18,stat_points,2,,17.8%,,,2,0,0,32,0,32
-Gengar,18,stat_points,3,,9.3%,,,14,0,0,20,0,32
-Gengar,18,stat_points,4,,9.3%,,,24,0,0,0,21,21
-Gengar,18,stat_points,5,,8.4%,,,0,9,0,32,0,25
-Gengar,18,stat_points,6,,4.7%,,,0,0,0,32,2,32
-Gengar,18,stat_points,7,,4.7%,,,24,0,0,10,0,32
-Gengar,18,stat_points,8,,2.8%,,,23,0,0,20,0,23
-Gengar,18,stat_points,9,,1.9%,,,10,0,0,24,0,32
-Gengar,18,stat_points,10,,1.9%,,,12,0,4,20,0,30
-Gengar,18,ability,1,Cursed Body,100.0%,,,,,,,,
+Gengar,22,move,1,Shadow Ball,77.4%,,,,,,,,
+Gengar,22,move,2,Sludge Wave,60.8%,,,,,,,,
+Gengar,22,move,3,Icy Wind,59.8%,,,,,,,,
+Gengar,22,move,4,Destiny Bond,32.1%,,,,,,,,
+Gengar,22,move,5,Protect,26.2%,,,,,,,,
+Gengar,22,move,6,Hex,21.4%,,,,,,,,
+Gengar,22,move,7,Toxic Spikes,17.6%,,,,,,,,
+Gengar,22,move,8,Perish Song,17.3%,,,,,,,,
+Gengar,22,move,9,Focus Blast,13.8%,,,,,,,,
+Gengar,22,move,10,Thunder Wave,13.2%,,,,,,,,
+Gengar,22,held_item,1,Gengarite,57.4%,,,,,,,,
+Gengar,22,held_item,2,Focus Sash,42.4%,,,,,,,,
+Gengar,22,held_item,3,Focus Band,0.1%,,,,,,,,
+Gengar,22,held_item,4,Choice Scarf,0.1%,,,,,,,,
+Gengar,22,teammate,1,Garchomp,,,,,,,,,
+Gengar,22,teammate,2,Primarina,,,,,,,,,
+Gengar,22,teammate,3,Corviknight,,,,,,,,,
+Gengar,22,teammate,4,Umbreon,,,,,,,,,
+Gengar,22,teammate,5,Archaludon,,,,,,,,,
+Gengar,22,teammate,6,Mimikyu,,,,,,,,,
+Gengar,22,teammate,7,Gyarados,,,,,,,,,
+Gengar,22,teammate,8,Charizard,,,,,,,,,
+Gengar,22,teammate,9,Blaziken,,,,,,,,,
+Gengar,22,teammate,10,Golisopod,,,,,,,,,
+Gengar,22,stat_alignment,1,Timid,81.2%,Speed,Attack,,,,,,
+Gengar,22,stat_alignment,2,Modest,17.3%,Sp. Atk,Attack,,,,,,
+Gengar,22,stat_alignment,3,Naive,0.8%,Speed,Sp. Def,,,,,,
+Gengar,22,stat_alignment,4,Rash,0.4%,Sp. Atk,Sp. Def,,,,,,
+Gengar,22,stat_alignment,5,Bold,0.2%,Defense,Attack,,,,,,
+Gengar,22,stat_alignment,6,Hasty,0.1%,Speed,Defense,,,,,,
+Gengar,22,stat_alignment,7,Calm,0.1%,Sp. Def,Attack,,,,,,
+Gengar,22,stat_alignment,8,Mild,0.0%,Sp. Atk,Defense,,,,,,
+Gengar,22,stat_points,1,,38.7%,,,2,0,0,32,0,32
+Gengar,22,stat_points,2,,9.7%,,,0,0,2,32,0,32
+Gengar,22,stat_points,3,,6.0%,,,14,0,0,20,0,32
+Gengar,22,stat_points,4,,5.6%,,,1,0,1,32,0,32
+Gengar,22,stat_points,5,,4.5%,,,10,0,0,24,0,32
+Gengar,22,stat_points,6,,2.8%,,,29,0,0,5,0,32
+Gengar,22,stat_points,7,,2.6%,,,32,0,2,0,0,32
+Gengar,22,stat_points,8,,2.1%,,,0,0,1,32,1,32
+Gengar,22,stat_points,9,,2.1%,,,24,0,0,10,0,32
+Gengar,22,stat_points,10,,2.1%,,,0,0,0,32,2,32
+Gengar,22,ability,1,Cursed Body,100.0%,,,,,,,,

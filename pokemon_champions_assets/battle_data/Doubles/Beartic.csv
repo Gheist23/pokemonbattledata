@@ -1,54 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Beartic,191,move,1,Icicle Crash,75.5%,,,,,,,,
-Beartic,191,move,2,Protect,60.5%,,,,,,,,
-Beartic,191,move,3,Close Combat,53.3%,,,,,,,,
-Beartic,191,move,4,Rock Slide,43.4%,,,,,,,,
-Beartic,191,move,5,Liquidation,25.3%,,,,,,,,
-Beartic,191,move,6,Earthquake,16.0%,,,,,,,,
-Beartic,191,move,7,Aqua Jet,13.3%,,,,,,,,
-Beartic,191,move,8,Ice Punch,11.2%,,,,,,,,
-Beartic,191,move,9,Throat Chop,9.5%,,,,,,,,
-Beartic,191,move,10,Encore,9.4%,,,,,,,,
-Beartic,191,held_item,1,Life Orb,40.9%,,,,,,,,
-Beartic,191,held_item,2,Focus Sash,17.4%,,,,,,,,
-Beartic,191,held_item,3,Never-Melt Ice,6.5%,,,,,,,,
-Beartic,191,held_item,4,Wide Lens,4.3%,,,,,,,,
-Beartic,191,held_item,5,Expert Belt,4.2%,,,,,,,,
-Beartic,191,held_item,6,King's Rock,3.4%,,,,,,,,
-Beartic,191,held_item,7,Sitrus Berry,3.0%,,,,,,,,
-Beartic,191,held_item,8,Occa Berry,2.5%,,,,,,,,
-Beartic,191,held_item,9,Bright Powder,2.3%,,,,,,,,
-Beartic,191,held_item,10,White Herb,2.3%,,,,,,,,
-Beartic,191,teammate,1,Pelipper,,,,,,,,,
-Beartic,191,teammate,2,Froslass,,,,,,,,,
-Beartic,191,teammate,3,Archaludon,,,,,,,,,
-Beartic,191,teammate,4,Ninetales-Alola,,,,,,,,,
-Beartic,191,teammate,5,Swampert,,,,,,,,,
-Beartic,191,teammate,6,Abomasnow,,,,,,,,,
-Beartic,191,teammate,7,Indeedee-F,,,,,,,,,
-Beartic,191,teammate,8,Garchomp,,,,,,,,,
-Beartic,191,teammate,9,Raichu,,,,,,,,,
-Beartic,191,teammate,10,Golisopod,,,,,,,,,
-Beartic,191,stat_alignment,1,Adamant,57.6%,Attack,Sp. Atk,,,,,,
-Beartic,191,stat_alignment,2,Jolly,31.9%,Speed,Sp. Atk,,,,,,
-Beartic,191,stat_alignment,3,Brave,2.3%,Attack,Speed,,,,,,
-Beartic,191,stat_alignment,4,Modest,2.1%,Sp. Atk,Attack,,,,,,
-Beartic,191,stat_alignment,5,Naughty,1.9%,Attack,Sp. Def,,,,,,
-Beartic,191,stat_alignment,6,Lonely,1.0%,Attack,Defense,,,,,,
-Beartic,191,stat_alignment,7,Impish,0.9%,Defense,Sp. Atk,,,,,,
-Beartic,191,stat_alignment,8,Naive,0.5%,Speed,Sp. Def,,,,,,
-Beartic,191,stat_alignment,9,Mild,0.4%,Sp. Atk,Defense,,,,,,
-Beartic,191,stat_alignment,10,Timid,0.3%,Speed,Attack,,,,,,
-Beartic,191,stat_points,1,,44.8%,,,2,32,0,0,0,32
-Beartic,191,stat_points,2,,7.5%,,,0,32,0,0,2,32
-Beartic,191,stat_points,3,,4.7%,,,0,32,2,0,0,32
-Beartic,191,stat_points,4,,2.9%,,,0,32,0,0,0,32
-Beartic,191,stat_points,5,,2.4%,,,32,32,2,0,0,0
-Beartic,191,stat_points,6,,2.4%,,,0,32,32,0,0,2
-Beartic,191,stat_points,7,,2.1%,,,0,0,0,32,2,32
-Beartic,191,stat_points,8,,1.7%,,,1,32,1,0,0,32
-Beartic,191,stat_points,9,,1.7%,,,32,32,0,0,2,0
-Beartic,191,stat_points,10,,1.3%,,,0,32,2,0,32,0
-Beartic,191,ability,1,Slush Rush,49.2%,,,,,,,,
-Beartic,191,ability,2,Swift Swim,44.3%,,,,,,,,
-Beartic,191,ability,3,Snow Cloak,6.5%,,,,,,,,
+Beartic,205,move,1,Rock Slide,100.0%,,,,,,,,
+Beartic,205,move,2,Protect,100.0%,,,,,,,,
+Beartic,205,move,3,Encore,100.0%,,,,,,,,
+Beartic,205,move,4,Icicle Crash,100.0%,,,,,,,,
+Beartic,205,held_item,1,Focus Sash,100.0%,,,,,,,,
+Beartic,205,teammate,1,Garchomp,,,,,,,,,
+Beartic,205,teammate,2,Abomasnow,,,,,,,,,
+Beartic,205,teammate,3,Sirfetch’d,,,,,,,,,
+Beartic,205,teammate,4,Indeedee-F,,,,,,,,,
+Beartic,205,teammate,5,Armarouge,,,,,,,,,
+Beartic,205,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
+Beartic,205,stat_points,1,,100.0%,,,2,32,0,0,0,32
+Beartic,205,ability,1,Slush Rush,100.0%,,,,,,,,

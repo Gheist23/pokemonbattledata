@@ -1,14 +1,30 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Medicham,133,move,1,High Jump Kick,100.0%,,,,,,,,
-Medicham,133,move,2,Blaze Kick,100.0%,,,,,,,,
-Medicham,133,move,3,Bullet Punch,100.0%,,,,,,,,
-Medicham,133,move,4,Psycho Cut,100.0%,,,,,,,,
-Medicham,133,held_item,1,Medichamite,100.0%,,,,,,,,
-Medicham,133,teammate,1,Dragonite,,,,,,,,,
-Medicham,133,teammate,2,Mamoswine,,,,,,,,,
-Medicham,133,teammate,3,Primarina,,,,,,,,,
-Medicham,133,teammate,4,Glimmora,,,,,,,,,
-Medicham,133,teammate,5,Kingambit,,,,,,,,,
-Medicham,133,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
-Medicham,133,stat_points,1,,100.0%,,,0,32,2,0,0,32
-Medicham,133,ability,1,Pure Power,100.0%,,,,,,,,
+Medicham,143,move,1,Bullet Punch,96.2%,,,,,,,,
+Medicham,143,move,2,Poison Jab,88.6%,,,,,,,,
+Medicham,143,move,3,Drain Punch,88.6%,,,,,,,,
+Medicham,143,move,4,Fire Punch,88.6%,,,,,,,,
+Medicham,143,move,5,Fake Out,7.6%,,,,,,,,
+Medicham,143,move,6,Psycho Cut,7.6%,,,,,,,,
+Medicham,143,move,7,Close Combat,6.3%,,,,,,,,
+Medicham,143,move,8,High Jump Kick,5.1%,,,,,,,,
+Medicham,143,move,9,Blaze Kick,5.1%,,,,,,,,
+Medicham,143,move,10,Rock Slide,2.5%,,,,,,,,
+Medicham,143,held_item,1,Medichamite,100.0%,,,,,,,,
+Medicham,143,teammate,1,Goodra-Hisui,,,,,,,,,
+Medicham,143,teammate,2,Gardevoir,,,,,,,,,
+Medicham,143,teammate,3,Zoroark-Hisui,,,,,,,,,
+Medicham,143,teammate,4,Snorlax,,,,,,,,,
+Medicham,143,teammate,5,Glimmora,,,,,,,,,
+Medicham,143,teammate,6,Golurk,,,,,,,,,
+Medicham,143,teammate,7,Drampa,,,,,,,,,
+Medicham,143,teammate,8,Arboliva,,,,,,,,,
+Medicham,143,teammate,9,Ninetales,,,,,,,,,
+Medicham,143,teammate,10,Starmie,,,,,,,,,
+Medicham,143,stat_alignment,1,Adamant,94.9%,Attack,Sp. Atk,,,,,,
+Medicham,143,stat_alignment,2,Jolly,5.1%,Speed,Sp. Atk,,,,,,
+Medicham,143,stat_points,1,,88.6%,,,2,32,32,0,0,0
+Medicham,143,stat_points,2,,5.1%,,,0,32,0,0,2,32
+Medicham,143,stat_points,3,,2.5%,,,0,32,2,0,0,32
+Medicham,143,stat_points,4,,2.5%,,,32,32,1,0,1,0
+Medicham,143,stat_points,5,,1.3%,,,2,32,0,0,0,32
+Medicham,143,ability,1,Pure Power,100.0%,,,,,,,,

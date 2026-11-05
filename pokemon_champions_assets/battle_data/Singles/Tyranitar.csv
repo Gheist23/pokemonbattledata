@@ -1,43 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tyranitar,28,move,1,Knock Off,88.9%,,,,,,,,
-Tyranitar,28,move,2,Stone Edge,71.6%,,,,,,,,
-Tyranitar,28,move,3,Ice Punch,59.3%,,,,,,,,
-Tyranitar,28,move,4,Earthquake,49.4%,,,,,,,,
-Tyranitar,28,move,5,Stealth Rock,43.2%,,,,,,,,
-Tyranitar,28,move,6,Roar,13.6%,,,,,,,,
-Tyranitar,28,move,7,Rock Blast,11.1%,,,,,,,,
-Tyranitar,28,move,8,Superpower,8.6%,,,,,,,,
-Tyranitar,28,move,9,Rock Tomb,7.4%,,,,,,,,
-Tyranitar,28,move,10,Dragon Dance,7.4%,,,,,,,,
-Tyranitar,28,held_item,1,Tyranitarite,63.0%,,,,,,,,
-Tyranitar,28,held_item,2,Sitrus Berry,18.5%,,,,,,,,
-Tyranitar,28,held_item,3,Expert Belt,6.2%,,,,,,,,
-Tyranitar,28,held_item,4,Leftovers,4.9%,,,,,,,,
-Tyranitar,28,held_item,5,Smooth Rock,4.9%,,,,,,,,
-Tyranitar,28,held_item,6,Chesto Berry,1.2%,,,,,,,,
-Tyranitar,28,held_item,7,Passho Berry,1.2%,,,,,,,,
-Tyranitar,28,teammate,1,Ceruledge,,,,,,,,,
-Tyranitar,28,teammate,2,Clefable,,,,,,,,,
-Tyranitar,28,teammate,3,Venusaur,,,,,,,,,
-Tyranitar,28,teammate,4,Milotic,,,,,,,,,
-Tyranitar,28,teammate,5,Gliscor,,,,,,,,,
-Tyranitar,28,teammate,6,Raichu,,,,,,,,,
-Tyranitar,28,teammate,7,Toxapex,,,,,,,,,
-Tyranitar,28,teammate,8,Corviknight,,,,,,,,,
-Tyranitar,28,teammate,9,Rotom-Heat,,,,,,,,,
-Tyranitar,28,teammate,10,Golisopod,,,,,,,,,
-Tyranitar,28,stat_alignment,1,Adamant,66.7%,Attack,Sp. Atk,,,,,,
-Tyranitar,28,stat_alignment,2,Careful,22.2%,Sp. Def,Sp. Atk,,,,,,
-Tyranitar,28,stat_alignment,3,Quiet,7.4%,Sp. Atk,Speed,,,,,,
-Tyranitar,28,stat_alignment,4,Jolly,3.7%,Speed,Sp. Atk,,,,,,
-Tyranitar,28,stat_points,1,,29.6%,,,32,20,0,0,14,0
-Tyranitar,28,stat_points,2,,17.3%,,,32,32,0,0,2,0
-Tyranitar,28,stat_points,3,,13.6%,,,32,32,2,0,0,0
-Tyranitar,28,stat_points,4,,11.1%,,,32,0,17,0,17,0
-Tyranitar,28,stat_points,5,,8.6%,,,32,0,2,0,32,0
-Tyranitar,28,stat_points,6,,7.4%,,,32,0,10,10,14,0
-Tyranitar,28,stat_points,7,,3.7%,,,2,32,0,0,0,32
-Tyranitar,28,stat_points,8,,3.7%,,,32,15,0,0,0,19
-Tyranitar,28,stat_points,9,,1.2%,,,12,32,0,0,0,22
-Tyranitar,28,stat_points,10,,1.2%,,,32,0,0,0,32,2
-Tyranitar,28,ability,1,Sand Stream,100.0%,,,,,,,,
+Tyranitar,41,move,1,Knock Off,86.4%,,,,,,,,
+Tyranitar,41,move,2,Stone Edge,51.7%,,,,,,,,
+Tyranitar,41,move,3,Ice Punch,47.5%,,,,,,,,
+Tyranitar,41,move,4,Stealth Rock,40.3%,,,,,,,,
+Tyranitar,41,move,5,Earthquake,35.9%,,,,,,,,
+Tyranitar,41,move,6,Rock Tomb,22.7%,,,,,,,,
+Tyranitar,41,move,7,Taunt,16.6%,,,,,,,,
+Tyranitar,41,move,8,Dragon Dance,14.8%,,,,,,,,
+Tyranitar,41,move,9,Rock Slide,9.3%,,,,,,,,
+Tyranitar,41,move,10,Roar,8.8%,,,,,,,,
+Tyranitar,41,held_item,1,Tyranitarite,48.9%,,,,,,,,
+Tyranitar,41,held_item,2,Leftovers,11.8%,,,,,,,,
+Tyranitar,41,held_item,3,Smooth Rock,10.0%,,,,,,,,
+Tyranitar,41,held_item,4,Sitrus Berry,9.5%,,,,,,,,
+Tyranitar,41,held_item,5,Chesto Berry,6.7%,,,,,,,,
+Tyranitar,41,held_item,6,Expert Belt,3.6%,,,,,,,,
+Tyranitar,41,held_item,7,Shuca Berry,2.0%,,,,,,,,
+Tyranitar,41,held_item,8,Zoom Lens,1.6%,,,,,,,,
+Tyranitar,41,held_item,9,Focus Sash,1.0%,,,,,,,,
+Tyranitar,41,held_item,10,Life Orb,0.8%,,,,,,,,
+Tyranitar,41,teammate,1,Rillaboom,,,,,,,,,
+Tyranitar,41,teammate,2,Garchomp,,,,,,,,,
+Tyranitar,41,teammate,3,Golisopod,,,,,,,,,
+Tyranitar,41,teammate,4,Gholdengo,,,,,,,,,
+Tyranitar,41,teammate,5,Corviknight,,,,,,,,,
+Tyranitar,41,teammate,6,Primarina,,,,,,,,,
+Tyranitar,41,teammate,7,Excadrill,,,,,,,,,
+Tyranitar,41,teammate,8,Salamence,,,,,,,,,
+Tyranitar,41,teammate,9,Lucario,,,,,,,,,
+Tyranitar,41,teammate,10,Gyarados,,,,,,,,,
+Tyranitar,41,stat_alignment,1,Adamant,53.9%,Attack,Sp. Atk,,,,,,
+Tyranitar,41,stat_alignment,2,Careful,29.3%,Sp. Def,Sp. Atk,,,,,,
+Tyranitar,41,stat_alignment,3,Impish,5.5%,Defense,Sp. Atk,,,,,,
+Tyranitar,41,stat_alignment,4,Jolly,4.6%,Speed,Sp. Atk,,,,,,
+Tyranitar,41,stat_alignment,5,Modest,4.0%,Sp. Atk,Attack,,,,,,
+Tyranitar,41,stat_alignment,6,Bold,0.7%,Defense,Attack,,,,,,
+Tyranitar,41,stat_alignment,7,Relaxed,0.7%,Defense,Speed,,,,,,
+Tyranitar,41,stat_alignment,8,Quiet,0.4%,Sp. Atk,Speed,,,,,,
+Tyranitar,41,stat_alignment,9,Brave,0.4%,Attack,Speed,,,,,,
+Tyranitar,41,stat_alignment,10,Sassy,0.3%,Sp. Def,Speed,,,,,,
+Tyranitar,41,stat_points,1,,13.4%,,,32,32,0,0,2,0
+Tyranitar,41,stat_points,2,,12.2%,,,32,0,2,0,32,0
+Tyranitar,41,stat_points,3,,5.7%,,,32,32,2,0,0,0
+Tyranitar,41,stat_points,4,,4.5%,,,32,0,0,0,12,22
+Tyranitar,41,stat_points,5,,4.5%,,,32,2,0,0,32,0
+Tyranitar,41,stat_points,6,,4.0%,,,2,32,0,0,0,32
+Tyranitar,41,stat_points,7,,2.7%,,,32,0,0,0,32,2
+Tyranitar,41,stat_points,8,,2.6%,,,32,32,0,0,0,2
+Tyranitar,41,stat_points,9,,2.3%,,,32,12,0,0,0,22
+Tyranitar,41,stat_points,10,,2.2%,,,32,7,0,0,0,27
+Tyranitar,41,ability,1,Sand Stream,100.0%,,,,,,,,
+Tyranitar,41,ability,2,Unnerve,0.0%,,,,,,,,

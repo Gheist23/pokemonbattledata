@@ -1,36 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Metagross,19,move,1,Bullet Punch,94.3%,,,,,,,,
-Metagross,19,move,2,Psychic Fangs,71.4%,,,,,,,,
-Metagross,19,move,3,Ice Punch,64.8%,,,,,,,,
-Metagross,19,move,4,Earthquake,54.3%,,,,,,,,
-Metagross,19,move,5,Thunder Punch,35.2%,,,,,,,,
-Metagross,19,move,6,Iron Defense,24.8%,,,,,,,,
-Metagross,19,move,7,Body Press,24.8%,,,,,,,,
-Metagross,19,move,8,Iron Head,15.2%,,,,,,,,
-Metagross,19,move,9,Psychic Noise,6.7%,,,,,,,,
-Metagross,19,move,10,Hammer Arm,2.9%,,,,,,,,
-Metagross,19,held_item,1,Metagrossite,100.0%,,,,,,,,
-Metagross,19,teammate,1,Garchomp,,,,,,,,,
-Metagross,19,teammate,2,Archaludon,,,,,,,,,
-Metagross,19,teammate,3,Primarina,,,,,,,,,
-Metagross,19,teammate,4,Hippowdon,,,,,,,,,
-Metagross,19,teammate,5,Glimmora,,,,,,,,,
-Metagross,19,teammate,6,Charizard,,,,,,,,,
-Metagross,19,teammate,7,Mimikyu,,,,,,,,,
-Metagross,19,teammate,8,Rotom-Wash,,,,,,,,,
-Metagross,19,teammate,9,Dragonite,,,,,,,,,
-Metagross,19,teammate,10,Basculegion,,,,,,,,,
-Metagross,19,stat_alignment,1,Adamant,63.8%,Attack,Sp. Atk,,,,,,
-Metagross,19,stat_alignment,2,Jolly,21.0%,Speed,Sp. Atk,,,,,,
-Metagross,19,stat_alignment,3,Impish,15.2%,Defense,Sp. Atk,,,,,,
-Metagross,19,stat_points,1,,13.3%,,,12,29,0,0,0,25
-Metagross,19,stat_points,2,,13.3%,,,12,32,0,0,0,22
-Metagross,19,stat_points,3,,9.5%,,,26,0,32,0,0,8
-Metagross,19,stat_points,4,,7.6%,,,2,17,22,0,0,25
-Metagross,19,stat_points,5,,7.6%,,,14,25,1,0,0,26
-Metagross,19,stat_points,6,,6.7%,,,2,32,0,0,0,32
-Metagross,19,stat_points,7,,6.7%,,,10,32,0,0,0,24
-Metagross,19,stat_points,8,,4.8%,,,32,32,1,0,1,0
-Metagross,19,stat_points,9,,3.8%,,,8,32,0,0,0,26
-Metagross,19,stat_points,10,,2.9%,,,32,0,20,0,2,12
-Metagross,19,ability,1,Clear Body,100.0%,,,,,,,,
+Metagross,14,move,1,Bullet Punch,88.6%,,,,,,,,
+Metagross,14,move,2,Psychic Fangs,76.5%,,,,,,,,
+Metagross,14,move,3,Ice Punch,71.7%,,,,,,,,
+Metagross,14,move,4,Earthquake,55.5%,,,,,,,,
+Metagross,14,move,5,Thunder Punch,40.0%,,,,,,,,
+Metagross,14,move,6,Body Press,14.6%,,,,,,,,
+Metagross,14,move,7,Iron Defense,14.4%,,,,,,,,
+Metagross,14,move,8,Iron Head,13.0%,,,,,,,,
+Metagross,14,move,9,Rock Slide,4.2%,,,,,,,,
+Metagross,14,move,10,Grass Knot,4.2%,,,,,,,,
+Metagross,14,held_item,1,Metagrossite,99.2%,,,,,,,,
+Metagross,14,held_item,2,Muscle Band,0.4%,,,,,,,,
+Metagross,14,held_item,3,Air Balloon,0.1%,,,,,,,,
+Metagross,14,held_item,4,Rocky Helmet,0.1%,,,,,,,,
+Metagross,14,held_item,5,Shuca Berry,0.0%,,,,,,,,
+Metagross,14,held_item,6,Sitrus Berry,0.0%,,,,,,,,
+Metagross,14,held_item,7,Light Clay,0.0%,,,,,,,,
+Metagross,14,teammate,1,Garchomp,,,,,,,,,
+Metagross,14,teammate,2,Primarina,,,,,,,,,
+Metagross,14,teammate,3,Mimikyu,,,,,,,,,
+Metagross,14,teammate,4,Charizard,,,,,,,,,
+Metagross,14,teammate,5,Hippowdon,,,,,,,,,
+Metagross,14,teammate,6,Archaludon,,,,,,,,,
+Metagross,14,teammate,7,Dragonite,,,,,,,,,
+Metagross,14,teammate,8,Hydreigon,,,,,,,,,
+Metagross,14,teammate,9,Rillaboom,,,,,,,,,
+Metagross,14,teammate,10,Rotom-Wash,,,,,,,,,
+Metagross,14,stat_alignment,1,Adamant,60.0%,Attack,Sp. Atk,,,,,,
+Metagross,14,stat_alignment,2,Jolly,28.3%,Speed,Sp. Atk,,,,,,
+Metagross,14,stat_alignment,3,Impish,10.1%,Defense,Sp. Atk,,,,,,
+Metagross,14,stat_alignment,4,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
+Metagross,14,stat_alignment,5,Naive,0.3%,Speed,Sp. Def,,,,,,
+Metagross,14,stat_alignment,6,Brave,0.2%,Attack,Speed,,,,,,
+Metagross,14,stat_alignment,7,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Metagross,14,stat_alignment,8,Bold,0.1%,Defense,Attack,,,,,,
+Metagross,14,stat_alignment,9,Sassy,0.0%,Sp. Def,Speed,,,,,,
+Metagross,14,stat_points,1,,16.5%,,,2,32,0,0,0,32
+Metagross,14,stat_points,2,,8.6%,,,8,32,0,0,0,26
+Metagross,14,stat_points,3,,3.5%,,,10,30,0,0,0,26
+Metagross,14,stat_points,4,,2.7%,,,32,32,2,0,0,0
+Metagross,14,stat_points,5,,2.7%,,,20,0,20,0,0,26
+Metagross,14,stat_points,6,,2.6%,,,16,25,0,0,0,25
+Metagross,14,stat_points,7,,2.6%,,,26,12,0,0,0,28
+Metagross,14,stat_points,8,,2.6%,,,8,31,1,0,0,26
+Metagross,14,stat_points,9,,2.5%,,,14,25,1,0,0,26
+Metagross,14,stat_points,10,,2.3%,,,6,32,0,0,0,28
+Metagross,14,ability,1,Clear Body,100.0%,,,,,,,,

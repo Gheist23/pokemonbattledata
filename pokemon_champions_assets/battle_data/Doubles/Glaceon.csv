@@ -1,19 +1,28 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Glaceon,142,move,1,Detect,100.0%,,,,,,,,
-Glaceon,142,move,2,Ice Shard,100.0%,,,,,,,,
-Glaceon,142,move,3,Freeze-Dry,100.0%,,,,,,,,
-Glaceon,142,move,4,Blizzard,100.0%,,,,,,,,
-Glaceon,142,held_item,1,Bright Powder,96.0%,,,,,,,,
-Glaceon,142,held_item,2,Never-Melt Ice,4.0%,,,,,,,,
-Glaceon,142,teammate,1,Froslass,,,,,,,,,
-Glaceon,142,teammate,2,Kingambit,,,,,,,,,
-Glaceon,142,teammate,3,Arcanine-Hisui,,,,,,,,,
-Glaceon,142,teammate,4,Staraptor,,,,,,,,,
-Glaceon,142,teammate,5,Whimsicott,,,,,,,,,
-Glaceon,142,teammate,6,Garchomp,,,,,,,,,
-Glaceon,142,teammate,7,Talonflame,,,,,,,,,
-Glaceon,142,teammate,8,Sneasler,,,,,,,,,
-Glaceon,142,stat_alignment,1,Modest,100.0%,Sp. Atk,Attack,,,,,,
-Glaceon,142,stat_points,1,,96.0%,,,24,0,2,30,0,10
-Glaceon,142,stat_points,2,,4.0%,,,32,0,2,14,18,0
-Glaceon,142,ability,1,Snow Cloak,100.0%,,,,,,,,
+Glaceon,150,move,1,Freeze-Dry,100.0%,,,,,,,,
+Glaceon,150,move,2,Blizzard,100.0%,,,,,,,,
+Glaceon,150,move,3,Detect,93.8%,,,,,,,,
+Glaceon,150,move,4,Ice Shard,90.6%,,,,,,,,
+Glaceon,150,move,5,Protect,6.3%,,,,,,,,
+Glaceon,150,move,6,Alluring Voice,6.3%,,,,,,,,
+Glaceon,150,move,7,Wish,3.1%,,,,,,,,
+Glaceon,150,held_item,1,Bright Powder,84.4%,,,,,,,,
+Glaceon,150,held_item,2,Never-Melt Ice,15.6%,,,,,,,,
+Glaceon,150,teammate,1,Froslass,,,,,,,,,
+Glaceon,150,teammate,2,Kingambit,,,,,,,,,
+Glaceon,150,teammate,3,Arcanine-Hisui,,,,,,,,,
+Glaceon,150,teammate,4,Staraptor,,,,,,,,,
+Glaceon,150,teammate,5,Whimsicott,,,,,,,,,
+Glaceon,150,teammate,6,Garchomp,,,,,,,,,
+Glaceon,150,teammate,7,Sneasler,,,,,,,,,
+Glaceon,150,teammate,8,Charizard,,,,,,,,,
+Glaceon,150,teammate,9,Rillaboom,,,,,,,,,
+Glaceon,150,teammate,10,Lucario,,,,,,,,,
+Glaceon,150,stat_alignment,1,Modest,96.9%,Sp. Atk,Attack,,,,,,
+Glaceon,150,stat_alignment,2,Quiet,3.1%,Sp. Atk,Speed,,,,,,
+Glaceon,150,stat_points,1,,75.0%,,,24,0,2,30,0,10
+Glaceon,150,stat_points,2,,12.5%,,,32,0,4,15,10,5
+Glaceon,150,stat_points,3,,6.3%,,,25,0,0,30,11,0
+Glaceon,150,stat_points,4,,3.1%,,,32,0,2,14,18,0
+Glaceon,150,stat_points,5,,3.1%,,,32,0,4,30,0,0
+Glaceon,150,ability,1,Snow Cloak,100.0%,,,,,,,,

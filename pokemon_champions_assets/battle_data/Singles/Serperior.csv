@@ -1,43 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Serperior,139,move,1,Leaf Storm,100.0%,,,,,,,,
-Serperior,139,move,2,Glare,80.7%,,,,,,,,
-Serperior,139,move,3,Dragon Pulse,37.5%,,,,,,,,
-Serperior,139,move,4,Taunt,34.1%,,,,,,,,
-Serperior,139,move,5,Light Screen,27.3%,,,,,,,,
-Serperior,139,move,6,Reflect,27.3%,,,,,,,,
-Serperior,139,move,7,Leech Seed,25.0%,,,,,,,,
-Serperior,139,move,8,Synthesis,19.3%,,,,,,,,
-Serperior,139,move,9,Mirror Coat,15.9%,,,,,,,,
-Serperior,139,move,10,Substitute,13.6%,,,,,,,,
-Serperior,139,held_item,1,Light Clay,27.3%,,,,,,,,
-Serperior,139,held_item,2,Focus Sash,27.3%,,,,,,,,
-Serperior,139,held_item,3,Leftovers,19.3%,,,,,,,,
-Serperior,139,held_item,4,Wide Lens,13.6%,,,,,,,,
-Serperior,139,held_item,5,Kebia Berry,5.7%,,,,,,,,
-Serperior,139,held_item,6,Choice Scarf,4.5%,,,,,,,,
-Serperior,139,held_item,7,Occa Berry,1.1%,,,,,,,,
-Serperior,139,held_item,8,Miracle Seed,1.1%,,,,,,,,
-Serperior,139,teammate,1,Garchomp,,,,,,,,,
-Serperior,139,teammate,2,Charizard,,,,,,,,,
-Serperior,139,teammate,3,Primarina,,,,,,,,,
-Serperior,139,teammate,4,Mimikyu,,,,,,,,,
-Serperior,139,teammate,5,Greninja,,,,,,,,,
-Serperior,139,teammate,6,Gallade,,,,,,,,,
-Serperior,139,teammate,7,Golisopod,,,,,,,,,
-Serperior,139,teammate,8,Staraptor,,,,,,,,,
-Serperior,139,teammate,9,Blaziken,,,,,,,,,
-Serperior,139,teammate,10,Gholdengo,,,,,,,,,
-Serperior,139,stat_alignment,1,Timid,88.6%,Speed,Attack,,,,,,
-Serperior,139,stat_alignment,2,Bold,6.8%,Defense,Attack,,,,,,
-Serperior,139,stat_alignment,3,Modest,4.5%,Sp. Atk,Attack,,,,,,
-Serperior,139,stat_points,1,,23.9%,,,31,0,3,0,0,32
-Serperior,139,stat_points,2,,17.0%,,,2,0,0,32,0,32
-Serperior,139,stat_points,3,,12.5%,,,0,0,1,32,1,32
-Serperior,139,stat_points,4,,10.2%,,,4,0,0,32,0,30
-Serperior,139,stat_points,5,,6.8%,,,32,0,0,2,0,32
-Serperior,139,stat_points,6,,5.7%,,,31,0,1,0,4,30
-Serperior,139,stat_points,7,,5.7%,,,32,0,32,2,0,0
-Serperior,139,stat_points,8,,4.5%,,,17,0,0,32,0,17
-Serperior,139,stat_points,9,,4.5%,,,27,0,0,0,7,32
-Serperior,139,stat_points,10,,3.4%,,,21,0,0,13,0,32
-Serperior,139,ability,1,Contrary,100.0%,,,,,,,,
+Serperior,121,move,1,Leaf Storm,100.0%,,,,,,,,
+Serperior,121,move,2,Glare,79.6%,,,,,,,,
+Serperior,121,move,3,Dragon Pulse,47.8%,,,,,,,,
+Serperior,121,move,4,Taunt,43.5%,,,,,,,,
+Serperior,121,move,5,Leech Seed,22.6%,,,,,,,,
+Serperior,121,move,6,Light Screen,20.4%,,,,,,,,
+Serperior,121,move,7,Reflect,20.0%,,,,,,,,
+Serperior,121,move,8,Mirror Coat,15.7%,,,,,,,,
+Serperior,121,move,9,Substitute,14.8%,,,,,,,,
+Serperior,121,move,10,Giga Drain,13.5%,,,,,,,,
+Serperior,121,held_item,1,Focus Sash,24.8%,,,,,,,,
+Serperior,121,held_item,2,Leftovers,21.7%,,,,,,,,
+Serperior,121,held_item,3,Light Clay,20.0%,,,,,,,,
+Serperior,121,held_item,4,Wide Lens,13.9%,,,,,,,,
+Serperior,121,held_item,5,Miracle Seed,7.8%,,,,,,,,
+Serperior,121,held_item,6,Kebia Berry,4.8%,,,,,,,,
+Serperior,121,held_item,7,Sitrus Berry,3.9%,,,,,,,,
+Serperior,121,held_item,8,Choice Scarf,2.6%,,,,,,,,
+Serperior,121,held_item,9,Occa Berry,0.4%,,,,,,,,
+Serperior,121,teammate,1,Garchomp,,,,,,,,,
+Serperior,121,teammate,2,Charizard,,,,,,,,,
+Serperior,121,teammate,3,Primarina,,,,,,,,,
+Serperior,121,teammate,4,Mimikyu,,,,,,,,,
+Serperior,121,teammate,5,Golisopod,,,,,,,,,
+Serperior,121,teammate,6,Archaludon,,,,,,,,,
+Serperior,121,teammate,7,Gallade,,,,,,,,,
+Serperior,121,teammate,8,Staraptor,,,,,,,,,
+Serperior,121,teammate,9,Slowking-Galar,,,,,,,,,
+Serperior,121,teammate,10,Absol,,,,,,,,,
+Serperior,121,stat_alignment,1,Timid,87.4%,Speed,Attack,,,,,,
+Serperior,121,stat_alignment,2,Modest,7.4%,Sp. Atk,Attack,,,,,,
+Serperior,121,stat_alignment,3,Bold,3.9%,Defense,Attack,,,,,,
+Serperior,121,stat_alignment,4,Calm,1.3%,Sp. Def,Attack,,,,,,
+Serperior,121,stat_points,1,,18.7%,,,2,0,0,32,0,32
+Serperior,121,stat_points,2,,17.0%,,,31,0,3,0,0,32
+Serperior,121,stat_points,3,,10.9%,,,4,0,0,32,0,30
+Serperior,121,stat_points,4,,7.8%,,,1,0,1,32,0,32
+Serperior,121,stat_points,5,,7.0%,,,32,0,32,2,0,0
+Serperior,121,stat_points,6,,5.2%,,,32,0,0,2,0,32
+Serperior,121,stat_points,7,,4.8%,,,0,0,1,32,1,32
+Serperior,121,stat_points,8,,4.3%,,,0,0,2,32,0,32
+Serperior,121,stat_points,9,,4.3%,,,31,0,1,0,4,30
+Serperior,121,stat_points,10,,3.9%,,,31,0,0,0,10,25
+Serperior,121,ability,1,Contrary,98.7%,,,,,,,,
+Serperior,121,ability,2,Overgrow,1.3%,,,,,,,,

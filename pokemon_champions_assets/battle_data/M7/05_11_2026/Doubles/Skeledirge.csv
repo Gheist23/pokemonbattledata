@@ -1,28 +1,36 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Skeledirge,188,move,1,Protect,100.0%,,,,,,,,
-Skeledirge,188,move,2,Shadow Ball,100.0%,,,,,,,,
-Skeledirge,188,move,3,Torch Song,100.0%,,,,,,,,
-Skeledirge,188,move,4,Earth Power,80.0%,,,,,,,,
-Skeledirge,188,move,5,Yawn,20.0%,,,,,,,,
-Skeledirge,188,held_item,1,Colbur Berry,40.0%,,,,,,,,
-Skeledirge,188,held_item,2,Charcoal,40.0%,,,,,,,,
-Skeledirge,188,held_item,3,Sitrus Berry,20.0%,,,,,,,,
-Skeledirge,188,teammate,1,Scrafty,,,,,,,,,
-Skeledirge,188,teammate,2,Drampa,,,,,,,,,
-Skeledirge,188,teammate,3,Primarina,,,,,,,,,
-Skeledirge,188,teammate,4,Oranguru,,,,,,,,,
-Skeledirge,188,teammate,5,Scovillain,,,,,,,,,
-Skeledirge,188,teammate,6,Slowking-Galar,,,,,,,,,
-Skeledirge,188,teammate,7,Mawile,,,,,,,,,
-Skeledirge,188,teammate,8,Staraptor,,,,,,,,,
-Skeledirge,188,teammate,9,Garchomp,,,,,,,,,
-Skeledirge,188,teammate,10,Gallade,,,,,,,,,
-Skeledirge,188,stat_alignment,1,Quiet,80.0%,Sp. Atk,Speed,,,,,,
-Skeledirge,188,stat_alignment,2,Calm,20.0%,Sp. Def,Attack,,,,,,
-Skeledirge,188,stat_points,1,,20.0%,,,1,0,20,32,13,0
-Skeledirge,188,stat_points,2,,20.0%,,,21,0,0,32,13,0
-Skeledirge,188,stat_points,3,,20.0%,,,32,0,0,20,14,0
-Skeledirge,188,stat_points,4,,20.0%,,,32,0,2,20,12,0
-Skeledirge,188,stat_points,5,,20.0%,,,32,0,10,0,24,0
-Skeledirge,188,ability,1,Unaware,80.0%,,,,,,,,
-Skeledirge,188,ability,2,Blaze,20.0%,,,,,,,,
+Skeledirge,133,move,1,Torch Song,100.0%,,,,,,,,
+Skeledirge,133,move,2,Shadow Ball,92.3%,,,,,,,,
+Skeledirge,133,move,3,Will-O-Wisp,75.0%,,,,,,,,
+Skeledirge,133,move,4,Slack Off,67.3%,,,,,,,,
+Skeledirge,133,move,5,Protect,32.7%,,,,,,,,
+Skeledirge,133,move,6,Earth Power,23.1%,,,,,,,,
+Skeledirge,133,move,7,Hex,7.7%,,,,,,,,
+Skeledirge,133,move,8,Yawn,1.9%,,,,,,,,
+Skeledirge,133,held_item,1,Sitrus Berry,69.2%,,,,,,,,
+Skeledirge,133,held_item,2,Colbur Berry,19.2%,,,,,,,,
+Skeledirge,133,held_item,3,Leftovers,7.7%,,,,,,,,
+Skeledirge,133,held_item,4,Charcoal,3.8%,,,,,,,,
+Skeledirge,133,teammate,1,Baxcalibur,,,,,,,,,
+Skeledirge,133,teammate,2,Garchomp,,,,,,,,,
+Skeledirge,133,teammate,3,Primarina,,,,,,,,,
+Skeledirge,133,teammate,4,Gengar,,,,,,,,,
+Skeledirge,133,teammate,5,Samurott-Hisui,,,,,,,,,
+Skeledirge,133,teammate,6,Greninja,,,,,,,,,
+Skeledirge,133,teammate,7,Glimmora,,,,,,,,,
+Skeledirge,133,teammate,8,Lucario,,,,,,,,,
+Skeledirge,133,teammate,9,Scrafty,,,,,,,,,
+Skeledirge,133,teammate,10,Drampa,,,,,,,,,
+Skeledirge,133,stat_alignment,1,Bold,75.0%,Defense,Attack,,,,,,
+Skeledirge,133,stat_alignment,2,Quiet,23.1%,Sp. Atk,Speed,,,,,,
+Skeledirge,133,stat_alignment,3,Calm,1.9%,Sp. Def,Attack,,,,,,
+Skeledirge,133,stat_points,1,,67.3%,,,32,0,9,0,25,0
+Skeledirge,133,stat_points,2,,17.3%,,,32,0,0,20,14,0
+Skeledirge,133,stat_points,3,,5.8%,,,32,0,0,0,32,2
+Skeledirge,133,stat_points,4,,1.9%,,,1,0,20,32,13,0
+Skeledirge,133,stat_points,5,,1.9%,,,21,0,0,32,13,0
+Skeledirge,133,stat_points,6,,1.9%,,,29,0,20,0,17,0
+Skeledirge,133,stat_points,7,,1.9%,,,32,0,2,20,12,0
+Skeledirge,133,stat_points,8,,1.9%,,,32,0,10,0,24,0
+Skeledirge,133,ability,1,Unaware,98.1%,,,,,,,,
+Skeledirge,133,ability,2,Blaze,1.9%,,,,,,,,

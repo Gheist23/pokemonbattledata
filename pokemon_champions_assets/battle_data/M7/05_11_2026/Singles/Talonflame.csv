@@ -1,37 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Talonflame,177,move,1,Roost,96.7%,,,,,,,,
-Talonflame,177,move,2,Will-O-Wisp,93.3%,,,,,,,,
-Talonflame,177,move,3,Taunt,93.3%,,,,,,,,
-Talonflame,177,move,4,Flamethrower,43.3%,,,,,,,,
-Talonflame,177,move,5,Flare Blitz,40.0%,,,,,,,,
-Talonflame,177,move,6,Brave Bird,13.3%,,,,,,,,
-Talonflame,177,move,7,Steel Wing,3.3%,,,,,,,,
-Talonflame,177,move,8,Overheat,3.3%,,,,,,,,
-Talonflame,177,move,9,Tailwind,3.3%,,,,,,,,
-Talonflame,177,move,10,Air Slash,3.3%,,,,,,,,
-Talonflame,177,held_item,1,Rocky Helmet,90.0%,,,,,,,,
-Talonflame,177,held_item,2,White Herb,6.7%,,,,,,,,
-Talonflame,177,held_item,3,Sitrus Berry,3.3%,,,,,,,,
-Talonflame,177,teammate,1,Greninja,,,,,,,,,
-Talonflame,177,teammate,2,Raichu,,,,,,,,,
-Talonflame,177,teammate,3,Garchomp,,,,,,,,,
-Talonflame,177,teammate,4,Hawlucha,,,,,,,,,
-Talonflame,177,teammate,5,Goodra-Hisui,,,,,,,,,
-Talonflame,177,teammate,6,Noivern,,,,,,,,,
-Talonflame,177,teammate,7,Metagross,,,,,,,,,
-Talonflame,177,teammate,8,Arboliva,,,,,,,,,
-Talonflame,177,teammate,9,Toxtricity-Low-Key,,,,,,,,,
-Talonflame,177,teammate,10,Grapploct,,,,,,,,,
-Talonflame,177,stat_alignment,1,Jolly,46.7%,Speed,Sp. Atk,,,,,,
-Talonflame,177,stat_alignment,2,Timid,43.3%,Speed,Attack,,,,,,
-Talonflame,177,stat_alignment,3,Hasty,3.3%,Speed,Defense,,,,,,
-Talonflame,177,stat_alignment,4,Modest,3.3%,Sp. Atk,Attack,,,,,,
-Talonflame,177,stat_alignment,5,Impish,3.3%,Defense,Sp. Atk,,,,,,
-Talonflame,177,stat_points,1,,46.7%,,,22,0,27,0,0,17
-Talonflame,177,stat_points,2,,40.0%,,,6,0,32,1,0,27
-Talonflame,177,stat_points,3,,3.3%,,,2,32,0,0,0,32
-Talonflame,177,stat_points,4,,3.3%,,,22,0,32,0,0,12
-Talonflame,177,stat_points,5,,3.3%,,,32,0,0,32,2,0
-Talonflame,177,stat_points,6,,3.3%,,,32,0,32,0,2,0
-Talonflame,177,ability,1,Flame Body,96.7%,,,,,,,,
-Talonflame,177,ability,2,Gale Wings,3.3%,,,,,,,,
+Talonflame,175,move,1,Roost,96.8%,,,,,,,,
+Talonflame,175,move,2,Will-O-Wisp,95.2%,,,,,,,,
+Talonflame,175,move,3,Taunt,95.2%,,,,,,,,
+Talonflame,175,move,4,Flamethrower,42.9%,,,,,,,,
+Talonflame,175,move,5,Brave Bird,34.9%,,,,,,,,
+Talonflame,175,move,6,Flare Blitz,20.6%,,,,,,,,
+Talonflame,175,move,7,Overheat,3.2%,,,,,,,,
+Talonflame,175,move,8,Tailwind,3.2%,,,,,,,,
+Talonflame,175,move,9,Steel Wing,1.6%,,,,,,,,
+Talonflame,175,move,10,U-turn,1.6%,,,,,,,,
+Talonflame,175,held_item,1,Rocky Helmet,93.7%,,,,,,,,
+Talonflame,175,held_item,2,White Herb,3.2%,,,,,,,,
+Talonflame,175,held_item,3,Sitrus Berry,1.6%,,,,,,,,
+Talonflame,175,held_item,4,Focus Sash,1.6%,,,,,,,,
+Talonflame,175,teammate,1,Garchomp,,,,,,,,,
+Talonflame,175,teammate,2,Goodra-Hisui,,,,,,,,,
+Talonflame,175,teammate,3,Raichu,,,,,,,,,
+Talonflame,175,teammate,4,Greninja,,,,,,,,,
+Talonflame,175,teammate,5,Hawlucha,,,,,,,,,
+Talonflame,175,teammate,6,Noivern,,,,,,,,,
+Talonflame,175,teammate,7,Tyranitar,,,,,,,,,
+Talonflame,175,teammate,8,Gholdengo,,,,,,,,,
+Talonflame,175,teammate,9,Gyarados,,,,,,,,,
+Talonflame,175,teammate,10,Pawmot,,,,,,,,,
+Talonflame,175,stat_alignment,1,Timid,44.4%,Speed,Attack,,,,,,
+Talonflame,175,stat_alignment,2,Jolly,38.1%,Speed,Sp. Atk,,,,,,
+Talonflame,175,stat_alignment,3,Impish,12.7%,Defense,Sp. Atk,,,,,,
+Talonflame,175,stat_alignment,4,Hasty,1.6%,Speed,Defense,,,,,,
+Talonflame,175,stat_alignment,5,Modest,1.6%,Sp. Atk,Attack,,,,,,
+Talonflame,175,stat_alignment,6,Adamant,1.6%,Attack,Sp. Atk,,,,,,
+Talonflame,175,stat_points,1,,61.9%,,,22,0,27,0,0,17
+Talonflame,175,stat_points,2,,19.0%,,,6,0,32,1,0,27
+Talonflame,175,stat_points,3,,11.1%,,,32,0,31,0,0,3
+Talonflame,175,stat_points,4,,1.6%,,,0,32,0,0,2,32
+Talonflame,175,stat_points,5,,1.6%,,,2,32,0,0,0,32
+Talonflame,175,stat_points,6,,1.6%,,,22,0,32,0,0,12
+Talonflame,175,stat_points,7,,1.6%,,,32,0,0,32,2,0
+Talonflame,175,stat_points,8,,1.6%,,,32,0,32,0,2,0
+Talonflame,175,ability,1,Flame Body,96.8%,,,,,,,,
+Talonflame,175,ability,2,Gale Wings,3.2%,,,,,,,,

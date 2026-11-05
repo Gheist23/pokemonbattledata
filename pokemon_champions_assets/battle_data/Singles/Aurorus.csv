@@ -1,35 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aurorus,204,move,1,Aurora Veil,81.3%,,,,,,,,
-Aurorus,204,move,2,Stealth Rock,68.8%,,,,,,,,
-Aurorus,204,move,3,Blizzard,68.8%,,,,,,,,
-Aurorus,204,move,4,Thunder Wave,62.5%,,,,,,,,
-Aurorus,204,move,5,Mirror Coat,31.3%,,,,,,,,
-Aurorus,204,move,6,Earth Power,31.3%,,,,,,,,
-Aurorus,204,move,7,Freeze-Dry,31.3%,,,,,,,,
-Aurorus,204,move,8,Hyper Beam,12.5%,,,,,,,,
-Aurorus,204,move,9,Icy Wind,6.3%,,,,,,,,
-Aurorus,204,move,10,Ancient Power,6.3%,,,,,,,,
-Aurorus,204,held_item,1,Light Clay,81.3%,,,,,,,,
-Aurorus,204,held_item,2,Focus Sash,12.5%,,,,,,,,
-Aurorus,204,held_item,3,Leftovers,6.3%,,,,,,,,
-Aurorus,204,teammate,1,Swampert,,,,,,,,,
-Aurorus,204,teammate,2,Pelipper,,,,,,,,,
-Aurorus,204,teammate,3,Golisopod,,,,,,,,,
-Aurorus,204,teammate,4,Basculegion,,,,,,,,,
-Aurorus,204,teammate,5,Archaludon,,,,,,,,,
-Aurorus,204,teammate,6,Arcanine-Hisui,,,,,,,,,
-Aurorus,204,teammate,7,Aerodactyl,,,,,,,,,
-Aurorus,204,teammate,8,Typhlosion-Hisui,,,,,,,,,
-Aurorus,204,teammate,9,Gardevoir,,,,,,,,,
-Aurorus,204,teammate,10,Aggron,,,,,,,,,
-Aurorus,204,stat_alignment,1,Calm,62.5%,Sp. Def,Attack,,,,,,
-Aurorus,204,stat_alignment,2,Modest,31.3%,Sp. Atk,Attack,,,,,,
-Aurorus,204,stat_alignment,3,Relaxed,6.3%,Defense,Speed,,,,,,
-Aurorus,204,stat_points,1,,56.3%,,,25,0,6,0,28,7
-Aurorus,204,stat_points,2,,12.5%,,,11,0,14,21,20,0
-Aurorus,204,stat_points,3,,12.5%,,,32,0,0,32,0,2
-Aurorus,204,stat_points,4,,6.3%,,,3,0,28,29,6,0
-Aurorus,204,stat_points,5,,6.3%,,,31,0,3,0,32,0
-Aurorus,204,stat_points,6,,6.3%,,,32,0,32,0,2,0
-Aurorus,204,ability,1,Snow Warning,87.5%,,,,,,,,
-Aurorus,204,ability,2,Refrigerate,12.5%,,,,,,,,
+Aurorus,195,move,1,Aurora Veil,92.7%,,,,,,,,
+Aurorus,195,move,2,Stealth Rock,85.4%,,,,,,,,
+Aurorus,195,move,3,Blizzard,85.4%,,,,,,,,
+Aurorus,195,move,4,Mirror Coat,61.0%,,,,,,,,
+Aurorus,195,move,5,Thunder Wave,24.4%,,,,,,,,
+Aurorus,195,move,6,Earth Power,14.6%,,,,,,,,
+Aurorus,195,move,7,Freeze-Dry,12.2%,,,,,,,,
+Aurorus,195,move,8,Ancient Power,9.8%,,,,,,,,
+Aurorus,195,move,9,Hyper Beam,4.9%,,,,,,,,
+Aurorus,195,move,10,Light Screen,2.4%,,,,,,,,
+Aurorus,195,held_item,1,Light Clay,90.2%,,,,,,,,
+Aurorus,195,held_item,2,Focus Sash,4.9%,,,,,,,,
+Aurorus,195,held_item,3,Chople Berry,2.4%,,,,,,,,
+Aurorus,195,held_item,4,Leftovers,2.4%,,,,,,,,
+Aurorus,195,teammate,1,Blastoise,,,,,,,,,
+Aurorus,195,teammate,2,Scizor,,,,,,,,,
+Aurorus,195,teammate,3,Garchomp,,,,,,,,,
+Aurorus,195,teammate,4,Toxapex,,,,,,,,,
+Aurorus,195,teammate,5,Indeedee,,,,,,,,,
+Aurorus,195,teammate,6,Golisopod,,,,,,,,,
+Aurorus,195,teammate,7,Swampert,,,,,,,,,
+Aurorus,195,teammate,8,Pelipper,,,,,,,,,
+Aurorus,195,teammate,9,Basculegion,,,,,,,,,
+Aurorus,195,teammate,10,Archaludon,,,,,,,,,
+Aurorus,195,stat_alignment,1,Bold,56.1%,Defense,Attack,,,,,,
+Aurorus,195,stat_alignment,2,Calm,24.4%,Sp. Def,Attack,,,,,,
+Aurorus,195,stat_alignment,3,Modest,17.1%,Sp. Atk,Attack,,,,,,
+Aurorus,195,stat_alignment,4,Relaxed,2.4%,Defense,Speed,,,,,,
+Aurorus,195,stat_points,1,,58.5%,,,32,0,32,0,2,0
+Aurorus,195,stat_points,2,,22.0%,,,25,0,6,0,28,7
+Aurorus,195,stat_points,3,,4.9%,,,11,0,14,21,20,0
+Aurorus,195,stat_points,4,,4.9%,,,32,0,0,32,0,2
+Aurorus,195,stat_points,5,,2.4%,,,3,0,28,29,6,0
+Aurorus,195,stat_points,6,,2.4%,,,31,0,3,0,32,0
+Aurorus,195,stat_points,7,,2.4%,,,32,0,23,0,11,0
+Aurorus,195,stat_points,8,,2.4%,,,32,1,0,32,0,0
+Aurorus,195,ability,1,Snow Warning,95.1%,,,,,,,,
+Aurorus,195,ability,2,Refrigerate,4.9%,,,,,,,,

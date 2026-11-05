@@ -1,39 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Klefki,116,move,1,Light Screen,89.1%,,,,,,,,
-Klefki,116,move,2,Reflect,85.5%,,,,,,,,
-Klefki,116,move,3,Dazzling Gleam,80.0%,,,,,,,,
-Klefki,116,move,4,Rain Dance,36.4%,,,,,,,,
-Klefki,116,move,5,Trick Room,34.5%,,,,,,,,
-Klefki,116,move,6,Thunder Wave,32.7%,,,,,,,,
-Klefki,116,move,7,Sandstorm,14.5%,,,,,,,,
-Klefki,116,move,8,Steel Beam,9.1%,,,,,,,,
-Klefki,116,move,9,Protect,7.3%,,,,,,,,
-Klefki,116,move,10,Imprison,5.5%,,,,,,,,
-Klefki,116,held_item,1,Light Clay,78.2%,,,,,,,,
-Klefki,116,held_item,2,Mental Herb,10.9%,,,,,,,,
-Klefki,116,held_item,3,Life Orb,5.5%,,,,,,,,
-Klefki,116,held_item,4,Focus Sash,3.6%,,,,,,,,
-Klefki,116,held_item,5,Chesto Berry,1.8%,,,,,,,,
-Klefki,116,teammate,1,Archaludon,,,,,,,,,
-Klefki,116,teammate,2,Swampert,,,,,,,,,
-Klefki,116,teammate,3,Charizard,,,,,,,,,
-Klefki,116,teammate,4,Rillaboom,,,,,,,,,
-Klefki,116,teammate,5,Armarouge,,,,,,,,,
-Klefki,116,teammate,6,Pelipper,,,,,,,,,
-Klefki,116,teammate,7,Venusaur,,,,,,,,,
-Klefki,116,teammate,8,Sneasler,,,,,,,,,
-Klefki,116,teammate,9,Sylveon,,,,,,,,,
-Klefki,116,teammate,10,Milotic,,,,,,,,,
-Klefki,116,stat_alignment,1,Calm,54.5%,Sp. Def,Attack,,,,,,
-Klefki,116,stat_alignment,2,Bold,36.4%,Defense,Attack,,,,,,
-Klefki,116,stat_alignment,3,Quiet,9.1%,Sp. Atk,Speed,,,,,,
-Klefki,116,stat_points,1,,45.5%,,,32,0,21,0,13,0
-Klefki,116,stat_points,2,,23.6%,,,32,0,19,0,15,0
-Klefki,116,stat_points,3,,7.3%,,,27,0,29,0,10,0
-Klefki,116,stat_points,4,,7.3%,,,32,0,19,2,13,0
-Klefki,116,stat_points,5,,5.5%,,,32,0,0,32,2,0
-Klefki,116,stat_points,6,,3.6%,,,28,0,0,32,4,1
-Klefki,116,stat_points,7,,3.6%,,,32,0,2,0,32,0
-Klefki,116,stat_points,8,,1.8%,,,31,0,21,0,14,0
-Klefki,116,stat_points,9,,1.8%,,,32,0,14,0,20,0
-Klefki,116,ability,1,Prankster,100.0%,,,,,,,,
+Klefki,113,move,1,Light Screen,83.1%,,,,,,,,
+Klefki,113,move,2,Reflect,78.3%,,,,,,,,
+Klefki,113,move,3,Dazzling Gleam,67.5%,,,,,,,,
+Klefki,113,move,4,Rain Dance,43.4%,,,,,,,,
+Klefki,113,move,5,Trick Room,27.7%,,,,,,,,
+Klefki,113,move,6,Thunder Wave,22.9%,,,,,,,,
+Klefki,113,move,7,Sandstorm,20.5%,,,,,,,,
+Klefki,113,move,8,Substitute,9.6%,,,,,,,,
+Klefki,113,move,9,Psych Up,9.6%,,,,,,,,
+Klefki,113,move,10,Calm Mind,9.6%,,,,,,,,
+Klefki,113,held_item,1,Light Clay,65.1%,,,,,,,,
+Klefki,113,held_item,2,Mental Herb,16.9%,,,,,,,,
+Klefki,113,held_item,3,Sitrus Berry,9.6%,,,,,,,,
+Klefki,113,held_item,4,Life Orb,3.6%,,,,,,,,
+Klefki,113,held_item,5,Focus Sash,3.6%,,,,,,,,
+Klefki,113,held_item,6,Chesto Berry,1.2%,,,,,,,,
+Klefki,113,teammate,1,Archaludon,,,,,,,,,
+Klefki,113,teammate,2,Swampert,,,,,,,,,
+Klefki,113,teammate,3,Rillaboom,,,,,,,,,
+Klefki,113,teammate,4,Charizard,,,,,,,,,
+Klefki,113,teammate,5,Sneasler,,,,,,,,,
+Klefki,113,teammate,6,Pelipper,,,,,,,,,
+Klefki,113,teammate,7,Armarouge,,,,,,,,,
+Klefki,113,teammate,8,Venusaur,,,,,,,,,
+Klefki,113,teammate,9,Golisopod,,,,,,,,,
+Klefki,113,teammate,10,Sylveon,,,,,,,,,
+Klefki,113,stat_alignment,1,Bold,54.2%,Defense,Attack,,,,,,
+Klefki,113,stat_alignment,2,Calm,39.8%,Sp. Def,Attack,,,,,,
+Klefki,113,stat_alignment,3,Quiet,6.0%,Sp. Atk,Speed,,,,,,
+Klefki,113,stat_points,1,,33.7%,,,32,0,19,0,15,0
+Klefki,113,stat_points,2,,32.5%,,,32,0,21,0,13,0
+Klefki,113,stat_points,3,,13.3%,,,27,0,29,0,10,0
+Klefki,113,stat_points,4,,4.8%,,,32,0,2,0,32,0
+Klefki,113,stat_points,5,,4.8%,,,32,0,19,2,13,0
+Klefki,113,stat_points,6,,3.6%,,,32,0,0,32,2,0
+Klefki,113,stat_points,7,,2.4%,,,28,0,0,32,4,1
+Klefki,113,stat_points,8,,1.2%,,,31,0,21,0,14,0
+Klefki,113,stat_points,9,,1.2%,,,32,0,9,0,25,0
+Klefki,113,stat_points,10,,1.2%,,,32,0,14,0,20,0
+Klefki,113,ability,1,Prankster,100.0%,,,,,,,,

@@ -1,23 +1,31 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tsareena,188,move,1,High Jump Kick,100.0%,,,,,,,,
-Tsareena,188,move,2,Rapid Spin,100.0%,,,,,,,,
-Tsareena,188,move,3,Power Whip,100.0%,,,,,,,,
-Tsareena,188,move,4,Triple Axel,100.0%,,,,,,,,
-Tsareena,188,held_item,1,Wide Lens,100.0%,,,,,,,,
-Tsareena,188,teammate,1,Pawmot,,,,,,,,,
-Tsareena,188,teammate,2,Charizard,,,,,,,,,
-Tsareena,188,teammate,3,Gardevoir,,,,,,,,,
-Tsareena,188,teammate,4,Scolipede,,,,,,,,,
-Tsareena,188,teammate,5,Zoroark-Hisui,,,,,,,,,
-Tsareena,188,teammate,6,Lucario,,,,,,,,,
-Tsareena,188,teammate,7,Ditto,,,,,,,,,
-Tsareena,188,teammate,8,Umbreon,,,,,,,,,
-Tsareena,188,teammate,9,Salamence,,,,,,,,,
-Tsareena,188,teammate,10,Sylveon,,,,,,,,,
-Tsareena,188,stat_alignment,1,Jolly,91.7%,Speed,Sp. Atk,,,,,,
-Tsareena,188,stat_alignment,2,Careful,4.2%,Sp. Def,Sp. Atk,,,,,,
-Tsareena,188,stat_alignment,3,Adamant,4.2%,Attack,Sp. Atk,,,,,,
-Tsareena,188,stat_points,1,,91.7%,,,0,32,0,0,1,32
-Tsareena,188,stat_points,2,,4.2%,,,4,32,2,0,2,26
-Tsareena,188,stat_points,3,,4.2%,,,32,0,0,0,32,0
-Tsareena,188,ability,1,Sweet Veil,100.0%,,,,,,,,
+Tsareena,171,move,1,High Jump Kick,100.0%,,,,,,,,
+Tsareena,171,move,2,Triple Axel,100.0%,,,,,,,,
+Tsareena,171,move,3,Power Whip,86.8%,,,,,,,,
+Tsareena,171,move,4,Rapid Spin,85.3%,,,,,,,,
+Tsareena,171,move,5,Trop Kick,13.2%,,,,,,,,
+Tsareena,171,move,6,Knock Off,7.4%,,,,,,,,
+Tsareena,171,move,7,U-turn,7.4%,,,,,,,,
+Tsareena,171,held_item,1,Wide Lens,86.8%,,,,,,,,
+Tsareena,171,held_item,2,Sitrus Berry,13.2%,,,,,,,,
+Tsareena,171,teammate,1,Pawmot,,,,,,,,,
+Tsareena,171,teammate,2,Charizard,,,,,,,,,
+Tsareena,171,teammate,3,Gardevoir,,,,,,,,,
+Tsareena,171,teammate,4,Scolipede,,,,,,,,,
+Tsareena,171,teammate,5,Zoroark-Hisui,,,,,,,,,
+Tsareena,171,teammate,6,Cinderace,,,,,,,,,
+Tsareena,171,teammate,7,Empoleon,,,,,,,,,
+Tsareena,171,teammate,8,Mimikyu,,,,,,,,,
+Tsareena,171,teammate,9,Baxcalibur,,,,,,,,,
+Tsareena,171,teammate,10,Typhlosion,,,,,,,,,
+Tsareena,171,stat_alignment,1,Jolly,69.1%,Speed,Sp. Atk,,,,,,
+Tsareena,171,stat_alignment,2,Adamant,29.4%,Attack,Sp. Atk,,,,,,
+Tsareena,171,stat_alignment,3,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,
+Tsareena,171,stat_points,1,,69.1%,,,0,32,0,0,1,32
+Tsareena,171,stat_points,2,,13.2%,,,32,10,22,0,0,2
+Tsareena,171,stat_points,3,,7.4%,,,2,32,0,0,0,32
+Tsareena,171,stat_points,4,,7.4%,,,32,0,32,0,0,0
+Tsareena,171,stat_points,5,,1.5%,,,4,32,2,0,2,26
+Tsareena,171,stat_points,6,,1.5%,,,32,0,0,0,32,0
+Tsareena,171,ability,1,Sweet Veil,72.1%,,,,,,,,
+Tsareena,171,ability,2,Queenly Majesty,27.9%,,,,,,,,

@@ -1,38 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Araquanid,107,move,1,Liquidation,70.1%,,,,,,,,
-Araquanid,107,move,2,Wide Guard,62.7%,,,,,,,,
-Araquanid,107,move,3,Soak,55.2%,,,,,,,,
-Araquanid,107,move,4,Protect,52.2%,,,,,,,,
-Araquanid,107,move,5,Hydro Pump,29.9%,,,,,,,,
-Araquanid,107,move,6,Surf,28.4%,,,,,,,,
-Araquanid,107,move,7,Ice Beam,28.4%,,,,,,,,
-Araquanid,107,move,8,Lunge,26.9%,,,,,,,,
-Araquanid,107,move,9,Leech Life,20.9%,,,,,,,,
-Araquanid,107,move,10,Infestation,17.9%,,,,,,,,
-Araquanid,107,held_item,1,Mystic Water,85.1%,,,,,,,,
-Araquanid,107,held_item,2,Grassy Seed,9.0%,,,,,,,,
-Araquanid,107,held_item,3,Leftovers,4.5%,,,,,,,,
-Araquanid,107,held_item,4,Sitrus Berry,1.5%,,,,,,,,
-Araquanid,107,teammate,1,Garchomp,,,,,,,,,
-Araquanid,107,teammate,2,Charizard,,,,,,,,,
-Araquanid,107,teammate,3,Pelipper,,,,,,,,,
-Araquanid,107,teammate,4,Mawile,,,,,,,,,
-Araquanid,107,teammate,5,Torkoal,,,,,,,,,
-Araquanid,107,teammate,6,Oranguru,,,,,,,,,
-Araquanid,107,teammate,7,Rillaboom,,,,,,,,,
-Araquanid,107,teammate,8,Indeedee-F,,,,,,,,,
-Araquanid,107,teammate,9,Ampharos,,,,,,,,,
-Araquanid,107,teammate,10,Armarouge,,,,,,,,,
-Araquanid,107,stat_alignment,1,Quiet,29.9%,Sp. Atk,Speed,,,,,,
-Araquanid,107,stat_alignment,2,Brave,28.4%,Attack,Speed,,,,,,
-Araquanid,107,stat_alignment,3,Careful,19.4%,Sp. Def,Sp. Atk,,,,,,
-Araquanid,107,stat_alignment,4,Adamant,19.4%,Attack,Sp. Atk,,,,,,
-Araquanid,107,stat_alignment,5,Impish,3.0%,Defense,Sp. Atk,,,,,,
-Araquanid,107,stat_points,1,,35.8%,,,32,32,2,0,0,0
-Araquanid,107,stat_points,2,,28.4%,,,32,0,2,32,0,0
-Araquanid,107,stat_points,3,,11.9%,,,32,32,0,0,2,0
-Araquanid,107,stat_points,4,,10.4%,,,32,13,19,0,2,0
-Araquanid,107,stat_points,5,,9.0%,,,32,0,22,0,0,12
-Araquanid,107,stat_points,6,,3.0%,,,2,32,32,0,0,0
-Araquanid,107,stat_points,7,,1.5%,,,22,0,23,21,0,0
-Araquanid,107,ability,1,Water Bubble,100.0%,,,,,,,,
+Araquanid,111,move,1,Wide Guard,66.7%,,,,,,,,
+Araquanid,111,move,2,Liquidation,63.1%,,,,,,,,
+Araquanid,111,move,3,Protect,52.4%,,,,,,,,
+Araquanid,111,move,4,Soak,44.0%,,,,,,,,
+Araquanid,111,move,5,Hydro Pump,36.9%,,,,,,,,
+Araquanid,111,move,6,Surf,27.4%,,,,,,,,
+Araquanid,111,move,7,Ice Beam,26.2%,,,,,,,,
+Araquanid,111,move,8,Lunge,23.8%,,,,,,,,
+Araquanid,111,move,9,Leech Life,19.0%,,,,,,,,
+Araquanid,111,move,10,Infestation,14.3%,,,,,,,,
+Araquanid,111,held_item,1,Mystic Water,76.2%,,,,,,,,
+Araquanid,111,held_item,2,Wacan Berry,7.1%,,,,,,,,
+Araquanid,111,held_item,3,Leftovers,7.1%,,,,,,,,
+Araquanid,111,held_item,4,Grassy Seed,7.1%,,,,,,,,
+Araquanid,111,held_item,5,Sitrus Berry,2.4%,,,,,,,,
+Araquanid,111,teammate,1,Garchomp,,,,,,,,,
+Araquanid,111,teammate,2,Charizard,,,,,,,,,
+Araquanid,111,teammate,3,Mawile,,,,,,,,,
+Araquanid,111,teammate,4,Oranguru,,,,,,,,,
+Araquanid,111,teammate,5,Indeedee-F,,,,,,,,,
+Araquanid,111,teammate,6,Pelipper,,,,,,,,,
+Araquanid,111,teammate,7,Torkoal,,,,,,,,,
+Araquanid,111,teammate,8,Rillaboom,,,,,,,,,
+Araquanid,111,teammate,9,Ampharos,,,,,,,,,
+Araquanid,111,teammate,10,Armarouge,,,,,,,,,
+Araquanid,111,stat_alignment,1,Quiet,36.9%,Sp. Atk,Speed,,,,,,
+Araquanid,111,stat_alignment,2,Brave,26.2%,Attack,Speed,,,,,,
+Araquanid,111,stat_alignment,3,Adamant,16.7%,Attack,Sp. Atk,,,,,,
+Araquanid,111,stat_alignment,4,Careful,15.5%,Sp. Def,Sp. Atk,,,,,,
+Araquanid,111,stat_alignment,5,Impish,4.8%,Defense,Sp. Atk,,,,,,
+Araquanid,111,stat_points,1,,31.0%,,,32,32,2,0,0,0
+Araquanid,111,stat_points,2,,27.4%,,,32,0,2,32,0,0
+Araquanid,111,stat_points,3,,9.5%,,,32,32,0,0,2,0
+Araquanid,111,stat_points,4,,8.3%,,,22,0,7,21,16,0
+Araquanid,111,stat_points,5,,8.3%,,,32,13,19,0,2,0
+Araquanid,111,stat_points,6,,7.1%,,,32,0,22,0,0,12
+Araquanid,111,stat_points,7,,4.8%,,,2,32,32,0,0,0
+Araquanid,111,stat_points,8,,1.2%,,,16,32,18,0,0,0
+Araquanid,111,stat_points,9,,1.2%,,,22,0,23,21,0,0
+Araquanid,111,stat_points,10,,1.2%,,,32,18,16,0,0,0
+Araquanid,111,ability,1,Water Bubble,100.0%,,,,,,,,

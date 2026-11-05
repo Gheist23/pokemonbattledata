@@ -1,42 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Malamar,140,move,1,Substitute,56.5%,,,,,,,,
-Malamar,140,move,2,Baton Pass,49.4%,,,,,,,,
-Malamar,140,move,3,Superpower,45.9%,,,,,,,,
-Malamar,140,move,4,Knock Off,45.9%,,,,,,,,
-Malamar,140,move,5,Protect,31.8%,,,,,,,,
-Malamar,140,move,6,Calm Mind,28.2%,,,,,,,,
-Malamar,140,move,7,Double Team,25.9%,,,,,,,,
-Malamar,140,move,8,Taunt,24.7%,,,,,,,,
-Malamar,140,move,9,Stored Power,18.8%,,,,,,,,
-Malamar,140,move,10,Zen Headbutt,14.1%,,,,,,,,
-Malamar,140,held_item,1,Leftovers,63.5%,,,,,,,,
-Malamar,140,held_item,2,Malamarite,15.3%,,,,,,,,
-Malamar,140,held_item,3,Lum Berry,11.8%,,,,,,,,
-Malamar,140,held_item,4,Sitrus Berry,4.7%,,,,,,,,
-Malamar,140,held_item,5,Life Orb,4.7%,,,,,,,,
-Malamar,140,teammate,1,Clefable,,,,,,,,,
-Malamar,140,teammate,2,Scolipede,,,,,,,,,
-Malamar,140,teammate,3,Kingambit,,,,,,,,,
-Malamar,140,teammate,4,Baxcalibur,,,,,,,,,
-Malamar,140,teammate,5,Charizard,,,,,,,,,
-Malamar,140,teammate,6,Garchomp,,,,,,,,,
-Malamar,140,teammate,7,Weavile,,,,,,,,,
-Malamar,140,teammate,8,Gholdengo,,,,,,,,,
-Malamar,140,teammate,9,Sableye,,,,,,,,,
-Malamar,140,teammate,10,Sharpedo,,,,,,,,,
-Malamar,140,stat_alignment,1,Calm,48.2%,Sp. Def,Attack,,,,,,
-Malamar,140,stat_alignment,2,Adamant,31.8%,Attack,Sp. Atk,,,,,,
-Malamar,140,stat_alignment,3,Jolly,14.1%,Speed,Sp. Atk,,,,,,
-Malamar,140,stat_alignment,4,Quiet,4.7%,Sp. Atk,Speed,,,,,,
-Malamar,140,stat_alignment,5,Careful,1.2%,Sp. Def,Sp. Atk,,,,,,
-Malamar,140,stat_points,1,,30.6%,,,32,32,0,0,2,0
-Malamar,140,stat_points,2,,17.6%,,,32,0,2,0,32,0
-Malamar,140,stat_points,3,,14.1%,,,10,15,0,0,9,32
-Malamar,140,stat_points,4,,11.8%,,,32,0,9,0,25,0
-Malamar,140,stat_points,5,,10.6%,,,32,0,0,0,26,8
-Malamar,140,stat_points,6,,9.4%,,,30,0,4,0,32,0
-Malamar,140,stat_points,7,,4.7%,,,2,32,0,32,0,0
-Malamar,140,stat_points,8,,1.2%,,,32,2,0,0,32,0
-Malamar,140,ability,1,Contrary,49.4%,,,,,,,,
-Malamar,140,ability,2,Suction Cups,49.4%,,,,,,,,
-Malamar,140,ability,3,Infiltrator,1.2%,,,,,,,,
+Malamar,142,move,1,Superpower,46.0%,,,,,,,,
+Malamar,142,move,2,Baton Pass,44.6%,,,,,,,,
+Malamar,142,move,3,Knock Off,43.9%,,,,,,,,
+Malamar,142,move,4,Substitute,38.8%,,,,,,,,
+Malamar,142,move,5,Protect,21.6%,,,,,,,,
+Malamar,142,move,6,Flamethrower,20.9%,,,,,,,,
+Malamar,142,move,7,Topsy-Turvy,20.1%,,,,,,,,
+Malamar,142,move,8,Thunderbolt,20.1%,,,,,,,,
+Malamar,142,move,9,Taunt,19.4%,,,,,,,,
+Malamar,142,move,10,Destiny Bond,18.0%,,,,,,,,
+Malamar,142,held_item,1,Leftovers,48.9%,,,,,,,,
+Malamar,142,held_item,2,Life Orb,20.1%,,,,,,,,
+Malamar,142,held_item,3,Malamarite,14.4%,,,,,,,,
+Malamar,142,held_item,4,Lum Berry,9.4%,,,,,,,,
+Malamar,142,held_item,5,Sitrus Berry,6.5%,,,,,,,,
+Malamar,142,held_item,6,Metronome,0.7%,,,,,,,,
+Malamar,142,teammate,1,Kingambit,,,,,,,,,
+Malamar,142,teammate,2,Clefable,,,,,,,,,
+Malamar,142,teammate,3,Scolipede,,,,,,,,,
+Malamar,142,teammate,4,Garchomp,,,,,,,,,
+Malamar,142,teammate,5,Baxcalibur,,,,,,,,,
+Malamar,142,teammate,6,Charizard,,,,,,,,,
+Malamar,142,teammate,7,Weavile,,,,,,,,,
+Malamar,142,teammate,8,Vanilluxe,,,,,,,,,
+Malamar,142,teammate,9,Archaludon,,,,,,,,,
+Malamar,142,teammate,10,Hippowdon,,,,,,,,,
+Malamar,142,stat_alignment,1,Calm,33.1%,Sp. Def,Attack,,,,,,
+Malamar,142,stat_alignment,2,Adamant,23.7%,Attack,Sp. Atk,,,,,,
+Malamar,142,stat_alignment,3,Modest,17.3%,Sp. Atk,Attack,,,,,,
+Malamar,142,stat_alignment,4,Careful,11.5%,Sp. Def,Sp. Atk,,,,,,
+Malamar,142,stat_alignment,5,Jolly,10.8%,Speed,Sp. Atk,,,,,,
+Malamar,142,stat_alignment,6,Quiet,2.9%,Sp. Atk,Speed,,,,,,
+Malamar,142,stat_alignment,7,Timid,0.7%,Speed,Attack,,,,,,
+Malamar,142,stat_points,1,,23.0%,,,32,0,2,0,32,0
+Malamar,142,stat_points,2,,20.9%,,,32,32,0,0,2,0
+Malamar,142,stat_points,3,,17.3%,,,2,0,0,32,0,32
+Malamar,142,stat_points,4,,10.1%,,,10,15,0,0,9,32
+Malamar,142,stat_points,5,,7.2%,,,32,0,9,0,25,0
+Malamar,142,stat_points,6,,6.5%,,,32,0,0,0,26,8
+Malamar,142,stat_points,7,,5.8%,,,30,0,4,0,32,0
+Malamar,142,stat_points,8,,2.9%,,,2,32,0,32,0,0
+Malamar,142,stat_points,9,,2.2%,,,32,0,0,0,32,0
+Malamar,142,stat_points,10,,2.2%,,,32,25,0,0,0,9
+Malamar,142,ability,1,Contrary,66.9%,,,,,,,,
+Malamar,142,ability,2,Suction Cups,31.7%,,,,,,,,
+Malamar,142,ability,3,Infiltrator,1.4%,,,,,,,,

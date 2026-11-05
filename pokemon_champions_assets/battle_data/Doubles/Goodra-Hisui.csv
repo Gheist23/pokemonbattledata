@@ -1,39 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Goodra-Hisui,129,move,1,Shelter,81.1%,,,,,,,,
-Goodra-Hisui,129,move,2,Flash Cannon,75.7%,,,,,,,,
-Goodra-Hisui,129,move,3,Body Press,75.7%,,,,,,,,
-Goodra-Hisui,129,move,4,Life Dew,73.0%,,,,,,,,
-Goodra-Hisui,129,move,5,Curse,13.5%,,,,,,,,
-Goodra-Hisui,129,move,6,Gyro Ball,13.5%,,,,,,,,
-Goodra-Hisui,129,move,7,Dragon Pulse,13.5%,,,,,,,,
-Goodra-Hisui,129,move,8,Breaking Swipe,13.5%,,,,,,,,
-Goodra-Hisui,129,move,9,Ice Spinner,13.5%,,,,,,,,
-Goodra-Hisui,129,move,10,Flamethrower,8.1%,,,,,,,,
-Goodra-Hisui,129,held_item,1,Leftovers,75.7%,,,,,,,,
-Goodra-Hisui,129,held_item,2,Psychic Seed,13.5%,,,,,,,,
-Goodra-Hisui,129,held_item,3,Wise Glasses,5.4%,,,,,,,,
-Goodra-Hisui,129,held_item,4,Air Balloon,5.4%,,,,,,,,
-Goodra-Hisui,129,teammate,1,Charizard,,,,,,,,,
-Goodra-Hisui,129,teammate,2,Incineroar,,,,,,,,,
-Goodra-Hisui,129,teammate,3,Garchomp,,,,,,,,,
-Goodra-Hisui,129,teammate,4,Grimmsnarl,,,,,,,,,
-Goodra-Hisui,129,teammate,5,Sinistcha,,,,,,,,,
-Goodra-Hisui,129,teammate,6,Samurott-Hisui,,,,,,,,,
-Goodra-Hisui,129,teammate,7,Zoroark-Hisui,,,,,,,,,
-Goodra-Hisui,129,teammate,8,Wyrdeer,,,,,,,,,
-Goodra-Hisui,129,teammate,9,Sneasler,,,,,,,,,
-Goodra-Hisui,129,teammate,10,Typhlosion-Hisui,,,,,,,,,
-Goodra-Hisui,129,stat_alignment,1,Bold,70.3%,Defense,Attack,,,,,,
-Goodra-Hisui,129,stat_alignment,2,Brave,13.5%,Attack,Speed,,,,,,
-Goodra-Hisui,129,stat_alignment,3,Modest,10.8%,Sp. Atk,Attack,,,,,,
-Goodra-Hisui,129,stat_alignment,4,Careful,2.7%,Sp. Def,Sp. Atk,,,,,,
-Goodra-Hisui,129,stat_alignment,5,Relaxed,2.7%,Defense,Speed,,,,,,
-Goodra-Hisui,129,stat_points,1,,67.6%,,,32,0,32,0,2,0
-Goodra-Hisui,129,stat_points,2,,13.5%,,,28,32,6,0,0,0
-Goodra-Hisui,129,stat_points,3,,5.4%,,,28,0,6,32,0,0
-Goodra-Hisui,129,stat_points,4,,5.4%,,,32,0,0,32,2,0
-Goodra-Hisui,129,stat_points,5,,2.7%,,,26,0,32,6,2,0
-Goodra-Hisui,129,stat_points,6,,2.7%,,,32,0,19,0,0,15
-Goodra-Hisui,129,stat_points,7,,2.7%,,,32,0,32,0,1,0
-Goodra-Hisui,129,ability,1,Shell Armor,81.1%,,,,,,,,
-Goodra-Hisui,129,ability,2,Sap Sipper,18.9%,,,,,,,,
+Goodra-Hisui,127,move,1,Shelter,62.1%,,,,,,,,
+Goodra-Hisui,127,move,2,Body Press,58.6%,,,,,,,,
+Goodra-Hisui,127,move,3,Flash Cannon,55.2%,,,,,,,,
+Goodra-Hisui,127,move,4,Life Dew,50.0%,,,,,,,,
+Goodra-Hisui,127,move,5,Flamethrower,31.0%,,,,,,,,
+Goodra-Hisui,127,move,6,Dragon Pulse,25.9%,,,,,,,,
+Goodra-Hisui,127,move,7,Feint,15.5%,,,,,,,,
+Goodra-Hisui,127,move,8,Heavy Slam,15.5%,,,,,,,,
+Goodra-Hisui,127,move,9,Protect,10.3%,,,,,,,,
+Goodra-Hisui,127,move,10,Curse,8.6%,,,,,,,,
+Goodra-Hisui,127,held_item,1,Leftovers,58.6%,,,,,,,,
+Goodra-Hisui,127,held_item,2,Chople Berry,24.1%,,,,,,,,
+Goodra-Hisui,127,held_item,3,Psychic Seed,8.6%,,,,,,,,
+Goodra-Hisui,127,held_item,4,Air Balloon,5.2%,,,,,,,,
+Goodra-Hisui,127,held_item,5,Wise Glasses,3.4%,,,,,,,,
+Goodra-Hisui,127,teammate,1,Garchomp,,,,,,,,,
+Goodra-Hisui,127,teammate,2,Grimmsnarl,,,,,,,,,
+Goodra-Hisui,127,teammate,3,Sinistcha,,,,,,,,,
+Goodra-Hisui,127,teammate,4,Charizard,,,,,,,,,
+Goodra-Hisui,127,teammate,5,Incineroar,,,,,,,,,
+Goodra-Hisui,127,teammate,6,Annihilape,,,,,,,,,
+Goodra-Hisui,127,teammate,7,Froslass,,,,,,,,,
+Goodra-Hisui,127,teammate,8,Samurott-Hisui,,,,,,,,,
+Goodra-Hisui,127,teammate,9,Zoroark-Hisui,,,,,,,,,
+Goodra-Hisui,127,teammate,10,Wyrdeer,,,,,,,,,
+Goodra-Hisui,127,stat_alignment,1,Bold,53.4%,Defense,Attack,,,,,,
+Goodra-Hisui,127,stat_alignment,2,Modest,17.2%,Sp. Atk,Attack,,,,,,
+Goodra-Hisui,127,stat_alignment,3,Quiet,15.5%,Sp. Atk,Speed,,,,,,
+Goodra-Hisui,127,stat_alignment,4,Brave,8.6%,Attack,Speed,,,,,,
+Goodra-Hisui,127,stat_alignment,5,Calm,1.7%,Sp. Def,Attack,,,,,,
+Goodra-Hisui,127,stat_alignment,6,Careful,1.7%,Sp. Def,Sp. Atk,,,,,,
+Goodra-Hisui,127,stat_alignment,7,Relaxed,1.7%,Defense,Speed,,,,,,
+Goodra-Hisui,127,stat_points,1,,43.1%,,,32,0,32,0,2,0
+Goodra-Hisui,127,stat_points,2,,15.5%,,,32,0,4,30,0,0
+Goodra-Hisui,127,stat_points,3,,8.6%,,,28,32,6,0,0,0
+Goodra-Hisui,127,stat_points,4,,8.6%,,,32,0,0,32,0,2
+Goodra-Hisui,127,stat_points,5,,6.9%,,,31,0,30,0,0,5
+Goodra-Hisui,127,stat_points,6,,5.2%,,,32,0,0,32,2,0
+Goodra-Hisui,127,stat_points,7,,3.4%,,,28,0,6,32,0,0
+Goodra-Hisui,127,stat_points,8,,1.7%,,,26,0,32,6,2,0
+Goodra-Hisui,127,stat_points,9,,1.7%,,,32,0,19,0,0,15
+Goodra-Hisui,127,stat_points,10,,1.7%,,,32,0,31,0,0,3
+Goodra-Hisui,127,ability,1,Shell Armor,62.1%,,,,,,,,
+Goodra-Hisui,127,ability,2,Sap Sipper,29.3%,,,,,,,,
+Goodra-Hisui,127,ability,3,Gooey,8.6%,,,,,,,,

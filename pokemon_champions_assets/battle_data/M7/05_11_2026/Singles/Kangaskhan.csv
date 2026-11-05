@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Kangaskhan,81,move,1,Ice Punch,85.9%,,,,,,,,
-Kangaskhan,81,move,2,Earthquake,72.2%,,,,,,,,
-Kangaskhan,81,move,3,Body Slam,59.8%,,,,,,,,
-Kangaskhan,81,move,4,Sucker Punch,40.2%,,,,,,,,
-Kangaskhan,81,move,5,Fire Punch,38.2%,,,,,,,,
-Kangaskhan,81,move,6,Double-Edge,27.2%,,,,,,,,
-Kangaskhan,81,move,7,Circle Throw,27.2%,,,,,,,,
-Kangaskhan,81,move,8,Fake Out,15.1%,,,,,,,,
-Kangaskhan,81,move,9,Rock Slide,12.1%,,,,,,,,
-Kangaskhan,81,move,10,Rock Tomb,9.6%,,,,,,,,
-Kangaskhan,81,held_item,1,Kangaskhanite,99.8%,,,,,,,,
+Kangaskhan,81,move,1,Ice Punch,85.3%,,,,,,,,
+Kangaskhan,81,move,2,Earthquake,70.1%,,,,,,,,
+Kangaskhan,81,move,3,Body Slam,57.4%,,,,,,,,
+Kangaskhan,81,move,4,Sucker Punch,38.2%,,,,,,,,
+Kangaskhan,81,move,5,Fire Punch,32.9%,,,,,,,,
+Kangaskhan,81,move,6,Circle Throw,26.2%,,,,,,,,
+Kangaskhan,81,move,7,Double-Edge,25.6%,,,,,,,,
+Kangaskhan,81,move,8,Fake Out,19.8%,,,,,,,,
+Kangaskhan,81,move,9,Rock Slide,10.9%,,,,,,,,
+Kangaskhan,81,move,10,Rock Tomb,10.7%,,,,,,,,
+Kangaskhan,81,held_item,1,Kangaskhanite,99.9%,,,,,,,,
 Kangaskhan,81,teammate,1,Garchomp,,,,,,,,,
 Kangaskhan,81,teammate,2,Basculegion,,,,,,,,,
 Kangaskhan,81,teammate,3,Charizard,,,,,,,,,
@@ -17,24 +17,24 @@ Kangaskhan,81,teammate,4,Primarina,,,,,,,,,
 Kangaskhan,81,teammate,5,Hippowdon,,,,,,,,,
 Kangaskhan,81,teammate,6,Hatterene,,,,,,,,,
 Kangaskhan,81,teammate,7,Mimikyu,,,,,,,,,
-Kangaskhan,81,teammate,8,Corviknight,,,,,,,,,
-Kangaskhan,81,teammate,9,Lucario,,,,,,,,,
-Kangaskhan,81,teammate,10,Hydreigon,,,,,,,,,
-Kangaskhan,81,stat_alignment,1,Adamant,82.9%,Attack,Sp. Atk,,,,,,
-Kangaskhan,81,stat_alignment,2,Jolly,16.2%,Speed,Sp. Atk,,,,,,
-Kangaskhan,81,stat_alignment,3,Modest,0.5%,Sp. Atk,Attack,,,,,,
-Kangaskhan,81,stat_alignment,4,Brave,0.2%,Attack,Speed,,,,,,
-Kangaskhan,81,stat_alignment,5,Impish,0.2%,Defense,Sp. Atk,,,,,,
-Kangaskhan,81,stat_points,1,,22.0%,,,1,32,1,0,0,32
-Kangaskhan,81,stat_points,2,,16.9%,,,27,32,1,0,6,0
-Kangaskhan,81,stat_points,3,,6.8%,,,21,32,0,0,0,13
-Kangaskhan,81,stat_points,4,,6.1%,,,27,32,0,0,0,7
-Kangaskhan,81,stat_points,5,,5.5%,,,32,32,2,0,0,0
-Kangaskhan,81,stat_points,6,,5.3%,,,27,32,1,0,2,4
-Kangaskhan,81,stat_points,7,,3.5%,,,16,32,0,0,0,18
-Kangaskhan,81,stat_points,8,,2.6%,,,31,32,0,0,0,3
-Kangaskhan,81,stat_points,9,,2.5%,,,32,32,0,0,2,0
-Kangaskhan,81,stat_points,10,,2.3%,,,2,32,0,0,0,32
-Kangaskhan,81,ability,1,Scrappy,95.9%,,,,,,,,
-Kangaskhan,81,ability,2,Inner Focus,3.3%,,,,,,,,
-Kangaskhan,81,ability,3,Early Bird,0.8%,,,,,,,,
+Kangaskhan,81,teammate,8,Hydreigon,,,,,,,,,
+Kangaskhan,81,teammate,9,Gengar,,,,,,,,,
+Kangaskhan,81,teammate,10,Lucario,,,,,,,,,
+Kangaskhan,81,stat_alignment,1,Adamant,81.7%,Attack,Sp. Atk,,,,,,
+Kangaskhan,81,stat_alignment,2,Jolly,16.3%,Speed,Sp. Atk,,,,,,
+Kangaskhan,81,stat_alignment,3,Modest,1.4%,Sp. Atk,Attack,,,,,,
+Kangaskhan,81,stat_alignment,4,Brave,0.5%,Attack,Speed,,,,,,
+Kangaskhan,81,stat_alignment,5,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Kangaskhan,81,stat_points,1,,20.0%,,,27,32,1,0,6,0
+Kangaskhan,81,stat_points,2,,19.5%,,,1,32,1,0,0,32
+Kangaskhan,81,stat_points,3,,5.1%,,,27,32,0,0,0,7
+Kangaskhan,81,stat_points,4,,4.5%,,,2,32,0,0,0,32
+Kangaskhan,81,stat_points,5,,4.4%,,,21,32,0,0,0,13
+Kangaskhan,81,stat_points,6,,3.6%,,,32,32,2,0,0,0
+Kangaskhan,81,stat_points,7,,3.5%,,,27,32,1,0,2,4
+Kangaskhan,81,stat_points,8,,3.1%,,,9,32,0,0,3,22
+Kangaskhan,81,stat_points,9,,2.6%,,,16,32,0,0,0,18
+Kangaskhan,81,stat_points,10,,2.5%,,,31,32,0,0,0,3
+Kangaskhan,81,ability,1,Scrappy,91.5%,,,,,,,,
+Kangaskhan,81,ability,2,Inner Focus,6.5%,,,,,,,,
+Kangaskhan,81,ability,3,Early Bird,2.0%,,,,,,,,

@@ -1,45 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Delphox,30,move,1,Heat Wave,99.6%,,,,,,,,
-Delphox,30,move,2,Protect,88.1%,,,,,,,,
-Delphox,30,move,3,Nasty Plot,76.4%,,,,,,,,
-Delphox,30,move,4,Psychic,62.1%,,,,,,,,
-Delphox,30,move,5,Expanding Force,24.8%,,,,,,,,
-Delphox,30,move,6,Psyshock,12.8%,,,,,,,,
-Delphox,30,move,7,Encore,12.7%,,,,,,,,
-Delphox,30,move,8,Imprison,7.6%,,,,,,,,
-Delphox,30,move,9,Trick Room,4.0%,,,,,,,,
-Delphox,30,move,10,Charm,3.3%,,,,,,,,
-Delphox,30,held_item,1,Delphoxite,83.8%,,,,,,,,
-Delphox,30,held_item,2,Life Orb,7.3%,,,,,,,,
-Delphox,30,held_item,3,Psychic Seed,2.5%,,,,,,,,
-Delphox,30,held_item,4,Colbur Berry,2.2%,,,,,,,,
-Delphox,30,held_item,5,Choice Scarf,2.0%,,,,,,,,
-Delphox,30,held_item,6,Focus Sash,1.0%,,,,,,,,
-Delphox,30,held_item,7,Air Balloon,0.7%,,,,,,,,
-Delphox,30,held_item,8,Charcoal,0.3%,,,,,,,,
-Delphox,30,held_item,9,Kasib Berry,0.1%,,,,,,,,
-Delphox,30,teammate,1,Kingambit,,,,,,,,,
-Delphox,30,teammate,2,Sneasler,,,,,,,,,
-Delphox,30,teammate,3,Sinistcha,,,,,,,,,
-Delphox,30,teammate,4,Incineroar,,,,,,,,,
-Delphox,30,teammate,5,Floette-Eternal,,,,,,,,,
-Delphox,30,teammate,6,Whimsicott,,,,,,,,,
-Delphox,30,teammate,7,Staraptor,,,,,,,,,
-Delphox,30,teammate,8,Garchomp,,,,,,,,,
-Delphox,30,teammate,9,Indeedee-F,,,,,,,,,
-Delphox,30,teammate,10,Milotic,,,,,,,,,
-Delphox,30,stat_alignment,1,Timid,95.7%,Speed,Attack,,,,,,
-Delphox,30,stat_alignment,2,Modest,3.5%,Sp. Atk,Attack,,,,,,
-Delphox,30,stat_alignment,3,Mild,0.8%,Sp. Atk,Defense,,,,,,
-Delphox,30,stat_points,1,,18.9%,,,2,0,0,32,0,32
-Delphox,30,stat_points,2,,11.2%,,,9,0,14,11,0,32
-Delphox,30,stat_points,3,,9.7%,,,10,0,9,15,0,32
-Delphox,30,stat_points,4,,9.0%,,,5,0,0,32,0,29
-Delphox,30,stat_points,5,,5.1%,,,4,0,0,30,0,32
-Delphox,30,stat_points,6,,4.5%,,,0,0,2,32,0,32
-Delphox,30,stat_points,7,,3.3%,,,13,0,14,7,0,32
-Delphox,30,stat_points,8,,3.0%,,,15,0,19,0,0,32
-Delphox,30,stat_points,9,,2.9%,,,1,0,20,16,0,29
-Delphox,30,stat_points,10,,2.9%,,,23,0,11,3,0,29
-Delphox,30,ability,1,Blaze,97.6%,,,,,,,,
-Delphox,30,ability,2,Magician,2.4%,,,,,,,,
+Delphox,31,move,1,Heat Wave,99.0%,,,,,,,,
+Delphox,31,move,2,Protect,90.7%,,,,,,,,
+Delphox,31,move,3,Nasty Plot,77.2%,,,,,,,,
+Delphox,31,move,4,Psychic,66.2%,,,,,,,,
+Delphox,31,move,5,Expanding Force,19.3%,,,,,,,,
+Delphox,31,move,6,Psyshock,13.7%,,,,,,,,
+Delphox,31,move,7,Encore,9.8%,,,,,,,,
+Delphox,31,move,8,Imprison,5.6%,,,,,,,,
+Delphox,31,move,9,Calm Mind,3.9%,,,,,,,,
+Delphox,31,move,10,Trick Room,2.9%,,,,,,,,
+Delphox,31,held_item,1,Delphoxite,87.9%,,,,,,,,
+Delphox,31,held_item,2,Life Orb,5.4%,,,,,,,,
+Delphox,31,held_item,3,Psychic Seed,2.0%,,,,,,,,
+Delphox,31,held_item,4,Colbur Berry,1.6%,,,,,,,,
+Delphox,31,held_item,5,Choice Scarf,1.5%,,,,,,,,
+Delphox,31,held_item,6,Focus Sash,0.7%,,,,,,,,
+Delphox,31,held_item,7,Air Balloon,0.5%,,,,,,,,
+Delphox,31,held_item,8,Charcoal,0.4%,,,,,,,,
+Delphox,31,held_item,9,Sitrus Berry,0.1%,,,,,,,,
+Delphox,31,held_item,10,Kasib Berry,0.1%,,,,,,,,
+Delphox,31,teammate,1,Sneasler,,,,,,,,,
+Delphox,31,teammate,2,Kingambit,,,,,,,,,
+Delphox,31,teammate,3,Sinistcha,,,,,,,,,
+Delphox,31,teammate,4,Incineroar,,,,,,,,,
+Delphox,31,teammate,5,Floette-Eternal,,,,,,,,,
+Delphox,31,teammate,6,Whimsicott,,,,,,,,,
+Delphox,31,teammate,7,Staraptor,,,,,,,,,
+Delphox,31,teammate,8,Garchomp,,,,,,,,,
+Delphox,31,teammate,9,Indeedee-F,,,,,,,,,
+Delphox,31,teammate,10,Rillaboom,,,,,,,,,
+Delphox,31,stat_alignment,1,Timid,94.9%,Speed,Attack,,,,,,
+Delphox,31,stat_alignment,2,Modest,4.5%,Sp. Atk,Attack,,,,,,
+Delphox,31,stat_alignment,3,Mild,0.6%,Sp. Atk,Defense,,,,,,
+Delphox,31,stat_alignment,4,Bold,0.1%,Defense,Attack,,,,,,
+Delphox,31,stat_points,1,,16.1%,,,2,0,0,32,0,32
+Delphox,31,stat_points,2,,12.1%,,,10,0,9,15,0,32
+Delphox,31,stat_points,3,,9.9%,,,9,0,14,11,0,32
+Delphox,31,stat_points,4,,7.1%,,,5,0,0,32,0,29
+Delphox,31,stat_points,5,,4.0%,,,4,0,0,30,0,32
+Delphox,31,stat_points,6,,3.8%,,,0,0,2,32,0,32
+Delphox,31,stat_points,7,,3.1%,,,23,0,11,3,0,29
+Delphox,31,stat_points,8,,2.7%,,,13,0,14,7,0,32
+Delphox,31,stat_points,9,,2.6%,,,15,0,19,0,0,32
+Delphox,31,stat_points,10,,2.4%,,,1,0,20,16,0,29
+Delphox,31,ability,1,Blaze,97.6%,,,,,,,,
+Delphox,31,ability,2,Magician,2.4%,,,,,,,,

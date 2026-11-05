@@ -1,45 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dragapult,83,move,1,Will-O-Wisp,68.3%,,,,,,,,
-Dragapult,83,move,2,Protect,64.4%,,,,,,,,
-Dragapult,83,move,3,Draco Meteor,48.5%,,,,,,,,
-Dragapult,83,move,4,Shadow Ball,36.6%,,,,,,,,
-Dragapult,83,move,5,Phantom Force,34.7%,,,,,,,,
-Dragapult,83,move,6,Light Screen,23.8%,,,,,,,,
-Dragapult,83,move,7,Psychic Fangs,19.8%,,,,,,,,
-Dragapult,83,move,8,Dragon Darts,18.8%,,,,,,,,
-Dragapult,83,move,9,Reflect,13.9%,,,,,,,,
-Dragapult,83,move,10,Dragon Rush,10.9%,,,,,,,,
-Dragapult,83,held_item,1,Focus Sash,41.6%,,,,,,,,
-Dragapult,83,held_item,2,Life Orb,31.7%,,,,,,,,
-Dragapult,83,held_item,3,Wide Lens,10.9%,,,,,,,,
-Dragapult,83,held_item,4,Light Clay,10.9%,,,,,,,,
-Dragapult,83,held_item,5,Colbur Berry,2.0%,,,,,,,,
-Dragapult,83,held_item,6,Choice Scarf,2.0%,,,,,,,,
-Dragapult,83,held_item,7,Haban Berry,1.0%,,,,,,,,
-Dragapult,83,teammate,1,Charizard,,,,,,,,,
-Dragapult,83,teammate,2,Sneasler,,,,,,,,,
-Dragapult,83,teammate,3,Rillaboom,,,,,,,,,
-Dragapult,83,teammate,4,Gholdengo,,,,,,,,,
-Dragapult,83,teammate,5,Indeedee-F,,,,,,,,,
-Dragapult,83,teammate,6,Kingambit,,,,,,,,,
-Dragapult,83,teammate,7,Milotic,,,,,,,,,
-Dragapult,83,teammate,8,Metagross,,,,,,,,,
-Dragapult,83,teammate,9,Raichu,,,,,,,,,
-Dragapult,83,teammate,10,Garchomp,,,,,,,,,
-Dragapult,83,stat_alignment,1,Timid,32.7%,Speed,Attack,,,,,,
-Dragapult,83,stat_alignment,2,Jolly,32.7%,Speed,Sp. Atk,,,,,,
-Dragapult,83,stat_alignment,3,Adamant,17.8%,Attack,Sp. Atk,,,,,,
-Dragapult,83,stat_alignment,4,Modest,16.8%,Sp. Atk,Attack,,,,,,
-Dragapult,83,stat_points,1,,33.7%,,,2,0,0,32,0,32
-Dragapult,83,stat_points,2,,24.8%,,,2,32,0,0,0,32
-Dragapult,83,stat_points,3,,10.9%,,,32,0,0,0,23,11
-Dragapult,83,stat_points,4,,6.9%,,,10,0,0,32,0,24
-Dragapult,83,stat_points,5,,5.9%,,,6,32,0,0,0,28
-Dragapult,83,stat_points,6,,4.0%,,,0,32,2,0,0,32
-Dragapult,83,stat_points,7,,3.0%,,,2,0,6,32,5,21
-Dragapult,83,stat_points,8,,3.0%,,,8,32,0,0,0,26
-Dragapult,83,stat_points,9,,2.0%,,,0,0,0,32,2,32
-Dragapult,83,stat_points,10,,2.0%,,,0,0,2,32,0,32
-Dragapult,83,ability,1,Clear Body,65.3%,,,,,,,,
-Dragapult,83,ability,2,Infiltrator,31.7%,,,,,,,,
-Dragapult,83,ability,3,Cursed Body,3.0%,,,,,,,,
+Dragapult,78,move,1,Will-O-Wisp,65.0%,,,,,,,,
+Dragapult,78,move,2,Protect,58.9%,,,,,,,,
+Dragapult,78,move,3,Draco Meteor,52.1%,,,,,,,,
+Dragapult,78,move,4,Shadow Ball,41.1%,,,,,,,,
+Dragapult,78,move,5,Phantom Force,32.5%,,,,,,,,
+Dragapult,78,move,6,Dragon Darts,23.3%,,,,,,,,
+Dragapult,78,move,7,Light Screen,18.4%,,,,,,,,
+Dragapult,78,move,8,Sucker Punch,16.0%,,,,,,,,
+Dragapult,78,move,9,Psychic Fangs,16.0%,,,,,,,,
+Dragapult,78,move,10,Beat Up,14.1%,,,,,,,,
+Dragapult,78,held_item,1,Focus Sash,47.9%,,,,,,,,
+Dragapult,78,held_item,2,Life Orb,28.2%,,,,,,,,
+Dragapult,78,held_item,3,Colbur Berry,7.4%,,,,,,,,
+Dragapult,78,held_item,4,Wide Lens,6.7%,,,,,,,,
+Dragapult,78,held_item,5,Light Clay,6.7%,,,,,,,,
+Dragapult,78,held_item,6,Choice Scarf,1.2%,,,,,,,,
+Dragapult,78,held_item,7,Haban Berry,0.6%,,,,,,,,
+Dragapult,78,held_item,8,Leftovers,0.6%,,,,,,,,
+Dragapult,78,held_item,9,Expert Belt,0.6%,,,,,,,,
+Dragapult,78,teammate,1,Charizard,,,,,,,,,
+Dragapult,78,teammate,2,Sneasler,,,,,,,,,
+Dragapult,78,teammate,3,Indeedee-F,,,,,,,,,
+Dragapult,78,teammate,4,Rillaboom,,,,,,,,,
+Dragapult,78,teammate,5,Metagross,,,,,,,,,
+Dragapult,78,teammate,6,Gholdengo,,,,,,,,,
+Dragapult,78,teammate,7,Kingambit,,,,,,,,,
+Dragapult,78,teammate,8,Tyranitar,,,,,,,,,
+Dragapult,78,teammate,9,Milotic,,,,,,,,,
+Dragapult,78,teammate,10,Whimsicott,,,,,,,,,
+Dragapult,78,stat_alignment,1,Timid,35.6%,Speed,Attack,,,,,,
+Dragapult,78,stat_alignment,2,Jolly,33.7%,Speed,Sp. Atk,,,,,,
+Dragapult,78,stat_alignment,3,Modest,17.2%,Sp. Atk,Attack,,,,,,
+Dragapult,78,stat_alignment,4,Adamant,13.5%,Attack,Sp. Atk,,,,,,
+Dragapult,78,stat_points,1,,33.7%,,,2,0,0,32,0,32
+Dragapult,78,stat_points,2,,17.8%,,,2,32,0,0,0,32
+Dragapult,78,stat_points,3,,8.0%,,,2,32,6,0,0,26
+Dragapult,78,stat_points,4,,6.7%,,,0,0,2,32,0,32
+Dragapult,78,stat_points,5,,6.7%,,,32,0,0,0,23,11
+Dragapult,78,stat_points,6,,6.1%,,,8,32,0,0,0,26
+Dragapult,78,stat_points,7,,4.3%,,,10,0,0,32,0,24
+Dragapult,78,stat_points,8,,3.7%,,,0,0,1,32,1,32
+Dragapult,78,stat_points,9,,3.7%,,,6,32,0,0,0,28
+Dragapult,78,stat_points,10,,2.5%,,,0,32,2,0,0,32
+Dragapult,78,ability,1,Clear Body,63.8%,,,,,,,,
+Dragapult,78,ability,2,Infiltrator,30.7%,,,,,,,,
+Dragapult,78,ability,3,Cursed Body,5.5%,,,,,,,,

@@ -1,36 +1,40 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Vanilluxe,70,move,1,Blizzard,100.0%,,,,,,,,
-Vanilluxe,70,move,2,Freeze-Dry,96.3%,,,,,,,,
-Vanilluxe,70,move,3,Icy Wind,85.8%,,,,,,,,
-Vanilluxe,70,move,4,Ice Beam,55.2%,,,,,,,,
-Vanilluxe,70,move,5,Sheer Cold,29.9%,,,,,,,,
-Vanilluxe,70,move,6,Aurora Veil,10.4%,,,,,,,,
-Vanilluxe,70,move,7,Ice Shard,8.2%,,,,,,,,
-Vanilluxe,70,move,8,Protect,6.7%,,,,,,,,
-Vanilluxe,70,move,9,Rain Dance,3.7%,,,,,,,,
-Vanilluxe,70,move,10,Taunt,3.7%,,,,,,,,
-Vanilluxe,70,held_item,1,Choice Scarf,89.6%,,,,,,,,
-Vanilluxe,70,held_item,2,Never-Melt Ice,7.5%,,,,,,,,
-Vanilluxe,70,held_item,3,Light Clay,2.2%,,,,,,,,
-Vanilluxe,70,held_item,4,Focus Sash,0.7%,,,,,,,,
-Vanilluxe,70,teammate,1,Kommo-o,,,,,,,,,
-Vanilluxe,70,teammate,2,Inteleon,,,,,,,,,
-Vanilluxe,70,teammate,3,Scovillain,,,,,,,,,
-Vanilluxe,70,teammate,4,Aegislash,,,,,,,,,
-Vanilluxe,70,teammate,5,Indeedee-F,,,,,,,,,
-Vanilluxe,70,teammate,6,Lopunny,,,,,,,,,
-Vanilluxe,70,teammate,7,Golisopod,,,,,,,,,
-Vanilluxe,70,teammate,8,Gardevoir,,,,,,,,,
-Vanilluxe,70,teammate,9,Sneasler,,,,,,,,,
-Vanilluxe,70,teammate,10,Raichu,,,,,,,,,
-Vanilluxe,70,stat_alignment,1,Timid,88.1%,Speed,Attack,,,,,,
-Vanilluxe,70,stat_alignment,2,Modest,6.7%,Sp. Atk,Attack,,,,,,
-Vanilluxe,70,stat_alignment,3,Calm,3.7%,Sp. Def,Attack,,,,,,
-Vanilluxe,70,stat_alignment,4,Quiet,1.5%,Sp. Atk,Speed,,,,,,
-Vanilluxe,70,stat_points,1,,72.4%,,,1,0,1,32,0,32
-Vanilluxe,70,stat_points,2,,16.4%,,,2,0,0,32,0,32
-Vanilluxe,70,stat_points,3,,3.7%,,,0,0,0,23,15,28
-Vanilluxe,70,stat_points,4,,3.7%,,,23,0,1,26,0,16
-Vanilluxe,70,stat_points,5,,2.2%,,,32,0,0,32,0,2
-Vanilluxe,70,stat_points,6,,1.5%,,,27,0,2,32,5,0
-Vanilluxe,70,ability,1,Snow Warning,100.0%,,,,,,,,
+Vanilluxe,74,move,1,Blizzard,100.0%,,,,,,,,
+Vanilluxe,74,move,2,Freeze-Dry,89.5%,,,,,,,,
+Vanilluxe,74,move,3,Icy Wind,72.4%,,,,,,,,
+Vanilluxe,74,move,4,Ice Beam,40.9%,,,,,,,,
+Vanilluxe,74,move,5,Sheer Cold,38.1%,,,,,,,,
+Vanilluxe,74,move,6,Ice Shard,16.0%,,,,,,,,
+Vanilluxe,74,move,7,Aurora Veil,15.5%,,,,,,,,
+Vanilluxe,74,move,8,Protect,14.4%,,,,,,,,
+Vanilluxe,74,move,9,Rain Dance,9.9%,,,,,,,,
+Vanilluxe,74,move,10,Taunt,2.8%,,,,,,,,
+Vanilluxe,74,held_item,1,Choice Scarf,82.3%,,,,,,,,
+Vanilluxe,74,held_item,2,Never-Melt Ice,14.9%,,,,,,,,
+Vanilluxe,74,held_item,3,Light Clay,1.7%,,,,,,,,
+Vanilluxe,74,held_item,4,Sitrus Berry,0.6%,,,,,,,,
+Vanilluxe,74,held_item,5,Focus Sash,0.6%,,,,,,,,
+Vanilluxe,74,teammate,1,Indeedee-F,,,,,,,,,
+Vanilluxe,74,teammate,2,Kommo-o,,,,,,,,,
+Vanilluxe,74,teammate,3,Inteleon,,,,,,,,,
+Vanilluxe,74,teammate,4,Scovillain,,,,,,,,,
+Vanilluxe,74,teammate,5,Aegislash,,,,,,,,,
+Vanilluxe,74,teammate,6,Sneasler,,,,,,,,,
+Vanilluxe,74,teammate,7,Gardevoir,,,,,,,,,
+Vanilluxe,74,teammate,8,Raichu,,,,,,,,,
+Vanilluxe,74,teammate,9,Lopunny,,,,,,,,,
+Vanilluxe,74,teammate,10,Golisopod,,,,,,,,,
+Vanilluxe,74,stat_alignment,1,Timid,74.0%,Speed,Attack,,,,,,
+Vanilluxe,74,stat_alignment,2,Quiet,10.5%,Sp. Atk,Speed,,,,,,
+Vanilluxe,74,stat_alignment,3,Calm,10.5%,Sp. Def,Attack,,,,,,
+Vanilluxe,74,stat_alignment,4,Modest,5.0%,Sp. Atk,Attack,,,,,,
+Vanilluxe,74,stat_points,1,,60.8%,,,1,0,1,32,0,32
+Vanilluxe,74,stat_points,2,,13.8%,,,2,0,0,32,0,32
+Vanilluxe,74,stat_points,3,,9.9%,,,0,0,0,23,15,28
+Vanilluxe,74,stat_points,4,,7.2%,,,30,0,10,26,0,0
+Vanilluxe,74,stat_points,5,,2.8%,,,23,0,1,26,0,16
+Vanilluxe,74,stat_points,6,,2.2%,,,25,0,9,32,0,0
+Vanilluxe,74,stat_points,7,,1.7%,,,32,0,0,32,0,2
+Vanilluxe,74,stat_points,8,,1.1%,,,27,0,2,32,5,0
+Vanilluxe,74,stat_points,9,,0.6%,,,19,0,22,0,25,0
+Vanilluxe,74,ability,1,Snow Warning,100.0%,,,,,,,,

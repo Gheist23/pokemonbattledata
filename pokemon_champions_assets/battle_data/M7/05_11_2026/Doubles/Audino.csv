@@ -1,39 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Audino,113,move,1,Trick Room,100.0%,,,,,,,,
-Audino,113,move,2,Simple Beam,100.0%,,,,,,,,
-Audino,113,move,3,Protect,81.0%,,,,,,,,
-Audino,113,move,4,Heal Pulse,56.9%,,,,,,,,
-Audino,113,move,5,Life Dew,24.1%,,,,,,,,
-Audino,113,move,6,Yawn,19.0%,,,,,,,,
-Audino,113,move,7,Encore,10.3%,,,,,,,,
-Audino,113,move,8,Sunny Day,6.9%,,,,,,,,
-Audino,113,move,9,Dazzling Gleam,1.7%,,,,,,,,
-Audino,113,held_item,1,Mental Herb,70.7%,,,,,,,,
-Audino,113,held_item,2,Chople Berry,15.5%,,,,,,,,
-Audino,113,held_item,3,Audinite,10.3%,,,,,,,,
-Audino,113,held_item,4,Sitrus Berry,1.7%,,,,,,,,
-Audino,113,held_item,5,Bright Powder,1.7%,,,,,,,,
-Audino,113,teammate,1,Overqwil,,,,,,,,,
-Audino,113,teammate,2,Garchomp,,,,,,,,,
-Audino,113,teammate,3,Sableye,,,,,,,,,
-Audino,113,teammate,4,Indeedee-F,,,,,,,,,
-Audino,113,teammate,5,Torkoal,,,,,,,,,
-Audino,113,teammate,6,Zoroark-Hisui,,,,,,,,,
-Audino,113,teammate,7,Slowbro,,,,,,,,,
-Audino,113,teammate,8,Umbreon,,,,,,,,,
-Audino,113,teammate,9,Chimecho,,,,,,,,,
-Audino,113,teammate,10,Clefable,,,,,,,,,
-Audino,113,stat_alignment,1,Relaxed,63.8%,Defense,Speed,,,,,,
-Audino,113,stat_alignment,2,Sassy,29.3%,Sp. Def,Speed,,,,,,
-Audino,113,stat_alignment,3,Hasty,6.9%,Speed,Defense,,,,,,
-Audino,113,stat_points,1,,36.2%,,,2,0,32,0,32,0
-Audino,113,stat_points,2,,27.6%,,,32,0,32,0,2,0
-Audino,113,stat_points,3,,17.2%,,,32,0,30,0,4,0
-Audino,113,stat_points,4,,8.6%,,,32,0,19,0,15,0
-Audino,113,stat_points,5,,3.4%,,,32,0,14,0,20,0
-Audino,113,stat_points,6,,1.7%,,,31,0,30,0,5,0
-Audino,113,stat_points,7,,1.7%,,,32,0,10,0,24,0
-Audino,113,stat_points,8,,1.7%,,,32,0,17,0,17,0
-Audino,113,stat_points,9,,1.7%,,,32,0,24,0,10,0
-Audino,113,ability,1,Healer,84.5%,,,,,,,,
-Audino,113,ability,2,Regenerator,15.5%,,,,,,,,
+Audino,106,move,1,Trick Room,98.9%,,,,,,,,
+Audino,106,move,2,Simple Beam,98.9%,,,,,,,,
+Audino,106,move,3,Protect,78.5%,,,,,,,,
+Audino,106,move,4,Heal Pulse,48.4%,,,,,,,,
+Audino,106,move,5,Life Dew,40.9%,,,,,,,,
+Audino,106,move,6,Yawn,12.9%,,,,,,,,
+Audino,106,move,7,Encore,11.8%,,,,,,,,
+Audino,106,move,8,Sunny Day,4.3%,,,,,,,,
+Audino,106,move,9,Dazzling Gleam,3.2%,,,,,,,,
+Audino,106,move,10,Skill Swap,1.1%,,,,,,,,
+Audino,106,held_item,1,Mental Herb,59.1%,,,,,,,,
+Audino,106,held_item,2,Chople Berry,15.1%,,,,,,,,
+Audino,106,held_item,3,Sitrus Berry,12.9%,,,,,,,,
+Audino,106,held_item,4,Audinite,11.8%,,,,,,,,
+Audino,106,held_item,5,Bright Powder,1.1%,,,,,,,,
+Audino,106,teammate,1,Overqwil,,,,,,,,,
+Audino,106,teammate,2,Zoroark-Hisui,,,,,,,,,
+Audino,106,teammate,3,Sableye,,,,,,,,,
+Audino,106,teammate,4,Slowbro,,,,,,,,,
+Audino,106,teammate,5,Garchomp,,,,,,,,,
+Audino,106,teammate,6,Umbreon,,,,,,,,,
+Audino,106,teammate,7,Indeedee-F,,,,,,,,,
+Audino,106,teammate,8,Torkoal,,,,,,,,,
+Audino,106,teammate,9,Chimecho,,,,,,,,,
+Audino,106,teammate,10,Clefable,,,,,,,,,
+Audino,106,stat_alignment,1,Relaxed,58.1%,Defense,Speed,,,,,,
+Audino,106,stat_alignment,2,Sassy,37.6%,Sp. Def,Speed,,,,,,
+Audino,106,stat_alignment,3,Hasty,4.3%,Speed,Defense,,,,,,
+Audino,106,stat_points,1,,33.3%,,,32,0,32,0,2,0
+Audino,106,stat_points,2,,22.6%,,,2,0,32,0,32,0
+Audino,106,stat_points,3,,17.2%,,,32,0,30,0,4,0
+Audino,106,stat_points,4,,8.6%,,,32,0,17,0,17,0
+Audino,106,stat_points,5,,8.6%,,,32,0,19,0,15,0
+Audino,106,stat_points,6,,3.2%,,,32,0,10,0,24,0
+Audino,106,stat_points,7,,3.2%,,,32,0,14,0,20,0
+Audino,106,stat_points,8,,1.1%,,,31,0,30,0,5,0
+Audino,106,stat_points,9,,1.1%,,,32,0,22,0,12,0
+Audino,106,stat_points,10,,1.1%,,,32,0,24,0,10,0
+Audino,106,ability,1,Healer,84.9%,,,,,,,,
+Audino,106,ability,2,Regenerator,15.1%,,,,,,,,

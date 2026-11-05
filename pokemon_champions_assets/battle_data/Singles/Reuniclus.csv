@@ -1,42 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Reuniclus,98,move,1,Focus Blast,97.7%,,,,,,,,
-Reuniclus,98,move,2,Trick Room,95.4%,,,,,,,,
-Reuniclus,98,move,3,Psychic Noise,85.1%,,,,,,,,
-Reuniclus,98,move,4,Grass Knot,81.6%,,,,,,,,
-Reuniclus,98,move,5,Recover,8.4%,,,,,,,,
-Reuniclus,98,move,6,Stored Power,8.0%,,,,,,,,
-Reuniclus,98,move,7,Psychic,6.9%,,,,,,,,
-Reuniclus,98,move,8,Calm Mind,6.5%,,,,,,,,
-Reuniclus,98,move,9,Shadow Ball,5.7%,,,,,,,,
-Reuniclus,98,move,10,Energy Ball,3.1%,,,,,,,,
-Reuniclus,98,held_item,1,Life Orb,98.1%,,,,,,,,
-Reuniclus,98,held_item,2,Sitrus Berry,0.8%,,,,,,,,
-Reuniclus,98,held_item,3,Leftovers,0.8%,,,,,,,,
-Reuniclus,98,held_item,4,Zoom Lens,0.4%,,,,,,,,
+Reuniclus,98,move,1,Trick Room,96.7%,,,,,,,,
+Reuniclus,98,move,2,Focus Blast,95.7%,,,,,,,,
+Reuniclus,98,move,3,Psychic Noise,85.9%,,,,,,,,
+Reuniclus,98,move,4,Grass Knot,79.0%,,,,,,,,
+Reuniclus,98,move,5,Psychic,8.6%,,,,,,,,
+Reuniclus,98,move,6,Shadow Ball,6.6%,,,,,,,,
+Reuniclus,98,move,7,Energy Ball,6.6%,,,,,,,,
+Reuniclus,98,move,8,Recover,6.1%,,,,,,,,
+Reuniclus,98,move,9,Stored Power,5.6%,,,,,,,,
+Reuniclus,98,move,10,Calm Mind,4.5%,,,,,,,,
+Reuniclus,98,held_item,1,Life Orb,98.7%,,,,,,,,
+Reuniclus,98,held_item,2,Sitrus Berry,0.5%,,,,,,,,
+Reuniclus,98,held_item,3,Leftovers,0.5%,,,,,,,,
+Reuniclus,98,held_item,4,Zoom Lens,0.3%,,,,,,,,
 Reuniclus,98,teammate,1,Mawile,,,,,,,,,
 Reuniclus,98,teammate,2,Mimikyu,,,,,,,,,
-Reuniclus,98,teammate,3,Charizard,,,,,,,,,
-Reuniclus,98,teammate,4,Primarina,,,,,,,,,
+Reuniclus,98,teammate,3,Primarina,,,,,,,,,
+Reuniclus,98,teammate,4,Charizard,,,,,,,,,
 Reuniclus,98,teammate,5,Greninja,,,,,,,,,
 Reuniclus,98,teammate,6,Garchomp,,,,,,,,,
 Reuniclus,98,teammate,7,Baxcalibur,,,,,,,,,
-Reuniclus,98,teammate,8,Clefable,,,,,,,,,
+Reuniclus,98,teammate,8,Archaludon,,,,,,,,,
 Reuniclus,98,teammate,9,Starmie,,,,,,,,,
-Reuniclus,98,teammate,10,Archaludon,,,,,,,,,
-Reuniclus,98,stat_alignment,1,Modest,78.9%,Sp. Atk,Attack,,,,,,
-Reuniclus,98,stat_alignment,2,Quiet,10.3%,Sp. Atk,Speed,,,,,,
-Reuniclus,98,stat_alignment,3,Bold,8.8%,Defense,Attack,,,,,,
-Reuniclus,98,stat_alignment,4,Calm,1.1%,Sp. Def,Attack,,,,,,
-Reuniclus,98,stat_alignment,5,Sassy,0.8%,Sp. Def,Speed,,,,,,
-Reuniclus,98,stat_points,1,,68.2%,,,32,0,19,15,0,0
-Reuniclus,98,stat_points,2,,6.5%,,,32,0,27,5,2,0
-Reuniclus,98,stat_points,3,,5.7%,,,32,0,2,32,0,0
-Reuniclus,98,stat_points,4,,5.4%,,,32,0,18,16,0,0
-Reuniclus,98,stat_points,5,,2.7%,,,32,0,16,15,3,0
-Reuniclus,98,stat_points,6,,2.7%,,,32,0,26,7,1,0
-Reuniclus,98,stat_points,7,,2.3%,,,22,0,32,0,6,6
-Reuniclus,98,stat_points,8,,2.3%,,,32,0,0,32,2,0
-Reuniclus,98,stat_points,9,,1.1%,,,20,0,8,0,32,6
-Reuniclus,98,stat_points,10,,0.8%,,,13,0,13,32,8,0
-Reuniclus,98,ability,1,Magic Guard,98.9%,,,,,,,,
-Reuniclus,98,ability,2,Regenerator,1.1%,,,,,,,,
+Reuniclus,98,teammate,10,Dragonite,,,,,,,,,
+Reuniclus,98,stat_alignment,1,Modest,78.5%,Sp. Atk,Attack,,,,,,
+Reuniclus,98,stat_alignment,2,Quiet,12.9%,Sp. Atk,Speed,,,,,,
+Reuniclus,98,stat_alignment,3,Bold,7.1%,Defense,Attack,,,,,,
+Reuniclus,98,stat_alignment,4,Calm,0.8%,Sp. Def,Attack,,,,,,
+Reuniclus,98,stat_alignment,5,Sassy,0.5%,Sp. Def,Speed,,,,,,
+Reuniclus,98,stat_alignment,6,Relaxed,0.3%,Defense,Speed,,,,,,
+Reuniclus,98,stat_points,1,,67.2%,,,32,0,19,15,0,0
+Reuniclus,98,stat_points,2,,7.8%,,,32,0,2,32,0,0
+Reuniclus,98,stat_points,3,,4.5%,,,32,0,27,5,2,0
+Reuniclus,98,stat_points,4,,3.5%,,,32,0,18,16,0,0
+Reuniclus,98,stat_points,5,,3.3%,,,32,0,16,15,3,0
+Reuniclus,98,stat_points,6,,2.8%,,,32,0,18,15,1,0
+Reuniclus,98,stat_points,7,,2.5%,,,32,0,0,32,0,2
+Reuniclus,98,stat_points,8,,1.8%,,,32,0,26,7,1,0
+Reuniclus,98,stat_points,9,,1.5%,,,22,0,32,0,6,6
+Reuniclus,98,stat_points,10,,1.5%,,,32,0,0,32,2,0
+Reuniclus,98,ability,1,Magic Guard,99.2%,,,,,,,,
+Reuniclus,98,ability,2,Regenerator,0.8%,,,,,,,,

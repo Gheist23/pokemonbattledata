@@ -1,35 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Salazzle,141,move,1,Flamethrower,100.0%,,,,,,,,
-Salazzle,141,move,2,Toxic,69.0%,,,,,,,,
-Salazzle,141,move,3,Endeavor,54.8%,,,,,,,,
-Salazzle,141,move,4,Encore,52.4%,,,,,,,,
-Salazzle,141,move,5,Dragon Pulse,26.2%,,,,,,,,
-Salazzle,141,move,6,Toxic Spikes,19.0%,,,,,,,,
-Salazzle,141,move,7,Thunder Wave,19.0%,,,,,,,,
-Salazzle,141,move,8,Mud-Slap,17.9%,,,,,,,,
-Salazzle,141,move,9,Protect,14.3%,,,,,,,,
-Salazzle,141,move,10,Substitute,8.3%,,,,,,,,
-Salazzle,141,held_item,1,Focus Sash,75.0%,,,,,,,,
-Salazzle,141,held_item,2,Air Balloon,8.3%,,,,,,,,
-Salazzle,141,held_item,3,Bright Powder,7.1%,,,,,,,,
-Salazzle,141,held_item,4,Life Orb,6.0%,,,,,,,,
-Salazzle,141,held_item,5,Quick Claw,3.6%,,,,,,,,
+Salazzle,141,move,1,Flamethrower,87.2%,,,,,,,,
+Salazzle,141,move,2,Toxic,75.9%,,,,,,,,
+Salazzle,141,move,3,Endeavor,60.3%,,,,,,,,
+Salazzle,141,move,4,Encore,56.0%,,,,,,,,
+Salazzle,141,move,5,Dragon Pulse,20.6%,,,,,,,,
+Salazzle,141,move,6,Sludge Bomb,15.6%,,,,,,,,
+Salazzle,141,move,7,Overheat,14.2%,,,,,,,,
+Salazzle,141,move,8,Toxic Spikes,12.1%,,,,,,,,
+Salazzle,141,move,9,Substitute,11.3%,,,,,,,,
+Salazzle,141,move,10,Protect,11.3%,,,,,,,,
+Salazzle,141,held_item,1,Focus Sash,76.6%,,,,,,,,
+Salazzle,141,held_item,2,Air Balloon,12.1%,,,,,,,,
+Salazzle,141,held_item,3,Bright Powder,5.0%,,,,,,,,
+Salazzle,141,held_item,4,Life Orb,3.5%,,,,,,,,
+Salazzle,141,held_item,5,Quick Claw,2.1%,,,,,,,,
+Salazzle,141,held_item,6,Leftovers,0.7%,,,,,,,,
 Salazzle,141,teammate,1,Garchomp,,,,,,,,,
-Salazzle,141,teammate,2,Glimmora,,,,,,,,,
-Salazzle,141,teammate,3,Scizor,,,,,,,,,
-Salazzle,141,teammate,4,Meowscarada,,,,,,,,,
+Salazzle,141,teammate,2,Meowscarada,,,,,,,,,
+Salazzle,141,teammate,3,Glimmora,,,,,,,,,
+Salazzle,141,teammate,4,Scizor,,,,,,,,,
 Salazzle,141,teammate,5,Quaquaval,,,,,,,,,
 Salazzle,141,teammate,6,Starmie,,,,,,,,,
 Salazzle,141,teammate,7,Gyarados,,,,,,,,,
-Salazzle,141,teammate,8,Glalie,,,,,,,,,
+Salazzle,141,teammate,8,Staraptor,,,,,,,,,
 Salazzle,141,teammate,9,Vanilluxe,,,,,,,,,
-Salazzle,141,teammate,10,Slurpuff,,,,,,,,,
-Salazzle,141,stat_alignment,1,Timid,100.0%,Speed,Attack,,,,,,
-Salazzle,141,stat_points,1,,52.4%,,,1,0,1,32,0,32
-Salazzle,141,stat_points,2,,17.9%,,,2,0,32,0,0,32
-Salazzle,141,stat_points,3,,16.7%,,,2,0,0,32,0,32
-Salazzle,141,stat_points,4,,6.0%,,,0,0,0,32,2,32
-Salazzle,141,stat_points,5,,6.0%,,,6,0,0,32,0,28
-Salazzle,141,stat_points,6,,1.2%,,,0,0,2,32,0,32
-Salazzle,141,ability,1,Corrosion,82.1%,,,,,,,,
-Salazzle,141,ability,2,Oblivious,17.9%,,,,,,,,
+Salazzle,141,teammate,10,Glalie,,,,,,,,,
+Salazzle,141,stat_alignment,1,Timid,90.1%,Speed,Attack,,,,,,
+Salazzle,141,stat_alignment,2,Modest,9.2%,Sp. Atk,Attack,,,,,,
+Salazzle,141,stat_alignment,3,Calm,0.7%,Sp. Def,Attack,,,,,,
+Salazzle,141,stat_points,1,,50.4%,,,1,0,1,32,0,32
+Salazzle,141,stat_points,2,,24.1%,,,2,0,0,32,0,32
+Salazzle,141,stat_points,3,,10.6%,,,2,0,32,0,0,32
+Salazzle,141,stat_points,4,,8.5%,,,6,0,0,32,0,28
+Salazzle,141,stat_points,5,,3.5%,,,0,0,0,32,2,32
+Salazzle,141,stat_points,6,,0.7%,,,0,0,2,32,0,32
+Salazzle,141,stat_points,7,,0.7%,,,2,0,0,32,32,0
+Salazzle,141,stat_points,8,,0.7%,,,18,0,8,0,8,32
+Salazzle,141,stat_points,9,,0.7%,,,32,0,2,0,0,32
+Salazzle,141,ability,1,Corrosion,89.4%,,,,,,,,
+Salazzle,141,ability,2,Oblivious,10.6%,,,,,,,,

@@ -1,47 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Chandelure,129,move,1,Shadow Ball,87.7%,,,,,,,,
-Chandelure,129,move,2,Flamethrower,75.4%,,,,,,,,
-Chandelure,129,move,3,Energy Ball,70.2%,,,,,,,,
-Chandelure,129,move,4,Will-O-Wisp,26.3%,,,,,,,,
-Chandelure,129,move,5,Overheat,19.3%,,,,,,,,
-Chandelure,129,move,6,Trick Room,18.4%,,,,,,,,
-Chandelure,129,move,7,Dark Pulse,17.5%,,,,,,,,
-Chandelure,129,move,8,Psychic,15.8%,,,,,,,,
-Chandelure,129,move,9,Hyper Beam,12.3%,,,,,,,,
-Chandelure,129,move,10,Hex,11.4%,,,,,,,,
-Chandelure,129,held_item,1,Choice Scarf,31.6%,,,,,,,,
-Chandelure,129,held_item,2,Colbur Berry,14.0%,,,,,,,,
-Chandelure,129,held_item,3,Sitrus Berry,13.2%,,,,,,,,
-Chandelure,129,held_item,4,Air Balloon,13.2%,,,,,,,,
-Chandelure,129,held_item,5,Chandelurite,8.8%,,,,,,,,
-Chandelure,129,held_item,6,Focus Sash,7.9%,,,,,,,,
-Chandelure,129,held_item,7,Shuca Berry,6.1%,,,,,,,,
-Chandelure,129,held_item,8,Leftovers,4.4%,,,,,,,,
-Chandelure,129,held_item,9,Life Orb,0.9%,,,,,,,,
-Chandelure,129,teammate,1,Garchomp,,,,,,,,,
-Chandelure,129,teammate,2,Baxcalibur,,,,,,,,,
-Chandelure,129,teammate,3,Lucario,,,,,,,,,
-Chandelure,129,teammate,4,Basculegion,,,,,,,,,
-Chandelure,129,teammate,5,Golisopod,,,,,,,,,
-Chandelure,129,teammate,6,Grapploct,,,,,,,,,
-Chandelure,129,teammate,7,Sylveon,,,,,,,,,
-Chandelure,129,teammate,8,Milotic,,,,,,,,,
-Chandelure,129,teammate,9,Dragonite,,,,,,,,,
-Chandelure,129,teammate,10,Meowscarada,,,,,,,,,
-Chandelure,129,stat_alignment,1,Modest,47.4%,Sp. Atk,Attack,,,,,,
-Chandelure,129,stat_alignment,2,Timid,40.4%,Speed,Attack,,,,,,
-Chandelure,129,stat_alignment,3,Relaxed,11.4%,Defense,Speed,,,,,,
-Chandelure,129,stat_alignment,4,Bold,0.9%,Defense,Attack,,,,,,
-Chandelure,129,stat_points,1,,48.2%,,,2,0,0,32,0,32
-Chandelure,129,stat_points,2,,14.0%,,,4,0,10,32,0,20
-Chandelure,129,stat_points,3,,13.2%,,,24,0,1,32,0,9
-Chandelure,129,stat_points,4,,11.4%,,,32,0,20,0,14,0
-Chandelure,129,stat_points,5,,7.0%,,,32,0,2,32,0,0
-Chandelure,129,stat_points,6,,1.8%,,,0,0,1,32,1,32
-Chandelure,129,stat_points,7,,1.8%,,,32,0,0,32,1,1
-Chandelure,129,stat_points,8,,0.9%,,,32,0,0,32,0,2
-Chandelure,129,stat_points,9,,0.9%,,,32,0,1,15,3,15
-Chandelure,129,stat_points,10,,0.9%,,,32,0,26,0,0,8
-Chandelure,129,ability,1,Flash Fire,62.3%,,,,,,,,
-Chandelure,129,ability,2,Infiltrator,30.7%,,,,,,,,
-Chandelure,129,ability,3,Flame Body,7.0%,,,,,,,,
+Chandelure,126,move,1,Shadow Ball,82.6%,,,,,,,,
+Chandelure,126,move,2,Flamethrower,69.5%,,,,,,,,
+Chandelure,126,move,3,Energy Ball,61.0%,,,,,,,,
+Chandelure,126,move,4,Will-O-Wisp,26.8%,,,,,,,,
+Chandelure,126,move,5,Trick Room,25.4%,,,,,,,,
+Chandelure,126,move,6,Overheat,23.0%,,,,,,,,
+Chandelure,126,move,7,Mystical Fire,17.4%,,,,,,,,
+Chandelure,126,move,8,Hex,16.9%,,,,,,,,
+Chandelure,126,move,9,Dark Pulse,13.6%,,,,,,,,
+Chandelure,126,move,10,Minimize,10.3%,,,,,,,,
+Chandelure,126,held_item,1,Choice Scarf,31.0%,,,,,,,,
+Chandelure,126,held_item,2,Sitrus Berry,17.4%,,,,,,,,
+Chandelure,126,held_item,3,Leftovers,13.6%,,,,,,,,
+Chandelure,126,held_item,4,Colbur Berry,7.5%,,,,,,,,
+Chandelure,126,held_item,5,Air Balloon,7.5%,,,,,,,,
+Chandelure,126,held_item,6,Life Orb,7.0%,,,,,,,,
+Chandelure,126,held_item,7,Chandelurite,6.1%,,,,,,,,
+Chandelure,126,held_item,8,Focus Sash,5.6%,,,,,,,,
+Chandelure,126,held_item,9,Shuca Berry,3.3%,,,,,,,,
+Chandelure,126,held_item,10,Wise Glasses,0.9%,,,,,,,,
+Chandelure,126,teammate,1,Garchomp,,,,,,,,,
+Chandelure,126,teammate,2,Golisopod,,,,,,,,,
+Chandelure,126,teammate,3,Baxcalibur,,,,,,,,,
+Chandelure,126,teammate,4,Sylveon,,,,,,,,,
+Chandelure,126,teammate,5,Empoleon,,,,,,,,,
+Chandelure,126,teammate,6,Venusaur,,,,,,,,,
+Chandelure,126,teammate,7,Zoroark,,,,,,,,,
+Chandelure,126,teammate,8,Tyranitar,,,,,,,,,
+Chandelure,126,teammate,9,Gyarados,,,,,,,,,
+Chandelure,126,teammate,10,Lucario,,,,,,,,,
+Chandelure,126,stat_alignment,1,Modest,46.0%,Sp. Atk,Attack,,,,,,
+Chandelure,126,stat_alignment,2,Timid,37.1%,Speed,Attack,,,,,,
+Chandelure,126,stat_alignment,3,Relaxed,16.4%,Defense,Speed,,,,,,
+Chandelure,126,stat_alignment,4,Bold,0.5%,Defense,Attack,,,,,,
+Chandelure,126,stat_points,1,,48.8%,,,2,0,0,32,0,32
+Chandelure,126,stat_points,2,,16.4%,,,32,0,20,0,14,0
+Chandelure,126,stat_points,3,,7.5%,,,4,0,10,32,0,20
+Chandelure,126,stat_points,4,,7.0%,,,24,0,1,32,0,9
+Chandelure,126,stat_points,5,,6.1%,,,32,0,0,2,0,32
+Chandelure,126,stat_points,6,,4.7%,,,32,0,32,0,0,0
+Chandelure,126,stat_points,7,,4.2%,,,32,0,2,32,0,0
+Chandelure,126,stat_points,8,,0.9%,,,0,0,1,32,1,32
+Chandelure,126,stat_points,9,,0.9%,,,0,0,25,32,9,0
+Chandelure,126,stat_points,10,,0.9%,,,32,0,0,32,1,1
+Chandelure,126,ability,1,Flash Fire,67.6%,,,,,,,,
+Chandelure,126,ability,2,Infiltrator,27.7%,,,,,,,,
+Chandelure,126,ability,3,Flame Body,4.7%,,,,,,,,

@@ -1,30 +1,32 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ampharos,93,move,1,Dragon Pulse,100.0%,,,,,,,,
-Ampharos,93,move,2,Protect,91.7%,,,,,,,,
-Ampharos,93,move,3,Thunderbolt,72.6%,,,,,,,,
-Ampharos,93,move,4,Focus Blast,48.8%,,,,,,,,
-Ampharos,93,move,5,Parabolic Charge,44.0%,,,,,,,,
-Ampharos,93,move,6,Cotton Guard,22.6%,,,,,,,,
-Ampharos,93,move,7,Discharge,14.3%,,,,,,,,
-Ampharos,93,move,8,Dazzling Gleam,3.6%,,,,,,,,
-Ampharos,93,move,9,Power Gem,1.2%,,,,,,,,
-Ampharos,93,move,10,Thunder,1.2%,,,,,,,,
-Ampharos,93,held_item,1,Ampharosite,100.0%,,,,,,,,
-Ampharos,93,teammate,1,Rillaboom,,,,,,,,,
-Ampharos,93,teammate,2,Incineroar,,,,,,,,,
-Ampharos,93,teammate,3,Camerupt,,,,,,,,,
-Ampharos,93,teammate,4,Farigiraf,,,,,,,,,
-Ampharos,93,teammate,5,Garchomp,,,,,,,,,
-Ampharos,93,teammate,6,Kingambit,,,,,,,,,
-Ampharos,93,teammate,7,Volcarona,,,,,,,,,
-Ampharos,93,teammate,8,Gholdengo,,,,,,,,,
-Ampharos,93,teammate,9,Araquanid,,,,,,,,,
-Ampharos,93,teammate,10,Armarouge,,,,,,,,,
-Ampharos,93,stat_alignment,1,Quiet,77.4%,Sp. Atk,Speed,,,,,,
-Ampharos,93,stat_alignment,2,Modest,22.6%,Sp. Atk,Attack,,,,,,
-Ampharos,93,stat_points,1,,35.7%,,,32,0,0,32,2,0
-Ampharos,93,stat_points,2,,34.5%,,,32,0,2,32,0,0
-Ampharos,93,stat_points,3,,19.0%,,,20,0,4,32,10,0
-Ampharos,93,stat_points,4,,6.0%,,,32,0,1,32,0,1
-Ampharos,93,stat_points,5,,4.8%,,,32,0,9,25,0,0
-Ampharos,93,ability,1,Static,100.0%,,,,,,,,
+Ampharos,99,move,1,Dragon Pulse,100.0%,,,,,,,,
+Ampharos,99,move,2,Protect,93.6%,,,,,,,,
+Ampharos,99,move,3,Thunderbolt,65.5%,,,,,,,,
+Ampharos,99,move,4,Parabolic Charge,51.8%,,,,,,,,
+Ampharos,99,move,5,Focus Blast,40.0%,,,,,,,,
+Ampharos,99,move,6,Cotton Guard,30.0%,,,,,,,,
+Ampharos,99,move,7,Discharge,10.9%,,,,,,,,
+Ampharos,99,move,8,Dazzling Gleam,3.6%,,,,,,,,
+Ampharos,99,move,9,Volt Switch,2.7%,,,,,,,,
+Ampharos,99,move,10,Power Gem,0.9%,,,,,,,,
+Ampharos,99,held_item,1,Ampharosite,100.0%,,,,,,,,
+Ampharos,99,teammate,1,Incineroar,,,,,,,,,
+Ampharos,99,teammate,2,Rillaboom,,,,,,,,,
+Ampharos,99,teammate,3,Garchomp,,,,,,,,,
+Ampharos,99,teammate,4,Camerupt,,,,,,,,,
+Ampharos,99,teammate,5,Volcarona,,,,,,,,,
+Ampharos,99,teammate,6,Gholdengo,,,,,,,,,
+Ampharos,99,teammate,7,Farigiraf,,,,,,,,,
+Ampharos,99,teammate,8,Kingambit,,,,,,,,,
+Ampharos,99,teammate,9,Sneasler,,,,,,,,,
+Ampharos,99,teammate,10,Primarina,,,,,,,,,
+Ampharos,99,stat_alignment,1,Quiet,67.3%,Sp. Atk,Speed,,,,,,
+Ampharos,99,stat_alignment,2,Modest,32.7%,Sp. Atk,Attack,,,,,,
+Ampharos,99,stat_points,1,,43.6%,,,32,0,0,32,2,0
+Ampharos,99,stat_points,2,,27.3%,,,32,0,2,32,0,0
+Ampharos,99,stat_points,3,,17.3%,,,20,0,4,32,10,0
+Ampharos,99,stat_points,4,,4.5%,,,32,0,1,32,0,1
+Ampharos,99,stat_points,5,,3.6%,,,32,0,9,25,0,0
+Ampharos,99,stat_points,6,,2.7%,,,13,0,0,32,0,21
+Ampharos,99,stat_points,7,,0.9%,,,32,0,0,21,0,13
+Ampharos,99,ability,1,Static,100.0%,,,,,,,,

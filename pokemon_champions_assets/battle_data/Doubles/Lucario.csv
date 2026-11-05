@@ -1,41 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Lucario,60,move,1,Aura Sphere,81.7%,,,,,,,,
-Lucario,60,move,2,Detect,63.8%,,,,,,,,
-Lucario,60,move,3,Flash Cannon,51.4%,,,,,,,,
-Lucario,60,move,4,Nasty Plot,40.8%,,,,,,,,
-Lucario,60,move,5,Terrain Pulse,23.4%,,,,,,,,
-Lucario,60,move,6,Close Combat,18.3%,,,,,,,,
-Lucario,60,move,7,Rock Slide,17.9%,,,,,,,,
-Lucario,60,move,8,Meteor Mash,17.9%,,,,,,,,
-Lucario,60,move,9,Ice Punch,17.9%,,,,,,,,
-Lucario,60,move,10,Calm Mind,17.4%,,,,,,,,
-Lucario,60,held_item,1,Lucarionite Z,81.7%,,,,,,,,
-Lucario,60,held_item,2,Choice Scarf,17.9%,,,,,,,,
-Lucario,60,held_item,3,Lucarionite,0.5%,,,,,,,,
-Lucario,60,teammate,1,Rillaboom,,,,,,,,,
-Lucario,60,teammate,2,Garchomp,,,,,,,,,
-Lucario,60,teammate,3,Sneasler,,,,,,,,,
-Lucario,60,teammate,4,Incineroar,,,,,,,,,
-Lucario,60,teammate,5,Armarouge,,,,,,,,,
-Lucario,60,teammate,6,Indeedee-F,,,,,,,,,
-Lucario,60,teammate,7,Kingambit,,,,,,,,,
-Lucario,60,teammate,8,Sinistcha,,,,,,,,,
-Lucario,60,teammate,9,Basculegion,,,,,,,,,
-Lucario,60,teammate,10,Slowking-Galar,,,,,,,,,
-Lucario,60,stat_alignment,1,Modest,48.2%,Sp. Atk,Attack,,,,,,
-Lucario,60,stat_alignment,2,Timid,33.0%,Speed,Attack,,,,,,
-Lucario,60,stat_alignment,3,Adamant,17.9%,Attack,Sp. Atk,,,,,,
-Lucario,60,stat_alignment,4,Jolly,0.5%,Speed,Sp. Atk,,,,,,
-Lucario,60,stat_alignment,5,Bold,0.5%,Defense,Attack,,,,,,
-Lucario,60,stat_points,1,,20.2%,,,0,32,0,0,0,32
-Lucario,60,stat_points,2,,15.6%,,,21,0,5,10,0,30
-Lucario,60,stat_points,3,,13.3%,,,2,0,0,32,0,32
-Lucario,60,stat_points,4,,10.6%,,,14,0,0,20,0,32
-Lucario,60,stat_points,5,,9.2%,,,25,0,0,9,0,32
-Lucario,60,stat_points,6,,7.3%,,,0,0,2,32,0,32
-Lucario,60,stat_points,7,,6.0%,,,2,0,2,32,0,30
-Lucario,60,stat_points,8,,4.6%,,,26,0,2,0,6,32
-Lucario,60,stat_points,9,,2.8%,,,0,0,1,32,1,32
-Lucario,60,stat_points,10,,1.8%,,,9,0,0,25,0,32
-Lucario,60,ability,1,Inner Focus,97.2%,,,,,,,,
-Lucario,60,ability,2,Steadfast,2.8%,,,,,,,,
+Lucario,59,move,1,Aura Sphere,80.3%,,,,,,,,
+Lucario,59,move,2,Detect,60.3%,,,,,,,,
+Lucario,59,move,3,Flash Cannon,52.9%,,,,,,,,
+Lucario,59,move,4,Nasty Plot,42.4%,,,,,,,,
+Lucario,59,move,5,Terrain Pulse,22.7%,,,,,,,,
+Lucario,59,move,6,Close Combat,19.0%,,,,,,,,
+Lucario,59,move,7,Meteor Mash,18.6%,,,,,,,,
+Lucario,59,move,8,Rock Slide,18.3%,,,,,,,,
+Lucario,59,move,9,Ice Punch,18.3%,,,,,,,,
+Lucario,59,move,10,Protect,15.3%,,,,,,,,
+Lucario,59,held_item,1,Lucarionite Z,80.3%,,,,,,,,
+Lucario,59,held_item,2,Choice Scarf,18.3%,,,,,,,,
+Lucario,59,held_item,3,Life Orb,0.7%,,,,,,,,
+Lucario,59,held_item,4,Lucarionite,0.7%,,,,,,,,
+Lucario,59,teammate,1,Rillaboom,,,,,,,,,
+Lucario,59,teammate,2,Garchomp,,,,,,,,,
+Lucario,59,teammate,3,Sneasler,,,,,,,,,
+Lucario,59,teammate,4,Incineroar,,,,,,,,,
+Lucario,59,teammate,5,Kingambit,,,,,,,,,
+Lucario,59,teammate,6,Armarouge,,,,,,,,,
+Lucario,59,teammate,7,Indeedee-F,,,,,,,,,
+Lucario,59,teammate,8,Basculegion,,,,,,,,,
+Lucario,59,teammate,9,Slowking-Galar,,,,,,,,,
+Lucario,59,teammate,10,Sinistcha,,,,,,,,,
+Lucario,59,stat_alignment,1,Modest,47.5%,Sp. Atk,Attack,,,,,,
+Lucario,59,stat_alignment,2,Timid,32.5%,Speed,Attack,,,,,,
+Lucario,59,stat_alignment,3,Adamant,19.3%,Attack,Sp. Atk,,,,,,
+Lucario,59,stat_alignment,4,Jolly,0.3%,Speed,Sp. Atk,,,,,,
+Lucario,59,stat_alignment,5,Bold,0.3%,Defense,Attack,,,,,,
+Lucario,59,stat_points,1,,20.0%,,,0,32,0,0,0,32
+Lucario,59,stat_points,2,,15.9%,,,2,0,0,32,0,32
+Lucario,59,stat_points,3,,13.6%,,,21,0,5,10,0,30
+Lucario,59,stat_points,4,,10.2%,,,0,0,2,32,0,32
+Lucario,59,stat_points,5,,9.8%,,,14,0,0,20,0,32
+Lucario,59,stat_points,6,,6.8%,,,25,0,0,9,0,32
+Lucario,59,stat_points,7,,4.4%,,,2,0,2,32,0,30
+Lucario,59,stat_points,8,,3.4%,,,26,0,2,0,6,32
+Lucario,59,stat_points,9,,2.0%,,,0,0,1,32,1,32
+Lucario,59,stat_points,10,,2.0%,,,28,0,3,16,0,19
+Lucario,59,ability,1,Inner Focus,97.6%,,,,,,,,
+Lucario,59,ability,2,Steadfast,2.4%,,,,,,,,

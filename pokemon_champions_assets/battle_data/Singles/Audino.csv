@@ -1,40 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Audino,146,move,1,Calm Mind,48.1%,,,,,,,,
-Audino,146,move,2,Draining Kiss,46.8%,,,,,,,,
-Audino,146,move,3,Flamethrower,44.2%,,,,,,,,
-Audino,146,move,4,Fire Blast,28.6%,,,,,,,,
-Audino,146,move,5,Healing Wish,28.6%,,,,,,,,
-Audino,146,move,6,Trick Room,28.6%,,,,,,,,
-Audino,146,move,7,Surf,28.6%,,,,,,,,
-Audino,146,move,8,Encore,27.3%,,,,,,,,
-Audino,146,move,9,Yawn,24.7%,,,,,,,,
-Audino,146,move,10,Dazzling Gleam,24.7%,,,,,,,,
-Audino,146,held_item,1,Audinite,70.1%,,,,,,,,
-Audino,146,held_item,2,Chople Berry,19.5%,,,,,,,,
-Audino,146,held_item,3,Sitrus Berry,7.8%,,,,,,,,
-Audino,146,held_item,4,Leftovers,1.3%,,,,,,,,
-Audino,146,held_item,5,Raichunite X,1.3%,,,,,,,,
-Audino,146,teammate,1,Mimikyu,,,,,,,,,
-Audino,146,teammate,2,Pawmot,,,,,,,,,
-Audino,146,teammate,3,Meowscarada,,,,,,,,,
-Audino,146,teammate,4,Primarina,,,,,,,,,
-Audino,146,teammate,5,Klefki,,,,,,,,,
-Audino,146,teammate,6,Hatterene,,,,,,,,,
-Audino,146,teammate,7,Tinkaton,,,,,,,,,
-Audino,146,teammate,8,Mawile,,,,,,,,,
-Audino,146,teammate,9,Basculegion,,,,,,,,,
-Audino,146,teammate,10,Gholdengo,,,,,,,,,
-Audino,146,stat_alignment,1,Modest,46.8%,Sp. Atk,Attack,,,,,,
-Audino,146,stat_alignment,2,Bold,42.9%,Defense,Attack,,,,,,
-Audino,146,stat_alignment,3,Relaxed,7.8%,Defense,Speed,,,,,,
-Audino,146,stat_alignment,4,Gentle,1.3%,Sp. Def,Defense,,,,,,
-Audino,146,stat_alignment,5,Sassy,1.3%,Sp. Def,Speed,,,,,,
-Audino,146,stat_points,1,,28.6%,,,13,0,25,3,25,0
-Audino,146,stat_points,2,,23.4%,,,32,0,32,0,2,0
-Audino,146,stat_points,3,,19.5%,,,31,0,29,0,6,0
-Audino,146,stat_points,4,,18.2%,,,2,0,32,32,0,0
-Audino,146,stat_points,5,,6.5%,,,29,0,32,0,5,0
-Audino,146,stat_points,6,,1.3%,,,29,0,13,0,24,0
-Audino,146,stat_points,7,,1.3%,,,32,0,0,2,32,0
-Audino,146,stat_points,8,,1.3%,,,32,0,32,0,1,0
-Audino,146,ability,1,Regenerator,100.0%,,,,,,,,
+Audino,137,move,1,Healing Wish,55.1%,,,,,,,,
+Audino,137,move,2,Trick Room,55.1%,,,,,,,,
+Audino,137,move,3,Encore,52.1%,,,,,,,,
+Audino,137,move,4,Flamethrower,50.3%,,,,,,,,
+Audino,137,move,5,Calm Mind,31.7%,,,,,,,,
+Audino,137,move,6,Draining Kiss,31.1%,,,,,,,,
+Audino,137,move,7,Fire Blast,22.8%,,,,,,,,
+Audino,137,move,8,Surf,22.8%,,,,,,,,
+Audino,137,move,9,Dazzling Gleam,14.4%,,,,,,,,
+Audino,137,move,10,Yawn,13.8%,,,,,,,,
+Audino,137,held_item,1,Audinite,56.3%,,,,,,,,
+Audino,137,held_item,2,Chople Berry,32.9%,,,,,,,,
+Audino,137,held_item,3,Sitrus Berry,9.0%,,,,,,,,
+Audino,137,held_item,4,Leftovers,0.6%,,,,,,,,
+Audino,137,held_item,5,Raichunite X,0.6%,,,,,,,,
+Audino,137,held_item,6,Light Clay,0.6%,,,,,,,,
+Audino,137,teammate,1,Mimikyu,,,,,,,,,
+Audino,137,teammate,2,Pawmot,,,,,,,,,
+Audino,137,teammate,3,Basculegion,,,,,,,,,
+Audino,137,teammate,4,Mawile,,,,,,,,,
+Audino,137,teammate,5,Gengar,,,,,,,,,
+Audino,137,teammate,6,Primarina,,,,,,,,,
+Audino,137,teammate,7,Klefki,,,,,,,,,
+Audino,137,teammate,8,Hatterene,,,,,,,,,
+Audino,137,teammate,9,Tinkaton,,,,,,,,,
+Audino,137,teammate,10,Meowscarada,,,,,,,,,
+Audino,137,stat_alignment,1,Bold,49.7%,Defense,Attack,,,,,,
+Audino,137,stat_alignment,2,Modest,31.1%,Sp. Atk,Attack,,,,,,
+Audino,137,stat_alignment,3,Relaxed,18.0%,Defense,Speed,,,,,,
+Audino,137,stat_alignment,4,Gentle,0.6%,Sp. Def,Defense,,,,,,
+Audino,137,stat_alignment,5,Sassy,0.6%,Sp. Def,Speed,,,,,,
+Audino,137,stat_points,1,,35.9%,,,31,0,29,0,6,0
+Audino,137,stat_points,2,,25.7%,,,32,0,32,0,2,0
+Audino,137,stat_points,3,,22.8%,,,13,0,25,3,25,0
+Audino,137,stat_points,4,,8.4%,,,2,0,32,32,0,0
+Audino,137,stat_points,5,,4.8%,,,29,0,32,0,5,0
+Audino,137,stat_points,6,,0.6%,,,29,0,13,0,24,0
+Audino,137,stat_points,7,,0.6%,,,31,0,30,0,5,0
+Audino,137,stat_points,8,,0.6%,,,32,0,0,2,32,0
+Audino,137,stat_points,9,,0.6%,,,32,0,32,0,1,0
+Audino,137,ability,1,Regenerator,100.0%,,,,,,,,

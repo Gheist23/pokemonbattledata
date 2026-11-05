@@ -1,32 +1,40 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Trevenant,195,move,1,Leech Seed,90.5%,,,,,,,,
-Trevenant,195,move,2,Phantom Force,81.0%,,,,,,,,
-Trevenant,195,move,3,Will-O-Wisp,71.4%,,,,,,,,
-Trevenant,195,move,4,Horn Leech,57.1%,,,,,,,,
-Trevenant,195,move,5,Curse,38.1%,,,,,,,,
-Trevenant,195,move,6,Forest's Curse,19.0%,,,,,,,,
-Trevenant,195,move,7,Pain Split,14.3%,,,,,,,,
-Trevenant,195,move,8,Substitute,9.5%,,,,,,,,
-Trevenant,195,move,9,Protect,9.5%,,,,,,,,
-Trevenant,195,move,10,Growth,4.8%,,,,,,,,
-Trevenant,195,held_item,1,Sitrus Berry,100.0%,,,,,,,,
-Trevenant,195,teammate,1,Ditto,,,,,,,,,
-Trevenant,195,teammate,2,Cinderace,,,,,,,,,
-Trevenant,195,teammate,3,Staraptor,,,,,,,,,
-Trevenant,195,teammate,4,Vivillon-Fancy,,,,,,,,,
-Trevenant,195,teammate,5,Bellibolt,,,,,,,,,
-Trevenant,195,teammate,6,Venusaur,,,,,,,,,
-Trevenant,195,teammate,7,Charizard,,,,,,,,,
-Trevenant,195,teammate,8,Rillaboom,,,,,,,,,
-Trevenant,195,stat_alignment,1,Careful,76.2%,Sp. Def,Sp. Atk,,,,,,
-Trevenant,195,stat_alignment,2,Impish,14.3%,Defense,Sp. Atk,,,,,,
-Trevenant,195,stat_alignment,3,Adamant,9.5%,Attack,Sp. Atk,,,,,,
-Trevenant,195,stat_points,1,,33.3%,,,2,0,32,0,32,0
-Trevenant,195,stat_points,2,,19.0%,,,27,3,4,0,32,0
-Trevenant,195,stat_points,3,,9.5%,,,4,6,24,0,32,0
-Trevenant,195,stat_points,4,,9.5%,,,19,0,15,0,32,0
-Trevenant,195,stat_points,5,,9.5%,,,32,0,0,0,32,0
-Trevenant,195,stat_points,6,,9.5%,,,32,32,2,0,0,0
-Trevenant,195,stat_points,7,,4.8%,,,0,10,24,0,32,0
-Trevenant,195,stat_points,8,,4.8%,,,32,0,32,0,2,0
-Trevenant,195,ability,1,Harvest,100.0%,,,,,,,,
+Trevenant,200,move,1,Leech Seed,76.5%,,,,,,,,
+Trevenant,200,move,2,Phantom Force,64.7%,,,,,,,,
+Trevenant,200,move,3,Will-O-Wisp,58.8%,,,,,,,,
+Trevenant,200,move,4,Curse,52.9%,,,,,,,,
+Trevenant,200,move,5,Horn Leech,44.1%,,,,,,,,
+Trevenant,200,move,6,Trick Room,17.6%,,,,,,,,
+Trevenant,200,move,7,Wood Hammer,17.6%,,,,,,,,
+Trevenant,200,move,8,Poltergeist,17.6%,,,,,,,,
+Trevenant,200,move,9,Protect,11.8%,,,,,,,,
+Trevenant,200,move,10,Forest's Curse,11.8%,,,,,,,,
+Trevenant,200,held_item,1,Sitrus Berry,82.4%,,,,,,,,
+Trevenant,200,held_item,2,Life Orb,17.6%,,,,,,,,
+Trevenant,200,teammate,1,Ditto,,,,,,,,,
+Trevenant,200,teammate,2,Cinderace,,,,,,,,,
+Trevenant,200,teammate,3,Rillaboom,,,,,,,,,
+Trevenant,200,teammate,4,Staraptor,,,,,,,,,
+Trevenant,200,teammate,5,Vivillon-Fancy,,,,,,,,,
+Trevenant,200,teammate,6,Bellibolt,,,,,,,,,
+Trevenant,200,teammate,7,Venusaur,,,,,,,,,
+Trevenant,200,teammate,8,Charizard,,,,,,,,,
+Trevenant,200,teammate,9,Hippowdon,,,,,,,,,
+Trevenant,200,teammate,10,Aromatisse,,,,,,,,,
+Trevenant,200,stat_alignment,1,Careful,64.7%,Sp. Def,Sp. Atk,,,,,,
+Trevenant,200,stat_alignment,2,Brave,17.6%,Attack,Speed,,,,,,
+Trevenant,200,stat_alignment,3,Impish,8.8%,Defense,Sp. Atk,,,,,,
+Trevenant,200,stat_alignment,4,Adamant,5.9%,Attack,Sp. Atk,,,,,,
+Trevenant,200,stat_alignment,5,Calm,2.9%,Sp. Def,Attack,,,,,,
+Trevenant,200,stat_points,1,,29.4%,,,2,0,32,0,32,0
+Trevenant,200,stat_points,2,,17.6%,,,29,0,5,0,32,0
+Trevenant,200,stat_points,3,,11.8%,,,27,3,4,0,32,0
+Trevenant,200,stat_points,4,,8.8%,,,9,0,25,0,32,0
+Trevenant,200,stat_points,5,,5.9%,,,4,6,24,0,32,0
+Trevenant,200,stat_points,6,,5.9%,,,19,0,15,0,32,0
+Trevenant,200,stat_points,7,,5.9%,,,32,0,0,0,32,0
+Trevenant,200,stat_points,8,,5.9%,,,32,32,2,0,0,0
+Trevenant,200,stat_points,9,,2.9%,,,0,10,24,0,32,0
+Trevenant,200,stat_points,10,,2.9%,,,28,0,20,0,8,10
+Trevenant,200,ability,1,Harvest,82.4%,,,,,,,,
+Trevenant,200,ability,2,Frisk,17.6%,,,,,,,,

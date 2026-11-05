@@ -1,44 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Torkoal,118,move,1,Yawn,94.2%,,,,,,,,
-Torkoal,118,move,2,Stealth Rock,92.9%,,,,,,,,
-Torkoal,118,move,3,Self-Destruct,44.2%,,,,,,,,
-Torkoal,118,move,4,Solar Beam,40.4%,,,,,,,,
-Torkoal,118,move,5,Overheat,33.3%,,,,,,,,
-Torkoal,118,move,6,Lava Plume,24.4%,,,,,,,,
-Torkoal,118,move,7,Heat Wave,15.4%,,,,,,,,
-Torkoal,118,move,8,Flamethrower,13.5%,,,,,,,,
-Torkoal,118,move,9,Rapid Spin,10.9%,,,,,,,,
-Torkoal,118,move,10,Eruption,9.6%,,,,,,,,
-Torkoal,118,held_item,1,Heat Rock,69.9%,,,,,,,,
-Torkoal,118,held_item,2,Leftovers,16.7%,,,,,,,,
-Torkoal,118,held_item,3,Sitrus Berry,9.0%,,,,,,,,
-Torkoal,118,held_item,4,Charcoal,1.9%,,,,,,,,
-Torkoal,118,held_item,5,Expert Belt,1.3%,,,,,,,,
-Torkoal,118,held_item,6,Air Balloon,1.3%,,,,,,,,
-Torkoal,118,teammate,1,Venusaur,,,,,,,,,
-Torkoal,118,teammate,2,Garchomp,,,,,,,,,
-Torkoal,118,teammate,3,Charizard,,,,,,,,,
-Torkoal,118,teammate,4,Greninja,,,,,,,,,
-Torkoal,118,teammate,5,Mimikyu,,,,,,,,,
-Torkoal,118,teammate,6,Mamoswine,,,,,,,,,
-Torkoal,118,teammate,7,Ninetales-Alola,,,,,,,,,
-Torkoal,118,teammate,8,Gyarados,,,,,,,,,
-Torkoal,118,teammate,9,Gardevoir,,,,,,,,,
-Torkoal,118,teammate,10,Toucannon,,,,,,,,,
-Torkoal,118,stat_alignment,1,Sassy,34.0%,Sp. Def,Speed,,,,,,
-Torkoal,118,stat_alignment,2,Bold,32.7%,Defense,Attack,,,,,,
-Torkoal,118,stat_alignment,3,Relaxed,21.8%,Defense,Speed,,,,,,
-Torkoal,118,stat_alignment,4,Quiet,8.3%,Sp. Atk,Speed,,,,,,
-Torkoal,118,stat_alignment,5,Calm,1.9%,Sp. Def,Attack,,,,,,
-Torkoal,118,stat_alignment,6,Brave,1.3%,Attack,Speed,,,,,,
-Torkoal,118,stat_points,1,,21.8%,,,14,0,0,32,20,0
-Torkoal,118,stat_points,2,,19.9%,,,32,0,3,0,31,0
-Torkoal,118,stat_points,3,,10.9%,,,32,0,21,0,13,0
-Torkoal,118,stat_points,4,,10.3%,,,32,0,2,0,32,0
-Torkoal,118,stat_points,5,,7.7%,,,32,0,22,0,12,0
-Torkoal,118,stat_points,6,,7.1%,,,32,0,32,0,2,0
-Torkoal,118,stat_points,7,,5.1%,,,32,0,11,0,23,0
-Torkoal,118,stat_points,8,,5.1%,,,32,0,20,0,14,0
-Torkoal,118,stat_points,9,,4.5%,,,32,0,0,32,2,0
-Torkoal,118,stat_points,10,,2.6%,,,17,0,0,32,17,0
-Torkoal,118,ability,1,Drought,100.0%,,,,,,,,
+Torkoal,113,move,1,Stealth Rock,92.8%,,,,,,,,
+Torkoal,113,move,2,Yawn,91.8%,,,,,,,,
+Torkoal,113,move,3,Solar Beam,40.5%,,,,,,,,
+Torkoal,113,move,4,Self-Destruct,35.8%,,,,,,,,
+Torkoal,113,move,5,Overheat,30.8%,,,,,,,,
+Torkoal,113,move,6,Lava Plume,23.3%,,,,,,,,
+Torkoal,113,move,7,Flamethrower,17.2%,,,,,,,,
+Torkoal,113,move,8,Rapid Spin,13.6%,,,,,,,,
+Torkoal,113,move,9,Heat Wave,8.6%,,,,,,,,
+Torkoal,113,move,10,Clear Smog,8.6%,,,,,,,,
+Torkoal,113,held_item,1,Heat Rock,60.9%,,,,,,,,
+Torkoal,113,held_item,2,Sitrus Berry,16.8%,,,,,,,,
+Torkoal,113,held_item,3,Leftovers,13.3%,,,,,,,,
+Torkoal,113,held_item,4,Air Balloon,7.2%,,,,,,,,
+Torkoal,113,held_item,5,Charcoal,1.1%,,,,,,,,
+Torkoal,113,held_item,6,Expert Belt,0.7%,,,,,,,,
+Torkoal,113,teammate,1,Venusaur,,,,,,,,,
+Torkoal,113,teammate,2,Charizard,,,,,,,,,
+Torkoal,113,teammate,3,Garchomp,,,,,,,,,
+Torkoal,113,teammate,4,Blastoise,,,,,,,,,
+Torkoal,113,teammate,5,Meganium,,,,,,,,,
+Torkoal,113,teammate,6,Greninja,,,,,,,,,
+Torkoal,113,teammate,7,Mamoswine,,,,,,,,,
+Torkoal,113,teammate,8,Mimikyu,,,,,,,,,
+Torkoal,113,teammate,9,Gardevoir,,,,,,,,,
+Torkoal,113,teammate,10,Ninetales-Alola,,,,,,,,,
+Torkoal,113,stat_alignment,1,Bold,36.9%,Defense,Attack,,,,,,
+Torkoal,113,stat_alignment,2,Sassy,29.7%,Sp. Def,Speed,,,,,,
+Torkoal,113,stat_alignment,3,Relaxed,17.9%,Defense,Speed,,,,,,
+Torkoal,113,stat_alignment,4,Brave,7.2%,Attack,Speed,,,,,,
+Torkoal,113,stat_alignment,5,Quiet,5.0%,Sp. Atk,Speed,,,,,,
+Torkoal,113,stat_alignment,6,Calm,1.8%,Sp. Def,Attack,,,,,,
+Torkoal,113,stat_alignment,7,Modest,1.4%,Sp. Atk,Attack,,,,,,
+Torkoal,113,stat_points,1,,13.6%,,,32,0,32,0,2,0
+Torkoal,113,stat_points,2,,13.3%,,,32,0,2,0,32,0
+Torkoal,113,stat_points,3,,12.2%,,,14,0,0,32,20,0
+Torkoal,113,stat_points,4,,11.8%,,,32,0,3,0,31,0
+Torkoal,113,stat_points,5,,7.5%,,,32,0,4,0,30,0
+Torkoal,113,stat_points,6,,7.5%,,,32,0,21,0,13,0
+Torkoal,113,stat_points,7,,7.2%,,,32,0,12,0,21,0
+Torkoal,113,stat_points,8,,5.0%,,,32,0,20,0,14,0
+Torkoal,113,stat_points,9,,4.7%,,,32,0,11,0,23,0
+Torkoal,113,stat_points,10,,4.7%,,,32,0,22,0,12,0
+Torkoal,113,ability,1,Drought,96.4%,,,,,,,,
+Torkoal,113,ability,2,Shell Armor,3.6%,,,,,,,,

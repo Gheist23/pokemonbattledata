@@ -1,41 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scovillain,61,move,1,Protect,99.1%,,,,,,,,
-Scovillain,61,move,2,Rage Powder,91.7%,,,,,,,,
-Scovillain,61,move,3,Overheat,63.9%,,,,,,,,
-Scovillain,61,move,4,Giga Drain,41.2%,,,,,,,,
-Scovillain,61,move,5,Leaf Storm,34.7%,,,,,,,,
-Scovillain,61,move,6,Leech Seed,28.7%,,,,,,,,
-Scovillain,61,move,7,Flamethrower,25.0%,,,,,,,,
-Scovillain,61,move,8,Burning Jealousy,7.4%,,,,,,,,
-Scovillain,61,move,9,Super Fang,6.9%,,,,,,,,
-Scovillain,61,move,10,Grass Knot,1.4%,,,,,,,,
-Scovillain,61,held_item,1,Scovillainite,100.0%,,,,,,,,
-Scovillain,61,teammate,1,Kommo-o,,,,,,,,,
-Scovillain,61,teammate,2,Kingambit,,,,,,,,,
-Scovillain,61,teammate,3,Vanilluxe,,,,,,,,,
-Scovillain,61,teammate,4,Inteleon,,,,,,,,,
-Scovillain,61,teammate,5,Lycanroc-Dusk,,,,,,,,,
-Scovillain,61,teammate,6,Sneasler,,,,,,,,,
-Scovillain,61,teammate,7,Froslass,,,,,,,,,
-Scovillain,61,teammate,8,Aegislash,,,,,,,,,
-Scovillain,61,teammate,9,Basculegion,,,,,,,,,
-Scovillain,61,teammate,10,Lopunny,,,,,,,,,
-Scovillain,61,stat_alignment,1,Calm,52.8%,Sp. Def,Attack,,,,,,
-Scovillain,61,stat_alignment,2,Bold,38.4%,Defense,Attack,,,,,,
-Scovillain,61,stat_alignment,3,Sassy,6.9%,Sp. Def,Speed,,,,,,
-Scovillain,61,stat_alignment,4,Relaxed,0.9%,Defense,Speed,,,,,,
-Scovillain,61,stat_alignment,5,Modest,0.5%,Sp. Atk,Attack,,,,,,
-Scovillain,61,stat_alignment,6,Quiet,0.5%,Sp. Atk,Speed,,,,,,
-Scovillain,61,stat_points,1,,34.3%,,,31,0,3,0,32,0
-Scovillain,61,stat_points,2,,21.8%,,,32,0,19,0,15,0
-Scovillain,61,stat_points,3,,11.6%,,,32,0,15,0,19,0
-Scovillain,61,stat_points,4,,8.3%,,,32,0,24,0,10,0
-Scovillain,61,stat_points,5,,7.4%,,,32,0,23,0,11,0
-Scovillain,61,stat_points,6,,3.2%,,,31,0,15,0,15,5
-Scovillain,61,stat_points,7,,3.2%,,,32,0,9,0,25,0
-Scovillain,61,stat_points,8,,3.2%,,,32,0,15,5,14,0
-Scovillain,61,stat_points,9,,1.4%,,,31,0,20,0,2,13
-Scovillain,61,stat_points,10,,0.9%,,,31,0,25,0,10,0
-Scovillain,61,ability,1,Moody,53.7%,,,,,,,,
-Scovillain,61,ability,2,Insomnia,42.6%,,,,,,,,
-Scovillain,61,ability,3,Chlorophyll,3.7%,,,,,,,,
+Scovillain,60,move,1,Protect,93.6%,,,,,,,,
+Scovillain,60,move,2,Rage Powder,92.5%,,,,,,,,
+Scovillain,60,move,3,Overheat,61.0%,,,,,,,,
+Scovillain,60,move,4,Giga Drain,46.1%,,,,,,,,
+Scovillain,60,move,5,Leech Seed,34.6%,,,,,,,,
+Scovillain,60,move,6,Flamethrower,27.1%,,,,,,,,
+Scovillain,60,move,7,Leaf Storm,25.4%,,,,,,,,
+Scovillain,60,move,8,Super Fang,5.8%,,,,,,,,
+Scovillain,60,move,9,Burning Jealousy,5.8%,,,,,,,,
+Scovillain,60,move,10,Spicy Extract,4.4%,,,,,,,,
+Scovillain,60,held_item,1,Scovillainite,95.3%,,,,,,,,
+Scovillain,60,held_item,2,Choice Scarf,4.4%,,,,,,,,
+Scovillain,60,held_item,3,Sitrus Berry,0.3%,,,,,,,,
+Scovillain,60,teammate,1,Kingambit,,,,,,,,,
+Scovillain,60,teammate,2,Froslass,,,,,,,,,
+Scovillain,60,teammate,3,Lycanroc-Dusk,,,,,,,,,
+Scovillain,60,teammate,4,Sneasler,,,,,,,,,
+Scovillain,60,teammate,5,Kommo-o,,,,,,,,,
+Scovillain,60,teammate,6,Basculegion,,,,,,,,,
+Scovillain,60,teammate,7,Vanilluxe,,,,,,,,,
+Scovillain,60,teammate,8,Inteleon,,,,,,,,,
+Scovillain,60,teammate,9,Aegislash,,,,,,,,,
+Scovillain,60,teammate,10,Garchomp,,,,,,,,,
+Scovillain,60,stat_alignment,1,Calm,47.1%,Sp. Def,Attack,,,,,,
+Scovillain,60,stat_alignment,2,Bold,40.0%,Defense,Attack,,,,,,
+Scovillain,60,stat_alignment,3,Sassy,5.4%,Sp. Def,Speed,,,,,,
+Scovillain,60,stat_alignment,4,Timid,4.7%,Speed,Attack,,,,,,
+Scovillain,60,stat_alignment,5,Relaxed,2.0%,Defense,Speed,,,,,,
+Scovillain,60,stat_alignment,6,Modest,0.3%,Sp. Atk,Attack,,,,,,
+Scovillain,60,stat_alignment,7,Quiet,0.3%,Sp. Atk,Speed,,,,,,
+Scovillain,60,stat_points,1,,25.1%,,,31,0,3,0,32,0
+Scovillain,60,stat_points,2,,23.1%,,,32,0,19,0,15,0
+Scovillain,60,stat_points,3,,9.2%,,,32,0,15,0,19,0
+Scovillain,60,stat_points,4,,7.1%,,,32,0,15,5,14,0
+Scovillain,60,stat_points,5,,6.8%,,,32,0,23,0,11,0
+Scovillain,60,stat_points,6,,6.1%,,,32,0,24,0,10,0
+Scovillain,60,stat_points,7,,4.4%,,,2,0,6,0,26,32
+Scovillain,60,stat_points,8,,3.7%,,,32,0,25,0,9,0
+Scovillain,60,stat_points,9,,2.7%,,,32,0,21,0,13,0
+Scovillain,60,stat_points,10,,2.4%,,,31,0,15,0,15,5
+Scovillain,60,ability,1,Moody,56.3%,,,,,,,,
+Scovillain,60,ability,2,Insomnia,36.3%,,,,,,,,
+Scovillain,60,ability,3,Chlorophyll,7.5%,,,,,,,,

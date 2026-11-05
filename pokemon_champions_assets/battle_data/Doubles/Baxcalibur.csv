@@ -1,36 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Baxcalibur,97,move,1,Ice Shard,98.7%,,,,,,,,
-Baxcalibur,97,move,2,Glaive Rush,92.0%,,,,,,,,
-Baxcalibur,97,move,3,Protect,89.3%,,,,,,,,
-Baxcalibur,97,move,4,Earthquake,46.7%,,,,,,,,
-Baxcalibur,97,move,5,High Horsepower,37.3%,,,,,,,,
-Baxcalibur,97,move,6,Swords Dance,8.0%,,,,,,,,
-Baxcalibur,97,move,7,Icicle Crash,8.0%,,,,,,,,
-Baxcalibur,97,move,8,Dragon Rush,6.7%,,,,,,,,
-Baxcalibur,97,move,9,Icicle Spear,5.3%,,,,,,,,
-Baxcalibur,97,move,10,Breaking Swipe,5.3%,,,,,,,,
-Baxcalibur,97,held_item,1,Baxcalibrite,58.7%,,,,,,,,
-Baxcalibur,97,held_item,2,Life Orb,29.3%,,,,,,,,
-Baxcalibur,97,held_item,3,Focus Sash,12.0%,,,,,,,,
-Baxcalibur,97,teammate,1,Slowking-Galar,,,,,,,,,
-Baxcalibur,97,teammate,2,Noivern,,,,,,,,,
-Baxcalibur,97,teammate,3,Corviknight,,,,,,,,,
-Baxcalibur,97,teammate,4,Grapploct,,,,,,,,,
-Baxcalibur,97,teammate,5,Golisopod,,,,,,,,,
-Baxcalibur,97,teammate,6,Raichu,,,,,,,,,
-Baxcalibur,97,teammate,7,Rillaboom,,,,,,,,,
-Baxcalibur,97,teammate,8,Kingambit,,,,,,,,,
-Baxcalibur,97,teammate,9,Sneasler,,,,,,,,,
-Baxcalibur,97,teammate,10,Volcarona,,,,,,,,,
-Baxcalibur,97,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
-Baxcalibur,97,stat_points,1,,21.3%,,,32,7,0,0,27,0
-Baxcalibur,97,stat_points,2,,16.0%,,,21,32,0,0,0,13
-Baxcalibur,97,stat_points,3,,12.0%,,,2,32,0,0,0,32
-Baxcalibur,97,stat_points,4,,12.0%,,,32,5,0,0,29,0
-Baxcalibur,97,stat_points,5,,9.3%,,,9,15,10,0,6,26
-Baxcalibur,97,stat_points,6,,8.0%,,,0,32,0,0,21,13
-Baxcalibur,97,stat_points,7,,4.0%,,,24,17,6,0,14,5
-Baxcalibur,97,stat_points,8,,2.7%,,,0,32,0,0,2,32
-Baxcalibur,97,stat_points,9,,2.7%,,,26,32,0,0,0,8
-Baxcalibur,97,stat_points,10,,2.7%,,,31,31,0,0,0,4
-Baxcalibur,97,ability,1,Thermal Exchange,100.0%,,,,,,,,
+Baxcalibur,76,move,1,Glaive Rush,96.0%,,,,,,,,
+Baxcalibur,76,move,2,Ice Shard,90.4%,,,,,,,,
+Baxcalibur,76,move,3,Protect,64.4%,,,,,,,,
+Baxcalibur,76,move,4,Icicle Crash,36.2%,,,,,,,,
+Baxcalibur,76,move,5,High Horsepower,28.2%,,,,,,,,
+Baxcalibur,76,move,6,Earthquake,24.9%,,,,,,,,
+Baxcalibur,76,move,7,Brick Break,17.5%,,,,,,,,
+Baxcalibur,76,move,8,Iron Head,10.7%,,,,,,,,
+Baxcalibur,76,move,9,Swords Dance,7.9%,,,,,,,,
+Baxcalibur,76,move,10,Breaking Swipe,7.9%,,,,,,,,
+Baxcalibur,76,held_item,1,Baxcalibrite,45.2%,,,,,,,,
+Baxcalibur,76,held_item,2,Life Orb,16.9%,,,,,,,,
+Baxcalibur,76,held_item,3,Chople Berry,15.8%,,,,,,,,
+Baxcalibur,76,held_item,4,Choice Scarf,8.5%,,,,,,,,
+Baxcalibur,76,held_item,5,Focus Sash,6.8%,,,,,,,,
+Baxcalibur,76,held_item,6,Haban Berry,4.0%,,,,,,,,
+Baxcalibur,76,held_item,7,Metronome,2.3%,,,,,,,,
+Baxcalibur,76,held_item,8,Leftovers,0.6%,,,,,,,,
+Baxcalibur,76,teammate,1,Garchomp,,,,,,,,,
+Baxcalibur,76,teammate,2,Rillaboom,,,,,,,,,
+Baxcalibur,76,teammate,3,Slowking-Galar,,,,,,,,,
+Baxcalibur,76,teammate,4,Skeledirge,,,,,,,,,
+Baxcalibur,76,teammate,5,Noivern,,,,,,,,,
+Baxcalibur,76,teammate,6,Corviknight,,,,,,,,,
+Baxcalibur,76,teammate,7,Grapploct,,,,,,,,,
+Baxcalibur,76,teammate,8,Kingambit,,,,,,,,,
+Baxcalibur,76,teammate,9,Golisopod,,,,,,,,,
+Baxcalibur,76,teammate,10,Gholdengo,,,,,,,,,
+Baxcalibur,76,stat_alignment,1,Adamant,93.2%,Attack,Sp. Atk,,,,,,
+Baxcalibur,76,stat_alignment,2,Careful,4.0%,Sp. Def,Sp. Atk,,,,,,
+Baxcalibur,76,stat_alignment,3,Sassy,2.8%,Sp. Def,Speed,,,,,,
+Baxcalibur,76,stat_points,1,,19.8%,,,3,31,0,0,0,32
+Baxcalibur,76,stat_points,2,,13.6%,,,32,7,0,0,27,0
+Baxcalibur,76,stat_points,3,,11.9%,,,2,32,0,0,0,32
+Baxcalibur,76,stat_points,4,,6.8%,,,0,32,0,0,2,32
+Baxcalibur,76,stat_points,5,,6.8%,,,21,32,0,0,0,13
+Baxcalibur,76,stat_points,6,,5.6%,,,32,5,3,0,23,3
+Baxcalibur,76,stat_points,7,,5.1%,,,32,5,0,0,29,0
+Baxcalibur,76,stat_points,8,,4.5%,,,1,28,28,0,0,9
+Baxcalibur,76,stat_points,9,,4.0%,,,9,15,10,0,6,26
+Baxcalibur,76,stat_points,10,,4.0%,,,32,10,0,0,24,0
+Baxcalibur,76,ability,1,Thermal Exchange,100.0%,,,,,,,,

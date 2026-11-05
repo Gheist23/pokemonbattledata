@@ -1,41 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Staraptor,37,move,1,Close Combat,96.5%,,,,,,,,
-Staraptor,37,move,2,Brave Bird,86.9%,,,,,,,,
-Staraptor,37,move,3,Roost,77.2%,,,,,,,,
-Staraptor,37,move,4,Blaze Kick,72.7%,,,,,,,,
-Staraptor,37,move,5,Final Gambit,29.8%,,,,,,,,
-Staraptor,37,move,6,U-turn,10.8%,,,,,,,,
-Staraptor,37,move,7,Feather Dance,8.5%,,,,,,,,
-Staraptor,37,move,8,Substitute,7.1%,,,,,,,,
-Staraptor,37,move,9,Whirlwind,2.7%,,,,,,,,
-Staraptor,37,move,10,Bulk Up,2.3%,,,,,,,,
-Staraptor,37,held_item,1,Staraptite,92.7%,,,,,,,,
-Staraptor,37,held_item,2,Choice Scarf,6.2%,,,,,,,,
-Staraptor,37,teammate,1,Archaludon,,,,,,,,,
-Staraptor,37,teammate,2,Basculegion,,,,,,,,,
-Staraptor,37,teammate,3,Garchomp,,,,,,,,,
-Staraptor,37,teammate,4,Mimikyu,,,,,,,,,
-Staraptor,37,teammate,5,Pawmot,,,,,,,,,
-Staraptor,37,teammate,6,Primarina,,,,,,,,,
-Staraptor,37,teammate,7,Lucario,,,,,,,,,
-Staraptor,37,teammate,8,Zoroark-Hisui,,,,,,,,,
-Staraptor,37,teammate,9,Starmie,,,,,,,,,
-Staraptor,37,teammate,10,Charizard,,,,,,,,,
-Staraptor,37,stat_alignment,1,Jolly,90.0%,Speed,Sp. Atk,,,,,,
-Staraptor,37,stat_alignment,2,Adamant,8.0%,Attack,Sp. Atk,,,,,,
-Staraptor,37,stat_alignment,3,Careful,1.2%,Sp. Def,Sp. Atk,,,,,,
-Staraptor,37,stat_alignment,4,Impish,0.5%,Defense,Sp. Atk,,,,,,
-Staraptor,37,stat_alignment,5,Timid,0.3%,Speed,Attack,,,,,,
-Staraptor,37,stat_alignment,6,Hardy,0.0%,,,,,,,,
-Staraptor,37,stat_points,1,,30.1%,,,2,32,0,0,0,32
-Staraptor,37,stat_points,2,,20.1%,,,27,7,0,0,0,32
-Staraptor,37,stat_points,3,,10.3%,,,31,3,0,0,0,32
-Staraptor,37,stat_points,4,,6.7%,,,32,2,0,0,0,32
-Staraptor,37,stat_points,5,,3.1%,,,32,17,0,0,0,17
-Staraptor,37,stat_points,6,,3.0%,,,1,32,1,0,0,32
-Staraptor,37,stat_points,7,,2.1%,,,1,32,0,0,1,32
-Staraptor,37,stat_points,8,,1.9%,,,0,32,2,0,0,32
-Staraptor,37,stat_points,9,,1.8%,,,13,21,0,0,0,32
-Staraptor,37,stat_points,10,,1.7%,,,23,9,2,0,0,32
-Staraptor,37,ability,1,Intimidate,95.3%,,,,,,,,
-Staraptor,37,ability,2,Reckless,4.7%,,,,,,,,
+Staraptor,36,move,1,Close Combat,96.7%,,,,,,,,
+Staraptor,36,move,2,Brave Bird,86.1%,,,,,,,,
+Staraptor,36,move,3,Roost,76.7%,,,,,,,,
+Staraptor,36,move,4,Blaze Kick,72.7%,,,,,,,,
+Staraptor,36,move,5,Final Gambit,29.0%,,,,,,,,
+Staraptor,36,move,6,U-turn,9.9%,,,,,,,,
+Staraptor,36,move,7,Feather Dance,8.5%,,,,,,,,
+Staraptor,36,move,8,Substitute,7.7%,,,,,,,,
+Staraptor,36,move,9,Bulk Up,3.0%,,,,,,,,
+Staraptor,36,move,10,Whirlwind,2.9%,,,,,,,,
+Staraptor,36,held_item,1,Staraptite,92.4%,,,,,,,,
+Staraptor,36,held_item,2,Choice Scarf,6.5%,,,,,,,,
+Staraptor,36,held_item,3,Rocky Helmet,0.2%,,,,,,,,
+Staraptor,36,held_item,4,Sharp Beak,0.2%,,,,,,,,
+Staraptor,36,teammate,1,Archaludon,,,,,,,,,
+Staraptor,36,teammate,2,Basculegion,,,,,,,,,
+Staraptor,36,teammate,3,Garchomp,,,,,,,,,
+Staraptor,36,teammate,4,Mimikyu,,,,,,,,,
+Staraptor,36,teammate,5,Pawmot,,,,,,,,,
+Staraptor,36,teammate,6,Primarina,,,,,,,,,
+Staraptor,36,teammate,7,Lucario,,,,,,,,,
+Staraptor,36,teammate,8,Charizard,,,,,,,,,
+Staraptor,36,teammate,9,Hippowdon,,,,,,,,,
+Staraptor,36,teammate,10,Gholdengo,,,,,,,,,
+Staraptor,36,stat_alignment,1,Jolly,86.6%,Speed,Sp. Atk,,,,,,
+Staraptor,36,stat_alignment,2,Adamant,10.7%,Attack,Sp. Atk,,,,,,
+Staraptor,36,stat_alignment,3,Careful,1.3%,Sp. Def,Sp. Atk,,,,,,
+Staraptor,36,stat_alignment,4,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Staraptor,36,stat_alignment,5,Sassy,0.3%,Sp. Def,Speed,,,,,,
+Staraptor,36,stat_alignment,6,Timid,0.2%,Speed,Attack,,,,,,
+Staraptor,36,stat_alignment,7,Hardy,0.0%,,,,,,,,
+Staraptor,36,stat_alignment,8,Naughty,0.0%,Attack,Sp. Def,,,,,,
+Staraptor,36,stat_points,1,,31.1%,,,2,32,0,0,0,32
+Staraptor,36,stat_points,2,,19.6%,,,27,7,0,0,0,32
+Staraptor,36,stat_points,3,,9.8%,,,31,3,0,0,0,32
+Staraptor,36,stat_points,4,,5.7%,,,32,2,0,0,0,32
+Staraptor,36,stat_points,5,,2.5%,,,1,32,1,0,0,32
+Staraptor,36,stat_points,6,,2.3%,,,32,17,0,0,0,17
+Staraptor,36,stat_points,7,,1.9%,,,13,21,0,0,0,32
+Staraptor,36,stat_points,8,,1.7%,,,1,32,0,0,1,32
+Staraptor,36,stat_points,9,,1.6%,,,0,32,2,0,0,32
+Staraptor,36,stat_points,10,,1.3%,,,23,9,2,0,0,32
+Staraptor,36,ability,1,Intimidate,91.6%,,,,,,,,
+Staraptor,36,ability,2,Reckless,8.4%,,,,,,,,

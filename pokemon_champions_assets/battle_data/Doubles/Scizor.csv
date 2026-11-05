@@ -1,36 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scizor,126,move,1,Bullet Punch,100.0%,,,,,,,,
-Scizor,126,move,2,Bug Bite,97.4%,,,,,,,,
-Scizor,126,move,3,Protect,94.9%,,,,,,,,
-Scizor,126,move,4,Swords Dance,53.8%,,,,,,,,
-Scizor,126,move,5,Brick Break,23.1%,,,,,,,,
-Scizor,126,move,6,Close Combat,12.8%,,,,,,,,
-Scizor,126,move,7,Dual Wingbeat,7.7%,,,,,,,,
-Scizor,126,move,8,Acrobatics,5.1%,,,,,,,,
-Scizor,126,move,9,Roost,2.6%,,,,,,,,
-Scizor,126,move,10,Assurance,2.6%,,,,,,,,
-Scizor,126,held_item,1,Expert Belt,48.7%,,,,,,,,
-Scizor,126,held_item,2,White Herb,23.1%,,,,,,,,
-Scizor,126,held_item,3,Life Orb,15.4%,,,,,,,,
-Scizor,126,held_item,4,Scizorite,5.1%,,,,,,,,
-Scizor,126,held_item,5,Electric Seed,5.1%,,,,,,,,
-Scizor,126,held_item,6,Focus Sash,2.6%,,,,,,,,
-Scizor,126,teammate,1,Pelipper,,,,,,,,,
-Scizor,126,teammate,2,Archaludon,,,,,,,,,
-Scizor,126,teammate,3,Swampert,,,,,,,,,
-Scizor,126,teammate,4,Talonflame,,,,,,,,,
-Scizor,126,teammate,5,Tsareena,,,,,,,,,
-Scizor,126,teammate,6,Hippowdon,,,,,,,,,
-Scizor,126,teammate,7,Gengar,,,,,,,,,
-Scizor,126,teammate,8,Rotom-Mow,,,,,,,,,
-Scizor,126,teammate,9,Sylveon,,,,,,,,,
-Scizor,126,teammate,10,Incineroar,,,,,,,,,
-Scizor,126,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
-Scizor,126,stat_points,1,,48.7%,,,26,32,0,0,0,8
-Scizor,126,stat_points,2,,23.1%,,,30,32,4,0,0,0
-Scizor,126,stat_points,3,,17.9%,,,32,32,0,0,2,0
-Scizor,126,stat_points,4,,2.6%,,,13,32,15,0,5,1
-Scizor,126,stat_points,5,,2.6%,,,14,32,0,0,0,20
-Scizor,126,stat_points,6,,2.6%,,,31,32,0,0,2,1
-Scizor,126,stat_points,7,,2.6%,,,32,21,5,0,8,0
-Scizor,126,ability,1,Technician,100.0%,,,,,,,,
+Scizor,112,move,1,Bullet Punch,100.0%,,,,,,,,
+Scizor,112,move,2,Protect,97.6%,,,,,,,,
+Scizor,112,move,3,Bug Bite,86.7%,,,,,,,,
+Scizor,112,move,4,Swords Dance,37.3%,,,,,,,,
+Scizor,112,move,5,Trailblaze,20.5%,,,,,,,,
+Scizor,112,move,6,U-turn,12.0%,,,,,,,,
+Scizor,112,move,7,Brutal Swing,12.0%,,,,,,,,
+Scizor,112,move,8,Dual Wingbeat,12.0%,,,,,,,,
+Scizor,112,move,9,Brick Break,10.8%,,,,,,,,
+Scizor,112,move,10,Close Combat,6.0%,,,,,,,,
+Scizor,112,held_item,1,Life Orb,37.3%,,,,,,,,
+Scizor,112,held_item,2,Expert Belt,28.9%,,,,,,,,
+Scizor,112,held_item,3,Scizorite,19.3%,,,,,,,,
+Scizor,112,held_item,4,White Herb,10.8%,,,,,,,,
+Scizor,112,held_item,5,Electric Seed,2.4%,,,,,,,,
+Scizor,112,held_item,6,Focus Sash,1.2%,,,,,,,,
+Scizor,112,teammate,1,Archaludon,,,,,,,,,
+Scizor,112,teammate,2,Pelipper,,,,,,,,,
+Scizor,112,teammate,3,Swampert,,,,,,,,,
+Scizor,112,teammate,4,Talonflame,,,,,,,,,
+Scizor,112,teammate,5,Tsareena,,,,,,,,,
+Scizor,112,teammate,6,Greninja,,,,,,,,,
+Scizor,112,teammate,7,Sneasler,,,,,,,,,
+Scizor,112,teammate,8,Espathra,,,,,,,,,
+Scizor,112,teammate,9,Dragonite,,,,,,,,,
+Scizor,112,teammate,10,Politoed,,,,,,,,,
+Scizor,112,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
+Scizor,112,stat_points,1,,30.1%,,,26,32,0,0,0,8
+Scizor,112,stat_points,2,,19.3%,,,24,32,0,0,0,10
+Scizor,112,stat_points,3,,12.0%,,,32,0,2,0,32,0
+Scizor,112,stat_points,4,,10.8%,,,30,32,4,0,0,0
+Scizor,112,stat_points,5,,9.6%,,,14,32,0,0,0,20
+Scizor,112,stat_points,6,,8.4%,,,32,32,0,0,2,0
+Scizor,112,stat_points,7,,4.8%,,,29,30,0,0,0,7
+Scizor,112,stat_points,8,,1.2%,,,13,32,15,0,5,1
+Scizor,112,stat_points,9,,1.2%,,,30,32,0,0,3,1
+Scizor,112,stat_points,10,,1.2%,,,31,32,0,0,2,1
+Scizor,112,ability,1,Technician,100.0%,,,,,,,,

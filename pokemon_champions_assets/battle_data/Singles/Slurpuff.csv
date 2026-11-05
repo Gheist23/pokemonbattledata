@@ -1,42 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slurpuff,99,move,1,Yawn,96.9%,,,,,,,,
-Slurpuff,99,move,2,Sticky Web,88.7%,,,,,,,,
-Slurpuff,99,move,3,Misty Explosion,77.7%,,,,,,,,
-Slurpuff,99,move,4,Dazzling Gleam,65.6%,,,,,,,,
-Slurpuff,99,move,5,Endeavor,22.3%,,,,,,,,
-Slurpuff,99,move,6,Safeguard,16.0%,,,,,,,,
-Slurpuff,99,move,7,Endure,5.9%,,,,,,,,
-Slurpuff,99,move,8,Charm,5.9%,,,,,,,,
-Slurpuff,99,move,9,Draining Kiss,3.9%,,,,,,,,
-Slurpuff,99,move,10,Light Screen,3.1%,,,,,,,,
-Slurpuff,99,held_item,1,Red Card,78.1%,,,,,,,,
-Slurpuff,99,held_item,2,Focus Sash,18.4%,,,,,,,,
-Slurpuff,99,held_item,3,Sitrus Berry,3.1%,,,,,,,,
-Slurpuff,99,held_item,4,Lum Berry,0.4%,,,,,,,,
+Slurpuff,99,move,1,Sticky Web,90.6%,,,,,,,,
+Slurpuff,99,move,2,Yawn,90.4%,,,,,,,,
+Slurpuff,99,move,3,Misty Explosion,69.0%,,,,,,,,
+Slurpuff,99,move,4,Dazzling Gleam,67.3%,,,,,,,,
+Slurpuff,99,move,5,Endeavor,32.2%,,,,,,,,
+Slurpuff,99,move,6,Flamethrower,12.2%,,,,,,,,
+Slurpuff,99,move,7,Safeguard,11.7%,,,,,,,,
+Slurpuff,99,move,8,Draining Kiss,4.3%,,,,,,,,
+Slurpuff,99,move,9,Charm,4.1%,,,,,,,,
+Slurpuff,99,move,10,Copycat,4.1%,,,,,,,,
+Slurpuff,99,held_item,1,Red Card,79.4%,,,,,,,,
+Slurpuff,99,held_item,2,Focus Sash,16.2%,,,,,,,,
+Slurpuff,99,held_item,3,Sitrus Berry,3.6%,,,,,,,,
+Slurpuff,99,held_item,4,Grassy Seed,0.5%,,,,,,,,
+Slurpuff,99,held_item,5,Lum Berry,0.3%,,,,,,,,
 Slurpuff,99,teammate,1,Gyarados,,,,,,,,,
 Slurpuff,99,teammate,2,Lucario,,,,,,,,,
 Slurpuff,99,teammate,3,Infernape,,,,,,,,,
-Slurpuff,99,teammate,4,Snorlax,,,,,,,,,
-Slurpuff,99,teammate,5,Absol,,,,,,,,,
-Slurpuff,99,teammate,6,Garchomp,,,,,,,,,
-Slurpuff,99,teammate,7,Mimikyu,,,,,,,,,
-Slurpuff,99,teammate,8,Golisopod,,,,,,,,,
-Slurpuff,99,teammate,9,Archaludon,,,,,,,,,
-Slurpuff,99,teammate,10,Scovillain,,,,,,,,,
-Slurpuff,99,stat_alignment,1,Bold,67.6%,Defense,Attack,,,,,,
-Slurpuff,99,stat_alignment,2,Timid,19.5%,Speed,Attack,,,,,,
-Slurpuff,99,stat_alignment,3,Calm,8.2%,Sp. Def,Attack,,,,,,
-Slurpuff,99,stat_alignment,4,Jolly,2.7%,Speed,Sp. Atk,,,,,,
-Slurpuff,99,stat_alignment,5,Modest,2.0%,Sp. Atk,Attack,,,,,,
-Slurpuff,99,stat_points,1,,45.7%,,,32,0,11,0,1,22
-Slurpuff,99,stat_points,2,,9.0%,,,32,0,11,0,3,20
-Slurpuff,99,stat_points,3,,7.8%,,,32,0,0,0,2,32
-Slurpuff,99,stat_points,4,,6.6%,,,4,0,0,30,0,32
-Slurpuff,99,stat_points,5,,5.9%,,,18,0,0,0,28,20
-Slurpuff,99,stat_points,6,,5.5%,,,32,0,11,0,2,21
-Slurpuff,99,stat_points,7,,4.7%,,,32,0,10,0,0,24
-Slurpuff,99,stat_points,8,,3.5%,,,2,0,0,32,0,32
-Slurpuff,99,stat_points,9,,2.7%,,,32,0,0,0,12,22
-Slurpuff,99,stat_points,10,,2.0%,,,32,0,14,0,15,5
-Slurpuff,99,ability,1,Unburden,96.9%,,,,,,,,
-Slurpuff,99,ability,2,Sweet Veil,3.1%,,,,,,,,
+Slurpuff,99,teammate,4,Garchomp,,,,,,,,,
+Slurpuff,99,teammate,5,Snorlax,,,,,,,,,
+Slurpuff,99,teammate,6,Absol,,,,,,,,,
+Slurpuff,99,teammate,7,Archaludon,,,,,,,,,
+Slurpuff,99,teammate,8,Mimikyu,,,,,,,,,
+Slurpuff,99,teammate,9,Corviknight,,,,,,,,,
+Slurpuff,99,teammate,10,Gholdengo,,,,,,,,,
+Slurpuff,99,stat_alignment,1,Bold,65.2%,Defense,Attack,,,,,,
+Slurpuff,99,stat_alignment,2,Timid,16.0%,Speed,Attack,,,,,,
+Slurpuff,99,stat_alignment,3,Calm,12.9%,Sp. Def,Attack,,,,,,
+Slurpuff,99,stat_alignment,4,Lax,2.3%,Defense,Sp. Def,,,,,,
+Slurpuff,99,stat_alignment,5,Jolly,1.8%,Speed,Sp. Atk,,,,,,
+Slurpuff,99,stat_alignment,6,Modest,1.5%,Sp. Atk,Attack,,,,,,
+Slurpuff,99,stat_alignment,7,Hasty,0.3%,Speed,Defense,,,,,,
+Slurpuff,99,stat_points,1,,38.6%,,,32,0,11,0,1,22
+Slurpuff,99,stat_points,2,,7.1%,,,32,0,1,0,11,22
+Slurpuff,99,stat_points,3,,7.1%,,,32,0,11,0,3,20
+Slurpuff,99,stat_points,4,,6.3%,,,32,0,0,0,2,32
+Slurpuff,99,stat_points,5,,6.1%,,,32,0,11,0,2,21
+Slurpuff,99,stat_points,6,,4.8%,,,32,0,12,0,0,22
+Slurpuff,99,stat_points,7,,4.3%,,,4,0,0,30,0,32
+Slurpuff,99,stat_points,8,,3.8%,,,18,0,0,0,28,20
+Slurpuff,99,stat_points,9,,3.0%,,,32,0,10,0,0,24
+Slurpuff,99,stat_points,10,,2.5%,,,2,0,0,32,0,32
+Slurpuff,99,ability,1,Unburden,98.0%,,,,,,,,
+Slurpuff,99,ability,2,Sweet Veil,2.0%,,,,,,,,

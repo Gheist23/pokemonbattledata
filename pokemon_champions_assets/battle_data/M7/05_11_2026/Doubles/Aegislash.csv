@@ -1,42 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aegislash,63,move,1,Shadow Sneak,82.3%,,,,,,,,
-Aegislash,63,move,2,Poltergeist,75.0%,,,,,,,,
-Aegislash,63,move,3,King's Shield,62.2%,,,,,,,,
-Aegislash,63,move,4,Iron Head,48.8%,,,,,,,,
-Aegislash,63,move,5,Close Combat,46.3%,,,,,,,,
-Aegislash,63,move,6,Rock Slide,36.0%,,,,,,,,
-Aegislash,63,move,7,Psycho Cut,24.4%,,,,,,,,
-Aegislash,63,move,8,Wide Guard,18.9%,,,,,,,,
-Aegislash,63,move,9,Sacred Sword,5.5%,,,,,,,,
-Aegislash,63,move,10,Swords Dance,0.6%,,,,,,,,
-Aegislash,63,held_item,1,Focus Sash,46.3%,,,,,,,,
-Aegislash,63,held_item,2,Occa Berry,28.7%,,,,,,,,
-Aegislash,63,held_item,3,Leftovers,15.9%,,,,,,,,
-Aegislash,63,held_item,4,Spell Tag,4.3%,,,,,,,,
-Aegislash,63,held_item,5,Sitrus Berry,3.0%,,,,,,,,
-Aegislash,63,held_item,6,Kasib Berry,0.6%,,,,,,,,
-Aegislash,63,held_item,7,Mental Herb,0.6%,,,,,,,,
-Aegislash,63,held_item,8,Air Balloon,0.6%,,,,,,,,
-Aegislash,63,teammate,1,Incineroar,,,,,,,,,
-Aegislash,63,teammate,2,Garchomp,,,,,,,,,
-Aegislash,63,teammate,3,Golisopod,,,,,,,,,
-Aegislash,63,teammate,4,Vanilluxe,,,,,,,,,
-Aegislash,63,teammate,5,Kommo-o,,,,,,,,,
-Aegislash,63,teammate,6,Inteleon,,,,,,,,,
-Aegislash,63,teammate,7,Scovillain,,,,,,,,,
-Aegislash,63,teammate,8,Sneasler,,,,,,,,,
-Aegislash,63,teammate,9,Rillaboom,,,,,,,,,
-Aegislash,63,teammate,10,Floette-Eternal,,,,,,,,,
-Aegislash,63,stat_alignment,1,Adamant,99.4%,Attack,Sp. Atk,,,,,,
-Aegislash,63,stat_alignment,2,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
-Aegislash,63,stat_points,1,,36.0%,,,1,32,0,0,1,32
-Aegislash,63,stat_points,2,,28.7%,,,23,32,0,0,0,11
-Aegislash,63,stat_points,3,,18.9%,,,32,32,0,0,2,0
-Aegislash,63,stat_points,4,,7.9%,,,18,22,1,0,0,25
-Aegislash,63,stat_points,5,,3.0%,,,0,32,2,0,32,0
-Aegislash,63,stat_points,6,,1.8%,,,18,20,2,0,1,25
-Aegislash,63,stat_points,7,,0.6%,,,2,32,0,0,0,32
-Aegislash,63,stat_points,8,,0.6%,,,22,21,0,0,0,23
-Aegislash,63,stat_points,9,,0.6%,,,27,32,0,0,0,7
-Aegislash,63,stat_points,10,,0.6%,,,32,0,0,0,32,0
-Aegislash,63,ability,1,Stance Change,100.0%,,,,,,,,
+Aegislash,64,move,1,Poltergeist,73.7%,,,,,,,,
+Aegislash,64,move,2,King's Shield,68.9%,,,,,,,,
+Aegislash,64,move,3,Shadow Sneak,68.5%,,,,,,,,
+Aegislash,64,move,4,Iron Head,55.8%,,,,,,,,
+Aegislash,64,move,5,Wide Guard,36.7%,,,,,,,,
+Aegislash,64,move,6,Close Combat,33.9%,,,,,,,,
+Aegislash,64,move,7,Rock Slide,23.5%,,,,,,,,
+Aegislash,64,move,8,Psycho Cut,19.1%,,,,,,,,
+Aegislash,64,move,9,Sacred Sword,14.3%,,,,,,,,
+Aegislash,64,move,10,Swords Dance,3.2%,,,,,,,,
+Aegislash,64,held_item,1,Focus Sash,36.7%,,,,,,,,
+Aegislash,64,held_item,2,Occa Berry,21.9%,,,,,,,,
+Aegislash,64,held_item,3,Leftovers,21.9%,,,,,,,,
+Aegislash,64,held_item,4,Spell Tag,6.4%,,,,,,,,
+Aegislash,64,held_item,5,Mental Herb,3.2%,,,,,,,,
+Aegislash,64,held_item,6,Air Balloon,3.2%,,,,,,,,
+Aegislash,64,held_item,7,Sitrus Berry,2.0%,,,,,,,,
+Aegislash,64,held_item,8,Kasib Berry,2.0%,,,,,,,,
+Aegislash,64,held_item,9,White Herb,2.0%,,,,,,,,
+Aegislash,64,held_item,10,Red Card,0.8%,,,,,,,,
+Aegislash,64,teammate,1,Garchomp,,,,,,,,,
+Aegislash,64,teammate,2,Incineroar,,,,,,,,,
+Aegislash,64,teammate,3,Golisopod,,,,,,,,,
+Aegislash,64,teammate,4,Charizard,,,,,,,,,
+Aegislash,64,teammate,5,Sneasler,,,,,,,,,
+Aegislash,64,teammate,6,Vanilluxe,,,,,,,,,
+Aegislash,64,teammate,7,Kommo-o,,,,,,,,,
+Aegislash,64,teammate,8,Rillaboom,,,,,,,,,
+Aegislash,64,teammate,9,Inteleon,,,,,,,,,
+Aegislash,64,teammate,10,Scovillain,,,,,,,,,
+Aegislash,64,stat_alignment,1,Adamant,89.6%,Attack,Sp. Atk,,,,,,
+Aegislash,64,stat_alignment,2,Careful,3.6%,Sp. Def,Sp. Atk,,,,,,
+Aegislash,64,stat_alignment,3,Jolly,3.2%,Speed,Sp. Atk,,,,,,
+Aegislash,64,stat_alignment,4,Impish,2.4%,Defense,Sp. Atk,,,,,,
+Aegislash,64,stat_alignment,5,Modest,1.2%,Sp. Atk,Attack,,,,,,
+Aegislash,64,stat_points,1,,23.5%,,,1,32,0,0,1,32
+Aegislash,64,stat_points,2,,23.5%,,,32,32,0,0,2,0
+Aegislash,64,stat_points,3,,21.9%,,,23,32,0,0,0,11
+Aegislash,64,stat_points,4,,5.2%,,,18,22,1,0,0,25
+Aegislash,64,stat_points,5,,4.0%,,,2,32,0,0,0,32
+Aegislash,64,stat_points,6,,3.6%,,,32,0,0,0,32,0
+Aegislash,64,stat_points,7,,3.2%,,,22,21,0,0,0,23
+Aegislash,64,stat_points,8,,3.2%,,,32,32,1,0,1,0
+Aegislash,64,stat_points,9,,2.4%,,,32,16,10,0,7,1
+Aegislash,64,stat_points,10,,2.0%,,,0,32,2,0,32,0
+Aegislash,64,ability,1,Stance Change,100.0%,,,,,,,,

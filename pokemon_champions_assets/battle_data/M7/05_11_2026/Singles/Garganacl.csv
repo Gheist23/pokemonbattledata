@@ -1,36 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Garganacl,208,move,1,Recover,100.0%,,,,,,,,
-Garganacl,208,move,2,Iron Defense,86.2%,,,,,,,,
-Garganacl,208,move,3,Body Press,72.4%,,,,,,,,
-Garganacl,208,move,4,Earthquake,55.2%,,,,,,,,
-Garganacl,208,move,5,Salt Cure,20.7%,,,,,,,,
-Garganacl,208,move,6,Fissure,20.7%,,,,,,,,
-Garganacl,208,move,7,Smack Down,17.2%,,,,,,,,
-Garganacl,208,move,8,Stealth Rock,10.3%,,,,,,,,
-Garganacl,208,move,9,Curse,6.9%,,,,,,,,
-Garganacl,208,move,10,Protect,6.9%,,,,,,,,
-Garganacl,208,held_item,1,Rocky Helmet,51.7%,,,,,,,,
-Garganacl,208,held_item,2,Leftovers,24.1%,,,,,,,,
-Garganacl,208,held_item,3,Psychic Seed,20.7%,,,,,,,,
-Garganacl,208,held_item,4,Sitrus Berry,3.4%,,,,,,,,
-Garganacl,208,teammate,1,Victreebel,,,,,,,,,
-Garganacl,208,teammate,2,Meowscarada,,,,,,,,,
-Garganacl,208,teammate,3,Pawmot,,,,,,,,,
-Garganacl,208,teammate,4,Houndstone,,,,,,,,,
-Garganacl,208,teammate,5,Blaziken,,,,,,,,,
-Garganacl,208,teammate,6,Corviknight,,,,,,,,,
-Garganacl,208,teammate,7,Indeedee,,,,,,,,,
-Garganacl,208,teammate,8,Scovillain,,,,,,,,,
-Garganacl,208,teammate,9,Slowbro,,,,,,,,,
-Garganacl,208,teammate,10,Starmie,,,,,,,,,
-Garganacl,208,stat_alignment,1,Careful,75.9%,Sp. Def,Sp. Atk,,,,,,
-Garganacl,208,stat_alignment,2,Impish,13.8%,Defense,Sp. Atk,,,,,,
-Garganacl,208,stat_alignment,3,Relaxed,10.3%,Defense,Speed,,,,,,
-Garganacl,208,stat_points,1,,48.3%,,,32,0,31,0,3,0
-Garganacl,208,stat_points,2,,20.7%,,,32,0,4,0,30,0
-Garganacl,208,stat_points,3,,17.2%,,,32,0,32,0,2,0
-Garganacl,208,stat_points,4,,3.4%,,,24,0,32,0,10,0
-Garganacl,208,stat_points,5,,3.4%,,,32,0,1,0,32,1
-Garganacl,208,stat_points,6,,3.4%,,,32,0,2,0,32,0
-Garganacl,208,stat_points,7,,3.4%,,,32,0,15,0,19,0
-Garganacl,208,ability,1,Purifying Salt,100.0%,,,,,,,,
+Garganacl,188,move,1,Recover,100.0%,,,,,,,,
+Garganacl,188,move,2,Iron Defense,59.7%,,,,,,,,
+Garganacl,188,move,3,Body Press,53.2%,,,,,,,,
+Garganacl,188,move,4,Salt Cure,45.2%,,,,,,,,
+Garganacl,188,move,5,Stealth Rock,41.9%,,,,,,,,
+Garganacl,188,move,6,Earthquake,32.3%,,,,,,,,
+Garganacl,188,move,7,Protect,27.4%,,,,,,,,
+Garganacl,188,move,8,Fissure,9.7%,,,,,,,,
+Garganacl,188,move,9,Substitute,8.1%,,,,,,,,
+Garganacl,188,move,10,Smack Down,8.1%,,,,,,,,
+Garganacl,188,held_item,1,Leftovers,40.3%,,,,,,,,
+Garganacl,188,held_item,2,Rocky Helmet,38.7%,,,,,,,,
+Garganacl,188,held_item,3,Psychic Seed,9.7%,,,,,,,,
+Garganacl,188,held_item,4,Air Balloon,8.1%,,,,,,,,
+Garganacl,188,held_item,5,Sitrus Berry,3.2%,,,,,,,,
+Garganacl,188,teammate,1,Volcarona,,,,,,,,,
+Garganacl,188,teammate,2,Victreebel,,,,,,,,,
+Garganacl,188,teammate,3,Meowscarada,,,,,,,,,
+Garganacl,188,teammate,4,Pawmot,,,,,,,,,
+Garganacl,188,teammate,5,Houndstone,,,,,,,,,
+Garganacl,188,teammate,6,Venusaur,,,,,,,,,
+Garganacl,188,teammate,7,Corviknight,,,,,,,,,
+Garganacl,188,teammate,8,Slowbro,,,,,,,,,
+Garganacl,188,teammate,9,Salamence,,,,,,,,,
+Garganacl,188,teammate,10,Gholdengo,,,,,,,,,
+Garganacl,188,stat_alignment,1,Impish,48.4%,Defense,Sp. Atk,,,,,,
+Garganacl,188,stat_alignment,2,Careful,45.2%,Sp. Def,Sp. Atk,,,,,,
+Garganacl,188,stat_alignment,3,Relaxed,4.8%,Defense,Speed,,,,,,
+Garganacl,188,stat_alignment,4,Bold,1.6%,Defense,Attack,,,,,,
+Garganacl,188,stat_points,1,,22.6%,,,32,0,31,0,3,0
+Garganacl,188,stat_points,2,,14.5%,,,32,0,6,0,28,0
+Garganacl,188,stat_points,3,,12.9%,,,24,0,32,0,10,0
+Garganacl,188,stat_points,4,,11.3%,,,32,0,32,0,2,0
+Garganacl,188,stat_points,5,,9.7%,,,32,0,1,0,32,1
+Garganacl,188,stat_points,6,,9.7%,,,32,0,2,0,32,0
+Garganacl,188,stat_points,7,,9.7%,,,32,0,4,0,30,0
+Garganacl,188,stat_points,8,,6.5%,,,32,0,20,0,14,0
+Garganacl,188,stat_points,9,,1.6%,,,32,0,7,0,27,0
+Garganacl,188,stat_points,10,,1.6%,,,32,0,15,0,19,0
+Garganacl,188,ability,1,Purifying Salt,88.7%,,,,,,,,
+Garganacl,188,ability,2,Clear Body,11.3%,,,,,,,,

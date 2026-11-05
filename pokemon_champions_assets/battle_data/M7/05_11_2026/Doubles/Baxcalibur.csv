@@ -1,43 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Baxcalibur,76,move,1,Glaive Rush,96.0%,,,,,,,,
-Baxcalibur,76,move,2,Ice Shard,90.4%,,,,,,,,
-Baxcalibur,76,move,3,Protect,64.4%,,,,,,,,
-Baxcalibur,76,move,4,Icicle Crash,36.2%,,,,,,,,
-Baxcalibur,76,move,5,High Horsepower,28.2%,,,,,,,,
-Baxcalibur,76,move,6,Earthquake,24.9%,,,,,,,,
-Baxcalibur,76,move,7,Brick Break,17.5%,,,,,,,,
-Baxcalibur,76,move,8,Iron Head,10.7%,,,,,,,,
-Baxcalibur,76,move,9,Swords Dance,7.9%,,,,,,,,
-Baxcalibur,76,move,10,Breaking Swipe,7.9%,,,,,,,,
-Baxcalibur,76,held_item,1,Baxcalibrite,45.2%,,,,,,,,
-Baxcalibur,76,held_item,2,Life Orb,16.9%,,,,,,,,
-Baxcalibur,76,held_item,3,Chople Berry,15.8%,,,,,,,,
-Baxcalibur,76,held_item,4,Choice Scarf,8.5%,,,,,,,,
-Baxcalibur,76,held_item,5,Focus Sash,6.8%,,,,,,,,
-Baxcalibur,76,held_item,6,Haban Berry,4.0%,,,,,,,,
-Baxcalibur,76,held_item,7,Metronome,2.3%,,,,,,,,
-Baxcalibur,76,held_item,8,Leftovers,0.6%,,,,,,,,
-Baxcalibur,76,teammate,1,Garchomp,,,,,,,,,
-Baxcalibur,76,teammate,2,Rillaboom,,,,,,,,,
-Baxcalibur,76,teammate,3,Slowking-Galar,,,,,,,,,
-Baxcalibur,76,teammate,4,Skeledirge,,,,,,,,,
-Baxcalibur,76,teammate,5,Noivern,,,,,,,,,
-Baxcalibur,76,teammate,6,Corviknight,,,,,,,,,
-Baxcalibur,76,teammate,7,Grapploct,,,,,,,,,
-Baxcalibur,76,teammate,8,Kingambit,,,,,,,,,
-Baxcalibur,76,teammate,9,Golisopod,,,,,,,,,
-Baxcalibur,76,teammate,10,Gholdengo,,,,,,,,,
-Baxcalibur,76,stat_alignment,1,Adamant,93.2%,Attack,Sp. Atk,,,,,,
-Baxcalibur,76,stat_alignment,2,Careful,4.0%,Sp. Def,Sp. Atk,,,,,,
-Baxcalibur,76,stat_alignment,3,Sassy,2.8%,Sp. Def,Speed,,,,,,
-Baxcalibur,76,stat_points,1,,19.8%,,,3,31,0,0,0,32
-Baxcalibur,76,stat_points,2,,13.6%,,,32,7,0,0,27,0
-Baxcalibur,76,stat_points,3,,11.9%,,,2,32,0,0,0,32
-Baxcalibur,76,stat_points,4,,6.8%,,,0,32,0,0,2,32
-Baxcalibur,76,stat_points,5,,6.8%,,,21,32,0,0,0,13
-Baxcalibur,76,stat_points,6,,5.6%,,,32,5,3,0,23,3
-Baxcalibur,76,stat_points,7,,5.1%,,,32,5,0,0,29,0
-Baxcalibur,76,stat_points,8,,4.5%,,,1,28,28,0,0,9
-Baxcalibur,76,stat_points,9,,4.0%,,,9,15,10,0,6,26
-Baxcalibur,76,stat_points,10,,4.0%,,,32,10,0,0,24,0
-Baxcalibur,76,ability,1,Thermal Exchange,100.0%,,,,,,,,
+Baxcalibur,68,move,1,Glaive Rush,97.4%,,,,,,,,
+Baxcalibur,68,move,2,Ice Shard,92.6%,,,,,,,,
+Baxcalibur,68,move,3,Protect,68.1%,,,,,,,,
+Baxcalibur,68,move,4,High Horsepower,32.6%,,,,,,,,
+Baxcalibur,68,move,5,Icicle Crash,31.9%,,,,,,,,
+Baxcalibur,68,move,6,Earthquake,20.4%,,,,,,,,
+Baxcalibur,68,move,7,Brick Break,18.5%,,,,,,,,
+Baxcalibur,68,move,8,Swords Dance,10.4%,,,,,,,,
+Baxcalibur,68,move,9,Iron Head,7.0%,,,,,,,,
+Baxcalibur,68,move,10,Breaking Swipe,6.3%,,,,,,,,
+Baxcalibur,68,held_item,1,Baxcalibrite,47.4%,,,,,,,,
+Baxcalibur,68,held_item,2,Chople Berry,17.4%,,,,,,,,
+Baxcalibur,68,held_item,3,Life Orb,16.3%,,,,,,,,
+Baxcalibur,68,held_item,4,Focus Sash,5.9%,,,,,,,,
+Baxcalibur,68,held_item,5,Choice Scarf,5.6%,,,,,,,,
+Baxcalibur,68,held_item,6,Haban Berry,2.6%,,,,,,,,
+Baxcalibur,68,held_item,7,Metronome,2.6%,,,,,,,,
+Baxcalibur,68,held_item,8,Leftovers,2.2%,,,,,,,,
+Baxcalibur,68,teammate,1,Rillaboom,,,,,,,,,
+Baxcalibur,68,teammate,2,Sneasler,,,,,,,,,
+Baxcalibur,68,teammate,3,Slowking-Galar,,,,,,,,,
+Baxcalibur,68,teammate,4,Kingambit,,,,,,,,,
+Baxcalibur,68,teammate,5,Golisopod,,,,,,,,,
+Baxcalibur,68,teammate,6,Garchomp,,,,,,,,,
+Baxcalibur,68,teammate,7,Raichu,,,,,,,,,
+Baxcalibur,68,teammate,8,Basculegion,,,,,,,,,
+Baxcalibur,68,teammate,9,Noivern,,,,,,,,,
+Baxcalibur,68,teammate,10,Corviknight,,,,,,,,,
+Baxcalibur,68,stat_alignment,1,Adamant,91.5%,Attack,Sp. Atk,,,,,,
+Baxcalibur,68,stat_alignment,2,Careful,4.1%,Sp. Def,Sp. Atk,,,,,,
+Baxcalibur,68,stat_alignment,3,Impish,2.2%,Defense,Sp. Atk,,,,,,
+Baxcalibur,68,stat_alignment,4,Sassy,1.9%,Sp. Def,Speed,,,,,,
+Baxcalibur,68,stat_alignment,5,Jolly,0.4%,Speed,Sp. Atk,,,,,,
+Baxcalibur,68,stat_points,1,,20.0%,,,3,31,0,0,0,32
+Baxcalibur,68,stat_points,2,,14.8%,,,32,7,0,0,27,0
+Baxcalibur,68,stat_points,3,,8.1%,,,2,32,0,0,0,32
+Baxcalibur,68,stat_points,4,,5.6%,,,0,32,0,0,2,32
+Baxcalibur,68,stat_points,5,,5.6%,,,32,5,3,0,23,3
+Baxcalibur,68,stat_points,6,,4.4%,,,21,32,0,0,0,13
+Baxcalibur,68,stat_points,7,,3.3%,,,18,25,0,0,3,20
+Baxcalibur,68,stat_points,8,,3.3%,,,32,5,0,0,29,0
+Baxcalibur,68,stat_points,9,,3.0%,,,1,28,28,0,0,9
+Baxcalibur,68,stat_points,10,,3.0%,,,26,7,0,0,6,27
+Baxcalibur,68,ability,1,Thermal Exchange,100.0%,,,,,,,,

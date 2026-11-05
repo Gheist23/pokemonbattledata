@@ -1,53 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sharpedo,188,move,1,Protect,91.5%,,,,,,,,
-Sharpedo,188,move,2,Crunch,86.3%,,,,,,,,
-Sharpedo,188,move,3,Liquidation,49.7%,,,,,,,,
-Sharpedo,188,move,4,Psychic Fangs,43.2%,,,,,,,,
-Sharpedo,188,move,5,Ice Fang,34.1%,,,,,,,,
-Sharpedo,188,move,6,Destiny Bond,20.4%,,,,,,,,
-Sharpedo,188,move,7,Waterfall,14.1%,,,,,,,,
-Sharpedo,188,move,8,Close Combat,13.9%,,,,,,,,
-Sharpedo,188,move,9,Ice Beam,5.5%,,,,,,,,
-Sharpedo,188,move,10,Poison Fang,5.3%,,,,,,,,
-Sharpedo,188,held_item,1,Sharpedonite,60.9%,,,,,,,,
-Sharpedo,188,held_item,2,Focus Sash,21.8%,,,,,,,,
-Sharpedo,188,held_item,3,Life Orb,8.7%,,,,,,,,
-Sharpedo,188,held_item,4,Mystic Water,1.7%,,,,,,,,
-Sharpedo,188,held_item,5,Black Glasses,1.1%,,,,,,,,
-Sharpedo,188,held_item,6,Expert Belt,0.7%,,,,,,,,
-Sharpedo,188,held_item,7,Leftovers,0.7%,,,,,,,,
-Sharpedo,188,held_item,8,Muscle Band,0.6%,,,,,,,,
-Sharpedo,188,held_item,9,Sitrus Berry,0.5%,,,,,,,,
-Sharpedo,188,held_item,10,Choice Scarf,0.5%,,,,,,,,
-Sharpedo,188,teammate,1,Sneasler,,,,,,,,,
-Sharpedo,188,teammate,2,Garchomp,,,,,,,,,
-Sharpedo,188,teammate,3,Rillaboom,,,,,,,,,
-Sharpedo,188,teammate,4,Indeedee-F,,,,,,,,,
-Sharpedo,188,teammate,5,Gholdengo,,,,,,,,,
-Sharpedo,188,teammate,6,Pelipper,,,,,,,,,
-Sharpedo,188,teammate,7,Farigiraf,,,,,,,,,
-Sharpedo,188,teammate,8,Incineroar,,,,,,,,,
-Sharpedo,188,teammate,9,Blaziken,,,,,,,,,
-Sharpedo,188,teammate,10,Archaludon,,,,,,,,,
-Sharpedo,188,stat_alignment,1,Adamant,68.3%,Attack,Sp. Atk,,,,,,
-Sharpedo,188,stat_alignment,2,Jolly,11.7%,Speed,Sp. Atk,,,,,,
-Sharpedo,188,stat_alignment,3,Hasty,3.9%,Speed,Defense,,,,,,
-Sharpedo,188,stat_alignment,4,Lonely,3.8%,Attack,Defense,,,,,,
-Sharpedo,188,stat_alignment,5,Naughty,3.1%,Attack,Sp. Def,,,,,,
-Sharpedo,188,stat_alignment,6,Modest,2.9%,Sp. Atk,Attack,,,,,,
-Sharpedo,188,stat_alignment,7,Naive,2.2%,Speed,Sp. Def,,,,,,
-Sharpedo,188,stat_alignment,8,Timid,1.2%,Speed,Attack,,,,,,
-Sharpedo,188,stat_alignment,9,Mild,1.1%,Sp. Atk,Defense,,,,,,
-Sharpedo,188,stat_alignment,10,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
-Sharpedo,188,stat_points,1,,47.6%,,,2,32,0,0,0,32
-Sharpedo,188,stat_points,2,,7.4%,,,0,32,0,0,0,32
-Sharpedo,188,stat_points,3,,6.4%,,,0,32,2,0,0,32
-Sharpedo,188,stat_points,4,,5.8%,,,0,32,0,0,2,32
-Sharpedo,188,stat_points,5,,2.1%,,,0,0,2,32,0,32
-Sharpedo,188,stat_points,6,,2.1%,,,15,32,0,0,0,19
-Sharpedo,188,stat_points,7,,2.1%,,,32,32,0,0,2,0
-Sharpedo,188,stat_points,8,,1.9%,,,0,2,0,32,0,32
-Sharpedo,188,stat_points,9,,1.9%,,,0,32,0,2,0,32
-Sharpedo,188,stat_points,10,,1.7%,,,32,32,0,0,0,2
-Sharpedo,188,ability,1,Speed Boost,97.5%,,,,,,,,
-Sharpedo,188,ability,2,Rough Skin,2.5%,,,,,,,,
+Sharpedo,223,move,1,Waterfall,100.0%,,,,,,,,
+Sharpedo,223,move,2,Protect,100.0%,,,,,,,,
+Sharpedo,223,move,3,Crunch,100.0%,,,,,,,,
+Sharpedo,223,move,4,Ice Fang,100.0%,,,,,,,,
+Sharpedo,223,held_item,1,Sharpedonite,100.0%,,,,,,,,
+Sharpedo,223,teammate,1,Pelipper,,,,,,,,,
+Sharpedo,223,teammate,2,Meowstic-F,,,,,,,,,
+Sharpedo,223,teammate,3,Indeedee-F,,,,,,,,,
+Sharpedo,223,teammate,4,Sneasler,,,,,,,,,
+Sharpedo,223,teammate,5,Archaludon,,,,,,,,,
+Sharpedo,223,stat_alignment,1,Adamant,100.0%,Attack,Sp. Atk,,,,,,
+Sharpedo,223,stat_points,1,,100.0%,,,0,22,10,0,3,31
+Sharpedo,223,ability,1,Speed Boost,100.0%,,,,,,,,

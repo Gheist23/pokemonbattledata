@@ -1,32 +1,35 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Chesnaught,182,move,1,Body Press,64.0%,,,,,,,,
-Chesnaught,182,move,2,Synthesis,52.0%,,,,,,,,
-Chesnaught,182,move,3,Iron Defense,52.0%,,,,,,,,
-Chesnaught,182,move,4,Knock Off,38.0%,,,,,,,,
-Chesnaught,182,move,5,Belly Drum,36.0%,,,,,,,,
-Chesnaught,182,move,6,Drain Punch,36.0%,,,,,,,,
-Chesnaught,182,move,7,Shadow Claw,36.0%,,,,,,,,
-Chesnaught,182,move,8,Grassy Glide,36.0%,,,,,,,,
-Chesnaught,182,move,9,Earthquake,24.0%,,,,,,,,
-Chesnaught,182,move,10,Aerial Ace,12.0%,,,,,,,,
-Chesnaught,182,held_item,1,Chesnaughtite,100.0%,,,,,,,,
-Chesnaught,182,teammate,1,Skeledirge,,,,,,,,,
-Chesnaught,182,teammate,2,Toxapex,,,,,,,,,
-Chesnaught,182,teammate,3,Empoleon,,,,,,,,,
-Chesnaught,182,teammate,4,Arboliva,,,,,,,,,
-Chesnaught,182,teammate,5,Tyranitar,,,,,,,,,
-Chesnaught,182,teammate,6,Dragonite,,,,,,,,,
-Chesnaught,182,teammate,7,Primarina,,,,,,,,,
-Chesnaught,182,teammate,8,Sableye,,,,,,,,,
-Chesnaught,182,teammate,9,Slowbro,,,,,,,,,
-Chesnaught,182,teammate,10,Snorlax,,,,,,,,,
-Chesnaught,182,stat_alignment,1,Impish,52.0%,Defense,Sp. Atk,,,,,,
-Chesnaught,182,stat_alignment,2,Adamant,36.0%,Attack,Sp. Atk,,,,,,
-Chesnaught,182,stat_alignment,3,Relaxed,12.0%,Defense,Speed,,,,,,
-Chesnaught,182,stat_points,1,,36.0%,,,28,32,0,0,6,0
-Chesnaught,182,stat_points,2,,20.0%,,,32,0,32,0,0,2
-Chesnaught,182,stat_points,3,,20.0%,,,32,0,32,0,2,0
-Chesnaught,182,stat_points,4,,12.0%,,,2,32,32,0,0,0
-Chesnaught,182,stat_points,5,,12.0%,,,32,2,32,0,0,0
-Chesnaught,182,ability,1,Bulletproof,52.0%,,,,,,,,
-Chesnaught,182,ability,2,Overgrow,48.0%,,,,,,,,
+Chesnaught,184,move,1,Body Press,69.7%,,,,,,,,
+Chesnaught,184,move,2,Synthesis,62.1%,,,,,,,,
+Chesnaught,184,move,3,Iron Defense,60.6%,,,,,,,,
+Chesnaught,184,move,4,Earthquake,36.4%,,,,,,,,
+Chesnaught,184,move,5,Knock Off,28.8%,,,,,,,,
+Chesnaught,184,move,6,Drain Punch,28.8%,,,,,,,,
+Chesnaught,184,move,7,Belly Drum,27.3%,,,,,,,,
+Chesnaught,184,move,8,Shadow Claw,27.3%,,,,,,,,
+Chesnaught,184,move,9,Grassy Glide,27.3%,,,,,,,,
+Chesnaught,184,move,10,Aerial Ace,9.1%,,,,,,,,
+Chesnaught,184,held_item,1,Chesnaughtite,95.5%,,,,,,,,
+Chesnaught,184,held_item,2,Leftovers,4.5%,,,,,,,,
+Chesnaught,184,teammate,1,Skeledirge,,,,,,,,,
+Chesnaught,184,teammate,2,Toxapex,,,,,,,,,
+Chesnaught,184,teammate,3,Dragonite,,,,,,,,,
+Chesnaught,184,teammate,4,Empoleon,,,,,,,,,
+Chesnaught,184,teammate,5,Snorlax,,,,,,,,,
+Chesnaught,184,teammate,6,Tyranitar,,,,,,,,,
+Chesnaught,184,teammate,7,Arboliva,,,,,,,,,
+Chesnaught,184,teammate,8,Primarina,,,,,,,,,
+Chesnaught,184,teammate,9,Umbreon,,,,,,,,,
+Chesnaught,184,teammate,10,Corviknight,,,,,,,,,
+Chesnaught,184,stat_alignment,1,Impish,63.6%,Defense,Sp. Atk,,,,,,
+Chesnaught,184,stat_alignment,2,Adamant,27.3%,Attack,Sp. Atk,,,,,,
+Chesnaught,184,stat_alignment,3,Relaxed,9.1%,Defense,Speed,,,,,,
+Chesnaught,184,stat_points,1,,33.3%,,,32,0,32,0,2,0
+Chesnaught,184,stat_points,2,,27.3%,,,28,32,0,0,6,0
+Chesnaught,184,stat_points,3,,15.2%,,,32,0,32,0,0,2
+Chesnaught,184,stat_points,4,,12.1%,,,32,2,32,0,0,0
+Chesnaught,184,stat_points,5,,9.1%,,,2,32,32,0,0,0
+Chesnaught,184,stat_points,6,,1.5%,,,32,0,28,0,6,0
+Chesnaught,184,stat_points,7,,1.5%,,,32,0,29,0,5,0
+Chesnaught,184,ability,1,Bulletproof,63.6%,,,,,,,,
+Chesnaught,184,ability,2,Overgrow,36.4%,,,,,,,,

@@ -1,40 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scrafty,149,move,1,Knock Off,79.2%,,,,,,,,
-Scrafty,149,move,2,Drain Punch,72.5%,,,,,,,,
-Scrafty,149,move,3,Taunt,45.8%,,,,,,,,
-Scrafty,149,move,4,Dragon Dance,34.2%,,,,,,,,
-Scrafty,149,move,5,Ice Punch,27.5%,,,,,,,,
-Scrafty,149,move,6,Poison Jab,21.7%,,,,,,,,
-Scrafty,149,move,7,Throat Chop,21.7%,,,,,,,,
-Scrafty,149,move,8,Iron Head,19.2%,,,,,,,,
-Scrafty,149,move,9,Bulk Up,15.0%,,,,,,,,
-Scrafty,149,move,10,Spite,12.5%,,,,,,,,
-Scrafty,149,held_item,1,Scraftinite,92.5%,,,,,,,,
-Scrafty,149,held_item,2,Black Glasses,4.2%,,,,,,,,
-Scrafty,149,held_item,3,Black Belt,3.3%,,,,,,,,
-Scrafty,149,teammate,1,Slowking-Galar,,,,,,,,,
-Scrafty,149,teammate,2,Primarina,,,,,,,,,
-Scrafty,149,teammate,3,Corviknight,,,,,,,,,
-Scrafty,149,teammate,4,Baxcalibur,,,,,,,,,
-Scrafty,149,teammate,5,Venusaur,,,,,,,,,
-Scrafty,149,teammate,6,Garchomp,,,,,,,,,
-Scrafty,149,teammate,7,Lucario,,,,,,,,,
-Scrafty,149,teammate,8,Archaludon,,,,,,,,,
-Scrafty,149,teammate,9,Mimikyu,,,,,,,,,
-Scrafty,149,teammate,10,Skeledirge,,,,,,,,,
-Scrafty,149,stat_alignment,1,Adamant,75.8%,Attack,Sp. Atk,,,,,,
-Scrafty,149,stat_alignment,2,Impish,12.5%,Defense,Sp. Atk,,,,,,
-Scrafty,149,stat_alignment,3,Jolly,7.5%,Speed,Sp. Atk,,,,,,
-Scrafty,149,stat_alignment,4,Lax,4.2%,Defense,Sp. Def,,,,,,
-Scrafty,149,stat_points,1,,20.0%,,,32,32,0,0,2,0
-Scrafty,149,stat_points,2,,15.0%,,,2,32,0,0,0,32
-Scrafty,149,stat_points,3,,12.5%,,,31,0,32,0,0,3
-Scrafty,149,stat_points,4,,10.8%,,,8,32,0,0,0,26
-Scrafty,149,stat_points,5,,8.3%,,,32,20,14,0,0,0
-Scrafty,149,stat_points,6,,7.5%,,,32,32,2,0,0,0
-Scrafty,149,stat_points,7,,6.7%,,,2,32,25,0,7,0
-Scrafty,149,stat_points,8,,6.7%,,,32,0,1,0,1,32
-Scrafty,149,stat_points,9,,5.8%,,,1,32,0,0,32,1
-Scrafty,149,stat_points,10,,4.2%,,,2,32,32,0,0,0
-Scrafty,149,ability,1,Intimidate,95.8%,,,,,,,,
-Scrafty,149,ability,2,Shed Skin,4.2%,,,,,,,,
+Scrafty,144,move,1,Drain Punch,78.3%,,,,,,,,
+Scrafty,144,move,2,Knock Off,75.0%,,,,,,,,
+Scrafty,144,move,3,Taunt,53.9%,,,,,,,,
+Scrafty,144,move,4,Bulk Up,31.6%,,,,,,,,
+Scrafty,144,move,5,Dragon Dance,27.0%,,,,,,,,
+Scrafty,144,move,6,Throat Chop,24.3%,,,,,,,,
+Scrafty,144,move,7,Ice Punch,21.7%,,,,,,,,
+Scrafty,144,move,8,Poison Jab,18.4%,,,,,,,,
+Scrafty,144,move,9,Iron Head,15.1%,,,,,,,,
+Scrafty,144,move,10,Spite,9.9%,,,,,,,,
+Scrafty,144,held_item,1,Scraftinite,94.1%,,,,,,,,
+Scrafty,144,held_item,2,Black Glasses,3.3%,,,,,,,,
+Scrafty,144,held_item,3,Black Belt,2.6%,,,,,,,,
+Scrafty,144,teammate,1,Corviknight,,,,,,,,,
+Scrafty,144,teammate,2,Slowking-Galar,,,,,,,,,
+Scrafty,144,teammate,3,Primarina,,,,,,,,,
+Scrafty,144,teammate,4,Toxapex,,,,,,,,,
+Scrafty,144,teammate,5,Baxcalibur,,,,,,,,,
+Scrafty,144,teammate,6,Garchomp,,,,,,,,,
+Scrafty,144,teammate,7,Ditto,,,,,,,,,
+Scrafty,144,teammate,8,Venusaur,,,,,,,,,
+Scrafty,144,teammate,9,Meganium,,,,,,,,,
+Scrafty,144,teammate,10,Ceruledge,,,,,,,,,
+Scrafty,144,stat_alignment,1,Adamant,61.8%,Attack,Sp. Atk,,,,,,
+Scrafty,144,stat_alignment,2,Impish,16.4%,Defense,Sp. Atk,,,,,,
+Scrafty,144,stat_alignment,3,Careful,12.5%,Sp. Def,Sp. Atk,,,,,,
+Scrafty,144,stat_alignment,4,Jolly,5.9%,Speed,Sp. Atk,,,,,,
+Scrafty,144,stat_alignment,5,Lax,3.3%,Defense,Sp. Def,,,,,,
+Scrafty,144,stat_points,1,,15.8%,,,32,32,0,0,2,0
+Scrafty,144,stat_points,2,,12.5%,,,31,0,0,0,32,3
+Scrafty,144,stat_points,3,,11.8%,,,2,32,0,0,0,32
+Scrafty,144,stat_points,4,,9.9%,,,31,0,32,0,0,3
+Scrafty,144,stat_points,5,,8.6%,,,8,32,0,0,0,26
+Scrafty,144,stat_points,6,,6.6%,,,32,20,14,0,0,0
+Scrafty,144,stat_points,7,,5.9%,,,32,32,2,0,0,0
+Scrafty,144,stat_points,8,,5.3%,,,2,32,25,0,7,0
+Scrafty,144,stat_points,9,,5.3%,,,32,0,1,0,1,32
+Scrafty,144,stat_points,10,,5.3%,,,32,0,14,0,18,2
+Scrafty,144,ability,1,Intimidate,96.7%,,,,,,,,
+Scrafty,144,ability,2,Shed Skin,3.3%,,,,,,,,

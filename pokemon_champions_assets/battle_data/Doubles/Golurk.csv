@@ -1,38 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Golurk,131,move,1,Headlong Rush,94.3%,,,,,,,,
-Golurk,131,move,2,Protect,75.5%,,,,,,,,
-Golurk,131,move,3,Poltergeist,71.7%,,,,,,,,
-Golurk,131,move,4,Ice Punch,52.8%,,,,,,,,
-Golurk,131,move,5,Rock Slide,45.3%,,,,,,,,
-Golurk,131,move,6,Drain Punch,20.8%,,,,,,,,
-Golurk,131,move,7,Thunder Punch,17.0%,,,,,,,,
-Golurk,131,move,8,Phantom Force,9.4%,,,,,,,,
-Golurk,131,move,9,High Horsepower,5.7%,,,,,,,,
-Golurk,131,move,10,Shadow Punch,3.8%,,,,,,,,
-Golurk,131,held_item,1,Golurkite,35.8%,,,,,,,,
-Golurk,131,held_item,2,Life Orb,30.2%,,,,,,,,
-Golurk,131,held_item,3,Focus Sash,24.5%,,,,,,,,
-Golurk,131,held_item,4,Soft Sand,9.4%,,,,,,,,
-Golurk,131,teammate,1,Farigiraf,,,,,,,,,
-Golurk,131,teammate,2,Torkoal,,,,,,,,,
-Golurk,131,teammate,3,Sylveon,,,,,,,,,
-Golurk,131,teammate,4,Incineroar,,,,,,,,,
-Golurk,131,teammate,5,Sneasler,,,,,,,,,
-Golurk,131,teammate,6,Kangaskhan,,,,,,,,,
-Golurk,131,teammate,7,Salamence,,,,,,,,,
-Golurk,131,teammate,8,Chandelure,,,,,,,,,
-Golurk,131,teammate,9,Talonflame,,,,,,,,,
-Golurk,131,teammate,10,Klefki,,,,,,,,,
-Golurk,131,stat_alignment,1,Brave,47.2%,Attack,Speed,,,,,,
-Golurk,131,stat_alignment,2,Adamant,32.1%,Attack,Sp. Atk,,,,,,
-Golurk,131,stat_alignment,3,Jolly,20.8%,Speed,Sp. Atk,,,,,,
-Golurk,131,stat_points,1,,45.3%,,,2,32,0,0,0,32
-Golurk,131,stat_points,2,,17.0%,,,32,32,2,0,0,0
-Golurk,131,stat_points,3,,15.1%,,,31,21,13,0,1,0
-Golurk,131,stat_points,4,,9.4%,,,32,32,1,0,1,0
-Golurk,131,stat_points,5,,5.7%,,,28,32,2,0,4,0
-Golurk,131,stat_points,6,,3.8%,,,32,32,0,0,2,0
-Golurk,131,stat_points,7,,1.9%,,,2,32,1,0,1,30
-Golurk,131,stat_points,8,,1.9%,,,32,32,0,0,0,0
-Golurk,131,ability,1,Iron Fist,77.4%,,,,,,,,
-Golurk,131,ability,2,No Guard,22.6%,,,,,,,,
+Golurk,121,move,1,Headlong Rush,94.4%,,,,,,,,
+Golurk,121,move,2,Poltergeist,80.0%,,,,,,,,
+Golurk,121,move,3,Protect,78.9%,,,,,,,,
+Golurk,121,move,4,Ice Punch,60.0%,,,,,,,,
+Golurk,121,move,5,Rock Slide,33.3%,,,,,,,,
+Golurk,121,move,6,Thunder Punch,13.3%,,,,,,,,
+Golurk,121,move,7,Drain Punch,12.2%,,,,,,,,
+Golurk,121,move,8,Phantom Force,8.9%,,,,,,,,
+Golurk,121,move,9,Earthquake,7.8%,,,,,,,,
+Golurk,121,move,10,High Horsepower,5.6%,,,,,,,,
+Golurk,121,held_item,1,Golurkite,45.6%,,,,,,,,
+Golurk,121,held_item,2,Life Orb,30.0%,,,,,,,,
+Golurk,121,held_item,3,Focus Sash,14.4%,,,,,,,,
+Golurk,121,held_item,4,Soft Sand,8.9%,,,,,,,,
+Golurk,121,held_item,5,Choice Scarf,1.1%,,,,,,,,
+Golurk,121,teammate,1,Incineroar,,,,,,,,,
+Golurk,121,teammate,2,Farigiraf,,,,,,,,,
+Golurk,121,teammate,3,Indeedee-F,,,,,,,,,
+Golurk,121,teammate,4,Golisopod,,,,,,,,,
+Golurk,121,teammate,5,Hatterene,,,,,,,,,
+Golurk,121,teammate,6,Kingambit,,,,,,,,,
+Golurk,121,teammate,7,Torkoal,,,,,,,,,
+Golurk,121,teammate,8,Sylveon,,,,,,,,,
+Golurk,121,teammate,9,Rillaboom,,,,,,,,,
+Golurk,121,teammate,10,Sneasler,,,,,,,,,
+Golurk,121,stat_alignment,1,Adamant,47.8%,Attack,Sp. Atk,,,,,,
+Golurk,121,stat_alignment,2,Brave,38.9%,Attack,Speed,,,,,,
+Golurk,121,stat_alignment,3,Jolly,13.3%,Speed,Sp. Atk,,,,,,
+Golurk,121,stat_points,1,,27.8%,,,2,32,0,0,0,32
+Golurk,121,stat_points,2,,18.9%,,,30,32,2,0,2,0
+Golurk,121,stat_points,3,,10.0%,,,2,32,1,0,1,30
+Golurk,121,stat_points,4,,10.0%,,,32,32,0,0,2,0
+Golurk,121,stat_points,5,,10.0%,,,32,32,2,0,0,0
+Golurk,121,stat_points,6,,8.9%,,,31,21,13,0,1,0
+Golurk,121,stat_points,7,,8.9%,,,32,32,1,0,1,0
+Golurk,121,stat_points,8,,3.3%,,,28,32,2,0,4,0
+Golurk,121,stat_points,9,,1.1%,,,4,31,0,0,0,31
+Golurk,121,stat_points,10,,1.1%,,,32,32,0,0,0,0
+Golurk,121,ability,1,Iron Fist,77.8%,,,,,,,,
+Golurk,121,ability,2,No Guard,22.2%,,,,,,,,

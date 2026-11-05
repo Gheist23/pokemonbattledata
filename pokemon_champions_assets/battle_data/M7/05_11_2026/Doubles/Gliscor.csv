@@ -1,40 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gliscor,79,move,1,Tailwind,90.1%,,,,,,,,
-Gliscor,79,move,2,High Horsepower,90.1%,,,,,,,,
-Gliscor,79,move,3,Protect,73.9%,,,,,,,,
-Gliscor,79,move,4,Acrobatics,68.9%,,,,,,,,
-Gliscor,79,move,5,Dual Wingbeat,31.1%,,,,,,,,
-Gliscor,79,move,6,Rock Slide,16.8%,,,,,,,,
-Gliscor,79,move,7,Earthquake,13.0%,,,,,,,,
-Gliscor,79,move,8,Throat Chop,11.2%,,,,,,,,
-Gliscor,79,move,9,Struggle Bug,5.0%,,,,,,,,
-Gliscor,79,held_item,1,Psychic Seed,64.6%,,,,,,,,
-Gliscor,79,held_item,2,Bright Powder,11.2%,,,,,,,,
-Gliscor,79,held_item,3,Leftovers,9.9%,,,,,,,,
-Gliscor,79,held_item,4,Life Orb,7.5%,,,,,,,,
-Gliscor,79,held_item,5,Soft Sand,3.1%,,,,,,,,
-Gliscor,79,held_item,6,Grassy Seed,1.9%,,,,,,,,
-Gliscor,79,teammate,1,Charizard,,,,,,,,,
-Gliscor,79,teammate,2,Indeedee-F,,,,,,,,,
-Gliscor,79,teammate,3,Venusaur,,,,,,,,,
-Gliscor,79,teammate,4,Gardevoir,,,,,,,,,
-Gliscor,79,teammate,5,Annihilape,,,,,,,,,
-Gliscor,79,teammate,6,Sableye,,,,,,,,,
-Gliscor,79,teammate,7,Garchomp,,,,,,,,,
-Gliscor,79,teammate,8,Tyranitar,,,,,,,,,
-Gliscor,79,teammate,9,Metagross,,,,,,,,,
-Gliscor,79,teammate,10,Skarmory,,,,,,,,,
-Gliscor,79,stat_alignment,1,Adamant,86.3%,Attack,Sp. Atk,,,,,,
-Gliscor,79,stat_alignment,2,Jolly,13.7%,Speed,Sp. Atk,,,,,,
-Gliscor,79,stat_points,1,,32.9%,,,2,32,0,0,0,32
-Gliscor,79,stat_points,2,,11.8%,,,1,28,0,0,5,32
-Gliscor,79,stat_points,3,,9.9%,,,28,15,0,0,17,6
-Gliscor,79,stat_points,4,,9.3%,,,31,25,0,0,0,10
-Gliscor,79,stat_points,5,,8.1%,,,23,17,0,0,5,21
-Gliscor,79,stat_points,6,,5.0%,,,32,32,0,0,1,1
-Gliscor,79,stat_points,7,,4.3%,,,15,25,0,0,0,26
-Gliscor,79,stat_points,8,,3.7%,,,32,8,0,0,25,1
-Gliscor,79,stat_points,9,,2.5%,,,15,25,0,0,5,21
-Gliscor,79,stat_points,10,,2.5%,,,29,32,0,0,1,4
-Gliscor,79,ability,1,Hyper Cutter,88.8%,,,,,,,,
-Gliscor,79,ability,2,Sand Veil,11.2%,,,,,,,,
+Gliscor,77,move,1,High Horsepower,89.7%,,,,,,,,
+Gliscor,77,move,2,Tailwind,85.2%,,,,,,,,
+Gliscor,77,move,3,Protect,77.0%,,,,,,,,
+Gliscor,77,move,4,Acrobatics,67.5%,,,,,,,,
+Gliscor,77,move,5,Dual Wingbeat,32.5%,,,,,,,,
+Gliscor,77,move,6,Rock Slide,13.2%,,,,,,,,
+Gliscor,77,move,7,Earthquake,12.3%,,,,,,,,
+Gliscor,77,move,8,Crabhammer,7.8%,,,,,,,,
+Gliscor,77,move,9,Throat Chop,7.8%,,,,,,,,
+Gliscor,77,move,10,Struggle Bug,7.0%,,,,,,,,
+Gliscor,77,held_item,1,Psychic Seed,53.1%,,,,,,,,
+Gliscor,77,held_item,2,Life Orb,11.1%,,,,,,,,
+Gliscor,77,held_item,3,Bright Powder,7.8%,,,,,,,,
+Gliscor,77,held_item,4,Wide Lens,7.8%,,,,,,,,
+Gliscor,77,held_item,5,Leftovers,6.6%,,,,,,,,
+Gliscor,77,held_item,6,Grassy Seed,4.9%,,,,,,,,
+Gliscor,77,held_item,7,Soft Sand,2.5%,,,,,,,,
+Gliscor,77,held_item,8,Sitrus Berry,0.4%,,,,,,,,
+Gliscor,77,teammate,1,Charizard,,,,,,,,,
+Gliscor,77,teammate,2,Indeedee-F,,,,,,,,,
+Gliscor,77,teammate,3,Gardevoir,,,,,,,,,
+Gliscor,77,teammate,4,Venusaur,,,,,,,,,
+Gliscor,77,teammate,5,Annihilape,,,,,,,,,
+Gliscor,77,teammate,6,Garchomp,,,,,,,,,
+Gliscor,77,teammate,7,Incineroar,,,,,,,,,
+Gliscor,77,teammate,8,Sableye,,,,,,,,,
+Gliscor,77,teammate,9,Rillaboom,,,,,,,,,
+Gliscor,77,teammate,10,Tyranitar,,,,,,,,,
+Gliscor,77,stat_alignment,1,Adamant,87.2%,Attack,Sp. Atk,,,,,,
+Gliscor,77,stat_alignment,2,Jolly,12.8%,Speed,Sp. Atk,,,,,,
+Gliscor,77,stat_points,1,,21.8%,,,2,32,0,0,0,32
+Gliscor,77,stat_points,2,,11.5%,,,1,28,0,0,5,32
+Gliscor,77,stat_points,3,,7.8%,,,18,32,2,0,0,14
+Gliscor,77,stat_points,4,,7.0%,,,32,32,0,0,1,1
+Gliscor,77,stat_points,5,,6.6%,,,28,15,0,0,17,6
+Gliscor,77,stat_points,6,,6.6%,,,31,25,0,0,0,10
+Gliscor,77,stat_points,7,,6.2%,,,15,25,0,0,0,26
+Gliscor,77,stat_points,8,,5.3%,,,23,17,0,0,5,21
+Gliscor,77,stat_points,9,,4.5%,,,29,32,0,0,1,4
+Gliscor,77,stat_points,10,,4.1%,,,0,32,2,0,0,32
+Gliscor,77,ability,1,Hyper Cutter,92.2%,,,,,,,,
+Gliscor,77,ability,2,Sand Veil,7.8%,,,,,,,,

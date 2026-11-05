@@ -1,43 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Malamar,153,move,1,Superpower,96.8%,,,,,,,,
-Malamar,153,move,2,Rest,41.9%,,,,,,,,
-Malamar,153,move,3,Psych Up,41.9%,,,,,,,,
-Malamar,153,move,4,Stored Power,38.7%,,,,,,,,
-Malamar,153,move,5,Throat Chop,32.3%,,,,,,,,
-Malamar,153,move,6,Protect,29.0%,,,,,,,,
-Malamar,153,move,7,Psycho Cut,29.0%,,,,,,,,
-Malamar,153,move,8,Knock Off,22.6%,,,,,,,,
-Malamar,153,move,9,Trick Room,19.4%,,,,,,,,
-Malamar,153,move,10,Baton Pass,12.9%,,,,,,,,
-Malamar,153,held_item,1,Malamarite,67.7%,,,,,,,,
-Malamar,153,held_item,2,Psychic Seed,9.7%,,,,,,,,
-Malamar,153,held_item,3,Sitrus Berry,6.5%,,,,,,,,
-Malamar,153,held_item,4,Focus Sash,6.5%,,,,,,,,
-Malamar,153,held_item,5,Tanga Berry,3.2%,,,,,,,,
-Malamar,153,held_item,6,Leftovers,3.2%,,,,,,,,
-Malamar,153,held_item,7,Rocky Helmet,3.2%,,,,,,,,
-Malamar,153,teammate,1,Whimsicott,,,,,,,,,
-Malamar,153,teammate,2,Audino,,,,,,,,,
-Malamar,153,teammate,3,Overqwil,,,,,,,,,
-Malamar,153,teammate,4,Zoroark-Hisui,,,,,,,,,
-Malamar,153,teammate,5,Chandelure,,,,,,,,,
-Malamar,153,teammate,6,Incineroar,,,,,,,,,
-Malamar,153,teammate,7,Primarina,,,,,,,,,
-Malamar,153,teammate,8,Grimmsnarl,,,,,,,,,
-Malamar,153,teammate,9,Indeedee-F,,,,,,,,,
-Malamar,153,teammate,10,Garganacl,,,,,,,,,
-Malamar,153,stat_alignment,1,Sassy,48.4%,Sp. Def,Speed,,,,,,
-Malamar,153,stat_alignment,2,Careful,22.6%,Sp. Def,Sp. Atk,,,,,,
-Malamar,153,stat_alignment,3,Adamant,19.4%,Attack,Sp. Atk,,,,,,
-Malamar,153,stat_alignment,4,Quiet,3.2%,Sp. Atk,Speed,,,,,,
-Malamar,153,stat_alignment,5,Brave,3.2%,Attack,Speed,,,,,,
-Malamar,153,stat_alignment,6,Relaxed,3.2%,Defense,Speed,,,,,,
-Malamar,153,stat_points,1,,64.5%,,,32,0,2,0,32,0
-Malamar,153,stat_points,2,,9.7%,,,32,32,2,0,0,0
-Malamar,153,stat_points,3,,6.5%,,,0,32,2,0,0,32
-Malamar,153,stat_points,4,,6.5%,,,19,0,22,0,25,0
-Malamar,153,stat_points,5,,3.2%,,,31,0,16,0,19,0
-Malamar,153,stat_points,6,,3.2%,,,32,0,32,0,2,0
-Malamar,153,stat_points,7,,3.2%,,,32,12,12,0,0,10
-Malamar,153,stat_points,8,,3.2%,,,32,32,0,0,2,0
-Malamar,153,ability,1,Contrary,100.0%,,,,,,,,
+Malamar,138,move,1,Superpower,98.4%,,,,,,,,
+Malamar,138,move,2,Protect,52.4%,,,,,,,,
+Malamar,138,move,3,Knock Off,52.4%,,,,,,,,
+Malamar,138,move,4,Trick Room,38.1%,,,,,,,,
+Malamar,138,move,5,Rest,25.4%,,,,,,,,
+Malamar,138,move,6,Psych Up,25.4%,,,,,,,,
+Malamar,138,move,7,Stored Power,23.8%,,,,,,,,
+Malamar,138,move,8,Psycho Cut,20.6%,,,,,,,,
+Malamar,138,move,9,Throat Chop,19.0%,,,,,,,,
+Malamar,138,move,10,Skill Swap,11.1%,,,,,,,,
+Malamar,138,held_item,1,Malamarite,71.4%,,,,,,,,
+Malamar,138,held_item,2,Choice Scarf,7.9%,,,,,,,,
+Malamar,138,held_item,3,Leftovers,4.8%,,,,,,,,
+Malamar,138,held_item,4,Psychic Seed,4.8%,,,,,,,,
+Malamar,138,held_item,5,Sitrus Berry,3.2%,,,,,,,,
+Malamar,138,held_item,6,Focus Sash,3.2%,,,,,,,,
+Malamar,138,held_item,7,Tanga Berry,1.6%,,,,,,,,
+Malamar,138,held_item,8,Rocky Helmet,1.6%,,,,,,,,
+Malamar,138,held_item,9,Roseli Berry,1.6%,,,,,,,,
+Malamar,138,teammate,1,Whimsicott,,,,,,,,,
+Malamar,138,teammate,2,Audino,,,,,,,,,
+Malamar,138,teammate,3,Overqwil,,,,,,,,,
+Malamar,138,teammate,4,Farigiraf,,,,,,,,,
+Malamar,138,teammate,5,Zoroark-Hisui,,,,,,,,,
+Malamar,138,teammate,6,Torkoal,,,,,,,,,
+Malamar,138,teammate,7,Chandelure,,,,,,,,,
+Malamar,138,teammate,8,Archaludon,,,,,,,,,
+Malamar,138,teammate,9,Pelipper,,,,,,,,,
+Malamar,138,teammate,10,Golisopod,,,,,,,,,
+Malamar,138,stat_alignment,1,Adamant,34.9%,Attack,Sp. Atk,,,,,,
+Malamar,138,stat_alignment,2,Sassy,28.6%,Sp. Def,Speed,,,,,,
+Malamar,138,stat_alignment,3,Careful,17.5%,Sp. Def,Sp. Atk,,,,,,
+Malamar,138,stat_alignment,4,Jolly,7.9%,Speed,Sp. Atk,,,,,,
+Malamar,138,stat_alignment,5,Brave,6.3%,Attack,Speed,,,,,,
+Malamar,138,stat_alignment,6,Relaxed,3.2%,Defense,Speed,,,,,,
+Malamar,138,stat_alignment,7,Quiet,1.6%,Sp. Atk,Speed,,,,,,
+Malamar,138,stat_points,1,,39.7%,,,32,0,2,0,32,0
+Malamar,138,stat_points,2,,22.2%,,,32,32,2,0,0,0
+Malamar,138,stat_points,3,,7.9%,,,2,32,0,0,0,32
+Malamar,138,stat_points,4,,6.3%,,,32,32,0,0,2,0
+Malamar,138,stat_points,5,,4.8%,,,31,0,16,0,19,0
+Malamar,138,stat_points,6,,4.8%,,,32,28,4,0,2,0
+Malamar,138,stat_points,7,,3.2%,,,0,32,2,0,0,32
+Malamar,138,stat_points,8,,3.2%,,,19,0,22,0,25,0
+Malamar,138,stat_points,9,,3.2%,,,30,5,0,0,31,0
+Malamar,138,stat_points,10,,1.6%,,,16,32,6,0,12,0
+Malamar,138,ability,1,Contrary,100.0%,,,,,,,,

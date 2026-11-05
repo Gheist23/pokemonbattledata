@@ -1,34 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mudsdale,151,move,1,Protect,100.0%,,,,,,,,
-Mudsdale,151,move,2,Heavy Slam,96.9%,,,,,,,,
-Mudsdale,151,move,3,Rock Slide,87.5%,,,,,,,,
-Mudsdale,151,move,4,Stomping Tantrum,50.0%,,,,,,,,
-Mudsdale,151,move,5,High Horsepower,34.4%,,,,,,,,
-Mudsdale,151,move,6,Earthquake,25.0%,,,,,,,,
-Mudsdale,151,move,7,Curse,6.3%,,,,,,,,
-Mudsdale,151,held_item,1,Expert Belt,50.0%,,,,,,,,
-Mudsdale,151,held_item,2,Leftovers,25.0%,,,,,,,,
-Mudsdale,151,held_item,3,Iron Ball,9.4%,,,,,,,,
-Mudsdale,151,held_item,4,Sitrus Berry,6.3%,,,,,,,,
-Mudsdale,151,held_item,5,Muscle Band,6.3%,,,,,,,,
-Mudsdale,151,held_item,6,Soft Sand,3.1%,,,,,,,,
-Mudsdale,151,teammate,1,Rillaboom,,,,,,,,,
-Mudsdale,151,teammate,2,Charizard,,,,,,,,,
-Mudsdale,151,teammate,3,Archaludon,,,,,,,,,
-Mudsdale,151,teammate,4,Politoed,,,,,,,,,
-Mudsdale,151,teammate,5,Weavile,,,,,,,,,
-Mudsdale,151,teammate,6,Empoleon,,,,,,,,,
-Mudsdale,151,teammate,7,Emboar,,,,,,,,,
-Mudsdale,151,teammate,8,Reuniclus,,,,,,,,,
-Mudsdale,151,teammate,9,Vivillon-Fancy,,,,,,,,,
-Mudsdale,151,teammate,10,Dragonite,,,,,,,,,
-Mudsdale,151,stat_alignment,1,Brave,93.8%,Attack,Speed,,,,,,
-Mudsdale,151,stat_alignment,2,Careful,6.3%,Sp. Def,Sp. Atk,,,,,,
-Mudsdale,151,stat_points,1,,50.0%,,,2,25,14,0,25,0
-Mudsdale,151,stat_points,2,,25.0%,,,32,25,2,0,7,0
-Mudsdale,151,stat_points,3,,9.4%,,,32,28,0,0,6,0
-Mudsdale,151,stat_points,4,,6.3%,,,31,32,0,0,3,0
-Mudsdale,151,stat_points,5,,6.3%,,,32,0,15,0,19,0
-Mudsdale,151,stat_points,6,,3.1%,,,32,32,0,0,2,0
-Mudsdale,151,ability,1,Inner Focus,75.0%,,,,,,,,
-Mudsdale,151,ability,2,Stamina,25.0%,,,,,,,,
+Mudsdale,153,move,1,Protect,100.0%,,,,,,,,
+Mudsdale,153,move,2,Heavy Slam,97.7%,,,,,,,,
+Mudsdale,153,move,3,Rock Slide,86.4%,,,,,,,,
+Mudsdale,153,move,4,High Horsepower,47.7%,,,,,,,,
+Mudsdale,153,move,5,Stomping Tantrum,36.4%,,,,,,,,
+Mudsdale,153,move,6,Earthquake,27.3%,,,,,,,,
+Mudsdale,153,move,7,Curse,4.5%,,,,,,,,
+Mudsdale,153,held_item,1,Expert Belt,36.4%,,,,,,,,
+Mudsdale,153,held_item,2,Leftovers,25.0%,,,,,,,,
+Mudsdale,153,held_item,3,Life Orb,15.9%,,,,,,,,
+Mudsdale,153,held_item,4,Muscle Band,9.1%,,,,,,,,
+Mudsdale,153,held_item,5,Iron Ball,6.8%,,,,,,,,
+Mudsdale,153,held_item,6,Sitrus Berry,4.5%,,,,,,,,
+Mudsdale,153,held_item,7,Soft Sand,2.3%,,,,,,,,
+Mudsdale,153,teammate,1,Rillaboom,,,,,,,,,
+Mudsdale,153,teammate,2,Weavile,,,,,,,,,
+Mudsdale,153,teammate,3,Archaludon,,,,,,,,,
+Mudsdale,153,teammate,4,Charizard,,,,,,,,,
+Mudsdale,153,teammate,5,Politoed,,,,,,,,,
+Mudsdale,153,teammate,6,Dragonite,,,,,,,,,
+Mudsdale,153,teammate,7,Empoleon,,,,,,,,,
+Mudsdale,153,teammate,8,Emboar,,,,,,,,,
+Mudsdale,153,teammate,9,Reuniclus,,,,,,,,,
+Mudsdale,153,teammate,10,Vivillon-Fancy,,,,,,,,,
+Mudsdale,153,stat_alignment,1,Brave,75.0%,Attack,Speed,,,,,,
+Mudsdale,153,stat_alignment,2,Adamant,15.9%,Attack,Sp. Atk,,,,,,
+Mudsdale,153,stat_alignment,3,Careful,9.1%,Sp. Def,Sp. Atk,,,,,,
+Mudsdale,153,stat_points,1,,36.4%,,,2,25,14,0,25,0
+Mudsdale,153,stat_points,2,,18.2%,,,32,25,2,0,7,0
+Mudsdale,153,stat_points,3,,11.4%,,,2,32,0,0,0,32
+Mudsdale,153,stat_points,4,,9.1%,,,32,0,15,0,19,0
+Mudsdale,153,stat_points,5,,6.8%,,,2,32,16,0,16,0
+Mudsdale,153,stat_points,6,,6.8%,,,32,28,0,0,6,0
+Mudsdale,153,stat_points,7,,4.5%,,,22,25,5,0,14,0
+Mudsdale,153,stat_points,8,,4.5%,,,31,32,0,0,3,0
+Mudsdale,153,stat_points,9,,2.3%,,,32,32,0,0,2,0
+Mudsdale,153,ability,1,Inner Focus,70.5%,,,,,,,,
+Mudsdale,153,ability,2,Stamina,29.5%,,,,,,,,

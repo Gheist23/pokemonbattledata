@@ -1,43 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Bellibolt,105,move,1,Protect,98.9%,,,,,,,,
-Bellibolt,105,move,2,Parabolic Charge,83.2%,,,,,,,,
-Bellibolt,105,move,3,Soak,62.1%,,,,,,,,
-Bellibolt,105,move,4,Thunderbolt,31.6%,,,,,,,,
-Bellibolt,105,move,5,Toxic,24.2%,,,,,,,,
-Bellibolt,105,move,6,Slack Off,18.9%,,,,,,,,
-Bellibolt,105,move,7,Discharge,16.8%,,,,,,,,
-Bellibolt,105,move,8,Volt Switch,16.8%,,,,,,,,
-Bellibolt,105,move,9,Sucker Punch,14.7%,,,,,,,,
-Bellibolt,105,move,10,Electroweb,12.6%,,,,,,,,
-Bellibolt,105,held_item,1,Sitrus Berry,37.9%,,,,,,,,
-Bellibolt,105,held_item,2,Leftovers,26.3%,,,,,,,,
-Bellibolt,105,held_item,3,Magnet,22.1%,,,,,,,,
-Bellibolt,105,held_item,4,Metronome,8.4%,,,,,,,,
-Bellibolt,105,held_item,5,Electric Seed,4.2%,,,,,,,,
-Bellibolt,105,held_item,6,Expert Belt,1.1%,,,,,,,,
-Bellibolt,105,teammate,1,Garchomp,,,,,,,,,
-Bellibolt,105,teammate,2,Kingambit,,,,,,,,,
-Bellibolt,105,teammate,3,Camerupt,,,,,,,,,
-Bellibolt,105,teammate,4,Sneasler,,,,,,,,,
-Bellibolt,105,teammate,5,Venusaur,,,,,,,,,
-Bellibolt,105,teammate,6,Farigiraf,,,,,,,,,
-Bellibolt,105,teammate,7,Raichu,,,,,,,,,
-Bellibolt,105,teammate,8,Slowbro-Galar,,,,,,,,,
-Bellibolt,105,teammate,9,Sableye,,,,,,,,,
-Bellibolt,105,teammate,10,Milotic,,,,,,,,,
-Bellibolt,105,stat_alignment,1,Quiet,46.3%,Sp. Atk,Speed,,,,,,
-Bellibolt,105,stat_alignment,2,Calm,16.8%,Sp. Def,Attack,,,,,,
-Bellibolt,105,stat_alignment,3,Modest,14.7%,Sp. Atk,Attack,,,,,,
-Bellibolt,105,stat_alignment,4,Relaxed,11.6%,Defense,Speed,,,,,,
-Bellibolt,105,stat_alignment,5,Sassy,10.5%,Sp. Def,Speed,,,,,,
-Bellibolt,105,stat_points,1,,16.8%,,,22,0,17,10,17,0
-Bellibolt,105,stat_points,2,,16.8%,,,32,0,14,0,20,0
-Bellibolt,105,stat_points,3,,14.7%,,,13,0,21,17,15,0
-Bellibolt,105,stat_points,4,,11.6%,,,4,0,30,0,32,0
-Bellibolt,105,stat_points,5,,10.5%,,,32,0,7,0,27,0
-Bellibolt,105,stat_points,6,,8.4%,,,16,0,5,32,13,0
-Bellibolt,105,stat_points,7,,6.3%,,,16,0,12,6,32,0
-Bellibolt,105,stat_points,8,,6.3%,,,16,0,32,6,12,0
-Bellibolt,105,stat_points,9,,5.3%,,,31,0,1,32,2,0
-Bellibolt,105,stat_points,10,,1.1%,,,0,0,25,9,32,0
-Bellibolt,105,ability,1,Electromorphosis,100.0%,,,,,,,,
+Bellibolt,103,move,1,Protect,99.3%,,,,,,,,
+Bellibolt,103,move,2,Parabolic Charge,83.2%,,,,,,,,
+Bellibolt,103,move,3,Soak,67.1%,,,,,,,,
+Bellibolt,103,move,4,Slack Off,31.5%,,,,,,,,
+Bellibolt,103,move,5,Thunderbolt,28.7%,,,,,,,,
+Bellibolt,103,move,6,Toxic,22.4%,,,,,,,,
+Bellibolt,103,move,7,Discharge,16.8%,,,,,,,,
+Bellibolt,103,move,8,Sucker Punch,15.4%,,,,,,,,
+Bellibolt,103,move,9,Volt Switch,11.9%,,,,,,,,
+Bellibolt,103,move,10,Thunder Wave,9.1%,,,,,,,,
+Bellibolt,103,held_item,1,Leftovers,35.0%,,,,,,,,
+Bellibolt,103,held_item,2,Sitrus Berry,28.0%,,,,,,,,
+Bellibolt,103,held_item,3,Magnet,20.3%,,,,,,,,
+Bellibolt,103,held_item,4,Electric Seed,10.5%,,,,,,,,
+Bellibolt,103,held_item,5,Metronome,5.6%,,,,,,,,
+Bellibolt,103,held_item,6,Expert Belt,0.7%,,,,,,,,
+Bellibolt,103,teammate,1,Garchomp,,,,,,,,,
+Bellibolt,103,teammate,2,Kingambit,,,,,,,,,
+Bellibolt,103,teammate,3,Camerupt,,,,,,,,,
+Bellibolt,103,teammate,4,Sneasler,,,,,,,,,
+Bellibolt,103,teammate,5,Sinistcha,,,,,,,,,
+Bellibolt,103,teammate,6,Farigiraf,,,,,,,,,
+Bellibolt,103,teammate,7,Venusaur,,,,,,,,,
+Bellibolt,103,teammate,8,Milotic,,,,,,,,,
+Bellibolt,103,teammate,9,Kangaskhan,,,,,,,,,
+Bellibolt,103,teammate,10,Primarina,,,,,,,,,
+Bellibolt,103,stat_alignment,1,Quiet,37.1%,Sp. Atk,Speed,,,,,,
+Bellibolt,103,stat_alignment,2,Modest,23.1%,Sp. Atk,Attack,,,,,,
+Bellibolt,103,stat_alignment,3,Calm,16.8%,Sp. Def,Attack,,,,,,
+Bellibolt,103,stat_alignment,4,Relaxed,13.3%,Defense,Speed,,,,,,
+Bellibolt,103,stat_alignment,5,Sassy,9.1%,Sp. Def,Speed,,,,,,
+Bellibolt,103,stat_alignment,6,Bold,0.7%,Defense,Attack,,,,,,
+Bellibolt,103,stat_points,1,,16.8%,,,22,0,17,10,17,0
+Bellibolt,103,stat_points,2,,15.4%,,,13,0,21,17,15,0
+Bellibolt,103,stat_points,3,,13.3%,,,0,0,14,20,32,0
+Bellibolt,103,stat_points,4,,13.3%,,,4,0,30,0,32,0
+Bellibolt,103,stat_points,5,,11.9%,,,32,0,14,0,20,0
+Bellibolt,103,stat_points,6,,9.1%,,,32,0,7,0,27,0
+Bellibolt,103,stat_points,7,,5.6%,,,16,0,5,32,13,0
+Bellibolt,103,stat_points,8,,4.2%,,,16,0,12,6,32,0
+Bellibolt,103,stat_points,9,,4.2%,,,16,0,32,6,12,0
+Bellibolt,103,stat_points,10,,3.5%,,,31,0,1,32,2,0
+Bellibolt,103,ability,1,Electromorphosis,100.0%,,,,,,,,

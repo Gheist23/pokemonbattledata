@@ -1,41 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Kleavor,97,move,1,Stone Axe,96.5%,,,,,,,,
-Kleavor,97,move,2,X-Scissor,75.2%,,,,,,,,
-Kleavor,97,move,3,Protect,46.0%,,,,,,,,
-Kleavor,97,move,4,Night Slash,46.0%,,,,,,,,
-Kleavor,97,move,5,Close Combat,43.4%,,,,,,,,
-Kleavor,97,move,6,Aerial Ace,34.5%,,,,,,,,
-Kleavor,97,move,7,Tailwind,15.0%,,,,,,,,
-Kleavor,97,move,8,U-turn,12.4%,,,,,,,,
-Kleavor,97,move,9,Feint,9.7%,,,,,,,,
-Kleavor,97,move,10,Rock Slide,7.1%,,,,,,,,
-Kleavor,97,held_item,1,Choice Scarf,41.6%,,,,,,,,
-Kleavor,97,held_item,2,Focus Sash,35.4%,,,,,,,,
-Kleavor,97,held_item,3,Life Orb,12.4%,,,,,,,,
-Kleavor,97,held_item,4,White Herb,7.1%,,,,,,,,
-Kleavor,97,held_item,5,Scope Lens,3.5%,,,,,,,,
-Kleavor,97,teammate,1,Sneasler,,,,,,,,,
-Kleavor,97,teammate,2,Raichu,,,,,,,,,
-Kleavor,97,teammate,3,Basculegion,,,,,,,,,
-Kleavor,97,teammate,4,Garchomp,,,,,,,,,
-Kleavor,97,teammate,5,Whimsicott,,,,,,,,,
-Kleavor,97,teammate,6,Ninetales-Alola,,,,,,,,,
-Kleavor,97,teammate,7,Rillaboom,,,,,,,,,
-Kleavor,97,teammate,8,Indeedee,,,,,,,,,
-Kleavor,97,teammate,9,Gholdengo,,,,,,,,,
-Kleavor,97,teammate,10,Venusaur,,,,,,,,,
-Kleavor,97,stat_alignment,1,Adamant,52.2%,Attack,Sp. Atk,,,,,,
-Kleavor,97,stat_alignment,2,Jolly,46.9%,Speed,Sp. Atk,,,,,,
-Kleavor,97,stat_alignment,3,Naive,0.9%,Speed,Sp. Def,,,,,,
-Kleavor,97,stat_points,1,,22.1%,,,2,32,0,0,0,32
-Kleavor,97,stat_points,2,,12.4%,,,5,32,0,0,0,29
-Kleavor,97,stat_points,3,,10.6%,,,1,32,0,0,1,32
-Kleavor,97,stat_points,4,,9.7%,,,0,32,0,0,0,32
-Kleavor,97,stat_points,5,,8.8%,,,0,32,2,0,0,32
-Kleavor,97,stat_points,6,,8.0%,,,0,32,0,0,2,32
-Kleavor,97,stat_points,7,,8.0%,,,4,32,2,0,0,28
-Kleavor,97,stat_points,8,,6.2%,,,5,29,0,0,0,32
-Kleavor,97,stat_points,9,,3.5%,,,3,32,0,0,0,31
-Kleavor,97,stat_points,10,,3.5%,,,30,31,0,0,5,0
-Kleavor,97,ability,1,Sharpness,96.5%,,,,,,,,
-Kleavor,97,ability,2,Sheer Force,3.5%,,,,,,,,
+Kleavor,105,move,1,Stone Axe,97.0%,,,,,,,,
+Kleavor,105,move,2,X-Scissor,75.4%,,,,,,,,
+Kleavor,105,move,3,Protect,48.5%,,,,,,,,
+Kleavor,105,move,4,Night Slash,44.0%,,,,,,,,
+Kleavor,105,move,5,Close Combat,41.0%,,,,,,,,
+Kleavor,105,move,6,Aerial Ace,29.1%,,,,,,,,
+Kleavor,105,move,7,Feint,16.4%,,,,,,,,
+Kleavor,105,move,8,Tailwind,14.2%,,,,,,,,
+Kleavor,105,move,9,U-turn,10.4%,,,,,,,,
+Kleavor,105,move,10,Helping Hand,8.2%,,,,,,,,
+Kleavor,105,held_item,1,Choice Scarf,41.0%,,,,,,,,
+Kleavor,105,held_item,2,Focus Sash,34.3%,,,,,,,,
+Kleavor,105,held_item,3,Life Orb,11.2%,,,,,,,,
+Kleavor,105,held_item,4,White Herb,9.7%,,,,,,,,
+Kleavor,105,held_item,5,Scope Lens,3.0%,,,,,,,,
+Kleavor,105,held_item,6,Lum Berry,0.7%,,,,,,,,
+Kleavor,105,teammate,1,Sneasler,,,,,,,,,
+Kleavor,105,teammate,2,Raichu,,,,,,,,,
+Kleavor,105,teammate,3,Basculegion,,,,,,,,,
+Kleavor,105,teammate,4,Whimsicott,,,,,,,,,
+Kleavor,105,teammate,5,Garchomp,,,,,,,,,
+Kleavor,105,teammate,6,Farigiraf,,,,,,,,,
+Kleavor,105,teammate,7,Ninetales-Alola,,,,,,,,,
+Kleavor,105,teammate,8,Indeedee,,,,,,,,,
+Kleavor,105,teammate,9,Rillaboom,,,,,,,,,
+Kleavor,105,teammate,10,Venusaur,,,,,,,,,
+Kleavor,105,stat_alignment,1,Adamant,57.5%,Attack,Sp. Atk,,,,,,
+Kleavor,105,stat_alignment,2,Jolly,41.8%,Speed,Sp. Atk,,,,,,
+Kleavor,105,stat_alignment,3,Naive,0.7%,Speed,Sp. Def,,,,,,
+Kleavor,105,stat_points,1,,24.6%,,,2,32,0,0,0,32
+Kleavor,105,stat_points,2,,11.2%,,,0,32,2,0,0,32
+Kleavor,105,stat_points,3,,10.4%,,,5,32,0,0,0,29
+Kleavor,105,stat_points,4,,9.0%,,,0,32,0,0,0,32
+Kleavor,105,stat_points,5,,9.0%,,,1,32,0,0,1,32
+Kleavor,105,stat_points,6,,7.5%,,,0,32,0,0,2,32
+Kleavor,105,stat_points,7,,6.7%,,,4,32,2,0,0,28
+Kleavor,105,stat_points,8,,6.0%,,,15,29,0,0,5,17
+Kleavor,105,stat_points,9,,5.2%,,,5,29,0,0,0,32
+Kleavor,105,stat_points,10,,3.0%,,,3,32,0,0,0,31
+Kleavor,105,ability,1,Sharpness,97.0%,,,,,,,,
+Kleavor,105,ability,2,Sheer Force,3.0%,,,,,,,,

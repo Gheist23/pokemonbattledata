@@ -1,36 +1,37 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mamoswine,86,move,1,Protect,88.0%,,,,,,,,
-Mamoswine,86,move,2,High Horsepower,81.0%,,,,,,,,
-Mamoswine,86,move,3,Ice Shard,79.6%,,,,,,,,
-Mamoswine,86,move,4,Icicle Crash,79.6%,,,,,,,,
-Mamoswine,86,move,5,Rock Slide,44.4%,,,,,,,,
-Mamoswine,86,move,6,Earthquake,20.4%,,,,,,,,
-Mamoswine,86,move,7,Knock Off,7.0%,,,,,,,,
-Mamoswine,86,held_item,1,Focus Sash,58.5%,,,,,,,,
-Mamoswine,86,held_item,2,Expert Belt,20.4%,,,,,,,,
-Mamoswine,86,held_item,3,Life Orb,18.3%,,,,,,,,
-Mamoswine,86,held_item,4,Choice Scarf,2.8%,,,,,,,,
-Mamoswine,86,teammate,1,Sneasler,,,,,,,,,
-Mamoswine,86,teammate,2,Whimsicott,,,,,,,,,
-Mamoswine,86,teammate,3,Farigiraf,,,,,,,,,
-Mamoswine,86,teammate,4,Raichu,,,,,,,,,
-Mamoswine,86,teammate,5,Basculegion-F,,,,,,,,,
-Mamoswine,86,teammate,6,Charizard,,,,,,,,,
-Mamoswine,86,teammate,7,Torkoal,,,,,,,,,
-Mamoswine,86,teammate,8,Indeedee,,,,,,,,,
-Mamoswine,86,teammate,9,Salamence,,,,,,,,,
-Mamoswine,86,teammate,10,Golisopod,,,,,,,,,
-Mamoswine,86,stat_alignment,1,Adamant,74.6%,Attack,Sp. Atk,,,,,,
-Mamoswine,86,stat_alignment,2,Jolly,18.3%,Speed,Sp. Atk,,,,,,
-Mamoswine,86,stat_alignment,3,Brave,7.0%,Attack,Speed,,,,,,
-Mamoswine,86,stat_points,1,,21.1%,,,0,32,0,0,2,32
-Mamoswine,86,stat_points,2,,20.4%,,,2,32,0,0,0,32
-Mamoswine,86,stat_points,3,,15.5%,,,0,32,0,0,0,32
-Mamoswine,86,stat_points,4,,13.4%,,,32,32,0,0,0,2
-Mamoswine,86,stat_points,5,,11.3%,,,0,32,2,0,0,32
-Mamoswine,86,stat_points,6,,7.7%,,,0,32,0,0,4,30
-Mamoswine,86,stat_points,7,,7.0%,,,32,32,2,0,0,0
-Mamoswine,86,stat_points,8,,2.8%,,,10,32,0,0,0,24
-Mamoswine,86,stat_points,9,,0.7%,,,4,32,3,0,0,27
-Mamoswine,86,ability,1,Oblivious,97.2%,,,,,,,,
-Mamoswine,86,ability,2,Thick Fat,2.8%,,,,,,,,
+Mamoswine,86,move,1,Protect,88.5%,,,,,,,,
+Mamoswine,86,move,2,Ice Shard,83.6%,,,,,,,,
+Mamoswine,86,move,3,High Horsepower,82.0%,,,,,,,,
+Mamoswine,86,move,4,Icicle Crash,78.7%,,,,,,,,
+Mamoswine,86,move,5,Rock Slide,41.5%,,,,,,,,
+Mamoswine,86,move,6,Earthquake,19.1%,,,,,,,,
+Mamoswine,86,move,7,Knock Off,6.6%,,,,,,,,
+Mamoswine,86,held_item,1,Focus Sash,62.3%,,,,,,,,
+Mamoswine,86,held_item,2,Life Orb,19.7%,,,,,,,,
+Mamoswine,86,held_item,3,Expert Belt,15.8%,,,,,,,,
+Mamoswine,86,held_item,4,Choice Scarf,2.2%,,,,,,,,
+Mamoswine,86,teammate,1,Farigiraf,,,,,,,,,
+Mamoswine,86,teammate,2,Raichu,,,,,,,,,
+Mamoswine,86,teammate,3,Sneasler,,,,,,,,,
+Mamoswine,86,teammate,4,Torkoal,,,,,,,,,
+Mamoswine,86,teammate,5,Whimsicott,,,,,,,,,
+Mamoswine,86,teammate,6,Basculegion-F,,,,,,,,,
+Mamoswine,86,teammate,7,Indeedee,,,,,,,,,
+Mamoswine,86,teammate,8,Salamence,,,,,,,,,
+Mamoswine,86,teammate,9,Charizard,,,,,,,,,
+Mamoswine,86,teammate,10,Venusaur,,,,,,,,,
+Mamoswine,86,stat_alignment,1,Adamant,74.9%,Attack,Sp. Atk,,,,,,
+Mamoswine,86,stat_alignment,2,Jolly,18.6%,Speed,Sp. Atk,,,,,,
+Mamoswine,86,stat_alignment,3,Brave,6.6%,Attack,Speed,,,,,,
+Mamoswine,86,stat_points,1,,27.3%,,,0,32,0,0,2,32
+Mamoswine,86,stat_points,2,,19.7%,,,2,32,0,0,0,32
+Mamoswine,86,stat_points,3,,12.0%,,,0,32,0,0,0,32
+Mamoswine,86,stat_points,4,,10.4%,,,0,32,0,0,4,30
+Mamoswine,86,stat_points,5,,10.4%,,,32,32,0,0,0,2
+Mamoswine,86,stat_points,6,,9.3%,,,0,32,2,0,0,32
+Mamoswine,86,stat_points,7,,6.6%,,,32,32,2,0,0,0
+Mamoswine,86,stat_points,8,,2.2%,,,10,32,0,0,0,24
+Mamoswine,86,stat_points,9,,1.1%,,,4,30,0,0,16,16
+Mamoswine,86,stat_points,10,,0.5%,,,4,32,3,0,0,27
+Mamoswine,86,ability,1,Oblivious,97.8%,,,,,,,,
+Mamoswine,86,ability,2,Thick Fat,2.2%,,,,,,,,

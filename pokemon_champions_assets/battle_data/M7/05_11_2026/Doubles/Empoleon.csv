@@ -1,45 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Empoleon,90,move,1,Protect,81.8%,,,,,,,,
-Empoleon,90,move,2,Ice Beam,80.2%,,,,,,,,
-Empoleon,90,move,3,Flash Cannon,76.0%,,,,,,,,
-Empoleon,90,move,4,Surf,52.1%,,,,,,,,
-Empoleon,90,move,5,Hydro Pump,41.3%,,,,,,,,
-Empoleon,90,move,6,Roar,15.7%,,,,,,,,
-Empoleon,90,move,7,Agility,15.7%,,,,,,,,
-Empoleon,90,move,8,Psych Up,14.9%,,,,,,,,
-Empoleon,90,move,9,Steel Beam,7.4%,,,,,,,,
-Empoleon,90,move,10,Icy Wind,5.8%,,,,,,,,
-Empoleon,90,held_item,1,Chople Berry,54.5%,,,,,,,,
-Empoleon,90,held_item,2,Shuca Berry,16.5%,,,,,,,,
-Empoleon,90,held_item,3,Focus Sash,10.7%,,,,,,,,
-Empoleon,90,held_item,4,Sitrus Berry,8.3%,,,,,,,,
-Empoleon,90,held_item,5,Life Orb,6.6%,,,,,,,,
-Empoleon,90,held_item,6,Leftovers,1.7%,,,,,,,,
-Empoleon,90,held_item,7,Rocky Helmet,0.8%,,,,,,,,
-Empoleon,90,held_item,8,Air Balloon,0.8%,,,,,,,,
-Empoleon,90,teammate,1,Rillaboom,,,,,,,,,
-Empoleon,90,teammate,2,Tyranitar,,,,,,,,,
-Empoleon,90,teammate,3,Gardevoir,,,,,,,,,
-Empoleon,90,teammate,4,Blaziken,,,,,,,,,
-Empoleon,90,teammate,5,Wyrdeer,,,,,,,,,
-Empoleon,90,teammate,6,Indeedee-F,,,,,,,,,
-Empoleon,90,teammate,7,Armarouge,,,,,,,,,
-Empoleon,90,teammate,8,Raichu,,,,,,,,,
-Empoleon,90,teammate,9,Drampa,,,,,,,,,
-Empoleon,90,teammate,10,Sneasler,,,,,,,,,
-Empoleon,90,stat_alignment,1,Modest,76.0%,Sp. Atk,Attack,,,,,,
-Empoleon,90,stat_alignment,2,Timid,9.9%,Speed,Attack,,,,,,
-Empoleon,90,stat_alignment,3,Quiet,7.4%,Sp. Atk,Speed,,,,,,
-Empoleon,90,stat_alignment,4,Bold,5.8%,Defense,Attack,,,,,,
-Empoleon,90,stat_alignment,5,Impish,0.8%,Defense,Sp. Atk,,,,,,
-Empoleon,90,stat_points,1,,43.0%,,,32,0,2,32,0,0
-Empoleon,90,stat_points,2,,15.7%,,,0,0,2,32,0,32
-Empoleon,90,stat_points,3,,14.0%,,,32,0,1,9,3,21
-Empoleon,90,stat_points,4,,9.9%,,,2,0,0,32,0,32
-Empoleon,90,stat_points,5,,6.6%,,,30,0,6,29,1,0
-Empoleon,90,stat_points,6,,4.1%,,,31,0,7,19,9,0
-Empoleon,90,stat_points,7,,3.3%,,,32,0,30,4,0,0
-Empoleon,90,stat_points,8,,0.8%,,,31,0,2,1,32,0
-Empoleon,90,stat_points,9,,0.8%,,,31,0,14,20,1,0
-Empoleon,90,stat_points,10,,0.8%,,,31,0,20,0,15,0
-Empoleon,90,ability,1,Competitive,100.0%,,,,,,,,
+Empoleon,97,move,1,Ice Beam,84.1%,,,,,,,,
+Empoleon,97,move,2,Protect,82.1%,,,,,,,,
+Empoleon,97,move,3,Flash Cannon,77.5%,,,,,,,,
+Empoleon,97,move,4,Surf,56.3%,,,,,,,,
+Empoleon,97,move,5,Hydro Pump,35.1%,,,,,,,,
+Empoleon,97,move,6,Roar,12.6%,,,,,,,,
+Empoleon,97,move,7,Agility,12.6%,,,,,,,,
+Empoleon,97,move,8,Psych Up,11.9%,,,,,,,,
+Empoleon,97,move,9,Steel Beam,6.0%,,,,,,,,
+Empoleon,97,move,10,Icy Wind,4.6%,,,,,,,,
+Empoleon,97,held_item,1,Chople Berry,47.0%,,,,,,,,
+Empoleon,97,held_item,2,Focus Sash,19.2%,,,,,,,,
+Empoleon,97,held_item,3,Shuca Berry,16.6%,,,,,,,,
+Empoleon,97,held_item,4,Life Orb,7.3%,,,,,,,,
+Empoleon,97,held_item,5,Sitrus Berry,6.6%,,,,,,,,
+Empoleon,97,held_item,6,Leftovers,2.0%,,,,,,,,
+Empoleon,97,held_item,7,Rocky Helmet,0.7%,,,,,,,,
+Empoleon,97,held_item,8,Air Balloon,0.7%,,,,,,,,
+Empoleon,97,teammate,1,Tyranitar,,,,,,,,,
+Empoleon,97,teammate,2,Rillaboom,,,,,,,,,
+Empoleon,97,teammate,3,Gardevoir,,,,,,,,,
+Empoleon,97,teammate,4,Indeedee-F,,,,,,,,,
+Empoleon,97,teammate,5,Blaziken,,,,,,,,,
+Empoleon,97,teammate,6,Wyrdeer,,,,,,,,,
+Empoleon,97,teammate,7,Armarouge,,,,,,,,,
+Empoleon,97,teammate,8,Raichu,,,,,,,,,
+Empoleon,97,teammate,9,Drampa,,,,,,,,,
+Empoleon,97,teammate,10,Sneasler,,,,,,,,,
+Empoleon,97,stat_alignment,1,Modest,77.5%,Sp. Atk,Attack,,,,,,
+Empoleon,97,stat_alignment,2,Timid,7.9%,Speed,Attack,,,,,,
+Empoleon,97,stat_alignment,3,Quiet,6.0%,Sp. Atk,Speed,,,,,,
+Empoleon,97,stat_alignment,4,Bold,4.6%,Defense,Attack,,,,,,
+Empoleon,97,stat_alignment,5,Relaxed,3.3%,Defense,Speed,,,,,,
+Empoleon,97,stat_alignment,6,Impish,0.7%,Defense,Sp. Atk,,,,,,
+Empoleon,97,stat_points,1,,48.3%,,,32,0,2,32,0,0
+Empoleon,97,stat_points,2,,12.6%,,,0,0,2,32,0,32
+Empoleon,97,stat_points,3,,11.3%,,,32,0,1,9,3,21
+Empoleon,97,stat_points,4,,7.9%,,,2,0,0,32,0,32
+Empoleon,97,stat_points,5,,5.3%,,,30,0,6,29,1,0
+Empoleon,97,stat_points,6,,3.3%,,,31,0,7,19,9,0
+Empoleon,97,stat_points,7,,3.3%,,,32,0,32,0,2,0
+Empoleon,97,stat_points,8,,2.6%,,,32,0,30,4,0,0
+Empoleon,97,stat_points,9,,2.0%,,,0,0,0,32,2,32
+Empoleon,97,stat_points,10,,0.7%,,,29,0,13,24,0,0
+Empoleon,97,ability,1,Competitive,100.0%,,,,,,,,

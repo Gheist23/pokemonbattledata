@@ -1,53 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Salazzle,160,move,1,Fake Out,62.6%,,,,,,,,
-Salazzle,160,move,2,Sludge Bomb,61.2%,,,,,,,,
-Salazzle,160,move,3,Heat Wave,45.3%,,,,,,,,
-Salazzle,160,move,4,Toxic,43.9%,,,,,,,,
-Salazzle,160,move,5,Protect,42.1%,,,,,,,,
-Salazzle,160,move,6,Flamethrower,26.8%,,,,,,,,
-Salazzle,160,move,7,Encore,16.0%,,,,,,,,
-Salazzle,160,move,8,Overheat,14.9%,,,,,,,,
-Salazzle,160,move,9,Dragon Cheer,13.8%,,,,,,,,
-Salazzle,160,move,10,Sludge Wave,10.2%,,,,,,,,
-Salazzle,160,held_item,1,Focus Sash,61.2%,,,,,,,,
-Salazzle,160,held_item,2,Life Orb,8.2%,,,,,,,,
-Salazzle,160,held_item,3,Charcoal,5.7%,,,,,,,,
-Salazzle,160,held_item,4,Air Balloon,5.6%,,,,,,,,
-Salazzle,160,held_item,5,Poison Barb,2.0%,,,,,,,,
-Salazzle,160,held_item,6,Leftovers,2.0%,,,,,,,,
-Salazzle,160,held_item,7,Expert Belt,1.8%,,,,,,,,
-Salazzle,160,held_item,8,Bright Powder,1.7%,,,,,,,,
-Salazzle,160,held_item,9,Quick Claw,1.7%,,,,,,,,
-Salazzle,160,held_item,10,Choice Scarf,1.6%,,,,,,,,
-Salazzle,160,teammate,1,Rillaboom,,,,,,,,,
-Salazzle,160,teammate,2,Milotic,,,,,,,,,
-Salazzle,160,teammate,3,Garchomp,,,,,,,,,
-Salazzle,160,teammate,4,Sneasler,,,,,,,,,
-Salazzle,160,teammate,5,Raichu,,,,,,,,,
-Salazzle,160,teammate,6,Salamence,,,,,,,,,
-Salazzle,160,teammate,7,Archaludon,,,,,,,,,
-Salazzle,160,teammate,8,Whimsicott,,,,,,,,,
-Salazzle,160,teammate,9,Charizard,,,,,,,,,
-Salazzle,160,teammate,10,Indeedee-F,,,,,,,,,
-Salazzle,160,stat_alignment,1,Timid,72.4%,Speed,Attack,,,,,,
-Salazzle,160,stat_alignment,2,Modest,16.0%,Sp. Atk,Attack,,,,,,
-Salazzle,160,stat_alignment,3,Hasty,3.5%,Speed,Defense,,,,,,
-Salazzle,160,stat_alignment,4,Mild,2.9%,Sp. Atk,Defense,,,,,,
-Salazzle,160,stat_alignment,5,Jolly,1.6%,Speed,Sp. Atk,,,,,,
-Salazzle,160,stat_alignment,6,Bold,1.1%,Defense,Attack,,,,,,
-Salazzle,160,stat_alignment,7,Naive,0.8%,Speed,Sp. Def,,,,,,
-Salazzle,160,stat_alignment,8,Calm,0.5%,Sp. Def,Attack,,,,,,
-Salazzle,160,stat_alignment,9,Quiet,0.3%,Sp. Atk,Speed,,,,,,
-Salazzle,160,stat_alignment,10,Lonely,0.3%,Attack,Defense,,,,,,
-Salazzle,160,stat_points,1,,50.4%,,,2,0,0,32,0,32
-Salazzle,160,stat_points,2,,11.5%,,,0,0,0,32,2,32
-Salazzle,160,stat_points,3,,10.6%,,,0,0,2,32,0,32
-Salazzle,160,stat_points,4,,5.5%,,,0,0,0,32,0,32
-Salazzle,160,stat_points,5,,1.6%,,,0,0,1,32,1,32
-Salazzle,160,stat_points,6,,1.2%,,,32,0,0,2,0,32
-Salazzle,160,stat_points,7,,1.1%,,,0,0,2,0,32,32
-Salazzle,160,stat_points,8,,1.0%,,,0,2,0,32,0,32
-Salazzle,160,stat_points,9,,1.0%,,,0,0,0,32,32,2
-Salazzle,160,stat_points,10,,0.7%,,,32,0,2,0,0,32
-Salazzle,160,ability,1,Corrosion,70.1%,,,,,,,,
-Salazzle,160,ability,2,Oblivious,29.9%,,,,,,,,
+Salazzle,217,move,1,Fire Blast,100.0%,,,,,,,,
+Salazzle,217,move,2,Sludge Bomb,100.0%,,,,,,,,
+Salazzle,217,move,3,Fake Out,100.0%,,,,,,,,
+Salazzle,217,move,4,Toxic,100.0%,,,,,,,,
+Salazzle,217,held_item,1,Focus Sash,100.0%,,,,,,,,
+Salazzle,217,teammate,1,Pelipper,,,,,,,,,
+Salazzle,217,teammate,2,Aggron,,,,,,,,,
+Salazzle,217,teammate,3,Hydreigon,,,,,,,,,
+Salazzle,217,teammate,4,Mimikyu,,,,,,,,,
+Salazzle,217,teammate,5,Hatterene,,,,,,,,,
+Salazzle,217,stat_alignment,1,Timid,100.0%,Speed,Attack,,,,,,
+Salazzle,217,stat_points,1,,100.0%,,,2,0,0,32,0,32
+Salazzle,217,ability,1,Corrosion,100.0%,,,,,,,,

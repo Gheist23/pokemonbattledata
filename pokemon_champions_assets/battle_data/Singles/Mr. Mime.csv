@@ -1,41 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mr. Mime,238,move,1,Baton Pass,50.0%,,,,,,,,
-Mr. Mime,238,move,2,Calm Mind,37.5%,,,,,,,,
-Mr. Mime,238,move,3,Reflect,31.3%,,,,,,,,
-Mr. Mime,238,move,4,Taunt,31.3%,,,,,,,,
-Mr. Mime,238,move,5,Dazzling Gleam,31.3%,,,,,,,,
-Mr. Mime,238,move,6,Iron Defense,27.1%,,,,,,,,
-Mr. Mime,238,move,7,Nasty Plot,25.0%,,,,,,,,
-Mr. Mime,238,move,8,Psyshock,25.0%,,,,,,,,
-Mr. Mime,238,move,9,Mystical Fire,25.0%,,,,,,,,
-Mr. Mime,238,move,10,Light Screen,22.9%,,,,,,,,
-Mr. Mime,238,held_item,1,Expert Belt,25.0%,,,,,,,,
-Mr. Mime,238,held_item,2,Leftovers,22.9%,,,,,,,,
-Mr. Mime,238,held_item,3,Light Clay,22.9%,,,,,,,,
-Mr. Mime,238,held_item,4,Kebia Berry,14.6%,,,,,,,,
-Mr. Mime,238,held_item,5,Quick Claw,8.3%,,,,,,,,
-Mr. Mime,238,held_item,6,Bright Powder,4.2%,,,,,,,,
-Mr. Mime,238,held_item,7,Focus Sash,2.1%,,,,,,,,
-Mr. Mime,238,teammate,1,Clefable,,,,,,,,,
-Mr. Mime,238,teammate,2,Blastoise,,,,,,,,,
-Mr. Mime,238,teammate,3,Altaria,,,,,,,,,
-Mr. Mime,238,teammate,4,Golisopod,,,,,,,,,
-Mr. Mime,238,teammate,5,Grapploct,,,,,,,,,
-Mr. Mime,238,teammate,6,Bellibolt,,,,,,,,,
-Mr. Mime,238,teammate,7,Meowstic-F,,,,,,,,,
-Mr. Mime,238,teammate,8,Cinderace,,,,,,,,,
-Mr. Mime,238,teammate,9,Camerupt,,,,,,,,,
-Mr. Mime,238,teammate,10,Lucario,,,,,,,,,
-Mr. Mime,238,stat_alignment,1,Bold,31.3%,Defense,Attack,,,,,,
-Mr. Mime,238,stat_alignment,2,Modest,29.2%,Sp. Atk,Attack,,,,,,
-Mr. Mime,238,stat_alignment,3,Timid,25.0%,Speed,Attack,,,,,,
-Mr. Mime,238,stat_alignment,4,Calm,14.6%,Sp. Def,Attack,,,,,,
-Mr. Mime,238,stat_points,1,,25.0%,,,22,0,1,32,1,10
-Mr. Mime,238,stat_points,2,,22.9%,,,32,0,32,0,2,0
-Mr. Mime,238,stat_points,3,,14.6%,,,32,0,9,0,25,0
-Mr. Mime,238,stat_points,4,,12.5%,,,32,0,3,0,0,31
-Mr. Mime,238,stat_points,5,,10.4%,,,32,0,2,0,0,32
-Mr. Mime,238,stat_points,6,,8.3%,,,0,0,32,0,32,0
-Mr. Mime,238,stat_points,7,,6.3%,,,2,0,0,32,0,32
-Mr. Mime,238,ability,1,Soundproof,66.7%,,,,,,,,
-Mr. Mime,238,ability,2,Filter,33.3%,,,,,,,,
+Mr. Mime,233,move,1,Baton Pass,53.1%,,,,,,,,
+Mr. Mime,233,move,2,Iron Defense,35.9%,,,,,,,,
+Mr. Mime,233,move,3,Nasty Plot,34.4%,,,,,,,,
+Mr. Mime,233,move,4,Dazzling Gleam,32.8%,,,,,,,,
+Mr. Mime,233,move,5,Reflect,31.3%,,,,,,,,
+Mr. Mime,233,move,6,Encore,29.7%,,,,,,,,
+Mr. Mime,233,move,7,Calm Mind,29.7%,,,,,,,,
+Mr. Mime,233,move,8,Taunt,23.4%,,,,,,,,
+Mr. Mime,233,move,9,Mystical Fire,20.3%,,,,,,,,
+Mr. Mime,233,move,10,Psyshock,18.8%,,,,,,,,
+Mr. Mime,233,held_item,1,Expert Belt,18.8%,,,,,,,,
+Mr. Mime,233,held_item,2,Leftovers,17.2%,,,,,,,,
+Mr. Mime,233,held_item,3,Light Clay,17.2%,,,,,,,,
+Mr. Mime,233,held_item,4,Sitrus Berry,15.6%,,,,,,,,
+Mr. Mime,233,held_item,5,Kebia Berry,10.9%,,,,,,,,
+Mr. Mime,233,held_item,6,Focus Sash,9.4%,,,,,,,,
+Mr. Mime,233,held_item,7,Quick Claw,6.3%,,,,,,,,
+Mr. Mime,233,held_item,8,Bright Powder,3.1%,,,,,,,,
+Mr. Mime,233,held_item,9,Rocky Helmet,1.6%,,,,,,,,
+Mr. Mime,233,teammate,1,Clefable,,,,,,,,,
+Mr. Mime,233,teammate,2,Salamence,,,,,,,,,
+Mr. Mime,233,teammate,3,Blastoise,,,,,,,,,
+Mr. Mime,233,teammate,4,Altaria,,,,,,,,,
+Mr. Mime,233,teammate,5,Golisopod,,,,,,,,,
+Mr. Mime,233,teammate,6,Grapploct,,,,,,,,,
+Mr. Mime,233,teammate,7,Bellibolt,,,,,,,,,
+Mr. Mime,233,teammate,8,Metagross,,,,,,,,,
+Mr. Mime,233,teammate,9,Meowstic-F,,,,,,,,,
+Mr. Mime,233,teammate,10,Dragonite,,,,,,,,,
+Mr. Mime,233,stat_alignment,1,Bold,39.1%,Defense,Attack,,,,,,
+Mr. Mime,233,stat_alignment,2,Modest,31.3%,Sp. Atk,Attack,,,,,,
+Mr. Mime,233,stat_alignment,3,Timid,18.8%,Speed,Attack,,,,,,
+Mr. Mime,233,stat_alignment,4,Calm,10.9%,Sp. Def,Attack,,,,,,
+Mr. Mime,233,stat_points,1,,32.8%,,,32,0,32,0,2,0
+Mr. Mime,233,stat_points,2,,18.8%,,,22,0,1,32,1,10
+Mr. Mime,233,stat_points,3,,12.5%,,,2,0,0,32,0,32
+Mr. Mime,233,stat_points,4,,10.9%,,,32,0,9,0,25,0
+Mr. Mime,233,stat_points,5,,9.4%,,,32,0,3,0,0,31
+Mr. Mime,233,stat_points,6,,7.8%,,,32,0,2,0,0,32
+Mr. Mime,233,stat_points,7,,6.3%,,,0,0,32,0,32,0
+Mr. Mime,233,stat_points,8,,1.6%,,,32,0,0,32,0,2
+Mr. Mime,233,ability,1,Filter,50.0%,,,,,,,,
+Mr. Mime,233,ability,2,Soundproof,50.0%,,,,,,,,

@@ -1,44 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Jolteon,188,move,1,Alluring Voice,77.8%,,,,,,,,
-Jolteon,188,move,2,Thunderbolt,67.5%,,,,,,,,
-Jolteon,188,move,3,Shadow Ball,53.3%,,,,,,,,
-Jolteon,188,move,4,Volt Switch,49.1%,,,,,,,,
-Jolteon,188,move,5,Thunder,22.2%,,,,,,,,
-Jolteon,188,move,6,Light Screen,19.8%,,,,,,,,
-Jolteon,188,move,7,Weather Ball,17.9%,,,,,,,,
-Jolteon,188,move,8,Thunder Wave,14.6%,,,,,,,,
-Jolteon,188,move,9,Rain Dance,13.2%,,,,,,,,
-Jolteon,188,move,10,Rising Voltage,12.7%,,,,,,,,
-Jolteon,188,held_item,1,Life Orb,34.0%,,,,,,,,
-Jolteon,188,held_item,2,Choice Scarf,29.2%,,,,,,,,
-Jolteon,188,held_item,3,Focus Sash,23.1%,,,,,,,,
-Jolteon,188,held_item,4,Air Balloon,8.0%,,,,,,,,
-Jolteon,188,held_item,5,Expert Belt,2.4%,,,,,,,,
-Jolteon,188,held_item,6,Magnet,1.4%,,,,,,,,
-Jolteon,188,held_item,7,Sitrus Berry,0.9%,,,,,,,,
-Jolteon,188,held_item,8,Eject Button,0.5%,,,,,,,,
-Jolteon,188,teammate,1,Primarina,,,,,,,,,
-Jolteon,188,teammate,2,Charizard,,,,,,,,,
-Jolteon,188,teammate,3,Garchomp,,,,,,,,,
-Jolteon,188,teammate,4,Pikachu,,,,,,,,,
-Jolteon,188,teammate,5,Sceptile,,,,,,,,,
-Jolteon,188,teammate,6,Golurk,,,,,,,,,
-Jolteon,188,teammate,7,Sylveon,,,,,,,,,
-Jolteon,188,teammate,8,Kingambit,,,,,,,,,
-Jolteon,188,teammate,9,Umbreon,,,,,,,,,
-Jolteon,188,teammate,10,Raichu,,,,,,,,,
-Jolteon,188,stat_alignment,1,Timid,67.9%,Speed,Attack,,,,,,
-Jolteon,188,stat_alignment,2,Modest,26.9%,Sp. Atk,Attack,,,,,,
-Jolteon,188,stat_alignment,3,Bold,5.2%,Defense,Attack,,,,,,
-Jolteon,188,stat_points,1,,42.0%,,,2,0,0,32,0,32
-Jolteon,188,stat_points,2,,14.2%,,,0,0,0,32,1,32
-Jolteon,188,stat_points,3,,13.2%,,,1,0,1,32,0,32
-Jolteon,188,stat_points,4,,7.1%,,,0,0,0,32,2,32
-Jolteon,188,stat_points,5,,6.1%,,,3,0,0,32,0,31
-Jolteon,188,stat_points,6,,5.2%,,,2,0,14,32,18,0
-Jolteon,188,stat_points,7,,4.2%,,,3,0,5,32,0,26
-Jolteon,188,stat_points,8,,2.8%,,,0,0,2,32,0,32
-Jolteon,188,stat_points,9,,2.4%,,,9,0,0,32,0,25
-Jolteon,188,stat_points,10,,1.9%,,,9,0,0,31,2,24
-Jolteon,188,ability,1,Volt Absorb,78.8%,,,,,,,,
-Jolteon,188,ability,2,Quick Feet,21.2%,,,,,,,,
+Jolteon,183,move,1,Thunderbolt,71.1%,,,,,,,,
+Jolteon,183,move,2,Alluring Voice,65.6%,,,,,,,,
+Jolteon,183,move,3,Shadow Ball,56.1%,,,,,,,,
+Jolteon,183,move,4,Volt Switch,50.6%,,,,,,,,
+Jolteon,183,move,5,Light Screen,26.1%,,,,,,,,
+Jolteon,183,move,6,Thunder,18.6%,,,,,,,,
+Jolteon,183,move,7,Weather Ball,15.0%,,,,,,,,
+Jolteon,183,move,8,Quick Attack,14.2%,,,,,,,,
+Jolteon,183,move,9,Thunder Wave,12.3%,,,,,,,,
+Jolteon,183,move,10,Rain Dance,11.1%,,,,,,,,
+Jolteon,183,held_item,1,Choice Scarf,34.0%,,,,,,,,
+Jolteon,183,held_item,2,Life Orb,28.5%,,,,,,,,
+Jolteon,183,held_item,3,Focus Sash,19.4%,,,,,,,,
+Jolteon,183,held_item,4,Air Balloon,7.1%,,,,,,,,
+Jolteon,183,held_item,5,Expert Belt,2.0%,,,,,,,,
+Jolteon,183,held_item,6,Bright Powder,1.6%,,,,,,,,
+Jolteon,183,held_item,7,Magnet,1.2%,,,,,,,,
+Jolteon,183,held_item,8,Sitrus Berry,0.8%,,,,,,,,
+Jolteon,183,held_item,9,Eject Button,0.4%,,,,,,,,
+Jolteon,183,teammate,1,Primarina,,,,,,,,,
+Jolteon,183,teammate,2,Charizard,,,,,,,,,
+Jolteon,183,teammate,3,Garchomp,,,,,,,,,
+Jolteon,183,teammate,4,Golurk,,,,,,,,,
+Jolteon,183,teammate,5,Kingambit,,,,,,,,,
+Jolteon,183,teammate,6,Pikachu,,,,,,,,,
+Jolteon,183,teammate,7,Espeon,,,,,,,,,
+Jolteon,183,teammate,8,Sceptile,,,,,,,,,
+Jolteon,183,teammate,9,Sylveon,,,,,,,,,
+Jolteon,183,teammate,10,Umbreon,,,,,,,,,
+Jolteon,183,stat_alignment,1,Timid,62.1%,Speed,Attack,,,,,,
+Jolteon,183,stat_alignment,2,Modest,32.0%,Sp. Atk,Attack,,,,,,
+Jolteon,183,stat_alignment,3,Bold,4.3%,Defense,Attack,,,,,,
+Jolteon,183,stat_alignment,4,Mild,1.6%,Sp. Atk,Defense,,,,,,
+Jolteon,183,stat_points,1,,44.7%,,,2,0,0,32,0,32
+Jolteon,183,stat_points,2,,15.8%,,,1,0,1,32,0,32
+Jolteon,183,stat_points,3,,11.9%,,,0,0,0,32,1,32
+Jolteon,183,stat_points,4,,7.9%,,,0,0,0,32,2,32
+Jolteon,183,stat_points,5,,5.1%,,,3,0,0,32,0,31
+Jolteon,183,stat_points,6,,4.3%,,,2,0,14,32,18,0
+Jolteon,183,stat_points,7,,3.6%,,,3,0,5,32,0,26
+Jolteon,183,stat_points,8,,2.4%,,,0,0,2,32,0,32
+Jolteon,183,stat_points,9,,2.0%,,,9,0,0,32,0,25
+Jolteon,183,stat_points,10,,1.6%,,,9,0,0,31,2,24
+Jolteon,183,ability,1,Volt Absorb,80.2%,,,,,,,,
+Jolteon,183,ability,2,Quick Feet,19.8%,,,,,,,,

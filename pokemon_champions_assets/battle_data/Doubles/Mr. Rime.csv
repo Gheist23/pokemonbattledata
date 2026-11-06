@@ -1,42 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mr. Rime,180,move,1,Freeze-Dry,55.7%,,,,,,,,
-Mr. Rime,180,move,2,Protect,51.1%,,,,,,,,
-Mr. Rime,180,move,3,Trick Room,47.7%,,,,,,,,
-Mr. Rime,180,move,4,Role Play,44.3%,,,,,,,,
-Mr. Rime,180,move,5,Sheer Cold,44.3%,,,,,,,,
-Mr. Rime,180,move,6,Taunt,27.3%,,,,,,,,
-Mr. Rime,180,move,7,Ice Spinner,27.3%,,,,,,,,
-Mr. Rime,180,move,8,Expanding Force,26.1%,,,,,,,,
-Mr. Rime,180,move,9,Fake Out,20.5%,,,,,,,,
-Mr. Rime,180,move,10,Blizzard,19.3%,,,,,,,,
-Mr. Rime,180,held_item,1,Focus Sash,35.2%,,,,,,,,
-Mr. Rime,180,held_item,2,Life Orb,19.3%,,,,,,,,
-Mr. Rime,180,held_item,3,Leftovers,17.0%,,,,,,,,
-Mr. Rime,180,held_item,4,Psychic Seed,14.8%,,,,,,,,
-Mr. Rime,180,held_item,5,Never-Melt Ice,12.5%,,,,,,,,
-Mr. Rime,180,held_item,6,Sitrus Berry,1.1%,,,,,,,,
-Mr. Rime,180,teammate,1,Indeedee-F,,,,,,,,,
-Mr. Rime,180,teammate,2,Raichu,,,,,,,,,
-Mr. Rime,180,teammate,3,Incineroar,,,,,,,,,
-Mr. Rime,180,teammate,4,Garchomp,,,,,,,,,
-Mr. Rime,180,teammate,5,Froslass,,,,,,,,,
-Mr. Rime,180,teammate,6,Pelipper,,,,,,,,,
-Mr. Rime,180,teammate,7,Absol,,,,,,,,,
-Mr. Rime,180,teammate,8,Archaludon,,,,,,,,,
-Mr. Rime,180,teammate,9,Sneasler,,,,,,,,,
-Mr. Rime,180,teammate,10,Camerupt,,,,,,,,,
-Mr. Rime,180,stat_alignment,1,Timid,35.2%,Speed,Attack,,,,,,
-Mr. Rime,180,stat_alignment,2,Modest,27.3%,Sp. Atk,Attack,,,,,,
-Mr. Rime,180,stat_alignment,3,Quiet,19.3%,Sp. Atk,Speed,,,,,,
-Mr. Rime,180,stat_alignment,4,Calm,17.0%,Sp. Def,Attack,,,,,,
-Mr. Rime,180,stat_alignment,5,Relaxed,1.1%,Defense,Speed,,,,,,
-Mr. Rime,180,stat_points,1,,27.3%,,,32,0,2,32,0,0
-Mr. Rime,180,stat_points,2,,19.3%,,,24,0,10,32,0,0
-Mr. Rime,180,stat_points,3,,17.0%,,,22,0,12,0,0,32
-Mr. Rime,180,stat_points,4,,13.6%,,,2,0,0,32,0,32
-Mr. Rime,180,stat_points,5,,13.6%,,,32,0,0,2,0,32
-Mr. Rime,180,stat_points,6,,6.8%,,,0,0,2,32,0,32
-Mr. Rime,180,stat_points,7,,1.1%,,,25,0,25,2,0,14
-Mr. Rime,180,stat_points,8,,1.1%,,,32,0,24,0,10,0
-Mr. Rime,180,ability,1,Screen Cleaner,81.8%,,,,,,,,
-Mr. Rime,180,ability,2,Ice Body,18.2%,,,,,,,,
+Mr. Rime,163,move,1,Freeze-Dry,70.5%,,,,,,,,
+Mr. Rime,163,move,2,Protect,50.0%,,,,,,,,
+Mr. Rime,163,move,3,Trick Room,49.2%,,,,,,,,
+Mr. Rime,163,move,4,Role Play,43.2%,,,,,,,,
+Mr. Rime,163,move,5,Sheer Cold,43.2%,,,,,,,,
+Mr. Rime,163,move,6,Taunt,24.2%,,,,,,,,
+Mr. Rime,163,move,7,Ice Spinner,21.2%,,,,,,,,
+Mr. Rime,163,move,8,Blizzard,17.4%,,,,,,,,
+Mr. Rime,163,move,9,Expanding Force,17.4%,,,,,,,,
+Mr. Rime,163,move,10,Fake Out,13.6%,,,,,,,,
+Mr. Rime,163,held_item,1,Focus Sash,37.1%,,,,,,,,
+Mr. Rime,163,held_item,2,Psychic Seed,27.3%,,,,,,,,
+Mr. Rime,163,held_item,3,Life Orb,12.9%,,,,,,,,
+Mr. Rime,163,held_item,4,Leftovers,11.4%,,,,,,,,
+Mr. Rime,163,held_item,5,Never-Melt Ice,9.1%,,,,,,,,
+Mr. Rime,163,held_item,6,Colbur Berry,1.5%,,,,,,,,
+Mr. Rime,163,held_item,7,Sitrus Berry,0.8%,,,,,,,,
+Mr. Rime,163,teammate,1,Raichu,,,,,,,,,
+Mr. Rime,163,teammate,2,Garchomp,,,,,,,,,
+Mr. Rime,163,teammate,3,Froslass,,,,,,,,,
+Mr. Rime,163,teammate,4,Pelipper,,,,,,,,,
+Mr. Rime,163,teammate,5,Absol,,,,,,,,,
+Mr. Rime,163,teammate,6,Archaludon,,,,,,,,,
+Mr. Rime,163,teammate,7,Indeedee-F,,,,,,,,,
+Mr. Rime,163,teammate,8,Incineroar,,,,,,,,,
+Mr. Rime,163,teammate,9,Altaria,,,,,,,,,
+Mr. Rime,163,teammate,10,Scrafty,,,,,,,,,
+Mr. Rime,163,stat_alignment,1,Modest,37.9%,Sp. Atk,Attack,,,,,,
+Mr. Rime,163,stat_alignment,2,Timid,37.1%,Speed,Attack,,,,,,
+Mr. Rime,163,stat_alignment,3,Quiet,12.9%,Sp. Atk,Speed,,,,,,
+Mr. Rime,163,stat_alignment,4,Calm,11.4%,Sp. Def,Attack,,,,,,
+Mr. Rime,163,stat_alignment,5,Relaxed,0.8%,Defense,Speed,,,,,,
+Mr. Rime,163,stat_points,1,,35.6%,,,32,0,2,32,0,0
+Mr. Rime,163,stat_points,2,,17.4%,,,32,0,0,2,0,32
+Mr. Rime,163,stat_points,3,,14.4%,,,2,0,0,32,0,32
+Mr. Rime,163,stat_points,4,,12.9%,,,24,0,10,32,0,0
+Mr. Rime,163,stat_points,5,,11.4%,,,22,0,12,0,0,32
+Mr. Rime,163,stat_points,6,,4.5%,,,0,0,2,32,0,32
+Mr. Rime,163,stat_points,7,,1.5%,,,25,0,10,25,0,6
+Mr. Rime,163,stat_points,8,,0.8%,,,25,0,7,32,0,2
+Mr. Rime,163,stat_points,9,,0.8%,,,25,0,25,2,0,14
+Mr. Rime,163,stat_points,10,,0.8%,,,32,0,24,0,10,0
+Mr. Rime,163,ability,1,Screen Cleaner,87.9%,,,,,,,,
+Mr. Rime,163,ability,2,Ice Body,12.1%,,,,,,,,

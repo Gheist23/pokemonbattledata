@@ -1,41 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aurorus,197,move,1,Protect,86.4%,,,,,,,,
-Aurorus,197,move,2,Freeze-Dry,77.3%,,,,,,,,
-Aurorus,197,move,3,Ancient Power,65.9%,,,,,,,,
-Aurorus,197,move,4,Hyper Voice,59.1%,,,,,,,,
-Aurorus,197,move,5,Blizzard,40.9%,,,,,,,,
-Aurorus,197,move,6,Earth Power,25.0%,,,,,,,,
-Aurorus,197,move,7,Psychic,25.0%,,,,,,,,
-Aurorus,197,move,8,Aurora Veil,20.5%,,,,,,,,
-Aurorus,197,held_item,1,Life Orb,40.9%,,,,,,,,
-Aurorus,197,held_item,2,Focus Sash,27.3%,,,,,,,,
-Aurorus,197,held_item,3,Light Clay,13.6%,,,,,,,,
-Aurorus,197,held_item,4,Choice Scarf,9.1%,,,,,,,,
-Aurorus,197,held_item,5,Expert Belt,4.5%,,,,,,,,
-Aurorus,197,held_item,6,Never-Melt Ice,2.3%,,,,,,,,
-Aurorus,197,held_item,7,Psychic Seed,2.3%,,,,,,,,
-Aurorus,197,teammate,1,Indeedee-F,,,,,,,,,
-Aurorus,197,teammate,2,Gardevoir,,,,,,,,,
-Aurorus,197,teammate,3,Glimmora,,,,,,,,,
-Aurorus,197,teammate,4,Decidueye-Hisui,,,,,,,,,
-Aurorus,197,teammate,5,Alcremie,,,,,,,,,
-Aurorus,197,teammate,6,Armarouge,,,,,,,,,
-Aurorus,197,teammate,7,Sneasler,,,,,,,,,
-Aurorus,197,teammate,8,Tyranitar,,,,,,,,,
-Aurorus,197,teammate,9,Farigiraf,,,,,,,,,
-Aurorus,197,teammate,10,Arcanine-Hisui,,,,,,,,,
-Aurorus,197,stat_alignment,1,Quiet,45.5%,Sp. Atk,Speed,,,,,,
-Aurorus,197,stat_alignment,2,Modest,43.2%,Sp. Atk,Attack,,,,,,
-Aurorus,197,stat_alignment,3,Timid,9.1%,Speed,Attack,,,,,,
-Aurorus,197,stat_alignment,4,Calm,2.3%,Sp. Def,Attack,,,,,,
-Aurorus,197,stat_points,1,,29.5%,,,0,0,2,32,32,0
-Aurorus,197,stat_points,2,,22.7%,,,0,0,0,32,0,32
-Aurorus,197,stat_points,3,,13.6%,,,21,0,8,31,3,3
-Aurorus,197,stat_points,4,,11.4%,,,19,0,6,32,9,0
-Aurorus,197,stat_points,5,,9.1%,,,0,0,0,32,2,32
-Aurorus,197,stat_points,6,,4.5%,,,16,0,18,32,0,0
-Aurorus,197,stat_points,7,,4.5%,,,32,0,2,32,0,0
-Aurorus,197,stat_points,8,,2.3%,,,4,0,0,30,32,0
-Aurorus,197,stat_points,9,,2.3%,,,32,0,0,32,2,0
-Aurorus,197,ability,1,Refrigerate,59.1%,,,,,,,,
-Aurorus,197,ability,2,Snow Warning,40.9%,,,,,,,,
+Aurorus,199,move,1,Protect,78.8%,,,,,,,,
+Aurorus,199,move,2,Ancient Power,71.2%,,,,,,,,
+Aurorus,199,move,3,Freeze-Dry,65.4%,,,,,,,,
+Aurorus,199,move,4,Hyper Voice,59.6%,,,,,,,,
+Aurorus,199,move,5,Blizzard,40.4%,,,,,,,,
+Aurorus,199,move,6,Aurora Veil,23.1%,,,,,,,,
+Aurorus,199,move,7,Earth Power,21.2%,,,,,,,,
+Aurorus,199,move,8,Psychic,21.2%,,,,,,,,
+Aurorus,199,move,9,Round,9.6%,,,,,,,,
+Aurorus,199,move,10,Thunderbolt,9.6%,,,,,,,,
+Aurorus,199,held_item,1,Life Orb,34.6%,,,,,,,,
+Aurorus,199,held_item,2,Focus Sash,32.7%,,,,,,,,
+Aurorus,199,held_item,3,Light Clay,17.3%,,,,,,,,
+Aurorus,199,held_item,4,Choice Scarf,7.7%,,,,,,,,
+Aurorus,199,held_item,5,Expert Belt,3.8%,,,,,,,,
+Aurorus,199,held_item,6,Never-Melt Ice,1.9%,,,,,,,,
+Aurorus,199,held_item,7,Psychic Seed,1.9%,,,,,,,,
+Aurorus,199,teammate,1,Indeedee-F,,,,,,,,,
+Aurorus,199,teammate,2,Sneasler,,,,,,,,,
+Aurorus,199,teammate,3,Gardevoir,,,,,,,,,
+Aurorus,199,teammate,4,Indeedee,,,,,,,,,
+Aurorus,199,teammate,5,Glimmora,,,,,,,,,
+Aurorus,199,teammate,6,Farigiraf,,,,,,,,,
+Aurorus,199,teammate,7,Decidueye-Hisui,,,,,,,,,
+Aurorus,199,teammate,8,Alcremie,,,,,,,,,
+Aurorus,199,teammate,9,Armarouge,,,,,,,,,
+Aurorus,199,teammate,10,Tyranitar,,,,,,,,,
+Aurorus,199,stat_alignment,1,Modest,51.9%,Sp. Atk,Attack,,,,,,
+Aurorus,199,stat_alignment,2,Quiet,38.5%,Sp. Atk,Speed,,,,,,
+Aurorus,199,stat_alignment,3,Timid,7.7%,Speed,Attack,,,,,,
+Aurorus,199,stat_alignment,4,Calm,1.9%,Sp. Def,Attack,,,,,,
+Aurorus,199,stat_points,1,,25.0%,,,0,0,2,32,32,0
+Aurorus,199,stat_points,2,,19.2%,,,0,0,0,32,0,32
+Aurorus,199,stat_points,3,,17.3%,,,21,0,8,31,3,3
+Aurorus,199,stat_points,4,,9.6%,,,12,0,21,32,1,0
+Aurorus,199,stat_points,5,,9.6%,,,19,0,6,32,9,0
+Aurorus,199,stat_points,6,,7.7%,,,0,0,0,32,2,32
+Aurorus,199,stat_points,7,,3.8%,,,16,0,18,32,0,0
+Aurorus,199,stat_points,8,,3.8%,,,32,0,2,32,0,0
+Aurorus,199,stat_points,9,,1.9%,,,4,0,0,30,32,0
+Aurorus,199,stat_points,10,,1.9%,,,32,0,0,32,2,0
+Aurorus,199,ability,1,Refrigerate,59.6%,,,,,,,,
+Aurorus,199,ability,2,Snow Warning,40.4%,,,,,,,,

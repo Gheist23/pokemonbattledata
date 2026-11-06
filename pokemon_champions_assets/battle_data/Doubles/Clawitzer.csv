@@ -1,36 +1,40 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Clawitzer,148,move,1,Aura Sphere,95.9%,,,,,,,,
-Clawitzer,148,move,2,Dark Pulse,84.8%,,,,,,,,
-Clawitzer,148,move,3,Protect,63.2%,,,,,,,,
-Clawitzer,148,move,4,Water Pulse,62.6%,,,,,,,,
-Clawitzer,148,move,5,Ice Beam,62.0%,,,,,,,,
-Clawitzer,148,move,6,Terrain Pulse,14.6%,,,,,,,,
-Clawitzer,148,move,7,Dragon Pulse,8.2%,,,,,,,,
-Clawitzer,148,move,8,Flash Cannon,5.8%,,,,,,,,
-Clawitzer,148,move,9,Sludge Bomb,2.3%,,,,,,,,
-Clawitzer,148,move,10,Venoshock,0.6%,,,,,,,,
-Clawitzer,148,held_item,1,Expert Belt,78.9%,,,,,,,,
-Clawitzer,148,held_item,2,Life Orb,18.7%,,,,,,,,
-Clawitzer,148,held_item,3,Black Belt,1.8%,,,,,,,,
-Clawitzer,148,held_item,4,Metronome,0.6%,,,,,,,,
-Clawitzer,148,teammate,1,Hatterene,,,,,,,,,
-Clawitzer,148,teammate,2,Indeedee-F,,,,,,,,,
-Clawitzer,148,teammate,3,Golisopod,,,,,,,,,
-Clawitzer,148,teammate,4,Archaludon,,,,,,,,,
-Clawitzer,148,teammate,5,Sableye,,,,,,,,,
-Clawitzer,148,teammate,6,Incineroar,,,,,,,,,
-Clawitzer,148,teammate,7,Camerupt,,,,,,,,,
-Clawitzer,148,teammate,8,Scrafty,,,,,,,,,
-Clawitzer,148,teammate,9,Rillaboom,,,,,,,,,
-Clawitzer,148,teammate,10,Armarouge,,,,,,,,,
-Clawitzer,148,stat_alignment,1,Modest,80.1%,Sp. Atk,Attack,,,,,,
-Clawitzer,148,stat_alignment,2,Quiet,19.9%,Sp. Atk,Speed,,,,,,
-Clawitzer,148,stat_points,1,,62.0%,,,32,0,2,32,0,0
-Clawitzer,148,stat_points,2,,14.0%,,,32,0,1,32,1,0
-Clawitzer,148,stat_points,3,,12.9%,,,32,0,0,32,0,2
-Clawitzer,148,stat_points,4,,5.3%,,,2,0,32,32,0,0
-Clawitzer,148,stat_points,5,,2.3%,,,29,0,0,32,0,5
-Clawitzer,148,stat_points,6,,2.3%,,,31,0,2,32,1,0
-Clawitzer,148,stat_points,7,,0.6%,,,7,0,0,32,27,0
-Clawitzer,148,stat_points,8,,0.6%,,,32,0,0,32,2,0
-Clawitzer,148,ability,1,Mega Launcher,100.0%,,,,,,,,
+Clawitzer,149,move,1,Aura Sphere,96.3%,,,,,,,,
+Clawitzer,149,move,2,Dark Pulse,86.4%,,,,,,,,
+Clawitzer,149,move,3,Water Pulse,62.8%,,,,,,,,
+Clawitzer,149,move,4,Protect,61.8%,,,,,,,,
+Clawitzer,149,move,5,Ice Beam,60.2%,,,,,,,,
+Clawitzer,149,move,6,Terrain Pulse,13.6%,,,,,,,,
+Clawitzer,149,move,7,Flash Cannon,8.4%,,,,,,,,
+Clawitzer,149,move,8,Dragon Pulse,7.9%,,,,,,,,
+Clawitzer,149,move,9,Sludge Bomb,2.1%,,,,,,,,
+Clawitzer,149,move,10,Venoshock,0.5%,,,,,,,,
+Clawitzer,149,held_item,1,Expert Belt,74.3%,,,,,,,,
+Clawitzer,149,held_item,2,Life Orb,21.5%,,,,,,,,
+Clawitzer,149,held_item,3,Choice Scarf,2.1%,,,,,,,,
+Clawitzer,149,held_item,4,Black Belt,1.6%,,,,,,,,
+Clawitzer,149,held_item,5,Metronome,0.5%,,,,,,,,
+Clawitzer,149,teammate,1,Hatterene,,,,,,,,,
+Clawitzer,149,teammate,2,Indeedee-F,,,,,,,,,
+Clawitzer,149,teammate,3,Golisopod,,,,,,,,,
+Clawitzer,149,teammate,4,Archaludon,,,,,,,,,
+Clawitzer,149,teammate,5,Sableye,,,,,,,,,
+Clawitzer,149,teammate,6,Incineroar,,,,,,,,,
+Clawitzer,149,teammate,7,Camerupt,,,,,,,,,
+Clawitzer,149,teammate,8,Rillaboom,,,,,,,,,
+Clawitzer,149,teammate,9,Farigiraf,,,,,,,,,
+Clawitzer,149,teammate,10,Torkoal,,,,,,,,,
+Clawitzer,149,stat_alignment,1,Modest,75.4%,Sp. Atk,Attack,,,,,,
+Clawitzer,149,stat_alignment,2,Quiet,22.5%,Sp. Atk,Speed,,,,,,
+Clawitzer,149,stat_alignment,3,Timid,2.1%,Speed,Attack,,,,,,
+Clawitzer,149,stat_points,1,,61.8%,,,32,0,2,32,0,0
+Clawitzer,149,stat_points,2,,12.6%,,,32,0,1,32,1,0
+Clawitzer,149,stat_points,3,,11.5%,,,32,0,0,32,0,2
+Clawitzer,149,stat_points,4,,4.7%,,,2,0,32,32,0,0
+Clawitzer,149,stat_points,5,,2.1%,,,0,0,0,32,0,32
+Clawitzer,149,stat_points,6,,2.1%,,,29,0,0,32,0,5
+Clawitzer,149,stat_points,7,,2.1%,,,31,0,2,32,1,0
+Clawitzer,149,stat_points,8,,2.1%,,,32,0,0,32,2,0
+Clawitzer,149,stat_points,9,,0.5%,,,1,0,17,32,16,0
+Clawitzer,149,stat_points,10,,0.5%,,,7,0,0,32,27,0
+Clawitzer,149,ability,1,Mega Launcher,100.0%,,,,,,,,

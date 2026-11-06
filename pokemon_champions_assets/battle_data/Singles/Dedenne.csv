@@ -1,41 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dedenne,236,move,1,Nuzzle,83.0%,,,,,,,,
-Dedenne,236,move,2,Eerie Impulse,60.4%,,,,,,,,
-Dedenne,236,move,3,Thunderbolt,45.3%,,,,,,,,
-Dedenne,236,move,4,Super Fang,41.5%,,,,,,,,
-Dedenne,236,move,5,Charm,39.6%,,,,,,,,
-Dedenne,236,move,6,Draining Kiss,37.7%,,,,,,,,
-Dedenne,236,move,7,Dazzling Gleam,30.2%,,,,,,,,
-Dedenne,236,move,8,Volt Switch,20.8%,,,,,,,,
-Dedenne,236,move,9,Endeavor,11.3%,,,,,,,,
-Dedenne,236,move,10,Substitute,9.4%,,,,,,,,
-Dedenne,236,held_item,1,Shuca Berry,47.2%,,,,,,,,
-Dedenne,236,held_item,2,Sitrus Berry,34.0%,,,,,,,,
-Dedenne,236,held_item,3,Focus Sash,9.4%,,,,,,,,
-Dedenne,236,held_item,4,Air Balloon,9.4%,,,,,,,,
-Dedenne,236,teammate,1,Clefable,,,,,,,,,
-Dedenne,236,teammate,2,Absol,,,,,,,,,
-Dedenne,236,teammate,3,Ceruledge,,,,,,,,,
-Dedenne,236,teammate,4,Excadrill,,,,,,,,,
-Dedenne,236,teammate,5,Greninja,,,,,,,,,
-Dedenne,236,teammate,6,Blaziken,,,,,,,,,
-Dedenne,236,teammate,7,Hawlucha,,,,,,,,,
-Dedenne,236,teammate,8,Gengar,,,,,,,,,
-Dedenne,236,teammate,9,Ditto,,,,,,,,,
-Dedenne,236,teammate,10,Glalie,,,,,,,,,
-Dedenne,236,stat_alignment,1,Calm,45.3%,Sp. Def,Attack,,,,,,
-Dedenne,236,stat_alignment,2,Jolly,22.6%,Speed,Sp. Atk,,,,,,
-Dedenne,236,stat_alignment,3,Bold,11.3%,Defense,Attack,,,,,,
-Dedenne,236,stat_alignment,4,Modest,9.4%,Sp. Atk,Attack,,,,,,
-Dedenne,236,stat_alignment,5,Mild,9.4%,Sp. Atk,Defense,,,,,,
-Dedenne,236,stat_alignment,6,Timid,1.9%,Speed,Attack,,,,,,
-Dedenne,236,stat_points,1,,45.3%,,,32,0,0,0,11,23
-Dedenne,236,stat_points,2,,22.6%,,,32,0,2,0,0,32
-Dedenne,236,stat_points,3,,9.4%,,,1,0,1,32,0,32
-Dedenne,236,stat_points,4,,9.4%,,,1,1,0,32,0,32
-Dedenne,236,stat_points,5,,7.5%,,,32,0,32,0,2,0
-Dedenne,236,stat_points,6,,1.9%,,,2,0,0,0,32,32
-Dedenne,236,stat_points,7,,1.9%,,,32,0,32,0,0,2
-Dedenne,236,stat_points,8,,1.9%,,,32,0,32,2,0,0
-Dedenne,236,ability,1,Cheek Pouch,90.6%,,,,,,,,
-Dedenne,236,ability,2,Pickup,9.4%,,,,,,,,
+Dedenne,234,move,1,Nuzzle,71.4%,,,,,,,,
+Dedenne,234,move,2,Eerie Impulse,65.1%,,,,,,,,
+Dedenne,234,move,3,Super Fang,50.8%,,,,,,,,
+Dedenne,234,move,4,Charm,47.6%,,,,,,,,
+Dedenne,234,move,5,Thunderbolt,39.7%,,,,,,,,
+Dedenne,234,move,6,Volt Switch,31.7%,,,,,,,,
+Dedenne,234,move,7,Draining Kiss,31.7%,,,,,,,,
+Dedenne,234,move,8,Dazzling Gleam,27.0%,,,,,,,,
+Dedenne,234,move,9,Endeavor,9.5%,,,,,,,,
+Dedenne,234,move,10,Substitute,7.9%,,,,,,,,
+Dedenne,234,held_item,1,Sitrus Berry,44.4%,,,,,,,,
+Dedenne,234,held_item,2,Shuca Berry,39.7%,,,,,,,,
+Dedenne,234,held_item,3,Focus Sash,7.9%,,,,,,,,
+Dedenne,234,held_item,4,Air Balloon,7.9%,,,,,,,,
+Dedenne,234,teammate,1,Absol,,,,,,,,,
+Dedenne,234,teammate,2,Clefable,,,,,,,,,
+Dedenne,234,teammate,3,Ceruledge,,,,,,,,,
+Dedenne,234,teammate,4,Excadrill,,,,,,,,,
+Dedenne,234,teammate,5,Greninja,,,,,,,,,
+Dedenne,234,teammate,6,Corviknight,,,,,,,,,
+Dedenne,234,teammate,7,Blaziken,,,,,,,,,
+Dedenne,234,teammate,8,Hawlucha,,,,,,,,,
+Dedenne,234,teammate,9,Gengar,,,,,,,,,
+Dedenne,234,teammate,10,Ditto,,,,,,,,,
+Dedenne,234,stat_alignment,1,Calm,38.1%,Sp. Def,Attack,,,,,,
+Dedenne,234,stat_alignment,2,Jolly,19.0%,Speed,Sp. Atk,,,,,,
+Dedenne,234,stat_alignment,3,Timid,15.9%,Speed,Attack,,,,,,
+Dedenne,234,stat_alignment,4,Modest,9.5%,Sp. Atk,Attack,,,,,,
+Dedenne,234,stat_alignment,5,Bold,9.5%,Defense,Attack,,,,,,
+Dedenne,234,stat_alignment,6,Mild,7.9%,Sp. Atk,Defense,,,,,,
+Dedenne,234,stat_points,1,,38.1%,,,32,0,0,0,11,23
+Dedenne,234,stat_points,2,,19.0%,,,32,0,2,0,0,32
+Dedenne,234,stat_points,3,,14.3%,,,27,0,0,0,26,13
+Dedenne,234,stat_points,4,,7.9%,,,1,0,1,32,0,32
+Dedenne,234,stat_points,5,,7.9%,,,1,1,0,32,0,32
+Dedenne,234,stat_points,6,,6.3%,,,32,0,32,0,2,0
+Dedenne,234,stat_points,7,,1.6%,,,2,0,0,0,32,32
+Dedenne,234,stat_points,8,,1.6%,,,32,0,0,32,0,2
+Dedenne,234,stat_points,9,,1.6%,,,32,0,32,0,0,2
+Dedenne,234,stat_points,10,,1.6%,,,32,0,32,2,0,0
+Dedenne,234,ability,1,Cheek Pouch,92.1%,,,,,,,,
+Dedenne,234,ability,2,Pickup,7.9%,,,,,,,,

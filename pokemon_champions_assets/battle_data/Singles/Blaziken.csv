@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Blaziken,34,move,1,Flare Blitz,87.0%,,,,,,,,
-Blaziken,34,move,2,Close Combat,75.0%,,,,,,,,
+Blaziken,34,move,1,Flare Blitz,87.1%,,,,,,,,
+Blaziken,34,move,2,Close Combat,75.2%,,,,,,,,
 Blaziken,34,move,3,Detect,48.8%,,,,,,,,
-Blaziken,34,move,4,Thunder Punch,46.4%,,,,,,,,
-Blaziken,34,move,5,Swords Dance,32.4%,,,,,,,,
-Blaziken,34,move,6,Protect,25.9%,,,,,,,,
-Blaziken,34,move,7,Stone Edge,20.9%,,,,,,,,
-Blaziken,34,move,8,High Jump Kick,16.2%,,,,,,,,
+Blaziken,34,move,4,Thunder Punch,46.3%,,,,,,,,
+Blaziken,34,move,5,Swords Dance,31.9%,,,,,,,,
+Blaziken,34,move,6,Protect,26.0%,,,,,,,,
+Blaziken,34,move,7,Stone Edge,21.1%,,,,,,,,
+Blaziken,34,move,8,High Jump Kick,16.0%,,,,,,,,
 Blaziken,34,move,9,Rock Slide,8.8%,,,,,,,,
-Blaziken,34,move,10,Baton Pass,8.6%,,,,,,,,
-Blaziken,34,held_item,1,Blazikenite,66.4%,,,,,,,,
-Blaziken,34,held_item,2,Life Orb,19.7%,,,,,,,,
+Blaziken,34,move,10,Baton Pass,8.5%,,,,,,,,
+Blaziken,34,held_item,1,Blazikenite,66.5%,,,,,,,,
+Blaziken,34,held_item,2,Life Orb,19.6%,,,,,,,,
 Blaziken,34,held_item,3,Focus Sash,8.4%,,,,,,,,
 Blaziken,34,held_item,4,Sitrus Berry,2.0%,,,,,,,,
-Blaziken,34,held_item,5,Air Balloon,0.8%,,,,,,,,
+Blaziken,34,held_item,5,Air Balloon,0.7%,,,,,,,,
 Blaziken,34,held_item,6,Shuca Berry,0.5%,,,,,,,,
 Blaziken,34,held_item,7,Mental Herb,0.4%,,,,,,,,
 Blaziken,34,held_item,8,Leftovers,0.4%,,,,,,,,
@@ -29,25 +29,25 @@ Blaziken,34,teammate,7,Greninja,,,,,,,,,
 Blaziken,34,teammate,8,Basculegion,,,,,,,,,
 Blaziken,34,teammate,9,Gengar,,,,,,,,,
 Blaziken,34,teammate,10,Corviknight,,,,,,,,,
-Blaziken,34,stat_alignment,1,Adamant,76.5%,Attack,Sp. Atk,,,,,,
-Blaziken,34,stat_alignment,2,Jolly,13.1%,Speed,Sp. Atk,,,,,,
-Blaziken,34,stat_alignment,3,Modest,2.7%,Sp. Atk,Attack,,,,,,
-Blaziken,34,stat_alignment,4,Impish,1.9%,Defense,Sp. Atk,,,,,,
-Blaziken,34,stat_alignment,5,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,
+Blaziken,34,stat_alignment,1,Adamant,76.8%,Attack,Sp. Atk,,,,,,
+Blaziken,34,stat_alignment,2,Jolly,13.0%,Speed,Sp. Atk,,,,,,
+Blaziken,34,stat_alignment,3,Modest,2.5%,Sp. Atk,Attack,,,,,,
+Blaziken,34,stat_alignment,4,Impish,2.1%,Defense,Sp. Atk,,,,,,
+Blaziken,34,stat_alignment,5,Careful,1.4%,Sp. Def,Sp. Atk,,,,,,
 Blaziken,34,stat_alignment,6,Naughty,1.3%,Attack,Sp. Def,,,,,,
 Blaziken,34,stat_alignment,7,Naive,0.8%,Speed,Sp. Def,,,,,,
 Blaziken,34,stat_alignment,8,Lonely,0.6%,Attack,Defense,,,,,,
-Blaziken,34,stat_alignment,9,Timid,0.5%,Speed,Attack,,,,,,
+Blaziken,34,stat_alignment,9,Timid,0.4%,Speed,Attack,,,,,,
 Blaziken,34,stat_alignment,10,Bold,0.3%,Defense,Attack,,,,,,
-Blaziken,34,stat_points,1,,52.2%,,,2,32,0,0,0,32
-Blaziken,34,stat_points,2,,5.8%,,,0,32,2,0,0,32
-Blaziken,34,stat_points,3,,4.4%,,,16,32,0,0,0,18
-Blaziken,34,stat_points,4,,2.7%,,,2,0,0,32,0,32
-Blaziken,34,stat_points,5,,2.5%,,,4,32,0,0,0,30
-Blaziken,34,stat_points,6,,2.1%,,,0,32,1,0,1,32
-Blaziken,34,stat_points,7,,1.8%,,,0,32,0,0,2,32
-Blaziken,34,stat_points,8,,1.1%,,,32,32,0,0,0,2
-Blaziken,34,stat_points,9,,1.0%,,,10,32,0,0,0,24
+Blaziken,34,stat_points,1,,52.4%,,,2,32,0,0,0,32
+Blaziken,34,stat_points,2,,5.7%,,,0,32,2,0,0,32
+Blaziken,34,stat_points,3,,4.7%,,,16,32,0,0,0,18
+Blaziken,34,stat_points,4,,2.6%,,,4,32,0,0,0,30
+Blaziken,34,stat_points,5,,2.5%,,,2,0,0,32,0,32
+Blaziken,34,stat_points,6,,2.0%,,,0,32,1,0,1,32
+Blaziken,34,stat_points,7,,1.7%,,,0,32,0,0,2,32
+Blaziken,34,stat_points,8,,1.1%,,,10,32,0,0,0,24
+Blaziken,34,stat_points,9,,1.0%,,,32,32,0,0,0,2
 Blaziken,34,stat_points,10,,0.9%,,,20,12,2,0,0,32
-Blaziken,34,ability,1,Speed Boost,99.0%,,,,,,,,
-Blaziken,34,ability,2,Blaze,1.0%,,,,,,,,
+Blaziken,34,ability,1,Speed Boost,99.1%,,,,,,,,
+Blaziken,34,ability,2,Blaze,0.9%,,,,,,,,

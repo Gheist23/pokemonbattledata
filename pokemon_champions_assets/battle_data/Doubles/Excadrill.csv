@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Excadrill,25,move,1,Protect,99.0%,,,,,,,,
-Excadrill,25,move,2,Iron Head,98.9%,,,,,,,,
-Excadrill,25,move,3,High Horsepower,95.4%,,,,,,,,
-Excadrill,25,move,4,Rock Slide,83.7%,,,,,,,,
-Excadrill,25,move,5,Earthquake,16.9%,,,,,,,,
-Excadrill,25,move,6,Rock Tomb,2.1%,,,,,,,,
-Excadrill,25,move,7,Drill Run,1.1%,,,,,,,,
-Excadrill,25,move,8,Swords Dance,0.7%,,,,,,,,
+Excadrill,25,move,2,Iron Head,99.0%,,,,,,,,
+Excadrill,25,move,3,High Horsepower,95.1%,,,,,,,,
+Excadrill,25,move,4,Rock Slide,84.1%,,,,,,,,
+Excadrill,25,move,5,Earthquake,16.7%,,,,,,,,
+Excadrill,25,move,6,Rock Tomb,1.9%,,,,,,,,
+Excadrill,25,move,7,Drill Run,1.0%,,,,,,,,
+Excadrill,25,move,8,Swords Dance,1.0%,,,,,,,,
 Excadrill,25,move,9,Horn Drill,0.6%,,,,,,,,
 Excadrill,25,move,10,Megahorn,0.5%,,,,,,,,
-Excadrill,25,held_item,1,Focus Sash,93.8%,,,,,,,,
-Excadrill,25,held_item,2,Life Orb,2.6%,,,,,,,,
+Excadrill,25,held_item,1,Focus Sash,93.9%,,,,,,,,
+Excadrill,25,held_item,2,Life Orb,2.5%,,,,,,,,
 Excadrill,25,held_item,3,Excadrite,0.8%,,,,,,,,
 Excadrill,25,held_item,4,Choice Scarf,0.6%,,,,,,,,
 Excadrill,25,held_item,5,Expert Belt,0.6%,,,,,,,,
-Excadrill,25,held_item,6,Iron Ball,0.6%,,,,,,,,
-Excadrill,25,held_item,7,Chople Berry,0.5%,,,,,,,,
+Excadrill,25,held_item,6,Iron Ball,0.5%,,,,,,,,
+Excadrill,25,held_item,7,Chople Berry,0.4%,,,,,,,,
 Excadrill,25,held_item,8,Soft Sand,0.3%,,,,,,,,
-Excadrill,25,held_item,9,Wide Lens,0.1%,,,,,,,,
-Excadrill,25,held_item,10,White Herb,0.1%,,,,,,,,
+Excadrill,25,held_item,9,White Herb,0.1%,,,,,,,,
+Excadrill,25,held_item,10,Wide Lens,0.1%,,,,,,,,
 Excadrill,25,teammate,1,Tyranitar,,,,,,,,,
 Excadrill,25,teammate,2,Milotic,,,,,,,,,
 Excadrill,25,teammate,3,Gholdengo,,,,,,,,,
@@ -29,22 +29,22 @@ Excadrill,25,teammate,7,Sneasler,,,,,,,,,
 Excadrill,25,teammate,8,Indeedee-F,,,,,,,,,
 Excadrill,25,teammate,9,Rillaboom,,,,,,,,,
 Excadrill,25,teammate,10,Indeedee,,,,,,,,,
-Excadrill,25,stat_alignment,1,Adamant,82.4%,Attack,Sp. Atk,,,,,,
-Excadrill,25,stat_alignment,2,Jolly,16.5%,Speed,Sp. Atk,,,,,,
-Excadrill,25,stat_alignment,3,Brave,0.9%,Attack,Speed,,,,,,
+Excadrill,25,stat_alignment,1,Adamant,83.0%,Attack,Sp. Atk,,,,,,
+Excadrill,25,stat_alignment,2,Jolly,16.0%,Speed,Sp. Atk,,,,,,
+Excadrill,25,stat_alignment,3,Brave,0.8%,Attack,Speed,,,,,,
 Excadrill,25,stat_alignment,4,Serious,0.1%,,,,,,,,
 Excadrill,25,stat_alignment,5,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
 Excadrill,25,stat_alignment,6,Naughty,0.0%,Attack,Sp. Def,,,,,,
-Excadrill,25,stat_points,1,,48.7%,,,2,32,0,0,0,32
-Excadrill,25,stat_points,2,,27.0%,,,0,32,1,0,1,32
-Excadrill,25,stat_points,3,,11.2%,,,0,32,2,0,0,32
-Excadrill,25,stat_points,4,,3.5%,,,0,32,0,0,2,32
-Excadrill,25,stat_points,5,,2.9%,,,1,32,1,0,0,32
-Excadrill,25,stat_points,6,,1.1%,,,0,32,0,0,0,32
-Excadrill,25,stat_points,7,,0.6%,,,32,32,2,0,0,0
-Excadrill,25,stat_points,8,,0.6%,,,6,32,11,0,6,11
-Excadrill,25,stat_points,9,,0.5%,,,0,27,7,0,0,32
+Excadrill,25,stat_points,1,,48.4%,,,2,32,0,0,0,32
+Excadrill,25,stat_points,2,,27.5%,,,0,32,1,0,1,32
+Excadrill,25,stat_points,3,,11.1%,,,0,32,2,0,0,32
+Excadrill,25,stat_points,4,,3.7%,,,0,32,0,0,2,32
+Excadrill,25,stat_points,5,,2.8%,,,1,32,1,0,0,32
+Excadrill,25,stat_points,6,,1.0%,,,0,32,0,0,0,32
+Excadrill,25,stat_points,7,,0.6%,,,6,32,11,0,6,11
+Excadrill,25,stat_points,8,,0.5%,,,32,32,2,0,0,0
+Excadrill,25,stat_points,9,,0.4%,,,0,27,7,0,0,32
 Excadrill,25,stat_points,10,,0.4%,,,0,32,0,0,1,32
-Excadrill,25,ability,1,Sand Rush,98.2%,,,,,,,,
-Excadrill,25,ability,2,Sand Force,1.6%,,,,,,,,
+Excadrill,25,ability,1,Sand Rush,98.4%,,,,,,,,
+Excadrill,25,ability,2,Sand Force,1.4%,,,,,,,,
 Excadrill,25,ability,3,Mold Breaker,0.2%,,,,,,,,

@@ -1,40 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Arboliva,170,move,1,Earth Power,90.1%,,,,,,,,
-Arboliva,170,move,2,Protect,80.2%,,,,,,,,
-Arboliva,170,move,3,Giga Drain,71.3%,,,,,,,,
-Arboliva,170,move,4,Pollen Puff,29.7%,,,,,,,,
-Arboliva,170,move,5,Terrain Pulse,21.8%,,,,,,,,
-Arboliva,170,move,6,Dazzling Gleam,18.8%,,,,,,,,
-Arboliva,170,move,7,Alluring Voice,18.8%,,,,,,,,
-Arboliva,170,move,8,Weather Ball,16.8%,,,,,,,,
-Arboliva,170,move,9,Leech Seed,12.9%,,,,,,,,
-Arboliva,170,move,10,Leaf Storm,11.9%,,,,,,,,
-Arboliva,170,held_item,1,Sitrus Berry,35.6%,,,,,,,,
-Arboliva,170,held_item,2,Life Orb,32.7%,,,,,,,,
-Arboliva,170,held_item,3,Expert Belt,18.8%,,,,,,,,
-Arboliva,170,held_item,4,Eject Button,8.9%,,,,,,,,
-Arboliva,170,held_item,5,Big Root,4.0%,,,,,,,,
-Arboliva,170,teammate,1,Farigiraf,,,,,,,,,
-Arboliva,170,teammate,2,Charizard,,,,,,,,,
-Arboliva,170,teammate,3,Basculegion,,,,,,,,,
-Arboliva,170,teammate,4,Mawile,,,,,,,,,
-Arboliva,170,teammate,5,Indeedee-F,,,,,,,,,
-Arboliva,170,teammate,6,Raichu,,,,,,,,,
-Arboliva,170,teammate,7,Camerupt,,,,,,,,,
-Arboliva,170,teammate,8,Archaludon,,,,,,,,,
-Arboliva,170,teammate,9,Politoed,,,,,,,,,
-Arboliva,170,teammate,10,Staraptor,,,,,,,,,
-Arboliva,170,stat_alignment,1,Quiet,74.3%,Sp. Atk,Speed,,,,,,
-Arboliva,170,stat_alignment,2,Bold,13.9%,Defense,Attack,,,,,,
-Arboliva,170,stat_alignment,3,Relaxed,8.9%,Defense,Speed,,,,,,
-Arboliva,170,stat_alignment,4,Modest,3.0%,Sp. Atk,Attack,,,,,,
-Arboliva,170,stat_points,1,,46.5%,,,32,0,2,32,0,0
-Arboliva,170,stat_points,2,,18.8%,,,21,0,13,32,0,0
-Arboliva,170,stat_points,3,,12.9%,,,32,0,30,4,0,0
-Arboliva,170,stat_points,4,,8.9%,,,32,0,32,0,2,0
-Arboliva,170,stat_points,5,,6.9%,,,32,0,2,30,2,0
-Arboliva,170,stat_points,6,,4.0%,,,27,0,11,28,0,0
-Arboliva,170,stat_points,7,,1.0%,,,31,0,30,0,5,0
-Arboliva,170,stat_points,8,,1.0%,,,32,0,0,32,2,0
-Arboliva,170,ability,1,Seed Sower,65.3%,,,,,,,,
-Arboliva,170,ability,2,Harvest,34.7%,,,,,,,,
+Arboliva,169,move,1,Earth Power,78.9%,,,,,,,,
+Arboliva,169,move,2,Protect,76.4%,,,,,,,,
+Arboliva,169,move,3,Giga Drain,64.2%,,,,,,,,
+Arboliva,169,move,4,Pollen Puff,36.6%,,,,,,,,
+Arboliva,169,move,5,Terrain Pulse,19.5%,,,,,,,,
+Arboliva,169,move,6,Hyper Voice,17.1%,,,,,,,,
+Arboliva,169,move,7,Weather Ball,15.4%,,,,,,,,
+Arboliva,169,move,8,Dazzling Gleam,15.4%,,,,,,,,
+Arboliva,169,move,9,Alluring Voice,15.4%,,,,,,,,
+Arboliva,169,move,10,Leech Seed,13.0%,,,,,,,,
+Arboliva,169,held_item,1,Sitrus Berry,34.1%,,,,,,,,
+Arboliva,169,held_item,2,Life Orb,28.5%,,,,,,,,
+Arboliva,169,held_item,3,Expert Belt,15.4%,,,,,,,,
+Arboliva,169,held_item,4,Big Root,8.9%,,,,,,,,
+Arboliva,169,held_item,5,Eject Button,7.3%,,,,,,,,
+Arboliva,169,held_item,6,Grassy Seed,5.7%,,,,,,,,
+Arboliva,169,teammate,1,Farigiraf,,,,,,,,,
+Arboliva,169,teammate,2,Basculegion,,,,,,,,,
+Arboliva,169,teammate,3,Charizard,,,,,,,,,
+Arboliva,169,teammate,4,Mawile,,,,,,,,,
+Arboliva,169,teammate,5,Archaludon,,,,,,,,,
+Arboliva,169,teammate,6,Camerupt,,,,,,,,,
+Arboliva,169,teammate,7,Indeedee-F,,,,,,,,,
+Arboliva,169,teammate,8,Raichu,,,,,,,,,
+Arboliva,169,teammate,9,Pelipper,,,,,,,,,
+Arboliva,169,teammate,10,Metagross,,,,,,,,,
+Arboliva,169,stat_alignment,1,Quiet,70.7%,Sp. Atk,Speed,,,,,,
+Arboliva,169,stat_alignment,2,Bold,17.1%,Defense,Attack,,,,,,
+Arboliva,169,stat_alignment,3,Relaxed,7.3%,Defense,Speed,,,,,,
+Arboliva,169,stat_alignment,4,Modest,4.9%,Sp. Atk,Attack,,,,,,
+Arboliva,169,stat_points,1,,39.8%,,,32,0,2,32,0,0
+Arboliva,169,stat_points,2,,15.4%,,,21,0,13,32,0,0
+Arboliva,169,stat_points,3,,10.6%,,,32,0,30,4,0,0
+Arboliva,169,stat_points,4,,7.3%,,,32,0,32,0,2,0
+Arboliva,169,stat_points,5,,6.5%,,,27,0,11,28,0,0
+Arboliva,169,stat_points,6,,5.7%,,,23,0,27,0,16,0
+Arboliva,169,stat_points,7,,5.7%,,,32,0,2,30,2,0
+Arboliva,169,stat_points,8,,4.9%,,,32,0,9,25,0,0
+Arboliva,169,stat_points,9,,3.3%,,,32,0,0,32,2,0
+Arboliva,169,stat_points,10,,0.8%,,,31,0,30,0,5,0
+Arboliva,169,ability,1,Seed Sower,66.7%,,,,,,,,
+Arboliva,169,ability,2,Harvest,33.3%,,,,,,,,

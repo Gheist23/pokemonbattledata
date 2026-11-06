@@ -1,42 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Altaria,67,move,1,Protect,95.8%,,,,,,,,
-Altaria,67,move,2,Tailwind,87.5%,,,,,,,,
-Altaria,67,move,3,Hyper Voice,53.1%,,,,,,,,
-Altaria,67,move,4,Draco Meteor,25.7%,,,,,,,,
-Altaria,67,move,5,Haze,22.2%,,,,,,,,
-Altaria,67,move,6,Will-O-Wisp,21.5%,,,,,,,,
-Altaria,67,move,7,Flamethrower,20.1%,,,,,,,,
-Altaria,67,move,8,Dragon Pulse,17.4%,,,,,,,,
-Altaria,67,move,9,Perish Song,16.0%,,,,,,,,
-Altaria,67,move,10,Roost,8.7%,,,,,,,,
-Altaria,67,held_item,1,Altarianite,53.8%,,,,,,,,
-Altaria,67,held_item,2,Red Card,21.9%,,,,,,,,
-Altaria,67,held_item,3,Haban Berry,14.2%,,,,,,,,
-Altaria,67,held_item,4,Yache Berry,10.1%,,,,,,,,
+Altaria,67,move,1,Protect,91.8%,,,,,,,,
+Altaria,67,move,2,Tailwind,83.3%,,,,,,,,
+Altaria,67,move,3,Hyper Voice,50.3%,,,,,,,,
+Altaria,67,move,4,Draco Meteor,23.7%,,,,,,,,
+Altaria,67,move,5,Dragon Pulse,22.8%,,,,,,,,
+Altaria,67,move,6,Will-O-Wisp,21.3%,,,,,,,,
+Altaria,67,move,7,Perish Song,20.8%,,,,,,,,
+Altaria,67,move,8,Haze,19.3%,,,,,,,,
+Altaria,67,move,9,Flamethrower,19.0%,,,,,,,,
+Altaria,67,move,10,Roost,10.8%,,,,,,,,
+Altaria,67,held_item,1,Altarianite,53.5%,,,,,,,,
+Altaria,67,held_item,2,Red Card,18.4%,,,,,,,,
+Altaria,67,held_item,3,Haban Berry,15.5%,,,,,,,,
+Altaria,67,held_item,4,Yache Berry,10.2%,,,,,,,,
+Altaria,67,held_item,5,Sitrus Berry,1.2%,,,,,,,,
+Altaria,67,held_item,6,Wide Lens,1.2%,,,,,,,,
 Altaria,67,teammate,1,Sneasler,,,,,,,,,
-Altaria,67,teammate,2,Tsareena,,,,,,,,,
-Altaria,67,teammate,3,Indeedee,,,,,,,,,
-Altaria,67,teammate,4,Armarouge,,,,,,,,,
-Altaria,67,teammate,5,Incineroar,,,,,,,,,
-Altaria,67,teammate,6,Kommo-o,,,,,,,,,
-Altaria,67,teammate,7,Meowstic-F,,,,,,,,,
-Altaria,67,teammate,8,Rillaboom,,,,,,,,,
-Altaria,67,teammate,9,Gengar,,,,,,,,,
-Altaria,67,teammate,10,Archaludon,,,,,,,,,
-Altaria,67,stat_alignment,1,Timid,38.2%,Speed,Attack,,,,,,
-Altaria,67,stat_alignment,2,Bold,28.1%,Defense,Attack,,,,,,
-Altaria,67,stat_alignment,3,Modest,23.6%,Sp. Atk,Attack,,,,,,
-Altaria,67,stat_alignment,4,Jolly,4.9%,Speed,Sp. Atk,,,,,,
-Altaria,67,stat_alignment,5,Sassy,4.2%,Sp. Def,Speed,,,,,,
-Altaria,67,stat_alignment,6,Calm,1.0%,Sp. Def,Attack,,,,,,
-Altaria,67,stat_points,1,,21.9%,,,32,0,16,18,0,0
-Altaria,67,stat_points,2,,16.7%,,,32,0,0,2,0,32
-Altaria,67,stat_points,3,,12.8%,,,15,0,0,22,0,29
-Altaria,67,stat_points,4,,6.9%,,,32,0,5,0,0,29
-Altaria,67,stat_points,5,,5.9%,,,25,0,12,0,0,29
-Altaria,67,stat_points,6,,4.9%,,,15,29,1,0,0,21
-Altaria,67,stat_points,7,,4.2%,,,32,0,22,0,12,0
-Altaria,67,stat_points,8,,3.8%,,,24,0,0,30,0,12
-Altaria,67,stat_points,9,,3.8%,,,28,0,0,30,0,8
-Altaria,67,stat_points,10,,3.1%,,,32,0,5,9,20,0
+Altaria,67,teammate,2,Armarouge,,,,,,,,,
+Altaria,67,teammate,3,Incineroar,,,,,,,,,
+Altaria,67,teammate,4,Rillaboom,,,,,,,,,
+Altaria,67,teammate,5,Tsareena,,,,,,,,,
+Altaria,67,teammate,6,Gengar,,,,,,,,,
+Altaria,67,teammate,7,Indeedee,,,,,,,,,
+Altaria,67,teammate,8,Indeedee-F,,,,,,,,,
+Altaria,67,teammate,9,Kommo-o,,,,,,,,,
+Altaria,67,teammate,10,Meowstic-F,,,,,,,,,
+Altaria,67,stat_alignment,1,Timid,33.9%,Speed,Attack,,,,,,
+Altaria,67,stat_alignment,2,Modest,27.2%,Sp. Atk,Attack,,,,,,
+Altaria,67,stat_alignment,3,Bold,25.7%,Defense,Attack,,,,,,
+Altaria,67,stat_alignment,4,Jolly,5.3%,Speed,Sp. Atk,,,,,,
+Altaria,67,stat_alignment,5,Calm,4.4%,Sp. Def,Attack,,,,,,
+Altaria,67,stat_alignment,6,Sassy,3.5%,Sp. Def,Speed,,,,,,
+Altaria,67,stat_points,1,,18.7%,,,32,0,16,18,0,0
+Altaria,67,stat_points,2,,14.3%,,,32,0,0,2,0,32
+Altaria,67,stat_points,3,,10.8%,,,15,0,0,22,0,29
+Altaria,67,stat_points,4,,6.7%,,,25,0,12,0,0,29
+Altaria,67,stat_points,5,,5.8%,,,32,0,5,0,0,29
+Altaria,67,stat_points,6,,5.3%,,,15,29,1,0,0,21
+Altaria,67,stat_points,7,,5.0%,,,28,0,0,30,0,8
+Altaria,67,stat_points,8,,3.5%,,,32,0,22,0,12,0
+Altaria,67,stat_points,9,,3.2%,,,24,0,0,30,0,12
+Altaria,67,stat_points,10,,2.9%,,,15,0,1,20,1,29
 Altaria,67,ability,1,Cloud Nine,100.0%,,,,,,,,

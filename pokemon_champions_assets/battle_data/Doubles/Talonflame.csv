@@ -1,48 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Talonflame,52,move,1,Tailwind,99.8%,,,,,,,,
-Talonflame,52,move,2,Flare Blitz,56.7%,,,,,,,,
-Talonflame,52,move,3,Protect,54.7%,,,,,,,,
-Talonflame,52,move,4,Brave Bird,50.9%,,,,,,,,
-Talonflame,52,move,5,Quick Guard,29.1%,,,,,,,,
-Talonflame,52,move,6,Dual Wingbeat,28.3%,,,,,,,,
-Talonflame,52,move,7,Will-O-Wisp,17.4%,,,,,,,,
-Talonflame,52,move,8,Taunt,15.7%,,,,,,,,
-Talonflame,52,move,9,Acrobatics,14.8%,,,,,,,,
-Talonflame,52,move,10,Whirlwind,9.3%,,,,,,,,
-Talonflame,52,held_item,1,Sharp Beak,37.5%,,,,,,,,
-Talonflame,52,held_item,2,Life Orb,15.0%,,,,,,,,
-Talonflame,52,held_item,3,Focus Sash,10.7%,,,,,,,,
-Talonflame,52,held_item,4,Expert Belt,7.3%,,,,,,,,
-Talonflame,52,held_item,5,Charcoal,4.9%,,,,,,,,
-Talonflame,52,held_item,6,Shell Bell,3.7%,,,,,,,,
-Talonflame,52,held_item,7,Bright Powder,2.4%,,,,,,,,
-Talonflame,52,held_item,8,Charti Berry,0.9%,,,,,,,,
-Talonflame,52,held_item,9,Sitrus Berry,0.8%,,,,,,,,
-Talonflame,52,held_item,10,Leftovers,0.8%,,,,,,,,
-Talonflame,52,teammate,1,Garchomp,,,,,,,,,
-Talonflame,52,teammate,2,Basculegion,,,,,,,,,
-Talonflame,52,teammate,3,Kingambit,,,,,,,,,
-Talonflame,52,teammate,4,Sneasler,,,,,,,,,
-Talonflame,52,teammate,5,Floette-Eternal,,,,,,,,,
-Talonflame,52,teammate,6,Rillaboom,,,,,,,,,
-Talonflame,52,teammate,7,Raichu,,,,,,,,,
-Talonflame,52,teammate,8,Pelipper,,,,,,,,,
-Talonflame,52,teammate,9,Indeedee-F,,,,,,,,,
-Talonflame,52,teammate,10,Gardevoir,,,,,,,,,
-Talonflame,52,stat_alignment,1,Jolly,79.8%,Speed,Sp. Atk,,,,,,
-Talonflame,52,stat_alignment,2,Adamant,12.4%,Attack,Sp. Atk,,,,,,
-Talonflame,52,stat_alignment,3,Timid,5.8%,Speed,Attack,,,,,,
-Talonflame,52,stat_alignment,4,Naughty,1.8%,Attack,Sp. Def,,,,,,
-Talonflame,52,stat_alignment,5,Naive,0.2%,Speed,Sp. Def,,,,,,
-Talonflame,52,stat_points,1,,58.1%,,,2,32,0,0,0,32
-Talonflame,52,stat_points,2,,7.8%,,,6,31,2,0,0,27
-Talonflame,52,stat_points,3,,4.3%,,,7,32,0,0,0,27
-Talonflame,52,stat_points,4,,4.1%,,,14,15,5,0,0,32
-Talonflame,52,stat_points,5,,3.8%,,,32,32,0,0,0,2
-Talonflame,52,stat_points,6,,3.4%,,,0,0,2,32,0,32
-Talonflame,52,stat_points,7,,3.1%,,,1,32,0,0,0,32
-Talonflame,52,stat_points,8,,2.0%,,,0,32,0,0,2,32
-Talonflame,52,stat_points,9,,2.0%,,,1,32,1,0,0,32
-Talonflame,52,stat_points,10,,2.0%,,,6,32,1,0,0,27
-Talonflame,52,ability,1,Gale Wings,99.8%,,,,,,,,
-Talonflame,52,ability,2,Flame Body,0.2%,,,,,,,,
+Talonflame,51,move,1,Tailwind,99.9%,,,,,,,,
+Talonflame,51,move,2,Flare Blitz,57.7%,,,,,,,,
+Talonflame,51,move,3,Protect,53.1%,,,,,,,,
+Talonflame,51,move,4,Brave Bird,52.1%,,,,,,,,
+Talonflame,51,move,5,Quick Guard,30.6%,,,,,,,,
+Talonflame,51,move,6,Dual Wingbeat,26.7%,,,,,,,,
+Talonflame,51,move,7,Will-O-Wisp,14.8%,,,,,,,,
+Talonflame,51,move,8,Taunt,14.8%,,,,,,,,
+Talonflame,51,move,9,Acrobatics,11.8%,,,,,,,,
+Talonflame,51,move,10,Whirlwind,7.2%,,,,,,,,
+Talonflame,51,held_item,1,Sharp Beak,32.0%,,,,,,,,
+Talonflame,51,held_item,2,Focus Sash,17.2%,,,,,,,,
+Talonflame,51,held_item,3,Life Orb,12.7%,,,,,,,,
+Talonflame,51,held_item,4,Expert Belt,7.9%,,,,,,,,
+Talonflame,51,held_item,5,Shell Bell,4.6%,,,,,,,,
+Talonflame,51,held_item,6,Charcoal,4.0%,,,,,,,,
+Talonflame,51,held_item,7,Leftovers,2.2%,,,,,,,,
+Talonflame,51,held_item,8,Charti Berry,2.1%,,,,,,,,
+Talonflame,51,held_item,9,Bright Powder,1.9%,,,,,,,,
+Talonflame,51,held_item,10,Wide Lens,1.5%,,,,,,,,
+Talonflame,51,teammate,1,Garchomp,,,,,,,,,
+Talonflame,51,teammate,2,Basculegion,,,,,,,,,
+Talonflame,51,teammate,3,Kingambit,,,,,,,,,
+Talonflame,51,teammate,4,Rillaboom,,,,,,,,,
+Talonflame,51,teammate,5,Sneasler,,,,,,,,,
+Talonflame,51,teammate,6,Floette-Eternal,,,,,,,,,
+Talonflame,51,teammate,7,Gardevoir,,,,,,,,,
+Talonflame,51,teammate,8,Indeedee-F,,,,,,,,,
+Talonflame,51,teammate,9,Raichu,,,,,,,,,
+Talonflame,51,teammate,10,Pelipper,,,,,,,,,
+Talonflame,51,stat_alignment,1,Jolly,72.0%,Speed,Sp. Atk,,,,,,
+Talonflame,51,stat_alignment,2,Adamant,17.4%,Attack,Sp. Atk,,,,,,
+Talonflame,51,stat_alignment,3,Timid,6.2%,Speed,Attack,,,,,,
+Talonflame,51,stat_alignment,4,Modest,2.8%,Sp. Atk,Attack,,,,,,
+Talonflame,51,stat_alignment,5,Naughty,1.4%,Attack,Sp. Def,,,,,,
+Talonflame,51,stat_alignment,6,Naive,0.1%,Speed,Sp. Def,,,,,,
+Talonflame,51,stat_alignment,7,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Talonflame,51,stat_points,1,,53.6%,,,2,32,0,0,0,32
+Talonflame,51,stat_points,2,,6.0%,,,6,31,2,0,0,27
+Talonflame,51,stat_points,3,,5.5%,,,32,32,0,0,0,2
+Talonflame,51,stat_points,4,,4.6%,,,7,32,0,0,0,27
+Talonflame,51,stat_points,5,,3.9%,,,14,15,5,0,0,32
+Talonflame,51,stat_points,6,,3.6%,,,2,0,0,32,0,32
+Talonflame,51,stat_points,7,,3.3%,,,0,0,2,32,0,32
+Talonflame,51,stat_points,8,,2.3%,,,1,32,0,0,0,32
+Talonflame,51,stat_points,9,,2.1%,,,0,32,0,0,0,32
+Talonflame,51,stat_points,10,,2.1%,,,0,32,0,0,2,32
+Talonflame,51,ability,1,Gale Wings,99.9%,,,,,,,,
+Talonflame,51,ability,2,Flame Body,0.1%,,,,,,,,

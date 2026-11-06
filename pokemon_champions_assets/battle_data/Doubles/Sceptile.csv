@@ -1,37 +1,38 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sceptile,82,move,1,Earth Power,99.0%,,,,,,,,
-Sceptile,82,move,2,Dragon Pulse,97.9%,,,,,,,,
-Sceptile,82,move,3,Detect,91.7%,,,,,,,,
-Sceptile,82,move,4,Leaf Storm,62.5%,,,,,,,,
-Sceptile,82,move,5,Energy Ball,29.7%,,,,,,,,
-Sceptile,82,move,6,Protect,6.3%,,,,,,,,
-Sceptile,82,move,7,Giga Drain,5.7%,,,,,,,,
-Sceptile,82,move,8,Leaf Blade,2.1%,,,,,,,,
-Sceptile,82,move,9,Acrobatics,2.1%,,,,,,,,
-Sceptile,82,move,10,Dragon Cheer,2.1%,,,,,,,,
-Sceptile,82,held_item,1,Sceptilite,97.9%,,,,,,,,
-Sceptile,82,held_item,2,Psychic Seed,2.1%,,,,,,,,
-Sceptile,82,teammate,1,Tyranitar,,,,,,,,,
-Sceptile,82,teammate,2,Rotom-Heat,,,,,,,,,
-Sceptile,82,teammate,3,Excadrill,,,,,,,,,
-Sceptile,82,teammate,4,Indeedee-F,,,,,,,,,
-Sceptile,82,teammate,5,Armarouge,,,,,,,,,
-Sceptile,82,teammate,6,Talonflame,,,,,,,,,
-Sceptile,82,teammate,7,Toxtricity-Low-Key,,,,,,,,,
-Sceptile,82,teammate,8,Rotom-Wash,,,,,,,,,
-Sceptile,82,teammate,9,Kingambit,,,,,,,,,
-Sceptile,82,teammate,10,Metagross,,,,,,,,,
-Sceptile,82,stat_alignment,1,Timid,93.8%,Speed,Attack,,,,,,
-Sceptile,82,stat_alignment,2,Modest,4.2%,Sp. Atk,Attack,,,,,,
-Sceptile,82,stat_alignment,3,Hasty,2.1%,Speed,Defense,,,,,,
-Sceptile,82,stat_points,1,,72.9%,,,2,0,0,32,0,32
-Sceptile,82,stat_points,2,,9.9%,,,0,0,9,25,0,32
-Sceptile,82,stat_points,3,,4.7%,,,3,0,0,32,9,22
-Sceptile,82,stat_points,4,,3.6%,,,9,0,0,32,0,25
-Sceptile,82,stat_points,5,,3.1%,,,1,0,1,32,0,32
-Sceptile,82,stat_points,6,,2.1%,,,2,32,0,0,0,32
-Sceptile,82,stat_points,7,,1.6%,,,0,0,1,32,1,32
-Sceptile,82,stat_points,8,,1.6%,,,19,0,0,15,0,32
-Sceptile,82,stat_points,9,,0.5%,,,0,0,2,32,0,32
-Sceptile,82,ability,1,Overgrow,94.3%,,,,,,,,
-Sceptile,82,ability,2,Unburden,5.7%,,,,,,,,
+Sceptile,89,move,1,Earth Power,99.1%,,,,,,,,
+Sceptile,89,move,2,Dragon Pulse,96.0%,,,,,,,,
+Sceptile,89,move,3,Detect,89.7%,,,,,,,,
+Sceptile,89,move,4,Leaf Storm,56.5%,,,,,,,,
+Sceptile,89,move,5,Energy Ball,31.8%,,,,,,,,
+Sceptile,89,move,6,Protect,6.3%,,,,,,,,
+Sceptile,89,move,7,Giga Drain,5.4%,,,,,,,,
+Sceptile,89,move,8,Leaf Blade,4.0%,,,,,,,,
+Sceptile,89,move,9,Acrobatics,4.0%,,,,,,,,
+Sceptile,89,move,10,Dragon Cheer,4.0%,,,,,,,,
+Sceptile,89,held_item,1,Sceptilite,96.0%,,,,,,,,
+Sceptile,89,held_item,2,Psychic Seed,4.0%,,,,,,,,
+Sceptile,89,teammate,1,Rotom-Heat,,,,,,,,,
+Sceptile,89,teammate,2,Tyranitar,,,,,,,,,
+Sceptile,89,teammate,3,Excadrill,,,,,,,,,
+Sceptile,89,teammate,4,Indeedee-F,,,,,,,,,
+Sceptile,89,teammate,5,Armarouge,,,,,,,,,
+Sceptile,89,teammate,6,Talonflame,,,,,,,,,
+Sceptile,89,teammate,7,Toxtricity-Low-Key,,,,,,,,,
+Sceptile,89,teammate,8,Rotom-Wash,,,,,,,,,
+Sceptile,89,teammate,9,Kingambit,,,,,,,,,
+Sceptile,89,teammate,10,Sneasler,,,,,,,,,
+Sceptile,89,stat_alignment,1,Timid,91.5%,Speed,Attack,,,,,,
+Sceptile,89,stat_alignment,2,Modest,4.5%,Sp. Atk,Attack,,,,,,
+Sceptile,89,stat_alignment,3,Hasty,4.0%,Speed,Defense,,,,,,
+Sceptile,89,stat_points,1,,70.9%,,,2,0,0,32,0,32
+Sceptile,89,stat_points,2,,8.5%,,,0,0,9,25,0,32
+Sceptile,89,stat_points,3,,4.0%,,,1,0,1,32,0,32
+Sceptile,89,stat_points,4,,4.0%,,,2,32,0,0,0,32
+Sceptile,89,stat_points,5,,4.0%,,,3,0,0,32,9,22
+Sceptile,89,stat_points,6,,3.1%,,,0,0,1,32,1,32
+Sceptile,89,stat_points,7,,3.1%,,,9,0,0,32,0,25
+Sceptile,89,stat_points,8,,1.3%,,,19,0,0,15,0,32
+Sceptile,89,stat_points,9,,0.4%,,,0,0,2,32,0,32
+Sceptile,89,stat_points,10,,0.4%,,,23,0,0,32,0,11
+Sceptile,89,ability,1,Overgrow,91.0%,,,,,,,,
+Sceptile,89,ability,2,Unburden,9.0%,,,,,,,,

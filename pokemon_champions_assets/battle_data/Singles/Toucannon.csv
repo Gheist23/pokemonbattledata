@@ -1,46 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Toucannon,92,move,1,Beak Blast,100.0%,,,,,,,,
-Toucannon,92,move,2,Bullet Seed,97.0%,,,,,,,,
-Toucannon,92,move,3,Encore,86.0%,,,,,,,,
-Toucannon,92,move,4,Rock Blast,73.0%,,,,,,,,
-Toucannon,92,move,5,Temper Flare,12.2%,,,,,,,,
-Toucannon,92,move,6,Roost,10.2%,,,,,,,,
-Toucannon,92,move,7,U-turn,9.0%,,,,,,,,
-Toucannon,92,move,8,Substitute,7.4%,,,,,,,,
-Toucannon,92,move,9,Knock Off,4.7%,,,,,,,,
-Toucannon,92,move,10,Seed Bomb,0.5%,,,,,,,,
-Toucannon,92,held_item,1,Focus Sash,48.3%,,,,,,,,
-Toucannon,92,held_item,2,Sitrus Berry,39.0%,,,,,,,,
-Toucannon,92,held_item,3,Life Orb,8.1%,,,,,,,,
-Toucannon,92,held_item,4,Lum Berry,1.5%,,,,,,,,
-Toucannon,92,held_item,5,Red Card,1.4%,,,,,,,,
-Toucannon,92,held_item,6,Sharp Beak,0.8%,,,,,,,,
-Toucannon,92,held_item,7,Focus Band,0.5%,,,,,,,,
-Toucannon,92,held_item,8,Leftovers,0.3%,,,,,,,,
-Toucannon,92,held_item,9,Miracle Seed,0.2%,,,,,,,,
-Toucannon,92,teammate,1,Garchomp,,,,,,,,,
-Toucannon,92,teammate,2,Lucario,,,,,,,,,
-Toucannon,92,teammate,3,Hippowdon,,,,,,,,,
-Toucannon,92,teammate,4,Floette-Eternal,,,,,,,,,
-Toucannon,92,teammate,5,Mimikyu,,,,,,,,,
-Toucannon,92,teammate,6,Basculegion,,,,,,,,,
-Toucannon,92,teammate,7,Slowking-Galar,,,,,,,,,
-Toucannon,92,teammate,8,Dragonite,,,,,,,,,
-Toucannon,92,teammate,9,Aegislash,,,,,,,,,
-Toucannon,92,teammate,10,Primarina,,,,,,,,,
-Toucannon,92,stat_alignment,1,Adamant,93.2%,Attack,Sp. Atk,,,,,,
-Toucannon,92,stat_alignment,2,Impish,3.6%,Defense,Sp. Atk,,,,,,
-Toucannon,92,stat_alignment,3,Brave,2.7%,Attack,Speed,,,,,,
-Toucannon,92,stat_alignment,4,Jolly,0.5%,Speed,Sp. Atk,,,,,,
-Toucannon,92,stat_points,1,,21.2%,,,2,32,0,0,0,32
-Toucannon,92,stat_points,2,,13.5%,,,0,32,2,0,0,32
-Toucannon,92,stat_points,3,,7.2%,,,32,32,1,0,1,0
-Toucannon,92,stat_points,4,,6.8%,,,32,32,0,0,0,2
-Toucannon,92,stat_points,5,,6.5%,,,4,32,0,0,27,3
-Toucannon,92,stat_points,6,,5.4%,,,32,5,29,0,0,0
-Toucannon,92,stat_points,7,,4.7%,,,7,32,0,0,0,27
-Toucannon,92,stat_points,8,,4.5%,,,28,30,0,0,8,0
-Toucannon,92,stat_points,9,,4.2%,,,4,30,8,0,0,24
-Toucannon,92,stat_points,10,,4.2%,,,31,20,0,0,6,9
-Toucannon,92,ability,1,Skill Link,97.9%,,,,,,,,
-Toucannon,92,ability,2,Keen Eye,2.1%,,,,,,,,
+Toucannon,90,move,1,Beak Blast,100.0%,,,,,,,,
+Toucannon,90,move,2,Bullet Seed,94.5%,,,,,,,,
+Toucannon,90,move,3,Encore,86.9%,,,,,,,,
+Toucannon,90,move,4,Rock Blast,70.7%,,,,,,,,
+Toucannon,90,move,5,Temper Flare,11.3%,,,,,,,,
+Toucannon,90,move,6,Substitute,10.5%,,,,,,,,
+Toucannon,90,move,7,Roost,10.5%,,,,,,,,
+Toucannon,90,move,8,U-turn,9.5%,,,,,,,,
+Toucannon,90,move,9,Knock Off,5.0%,,,,,,,,
+Toucannon,90,move,10,Seed Bomb,0.5%,,,,,,,,
+Toucannon,90,held_item,1,Focus Sash,46.7%,,,,,,,,
+Toucannon,90,held_item,2,Sitrus Berry,37.6%,,,,,,,,
+Toucannon,90,held_item,3,Life Orb,10.6%,,,,,,,,
+Toucannon,90,held_item,4,Red Card,1.5%,,,,,,,,
+Toucannon,90,held_item,5,Lum Berry,1.3%,,,,,,,,
+Toucannon,90,held_item,6,Rocky Helmet,0.8%,,,,,,,,
+Toucannon,90,held_item,7,Sharp Beak,0.6%,,,,,,,,
+Toucannon,90,held_item,8,Leftovers,0.5%,,,,,,,,
+Toucannon,90,held_item,9,Focus Band,0.4%,,,,,,,,
+Toucannon,90,held_item,10,Miracle Seed,0.1%,,,,,,,,
+Toucannon,90,teammate,1,Garchomp,,,,,,,,,
+Toucannon,90,teammate,2,Lucario,,,,,,,,,
+Toucannon,90,teammate,3,Hippowdon,,,,,,,,,
+Toucannon,90,teammate,4,Floette-Eternal,,,,,,,,,
+Toucannon,90,teammate,5,Dragonite,,,,,,,,,
+Toucannon,90,teammate,6,Mimikyu,,,,,,,,,
+Toucannon,90,teammate,7,Basculegion,,,,,,,,,
+Toucannon,90,teammate,8,Primarina,,,,,,,,,
+Toucannon,90,teammate,9,Slowking-Galar,,,,,,,,,
+Toucannon,90,teammate,10,Gyarados,,,,,,,,,
+Toucannon,90,stat_alignment,1,Adamant,92.2%,Attack,Sp. Atk,,,,,,
+Toucannon,90,stat_alignment,2,Impish,5.0%,Defense,Sp. Atk,,,,,,
+Toucannon,90,stat_alignment,3,Brave,2.3%,Attack,Speed,,,,,,
+Toucannon,90,stat_alignment,4,Jolly,0.5%,Speed,Sp. Atk,,,,,,
+Toucannon,90,stat_points,1,,20.4%,,,2,32,0,0,0,32
+Toucannon,90,stat_points,2,,13.1%,,,0,32,2,0,0,32
+Toucannon,90,stat_points,3,,7.7%,,,4,32,0,0,27,3
+Toucannon,90,stat_points,4,,6.8%,,,32,5,29,0,0,0
+Toucannon,90,stat_points,5,,6.1%,,,32,32,1,0,1,0
+Toucannon,90,stat_points,6,,5.7%,,,32,32,0,0,0,2
+Toucannon,90,stat_points,7,,4.7%,,,4,30,8,0,0,24
+Toucannon,90,stat_points,8,,3.9%,,,7,32,0,0,0,27
+Toucannon,90,stat_points,9,,3.8%,,,28,30,0,0,8,0
+Toucannon,90,stat_points,10,,3.5%,,,31,20,0,0,6,9
+Toucannon,90,ability,1,Skill Link,96.2%,,,,,,,,
+Toucannon,90,ability,2,Keen Eye,3.8%,,,,,,,,

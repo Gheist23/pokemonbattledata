@@ -1,31 +1,33 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Feraligatr,187,move,1,Protect,100.0%,,,,,,,,
-Feraligatr,187,move,2,Liquidation,93.8%,,,,,,,,
-Feraligatr,187,move,3,Dragon Dance,87.5%,,,,,,,,
-Feraligatr,187,move,4,Slash,68.8%,,,,,,,,
-Feraligatr,187,move,5,Double-Edge,12.5%,,,,,,,,
-Feraligatr,187,move,6,Aqua Jet,12.5%,,,,,,,,
-Feraligatr,187,move,7,Ice Punch,12.5%,,,,,,,,
-Feraligatr,187,move,8,Body Slam,6.3%,,,,,,,,
-Feraligatr,187,move,9,Giga Impact,6.3%,,,,,,,,
-Feraligatr,187,held_item,1,Feraligite,87.5%,,,,,,,,
-Feraligatr,187,held_item,2,Life Orb,12.5%,,,,,,,,
-Feraligatr,187,teammate,1,Rillaboom,,,,,,,,,
-Feraligatr,187,teammate,2,Sneasler,,,,,,,,,
-Feraligatr,187,teammate,3,Floette-Eternal,,,,,,,,,
-Feraligatr,187,teammate,4,Incineroar,,,,,,,,,
-Feraligatr,187,teammate,5,Kingambit,,,,,,,,,
-Feraligatr,187,teammate,6,Charizard,,,,,,,,,
-Feraligatr,187,teammate,7,Raichu,,,,,,,,,
-Feraligatr,187,teammate,8,Politoed,,,,,,,,,
-Feraligatr,187,teammate,9,Tyranitar,,,,,,,,,
-Feraligatr,187,teammate,10,Absol,,,,,,,,,
-Feraligatr,187,stat_alignment,1,Jolly,81.3%,Speed,Sp. Atk,,,,,,
-Feraligatr,187,stat_alignment,2,Adamant,12.5%,Attack,Sp. Atk,,,,,,
-Feraligatr,187,stat_alignment,3,Brave,6.3%,Attack,Speed,,,,,,
-Feraligatr,187,stat_points,1,,50.0%,,,12,25,0,0,7,22
-Feraligatr,187,stat_points,2,,25.0%,,,14,25,0,0,5,22
-Feraligatr,187,stat_points,3,,12.5%,,,2,32,32,0,0,0
-Feraligatr,187,stat_points,4,,6.3%,,,8,32,0,0,0,26
-Feraligatr,187,stat_points,5,,6.3%,,,10,28,0,0,13,15
-Feraligatr,187,ability,1,Sheer Force,100.0%,,,,,,,,
+Feraligatr,175,move,1,Protect,100.0%,,,,,,,,
+Feraligatr,175,move,2,Dragon Dance,90.3%,,,,,,,,
+Feraligatr,175,move,3,Liquidation,90.3%,,,,,,,,
+Feraligatr,175,move,4,Slash,80.6%,,,,,,,,
+Feraligatr,175,move,5,Aqua Jet,16.1%,,,,,,,,
+Feraligatr,175,move,6,Ice Punch,9.7%,,,,,,,,
+Feraligatr,175,move,7,Double-Edge,6.5%,,,,,,,,
+Feraligatr,175,move,8,Body Slam,3.2%,,,,,,,,
+Feraligatr,175,move,9,Giga Impact,3.2%,,,,,,,,
+Feraligatr,175,held_item,1,Feraligite,90.3%,,,,,,,,
+Feraligatr,175,held_item,2,Life Orb,9.7%,,,,,,,,
+Feraligatr,175,teammate,1,Sneasler,,,,,,,,,
+Feraligatr,175,teammate,2,Floette-Eternal,,,,,,,,,
+Feraligatr,175,teammate,3,Rillaboom,,,,,,,,,
+Feraligatr,175,teammate,4,Incineroar,,,,,,,,,
+Feraligatr,175,teammate,5,Kingambit,,,,,,,,,
+Feraligatr,175,teammate,6,Dragapult,,,,,,,,,
+Feraligatr,175,teammate,7,Indeedee-F,,,,,,,,,
+Feraligatr,175,teammate,8,Armarouge,,,,,,,,,
+Feraligatr,175,teammate,9,Pelipper,,,,,,,,,
+Feraligatr,175,teammate,10,Aggron,,,,,,,,,
+Feraligatr,175,stat_alignment,1,Jolly,51.6%,Speed,Sp. Atk,,,,,,
+Feraligatr,175,stat_alignment,2,Adamant,45.2%,Attack,Sp. Atk,,,,,,
+Feraligatr,175,stat_alignment,3,Brave,3.2%,Attack,Speed,,,,,,
+Feraligatr,175,stat_points,1,,32.3%,,,12,25,0,0,7,22
+Feraligatr,175,stat_points,2,,16.1%,,,3,32,6,0,7,18
+Feraligatr,175,stat_points,3,,12.9%,,,8,32,0,0,0,26
+Feraligatr,175,stat_points,4,,12.9%,,,14,25,0,0,5,22
+Feraligatr,175,stat_points,5,,12.9%,,,18,32,0,0,0,16
+Feraligatr,175,stat_points,6,,6.5%,,,2,32,32,0,0,0
+Feraligatr,175,stat_points,7,,6.5%,,,10,28,0,0,13,15
+Feraligatr,175,ability,1,Sheer Force,100.0%,,,,,,,,

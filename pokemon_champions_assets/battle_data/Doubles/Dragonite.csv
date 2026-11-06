@@ -1,51 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dragonite,37,move,1,Protect,86.0%,,,,,,,,
-Dragonite,37,move,2,Dragon Pulse,83.0%,,,,,,,,
-Dragonite,37,move,3,Tailwind,77.5%,,,,,,,,
-Dragonite,37,move,4,Heat Wave,63.8%,,,,,,,,
-Dragonite,37,move,5,Flamethrower,15.1%,,,,,,,,
-Dragonite,37,move,6,Extreme Speed,13.3%,,,,,,,,
-Dragonite,37,move,7,Hurricane,11.5%,,,,,,,,
-Dragonite,37,move,8,Thunderbolt,8.9%,,,,,,,,
-Dragonite,37,move,9,Rock Slide,4.7%,,,,,,,,
-Dragonite,37,move,10,Thunder,4.2%,,,,,,,,
-Dragonite,37,held_item,1,Dragoninite,89.6%,,,,,,,,
-Dragonite,37,held_item,2,Life Orb,6.6%,,,,,,,,
-Dragonite,37,held_item,3,Choice Scarf,1.2%,,,,,,,,
-Dragonite,37,held_item,4,Dragon Fang,0.7%,,,,,,,,
-Dragonite,37,held_item,5,Haban Berry,0.3%,,,,,,,,
-Dragonite,37,held_item,6,Lum Berry,0.3%,,,,,,,,
-Dragonite,37,held_item,7,Sitrus Berry,0.3%,,,,,,,,
-Dragonite,37,held_item,8,Expert Belt,0.3%,,,,,,,,
-Dragonite,37,held_item,9,Focus Sash,0.3%,,,,,,,,
-Dragonite,37,held_item,10,Scope Lens,0.2%,,,,,,,,
-Dragonite,37,teammate,1,Sneasler,,,,,,,,,
-Dragonite,37,teammate,2,Kingambit,,,,,,,,,
-Dragonite,37,teammate,3,Basculegion,,,,,,,,,
-Dragonite,37,teammate,4,Rillaboom,,,,,,,,,
-Dragonite,37,teammate,5,Garchomp,,,,,,,,,
-Dragonite,37,teammate,6,Raichu,,,,,,,,,
-Dragonite,37,teammate,7,Incineroar,,,,,,,,,
-Dragonite,37,teammate,8,Floette-Eternal,,,,,,,,,
-Dragonite,37,teammate,9,Sylveon,,,,,,,,,
-Dragonite,37,teammate,10,Charizard,,,,,,,,,
-Dragonite,37,stat_alignment,1,Modest,86.7%,Sp. Atk,Attack,,,,,,
-Dragonite,37,stat_alignment,2,Adamant,8.2%,Attack,Sp. Atk,,,,,,
-Dragonite,37,stat_alignment,3,Timid,2.9%,Speed,Attack,,,,,,
-Dragonite,37,stat_alignment,4,Jolly,1.6%,Speed,Sp. Atk,,,,,,
-Dragonite,37,stat_alignment,5,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
-Dragonite,37,stat_alignment,6,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Dragonite,37,stat_alignment,7,Hasty,0.1%,Speed,Defense,,,,,,
-Dragonite,37,stat_alignment,8,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Dragonite,37,stat_points,1,,32.6%,,,2,0,0,32,0,32
-Dragonite,37,stat_points,2,,11.7%,,,19,0,0,32,0,15
-Dragonite,37,stat_points,3,,7.0%,,,9,0,0,25,0,32
-Dragonite,37,stat_points,4,,5.8%,,,1,0,1,32,0,32
-Dragonite,37,stat_points,5,,2.2%,,,1,0,0,32,1,32
-Dragonite,37,stat_points,6,,2.2%,,,14,0,0,32,0,20
-Dragonite,37,stat_points,7,,1.8%,,,15,0,0,30,0,21
-Dragonite,37,stat_points,8,,1.8%,,,2,32,0,0,0,32
-Dragonite,37,stat_points,9,,1.8%,,,6,31,10,0,0,19
-Dragonite,37,stat_points,10,,1.4%,,,9,0,0,30,2,25
-Dragonite,37,ability,1,Inner Focus,55.6%,,,,,,,,
-Dragonite,37,ability,2,Multiscale,44.4%,,,,,,,,
+Dragonite,35,move,1,Protect,85.4%,,,,,,,,
+Dragonite,35,move,2,Dragon Pulse,81.2%,,,,,,,,
+Dragonite,35,move,3,Tailwind,77.5%,,,,,,,,
+Dragonite,35,move,4,Heat Wave,62.9%,,,,,,,,
+Dragonite,35,move,5,Extreme Speed,15.2%,,,,,,,,
+Dragonite,35,move,6,Flamethrower,14.2%,,,,,,,,
+Dragonite,35,move,7,Hurricane,11.8%,,,,,,,,
+Dragonite,35,move,8,Thunderbolt,7.1%,,,,,,,,
+Dragonite,35,move,9,Rock Slide,4.9%,,,,,,,,
+Dragonite,35,move,10,Dragon Claw,4.3%,,,,,,,,
+Dragonite,35,held_item,1,Dragoninite,87.1%,,,,,,,,
+Dragonite,35,held_item,2,Life Orb,6.9%,,,,,,,,
+Dragonite,35,held_item,3,Sitrus Berry,1.2%,,,,,,,,
+Dragonite,35,held_item,4,Choice Scarf,1.0%,,,,,,,,
+Dragonite,35,held_item,5,White Herb,0.9%,,,,,,,,
+Dragonite,35,held_item,6,Dragon Fang,0.6%,,,,,,,,
+Dragonite,35,held_item,7,Haban Berry,0.5%,,,,,,,,
+Dragonite,35,held_item,8,Leftovers,0.5%,,,,,,,,
+Dragonite,35,held_item,9,Scope Lens,0.3%,,,,,,,,
+Dragonite,35,held_item,10,Lum Berry,0.2%,,,,,,,,
+Dragonite,35,teammate,1,Sneasler,,,,,,,,,
+Dragonite,35,teammate,2,Kingambit,,,,,,,,,
+Dragonite,35,teammate,3,Basculegion,,,,,,,,,
+Dragonite,35,teammate,4,Rillaboom,,,,,,,,,
+Dragonite,35,teammate,5,Garchomp,,,,,,,,,
+Dragonite,35,teammate,6,Incineroar,,,,,,,,,
+Dragonite,35,teammate,7,Raichu,,,,,,,,,
+Dragonite,35,teammate,8,Floette-Eternal,,,,,,,,,
+Dragonite,35,teammate,9,Gholdengo,,,,,,,,,
+Dragonite,35,teammate,10,Sylveon,,,,,,,,,
+Dragonite,35,stat_alignment,1,Modest,83.4%,Sp. Atk,Attack,,,,,,
+Dragonite,35,stat_alignment,2,Adamant,9.4%,Attack,Sp. Atk,,,,,,
+Dragonite,35,stat_alignment,3,Timid,4.5%,Speed,Attack,,,,,,
+Dragonite,35,stat_alignment,4,Jolly,1.5%,Speed,Sp. Atk,,,,,,
+Dragonite,35,stat_alignment,5,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,
+Dragonite,35,stat_alignment,6,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Dragonite,35,stat_alignment,7,Hasty,0.0%,Speed,Defense,,,,,,
+Dragonite,35,stat_alignment,8,Bold,0.0%,Defense,Attack,,,,,,
+Dragonite,35,stat_alignment,9,Impish,0.0%,Defense,Sp. Atk,,,,,,
+Dragonite,35,stat_points,1,,33.8%,,,2,0,0,32,0,32
+Dragonite,35,stat_points,2,,9.9%,,,19,0,0,32,0,15
+Dragonite,35,stat_points,3,,7.3%,,,9,0,0,25,0,32
+Dragonite,35,stat_points,4,,5.1%,,,1,0,1,32,0,32
+Dragonite,35,stat_points,5,,2.1%,,,14,0,0,32,0,20
+Dragonite,35,stat_points,6,,1.8%,,,4,0,0,30,0,32
+Dragonite,35,stat_points,7,,1.7%,,,15,0,0,30,0,21
+Dragonite,35,stat_points,8,,1.6%,,,1,0,0,32,1,32
+Dragonite,35,stat_points,9,,1.6%,,,2,32,0,0,0,32
+Dragonite,35,stat_points,10,,1.4%,,,0,0,2,32,0,32
+Dragonite,35,ability,1,Inner Focus,52.6%,,,,,,,,
+Dragonite,35,ability,2,Multiscale,47.4%,,,,,,,,

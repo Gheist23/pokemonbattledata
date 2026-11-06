@@ -1,44 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Hawlucha,133,move,1,Swords Dance,65.5%,,,,,,,,
-Hawlucha,133,move,2,Acrobatics,61.5%,,,,,,,,
-Hawlucha,133,move,3,Close Combat,46.0%,,,,,,,,
-Hawlucha,133,move,4,Encore,45.6%,,,,,,,,
-Hawlucha,133,move,5,High Jump Kick,31.9%,,,,,,,,
-Hawlucha,133,move,6,Brave Bird,27.0%,,,,,,,,
-Hawlucha,133,move,7,Stone Edge,25.7%,,,,,,,,
-Hawlucha,133,move,8,Flying Press,12.8%,,,,,,,,
-Hawlucha,133,move,9,Taunt,12.4%,,,,,,,,
-Hawlucha,133,move,10,Drain Punch,12.4%,,,,,,,,
-Hawlucha,133,held_item,1,Electric Seed,54.0%,,,,,,,,
-Hawlucha,133,held_item,2,Hawluchanite,11.9%,,,,,,,,
-Hawlucha,133,held_item,3,Sitrus Berry,10.6%,,,,,,,,
-Hawlucha,133,held_item,4,Leftovers,10.2%,,,,,,,,
-Hawlucha,133,held_item,5,Red Card,7.1%,,,,,,,,
-Hawlucha,133,held_item,6,King's Rock,2.2%,,,,,,,,
-Hawlucha,133,held_item,7,Psychic Seed,2.2%,,,,,,,,
-Hawlucha,133,teammate,1,Raichu,,,,,,,,,
-Hawlucha,133,teammate,2,Greninja,,,,,,,,,
-Hawlucha,133,teammate,3,Garchomp,,,,,,,,,
-Hawlucha,133,teammate,4,Dragonite,,,,,,,,,
-Hawlucha,133,teammate,5,Meganium,,,,,,,,,
-Hawlucha,133,teammate,6,Archaludon,,,,,,,,,
-Hawlucha,133,teammate,7,Mimikyu,,,,,,,,,
-Hawlucha,133,teammate,8,Gengar,,,,,,,,,
-Hawlucha,133,teammate,9,Talonflame,,,,,,,,,
-Hawlucha,133,teammate,10,Goodra-Hisui,,,,,,,,,
-Hawlucha,133,stat_alignment,1,Adamant,77.0%,Attack,Sp. Atk,,,,,,
-Hawlucha,133,stat_alignment,2,Jolly,22.6%,Speed,Sp. Atk,,,,,,
-Hawlucha,133,stat_alignment,3,Impish,0.4%,Defense,Sp. Atk,,,,,,
-Hawlucha,133,stat_points,1,,17.3%,,,16,32,1,0,0,17
-Hawlucha,133,stat_points,2,,16.8%,,,2,32,0,0,0,32
-Hawlucha,133,stat_points,3,,11.9%,,,0,32,1,0,1,32
-Hawlucha,133,stat_points,4,,9.7%,,,0,32,32,0,2,0
-Hawlucha,133,stat_points,5,,8.0%,,,22,32,3,0,1,8
-Hawlucha,133,stat_points,6,,8.0%,,,32,32,0,0,0,0
-Hawlucha,133,stat_points,7,,6.2%,,,24,32,0,0,3,7
-Hawlucha,133,stat_points,8,,5.3%,,,27,32,0,0,0,7
-Hawlucha,133,stat_points,9,,4.9%,,,30,32,0,0,0,4
-Hawlucha,133,stat_points,10,,3.1%,,,0,32,0,0,2,32
-Hawlucha,133,ability,1,Unburden,77.9%,,,,,,,,
-Hawlucha,133,ability,2,Mold Breaker,17.3%,,,,,,,,
-Hawlucha,133,ability,3,Limber,4.9%,,,,,,,,
+Hawlucha,132,move,1,Swords Dance,67.3%,,,,,,,,
+Hawlucha,132,move,2,Acrobatics,64.7%,,,,,,,,
+Hawlucha,132,move,3,Encore,42.8%,,,,,,,,
+Hawlucha,132,move,4,Close Combat,41.3%,,,,,,,,
+Hawlucha,132,move,5,High Jump Kick,37.9%,,,,,,,,
+Hawlucha,132,move,6,Brave Bird,25.3%,,,,,,,,
+Hawlucha,132,move,7,Stone Edge,24.2%,,,,,,,,
+Hawlucha,132,move,8,Taunt,13.4%,,,,,,,,
+Hawlucha,132,move,9,Flying Press,13.0%,,,,,,,,
+Hawlucha,132,move,10,Drain Punch,12.3%,,,,,,,,
+Hawlucha,132,held_item,1,Electric Seed,55.8%,,,,,,,,
+Hawlucha,132,held_item,2,Sitrus Berry,13.4%,,,,,,,,
+Hawlucha,132,held_item,3,Hawluchanite,10.4%,,,,,,,,
+Hawlucha,132,held_item,4,Leftovers,8.6%,,,,,,,,
+Hawlucha,132,held_item,5,Red Card,5.9%,,,,,,,,
+Hawlucha,132,held_item,6,King's Rock,1.9%,,,,,,,,
+Hawlucha,132,held_item,7,Psychic Seed,1.9%,,,,,,,,
+Hawlucha,132,held_item,8,Focus Sash,0.7%,,,,,,,,
+Hawlucha,132,teammate,1,Raichu,,,,,,,,,
+Hawlucha,132,teammate,2,Greninja,,,,,,,,,
+Hawlucha,132,teammate,3,Garchomp,,,,,,,,,
+Hawlucha,132,teammate,4,Archaludon,,,,,,,,,
+Hawlucha,132,teammate,5,Cinderace,,,,,,,,,
+Hawlucha,132,teammate,6,Dragonite,,,,,,,,,
+Hawlucha,132,teammate,7,Meganium,,,,,,,,,
+Hawlucha,132,teammate,8,Goodra-Hisui,,,,,,,,,
+Hawlucha,132,teammate,9,Gengar,,,,,,,,,
+Hawlucha,132,teammate,10,Talonflame,,,,,,,,,
+Hawlucha,132,stat_alignment,1,Adamant,79.2%,Attack,Sp. Atk,,,,,,
+Hawlucha,132,stat_alignment,2,Jolly,19.3%,Speed,Sp. Atk,,,,,,
+Hawlucha,132,stat_alignment,3,Naughty,0.7%,Attack,Sp. Def,,,,,,
+Hawlucha,132,stat_alignment,4,Bold,0.4%,Defense,Attack,,,,,,
+Hawlucha,132,stat_alignment,5,Impish,0.4%,Defense,Sp. Atk,,,,,,
+Hawlucha,132,stat_points,1,,16.4%,,,16,32,1,0,0,17
+Hawlucha,132,stat_points,2,,14.5%,,,2,32,0,0,0,32
+Hawlucha,132,stat_points,3,,10.8%,,,27,32,0,0,0,7
+Hawlucha,132,stat_points,4,,10.4%,,,0,32,32,0,2,0
+Hawlucha,132,stat_points,5,,10.0%,,,0,32,1,0,1,32
+Hawlucha,132,stat_points,6,,8.9%,,,32,32,0,0,0,0
+Hawlucha,132,stat_points,7,,6.7%,,,22,32,3,0,1,8
+Hawlucha,132,stat_points,8,,5.2%,,,24,32,0,0,3,7
+Hawlucha,132,stat_points,9,,4.1%,,,30,32,0,0,0,4
+Hawlucha,132,stat_points,10,,3.0%,,,23,19,5,0,12,7
+Hawlucha,132,ability,1,Unburden,81.0%,,,,,,,,
+Hawlucha,132,ability,2,Mold Breaker,14.9%,,,,,,,,
+Hawlucha,132,ability,3,Limber,4.1%,,,,,,,,

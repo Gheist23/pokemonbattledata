@@ -1,42 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pincurchin,145,move,1,Rising Voltage,96.6%,,,,,,,,
-Pincurchin,145,move,2,Protect,89.7%,,,,,,,,
-Pincurchin,145,move,3,Sucker Punch,53.4%,,,,,,,,
-Pincurchin,145,move,4,Muddy Water,41.4%,,,,,,,,
-Pincurchin,145,move,5,Scald,34.5%,,,,,,,,
-Pincurchin,145,move,6,Electroweb,27.6%,,,,,,,,
-Pincurchin,145,move,7,Charge,15.5%,,,,,,,,
-Pincurchin,145,move,8,Discharge,10.3%,,,,,,,,
-Pincurchin,145,move,9,Toxic Spikes,8.6%,,,,,,,,
-Pincurchin,145,move,10,Pain Split,5.2%,,,,,,,,
-Pincurchin,145,held_item,1,Magnet,56.9%,,,,,,,,
-Pincurchin,145,held_item,2,Electric Seed,20.7%,,,,,,,,
-Pincurchin,145,held_item,3,Life Orb,12.1%,,,,,,,,
-Pincurchin,145,held_item,4,Sitrus Berry,5.2%,,,,,,,,
-Pincurchin,145,held_item,5,Expert Belt,1.7%,,,,,,,,
-Pincurchin,145,held_item,6,Rocky Helmet,1.7%,,,,,,,,
-Pincurchin,145,held_item,7,Terrain Extender,1.7%,,,,,,,,
-Pincurchin,145,teammate,1,Indeedee-F,,,,,,,,,
-Pincurchin,145,teammate,2,Hatterene,,,,,,,,,
-Pincurchin,145,teammate,3,Sirfetch’d,,,,,,,,,
-Pincurchin,145,teammate,4,Torkoal,,,,,,,,,
-Pincurchin,145,teammate,5,Sneasler,,,,,,,,,
-Pincurchin,145,teammate,6,Bellibolt,,,,,,,,,
-Pincurchin,145,teammate,7,Farigiraf,,,,,,,,,
-Pincurchin,145,teammate,8,Blastoise,,,,,,,,,
-Pincurchin,145,teammate,9,Starmie,,,,,,,,,
-Pincurchin,145,teammate,10,Pelipper,,,,,,,,,
-Pincurchin,145,stat_alignment,1,Quiet,87.9%,Sp. Atk,Speed,,,,,,
-Pincurchin,145,stat_alignment,2,Bold,10.3%,Defense,Attack,,,,,,
-Pincurchin,145,stat_alignment,3,Careful,1.7%,Sp. Def,Sp. Atk,,,,,,
-Pincurchin,145,stat_points,1,,29.3%,,,32,2,0,32,0,0
-Pincurchin,145,stat_points,2,,20.7%,,,32,0,2,32,0,0
-Pincurchin,145,stat_points,3,,19.0%,,,0,0,25,32,9,0
-Pincurchin,145,stat_points,4,,13.8%,,,20,0,0,32,14,0
-Pincurchin,145,stat_points,5,,8.6%,,,32,0,2,0,32,0
-Pincurchin,145,stat_points,6,,3.4%,,,0,0,2,32,32,0
-Pincurchin,145,stat_points,7,,1.7%,,,10,0,10,32,14,0
-Pincurchin,145,stat_points,8,,1.7%,,,32,0,20,0,14,0
-Pincurchin,145,stat_points,9,,1.7%,,,32,0,32,0,2,0
-Pincurchin,145,ability,1,Electric Surge,96.6%,,,,,,,,
-Pincurchin,145,ability,2,Lightning Rod,3.4%,,,,,,,,
+Pincurchin,133,move,1,Rising Voltage,97.8%,,,,,,,,
+Pincurchin,133,move,2,Protect,93.4%,,,,,,,,
+Pincurchin,133,move,3,Sucker Punch,69.2%,,,,,,,,
+Pincurchin,133,move,4,Muddy Water,47.3%,,,,,,,,
+Pincurchin,133,move,5,Scald,23.1%,,,,,,,,
+Pincurchin,133,move,6,Discharge,22.0%,,,,,,,,
+Pincurchin,133,move,7,Electroweb,17.6%,,,,,,,,
+Pincurchin,133,move,8,Charge,9.9%,,,,,,,,
+Pincurchin,133,move,9,Toxic Spikes,5.5%,,,,,,,,
+Pincurchin,133,move,10,Pain Split,3.3%,,,,,,,,
+Pincurchin,133,held_item,1,Magnet,49.5%,,,,,,,,
+Pincurchin,133,held_item,2,Life Orb,30.8%,,,,,,,,
+Pincurchin,133,held_item,3,Electric Seed,13.2%,,,,,,,,
+Pincurchin,133,held_item,4,Sitrus Berry,3.3%,,,,,,,,
+Pincurchin,133,held_item,5,Expert Belt,1.1%,,,,,,,,
+Pincurchin,133,held_item,6,Rocky Helmet,1.1%,,,,,,,,
+Pincurchin,133,held_item,7,Terrain Extender,1.1%,,,,,,,,
+Pincurchin,133,teammate,1,Indeedee-F,,,,,,,,,
+Pincurchin,133,teammate,2,Farigiraf,,,,,,,,,
+Pincurchin,133,teammate,3,Hatterene,,,,,,,,,
+Pincurchin,133,teammate,4,Sirfetch’d,,,,,,,,,
+Pincurchin,133,teammate,5,Torkoal,,,,,,,,,
+Pincurchin,133,teammate,6,Garchomp,,,,,,,,,
+Pincurchin,133,teammate,7,Bellibolt,,,,,,,,,
+Pincurchin,133,teammate,8,Pelipper,,,,,,,,,
+Pincurchin,133,teammate,9,Manectric,,,,,,,,,
+Pincurchin,133,teammate,10,Abomasnow,,,,,,,,,
+Pincurchin,133,stat_alignment,1,Quiet,92.3%,Sp. Atk,Speed,,,,,,
+Pincurchin,133,stat_alignment,2,Bold,6.6%,Defense,Attack,,,,,,
+Pincurchin,133,stat_alignment,3,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
+Pincurchin,133,stat_points,1,,37.4%,,,32,2,0,32,0,0
+Pincurchin,133,stat_points,2,,19.8%,,,0,0,25,32,9,0
+Pincurchin,133,stat_points,3,,13.2%,,,32,0,2,32,0,0
+Pincurchin,133,stat_points,4,,9.9%,,,32,0,0,32,2,0
+Pincurchin,133,stat_points,5,,8.8%,,,20,0,0,32,14,0
+Pincurchin,133,stat_points,6,,5.5%,,,32,0,2,0,32,0
+Pincurchin,133,stat_points,7,,2.2%,,,0,0,2,32,32,0
+Pincurchin,133,stat_points,8,,1.1%,,,10,0,10,32,14,0
+Pincurchin,133,stat_points,9,,1.1%,,,32,0,20,0,14,0
+Pincurchin,133,stat_points,10,,1.1%,,,32,0,32,0,2,0
+Pincurchin,133,ability,1,Electric Surge,97.8%,,,,,,,,
+Pincurchin,133,ability,2,Lightning Rod,2.2%,,,,,,,,

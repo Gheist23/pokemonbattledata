@@ -1,44 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ceruledge,87,move,1,Bitter Blade,100.0%,,,,,,,,
-Ceruledge,87,move,2,Protect,90.6%,,,,,,,,
-Ceruledge,87,move,3,Shadow Sneak,79.4%,,,,,,,,
-Ceruledge,87,move,4,Swords Dance,78.9%,,,,,,,,
-Ceruledge,87,move,5,Poltergeist,20.6%,,,,,,,,
-Ceruledge,87,move,6,Bulk Up,12.2%,,,,,,,,
-Ceruledge,87,move,7,Phantom Force,5.6%,,,,,,,,
-Ceruledge,87,move,8,Psych Up,5.0%,,,,,,,,
-Ceruledge,87,move,9,X-Scissor,3.3%,,,,,,,,
-Ceruledge,87,move,10,Close Combat,2.8%,,,,,,,,
-Ceruledge,87,held_item,1,Grassy Seed,70.0%,,,,,,,,
-Ceruledge,87,held_item,2,Focus Sash,14.4%,,,,,,,,
-Ceruledge,87,held_item,3,Colbur Berry,5.6%,,,,,,,,
-Ceruledge,87,held_item,4,Charcoal,5.0%,,,,,,,,
-Ceruledge,87,held_item,5,Expert Belt,3.3%,,,,,,,,
-Ceruledge,87,held_item,6,Life Orb,1.1%,,,,,,,,
-Ceruledge,87,held_item,7,Sitrus Berry,0.6%,,,,,,,,
-Ceruledge,87,teammate,1,Rillaboom,,,,,,,,,
-Ceruledge,87,teammate,2,Milotic,,,,,,,,,
-Ceruledge,87,teammate,3,Raichu,,,,,,,,,
-Ceruledge,87,teammate,4,Staraptor,,,,,,,,,
-Ceruledge,87,teammate,5,Incineroar,,,,,,,,,
-Ceruledge,87,teammate,6,Floette-Eternal,,,,,,,,,
-Ceruledge,87,teammate,7,Ninetales-Alola,,,,,,,,,
-Ceruledge,87,teammate,8,Garchomp,,,,,,,,,
-Ceruledge,87,teammate,9,Lopunny,,,,,,,,,
-Ceruledge,87,teammate,10,Primarina,,,,,,,,,
-Ceruledge,87,stat_alignment,1,Adamant,90.6%,Attack,Sp. Atk,,,,,,
-Ceruledge,87,stat_alignment,2,Jolly,4.4%,Speed,Sp. Atk,,,,,,
-Ceruledge,87,stat_alignment,3,Brave,3.3%,Attack,Speed,,,,,,
-Ceruledge,87,stat_alignment,4,Careful,1.7%,Sp. Def,Sp. Atk,,,,,,
-Ceruledge,87,stat_points,1,,19.4%,,,11,15,8,0,0,32
-Ceruledge,87,stat_points,2,,14.4%,,,29,5,24,0,7,1
-Ceruledge,87,stat_points,3,,13.9%,,,31,7,24,0,3,1
-Ceruledge,87,stat_points,4,,8.9%,,,27,15,4,0,3,17
-Ceruledge,87,stat_points,5,,7.2%,,,2,32,0,0,0,32
-Ceruledge,87,stat_points,6,,6.7%,,,32,32,2,0,0,0
-Ceruledge,87,stat_points,7,,4.4%,,,32,32,0,0,0,2
-Ceruledge,87,stat_points,8,,3.9%,,,27,15,4,0,12,8
-Ceruledge,87,stat_points,9,,3.3%,,,25,32,0,0,0,9
-Ceruledge,87,stat_points,10,,3.3%,,,32,32,1,0,1,0
-Ceruledge,87,ability,1,Flash Fire,96.7%,,,,,,,,
-Ceruledge,87,ability,2,Weak Armor,3.3%,,,,,,,,
+Ceruledge,73,move,1,Bitter Blade,100.0%,,,,,,,,
+Ceruledge,73,move,2,Shadow Sneak,86.7%,,,,,,,,
+Ceruledge,73,move,3,Protect,82.7%,,,,,,,,
+Ceruledge,73,move,4,Swords Dance,71.2%,,,,,,,,
+Ceruledge,73,move,5,Bulk Up,16.1%,,,,,,,,
+Ceruledge,73,move,6,Poltergeist,14.6%,,,,,,,,
+Ceruledge,73,move,7,Psych Up,9.3%,,,,,,,,
+Ceruledge,73,move,8,Close Combat,5.3%,,,,,,,,
+Ceruledge,73,move,9,Phantom Force,5.0%,,,,,,,,
+Ceruledge,73,move,10,Will-O-Wisp,4.6%,,,,,,,,
+Ceruledge,73,held_item,1,Grassy Seed,60.4%,,,,,,,,
+Ceruledge,73,held_item,2,Focus Sash,19.2%,,,,,,,,
+Ceruledge,73,held_item,3,Colbur Berry,9.6%,,,,,,,,
+Ceruledge,73,held_item,4,Charcoal,4.0%,,,,,,,,
+Ceruledge,73,held_item,5,Life Orb,2.2%,,,,,,,,
+Ceruledge,73,held_item,6,Expert Belt,1.9%,,,,,,,,
+Ceruledge,73,held_item,7,Leftovers,1.5%,,,,,,,,
+Ceruledge,73,held_item,8,White Herb,0.6%,,,,,,,,
+Ceruledge,73,held_item,9,Sitrus Berry,0.3%,,,,,,,,
+Ceruledge,73,held_item,10,Kasib Berry,0.3%,,,,,,,,
+Ceruledge,73,teammate,1,Rillaboom,,,,,,,,,
+Ceruledge,73,teammate,2,Milotic,,,,,,,,,
+Ceruledge,73,teammate,3,Raichu,,,,,,,,,
+Ceruledge,73,teammate,4,Staraptor,,,,,,,,,
+Ceruledge,73,teammate,5,Incineroar,,,,,,,,,
+Ceruledge,73,teammate,6,Ninetales-Alola,,,,,,,,,
+Ceruledge,73,teammate,7,Garchomp,,,,,,,,,
+Ceruledge,73,teammate,8,Gholdengo,,,,,,,,,
+Ceruledge,73,teammate,9,Floette-Eternal,,,,,,,,,
+Ceruledge,73,teammate,10,Sneasler,,,,,,,,,
+Ceruledge,73,stat_alignment,1,Adamant,86.7%,Attack,Sp. Atk,,,,,,
+Ceruledge,73,stat_alignment,2,Brave,6.5%,Attack,Speed,,,,,,
+Ceruledge,73,stat_alignment,3,Jolly,4.6%,Speed,Sp. Atk,,,,,,
+Ceruledge,73,stat_alignment,4,Careful,2.2%,Sp. Def,Sp. Atk,,,,,,
+Ceruledge,73,stat_points,1,,14.2%,,,31,7,24,0,3,1
+Ceruledge,73,stat_points,2,,13.0%,,,11,15,8,0,0,32
+Ceruledge,73,stat_points,3,,8.4%,,,2,32,0,0,0,32
+Ceruledge,73,stat_points,4,,8.0%,,,29,5,24,0,7,1
+Ceruledge,73,stat_points,5,,5.9%,,,27,15,4,0,3,17
+Ceruledge,73,stat_points,6,,5.6%,,,32,32,2,0,0,0
+Ceruledge,73,stat_points,7,,4.6%,,,32,32,0,0,0,0
+Ceruledge,73,stat_points,8,,4.3%,,,32,23,3,0,0,8
+Ceruledge,73,stat_points,9,,3.4%,,,0,32,0,0,22,12
+Ceruledge,73,stat_points,10,,3.4%,,,32,32,0,0,0,2
+Ceruledge,73,ability,1,Flash Fire,93.5%,,,,,,,,
+Ceruledge,73,ability,2,Weak Armor,6.5%,,,,,,,,

@@ -1,36 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Skarmory,101,move,1,Iron Head,100.0%,,,,,,,,
-Skarmory,101,move,2,Protect,83.7%,,,,,,,,
-Skarmory,101,move,3,Brave Bird,79.5%,,,,,,,,
-Skarmory,101,move,4,Swords Dance,25.5%,,,,,,,,
-Skarmory,101,move,5,Tailwind,22.4%,,,,,,,,
-Skarmory,101,move,6,Drill Run,18.3%,,,,,,,,
-Skarmory,101,move,7,Rock Slide,17.9%,,,,,,,,
-Skarmory,101,move,8,Drill Peck,13.7%,,,,,,,,
-Skarmory,101,move,9,Taunt,12.2%,,,,,,,,
-Skarmory,101,move,10,Assurance,11.8%,,,,,,,,
-Skarmory,101,held_item,1,Skarmorite,100.0%,,,,,,,,
-Skarmory,101,teammate,1,Armarouge,,,,,,,,,
-Skarmory,101,teammate,2,Raichu,,,,,,,,,
-Skarmory,101,teammate,3,Garchomp,,,,,,,,,
-Skarmory,101,teammate,4,Blaziken,,,,,,,,,
-Skarmory,101,teammate,5,Vaporeon,,,,,,,,,
-Skarmory,101,teammate,6,Jolteon,,,,,,,,,
-Skarmory,101,teammate,7,Umbreon,,,,,,,,,
-Skarmory,101,teammate,8,Milotic,,,,,,,,,
-Skarmory,101,teammate,9,Sneasler,,,,,,,,,
-Skarmory,101,teammate,10,Tyranitar,,,,,,,,,
-Skarmory,101,stat_alignment,1,Jolly,51.0%,Speed,Sp. Atk,,,,,,
-Skarmory,101,stat_alignment,2,Adamant,49.0%,Attack,Sp. Atk,,,,,,
-Skarmory,101,stat_points,1,,22.4%,,,9,32,0,0,0,25
-Skarmory,101,stat_points,2,,20.9%,,,7,29,1,0,1,28
-Skarmory,101,stat_points,3,,19.4%,,,0,32,0,0,2,32
-Skarmory,101,stat_points,4,,8.7%,,,2,32,0,0,0,32
-Skarmory,101,stat_points,5,,8.4%,,,0,24,2,0,10,30
-Skarmory,101,stat_points,6,,4.9%,,,1,32,0,0,1,32
-Skarmory,101,stat_points,7,,3.8%,,,9,32,5,0,5,15
-Skarmory,101,stat_points,8,,1.9%,,,11,30,0,0,0,25
-Skarmory,101,stat_points,9,,1.9%,,,24,32,0,0,10,0
-Skarmory,101,stat_points,10,,1.9%,,,32,30,0,0,4,0
-Skarmory,101,ability,1,Sturdy,75.7%,,,,,,,,
-Skarmory,101,ability,2,Weak Armor,24.3%,,,,,,,,
+Skarmory,109,move,1,Iron Head,100.0%,,,,,,,,
+Skarmory,109,move,2,Brave Bird,80.2%,,,,,,,,
+Skarmory,109,move,3,Protect,79.9%,,,,,,,,
+Skarmory,109,move,4,Tailwind,24.8%,,,,,,,,
+Skarmory,109,move,5,Swords Dance,23.1%,,,,,,,,
+Skarmory,109,move,6,Rock Slide,21.1%,,,,,,,,
+Skarmory,109,move,7,Drill Run,16.5%,,,,,,,,
+Skarmory,109,move,8,Drill Peck,12.5%,,,,,,,,
+Skarmory,109,move,9,Taunt,10.6%,,,,,,,,
+Skarmory,109,move,10,Assurance,10.2%,,,,,,,,
+Skarmory,109,held_item,1,Skarmorite,99.0%,,,,,,,,
+Skarmory,109,held_item,2,Leftovers,1.0%,,,,,,,,
+Skarmory,109,teammate,1,Armarouge,,,,,,,,,
+Skarmory,109,teammate,2,Garchomp,,,,,,,,,
+Skarmory,109,teammate,3,Raichu,,,,,,,,,
+Skarmory,109,teammate,4,Blaziken,,,,,,,,,
+Skarmory,109,teammate,5,Sneasler,,,,,,,,,
+Skarmory,109,teammate,6,Tyranitar,,,,,,,,,
+Skarmory,109,teammate,7,Vaporeon,,,,,,,,,
+Skarmory,109,teammate,8,Jolteon,,,,,,,,,
+Skarmory,109,teammate,9,Umbreon,,,,,,,,,
+Skarmory,109,teammate,10,Milotic,,,,,,,,,
+Skarmory,109,stat_alignment,1,Adamant,53.5%,Attack,Sp. Atk,,,,,,
+Skarmory,109,stat_alignment,2,Jolly,46.2%,Speed,Sp. Atk,,,,,,
+Skarmory,109,stat_alignment,3,Impish,0.3%,Defense,Sp. Atk,,,,,,
+Skarmory,109,stat_points,1,,20.5%,,,0,32,0,0,2,32
+Skarmory,109,stat_points,2,,19.5%,,,9,32,0,0,0,25
+Skarmory,109,stat_points,3,,18.2%,,,7,29,1,0,1,28
+Skarmory,109,stat_points,4,,8.3%,,,2,32,0,0,0,32
+Skarmory,109,stat_points,5,,7.3%,,,0,24,2,0,10,30
+Skarmory,109,stat_points,6,,4.3%,,,1,32,0,0,1,32
+Skarmory,109,stat_points,7,,3.6%,,,9,32,5,0,5,15
+Skarmory,109,stat_points,8,,3.0%,,,20,19,0,0,4,23
+Skarmory,109,stat_points,9,,2.3%,,,7,32,0,0,0,27
+Skarmory,109,stat_points,10,,1.7%,,,10,32,0,0,0,24
+Skarmory,109,ability,1,Sturdy,74.9%,,,,,,,,
+Skarmory,109,ability,2,Weak Armor,23.8%,,,,,,,,
+Skarmory,109,ability,3,Keen Eye,1.3%,,,,,,,,

@@ -1,40 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aromatisse,189,move,1,Moonblast,70.6%,,,,,,,,
-Aromatisse,189,move,2,Rest,44.1%,,,,,,,,
-Aromatisse,189,move,3,Psych Up,44.1%,,,,,,,,
-Aromatisse,189,move,4,Nasty Plot,44.1%,,,,,,,,
-Aromatisse,189,move,5,Trick Room,44.1%,,,,,,,,
-Aromatisse,189,move,6,Encore,29.4%,,,,,,,,
-Aromatisse,189,move,7,Heal Pulse,20.6%,,,,,,,,
-Aromatisse,189,move,8,Disable,17.6%,,,,,,,,
-Aromatisse,189,move,9,Ally Switch,17.6%,,,,,,,,
-Aromatisse,189,move,10,Rain Dance,14.7%,,,,,,,,
-Aromatisse,189,held_item,1,Chesto Berry,44.1%,,,,,,,,
-Aromatisse,189,held_item,2,Sitrus Berry,35.3%,,,,,,,,
-Aromatisse,189,held_item,3,Light Clay,11.8%,,,,,,,,
-Aromatisse,189,held_item,4,Kebia Berry,5.9%,,,,,,,,
-Aromatisse,189,held_item,5,Leftovers,2.9%,,,,,,,,
-Aromatisse,189,teammate,1,Audino,,,,,,,,,
-Aromatisse,189,teammate,2,Zoroark-Hisui,,,,,,,,,
-Aromatisse,189,teammate,3,Slowbro,,,,,,,,,
-Aromatisse,189,teammate,4,Snorlax,,,,,,,,,
-Aromatisse,189,teammate,5,Umbreon,,,,,,,,,
-Aromatisse,189,teammate,6,Venusaur,,,,,,,,,
-Aromatisse,189,teammate,7,Overqwil,,,,,,,,,
-Aromatisse,189,teammate,8,Blastoise,,,,,,,,,
-Aromatisse,189,teammate,9,Sableye,,,,,,,,,
-Aromatisse,189,teammate,10,Torkoal,,,,,,,,,
-Aromatisse,189,stat_alignment,1,Bold,73.5%,Defense,Attack,,,,,,
-Aromatisse,189,stat_alignment,2,Relaxed,11.8%,Defense,Speed,,,,,,
-Aromatisse,189,stat_alignment,3,Quiet,8.8%,Sp. Atk,Speed,,,,,,
-Aromatisse,189,stat_alignment,4,Calm,2.9%,Sp. Def,Attack,,,,,,
-Aromatisse,189,stat_alignment,5,Sassy,2.9%,Sp. Def,Speed,,,,,,
-Aromatisse,189,stat_points,1,,41.2%,,,32,0,18,0,0,16
-Aromatisse,189,stat_points,2,,32.4%,,,32,0,32,0,2,0
-Aromatisse,189,stat_points,3,,11.8%,,,32,0,18,0,16,0
-Aromatisse,189,stat_points,4,,2.9%,,,16,0,12,32,6,0
-Aromatisse,189,stat_points,5,,2.9%,,,25,0,8,32,1,0
-Aromatisse,189,stat_points,6,,2.9%,,,32,0,0,2,32,0
-Aromatisse,189,stat_points,7,,2.9%,,,32,0,2,0,32,0
-Aromatisse,189,stat_points,8,,2.9%,,,32,0,13,21,0,0
-Aromatisse,189,ability,1,Aroma Veil,100.0%,,,,,,,,
+Aromatisse,191,move,1,Moonblast,66.7%,,,,,,,,
+Aromatisse,191,move,2,Trick Room,54.2%,,,,,,,,
+Aromatisse,191,move,3,Rest,37.5%,,,,,,,,
+Aromatisse,191,move,4,Psych Up,37.5%,,,,,,,,
+Aromatisse,191,move,5,Nasty Plot,37.5%,,,,,,,,
+Aromatisse,191,move,6,Encore,33.3%,,,,,,,,
+Aromatisse,191,move,7,Disable,31.3%,,,,,,,,
+Aromatisse,191,move,8,Ally Switch,20.8%,,,,,,,,
+Aromatisse,191,move,9,Heal Pulse,18.8%,,,,,,,,
+Aromatisse,191,move,10,Rain Dance,14.6%,,,,,,,,
+Aromatisse,191,held_item,1,Chesto Berry,37.5%,,,,,,,,
+Aromatisse,191,held_item,2,Sitrus Berry,37.5%,,,,,,,,
+Aromatisse,191,held_item,3,Focus Sash,10.4%,,,,,,,,
+Aromatisse,191,held_item,4,Light Clay,8.3%,,,,,,,,
+Aromatisse,191,held_item,5,Kebia Berry,4.2%,,,,,,,,
+Aromatisse,191,held_item,6,Leftovers,2.1%,,,,,,,,
+Aromatisse,191,teammate,1,Audino,,,,,,,,,
+Aromatisse,191,teammate,2,Zoroark-Hisui,,,,,,,,,
+Aromatisse,191,teammate,3,Slowbro,,,,,,,,,
+Aromatisse,191,teammate,4,Snorlax,,,,,,,,,
+Aromatisse,191,teammate,5,Umbreon,,,,,,,,,
+Aromatisse,191,teammate,6,Torkoal,,,,,,,,,
+Aromatisse,191,teammate,7,Overqwil,,,,,,,,,
+Aromatisse,191,teammate,8,Venusaur,,,,,,,,,
+Aromatisse,191,teammate,9,Sableye,,,,,,,,,
+Aromatisse,191,teammate,10,Metagross,,,,,,,,,
+Aromatisse,191,stat_alignment,1,Bold,66.7%,Defense,Attack,,,,,,
+Aromatisse,191,stat_alignment,2,Relaxed,22.9%,Defense,Speed,,,,,,
+Aromatisse,191,stat_alignment,3,Quiet,6.3%,Sp. Atk,Speed,,,,,,
+Aromatisse,191,stat_alignment,4,Calm,2.1%,Sp. Def,Attack,,,,,,
+Aromatisse,191,stat_alignment,5,Sassy,2.1%,Sp. Def,Speed,,,,,,
+Aromatisse,191,stat_points,1,,41.7%,,,32,0,32,0,2,0
+Aromatisse,191,stat_points,2,,35.4%,,,32,0,18,0,0,16
+Aromatisse,191,stat_points,3,,12.5%,,,32,0,18,0,16,0
+Aromatisse,191,stat_points,4,,2.1%,,,16,0,12,32,6,0
+Aromatisse,191,stat_points,5,,2.1%,,,25,0,8,32,1,0
+Aromatisse,191,stat_points,6,,2.1%,,,32,0,0,2,32,0
+Aromatisse,191,stat_points,7,,2.1%,,,32,0,2,0,32,0
+Aromatisse,191,stat_points,8,,2.1%,,,32,0,13,21,0,0
+Aromatisse,191,ability,1,Aroma Veil,100.0%,,,,,,,,

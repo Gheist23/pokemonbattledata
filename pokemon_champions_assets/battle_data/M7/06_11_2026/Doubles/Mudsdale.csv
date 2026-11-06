@@ -1,44 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mudsdale,132,move,1,Protect,99.3%,,,,,,,,
-Mudsdale,132,move,2,Heavy Slam,92.2%,,,,,,,,
-Mudsdale,132,move,3,Rock Slide,73.2%,,,,,,,,
-Mudsdale,132,move,4,High Horsepower,54.9%,,,,,,,,
-Mudsdale,132,move,5,Earthquake,38.6%,,,,,,,,
-Mudsdale,132,move,6,Curse,17.0%,,,,,,,,
-Mudsdale,132,move,7,Stomping Tantrum,10.5%,,,,,,,,
-Mudsdale,132,move,8,Counter,6.5%,,,,,,,,
-Mudsdale,132,move,9,Body Press,6.5%,,,,,,,,
-Mudsdale,132,move,10,Iron Defense,0.7%,,,,,,,,
-Mudsdale,132,held_item,1,Life Orb,20.9%,,,,,,,,
-Mudsdale,132,held_item,2,Sitrus Berry,17.0%,,,,,,,,
-Mudsdale,132,held_item,3,Leftovers,17.0%,,,,,,,,
-Mudsdale,132,held_item,4,Iron Ball,16.3%,,,,,,,,
-Mudsdale,132,held_item,5,Rindo Berry,15.0%,,,,,,,,
-Mudsdale,132,held_item,6,Expert Belt,10.5%,,,,,,,,
-Mudsdale,132,held_item,7,Muscle Band,2.6%,,,,,,,,
-Mudsdale,132,held_item,8,Soft Sand,0.7%,,,,,,,,
-Mudsdale,132,teammate,1,Dragonite,,,,,,,,,
-Mudsdale,132,teammate,2,Sylveon,,,,,,,,,
-Mudsdale,132,teammate,3,Kingambit,,,,,,,,,
-Mudsdale,132,teammate,4,Weavile,,,,,,,,,
-Mudsdale,132,teammate,5,Charizard,,,,,,,,,
-Mudsdale,132,teammate,6,Basculegion,,,,,,,,,
-Mudsdale,132,teammate,7,Rillaboom,,,,,,,,,
-Mudsdale,132,teammate,8,Gholdengo,,,,,,,,,
-Mudsdale,132,teammate,9,Meowscarada,,,,,,,,,
-Mudsdale,132,teammate,10,Blaziken,,,,,,,,,
-Mudsdale,132,stat_alignment,1,Brave,70.6%,Attack,Speed,,,,,,
-Mudsdale,132,stat_alignment,2,Adamant,20.3%,Attack,Sp. Atk,,,,,,
-Mudsdale,132,stat_alignment,3,Careful,9.2%,Sp. Def,Sp. Atk,,,,,,
-Mudsdale,132,stat_points,1,,18.3%,,,2,32,0,0,0,32
-Mudsdale,132,stat_points,2,,17.0%,,,31,32,0,0,3,0
-Mudsdale,132,stat_points,3,,16.3%,,,32,28,0,0,6,0
-Mudsdale,132,stat_points,4,,15.7%,,,32,32,0,0,2,0
-Mudsdale,132,stat_points,5,,10.5%,,,2,25,14,0,25,0
-Mudsdale,132,stat_points,6,,6.5%,,,2,0,32,0,32,0
-Mudsdale,132,stat_points,7,,5.2%,,,2,32,16,0,16,0
-Mudsdale,132,stat_points,8,,5.2%,,,32,25,2,0,7,0
-Mudsdale,132,stat_points,9,,2.6%,,,32,0,15,0,19,0
-Mudsdale,132,stat_points,10,,1.3%,,,22,25,5,0,14,0
-Mudsdale,132,ability,1,Inner Focus,81.7%,,,,,,,,
-Mudsdale,132,ability,2,Stamina,18.3%,,,,,,,,
+Mudsdale,127,move,1,Protect,94.7%,,,,,,,,
+Mudsdale,127,move,2,Heavy Slam,89.5%,,,,,,,,
+Mudsdale,127,move,3,Rock Slide,72.7%,,,,,,,,
+Mudsdale,127,move,4,High Horsepower,55.5%,,,,,,,,
+Mudsdale,127,move,5,Earthquake,41.1%,,,,,,,,
+Mudsdale,127,move,6,Curse,23.4%,,,,,,,,
+Mudsdale,127,move,7,Body Press,9.6%,,,,,,,,
+Mudsdale,127,move,8,Stomping Tantrum,7.7%,,,,,,,,
+Mudsdale,127,move,9,Counter,4.8%,,,,,,,,
+Mudsdale,127,move,10,Iron Defense,0.5%,,,,,,,,
+Mudsdale,127,held_item,1,Life Orb,23.4%,,,,,,,,
+Mudsdale,127,held_item,2,Sitrus Berry,18.7%,,,,,,,,
+Mudsdale,127,held_item,3,Iron Ball,17.2%,,,,,,,,
+Mudsdale,127,held_item,4,Rindo Berry,13.4%,,,,,,,,
+Mudsdale,127,held_item,5,Leftovers,12.4%,,,,,,,,
+Mudsdale,127,held_item,6,Expert Belt,7.7%,,,,,,,,
+Mudsdale,127,held_item,7,King's Rock,3.3%,,,,,,,,
+Mudsdale,127,held_item,8,Muscle Band,3.3%,,,,,,,,
+Mudsdale,127,held_item,9,Soft Sand,0.5%,,,,,,,,
+Mudsdale,127,teammate,1,Dragonite,,,,,,,,,
+Mudsdale,127,teammate,2,Sylveon,,,,,,,,,
+Mudsdale,127,teammate,3,Kingambit,,,,,,,,,
+Mudsdale,127,teammate,4,Weavile,,,,,,,,,
+Mudsdale,127,teammate,5,Charizard,,,,,,,,,
+Mudsdale,127,teammate,6,Basculegion,,,,,,,,,
+Mudsdale,127,teammate,7,Gholdengo,,,,,,,,,
+Mudsdale,127,teammate,8,Meowscarada,,,,,,,,,
+Mudsdale,127,teammate,9,Blaziken,,,,,,,,,
+Mudsdale,127,teammate,10,Garchomp,,,,,,,,,
+Mudsdale,127,stat_alignment,1,Brave,65.6%,Attack,Speed,,,,,,
+Mudsdale,127,stat_alignment,2,Adamant,21.5%,Attack,Sp. Atk,,,,,,
+Mudsdale,127,stat_alignment,3,Careful,8.1%,Sp. Def,Sp. Atk,,,,,,
+Mudsdale,127,stat_alignment,4,Relaxed,4.8%,Defense,Speed,,,,,,
+Mudsdale,127,stat_points,1,,18.7%,,,31,32,0,0,3,0
+Mudsdale,127,stat_points,2,,18.2%,,,2,32,0,0,0,32
+Mudsdale,127,stat_points,3,,17.2%,,,32,28,0,0,6,0
+Mudsdale,127,stat_points,4,,13.9%,,,32,32,0,0,2,0
+Mudsdale,127,stat_points,5,,7.7%,,,2,25,14,0,25,0
+Mudsdale,127,stat_points,6,,4.8%,,,0,32,32,0,2,0
+Mudsdale,127,stat_points,7,,4.8%,,,2,0,32,0,32,0
+Mudsdale,127,stat_points,8,,3.8%,,,2,32,16,0,16,0
+Mudsdale,127,stat_points,9,,3.8%,,,32,25,2,0,7,0
+Mudsdale,127,stat_points,10,,3.3%,,,32,0,15,0,19,0
+Mudsdale,127,ability,1,Inner Focus,86.6%,,,,,,,,
+Mudsdale,127,ability,2,Stamina,13.4%,,,,,,,,

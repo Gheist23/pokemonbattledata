@@ -1,51 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sylveon,68,move,1,Hyper Voice,99.1%,,,,,,,,
-Sylveon,68,move,2,Yawn,68.9%,,,,,,,,
-Sylveon,68,move,3,Mystical Fire,51.7%,,,,,,,,
-Sylveon,68,move,4,Wish,45.0%,,,,,,,,
-Sylveon,68,move,5,Protect,38.7%,,,,,,,,
-Sylveon,68,move,6,Quick Attack,38.0%,,,,,,,,
-Sylveon,68,move,7,Calm Mind,15.0%,,,,,,,,
-Sylveon,68,move,8,Hyper Beam,9.3%,,,,,,,,
-Sylveon,68,move,9,Shadow Ball,8.3%,,,,,,,,
-Sylveon,68,move,10,Detect,5.1%,,,,,,,,
-Sylveon,68,held_item,1,Leftovers,47.7%,,,,,,,,
-Sylveon,68,held_item,2,Fairy Feather,18.7%,,,,,,,,
-Sylveon,68,held_item,3,Sitrus Berry,11.6%,,,,,,,,
-Sylveon,68,held_item,4,Life Orb,8.2%,,,,,,,,
-Sylveon,68,held_item,5,Lum Berry,4.0%,,,,,,,,
-Sylveon,68,held_item,6,Wise Glasses,2.1%,,,,,,,,
-Sylveon,68,held_item,7,Red Card,1.8%,,,,,,,,
-Sylveon,68,held_item,8,Babiri Berry,1.2%,,,,,,,,
-Sylveon,68,held_item,9,Air Balloon,1.1%,,,,,,,,
-Sylveon,68,held_item,10,Expert Belt,1.0%,,,,,,,,
+Sylveon,68,move,1,Hyper Voice,98.0%,,,,,,,,
+Sylveon,68,move,2,Yawn,69.3%,,,,,,,,
+Sylveon,68,move,3,Mystical Fire,52.9%,,,,,,,,
+Sylveon,68,move,4,Wish,44.3%,,,,,,,,
+Sylveon,68,move,5,Protect,39.2%,,,,,,,,
+Sylveon,68,move,6,Quick Attack,37.6%,,,,,,,,
+Sylveon,68,move,7,Calm Mind,14.6%,,,,,,,,
+Sylveon,68,move,8,Hyper Beam,9.4%,,,,,,,,
+Sylveon,68,move,9,Shadow Ball,8.9%,,,,,,,,
+Sylveon,68,move,10,Detect,4.6%,,,,,,,,
+Sylveon,68,held_item,1,Leftovers,48.8%,,,,,,,,
+Sylveon,68,held_item,2,Fairy Feather,18.2%,,,,,,,,
+Sylveon,68,held_item,3,Sitrus Berry,12.8%,,,,,,,,
+Sylveon,68,held_item,4,Life Orb,7.7%,,,,,,,,
+Sylveon,68,held_item,5,Lum Berry,3.4%,,,,,,,,
+Sylveon,68,held_item,6,Red Card,1.8%,,,,,,,,
+Sylveon,68,held_item,7,Wise Glasses,1.6%,,,,,,,,
+Sylveon,68,held_item,8,Babiri Berry,1.1%,,,,,,,,
+Sylveon,68,held_item,9,Air Balloon,1.0%,,,,,,,,
+Sylveon,68,held_item,10,Chesto Berry,0.8%,,,,,,,,
 Sylveon,68,teammate,1,Garchomp,,,,,,,,,
-Sylveon,68,teammate,2,Charizard,,,,,,,,,
-Sylveon,68,teammate,3,Lucario,,,,,,,,,
+Sylveon,68,teammate,2,Lucario,,,,,,,,,
+Sylveon,68,teammate,3,Charizard,,,,,,,,,
 Sylveon,68,teammate,4,Gyarados,,,,,,,,,
 Sylveon,68,teammate,5,Salamence,,,,,,,,,
 Sylveon,68,teammate,6,Gholdengo,,,,,,,,,
-Sylveon,68,teammate,7,Hippowdon,,,,,,,,,
-Sylveon,68,teammate,8,Archaludon,,,,,,,,,
-Sylveon,68,teammate,9,Golisopod,,,,,,,,,
+Sylveon,68,teammate,7,Archaludon,,,,,,,,,
+Sylveon,68,teammate,8,Hippowdon,,,,,,,,,
+Sylveon,68,teammate,9,Mimikyu,,,,,,,,,
 Sylveon,68,teammate,10,Dragonite,,,,,,,,,
-Sylveon,68,stat_alignment,1,Modest,45.9%,Sp. Atk,Attack,,,,,,
-Sylveon,68,stat_alignment,2,Bold,44.9%,Defense,Attack,,,,,,
-Sylveon,68,stat_alignment,3,Calm,4.3%,Sp. Def,Attack,,,,,,
+Sylveon,68,stat_alignment,1,Bold,44.7%,Defense,Attack,,,,,,
+Sylveon,68,stat_alignment,2,Modest,44.5%,Sp. Atk,Attack,,,,,,
+Sylveon,68,stat_alignment,3,Calm,5.5%,Sp. Def,Attack,,,,,,
 Sylveon,68,stat_alignment,4,Quiet,4.0%,Sp. Atk,Speed,,,,,,
-Sylveon,68,stat_alignment,5,Timid,0.6%,Speed,Attack,,,,,,
-Sylveon,68,stat_alignment,6,Relaxed,0.2%,Defense,Speed,,,,,,
+Sylveon,68,stat_alignment,5,Timid,0.7%,Speed,Attack,,,,,,
+Sylveon,68,stat_alignment,6,Relaxed,0.4%,Defense,Speed,,,,,,
 Sylveon,68,stat_alignment,7,Sassy,0.1%,Sp. Def,Speed,,,,,,
 Sylveon,68,stat_alignment,8,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Sylveon,68,stat_points,1,,16.7%,,,32,0,32,0,2,0
-Sylveon,68,stat_points,2,,6.4%,,,32,0,32,0,0,2
-Sylveon,68,stat_points,3,,4.2%,,,32,0,32,2,0,0
-Sylveon,68,stat_points,4,,3.8%,,,32,0,32,0,1,1
-Sylveon,68,stat_points,5,,3.6%,,,1,0,1,32,0,32
-Sylveon,68,stat_points,6,,2.9%,,,21,0,13,32,0,0
-Sylveon,68,stat_points,7,,2.9%,,,7,0,0,31,0,28
-Sylveon,68,stat_points,8,,2.6%,,,32,0,0,32,0,2
-Sylveon,68,stat_points,9,,2.5%,,,11,0,22,32,0,1
-Sylveon,68,stat_points,10,,2.5%,,,16,0,5,32,0,13
-Sylveon,68,ability,1,Pixilate,99.3%,,,,,,,,
-Sylveon,68,ability,2,Cute Charm,0.7%,,,,,,,,
+Sylveon,68,stat_alignment,9,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Sylveon,68,stat_points,1,,16.0%,,,32,0,32,0,2,0
+Sylveon,68,stat_points,2,,6.6%,,,32,0,32,0,0,2
+Sylveon,68,stat_points,3,,3.8%,,,32,0,32,2,0,0
+Sylveon,68,stat_points,4,,3.7%,,,1,0,1,32,0,32
+Sylveon,68,stat_points,5,,3.6%,,,32,0,32,0,1,1
+Sylveon,68,stat_points,6,,2.7%,,,21,0,13,32,0,0
+Sylveon,68,stat_points,7,,2.4%,,,32,0,24,10,0,0
+Sylveon,68,stat_points,8,,2.4%,,,7,0,0,31,0,28
+Sylveon,68,stat_points,9,,2.4%,,,32,0,0,32,0,2
+Sylveon,68,stat_points,10,,2.2%,,,28,0,0,32,0,6
+Sylveon,68,ability,1,Pixilate,98.5%,,,,,,,,
+Sylveon,68,ability,2,Cute Charm,1.5%,,,,,,,,

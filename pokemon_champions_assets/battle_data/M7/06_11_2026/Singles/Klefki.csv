@@ -1,44 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Klefki,151,move,1,Reflect,75.1%,,,,,,,,
-Klefki,151,move,2,Light Screen,70.1%,,,,,,,,
-Klefki,151,move,3,Steel Beam,61.3%,,,,,,,,
-Klefki,151,move,4,Foul Play,38.3%,,,,,,,,
-Klefki,151,move,5,Spikes,30.3%,,,,,,,,
-Klefki,151,move,6,Thunder Wave,23.8%,,,,,,,,
-Klefki,151,move,7,Rain Dance,19.2%,,,,,,,,
-Klefki,151,move,8,Draining Kiss,18.0%,,,,,,,,
-Klefki,151,move,9,Calm Mind,17.2%,,,,,,,,
-Klefki,151,move,10,Iron Defense,15.3%,,,,,,,,
-Klefki,151,held_item,1,Light Clay,64.8%,,,,,,,,
-Klefki,151,held_item,2,Leftovers,16.5%,,,,,,,,
-Klefki,151,held_item,3,Damp Rock,16.5%,,,,,,,,
-Klefki,151,held_item,4,Sitrus Berry,0.8%,,,,,,,,
-Klefki,151,held_item,5,Occa Berry,0.8%,,,,,,,,
-Klefki,151,held_item,6,Focus Sash,0.8%,,,,,,,,
-Klefki,151,teammate,1,Garchomp,,,,,,,,,
-Klefki,151,teammate,2,Primarina,,,,,,,,,
-Klefki,151,teammate,3,Charizard,,,,,,,,,
-Klefki,151,teammate,4,Archaludon,,,,,,,,,
-Klefki,151,teammate,5,Salamence,,,,,,,,,
-Klefki,151,teammate,6,Swampert,,,,,,,,,
-Klefki,151,teammate,7,Mimikyu,,,,,,,,,
-Klefki,151,teammate,8,Audino,,,,,,,,,
-Klefki,151,teammate,9,Hatterene,,,,,,,,,
-Klefki,151,teammate,10,Tinkaton,,,,,,,,,
-Klefki,151,stat_alignment,1,Bold,67.4%,Defense,Attack,,,,,,
-Klefki,151,stat_alignment,2,Calm,19.2%,Sp. Def,Attack,,,,,,
-Klefki,151,stat_alignment,3,Modest,6.5%,Sp. Atk,Attack,,,,,,
-Klefki,151,stat_alignment,4,Impish,5.4%,Defense,Sp. Atk,,,,,,
-Klefki,151,stat_alignment,5,Timid,0.8%,Speed,Attack,,,,,,
-Klefki,151,stat_alignment,6,Quiet,0.8%,Sp. Atk,Speed,,,,,,
-Klefki,151,stat_points,1,,14.6%,,,29,0,11,0,26,0
-Klefki,151,stat_points,2,,13.4%,,,32,0,2,0,32,0
-Klefki,151,stat_points,3,,10.7%,,,32,0,32,0,2,0
-Klefki,151,stat_points,4,,10.3%,,,32,0,29,0,5,0
-Klefki,151,stat_points,5,,8.8%,,,31,0,10,0,25,0
-Klefki,151,stat_points,6,,8.0%,,,32,0,21,0,13,0
-Klefki,151,stat_points,7,,7.7%,,,32,0,23,0,5,6
-Klefki,151,stat_points,8,,6.9%,,,26,0,32,0,8,0
-Klefki,151,stat_points,9,,6.1%,,,32,0,0,32,2,0
-Klefki,151,stat_points,10,,5.7%,,,32,0,0,0,31,3
-Klefki,151,ability,1,Prankster,100.0%,,,,,,,,
+Klefki,152,move,1,Light Screen,69.6%,,,,,,,,
+Klefki,152,move,2,Reflect,67.2%,,,,,,,,
+Klefki,152,move,3,Steel Beam,60.5%,,,,,,,,
+Klefki,152,move,4,Foul Play,34.3%,,,,,,,,
+Klefki,152,move,5,Spikes,31.3%,,,,,,,,
+Klefki,152,move,6,Rain Dance,22.2%,,,,,,,,
+Klefki,152,move,7,Thunder Wave,21.9%,,,,,,,,
+Klefki,152,move,8,Calm Mind,19.8%,,,,,,,,
+Klefki,152,move,9,Draining Kiss,19.8%,,,,,,,,
+Klefki,152,move,10,Iron Defense,14.9%,,,,,,,,
+Klefki,152,held_item,1,Light Clay,59.0%,,,,,,,,
+Klefki,152,held_item,2,Damp Rock,19.5%,,,,,,,,
+Klefki,152,held_item,3,Leftovers,19.1%,,,,,,,,
+Klefki,152,held_item,4,Chesto Berry,0.6%,,,,,,,,
+Klefki,152,held_item,5,Sitrus Berry,0.6%,,,,,,,,
+Klefki,152,held_item,6,Occa Berry,0.6%,,,,,,,,
+Klefki,152,held_item,7,Focus Sash,0.6%,,,,,,,,
+Klefki,152,teammate,1,Garchomp,,,,,,,,,
+Klefki,152,teammate,2,Archaludon,,,,,,,,,
+Klefki,152,teammate,3,Primarina,,,,,,,,,
+Klefki,152,teammate,4,Salamence,,,,,,,,,
+Klefki,152,teammate,5,Swampert,,,,,,,,,
+Klefki,152,teammate,6,Charizard,,,,,,,,,
+Klefki,152,teammate,7,Mimikyu,,,,,,,,,
+Klefki,152,teammate,8,Meowscarada,,,,,,,,,
+Klefki,152,teammate,9,Gyarados,,,,,,,,,
+Klefki,152,teammate,10,Audino,,,,,,,,,
+Klefki,152,stat_alignment,1,Bold,70.8%,Defense,Attack,,,,,,
+Klefki,152,stat_alignment,2,Calm,17.0%,Sp. Def,Attack,,,,,,
+Klefki,152,stat_alignment,3,Modest,5.5%,Sp. Atk,Attack,,,,,,
+Klefki,152,stat_alignment,4,Impish,5.5%,Defense,Sp. Atk,,,,,,
+Klefki,152,stat_alignment,5,Timid,0.6%,Speed,Attack,,,,,,
+Klefki,152,stat_alignment,6,Quiet,0.6%,Sp. Atk,Speed,,,,,,
+Klefki,152,stat_points,1,,14.6%,,,32,0,29,0,5,0
+Klefki,152,stat_points,2,,12.5%,,,32,0,32,0,2,0
+Klefki,152,stat_points,3,,11.6%,,,29,0,11,0,26,0
+Klefki,152,stat_points,4,,10.6%,,,32,0,2,0,32,0
+Klefki,152,stat_points,5,,7.3%,,,32,0,21,0,13,0
+Klefki,152,stat_points,6,,7.3%,,,32,0,23,0,5,6
+Klefki,152,stat_points,7,,7.0%,,,31,0,10,0,25,0
+Klefki,152,stat_points,8,,5.5%,,,26,0,32,0,8,0
+Klefki,152,stat_points,9,,5.2%,,,29,0,19,0,0,18
+Klefki,152,stat_points,10,,5.2%,,,32,0,0,32,2,0
+Klefki,152,ability,1,Prankster,100.0%,,,,,,,,

@@ -1,51 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pelipper,57,move,1,Hurricane,97.5%,,,,,,,,
-Pelipper,57,move,2,U-turn,87.0%,,,,,,,,
-Pelipper,57,move,3,Ice Beam,79.9%,,,,,,,,
-Pelipper,57,move,4,Surf,64.2%,,,,,,,,
-Pelipper,57,move,5,Weather Ball,26.5%,,,,,,,,
-Pelipper,57,move,6,Roost,13.6%,,,,,,,,
-Pelipper,57,move,7,Tailwind,8.9%,,,,,,,,
-Pelipper,57,move,8,Hydro Pump,7.4%,,,,,,,,
-Pelipper,57,move,9,Quick Attack,4.9%,,,,,,,,
-Pelipper,57,move,10,Rain Dance,3.6%,,,,,,,,
-Pelipper,57,held_item,1,Damp Rock,72.0%,,,,,,,,
-Pelipper,57,held_item,2,Focus Sash,11.6%,,,,,,,,
-Pelipper,57,held_item,3,Choice Scarf,6.5%,,,,,,,,
-Pelipper,57,held_item,4,Rocky Helmet,2.9%,,,,,,,,
-Pelipper,57,held_item,5,Eject Button,1.7%,,,,,,,,
-Pelipper,57,held_item,6,Sitrus Berry,1.7%,,,,,,,,
-Pelipper,57,held_item,7,Leftovers,1.3%,,,,,,,,
-Pelipper,57,held_item,8,Life Orb,0.9%,,,,,,,,
-Pelipper,57,held_item,9,Wise Glasses,0.6%,,,,,,,,
-Pelipper,57,held_item,10,Iron Ball,0.2%,,,,,,,,
-Pelipper,57,teammate,1,Archaludon,,,,,,,,,
-Pelipper,57,teammate,2,Swampert,,,,,,,,,
-Pelipper,57,teammate,3,Golisopod,,,,,,,,,
-Pelipper,57,teammate,4,Garchomp,,,,,,,,,
-Pelipper,57,teammate,5,Basculegion,,,,,,,,,
-Pelipper,57,teammate,6,Meowscarada,,,,,,,,,
-Pelipper,57,teammate,7,Mimikyu,,,,,,,,,
-Pelipper,57,teammate,8,Glimmora,,,,,,,,,
-Pelipper,57,teammate,9,Charizard,,,,,,,,,
-Pelipper,57,teammate,10,Rillaboom,,,,,,,,,
-Pelipper,57,stat_alignment,1,Modest,37.9%,Sp. Atk,Attack,,,,,,
-Pelipper,57,stat_alignment,2,Relaxed,22.9%,Defense,Speed,,,,,,
-Pelipper,57,stat_alignment,3,Bold,14.6%,Defense,Attack,,,,,,
-Pelipper,57,stat_alignment,4,Timid,8.9%,Speed,Attack,,,,,,
-Pelipper,57,stat_alignment,5,Quiet,8.2%,Sp. Atk,Speed,,,,,,
-Pelipper,57,stat_alignment,6,Sassy,4.4%,Sp. Def,Speed,,,,,,
-Pelipper,57,stat_alignment,7,Calm,3.1%,Sp. Def,Attack,,,,,,
-Pelipper,57,stat_alignment,8,Mild,0.0%,Sp. Atk,Defense,,,,,,
-Pelipper,57,stat_points,1,,13.5%,,,2,0,0,32,0,32
-Pelipper,57,stat_points,2,,13.0%,,,32,0,16,0,18,0
-Pelipper,57,stat_points,3,,10.0%,,,32,0,32,0,2,0
-Pelipper,57,stat_points,4,,7.6%,,,32,0,0,32,2,0
-Pelipper,57,stat_points,5,,6.0%,,,32,0,2,32,0,0
-Pelipper,57,stat_points,6,,3.8%,,,32,0,2,0,32,0
-Pelipper,57,stat_points,7,,3.0%,,,32,0,0,32,0,2
-Pelipper,57,stat_points,8,,2.8%,,,0,0,0,32,2,32
-Pelipper,57,stat_points,9,,2.7%,,,32,0,0,15,19,0
-Pelipper,57,stat_points,10,,2.7%,,,32,0,32,2,0,0
-Pelipper,57,ability,1,Drizzle,100.0%,,,,,,,,
-Pelipper,57,ability,2,Rain Dish,0.0%,,,,,,,,
+Pelipper,55,move,1,Hurricane,97.6%,,,,,,,,
+Pelipper,55,move,2,U-turn,87.7%,,,,,,,,
+Pelipper,55,move,3,Ice Beam,79.3%,,,,,,,,
+Pelipper,55,move,4,Surf,65.7%,,,,,,,,
+Pelipper,55,move,5,Weather Ball,24.9%,,,,,,,,
+Pelipper,55,move,6,Roost,14.7%,,,,,,,,
+Pelipper,55,move,7,Tailwind,9.0%,,,,,,,,
+Pelipper,55,move,8,Hydro Pump,6.8%,,,,,,,,
+Pelipper,55,move,9,Quick Attack,4.4%,,,,,,,,
+Pelipper,55,move,10,Rain Dance,3.2%,,,,,,,,
+Pelipper,55,held_item,1,Damp Rock,73.6%,,,,,,,,
+Pelipper,55,held_item,2,Focus Sash,10.0%,,,,,,,,
+Pelipper,55,held_item,3,Choice Scarf,6.2%,,,,,,,,
+Pelipper,55,held_item,4,Rocky Helmet,3.8%,,,,,,,,
+Pelipper,55,held_item,5,Sitrus Berry,1.5%,,,,,,,,
+Pelipper,55,held_item,6,Eject Button,1.4%,,,,,,,,
+Pelipper,55,held_item,7,Leftovers,1.4%,,,,,,,,
+Pelipper,55,held_item,8,Life Orb,0.7%,,,,,,,,
+Pelipper,55,held_item,9,Wise Glasses,0.5%,,,,,,,,
+Pelipper,55,held_item,10,Mystic Water,0.3%,,,,,,,,
+Pelipper,55,teammate,1,Archaludon,,,,,,,,,
+Pelipper,55,teammate,2,Swampert,,,,,,,,,
+Pelipper,55,teammate,3,Golisopod,,,,,,,,,
+Pelipper,55,teammate,4,Garchomp,,,,,,,,,
+Pelipper,55,teammate,5,Basculegion,,,,,,,,,
+Pelipper,55,teammate,6,Meowscarada,,,,,,,,,
+Pelipper,55,teammate,7,Glimmora,,,,,,,,,
+Pelipper,55,teammate,8,Mimikyu,,,,,,,,,
+Pelipper,55,teammate,9,Charizard,,,,,,,,,
+Pelipper,55,teammate,10,Rillaboom,,,,,,,,,
+Pelipper,55,stat_alignment,1,Modest,36.3%,Sp. Atk,Attack,,,,,,
+Pelipper,55,stat_alignment,2,Relaxed,25.0%,Defense,Speed,,,,,,
+Pelipper,55,stat_alignment,3,Bold,14.9%,Defense,Attack,,,,,,
+Pelipper,55,stat_alignment,4,Timid,8.1%,Speed,Attack,,,,,,
+Pelipper,55,stat_alignment,5,Quiet,8.1%,Sp. Atk,Speed,,,,,,
+Pelipper,55,stat_alignment,6,Sassy,4.3%,Sp. Def,Speed,,,,,,
+Pelipper,55,stat_alignment,7,Calm,3.3%,Sp. Def,Attack,,,,,,
+Pelipper,55,stat_alignment,8,Mild,0.0%,Sp. Atk,Defense,,,,,,
+Pelipper,55,stat_alignment,9,Rash,0.0%,Sp. Atk,Sp. Def,,,,,,
+Pelipper,55,stat_points,1,,13.8%,,,32,0,16,0,18,0
+Pelipper,55,stat_points,2,,13.3%,,,2,0,0,32,0,32
+Pelipper,55,stat_points,3,,10.3%,,,32,0,32,0,2,0
+Pelipper,55,stat_points,4,,7.6%,,,32,0,0,32,2,0
+Pelipper,55,stat_points,5,,6.4%,,,32,0,2,32,0,0
+Pelipper,55,stat_points,6,,3.7%,,,32,0,2,0,32,0
+Pelipper,55,stat_points,7,,2.9%,,,32,0,0,15,19,0
+Pelipper,55,stat_points,8,,2.9%,,,32,0,32,2,0,0
+Pelipper,55,stat_points,9,,2.8%,,,32,0,0,32,0,2
+Pelipper,55,stat_points,10,,2.2%,,,0,0,0,32,2,32
+Pelipper,55,ability,1,Drizzle,100.0%,,,,,,,,
+Pelipper,55,ability,2,Keen Eye,0.0%,,,,,,,,
+Pelipper,55,ability,3,Rain Dish,0.0%,,,,,,,,

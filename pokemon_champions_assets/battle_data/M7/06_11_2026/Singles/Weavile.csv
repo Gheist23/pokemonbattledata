@@ -1,39 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Weavile,149,move,1,Triple Axel,86.3%,,,,,,,,
-Weavile,149,move,2,Knock Off,71.8%,,,,,,,,
-Weavile,149,move,3,Ice Shard,67.5%,,,,,,,,
-Weavile,149,move,4,Fake Out,31.4%,,,,,,,,
-Weavile,149,move,5,Swords Dance,24.5%,,,,,,,,
-Weavile,149,move,6,Taunt,23.8%,,,,,,,,
-Weavile,149,move,7,Upper Hand,19.5%,,,,,,,,
-Weavile,149,move,8,Counter,17.3%,,,,,,,,
-Weavile,149,move,9,Throat Chop,14.1%,,,,,,,,
-Weavile,149,move,10,Brick Break,12.6%,,,,,,,,
-Weavile,149,held_item,1,Focus Sash,56.0%,,,,,,,,
-Weavile,149,held_item,2,Life Orb,39.4%,,,,,,,,
-Weavile,149,held_item,3,Choice Scarf,2.2%,,,,,,,,
-Weavile,149,held_item,4,Expert Belt,1.4%,,,,,,,,
-Weavile,149,held_item,5,King's Rock,1.1%,,,,,,,,
-Weavile,149,teammate,1,Sneasler,,,,,,,,,
-Weavile,149,teammate,2,Garchomp,,,,,,,,,
-Weavile,149,teammate,3,Charizard,,,,,,,,,
-Weavile,149,teammate,4,Archaludon,,,,,,,,,
-Weavile,149,teammate,5,Ninetales,,,,,,,,,
-Weavile,149,teammate,6,Ampharos,,,,,,,,,
-Weavile,149,teammate,7,Tyranitar,,,,,,,,,
-Weavile,149,teammate,8,Heliolisk,,,,,,,,,
-Weavile,149,teammate,9,Gyarados,,,,,,,,,
-Weavile,149,teammate,10,Basculegion,,,,,,,,,
-Weavile,149,stat_alignment,1,Jolly,54.5%,Speed,Sp. Atk,,,,,,
-Weavile,149,stat_alignment,2,Adamant,39.0%,Attack,Sp. Atk,,,,,,
-Weavile,149,stat_alignment,3,Hasty,6.5%,Speed,Defense,,,,,,
-Weavile,149,stat_points,1,,61.0%,,,2,32,0,0,0,32
-Weavile,149,stat_points,2,,33.2%,,,0,32,0,0,2,32
-Weavile,149,stat_points,3,,1.8%,,,0,32,3,0,0,31
-Weavile,149,stat_points,4,,1.4%,,,4,32,17,0,0,13
-Weavile,149,stat_points,5,,1.1%,,,4,30,6,0,0,26
-Weavile,149,stat_points,6,,0.7%,,,0,32,0,0,0,32
-Weavile,149,stat_points,7,,0.4%,,,0,32,2,0,0,32
-Weavile,149,stat_points,8,,0.4%,,,27,30,3,0,0,6
-Weavile,149,ability,1,Pickpocket,72.6%,,,,,,,,
-Weavile,149,ability,2,Pressure,27.4%,,,,,,,,
+Weavile,151,move,1,Triple Axel,88.2%,,,,,,,,
+Weavile,151,move,2,Knock Off,72.1%,,,,,,,,
+Weavile,151,move,3,Ice Shard,61.2%,,,,,,,,
+Weavile,151,move,4,Taunt,29.0%,,,,,,,,
+Weavile,151,move,5,Fake Out,26.7%,,,,,,,,
+Weavile,151,move,6,Swords Dance,25.3%,,,,,,,,
+Weavile,151,move,7,Upper Hand,18.1%,,,,,,,,
+Weavile,151,move,8,Counter,14.1%,,,,,,,,
+Weavile,151,move,9,Throat Chop,12.4%,,,,,,,,
+Weavile,151,move,10,Brick Break,11.2%,,,,,,,,
+Weavile,151,held_item,1,Focus Sash,57.5%,,,,,,,,
+Weavile,151,held_item,2,Life Orb,33.9%,,,,,,,,
+Weavile,151,held_item,3,Choice Scarf,2.6%,,,,,,,,
+Weavile,151,held_item,4,Expert Belt,1.1%,,,,,,,,
+Weavile,151,held_item,5,King's Rock,0.9%,,,,,,,,
+Weavile,151,teammate,1,Sneasler,,,,,,,,,
+Weavile,151,teammate,2,Garchomp,,,,,,,,,
+Weavile,151,teammate,3,Charizard,,,,,,,,,
+Weavile,151,teammate,4,Archaludon,,,,,,,,,
+Weavile,151,teammate,5,Ninetales,,,,,,,,,
+Weavile,151,teammate,6,Ampharos,,,,,,,,,
+Weavile,151,teammate,7,Tyranitar,,,,,,,,,
+Weavile,151,teammate,8,Basculegion,,,,,,,,,
+Weavile,151,teammate,9,Heliolisk,,,,,,,,,
+Weavile,151,teammate,10,Gyarados,,,,,,,,,
+Weavile,151,stat_alignment,1,Jolly,54.3%,Speed,Sp. Atk,,,,,,
+Weavile,151,stat_alignment,2,Adamant,34.2%,Attack,Sp. Atk,,,,,,
+Weavile,151,stat_alignment,3,Hasty,7.8%,Speed,Defense,,,,,,
+Weavile,151,stat_alignment,4,Naughty,3.7%,Attack,Sp. Def,,,,,,
+Weavile,151,stat_points,1,,54.0%,,,2,32,0,0,0,32
+Weavile,151,stat_points,2,,35.1%,,,0,32,0,0,2,32
+Weavile,151,stat_points,3,,3.7%,,,32,32,0,0,0,2
+Weavile,151,stat_points,4,,2.3%,,,0,32,2,0,0,32
+Weavile,151,stat_points,5,,2.0%,,,0,32,3,0,0,31
+Weavile,151,stat_points,6,,1.1%,,,4,32,17,0,0,13
+Weavile,151,stat_points,7,,0.9%,,,4,30,6,0,0,26
+Weavile,151,stat_points,8,,0.6%,,,0,32,0,0,0,32
+Weavile,151,stat_points,9,,0.3%,,,27,30,3,0,0,6
+Weavile,151,ability,1,Pickpocket,66.1%,,,,,,,,
+Weavile,151,ability,2,Pressure,33.9%,,,,,,,,

@@ -1,41 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Goodra,175,move,1,Flamethrower,92.3%,,,,,,,,
-Goodra,175,move,2,Giga Drain,73.8%,,,,,,,,
-Goodra,175,move,3,Draco Meteor,66.1%,,,,,,,,
-Goodra,175,move,4,Rock Slide,56.5%,,,,,,,,
-Goodra,175,move,5,Thunderbolt,32.1%,,,,,,,,
-Goodra,175,move,6,Toxic,17.9%,,,,,,,,
-Goodra,175,move,7,Ice Beam,14.9%,,,,,,,,
-Goodra,175,move,8,Sludge Wave,13.1%,,,,,,,,
-Goodra,175,move,9,Acid Spray,9.5%,,,,,,,,
-Goodra,175,move,10,Protect,3.6%,,,,,,,,
-Goodra,175,held_item,1,Leftovers,61.9%,,,,,,,,
-Goodra,175,held_item,2,Sitrus Berry,36.9%,,,,,,,,
-Goodra,175,held_item,3,Haban Berry,0.6%,,,,,,,,
-Goodra,175,held_item,4,Damp Rock,0.6%,,,,,,,,
-Goodra,175,teammate,1,Corviknight,,,,,,,,,
-Goodra,175,teammate,2,Swampert,,,,,,,,,
-Goodra,175,teammate,3,Meganium,,,,,,,,,
-Goodra,175,teammate,4,Slowking-Galar,,,,,,,,,
-Goodra,175,teammate,5,Lucario,,,,,,,,,
-Goodra,175,teammate,6,Basculegion,,,,,,,,,
-Goodra,175,teammate,7,Clefable,,,,,,,,,
-Goodra,175,teammate,8,Greninja,,,,,,,,,
-Goodra,175,teammate,9,Meowscarada,,,,,,,,,
-Goodra,175,teammate,10,Skeledirge,,,,,,,,,
-Goodra,175,stat_alignment,1,Calm,64.3%,Sp. Def,Attack,,,,,,
-Goodra,175,stat_alignment,2,Modest,31.5%,Sp. Atk,Attack,,,,,,
-Goodra,175,stat_alignment,3,Relaxed,2.4%,Defense,Speed,,,,,,
-Goodra,175,stat_alignment,4,Bold,1.8%,Defense,Attack,,,,,,
-Goodra,175,stat_points,1,,56.5%,,,28,0,0,11,25,2
-Goodra,175,stat_points,2,,14.3%,,,32,0,0,8,26,0
-Goodra,175,stat_points,3,,13.7%,,,32,0,2,32,0,0
-Goodra,175,stat_points,4,,4.2%,,,32,0,0,14,16,4
-Goodra,175,stat_points,5,,3.6%,,,32,0,32,0,0,2
-Goodra,175,stat_points,6,,3.0%,,,32,0,0,32,0,2
-Goodra,175,stat_points,7,,3.0%,,,32,0,32,0,2,0
-Goodra,175,stat_points,8,,1.2%,,,32,0,0,0,32,2
-Goodra,175,stat_points,9,,0.6%,,,32,0,0,14,20,0
-Goodra,175,ability,1,Sap Sipper,76.2%,,,,,,,,
-Goodra,175,ability,2,Gooey,22.6%,,,,,,,,
-Goodra,175,ability,3,Hydration,1.2%,,,,,,,,
+Goodra,182,move,1,Flamethrower,89.6%,,,,,,,,
+Goodra,182,move,2,Giga Drain,66.1%,,,,,,,,
+Goodra,182,move,3,Draco Meteor,65.1%,,,,,,,,
+Goodra,182,move,4,Rock Slide,52.6%,,,,,,,,
+Goodra,182,move,5,Thunderbolt,36.5%,,,,,,,,
+Goodra,182,move,6,Toxic,22.4%,,,,,,,,
+Goodra,182,move,7,Sludge Wave,14.6%,,,,,,,,
+Goodra,182,move,8,Ice Beam,14.1%,,,,,,,,
+Goodra,182,move,9,Acid Spray,9.9%,,,,,,,,
+Goodra,182,move,10,Dragon Pulse,7.8%,,,,,,,,
+Goodra,182,held_item,1,Leftovers,54.2%,,,,,,,,
+Goodra,182,held_item,2,Sitrus Berry,40.1%,,,,,,,,
+Goodra,182,held_item,3,Lum Berry,3.1%,,,,,,,,
+Goodra,182,held_item,4,Haban Berry,1.6%,,,,,,,,
+Goodra,182,held_item,5,Damp Rock,0.5%,,,,,,,,
+Goodra,182,held_item,6,Choice Scarf,0.5%,,,,,,,,
+Goodra,182,teammate,1,Corviknight,,,,,,,,,
+Goodra,182,teammate,2,Swampert,,,,,,,,,
+Goodra,182,teammate,3,Meganium,,,,,,,,,
+Goodra,182,teammate,4,Slowking-Galar,,,,,,,,,
+Goodra,182,teammate,5,Lucario,,,,,,,,,
+Goodra,182,teammate,6,Basculegion,,,,,,,,,
+Goodra,182,teammate,7,Skeledirge,,,,,,,,,
+Goodra,182,teammate,8,Salamence,,,,,,,,,
+Goodra,182,teammate,9,Volcarona,,,,,,,,,
+Goodra,182,teammate,10,Floette-Eternal,,,,,,,,,
+Goodra,182,stat_alignment,1,Calm,56.8%,Sp. Def,Attack,,,,,,
+Goodra,182,stat_alignment,2,Modest,35.9%,Sp. Atk,Attack,,,,,,
+Goodra,182,stat_alignment,3,Sassy,3.1%,Sp. Def,Speed,,,,,,
+Goodra,182,stat_alignment,4,Relaxed,2.1%,Defense,Speed,,,,,,
+Goodra,182,stat_alignment,5,Bold,1.6%,Defense,Attack,,,,,,
+Goodra,182,stat_alignment,6,Timid,0.5%,Speed,Attack,,,,,,
+Goodra,182,stat_points,1,,49.5%,,,28,0,0,11,25,2
+Goodra,182,stat_points,2,,15.1%,,,32,0,2,32,0,0
+Goodra,182,stat_points,3,,13.0%,,,32,0,0,8,26,0
+Goodra,182,stat_points,4,,6.3%,,,32,0,0,32,0,2
+Goodra,182,stat_points,5,,4.2%,,,32,0,0,14,16,4
+Goodra,182,stat_points,6,,3.1%,,,32,0,0,2,32,0
+Goodra,182,stat_points,7,,3.1%,,,32,0,32,0,0,2
+Goodra,182,stat_points,8,,2.6%,,,32,0,32,0,2,0
+Goodra,182,stat_points,9,,1.0%,,,32,0,0,0,32,2
+Goodra,182,stat_points,10,,1.0%,,,32,0,1,32,0,1
+Goodra,182,ability,1,Sap Sipper,72.9%,,,,,,,,
+Goodra,182,ability,2,Gooey,26.0%,,,,,,,,
+Goodra,182,ability,3,Hydration,1.0%,,,,,,,,

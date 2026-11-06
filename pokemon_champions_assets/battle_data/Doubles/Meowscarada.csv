@@ -1,48 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Meowscarada,98,move,1,Flower Trick,95.0%,,,,,,,,
-Meowscarada,98,move,2,Knock Off,69.8%,,,,,,,,
-Meowscarada,98,move,3,Triple Axel,62.9%,,,,,,,,
-Meowscarada,98,move,4,U-turn,36.3%,,,,,,,,
-Meowscarada,98,move,5,Sucker Punch,24.8%,,,,,,,,
-Meowscarada,98,move,6,Protect,24.5%,,,,,,,,
-Meowscarada,98,move,7,Thunder Punch,18.7%,,,,,,,,
-Meowscarada,98,move,8,Low Kick,17.3%,,,,,,,,
-Meowscarada,98,move,9,Power Gem,11.9%,,,,,,,,
-Meowscarada,98,move,10,Play Rough,9.4%,,,,,,,,
-Meowscarada,98,held_item,1,Choice Scarf,53.6%,,,,,,,,
-Meowscarada,98,held_item,2,Life Orb,32.4%,,,,,,,,
-Meowscarada,98,held_item,3,Expert Belt,4.7%,,,,,,,,
-Meowscarada,98,held_item,4,Miracle Seed,4.3%,,,,,,,,
-Meowscarada,98,held_item,5,Focus Sash,2.9%,,,,,,,,
-Meowscarada,98,held_item,6,Air Balloon,1.1%,,,,,,,,
-Meowscarada,98,held_item,7,Wide Lens,0.7%,,,,,,,,
-Meowscarada,98,held_item,8,Eject Button,0.4%,,,,,,,,
-Meowscarada,98,teammate,1,Indeedee-F,,,,,,,,,
-Meowscarada,98,teammate,2,Sneasler,,,,,,,,,
-Meowscarada,98,teammate,3,Charizard,,,,,,,,,
-Meowscarada,98,teammate,4,Garchomp,,,,,,,,,
-Meowscarada,98,teammate,5,Blaziken,,,,,,,,,
-Meowscarada,98,teammate,6,Whimsicott,,,,,,,,,
-Meowscarada,98,teammate,7,Raichu,,,,,,,,,
-Meowscarada,98,teammate,8,Indeedee,,,,,,,,,
-Meowscarada,98,teammate,9,Gholdengo,,,,,,,,,
-Meowscarada,98,teammate,10,Hydreigon,,,,,,,,,
-Meowscarada,98,stat_alignment,1,Jolly,45.0%,Speed,Sp. Atk,,,,,,
-Meowscarada,98,stat_alignment,2,Adamant,42.1%,Attack,Sp. Atk,,,,,,
-Meowscarada,98,stat_alignment,3,Hasty,4.3%,Speed,Defense,,,,,,
-Meowscarada,98,stat_alignment,4,Modest,4.0%,Sp. Atk,Attack,,,,,,
-Meowscarada,98,stat_alignment,5,Naive,1.8%,Speed,Sp. Def,,,,,,
-Meowscarada,98,stat_alignment,6,Naughty,1.8%,Attack,Sp. Def,,,,,,
-Meowscarada,98,stat_alignment,7,Timid,1.1%,Speed,Attack,,,,,,
-Meowscarada,98,stat_points,1,,75.9%,,,2,32,0,0,0,32
-Meowscarada,98,stat_points,2,,4.3%,,,0,26,0,9,0,31
-Meowscarada,98,stat_points,3,,2.5%,,,0,0,0,32,2,32
-Meowscarada,98,stat_points,4,,2.5%,,,0,32,3,0,0,31
-Meowscarada,98,stat_points,5,,2.5%,,,1,32,3,0,0,30
-Meowscarada,98,stat_points,6,,2.2%,,,0,32,2,0,0,32
-Meowscarada,98,stat_points,7,,1.8%,,,0,32,0,0,2,32
-Meowscarada,98,stat_points,8,,1.8%,,,0,32,0,2,0,32
-Meowscarada,98,stat_points,9,,1.8%,,,32,1,0,3,0,30
-Meowscarada,98,stat_points,10,,1.4%,,,2,0,0,32,0,32
-Meowscarada,98,ability,1,Protean,80.6%,,,,,,,,
-Meowscarada,98,ability,2,Overgrow,19.4%,,,,,,,,
+Meowscarada,92,move,1,Flower Trick,96.5%,,,,,,,,
+Meowscarada,92,move,2,Knock Off,65.2%,,,,,,,,
+Meowscarada,92,move,3,Triple Axel,61.4%,,,,,,,,
+Meowscarada,92,move,4,U-turn,29.5%,,,,,,,,
+Meowscarada,92,move,5,Protect,28.0%,,,,,,,,
+Meowscarada,92,move,6,Sucker Punch,25.8%,,,,,,,,
+Meowscarada,92,move,7,Thunder Punch,19.7%,,,,,,,,
+Meowscarada,92,move,8,Low Kick,17.2%,,,,,,,,
+Meowscarada,92,move,9,Power Gem,14.4%,,,,,,,,
+Meowscarada,92,move,10,Trick Room,9.6%,,,,,,,,
+Meowscarada,92,held_item,1,Choice Scarf,48.0%,,,,,,,,
+Meowscarada,92,held_item,2,Life Orb,36.1%,,,,,,,,
+Meowscarada,92,held_item,3,Expert Belt,4.3%,,,,,,,,
+Meowscarada,92,held_item,4,Miracle Seed,3.0%,,,,,,,,
+Meowscarada,92,held_item,5,Focus Sash,3.0%,,,,,,,,
+Meowscarada,92,held_item,6,Air Balloon,3.0%,,,,,,,,
+Meowscarada,92,held_item,7,Wide Lens,1.3%,,,,,,,,
+Meowscarada,92,held_item,8,White Herb,1.0%,,,,,,,,
+Meowscarada,92,held_item,9,Eject Button,0.3%,,,,,,,,
+Meowscarada,92,teammate,1,Indeedee-F,,,,,,,,,
+Meowscarada,92,teammate,2,Sneasler,,,,,,,,,
+Meowscarada,92,teammate,3,Charizard,,,,,,,,,
+Meowscarada,92,teammate,4,Blaziken,,,,,,,,,
+Meowscarada,92,teammate,5,Garchomp,,,,,,,,,
+Meowscarada,92,teammate,6,Whimsicott,,,,,,,,,
+Meowscarada,92,teammate,7,Gholdengo,,,,,,,,,
+Meowscarada,92,teammate,8,Armarouge,,,,,,,,,
+Meowscarada,92,teammate,9,Farigiraf,,,,,,,,,
+Meowscarada,92,teammate,10,Raichu,,,,,,,,,
+Meowscarada,92,stat_alignment,1,Jolly,44.7%,Speed,Sp. Atk,,,,,,
+Meowscarada,92,stat_alignment,2,Adamant,37.9%,Attack,Sp. Atk,,,,,,
+Meowscarada,92,stat_alignment,3,Hasty,8.8%,Speed,Defense,,,,,,
+Meowscarada,92,stat_alignment,4,Timid,3.0%,Speed,Attack,,,,,,
+Meowscarada,92,stat_alignment,5,Modest,2.8%,Sp. Atk,Attack,,,,,,
+Meowscarada,92,stat_alignment,6,Naive,1.5%,Speed,Sp. Def,,,,,,
+Meowscarada,92,stat_alignment,7,Naughty,1.3%,Attack,Sp. Def,,,,,,
+Meowscarada,92,stat_points,1,,65.7%,,,2,32,0,0,0,32
+Meowscarada,92,stat_points,2,,8.6%,,,0,26,0,9,0,31
+Meowscarada,92,stat_points,3,,5.3%,,,0,32,2,0,0,32
+Meowscarada,92,stat_points,4,,4.0%,,,1,32,0,0,0,32
+Meowscarada,92,stat_points,5,,3.0%,,,32,0,14,0,0,20
+Meowscarada,92,stat_points,6,,1.8%,,,0,0,0,32,2,32
+Meowscarada,92,stat_points,7,,1.8%,,,0,32,3,0,0,31
+Meowscarada,92,stat_points,8,,1.8%,,,1,32,3,0,0,30
+Meowscarada,92,stat_points,9,,1.8%,,,32,1,0,3,0,30
+Meowscarada,92,stat_points,10,,1.3%,,,0,32,0,0,2,32
+Meowscarada,92,ability,1,Protean,79.0%,,,,,,,,
+Meowscarada,92,ability,2,Overgrow,21.0%,,,,,,,,

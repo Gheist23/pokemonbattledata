@@ -1,41 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Liepard,233,move,1,Foul Play,68.8%,,,,,,,,
-Liepard,233,move,2,Substitute,62.5%,,,,,,,,
-Liepard,233,move,3,Encore,62.5%,,,,,,,,
-Liepard,233,move,4,Protect,46.9%,,,,,,,,
-Liepard,233,move,5,Swagger,37.5%,,,,,,,,
-Liepard,233,move,6,Copycat,31.3%,,,,,,,,
-Liepard,233,move,7,Double Team,21.9%,,,,,,,,
-Liepard,233,move,8,Baton Pass,21.9%,,,,,,,,
-Liepard,233,move,9,Thunder Wave,12.5%,,,,,,,,
-Liepard,233,move,10,Dark Pulse,9.4%,,,,,,,,
-Liepard,233,held_item,1,Leftovers,50.0%,,,,,,,,
-Liepard,233,held_item,2,Focus Sash,43.8%,,,,,,,,
-Liepard,233,held_item,3,Sitrus Berry,3.1%,,,,,,,,
-Liepard,233,held_item,4,Expert Belt,3.1%,,,,,,,,
-Liepard,233,teammate,1,Ditto,,,,,,,,,
-Liepard,233,teammate,2,Basculegion,,,,,,,,,
-Liepard,233,teammate,3,Garchomp,,,,,,,,,
-Liepard,233,teammate,4,Lucario,,,,,,,,,
-Liepard,233,teammate,5,Glalie,,,,,,,,,
-Liepard,233,teammate,6,Typhlosion,,,,,,,,,
-Liepard,233,teammate,7,Scizor,,,,,,,,,
-Liepard,233,teammate,8,Sceptile,,,,,,,,,
-Liepard,233,teammate,9,Milotic,,,,,,,,,
-Liepard,233,teammate,10,Squawkabilly,,,,,,,,,
-Liepard,233,stat_alignment,1,Timid,56.3%,Speed,Attack,,,,,,
-Liepard,233,stat_alignment,2,Bold,18.8%,Defense,Attack,,,,,,
-Liepard,233,stat_alignment,3,Jolly,12.5%,Speed,Sp. Atk,,,,,,
-Liepard,233,stat_alignment,4,Modest,6.3%,Sp. Atk,Attack,,,,,,
-Liepard,233,stat_alignment,5,Serious,3.1%,,,,,,,,
-Liepard,233,stat_alignment,6,Calm,3.1%,Sp. Def,Attack,,,,,,
-Liepard,233,stat_points,1,,31.3%,,,22,0,6,0,6,32
-Liepard,233,stat_points,2,,25.0%,,,31,0,30,0,5,0
-Liepard,233,stat_points,3,,18.8%,,,22,0,32,0,12,0
-Liepard,233,stat_points,4,,9.4%,,,32,0,0,0,0,32
-Liepard,233,stat_points,5,,6.3%,,,0,0,0,32,0,32
-Liepard,233,stat_points,6,,3.1%,,,22,0,22,0,22,0
-Liepard,233,stat_points,7,,3.1%,,,32,0,1,0,1,32
-Liepard,233,stat_points,8,,3.1%,,,32,17,0,17,0,0
-Liepard,233,ability,1,Prankster,93.8%,,,,,,,,
-Liepard,233,ability,2,Unburden,6.3%,,,,,,,,
+Liepard,228,move,1,Foul Play,80.4%,,,,,,,,
+Liepard,228,move,2,Substitute,60.8%,,,,,,,,
+Liepard,228,move,3,Encore,54.9%,,,,,,,,
+Liepard,228,move,4,Swagger,45.1%,,,,,,,,
+Liepard,228,move,5,Thunder Wave,43.1%,,,,,,,,
+Liepard,228,move,6,Protect,31.4%,,,,,,,,
+Liepard,228,move,7,Copycat,21.6%,,,,,,,,
+Liepard,228,move,8,Yawn,15.7%,,,,,,,,
+Liepard,228,move,9,Double Team,13.7%,,,,,,,,
+Liepard,228,move,10,Baton Pass,13.7%,,,,,,,,
+Liepard,228,held_item,1,Focus Sash,51.0%,,,,,,,,
+Liepard,228,held_item,2,Leftovers,31.4%,,,,,,,,
+Liepard,228,held_item,3,Mental Herb,13.7%,,,,,,,,
+Liepard,228,held_item,4,Sitrus Berry,2.0%,,,,,,,,
+Liepard,228,held_item,5,Expert Belt,2.0%,,,,,,,,
+Liepard,228,teammate,1,Ditto,,,,,,,,,
+Liepard,228,teammate,2,Lucario,,,,,,,,,
+Liepard,228,teammate,3,Primarina,,,,,,,,,
+Liepard,228,teammate,4,Araquanid,,,,,,,,,
+Liepard,228,teammate,5,Gyarados,,,,,,,,,
+Liepard,228,teammate,6,Garchomp,,,,,,,,,
+Liepard,228,teammate,7,Basculegion,,,,,,,,,
+Liepard,228,teammate,8,Malamar,,,,,,,,,
+Liepard,228,teammate,9,Typhlosion,,,,,,,,,
+Liepard,228,teammate,10,Scizor,,,,,,,,,
+Liepard,228,stat_alignment,1,Jolly,43.1%,Speed,Sp. Atk,,,,,,
+Liepard,228,stat_alignment,2,Timid,37.3%,Speed,Attack,,,,,,
+Liepard,228,stat_alignment,3,Bold,11.8%,Defense,Attack,,,,,,
+Liepard,228,stat_alignment,4,Modest,3.9%,Sp. Atk,Attack,,,,,,
+Liepard,228,stat_alignment,5,Serious,2.0%,,,,,,,,
+Liepard,228,stat_alignment,6,Calm,2.0%,Sp. Def,Attack,,,,,,
+Liepard,228,stat_points,1,,27.5%,,,32,0,0,0,0,32
+Liepard,228,stat_points,2,,19.6%,,,22,0,6,0,6,32
+Liepard,228,stat_points,3,,17.6%,,,31,0,30,0,5,0
+Liepard,228,stat_points,4,,13.7%,,,2,32,0,0,0,32
+Liepard,228,stat_points,5,,11.8%,,,22,0,32,0,12,0
+Liepard,228,stat_points,6,,3.9%,,,0,0,0,32,0,32
+Liepard,228,stat_points,7,,2.0%,,,22,0,22,0,22,0
+Liepard,228,stat_points,8,,2.0%,,,32,0,1,0,1,32
+Liepard,228,stat_points,9,,2.0%,,,32,17,0,17,0,0
+Liepard,228,ability,1,Prankster,96.1%,,,,,,,,
+Liepard,228,ability,2,Unburden,3.9%,,,,,,,,

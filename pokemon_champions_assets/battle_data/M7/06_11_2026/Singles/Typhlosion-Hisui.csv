@@ -1,34 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Typhlosion-Hisui,200,move,1,Eruption,100.0%,,,,,,,,
-Typhlosion-Hisui,200,move,2,Shadow Ball,82.5%,,,,,,,,
-Typhlosion-Hisui,200,move,3,Infernal Parade,60.2%,,,,,,,,
-Typhlosion-Hisui,200,move,4,Blast Burn,46.6%,,,,,,,,
-Typhlosion-Hisui,200,move,5,Flamethrower,37.9%,,,,,,,,
-Typhlosion-Hisui,200,move,6,Overheat,36.9%,,,,,,,,
-Typhlosion-Hisui,200,move,7,Focus Blast,17.5%,,,,,,,,
-Typhlosion-Hisui,200,move,8,Lava Plume,7.8%,,,,,,,,
-Typhlosion-Hisui,200,move,9,Curse,3.9%,,,,,,,,
-Typhlosion-Hisui,200,move,10,Mystical Fire,2.9%,,,,,,,,
-Typhlosion-Hisui,200,held_item,1,Choice Scarf,89.3%,,,,,,,,
-Typhlosion-Hisui,200,held_item,2,Charcoal,8.7%,,,,,,,,
-Typhlosion-Hisui,200,held_item,3,Spell Tag,1.0%,,,,,,,,
-Typhlosion-Hisui,200,held_item,4,Focus Sash,1.0%,,,,,,,,
-Typhlosion-Hisui,200,teammate,1,Garchomp,,,,,,,,,
-Typhlosion-Hisui,200,teammate,2,Tyranitar,,,,,,,,,
-Typhlosion-Hisui,200,teammate,3,Infernape,,,,,,,,,
-Typhlosion-Hisui,200,teammate,4,Sylveon,,,,,,,,,
-Typhlosion-Hisui,200,teammate,5,Scovillain,,,,,,,,,
-Typhlosion-Hisui,200,teammate,6,Abomasnow,,,,,,,,,
-Typhlosion-Hisui,200,teammate,7,Scizor,,,,,,,,,
-Typhlosion-Hisui,200,teammate,8,Aerodactyl,,,,,,,,,
-Typhlosion-Hisui,200,teammate,9,Feraligatr,,,,,,,,,
-Typhlosion-Hisui,200,teammate,10,Heliolisk,,,,,,,,,
-Typhlosion-Hisui,200,stat_alignment,1,Timid,56.3%,Speed,Attack,,,,,,
-Typhlosion-Hisui,200,stat_alignment,2,Modest,43.7%,Sp. Atk,Attack,,,,,,
-Typhlosion-Hisui,200,stat_points,1,,67.0%,,,2,0,0,32,0,32
-Typhlosion-Hisui,200,stat_points,2,,24.3%,,,9,0,0,32,0,25
-Typhlosion-Hisui,200,stat_points,3,,3.9%,,,12,0,0,32,0,22
-Typhlosion-Hisui,200,stat_points,4,,2.9%,,,1,0,0,32,1,32
-Typhlosion-Hisui,200,stat_points,5,,1.9%,,,11,0,1,32,0,22
-Typhlosion-Hisui,200,ability,1,Frisk,57.3%,,,,,,,,
-Typhlosion-Hisui,200,ability,2,Blaze,42.7%,,,,,,,,
+Typhlosion-Hisui,185,move,1,Eruption,100.0%,,,,,,,,
+Typhlosion-Hisui,185,move,2,Shadow Ball,72.0%,,,,,,,,
+Typhlosion-Hisui,185,move,3,Infernal Parade,64.6%,,,,,,,,
+Typhlosion-Hisui,185,move,4,Blast Burn,38.9%,,,,,,,,
+Typhlosion-Hisui,185,move,5,Flamethrower,35.4%,,,,,,,,
+Typhlosion-Hisui,185,move,6,Overheat,28.6%,,,,,,,,
+Typhlosion-Hisui,185,move,7,Focus Blast,23.4%,,,,,,,,
+Typhlosion-Hisui,185,move,8,Heat Wave,8.0%,,,,,,,,
+Typhlosion-Hisui,185,move,9,Burn Up,8.0%,,,,,,,,
+Typhlosion-Hisui,185,move,10,Endeavor,6.3%,,,,,,,,
+Typhlosion-Hisui,185,held_item,1,Choice Scarf,80.0%,,,,,,,,
+Typhlosion-Hisui,185,held_item,2,Focus Sash,6.9%,,,,,,,,
+Typhlosion-Hisui,185,held_item,3,Charcoal,5.1%,,,,,,,,
+Typhlosion-Hisui,185,held_item,4,Spell Tag,0.6%,,,,,,,,
+Typhlosion-Hisui,185,teammate,1,Garchomp,,,,,,,,,
+Typhlosion-Hisui,185,teammate,2,Tyranitar,,,,,,,,,
+Typhlosion-Hisui,185,teammate,3,Infernape,,,,,,,,,
+Typhlosion-Hisui,185,teammate,4,Sylveon,,,,,,,,,
+Typhlosion-Hisui,185,teammate,5,Scovillain,,,,,,,,,
+Typhlosion-Hisui,185,teammate,6,Abomasnow,,,,,,,,,
+Typhlosion-Hisui,185,teammate,7,Scizor,,,,,,,,,
+Typhlosion-Hisui,185,teammate,8,Aerodactyl,,,,,,,,,
+Typhlosion-Hisui,185,teammate,9,Drampa,,,,,,,,,
+Typhlosion-Hisui,185,teammate,10,Sirfetch’d,,,,,,,,,
+Typhlosion-Hisui,185,stat_alignment,1,Timid,50.3%,Speed,Attack,,,,,,
+Typhlosion-Hisui,185,stat_alignment,2,Modest,46.9%,Sp. Atk,Attack,,,,,,
+Typhlosion-Hisui,185,stat_alignment,3,Mild,2.9%,Sp. Atk,Defense,,,,,,
+Typhlosion-Hisui,185,stat_points,1,,55.4%,,,2,0,0,32,0,32
+Typhlosion-Hisui,185,stat_points,2,,20.6%,,,9,0,0,32,0,25
+Typhlosion-Hisui,185,stat_points,3,,7.4%,,,1,0,0,32,0,32
+Typhlosion-Hisui,185,stat_points,4,,5.7%,,,0,0,2,32,0,32
+Typhlosion-Hisui,185,stat_points,5,,5.1%,,,1,0,1,32,0,32
+Typhlosion-Hisui,185,stat_points,6,,2.3%,,,12,0,0,32,0,22
+Typhlosion-Hisui,185,stat_points,7,,1.7%,,,1,0,0,32,1,32
+Typhlosion-Hisui,185,stat_points,8,,1.1%,,,11,0,1,32,0,22
+Typhlosion-Hisui,185,stat_points,9,,0.6%,,,0,0,0,32,2,32
+Typhlosion-Hisui,185,ability,1,Frisk,61.7%,,,,,,,,
+Typhlosion-Hisui,185,ability,2,Blaze,38.3%,,,,,,,,

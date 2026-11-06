@@ -1,37 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Zoroark,166,move,1,Taunt,54.3%,,,,,,,,
-Zoroark,166,move,2,Sludge Bomb,50.0%,,,,,,,,
-Zoroark,166,move,3,Detect,50.0%,,,,,,,,
-Zoroark,166,move,4,Dark Pulse,50.0%,,,,,,,,
-Zoroark,166,move,5,Snarl,44.3%,,,,,,,,
-Zoroark,166,move,6,Night Daze,28.6%,,,,,,,,
-Zoroark,166,move,7,Protect,27.1%,,,,,,,,
-Zoroark,166,move,8,Flamethrower,22.9%,,,,,,,,
-Zoroark,166,move,9,Sunny Day,17.1%,,,,,,,,
-Zoroark,166,move,10,Throat Chop,17.1%,,,,,,,,
-Zoroark,166,held_item,1,Wise Glasses,50.0%,,,,,,,,
-Zoroark,166,held_item,2,Focus Sash,24.3%,,,,,,,,
-Zoroark,166,held_item,3,Black Glasses,11.4%,,,,,,,,
-Zoroark,166,held_item,4,Choice Scarf,11.4%,,,,,,,,
-Zoroark,166,held_item,5,Expert Belt,2.9%,,,,,,,,
-Zoroark,166,teammate,1,Whimsicott,,,,,,,,,
-Zoroark,166,teammate,2,Garchomp,,,,,,,,,
-Zoroark,166,teammate,3,Charizard,,,,,,,,,
-Zoroark,166,teammate,4,Raichu,,,,,,,,,
-Zoroark,166,teammate,5,Meowscarada,,,,,,,,,
-Zoroark,166,teammate,6,Rillaboom,,,,,,,,,
-Zoroark,166,teammate,7,Camerupt,,,,,,,,,
-Zoroark,166,teammate,8,Farigiraf,,,,,,,,,
-Zoroark,166,teammate,9,Sneasler,,,,,,,,,
-Zoroark,166,teammate,10,Primarina,,,,,,,,,
-Zoroark,166,stat_alignment,1,Timid,60.0%,Speed,Attack,,,,,,
-Zoroark,166,stat_alignment,2,Modest,22.9%,Sp. Atk,Attack,,,,,,
-Zoroark,166,stat_alignment,3,Hasty,10.0%,Speed,Defense,,,,,,
-Zoroark,166,stat_alignment,4,Naive,7.1%,Speed,Sp. Def,,,,,,
-Zoroark,166,stat_points,1,,50.0%,,,0,0,0,32,2,32
-Zoroark,166,stat_points,2,,17.1%,,,0,32,0,2,0,32
-Zoroark,166,stat_points,3,,14.3%,,,2,0,0,32,0,32
-Zoroark,166,stat_points,4,,11.4%,,,32,0,0,32,0,0
-Zoroark,166,stat_points,5,,4.3%,,,1,0,1,31,1,32
-Zoroark,166,stat_points,6,,2.9%,,,19,0,0,14,1,32
-Zoroark,166,ability,1,Illusion,100.0%,,,,,,,,
+Zoroark,169,move,1,Taunt,44.2%,,,,,,,,
+Zoroark,169,move,2,Snarl,43.0%,,,,,,,,
+Zoroark,169,move,3,Night Daze,41.9%,,,,,,,,
+Zoroark,169,move,4,Sludge Bomb,40.7%,,,,,,,,
+Zoroark,169,move,5,Detect,40.7%,,,,,,,,
+Zoroark,169,move,6,Dark Pulse,40.7%,,,,,,,,
+Zoroark,169,move,7,Protect,33.7%,,,,,,,,
+Zoroark,169,move,8,Flamethrower,25.6%,,,,,,,,
+Zoroark,169,move,9,Sunny Day,14.0%,,,,,,,,
+Zoroark,169,move,10,Helping Hand,14.0%,,,,,,,,
+Zoroark,169,held_item,1,Wise Glasses,40.7%,,,,,,,,
+Zoroark,169,held_item,2,Focus Sash,26.7%,,,,,,,,
+Zoroark,169,held_item,3,Black Glasses,14.0%,,,,,,,,
+Zoroark,169,held_item,4,Choice Scarf,11.6%,,,,,,,,
+Zoroark,169,held_item,5,Psychic Seed,4.7%,,,,,,,,
+Zoroark,169,held_item,6,Expert Belt,2.3%,,,,,,,,
+Zoroark,169,teammate,1,Whimsicott,,,,,,,,,
+Zoroark,169,teammate,2,Garchomp,,,,,,,,,
+Zoroark,169,teammate,3,Raichu,,,,,,,,,
+Zoroark,169,teammate,4,Charizard,,,,,,,,,
+Zoroark,169,teammate,5,Meowscarada,,,,,,,,,
+Zoroark,169,teammate,6,Sneasler,,,,,,,,,
+Zoroark,169,teammate,7,Staraptor,,,,,,,,,
+Zoroark,169,teammate,8,Rillaboom,,,,,,,,,
+Zoroark,169,teammate,9,Gholdengo,,,,,,,,,
+Zoroark,169,teammate,10,Gengar,,,,,,,,,
+Zoroark,169,stat_alignment,1,Timid,55.8%,Speed,Attack,,,,,,
+Zoroark,169,stat_alignment,2,Modest,26.7%,Sp. Atk,Attack,,,,,,
+Zoroark,169,stat_alignment,3,Hasty,8.1%,Speed,Defense,,,,,,
+Zoroark,169,stat_alignment,4,Naive,5.8%,Speed,Sp. Def,,,,,,
+Zoroark,169,stat_alignment,5,Bold,3.5%,Defense,Attack,,,,,,
+Zoroark,169,stat_points,1,,40.7%,,,0,0,0,32,2,32
+Zoroark,169,stat_points,2,,23.3%,,,2,0,0,32,0,32
+Zoroark,169,stat_points,3,,14.0%,,,0,32,0,2,0,32
+Zoroark,169,stat_points,4,,11.6%,,,32,0,0,32,0,0
+Zoroark,169,stat_points,5,,3.5%,,,0,0,26,14,26,0
+Zoroark,169,stat_points,6,,3.5%,,,1,0,1,31,1,32
+Zoroark,169,stat_points,7,,2.3%,,,19,0,0,14,1,32
+Zoroark,169,stat_points,8,,1.2%,,,0,0,26,15,25,0
+Zoroark,169,ability,1,Illusion,100.0%,,,,,,,,

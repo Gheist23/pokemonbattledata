@@ -1,37 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Chimecho,136,move,1,Recover,98.0%,,,,,,,,
-Chimecho,136,move,2,Calm Mind,85.1%,,,,,,,,
-Chimecho,136,move,3,Flash Cannon,61.4%,,,,,,,,
-Chimecho,136,move,4,Boomburst,34.3%,,,,,,,,
-Chimecho,136,move,5,Psychic,25.0%,,,,,,,,
-Chimecho,136,move,6,Psyshock,22.7%,,,,,,,,
-Chimecho,136,move,7,Substitute,21.5%,,,,,,,,
-Chimecho,136,move,8,Psychic Noise,19.2%,,,,,,,,
-Chimecho,136,move,9,Cosmic Power,11.6%,,,,,,,,
-Chimecho,136,move,10,Stored Power,10.4%,,,,,,,,
-Chimecho,136,held_item,1,Chimechite,100.0%,,,,,,,,
+Chimecho,136,move,1,Recover,93.2%,,,,,,,,
+Chimecho,136,move,2,Calm Mind,80.6%,,,,,,,,
+Chimecho,136,move,3,Flash Cannon,51.1%,,,,,,,,
+Chimecho,136,move,4,Boomburst,39.3%,,,,,,,,
+Chimecho,136,move,5,Psychic,25.8%,,,,,,,,
+Chimecho,136,move,6,Psychic Noise,24.7%,,,,,,,,
+Chimecho,136,move,7,Psyshock,20.2%,,,,,,,,
+Chimecho,136,move,8,Substitute,17.4%,,,,,,,,
+Chimecho,136,move,9,Cosmic Power,13.1%,,,,,,,,
+Chimecho,136,move,10,Stored Power,11.0%,,,,,,,,
+Chimecho,136,held_item,1,Chimechite,95.9%,,,,,,,,
+Chimecho,136,held_item,2,Mental Herb,3.7%,,,,,,,,
 Chimecho,136,teammate,1,Garchomp,,,,,,,,,
 Chimecho,136,teammate,2,Dragonite,,,,,,,,,
 Chimecho,136,teammate,3,Glimmora,,,,,,,,,
 Chimecho,136,teammate,4,Primarina,,,,,,,,,
-Chimecho,136,teammate,5,Samurott-Hisui,,,,,,,,,
-Chimecho,136,teammate,6,Meganium,,,,,,,,,
-Chimecho,136,teammate,7,Sneasler,,,,,,,,,
-Chimecho,136,teammate,8,Umbreon,,,,,,,,,
-Chimecho,136,teammate,9,Espeon,,,,,,,,,
-Chimecho,136,teammate,10,Zoroark-Hisui,,,,,,,,,
-Chimecho,136,stat_alignment,1,Bold,44.9%,Defense,Attack,,,,,,
-Chimecho,136,stat_alignment,2,Calm,34.6%,Sp. Def,Attack,,,,,,
-Chimecho,136,stat_alignment,3,Modest,19.4%,Sp. Atk,Attack,,,,,,
-Chimecho,136,stat_alignment,4,Relaxed,1.0%,Defense,Speed,,,,,,
-Chimecho,136,stat_points,1,,21.5%,,,31,0,13,1,20,1
-Chimecho,136,stat_points,2,,19.4%,,,32,0,32,0,2,0
-Chimecho,136,stat_points,3,,11.6%,,,32,0,21,5,0,8
-Chimecho,136,stat_points,4,,11.4%,,,31,0,24,0,0,11
-Chimecho,136,stat_points,5,,4.8%,,,32,0,12,13,1,8
-Chimecho,136,stat_points,6,,4.5%,,,21,0,0,32,1,12
-Chimecho,136,stat_points,7,,3.8%,,,31,0,18,0,0,17
-Chimecho,136,stat_points,8,,2.8%,,,31,0,32,0,3,0
-Chimecho,136,stat_points,9,,2.5%,,,31,0,20,5,0,10
-Chimecho,136,stat_points,10,,2.3%,,,32,0,21,1,0,12
+Chimecho,136,teammate,5,Toxapex,,,,,,,,,
+Chimecho,136,teammate,6,Samurott-Hisui,,,,,,,,,
+Chimecho,136,teammate,7,Indeedee,,,,,,,,,
+Chimecho,136,teammate,8,Meganium,,,,,,,,,
+Chimecho,136,teammate,9,Corviknight,,,,,,,,,
+Chimecho,136,teammate,10,Sneasler,,,,,,,,,
+Chimecho,136,stat_alignment,1,Bold,47.6%,Defense,Attack,,,,,,
+Chimecho,136,stat_alignment,2,Calm,30.5%,Sp. Def,Attack,,,,,,
+Chimecho,136,stat_alignment,3,Modest,17.4%,Sp. Atk,Attack,,,,,,
+Chimecho,136,stat_alignment,4,Impish,3.7%,Defense,Sp. Atk,,,,,,
+Chimecho,136,stat_alignment,5,Relaxed,0.8%,Defense,Speed,,,,,,
+Chimecho,136,stat_points,1,,20.9%,,,32,0,32,0,2,0
+Chimecho,136,stat_points,2,,17.4%,,,31,0,13,1,20,1
+Chimecho,136,stat_points,3,,12.5%,,,32,0,21,5,0,8
+Chimecho,136,stat_points,4,,10.6%,,,31,0,24,0,0,11
+Chimecho,136,stat_points,5,,4.3%,,,31,0,32,0,3,0
+Chimecho,136,stat_points,6,,3.7%,,,32,0,12,13,1,8
+Chimecho,136,stat_points,7,,3.5%,,,21,0,0,32,1,12
+Chimecho,136,stat_points,8,,3.1%,,,31,0,18,0,0,17
+Chimecho,136,stat_points,9,,2.5%,,,32,0,21,0,1,12
+Chimecho,136,stat_points,10,,2.3%,,,31,0,20,5,0,10
 Chimecho,136,ability,1,Levitate,100.0%,,,,,,,,

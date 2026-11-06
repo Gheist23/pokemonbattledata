@@ -1,39 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Serperior,154,move,1,Leaf Storm,100.0%,,,,,,,,
-Serperior,154,move,2,Dragon Pulse,92.8%,,,,,,,,
-Serperior,154,move,3,Protect,76.3%,,,,,,,,
-Serperior,154,move,4,Giga Drain,76.3%,,,,,,,,
-Serperior,154,move,5,Taunt,23.7%,,,,,,,,
-Serperior,154,move,6,Reflect,14.4%,,,,,,,,
-Serperior,154,move,7,Glare,10.3%,,,,,,,,
-Serperior,154,move,8,Substitute,6.2%,,,,,,,,
-Serperior,154,held_item,1,Leftovers,55.7%,,,,,,,,
-Serperior,154,held_item,2,Kebia Berry,14.4%,,,,,,,,
-Serperior,154,held_item,3,Miracle Seed,13.4%,,,,,,,,
-Serperior,154,held_item,4,Sitrus Berry,9.3%,,,,,,,,
-Serperior,154,held_item,5,Big Root,6.2%,,,,,,,,
-Serperior,154,held_item,6,Bright Powder,1.0%,,,,,,,,
-Serperior,154,teammate,1,Arcanine-Hisui,,,,,,,,,
-Serperior,154,teammate,2,Raichu,,,,,,,,,
-Serperior,154,teammate,3,Grapploct,,,,,,,,,
-Serperior,154,teammate,4,Gholdengo,,,,,,,,,
-Serperior,154,teammate,5,Whimsicott,,,,,,,,,
-Serperior,154,teammate,6,Sneasler,,,,,,,,,
-Serperior,154,teammate,7,Lucario,,,,,,,,,
-Serperior,154,teammate,8,Talonflame,,,,,,,,,
-Serperior,154,teammate,9,Pawmot,,,,,,,,,
-Serperior,154,teammate,10,Sylveon,,,,,,,,,
-Serperior,154,stat_alignment,1,Timid,75.3%,Speed,Attack,,,,,,
-Serperior,154,stat_alignment,2,Modest,14.4%,Sp. Atk,Attack,,,,,,
-Serperior,154,stat_alignment,3,Calm,10.3%,Sp. Def,Attack,,,,,,
-Serperior,154,stat_points,1,,37.1%,,,32,0,2,0,0,32
-Serperior,154,stat_points,2,,14.4%,,,0,0,2,32,0,32
-Serperior,154,stat_points,3,,10.3%,,,1,0,1,32,0,32
-Serperior,154,stat_points,4,,9.3%,,,30,0,1,2,1,32
-Serperior,154,stat_points,5,,8.2%,,,32,0,2,0,32,0
-Serperior,154,stat_points,6,,7.2%,,,25,0,0,32,0,9
-Serperior,154,stat_points,7,,6.2%,,,20,0,0,9,10,27
-Serperior,154,stat_points,8,,3.1%,,,2,0,0,32,0,32
-Serperior,154,stat_points,9,,2.1%,,,20,0,0,9,32,0
-Serperior,154,stat_points,10,,1.0%,,,24,0,5,0,5,32
-Serperior,154,ability,1,Contrary,100.0%,,,,,,,,
+Serperior,151,move,1,Leaf Storm,100.0%,,,,,,,,
+Serperior,151,move,2,Dragon Pulse,92.2%,,,,,,,,
+Serperior,151,move,3,Protect,69.0%,,,,,,,,
+Serperior,151,move,4,Giga Drain,62.8%,,,,,,,,
+Serperior,151,move,5,Taunt,31.0%,,,,,,,,
+Serperior,151,move,6,Glare,23.3%,,,,,,,,
+Serperior,151,move,7,Reflect,10.9%,,,,,,,,
+Serperior,151,move,8,Light Screen,4.7%,,,,,,,,
+Serperior,151,move,9,Substitute,4.7%,,,,,,,,
+Serperior,151,move,10,Hyper Beam,1.6%,,,,,,,,
+Serperior,151,held_item,1,Leftovers,46.5%,,,,,,,,
+Serperior,151,held_item,2,Sitrus Berry,20.2%,,,,,,,,
+Serperior,151,held_item,3,Kebia Berry,10.9%,,,,,,,,
+Serperior,151,held_item,4,Miracle Seed,10.9%,,,,,,,,
+Serperior,151,held_item,5,Choice Scarf,4.7%,,,,,,,,
+Serperior,151,held_item,6,Big Root,4.7%,,,,,,,,
+Serperior,151,held_item,7,Coba Berry,1.6%,,,,,,,,
+Serperior,151,held_item,8,Bright Powder,0.8%,,,,,,,,
+Serperior,151,teammate,1,Raichu,,,,,,,,,
+Serperior,151,teammate,2,Arcanine-Hisui,,,,,,,,,
+Serperior,151,teammate,3,Grapploct,,,,,,,,,
+Serperior,151,teammate,4,Gholdengo,,,,,,,,,
+Serperior,151,teammate,5,Swampert,,,,,,,,,
+Serperior,151,teammate,6,Pelipper,,,,,,,,,
+Serperior,151,teammate,7,Archaludon,,,,,,,,,
+Serperior,151,teammate,8,Whimsicott,,,,,,,,,
+Serperior,151,teammate,9,Grimmsnarl,,,,,,,,,
+Serperior,151,teammate,10,Talonflame,,,,,,,,,
+Serperior,151,stat_alignment,1,Timid,73.6%,Speed,Attack,,,,,,
+Serperior,151,stat_alignment,2,Modest,15.5%,Sp. Atk,Attack,,,,,,
+Serperior,151,stat_alignment,3,Calm,10.9%,Sp. Def,Attack,,,,,,
+Serperior,151,stat_points,1,,27.9%,,,32,0,2,0,0,32
+Serperior,151,stat_points,2,,20.2%,,,30,0,1,2,1,32
+Serperior,151,stat_points,3,,10.9%,,,0,0,2,32,0,32
+Serperior,151,stat_points,4,,9.3%,,,32,0,2,0,32,0
+Serperior,151,stat_points,5,,7.8%,,,1,0,1,32,0,32
+Serperior,151,stat_points,6,,5.4%,,,25,0,0,32,0,9
+Serperior,151,stat_points,7,,4.7%,,,20,0,0,9,10,27
+Serperior,151,stat_points,8,,4.7%,,,22,0,0,32,0,12
+Serperior,151,stat_points,9,,3.9%,,,2,0,0,32,0,32
+Serperior,151,stat_points,10,,1.6%,,,20,0,0,9,32,0
+Serperior,151,ability,1,Contrary,100.0%,,,,,,,,

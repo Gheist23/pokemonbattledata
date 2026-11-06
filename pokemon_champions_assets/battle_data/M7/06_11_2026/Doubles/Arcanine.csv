@@ -1,45 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Arcanine,128,move,1,Flare Blitz,86.9%,,,,,,,,
-Arcanine,128,move,2,Extreme Speed,84.7%,,,,,,,,
-Arcanine,128,move,3,Protect,71.6%,,,,,,,,
-Arcanine,128,move,4,Howl,67.6%,,,,,,,,
-Arcanine,128,move,5,Wild Charge,15.9%,,,,,,,,
-Arcanine,128,move,6,Snarl,12.5%,,,,,,,,
-Arcanine,128,move,7,Heat Wave,11.9%,,,,,,,,
-Arcanine,128,move,8,Sunny Day,11.4%,,,,,,,,
-Arcanine,128,move,9,Burn Up,11.4%,,,,,,,,
-Arcanine,128,move,10,Play Rough,10.8%,,,,,,,,
-Arcanine,128,held_item,1,Sitrus Berry,69.3%,,,,,,,,
-Arcanine,128,held_item,2,Charcoal,11.4%,,,,,,,,
-Arcanine,128,held_item,3,Shell Bell,10.2%,,,,,,,,
-Arcanine,128,held_item,4,Expert Belt,3.4%,,,,,,,,
-Arcanine,128,held_item,5,Life Orb,2.8%,,,,,,,,
-Arcanine,128,held_item,6,Lum Berry,1.1%,,,,,,,,
-Arcanine,128,held_item,7,Leftovers,1.1%,,,,,,,,
-Arcanine,128,held_item,8,Normal Gem,0.6%,,,,,,,,
-Arcanine,128,teammate,1,Rillaboom,,,,,,,,,
-Arcanine,128,teammate,2,Gengar,,,,,,,,,
-Arcanine,128,teammate,3,Incineroar,,,,,,,,,
-Arcanine,128,teammate,4,Kingambit,,,,,,,,,
-Arcanine,128,teammate,5,Kommo-o,,,,,,,,,
-Arcanine,128,teammate,6,Sneasler,,,,,,,,,
-Arcanine,128,teammate,7,Sableye,,,,,,,,,
-Arcanine,128,teammate,8,Froslass,,,,,,,,,
-Arcanine,128,teammate,9,Indeedee,,,,,,,,,
-Arcanine,128,teammate,10,Raichu,,,,,,,,,
-Arcanine,128,stat_alignment,1,Adamant,83.5%,Attack,Sp. Atk,,,,,,
-Arcanine,128,stat_alignment,2,Timid,11.9%,Speed,Attack,,,,,,
-Arcanine,128,stat_alignment,3,Jolly,4.5%,Speed,Sp. Atk,,,,,,
-Arcanine,128,stat_points,1,,67.6%,,,28,10,2,0,4,22
-Arcanine,128,stat_points,2,,12.5%,,,2,32,0,0,0,32
-Arcanine,128,stat_points,3,,11.4%,,,10,0,6,18,0,32
-Arcanine,128,stat_points,4,,3.4%,,,19,15,0,0,0,32
-Arcanine,128,stat_points,5,,1.1%,,,32,2,20,0,12,0
-Arcanine,128,stat_points,6,,1.1%,,,32,32,2,0,0,0
-Arcanine,128,stat_points,7,,0.6%,,,2,0,32,0,32,0
-Arcanine,128,stat_points,8,,0.6%,,,2,32,16,0,16,0
-Arcanine,128,stat_points,9,,0.6%,,,7,32,0,0,0,27
-Arcanine,128,stat_points,10,,0.6%,,,18,32,0,0,0,16
-Arcanine,128,ability,1,Intimidate,93.2%,,,,,,,,
-Arcanine,128,ability,2,Justified,5.1%,,,,,,,,
-Arcanine,128,ability,3,Flash Fire,1.7%,,,,,,,,
+Arcanine,132,move,1,Flare Blitz,86.4%,,,,,,,,
+Arcanine,132,move,2,Extreme Speed,82.6%,,,,,,,,
+Arcanine,132,move,3,Protect,71.2%,,,,,,,,
+Arcanine,132,move,4,Howl,64.7%,,,,,,,,
+Arcanine,132,move,5,Wild Charge,16.3%,,,,,,,,
+Arcanine,132,move,6,Snarl,12.5%,,,,,,,,
+Arcanine,132,move,7,Heat Wave,12.0%,,,,,,,,
+Arcanine,132,move,8,Sunny Day,10.9%,,,,,,,,
+Arcanine,132,move,9,Play Rough,10.9%,,,,,,,,
+Arcanine,132,move,10,Burn Up,10.9%,,,,,,,,
+Arcanine,132,held_item,1,Sitrus Berry,66.8%,,,,,,,,
+Arcanine,132,held_item,2,Charcoal,10.9%,,,,,,,,
+Arcanine,132,held_item,3,Shell Bell,9.8%,,,,,,,,
+Arcanine,132,held_item,4,Expert Belt,4.9%,,,,,,,,
+Arcanine,132,held_item,5,Life Orb,4.9%,,,,,,,,
+Arcanine,132,held_item,6,Lum Berry,1.1%,,,,,,,,
+Arcanine,132,held_item,7,Leftovers,1.1%,,,,,,,,
+Arcanine,132,held_item,8,Normal Gem,0.5%,,,,,,,,
+Arcanine,132,teammate,1,Rillaboom,,,,,,,,,
+Arcanine,132,teammate,2,Gengar,,,,,,,,,
+Arcanine,132,teammate,3,Incineroar,,,,,,,,,
+Arcanine,132,teammate,4,Kingambit,,,,,,,,,
+Arcanine,132,teammate,5,Sneasler,,,,,,,,,
+Arcanine,132,teammate,6,Kommo-o,,,,,,,,,
+Arcanine,132,teammate,7,Raichu,,,,,,,,,
+Arcanine,132,teammate,8,Sableye,,,,,,,,,
+Arcanine,132,teammate,9,Froslass,,,,,,,,,
+Arcanine,132,teammate,10,Indeedee,,,,,,,,,
+Arcanine,132,stat_alignment,1,Adamant,82.1%,Attack,Sp. Atk,,,,,,
+Arcanine,132,stat_alignment,2,Timid,11.4%,Speed,Attack,,,,,,
+Arcanine,132,stat_alignment,3,Jolly,6.0%,Speed,Sp. Atk,,,,,,
+Arcanine,132,stat_alignment,4,Bold,0.5%,Defense,Attack,,,,,,
+Arcanine,132,stat_points,1,,64.7%,,,28,10,2,0,4,22
+Arcanine,132,stat_points,2,,14.1%,,,2,32,0,0,0,32
+Arcanine,132,stat_points,3,,10.9%,,,10,0,6,18,0,32
+Arcanine,132,stat_points,4,,4.3%,,,19,15,0,0,0,32
+Arcanine,132,stat_points,5,,1.1%,,,7,32,0,0,0,27
+Arcanine,132,stat_points,6,,1.1%,,,32,2,20,0,12,0
+Arcanine,132,stat_points,7,,1.1%,,,32,32,2,0,0,0
+Arcanine,132,stat_points,8,,0.5%,,,2,0,32,0,32,0
+Arcanine,132,stat_points,9,,0.5%,,,2,32,16,0,16,0
+Arcanine,132,stat_points,10,,0.5%,,,18,32,0,0,0,16
+Arcanine,132,ability,1,Intimidate,92.4%,,,,,,,,
+Arcanine,132,ability,2,Justified,6.0%,,,,,,,,
+Arcanine,132,ability,3,Flash Fire,1.6%,,,,,,,,

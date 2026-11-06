@@ -1,39 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Zoroark,180,move,1,Night Daze,82.8%,,,,,,,,
-Zoroark,180,move,2,Flamethrower,76.8%,,,,,,,,
-Zoroark,180,move,3,Trick,51.7%,,,,,,,,
-Zoroark,180,move,4,Psychic,48.3%,,,,,,,,
-Zoroark,180,move,5,Sucker Punch,25.8%,,,,,,,,
-Zoroark,180,move,6,Sludge Bomb,19.2%,,,,,,,,
-Zoroark,180,move,7,Dark Pulse,17.2%,,,,,,,,
-Zoroark,180,move,8,Focus Blast,15.9%,,,,,,,,
-Zoroark,180,move,9,Taunt,12.6%,,,,,,,,
-Zoroark,180,move,10,Snarl,11.9%,,,,,,,,
-Zoroark,180,held_item,1,Choice Scarf,53.6%,,,,,,,,
-Zoroark,180,held_item,2,Focus Sash,11.3%,,,,,,,,
-Zoroark,180,held_item,3,Black Glasses,10.6%,,,,,,,,
-Zoroark,180,held_item,4,Lum Berry,6.0%,,,,,,,,
-Zoroark,180,held_item,5,Life Orb,5.3%,,,,,,,,
-Zoroark,180,held_item,6,Bright Powder,2.6%,,,,,,,,
-Zoroark,180,held_item,7,Focus Band,2.6%,,,,,,,,
-Zoroark,180,held_item,8,Leftovers,0.7%,,,,,,,,
-Zoroark,180,teammate,1,Venusaur,,,,,,,,,
-Zoroark,180,teammate,2,Garchomp,,,,,,,,,
+Zoroark,180,move,1,Night Daze,85.3%,,,,,,,,
+Zoroark,180,move,2,Flamethrower,76.1%,,,,,,,,
+Zoroark,180,move,3,Trick,40.1%,,,,,,,,
+Zoroark,180,move,4,Psychic,38.6%,,,,,,,,
+Zoroark,180,move,5,Focus Blast,27.4%,,,,,,,,
+Zoroark,180,move,6,Sludge Bomb,26.9%,,,,,,,,
+Zoroark,180,move,7,Sucker Punch,20.8%,,,,,,,,
+Zoroark,180,move,8,Dark Pulse,14.7%,,,,,,,,
+Zoroark,180,move,9,Taunt,14.2%,,,,,,,,
+Zoroark,180,move,10,Snarl,10.2%,,,,,,,,
+Zoroark,180,held_item,1,Choice Scarf,46.2%,,,,,,,,
+Zoroark,180,held_item,2,Focus Sash,13.7%,,,,,,,,
+Zoroark,180,held_item,3,Black Glasses,8.1%,,,,,,,,
+Zoroark,180,held_item,4,Wide Lens,6.6%,,,,,,,,
+Zoroark,180,held_item,5,Lum Berry,6.1%,,,,,,,,
+Zoroark,180,held_item,6,Leftovers,4.6%,,,,,,,,
+Zoroark,180,held_item,7,Life Orb,4.1%,,,,,,,,
+Zoroark,180,held_item,8,Focus Band,3.0%,,,,,,,,
+Zoroark,180,held_item,9,Bright Powder,2.0%,,,,,,,,
+Zoroark,180,teammate,1,Garchomp,,,,,,,,,
+Zoroark,180,teammate,2,Venusaur,,,,,,,,,
 Zoroark,180,teammate,3,Empoleon,,,,,,,,,
 Zoroark,180,teammate,4,Chandelure,,,,,,,,,
 Zoroark,180,teammate,5,Sylveon,,,,,,,,,
 Zoroark,180,teammate,6,Basculegion,,,,,,,,,
-Zoroark,180,teammate,7,Victreebel,,,,,,,,,
-Zoroark,180,teammate,8,Rillaboom,,,,,,,,,
-Zoroark,180,teammate,9,Inteleon,,,,,,,,,
-Zoroark,180,teammate,10,Kingambit,,,,,,,,,
-Zoroark,180,stat_alignment,1,Timid,80.1%,Speed,Attack,,,,,,
-Zoroark,180,stat_alignment,2,Quiet,10.6%,Sp. Atk,Speed,,,,,,
-Zoroark,180,stat_alignment,3,Modest,9.3%,Sp. Atk,Attack,,,,,,
-Zoroark,180,stat_points,1,,45.0%,,,0,0,8,32,7,19
-Zoroark,180,stat_points,2,,22.5%,,,2,0,0,32,0,32
-Zoroark,180,stat_points,3,,16.6%,,,0,0,0,32,2,32
-Zoroark,180,stat_points,4,,10.6%,,,32,2,0,32,0,0
-Zoroark,180,stat_points,5,,2.6%,,,0,0,2,32,0,32
-Zoroark,180,stat_points,6,,2.6%,,,32,0,0,0,2,32
+Zoroark,180,teammate,7,Pawmot,,,,,,,,,
+Zoroark,180,teammate,8,Kingambit,,,,,,,,,
+Zoroark,180,teammate,9,Victreebel,,,,,,,,,
+Zoroark,180,teammate,10,Salamence,,,,,,,,,
+Zoroark,180,stat_alignment,1,Timid,78.2%,Speed,Attack,,,,,,
+Zoroark,180,stat_alignment,2,Modest,13.7%,Sp. Atk,Attack,,,,,,
+Zoroark,180,stat_alignment,3,Quiet,8.1%,Sp. Atk,Speed,,,,,,
+Zoroark,180,stat_points,1,,34.5%,,,0,0,8,32,7,19
+Zoroark,180,stat_points,2,,32.5%,,,2,0,0,32,0,32
+Zoroark,180,stat_points,3,,15.7%,,,0,0,0,32,2,32
+Zoroark,180,stat_points,4,,8.1%,,,32,2,0,32,0,0
+Zoroark,180,stat_points,5,,4.1%,,,32,0,1,0,1,32
+Zoroark,180,stat_points,6,,3.0%,,,0,0,2,32,0,32
+Zoroark,180,stat_points,7,,2.0%,,,32,0,0,0,2,32
 Zoroark,180,ability,1,Illusion,100.0%,,,,,,,,

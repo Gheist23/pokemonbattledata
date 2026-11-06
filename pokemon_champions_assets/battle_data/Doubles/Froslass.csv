@@ -1,39 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Froslass,35,move,1,Blizzard,99.9%,,,,,,,,
-Froslass,35,move,2,Shadow Ball,97.5%,,,,,,,,
-Froslass,35,move,3,Protect,96.2%,,,,,,,,
-Froslass,35,move,4,Aurora Veil,78.2%,,,,,,,,
-Froslass,35,move,5,Nasty Plot,6.6%,,,,,,,,
-Froslass,35,move,6,Thunderbolt,5.7%,,,,,,,,
-Froslass,35,move,7,Taunt,4.9%,,,,,,,,
-Froslass,35,move,8,Destiny Bond,3.0%,,,,,,,,
-Froslass,35,move,9,Rain Dance,3.0%,,,,,,,,
-Froslass,35,move,10,Haze,2.9%,,,,,,,,
-Froslass,35,held_item,1,Froslassite,100.0%,,,,,,,,
-Froslass,35,teammate,1,Sneasler,,,,,,,,,
-Froslass,35,teammate,2,Kingambit,,,,,,,,,
-Froslass,35,teammate,3,Garchomp,,,,,,,,,
-Froslass,35,teammate,4,Whimsicott,,,,,,,,,
-Froslass,35,teammate,5,Rillaboom,,,,,,,,,
-Froslass,35,teammate,6,Charizard,,,,,,,,,
-Froslass,35,teammate,7,Basculegion,,,,,,,,,
-Froslass,35,teammate,8,Volcarona,,,,,,,,,
-Froslass,35,teammate,9,Incineroar,,,,,,,,,
-Froslass,35,teammate,10,Raichu,,,,,,,,,
-Froslass,35,stat_alignment,1,Timid,75.5%,Speed,Attack,,,,,,
-Froslass,35,stat_alignment,2,Modest,24.2%,Sp. Atk,Attack,,,,,,
-Froslass,35,stat_alignment,3,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Froslass,35,stat_alignment,4,Jolly,0.0%,Speed,Sp. Atk,,,,,,
-Froslass,35,stat_alignment,5,Bold,0.0%,Defense,Attack,,,,,,
-Froslass,35,stat_points,1,,23.4%,,,2,0,0,32,0,32
-Froslass,35,stat_points,2,,17.8%,,,32,0,0,2,0,32
-Froslass,35,stat_points,3,,3.5%,,,2,0,12,20,0,32
-Froslass,35,stat_points,4,,2.4%,,,12,0,1,20,1,32
-Froslass,35,stat_points,5,,1.9%,,,6,0,0,28,0,32
-Froslass,35,stat_points,6,,1.8%,,,24,0,0,10,0,32
-Froslass,35,stat_points,7,,1.7%,,,0,0,0,32,2,32
-Froslass,35,stat_points,8,,1.7%,,,25,0,0,0,26,15
-Froslass,35,stat_points,9,,1.6%,,,8,0,4,22,0,32
-Froslass,35,stat_points,10,,1.5%,,,20,0,4,12,0,30
-Froslass,35,ability,1,Cursed Body,85.9%,,,,,,,,
-Froslass,35,ability,2,Snow Cloak,14.1%,,,,,,,,
+Froslass,34,move,1,Blizzard,99.8%,,,,,,,,
+Froslass,34,move,2,Shadow Ball,97.0%,,,,,,,,
+Froslass,34,move,3,Protect,95.3%,,,,,,,,
+Froslass,34,move,4,Aurora Veil,79.1%,,,,,,,,
+Froslass,34,move,5,Thunderbolt,5.9%,,,,,,,,
+Froslass,34,move,6,Nasty Plot,5.6%,,,,,,,,
+Froslass,34,move,7,Taunt,5.2%,,,,,,,,
+Froslass,34,move,8,Rain Dance,3.8%,,,,,,,,
+Froslass,34,move,9,Destiny Bond,3.4%,,,,,,,,
+Froslass,34,move,10,Haze,2.4%,,,,,,,,
+Froslass,34,held_item,1,Froslassite,99.9%,,,,,,,,
+Froslass,34,held_item,2,Choice Scarf,0.1%,,,,,,,,
+Froslass,34,held_item,3,Focus Sash,0.0%,,,,,,,,
+Froslass,34,teammate,1,Sneasler,,,,,,,,,
+Froslass,34,teammate,2,Kingambit,,,,,,,,,
+Froslass,34,teammate,3,Garchomp,,,,,,,,,
+Froslass,34,teammate,4,Rillaboom,,,,,,,,,
+Froslass,34,teammate,5,Whimsicott,,,,,,,,,
+Froslass,34,teammate,6,Charizard,,,,,,,,,
+Froslass,34,teammate,7,Basculegion,,,,,,,,,
+Froslass,34,teammate,8,Volcarona,,,,,,,,,
+Froslass,34,teammate,9,Incineroar,,,,,,,,,
+Froslass,34,teammate,10,Raichu,,,,,,,,,
+Froslass,34,stat_alignment,1,Timid,74.8%,Speed,Attack,,,,,,
+Froslass,34,stat_alignment,2,Modest,24.9%,Sp. Atk,Attack,,,,,,
+Froslass,34,stat_alignment,3,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Froslass,34,stat_alignment,4,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
+Froslass,34,stat_alignment,5,Jolly,0.0%,Speed,Sp. Atk,,,,,,
+Froslass,34,stat_alignment,6,Bold,0.0%,Defense,Attack,,,,,,
+Froslass,34,stat_points,1,,23.2%,,,2,0,0,32,0,32
+Froslass,34,stat_points,2,,17.6%,,,32,0,0,2,0,32
+Froslass,34,stat_points,3,,3.9%,,,2,0,12,20,0,32
+Froslass,34,stat_points,4,,2.5%,,,12,0,1,20,1,32
+Froslass,34,stat_points,5,,2.0%,,,24,0,0,10,0,32
+Froslass,34,stat_points,6,,1.8%,,,25,0,0,0,26,15
+Froslass,34,stat_points,7,,1.6%,,,0,0,0,32,2,32
+Froslass,34,stat_points,8,,1.6%,,,0,0,2,32,0,32
+Froslass,34,stat_points,9,,1.5%,,,6,0,0,28,0,32
+Froslass,34,stat_points,10,,1.3%,,,8,0,4,22,0,32
+Froslass,34,ability,1,Cursed Body,86.1%,,,,,,,,
+Froslass,34,ability,2,Snow Cloak,13.9%,,,,,,,,

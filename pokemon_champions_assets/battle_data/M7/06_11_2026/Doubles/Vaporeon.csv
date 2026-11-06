@@ -1,35 +1,40 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Vaporeon,154,move,1,Detect,91.8%,,,,,,,,
-Vaporeon,154,move,2,Ice Beam,91.8%,,,,,,,,
-Vaporeon,154,move,3,Muddy Water,85.2%,,,,,,,,
-Vaporeon,154,move,4,Scald,85.2%,,,,,,,,
-Vaporeon,154,move,5,Surf,13.1%,,,,,,,,
-Vaporeon,154,move,6,Icy Wind,8.2%,,,,,,,,
-Vaporeon,154,move,7,Calm Mind,8.2%,,,,,,,,
-Vaporeon,154,move,8,Rain Dance,6.6%,,,,,,,,
-Vaporeon,154,move,9,Flip Turn,6.6%,,,,,,,,
-Vaporeon,154,move,10,Protect,1.6%,,,,,,,,
-Vaporeon,154,held_item,1,Sitrus Berry,83.6%,,,,,,,,
-Vaporeon,154,held_item,2,Leftovers,8.2%,,,,,,,,
-Vaporeon,154,held_item,3,Choice Scarf,6.6%,,,,,,,,
-Vaporeon,154,held_item,4,Psychic Seed,1.6%,,,,,,,,
-Vaporeon,154,teammate,1,Raichu,,,,,,,,,
-Vaporeon,154,teammate,2,Jolteon,,,,,,,,,
-Vaporeon,154,teammate,3,Umbreon,,,,,,,,,
-Vaporeon,154,teammate,4,Skarmory,,,,,,,,,
-Vaporeon,154,teammate,5,Armarouge,,,,,,,,,
-Vaporeon,154,teammate,6,Politoed,,,,,,,,,
-Vaporeon,154,teammate,7,Toxicroak,,,,,,,,,
-Vaporeon,154,teammate,8,Archaludon,,,,,,,,,
-Vaporeon,154,teammate,9,Dragonite,,,,,,,,,
-Vaporeon,154,teammate,10,Swampert,,,,,,,,,
-Vaporeon,154,stat_alignment,1,Modest,90.2%,Sp. Atk,Attack,,,,,,
-Vaporeon,154,stat_alignment,2,Timid,6.6%,Speed,Attack,,,,,,
-Vaporeon,154,stat_alignment,3,Calm,1.6%,Sp. Def,Attack,,,,,,
-Vaporeon,154,stat_alignment,4,Bold,1.6%,Defense,Attack,,,,,,
-Vaporeon,154,stat_points,1,,83.6%,,,5,0,32,23,5,1
-Vaporeon,154,stat_points,2,,6.6%,,,2,0,10,22,0,32
-Vaporeon,154,stat_points,3,,6.6%,,,19,0,17,10,11,9
-Vaporeon,154,stat_points,4,,1.6%,,,19,0,30,0,17,0
-Vaporeon,154,stat_points,5,,1.6%,,,32,0,32,0,0,2
-Vaporeon,154,ability,1,Water Absorb,100.0%,,,,,,,,
+Vaporeon,161,move,1,Ice Beam,92.4%,,,,,,,,
+Vaporeon,161,move,2,Detect,89.4%,,,,,,,,
+Vaporeon,161,move,3,Scald,83.3%,,,,,,,,
+Vaporeon,161,move,4,Muddy Water,80.3%,,,,,,,,
+Vaporeon,161,move,5,Surf,16.7%,,,,,,,,
+Vaporeon,161,move,6,Calm Mind,9.1%,,,,,,,,
+Vaporeon,161,move,7,Icy Wind,7.6%,,,,,,,,
+Vaporeon,161,move,8,Rain Dance,6.1%,,,,,,,,
+Vaporeon,161,move,9,Flip Turn,6.1%,,,,,,,,
+Vaporeon,161,move,10,Protect,3.0%,,,,,,,,
+Vaporeon,161,held_item,1,Sitrus Berry,80.3%,,,,,,,,
+Vaporeon,161,held_item,2,Leftovers,9.1%,,,,,,,,
+Vaporeon,161,held_item,3,Choice Scarf,6.1%,,,,,,,,
+Vaporeon,161,held_item,4,Mystic Water,3.0%,,,,,,,,
+Vaporeon,161,held_item,5,Psychic Seed,1.5%,,,,,,,,
+Vaporeon,161,teammate,1,Jolteon,,,,,,,,,
+Vaporeon,161,teammate,2,Umbreon,,,,,,,,,
+Vaporeon,161,teammate,3,Raichu,,,,,,,,,
+Vaporeon,161,teammate,4,Skarmory,,,,,,,,,
+Vaporeon,161,teammate,5,Armarouge,,,,,,,,,
+Vaporeon,161,teammate,6,Politoed,,,,,,,,,
+Vaporeon,161,teammate,7,Toxicroak,,,,,,,,,
+Vaporeon,161,teammate,8,Scovillain,,,,,,,,,
+Vaporeon,161,teammate,9,Dragonite,,,,,,,,,
+Vaporeon,161,teammate,10,Heliolisk,,,,,,,,,
+Vaporeon,161,stat_alignment,1,Modest,84.8%,Sp. Atk,Attack,,,,,,
+Vaporeon,161,stat_alignment,2,Timid,6.1%,Speed,Attack,,,,,,
+Vaporeon,161,stat_alignment,3,Quiet,4.5%,Sp. Atk,Speed,,,,,,
+Vaporeon,161,stat_alignment,4,Bold,3.0%,Defense,Attack,,,,,,
+Vaporeon,161,stat_alignment,5,Calm,1.5%,Sp. Def,Attack,,,,,,
+Vaporeon,161,stat_points,1,,77.3%,,,5,0,32,23,5,1
+Vaporeon,161,stat_points,2,,7.6%,,,19,0,17,10,11,9
+Vaporeon,161,stat_points,3,,6.1%,,,2,0,10,22,0,32
+Vaporeon,161,stat_points,4,,3.0%,,,3,0,31,32,0,0
+Vaporeon,161,stat_points,5,,1.5%,,,19,0,30,0,17,0
+Vaporeon,161,stat_points,6,,1.5%,,,25,0,20,6,15,0
+Vaporeon,161,stat_points,7,,1.5%,,,32,0,2,32,0,0
+Vaporeon,161,stat_points,8,,1.5%,,,32,0,32,0,0,2
+Vaporeon,161,ability,1,Water Absorb,100.0%,,,,,,,,

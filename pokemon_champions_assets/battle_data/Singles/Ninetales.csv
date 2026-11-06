@@ -1,44 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ninetales,195,move,1,Solar Beam,66.1%,,,,,,,,
-Ninetales,195,move,2,Will-O-Wisp,62.9%,,,,,,,,
-Ninetales,195,move,3,Mystical Fire,56.5%,,,,,,,,
-Ninetales,195,move,4,Encore,38.7%,,,,,,,,
-Ninetales,195,move,5,Healing Wish,37.1%,,,,,,,,
-Ninetales,195,move,6,Weather Ball,22.6%,,,,,,,,
-Ninetales,195,move,7,Overheat,22.6%,,,,,,,,
-Ninetales,195,move,8,Substitute,21.0%,,,,,,,,
-Ninetales,195,move,9,Scorching Sands,19.4%,,,,,,,,
-Ninetales,195,move,10,Flamethrower,12.9%,,,,,,,,
-Ninetales,195,held_item,1,Air Balloon,32.3%,,,,,,,,
-Ninetales,195,held_item,2,Leftovers,21.0%,,,,,,,,
-Ninetales,195,held_item,3,Heat Rock,16.1%,,,,,,,,
-Ninetales,195,held_item,4,Focus Sash,11.3%,,,,,,,,
-Ninetales,195,held_item,5,Choice Scarf,9.7%,,,,,,,,
-Ninetales,195,held_item,6,Chesto Berry,3.2%,,,,,,,,
-Ninetales,195,held_item,7,Lum Berry,1.6%,,,,,,,,
-Ninetales,195,held_item,8,Sitrus Berry,1.6%,,,,,,,,
-Ninetales,195,held_item,9,Charcoal,1.6%,,,,,,,,
-Ninetales,195,held_item,10,Eject Button,1.6%,,,,,,,,
-Ninetales,195,teammate,1,Swampert,,,,,,,,,
-Ninetales,195,teammate,2,Dragonite,,,,,,,,,
-Ninetales,195,teammate,3,Hatterene,,,,,,,,,
-Ninetales,195,teammate,4,Gyarados,,,,,,,,,
-Ninetales,195,teammate,5,Gardevoir,,,,,,,,,
-Ninetales,195,teammate,6,Rillaboom,,,,,,,,,
-Ninetales,195,teammate,7,Quaquaval,,,,,,,,,
-Ninetales,195,teammate,8,Venusaur,,,,,,,,,
-Ninetales,195,teammate,9,Steelix,,,,,,,,,
-Ninetales,195,teammate,10,Victreebel,,,,,,,,,
-Ninetales,195,stat_alignment,1,Modest,50.0%,Sp. Atk,Attack,,,,,,
-Ninetales,195,stat_alignment,2,Timid,25.8%,Speed,Attack,,,,,,
-Ninetales,195,stat_alignment,3,Calm,24.2%,Sp. Def,Attack,,,,,,
-Ninetales,195,stat_points,1,,30.6%,,,32,0,0,32,2,0
-Ninetales,195,stat_points,2,,21.0%,,,1,0,1,32,0,32
-Ninetales,195,stat_points,3,,21.0%,,,29,0,0,0,32,5
-Ninetales,195,stat_points,4,,9.7%,,,0,0,0,32,2,32
-Ninetales,195,stat_points,5,,9.7%,,,2,0,0,32,0,32
-Ninetales,195,stat_points,6,,3.2%,,,31,0,3,0,32,0
-Ninetales,195,stat_points,7,,1.6%,,,31,0,0,9,23,3
-Ninetales,195,stat_points,8,,1.6%,,,32,0,0,2,0,32
-Ninetales,195,stat_points,9,,1.6%,,,32,0,2,32,0,0
-Ninetales,195,ability,1,Drought,100.0%,,,,,,,,
+Ninetales,170,move,1,Solar Beam,56.7%,,,,,,,,
+Ninetales,170,move,2,Encore,53.2%,,,,,,,,
+Ninetales,170,move,3,Flamethrower,41.8%,,,,,,,,
+Ninetales,170,move,4,Will-O-Wisp,41.1%,,,,,,,,
+Ninetales,170,move,5,Mystical Fire,39.7%,,,,,,,,
+Ninetales,170,move,6,Scorching Sands,35.5%,,,,,,,,
+Ninetales,170,move,7,Overheat,21.3%,,,,,,,,
+Ninetales,170,move,8,Healing Wish,21.3%,,,,,,,,
+Ninetales,170,move,9,Baton Pass,16.3%,,,,,,,,
+Ninetales,170,move,10,Weather Ball,14.9%,,,,,,,,
+Ninetales,170,held_item,1,Heat Rock,27.7%,,,,,,,,
+Ninetales,170,held_item,2,Air Balloon,19.1%,,,,,,,,
+Ninetales,170,held_item,3,Life Orb,12.1%,,,,,,,,
+Ninetales,170,held_item,4,Sitrus Berry,9.2%,,,,,,,,
+Ninetales,170,held_item,5,Leftovers,9.2%,,,,,,,,
+Ninetales,170,held_item,6,Eject Button,5.7%,,,,,,,,
+Ninetales,170,held_item,7,Focus Sash,5.0%,,,,,,,,
+Ninetales,170,held_item,8,Charcoal,4.3%,,,,,,,,
+Ninetales,170,held_item,9,Choice Scarf,4.3%,,,,,,,,
+Ninetales,170,held_item,10,Chesto Berry,2.8%,,,,,,,,
+Ninetales,170,teammate,1,Venusaur,,,,,,,,,
+Ninetales,170,teammate,2,Heliolisk,,,,,,,,,
+Ninetales,170,teammate,3,Greninja,,,,,,,,,
+Ninetales,170,teammate,4,Garchomp,,,,,,,,,
+Ninetales,170,teammate,5,Dragonite,,,,,,,,,
+Ninetales,170,teammate,6,Swampert,,,,,,,,,
+Ninetales,170,teammate,7,Grimmsnarl,,,,,,,,,
+Ninetales,170,teammate,8,Meganium,,,,,,,,,
+Ninetales,170,teammate,9,Salamence,,,,,,,,,
+Ninetales,170,teammate,10,Hatterene,,,,,,,,,
+Ninetales,170,stat_alignment,1,Modest,37.6%,Sp. Atk,Attack,,,,,,
+Ninetales,170,stat_alignment,2,Timid,36.9%,Speed,Attack,,,,,,
+Ninetales,170,stat_alignment,3,Bold,13.5%,Defense,Attack,,,,,,
+Ninetales,170,stat_alignment,4,Calm,12.1%,Sp. Def,Attack,,,,,,
+Ninetales,170,stat_points,1,,27.7%,,,1,0,1,32,0,32
+Ninetales,170,stat_points,2,,13.5%,,,31,0,25,0,10,0
+Ninetales,170,stat_points,3,,13.5%,,,32,0,0,32,2,0
+Ninetales,170,stat_points,4,,12.1%,,,31,0,3,32,0,0
+Ninetales,170,stat_points,5,,9.2%,,,29,0,0,0,32,5
+Ninetales,170,stat_points,6,,5.7%,,,31,0,0,9,23,3
+Ninetales,170,stat_points,7,,5.7%,,,32,0,1,0,1,32
+Ninetales,170,stat_points,8,,4.3%,,,0,0,0,32,2,32
+Ninetales,170,stat_points,9,,4.3%,,,2,0,0,32,0,32
+Ninetales,170,stat_points,10,,2.8%,,,31,0,3,0,32,0
+Ninetales,170,ability,1,Drought,86.5%,,,,,,,,
+Ninetales,170,ability,2,Flash Fire,13.5%,,,,,,,,

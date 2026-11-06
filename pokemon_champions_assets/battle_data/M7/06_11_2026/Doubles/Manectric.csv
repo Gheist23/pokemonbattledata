@@ -1,36 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Manectric,143,move,1,Protect,87.8%,,,,,,,,
-Manectric,143,move,2,Snarl,58.1%,,,,,,,,
-Manectric,143,move,3,Overheat,43.2%,,,,,,,,
-Manectric,143,move,4,Rising Voltage,41.9%,,,,,,,,
-Manectric,143,move,5,Discharge,39.2%,,,,,,,,
-Manectric,143,move,6,Flamethrower,33.8%,,,,,,,,
-Manectric,143,move,7,Volt Switch,32.4%,,,,,,,,
-Manectric,143,move,8,Thunderbolt,23.0%,,,,,,,,
-Manectric,143,move,9,Thunder,14.9%,,,,,,,,
-Manectric,143,move,10,Rain Dance,13.5%,,,,,,,,
-Manectric,143,held_item,1,Manectite,83.8%,,,,,,,,
-Manectric,143,held_item,2,Life Orb,6.8%,,,,,,,,
-Manectric,143,held_item,3,Air Balloon,6.8%,,,,,,,,
-Manectric,143,held_item,4,Choice Scarf,2.7%,,,,,,,,
-Manectric,143,teammate,1,Garchomp,,,,,,,,,
-Manectric,143,teammate,2,Sneasler,,,,,,,,,
-Manectric,143,teammate,3,Farigiraf,,,,,,,,,
-Manectric,143,teammate,4,Abomasnow,,,,,,,,,
-Manectric,143,teammate,5,Malamar,,,,,,,,,
-Manectric,143,teammate,6,Pincurchin,,,,,,,,,
-Manectric,143,teammate,7,Rillaboom,,,,,,,,,
-Manectric,143,teammate,8,Pelipper,,,,,,,,,
-Manectric,143,teammate,9,Kingambit,,,,,,,,,
-Manectric,143,teammate,10,Froslass,,,,,,,,,
-Manectric,143,stat_alignment,1,Timid,54.1%,Speed,Attack,,,,,,
-Manectric,143,stat_alignment,2,Modest,43.2%,Sp. Atk,Attack,,,,,,
-Manectric,143,stat_alignment,3,Calm,2.7%,Sp. Def,Attack,,,,,,
-Manectric,143,stat_points,1,,59.5%,,,2,0,0,32,0,32
-Manectric,143,stat_points,2,,16.2%,,,14,0,5,15,0,32
-Manectric,143,stat_points,3,,13.5%,,,0,0,2,32,0,32
-Manectric,143,stat_points,4,,5.4%,,,28,0,3,3,0,32
-Manectric,143,stat_points,5,,2.7%,,,16,0,1,12,12,18
-Manectric,143,stat_points,6,,1.4%,,,22,0,6,5,1,32
-Manectric,143,stat_points,7,,1.4%,,,32,0,0,0,2,32
-Manectric,143,ability,1,Lightning Rod,100.0%,,,,,,,,
+Manectric,148,move,1,Protect,88.8%,,,,,,,,
+Manectric,148,move,2,Snarl,65.2%,,,,,,,,
+Manectric,148,move,3,Volt Switch,43.8%,,,,,,,,
+Manectric,148,move,4,Overheat,36.0%,,,,,,,,
+Manectric,148,move,5,Rising Voltage,34.8%,,,,,,,,
+Manectric,148,move,6,Discharge,32.6%,,,,,,,,
+Manectric,148,move,7,Flamethrower,28.1%,,,,,,,,
+Manectric,148,move,8,Thunderbolt,24.7%,,,,,,,,
+Manectric,148,move,9,Thunder,23.6%,,,,,,,,
+Manectric,148,move,10,Rain Dance,11.2%,,,,,,,,
+Manectric,148,held_item,1,Manectite,85.4%,,,,,,,,
+Manectric,148,held_item,2,Life Orb,5.6%,,,,,,,,
+Manectric,148,held_item,3,Air Balloon,5.6%,,,,,,,,
+Manectric,148,held_item,4,Choice Scarf,2.2%,,,,,,,,
+Manectric,148,held_item,5,Magnet,1.1%,,,,,,,,
+Manectric,148,teammate,1,Garchomp,,,,,,,,,
+Manectric,148,teammate,2,Pelipper,,,,,,,,,
+Manectric,148,teammate,3,Rillaboom,,,,,,,,,
+Manectric,148,teammate,4,Sneasler,,,,,,,,,
+Manectric,148,teammate,5,Farigiraf,,,,,,,,,
+Manectric,148,teammate,6,Abomasnow,,,,,,,,,
+Manectric,148,teammate,7,Malamar,,,,,,,,,
+Manectric,148,teammate,8,Pincurchin,,,,,,,,,
+Manectric,148,teammate,9,Kingambit,,,,,,,,,
+Manectric,148,teammate,10,Archaludon,,,,,,,,,
+Manectric,148,stat_alignment,1,Timid,60.7%,Speed,Attack,,,,,,
+Manectric,148,stat_alignment,2,Modest,36.0%,Sp. Atk,Attack,,,,,,
+Manectric,148,stat_alignment,3,Calm,3.4%,Sp. Def,Attack,,,,,,
+Manectric,148,stat_points,1,,55.1%,,,2,0,0,32,0,32
+Manectric,148,stat_points,2,,13.5%,,,14,0,5,15,0,32
+Manectric,148,stat_points,3,,11.2%,,,0,0,2,32,0,32
+Manectric,148,stat_points,4,,10.1%,,,31,0,1,1,1,32
+Manectric,148,stat_points,5,,4.5%,,,28,0,3,3,0,32
+Manectric,148,stat_points,6,,2.2%,,,16,0,1,12,12,18
+Manectric,148,stat_points,7,,1.1%,,,22,0,6,5,1,32
+Manectric,148,stat_points,8,,1.1%,,,32,0,0,0,2,32
+Manectric,148,stat_points,9,,1.1%,,,32,0,15,0,19,0
+Manectric,148,ability,1,Lightning Rod,100.0%,,,,,,,,

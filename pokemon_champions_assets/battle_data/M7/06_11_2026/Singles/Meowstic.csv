@@ -1,39 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Meowstic,148,move,1,Reflect,80.1%,,,,,,,,
-Meowstic,148,move,2,Light Screen,72.9%,,,,,,,,
-Meowstic,148,move,3,Yawn,61.4%,,,,,,,,
-Meowstic,148,move,4,Wish,42.8%,,,,,,,,
-Meowstic,148,move,5,Psychic,19.3%,,,,,,,,
-Meowstic,148,move,6,Expanding Force,18.7%,,,,,,,,
-Meowstic,148,move,7,Baton Pass,18.1%,,,,,,,,
-Meowstic,148,move,8,Calm Mind,14.5%,,,,,,,,
-Meowstic,148,move,9,Thunder Wave,12.0%,,,,,,,,
-Meowstic,148,move,10,Energy Ball,11.4%,,,,,,,,
-Meowstic,148,held_item,1,Light Clay,71.7%,,,,,,,,
-Meowstic,148,held_item,2,Meowsticite,11.4%,,,,,,,,
-Meowstic,148,held_item,3,Leftovers,7.2%,,,,,,,,
-Meowstic,148,held_item,4,Terrain Extender,7.2%,,,,,,,,
-Meowstic,148,held_item,5,Focus Sash,1.2%,,,,,,,,
-Meowstic,148,held_item,6,Choice Scarf,1.2%,,,,,,,,
-Meowstic,148,teammate,1,Blaziken,,,,,,,,,
-Meowstic,148,teammate,2,Torterra,,,,,,,,,
-Meowstic,148,teammate,3,Baxcalibur,,,,,,,,,
-Meowstic,148,teammate,4,Greninja,,,,,,,,,
-Meowstic,148,teammate,5,Inteleon,,,,,,,,,
-Meowstic,148,teammate,6,Metagross,,,,,,,,,
-Meowstic,148,teammate,7,Volcarona,,,,,,,,,
-Meowstic,148,teammate,8,Arbok,,,,,,,,,
-Meowstic,148,teammate,9,Corviknight,,,,,,,,,
-Meowstic,148,teammate,10,Clefable,,,,,,,,,
-Meowstic,148,stat_alignment,1,Bold,78.9%,Defense,Attack,,,,,,
-Meowstic,148,stat_alignment,2,Modest,19.9%,Sp. Atk,Attack,,,,,,
-Meowstic,148,stat_alignment,3,Timid,1.2%,Speed,Attack,,,,,,
-Meowstic,148,stat_points,1,,47.6%,,,32,0,19,0,15,0
-Meowstic,148,stat_points,2,,12.7%,,,2,0,0,32,0,32
-Meowstic,148,stat_points,3,,12.0%,,,0,0,32,2,32,0
-Meowstic,148,stat_points,4,,10.2%,,,32,0,32,0,2,0
-Meowstic,148,stat_points,5,,7.2%,,,32,0,12,21,0,1
-Meowstic,148,stat_points,6,,7.2%,,,32,0,24,0,10,0
-Meowstic,148,stat_points,7,,1.8%,,,32,0,32,0,0,0
-Meowstic,148,stat_points,8,,1.2%,,,0,0,0,0,0,32
-Meowstic,148,ability,1,Prankster,100.0%,,,,,,,,
+Meowstic,159,move,1,Reflect,77.0%,,,,,,,,
+Meowstic,159,move,2,Light Screen,70.2%,,,,,,,,
+Meowstic,159,move,3,Yawn,59.6%,,,,,,,,
+Meowstic,159,move,4,Wish,39.9%,,,,,,,,
+Meowstic,159,move,5,Baton Pass,21.3%,,,,,,,,
+Meowstic,159,move,6,Expanding Force,19.7%,,,,,,,,
+Meowstic,159,move,7,Calm Mind,18.0%,,,,,,,,
+Meowstic,159,move,8,Psychic,18.0%,,,,,,,,
+Meowstic,159,move,9,Substitute,14.6%,,,,,,,,
+Meowstic,159,move,10,Stored Power,11.2%,,,,,,,,
+Meowstic,159,held_item,1,Light Clay,69.1%,,,,,,,,
+Meowstic,159,held_item,2,Leftovers,11.2%,,,,,,,,
+Meowstic,159,held_item,3,Meowsticite,10.7%,,,,,,,,
+Meowstic,159,held_item,4,Terrain Extender,6.7%,,,,,,,,
+Meowstic,159,held_item,5,Focus Sash,1.1%,,,,,,,,
+Meowstic,159,held_item,6,Choice Scarf,1.1%,,,,,,,,
+Meowstic,159,teammate,1,Blaziken,,,,,,,,,
+Meowstic,159,teammate,2,Baxcalibur,,,,,,,,,
+Meowstic,159,teammate,3,Torterra,,,,,,,,,
+Meowstic,159,teammate,4,Greninja,,,,,,,,,
+Meowstic,159,teammate,5,Inteleon,,,,,,,,,
+Meowstic,159,teammate,6,Metagross,,,,,,,,,
+Meowstic,159,teammate,7,Corviknight,,,,,,,,,
+Meowstic,159,teammate,8,Volcarona,,,,,,,,,
+Meowstic,159,teammate,9,Arbok,,,,,,,,,
+Meowstic,159,teammate,10,Garchomp,,,,,,,,,
+Meowstic,159,stat_alignment,1,Bold,78.1%,Defense,Attack,,,,,,
+Meowstic,159,stat_alignment,2,Modest,18.5%,Sp. Atk,Attack,,,,,,
+Meowstic,159,stat_alignment,3,Calm,2.2%,Sp. Def,Attack,,,,,,
+Meowstic,159,stat_alignment,4,Timid,1.1%,Speed,Attack,,,,,,
+Meowstic,159,stat_points,1,,44.4%,,,32,0,19,0,15,0
+Meowstic,159,stat_points,2,,11.8%,,,2,0,0,32,0,32
+Meowstic,159,stat_points,3,,11.2%,,,0,0,32,2,32,0
+Meowstic,159,stat_points,4,,11.2%,,,32,0,24,0,10,0
+Meowstic,159,stat_points,5,,9.6%,,,32,0,32,0,2,0
+Meowstic,159,stat_points,6,,6.7%,,,32,0,12,21,0,1
+Meowstic,159,stat_points,7,,2.2%,,,32,0,25,0,9,0
+Meowstic,159,stat_points,8,,1.7%,,,32,0,32,0,0,0
+Meowstic,159,stat_points,9,,1.1%,,,0,0,0,0,0,32
+Meowstic,159,ability,1,Prankster,100.0%,,,,,,,,

@@ -1,37 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Houndoom,181,move,1,Flamethrower,77.5%,,,,,,,,
-Houndoom,181,move,2,Dark Pulse,65.2%,,,,,,,,
-Houndoom,181,move,3,Destiny Bond,50.6%,,,,,,,,
-Houndoom,181,move,4,Sucker Punch,48.3%,,,,,,,,
-Houndoom,181,move,5,Sludge Bomb,37.1%,,,,,,,,
-Houndoom,181,move,6,Nasty Plot,32.6%,,,,,,,,
-Houndoom,181,move,7,Counter,30.3%,,,,,,,,
-Houndoom,181,move,8,Comeuppance,20.2%,,,,,,,,
-Houndoom,181,move,9,Fire Blast,13.5%,,,,,,,,
-Houndoom,181,move,10,Heat Wave,5.6%,,,,,,,,
-Houndoom,181,held_item,1,Focus Sash,51.7%,,,,,,,,
-Houndoom,181,held_item,2,Houndoominite,42.7%,,,,,,,,
-Houndoom,181,held_item,3,Sitrus Berry,5.6%,,,,,,,,
+Houndoom,181,move,1,Flamethrower,79.1%,,,,,,,,
+Houndoom,181,move,2,Dark Pulse,59.1%,,,,,,,,
+Houndoom,181,move,3,Sucker Punch,54.8%,,,,,,,,
+Houndoom,181,move,4,Sludge Bomb,44.3%,,,,,,,,
+Houndoom,181,move,5,Destiny Bond,42.6%,,,,,,,,
+Houndoom,181,move,6,Counter,38.3%,,,,,,,,
+Houndoom,181,move,7,Nasty Plot,28.7%,,,,,,,,
+Houndoom,181,move,8,Comeuppance,17.4%,,,,,,,,
+Houndoom,181,move,9,Fire Blast,10.4%,,,,,,,,
+Houndoom,181,move,10,Heat Wave,7.0%,,,,,,,,
+Houndoom,181,held_item,1,Focus Sash,57.4%,,,,,,,,
+Houndoom,181,held_item,2,Houndoominite,35.7%,,,,,,,,
+Houndoom,181,held_item,3,Sitrus Berry,7.0%,,,,,,,,
 Houndoom,181,teammate,1,Victreebel,,,,,,,,,
-Houndoom,181,teammate,2,Sharpedo,,,,,,,,,
+Houndoom,181,teammate,2,Mimikyu,,,,,,,,,
 Houndoom,181,teammate,3,Blastoise,,,,,,,,,
-Houndoom,181,teammate,4,Ninetales-Alola,,,,,,,,,
-Houndoom,181,teammate,5,Mimikyu,,,,,,,,,
-Houndoom,181,teammate,6,Garchomp,,,,,,,,,
-Houndoom,181,teammate,7,Archaludon,,,,,,,,,
-Houndoom,181,teammate,8,Aggron,,,,,,,,,
-Houndoom,181,teammate,9,Mamoswine,,,,,,,,,
+Houndoom,181,teammate,4,Garchomp,,,,,,,,,
+Houndoom,181,teammate,5,Archaludon,,,,,,,,,
+Houndoom,181,teammate,6,Sharpedo,,,,,,,,,
+Houndoom,181,teammate,7,Ninetales-Alola,,,,,,,,,
+Houndoom,181,teammate,8,Mamoswine,,,,,,,,,
+Houndoom,181,teammate,9,Aggron,,,,,,,,,
 Houndoom,181,teammate,10,Scolipede,,,,,,,,,
-Houndoom,181,stat_alignment,1,Modest,83.1%,Sp. Atk,Attack,,,,,,
-Houndoom,181,stat_alignment,2,Timid,14.6%,Speed,Attack,,,,,,
-Houndoom,181,stat_alignment,3,Mild,2.2%,Sp. Atk,Defense,,,,,,
-Houndoom,181,stat_points,1,,31.5%,,,0,0,2,32,0,32
-Houndoom,181,stat_points,2,,21.3%,,,2,0,0,32,0,32
-Houndoom,181,stat_points,3,,20.2%,,,0,0,0,32,0,32
-Houndoom,181,stat_points,4,,15.7%,,,1,0,1,32,0,32
-Houndoom,181,stat_points,5,,5.6%,,,32,0,0,32,0,2
-Houndoom,181,stat_points,6,,2.2%,,,1,0,0,32,1,32
-Houndoom,181,stat_points,7,,2.2%,,,1,1,0,32,0,32
-Houndoom,181,stat_points,8,,1.1%,,,4,0,0,32,0,30
-Houndoom,181,ability,1,Flash Fire,98.9%,,,,,,,,
-Houndoom,181,ability,2,Early Bird,1.1%,,,,,,,,
+Houndoom,181,stat_alignment,1,Modest,83.5%,Sp. Atk,Attack,,,,,,
+Houndoom,181,stat_alignment,2,Timid,13.0%,Speed,Attack,,,,,,
+Houndoom,181,stat_alignment,3,Mild,1.7%,Sp. Atk,Defense,,,,,,
+Houndoom,181,stat_alignment,4,Quiet,0.9%,Sp. Atk,Speed,,,,,,
+Houndoom,181,stat_alignment,5,Rash,0.9%,Sp. Atk,Sp. Def,,,,,,
+Houndoom,181,stat_points,1,,29.6%,,,0,0,0,32,0,32
+Houndoom,181,stat_points,2,,26.1%,,,0,0,2,32,0,32
+Houndoom,181,stat_points,3,,16.5%,,,2,0,0,32,0,32
+Houndoom,181,stat_points,4,,13.9%,,,1,0,1,32,0,32
+Houndoom,181,stat_points,5,,7.0%,,,32,0,0,32,0,2
+Houndoom,181,stat_points,6,,1.7%,,,1,0,0,32,1,32
+Houndoom,181,stat_points,7,,1.7%,,,1,1,0,32,0,32
+Houndoom,181,stat_points,8,,0.9%,,,0,2,0,32,0,32
+Houndoom,181,stat_points,9,,0.9%,,,4,0,0,32,0,30
+Houndoom,181,stat_points,10,,0.9%,,,7,0,2,32,0,25
+Houndoom,181,ability,1,Flash Fire,99.1%,,,,,,,,
+Houndoom,181,ability,2,Early Bird,0.9%,,,,,,,,

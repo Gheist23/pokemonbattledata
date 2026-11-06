@@ -1,44 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Azumarill,134,move,1,Aqua Jet,96.6%,,,,,,,,
-Azumarill,134,move,2,Belly Drum,77.5%,,,,,,,,
-Azumarill,134,move,3,Play Rough,75.3%,,,,,,,,
-Azumarill,134,move,4,Protect,38.2%,,,,,,,,
-Azumarill,134,move,5,Waterfall,36.0%,,,,,,,,
-Azumarill,134,move,6,Ice Spinner,27.0%,,,,,,,,
-Azumarill,134,move,7,Brick Break,14.6%,,,,,,,,
-Azumarill,134,move,8,Liquidation,14.6%,,,,,,,,
-Azumarill,134,move,9,Knock Off,7.9%,,,,,,,,
-Azumarill,134,move,10,Perish Song,3.4%,,,,,,,,
-Azumarill,134,held_item,1,Sitrus Berry,70.8%,,,,,,,,
-Azumarill,134,held_item,2,Psychic Seed,7.9%,,,,,,,,
-Azumarill,134,held_item,3,Leftovers,6.7%,,,,,,,,
-Azumarill,134,held_item,4,Life Orb,5.6%,,,,,,,,
-Azumarill,134,held_item,5,Mystic Water,4.5%,,,,,,,,
-Azumarill,134,held_item,6,Fairy Feather,3.4%,,,,,,,,
-Azumarill,134,held_item,7,White Herb,1.1%,,,,,,,,
-Azumarill,134,teammate,1,Incineroar,,,,,,,,,
-Azumarill,134,teammate,2,Rillaboom,,,,,,,,,
-Azumarill,134,teammate,3,Camerupt,,,,,,,,,
-Azumarill,134,teammate,4,Farigiraf,,,,,,,,,
-Azumarill,134,teammate,5,Raichu,,,,,,,,,
-Azumarill,134,teammate,6,Golisopod,,,,,,,,,
-Azumarill,134,teammate,7,Grapploct,,,,,,,,,
-Azumarill,134,teammate,8,Tyranitar,,,,,,,,,
-Azumarill,134,teammate,9,Sinistcha,,,,,,,,,
-Azumarill,134,teammate,10,Garchomp,,,,,,,,,
-Azumarill,134,stat_alignment,1,Adamant,57.3%,Attack,Sp. Atk,,,,,,
-Azumarill,134,stat_alignment,2,Brave,31.5%,Attack,Speed,,,,,,
-Azumarill,134,stat_alignment,3,Sassy,7.9%,Sp. Def,Speed,,,,,,
-Azumarill,134,stat_alignment,4,Calm,3.4%,Sp. Def,Attack,,,,,,
-Azumarill,134,stat_points,1,,27.0%,,,32,32,2,0,0,0
-Azumarill,134,stat_points,2,,12.4%,,,31,32,3,0,0,0
-Azumarill,134,stat_points,3,,10.1%,,,1,32,1,0,0,32
-Azumarill,134,stat_points,4,,7.9%,,,31,0,32,0,3,0
-Azumarill,134,stat_points,5,,6.7%,,,31,32,0,0,3,0
-Azumarill,134,stat_points,6,,5.6%,,,32,32,0,0,0,2
-Azumarill,134,stat_points,7,,5.6%,,,32,32,0,0,2,0
-Azumarill,134,stat_points,8,,4.5%,,,29,32,1,0,4,0
-Azumarill,134,stat_points,9,,3.4%,,,0,32,0,0,32,2
-Azumarill,134,stat_points,10,,3.4%,,,18,32,8,0,8,0
-Azumarill,134,ability,1,Huge Power,96.6%,,,,,,,,
-Azumarill,134,ability,2,Sap Sipper,3.4%,,,,,,,,
+Azumarill,125,move,1,Aqua Jet,88.7%,,,,,,,,
+Azumarill,125,move,2,Play Rough,83.3%,,,,,,,,
+Azumarill,125,move,3,Belly Drum,73.3%,,,,,,,,
+Azumarill,125,move,4,Protect,56.7%,,,,,,,,
+Azumarill,125,move,5,Waterfall,23.3%,,,,,,,,
+Azumarill,125,move,6,Liquidation,22.0%,,,,,,,,
+Azumarill,125,move,7,Ice Spinner,18.0%,,,,,,,,
+Azumarill,125,move,8,Perish Song,11.3%,,,,,,,,
+Azumarill,125,move,9,Brick Break,9.3%,,,,,,,,
+Azumarill,125,move,10,Superpower,5.3%,,,,,,,,
+Azumarill,125,held_item,1,Sitrus Berry,65.3%,,,,,,,,
+Azumarill,125,held_item,2,Grassy Seed,9.3%,,,,,,,,
+Azumarill,125,held_item,3,Leftovers,8.0%,,,,,,,,
+Azumarill,125,held_item,4,Fairy Feather,5.3%,,,,,,,,
+Azumarill,125,held_item,5,Psychic Seed,4.7%,,,,,,,,
+Azumarill,125,held_item,6,Life Orb,4.0%,,,,,,,,
+Azumarill,125,held_item,7,Mystic Water,2.7%,,,,,,,,
+Azumarill,125,held_item,8,White Herb,0.7%,,,,,,,,
+Azumarill,125,teammate,1,Rillaboom,,,,,,,,,
+Azumarill,125,teammate,2,Incineroar,,,,,,,,,
+Azumarill,125,teammate,3,Camerupt,,,,,,,,,
+Azumarill,125,teammate,4,Farigiraf,,,,,,,,,
+Azumarill,125,teammate,5,Raichu,,,,,,,,,
+Azumarill,125,teammate,6,Drampa,,,,,,,,,
+Azumarill,125,teammate,7,Tyranitar,,,,,,,,,
+Azumarill,125,teammate,8,Golisopod,,,,,,,,,
+Azumarill,125,teammate,9,Sinistcha,,,,,,,,,
+Azumarill,125,teammate,10,Gengar,,,,,,,,,
+Azumarill,125,stat_alignment,1,Adamant,45.3%,Attack,Sp. Atk,,,,,,
+Azumarill,125,stat_alignment,2,Brave,38.7%,Attack,Speed,,,,,,
+Azumarill,125,stat_alignment,3,Sassy,14.0%,Sp. Def,Speed,,,,,,
+Azumarill,125,stat_alignment,4,Calm,2.0%,Sp. Def,Attack,,,,,,
+Azumarill,125,stat_points,1,,20.7%,,,32,32,2,0,0,0
+Azumarill,125,stat_points,2,,10.0%,,,31,32,0,0,3,0
+Azumarill,125,stat_points,3,,9.3%,,,31,32,3,0,0,0
+Azumarill,125,stat_points,4,,9.3%,,,32,4,10,0,20,0
+Azumarill,125,stat_points,5,,6.0%,,,1,32,1,0,0,32
+Azumarill,125,stat_points,6,,6.0%,,,32,32,1,0,1,0
+Azumarill,125,stat_points,7,,5.3%,,,18,32,8,0,8,0
+Azumarill,125,stat_points,8,,4.7%,,,31,0,32,0,3,0
+Azumarill,125,stat_points,9,,4.0%,,,29,32,2,0,3,0
+Azumarill,125,stat_points,10,,3.3%,,,29,32,0,0,2,3
+Azumarill,125,ability,1,Huge Power,98.0%,,,,,,,,
+Azumarill,125,ability,2,Sap Sipper,2.0%,,,,,,,,

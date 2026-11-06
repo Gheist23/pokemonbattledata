@@ -1,34 +1,37 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Banette,176,move,1,Destiny Bond,100.0%,,,,,,,,
-Banette,176,move,2,Trick Room,87.1%,,,,,,,,
-Banette,176,move,3,Zen Headbutt,77.4%,,,,,,,,
-Banette,176,move,4,Phantom Force,77.4%,,,,,,,,
-Banette,176,move,5,Poltergeist,22.6%,,,,,,,,
-Banette,176,move,6,Will-O-Wisp,9.7%,,,,,,,,
-Banette,176,move,7,Knock Off,9.7%,,,,,,,,
-Banette,176,move,8,Protect,3.2%,,,,,,,,
-Banette,176,move,9,Swagger,3.2%,,,,,,,,
-Banette,176,move,10,Encore,3.2%,,,,,,,,
-Banette,176,held_item,1,Focus Sash,77.4%,,,,,,,,
-Banette,176,held_item,2,Banettite,22.6%,,,,,,,,
-Banette,176,teammate,1,Rillaboom,,,,,,,,,
-Banette,176,teammate,2,Wigglytuff,,,,,,,,,
-Banette,176,teammate,3,Toxicroak,,,,,,,,,
-Banette,176,teammate,4,Golurk,,,,,,,,,
-Banette,176,teammate,5,Thievul,,,,,,,,,
-Banette,176,teammate,6,Sneasler,,,,,,,,,
-Banette,176,teammate,7,Venusaur,,,,,,,,,
-Banette,176,teammate,8,Kangaskhan,,,,,,,,,
-Banette,176,teammate,9,Torkoal,,,,,,,,,
-Banette,176,teammate,10,Whimsicott,,,,,,,,,
-Banette,176,stat_alignment,1,Brave,77.4%,Attack,Speed,,,,,,
-Banette,176,stat_alignment,2,Adamant,19.4%,Attack,Sp. Atk,,,,,,
-Banette,176,stat_alignment,3,Sassy,3.2%,Sp. Def,Speed,,,,,,
-Banette,176,stat_points,1,,77.4%,,,32,32,0,0,0,0
-Banette,176,stat_points,2,,12.9%,,,32,32,0,0,2,0
-Banette,176,stat_points,3,,3.2%,,,29,25,5,0,7,0
-Banette,176,stat_points,4,,3.2%,,,32,0,4,0,28,2
-Banette,176,stat_points,5,,3.2%,,,32,0,17,0,17,0
-Banette,176,ability,1,Insomnia,77.4%,,,,,,,,
-Banette,176,ability,2,Frisk,19.4%,,,,,,,,
-Banette,176,ability,3,Cursed Body,3.2%,,,,,,,,
+Banette,163,move,1,Destiny Bond,100.0%,,,,,,,,
+Banette,163,move,2,Trick Room,83.1%,,,,,,,,
+Banette,163,move,3,Zen Headbutt,76.9%,,,,,,,,
+Banette,163,move,4,Phantom Force,76.9%,,,,,,,,
+Banette,163,move,5,Poltergeist,23.1%,,,,,,,,
+Banette,163,move,6,Swagger,13.8%,,,,,,,,
+Banette,163,move,7,Thunder Wave,7.7%,,,,,,,,
+Banette,163,move,8,Encore,4.6%,,,,,,,,
+Banette,163,move,9,Will-O-Wisp,4.6%,,,,,,,,
+Banette,163,move,10,Knock Off,4.6%,,,,,,,,
+Banette,163,held_item,1,Focus Sash,76.9%,,,,,,,,
+Banette,163,held_item,2,Banettite,23.1%,,,,,,,,
+Banette,163,teammate,1,Rillaboom,,,,,,,,,
+Banette,163,teammate,2,Wigglytuff,,,,,,,,,
+Banette,163,teammate,3,Toxicroak,,,,,,,,,
+Banette,163,teammate,4,Golurk,,,,,,,,,
+Banette,163,teammate,5,Thievul,,,,,,,,,
+Banette,163,teammate,6,Sylveon,,,,,,,,,
+Banette,163,teammate,7,Farigiraf,,,,,,,,,
+Banette,163,teammate,8,Kingambit,,,,,,,,,
+Banette,163,teammate,9,Sneasler,,,,,,,,,
+Banette,163,teammate,10,Camerupt,,,,,,,,,
+Banette,163,stat_alignment,1,Brave,80.0%,Attack,Speed,,,,,,
+Banette,163,stat_alignment,2,Adamant,16.9%,Attack,Sp. Atk,,,,,,
+Banette,163,stat_alignment,3,Sassy,1.5%,Sp. Def,Speed,,,,,,
+Banette,163,stat_alignment,4,Relaxed,1.5%,Defense,Speed,,,,,,
+Banette,163,stat_points,1,,76.9%,,,32,32,0,0,0,0
+Banette,163,stat_points,2,,9.2%,,,32,0,17,0,17,0
+Banette,163,stat_points,3,,6.2%,,,32,32,0,0,2,0
+Banette,163,stat_points,4,,3.1%,,,32,0,15,0,19,0
+Banette,163,stat_points,5,,1.5%,,,29,25,5,0,7,0
+Banette,163,stat_points,6,,1.5%,,,32,0,4,0,28,2
+Banette,163,stat_points,7,,1.5%,,,32,3,30,0,1,0
+Banette,163,ability,1,Insomnia,76.9%,,,,,,,,
+Banette,163,ability,2,Frisk,13.8%,,,,,,,,
+Banette,163,ability,3,Cursed Body,9.2%,,,,,,,,

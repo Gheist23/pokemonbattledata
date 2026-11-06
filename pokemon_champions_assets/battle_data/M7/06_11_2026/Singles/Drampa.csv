@@ -1,39 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Drampa,164,move,1,Flamethrower,94.0%,,,,,,,,
-Drampa,164,move,2,Thunderbolt,85.3%,,,,,,,,
-Drampa,164,move,3,Hyper Voice,62.1%,,,,,,,,
-Drampa,164,move,4,Dragon Pulse,41.4%,,,,,,,,
-Drampa,164,move,5,Draco Meteor,33.6%,,,,,,,,
-Drampa,164,move,6,Ice Beam,21.6%,,,,,,,,
-Drampa,164,move,7,Grass Knot,19.0%,,,,,,,,
-Drampa,164,move,8,Earth Power,18.1%,,,,,,,,
-Drampa,164,move,9,Roost,17.2%,,,,,,,,
-Drampa,164,move,10,Fire Blast,5.2%,,,,,,,,
-Drampa,164,held_item,1,Drampanite,49.1%,,,,,,,,
-Drampa,164,held_item,2,Leftovers,19.8%,,,,,,,,
-Drampa,164,held_item,3,Quick Claw,19.0%,,,,,,,,
-Drampa,164,held_item,4,Wise Glasses,10.3%,,,,,,,,
-Drampa,164,held_item,5,Expert Belt,1.7%,,,,,,,,
-Drampa,164,teammate,1,Charizard,,,,,,,,,
-Drampa,164,teammate,2,Abomasnow,,,,,,,,,
-Drampa,164,teammate,3,Gengar,,,,,,,,,
-Drampa,164,teammate,4,Azumarill,,,,,,,,,
-Drampa,164,teammate,5,Steelix,,,,,,,,,
-Drampa,164,teammate,6,Gardevoir,,,,,,,,,
-Drampa,164,teammate,7,Medicham,,,,,,,,,
-Drampa,164,teammate,8,Salamence,,,,,,,,,
-Drampa,164,teammate,9,Zoroark-Hisui,,,,,,,,,
-Drampa,164,teammate,10,Goodra-Hisui,,,,,,,,,
-Drampa,164,stat_alignment,1,Quiet,44.8%,Sp. Atk,Speed,,,,,,
-Drampa,164,stat_alignment,2,Modest,36.2%,Sp. Atk,Attack,,,,,,
-Drampa,164,stat_alignment,3,Bold,19.0%,Defense,Attack,,,,,,
-Drampa,164,stat_points,1,,24.1%,,,32,0,0,32,2,0
-Drampa,164,stat_points,2,,19.0%,,,2,0,32,0,32,0
-Drampa,164,stat_points,3,,19.0%,,,32,0,0,32,0,2
-Drampa,164,stat_points,4,,12.9%,,,32,0,2,32,0,0
-Drampa,164,stat_points,5,,12.9%,,,32,0,10,6,18,0
-Drampa,164,stat_points,6,,6.0%,,,24,0,10,32,0,0
-Drampa,164,stat_points,7,,6.0%,,,32,0,32,0,2,0
-Drampa,164,ability,1,Berserk,50.9%,,,,,,,,
-Drampa,164,ability,2,Cloud Nine,32.8%,,,,,,,,
-Drampa,164,ability,3,Sap Sipper,16.4%,,,,,,,,
+Drampa,171,move,1,Flamethrower,86.4%,,,,,,,,
+Drampa,171,move,2,Thunderbolt,85.0%,,,,,,,,
+Drampa,171,move,3,Hyper Voice,68.6%,,,,,,,,
+Drampa,171,move,4,Draco Meteor,37.1%,,,,,,,,
+Drampa,171,move,5,Dragon Pulse,36.4%,,,,,,,,
+Drampa,171,move,6,Roost,22.9%,,,,,,,,
+Drampa,171,move,7,Earth Power,20.7%,,,,,,,,
+Drampa,171,move,8,Ice Beam,17.9%,,,,,,,,
+Drampa,171,move,9,Grass Knot,15.7%,,,,,,,,
+Drampa,171,move,10,Fire Blast,7.1%,,,,,,,,
+Drampa,171,held_item,1,Drampanite,54.3%,,,,,,,,
+Drampa,171,held_item,2,Quick Claw,19.3%,,,,,,,,
+Drampa,171,held_item,3,Leftovers,16.4%,,,,,,,,
+Drampa,171,held_item,4,Wise Glasses,8.6%,,,,,,,,
+Drampa,171,held_item,5,Expert Belt,1.4%,,,,,,,,
+Drampa,171,teammate,1,Charizard,,,,,,,,,
+Drampa,171,teammate,2,Mimikyu,,,,,,,,,
+Drampa,171,teammate,3,Gengar,,,,,,,,,
+Drampa,171,teammate,4,Azumarill,,,,,,,,,
+Drampa,171,teammate,5,Steelix,,,,,,,,,
+Drampa,171,teammate,6,Salamence,,,,,,,,,
+Drampa,171,teammate,7,Abomasnow,,,,,,,,,
+Drampa,171,teammate,8,Gardevoir,,,,,,,,,
+Drampa,171,teammate,9,Medicham,,,,,,,,,
+Drampa,171,teammate,10,Zoroark-Hisui,,,,,,,,,
+Drampa,171,stat_alignment,1,Quiet,45.0%,Sp. Atk,Speed,,,,,,
+Drampa,171,stat_alignment,2,Modest,33.6%,Sp. Atk,Attack,,,,,,
+Drampa,171,stat_alignment,3,Bold,15.7%,Defense,Attack,,,,,,
+Drampa,171,stat_alignment,4,Calm,5.7%,Sp. Def,Attack,,,,,,
+Drampa,171,stat_points,1,,20.0%,,,32,0,0,32,2,0
+Drampa,171,stat_points,2,,19.3%,,,32,0,0,32,0,2
+Drampa,171,stat_points,3,,15.7%,,,2,0,32,0,32,0
+Drampa,171,stat_points,4,,13.6%,,,32,0,2,32,0,0
+Drampa,171,stat_points,5,,10.7%,,,32,0,10,6,18,0
+Drampa,171,stat_points,6,,5.7%,,,32,0,2,0,32,0
+Drampa,171,stat_points,7,,5.0%,,,0,0,2,32,32,0
+Drampa,171,stat_points,8,,5.0%,,,24,0,10,32,0,0
+Drampa,171,stat_points,9,,5.0%,,,32,0,32,0,2,0
+Drampa,171,ability,1,Berserk,48.6%,,,,,,,,
+Drampa,171,ability,2,Cloud Nine,32.9%,,,,,,,,
+Drampa,171,ability,3,Sap Sipper,18.6%,,,,,,,,

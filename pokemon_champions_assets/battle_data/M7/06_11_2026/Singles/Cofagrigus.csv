@@ -1,36 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Cofagrigus,138,move,1,Will-O-Wisp,89.6%,,,,,,,,
-Cofagrigus,138,move,2,Body Press,68.4%,,,,,,,,
-Cofagrigus,138,move,3,Hex,59.0%,,,,,,,,
-Cofagrigus,138,move,4,Iron Defense,42.0%,,,,,,,,
-Cofagrigus,138,move,5,Shadow Ball,33.0%,,,,,,,,
-Cofagrigus,138,move,6,Haze,29.2%,,,,,,,,
-Cofagrigus,138,move,7,Poltergeist,28.8%,,,,,,,,
-Cofagrigus,138,move,8,Protect,22.2%,,,,,,,,
-Cofagrigus,138,move,9,Trick Room,11.8%,,,,,,,,
-Cofagrigus,138,move,10,Curse,6.1%,,,,,,,,
-Cofagrigus,138,held_item,1,Leftovers,90.1%,,,,,,,,
-Cofagrigus,138,held_item,2,Sitrus Berry,7.1%,,,,,,,,
-Cofagrigus,138,held_item,3,Mental Herb,2.4%,,,,,,,,
-Cofagrigus,138,held_item,4,Chesto Berry,0.5%,,,,,,,,
-Cofagrigus,138,teammate,1,Charizard,,,,,,,,,
-Cofagrigus,138,teammate,2,Meowscarada,,,,,,,,,
-Cofagrigus,138,teammate,3,Garchomp,,,,,,,,,
-Cofagrigus,138,teammate,4,Primarina,,,,,,,,,
-Cofagrigus,138,teammate,5,Ditto,,,,,,,,,
-Cofagrigus,138,teammate,6,Aggron,,,,,,,,,
-Cofagrigus,138,teammate,7,Krookodile,,,,,,,,,
-Cofagrigus,138,teammate,8,Sneasler,,,,,,,,,
-Cofagrigus,138,teammate,9,Lucario,,,,,,,,,
-Cofagrigus,138,teammate,10,Hippowdon,,,,,,,,,
-Cofagrigus,138,stat_alignment,1,Bold,47.2%,Defense,Attack,,,,,,
-Cofagrigus,138,stat_alignment,2,Calm,28.3%,Sp. Def,Attack,,,,,,
-Cofagrigus,138,stat_alignment,3,Sassy,22.6%,Sp. Def,Speed,,,,,,
-Cofagrigus,138,stat_alignment,4,Relaxed,1.9%,Defense,Speed,,,,,,
-Cofagrigus,138,stat_points,1,,69.3%,,,32,0,32,0,2,0
-Cofagrigus,138,stat_points,2,,25.5%,,,32,0,9,0,25,0
-Cofagrigus,138,stat_points,3,,2.8%,,,32,0,28,0,6,0
-Cofagrigus,138,stat_points,4,,0.9%,,,32,0,15,0,19,0
-Cofagrigus,138,stat_points,5,,0.9%,,,32,0,32,2,0,0
-Cofagrigus,138,stat_points,6,,0.5%,,,32,0,4,0,30,0
-Cofagrigus,138,ability,1,Mummy,100.0%,,,,,,,,
+Cofagrigus,142,move,1,Will-O-Wisp,87.6%,,,,,,,,
+Cofagrigus,142,move,2,Body Press,70.2%,,,,,,,,
+Cofagrigus,142,move,3,Hex,61.6%,,,,,,,,
+Cofagrigus,142,move,4,Iron Defense,39.3%,,,,,,,,
+Cofagrigus,142,move,5,Shadow Ball,31.0%,,,,,,,,
+Cofagrigus,142,move,6,Protect,26.4%,,,,,,,,
+Cofagrigus,142,move,7,Haze,25.6%,,,,,,,,
+Cofagrigus,142,move,8,Poltergeist,25.2%,,,,,,,,
+Cofagrigus,142,move,9,Trick Room,12.0%,,,,,,,,
+Cofagrigus,142,move,10,Curse,6.2%,,,,,,,,
+Cofagrigus,142,held_item,1,Leftovers,88.0%,,,,,,,,
+Cofagrigus,142,held_item,2,Sitrus Berry,9.5%,,,,,,,,
+Cofagrigus,142,held_item,3,Mental Herb,2.1%,,,,,,,,
+Cofagrigus,142,held_item,4,Chesto Berry,0.4%,,,,,,,,
+Cofagrigus,142,teammate,1,Charizard,,,,,,,,,
+Cofagrigus,142,teammate,2,Meowscarada,,,,,,,,,
+Cofagrigus,142,teammate,3,Primarina,,,,,,,,,
+Cofagrigus,142,teammate,4,Garchomp,,,,,,,,,
+Cofagrigus,142,teammate,5,Lucario,,,,,,,,,
+Cofagrigus,142,teammate,6,Hippowdon,,,,,,,,,
+Cofagrigus,142,teammate,7,Aggron,,,,,,,,,
+Cofagrigus,142,teammate,8,Sneasler,,,,,,,,,
+Cofagrigus,142,teammate,9,Ditto,,,,,,,,,
+Cofagrigus,142,teammate,10,Krookodile,,,,,,,,,
+Cofagrigus,142,stat_alignment,1,Bold,45.5%,Defense,Attack,,,,,,
+Cofagrigus,142,stat_alignment,2,Sassy,26.9%,Sp. Def,Speed,,,,,,
+Cofagrigus,142,stat_alignment,3,Calm,25.2%,Sp. Def,Attack,,,,,,
+Cofagrigus,142,stat_alignment,4,Relaxed,2.1%,Defense,Speed,,,,,,
+Cofagrigus,142,stat_alignment,5,Modest,0.4%,Sp. Atk,Attack,,,,,,
+Cofagrigus,142,stat_points,1,,69.4%,,,32,0,32,0,2,0
+Cofagrigus,142,stat_points,2,,22.7%,,,32,0,9,0,25,0
+Cofagrigus,142,stat_points,3,,2.5%,,,32,0,28,0,6,0
+Cofagrigus,142,stat_points,4,,2.1%,,,32,0,32,2,0,0
+Cofagrigus,142,stat_points,5,,1.2%,,,32,0,2,1,31,0
+Cofagrigus,142,stat_points,6,,0.8%,,,32,0,0,0,32,2
+Cofagrigus,142,stat_points,7,,0.8%,,,32,0,15,0,19,0
+Cofagrigus,142,stat_points,8,,0.4%,,,32,0,4,0,30,0
+Cofagrigus,142,ability,1,Mummy,100.0%,,,,,,,,

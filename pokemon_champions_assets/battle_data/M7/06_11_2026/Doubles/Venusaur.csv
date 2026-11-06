@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Venusaur,31,move,1,Sludge Bomb,95.0%,,,,,,,,
-Venusaur,31,move,2,Protect,93.9%,,,,,,,,
-Venusaur,31,move,3,Sleep Powder,77.2%,,,,,,,,
-Venusaur,31,move,4,Leaf Storm,60.9%,,,,,,,,
-Venusaur,31,move,5,Earth Power,40.9%,,,,,,,,
-Venusaur,31,move,6,Giga Drain,13.8%,,,,,,,,
-Venusaur,31,move,7,Energy Ball,6.7%,,,,,,,,
-Venusaur,31,move,8,Solar Beam,3.5%,,,,,,,,
-Venusaur,31,move,9,Leech Seed,2.3%,,,,,,,,
-Venusaur,31,move,10,Weather Ball,1.6%,,,,,,,,
-Venusaur,31,held_item,1,Focus Sash,52.8%,,,,,,,,
-Venusaur,31,held_item,2,Life Orb,20.4%,,,,,,,,
-Venusaur,31,held_item,3,Wide Lens,14.0%,,,,,,,,
-Venusaur,31,held_item,4,Venusaurite,8.1%,,,,,,,,
-Venusaur,31,held_item,5,Leftovers,1.4%,,,,,,,,
-Venusaur,31,held_item,6,Sitrus Berry,0.9%,,,,,,,,
-Venusaur,31,held_item,7,Occa Berry,0.6%,,,,,,,,
-Venusaur,31,held_item,8,Big Root,0.5%,,,,,,,,
-Venusaur,31,held_item,9,White Herb,0.1%,,,,,,,,
-Venusaur,31,held_item,10,Expert Belt,0.1%,,,,,,,,
+Venusaur,31,move,1,Sludge Bomb,94.9%,,,,,,,,
+Venusaur,31,move,2,Protect,94.2%,,,,,,,,
+Venusaur,31,move,3,Sleep Powder,76.4%,,,,,,,,
+Venusaur,31,move,4,Leaf Storm,60.5%,,,,,,,,
+Venusaur,31,move,5,Earth Power,41.4%,,,,,,,,
+Venusaur,31,move,6,Giga Drain,14.0%,,,,,,,,
+Venusaur,31,move,7,Energy Ball,7.2%,,,,,,,,
+Venusaur,31,move,8,Solar Beam,3.1%,,,,,,,,
+Venusaur,31,move,9,Leech Seed,2.4%,,,,,,,,
+Venusaur,31,move,10,Weather Ball,1.4%,,,,,,,,
+Venusaur,31,held_item,1,Focus Sash,52.9%,,,,,,,,
+Venusaur,31,held_item,2,Life Orb,19.5%,,,,,,,,
+Venusaur,31,held_item,3,Wide Lens,13.9%,,,,,,,,
+Venusaur,31,held_item,4,Venusaurite,8.6%,,,,,,,,
+Venusaur,31,held_item,5,Sitrus Berry,1.4%,,,,,,,,
+Venusaur,31,held_item,6,Leftovers,1.2%,,,,,,,,
+Venusaur,31,held_item,7,Occa Berry,0.7%,,,,,,,,
+Venusaur,31,held_item,8,Big Root,0.4%,,,,,,,,
+Venusaur,31,held_item,9,Light Clay,0.2%,,,,,,,,
+Venusaur,31,held_item,10,Miracle Seed,0.2%,,,,,,,,
 Venusaur,31,teammate,1,Charizard,,,,,,,,,
 Venusaur,31,teammate,2,Garchomp,,,,,,,,,
 Venusaur,31,teammate,3,Archaludon,,,,,,,,,
@@ -28,21 +28,22 @@ Venusaur,31,teammate,6,Farigiraf,,,,,,,,,
 Venusaur,31,teammate,7,Sylveon,,,,,,,,,
 Venusaur,31,teammate,8,Incineroar,,,,,,,,,
 Venusaur,31,teammate,9,Kingambit,,,,,,,,,
-Venusaur,31,teammate,10,Annihilape,,,,,,,,,
-Venusaur,31,stat_alignment,1,Modest,87.6%,Sp. Atk,Attack,,,,,,
-Venusaur,31,stat_alignment,2,Timid,9.7%,Speed,Attack,,,,,,
-Venusaur,31,stat_alignment,3,Bold,2.5%,Defense,Attack,,,,,,
-Venusaur,31,stat_alignment,4,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Venusaur,31,stat_alignment,5,Calm,0.1%,Sp. Def,Attack,,,,,,
-Venusaur,31,stat_points,1,,48.5%,,,2,0,0,32,0,32
-Venusaur,31,stat_points,2,,12.4%,,,1,0,0,32,1,32
-Venusaur,31,stat_points,3,,4.0%,,,0,0,0,32,2,32
-Venusaur,31,stat_points,4,,2.6%,,,7,0,0,32,0,27
-Venusaur,31,stat_points,5,,2.3%,,,32,0,2,32,0,0
-Venusaur,31,stat_points,6,,1.8%,,,32,0,7,27,0,0
-Venusaur,31,stat_points,7,,1.7%,,,0,0,2,32,0,32
-Venusaur,31,stat_points,8,,1.7%,,,4,0,0,30,0,32
-Venusaur,31,stat_points,9,,1.5%,,,0,0,1,32,1,32
-Venusaur,31,stat_points,10,,1.5%,,,4,0,0,32,0,30
+Venusaur,31,teammate,10,Indeedee-F,,,,,,,,,
+Venusaur,31,stat_alignment,1,Modest,88.1%,Sp. Atk,Attack,,,,,,
+Venusaur,31,stat_alignment,2,Timid,9.3%,Speed,Attack,,,,,,
+Venusaur,31,stat_alignment,3,Bold,2.1%,Defense,Attack,,,,,,
+Venusaur,31,stat_alignment,4,Calm,0.4%,Sp. Def,Attack,,,,,,
+Venusaur,31,stat_alignment,5,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Venusaur,31,stat_alignment,6,Mild,0.0%,Sp. Atk,Defense,,,,,,
+Venusaur,31,stat_points,1,,46.9%,,,2,0,0,32,0,32
+Venusaur,31,stat_points,2,,12.7%,,,1,0,0,32,1,32
+Venusaur,31,stat_points,3,,3.7%,,,0,0,0,32,2,32
+Venusaur,31,stat_points,4,,3.2%,,,7,0,0,32,0,27
+Venusaur,31,stat_points,5,,2.1%,,,32,0,2,32,0,0
+Venusaur,31,stat_points,6,,2.0%,,,4,0,0,30,0,32
+Venusaur,31,stat_points,7,,1.9%,,,0,0,2,32,0,32
+Venusaur,31,stat_points,8,,1.6%,,,0,0,1,32,1,32
+Venusaur,31,stat_points,9,,1.5%,,,5,0,0,32,0,29
+Venusaur,31,stat_points,10,,1.5%,,,32,0,7,27,0,0
 Venusaur,31,ability,1,Chlorophyll,98.7%,,,,,,,,
 Venusaur,31,ability,2,Overgrow,1.3%,,,,,,,,

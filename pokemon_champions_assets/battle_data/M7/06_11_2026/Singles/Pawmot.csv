@@ -1,49 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pawmot,23,move,1,Revival Blessing,82.5%,,,,,,,,
-Pawmot,23,move,2,Double Shock,78.5%,,,,,,,,
-Pawmot,23,move,3,Close Combat,66.9%,,,,,,,,
+Pawmot,23,move,2,Double Shock,79.3%,,,,,,,,
+Pawmot,23,move,3,Close Combat,67.1%,,,,,,,,
 Pawmot,23,move,4,Ice Punch,60.2%,,,,,,,,
-Pawmot,23,move,5,Mach Punch,45.3%,,,,,,,,
-Pawmot,23,move,6,Nuzzle,29.0%,,,,,,,,
-Pawmot,23,move,7,Encore,19.3%,,,,,,,,
-Pawmot,23,move,8,Fake Out,11.6%,,,,,,,,
+Pawmot,23,move,5,Mach Punch,45.4%,,,,,,,,
+Pawmot,23,move,6,Nuzzle,28.8%,,,,,,,,
+Pawmot,23,move,7,Encore,18.7%,,,,,,,,
+Pawmot,23,move,8,Fake Out,11.3%,,,,,,,,
 Pawmot,23,move,9,Fire Punch,3.1%,,,,,,,,
-Pawmot,23,move,10,Thunder Punch,1.1%,,,,,,,,
-Pawmot,23,held_item,1,Focus Sash,88.2%,,,,,,,,
-Pawmot,23,held_item,2,Life Orb,6.4%,,,,,,,,
-Pawmot,23,held_item,3,Air Balloon,2.5%,,,,,,,,
-Pawmot,23,held_item,4,Choice Scarf,1.3%,,,,,,,,
-Pawmot,23,held_item,5,Shuca Berry,0.7%,,,,,,,,
-Pawmot,23,held_item,6,Focus Band,0.3%,,,,,,,,
-Pawmot,23,held_item,7,Leppa Berry,0.2%,,,,,,,,
-Pawmot,23,held_item,8,Quick Claw,0.1%,,,,,,,,
-Pawmot,23,held_item,9,Expert Belt,0.1%,,,,,,,,
+Pawmot,23,move,10,Thunder Punch,1.0%,,,,,,,,
+Pawmot,23,held_item,1,Focus Sash,88.3%,,,,,,,,
+Pawmot,23,held_item,2,Life Orb,6.3%,,,,,,,,
+Pawmot,23,held_item,3,Air Balloon,2.4%,,,,,,,,
+Pawmot,23,held_item,4,Choice Scarf,1.2%,,,,,,,,
+Pawmot,23,held_item,5,Shuca Berry,0.8%,,,,,,,,
+Pawmot,23,held_item,6,Leppa Berry,0.2%,,,,,,,,
+Pawmot,23,held_item,7,Focus Band,0.2%,,,,,,,,
+Pawmot,23,held_item,8,Expert Belt,0.2%,,,,,,,,
+Pawmot,23,held_item,9,Quick Claw,0.1%,,,,,,,,
 Pawmot,23,held_item,10,Light Ball,0.1%,,,,,,,,
 Pawmot,23,teammate,1,Basculegion,,,,,,,,,
 Pawmot,23,teammate,2,Lucario,,,,,,,,,
 Pawmot,23,teammate,3,Kingambit,,,,,,,,,
 Pawmot,23,teammate,4,Dragonite,,,,,,,,,
 Pawmot,23,teammate,5,Garchomp,,,,,,,,,
-Pawmot,23,teammate,6,Mimikyu,,,,,,,,,
-Pawmot,23,teammate,7,Clefable,,,,,,,,,
+Pawmot,23,teammate,6,Clefable,,,,,,,,,
+Pawmot,23,teammate,7,Mimikyu,,,,,,,,,
 Pawmot,23,teammate,8,Banette,,,,,,,,,
 Pawmot,23,teammate,9,Archaludon,,,,,,,,,
 Pawmot,23,teammate,10,Victreebel,,,,,,,,,
-Pawmot,23,stat_alignment,1,Jolly,90.3%,Speed,Sp. Atk,,,,,,
-Pawmot,23,stat_alignment,2,Adamant,9.3%,Attack,Sp. Atk,,,,,,
+Pawmot,23,stat_alignment,1,Jolly,90.6%,Speed,Sp. Atk,,,,,,
+Pawmot,23,stat_alignment,2,Adamant,9.1%,Attack,Sp. Atk,,,,,,
 Pawmot,23,stat_alignment,3,Hasty,0.2%,Speed,Defense,,,,,,
-Pawmot,23,stat_alignment,4,Naive,0.1%,Speed,Sp. Def,,,,,,
+Pawmot,23,stat_alignment,4,Naive,0.2%,Speed,Sp. Def,,,,,,
 Pawmot,23,stat_alignment,5,Timid,0.1%,Speed,Attack,,,,,,
-Pawmot,23,stat_points,1,,70.3%,,,2,32,0,0,0,32
-Pawmot,23,stat_points,2,,11.1%,,,0,32,2,0,0,32
-Pawmot,23,stat_points,3,,7.6%,,,0,32,0,0,2,32
-Pawmot,23,stat_points,4,,4.5%,,,2,0,0,0,32,32
-Pawmot,23,stat_points,5,,1.6%,,,0,32,0,0,0,32
-Pawmot,23,stat_points,6,,0.8%,,,29,0,5,0,21,11
-Pawmot,23,stat_points,7,,0.7%,,,1,32,1,0,0,32
-Pawmot,23,stat_points,8,,0.7%,,,0,32,19,0,0,15
-Pawmot,23,stat_points,9,,0.7%,,,1,32,0,0,0,32
-Pawmot,23,stat_points,10,,0.5%,,,0,32,1,0,1,32
-Pawmot,23,ability,1,Iron Fist,80.8%,,,,,,,,
-Pawmot,23,ability,2,Volt Absorb,18.7%,,,,,,,,
+Pawmot,23,stat_alignment,6,Brave,0.0%,Attack,Speed,,,,,,
+Pawmot,23,stat_alignment,7,Impish,0.0%,Defense,Sp. Atk,,,,,,
+Pawmot,23,stat_points,1,,71.0%,,,2,32,0,0,0,32
+Pawmot,23,stat_points,2,,11.0%,,,0,32,2,0,0,32
+Pawmot,23,stat_points,3,,7.0%,,,0,32,0,0,2,32
+Pawmot,23,stat_points,4,,4.2%,,,2,0,0,0,32,32
+Pawmot,23,stat_points,5,,1.8%,,,0,32,0,0,0,32
+Pawmot,23,stat_points,6,,0.7%,,,1,32,1,0,0,32
+Pawmot,23,stat_points,7,,0.7%,,,1,32,0,0,0,32
+Pawmot,23,stat_points,8,,0.6%,,,29,0,5,0,21,11
+Pawmot,23,stat_points,9,,0.6%,,,0,32,19,0,0,15
+Pawmot,23,stat_points,10,,0.6%,,,0,32,1,0,1,32
+Pawmot,23,ability,1,Iron Fist,81.5%,,,,,,,,
+Pawmot,23,ability,2,Volt Absorb,18.1%,,,,,,,,
 Pawmot,23,ability,3,Natural Cure,0.5%,,,,,,,,

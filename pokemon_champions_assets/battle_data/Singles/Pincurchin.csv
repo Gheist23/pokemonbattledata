@@ -1,45 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pincurchin,150,move,1,Spikes,73.0%,,,,,,,,
-Pincurchin,150,move,2,Memento,71.6%,,,,,,,,
-Pincurchin,150,move,3,Rising Voltage,69.1%,,,,,,,,
-Pincurchin,150,move,4,Sucker Punch,56.9%,,,,,,,,
-Pincurchin,150,move,5,Scald,33.3%,,,,,,,,
-Pincurchin,150,move,6,Toxic Spikes,29.4%,,,,,,,,
-Pincurchin,150,move,7,Surf,15.7%,,,,,,,,
-Pincurchin,150,move,8,Pain Split,13.2%,,,,,,,,
-Pincurchin,150,move,9,Thunder Wave,11.3%,,,,,,,,
-Pincurchin,150,move,10,Self-Destruct,9.8%,,,,,,,,
-Pincurchin,150,held_item,1,Terrain Extender,72.5%,,,,,,,,
-Pincurchin,150,held_item,2,Life Orb,15.7%,,,,,,,,
-Pincurchin,150,held_item,3,Electric Seed,8.3%,,,,,,,,
-Pincurchin,150,held_item,4,Focus Sash,2.0%,,,,,,,,
-Pincurchin,150,held_item,5,Shuca Berry,1.0%,,,,,,,,
-Pincurchin,150,held_item,6,Eject Button,0.5%,,,,,,,,
-Pincurchin,150,teammate,1,Golisopod,,,,,,,,,
-Pincurchin,150,teammate,2,Garchomp,,,,,,,,,
-Pincurchin,150,teammate,3,Raichu-Alola,,,,,,,,,
-Pincurchin,150,teammate,4,Blastoise,,,,,,,,,
-Pincurchin,150,teammate,5,Vivillon-Fancy,,,,,,,,,
-Pincurchin,150,teammate,6,Dragalge,,,,,,,,,
-Pincurchin,150,teammate,7,Gyarados,,,,,,,,,
-Pincurchin,150,teammate,8,Ninetales-Alola,,,,,,,,,
-Pincurchin,150,teammate,9,Archaludon,,,,,,,,,
-Pincurchin,150,teammate,10,Sneasler,,,,,,,,,
-Pincurchin,150,stat_alignment,1,Quiet,43.1%,Sp. Atk,Speed,,,,,,
-Pincurchin,150,stat_alignment,2,Bold,30.4%,Defense,Attack,,,,,,
-Pincurchin,150,stat_alignment,3,Impish,12.7%,Defense,Sp. Atk,,,,,,
-Pincurchin,150,stat_alignment,4,Relaxed,5.4%,Defense,Speed,,,,,,
-Pincurchin,150,stat_alignment,5,Calm,4.4%,Sp. Def,Attack,,,,,,
-Pincurchin,150,stat_alignment,6,Careful,2.5%,Sp. Def,Sp. Atk,,,,,,
-Pincurchin,150,stat_alignment,7,Modest,1.5%,Sp. Atk,Attack,,,,,,
-Pincurchin,150,stat_points,1,,39.7%,,,32,0,32,0,2,0
-Pincurchin,150,stat_points,2,,27.0%,,,32,0,0,32,2,0
-Pincurchin,150,stat_points,3,,15.7%,,,32,0,2,32,0,0
-Pincurchin,150,stat_points,4,,3.4%,,,32,2,0,0,32,0
-Pincurchin,150,stat_points,5,,2.9%,,,32,0,25,0,9,0
-Pincurchin,150,stat_points,6,,2.9%,,,32,0,25,9,0,0
-Pincurchin,150,stat_points,7,,2.5%,,,32,0,2,0,32,0
-Pincurchin,150,stat_points,8,,1.5%,,,2,0,32,32,0,0
-Pincurchin,150,stat_points,9,,1.5%,,,2,32,32,0,0,0
-Pincurchin,150,stat_points,10,,1.0%,,,0,0,28,10,28,0
-Pincurchin,150,ability,1,Electric Surge,100.0%,,,,,,,,
+Pincurchin,154,move,1,Memento,70.5%,,,,,,,,
+Pincurchin,154,move,2,Spikes,69.7%,,,,,,,,
+Pincurchin,154,move,3,Rising Voltage,67.7%,,,,,,,,
+Pincurchin,154,move,4,Sucker Punch,55.1%,,,,,,,,
+Pincurchin,154,move,5,Scald,28.7%,,,,,,,,
+Pincurchin,154,move,6,Toxic Spikes,26.4%,,,,,,,,
+Pincurchin,154,move,7,Surf,19.3%,,,,,,,,
+Pincurchin,154,move,8,Pain Split,18.1%,,,,,,,,
+Pincurchin,154,move,9,Discharge,14.6%,,,,,,,,
+Pincurchin,154,move,10,Thunder Wave,9.1%,,,,,,,,
+Pincurchin,154,held_item,1,Terrain Extender,70.1%,,,,,,,,
+Pincurchin,154,held_item,2,Life Orb,14.6%,,,,,,,,
+Pincurchin,154,held_item,3,Electric Seed,11.8%,,,,,,,,
+Pincurchin,154,held_item,4,Focus Sash,1.6%,,,,,,,,
+Pincurchin,154,held_item,5,Eject Button,1.2%,,,,,,,,
+Pincurchin,154,held_item,6,Shuca Berry,0.8%,,,,,,,,
+Pincurchin,154,teammate,1,Golisopod,,,,,,,,,
+Pincurchin,154,teammate,2,Garchomp,,,,,,,,,
+Pincurchin,154,teammate,3,Raichu-Alola,,,,,,,,,
+Pincurchin,154,teammate,4,Blastoise,,,,,,,,,
+Pincurchin,154,teammate,5,Ninetales-Alola,,,,,,,,,
+Pincurchin,154,teammate,6,Gyarados,,,,,,,,,
+Pincurchin,154,teammate,7,Vivillon-Fancy,,,,,,,,,
+Pincurchin,154,teammate,8,Dragalge,,,,,,,,,
+Pincurchin,154,teammate,9,Hawlucha,,,,,,,,,
+Pincurchin,154,teammate,10,Archaludon,,,,,,,,,
+Pincurchin,154,stat_alignment,1,Quiet,42.9%,Sp. Atk,Speed,,,,,,
+Pincurchin,154,stat_alignment,2,Bold,33.5%,Defense,Attack,,,,,,
+Pincurchin,154,stat_alignment,3,Impish,10.2%,Defense,Sp. Atk,,,,,,
+Pincurchin,154,stat_alignment,4,Calm,5.5%,Sp. Def,Attack,,,,,,
+Pincurchin,154,stat_alignment,5,Relaxed,4.3%,Defense,Speed,,,,,,
+Pincurchin,154,stat_alignment,6,Careful,2.0%,Sp. Def,Sp. Atk,,,,,,
+Pincurchin,154,stat_alignment,7,Modest,1.2%,Sp. Atk,Attack,,,,,,
+Pincurchin,154,stat_alignment,8,Adamant,0.4%,Attack,Sp. Atk,,,,,,
+Pincurchin,154,stat_points,1,,39.4%,,,32,0,32,0,2,0
+Pincurchin,154,stat_points,2,,22.8%,,,32,0,0,32,2,0
+Pincurchin,154,stat_points,3,,14.2%,,,32,0,2,32,0,0
+Pincurchin,154,stat_points,4,,5.1%,,,32,2,0,32,0,0
+Pincurchin,154,stat_points,5,,4.7%,,,32,2,0,0,32,0
+Pincurchin,154,stat_points,6,,3.1%,,,32,0,25,9,0,0
+Pincurchin,154,stat_points,7,,2.4%,,,32,0,25,0,9,0
+Pincurchin,154,stat_points,8,,2.0%,,,32,0,2,0,32,0
+Pincurchin,154,stat_points,9,,1.2%,,,2,0,32,32,0,0
+Pincurchin,154,stat_points,10,,1.2%,,,2,32,32,0,0,0
+Pincurchin,154,ability,1,Electric Surge,100.0%,,,,,,,,

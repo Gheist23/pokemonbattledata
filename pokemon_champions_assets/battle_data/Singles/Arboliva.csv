@@ -1,50 +1,52 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Arboliva,101,move,1,Giga Drain,86.6%,,,,,,,,
-Arboliva,101,move,2,Earth Power,52.9%,,,,,,,,
-Arboliva,101,move,3,Mirror Coat,49.3%,,,,,,,,
-Arboliva,101,move,4,Memento,42.6%,,,,,,,,
-Arboliva,101,move,5,Reflect,35.6%,,,,,,,,
-Arboliva,101,move,6,Leech Seed,33.2%,,,,,,,,
-Arboliva,101,move,7,Strength Sap,31.3%,,,,,,,,
-Arboliva,101,move,8,Encore,15.4%,,,,,,,,
-Arboliva,101,move,9,Alluring Voice,14.0%,,,,,,,,
-Arboliva,101,move,10,Light Screen,7.0%,,,,,,,,
-Arboliva,101,held_item,1,Light Clay,29.6%,,,,,,,,
-Arboliva,101,held_item,2,Focus Sash,16.9%,,,,,,,,
-Arboliva,101,held_item,3,Leftovers,13.4%,,,,,,,,
-Arboliva,101,held_item,4,Terrain Extender,13.4%,,,,,,,,
-Arboliva,101,held_item,5,Sitrus Berry,12.6%,,,,,,,,
-Arboliva,101,held_item,6,Yache Berry,4.3%,,,,,,,,
-Arboliva,101,held_item,7,Lum Berry,3.2%,,,,,,,,
-Arboliva,101,held_item,8,Occa Berry,2.9%,,,,,,,,
-Arboliva,101,held_item,9,Grassy Seed,2.1%,,,,,,,,
-Arboliva,101,held_item,10,Chople Berry,1.6%,,,,,,,,
-Arboliva,101,teammate,1,Clefable,,,,,,,,,
-Arboliva,101,teammate,2,Empoleon,,,,,,,,,
-Arboliva,101,teammate,3,Blaziken,,,,,,,,,
-Arboliva,101,teammate,4,Gliscor,,,,,,,,,
-Arboliva,101,teammate,5,Raichu,,,,,,,,,
-Arboliva,101,teammate,6,Gholdengo,,,,,,,,,
-Arboliva,101,teammate,7,Garchomp,,,,,,,,,
-Arboliva,101,teammate,8,Tyranitar,,,,,,,,,
-Arboliva,101,teammate,9,Espathra,,,,,,,,,
-Arboliva,101,teammate,10,Skeledirge,,,,,,,,,
-Arboliva,101,stat_alignment,1,Bold,45.8%,Defense,Attack,,,,,,
-Arboliva,101,stat_alignment,2,Modest,29.4%,Sp. Atk,Attack,,,,,,
-Arboliva,101,stat_alignment,3,Calm,19.7%,Sp. Def,Attack,,,,,,
-Arboliva,101,stat_alignment,4,Careful,3.8%,Sp. Def,Sp. Atk,,,,,,
-Arboliva,101,stat_alignment,5,Hasty,0.6%,Speed,Defense,,,,,,
-Arboliva,101,stat_alignment,6,Sassy,0.3%,Sp. Def,Speed,,,,,,
-Arboliva,101,stat_alignment,7,Relaxed,0.3%,Defense,Speed,,,,,,
-Arboliva,101,stat_points,1,,39.1%,,,32,0,32,0,2,0
-Arboliva,101,stat_points,2,,10.0%,,,32,0,0,32,2,0
-Arboliva,101,stat_points,3,,7.9%,,,30,0,32,0,4,0
-Arboliva,101,stat_points,4,,6.2%,,,32,0,2,32,0,0
-Arboliva,101,stat_points,5,,4.3%,,,32,0,24,5,1,4
-Arboliva,101,stat_points,6,,3.8%,,,24,0,1,9,32,0
-Arboliva,101,stat_points,7,,3.7%,,,32,0,2,0,32,0
-Arboliva,101,stat_points,8,,3.5%,,,32,0,0,0,32,2
-Arboliva,101,stat_points,9,,3.0%,,,2,0,0,32,0,32
-Arboliva,101,stat_points,10,,2.1%,,,32,0,0,15,17,2
-Arboliva,101,ability,1,Seed Sower,97.3%,,,,,,,,
-Arboliva,101,ability,2,Harvest,2.7%,,,,,,,,
+Arboliva,103,move,1,Giga Drain,81.9%,,,,,,,,
+Arboliva,103,move,2,Earth Power,53.1%,,,,,,,,
+Arboliva,103,move,3,Mirror Coat,47.2%,,,,,,,,
+Arboliva,103,move,4,Memento,40.8%,,,,,,,,
+Arboliva,103,move,5,Leech Seed,34.0%,,,,,,,,
+Arboliva,103,move,6,Strength Sap,33.3%,,,,,,,,
+Arboliva,103,move,7,Reflect,29.7%,,,,,,,,
+Arboliva,103,move,8,Encore,18.9%,,,,,,,,
+Arboliva,103,move,9,Alluring Voice,14.6%,,,,,,,,
+Arboliva,103,move,10,Energy Ball,7.4%,,,,,,,,
+Arboliva,103,held_item,1,Light Clay,23.2%,,,,,,,,
+Arboliva,103,held_item,2,Focus Sash,18.5%,,,,,,,,
+Arboliva,103,held_item,3,Leftovers,17.7%,,,,,,,,
+Arboliva,103,held_item,4,Terrain Extender,13.2%,,,,,,,,
+Arboliva,103,held_item,5,Sitrus Berry,11.6%,,,,,,,,
+Arboliva,103,held_item,6,Yache Berry,3.4%,,,,,,,,
+Arboliva,103,held_item,7,Lum Berry,3.0%,,,,,,,,
+Arboliva,103,held_item,8,Occa Berry,2.2%,,,,,,,,
+Arboliva,103,held_item,9,Chople Berry,1.6%,,,,,,,,
+Arboliva,103,held_item,10,Psychic Seed,1.6%,,,,,,,,
+Arboliva,103,teammate,1,Clefable,,,,,,,,,
+Arboliva,103,teammate,2,Empoleon,,,,,,,,,
+Arboliva,103,teammate,3,Blaziken,,,,,,,,,
+Arboliva,103,teammate,4,Raichu,,,,,,,,,
+Arboliva,103,teammate,5,Gliscor,,,,,,,,,
+Arboliva,103,teammate,6,Garchomp,,,,,,,,,
+Arboliva,103,teammate,7,Gholdengo,,,,,,,,,
+Arboliva,103,teammate,8,Tyranitar,,,,,,,,,
+Arboliva,103,teammate,9,Espathra,,,,,,,,,
+Arboliva,103,teammate,10,Skeledirge,,,,,,,,,
+Arboliva,103,stat_alignment,1,Bold,38.8%,Defense,Attack,,,,,,
+Arboliva,103,stat_alignment,2,Modest,32.1%,Sp. Atk,Attack,,,,,,
+Arboliva,103,stat_alignment,3,Calm,22.6%,Sp. Def,Attack,,,,,,
+Arboliva,103,stat_alignment,4,Careful,3.0%,Sp. Def,Sp. Atk,,,,,,
+Arboliva,103,stat_alignment,5,Sassy,1.6%,Sp. Def,Speed,,,,,,
+Arboliva,103,stat_alignment,6,Naive,0.9%,Speed,Sp. Def,,,,,,
+Arboliva,103,stat_alignment,7,Hasty,0.5%,Speed,Defense,,,,,,
+Arboliva,103,stat_alignment,8,Quiet,0.2%,Sp. Atk,Speed,,,,,,
+Arboliva,103,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,
+Arboliva,103,stat_points,1,,33.7%,,,32,0,32,0,2,0
+Arboliva,103,stat_points,2,,9.6%,,,32,0,0,32,2,0
+Arboliva,103,stat_points,3,,7.1%,,,30,0,32,0,4,0
+Arboliva,103,stat_points,4,,6.0%,,,32,0,2,32,0,0
+Arboliva,103,stat_points,5,,4.5%,,,2,0,0,32,0,32
+Arboliva,103,stat_points,6,,4.4%,,,32,0,2,0,32,0
+Arboliva,103,stat_points,7,,3.4%,,,32,0,24,5,1,4
+Arboliva,103,stat_points,8,,3.0%,,,24,0,1,9,32,0
+Arboliva,103,stat_points,9,,2.7%,,,32,0,0,0,32,2
+Arboliva,103,stat_points,10,,2.0%,,,32,0,0,15,17,2
+Arboliva,103,ability,1,Seed Sower,96.5%,,,,,,,,
+Arboliva,103,ability,2,Harvest,3.5%,,,,,,,,

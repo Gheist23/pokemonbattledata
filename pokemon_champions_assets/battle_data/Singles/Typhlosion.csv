@@ -1,37 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Typhlosion,156,move,1,Scorching Sands,87.2%,,,,,,,,
-Typhlosion,156,move,2,Eruption,67.8%,,,,,,,,
-Typhlosion,156,move,3,Burn Up,56.1%,,,,,,,,
-Typhlosion,156,move,4,Fire Blast,32.2%,,,,,,,,
-Typhlosion,156,move,5,Endeavor,32.2%,,,,,,,,
-Typhlosion,156,move,6,Rock Tomb,23.9%,,,,,,,,
-Typhlosion,156,move,7,Shadow Ball,21.7%,,,,,,,,
-Typhlosion,156,move,8,Will-O-Wisp,21.7%,,,,,,,,
-Typhlosion,156,move,9,Overheat,17.2%,,,,,,,,
-Typhlosion,156,move,10,Extrasensory,11.7%,,,,,,,,
-Typhlosion,156,held_item,1,Choice Scarf,67.8%,,,,,,,,
-Typhlosion,156,held_item,2,Focus Sash,24.4%,,,,,,,,
-Typhlosion,156,held_item,3,Focus Band,7.8%,,,,,,,,
-Typhlosion,156,teammate,1,Baxcalibur,,,,,,,,,
-Typhlosion,156,teammate,2,Scizor,,,,,,,,,
-Typhlosion,156,teammate,3,Sceptile,,,,,,,,,
-Typhlosion,156,teammate,4,Aegislash,,,,,,,,,
-Typhlosion,156,teammate,5,Lucario,,,,,,,,,
-Typhlosion,156,teammate,6,Glimmora,,,,,,,,,
-Typhlosion,156,teammate,7,Clefable,,,,,,,,,
-Typhlosion,156,teammate,8,Samurott-Hisui,,,,,,,,,
-Typhlosion,156,teammate,9,Corviknight,,,,,,,,,
-Typhlosion,156,teammate,10,Sneasler,,,,,,,,,
-Typhlosion,156,stat_alignment,1,Modest,74.4%,Sp. Atk,Attack,,,,,,
-Typhlosion,156,stat_alignment,2,Mild,13.3%,Sp. Atk,Defense,,,,,,
-Typhlosion,156,stat_alignment,3,Adamant,8.3%,Attack,Sp. Atk,,,,,,
-Typhlosion,156,stat_alignment,4,Timid,3.9%,Speed,Attack,,,,,,
-Typhlosion,156,stat_points,1,,40.6%,,,0,0,2,32,0,32
-Typhlosion,156,stat_points,2,,20.0%,,,0,2,0,32,0,32
-Typhlosion,156,stat_points,3,,13.3%,,,0,0,0,32,0,32
-Typhlosion,156,stat_points,4,,10.0%,,,2,0,0,32,0,32
-Typhlosion,156,stat_points,5,,8.3%,,,2,32,0,0,0,32
-Typhlosion,156,stat_points,6,,3.9%,,,0,0,0,32,2,32
-Typhlosion,156,stat_points,7,,3.9%,,,0,0,14,32,0,20
-Typhlosion,156,ability,1,Flash Fire,91.7%,,,,,,,,
-Typhlosion,156,ability,2,Blaze,8.3%,,,,,,,,
+Typhlosion,162,move,1,Scorching Sands,88.8%,,,,,,,,
+Typhlosion,162,move,2,Eruption,62.3%,,,,,,,,
+Typhlosion,162,move,3,Burn Up,57.7%,,,,,,,,
+Typhlosion,162,move,4,Endeavor,37.7%,,,,,,,,
+Typhlosion,162,move,5,Rock Tomb,28.8%,,,,,,,,
+Typhlosion,162,move,6,Fire Blast,27.0%,,,,,,,,
+Typhlosion,162,move,7,Shadow Ball,20.0%,,,,,,,,
+Typhlosion,162,move,8,Will-O-Wisp,18.1%,,,,,,,,
+Typhlosion,162,move,9,Overheat,14.4%,,,,,,,,
+Typhlosion,162,move,10,Extrasensory,11.2%,,,,,,,,
+Typhlosion,162,held_item,1,Choice Scarf,62.3%,,,,,,,,
+Typhlosion,162,held_item,2,Focus Sash,31.2%,,,,,,,,
+Typhlosion,162,held_item,3,Focus Band,6.5%,,,,,,,,
+Typhlosion,162,teammate,1,Baxcalibur,,,,,,,,,
+Typhlosion,162,teammate,2,Corviknight,,,,,,,,,
+Typhlosion,162,teammate,3,Clefable,,,,,,,,,
+Typhlosion,162,teammate,4,Scizor,,,,,,,,,
+Typhlosion,162,teammate,5,Samurott-Hisui,,,,,,,,,
+Typhlosion,162,teammate,6,Sneasler,,,,,,,,,
+Typhlosion,162,teammate,7,Sceptile,,,,,,,,,
+Typhlosion,162,teammate,8,Aegislash,,,,,,,,,
+Typhlosion,162,teammate,9,Lucario,,,,,,,,,
+Typhlosion,162,teammate,10,Glimmora,,,,,,,,,
+Typhlosion,162,stat_alignment,1,Modest,77.2%,Sp. Atk,Attack,,,,,,
+Typhlosion,162,stat_alignment,2,Mild,11.2%,Sp. Atk,Defense,,,,,,
+Typhlosion,162,stat_alignment,3,Adamant,7.0%,Attack,Sp. Atk,,,,,,
+Typhlosion,162,stat_alignment,4,Timid,3.3%,Speed,Attack,,,,,,
+Typhlosion,162,stat_alignment,5,Rash,1.4%,Sp. Atk,Sp. Def,,,,,,
+Typhlosion,162,stat_points,1,,35.8%,,,0,0,2,32,0,32
+Typhlosion,162,stat_points,2,,26.5%,,,0,2,0,32,0,32
+Typhlosion,162,stat_points,3,,12.1%,,,2,0,0,32,0,32
+Typhlosion,162,stat_points,4,,11.2%,,,0,0,0,32,0,32
+Typhlosion,162,stat_points,5,,7.0%,,,2,32,0,0,0,32
+Typhlosion,162,stat_points,6,,3.7%,,,0,0,0,32,2,32
+Typhlosion,162,stat_points,7,,3.3%,,,0,0,14,32,0,20
+Typhlosion,162,stat_points,8,,0.5%,,,4,0,0,32,1,29
+Typhlosion,162,ability,1,Flash Fire,92.6%,,,,,,,,
+Typhlosion,162,ability,2,Blaze,7.4%,,,,,,,,

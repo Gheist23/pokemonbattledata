@@ -1,32 +1,35 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emboar,160,move,1,Flare Blitz,100.0%,,,,,,,,
-Emboar,160,move,2,Sucker Punch,86.6%,,,,,,,,
-Emboar,160,move,3,Close Combat,59.7%,,,,,,,,
-Emboar,160,move,4,Earthquake,59.7%,,,,,,,,
-Emboar,160,move,5,Storm Throw,40.3%,,,,,,,,
-Emboar,160,move,6,Wild Charge,22.4%,,,,,,,,
-Emboar,160,move,7,Protect,17.9%,,,,,,,,
-Emboar,160,move,8,Head Smash,11.9%,,,,,,,,
-Emboar,160,move,9,Thunder Punch,1.5%,,,,,,,,
-Emboar,160,held_item,1,Muscle Band,22.4%,,,,,,,,
-Emboar,160,held_item,2,Emboarite,17.9%,,,,,,,,
-Emboar,160,teammate,1,Garchomp,,,,,,,,,
-Emboar,160,teammate,2,Gardevoir,,,,,,,,,
-Emboar,160,teammate,3,Vanilluxe,,,,,,,,,
-Emboar,160,teammate,4,Kleavor,,,,,,,,,
-Emboar,160,teammate,5,Kingambit,,,,,,,,,
-Emboar,160,teammate,6,Staraptor,,,,,,,,,
-Emboar,160,teammate,7,Farigiraf,,,,,,,,,
-Emboar,160,teammate,8,Golisopod,,,,,,,,,
-Emboar,160,teammate,9,Rillaboom,,,,,,,,,
-Emboar,160,teammate,10,Whimsicott,,,,,,,,,
-Emboar,160,stat_alignment,1,Adamant,73.1%,Attack,Sp. Atk,,,,,,
-Emboar,160,stat_alignment,2,Jolly,22.4%,Speed,Sp. Atk,,,,,,
-Emboar,160,stat_alignment,3,Brave,4.5%,Attack,Speed,,,,,,
-Emboar,160,stat_points,1,,59.7%,,,32,32,0,0,0,2
-Emboar,160,stat_points,2,,22.4%,,,2,32,0,0,0,32
-Emboar,160,stat_points,3,,11.9%,,,32,27,7,0,0,0
-Emboar,160,stat_points,4,,4.5%,,,25,32,0,0,9,0
-Emboar,160,stat_points,5,,1.5%,,,32,32,2,0,0,0
-Emboar,160,ability,1,Blaze,59.7%,,,,,,,,
-Emboar,160,ability,2,Reckless,40.3%,,,,,,,,
+Emboar,147,move,1,Flare Blitz,100.0%,,,,,,,,
+Emboar,147,move,2,Sucker Punch,92.0%,,,,,,,,
+Emboar,147,move,3,Close Combat,67.9%,,,,,,,,
+Emboar,147,move,4,Earthquake,67.9%,,,,,,,,
+Emboar,147,move,5,Storm Throw,31.3%,,,,,,,,
+Emboar,147,move,6,Protect,17.9%,,,,,,,,
+Emboar,147,move,7,Wild Charge,14.3%,,,,,,,,
+Emboar,147,move,8,Head Smash,7.1%,,,,,,,,
+Emboar,147,move,9,Superpower,0.9%,,,,,,,,
+Emboar,147,move,10,Thunder Punch,0.9%,,,,,,,,
+Emboar,147,held_item,1,Emboarite,17.9%,,,,,,,,
+Emboar,147,held_item,2,Muscle Band,14.3%,,,,,,,,
+Emboar,147,teammate,1,Garchomp,,,,,,,,,
+Emboar,147,teammate,2,Gardevoir,,,,,,,,,
+Emboar,147,teammate,3,Vanilluxe,,,,,,,,,
+Emboar,147,teammate,4,Kleavor,,,,,,,,,
+Emboar,147,teammate,5,Kingambit,,,,,,,,,
+Emboar,147,teammate,6,Staraptor,,,,,,,,,
+Emboar,147,teammate,7,Farigiraf,,,,,,,,,
+Emboar,147,teammate,8,Rillaboom,,,,,,,,,
+Emboar,147,teammate,9,Golisopod,,,,,,,,,
+Emboar,147,teammate,10,Rampardos,,,,,,,,,
+Emboar,147,stat_alignment,1,Adamant,75.9%,Attack,Sp. Atk,,,,,,
+Emboar,147,stat_alignment,2,Jolly,14.3%,Speed,Sp. Atk,,,,,,
+Emboar,147,stat_alignment,3,Brave,8.9%,Attack,Speed,,,,,,
+Emboar,147,stat_alignment,4,Sassy,0.9%,Sp. Def,Speed,,,,,,
+Emboar,147,stat_points,1,,67.9%,,,32,32,0,0,0,2
+Emboar,147,stat_points,2,,14.3%,,,2,32,0,0,0,32
+Emboar,147,stat_points,3,,8.9%,,,25,32,0,0,9,0
+Emboar,147,stat_points,4,,7.1%,,,32,27,7,0,0,0
+Emboar,147,stat_points,5,,0.9%,,,32,12,15,0,7,0
+Emboar,147,stat_points,6,,0.9%,,,32,32,2,0,0,0
+Emboar,147,ability,1,Blaze,67.9%,,,,,,,,
+Emboar,147,ability,2,Reckless,32.1%,,,,,,,,

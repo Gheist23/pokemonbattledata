@@ -1,39 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Jolteon,189,move,1,Alluring Voice,97.9%,,,,,,,,
-Jolteon,189,move,2,Thunderbolt,75.0%,,,,,,,,
-Jolteon,189,move,3,Shadow Ball,53.1%,,,,,,,,
-Jolteon,189,move,4,Volt Switch,44.8%,,,,,,,,
-Jolteon,189,move,5,Thunder Wave,26.0%,,,,,,,,
-Jolteon,189,move,6,Thunder,25.0%,,,,,,,,
-Jolteon,189,move,7,Quick Attack,22.9%,,,,,,,,
-Jolteon,189,move,8,Weather Ball,16.7%,,,,,,,,
-Jolteon,189,move,9,Calm Mind,15.6%,,,,,,,,
-Jolteon,189,move,10,Yawn,11.5%,,,,,,,,
-Jolteon,189,held_item,1,Focus Sash,42.7%,,,,,,,,
-Jolteon,189,held_item,2,Life Orb,36.5%,,,,,,,,
-Jolteon,189,held_item,3,Air Balloon,10.4%,,,,,,,,
-Jolteon,189,held_item,4,Choice Scarf,9.4%,,,,,,,,
-Jolteon,189,held_item,5,Eject Button,1.0%,,,,,,,,
-Jolteon,189,teammate,1,Umbreon,,,,,,,,,
-Jolteon,189,teammate,2,Vaporeon,,,,,,,,,
-Jolteon,189,teammate,3,Flareon,,,,,,,,,
-Jolteon,189,teammate,4,Sylveon,,,,,,,,,
-Jolteon,189,teammate,5,Espeon,,,,,,,,,
-Jolteon,189,teammate,6,Glimmora,,,,,,,,,
-Jolteon,189,teammate,7,Pelipper,,,,,,,,,
-Jolteon,189,teammate,8,Primarina,,,,,,,,,
-Jolteon,189,teammate,9,Golisopod,,,,,,,,,
-Jolteon,189,teammate,10,Hippowdon,,,,,,,,,
-Jolteon,189,stat_alignment,1,Timid,79.2%,Speed,Attack,,,,,,
-Jolteon,189,stat_alignment,2,Modest,15.6%,Sp. Atk,Attack,,,,,,
-Jolteon,189,stat_alignment,3,Bold,5.2%,Defense,Attack,,,,,,
-Jolteon,189,stat_points,1,,31.3%,,,0,0,0,32,1,32
-Jolteon,189,stat_points,2,,26.0%,,,1,0,1,32,0,32
-Jolteon,189,stat_points,3,,15.6%,,,0,0,0,32,2,32
-Jolteon,189,stat_points,4,,12.5%,,,2,0,0,32,0,32
-Jolteon,189,stat_points,5,,5.2%,,,2,0,14,32,18,0
-Jolteon,189,stat_points,6,,4.2%,,,3,0,5,32,0,26
-Jolteon,189,stat_points,7,,4.2%,,,9,0,0,31,2,24
-Jolteon,189,stat_points,8,,1.0%,,,0,0,0,32,0,32
-Jolteon,189,ability,1,Volt Absorb,99.0%,,,,,,,,
-Jolteon,189,ability,2,Quick Feet,1.0%,,,,,,,,
+Jolteon,192,move,1,Alluring Voice,98.4%,,,,,,,,
+Jolteon,192,move,2,Thunderbolt,67.2%,,,,,,,,
+Jolteon,192,move,3,Shadow Ball,47.2%,,,,,,,,
+Jolteon,192,move,4,Volt Switch,40.0%,,,,,,,,
+Jolteon,192,move,5,Thunder,29.6%,,,,,,,,
+Jolteon,192,move,6,Thunder Wave,23.2%,,,,,,,,
+Jolteon,192,move,7,Weather Ball,19.2%,,,,,,,,
+Jolteon,192,move,8,Quick Attack,18.4%,,,,,,,,
+Jolteon,192,move,9,Calm Mind,12.8%,,,,,,,,
+Jolteon,192,move,10,Detect,9.6%,,,,,,,,
+Jolteon,192,held_item,1,Life Orb,37.6%,,,,,,,,
+Jolteon,192,held_item,2,Focus Sash,36.0%,,,,,,,,
+Jolteon,192,held_item,3,Choice Scarf,12.8%,,,,,,,,
+Jolteon,192,held_item,4,Air Balloon,8.8%,,,,,,,,
+Jolteon,192,held_item,5,Expert Belt,4.0%,,,,,,,,
+Jolteon,192,held_item,6,Eject Button,0.8%,,,,,,,,
+Jolteon,192,teammate,1,Umbreon,,,,,,,,,
+Jolteon,192,teammate,2,Sylveon,,,,,,,,,
+Jolteon,192,teammate,3,Vaporeon,,,,,,,,,
+Jolteon,192,teammate,4,Flareon,,,,,,,,,
+Jolteon,192,teammate,5,Espeon,,,,,,,,,
+Jolteon,192,teammate,6,Glimmora,,,,,,,,,
+Jolteon,192,teammate,7,Primarina,,,,,,,,,
+Jolteon,192,teammate,8,Golisopod,,,,,,,,,
+Jolteon,192,teammate,9,Pelipper,,,,,,,,,
+Jolteon,192,teammate,10,Hippowdon,,,,,,,,,
+Jolteon,192,stat_alignment,1,Timid,79.2%,Speed,Attack,,,,,,
+Jolteon,192,stat_alignment,2,Modest,12.0%,Sp. Atk,Attack,,,,,,
+Jolteon,192,stat_alignment,3,Bold,8.8%,Defense,Attack,,,,,,
+Jolteon,192,stat_points,1,,24.0%,,,0,0,0,32,1,32
+Jolteon,192,stat_points,2,,20.8%,,,1,0,1,32,0,32
+Jolteon,192,stat_points,3,,12.8%,,,2,0,0,32,0,32
+Jolteon,192,stat_points,4,,12.0%,,,0,0,0,32,2,32
+Jolteon,192,stat_points,5,,10.4%,,,3,0,0,32,0,31
+Jolteon,192,stat_points,6,,8.8%,,,2,0,14,32,18,0
+Jolteon,192,stat_points,7,,5.6%,,,3,0,5,32,0,26
+Jolteon,192,stat_points,8,,3.2%,,,9,0,0,31,2,24
+Jolteon,192,stat_points,9,,0.8%,,,0,0,0,32,0,32
+Jolteon,192,stat_points,10,,0.8%,,,0,0,2,32,0,32
+Jolteon,192,ability,1,Volt Absorb,85.6%,,,,,,,,
+Jolteon,192,ability,2,Quick Feet,14.4%,,,,,,,,

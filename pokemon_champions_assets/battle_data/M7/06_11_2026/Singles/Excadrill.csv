@@ -1,50 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Excadrill,61,move,1,Earthquake,98.6%,,,,,,,,
-Excadrill,61,move,2,Iron Head,96.1%,,,,,,,,
-Excadrill,61,move,3,Rock Slide,70.9%,,,,,,,,
-Excadrill,61,move,4,Horn Drill,36.5%,,,,,,,,
-Excadrill,61,move,5,Swords Dance,31.3%,,,,,,,,
-Excadrill,61,move,6,Stealth Rock,17.7%,,,,,,,,
-Excadrill,61,move,7,Rock Blast,11.3%,,,,,,,,
-Excadrill,61,move,8,Rapid Spin,11.2%,,,,,,,,
-Excadrill,61,move,9,Rock Tomb,9.3%,,,,,,,,
-Excadrill,61,move,10,Substitute,4.6%,,,,,,,,
-Excadrill,61,held_item,1,Choice Scarf,41.2%,,,,,,,,
-Excadrill,61,held_item,2,Life Orb,22.5%,,,,,,,,
-Excadrill,61,held_item,3,Air Balloon,16.2%,,,,,,,,
-Excadrill,61,held_item,4,Focus Sash,14.9%,,,,,,,,
-Excadrill,61,held_item,5,Excadrite,1.6%,,,,,,,,
-Excadrill,61,held_item,6,Expert Belt,1.0%,,,,,,,,
-Excadrill,61,held_item,7,Sitrus Berry,0.9%,,,,,,,,
-Excadrill,61,held_item,8,Soft Sand,0.6%,,,,,,,,
-Excadrill,61,held_item,9,Leftovers,0.2%,,,,,,,,
-Excadrill,61,held_item,10,Quick Claw,0.2%,,,,,,,,
-Excadrill,61,teammate,1,Tyranitar,,,,,,,,,
-Excadrill,61,teammate,2,Salamence,,,,,,,,,
-Excadrill,61,teammate,3,Scovillain,,,,,,,,,
-Excadrill,61,teammate,4,Charizard,,,,,,,,,
-Excadrill,61,teammate,5,Dragonite,,,,,,,,,
-Excadrill,61,teammate,6,Umbreon,,,,,,,,,
-Excadrill,61,teammate,7,Garchomp,,,,,,,,,
-Excadrill,61,teammate,8,Primarina,,,,,,,,,
-Excadrill,61,teammate,9,Hatterene,,,,,,,,,
-Excadrill,61,teammate,10,Houndstone,,,,,,,,,
-Excadrill,61,stat_alignment,1,Jolly,58.5%,Speed,Sp. Atk,,,,,,
-Excadrill,61,stat_alignment,2,Adamant,40.0%,Attack,Sp. Atk,,,,,,
-Excadrill,61,stat_alignment,3,Impish,0.8%,Defense,Sp. Atk,,,,,,
-Excadrill,61,stat_alignment,4,Docile,0.4%,,,,,,,,
-Excadrill,61,stat_alignment,5,Hasty,0.1%,Speed,Defense,,,,,,
-Excadrill,61,stat_alignment,6,Naughty,0.1%,Attack,Sp. Def,,,,,,
-Excadrill,61,stat_alignment,7,Timid,0.0%,Speed,Attack,,,,,,
-Excadrill,61,stat_points,1,,32.9%,,,2,32,0,0,0,32
-Excadrill,61,stat_points,2,,18.6%,,,0,32,2,0,0,32
-Excadrill,61,stat_points,3,,12.6%,,,0,32,9,0,0,25
-Excadrill,61,stat_points,4,,5.9%,,,0,32,1,0,1,32
-Excadrill,61,stat_points,5,,4.4%,,,0,32,8,0,0,26
-Excadrill,61,stat_points,6,,3.4%,,,5,32,0,0,0,29
-Excadrill,61,stat_points,7,,3.2%,,,4,32,0,0,0,30
-Excadrill,61,stat_points,8,,2.6%,,,1,32,1,0,0,32
-Excadrill,61,stat_points,9,,2.2%,,,0,32,0,0,2,32
-Excadrill,61,stat_points,10,,1.6%,,,0,32,0,0,0,32
-Excadrill,61,ability,1,Mold Breaker,63.1%,,,,,,,,
-Excadrill,61,ability,2,Sand Rush,36.9%,,,,,,,,
+Excadrill,60,move,1,Earthquake,98.7%,,,,,,,,
+Excadrill,60,move,2,Iron Head,96.1%,,,,,,,,
+Excadrill,60,move,3,Rock Slide,71.6%,,,,,,,,
+Excadrill,60,move,4,Horn Drill,36.7%,,,,,,,,
+Excadrill,60,move,5,Swords Dance,31.3%,,,,,,,,
+Excadrill,60,move,6,Stealth Rock,16.1%,,,,,,,,
+Excadrill,60,move,7,Rapid Spin,10.8%,,,,,,,,
+Excadrill,60,move,8,Rock Blast,10.5%,,,,,,,,
+Excadrill,60,move,9,Rock Tomb,9.4%,,,,,,,,
+Excadrill,60,move,10,Substitute,4.4%,,,,,,,,
+Excadrill,60,held_item,1,Choice Scarf,40.0%,,,,,,,,
+Excadrill,60,held_item,2,Life Orb,23.8%,,,,,,,,
+Excadrill,60,held_item,3,Air Balloon,16.3%,,,,,,,,
+Excadrill,60,held_item,4,Focus Sash,13.9%,,,,,,,,
+Excadrill,60,held_item,5,Excadrite,1.9%,,,,,,,,
+Excadrill,60,held_item,6,Soft Sand,1.2%,,,,,,,,
+Excadrill,60,held_item,7,Expert Belt,0.7%,,,,,,,,
+Excadrill,60,held_item,8,Sitrus Berry,0.7%,,,,,,,,
+Excadrill,60,held_item,9,Lum Berry,0.4%,,,,,,,,
+Excadrill,60,held_item,10,Shuca Berry,0.2%,,,,,,,,
+Excadrill,60,teammate,1,Tyranitar,,,,,,,,,
+Excadrill,60,teammate,2,Salamence,,,,,,,,,
+Excadrill,60,teammate,3,Scovillain,,,,,,,,,
+Excadrill,60,teammate,4,Dragonite,,,,,,,,,
+Excadrill,60,teammate,5,Charizard,,,,,,,,,
+Excadrill,60,teammate,6,Primarina,,,,,,,,,
+Excadrill,60,teammate,7,Garchomp,,,,,,,,,
+Excadrill,60,teammate,8,Umbreon,,,,,,,,,
+Excadrill,60,teammate,9,Hatterene,,,,,,,,,
+Excadrill,60,teammate,10,Hippowdon,,,,,,,,,
+Excadrill,60,stat_alignment,1,Jolly,57.1%,Speed,Sp. Atk,,,,,,
+Excadrill,60,stat_alignment,2,Adamant,41.7%,Attack,Sp. Atk,,,,,,
+Excadrill,60,stat_alignment,3,Impish,0.6%,Defense,Sp. Atk,,,,,,
+Excadrill,60,stat_alignment,4,Docile,0.3%,,,,,,,,
+Excadrill,60,stat_alignment,5,Hasty,0.1%,Speed,Defense,,,,,,
+Excadrill,60,stat_alignment,6,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Excadrill,60,stat_alignment,7,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Excadrill,60,stat_alignment,8,Timid,0.0%,Speed,Attack,,,,,,
+Excadrill,60,stat_points,1,,33.7%,,,2,32,0,0,0,32
+Excadrill,60,stat_points,2,,17.5%,,,0,32,2,0,0,32
+Excadrill,60,stat_points,3,,13.7%,,,0,32,9,0,0,25
+Excadrill,60,stat_points,4,,5.7%,,,0,32,1,0,1,32
+Excadrill,60,stat_points,5,,4.5%,,,0,32,8,0,0,26
+Excadrill,60,stat_points,6,,3.5%,,,5,32,0,0,0,29
+Excadrill,60,stat_points,7,,2.7%,,,0,32,0,0,2,32
+Excadrill,60,stat_points,8,,2.6%,,,4,32,0,0,0,30
+Excadrill,60,stat_points,9,,2.2%,,,1,32,1,0,0,32
+Excadrill,60,stat_points,10,,1.5%,,,0,32,0,0,0,32
+Excadrill,60,ability,1,Mold Breaker,62.0%,,,,,,,,
+Excadrill,60,ability,2,Sand Rush,38.0%,,,,,,,,

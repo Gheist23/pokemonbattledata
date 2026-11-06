@@ -1,45 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Araquanid,108,move,1,Wide Guard,76.2%,,,,,,,,
-Araquanid,108,move,2,Liquidation,67.8%,,,,,,,,
-Araquanid,108,move,3,Protect,62.4%,,,,,,,,
-Araquanid,108,move,4,Hydro Pump,32.2%,,,,,,,,
-Araquanid,108,move,5,Infestation,22.8%,,,,,,,,
-Araquanid,108,move,6,Leech Life,21.8%,,,,,,,,
-Araquanid,108,move,7,Surf,21.3%,,,,,,,,
-Araquanid,108,move,8,Ice Beam,20.8%,,,,,,,,
-Araquanid,108,move,9,Soak,18.3%,,,,,,,,
-Araquanid,108,move,10,Mirror Coat,17.8%,,,,,,,,
-Araquanid,108,held_item,1,Mystic Water,69.3%,,,,,,,,
-Araquanid,108,held_item,2,Wacan Berry,11.9%,,,,,,,,
-Araquanid,108,held_item,3,Leftovers,11.9%,,,,,,,,
-Araquanid,108,held_item,4,Sitrus Berry,3.5%,,,,,,,,
-Araquanid,108,held_item,5,Grassy Seed,3.0%,,,,,,,,
-Araquanid,108,held_item,6,White Herb,0.5%,,,,,,,,
-Araquanid,108,teammate,1,Garchomp,,,,,,,,,
-Araquanid,108,teammate,2,Oranguru,,,,,,,,,
-Araquanid,108,teammate,3,Mawile,,,,,,,,,
-Araquanid,108,teammate,4,Charizard,,,,,,,,,
-Araquanid,108,teammate,5,Staraptor,,,,,,,,,
-Araquanid,108,teammate,6,Pelipper,,,,,,,,,
-Araquanid,108,teammate,7,Whimsicott,,,,,,,,,
-Araquanid,108,teammate,8,Golisopod,,,,,,,,,
-Araquanid,108,teammate,9,Indeedee-F,,,,,,,,,
-Araquanid,108,teammate,10,Heracross,,,,,,,,,
-Araquanid,108,stat_alignment,1,Brave,31.2%,Attack,Speed,,,,,,
-Araquanid,108,stat_alignment,2,Quiet,27.7%,Sp. Atk,Speed,,,,,,
-Araquanid,108,stat_alignment,3,Careful,21.3%,Sp. Def,Sp. Atk,,,,,,
-Araquanid,108,stat_alignment,4,Adamant,10.4%,Attack,Sp. Atk,,,,,,
-Araquanid,108,stat_alignment,5,Modest,4.5%,Sp. Atk,Attack,,,,,,
-Araquanid,108,stat_alignment,6,Impish,3.0%,Defense,Sp. Atk,,,,,,
-Araquanid,108,stat_alignment,7,Sassy,2.0%,Sp. Def,Speed,,,,,,
-Araquanid,108,stat_points,1,,25.7%,,,32,0,2,32,0,0
-Araquanid,108,stat_points,2,,18.3%,,,32,13,19,0,2,0
-Araquanid,108,stat_points,3,,13.9%,,,32,32,2,0,0,0
-Araquanid,108,stat_points,4,,10.9%,,,32,32,0,0,2,0
-Araquanid,108,stat_points,5,,7.9%,,,32,18,16,0,0,0
-Araquanid,108,stat_points,6,,5.9%,,,22,0,7,21,16,0
-Araquanid,108,stat_points,7,,3.0%,,,2,32,32,0,0,0
-Araquanid,108,stat_points,8,,3.0%,,,32,0,22,0,0,12
-Araquanid,108,stat_points,9,,2.0%,,,22,29,15,0,0,0
-Araquanid,108,stat_points,10,,2.0%,,,32,0,4,0,30,0
-Araquanid,108,ability,1,Water Bubble,100.0%,,,,,,,,
+Araquanid,109,move,1,Wide Guard,78.0%,,,,,,,,
+Araquanid,109,move,2,Liquidation,70.5%,,,,,,,,
+Araquanid,109,move,3,Protect,57.7%,,,,,,,,
+Araquanid,109,move,4,Hydro Pump,29.5%,,,,,,,,
+Araquanid,109,move,5,Leech Life,27.8%,,,,,,,,
+Araquanid,109,move,6,Soak,23.7%,,,,,,,,
+Araquanid,109,move,7,Infestation,20.7%,,,,,,,,
+Araquanid,109,move,8,Surf,19.9%,,,,,,,,
+Araquanid,109,move,9,Ice Beam,19.9%,,,,,,,,
+Araquanid,109,move,10,Mirror Coat,15.8%,,,,,,,,
+Araquanid,109,held_item,1,Mystic Water,69.3%,,,,,,,,
+Araquanid,109,held_item,2,Leftovers,12.0%,,,,,,,,
+Araquanid,109,held_item,3,Wacan Berry,10.0%,,,,,,,,
+Araquanid,109,held_item,4,Sitrus Berry,3.3%,,,,,,,,
+Araquanid,109,held_item,5,Grassy Seed,2.5%,,,,,,,,
+Araquanid,109,held_item,6,White Herb,0.8%,,,,,,,,
+Araquanid,109,held_item,7,Iron Ball,0.8%,,,,,,,,
+Araquanid,109,held_item,8,Binding Band,0.8%,,,,,,,,
+Araquanid,109,held_item,9,Life Orb,0.4%,,,,,,,,
+Araquanid,109,teammate,1,Garchomp,,,,,,,,,
+Araquanid,109,teammate,2,Mawile,,,,,,,,,
+Araquanid,109,teammate,3,Oranguru,,,,,,,,,
+Araquanid,109,teammate,4,Indeedee-F,,,,,,,,,
+Araquanid,109,teammate,5,Charizard,,,,,,,,,
+Araquanid,109,teammate,6,Pelipper,,,,,,,,,
+Araquanid,109,teammate,7,Golisopod,,,,,,,,,
+Araquanid,109,teammate,8,Rillaboom,,,,,,,,,
+Araquanid,109,teammate,9,Staraptor,,,,,,,,,
+Araquanid,109,teammate,10,Whimsicott,,,,,,,,,
+Araquanid,109,stat_alignment,1,Brave,27.4%,Attack,Speed,,,,,,
+Araquanid,109,stat_alignment,2,Quiet,26.1%,Sp. Atk,Speed,,,,,,
+Araquanid,109,stat_alignment,3,Careful,19.1%,Sp. Def,Sp. Atk,,,,,,
+Araquanid,109,stat_alignment,4,Adamant,17.0%,Attack,Sp. Atk,,,,,,
+Araquanid,109,stat_alignment,5,Impish,4.1%,Defense,Sp. Atk,,,,,,
+Araquanid,109,stat_alignment,6,Modest,3.7%,Sp. Atk,Attack,,,,,,
+Araquanid,109,stat_alignment,7,Sassy,2.5%,Sp. Def,Speed,,,,,,
+Araquanid,109,stat_points,1,,24.1%,,,32,0,2,32,0,0
+Araquanid,109,stat_points,2,,16.2%,,,32,32,0,0,2,0
+Araquanid,109,stat_points,3,,15.8%,,,32,13,19,0,2,0
+Araquanid,109,stat_points,4,,12.4%,,,32,32,2,0,0,0
+Araquanid,109,stat_points,5,,6.6%,,,32,18,16,0,0,0
+Araquanid,109,stat_points,6,,5.0%,,,22,0,7,21,16,0
+Araquanid,109,stat_points,7,,4.1%,,,2,32,32,0,0,0
+Araquanid,109,stat_points,8,,2.5%,,,32,0,22,0,0,12
+Araquanid,109,stat_points,9,,1.7%,,,16,32,18,0,0,0
+Araquanid,109,stat_points,10,,1.7%,,,22,29,15,0,0,0
+Araquanid,109,ability,1,Water Bubble,100.0%,,,,,,,,

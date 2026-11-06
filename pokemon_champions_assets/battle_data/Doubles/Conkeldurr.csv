@@ -1,39 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Conkeldurr,103,move,1,Thunder Punch,85.7%,,,,,,,,
-Conkeldurr,103,move,2,Drain Punch,54.4%,,,,,,,,
-Conkeldurr,103,move,3,Ice Punch,51.6%,,,,,,,,
-Conkeldurr,103,move,4,Fire Punch,48.8%,,,,,,,,
-Conkeldurr,103,move,5,Wide Guard,44.7%,,,,,,,,
-Conkeldurr,103,move,6,Close Combat,37.8%,,,,,,,,
-Conkeldurr,103,move,7,Mach Punch,30.0%,,,,,,,,
-Conkeldurr,103,move,8,Poison Jab,18.9%,,,,,,,,
-Conkeldurr,103,move,9,Hammer Arm,9.2%,,,,,,,,
-Conkeldurr,103,move,10,Protect,6.5%,,,,,,,,
-Conkeldurr,103,held_item,1,Expert Belt,61.3%,,,,,,,,
-Conkeldurr,103,held_item,2,Life Orb,26.3%,,,,,,,,
-Conkeldurr,103,held_item,3,Psychic Seed,5.5%,,,,,,,,
-Conkeldurr,103,held_item,4,Black Belt,4.1%,,,,,,,,
-Conkeldurr,103,held_item,5,White Herb,1.8%,,,,,,,,
-Conkeldurr,103,held_item,6,Sitrus Berry,0.9%,,,,,,,,
-Conkeldurr,103,teammate,1,Camerupt,,,,,,,,,
-Conkeldurr,103,teammate,2,Indeedee-F,,,,,,,,,
-Conkeldurr,103,teammate,3,Hatterene,,,,,,,,,
-Conkeldurr,103,teammate,4,Farigiraf,,,,,,,,,
-Conkeldurr,103,teammate,5,Tyranitar,,,,,,,,,
-Conkeldurr,103,teammate,6,Rillaboom,,,,,,,,,
-Conkeldurr,103,teammate,7,Torkoal,,,,,,,,,
-Conkeldurr,103,teammate,8,Maushold-Four,,,,,,,,,
-Conkeldurr,103,teammate,9,Drampa,,,,,,,,,
-Conkeldurr,103,teammate,10,Milotic,,,,,,,,,
-Conkeldurr,103,stat_alignment,1,Brave,60.4%,Attack,Speed,,,,,,
-Conkeldurr,103,stat_alignment,2,Adamant,39.6%,Attack,Sp. Atk,,,,,,
-Conkeldurr,103,stat_points,1,,58.5%,,,32,32,0,0,2,0
-Conkeldurr,103,stat_points,2,,16.6%,,,32,32,2,0,0,0
-Conkeldurr,103,stat_points,3,,12.9%,,,13,32,0,0,21,0
-Conkeldurr,103,stat_points,4,,5.1%,,,5,32,0,0,29,0
-Conkeldurr,103,stat_points,5,,3.2%,,,2,32,32,0,0,0
-Conkeldurr,103,stat_points,6,,1.8%,,,0,32,2,0,32,0
-Conkeldurr,103,stat_points,7,,1.4%,,,29,32,0,0,5,0
-Conkeldurr,103,stat_points,8,,0.5%,,,20,31,0,0,15,0
-Conkeldurr,103,ability,1,Sheer Force,63.6%,,,,,,,,
-Conkeldurr,103,ability,2,Iron Fist,36.4%,,,,,,,,
+Conkeldurr,105,move,1,Thunder Punch,83.6%,,,,,,,,
+Conkeldurr,105,move,2,Ice Punch,57.6%,,,,,,,,
+Conkeldurr,105,move,3,Drain Punch,49.2%,,,,,,,,
+Conkeldurr,105,move,4,Fire Punch,43.2%,,,,,,,,
+Conkeldurr,105,move,5,Wide Guard,39.2%,,,,,,,,
+Conkeldurr,105,move,6,Close Combat,36.8%,,,,,,,,
+Conkeldurr,105,move,7,Mach Punch,28.8%,,,,,,,,
+Conkeldurr,105,move,8,Poison Jab,20.4%,,,,,,,,
+Conkeldurr,105,move,9,Hammer Arm,13.2%,,,,,,,,
+Conkeldurr,105,move,10,Hard Press,8.0%,,,,,,,,
+Conkeldurr,105,held_item,1,Expert Belt,62.4%,,,,,,,,
+Conkeldurr,105,held_item,2,Life Orb,24.8%,,,,,,,,
+Conkeldurr,105,held_item,3,Psychic Seed,6.4%,,,,,,,,
+Conkeldurr,105,held_item,4,Black Belt,3.6%,,,,,,,,
+Conkeldurr,105,held_item,5,White Herb,1.6%,,,,,,,,
+Conkeldurr,105,held_item,6,Sitrus Berry,0.8%,,,,,,,,
+Conkeldurr,105,held_item,7,Lum Berry,0.4%,,,,,,,,
+Conkeldurr,105,teammate,1,Camerupt,,,,,,,,,
+Conkeldurr,105,teammate,2,Indeedee-F,,,,,,,,,
+Conkeldurr,105,teammate,3,Farigiraf,,,,,,,,,
+Conkeldurr,105,teammate,4,Hatterene,,,,,,,,,
+Conkeldurr,105,teammate,5,Tyranitar,,,,,,,,,
+Conkeldurr,105,teammate,6,Rillaboom,,,,,,,,,
+Conkeldurr,105,teammate,7,Maushold-Four,,,,,,,,,
+Conkeldurr,105,teammate,8,Drampa,,,,,,,,,
+Conkeldurr,105,teammate,9,Torkoal,,,,,,,,,
+Conkeldurr,105,teammate,10,Milotic,,,,,,,,,
+Conkeldurr,105,stat_alignment,1,Brave,65.2%,Attack,Speed,,,,,,
+Conkeldurr,105,stat_alignment,2,Adamant,34.8%,Attack,Sp. Atk,,,,,,
+Conkeldurr,105,stat_points,1,,53.6%,,,32,32,0,0,2,0
+Conkeldurr,105,stat_points,2,,15.2%,,,13,32,0,0,21,0
+Conkeldurr,105,stat_points,3,,14.4%,,,32,32,2,0,0,0
+Conkeldurr,105,stat_points,4,,8.0%,,,2,32,32,0,0,0
+Conkeldurr,105,stat_points,5,,4.4%,,,5,32,0,0,29,0
+Conkeldurr,105,stat_points,6,,2.4%,,,0,32,2,0,32,0
+Conkeldurr,105,stat_points,7,,1.2%,,,29,32,0,0,5,0
+Conkeldurr,105,stat_points,8,,0.4%,,,1,22,11,0,32,0
+Conkeldurr,105,stat_points,9,,0.4%,,,20,31,0,0,15,0
+Conkeldurr,105,ability,1,Sheer Force,61.2%,,,,,,,,
+Conkeldurr,105,ability,2,Iron Fist,38.8%,,,,,,,,

@@ -1,28 +1,32 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Falinks,195,move,1,Close Combat,100.0%,,,,,,,,
-Falinks,195,move,2,No Retreat,98.8%,,,,,,,,
-Falinks,195,move,3,Iron Head,63.0%,,,,,,,,
-Falinks,195,move,4,Knock Off,55.6%,,,,,,,,
-Falinks,195,move,5,Rock Slide,42.0%,,,,,,,,
-Falinks,195,move,6,Upper Hand,32.1%,,,,,,,,
-Falinks,195,move,7,Poison Jab,6.2%,,,,,,,,
-Falinks,195,move,8,Rock Tomb,1.2%,,,,,,,,
-Falinks,195,move,9,Lunge,1.2%,,,,,,,,
-Falinks,195,held_item,1,Falinksite,100.0%,,,,,,,,
-Falinks,195,teammate,1,Garchomp,,,,,,,,,
-Falinks,195,teammate,2,Primarina,,,,,,,,,
-Falinks,195,teammate,3,Archaludon,,,,,,,,,
-Falinks,195,teammate,4,Mimikyu,,,,,,,,,
-Falinks,195,teammate,5,Bastiodon,,,,,,,,,
-Falinks,195,teammate,6,Simisage,,,,,,,,,
-Falinks,195,teammate,7,Simisear,,,,,,,,,
-Falinks,195,teammate,8,Simipour,,,,,,,,,
-Falinks,195,teammate,9,Greninja,,,,,,,,,
-Falinks,195,teammate,10,Clefable,,,,,,,,,
-Falinks,195,stat_alignment,1,Jolly,79.0%,Speed,Sp. Atk,,,,,,
-Falinks,195,stat_alignment,2,Adamant,21.0%,Attack,Sp. Atk,,,,,,
-Falinks,195,stat_points,1,,49.4%,,,1,32,0,0,1,32
-Falinks,195,stat_points,2,,32.1%,,,0,32,0,0,0,32
-Falinks,195,stat_points,3,,12.3%,,,2,32,0,0,0,32
-Falinks,195,stat_points,4,,6.2%,,,1,32,1,0,0,32
-Falinks,195,ability,1,Defiant,100.0%,,,,,,,,
+Falinks,189,move,1,Close Combat,100.0%,,,,,,,,
+Falinks,189,move,2,No Retreat,99.2%,,,,,,,,
+Falinks,189,move,3,Knock Off,60.2%,,,,,,,,
+Falinks,189,move,4,Iron Head,53.9%,,,,,,,,
+Falinks,189,move,5,Upper Hand,41.4%,,,,,,,,
+Falinks,189,move,6,Rock Slide,38.3%,,,,,,,,
+Falinks,189,move,7,Poison Jab,5.5%,,,,,,,,
+Falinks,189,move,8,Rock Tomb,0.8%,,,,,,,,
+Falinks,189,move,9,Lunge,0.8%,,,,,,,,
+Falinks,189,held_item,1,Falinksite,100.0%,,,,,,,,
+Falinks,189,teammate,1,Bastiodon,,,,,,,,,
+Falinks,189,teammate,2,Simisage,,,,,,,,,
+Falinks,189,teammate,3,Simisear,,,,,,,,,
+Falinks,189,teammate,4,Simipour,,,,,,,,,
+Falinks,189,teammate,5,Clefable,,,,,,,,,
+Falinks,189,teammate,6,Garchomp,,,,,,,,,
+Falinks,189,teammate,7,Primarina,,,,,,,,,
+Falinks,189,teammate,8,Hippowdon,,,,,,,,,
+Falinks,189,teammate,9,Archaludon,,,,,,,,,
+Falinks,189,teammate,10,Mimikyu,,,,,,,,,
+Falinks,189,stat_alignment,1,Jolly,83.6%,Speed,Sp. Atk,,,,,,
+Falinks,189,stat_alignment,2,Adamant,14.1%,Attack,Sp. Atk,,,,,,
+Falinks,189,stat_alignment,3,Impish,2.3%,Defense,Sp. Atk,,,,,,
+Falinks,189,stat_points,1,,43.0%,,,1,32,0,0,1,32
+Falinks,189,stat_points,2,,41.4%,,,0,32,0,0,0,32
+Falinks,189,stat_points,3,,7.8%,,,2,32,0,0,0,32
+Falinks,189,stat_points,4,,3.9%,,,1,32,1,0,0,32
+Falinks,189,stat_points,5,,2.3%,,,32,0,32,0,0,0
+Falinks,189,stat_points,6,,0.8%,,,3,32,0,0,0,31
+Falinks,189,stat_points,7,,0.8%,,,11,23,0,0,0,32
+Falinks,189,ability,1,Defiant,100.0%,,,,,,,,

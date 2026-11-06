@@ -1,38 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rhyperior,182,move,1,Rock Slide,100.0%,,,,,,,,
-Rhyperior,182,move,2,Protect,94.7%,,,,,,,,
-Rhyperior,182,move,3,Ice Punch,55.3%,,,,,,,,
-Rhyperior,182,move,4,High Horsepower,50.0%,,,,,,,,
-Rhyperior,182,move,5,Earthquake,50.0%,,,,,,,,
-Rhyperior,182,move,6,Brick Break,36.8%,,,,,,,,
-Rhyperior,182,move,7,Supercell Slam,7.9%,,,,,,,,
-Rhyperior,182,move,8,Poison Jab,5.3%,,,,,,,,
-Rhyperior,182,held_item,1,Expert Belt,36.8%,,,,,,,,
-Rhyperior,182,held_item,2,Chople Berry,18.4%,,,,,,,,
-Rhyperior,182,held_item,3,Shuca Berry,13.2%,,,,,,,,
-Rhyperior,182,held_item,4,Life Orb,13.2%,,,,,,,,
-Rhyperior,182,held_item,5,White Herb,10.5%,,,,,,,,
-Rhyperior,182,held_item,6,Passho Berry,7.9%,,,,,,,,
-Rhyperior,182,teammate,1,Drampa,,,,,,,,,
-Rhyperior,182,teammate,2,Slowbro,,,,,,,,,
-Rhyperior,182,teammate,3,Indeedee-F,,,,,,,,,
-Rhyperior,182,teammate,4,Skeledirge,,,,,,,,,
-Rhyperior,182,teammate,5,Charizard,,,,,,,,,
-Rhyperior,182,teammate,6,Farigiraf,,,,,,,,,
-Rhyperior,182,teammate,7,Rillaboom,,,,,,,,,
-Rhyperior,182,teammate,8,Garchomp,,,,,,,,,
-Rhyperior,182,teammate,9,Ninetales-Alola,,,,,,,,,
-Rhyperior,182,teammate,10,Gholdengo,,,,,,,,,
-Rhyperior,182,stat_alignment,1,Careful,36.8%,Sp. Def,Sp. Atk,,,,,,
-Rhyperior,182,stat_alignment,2,Brave,28.9%,Attack,Speed,,,,,,
-Rhyperior,182,stat_alignment,3,Adamant,26.3%,Attack,Sp. Atk,,,,,,
-Rhyperior,182,stat_alignment,4,Sassy,7.9%,Sp. Def,Speed,,,,,,
-Rhyperior,182,stat_points,1,,36.8%,,,0,32,2,0,32,0
-Rhyperior,182,stat_points,2,,18.4%,,,32,30,0,0,4,0
-Rhyperior,182,stat_points,3,,13.2%,,,17,20,4,0,25,0
-Rhyperior,182,stat_points,4,,10.5%,,,11,30,0,0,25,0
-Rhyperior,182,stat_points,5,,7.9%,,,2,32,0,0,32,0
-Rhyperior,182,stat_points,6,,7.9%,,,32,32,0,0,2,0
-Rhyperior,182,stat_points,7,,5.3%,,,32,32,1,0,1,0
-Rhyperior,182,ability,1,Solid Rock,68.4%,,,,,,,,
-Rhyperior,182,ability,2,Lightning Rod,31.6%,,,,,,,,
+Rhyperior,183,move,1,Rock Slide,100.0%,,,,,,,,
+Rhyperior,183,move,2,Protect,91.5%,,,,,,,,
+Rhyperior,183,move,3,Ice Punch,53.2%,,,,,,,,
+Rhyperior,183,move,4,Earthquake,53.2%,,,,,,,,
+Rhyperior,183,move,5,High Horsepower,46.8%,,,,,,,,
+Rhyperior,183,move,6,Brick Break,29.8%,,,,,,,,
+Rhyperior,183,move,7,Hammer Arm,8.5%,,,,,,,,
+Rhyperior,183,move,8,Poison Jab,8.5%,,,,,,,,
+Rhyperior,183,move,9,Supercell Slam,6.4%,,,,,,,,
+Rhyperior,183,move,10,Rock Wrecker,2.1%,,,,,,,,
+Rhyperior,183,held_item,1,Expert Belt,29.8%,,,,,,,,
+Rhyperior,183,held_item,2,Life Orb,25.5%,,,,,,,,
+Rhyperior,183,held_item,3,Chople Berry,14.9%,,,,,,,,
+Rhyperior,183,held_item,4,Shuca Berry,10.6%,,,,,,,,
+Rhyperior,183,held_item,5,White Herb,8.5%,,,,,,,,
+Rhyperior,183,held_item,6,Passho Berry,6.4%,,,,,,,,
+Rhyperior,183,held_item,7,Sitrus Berry,2.1%,,,,,,,,
+Rhyperior,183,held_item,8,Rindo Berry,2.1%,,,,,,,,
+Rhyperior,183,teammate,1,Drampa,,,,,,,,,
+Rhyperior,183,teammate,2,Indeedee-F,,,,,,,,,
+Rhyperior,183,teammate,3,Charizard,,,,,,,,,
+Rhyperior,183,teammate,4,Slowbro,,,,,,,,,
+Rhyperior,183,teammate,5,Skeledirge,,,,,,,,,
+Rhyperior,183,teammate,6,Farigiraf,,,,,,,,,
+Rhyperior,183,teammate,7,Garchomp,,,,,,,,,
+Rhyperior,183,teammate,8,Rillaboom,,,,,,,,,
+Rhyperior,183,teammate,9,Torkoal,,,,,,,,,
+Rhyperior,183,teammate,10,Gholdengo,,,,,,,,,
+Rhyperior,183,stat_alignment,1,Brave,42.6%,Attack,Speed,,,,,,
+Rhyperior,183,stat_alignment,2,Careful,29.8%,Sp. Def,Sp. Atk,,,,,,
+Rhyperior,183,stat_alignment,3,Adamant,21.3%,Attack,Sp. Atk,,,,,,
+Rhyperior,183,stat_alignment,4,Sassy,6.4%,Sp. Def,Speed,,,,,,
+Rhyperior,183,stat_points,1,,29.8%,,,0,32,2,0,32,0
+Rhyperior,183,stat_points,2,,14.9%,,,32,30,0,0,4,0
+Rhyperior,183,stat_points,3,,10.6%,,,17,20,4,0,25,0
+Rhyperior,183,stat_points,4,,10.6%,,,32,32,0,0,2,0
+Rhyperior,183,stat_points,5,,8.5%,,,2,32,0,0,32,0
+Rhyperior,183,stat_points,6,,8.5%,,,9,32,0,0,25,0
+Rhyperior,183,stat_points,7,,8.5%,,,11,30,0,0,25,0
+Rhyperior,183,stat_points,8,,8.5%,,,32,32,1,0,1,0
+Rhyperior,183,ability,1,Solid Rock,63.8%,,,,,,,,
+Rhyperior,183,ability,2,Lightning Rod,36.2%,,,,,,,,

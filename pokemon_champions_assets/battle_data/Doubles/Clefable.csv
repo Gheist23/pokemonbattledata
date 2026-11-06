@@ -1,47 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Clefable,129,move,1,Moonblast,74.0%,,,,,,,,
-Clefable,129,move,2,Follow Me,55.1%,,,,,,,,
-Clefable,129,move,3,Protect,50.4%,,,,,,,,
-Clefable,129,move,4,Life Dew,27.6%,,,,,,,,
-Clefable,129,move,5,Psych Up,24.4%,,,,,,,,
-Clefable,129,move,6,Stored Power,22.8%,,,,,,,,
-Clefable,129,move,7,Dazzling Gleam,22.0%,,,,,,,,
-Clefable,129,move,8,Thunderbolt,19.7%,,,,,,,,
-Clefable,129,move,9,Draining Kiss,11.0%,,,,,,,,
-Clefable,129,move,10,Ice Beam,11.0%,,,,,,,,
-Clefable,129,held_item,1,Clefablite,55.9%,,,,,,,,
-Clefable,129,held_item,2,Sitrus Berry,22.8%,,,,,,,,
-Clefable,129,held_item,3,Rocky Helmet,18.9%,,,,,,,,
-Clefable,129,held_item,4,Leftovers,0.8%,,,,,,,,
-Clefable,129,held_item,5,Life Orb,0.8%,,,,,,,,
-Clefable,129,held_item,6,Eject Button,0.8%,,,,,,,,
-Clefable,129,teammate,1,Rillaboom,,,,,,,,,
-Clefable,129,teammate,2,Garchomp,,,,,,,,,
-Clefable,129,teammate,3,Delphox,,,,,,,,,
-Clefable,129,teammate,4,Overqwil,,,,,,,,,
-Clefable,129,teammate,5,Archaludon,,,,,,,,,
-Clefable,129,teammate,6,Sneasler,,,,,,,,,
-Clefable,129,teammate,7,Indeedee-F,,,,,,,,,
-Clefable,129,teammate,8,Kingambit,,,,,,,,,
-Clefable,129,teammate,9,Audino,,,,,,,,,
-Clefable,129,teammate,10,Politoed,,,,,,,,,
-Clefable,129,stat_alignment,1,Modest,36.2%,Sp. Atk,Attack,,,,,,
-Clefable,129,stat_alignment,2,Bold,33.9%,Defense,Attack,,,,,,
-Clefable,129,stat_alignment,3,Calm,11.8%,Sp. Def,Attack,,,,,,
-Clefable,129,stat_alignment,4,Relaxed,11.0%,Defense,Speed,,,,,,
-Clefable,129,stat_alignment,5,Sassy,4.7%,Sp. Def,Speed,,,,,,
-Clefable,129,stat_alignment,6,Quiet,1.6%,Sp. Atk,Speed,,,,,,
-Clefable,129,stat_alignment,7,Adamant,0.8%,Attack,Sp. Atk,,,,,,
-Clefable,129,stat_points,1,,33.9%,,,32,0,32,0,2,0
-Clefable,129,stat_points,2,,11.8%,,,32,0,15,14,0,5
-Clefable,129,stat_points,3,,9.4%,,,32,0,0,2,0,32
-Clefable,129,stat_points,4,,7.1%,,,31,0,24,0,10,1
-Clefable,129,stat_points,5,,6.3%,,,32,0,27,1,6,0
-Clefable,129,stat_points,6,,5.5%,,,32,0,0,32,2,0
-Clefable,129,stat_points,7,,5.5%,,,32,0,2,32,0,0
-Clefable,129,stat_points,8,,4.7%,,,32,0,24,0,10,0
-Clefable,129,stat_points,9,,3.1%,,,32,0,20,14,0,0
-Clefable,129,stat_points,10,,2.4%,,,2,0,32,0,32,0
-Clefable,129,ability,1,Unaware,64.6%,,,,,,,,
-Clefable,129,ability,2,Magic Guard,24.4%,,,,,,,,
-Clefable,129,ability,3,Cute Charm,11.0%,,,,,,,,
+Clefable,130,move,1,Moonblast,78.4%,,,,,,,,
+Clefable,130,move,2,Follow Me,59.6%,,,,,,,,
+Clefable,130,move,3,Protect,46.2%,,,,,,,,
+Clefable,130,move,4,Life Dew,36.8%,,,,,,,,
+Clefable,130,move,5,Psych Up,25.1%,,,,,,,,
+Clefable,130,move,6,Stored Power,24.0%,,,,,,,,
+Clefable,130,move,7,Dazzling Gleam,16.4%,,,,,,,,
+Clefable,130,move,8,Thunderbolt,14.6%,,,,,,,,
+Clefable,130,move,9,Helping Hand,12.9%,,,,,,,,
+Clefable,130,move,10,Ice Beam,11.7%,,,,,,,,
+Clefable,130,held_item,1,Clefablite,48.0%,,,,,,,,
+Clefable,130,held_item,2,Sitrus Berry,28.1%,,,,,,,,
+Clefable,130,held_item,3,Rocky Helmet,16.4%,,,,,,,,
+Clefable,130,held_item,4,Leftovers,5.8%,,,,,,,,
+Clefable,130,held_item,5,Silk Scarf,0.6%,,,,,,,,
+Clefable,130,held_item,6,Life Orb,0.6%,,,,,,,,
+Clefable,130,held_item,7,Eject Button,0.6%,,,,,,,,
+Clefable,130,teammate,1,Rillaboom,,,,,,,,,
+Clefable,130,teammate,2,Garchomp,,,,,,,,,
+Clefable,130,teammate,3,Overqwil,,,,,,,,,
+Clefable,130,teammate,4,Delphox,,,,,,,,,
+Clefable,130,teammate,5,Indeedee-F,,,,,,,,,
+Clefable,130,teammate,6,Zoroark-Hisui,,,,,,,,,
+Clefable,130,teammate,7,Sneasler,,,,,,,,,
+Clefable,130,teammate,8,Archaludon,,,,,,,,,
+Clefable,130,teammate,9,Audino,,,,,,,,,
+Clefable,130,teammate,10,Kingambit,,,,,,,,,
+Clefable,130,stat_alignment,1,Bold,36.3%,Defense,Attack,,,,,,
+Clefable,130,stat_alignment,2,Modest,33.3%,Sp. Atk,Attack,,,,,,
+Clefable,130,stat_alignment,3,Sassy,10.5%,Sp. Def,Speed,,,,,,
+Clefable,130,stat_alignment,4,Calm,9.4%,Sp. Def,Attack,,,,,,
+Clefable,130,stat_alignment,5,Relaxed,8.8%,Defense,Speed,,,,,,
+Clefable,130,stat_alignment,6,Quiet,1.2%,Sp. Atk,Speed,,,,,,
+Clefable,130,stat_alignment,7,Adamant,0.6%,Attack,Sp. Atk,,,,,,
+Clefable,130,stat_points,1,,29.2%,,,32,0,32,0,2,0
+Clefable,130,stat_points,2,,10.5%,,,32,0,0,2,0,32
+Clefable,130,stat_points,3,,10.5%,,,32,0,24,0,10,0
+Clefable,130,stat_points,4,,8.8%,,,32,0,15,14,0,5
+Clefable,130,stat_points,5,,7.0%,,,32,0,2,32,0,0
+Clefable,130,stat_points,6,,5.3%,,,31,0,24,0,10,1
+Clefable,130,stat_points,7,,4.7%,,,32,0,27,1,6,0
+Clefable,130,stat_points,8,,4.1%,,,32,0,0,32,2,0
+Clefable,130,stat_points,9,,2.9%,,,2,0,32,0,32,0
+Clefable,130,stat_points,10,,2.9%,,,30,0,27,1,8,0
+Clefable,130,ability,1,Unaware,62.0%,,,,,,,,
+Clefable,130,ability,2,Magic Guard,26.3%,,,,,,,,
+Clefable,130,ability,3,Cute Charm,11.7%,,,,,,,,

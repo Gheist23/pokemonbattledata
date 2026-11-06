@@ -1,35 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Serperior,159,move,1,Leaf Storm,100.0%,,,,,,,,
-Serperior,159,move,2,Dragon Pulse,91.3%,,,,,,,,
-Serperior,159,move,3,Protect,78.3%,,,,,,,,
-Serperior,159,move,4,Giga Drain,78.3%,,,,,,,,
-Serperior,159,move,5,Taunt,21.7%,,,,,,,,
-Serperior,159,move,6,Glare,11.6%,,,,,,,,
-Serperior,159,move,7,Reflect,10.1%,,,,,,,,
-Serperior,159,move,8,Substitute,8.7%,,,,,,,,
-Serperior,159,held_item,1,Leftovers,66.7%,,,,,,,,
-Serperior,159,held_item,2,Sitrus Berry,11.6%,,,,,,,,
-Serperior,159,held_item,3,Kebia Berry,10.1%,,,,,,,,
-Serperior,159,held_item,4,Big Root,8.7%,,,,,,,,
-Serperior,159,held_item,5,Miracle Seed,2.9%,,,,,,,,
-Serperior,159,teammate,1,Grapploct,,,,,,,,,
-Serperior,159,teammate,2,Arcanine-Hisui,,,,,,,,,
-Serperior,159,teammate,3,Raichu,,,,,,,,,
-Serperior,159,teammate,4,Gholdengo,,,,,,,,,
-Serperior,159,teammate,5,Whimsicott,,,,,,,,,
-Serperior,159,teammate,6,Sylveon,,,,,,,,,
-Serperior,159,teammate,7,Swampert,,,,,,,,,
-Serperior,159,teammate,8,Pelipper,,,,,,,,,
-Serperior,159,teammate,9,Froslass,,,,,,,,,
-Serperior,159,teammate,10,Grimmsnarl,,,,,,,,,
-Serperior,159,stat_alignment,1,Timid,87.0%,Speed,Attack,,,,,,
-Serperior,159,stat_alignment,2,Modest,10.1%,Sp. Atk,Attack,,,,,,
-Serperior,159,stat_alignment,3,Calm,2.9%,Sp. Def,Attack,,,,,,
-Serperior,159,stat_points,1,,52.2%,,,32,0,2,0,0,32
-Serperior,159,stat_points,2,,11.6%,,,30,0,1,2,1,32
-Serperior,159,stat_points,3,,10.1%,,,0,0,2,32,0,32
-Serperior,159,stat_points,4,,10.1%,,,25,0,0,32,0,9
-Serperior,159,stat_points,5,,8.7%,,,20,0,0,9,10,27
-Serperior,159,stat_points,6,,4.3%,,,2,0,0,32,0,32
-Serperior,159,stat_points,7,,2.9%,,,20,0,0,9,32,0
-Serperior,159,ability,1,Contrary,100.0%,,,,,,,,
+Serperior,154,move,1,Leaf Storm,100.0%,,,,,,,,
+Serperior,154,move,2,Dragon Pulse,92.8%,,,,,,,,
+Serperior,154,move,3,Protect,76.3%,,,,,,,,
+Serperior,154,move,4,Giga Drain,76.3%,,,,,,,,
+Serperior,154,move,5,Taunt,23.7%,,,,,,,,
+Serperior,154,move,6,Reflect,14.4%,,,,,,,,
+Serperior,154,move,7,Glare,10.3%,,,,,,,,
+Serperior,154,move,8,Substitute,6.2%,,,,,,,,
+Serperior,154,held_item,1,Leftovers,55.7%,,,,,,,,
+Serperior,154,held_item,2,Kebia Berry,14.4%,,,,,,,,
+Serperior,154,held_item,3,Miracle Seed,13.4%,,,,,,,,
+Serperior,154,held_item,4,Sitrus Berry,9.3%,,,,,,,,
+Serperior,154,held_item,5,Big Root,6.2%,,,,,,,,
+Serperior,154,held_item,6,Bright Powder,1.0%,,,,,,,,
+Serperior,154,teammate,1,Arcanine-Hisui,,,,,,,,,
+Serperior,154,teammate,2,Raichu,,,,,,,,,
+Serperior,154,teammate,3,Grapploct,,,,,,,,,
+Serperior,154,teammate,4,Gholdengo,,,,,,,,,
+Serperior,154,teammate,5,Whimsicott,,,,,,,,,
+Serperior,154,teammate,6,Sneasler,,,,,,,,,
+Serperior,154,teammate,7,Lucario,,,,,,,,,
+Serperior,154,teammate,8,Talonflame,,,,,,,,,
+Serperior,154,teammate,9,Pawmot,,,,,,,,,
+Serperior,154,teammate,10,Sylveon,,,,,,,,,
+Serperior,154,stat_alignment,1,Timid,75.3%,Speed,Attack,,,,,,
+Serperior,154,stat_alignment,2,Modest,14.4%,Sp. Atk,Attack,,,,,,
+Serperior,154,stat_alignment,3,Calm,10.3%,Sp. Def,Attack,,,,,,
+Serperior,154,stat_points,1,,37.1%,,,32,0,2,0,0,32
+Serperior,154,stat_points,2,,14.4%,,,0,0,2,32,0,32
+Serperior,154,stat_points,3,,10.3%,,,1,0,1,32,0,32
+Serperior,154,stat_points,4,,9.3%,,,30,0,1,2,1,32
+Serperior,154,stat_points,5,,8.2%,,,32,0,2,0,32,0
+Serperior,154,stat_points,6,,7.2%,,,25,0,0,32,0,9
+Serperior,154,stat_points,7,,6.2%,,,20,0,0,9,10,27
+Serperior,154,stat_points,8,,3.1%,,,2,0,0,32,0,32
+Serperior,154,stat_points,9,,2.1%,,,20,0,0,9,32,0
+Serperior,154,stat_points,10,,1.0%,,,24,0,5,0,5,32
+Serperior,154,ability,1,Contrary,100.0%,,,,,,,,

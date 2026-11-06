@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slurpuff,201,move,1,After You,100.0%,,,,,,,,
-Slurpuff,201,move,2,Protect,62.5%,,,,,,,,
-Slurpuff,201,move,3,Drain Punch,57.5%,,,,,,,,
-Slurpuff,201,move,4,Play Rough,57.5%,,,,,,,,
-Slurpuff,201,move,5,Dazzling Gleam,40.0%,,,,,,,,
-Slurpuff,201,move,6,Flamethrower,35.0%,,,,,,,,
-Slurpuff,201,move,7,Thunderbolt,35.0%,,,,,,,,
-Slurpuff,201,move,8,Fake Tears,7.5%,,,,,,,,
-Slurpuff,201,move,9,Helping Hand,2.5%,,,,,,,,
-Slurpuff,201,move,10,String Shot,2.5%,,,,,,,,
+Slurpuff,201,move,1,After You,97.6%,,,,,,,,
+Slurpuff,201,move,2,Protect,63.4%,,,,,,,,
+Slurpuff,201,move,3,Drain Punch,56.1%,,,,,,,,
+Slurpuff,201,move,4,Play Rough,56.1%,,,,,,,,
+Slurpuff,201,move,5,Dazzling Gleam,41.5%,,,,,,,,
+Slurpuff,201,move,6,Thunderbolt,36.6%,,,,,,,,
+Slurpuff,201,move,7,Flamethrower,34.1%,,,,,,,,
+Slurpuff,201,move,8,Fake Tears,7.3%,,,,,,,,
+Slurpuff,201,move,9,Helping Hand,2.4%,,,,,,,,
+Slurpuff,201,move,10,Calm Mind,2.4%,,,,,,,,
 Slurpuff,201,held_item,1,Psychic Seed,100.0%,,,,,,,,
 Slurpuff,201,teammate,1,Indeedee-F,,,,,,,,,
 Slurpuff,201,teammate,2,Torkoal,,,,,,,,,
@@ -20,11 +20,12 @@ Slurpuff,201,teammate,7,Alakazam,,,,,,,,,
 Slurpuff,201,teammate,8,Salamence,,,,,,,,,
 Slurpuff,201,teammate,9,Grapploct,,,,,,,,,
 Slurpuff,201,teammate,10,Camerupt,,,,,,,,,
-Slurpuff,201,stat_alignment,1,Jolly,57.5%,Speed,Sp. Atk,,,,,,
-Slurpuff,201,stat_alignment,2,Modest,35.0%,Sp. Atk,Attack,,,,,,
-Slurpuff,201,stat_alignment,3,Timid,7.5%,Speed,Attack,,,,,,
-Slurpuff,201,stat_points,1,,57.5%,,,0,32,2,0,0,32
-Slurpuff,201,stat_points,2,,35.0%,,,0,0,0,32,2,32
-Slurpuff,201,stat_points,3,,5.0%,,,32,0,0,0,5,29
-Slurpuff,201,stat_points,4,,2.5%,,,8,0,26,0,0,32
+Slurpuff,201,stat_alignment,1,Jolly,56.1%,Speed,Sp. Atk,,,,,,
+Slurpuff,201,stat_alignment,2,Modest,36.6%,Sp. Atk,Attack,,,,,,
+Slurpuff,201,stat_alignment,3,Timid,7.3%,Speed,Attack,,,,,,
+Slurpuff,201,stat_points,1,,56.1%,,,0,32,2,0,0,32
+Slurpuff,201,stat_points,2,,34.1%,,,0,0,0,32,2,32
+Slurpuff,201,stat_points,3,,4.9%,,,32,0,0,0,5,29
+Slurpuff,201,stat_points,4,,2.4%,,,8,0,26,0,0,32
+Slurpuff,201,stat_points,5,,2.4%,,,13,0,0,32,0,21
 Slurpuff,201,ability,1,Unburden,100.0%,,,,,,,,

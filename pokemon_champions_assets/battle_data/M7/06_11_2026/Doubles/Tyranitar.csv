@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tyranitar,16,move,1,Rock Slide,98.2%,,,,,,,,
-Tyranitar,16,move,2,Knock Off,98.2%,,,,,,,,
+Tyranitar,16,move,1,Knock Off,98.2%,,,,,,,,
+Tyranitar,16,move,2,Rock Slide,98.2%,,,,,,,,
 Tyranitar,16,move,3,Protect,96.3%,,,,,,,,
-Tyranitar,16,move,4,Dragon Dance,45.4%,,,,,,,,
-Tyranitar,16,move,5,Low Kick,28.1%,,,,,,,,
-Tyranitar,16,move,6,Ice Punch,14.4%,,,,,,,,
-Tyranitar,16,move,7,High Horsepower,4.1%,,,,,,,,
-Tyranitar,16,move,8,Brick Break,2.6%,,,,,,,,
+Tyranitar,16,move,4,Dragon Dance,45.6%,,,,,,,,
+Tyranitar,16,move,5,Low Kick,28.0%,,,,,,,,
+Tyranitar,16,move,6,Ice Punch,14.3%,,,,,,,,
+Tyranitar,16,move,7,High Horsepower,4.3%,,,,,,,,
+Tyranitar,16,move,8,Brick Break,2.5%,,,,,,,,
 Tyranitar,16,move,9,Fire Punch,1.9%,,,,,,,,
 Tyranitar,16,move,10,Roar,1.5%,,,,,,,,
 Tyranitar,16,held_item,1,Tyranitarite,82.1%,,,,,,,,
@@ -31,7 +31,7 @@ Tyranitar,16,teammate,9,Rillaboom,,,,,,,,,
 Tyranitar,16,teammate,10,Indeedee,,,,,,,,,
 Tyranitar,16,stat_alignment,1,Jolly,57.2%,Speed,Sp. Atk,,,,,,
 Tyranitar,16,stat_alignment,2,Adamant,33.6%,Attack,Sp. Atk,,,,,,
-Tyranitar,16,stat_alignment,3,Brave,6.2%,Attack,Speed,,,,,,
+Tyranitar,16,stat_alignment,3,Brave,6.1%,Attack,Speed,,,,,,
 Tyranitar,16,stat_alignment,4,Impish,1.2%,Defense,Sp. Atk,,,,,,
 Tyranitar,16,stat_alignment,5,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
 Tyranitar,16,stat_alignment,6,Quiet,0.5%,Sp. Atk,Speed,,,,,,
@@ -39,10 +39,10 @@ Tyranitar,16,stat_alignment,7,Serious,0.1%,,,,,,,,
 Tyranitar,16,stat_alignment,8,Timid,0.1%,Speed,Attack,,,,,,
 Tyranitar,16,stat_alignment,9,Modest,0.0%,Sp. Atk,Attack,,,,,,
 Tyranitar,16,stat_alignment,10,Relaxed,0.0%,Defense,Speed,,,,,,
-Tyranitar,16,stat_points,1,,31.0%,,,18,16,0,0,0,32
+Tyranitar,16,stat_points,1,,30.9%,,,18,16,0,0,0,32
 Tyranitar,16,stat_points,2,,12.8%,,,2,32,0,0,0,32
-Tyranitar,16,stat_points,3,,5.1%,,,32,32,2,0,0,0
-Tyranitar,16,stat_points,4,,4.7%,,,17,17,0,0,0,32
+Tyranitar,16,stat_points,3,,5.0%,,,32,32,2,0,0,0
+Tyranitar,16,stat_points,4,,4.6%,,,17,17,0,0,0,32
 Tyranitar,16,stat_points,5,,3.9%,,,32,32,0,0,2,0
 Tyranitar,16,stat_points,6,,2.8%,,,32,32,0,0,0,2
 Tyranitar,16,stat_points,7,,2.7%,,,16,18,0,0,0,32

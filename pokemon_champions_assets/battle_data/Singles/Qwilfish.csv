@@ -1,41 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Qwilfish,211,move,1,Barb Barrage,64.2%,,,,,,,,
-Qwilfish,211,move,2,Toxic Spikes,62.6%,,,,,,,,
-Qwilfish,211,move,3,Destiny Bond,52.8%,,,,,,,,
-Qwilfish,211,move,4,Flip Turn,52.0%,,,,,,,,
-Qwilfish,211,move,5,Thunder Wave,48.0%,,,,,,,,
-Qwilfish,211,move,6,Icy Wind,35.0%,,,,,,,,
-Qwilfish,211,move,7,Taunt,35.0%,,,,,,,,
-Qwilfish,211,move,8,Liquidation,10.6%,,,,,,,,
-Qwilfish,211,move,9,Pain Split,6.5%,,,,,,,,
-Qwilfish,211,move,10,Gunk Shot,5.7%,,,,,,,,
-Qwilfish,211,held_item,1,Rocky Helmet,52.8%,,,,,,,,
-Qwilfish,211,held_item,2,Air Balloon,30.9%,,,,,,,,
-Qwilfish,211,held_item,3,Sitrus Berry,7.3%,,,,,,,,
-Qwilfish,211,held_item,4,Focus Sash,5.7%,,,,,,,,
-Qwilfish,211,teammate,1,Golisopod,,,,,,,,,
-Qwilfish,211,teammate,2,Garchomp,,,,,,,,,
-Qwilfish,211,teammate,3,Glalie,,,,,,,,,
-Qwilfish,211,teammate,4,Overqwil,,,,,,,,,
-Qwilfish,211,teammate,5,Tyranitar,,,,,,,,,
-Qwilfish,211,teammate,6,Gyarados,,,,,,,,,
-Qwilfish,211,teammate,7,Altaria,,,,,,,,,
-Qwilfish,211,teammate,8,Rotom-Wash,,,,,,,,,
-Qwilfish,211,teammate,9,Emboar,,,,,,,,,
-Qwilfish,211,teammate,10,Avalugg-Hisui,,,,,,,,,
-Qwilfish,211,stat_alignment,1,Impish,51.2%,Defense,Sp. Atk,,,,,,
-Qwilfish,211,stat_alignment,2,Careful,35.8%,Sp. Def,Sp. Atk,,,,,,
-Qwilfish,211,stat_alignment,3,Jolly,5.7%,Speed,Sp. Atk,,,,,,
-Qwilfish,211,stat_alignment,4,Brave,3.3%,Attack,Speed,,,,,,
-Qwilfish,211,stat_alignment,5,Calm,2.4%,Sp. Def,Attack,,,,,,
-Qwilfish,211,stat_alignment,6,Relaxed,1.6%,Defense,Speed,,,,,,
-Qwilfish,211,stat_points,1,,35.0%,,,31,0,0,0,25,10
-Qwilfish,211,stat_points,2,,26.0%,,,32,0,32,0,2,0
-Qwilfish,211,stat_points,3,,24.4%,,,31,0,32,0,3,0
-Qwilfish,211,stat_points,4,,5.7%,,,2,32,0,0,0,32
-Qwilfish,211,stat_points,5,,3.3%,,,0,32,2,0,32,0
-Qwilfish,211,stat_points,6,,2.4%,,,31,0,12,0,16,7
-Qwilfish,211,stat_points,7,,2.4%,,,32,0,32,0,0,2
-Qwilfish,211,stat_points,8,,0.8%,,,31,0,3,0,32,0
-Qwilfish,211,ability,1,Intimidate,94.3%,,,,,,,,
-Qwilfish,211,ability,2,Swift Swim,5.7%,,,,,,,,
+Qwilfish,209,move,1,Toxic Spikes,64.1%,,,,,,,,
+Qwilfish,209,move,2,Barb Barrage,62.5%,,,,,,,,
+Qwilfish,209,move,3,Destiny Bond,50.8%,,,,,,,,
+Qwilfish,209,move,4,Flip Turn,50.0%,,,,,,,,
+Qwilfish,209,move,5,Thunder Wave,46.1%,,,,,,,,
+Qwilfish,209,move,6,Icy Wind,37.5%,,,,,,,,
+Qwilfish,209,move,7,Taunt,37.5%,,,,,,,,
+Qwilfish,209,move,8,Liquidation,10.2%,,,,,,,,
+Qwilfish,209,move,9,Pain Split,6.3%,,,,,,,,
+Qwilfish,209,move,10,Gunk Shot,5.5%,,,,,,,,
+Qwilfish,209,held_item,1,Rocky Helmet,50.8%,,,,,,,,
+Qwilfish,209,held_item,2,Air Balloon,30.5%,,,,,,,,
+Qwilfish,209,held_item,3,Sitrus Berry,7.0%,,,,,,,,
+Qwilfish,209,held_item,4,Focus Sash,5.5%,,,,,,,,
+Qwilfish,209,held_item,5,Payapa Berry,3.1%,,,,,,,,
+Qwilfish,209,teammate,1,Golisopod,,,,,,,,,
+Qwilfish,209,teammate,2,Garchomp,,,,,,,,,
+Qwilfish,209,teammate,3,Glalie,,,,,,,,,
+Qwilfish,209,teammate,4,Overqwil,,,,,,,,,
+Qwilfish,209,teammate,5,Gyarados,,,,,,,,,
+Qwilfish,209,teammate,6,Tyranitar,,,,,,,,,
+Qwilfish,209,teammate,7,Altaria,,,,,,,,,
+Qwilfish,209,teammate,8,Gengar,,,,,,,,,
+Qwilfish,209,teammate,9,Rotom-Wash,,,,,,,,,
+Qwilfish,209,teammate,10,Emboar,,,,,,,,,
+Qwilfish,209,stat_alignment,1,Impish,49.2%,Defense,Sp. Atk,,,,,,
+Qwilfish,209,stat_alignment,2,Careful,38.3%,Sp. Def,Sp. Atk,,,,,,
+Qwilfish,209,stat_alignment,3,Jolly,5.5%,Speed,Sp. Atk,,,,,,
+Qwilfish,209,stat_alignment,4,Brave,3.1%,Attack,Speed,,,,,,
+Qwilfish,209,stat_alignment,5,Calm,2.3%,Sp. Def,Attack,,,,,,
+Qwilfish,209,stat_alignment,6,Relaxed,1.6%,Defense,Speed,,,,,,
+Qwilfish,209,stat_points,1,,37.5%,,,31,0,0,0,25,10
+Qwilfish,209,stat_points,2,,25.0%,,,32,0,32,0,2,0
+Qwilfish,209,stat_points,3,,23.4%,,,31,0,32,0,3,0
+Qwilfish,209,stat_points,4,,5.5%,,,2,32,0,0,0,32
+Qwilfish,209,stat_points,5,,3.1%,,,0,32,2,0,32,0
+Qwilfish,209,stat_points,6,,2.3%,,,31,0,12,0,16,7
+Qwilfish,209,stat_points,7,,2.3%,,,32,0,32,0,0,2
+Qwilfish,209,stat_points,8,,0.8%,,,31,0,3,0,32,0
+Qwilfish,209,ability,1,Intimidate,94.5%,,,,,,,,
+Qwilfish,209,ability,2,Swift Swim,5.5%,,,,,,,,

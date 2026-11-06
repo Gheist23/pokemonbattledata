@@ -1,42 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Palafin,140,move,1,Jet Punch,76.3%,,,,,,,,
-Palafin,140,move,2,Flip Turn,64.9%,,,,,,,,
-Palafin,140,move,3,Wave Crash,58.3%,,,,,,,,
-Palafin,140,move,4,Ice Punch,53.1%,,,,,,,,
-Palafin,140,move,5,Drain Punch,36.6%,,,,,,,,
-Palafin,140,move,6,Bulk Up,36.2%,,,,,,,,
-Palafin,140,move,7,Close Combat,32.0%,,,,,,,,
-Palafin,140,move,8,Acrobatics,19.3%,,,,,,,,
-Palafin,140,move,9,Taunt,16.7%,,,,,,,,
-Palafin,140,move,10,Iron Head,1.8%,,,,,,,,
-Palafin,140,held_item,1,Choice Scarf,32.2%,,,,,,,,
-Palafin,140,held_item,2,Sitrus Berry,21.5%,,,,,,,,
-Palafin,140,held_item,3,Mystic Water,21.5%,,,,,,,,
-Palafin,140,held_item,4,Leftovers,8.6%,,,,,,,,
-Palafin,140,held_item,5,Eject Button,8.1%,,,,,,,,
-Palafin,140,held_item,6,Life Orb,6.6%,,,,,,,,
+Palafin,140,move,1,Jet Punch,78.0%,,,,,,,,
+Palafin,140,move,2,Flip Turn,61.5%,,,,,,,,
+Palafin,140,move,3,Wave Crash,56.2%,,,,,,,,
+Palafin,140,move,4,Ice Punch,50.5%,,,,,,,,
+Palafin,140,move,5,Bulk Up,39.5%,,,,,,,,
+Palafin,140,move,6,Drain Punch,38.5%,,,,,,,,
+Palafin,140,move,7,Close Combat,31.5%,,,,,,,,
+Palafin,140,move,8,Acrobatics,20.3%,,,,,,,,
+Palafin,140,move,9,Taunt,16.9%,,,,,,,,
+Palafin,140,move,10,Focus Energy,1.5%,,,,,,,,
+Palafin,140,held_item,1,Choice Scarf,30.0%,,,,,,,,
+Palafin,140,held_item,2,Sitrus Berry,25.4%,,,,,,,,
+Palafin,140,held_item,3,Mystic Water,20.9%,,,,,,,,
+Palafin,140,held_item,4,Leftovers,9.1%,,,,,,,,
+Palafin,140,held_item,5,Eject Button,7.4%,,,,,,,,
+Palafin,140,held_item,6,Life Orb,5.7%,,,,,,,,
 Palafin,140,held_item,7,Scope Lens,1.5%,,,,,,,,
 Palafin,140,teammate,1,Garchomp,,,,,,,,,
 Palafin,140,teammate,2,Archaludon,,,,,,,,,
 Palafin,140,teammate,3,Golisopod,,,,,,,,,
 Palafin,140,teammate,4,Meowscarada,,,,,,,,,
 Palafin,140,teammate,5,Dragonite,,,,,,,,,
-Palafin,140,teammate,6,Swampert,,,,,,,,,
-Palafin,140,teammate,7,Raichu,,,,,,,,,
-Palafin,140,teammate,8,Pelipper,,,,,,,,,
+Palafin,140,teammate,6,Raichu,,,,,,,,,
+Palafin,140,teammate,7,Aegislash,,,,,,,,,
+Palafin,140,teammate,8,Swampert,,,,,,,,,
 Palafin,140,teammate,9,Floette-Eternal,,,,,,,,,
-Palafin,140,teammate,10,Aegislash,,,,,,,,,
-Palafin,140,stat_alignment,1,Adamant,70.4%,Attack,Sp. Atk,,,,,,
-Palafin,140,stat_alignment,2,Jolly,28.9%,Speed,Sp. Atk,,,,,,
-Palafin,140,stat_alignment,3,Lax,0.7%,Defense,Sp. Def,,,,,,
-Palafin,140,stat_points,1,,40.6%,,,2,32,0,0,0,32
-Palafin,140,stat_points,2,,7.9%,,,0,32,0,0,2,32
-Palafin,140,stat_points,3,,7.7%,,,18,2,18,0,28,0
-Palafin,140,stat_points,4,,6.6%,,,0,32,2,0,0,32
-Palafin,140,stat_points,5,,6.1%,,,13,32,21,0,0,0
-Palafin,140,stat_points,6,,5.7%,,,32,20,6,0,8,0
-Palafin,140,stat_points,7,,5.5%,,,16,4,18,0,28,0
-Palafin,140,stat_points,8,,3.9%,,,32,32,0,0,2,0
-Palafin,140,stat_points,9,,2.0%,,,0,32,1,0,1,32
-Palafin,140,stat_points,10,,2.0%,,,4,32,0,0,0,30
+Palafin,140,teammate,10,Gengar,,,,,,,,,
+Palafin,140,stat_alignment,1,Adamant,72.3%,Attack,Sp. Atk,,,,,,
+Palafin,140,stat_alignment,2,Jolly,26.8%,Speed,Sp. Atk,,,,,,
+Palafin,140,stat_alignment,3,Lax,0.6%,Defense,Sp. Def,,,,,,
+Palafin,140,stat_alignment,4,Impish,0.4%,Defense,Sp. Atk,,,,,,
+Palafin,140,stat_points,1,,36.8%,,,2,32,0,0,0,32
+Palafin,140,stat_points,2,,8.3%,,,0,32,2,0,0,32
+Palafin,140,stat_points,3,,6.8%,,,0,32,0,0,2,32
+Palafin,140,stat_points,4,,6.8%,,,13,32,21,0,0,0
+Palafin,140,stat_points,5,,6.8%,,,16,4,18,0,28,0
+Palafin,140,stat_points,6,,6.6%,,,18,2,18,0,28,0
+Palafin,140,stat_points,7,,5.3%,,,32,20,6,0,8,0
+Palafin,140,stat_points,8,,3.8%,,,32,32,0,0,2,0
+Palafin,140,stat_points,9,,2.3%,,,4,32,0,0,0,30
+Palafin,140,stat_points,10,,2.1%,,,16,30,0,0,20,0
 Palafin,140,ability,1,Zero to Hero,100.0%,,,,,,,,

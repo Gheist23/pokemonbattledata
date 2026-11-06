@@ -1,40 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Noivern,188,move,1,Draco Meteor,85.0%,,,,,,,,
-Noivern,188,move,2,Flamethrower,85.0%,,,,,,,,
-Noivern,188,move,3,Air Slash,74.6%,,,,,,,,
-Noivern,188,move,4,Switcheroo,46.8%,,,,,,,,
-Noivern,188,move,5,Taunt,41.6%,,,,,,,,
-Noivern,188,move,6,U-turn,24.3%,,,,,,,,
-Noivern,188,move,7,Moonlight,16.2%,,,,,,,,
-Noivern,188,move,8,Super Fang,6.9%,,,,,,,,
-Noivern,188,move,9,Boomburst,5.8%,,,,,,,,
-Noivern,188,move,10,Hurricane,4.0%,,,,,,,,
-Noivern,188,held_item,1,Choice Scarf,54.9%,,,,,,,,
-Noivern,188,held_item,2,Life Orb,19.7%,,,,,,,,
-Noivern,188,held_item,3,Rocky Helmet,16.8%,,,,,,,,
-Noivern,188,held_item,4,Focus Sash,8.1%,,,,,,,,
-Noivern,188,held_item,5,Wise Glasses,0.6%,,,,,,,,
-Noivern,188,teammate,1,Greninja,,,,,,,,,
-Noivern,188,teammate,2,Goodra-Hisui,,,,,,,,,
-Noivern,188,teammate,3,Raichu,,,,,,,,,
-Noivern,188,teammate,4,Talonflame,,,,,,,,,
-Noivern,188,teammate,5,Hawlucha,,,,,,,,,
-Noivern,188,teammate,6,Hippowdon,,,,,,,,,
-Noivern,188,teammate,7,Absol,,,,,,,,,
-Noivern,188,teammate,8,Garchomp,,,,,,,,,
-Noivern,188,teammate,9,Volcarona,,,,,,,,,
-Noivern,188,teammate,10,Metagross,,,,,,,,,
-Noivern,188,stat_alignment,1,Timid,67.1%,Speed,Attack,,,,,,
-Noivern,188,stat_alignment,2,Modest,23.7%,Sp. Atk,Attack,,,,,,
-Noivern,188,stat_alignment,3,Impish,6.9%,Defense,Sp. Atk,,,,,,
-Noivern,188,stat_alignment,4,Bold,2.3%,Defense,Attack,,,,,,
-Noivern,188,stat_points,1,,48.6%,,,1,0,1,32,0,32
-Noivern,188,stat_points,2,,24.3%,,,2,0,0,32,0,32
-Noivern,188,stat_points,3,,8.7%,,,31,0,32,0,0,3
-Noivern,188,stat_points,4,,6.9%,,,31,0,6,17,0,12
-Noivern,188,stat_points,5,,5.2%,,,1,0,0,32,1,32
-Noivern,188,stat_points,6,,5.2%,,,7,0,0,32,0,27
-Noivern,188,stat_points,7,,0.6%,,,31,0,32,3,0,0
-Noivern,188,stat_points,8,,0.6%,,,32,0,9,13,0,12
-Noivern,188,ability,1,Infiltrator,54.9%,,,,,,,,
-Noivern,188,ability,2,Frisk,45.1%,,,,,,,,
+Noivern,182,move,1,Draco Meteor,82.9%,,,,,,,,
+Noivern,182,move,2,Flamethrower,78.2%,,,,,,,,
+Noivern,182,move,3,Air Slash,73.9%,,,,,,,,
+Noivern,182,move,4,Taunt,44.4%,,,,,,,,
+Noivern,182,move,5,Switcheroo,39.7%,,,,,,,,
+Noivern,182,move,6,U-turn,26.1%,,,,,,,,
+Noivern,182,move,7,Moonlight,15.4%,,,,,,,,
+Noivern,182,move,8,Boomburst,8.5%,,,,,,,,
+Noivern,182,move,9,Super Fang,7.7%,,,,,,,,
+Noivern,182,move,10,Hurricane,6.4%,,,,,,,,
+Noivern,182,held_item,1,Choice Scarf,50.0%,,,,,,,,
+Noivern,182,held_item,2,Life Orb,18.8%,,,,,,,,
+Noivern,182,held_item,3,Rocky Helmet,15.8%,,,,,,,,
+Noivern,182,held_item,4,Focus Sash,9.0%,,,,,,,,
+Noivern,182,held_item,5,White Herb,3.0%,,,,,,,,
+Noivern,182,held_item,6,Bright Powder,2.1%,,,,,,,,
+Noivern,182,held_item,7,Sitrus Berry,0.9%,,,,,,,,
+Noivern,182,held_item,8,Wise Glasses,0.4%,,,,,,,,
+Noivern,182,teammate,1,Greninja,,,,,,,,,
+Noivern,182,teammate,2,Goodra-Hisui,,,,,,,,,
+Noivern,182,teammate,3,Raichu,,,,,,,,,
+Noivern,182,teammate,4,Talonflame,,,,,,,,,
+Noivern,182,teammate,5,Hawlucha,,,,,,,,,
+Noivern,182,teammate,6,Garchomp,,,,,,,,,
+Noivern,182,teammate,7,Tinkaton,,,,,,,,,
+Noivern,182,teammate,8,Vileplume,,,,,,,,,
+Noivern,182,teammate,9,Aggron,,,,,,,,,
+Noivern,182,teammate,10,Malamar,,,,,,,,,
+Noivern,182,stat_alignment,1,Timid,71.8%,Speed,Attack,,,,,,
+Noivern,182,stat_alignment,2,Modest,17.9%,Sp. Atk,Attack,,,,,,
+Noivern,182,stat_alignment,3,Impish,7.7%,Defense,Sp. Atk,,,,,,
+Noivern,182,stat_alignment,4,Bold,2.6%,Defense,Attack,,,,,,
+Noivern,182,stat_points,1,,44.0%,,,1,0,1,32,0,32
+Noivern,182,stat_points,2,,29.1%,,,2,0,0,32,0,32
+Noivern,182,stat_points,3,,9.0%,,,31,0,32,0,0,3
+Noivern,182,stat_points,4,,5.1%,,,31,0,6,17,0,12
+Noivern,182,stat_points,5,,3.8%,,,1,0,0,32,1,32
+Noivern,182,stat_points,6,,3.8%,,,7,0,0,32,0,27
+Noivern,182,stat_points,7,,3.0%,,,0,0,1,32,1,32
+Noivern,182,stat_points,8,,0.9%,,,31,0,3,0,0,32
+Noivern,182,stat_points,9,,0.4%,,,31,0,0,3,0,32
+Noivern,182,stat_points,10,,0.4%,,,31,0,32,3,0,0
+Noivern,182,ability,1,Infiltrator,55.6%,,,,,,,,
+Noivern,182,ability,2,Frisk,44.4%,,,,,,,,

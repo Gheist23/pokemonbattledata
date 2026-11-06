@@ -1,40 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pinsir,173,move,1,Quick Attack,87.8%,,,,,,,,
-Pinsir,173,move,2,Swords Dance,81.7%,,,,,,,,
-Pinsir,173,move,3,Thrash,59.8%,,,,,,,,
-Pinsir,173,move,4,Earthquake,59.8%,,,,,,,,
-Pinsir,173,move,5,Storm Throw,40.2%,,,,,,,,
-Pinsir,173,move,6,Body Slam,23.1%,,,,,,,,
-Pinsir,173,move,7,Stealth Rock,9.6%,,,,,,,,
-Pinsir,173,move,8,Guillotine,7.4%,,,,,,,,
-Pinsir,173,move,9,Facade,5.2%,,,,,,,,
-Pinsir,173,move,10,X-Scissor,5.2%,,,,,,,,
-Pinsir,173,held_item,1,Pinsirite,90.4%,,,,,,,,
-Pinsir,173,held_item,2,Occa Berry,5.2%,,,,,,,,
-Pinsir,173,held_item,3,Focus Sash,4.4%,,,,,,,,
-Pinsir,173,teammate,1,Araquanid,,,,,,,,,
-Pinsir,173,teammate,2,Golisopod,,,,,,,,,
-Pinsir,173,teammate,3,Volcarona,,,,,,,,,
-Pinsir,173,teammate,4,Kleavor,,,,,,,,,
-Pinsir,173,teammate,5,Hippowdon,,,,,,,,,
-Pinsir,173,teammate,6,Primarina,,,,,,,,,
-Pinsir,173,teammate,7,Charizard,,,,,,,,,
-Pinsir,173,teammate,8,Vivillon-Fancy,,,,,,,,,
-Pinsir,173,teammate,9,Glimmora,,,,,,,,,
-Pinsir,173,teammate,10,Greninja,,,,,,,,,
-Pinsir,173,stat_alignment,1,Jolly,91.7%,Speed,Sp. Atk,,,,,,
-Pinsir,173,stat_alignment,2,Adamant,7.9%,Attack,Sp. Atk,,,,,,
-Pinsir,173,stat_alignment,3,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
-Pinsir,173,stat_points,1,,69.4%,,,1,32,1,0,0,32
-Pinsir,173,stat_points,2,,9.6%,,,1,32,0,0,1,32
-Pinsir,173,stat_points,3,,4.8%,,,2,32,0,0,0,32
-Pinsir,173,stat_points,4,,4.8%,,,9,32,10,0,10,5
-Pinsir,173,stat_points,5,,3.5%,,,3,31,0,0,0,32
-Pinsir,173,stat_points,6,,2.2%,,,19,32,0,0,1,14
-Pinsir,173,stat_points,7,,2.2%,,,32,0,2,0,0,32
-Pinsir,173,stat_points,8,,1.7%,,,3,32,1,0,0,30
-Pinsir,173,stat_points,9,,1.3%,,,0,32,2,0,0,32
-Pinsir,173,stat_points,10,,0.4%,,,31,0,3,0,32,0
-Pinsir,173,ability,1,Moxie,82.1%,,,,,,,,
-Pinsir,173,ability,2,Mold Breaker,11.8%,,,,,,,,
-Pinsir,173,ability,3,Hyper Cutter,6.1%,,,,,,,,
+Pinsir,174,move,1,Quick Attack,86.2%,,,,,,,,
+Pinsir,174,move,2,Swords Dance,81.3%,,,,,,,,
+Pinsir,174,move,3,Earthquake,58.0%,,,,,,,,
+Pinsir,174,move,4,Thrash,57.2%,,,,,,,,
+Pinsir,174,move,5,Storm Throw,40.6%,,,,,,,,
+Pinsir,174,move,6,Body Slam,25.8%,,,,,,,,
+Pinsir,174,move,7,Guillotine,7.8%,,,,,,,,
+Pinsir,174,move,8,Stealth Rock,7.8%,,,,,,,,
+Pinsir,174,move,9,Facade,4.2%,,,,,,,,
+Pinsir,174,move,10,X-Scissor,4.2%,,,,,,,,
+Pinsir,174,held_item,1,Pinsirite,90.5%,,,,,,,,
+Pinsir,174,held_item,2,Occa Berry,4.2%,,,,,,,,
+Pinsir,174,held_item,3,Focus Sash,3.5%,,,,,,,,
+Pinsir,174,held_item,4,Choice Scarf,1.8%,,,,,,,,
+Pinsir,174,teammate,1,Araquanid,,,,,,,,,
+Pinsir,174,teammate,2,Golisopod,,,,,,,,,
+Pinsir,174,teammate,3,Volcarona,,,,,,,,,
+Pinsir,174,teammate,4,Kleavor,,,,,,,,,
+Pinsir,174,teammate,5,Hippowdon,,,,,,,,,
+Pinsir,174,teammate,6,Primarina,,,,,,,,,
+Pinsir,174,teammate,7,Charizard,,,,,,,,,
+Pinsir,174,teammate,8,Glimmora,,,,,,,,,
+Pinsir,174,teammate,9,Greninja,,,,,,,,,
+Pinsir,174,teammate,10,Vivillon-Fancy,,,,,,,,,
+Pinsir,174,stat_alignment,1,Jolly,93.3%,Speed,Sp. Atk,,,,,,
+Pinsir,174,stat_alignment,2,Adamant,6.4%,Attack,Sp. Atk,,,,,,
+Pinsir,174,stat_alignment,3,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
+Pinsir,174,stat_points,1,,64.3%,,,1,32,1,0,0,32
+Pinsir,174,stat_points,2,,10.6%,,,1,32,0,0,1,32
+Pinsir,174,stat_points,3,,7.4%,,,2,32,0,0,0,32
+Pinsir,174,stat_points,4,,4.6%,,,3,32,1,0,0,30
+Pinsir,174,stat_points,5,,3.9%,,,9,32,10,0,10,5
+Pinsir,174,stat_points,6,,3.2%,,,32,0,2,0,0,32
+Pinsir,174,stat_points,7,,2.8%,,,3,31,0,0,0,32
+Pinsir,174,stat_points,8,,1.8%,,,19,32,0,0,1,14
+Pinsir,174,stat_points,9,,1.1%,,,0,32,2,0,0,32
+Pinsir,174,stat_points,10,,0.4%,,,31,0,3,0,32,0
+Pinsir,174,ability,1,Moxie,79.2%,,,,,,,,
+Pinsir,174,ability,2,Mold Breaker,12.7%,,,,,,,,
+Pinsir,174,ability,3,Hyper Cutter,8.1%,,,,,,,,

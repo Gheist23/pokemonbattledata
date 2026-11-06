@@ -1,20 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sceptile,84,move,1,Earth Power,97.6%,,,,,,,,
-Sceptile,84,move,2,Dragon Pulse,93.4%,,,,,,,,
-Sceptile,84,move,3,Detect,86.9%,,,,,,,,
-Sceptile,84,move,4,Leaf Storm,47.6%,,,,,,,,
-Sceptile,84,move,5,Energy Ball,36.5%,,,,,,,,
-Sceptile,84,move,6,Giga Drain,9.5%,,,,,,,,
-Sceptile,84,move,7,Protect,8.0%,,,,,,,,
-Sceptile,84,move,8,Fling,4.4%,,,,,,,,
-Sceptile,84,move,9,Leaf Blade,3.5%,,,,,,,,
-Sceptile,84,move,10,Acrobatics,3.5%,,,,,,,,
-Sceptile,84,held_item,1,Sceptilite,89.8%,,,,,,,,
-Sceptile,84,held_item,2,Iron Ball,4.4%,,,,,,,,
-Sceptile,84,held_item,3,Psychic Seed,3.5%,,,,,,,,
-Sceptile,84,held_item,4,Choice Scarf,1.5%,,,,,,,,
-Sceptile,84,held_item,5,Electric Seed,0.4%,,,,,,,,
-Sceptile,84,held_item,6,Red Card,0.2%,,,,,,,,
+Sceptile,84,move,1,Earth Power,96.4%,,,,,,,,
+Sceptile,84,move,2,Dragon Pulse,94.4%,,,,,,,,
+Sceptile,84,move,3,Detect,82.1%,,,,,,,,
+Sceptile,84,move,4,Leaf Storm,43.7%,,,,,,,,
+Sceptile,84,move,5,Energy Ball,42.3%,,,,,,,,
+Sceptile,84,move,6,Protect,12.4%,,,,,,,,
+Sceptile,84,move,7,Giga Drain,8.6%,,,,,,,,
+Sceptile,84,move,8,Fling,3.6%,,,,,,,,
+Sceptile,84,move,9,Leaf Blade,3.0%,,,,,,,,
+Sceptile,84,move,10,Acrobatics,3.0%,,,,,,,,
+Sceptile,84,held_item,1,Sceptilite,90.7%,,,,,,,,
+Sceptile,84,held_item,2,Iron Ball,3.6%,,,,,,,,
+Sceptile,84,held_item,3,Psychic Seed,3.0%,,,,,,,,
+Sceptile,84,held_item,4,Choice Scarf,1.3%,,,,,,,,
+Sceptile,84,held_item,5,White Herb,0.9%,,,,,,,,
+Sceptile,84,held_item,6,Electric Seed,0.4%,,,,,,,,
+Sceptile,84,held_item,7,Red Card,0.2%,,,,,,,,
 Sceptile,84,teammate,1,Rotom-Heat,,,,,,,,,
 Sceptile,84,teammate,2,Tyranitar,,,,,,,,,
 Sceptile,84,teammate,3,Excadrill,,,,,,,,,
@@ -23,21 +24,21 @@ Sceptile,84,teammate,5,Armarouge,,,,,,,,,
 Sceptile,84,teammate,6,Sneasler,,,,,,,,,
 Sceptile,84,teammate,7,Ampharos,,,,,,,,,
 Sceptile,84,teammate,8,Gallade,,,,,,,,,
-Sceptile,84,teammate,9,Dragapult,,,,,,,,,
-Sceptile,84,teammate,10,Grimmsnarl,,,,,,,,,
-Sceptile,84,stat_alignment,1,Timid,83.0%,Speed,Attack,,,,,,
-Sceptile,84,stat_alignment,2,Modest,9.1%,Sp. Atk,Attack,,,,,,
-Sceptile,84,stat_alignment,3,Quiet,4.4%,Sp. Atk,Speed,,,,,,
-Sceptile,84,stat_alignment,4,Hasty,3.5%,Speed,Defense,,,,,,
-Sceptile,84,stat_points,1,,51.1%,,,2,0,0,32,0,32
-Sceptile,84,stat_points,2,,11.5%,,,0,0,0,32,2,32
-Sceptile,84,stat_points,3,,5.8%,,,0,0,9,25,0,32
-Sceptile,84,stat_points,4,,4.9%,,,1,0,1,32,0,32
-Sceptile,84,stat_points,5,,4.6%,,,0,0,0,32,0,32
-Sceptile,84,stat_points,6,,4.4%,,,31,0,3,32,0,0
-Sceptile,84,stat_points,7,,3.5%,,,2,32,0,0,0,32
-Sceptile,84,stat_points,8,,2.9%,,,0,0,1,32,1,32
-Sceptile,84,stat_points,9,,2.7%,,,0,0,2,32,0,32
-Sceptile,84,stat_points,10,,2.0%,,,3,0,0,32,9,22
-Sceptile,84,ability,1,Overgrow,81.0%,,,,,,,,
-Sceptile,84,ability,2,Unburden,19.0%,,,,,,,,
+Sceptile,84,teammate,9,Grimmsnarl,,,,,,,,,
+Sceptile,84,teammate,10,Dragapult,,,,,,,,,
+Sceptile,84,stat_alignment,1,Timid,84.4%,Speed,Attack,,,,,,
+Sceptile,84,stat_alignment,2,Modest,9.0%,Sp. Atk,Attack,,,,,,
+Sceptile,84,stat_alignment,3,Quiet,3.6%,Sp. Atk,Speed,,,,,,
+Sceptile,84,stat_alignment,4,Hasty,3.0%,Speed,Defense,,,,,,
+Sceptile,84,stat_points,1,,52.7%,,,2,0,0,32,0,32
+Sceptile,84,stat_points,2,,11.6%,,,0,0,0,32,2,32
+Sceptile,84,stat_points,3,,4.8%,,,1,0,1,32,0,32
+Sceptile,84,stat_points,4,,4.7%,,,0,0,9,25,0,32
+Sceptile,84,stat_points,5,,3.8%,,,0,0,0,32,0,32
+Sceptile,84,stat_points,6,,3.6%,,,31,0,3,32,0,0
+Sceptile,84,stat_points,7,,3.0%,,,2,32,0,0,0,32
+Sceptile,84,stat_points,8,,2.9%,,,1,0,0,32,0,32
+Sceptile,84,stat_points,9,,2.3%,,,0,0,1,32,1,32
+Sceptile,84,stat_points,10,,2.3%,,,0,0,2,32,0,32
+Sceptile,84,ability,1,Overgrow,81.7%,,,,,,,,
+Sceptile,84,ability,2,Unburden,18.3%,,,,,,,,

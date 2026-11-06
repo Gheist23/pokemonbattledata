@@ -1,43 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Typhlosion-Hisui,68,move,1,Eruption,99.2%,,,,,,,,
-Typhlosion-Hisui,68,move,2,Shadow Ball,91.5%,,,,,,,,
-Typhlosion-Hisui,68,move,3,Heat Wave,57.8%,,,,,,,,
-Typhlosion-Hisui,68,move,4,Solar Beam,34.2%,,,,,,,,
-Typhlosion-Hisui,68,move,5,Flamethrower,29.8%,,,,,,,,
-Typhlosion-Hisui,68,move,6,Protect,13.8%,,,,,,,,
-Typhlosion-Hisui,68,move,7,Focus Blast,13.7%,,,,,,,,
-Typhlosion-Hisui,68,move,8,Burn Up,7.6%,,,,,,,,
-Typhlosion-Hisui,68,move,9,Infernal Parade,7.5%,,,,,,,,
-Typhlosion-Hisui,68,move,10,Extrasensory,6.2%,,,,,,,,
-Typhlosion-Hisui,68,held_item,1,Choice Scarf,74.9%,,,,,,,,
-Typhlosion-Hisui,68,held_item,2,Charcoal,18.4%,,,,,,,,
-Typhlosion-Hisui,68,held_item,3,Focus Sash,3.7%,,,,,,,,
-Typhlosion-Hisui,68,held_item,4,Life Orb,2.4%,,,,,,,,
-Typhlosion-Hisui,68,held_item,5,Expert Belt,0.7%,,,,,,,,
+Typhlosion-Hisui,68,move,1,Eruption,99.3%,,,,,,,,
+Typhlosion-Hisui,68,move,2,Shadow Ball,90.3%,,,,,,,,
+Typhlosion-Hisui,68,move,3,Heat Wave,56.6%,,,,,,,,
+Typhlosion-Hisui,68,move,4,Flamethrower,32.9%,,,,,,,,
+Typhlosion-Hisui,68,move,5,Solar Beam,31.8%,,,,,,,,
+Typhlosion-Hisui,68,move,6,Focus Blast,16.0%,,,,,,,,
+Typhlosion-Hisui,68,move,7,Protect,13.5%,,,,,,,,
+Typhlosion-Hisui,68,move,8,Overheat,8.6%,,,,,,,,
+Typhlosion-Hisui,68,move,9,Infernal Parade,6.9%,,,,,,,,
+Typhlosion-Hisui,68,move,10,Extrasensory,6.5%,,,,,,,,
+Typhlosion-Hisui,68,held_item,1,Choice Scarf,74.4%,,,,,,,,
+Typhlosion-Hisui,68,held_item,2,Charcoal,18.3%,,,,,,,,
+Typhlosion-Hisui,68,held_item,3,Life Orb,3.6%,,,,,,,,
+Typhlosion-Hisui,68,held_item,4,Focus Sash,2.9%,,,,,,,,
+Typhlosion-Hisui,68,held_item,5,Expert Belt,0.6%,,,,,,,,
+Typhlosion-Hisui,68,held_item,6,Air Balloon,0.3%,,,,,,,,
 Typhlosion-Hisui,68,teammate,1,Whimsicott,,,,,,,,,
 Typhlosion-Hisui,68,teammate,2,Garchomp,,,,,,,,,
 Typhlosion-Hisui,68,teammate,3,Charizard,,,,,,,,,
 Typhlosion-Hisui,68,teammate,4,Indeedee-F,,,,,,,,,
 Typhlosion-Hisui,68,teammate,5,Sneasler,,,,,,,,,
-Typhlosion-Hisui,68,teammate,6,Indeedee,,,,,,,,,
-Typhlosion-Hisui,68,teammate,7,Rillaboom,,,,,,,,,
-Typhlosion-Hisui,68,teammate,8,Aerodactyl,,,,,,,,,
-Typhlosion-Hisui,68,teammate,9,Basculegion,,,,,,,,,
-Typhlosion-Hisui,68,teammate,10,Metagross,,,,,,,,,
-Typhlosion-Hisui,68,stat_alignment,1,Modest,49.4%,Sp. Atk,Attack,,,,,,
-Typhlosion-Hisui,68,stat_alignment,2,Timid,45.6%,Speed,Attack,,,,,,
-Typhlosion-Hisui,68,stat_alignment,3,Naive,2.8%,Speed,Sp. Def,,,,,,
-Typhlosion-Hisui,68,stat_alignment,4,Mild,2.0%,Sp. Atk,Defense,,,,,,
+Typhlosion-Hisui,68,teammate,6,Aerodactyl,,,,,,,,,
+Typhlosion-Hisui,68,teammate,7,Metagross,,,,,,,,,
+Typhlosion-Hisui,68,teammate,8,Indeedee,,,,,,,,,
+Typhlosion-Hisui,68,teammate,9,Tyranitar,,,,,,,,,
+Typhlosion-Hisui,68,teammate,10,Rillaboom,,,,,,,,,
+Typhlosion-Hisui,68,stat_alignment,1,Modest,52.7%,Sp. Atk,Attack,,,,,,
+Typhlosion-Hisui,68,stat_alignment,2,Timid,42.4%,Speed,Attack,,,,,,
+Typhlosion-Hisui,68,stat_alignment,3,Mild,2.6%,Sp. Atk,Defense,,,,,,
+Typhlosion-Hisui,68,stat_alignment,4,Naive,2.2%,Speed,Sp. Def,,,,,,
 Typhlosion-Hisui,68,stat_alignment,5,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Typhlosion-Hisui,68,stat_points,1,,49.4%,,,2,0,0,32,0,32
-Typhlosion-Hisui,68,stat_points,2,,26.0%,,,1,0,1,32,0,32
-Typhlosion-Hisui,68,stat_points,3,,6.5%,,,0,0,2,32,0,32
-Typhlosion-Hisui,68,stat_points,4,,4.0%,,,0,0,0,32,2,32
-Typhlosion-Hisui,68,stat_points,5,,2.8%,,,1,1,0,32,0,32
-Typhlosion-Hisui,68,stat_points,6,,2.1%,,,1,0,0,32,1,32
-Typhlosion-Hisui,68,stat_points,7,,2.0%,,,12,7,15,32,0,0
-Typhlosion-Hisui,68,stat_points,8,,1.6%,,,12,0,0,32,0,22
-Typhlosion-Hisui,68,stat_points,9,,1.1%,,,0,0,2,32,1,31
-Typhlosion-Hisui,68,stat_points,10,,1.1%,,,5,0,1,27,4,29
-Typhlosion-Hisui,68,ability,1,Frisk,73.2%,,,,,,,,
-Typhlosion-Hisui,68,ability,2,Blaze,26.8%,,,,,,,,
+Typhlosion-Hisui,68,stat_points,1,,51.2%,,,2,0,0,32,0,32
+Typhlosion-Hisui,68,stat_points,2,,23.5%,,,1,0,1,32,0,32
+Typhlosion-Hisui,68,stat_points,3,,6.9%,,,0,0,2,32,0,32
+Typhlosion-Hisui,68,stat_points,4,,3.8%,,,0,0,0,32,2,32
+Typhlosion-Hisui,68,stat_points,5,,2.6%,,,12,7,15,32,0,0
+Typhlosion-Hisui,68,stat_points,6,,2.2%,,,1,1,0,32,0,32
+Typhlosion-Hisui,68,stat_points,7,,1.7%,,,1,0,0,32,1,32
+Typhlosion-Hisui,68,stat_points,8,,1.2%,,,1,0,0,32,0,32
+Typhlosion-Hisui,68,stat_points,9,,1.2%,,,12,0,0,32,0,22
+Typhlosion-Hisui,68,stat_points,10,,0.9%,,,0,0,2,32,1,31
+Typhlosion-Hisui,68,ability,1,Frisk,71.7%,,,,,,,,
+Typhlosion-Hisui,68,ability,2,Blaze,28.3%,,,,,,,,

@@ -1,37 +1,38 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pidgeot,171,move,1,Hurricane,100.0%,,,,,,,,
-Pidgeot,171,move,2,Heat Wave,97.9%,,,,,,,,
-Pidgeot,171,move,3,Hyper Beam,71.5%,,,,,,,,
-Pidgeot,171,move,4,Quick Attack,36.0%,,,,,,,,
-Pidgeot,171,move,5,Substitute,32.6%,,,,,,,,
-Pidgeot,171,move,6,Roost,28.9%,,,,,,,,
-Pidgeot,171,move,7,U-turn,22.6%,,,,,,,,
-Pidgeot,171,move,8,Tailwind,4.2%,,,,,,,,
-Pidgeot,171,move,9,Sunny Day,2.5%,,,,,,,,
-Pidgeot,171,move,10,Whirlwind,1.3%,,,,,,,,
-Pidgeot,171,held_item,1,Pidgeotite,100.0%,,,,,,,,
-Pidgeot,171,teammate,1,Goodra-Hisui,,,,,,,,,
-Pidgeot,171,teammate,2,Cinderace,,,,,,,,,
-Pidgeot,171,teammate,3,Gardevoir,,,,,,,,,
-Pidgeot,171,teammate,4,Araquanid,,,,,,,,,
-Pidgeot,171,teammate,5,Tinkaton,,,,,,,,,
-Pidgeot,171,teammate,6,Ditto,,,,,,,,,
-Pidgeot,171,teammate,7,Medicham,,,,,,,,,
-Pidgeot,171,teammate,8,Garchomp,,,,,,,,,
-Pidgeot,171,teammate,9,Swampert,,,,,,,,,
-Pidgeot,171,teammate,10,Slurpuff,,,,,,,,,
-Pidgeot,171,stat_alignment,1,Timid,64.9%,Speed,Attack,,,,,,
-Pidgeot,171,stat_alignment,2,Modest,35.1%,Sp. Atk,Attack,,,,,,
-Pidgeot,171,stat_points,1,,35.6%,,,2,0,0,32,0,32
-Pidgeot,171,stat_points,2,,25.1%,,,1,0,1,32,0,32
-Pidgeot,171,stat_points,3,,10.9%,,,1,0,2,31,0,32
-Pidgeot,171,stat_points,4,,9.2%,,,29,0,0,32,0,5
-Pidgeot,171,stat_points,5,,6.7%,,,25,0,9,32,0,0
-Pidgeot,171,stat_points,6,,3.3%,,,9,0,0,32,0,25
-Pidgeot,171,stat_points,7,,3.3%,,,23,0,5,14,0,24
-Pidgeot,171,stat_points,8,,2.9%,,,0,0,0,32,0,32
-Pidgeot,171,stat_points,9,,0.8%,,,1,0,0,32,1,32
-Pidgeot,171,stat_points,10,,0.8%,,,3,0,0,31,0,32
-Pidgeot,171,ability,1,Big Pecks,84.1%,,,,,,,,
-Pidgeot,171,ability,2,Keen Eye,15.5%,,,,,,,,
-Pidgeot,171,ability,3,Tangled Feet,0.4%,,,,,,,,
+Pidgeot,153,move,1,Hurricane,100.0%,,,,,,,,
+Pidgeot,153,move,2,Heat Wave,98.8%,,,,,,,,
+Pidgeot,153,move,3,Hyper Beam,68.3%,,,,,,,,
+Pidgeot,153,move,4,Quick Attack,40.8%,,,,,,,,
+Pidgeot,153,move,5,Roost,31.5%,,,,,,,,
+Pidgeot,153,move,6,Substitute,27.3%,,,,,,,,
+Pidgeot,153,move,7,U-turn,23.3%,,,,,,,,
+Pidgeot,153,move,8,Tailwind,5.3%,,,,,,,,
+Pidgeot,153,move,9,Uproar,2.0%,,,,,,,,
+Pidgeot,153,move,10,Sunny Day,1.5%,,,,,,,,
+Pidgeot,153,held_item,1,Pidgeotite,100.0%,,,,,,,,
+Pidgeot,153,teammate,1,Tinkaton,,,,,,,,,
+Pidgeot,153,teammate,2,Garchomp,,,,,,,,,
+Pidgeot,153,teammate,3,Floette-Eternal,,,,,,,,,
+Pidgeot,153,teammate,4,Medicham,,,,,,,,,
+Pidgeot,153,teammate,5,Swampert,,,,,,,,,
+Pidgeot,153,teammate,6,Slurpuff,,,,,,,,,
+Pidgeot,153,teammate,7,Gardevoir,,,,,,,,,
+Pidgeot,153,teammate,8,Cinderace,,,,,,,,,
+Pidgeot,153,teammate,9,Ditto,,,,,,,,,
+Pidgeot,153,teammate,10,Goodra-Hisui,,,,,,,,,
+Pidgeot,153,stat_alignment,1,Timid,56.3%,Speed,Attack,,,,,,
+Pidgeot,153,stat_alignment,2,Modest,41.8%,Sp. Atk,Attack,,,,,,
+Pidgeot,153,stat_alignment,3,Hasty,2.0%,Speed,Defense,,,,,,
+Pidgeot,153,stat_points,1,,31.5%,,,2,0,0,32,0,32
+Pidgeot,153,stat_points,2,,28.0%,,,1,0,1,32,0,32
+Pidgeot,153,stat_points,3,,10.3%,,,9,0,0,32,0,25
+Pidgeot,153,stat_points,4,,7.5%,,,1,0,2,31,0,32
+Pidgeot,153,stat_points,5,,7.2%,,,29,0,0,32,0,5
+Pidgeot,153,stat_points,6,,6.5%,,,25,0,9,32,0,0
+Pidgeot,153,stat_points,7,,3.3%,,,0,0,0,32,2,32
+Pidgeot,153,stat_points,8,,2.0%,,,23,0,5,14,0,24
+Pidgeot,153,stat_points,9,,1.8%,,,0,0,0,32,0,32
+Pidgeot,153,stat_points,10,,0.8%,,,1,0,0,32,1,32
+Pidgeot,153,ability,1,Big Pecks,81.5%,,,,,,,,
+Pidgeot,153,ability,2,Keen Eye,15.0%,,,,,,,,
+Pidgeot,153,ability,3,Tangled Feet,3.5%,,,,,,,,

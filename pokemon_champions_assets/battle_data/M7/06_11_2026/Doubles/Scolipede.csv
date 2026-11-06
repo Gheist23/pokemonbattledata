@@ -1,35 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Scolipede,212,move,1,Leech Life,73.9%,,,,,,,,
-Scolipede,212,move,2,Superpower,60.9%,,,,,,,,
-Scolipede,212,move,3,Assurance,60.9%,,,,,,,,
-Scolipede,212,move,4,Gunk Shot,60.9%,,,,,,,,
-Scolipede,212,move,5,Protect,39.1%,,,,,,,,
-Scolipede,212,move,6,Swords Dance,21.7%,,,,,,,,
-Scolipede,212,move,7,Megahorn,13.0%,,,,,,,,
-Scolipede,212,move,8,Baton Pass,13.0%,,,,,,,,
-Scolipede,212,move,9,Iron Defense,13.0%,,,,,,,,
-Scolipede,212,move,10,Poison Jab,13.0%,,,,,,,,
-Scolipede,212,held_item,1,Shell Bell,60.9%,,,,,,,,
-Scolipede,212,held_item,2,Scolipite,13.0%,,,,,,,,
-Scolipede,212,held_item,3,Psychic Seed,13.0%,,,,,,,,
-Scolipede,212,held_item,4,Grassy Seed,8.7%,,,,,,,,
-Scolipede,212,held_item,5,Wide Lens,4.3%,,,,,,,,
-Scolipede,212,teammate,1,Tyranitar,,,,,,,,,
-Scolipede,212,teammate,2,Swampert,,,,,,,,,
-Scolipede,212,teammate,3,Pelipper,,,,,,,,,
-Scolipede,212,teammate,4,Stunfisk,,,,,,,,,
-Scolipede,212,teammate,5,Typhlosion-Hisui,,,,,,,,,
-Scolipede,212,teammate,6,Rillaboom,,,,,,,,,
-Scolipede,212,teammate,7,Sinistcha,,,,,,,,,
-Scolipede,212,teammate,8,Raichu,,,,,,,,,
-Scolipede,212,teammate,9,Gardevoir,,,,,,,,,
-Scolipede,212,teammate,10,Milotic,,,,,,,,,
-Scolipede,212,stat_alignment,1,Adamant,65.2%,Attack,Sp. Atk,,,,,,
-Scolipede,212,stat_alignment,2,Jolly,26.1%,Speed,Sp. Atk,,,,,,
-Scolipede,212,stat_alignment,3,Naive,8.7%,Speed,Sp. Def,,,,,,
-Scolipede,212,stat_points,1,,60.9%,,,0,32,0,0,2,32
-Scolipede,212,stat_points,2,,13.0%,,,25,0,13,0,28,0
-Scolipede,212,stat_points,3,,13.0%,,,32,6,0,0,0,28
-Scolipede,212,stat_points,4,,8.7%,,,0,32,2,0,0,32
-Scolipede,212,stat_points,5,,4.3%,,,32,32,0,0,2,0
-Scolipede,212,ability,1,Speed Boost,100.0%,,,,,,,,
+Scolipede,200,move,1,Leech Life,83.3%,,,,,,,,
+Scolipede,200,move,2,Superpower,59.5%,,,,,,,,
+Scolipede,200,move,3,Assurance,59.5%,,,,,,,,
+Scolipede,200,move,4,Gunk Shot,59.5%,,,,,,,,
+Scolipede,200,move,5,Protect,40.5%,,,,,,,,
+Scolipede,200,move,6,Swords Dance,28.6%,,,,,,,,
+Scolipede,200,move,7,Poison Jab,16.7%,,,,,,,,
+Scolipede,200,move,8,Rock Slide,9.5%,,,,,,,,
+Scolipede,200,move,9,Baton Pass,9.5%,,,,,,,,
+Scolipede,200,move,10,Iron Defense,9.5%,,,,,,,,
+Scolipede,200,held_item,1,Shell Bell,47.6%,,,,,,,,
+Scolipede,200,held_item,2,Focus Sash,19.0%,,,,,,,,
+Scolipede,200,held_item,3,Leftovers,11.9%,,,,,,,,
+Scolipede,200,held_item,4,Scolipite,7.1%,,,,,,,,
+Scolipede,200,held_item,5,Psychic Seed,7.1%,,,,,,,,
+Scolipede,200,held_item,6,Grassy Seed,4.8%,,,,,,,,
+Scolipede,200,held_item,7,Wide Lens,2.4%,,,,,,,,
+Scolipede,200,teammate,1,Tyranitar,,,,,,,,,
+Scolipede,200,teammate,2,Pelipper,,,,,,,,,
+Scolipede,200,teammate,3,Stunfisk,,,,,,,,,
+Scolipede,200,teammate,4,Typhlosion-Hisui,,,,,,,,,
+Scolipede,200,teammate,5,Swampert,,,,,,,,,
+Scolipede,200,teammate,6,Raichu,,,,,,,,,
+Scolipede,200,teammate,7,Rillaboom,,,,,,,,,
+Scolipede,200,teammate,8,Froslass,,,,,,,,,
+Scolipede,200,teammate,9,Rotom-Frost,,,,,,,,,
+Scolipede,200,teammate,10,Gardevoir,,,,,,,,,
+Scolipede,200,stat_alignment,1,Adamant,61.9%,Attack,Sp. Atk,,,,,,
+Scolipede,200,stat_alignment,2,Jolly,23.8%,Speed,Sp. Atk,,,,,,
+Scolipede,200,stat_alignment,3,Impish,7.1%,Defense,Sp. Atk,,,,,,
+Scolipede,200,stat_alignment,4,Naive,4.8%,Speed,Sp. Def,,,,,,
+Scolipede,200,stat_alignment,5,Careful,2.4%,Sp. Def,Sp. Atk,,,,,,
+Scolipede,200,stat_points,1,,59.5%,,,0,32,0,0,2,32
+Scolipede,200,stat_points,2,,9.5%,,,16,32,0,0,0,18
+Scolipede,200,stat_points,3,,7.1%,,,25,0,13,0,28,0
+Scolipede,200,stat_points,4,,7.1%,,,32,0,32,0,2,0
+Scolipede,200,stat_points,5,,7.1%,,,32,6,0,0,0,28
+Scolipede,200,stat_points,6,,4.8%,,,0,32,2,0,0,32
+Scolipede,200,stat_points,7,,2.4%,,,32,0,0,0,32,0
+Scolipede,200,stat_points,8,,2.4%,,,32,32,0,0,2,0
+Scolipede,200,ability,1,Speed Boost,100.0%,,,,,,,,

@@ -1,40 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ariados,224,move,1,Sticky Web,100.0%,,,,,,,,
-Ariados,224,move,2,Toxic Thread,89.3%,,,,,,,,
-Ariados,224,move,3,Toxic Spikes,55.4%,,,,,,,,
-Ariados,224,move,4,Pounce,39.3%,,,,,,,,
-Ariados,224,move,5,Poison Jab,25.0%,,,,,,,,
-Ariados,224,move,6,Sucker Punch,21.4%,,,,,,,,
-Ariados,224,move,7,First Impression,16.1%,,,,,,,,
-Ariados,224,move,8,Foul Play,10.7%,,,,,,,,
-Ariados,224,move,9,Swords Dance,8.9%,,,,,,,,
-Ariados,224,move,10,Baton Pass,8.9%,,,,,,,,
-Ariados,224,held_item,1,Focus Sash,89.3%,,,,,,,,
-Ariados,224,held_item,2,Quick Claw,8.9%,,,,,,,,
-Ariados,224,held_item,3,Rocky Helmet,1.8%,,,,,,,,
-Ariados,224,teammate,1,Gyarados,,,,,,,,,
-Ariados,224,teammate,2,Hydreigon,,,,,,,,,
-Ariados,224,teammate,3,Mimikyu,,,,,,,,,
-Ariados,224,teammate,4,Metagross,,,,,,,,,
-Ariados,224,teammate,5,Baxcalibur,,,,,,,,,
-Ariados,224,teammate,6,Volcarona,,,,,,,,,
-Ariados,224,teammate,7,Sneasler,,,,,,,,,
-Ariados,224,teammate,8,Starmie,,,,,,,,,
-Ariados,224,teammate,9,Tyranitar,,,,,,,,,
-Ariados,224,teammate,10,Aegislash,,,,,,,,,
-Ariados,224,stat_alignment,1,Jolly,60.7%,Speed,Sp. Atk,,,,,,
-Ariados,224,stat_alignment,2,Adamant,17.9%,Attack,Sp. Atk,,,,,,
-Ariados,224,stat_alignment,3,Impish,12.5%,Defense,Sp. Atk,,,,,,
-Ariados,224,stat_alignment,4,Naughty,7.1%,Attack,Sp. Def,,,,,,
-Ariados,224,stat_alignment,5,Brave,1.8%,Attack,Speed,,,,,,
-Ariados,224,stat_points,1,,39.3%,,,32,2,0,0,0,32
-Ariados,224,stat_points,2,,17.9%,,,2,32,2,0,2,28
-Ariados,224,stat_points,3,,10.7%,,,32,0,1,0,1,32
-Ariados,224,stat_points,4,,8.9%,,,25,0,31,0,10,0
-Ariados,224,stat_points,5,,8.9%,,,32,0,19,0,0,15
-Ariados,224,stat_points,6,,7.1%,,,2,32,0,0,0,32
-Ariados,224,stat_points,7,,3.6%,,,32,0,32,0,0,2
-Ariados,224,stat_points,8,,1.8%,,,16,4,14,0,0,32
-Ariados,224,stat_points,9,,1.8%,,,32,32,2,0,0,0
-Ariados,224,ability,1,Insomnia,91.1%,,,,,,,,
-Ariados,224,ability,2,Swarm,8.9%,,,,,,,,
+Ariados,222,move,1,Sticky Web,100.0%,,,,,,,,
+Ariados,222,move,2,Toxic Thread,67.9%,,,,,,,,
+Ariados,222,move,3,Toxic Spikes,39.3%,,,,,,,,
+Ariados,222,move,4,Sucker Punch,28.6%,,,,,,,,
+Ariados,222,move,5,Pounce,26.2%,,,,,,,,
+Ariados,222,move,6,Swords Dance,22.6%,,,,,,,,
+Ariados,222,move,7,Baton Pass,22.6%,,,,,,,,
+Ariados,222,move,8,Poison Jab,21.4%,,,,,,,,
+Ariados,222,move,9,First Impression,20.2%,,,,,,,,
+Ariados,222,move,10,Electroweb,16.7%,,,,,,,,
+Ariados,222,held_item,1,Focus Sash,92.9%,,,,,,,,
+Ariados,222,held_item,2,Quick Claw,6.0%,,,,,,,,
+Ariados,222,held_item,3,Rocky Helmet,1.2%,,,,,,,,
+Ariados,222,teammate,1,Gyarados,,,,,,,,,
+Ariados,222,teammate,2,Metagross,,,,,,,,,
+Ariados,222,teammate,3,Lucario,,,,,,,,,
+Ariados,222,teammate,4,Hydreigon,,,,,,,,,
+Ariados,222,teammate,5,Volcarona,,,,,,,,,
+Ariados,222,teammate,6,Mimikyu,,,,,,,,,
+Ariados,222,teammate,7,Baxcalibur,,,,,,,,,
+Ariados,222,teammate,8,Golisopod,,,,,,,,,
+Ariados,222,teammate,9,Basculegion,,,,,,,,,
+Ariados,222,teammate,10,Maushold-Four,,,,,,,,,
+Ariados,222,stat_alignment,1,Jolly,51.2%,Speed,Sp. Atk,,,,,,
+Ariados,222,stat_alignment,2,Impish,25.0%,Defense,Sp. Atk,,,,,,
+Ariados,222,stat_alignment,3,Adamant,17.9%,Attack,Sp. Atk,,,,,,
+Ariados,222,stat_alignment,4,Naughty,4.8%,Attack,Sp. Def,,,,,,
+Ariados,222,stat_alignment,5,Brave,1.2%,Attack,Speed,,,,,,
+Ariados,222,stat_points,1,,26.2%,,,32,2,0,0,0,32
+Ariados,222,stat_points,2,,22.6%,,,25,0,31,0,10,0
+Ariados,222,stat_points,3,,16.7%,,,2,32,2,0,2,28
+Ariados,222,stat_points,4,,9.5%,,,32,0,1,0,1,32
+Ariados,222,stat_points,5,,8.3%,,,0,32,0,0,0,32
+Ariados,222,stat_points,6,,6.0%,,,2,32,0,0,0,32
+Ariados,222,stat_points,7,,6.0%,,,32,0,19,0,0,15
+Ariados,222,stat_points,8,,2.4%,,,32,0,32,0,0,2
+Ariados,222,stat_points,9,,1.2%,,,16,4,14,0,0,32
+Ariados,222,stat_points,10,,1.2%,,,32,32,2,0,0,0
+Ariados,222,ability,1,Insomnia,85.7%,,,,,,,,
+Ariados,222,ability,2,Sniper,8.3%,,,,,,,,
+Ariados,222,ability,3,Swarm,6.0%,,,,,,,,

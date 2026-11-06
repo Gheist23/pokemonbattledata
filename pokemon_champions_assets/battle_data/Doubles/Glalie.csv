@@ -1,36 +1,37 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Glalie,178,move,1,Protect,98.6%,,,,,,,,
-Glalie,178,move,2,Explosion,81.4%,,,,,,,,
-Glalie,178,move,3,Body Slam,55.7%,,,,,,,,
-Glalie,178,move,4,Substitute,48.6%,,,,,,,,
-Glalie,178,move,5,Earthquake,28.6%,,,,,,,,
-Glalie,178,move,6,Freeze-Dry,18.6%,,,,,,,,
-Glalie,178,move,7,Taunt,17.1%,,,,,,,,
-Glalie,178,move,8,Sheer Cold,14.3%,,,,,,,,
-Glalie,178,move,9,Trailblaze,11.4%,,,,,,,,
-Glalie,178,move,10,Icy Wind,5.7%,,,,,,,,
-Glalie,178,held_item,1,Glalitite,81.4%,,,,,,,,
-Glalie,178,held_item,2,Leftovers,14.3%,,,,,,,,
-Glalie,178,held_item,3,Focus Sash,4.3%,,,,,,,,
-Glalie,178,teammate,1,Whimsicott,,,,,,,,,
-Glalie,178,teammate,2,Oranguru,,,,,,,,,
-Glalie,178,teammate,3,Talonflame,,,,,,,,,
-Glalie,178,teammate,4,Tauros-Paldea-Blaze,,,,,,,,,
-Glalie,178,teammate,5,Meowscarada,,,,,,,,,
-Glalie,178,teammate,6,Torkoal,,,,,,,,,
-Glalie,178,teammate,7,Tsareena,,,,,,,,,
-Glalie,178,teammate,8,Kangaskhan,,,,,,,,,
-Glalie,178,teammate,9,Primarina,,,,,,,,,
-Glalie,178,teammate,10,Drampa,,,,,,,,,
-Glalie,178,stat_alignment,1,Jolly,37.1%,Speed,Sp. Atk,,,,,,
-Glalie,178,stat_alignment,2,Adamant,37.1%,Attack,Sp. Atk,,,,,,
-Glalie,178,stat_alignment,3,Hasty,18.6%,Speed,Defense,,,,,,
-Glalie,178,stat_alignment,4,Calm,7.1%,Sp. Def,Attack,,,,,,
-Glalie,178,stat_points,1,,71.4%,,,2,32,0,0,0,32
-Glalie,178,stat_points,2,,12.9%,,,2,0,32,0,0,32
-Glalie,178,stat_points,3,,7.1%,,,2,0,32,0,32,0
-Glalie,178,stat_points,4,,5.7%,,,0,32,2,0,0,32
-Glalie,178,stat_points,5,,1.4%,,,0,32,0,0,2,32
-Glalie,178,stat_points,6,,1.4%,,,2,16,16,0,0,32
-Glalie,178,ability,1,Inner Focus,68.6%,,,,,,,,
-Glalie,178,ability,2,Moody,31.4%,,,,,,,,
+Glalie,180,move,1,Protect,98.8%,,,,,,,,
+Glalie,180,move,2,Explosion,84.1%,,,,,,,,
+Glalie,180,move,3,Substitute,48.8%,,,,,,,,
+Glalie,180,move,4,Body Slam,47.6%,,,,,,,,
+Glalie,180,move,5,Freeze-Dry,28.0%,,,,,,,,
+Glalie,180,move,6,Earthquake,26.8%,,,,,,,,
+Glalie,180,move,7,Taunt,18.3%,,,,,,,,
+Glalie,180,move,8,Sheer Cold,12.2%,,,,,,,,
+Glalie,180,move,9,Trailblaze,9.8%,,,,,,,,
+Glalie,180,move,10,Ice Shard,8.5%,,,,,,,,
+Glalie,180,held_item,1,Glalitite,84.1%,,,,,,,,
+Glalie,180,held_item,2,Leftovers,12.2%,,,,,,,,
+Glalie,180,held_item,3,Focus Sash,3.7%,,,,,,,,
+Glalie,180,teammate,1,Whimsicott,,,,,,,,,
+Glalie,180,teammate,2,Oranguru,,,,,,,,,
+Glalie,180,teammate,3,Talonflame,,,,,,,,,
+Glalie,180,teammate,4,Tauros-Paldea-Blaze,,,,,,,,,
+Glalie,180,teammate,5,Meowscarada,,,,,,,,,
+Glalie,180,teammate,6,Metagross,,,,,,,,,
+Glalie,180,teammate,7,Torkoal,,,,,,,,,
+Glalie,180,teammate,8,Tsareena,,,,,,,,,
+Glalie,180,teammate,9,Kangaskhan,,,,,,,,,
+Glalie,180,teammate,10,Primarina,,,,,,,,,
+Glalie,180,stat_alignment,1,Adamant,45.1%,Attack,Sp. Atk,,,,,,
+Glalie,180,stat_alignment,2,Jolly,31.7%,Speed,Sp. Atk,,,,,,
+Glalie,180,stat_alignment,3,Hasty,15.9%,Speed,Defense,,,,,,
+Glalie,180,stat_alignment,4,Calm,6.1%,Sp. Def,Attack,,,,,,
+Glalie,180,stat_alignment,5,Naive,1.2%,Speed,Sp. Def,,,,,,
+Glalie,180,stat_points,1,,72.0%,,,2,32,0,0,0,32
+Glalie,180,stat_points,2,,11.0%,,,2,0,32,0,0,32
+Glalie,180,stat_points,3,,6.1%,,,2,0,32,0,32,0
+Glalie,180,stat_points,4,,4.9%,,,0,32,0,0,2,32
+Glalie,180,stat_points,5,,4.9%,,,0,32,2,0,0,32
+Glalie,180,stat_points,6,,1.2%,,,2,16,16,0,0,32
+Glalie,180,ability,1,Inner Focus,69.5%,,,,,,,,
+Glalie,180,ability,2,Moody,30.5%,,,,,,,,

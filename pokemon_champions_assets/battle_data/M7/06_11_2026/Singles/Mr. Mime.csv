@@ -1,38 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mr. Mime,240,move,1,Baton Pass,58.1%,,,,,,,,
-Mr. Mime,240,move,2,Calm Mind,58.1%,,,,,,,,
-Mr. Mime,240,move,3,Taunt,48.4%,,,,,,,,
-Mr. Mime,240,move,4,Iron Defense,35.5%,,,,,,,,
-Mr. Mime,240,move,5,Substitute,32.3%,,,,,,,,
-Mr. Mime,240,move,6,Dazzling Gleam,29.0%,,,,,,,,
-Mr. Mime,240,move,7,Nasty Plot,25.8%,,,,,,,,
-Mr. Mime,240,move,8,Psyshock,25.8%,,,,,,,,
-Mr. Mime,240,move,9,Mystical Fire,25.8%,,,,,,,,
-Mr. Mime,240,move,10,Reflect,12.9%,,,,,,,,
-Mr. Mime,240,held_item,1,Leftovers,35.5%,,,,,,,,
-Mr. Mime,240,held_item,2,Expert Belt,25.8%,,,,,,,,
-Mr. Mime,240,held_item,3,Kebia Berry,22.6%,,,,,,,,
-Mr. Mime,240,held_item,4,Quick Claw,12.9%,,,,,,,,
-Mr. Mime,240,held_item,5,Focus Sash,3.2%,,,,,,,,
-Mr. Mime,240,teammate,1,Clefable,,,,,,,,,
-Mr. Mime,240,teammate,2,Cinderace,,,,,,,,,
-Mr. Mime,240,teammate,3,Lucario,,,,,,,,,
-Mr. Mime,240,teammate,4,Blastoise,,,,,,,,,
-Mr. Mime,240,teammate,5,Altaria,,,,,,,,,
-Mr. Mime,240,teammate,6,Golisopod,,,,,,,,,
-Mr. Mime,240,teammate,7,Grapploct,,,,,,,,,
-Mr. Mime,240,teammate,8,Bellibolt,,,,,,,,,
-Mr. Mime,240,teammate,9,Charizard,,,,,,,,,
-Mr. Mime,240,teammate,10,Umbreon,,,,,,,,,
-Mr. Mime,240,stat_alignment,1,Timid,38.7%,Speed,Attack,,,,,,
-Mr. Mime,240,stat_alignment,2,Modest,25.8%,Sp. Atk,Attack,,,,,,
-Mr. Mime,240,stat_alignment,3,Calm,22.6%,Sp. Def,Attack,,,,,,
-Mr. Mime,240,stat_alignment,4,Bold,12.9%,Defense,Attack,,,,,,
-Mr. Mime,240,stat_points,1,,25.8%,,,22,0,1,32,1,10
-Mr. Mime,240,stat_points,2,,22.6%,,,32,0,9,0,25,0
-Mr. Mime,240,stat_points,3,,19.4%,,,32,0,3,0,0,31
-Mr. Mime,240,stat_points,4,,16.1%,,,32,0,2,0,0,32
-Mr. Mime,240,stat_points,5,,12.9%,,,0,0,32,0,32,0
-Mr. Mime,240,stat_points,6,,3.2%,,,2,0,0,32,0,32
-Mr. Mime,240,ability,1,Filter,51.6%,,,,,,,,
-Mr. Mime,240,ability,2,Soundproof,48.4%,,,,,,,,
+Mr. Mime,238,move,1,Baton Pass,50.0%,,,,,,,,
+Mr. Mime,238,move,2,Calm Mind,37.5%,,,,,,,,
+Mr. Mime,238,move,3,Reflect,31.3%,,,,,,,,
+Mr. Mime,238,move,4,Taunt,31.3%,,,,,,,,
+Mr. Mime,238,move,5,Dazzling Gleam,31.3%,,,,,,,,
+Mr. Mime,238,move,6,Iron Defense,27.1%,,,,,,,,
+Mr. Mime,238,move,7,Nasty Plot,25.0%,,,,,,,,
+Mr. Mime,238,move,8,Psyshock,25.0%,,,,,,,,
+Mr. Mime,238,move,9,Mystical Fire,25.0%,,,,,,,,
+Mr. Mime,238,move,10,Light Screen,22.9%,,,,,,,,
+Mr. Mime,238,held_item,1,Expert Belt,25.0%,,,,,,,,
+Mr. Mime,238,held_item,2,Leftovers,22.9%,,,,,,,,
+Mr. Mime,238,held_item,3,Light Clay,22.9%,,,,,,,,
+Mr. Mime,238,held_item,4,Kebia Berry,14.6%,,,,,,,,
+Mr. Mime,238,held_item,5,Quick Claw,8.3%,,,,,,,,
+Mr. Mime,238,held_item,6,Bright Powder,4.2%,,,,,,,,
+Mr. Mime,238,held_item,7,Focus Sash,2.1%,,,,,,,,
+Mr. Mime,238,teammate,1,Clefable,,,,,,,,,
+Mr. Mime,238,teammate,2,Blastoise,,,,,,,,,
+Mr. Mime,238,teammate,3,Altaria,,,,,,,,,
+Mr. Mime,238,teammate,4,Golisopod,,,,,,,,,
+Mr. Mime,238,teammate,5,Grapploct,,,,,,,,,
+Mr. Mime,238,teammate,6,Bellibolt,,,,,,,,,
+Mr. Mime,238,teammate,7,Meowstic-F,,,,,,,,,
+Mr. Mime,238,teammate,8,Cinderace,,,,,,,,,
+Mr. Mime,238,teammate,9,Camerupt,,,,,,,,,
+Mr. Mime,238,teammate,10,Lucario,,,,,,,,,
+Mr. Mime,238,stat_alignment,1,Bold,31.3%,Defense,Attack,,,,,,
+Mr. Mime,238,stat_alignment,2,Modest,29.2%,Sp. Atk,Attack,,,,,,
+Mr. Mime,238,stat_alignment,3,Timid,25.0%,Speed,Attack,,,,,,
+Mr. Mime,238,stat_alignment,4,Calm,14.6%,Sp. Def,Attack,,,,,,
+Mr. Mime,238,stat_points,1,,25.0%,,,22,0,1,32,1,10
+Mr. Mime,238,stat_points,2,,22.9%,,,32,0,32,0,2,0
+Mr. Mime,238,stat_points,3,,14.6%,,,32,0,9,0,25,0
+Mr. Mime,238,stat_points,4,,12.5%,,,32,0,3,0,0,31
+Mr. Mime,238,stat_points,5,,10.4%,,,32,0,2,0,0,32
+Mr. Mime,238,stat_points,6,,8.3%,,,0,0,32,0,32,0
+Mr. Mime,238,stat_points,7,,6.3%,,,2,0,0,32,0,32
+Mr. Mime,238,ability,1,Soundproof,66.7%,,,,,,,,
+Mr. Mime,238,ability,2,Filter,33.3%,,,,,,,,

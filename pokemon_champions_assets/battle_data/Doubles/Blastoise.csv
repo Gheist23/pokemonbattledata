@@ -1,45 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Blastoise,42,move,1,Water Spout,91.8%,,,,,,,,
-Blastoise,42,move,2,Dark Pulse,69.8%,,,,,,,,
-Blastoise,42,move,3,Shell Smash,62.2%,,,,,,,,
-Blastoise,42,move,4,Protect,56.0%,,,,,,,,
-Blastoise,42,move,5,Aura Sphere,40.9%,,,,,,,,
-Blastoise,42,move,6,Fake Out,25.5%,,,,,,,,
-Blastoise,42,move,7,Terrain Pulse,21.9%,,,,,,,,
-Blastoise,42,move,8,Ice Beam,16.7%,,,,,,,,
-Blastoise,42,move,9,Dragon Pulse,6.7%,,,,,,,,
-Blastoise,42,move,10,Water Pulse,2.7%,,,,,,,,
-Blastoise,42,held_item,1,Blastoisinite,97.1%,,,,,,,,
-Blastoise,42,held_item,2,White Herb,0.9%,,,,,,,,
-Blastoise,42,held_item,3,Lum Berry,0.9%,,,,,,,,
-Blastoise,42,held_item,4,Sitrus Berry,0.3%,,,,,,,,
-Blastoise,42,held_item,5,Psychic Seed,0.2%,,,,,,,,
-Blastoise,42,held_item,6,Mystic Water,0.2%,,,,,,,,
-Blastoise,42,held_item,7,Focus Sash,0.1%,,,,,,,,
+Blastoise,42,move,2,Dark Pulse,68.6%,,,,,,,,
+Blastoise,42,move,3,Shell Smash,62.0%,,,,,,,,
+Blastoise,42,move,4,Protect,57.3%,,,,,,,,
+Blastoise,42,move,5,Aura Sphere,40.7%,,,,,,,,
+Blastoise,42,move,6,Fake Out,24.9%,,,,,,,,
+Blastoise,42,move,7,Terrain Pulse,21.2%,,,,,,,,
+Blastoise,42,move,8,Ice Beam,16.3%,,,,,,,,
+Blastoise,42,move,9,Dragon Pulse,7.0%,,,,,,,,
+Blastoise,42,move,10,Water Pulse,2.6%,,,,,,,,
+Blastoise,42,held_item,1,Blastoisinite,96.5%,,,,,,,,
+Blastoise,42,held_item,2,White Herb,1.0%,,,,,,,,
+Blastoise,42,held_item,3,Lum Berry,0.8%,,,,,,,,
+Blastoise,42,held_item,4,Mystic Water,0.7%,,,,,,,,
+Blastoise,42,held_item,5,Sitrus Berry,0.3%,,,,,,,,
+Blastoise,42,held_item,6,Focus Sash,0.2%,,,,,,,,
+Blastoise,42,held_item,7,Psychic Seed,0.2%,,,,,,,,
+Blastoise,42,held_item,8,Leftovers,0.0%,,,,,,,,
 Blastoise,42,teammate,1,Indeedee-F,,,,,,,,,
 Blastoise,42,teammate,2,Sneasler,,,,,,,,,
 Blastoise,42,teammate,3,Farigiraf,,,,,,,,,
 Blastoise,42,teammate,4,Armarouge,,,,,,,,,
 Blastoise,42,teammate,5,Incineroar,,,,,,,,,
 Blastoise,42,teammate,6,Sinistcha,,,,,,,,,
-Blastoise,42,teammate,7,Rillaboom,,,,,,,,,
-Blastoise,42,teammate,8,Gardevoir,,,,,,,,,
-Blastoise,42,teammate,9,Basculegion,,,,,,,,,
+Blastoise,42,teammate,7,Gardevoir,,,,,,,,,
+Blastoise,42,teammate,8,Basculegion,,,,,,,,,
+Blastoise,42,teammate,9,Pelipper,,,,,,,,,
 Blastoise,42,teammate,10,Torkoal,,,,,,,,,
-Blastoise,42,stat_alignment,1,Modest,77.3%,Sp. Atk,Attack,,,,,,
-Blastoise,42,stat_alignment,2,Quiet,16.3%,Sp. Atk,Speed,,,,,,
-Blastoise,42,stat_alignment,3,Timid,5.0%,Speed,Attack,,,,,,
+Blastoise,42,stat_alignment,1,Modest,77.7%,Sp. Atk,Attack,,,,,,
+Blastoise,42,stat_alignment,2,Quiet,15.8%,Sp. Atk,Speed,,,,,,
+Blastoise,42,stat_alignment,3,Timid,4.9%,Speed,Attack,,,,,,
 Blastoise,42,stat_alignment,4,Sassy,0.9%,Sp. Def,Speed,,,,,,
 Blastoise,42,stat_alignment,5,Impish,0.5%,Defense,Sp. Atk,,,,,,
-Blastoise,42,stat_points,1,,18.7%,,,2,0,0,32,0,32
-Blastoise,42,stat_points,2,,15.8%,,,32,0,2,32,0,0
-Blastoise,42,stat_points,3,,10.4%,,,15,0,0,32,0,19
-Blastoise,42,stat_points,4,,5.6%,,,1,0,1,32,0,32
-Blastoise,42,stat_points,5,,3.5%,,,32,0,0,32,2,0
-Blastoise,42,stat_points,6,,2.9%,,,22,0,0,25,0,19
-Blastoise,42,stat_points,7,,2.6%,,,0,0,1,32,1,32
-Blastoise,42,stat_points,8,,2.5%,,,14,0,0,25,0,27
-Blastoise,42,stat_points,9,,2.4%,,,0,0,2,32,0,32
-Blastoise,42,stat_points,10,,2.0%,,,16,0,0,32,0,18
-Blastoise,42,ability,1,Rain Dish,63.3%,,,,,,,,
-Blastoise,42,ability,2,Torrent,36.7%,,,,,,,,
+Blastoise,42,stat_alignment,6,Brave,0.3%,Attack,Speed,,,,,,
+Blastoise,42,stat_points,1,,19.7%,,,2,0,0,32,0,32
+Blastoise,42,stat_points,2,,15.4%,,,32,0,2,32,0,0
+Blastoise,42,stat_points,3,,10.1%,,,15,0,0,32,0,19
+Blastoise,42,stat_points,4,,5.0%,,,1,0,1,32,0,32
+Blastoise,42,stat_points,5,,3.6%,,,32,0,0,32,2,0
+Blastoise,42,stat_points,6,,2.7%,,,22,0,0,25,0,19
+Blastoise,42,stat_points,7,,2.3%,,,0,0,1,32,1,32
+Blastoise,42,stat_points,8,,2.3%,,,0,0,2,32,0,32
+Blastoise,42,stat_points,9,,2.1%,,,14,0,0,25,0,27
+Blastoise,42,stat_points,10,,1.9%,,,21,0,0,32,0,13
+Blastoise,42,ability,1,Rain Dish,60.4%,,,,,,,,
+Blastoise,42,ability,2,Torrent,39.6%,,,,,,,,

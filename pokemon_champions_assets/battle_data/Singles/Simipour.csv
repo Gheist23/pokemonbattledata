@@ -1,33 +1,36 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simipour,209,move,1,Ice Beam,96.0%,,,,,,,,
-Simipour,209,move,2,Surf,83.2%,,,,,,,,
-Simipour,209,move,3,Flip Turn,79.2%,,,,,,,,
-Simipour,209,move,4,Attract,65.3%,,,,,,,,
-Simipour,209,move,5,Focus Blast,34.7%,,,,,,,,
-Simipour,209,move,6,Fake Out,16.8%,,,,,,,,
-Simipour,209,move,7,Hydro Pump,16.8%,,,,,,,,
-Simipour,209,move,8,Nasty Plot,4.0%,,,,,,,,
-Simipour,209,move,9,Blizzard,3.0%,,,,,,,,
-Simipour,209,move,10,Grass Knot,1.0%,,,,,,,,
-Simipour,209,held_item,1,Focus Sash,81.2%,,,,,,,,
-Simipour,209,held_item,2,Choice Scarf,18.8%,,,,,,,,
-Simipour,209,teammate,1,Simisage,,,,,,,,,
-Simipour,209,teammate,2,Simisear,,,,,,,,,
-Simipour,209,teammate,3,Bastiodon,,,,,,,,,
-Simipour,209,teammate,4,Falinks,,,,,,,,,
-Simipour,209,teammate,5,Clefable,,,,,,,,,
-Simipour,209,teammate,6,Mimikyu,,,,,,,,,
-Simipour,209,teammate,7,Tauros-Paldea-Aqua,,,,,,,,,
-Simipour,209,teammate,8,Rotom-Fan,,,,,,,,,
-Simipour,209,teammate,9,Stunfisk-Galar,,,,,,,,,
-Simipour,209,teammate,10,Decidueye,,,,,,,,,
-Simipour,209,stat_alignment,1,Timid,67.3%,Speed,Attack,,,,,,
-Simipour,209,stat_alignment,2,Modest,18.8%,Sp. Atk,Attack,,,,,,
-Simipour,209,stat_alignment,3,Mild,13.9%,Sp. Atk,Defense,,,,,,
-Simipour,209,stat_points,1,,65.3%,,,0,0,1,32,0,32
-Simipour,209,stat_points,2,,17.8%,,,2,0,0,32,0,32
-Simipour,209,stat_points,3,,11.9%,,,1,0,1,32,0,32
-Simipour,209,stat_points,4,,3.0%,,,0,0,0,32,0,32
-Simipour,209,stat_points,5,,2.0%,,,1,0,0,32,1,32
-Simipour,209,ability,1,Gluttony,65.3%,,,,,,,,
-Simipour,209,ability,2,Torrent,34.7%,,,,,,,,
+Simipour,210,move,1,Ice Beam,96.9%,,,,,,,,
+Simipour,210,move,2,Surf,77.2%,,,,,,,,
+Simipour,210,move,3,Flip Turn,74.8%,,,,,,,,
+Simipour,210,move,4,Attract,54.3%,,,,,,,,
+Simipour,210,move,5,Focus Blast,40.2%,,,,,,,,
+Simipour,210,move,6,Hydro Pump,22.8%,,,,,,,,
+Simipour,210,move,7,Fake Out,16.5%,,,,,,,,
+Simipour,210,move,8,Grass Knot,6.3%,,,,,,,,
+Simipour,210,move,9,Rain Dance,5.5%,,,,,,,,
+Simipour,210,move,10,Nasty Plot,3.1%,,,,,,,,
+Simipour,210,held_item,1,Focus Sash,70.1%,,,,,,,,
+Simipour,210,held_item,2,Choice Scarf,24.4%,,,,,,,,
+Simipour,210,held_item,3,Mystic Water,5.5%,,,,,,,,
+Simipour,210,teammate,1,Clefable,,,,,,,,,
+Simipour,210,teammate,2,Simisage,,,,,,,,,
+Simipour,210,teammate,3,Bastiodon,,,,,,,,,
+Simipour,210,teammate,4,Simisear,,,,,,,,,
+Simipour,210,teammate,5,Falinks,,,,,,,,,
+Simipour,210,teammate,6,Tauros-Paldea-Aqua,,,,,,,,,
+Simipour,210,teammate,7,Rotom-Fan,,,,,,,,,
+Simipour,210,teammate,8,Stunfisk-Galar,,,,,,,,,
+Simipour,210,teammate,9,Decidueye,,,,,,,,,
+Simipour,210,teammate,10,Archaludon,,,,,,,,,
+Simipour,210,stat_alignment,1,Timid,61.4%,Speed,Attack,,,,,,
+Simipour,210,stat_alignment,2,Modest,15.0%,Sp. Atk,Attack,,,,,,
+Simipour,210,stat_alignment,3,Mild,14.2%,Sp. Atk,Defense,,,,,,
+Simipour,210,stat_alignment,4,Naive,9.4%,Speed,Sp. Def,,,,,,
+Simipour,210,stat_points,1,,54.3%,,,0,0,1,32,0,32
+Simipour,210,stat_points,2,,22.8%,,,2,0,0,32,0,32
+Simipour,210,stat_points,3,,9.4%,,,1,0,1,32,0,32
+Simipour,210,stat_points,4,,9.4%,,,1,1,0,32,0,32
+Simipour,210,stat_points,5,,2.4%,,,0,0,0,32,0,32
+Simipour,210,stat_points,6,,1.6%,,,1,0,0,32,1,32
+Simipour,210,ability,1,Gluttony,54.3%,,,,,,,,
+Simipour,210,ability,2,Torrent,45.7%,,,,,,,,

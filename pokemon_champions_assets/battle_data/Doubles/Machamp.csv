@@ -1,40 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Machamp,185,move,1,Dynamic Punch,95.5%,,,,,,,,
-Machamp,185,move,2,Wide Guard,92.1%,,,,,,,,
-Machamp,185,move,3,Stone Edge,58.4%,,,,,,,,
-Machamp,185,move,4,Rock Slide,40.4%,,,,,,,,
-Machamp,185,move,5,Quick Guard,34.8%,,,,,,,,
-Machamp,185,move,6,Fire Punch,29.2%,,,,,,,,
-Machamp,185,move,7,Ice Punch,22.5%,,,,,,,,
-Machamp,185,move,8,Detect,7.9%,,,,,,,,
-Machamp,185,move,9,Cross Chop,4.5%,,,,,,,,
-Machamp,185,move,10,Protect,2.2%,,,,,,,,
-Machamp,185,held_item,1,Payapa Berry,34.8%,,,,,,,,
-Machamp,185,held_item,2,Psychic Seed,23.6%,,,,,,,,
-Machamp,185,held_item,3,Leftovers,16.9%,,,,,,,,
-Machamp,185,held_item,4,Life Orb,10.1%,,,,,,,,
-Machamp,185,held_item,5,Expert Belt,6.7%,,,,,,,,
-Machamp,185,held_item,6,Scope Lens,4.5%,,,,,,,,
-Machamp,185,held_item,7,Muscle Band,1.1%,,,,,,,,
-Machamp,185,held_item,8,Rocky Helmet,1.1%,,,,,,,,
-Machamp,185,held_item,9,Red Card,1.1%,,,,,,,,
-Machamp,185,teammate,1,Indeedee-F,,,,,,,,,
-Machamp,185,teammate,2,Venusaur,,,,,,,,,
-Machamp,185,teammate,3,Charizard,,,,,,,,,
-Machamp,185,teammate,4,Typhlosion,,,,,,,,,
-Machamp,185,teammate,5,Umbreon,,,,,,,,,
-Machamp,185,teammate,6,Gardevoir,,,,,,,,,
-Machamp,185,teammate,7,Mawile,,,,,,,,,
-Machamp,185,teammate,8,Tyranitar,,,,,,,,,
-Machamp,185,teammate,9,Milotic,,,,,,,,,
-Machamp,185,teammate,10,Excadrill,,,,,,,,,
-Machamp,185,stat_alignment,1,Adamant,78.7%,Attack,Sp. Atk,,,,,,
-Machamp,185,stat_alignment,2,Brave,21.3%,Attack,Speed,,,,,,
-Machamp,185,stat_points,1,,39.3%,,,32,32,2,0,0,0
-Machamp,185,stat_points,2,,24.7%,,,25,32,7,0,2,0
-Machamp,185,stat_points,3,,16.9%,,,32,32,0,0,0,2
-Machamp,185,stat_points,4,,13.5%,,,32,32,0,0,2,0
-Machamp,185,stat_points,5,,3.4%,,,32,32,0,0,0,0
-Machamp,185,stat_points,6,,1.1%,,,0,7,32,0,27,0
-Machamp,185,stat_points,7,,1.1%,,,10,32,14,0,10,0
-Machamp,185,ability,1,No Guard,100.0%,,,,,,,,
+Machamp,180,move,1,Dynamic Punch,96.9%,,,,,,,,
+Machamp,180,move,2,Wide Guard,89.0%,,,,,,,,
+Machamp,180,move,3,Stone Edge,64.6%,,,,,,,,
+Machamp,180,move,4,Rock Slide,33.9%,,,,,,,,
+Machamp,180,move,5,Quick Guard,32.3%,,,,,,,,
+Machamp,180,move,6,Ice Punch,22.0%,,,,,,,,
+Machamp,180,move,7,Fire Punch,21.3%,,,,,,,,
+Machamp,180,move,8,Detect,6.3%,,,,,,,,
+Machamp,180,move,9,Helping Hand,6.3%,,,,,,,,
+Machamp,180,move,10,Protect,4.7%,,,,,,,,
+Machamp,180,held_item,1,Payapa Berry,32.3%,,,,,,,,
+Machamp,180,held_item,2,Leftovers,16.5%,,,,,,,,
+Machamp,180,held_item,3,Psychic Seed,16.5%,,,,,,,,
+Machamp,180,held_item,4,Sitrus Berry,8.7%,,,,,,,,
+Machamp,180,held_item,5,Life Orb,7.1%,,,,,,,,
+Machamp,180,held_item,6,Muscle Band,6.3%,,,,,,,,
+Machamp,180,held_item,7,Expert Belt,5.5%,,,,,,,,
+Machamp,180,held_item,8,Scope Lens,3.1%,,,,,,,,
+Machamp,180,held_item,9,Rocky Helmet,1.6%,,,,,,,,
+Machamp,180,held_item,10,Black Belt,0.8%,,,,,,,,
+Machamp,180,teammate,1,Charizard,,,,,,,,,
+Machamp,180,teammate,2,Indeedee-F,,,,,,,,,
+Machamp,180,teammate,3,Typhlosion,,,,,,,,,
+Machamp,180,teammate,4,Umbreon,,,,,,,,,
+Machamp,180,teammate,5,Venusaur,,,,,,,,,
+Machamp,180,teammate,6,Primarina,,,,,,,,,
+Machamp,180,teammate,7,Mawile,,,,,,,,,
+Machamp,180,teammate,8,Gardevoir,,,,,,,,,
+Machamp,180,teammate,9,Slowbro-Galar,,,,,,,,,
+Machamp,180,teammate,10,Tyranitar,,,,,,,,,
+Machamp,180,stat_alignment,1,Adamant,68.5%,Attack,Sp. Atk,,,,,,
+Machamp,180,stat_alignment,2,Brave,30.7%,Attack,Speed,,,,,,
+Machamp,180,stat_alignment,3,Jolly,0.8%,Speed,Sp. Atk,,,,,,
+Machamp,180,stat_points,1,,36.2%,,,32,32,2,0,0,0
+Machamp,180,stat_points,2,,17.3%,,,25,32,7,0,2,0
+Machamp,180,stat_points,3,,16.5%,,,32,32,0,0,0,2
+Machamp,180,stat_points,4,,9.4%,,,32,32,0,0,2,0
+Machamp,180,stat_points,5,,7.9%,,,32,32,0,0,0,0
+Machamp,180,stat_points,6,,4.7%,,,32,20,0,0,14,0
+Machamp,180,stat_points,7,,3.9%,,,2,32,0,0,32,0
+Machamp,180,stat_points,8,,1.6%,,,0,7,32,0,27,0
+Machamp,180,stat_points,9,,0.8%,,,2,32,0,0,0,32
+Machamp,180,stat_points,10,,0.8%,,,10,32,14,0,10,0
+Machamp,180,ability,1,No Guard,100.0%,,,,,,,,

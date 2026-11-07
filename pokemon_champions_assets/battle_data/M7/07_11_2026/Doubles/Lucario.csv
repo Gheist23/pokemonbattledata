@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Lucario,58,move,1,Aura Sphere,85.5%,,,,,,,,
-Lucario,58,move,2,Flash Cannon,71.5%,,,,,,,,
-Lucario,58,move,3,Detect,54.1%,,,,,,,,
-Lucario,58,move,4,Nasty Plot,29.7%,,,,,,,,
-Lucario,58,move,5,Protect,28.6%,,,,,,,,
-Lucario,58,move,6,Dark Pulse,22.1%,,,,,,,,
-Lucario,58,move,7,Psychic,15.7%,,,,,,,,
-Lucario,58,move,8,Calm Mind,14.6%,,,,,,,,
-Lucario,58,move,9,Close Combat,13.1%,,,,,,,,
-Lucario,58,move,10,Meteor Mash,11.6%,,,,,,,,
-Lucario,58,held_item,1,Lucarionite Z,84.7%,,,,,,,,
+Lucario,58,move,2,Flash Cannon,69.6%,,,,,,,,
+Lucario,58,move,3,Detect,54.2%,,,,,,,,
+Lucario,58,move,4,Protect,28.6%,,,,,,,,
+Lucario,58,move,5,Nasty Plot,26.4%,,,,,,,,
+Lucario,58,move,6,Dark Pulse,24.5%,,,,,,,,
+Lucario,58,move,7,Psychic,14.4%,,,,,,,,
+Lucario,58,move,8,Close Combat,13.2%,,,,,,,,
+Lucario,58,move,9,Calm Mind,12.9%,,,,,,,,
+Lucario,58,move,10,Meteor Mash,11.9%,,,,,,,,
+Lucario,58,held_item,1,Lucarionite Z,84.8%,,,,,,,,
 Lucario,58,held_item,2,Choice Scarf,8.7%,,,,,,,,
-Lucario,58,held_item,3,Lucarionite,3.6%,,,,,,,,
-Lucario,58,held_item,4,Focus Sash,1.4%,,,,,,,,
-Lucario,58,held_item,5,Life Orb,1.1%,,,,,,,,
+Lucario,58,held_item,3,Lucarionite,3.3%,,,,,,,,
+Lucario,58,held_item,4,Life Orb,1.6%,,,,,,,,
+Lucario,58,held_item,5,Focus Sash,1.2%,,,,,,,,
 Lucario,58,held_item,6,Shuca Berry,0.1%,,,,,,,,
 Lucario,58,held_item,7,Leftovers,0.1%,,,,,,,,
 Lucario,58,teammate,1,Rillaboom,,,,,,,,,
@@ -24,26 +24,28 @@ Lucario,58,teammate,5,Incineroar,,,,,,,,,
 Lucario,58,teammate,6,Basculegion,,,,,,,,,
 Lucario,58,teammate,7,Armarouge,,,,,,,,,
 Lucario,58,teammate,8,Sinistcha,,,,,,,,,
-Lucario,58,teammate,9,Gardevoir,,,,,,,,,
-Lucario,58,teammate,10,Kingambit,,,,,,,,,
-Lucario,58,stat_alignment,1,Modest,49.8%,Sp. Atk,Attack,,,,,,
-Lucario,58,stat_alignment,2,Timid,36.0%,Speed,Attack,,,,,,
-Lucario,58,stat_alignment,3,Adamant,11.6%,Attack,Sp. Atk,,,,,,
-Lucario,58,stat_alignment,4,Jolly,2.1%,Speed,Sp. Atk,,,,,,
+Lucario,58,teammate,9,Kingambit,,,,,,,,,
+Lucario,58,teammate,10,Arcanine-Hisui,,,,,,,,,
+Lucario,58,stat_alignment,1,Modest,50.5%,Sp. Atk,Attack,,,,,,
+Lucario,58,stat_alignment,2,Timid,35.0%,Speed,Attack,,,,,,
+Lucario,58,stat_alignment,3,Adamant,11.8%,Attack,Sp. Atk,,,,,,
+Lucario,58,stat_alignment,4,Jolly,1.9%,Speed,Sp. Atk,,,,,,
 Lucario,58,stat_alignment,5,Bold,0.3%,Defense,Attack,,,,,,
-Lucario,58,stat_alignment,6,Hasty,0.1%,Speed,Defense,,,,,,
-Lucario,58,stat_alignment,7,Naive,0.1%,Speed,Sp. Def,,,,,,
-Lucario,58,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Lucario,58,stat_points,1,,31.2%,,,2,0,0,32,0,32
-Lucario,58,stat_points,2,,7.0%,,,14,0,0,20,0,32
-Lucario,58,stat_points,3,,6.8%,,,0,0,2,32,0,32
-Lucario,58,stat_points,4,,6.8%,,,0,32,0,0,0,32
-Lucario,58,stat_points,5,,4.3%,,,2,32,0,0,0,32
-Lucario,58,stat_points,6,,3.8%,,,21,0,5,10,0,30
-Lucario,58,stat_points,7,,2.6%,,,0,0,0,32,0,32
-Lucario,58,stat_points,8,,2.4%,,,5,0,0,30,0,31
-Lucario,58,stat_points,9,,2.2%,,,32,0,2,0,15,17
-Lucario,58,stat_points,10,,2.0%,,,4,0,0,31,0,31
-Lucario,58,ability,1,Inner Focus,91.4%,,,,,,,,
-Lucario,58,ability,2,Steadfast,8.0%,,,,,,,,
-Lucario,58,ability,3,Justified,0.6%,,,,,,,,
+Lucario,58,stat_alignment,6,Calm,0.2%,Sp. Def,Attack,,,,,,
+Lucario,58,stat_alignment,7,Lonely,0.1%,Attack,Defense,,,,,,
+Lucario,58,stat_alignment,8,Hasty,0.1%,Speed,Defense,,,,,,
+Lucario,58,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,
+Lucario,58,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Lucario,58,stat_points,1,,30.8%,,,2,0,0,32,0,32
+Lucario,58,stat_points,2,,6.3%,,,0,32,0,0,0,32
+Lucario,58,stat_points,3,,5.8%,,,14,0,0,20,0,32
+Lucario,58,stat_points,4,,5.7%,,,0,0,2,32,0,32
+Lucario,58,stat_points,5,,4.0%,,,2,32,0,0,0,32
+Lucario,58,stat_points,6,,3.6%,,,21,0,5,10,0,30
+Lucario,58,stat_points,7,,3.1%,,,4,0,0,32,0,30
+Lucario,58,stat_points,8,,2.8%,,,0,0,0,32,0,32
+Lucario,58,stat_points,9,,2.2%,,,4,0,0,31,0,31
+Lucario,58,stat_points,10,,2.0%,,,5,0,0,30,0,31
+Lucario,58,ability,1,Inner Focus,90.1%,,,,,,,,
+Lucario,58,ability,2,Steadfast,8.8%,,,,,,,,
+Lucario,58,ability,3,Justified,1.1%,,,,,,,,

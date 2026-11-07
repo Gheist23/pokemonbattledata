@@ -1,42 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Noivern,139,move,1,Tailwind,79.8%,,,,,,,,
-Noivern,139,move,2,Taunt,56.7%,,,,,,,,
-Noivern,139,move,3,Dragon Cheer,38.2%,,,,,,,,
-Noivern,139,move,4,Protect,37.3%,,,,,,,,
-Noivern,139,move,5,Air Slash,35.6%,,,,,,,,
-Noivern,139,move,6,Heat Wave,35.2%,,,,,,,,
-Noivern,139,move,7,Draco Meteor,30.5%,,,,,,,,
-Noivern,139,move,8,Super Fang,30.0%,,,,,,,,
-Noivern,139,move,9,Dragon Pulse,17.2%,,,,,,,,
-Noivern,139,move,10,Flamethrower,13.3%,,,,,,,,
-Noivern,139,held_item,1,Focus Sash,71.2%,,,,,,,,
-Noivern,139,held_item,2,Sharp Beak,10.3%,,,,,,,,
-Noivern,139,held_item,3,Sitrus Berry,5.2%,,,,,,,,
-Noivern,139,held_item,4,Bright Powder,3.9%,,,,,,,,
-Noivern,139,held_item,5,Choice Scarf,3.4%,,,,,,,,
-Noivern,139,held_item,6,Dragon Fang,2.6%,,,,,,,,
-Noivern,139,held_item,7,Life Orb,2.6%,,,,,,,,
-Noivern,139,held_item,8,Roseli Berry,0.9%,,,,,,,,
-Noivern,139,teammate,1,Corviknight,,,,,,,,,
-Noivern,139,teammate,2,Baxcalibur,,,,,,,,,
-Noivern,139,teammate,3,Slowking-Galar,,,,,,,,,
-Noivern,139,teammate,4,Grapploct,,,,,,,,,
-Noivern,139,teammate,5,Golisopod,,,,,,,,,
-Noivern,139,teammate,6,Sneasler,,,,,,,,,
-Noivern,139,teammate,7,Metagross,,,,,,,,,
-Noivern,139,teammate,8,Kingambit,,,,,,,,,
-Noivern,139,teammate,9,Gardevoir,,,,,,,,,
-Noivern,139,teammate,10,Charizard,,,,,,,,,
-Noivern,139,stat_alignment,1,Timid,71.2%,Speed,Attack,,,,,,
-Noivern,139,stat_alignment,2,Modest,28.8%,Sp. Atk,Attack,,,,,,
-Noivern,139,stat_points,1,,73.0%,,,2,0,0,32,0,32
-Noivern,139,stat_points,2,,13.3%,,,0,0,2,32,0,32
-Noivern,139,stat_points,3,,4.3%,,,12,0,0,22,0,32
-Noivern,139,stat_points,4,,3.0%,,,16,0,0,17,0,32
-Noivern,139,stat_points,5,,2.6%,,,1,0,1,32,0,32
-Noivern,139,stat_points,6,,2.6%,,,7,0,0,32,0,27
-Noivern,139,stat_points,7,,0.9%,,,25,0,9,0,0,32
-Noivern,139,stat_points,8,,0.4%,,,3,0,0,32,0,31
-Noivern,139,ability,1,Frisk,63.5%,,,,,,,,
-Noivern,139,ability,2,Telepathy,26.6%,,,,,,,,
-Noivern,139,ability,3,Infiltrator,9.9%,,,,,,,,
+Noivern,143,move,1,Tailwind,78.7%,,,,,,,,
+Noivern,143,move,2,Taunt,55.4%,,,,,,,,
+Noivern,143,move,3,Air Slash,40.3%,,,,,,,,
+Noivern,143,move,4,Protect,38.0%,,,,,,,,
+Noivern,143,move,5,Dragon Cheer,36.0%,,,,,,,,
+Noivern,143,move,6,Heat Wave,32.2%,,,,,,,,
+Noivern,143,move,7,Super Fang,31.4%,,,,,,,,
+Noivern,143,move,8,Draco Meteor,28.7%,,,,,,,,
+Noivern,143,move,9,Dragon Pulse,19.8%,,,,,,,,
+Noivern,143,move,10,Flamethrower,12.0%,,,,,,,,
+Noivern,143,held_item,1,Focus Sash,65.9%,,,,,,,,
+Noivern,143,held_item,2,Sharp Beak,12.4%,,,,,,,,
+Noivern,143,held_item,3,Sitrus Berry,4.7%,,,,,,,,
+Noivern,143,held_item,4,Roseli Berry,4.7%,,,,,,,,
+Noivern,143,held_item,5,Bright Powder,3.5%,,,,,,,,
+Noivern,143,held_item,6,Choice Scarf,3.1%,,,,,,,,
+Noivern,143,held_item,7,Dragon Fang,2.3%,,,,,,,,
+Noivern,143,held_item,8,Life Orb,2.3%,,,,,,,,
+Noivern,143,held_item,9,Haban Berry,1.2%,,,,,,,,
+Noivern,143,teammate,1,Corviknight,,,,,,,,,
+Noivern,143,teammate,2,Baxcalibur,,,,,,,,,
+Noivern,143,teammate,3,Slowking-Galar,,,,,,,,,
+Noivern,143,teammate,4,Grapploct,,,,,,,,,
+Noivern,143,teammate,5,Golisopod,,,,,,,,,
+Noivern,143,teammate,6,Sneasler,,,,,,,,,
+Noivern,143,teammate,7,Metagross,,,,,,,,,
+Noivern,143,teammate,8,Charizard,,,,,,,,,
+Noivern,143,teammate,9,Kingambit,,,,,,,,,
+Noivern,143,teammate,10,Hydreigon,,,,,,,,,
+Noivern,143,stat_alignment,1,Timid,69.8%,Speed,Attack,,,,,,
+Noivern,143,stat_alignment,2,Modest,30.2%,Sp. Atk,Attack,,,,,,
+Noivern,143,stat_points,1,,75.6%,,,2,0,0,32,0,32
+Noivern,143,stat_points,2,,12.0%,,,0,0,2,32,0,32
+Noivern,143,stat_points,3,,3.9%,,,12,0,0,22,0,32
+Noivern,143,stat_points,4,,2.7%,,,16,0,0,17,0,32
+Noivern,143,stat_points,5,,2.3%,,,1,0,1,32,0,32
+Noivern,143,stat_points,6,,2.3%,,,7,0,0,32,0,27
+Noivern,143,stat_points,7,,0.8%,,,25,0,9,0,0,32
+Noivern,143,stat_points,8,,0.4%,,,3,0,0,32,0,31
+Noivern,143,ability,1,Frisk,63.2%,,,,,,,,
+Noivern,143,ability,2,Telepathy,27.9%,,,,,,,,
+Noivern,143,ability,3,Infiltrator,8.9%,,,,,,,,

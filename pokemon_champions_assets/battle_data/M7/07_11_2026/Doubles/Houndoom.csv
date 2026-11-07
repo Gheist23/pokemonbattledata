@@ -1,43 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Houndoom,120,move,1,Heat Wave,97.5%,,,,,,,,
-Houndoom,120,move,2,Protect,96.6%,,,,,,,,
-Houndoom,120,move,3,Dark Pulse,94.1%,,,,,,,,
-Houndoom,120,move,4,Scorching Sands,35.2%,,,,,,,,
-Houndoom,120,move,5,Snarl,21.2%,,,,,,,,
-Houndoom,120,move,6,Solar Beam,20.9%,,,,,,,,
-Houndoom,120,move,7,Overheat,14.8%,,,,,,,,
-Houndoom,120,move,8,Howl,5.6%,,,,,,,,
-Houndoom,120,move,9,Sludge Bomb,3.6%,,,,,,,,
-Houndoom,120,move,10,Nasty Plot,3.4%,,,,,,,,
-Houndoom,120,held_item,1,Houndoominite,96.6%,,,,,,,,
-Houndoom,120,held_item,2,Life Orb,1.7%,,,,,,,,
-Houndoom,120,held_item,3,Black Glasses,0.6%,,,,,,,,
-Houndoom,120,held_item,4,Focus Sash,0.6%,,,,,,,,
-Houndoom,120,held_item,5,Shuca Berry,0.3%,,,,,,,,
-Houndoom,120,held_item,6,Choice Scarf,0.3%,,,,,,,,
-Houndoom,120,teammate,1,Whimsicott,,,,,,,,,
-Houndoom,120,teammate,2,Torkoal,,,,,,,,,
-Houndoom,120,teammate,3,Staraptor,,,,,,,,,
-Houndoom,120,teammate,4,Charizard,,,,,,,,,
-Houndoom,120,teammate,5,Annihilape,,,,,,,,,
-Houndoom,120,teammate,6,Tsareena,,,,,,,,,
-Houndoom,120,teammate,7,Dragapult,,,,,,,,,
-Houndoom,120,teammate,8,Skarmory,,,,,,,,,
-Houndoom,120,teammate,9,Inteleon,,,,,,,,,
-Houndoom,120,teammate,10,Venusaur,,,,,,,,,
-Houndoom,120,stat_alignment,1,Timid,67.6%,Speed,Attack,,,,,,
-Houndoom,120,stat_alignment,2,Modest,31.8%,Sp. Atk,Attack,,,,,,
-Houndoom,120,stat_alignment,3,Calm,0.6%,Sp. Def,Attack,,,,,,
-Houndoom,120,stat_points,1,,29.9%,,,2,0,0,32,0,32
-Houndoom,120,stat_points,2,,16.5%,,,0,0,2,32,0,32
-Houndoom,120,stat_points,3,,14.2%,,,1,0,1,32,0,32
-Houndoom,120,stat_points,4,,14.2%,,,6,0,0,32,0,28
-Houndoom,120,stat_points,5,,13.1%,,,0,0,0,32,2,32
-Houndoom,120,stat_points,6,,5.6%,,,1,0,0,32,1,32
-Houndoom,120,stat_points,7,,3.1%,,,0,0,14,18,2,32
-Houndoom,120,stat_points,8,,1.1%,,,1,0,1,32,1,31
-Houndoom,120,stat_points,9,,0.8%,,,16,0,2,32,0,16
-Houndoom,120,stat_points,10,,0.6%,,,2,0,0,32,32,0
-Houndoom,120,ability,1,Flash Fire,86.0%,,,,,,,,
-Houndoom,120,ability,2,Early Bird,12.6%,,,,,,,,
-Houndoom,120,ability,3,Unnerve,1.4%,,,,,,,,
+Houndoom,125,move,1,Heat Wave,97.3%,,,,,,,,
+Houndoom,125,move,2,Protect,96.5%,,,,,,,,
+Houndoom,125,move,3,Dark Pulse,93.0%,,,,,,,,
+Houndoom,125,move,4,Scorching Sands,34.6%,,,,,,,,
+Houndoom,125,move,5,Solar Beam,21.9%,,,,,,,,
+Houndoom,125,move,6,Snarl,21.6%,,,,,,,,
+Houndoom,125,move,7,Overheat,15.4%,,,,,,,,
+Houndoom,125,move,8,Howl,5.4%,,,,,,,,
+Houndoom,125,move,9,Sludge Bomb,3.5%,,,,,,,,
+Houndoom,125,move,10,Flamethrower,3.5%,,,,,,,,
+Houndoom,125,held_item,1,Houndoominite,96.5%,,,,,,,,
+Houndoom,125,held_item,2,Life Orb,1.6%,,,,,,,,
+Houndoom,125,held_item,3,Black Glasses,0.5%,,,,,,,,
+Houndoom,125,held_item,4,Focus Sash,0.5%,,,,,,,,
+Houndoom,125,held_item,5,Shuca Berry,0.3%,,,,,,,,
+Houndoom,125,held_item,6,Choice Scarf,0.3%,,,,,,,,
+Houndoom,125,held_item,7,Roseli Berry,0.3%,,,,,,,,
+Houndoom,125,teammate,1,Whimsicott,,,,,,,,,
+Houndoom,125,teammate,2,Torkoal,,,,,,,,,
+Houndoom,125,teammate,3,Staraptor,,,,,,,,,
+Houndoom,125,teammate,4,Charizard,,,,,,,,,
+Houndoom,125,teammate,5,Annihilape,,,,,,,,,
+Houndoom,125,teammate,6,Tsareena,,,,,,,,,
+Houndoom,125,teammate,7,Dragapult,,,,,,,,,
+Houndoom,125,teammate,8,Skarmory,,,,,,,,,
+Houndoom,125,teammate,9,Inteleon,,,,,,,,,
+Houndoom,125,teammate,10,Venusaur,,,,,,,,,
+Houndoom,125,stat_alignment,1,Timid,67.6%,Speed,Attack,,,,,,
+Houndoom,125,stat_alignment,2,Modest,31.4%,Sp. Atk,Attack,,,,,,
+Houndoom,125,stat_alignment,3,Hasty,0.5%,Speed,Defense,,,,,,
+Houndoom,125,stat_alignment,4,Calm,0.5%,Sp. Def,Attack,,,,,,
+Houndoom,125,stat_points,1,,30.0%,,,2,0,0,32,0,32
+Houndoom,125,stat_points,2,,16.2%,,,0,0,2,32,0,32
+Houndoom,125,stat_points,3,,14.1%,,,1,0,1,32,0,32
+Houndoom,125,stat_points,4,,13.8%,,,6,0,0,32,0,28
+Houndoom,125,stat_points,5,,13.2%,,,0,0,0,32,2,32
+Houndoom,125,stat_points,6,,5.4%,,,1,0,0,32,1,32
+Houndoom,125,stat_points,7,,3.0%,,,0,0,14,18,2,32
+Houndoom,125,stat_points,8,,1.1%,,,1,0,1,32,1,31
+Houndoom,125,stat_points,9,,0.8%,,,16,0,2,32,0,16
+Houndoom,125,stat_points,10,,0.5%,,,2,0,0,32,32,0
+Houndoom,125,ability,1,Flash Fire,86.2%,,,,,,,,
+Houndoom,125,ability,2,Early Bird,12.2%,,,,,,,,
+Houndoom,125,ability,3,Unnerve,1.6%,,,,,,,,

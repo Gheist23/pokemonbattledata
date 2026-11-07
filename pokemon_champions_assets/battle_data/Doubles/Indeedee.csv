@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Indeedee,26,move,1,Expanding Force,99.9%,,,,,,,,
-Indeedee,26,move,2,Trick Room,63.3%,,,,,,,,
-Indeedee,26,move,3,Imprison,56.7%,,,,,,,,
-Indeedee,26,move,4,Hyper Voice,42.8%,,,,,,,,
-Indeedee,26,move,5,Mystical Fire,36.3%,,,,,,,,
-Indeedee,26,move,6,Protect,28.9%,,,,,,,,
-Indeedee,26,move,7,Trick,18.1%,,,,,,,,
-Indeedee,26,move,8,Energy Ball,10.2%,,,,,,,,
-Indeedee,26,move,9,Dazzling Gleam,8.5%,,,,,,,,
-Indeedee,26,move,10,Encore,5.4%,,,,,,,,
-Indeedee,26,held_item,1,Focus Sash,51.2%,,,,,,,,
-Indeedee,26,held_item,2,Choice Scarf,34.9%,,,,,,,,
-Indeedee,26,held_item,3,Twisted Spoon,4.1%,,,,,,,,
-Indeedee,26,held_item,4,Psychic Seed,3.7%,,,,,,,,
-Indeedee,26,held_item,5,Colbur Berry,2.3%,,,,,,,,
-Indeedee,26,held_item,6,Life Orb,1.4%,,,,,,,,
+Indeedee,26,move,2,Trick Room,62.2%,,,,,,,,
+Indeedee,26,move,3,Imprison,54.8%,,,,,,,,
+Indeedee,26,move,4,Hyper Voice,41.0%,,,,,,,,
+Indeedee,26,move,5,Mystical Fire,37.5%,,,,,,,,
+Indeedee,26,move,6,Protect,29.4%,,,,,,,,
+Indeedee,26,move,7,Trick,19.3%,,,,,,,,
+Indeedee,26,move,8,Energy Ball,9.7%,,,,,,,,
+Indeedee,26,move,9,Dazzling Gleam,9.3%,,,,,,,,
+Indeedee,26,move,10,Encore,5.8%,,,,,,,,
+Indeedee,26,held_item,1,Focus Sash,50.3%,,,,,,,,
+Indeedee,26,held_item,2,Choice Scarf,36.1%,,,,,,,,
+Indeedee,26,held_item,3,Twisted Spoon,4.2%,,,,,,,,
+Indeedee,26,held_item,4,Psychic Seed,3.6%,,,,,,,,
+Indeedee,26,held_item,5,Colbur Berry,2.2%,,,,,,,,
+Indeedee,26,held_item,6,Life Orb,1.2%,,,,,,,,
 Indeedee,26,held_item,7,Terrain Extender,1.1%,,,,,,,,
-Indeedee,26,held_item,8,Iron Ball,0.5%,,,,,,,,
-Indeedee,26,held_item,9,Sitrus Berry,0.3%,,,,,,,,
-Indeedee,26,held_item,10,Rocky Helmet,0.2%,,,,,,,,
+Indeedee,26,held_item,8,Iron Ball,0.4%,,,,,,,,
+Indeedee,26,held_item,9,Sitrus Berry,0.2%,,,,,,,,
+Indeedee,26,held_item,10,Wise Glasses,0.2%,,,,,,,,
 Indeedee,26,teammate,1,Sneasler,,,,,,,,,
 Indeedee,26,teammate,2,Garchomp,,,,,,,,,
 Indeedee,26,teammate,3,Charizard,,,,,,,,,
@@ -29,23 +29,23 @@ Indeedee,26,teammate,7,Salamence,,,,,,,,,
 Indeedee,26,teammate,8,Tyranitar,,,,,,,,,
 Indeedee,26,teammate,9,Excadrill,,,,,,,,,
 Indeedee,26,teammate,10,Milotic,,,,,,,,,
-Indeedee,26,stat_alignment,1,Timid,61.0%,Speed,Attack,,,,,,
-Indeedee,26,stat_alignment,2,Modest,36.9%,Sp. Atk,Attack,,,,,,
-Indeedee,26,stat_alignment,3,Bold,0.9%,Defense,Attack,,,,,,
-Indeedee,26,stat_alignment,4,Quiet,0.5%,Sp. Atk,Speed,,,,,,
-Indeedee,26,stat_alignment,5,Mild,0.3%,Sp. Atk,Defense,,,,,,
+Indeedee,26,stat_alignment,1,Timid,60.0%,Speed,Attack,,,,,,
+Indeedee,26,stat_alignment,2,Modest,37.7%,Sp. Atk,Attack,,,,,,
+Indeedee,26,stat_alignment,3,Bold,1.0%,Defense,Attack,,,,,,
+Indeedee,26,stat_alignment,4,Quiet,0.7%,Sp. Atk,Speed,,,,,,
+Indeedee,26,stat_alignment,5,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Indeedee,26,stat_alignment,6,Calm,0.2%,Sp. Def,Attack,,,,,,
-Indeedee,26,stat_alignment,7,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Indeedee,26,stat_alignment,8,Relaxed,0.0%,Defense,Speed,,,,,,
-Indeedee,26,stat_points,1,,62.5%,,,2,0,0,32,0,32
-Indeedee,26,stat_points,2,,9.7%,,,0,0,2,32,0,32
-Indeedee,26,stat_points,3,,7.5%,,,0,0,0,32,2,32
-Indeedee,26,stat_points,4,,2.5%,,,1,0,1,32,0,32
+Indeedee,26,stat_alignment,7,Relaxed,0.1%,Defense,Speed,,,,,,
+Indeedee,26,stat_alignment,8,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Indeedee,26,stat_points,1,,62.2%,,,2,0,0,32,0,32
+Indeedee,26,stat_points,2,,10.0%,,,0,0,2,32,0,32
+Indeedee,26,stat_points,3,,7.2%,,,0,0,0,32,2,32
+Indeedee,26,stat_points,4,,2.6%,,,1,0,1,32,0,32
 Indeedee,26,stat_points,5,,1.8%,,,0,0,0,32,0,32
-Indeedee,26,stat_points,6,,1.1%,,,32,0,32,2,0,0
-Indeedee,26,stat_points,7,,1.1%,,,32,0,2,32,0,0
-Indeedee,26,stat_points,8,,1.0%,,,12,0,0,32,0,22
-Indeedee,26,stat_points,9,,1.0%,,,32,0,21,13,0,0
-Indeedee,26,stat_points,10,,0.9%,,,16,0,0,18,0,32
-Indeedee,26,ability,1,Psychic Surge,99.7%,,,,,,,,
-Indeedee,26,ability,2,Inner Focus,0.3%,,,,,,,,
+Indeedee,26,stat_points,6,,1.0%,,,12,0,0,32,0,22
+Indeedee,26,stat_points,7,,1.0%,,,32,0,2,32,0,0
+Indeedee,26,stat_points,8,,1.0%,,,32,0,32,2,0,0
+Indeedee,26,stat_points,9,,0.9%,,,32,0,21,13,0,0
+Indeedee,26,stat_points,10,,0.7%,,,16,0,0,18,0,32
+Indeedee,26,ability,1,Psychic Surge,99.6%,,,,,,,,
+Indeedee,26,ability,2,Inner Focus,0.4%,,,,,,,,

@@ -1,41 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emboar,176,move,1,Flare Blitz,91.1%,,,,,,,,
-Emboar,176,move,2,Close Combat,72.7%,,,,,,,,
-Emboar,176,move,3,Sucker Punch,56.3%,,,,,,,,
-Emboar,176,move,4,Wild Charge,48.1%,,,,,,,,
-Emboar,176,move,5,Earthquake,28.7%,,,,,,,,
-Emboar,176,move,6,Drain Punch,26.3%,,,,,,,,
-Emboar,176,move,7,Stone Edge,18.1%,,,,,,,,
-Emboar,176,move,8,Bulk Up,10.6%,,,,,,,,
-Emboar,176,move,9,Head Smash,9.2%,,,,,,,,
-Emboar,176,move,10,High Horsepower,9.2%,,,,,,,,
-Emboar,176,held_item,1,Emboarite,99.0%,,,,,,,,
-Emboar,176,held_item,2,Expert Belt,0.3%,,,,,,,,
-Emboar,176,held_item,3,Life Orb,0.3%,,,,,,,,
-Emboar,176,held_item,4,Focus Sash,0.3%,,,,,,,,
-Emboar,176,teammate,1,Garchomp,,,,,,,,,
-Emboar,176,teammate,2,Gyarados,,,,,,,,,
-Emboar,176,teammate,3,Glimmora,,,,,,,,,
-Emboar,176,teammate,4,Kingambit,,,,,,,,,
-Emboar,176,teammate,5,Hydreigon,,,,,,,,,
-Emboar,176,teammate,6,Archaludon,,,,,,,,,
-Emboar,176,teammate,7,Gholdengo,,,,,,,,,
-Emboar,176,teammate,8,Toucannon,,,,,,,,,
-Emboar,176,teammate,9,Arboliva,,,,,,,,,
-Emboar,176,teammate,10,Grimmsnarl,,,,,,,,,
-Emboar,176,stat_alignment,1,Adamant,89.1%,Attack,Sp. Atk,,,,,,
-Emboar,176,stat_alignment,2,Brave,8.2%,Attack,Speed,,,,,,
-Emboar,176,stat_alignment,3,Serious,2.4%,,,,,,,,
-Emboar,176,stat_alignment,4,Quiet,0.3%,Sp. Atk,Speed,,,,,,
-Emboar,176,stat_points,1,,14.3%,,,22,31,0,0,0,13
-Emboar,176,stat_points,2,,13.7%,,,10,32,12,0,12,0
-Emboar,176,stat_points,3,,11.6%,,,32,32,2,0,0,0
-Emboar,176,stat_points,4,,10.2%,,,14,32,0,0,0,20
-Emboar,176,stat_points,5,,9.2%,,,2,32,0,0,32,0
-Emboar,176,stat_points,6,,6.8%,,,0,32,2,0,32,0
-Emboar,176,stat_points,7,,6.8%,,,32,32,0,0,0,2
-Emboar,176,stat_points,8,,4.8%,,,26,25,15,0,0,0
-Emboar,176,stat_points,9,,4.4%,,,32,32,0,0,2,0
-Emboar,176,stat_points,10,,3.4%,,,0,32,9,0,5,20
-Emboar,176,ability,1,Reckless,66.6%,,,,,,,,
-Emboar,176,ability,2,Blaze,33.4%,,,,,,,,
+Emboar,175,move,1,Flare Blitz,89.2%,,,,,,,,
+Emboar,175,move,2,Close Combat,71.4%,,,,,,,,
+Emboar,175,move,3,Wild Charge,50.8%,,,,,,,,
+Emboar,175,move,4,Sucker Punch,48.7%,,,,,,,,
+Emboar,175,move,5,Drain Punch,27.5%,,,,,,,,
+Emboar,175,move,6,Earthquake,26.2%,,,,,,,,
+Emboar,175,move,7,Head Smash,14.8%,,,,,,,,
+Emboar,175,move,8,Stone Edge,14.0%,,,,,,,,
+Emboar,175,move,9,Bulk Up,10.1%,,,,,,,,
+Emboar,175,move,10,Overheat,9.0%,,,,,,,,
+Emboar,175,held_item,1,Emboarite,93.7%,,,,,,,,
+Emboar,175,held_item,2,Choice Scarf,4.8%,,,,,,,,
+Emboar,175,held_item,3,Charcoal,0.5%,,,,,,,,
+Emboar,175,held_item,4,Expert Belt,0.5%,,,,,,,,
+Emboar,175,held_item,5,Life Orb,0.3%,,,,,,,,
+Emboar,175,held_item,6,Focus Sash,0.3%,,,,,,,,
+Emboar,175,teammate,1,Gyarados,,,,,,,,,
+Emboar,175,teammate,2,Garchomp,,,,,,,,,
+Emboar,175,teammate,3,Glimmora,,,,,,,,,
+Emboar,175,teammate,4,Rillaboom,,,,,,,,,
+Emboar,175,teammate,5,Golisopod,,,,,,,,,
+Emboar,175,teammate,6,Hydreigon,,,,,,,,,
+Emboar,175,teammate,7,Arboliva,,,,,,,,,
+Emboar,175,teammate,8,Archaludon,,,,,,,,,
+Emboar,175,teammate,9,Kingambit,,,,,,,,,
+Emboar,175,teammate,10,Gholdengo,,,,,,,,,
+Emboar,175,stat_alignment,1,Adamant,82.8%,Attack,Sp. Atk,,,,,,
+Emboar,175,stat_alignment,2,Brave,10.3%,Attack,Speed,,,,,,
+Emboar,175,stat_alignment,3,Jolly,4.8%,Speed,Sp. Atk,,,,,,
+Emboar,175,stat_alignment,4,Serious,1.9%,,,,,,,,
+Emboar,175,stat_alignment,5,Quiet,0.3%,Sp. Atk,Speed,,,,,,
+Emboar,175,stat_points,1,,11.9%,,,22,31,0,0,0,13
+Emboar,175,stat_points,2,,11.1%,,,32,32,2,0,0,0
+Emboar,175,stat_points,3,,10.6%,,,10,32,12,0,12,0
+Emboar,175,stat_points,4,,9.0%,,,0,32,2,0,32,0
+Emboar,175,stat_points,5,,7.9%,,,14,32,0,0,0,20
+Emboar,175,stat_points,6,,7.1%,,,2,32,0,0,32,0
+Emboar,175,stat_points,7,,6.1%,,,32,2,0,0,0,32
+Emboar,175,stat_points,8,,5.6%,,,26,25,15,0,0,0
+Emboar,175,stat_points,9,,5.6%,,,32,32,0,0,0,2
+Emboar,175,stat_points,10,,4.8%,,,2,32,0,0,0,32
+Emboar,175,ability,1,Reckless,69.8%,,,,,,,,
+Emboar,175,ability,2,Blaze,30.2%,,,,,,,,

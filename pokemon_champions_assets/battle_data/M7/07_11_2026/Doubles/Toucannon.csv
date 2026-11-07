@@ -1,39 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Toucannon,196,move,1,Rock Blast,91.2%,,,,,,,,
-Toucannon,196,move,2,Brave Bird,61.4%,,,,,,,,
-Toucannon,196,move,3,Bullet Seed,49.1%,,,,,,,,
-Toucannon,196,move,4,Beak Blast,45.6%,,,,,,,,
-Toucannon,196,move,5,Protect,43.9%,,,,,,,,
-Toucannon,196,move,6,Knock Off,43.9%,,,,,,,,
-Toucannon,196,move,7,U-turn,43.9%,,,,,,,,
-Toucannon,196,move,8,Tailwind,10.5%,,,,,,,,
-Toucannon,196,move,9,Swords Dance,8.8%,,,,,,,,
-Toucannon,196,move,10,Encore,1.8%,,,,,,,,
-Toucannon,196,held_item,1,Choice Scarf,45.6%,,,,,,,,
-Toucannon,196,held_item,2,Life Orb,35.1%,,,,,,,,
-Toucannon,196,held_item,3,Scope Lens,8.8%,,,,,,,,
-Toucannon,196,held_item,4,Sitrus Berry,7.0%,,,,,,,,
-Toucannon,196,held_item,5,King's Rock,1.8%,,,,,,,,
-Toucannon,196,held_item,6,Focus Sash,1.8%,,,,,,,,
-Toucannon,196,teammate,1,Farigiraf,,,,,,,,,
-Toucannon,196,teammate,2,Politoed,,,,,,,,,
-Toucannon,196,teammate,3,Golisopod,,,,,,,,,
-Toucannon,196,teammate,4,Drampa,,,,,,,,,
-Toucannon,196,teammate,5,Archaludon,,,,,,,,,
-Toucannon,196,teammate,6,Manectric,,,,,,,,,
-Toucannon,196,teammate,7,Spiritomb,,,,,,,,,
-Toucannon,196,teammate,8,Gallade,,,,,,,,,
-Toucannon,196,teammate,9,Tinkaton,,,,,,,,,
-Toucannon,196,teammate,10,Incineroar,,,,,,,,,
-Toucannon,196,stat_alignment,1,Adamant,47.4%,Attack,Sp. Atk,,,,,,
-Toucannon,196,stat_alignment,2,Jolly,43.9%,Speed,Sp. Atk,,,,,,
-Toucannon,196,stat_alignment,3,Brave,8.8%,Attack,Speed,,,,,,
-Toucannon,196,stat_points,1,,45.6%,,,2,32,0,0,0,32
-Toucannon,196,stat_points,2,,29.8%,,,32,32,2,0,0,0
-Toucannon,196,stat_points,3,,8.8%,,,14,32,10,0,10,0
-Toucannon,196,stat_points,4,,7.0%,,,13,22,1,0,15,15
-Toucannon,196,stat_points,5,,5.3%,,,32,32,0,0,2,0
-Toucannon,196,stat_points,6,,1.8%,,,15,20,15,0,5,11
-Toucannon,196,stat_points,7,,1.8%,,,32,32,1,0,1,0
-Toucannon,196,ability,1,Skill Link,93.0%,,,,,,,,
-Toucannon,196,ability,2,Keen Eye,7.0%,,,,,,,,
+Toucannon,201,move,1,Rock Blast,89.2%,,,,,,,,
+Toucannon,201,move,2,Brave Bird,58.5%,,,,,,,,
+Toucannon,201,move,3,Beak Blast,50.8%,,,,,,,,
+Toucannon,201,move,4,Bullet Seed,44.6%,,,,,,,,
+Toucannon,201,move,5,Protect,41.5%,,,,,,,,
+Toucannon,201,move,6,Knock Off,38.5%,,,,,,,,
+Toucannon,201,move,7,U-turn,38.5%,,,,,,,,
+Toucannon,201,move,8,Tailwind,12.3%,,,,,,,,
+Toucannon,201,move,9,Swords Dance,9.2%,,,,,,,,
+Toucannon,201,move,10,Flame Charge,7.7%,,,,,,,,
+Toucannon,201,held_item,1,Choice Scarf,40.0%,,,,,,,,
+Toucannon,201,held_item,2,Life Orb,30.8%,,,,,,,,
+Toucannon,201,held_item,3,Sitrus Berry,9.2%,,,,,,,,
+Toucannon,201,held_item,4,Scope Lens,9.2%,,,,,,,,
+Toucannon,201,held_item,5,Focus Sash,9.2%,,,,,,,,
+Toucannon,201,held_item,6,King's Rock,1.5%,,,,,,,,
+Toucannon,201,teammate,1,Farigiraf,,,,,,,,,
+Toucannon,201,teammate,2,Drampa,,,,,,,,,
+Toucannon,201,teammate,3,Politoed,,,,,,,,,
+Toucannon,201,teammate,4,Golisopod,,,,,,,,,
+Toucannon,201,teammate,5,Archaludon,,,,,,,,,
+Toucannon,201,teammate,6,Manectric,,,,,,,,,
+Toucannon,201,teammate,7,Spiritomb,,,,,,,,,
+Toucannon,201,teammate,8,Gallade,,,,,,,,,
+Toucannon,201,teammate,9,Tinkaton,,,,,,,,,
+Toucannon,201,teammate,10,Incineroar,,,,,,,,,
+Toucannon,201,stat_alignment,1,Adamant,52.3%,Attack,Sp. Atk,,,,,,
+Toucannon,201,stat_alignment,2,Jolly,38.5%,Speed,Sp. Atk,,,,,,
+Toucannon,201,stat_alignment,3,Brave,9.2%,Attack,Speed,,,,,,
+Toucannon,201,stat_points,1,,40.0%,,,2,32,0,0,0,32
+Toucannon,201,stat_points,2,,26.2%,,,32,32,2,0,0,0
+Toucannon,201,stat_points,3,,9.2%,,,14,32,10,0,10,0
+Toucannon,201,stat_points,4,,7.7%,,,32,32,0,0,0,2
+Toucannon,201,stat_points,5,,6.2%,,,13,22,1,0,15,15
+Toucannon,201,stat_points,6,,4.6%,,,32,32,0,0,2,0
+Toucannon,201,stat_points,7,,3.1%,,,22,20,4,0,5,15
+Toucannon,201,stat_points,8,,1.5%,,,15,20,15,0,5,11
+Toucannon,201,stat_points,9,,1.5%,,,32,32,1,0,1,0
+Toucannon,201,ability,1,Skill Link,83.1%,,,,,,,,
+Toucannon,201,ability,2,Keen Eye,16.9%,,,,,,,,

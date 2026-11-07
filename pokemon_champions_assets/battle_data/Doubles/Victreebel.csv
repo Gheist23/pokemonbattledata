@@ -1,35 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Victreebel,197,move,1,Sludge Bomb,94.6%,,,,,,,,
-Victreebel,197,move,2,Giga Drain,92.9%,,,,,,,,
-Victreebel,197,move,3,Sucker Punch,80.4%,,,,,,,,
-Victreebel,197,move,4,Weather Ball,75.0%,,,,,,,,
-Victreebel,197,move,5,Protect,21.4%,,,,,,,,
-Victreebel,197,move,6,Sludge Wave,8.9%,,,,,,,,
-Victreebel,197,move,7,Strength Sap,8.9%,,,,,,,,
-Victreebel,197,move,8,Swords Dance,5.4%,,,,,,,,
-Victreebel,197,move,9,Poison Jab,5.4%,,,,,,,,
-Victreebel,197,move,10,Power Whip,5.4%,,,,,,,,
-Victreebel,197,held_item,1,Victreebelite,100.0%,,,,,,,,
-Victreebel,197,teammate,1,Basculegion,,,,,,,,,
-Victreebel,197,teammate,2,Pawmot,,,,,,,,,
-Victreebel,197,teammate,3,Pelipper,,,,,,,,,
-Victreebel,197,teammate,4,Kingambit,,,,,,,,,
-Victreebel,197,teammate,5,Floette-Eternal,,,,,,,,,
-Victreebel,197,teammate,6,Staraptor,,,,,,,,,
-Victreebel,197,teammate,7,Spiritomb,,,,,,,,,
-Victreebel,197,teammate,8,Snorlax,,,,,,,,,
-Victreebel,197,teammate,9,Gholdengo,,,,,,,,,
-Victreebel,197,teammate,10,Incineroar,,,,,,,,,
-Victreebel,197,stat_alignment,1,Rash,82.1%,Sp. Atk,Sp. Def,,,,,,
-Victreebel,197,stat_alignment,2,Quiet,8.9%,Sp. Atk,Speed,,,,,,
-Victreebel,197,stat_alignment,3,Lonely,5.4%,Attack,Defense,,,,,,
-Victreebel,197,stat_alignment,4,Modest,3.6%,Sp. Atk,Attack,,,,,,
-Victreebel,197,stat_points,1,,73.2%,,,30,0,0,17,0,19
-Victreebel,197,stat_points,2,,8.9%,,,32,2,0,32,0,0
-Victreebel,197,stat_points,3,,5.4%,,,32,0,0,20,0,14
-Victreebel,197,stat_points,4,,5.4%,,,32,32,0,0,0,2
-Victreebel,197,stat_points,5,,1.8%,,,21,0,0,32,0,13
-Victreebel,197,stat_points,6,,1.8%,,,32,0,0,30,0,4
-Victreebel,197,stat_points,7,,1.8%,,,32,0,0,32,0,2
-Victreebel,197,stat_points,8,,1.8%,,,32,0,15,14,5,0
-Victreebel,197,ability,1,Chlorophyll,100.0%,,,,,,,,
+Victreebel,193,move,1,Sludge Bomb,78.5%,,,,,,,,
+Victreebel,193,move,2,Giga Drain,77.2%,,,,,,,,
+Victreebel,193,move,3,Weather Ball,57.0%,,,,,,,,
+Victreebel,193,move,4,Sucker Punch,57.0%,,,,,,,,
+Victreebel,193,move,5,Protect,38.0%,,,,,,,,
+Victreebel,193,move,6,Strength Sap,24.1%,,,,,,,,
+Victreebel,193,move,7,Sleep Powder,17.7%,,,,,,,,
+Victreebel,193,move,8,Power Whip,15.2%,,,,,,,,
+Victreebel,193,move,9,Poison Jab,11.4%,,,,,,,,
+Victreebel,193,move,10,Wrap,6.3%,,,,,,,,
+Victreebel,193,held_item,1,Victreebelite,88.6%,,,,,,,,
+Victreebel,193,held_item,2,Wide Lens,7.6%,,,,,,,,
+Victreebel,193,held_item,3,Sitrus Berry,3.8%,,,,,,,,
+Victreebel,193,teammate,1,Basculegion,,,,,,,,,
+Victreebel,193,teammate,2,Pawmot,,,,,,,,,
+Victreebel,193,teammate,3,Pelipper,,,,,,,,,
+Victreebel,193,teammate,4,Kingambit,,,,,,,,,
+Victreebel,193,teammate,5,Floette-Eternal,,,,,,,,,
+Victreebel,193,teammate,6,Staraptor,,,,,,,,,
+Victreebel,193,teammate,7,Charizard,,,,,,,,,
+Victreebel,193,teammate,8,Incineroar,,,,,,,,,
+Victreebel,193,teammate,9,Garchomp,,,,,,,,,
+Victreebel,193,teammate,10,Tyranitar,,,,,,,,,
+Victreebel,193,stat_alignment,1,Rash,59.5%,Sp. Atk,Sp. Def,,,,,,
+Victreebel,193,stat_alignment,2,Modest,12.7%,Sp. Atk,Attack,,,,,,
+Victreebel,193,stat_alignment,3,Adamant,7.6%,Attack,Sp. Atk,,,,,,
+Victreebel,193,stat_alignment,4,Timid,6.3%,Speed,Attack,,,,,,
+Victreebel,193,stat_alignment,5,Quiet,6.3%,Sp. Atk,Speed,,,,,,
+Victreebel,193,stat_alignment,6,Lonely,3.8%,Attack,Defense,,,,,,
+Victreebel,193,stat_alignment,7,Jolly,3.8%,Speed,Sp. Atk,,,,,,
+Victreebel,193,stat_points,1,,51.9%,,,30,0,0,17,0,19
+Victreebel,193,stat_points,2,,7.6%,,,30,21,10,0,5,0
+Victreebel,193,stat_points,3,,6.3%,,,32,0,0,13,0,21
+Victreebel,193,stat_points,4,,6.3%,,,32,0,15,14,5,0
+Victreebel,193,stat_points,5,,6.3%,,,32,2,0,32,0,0
+Victreebel,193,stat_points,6,,5.1%,,,21,0,0,32,0,13
+Victreebel,193,stat_points,7,,3.8%,,,32,0,0,0,2,32
+Victreebel,193,stat_points,8,,3.8%,,,32,0,0,20,0,14
+Victreebel,193,stat_points,9,,3.8%,,,32,32,0,0,0,2
+Victreebel,193,stat_points,10,,2.5%,,,32,0,0,32,0,2
+Victreebel,193,ability,1,Chlorophyll,100.0%,,,,,,,,

@@ -1,33 +1,35 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pinsir,195,move,1,Feint,100.0%,,,,,,,,
-Pinsir,195,move,2,Storm Throw,82.5%,,,,,,,,
-Pinsir,195,move,3,Protect,54.4%,,,,,,,,
-Pinsir,195,move,4,Giga Impact,49.1%,,,,,,,,
-Pinsir,195,move,5,Body Slam,47.4%,,,,,,,,
-Pinsir,195,move,6,Detect,28.1%,,,,,,,,
-Pinsir,195,move,7,X-Scissor,15.8%,,,,,,,,
-Pinsir,195,move,8,High Horsepower,10.5%,,,,,,,,
-Pinsir,195,move,9,Close Combat,5.3%,,,,,,,,
-Pinsir,195,move,10,Lunge,5.3%,,,,,,,,
-Pinsir,195,held_item,1,Pinsirite,100.0%,,,,,,,,
-Pinsir,195,teammate,1,Metagross,,,,,,,,,
-Pinsir,195,teammate,2,Tauros-Paldea-Aqua,,,,,,,,,
-Pinsir,195,teammate,3,Whimsicott,,,,,,,,,
-Pinsir,195,teammate,4,Farigiraf,,,,,,,,,
-Pinsir,195,teammate,5,Camerupt,,,,,,,,,
-Pinsir,195,teammate,6,Garchomp,,,,,,,,,
-Pinsir,195,teammate,7,Talonflame,,,,,,,,,
-Pinsir,195,teammate,8,Sneasler,,,,,,,,,
-Pinsir,195,teammate,9,Persian-Alola,,,,,,,,,
-Pinsir,195,teammate,10,Volcarona,,,,,,,,,
-Pinsir,195,stat_alignment,1,Jolly,84.2%,Speed,Sp. Atk,,,,,,
-Pinsir,195,stat_alignment,2,Adamant,15.8%,Attack,Sp. Atk,,,,,,
-Pinsir,195,stat_points,1,,47.4%,,,1,32,1,0,0,32
-Pinsir,195,stat_points,2,,29.8%,,,2,32,0,0,0,32
-Pinsir,195,stat_points,3,,7.0%,,,10,24,0,0,0,32
-Pinsir,195,stat_points,4,,5.3%,,,0,32,0,0,2,32
-Pinsir,195,stat_points,5,,5.3%,,,12,24,0,0,0,30
-Pinsir,195,stat_points,6,,3.5%,,,32,0,2,0,0,32
-Pinsir,195,stat_points,7,,1.8%,,,0,32,1,0,1,32
-Pinsir,195,ability,1,Hyper Cutter,94.7%,,,,,,,,
-Pinsir,195,ability,2,Moxie,5.3%,,,,,,,,
+Pinsir,200,move,1,Feint,100.0%,,,,,,,,
+Pinsir,200,move,2,Storm Throw,75.4%,,,,,,,,
+Pinsir,200,move,3,Body Slam,50.8%,,,,,,,,
+Pinsir,200,move,4,Protect,49.2%,,,,,,,,
+Pinsir,200,move,5,Giga Impact,46.2%,,,,,,,,
+Pinsir,200,move,6,Detect,35.4%,,,,,,,,
+Pinsir,200,move,7,X-Scissor,13.8%,,,,,,,,
+Pinsir,200,move,8,High Horsepower,12.3%,,,,,,,,
+Pinsir,200,move,9,Lunge,7.7%,,,,,,,,
+Pinsir,200,move,10,Close Combat,4.6%,,,,,,,,
+Pinsir,200,held_item,1,Pinsirite,100.0%,,,,,,,,
+Pinsir,200,teammate,1,Metagross,,,,,,,,,
+Pinsir,200,teammate,2,Tauros-Paldea-Aqua,,,,,,,,,
+Pinsir,200,teammate,3,Whimsicott,,,,,,,,,
+Pinsir,200,teammate,4,Farigiraf,,,,,,,,,
+Pinsir,200,teammate,5,Camerupt,,,,,,,,,
+Pinsir,200,teammate,6,Garchomp,,,,,,,,,
+Pinsir,200,teammate,7,Sneasler,,,,,,,,,
+Pinsir,200,teammate,8,Talonflame,,,,,,,,,
+Pinsir,200,teammate,9,Armarouge,,,,,,,,,
+Pinsir,200,teammate,10,Persian-Alola,,,,,,,,,
+Pinsir,200,stat_alignment,1,Jolly,83.1%,Speed,Sp. Atk,,,,,,
+Pinsir,200,stat_alignment,2,Adamant,16.9%,Attack,Sp. Atk,,,,,,
+Pinsir,200,stat_points,1,,41.5%,,,1,32,1,0,0,32
+Pinsir,200,stat_points,2,,32.3%,,,2,32,0,0,0,32
+Pinsir,200,stat_points,3,,6.2%,,,10,24,0,0,0,32
+Pinsir,200,stat_points,4,,6.2%,,,32,0,2,0,0,32
+Pinsir,200,stat_points,5,,4.6%,,,0,32,0,0,2,32
+Pinsir,200,stat_points,6,,4.6%,,,12,24,0,0,0,30
+Pinsir,200,stat_points,7,,3.1%,,,19,32,0,0,14,1
+Pinsir,200,stat_points,8,,1.5%,,,0,32,1,0,1,32
+Pinsir,200,ability,1,Hyper Cutter,92.3%,,,,,,,,
+Pinsir,200,ability,2,Moxie,4.6%,,,,,,,,
+Pinsir,200,ability,3,Mold Breaker,3.1%,,,,,,,,

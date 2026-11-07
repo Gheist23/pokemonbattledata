@@ -1,47 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Roserade,184,move,1,Sludge Bomb,80.7%,,,,,,,,
-Roserade,184,move,2,Shadow Ball,43.8%,,,,,,,,
-Roserade,184,move,3,Leaf Storm,41.4%,,,,,,,,
-Roserade,184,move,4,Spikes,37.3%,,,,,,,,
-Roserade,184,move,5,Leech Seed,36.9%,,,,,,,,
-Roserade,184,move,6,Toxic Spikes,28.9%,,,,,,,,
-Roserade,184,move,7,Dazzling Gleam,26.1%,,,,,,,,
-Roserade,184,move,8,Sleep Powder,23.7%,,,,,,,,
-Roserade,184,move,9,Synthesis,16.9%,,,,,,,,
-Roserade,184,move,10,Toxic,16.9%,,,,,,,,
-Roserade,184,held_item,1,Leftovers,32.9%,,,,,,,,
-Roserade,184,held_item,2,Focus Sash,32.9%,,,,,,,,
-Roserade,184,held_item,3,Choice Scarf,16.1%,,,,,,,,
-Roserade,184,held_item,4,Sitrus Berry,11.6%,,,,,,,,
-Roserade,184,held_item,5,Lum Berry,5.2%,,,,,,,,
-Roserade,184,held_item,6,Bright Powder,0.4%,,,,,,,,
-Roserade,184,held_item,7,Big Root,0.4%,,,,,,,,
-Roserade,184,held_item,8,Rocky Helmet,0.4%,,,,,,,,
-Roserade,184,teammate,1,Garchomp,,,,,,,,,
-Roserade,184,teammate,2,Golisopod,,,,,,,,,
-Roserade,184,teammate,3,Tyranitar,,,,,,,,,
-Roserade,184,teammate,4,Charizard,,,,,,,,,
-Roserade,184,teammate,5,Lucario,,,,,,,,,
-Roserade,184,teammate,6,Volcarona,,,,,,,,,
-Roserade,184,teammate,7,Ninetales-Alola,,,,,,,,,
-Roserade,184,teammate,8,Mamoswine,,,,,,,,,
-Roserade,184,teammate,9,Talonflame,,,,,,,,,
-Roserade,184,teammate,10,Hydreigon,,,,,,,,,
-Roserade,184,stat_alignment,1,Modest,36.1%,Sp. Atk,Attack,,,,,,
-Roserade,184,stat_alignment,2,Calm,32.9%,Sp. Def,Attack,,,,,,
-Roserade,184,stat_alignment,3,Timid,17.3%,Speed,Attack,,,,,,
-Roserade,184,stat_alignment,4,Bold,12.9%,Defense,Attack,,,,,,
-Roserade,184,stat_alignment,5,Mild,0.8%,Sp. Atk,Defense,,,,,,
-Roserade,184,stat_points,1,,28.1%,,,2,0,0,32,0,32
-Roserade,184,stat_points,2,,13.7%,,,0,0,0,32,2,32
-Roserade,184,stat_points,3,,12.9%,,,32,0,32,2,0,0
-Roserade,184,stat_points,4,,12.0%,,,32,0,0,0,31,3
-Roserade,184,stat_points,5,,9.2%,,,32,0,2,0,32,0
-Roserade,184,stat_points,6,,5.6%,,,32,0,0,2,32,0
-Roserade,184,stat_points,7,,5.2%,,,0,0,2,32,1,31
-Roserade,184,stat_points,8,,4.8%,,,32,0,15,0,16,3
-Roserade,184,stat_points,9,,3.6%,,,32,0,0,32,2,0
-Roserade,184,stat_points,10,,3.2%,,,0,0,2,32,0,32
-Roserade,184,ability,1,Natural Cure,74.3%,,,,,,,,
-Roserade,184,ability,2,Poison Point,20.5%,,,,,,,,
-Roserade,184,ability,3,Technician,5.2%,,,,,,,,
+Roserade,182,move,1,Sludge Bomb,81.8%,,,,,,,,
+Roserade,182,move,2,Shadow Ball,47.1%,,,,,,,,
+Roserade,182,move,3,Leaf Storm,44.8%,,,,,,,,
+Roserade,182,move,4,Leech Seed,40.7%,,,,,,,,
+Roserade,182,move,5,Spikes,34.3%,,,,,,,,
+Roserade,182,move,6,Dazzling Gleam,26.3%,,,,,,,,
+Roserade,182,move,7,Toxic Spikes,24.2%,,,,,,,,
+Roserade,182,move,8,Sleep Powder,23.6%,,,,,,,,
+Roserade,182,move,9,Toxic,17.5%,,,,,,,,
+Roserade,182,move,10,Synthesis,15.5%,,,,,,,,
+Roserade,182,held_item,1,Focus Sash,31.3%,,,,,,,,
+Roserade,182,held_item,2,Leftovers,30.3%,,,,,,,,
+Roserade,182,held_item,3,Sitrus Berry,15.2%,,,,,,,,
+Roserade,182,held_item,4,Choice Scarf,14.1%,,,,,,,,
+Roserade,182,held_item,5,Lum Berry,5.1%,,,,,,,,
+Roserade,182,held_item,6,Quick Claw,2.4%,,,,,,,,
+Roserade,182,held_item,7,Occa Berry,0.7%,,,,,,,,
+Roserade,182,held_item,8,Bright Powder,0.3%,,,,,,,,
+Roserade,182,held_item,9,Big Root,0.3%,,,,,,,,
+Roserade,182,held_item,10,Rocky Helmet,0.3%,,,,,,,,
+Roserade,182,teammate,1,Garchomp,,,,,,,,,
+Roserade,182,teammate,2,Golisopod,,,,,,,,,
+Roserade,182,teammate,3,Tyranitar,,,,,,,,,
+Roserade,182,teammate,4,Lucario,,,,,,,,,
+Roserade,182,teammate,5,Charizard,,,,,,,,,
+Roserade,182,teammate,6,Mamoswine,,,,,,,,,
+Roserade,182,teammate,7,Volcarona,,,,,,,,,
+Roserade,182,teammate,8,Ninetales-Alola,,,,,,,,,
+Roserade,182,teammate,9,Talonflame,,,,,,,,,
+Roserade,182,teammate,10,Skarmory,,,,,,,,,
+Roserade,182,stat_alignment,1,Modest,41.1%,Sp. Atk,Attack,,,,,,
+Roserade,182,stat_alignment,2,Calm,32.3%,Sp. Def,Attack,,,,,,
+Roserade,182,stat_alignment,3,Timid,14.5%,Speed,Attack,,,,,,
+Roserade,182,stat_alignment,4,Bold,11.4%,Defense,Attack,,,,,,
+Roserade,182,stat_alignment,5,Mild,0.7%,Sp. Atk,Defense,,,,,,
+Roserade,182,stat_points,1,,25.3%,,,2,0,0,32,0,32
+Roserade,182,stat_points,2,,15.2%,,,0,0,0,32,2,32
+Roserade,182,stat_points,3,,11.8%,,,32,0,2,0,32,0
+Roserade,182,stat_points,4,,10.8%,,,32,0,32,2,0,0
+Roserade,182,stat_points,5,,10.1%,,,32,0,0,0,31,3
+Roserade,182,stat_points,6,,8.4%,,,32,0,0,32,2,0
+Roserade,182,stat_points,7,,5.4%,,,32,0,0,2,32,0
+Roserade,182,stat_points,8,,4.4%,,,0,0,2,32,1,31
+Roserade,182,stat_points,9,,4.0%,,,32,0,15,0,16,3
+Roserade,182,stat_points,10,,2.7%,,,0,0,2,32,0,32
+Roserade,182,ability,1,Natural Cure,75.8%,,,,,,,,
+Roserade,182,ability,2,Poison Point,19.2%,,,,,,,,
+Roserade,182,ability,3,Technician,5.1%,,,,,,,,

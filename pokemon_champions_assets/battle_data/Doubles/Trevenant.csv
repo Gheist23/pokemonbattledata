@@ -1,36 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Trevenant,236,move,1,Trick Room,90.9%,,,,,,,,
-Trevenant,236,move,2,Forest's Curse,81.8%,,,,,,,,
-Trevenant,236,move,3,Protect,72.7%,,,,,,,,
-Trevenant,236,move,4,Wood Hammer,54.5%,,,,,,,,
-Trevenant,236,move,5,Horn Leech,36.4%,,,,,,,,
-Trevenant,236,move,6,Ally Switch,18.2%,,,,,,,,
-Trevenant,236,move,7,Poltergeist,18.2%,,,,,,,,
-Trevenant,236,move,8,Haze,9.1%,,,,,,,,
-Trevenant,236,move,9,Curse,9.1%,,,,,,,,
-Trevenant,236,move,10,Phantom Force,9.1%,,,,,,,,
-Trevenant,236,held_item,1,Sitrus Berry,81.8%,,,,,,,,
-Trevenant,236,held_item,2,Miracle Seed,9.1%,,,,,,,,
-Trevenant,236,held_item,3,Focus Sash,9.1%,,,,,,,,
-Trevenant,236,teammate,1,Torkoal,,,,,,,,,
-Trevenant,236,teammate,2,Indeedee-F,,,,,,,,,
-Trevenant,236,teammate,3,Camerupt,,,,,,,,,
-Trevenant,236,teammate,4,Gliscor,,,,,,,,,
-Trevenant,236,teammate,5,Pyroar,,,,,,,,,
-Trevenant,236,teammate,6,Golurk,,,,,,,,,
-Trevenant,236,teammate,7,Floette-Eternal,,,,,,,,,
-Trevenant,236,teammate,8,Clawitzer,,,,,,,,,
-Trevenant,236,teammate,9,Farigiraf,,,,,,,,,
-Trevenant,236,teammate,10,Aerodactyl,,,,,,,,,
-Trevenant,236,stat_alignment,1,Adamant,45.5%,Attack,Sp. Atk,,,,,,
-Trevenant,236,stat_alignment,2,Brave,27.3%,Attack,Speed,,,,,,
-Trevenant,236,stat_alignment,3,Sassy,27.3%,Sp. Def,Speed,,,,,,
-Trevenant,236,stat_points,1,,36.4%,,,30,32,0,0,0,4
-Trevenant,236,stat_points,2,,18.2%,,,32,32,2,0,0,0
-Trevenant,236,stat_points,3,,9.1%,,,0,0,32,0,32,2
-Trevenant,236,stat_points,4,,9.1%,,,22,32,9,0,3,0
-Trevenant,236,stat_points,5,,9.1%,,,32,0,2,0,32,0
-Trevenant,236,stat_points,6,,9.1%,,,32,0,4,0,30,0
-Trevenant,236,stat_points,7,,9.1%,,,32,0,7,0,27,0
-Trevenant,236,ability,1,Harvest,90.9%,,,,,,,,
-Trevenant,236,ability,2,Frisk,9.1%,,,,,,,,
+Trevenant,234,move,1,Trick Room,94.1%,,,,,,,,
+Trevenant,234,move,2,Protect,64.7%,,,,,,,,
+Trevenant,234,move,3,Forest's Curse,64.7%,,,,,,,,
+Trevenant,234,move,4,Wood Hammer,47.1%,,,,,,,,
+Trevenant,234,move,5,Horn Leech,47.1%,,,,,,,,
+Trevenant,234,move,6,Poltergeist,47.1%,,,,,,,,
+Trevenant,234,move,7,Ally Switch,11.8%,,,,,,,,
+Trevenant,234,move,8,Haze,5.9%,,,,,,,,
+Trevenant,234,move,9,Curse,5.9%,,,,,,,,
+Trevenant,234,move,10,Will-O-Wisp,5.9%,,,,,,,,
+Trevenant,234,held_item,1,Sitrus Berry,58.8%,,,,,,,,
+Trevenant,234,held_item,2,Persim Berry,17.6%,,,,,,,,
+Trevenant,234,held_item,3,Occa Berry,11.8%,,,,,,,,
+Trevenant,234,held_item,4,Miracle Seed,5.9%,,,,,,,,
+Trevenant,234,held_item,5,Focus Sash,5.9%,,,,,,,,
+Trevenant,234,teammate,1,Torkoal,,,,,,,,,
+Trevenant,234,teammate,2,Indeedee-F,,,,,,,,,
+Trevenant,234,teammate,3,Sableye,,,,,,,,,
+Trevenant,234,teammate,4,Camerupt,,,,,,,,,
+Trevenant,234,teammate,5,Aerodactyl,,,,,,,,,
+Trevenant,234,teammate,6,Sylveon,,,,,,,,,
+Trevenant,234,teammate,7,Grimmsnarl,,,,,,,,,
+Trevenant,234,teammate,8,Farigiraf,,,,,,,,,
+Trevenant,234,teammate,9,Gliscor,,,,,,,,,
+Trevenant,234,teammate,10,Pyroar,,,,,,,,,
+Trevenant,234,stat_alignment,1,Brave,29.4%,Attack,Speed,,,,,,
+Trevenant,234,stat_alignment,2,Adamant,29.4%,Attack,Sp. Atk,,,,,,
+Trevenant,234,stat_alignment,3,Sassy,23.5%,Sp. Def,Speed,,,,,,
+Trevenant,234,stat_alignment,4,Careful,17.6%,Sp. Def,Sp. Atk,,,,,,
+Trevenant,234,stat_points,1,,23.5%,,,30,32,0,0,0,4
+Trevenant,234,stat_points,2,,17.6%,,,32,0,17,0,17,0
+Trevenant,234,stat_points,3,,11.8%,,,22,32,9,0,3,0
+Trevenant,234,stat_points,4,,11.8%,,,32,32,0,0,2,0
+Trevenant,234,stat_points,5,,11.8%,,,32,32,2,0,0,0
+Trevenant,234,stat_points,6,,5.9%,,,0,0,32,0,32,2
+Trevenant,234,stat_points,7,,5.9%,,,32,0,2,0,32,0
+Trevenant,234,stat_points,8,,5.9%,,,32,0,4,0,30,0
+Trevenant,234,stat_points,9,,5.9%,,,32,0,7,0,27,0
+Trevenant,234,ability,1,Harvest,94.1%,,,,,,,,
+Trevenant,234,ability,2,Frisk,5.9%,,,,,,,,

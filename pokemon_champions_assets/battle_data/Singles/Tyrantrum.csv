@@ -1,39 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tyrantrum,245,move,1,Head Smash,96.0%,,,,,,,,
-Tyrantrum,245,move,2,Earthquake,60.0%,,,,,,,,
-Tyrantrum,245,move,3,Psychic Fangs,44.0%,,,,,,,,
-Tyrantrum,245,move,4,Ice Fang,42.0%,,,,,,,,
-Tyrantrum,245,move,5,Outrage,30.0%,,,,,,,,
-Tyrantrum,245,move,6,Poison Fang,30.0%,,,,,,,,
-Tyrantrum,245,move,7,Horn Drill,30.0%,,,,,,,,
-Tyrantrum,245,move,8,Fire Fang,26.0%,,,,,,,,
-Tyrantrum,245,move,9,Dragon Dance,14.0%,,,,,,,,
-Tyrantrum,245,move,10,Curse,10.0%,,,,,,,,
-Tyrantrum,245,held_item,1,Wide Lens,34.0%,,,,,,,,
-Tyrantrum,245,held_item,2,Expert Belt,26.0%,,,,,,,,
-Tyrantrum,245,held_item,3,Choice Scarf,20.0%,,,,,,,,
-Tyrantrum,245,held_item,4,Life Orb,18.0%,,,,,,,,
-Tyrantrum,245,held_item,5,Focus Sash,2.0%,,,,,,,,
-Tyrantrum,245,teammate,1,Clefable,,,,,,,,,
-Tyrantrum,245,teammate,2,Slowking-Galar,,,,,,,,,
-Tyrantrum,245,teammate,3,Blaziken,,,,,,,,,
-Tyrantrum,245,teammate,4,Golisopod,,,,,,,,,
+Tyrantrum,245,move,1,Head Smash,96.5%,,,,,,,,
+Tyrantrum,245,move,2,Earthquake,64.9%,,,,,,,,
+Tyrantrum,245,move,3,Ice Fang,43.9%,,,,,,,,
+Tyrantrum,245,move,4,Psychic Fangs,38.6%,,,,,,,,
+Tyrantrum,245,move,5,Outrage,26.3%,,,,,,,,
+Tyrantrum,245,move,6,Poison Fang,26.3%,,,,,,,,
+Tyrantrum,245,move,7,Horn Drill,26.3%,,,,,,,,
+Tyrantrum,245,move,8,Fire Fang,22.8%,,,,,,,,
+Tyrantrum,245,move,9,Dragon Dance,21.1%,,,,,,,,
+Tyrantrum,245,move,10,Curse,8.8%,,,,,,,,
+Tyrantrum,245,held_item,1,Wide Lens,29.8%,,,,,,,,
+Tyrantrum,245,held_item,2,Expert Belt,22.8%,,,,,,,,
+Tyrantrum,245,held_item,3,Life Orb,22.8%,,,,,,,,
+Tyrantrum,245,held_item,4,Choice Scarf,17.5%,,,,,,,,
+Tyrantrum,245,held_item,5,Focus Sash,5.3%,,,,,,,,
+Tyrantrum,245,held_item,6,Bright Powder,1.8%,,,,,,,,
+Tyrantrum,245,teammate,1,Golisopod,,,,,,,,,
+Tyrantrum,245,teammate,2,Clefable,,,,,,,,,
+Tyrantrum,245,teammate,3,Slowking-Galar,,,,,,,,,
+Tyrantrum,245,teammate,4,Blaziken,,,,,,,,,
 Tyrantrum,245,teammate,5,Runerigus,,,,,,,,,
 Tyrantrum,245,teammate,6,Scovillain,,,,,,,,,
 Tyrantrum,245,teammate,7,Skarmory,,,,,,,,,
-Tyrantrum,245,teammate,8,Scizor,,,,,,,,,
-Tyrantrum,245,teammate,9,Hydreigon,,,,,,,,,
-Tyrantrum,245,teammate,10,Volcarona,,,,,,,,,
-Tyrantrum,245,stat_alignment,1,Adamant,32.0%,Attack,Sp. Atk,,,,,,
-Tyrantrum,245,stat_alignment,2,Careful,26.0%,Sp. Def,Sp. Atk,,,,,,
-Tyrantrum,245,stat_alignment,3,Jolly,18.0%,Speed,Sp. Atk,,,,,,
-Tyrantrum,245,stat_alignment,4,Lonely,14.0%,Attack,Defense,,,,,,
-Tyrantrum,245,stat_alignment,5,Brave,10.0%,Attack,Speed,,,,,,
-Tyrantrum,245,stat_points,1,,38.0%,,,2,32,0,0,0,32
-Tyrantrum,245,stat_points,2,,26.0%,,,32,0,2,0,32,0
-Tyrantrum,245,stat_points,3,,14.0%,,,8,32,1,0,0,25
-Tyrantrum,245,stat_points,4,,10.0%,,,13,32,0,0,0,21
-Tyrantrum,245,stat_points,5,,10.0%,,,32,32,2,0,0,0
-Tyrantrum,245,stat_points,6,,2.0%,,,0,32,2,0,0,32
-Tyrantrum,245,ability,1,Rock Head,72.0%,,,,,,,,
-Tyrantrum,245,ability,2,Strong Jaw,28.0%,,,,,,,,
+Tyrantrum,245,teammate,8,Gyarados,,,,,,,,,
+Tyrantrum,245,teammate,9,Scizor,,,,,,,,,
+Tyrantrum,245,teammate,10,Hydreigon,,,,,,,,,
+Tyrantrum,245,stat_alignment,1,Adamant,31.6%,Attack,Sp. Atk,,,,,,
+Tyrantrum,245,stat_alignment,2,Jolly,24.6%,Speed,Sp. Atk,,,,,,
+Tyrantrum,245,stat_alignment,3,Careful,22.8%,Sp. Def,Sp. Atk,,,,,,
+Tyrantrum,245,stat_alignment,4,Lonely,12.3%,Attack,Defense,,,,,,
+Tyrantrum,245,stat_alignment,5,Brave,8.8%,Attack,Speed,,,,,,
+Tyrantrum,245,stat_points,1,,33.3%,,,2,32,0,0,0,32
+Tyrantrum,245,stat_points,2,,22.8%,,,32,0,2,0,32,0
+Tyrantrum,245,stat_points,3,,19.3%,,,8,32,1,0,0,25
+Tyrantrum,245,stat_points,4,,8.8%,,,13,32,0,0,0,21
+Tyrantrum,245,stat_points,5,,8.8%,,,32,32,2,0,0,0
+Tyrantrum,245,stat_points,6,,5.3%,,,0,32,2,0,0,32
+Tyrantrum,245,stat_points,7,,1.8%,,,0,32,0,0,2,32
+Tyrantrum,245,ability,1,Rock Head,75.4%,,,,,,,,
+Tyrantrum,245,ability,2,Strong Jaw,24.6%,,,,,,,,

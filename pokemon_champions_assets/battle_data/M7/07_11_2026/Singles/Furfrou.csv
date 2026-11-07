@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Furfrou,242,move,1,Cotton Guard,62.7%,,,,,,,,
-Furfrou,242,move,2,Ice Fang,55.9%,,,,,,,,
-Furfrou,242,move,3,Thunder Wave,55.9%,,,,,,,,
-Furfrou,242,move,4,Psychic Fangs,50.8%,,,,,,,,
-Furfrou,242,move,5,Double-Edge,39.0%,,,,,,,,
-Furfrou,242,move,6,Sucker Punch,32.2%,,,,,,,,
-Furfrou,242,move,7,Endeavor,30.5%,,,,,,,,
-Furfrou,242,move,8,Snarl,30.5%,,,,,,,,
-Furfrou,242,move,9,Rest,13.6%,,,,,,,,
-Furfrou,242,move,10,Fire Fang,11.9%,,,,,,,,
-Furfrou,242,held_item,1,Sitrus Berry,54.2%,,,,,,,,
-Furfrou,242,held_item,2,Rocky Helmet,30.5%,,,,,,,,
-Furfrou,242,held_item,3,Leftovers,13.6%,,,,,,,,
-Furfrou,242,held_item,4,Muscle Band,1.7%,,,,,,,,
+Furfrou,242,move,1,Thunder Wave,61.4%,,,,,,,,
+Furfrou,242,move,2,Cotton Guard,54.3%,,,,,,,,
+Furfrou,242,move,3,Ice Fang,47.1%,,,,,,,,
+Furfrou,242,move,4,Psychic Fangs,44.3%,,,,,,,,
+Furfrou,242,move,5,Snarl,40.0%,,,,,,,,
+Furfrou,242,move,6,Double-Edge,32.9%,,,,,,,,
+Furfrou,242,move,7,Sucker Punch,27.1%,,,,,,,,
+Furfrou,242,move,8,Endeavor,25.7%,,,,,,,,
+Furfrou,242,move,9,Charm,14.3%,,,,,,,,
+Furfrou,242,move,10,U-turn,14.3%,,,,,,,,
+Furfrou,242,held_item,1,Sitrus Berry,45.7%,,,,,,,,
+Furfrou,242,held_item,2,Rocky Helmet,27.1%,,,,,,,,
+Furfrou,242,held_item,3,Leftovers,25.7%,,,,,,,,
+Furfrou,242,held_item,4,Muscle Band,1.4%,,,,,,,,
 Furfrou,242,teammate,1,Raichu,,,,,,,,,
 Furfrou,242,teammate,2,Archaludon,,,,,,,,,
 Furfrou,242,teammate,3,Corviknight,,,,,,,,,
@@ -23,20 +23,21 @@ Furfrou,242,teammate,7,Charizard,,,,,,,,,
 Furfrou,242,teammate,8,Delphox,,,,,,,,,
 Furfrou,242,teammate,9,Goodra-Hisui,,,,,,,,,
 Furfrou,242,teammate,10,Grimmsnarl,,,,,,,,,
-Furfrou,242,stat_alignment,1,Careful,37.3%,Sp. Def,Sp. Atk,,,,,,
-Furfrou,242,stat_alignment,2,Sassy,23.7%,Sp. Def,Speed,,,,,,
-Furfrou,242,stat_alignment,3,Brave,15.3%,Attack,Speed,,,,,,
-Furfrou,242,stat_alignment,4,Impish,13.6%,Defense,Sp. Atk,,,,,,
-Furfrou,242,stat_alignment,5,Adamant,6.8%,Attack,Sp. Atk,,,,,,
-Furfrou,242,stat_alignment,6,Jolly,3.4%,Speed,Sp. Atk,,,,,,
-Furfrou,242,stat_points,1,,30.5%,,,30,3,20,0,11,2
-Furfrou,242,stat_points,2,,23.7%,,,0,32,2,0,32,0
-Furfrou,242,stat_points,3,,15.3%,,,0,32,20,0,14,0
-Furfrou,242,stat_points,4,,10.2%,,,32,0,32,0,2,0
-Furfrou,242,stat_points,5,,5.1%,,,0,26,8,0,32,0
-Furfrou,242,stat_points,6,,3.4%,,,32,2,32,0,0,0
-Furfrou,242,stat_points,7,,3.4%,,,0,32,0,0,2,32
-Furfrou,242,stat_points,8,,3.4%,,,20,32,14,0,0,0
-Furfrou,242,stat_points,9,,1.7%,,,0,2,32,0,32,0
-Furfrou,242,stat_points,10,,1.7%,,,2,32,0,0,0,32
+Furfrou,242,stat_alignment,1,Careful,31.4%,Sp. Def,Sp. Atk,,,,,,
+Furfrou,242,stat_alignment,2,Sassy,20.0%,Sp. Def,Speed,,,,,,
+Furfrou,242,stat_alignment,3,Calm,14.3%,Sp. Def,Attack,,,,,,
+Furfrou,242,stat_alignment,4,Impish,12.9%,Defense,Sp. Atk,,,,,,
+Furfrou,242,stat_alignment,5,Brave,12.9%,Attack,Speed,,,,,,
+Furfrou,242,stat_alignment,6,Adamant,5.7%,Attack,Sp. Atk,,,,,,
+Furfrou,242,stat_alignment,7,Jolly,2.9%,Speed,Sp. Atk,,,,,,
+Furfrou,242,stat_points,1,,25.7%,,,30,3,20,0,11,2
+Furfrou,242,stat_points,2,,20.0%,,,0,32,2,0,32,0
+Furfrou,242,stat_points,3,,14.3%,,,32,0,2,0,32,0
+Furfrou,242,stat_points,4,,12.9%,,,0,32,20,0,14,0
+Furfrou,242,stat_points,5,,8.6%,,,32,0,32,0,2,0
+Furfrou,242,stat_points,6,,4.3%,,,0,26,8,0,32,0
+Furfrou,242,stat_points,7,,4.3%,,,32,2,32,0,0,0
+Furfrou,242,stat_points,8,,2.9%,,,0,32,0,0,2,32
+Furfrou,242,stat_points,9,,2.9%,,,20,32,14,0,0,0
+Furfrou,242,stat_points,10,,1.4%,,,0,2,32,0,32,0
 Furfrou,242,ability,1,Fur Coat,100.0%,,,,,,,,

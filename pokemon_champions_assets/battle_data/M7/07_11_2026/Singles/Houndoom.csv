@@ -1,43 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Houndoom,172,move,1,Flamethrower,74.9%,,,,,,,,
-Houndoom,172,move,2,Dark Pulse,69.2%,,,,,,,,
-Houndoom,172,move,3,Sucker Punch,49.0%,,,,,,,,
-Houndoom,172,move,4,Sludge Bomb,46.3%,,,,,,,,
-Houndoom,172,move,5,Destiny Bond,34.2%,,,,,,,,
-Houndoom,172,move,6,Counter,31.8%,,,,,,,,
-Houndoom,172,move,7,Nasty Plot,27.0%,,,,,,,,
-Houndoom,172,move,8,Solar Beam,11.5%,,,,,,,,
-Houndoom,172,move,9,Fire Blast,10.4%,,,,,,,,
-Houndoom,172,move,10,Substitute,7.4%,,,,,,,,
-Houndoom,172,held_item,1,Focus Sash,55.4%,,,,,,,,
-Houndoom,172,held_item,2,Houndoominite,39.9%,,,,,,,,
-Houndoom,172,held_item,3,Sitrus Berry,4.7%,,,,,,,,
-Houndoom,172,teammate,1,Mimikyu,,,,,,,,,
-Houndoom,172,teammate,2,Garchomp,,,,,,,,,
-Houndoom,172,teammate,3,Archaludon,,,,,,,,,
-Houndoom,172,teammate,4,Victreebel,,,,,,,,,
-Houndoom,172,teammate,5,Golisopod,,,,,,,,,
-Houndoom,172,teammate,6,Pidgeot,,,,,,,,,
-Houndoom,172,teammate,7,Blastoise,,,,,,,,,
-Houndoom,172,teammate,8,Scolipede,,,,,,,,,
-Houndoom,172,teammate,9,Corviknight,,,,,,,,,
-Houndoom,172,teammate,10,Sharpedo,,,,,,,,,
-Houndoom,172,stat_alignment,1,Modest,54.4%,Sp. Atk,Attack,,,,,,
-Houndoom,172,stat_alignment,2,Timid,21.9%,Speed,Attack,,,,,,
-Houndoom,172,stat_alignment,3,Naive,9.8%,Speed,Sp. Def,,,,,,
-Houndoom,172,stat_alignment,4,Rash,6.4%,Sp. Atk,Sp. Def,,,,,,
-Houndoom,172,stat_alignment,5,Mild,5.1%,Sp. Atk,Defense,,,,,,
-Houndoom,172,stat_alignment,6,Hasty,1.9%,Speed,Defense,,,,,,
-Houndoom,172,stat_alignment,7,Quiet,0.6%,Sp. Atk,Speed,,,,,,
-Houndoom,172,stat_points,1,,29.9%,,,0,0,0,32,0,32
-Houndoom,172,stat_points,2,,17.8%,,,1,0,1,32,0,32
-Houndoom,172,stat_points,3,,15.1%,,,2,0,0,32,0,32
-Houndoom,172,stat_points,4,,8.7%,,,0,2,0,32,0,32
-Houndoom,172,stat_points,5,,7.4%,,,0,0,2,32,0,32
-Houndoom,172,stat_points,6,,6.2%,,,1,1,0,32,0,32
-Houndoom,172,stat_points,7,,4.7%,,,32,0,0,32,0,2
-Houndoom,172,stat_points,8,,3.2%,,,1,0,0,32,1,32
-Houndoom,172,stat_points,9,,2.5%,,,7,0,2,32,0,25
-Houndoom,172,stat_points,10,,2.5%,,,32,0,0,32,2,0
-Houndoom,172,ability,1,Flash Fire,99.8%,,,,,,,,
-Houndoom,172,ability,2,Early Bird,0.2%,,,,,,,,
+Houndoom,168,move,1,Flamethrower,74.0%,,,,,,,,
+Houndoom,168,move,2,Dark Pulse,67.8%,,,,,,,,
+Houndoom,168,move,3,Sludge Bomb,47.5%,,,,,,,,
+Houndoom,168,move,4,Sucker Punch,47.3%,,,,,,,,
+Houndoom,168,move,5,Counter,35.1%,,,,,,,,
+Houndoom,168,move,6,Destiny Bond,33.0%,,,,,,,,
+Houndoom,168,move,7,Nasty Plot,26.2%,,,,,,,,
+Houndoom,168,move,8,Solar Beam,12.0%,,,,,,,,
+Houndoom,168,move,9,Fire Blast,10.7%,,,,,,,,
+Houndoom,168,move,10,Overheat,7.9%,,,,,,,,
+Houndoom,168,held_item,1,Focus Sash,56.8%,,,,,,,,
+Houndoom,168,held_item,2,Houndoominite,38.6%,,,,,,,,
+Houndoom,168,held_item,3,Sitrus Berry,3.8%,,,,,,,,
+Houndoom,168,held_item,4,Chople Berry,0.9%,,,,,,,,
+Houndoom,168,teammate,1,Mimikyu,,,,,,,,,
+Houndoom,168,teammate,2,Garchomp,,,,,,,,,
+Houndoom,168,teammate,3,Archaludon,,,,,,,,,
+Houndoom,168,teammate,4,Victreebel,,,,,,,,,
+Houndoom,168,teammate,5,Golisopod,,,,,,,,,
+Houndoom,168,teammate,6,Pidgeot,,,,,,,,,
+Houndoom,168,teammate,7,Scolipede,,,,,,,,,
+Houndoom,168,teammate,8,Primarina,,,,,,,,,
+Houndoom,168,teammate,9,Corviknight,,,,,,,,,
+Houndoom,168,teammate,10,Blastoise,,,,,,,,,
+Houndoom,168,stat_alignment,1,Modest,50.9%,Sp. Atk,Attack,,,,,,
+Houndoom,168,stat_alignment,2,Timid,26.5%,Speed,Attack,,,,,,
+Houndoom,168,stat_alignment,3,Naive,10.2%,Speed,Sp. Def,,,,,,
+Houndoom,168,stat_alignment,4,Rash,5.5%,Sp. Atk,Sp. Def,,,,,,
+Houndoom,168,stat_alignment,5,Mild,4.8%,Sp. Atk,Defense,,,,,,
+Houndoom,168,stat_alignment,6,Hasty,1.5%,Speed,Defense,,,,,,
+Houndoom,168,stat_alignment,7,Quiet,0.5%,Sp. Atk,Speed,,,,,,
+Houndoom,168,stat_points,1,,29.8%,,,0,0,0,32,0,32
+Houndoom,168,stat_points,2,,18.6%,,,1,0,1,32,0,32
+Houndoom,168,stat_points,3,,17.2%,,,2,0,0,32,0,32
+Houndoom,168,stat_points,4,,7.4%,,,0,2,0,32,0,32
+Houndoom,168,stat_points,5,,6.2%,,,0,0,2,32,0,32
+Houndoom,168,stat_points,6,,5.7%,,,1,1,0,32,0,32
+Houndoom,168,stat_points,7,,4.8%,,,1,0,0,32,1,32
+Houndoom,168,stat_points,8,,3.8%,,,32,0,0,32,0,2
+Houndoom,168,stat_points,9,,2.1%,,,7,0,2,32,0,25
+Houndoom,168,stat_points,10,,2.1%,,,32,0,0,32,2,0
+Houndoom,168,ability,1,Flash Fire,99.8%,,,,,,,,
+Houndoom,168,ability,2,Early Bird,0.2%,,,,,,,,

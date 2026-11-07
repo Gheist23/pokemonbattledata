@@ -1,40 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slurpuff,199,move,1,After You,83.7%,,,,,,,,
-Slurpuff,199,move,2,Protect,51.2%,,,,,,,,
-Slurpuff,199,move,3,Dazzling Gleam,48.8%,,,,,,,,
-Slurpuff,199,move,4,Thunderbolt,34.9%,,,,,,,,
-Slurpuff,199,move,5,Flamethrower,31.4%,,,,,,,,
-Slurpuff,199,move,6,Drain Punch,27.9%,,,,,,,,
-Slurpuff,199,move,7,Play Rough,27.9%,,,,,,,,
-Slurpuff,199,move,8,String Shot,25.6%,,,,,,,,
-Slurpuff,199,move,9,Fake Tears,20.9%,,,,,,,,
-Slurpuff,199,move,10,Light Screen,11.6%,,,,,,,,
-Slurpuff,199,held_item,1,Psychic Seed,79.1%,,,,,,,,
-Slurpuff,199,held_item,2,Grassy Seed,17.4%,,,,,,,,
-Slurpuff,199,held_item,3,Electric Seed,3.5%,,,,,,,,
-Slurpuff,199,teammate,1,Indeedee-F,,,,,,,,,
-Slurpuff,199,teammate,2,Torkoal,,,,,,,,,
-Slurpuff,199,teammate,3,Kingambit,,,,,,,,,
-Slurpuff,199,teammate,4,Pincurchin,,,,,,,,,
-Slurpuff,199,teammate,5,Alakazam,,,,,,,,,
-Slurpuff,199,teammate,6,Sirfetch’d,,,,,,,,,
-Slurpuff,199,teammate,7,Hatterene,,,,,,,,,
-Slurpuff,199,teammate,8,Grapploct,,,,,,,,,
-Slurpuff,199,teammate,9,Camerupt,,,,,,,,,
-Slurpuff,199,teammate,10,Rillaboom,,,,,,,,,
-Slurpuff,199,stat_alignment,1,Modest,38.4%,Sp. Atk,Attack,,,,,,
-Slurpuff,199,stat_alignment,2,Timid,29.1%,Speed,Attack,,,,,,
-Slurpuff,199,stat_alignment,3,Jolly,27.9%,Speed,Sp. Atk,,,,,,
-Slurpuff,199,stat_alignment,4,Calm,2.3%,Sp. Def,Attack,,,,,,
-Slurpuff,199,stat_alignment,5,Bold,2.3%,Defense,Attack,,,,,,
-Slurpuff,199,stat_points,1,,30.2%,,,0,0,0,32,2,32
-Slurpuff,199,stat_points,2,,27.9%,,,0,32,2,0,0,32
-Slurpuff,199,stat_points,3,,11.6%,,,9,0,7,0,18,32
-Slurpuff,199,stat_points,4,,8.1%,,,32,0,0,23,0,11
-Slurpuff,199,stat_points,5,,4.7%,,,13,0,0,32,0,21
-Slurpuff,199,stat_points,6,,3.5%,,,26,0,16,0,0,24
-Slurpuff,199,stat_points,7,,3.5%,,,32,0,4,5,5,20
-Slurpuff,199,stat_points,8,,2.3%,,,19,0,0,0,15,32
-Slurpuff,199,stat_points,9,,2.3%,,,32,0,0,0,5,29
-Slurpuff,199,stat_points,10,,2.3%,,,32,0,16,0,0,18
-Slurpuff,199,ability,1,Unburden,100.0%,,,,,,,,
+Slurpuff,198,move,1,After You,78.7%,,,,,,,,
+Slurpuff,198,move,2,Protect,55.3%,,,,,,,,
+Slurpuff,198,move,3,Dazzling Gleam,51.1%,,,,,,,,
+Slurpuff,198,move,4,Flamethrower,35.1%,,,,,,,,
+Slurpuff,198,move,5,Thunderbolt,31.9%,,,,,,,,
+Slurpuff,198,move,6,String Shot,29.8%,,,,,,,,
+Slurpuff,198,move,7,Drain Punch,27.7%,,,,,,,,
+Slurpuff,198,move,8,Play Rough,27.7%,,,,,,,,
+Slurpuff,198,move,9,Fake Tears,19.1%,,,,,,,,
+Slurpuff,198,move,10,Light Screen,10.6%,,,,,,,,
+Slurpuff,198,held_item,1,Psychic Seed,74.5%,,,,,,,,
+Slurpuff,198,held_item,2,Grassy Seed,16.0%,,,,,,,,
+Slurpuff,198,held_item,3,Quick Claw,6.4%,,,,,,,,
+Slurpuff,198,held_item,4,Electric Seed,3.2%,,,,,,,,
+Slurpuff,198,teammate,1,Indeedee-F,,,,,,,,,
+Slurpuff,198,teammate,2,Torkoal,,,,,,,,,
+Slurpuff,198,teammate,3,Kingambit,,,,,,,,,
+Slurpuff,198,teammate,4,Pincurchin,,,,,,,,,
+Slurpuff,198,teammate,5,Alakazam,,,,,,,,,
+Slurpuff,198,teammate,6,Hatterene,,,,,,,,,
+Slurpuff,198,teammate,7,Sirfetch’d,,,,,,,,,
+Slurpuff,198,teammate,8,Grapploct,,,,,,,,,
+Slurpuff,198,teammate,9,Camerupt,,,,,,,,,
+Slurpuff,198,teammate,10,Rillaboom,,,,,,,,,
+Slurpuff,198,stat_alignment,1,Modest,35.1%,Sp. Atk,Attack,,,,,,
+Slurpuff,198,stat_alignment,2,Jolly,27.7%,Speed,Sp. Atk,,,,,,
+Slurpuff,198,stat_alignment,3,Timid,26.6%,Speed,Attack,,,,,,
+Slurpuff,198,stat_alignment,4,Bold,8.5%,Defense,Attack,,,,,,
+Slurpuff,198,stat_alignment,5,Calm,2.1%,Sp. Def,Attack,,,,,,
+Slurpuff,198,stat_points,1,,27.7%,,,0,0,0,32,2,32
+Slurpuff,198,stat_points,2,,27.7%,,,0,32,2,0,0,32
+Slurpuff,198,stat_points,3,,10.6%,,,9,0,7,0,18,32
+Slurpuff,198,stat_points,4,,7.4%,,,32,0,0,23,0,11
+Slurpuff,198,stat_points,5,,6.4%,,,32,0,13,0,21,0
+Slurpuff,198,stat_points,6,,4.3%,,,13,0,0,32,0,21
+Slurpuff,198,stat_points,7,,3.2%,,,26,0,16,0,0,24
+Slurpuff,198,stat_points,8,,3.2%,,,32,0,4,5,5,20
+Slurpuff,198,stat_points,9,,2.1%,,,19,0,0,0,15,32
+Slurpuff,198,stat_points,10,,2.1%,,,32,0,0,0,5,29
+Slurpuff,198,ability,1,Unburden,93.6%,,,,,,,,
+Slurpuff,198,ability,2,Sweet Veil,6.4%,,,,,,,,

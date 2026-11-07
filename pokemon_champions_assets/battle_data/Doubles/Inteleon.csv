@@ -1,49 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Inteleon,90,move,1,Snipe Shot,93.7%,,,,,,,,
-Inteleon,90,move,2,Protect,90.4%,,,,,,,,
-Inteleon,90,move,3,Ice Beam,90.0%,,,,,,,,
-Inteleon,90,move,4,Vacuum Wave,24.1%,,,,,,,,
-Inteleon,90,move,5,Focus Energy,15.1%,,,,,,,,
-Inteleon,90,move,6,Air Cutter,14.8%,,,,,,,,
-Inteleon,90,move,7,Dark Pulse,13.2%,,,,,,,,
-Inteleon,90,move,8,Icy Wind,12.2%,,,,,,,,
-Inteleon,90,move,9,Soak,6.8%,,,,,,,,
-Inteleon,90,move,10,Shadow Ball,6.4%,,,,,,,,
-Inteleon,90,held_item,1,Scope Lens,70.4%,,,,,,,,
-Inteleon,90,held_item,2,Focus Sash,10.3%,,,,,,,,
-Inteleon,90,held_item,3,Mystic Water,7.2%,,,,,,,,
-Inteleon,90,held_item,4,Black Belt,3.4%,,,,,,,,
-Inteleon,90,held_item,5,Sitrus Berry,2.3%,,,,,,,,
-Inteleon,90,held_item,6,Life Orb,2.1%,,,,,,,,
-Inteleon,90,held_item,7,Quick Claw,1.3%,,,,,,,,
-Inteleon,90,held_item,8,Choice Scarf,0.8%,,,,,,,,
-Inteleon,90,held_item,9,Black Glasses,0.5%,,,,,,,,
-Inteleon,90,held_item,10,Zoom Lens,0.4%,,,,,,,,
-Inteleon,90,teammate,1,Raichu,,,,,,,,,
-Inteleon,90,teammate,2,Whimsicott,,,,,,,,,
-Inteleon,90,teammate,3,Pelipper,,,,,,,,,
-Inteleon,90,teammate,4,Rillaboom,,,,,,,,,
-Inteleon,90,teammate,5,Sneasler,,,,,,,,,
-Inteleon,90,teammate,6,Indeedee-F,,,,,,,,,
-Inteleon,90,teammate,7,Vanilluxe,,,,,,,,,
-Inteleon,90,teammate,8,Lopunny,,,,,,,,,
-Inteleon,90,teammate,9,Kommo-o,,,,,,,,,
-Inteleon,90,teammate,10,Tsareena,,,,,,,,,
-Inteleon,90,stat_alignment,1,Timid,83.0%,Speed,Attack,,,,,,
-Inteleon,90,stat_alignment,2,Modest,14.8%,Sp. Atk,Attack,,,,,,
-Inteleon,90,stat_alignment,3,Naive,1.5%,Speed,Sp. Def,,,,,,
-Inteleon,90,stat_alignment,4,Calm,0.2%,Sp. Def,Attack,,,,,,
-Inteleon,90,stat_alignment,5,Bold,0.2%,Defense,Attack,,,,,,
-Inteleon,90,stat_alignment,6,Hasty,0.1%,Speed,Defense,,,,,,
-Inteleon,90,stat_points,1,,72.4%,,,2,0,0,32,0,32
-Inteleon,90,stat_points,2,,9.7%,,,0,0,1,32,1,32
-Inteleon,90,stat_points,3,,8.0%,,,0,0,2,32,0,32
-Inteleon,90,stat_points,4,,3.8%,,,0,0,19,17,0,30
-Inteleon,90,stat_points,5,,2.5%,,,0,0,0,32,0,32
-Inteleon,90,stat_points,6,,1.3%,,,0,0,0,32,2,32
-Inteleon,90,stat_points,7,,1.1%,,,13,0,0,27,0,26
-Inteleon,90,stat_points,8,,0.2%,,,2,0,32,32,0,0
-Inteleon,90,stat_points,9,,0.2%,,,13,0,19,15,19,0
-Inteleon,90,stat_points,10,,0.2%,,,32,0,29,5,0,0
-Inteleon,90,ability,1,Sniper,95.0%,,,,,,,,
-Inteleon,90,ability,2,Torrent,5.0%,,,,,,,,
+Inteleon,91,move,1,Snipe Shot,93.9%,,,,,,,,
+Inteleon,91,move,2,Protect,90.8%,,,,,,,,
+Inteleon,91,move,3,Ice Beam,89.8%,,,,,,,,
+Inteleon,91,move,4,Vacuum Wave,23.1%,,,,,,,,
+Inteleon,91,move,5,Focus Energy,19.4%,,,,,,,,
+Inteleon,91,move,6,Air Cutter,13.1%,,,,,,,,
+Inteleon,91,move,7,Icy Wind,13.0%,,,,,,,,
+Inteleon,91,move,8,Dark Pulse,12.7%,,,,,,,,
+Inteleon,91,move,9,Soak,7.3%,,,,,,,,
+Inteleon,91,move,10,Shadow Ball,6.0%,,,,,,,,
+Inteleon,91,held_item,1,Scope Lens,69.7%,,,,,,,,
+Inteleon,91,held_item,2,Focus Sash,12.1%,,,,,,,,
+Inteleon,91,held_item,3,Mystic Water,6.4%,,,,,,,,
+Inteleon,91,held_item,4,Black Belt,3.0%,,,,,,,,
+Inteleon,91,held_item,5,Life Orb,2.7%,,,,,,,,
+Inteleon,91,held_item,6,Sitrus Berry,2.0%,,,,,,,,
+Inteleon,91,held_item,7,Quick Claw,1.5%,,,,,,,,
+Inteleon,91,held_item,8,Choice Scarf,0.7%,,,,,,,,
+Inteleon,91,held_item,9,Black Glasses,0.4%,,,,,,,,
+Inteleon,91,held_item,10,Leftovers,0.3%,,,,,,,,
+Inteleon,91,teammate,1,Raichu,,,,,,,,,
+Inteleon,91,teammate,2,Whimsicott,,,,,,,,,
+Inteleon,91,teammate,3,Sneasler,,,,,,,,,
+Inteleon,91,teammate,4,Pelipper,,,,,,,,,
+Inteleon,91,teammate,5,Rillaboom,,,,,,,,,
+Inteleon,91,teammate,6,Indeedee-F,,,,,,,,,
+Inteleon,91,teammate,7,Vanilluxe,,,,,,,,,
+Inteleon,91,teammate,8,Lopunny,,,,,,,,,
+Inteleon,91,teammate,9,Kommo-o,,,,,,,,,
+Inteleon,91,teammate,10,Scovillain,,,,,,,,,
+Inteleon,91,stat_alignment,1,Timid,84.0%,Speed,Attack,,,,,,
+Inteleon,91,stat_alignment,2,Modest,13.9%,Sp. Atk,Attack,,,,,,
+Inteleon,91,stat_alignment,3,Naive,1.3%,Speed,Sp. Def,,,,,,
+Inteleon,91,stat_alignment,4,Hasty,0.2%,Speed,Defense,,,,,,
+Inteleon,91,stat_alignment,5,Calm,0.2%,Sp. Def,Attack,,,,,,
+Inteleon,91,stat_alignment,6,Bold,0.2%,Defense,Attack,,,,,,
+Inteleon,91,stat_alignment,7,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Inteleon,91,stat_points,1,,72.9%,,,2,0,0,32,0,32
+Inteleon,91,stat_points,2,,9.9%,,,0,0,1,32,1,32
+Inteleon,91,stat_points,3,,7.1%,,,0,0,2,32,0,32
+Inteleon,91,stat_points,4,,3.5%,,,0,0,19,17,0,30
+Inteleon,91,stat_points,5,,3.1%,,,0,0,0,32,0,32
+Inteleon,91,stat_points,6,,1.1%,,,0,0,0,32,2,32
+Inteleon,91,stat_points,7,,0.9%,,,13,0,0,27,0,26
+Inteleon,91,stat_points,8,,0.3%,,,4,0,15,0,15,32
+Inteleon,91,stat_points,9,,0.2%,,,2,0,32,32,0,0
+Inteleon,91,stat_points,10,,0.2%,,,13,0,19,15,19,0
+Inteleon,91,ability,1,Sniper,94.2%,,,,,,,,
+Inteleon,91,ability,2,Torrent,5.8%,,,,,,,,

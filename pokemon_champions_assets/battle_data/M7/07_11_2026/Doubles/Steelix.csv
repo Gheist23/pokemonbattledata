@@ -1,47 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Steelix,149,move,1,High Horsepower,94.1%,,,,,,,,
-Steelix,149,move,2,Heavy Slam,75.7%,,,,,,,,
-Steelix,149,move,3,Wide Guard,71.4%,,,,,,,,
-Steelix,149,move,4,Protect,59.2%,,,,,,,,
-Steelix,149,move,5,Rock Slide,30.2%,,,,,,,,
-Steelix,149,move,6,Body Press,25.5%,,,,,,,,
-Steelix,149,move,7,Iron Head,22.0%,,,,,,,,
-Steelix,149,move,8,Self-Destruct,12.9%,,,,,,,,
-Steelix,149,move,9,Steel Roller,5.1%,,,,,,,,
-Steelix,149,move,10,Psychic Fangs,0.8%,,,,,,,,
-Steelix,149,held_item,1,Steelixite,52.5%,,,,,,,,
-Steelix,149,held_item,2,Rocky Helmet,21.6%,,,,,,,,
-Steelix,149,held_item,3,Life Orb,20.4%,,,,,,,,
-Steelix,149,held_item,4,Leftovers,4.3%,,,,,,,,
-Steelix,149,held_item,5,Sitrus Berry,0.4%,,,,,,,,
-Steelix,149,held_item,6,Soft Sand,0.4%,,,,,,,,
-Steelix,149,held_item,7,Red Card,0.4%,,,,,,,,
-Steelix,149,teammate,1,Tyranitar,,,,,,,,,
-Steelix,149,teammate,2,Milotic,,,,,,,,,
-Steelix,149,teammate,3,Garchomp,,,,,,,,,
-Steelix,149,teammate,4,Rillaboom,,,,,,,,,
-Steelix,149,teammate,5,Staraptor,,,,,,,,,
-Steelix,149,teammate,6,Sinistcha,,,,,,,,,
-Steelix,149,teammate,7,Araquanid,,,,,,,,,
-Steelix,149,teammate,8,Chimecho,,,,,,,,,
-Steelix,149,teammate,9,Glalie,,,,,,,,,
-Steelix,149,teammate,10,Oranguru,,,,,,,,,
-Steelix,149,stat_alignment,1,Brave,67.8%,Attack,Speed,,,,,,
-Steelix,149,stat_alignment,2,Careful,13.7%,Sp. Def,Sp. Atk,,,,,,
-Steelix,149,stat_alignment,3,Relaxed,12.5%,Defense,Speed,,,,,,
-Steelix,149,stat_alignment,4,Adamant,3.1%,Attack,Sp. Atk,,,,,,
-Steelix,149,stat_alignment,5,Sassy,2.4%,Sp. Def,Speed,,,,,,
-Steelix,149,stat_alignment,6,Modest,0.4%,Sp. Atk,Attack,,,,,,
-Steelix,149,stat_points,1,,38.4%,,,32,32,0,0,2,0
-Steelix,149,stat_points,2,,25.5%,,,32,32,2,0,0,0
-Steelix,149,stat_points,3,,9.0%,,,32,2,0,0,32,0
-Steelix,149,stat_points,4,,7.5%,,,30,25,0,0,11,0
-Steelix,149,stat_points,5,,4.7%,,,32,32,0,0,0,2
-Steelix,149,stat_points,6,,4.3%,,,18,0,16,0,32,0
-Steelix,149,stat_points,7,,2.4%,,,32,10,24,0,0,0
-Steelix,149,stat_points,8,,1.6%,,,23,0,32,0,11,0
-Steelix,149,stat_points,9,,1.6%,,,29,32,0,0,5,0
-Steelix,149,stat_points,10,,1.2%,,,2,32,0,0,32,0
-Steelix,149,ability,1,Sturdy,84.7%,,,,,,,,
-Steelix,149,ability,2,Sheer Force,14.9%,,,,,,,,
-Steelix,149,ability,3,Rock Head,0.4%,,,,,,,,
+Steelix,146,move,1,High Horsepower,92.0%,,,,,,,,
+Steelix,146,move,2,Heavy Slam,78.3%,,,,,,,,
+Steelix,146,move,3,Wide Guard,72.2%,,,,,,,,
+Steelix,146,move,4,Protect,58.5%,,,,,,,,
+Steelix,146,move,5,Rock Slide,29.4%,,,,,,,,
+Steelix,146,move,6,Body Press,26.4%,,,,,,,,
+Steelix,146,move,7,Iron Head,19.7%,,,,,,,,
+Steelix,146,move,8,Self-Destruct,11.0%,,,,,,,,
+Steelix,146,move,9,Steel Roller,5.0%,,,,,,,,
+Steelix,146,move,10,Earthquake,2.3%,,,,,,,,
+Steelix,146,held_item,1,Steelixite,54.5%,,,,,,,,
+Steelix,146,held_item,2,Rocky Helmet,22.1%,,,,,,,,
+Steelix,146,held_item,3,Life Orb,17.4%,,,,,,,,
+Steelix,146,held_item,4,Leftovers,3.7%,,,,,,,,
+Steelix,146,held_item,5,Quick Claw,1.3%,,,,,,,,
+Steelix,146,held_item,6,Sitrus Berry,0.3%,,,,,,,,
+Steelix,146,held_item,7,Soft Sand,0.3%,,,,,,,,
+Steelix,146,held_item,8,Red Card,0.3%,,,,,,,,
+Steelix,146,teammate,1,Tyranitar,,,,,,,,,
+Steelix,146,teammate,2,Milotic,,,,,,,,,
+Steelix,146,teammate,3,Garchomp,,,,,,,,,
+Steelix,146,teammate,4,Kingambit,,,,,,,,,
+Steelix,146,teammate,5,Rillaboom,,,,,,,,,
+Steelix,146,teammate,6,Metagross,,,,,,,,,
+Steelix,146,teammate,7,Klefki,,,,,,,,,
+Steelix,146,teammate,8,Sableye,,,,,,,,,
+Steelix,146,teammate,9,Goodra-Hisui,,,,,,,,,
+Steelix,146,teammate,10,Archaludon,,,,,,,,,
+Steelix,146,stat_alignment,1,Brave,66.9%,Attack,Speed,,,,,,
+Steelix,146,stat_alignment,2,Careful,15.4%,Sp. Def,Sp. Atk,,,,,,
+Steelix,146,stat_alignment,3,Relaxed,10.7%,Defense,Speed,,,,,,
+Steelix,146,stat_alignment,4,Adamant,3.3%,Attack,Sp. Atk,,,,,,
+Steelix,146,stat_alignment,5,Sassy,2.0%,Sp. Def,Speed,,,,,,
+Steelix,146,stat_alignment,6,Impish,1.3%,Defense,Sp. Atk,,,,,,
+Steelix,146,stat_alignment,7,Modest,0.3%,Sp. Atk,Attack,,,,,,
+Steelix,146,stat_points,1,,37.8%,,,32,32,0,0,2,0
+Steelix,146,stat_points,2,,23.4%,,,32,32,2,0,0,0
+Steelix,146,stat_points,3,,11.4%,,,32,2,0,0,32,0
+Steelix,146,stat_points,4,,7.7%,,,30,25,0,0,11,0
+Steelix,146,stat_points,5,,4.0%,,,32,32,0,0,0,2
+Steelix,146,stat_points,6,,3.7%,,,18,0,16,0,32,0
+Steelix,146,stat_points,7,,2.7%,,,32,10,24,0,0,0
+Steelix,146,stat_points,8,,1.3%,,,0,32,32,0,2,0
+Steelix,146,stat_points,9,,1.3%,,,23,0,32,0,11,0
+Steelix,146,stat_points,10,,1.3%,,,29,32,0,0,5,0
+Steelix,146,ability,1,Sturdy,87.0%,,,,,,,,
+Steelix,146,ability,2,Sheer Force,12.7%,,,,,,,,
+Steelix,146,ability,3,Rock Head,0.3%,,,,,,,,

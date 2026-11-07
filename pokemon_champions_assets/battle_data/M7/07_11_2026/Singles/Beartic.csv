@@ -1,39 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Beartic,213,move,1,Earthquake,90.6%,,,,,,,,
-Beartic,213,move,2,Close Combat,86.9%,,,,,,,,
-Beartic,213,move,3,Ice Punch,37.2%,,,,,,,,
-Beartic,213,move,4,Icicle Crash,35.1%,,,,,,,,
-Beartic,213,move,5,Aqua Jet,33.0%,,,,,,,,
-Beartic,213,move,6,Swords Dance,31.9%,,,,,,,,
-Beartic,213,move,7,Icicle Spear,26.7%,,,,,,,,
-Beartic,213,move,8,Crunch,14.1%,,,,,,,,
-Beartic,213,move,9,Liquidation,11.5%,,,,,,,,
-Beartic,213,move,10,Endeavor,5.2%,,,,,,,,
-Beartic,213,held_item,1,Life Orb,87.4%,,,,,,,,
-Beartic,213,held_item,2,Focus Sash,6.8%,,,,,,,,
-Beartic,213,held_item,3,Chople Berry,2.6%,,,,,,,,
-Beartic,213,held_item,4,Expert Belt,1.6%,,,,,,,,
-Beartic,213,held_item,5,Wide Lens,1.0%,,,,,,,,
-Beartic,213,held_item,6,Scope Lens,0.5%,,,,,,,,
-Beartic,213,teammate,1,Basculegion,,,,,,,,,
-Beartic,213,teammate,2,Charizard,,,,,,,,,
-Beartic,213,teammate,3,Venusaur,,,,,,,,,
-Beartic,213,teammate,4,Froslass,,,,,,,,,
-Beartic,213,teammate,5,Slowking-Galar,,,,,,,,,
-Beartic,213,teammate,6,Pelipper,,,,,,,,,
-Beartic,213,teammate,7,Tyranitar,,,,,,,,,
-Beartic,213,teammate,8,Lucario,,,,,,,,,
-Beartic,213,teammate,9,Sylveon,,,,,,,,,
-Beartic,213,teammate,10,Meowscarada,,,,,,,,,
-Beartic,213,stat_alignment,1,Jolly,84.3%,Speed,Sp. Atk,,,,,,
-Beartic,213,stat_alignment,2,Adamant,15.7%,Attack,Sp. Atk,,,,,,
-Beartic,213,stat_points,1,,69.6%,,,2,32,0,0,0,32
-Beartic,213,stat_points,2,,8.4%,,,0,32,2,0,0,32
-Beartic,213,stat_points,3,,6.3%,,,0,32,0,0,0,32
-Beartic,213,stat_points,4,,5.8%,,,1,32,1,0,0,32
-Beartic,213,stat_points,5,,4.2%,,,0,32,0,0,2,32
-Beartic,213,stat_points,6,,3.7%,,,1,32,0,0,1,32
-Beartic,213,stat_points,7,,1.0%,,,0,32,1,0,1,32
-Beartic,213,stat_points,8,,1.0%,,,5,32,1,0,1,27
-Beartic,213,ability,1,Slush Rush,75.9%,,,,,,,,
-Beartic,213,ability,2,Swift Swim,24.1%,,,,,,,,
+Beartic,215,move,1,Earthquake,88.0%,,,,,,,,
+Beartic,215,move,2,Close Combat,86.6%,,,,,,,,
+Beartic,215,move,3,Icicle Crash,38.7%,,,,,,,,
+Beartic,215,move,4,Aqua Jet,34.6%,,,,,,,,
+Beartic,215,move,5,Swords Dance,34.1%,,,,,,,,
+Beartic,215,move,6,Ice Punch,34.1%,,,,,,,,
+Beartic,215,move,7,Icicle Spear,26.7%,,,,,,,,
+Beartic,215,move,8,Crunch,12.4%,,,,,,,,
+Beartic,215,move,9,Liquidation,12.4%,,,,,,,,
+Beartic,215,move,10,Endeavor,4.6%,,,,,,,,
+Beartic,215,held_item,1,Life Orb,84.3%,,,,,,,,
+Beartic,215,held_item,2,Focus Sash,6.5%,,,,,,,,
+Beartic,215,held_item,3,Leftovers,2.8%,,,,,,,,
+Beartic,215,held_item,4,Chople Berry,2.3%,,,,,,,,
+Beartic,215,held_item,5,Expert Belt,1.8%,,,,,,,,
+Beartic,215,held_item,6,Wide Lens,0.9%,,,,,,,,
+Beartic,215,held_item,7,Muscle Band,0.9%,,,,,,,,
+Beartic,215,held_item,8,Scope Lens,0.5%,,,,,,,,
+Beartic,215,teammate,1,Basculegion,,,,,,,,,
+Beartic,215,teammate,2,Charizard,,,,,,,,,
+Beartic,215,teammate,3,Venusaur,,,,,,,,,
+Beartic,215,teammate,4,Slowking-Galar,,,,,,,,,
+Beartic,215,teammate,5,Pelipper,,,,,,,,,
+Beartic,215,teammate,6,Froslass,,,,,,,,,
+Beartic,215,teammate,7,Meowscarada,,,,,,,,,
+Beartic,215,teammate,8,Tyranitar,,,,,,,,,
+Beartic,215,teammate,9,Lucario,,,,,,,,,
+Beartic,215,teammate,10,Sylveon,,,,,,,,,
+Beartic,215,stat_alignment,1,Jolly,82.5%,Speed,Sp. Atk,,,,,,
+Beartic,215,stat_alignment,2,Adamant,17.5%,Attack,Sp. Atk,,,,,,
+Beartic,215,stat_points,1,,69.6%,,,2,32,0,0,0,32
+Beartic,215,stat_points,2,,7.4%,,,0,32,2,0,0,32
+Beartic,215,stat_points,3,,7.4%,,,1,32,1,0,0,32
+Beartic,215,stat_points,4,,6.5%,,,0,32,0,0,0,32
+Beartic,215,stat_points,5,,3.7%,,,0,32,0,0,2,32
+Beartic,215,stat_points,6,,3.2%,,,1,32,0,0,1,32
+Beartic,215,stat_points,7,,0.9%,,,0,32,1,0,1,32
+Beartic,215,stat_points,8,,0.9%,,,5,32,1,0,1,27
+Beartic,215,stat_points,9,,0.5%,,,14,20,0,0,0,32
+Beartic,215,ability,1,Slush Rush,72.8%,,,,,,,,
+Beartic,215,ability,2,Swift Swim,27.2%,,,,,,,,

@@ -1,49 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sinistcha,137,move,1,Matcha Gotcha,94.6%,,,,,,,,
-Sinistcha,137,move,2,Strength Sap,80.5%,,,,,,,,
-Sinistcha,137,move,3,Shadow Ball,67.7%,,,,,,,,
-Sinistcha,137,move,4,Calm Mind,61.3%,,,,,,,,
-Sinistcha,137,move,5,Scald,24.9%,,,,,,,,
-Sinistcha,137,move,6,Rage Powder,20.8%,,,,,,,,
-Sinistcha,137,move,7,Trick Room,14.9%,,,,,,,,
-Sinistcha,137,move,8,Protect,12.0%,,,,,,,,
-Sinistcha,137,move,9,Curse,5.0%,,,,,,,,
-Sinistcha,137,move,10,Hex,4.6%,,,,,,,,
-Sinistcha,137,held_item,1,Leftovers,41.5%,,,,,,,,
-Sinistcha,137,held_item,2,Rocky Helmet,15.2%,,,,,,,,
-Sinistcha,137,held_item,3,Sitrus Berry,13.6%,,,,,,,,
-Sinistcha,137,held_item,4,Lum Berry,7.0%,,,,,,,,
-Sinistcha,137,held_item,5,Big Root,4.0%,,,,,,,,
-Sinistcha,137,held_item,6,Chesto Berry,2.4%,,,,,,,,
-Sinistcha,137,held_item,7,Wide Lens,1.3%,,,,,,,,
-Sinistcha,137,held_item,8,Miracle Seed,0.8%,,,,,,,,
-Sinistcha,137,held_item,9,Life Orb,0.7%,,,,,,,,
-Sinistcha,137,held_item,10,Focus Sash,0.7%,,,,,,,,
-Sinistcha,137,teammate,1,Garchomp,,,,,,,,,
-Sinistcha,137,teammate,2,Lucario,,,,,,,,,
-Sinistcha,137,teammate,3,Charizard,,,,,,,,,
-Sinistcha,137,teammate,4,Basculegion,,,,,,,,,
-Sinistcha,137,teammate,5,Mr. Rime,,,,,,,,,
-Sinistcha,137,teammate,6,Golisopod,,,,,,,,,
-Sinistcha,137,teammate,7,Kingambit,,,,,,,,,
-Sinistcha,137,teammate,8,Tyranitar,,,,,,,,,
-Sinistcha,137,teammate,9,Torterra,,,,,,,,,
-Sinistcha,137,teammate,10,Aurorus,,,,,,,,,
-Sinistcha,137,stat_alignment,1,Bold,63.9%,Defense,Attack,,,,,,
-Sinistcha,137,stat_alignment,2,Calm,17.1%,Sp. Def,Attack,,,,,,
-Sinistcha,137,stat_alignment,3,Modest,17.0%,Sp. Atk,Attack,,,,,,
-Sinistcha,137,stat_alignment,4,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
-Sinistcha,137,stat_alignment,5,Timid,0.5%,Speed,Attack,,,,,,
-Sinistcha,137,stat_alignment,6,Quiet,0.4%,Sp. Atk,Speed,,,,,,
-Sinistcha,137,stat_points,1,,26.0%,,,32,0,32,0,2,0
-Sinistcha,137,stat_points,2,,12.8%,,,32,0,4,0,30,0
-Sinistcha,137,stat_points,3,,8.1%,,,31,0,32,0,3,0
-Sinistcha,137,stat_points,4,,8.1%,,,32,0,0,32,2,0
-Sinistcha,137,stat_points,5,,6.6%,,,32,0,32,2,0,0
-Sinistcha,137,stat_points,6,,6.1%,,,32,0,2,0,32,0
-Sinistcha,137,stat_points,7,,2.7%,,,0,0,32,32,0,2
-Sinistcha,137,stat_points,8,,2.4%,,,32,0,8,0,26,0
-Sinistcha,137,stat_points,9,,2.0%,,,31,0,31,1,0,3
-Sinistcha,137,stat_points,10,,2.0%,,,31,0,32,1,2,0
-Sinistcha,137,ability,1,Heatproof,86.8%,,,,,,,,
-Sinistcha,137,ability,2,Hospitality,13.2%,,,,,,,,
+Sinistcha,130,move,1,Matcha Gotcha,92.7%,,,,,,,,
+Sinistcha,130,move,2,Strength Sap,76.5%,,,,,,,,
+Sinistcha,130,move,3,Shadow Ball,71.9%,,,,,,,,
+Sinistcha,130,move,4,Calm Mind,56.9%,,,,,,,,
+Sinistcha,130,move,5,Scald,28.9%,,,,,,,,
+Sinistcha,130,move,6,Rage Powder,18.8%,,,,,,,,
+Sinistcha,130,move,7,Trick Room,15.3%,,,,,,,,
+Sinistcha,130,move,8,Protect,9.2%,,,,,,,,
+Sinistcha,130,move,9,Curse,5.5%,,,,,,,,
+Sinistcha,130,move,10,Substitute,4.9%,,,,,,,,
+Sinistcha,130,held_item,1,Leftovers,36.5%,,,,,,,,
+Sinistcha,130,held_item,2,Sitrus Berry,16.6%,,,,,,,,
+Sinistcha,130,held_item,3,Rocky Helmet,14.4%,,,,,,,,
+Sinistcha,130,held_item,4,Lum Berry,5.4%,,,,,,,,
+Sinistcha,130,held_item,5,Big Root,4.5%,,,,,,,,
+Sinistcha,130,held_item,6,Chesto Berry,2.6%,,,,,,,,
+Sinistcha,130,held_item,7,Focus Sash,2.6%,,,,,,,,
+Sinistcha,130,held_item,8,Miracle Seed,2.2%,,,,,,,,
+Sinistcha,130,held_item,9,Wise Glasses,2.1%,,,,,,,,
+Sinistcha,130,held_item,10,Wide Lens,1.6%,,,,,,,,
+Sinistcha,130,teammate,1,Garchomp,,,,,,,,,
+Sinistcha,130,teammate,2,Charizard,,,,,,,,,
+Sinistcha,130,teammate,3,Golisopod,,,,,,,,,
+Sinistcha,130,teammate,4,Lucario,,,,,,,,,
+Sinistcha,130,teammate,5,Basculegion,,,,,,,,,
+Sinistcha,130,teammate,6,Kingambit,,,,,,,,,
+Sinistcha,130,teammate,7,Gyarados,,,,,,,,,
+Sinistcha,130,teammate,8,Tyranitar,,,,,,,,,
+Sinistcha,130,teammate,9,Archaludon,,,,,,,,,
+Sinistcha,130,teammate,10,Primarina,,,,,,,,,
+Sinistcha,130,stat_alignment,1,Bold,59.0%,Defense,Attack,,,,,,
+Sinistcha,130,stat_alignment,2,Modest,19.5%,Sp. Atk,Attack,,,,,,
+Sinistcha,130,stat_alignment,3,Calm,17.6%,Sp. Def,Attack,,,,,,
+Sinistcha,130,stat_alignment,4,Quiet,2.6%,Sp. Atk,Speed,,,,,,
+Sinistcha,130,stat_alignment,5,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
+Sinistcha,130,stat_alignment,6,Timid,0.4%,Speed,Attack,,,,,,
+Sinistcha,130,stat_alignment,7,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Sinistcha,130,stat_points,1,,27.3%,,,32,0,32,0,2,0
+Sinistcha,130,stat_points,2,,11.1%,,,32,0,0,32,2,0
+Sinistcha,130,stat_points,3,,10.0%,,,32,0,4,0,30,0
+Sinistcha,130,stat_points,4,,6.7%,,,31,0,32,0,3,0
+Sinistcha,130,stat_points,5,,6.3%,,,32,0,32,2,0,0
+Sinistcha,130,stat_points,6,,5.3%,,,32,0,2,0,32,0
+Sinistcha,130,stat_points,7,,2.6%,,,32,0,8,0,26,0
+Sinistcha,130,stat_points,8,,2.1%,,,29,0,0,32,5,0
+Sinistcha,130,stat_points,9,,2.1%,,,0,0,32,32,0,2
+Sinistcha,130,stat_points,10,,1.7%,,,31,0,3,32,0,0
+Sinistcha,130,ability,1,Heatproof,89.5%,,,,,,,,
+Sinistcha,130,ability,2,Hospitality,10.5%,,,,,,,,

@@ -1,45 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Typhlosion-Hisui,163,move,1,Eruption,89.9%,,,,,,,,
-Typhlosion-Hisui,163,move,2,Infernal Parade,76.7%,,,,,,,,
-Typhlosion-Hisui,163,move,3,Shadow Ball,46.8%,,,,,,,,
-Typhlosion-Hisui,163,move,4,Focus Blast,43.7%,,,,,,,,
-Typhlosion-Hisui,163,move,5,Flamethrower,25.2%,,,,,,,,
-Typhlosion-Hisui,163,move,6,Heat Wave,24.8%,,,,,,,,
-Typhlosion-Hisui,163,move,7,Blast Burn,21.0%,,,,,,,,
-Typhlosion-Hisui,163,move,8,Overheat,12.0%,,,,,,,,
-Typhlosion-Hisui,163,move,9,Burn Up,9.9%,,,,,,,,
-Typhlosion-Hisui,163,move,10,Endeavor,9.4%,,,,,,,,
-Typhlosion-Hisui,163,held_item,1,Choice Scarf,60.1%,,,,,,,,
-Typhlosion-Hisui,163,held_item,2,Focus Sash,9.5%,,,,,,,,
-Typhlosion-Hisui,163,held_item,3,Charcoal,2.5%,,,,,,,,
-Typhlosion-Hisui,163,held_item,4,Life Orb,1.7%,,,,,,,,
-Typhlosion-Hisui,163,held_item,5,Spell Tag,0.8%,,,,,,,,
-Typhlosion-Hisui,163,held_item,6,Leftovers,0.4%,,,,,,,,
-Typhlosion-Hisui,163,held_item,7,Expert Belt,0.4%,,,,,,,,
-Typhlosion-Hisui,163,teammate,1,Garchomp,,,,,,,,,
-Typhlosion-Hisui,163,teammate,2,Basculegion,,,,,,,,,
-Typhlosion-Hisui,163,teammate,3,Weavile,,,,,,,,,
-Typhlosion-Hisui,163,teammate,4,Charizard,,,,,,,,,
-Typhlosion-Hisui,163,teammate,5,Slowking,,,,,,,,,
-Typhlosion-Hisui,163,teammate,6,Tyranitar,,,,,,,,,
-Typhlosion-Hisui,163,teammate,7,Sylveon,,,,,,,,,
-Typhlosion-Hisui,163,teammate,8,Scovillain,,,,,,,,,
-Typhlosion-Hisui,163,teammate,9,Infernape,,,,,,,,,
-Typhlosion-Hisui,163,teammate,10,Meowscarada,,,,,,,,,
-Typhlosion-Hisui,163,stat_alignment,1,Timid,63.7%,Speed,Attack,,,,,,
-Typhlosion-Hisui,163,stat_alignment,2,Modest,31.3%,Sp. Atk,Attack,,,,,,
-Typhlosion-Hisui,163,stat_alignment,3,Mild,3.8%,Sp. Atk,Defense,,,,,,
-Typhlosion-Hisui,163,stat_alignment,4,Naive,0.8%,Speed,Sp. Def,,,,,,
-Typhlosion-Hisui,163,stat_alignment,5,Calm,0.4%,Sp. Def,Attack,,,,,,
-Typhlosion-Hisui,163,stat_points,1,,39.3%,,,2,0,0,32,0,32
-Typhlosion-Hisui,163,stat_points,2,,24.6%,,,1,0,0,32,0,32
-Typhlosion-Hisui,163,stat_points,3,,8.4%,,,9,0,0,32,0,25
-Typhlosion-Hisui,163,stat_points,4,,6.7%,,,0,0,0,32,12,22
-Typhlosion-Hisui,163,stat_points,5,,6.7%,,,1,0,1,32,0,32
-Typhlosion-Hisui,163,stat_points,6,,3.8%,,,0,0,2,32,0,32
-Typhlosion-Hisui,163,stat_points,7,,3.4%,,,0,0,0,32,2,32
-Typhlosion-Hisui,163,stat_points,8,,2.9%,,,12,0,0,32,0,22
-Typhlosion-Hisui,163,stat_points,9,,0.6%,,,1,0,0,32,1,32
-Typhlosion-Hisui,163,stat_points,10,,0.6%,,,3,0,0,32,0,31
-Typhlosion-Hisui,163,ability,1,Frisk,73.1%,,,,,,,,
-Typhlosion-Hisui,163,ability,2,Blaze,26.9%,,,,,,,,
+Typhlosion-Hisui,162,move,1,Eruption,90.2%,,,,,,,,
+Typhlosion-Hisui,162,move,2,Infernal Parade,75.7%,,,,,,,,
+Typhlosion-Hisui,162,move,3,Shadow Ball,49.4%,,,,,,,,
+Typhlosion-Hisui,162,move,4,Focus Blast,43.4%,,,,,,,,
+Typhlosion-Hisui,162,move,5,Heat Wave,25.8%,,,,,,,,
+Typhlosion-Hisui,162,move,6,Flamethrower,23.5%,,,,,,,,
+Typhlosion-Hisui,162,move,7,Blast Burn,18.6%,,,,,,,,
+Typhlosion-Hisui,162,move,8,Overheat,11.7%,,,,,,,,
+Typhlosion-Hisui,162,move,9,Endeavor,9.3%,,,,,,,,
+Typhlosion-Hisui,162,move,10,Burn Up,8.4%,,,,,,,,
+Typhlosion-Hisui,162,held_item,1,Choice Scarf,59.7%,,,,,,,,
+Typhlosion-Hisui,162,held_item,2,Focus Sash,10.3%,,,,,,,,
+Typhlosion-Hisui,162,held_item,3,Charcoal,2.1%,,,,,,,,
+Typhlosion-Hisui,162,held_item,4,Life Orb,1.4%,,,,,,,,
+Typhlosion-Hisui,162,held_item,5,Spell Tag,0.6%,,,,,,,,
+Typhlosion-Hisui,162,held_item,6,Leftovers,0.3%,,,,,,,,
+Typhlosion-Hisui,162,held_item,7,Expert Belt,0.3%,,,,,,,,
+Typhlosion-Hisui,162,held_item,8,Air Balloon,0.2%,,,,,,,,
+Typhlosion-Hisui,162,teammate,1,Garchomp,,,,,,,,,
+Typhlosion-Hisui,162,teammate,2,Basculegion,,,,,,,,,
+Typhlosion-Hisui,162,teammate,3,Charizard,,,,,,,,,
+Typhlosion-Hisui,162,teammate,4,Weavile,,,,,,,,,
+Typhlosion-Hisui,162,teammate,5,Slowking,,,,,,,,,
+Typhlosion-Hisui,162,teammate,6,Tyranitar,,,,,,,,,
+Typhlosion-Hisui,162,teammate,7,Primarina,,,,,,,,,
+Typhlosion-Hisui,162,teammate,8,Sylveon,,,,,,,,,
+Typhlosion-Hisui,162,teammate,9,Scovillain,,,,,,,,,
+Typhlosion-Hisui,162,teammate,10,Infernape,,,,,,,,,
+Typhlosion-Hisui,162,stat_alignment,1,Timid,63.7%,Speed,Attack,,,,,,
+Typhlosion-Hisui,162,stat_alignment,2,Modest,28.3%,Sp. Atk,Attack,,,,,,
+Typhlosion-Hisui,162,stat_alignment,3,Mild,6.6%,Sp. Atk,Defense,,,,,,
+Typhlosion-Hisui,162,stat_alignment,4,Naive,0.6%,Speed,Sp. Def,,,,,,
+Typhlosion-Hisui,162,stat_alignment,5,Hasty,0.5%,Speed,Defense,,,,,,
+Typhlosion-Hisui,162,stat_alignment,6,Calm,0.3%,Sp. Def,Attack,,,,,,
+Typhlosion-Hisui,162,stat_points,1,,38.7%,,,2,0,0,32,0,32
+Typhlosion-Hisui,162,stat_points,2,,25.1%,,,1,0,0,32,0,32
+Typhlosion-Hisui,162,stat_points,3,,7.7%,,,1,0,1,32,0,32
+Typhlosion-Hisui,162,stat_points,4,,7.0%,,,9,0,0,32,0,25
+Typhlosion-Hisui,162,stat_points,5,,6.3%,,,0,0,0,32,12,22
+Typhlosion-Hisui,162,stat_points,6,,3.5%,,,0,0,2,32,0,32
+Typhlosion-Hisui,162,stat_points,7,,3.0%,,,0,0,0,32,2,32
+Typhlosion-Hisui,162,stat_points,8,,3.0%,,,12,0,0,32,0,22
+Typhlosion-Hisui,162,stat_points,9,,2.2%,,,1,0,0,32,1,32
+Typhlosion-Hisui,162,stat_points,10,,0.5%,,,3,0,0,32,0,31
+Typhlosion-Hisui,162,ability,1,Frisk,77.7%,,,,,,,,
+Typhlosion-Hisui,162,ability,2,Blaze,22.3%,,,,,,,,

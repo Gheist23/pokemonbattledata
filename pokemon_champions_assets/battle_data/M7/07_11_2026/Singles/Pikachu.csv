@@ -1,45 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pikachu,180,move,1,Thunderbolt,56.4%,,,,,,,,
-Pikachu,180,move,2,Grass Knot,45.7%,,,,,,,,
-Pikachu,180,move,3,Alluring Voice,34.1%,,,,,,,,
-Pikachu,180,move,4,Encore,32.5%,,,,,,,,
-Pikachu,180,move,5,Substitute,30.7%,,,,,,,,
-Pikachu,180,move,6,Surf,26.0%,,,,,,,,
-Pikachu,180,move,7,Nasty Plot,25.7%,,,,,,,,
-Pikachu,180,move,8,Endeavor,18.9%,,,,,,,,
-Pikachu,180,move,9,Fake Out,17.1%,,,,,,,,
-Pikachu,180,move,10,Volt Tackle,13.4%,,,,,,,,
-Pikachu,180,held_item,1,Light Ball,80.8%,,,,,,,,
-Pikachu,180,held_item,2,Focus Sash,17.1%,,,,,,,,
-Pikachu,180,held_item,3,Choice Scarf,0.8%,,,,,,,,
-Pikachu,180,teammate,1,Raichu,,,,,,,,,
-Pikachu,180,teammate,2,Charizard,,,,,,,,,
-Pikachu,180,teammate,3,Primarina,,,,,,,,,
-Pikachu,180,teammate,4,Gengar,,,,,,,,,
-Pikachu,180,teammate,5,Basculegion,,,,,,,,,
-Pikachu,180,teammate,6,Dragonite,,,,,,,,,
-Pikachu,180,teammate,7,Gardevoir,,,,,,,,,
-Pikachu,180,teammate,8,Meowscarada,,,,,,,,,
-Pikachu,180,teammate,9,Arcanine,,,,,,,,,
-Pikachu,180,teammate,10,Ninetales-Alola,,,,,,,,,
-Pikachu,180,stat_alignment,1,Timid,61.7%,Speed,Attack,,,,,,
-Pikachu,180,stat_alignment,2,Adamant,16.3%,Attack,Sp. Atk,,,,,,
-Pikachu,180,stat_alignment,3,Lonely,7.3%,Attack,Defense,,,,,,
-Pikachu,180,stat_alignment,4,Modest,5.8%,Sp. Atk,Attack,,,,,,
-Pikachu,180,stat_alignment,5,Jolly,3.1%,Speed,Sp. Atk,,,,,,
-Pikachu,180,stat_alignment,6,Hasty,2.9%,Speed,Defense,,,,,,
-Pikachu,180,stat_alignment,7,Naive,1.3%,Speed,Sp. Def,,,,,,
-Pikachu,180,stat_alignment,8,Impish,1.3%,Defense,Sp. Atk,,,,,,
-Pikachu,180,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,
-Pikachu,180,stat_points,1,,28.1%,,,2,0,0,32,0,32
-Pikachu,180,stat_points,2,,15.7%,,,3,0,1,32,0,30
-Pikachu,180,stat_points,3,,10.5%,,,1,32,0,0,0,32
-Pikachu,180,stat_points,4,,8.9%,,,1,0,0,32,1,32
-Pikachu,180,stat_points,5,,8.4%,,,0,0,0,32,2,32
-Pikachu,180,stat_points,6,,7.3%,,,0,32,0,32,0,2
-Pikachu,180,stat_points,7,,5.5%,,,0,0,0,32,0,32
-Pikachu,180,stat_points,8,,5.0%,,,3,14,5,20,2,22
-Pikachu,180,stat_points,9,,2.1%,,,0,0,2,32,0,32
-Pikachu,180,stat_points,10,,1.6%,,,1,32,1,0,0,32
-Pikachu,180,ability,1,Static,61.7%,,,,,,,,
-Pikachu,180,ability,2,Lightning Rod,38.3%,,,,,,,,
+Pikachu,179,move,1,Thunderbolt,53.4%,,,,,,,,
+Pikachu,179,move,2,Grass Knot,40.2%,,,,,,,,
+Pikachu,179,move,3,Encore,34.8%,,,,,,,,
+Pikachu,179,move,4,Alluring Voice,30.1%,,,,,,,,
+Pikachu,179,move,5,Surf,27.8%,,,,,,,,
+Pikachu,179,move,6,Substitute,27.4%,,,,,,,,
+Pikachu,179,move,7,Nasty Plot,24.1%,,,,,,,,
+Pikachu,179,move,8,Fake Out,20.3%,,,,,,,,
+Pikachu,179,move,9,Endeavor,19.0%,,,,,,,,
+Pikachu,179,move,10,Volt Tackle,17.5%,,,,,,,,
+Pikachu,179,held_item,1,Light Ball,80.8%,,,,,,,,
+Pikachu,179,held_item,2,Focus Sash,17.5%,,,,,,,,
+Pikachu,179,held_item,3,Choice Scarf,0.6%,,,,,,,,
+Pikachu,179,teammate,1,Charizard,,,,,,,,,
+Pikachu,179,teammate,2,Raichu,,,,,,,,,
+Pikachu,179,teammate,3,Basculegion,,,,,,,,,
+Pikachu,179,teammate,4,Primarina,,,,,,,,,
+Pikachu,179,teammate,5,Dragonite,,,,,,,,,
+Pikachu,179,teammate,6,Gardevoir,,,,,,,,,
+Pikachu,179,teammate,7,Gengar,,,,,,,,,
+Pikachu,179,teammate,8,Garchomp,,,,,,,,,
+Pikachu,179,teammate,9,Meowscarada,,,,,,,,,
+Pikachu,179,teammate,10,Corviknight,,,,,,,,,
+Pikachu,179,stat_alignment,1,Timid,57.5%,Speed,Attack,,,,,,
+Pikachu,179,stat_alignment,2,Adamant,14.1%,Attack,Sp. Atk,,,,,,
+Pikachu,179,stat_alignment,3,Jolly,9.2%,Speed,Sp. Atk,,,,,,
+Pikachu,179,stat_alignment,4,Lonely,7.3%,Attack,Defense,,,,,,
+Pikachu,179,stat_alignment,5,Modest,4.9%,Sp. Atk,Attack,,,,,,
+Pikachu,179,stat_alignment,6,Hasty,2.4%,Speed,Defense,,,,,,
+Pikachu,179,stat_alignment,7,Naughty,2.4%,Attack,Sp. Def,,,,,,
+Pikachu,179,stat_alignment,8,Naive,1.1%,Speed,Sp. Def,,,,,,
+Pikachu,179,stat_alignment,9,Impish,1.1%,Defense,Sp. Atk,,,,,,
+Pikachu,179,stat_alignment,10,Brave,0.2%,Attack,Speed,,,,,,
+Pikachu,179,stat_points,1,,23.1%,,,2,0,0,32,0,32
+Pikachu,179,stat_points,2,,13.7%,,,3,0,1,32,0,30
+Pikachu,179,stat_points,3,,12.0%,,,1,0,0,32,1,32
+Pikachu,179,stat_points,4,,9.0%,,,1,32,0,0,0,32
+Pikachu,179,stat_points,5,,8.1%,,,2,32,0,0,0,32
+Pikachu,179,stat_points,6,,7.3%,,,0,32,0,32,0,2
+Pikachu,179,stat_points,7,,6.8%,,,0,0,0,32,2,32
+Pikachu,179,stat_points,8,,4.5%,,,0,0,0,32,0,32
+Pikachu,179,stat_points,9,,4.1%,,,3,14,5,20,2,22
+Pikachu,179,stat_points,10,,2.4%,,,0,32,0,13,0,21
+Pikachu,179,ability,1,Static,63.9%,,,,,,,,
+Pikachu,179,ability,2,Lightning Rod,36.1%,,,,,,,,

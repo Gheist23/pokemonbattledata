@@ -1,40 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tauros,233,move,1,Rock Slide,69.4%,,,,,,,,
-Tauros,233,move,2,Iron Head,69.4%,,,,,,,,
-Tauros,233,move,3,Fire Blast,57.7%,,,,,,,,
-Tauros,233,move,4,Ice Beam,57.7%,,,,,,,,
-Tauros,233,move,5,Earthquake,38.7%,,,,,,,,
-Tauros,233,move,6,Raging Bull,22.5%,,,,,,,,
-Tauros,233,move,7,Close Combat,19.8%,,,,,,,,
-Tauros,233,move,8,Wild Charge,18.0%,,,,,,,,
-Tauros,233,move,9,Rock Tomb,16.2%,,,,,,,,
-Tauros,233,move,10,Double-Edge,11.7%,,,,,,,,
-Tauros,233,held_item,1,Life Orb,76.6%,,,,,,,,
-Tauros,233,held_item,2,Silk Scarf,15.3%,,,,,,,,
-Tauros,233,held_item,3,Choice Scarf,5.4%,,,,,,,,
-Tauros,233,held_item,4,Normal Gem,1.8%,,,,,,,,
-Tauros,233,held_item,5,Sitrus Berry,0.9%,,,,,,,,
-Tauros,233,teammate,1,Snorlax,,,,,,,,,
-Tauros,233,teammate,2,Sableye,,,,,,,,,
-Tauros,233,teammate,3,Metagross,,,,,,,,,
-Tauros,233,teammate,4,Raichu,,,,,,,,,
-Tauros,233,teammate,5,Espeon,,,,,,,,,
-Tauros,233,teammate,6,Greninja,,,,,,,,,
-Tauros,233,teammate,7,Garchomp,,,,,,,,,
-Tauros,233,teammate,8,Gallade,,,,,,,,,
-Tauros,233,teammate,9,Corviknight,,,,,,,,,
-Tauros,233,teammate,10,Meowscarada,,,,,,,,,
-Tauros,233,stat_alignment,1,Hasty,57.7%,Speed,Defense,,,,,,
-Tauros,233,stat_alignment,2,Jolly,31.5%,Speed,Sp. Atk,,,,,,
-Tauros,233,stat_alignment,3,Adamant,9.9%,Attack,Sp. Atk,,,,,,
-Tauros,233,stat_alignment,4,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
-Tauros,233,stat_points,1,,57.7%,,,0,9,0,32,0,25
-Tauros,233,stat_points,2,,15.3%,,,1,32,1,0,0,32
-Tauros,233,stat_points,3,,13.5%,,,2,32,0,0,0,32
-Tauros,233,stat_points,4,,6.3%,,,0,32,0,0,2,32
-Tauros,233,stat_points,5,,3.6%,,,0,32,0,0,0,32
-Tauros,233,stat_points,6,,1.8%,,,1,32,0,0,1,32
-Tauros,233,stat_points,7,,0.9%,,,9,32,0,0,0,25
-Tauros,233,stat_points,8,,0.9%,,,32,0,2,0,32,0
-Tauros,233,ability,1,Sheer Force,82.9%,,,,,,,,
-Tauros,233,ability,2,Intimidate,17.1%,,,,,,,,
+Tauros,229,move,1,Iron Head,71.3%,,,,,,,,
+Tauros,229,move,2,Rock Slide,62.2%,,,,,,,,
+Tauros,229,move,3,Fire Blast,51.0%,,,,,,,,
+Tauros,229,move,4,Ice Beam,51.0%,,,,,,,,
+Tauros,229,move,5,Earthquake,46.2%,,,,,,,,
+Tauros,229,move,6,Close Combat,24.5%,,,,,,,,
+Tauros,229,move,7,Raging Bull,22.4%,,,,,,,,
+Tauros,229,move,8,Wild Charge,18.9%,,,,,,,,
+Tauros,229,move,9,Double-Edge,18.2%,,,,,,,,
+Tauros,229,move,10,Rock Tomb,17.5%,,,,,,,,
+Tauros,229,held_item,1,Life Orb,81.8%,,,,,,,,
+Tauros,229,held_item,2,Silk Scarf,11.9%,,,,,,,,
+Tauros,229,held_item,3,Choice Scarf,4.2%,,,,,,,,
+Tauros,229,held_item,4,Normal Gem,1.4%,,,,,,,,
+Tauros,229,held_item,5,Sitrus Berry,0.7%,,,,,,,,
+Tauros,229,teammate,1,Snorlax,,,,,,,,,
+Tauros,229,teammate,2,Sableye,,,,,,,,,
+Tauros,229,teammate,3,Metagross,,,,,,,,,
+Tauros,229,teammate,4,Raichu,,,,,,,,,
+Tauros,229,teammate,5,Kingambit,,,,,,,,,
+Tauros,229,teammate,6,Greninja,,,,,,,,,
+Tauros,229,teammate,7,Espeon,,,,,,,,,
+Tauros,229,teammate,8,Dragonite,,,,,,,,,
+Tauros,229,teammate,9,Garchomp,,,,,,,,,
+Tauros,229,teammate,10,Gallade,,,,,,,,,
+Tauros,229,stat_alignment,1,Hasty,45.5%,Speed,Defense,,,,,,
+Tauros,229,stat_alignment,2,Jolly,29.4%,Speed,Sp. Atk,,,,,,
+Tauros,229,stat_alignment,3,Adamant,18.9%,Attack,Sp. Atk,,,,,,
+Tauros,229,stat_alignment,4,Naive,5.6%,Speed,Sp. Def,,,,,,
+Tauros,229,stat_alignment,5,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
+Tauros,229,stat_points,1,,45.5%,,,0,9,0,32,0,25
+Tauros,229,stat_points,2,,16.8%,,,1,32,1,0,0,32
+Tauros,229,stat_points,3,,14.0%,,,0,32,0,0,2,32
+Tauros,229,stat_points,4,,10.5%,,,2,32,0,0,0,32
+Tauros,229,stat_points,5,,5.6%,,,0,2,0,32,0,32
+Tauros,229,stat_points,6,,3.5%,,,1,32,0,0,1,32
+Tauros,229,stat_points,7,,2.8%,,,0,32,0,0,0,32
+Tauros,229,stat_points,8,,0.7%,,,9,32,0,0,0,25
+Tauros,229,stat_points,9,,0.7%,,,32,0,2,0,32,0
+Tauros,229,ability,1,Sheer Force,81.8%,,,,,,,,
+Tauros,229,ability,2,Intimidate,18.2%,,,,,,,,

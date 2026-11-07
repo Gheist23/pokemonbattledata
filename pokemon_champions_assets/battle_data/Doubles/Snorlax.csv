@@ -1,48 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Snorlax,97,move,1,Protect,60.7%,,,,,,,,
-Snorlax,97,move,2,Fissure,38.1%,,,,,,,,
-Snorlax,97,move,3,Stockpile,29.0%,,,,,,,,
-Snorlax,97,move,4,Earthquake,24.4%,,,,,,,,
-Snorlax,97,move,5,Belly Drum,22.9%,,,,,,,,
-Snorlax,97,move,6,Self-Destruct,22.1%,,,,,,,,
-Snorlax,97,move,7,Yawn,21.8%,,,,,,,,
-Snorlax,97,move,8,Body Press,21.8%,,,,,,,,
-Snorlax,97,move,9,Rock Slide,15.6%,,,,,,,,
-Snorlax,97,move,10,Body Slam,12.7%,,,,,,,,
-Snorlax,97,held_item,1,Leftovers,50.2%,,,,,,,,
-Snorlax,97,held_item,2,Sitrus Berry,25.1%,,,,,,,,
-Snorlax,97,held_item,3,Normal Gem,17.3%,,,,,,,,
-Snorlax,97,held_item,4,Life Orb,3.3%,,,,,,,,
-Snorlax,97,held_item,5,Lum Berry,2.0%,,,,,,,,
-Snorlax,97,held_item,6,Silk Scarf,1.4%,,,,,,,,
-Snorlax,97,held_item,7,Chople Berry,0.8%,,,,,,,,
-Snorlax,97,teammate,1,Indeedee-F,,,,,,,,,
-Snorlax,97,teammate,2,Incineroar,,,,,,,,,
-Snorlax,97,teammate,3,Audino,,,,,,,,,
-Snorlax,97,teammate,4,Rillaboom,,,,,,,,,
-Snorlax,97,teammate,5,Camerupt,,,,,,,,,
-Snorlax,97,teammate,6,Sinistcha,,,,,,,,,
-Snorlax,97,teammate,7,Farigiraf,,,,,,,,,
-Snorlax,97,teammate,8,Torkoal,,,,,,,,,
-Snorlax,97,teammate,9,Hawlucha,,,,,,,,,
-Snorlax,97,teammate,10,Mimikyu,,,,,,,,,
-Snorlax,97,stat_alignment,1,Relaxed,31.3%,Defense,Speed,,,,,,
-Snorlax,97,stat_alignment,2,Brave,26.4%,Attack,Speed,,,,,,
-Snorlax,97,stat_alignment,3,Impish,19.5%,Defense,Sp. Atk,,,,,,
-Snorlax,97,stat_alignment,4,Adamant,14.7%,Attack,Sp. Atk,,,,,,
-Snorlax,97,stat_alignment,5,Bold,4.4%,Defense,Attack,,,,,,
-Snorlax,97,stat_alignment,6,Careful,3.4%,Sp. Def,Sp. Atk,,,,,,
-Snorlax,97,stat_alignment,7,Sassy,0.3%,Sp. Def,Speed,,,,,,
-Snorlax,97,stat_points,1,,18.9%,,,32,0,32,0,2,0
-Snorlax,97,stat_points,2,,10.0%,,,2,32,32,0,0,0
-Snorlax,97,stat_points,3,,8.1%,,,21,0,31,0,0,14
-Snorlax,97,stat_points,4,,7.4%,,,15,21,25,0,5,0
-Snorlax,97,stat_points,5,,6.2%,,,5,32,5,0,0,24
-Snorlax,97,stat_points,6,,4.4%,,,20,0,31,0,1,14
-Snorlax,97,stat_points,7,,4.3%,,,21,0,32,0,13,0
-Snorlax,97,stat_points,8,,4.3%,,,31,32,3,0,0,0
-Snorlax,97,stat_points,9,,3.5%,,,21,0,31,0,14,0
-Snorlax,97,stat_points,10,,3.5%,,,32,32,0,0,2,0
-Snorlax,97,ability,1,Thick Fat,97.5%,,,,,,,,
-Snorlax,97,ability,2,Gluttony,2.2%,,,,,,,,
-Snorlax,97,ability,3,Immunity,0.3%,,,,,,,,
+Snorlax,95,move,1,Protect,58.5%,,,,,,,,
+Snorlax,95,move,2,Fissure,36.4%,,,,,,,,
+Snorlax,95,move,3,Stockpile,29.1%,,,,,,,,
+Snorlax,95,move,4,Earthquake,26.9%,,,,,,,,
+Snorlax,95,move,5,Belly Drum,24.5%,,,,,,,,
+Snorlax,95,move,6,Yawn,24.5%,,,,,,,,
+Snorlax,95,move,7,Self-Destruct,22.4%,,,,,,,,
+Snorlax,95,move,8,Body Press,21.8%,,,,,,,,
+Snorlax,95,move,9,Rock Slide,18.3%,,,,,,,,
+Snorlax,95,move,10,High Horsepower,13.1%,,,,,,,,
+Snorlax,95,held_item,1,Leftovers,49.4%,,,,,,,,
+Snorlax,95,held_item,2,Sitrus Berry,24.9%,,,,,,,,
+Snorlax,95,held_item,3,Normal Gem,15.8%,,,,,,,,
+Snorlax,95,held_item,4,Life Orb,5.8%,,,,,,,,
+Snorlax,95,held_item,5,Lum Berry,1.6%,,,,,,,,
+Snorlax,95,held_item,6,Silk Scarf,1.2%,,,,,,,,
+Snorlax,95,held_item,7,Chople Berry,0.6%,,,,,,,,
+Snorlax,95,held_item,8,Expert Belt,0.4%,,,,,,,,
+Snorlax,95,held_item,9,Hard Stone,0.3%,,,,,,,,
+Snorlax,95,teammate,1,Indeedee-F,,,,,,,,,
+Snorlax,95,teammate,2,Audino,,,,,,,,,
+Snorlax,95,teammate,3,Incineroar,,,,,,,,,
+Snorlax,95,teammate,4,Farigiraf,,,,,,,,,
+Snorlax,95,teammate,5,Rillaboom,,,,,,,,,
+Snorlax,95,teammate,6,Camerupt,,,,,,,,,
+Snorlax,95,teammate,7,Sinistcha,,,,,,,,,
+Snorlax,95,teammate,8,Torkoal,,,,,,,,,
+Snorlax,95,teammate,9,Zoroark-Hisui,,,,,,,,,
+Snorlax,95,teammate,10,Hawlucha,,,,,,,,,
+Snorlax,95,stat_alignment,1,Relaxed,30.4%,Defense,Speed,,,,,,
+Snorlax,95,stat_alignment,2,Brave,26.1%,Attack,Speed,,,,,,
+Snorlax,95,stat_alignment,3,Impish,19.1%,Defense,Sp. Atk,,,,,,
+Snorlax,95,stat_alignment,4,Adamant,15.7%,Attack,Sp. Atk,,,,,,
+Snorlax,95,stat_alignment,5,Bold,5.0%,Defense,Attack,,,,,,
+Snorlax,95,stat_alignment,6,Careful,3.2%,Sp. Def,Sp. Atk,,,,,,
+Snorlax,95,stat_alignment,7,Sassy,0.5%,Sp. Def,Speed,,,,,,
+Snorlax,95,stat_points,1,,16.4%,,,32,0,32,0,2,0
+Snorlax,95,stat_points,2,,9.3%,,,2,32,32,0,0,0
+Snorlax,95,stat_points,3,,8.8%,,,21,0,31,0,0,14
+Snorlax,95,stat_points,4,,7.3%,,,15,21,25,0,5,0
+Snorlax,95,stat_points,5,,6.3%,,,32,32,0,0,2,0
+Snorlax,95,stat_points,6,,5.4%,,,20,0,31,0,1,14
+Snorlax,95,stat_points,7,,5.2%,,,5,32,5,0,0,24
+Snorlax,95,stat_points,8,,4.0%,,,21,0,32,0,13,0
+Snorlax,95,stat_points,9,,3.5%,,,31,32,3,0,0,0
+Snorlax,95,stat_points,10,,3.0%,,,21,0,31,0,14,0
+Snorlax,95,ability,1,Thick Fat,97.9%,,,,,,,,
+Snorlax,95,ability,2,Gluttony,1.9%,,,,,,,,
+Snorlax,95,ability,3,Immunity,0.2%,,,,,,,,

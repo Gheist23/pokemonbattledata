@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Blastoise,43,move,1,Water Spout,91.5%,,,,,,,,
-Blastoise,43,move,2,Dark Pulse,66.3%,,,,,,,,
-Blastoise,43,move,3,Shell Smash,63.7%,,,,,,,,
-Blastoise,43,move,4,Protect,59.3%,,,,,,,,
-Blastoise,43,move,5,Aura Sphere,40.1%,,,,,,,,
-Blastoise,43,move,6,Fake Out,23.7%,,,,,,,,
-Blastoise,43,move,7,Terrain Pulse,21.5%,,,,,,,,
-Blastoise,43,move,8,Ice Beam,15.6%,,,,,,,,
+Blastoise,43,move,1,Water Spout,91.0%,,,,,,,,
+Blastoise,43,move,2,Dark Pulse,65.5%,,,,,,,,
+Blastoise,43,move,3,Shell Smash,64.9%,,,,,,,,
+Blastoise,43,move,4,Protect,61.2%,,,,,,,,
+Blastoise,43,move,5,Aura Sphere,38.7%,,,,,,,,
+Blastoise,43,move,6,Terrain Pulse,21.9%,,,,,,,,
+Blastoise,43,move,7,Fake Out,21.8%,,,,,,,,
+Blastoise,43,move,8,Ice Beam,15.3%,,,,,,,,
 Blastoise,43,move,9,Dragon Pulse,7.4%,,,,,,,,
-Blastoise,43,move,10,Water Pulse,3.8%,,,,,,,,
-Blastoise,43,held_item,1,Blastoisinite,94.8%,,,,,,,,
-Blastoise,43,held_item,2,White Herb,2.8%,,,,,,,,
-Blastoise,43,held_item,3,Mystic Water,0.7%,,,,,,,,
+Blastoise,43,move,10,Water Pulse,3.9%,,,,,,,,
+Blastoise,43,held_item,1,Blastoisinite,94.1%,,,,,,,,
+Blastoise,43,held_item,2,White Herb,2.9%,,,,,,,,
+Blastoise,43,held_item,3,Mystic Water,1.2%,,,,,,,,
 Blastoise,43,held_item,4,Lum Berry,0.6%,,,,,,,,
 Blastoise,43,held_item,5,Sitrus Berry,0.3%,,,,,,,,
-Blastoise,43,held_item,6,Leftovers,0.1%,,,,,,,,
-Blastoise,43,held_item,7,Focus Sash,0.1%,,,,,,,,
-Blastoise,43,held_item,8,Choice Scarf,0.1%,,,,,,,,
+Blastoise,43,held_item,6,Leftovers,0.2%,,,,,,,,
+Blastoise,43,held_item,7,Choice Scarf,0.1%,,,,,,,,
+Blastoise,43,held_item,8,Focus Sash,0.1%,,,,,,,,
 Blastoise,43,held_item,9,Psychic Seed,0.1%,,,,,,,,
 Blastoise,43,teammate,1,Indeedee-F,,,,,,,,,
 Blastoise,43,teammate,2,Sneasler,,,,,,,,,
@@ -24,28 +24,29 @@ Blastoise,43,teammate,3,Farigiraf,,,,,,,,,
 Blastoise,43,teammate,4,Armarouge,,,,,,,,,
 Blastoise,43,teammate,5,Incineroar,,,,,,,,,
 Blastoise,43,teammate,6,Sinistcha,,,,,,,,,
-Blastoise,43,teammate,7,Gardevoir,,,,,,,,,
-Blastoise,43,teammate,8,Rillaboom,,,,,,,,,
+Blastoise,43,teammate,7,Rillaboom,,,,,,,,,
+Blastoise,43,teammate,8,Gardevoir,,,,,,,,,
 Blastoise,43,teammate,9,Pelipper,,,,,,,,,
-Blastoise,43,teammate,10,Torkoal,,,,,,,,,
-Blastoise,43,stat_alignment,1,Modest,77.7%,Sp. Atk,Attack,,,,,,
-Blastoise,43,stat_alignment,2,Quiet,14.4%,Sp. Atk,Speed,,,,,,
-Blastoise,43,stat_alignment,3,Timid,6.1%,Speed,Attack,,,,,,
-Blastoise,43,stat_alignment,4,Sassy,1.1%,Sp. Def,Speed,,,,,,
+Blastoise,43,teammate,10,Kingambit,,,,,,,,,
+Blastoise,43,stat_alignment,1,Modest,78.7%,Sp. Atk,Attack,,,,,,
+Blastoise,43,stat_alignment,2,Quiet,13.3%,Sp. Atk,Speed,,,,,,
+Blastoise,43,stat_alignment,3,Timid,6.0%,Speed,Attack,,,,,,
+Blastoise,43,stat_alignment,4,Sassy,1.2%,Sp. Def,Speed,,,,,,
 Blastoise,43,stat_alignment,5,Impish,0.4%,Defense,Sp. Atk,,,,,,
-Blastoise,43,stat_alignment,6,Brave,0.2%,Attack,Speed,,,,,,
+Blastoise,43,stat_alignment,6,Brave,0.1%,Attack,Speed,,,,,,
 Blastoise,43,stat_alignment,7,Calm,0.1%,Sp. Def,Attack,,,,,,
 Blastoise,43,stat_alignment,8,Careful,0.0%,Sp. Def,Sp. Atk,,,,,,
-Blastoise,43,stat_alignment,9,Naughty,0.0%,Attack,Sp. Def,,,,,,
-Blastoise,43,stat_points,1,,20.6%,,,2,0,0,32,0,32
-Blastoise,43,stat_points,2,,13.3%,,,32,0,2,32,0,0
-Blastoise,43,stat_points,3,,8.7%,,,15,0,0,32,0,19
-Blastoise,43,stat_points,4,,4.3%,,,1,0,1,32,0,32
-Blastoise,43,stat_points,5,,4.0%,,,32,0,0,32,2,0
+Blastoise,43,stat_alignment,9,Mild,0.0%,Sp. Atk,Defense,,,,,,
+Blastoise,43,stat_alignment,10,Naughty,0.0%,Attack,Sp. Def,,,,,,
+Blastoise,43,stat_points,1,,20.8%,,,2,0,0,32,0,32
+Blastoise,43,stat_points,2,,12.4%,,,32,0,2,32,0,0
+Blastoise,43,stat_points,3,,8.0%,,,15,0,0,32,0,19
+Blastoise,43,stat_points,4,,4.7%,,,1,0,1,32,0,32
+Blastoise,43,stat_points,5,,4.1%,,,32,0,0,32,2,0
 Blastoise,43,stat_points,6,,3.3%,,,22,0,0,25,0,19
-Blastoise,43,stat_points,7,,2.4%,,,0,0,2,32,0,32
-Blastoise,43,stat_points,8,,2.0%,,,0,0,1,32,1,32
-Blastoise,43,stat_points,9,,1.9%,,,32,0,0,32,0,2
-Blastoise,43,stat_points,10,,1.6%,,,14,0,0,25,0,27
-Blastoise,43,ability,1,Rain Dish,63.3%,,,,,,,,
-Blastoise,43,ability,2,Torrent,36.7%,,,,,,,,
+Blastoise,43,stat_points,7,,2.3%,,,32,0,0,32,0,2
+Blastoise,43,stat_points,8,,2.3%,,,0,0,2,32,0,32
+Blastoise,43,stat_points,9,,2.0%,,,20,0,0,32,0,14
+Blastoise,43,stat_points,10,,1.9%,,,16,0,0,32,0,18
+Blastoise,43,ability,1,Rain Dish,63.9%,,,,,,,,
+Blastoise,43,ability,2,Torrent,36.1%,,,,,,,,

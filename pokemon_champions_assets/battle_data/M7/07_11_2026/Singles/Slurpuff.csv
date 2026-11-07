@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Slurpuff,110,move,1,Sticky Web,87.9%,,,,,,,,
-Slurpuff,110,move,2,Yawn,85.1%,,,,,,,,
-Slurpuff,110,move,3,Misty Explosion,59.8%,,,,,,,,
-Slurpuff,110,move,4,Dazzling Gleam,56.8%,,,,,,,,
-Slurpuff,110,move,5,Endeavor,36.8%,,,,,,,,
-Slurpuff,110,move,6,Flamethrower,20.7%,,,,,,,,
-Slurpuff,110,move,7,Copycat,7.9%,,,,,,,,
-Slurpuff,110,move,8,Draining Kiss,7.8%,,,,,,,,
-Slurpuff,110,move,9,Cotton Guard,5.9%,,,,,,,,
-Slurpuff,110,move,10,Safeguard,5.4%,,,,,,,,
-Slurpuff,110,held_item,1,Red Card,70.8%,,,,,,,,
-Slurpuff,110,held_item,2,Focus Sash,18.2%,,,,,,,,
-Slurpuff,110,held_item,3,Sitrus Berry,4.3%,,,,,,,,
-Slurpuff,110,held_item,4,Psychic Seed,3.5%,,,,,,,,
+Slurpuff,110,move,2,Yawn,85.3%,,,,,,,,
+Slurpuff,110,move,3,Misty Explosion,60.0%,,,,,,,,
+Slurpuff,110,move,4,Dazzling Gleam,56.1%,,,,,,,,
+Slurpuff,110,move,5,Endeavor,36.7%,,,,,,,,
+Slurpuff,110,move,6,Flamethrower,21.3%,,,,,,,,
+Slurpuff,110,move,7,Draining Kiss,7.8%,,,,,,,,
+Slurpuff,110,move,8,Copycat,7.7%,,,,,,,,
+Slurpuff,110,move,9,Cotton Guard,6.0%,,,,,,,,
+Slurpuff,110,move,10,Safeguard,5.3%,,,,,,,,
+Slurpuff,110,held_item,1,Red Card,70.6%,,,,,,,,
+Slurpuff,110,held_item,2,Focus Sash,18.1%,,,,,,,,
+Slurpuff,110,held_item,3,Sitrus Berry,4.6%,,,,,,,,
+Slurpuff,110,held_item,4,Psychic Seed,3.6%,,,,,,,,
 Slurpuff,110,held_item,5,Grassy Seed,1.8%,,,,,,,,
 Slurpuff,110,held_item,6,Air Balloon,0.9%,,,,,,,,
 Slurpuff,110,held_item,7,Lum Berry,0.2%,,,,,,,,
@@ -26,26 +26,27 @@ Slurpuff,110,teammate,5,Absol,,,,,,,,,
 Slurpuff,110,teammate,6,Snorlax,,,,,,,,,
 Slurpuff,110,teammate,7,Archaludon,,,,,,,,,
 Slurpuff,110,teammate,8,Mimikyu,,,,,,,,,
-Slurpuff,110,teammate,9,Tinkaton,,,,,,,,,
-Slurpuff,110,teammate,10,Cinderace,,,,,,,,,
-Slurpuff,110,stat_alignment,1,Bold,52.8%,Defense,Attack,,,,,,
-Slurpuff,110,stat_alignment,2,Timid,21.1%,Speed,Attack,,,,,,
+Slurpuff,110,teammate,9,Cinderace,,,,,,,,,
+Slurpuff,110,teammate,10,Raichu,,,,,,,,,
+Slurpuff,110,stat_alignment,1,Bold,52.3%,Defense,Attack,,,,,,
+Slurpuff,110,stat_alignment,2,Timid,21.9%,Speed,Attack,,,,,,
 Slurpuff,110,stat_alignment,3,Calm,9.7%,Sp. Def,Attack,,,,,,
-Slurpuff,110,stat_alignment,4,Modest,6.7%,Sp. Atk,Attack,,,,,,
-Slurpuff,110,stat_alignment,5,Jolly,4.0%,Speed,Sp. Atk,,,,,,
-Slurpuff,110,stat_alignment,6,Lax,3.1%,Defense,Sp. Def,,,,,,
-Slurpuff,110,stat_alignment,7,Hasty,1.1%,Speed,Defense,,,,,,
+Slurpuff,110,stat_alignment,4,Modest,6.5%,Sp. Atk,Attack,,,,,,
+Slurpuff,110,stat_alignment,5,Jolly,3.9%,Speed,Sp. Atk,,,,,,
+Slurpuff,110,stat_alignment,6,Lax,3.0%,Defense,Sp. Def,,,,,,
+Slurpuff,110,stat_alignment,7,Hasty,1.2%,Speed,Defense,,,,,,
 Slurpuff,110,stat_alignment,8,Impish,1.1%,Defense,Sp. Atk,,,,,,
 Slurpuff,110,stat_alignment,9,Naive,0.2%,Speed,Sp. Def,,,,,,
-Slurpuff,110,stat_points,1,,29.5%,,,32,0,11,0,1,22
-Slurpuff,110,stat_points,2,,7.6%,,,0,0,0,32,0,32
-Slurpuff,110,stat_points,3,,6.8%,,,32,0,11,0,3,20
-Slurpuff,110,stat_points,4,,5.2%,,,32,0,1,0,11,22
-Slurpuff,110,stat_points,5,,4.4%,,,32,0,0,0,2,32
-Slurpuff,110,stat_points,6,,4.0%,,,32,0,0,0,12,22
-Slurpuff,110,stat_points,7,,3.2%,,,32,0,11,0,2,21
-Slurpuff,110,stat_points,8,,3.1%,,,15,0,31,0,0,20
+Slurpuff,110,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
+Slurpuff,110,stat_points,1,,29.2%,,,32,0,11,0,1,22
+Slurpuff,110,stat_points,2,,7.7%,,,0,0,0,32,0,32
+Slurpuff,110,stat_points,3,,6.9%,,,32,0,11,0,3,20
+Slurpuff,110,stat_points,4,,5.0%,,,32,0,1,0,11,22
+Slurpuff,110,stat_points,5,,4.3%,,,32,0,0,0,2,32
+Slurpuff,110,stat_points,6,,3.9%,,,32,0,0,0,12,22
+Slurpuff,110,stat_points,7,,3.1%,,,32,0,11,0,2,21
+Slurpuff,110,stat_points,8,,3.0%,,,15,0,31,0,0,20
 Slurpuff,110,stat_points,9,,2.9%,,,2,0,0,32,0,32
 Slurpuff,110,stat_points,10,,2.8%,,,32,0,14,0,0,20
-Slurpuff,110,ability,1,Unburden,98.6%,,,,,,,,
-Slurpuff,110,ability,2,Sweet Veil,1.4%,,,,,,,,
+Slurpuff,110,ability,1,Unburden,98.5%,,,,,,,,
+Slurpuff,110,ability,2,Sweet Veil,1.5%,,,,,,,,

@@ -1,45 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Arboliva,153,move,1,Earth Power,77.7%,,,,,,,,
-Arboliva,153,move,2,Protect,62.1%,,,,,,,,
-Arboliva,153,move,3,Pollen Puff,58.0%,,,,,,,,
-Arboliva,153,move,4,Giga Drain,53.2%,,,,,,,,
-Arboliva,153,move,5,Terrain Pulse,28.3%,,,,,,,,
-Arboliva,153,move,6,Weather Ball,26.0%,,,,,,,,
-Arboliva,153,move,7,Dazzling Gleam,17.8%,,,,,,,,
-Arboliva,153,move,8,Hyper Voice,12.3%,,,,,,,,
-Arboliva,153,move,9,Strength Sap,10.4%,,,,,,,,
-Arboliva,153,move,10,Petal Blizzard,9.3%,,,,,,,,
-Arboliva,153,held_item,1,Life Orb,43.1%,,,,,,,,
-Arboliva,153,held_item,2,Sitrus Berry,19.0%,,,,,,,,
-Arboliva,153,held_item,3,Expert Belt,16.7%,,,,,,,,
-Arboliva,153,held_item,4,Grassy Seed,8.9%,,,,,,,,
-Arboliva,153,held_item,5,Big Root,5.6%,,,,,,,,
-Arboliva,153,held_item,6,Occa Berry,3.3%,,,,,,,,
-Arboliva,153,held_item,7,Eject Button,3.3%,,,,,,,,
-Arboliva,153,teammate,1,Farigiraf,,,,,,,,,
-Arboliva,153,teammate,2,Basculegion,,,,,,,,,
-Arboliva,153,teammate,3,Raichu,,,,,,,,,
-Arboliva,153,teammate,4,Slowking,,,,,,,,,
-Arboliva,153,teammate,5,Staraptor,,,,,,,,,
-Arboliva,153,teammate,6,Camerupt,,,,,,,,,
-Arboliva,153,teammate,7,Archaludon,,,,,,,,,
-Arboliva,153,teammate,8,Ninetales-Alola,,,,,,,,,
-Arboliva,153,teammate,9,Metagross,,,,,,,,,
-Arboliva,153,teammate,10,Charizard,,,,,,,,,
-Arboliva,153,stat_alignment,1,Quiet,63.6%,Sp. Atk,Speed,,,,,,
-Arboliva,153,stat_alignment,2,Bold,17.8%,Defense,Attack,,,,,,
-Arboliva,153,stat_alignment,3,Sassy,9.7%,Sp. Def,Speed,,,,,,
-Arboliva,153,stat_alignment,4,Modest,5.6%,Sp. Atk,Attack,,,,,,
-Arboliva,153,stat_alignment,5,Relaxed,3.3%,Defense,Speed,,,,,,
-Arboliva,153,stat_points,1,,57.6%,,,32,0,2,32,0,0
-Arboliva,153,stat_points,2,,7.4%,,,21,0,13,32,0,0
-Arboliva,153,stat_points,3,,7.4%,,,23,0,27,0,16,0
-Arboliva,153,stat_points,4,,5.2%,,,32,0,9,25,0,0
-Arboliva,153,stat_points,5,,4.8%,,,32,0,30,4,0,0
-Arboliva,153,stat_points,6,,3.3%,,,32,0,9,4,21,0
-Arboliva,153,stat_points,7,,3.3%,,,32,0,32,0,2,0
-Arboliva,153,stat_points,8,,3.0%,,,27,0,11,28,0,0
-Arboliva,153,stat_points,9,,2.6%,,,32,0,2,30,2,0
-Arboliva,153,stat_points,10,,1.9%,,,32,0,0,32,2,0
-Arboliva,153,ability,1,Seed Sower,81.4%,,,,,,,,
-Arboliva,153,ability,2,Harvest,18.6%,,,,,,,,
+Arboliva,150,move,1,Earth Power,76.0%,,,,,,,,
+Arboliva,150,move,2,Protect,60.4%,,,,,,,,
+Arboliva,150,move,3,Pollen Puff,59.7%,,,,,,,,
+Arboliva,150,move,4,Giga Drain,53.1%,,,,,,,,
+Arboliva,150,move,5,Terrain Pulse,29.2%,,,,,,,,
+Arboliva,150,move,6,Weather Ball,27.1%,,,,,,,,
+Arboliva,150,move,7,Dazzling Gleam,17.4%,,,,,,,,
+Arboliva,150,move,8,Strength Sap,12.8%,,,,,,,,
+Arboliva,150,move,9,Hyper Voice,11.8%,,,,,,,,
+Arboliva,150,move,10,Petal Blizzard,8.7%,,,,,,,,
+Arboliva,150,held_item,1,Life Orb,43.8%,,,,,,,,
+Arboliva,150,held_item,2,Sitrus Berry,17.7%,,,,,,,,
+Arboliva,150,held_item,3,Expert Belt,15.6%,,,,,,,,
+Arboliva,150,held_item,4,Grassy Seed,8.3%,,,,,,,,
+Arboliva,150,held_item,5,Big Root,6.6%,,,,,,,,
+Arboliva,150,held_item,6,Occa Berry,3.1%,,,,,,,,
+Arboliva,150,held_item,7,Eject Button,3.1%,,,,,,,,
+Arboliva,150,held_item,8,Leftovers,1.4%,,,,,,,,
+Arboliva,150,held_item,9,Focus Sash,0.3%,,,,,,,,
+Arboliva,150,teammate,1,Farigiraf,,,,,,,,,
+Arboliva,150,teammate,2,Basculegion,,,,,,,,,
+Arboliva,150,teammate,3,Raichu,,,,,,,,,
+Arboliva,150,teammate,4,Slowking,,,,,,,,,
+Arboliva,150,teammate,5,Staraptor,,,,,,,,,
+Arboliva,150,teammate,6,Archaludon,,,,,,,,,
+Arboliva,150,teammate,7,Garchomp,,,,,,,,,
+Arboliva,150,teammate,8,Pelipper,,,,,,,,,
+Arboliva,150,teammate,9,Camerupt,,,,,,,,,
+Arboliva,150,teammate,10,Ninetales-Alola,,,,,,,,,
+Arboliva,150,stat_alignment,1,Quiet,62.8%,Sp. Atk,Speed,,,,,,
+Arboliva,150,stat_alignment,2,Bold,18.1%,Defense,Attack,,,,,,
+Arboliva,150,stat_alignment,3,Sassy,9.0%,Sp. Def,Speed,,,,,,
+Arboliva,150,stat_alignment,4,Modest,5.6%,Sp. Atk,Attack,,,,,,
+Arboliva,150,stat_alignment,5,Relaxed,3.1%,Defense,Speed,,,,,,
+Arboliva,150,stat_alignment,6,Calm,1.4%,Sp. Def,Attack,,,,,,
+Arboliva,150,stat_points,1,,57.3%,,,32,0,2,32,0,0
+Arboliva,150,stat_points,2,,6.9%,,,21,0,13,32,0,0
+Arboliva,150,stat_points,3,,6.9%,,,23,0,27,0,16,0
+Arboliva,150,stat_points,4,,4.9%,,,32,0,9,25,0,0
+Arboliva,150,stat_points,5,,4.5%,,,32,0,30,4,0,0
+Arboliva,150,stat_points,6,,3.1%,,,32,0,9,4,21,0
+Arboliva,150,stat_points,7,,3.1%,,,32,0,32,0,2,0
+Arboliva,150,stat_points,8,,2.8%,,,27,0,11,28,0,0
+Arboliva,150,stat_points,9,,2.8%,,,32,0,20,0,14,0
+Arboliva,150,stat_points,10,,2.4%,,,32,0,2,30,2,0
+Arboliva,150,ability,1,Seed Sower,82.6%,,,,,,,,
+Arboliva,150,ability,2,Harvest,17.4%,,,,,,,,

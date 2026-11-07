@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gengar,36,move,1,Shadow Ball,97.2%,,,,,,,,
-Gengar,36,move,2,Protect,94.2%,,,,,,,,
+Gengar,36,move,2,Protect,94.3%,,,,,,,,
 Gengar,36,move,3,Sludge Bomb,79.3%,,,,,,,,
-Gengar,36,move,4,Perish Song,67.7%,,,,,,,,
-Gengar,36,move,5,Disable,13.3%,,,,,,,,
-Gengar,36,move,6,Icy Wind,12.3%,,,,,,,,
+Gengar,36,move,4,Perish Song,67.6%,,,,,,,,
+Gengar,36,move,5,Disable,13.2%,,,,,,,,
+Gengar,36,move,6,Icy Wind,12.4%,,,,,,,,
 Gengar,36,move,7,Substitute,10.6%,,,,,,,,
 Gengar,36,move,8,Trick Room,3.8%,,,,,,,,
-Gengar,36,move,9,Sludge Wave,3.5%,,,,,,,,
-Gengar,36,move,10,Destiny Bond,3.4%,,,,,,,,
+Gengar,36,move,9,Destiny Bond,3.4%,,,,,,,,
+Gengar,36,move,10,Sludge Wave,3.4%,,,,,,,,
 Gengar,36,held_item,1,Gengarite,92.3%,,,,,,,,
-Gengar,36,held_item,2,Focus Sash,6.1%,,,,,,,,
+Gengar,36,held_item,2,Focus Sash,6.2%,,,,,,,,
 Gengar,36,held_item,3,Life Orb,0.7%,,,,,,,,
 Gengar,36,held_item,4,Choice Scarf,0.5%,,,,,,,,
 Gengar,36,held_item,5,Leftovers,0.1%,,,,,,,,
@@ -28,8 +28,8 @@ Gengar,36,teammate,7,Garchomp,,,,,,,,,
 Gengar,36,teammate,8,Kommo-o,,,,,,,,,
 Gengar,36,teammate,9,Primarina,,,,,,,,,
 Gengar,36,teammate,10,Vivillon-Fancy,,,,,,,,,
-Gengar,36,stat_alignment,1,Modest,47.0%,Sp. Atk,Attack,,,,,,
-Gengar,36,stat_alignment,2,Timid,46.9%,Speed,Attack,,,,,,
+Gengar,36,stat_alignment,1,Timid,47.1%,Speed,Attack,,,,,,
+Gengar,36,stat_alignment,2,Modest,46.7%,Sp. Atk,Attack,,,,,,
 Gengar,36,stat_alignment,3,Quiet,2.9%,Sp. Atk,Speed,,,,,,
 Gengar,36,stat_alignment,4,Calm,1.7%,Sp. Def,Attack,,,,,,
 Gengar,36,stat_alignment,5,Bold,0.9%,Defense,Attack,,,,,,
@@ -39,13 +39,13 @@ Gengar,36,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,
 Gengar,36,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
 Gengar,36,stat_alignment,10,Gentle,0.0%,Sp. Def,Defense,,,,,,
 Gengar,36,stat_points,1,,11.0%,,,2,0,0,32,0,32
-Gengar,36,stat_points,2,,10.1%,,,32,0,0,0,26,8
-Gengar,36,stat_points,3,,4.8%,,,10,0,0,24,0,32
-Gengar,36,stat_points,4,,2.9%,,,20,0,4,10,0,32
-Gengar,36,stat_points,5,,2.9%,,,30,0,1,1,28,6
+Gengar,36,stat_points,2,,9.9%,,,32,0,0,0,26,8
+Gengar,36,stat_points,3,,5.0%,,,10,0,0,24,0,32
+Gengar,36,stat_points,4,,2.8%,,,20,0,4,10,0,32
+Gengar,36,stat_points,5,,2.8%,,,30,0,1,1,28,6
 Gengar,36,stat_points,6,,2.5%,,,32,0,2,0,0,32
-Gengar,36,stat_points,7,,2.3%,,,32,0,1,1,29,3
+Gengar,36,stat_points,7,,2.4%,,,32,0,1,1,29,3
 Gengar,36,stat_points,8,,2.1%,,,32,0,2,32,0,0
 Gengar,36,stat_points,9,,2.0%,,,32,0,0,0,25,9
-Gengar,36,stat_points,10,,1.7%,,,0,0,1,32,1,32
+Gengar,36,stat_points,10,,1.8%,,,0,0,1,32,1,32
 Gengar,36,ability,1,Cursed Body,100.0%,,,,,,,,

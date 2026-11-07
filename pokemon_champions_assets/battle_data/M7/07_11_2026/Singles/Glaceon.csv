@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Glaceon,172,move,1,Freeze-Dry,100.0%,,,,,,,,
-Glaceon,172,move,2,Yawn,70.1%,,,,,,,,
-Glaceon,172,move,3,Ice Shard,69.5%,,,,,,,,
+Glaceon,172,move,2,Yawn,69.9%,,,,,,,,
+Glaceon,172,move,3,Ice Shard,68.5%,,,,,,,,
 Glaceon,172,move,4,Mirror Coat,35.7%,,,,,,,,
-Glaceon,172,move,5,Blizzard,26.3%,,,,,,,,
-Glaceon,172,move,6,Mud Shot,16.6%,,,,,,,,
+Glaceon,172,move,5,Blizzard,26.1%,,,,,,,,
+Glaceon,172,move,6,Mud Shot,16.9%,,,,,,,,
 Glaceon,172,move,7,Ice Beam,16.0%,,,,,,,,
 Glaceon,172,move,8,Shadow Ball,14.4%,,,,,,,,
-Glaceon,172,move,9,Frost Breath,14.1%,,,,,,,,
-Glaceon,172,move,10,Wish,10.3%,,,,,,,,
-Glaceon,172,held_item,1,Never-Melt Ice,42.9%,,,,,,,,
-Glaceon,172,held_item,2,Focus Sash,34.6%,,,,,,,,
-Glaceon,172,held_item,3,Leftovers,8.3%,,,,,,,,
+Glaceon,172,move,9,Frost Breath,13.9%,,,,,,,,
+Glaceon,172,move,10,Wish,10.6%,,,,,,,,
+Glaceon,172,held_item,1,Never-Melt Ice,42.6%,,,,,,,,
+Glaceon,172,held_item,2,Focus Sash,34.7%,,,,,,,,
+Glaceon,172,held_item,3,Leftovers,8.6%,,,,,,,,
 Glaceon,172,held_item,4,Sitrus Berry,4.9%,,,,,,,,
 Glaceon,172,held_item,5,Choice Scarf,3.2%,,,,,,,,
-Glaceon,172,held_item,6,Bright Powder,2.2%,,,,,,,,
+Glaceon,172,held_item,6,Bright Powder,2.1%,,,,,,,,
 Glaceon,172,held_item,7,Life Orb,1.4%,,,,,,,,
 Glaceon,172,held_item,8,Expert Belt,1.1%,,,,,,,,
 Glaceon,172,held_item,9,Chesto Berry,0.9%,,,,,,,,
@@ -23,26 +23,26 @@ Glaceon,172,teammate,1,Garchomp,,,,,,,,,
 Glaceon,172,teammate,2,Lucario,,,,,,,,,
 Glaceon,172,teammate,3,Slowking-Galar,,,,,,,,,
 Glaceon,172,teammate,4,Charizard,,,,,,,,,
-Glaceon,172,teammate,5,Baxcalibur,,,,,,,,,
-Glaceon,172,teammate,6,Froslass,,,,,,,,,
-Glaceon,172,teammate,7,Milotic,,,,,,,,,
+Glaceon,172,teammate,5,Milotic,,,,,,,,,
+Glaceon,172,teammate,6,Baxcalibur,,,,,,,,,
+Glaceon,172,teammate,7,Froslass,,,,,,,,,
 Glaceon,172,teammate,8,Ninetales-Alola,,,,,,,,,
 Glaceon,172,teammate,9,Mamoswine,,,,,,,,,
 Glaceon,172,teammate,10,Spiritomb,,,,,,,,,
-Glaceon,172,stat_alignment,1,Modest,73.5%,Sp. Atk,Attack,,,,,,
-Glaceon,172,stat_alignment,2,Bold,12.6%,Defense,Attack,,,,,,
-Glaceon,172,stat_alignment,3,Rash,11.0%,Sp. Atk,Sp. Def,,,,,,
+Glaceon,172,stat_alignment,1,Modest,73.4%,Sp. Atk,Attack,,,,,,
+Glaceon,172,stat_alignment,2,Bold,13.0%,Defense,Attack,,,,,,
+Glaceon,172,stat_alignment,3,Rash,10.7%,Sp. Atk,Sp. Def,,,,,,
 Glaceon,172,stat_alignment,4,Quiet,2.3%,Sp. Atk,Speed,,,,,,
 Glaceon,172,stat_alignment,5,Timid,0.5%,Speed,Attack,,,,,,
 Glaceon,172,stat_points,1,,23.8%,,,1,0,1,32,0,32
-Glaceon,172,stat_points,2,,21.1%,,,31,0,0,32,0,3
-Glaceon,172,stat_points,3,,14.4%,,,27,0,0,30,0,9
-Glaceon,172,stat_points,4,,5.0%,,,32,0,0,32,0,2
-Glaceon,172,stat_points,5,,4.7%,,,32,0,32,2,0,0
-Glaceon,172,stat_points,6,,3.2%,,,32,0,2,32,0,0
-Glaceon,172,stat_points,7,,2.9%,,,0,2,0,32,0,32
-Glaceon,172,stat_points,8,,2.9%,,,31,0,32,0,0,3
-Glaceon,172,stat_points,9,,2.9%,,,32,0,0,32,2,0
-Glaceon,172,stat_points,10,,2.7%,,,2,0,0,32,0,32
-Glaceon,172,ability,1,Snow Cloak,83.2%,,,,,,,,
-Glaceon,172,ability,2,Ice Body,16.8%,,,,,,,,
+Glaceon,172,stat_points,2,,20.6%,,,31,0,0,32,0,3
+Glaceon,172,stat_points,3,,14.3%,,,27,0,0,30,0,9
+Glaceon,172,stat_points,4,,4.9%,,,32,0,0,32,0,2
+Glaceon,172,stat_points,5,,4.6%,,,32,0,32,2,0,0
+Glaceon,172,stat_points,6,,3.3%,,,31,0,32,0,0,3
+Glaceon,172,stat_points,7,,3.2%,,,32,0,2,32,0,0
+Glaceon,172,stat_points,8,,2.8%,,,0,2,0,32,0,32
+Glaceon,172,stat_points,9,,2.8%,,,2,0,0,32,0,32
+Glaceon,172,stat_points,10,,2.8%,,,32,0,0,32,2,0
+Glaceon,172,ability,1,Snow Cloak,82.4%,,,,,,,,
+Glaceon,172,ability,2,Ice Body,17.6%,,,,,,,,

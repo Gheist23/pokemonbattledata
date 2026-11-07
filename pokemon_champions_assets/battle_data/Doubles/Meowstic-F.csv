@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Meowstic-F,114,move,1,Expanding Force,96.2%,,,,,,,,
-Meowstic-F,114,move,2,Protect,95.3%,,,,,,,,
-Meowstic-F,114,move,3,Thunderbolt,73.4%,,,,,,,,
-Meowstic-F,114,move,4,Fake Out,64.1%,,,,,,,,
-Meowstic-F,114,move,5,Alluring Voice,24.3%,,,,,,,,
-Meowstic-F,114,move,6,Dark Pulse,18.2%,,,,,,,,
-Meowstic-F,114,move,7,Nasty Plot,8.3%,,,,,,,,
-Meowstic-F,114,move,8,Shadow Ball,7.6%,,,,,,,,
-Meowstic-F,114,move,9,Calm Mind,2.2%,,,,,,,,
-Meowstic-F,114,move,10,Psychic,2.2%,,,,,,,,
-Meowstic-F,114,held_item,1,Meowsticite,97.4%,,,,,,,,
-Meowstic-F,114,held_item,2,Focus Sash,2.0%,,,,,,,,
-Meowstic-F,114,held_item,3,Life Orb,0.6%,,,,,,,,
+Meowstic-F,114,move,1,Expanding Force,96.5%,,,,,,,,
+Meowstic-F,114,move,2,Protect,95.7%,,,,,,,,
+Meowstic-F,114,move,3,Thunderbolt,73.5%,,,,,,,,
+Meowstic-F,114,move,4,Fake Out,61.5%,,,,,,,,
+Meowstic-F,114,move,5,Alluring Voice,23.2%,,,,,,,,
+Meowstic-F,114,move,6,Dark Pulse,18.6%,,,,,,,,
+Meowstic-F,114,move,7,Nasty Plot,8.8%,,,,,,,,
+Meowstic-F,114,move,8,Shadow Ball,8.6%,,,,,,,,
+Meowstic-F,114,move,9,Calm Mind,2.5%,,,,,,,,
+Meowstic-F,114,move,10,Round,2.1%,,,,,,,,
+Meowstic-F,114,held_item,1,Meowsticite,97.5%,,,,,,,,
+Meowstic-F,114,held_item,2,Focus Sash,1.9%,,,,,,,,
+Meowstic-F,114,held_item,3,Life Orb,0.5%,,,,,,,,
 Meowstic-F,114,teammate,1,Sneasler,,,,,,,,,
 Meowstic-F,114,teammate,2,Indeedee,,,,,,,,,
 Meowstic-F,114,teammate,3,Charizard,,,,,,,,,
@@ -22,19 +22,20 @@ Meowstic-F,114,teammate,7,Armarouge,,,,,,,,,
 Meowstic-F,114,teammate,8,Garchomp,,,,,,,,,
 Meowstic-F,114,teammate,9,Altaria,,,,,,,,,
 Meowstic-F,114,teammate,10,Incineroar,,,,,,,,,
-Meowstic-F,114,stat_alignment,1,Timid,87.0%,Speed,Attack,,,,,,
-Meowstic-F,114,stat_alignment,2,Modest,11.9%,Sp. Atk,Attack,,,,,,
-Meowstic-F,114,stat_alignment,3,Mild,0.7%,Sp. Atk,Defense,,,,,,
-Meowstic-F,114,stat_alignment,4,Sassy,0.4%,Sp. Def,Speed,,,,,,
-Meowstic-F,114,stat_points,1,,84.5%,,,2,0,0,32,0,32
-Meowstic-F,114,stat_points,2,,3.8%,,,0,0,2,32,0,32
-Meowstic-F,114,stat_points,3,,1.8%,,,0,0,0,32,0,32
-Meowstic-F,114,stat_points,4,,1.5%,,,0,0,0,32,2,32
-Meowstic-F,114,stat_points,5,,1.3%,,,5,0,0,32,0,29
-Meowstic-F,114,stat_points,6,,1.2%,,,32,0,2,32,0,0
-Meowstic-F,114,stat_points,7,,0.9%,,,18,0,0,32,0,16
-Meowstic-F,114,stat_points,8,,0.7%,,,0,0,10,27,0,29
-Meowstic-F,114,stat_points,9,,0.7%,,,2,0,1,29,2,32
-Meowstic-F,114,stat_points,10,,0.7%,,,26,0,4,4,0,32
+Meowstic-F,114,stat_alignment,1,Timid,85.7%,Speed,Attack,,,,,,
+Meowstic-F,114,stat_alignment,2,Modest,12.3%,Sp. Atk,Attack,,,,,,
+Meowstic-F,114,stat_alignment,3,Hasty,1.0%,Speed,Defense,,,,,,
+Meowstic-F,114,stat_alignment,4,Mild,0.6%,Sp. Atk,Defense,,,,,,
+Meowstic-F,114,stat_alignment,5,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Meowstic-F,114,stat_points,1,,82.7%,,,2,0,0,32,0,32
+Meowstic-F,114,stat_points,2,,4.1%,,,0,0,2,32,0,32
+Meowstic-F,114,stat_points,3,,3.4%,,,5,0,0,32,0,29
+Meowstic-F,114,stat_points,4,,1.5%,,,0,0,0,32,0,32
+Meowstic-F,114,stat_points,5,,1.3%,,,0,0,0,32,2,32
+Meowstic-F,114,stat_points,6,,1.0%,,,32,0,2,32,0,0
+Meowstic-F,114,stat_points,7,,0.8%,,,18,0,0,32,0,16
+Meowstic-F,114,stat_points,8,,0.6%,,,0,0,10,27,0,29
+Meowstic-F,114,stat_points,9,,0.6%,,,2,0,1,29,2,32
+Meowstic-F,114,stat_points,10,,0.6%,,,26,0,4,4,0,32
 Meowstic-F,114,ability,1,Competitive,99.6%,,,,,,,,
 Meowstic-F,114,ability,2,Infiltrator,0.4%,,,,,,,,

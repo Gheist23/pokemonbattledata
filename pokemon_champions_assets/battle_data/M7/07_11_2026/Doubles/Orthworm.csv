@@ -1,37 +1,38 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Orthworm,191,move,1,Body Press,95.8%,,,,,,,,
-Orthworm,191,move,2,Shed Tail,75.0%,,,,,,,,
-Orthworm,191,move,3,Protect,60.0%,,,,,,,,
-Orthworm,191,move,4,Helping Hand,45.0%,,,,,,,,
-Orthworm,191,move,5,Iron Defense,37.5%,,,,,,,,
-Orthworm,191,move,6,Iron Head,26.7%,,,,,,,,
-Orthworm,191,move,7,Heavy Slam,20.0%,,,,,,,,
-Orthworm,191,move,8,Coil,16.7%,,,,,,,,
-Orthworm,191,move,9,Iron Tail,14.2%,,,,,,,,
-Orthworm,191,move,10,High Horsepower,3.3%,,,,,,,,
-Orthworm,191,held_item,1,Sitrus Berry,93.3%,,,,,,,,
-Orthworm,191,held_item,2,Leftovers,6.7%,,,,,,,,
-Orthworm,191,teammate,1,Charizard,,,,,,,,,
-Orthworm,191,teammate,2,Garchomp,,,,,,,,,
-Orthworm,191,teammate,3,Meowstic,,,,,,,,,
-Orthworm,191,teammate,4,Indeedee-F,,,,,,,,,
-Orthworm,191,teammate,5,Gardevoir,,,,,,,,,
-Orthworm,191,teammate,6,Sneasler,,,,,,,,,
-Orthworm,191,teammate,7,Tyranitar,,,,,,,,,
-Orthworm,191,teammate,8,Salamence,,,,,,,,,
-Orthworm,191,teammate,9,Excadrill,,,,,,,,,
-Orthworm,191,teammate,10,Indeedee,,,,,,,,,
-Orthworm,191,stat_alignment,1,Careful,30.0%,Sp. Def,Sp. Atk,,,,,,
-Orthworm,191,stat_alignment,2,Relaxed,25.8%,Defense,Speed,,,,,,
-Orthworm,191,stat_alignment,3,Sassy,22.5%,Sp. Def,Speed,,,,,,
-Orthworm,191,stat_alignment,4,Impish,18.3%,Defense,Sp. Atk,,,,,,
-Orthworm,191,stat_alignment,5,Adamant,1.7%,Attack,Sp. Atk,,,,,,
-Orthworm,191,stat_alignment,6,Bold,1.7%,Defense,Attack,,,,,,
-Orthworm,191,stat_points,1,,28.3%,,,32,0,8,0,26,0
-Orthworm,191,stat_points,2,,25.8%,,,32,0,2,0,32,0
-Orthworm,191,stat_points,3,,20.8%,,,32,0,5,0,29,0
-Orthworm,191,stat_points,4,,18.3%,,,32,0,25,0,9,0
-Orthworm,191,stat_points,5,,4.2%,,,32,0,32,0,2,0
-Orthworm,191,stat_points,6,,1.7%,,,32,2,32,0,0,0
-Orthworm,191,stat_points,7,,0.8%,,,32,0,32,0,0,0
-Orthworm,191,ability,1,Earth Eater,100.0%,,,,,,,,
+Orthworm,195,move,1,Body Press,96.2%,,,,,,,,
+Orthworm,195,move,2,Shed Tail,73.1%,,,,,,,,
+Orthworm,195,move,3,Protect,59.2%,,,,,,,,
+Orthworm,195,move,4,Helping Hand,42.3%,,,,,,,,
+Orthworm,195,move,5,Iron Defense,37.7%,,,,,,,,
+Orthworm,195,move,6,Iron Head,25.4%,,,,,,,,
+Orthworm,195,move,7,Heavy Slam,21.5%,,,,,,,,
+Orthworm,195,move,8,Coil,19.2%,,,,,,,,
+Orthworm,195,move,9,Iron Tail,16.9%,,,,,,,,
+Orthworm,195,move,10,High Horsepower,3.1%,,,,,,,,
+Orthworm,195,held_item,1,Sitrus Berry,93.8%,,,,,,,,
+Orthworm,195,held_item,2,Leftovers,6.2%,,,,,,,,
+Orthworm,195,teammate,1,Garchomp,,,,,,,,,
+Orthworm,195,teammate,2,Charizard,,,,,,,,,
+Orthworm,195,teammate,3,Gardevoir,,,,,,,,,
+Orthworm,195,teammate,4,Meowstic,,,,,,,,,
+Orthworm,195,teammate,5,Indeedee-F,,,,,,,,,
+Orthworm,195,teammate,6,Tyranitar,,,,,,,,,
+Orthworm,195,teammate,7,Venusaur,,,,,,,,,
+Orthworm,195,teammate,8,Sneasler,,,,,,,,,
+Orthworm,195,teammate,9,Salamence,,,,,,,,,
+Orthworm,195,teammate,10,Excadrill,,,,,,,,,
+Orthworm,195,stat_alignment,1,Careful,31.5%,Sp. Def,Sp. Atk,,,,,,
+Orthworm,195,stat_alignment,2,Sassy,24.6%,Sp. Def,Speed,,,,,,
+Orthworm,195,stat_alignment,3,Relaxed,23.8%,Defense,Speed,,,,,,
+Orthworm,195,stat_alignment,4,Impish,16.9%,Defense,Sp. Atk,,,,,,
+Orthworm,195,stat_alignment,5,Adamant,1.5%,Attack,Sp. Atk,,,,,,
+Orthworm,195,stat_alignment,6,Bold,1.5%,Defense,Attack,,,,,,
+Orthworm,195,stat_points,1,,27.7%,,,32,0,2,0,32,0
+Orthworm,195,stat_points,2,,26.9%,,,32,0,8,0,26,0
+Orthworm,195,stat_points,3,,19.2%,,,32,0,5,0,29,0
+Orthworm,195,stat_points,4,,16.9%,,,32,0,25,0,9,0
+Orthworm,195,stat_points,5,,3.8%,,,32,0,32,0,2,0
+Orthworm,195,stat_points,6,,3.1%,,,29,1,1,0,25,10
+Orthworm,195,stat_points,7,,1.5%,,,32,2,32,0,0,0
+Orthworm,195,stat_points,8,,0.8%,,,32,0,32,0,0,0
+Orthworm,195,ability,1,Earth Eater,100.0%,,,,,,,,

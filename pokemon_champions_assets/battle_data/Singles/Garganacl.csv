@@ -1,47 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Garganacl,206,move,1,Recover,100.0%,,,,,,,,
-Garganacl,206,move,2,Iron Defense,61.6%,,,,,,,,
-Garganacl,206,move,3,Salt Cure,56.5%,,,,,,,,
-Garganacl,206,move,4,Fissure,31.9%,,,,,,,,
-Garganacl,206,move,5,Body Press,29.7%,,,,,,,,
-Garganacl,206,move,6,Protect,29.3%,,,,,,,,
-Garganacl,206,move,7,Smack Down,28.3%,,,,,,,,
-Garganacl,206,move,8,Stealth Rock,24.3%,,,,,,,,
-Garganacl,206,move,9,Earthquake,12.7%,,,,,,,,
-Garganacl,206,move,10,Substitute,10.9%,,,,,,,,
-Garganacl,206,held_item,1,Leftovers,76.4%,,,,,,,,
-Garganacl,206,held_item,2,Rocky Helmet,9.8%,,,,,,,,
-Garganacl,206,held_item,3,Sitrus Berry,8.3%,,,,,,,,
-Garganacl,206,held_item,4,Psychic Seed,2.2%,,,,,,,,
-Garganacl,206,held_item,5,Air Balloon,1.8%,,,,,,,,
-Garganacl,206,held_item,6,Shuca Berry,1.1%,,,,,,,,
-Garganacl,206,held_item,7,Binding Band,0.4%,,,,,,,,
+Garganacl,206,move,2,Iron Defense,57.6%,,,,,,,,
+Garganacl,206,move,3,Salt Cure,56.7%,,,,,,,,
+Garganacl,206,move,4,Body Press,30.3%,,,,,,,,
+Garganacl,206,move,5,Stealth Rock,29.7%,,,,,,,,
+Garganacl,206,move,6,Protect,29.4%,,,,,,,,
+Garganacl,206,move,7,Fissure,28.2%,,,,,,,,
+Garganacl,206,move,8,Smack Down,24.1%,,,,,,,,
+Garganacl,206,move,9,Earthquake,15.2%,,,,,,,,
+Garganacl,206,move,10,Substitute,9.3%,,,,,,,,
+Garganacl,206,held_item,1,Leftovers,73.4%,,,,,,,,
+Garganacl,206,held_item,2,Sitrus Berry,9.0%,,,,,,,,
+Garganacl,206,held_item,3,Rocky Helmet,8.7%,,,,,,,,
+Garganacl,206,held_item,4,Metronome,3.7%,,,,,,,,
+Garganacl,206,held_item,5,Psychic Seed,1.9%,,,,,,,,
+Garganacl,206,held_item,6,Air Balloon,1.5%,,,,,,,,
+Garganacl,206,held_item,7,Shuca Berry,0.9%,,,,,,,,
+Garganacl,206,held_item,8,Binding Band,0.3%,,,,,,,,
 Garganacl,206,teammate,1,Toxapex,,,,,,,,,
 Garganacl,206,teammate,2,Scovillain,,,,,,,,,
 Garganacl,206,teammate,3,Clefable,,,,,,,,,
-Garganacl,206,teammate,4,Snorlax,,,,,,,,,
-Garganacl,206,teammate,5,Hippowdon,,,,,,,,,
-Garganacl,206,teammate,6,Primarina,,,,,,,,,
+Garganacl,206,teammate,4,Primarina,,,,,,,,,
+Garganacl,206,teammate,5,Snorlax,,,,,,,,,
+Garganacl,206,teammate,6,Hippowdon,,,,,,,,,
 Garganacl,206,teammate,7,Garchomp,,,,,,,,,
-Garganacl,206,teammate,8,Golisopod,,,,,,,,,
-Garganacl,206,teammate,9,Rotom-Wash,,,,,,,,,
+Garganacl,206,teammate,8,Salamence,,,,,,,,,
+Garganacl,206,teammate,9,Golisopod,,,,,,,,,
 Garganacl,206,teammate,10,Venusaur,,,,,,,,,
-Garganacl,206,stat_alignment,1,Impish,59.1%,Defense,Sp. Atk,,,,,,
-Garganacl,206,stat_alignment,2,Careful,33.3%,Sp. Def,Sp. Atk,,,,,,
-Garganacl,206,stat_alignment,3,Calm,2.9%,Sp. Def,Attack,,,,,,
-Garganacl,206,stat_alignment,4,Relaxed,2.9%,Defense,Speed,,,,,,
-Garganacl,206,stat_alignment,5,Sassy,1.1%,Sp. Def,Speed,,,,,,
-Garganacl,206,stat_alignment,6,Brave,0.4%,Attack,Speed,,,,,,
-Garganacl,206,stat_alignment,7,Bold,0.4%,Defense,Attack,,,,,,
-Garganacl,206,stat_points,1,,37.0%,,,32,0,32,0,2,0
-Garganacl,206,stat_points,2,,11.2%,,,32,0,2,0,32,0
-Garganacl,206,stat_points,3,,9.4%,,,32,0,6,0,28,0
-Garganacl,206,stat_points,4,,8.0%,,,32,0,4,0,30,0
-Garganacl,206,stat_points,5,,6.2%,,,32,0,20,0,14,0
-Garganacl,206,stat_points,6,,5.4%,,,32,0,1,0,32,1
-Garganacl,206,stat_points,7,,5.1%,,,32,0,31,0,3,0
-Garganacl,206,stat_points,8,,4.7%,,,32,0,7,0,27,0
-Garganacl,206,stat_points,9,,2.9%,,,24,0,32,0,10,0
-Garganacl,206,stat_points,10,,2.5%,,,32,0,0,0,32,2
-Garganacl,206,ability,1,Purifying Salt,97.5%,,,,,,,,
-Garganacl,206,ability,2,Clear Body,2.5%,,,,,,,,
+Garganacl,206,stat_alignment,1,Impish,61.0%,Defense,Sp. Atk,,,,,,
+Garganacl,206,stat_alignment,2,Careful,32.5%,Sp. Def,Sp. Atk,,,,,,
+Garganacl,206,stat_alignment,3,Calm,2.5%,Sp. Def,Attack,,,,,,
+Garganacl,206,stat_alignment,4,Relaxed,2.5%,Defense,Speed,,,,,,
+Garganacl,206,stat_alignment,5,Sassy,0.9%,Sp. Def,Speed,,,,,,
+Garganacl,206,stat_alignment,6,Brave,0.3%,Attack,Speed,,,,,,
+Garganacl,206,stat_alignment,7,Bold,0.3%,Defense,Attack,,,,,,
+Garganacl,206,stat_points,1,,37.8%,,,32,0,32,0,2,0
+Garganacl,206,stat_points,2,,11.5%,,,32,0,6,0,28,0
+Garganacl,206,stat_points,3,,11.1%,,,32,0,2,0,32,0
+Garganacl,206,stat_points,4,,7.4%,,,32,0,4,0,30,0
+Garganacl,206,stat_points,5,,5.9%,,,32,0,20,0,14,0
+Garganacl,206,stat_points,6,,4.6%,,,32,0,1,0,32,1
+Garganacl,206,stat_points,7,,4.6%,,,32,0,7,0,27,0
+Garganacl,206,stat_points,8,,4.3%,,,32,0,31,0,3,0
+Garganacl,206,stat_points,9,,2.5%,,,24,0,32,0,10,0
+Garganacl,206,stat_points,10,,2.2%,,,32,0,0,0,32,2
+Garganacl,206,ability,1,Purifying Salt,97.8%,,,,,,,,
+Garganacl,206,ability,2,Clear Body,2.2%,,,,,,,,

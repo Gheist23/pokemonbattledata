@@ -1,43 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Wyrdeer,253,move,1,Psyshield Bash,69.2%,,,,,,,,
-Wyrdeer,253,move,2,Earthquake,56.4%,,,,,,,,
-Wyrdeer,253,move,3,Earth Power,33.3%,,,,,,,,
-Wyrdeer,253,move,4,Light Screen,30.8%,,,,,,,,
-Wyrdeer,253,move,5,Thunderbolt,30.8%,,,,,,,,
-Wyrdeer,253,move,6,Wild Charge,28.2%,,,,,,,,
-Wyrdeer,253,move,7,Trick,25.6%,,,,,,,,
-Wyrdeer,253,move,8,Double-Edge,25.6%,,,,,,,,
-Wyrdeer,253,move,9,Energy Ball,25.6%,,,,,,,,
-Wyrdeer,253,move,10,Psychic,25.6%,,,,,,,,
-Wyrdeer,253,held_item,1,Sitrus Berry,35.9%,,,,,,,,
-Wyrdeer,253,held_item,2,Expert Belt,28.2%,,,,,,,,
-Wyrdeer,253,held_item,3,Choice Scarf,25.6%,,,,,,,,
-Wyrdeer,253,held_item,4,Rocky Helmet,5.1%,,,,,,,,
-Wyrdeer,253,held_item,5,Leftovers,2.6%,,,,,,,,
-Wyrdeer,253,teammate,1,Staraptor,,,,,,,,,
-Wyrdeer,253,teammate,2,Sableye,,,,,,,,,
-Wyrdeer,253,teammate,3,Milotic,,,,,,,,,
-Wyrdeer,253,teammate,4,Vanilluxe,,,,,,,,,
-Wyrdeer,253,teammate,5,Salazzle,,,,,,,,,
-Wyrdeer,253,teammate,6,Victreebel,,,,,,,,,
-Wyrdeer,253,teammate,7,Torkoal,,,,,,,,,
-Wyrdeer,253,teammate,8,Leafeon,,,,,,,,,
-Wyrdeer,253,teammate,9,Mamoswine,,,,,,,,,
-Wyrdeer,253,teammate,10,Excadrill,,,,,,,,,
-Wyrdeer,253,stat_alignment,1,Modest,30.8%,Sp. Atk,Attack,,,,,,
-Wyrdeer,253,stat_alignment,2,Careful,28.2%,Sp. Def,Sp. Atk,,,,,,
-Wyrdeer,253,stat_alignment,3,Jolly,25.6%,Speed,Sp. Atk,,,,,,
-Wyrdeer,253,stat_alignment,4,Relaxed,5.1%,Defense,Speed,,,,,,
-Wyrdeer,253,stat_alignment,5,Impish,5.1%,Defense,Sp. Atk,,,,,,
-Wyrdeer,253,stat_alignment,6,Lonely,2.6%,Attack,Defense,,,,,,
-Wyrdeer,253,stat_alignment,7,Brave,2.6%,Attack,Speed,,,,,,
-Wyrdeer,253,stat_points,1,,28.2%,,,32,0,19,0,15,0
-Wyrdeer,253,stat_points,2,,25.6%,,,1,32,1,0,0,32
-Wyrdeer,253,stat_points,3,,25.6%,,,32,0,0,32,2,0
-Wyrdeer,253,stat_points,4,,5.1%,,,32,0,0,30,0,4
-Wyrdeer,253,stat_points,5,,5.1%,,,32,0,32,0,2,0
-Wyrdeer,253,stat_points,6,,5.1%,,,32,32,0,0,2,0
-Wyrdeer,253,stat_points,7,,2.6%,,,17,0,17,0,32,0
-Wyrdeer,253,stat_points,8,,2.6%,,,32,2,32,0,0,0
-Wyrdeer,253,ability,1,Intimidate,92.3%,,,,,,,,
-Wyrdeer,253,ability,2,Sap Sipper,7.7%,,,,,,,,
+Wyrdeer,249,move,1,Psyshield Bash,81.0%,,,,,,,,
+Wyrdeer,249,move,2,Earthquake,34.9%,,,,,,,,
+Wyrdeer,249,move,3,Light Screen,25.4%,,,,,,,,
+Wyrdeer,249,move,4,Lunge,25.4%,,,,,,,,
+Wyrdeer,249,move,5,Rest,23.8%,,,,,,,,
+Wyrdeer,249,move,6,Sleep Talk,23.8%,,,,,,,,
+Wyrdeer,249,move,7,Earth Power,20.6%,,,,,,,,
+Wyrdeer,249,move,8,Trick Room,19.0%,,,,,,,,
+Wyrdeer,249,move,9,Throat Chop,19.0%,,,,,,,,
+Wyrdeer,249,move,10,Thunderbolt,19.0%,,,,,,,,
+Wyrdeer,249,held_item,1,Sitrus Berry,34.9%,,,,,,,,
+Wyrdeer,249,held_item,2,Rocky Helmet,23.8%,,,,,,,,
+Wyrdeer,249,held_item,3,Expert Belt,20.6%,,,,,,,,
+Wyrdeer,249,held_item,4,Choice Scarf,15.9%,,,,,,,,
+Wyrdeer,249,held_item,5,Leftovers,1.6%,,,,,,,,
+Wyrdeer,249,held_item,6,Eject Button,1.6%,,,,,,,,
+Wyrdeer,249,teammate,1,Staraptor,,,,,,,,,
+Wyrdeer,249,teammate,2,Sceptile,,,,,,,,,
+Wyrdeer,249,teammate,3,Rotom-Frost,,,,,,,,,
+Wyrdeer,249,teammate,4,Emboar,,,,,,,,,
+Wyrdeer,249,teammate,5,Primarina,,,,,,,,,
+Wyrdeer,249,teammate,6,Glimmora,,,,,,,,,
+Wyrdeer,249,teammate,7,Vanilluxe,,,,,,,,,
+Wyrdeer,249,teammate,8,Sableye,,,,,,,,,
+Wyrdeer,249,teammate,9,Milotic,,,,,,,,,
+Wyrdeer,249,teammate,10,Salazzle,,,,,,,,,
+Wyrdeer,249,stat_alignment,1,Impish,38.1%,Defense,Sp. Atk,,,,,,
+Wyrdeer,249,stat_alignment,2,Modest,19.0%,Sp. Atk,Attack,,,,,,
+Wyrdeer,249,stat_alignment,3,Careful,17.5%,Sp. Def,Sp. Atk,,,,,,
+Wyrdeer,249,stat_alignment,4,Jolly,15.9%,Speed,Sp. Atk,,,,,,
+Wyrdeer,249,stat_alignment,5,Lonely,4.8%,Attack,Defense,,,,,,
+Wyrdeer,249,stat_alignment,6,Relaxed,3.2%,Defense,Speed,,,,,,
+Wyrdeer,249,stat_alignment,7,Brave,1.6%,Attack,Speed,,,,,,
+Wyrdeer,249,stat_points,1,,23.8%,,,32,0,32,0,2,0
+Wyrdeer,249,stat_points,2,,17.5%,,,32,0,19,0,15,0
+Wyrdeer,249,stat_points,3,,15.9%,,,1,32,1,0,0,32
+Wyrdeer,249,stat_points,4,,15.9%,,,32,0,0,32,2,0
+Wyrdeer,249,stat_points,5,,14.3%,,,0,32,32,0,0,2
+Wyrdeer,249,stat_points,6,,6.3%,,,32,32,0,0,2,0
+Wyrdeer,249,stat_points,7,,3.2%,,,32,0,0,30,0,4
+Wyrdeer,249,stat_points,8,,1.6%,,,17,0,17,0,32,0
+Wyrdeer,249,stat_points,9,,1.6%,,,32,2,32,0,0,0
+Wyrdeer,249,ability,1,Intimidate,95.2%,,,,,,,,
+Wyrdeer,249,ability,2,Sap Sipper,4.8%,,,,,,,,

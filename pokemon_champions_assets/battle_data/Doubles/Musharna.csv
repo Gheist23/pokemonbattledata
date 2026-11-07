@@ -1,30 +1,38 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Musharna,251,move,1,Moonlight,100.0%,,,,,,,,
-Musharna,251,move,2,Energy Ball,75.0%,,,,,,,,
-Musharna,251,move,3,Moonblast,75.0%,,,,,,,,
-Musharna,251,move,4,Expanding Force,75.0%,,,,,,,,
-Musharna,251,move,5,Trick Room,25.0%,,,,,,,,
-Musharna,251,move,6,Psychic,25.0%,,,,,,,,
-Musharna,251,move,7,Ally Switch,16.7%,,,,,,,,
-Musharna,251,move,8,Helping Hand,8.3%,,,,,,,,
-Musharna,251,held_item,1,Leftovers,75.0%,,,,,,,,
-Musharna,251,held_item,2,Rocky Helmet,16.7%,,,,,,,,
-Musharna,251,held_item,3,Twisted Spoon,8.3%,,,,,,,,
-Musharna,251,teammate,1,Charizard,,,,,,,,,
-Musharna,251,teammate,2,Garchomp,,,,,,,,,
-Musharna,251,teammate,3,Rhyperior,,,,,,,,,
-Musharna,251,teammate,4,Incineroar,,,,,,,,,
-Musharna,251,teammate,5,Sinistcha,,,,,,,,,
-Musharna,251,teammate,6,Tyranitar,,,,,,,,,
-Musharna,251,teammate,7,Sableye,,,,,,,,,
-Musharna,251,teammate,8,Excadrill,,,,,,,,,
-Musharna,251,teammate,9,Dragalge,,,,,,,,,
-Musharna,251,teammate,10,Clefable,,,,,,,,,
-Musharna,251,stat_alignment,1,Quiet,66.7%,Sp. Atk,Speed,,,,,,
-Musharna,251,stat_alignment,2,Sassy,16.7%,Sp. Def,Speed,,,,,,
-Musharna,251,stat_alignment,3,Relaxed,16.7%,Defense,Speed,,,,,,
-Musharna,251,stat_points,1,,58.3%,,,23,0,6,11,26,0
-Musharna,251,stat_points,2,,16.7%,,,29,0,5,0,32,0
-Musharna,251,stat_points,3,,16.7%,,,31,0,32,3,0,0
-Musharna,251,stat_points,4,,8.3%,,,32,0,2,32,0,0
-Musharna,251,ability,1,Telepathy,100.0%,,,,,,,,
+Musharna,245,move,1,Moonlight,73.7%,,,,,,,,
+Musharna,245,move,2,Moonblast,73.7%,,,,,,,,
+Musharna,245,move,3,Trick Room,52.6%,,,,,,,,
+Musharna,245,move,4,Energy Ball,47.4%,,,,,,,,
+Musharna,245,move,5,Expanding Force,47.4%,,,,,,,,
+Musharna,245,move,6,Psychic,47.4%,,,,,,,,
+Musharna,245,move,7,Helping Hand,15.8%,,,,,,,,
+Musharna,245,move,8,Yawn,15.8%,,,,,,,,
+Musharna,245,move,9,Ally Switch,15.8%,,,,,,,,
+Musharna,245,move,10,Light Screen,5.3%,,,,,,,,
+Musharna,245,held_item,1,Leftovers,63.2%,,,,,,,,
+Musharna,245,held_item,2,Rocky Helmet,15.8%,,,,,,,,
+Musharna,245,held_item,3,Sitrus Berry,10.5%,,,,,,,,
+Musharna,245,held_item,4,Mental Herb,5.3%,,,,,,,,
+Musharna,245,held_item,5,Twisted Spoon,5.3%,,,,,,,,
+Musharna,245,teammate,1,Charizard,,,,,,,,,
+Musharna,245,teammate,2,Garchomp,,,,,,,,,
+Musharna,245,teammate,3,Rhyperior,,,,,,,,,
+Musharna,245,teammate,4,Incineroar,,,,,,,,,
+Musharna,245,teammate,5,Sinistcha,,,,,,,,,
+Musharna,245,teammate,6,Pikachu,,,,,,,,,
+Musharna,245,teammate,7,Snorlax,,,,,,,,,
+Musharna,245,teammate,8,Feraligatr,,,,,,,,,
+Musharna,245,teammate,9,Tyranitar,,,,,,,,,
+Musharna,245,teammate,10,Sableye,,,,,,,,,
+Musharna,245,stat_alignment,1,Quiet,68.4%,Sp. Atk,Speed,,,,,,
+Musharna,245,stat_alignment,2,Relaxed,21.1%,Defense,Speed,,,,,,
+Musharna,245,stat_alignment,3,Sassy,10.5%,Sp. Def,Speed,,,,,,
+Musharna,245,stat_points,1,,36.8%,,,23,0,6,11,26,0
+Musharna,245,stat_points,2,,15.8%,,,31,0,32,3,0,0
+Musharna,245,stat_points,3,,15.8%,,,32,0,10,24,0,0
+Musharna,245,stat_points,4,,10.5%,,,29,0,5,0,32,0
+Musharna,245,stat_points,5,,10.5%,,,32,0,7,27,0,0
+Musharna,245,stat_points,6,,5.3%,,,32,0,2,32,0,0
+Musharna,245,stat_points,7,,5.3%,,,32,0,32,0,2,0
+Musharna,245,ability,1,Telepathy,94.7%,,,,,,,,
+Musharna,245,ability,2,Synchronize,5.3%,,,,,,,,

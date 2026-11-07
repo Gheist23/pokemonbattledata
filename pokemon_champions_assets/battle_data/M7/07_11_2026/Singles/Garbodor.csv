@@ -1,42 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Garbodor,243,move,1,Explosion,63.8%,,,,,,,,
-Garbodor,243,move,2,Rock Blast,56.5%,,,,,,,,
-Garbodor,243,move,3,Poison Jab,55.1%,,,,,,,,
-Garbodor,243,move,4,Gunk Shot,39.1%,,,,,,,,
-Garbodor,243,move,5,Spikes,37.7%,,,,,,,,
-Garbodor,243,move,6,Drain Punch,36.2%,,,,,,,,
-Garbodor,243,move,7,Pain Split,26.1%,,,,,,,,
-Garbodor,243,move,8,Fling,21.7%,,,,,,,,
-Garbodor,243,move,9,Toxic Spikes,20.3%,,,,,,,,
-Garbodor,243,move,10,Toxic,13.0%,,,,,,,,
-Garbodor,243,held_item,1,Focus Sash,27.5%,,,,,,,,
-Garbodor,243,held_item,2,Light Ball,21.7%,,,,,,,,
-Garbodor,243,held_item,3,King's Rock,17.4%,,,,,,,,
-Garbodor,243,held_item,4,Shuca Berry,14.5%,,,,,,,,
-Garbodor,243,held_item,5,Sitrus Berry,10.1%,,,,,,,,
-Garbodor,243,held_item,6,Rocky Helmet,5.8%,,,,,,,,
-Garbodor,243,held_item,7,Air Balloon,2.9%,,,,,,,,
-Garbodor,243,teammate,1,Delphox,,,,,,,,,
-Garbodor,243,teammate,2,Primarina,,,,,,,,,
-Garbodor,243,teammate,3,Altaria,,,,,,,,,
-Garbodor,243,teammate,4,Goodra-Hisui,,,,,,,,,
-Garbodor,243,teammate,5,Meowscarada,,,,,,,,,
-Garbodor,243,teammate,6,Garchomp,,,,,,,,,
-Garbodor,243,teammate,7,Mimikyu,,,,,,,,,
-Garbodor,243,teammate,8,Starmie,,,,,,,,,
-Garbodor,243,teammate,9,Mamoswine,,,,,,,,,
-Garbodor,243,teammate,10,Cofagrigus,,,,,,,,,
-Garbodor,243,stat_alignment,1,Jolly,31.9%,Speed,Sp. Atk,,,,,,
-Garbodor,243,stat_alignment,2,Adamant,31.9%,Attack,Sp. Atk,,,,,,
-Garbodor,243,stat_alignment,3,Impish,20.3%,Defense,Sp. Atk,,,,,,
-Garbodor,243,stat_alignment,4,Careful,15.9%,Sp. Def,Sp. Atk,,,,,,
-Garbodor,243,stat_points,1,,58.0%,,,2,32,0,0,0,32
-Garbodor,243,stat_points,2,,20.3%,,,30,0,28,0,0,8
-Garbodor,243,stat_points,3,,10.1%,,,32,2,4,0,28,0
-Garbodor,243,stat_points,4,,5.8%,,,32,0,17,0,10,7
-Garbodor,243,stat_points,5,,2.9%,,,22,32,0,0,0,12
-Garbodor,243,stat_points,6,,1.4%,,,32,0,5,0,5,24
-Garbodor,243,stat_points,7,,1.4%,,,32,32,0,0,2,0
-Garbodor,243,ability,1,Weak Armor,46.4%,,,,,,,,
-Garbodor,243,ability,2,Stench,27.5%,,,,,,,,
-Garbodor,243,ability,3,Aftermath,26.1%,,,,,,,,
+Garbodor,242,move,1,Explosion,55.7%,,,,,,,,
+Garbodor,242,move,2,Rock Blast,53.4%,,,,,,,,
+Garbodor,242,move,3,Poison Jab,52.3%,,,,,,,,
+Garbodor,242,move,4,Gunk Shot,36.4%,,,,,,,,
+Garbodor,242,move,5,Toxic Spikes,34.1%,,,,,,,,
+Garbodor,242,move,6,Spikes,33.0%,,,,,,,,
+Garbodor,242,move,7,Drain Punch,28.4%,,,,,,,,
+Garbodor,242,move,8,Pain Split,27.3%,,,,,,,,
+Garbodor,242,move,9,Toxic,20.5%,,,,,,,,
+Garbodor,242,move,10,Fling,17.0%,,,,,,,,
+Garbodor,242,held_item,1,Focus Sash,25.0%,,,,,,,,
+Garbodor,242,held_item,2,Shuca Berry,20.5%,,,,,,,,
+Garbodor,242,held_item,3,Light Ball,17.0%,,,,,,,,
+Garbodor,242,held_item,4,King's Rock,13.6%,,,,,,,,
+Garbodor,242,held_item,5,Sitrus Berry,8.0%,,,,,,,,
+Garbodor,242,held_item,6,Leftovers,6.8%,,,,,,,,
+Garbodor,242,held_item,7,Rocky Helmet,4.5%,,,,,,,,
+Garbodor,242,held_item,8,Air Balloon,4.5%,,,,,,,,
+Garbodor,242,teammate,1,Primarina,,,,,,,,,
+Garbodor,242,teammate,2,Garchomp,,,,,,,,,
+Garbodor,242,teammate,3,Delphox,,,,,,,,,
+Garbodor,242,teammate,4,Altaria,,,,,,,,,
+Garbodor,242,teammate,5,Goodra-Hisui,,,,,,,,,
+Garbodor,242,teammate,6,Meowscarada,,,,,,,,,
+Garbodor,242,teammate,7,Whimsicott,,,,,,,,,
+Garbodor,242,teammate,8,Golurk,,,,,,,,,
+Garbodor,242,teammate,9,Mimikyu,,,,,,,,,
+Garbodor,242,teammate,10,Starmie,,,,,,,,,
+Garbodor,242,stat_alignment,1,Jolly,34.1%,Speed,Sp. Atk,,,,,,
+Garbodor,242,stat_alignment,2,Adamant,30.7%,Attack,Sp. Atk,,,,,,
+Garbodor,242,stat_alignment,3,Impish,15.9%,Defense,Sp. Atk,,,,,,
+Garbodor,242,stat_alignment,4,Careful,12.5%,Sp. Def,Sp. Atk,,,,,,
+Garbodor,242,stat_alignment,5,Bold,6.8%,Defense,Attack,,,,,,
+Garbodor,242,stat_points,1,,48.9%,,,2,32,0,0,0,32
+Garbodor,242,stat_points,2,,15.9%,,,30,0,28,0,0,8
+Garbodor,242,stat_points,3,,9.1%,,,32,9,0,0,0,25
+Garbodor,242,stat_points,4,,8.0%,,,32,2,4,0,28,0
+Garbodor,242,stat_points,5,,6.8%,,,32,0,32,0,2,0
+Garbodor,242,stat_points,6,,4.5%,,,32,0,17,0,10,7
+Garbodor,242,stat_points,7,,2.3%,,,16,32,1,0,0,17
+Garbodor,242,stat_points,8,,2.3%,,,22,32,0,0,0,12
+Garbodor,242,stat_points,9,,1.1%,,,32,0,5,0,5,24
+Garbodor,242,stat_points,10,,1.1%,,,32,32,0,0,2,0
+Garbodor,242,ability,1,Weak Armor,51.1%,,,,,,,,
+Garbodor,242,ability,2,Aftermath,27.3%,,,,,,,,
+Garbodor,242,ability,3,Stench,21.6%,,,,,,,,

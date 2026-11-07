@@ -1,40 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simisage,231,move,1,Gunk Shot,72.8%,,,,,,,,
-Simisage,231,move,2,Attract,64.6%,,,,,,,,
-Simisage,231,move,3,Rock Tomb,63.3%,,,,,,,,
-Simisage,231,move,4,Bullet Seed,59.2%,,,,,,,,
-Simisage,231,move,5,Rock Slide,34.7%,,,,,,,,
-Simisage,231,move,6,Low Kick,27.2%,,,,,,,,
-Simisage,231,move,7,Trailblaze,25.2%,,,,,,,,
-Simisage,231,move,8,Energy Ball,23.1%,,,,,,,,
-Simisage,231,move,9,Seed Bomb,10.9%,,,,,,,,
-Simisage,231,move,10,Leaf Storm,4.8%,,,,,,,,
-Simisage,231,held_item,1,Quick Claw,32.0%,,,,,,,,
-Simisage,231,held_item,2,Life Orb,27.9%,,,,,,,,
-Simisage,231,held_item,3,Choice Scarf,27.9%,,,,,,,,
-Simisage,231,held_item,4,Focus Sash,11.6%,,,,,,,,
-Simisage,231,held_item,5,Leftovers,0.7%,,,,,,,,
-Simisage,231,teammate,1,Simipour,,,,,,,,,
-Simisage,231,teammate,2,Bastiodon,,,,,,,,,
-Simisage,231,teammate,3,Simisear,,,,,,,,,
-Simisage,231,teammate,4,Falinks,,,,,,,,,
-Simisage,231,teammate,5,Clefable,,,,,,,,,
-Simisage,231,teammate,6,Beedrill,,,,,,,,,
-Simisage,231,teammate,7,Raichu,,,,,,,,,
-Simisage,231,teammate,8,Mawile,,,,,,,,,
-Simisage,231,teammate,9,Sylveon,,,,,,,,,
-Simisage,231,teammate,10,Cinderace,,,,,,,,,
-Simisage,231,stat_alignment,1,Impish,59.2%,Defense,Sp. Atk,,,,,,
-Simisage,231,stat_alignment,2,Timid,24.5%,Speed,Attack,,,,,,
-Simisage,231,stat_alignment,3,Adamant,10.9%,Attack,Sp. Atk,,,,,,
-Simisage,231,stat_alignment,4,Naive,4.8%,Speed,Sp. Def,,,,,,
-Simisage,231,stat_alignment,5,Calm,0.7%,Sp. Def,Attack,,,,,,
-Simisage,231,stat_points,1,,59.2%,,,0,32,0,0,0,32
-Simisage,231,stat_points,2,,19.7%,,,0,0,0,32,0,32
-Simisage,231,stat_points,3,,8.2%,,,0,32,1,0,1,32
-Simisage,231,stat_points,4,,4.8%,,,0,13,0,21,0,32
-Simisage,231,stat_points,5,,3.4%,,,0,0,0,0,0,0
-Simisage,231,stat_points,6,,2.7%,,,2,32,0,0,0,32
-Simisage,231,stat_points,7,,1.4%,,,0,0,2,32,0,32
-Simisage,231,stat_points,8,,0.7%,,,32,0,0,0,32,2
-Simisage,231,ability,1,Overgrow,100.0%,,,,,,,,
+Simisage,233,move,1,Gunk Shot,64.5%,,,,,,,,
+Simisage,233,move,2,Bullet Seed,63.3%,,,,,,,,
+Simisage,233,move,3,Attract,57.2%,,,,,,,,
+Simisage,233,move,4,Rock Tomb,56.0%,,,,,,,,
+Simisage,233,move,5,Rock Slide,42.2%,,,,,,,,
+Simisage,233,move,6,Low Kick,34.9%,,,,,,,,
+Simisage,233,move,7,Trailblaze,33.1%,,,,,,,,
+Simisage,233,move,8,Energy Ball,20.5%,,,,,,,,
+Simisage,233,move,9,Seed Bomb,10.2%,,,,,,,,
+Simisage,233,move,10,Leaf Storm,4.2%,,,,,,,,
+Simisage,233,held_item,1,Life Orb,35.5%,,,,,,,,
+Simisage,233,held_item,2,Quick Claw,28.3%,,,,,,,,
+Simisage,233,held_item,3,Choice Scarf,24.7%,,,,,,,,
+Simisage,233,held_item,4,Focus Sash,10.8%,,,,,,,,
+Simisage,233,held_item,5,Leftovers,0.6%,,,,,,,,
+Simisage,233,teammate,1,Simipour,,,,,,,,,
+Simisage,233,teammate,2,Simisear,,,,,,,,,
+Simisage,233,teammate,3,Bastiodon,,,,,,,,,
+Simisage,233,teammate,4,Falinks,,,,,,,,,
+Simisage,233,teammate,5,Clefable,,,,,,,,,
+Simisage,233,teammate,6,Beedrill,,,,,,,,,
+Simisage,233,teammate,7,Raichu,,,,,,,,,
+Simisage,233,teammate,8,Mawile,,,,,,,,,
+Simisage,233,teammate,9,Sylveon,,,,,,,,,
+Simisage,233,teammate,10,Cinderace,,,,,,,,,
+Simisage,233,stat_alignment,1,Impish,63.3%,Defense,Sp. Atk,,,,,,
+Simisage,233,stat_alignment,2,Timid,21.7%,Speed,Attack,,,,,,
+Simisage,233,stat_alignment,3,Adamant,9.6%,Attack,Sp. Atk,,,,,,
+Simisage,233,stat_alignment,4,Naive,4.2%,Speed,Sp. Def,,,,,,
+Simisage,233,stat_alignment,5,Jolly,0.6%,Speed,Sp. Atk,,,,,,
+Simisage,233,stat_alignment,6,Calm,0.6%,Sp. Def,Attack,,,,,,
+Simisage,233,stat_points,1,,63.3%,,,0,32,0,0,0,32
+Simisage,233,stat_points,2,,17.5%,,,0,0,0,32,0,32
+Simisage,233,stat_points,3,,7.2%,,,0,32,1,0,1,32
+Simisage,233,stat_points,4,,4.2%,,,0,13,0,21,0,32
+Simisage,233,stat_points,5,,3.0%,,,0,0,0,0,0,0
+Simisage,233,stat_points,6,,2.4%,,,2,32,0,0,0,32
+Simisage,233,stat_points,7,,1.2%,,,0,0,2,32,0,32
+Simisage,233,stat_points,8,,0.6%,,,1,32,0,0,1,32
+Simisage,233,stat_points,9,,0.6%,,,32,0,0,0,32,2
+Simisage,233,ability,1,Overgrow,100.0%,,,,,,,,

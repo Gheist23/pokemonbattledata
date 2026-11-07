@@ -1,45 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Golurk,166,move,1,Poltergeist,91.9%,,,,,,,,
-Golurk,166,move,2,Headlong Rush,67.2%,,,,,,,,
-Golurk,166,move,3,Ice Punch,44.4%,,,,,,,,
-Golurk,166,move,4,Stone Edge,41.4%,,,,,,,,
-Golurk,166,move,5,Dynamic Punch,35.8%,,,,,,,,
-Golurk,166,move,6,Earthquake,30.6%,,,,,,,,
-Golurk,166,move,7,Fire Punch,23.3%,,,,,,,,
-Golurk,166,move,8,Close Combat,7.6%,,,,,,,,
-Golurk,166,move,9,Stealth Rock,6.5%,,,,,,,,
-Golurk,166,move,10,Zen Headbutt,5.3%,,,,,,,,
-Golurk,166,held_item,1,Golurkite,77.2%,,,,,,,,
-Golurk,166,held_item,2,Focus Sash,12.6%,,,,,,,,
-Golurk,166,held_item,3,Life Orb,4.1%,,,,,,,,
-Golurk,166,held_item,4,Choice Scarf,4.0%,,,,,,,,
-Golurk,166,held_item,5,Leftovers,2.0%,,,,,,,,
-Golurk,166,held_item,6,Expert Belt,0.2%,,,,,,,,
-Golurk,166,teammate,1,Garchomp,,,,,,,,,
-Golurk,166,teammate,2,Charizard,,,,,,,,,
-Golurk,166,teammate,3,Kingambit,,,,,,,,,
-Golurk,166,teammate,4,Primarina,,,,,,,,,
-Golurk,166,teammate,5,Jolteon,,,,,,,,,
-Golurk,166,teammate,6,Hippowdon,,,,,,,,,
-Golurk,166,teammate,7,Arcanine-Hisui,,,,,,,,,
-Golurk,166,teammate,8,Snorlax,,,,,,,,,
-Golurk,166,teammate,9,Mimikyu,,,,,,,,,
-Golurk,166,teammate,10,Rillaboom,,,,,,,,,
-Golurk,166,stat_alignment,1,Adamant,68.9%,Attack,Sp. Atk,,,,,,
-Golurk,166,stat_alignment,2,Brave,25.0%,Attack,Speed,,,,,,
-Golurk,166,stat_alignment,3,Jolly,3.3%,Speed,Sp. Atk,,,,,,
-Golurk,166,stat_alignment,4,Impish,2.2%,Defense,Sp. Atk,,,,,,
-Golurk,166,stat_alignment,5,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
-Golurk,166,stat_points,1,,42.2%,,,32,32,0,0,2,0
-Golurk,166,stat_points,2,,19.0%,,,32,32,2,0,0,0
-Golurk,166,stat_points,3,,7.3%,,,2,32,16,0,16,0
-Golurk,166,stat_points,4,,4.8%,,,32,32,0,0,0,0
-Golurk,166,stat_points,5,,2.6%,,,32,32,1,0,1,0
-Golurk,166,stat_points,6,,2.5%,,,2,32,0,0,0,32
-Golurk,166,stat_points,7,,2.5%,,,32,16,9,0,9,0
-Golurk,166,stat_points,8,,2.3%,,,1,32,0,0,1,32
-Golurk,166,stat_points,9,,2.3%,,,13,32,21,0,0,0
-Golurk,166,stat_points,10,,2.2%,,,31,0,23,0,12,0
-Golurk,166,ability,1,No Guard,54.0%,,,,,,,,
-Golurk,166,ability,2,Iron Fist,33.6%,,,,,,,,
-Golurk,166,ability,3,Klutz,12.4%,,,,,,,,
+Golurk,172,move,1,Poltergeist,92.3%,,,,,,,,
+Golurk,172,move,2,Headlong Rush,68.9%,,,,,,,,
+Golurk,172,move,3,Ice Punch,47.1%,,,,,,,,
+Golurk,172,move,4,Stone Edge,39.3%,,,,,,,,
+Golurk,172,move,5,Dynamic Punch,34.0%,,,,,,,,
+Golurk,172,move,6,Earthquake,29.1%,,,,,,,,
+Golurk,172,move,7,Fire Punch,23.9%,,,,,,,,
+Golurk,172,move,8,Close Combat,7.7%,,,,,,,,
+Golurk,172,move,9,Stealth Rock,6.1%,,,,,,,,
+Golurk,172,move,10,Hard Press,5.5%,,,,,,,,
+Golurk,172,held_item,1,Golurkite,77.9%,,,,,,,,
+Golurk,172,held_item,2,Focus Sash,12.1%,,,,,,,,
+Golurk,172,held_item,3,Life Orb,4.2%,,,,,,,,
+Golurk,172,held_item,4,Choice Scarf,3.8%,,,,,,,,
+Golurk,172,held_item,5,Leftovers,1.9%,,,,,,,,
+Golurk,172,held_item,6,Expert Belt,0.2%,,,,,,,,
+Golurk,172,teammate,1,Garchomp,,,,,,,,,
+Golurk,172,teammate,2,Charizard,,,,,,,,,
+Golurk,172,teammate,3,Kingambit,,,,,,,,,
+Golurk,172,teammate,4,Primarina,,,,,,,,,
+Golurk,172,teammate,5,Jolteon,,,,,,,,,
+Golurk,172,teammate,6,Hippowdon,,,,,,,,,
+Golurk,172,teammate,7,Snorlax,,,,,,,,,
+Golurk,172,teammate,8,Rillaboom,,,,,,,,,
+Golurk,172,teammate,9,Arcanine-Hisui,,,,,,,,,
+Golurk,172,teammate,10,Mimikyu,,,,,,,,,
+Golurk,172,stat_alignment,1,Adamant,69.2%,Attack,Sp. Atk,,,,,,
+Golurk,172,stat_alignment,2,Brave,24.4%,Attack,Speed,,,,,,
+Golurk,172,stat_alignment,3,Jolly,3.3%,Speed,Sp. Atk,,,,,,
+Golurk,172,stat_alignment,4,Impish,2.3%,Defense,Sp. Atk,,,,,,
+Golurk,172,stat_alignment,5,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
+Golurk,172,stat_alignment,6,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Golurk,172,stat_points,1,,42.7%,,,32,32,0,0,2,0
+Golurk,172,stat_points,2,,18.0%,,,32,32,2,0,0,0
+Golurk,172,stat_points,3,,6.9%,,,2,32,16,0,16,0
+Golurk,172,stat_points,4,,4.5%,,,32,32,0,0,0,0
+Golurk,172,stat_points,5,,2.8%,,,32,32,1,0,1,0
+Golurk,172,stat_points,6,,2.3%,,,2,32,0,0,0,32
+Golurk,172,stat_points,7,,2.3%,,,32,16,9,0,9,0
+Golurk,172,stat_points,8,,2.2%,,,1,32,0,0,1,32
+Golurk,172,stat_points,9,,2.2%,,,13,32,21,0,0,0
+Golurk,172,stat_points,10,,2.0%,,,1,32,1,0,0,32
+Golurk,172,ability,1,No Guard,52.0%,,,,,,,,
+Golurk,172,ability,2,Iron Fist,36.2%,,,,,,,,
+Golurk,172,ability,3,Klutz,11.9%,,,,,,,,

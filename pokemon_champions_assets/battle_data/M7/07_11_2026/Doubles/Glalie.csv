@@ -1,40 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Glalie,172,move,1,Protect,98.1%,,,,,,,,
-Glalie,172,move,2,Explosion,90.8%,,,,,,,,
-Glalie,172,move,3,Earthquake,46.4%,,,,,,,,
-Glalie,172,move,4,Body Slam,36.7%,,,,,,,,
-Glalie,172,move,5,Ice Shard,36.7%,,,,,,,,
-Glalie,172,move,6,Substitute,23.7%,,,,,,,,
-Glalie,172,move,7,Taunt,22.7%,,,,,,,,
-Glalie,172,move,8,Freeze-Dry,19.3%,,,,,,,,
-Glalie,172,move,9,Sheer Cold,6.8%,,,,,,,,
-Glalie,172,move,10,Trailblaze,3.9%,,,,,,,,
-Glalie,172,held_item,1,Glalitite,92.8%,,,,,,,,
-Glalie,172,held_item,2,Leftovers,5.8%,,,,,,,,
-Glalie,172,held_item,3,Focus Sash,1.4%,,,,,,,,
-Glalie,172,teammate,1,Oranguru,,,,,,,,,
-Glalie,172,teammate,2,Maushold-Four,,,,,,,,,
-Glalie,172,teammate,3,Araquanid,,,,,,,,,
-Glalie,172,teammate,4,Mimikyu,,,,,,,,,
-Glalie,172,teammate,5,Talonflame,,,,,,,,,
-Glalie,172,teammate,6,Tauros-Paldea-Blaze,,,,,,,,,
-Glalie,172,teammate,7,Meowscarada,,,,,,,,,
-Glalie,172,teammate,8,Whimsicott,,,,,,,,,
-Glalie,172,teammate,9,Metagross,,,,,,,,,
-Glalie,172,teammate,10,Steelix,,,,,,,,,
-Glalie,172,stat_alignment,1,Adamant,72.9%,Attack,Sp. Atk,,,,,,
-Glalie,172,stat_alignment,2,Jolly,13.0%,Speed,Sp. Atk,,,,,,
-Glalie,172,stat_alignment,3,Hasty,7.7%,Speed,Defense,,,,,,
-Glalie,172,stat_alignment,4,Timid,2.9%,Speed,Attack,,,,,,
-Glalie,172,stat_alignment,5,Calm,2.4%,Sp. Def,Attack,,,,,,
-Glalie,172,stat_alignment,6,Naive,1.0%,Speed,Sp. Def,,,,,,
-Glalie,172,stat_points,1,,70.5%,,,2,32,0,0,0,32
-Glalie,172,stat_points,2,,12.6%,,,0,32,2,0,0,32
-Glalie,172,stat_points,3,,6.8%,,,0,32,0,0,2,32
-Glalie,172,stat_points,4,,4.3%,,,2,0,32,0,0,32
-Glalie,172,stat_points,5,,2.9%,,,10,0,0,32,1,23
-Glalie,172,stat_points,6,,2.4%,,,2,0,32,0,32,0
-Glalie,172,stat_points,7,,0.5%,,,2,16,16,0,0,32
-Glalie,172,ability,1,Inner Focus,74.9%,,,,,,,,
-Glalie,172,ability,2,Moody,24.2%,,,,,,,,
-Glalie,172,ability,3,Ice Body,1.0%,,,,,,,,
+Glalie,171,move,1,Protect,97.9%,,,,,,,,
+Glalie,171,move,2,Explosion,92.1%,,,,,,,,
+Glalie,171,move,3,Earthquake,48.3%,,,,,,,,
+Glalie,171,move,4,Ice Shard,40.0%,,,,,,,,
+Glalie,171,move,5,Body Slam,35.4%,,,,,,,,
+Glalie,171,move,6,Substitute,22.9%,,,,,,,,
+Glalie,171,move,7,Taunt,21.3%,,,,,,,,
+Glalie,171,move,8,Freeze-Dry,16.7%,,,,,,,,
+Glalie,171,move,9,Sheer Cold,7.1%,,,,,,,,
+Glalie,171,move,10,Trailblaze,3.3%,,,,,,,,
+Glalie,171,held_item,1,Glalitite,92.5%,,,,,,,,
+Glalie,171,held_item,2,Leftovers,6.3%,,,,,,,,
+Glalie,171,held_item,3,Focus Sash,1.3%,,,,,,,,
+Glalie,171,teammate,1,Oranguru,,,,,,,,,
+Glalie,171,teammate,2,Araquanid,,,,,,,,,
+Glalie,171,teammate,3,Maushold-Four,,,,,,,,,
+Glalie,171,teammate,4,Mimikyu,,,,,,,,,
+Glalie,171,teammate,5,Talonflame,,,,,,,,,
+Glalie,171,teammate,6,Metagross,,,,,,,,,
+Glalie,171,teammate,7,Tauros-Paldea-Blaze,,,,,,,,,
+Glalie,171,teammate,8,Meowscarada,,,,,,,,,
+Glalie,171,teammate,9,Whimsicott,,,,,,,,,
+Glalie,171,teammate,10,Pawmot,,,,,,,,,
+Glalie,171,stat_alignment,1,Adamant,75.4%,Attack,Sp. Atk,,,,,,
+Glalie,171,stat_alignment,2,Jolly,11.3%,Speed,Sp. Atk,,,,,,
+Glalie,171,stat_alignment,3,Hasty,6.7%,Speed,Defense,,,,,,
+Glalie,171,stat_alignment,4,Timid,2.5%,Speed,Attack,,,,,,
+Glalie,171,stat_alignment,5,Calm,2.1%,Sp. Def,Attack,,,,,,
+Glalie,171,stat_alignment,6,Naive,0.8%,Speed,Sp. Def,,,,,,
+Glalie,171,stat_alignment,7,Brave,0.8%,Attack,Speed,,,,,,
+Glalie,171,stat_alignment,8,Modest,0.4%,Sp. Atk,Attack,,,,,,
+Glalie,171,stat_points,1,,71.7%,,,2,32,0,0,0,32
+Glalie,171,stat_points,2,,11.3%,,,0,32,2,0,0,32
+Glalie,171,stat_points,3,,5.8%,,,0,32,0,0,2,32
+Glalie,171,stat_points,4,,3.8%,,,2,0,32,0,0,32
+Glalie,171,stat_points,5,,2.5%,,,10,0,0,32,1,23
+Glalie,171,stat_points,6,,2.1%,,,2,0,32,0,32,0
+Glalie,171,stat_points,7,,1.3%,,,0,32,1,0,1,32
+Glalie,171,stat_points,8,,0.8%,,,32,32,1,0,1,0
+Glalie,171,stat_points,9,,0.4%,,,0,0,2,32,0,32
+Glalie,171,stat_points,10,,0.4%,,,2,16,16,0,0,32
+Glalie,171,ability,1,Inner Focus,75.4%,,,,,,,,
+Glalie,171,ability,2,Moody,23.8%,,,,,,,,
+Glalie,171,ability,3,Ice Body,0.8%,,,,,,,,

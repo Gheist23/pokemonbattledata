@@ -1,40 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Thievul,181,move,1,Snarl,97.7%,,,,,,,,
-Thievul,181,move,2,Dark Pulse,86.6%,,,,,,,,
-Thievul,181,move,3,Parting Shot,85.5%,,,,,,,,
-Thievul,181,move,4,Protect,84.3%,,,,,,,,
-Thievul,181,move,5,Taunt,11.6%,,,,,,,,
-Thievul,181,move,6,Foul Play,10.5%,,,,,,,,
-Thievul,181,move,7,Fake Tears,8.7%,,,,,,,,
-Thievul,181,move,8,Quick Guard,7.6%,,,,,,,,
-Thievul,181,move,9,Beat Up,4.1%,,,,,,,,
-Thievul,181,move,10,Baton Pass,1.2%,,,,,,,,
-Thievul,181,held_item,1,Life Orb,80.2%,,,,,,,,
-Thievul,181,held_item,2,Grassy Seed,8.7%,,,,,,,,
-Thievul,181,held_item,3,Choice Scarf,5.2%,,,,,,,,
-Thievul,181,held_item,4,Psychic Seed,4.7%,,,,,,,,
-Thievul,181,held_item,5,Focus Sash,1.2%,,,,,,,,
-Thievul,181,teammate,1,Rillaboom,,,,,,,,,
-Thievul,181,teammate,2,Wigglytuff,,,,,,,,,
-Thievul,181,teammate,3,Toxicroak,,,,,,,,,
-Thievul,181,teammate,4,Golurk,,,,,,,,,
-Thievul,181,teammate,5,Klefki,,,,,,,,,
-Thievul,181,teammate,6,Banette,,,,,,,,,
-Thievul,181,teammate,7,Ampharos,,,,,,,,,
-Thievul,181,teammate,8,Raichu,,,,,,,,,
-Thievul,181,teammate,9,Gliscor,,,,,,,,,
-Thievul,181,teammate,10,Floette-Eternal,,,,,,,,,
-Thievul,181,stat_alignment,1,Quiet,80.2%,Sp. Atk,Speed,,,,,,
-Thievul,181,stat_alignment,2,Timid,9.3%,Speed,Attack,,,,,,
-Thievul,181,stat_alignment,3,Modest,5.2%,Sp. Atk,Attack,,,,,,
-Thievul,181,stat_alignment,4,Bold,4.1%,Defense,Attack,,,,,,
-Thievul,181,stat_alignment,5,Jolly,1.2%,Speed,Sp. Atk,,,,,,
-Thievul,181,stat_points,1,,81.4%,,,2,0,0,32,32,0
-Thievul,181,stat_points,2,,7.6%,,,32,0,2,0,0,32
-Thievul,181,stat_points,3,,5.2%,,,0,0,2,32,0,32
-Thievul,181,stat_points,4,,2.9%,,,32,0,32,0,0,2
-Thievul,181,stat_points,5,,1.2%,,,2,0,32,0,0,32
-Thievul,181,stat_points,6,,1.2%,,,32,0,32,0,2,0
-Thievul,181,stat_points,7,,0.6%,,,32,0,0,2,0,32
-Thievul,181,ability,1,Stakeout,86.6%,,,,,,,,
-Thievul,181,ability,2,Unburden,13.4%,,,,,,,,
+Thievul,180,move,1,Snarl,98.1%,,,,,,,,
+Thievul,180,move,2,Dark Pulse,80.1%,,,,,,,,
+Thievul,180,move,3,Protect,79.6%,,,,,,,,
+Thievul,180,move,4,Parting Shot,79.2%,,,,,,,,
+Thievul,180,move,5,Taunt,17.1%,,,,,,,,
+Thievul,180,move,6,Foul Play,15.3%,,,,,,,,
+Thievul,180,move,7,Quick Guard,13.0%,,,,,,,,
+Thievul,180,move,8,Fake Tears,7.9%,,,,,,,,
+Thievul,180,move,9,Beat Up,4.2%,,,,,,,,
+Thievul,180,move,10,Shadow Ball,1.4%,,,,,,,,
+Thievul,180,held_item,1,Life Orb,76.4%,,,,,,,,
+Thievul,180,held_item,2,Grassy Seed,13.9%,,,,,,,,
+Thievul,180,held_item,3,Psychic Seed,4.6%,,,,,,,,
+Thievul,180,held_item,4,Choice Scarf,4.2%,,,,,,,,
+Thievul,180,held_item,5,Focus Sash,0.9%,,,,,,,,
+Thievul,180,teammate,1,Rillaboom,,,,,,,,,
+Thievul,180,teammate,2,Wigglytuff,,,,,,,,,
+Thievul,180,teammate,3,Toxicroak,,,,,,,,,
+Thievul,180,teammate,4,Golurk,,,,,,,,,
+Thievul,180,teammate,5,Klefki,,,,,,,,,
+Thievul,180,teammate,6,Banette,,,,,,,,,
+Thievul,180,teammate,7,Ampharos,,,,,,,,,
+Thievul,180,teammate,8,Raichu,,,,,,,,,
+Thievul,180,teammate,9,Gliscor,,,,,,,,,
+Thievul,180,teammate,10,Floette-Eternal,,,,,,,,,
+Thievul,180,stat_alignment,1,Quiet,75.0%,Sp. Atk,Speed,,,,,,
+Thievul,180,stat_alignment,2,Timid,14.4%,Speed,Attack,,,,,,
+Thievul,180,stat_alignment,3,Modest,4.2%,Sp. Atk,Attack,,,,,,
+Thievul,180,stat_alignment,4,Bold,4.2%,Defense,Attack,,,,,,
+Thievul,180,stat_alignment,5,Lax,1.4%,Defense,Sp. Def,,,,,,
+Thievul,180,stat_alignment,6,Jolly,0.9%,Speed,Sp. Atk,,,,,,
+Thievul,180,stat_points,1,,75.9%,,,2,0,0,32,32,0
+Thievul,180,stat_points,2,,13.0%,,,32,0,2,0,0,32
+Thievul,180,stat_points,3,,4.2%,,,0,0,2,32,0,32
+Thievul,180,stat_points,4,,3.2%,,,32,0,32,0,0,2
+Thievul,180,stat_points,5,,1.4%,,,0,32,0,32,0,0
+Thievul,180,stat_points,6,,0.9%,,,2,0,32,0,0,32
+Thievul,180,stat_points,7,,0.9%,,,32,0,32,0,2,0
+Thievul,180,stat_points,8,,0.5%,,,32,0,0,2,0,32
+Thievul,180,ability,1,Stakeout,80.1%,,,,,,,,
+Thievul,180,ability,2,Unburden,19.9%,,,,,,,,

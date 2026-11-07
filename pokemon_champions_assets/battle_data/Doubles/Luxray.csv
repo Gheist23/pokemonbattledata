@@ -1,36 +1,38 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Luxray,225,move,1,Volt Switch,72.7%,,,,,,,,
-Luxray,225,move,2,Electroweb,50.0%,,,,,,,,
-Luxray,225,move,3,Snarl,50.0%,,,,,,,,
-Luxray,225,move,4,Eerie Impulse,40.9%,,,,,,,,
-Luxray,225,move,5,Helping Hand,27.3%,,,,,,,,
-Luxray,225,move,6,Protect,25.0%,,,,,,,,
-Luxray,225,move,7,Superpower,22.7%,,,,,,,,
-Luxray,225,move,8,Ice Fang,22.7%,,,,,,,,
-Luxray,225,move,9,Fake Tears,20.5%,,,,,,,,
-Luxray,225,move,10,Wild Charge,20.5%,,,,,,,,
-Luxray,225,held_item,1,Sitrus Berry,70.5%,,,,,,,,
-Luxray,225,held_item,2,Expert Belt,20.5%,,,,,,,,
-Luxray,225,held_item,3,Life Orb,6.8%,,,,,,,,
-Luxray,225,held_item,4,White Herb,2.3%,,,,,,,,
-Luxray,225,teammate,1,Rillaboom,,,,,,,,,
-Luxray,225,teammate,2,Charizard,,,,,,,,,
-Luxray,225,teammate,3,Pelipper,,,,,,,,,
-Luxray,225,teammate,4,Basculegion,,,,,,,,,
-Luxray,225,teammate,5,Archaludon,,,,,,,,,
-Luxray,225,teammate,6,Bellibolt,,,,,,,,,
-Luxray,225,teammate,7,Scizor,,,,,,,,,
-Luxray,225,teammate,8,Tyranitar,,,,,,,,,
-Luxray,225,teammate,9,Milotic,,,,,,,,,
-Luxray,225,teammate,10,Salamence,,,,,,,,,
-Luxray,225,stat_alignment,1,Bold,50.0%,Defense,Attack,,,,,,
-Luxray,225,stat_alignment,2,Adamant,22.7%,Attack,Sp. Atk,,,,,,
-Luxray,225,stat_alignment,3,Timid,20.5%,Speed,Attack,,,,,,
-Luxray,225,stat_alignment,4,Jolly,6.8%,Speed,Sp. Atk,,,,,,
-Luxray,225,stat_points,1,,29.5%,,,30,0,11,0,25,0
-Luxray,225,stat_points,2,,20.5%,,,29,0,0,5,0,32
-Luxray,225,stat_points,3,,20.5%,,,32,0,2,0,32,0
-Luxray,225,stat_points,4,,20.5%,,,32,10,0,0,8,16
-Luxray,225,stat_points,5,,6.8%,,,0,32,1,0,1,32
-Luxray,225,stat_points,6,,2.3%,,,30,32,0,0,0,4
-Luxray,225,ability,1,Intimidate,100.0%,,,,,,,,
+Luxray,226,move,1,Volt Switch,80.3%,,,,,,,,
+Luxray,226,move,2,Electroweb,49.2%,,,,,,,,
+Luxray,226,move,3,Eerie Impulse,44.3%,,,,,,,,
+Luxray,226,move,4,Snarl,41.0%,,,,,,,,
+Luxray,226,move,5,Fake Tears,29.5%,,,,,,,,
+Luxray,226,move,6,Baby-Doll Eyes,29.5%,,,,,,,,
+Luxray,226,move,7,Helping Hand,23.0%,,,,,,,,
+Luxray,226,move,8,Protect,18.0%,,,,,,,,
+Luxray,226,move,9,Superpower,16.4%,,,,,,,,
+Luxray,226,move,10,Ice Fang,16.4%,,,,,,,,
+Luxray,226,held_item,1,Sitrus Berry,70.5%,,,,,,,,
+Luxray,226,held_item,2,Expert Belt,14.8%,,,,,,,,
+Luxray,226,held_item,3,Choice Scarf,8.2%,,,,,,,,
+Luxray,226,held_item,4,Life Orb,4.9%,,,,,,,,
+Luxray,226,held_item,5,White Herb,1.6%,,,,,,,,
+Luxray,226,teammate,1,Rillaboom,,,,,,,,,
+Luxray,226,teammate,2,Pelipper,,,,,,,,,
+Luxray,226,teammate,3,Basculegion,,,,,,,,,
+Luxray,226,teammate,4,Bellibolt,,,,,,,,,
+Luxray,226,teammate,5,Archaludon,,,,,,,,,
+Luxray,226,teammate,6,Whimsicott,,,,,,,,,
+Luxray,226,teammate,7,Malamar,,,,,,,,,
+Luxray,226,teammate,8,Klefki,,,,,,,,,
+Luxray,226,teammate,9,Incineroar,,,,,,,,,
+Luxray,226,teammate,10,Charizard,,,,,,,,,
+Luxray,226,stat_alignment,1,Bold,55.7%,Defense,Attack,,,,,,
+Luxray,226,stat_alignment,2,Timid,23.0%,Speed,Attack,,,,,,
+Luxray,226,stat_alignment,3,Adamant,16.4%,Attack,Sp. Atk,,,,,,
+Luxray,226,stat_alignment,4,Jolly,4.9%,Speed,Sp. Atk,,,,,,
+Luxray,226,stat_points,1,,29.5%,,,32,0,2,0,32,0
+Luxray,226,stat_points,2,,26.2%,,,30,0,11,0,25,0
+Luxray,226,stat_points,3,,14.8%,,,29,0,0,5,0,32
+Luxray,226,stat_points,4,,14.8%,,,32,10,0,0,8,16
+Luxray,226,stat_points,5,,8.2%,,,0,0,1,32,1,32
+Luxray,226,stat_points,6,,4.9%,,,0,32,1,0,1,32
+Luxray,226,stat_points,7,,1.6%,,,30,32,0,0,0,4
+Luxray,226,ability,1,Intimidate,100.0%,,,,,,,,

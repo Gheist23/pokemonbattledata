@@ -1,49 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Persian-Alola,137,move,1,Foul Play,99.6%,,,,,,,,
-Persian-Alola,137,move,2,Parting Shot,93.2%,,,,,,,,
-Persian-Alola,137,move,3,Taunt,67.7%,,,,,,,,
-Persian-Alola,137,move,4,Thunder Wave,27.1%,,,,,,,,
-Persian-Alola,137,move,5,Fake Out,25.7%,,,,,,,,
-Persian-Alola,137,move,6,Switcheroo,22.9%,,,,,,,,
-Persian-Alola,137,move,7,Icy Wind,16.9%,,,,,,,,
-Persian-Alola,137,move,8,Endeavor,9.6%,,,,,,,,
-Persian-Alola,137,move,9,U-turn,7.5%,,,,,,,,
-Persian-Alola,137,move,10,Rest,5.9%,,,,,,,,
-Persian-Alola,137,held_item,1,Rocky Helmet,35.0%,,,,,,,,
-Persian-Alola,137,held_item,2,Leftovers,33.4%,,,,,,,,
-Persian-Alola,137,held_item,3,Choice Scarf,23.5%,,,,,,,,
-Persian-Alola,137,held_item,4,Sitrus Berry,6.9%,,,,,,,,
-Persian-Alola,137,held_item,5,Chople Berry,0.4%,,,,,,,,
-Persian-Alola,137,held_item,6,King's Rock,0.4%,,,,,,,,
-Persian-Alola,137,held_item,7,Red Card,0.3%,,,,,,,,
-Persian-Alola,137,held_item,8,Chesto Berry,0.1%,,,,,,,,
-Persian-Alola,137,teammate,1,Slowking-Galar,,,,,,,,,
-Persian-Alola,137,teammate,2,Primarina,,,,,,,,,
-Persian-Alola,137,teammate,3,Lopunny,,,,,,,,,
-Persian-Alola,137,teammate,4,Dragonite,,,,,,,,,
-Persian-Alola,137,teammate,5,Hippowdon,,,,,,,,,
-Persian-Alola,137,teammate,6,Garchomp,,,,,,,,,
-Persian-Alola,137,teammate,7,Corviknight,,,,,,,,,
-Persian-Alola,137,teammate,8,Goodra-Hisui,,,,,,,,,
-Persian-Alola,137,teammate,9,Sneasler,,,,,,,,,
-Persian-Alola,137,teammate,10,Gyarados,,,,,,,,,
-Persian-Alola,137,stat_alignment,1,Bold,32.4%,Defense,Attack,,,,,,
-Persian-Alola,137,stat_alignment,2,Jolly,27.4%,Speed,Sp. Atk,,,,,,
-Persian-Alola,137,stat_alignment,3,Timid,24.6%,Speed,Attack,,,,,,
-Persian-Alola,137,stat_alignment,4,Impish,13.9%,Defense,Sp. Atk,,,,,,
-Persian-Alola,137,stat_alignment,5,Calm,0.9%,Sp. Def,Attack,,,,,,
-Persian-Alola,137,stat_alignment,6,Adamant,0.4%,Attack,Sp. Atk,,,,,,
-Persian-Alola,137,stat_alignment,7,Lax,0.3%,Defense,Sp. Def,,,,,,
-Persian-Alola,137,stat_alignment,8,Modest,0.1%,Sp. Atk,Attack,,,,,,
-Persian-Alola,137,stat_points,1,,18.2%,,,31,0,29,0,0,6
-Persian-Alola,137,stat_points,2,,11.0%,,,32,0,32,0,2,0
-Persian-Alola,137,stat_points,3,,6.8%,,,32,0,32,0,0,2
-Persian-Alola,137,stat_points,4,,6.0%,,,31,0,5,0,0,30
-Persian-Alola,137,stat_points,5,,5.4%,,,31,0,32,3,0,0
-Persian-Alola,137,stat_points,6,,5.3%,,,21,0,22,0,0,23
-Persian-Alola,137,stat_points,7,,5.3%,,,32,0,2,0,0,32
-Persian-Alola,137,stat_points,8,,4.9%,,,31,0,32,0,3,0
-Persian-Alola,137,stat_points,9,,4.3%,,,32,0,30,0,0,4
-Persian-Alola,137,stat_points,10,,4.0%,,,31,0,28,0,0,7
-Persian-Alola,137,ability,1,Fur Coat,99.5%,,,,,,,,
-Persian-Alola,137,ability,2,Technician,0.5%,,,,,,,,
+Persian-Alola,138,move,1,Foul Play,99.5%,,,,,,,,
+Persian-Alola,138,move,2,Parting Shot,92.7%,,,,,,,,
+Persian-Alola,138,move,3,Taunt,67.0%,,,,,,,,
+Persian-Alola,138,move,4,Thunder Wave,26.3%,,,,,,,,
+Persian-Alola,138,move,5,Fake Out,26.2%,,,,,,,,
+Persian-Alola,138,move,6,Switcheroo,23.4%,,,,,,,,
+Persian-Alola,138,move,7,Icy Wind,16.9%,,,,,,,,
+Persian-Alola,138,move,8,Endeavor,8.6%,,,,,,,,
+Persian-Alola,138,move,9,U-turn,8.2%,,,,,,,,
+Persian-Alola,138,move,10,Rest,6.2%,,,,,,,,
+Persian-Alola,138,held_item,1,Leftovers,34.1%,,,,,,,,
+Persian-Alola,138,held_item,2,Rocky Helmet,32.4%,,,,,,,,
+Persian-Alola,138,held_item,3,Choice Scarf,24.1%,,,,,,,,
+Persian-Alola,138,held_item,4,Sitrus Berry,7.4%,,,,,,,,
+Persian-Alola,138,held_item,5,Lum Berry,0.8%,,,,,,,,
+Persian-Alola,138,held_item,6,Chople Berry,0.5%,,,,,,,,
+Persian-Alola,138,held_item,7,King's Rock,0.4%,,,,,,,,
+Persian-Alola,138,held_item,8,Red Card,0.2%,,,,,,,,
+Persian-Alola,138,held_item,9,Chesto Berry,0.1%,,,,,,,,
+Persian-Alola,138,teammate,1,Slowking-Galar,,,,,,,,,
+Persian-Alola,138,teammate,2,Primarina,,,,,,,,,
+Persian-Alola,138,teammate,3,Dragonite,,,,,,,,,
+Persian-Alola,138,teammate,4,Lopunny,,,,,,,,,
+Persian-Alola,138,teammate,5,Hippowdon,,,,,,,,,
+Persian-Alola,138,teammate,6,Garchomp,,,,,,,,,
+Persian-Alola,138,teammate,7,Corviknight,,,,,,,,,
+Persian-Alola,138,teammate,8,Goodra-Hisui,,,,,,,,,
+Persian-Alola,138,teammate,9,Gyarados,,,,,,,,,
+Persian-Alola,138,teammate,10,Sneasler,,,,,,,,,
+Persian-Alola,138,stat_alignment,1,Bold,32.3%,Defense,Attack,,,,,,
+Persian-Alola,138,stat_alignment,2,Jolly,27.0%,Speed,Sp. Atk,,,,,,
+Persian-Alola,138,stat_alignment,3,Timid,24.9%,Speed,Attack,,,,,,
+Persian-Alola,138,stat_alignment,4,Impish,13.8%,Defense,Sp. Atk,,,,,,
+Persian-Alola,138,stat_alignment,5,Calm,0.8%,Sp. Def,Attack,,,,,,
+Persian-Alola,138,stat_alignment,6,Adamant,0.8%,Attack,Sp. Atk,,,,,,
+Persian-Alola,138,stat_alignment,7,Lax,0.2%,Defense,Sp. Def,,,,,,
+Persian-Alola,138,stat_alignment,8,Modest,0.1%,Sp. Atk,Attack,,,,,,
+Persian-Alola,138,stat_points,1,,16.6%,,,31,0,29,0,0,6
+Persian-Alola,138,stat_points,2,,10.6%,,,32,0,32,0,2,0
+Persian-Alola,138,stat_points,3,,6.6%,,,32,0,32,0,0,2
+Persian-Alola,138,stat_points,4,,5.5%,,,32,0,30,0,0,4
+Persian-Alola,138,stat_points,5,,5.4%,,,31,0,5,0,0,30
+Persian-Alola,138,stat_points,6,,5.1%,,,31,0,28,0,0,7
+Persian-Alola,138,stat_points,7,,4.9%,,,21,0,22,0,0,23
+Persian-Alola,138,stat_points,8,,4.9%,,,31,0,32,0,3,0
+Persian-Alola,138,stat_points,9,,4.9%,,,31,0,32,3,0,0
+Persian-Alola,138,stat_points,10,,4.8%,,,32,0,2,0,0,32
+Persian-Alola,138,ability,1,Fur Coat,99.5%,,,,,,,,
+Persian-Alola,138,ability,2,Technician,0.5%,,,,,,,,

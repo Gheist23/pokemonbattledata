@@ -1,53 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Incineroar,101,move,1,Parting Shot,85.8%,,,,,,,,
-Incineroar,101,move,2,Flare Blitz,73.5%,,,,,,,,
-Incineroar,101,move,3,Darkest Lariat,73.2%,,,,,,,,
-Incineroar,101,move,4,Will-O-Wisp,40.6%,,,,,,,,
-Incineroar,101,move,5,Fake Out,22.9%,,,,,,,,
-Incineroar,101,move,6,Power Trip,12.2%,,,,,,,,
-Incineroar,101,move,7,Taunt,11.4%,,,,,,,,
-Incineroar,101,move,8,Swords Dance,8.2%,,,,,,,,
-Incineroar,101,move,9,Brick Break,8.2%,,,,,,,,
-Incineroar,101,move,10,Bulk Up,8.2%,,,,,,,,
-Incineroar,101,held_item,1,Sitrus Berry,45.7%,,,,,,,,
-Incineroar,101,held_item,2,Leftovers,22.9%,,,,,,,,
-Incineroar,101,held_item,3,Rocky Helmet,9.6%,,,,,,,,
-Incineroar,101,held_item,4,Chople Berry,8.7%,,,,,,,,
-Incineroar,101,held_item,5,Chesto Berry,3.9%,,,,,,,,
-Incineroar,101,held_item,6,Passho Berry,1.9%,,,,,,,,
-Incineroar,101,held_item,7,Metronome,1.8%,,,,,,,,
-Incineroar,101,held_item,8,Air Balloon,1.2%,,,,,,,,
-Incineroar,101,held_item,9,Big Root,0.9%,,,,,,,,
-Incineroar,101,held_item,10,Quick Claw,0.6%,,,,,,,,
-Incineroar,101,teammate,1,Garchomp,,,,,,,,,
-Incineroar,101,teammate,2,Gholdengo,,,,,,,,,
-Incineroar,101,teammate,3,Hippowdon,,,,,,,,,
-Incineroar,101,teammate,4,Primarina,,,,,,,,,
-Incineroar,101,teammate,5,Rillaboom,,,,,,,,,
-Incineroar,101,teammate,6,Basculegion,,,,,,,,,
-Incineroar,101,teammate,7,Lucario,,,,,,,,,
-Incineroar,101,teammate,8,Golisopod,,,,,,,,,
-Incineroar,101,teammate,9,Salamence,,,,,,,,,
-Incineroar,101,teammate,10,Gyarados,,,,,,,,,
-Incineroar,101,stat_alignment,1,Impish,31.7%,Defense,Sp. Atk,,,,,,
-Incineroar,101,stat_alignment,2,Adamant,23.0%,Attack,Sp. Atk,,,,,,
-Incineroar,101,stat_alignment,3,Careful,21.1%,Sp. Def,Sp. Atk,,,,,,
-Incineroar,101,stat_alignment,4,Sassy,9.2%,Sp. Def,Speed,,,,,,
-Incineroar,101,stat_alignment,5,Relaxed,9.2%,Defense,Speed,,,,,,
-Incineroar,101,stat_alignment,6,Jolly,3.5%,Speed,Sp. Atk,,,,,,
-Incineroar,101,stat_alignment,7,Brave,1.3%,Attack,Speed,,,,,,
-Incineroar,101,stat_alignment,8,Calm,0.5%,Sp. Def,Attack,,,,,,
-Incineroar,101,stat_alignment,9,Bold,0.3%,Defense,Attack,,,,,,
-Incineroar,101,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
-Incineroar,101,stat_points,1,,9.0%,,,32,0,2,0,32,0
-Incineroar,101,stat_points,2,,9.0%,,,32,0,20,0,14,0
-Incineroar,101,stat_points,3,,5.1%,,,32,0,32,0,2,0
-Incineroar,101,stat_points,4,,4.8%,,,13,30,0,0,0,23
-Incineroar,101,stat_points,5,,4.7%,,,32,2,32,0,0,0
-Incineroar,101,stat_points,6,,4.1%,,,31,0,3,0,32,0
-Incineroar,101,stat_points,7,,4.0%,,,2,32,0,0,0,32
-Incineroar,101,stat_points,8,,3.2%,,,31,0,20,0,15,0
-Incineroar,101,stat_points,9,,3.1%,,,32,0,32,0,0,2
-Incineroar,101,stat_points,10,,3.1%,,,32,32,0,0,0,2
-Incineroar,101,ability,1,Intimidate,99.9%,,,,,,,,
-Incineroar,101,ability,2,Blaze,0.1%,,,,,,,,
+Incineroar,100,move,1,Parting Shot,85.0%,,,,,,,,
+Incineroar,100,move,2,Flare Blitz,75.2%,,,,,,,,
+Incineroar,100,move,3,Darkest Lariat,74.8%,,,,,,,,
+Incineroar,100,move,4,Will-O-Wisp,43.6%,,,,,,,,
+Incineroar,100,move,5,Fake Out,23.3%,,,,,,,,
+Incineroar,100,move,6,Power Trip,11.3%,,,,,,,,
+Incineroar,100,move,7,Taunt,11.0%,,,,,,,,
+Incineroar,100,move,8,Bulk Up,8.7%,,,,,,,,
+Incineroar,100,move,9,Drain Punch,8.3%,,,,,,,,
+Incineroar,100,move,10,Baton Pass,8.0%,,,,,,,,
+Incineroar,100,held_item,1,Sitrus Berry,44.4%,,,,,,,,
+Incineroar,100,held_item,2,Leftovers,22.2%,,,,,,,,
+Incineroar,100,held_item,3,Rocky Helmet,11.1%,,,,,,,,
+Incineroar,100,held_item,4,Chople Berry,8.1%,,,,,,,,
+Incineroar,100,held_item,5,Chesto Berry,3.4%,,,,,,,,
+Incineroar,100,held_item,6,Metronome,2.8%,,,,,,,,
+Incineroar,100,held_item,7,Passho Berry,1.7%,,,,,,,,
+Incineroar,100,held_item,8,Air Balloon,1.2%,,,,,,,,
+Incineroar,100,held_item,9,Big Root,1.0%,,,,,,,,
+Incineroar,100,held_item,10,Quick Claw,0.8%,,,,,,,,
+Incineroar,100,teammate,1,Garchomp,,,,,,,,,
+Incineroar,100,teammate,2,Primarina,,,,,,,,,
+Incineroar,100,teammate,3,Gholdengo,,,,,,,,,
+Incineroar,100,teammate,4,Hippowdon,,,,,,,,,
+Incineroar,100,teammate,5,Rillaboom,,,,,,,,,
+Incineroar,100,teammate,6,Lucario,,,,,,,,,
+Incineroar,100,teammate,7,Salamence,,,,,,,,,
+Incineroar,100,teammate,8,Basculegion,,,,,,,,,
+Incineroar,100,teammate,9,Golisopod,,,,,,,,,
+Incineroar,100,teammate,10,Rotom-Wash,,,,,,,,,
+Incineroar,100,stat_alignment,1,Impish,30.0%,Defense,Sp. Atk,,,,,,
+Incineroar,100,stat_alignment,2,Adamant,23.6%,Attack,Sp. Atk,,,,,,
+Incineroar,100,stat_alignment,3,Careful,22.8%,Sp. Def,Sp. Atk,,,,,,
+Incineroar,100,stat_alignment,4,Relaxed,9.2%,Defense,Speed,,,,,,
+Incineroar,100,stat_alignment,5,Sassy,8.0%,Sp. Def,Speed,,,,,,
+Incineroar,100,stat_alignment,6,Jolly,4.1%,Speed,Sp. Atk,,,,,,
+Incineroar,100,stat_alignment,7,Brave,1.4%,Attack,Speed,,,,,,
+Incineroar,100,stat_alignment,8,Calm,0.4%,Sp. Def,Attack,,,,,,
+Incineroar,100,stat_alignment,9,Bold,0.3%,Defense,Attack,,,,,,
+Incineroar,100,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
+Incineroar,100,stat_points,1,,10.5%,,,32,0,20,0,14,0
+Incineroar,100,stat_points,2,,8.8%,,,32,0,2,0,32,0
+Incineroar,100,stat_points,3,,4.7%,,,32,0,32,0,2,0
+Incineroar,100,stat_points,4,,4.6%,,,32,2,32,0,0,0
+Incineroar,100,stat_points,5,,4.4%,,,2,32,0,0,0,32
+Incineroar,100,stat_points,6,,4.3%,,,13,30,0,0,0,23
+Incineroar,100,stat_points,7,,4.0%,,,31,0,3,0,32,0
+Incineroar,100,stat_points,8,,3.0%,,,32,0,32,0,0,2
+Incineroar,100,stat_points,9,,2.8%,,,0,15,26,0,25,0
+Incineroar,100,stat_points,10,,2.7%,,,31,0,20,0,15,0
+Incineroar,100,ability,1,Intimidate,100.0%,,,,,,,,
+Incineroar,100,ability,2,Blaze,0.0%,,,,,,,,

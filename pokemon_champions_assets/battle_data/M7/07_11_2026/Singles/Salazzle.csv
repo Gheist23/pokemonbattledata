@@ -1,49 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Salazzle,149,move,1,Toxic,85.8%,,,,,,,,
-Salazzle,149,move,2,Flamethrower,56.7%,,,,,,,,
-Salazzle,149,move,3,Encore,50.2%,,,,,,,,
-Salazzle,149,move,4,Endeavor,34.4%,,,,,,,,
-Salazzle,149,move,5,Overheat,33.2%,,,,,,,,
-Salazzle,149,move,6,Sludge Wave,24.0%,,,,,,,,
-Salazzle,149,move,7,Protect,17.1%,,,,,,,,
-Salazzle,149,move,8,Toxic Spikes,16.6%,,,,,,,,
-Salazzle,149,move,9,Substitute,16.1%,,,,,,,,
-Salazzle,149,move,10,Dragon Pulse,13.7%,,,,,,,,
-Salazzle,149,held_item,1,Focus Sash,59.9%,,,,,,,,
-Salazzle,149,held_item,2,Air Balloon,18.3%,,,,,,,,
-Salazzle,149,held_item,3,Bright Powder,6.4%,,,,,,,,
-Salazzle,149,held_item,4,Leftovers,5.9%,,,,,,,,
-Salazzle,149,held_item,5,Life Orb,5.7%,,,,,,,,
-Salazzle,149,held_item,6,Sitrus Berry,1.4%,,,,,,,,
-Salazzle,149,held_item,7,Passho Berry,0.9%,,,,,,,,
-Salazzle,149,held_item,8,White Herb,0.9%,,,,,,,,
-Salazzle,149,held_item,9,Quick Claw,0.5%,,,,,,,,
-Salazzle,149,held_item,10,Eject Button,0.2%,,,,,,,,
-Salazzle,149,teammate,1,Garchomp,,,,,,,,,
-Salazzle,149,teammate,2,Meowscarada,,,,,,,,,
-Salazzle,149,teammate,3,Glimmora,,,,,,,,,
-Salazzle,149,teammate,4,Scizor,,,,,,,,,
-Salazzle,149,teammate,5,Quaquaval,,,,,,,,,
-Salazzle,149,teammate,6,Umbreon,,,,,,,,,
-Salazzle,149,teammate,7,Empoleon,,,,,,,,,
-Salazzle,149,teammate,8,Gyarados,,,,,,,,,
-Salazzle,149,teammate,9,Golisopod,,,,,,,,,
-Salazzle,149,teammate,10,Charizard,,,,,,,,,
-Salazzle,149,stat_alignment,1,Timid,88.4%,Speed,Attack,,,,,,
-Salazzle,149,stat_alignment,2,Modest,5.0%,Sp. Atk,Attack,,,,,,
-Salazzle,149,stat_alignment,3,Hasty,3.1%,Speed,Defense,,,,,,
-Salazzle,149,stat_alignment,4,Calm,3.1%,Sp. Def,Attack,,,,,,
-Salazzle,149,stat_alignment,5,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Salazzle,149,stat_alignment,6,Bold,0.2%,Defense,Attack,,,,,,
-Salazzle,149,stat_points,1,,38.1%,,,2,0,0,32,0,32
-Salazzle,149,stat_points,2,,17.1%,,,1,0,1,32,0,32
-Salazzle,149,stat_points,3,,6.9%,,,0,0,2,32,0,32
-Salazzle,149,stat_points,4,,5.9%,,,0,0,1,32,1,32
-Salazzle,149,stat_points,5,,4.8%,,,0,0,0,32,2,32
-Salazzle,149,stat_points,6,,3.3%,,,2,0,32,0,0,32
-Salazzle,149,stat_points,7,,2.8%,,,32,0,2,0,0,32
-Salazzle,149,stat_points,8,,2.6%,,,32,0,0,0,2,32
-Salazzle,149,stat_points,9,,2.4%,,,32,1,0,0,1,32
-Salazzle,149,stat_points,10,,2.2%,,,2,0,0,32,32,0
-Salazzle,149,ability,1,Corrosion,96.2%,,,,,,,,
-Salazzle,149,ability,2,Oblivious,3.8%,,,,,,,,
+Salazzle,146,move,1,Toxic,88.5%,,,,,,,,
+Salazzle,146,move,2,Flamethrower,52.4%,,,,,,,,
+Salazzle,146,move,3,Encore,46.9%,,,,,,,,
+Salazzle,146,move,4,Endeavor,36.9%,,,,,,,,
+Salazzle,146,move,5,Overheat,36.5%,,,,,,,,
+Salazzle,146,move,6,Sludge Wave,24.4%,,,,,,,,
+Salazzle,146,move,7,Toxic Spikes,21.0%,,,,,,,,
+Salazzle,146,move,8,Protect,18.3%,,,,,,,,
+Salazzle,146,move,9,Substitute,13.7%,,,,,,,,
+Salazzle,146,move,10,Dragon Pulse,12.8%,,,,,,,,
+Salazzle,146,held_item,1,Focus Sash,64.5%,,,,,,,,
+Salazzle,146,held_item,2,Air Balloon,15.1%,,,,,,,,
+Salazzle,146,held_item,3,Life Orb,5.5%,,,,,,,,
+Salazzle,146,held_item,4,Leftovers,5.4%,,,,,,,,
+Salazzle,146,held_item,5,Bright Powder,5.2%,,,,,,,,
+Salazzle,146,held_item,6,White Herb,1.7%,,,,,,,,
+Salazzle,146,held_item,7,Sitrus Berry,1.1%,,,,,,,,
+Salazzle,146,held_item,8,Passho Berry,0.7%,,,,,,,,
+Salazzle,146,held_item,9,Quick Claw,0.4%,,,,,,,,
+Salazzle,146,held_item,10,Lum Berry,0.3%,,,,,,,,
+Salazzle,146,teammate,1,Garchomp,,,,,,,,,
+Salazzle,146,teammate,2,Meowscarada,,,,,,,,,
+Salazzle,146,teammate,3,Glimmora,,,,,,,,,
+Salazzle,146,teammate,4,Umbreon,,,,,,,,,
+Salazzle,146,teammate,5,Scizor,,,,,,,,,
+Salazzle,146,teammate,6,Quaquaval,,,,,,,,,
+Salazzle,146,teammate,7,Empoleon,,,,,,,,,
+Salazzle,146,teammate,8,Golisopod,,,,,,,,,
+Salazzle,146,teammate,9,Gyarados,,,,,,,,,
+Salazzle,146,teammate,10,Milotic,,,,,,,,,
+Salazzle,146,stat_alignment,1,Timid,87.0%,Speed,Attack,,,,,,
+Salazzle,146,stat_alignment,2,Hasty,4.8%,Speed,Defense,,,,,,
+Salazzle,146,stat_alignment,3,Modest,4.6%,Sp. Atk,Attack,,,,,,
+Salazzle,146,stat_alignment,4,Calm,2.5%,Sp. Def,Attack,,,,,,
+Salazzle,146,stat_alignment,5,Mild,0.4%,Sp. Atk,Defense,,,,,,
+Salazzle,146,stat_alignment,6,Bold,0.4%,Defense,Attack,,,,,,
+Salazzle,146,stat_alignment,7,Jolly,0.1%,Speed,Sp. Atk,,,,,,
+Salazzle,146,stat_points,1,,36.3%,,,2,0,0,32,0,32
+Salazzle,146,stat_points,2,,15.4%,,,1,0,1,32,0,32
+Salazzle,146,stat_points,3,,9.3%,,,0,0,2,32,0,32
+Salazzle,146,stat_points,4,,4.8%,,,0,0,1,32,1,32
+Salazzle,146,stat_points,5,,4.4%,,,0,0,0,32,2,32
+Salazzle,146,stat_points,6,,3.5%,,,32,0,0,0,2,32
+Salazzle,146,stat_points,7,,3.2%,,,0,0,0,32,0,32
+Salazzle,146,stat_points,8,,2.7%,,,2,0,32,0,0,32
+Salazzle,146,stat_points,9,,2.4%,,,1,0,0,32,0,32
+Salazzle,146,stat_points,10,,2.4%,,,32,0,2,0,0,32
+Salazzle,146,ability,1,Corrosion,96.9%,,,,,,,,
+Salazzle,146,ability,2,Oblivious,3.1%,,,,,,,,

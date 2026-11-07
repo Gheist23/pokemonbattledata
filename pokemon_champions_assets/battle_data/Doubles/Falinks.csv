@@ -1,32 +1,35 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Falinks,217,move,1,Close Combat,100.0%,,,,,,,,
-Falinks,217,move,2,No Retreat,95.1%,,,,,,,,
-Falinks,217,move,3,Rock Slide,75.6%,,,,,,,,
-Falinks,217,move,4,High Horsepower,65.9%,,,,,,,,
-Falinks,217,move,5,Protect,17.1%,,,,,,,,
-Falinks,217,move,6,First Impression,9.8%,,,,,,,,
-Falinks,217,move,7,Throat Chop,9.8%,,,,,,,,
-Falinks,217,move,8,Zen Headbutt,7.3%,,,,,,,,
-Falinks,217,move,9,Iron Head,7.3%,,,,,,,,
-Falinks,217,move,10,Upper Hand,7.3%,,,,,,,,
-Falinks,217,held_item,1,Falinksite,90.2%,,,,,,,,
-Falinks,217,held_item,2,Life Orb,9.8%,,,,,,,,
-Falinks,217,teammate,1,Maushold-Four,,,,,,,,,
-Falinks,217,teammate,2,Torkoal,,,,,,,,,
-Falinks,217,teammate,3,Oranguru,,,,,,,,,
-Falinks,217,teammate,4,Squawkabilly-Yellow,,,,,,,,,
-Falinks,217,teammate,5,Mudsdale,,,,,,,,,
-Falinks,217,teammate,6,Slowbro,,,,,,,,,
-Falinks,217,teammate,7,Blastoise,,,,,,,,,
-Falinks,217,teammate,8,Raichu,,,,,,,,,
-Falinks,217,teammate,9,Lucario,,,,,,,,,
-Falinks,217,teammate,10,Incineroar,,,,,,,,,
-Falinks,217,stat_alignment,1,Adamant,90.2%,Attack,Sp. Atk,,,,,,
-Falinks,217,stat_alignment,2,Jolly,9.8%,Speed,Sp. Atk,,,,,,
-Falinks,217,stat_points,1,,65.9%,,,14,32,0,0,20,0
-Falinks,217,stat_points,2,,12.2%,,,2,32,0,0,0,32
-Falinks,217,stat_points,3,,7.3%,,,0,32,0,0,2,32
-Falinks,217,stat_points,4,,7.3%,,,12,32,0,0,22,0
-Falinks,217,stat_points,5,,4.9%,,,0,32,9,0,0,25
-Falinks,217,stat_points,6,,2.4%,,,2,32,19,0,0,13
-Falinks,217,ability,1,Defiant,100.0%,,,,,,,,
+Falinks,207,move,1,Close Combat,100.0%,,,,,,,,
+Falinks,207,move,2,No Retreat,89.7%,,,,,,,,
+Falinks,207,move,3,Rock Slide,45.6%,,,,,,,,
+Falinks,207,move,4,High Horsepower,39.7%,,,,,,,,
+Falinks,207,move,5,Iron Head,25.0%,,,,,,,,
+Falinks,207,move,6,Zen Headbutt,23.5%,,,,,,,,
+Falinks,207,move,7,Upper Hand,23.5%,,,,,,,,
+Falinks,207,move,8,Protect,16.2%,,,,,,,,
+Falinks,207,move,9,Knock Off,16.2%,,,,,,,,
+Falinks,207,move,10,Throat Chop,11.8%,,,,,,,,
+Falinks,207,held_item,1,Falinksite,75.0%,,,,,,,,
+Falinks,207,held_item,2,Life Orb,25.0%,,,,,,,,
+Falinks,207,teammate,1,Maushold-Four,,,,,,,,,
+Falinks,207,teammate,2,Torkoal,,,,,,,,,
+Falinks,207,teammate,3,Oranguru,,,,,,,,,
+Falinks,207,teammate,4,Squawkabilly-Yellow,,,,,,,,,
+Falinks,207,teammate,5,Raichu,,,,,,,,,
+Falinks,207,teammate,6,Swampert,,,,,,,,,
+Falinks,207,teammate,7,Pelipper,,,,,,,,,
+Falinks,207,teammate,8,Inteleon,,,,,,,,,
+Falinks,207,teammate,9,Bellibolt,,,,,,,,,
+Falinks,207,teammate,10,Meganium,,,,,,,,,
+Falinks,207,stat_alignment,1,Adamant,94.1%,Attack,Sp. Atk,,,,,,
+Falinks,207,stat_alignment,2,Jolly,5.9%,Speed,Sp. Atk,,,,,,
+Falinks,207,stat_points,1,,39.7%,,,14,32,0,0,20,0
+Falinks,207,stat_points,2,,22.1%,,,0,32,9,0,0,25
+Falinks,207,stat_points,3,,14.7%,,,3,32,0,0,22,9
+Falinks,207,stat_points,4,,7.4%,,,2,32,0,0,0,32
+Falinks,207,stat_points,5,,4.4%,,,0,32,0,0,2,32
+Falinks,207,stat_points,6,,4.4%,,,12,32,0,0,22,0
+Falinks,207,stat_points,7,,4.4%,,,16,20,0,0,30,0
+Falinks,207,stat_points,8,,1.5%,,,2,32,19,0,0,13
+Falinks,207,stat_points,9,,1.5%,,,10,32,0,0,24,0
+Falinks,207,ability,1,Defiant,100.0%,,,,,,,,

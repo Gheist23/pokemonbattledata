@@ -1,41 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Golurk,178,move,1,Poltergeist,87.4%,,,,,,,,
-Golurk,178,move,2,Headlong Rush,56.9%,,,,,,,,
-Golurk,178,move,3,Stone Edge,51.7%,,,,,,,,
-Golurk,178,move,4,Earthquake,40.6%,,,,,,,,
-Golurk,178,move,5,Dynamic Punch,38.6%,,,,,,,,
-Golurk,178,move,6,Ice Punch,36.9%,,,,,,,,
-Golurk,178,move,7,Fire Punch,21.7%,,,,,,,,
-Golurk,178,move,8,Zen Headbutt,9.1%,,,,,,,,
-Golurk,178,move,9,Thief,8.3%,,,,,,,,
-Golurk,178,move,10,Gyro Ball,8.3%,,,,,,,,
-Golurk,178,held_item,1,Golurkite,82.0%,,,,,,,,
-Golurk,178,held_item,2,Focus Sash,16.9%,,,,,,,,
-Golurk,178,held_item,3,Life Orb,0.6%,,,,,,,,
-Golurk,178,held_item,4,Choice Scarf,0.6%,,,,,,,,
-Golurk,178,teammate,1,Charizard,,,,,,,,,
-Golurk,178,teammate,2,Garchomp,,,,,,,,,
-Golurk,178,teammate,3,Kingambit,,,,,,,,,
-Golurk,178,teammate,4,Primarina,,,,,,,,,
-Golurk,178,teammate,5,Jolteon,,,,,,,,,
-Golurk,178,teammate,6,Snorlax,,,,,,,,,
-Golurk,178,teammate,7,Hippowdon,,,,,,,,,
-Golurk,178,teammate,8,Rillaboom,,,,,,,,,
-Golurk,178,teammate,9,Medicham,,,,,,,,,
-Golurk,178,teammate,10,Arcanine-Hisui,,,,,,,,,
-Golurk,178,stat_alignment,1,Adamant,73.7%,Attack,Sp. Atk,,,,,,
-Golurk,178,stat_alignment,2,Brave,24.0%,Attack,Speed,,,,,,
-Golurk,178,stat_alignment,3,Jolly,2.3%,Speed,Sp. Atk,,,,,,
-Golurk,178,stat_points,1,,37.4%,,,32,32,0,0,2,0
-Golurk,178,stat_points,2,,22.6%,,,32,32,2,0,0,0
-Golurk,178,stat_points,3,,12.6%,,,2,32,16,0,16,0
-Golurk,178,stat_points,4,,8.3%,,,32,32,0,0,0,0
-Golurk,178,stat_points,5,,4.3%,,,2,32,0,0,0,32
-Golurk,178,stat_points,6,,4.3%,,,32,16,9,0,9,0
-Golurk,178,stat_points,7,,3.1%,,,27,32,7,0,0,0
-Golurk,178,stat_points,8,,1.7%,,,5,32,0,0,0,29
-Golurk,178,stat_points,9,,1.7%,,,19,32,0,0,1,14
-Golurk,178,stat_points,10,,1.4%,,,31,32,3,0,0,0
-Golurk,178,ability,1,No Guard,58.0%,,,,,,,,
-Golurk,178,ability,2,Iron Fist,30.3%,,,,,,,,
-Golurk,178,ability,3,Klutz,11.7%,,,,,,,,
+Golurk,175,move,1,Poltergeist,90.0%,,,,,,,,
+Golurk,175,move,2,Headlong Rush,61.5%,,,,,,,,
+Golurk,175,move,3,Stone Edge,47.5%,,,,,,,,
+Golurk,175,move,4,Ice Punch,42.3%,,,,,,,,
+Golurk,175,move,5,Dynamic Punch,37.1%,,,,,,,,
+Golurk,175,move,6,Earthquake,35.5%,,,,,,,,
+Golurk,175,move,7,Fire Punch,23.5%,,,,,,,,
+Golurk,175,move,8,Close Combat,7.7%,,,,,,,,
+Golurk,175,move,9,Zen Headbutt,7.2%,,,,,,,,
+Golurk,175,move,10,Thief,6.6%,,,,,,,,
+Golurk,175,held_item,1,Golurkite,82.6%,,,,,,,,
+Golurk,175,held_item,2,Focus Sash,13.3%,,,,,,,,
+Golurk,175,held_item,3,Life Orb,2.0%,,,,,,,,
+Golurk,175,held_item,4,Leftovers,1.4%,,,,,,,,
+Golurk,175,held_item,5,Choice Scarf,0.5%,,,,,,,,
+Golurk,175,held_item,6,Expert Belt,0.2%,,,,,,,,
+Golurk,175,teammate,1,Charizard,,,,,,,,,
+Golurk,175,teammate,2,Garchomp,,,,,,,,,
+Golurk,175,teammate,3,Kingambit,,,,,,,,,
+Golurk,175,teammate,4,Primarina,,,,,,,,,
+Golurk,175,teammate,5,Jolteon,,,,,,,,,
+Golurk,175,teammate,6,Hippowdon,,,,,,,,,
+Golurk,175,teammate,7,Rillaboom,,,,,,,,,
+Golurk,175,teammate,8,Arcanine-Hisui,,,,,,,,,
+Golurk,175,teammate,9,Glimmora,,,,,,,,,
+Golurk,175,teammate,10,Snorlax,,,,,,,,,
+Golurk,175,stat_alignment,1,Adamant,70.6%,Attack,Sp. Atk,,,,,,
+Golurk,175,stat_alignment,2,Brave,26.7%,Attack,Speed,,,,,,
+Golurk,175,stat_alignment,3,Jolly,1.8%,Speed,Sp. Atk,,,,,,
+Golurk,175,stat_alignment,4,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
+Golurk,175,stat_points,1,,39.4%,,,32,32,0,0,2,0
+Golurk,175,stat_points,2,,22.6%,,,32,32,2,0,0,0
+Golurk,175,stat_points,3,,10.0%,,,2,32,16,0,16,0
+Golurk,175,stat_points,4,,6.6%,,,32,32,0,0,0,0
+Golurk,175,stat_points,5,,3.4%,,,2,32,0,0,0,32
+Golurk,175,stat_points,6,,3.4%,,,32,16,9,0,9,0
+Golurk,175,stat_points,7,,2.5%,,,27,32,7,0,0,0
+Golurk,175,stat_points,8,,2.0%,,,32,32,1,0,1,0
+Golurk,175,stat_points,9,,1.8%,,,1,32,0,0,1,32
+Golurk,175,stat_points,10,,1.4%,,,5,32,0,0,0,29
+Golurk,175,ability,1,No Guard,56.1%,,,,,,,,
+Golurk,175,ability,2,Iron Fist,34.4%,,,,,,,,
+Golurk,175,ability,3,Klutz,9.5%,,,,,,,,

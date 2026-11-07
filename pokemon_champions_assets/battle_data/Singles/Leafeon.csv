@@ -1,47 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Leafeon,215,move,1,Double-Edge,62.6%,,,,,,,,
-Leafeon,215,move,2,Knock Off,58.0%,,,,,,,,
-Leafeon,215,move,3,Solar Blade,46.6%,,,,,,,,
-Leafeon,215,move,4,Leaf Blade,45.8%,,,,,,,,
-Leafeon,215,move,5,Weather Ball,44.3%,,,,,,,,
-Leafeon,215,move,6,Swords Dance,32.8%,,,,,,,,
-Leafeon,215,move,7,Synthesis,14.5%,,,,,,,,
-Leafeon,215,move,8,Yawn,14.5%,,,,,,,,
-Leafeon,215,move,9,Protect,13.7%,,,,,,,,
-Leafeon,215,move,10,Leech Seed,13.7%,,,,,,,,
-Leafeon,215,held_item,1,Life Orb,67.9%,,,,,,,,
-Leafeon,215,held_item,2,Rocky Helmet,16.0%,,,,,,,,
-Leafeon,215,held_item,3,Red Card,7.6%,,,,,,,,
-Leafeon,215,held_item,4,Choice Scarf,4.6%,,,,,,,,
-Leafeon,215,held_item,5,Focus Sash,1.5%,,,,,,,,
-Leafeon,215,held_item,6,Leftovers,0.8%,,,,,,,,
-Leafeon,215,held_item,7,Miracle Seed,0.8%,,,,,,,,
-Leafeon,215,held_item,8,Metronome,0.8%,,,,,,,,
-Leafeon,215,teammate,1,Charizard,,,,,,,,,
-Leafeon,215,teammate,2,Sylveon,,,,,,,,,
-Leafeon,215,teammate,3,Garchomp,,,,,,,,,
-Leafeon,215,teammate,4,Lucario,,,,,,,,,
-Leafeon,215,teammate,5,Mudsdale,,,,,,,,,
-Leafeon,215,teammate,6,Primarina,,,,,,,,,
-Leafeon,215,teammate,7,Dragapult,,,,,,,,,
-Leafeon,215,teammate,8,Corviknight,,,,,,,,,
-Leafeon,215,teammate,9,Torkoal,,,,,,,,,
-Leafeon,215,teammate,10,Indeedee,,,,,,,,,
-Leafeon,215,stat_alignment,1,Naughty,44.3%,Attack,Sp. Def,,,,,,
-Leafeon,215,stat_alignment,2,Adamant,28.2%,Attack,Sp. Atk,,,,,,
-Leafeon,215,stat_alignment,3,Impish,16.0%,Defense,Sp. Atk,,,,,,
-Leafeon,215,stat_alignment,4,Bold,8.4%,Defense,Attack,,,,,,
-Leafeon,215,stat_alignment,5,Jolly,2.3%,Speed,Sp. Atk,,,,,,
-Leafeon,215,stat_alignment,6,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
-Leafeon,215,stat_points,1,,28.2%,,,0,30,0,6,0,30
-Leafeon,215,stat_points,2,,21.4%,,,2,32,0,0,0,32
-Leafeon,215,stat_points,3,,16.0%,,,1,32,0,8,0,25
-Leafeon,215,stat_points,4,,9.2%,,,31,0,32,0,3,0
-Leafeon,215,stat_points,5,,7.6%,,,32,0,32,0,2,0
-Leafeon,215,stat_points,6,,5.3%,,,21,0,30,0,3,12
-Leafeon,215,stat_points,7,,4.6%,,,0,32,2,0,0,32
-Leafeon,215,stat_points,8,,3.1%,,,1,32,1,0,0,32
-Leafeon,215,stat_points,9,,1.5%,,,32,0,32,0,0,2
-Leafeon,215,stat_points,10,,1.5%,,,32,11,0,0,0,23
-Leafeon,215,ability,1,Chlorophyll,99.2%,,,,,,,,
-Leafeon,215,ability,2,Leaf Guard,0.8%,,,,,,,,
+Leafeon,212,move,1,Knock Off,67.2%,,,,,,,,
+Leafeon,212,move,2,Solar Blade,57.4%,,,,,,,,
+Leafeon,212,move,3,Double-Edge,55.4%,,,,,,,,
+Leafeon,212,move,4,Weather Ball,42.1%,,,,,,,,
+Leafeon,212,move,5,Leaf Blade,35.4%,,,,,,,,
+Leafeon,212,move,6,Swords Dance,34.4%,,,,,,,,
+Leafeon,212,move,7,X-Scissor,15.4%,,,,,,,,
+Leafeon,212,move,8,Leech Seed,13.8%,,,,,,,,
+Leafeon,212,move,9,Protect,12.8%,,,,,,,,
+Leafeon,212,move,10,Synthesis,11.8%,,,,,,,,
+Leafeon,212,held_item,1,Life Orb,69.7%,,,,,,,,
+Leafeon,212,held_item,2,Rocky Helmet,13.8%,,,,,,,,
+Leafeon,212,held_item,3,Red Card,5.1%,,,,,,,,
+Leafeon,212,held_item,4,Choice Scarf,4.6%,,,,,,,,
+Leafeon,212,held_item,5,Miracle Seed,4.1%,,,,,,,,
+Leafeon,212,held_item,6,Focus Sash,1.0%,,,,,,,,
+Leafeon,212,held_item,7,Lum Berry,0.5%,,,,,,,,
+Leafeon,212,held_item,8,Leftovers,0.5%,,,,,,,,
+Leafeon,212,held_item,9,Metronome,0.5%,,,,,,,,
+Leafeon,212,teammate,1,Charizard,,,,,,,,,
+Leafeon,212,teammate,2,Sylveon,,,,,,,,,
+Leafeon,212,teammate,3,Garchomp,,,,,,,,,
+Leafeon,212,teammate,4,Lucario,,,,,,,,,
+Leafeon,212,teammate,5,Torkoal,,,,,,,,,
+Leafeon,212,teammate,6,Excadrill,,,,,,,,,
+Leafeon,212,teammate,7,Mudsdale,,,,,,,,,
+Leafeon,212,teammate,8,Primarina,,,,,,,,,
+Leafeon,212,teammate,9,Dragonite,,,,,,,,,
+Leafeon,212,teammate,10,Greninja,,,,,,,,,
+Leafeon,212,stat_alignment,1,Naughty,42.1%,Attack,Sp. Def,,,,,,
+Leafeon,212,stat_alignment,2,Adamant,35.4%,Attack,Sp. Atk,,,,,,
+Leafeon,212,stat_alignment,3,Impish,13.8%,Defense,Sp. Atk,,,,,,
+Leafeon,212,stat_alignment,4,Bold,6.7%,Defense,Attack,,,,,,
+Leafeon,212,stat_alignment,5,Jolly,1.5%,Speed,Sp. Atk,,,,,,
+Leafeon,212,stat_alignment,6,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
+Leafeon,212,stat_points,1,,25.6%,,,0,30,0,6,0,30
+Leafeon,212,stat_points,2,,25.1%,,,2,32,0,0,0,32
+Leafeon,212,stat_points,3,,16.4%,,,1,32,0,8,0,25
+Leafeon,212,stat_points,4,,8.2%,,,31,0,32,0,3,0
+Leafeon,212,stat_points,5,,5.1%,,,32,0,32,0,2,0
+Leafeon,212,stat_points,6,,4.6%,,,0,32,2,0,0,32
+Leafeon,212,stat_points,7,,3.6%,,,21,0,30,0,3,12
+Leafeon,212,stat_points,8,,2.6%,,,11,32,0,0,14,9
+Leafeon,212,stat_points,9,,2.1%,,,1,32,1,0,0,32
+Leafeon,212,stat_points,10,,2.1%,,,32,0,32,0,0,2
+Leafeon,212,ability,1,Chlorophyll,98.5%,,,,,,,,
+Leafeon,212,ability,2,Leaf Guard,1.5%,,,,,,,,

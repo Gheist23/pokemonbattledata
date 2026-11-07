@@ -1,39 +1,40 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Palafin,174,move,1,Jet Punch,97.9%,,,,,,,,
-Palafin,174,move,2,Wave Crash,82.5%,,,,,,,,
-Palafin,174,move,3,Flip Turn,66.4%,,,,,,,,
-Palafin,174,move,4,Close Combat,53.1%,,,,,,,,
-Palafin,174,move,5,Protect,49.7%,,,,,,,,
-Palafin,174,move,6,Bulk Up,17.5%,,,,,,,,
-Palafin,174,move,7,Drain Punch,16.8%,,,,,,,,
-Palafin,174,move,8,Ice Punch,9.1%,,,,,,,,
-Palafin,174,move,9,Psych Up,2.8%,,,,,,,,
-Palafin,174,move,10,Haze,2.1%,,,,,,,,
-Palafin,174,held_item,1,Mystic Water,40.6%,,,,,,,,
-Palafin,174,held_item,2,Choice Scarf,30.8%,,,,,,,,
-Palafin,174,held_item,3,Leftovers,16.8%,,,,,,,,
-Palafin,174,held_item,4,Life Orb,11.2%,,,,,,,,
-Palafin,174,held_item,5,Sitrus Berry,0.7%,,,,,,,,
-Palafin,174,teammate,1,Incineroar,,,,,,,,,
-Palafin,174,teammate,2,Rillaboom,,,,,,,,,
-Palafin,174,teammate,3,Gengar,,,,,,,,,
-Palafin,174,teammate,4,Garchomp,,,,,,,,,
-Palafin,174,teammate,5,Kommo-o,,,,,,,,,
-Palafin,174,teammate,6,Indeedee-F,,,,,,,,,
-Palafin,174,teammate,7,Raichu,,,,,,,,,
-Palafin,174,teammate,8,Pelipper,,,,,,,,,
-Palafin,174,teammate,9,Gardevoir,,,,,,,,,
-Palafin,174,teammate,10,Manectric,,,,,,,,,
-Palafin,174,stat_alignment,1,Adamant,84.6%,Attack,Sp. Atk,,,,,,
-Palafin,174,stat_alignment,2,Jolly,15.4%,Speed,Sp. Atk,,,,,,
-Palafin,174,stat_points,1,,29.4%,,,32,32,0,0,0,2
-Palafin,174,stat_points,2,,26.6%,,,2,32,0,0,0,32
-Palafin,174,stat_points,3,,14.0%,,,32,10,0,0,20,4
-Palafin,174,stat_points,4,,10.5%,,,32,30,1,0,2,1
-Palafin,174,stat_points,5,,4.9%,,,1,32,0,0,1,32
-Palafin,174,stat_points,6,,2.8%,,,17,2,3,0,32,12
-Palafin,174,stat_points,7,,2.8%,,,30,30,1,0,4,1
-Palafin,174,stat_points,8,,2.1%,,,0,32,2,0,0,32
-Palafin,174,stat_points,9,,2.1%,,,13,30,0,0,13,10
-Palafin,174,stat_points,10,,1.4%,,,13,32,0,0,0,21
-Palafin,174,ability,1,Zero to Hero,100.0%,,,,,,,,
+Palafin,165,move,1,Jet Punch,97.9%,,,,,,,,
+Palafin,165,move,2,Wave Crash,85.6%,,,,,,,,
+Palafin,165,move,3,Protect,57.9%,,,,,,,,
+Palafin,165,move,4,Close Combat,55.9%,,,,,,,,
+Palafin,165,move,5,Flip Turn,55.9%,,,,,,,,
+Palafin,165,move,6,Bulk Up,14.4%,,,,,,,,
+Palafin,165,move,7,Drain Punch,13.8%,,,,,,,,
+Palafin,165,move,8,Ice Punch,13.3%,,,,,,,,
+Palafin,165,move,9,Psych Up,2.1%,,,,,,,,
+Palafin,165,move,10,Haze,1.5%,,,,,,,,
+Palafin,165,held_item,1,Mystic Water,34.9%,,,,,,,,
+Palafin,165,held_item,2,Choice Scarf,27.7%,,,,,,,,
+Palafin,165,held_item,3,Life Orb,23.1%,,,,,,,,
+Palafin,165,held_item,4,Leftovers,13.8%,,,,,,,,
+Palafin,165,held_item,5,Sitrus Berry,0.5%,,,,,,,,
+Palafin,165,teammate,1,Incineroar,,,,,,,,,
+Palafin,165,teammate,2,Rillaboom,,,,,,,,,
+Palafin,165,teammate,3,Garchomp,,,,,,,,,
+Palafin,165,teammate,4,Gengar,,,,,,,,,
+Palafin,165,teammate,5,Pelipper,,,,,,,,,
+Palafin,165,teammate,6,Raichu,,,,,,,,,
+Palafin,165,teammate,7,Indeedee,,,,,,,,,
+Palafin,165,teammate,8,Indeedee-F,,,,,,,,,
+Palafin,165,teammate,9,Kommo-o,,,,,,,,,
+Palafin,165,teammate,10,Archaludon,,,,,,,,,
+Palafin,165,stat_alignment,1,Adamant,82.1%,Attack,Sp. Atk,,,,,,
+Palafin,165,stat_alignment,2,Jolly,14.4%,Speed,Sp. Atk,,,,,,
+Palafin,165,stat_alignment,3,Gentle,3.6%,Sp. Def,Defense,,,,,,
+Palafin,165,stat_points,1,,30.8%,,,2,32,0,0,0,32
+Palafin,165,stat_points,2,,25.1%,,,32,32,0,0,0,2
+Palafin,165,stat_points,3,,11.3%,,,32,10,0,0,20,4
+Palafin,165,stat_points,4,,10.3%,,,1,32,0,0,1,32
+Palafin,165,stat_points,5,,7.7%,,,32,30,1,0,2,1
+Palafin,165,stat_points,6,,3.6%,,,0,32,0,0,32,2
+Palafin,165,stat_points,7,,2.1%,,,17,2,3,0,32,12
+Palafin,165,stat_points,8,,2.1%,,,30,30,1,0,4,1
+Palafin,165,stat_points,9,,1.5%,,,0,32,2,0,0,32
+Palafin,165,stat_points,10,,1.5%,,,13,30,0,0,13,10
+Palafin,165,ability,1,Zero to Hero,100.0%,,,,,,,,

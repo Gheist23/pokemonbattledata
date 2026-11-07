@@ -1,38 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Toxicroak,213,move,1,Close Combat,80.3%,,,,,,,,
-Toxicroak,213,move,2,Poison Jab,74.5%,,,,,,,,
-Toxicroak,213,move,3,Taunt,55.5%,,,,,,,,
-Toxicroak,213,move,4,Toxic,48.9%,,,,,,,,
-Toxicroak,213,move,5,Fake Out,23.4%,,,,,,,,
-Toxicroak,213,move,6,Gunk Shot,20.4%,,,,,,,,
-Toxicroak,213,move,7,Knock Off,16.8%,,,,,,,,
-Toxicroak,213,move,8,Ice Punch,16.8%,,,,,,,,
-Toxicroak,213,move,9,Bullet Punch,16.1%,,,,,,,,
-Toxicroak,213,move,10,Drain Punch,15.3%,,,,,,,,
-Toxicroak,213,held_item,1,Bright Powder,48.9%,,,,,,,,
-Toxicroak,213,held_item,2,Focus Sash,21.2%,,,,,,,,
-Toxicroak,213,held_item,3,Choice Scarf,20.4%,,,,,,,,
-Toxicroak,213,held_item,4,Air Balloon,5.8%,,,,,,,,
-Toxicroak,213,held_item,5,Sitrus Berry,2.2%,,,,,,,,
-Toxicroak,213,held_item,6,Expert Belt,0.7%,,,,,,,,
-Toxicroak,213,held_item,7,Life Orb,0.7%,,,,,,,,
-Toxicroak,213,teammate,1,Basculegion,,,,,,,,,
-Toxicroak,213,teammate,2,Espathra,,,,,,,,,
-Toxicroak,213,teammate,3,Scovillain,,,,,,,,,
-Toxicroak,213,teammate,4,Kingambit,,,,,,,,,
-Toxicroak,213,teammate,5,Archaludon,,,,,,,,,
-Toxicroak,213,teammate,6,Azumarill,,,,,,,,,
-Toxicroak,213,teammate,7,Kangaskhan,,,,,,,,,
-Toxicroak,213,teammate,8,Typhlosion-Hisui,,,,,,,,,
-Toxicroak,213,teammate,9,Serperior,,,,,,,,,
-Toxicroak,213,teammate,10,Raichu,,,,,,,,,
-Toxicroak,213,stat_alignment,1,Jolly,56.9%,Speed,Sp. Atk,,,,,,
-Toxicroak,213,stat_alignment,2,Adamant,43.1%,Attack,Sp. Atk,,,,,,
-Toxicroak,213,stat_points,1,,59.1%,,,2,32,0,0,0,32
-Toxicroak,213,stat_points,2,,21.2%,,,32,32,0,0,0,2
-Toxicroak,213,stat_points,3,,14.6%,,,0,32,2,0,0,32
-Toxicroak,213,stat_points,4,,2.2%,,,32,0,0,0,0,32
-Toxicroak,213,stat_points,5,,1.5%,,,0,32,0,0,2,32
-Toxicroak,213,stat_points,6,,1.5%,,,1,32,0,0,1,32
-Toxicroak,213,ability,1,Poison Touch,87.6%,,,,,,,,
-Toxicroak,213,ability,2,Dry Skin,12.4%,,,,,,,,
+Toxicroak,210,move,1,Close Combat,80.5%,,,,,,,,
+Toxicroak,210,move,2,Poison Jab,74.0%,,,,,,,,
+Toxicroak,210,move,3,Taunt,54.5%,,,,,,,,
+Toxicroak,210,move,4,Toxic,46.5%,,,,,,,,
+Toxicroak,210,move,5,Fake Out,25.5%,,,,,,,,
+Toxicroak,210,move,6,Gunk Shot,22.5%,,,,,,,,
+Toxicroak,210,move,7,Ice Punch,20.0%,,,,,,,,
+Toxicroak,210,move,8,Knock Off,19.5%,,,,,,,,
+Toxicroak,210,move,9,Bullet Punch,11.0%,,,,,,,,
+Toxicroak,210,move,10,Drain Punch,10.5%,,,,,,,,
+Toxicroak,210,held_item,1,Bright Powder,46.5%,,,,,,,,
+Toxicroak,210,held_item,2,Focus Sash,24.5%,,,,,,,,
+Toxicroak,210,held_item,3,Choice Scarf,22.5%,,,,,,,,
+Toxicroak,210,held_item,4,Air Balloon,4.0%,,,,,,,,
+Toxicroak,210,held_item,5,Sitrus Berry,1.5%,,,,,,,,
+Toxicroak,210,held_item,6,Expert Belt,0.5%,,,,,,,,
+Toxicroak,210,held_item,7,Life Orb,0.5%,,,,,,,,
+Toxicroak,210,teammate,1,Basculegion,,,,,,,,,
+Toxicroak,210,teammate,2,Espathra,,,,,,,,,
+Toxicroak,210,teammate,3,Scovillain,,,,,,,,,
+Toxicroak,210,teammate,4,Kingambit,,,,,,,,,
+Toxicroak,210,teammate,5,Archaludon,,,,,,,,,
+Toxicroak,210,teammate,6,Azumarill,,,,,,,,,
+Toxicroak,210,teammate,7,Raichu,,,,,,,,,
+Toxicroak,210,teammate,8,Gyarados,,,,,,,,,
+Toxicroak,210,teammate,9,Mamoswine,,,,,,,,,
+Toxicroak,210,teammate,10,Volcarona,,,,,,,,,
+Toxicroak,210,stat_alignment,1,Jolly,52.5%,Speed,Sp. Atk,,,,,,
+Toxicroak,210,stat_alignment,2,Adamant,47.5%,Attack,Sp. Atk,,,,,,
+Toxicroak,210,stat_points,1,,57.5%,,,2,32,0,0,0,32
+Toxicroak,210,stat_points,2,,18.0%,,,0,32,2,0,0,32
+Toxicroak,210,stat_points,3,,14.5%,,,32,32,0,0,0,2
+Toxicroak,210,stat_points,4,,7.0%,,,0,32,0,0,2,32
+Toxicroak,210,stat_points,5,,1.5%,,,32,0,0,0,0,32
+Toxicroak,210,stat_points,6,,1.0%,,,1,32,0,0,1,32
+Toxicroak,210,stat_points,7,,0.5%,,,0,31,3,0,0,32
+Toxicroak,210,ability,1,Poison Touch,90.5%,,,,,,,,
+Toxicroak,210,ability,2,Dry Skin,9.5%,,,,,,,,

@@ -1,37 +1,38 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gourgeist-Small,220,move,1,Trick-or-Treat,100.0%,,,,,,,,
-Gourgeist-Small,220,move,2,Destiny Bond,84.2%,,,,,,,,
-Gourgeist-Small,220,move,3,Trick,76.3%,,,,,,,,
-Gourgeist-Small,220,move,4,Poltergeist,68.4%,,,,,,,,
-Gourgeist-Small,220,move,5,Will-O-Wisp,15.8%,,,,,,,,
-Gourgeist-Small,220,move,6,Power Whip,15.8%,,,,,,,,
-Gourgeist-Small,220,move,7,Explosion,7.9%,,,,,,,,
-Gourgeist-Small,220,move,8,Curse,7.9%,,,,,,,,
-Gourgeist-Small,220,move,9,Scary Face,7.9%,,,,,,,,
-Gourgeist-Small,220,move,10,Trick Room,7.9%,,,,,,,,
-Gourgeist-Small,220,held_item,1,Choice Scarf,92.1%,,,,,,,,
-Gourgeist-Small,220,held_item,2,Sitrus Berry,7.9%,,,,,,,,
-Gourgeist-Small,220,teammate,1,Kingambit,,,,,,,,,
-Gourgeist-Small,220,teammate,2,Gengar,,,,,,,,,
-Gourgeist-Small,220,teammate,3,Zoroark-Hisui,,,,,,,,,
-Gourgeist-Small,220,teammate,4,Floette-Eternal,,,,,,,,,
-Gourgeist-Small,220,teammate,5,Incineroar,,,,,,,,,
-Gourgeist-Small,220,teammate,6,Tyranitar,,,,,,,,,
-Gourgeist-Small,220,teammate,7,Whimsicott,,,,,,,,,
-Gourgeist-Small,220,teammate,8,Excadrill,,,,,,,,,
-Gourgeist-Small,220,teammate,9,Gholdengo,,,,,,,,,
-Gourgeist-Small,220,teammate,10,Absol,,,,,,,,,
-Gourgeist-Small,220,stat_alignment,1,Jolly,34.2%,Speed,Sp. Atk,,,,,,
-Gourgeist-Small,220,stat_alignment,2,Adamant,23.7%,Attack,Sp. Atk,,,,,,
-Gourgeist-Small,220,stat_alignment,3,Impish,21.1%,Defense,Sp. Atk,,,,,,
-Gourgeist-Small,220,stat_alignment,4,Timid,7.9%,Speed,Attack,,,,,,
-Gourgeist-Small,220,stat_alignment,5,Sassy,7.9%,Sp. Def,Speed,,,,,,
-Gourgeist-Small,220,stat_alignment,6,Careful,5.3%,Sp. Def,Sp. Atk,,,,,,
-Gourgeist-Small,220,stat_points,1,,23.7%,,,0,32,2,0,0,32
-Gourgeist-Small,220,stat_points,2,,21.1%,,,0,0,4,0,30,32
-Gourgeist-Small,220,stat_points,3,,18.4%,,,21,0,0,0,13,32
-Gourgeist-Small,220,stat_points,4,,15.8%,,,32,2,0,0,0,32
-Gourgeist-Small,220,stat_points,5,,7.9%,,,19,0,0,0,16,31
-Gourgeist-Small,220,stat_points,6,,7.9%,,,32,0,2,0,32,0
-Gourgeist-Small,220,stat_points,7,,5.3%,,,0,0,28,0,6,32
-Gourgeist-Small,220,ability,1,Frisk,100.0%,,,,,,,,
+Gourgeist-Small,223,move,1,Trick-or-Treat,100.0%,,,,,,,,
+Gourgeist-Small,223,move,2,Trick,80.4%,,,,,,,,
+Gourgeist-Small,223,move,3,Poltergeist,73.9%,,,,,,,,
+Gourgeist-Small,223,move,4,Destiny Bond,71.7%,,,,,,,,
+Gourgeist-Small,223,move,5,Power Whip,28.3%,,,,,,,,
+Gourgeist-Small,223,move,6,Will-O-Wisp,13.0%,,,,,,,,
+Gourgeist-Small,223,move,7,Explosion,6.5%,,,,,,,,
+Gourgeist-Small,223,move,8,Curse,6.5%,,,,,,,,
+Gourgeist-Small,223,move,9,Scary Face,6.5%,,,,,,,,
+Gourgeist-Small,223,move,10,Trick Room,6.5%,,,,,,,,
+Gourgeist-Small,223,held_item,1,Choice Scarf,93.5%,,,,,,,,
+Gourgeist-Small,223,held_item,2,Sitrus Berry,6.5%,,,,,,,,
+Gourgeist-Small,223,teammate,1,Kingambit,,,,,,,,,
+Gourgeist-Small,223,teammate,2,Gengar,,,,,,,,,
+Gourgeist-Small,223,teammate,3,Zoroark-Hisui,,,,,,,,,
+Gourgeist-Small,223,teammate,4,Floette-Eternal,,,,,,,,,
+Gourgeist-Small,223,teammate,5,Incineroar,,,,,,,,,
+Gourgeist-Small,223,teammate,6,Tyranitar,,,,,,,,,
+Gourgeist-Small,223,teammate,7,Aerodactyl,,,,,,,,,
+Gourgeist-Small,223,teammate,8,Whimsicott,,,,,,,,,
+Gourgeist-Small,223,teammate,9,Excadrill,,,,,,,,,
+Gourgeist-Small,223,teammate,10,Gholdengo,,,,,,,,,
+Gourgeist-Small,223,stat_alignment,1,Jolly,45.7%,Speed,Sp. Atk,,,,,,
+Gourgeist-Small,223,stat_alignment,2,Adamant,19.6%,Attack,Sp. Atk,,,,,,
+Gourgeist-Small,223,stat_alignment,3,Impish,17.4%,Defense,Sp. Atk,,,,,,
+Gourgeist-Small,223,stat_alignment,4,Timid,6.5%,Speed,Attack,,,,,,
+Gourgeist-Small,223,stat_alignment,5,Sassy,6.5%,Sp. Def,Speed,,,,,,
+Gourgeist-Small,223,stat_alignment,6,Careful,4.3%,Sp. Def,Sp. Atk,,,,,,
+Gourgeist-Small,223,stat_points,1,,19.6%,,,0,32,2,0,0,32
+Gourgeist-Small,223,stat_points,2,,17.4%,,,0,0,4,0,30,32
+Gourgeist-Small,223,stat_points,3,,17.4%,,,21,0,0,0,13,32
+Gourgeist-Small,223,stat_points,4,,15.2%,,,2,32,0,0,0,32
+Gourgeist-Small,223,stat_points,5,,13.0%,,,32,2,0,0,0,32
+Gourgeist-Small,223,stat_points,6,,6.5%,,,19,0,0,0,16,31
+Gourgeist-Small,223,stat_points,7,,6.5%,,,32,0,2,0,32,0
+Gourgeist-Small,223,stat_points,8,,4.3%,,,0,0,28,0,6,32
+Gourgeist-Small,223,ability,1,Frisk,100.0%,,,,,,,,

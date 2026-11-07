@@ -1,37 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pyroar,107,move,1,Flamethrower,98.1%,,,,,,,,
-Pyroar,107,move,2,Overheat,85.1%,,,,,,,,
-Pyroar,107,move,3,Hyper Voice,46.5%,,,,,,,,
-Pyroar,107,move,4,Yawn,35.7%,,,,,,,,
-Pyroar,107,move,5,Substitute,22.5%,,,,,,,,
-Pyroar,107,move,6,Will-O-Wisp,21.5%,,,,,,,,
-Pyroar,107,move,7,Sunny Day,19.5%,,,,,,,,
-Pyroar,107,move,8,Scorching Sands,16.3%,,,,,,,,
-Pyroar,107,move,9,Protect,15.7%,,,,,,,,
-Pyroar,107,move,10,Flame Charge,11.3%,,,,,,,,
-Pyroar,107,held_item,1,Pyroarite,100.0%,,,,,,,,
-Pyroar,107,teammate,1,Garchomp,,,,,,,,,
-Pyroar,107,teammate,2,Rillaboom,,,,,,,,,
-Pyroar,107,teammate,3,Mimikyu,,,,,,,,,
-Pyroar,107,teammate,4,Primarina,,,,,,,,,
-Pyroar,107,teammate,5,Archaludon,,,,,,,,,
-Pyroar,107,teammate,6,Gholdengo,,,,,,,,,
-Pyroar,107,teammate,7,Meowscarada,,,,,,,,,
-Pyroar,107,teammate,8,Hippowdon,,,,,,,,,
-Pyroar,107,teammate,9,Salamence,,,,,,,,,
-Pyroar,107,teammate,10,Excadrill,,,,,,,,,
-Pyroar,107,stat_alignment,1,Timid,61.0%,Speed,Attack,,,,,,
-Pyroar,107,stat_alignment,2,Modest,39.0%,Sp. Atk,Attack,,,,,,
-Pyroar,107,stat_points,1,,45.6%,,,2,0,0,32,0,32
-Pyroar,107,stat_points,2,,9.0%,,,0,0,0,32,2,32
-Pyroar,107,stat_points,3,,6.4%,,,0,0,0,32,0,32
-Pyroar,107,stat_points,4,,6.4%,,,10,0,0,32,0,24
-Pyroar,107,stat_points,5,,5.0%,,,4,0,0,32,0,30
-Pyroar,107,stat_points,6,,4.1%,,,30,0,0,6,0,30
-Pyroar,107,stat_points,7,,3.6%,,,6,0,1,32,0,27
-Pyroar,107,stat_points,8,,3.1%,,,0,0,2,32,0,32
-Pyroar,107,stat_points,9,,2.3%,,,14,0,1,32,0,19
-Pyroar,107,stat_points,10,,1.9%,,,6,0,0,32,2,26
-Pyroar,107,ability,1,Unnerve,82.4%,,,,,,,,
-Pyroar,107,ability,2,Rivalry,9.2%,,,,,,,,
-Pyroar,107,ability,3,Moxie,8.4%,,,,,,,,
+Pyroar,104,move,1,Flamethrower,98.5%,,,,,,,,
+Pyroar,104,move,2,Overheat,84.6%,,,,,,,,
+Pyroar,104,move,3,Hyper Voice,42.9%,,,,,,,,
+Pyroar,104,move,4,Yawn,37.9%,,,,,,,,
+Pyroar,104,move,5,Sunny Day,22.7%,,,,,,,,
+Pyroar,104,move,6,Will-O-Wisp,21.2%,,,,,,,,
+Pyroar,104,move,7,Substitute,19.9%,,,,,,,,
+Pyroar,104,move,8,Scorching Sands,15.9%,,,,,,,,
+Pyroar,104,move,9,Protect,15.4%,,,,,,,,
+Pyroar,104,move,10,Flame Charge,11.6%,,,,,,,,
+Pyroar,104,held_item,1,Pyroarite,100.0%,,,,,,,,
+Pyroar,104,teammate,1,Garchomp,,,,,,,,,
+Pyroar,104,teammate,2,Rillaboom,,,,,,,,,
+Pyroar,104,teammate,3,Primarina,,,,,,,,,
+Pyroar,104,teammate,4,Mimikyu,,,,,,,,,
+Pyroar,104,teammate,5,Archaludon,,,,,,,,,
+Pyroar,104,teammate,6,Gholdengo,,,,,,,,,
+Pyroar,104,teammate,7,Meowscarada,,,,,,,,,
+Pyroar,104,teammate,8,Hippowdon,,,,,,,,,
+Pyroar,104,teammate,9,Salamence,,,,,,,,,
+Pyroar,104,teammate,10,Excadrill,,,,,,,,,
+Pyroar,104,stat_alignment,1,Timid,59.9%,Speed,Attack,,,,,,
+Pyroar,104,stat_alignment,2,Modest,39.7%,Sp. Atk,Attack,,,,,,
+Pyroar,104,stat_alignment,3,Bold,0.3%,Defense,Attack,,,,,,
+Pyroar,104,stat_alignment,4,Calm,0.1%,Sp. Def,Attack,,,,,,
+Pyroar,104,stat_points,1,,46.3%,,,2,0,0,32,0,32
+Pyroar,104,stat_points,2,,8.6%,,,0,0,0,32,2,32
+Pyroar,104,stat_points,3,,6.2%,,,10,0,0,32,0,24
+Pyroar,104,stat_points,4,,6.0%,,,0,0,0,32,0,32
+Pyroar,104,stat_points,5,,4.3%,,,4,0,0,32,0,30
+Pyroar,104,stat_points,6,,3.9%,,,30,0,0,6,0,30
+Pyroar,104,stat_points,7,,3.4%,,,6,0,1,32,0,27
+Pyroar,104,stat_points,8,,2.5%,,,0,0,2,32,0,32
+Pyroar,104,stat_points,9,,2.0%,,,14,0,1,32,0,19
+Pyroar,104,stat_points,10,,1.6%,,,6,0,0,32,2,26
+Pyroar,104,ability,1,Unnerve,80.4%,,,,,,,,
+Pyroar,104,ability,2,Moxie,10.7%,,,,,,,,
+Pyroar,104,ability,3,Rivalry,8.9%,,,,,,,,

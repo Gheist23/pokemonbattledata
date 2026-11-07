@@ -1,47 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Medicham,160,move,1,Close Combat,91.7%,,,,,,,,
-Medicham,160,move,2,Fake Out,76.1%,,,,,,,,
-Medicham,160,move,3,Psycho Cut,46.1%,,,,,,,,
-Medicham,160,move,4,Trick Room,35.0%,,,,,,,,
-Medicham,160,move,5,Rock Slide,27.2%,,,,,,,,
-Medicham,160,move,6,Zen Headbutt,21.1%,,,,,,,,
-Medicham,160,move,7,Ice Punch,21.1%,,,,,,,,
-Medicham,160,move,8,Detect,14.4%,,,,,,,,
-Medicham,160,move,9,Skill Swap,14.4%,,,,,,,,
-Medicham,160,move,10,Poison Jab,12.8%,,,,,,,,
-Medicham,160,held_item,1,Focus Sash,38.9%,,,,,,,,
-Medicham,160,held_item,2,Medichamite,20.6%,,,,,,,,
-Medicham,160,held_item,3,Choice Scarf,12.8%,,,,,,,,
-Medicham,160,held_item,4,Iron Ball,10.6%,,,,,,,,
-Medicham,160,held_item,5,Rawst Berry,7.8%,,,,,,,,
-Medicham,160,held_item,6,Life Orb,6.1%,,,,,,,,
-Medicham,160,held_item,7,Kasib Berry,2.2%,,,,,,,,
-Medicham,160,held_item,8,Sitrus Berry,1.1%,,,,,,,,
-Medicham,160,teammate,1,Farigiraf,,,,,,,,,
-Medicham,160,teammate,2,Abomasnow,,,,,,,,,
-Medicham,160,teammate,3,Pincurchin,,,,,,,,,
-Medicham,160,teammate,4,Meowscarada,,,,,,,,,
-Medicham,160,teammate,5,Maushold-Four,,,,,,,,,
-Medicham,160,teammate,6,Sylveon,,,,,,,,,
-Medicham,160,teammate,7,Kingambit,,,,,,,,,
-Medicham,160,teammate,8,Camerupt,,,,,,,,,
-Medicham,160,teammate,9,Charizard,,,,,,,,,
-Medicham,160,teammate,10,Garchomp,,,,,,,,,
-Medicham,160,stat_alignment,1,Brave,43.3%,Attack,Speed,,,,,,
-Medicham,160,stat_alignment,2,Adamant,24.4%,Attack,Sp. Atk,,,,,,
-Medicham,160,stat_alignment,3,Jolly,17.8%,Speed,Sp. Atk,,,,,,
-Medicham,160,stat_alignment,4,Naive,7.8%,Speed,Sp. Def,,,,,,
-Medicham,160,stat_alignment,5,Impish,6.1%,Defense,Sp. Atk,,,,,,
-Medicham,160,stat_alignment,6,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
-Medicham,160,stat_points,1,,32.8%,,,2,32,0,0,0,32
-Medicham,160,stat_points,2,,31.7%,,,32,32,0,0,2,0
-Medicham,160,stat_points,3,,17.2%,,,32,32,2,0,0,0
-Medicham,160,stat_points,4,,3.9%,,,31,32,0,0,0,3
-Medicham,160,stat_points,5,,3.3%,,,13,32,0,0,0,21
-Medicham,160,stat_points,6,,3.3%,,,32,0,15,0,19,0
-Medicham,160,stat_points,7,,2.8%,,,5,32,0,0,0,29
-Medicham,160,stat_points,8,,2.8%,,,32,0,2,0,0,32
-Medicham,160,stat_points,9,,0.6%,,,0,32,2,0,32,0
-Medicham,160,stat_points,10,,0.6%,,,2,0,32,0,32,0
-Medicham,160,ability,1,Pure Power,99.4%,,,,,,,,
-Medicham,160,ability,2,Telepathy,0.6%,,,,,,,,
+Medicham,148,move,1,Close Combat,85.7%,,,,,,,,
+Medicham,148,move,2,Fake Out,79.5%,,,,,,,,
+Medicham,148,move,3,Psycho Cut,47.1%,,,,,,,,
+Medicham,148,move,4,Rock Slide,32.4%,,,,,,,,
+Medicham,148,move,5,Trick Room,32.0%,,,,,,,,
+Medicham,148,move,6,Zen Headbutt,22.4%,,,,,,,,
+Medicham,148,move,7,Skill Swap,20.5%,,,,,,,,
+Medicham,148,move,8,Ice Punch,20.1%,,,,,,,,
+Medicham,148,move,9,Poison Jab,12.4%,,,,,,,,
+Medicham,148,move,10,Detect,10.0%,,,,,,,,
+Medicham,148,held_item,1,Focus Sash,35.1%,,,,,,,,
+Medicham,148,held_item,2,Medichamite,29.7%,,,,,,,,
+Medicham,148,held_item,3,Choice Scarf,12.4%,,,,,,,,
+Medicham,148,held_item,4,Iron Ball,9.3%,,,,,,,,
+Medicham,148,held_item,5,Rawst Berry,6.6%,,,,,,,,
+Medicham,148,held_item,6,Life Orb,4.2%,,,,,,,,
+Medicham,148,held_item,7,Kasib Berry,1.5%,,,,,,,,
+Medicham,148,held_item,8,Sitrus Berry,0.8%,,,,,,,,
+Medicham,148,held_item,9,Quick Claw,0.4%,,,,,,,,
+Medicham,148,teammate,1,Farigiraf,,,,,,,,,
+Medicham,148,teammate,2,Kingambit,,,,,,,,,
+Medicham,148,teammate,3,Abomasnow,,,,,,,,,
+Medicham,148,teammate,4,Pincurchin,,,,,,,,,
+Medicham,148,teammate,5,Maushold-Four,,,,,,,,,
+Medicham,148,teammate,6,Meowscarada,,,,,,,,,
+Medicham,148,teammate,7,Sylveon,,,,,,,,,
+Medicham,148,teammate,8,Torkoal,,,,,,,,,
+Medicham,148,teammate,9,Charizard,,,,,,,,,
+Medicham,148,teammate,10,Camerupt,,,,,,,,,
+Medicham,148,stat_alignment,1,Brave,45.2%,Attack,Speed,,,,,,
+Medicham,148,stat_alignment,2,Adamant,22.4%,Attack,Sp. Atk,,,,,,
+Medicham,148,stat_alignment,3,Jolly,17.4%,Speed,Sp. Atk,,,,,,
+Medicham,148,stat_alignment,4,Impish,8.1%,Defense,Sp. Atk,,,,,,
+Medicham,148,stat_alignment,5,Naive,6.6%,Speed,Sp. Def,,,,,,
+Medicham,148,stat_alignment,6,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
+Medicham,148,stat_points,1,,31.7%,,,2,32,0,0,0,32
+Medicham,148,stat_points,2,,25.9%,,,32,32,0,0,2,0
+Medicham,148,stat_points,3,,23.2%,,,32,32,2,0,0,0
+Medicham,148,stat_points,4,,6.2%,,,32,0,15,0,19,0
+Medicham,148,stat_points,5,,2.7%,,,31,32,0,0,0,3
+Medicham,148,stat_points,6,,2.3%,,,13,32,0,0,0,21
+Medicham,148,stat_points,7,,2.3%,,,15,10,4,0,5,32
+Medicham,148,stat_points,8,,1.9%,,,5,32,0,0,0,29
+Medicham,148,stat_points,9,,1.9%,,,32,0,2,0,0,32
+Medicham,148,stat_points,10,,0.4%,,,0,32,2,0,0,32
+Medicham,148,ability,1,Pure Power,99.6%,,,,,,,,
+Medicham,148,ability,2,Telepathy,0.4%,,,,,,,,

@@ -1,27 +1,32 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom,226,move,1,Shadow Ball,96.2%,,,,,,,,
-Rotom,226,move,2,Discharge,96.2%,,,,,,,,
-Rotom,226,move,3,Trick,88.5%,,,,,,,,
-Rotom,226,move,4,Electroweb,57.7%,,,,,,,,
-Rotom,226,move,5,Will-O-Wisp,30.8%,,,,,,,,
-Rotom,226,move,6,Volt Switch,15.4%,,,,,,,,
-Rotom,226,move,7,Thunder Wave,11.5%,,,,,,,,
-Rotom,226,move,8,Thunderbolt,3.8%,,,,,,,,
-Rotom,226,held_item,1,Choice Scarf,100.0%,,,,,,,,
-Rotom,226,teammate,1,Sceptile,,,,,,,,,
-Rotom,226,teammate,2,Persian-Alola,,,,,,,,,
-Rotom,226,teammate,3,Bastiodon,,,,,,,,,
-Rotom,226,teammate,4,Excadrill,,,,,,,,,
-Rotom,226,teammate,5,Emolga,,,,,,,,,
-Rotom,226,teammate,6,Alakazam,,,,,,,,,
-Rotom,226,teammate,7,Torkoal,,,,,,,,,
-Rotom,226,teammate,8,Mamoswine,,,,,,,,,
-Rotom,226,teammate,9,Indeedee-F,,,,,,,,,
-Rotom,226,teammate,10,Swampert,,,,,,,,,
-Rotom,226,stat_alignment,1,Timid,88.5%,Speed,Attack,,,,,,
-Rotom,226,stat_alignment,2,Modest,11.5%,Sp. Atk,Attack,,,,,,
-Rotom,226,stat_points,1,,53.8%,,,2,0,0,32,0,32
-Rotom,226,stat_points,2,,30.8%,,,1,0,0,32,1,32
-Rotom,226,stat_points,3,,11.5%,,,0,0,1,32,1,32
-Rotom,226,stat_points,4,,3.8%,,,32,0,1,0,1,32
-Rotom,226,ability,1,Levitate,100.0%,,,,,,,,
+Rotom,227,move,1,Shadow Ball,83.9%,,,,,,,,
+Rotom,227,move,2,Discharge,83.9%,,,,,,,,
+Rotom,227,move,3,Trick,77.4%,,,,,,,,
+Rotom,227,move,4,Electroweb,51.6%,,,,,,,,
+Rotom,227,move,5,Will-O-Wisp,25.8%,,,,,,,,
+Rotom,227,move,6,Thunderbolt,16.1%,,,,,,,,
+Rotom,227,move,7,Protect,12.9%,,,,,,,,
+Rotom,227,move,8,Nasty Plot,12.9%,,,,,,,,
+Rotom,227,move,9,Hex,12.9%,,,,,,,,
+Rotom,227,move,10,Volt Switch,12.9%,,,,,,,,
+Rotom,227,held_item,1,Choice Scarf,87.1%,,,,,,,,
+Rotom,227,held_item,2,Iron Ball,12.9%,,,,,,,,
+Rotom,227,teammate,1,Sceptile,,,,,,,,,
+Rotom,227,teammate,2,Persian-Alola,,,,,,,,,
+Rotom,227,teammate,3,Bastiodon,,,,,,,,,
+Rotom,227,teammate,4,Excadrill,,,,,,,,,
+Rotom,227,teammate,5,Emolga,,,,,,,,,
+Rotom,227,teammate,6,Alakazam,,,,,,,,,
+Rotom,227,teammate,7,Torkoal,,,,,,,,,
+Rotom,227,teammate,8,Mamoswine,,,,,,,,,
+Rotom,227,teammate,9,Indeedee-F,,,,,,,,,
+Rotom,227,teammate,10,Slowbro-Galar,,,,,,,,,
+Rotom,227,stat_alignment,1,Timid,77.4%,Speed,Attack,,,,,,
+Rotom,227,stat_alignment,2,Quiet,12.9%,Sp. Atk,Speed,,,,,,
+Rotom,227,stat_alignment,3,Modest,9.7%,Sp. Atk,Attack,,,,,,
+Rotom,227,stat_points,1,,48.4%,,,2,0,0,32,0,32
+Rotom,227,stat_points,2,,25.8%,,,1,0,0,32,1,32
+Rotom,227,stat_points,3,,12.9%,,,32,0,0,32,2,0
+Rotom,227,stat_points,4,,9.7%,,,0,0,1,32,1,32
+Rotom,227,stat_points,5,,3.2%,,,32,0,1,0,1,32
+Rotom,227,ability,1,Levitate,100.0%,,,,,,,,

@@ -1,19 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Delphox,45,move,1,Flamethrower,66.8%,,,,,,,,
-Delphox,45,move,2,Nasty Plot,55.8%,,,,,,,,
-Delphox,45,move,3,Substitute,44.3%,,,,,,,,
-Delphox,45,move,4,Psychic,41.7%,,,,,,,,
-Delphox,45,move,5,Psyshock,41.4%,,,,,,,,
-Delphox,45,move,6,Encore,35.2%,,,,,,,,
-Delphox,45,move,7,Dazzling Gleam,26.7%,,,,,,,,
-Delphox,45,move,8,Mystical Fire,19.6%,,,,,,,,
-Delphox,45,move,9,Psychic Noise,15.8%,,,,,,,,
+Delphox,45,move,1,Flamethrower,67.6%,,,,,,,,
+Delphox,45,move,2,Nasty Plot,55.6%,,,,,,,,
+Delphox,45,move,3,Substitute,44.5%,,,,,,,,
+Delphox,45,move,4,Psychic,42.2%,,,,,,,,
+Delphox,45,move,5,Psyshock,41.8%,,,,,,,,
+Delphox,45,move,6,Encore,35.1%,,,,,,,,
+Delphox,45,move,7,Dazzling Gleam,26.6%,,,,,,,,
+Delphox,45,move,8,Mystical Fire,18.9%,,,,,,,,
+Delphox,45,move,9,Psychic Noise,14.9%,,,,,,,,
 Delphox,45,move,10,Will-O-Wisp,14.6%,,,,,,,,
-Delphox,45,held_item,1,Delphoxite,98.2%,,,,,,,,
+Delphox,45,held_item,1,Delphoxite,98.3%,,,,,,,,
 Delphox,45,held_item,2,Choice Scarf,0.7%,,,,,,,,
-Delphox,45,held_item,3,Sitrus Berry,0.6%,,,,,,,,
+Delphox,45,held_item,3,Sitrus Berry,0.5%,,,,,,,,
 Delphox,45,held_item,4,Wise Glasses,0.3%,,,,,,,,
 Delphox,45,held_item,5,Focus Sash,0.1%,,,,,,,,
+Delphox,45,held_item,6,Expert Belt,0.0%,,,,,,,,
 Delphox,45,teammate,1,Garchomp,,,,,,,,,
 Delphox,45,teammate,2,Primarina,,,,,,,,,
 Delphox,45,teammate,3,Archaludon,,,,,,,,,
@@ -22,24 +23,24 @@ Delphox,45,teammate,5,Golisopod,,,,,,,,,
 Delphox,45,teammate,6,Corviknight,,,,,,,,,
 Delphox,45,teammate,7,Hippowdon,,,,,,,,,
 Delphox,45,teammate,8,Mimikyu,,,,,,,,,
-Delphox,45,teammate,9,Samurott-Hisui,,,,,,,,,
-Delphox,45,teammate,10,Floette-Eternal,,,,,,,,,
-Delphox,45,stat_alignment,1,Timid,85.0%,Speed,Attack,,,,,,
-Delphox,45,stat_alignment,2,Modest,13.9%,Sp. Atk,Attack,,,,,,
+Delphox,45,teammate,9,Floette-Eternal,,,,,,,,,
+Delphox,45,teammate,10,Gyarados,,,,,,,,,
+Delphox,45,stat_alignment,1,Timid,84.8%,Speed,Attack,,,,,,
+Delphox,45,stat_alignment,2,Modest,14.1%,Sp. Atk,Attack,,,,,,
 Delphox,45,stat_alignment,3,Calm,0.5%,Sp. Def,Attack,,,,,,
 Delphox,45,stat_alignment,4,Bold,0.3%,Defense,Attack,,,,,,
-Delphox,45,stat_alignment,5,Hasty,0.3%,Speed,Defense,,,,,,
+Delphox,45,stat_alignment,5,Hasty,0.2%,Speed,Defense,,,,,,
 Delphox,45,stat_alignment,6,Mild,0.0%,Sp. Atk,Defense,,,,,,
 Delphox,45,stat_alignment,7,Naive,0.0%,Speed,Sp. Def,,,,,,
-Delphox,45,stat_points,1,,17.0%,,,1,0,1,32,0,32
-Delphox,45,stat_points,2,,14.1%,,,2,0,0,32,0,32
-Delphox,45,stat_points,3,,5.7%,,,31,0,31,0,0,4
-Delphox,45,stat_points,4,,4.2%,,,5,0,0,32,0,29
-Delphox,45,stat_points,5,,4.0%,,,1,0,8,25,0,32
-Delphox,45,stat_points,6,,3.4%,,,1,0,4,32,0,29
-Delphox,45,stat_points,7,,3.3%,,,0,0,0,32,2,32
-Delphox,45,stat_points,8,,2.6%,,,1,0,0,32,1,32
-Delphox,45,stat_points,9,,2.5%,,,0,0,2,32,0,32
-Delphox,45,stat_points,10,,2.2%,,,11,0,8,17,0,30
-Delphox,45,ability,1,Blaze,91.1%,,,,,,,,
-Delphox,45,ability,2,Magician,8.9%,,,,,,,,
+Delphox,45,stat_points,1,,16.9%,,,1,0,1,32,0,32
+Delphox,45,stat_points,2,,14.3%,,,2,0,0,32,0,32
+Delphox,45,stat_points,3,,5.6%,,,31,0,31,0,0,4
+Delphox,45,stat_points,4,,4.3%,,,5,0,0,32,0,29
+Delphox,45,stat_points,5,,3.9%,,,1,0,8,25,0,32
+Delphox,45,stat_points,6,,3.5%,,,0,0,0,32,2,32
+Delphox,45,stat_points,7,,3.4%,,,1,0,4,32,0,29
+Delphox,45,stat_points,8,,2.7%,,,0,0,2,32,0,32
+Delphox,45,stat_points,9,,2.5%,,,1,0,0,32,1,32
+Delphox,45,stat_points,10,,2.0%,,,11,0,8,17,0,30
+Delphox,45,ability,1,Blaze,91.3%,,,,,,,,
+Delphox,45,ability,2,Magician,8.7%,,,,,,,,

@@ -1,45 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Glalie,123,move,1,Protect,71.4%,,,,,,,,
-Glalie,123,move,2,Substitute,65.5%,,,,,,,,
-Glalie,123,move,3,Freeze-Dry,61.8%,,,,,,,,
-Glalie,123,move,4,Sheer Cold,46.2%,,,,,,,,
-Glalie,123,move,5,Earthquake,34.0%,,,,,,,,
-Glalie,123,move,6,Explosion,33.0%,,,,,,,,
-Glalie,123,move,7,Body Slam,29.7%,,,,,,,,
-Glalie,123,move,8,Ice Shard,26.7%,,,,,,,,
-Glalie,123,move,9,Taunt,7.5%,,,,,,,,
-Glalie,123,move,10,Steel Roller,5.9%,,,,,,,,
-Glalie,123,held_item,1,Leftovers,61.7%,,,,,,,,
-Glalie,123,held_item,2,Glalitite,33.9%,,,,,,,,
-Glalie,123,held_item,3,Bright Powder,3.0%,,,,,,,,
-Glalie,123,held_item,4,Quick Claw,1.3%,,,,,,,,
+Glalie,123,move,1,Protect,74.1%,,,,,,,,
+Glalie,123,move,2,Substitute,66.8%,,,,,,,,
+Glalie,123,move,3,Freeze-Dry,64.8%,,,,,,,,
+Glalie,123,move,4,Sheer Cold,47.4%,,,,,,,,
+Glalie,123,move,5,Earthquake,31.6%,,,,,,,,
+Glalie,123,move,6,Explosion,31.4%,,,,,,,,
+Glalie,123,move,7,Body Slam,27.8%,,,,,,,,
+Glalie,123,move,8,Ice Shard,24.6%,,,,,,,,
+Glalie,123,move,9,Taunt,7.4%,,,,,,,,
+Glalie,123,move,10,Steel Roller,4.9%,,,,,,,,
+Glalie,123,held_item,1,Leftovers,62.6%,,,,,,,,
+Glalie,123,held_item,2,Glalitite,32.2%,,,,,,,,
+Glalie,123,held_item,3,Bright Powder,3.9%,,,,,,,,
+Glalie,123,held_item,4,Quick Claw,1.1%,,,,,,,,
 Glalie,123,held_item,5,Lum Berry,0.2%,,,,,,,,
+Glalie,123,held_item,6,Focus Sash,0.1%,,,,,,,,
 Glalie,123,teammate,1,Basculegion,,,,,,,,,
 Glalie,123,teammate,2,Pawmot,,,,,,,,,
 Glalie,123,teammate,3,Gengar,,,,,,,,,
 Glalie,123,teammate,4,Kingambit,,,,,,,,,
 Glalie,123,teammate,5,Starmie,,,,,,,,,
-Glalie,123,teammate,6,Charizard,,,,,,,,,
-Glalie,123,teammate,7,Garchomp,,,,,,,,,
+Glalie,123,teammate,6,Garchomp,,,,,,,,,
+Glalie,123,teammate,7,Charizard,,,,,,,,,
 Glalie,123,teammate,8,Gyarados,,,,,,,,,
 Glalie,123,teammate,9,Scovillain,,,,,,,,,
-Glalie,123,teammate,10,Venusaur,,,,,,,,,
-Glalie,123,stat_alignment,1,Timid,38.4%,Speed,Attack,,,,,,
-Glalie,123,stat_alignment,2,Jolly,22.6%,Speed,Sp. Atk,,,,,,
-Glalie,123,stat_alignment,3,Bold,22.1%,Defense,Attack,,,,,,
-Glalie,123,stat_alignment,4,Adamant,10.4%,Attack,Sp. Atk,,,,,,
-Glalie,123,stat_alignment,5,Calm,4.8%,Sp. Def,Attack,,,,,,
-Glalie,123,stat_alignment,6,Impish,1.4%,Defense,Sp. Atk,,,,,,
-Glalie,123,stat_alignment,7,Modest,0.2%,Sp. Atk,Attack,,,,,,
-Glalie,123,stat_points,1,,20.6%,,,2,32,0,0,0,32
-Glalie,123,stat_points,2,,7.5%,,,22,0,28,0,0,16
-Glalie,123,stat_points,3,,7.1%,,,22,0,0,0,12,32
-Glalie,123,stat_points,4,,6.3%,,,22,0,12,0,0,32
-Glalie,123,stat_points,5,,5.9%,,,22,0,15,0,0,29
-Glalie,123,stat_points,6,,4.8%,,,0,28,0,0,9,29
-Glalie,123,stat_points,7,,4.7%,,,32,0,1,0,1,32
-Glalie,123,stat_points,8,,4.6%,,,22,0,8,0,20,16
-Glalie,123,stat_points,9,,3.3%,,,0,32,2,0,0,32
-Glalie,123,stat_points,10,,2.9%,,,22,0,6,0,6,32
-Glalie,123,ability,1,Moody,84.1%,,,,,,,,
-Glalie,123,ability,2,Inner Focus,15.9%,,,,,,,,
+Glalie,123,teammate,10,Primarina,,,,,,,,,
+Glalie,123,stat_alignment,1,Timid,39.0%,Speed,Attack,,,,,,
+Glalie,123,stat_alignment,2,Bold,22.7%,Defense,Attack,,,,,,
+Glalie,123,stat_alignment,3,Jolly,21.9%,Speed,Sp. Atk,,,,,,
+Glalie,123,stat_alignment,4,Adamant,9.6%,Attack,Sp. Atk,,,,,,
+Glalie,123,stat_alignment,5,Calm,4.0%,Sp. Def,Attack,,,,,,
+Glalie,123,stat_alignment,6,Impish,1.2%,Defense,Sp. Atk,,,,,,
+Glalie,123,stat_alignment,7,Serious,0.7%,,,,,,,,
+Glalie,123,stat_alignment,8,Naive,0.5%,Speed,Sp. Def,,,,,,
+Glalie,123,stat_alignment,9,Modest,0.2%,Sp. Atk,Attack,,,,,,
+Glalie,123,stat_alignment,10,Brave,0.2%,Attack,Speed,,,,,,
+Glalie,123,stat_points,1,,19.2%,,,2,32,0,0,0,32
+Glalie,123,stat_points,2,,7.9%,,,22,0,12,0,0,32
+Glalie,123,stat_points,3,,7.3%,,,22,0,28,0,0,16
+Glalie,123,stat_points,4,,6.9%,,,22,0,0,0,12,32
+Glalie,123,stat_points,5,,6.2%,,,22,0,15,0,0,29
+Glalie,123,stat_points,6,,4.3%,,,32,0,1,0,1,32
+Glalie,123,stat_points,7,,4.0%,,,0,28,0,0,9,29
+Glalie,123,stat_points,8,,3.8%,,,22,0,8,0,20,16
+Glalie,123,stat_points,9,,3.0%,,,32,2,0,0,0,32
+Glalie,123,stat_points,10,,2.9%,,,32,0,0,2,0,32
+Glalie,123,ability,1,Moody,86.1%,,,,,,,,
+Glalie,123,ability,2,Inner Focus,13.9%,,,,,,,,

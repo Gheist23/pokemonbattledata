@@ -1,45 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Perrserker,221,move,1,Iron Head,100.0%,,,,,,,,
-Perrserker,221,move,2,Close Combat,73.7%,,,,,,,,
-Perrserker,221,move,3,Fake Out,68.4%,,,,,,,,
-Perrserker,221,move,4,Knock Off,47.4%,,,,,,,,
-Perrserker,221,move,5,Protect,31.6%,,,,,,,,
-Perrserker,221,move,6,Helping Hand,21.1%,,,,,,,,
-Perrserker,221,move,7,Metal Burst,21.1%,,,,,,,,
-Perrserker,221,move,8,Taunt,15.8%,,,,,,,,
-Perrserker,221,move,9,Play Rough,10.5%,,,,,,,,
-Perrserker,221,move,10,Bulk Up,5.3%,,,,,,,,
-Perrserker,221,held_item,1,Focus Sash,36.8%,,,,,,,,
-Perrserker,221,held_item,2,Sitrus Berry,15.8%,,,,,,,,
-Perrserker,221,held_item,3,White Herb,15.8%,,,,,,,,
-Perrserker,221,held_item,4,Chople Berry,7.9%,,,,,,,,
-Perrserker,221,held_item,5,Occa Berry,5.3%,,,,,,,,
-Perrserker,221,held_item,6,Life Orb,5.3%,,,,,,,,
-Perrserker,221,held_item,7,Metronome,5.3%,,,,,,,,
-Perrserker,221,held_item,8,Iron Ball,5.3%,,,,,,,,
-Perrserker,221,held_item,9,Psychic Seed,2.6%,,,,,,,,
-Perrserker,221,teammate,1,Farigiraf,,,,,,,,,
-Perrserker,221,teammate,2,Indeedee,,,,,,,,,
-Perrserker,221,teammate,3,Whimsicott,,,,,,,,,
-Perrserker,221,teammate,4,Camerupt,,,,,,,,,
-Perrserker,221,teammate,5,Golisopod,,,,,,,,,
-Perrserker,221,teammate,6,Salamence,,,,,,,,,
-Perrserker,221,teammate,7,Gholdengo,,,,,,,,,
-Perrserker,221,teammate,8,Ampharos,,,,,,,,,
-Perrserker,221,teammate,9,Staraptor,,,,,,,,,
-Perrserker,221,teammate,10,Emboar,,,,,,,,,
-Perrserker,221,stat_alignment,1,Adamant,44.7%,Attack,Sp. Atk,,,,,,
-Perrserker,221,stat_alignment,2,Brave,36.8%,Attack,Speed,,,,,,
-Perrserker,221,stat_alignment,3,Careful,15.8%,Sp. Def,Sp. Atk,,,,,,
-Perrserker,221,stat_alignment,4,Jolly,2.6%,Speed,Sp. Atk,,,,,,
-Perrserker,221,stat_points,1,,21.1%,,,32,32,0,0,0,2
-Perrserker,221,stat_points,2,,21.1%,,,32,32,0,0,2,0
-Perrserker,221,stat_points,3,,15.8%,,,32,0,2,0,32,0
-Perrserker,221,stat_points,4,,13.2%,,,32,32,2,0,0,0
-Perrserker,221,stat_points,5,,7.9%,,,0,32,2,0,0,32
-Perrserker,221,stat_points,6,,7.9%,,,32,13,0,0,21,0
-Perrserker,221,stat_points,7,,5.3%,,,0,32,0,0,32,0
-Perrserker,221,stat_points,8,,5.3%,,,0,32,2,0,32,0
-Perrserker,221,stat_points,9,,2.6%,,,2,32,0,0,0,32
-Perrserker,221,ability,1,Tough Claws,52.6%,,,,,,,,
-Perrserker,221,ability,2,Steely Spirit,47.4%,,,,,,,,
+Perrserker,220,move,1,Iron Head,100.0%,,,,,,,,
+Perrserker,220,move,2,Close Combat,70.6%,,,,,,,,
+Perrserker,220,move,3,Fake Out,66.7%,,,,,,,,
+Perrserker,220,move,4,Knock Off,47.1%,,,,,,,,
+Perrserker,220,move,5,Protect,25.5%,,,,,,,,
+Perrserker,220,move,6,Metal Burst,21.6%,,,,,,,,
+Perrserker,220,move,7,Helping Hand,19.6%,,,,,,,,
+Perrserker,220,move,8,Taunt,11.8%,,,,,,,,
+Perrserker,220,move,9,Crunch,9.8%,,,,,,,,
+Perrserker,220,move,10,U-turn,7.8%,,,,,,,,
+Perrserker,220,held_item,1,Focus Sash,41.2%,,,,,,,,
+Perrserker,220,held_item,2,Sitrus Berry,11.8%,,,,,,,,
+Perrserker,220,held_item,3,White Herb,11.8%,,,,,,,,
+Perrserker,220,held_item,4,Choice Scarf,9.8%,,,,,,,,
+Perrserker,220,held_item,5,Chople Berry,7.8%,,,,,,,,
+Perrserker,220,held_item,6,Occa Berry,3.9%,,,,,,,,
+Perrserker,220,held_item,7,Life Orb,3.9%,,,,,,,,
+Perrserker,220,held_item,8,Metronome,3.9%,,,,,,,,
+Perrserker,220,held_item,9,Iron Ball,3.9%,,,,,,,,
+Perrserker,220,held_item,10,Psychic Seed,2.0%,,,,,,,,
+Perrserker,220,teammate,1,Farigiraf,,,,,,,,,
+Perrserker,220,teammate,2,Camerupt,,,,,,,,,
+Perrserker,220,teammate,3,Indeedee,,,,,,,,,
+Perrserker,220,teammate,4,Whimsicott,,,,,,,,,
+Perrserker,220,teammate,5,Rillaboom,,,,,,,,,
+Perrserker,220,teammate,6,Golisopod,,,,,,,,,
+Perrserker,220,teammate,7,Salamence,,,,,,,,,
+Perrserker,220,teammate,8,Gholdengo,,,,,,,,,
+Perrserker,220,teammate,9,Ampharos,,,,,,,,,
+Perrserker,220,teammate,10,Staraptor,,,,,,,,,
+Perrserker,220,stat_alignment,1,Brave,39.2%,Attack,Speed,,,,,,
+Perrserker,220,stat_alignment,2,Adamant,39.2%,Attack,Sp. Atk,,,,,,
+Perrserker,220,stat_alignment,3,Careful,11.8%,Sp. Def,Sp. Atk,,,,,,
+Perrserker,220,stat_alignment,4,Jolly,9.8%,Speed,Sp. Atk,,,,,,
+Perrserker,220,stat_points,1,,15.7%,,,0,32,2,0,0,32
+Perrserker,220,stat_points,2,,15.7%,,,0,32,2,0,32,0
+Perrserker,220,stat_points,3,,15.7%,,,32,32,0,0,0,2
+Perrserker,220,stat_points,4,,15.7%,,,32,32,0,0,2,0
+Perrserker,220,stat_points,5,,11.8%,,,32,0,2,0,32,0
+Perrserker,220,stat_points,6,,9.8%,,,32,32,2,0,0,0
+Perrserker,220,stat_points,7,,7.8%,,,32,13,0,0,21,0
+Perrserker,220,stat_points,8,,3.9%,,,0,32,0,0,32,0
+Perrserker,220,stat_points,9,,3.9%,,,2,32,0,0,0,32
+Perrserker,220,ability,1,Tough Claws,60.8%,,,,,,,,
+Perrserker,220,ability,2,Steely Spirit,39.2%,,,,,,,,

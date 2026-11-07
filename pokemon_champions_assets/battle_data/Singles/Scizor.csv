@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Scizor,42,move,1,Bullet Punch,99.4%,,,,,,,,
-Scizor,42,move,2,U-turn,79.7%,,,,,,,,
-Scizor,42,move,3,Roost,71.1%,,,,,,,,
+Scizor,42,move,2,U-turn,80.0%,,,,,,,,
+Scizor,42,move,3,Roost,71.3%,,,,,,,,
 Scizor,42,move,4,Knock Off,39.8%,,,,,,,,
-Scizor,42,move,5,Swords Dance,31.2%,,,,,,,,
-Scizor,42,move,6,Close Combat,28.7%,,,,,,,,
+Scizor,42,move,5,Swords Dance,30.9%,,,,,,,,
+Scizor,42,move,6,Close Combat,28.1%,,,,,,,,
 Scizor,42,move,7,Curse,15.4%,,,,,,,,
-Scizor,42,move,8,Defog,11.7%,,,,,,,,
-Scizor,42,move,9,Dual Wingbeat,5.3%,,,,,,,,
-Scizor,42,move,10,Scary Face,3.5%,,,,,,,,
-Scizor,42,held_item,1,Rocky Helmet,64.0%,,,,,,,,
-Scizor,42,held_item,2,Scizorite,14.8%,,,,,,,,
-Scizor,42,held_item,3,Life Orb,7.3%,,,,,,,,
+Scizor,42,move,8,Defog,11.9%,,,,,,,,
+Scizor,42,move,9,Dual Wingbeat,5.4%,,,,,,,,
+Scizor,42,move,10,Scary Face,3.4%,,,,,,,,
+Scizor,42,held_item,1,Rocky Helmet,63.9%,,,,,,,,
+Scizor,42,held_item,2,Scizorite,14.7%,,,,,,,,
+Scizor,42,held_item,3,Life Orb,7.4%,,,,,,,,
 Scizor,42,held_item,4,Sitrus Berry,6.0%,,,,,,,,
-Scizor,42,held_item,5,Metal Coat,3.2%,,,,,,,,
+Scizor,42,held_item,5,Metal Coat,3.3%,,,,,,,,
 Scizor,42,held_item,6,Leftovers,1.9%,,,,,,,,
-Scizor,42,held_item,7,Lum Berry,0.6%,,,,,,,,
-Scizor,42,held_item,8,Occa Berry,0.6%,,,,,,,,
-Scizor,42,held_item,9,Expert Belt,0.5%,,,,,,,,
-Scizor,42,held_item,10,Muscle Band,0.4%,,,,,,,,
+Scizor,42,held_item,7,Lum Berry,0.9%,,,,,,,,
+Scizor,42,held_item,8,Occa Berry,0.5%,,,,,,,,
+Scizor,42,held_item,9,Expert Belt,0.4%,,,,,,,,
+Scizor,42,held_item,10,Muscle Band,0.3%,,,,,,,,
 Scizor,42,teammate,1,Garchomp,,,,,,,,,
 Scizor,42,teammate,2,Primarina,,,,,,,,,
 Scizor,42,teammate,3,Charizard,,,,,,,,,
@@ -28,27 +28,27 @@ Scizor,42,teammate,6,Dragonite,,,,,,,,,
 Scizor,42,teammate,7,Salamence,,,,,,,,,
 Scizor,42,teammate,8,Hippowdon,,,,,,,,,
 Scizor,42,teammate,9,Gengar,,,,,,,,,
-Scizor,42,teammate,10,Umbreon,,,,,,,,,
-Scizor,42,stat_alignment,1,Adamant,36.3%,Attack,Sp. Atk,,,,,,
-Scizor,42,stat_alignment,2,Relaxed,26.5%,Defense,Speed,,,,,,
-Scizor,42,stat_alignment,3,Impish,18.0%,Defense,Sp. Atk,,,,,,
-Scizor,42,stat_alignment,4,Brave,17.2%,Attack,Speed,,,,,,
-Scizor,42,stat_alignment,5,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
-Scizor,42,stat_alignment,6,Sassy,0.5%,Sp. Def,Speed,,,,,,
+Scizor,42,teammate,10,Slowking-Galar,,,,,,,,,
+Scizor,42,stat_alignment,1,Adamant,36.1%,Attack,Sp. Atk,,,,,,
+Scizor,42,stat_alignment,2,Relaxed,26.2%,Defense,Speed,,,,,,
+Scizor,42,stat_alignment,3,Impish,18.3%,Defense,Sp. Atk,,,,,,
+Scizor,42,stat_alignment,4,Brave,17.0%,Attack,Speed,,,,,,
+Scizor,42,stat_alignment,5,Careful,0.9%,Sp. Def,Sp. Atk,,,,,,
+Scizor,42,stat_alignment,6,Sassy,0.6%,Sp. Def,Speed,,,,,,
 Scizor,42,stat_alignment,7,Bold,0.4%,Defense,Attack,,,,,,
 Scizor,42,stat_alignment,8,Jolly,0.2%,Speed,Sp. Atk,,,,,,
-Scizor,42,stat_alignment,9,Naughty,0.0%,Attack,Sp. Def,,,,,,
-Scizor,42,stat_alignment,10,Hasty,0.0%,Speed,Defense,,,,,,
-Scizor,42,stat_points,1,,28.1%,,,32,2,32,0,0,0
-Scizor,42,stat_points,2,,16.9%,,,32,1,32,0,1,0
-Scizor,42,stat_points,3,,8.9%,,,32,0,32,0,2,0
-Scizor,42,stat_points,4,,6.0%,,,32,32,2,0,0,0
+Scizor,42,stat_alignment,9,Gentle,0.1%,Sp. Def,Defense,,,,,,
+Scizor,42,stat_alignment,10,Naughty,0.0%,Attack,Sp. Def,,,,,,
+Scizor,42,stat_points,1,,27.9%,,,32,2,32,0,0,0
+Scizor,42,stat_points,2,,16.2%,,,32,1,32,0,1,0
+Scizor,42,stat_points,3,,9.1%,,,32,0,32,0,2,0
+Scizor,42,stat_points,4,,5.7%,,,32,32,2,0,0,0
 Scizor,42,stat_points,5,,3.4%,,,31,3,32,0,0,0
 Scizor,42,stat_points,6,,2.9%,,,32,32,0,0,2,0
-Scizor,42,stat_points,7,,2.2%,,,32,32,0,0,0,2
+Scizor,42,stat_points,7,,2.0%,,,32,32,0,0,0,2
 Scizor,42,stat_points,8,,1.6%,,,2,32,0,0,0,32
-Scizor,42,stat_points,9,,1.5%,,,20,32,1,0,1,12
-Scizor,42,stat_points,10,,1.2%,,,30,4,32,0,0,0
+Scizor,42,stat_points,9,,1.6%,,,20,32,1,0,1,12
+Scizor,42,stat_points,10,,1.4%,,,30,4,32,0,0,0
 Scizor,42,ability,1,Technician,98.9%,,,,,,,,
-Scizor,42,ability,2,Swarm,0.6%,,,,,,,,
-Scizor,42,ability,3,Light Metal,0.5%,,,,,,,,
+Scizor,42,ability,2,Light Metal,0.6%,,,,,,,,
+Scizor,42,ability,3,Swarm,0.5%,,,,,,,,

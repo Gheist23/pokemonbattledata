@@ -1,44 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ampharos,135,move,1,Dragon Pulse,91.9%,,,,,,,,
-Ampharos,135,move,2,Power Gem,64.6%,,,,,,,,
-Ampharos,135,move,3,Thunderbolt,54.6%,,,,,,,,
-Ampharos,135,move,4,Focus Blast,51.0%,,,,,,,,
-Ampharos,135,move,5,Parabolic Charge,44.2%,,,,,,,,
-Ampharos,135,move,6,Cotton Guard,40.1%,,,,,,,,
-Ampharos,135,move,7,Charge,19.4%,,,,,,,,
-Ampharos,135,move,8,Discharge,8.5%,,,,,,,,
-Ampharos,135,move,9,Dazzling Gleam,8.2%,,,,,,,,
-Ampharos,135,move,10,Confuse Ray,6.8%,,,,,,,,
-Ampharos,135,held_item,1,Ampharosite,89.2%,,,,,,,,
-Ampharos,135,held_item,2,Sitrus Berry,3.2%,,,,,,,,
-Ampharos,135,held_item,3,Focus Sash,2.9%,,,,,,,,
-Ampharos,135,held_item,4,Leftovers,2.6%,,,,,,,,
-Ampharos,135,held_item,5,Rocky Helmet,1.2%,,,,,,,,
-Ampharos,135,held_item,6,Air Balloon,0.8%,,,,,,,,
-Ampharos,135,held_item,7,Magnet,0.1%,,,,,,,,
-Ampharos,135,teammate,1,Mimikyu,,,,,,,,,
-Ampharos,135,teammate,2,Garchomp,,,,,,,,,
-Ampharos,135,teammate,3,Rotom-Wash,,,,,,,,,
-Ampharos,135,teammate,4,Charizard,,,,,,,,,
-Ampharos,135,teammate,5,Sneasler,,,,,,,,,
-Ampharos,135,teammate,6,Clefable,,,,,,,,,
-Ampharos,135,teammate,7,Tyranitar,,,,,,,,,
-Ampharos,135,teammate,8,Tinkaton,,,,,,,,,
-Ampharos,135,teammate,9,Hatterene,,,,,,,,,
-Ampharos,135,teammate,10,Weavile,,,,,,,,,
-Ampharos,135,stat_alignment,1,Modest,49.5%,Sp. Atk,Attack,,,,,,
-Ampharos,135,stat_alignment,2,Quiet,44.9%,Sp. Atk,Speed,,,,,,
-Ampharos,135,stat_alignment,3,Bold,5.5%,Defense,Attack,,,,,,
-Ampharos,135,stat_alignment,4,Relaxed,0.1%,Defense,Speed,,,,,,
-Ampharos,135,stat_points,1,,47.4%,,,32,0,2,32,0,0
-Ampharos,135,stat_points,2,,12.3%,,,13,0,0,32,0,21
-Ampharos,135,stat_points,3,,7.7%,,,32,0,0,32,2,0
-Ampharos,135,stat_points,4,,7.2%,,,16,0,18,32,0,0
-Ampharos,135,stat_points,5,,7.1%,,,2,0,32,32,0,0
-Ampharos,135,stat_points,6,,3.3%,,,32,0,0,13,0,21
-Ampharos,135,stat_points,7,,3.2%,,,2,0,0,32,0,32
-Ampharos,135,stat_points,8,,3.2%,,,32,0,15,13,0,6
-Ampharos,135,stat_points,9,,2.2%,,,16,0,25,25,0,0
-Ampharos,135,stat_points,10,,1.2%,,,32,0,32,0,2,0
-Ampharos,135,ability,1,Static,99.6%,,,,,,,,
-Ampharos,135,ability,2,Plus,0.4%,,,,,,,,
+Ampharos,138,move,1,Dragon Pulse,92.6%,,,,,,,,
+Ampharos,138,move,2,Power Gem,60.2%,,,,,,,,
+Ampharos,138,move,3,Focus Blast,49.5%,,,,,,,,
+Ampharos,138,move,4,Thunderbolt,49.2%,,,,,,,,
+Ampharos,138,move,5,Parabolic Charge,46.0%,,,,,,,,
+Ampharos,138,move,6,Cotton Guard,43.1%,,,,,,,,
+Ampharos,138,move,7,Charge,21.3%,,,,,,,,
+Ampharos,138,move,8,Discharge,11.7%,,,,,,,,
+Ampharos,138,move,9,Confuse Ray,9.0%,,,,,,,,
+Ampharos,138,move,10,Dazzling Gleam,7.5%,,,,,,,,
+Ampharos,138,held_item,1,Ampharosite,88.4%,,,,,,,,
+Ampharos,138,held_item,2,Leftovers,4.0%,,,,,,,,
+Ampharos,138,held_item,3,Focus Sash,3.1%,,,,,,,,
+Ampharos,138,held_item,4,Sitrus Berry,2.7%,,,,,,,,
+Ampharos,138,held_item,5,Rocky Helmet,1.0%,,,,,,,,
+Ampharos,138,held_item,6,Air Balloon,0.7%,,,,,,,,
+Ampharos,138,held_item,7,Magnet,0.1%,,,,,,,,
+Ampharos,138,teammate,1,Mimikyu,,,,,,,,,
+Ampharos,138,teammate,2,Garchomp,,,,,,,,,
+Ampharos,138,teammate,3,Rotom-Wash,,,,,,,,,
+Ampharos,138,teammate,4,Charizard,,,,,,,,,
+Ampharos,138,teammate,5,Sneasler,,,,,,,,,
+Ampharos,138,teammate,6,Tyranitar,,,,,,,,,
+Ampharos,138,teammate,7,Clefable,,,,,,,,,
+Ampharos,138,teammate,8,Tinkaton,,,,,,,,,
+Ampharos,138,teammate,9,Weavile,,,,,,,,,
+Ampharos,138,teammate,10,Espathra,,,,,,,,,
+Ampharos,138,stat_alignment,1,Modest,52.7%,Sp. Atk,Attack,,,,,,
+Ampharos,138,stat_alignment,2,Quiet,41.7%,Sp. Atk,Speed,,,,,,
+Ampharos,138,stat_alignment,3,Bold,5.1%,Defense,Attack,,,,,,
+Ampharos,138,stat_alignment,4,Timid,0.3%,Speed,Attack,,,,,,
+Ampharos,138,stat_alignment,5,Relaxed,0.1%,Defense,Speed,,,,,,
+Ampharos,138,stat_points,1,,46.0%,,,32,0,2,32,0,0
+Ampharos,138,stat_points,2,,11.2%,,,13,0,0,32,0,21
+Ampharos,138,stat_points,3,,9.2%,,,2,0,32,32,0,0
+Ampharos,138,stat_points,4,,7.1%,,,32,0,0,32,2,0
+Ampharos,138,stat_points,5,,6.1%,,,16,0,18,32,0,0
+Ampharos,138,stat_points,6,,3.6%,,,32,0,0,13,0,21
+Ampharos,138,stat_points,7,,3.3%,,,2,0,0,32,0,32
+Ampharos,138,stat_points,8,,2.7%,,,32,0,15,13,0,6
+Ampharos,138,stat_points,9,,1.9%,,,16,0,25,25,0,0
+Ampharos,138,stat_points,10,,1.1%,,,2,0,19,32,13,0
+Ampharos,138,ability,1,Static,99.7%,,,,,,,,
+Ampharos,138,ability,2,Plus,0.3%,,,,,,,,

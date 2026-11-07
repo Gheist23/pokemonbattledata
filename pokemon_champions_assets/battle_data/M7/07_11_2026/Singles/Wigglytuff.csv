@@ -1,45 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Wigglytuff,229,move,1,Stealth Rock,75.3%,,,,,,,,
-Wigglytuff,229,move,2,Moonblast,56.7%,,,,,,,,
-Wigglytuff,229,move,3,Encore,41.2%,,,,,,,,
-Wigglytuff,229,move,4,Thunder Wave,32.0%,,,,,,,,
-Wigglytuff,229,move,5,Grass Knot,30.9%,,,,,,,,
-Wigglytuff,229,move,6,Flamethrower,26.8%,,,,,,,,
-Wigglytuff,229,move,7,Thunderbolt,21.6%,,,,,,,,
-Wigglytuff,229,move,8,Alluring Voice,21.6%,,,,,,,,
-Wigglytuff,229,move,9,Fire Blast,19.6%,,,,,,,,
-Wigglytuff,229,move,10,Icy Wind,15.5%,,,,,,,,
-Wigglytuff,229,held_item,1,Air Balloon,27.8%,,,,,,,,
-Wigglytuff,229,held_item,2,Sitrus Berry,19.6%,,,,,,,,
-Wigglytuff,229,held_item,3,Life Orb,17.5%,,,,,,,,
-Wigglytuff,229,held_item,4,Lum Berry,16.5%,,,,,,,,
-Wigglytuff,229,held_item,5,Focus Sash,9.3%,,,,,,,,
-Wigglytuff,229,held_item,6,Leftovers,6.2%,,,,,,,,
-Wigglytuff,229,held_item,7,Babiri Berry,2.1%,,,,,,,,
-Wigglytuff,229,held_item,8,Wide Lens,1.0%,,,,,,,,
-Wigglytuff,229,teammate,1,Blastoise,,,,,,,,,
-Wigglytuff,229,teammate,2,Scizor,,,,,,,,,
-Wigglytuff,229,teammate,3,Golisopod,,,,,,,,,
-Wigglytuff,229,teammate,4,Archaludon,,,,,,,,,
-Wigglytuff,229,teammate,5,Vileplume,,,,,,,,,
-Wigglytuff,229,teammate,6,Umbreon,,,,,,,,,
-Wigglytuff,229,teammate,7,Armarouge,,,,,,,,,
-Wigglytuff,229,teammate,8,Garchomp,,,,,,,,,
-Wigglytuff,229,teammate,9,Indeedee,,,,,,,,,
-Wigglytuff,229,teammate,10,Typhlosion,,,,,,,,,
-Wigglytuff,229,stat_alignment,1,Bold,57.7%,Defense,Attack,,,,,,
-Wigglytuff,229,stat_alignment,2,Modest,33.0%,Sp. Atk,Attack,,,,,,
-Wigglytuff,229,stat_alignment,3,Calm,5.2%,Sp. Def,Attack,,,,,,
-Wigglytuff,229,stat_alignment,4,Timid,4.1%,Speed,Attack,,,,,,
-Wigglytuff,229,stat_points,1,,17.5%,,,32,0,2,32,0,0
-Wigglytuff,229,stat_points,2,,16.5%,,,0,0,32,31,0,3
-Wigglytuff,229,stat_points,3,,15.5%,,,0,0,31,0,30,5
-Wigglytuff,229,stat_points,4,,12.4%,,,2,0,32,0,32,0
-Wigglytuff,229,stat_points,5,,8.2%,,,2,0,0,32,0,32
-Wigglytuff,229,stat_points,6,,7.2%,,,0,0,30,32,0,4
-Wigglytuff,229,stat_points,7,,6.2%,,,10,0,32,0,24,0
-Wigglytuff,229,stat_points,8,,5.2%,,,32,0,0,0,28,6
-Wigglytuff,229,stat_points,9,,4.1%,,,0,0,27,0,27,12
-Wigglytuff,229,stat_points,10,,3.1%,,,19,0,32,15,0,0
-Wigglytuff,229,ability,1,Frisk,55.7%,,,,,,,,
-Wigglytuff,229,ability,2,Competitive,44.3%,,,,,,,,
+Wigglytuff,225,move,1,Stealth Rock,75.6%,,,,,,,,
+Wigglytuff,225,move,2,Moonblast,61.8%,,,,,,,,
+Wigglytuff,225,move,3,Encore,40.7%,,,,,,,,
+Wigglytuff,225,move,4,Thunder Wave,33.3%,,,,,,,,
+Wigglytuff,225,move,5,Flamethrower,32.5%,,,,,,,,
+Wigglytuff,225,move,6,Grass Knot,24.4%,,,,,,,,
+Wigglytuff,225,move,7,Thunderbolt,20.3%,,,,,,,,
+Wigglytuff,225,move,8,Ice Beam,17.9%,,,,,,,,
+Wigglytuff,225,move,9,Alluring Voice,17.1%,,,,,,,,
+Wigglytuff,225,move,10,Fire Blast,15.4%,,,,,,,,
+Wigglytuff,225,held_item,1,Air Balloon,30.9%,,,,,,,,
+Wigglytuff,225,held_item,2,Sitrus Berry,22.0%,,,,,,,,
+Wigglytuff,225,held_item,3,Life Orb,13.8%,,,,,,,,
+Wigglytuff,225,held_item,4,Lum Berry,13.0%,,,,,,,,
+Wigglytuff,225,held_item,5,Focus Sash,7.3%,,,,,,,,
+Wigglytuff,225,held_item,6,Leftovers,4.9%,,,,,,,,
+Wigglytuff,225,held_item,7,Babiri Berry,2.4%,,,,,,,,
+Wigglytuff,225,held_item,8,Fairy Feather,1.6%,,,,,,,,
+Wigglytuff,225,held_item,9,Rocky Helmet,1.6%,,,,,,,,
+Wigglytuff,225,held_item,10,Quick Claw,0.8%,,,,,,,,
+Wigglytuff,225,teammate,1,Blastoise,,,,,,,,,
+Wigglytuff,225,teammate,2,Scizor,,,,,,,,,
+Wigglytuff,225,teammate,3,Golisopod,,,,,,,,,
+Wigglytuff,225,teammate,4,Indeedee,,,,,,,,,
+Wigglytuff,225,teammate,5,Archaludon,,,,,,,,,
+Wigglytuff,225,teammate,6,Armarouge,,,,,,,,,
+Wigglytuff,225,teammate,7,Vileplume,,,,,,,,,
+Wigglytuff,225,teammate,8,Umbreon,,,,,,,,,
+Wigglytuff,225,teammate,9,Garchomp,,,,,,,,,
+Wigglytuff,225,teammate,10,Typhlosion,,,,,,,,,
+Wigglytuff,225,stat_alignment,1,Bold,56.1%,Defense,Attack,,,,,,
+Wigglytuff,225,stat_alignment,2,Modest,34.1%,Sp. Atk,Attack,,,,,,
+Wigglytuff,225,stat_alignment,3,Calm,5.7%,Sp. Def,Attack,,,,,,
+Wigglytuff,225,stat_alignment,4,Timid,3.3%,Speed,Attack,,,,,,
+Wigglytuff,225,stat_alignment,5,Quiet,0.8%,Sp. Atk,Speed,,,,,,
+Wigglytuff,225,stat_points,1,,17.9%,,,0,0,32,31,0,3
+Wigglytuff,225,stat_points,2,,13.8%,,,32,0,2,32,0,0
+Wigglytuff,225,stat_points,3,,12.2%,,,0,0,31,0,30,5
+Wigglytuff,225,stat_points,4,,9.8%,,,0,0,27,0,27,12
+Wigglytuff,225,stat_points,5,,9.8%,,,2,0,32,0,32,0
+Wigglytuff,225,stat_points,6,,8.1%,,,0,0,30,32,0,4
+Wigglytuff,225,stat_points,7,,6.5%,,,2,0,0,32,0,32
+Wigglytuff,225,stat_points,8,,5.7%,,,32,0,0,0,28,6
+Wigglytuff,225,stat_points,9,,4.9%,,,10,0,32,0,24,0
+Wigglytuff,225,stat_points,10,,2.4%,,,2,0,32,32,0,0
+Wigglytuff,225,ability,1,Frisk,56.1%,,,,,,,,
+Wigglytuff,225,ability,2,Competitive,43.9%,,,,,,,,

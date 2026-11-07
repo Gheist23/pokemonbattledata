@@ -1,37 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aromatisse,249,move,1,Trick Room,85.3%,,,,,,,,
-Aromatisse,249,move,2,Moonblast,61.8%,,,,,,,,
-Aromatisse,249,move,3,Thunderbolt,61.8%,,,,,,,,
-Aromatisse,249,move,4,Nasty Plot,58.8%,,,,,,,,
-Aromatisse,249,move,5,Wish,26.5%,,,,,,,,
-Aromatisse,249,move,6,Encore,23.5%,,,,,,,,
-Aromatisse,249,move,7,Misty Explosion,23.5%,,,,,,,,
-Aromatisse,249,move,8,Reflect,17.6%,,,,,,,,
-Aromatisse,249,move,9,Draining Kiss,14.7%,,,,,,,,
-Aromatisse,249,move,10,Psychic,14.7%,,,,,,,,
-Aromatisse,249,held_item,1,Sitrus Berry,70.6%,,,,,,,,
-Aromatisse,249,held_item,2,Rocky Helmet,14.7%,,,,,,,,
-Aromatisse,249,held_item,3,Air Balloon,11.8%,,,,,,,,
-Aromatisse,249,held_item,4,Focus Sash,2.9%,,,,,,,,
-Aromatisse,249,teammate,1,Garchomp,,,,,,,,,
-Aromatisse,249,teammate,2,Gyarados,,,,,,,,,
-Aromatisse,249,teammate,3,Delphox,,,,,,,,,
-Aromatisse,249,teammate,4,Dragapult,,,,,,,,,
-Aromatisse,249,teammate,5,Glimmora,,,,,,,,,
-Aromatisse,249,teammate,6,Hippowdon,,,,,,,,,
-Aromatisse,249,teammate,7,Samurott-Hisui,,,,,,,,,
-Aromatisse,249,teammate,8,Goodra,,,,,,,,,
-Aromatisse,249,teammate,9,Trevenant,,,,,,,,,
-Aromatisse,249,teammate,10,Crabominable,,,,,,,,,
-Aromatisse,249,stat_alignment,1,Quiet,44.1%,Sp. Atk,Speed,,,,,,
-Aromatisse,249,stat_alignment,2,Bold,26.5%,Defense,Attack,,,,,,
-Aromatisse,249,stat_alignment,3,Relaxed,17.6%,Defense,Speed,,,,,,
-Aromatisse,249,stat_alignment,4,Sassy,8.8%,Sp. Def,Speed,,,,,,
-Aromatisse,249,stat_alignment,5,Timid,2.9%,Speed,Attack,,,,,,
-Aromatisse,249,stat_points,1,,44.1%,,,32,0,2,32,0,0
-Aromatisse,249,stat_points,2,,32.4%,,,31,0,32,0,3,0
-Aromatisse,249,stat_points,3,,11.8%,,,31,0,13,0,0,22
-Aromatisse,249,stat_points,4,,5.9%,,,32,0,32,0,2,0
-Aromatisse,249,stat_points,5,,2.9%,,,2,0,0,32,0,32
-Aromatisse,249,stat_points,6,,2.9%,,,25,0,18,0,23,0
-Aromatisse,249,ability,1,Aroma Veil,100.0%,,,,,,,,
+Aromatisse,247,move,1,Trick Room,85.4%,,,,,,,,
+Aromatisse,247,move,2,Moonblast,68.8%,,,,,,,,
+Aromatisse,247,move,3,Encore,45.8%,,,,,,,,
+Aromatisse,247,move,4,Wish,43.8%,,,,,,,,
+Aromatisse,247,move,5,Thunderbolt,43.8%,,,,,,,,
+Aromatisse,247,move,6,Nasty Plot,41.7%,,,,,,,,
+Aromatisse,247,move,7,Misty Explosion,20.8%,,,,,,,,
+Aromatisse,247,move,8,Reflect,16.7%,,,,,,,,
+Aromatisse,247,move,9,Draining Kiss,10.4%,,,,,,,,
+Aromatisse,247,move,10,Psychic,10.4%,,,,,,,,
+Aromatisse,247,held_item,1,Sitrus Berry,75.0%,,,,,,,,
+Aromatisse,247,held_item,2,Rocky Helmet,10.4%,,,,,,,,
+Aromatisse,247,held_item,3,Air Balloon,8.3%,,,,,,,,
+Aromatisse,247,held_item,4,Light Clay,4.2%,,,,,,,,
+Aromatisse,247,held_item,5,Focus Sash,2.1%,,,,,,,,
+Aromatisse,247,teammate,1,Delphox,,,,,,,,,
+Aromatisse,247,teammate,2,Garchomp,,,,,,,,,
+Aromatisse,247,teammate,3,Conkeldurr,,,,,,,,,
+Aromatisse,247,teammate,4,Gyarados,,,,,,,,,
+Aromatisse,247,teammate,5,Dragapult,,,,,,,,,
+Aromatisse,247,teammate,6,Glimmora,,,,,,,,,
+Aromatisse,247,teammate,7,Tyranitar,,,,,,,,,
+Aromatisse,247,teammate,8,Manectric,,,,,,,,,
+Aromatisse,247,teammate,9,Mawile,,,,,,,,,
+Aromatisse,247,teammate,10,Goodra-Hisui,,,,,,,,,
+Aromatisse,247,stat_alignment,1,Quiet,56.3%,Sp. Atk,Speed,,,,,,
+Aromatisse,247,stat_alignment,2,Bold,22.9%,Defense,Attack,,,,,,
+Aromatisse,247,stat_alignment,3,Relaxed,12.5%,Defense,Speed,,,,,,
+Aromatisse,247,stat_alignment,4,Sassy,6.3%,Sp. Def,Speed,,,,,,
+Aromatisse,247,stat_alignment,5,Timid,2.1%,Speed,Attack,,,,,,
+Aromatisse,247,stat_points,1,,31.3%,,,32,0,2,32,0,0
+Aromatisse,247,stat_points,2,,27.1%,,,31,0,32,0,3,0
+Aromatisse,247,stat_points,3,,25.0%,,,32,0,24,9,1,0
+Aromatisse,247,stat_points,4,,8.3%,,,31,0,13,0,0,22
+Aromatisse,247,stat_points,5,,4.2%,,,32,0,32,0,2,0
+Aromatisse,247,stat_points,6,,2.1%,,,2,0,0,32,0,32
+Aromatisse,247,stat_points,7,,2.1%,,,25,0,18,0,23,0
+Aromatisse,247,ability,1,Aroma Veil,100.0%,,,,,,,,

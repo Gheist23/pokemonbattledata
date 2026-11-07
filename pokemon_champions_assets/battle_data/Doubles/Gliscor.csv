@@ -1,47 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gliscor,88,move,1,High Horsepower,92.1%,,,,,,,,
-Gliscor,88,move,2,Tailwind,84.6%,,,,,,,,
-Gliscor,88,move,3,Protect,82.2%,,,,,,,,
-Gliscor,88,move,4,Acrobatics,75.1%,,,,,,,,
-Gliscor,88,move,5,Dual Wingbeat,18.7%,,,,,,,,
-Gliscor,88,move,6,Rock Slide,11.9%,,,,,,,,
-Gliscor,88,move,7,Earthquake,8.1%,,,,,,,,
-Gliscor,88,move,8,Swords Dance,5.5%,,,,,,,,
-Gliscor,88,move,9,Struggle Bug,4.2%,,,,,,,,
-Gliscor,88,move,10,Throat Chop,4.0%,,,,,,,,
-Gliscor,88,held_item,1,Psychic Seed,49.5%,,,,,,,,
-Gliscor,88,held_item,2,Grassy Seed,16.2%,,,,,,,,
-Gliscor,88,held_item,3,Life Orb,8.6%,,,,,,,,
-Gliscor,88,held_item,4,Bright Powder,4.0%,,,,,,,,
-Gliscor,88,held_item,5,Focus Sash,3.3%,,,,,,,,
-Gliscor,88,held_item,6,Sitrus Berry,2.8%,,,,,,,,
-Gliscor,88,held_item,7,Leftovers,1.7%,,,,,,,,
-Gliscor,88,held_item,8,Expert Belt,1.7%,,,,,,,,
-Gliscor,88,held_item,9,Wide Lens,1.6%,,,,,,,,
-Gliscor,88,held_item,10,Electric Seed,1.3%,,,,,,,,
-Gliscor,88,teammate,1,Indeedee-F,,,,,,,,,
-Gliscor,88,teammate,2,Charizard,,,,,,,,,
-Gliscor,88,teammate,3,Gardevoir,,,,,,,,,
-Gliscor,88,teammate,4,Annihilape,,,,,,,,,
-Gliscor,88,teammate,5,Venusaur,,,,,,,,,
-Gliscor,88,teammate,6,Rillaboom,,,,,,,,,
-Gliscor,88,teammate,7,Tyranitar,,,,,,,,,
-Gliscor,88,teammate,8,Garchomp,,,,,,,,,
-Gliscor,88,teammate,9,Sneasler,,,,,,,,,
-Gliscor,88,teammate,10,Raichu,,,,,,,,,
-Gliscor,88,stat_alignment,1,Adamant,78.8%,Attack,Sp. Atk,,,,,,
-Gliscor,88,stat_alignment,2,Jolly,20.0%,Speed,Sp. Atk,,,,,,
-Gliscor,88,stat_alignment,3,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
-Gliscor,88,stat_alignment,4,Impish,0.6%,Defense,Sp. Atk,,,,,,
-Gliscor,88,stat_points,1,,10.3%,,,15,25,0,0,0,26
-Gliscor,88,stat_points,2,,7.4%,,,2,32,0,0,0,32
-Gliscor,88,stat_points,3,,7.1%,,,32,25,0,0,0,9
-Gliscor,88,stat_points,4,,7.0%,,,29,25,0,0,0,12
-Gliscor,88,stat_points,5,,5.6%,,,1,28,0,0,5,32
-Gliscor,88,stat_points,6,,4.1%,,,32,32,0,0,1,1
-Gliscor,88,stat_points,7,,3.7%,,,26,25,0,0,0,15
-Gliscor,88,stat_points,8,,3.4%,,,31,25,0,0,0,10
-Gliscor,88,stat_points,9,,2.7%,,,32,18,0,0,0,16
-Gliscor,88,stat_points,10,,2.6%,,,15,29,0,0,0,22
-Gliscor,88,ability,1,Hyper Cutter,95.6%,,,,,,,,
-Gliscor,88,ability,2,Sand Veil,4.4%,,,,,,,,
+Gliscor,80,move,1,High Horsepower,90.7%,,,,,,,,
+Gliscor,80,move,2,Tailwind,82.6%,,,,,,,,
+Gliscor,80,move,3,Protect,79.5%,,,,,,,,
+Gliscor,80,move,4,Acrobatics,72.3%,,,,,,,,
+Gliscor,80,move,5,Dual Wingbeat,19.2%,,,,,,,,
+Gliscor,80,move,6,Rock Slide,14.8%,,,,,,,,
+Gliscor,80,move,7,Earthquake,9.4%,,,,,,,,
+Gliscor,80,move,8,Swords Dance,5.0%,,,,,,,,
+Gliscor,80,move,9,Ice Fang,4.8%,,,,,,,,
+Gliscor,80,move,10,Throat Chop,4.4%,,,,,,,,
+Gliscor,80,held_item,1,Psychic Seed,46.7%,,,,,,,,
+Gliscor,80,held_item,2,Grassy Seed,16.5%,,,,,,,,
+Gliscor,80,held_item,3,Life Orb,9.8%,,,,,,,,
+Gliscor,80,held_item,4,Focus Sash,5.0%,,,,,,,,
+Gliscor,80,held_item,5,Bright Powder,4.7%,,,,,,,,
+Gliscor,80,held_item,6,Sitrus Berry,3.1%,,,,,,,,
+Gliscor,80,held_item,7,Leftovers,1.5%,,,,,,,,
+Gliscor,80,held_item,8,Expert Belt,1.4%,,,,,,,,
+Gliscor,80,held_item,9,Wide Lens,1.3%,,,,,,,,
+Gliscor,80,held_item,10,Electric Seed,1.1%,,,,,,,,
+Gliscor,80,teammate,1,Charizard,,,,,,,,,
+Gliscor,80,teammate,2,Indeedee-F,,,,,,,,,
+Gliscor,80,teammate,3,Venusaur,,,,,,,,,
+Gliscor,80,teammate,4,Gardevoir,,,,,,,,,
+Gliscor,80,teammate,5,Annihilape,,,,,,,,,
+Gliscor,80,teammate,6,Rillaboom,,,,,,,,,
+Gliscor,80,teammate,7,Tyranitar,,,,,,,,,
+Gliscor,80,teammate,8,Garchomp,,,,,,,,,
+Gliscor,80,teammate,9,Raichu,,,,,,,,,
+Gliscor,80,teammate,10,Indeedee,,,,,,,,,
+Gliscor,80,stat_alignment,1,Adamant,76.2%,Attack,Sp. Atk,,,,,,
+Gliscor,80,stat_alignment,2,Jolly,22.4%,Speed,Sp. Atk,,,,,,
+Gliscor,80,stat_alignment,3,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
+Gliscor,80,stat_alignment,4,Impish,0.6%,Defense,Sp. Atk,,,,,,
+Gliscor,80,stat_alignment,5,Lonely,0.1%,Attack,Defense,,,,,,
+Gliscor,80,stat_points,1,,9.1%,,,15,25,0,0,0,26
+Gliscor,80,stat_points,2,,8.2%,,,2,32,0,0,0,32
+Gliscor,80,stat_points,3,,6.7%,,,32,25,0,0,0,9
+Gliscor,80,stat_points,4,,6.1%,,,29,25,0,0,0,12
+Gliscor,80,stat_points,5,,5.8%,,,1,28,0,0,5,32
+Gliscor,80,stat_points,6,,4.0%,,,0,32,0,0,0,32
+Gliscor,80,stat_points,7,,3.8%,,,31,25,0,0,0,10
+Gliscor,80,stat_points,8,,3.7%,,,32,32,0,0,1,1
+Gliscor,80,stat_points,9,,3.2%,,,26,25,0,0,0,15
+Gliscor,80,stat_points,10,,3.0%,,,0,32,0,0,2,32
+Gliscor,80,ability,1,Hyper Cutter,93.9%,,,,,,,,
+Gliscor,80,ability,2,Sand Veil,5.9%,,,,,,,,
+Gliscor,80,ability,3,Poison Heal,0.2%,,,,,,,,

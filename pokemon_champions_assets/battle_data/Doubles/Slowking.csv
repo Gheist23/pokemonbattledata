@@ -1,45 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slowking,122,move,1,Trick Room,99.4%,,,,,,,,
-Slowking,122,move,2,Scald,78.1%,,,,,,,,
-Slowking,122,move,3,Expanding Force,76.0%,,,,,,,,
-Slowking,122,move,4,Flamethrower,70.5%,,,,,,,,
-Slowking,122,move,5,Ice Beam,19.1%,,,,,,,,
-Slowking,122,move,6,Sunny Day,17.7%,,,,,,,,
-Slowking,122,move,7,Surf,17.6%,,,,,,,,
-Slowking,122,move,8,Protect,5.1%,,,,,,,,
-Slowking,122,move,9,Psyshock,5.0%,,,,,,,,
-Slowking,122,move,10,Heal Pulse,3.4%,,,,,,,,
-Slowking,122,held_item,1,Life Orb,75.3%,,,,,,,,
-Slowking,122,held_item,2,Electric Seed,17.7%,,,,,,,,
-Slowking,122,held_item,3,Focus Sash,3.3%,,,,,,,,
-Slowking,122,held_item,4,Rocky Helmet,1.4%,,,,,,,,
-Slowking,122,held_item,5,Colbur Berry,0.9%,,,,,,,,
-Slowking,122,held_item,6,Leftovers,0.8%,,,,,,,,
-Slowking,122,held_item,7,Sitrus Berry,0.5%,,,,,,,,
-Slowking,122,teammate,1,Indeedee-F,,,,,,,,,
-Slowking,122,teammate,2,Grapploct,,,,,,,,,
-Slowking,122,teammate,3,Drampa,,,,,,,,,
-Slowking,122,teammate,4,Metagross,,,,,,,,,
-Slowking,122,teammate,5,Kingambit,,,,,,,,,
-Slowking,122,teammate,6,Glimmora,,,,,,,,,
-Slowking,122,teammate,7,Raichu,,,,,,,,,
-Slowking,122,teammate,8,Basculegion,,,,,,,,,
-Slowking,122,teammate,9,Arboliva,,,,,,,,,
-Slowking,122,teammate,10,Farigiraf,,,,,,,,,
-Slowking,122,stat_alignment,1,Quiet,93.2%,Sp. Atk,Speed,,,,,,
-Slowking,122,stat_alignment,2,Modest,4.7%,Sp. Atk,Attack,,,,,,
-Slowking,122,stat_alignment,3,Relaxed,1.2%,Defense,Speed,,,,,,
-Slowking,122,stat_alignment,4,Bold,0.6%,Defense,Attack,,,,,,
-Slowking,122,stat_alignment,5,Sassy,0.3%,Sp. Def,Speed,,,,,,
-Slowking,122,stat_points,1,,73.1%,,,29,0,5,32,0,0
-Slowking,122,stat_points,2,,14.8%,,,31,0,4,16,15,0
-Slowking,122,stat_points,3,,4.5%,,,32,0,2,32,0,0
-Slowking,122,stat_points,4,,3.3%,,,32,0,0,30,0,4
-Slowking,122,stat_points,5,,1.4%,,,22,0,32,10,2,0
-Slowking,122,stat_points,6,,1.1%,,,32,0,32,0,2,0
-Slowking,122,stat_points,7,,0.8%,,,31,0,0,32,3,0
-Slowking,122,stat_points,8,,0.5%,,,20,0,32,10,4,0
-Slowking,122,stat_points,9,,0.2%,,,31,0,1,32,2,0
-Slowking,122,stat_points,10,,0.2%,,,31,0,5,0,30,0
-Slowking,122,ability,1,Regenerator,80.6%,,,,,,,,
-Slowking,122,ability,2,Oblivious,19.4%,,,,,,,,
+Slowking,120,move,1,Trick Room,99.2%,,,,,,,,
+Slowking,120,move,2,Scald,76.9%,,,,,,,,
+Slowking,120,move,3,Expanding Force,75.1%,,,,,,,,
+Slowking,120,move,4,Flamethrower,69.4%,,,,,,,,
+Slowking,120,move,5,Ice Beam,20.4%,,,,,,,,
+Slowking,120,move,6,Sunny Day,19.2%,,,,,,,,
+Slowking,120,move,7,Surf,19.1%,,,,,,,,
+Slowking,120,move,8,Protect,5.0%,,,,,,,,
+Slowking,120,move,9,Psyshock,4.5%,,,,,,,,
+Slowking,120,move,10,Heal Pulse,3.1%,,,,,,,,
+Slowking,120,held_item,1,Life Orb,73.9%,,,,,,,,
+Slowking,120,held_item,2,Electric Seed,19.2%,,,,,,,,
+Slowking,120,held_item,3,Focus Sash,2.9%,,,,,,,,
+Slowking,120,held_item,4,Rocky Helmet,1.3%,,,,,,,,
+Slowking,120,held_item,5,Colbur Berry,0.8%,,,,,,,,
+Slowking,120,held_item,6,Leftovers,0.7%,,,,,,,,
+Slowking,120,held_item,7,Grassy Seed,0.6%,,,,,,,,
+Slowking,120,held_item,8,Sitrus Berry,0.4%,,,,,,,,
+Slowking,120,held_item,9,Kasib Berry,0.1%,,,,,,,,
+Slowking,120,teammate,1,Indeedee-F,,,,,,,,,
+Slowking,120,teammate,2,Grapploct,,,,,,,,,
+Slowking,120,teammate,3,Drampa,,,,,,,,,
+Slowking,120,teammate,4,Metagross,,,,,,,,,
+Slowking,120,teammate,5,Kingambit,,,,,,,,,
+Slowking,120,teammate,6,Glimmora,,,,,,,,,
+Slowking,120,teammate,7,Raichu,,,,,,,,,
+Slowking,120,teammate,8,Basculegion,,,,,,,,,
+Slowking,120,teammate,9,Arboliva,,,,,,,,,
+Slowking,120,teammate,10,Farigiraf,,,,,,,,,
+Slowking,120,stat_alignment,1,Quiet,92.8%,Sp. Atk,Speed,,,,,,
+Slowking,120,stat_alignment,2,Modest,4.6%,Sp. Atk,Attack,,,,,,
+Slowking,120,stat_alignment,3,Relaxed,1.3%,Defense,Speed,,,,,,
+Slowking,120,stat_alignment,4,Sassy,0.8%,Sp. Def,Speed,,,,,,
+Slowking,120,stat_alignment,5,Bold,0.6%,Defense,Attack,,,,,,
+Slowking,120,stat_points,1,,71.1%,,,29,0,5,32,0,0
+Slowking,120,stat_points,2,,16.6%,,,31,0,4,16,15,0
+Slowking,120,stat_points,3,,4.5%,,,32,0,2,32,0,0
+Slowking,120,stat_points,4,,2.9%,,,32,0,0,30,0,4
+Slowking,120,stat_points,5,,1.3%,,,22,0,32,10,2,0
+Slowking,120,stat_points,6,,1.0%,,,32,0,32,0,2,0
+Slowking,120,stat_points,7,,0.7%,,,31,0,0,32,3,0
+Slowking,120,stat_points,8,,0.6%,,,32,0,14,0,20,0
+Slowking,120,stat_points,9,,0.4%,,,20,0,32,10,4,0
+Slowking,120,stat_points,10,,0.3%,,,2,0,0,32,32,0
+Slowking,120,ability,1,Regenerator,78.9%,,,,,,,,
+Slowking,120,ability,2,Oblivious,21.1%,,,,,,,,

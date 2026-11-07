@@ -1,45 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Runerigus,228,move,1,Trick Room,79.2%,,,,,,,,
-Runerigus,228,move,2,Ally Switch,62.5%,,,,,,,,
-Runerigus,228,move,3,Poltergeist,62.5%,,,,,,,,
-Runerigus,228,move,4,Body Press,45.8%,,,,,,,,
-Runerigus,228,move,5,Will-O-Wisp,41.7%,,,,,,,,
-Runerigus,228,move,6,Fake Tears,27.1%,,,,,,,,
-Runerigus,228,move,7,Rock Slide,16.7%,,,,,,,,
-Runerigus,228,move,8,Attract,14.6%,,,,,,,,
-Runerigus,228,move,9,Sand Tomb,14.6%,,,,,,,,
-Runerigus,228,move,10,Haze,6.3%,,,,,,,,
-Runerigus,228,held_item,1,Rocky Helmet,22.9%,,,,,,,,
-Runerigus,228,held_item,2,Colbur Berry,18.8%,,,,,,,,
-Runerigus,228,held_item,3,Red Card,14.6%,,,,,,,,
-Runerigus,228,held_item,4,Focus Sash,12.5%,,,,,,,,
-Runerigus,228,held_item,5,Sitrus Berry,10.4%,,,,,,,,
-Runerigus,228,held_item,6,Bright Powder,8.3%,,,,,,,,
-Runerigus,228,held_item,7,Mental Herb,4.2%,,,,,,,,
-Runerigus,228,held_item,8,Leftovers,4.2%,,,,,,,,
-Runerigus,228,held_item,9,White Herb,2.1%,,,,,,,,
-Runerigus,228,held_item,10,Grassy Seed,2.1%,,,,,,,,
-Runerigus,228,teammate,1,Incineroar,,,,,,,,,
-Runerigus,228,teammate,2,Primarina,,,,,,,,,
-Runerigus,228,teammate,3,Ampharos,,,,,,,,,
-Runerigus,228,teammate,4,Garchomp,,,,,,,,,
-Runerigus,228,teammate,5,Sylveon,,,,,,,,,
-Runerigus,228,teammate,6,Indeedee-F,,,,,,,,,
-Runerigus,228,teammate,7,Bellibolt,,,,,,,,,
-Runerigus,228,teammate,8,Mawile,,,,,,,,,
-Runerigus,228,teammate,9,Camerupt,,,,,,,,,
-Runerigus,228,teammate,10,Grapploct,,,,,,,,,
-Runerigus,228,stat_alignment,1,Relaxed,45.8%,Defense,Speed,,,,,,
-Runerigus,228,stat_alignment,2,Impish,33.3%,Defense,Sp. Atk,,,,,,
-Runerigus,228,stat_alignment,3,Adamant,12.5%,Attack,Sp. Atk,,,,,,
-Runerigus,228,stat_alignment,4,Sassy,4.2%,Sp. Def,Speed,,,,,,
-Runerigus,228,stat_alignment,5,Brave,2.1%,Attack,Speed,,,,,,
-Runerigus,228,stat_alignment,6,Bold,2.1%,Defense,Attack,,,,,,
-Runerigus,228,stat_points,1,,52.1%,,,32,0,32,0,2,0
-Runerigus,228,stat_points,2,,14.6%,,,2,0,32,0,32,0
-Runerigus,228,stat_points,3,,14.6%,,,32,0,17,0,17,0
-Runerigus,228,stat_points,4,,10.4%,,,32,2,32,0,0,0
-Runerigus,228,stat_points,5,,4.2%,,,0,2,32,0,32,0
-Runerigus,228,stat_points,6,,2.1%,,,32,0,15,0,19,0
-Runerigus,228,stat_points,7,,2.1%,,,32,32,0,0,2,0
-Runerigus,228,ability,1,Wandering Spirit,100.0%,,,,,,,,
+Runerigus,224,move,1,Trick Room,72.5%,,,,,,,,
+Runerigus,224,move,2,Poltergeist,49.3%,,,,,,,,
+Runerigus,224,move,3,Ally Switch,44.9%,,,,,,,,
+Runerigus,224,move,4,Body Press,34.8%,,,,,,,,
+Runerigus,224,move,5,Will-O-Wisp,31.9%,,,,,,,,
+Runerigus,224,move,6,Fake Tears,18.8%,,,,,,,,
+Runerigus,224,move,7,Protect,13.0%,,,,,,,,
+Runerigus,224,move,8,Iron Defense,13.0%,,,,,,,,
+Runerigus,224,move,9,Rock Slide,11.6%,,,,,,,,
+Runerigus,224,move,10,Rain Dance,11.6%,,,,,,,,
+Runerigus,224,held_item,1,Sitrus Berry,27.5%,,,,,,,,
+Runerigus,224,held_item,2,Rocky Helmet,18.8%,,,,,,,,
+Runerigus,224,held_item,3,Colbur Berry,13.0%,,,,,,,,
+Runerigus,224,held_item,4,Red Card,10.1%,,,,,,,,
+Runerigus,224,held_item,5,Focus Sash,8.7%,,,,,,,,
+Runerigus,224,held_item,6,Leftovers,7.2%,,,,,,,,
+Runerigus,224,held_item,7,Bright Powder,5.8%,,,,,,,,
+Runerigus,224,held_item,8,Mental Herb,5.8%,,,,,,,,
+Runerigus,224,held_item,9,White Herb,1.4%,,,,,,,,
+Runerigus,224,held_item,10,Grassy Seed,1.4%,,,,,,,,
+Runerigus,224,teammate,1,Incineroar,,,,,,,,,
+Runerigus,224,teammate,2,Rillaboom,,,,,,,,,
+Runerigus,224,teammate,3,Primarina,,,,,,,,,
+Runerigus,224,teammate,4,Indeedee-F,,,,,,,,,
+Runerigus,224,teammate,5,Ampharos,,,,,,,,,
+Runerigus,224,teammate,6,Garchomp,,,,,,,,,
+Runerigus,224,teammate,7,Sylveon,,,,,,,,,
+Runerigus,224,teammate,8,Bellibolt,,,,,,,,,
+Runerigus,224,teammate,9,Blastoise,,,,,,,,,
+Runerigus,224,teammate,10,Tyranitar,,,,,,,,,
+Runerigus,224,stat_alignment,1,Relaxed,43.5%,Defense,Speed,,,,,,
+Runerigus,224,stat_alignment,2,Impish,23.2%,Defense,Sp. Atk,,,,,,
+Runerigus,224,stat_alignment,3,Sassy,17.4%,Sp. Def,Speed,,,,,,
+Runerigus,224,stat_alignment,4,Adamant,8.7%,Attack,Sp. Atk,,,,,,
+Runerigus,224,stat_alignment,5,Brave,4.3%,Attack,Speed,,,,,,
+Runerigus,224,stat_alignment,6,Careful,1.4%,Sp. Def,Sp. Atk,,,,,,
+Runerigus,224,stat_alignment,7,Bold,1.4%,Defense,Attack,,,,,,
+Runerigus,224,stat_points,1,,39.1%,,,32,0,32,0,2,0
+Runerigus,224,stat_points,2,,13.0%,,,2,0,32,0,32,0
+Runerigus,224,stat_points,3,,13.0%,,,32,0,2,0,32,0
+Runerigus,224,stat_points,4,,10.1%,,,32,0,17,0,17,0
+Runerigus,224,stat_points,5,,8.7%,,,32,0,5,0,29,0
+Runerigus,224,stat_points,6,,7.2%,,,32,2,32,0,0,0
+Runerigus,224,stat_points,7,,2.9%,,,0,2,32,0,32,0
+Runerigus,224,stat_points,8,,2.9%,,,32,32,2,0,0,0
+Runerigus,224,stat_points,9,,1.4%,,,32,0,15,0,19,0
+Runerigus,224,stat_points,10,,1.4%,,,32,32,0,0,2,0
+Runerigus,224,ability,1,Wandering Spirit,100.0%,,,,,,,,

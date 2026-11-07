@@ -1,48 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mr. Mime,206,move,1,Fake Out,94.2%,,,,,,,,
-Mr. Mime,206,move,2,Wide Guard,75.0%,,,,,,,,
-Mr. Mime,206,move,3,Ally Switch,57.7%,,,,,,,,
-Mr. Mime,206,move,4,Dazzling Gleam,57.7%,,,,,,,,
-Mr. Mime,206,move,5,Expanding Force,52.9%,,,,,,,,
-Mr. Mime,206,move,6,Protect,20.2%,,,,,,,,
-Mr. Mime,206,move,7,Encore,12.5%,,,,,,,,
-Mr. Mime,206,move,8,Trick Room,6.7%,,,,,,,,
-Mr. Mime,206,move,9,Nasty Plot,4.8%,,,,,,,,
-Mr. Mime,206,move,10,Sunny Day,3.8%,,,,,,,,
-Mr. Mime,206,held_item,1,Focus Sash,34.6%,,,,,,,,
-Mr. Mime,206,held_item,2,Leftovers,24.0%,,,,,,,,
-Mr. Mime,206,held_item,3,Sitrus Berry,17.3%,,,,,,,,
-Mr. Mime,206,held_item,4,Kebia Berry,12.5%,,,,,,,,
-Mr. Mime,206,held_item,5,Grassy Seed,4.8%,,,,,,,,
-Mr. Mime,206,held_item,6,Rocky Helmet,3.8%,,,,,,,,
-Mr. Mime,206,held_item,7,Mental Herb,1.0%,,,,,,,,
-Mr. Mime,206,held_item,8,Iron Ball,1.0%,,,,,,,,
-Mr. Mime,206,held_item,9,Eject Button,1.0%,,,,,,,,
+Mr. Mime,206,move,1,Fake Out,87.2%,,,,,,,,
+Mr. Mime,206,move,2,Wide Guard,69.2%,,,,,,,,
+Mr. Mime,206,move,3,Dazzling Gleam,54.7%,,,,,,,,
+Mr. Mime,206,move,4,Ally Switch,53.0%,,,,,,,,
+Mr. Mime,206,move,5,Expanding Force,48.7%,,,,,,,,
+Mr. Mime,206,move,6,Protect,18.8%,,,,,,,,
+Mr. Mime,206,move,7,Encore,11.1%,,,,,,,,
+Mr. Mime,206,move,8,Icy Wind,10.3%,,,,,,,,
+Mr. Mime,206,move,9,Light Screen,7.7%,,,,,,,,
+Mr. Mime,206,move,10,Reflect,7.7%,,,,,,,,
+Mr. Mime,206,held_item,1,Focus Sash,38.5%,,,,,,,,
+Mr. Mime,206,held_item,2,Leftovers,21.4%,,,,,,,,
+Mr. Mime,206,held_item,3,Sitrus Berry,15.4%,,,,,,,,
+Mr. Mime,206,held_item,4,Kebia Berry,12.8%,,,,,,,,
+Mr. Mime,206,held_item,5,Rocky Helmet,4.3%,,,,,,,,
+Mr. Mime,206,held_item,6,Grassy Seed,4.3%,,,,,,,,
+Mr. Mime,206,held_item,7,Mental Herb,0.9%,,,,,,,,
+Mr. Mime,206,held_item,8,Light Clay,0.9%,,,,,,,,
+Mr. Mime,206,held_item,9,Iron Ball,0.9%,,,,,,,,
+Mr. Mime,206,held_item,10,Eject Button,0.9%,,,,,,,,
 Mr. Mime,206,teammate,1,Rillaboom,,,,,,,,,
 Mr. Mime,206,teammate,2,Charizard,,,,,,,,,
 Mr. Mime,206,teammate,3,Gengar,,,,,,,,,
-Mr. Mime,206,teammate,4,Whimsicott,,,,,,,,,
+Mr. Mime,206,teammate,4,Venusaur,,,,,,,,,
 Mr. Mime,206,teammate,5,Incineroar,,,,,,,,,
-Mr. Mime,206,teammate,6,Venusaur,,,,,,,,,
+Mr. Mime,206,teammate,6,Whimsicott,,,,,,,,,
 Mr. Mime,206,teammate,7,Gardevoir,,,,,,,,,
 Mr. Mime,206,teammate,8,Vanilluxe,,,,,,,,,
 Mr. Mime,206,teammate,9,Pawmot,,,,,,,,,
 Mr. Mime,206,teammate,10,Sneasler,,,,,,,,,
-Mr. Mime,206,stat_alignment,1,Bold,44.2%,Defense,Attack,,,,,,
-Mr. Mime,206,stat_alignment,2,Modest,25.0%,Sp. Atk,Attack,,,,,,
-Mr. Mime,206,stat_alignment,3,Timid,24.0%,Speed,Attack,,,,,,
-Mr. Mime,206,stat_alignment,4,Calm,4.8%,Sp. Def,Attack,,,,,,
-Mr. Mime,206,stat_alignment,5,Quiet,1.0%,Sp. Atk,Speed,,,,,,
-Mr. Mime,206,stat_alignment,6,Impish,1.0%,Defense,Sp. Atk,,,,,,
-Mr. Mime,206,stat_points,1,,26.9%,,,32,0,32,0,0,2
-Mr. Mime,206,stat_points,2,,14.4%,,,32,0,2,32,0,0
-Mr. Mime,206,stat_points,3,,12.5%,,,2,0,0,32,0,32
-Mr. Mime,206,stat_points,4,,11.5%,,,0,0,0,32,0,32
-Mr. Mime,206,stat_points,5,,11.5%,,,32,0,32,0,2,0
-Mr. Mime,206,stat_points,6,,9.6%,,,2,0,32,0,0,32
-Mr. Mime,206,stat_points,7,,4.8%,,,32,0,14,0,0,20
-Mr. Mime,206,stat_points,8,,2.9%,,,0,0,2,32,0,32
-Mr. Mime,206,stat_points,9,,1.9%,,,32,0,1,1,32,0
-Mr. Mime,206,stat_points,10,,1.9%,,,32,0,32,2,0,0
-Mr. Mime,206,ability,1,Soundproof,54.8%,,,,,,,,
-Mr. Mime,206,ability,2,Filter,45.2%,,,,,,,,
+Mr. Mime,206,stat_alignment,1,Bold,47.0%,Defense,Attack,,,,,,
+Mr. Mime,206,stat_alignment,2,Modest,23.9%,Sp. Atk,Attack,,,,,,
+Mr. Mime,206,stat_alignment,3,Timid,23.1%,Speed,Attack,,,,,,
+Mr. Mime,206,stat_alignment,4,Calm,4.3%,Sp. Def,Attack,,,,,,
+Mr. Mime,206,stat_alignment,5,Quiet,0.9%,Sp. Atk,Speed,,,,,,
+Mr. Mime,206,stat_alignment,6,Impish,0.9%,Defense,Sp. Atk,,,,,,
+Mr. Mime,206,stat_points,1,,31.6%,,,32,0,32,0,0,2
+Mr. Mime,206,stat_points,2,,14.5%,,,32,0,2,32,0,0
+Mr. Mime,206,stat_points,3,,12.0%,,,2,0,0,32,0,32
+Mr. Mime,206,stat_points,4,,11.1%,,,32,0,32,0,2,0
+Mr. Mime,206,stat_points,5,,10.3%,,,0,0,0,32,0,32
+Mr. Mime,206,stat_points,6,,8.5%,,,2,0,32,0,0,32
+Mr. Mime,206,stat_points,7,,4.3%,,,32,0,14,0,0,20
+Mr. Mime,206,stat_points,8,,2.6%,,,0,0,2,32,0,32
+Mr. Mime,206,stat_points,9,,1.7%,,,32,0,1,1,32,0
+Mr. Mime,206,stat_points,10,,1.7%,,,32,0,32,2,0,0
+Mr. Mime,206,ability,1,Soundproof,52.1%,,,,,,,,
+Mr. Mime,206,ability,2,Filter,47.9%,,,,,,,,

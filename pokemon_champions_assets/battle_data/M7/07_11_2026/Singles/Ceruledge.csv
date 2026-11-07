@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ceruledge,55,move,1,Bitter Blade,95.7%,,,,,,,,
-Ceruledge,55,move,2,Shadow Sneak,93.3%,,,,,,,,
+Ceruledge,55,move,1,Bitter Blade,95.8%,,,,,,,,
+Ceruledge,55,move,2,Shadow Sneak,93.0%,,,,,,,,
 Ceruledge,55,move,3,Poltergeist,82.8%,,,,,,,,
 Ceruledge,55,move,4,Swords Dance,58.8%,,,,,,,,
-Ceruledge,55,move,5,Close Combat,22.0%,,,,,,,,
+Ceruledge,55,move,5,Close Combat,21.9%,,,,,,,,
 Ceruledge,55,move,6,Bulk Up,20.6%,,,,,,,,
 Ceruledge,55,move,7,Destiny Bond,7.5%,,,,,,,,
-Ceruledge,55,move,8,Will-O-Wisp,7.0%,,,,,,,,
+Ceruledge,55,move,8,Will-O-Wisp,7.2%,,,,,,,,
 Ceruledge,55,move,9,Substitute,6.5%,,,,,,,,
 Ceruledge,55,move,10,Taunt,1.2%,,,,,,,,
-Ceruledge,55,held_item,1,Focus Sash,55.0%,,,,,,,,
+Ceruledge,55,held_item,1,Focus Sash,54.9%,,,,,,,,
 Ceruledge,55,held_item,2,Leftovers,19.0%,,,,,,,,
 Ceruledge,55,held_item,3,Life Orb,8.5%,,,,,,,,
 Ceruledge,55,held_item,4,Sitrus Berry,3.9%,,,,,,,,
 Ceruledge,55,held_item,5,Air Balloon,3.3%,,,,,,,,
-Ceruledge,55,held_item,6,Spell Tag,2.4%,,,,,,,,
+Ceruledge,55,held_item,6,Spell Tag,2.5%,,,,,,,,
 Ceruledge,55,held_item,7,Choice Scarf,1.9%,,,,,,,,
 Ceruledge,55,held_item,8,Shuca Berry,1.3%,,,,,,,,
 Ceruledge,55,held_item,9,Kasib Berry,0.8%,,,,,,,,
@@ -29,24 +29,25 @@ Ceruledge,55,teammate,7,Rotom-Wash,,,,,,,,,
 Ceruledge,55,teammate,8,Metagross,,,,,,,,,
 Ceruledge,55,teammate,9,Floette-Eternal,,,,,,,,,
 Ceruledge,55,teammate,10,Mimikyu,,,,,,,,,
-Ceruledge,55,stat_alignment,1,Adamant,82.3%,Attack,Sp. Atk,,,,,,
-Ceruledge,55,stat_alignment,2,Jolly,10.5%,Speed,Sp. Atk,,,,,,
+Ceruledge,55,stat_alignment,1,Adamant,82.2%,Attack,Sp. Atk,,,,,,
+Ceruledge,55,stat_alignment,2,Jolly,10.4%,Speed,Sp. Atk,,,,,,
 Ceruledge,55,stat_alignment,3,Impish,4.5%,Defense,Sp. Atk,,,,,,
-Ceruledge,55,stat_alignment,4,Careful,2.2%,Sp. Def,Sp. Atk,,,,,,
+Ceruledge,55,stat_alignment,4,Careful,2.4%,Sp. Def,Sp. Atk,,,,,,
 Ceruledge,55,stat_alignment,5,Naughty,0.3%,Attack,Sp. Def,,,,,,
 Ceruledge,55,stat_alignment,6,Lonely,0.1%,Attack,Defense,,,,,,
-Ceruledge,55,stat_alignment,7,Hasty,0.0%,Speed,Defense,,,,,,
-Ceruledge,55,stat_alignment,8,Naive,0.0%,Speed,Sp. Def,,,,,,
-Ceruledge,55,stat_alignment,9,Gentle,0.0%,Sp. Def,Defense,,,,,,
-Ceruledge,55,stat_points,1,,18.3%,,,2,32,0,0,0,32
-Ceruledge,55,stat_points,2,,18.2%,,,1,32,1,0,0,32
-Ceruledge,55,stat_points,3,,7.0%,,,1,32,0,0,1,32
-Ceruledge,55,stat_points,4,,6.2%,,,31,30,1,0,3,1
+Ceruledge,55,stat_alignment,7,Naive,0.1%,Speed,Sp. Def,,,,,,
+Ceruledge,55,stat_alignment,8,Hasty,0.0%,Speed,Defense,,,,,,
+Ceruledge,55,stat_alignment,9,Brave,0.0%,Attack,Speed,,,,,,
+Ceruledge,55,stat_alignment,10,Gentle,0.0%,Sp. Def,Defense,,,,,,
+Ceruledge,55,stat_points,1,,18.2%,,,2,32,0,0,0,32
+Ceruledge,55,stat_points,2,,18.0%,,,1,32,1,0,0,32
+Ceruledge,55,stat_points,3,,7.3%,,,1,32,0,0,1,32
+Ceruledge,55,stat_points,4,,6.1%,,,31,30,1,0,3,1
 Ceruledge,55,stat_points,5,,4.7%,,,17,22,15,0,0,12
-Ceruledge,55,stat_points,6,,3.7%,,,0,32,2,0,0,32
+Ceruledge,55,stat_points,6,,3.9%,,,0,32,2,0,0,32
 Ceruledge,55,stat_points,7,,2.5%,,,31,13,16,0,0,6
-Ceruledge,55,stat_points,8,,2.3%,,,0,32,0,0,2,32
+Ceruledge,55,stat_points,8,,2.2%,,,0,32,0,0,2,32
 Ceruledge,55,stat_points,9,,1.7%,,,32,32,2,0,0,0
-Ceruledge,55,stat_points,10,,1.6%,,,32,32,0,0,2,0
-Ceruledge,55,ability,1,Weak Armor,54.3%,,,,,,,,
-Ceruledge,55,ability,2,Flash Fire,45.7%,,,,,,,,
+Ceruledge,55,stat_points,10,,1.5%,,,32,32,0,0,2,0
+Ceruledge,55,ability,1,Weak Armor,54.4%,,,,,,,,
+Ceruledge,55,ability,2,Flash Fire,45.6%,,,,,,,,

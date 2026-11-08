@@ -1,39 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pangoro,229,move,1,Drain Punch,64.4%,,,,,,,,
-Pangoro,229,move,2,Knock Off,59.3%,,,,,,,,
-Pangoro,229,move,3,Darkest Lariat,52.5%,,,,,,,,
-Pangoro,229,move,4,Detect,35.6%,,,,,,,,
-Pangoro,229,move,5,Storm Throw,22.0%,,,,,,,,
-Pangoro,229,move,6,Parting Shot,20.3%,,,,,,,,
-Pangoro,229,move,7,Swords Dance,18.6%,,,,,,,,
-Pangoro,229,move,8,Bullet Punch,15.3%,,,,,,,,
-Pangoro,229,move,9,Stone Edge,15.3%,,,,,,,,
-Pangoro,229,move,10,Fire Punch,15.3%,,,,,,,,
-Pangoro,229,held_item,1,Life Orb,33.9%,,,,,,,,
-Pangoro,229,held_item,2,Focus Sash,16.9%,,,,,,,,
-Pangoro,229,held_item,3,Muscle Band,15.3%,,,,,,,,
-Pangoro,229,held_item,4,White Herb,13.6%,,,,,,,,
-Pangoro,229,held_item,5,Wide Lens,13.6%,,,,,,,,
-Pangoro,229,held_item,6,Choice Scarf,6.8%,,,,,,,,
-Pangoro,229,teammate,1,Kingambit,,,,,,,,,
-Pangoro,229,teammate,2,Rillaboom,,,,,,,,,
-Pangoro,229,teammate,3,Farigiraf,,,,,,,,,
-Pangoro,229,teammate,4,Golisopod,,,,,,,,,
-Pangoro,229,teammate,5,Blastoise,,,,,,,,,
-Pangoro,229,teammate,6,Beedrill,,,,,,,,,
-Pangoro,229,teammate,7,Torkoal,,,,,,,,,
-Pangoro,229,teammate,8,Primarina,,,,,,,,,
-Pangoro,229,teammate,9,Metagross,,,,,,,,,
-Pangoro,229,teammate,10,Swampert,,,,,,,,,
-Pangoro,229,stat_alignment,1,Brave,54.2%,Attack,Speed,,,,,,
-Pangoro,229,stat_alignment,2,Adamant,45.8%,Attack,Sp. Atk,,,,,,
-Pangoro,229,stat_points,1,,28.8%,,,32,32,2,0,0,0
-Pangoro,229,stat_points,2,,27.1%,,,32,32,0,0,0,2
-Pangoro,229,stat_points,3,,13.6%,,,21,32,0,0,0,13
-Pangoro,229,stat_points,4,,8.5%,,,0,32,0,0,0,32
-Pangoro,229,stat_points,5,,8.5%,,,2,32,0,0,32,0
-Pangoro,229,stat_points,6,,6.8%,,,0,32,0,0,2,32
-Pangoro,229,stat_points,7,,3.4%,,,0,32,2,0,32,0
-Pangoro,229,stat_points,8,,3.4%,,,31,32,2,0,1,0
-Pangoro,229,ability,1,Scrappy,59.3%,,,,,,,,
-Pangoro,229,ability,2,Iron Fist,40.7%,,,,,,,,
+Pangoro,228,move,1,Knock Off,59.2%,,,,,,,,
+Pangoro,228,move,2,Drain Punch,53.5%,,,,,,,,
+Pangoro,228,move,3,Darkest Lariat,46.5%,,,,,,,,
+Pangoro,228,move,4,Detect,36.6%,,,,,,,,
+Pangoro,228,move,5,Storm Throw,31.0%,,,,,,,,
+Pangoro,228,move,6,Protect,19.7%,,,,,,,,
+Pangoro,228,move,7,Bullet Punch,16.9%,,,,,,,,
+Pangoro,228,move,8,Parting Shot,16.9%,,,,,,,,
+Pangoro,228,move,9,Swords Dance,15.5%,,,,,,,,
+Pangoro,228,move,10,Close Combat,15.5%,,,,,,,,
+Pangoro,228,held_item,1,Life Orb,38.0%,,,,,,,,
+Pangoro,228,held_item,2,Wide Lens,14.1%,,,,,,,,
+Pangoro,228,held_item,3,Focus Sash,14.1%,,,,,,,,
+Pangoro,228,held_item,4,Muscle Band,12.7%,,,,,,,,
+Pangoro,228,held_item,5,White Herb,11.3%,,,,,,,,
+Pangoro,228,held_item,6,Choice Scarf,5.6%,,,,,,,,
+Pangoro,228,held_item,7,Black Belt,4.2%,,,,,,,,
+Pangoro,228,teammate,1,Kingambit,,,,,,,,,
+Pangoro,228,teammate,2,Rillaboom,,,,,,,,,
+Pangoro,228,teammate,3,Farigiraf,,,,,,,,,
+Pangoro,228,teammate,4,Golisopod,,,,,,,,,
+Pangoro,228,teammate,5,Blastoise,,,,,,,,,
+Pangoro,228,teammate,6,Beedrill,,,,,,,,,
+Pangoro,228,teammate,7,Torkoal,,,,,,,,,
+Pangoro,228,teammate,8,Clefable,,,,,,,,,
+Pangoro,228,teammate,9,Primarina,,,,,,,,,
+Pangoro,228,teammate,10,Indeedee-F,,,,,,,,,
+Pangoro,228,stat_alignment,1,Adamant,54.9%,Attack,Sp. Atk,,,,,,
+Pangoro,228,stat_alignment,2,Brave,45.1%,Attack,Speed,,,,,,
+Pangoro,228,stat_points,1,,23.9%,,,32,32,2,0,0,0
+Pangoro,228,stat_points,2,,22.5%,,,32,32,0,0,0,2
+Pangoro,228,stat_points,3,,14.1%,,,21,32,0,0,0,13
+Pangoro,228,stat_points,4,,7.0%,,,0,32,0,0,0,32
+Pangoro,228,stat_points,5,,7.0%,,,2,32,0,0,32,0
+Pangoro,228,stat_points,6,,5.6%,,,0,32,0,0,2,32
+Pangoro,228,stat_points,7,,5.6%,,,10,32,1,0,0,23
+Pangoro,228,stat_points,8,,4.2%,,,8,32,13,0,13,0
+Pangoro,228,stat_points,9,,4.2%,,,32,32,0,0,2,0
+Pangoro,228,stat_points,10,,2.8%,,,0,32,2,0,32,0
+Pangoro,228,ability,1,Scrappy,62.0%,,,,,,,,
+Pangoro,228,ability,2,Iron Fist,38.0%,,,,,,,,

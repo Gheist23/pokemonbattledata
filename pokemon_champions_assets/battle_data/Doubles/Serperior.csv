@@ -1,46 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Serperior,154,move,1,Leaf Storm,100.0%,,,,,,,,
-Serperior,154,move,2,Dragon Pulse,83.4%,,,,,,,,
-Serperior,154,move,3,Protect,76.3%,,,,,,,,
-Serperior,154,move,4,Giga Drain,55.6%,,,,,,,,
-Serperior,154,move,5,Taunt,32.2%,,,,,,,,
-Serperior,154,move,6,Glare,21.8%,,,,,,,,
-Serperior,154,move,7,Reflect,10.6%,,,,,,,,
-Serperior,154,move,8,Light Screen,6.0%,,,,,,,,
-Serperior,154,move,9,Substitute,3.8%,,,,,,,,
-Serperior,154,move,10,Breaking Swipe,2.7%,,,,,,,,
-Serperior,154,held_item,1,Sitrus Berry,30.2%,,,,,,,,
-Serperior,154,held_item,2,Leftovers,23.2%,,,,,,,,
-Serperior,154,held_item,3,Miracle Seed,9.3%,,,,,,,,
-Serperior,154,held_item,4,Kebia Berry,8.4%,,,,,,,,
-Serperior,154,held_item,5,Wide Lens,4.9%,,,,,,,,
-Serperior,154,held_item,6,Metronome,4.9%,,,,,,,,
-Serperior,154,held_item,7,Choice Scarf,4.4%,,,,,,,,
-Serperior,154,held_item,8,Bright Powder,3.5%,,,,,,,,
-Serperior,154,held_item,9,Focus Sash,3.3%,,,,,,,,
-Serperior,154,held_item,10,Light Clay,2.2%,,,,,,,,
-Serperior,154,teammate,1,Raichu,,,,,,,,,
-Serperior,154,teammate,2,Arcanine-Hisui,,,,,,,,,
-Serperior,154,teammate,3,Grapploct,,,,,,,,,
-Serperior,154,teammate,4,Gholdengo,,,,,,,,,
-Serperior,154,teammate,5,Pelipper,,,,,,,,,
-Serperior,154,teammate,6,Archaludon,,,,,,,,,
-Serperior,154,teammate,7,Swampert,,,,,,,,,
-Serperior,154,teammate,8,Whimsicott,,,,,,,,,
-Serperior,154,teammate,9,Talonflame,,,,,,,,,
-Serperior,154,teammate,10,Sylveon,,,,,,,,,
-Serperior,154,stat_alignment,1,Timid,71.9%,Speed,Attack,,,,,,
-Serperior,154,stat_alignment,2,Modest,22.6%,Sp. Atk,Attack,,,,,,
-Serperior,154,stat_alignment,3,Calm,4.1%,Sp. Def,Attack,,,,,,
-Serperior,154,stat_alignment,4,Hasty,1.4%,Speed,Defense,,,,,,
-Serperior,154,stat_points,1,,20.7%,,,32,0,2,0,0,32
-Serperior,154,stat_points,2,,16.1%,,,30,0,1,2,1,32
-Serperior,154,stat_points,3,,13.4%,,,0,0,2,32,0,32
-Serperior,154,stat_points,4,,7.1%,,,2,0,0,32,0,32
-Serperior,154,stat_points,5,,4.1%,,,0,0,0,32,0,32
-Serperior,154,stat_points,6,,3.8%,,,22,0,0,32,0,12
-Serperior,154,stat_points,7,,3.5%,,,1,0,1,32,0,32
-Serperior,154,stat_points,8,,3.3%,,,32,0,2,0,32,0
-Serperior,154,stat_points,9,,3.0%,,,24,0,15,5,15,7
-Serperior,154,stat_points,10,,2.7%,,,17,0,10,25,1,13
-Serperior,154,ability,1,Contrary,100.0%,,,,,,,,
+Serperior,153,move,1,Leaf Storm,100.0%,,,,,,,,
+Serperior,153,move,2,Dragon Pulse,82.8%,,,,,,,,
+Serperior,153,move,3,Protect,75.2%,,,,,,,,
+Serperior,153,move,4,Giga Drain,56.1%,,,,,,,,
+Serperior,153,move,5,Taunt,32.5%,,,,,,,,
+Serperior,153,move,6,Glare,21.7%,,,,,,,,
+Serperior,153,move,7,Reflect,9.3%,,,,,,,,
+Serperior,153,move,8,Substitute,6.0%,,,,,,,,
+Serperior,153,move,9,Light Screen,5.3%,,,,,,,,
+Serperior,153,move,10,Breaking Swipe,3.3%,,,,,,,,
+Serperior,153,held_item,1,Sitrus Berry,29.8%,,,,,,,,
+Serperior,153,held_item,2,Leftovers,23.9%,,,,,,,,
+Serperior,153,held_item,3,Miracle Seed,8.1%,,,,,,,,
+Serperior,153,held_item,4,Kebia Berry,7.4%,,,,,,,,
+Serperior,153,held_item,5,Wide Lens,6.9%,,,,,,,,
+Serperior,153,held_item,6,Metronome,6.0%,,,,,,,,
+Serperior,153,held_item,7,Choice Scarf,3.8%,,,,,,,,
+Serperior,153,held_item,8,Focus Sash,3.6%,,,,,,,,
+Serperior,153,held_item,9,Bright Powder,3.1%,,,,,,,,
+Serperior,153,held_item,10,Light Clay,1.9%,,,,,,,,
+Serperior,153,teammate,1,Raichu,,,,,,,,,
+Serperior,153,teammate,2,Grapploct,,,,,,,,,
+Serperior,153,teammate,3,Arcanine-Hisui,,,,,,,,,
+Serperior,153,teammate,4,Gholdengo,,,,,,,,,
+Serperior,153,teammate,5,Pelipper,,,,,,,,,
+Serperior,153,teammate,6,Whimsicott,,,,,,,,,
+Serperior,153,teammate,7,Archaludon,,,,,,,,,
+Serperior,153,teammate,8,Swampert,,,,,,,,,
+Serperior,153,teammate,9,Sylveon,,,,,,,,,
+Serperior,153,teammate,10,Talonflame,,,,,,,,,
+Serperior,153,stat_alignment,1,Timid,72.3%,Speed,Attack,,,,,,
+Serperior,153,stat_alignment,2,Modest,22.0%,Sp. Atk,Attack,,,,,,
+Serperior,153,stat_alignment,3,Calm,3.6%,Sp. Def,Attack,,,,,,
+Serperior,153,stat_alignment,4,Hasty,1.2%,Speed,Defense,,,,,,
+Serperior,153,stat_alignment,5,Bold,1.0%,Defense,Attack,,,,,,
+Serperior,153,stat_points,1,,20.5%,,,32,0,2,0,0,32
+Serperior,153,stat_points,2,,16.0%,,,30,0,1,2,1,32
+Serperior,153,stat_points,3,,13.4%,,,0,0,2,32,0,32
+Serperior,153,stat_points,4,,7.2%,,,2,0,0,32,0,32
+Serperior,153,stat_points,5,,4.5%,,,0,0,0,32,0,32
+Serperior,153,stat_points,6,,4.5%,,,3,0,0,32,0,31
+Serperior,153,stat_points,7,,3.3%,,,22,0,0,32,0,12
+Serperior,153,stat_points,8,,3.1%,,,1,0,1,32,0,32
+Serperior,153,stat_points,9,,2.9%,,,32,0,2,0,32,0
+Serperior,153,stat_points,10,,2.6%,,,24,0,15,5,15,7
+Serperior,153,ability,1,Contrary,100.0%,,,,,,,,

@@ -1,16 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Stunfisk-Galar,242,move,1,Protect,100.0%,,,,,,,,
 Stunfisk-Galar,242,move,2,Snap Trap,100.0%,,,,,,,,
-Stunfisk-Galar,242,move,3,Sucker Punch,52.4%,,,,,,,,
-Stunfisk-Galar,242,move,4,Fissure,52.4%,,,,,,,,
-Stunfisk-Galar,242,move,5,Pain Split,28.6%,,,,,,,,
-Stunfisk-Galar,242,move,6,Yawn,19.0%,,,,,,,,
-Stunfisk-Galar,242,move,7,Iron Defense,19.0%,,,,,,,,
-Stunfisk-Galar,242,move,8,Foul Play,19.0%,,,,,,,,
-Stunfisk-Galar,242,move,9,Substitute,9.5%,,,,,,,,
-Stunfisk-Galar,242,held_item,1,Scope Lens,52.4%,,,,,,,,
-Stunfisk-Galar,242,held_item,2,Leftovers,28.6%,,,,,,,,
-Stunfisk-Galar,242,held_item,3,Binding Band,19.0%,,,,,,,,
+Stunfisk-Galar,242,move,3,Sucker Punch,52.2%,,,,,,,,
+Stunfisk-Galar,242,move,4,Fissure,52.2%,,,,,,,,
+Stunfisk-Galar,242,move,5,Pain Split,26.1%,,,,,,,,
+Stunfisk-Galar,242,move,6,Yawn,21.7%,,,,,,,,
+Stunfisk-Galar,242,move,7,Iron Defense,17.4%,,,,,,,,
+Stunfisk-Galar,242,move,8,Foul Play,17.4%,,,,,,,,
+Stunfisk-Galar,242,move,9,Substitute,8.7%,,,,,,,,
+Stunfisk-Galar,242,move,10,Earthquake,4.3%,,,,,,,,
+Stunfisk-Galar,242,held_item,1,Scope Lens,52.2%,,,,,,,,
+Stunfisk-Galar,242,held_item,2,Leftovers,30.4%,,,,,,,,
+Stunfisk-Galar,242,held_item,3,Binding Band,17.4%,,,,,,,,
 Stunfisk-Galar,242,teammate,1,Torkoal,,,,,,,,,
 Stunfisk-Galar,242,teammate,2,Gallade,,,,,,,,,
 Stunfisk-Galar,242,teammate,3,Rotom-Wash,,,,,,,,,
@@ -21,13 +22,15 @@ Stunfisk-Galar,242,teammate,7,Blaziken,,,,,,,,,
 Stunfisk-Galar,242,teammate,8,Primarina,,,,,,,,,
 Stunfisk-Galar,242,teammate,9,Scovillain,,,,,,,,,
 Stunfisk-Galar,242,teammate,10,Baxcalibur,,,,,,,,,
-Stunfisk-Galar,242,stat_alignment,1,Brave,52.4%,Attack,Speed,,,,,,
-Stunfisk-Galar,242,stat_alignment,2,Sassy,23.8%,Sp. Def,Speed,,,,,,
-Stunfisk-Galar,242,stat_alignment,3,Relaxed,19.0%,Defense,Speed,,,,,,
-Stunfisk-Galar,242,stat_alignment,4,Impish,4.8%,Defense,Sp. Atk,,,,,,
-Stunfisk-Galar,242,stat_points,1,,52.4%,,,32,32,0,0,2,0
-Stunfisk-Galar,242,stat_points,2,,23.8%,,,32,0,2,0,32,0
-Stunfisk-Galar,242,stat_points,3,,14.3%,,,32,0,3,0,31,0
-Stunfisk-Galar,242,stat_points,4,,4.8%,,,24,0,21,0,21,0
-Stunfisk-Galar,242,stat_points,5,,4.8%,,,25,0,21,0,20,0
+Stunfisk-Galar,242,stat_alignment,1,Brave,52.2%,Attack,Speed,,,,,,
+Stunfisk-Galar,242,stat_alignment,2,Sassy,21.7%,Sp. Def,Speed,,,,,,
+Stunfisk-Galar,242,stat_alignment,3,Relaxed,17.4%,Defense,Speed,,,,,,
+Stunfisk-Galar,242,stat_alignment,4,Adamant,4.3%,Attack,Sp. Atk,,,,,,
+Stunfisk-Galar,242,stat_alignment,5,Impish,4.3%,Defense,Sp. Atk,,,,,,
+Stunfisk-Galar,242,stat_points,1,,52.2%,,,32,32,0,0,2,0
+Stunfisk-Galar,242,stat_points,2,,21.7%,,,32,0,2,0,32,0
+Stunfisk-Galar,242,stat_points,3,,13.0%,,,32,0,3,0,31,0
+Stunfisk-Galar,242,stat_points,4,,4.3%,,,24,0,21,0,21,0
+Stunfisk-Galar,242,stat_points,5,,4.3%,,,25,0,21,0,20,0
+Stunfisk-Galar,242,stat_points,6,,4.3%,,,31,32,0,0,3,0
 Stunfisk-Galar,242,ability,1,Mimicry,100.0%,,,,,,,,

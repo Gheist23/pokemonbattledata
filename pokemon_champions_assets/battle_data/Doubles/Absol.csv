@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Absol,47,move,1,Night Slash,95.2%,,,,,,,,
-Absol,47,move,2,Close Combat,71.6%,,,,,,,,
-Absol,47,move,3,Psycho Cut,66.1%,,,,,,,,
-Absol,47,move,4,Protect,61.0%,,,,,,,,
-Absol,47,move,5,Detect,28.4%,,,,,,,,
-Absol,47,move,6,Shadow Claw,27.9%,,,,,,,,
-Absol,47,move,7,Sucker Punch,12.5%,,,,,,,,
+Absol,47,move,1,Night Slash,95.5%,,,,,,,,
+Absol,47,move,2,Close Combat,72.3%,,,,,,,,
+Absol,47,move,3,Psycho Cut,65.1%,,,,,,,,
+Absol,47,move,4,Protect,60.6%,,,,,,,,
+Absol,47,move,5,Detect,29.5%,,,,,,,,
+Absol,47,move,6,Shadow Claw,29.2%,,,,,,,,
+Absol,47,move,7,Sucker Punch,12.2%,,,,,,,,
 Absol,47,move,8,Icy Wind,7.7%,,,,,,,,
-Absol,47,move,9,Rock Slide,4.9%,,,,,,,,
-Absol,47,move,10,X-Scissor,3.9%,,,,,,,,
+Absol,47,move,9,Rock Slide,4.7%,,,,,,,,
+Absol,47,move,10,X-Scissor,3.8%,,,,,,,,
 Absol,47,held_item,1,Absolite Z,99.4%,,,,,,,,
 Absol,47,held_item,2,Focus Sash,0.3%,,,,,,,,
 Absol,47,held_item,3,Scope Lens,0.1%,,,,,,,,
@@ -20,28 +20,29 @@ Absol,47,teammate,4,Gardevoir,,,,,,,,,
 Absol,47,teammate,5,Kommo-o,,,,,,,,,
 Absol,47,teammate,6,Garchomp,,,,,,,,,
 Absol,47,teammate,7,Indeedee,,,,,,,,,
-Absol,47,teammate,8,Whimsicott,,,,,,,,,
-Absol,47,teammate,9,Rillaboom,,,,,,,,,
-Absol,47,teammate,10,Annihilape,,,,,,,,,
-Absol,47,stat_alignment,1,Jolly,77.3%,Speed,Sp. Atk,,,,,,
-Absol,47,stat_alignment,2,Adamant,21.4%,Attack,Sp. Atk,,,,,,
-Absol,47,stat_alignment,3,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
-Absol,47,stat_alignment,4,Lonely,0.5%,Attack,Defense,,,,,,
+Absol,47,teammate,8,Rillaboom,,,,,,,,,
+Absol,47,teammate,9,Whimsicott,,,,,,,,,
+Absol,47,teammate,10,Torkoal,,,,,,,,,
+Absol,47,stat_alignment,1,Jolly,77.5%,Speed,Sp. Atk,,,,,,
+Absol,47,stat_alignment,2,Adamant,21.0%,Attack,Sp. Atk,,,,,,
+Absol,47,stat_alignment,3,Lonely,0.7%,Attack,Defense,,,,,,
+Absol,47,stat_alignment,4,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
 Absol,47,stat_alignment,5,Naive,0.1%,Speed,Sp. Def,,,,,,
 Absol,47,stat_alignment,6,Brave,0.1%,Attack,Speed,,,,,,
 Absol,47,stat_alignment,7,Timid,0.0%,Speed,Attack,,,,,,
 Absol,47,stat_alignment,8,Hasty,0.0%,Speed,Defense,,,,,,
-Absol,47,stat_alignment,9,Naughty,0.0%,Attack,Sp. Def,,,,,,
-Absol,47,stat_points,1,,70.8%,,,2,32,0,0,0,32
-Absol,47,stat_points,2,,4.6%,,,0,32,2,0,0,32
-Absol,47,stat_points,3,,4.2%,,,1,32,1,0,0,32
-Absol,47,stat_points,4,,4.2%,,,3,31,0,0,0,32
-Absol,47,stat_points,5,,1.8%,,,0,32,0,0,2,32
-Absol,47,stat_points,6,,1.1%,,,0,32,1,0,1,32
-Absol,47,stat_points,7,,1.1%,,,5,32,0,0,2,27
-Absol,47,stat_points,8,,0.9%,,,26,16,0,0,5,19
+Absol,47,stat_alignment,9,Mild,0.0%,Sp. Atk,Defense,,,,,,
+Absol,47,stat_alignment,10,Naughty,0.0%,Attack,Sp. Def,,,,,,
+Absol,47,stat_points,1,,70.7%,,,2,32,0,0,0,32
+Absol,47,stat_points,2,,4.5%,,,0,32,2,0,0,32
+Absol,47,stat_points,3,,4.1%,,,3,31,0,0,0,32
+Absol,47,stat_points,4,,4.0%,,,1,32,1,0,0,32
+Absol,47,stat_points,5,,2.3%,,,0,32,0,0,2,32
+Absol,47,stat_points,6,,1.0%,,,0,32,1,0,1,32
+Absol,47,stat_points,7,,1.0%,,,5,32,0,0,2,27
+Absol,47,stat_points,8,,0.8%,,,26,16,0,0,5,19
 Absol,47,stat_points,9,,0.8%,,,1,31,2,0,0,32
-Absol,47,stat_points,10,,0.8%,,,17,32,0,0,0,17
-Absol,47,ability,1,Justified,80.6%,,,,,,,,
+Absol,47,stat_points,10,,0.7%,,,17,32,0,0,0,17
+Absol,47,ability,1,Justified,80.7%,,,,,,,,
 Absol,47,ability,2,Super Luck,15.2%,,,,,,,,
-Absol,47,ability,3,Pressure,4.2%,,,,,,,,
+Absol,47,ability,3,Pressure,4.1%,,,,,,,,

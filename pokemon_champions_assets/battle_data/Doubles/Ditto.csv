@@ -1,42 +1,43 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ditto,159,move,1,Transform,100.0%,,,,,,,,
-Ditto,159,held_item,1,Sitrus Berry,29.2%,,,,,,,,
-Ditto,159,held_item,2,Focus Sash,23.5%,,,,,,,,
-Ditto,159,held_item,3,Quick Claw,18.4%,,,,,,,,
-Ditto,159,held_item,4,Bright Powder,13.3%,,,,,,,,
-Ditto,159,held_item,5,Choice Scarf,9.0%,,,,,,,,
-Ditto,159,held_item,6,Leppa Berry,2.4%,,,,,,,,
-Ditto,159,held_item,7,Leftovers,2.4%,,,,,,,,
-Ditto,159,held_item,8,Life Orb,1.5%,,,,,,,,
-Ditto,159,held_item,9,Iron Ball,0.3%,,,,,,,,
-Ditto,159,teammate,1,Sneasler,,,,,,,,,
-Ditto,159,teammate,2,Milotic,,,,,,,,,
-Ditto,159,teammate,3,Froslass,,,,,,,,,
-Ditto,159,teammate,4,Rillaboom,,,,,,,,,
-Ditto,159,teammate,5,Indeedee,,,,,,,,,
-Ditto,159,teammate,6,Annihilape,,,,,,,,,
-Ditto,159,teammate,7,Gholdengo,,,,,,,,,
-Ditto,159,teammate,8,Blaziken,,,,,,,,,
-Ditto,159,teammate,9,Baxcalibur,,,,,,,,,
-Ditto,159,teammate,10,Blastoise,,,,,,,,,
-Ditto,159,stat_alignment,1,Sassy,29.8%,Sp. Def,Speed,,,,,,
-Ditto,159,stat_alignment,2,Jolly,22.9%,Speed,Sp. Atk,,,,,,
-Ditto,159,stat_alignment,3,Serious,19.0%,,,,,,,,
-Ditto,159,stat_alignment,4,Modest,9.3%,Sp. Atk,Attack,,,,,,
-Ditto,159,stat_alignment,5,Naive,6.0%,Speed,Sp. Def,,,,,,
-Ditto,159,stat_alignment,6,Timid,5.4%,Speed,Attack,,,,,,
-Ditto,159,stat_alignment,7,Hasty,4.5%,Speed,Defense,,,,,,
-Ditto,159,stat_alignment,8,Adamant,1.2%,Attack,Sp. Atk,,,,,,
-Ditto,159,stat_alignment,9,Hardy,0.9%,,,,,,,,
-Ditto,159,stat_alignment,10,Quiet,0.3%,Sp. Atk,Speed,,,,,,
-Ditto,159,stat_points,1,,34.9%,,,32,0,0,0,0,32
-Ditto,159,stat_points,2,,27.1%,,,32,0,2,0,32,0
-Ditto,159,stat_points,3,,11.4%,,,32,0,0,0,2,32
-Ditto,159,stat_points,4,,6.3%,,,32,0,32,0,2,0
-Ditto,159,stat_points,5,,4.2%,,,32,0,2,0,0,32
-Ditto,159,stat_points,6,,3.0%,,,32,0,0,32,2,0
-Ditto,159,stat_points,7,,3.0%,,,32,2,0,0,32,0
-Ditto,159,stat_points,8,,2.4%,,,32,0,0,0,32,0
-Ditto,159,stat_points,9,,1.5%,,,32,32,0,0,0,2
-Ditto,159,stat_points,10,,1.2%,,,32,0,1,0,0,32
-Ditto,159,ability,1,Imposter,100.0%,,,,,,,,
+Ditto,157,move,1,Transform,100.0%,,,,,,,,
+Ditto,157,held_item,1,Focus Sash,25.7%,,,,,,,,
+Ditto,157,held_item,2,Sitrus Berry,25.5%,,,,,,,,
+Ditto,157,held_item,3,Quick Claw,18.6%,,,,,,,,
+Ditto,157,held_item,4,Bright Powder,12.0%,,,,,,,,
+Ditto,157,held_item,5,Choice Scarf,9.3%,,,,,,,,
+Ditto,157,held_item,6,Life Orb,4.4%,,,,,,,,
+Ditto,157,held_item,7,Leppa Berry,2.0%,,,,,,,,
+Ditto,157,held_item,8,Leftovers,2.0%,,,,,,,,
+Ditto,157,held_item,9,Shell Bell,0.2%,,,,,,,,
+Ditto,157,held_item,10,Iron Ball,0.2%,,,,,,,,
+Ditto,157,teammate,1,Milotic,,,,,,,,,
+Ditto,157,teammate,2,Rillaboom,,,,,,,,,
+Ditto,157,teammate,3,Sneasler,,,,,,,,,
+Ditto,157,teammate,4,Froslass,,,,,,,,,
+Ditto,157,teammate,5,Indeedee,,,,,,,,,
+Ditto,157,teammate,6,Annihilape,,,,,,,,,
+Ditto,157,teammate,7,Gholdengo,,,,,,,,,
+Ditto,157,teammate,8,Blaziken,,,,,,,,,
+Ditto,157,teammate,9,Baxcalibur,,,,,,,,,
+Ditto,157,teammate,10,Indeedee-F,,,,,,,,,
+Ditto,157,stat_alignment,1,Sassy,26.5%,Sp. Def,Speed,,,,,,
+Ditto,157,stat_alignment,2,Serious,21.3%,,,,,,,,
+Ditto,157,stat_alignment,3,Jolly,20.8%,Speed,Sp. Atk,,,,,,
+Ditto,157,stat_alignment,4,Timid,7.6%,Speed,Attack,,,,,,
+Ditto,157,stat_alignment,5,Modest,7.6%,Sp. Atk,Attack,,,,,,
+Ditto,157,stat_alignment,6,Naive,5.9%,Speed,Sp. Def,,,,,,
+Ditto,157,stat_alignment,7,Hasty,5.6%,Speed,Defense,,,,,,
+Ditto,157,stat_alignment,8,Hardy,2.0%,,,,,,,,
+Ditto,157,stat_alignment,9,Adamant,1.2%,Attack,Sp. Atk,,,,,,
+Ditto,157,stat_alignment,10,Relaxed,0.7%,Defense,Speed,,,,,,
+Ditto,157,stat_points,1,,33.6%,,,32,0,0,0,0,32
+Ditto,157,stat_points,2,,23.8%,,,32,0,2,0,32,0
+Ditto,157,stat_points,3,,11.5%,,,32,0,0,0,2,32
+Ditto,157,stat_points,4,,6.9%,,,32,0,2,0,0,32
+Ditto,157,stat_points,5,,5.6%,,,32,0,32,0,2,0
+Ditto,157,stat_points,6,,3.2%,,,32,0,1,0,32,1
+Ditto,157,stat_points,7,,2.5%,,,32,0,0,32,2,0
+Ditto,157,stat_points,8,,2.5%,,,32,2,0,0,32,0
+Ditto,157,stat_points,9,,2.2%,,,32,0,0,2,32,0
+Ditto,157,stat_points,10,,2.0%,,,32,0,0,0,32,0
+Ditto,157,ability,1,Imposter,100.0%,,,,,,,,

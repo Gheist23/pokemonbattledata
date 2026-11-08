@@ -1,52 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Skeledirge,48,move,1,Torch Song,99.3%,,,,,,,,
-Skeledirge,48,move,2,Slack Off,95.7%,,,,,,,,
-Skeledirge,48,move,3,Will-O-Wisp,78.5%,,,,,,,,
-Skeledirge,48,move,4,Shadow Ball,58.4%,,,,,,,,
-Skeledirge,48,move,5,Hex,30.3%,,,,,,,,
-Skeledirge,48,move,6,Yawn,15.1%,,,,,,,,
-Skeledirge,48,move,7,Alluring Voice,4.9%,,,,,,,,
-Skeledirge,48,move,8,Burn Up,3.5%,,,,,,,,
-Skeledirge,48,move,9,Substitute,3.4%,,,,,,,,
-Skeledirge,48,move,10,Protect,2.6%,,,,,,,,
-Skeledirge,48,held_item,1,Sitrus Berry,38.8%,,,,,,,,
-Skeledirge,48,held_item,2,Leftovers,35.3%,,,,,,,,
-Skeledirge,48,held_item,3,Rocky Helmet,7.5%,,,,,,,,
-Skeledirge,48,held_item,4,Air Balloon,4.5%,,,,,,,,
-Skeledirge,48,held_item,5,Kasib Berry,4.1%,,,,,,,,
-Skeledirge,48,held_item,6,Shuca Berry,2.6%,,,,,,,,
-Skeledirge,48,held_item,7,Charcoal,1.5%,,,,,,,,
-Skeledirge,48,held_item,8,Grassy Seed,0.9%,,,,,,,,
-Skeledirge,48,held_item,9,Lum Berry,0.5%,,,,,,,,
-Skeledirge,48,held_item,10,Quick Claw,0.5%,,,,,,,,
-Skeledirge,48,teammate,1,Garchomp,,,,,,,,,
-Skeledirge,48,teammate,2,Golisopod,,,,,,,,,
-Skeledirge,48,teammate,3,Primarina,,,,,,,,,
-Skeledirge,48,teammate,4,Rillaboom,,,,,,,,,
-Skeledirge,48,teammate,5,Meowscarada,,,,,,,,,
-Skeledirge,48,teammate,6,Mimikyu,,,,,,,,,
-Skeledirge,48,teammate,7,Venusaur,,,,,,,,,
-Skeledirge,48,teammate,8,Lucario,,,,,,,,,
-Skeledirge,48,teammate,9,Archaludon,,,,,,,,,
-Skeledirge,48,teammate,10,Gyarados,,,,,,,,,
-Skeledirge,48,stat_alignment,1,Bold,73.0%,Defense,Attack,,,,,,
-Skeledirge,48,stat_alignment,2,Calm,17.3%,Sp. Def,Attack,,,,,,
-Skeledirge,48,stat_alignment,3,Modest,7.8%,Sp. Atk,Attack,,,,,,
-Skeledirge,48,stat_alignment,4,Timid,0.9%,Speed,Attack,,,,,,
-Skeledirge,48,stat_alignment,5,Quiet,0.4%,Sp. Atk,Speed,,,,,,
-Skeledirge,48,stat_alignment,6,Relaxed,0.3%,Defense,Speed,,,,,,
-Skeledirge,48,stat_alignment,7,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Skeledirge,48,stat_alignment,8,Sassy,0.0%,Sp. Def,Speed,,,,,,
-Skeledirge,48,stat_alignment,9,Adamant,0.0%,Attack,Sp. Atk,,,,,,
-Skeledirge,48,stat_points,1,,28.1%,,,32,0,32,0,2,0
-Skeledirge,48,stat_points,2,,8.7%,,,32,0,32,2,0,0
-Skeledirge,48,stat_points,3,,7.2%,,,32,0,32,0,0,2
-Skeledirge,48,stat_points,4,,6.7%,,,32,0,2,0,32,0
-Skeledirge,48,stat_points,5,,1.6%,,,32,0,31,0,0,3
-Skeledirge,48,stat_points,6,,1.3%,,,32,0,0,0,32,2
-Skeledirge,48,stat_points,7,,1.3%,,,32,0,30,0,4,0
-Skeledirge,48,stat_points,8,,1.1%,,,32,0,23,0,11,0
-Skeledirge,48,stat_points,9,,0.9%,,,28,0,30,0,2,6
-Skeledirge,48,stat_points,10,,0.9%,,,32,0,32,0,1,1
-Skeledirge,48,ability,1,Unaware,99.2%,,,,,,,,
-Skeledirge,48,ability,2,Blaze,0.8%,,,,,,,,
+Skeledirge,47,move,1,Torch Song,99.3%,,,,,,,,
+Skeledirge,47,move,2,Slack Off,95.7%,,,,,,,,
+Skeledirge,47,move,3,Will-O-Wisp,78.5%,,,,,,,,
+Skeledirge,47,move,4,Shadow Ball,58.1%,,,,,,,,
+Skeledirge,47,move,5,Hex,30.4%,,,,,,,,
+Skeledirge,47,move,6,Yawn,15.5%,,,,,,,,
+Skeledirge,47,move,7,Alluring Voice,5.1%,,,,,,,,
+Skeledirge,47,move,8,Burn Up,3.4%,,,,,,,,
+Skeledirge,47,move,9,Substitute,3.2%,,,,,,,,
+Skeledirge,47,move,10,Protect,2.6%,,,,,,,,
+Skeledirge,47,held_item,1,Sitrus Berry,38.6%,,,,,,,,
+Skeledirge,47,held_item,2,Leftovers,35.5%,,,,,,,,
+Skeledirge,47,held_item,3,Rocky Helmet,7.6%,,,,,,,,
+Skeledirge,47,held_item,4,Air Balloon,4.4%,,,,,,,,
+Skeledirge,47,held_item,5,Kasib Berry,4.0%,,,,,,,,
+Skeledirge,47,held_item,6,Shuca Berry,2.5%,,,,,,,,
+Skeledirge,47,held_item,7,Charcoal,1.6%,,,,,,,,
+Skeledirge,47,held_item,8,Grassy Seed,0.9%,,,,,,,,
+Skeledirge,47,held_item,9,Lum Berry,0.6%,,,,,,,,
+Skeledirge,47,held_item,10,Bright Powder,0.5%,,,,,,,,
+Skeledirge,47,teammate,1,Garchomp,,,,,,,,,
+Skeledirge,47,teammate,2,Golisopod,,,,,,,,,
+Skeledirge,47,teammate,3,Primarina,,,,,,,,,
+Skeledirge,47,teammate,4,Rillaboom,,,,,,,,,
+Skeledirge,47,teammate,5,Meowscarada,,,,,,,,,
+Skeledirge,47,teammate,6,Mimikyu,,,,,,,,,
+Skeledirge,47,teammate,7,Venusaur,,,,,,,,,
+Skeledirge,47,teammate,8,Lucario,,,,,,,,,
+Skeledirge,47,teammate,9,Archaludon,,,,,,,,,
+Skeledirge,47,teammate,10,Gyarados,,,,,,,,,
+Skeledirge,47,stat_alignment,1,Bold,72.9%,Defense,Attack,,,,,,
+Skeledirge,47,stat_alignment,2,Calm,17.4%,Sp. Def,Attack,,,,,,
+Skeledirge,47,stat_alignment,3,Modest,7.8%,Sp. Atk,Attack,,,,,,
+Skeledirge,47,stat_alignment,4,Timid,0.9%,Speed,Attack,,,,,,
+Skeledirge,47,stat_alignment,5,Quiet,0.5%,Sp. Atk,Speed,,,,,,
+Skeledirge,47,stat_alignment,6,Relaxed,0.4%,Defense,Speed,,,,,,
+Skeledirge,47,stat_alignment,7,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Skeledirge,47,stat_alignment,8,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Skeledirge,47,stat_alignment,9,Adamant,0.0%,Attack,Sp. Atk,,,,,,
+Skeledirge,47,stat_alignment,10,Mild,0.0%,Sp. Atk,Defense,,,,,,
+Skeledirge,47,stat_points,1,,28.0%,,,32,0,32,0,2,0
+Skeledirge,47,stat_points,2,,8.8%,,,32,0,32,2,0,0
+Skeledirge,47,stat_points,3,,7.0%,,,32,0,32,0,0,2
+Skeledirge,47,stat_points,4,,6.5%,,,32,0,2,0,32,0
+Skeledirge,47,stat_points,5,,1.5%,,,32,0,31,0,0,3
+Skeledirge,47,stat_points,6,,1.4%,,,32,0,30,0,4,0
+Skeledirge,47,stat_points,7,,1.4%,,,32,0,0,0,32,2
+Skeledirge,47,stat_points,8,,1.0%,,,32,0,32,0,1,1
+Skeledirge,47,stat_points,9,,1.0%,,,32,0,23,0,11,0
+Skeledirge,47,stat_points,10,,0.9%,,,32,0,0,32,2,0
+Skeledirge,47,ability,1,Unaware,99.2%,,,,,,,,
+Skeledirge,47,ability,2,Blaze,0.8%,,,,,,,,

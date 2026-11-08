@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Golisopod,9,move,1,Sucker Punch,71.0%,,,,,,,,
-Golisopod,9,move,2,Leech Life,70.6%,,,,,,,,
-Golisopod,9,move,3,Swords Dance,57.5%,,,,,,,,
-Golisopod,9,move,4,Iron Head,44.8%,,,,,,,,
-Golisopod,9,move,5,Close Combat,38.2%,,,,,,,,
-Golisopod,9,move,6,First Impression,30.6%,,,,,,,,
-Golisopod,9,move,7,Drill Run,27.8%,,,,,,,,
-Golisopod,9,move,8,U-turn,26.6%,,,,,,,,
+Golisopod,9,move,1,Sucker Punch,70.7%,,,,,,,,
+Golisopod,9,move,2,Leech Life,70.3%,,,,,,,,
+Golisopod,9,move,3,Swords Dance,57.3%,,,,,,,,
+Golisopod,9,move,4,Iron Head,45.2%,,,,,,,,
+Golisopod,9,move,5,Close Combat,38.3%,,,,,,,,
+Golisopod,9,move,6,First Impression,30.9%,,,,,,,,
+Golisopod,9,move,7,Drill Run,27.6%,,,,,,,,
+Golisopod,9,move,8,U-turn,26.4%,,,,,,,,
 Golisopod,9,move,9,Aqua Jet,15.5%,,,,,,,,
-Golisopod,9,move,10,Bulk Up,4.9%,,,,,,,,
+Golisopod,9,move,10,Bulk Up,5.0%,,,,,,,,
 Golisopod,9,held_item,1,Golisopite,98.8%,,,,,,,,
 Golisopod,9,held_item,2,Life Orb,0.3%,,,,,,,,
 Golisopod,9,held_item,3,Rocky Helmet,0.3%,,,,,,,,
 Golisopod,9,held_item,4,Eject Button,0.1%,,,,,,,,
 Golisopod,9,held_item,5,Sitrus Berry,0.1%,,,,,,,,
-Golisopod,9,held_item,6,Lum Berry,0.0%,,,,,,,,
-Golisopod,9,held_item,7,Kasib Berry,0.0%,,,,,,,,
+Golisopod,9,held_item,6,Kasib Berry,0.0%,,,,,,,,
+Golisopod,9,held_item,7,Lum Berry,0.0%,,,,,,,,
 Golisopod,9,held_item,8,Red Card,0.0%,,,,,,,,
-Golisopod,9,held_item,9,Big Root,0.0%,,,,,,,,
-Golisopod,9,held_item,10,Silver Powder,0.0%,,,,,,,,
+Golisopod,9,held_item,9,Crabominite,0.0%,,,,,,,,
+Golisopod,9,held_item,10,Big Root,0.0%,,,,,,,,
 Golisopod,9,teammate,1,Garchomp,,,,,,,,,
 Golisopod,9,teammate,2,Primarina,,,,,,,,,
 Golisopod,9,teammate,3,Archaludon,,,,,,,,,
@@ -29,8 +29,8 @@ Golisopod,9,teammate,7,Basculegion,,,,,,,,,
 Golisopod,9,teammate,8,Glimmora,,,,,,,,,
 Golisopod,9,teammate,9,Charizard,,,,,,,,,
 Golisopod,9,teammate,10,Baxcalibur,,,,,,,,,
-Golisopod,9,stat_alignment,1,Adamant,78.7%,Attack,Sp. Atk,,,,,,
-Golisopod,9,stat_alignment,2,Brave,15.0%,Attack,Speed,,,,,,
+Golisopod,9,stat_alignment,1,Adamant,79.0%,Attack,Sp. Atk,,,,,,
+Golisopod,9,stat_alignment,2,Brave,14.8%,Attack,Speed,,,,,,
 Golisopod,9,stat_alignment,3,Jolly,3.1%,Speed,Sp. Atk,,,,,,
 Golisopod,9,stat_alignment,4,Careful,1.8%,Sp. Def,Sp. Atk,,,,,,
 Golisopod,9,stat_alignment,5,Impish,0.8%,Defense,Sp. Atk,,,,,,
@@ -39,12 +39,12 @@ Golisopod,9,stat_alignment,7,Relaxed,0.2%,Defense,Speed,,,,,,
 Golisopod,9,stat_alignment,8,Lonely,0.1%,Attack,Defense,,,,,,
 Golisopod,9,stat_alignment,9,Naughty,0.1%,Attack,Sp. Def,,,,,,
 Golisopod,9,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
-Golisopod,9,stat_points,1,,20.0%,,,32,32,0,0,2,0
-Golisopod,9,stat_points,2,,12.7%,,,31,32,0,0,3,0
-Golisopod,9,stat_points,3,,7.4%,,,32,32,2,0,0,0
+Golisopod,9,stat_points,1,,19.9%,,,32,32,0,0,2,0
+Golisopod,9,stat_points,2,,12.8%,,,31,32,0,0,3,0
+Golisopod,9,stat_points,3,,7.5%,,,32,32,2,0,0,0
 Golisopod,9,stat_points,4,,5.5%,,,31,32,0,0,0,3
-Golisopod,9,stat_points,5,,5.0%,,,32,32,0,0,0,2
-Golisopod,9,stat_points,6,,3.7%,,,31,32,3,0,0,0
+Golisopod,9,stat_points,5,,4.9%,,,32,32,0,0,0,2
+Golisopod,9,stat_points,6,,3.6%,,,31,32,3,0,0,0
 Golisopod,9,stat_points,7,,2.3%,,,13,21,0,0,0,32
 Golisopod,9,stat_points,8,,1.8%,,,29,32,0,0,0,5
 Golisopod,9,stat_points,9,,1.7%,,,32,32,1,0,1,0

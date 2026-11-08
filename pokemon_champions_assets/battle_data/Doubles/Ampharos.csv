@@ -1,44 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Ampharos,107,move,1,Dragon Pulse,94.6%,,,,,,,,
-Ampharos,107,move,2,Protect,92.7%,,,,,,,,
-Ampharos,107,move,3,Thunderbolt,63.8%,,,,,,,,
-Ampharos,107,move,4,Parabolic Charge,42.5%,,,,,,,,
-Ampharos,107,move,5,Volt Switch,21.5%,,,,,,,,
-Ampharos,107,move,6,Cotton Guard,20.7%,,,,,,,,
-Ampharos,107,move,7,Dazzling Gleam,14.8%,,,,,,,,
-Ampharos,107,move,8,Thunder,14.0%,,,,,,,,
-Ampharos,107,move,9,Focus Blast,7.6%,,,,,,,,
-Ampharos,107,move,10,Power Gem,6.3%,,,,,,,,
-Ampharos,107,held_item,1,Ampharosite,95.1%,,,,,,,,
-Ampharos,107,held_item,2,Magnet,2.7%,,,,,,,,
-Ampharos,107,held_item,3,Big Root,1.8%,,,,,,,,
-Ampharos,107,held_item,4,Life Orb,0.2%,,,,,,,,
-Ampharos,107,held_item,5,Sitrus Berry,0.1%,,,,,,,,
-Ampharos,107,teammate,1,Incineroar,,,,,,,,,
-Ampharos,107,teammate,2,Rillaboom,,,,,,,,,
-Ampharos,107,teammate,3,Farigiraf,,,,,,,,,
-Ampharos,107,teammate,4,Camerupt,,,,,,,,,
-Ampharos,107,teammate,5,Primarina,,,,,,,,,
-Ampharos,107,teammate,6,Sneasler,,,,,,,,,
-Ampharos,107,teammate,7,Sceptile,,,,,,,,,
-Ampharos,107,teammate,8,Dragapult,,,,,,,,,
-Ampharos,107,teammate,9,Indeedee-F,,,,,,,,,
-Ampharos,107,teammate,10,Armarouge,,,,,,,,,
-Ampharos,107,stat_alignment,1,Quiet,84.7%,Sp. Atk,Speed,,,,,,
-Ampharos,107,stat_alignment,2,Modest,14.0%,Sp. Atk,Attack,,,,,,
-Ampharos,107,stat_alignment,3,Gentle,0.7%,Sp. Def,Defense,,,,,,
-Ampharos,107,stat_alignment,4,Calm,0.3%,Sp. Def,Attack,,,,,,
-Ampharos,107,stat_alignment,5,Sassy,0.2%,Sp. Def,Speed,,,,,,
-Ampharos,107,stat_alignment,6,Bold,0.1%,Defense,Attack,,,,,,
-Ampharos,107,stat_points,1,,42.6%,,,32,0,2,32,0,0
-Ampharos,107,stat_points,2,,18.4%,,,32,0,0,32,2,0
-Ampharos,107,stat_points,3,,7.5%,,,2,0,0,32,32,0
-Ampharos,107,stat_points,4,,6.2%,,,32,0,15,9,10,0
-Ampharos,107,stat_points,5,,3.7%,,,32,0,10,19,5,0
-Ampharos,107,stat_points,6,,3.2%,,,32,0,0,25,9,0
-Ampharos,107,stat_points,7,,3.1%,,,20,0,4,32,10,0
-Ampharos,107,stat_points,8,,2.6%,,,13,0,0,32,0,21
-Ampharos,107,stat_points,9,,2.1%,,,32,0,1,32,1,0
-Ampharos,107,stat_points,10,,2.0%,,,31,0,10,15,10,0
-Ampharos,107,ability,1,Static,88.3%,,,,,,,,
-Ampharos,107,ability,2,Plus,11.7%,,,,,,,,
+Ampharos,105,move,1,Dragon Pulse,94.4%,,,,,,,,
+Ampharos,105,move,2,Protect,92.3%,,,,,,,,
+Ampharos,105,move,3,Thunderbolt,62.7%,,,,,,,,
+Ampharos,105,move,4,Parabolic Charge,43.8%,,,,,,,,
+Ampharos,105,move,5,Volt Switch,22.5%,,,,,,,,
+Ampharos,105,move,6,Cotton Guard,20.9%,,,,,,,,
+Ampharos,105,move,7,Dazzling Gleam,16.3%,,,,,,,,
+Ampharos,105,move,8,Thunder,13.1%,,,,,,,,
+Ampharos,105,move,9,Focus Blast,7.3%,,,,,,,,
+Ampharos,105,move,10,Power Gem,5.8%,,,,,,,,
+Ampharos,105,held_item,1,Ampharosite,93.7%,,,,,,,,
+Ampharos,105,held_item,2,Magnet,3.7%,,,,,,,,
+Ampharos,105,held_item,3,Big Root,1.7%,,,,,,,,
+Ampharos,105,held_item,4,Shuca Berry,0.3%,,,,,,,,
+Ampharos,105,held_item,5,Life Orb,0.3%,,,,,,,,
+Ampharos,105,held_item,6,Leftovers,0.2%,,,,,,,,
+Ampharos,105,held_item,7,Sitrus Berry,0.1%,,,,,,,,
+Ampharos,105,teammate,1,Incineroar,,,,,,,,,
+Ampharos,105,teammate,2,Farigiraf,,,,,,,,,
+Ampharos,105,teammate,3,Rillaboom,,,,,,,,,
+Ampharos,105,teammate,4,Camerupt,,,,,,,,,
+Ampharos,105,teammate,5,Primarina,,,,,,,,,
+Ampharos,105,teammate,6,Sneasler,,,,,,,,,
+Ampharos,105,teammate,7,Sceptile,,,,,,,,,
+Ampharos,105,teammate,8,Dragapult,,,,,,,,,
+Ampharos,105,teammate,9,Indeedee-F,,,,,,,,,
+Ampharos,105,teammate,10,Armarouge,,,,,,,,,
+Ampharos,105,stat_alignment,1,Quiet,84.6%,Sp. Atk,Speed,,,,,,
+Ampharos,105,stat_alignment,2,Modest,14.2%,Sp. Atk,Attack,,,,,,
+Ampharos,105,stat_alignment,3,Gentle,0.6%,Sp. Def,Defense,,,,,,
+Ampharos,105,stat_alignment,4,Calm,0.3%,Sp. Def,Attack,,,,,,
+Ampharos,105,stat_alignment,5,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Ampharos,105,stat_alignment,6,Bold,0.1%,Defense,Attack,,,,,,
+Ampharos,105,stat_points,1,,45.7%,,,32,0,2,32,0,0
+Ampharos,105,stat_points,2,,16.9%,,,32,0,0,32,2,0
+Ampharos,105,stat_points,3,,7.3%,,,2,0,0,32,32,0
+Ampharos,105,stat_points,4,,5.6%,,,32,0,15,9,10,0
+Ampharos,105,stat_points,5,,3.5%,,,20,0,4,32,10,0
+Ampharos,105,stat_points,6,,3.3%,,,32,0,10,19,5,0
+Ampharos,105,stat_points,7,,2.9%,,,32,0,0,25,9,0
+Ampharos,105,stat_points,8,,2.3%,,,13,0,0,32,0,21
+Ampharos,105,stat_points,9,,1.9%,,,32,0,1,32,1,0
+Ampharos,105,stat_points,10,,1.8%,,,31,0,10,15,10,0
+Ampharos,105,ability,1,Static,88.8%,,,,,,,,
+Ampharos,105,ability,2,Plus,11.2%,,,,,,,,

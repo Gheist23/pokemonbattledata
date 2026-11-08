@@ -1,47 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Decidueye,210,move,1,Spirit Shackle,84.0%,,,,,,,,
-Decidueye,210,move,2,Curse,58.5%,,,,,,,,
-Decidueye,210,move,3,Shadow Sneak,52.8%,,,,,,,,
-Decidueye,210,move,4,Roost,42.1%,,,,,,,,
-Decidueye,210,move,5,Leaf Blade,39.5%,,,,,,,,
-Decidueye,210,move,6,Swords Dance,27.0%,,,,,,,,
-Decidueye,210,move,7,Substitute,24.3%,,,,,,,,
-Decidueye,210,move,8,Tailwind,14.2%,,,,,,,,
-Decidueye,210,move,9,Defog,11.0%,,,,,,,,
-Decidueye,210,move,10,Leaf Storm,9.5%,,,,,,,,
-Decidueye,210,held_item,1,Sitrus Berry,48.4%,,,,,,,,
-Decidueye,210,held_item,2,Focus Sash,24.0%,,,,,,,,
-Decidueye,210,held_item,3,Occa Berry,8.0%,,,,,,,,
-Decidueye,210,held_item,4,Life Orb,6.5%,,,,,,,,
-Decidueye,210,held_item,5,Lum Berry,5.6%,,,,,,,,
-Decidueye,210,held_item,6,Chesto Berry,3.3%,,,,,,,,
-Decidueye,210,held_item,7,Leftovers,2.7%,,,,,,,,
-Decidueye,210,held_item,8,Bright Powder,1.5%,,,,,,,,
-Decidueye,210,teammate,1,Lucario,,,,,,,,,
-Decidueye,210,teammate,2,Glimmora,,,,,,,,,
-Decidueye,210,teammate,3,Dragonite,,,,,,,,,
-Decidueye,210,teammate,4,Hippowdon,,,,,,,,,
-Decidueye,210,teammate,5,Absol,,,,,,,,,
-Decidueye,210,teammate,6,Salamence,,,,,,,,,
-Decidueye,210,teammate,7,Tyranitar,,,,,,,,,
-Decidueye,210,teammate,8,Empoleon,,,,,,,,,
-Decidueye,210,teammate,9,Gholdengo,,,,,,,,,
-Decidueye,210,teammate,10,Primarina,,,,,,,,,
-Decidueye,210,stat_alignment,1,Careful,43.9%,Sp. Def,Sp. Atk,,,,,,
-Decidueye,210,stat_alignment,2,Jolly,25.5%,Speed,Sp. Atk,,,,,,
-Decidueye,210,stat_alignment,3,Adamant,16.0%,Attack,Sp. Atk,,,,,,
-Decidueye,210,stat_alignment,4,Bold,9.8%,Defense,Attack,,,,,,
-Decidueye,210,stat_alignment,5,Gentle,3.9%,Sp. Def,Defense,,,,,,
-Decidueye,210,stat_alignment,6,Impish,0.9%,Defense,Sp. Atk,,,,,,
-Decidueye,210,stat_points,1,,16.6%,,,6,30,0,0,0,30
-Decidueye,210,stat_points,2,,16.0%,,,31,1,0,0,30,4
-Decidueye,210,stat_points,3,,11.3%,,,30,1,0,0,30,5
-Decidueye,210,stat_points,4,,9.5%,,,32,0,22,12,0,0
-Decidueye,210,stat_points,5,,5.3%,,,2,32,0,0,0,32
-Decidueye,210,stat_points,6,,5.3%,,,28,32,0,0,0,6
-Decidueye,210,stat_points,7,,5.0%,,,32,32,0,0,0,2
-Decidueye,210,stat_points,8,,4.7%,,,0,32,0,0,0,32
-Decidueye,210,stat_points,9,,4.5%,,,32,0,0,0,32,0
-Decidueye,210,stat_points,10,,3.9%,,,2,32,0,0,32,0
-Decidueye,210,ability,1,Long Reach,68.0%,,,,,,,,
-Decidueye,210,ability,2,Overgrow,32.0%,,,,,,,,
+Decidueye,212,move,1,Spirit Shackle,81.6%,,,,,,,,
+Decidueye,212,move,2,Curse,55.1%,,,,,,,,
+Decidueye,212,move,3,Shadow Sneak,53.7%,,,,,,,,
+Decidueye,212,move,4,Leaf Blade,41.6%,,,,,,,,
+Decidueye,212,move,5,Roost,39.2%,,,,,,,,
+Decidueye,212,move,6,Swords Dance,29.9%,,,,,,,,
+Decidueye,212,move,7,Substitute,22.5%,,,,,,,,
+Decidueye,212,move,8,Tailwind,13.7%,,,,,,,,
+Decidueye,212,move,9,Defog,11.5%,,,,,,,,
+Decidueye,212,move,10,Leaf Storm,9.3%,,,,,,,,
+Decidueye,212,held_item,1,Sitrus Berry,45.5%,,,,,,,,
+Decidueye,212,held_item,2,Focus Sash,23.0%,,,,,,,,
+Decidueye,212,held_item,3,Occa Berry,10.4%,,,,,,,,
+Decidueye,212,held_item,4,Lum Berry,6.3%,,,,,,,,
+Decidueye,212,held_item,5,Life Orb,6.0%,,,,,,,,
+Decidueye,212,held_item,6,Chesto Berry,3.6%,,,,,,,,
+Decidueye,212,held_item,7,Leftovers,2.5%,,,,,,,,
+Decidueye,212,held_item,8,Bright Powder,1.4%,,,,,,,,
+Decidueye,212,held_item,9,Spell Tag,0.8%,,,,,,,,
+Decidueye,212,held_item,10,Air Balloon,0.5%,,,,,,,,
+Decidueye,212,teammate,1,Lucario,,,,,,,,,
+Decidueye,212,teammate,2,Dragonite,,,,,,,,,
+Decidueye,212,teammate,3,Glimmora,,,,,,,,,
+Decidueye,212,teammate,4,Hippowdon,,,,,,,,,
+Decidueye,212,teammate,5,Salamence,,,,,,,,,
+Decidueye,212,teammate,6,Absol,,,,,,,,,
+Decidueye,212,teammate,7,Tyranitar,,,,,,,,,
+Decidueye,212,teammate,8,Empoleon,,,,,,,,,
+Decidueye,212,teammate,9,Primarina,,,,,,,,,
+Decidueye,212,teammate,10,Gholdengo,,,,,,,,,
+Decidueye,212,stat_alignment,1,Careful,42.2%,Sp. Def,Sp. Atk,,,,,,
+Decidueye,212,stat_alignment,2,Jolly,27.4%,Speed,Sp. Atk,,,,,,
+Decidueye,212,stat_alignment,3,Adamant,15.9%,Attack,Sp. Atk,,,,,,
+Decidueye,212,stat_alignment,4,Bold,9.6%,Defense,Attack,,,,,,
+Decidueye,212,stat_alignment,5,Gentle,3.6%,Sp. Def,Defense,,,,,,
+Decidueye,212,stat_alignment,6,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Decidueye,212,stat_alignment,7,Calm,0.5%,Sp. Def,Attack,,,,,,
+Decidueye,212,stat_points,1,,16.2%,,,6,30,0,0,0,30
+Decidueye,212,stat_points,2,,14.8%,,,31,1,0,0,30,4
+Decidueye,212,stat_points,3,,10.4%,,,30,1,0,0,30,5
+Decidueye,212,stat_points,4,,9.3%,,,32,0,22,12,0,0
+Decidueye,212,stat_points,5,,7.9%,,,2,32,0,0,0,32
+Decidueye,212,stat_points,6,,5.8%,,,32,32,0,0,0,2
+Decidueye,212,stat_points,7,,4.9%,,,28,32,0,0,0,6
+Decidueye,212,stat_points,8,,4.4%,,,0,32,0,0,0,32
+Decidueye,212,stat_points,9,,4.1%,,,32,0,0,0,32,0
+Decidueye,212,stat_points,10,,3.6%,,,2,32,0,0,32,0
+Decidueye,212,ability,1,Long Reach,69.0%,,,,,,,,
+Decidueye,212,ability,2,Overgrow,31.0%,,,,,,,,

@@ -1,41 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Salazzle,163,move,1,Sludge Bomb,73.5%,,,,,,,,
-Salazzle,163,move,2,Fake Out,53.1%,,,,,,,,
-Salazzle,163,move,3,Heat Wave,51.3%,,,,,,,,
-Salazzle,163,move,4,Toxic,42.3%,,,,,,,,
-Salazzle,163,move,5,Flamethrower,34.7%,,,,,,,,
-Salazzle,163,move,6,Protect,30.9%,,,,,,,,
-Salazzle,163,move,7,Overheat,25.4%,,,,,,,,
-Salazzle,163,move,8,Sludge Wave,21.3%,,,,,,,,
-Salazzle,163,move,9,Dragon Pulse,16.3%,,,,,,,,
-Salazzle,163,move,10,Encore,13.1%,,,,,,,,
-Salazzle,163,held_item,1,Focus Sash,93.6%,,,,,,,,
-Salazzle,163,held_item,2,Charcoal,2.9%,,,,,,,,
-Salazzle,163,held_item,3,Payapa Berry,1.7%,,,,,,,,
-Salazzle,163,held_item,4,Expert Belt,0.6%,,,,,,,,
-Salazzle,163,held_item,5,Air Balloon,0.6%,,,,,,,,
-Salazzle,163,held_item,6,Poison Barb,0.3%,,,,,,,,
-Salazzle,163,teammate,1,Charizard,,,,,,,,,
-Salazzle,163,teammate,2,Gyarados,,,,,,,,,
-Salazzle,163,teammate,3,Rillaboom,,,,,,,,,
-Salazzle,163,teammate,4,Armarouge,,,,,,,,,
-Salazzle,163,teammate,5,Typhlosion-Hisui,,,,,,,,,
-Salazzle,163,teammate,6,Chandelure,,,,,,,,,
-Salazzle,163,teammate,7,Pyroar,,,,,,,,,
-Salazzle,163,teammate,8,Raichu,,,,,,,,,
-Salazzle,163,teammate,9,Gardevoir,,,,,,,,,
-Salazzle,163,teammate,10,Staraptor,,,,,,,,,
-Salazzle,163,stat_alignment,1,Timid,79.3%,Speed,Attack,,,,,,
-Salazzle,163,stat_alignment,2,Modest,20.1%,Sp. Atk,Attack,,,,,,
-Salazzle,163,stat_alignment,3,Hasty,0.3%,Speed,Defense,,,,,,
-Salazzle,163,stat_alignment,4,Naive,0.3%,Speed,Sp. Def,,,,,,
-Salazzle,163,stat_points,1,,62.1%,,,2,0,0,32,0,32
-Salazzle,163,stat_points,2,,14.6%,,,0,0,0,32,0,32
-Salazzle,163,stat_points,3,,10.5%,,,0,0,2,32,0,32
-Salazzle,163,stat_points,4,,7.6%,,,0,0,0,32,2,32
-Salazzle,163,stat_points,5,,2.6%,,,32,0,2,0,0,32
-Salazzle,163,stat_points,6,,2.0%,,,1,0,0,32,0,32
-Salazzle,163,stat_points,7,,0.3%,,,0,2,0,32,0,32
-Salazzle,163,stat_points,8,,0.3%,,,7,0,0,32,0,27
-Salazzle,163,ability,1,Corrosion,66.5%,,,,,,,,
-Salazzle,163,ability,2,Oblivious,33.5%,,,,,,,,
+Salazzle,167,move,1,Sludge Bomb,72.7%,,,,,,,,
+Salazzle,167,move,2,Fake Out,53.7%,,,,,,,,
+Salazzle,167,move,3,Heat Wave,53.4%,,,,,,,,
+Salazzle,167,move,4,Toxic,40.5%,,,,,,,,
+Salazzle,167,move,5,Flamethrower,33.3%,,,,,,,,
+Salazzle,167,move,6,Protect,31.1%,,,,,,,,
+Salazzle,167,move,7,Overheat,25.3%,,,,,,,,
+Salazzle,167,move,8,Sludge Wave,22.6%,,,,,,,,
+Salazzle,167,move,9,Dragon Pulse,15.4%,,,,,,,,
+Salazzle,167,move,10,Encore,12.4%,,,,,,,,
+Salazzle,167,held_item,1,Focus Sash,93.4%,,,,,,,,
+Salazzle,167,held_item,2,Charcoal,2.8%,,,,,,,,
+Salazzle,167,held_item,3,Payapa Berry,1.7%,,,,,,,,
+Salazzle,167,held_item,4,Poison Barb,0.8%,,,,,,,,
+Salazzle,167,held_item,5,Expert Belt,0.6%,,,,,,,,
+Salazzle,167,held_item,6,Air Balloon,0.6%,,,,,,,,
+Salazzle,167,teammate,1,Rillaboom,,,,,,,,,
+Salazzle,167,teammate,2,Charizard,,,,,,,,,
+Salazzle,167,teammate,3,Gyarados,,,,,,,,,
+Salazzle,167,teammate,4,Armarouge,,,,,,,,,
+Salazzle,167,teammate,5,Raichu,,,,,,,,,
+Salazzle,167,teammate,6,Typhlosion-Hisui,,,,,,,,,
+Salazzle,167,teammate,7,Chandelure,,,,,,,,,
+Salazzle,167,teammate,8,Pyroar,,,,,,,,,
+Salazzle,167,teammate,9,Gardevoir,,,,,,,,,
+Salazzle,167,teammate,10,Staraptor,,,,,,,,,
+Salazzle,167,stat_alignment,1,Timid,79.3%,Speed,Attack,,,,,,
+Salazzle,167,stat_alignment,2,Modest,19.6%,Sp. Atk,Attack,,,,,,
+Salazzle,167,stat_alignment,3,Mild,0.6%,Sp. Atk,Defense,,,,,,
+Salazzle,167,stat_alignment,4,Hasty,0.3%,Speed,Defense,,,,,,
+Salazzle,167,stat_alignment,5,Naive,0.3%,Speed,Sp. Def,,,,,,
+Salazzle,167,stat_points,1,,61.4%,,,2,0,0,32,0,32
+Salazzle,167,stat_points,2,,14.0%,,,0,0,0,32,0,32
+Salazzle,167,stat_points,3,,11.0%,,,0,0,2,32,0,32
+Salazzle,167,stat_points,4,,8.0%,,,0,0,0,32,2,32
+Salazzle,167,stat_points,5,,2.5%,,,1,0,0,32,0,32
+Salazzle,167,stat_points,6,,2.5%,,,32,0,2,0,0,32
+Salazzle,167,stat_points,7,,0.3%,,,0,2,0,32,0,32
+Salazzle,167,stat_points,8,,0.3%,,,7,0,0,32,0,27
+Salazzle,167,ability,1,Corrosion,67.2%,,,,,,,,
+Salazzle,167,ability,2,Oblivious,32.8%,,,,,,,,

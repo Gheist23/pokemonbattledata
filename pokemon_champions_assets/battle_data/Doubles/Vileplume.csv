@@ -1,45 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Vileplume,187,move,1,After You,73.1%,,,,,,,,
-Vileplume,187,move,2,Sleep Powder,65.1%,,,,,,,,
-Vileplume,187,move,3,Sludge Bomb,50.5%,,,,,,,,
-Vileplume,187,move,4,Protect,41.5%,,,,,,,,
-Vileplume,187,move,5,Leaf Storm,24.5%,,,,,,,,
-Vileplume,187,move,6,Energy Ball,23.1%,,,,,,,,
-Vileplume,187,move,7,Giga Drain,22.2%,,,,,,,,
-Vileplume,187,move,8,Weather Ball,22.2%,,,,,,,,
-Vileplume,187,move,9,Pollen Puff,20.3%,,,,,,,,
-Vileplume,187,move,10,Sunny Day,16.0%,,,,,,,,
-Vileplume,187,held_item,1,Focus Sash,38.7%,,,,,,,,
-Vileplume,187,held_item,2,Life Orb,24.1%,,,,,,,,
-Vileplume,187,held_item,3,Occa Berry,13.2%,,,,,,,,
-Vileplume,187,held_item,4,Wide Lens,6.1%,,,,,,,,
-Vileplume,187,held_item,5,Big Root,5.7%,,,,,,,,
-Vileplume,187,held_item,6,Quick Claw,3.3%,,,,,,,,
-Vileplume,187,held_item,7,Expert Belt,0.5%,,,,,,,,
-Vileplume,187,teammate,1,Torkoal,,,,,,,,,
-Vileplume,187,teammate,2,Farigiraf,,,,,,,,,
-Vileplume,187,teammate,3,Indeedee-F,,,,,,,,,
-Vileplume,187,teammate,4,Raichu,,,,,,,,,
-Vileplume,187,teammate,5,Kingambit,,,,,,,,,
-Vileplume,187,teammate,6,Ninetales,,,,,,,,,
-Vileplume,187,teammate,7,Houndoom,,,,,,,,,
-Vileplume,187,teammate,8,Blaziken,,,,,,,,,
-Vileplume,187,teammate,9,Primarina,,,,,,,,,
-Vileplume,187,teammate,10,Whimsicott,,,,,,,,,
-Vileplume,187,stat_alignment,1,Timid,67.5%,Speed,Attack,,,,,,
-Vileplume,187,stat_alignment,2,Modest,26.4%,Sp. Atk,Attack,,,,,,
-Vileplume,187,stat_alignment,3,Hasty,3.3%,Speed,Defense,,,,,,
-Vileplume,187,stat_alignment,4,Sassy,2.4%,Sp. Def,Speed,,,,,,
-Vileplume,187,stat_alignment,5,Quiet,0.5%,Sp. Atk,Speed,,,,,,
-Vileplume,187,stat_points,1,,30.7%,,,2,0,0,32,0,32
-Vileplume,187,stat_points,2,,17.5%,,,15,0,0,25,0,26
-Vileplume,187,stat_points,3,,15.6%,,,32,0,0,2,0,32
-Vileplume,187,stat_points,4,,15.1%,,,1,0,1,32,0,32
-Vileplume,187,stat_points,5,,6.1%,,,32,0,0,0,2,32
-Vileplume,187,stat_points,6,,5.7%,,,0,0,5,29,0,32
-Vileplume,187,stat_points,7,,2.8%,,,1,0,2,32,0,31
-Vileplume,187,stat_points,8,,2.8%,,,2,0,20,32,12,0
-Vileplume,187,stat_points,9,,2.4%,,,32,0,0,0,32,2
-Vileplume,187,stat_points,10,,0.5%,,,0,0,2,32,0,32
-Vileplume,187,ability,1,Chlorophyll,94.3%,,,,,,,,
-Vileplume,187,ability,2,Effect Spore,5.7%,,,,,,,,
+Vileplume,185,move,1,After You,67.3%,,,,,,,,
+Vileplume,185,move,2,Sleep Powder,61.1%,,,,,,,,
+Vileplume,185,move,3,Sludge Bomb,55.6%,,,,,,,,
+Vileplume,185,move,4,Protect,39.3%,,,,,,,,
+Vileplume,185,move,5,Giga Drain,25.3%,,,,,,,,
+Vileplume,185,move,6,Leaf Storm,23.0%,,,,,,,,
+Vileplume,185,move,7,Weather Ball,19.8%,,,,,,,,
+Vileplume,185,move,8,Energy Ball,19.5%,,,,,,,,
+Vileplume,185,move,9,Pollen Puff,16.7%,,,,,,,,
+Vileplume,185,move,10,Strength Sap,15.6%,,,,,,,,
+Vileplume,185,held_item,1,Focus Sash,32.7%,,,,,,,,
+Vileplume,185,held_item,2,Life Orb,21.4%,,,,,,,,
+Vileplume,185,held_item,3,Big Root,13.6%,,,,,,,,
+Vileplume,185,held_item,4,Occa Berry,10.9%,,,,,,,,
+Vileplume,185,held_item,5,Wide Lens,10.5%,,,,,,,,
+Vileplume,185,held_item,6,Quick Claw,2.7%,,,,,,,,
+Vileplume,185,held_item,7,Sitrus Berry,0.4%,,,,,,,,
+Vileplume,185,held_item,8,Miracle Seed,0.4%,,,,,,,,
+Vileplume,185,held_item,9,Expert Belt,0.4%,,,,,,,,
+Vileplume,185,teammate,1,Torkoal,,,,,,,,,
+Vileplume,185,teammate,2,Farigiraf,,,,,,,,,
+Vileplume,185,teammate,3,Indeedee-F,,,,,,,,,
+Vileplume,185,teammate,4,Raichu,,,,,,,,,
+Vileplume,185,teammate,5,Kingambit,,,,,,,,,
+Vileplume,185,teammate,6,Ninetales,,,,,,,,,
+Vileplume,185,teammate,7,Houndoom,,,,,,,,,
+Vileplume,185,teammate,8,Whimsicott,,,,,,,,,
+Vileplume,185,teammate,9,Gardevoir,,,,,,,,,
+Vileplume,185,teammate,10,Blaziken,,,,,,,,,
+Vileplume,185,stat_alignment,1,Timid,62.3%,Speed,Attack,,,,,,
+Vileplume,185,stat_alignment,2,Modest,27.2%,Sp. Atk,Attack,,,,,,
+Vileplume,185,stat_alignment,3,Sassy,7.4%,Sp. Def,Speed,,,,,,
+Vileplume,185,stat_alignment,4,Hasty,2.7%,Speed,Defense,,,,,,
+Vileplume,185,stat_alignment,5,Quiet,0.4%,Sp. Atk,Speed,,,,,,
+Vileplume,185,stat_points,1,,28.4%,,,2,0,0,32,0,32
+Vileplume,185,stat_points,2,,15.2%,,,15,0,0,25,0,26
+Vileplume,185,stat_points,3,,13.6%,,,1,0,1,32,0,32
+Vileplume,185,stat_points,4,,12.8%,,,32,0,0,2,0,32
+Vileplume,185,stat_points,5,,7.4%,,,32,0,0,0,32,2
+Vileplume,185,stat_points,6,,7.0%,,,0,0,5,29,0,32
+Vileplume,185,stat_points,7,,5.8%,,,2,0,20,32,12,0
+Vileplume,185,stat_points,8,,5.4%,,,32,0,0,0,2,32
+Vileplume,185,stat_points,9,,2.3%,,,1,0,2,32,0,31
+Vileplume,185,stat_points,10,,0.8%,,,0,0,2,32,0,32
+Vileplume,185,ability,1,Chlorophyll,86.4%,,,,,,,,
+Vileplume,185,ability,2,Effect Spore,13.6%,,,,,,,,

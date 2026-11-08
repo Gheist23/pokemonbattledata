@@ -1,33 +1,37 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gogoat,235,move,1,Horn Leech,100.0%,,,,,,,,
-Gogoat,235,move,2,Bulk Up,89.8%,,,,,,,,
-Gogoat,235,move,3,Milk Drink,77.6%,,,,,,,,
-Gogoat,235,move,4,High Horsepower,73.5%,,,,,,,,
-Gogoat,235,move,5,Protect,32.7%,,,,,,,,
-Gogoat,235,move,6,Leech Seed,22.4%,,,,,,,,
-Gogoat,235,move,7,Rock Slide,4.1%,,,,,,,,
-Gogoat,235,held_item,1,Grassy Seed,55.1%,,,,,,,,
-Gogoat,235,held_item,2,Leftovers,34.7%,,,,,,,,
-Gogoat,235,held_item,3,Big Root,10.2%,,,,,,,,
-Gogoat,235,teammate,1,Blastoise,,,,,,,,,
-Gogoat,235,teammate,2,Altaria,,,,,,,,,
-Gogoat,235,teammate,3,Dragapult,,,,,,,,,
-Gogoat,235,teammate,4,Aerodactyl,,,,,,,,,
-Gogoat,235,teammate,5,Malamar,,,,,,,,,
-Gogoat,235,teammate,6,Talonflame,,,,,,,,,
-Gogoat,235,teammate,7,Alcremie,,,,,,,,,
-Gogoat,235,teammate,8,Garchomp,,,,,,,,,
-Gogoat,235,teammate,9,Indeedee-F,,,,,,,,,
-Gogoat,235,teammate,10,Sneasler,,,,,,,,,
-Gogoat,235,stat_alignment,1,Impish,55.1%,Defense,Sp. Atk,,,,,,
-Gogoat,235,stat_alignment,2,Adamant,18.4%,Attack,Sp. Atk,,,,,,
-Gogoat,235,stat_alignment,3,Careful,12.2%,Sp. Def,Sp. Atk,,,,,,
-Gogoat,235,stat_alignment,4,Jolly,10.2%,Speed,Sp. Atk,,,,,,
-Gogoat,235,stat_alignment,5,Sassy,4.1%,Sp. Def,Speed,,,,,,
-Gogoat,235,stat_points,1,,55.1%,,,32,2,32,0,0,0
-Gogoat,235,stat_points,2,,18.4%,,,10,32,0,0,0,24
-Gogoat,235,stat_points,3,,12.2%,,,32,0,5,0,29,0
-Gogoat,235,stat_points,4,,10.2%,,,2,0,32,0,0,32
-Gogoat,235,stat_points,5,,4.1%,,,2,0,32,0,32,0
-Gogoat,235,ability,1,Grass Pelt,77.6%,,,,,,,,
-Gogoat,235,ability,2,Sap Sipper,22.4%,,,,,,,,
+Gogoat,226,move,1,Horn Leech,84.7%,,,,,,,,
+Gogoat,226,move,2,Milk Drink,83.5%,,,,,,,,
+Gogoat,226,move,3,High Horsepower,63.5%,,,,,,,,
+Gogoat,226,move,4,Bulk Up,58.8%,,,,,,,,
+Gogoat,226,move,5,Protect,42.4%,,,,,,,,
+Gogoat,226,move,6,Leech Seed,34.1%,,,,,,,,
+Gogoat,226,move,7,Rock Slide,17.6%,,,,,,,,
+Gogoat,226,move,8,Leaf Blade,15.3%,,,,,,,,
+Gogoat,226,held_item,1,Grassy Seed,34.1%,,,,,,,,
+Gogoat,226,held_item,2,Big Root,25.9%,,,,,,,,
+Gogoat,226,held_item,3,Leftovers,24.7%,,,,,,,,
+Gogoat,226,held_item,4,Choice Scarf,15.3%,,,,,,,,
+Gogoat,226,teammate,1,Talonflame,,,,,,,,,
+Gogoat,226,teammate,2,Dragapult,,,,,,,,,
+Gogoat,226,teammate,3,Altaria,,,,,,,,,
+Gogoat,226,teammate,4,Blastoise,,,,,,,,,
+Gogoat,226,teammate,5,Azumarill,,,,,,,,,
+Gogoat,226,teammate,6,Sylveon,,,,,,,,,
+Gogoat,226,teammate,7,Morpeko,,,,,,,,,
+Gogoat,226,teammate,8,Malamar,,,,,,,,,
+Gogoat,226,teammate,9,Aerodactyl,,,,,,,,,
+Gogoat,226,teammate,10,Polteageist,,,,,,,,,
+Gogoat,226,stat_alignment,1,Impish,51.8%,Defense,Sp. Atk,,,,,,
+Gogoat,226,stat_alignment,2,Adamant,29.4%,Attack,Sp. Atk,,,,,,
+Gogoat,226,stat_alignment,3,Jolly,8.2%,Speed,Sp. Atk,,,,,,
+Gogoat,226,stat_alignment,4,Careful,8.2%,Sp. Def,Sp. Atk,,,,,,
+Gogoat,226,stat_alignment,5,Sassy,2.4%,Sp. Def,Speed,,,,,,
+Gogoat,226,stat_points,1,,34.1%,,,32,2,32,0,0,0
+Gogoat,226,stat_points,2,,17.6%,,,32,0,32,0,2,0
+Gogoat,226,stat_points,3,,15.3%,,,18,13,10,0,0,25
+Gogoat,226,stat_points,4,,14.1%,,,10,32,0,0,0,24
+Gogoat,226,stat_points,5,,8.2%,,,2,0,32,0,0,32
+Gogoat,226,stat_points,6,,8.2%,,,32,0,5,0,29,0
+Gogoat,226,stat_points,7,,2.4%,,,2,0,32,0,32,0
+Gogoat,226,ability,1,Grass Pelt,50.6%,,,,,,,,
+Gogoat,226,ability,2,Sap Sipper,49.4%,,,,,,,,

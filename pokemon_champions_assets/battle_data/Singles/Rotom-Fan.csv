@@ -1,43 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom-Fan,233,move,1,Air Slash,94.6%,,,,,,,,
-Rotom-Fan,233,move,2,Thunderbolt,54.3%,,,,,,,,
-Rotom-Fan,233,move,3,Volt Switch,45.2%,,,,,,,,
-Rotom-Fan,233,move,4,Pain Split,38.2%,,,,,,,,
-Rotom-Fan,233,move,5,Nasty Plot,34.4%,,,,,,,,
-Rotom-Fan,233,move,6,Substitute,31.2%,,,,,,,,
-Rotom-Fan,233,move,7,Discharge,24.7%,,,,,,,,
-Rotom-Fan,233,move,8,Will-O-Wisp,22.6%,,,,,,,,
-Rotom-Fan,233,move,9,Double Team,16.1%,,,,,,,,
-Rotom-Fan,233,move,10,Shadow Ball,14.5%,,,,,,,,
-Rotom-Fan,233,held_item,1,Choice Scarf,28.0%,,,,,,,,
-Rotom-Fan,233,held_item,2,Sitrus Berry,26.9%,,,,,,,,
-Rotom-Fan,233,held_item,3,Bright Powder,16.1%,,,,,,,,
-Rotom-Fan,233,held_item,4,Rocky Helmet,15.1%,,,,,,,,
-Rotom-Fan,233,held_item,5,Lum Berry,11.8%,,,,,,,,
-Rotom-Fan,233,held_item,6,Sharp Beak,0.5%,,,,,,,,
-Rotom-Fan,233,held_item,7,Spell Tag,0.5%,,,,,,,,
-Rotom-Fan,233,teammate,1,Baxcalibur,,,,,,,,,
-Rotom-Fan,233,teammate,2,Primarina,,,,,,,,,
-Rotom-Fan,233,teammate,3,Garchomp,,,,,,,,,
-Rotom-Fan,233,teammate,4,Dragonite,,,,,,,,,
-Rotom-Fan,233,teammate,5,Lucario,,,,,,,,,
-Rotom-Fan,233,teammate,6,Hippowdon,,,,,,,,,
-Rotom-Fan,233,teammate,7,Samurott-Hisui,,,,,,,,,
-Rotom-Fan,233,teammate,8,Indeedee,,,,,,,,,
-Rotom-Fan,233,teammate,9,Blaziken,,,,,,,,,
-Rotom-Fan,233,teammate,10,Tauros,,,,,,,,,
-Rotom-Fan,233,stat_alignment,1,Bold,38.2%,Defense,Attack,,,,,,
-Rotom-Fan,233,stat_alignment,2,Timid,33.3%,Speed,Attack,,,,,,
-Rotom-Fan,233,stat_alignment,3,Modest,28.0%,Sp. Atk,Attack,,,,,,
-Rotom-Fan,233,stat_alignment,4,Calm,0.5%,Sp. Def,Attack,,,,,,
-Rotom-Fan,233,stat_points,1,,33.3%,,,2,0,0,32,0,32
-Rotom-Fan,233,stat_points,2,,20.4%,,,32,0,0,25,0,9
-Rotom-Fan,233,stat_points,3,,16.1%,,,14,0,10,15,13,14
-Rotom-Fan,233,stat_points,4,,10.8%,,,32,0,32,2,0,0
-Rotom-Fan,233,stat_points,5,,8.1%,,,32,0,23,0,11,0
-Rotom-Fan,233,stat_points,6,,4.3%,,,30,0,18,0,18,0
-Rotom-Fan,233,stat_points,7,,3.2%,,,32,0,27,0,0,7
-Rotom-Fan,233,stat_points,8,,1.6%,,,0,0,32,32,2,0
-Rotom-Fan,233,stat_points,9,,1.1%,,,32,0,2,0,0,32
-Rotom-Fan,233,stat_points,10,,0.5%,,,0,0,1,32,0,32
-Rotom-Fan,233,ability,1,Levitate,100.0%,,,,,,,,
+Rotom-Fan,231,move,1,Air Slash,91.5%,,,,,,,,
+Rotom-Fan,231,move,2,Thunderbolt,52.0%,,,,,,,,
+Rotom-Fan,231,move,3,Volt Switch,46.2%,,,,,,,,
+Rotom-Fan,231,move,4,Pain Split,35.9%,,,,,,,,
+Rotom-Fan,231,move,5,Nasty Plot,33.2%,,,,,,,,
+Rotom-Fan,231,move,6,Substitute,26.0%,,,,,,,,
+Rotom-Fan,231,move,7,Will-O-Wisp,22.4%,,,,,,,,
+Rotom-Fan,231,move,8,Discharge,20.6%,,,,,,,,
+Rotom-Fan,231,move,9,Trick,16.1%,,,,,,,,
+Rotom-Fan,231,move,10,Shadow Ball,15.7%,,,,,,,,
+Rotom-Fan,231,held_item,1,Choice Scarf,27.4%,,,,,,,,
+Rotom-Fan,231,held_item,2,Sitrus Berry,24.2%,,,,,,,,
+Rotom-Fan,231,held_item,3,Bright Powder,14.3%,,,,,,,,
+Rotom-Fan,231,held_item,4,Rocky Helmet,12.6%,,,,,,,,
+Rotom-Fan,231,held_item,5,Lum Berry,11.2%,,,,,,,,
+Rotom-Fan,231,held_item,6,Leftovers,3.6%,,,,,,,,
+Rotom-Fan,231,held_item,7,Chesto Berry,3.1%,,,,,,,,
+Rotom-Fan,231,held_item,8,Focus Band,1.8%,,,,,,,,
+Rotom-Fan,231,held_item,9,Sharp Beak,0.4%,,,,,,,,
+Rotom-Fan,231,held_item,10,Spell Tag,0.4%,,,,,,,,
+Rotom-Fan,231,teammate,1,Baxcalibur,,,,,,,,,
+Rotom-Fan,231,teammate,2,Garchomp,,,,,,,,,
+Rotom-Fan,231,teammate,3,Primarina,,,,,,,,,
+Rotom-Fan,231,teammate,4,Lucario,,,,,,,,,
+Rotom-Fan,231,teammate,5,Dragonite,,,,,,,,,
+Rotom-Fan,231,teammate,6,Hippowdon,,,,,,,,,
+Rotom-Fan,231,teammate,7,Samurott-Hisui,,,,,,,,,
+Rotom-Fan,231,teammate,8,Indeedee,,,,,,,,,
+Rotom-Fan,231,teammate,9,Blaziken,,,,,,,,,
+Rotom-Fan,231,teammate,10,Umbreon,,,,,,,,,
+Rotom-Fan,231,stat_alignment,1,Bold,34.1%,Defense,Attack,,,,,,
+Rotom-Fan,231,stat_alignment,2,Timid,32.3%,Speed,Attack,,,,,,
+Rotom-Fan,231,stat_alignment,3,Modest,26.5%,Sp. Atk,Attack,,,,,,
+Rotom-Fan,231,stat_alignment,4,Jolly,3.6%,Speed,Sp. Atk,,,,,,
+Rotom-Fan,231,stat_alignment,5,Calm,3.6%,Sp. Def,Attack,,,,,,
+Rotom-Fan,231,stat_points,1,,31.4%,,,2,0,0,32,0,32
+Rotom-Fan,231,stat_points,2,,17.0%,,,32,0,0,25,0,9
+Rotom-Fan,231,stat_points,3,,14.3%,,,14,0,10,15,13,14
+Rotom-Fan,231,stat_points,4,,9.0%,,,32,0,32,2,0,0
+Rotom-Fan,231,stat_points,5,,6.7%,,,32,0,23,0,11,0
+Rotom-Fan,231,stat_points,6,,3.6%,,,2,32,0,0,0,32
+Rotom-Fan,231,stat_points,7,,3.6%,,,30,0,18,0,18,0
+Rotom-Fan,231,stat_points,8,,3.1%,,,32,0,2,0,32,0
+Rotom-Fan,231,stat_points,9,,2.7%,,,32,0,27,0,0,7
+Rotom-Fan,231,stat_points,10,,1.8%,,,0,0,2,32,0,32
+Rotom-Fan,231,ability,1,Levitate,100.0%,,,,,,,,

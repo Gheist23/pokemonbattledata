@@ -1,36 +1,40 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sandaconda,225,move,1,Minimize,92.3%,,,,,,,,
-Sandaconda,225,move,2,Coil,65.4%,,,,,,,,
-Sandaconda,225,move,3,Sandstorm,52.6%,,,,,,,,
-Sandaconda,225,move,4,Stone Edge,42.3%,,,,,,,,
-Sandaconda,225,move,5,Body Press,41.0%,,,,,,,,
-Sandaconda,225,move,6,Iron Defense,34.6%,,,,,,,,
-Sandaconda,225,move,7,Rock Slide,29.5%,,,,,,,,
-Sandaconda,225,move,8,Mud-Slap,16.7%,,,,,,,,
-Sandaconda,225,move,9,Sand Tomb,11.5%,,,,,,,,
-Sandaconda,225,move,10,Protect,7.7%,,,,,,,,
-Sandaconda,225,held_item,1,Bright Powder,87.2%,,,,,,,,
-Sandaconda,225,held_item,2,Sitrus Berry,6.4%,,,,,,,,
-Sandaconda,225,held_item,3,Leftovers,6.4%,,,,,,,,
-Sandaconda,225,teammate,1,Sinistcha,,,,,,,,,
-Sandaconda,225,teammate,2,Tyranitar,,,,,,,,,
-Sandaconda,225,teammate,3,Klefki,,,,,,,,,
-Sandaconda,225,teammate,4,Excadrill,,,,,,,,,
-Sandaconda,225,teammate,5,Krookodile,,,,,,,,,
-Sandaconda,225,teammate,6,Indeedee-F,,,,,,,,,
-Sandaconda,225,teammate,7,Farigiraf,,,,,,,,,
-Sandaconda,225,teammate,8,Houndstone,,,,,,,,,
-Sandaconda,225,teammate,9,Clefable,,,,,,,,,
-Sandaconda,225,teammate,10,Garchomp,,,,,,,,,
-Sandaconda,225,stat_alignment,1,Impish,70.5%,Defense,Sp. Atk,,,,,,
-Sandaconda,225,stat_alignment,2,Bold,16.7%,Defense,Attack,,,,,,
-Sandaconda,225,stat_alignment,3,Careful,11.5%,Sp. Def,Sp. Atk,,,,,,
-Sandaconda,225,stat_alignment,4,Adamant,1.3%,Attack,Sp. Atk,,,,,,
-Sandaconda,225,stat_points,1,,69.2%,,,32,0,5,0,29,0
-Sandaconda,225,stat_points,2,,12.8%,,,0,0,32,0,2,32
-Sandaconda,225,stat_points,3,,6.4%,,,32,0,32,0,2,0
-Sandaconda,225,stat_points,4,,5.1%,,,30,0,4,0,32,0
-Sandaconda,225,stat_points,5,,5.1%,,,32,0,2,0,32,0
-Sandaconda,225,stat_points,6,,1.3%,,,21,13,0,0,32,0
-Sandaconda,225,ability,1,Sand Veil,88.5%,,,,,,,,
-Sandaconda,225,ability,2,Sand Spit,11.5%,,,,,,,,
+Sandaconda,222,move,1,Minimize,74.3%,,,,,,,,
+Sandaconda,222,move,2,Coil,68.6%,,,,,,,,
+Sandaconda,222,move,3,Stone Edge,50.5%,,,,,,,,
+Sandaconda,222,move,4,Sandstorm,39.0%,,,,,,,,
+Sandaconda,222,move,5,Body Press,36.2%,,,,,,,,
+Sandaconda,222,move,6,Iron Defense,31.4%,,,,,,,,
+Sandaconda,222,move,7,Rock Slide,27.6%,,,,,,,,
+Sandaconda,222,move,8,Glare,17.1%,,,,,,,,
+Sandaconda,222,move,9,Earthquake,15.2%,,,,,,,,
+Sandaconda,222,move,10,Mud-Slap,12.4%,,,,,,,,
+Sandaconda,222,held_item,1,Bright Powder,70.5%,,,,,,,,
+Sandaconda,222,held_item,2,Sitrus Berry,20.0%,,,,,,,,
+Sandaconda,222,held_item,3,Leftovers,5.7%,,,,,,,,
+Sandaconda,222,held_item,4,Psychic Seed,3.8%,,,,,,,,
+Sandaconda,222,teammate,1,Tyranitar,,,,,,,,,
+Sandaconda,222,teammate,2,Sinistcha,,,,,,,,,
+Sandaconda,222,teammate,3,Excadrill,,,,,,,,,
+Sandaconda,222,teammate,4,Klefki,,,,,,,,,
+Sandaconda,222,teammate,5,Houndstone,,,,,,,,,
+Sandaconda,222,teammate,6,Indeedee-F,,,,,,,,,
+Sandaconda,222,teammate,7,Krookodile,,,,,,,,,
+Sandaconda,222,teammate,8,Garchomp,,,,,,,,,
+Sandaconda,222,teammate,9,Farigiraf,,,,,,,,,
+Sandaconda,222,teammate,10,Lucario,,,,,,,,,
+Sandaconda,222,stat_alignment,1,Impish,58.1%,Defense,Sp. Atk,,,,,,
+Sandaconda,222,stat_alignment,2,Careful,14.3%,Sp. Def,Sp. Atk,,,,,,
+Sandaconda,222,stat_alignment,3,Bold,12.4%,Defense,Attack,,,,,,
+Sandaconda,222,stat_alignment,4,Adamant,11.4%,Attack,Sp. Atk,,,,,,
+Sandaconda,222,stat_alignment,5,Relaxed,3.8%,Defense,Speed,,,,,,
+Sandaconda,222,stat_points,1,,51.4%,,,32,0,5,0,29,0
+Sandaconda,222,stat_points,2,,15.2%,,,0,0,32,0,2,32
+Sandaconda,222,stat_points,3,,9.5%,,,32,32,0,0,1,1
+Sandaconda,222,stat_points,4,,7.6%,,,32,0,2,0,32,0
+Sandaconda,222,stat_points,5,,5.7%,,,32,1,0,0,32,1
+Sandaconda,222,stat_points,6,,4.8%,,,32,0,32,0,2,0
+Sandaconda,222,stat_points,7,,3.8%,,,30,0,4,0,32,0
+Sandaconda,222,stat_points,8,,1.9%,,,21,13,0,0,32,0
+Sandaconda,222,ability,1,Sand Veil,71.4%,,,,,,,,
+Sandaconda,222,ability,2,Sand Spit,28.6%,,,,,,,,

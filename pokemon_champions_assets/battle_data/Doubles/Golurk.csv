@@ -1,50 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Golurk,120,move,1,Headlong Rush,88.5%,,,,,,,,
-Golurk,120,move,2,Poltergeist,79.3%,,,,,,,,
-Golurk,120,move,3,Protect,70.0%,,,,,,,,
-Golurk,120,move,4,Ice Punch,53.8%,,,,,,,,
-Golurk,120,move,5,Rock Slide,30.4%,,,,,,,,
-Golurk,120,move,6,Stone Edge,12.3%,,,,,,,,
-Golurk,120,move,7,Thunder Punch,12.2%,,,,,,,,
-Golurk,120,move,8,Earthquake,12.1%,,,,,,,,
-Golurk,120,move,9,Phantom Force,8.8%,,,,,,,,
-Golurk,120,move,10,High Horsepower,6.1%,,,,,,,,
+Golurk,120,move,1,Headlong Rush,88.4%,,,,,,,,
+Golurk,120,move,2,Poltergeist,79.6%,,,,,,,,
+Golurk,120,move,3,Protect,70.2%,,,,,,,,
+Golurk,120,move,4,Ice Punch,53.3%,,,,,,,,
+Golurk,120,move,5,Rock Slide,29.8%,,,,,,,,
+Golurk,120,move,6,Stone Edge,12.4%,,,,,,,,
+Golurk,120,move,7,Thunder Punch,12.3%,,,,,,,,
+Golurk,120,move,8,Earthquake,11.8%,,,,,,,,
+Golurk,120,move,9,Phantom Force,8.6%,,,,,,,,
+Golurk,120,move,10,High Horsepower,6.4%,,,,,,,,
 Golurk,120,held_item,1,Golurkite,59.8%,,,,,,,,
-Golurk,120,held_item,2,Life Orb,10.0%,,,,,,,,
-Golurk,120,held_item,3,Focus Sash,8.6%,,,,,,,,
-Golurk,120,held_item,4,Soft Sand,8.3%,,,,,,,,
-Golurk,120,held_item,5,Choice Scarf,6.8%,,,,,,,,
+Golurk,120,held_item,2,Life Orb,9.8%,,,,,,,,
+Golurk,120,held_item,3,Focus Sash,9.1%,,,,,,,,
+Golurk,120,held_item,4,Soft Sand,8.2%,,,,,,,,
+Golurk,120,held_item,5,Choice Scarf,6.7%,,,,,,,,
 Golurk,120,held_item,6,White Herb,3.4%,,,,,,,,
 Golurk,120,held_item,7,Sitrus Berry,1.3%,,,,,,,,
-Golurk,120,held_item,8,Colbur Berry,1.1%,,,,,,,,
+Golurk,120,held_item,8,Colbur Berry,1.0%,,,,,,,,
 Golurk,120,held_item,9,Psychic Seed,0.6%,,,,,,,,
+Golurk,120,held_item,10,Bright Powder,0.1%,,,,,,,,
 Golurk,120,teammate,1,Indeedee-F,,,,,,,,,
 Golurk,120,teammate,2,Incineroar,,,,,,,,,
 Golurk,120,teammate,3,Farigiraf,,,,,,,,,
 Golurk,120,teammate,4,Torkoal,,,,,,,,,
 Golurk,120,teammate,5,Kingambit,,,,,,,,,
-Golurk,120,teammate,6,Rillaboom,,,,,,,,,
-Golurk,120,teammate,7,Golisopod,,,,,,,,,
+Golurk,120,teammate,6,Golisopod,,,,,,,,,
+Golurk,120,teammate,7,Rillaboom,,,,,,,,,
 Golurk,120,teammate,8,Hatterene,,,,,,,,,
 Golurk,120,teammate,9,Sneasler,,,,,,,,,
 Golurk,120,teammate,10,Klefki,,,,,,,,,
-Golurk,120,stat_alignment,1,Brave,61.5%,Attack,Speed,,,,,,
-Golurk,120,stat_alignment,2,Adamant,33.2%,Attack,Sp. Atk,,,,,,
+Golurk,120,stat_alignment,1,Brave,61.6%,Attack,Speed,,,,,,
+Golurk,120,stat_alignment,2,Adamant,33.1%,Attack,Sp. Atk,,,,,,
 Golurk,120,stat_alignment,3,Sassy,3.4%,Sp. Def,Speed,,,,,,
 Golurk,120,stat_alignment,4,Jolly,1.3%,Speed,Sp. Atk,,,,,,
 Golurk,120,stat_alignment,5,Relaxed,0.3%,Defense,Speed,,,,,,
-Golurk,120,stat_alignment,6,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Golurk,120,stat_alignment,6,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
 Golurk,120,stat_alignment,7,Naughty,0.1%,Attack,Sp. Def,,,,,,
-Golurk,120,stat_points,1,,25.2%,,,32,32,0,0,2,0
-Golurk,120,stat_points,2,,14.3%,,,32,32,1,0,1,0
-Golurk,120,stat_points,3,,12.0%,,,32,32,2,0,0,0
-Golurk,120,stat_points,4,,8.7%,,,2,32,0,0,0,32
-Golurk,120,stat_points,5,,6.6%,,,4,31,0,0,0,31
-Golurk,120,stat_points,6,,6.6%,,,31,21,13,0,1,0
-Golurk,120,stat_points,7,,4.3%,,,30,32,2,0,2,0
+Golurk,120,stat_points,1,,25.0%,,,32,32,0,0,2,0
+Golurk,120,stat_points,2,,14.4%,,,32,32,1,0,1,0
+Golurk,120,stat_points,3,,12.5%,,,32,32,2,0,0,0
+Golurk,120,stat_points,4,,8.5%,,,2,32,0,0,0,32
+Golurk,120,stat_points,5,,6.5%,,,4,31,0,0,0,31
+Golurk,120,stat_points,6,,6.5%,,,31,21,13,0,1,0
+Golurk,120,stat_points,7,,4.5%,,,30,32,2,0,2,0
 Golurk,120,stat_points,8,,3.5%,,,32,2,0,0,32,0
-Golurk,120,stat_points,9,,2.8%,,,0,32,32,0,2,0
-Golurk,120,stat_points,10,,2.5%,,,26,32,0,0,8,0
-Golurk,120,ability,1,Iron Fist,56.1%,,,,,,,,
-Golurk,120,ability,2,No Guard,43.8%,,,,,,,,
+Golurk,120,stat_points,9,,2.7%,,,0,32,32,0,2,0
+Golurk,120,stat_points,10,,2.4%,,,26,32,0,0,8,0
+Golurk,120,ability,1,Iron Fist,55.6%,,,,,,,,
+Golurk,120,ability,2,No Guard,44.3%,,,,,,,,
 Golurk,120,ability,3,Klutz,0.1%,,,,,,,,

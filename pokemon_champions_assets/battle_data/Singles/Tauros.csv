@@ -1,47 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tauros,222,move,1,Iron Head,58.7%,,,,,,,,
-Tauros,222,move,2,Earthquake,55.9%,,,,,,,,
-Tauros,222,move,3,Rock Slide,47.4%,,,,,,,,
-Tauros,222,move,4,Ice Beam,32.8%,,,,,,,,
-Tauros,222,move,5,Raging Bull,31.6%,,,,,,,,
-Tauros,222,move,6,Fire Blast,31.0%,,,,,,,,
+Tauros,222,move,1,Iron Head,58.3%,,,,,,,,
+Tauros,222,move,2,Earthquake,56.5%,,,,,,,,
+Tauros,222,move,3,Rock Slide,47.6%,,,,,,,,
+Tauros,222,move,4,Ice Beam,32.5%,,,,,,,,
+Tauros,222,move,5,Raging Bull,31.4%,,,,,,,,
+Tauros,222,move,6,Fire Blast,30.2%,,,,,,,,
 Tauros,222,move,7,Wild Charge,23.4%,,,,,,,,
 Tauros,222,move,8,Rock Tomb,21.6%,,,,,,,,
-Tauros,222,move,9,Close Combat,21.0%,,,,,,,,
-Tauros,222,move,10,Body Slam,17.9%,,,,,,,,
-Tauros,222,held_item,1,Life Orb,86.6%,,,,,,,,
-Tauros,222,held_item,2,Silk Scarf,5.2%,,,,,,,,
-Tauros,222,held_item,3,Choice Scarf,4.3%,,,,,,,,
+Tauros,222,move,9,Close Combat,20.4%,,,,,,,,
+Tauros,222,move,10,Body Slam,18.6%,,,,,,,,
+Tauros,222,held_item,1,Life Orb,86.1%,,,,,,,,
+Tauros,222,held_item,2,Silk Scarf,5.0%,,,,,,,,
+Tauros,222,held_item,3,Choice Scarf,4.1%,,,,,,,,
 Tauros,222,held_item,4,Focus Sash,2.1%,,,,,,,,
 Tauros,222,held_item,5,Normal Gem,1.5%,,,,,,,,
-Tauros,222,held_item,6,Sitrus Berry,0.3%,,,,,,,,
+Tauros,222,held_item,6,Wise Glasses,0.6%,,,,,,,,
+Tauros,222,held_item,7,Sitrus Berry,0.3%,,,,,,,,
+Tauros,222,held_item,8,Expert Belt,0.3%,,,,,,,,
 Tauros,222,teammate,1,Greninja,,,,,,,,,
 Tauros,222,teammate,2,Snorlax,,,,,,,,,
 Tauros,222,teammate,3,Garchomp,,,,,,,,,
 Tauros,222,teammate,4,Metagross,,,,,,,,,
 Tauros,222,teammate,5,Sableye,,,,,,,,,
 Tauros,222,teammate,6,Basculegion,,,,,,,,,
-Tauros,222,teammate,7,Corviknight,,,,,,,,,
-Tauros,222,teammate,8,Golisopod,,,,,,,,,
+Tauros,222,teammate,7,Golisopod,,,,,,,,,
+Tauros,222,teammate,8,Corviknight,,,,,,,,,
 Tauros,222,teammate,9,Squawkabilly-Yellow,,,,,,,,,
 Tauros,222,teammate,10,Raichu,,,,,,,,,
-Tauros,222,stat_alignment,1,Jolly,34.0%,Speed,Sp. Atk,,,,,,
-Tauros,222,stat_alignment,2,Adamant,30.4%,Attack,Sp. Atk,,,,,,
-Tauros,222,stat_alignment,3,Hasty,19.8%,Speed,Defense,,,,,,
-Tauros,222,stat_alignment,4,Rash,7.3%,Sp. Atk,Sp. Def,,,,,,
+Tauros,222,stat_alignment,1,Jolly,33.7%,Speed,Sp. Atk,,,,,,
+Tauros,222,stat_alignment,2,Adamant,30.8%,Attack,Sp. Atk,,,,,,
+Tauros,222,stat_alignment,3,Hasty,19.2%,Speed,Defense,,,,,,
+Tauros,222,stat_alignment,4,Rash,7.1%,Sp. Atk,Sp. Def,,,,,,
 Tauros,222,stat_alignment,5,Naive,3.6%,Speed,Sp. Def,,,,,,
-Tauros,222,stat_alignment,6,Modest,2.4%,Sp. Atk,Attack,,,,,,
+Tauros,222,stat_alignment,6,Modest,3.0%,Sp. Atk,Attack,,,,,,
 Tauros,222,stat_alignment,7,Naughty,2.1%,Attack,Sp. Def,,,,,,
 Tauros,222,stat_alignment,8,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Tauros,222,stat_alignment,9,Impish,0.3%,Defense,Sp. Atk,,,,,,
 Tauros,222,stat_points,1,,21.3%,,,1,32,1,0,0,32
-Tauros,222,stat_points,2,,19.8%,,,0,9,0,32,0,25
-Tauros,222,stat_points,3,,19.1%,,,1,32,0,0,1,32
-Tauros,222,stat_points,4,,12.5%,,,0,32,0,0,2,32
-Tauros,222,stat_points,5,,11.6%,,,2,32,0,0,0,32
-Tauros,222,stat_points,6,,7.9%,,,0,0,2,32,0,32
+Tauros,222,stat_points,2,,19.8%,,,1,32,0,0,1,32
+Tauros,222,stat_points,3,,19.2%,,,0,9,0,32,0,25
+Tauros,222,stat_points,4,,12.1%,,,0,32,0,0,2,32
+Tauros,222,stat_points,5,,11.2%,,,2,32,0,0,0,32
+Tauros,222,stat_points,6,,7.7%,,,0,0,2,32,0,32
 Tauros,222,stat_points,7,,3.3%,,,0,2,0,32,0,32
 Tauros,222,stat_points,8,,1.8%,,,0,0,0,32,0,32
 Tauros,222,stat_points,9,,1.2%,,,0,32,0,0,0,32
 Tauros,222,stat_points,10,,0.9%,,,5,32,8,0,0,21
-Tauros,222,ability,1,Sheer Force,72.9%,,,,,,,,
-Tauros,222,ability,2,Intimidate,27.1%,,,,,,,,
+Tauros,222,ability,1,Sheer Force,72.5%,,,,,,,,
+Tauros,222,ability,2,Intimidate,27.5%,,,,,,,,

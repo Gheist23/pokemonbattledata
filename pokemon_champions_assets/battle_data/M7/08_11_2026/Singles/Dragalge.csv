@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dragalge,91,move,1,Draco Meteor,88.6%,,,,,,,,
-Dragalge,91,move,2,Flip Turn,86.9%,,,,,,,,
-Dragalge,91,move,3,Toxic,48.6%,,,,,,,,
-Dragalge,91,move,4,Thunderbolt,38.5%,,,,,,,,
-Dragalge,91,move,5,Sludge Bomb,31.0%,,,,,,,,
+Dragalge,91,move,1,Draco Meteor,88.5%,,,,,,,,
+Dragalge,91,move,2,Flip Turn,87.0%,,,,,,,,
+Dragalge,91,move,3,Toxic,48.7%,,,,,,,,
+Dragalge,91,move,4,Thunderbolt,38.3%,,,,,,,,
+Dragalge,91,move,5,Sludge Bomb,30.9%,,,,,,,,
 Dragalge,91,move,6,Toxic Spikes,28.4%,,,,,,,,
-Dragalge,91,move,7,Sludge Wave,18.5%,,,,,,,,
+Dragalge,91,move,7,Sludge Wave,18.6%,,,,,,,,
 Dragalge,91,move,8,Scald,12.3%,,,,,,,,
 Dragalge,91,move,9,Focus Blast,10.2%,,,,,,,,
-Dragalge,91,move,10,Dragon Pulse,6.8%,,,,,,,,
+Dragalge,91,move,10,Dragon Pulse,6.9%,,,,,,,,
 Dragalge,91,held_item,1,Dragalgite,94.0%,,,,,,,,
 Dragalge,91,held_item,2,Dragon Fang,1.7%,,,,,,,,
 Dragalge,91,held_item,3,Leftovers,1.2%,,,,,,,,
@@ -18,7 +18,7 @@ Dragalge,91,held_item,6,Quick Claw,0.5%,,,,,,,,
 Dragalge,91,held_item,7,Focus Sash,0.2%,,,,,,,,
 Dragalge,91,held_item,8,Wise Glasses,0.1%,,,,,,,,
 Dragalge,91,held_item,9,Expert Belt,0.1%,,,,,,,,
-Dragalge,91,held_item,10,Haban Berry,0.1%,,,,,,,,
+Dragalge,91,held_item,10,Shuca Berry,0.1%,,,,,,,,
 Dragalge,91,teammate,1,Corviknight,,,,,,,,,
 Dragalge,91,teammate,2,Garchomp,,,,,,,,,
 Dragalge,91,teammate,3,Grimmsnarl,,,,,,,,,
@@ -29,25 +29,25 @@ Dragalge,91,teammate,7,Skarmory,,,,,,,,,
 Dragalge,91,teammate,8,Samurott-Hisui,,,,,,,,,
 Dragalge,91,teammate,9,Golisopod,,,,,,,,,
 Dragalge,91,teammate,10,Pawmot,,,,,,,,,
-Dragalge,91,stat_alignment,1,Sassy,49.7%,Sp. Def,Speed,,,,,,
-Dragalge,91,stat_alignment,2,Calm,23.7%,Sp. Def,Attack,,,,,,
-Dragalge,91,stat_alignment,3,Quiet,10.7%,Sp. Atk,Speed,,,,,,
-Dragalge,91,stat_alignment,4,Modest,9.6%,Sp. Atk,Attack,,,,,,
+Dragalge,91,stat_alignment,1,Sassy,49.9%,Sp. Def,Speed,,,,,,
+Dragalge,91,stat_alignment,2,Calm,23.6%,Sp. Def,Attack,,,,,,
+Dragalge,91,stat_alignment,3,Quiet,10.6%,Sp. Atk,Speed,,,,,,
+Dragalge,91,stat_alignment,4,Modest,9.5%,Sp. Atk,Attack,,,,,,
 Dragalge,91,stat_alignment,5,Relaxed,3.6%,Defense,Speed,,,,,,
 Dragalge,91,stat_alignment,6,Bold,2.5%,Defense,Attack,,,,,,
 Dragalge,91,stat_alignment,7,Serious,0.1%,,,,,,,,
 Dragalge,91,stat_alignment,8,Gentle,0.1%,Sp. Def,Defense,,,,,,
 Dragalge,91,stat_alignment,9,Careful,0.0%,Sp. Def,Sp. Atk,,,,,,
 Dragalge,91,stat_points,1,,15.1%,,,32,0,2,0,32,0
-Dragalge,91,stat_points,2,,7.2%,,,32,0,0,2,32,0
-Dragalge,91,stat_points,3,,6.1%,,,31,0,8,9,18,0
-Dragalge,91,stat_points,4,,5.7%,,,32,0,32,0,2,0
-Dragalge,91,stat_points,5,,4.2%,,,32,0,0,32,2,0
+Dragalge,91,stat_points,2,,7.3%,,,32,0,0,2,32,0
+Dragalge,91,stat_points,3,,6.2%,,,31,0,8,9,18,0
+Dragalge,91,stat_points,4,,5.6%,,,32,0,32,0,2,0
+Dragalge,91,stat_points,5,,4.1%,,,32,0,0,32,2,0
 Dragalge,91,stat_points,6,,3.9%,,,32,0,2,32,0,0
-Dragalge,91,stat_points,7,,3.9%,,,31,0,0,3,32,0
-Dragalge,91,stat_points,8,,3.9%,,,31,0,18,0,17,0
-Dragalge,91,stat_points,9,,3.8%,,,32,0,7,0,27,0
-Dragalge,91,stat_points,10,,3.8%,,,32,0,17,0,17,0
+Dragalge,91,stat_points,7,,3.8%,,,31,0,18,0,17,0
+Dragalge,91,stat_points,8,,3.8%,,,32,0,7,0,27,0
+Dragalge,91,stat_points,9,,3.8%,,,31,0,0,3,32,0
+Dragalge,91,stat_points,10,,3.7%,,,32,0,17,0,17,0
 Dragalge,91,ability,1,Adaptability,57.0%,,,,,,,,
-Dragalge,91,ability,2,Poison Point,38.3%,,,,,,,,
-Dragalge,91,ability,3,Poison Touch,4.7%,,,,,,,,
+Dragalge,91,ability,2,Poison Point,38.4%,,,,,,,,
+Dragalge,91,ability,3,Poison Touch,4.6%,,,,,,,,

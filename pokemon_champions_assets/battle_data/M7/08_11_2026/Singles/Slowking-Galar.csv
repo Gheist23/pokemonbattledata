@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Slowking-Galar,45,move,1,Sludge Bomb,71.5%,,,,,,,,
 Slowking-Galar,45,move,2,Flamethrower,70.5%,,,,,,,,
-Slowking-Galar,45,move,3,Ice Beam,62.9%,,,,,,,,
+Slowking-Galar,45,move,3,Ice Beam,63.0%,,,,,,,,
 Slowking-Galar,45,move,4,Psychic Noise,40.7%,,,,,,,,
 Slowking-Galar,45,move,5,Chilly Reception,38.9%,,,,,,,,
 Slowking-Galar,45,move,6,Slack Off,17.4%,,,,,,,,
@@ -9,15 +9,15 @@ Slowking-Galar,45,move,7,Trick Room,17.1%,,,,,,,,
 Slowking-Galar,45,move,8,Toxic,11.8%,,,,,,,,
 Slowking-Galar,45,move,9,Acid Spray,10.4%,,,,,,,,
 Slowking-Galar,45,move,10,Sludge Wave,10.2%,,,,,,,,
-Slowking-Galar,45,held_item,1,Shuca Berry,63.1%,,,,,,,,
-Slowking-Galar,45,held_item,2,Leftovers,15.2%,,,,,,,,
+Slowking-Galar,45,held_item,1,Shuca Berry,63.2%,,,,,,,,
+Slowking-Galar,45,held_item,2,Leftovers,15.1%,,,,,,,,
 Slowking-Galar,45,held_item,3,Sitrus Berry,11.6%,,,,,,,,
-Slowking-Galar,45,held_item,4,Expert Belt,3.0%,,,,,,,,
+Slowking-Galar,45,held_item,4,Expert Belt,2.9%,,,,,,,,
 Slowking-Galar,45,held_item,5,Air Balloon,2.1%,,,,,,,,
 Slowking-Galar,45,held_item,6,Life Orb,2.0%,,,,,,,,
 Slowking-Galar,45,held_item,7,Zoom Lens,0.6%,,,,,,,,
-Slowking-Galar,45,held_item,8,Wise Glasses,0.4%,,,,,,,,
-Slowking-Galar,45,held_item,9,Rocky Helmet,0.4%,,,,,,,,
+Slowking-Galar,45,held_item,8,Rocky Helmet,0.4%,,,,,,,,
+Slowking-Galar,45,held_item,9,Wise Glasses,0.4%,,,,,,,,
 Slowking-Galar,45,held_item,10,Kasib Berry,0.2%,,,,,,,,
 Slowking-Galar,45,teammate,1,Garchomp,,,,,,,,,
 Slowking-Galar,45,teammate,2,Primarina,,,,,,,,,
@@ -27,10 +27,10 @@ Slowking-Galar,45,teammate,5,Archaludon,,,,,,,,,
 Slowking-Galar,45,teammate,6,Golisopod,,,,,,,,,
 Slowking-Galar,45,teammate,7,Charizard,,,,,,,,,
 Slowking-Galar,45,teammate,8,Hippowdon,,,,,,,,,
-Slowking-Galar,45,teammate,9,Mimikyu,,,,,,,,,
-Slowking-Galar,45,teammate,10,Corviknight,,,,,,,,,
-Slowking-Galar,45,stat_alignment,1,Modest,45.4%,Sp. Atk,Attack,,,,,,
-Slowking-Galar,45,stat_alignment,2,Calm,35.4%,Sp. Def,Attack,,,,,,
+Slowking-Galar,45,teammate,9,Corviknight,,,,,,,,,
+Slowking-Galar,45,teammate,10,Mimikyu,,,,,,,,,
+Slowking-Galar,45,stat_alignment,1,Modest,45.5%,Sp. Atk,Attack,,,,,,
+Slowking-Galar,45,stat_alignment,2,Calm,35.3%,Sp. Def,Attack,,,,,,
 Slowking-Galar,45,stat_alignment,3,Sassy,13.8%,Sp. Def,Speed,,,,,,
 Slowking-Galar,45,stat_alignment,4,Bold,2.5%,Defense,Attack,,,,,,
 Slowking-Galar,45,stat_alignment,5,Quiet,2.0%,Sp. Atk,Speed,,,,,,
@@ -40,9 +40,9 @@ Slowking-Galar,45,stat_alignment,8,Brave,0.0%,Attack,Speed,,,,,,
 Slowking-Galar,45,stat_alignment,9,Hasty,0.0%,Speed,Defense,,,,,,
 Slowking-Galar,45,stat_alignment,10,Mild,0.0%,Sp. Atk,Defense,,,,,,
 Slowking-Galar,45,stat_points,1,,20.3%,,,31,0,0,32,3,0
-Slowking-Galar,45,stat_points,2,,10.2%,,,32,0,0,14,20,0
+Slowking-Galar,45,stat_points,2,,10.1%,,,32,0,0,14,20,0
 Slowking-Galar,45,stat_points,3,,9.1%,,,32,0,2,0,32,0
-Slowking-Galar,45,stat_points,4,,7.1%,,,32,0,3,18,13,0
+Slowking-Galar,45,stat_points,4,,7.2%,,,32,0,3,18,13,0
 Slowking-Galar,45,stat_points,5,,4.9%,,,32,0,0,2,32,0
 Slowking-Galar,45,stat_points,6,,4.2%,,,31,0,0,3,32,0
 Slowking-Galar,45,stat_points,7,,3.8%,,,32,0,4,0,30,0

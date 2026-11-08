@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Aggron,116,move,1,Body Press,79.9%,,,,,,,,
 Aggron,116,move,2,Iron Defense,62.3%,,,,,,,,
-Aggron,116,move,3,Heavy Slam,45.9%,,,,,,,,
+Aggron,116,move,3,Heavy Slam,45.8%,,,,,,,,
 Aggron,116,move,4,Metal Burst,42.2%,,,,,,,,
-Aggron,116,move,5,Earthquake,32.6%,,,,,,,,
-Aggron,116,move,6,Avalanche,23.8%,,,,,,,,
+Aggron,116,move,5,Earthquake,32.8%,,,,,,,,
+Aggron,116,move,6,Avalanche,23.6%,,,,,,,,
 Aggron,116,move,7,Stealth Rock,16.2%,,,,,,,,
-Aggron,116,move,8,Ice Punch,15.8%,,,,,,,,
+Aggron,116,move,8,Ice Punch,15.7%,,,,,,,,
 Aggron,116,move,9,Stone Edge,14.3%,,,,,,,,
-Aggron,116,move,10,Rest,13.3%,,,,,,,,
-Aggron,116,held_item,1,Aggronite,83.4%,,,,,,,,
-Aggron,116,held_item,2,Leftovers,6.5%,,,,,,,,
-Aggron,116,held_item,3,Red Card,4.5%,,,,,,,,
+Aggron,116,move,10,Rest,13.2%,,,,,,,,
+Aggron,116,held_item,1,Aggronite,83.2%,,,,,,,,
+Aggron,116,held_item,2,Leftovers,6.8%,,,,,,,,
+Aggron,116,held_item,3,Red Card,4.4%,,,,,,,,
 Aggron,116,held_item,4,Sitrus Berry,1.4%,,,,,,,,
 Aggron,116,held_item,5,Light Ball,1.1%,,,,,,,,
 Aggron,116,held_item,6,Rocky Helmet,1.1%,,,,,,,,
@@ -29,23 +29,23 @@ Aggron,116,teammate,7,Gyarados,,,,,,,,,
 Aggron,116,teammate,8,Mimikyu,,,,,,,,,
 Aggron,116,teammate,9,Ditto,,,,,,,,,
 Aggron,116,teammate,10,Rillaboom,,,,,,,,,
-Aggron,116,stat_alignment,1,Impish,52.8%,Defense,Sp. Atk,,,,,,
-Aggron,116,stat_alignment,2,Adamant,15.5%,Attack,Sp. Atk,,,,,,
-Aggron,116,stat_alignment,3,Careful,13.4%,Sp. Def,Sp. Atk,,,,,,
-Aggron,116,stat_alignment,4,Bold,5.0%,Defense,Attack,,,,,,
-Aggron,116,stat_alignment,5,Brave,4.7%,Attack,Speed,,,,,,
+Aggron,116,stat_alignment,1,Impish,52.6%,Defense,Sp. Atk,,,,,,
+Aggron,116,stat_alignment,2,Adamant,15.7%,Attack,Sp. Atk,,,,,,
+Aggron,116,stat_alignment,3,Careful,13.5%,Sp. Def,Sp. Atk,,,,,,
+Aggron,116,stat_alignment,4,Bold,4.9%,Defense,Attack,,,,,,
+Aggron,116,stat_alignment,5,Brave,4.8%,Attack,Speed,,,,,,
 Aggron,116,stat_alignment,6,Relaxed,2.8%,Defense,Speed,,,,,,
-Aggron,116,stat_alignment,7,Calm,2.0%,Sp. Def,Attack,,,,,,
-Aggron,116,stat_alignment,8,Sassy,1.9%,Sp. Def,Speed,,,,,,
-Aggron,116,stat_alignment,9,Jolly,1.2%,Speed,Sp. Atk,,,,,,
+Aggron,116,stat_alignment,7,Calm,1.9%,Sp. Def,Attack,,,,,,
+Aggron,116,stat_alignment,8,Sassy,1.8%,Sp. Def,Speed,,,,,,
+Aggron,116,stat_alignment,9,Jolly,1.1%,Speed,Sp. Atk,,,,,,
 Aggron,116,stat_alignment,10,Modest,0.5%,Sp. Atk,Attack,,,,,,
-Aggron,116,stat_points,1,,15.7%,,,32,0,32,0,2,0
+Aggron,116,stat_points,1,,15.5%,,,32,0,32,0,2,0
 Aggron,116,stat_points,2,,15.2%,,,32,0,2,0,32,0
-Aggron,116,stat_points,3,,10.7%,,,32,32,2,0,0,0
+Aggron,116,stat_points,3,,10.8%,,,32,32,2,0,0,0
 Aggron,116,stat_points,4,,6.5%,,,32,32,0,0,2,0
 Aggron,116,stat_points,5,,5.8%,,,32,2,0,0,32,0
-Aggron,116,stat_points,6,,5.2%,,,32,2,32,0,0,0
-Aggron,116,stat_points,7,,4.3%,,,0,0,32,0,0,0
+Aggron,116,stat_points,6,,5.1%,,,32,2,32,0,0,0
+Aggron,116,stat_points,7,,4.2%,,,0,0,32,0,0,0
 Aggron,116,stat_points,8,,2.8%,,,32,0,0,0,32,2
 Aggron,116,stat_points,9,,2.6%,,,32,0,31,0,3,0
 Aggron,116,stat_points,10,,2.4%,,,32,0,10,0,24,0

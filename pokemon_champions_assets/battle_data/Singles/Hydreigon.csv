@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Hydreigon,41,move,1,Dark Pulse,98.6%,,,,,,,,
 Hydreigon,41,move,2,Draco Meteor,89.9%,,,,,,,,
-Hydreigon,41,move,3,Flamethrower,75.1%,,,,,,,,
-Hydreigon,41,move,4,U-turn,69.0%,,,,,,,,
+Hydreigon,41,move,3,Flamethrower,75.0%,,,,,,,,
+Hydreigon,41,move,4,U-turn,68.9%,,,,,,,,
 Hydreigon,41,move,5,Fire Blast,15.8%,,,,,,,,
 Hydreigon,41,move,6,Nasty Plot,7.5%,,,,,,,,
 Hydreigon,41,move,7,Focus Blast,7.5%,,,,,,,,
 Hydreigon,41,move,8,Substitute,6.5%,,,,,,,,
 Hydreigon,41,move,9,Earth Power,5.7%,,,,,,,,
 Hydreigon,41,move,10,Taunt,5.1%,,,,,,,,
-Hydreigon,41,held_item,1,Choice Scarf,81.0%,,,,,,,,
+Hydreigon,41,held_item,1,Choice Scarf,81.1%,,,,,,,,
 Hydreigon,41,held_item,2,Focus Sash,5.1%,,,,,,,,
-Hydreigon,41,held_item,3,Leftovers,4.2%,,,,,,,,
-Hydreigon,41,held_item,4,Life Orb,2.5%,,,,,,,,
+Hydreigon,41,held_item,3,Leftovers,4.1%,,,,,,,,
+Hydreigon,41,held_item,4,Life Orb,2.4%,,,,,,,,
 Hydreigon,41,held_item,5,Lum Berry,1.2%,,,,,,,,
 Hydreigon,41,held_item,6,Haban Berry,1.2%,,,,,,,,
 Hydreigon,41,held_item,7,Black Glasses,1.0%,,,,,,,,
-Hydreigon,41,held_item,8,Sitrus Berry,0.8%,,,,,,,,
+Hydreigon,41,held_item,8,Sitrus Berry,0.9%,,,,,,,,
 Hydreigon,41,held_item,9,Wide Lens,0.6%,,,,,,,,
 Hydreigon,41,held_item,10,Expert Belt,0.5%,,,,,,,,
 Hydreigon,41,teammate,1,Primarina,,,,,,,,,
@@ -30,7 +30,7 @@ Hydreigon,41,teammate,8,Mimikyu,,,,,,,,,
 Hydreigon,41,teammate,9,Golisopod,,,,,,,,,
 Hydreigon,41,teammate,10,Starmie,,,,,,,,,
 Hydreigon,41,stat_alignment,1,Modest,76.4%,Sp. Atk,Attack,,,,,,
-Hydreigon,41,stat_alignment,2,Timid,21.6%,Speed,Attack,,,,,,
+Hydreigon,41,stat_alignment,2,Timid,21.5%,Speed,Attack,,,,,,
 Hydreigon,41,stat_alignment,3,Rash,0.5%,Sp. Atk,Sp. Def,,,,,,
 Hydreigon,41,stat_alignment,4,Mild,0.4%,Sp. Atk,Defense,,,,,,
 Hydreigon,41,stat_alignment,5,Bold,0.3%,Defense,Attack,,,,,,
@@ -47,6 +47,6 @@ Hydreigon,41,stat_points,5,,0.9%,,,0,0,0,32,0,32
 Hydreigon,41,stat_points,6,,0.7%,,,32,0,2,32,0,0
 Hydreigon,41,stat_points,7,,0.7%,,,1,0,1,32,0,32
 Hydreigon,41,stat_points,8,,0.7%,,,0,2,0,32,0,32
-Hydreigon,41,stat_points,9,,0.6%,,,12,0,0,32,0,22
+Hydreigon,41,stat_points,9,,0.5%,,,12,0,0,32,0,22
 Hydreigon,41,stat_points,10,,0.5%,,,32,0,0,32,2,0
 Hydreigon,41,ability,1,Levitate,100.0%,,,,,,,,

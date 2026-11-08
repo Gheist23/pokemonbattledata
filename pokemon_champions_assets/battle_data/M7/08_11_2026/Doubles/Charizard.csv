@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Charizard,5,move,1,Protect,96.4%,,,,,,,,
-Charizard,5,move,2,Heat Wave,94.8%,,,,,,,,
-Charizard,5,move,3,Weather Ball,85.3%,,,,,,,,
-Charizard,5,move,4,Solar Beam,59.5%,,,,,,,,
+Charizard,5,move,2,Heat Wave,94.9%,,,,,,,,
+Charizard,5,move,3,Weather Ball,85.1%,,,,,,,,
+Charizard,5,move,4,Solar Beam,59.6%,,,,,,,,
 Charizard,5,move,5,Ancient Power,25.3%,,,,,,,,
 Charizard,5,move,6,Hurricane,9.7%,,,,,,,,
 Charizard,5,move,7,Air Slash,3.8%,,,,,,,,
 Charizard,5,move,8,Dragon Claw,2.3%,,,,,,,,
-Charizard,5,move,9,Flare Blitz,2.1%,,,,,,,,
+Charizard,5,move,9,Dragon Pulse,2.1%,,,,,,,,
 Charizard,5,move,10,Scorching Sands,2.1%,,,,,,,,
-Charizard,5,held_item,1,Charizardite Y,94.5%,,,,,,,,
-Charizard,5,held_item,2,Charizardite X,3.8%,,,,,,,,
+Charizard,5,held_item,1,Charizardite Y,94.6%,,,,,,,,
+Charizard,5,held_item,2,Charizardite X,3.7%,,,,,,,,
 Charizard,5,held_item,3,Choice Scarf,0.5%,,,,,,,,
 Charizard,5,held_item,4,Charcoal,0.2%,,,,,,,,
 Charizard,5,held_item,5,Rocky Helmet,0.1%,,,,,,,,
 Charizard,5,held_item,6,Life Orb,0.1%,,,,,,,,
-Charizard,5,held_item,7,Sitrus Berry,0.0%,,,,,,,,
-Charizard,5,held_item,8,Wide Lens,0.0%,,,,,,,,
+Charizard,5,held_item,7,Wide Lens,0.0%,,,,,,,,
+Charizard,5,held_item,8,Sitrus Berry,0.0%,,,,,,,,
 Charizard,5,held_item,9,Expert Belt,0.0%,,,,,,,,
 Charizard,5,held_item,10,King's Rock,0.0%,,,,,,,,
 Charizard,5,teammate,1,Garchomp,,,,,,,,,
@@ -26,27 +26,27 @@ Charizard,5,teammate,4,Sneasler,,,,,,,,,
 Charizard,5,teammate,5,Basculegion,,,,,,,,,
 Charizard,5,teammate,6,Venusaur,,,,,,,,,
 Charizard,5,teammate,7,Archaludon,,,,,,,,,
-Charizard,5,teammate,8,Sylveon,,,,,,,,,
-Charizard,5,teammate,9,Farigiraf,,,,,,,,,
-Charizard,5,teammate,10,Pelipper,,,,,,,,,
+Charizard,5,teammate,8,Farigiraf,,,,,,,,,
+Charizard,5,teammate,9,Sylveon,,,,,,,,,
+Charizard,5,teammate,10,Incineroar,,,,,,,,,
 Charizard,5,stat_alignment,1,Modest,63.8%,Sp. Atk,Attack,,,,,,
-Charizard,5,stat_alignment,2,Timid,29.9%,Speed,Attack,,,,,,
-Charizard,5,stat_alignment,3,Adamant,3.2%,Attack,Sp. Atk,,,,,,
+Charizard,5,stat_alignment,2,Timid,30.0%,Speed,Attack,,,,,,
+Charizard,5,stat_alignment,3,Adamant,3.1%,Attack,Sp. Atk,,,,,,
 Charizard,5,stat_alignment,4,Calm,0.8%,Sp. Def,Attack,,,,,,
 Charizard,5,stat_alignment,5,Bold,0.7%,Defense,Attack,,,,,,
-Charizard,5,stat_alignment,6,Quiet,0.5%,Sp. Atk,Speed,,,,,,
+Charizard,5,stat_alignment,6,Quiet,0.6%,Sp. Atk,Speed,,,,,,
 Charizard,5,stat_alignment,7,Jolly,0.5%,Speed,Sp. Atk,,,,,,
 Charizard,5,stat_alignment,8,Impish,0.2%,Defense,Sp. Atk,,,,,,
 Charizard,5,stat_alignment,9,Quirky,0.1%,,,,,,,,
 Charizard,5,stat_alignment,10,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
-Charizard,5,stat_points,1,,16.4%,,,2,0,0,32,0,32
-Charizard,5,stat_points,2,,5.7%,,,20,0,32,1,0,13
-Charizard,5,stat_points,3,,3.7%,,,30,0,31,1,0,4
+Charizard,5,stat_points,1,,16.7%,,,2,0,0,32,0,32
+Charizard,5,stat_points,2,,5.6%,,,20,0,32,1,0,13
+Charizard,5,stat_points,3,,3.6%,,,30,0,31,1,0,4
 Charizard,5,stat_points,4,,3.1%,,,0,0,2,32,0,32
 Charizard,5,stat_points,5,,2.9%,,,28,0,14,3,0,21
 Charizard,5,stat_points,6,,1.7%,,,12,0,12,9,1,32
-Charizard,5,stat_points,7,,1.6%,,,15,0,18,1,0,32
-Charizard,5,stat_points,8,,1.6%,,,32,0,9,3,0,22
+Charizard,5,stat_points,7,,1.6%,,,32,0,9,3,0,22
+Charizard,5,stat_points,8,,1.6%,,,15,0,18,1,0,32
 Charizard,5,stat_points,9,,1.6%,,,12,0,14,15,1,24
 Charizard,5,stat_points,10,,1.5%,,,6,0,18,10,0,32
 Charizard,5,ability,1,Blaze,83.8%,,,,,,,,

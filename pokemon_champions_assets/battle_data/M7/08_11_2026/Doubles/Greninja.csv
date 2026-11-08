@@ -1,52 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Greninja,106,move,1,Dark Pulse,70.3%,,,,,,,,
-Greninja,106,move,2,Ice Beam,67.2%,,,,,,,,
-Greninja,106,move,3,Protect,51.1%,,,,,,,,
-Greninja,106,move,4,Gunk Shot,25.1%,,,,,,,,
-Greninja,106,move,5,Rock Slide,24.4%,,,,,,,,
-Greninja,106,move,6,Water Shuriken,17.7%,,,,,,,,
-Greninja,106,move,7,Blizzard,16.5%,,,,,,,,
-Greninja,106,move,8,Hydro Pump,16.0%,,,,,,,,
-Greninja,106,move,9,Surf,15.6%,,,,,,,,
-Greninja,106,move,10,Mud Shot,15.5%,,,,,,,,
-Greninja,106,held_item,1,Greninjite,56.9%,,,,,,,,
-Greninja,106,held_item,2,Focus Sash,18.4%,,,,,,,,
-Greninja,106,held_item,3,Life Orb,11.0%,,,,,,,,
-Greninja,106,held_item,4,Choice Scarf,5.6%,,,,,,,,
-Greninja,106,held_item,5,King's Rock,2.2%,,,,,,,,
-Greninja,106,held_item,6,Expert Belt,1.6%,,,,,,,,
-Greninja,106,held_item,7,Rindo Berry,1.4%,,,,,,,,
-Greninja,106,held_item,8,Mystic Water,0.7%,,,,,,,,
-Greninja,106,held_item,9,Black Glasses,0.5%,,,,,,,,
-Greninja,106,held_item,10,Wise Glasses,0.5%,,,,,,,,
-Greninja,106,teammate,1,Pelipper,,,,,,,,,
-Greninja,106,teammate,2,Archaludon,,,,,,,,,
-Greninja,106,teammate,3,Swampert,,,,,,,,,
-Greninja,106,teammate,4,Sneasler,,,,,,,,,
-Greninja,106,teammate,5,Garchomp,,,,,,,,,
-Greninja,106,teammate,6,Blaziken,,,,,,,,,
-Greninja,106,teammate,7,Rillaboom,,,,,,,,,
-Greninja,106,teammate,8,Talonflame,,,,,,,,,
-Greninja,106,teammate,9,Farigiraf,,,,,,,,,
-Greninja,106,teammate,10,Abomasnow,,,,,,,,,
-Greninja,106,stat_alignment,1,Timid,52.8%,Speed,Attack,,,,,,
-Greninja,106,stat_alignment,2,Modest,15.7%,Sp. Atk,Attack,,,,,,
-Greninja,106,stat_alignment,3,Hasty,13.2%,Speed,Defense,,,,,,
-Greninja,106,stat_alignment,4,Mild,6.9%,Sp. Atk,Defense,,,,,,
-Greninja,106,stat_alignment,5,Naive,4.2%,Speed,Sp. Def,,,,,,
-Greninja,106,stat_alignment,6,Adamant,3.6%,Attack,Sp. Atk,,,,,,
-Greninja,106,stat_alignment,7,Jolly,3.0%,Speed,Sp. Atk,,,,,,
-Greninja,106,stat_alignment,8,Rash,0.4%,Sp. Atk,Sp. Def,,,,,,
-Greninja,106,stat_alignment,9,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Greninja,106,stat_points,1,,36.8%,,,2,0,0,32,0,32
-Greninja,106,stat_points,2,,7.8%,,,8,0,0,32,0,26
-Greninja,106,stat_points,3,,7.3%,,,0,2,0,32,0,32
-Greninja,106,stat_points,4,,6.7%,,,0,0,0,32,2,32
-Greninja,106,stat_points,5,,4.1%,,,3,0,0,32,0,31
-Greninja,106,stat_points,6,,3.7%,,,0,15,0,19,0,32
-Greninja,106,stat_points,7,,3.5%,,,10,0,0,32,0,24
-Greninja,106,stat_points,8,,3.3%,,,0,27,0,7,0,32
-Greninja,106,stat_points,9,,2.4%,,,5,2,0,27,0,32
-Greninja,106,stat_points,10,,2.4%,,,0,0,2,32,0,32
-Greninja,106,ability,1,Protean,84.8%,,,,,,,,
-Greninja,106,ability,2,Torrent,15.2%,,,,,,,,
+Greninja,102,move,1,Dark Pulse,70.8%,,,,,,,,
+Greninja,102,move,2,Ice Beam,67.4%,,,,,,,,
+Greninja,102,move,3,Protect,52.0%,,,,,,,,
+Greninja,102,move,4,Gunk Shot,23.3%,,,,,,,,
+Greninja,102,move,5,Rock Slide,22.7%,,,,,,,,
+Greninja,102,move,6,Water Shuriken,18.9%,,,,,,,,
+Greninja,102,move,7,Hydro Pump,18.0%,,,,,,,,
+Greninja,102,move,8,Blizzard,16.6%,,,,,,,,
+Greninja,102,move,9,Weather Ball,15.0%,,,,,,,,
+Greninja,102,move,10,Mud Shot,14.3%,,,,,,,,
+Greninja,102,held_item,1,Greninjite,55.1%,,,,,,,,
+Greninja,102,held_item,2,Focus Sash,19.4%,,,,,,,,
+Greninja,102,held_item,3,Life Orb,11.1%,,,,,,,,
+Greninja,102,held_item,4,Choice Scarf,5.5%,,,,,,,,
+Greninja,102,held_item,5,King's Rock,2.0%,,,,,,,,
+Greninja,102,held_item,6,Expert Belt,1.7%,,,,,,,,
+Greninja,102,held_item,7,Rindo Berry,1.3%,,,,,,,,
+Greninja,102,held_item,8,Focus Band,0.9%,,,,,,,,
+Greninja,102,held_item,9,Mystic Water,0.9%,,,,,,,,
+Greninja,102,held_item,10,Quick Claw,0.6%,,,,,,,,
+Greninja,102,teammate,1,Pelipper,,,,,,,,,
+Greninja,102,teammate,2,Archaludon,,,,,,,,,
+Greninja,102,teammate,3,Garchomp,,,,,,,,,
+Greninja,102,teammate,4,Swampert,,,,,,,,,
+Greninja,102,teammate,5,Sneasler,,,,,,,,,
+Greninja,102,teammate,6,Blaziken,,,,,,,,,
+Greninja,102,teammate,7,Rillaboom,,,,,,,,,
+Greninja,102,teammate,8,Farigiraf,,,,,,,,,
+Greninja,102,teammate,9,Abomasnow,,,,,,,,,
+Greninja,102,teammate,10,Talonflame,,,,,,,,,
+Greninja,102,stat_alignment,1,Timid,54.3%,Speed,Attack,,,,,,
+Greninja,102,stat_alignment,2,Modest,16.0%,Sp. Atk,Attack,,,,,,
+Greninja,102,stat_alignment,3,Hasty,12.6%,Speed,Defense,,,,,,
+Greninja,102,stat_alignment,4,Mild,6.2%,Sp. Atk,Defense,,,,,,
+Greninja,102,stat_alignment,5,Naive,3.9%,Speed,Sp. Def,,,,,,
+Greninja,102,stat_alignment,6,Adamant,3.6%,Attack,Sp. Atk,,,,,,
+Greninja,102,stat_alignment,7,Jolly,2.6%,Speed,Sp. Atk,,,,,,
+Greninja,102,stat_alignment,8,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
+Greninja,102,stat_alignment,9,Naughty,0.3%,Attack,Sp. Def,,,,,,
+Greninja,102,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
+Greninja,102,stat_points,1,,36.4%,,,2,0,0,32,0,32
+Greninja,102,stat_points,2,,8.0%,,,0,0,0,32,2,32
+Greninja,102,stat_points,3,,7.4%,,,8,0,0,32,0,26
+Greninja,102,stat_points,4,,6.6%,,,0,2,0,32,0,32
+Greninja,102,stat_points,5,,3.7%,,,0,15,0,19,0,32
+Greninja,102,stat_points,6,,3.6%,,,3,0,0,32,0,31
+Greninja,102,stat_points,7,,3.1%,,,10,0,0,32,0,24
+Greninja,102,stat_points,8,,3.0%,,,0,0,2,32,0,32
+Greninja,102,stat_points,9,,2.9%,,,0,27,0,7,0,32
+Greninja,102,stat_points,10,,2.4%,,,5,2,0,27,0,32
+Greninja,102,ability,1,Protean,83.1%,,,,,,,,
+Greninja,102,ability,2,Torrent,16.9%,,,,,,,,

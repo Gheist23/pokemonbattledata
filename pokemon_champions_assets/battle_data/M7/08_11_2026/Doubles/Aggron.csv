@@ -1,48 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aggron,140,move,1,Protect,89.2%,,,,,,,,
-Aggron,140,move,2,Heavy Slam,86.1%,,,,,,,,
-Aggron,140,move,3,Body Press,80.4%,,,,,,,,
-Aggron,140,move,4,Iron Defense,59.7%,,,,,,,,
-Aggron,140,move,5,High Horsepower,17.0%,,,,,,,,
-Aggron,140,move,6,Rock Slide,13.5%,,,,,,,,
-Aggron,140,move,7,Iron Head,12.6%,,,,,,,,
-Aggron,140,move,8,Thunder Punch,11.0%,,,,,,,,
-Aggron,140,move,9,Stone Edge,6.5%,,,,,,,,
-Aggron,140,move,10,Ice Punch,5.1%,,,,,,,,
-Aggron,140,held_item,1,Aggronite,97.6%,,,,,,,,
-Aggron,140,held_item,2,Sitrus Berry,0.5%,,,,,,,,
-Aggron,140,held_item,3,Bright Powder,0.5%,,,,,,,,
-Aggron,140,held_item,4,Leftovers,0.5%,,,,,,,,
-Aggron,140,held_item,5,Rocky Helmet,0.5%,,,,,,,,
-Aggron,140,held_item,6,Shell Bell,0.3%,,,,,,,,
-Aggron,140,held_item,7,Zoom Lens,0.2%,,,,,,,,
-Aggron,140,teammate,1,Indeedee-F,,,,,,,,,
-Aggron,140,teammate,2,Sableye,,,,,,,,,
-Aggron,140,teammate,3,Chandelure,,,,,,,,,
-Aggron,140,teammate,4,Conkeldurr,,,,,,,,,
-Aggron,140,teammate,5,Reuniclus,,,,,,,,,
-Aggron,140,teammate,6,Tyranitar,,,,,,,,,
-Aggron,140,teammate,7,Sinistcha,,,,,,,,,
-Aggron,140,teammate,8,Rillaboom,,,,,,,,,
-Aggron,140,teammate,9,Ninetales-Alola,,,,,,,,,
-Aggron,140,teammate,10,Altaria,,,,,,,,,
-Aggron,140,stat_alignment,1,Sassy,40.0%,Sp. Def,Speed,,,,,,
-Aggron,140,stat_alignment,2,Careful,22.0%,Sp. Def,Sp. Atk,,,,,,
-Aggron,140,stat_alignment,3,Adamant,21.5%,Attack,Sp. Atk,,,,,,
-Aggron,140,stat_alignment,4,Impish,8.1%,Defense,Sp. Atk,,,,,,
-Aggron,140,stat_alignment,5,Relaxed,6.5%,Defense,Speed,,,,,,
-Aggron,140,stat_alignment,6,Brave,1.6%,Attack,Speed,,,,,,
-Aggron,140,stat_alignment,7,Jolly,0.3%,Speed,Sp. Atk,,,,,,
-Aggron,140,stat_points,1,,41.6%,,,32,0,2,0,32,0
-Aggron,140,stat_points,2,,11.8%,,,32,32,2,0,0,0
-Aggron,140,stat_points,3,,6.2%,,,29,23,0,0,0,14
-Aggron,140,stat_points,4,,5.6%,,,26,10,0,0,30,0
-Aggron,140,stat_points,5,,4.8%,,,32,20,0,0,14,0
-Aggron,140,stat_points,6,,3.8%,,,32,0,0,0,32,2
-Aggron,140,stat_points,7,,3.5%,,,31,25,0,0,10,0
-Aggron,140,stat_points,8,,3.3%,,,32,2,0,0,32,0
-Aggron,140,stat_points,9,,2.5%,,,32,32,0,0,2,0
-Aggron,140,stat_points,10,,2.2%,,,0,32,32,0,0,2
-Aggron,140,ability,1,Sturdy,78.5%,,,,,,,,
-Aggron,140,ability,2,Heavy Metal,21.2%,,,,,,,,
-Aggron,140,ability,3,Rock Head,0.3%,,,,,,,,
+Aggron,135,move,1,Protect,86.7%,,,,,,,,
+Aggron,135,move,2,Heavy Slam,85.2%,,,,,,,,
+Aggron,135,move,3,Body Press,81.4%,,,,,,,,
+Aggron,135,move,4,Iron Defense,61.0%,,,,,,,,
+Aggron,135,move,5,High Horsepower,15.9%,,,,,,,,
+Aggron,135,move,6,Rock Slide,14.6%,,,,,,,,
+Aggron,135,move,7,Iron Head,12.6%,,,,,,,,
+Aggron,135,move,8,Thunder Punch,10.7%,,,,,,,,
+Aggron,135,move,9,Metal Burst,6.4%,,,,,,,,
+Aggron,135,move,10,Stone Edge,6.0%,,,,,,,,
+Aggron,135,held_item,1,Aggronite,97.3%,,,,,,,,
+Aggron,135,held_item,2,Sitrus Berry,0.5%,,,,,,,,
+Aggron,135,held_item,3,Focus Sash,0.5%,,,,,,,,
+Aggron,135,held_item,4,Bright Powder,0.4%,,,,,,,,
+Aggron,135,held_item,5,Leftovers,0.4%,,,,,,,,
+Aggron,135,held_item,6,Rocky Helmet,0.4%,,,,,,,,
+Aggron,135,held_item,7,Shell Bell,0.3%,,,,,,,,
+Aggron,135,held_item,8,Zoom Lens,0.1%,,,,,,,,
+Aggron,135,teammate,1,Indeedee-F,,,,,,,,,
+Aggron,135,teammate,2,Sableye,,,,,,,,,
+Aggron,135,teammate,3,Chandelure,,,,,,,,,
+Aggron,135,teammate,4,Tyranitar,,,,,,,,,
+Aggron,135,teammate,5,Sinistcha,,,,,,,,,
+Aggron,135,teammate,6,Reuniclus,,,,,,,,,
+Aggron,135,teammate,7,Conkeldurr,,,,,,,,,
+Aggron,135,teammate,8,Rillaboom,,,,,,,,,
+Aggron,135,teammate,9,Altaria,,,,,,,,,
+Aggron,135,teammate,10,Sneasler,,,,,,,,,
+Aggron,135,stat_alignment,1,Sassy,38.4%,Sp. Def,Speed,,,,,,
+Aggron,135,stat_alignment,2,Careful,22.8%,Sp. Def,Sp. Atk,,,,,,
+Aggron,135,stat_alignment,3,Adamant,21.2%,Attack,Sp. Atk,,,,,,
+Aggron,135,stat_alignment,4,Relaxed,7.8%,Defense,Speed,,,,,,
+Aggron,135,stat_alignment,5,Impish,7.5%,Defense,Sp. Atk,,,,,,
+Aggron,135,stat_alignment,6,Brave,1.9%,Attack,Speed,,,,,,
+Aggron,135,stat_alignment,7,Jolly,0.3%,Speed,Sp. Atk,,,,,,
+Aggron,135,stat_points,1,,39.5%,,,32,0,2,0,32,0
+Aggron,135,stat_points,2,,11.9%,,,32,32,2,0,0,0
+Aggron,135,stat_points,3,,5.3%,,,29,23,0,0,0,14
+Aggron,135,stat_points,4,,4.8%,,,26,10,0,0,30,0
+Aggron,135,stat_points,5,,4.4%,,,32,20,0,0,14,0
+Aggron,135,stat_points,6,,3.7%,,,31,25,0,0,10,0
+Aggron,135,stat_points,7,,3.4%,,,32,2,0,0,32,0
+Aggron,135,stat_points,8,,3.3%,,,32,0,0,0,32,2
+Aggron,135,stat_points,9,,2.6%,,,32,0,32,0,0,0
+Aggron,135,stat_points,10,,2.3%,,,32,32,0,0,2,0
+Aggron,135,ability,1,Sturdy,76.7%,,,,,,,,
+Aggron,135,ability,2,Heavy Metal,22.4%,,,,,,,,
+Aggron,135,ability,3,Rock Head,0.8%,,,,,,,,

@@ -1,35 +1,38 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Farfetch’d,248,move,1,Brave Bird,99.0%,,,,,,,,
-Farfetch’d,248,move,2,Leaf Blade,88.3%,,,,,,,,
-Farfetch’d,248,move,3,First Impression,88.3%,,,,,,,,
-Farfetch’d,248,move,4,Close Combat,83.5%,,,,,,,,
-Farfetch’d,248,move,5,Steel Wing,9.7%,,,,,,,,
-Farfetch’d,248,move,6,Aerial Ace,9.7%,,,,,,,,
-Farfetch’d,248,move,7,Throat Chop,9.7%,,,,,,,,
-Farfetch’d,248,move,8,Slash,3.9%,,,,,,,,
-Farfetch’d,248,move,9,Swords Dance,1.9%,,,,,,,,
-Farfetch’d,248,move,10,Final Gambit,1.9%,,,,,,,,
-Farfetch’d,248,held_item,1,Leek,98.1%,,,,,,,,
-Farfetch’d,248,held_item,2,Choice Scarf,1.9%,,,,,,,,
-Farfetch’d,248,teammate,1,Clefable,,,,,,,,,
-Farfetch’d,248,teammate,2,Flareon,,,,,,,,,
-Farfetch’d,248,teammate,3,Alakazam,,,,,,,,,
-Farfetch’d,248,teammate,4,Vileplume,,,,,,,,,
-Farfetch’d,248,teammate,5,Persian,,,,,,,,,
-Farfetch’d,248,teammate,6,Arbok,,,,,,,,,
-Farfetch’d,248,teammate,7,Vaporeon,,,,,,,,,
-Farfetch’d,248,teammate,8,Beedrill,,,,,,,,,
-Farfetch’d,248,teammate,9,Venusaur,,,,,,,,,
-Farfetch’d,248,teammate,10,Charizard,,,,,,,,,
-Farfetch’d,248,stat_alignment,1,Adamant,97.1%,Attack,Sp. Atk,,,,,,
-Farfetch’d,248,stat_alignment,2,Jolly,1.9%,Speed,Sp. Atk,,,,,,
-Farfetch’d,248,stat_alignment,3,Brave,1.0%,Attack,Speed,,,,,,
-Farfetch’d,248,stat_points,1,,81.6%,,,2,32,0,0,0,32
-Farfetch’d,248,stat_points,2,,10.7%,,,32,32,0,0,0,2
-Farfetch’d,248,stat_points,3,,2.9%,,,8,23,0,0,32,3
-Farfetch’d,248,stat_points,4,,1.9%,,,32,2,0,0,0,32
-Farfetch’d,248,stat_points,5,,1.0%,,,32,32,0,2,0,0
-Farfetch’d,248,stat_points,6,,1.0%,,,32,32,1,0,0,1
-Farfetch’d,248,stat_points,7,,1.0%,,,32,32,1,0,1,0
-Farfetch’d,248,ability,1,Defiant,98.1%,,,,,,,,
-Farfetch’d,248,ability,2,Inner Focus,1.9%,,,,,,,,
+Farfetch’d,240,move,1,Brave Bird,97.8%,,,,,,,,
+Farfetch’d,240,move,2,Close Combat,64.7%,,,,,,,,
+Farfetch’d,240,move,3,Leaf Blade,63.6%,,,,,,,,
+Farfetch’d,240,move,4,First Impression,63.6%,,,,,,,,
+Farfetch’d,240,move,5,Steel Wing,23.4%,,,,,,,,
+Farfetch’d,240,move,6,Aerial Ace,23.4%,,,,,,,,
+Farfetch’d,240,move,7,Throat Chop,23.4%,,,,,,,,
+Farfetch’d,240,move,8,Swords Dance,10.9%,,,,,,,,
+Farfetch’d,240,move,9,Feint,8.7%,,,,,,,,
+Farfetch’d,240,move,10,Flail,8.2%,,,,,,,,
+Farfetch’d,240,held_item,1,Leek,90.8%,,,,,,,,
+Farfetch’d,240,held_item,2,Focus Sash,8.2%,,,,,,,,
+Farfetch’d,240,held_item,3,Choice Scarf,1.1%,,,,,,,,
+Farfetch’d,240,teammate,1,Clefable,,,,,,,,,
+Farfetch’d,240,teammate,2,Flareon,,,,,,,,,
+Farfetch’d,240,teammate,3,Alakazam,,,,,,,,,
+Farfetch’d,240,teammate,4,Beedrill,,,,,,,,,
+Farfetch’d,240,teammate,5,Arbok,,,,,,,,,
+Farfetch’d,240,teammate,6,Charizard,,,,,,,,,
+Farfetch’d,240,teammate,7,Vaporeon,,,,,,,,,
+Farfetch’d,240,teammate,8,Vileplume,,,,,,,,,
+Farfetch’d,240,teammate,9,Persian,,,,,,,,,
+Farfetch’d,240,teammate,10,Venusaur,,,,,,,,,
+Farfetch’d,240,stat_alignment,1,Adamant,86.4%,Attack,Sp. Atk,,,,,,
+Farfetch’d,240,stat_alignment,2,Modest,7.1%,Sp. Atk,Attack,,,,,,
+Farfetch’d,240,stat_alignment,3,Brave,4.3%,Attack,Speed,,,,,,
+Farfetch’d,240,stat_alignment,4,Jolly,2.2%,Speed,Sp. Atk,,,,,,
+Farfetch’d,240,stat_points,1,,60.9%,,,2,32,0,0,0,32
+Farfetch’d,240,stat_points,2,,23.9%,,,32,32,0,0,0,2
+Farfetch’d,240,stat_points,3,,7.1%,,,0,32,1,0,1,32
+Farfetch’d,240,stat_points,4,,3.8%,,,32,32,1,0,1,0
+Farfetch’d,240,stat_points,5,,1.6%,,,8,23,0,0,32,3
+Farfetch’d,240,stat_points,6,,1.1%,,,32,2,0,0,0,32
+Farfetch’d,240,stat_points,7,,1.1%,,,32,32,0,2,0,0
+Farfetch’d,240,stat_points,8,,0.5%,,,32,32,1,0,0,1
+Farfetch’d,240,ability,1,Defiant,98.9%,,,,,,,,
+Farfetch’d,240,ability,2,Inner Focus,1.1%,,,,,,,,

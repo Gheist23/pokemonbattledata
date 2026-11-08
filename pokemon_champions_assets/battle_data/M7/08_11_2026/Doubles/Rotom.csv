@@ -1,37 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rotom,227,move,1,Discharge,81.5%,,,,,,,,
-Rotom,227,move,2,Shadow Ball,67.9%,,,,,,,,
-Rotom,227,move,3,Electroweb,63.0%,,,,,,,,
-Rotom,227,move,4,Trick,46.9%,,,,,,,,
-Rotom,227,move,5,Volt Switch,37.0%,,,,,,,,
-Rotom,227,move,6,Thunderbolt,37.0%,,,,,,,,
-Rotom,227,move,7,Will-O-Wisp,22.2%,,,,,,,,
-Rotom,227,move,8,Thunder Wave,9.9%,,,,,,,,
-Rotom,227,move,9,Reflect,7.4%,,,,,,,,
-Rotom,227,move,10,Rising Voltage,7.4%,,,,,,,,
-Rotom,227,held_item,1,Choice Scarf,82.7%,,,,,,,,
-Rotom,227,held_item,2,Life Orb,8.6%,,,,,,,,
-Rotom,227,held_item,3,Iron Ball,4.9%,,,,,,,,
-Rotom,227,held_item,4,Focus Sash,3.7%,,,,,,,,
-Rotom,227,teammate,1,Sceptile,,,,,,,,,
-Rotom,227,teammate,2,Excadrill,,,,,,,,,
-Rotom,227,teammate,3,Torkoal,,,,,,,,,
-Rotom,227,teammate,4,Emolga,,,,,,,,,
-Rotom,227,teammate,5,Bastiodon,,,,,,,,,
-Rotom,227,teammate,6,Tyranitar,,,,,,,,,
-Rotom,227,teammate,7,Indeedee,,,,,,,,,
-Rotom,227,teammate,8,Persian-Alola,,,,,,,,,
-Rotom,227,teammate,9,Archaludon,,,,,,,,,
-Rotom,227,teammate,10,Pelipper,,,,,,,,,
-Rotom,227,stat_alignment,1,Timid,72.8%,Speed,Attack,,,,,,
-Rotom,227,stat_alignment,2,Modest,18.5%,Sp. Atk,Attack,,,,,,
-Rotom,227,stat_alignment,3,Quiet,4.9%,Sp. Atk,Speed,,,,,,
-Rotom,227,stat_alignment,4,Calm,3.7%,Sp. Def,Attack,,,,,,
-Rotom,227,stat_points,1,,44.4%,,,2,0,0,32,0,32
-Rotom,227,stat_points,2,,25.9%,,,0,0,0,32,0,32
-Rotom,227,stat_points,3,,9.9%,,,0,0,1,32,1,32
-Rotom,227,stat_points,4,,9.9%,,,1,0,0,32,1,32
-Rotom,227,stat_points,5,,4.9%,,,32,0,0,32,2,0
-Rotom,227,stat_points,6,,3.7%,,,0,0,32,32,2,0
-Rotom,227,stat_points,7,,1.2%,,,32,0,1,0,1,32
-Rotom,227,ability,1,Levitate,100.0%,,,,,,,,
+Rotom,226,move,1,Discharge,77.0%,,,,,,,,
+Rotom,226,move,2,Shadow Ball,65.0%,,,,,,,,
+Rotom,226,move,3,Electroweb,62.0%,,,,,,,,
+Rotom,226,move,4,Volt Switch,47.0%,,,,,,,,
+Rotom,226,move,5,Thunderbolt,47.0%,,,,,,,,
+Rotom,226,move,6,Trick,40.0%,,,,,,,,
+Rotom,226,move,7,Will-O-Wisp,18.0%,,,,,,,,
+Rotom,226,move,8,Protect,13.0%,,,,,,,,
+Rotom,226,move,9,Thunder Wave,8.0%,,,,,,,,
+Rotom,226,move,10,Reflect,6.0%,,,,,,,,
+Rotom,226,held_item,1,Choice Scarf,78.0%,,,,,,,,
+Rotom,226,held_item,2,Bright Powder,8.0%,,,,,,,,
+Rotom,226,held_item,3,Life Orb,7.0%,,,,,,,,
+Rotom,226,held_item,4,Iron Ball,4.0%,,,,,,,,
+Rotom,226,held_item,5,Focus Sash,3.0%,,,,,,,,
+Rotom,226,teammate,1,Sceptile,,,,,,,,,
+Rotom,226,teammate,2,Excadrill,,,,,,,,,
+Rotom,226,teammate,3,Torkoal,,,,,,,,,
+Rotom,226,teammate,4,Tyranitar,,,,,,,,,
+Rotom,226,teammate,5,Indeedee,,,,,,,,,
+Rotom,226,teammate,6,Emolga,,,,,,,,,
+Rotom,226,teammate,7,Bastiodon,,,,,,,,,
+Rotom,226,teammate,8,Persian-Alola,,,,,,,,,
+Rotom,226,teammate,9,Archaludon,,,,,,,,,
+Rotom,226,teammate,10,Pelipper,,,,,,,,,
+Rotom,226,stat_alignment,1,Timid,70.0%,Speed,Attack,,,,,,
+Rotom,226,stat_alignment,2,Modest,15.0%,Sp. Atk,Attack,,,,,,
+Rotom,226,stat_alignment,3,Calm,11.0%,Sp. Def,Attack,,,,,,
+Rotom,226,stat_alignment,4,Quiet,4.0%,Sp. Atk,Speed,,,,,,
+Rotom,226,stat_points,1,,38.0%,,,2,0,0,32,0,32
+Rotom,226,stat_points,2,,30.0%,,,0,0,0,32,0,32
+Rotom,226,stat_points,3,,8.0%,,,0,0,1,32,1,32
+Rotom,226,stat_points,4,,8.0%,,,1,0,0,32,1,32
+Rotom,226,stat_points,5,,8.0%,,,22,0,0,32,12,0
+Rotom,226,stat_points,6,,4.0%,,,32,0,0,32,2,0
+Rotom,226,stat_points,7,,3.0%,,,0,0,32,32,2,0
+Rotom,226,stat_points,8,,1.0%,,,32,0,1,0,1,32
+Rotom,226,ability,1,Levitate,100.0%,,,,,,,,

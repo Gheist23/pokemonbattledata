@@ -1,49 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emboar,171,move,1,Flare Blitz,84.1%,,,,,,,,
-Emboar,171,move,2,Close Combat,64.7%,,,,,,,,
-Emboar,171,move,3,Sucker Punch,47.6%,,,,,,,,
-Emboar,171,move,4,Wild Charge,45.8%,,,,,,,,
-Emboar,171,move,5,Drain Punch,30.2%,,,,,,,,
-Emboar,171,move,6,Head Smash,26.5%,,,,,,,,
-Emboar,171,move,7,Earthquake,25.3%,,,,,,,,
-Emboar,171,move,8,Bulk Up,9.1%,,,,,,,,
-Emboar,171,move,9,Flame Charge,7.6%,,,,,,,,
-Emboar,171,move,10,Rock Slide,7.0%,,,,,,,,
-Emboar,171,held_item,1,Emboarite,90.6%,,,,,,,,
-Emboar,171,held_item,2,Charcoal,2.8%,,,,,,,,
-Emboar,171,held_item,3,Choice Scarf,2.5%,,,,,,,,
-Emboar,171,held_item,4,Life Orb,1.8%,,,,,,,,
-Emboar,171,held_item,5,Shuca Berry,1.6%,,,,,,,,
-Emboar,171,held_item,6,Expert Belt,0.2%,,,,,,,,
-Emboar,171,held_item,7,Rocky Helmet,0.2%,,,,,,,,
-Emboar,171,held_item,8,Focus Sash,0.1%,,,,,,,,
-Emboar,171,teammate,1,Gyarados,,,,,,,,,
-Emboar,171,teammate,2,Garchomp,,,,,,,,,
-Emboar,171,teammate,3,Rillaboom,,,,,,,,,
-Emboar,171,teammate,4,Glimmora,,,,,,,,,
-Emboar,171,teammate,5,Tyranitar,,,,,,,,,
-Emboar,171,teammate,6,Metagross,,,,,,,,,
-Emboar,171,teammate,7,Goodra-Hisui,,,,,,,,,
-Emboar,171,teammate,8,Basculegion,,,,,,,,,
-Emboar,171,teammate,9,Indeedee,,,,,,,,,
-Emboar,171,teammate,10,Gardevoir,,,,,,,,,
-Emboar,171,stat_alignment,1,Adamant,76.0%,Attack,Sp. Atk,,,,,,
-Emboar,171,stat_alignment,2,Brave,11.9%,Attack,Speed,,,,,,
-Emboar,171,stat_alignment,3,Jolly,9.5%,Speed,Sp. Atk,,,,,,
-Emboar,171,stat_alignment,4,Lonely,1.3%,Attack,Defense,,,,,,
-Emboar,171,stat_alignment,5,Serious,0.8%,,,,,,,,
-Emboar,171,stat_alignment,6,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
-Emboar,171,stat_alignment,7,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Emboar,171,stat_alignment,8,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Emboar,171,stat_points,1,,11.8%,,,32,32,2,0,0,0
-Emboar,171,stat_points,2,,6.1%,,,14,32,0,0,0,20
-Emboar,171,stat_points,3,,6.1%,,,32,32,0,0,0,2
-Emboar,171,stat_points,4,,5.8%,,,32,32,0,0,2,0
-Emboar,171,stat_points,5,,5.4%,,,0,32,2,0,32,0
-Emboar,171,stat_points,6,,5.4%,,,22,31,0,0,0,13
-Emboar,171,stat_points,7,,4.4%,,,10,32,12,0,12,0
-Emboar,171,stat_points,8,,4.1%,,,2,32,0,0,0,32
-Emboar,171,stat_points,9,,4.1%,,,2,32,0,0,32,0
-Emboar,171,stat_points,10,,3.8%,,,0,32,0,2,32,0
-Emboar,171,ability,1,Reckless,65.2%,,,,,,,,
-Emboar,171,ability,2,Blaze,34.8%,,,,,,,,
+Emboar,165,move,1,Flare Blitz,84.6%,,,,,,,,
+Emboar,165,move,2,Close Combat,62.9%,,,,,,,,
+Emboar,165,move,3,Wild Charge,47.9%,,,,,,,,
+Emboar,165,move,4,Sucker Punch,46.7%,,,,,,,,
+Emboar,165,move,5,Head Smash,31.1%,,,,,,,,
+Emboar,165,move,6,Drain Punch,28.4%,,,,,,,,
+Emboar,165,move,7,Earthquake,23.2%,,,,,,,,
+Emboar,165,move,8,Bulk Up,8.3%,,,,,,,,
+Emboar,165,move,9,Flame Charge,7.4%,,,,,,,,
+Emboar,165,move,10,Rock Slide,7.2%,,,,,,,,
+Emboar,165,held_item,1,Emboarite,87.7%,,,,,,,,
+Emboar,165,held_item,2,Choice Scarf,5.5%,,,,,,,,
+Emboar,165,held_item,3,Charcoal,3.0%,,,,,,,,
+Emboar,165,held_item,4,Life Orb,1.5%,,,,,,,,
+Emboar,165,held_item,5,Shuca Berry,1.4%,,,,,,,,
+Emboar,165,held_item,6,Rocky Helmet,0.3%,,,,,,,,
+Emboar,165,held_item,7,Air Balloon,0.3%,,,,,,,,
+Emboar,165,held_item,8,Expert Belt,0.2%,,,,,,,,
+Emboar,165,held_item,9,Focus Sash,0.1%,,,,,,,,
+Emboar,165,teammate,1,Gyarados,,,,,,,,,
+Emboar,165,teammate,2,Garchomp,,,,,,,,,
+Emboar,165,teammate,3,Rillaboom,,,,,,,,,
+Emboar,165,teammate,4,Glimmora,,,,,,,,,
+Emboar,165,teammate,5,Metagross,,,,,,,,,
+Emboar,165,teammate,6,Primarina,,,,,,,,,
+Emboar,165,teammate,7,Archaludon,,,,,,,,,
+Emboar,165,teammate,8,Tyranitar,,,,,,,,,
+Emboar,165,teammate,9,Indeedee,,,,,,,,,
+Emboar,165,teammate,10,Goodra-Hisui,,,,,,,,,
+Emboar,165,stat_alignment,1,Adamant,73.0%,Attack,Sp. Atk,,,,,,
+Emboar,165,stat_alignment,2,Brave,12.6%,Attack,Speed,,,,,,
+Emboar,165,stat_alignment,3,Jolly,11.8%,Speed,Sp. Atk,,,,,,
+Emboar,165,stat_alignment,4,Lonely,1.5%,Attack,Defense,,,,,,
+Emboar,165,stat_alignment,5,Serious,0.7%,,,,,,,,
+Emboar,165,stat_alignment,6,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
+Emboar,165,stat_alignment,7,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Emboar,165,stat_alignment,8,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Emboar,165,stat_points,1,,11.2%,,,32,32,2,0,0,0
+Emboar,165,stat_points,2,,8.0%,,,32,32,0,0,2,0
+Emboar,165,stat_points,3,,7.1%,,,2,32,0,0,0,32
+Emboar,165,stat_points,4,,6.3%,,,14,32,0,0,0,20
+Emboar,165,stat_points,5,,5.5%,,,22,31,0,0,0,13
+Emboar,165,stat_points,6,,5.3%,,,32,32,0,0,0,2
+Emboar,165,stat_points,7,,4.6%,,,0,32,2,0,32,0
+Emboar,165,stat_points,8,,3.7%,,,10,32,12,0,12,0
+Emboar,165,stat_points,9,,3.4%,,,2,32,0,0,32,0
+Emboar,165,stat_points,10,,3.4%,,,17,32,0,0,0,17
+Emboar,165,ability,1,Reckless,68.4%,,,,,,,,
+Emboar,165,ability,2,Blaze,31.6%,,,,,,,,

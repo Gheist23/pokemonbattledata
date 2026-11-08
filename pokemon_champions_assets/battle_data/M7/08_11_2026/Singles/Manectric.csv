@@ -1,45 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Manectric,198,move,1,Volt Switch,78.8%,,,,,,,,
-Manectric,198,move,2,Overheat,78.1%,,,,,,,,
-Manectric,198,move,3,Thunderbolt,69.8%,,,,,,,,
-Manectric,198,move,4,Flamethrower,29.9%,,,,,,,,
-Manectric,198,move,5,Snarl,26.7%,,,,,,,,
-Manectric,198,move,6,Switcheroo,18.3%,,,,,,,,
-Manectric,198,move,7,Rising Voltage,15.9%,,,,,,,,
-Manectric,198,move,8,Protect,15.3%,,,,,,,,
-Manectric,198,move,9,Electric Terrain,9.5%,,,,,,,,
-Manectric,198,move,10,Thunder Wave,8.9%,,,,,,,,
-Manectric,198,held_item,1,Manectite,69.9%,,,,,,,,
-Manectric,198,held_item,2,Choice Scarf,18.3%,,,,,,,,
-Manectric,198,held_item,3,Magnet,7.8%,,,,,,,,
-Manectric,198,held_item,4,Expert Belt,1.5%,,,,,,,,
-Manectric,198,held_item,5,Focus Sash,0.8%,,,,,,,,
-Manectric,198,teammate,1,Garchomp,,,,,,,,,
-Manectric,198,teammate,2,Primarina,,,,,,,,,
-Manectric,198,teammate,3,Lucario,,,,,,,,,
-Manectric,198,teammate,4,Gyarados,,,,,,,,,
-Manectric,198,teammate,5,Dragonite,,,,,,,,,
-Manectric,198,teammate,6,Mimikyu,,,,,,,,,
-Manectric,198,teammate,7,Pikachu,,,,,,,,,
-Manectric,198,teammate,8,Raichu,,,,,,,,,
-Manectric,198,teammate,9,Jolteon,,,,,,,,,
-Manectric,198,teammate,10,Arcanine-Hisui,,,,,,,,,
-Manectric,198,stat_alignment,1,Timid,85.8%,Speed,Attack,,,,,,
-Manectric,198,stat_alignment,2,Modest,10.0%,Sp. Atk,Attack,,,,,,
-Manectric,198,stat_alignment,3,Naive,1.7%,Speed,Sp. Def,,,,,,
-Manectric,198,stat_alignment,4,Jolly,1.5%,Speed,Sp. Atk,,,,,,
-Manectric,198,stat_alignment,5,Calm,0.8%,Sp. Def,Attack,,,,,,
-Manectric,198,stat_alignment,6,Hasty,0.2%,Speed,Defense,,,,,,
-Manectric,198,stat_points,1,,70.1%,,,2,0,0,32,0,32
-Manectric,198,stat_points,2,,10.2%,,,0,0,0,32,2,32
-Manectric,198,stat_points,3,,5.3%,,,0,0,2,32,0,32
-Manectric,198,stat_points,4,,3.0%,,,30,0,7,1,0,28
-Manectric,198,stat_points,5,,2.6%,,,0,0,1,32,1,32
-Manectric,198,stat_points,6,,2.3%,,,24,0,15,6,2,19
-Manectric,198,stat_points,7,,1.7%,,,0,2,0,32,0,32
-Manectric,198,stat_points,8,,1.5%,,,32,2,0,0,0,32
-Manectric,198,stat_points,9,,0.9%,,,6,0,0,32,0,28
-Manectric,198,stat_points,10,,0.8%,,,32,0,0,0,32,2
-Manectric,198,ability,1,Lightning Rod,81.7%,,,,,,,,
-Manectric,198,ability,2,Static,16.6%,,,,,,,,
-Manectric,198,ability,3,Minus,1.7%,,,,,,,,
+Manectric,196,move,1,Volt Switch,78.2%,,,,,,,,
+Manectric,196,move,2,Overheat,76.4%,,,,,,,,
+Manectric,196,move,3,Thunderbolt,68.2%,,,,,,,,
+Manectric,196,move,4,Flamethrower,30.5%,,,,,,,,
+Manectric,196,move,5,Snarl,29.5%,,,,,,,,
+Manectric,196,move,6,Rising Voltage,17.2%,,,,,,,,
+Manectric,196,move,7,Switcheroo,16.5%,,,,,,,,
+Manectric,196,move,8,Protect,13.4%,,,,,,,,
+Manectric,196,move,9,Electric Terrain,11.6%,,,,,,,,
+Manectric,196,move,10,Thunder,9.7%,,,,,,,,
+Manectric,196,held_item,1,Manectite,71.3%,,,,,,,,
+Manectric,196,held_item,2,Choice Scarf,16.5%,,,,,,,,
+Manectric,196,held_item,3,Magnet,6.8%,,,,,,,,
+Manectric,196,held_item,4,Focus Sash,2.6%,,,,,,,,
+Manectric,196,held_item,5,Expert Belt,1.3%,,,,,,,,
+Manectric,196,teammate,1,Garchomp,,,,,,,,,
+Manectric,196,teammate,2,Primarina,,,,,,,,,
+Manectric,196,teammate,3,Lucario,,,,,,,,,
+Manectric,196,teammate,4,Mimikyu,,,,,,,,,
+Manectric,196,teammate,5,Pikachu,,,,,,,,,
+Manectric,196,teammate,6,Raichu,,,,,,,,,
+Manectric,196,teammate,7,Jolteon,,,,,,,,,
+Manectric,196,teammate,8,Gyarados,,,,,,,,,
+Manectric,196,teammate,9,Dragonite,,,,,,,,,
+Manectric,196,teammate,10,Heliolisk,,,,,,,,,
+Manectric,196,stat_alignment,1,Timid,84.5%,Speed,Attack,,,,,,
+Manectric,196,stat_alignment,2,Modest,11.6%,Sp. Atk,Attack,,,,,,
+Manectric,196,stat_alignment,3,Naive,1.7%,Speed,Sp. Def,,,,,,
+Manectric,196,stat_alignment,4,Jolly,1.3%,Speed,Sp. Atk,,,,,,
+Manectric,196,stat_alignment,5,Calm,0.7%,Sp. Def,Attack,,,,,,
+Manectric,196,stat_alignment,6,Hasty,0.2%,Speed,Defense,,,,,,
+Manectric,196,stat_alignment,7,Rash,0.2%,Sp. Atk,Sp. Def,,,,,,
+Manectric,196,stat_points,1,,70.0%,,,2,0,0,32,0,32
+Manectric,196,stat_points,2,,10.7%,,,0,0,0,32,2,32
+Manectric,196,stat_points,3,,4.6%,,,0,0,2,32,0,32
+Manectric,196,stat_points,4,,3.6%,,,0,0,1,32,1,32
+Manectric,196,stat_points,5,,2.6%,,,30,0,7,1,0,28
+Manectric,196,stat_points,6,,2.0%,,,24,0,15,6,2,19
+Manectric,196,stat_points,7,,1.5%,,,0,2,0,32,0,32
+Manectric,196,stat_points,8,,1.3%,,,32,2,0,0,0,32
+Manectric,196,stat_points,9,,0.8%,,,6,0,0,32,0,28
+Manectric,196,stat_points,10,,0.7%,,,14,0,3,17,0,32
+Manectric,196,ability,1,Lightning Rod,77.6%,,,,,,,,
+Manectric,196,ability,2,Static,20.6%,,,,,,,,
+Manectric,196,ability,3,Minus,1.8%,,,,,,,,

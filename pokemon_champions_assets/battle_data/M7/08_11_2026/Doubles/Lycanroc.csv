@@ -1,42 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Lycanroc,202,move,1,Rock Slide,99.4%,,,,,,,,
-Lycanroc,202,move,2,Close Combat,82.3%,,,,,,,,
-Lycanroc,202,move,3,Psychic Fangs,66.9%,,,,,,,,
-Lycanroc,202,move,4,Protect,61.1%,,,,,,,,
-Lycanroc,202,move,5,Accelerock,35.4%,,,,,,,,
-Lycanroc,202,move,6,Endeavor,21.1%,,,,,,,,
-Lycanroc,202,move,7,Play Rough,9.7%,,,,,,,,
-Lycanroc,202,move,8,Swords Dance,6.3%,,,,,,,,
-Lycanroc,202,move,9,Howl,5.1%,,,,,,,,
-Lycanroc,202,move,10,Drill Run,4.0%,,,,,,,,
-Lycanroc,202,held_item,1,Focus Sash,90.3%,,,,,,,,
-Lycanroc,202,held_item,2,Life Orb,7.4%,,,,,,,,
-Lycanroc,202,held_item,3,Hard Stone,1.1%,,,,,,,,
-Lycanroc,202,held_item,4,Scope Lens,0.6%,,,,,,,,
-Lycanroc,202,held_item,5,Expert Belt,0.6%,,,,,,,,
-Lycanroc,202,teammate,1,Tyranitar,,,,,,,,,
-Lycanroc,202,teammate,2,Staraptor,,,,,,,,,
-Lycanroc,202,teammate,3,Milotic,,,,,,,,,
-Lycanroc,202,teammate,4,Gholdengo,,,,,,,,,
-Lycanroc,202,teammate,5,Sinistcha,,,,,,,,,
-Lycanroc,202,teammate,6,Sneasler,,,,,,,,,
-Lycanroc,202,teammate,7,Whimsicott,,,,,,,,,
-Lycanroc,202,teammate,8,Rillaboom,,,,,,,,,
-Lycanroc,202,teammate,9,Salamence,,,,,,,,,
-Lycanroc,202,teammate,10,Kingambit,,,,,,,,,
-Lycanroc,202,stat_alignment,1,Jolly,52.6%,Speed,Sp. Atk,,,,,,
-Lycanroc,202,stat_alignment,2,Adamant,39.4%,Attack,Sp. Atk,,,,,,
-Lycanroc,202,stat_alignment,3,Hasty,5.1%,Speed,Defense,,,,,,
-Lycanroc,202,stat_alignment,4,Lonely,2.9%,Attack,Defense,,,,,,
-Lycanroc,202,stat_points,1,,69.7%,,,2,32,0,0,0,32
-Lycanroc,202,stat_points,2,,12.0%,,,0,32,0,0,2,32
-Lycanroc,202,stat_points,3,,8.0%,,,1,32,0,0,0,32
-Lycanroc,202,stat_points,4,,3.4%,,,0,32,2,0,0,32
-Lycanroc,202,stat_points,5,,2.9%,,,32,32,0,0,2,0
-Lycanroc,202,stat_points,6,,2.3%,,,2,32,32,0,0,0
-Lycanroc,202,stat_points,7,,0.6%,,,0,32,0,0,32,2
-Lycanroc,202,stat_points,8,,0.6%,,,13,32,0,0,0,21
-Lycanroc,202,stat_points,9,,0.6%,,,32,32,2,0,0,0
-Lycanroc,202,ability,1,Sand Rush,96.6%,,,,,,,,
-Lycanroc,202,ability,2,Keen Eye,1.7%,,,,,,,,
-Lycanroc,202,ability,3,Steadfast,1.7%,,,,,,,,
+Lycanroc,200,move,1,Rock Slide,99.5%,,,,,,,,
+Lycanroc,200,move,2,Close Combat,84.0%,,,,,,,,
+Lycanroc,200,move,3,Psychic Fangs,69.3%,,,,,,,,
+Lycanroc,200,move,4,Protect,60.4%,,,,,,,,
+Lycanroc,200,move,5,Accelerock,33.0%,,,,,,,,
+Lycanroc,200,move,6,Endeavor,23.1%,,,,,,,,
+Lycanroc,200,move,7,Play Rough,8.0%,,,,,,,,
+Lycanroc,200,move,8,Swords Dance,5.2%,,,,,,,,
+Lycanroc,200,move,9,Howl,4.2%,,,,,,,,
+Lycanroc,200,move,10,Drill Run,3.8%,,,,,,,,
+Lycanroc,200,held_item,1,Focus Sash,88.7%,,,,,,,,
+Lycanroc,200,held_item,2,Life Orb,7.1%,,,,,,,,
+Lycanroc,200,held_item,3,Hard Stone,1.4%,,,,,,,,
+Lycanroc,200,held_item,4,Wide Lens,1.4%,,,,,,,,
+Lycanroc,200,held_item,5,Scope Lens,0.5%,,,,,,,,
+Lycanroc,200,held_item,6,Charcoal,0.5%,,,,,,,,
+Lycanroc,200,held_item,7,Expert Belt,0.5%,,,,,,,,
+Lycanroc,200,teammate,1,Tyranitar,,,,,,,,,
+Lycanroc,200,teammate,2,Staraptor,,,,,,,,,
+Lycanroc,200,teammate,3,Milotic,,,,,,,,,
+Lycanroc,200,teammate,4,Gholdengo,,,,,,,,,
+Lycanroc,200,teammate,5,Sinistcha,,,,,,,,,
+Lycanroc,200,teammate,6,Rillaboom,,,,,,,,,
+Lycanroc,200,teammate,7,Whimsicott,,,,,,,,,
+Lycanroc,200,teammate,8,Sneasler,,,,,,,,,
+Lycanroc,200,teammate,9,Salamence,,,,,,,,,
+Lycanroc,200,teammate,10,Farigiraf,,,,,,,,,
+Lycanroc,200,stat_alignment,1,Jolly,57.1%,Speed,Sp. Atk,,,,,,
+Lycanroc,200,stat_alignment,2,Adamant,36.3%,Attack,Sp. Atk,,,,,,
+Lycanroc,200,stat_alignment,3,Hasty,4.2%,Speed,Defense,,,,,,
+Lycanroc,200,stat_alignment,4,Lonely,2.4%,Attack,Defense,,,,,,
+Lycanroc,200,stat_points,1,,73.1%,,,2,32,0,0,0,32
+Lycanroc,200,stat_points,2,,9.9%,,,0,32,0,0,2,32
+Lycanroc,200,stat_points,3,,7.5%,,,1,32,0,0,0,32
+Lycanroc,200,stat_points,4,,2.8%,,,0,32,2,0,0,32
+Lycanroc,200,stat_points,5,,2.4%,,,32,32,0,0,2,0
+Lycanroc,200,stat_points,6,,1.9%,,,2,32,32,0,0,0
+Lycanroc,200,stat_points,7,,0.9%,,,0,32,0,0,32,2
+Lycanroc,200,stat_points,8,,0.5%,,,0,32,1,0,1,32
+Lycanroc,200,stat_points,9,,0.5%,,,13,32,0,0,0,21
+Lycanroc,200,stat_points,10,,0.5%,,,32,32,2,0,0,0
+Lycanroc,200,ability,1,Sand Rush,96.7%,,,,,,,,
+Lycanroc,200,ability,2,Keen Eye,1.9%,,,,,,,,
+Lycanroc,200,ability,3,Steadfast,1.4%,,,,,,,,

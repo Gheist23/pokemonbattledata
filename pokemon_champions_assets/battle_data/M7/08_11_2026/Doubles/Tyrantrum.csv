@@ -1,42 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tyrantrum,228,move,1,Ice Fang,75.3%,,,,,,,,
-Tyrantrum,228,move,2,Rock Slide,54.3%,,,,,,,,
-Tyrantrum,228,move,3,Psychic Fangs,53.1%,,,,,,,,
-Tyrantrum,228,move,4,Protect,44.4%,,,,,,,,
-Tyrantrum,228,move,5,Close Combat,40.7%,,,,,,,,
-Tyrantrum,228,move,6,Head Smash,40.7%,,,,,,,,
-Tyrantrum,228,move,7,Breaking Swipe,19.8%,,,,,,,,
-Tyrantrum,228,move,8,Crunch,16.0%,,,,,,,,
-Tyrantrum,228,move,9,Brick Break,14.8%,,,,,,,,
-Tyrantrum,228,move,10,Earthquake,11.1%,,,,,,,,
-Tyrantrum,228,held_item,1,Choice Scarf,35.8%,,,,,,,,
-Tyrantrum,228,held_item,2,Focus Sash,22.2%,,,,,,,,
-Tyrantrum,228,held_item,3,Life Orb,18.5%,,,,,,,,
-Tyrantrum,228,held_item,4,Hard Stone,14.8%,,,,,,,,
-Tyrantrum,228,held_item,5,White Herb,4.9%,,,,,,,,
-Tyrantrum,228,held_item,6,Zoom Lens,2.5%,,,,,,,,
-Tyrantrum,228,held_item,7,Wide Lens,1.2%,,,,,,,,
-Tyrantrum,228,teammate,1,Tyranitar,,,,,,,,,
-Tyrantrum,228,teammate,2,Staraptor,,,,,,,,,
-Tyrantrum,228,teammate,3,Chandelure,,,,,,,,,
-Tyrantrum,228,teammate,4,Mimikyu,,,,,,,,,
-Tyrantrum,228,teammate,5,Rillaboom,,,,,,,,,
-Tyrantrum,228,teammate,6,Kangaskhan,,,,,,,,,
-Tyrantrum,228,teammate,7,Golisopod,,,,,,,,,
-Tyrantrum,228,teammate,8,Mawile,,,,,,,,,
-Tyrantrum,228,teammate,9,Spiritomb,,,,,,,,,
-Tyrantrum,228,teammate,10,Oranguru,,,,,,,,,
-Tyrantrum,228,stat_alignment,1,Jolly,55.6%,Speed,Sp. Atk,,,,,,
-Tyrantrum,228,stat_alignment,2,Brave,22.2%,Attack,Speed,,,,,,
-Tyrantrum,228,stat_alignment,3,Adamant,21.0%,Attack,Sp. Atk,,,,,,
-Tyrantrum,228,stat_alignment,4,Sassy,1.2%,Sp. Def,Speed,,,,,,
-Tyrantrum,228,stat_points,1,,34.6%,,,0,32,2,0,0,32
-Tyrantrum,228,stat_points,2,,23.5%,,,2,32,0,0,0,32
-Tyrantrum,228,stat_points,3,,17.3%,,,32,32,2,0,0,0
-Tyrantrum,228,stat_points,4,,14.8%,,,0,32,32,0,2,0
-Tyrantrum,228,stat_points,5,,4.9%,,,2,32,32,0,0,0
-Tyrantrum,228,stat_points,6,,2.5%,,,3,32,0,0,3,28
-Tyrantrum,228,stat_points,7,,1.2%,,,0,32,2,0,32,0
-Tyrantrum,228,stat_points,8,,1.2%,,,18,20,0,0,0,28
-Tyrantrum,228,ability,1,Strong Jaw,75.3%,,,,,,,,
-Tyrantrum,228,ability,2,Rock Head,24.7%,,,,,,,,
+Tyrantrum,229,move,1,Ice Fang,68.1%,,,,,,,,
+Tyrantrum,229,move,2,Protect,50.0%,,,,,,,,
+Tyrantrum,229,move,3,Rock Slide,48.9%,,,,,,,,
+Tyrantrum,229,move,4,Psychic Fangs,46.8%,,,,,,,,
+Tyrantrum,229,move,5,Head Smash,45.7%,,,,,,,,
+Tyrantrum,229,move,6,Close Combat,35.1%,,,,,,,,
+Tyrantrum,229,move,7,Brick Break,22.3%,,,,,,,,
+Tyrantrum,229,move,8,Dragon Claw,18.1%,,,,,,,,
+Tyrantrum,229,move,9,Breaking Swipe,18.1%,,,,,,,,
+Tyrantrum,229,move,10,Crunch,17.0%,,,,,,,,
+Tyrantrum,229,held_item,1,Choice Scarf,30.9%,,,,,,,,
+Tyrantrum,229,held_item,2,Hard Stone,22.3%,,,,,,,,
+Tyrantrum,229,held_item,3,Focus Sash,20.2%,,,,,,,,
+Tyrantrum,229,held_item,4,Life Orb,16.0%,,,,,,,,
+Tyrantrum,229,held_item,5,White Herb,4.3%,,,,,,,,
+Tyrantrum,229,held_item,6,Wide Lens,2.1%,,,,,,,,
+Tyrantrum,229,held_item,7,Expert Belt,2.1%,,,,,,,,
+Tyrantrum,229,held_item,8,Zoom Lens,2.1%,,,,,,,,
+Tyrantrum,229,teammate,1,Tyranitar,,,,,,,,,
+Tyrantrum,229,teammate,2,Staraptor,,,,,,,,,
+Tyrantrum,229,teammate,3,Chandelure,,,,,,,,,
+Tyrantrum,229,teammate,4,Mimikyu,,,,,,,,,
+Tyrantrum,229,teammate,5,Rillaboom,,,,,,,,,
+Tyrantrum,229,teammate,6,Raichu,,,,,,,,,
+Tyrantrum,229,teammate,7,Kangaskhan,,,,,,,,,
+Tyrantrum,229,teammate,8,Skarmory,,,,,,,,,
+Tyrantrum,229,teammate,9,Malamar,,,,,,,,,
+Tyrantrum,229,teammate,10,Clawitzer,,,,,,,,,
+Tyrantrum,229,stat_alignment,1,Jolly,47.9%,Speed,Sp. Atk,,,,,,
+Tyrantrum,229,stat_alignment,2,Adamant,29.8%,Attack,Sp. Atk,,,,,,
+Tyrantrum,229,stat_alignment,3,Brave,21.3%,Attack,Speed,,,,,,
+Tyrantrum,229,stat_alignment,4,Sassy,1.1%,Sp. Def,Speed,,,,,,
+Tyrantrum,229,stat_points,1,,29.8%,,,0,32,2,0,0,32
+Tyrantrum,229,stat_points,2,,22.3%,,,0,32,32,0,2,0
+Tyrantrum,229,stat_points,3,,21.3%,,,2,32,0,0,0,32
+Tyrantrum,229,stat_points,4,,14.9%,,,32,32,2,0,0,0
+Tyrantrum,229,stat_points,5,,4.3%,,,2,32,32,0,0,0
+Tyrantrum,229,stat_points,6,,2.1%,,,3,32,0,0,3,28
+Tyrantrum,229,stat_points,7,,2.1%,,,32,32,0,0,2,0
+Tyrantrum,229,stat_points,8,,1.1%,,,0,32,1,0,1,32
+Tyrantrum,229,stat_points,9,,1.1%,,,0,32,2,0,32,0
+Tyrantrum,229,stat_points,10,,1.1%,,,18,20,0,0,0,28
+Tyrantrum,229,ability,1,Strong Jaw,68.1%,,,,,,,,
+Tyrantrum,229,ability,2,Rock Head,31.9%,,,,,,,,

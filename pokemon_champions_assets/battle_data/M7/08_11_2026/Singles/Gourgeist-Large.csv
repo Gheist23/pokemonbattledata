@@ -1,18 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gourgeist-Large,257,move,1,Power Whip,62.5%,,,,,,,,
-Gourgeist-Large,257,move,2,Trick Room,58.3%,,,,,,,,
-Gourgeist-Large,257,move,3,Will-O-Wisp,52.1%,,,,,,,,
-Gourgeist-Large,257,move,4,Leech Seed,52.1%,,,,,,,,
-Gourgeist-Large,257,move,5,Destiny Bond,37.5%,,,,,,,,
-Gourgeist-Large,257,move,6,Curse,27.1%,,,,,,,,
-Gourgeist-Large,257,move,7,Protect,22.9%,,,,,,,,
-Gourgeist-Large,257,move,8,Explosion,20.8%,,,,,,,,
-Gourgeist-Large,257,move,9,Poltergeist,20.8%,,,,,,,,
-Gourgeist-Large,257,move,10,Light Screen,18.8%,,,,,,,,
-Gourgeist-Large,257,held_item,1,Leftovers,45.8%,,,,,,,,
-Gourgeist-Large,257,held_item,2,Sitrus Berry,27.1%,,,,,,,,
-Gourgeist-Large,257,held_item,3,Rocky Helmet,20.8%,,,,,,,,
-Gourgeist-Large,257,held_item,4,Choice Scarf,6.3%,,,,,,,,
+Gourgeist-Large,257,move,1,Power Whip,62.3%,,,,,,,,
+Gourgeist-Large,257,move,2,Trick Room,56.6%,,,,,,,,
+Gourgeist-Large,257,move,3,Will-O-Wisp,54.7%,,,,,,,,
+Gourgeist-Large,257,move,4,Leech Seed,54.7%,,,,,,,,
+Gourgeist-Large,257,move,5,Destiny Bond,34.0%,,,,,,,,
+Gourgeist-Large,257,move,6,Curse,26.4%,,,,,,,,
+Gourgeist-Large,257,move,7,Protect,24.5%,,,,,,,,
+Gourgeist-Large,257,move,8,Poltergeist,22.6%,,,,,,,,
+Gourgeist-Large,257,move,9,Explosion,18.9%,,,,,,,,
+Gourgeist-Large,257,move,10,Light Screen,17.0%,,,,,,,,
+Gourgeist-Large,257,held_item,1,Leftovers,49.1%,,,,,,,,
+Gourgeist-Large,257,held_item,2,Sitrus Berry,24.5%,,,,,,,,
+Gourgeist-Large,257,held_item,3,Rocky Helmet,18.9%,,,,,,,,
+Gourgeist-Large,257,held_item,4,Choice Scarf,5.7%,,,,,,,,
+Gourgeist-Large,257,held_item,5,Focus Sash,1.9%,,,,,,,,
 Gourgeist-Large,257,teammate,1,Garchomp,,,,,,,,,
 Gourgeist-Large,257,teammate,2,Mawile,,,,,,,,,
 Gourgeist-Large,257,teammate,3,Lucario,,,,,,,,,
@@ -21,19 +22,23 @@ Gourgeist-Large,257,teammate,5,Azumarill,,,,,,,,,
 Gourgeist-Large,257,teammate,6,Rotom-Heat,,,,,,,,,
 Gourgeist-Large,257,teammate,7,Zoroark-Hisui,,,,,,,,,
 Gourgeist-Large,257,teammate,8,Pawmot,,,,,,,,,
-Gourgeist-Large,257,teammate,9,Dragonite,,,,,,,,,
-Gourgeist-Large,257,teammate,10,Crabominable,,,,,,,,,
-Gourgeist-Large,257,stat_alignment,1,Sassy,37.5%,Sp. Def,Speed,,,,,,
-Gourgeist-Large,257,stat_alignment,2,Impish,33.3%,Defense,Sp. Atk,,,,,,
+Gourgeist-Large,257,teammate,9,Charizard,,,,,,,,,
+Gourgeist-Large,257,teammate,10,Tyranitar,,,,,,,,,
+Gourgeist-Large,257,stat_alignment,1,Impish,35.8%,Defense,Sp. Atk,,,,,,
+Gourgeist-Large,257,stat_alignment,2,Sassy,34.0%,Sp. Def,Speed,,,,,,
 Gourgeist-Large,257,stat_alignment,3,Brave,20.8%,Attack,Speed,,,,,,
-Gourgeist-Large,257,stat_alignment,4,Careful,6.3%,Sp. Def,Sp. Atk,,,,,,
-Gourgeist-Large,257,stat_alignment,5,Bold,2.1%,Defense,Attack,,,,,,
-Gourgeist-Large,257,stat_points,1,,27.1%,,,29,32,0,0,5,0
-Gourgeist-Large,257,stat_points,2,,20.8%,,,32,0,16,0,18,0
-Gourgeist-Large,257,stat_points,3,,18.8%,,,0,0,32,0,32,2
-Gourgeist-Large,257,stat_points,4,,14.6%,,,32,0,10,0,0,24
-Gourgeist-Large,257,stat_points,5,,10.4%,,,32,0,10,0,24,0
-Gourgeist-Large,257,stat_points,6,,6.3%,,,2,0,32,0,32,0
-Gourgeist-Large,257,stat_points,7,,2.1%,,,27,0,32,0,7,0
-Gourgeist-Large,257,ability,1,Insomnia,52.1%,,,,,,,,
-Gourgeist-Large,257,ability,2,Frisk,47.9%,,,,,,,,
+Gourgeist-Large,257,stat_alignment,4,Careful,5.7%,Sp. Def,Sp. Atk,,,,,,
+Gourgeist-Large,257,stat_alignment,5,Bold,1.9%,Defense,Attack,,,,,,
+Gourgeist-Large,257,stat_alignment,6,Relaxed,1.9%,Defense,Speed,,,,,,
+Gourgeist-Large,257,stat_points,1,,24.5%,,,29,32,0,0,5,0
+Gourgeist-Large,257,stat_points,2,,18.9%,,,32,0,16,0,18,0
+Gourgeist-Large,257,stat_points,3,,17.0%,,,0,0,32,0,32,2
+Gourgeist-Large,257,stat_points,4,,17.0%,,,32,0,10,0,0,24
+Gourgeist-Large,257,stat_points,5,,9.4%,,,32,0,10,0,24,0
+Gourgeist-Large,257,stat_points,6,,5.7%,,,2,0,32,0,32,0
+Gourgeist-Large,257,stat_points,7,,1.9%,,,27,0,32,0,7,0
+Gourgeist-Large,257,stat_points,8,,1.9%,,,31,0,32,0,3,0
+Gourgeist-Large,257,stat_points,9,,1.9%,,,32,0,32,0,2,0
+Gourgeist-Large,257,stat_points,10,,1.9%,,,32,32,0,0,2,0
+Gourgeist-Large,257,ability,1,Insomnia,54.7%,,,,,,,,
+Gourgeist-Large,257,ability,2,Frisk,45.3%,,,,,,,,

@@ -1,23 +1,25 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Salazzle,167,move,1,Sludge Bomb,73.1%,,,,,,,,
-Salazzle,167,move,2,Fake Out,53.8%,,,,,,,,
-Salazzle,167,move,3,Heat Wave,53.5%,,,,,,,,
-Salazzle,167,move,4,Toxic,40.5%,,,,,,,,
-Salazzle,167,move,5,Flamethrower,33.4%,,,,,,,,
-Salazzle,167,move,6,Protect,31.3%,,,,,,,,
-Salazzle,167,move,7,Overheat,25.3%,,,,,,,,
-Salazzle,167,move,8,Sludge Wave,22.3%,,,,,,,,
-Salazzle,167,move,9,Dragon Pulse,15.2%,,,,,,,,
-Salazzle,167,move,10,Encore,12.8%,,,,,,,,
-Salazzle,167,held_item,1,Focus Sash,92.9%,,,,,,,,
-Salazzle,167,held_item,2,Charcoal,2.7%,,,,,,,,
-Salazzle,167,held_item,3,Payapa Berry,1.6%,,,,,,,,
-Salazzle,167,held_item,4,Poison Barb,0.8%,,,,,,,,
-Salazzle,167,held_item,5,Bright Powder,0.5%,,,,,,,,
-Salazzle,167,held_item,6,Expert Belt,0.5%,,,,,,,,
-Salazzle,167,held_item,7,Air Balloon,0.5%,,,,,,,,
-Salazzle,167,teammate,1,Rillaboom,,,,,,,,,
-Salazzle,167,teammate,2,Charizard,,,,,,,,,
+Salazzle,167,move,1,Sludge Bomb,73.3%,,,,,,,,
+Salazzle,167,move,2,Fake Out,55.7%,,,,,,,,
+Salazzle,167,move,3,Heat Wave,51.7%,,,,,,,,
+Salazzle,167,move,4,Toxic,39.2%,,,,,,,,
+Salazzle,167,move,5,Flamethrower,35.6%,,,,,,,,
+Salazzle,167,move,6,Protect,30.3%,,,,,,,,
+Salazzle,167,move,7,Overheat,23.7%,,,,,,,,
+Salazzle,167,move,8,Sludge Wave,21.9%,,,,,,,,
+Salazzle,167,move,9,Encore,16.3%,,,,,,,,
+Salazzle,167,move,10,Dragon Pulse,14.5%,,,,,,,,
+Salazzle,167,held_item,1,Focus Sash,88.5%,,,,,,,,
+Salazzle,167,held_item,2,Bright Powder,4.6%,,,,,,,,
+Salazzle,167,held_item,3,Charcoal,2.5%,,,,,,,,
+Salazzle,167,held_item,4,Payapa Berry,1.5%,,,,,,,,
+Salazzle,167,held_item,5,Poison Barb,0.8%,,,,,,,,
+Salazzle,167,held_item,6,Air Balloon,0.8%,,,,,,,,
+Salazzle,167,held_item,7,Expert Belt,0.5%,,,,,,,,
+Salazzle,167,held_item,8,Wide Lens,0.3%,,,,,,,,
+Salazzle,167,held_item,9,Life Orb,0.3%,,,,,,,,
+Salazzle,167,teammate,1,Charizard,,,,,,,,,
+Salazzle,167,teammate,2,Rillaboom,,,,,,,,,
 Salazzle,167,teammate,3,Gyarados,,,,,,,,,
 Salazzle,167,teammate,4,Armarouge,,,,,,,,,
 Salazzle,167,teammate,5,Raichu,,,,,,,,,
@@ -26,18 +28,19 @@ Salazzle,167,teammate,7,Chandelure,,,,,,,,,
 Salazzle,167,teammate,8,Pyroar,,,,,,,,,
 Salazzle,167,teammate,9,Staraptor,,,,,,,,,
 Salazzle,167,teammate,10,Dragonite,,,,,,,,,
-Salazzle,167,stat_alignment,1,Timid,79.1%,Speed,Attack,,,,,,
-Salazzle,167,stat_alignment,2,Modest,19.3%,Sp. Atk,Attack,,,,,,
-Salazzle,167,stat_alignment,3,Hasty,0.8%,Speed,Defense,,,,,,
+Salazzle,167,stat_alignment,1,Timid,75.3%,Speed,Attack,,,,,,
+Salazzle,167,stat_alignment,2,Modest,18.8%,Sp. Atk,Attack,,,,,,
+Salazzle,167,stat_alignment,3,Hasty,5.1%,Speed,Defense,,,,,,
 Salazzle,167,stat_alignment,4,Mild,0.5%,Sp. Atk,Defense,,,,,,
 Salazzle,167,stat_alignment,5,Naive,0.3%,Speed,Sp. Def,,,,,,
-Salazzle,167,stat_points,1,,61.4%,,,2,0,0,32,0,32
-Salazzle,167,stat_points,2,,14.4%,,,0,0,0,32,0,32
-Salazzle,167,stat_points,3,,10.9%,,,0,0,2,32,0,32
-Salazzle,167,stat_points,4,,7.9%,,,0,0,0,32,2,32
-Salazzle,167,stat_points,5,,2.4%,,,1,0,0,32,0,32
-Salazzle,167,stat_points,6,,2.4%,,,32,0,2,0,0,32
-Salazzle,167,stat_points,7,,0.3%,,,0,2,0,32,0,32
-Salazzle,167,stat_points,8,,0.3%,,,7,0,0,32,0,27
-Salazzle,167,ability,1,Corrosion,67.1%,,,,,,,,
-Salazzle,167,ability,2,Oblivious,32.9%,,,,,,,,
+Salazzle,167,stat_points,1,,63.4%,,,2,0,0,32,0,32
+Salazzle,167,stat_points,2,,13.5%,,,0,0,0,32,0,32
+Salazzle,167,stat_points,3,,10.2%,,,0,0,2,32,0,32
+Salazzle,167,stat_points,4,,7.4%,,,0,0,0,32,2,32
+Salazzle,167,stat_points,5,,2.3%,,,1,0,0,32,0,32
+Salazzle,167,stat_points,6,,2.3%,,,32,0,2,0,0,32
+Salazzle,167,stat_points,7,,0.5%,,,12,0,5,14,3,32
+Salazzle,167,stat_points,8,,0.3%,,,0,2,0,32,0,32
+Salazzle,167,stat_points,9,,0.3%,,,7,0,0,32,0,27
+Salazzle,167,ability,1,Corrosion,64.6%,,,,,,,,
+Salazzle,167,ability,2,Oblivious,35.4%,,,,,,,,

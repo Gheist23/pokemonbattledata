@@ -1,38 +1,40 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Furfrou,249,move,1,Snarl,94.0%,,,,,,,,
-Furfrou,249,move,2,Cotton Guard,72.0%,,,,,,,,
-Furfrou,249,move,3,Last Resort,52.0%,,,,,,,,
-Furfrou,249,move,4,Attract,34.0%,,,,,,,,
-Furfrou,249,move,5,Thunder Wave,32.0%,,,,,,,,
-Furfrou,249,move,6,Protect,24.0%,,,,,,,,
-Furfrou,249,move,7,Hyper Voice,16.0%,,,,,,,,
-Furfrou,249,move,8,Sunny Day,16.0%,,,,,,,,
-Furfrou,249,move,9,Helping Hand,16.0%,,,,,,,,
-Furfrou,249,move,10,Roar,12.0%,,,,,,,,
-Furfrou,249,held_item,1,Leftovers,78.0%,,,,,,,,
-Furfrou,249,held_item,2,Rocky Helmet,14.0%,,,,,,,,
-Furfrou,249,held_item,3,Chople Berry,8.0%,,,,,,,,
-Furfrou,249,teammate,1,Indeedee-F,,,,,,,,,
-Furfrou,249,teammate,2,Staraptor,,,,,,,,,
-Furfrou,249,teammate,3,Whimsicott,,,,,,,,,
-Furfrou,249,teammate,4,Delphox,,,,,,,,,
-Furfrou,249,teammate,5,Gholdengo,,,,,,,,,
-Furfrou,249,teammate,6,Drampa,,,,,,,,,
-Furfrou,249,teammate,7,Torkoal,,,,,,,,,
-Furfrou,249,teammate,8,Venusaur,,,,,,,,,
-Furfrou,249,teammate,9,Charizard,,,,,,,,,
-Furfrou,249,teammate,10,Goodra-Hisui,,,,,,,,,
-Furfrou,249,stat_alignment,1,Careful,50.0%,Sp. Def,Sp. Atk,,,,,,
-Furfrou,249,stat_alignment,2,Calm,16.0%,Sp. Def,Attack,,,,,,
-Furfrou,249,stat_alignment,3,Timid,16.0%,Speed,Attack,,,,,,
-Furfrou,249,stat_alignment,4,Quiet,10.0%,Sp. Atk,Speed,,,,,,
-Furfrou,249,stat_alignment,5,Sassy,6.0%,Sp. Def,Speed,,,,,,
-Furfrou,249,stat_alignment,6,Relaxed,2.0%,Defense,Speed,,,,,,
-Furfrou,249,stat_points,1,,32.0%,,,32,0,2,0,32,0
-Furfrou,249,stat_points,2,,18.0%,,,32,0,0,0,32,2
-Furfrou,249,stat_points,3,,16.0%,,,32,0,0,15,19,0
-Furfrou,249,stat_points,4,,16.0%,,,32,0,2,0,0,32
-Furfrou,249,stat_points,5,,10.0%,,,31,0,20,15,0,0
-Furfrou,249,stat_points,6,,6.0%,,,32,2,0,0,32,0
-Furfrou,249,stat_points,7,,2.0%,,,23,0,32,0,11,0
-Furfrou,249,ability,1,Fur Coat,100.0%,,,,,,,,
+Furfrou,250,move,1,Snarl,83.9%,,,,,,,,
+Furfrou,250,move,2,Cotton Guard,64.3%,,,,,,,,
+Furfrou,250,move,3,Last Resort,46.4%,,,,,,,,
+Furfrou,250,move,4,Attract,30.4%,,,,,,,,
+Furfrou,250,move,5,Thunder Wave,28.6%,,,,,,,,
+Furfrou,250,move,6,Sunny Day,25.0%,,,,,,,,
+Furfrou,250,move,7,Helping Hand,25.0%,,,,,,,,
+Furfrou,250,move,8,Protect,21.4%,,,,,,,,
+Furfrou,250,move,9,Hyper Voice,14.3%,,,,,,,,
+Furfrou,250,move,10,Roar,10.7%,,,,,,,,
+Furfrou,250,held_item,1,Leftovers,80.4%,,,,,,,,
+Furfrou,250,held_item,2,Rocky Helmet,12.5%,,,,,,,,
+Furfrou,250,held_item,3,Chople Berry,7.1%,,,,,,,,
+Furfrou,250,teammate,1,Staraptor,,,,,,,,,
+Furfrou,250,teammate,2,Indeedee-F,,,,,,,,,
+Furfrou,250,teammate,3,Whimsicott,,,,,,,,,
+Furfrou,250,teammate,4,Delphox,,,,,,,,,
+Furfrou,250,teammate,5,Gholdengo,,,,,,,,,
+Furfrou,250,teammate,6,Farigiraf,,,,,,,,,
+Furfrou,250,teammate,7,Drampa,,,,,,,,,
+Furfrou,250,teammate,8,Sylveon,,,,,,,,,
+Furfrou,250,teammate,9,Torkoal,,,,,,,,,
+Furfrou,250,teammate,10,Venusaur,,,,,,,,,
+Furfrou,250,stat_alignment,1,Careful,44.6%,Sp. Def,Sp. Atk,,,,,,
+Furfrou,250,stat_alignment,2,Calm,14.3%,Sp. Def,Attack,,,,,,
+Furfrou,250,stat_alignment,3,Timid,14.3%,Speed,Attack,,,,,,
+Furfrou,250,stat_alignment,4,Jolly,10.7%,Speed,Sp. Atk,,,,,,
+Furfrou,250,stat_alignment,5,Quiet,8.9%,Sp. Atk,Speed,,,,,,
+Furfrou,250,stat_alignment,6,Sassy,5.4%,Sp. Def,Speed,,,,,,
+Furfrou,250,stat_alignment,7,Relaxed,1.8%,Defense,Speed,,,,,,
+Furfrou,250,stat_points,1,,28.6%,,,32,0,2,0,32,0
+Furfrou,250,stat_points,2,,16.1%,,,32,0,0,0,32,2
+Furfrou,250,stat_points,3,,14.3%,,,32,0,0,15,19,0
+Furfrou,250,stat_points,4,,14.3%,,,32,0,2,0,0,32
+Furfrou,250,stat_points,5,,10.7%,,,2,32,0,0,0,32
+Furfrou,250,stat_points,6,,8.9%,,,31,0,20,15,0,0
+Furfrou,250,stat_points,7,,5.4%,,,32,2,0,0,32,0
+Furfrou,250,stat_points,8,,1.8%,,,23,0,32,0,11,0
+Furfrou,250,ability,1,Fur Coat,100.0%,,,,,,,,

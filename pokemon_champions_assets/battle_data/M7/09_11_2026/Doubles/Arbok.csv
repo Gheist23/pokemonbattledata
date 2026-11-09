@@ -1,41 +1,42 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Arbok,250,move,1,Gunk Shot,97.9%,,,,,,,,
-Arbok,250,move,2,Protect,77.1%,,,,,,,,
-Arbok,250,move,3,Coil,72.9%,,,,,,,,
-Arbok,250,move,4,Thunder Fang,45.8%,,,,,,,,
-Arbok,250,move,5,Glare,41.7%,,,,,,,,
-Arbok,250,move,6,Sucker Punch,22.9%,,,,,,,,
-Arbok,250,move,7,Haze,12.5%,,,,,,,,
-Arbok,250,move,8,Leech Life,8.3%,,,,,,,,
-Arbok,250,move,9,Earthquake,8.3%,,,,,,,,
-Arbok,250,move,10,Stomping Tantrum,4.2%,,,,,,,,
-Arbok,250,held_item,1,Leftovers,66.7%,,,,,,,,
-Arbok,250,held_item,2,Choice Scarf,22.9%,,,,,,,,
-Arbok,250,held_item,3,Electric Seed,4.2%,,,,,,,,
-Arbok,250,held_item,4,Poison Barb,2.1%,,,,,,,,
-Arbok,250,held_item,5,Focus Sash,2.1%,,,,,,,,
-Arbok,250,held_item,6,Rocky Helmet,2.1%,,,,,,,,
-Arbok,250,teammate,1,Garchomp,,,,,,,,,
-Arbok,250,teammate,2,Volcarona,,,,,,,,,
-Arbok,250,teammate,3,Kingambit,,,,,,,,,
-Arbok,250,teammate,4,Blaziken,,,,,,,,,
-Arbok,250,teammate,5,Salamence,,,,,,,,,
-Arbok,250,teammate,6,Simipour,,,,,,,,,
-Arbok,250,teammate,7,Vivillon-Fancy,,,,,,,,,
-Arbok,250,teammate,8,Inteleon,,,,,,,,,
-Arbok,250,teammate,9,Rillaboom,,,,,,,,,
-Arbok,250,teammate,10,Corviknight,,,,,,,,,
-Arbok,250,stat_alignment,1,Adamant,91.7%,Attack,Sp. Atk,,,,,,
-Arbok,250,stat_alignment,2,Careful,4.2%,Sp. Def,Sp. Atk,,,,,,
-Arbok,250,stat_alignment,3,Hasty,2.1%,Speed,Defense,,,,,,
-Arbok,250,stat_alignment,4,Impish,2.1%,Defense,Sp. Atk,,,,,,
-Arbok,250,stat_points,1,,37.5%,,,28,32,0,0,0,6
-Arbok,250,stat_points,2,,22.9%,,,2,32,0,0,0,32
-Arbok,250,stat_points,3,,12.5%,,,32,19,11,0,4,0
-Arbok,250,stat_points,4,,12.5%,,,32,32,0,0,0,2
-Arbok,250,stat_points,5,,4.2%,,,9,4,0,0,21,32
-Arbok,250,stat_points,6,,4.2%,,,32,15,0,0,19,0
-Arbok,250,stat_points,7,,2.1%,,,25,32,6,0,1,2
-Arbok,250,stat_points,8,,2.1%,,,32,0,32,0,0,2
-Arbok,250,stat_points,9,,2.1%,,,32,32,0,0,0,0
-Arbok,250,ability,1,Intimidate,100.0%,,,,,,,,
+Arbok,248,move,1,Gunk Shot,98.3%,,,,,,,,
+Arbok,248,move,2,Protect,78.3%,,,,,,,,
+Arbok,248,move,3,Coil,71.7%,,,,,,,,
+Arbok,248,move,4,Thunder Fang,50.0%,,,,,,,,
+Arbok,248,move,5,Glare,36.7%,,,,,,,,
+Arbok,248,move,6,Sucker Punch,21.7%,,,,,,,,
+Arbok,248,move,7,Haze,10.0%,,,,,,,,
+Arbok,248,move,8,Earthquake,10.0%,,,,,,,,
+Arbok,248,move,9,Leech Life,6.7%,,,,,,,,
+Arbok,248,move,10,Crunch,5.0%,,,,,,,,
+Arbok,248,held_item,1,Leftovers,66.7%,,,,,,,,
+Arbok,248,held_item,2,Choice Scarf,21.7%,,,,,,,,
+Arbok,248,held_item,3,Expert Belt,3.3%,,,,,,,,
+Arbok,248,held_item,4,Electric Seed,3.3%,,,,,,,,
+Arbok,248,held_item,5,Poison Barb,1.7%,,,,,,,,
+Arbok,248,held_item,6,Focus Sash,1.7%,,,,,,,,
+Arbok,248,held_item,7,Rocky Helmet,1.7%,,,,,,,,
+Arbok,248,teammate,1,Garchomp,,,,,,,,,
+Arbok,248,teammate,2,Corviknight,,,,,,,,,
+Arbok,248,teammate,3,Volcarona,,,,,,,,,
+Arbok,248,teammate,4,Salamence,,,,,,,,,
+Arbok,248,teammate,5,Simipour,,,,,,,,,
+Arbok,248,teammate,6,Vivillon-Fancy,,,,,,,,,
+Arbok,248,teammate,7,Inteleon,,,,,,,,,
+Arbok,248,teammate,8,Kingambit,,,,,,,,,
+Arbok,248,teammate,9,Indeedee-F,,,,,,,,,
+Arbok,248,teammate,10,Tyranitar,,,,,,,,,
+Arbok,248,stat_alignment,1,Adamant,93.3%,Attack,Sp. Atk,,,,,,
+Arbok,248,stat_alignment,2,Careful,3.3%,Sp. Def,Sp. Atk,,,,,,
+Arbok,248,stat_alignment,3,Hasty,1.7%,Speed,Defense,,,,,,
+Arbok,248,stat_alignment,4,Impish,1.7%,Defense,Sp. Atk,,,,,,
+Arbok,248,stat_points,1,,43.3%,,,28,32,0,0,0,6
+Arbok,248,stat_points,2,,21.7%,,,2,32,0,0,0,32
+Arbok,248,stat_points,3,,10.0%,,,32,19,11,0,4,0
+Arbok,248,stat_points,4,,10.0%,,,32,32,0,0,0,2
+Arbok,248,stat_points,5,,5.0%,,,25,32,6,0,1,2
+Arbok,248,stat_points,6,,3.3%,,,9,4,0,0,21,32
+Arbok,248,stat_points,7,,3.3%,,,32,15,0,0,19,0
+Arbok,248,stat_points,8,,1.7%,,,32,0,32,0,0,2
+Arbok,248,stat_points,9,,1.7%,,,32,32,0,0,0,0
+Arbok,248,ability,1,Intimidate,100.0%,,,,,,,,

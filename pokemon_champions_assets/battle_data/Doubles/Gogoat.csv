@@ -1,20 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gogoat,236,move,1,Milk Drink,87.7%,,,,,,,,
-Gogoat,236,move,2,Horn Leech,71.0%,,,,,,,,
-Gogoat,236,move,3,Protect,52.9%,,,,,,,,
-Gogoat,236,move,4,High Horsepower,44.2%,,,,,,,,
-Gogoat,236,move,5,Leech Seed,42.8%,,,,,,,,
-Gogoat,236,move,6,Bulk Up,37.0%,,,,,,,,
-Gogoat,236,move,7,Rock Slide,13.8%,,,,,,,,
-Gogoat,236,move,8,Helping Hand,11.6%,,,,,,,,
-Gogoat,236,move,9,Leaf Blade,10.9%,,,,,,,,
-Gogoat,236,move,10,Grassy Terrain,8.0%,,,,,,,,
-Gogoat,236,held_item,1,Leftovers,32.6%,,,,,,,,
-Gogoat,236,held_item,2,Grassy Seed,26.8%,,,,,,,,
-Gogoat,236,held_item,3,Big Root,24.6%,,,,,,,,
-Gogoat,236,held_item,4,Choice Scarf,10.9%,,,,,,,,
-Gogoat,236,held_item,5,Sitrus Berry,3.6%,,,,,,,,
-Gogoat,236,held_item,6,Psychic Seed,1.4%,,,,,,,,
+Gogoat,236,move,1,Milk Drink,88.5%,,,,,,,,
+Gogoat,236,move,2,Horn Leech,70.3%,,,,,,,,
+Gogoat,236,move,3,Protect,50.0%,,,,,,,,
+Gogoat,236,move,4,Leech Seed,41.9%,,,,,,,,
+Gogoat,236,move,5,High Horsepower,41.2%,,,,,,,,
+Gogoat,236,move,6,Bulk Up,34.5%,,,,,,,,
+Gogoat,236,move,7,Rock Slide,12.8%,,,,,,,,
+Gogoat,236,move,8,Leaf Blade,12.8%,,,,,,,,
+Gogoat,236,move,9,Grassy Terrain,12.2%,,,,,,,,
+Gogoat,236,move,10,Helping Hand,11.5%,,,,,,,,
+Gogoat,236,held_item,1,Leftovers,34.5%,,,,,,,,
+Gogoat,236,held_item,2,Grassy Seed,25.0%,,,,,,,,
+Gogoat,236,held_item,3,Big Root,23.0%,,,,,,,,
+Gogoat,236,held_item,4,Choice Scarf,10.1%,,,,,,,,
+Gogoat,236,held_item,5,Sitrus Berry,3.4%,,,,,,,,
+Gogoat,236,held_item,6,Rocky Helmet,2.7%,,,,,,,,
+Gogoat,236,held_item,7,Psychic Seed,1.4%,,,,,,,,
 Gogoat,236,teammate,1,Talonflame,,,,,,,,,
 Gogoat,236,teammate,2,Sylveon,,,,,,,,,
 Gogoat,236,teammate,3,Dragapult,,,,,,,,,
@@ -23,24 +24,25 @@ Gogoat,236,teammate,5,Morpeko,,,,,,,,,
 Gogoat,236,teammate,6,Altaria,,,,,,,,,
 Gogoat,236,teammate,7,Garchomp,,,,,,,,,
 Gogoat,236,teammate,8,Polteageist,,,,,,,,,
-Gogoat,236,teammate,9,Blastoise,,,,,,,,,
-Gogoat,236,teammate,10,Grimmsnarl,,,,,,,,,
-Gogoat,236,stat_alignment,1,Impish,40.6%,Defense,Sp. Atk,,,,,,
-Gogoat,236,stat_alignment,2,Adamant,26.1%,Attack,Sp. Atk,,,,,,
-Gogoat,236,stat_alignment,3,Calm,11.6%,Sp. Def,Attack,,,,,,
-Gogoat,236,stat_alignment,4,Lonely,7.2%,Attack,Defense,,,,,,
-Gogoat,236,stat_alignment,5,Jolly,6.5%,Speed,Sp. Atk,,,,,,
-Gogoat,236,stat_alignment,6,Careful,6.5%,Sp. Def,Sp. Atk,,,,,,
-Gogoat,236,stat_alignment,7,Sassy,1.4%,Sp. Def,Speed,,,,,,
-Gogoat,236,stat_points,1,,21.0%,,,32,2,32,0,0,0
-Gogoat,236,stat_points,2,,19.6%,,,32,0,32,0,2,0
-Gogoat,236,stat_points,3,,11.6%,,,32,0,25,0,9,0
-Gogoat,236,stat_points,4,,10.9%,,,18,13,10,0,0,25
-Gogoat,236,stat_points,5,,8.7%,,,10,32,0,0,0,24
-Gogoat,236,stat_points,6,,5.8%,,,2,20,12,0,10,22
-Gogoat,236,stat_points,7,,5.8%,,,32,0,5,0,29,0
-Gogoat,236,stat_points,8,,5.1%,,,2,0,32,0,0,32
-Gogoat,236,stat_points,9,,2.9%,,,24,10,29,0,3,0
-Gogoat,236,stat_points,10,,2.2%,,,32,32,0,0,0,2
-Gogoat,236,ability,1,Grass Pelt,54.3%,,,,,,,,
-Gogoat,236,ability,2,Sap Sipper,45.7%,,,,,,,,
+Gogoat,236,teammate,9,Grimmsnarl,,,,,,,,,
+Gogoat,236,teammate,10,Blastoise,,,,,,,,,
+Gogoat,236,stat_alignment,1,Impish,37.8%,Defense,Sp. Atk,,,,,,
+Gogoat,236,stat_alignment,2,Adamant,24.3%,Attack,Sp. Atk,,,,,,
+Gogoat,236,stat_alignment,3,Calm,11.5%,Sp. Def,Attack,,,,,,
+Gogoat,236,stat_alignment,4,Lonely,8.8%,Attack,Defense,,,,,,
+Gogoat,236,stat_alignment,5,Careful,7.4%,Sp. Def,Sp. Atk,,,,,,
+Gogoat,236,stat_alignment,6,Jolly,6.1%,Speed,Sp. Atk,,,,,,
+Gogoat,236,stat_alignment,7,Relaxed,2.7%,Defense,Speed,,,,,,
+Gogoat,236,stat_alignment,8,Sassy,1.4%,Sp. Def,Speed,,,,,,
+Gogoat,236,stat_points,1,,19.6%,,,32,2,32,0,0,0
+Gogoat,236,stat_points,2,,18.2%,,,32,0,32,0,2,0
+Gogoat,236,stat_points,3,,12.8%,,,32,0,25,0,9,0
+Gogoat,236,stat_points,4,,10.1%,,,18,13,10,0,0,25
+Gogoat,236,stat_points,5,,8.1%,,,10,32,0,0,0,24
+Gogoat,236,stat_points,6,,7.4%,,,2,20,12,0,10,22
+Gogoat,236,stat_points,7,,5.4%,,,32,0,5,0,29,0
+Gogoat,236,stat_points,8,,4.7%,,,2,0,32,0,0,32
+Gogoat,236,stat_points,9,,2.7%,,,24,10,29,0,3,0
+Gogoat,236,stat_points,10,,2.7%,,,32,32,1,0,0,1
+Gogoat,236,ability,1,Grass Pelt,56.1%,,,,,,,,
+Gogoat,236,ability,2,Sap Sipper,43.9%,,,,,,,,

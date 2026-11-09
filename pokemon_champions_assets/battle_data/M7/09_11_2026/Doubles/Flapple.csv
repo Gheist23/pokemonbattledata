@@ -1,43 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Flapple,213,move,1,Grav Apple,100.0%,,,,,,,,
-Flapple,213,move,2,Dragon Rush,99.7%,,,,,,,,
-Flapple,213,move,3,Protect,84.4%,,,,,,,,
-Flapple,213,move,4,Sucker Punch,41.0%,,,,,,,,
-Flapple,213,move,5,U-turn,39.8%,,,,,,,,
-Flapple,213,move,6,Dual Wingbeat,19.8%,,,,,,,,
-Flapple,213,move,7,Outrage,7.4%,,,,,,,,
+Flapple,213,move,2,Dragon Rush,98.3%,,,,,,,,
+Flapple,213,move,3,Protect,82.7%,,,,,,,,
+Flapple,213,move,4,Sucker Punch,41.6%,,,,,,,,
+Flapple,213,move,5,U-turn,39.7%,,,,,,,,
+Flapple,213,move,6,Dual Wingbeat,20.1%,,,,,,,,
+Flapple,213,move,7,Outrage,7.1%,,,,,,,,
 Flapple,213,move,8,Dragon Dance,6.5%,,,,,,,,
-Flapple,213,move,9,Sunny Day,0.9%,,,,,,,,
-Flapple,213,move,10,Growth,0.3%,,,,,,,,
-Flapple,213,held_item,1,Life Orb,73.5%,,,,,,,,
-Flapple,213,held_item,2,Focus Sash,11.5%,,,,,,,,
-Flapple,213,held_item,3,Choice Scarf,8.8%,,,,,,,,
-Flapple,213,held_item,4,Miracle Seed,3.8%,,,,,,,,
-Flapple,213,held_item,5,Sitrus Berry,1.5%,,,,,,,,
-Flapple,213,held_item,6,Wide Lens,0.9%,,,,,,,,
+Flapple,213,move,9,Grassy Glide,1.4%,,,,,,,,
+Flapple,213,move,10,Draco Meteor,1.1%,,,,,,,,
+Flapple,213,held_item,1,Life Orb,73.1%,,,,,,,,
+Flapple,213,held_item,2,Focus Sash,11.0%,,,,,,,,
+Flapple,213,held_item,3,Choice Scarf,8.5%,,,,,,,,
+Flapple,213,held_item,4,Miracle Seed,3.7%,,,,,,,,
+Flapple,213,held_item,5,Wide Lens,2.0%,,,,,,,,
+Flapple,213,held_item,6,Sitrus Berry,1.4%,,,,,,,,
+Flapple,213,held_item,7,Quick Claw,0.3%,,,,,,,,
 Flapple,213,teammate,1,Maushold-Four,,,,,,,,,
 Flapple,213,teammate,2,Sneasler,,,,,,,,,
 Flapple,213,teammate,3,Indeedee,,,,,,,,,
 Flapple,213,teammate,4,Sableye,,,,,,,,,
 Flapple,213,teammate,5,Delphox,,,,,,,,,
 Flapple,213,teammate,6,Altaria,,,,,,,,,
-Flapple,213,teammate,7,Starmie,,,,,,,,,
-Flapple,213,teammate,8,Charizard,,,,,,,,,
-Flapple,213,teammate,9,Meowstic,,,,,,,,,
+Flapple,213,teammate,7,Meowstic,,,,,,,,,
+Flapple,213,teammate,8,Starmie,,,,,,,,,
+Flapple,213,teammate,9,Charizard,,,,,,,,,
 Flapple,213,teammate,10,Clefable,,,,,,,,,
-Flapple,213,stat_alignment,1,Adamant,72.9%,Attack,Sp. Atk,,,,,,
-Flapple,213,stat_alignment,2,Jolly,24.2%,Speed,Sp. Atk,,,,,,
-Flapple,213,stat_alignment,3,Brave,2.7%,Attack,Speed,,,,,,
-Flapple,213,stat_alignment,4,Sassy,0.3%,Sp. Def,Speed,,,,,,
-Flapple,213,stat_points,1,,47.8%,,,2,32,0,0,0,32
-Flapple,213,stat_points,2,,31.9%,,,6,32,0,0,0,28
-Flapple,213,stat_points,3,,9.1%,,,0,32,2,0,0,32
-Flapple,213,stat_points,4,,3.5%,,,32,32,2,0,0,0
-Flapple,213,stat_points,5,,2.9%,,,0,32,0,2,0,32
-Flapple,213,stat_points,6,,1.5%,,,32,32,0,0,2,0
-Flapple,213,stat_points,7,,1.2%,,,0,32,2,0,32,0
-Flapple,213,stat_points,8,,0.9%,,,20,26,0,0,20,0
-Flapple,213,stat_points,9,,0.6%,,,0,32,0,0,2,32
-Flapple,213,stat_points,10,,0.3%,,,0,32,0,0,0,32
+Flapple,213,stat_alignment,1,Adamant,72.8%,Attack,Sp. Atk,,,,,,
+Flapple,213,stat_alignment,2,Jolly,23.2%,Speed,Sp. Atk,,,,,,
+Flapple,213,stat_alignment,3,Brave,2.5%,Attack,Speed,,,,,,
+Flapple,213,stat_alignment,4,Hasty,1.1%,Speed,Defense,,,,,,
+Flapple,213,stat_alignment,5,Sassy,0.3%,Sp. Def,Speed,,,,,,
+Flapple,213,stat_points,1,,47.3%,,,2,32,0,0,0,32
+Flapple,213,stat_points,2,,30.6%,,,6,32,0,0,0,28
+Flapple,213,stat_points,3,,8.8%,,,0,32,2,0,0,32
+Flapple,213,stat_points,4,,3.4%,,,32,32,2,0,0,0
+Flapple,213,stat_points,5,,2.8%,,,0,32,0,2,0,32
+Flapple,213,stat_points,6,,1.7%,,,4,32,0,0,2,28
+Flapple,213,stat_points,7,,1.4%,,,32,32,0,0,2,0
+Flapple,213,stat_points,8,,1.1%,,,0,32,0,20,0,14
+Flapple,213,stat_points,9,,1.1%,,,0,32,2,0,32,0
+Flapple,213,stat_points,10,,0.8%,,,20,26,0,0,20,0
 Flapple,213,ability,1,Hustle,99.7%,,,,,,,,
 Flapple,213,ability,2,Ripen,0.3%,,,,,,,,

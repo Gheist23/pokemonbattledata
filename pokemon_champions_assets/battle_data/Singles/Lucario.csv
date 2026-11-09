@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Lucario,6,move,1,Dark Pulse,81.6%,,,,,,,,
-Lucario,6,move,2,Aura Sphere,70.5%,,,,,,,,
+Lucario,6,move,2,Aura Sphere,70.6%,,,,,,,,
 Lucario,6,move,3,Vacuum Wave,56.2%,,,,,,,,
 Lucario,6,move,4,Steel Beam,52.9%,,,,,,,,
-Lucario,6,move,5,Nasty Plot,44.0%,,,,,,,,
-Lucario,6,move,6,Flash Cannon,37.0%,,,,,,,,
+Lucario,6,move,5,Nasty Plot,43.9%,,,,,,,,
+Lucario,6,move,6,Flash Cannon,37.1%,,,,,,,,
 Lucario,6,move,7,Close Combat,11.7%,,,,,,,,
 Lucario,6,move,8,Meteor Mash,8.5%,,,,,,,,
-Lucario,6,move,9,Bullet Punch,7.6%,,,,,,,,
+Lucario,6,move,9,Bullet Punch,7.5%,,,,,,,,
 Lucario,6,move,10,Swords Dance,7.5%,,,,,,,,
-Lucario,6,held_item,1,Lucarionite Z,84.8%,,,,,,,,
+Lucario,6,held_item,1,Lucarionite Z,84.9%,,,,,,,,
 Lucario,6,held_item,2,Lucarionite,14.6%,,,,,,,,
 Lucario,6,held_item,3,Focus Sash,0.4%,,,,,,,,
 Lucario,6,held_item,4,Choice Scarf,0.0%,,,,,,,,
@@ -29,8 +29,8 @@ Lucario,6,teammate,7,Rillaboom,,,,,,,,,
 Lucario,6,teammate,8,Dragonite,,,,,,,,,
 Lucario,6,teammate,9,Salamence,,,,,,,,,
 Lucario,6,teammate,10,Meowscarada,,,,,,,,,
-Lucario,6,stat_alignment,1,Timid,54.7%,Speed,Attack,,,,,,
-Lucario,6,stat_alignment,2,Modest,32.3%,Sp. Atk,Attack,,,,,,
+Lucario,6,stat_alignment,1,Timid,54.8%,Speed,Attack,,,,,,
+Lucario,6,stat_alignment,2,Modest,32.2%,Sp. Atk,Attack,,,,,,
 Lucario,6,stat_alignment,3,Jolly,8.2%,Speed,Sp. Atk,,,,,,
 Lucario,6,stat_alignment,4,Adamant,3.7%,Attack,Sp. Atk,,,,,,
 Lucario,6,stat_alignment,5,Naive,0.5%,Speed,Sp. Def,,,,,,
@@ -42,9 +42,9 @@ Lucario,6,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
 Lucario,6,stat_points,1,,52.2%,,,2,0,0,32,0,32
 Lucario,6,stat_points,2,,8.4%,,,2,32,0,0,0,32
 Lucario,6,stat_points,3,,5.2%,,,30,0,11,16,0,9
-Lucario,6,stat_points,4,,4.9%,,,1,0,0,32,1,32
+Lucario,6,stat_points,4,,4.8%,,,1,0,0,32,1,32
 Lucario,6,stat_points,5,,2.4%,,,4,0,0,32,0,30
-Lucario,6,stat_points,6,,2.3%,,,0,0,2,32,0,32
+Lucario,6,stat_points,6,,2.4%,,,0,0,2,32,0,32
 Lucario,6,stat_points,7,,2.3%,,,1,0,1,32,0,32
 Lucario,6,stat_points,8,,1.4%,,,0,0,1,32,1,32
 Lucario,6,stat_points,9,,1.2%,,,32,0,11,0,6,17

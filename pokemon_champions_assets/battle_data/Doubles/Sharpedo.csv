@@ -1,39 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sharpedo,218,move,1,Crunch,95.0%,,,,,,,,
-Sharpedo,218,move,2,Destiny Bond,69.3%,,,,,,,,
-Sharpedo,218,move,3,Aqua Jet,47.1%,,,,,,,,
-Sharpedo,218,move,4,Flip Turn,47.1%,,,,,,,,
-Sharpedo,218,move,5,Protect,36.4%,,,,,,,,
-Sharpedo,218,move,6,Psychic Fangs,31.4%,,,,,,,,
-Sharpedo,218,move,7,Liquidation,20.0%,,,,,,,,
-Sharpedo,218,move,8,Close Combat,17.1%,,,,,,,,
-Sharpedo,218,move,9,Ice Fang,12.9%,,,,,,,,
-Sharpedo,218,move,10,Waterfall,8.6%,,,,,,,,
-Sharpedo,218,held_item,1,Sharpedonite,75.0%,,,,,,,,
-Sharpedo,218,held_item,2,Focus Sash,17.9%,,,,,,,,
-Sharpedo,218,held_item,3,Black Glasses,4.3%,,,,,,,,
-Sharpedo,218,held_item,4,White Herb,2.9%,,,,,,,,
-Sharpedo,218,teammate,1,Garchomp,,,,,,,,,
-Sharpedo,218,teammate,2,Slowbro-Galar,,,,,,,,,
-Sharpedo,218,teammate,3,Arcanine-Hisui,,,,,,,,,
-Sharpedo,218,teammate,4,Lucario,,,,,,,,,
-Sharpedo,218,teammate,5,Meowscarada,,,,,,,,,
-Sharpedo,218,teammate,6,Rillaboom,,,,,,,,,
-Sharpedo,218,teammate,7,Sneasler,,,,,,,,,
-Sharpedo,218,teammate,8,Kingambit,,,,,,,,,
-Sharpedo,218,teammate,9,Indeedee-F,,,,,,,,,
-Sharpedo,218,teammate,10,Froslass,,,,,,,,,
-Sharpedo,218,stat_alignment,1,Naughty,47.1%,Attack,Sp. Def,,,,,,
-Sharpedo,218,stat_alignment,2,Adamant,31.4%,Attack,Sp. Atk,,,,,,
-Sharpedo,218,stat_alignment,3,Hasty,14.3%,Speed,Defense,,,,,,
-Sharpedo,218,stat_alignment,4,Modest,4.3%,Sp. Atk,Attack,,,,,,
-Sharpedo,218,stat_alignment,5,Jolly,2.9%,Speed,Sp. Atk,,,,,,
-Sharpedo,218,stat_points,1,,64.3%,,,0,32,0,0,0,32
-Sharpedo,218,stat_points,2,,24.3%,,,2,32,0,0,0,32
-Sharpedo,218,stat_points,3,,4.3%,,,0,0,2,32,0,32
-Sharpedo,218,stat_points,4,,3.6%,,,0,22,10,0,3,31
-Sharpedo,218,stat_points,5,,2.1%,,,10,24,0,0,0,32
-Sharpedo,218,stat_points,6,,0.7%,,,0,32,1,0,1,32
-Sharpedo,218,stat_points,7,,0.7%,,,19,32,0,0,0,15
-Sharpedo,218,ability,1,Speed Boost,77.1%,,,,,,,,
-Sharpedo,218,ability,2,Rough Skin,22.9%,,,,,,,,
+Sharpedo,213,move,1,Crunch,95.6%,,,,,,,,
+Sharpedo,213,move,2,Protect,59.0%,,,,,,,,
+Sharpedo,213,move,3,Destiny Bond,45.8%,,,,,,,,
+Sharpedo,213,move,4,Psychic Fangs,45.8%,,,,,,,,
+Sharpedo,213,move,5,Aqua Jet,32.3%,,,,,,,,
+Sharpedo,213,move,6,Flip Turn,31.9%,,,,,,,,
+Sharpedo,213,move,7,Liquidation,29.9%,,,,,,,,
+Sharpedo,213,move,8,Ice Fang,20.3%,,,,,,,,
+Sharpedo,213,move,9,Close Combat,14.3%,,,,,,,,
+Sharpedo,213,move,10,Icy Wind,6.4%,,,,,,,,
+Sharpedo,213,held_item,1,Sharpedonite,76.1%,,,,,,,,
+Sharpedo,213,held_item,2,Focus Sash,12.7%,,,,,,,,
+Sharpedo,213,held_item,3,Black Glasses,2.4%,,,,,,,,
+Sharpedo,213,held_item,4,Focus Band,2.0%,,,,,,,,
+Sharpedo,213,held_item,5,Rindo Berry,1.6%,,,,,,,,
+Sharpedo,213,held_item,6,White Herb,1.6%,,,,,,,,
+Sharpedo,213,held_item,7,Life Orb,1.6%,,,,,,,,
+Sharpedo,213,held_item,8,Choice Scarf,1.2%,,,,,,,,
+Sharpedo,213,held_item,9,Muscle Band,0.8%,,,,,,,,
+Sharpedo,213,teammate,1,Garchomp,,,,,,,,,
+Sharpedo,213,teammate,2,Arcanine-Hisui,,,,,,,,,
+Sharpedo,213,teammate,3,Slowbro-Galar,,,,,,,,,
+Sharpedo,213,teammate,4,Lucario,,,,,,,,,
+Sharpedo,213,teammate,5,Meowscarada,,,,,,,,,
+Sharpedo,213,teammate,6,Sneasler,,,,,,,,,
+Sharpedo,213,teammate,7,Indeedee-F,,,,,,,,,
+Sharpedo,213,teammate,8,Rillaboom,,,,,,,,,
+Sharpedo,213,teammate,9,Kingambit,,,,,,,,,
+Sharpedo,213,teammate,10,Froslass,,,,,,,,,
+Sharpedo,213,stat_alignment,1,Adamant,51.8%,Attack,Sp. Atk,,,,,,
+Sharpedo,213,stat_alignment,2,Naughty,32.7%,Attack,Sp. Def,,,,,,
+Sharpedo,213,stat_alignment,3,Hasty,10.0%,Speed,Defense,,,,,,
+Sharpedo,213,stat_alignment,4,Jolly,3.2%,Speed,Sp. Atk,,,,,,
+Sharpedo,213,stat_alignment,5,Modest,2.4%,Sp. Atk,Attack,,,,,,
+Sharpedo,213,stat_points,1,,42.6%,,,2,32,0,0,0,32
+Sharpedo,213,stat_points,2,,41.4%,,,0,32,0,0,0,32
+Sharpedo,213,stat_points,3,,2.4%,,,0,0,2,32,0,32
+Sharpedo,213,stat_points,4,,2.4%,,,32,32,1,0,1,0
+Sharpedo,213,stat_points,5,,2.0%,,,0,22,10,0,3,31
+Sharpedo,213,stat_points,6,,2.0%,,,5,15,15,0,5,26
+Sharpedo,213,stat_points,7,,1.6%,,,0,16,18,0,0,32
+Sharpedo,213,stat_points,8,,1.2%,,,0,32,1,0,1,32
+Sharpedo,213,stat_points,9,,1.2%,,,10,24,0,0,0,32
+Sharpedo,213,stat_points,10,,1.2%,,,32,32,0,0,0,2
+Sharpedo,213,ability,1,Speed Boost,85.3%,,,,,,,,
+Sharpedo,213,ability,2,Rough Skin,14.7%,,,,,,,,

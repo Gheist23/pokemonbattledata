@@ -1,43 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Lycanroc-Dusk,104,move,1,Accelerock,97.6%,,,,,,,,
-Lycanroc-Dusk,104,move,2,Close Combat,90.3%,,,,,,,,
-Lycanroc-Dusk,104,move,3,Rock Slide,88.4%,,,,,,,,
-Lycanroc-Dusk,104,move,4,Protect,79.1%,,,,,,,,
-Lycanroc-Dusk,104,move,5,Psychic Fangs,15.2%,,,,,,,,
-Lycanroc-Dusk,104,move,6,Play Rough,6.2%,,,,,,,,
-Lycanroc-Dusk,104,move,7,Thunder Fang,4.7%,,,,,,,,
-Lycanroc-Dusk,104,move,8,Fire Fang,4.5%,,,,,,,,
-Lycanroc-Dusk,104,move,9,Drill Run,2.6%,,,,,,,,
-Lycanroc-Dusk,104,move,10,Iron Head,2.0%,,,,,,,,
-Lycanroc-Dusk,104,held_item,1,Focus Sash,88.2%,,,,,,,,
-Lycanroc-Dusk,104,held_item,2,Life Orb,9.8%,,,,,,,,
-Lycanroc-Dusk,104,held_item,3,Hard Stone,1.6%,,,,,,,,
-Lycanroc-Dusk,104,held_item,4,Muscle Band,0.2%,,,,,,,,
-Lycanroc-Dusk,104,held_item,5,Expert Belt,0.1%,,,,,,,,
-Lycanroc-Dusk,104,held_item,6,Grassy Seed,0.1%,,,,,,,,
-Lycanroc-Dusk,104,teammate,1,Froslass,,,,,,,,,
-Lycanroc-Dusk,104,teammate,2,Kingambit,,,,,,,,,
-Lycanroc-Dusk,104,teammate,3,Scovillain,,,,,,,,,
-Lycanroc-Dusk,104,teammate,4,Sneasler,,,,,,,,,
-Lycanroc-Dusk,104,teammate,5,Basculegion,,,,,,,,,
-Lycanroc-Dusk,104,teammate,6,Rillaboom,,,,,,,,,
-Lycanroc-Dusk,104,teammate,7,Kommo-o,,,,,,,,,
-Lycanroc-Dusk,104,teammate,8,Volcarona,,,,,,,,,
-Lycanroc-Dusk,104,teammate,9,Inteleon,,,,,,,,,
-Lycanroc-Dusk,104,teammate,10,Lopunny,,,,,,,,,
-Lycanroc-Dusk,104,stat_alignment,1,Adamant,66.8%,Attack,Sp. Atk,,,,,,
-Lycanroc-Dusk,104,stat_alignment,2,Jolly,31.5%,Speed,Sp. Atk,,,,,,
-Lycanroc-Dusk,104,stat_alignment,3,Brave,1.4%,Attack,Speed,,,,,,
-Lycanroc-Dusk,104,stat_alignment,4,Hasty,0.1%,Speed,Defense,,,,,,
-Lycanroc-Dusk,104,stat_alignment,5,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Lycanroc-Dusk,104,stat_points,1,,33.7%,,,2,32,0,0,0,32
-Lycanroc-Dusk,104,stat_points,2,,21.7%,,,0,32,2,0,0,32
-Lycanroc-Dusk,104,stat_points,3,,16.9%,,,1,32,1,0,0,32
-Lycanroc-Dusk,104,stat_points,4,,15.7%,,,1,32,0,0,1,32
-Lycanroc-Dusk,104,stat_points,5,,4.5%,,,0,32,1,0,1,32
-Lycanroc-Dusk,104,stat_points,6,,2.4%,,,0,32,0,0,2,32
-Lycanroc-Dusk,104,stat_points,7,,1.4%,,,0,32,2,0,32,0
-Lycanroc-Dusk,104,stat_points,8,,1.2%,,,0,32,0,0,7,27
-Lycanroc-Dusk,104,stat_points,9,,0.8%,,,0,32,0,0,0,32
-Lycanroc-Dusk,104,stat_points,10,,0.7%,,,32,32,2,0,0,0
-Lycanroc-Dusk,104,ability,1,Tough Claws,100.0%,,,,,,,,
+Lycanroc-Dusk,105,move,1,Accelerock,96.2%,,,,,,,,
+Lycanroc-Dusk,105,move,2,Close Combat,88.0%,,,,,,,,
+Lycanroc-Dusk,105,move,3,Rock Slide,83.9%,,,,,,,,
+Lycanroc-Dusk,105,move,4,Protect,78.7%,,,,,,,,
+Lycanroc-Dusk,105,move,5,Psychic Fangs,14.7%,,,,,,,,
+Lycanroc-Dusk,105,move,6,Play Rough,5.3%,,,,,,,,
+Lycanroc-Dusk,105,move,7,Drill Run,4.8%,,,,,,,,
+Lycanroc-Dusk,105,move,8,Thunder Fang,4.1%,,,,,,,,
+Lycanroc-Dusk,105,move,9,Fire Fang,3.8%,,,,,,,,
+Lycanroc-Dusk,105,move,10,Iron Head,2.8%,,,,,,,,
+Lycanroc-Dusk,105,held_item,1,Focus Sash,86.5%,,,,,,,,
+Lycanroc-Dusk,105,held_item,2,Life Orb,8.3%,,,,,,,,
+Lycanroc-Dusk,105,held_item,3,Expert Belt,2.1%,,,,,,,,
+Lycanroc-Dusk,105,held_item,4,Hard Stone,1.2%,,,,,,,,
+Lycanroc-Dusk,105,held_item,5,Air Balloon,0.9%,,,,,,,,
+Lycanroc-Dusk,105,held_item,6,Muscle Band,0.4%,,,,,,,,
+Lycanroc-Dusk,105,held_item,7,Quick Claw,0.3%,,,,,,,,
+Lycanroc-Dusk,105,held_item,8,Sitrus Berry,0.1%,,,,,,,,
+Lycanroc-Dusk,105,held_item,9,Grassy Seed,0.1%,,,,,,,,
+Lycanroc-Dusk,105,teammate,1,Froslass,,,,,,,,,
+Lycanroc-Dusk,105,teammate,2,Scovillain,,,,,,,,,
+Lycanroc-Dusk,105,teammate,3,Kingambit,,,,,,,,,
+Lycanroc-Dusk,105,teammate,4,Sneasler,,,,,,,,,
+Lycanroc-Dusk,105,teammate,5,Basculegion,,,,,,,,,
+Lycanroc-Dusk,105,teammate,6,Rillaboom,,,,,,,,,
+Lycanroc-Dusk,105,teammate,7,Volcarona,,,,,,,,,
+Lycanroc-Dusk,105,teammate,8,Kommo-o,,,,,,,,,
+Lycanroc-Dusk,105,teammate,9,Metagross,,,,,,,,,
+Lycanroc-Dusk,105,teammate,10,Incineroar,,,,,,,,,
+Lycanroc-Dusk,105,stat_alignment,1,Adamant,66.9%,Attack,Sp. Atk,,,,,,
+Lycanroc-Dusk,105,stat_alignment,2,Jolly,31.8%,Speed,Sp. Atk,,,,,,
+Lycanroc-Dusk,105,stat_alignment,3,Brave,1.0%,Attack,Speed,,,,,,
+Lycanroc-Dusk,105,stat_alignment,4,Impish,0.1%,Defense,Sp. Atk,,,,,,
+Lycanroc-Dusk,105,stat_alignment,5,Hasty,0.1%,Speed,Defense,,,,,,
+Lycanroc-Dusk,105,stat_points,1,,42.3%,,,2,32,0,0,0,32
+Lycanroc-Dusk,105,stat_points,2,,20.9%,,,0,32,2,0,0,32
+Lycanroc-Dusk,105,stat_points,3,,15.1%,,,1,32,1,0,0,32
+Lycanroc-Dusk,105,stat_points,4,,11.3%,,,1,32,0,0,1,32
+Lycanroc-Dusk,105,stat_points,5,,3.5%,,,0,32,1,0,1,32
+Lycanroc-Dusk,105,stat_points,6,,2.1%,,,0,32,0,0,2,32
+Lycanroc-Dusk,105,stat_points,7,,1.5%,,,0,32,0,0,7,27
+Lycanroc-Dusk,105,stat_points,8,,1.0%,,,0,32,2,0,32,0
+Lycanroc-Dusk,105,stat_points,9,,0.9%,,,0,32,0,0,0,32
+Lycanroc-Dusk,105,stat_points,10,,0.5%,,,32,32,2,0,0,0
+Lycanroc-Dusk,105,ability,1,Tough Claws,100.0%,,,,,,,,

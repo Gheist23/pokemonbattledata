@@ -1,48 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Glalie,165,move,1,Protect,93.2%,,,,,,,,
-Glalie,165,move,2,Explosion,92.9%,,,,,,,,
-Glalie,165,move,3,Body Slam,45.6%,,,,,,,,
-Glalie,165,move,4,Earthquake,35.4%,,,,,,,,
-Glalie,165,move,5,Ice Shard,32.2%,,,,,,,,
-Glalie,165,move,6,Taunt,22.0%,,,,,,,,
-Glalie,165,move,7,Substitute,18.8%,,,,,,,,
-Glalie,165,move,8,Freeze-Dry,15.6%,,,,,,,,
-Glalie,165,move,9,Sheer Cold,7.6%,,,,,,,,
-Glalie,165,move,10,Giga Impact,7.6%,,,,,,,,
-Glalie,165,held_item,1,Glalitite,95.1%,,,,,,,,
-Glalie,165,held_item,2,Leftovers,3.7%,,,,,,,,
-Glalie,165,held_item,3,Focus Sash,0.7%,,,,,,,,
-Glalie,165,held_item,4,Occa Berry,0.5%,,,,,,,,
-Glalie,165,teammate,1,Oranguru,,,,,,,,,
-Glalie,165,teammate,2,Araquanid,,,,,,,,,
-Glalie,165,teammate,3,Whimsicott,,,,,,,,,
-Glalie,165,teammate,4,Maushold-Four,,,,,,,,,
-Glalie,165,teammate,5,Basculegion,,,,,,,,,
-Glalie,165,teammate,6,Talonflame,,,,,,,,,
-Glalie,165,teammate,7,Metagross,,,,,,,,,
-Glalie,165,teammate,8,Pawmot,,,,,,,,,
-Glalie,165,teammate,9,Torkoal,,,,,,,,,
-Glalie,165,teammate,10,Mimikyu,,,,,,,,,
-Glalie,165,stat_alignment,1,Adamant,77.1%,Attack,Sp. Atk,,,,,,
-Glalie,165,stat_alignment,2,Jolly,9.8%,Speed,Sp. Atk,,,,,,
-Glalie,165,stat_alignment,3,Timid,4.4%,Speed,Attack,,,,,,
-Glalie,165,stat_alignment,4,Hasty,3.9%,Speed,Defense,,,,,,
-Glalie,165,stat_alignment,5,Calm,1.2%,Sp. Def,Attack,,,,,,
-Glalie,165,stat_alignment,6,Careful,1.2%,Sp. Def,Sp. Atk,,,,,,
-Glalie,165,stat_alignment,7,Naive,1.0%,Speed,Sp. Def,,,,,,
-Glalie,165,stat_alignment,8,Modest,0.7%,Sp. Atk,Attack,,,,,,
-Glalie,165,stat_alignment,9,Brave,0.5%,Attack,Speed,,,,,,
-Glalie,165,stat_alignment,10,Naughty,0.2%,Attack,Sp. Def,,,,,,
-Glalie,165,stat_points,1,,63.2%,,,2,32,0,0,0,32
-Glalie,165,stat_points,2,,11.7%,,,0,32,2,0,0,32
-Glalie,165,stat_points,3,,6.1%,,,0,32,0,0,2,32
-Glalie,165,stat_points,4,,4.4%,,,0,32,1,0,1,32
-Glalie,165,stat_points,5,,2.7%,,,32,32,0,0,2,0
-Glalie,165,stat_points,6,,2.2%,,,2,0,32,0,0,32
-Glalie,165,stat_points,7,,2.0%,,,1,0,17,28,20,0
-Glalie,165,stat_points,8,,2.0%,,,10,0,0,32,1,23
-Glalie,165,stat_points,9,,1.2%,,,2,0,32,0,32,0
-Glalie,165,stat_points,10,,1.2%,,,32,0,2,0,32,0
-Glalie,165,ability,1,Inner Focus,75.1%,,,,,,,,
-Glalie,165,ability,2,Moody,24.4%,,,,,,,,
-Glalie,165,ability,3,Ice Body,0.5%,,,,,,,,
+Glalie,171,move,1,Protect,94.1%,,,,,,,,
+Glalie,171,move,2,Explosion,92.9%,,,,,,,,
+Glalie,171,move,3,Body Slam,45.6%,,,,,,,,
+Glalie,171,move,4,Ice Shard,37.7%,,,,,,,,
+Glalie,171,move,5,Earthquake,28.0%,,,,,,,,
+Glalie,171,move,6,Taunt,19.9%,,,,,,,,
+Glalie,171,move,7,Freeze-Dry,17.6%,,,,,,,,
+Glalie,171,move,8,Substitute,16.6%,,,,,,,,
+Glalie,171,move,9,Ice Spinner,9.1%,,,,,,,,
+Glalie,171,move,10,Sheer Cold,7.4%,,,,,,,,
+Glalie,171,held_item,1,Glalitite,94.3%,,,,,,,,
+Glalie,171,held_item,2,Leftovers,3.4%,,,,,,,,
+Glalie,171,held_item,3,Never-Melt Ice,0.8%,,,,,,,,
+Glalie,171,held_item,4,Focus Sash,0.7%,,,,,,,,
+Glalie,171,held_item,5,Normal Gem,0.5%,,,,,,,,
+Glalie,171,held_item,6,Occa Berry,0.3%,,,,,,,,
+Glalie,171,teammate,1,Oranguru,,,,,,,,,
+Glalie,171,teammate,2,Araquanid,,,,,,,,,
+Glalie,171,teammate,3,Torkoal,,,,,,,,,
+Glalie,171,teammate,4,Whimsicott,,,,,,,,,
+Glalie,171,teammate,5,Talonflame,,,,,,,,,
+Glalie,171,teammate,6,Basculegion,,,,,,,,,
+Glalie,171,teammate,7,Metagross,,,,,,,,,
+Glalie,171,teammate,8,Maushold-Four,,,,,,,,,
+Glalie,171,teammate,9,Pawmot,,,,,,,,,
+Glalie,171,teammate,10,Sylveon,,,,,,,,,
+Glalie,171,stat_alignment,1,Adamant,69.9%,Attack,Sp. Atk,,,,,,
+Glalie,171,stat_alignment,2,Jolly,17.6%,Speed,Sp. Atk,,,,,,
+Glalie,171,stat_alignment,3,Timid,3.7%,Speed,Attack,,,,,,
+Glalie,171,stat_alignment,4,Hasty,2.7%,Speed,Defense,,,,,,
+Glalie,171,stat_alignment,5,Naughty,2.2%,Attack,Sp. Def,,,,,,
+Glalie,171,stat_alignment,6,Brave,0.8%,Attack,Speed,,,,,,
+Glalie,171,stat_alignment,7,Calm,0.8%,Sp. Def,Attack,,,,,,
+Glalie,171,stat_alignment,8,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
+Glalie,171,stat_alignment,9,Naive,0.7%,Speed,Sp. Def,,,,,,
+Glalie,171,stat_alignment,10,Modest,0.7%,Sp. Atk,Attack,,,,,,
+Glalie,171,stat_points,1,,67.1%,,,2,32,0,0,0,32
+Glalie,171,stat_points,2,,11.3%,,,0,32,2,0,0,32
+Glalie,171,stat_points,3,,4.4%,,,0,32,0,0,2,32
+Glalie,171,stat_points,4,,3.4%,,,0,32,1,0,1,32
+Glalie,171,stat_points,5,,1.9%,,,32,32,0,0,2,0
+Glalie,171,stat_points,6,,1.7%,,,1,0,17,28,20,0
+Glalie,171,stat_points,7,,1.7%,,,10,0,0,32,1,23
+Glalie,171,stat_points,8,,1.5%,,,2,0,32,0,0,32
+Glalie,171,stat_points,9,,1.0%,,,24,32,0,0,0,10
+Glalie,171,stat_points,10,,0.8%,,,2,0,32,0,32,0
+Glalie,171,ability,1,Inner Focus,71.5%,,,,,,,,
+Glalie,171,ability,2,Moody,28.2%,,,,,,,,
+Glalie,171,ability,3,Ice Body,0.3%,,,,,,,,

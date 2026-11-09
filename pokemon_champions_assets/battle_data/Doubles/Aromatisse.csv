@@ -1,49 +1,50 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aromatisse,166,move,1,Trick Room,84.1%,,,,,,,,
-Aromatisse,166,move,2,Moonblast,79.6%,,,,,,,,
-Aromatisse,166,move,3,Protect,48.5%,,,,,,,,
-Aromatisse,166,move,4,Heal Pulse,36.1%,,,,,,,,
-Aromatisse,166,move,5,Encore,27.6%,,,,,,,,
-Aromatisse,166,move,6,Ally Switch,14.4%,,,,,,,,
-Aromatisse,166,move,7,Disable,14.2%,,,,,,,,
-Aromatisse,166,move,8,Rest,11.2%,,,,,,,,
-Aromatisse,166,move,9,Psych Up,11.2%,,,,,,,,
-Aromatisse,166,move,10,Nasty Plot,11.2%,,,,,,,,
-Aromatisse,166,held_item,1,Babiri Berry,33.8%,,,,,,,,
-Aromatisse,166,held_item,2,Sitrus Berry,27.6%,,,,,,,,
-Aromatisse,166,held_item,3,Chesto Berry,11.2%,,,,,,,,
-Aromatisse,166,held_item,4,Kebia Berry,9.2%,,,,,,,,
-Aromatisse,166,held_item,5,Iron Ball,5.5%,,,,,,,,
-Aromatisse,166,held_item,6,Fairy Feather,5.0%,,,,,,,,
-Aromatisse,166,held_item,7,Psychic Seed,4.7%,,,,,,,,
-Aromatisse,166,held_item,8,Focus Sash,1.2%,,,,,,,,
-Aromatisse,166,held_item,9,Light Clay,1.0%,,,,,,,,
-Aromatisse,166,held_item,10,Leftovers,0.7%,,,,,,,,
-Aromatisse,166,teammate,1,Torkoal,,,,,,,,,
-Aromatisse,166,teammate,2,Snorlax,,,,,,,,,
-Aromatisse,166,teammate,3,Farigiraf,,,,,,,,,
-Aromatisse,166,teammate,4,Lopunny,,,,,,,,,
-Aromatisse,166,teammate,5,Aegislash,,,,,,,,,
-Aromatisse,166,teammate,6,Audino,,,,,,,,,
-Aromatisse,166,teammate,7,Zoroark-Hisui,,,,,,,,,
-Aromatisse,166,teammate,8,Slowbro,,,,,,,,,
-Aromatisse,166,teammate,9,Umbreon,,,,,,,,,
-Aromatisse,166,teammate,10,Politoed,,,,,,,,,
-Aromatisse,166,stat_alignment,1,Relaxed,48.5%,Defense,Speed,,,,,,
-Aromatisse,166,stat_alignment,2,Quiet,21.1%,Sp. Atk,Speed,,,,,,
-Aromatisse,166,stat_alignment,3,Bold,21.1%,Defense,Attack,,,,,,
-Aromatisse,166,stat_alignment,4,Sassy,8.7%,Sp. Def,Speed,,,,,,
-Aromatisse,166,stat_alignment,5,Modest,0.2%,Sp. Atk,Attack,,,,,,
-Aromatisse,166,stat_alignment,6,Calm,0.2%,Sp. Def,Attack,,,,,,
-Aromatisse,166,stat_points,1,,34.6%,,,32,0,18,0,16,0
-Aromatisse,166,stat_points,2,,13.2%,,,32,0,32,0,2,0
-Aromatisse,166,stat_points,3,,10.9%,,,32,0,18,0,0,16
-Aromatisse,166,stat_points,4,,7.7%,,,25,0,8,32,1,0
-Aromatisse,166,stat_points,5,,5.7%,,,32,0,2,32,0,0
-Aromatisse,166,stat_points,6,,5.2%,,,31,0,32,1,2,0
-Aromatisse,166,stat_points,7,,5.0%,,,30,0,0,31,5,0
-Aromatisse,166,stat_points,8,,5.0%,,,30,0,21,0,15,0
-Aromatisse,166,stat_points,9,,4.7%,,,32,0,23,0,11,0
-Aromatisse,166,stat_points,10,,3.2%,,,13,0,31,0,22,0
-Aromatisse,166,ability,1,Aroma Veil,99.5%,,,,,,,,
-Aromatisse,166,ability,2,Healer,0.5%,,,,,,,,
+Aromatisse,164,move,1,Trick Room,85.8%,,,,,,,,
+Aromatisse,164,move,2,Moonblast,81.3%,,,,,,,,
+Aromatisse,164,move,3,Protect,53.0%,,,,,,,,
+Aromatisse,164,move,4,Heal Pulse,41.6%,,,,,,,,
+Aromatisse,164,move,5,Encore,20.1%,,,,,,,,
+Aromatisse,164,move,6,Ally Switch,13.7%,,,,,,,,
+Aromatisse,164,move,7,Sunny Day,12.9%,,,,,,,,
+Aromatisse,164,move,8,Disable,10.2%,,,,,,,,
+Aromatisse,164,move,9,Rest,9.3%,,,,,,,,
+Aromatisse,164,move,10,Psych Up,9.3%,,,,,,,,
+Aromatisse,164,held_item,1,Babiri Berry,39.4%,,,,,,,,
+Aromatisse,164,held_item,2,Sitrus Berry,27.1%,,,,,,,,
+Aromatisse,164,held_item,3,Chesto Berry,9.3%,,,,,,,,
+Aromatisse,164,held_item,4,Kebia Berry,8.7%,,,,,,,,
+Aromatisse,164,held_item,5,Fairy Feather,4.0%,,,,,,,,
+Aromatisse,164,held_item,6,Iron Ball,4.0%,,,,,,,,
+Aromatisse,164,held_item,7,Psychic Seed,3.3%,,,,,,,,
+Aromatisse,164,held_item,8,Focus Sash,1.7%,,,,,,,,
+Aromatisse,164,held_item,9,Lum Berry,0.8%,,,,,,,,
+Aromatisse,164,held_item,10,Leftovers,0.6%,,,,,,,,
+Aromatisse,164,teammate,1,Torkoal,,,,,,,,,
+Aromatisse,164,teammate,2,Farigiraf,,,,,,,,,
+Aromatisse,164,teammate,3,Snorlax,,,,,,,,,
+Aromatisse,164,teammate,4,Lopunny,,,,,,,,,
+Aromatisse,164,teammate,5,Aegislash,,,,,,,,,
+Aromatisse,164,teammate,6,Audino,,,,,,,,,
+Aromatisse,164,teammate,7,Zoroark-Hisui,,,,,,,,,
+Aromatisse,164,teammate,8,Slowbro,,,,,,,,,
+Aromatisse,164,teammate,9,Camerupt,,,,,,,,,
+Aromatisse,164,teammate,10,Gallade,,,,,,,,,
+Aromatisse,164,stat_alignment,1,Relaxed,50.7%,Defense,Speed,,,,,,
+Aromatisse,164,stat_alignment,2,Quiet,20.9%,Sp. Atk,Speed,,,,,,
+Aromatisse,164,stat_alignment,3,Bold,17.2%,Defense,Attack,,,,,,
+Aromatisse,164,stat_alignment,4,Sassy,10.0%,Sp. Def,Speed,,,,,,
+Aromatisse,164,stat_alignment,5,Bashful,0.9%,,,,,,,,
+Aromatisse,164,stat_alignment,6,Modest,0.2%,Sp. Atk,Attack,,,,,,
+Aromatisse,164,stat_alignment,7,Calm,0.2%,Sp. Def,Attack,,,,,,
+Aromatisse,164,stat_points,1,,31.1%,,,32,0,18,0,16,0
+Aromatisse,164,stat_points,2,,10.7%,,,32,0,32,0,2,0
+Aromatisse,164,stat_points,3,,9.1%,,,32,0,18,0,0,16
+Aromatisse,164,stat_points,4,,6.1%,,,30,0,21,0,15,0
+Aromatisse,164,stat_points,5,,5.5%,,,25,0,8,32,1,0
+Aromatisse,164,stat_points,6,,5.0%,,,32,0,18,5,11,0
+Aromatisse,164,stat_points,7,,3.8%,,,31,0,32,1,2,0
+Aromatisse,164,stat_points,8,,3.8%,,,32,0,2,32,0,0
+Aromatisse,164,stat_points,9,,3.7%,,,30,0,0,31,5,0
+Aromatisse,164,stat_points,10,,3.5%,,,13,0,31,0,22,0
+Aromatisse,164,ability,1,Aroma Veil,98.9%,,,,,,,,
+Aromatisse,164,ability,2,Healer,1.1%,,,,,,,,

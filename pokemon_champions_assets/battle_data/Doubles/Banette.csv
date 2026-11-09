@@ -1,44 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Banette,151,move,1,Destiny Bond,80.5%,,,,,,,,
-Banette,151,move,2,Poltergeist,79.8%,,,,,,,,
-Banette,151,move,3,Encore,54.4%,,,,,,,,
-Banette,151,move,4,Swagger,42.6%,,,,,,,,
-Banette,151,move,5,Will-O-Wisp,21.3%,,,,,,,,
-Banette,151,move,6,Trick Room,20.8%,,,,,,,,
-Banette,151,move,7,Phantom Force,14.4%,,,,,,,,
-Banette,151,move,8,Rain Dance,13.2%,,,,,,,,
-Banette,151,move,9,Zen Headbutt,9.9%,,,,,,,,
-Banette,151,move,10,Disable,9.7%,,,,,,,,
-Banette,151,held_item,1,Banettite,83.6%,,,,,,,,
-Banette,151,held_item,2,Focus Sash,14.8%,,,,,,,,
-Banette,151,held_item,3,Choice Scarf,0.9%,,,,,,,,
-Banette,151,teammate,1,Sneasler,,,,,,,,,
-Banette,151,teammate,2,Basculegion,,,,,,,,,
-Banette,151,teammate,3,Sylveon,,,,,,,,,
-Banette,151,teammate,4,Incineroar,,,,,,,,,
-Banette,151,teammate,5,Rillaboom,,,,,,,,,
-Banette,151,teammate,6,Archaludon,,,,,,,,,
-Banette,151,teammate,7,Milotic,,,,,,,,,
-Banette,151,teammate,8,Mudsdale,,,,,,,,,
-Banette,151,teammate,9,Pelipper,,,,,,,,,
-Banette,151,teammate,10,Corviknight,,,,,,,,,
-Banette,151,stat_alignment,1,Relaxed,29.9%,Defense,Speed,,,,,,
-Banette,151,stat_alignment,2,Brave,27.8%,Attack,Speed,,,,,,
-Banette,151,stat_alignment,3,Adamant,19.0%,Attack,Sp. Atk,,,,,,
-Banette,151,stat_alignment,4,Impish,10.9%,Defense,Sp. Atk,,,,,,
-Banette,151,stat_alignment,5,Sassy,6.0%,Sp. Def,Speed,,,,,,
-Banette,151,stat_alignment,6,Careful,5.5%,Sp. Def,Sp. Atk,,,,,,
-Banette,151,stat_alignment,7,Jolly,0.9%,Speed,Sp. Atk,,,,,,
-Banette,151,stat_points,1,,25.7%,,,32,0,30,0,4,0
-Banette,151,stat_points,2,,14.8%,,,32,32,0,0,2,0
-Banette,151,stat_points,3,,12.1%,,,32,0,15,0,19,0
-Banette,151,stat_points,4,,9.9%,,,32,32,0,0,0,0
-Banette,151,stat_points,5,,6.5%,,,32,0,17,0,17,0
-Banette,151,stat_points,6,,5.1%,,,32,32,2,0,0,0
-Banette,151,stat_points,7,,4.0%,,,32,3,30,0,1,0
-Banette,151,stat_points,8,,3.5%,,,29,0,5,0,32,0
-Banette,151,stat_points,9,,3.5%,,,32,0,10,0,24,0
-Banette,151,stat_points,10,,3.0%,,,0,32,15,0,19,0
-Banette,151,ability,1,Frisk,82.6%,,,,,,,,
-Banette,151,ability,2,Insomnia,12.1%,,,,,,,,
-Banette,151,ability,3,Cursed Body,5.3%,,,,,,,,
+Banette,156,move,1,Destiny Bond,81.4%,,,,,,,,
+Banette,156,move,2,Poltergeist,74.6%,,,,,,,,
+Banette,156,move,3,Encore,55.3%,,,,,,,,
+Banette,156,move,4,Swagger,39.0%,,,,,,,,
+Banette,156,move,5,Will-O-Wisp,26.1%,,,,,,,,
+Banette,156,move,6,Trick Room,21.9%,,,,,,,,
+Banette,156,move,7,Phantom Force,13.4%,,,,,,,,
+Banette,156,move,8,Disable,11.0%,,,,,,,,
+Banette,156,move,9,Rain Dance,10.8%,,,,,,,,
+Banette,156,move,10,Zen Headbutt,9.9%,,,,,,,,
+Banette,156,held_item,1,Banettite,86.2%,,,,,,,,
+Banette,156,held_item,2,Focus Sash,12.7%,,,,,,,,
+Banette,156,held_item,3,Choice Scarf,0.6%,,,,,,,,
+Banette,156,teammate,1,Sneasler,,,,,,,,,
+Banette,156,teammate,2,Sylveon,,,,,,,,,
+Banette,156,teammate,3,Basculegion,,,,,,,,,
+Banette,156,teammate,4,Incineroar,,,,,,,,,
+Banette,156,teammate,5,Rillaboom,,,,,,,,,
+Banette,156,teammate,6,Archaludon,,,,,,,,,
+Banette,156,teammate,7,Corviknight,,,,,,,,,
+Banette,156,teammate,8,Milotic,,,,,,,,,
+Banette,156,teammate,9,Pelipper,,,,,,,,,
+Banette,156,teammate,10,Indeedee,,,,,,,,,
+Banette,156,stat_alignment,1,Brave,26.1%,Attack,Speed,,,,,,
+Banette,156,stat_alignment,2,Relaxed,26.1%,Defense,Speed,,,,,,
+Banette,156,stat_alignment,3,Adamant,20.7%,Attack,Sp. Atk,,,,,,
+Banette,156,stat_alignment,4,Impish,10.1%,Defense,Sp. Atk,,,,,,
+Banette,156,stat_alignment,5,Careful,9.1%,Sp. Def,Sp. Atk,,,,,,
+Banette,156,stat_alignment,6,Sassy,4.6%,Sp. Def,Speed,,,,,,
+Banette,156,stat_alignment,7,Modest,1.9%,Sp. Atk,Attack,,,,,,
+Banette,156,stat_alignment,8,Jolly,1.0%,Speed,Sp. Atk,,,,,,
+Banette,156,stat_alignment,9,Bold,0.4%,Defense,Attack,,,,,,
+Banette,156,stat_points,1,,18.6%,,,32,0,30,0,4,0
+Banette,156,stat_points,2,,11.8%,,,32,32,0,0,2,0
+Banette,156,stat_points,3,,10.1%,,,32,0,15,0,19,0
+Banette,156,stat_points,4,,7.2%,,,32,32,0,0,0,0
+Banette,156,stat_points,5,,7.0%,,,32,3,30,0,1,0
+Banette,156,stat_points,6,,6.4%,,,32,0,17,0,17,0
+Banette,156,stat_points,7,,5.3%,,,29,0,5,0,32,0
+Banette,156,stat_points,8,,4.2%,,,32,32,2,0,0,0
+Banette,156,stat_points,9,,3.4%,,,13,32,17,0,4,0
+Banette,156,stat_points,10,,3.3%,,,19,32,15,0,0,0
+Banette,156,ability,1,Frisk,79.8%,,,,,,,,
+Banette,156,ability,2,Insomnia,12.1%,,,,,,,,
+Banette,156,ability,3,Cursed Body,8.1%,,,,,,,,

@@ -1,50 +1,51 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tauros,222,move,1,Iron Head,58.3%,,,,,,,,
-Tauros,222,move,2,Earthquake,56.5%,,,,,,,,
-Tauros,222,move,3,Rock Slide,47.6%,,,,,,,,
-Tauros,222,move,4,Ice Beam,32.5%,,,,,,,,
-Tauros,222,move,5,Raging Bull,31.4%,,,,,,,,
-Tauros,222,move,6,Fire Blast,30.2%,,,,,,,,
-Tauros,222,move,7,Wild Charge,23.4%,,,,,,,,
-Tauros,222,move,8,Rock Tomb,21.6%,,,,,,,,
-Tauros,222,move,9,Close Combat,20.4%,,,,,,,,
-Tauros,222,move,10,Body Slam,18.6%,,,,,,,,
-Tauros,222,held_item,1,Life Orb,86.1%,,,,,,,,
-Tauros,222,held_item,2,Silk Scarf,5.0%,,,,,,,,
-Tauros,222,held_item,3,Choice Scarf,4.1%,,,,,,,,
-Tauros,222,held_item,4,Focus Sash,2.1%,,,,,,,,
-Tauros,222,held_item,5,Normal Gem,1.5%,,,,,,,,
-Tauros,222,held_item,6,Wise Glasses,0.6%,,,,,,,,
-Tauros,222,held_item,7,Sitrus Berry,0.3%,,,,,,,,
-Tauros,222,held_item,8,Expert Belt,0.3%,,,,,,,,
-Tauros,222,teammate,1,Greninja,,,,,,,,,
-Tauros,222,teammate,2,Snorlax,,,,,,,,,
-Tauros,222,teammate,3,Garchomp,,,,,,,,,
-Tauros,222,teammate,4,Metagross,,,,,,,,,
-Tauros,222,teammate,5,Sableye,,,,,,,,,
-Tauros,222,teammate,6,Basculegion,,,,,,,,,
-Tauros,222,teammate,7,Golisopod,,,,,,,,,
-Tauros,222,teammate,8,Corviknight,,,,,,,,,
-Tauros,222,teammate,9,Squawkabilly-Yellow,,,,,,,,,
-Tauros,222,teammate,10,Raichu,,,,,,,,,
-Tauros,222,stat_alignment,1,Jolly,33.7%,Speed,Sp. Atk,,,,,,
-Tauros,222,stat_alignment,2,Adamant,30.8%,Attack,Sp. Atk,,,,,,
-Tauros,222,stat_alignment,3,Hasty,19.2%,Speed,Defense,,,,,,
-Tauros,222,stat_alignment,4,Rash,7.1%,Sp. Atk,Sp. Def,,,,,,
-Tauros,222,stat_alignment,5,Naive,3.6%,Speed,Sp. Def,,,,,,
-Tauros,222,stat_alignment,6,Modest,3.0%,Sp. Atk,Attack,,,,,,
-Tauros,222,stat_alignment,7,Naughty,2.1%,Attack,Sp. Def,,,,,,
-Tauros,222,stat_alignment,8,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
-Tauros,222,stat_alignment,9,Impish,0.3%,Defense,Sp. Atk,,,,,,
-Tauros,222,stat_points,1,,21.3%,,,1,32,1,0,0,32
-Tauros,222,stat_points,2,,19.8%,,,1,32,0,0,1,32
-Tauros,222,stat_points,3,,19.2%,,,0,9,0,32,0,25
-Tauros,222,stat_points,4,,12.1%,,,0,32,0,0,2,32
-Tauros,222,stat_points,5,,11.2%,,,2,32,0,0,0,32
-Tauros,222,stat_points,6,,7.7%,,,0,0,2,32,0,32
-Tauros,222,stat_points,7,,3.3%,,,0,2,0,32,0,32
-Tauros,222,stat_points,8,,1.8%,,,0,0,0,32,0,32
-Tauros,222,stat_points,9,,1.2%,,,0,32,0,0,0,32
-Tauros,222,stat_points,10,,0.9%,,,5,32,8,0,0,21
-Tauros,222,ability,1,Sheer Force,72.5%,,,,,,,,
-Tauros,222,ability,2,Intimidate,27.5%,,,,,,,,
+Tauros,230,move,1,Iron Head,55.2%,,,,,,,,
+Tauros,230,move,2,Earthquake,52.7%,,,,,,,,
+Tauros,230,move,3,Rock Slide,45.3%,,,,,,,,
+Tauros,230,move,4,Ice Beam,35.6%,,,,,,,,
+Tauros,230,move,5,Raging Bull,35.4%,,,,,,,,
+Tauros,230,move,6,Fire Blast,32.3%,,,,,,,,
+Tauros,230,move,7,Wild Charge,24.2%,,,,,,,,
+Tauros,230,move,8,Rock Tomb,23.5%,,,,,,,,
+Tauros,230,move,9,Close Combat,18.0%,,,,,,,,
+Tauros,230,move,10,Body Slam,16.5%,,,,,,,,
+Tauros,230,held_item,1,Life Orb,85.7%,,,,,,,,
+Tauros,230,held_item,2,Silk Scarf,3.7%,,,,,,,,
+Tauros,230,held_item,3,Choice Scarf,3.1%,,,,,,,,
+Tauros,230,held_item,4,Focus Sash,2.4%,,,,,,,,
+Tauros,230,held_item,5,Expert Belt,1.8%,,,,,,,,
+Tauros,230,held_item,6,Sitrus Berry,1.3%,,,,,,,,
+Tauros,230,held_item,7,Normal Gem,1.3%,,,,,,,,
+Tauros,230,held_item,8,Wise Glasses,0.4%,,,,,,,,
+Tauros,230,held_item,9,Muscle Band,0.2%,,,,,,,,
+Tauros,230,teammate,1,Greninja,,,,,,,,,
+Tauros,230,teammate,2,Snorlax,,,,,,,,,
+Tauros,230,teammate,3,Garchomp,,,,,,,,,
+Tauros,230,teammate,4,Metagross,,,,,,,,,
+Tauros,230,teammate,5,Sableye,,,,,,,,,
+Tauros,230,teammate,6,Corviknight,,,,,,,,,
+Tauros,230,teammate,7,Pikachu,,,,,,,,,
+Tauros,230,teammate,8,Ceruledge,,,,,,,,,
+Tauros,230,teammate,9,Basculegion,,,,,,,,,
+Tauros,230,teammate,10,Golisopod,,,,,,,,,
+Tauros,230,stat_alignment,1,Jolly,33.4%,Speed,Sp. Atk,,,,,,
+Tauros,230,stat_alignment,2,Adamant,27.3%,Attack,Sp. Atk,,,,,,
+Tauros,230,stat_alignment,3,Hasty,14.3%,Speed,Defense,,,,,,
+Tauros,230,stat_alignment,4,Naive,10.5%,Speed,Sp. Def,,,,,,
+Tauros,230,stat_alignment,5,Rash,6.6%,Sp. Atk,Sp. Def,,,,,,
+Tauros,230,stat_alignment,6,Modest,4.4%,Sp. Atk,Attack,,,,,,
+Tauros,230,stat_alignment,7,Impish,1.8%,Defense,Sp. Atk,,,,,,
+Tauros,230,stat_alignment,8,Naughty,1.5%,Attack,Sp. Def,,,,,,
+Tauros,230,stat_alignment,9,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
+Tauros,230,stat_points,1,,26.2%,,,1,32,1,0,0,32
+Tauros,230,stat_points,2,,15.8%,,,1,32,0,0,1,32
+Tauros,230,stat_points,3,,14.3%,,,0,9,0,32,0,25
+Tauros,230,stat_points,4,,10.3%,,,0,2,0,32,0,32
+Tauros,230,stat_points,5,,9.5%,,,2,32,0,0,0,32
+Tauros,230,stat_points,6,,9.2%,,,0,32,0,0,2,32
+Tauros,230,stat_points,7,,7.0%,,,0,0,2,32,0,32
+Tauros,230,stat_points,8,,3.3%,,,0,0,0,32,0,32
+Tauros,230,stat_points,9,,1.8%,,,32,20,0,0,14,0
+Tauros,230,stat_points,10,,0.9%,,,0,32,0,0,0,32
+Tauros,230,ability,1,Sheer Force,72.3%,,,,,,,,
+Tauros,230,ability,2,Intimidate,27.7%,,,,,,,,

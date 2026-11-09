@@ -1,37 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Lycanroc-Midnight,251,move,1,Counter,73.5%,,,,,,,,
-Lycanroc-Midnight,251,move,2,Stealth Rock,60.2%,,,,,,,,
-Lycanroc-Midnight,251,move,3,Stone Edge,56.1%,,,,,,,,
-Lycanroc-Midnight,251,move,4,Upper Hand,46.9%,,,,,,,,
-Lycanroc-Midnight,251,move,5,Rock Tomb,42.9%,,,,,,,,
-Lycanroc-Midnight,251,move,6,Sucker Punch,27.6%,,,,,,,,
-Lycanroc-Midnight,251,move,7,Close Combat,20.4%,,,,,,,,
-Lycanroc-Midnight,251,move,8,Reversal,16.3%,,,,,,,,
-Lycanroc-Midnight,251,move,9,Roar,15.3%,,,,,,,,
-Lycanroc-Midnight,251,move,10,Swords Dance,14.3%,,,,,,,,
-Lycanroc-Midnight,251,held_item,1,Focus Sash,92.9%,,,,,,,,
-Lycanroc-Midnight,251,held_item,2,Expert Belt,6.1%,,,,,,,,
-Lycanroc-Midnight,251,teammate,1,Mimikyu,,,,,,,,,
-Lycanroc-Midnight,251,teammate,2,Garchomp,,,,,,,,,
-Lycanroc-Midnight,251,teammate,3,Greninja,,,,,,,,,
-Lycanroc-Midnight,251,teammate,4,Charizard,,,,,,,,,
-Lycanroc-Midnight,251,teammate,5,Meowscarada,,,,,,,,,
-Lycanroc-Midnight,251,teammate,6,Gyarados,,,,,,,,,
-Lycanroc-Midnight,251,teammate,7,Pincurchin,,,,,,,,,
-Lycanroc-Midnight,251,teammate,8,Swampert,,,,,,,,,
-Lycanroc-Midnight,251,teammate,9,Lucario,,,,,,,,,
-Lycanroc-Midnight,251,teammate,10,Klefki,,,,,,,,,
-Lycanroc-Midnight,251,stat_alignment,1,Adamant,76.5%,Attack,Sp. Atk,,,,,,
-Lycanroc-Midnight,251,stat_alignment,2,Impish,15.3%,Defense,Sp. Atk,,,,,,
-Lycanroc-Midnight,251,stat_alignment,3,Jolly,6.1%,Speed,Sp. Atk,,,,,,
-Lycanroc-Midnight,251,stat_alignment,4,Lonely,1.0%,Attack,Defense,,,,,,
-Lycanroc-Midnight,251,stat_alignment,5,Brave,1.0%,Attack,Speed,,,,,,
-Lycanroc-Midnight,251,stat_points,1,,45.9%,,,0,32,0,0,0,32
-Lycanroc-Midnight,251,stat_points,2,,28.6%,,,2,32,0,0,0,32
-Lycanroc-Midnight,251,stat_points,3,,15.3%,,,32,0,11,0,0,23
-Lycanroc-Midnight,251,stat_points,4,,6.1%,,,32,32,1,0,1,0
-Lycanroc-Midnight,251,stat_points,5,,2.0%,,,1,32,1,0,0,32
-Lycanroc-Midnight,251,stat_points,6,,1.0%,,,0,32,0,0,32,2
-Lycanroc-Midnight,251,stat_points,7,,1.0%,,,32,32,2,0,0,0
-Lycanroc-Midnight,251,ability,1,Vital Spirit,59.2%,,,,,,,,
-Lycanroc-Midnight,251,ability,2,No Guard,40.8%,,,,,,,,
+Lycanroc-Midnight,253,move,1,Counter,74.4%,,,,,,,,
+Lycanroc-Midnight,253,move,2,Stone Edge,62.4%,,,,,,,,
+Lycanroc-Midnight,253,move,3,Stealth Rock,56.4%,,,,,,,,
+Lycanroc-Midnight,253,move,4,Upper Hand,40.6%,,,,,,,,
+Lycanroc-Midnight,253,move,5,Rock Tomb,36.8%,,,,,,,,
+Lycanroc-Midnight,253,move,6,Sucker Punch,33.8%,,,,,,,,
+Lycanroc-Midnight,253,move,7,Close Combat,26.3%,,,,,,,,
+Lycanroc-Midnight,253,move,8,Swords Dance,13.5%,,,,,,,,
+Lycanroc-Midnight,253,move,9,Reversal,12.0%,,,,,,,,
+Lycanroc-Midnight,253,move,10,Roar,12.0%,,,,,,,,
+Lycanroc-Midnight,253,held_item,1,Focus Sash,92.5%,,,,,,,,
+Lycanroc-Midnight,253,held_item,2,Expert Belt,4.5%,,,,,,,,
+Lycanroc-Midnight,253,held_item,3,Choice Scarf,1.5%,,,,,,,,
+Lycanroc-Midnight,253,held_item,4,Sitrus Berry,0.8%,,,,,,,,
+Lycanroc-Midnight,253,teammate,1,Mimikyu,,,,,,,,,
+Lycanroc-Midnight,253,teammate,2,Greninja,,,,,,,,,
+Lycanroc-Midnight,253,teammate,3,Garchomp,,,,,,,,,
+Lycanroc-Midnight,253,teammate,4,Charizard,,,,,,,,,
+Lycanroc-Midnight,253,teammate,5,Meowscarada,,,,,,,,,
+Lycanroc-Midnight,253,teammate,6,Gyarados,,,,,,,,,
+Lycanroc-Midnight,253,teammate,7,Pincurchin,,,,,,,,,
+Lycanroc-Midnight,253,teammate,8,Staraptor,,,,,,,,,
+Lycanroc-Midnight,253,teammate,9,Golisopod,,,,,,,,,
+Lycanroc-Midnight,253,teammate,10,Lucario,,,,,,,,,
+Lycanroc-Midnight,253,stat_alignment,1,Adamant,79.7%,Attack,Sp. Atk,,,,,,
+Lycanroc-Midnight,253,stat_alignment,2,Impish,11.3%,Defense,Sp. Atk,,,,,,
+Lycanroc-Midnight,253,stat_alignment,3,Jolly,6.0%,Speed,Sp. Atk,,,,,,
+Lycanroc-Midnight,253,stat_alignment,4,Brave,1.5%,Attack,Speed,,,,,,
+Lycanroc-Midnight,253,stat_alignment,5,Lonely,0.8%,Attack,Defense,,,,,,
+Lycanroc-Midnight,253,stat_alignment,6,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
+Lycanroc-Midnight,253,stat_points,1,,39.1%,,,0,32,0,0,0,32
+Lycanroc-Midnight,253,stat_points,2,,35.3%,,,2,32,0,0,0,32
+Lycanroc-Midnight,253,stat_points,3,,11.3%,,,32,0,11,0,0,23
+Lycanroc-Midnight,253,stat_points,4,,5.3%,,,32,32,2,0,0,0
+Lycanroc-Midnight,253,stat_points,5,,4.5%,,,32,32,1,0,1,0
+Lycanroc-Midnight,253,stat_points,6,,3.0%,,,1,32,1,0,0,32
+Lycanroc-Midnight,253,stat_points,7,,0.8%,,,0,32,0,0,32,2
+Lycanroc-Midnight,253,stat_points,8,,0.8%,,,32,0,2,0,32,0
+Lycanroc-Midnight,253,ability,1,No Guard,50.4%,,,,,,,,
+Lycanroc-Midnight,253,ability,2,Vital Spirit,49.6%,,,,,,,,

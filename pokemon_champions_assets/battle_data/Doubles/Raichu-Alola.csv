@@ -1,45 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Raichu-Alola,207,move,1,Expanding Force,85.5%,,,,,,,,
-Raichu-Alola,207,move,2,Protect,81.2%,,,,,,,,
-Raichu-Alola,207,move,3,Rising Voltage,79.0%,,,,,,,,
-Raichu-Alola,207,move,4,Discharge,36.6%,,,,,,,,
-Raichu-Alola,207,move,5,Encore,25.3%,,,,,,,,
-Raichu-Alola,207,move,6,Fake Out,21.0%,,,,,,,,
-Raichu-Alola,207,move,7,Psychic Noise,11.8%,,,,,,,,
-Raichu-Alola,207,move,8,Focus Blast,9.7%,,,,,,,,
-Raichu-Alola,207,move,9,Volt Switch,8.6%,,,,,,,,
-Raichu-Alola,207,move,10,Thunderbolt,8.1%,,,,,,,,
-Raichu-Alola,207,held_item,1,Life Orb,54.8%,,,,,,,,
-Raichu-Alola,207,held_item,2,Focus Sash,16.7%,,,,,,,,
-Raichu-Alola,207,held_item,3,Quick Claw,9.7%,,,,,,,,
-Raichu-Alola,207,held_item,4,Choice Scarf,9.1%,,,,,,,,
-Raichu-Alola,207,held_item,5,Magnet,4.3%,,,,,,,,
-Raichu-Alola,207,held_item,6,Electric Seed,2.2%,,,,,,,,
-Raichu-Alola,207,held_item,7,Grassy Seed,2.2%,,,,,,,,
-Raichu-Alola,207,held_item,8,Sitrus Berry,1.1%,,,,,,,,
-Raichu-Alola,207,teammate,1,Pincurchin,,,,,,,,,
-Raichu-Alola,207,teammate,2,Indeedee-F,,,,,,,,,
-Raichu-Alola,207,teammate,3,Sylveon,,,,,,,,,
-Raichu-Alola,207,teammate,4,Staraptor,,,,,,,,,
-Raichu-Alola,207,teammate,5,Charizard,,,,,,,,,
-Raichu-Alola,207,teammate,6,Torkoal,,,,,,,,,
-Raichu-Alola,207,teammate,7,Gardevoir,,,,,,,,,
-Raichu-Alola,207,teammate,8,Hawlucha,,,,,,,,,
-Raichu-Alola,207,teammate,9,Camerupt,,,,,,,,,
-Raichu-Alola,207,teammate,10,Salamence,,,,,,,,,
-Raichu-Alola,207,stat_alignment,1,Modest,69.9%,Sp. Atk,Attack,,,,,,
-Raichu-Alola,207,stat_alignment,2,Timid,24.7%,Speed,Attack,,,,,,
-Raichu-Alola,207,stat_alignment,3,Adamant,3.8%,Attack,Sp. Atk,,,,,,
-Raichu-Alola,207,stat_alignment,4,Mild,1.1%,Sp. Atk,Defense,,,,,,
-Raichu-Alola,207,stat_alignment,5,Bold,0.5%,Defense,Attack,,,,,,
-Raichu-Alola,207,stat_points,1,,61.3%,,,2,0,0,32,0,32
-Raichu-Alola,207,stat_points,2,,14.0%,,,4,0,0,32,0,30
-Raichu-Alola,207,stat_points,3,,5.9%,,,4,0,0,30,0,32
-Raichu-Alola,207,stat_points,4,,5.4%,,,0,0,2,32,0,32
-Raichu-Alola,207,stat_points,5,,4.8%,,,0,0,0,32,0,32
-Raichu-Alola,207,stat_points,6,,4.3%,,,16,0,0,32,0,18
-Raichu-Alola,207,stat_points,7,,1.1%,,,0,0,32,0,2,32
-Raichu-Alola,207,stat_points,8,,1.1%,,,9,0,0,32,15,10
-Raichu-Alola,207,stat_points,9,,1.1%,,,32,0,2,32,0,0
-Raichu-Alola,207,stat_points,10,,0.5%,,,5,0,0,31,0,30
-Raichu-Alola,207,ability,1,Surge Surfer,100.0%,,,,,,,,
+Raichu-Alola,205,move,1,Protect,85.0%,,,,,,,,
+Raichu-Alola,205,move,2,Expanding Force,78.3%,,,,,,,,
+Raichu-Alola,205,move,3,Rising Voltage,71.6%,,,,,,,,
+Raichu-Alola,205,move,4,Discharge,35.5%,,,,,,,,
+Raichu-Alola,205,move,5,Fake Out,24.2%,,,,,,,,
+Raichu-Alola,205,move,6,Encore,15.0%,,,,,,,,
+Raichu-Alola,205,move,7,Psychic Noise,12.5%,,,,,,,,
+Raichu-Alola,205,move,8,Psychic,11.6%,,,,,,,,
+Raichu-Alola,205,move,9,Volt Switch,9.2%,,,,,,,,
+Raichu-Alola,205,move,10,Surf,7.3%,,,,,,,,
+Raichu-Alola,205,held_item,1,Life Orb,46.2%,,,,,,,,
+Raichu-Alola,205,held_item,2,Focus Sash,23.5%,,,,,,,,
+Raichu-Alola,205,held_item,3,Quick Claw,10.4%,,,,,,,,
+Raichu-Alola,205,held_item,4,Choice Scarf,8.6%,,,,,,,,
+Raichu-Alola,205,held_item,5,Magnet,6.7%,,,,,,,,
+Raichu-Alola,205,held_item,6,Electric Seed,1.2%,,,,,,,,
+Raichu-Alola,205,held_item,7,Grassy Seed,1.2%,,,,,,,,
+Raichu-Alola,205,held_item,8,Sitrus Berry,0.9%,,,,,,,,
+Raichu-Alola,205,held_item,9,Leftovers,0.6%,,,,,,,,
+Raichu-Alola,205,held_item,10,Colbur Berry,0.3%,,,,,,,,
+Raichu-Alola,205,teammate,1,Pincurchin,,,,,,,,,
+Raichu-Alola,205,teammate,2,Indeedee-F,,,,,,,,,
+Raichu-Alola,205,teammate,3,Sylveon,,,,,,,,,
+Raichu-Alola,205,teammate,4,Charizard,,,,,,,,,
+Raichu-Alola,205,teammate,5,Golisopod,,,,,,,,,
+Raichu-Alola,205,teammate,6,Gardevoir,,,,,,,,,
+Raichu-Alola,205,teammate,7,Torkoal,,,,,,,,,
+Raichu-Alola,205,teammate,8,Garchomp,,,,,,,,,
+Raichu-Alola,205,teammate,9,Staraptor,,,,,,,,,
+Raichu-Alola,205,teammate,10,Camerupt,,,,,,,,,
+Raichu-Alola,205,stat_alignment,1,Modest,63.6%,Sp. Atk,Attack,,,,,,
+Raichu-Alola,205,stat_alignment,2,Timid,32.1%,Speed,Attack,,,,,,
+Raichu-Alola,205,stat_alignment,3,Adamant,2.1%,Attack,Sp. Atk,,,,,,
+Raichu-Alola,205,stat_alignment,4,Mild,1.8%,Sp. Atk,Defense,,,,,,
+Raichu-Alola,205,stat_alignment,5,Bold,0.3%,Defense,Attack,,,,,,
+Raichu-Alola,205,stat_points,1,,67.3%,,,2,0,0,32,0,32
+Raichu-Alola,205,stat_points,2,,8.0%,,,4,0,0,32,0,30
+Raichu-Alola,205,stat_points,3,,5.8%,,,0,0,0,32,2,32
+Raichu-Alola,205,stat_points,4,,4.0%,,,4,0,0,30,0,32
+Raichu-Alola,205,stat_points,5,,3.7%,,,0,0,0,32,0,32
+Raichu-Alola,205,stat_points,6,,3.1%,,,0,0,2,32,0,32
+Raichu-Alola,205,stat_points,7,,2.8%,,,16,0,0,32,0,18
+Raichu-Alola,205,stat_points,8,,1.2%,,,0,0,32,0,2,32
+Raichu-Alola,205,stat_points,9,,1.2%,,,9,0,20,25,0,12
+Raichu-Alola,205,stat_points,10,,0.6%,,,9,0,0,32,15,10
+Raichu-Alola,205,ability,1,Surge Surfer,100.0%,,,,,,,,

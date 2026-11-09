@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slurpuff,116,move,1,Sticky Web,89.6%,,,,,,,,
-Slurpuff,116,move,2,Yawn,86.6%,,,,,,,,
+Slurpuff,116,move,1,Sticky Web,89.7%,,,,,,,,
+Slurpuff,116,move,2,Yawn,86.7%,,,,,,,,
 Slurpuff,116,move,3,Misty Explosion,55.6%,,,,,,,,
 Slurpuff,116,move,4,Dazzling Gleam,53.6%,,,,,,,,
-Slurpuff,116,move,5,Endeavor,41.1%,,,,,,,,
+Slurpuff,116,move,5,Endeavor,41.2%,,,,,,,,
 Slurpuff,116,move,6,Flamethrower,27.8%,,,,,,,,
-Slurpuff,116,move,7,Calm Mind,6.8%,,,,,,,,
-Slurpuff,116,move,8,Draining Kiss,6.8%,,,,,,,,
+Slurpuff,116,move,7,Draining Kiss,6.8%,,,,,,,,
+Slurpuff,116,move,8,Calm Mind,6.8%,,,,,,,,
 Slurpuff,116,move,9,Cotton Guard,5.5%,,,,,,,,
 Slurpuff,116,move,10,Copycat,3.7%,,,,,,,,
 Slurpuff,116,held_item,1,Red Card,64.2%,,,,,,,,
@@ -34,7 +34,7 @@ Slurpuff,116,stat_alignment,2,Timid,24.3%,Speed,Attack,,,,,,
 Slurpuff,116,stat_alignment,3,Calm,11.2%,Sp. Def,Attack,,,,,,
 Slurpuff,116,stat_alignment,4,Modest,9.2%,Sp. Atk,Attack,,,,,,
 Slurpuff,116,stat_alignment,5,Jolly,2.3%,Speed,Sp. Atk,,,,,,
-Slurpuff,116,stat_alignment,6,Relaxed,2.3%,Defense,Speed,,,,,,
+Slurpuff,116,stat_alignment,6,Relaxed,2.2%,Defense,Speed,,,,,,
 Slurpuff,116,stat_alignment,7,Lax,1.4%,Defense,Sp. Def,,,,,,
 Slurpuff,116,stat_alignment,8,Hasty,1.4%,Speed,Defense,,,,,,
 Slurpuff,116,stat_alignment,9,Impish,1.2%,Defense,Sp. Atk,,,,,,
@@ -43,10 +43,10 @@ Slurpuff,116,stat_points,1,,24.5%,,,32,0,11,0,1,22
 Slurpuff,116,stat_points,2,,10.2%,,,0,0,0,32,0,32
 Slurpuff,116,stat_points,3,,4.8%,,,32,0,11,0,3,20
 Slurpuff,116,stat_points,4,,3.0%,,,2,0,0,32,0,32
-Slurpuff,116,stat_points,5,,2.5%,,,32,0,11,0,0,23
+Slurpuff,116,stat_points,5,,2.6%,,,32,0,11,0,0,23
 Slurpuff,116,stat_points,6,,2.4%,,,32,0,14,0,0,20
-Slurpuff,116,stat_points,7,,2.3%,,,32,0,0,0,32,0
-Slurpuff,116,stat_points,8,,2.3%,,,32,0,0,0,2,32
+Slurpuff,116,stat_points,7,,2.4%,,,32,0,0,0,2,32
+Slurpuff,116,stat_points,8,,2.3%,,,32,0,0,0,32,0
 Slurpuff,116,stat_points,9,,2.0%,,,32,0,11,0,2,21
 Slurpuff,116,stat_points,10,,2.0%,,,32,0,0,0,12,22
 Slurpuff,116,ability,1,Unburden,97.3%,,,,,,,,

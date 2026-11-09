@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sharpedo,199,move,1,Crunch,97.3%,,,,,,,,
-Sharpedo,199,move,2,Protect,68.0%,,,,,,,,
-Sharpedo,199,move,3,Psychic Fangs,57.1%,,,,,,,,
+Sharpedo,199,move,2,Protect,68.2%,,,,,,,,
+Sharpedo,199,move,3,Psychic Fangs,57.2%,,,,,,,,
 Sharpedo,199,move,4,Liquidation,32.2%,,,,,,,,
-Sharpedo,199,move,5,Destiny Bond,31.7%,,,,,,,,
-Sharpedo,199,move,6,Aqua Jet,23.8%,,,,,,,,
-Sharpedo,199,move,7,Flip Turn,19.3%,,,,,,,,
-Sharpedo,199,move,8,Ice Fang,17.7%,,,,,,,,
-Sharpedo,199,move,9,Poison Jab,15.0%,,,,,,,,
+Sharpedo,199,move,5,Destiny Bond,31.5%,,,,,,,,
+Sharpedo,199,move,6,Aqua Jet,23.6%,,,,,,,,
+Sharpedo,199,move,7,Flip Turn,19.1%,,,,,,,,
+Sharpedo,199,move,8,Ice Fang,18.2%,,,,,,,,
+Sharpedo,199,move,9,Poison Jab,14.9%,,,,,,,,
 Sharpedo,199,move,10,Close Combat,11.3%,,,,,,,,
-Sharpedo,199,held_item,1,Sharpedonite,80.5%,,,,,,,,
-Sharpedo,199,held_item,2,Focus Sash,10.2%,,,,,,,,
+Sharpedo,199,held_item,1,Sharpedonite,80.6%,,,,,,,,
+Sharpedo,199,held_item,2,Focus Sash,10.1%,,,,,,,,
 Sharpedo,199,held_item,3,Focus Band,3.4%,,,,,,,,
 Sharpedo,199,held_item,4,Black Glasses,1.6%,,,,,,,,
 Sharpedo,199,held_item,5,Life Orb,1.1%,,,,,,,,
@@ -18,26 +18,27 @@ Sharpedo,199,held_item,6,Rindo Berry,0.9%,,,,,,,,
 Sharpedo,199,held_item,7,White Herb,0.9%,,,,,,,,
 Sharpedo,199,held_item,8,Choice Scarf,0.9%,,,,,,,,
 Sharpedo,199,held_item,9,Muscle Band,0.5%,,,,,,,,
-Sharpedo,199,teammate,1,Lucario,,,,,,,,,
-Sharpedo,199,teammate,2,Garchomp,,,,,,,,,
+Sharpedo,199,teammate,1,Garchomp,,,,,,,,,
+Sharpedo,199,teammate,2,Lucario,,,,,,,,,
 Sharpedo,199,teammate,3,Slowbro-Galar,,,,,,,,,
 Sharpedo,199,teammate,4,Arcanine-Hisui,,,,,,,,,
 Sharpedo,199,teammate,5,Sneasler,,,,,,,,,
 Sharpedo,199,teammate,6,Meowscarada,,,,,,,,,
-Sharpedo,199,teammate,7,Whimsicott,,,,,,,,,
-Sharpedo,199,teammate,8,Indeedee-F,,,,,,,,,
+Sharpedo,199,teammate,7,Indeedee-F,,,,,,,,,
+Sharpedo,199,teammate,8,Whimsicott,,,,,,,,,
 Sharpedo,199,teammate,9,Gholdengo,,,,,,,,,
 Sharpedo,199,teammate,10,Archaludon,,,,,,,,,
-Sharpedo,199,stat_alignment,1,Adamant,57.4%,Attack,Sp. Atk,,,,,,
-Sharpedo,199,stat_alignment,2,Naughty,24.0%,Attack,Sp. Def,,,,,,
+Sharpedo,199,stat_alignment,1,Adamant,57.2%,Attack,Sp. Atk,,,,,,
+Sharpedo,199,stat_alignment,2,Naughty,23.9%,Attack,Sp. Def,,,,,,
 Sharpedo,199,stat_alignment,3,Jolly,8.8%,Speed,Sp. Atk,,,,,,
 Sharpedo,199,stat_alignment,4,Hasty,7.9%,Speed,Defense,,,,,,
 Sharpedo,199,stat_alignment,5,Modest,1.4%,Sp. Atk,Attack,,,,,,
-Sharpedo,199,stat_alignment,6,Lonely,0.2%,Attack,Defense,,,,,,
-Sharpedo,199,stat_alignment,7,Timid,0.2%,Speed,Attack,,,,,,
-Sharpedo,199,stat_points,1,,49.9%,,,2,32,0,0,0,32
-Sharpedo,199,stat_points,2,,29.0%,,,0,32,0,0,0,32
-Sharpedo,199,stat_points,3,,4.8%,,,0,32,2,0,0,32
+Sharpedo,199,stat_alignment,6,Brave,0.5%,Attack,Speed,,,,,,
+Sharpedo,199,stat_alignment,7,Lonely,0.2%,Attack,Defense,,,,,,
+Sharpedo,199,stat_alignment,8,Timid,0.2%,Speed,Attack,,,,,,
+Sharpedo,199,stat_points,1,,49.5%,,,2,32,0,0,0,32
+Sharpedo,199,stat_points,2,,28.8%,,,0,32,0,0,0,32
+Sharpedo,199,stat_points,3,,4.7%,,,0,32,2,0,0,32
 Sharpedo,199,stat_points,4,,3.4%,,,5,15,15,0,5,26
 Sharpedo,199,stat_points,5,,3.2%,,,32,32,1,0,1,0
 Sharpedo,199,stat_points,6,,1.4%,,,0,0,2,32,0,32
@@ -45,5 +46,5 @@ Sharpedo,199,stat_points,7,,1.4%,,,4,32,0,0,0,30
 Sharpedo,199,stat_points,8,,1.4%,,,32,32,0,0,0,2
 Sharpedo,199,stat_points,9,,1.1%,,,0,22,10,0,3,31
 Sharpedo,199,stat_points,10,,0.9%,,,0,16,18,0,0,32
-Sharpedo,199,ability,1,Speed Boost,89.3%,,,,,,,,
-Sharpedo,199,ability,2,Rough Skin,10.7%,,,,,,,,
+Sharpedo,199,ability,1,Speed Boost,89.4%,,,,,,,,
+Sharpedo,199,ability,2,Rough Skin,10.6%,,,,,,,,

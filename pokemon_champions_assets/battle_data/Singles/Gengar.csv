@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gengar,21,move,1,Shadow Ball,78.1%,,,,,,,,
-Gengar,21,move,2,Sludge Wave,65.2%,,,,,,,,
+Gengar,21,move,1,Shadow Ball,78.0%,,,,,,,,
+Gengar,21,move,2,Sludge Wave,65.3%,,,,,,,,
 Gengar,21,move,3,Icy Wind,57.9%,,,,,,,,
 Gengar,21,move,4,Destiny Bond,38.1%,,,,,,,,
 Gengar,21,move,5,Protect,26.5%,,,,,,,,
@@ -10,14 +10,14 @@ Gengar,21,move,8,Focus Blast,13.6%,,,,,,,,
 Gengar,21,move,9,Toxic Spikes,13.6%,,,,,,,,
 Gengar,21,move,10,Sludge Bomb,12.2%,,,,,,,,
 Gengar,21,held_item,1,Gengarite,56.9%,,,,,,,,
-Gengar,21,held_item,2,Focus Sash,40.5%,,,,,,,,
-Gengar,21,held_item,3,Choice Scarf,0.9%,,,,,,,,
+Gengar,21,held_item,2,Focus Sash,40.4%,,,,,,,,
+Gengar,21,held_item,3,Choice Scarf,1.0%,,,,,,,,
 Gengar,21,held_item,4,Air Balloon,0.3%,,,,,,,,
 Gengar,21,held_item,5,Wide Lens,0.2%,,,,,,,,
 Gengar,21,held_item,6,Life Orb,0.2%,,,,,,,,
 Gengar,21,held_item,7,Shuca Berry,0.1%,,,,,,,,
-Gengar,21,held_item,8,Quick Claw,0.1%,,,,,,,,
-Gengar,21,held_item,9,Expert Belt,0.1%,,,,,,,,
+Gengar,21,held_item,8,Expert Belt,0.1%,,,,,,,,
+Gengar,21,held_item,9,Quick Claw,0.1%,,,,,,,,
 Gengar,21,held_item,10,Leftovers,0.0%,,,,,,,,
 Gengar,21,teammate,1,Garchomp,,,,,,,,,
 Gengar,21,teammate,2,Primarina,,,,,,,,,
@@ -40,7 +40,7 @@ Gengar,21,stat_alignment,8,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
 Gengar,21,stat_alignment,9,Adamant,0.1%,Attack,Sp. Atk,,,,,,
 Gengar,21,stat_alignment,10,Jolly,0.0%,Speed,Sp. Atk,,,,,,
 Gengar,21,stat_points,1,,45.2%,,,2,0,0,32,0,32
-Gengar,21,stat_points,2,,6.8%,,,0,0,2,32,0,32
+Gengar,21,stat_points,2,,6.7%,,,0,0,2,32,0,32
 Gengar,21,stat_points,3,,4.6%,,,14,0,0,20,0,32
 Gengar,21,stat_points,4,,3.9%,,,1,0,1,32,0,32
 Gengar,21,stat_points,5,,2.8%,,,24,0,0,10,0,32

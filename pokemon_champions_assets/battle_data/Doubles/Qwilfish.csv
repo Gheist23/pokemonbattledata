@@ -1,38 +1,39 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Qwilfish,244,move,1,Aqua Jet,88.9%,,,,,,,,
-Qwilfish,244,move,2,Poison Jab,47.2%,,,,,,,,
-Qwilfish,244,move,3,Barb Barrage,45.8%,,,,,,,,
-Qwilfish,244,move,4,Assurance,40.3%,,,,,,,,
-Qwilfish,244,move,5,Self-Destruct,37.5%,,,,,,,,
-Qwilfish,244,move,6,Acupressure,34.7%,,,,,,,,
-Qwilfish,244,move,7,Flip Turn,34.7%,,,,,,,,
-Qwilfish,244,move,8,Destiny Bond,15.3%,,,,,,,,
-Qwilfish,244,move,9,Taunt,9.7%,,,,,,,,
-Qwilfish,244,move,10,Rain Dance,8.3%,,,,,,,,
-Qwilfish,244,held_item,1,Life Orb,37.5%,,,,,,,,
-Qwilfish,244,held_item,2,Rocky Helmet,37.5%,,,,,,,,
-Qwilfish,244,held_item,3,Poison Barb,13.9%,,,,,,,,
-Qwilfish,244,held_item,4,Sitrus Berry,8.3%,,,,,,,,
-Qwilfish,244,teammate,1,Pelipper,,,,,,,,,
-Qwilfish,244,teammate,2,Glalie,,,,,,,,,
-Qwilfish,244,teammate,3,Araquanid,,,,,,,,,
-Qwilfish,244,teammate,4,Oranguru,,,,,,,,,
-Qwilfish,244,teammate,5,Tyranitar,,,,,,,,,
-Qwilfish,244,teammate,6,Salamence,,,,,,,,,
-Qwilfish,244,teammate,7,Golisopod,,,,,,,,,
-Qwilfish,244,teammate,8,Archaludon,,,,,,,,,
-Qwilfish,244,teammate,9,Heracross,,,,,,,,,
-Qwilfish,244,teammate,10,Maushold-Four,,,,,,,,,
-Qwilfish,244,stat_alignment,1,Adamant,88.9%,Attack,Sp. Atk,,,,,,
-Qwilfish,244,stat_alignment,2,Careful,6.9%,Sp. Def,Sp. Atk,,,,,,
-Qwilfish,244,stat_alignment,3,Impish,4.2%,Defense,Sp. Atk,,,,,,
-Qwilfish,244,stat_points,1,,40.3%,,,1,32,0,0,30,1
-Qwilfish,244,stat_points,2,,34.7%,,,32,0,32,0,0,0
-Qwilfish,244,stat_points,3,,6.9%,,,14,32,0,0,0,20
-Qwilfish,244,stat_points,4,,6.9%,,,27,0,15,0,17,7
-Qwilfish,244,stat_points,5,,6.9%,,,29,15,0,0,13,9
-Qwilfish,244,stat_points,6,,2.8%,,,31,1,32,0,0,2
-Qwilfish,244,stat_points,7,,1.4%,,,21,0,25,0,20,0
-Qwilfish,244,ability,1,Poison Point,54.2%,,,,,,,,
-Qwilfish,244,ability,2,Intimidate,25.0%,,,,,,,,
-Qwilfish,244,ability,3,Swift Swim,20.8%,,,,,,,,
+Qwilfish,243,move,1,Aqua Jet,87.2%,,,,,,,,
+Qwilfish,243,move,2,Barb Barrage,50.0%,,,,,,,,
+Qwilfish,243,move,3,Poison Jab,43.6%,,,,,,,,
+Qwilfish,243,move,4,Acupressure,37.2%,,,,,,,,
+Qwilfish,243,move,5,Assurance,37.2%,,,,,,,,
+Qwilfish,243,move,6,Self-Destruct,34.6%,,,,,,,,
+Qwilfish,243,move,7,Flip Turn,32.1%,,,,,,,,
+Qwilfish,243,move,8,Destiny Bond,14.1%,,,,,,,,
+Qwilfish,243,move,9,Minimize,9.0%,,,,,,,,
+Qwilfish,243,move,10,Taunt,9.0%,,,,,,,,
+Qwilfish,243,held_item,1,Rocky Helmet,39.7%,,,,,,,,
+Qwilfish,243,held_item,2,Life Orb,34.6%,,,,,,,,
+Qwilfish,243,held_item,3,Poison Barb,12.8%,,,,,,,,
+Qwilfish,243,held_item,4,Sitrus Berry,10.3%,,,,,,,,
+Qwilfish,243,teammate,1,Pelipper,,,,,,,,,
+Qwilfish,243,teammate,2,Tyranitar,,,,,,,,,
+Qwilfish,243,teammate,3,Glalie,,,,,,,,,
+Qwilfish,243,teammate,4,Salamence,,,,,,,,,
+Qwilfish,243,teammate,5,Araquanid,,,,,,,,,
+Qwilfish,243,teammate,6,Oranguru,,,,,,,,,
+Qwilfish,243,teammate,7,Golisopod,,,,,,,,,
+Qwilfish,243,teammate,8,Archaludon,,,,,,,,,
+Qwilfish,243,teammate,9,Heracross,,,,,,,,,
+Qwilfish,243,teammate,10,Maushold-Four,,,,,,,,,
+Qwilfish,243,stat_alignment,1,Adamant,87.2%,Attack,Sp. Atk,,,,,,
+Qwilfish,243,stat_alignment,2,Careful,9.0%,Sp. Def,Sp. Atk,,,,,,
+Qwilfish,243,stat_alignment,3,Impish,3.8%,Defense,Sp. Atk,,,,,,
+Qwilfish,243,stat_points,1,,37.2%,,,1,32,0,0,30,1
+Qwilfish,243,stat_points,2,,37.2%,,,32,0,32,0,0,0
+Qwilfish,243,stat_points,3,,6.4%,,,14,32,0,0,0,20
+Qwilfish,243,stat_points,4,,6.4%,,,27,0,15,0,17,7
+Qwilfish,243,stat_points,5,,6.4%,,,29,15,0,0,13,9
+Qwilfish,243,stat_points,6,,2.6%,,,31,1,32,0,0,2
+Qwilfish,243,stat_points,7,,2.6%,,,32,0,0,0,32,0
+Qwilfish,243,stat_points,8,,1.3%,,,21,0,25,0,20,0
+Qwilfish,243,ability,1,Poison Point,53.8%,,,,,,,,
+Qwilfish,243,ability,2,Intimidate,23.1%,,,,,,,,
+Qwilfish,243,ability,3,Swift Swim,23.1%,,,,,,,,

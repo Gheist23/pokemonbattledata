@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Espeon,101,move,1,Psychic,55.2%,,,,,,,,
-Espeon,101,move,2,Shadow Ball,34.2%,,,,,,,,
+Espeon,101,move,1,Psychic,55.6%,,,,,,,,
+Espeon,101,move,2,Shadow Ball,34.5%,,,,,,,,
 Espeon,101,move,3,Alluring Voice,32.3%,,,,,,,,
-Espeon,101,move,4,Power Gem,31.6%,,,,,,,,
-Espeon,101,move,5,Calm Mind,27.6%,,,,,,,,
-Espeon,101,move,6,Trick,21.3%,,,,,,,,
-Espeon,101,move,7,Yawn,21.0%,,,,,,,,
-Espeon,101,move,8,Grass Knot,17.8%,,,,,,,,
+Espeon,101,move,4,Power Gem,31.7%,,,,,,,,
+Espeon,101,move,5,Calm Mind,27.4%,,,,,,,,
+Espeon,101,move,6,Trick,21.4%,,,,,,,,
+Espeon,101,move,7,Yawn,21.1%,,,,,,,,
+Espeon,101,move,8,Grass Knot,17.9%,,,,,,,,
 Espeon,101,move,9,Psychic Noise,17.4%,,,,,,,,
-Espeon,101,move,10,Dazzling Gleam,15.7%,,,,,,,,
+Espeon,101,move,10,Dazzling Gleam,15.9%,,,,,,,,
 Espeon,101,held_item,1,Choice Scarf,22.9%,,,,,,,,
-Espeon,101,held_item,2,Focus Sash,17.9%,,,,,,,,
+Espeon,101,held_item,2,Focus Sash,18.1%,,,,,,,,
 Espeon,101,held_item,3,Light Clay,13.7%,,,,,,,,
-Espeon,101,held_item,4,Leftovers,11.4%,,,,,,,,
-Espeon,101,held_item,5,Sitrus Berry,9.5%,,,,,,,,
-Espeon,101,held_item,6,Air Balloon,7.9%,,,,,,,,
-Espeon,101,held_item,7,Life Orb,2.9%,,,,,,,,
+Espeon,101,held_item,4,Leftovers,11.2%,,,,,,,,
+Espeon,101,held_item,5,Sitrus Berry,9.3%,,,,,,,,
+Espeon,101,held_item,6,Air Balloon,8.0%,,,,,,,,
+Espeon,101,held_item,7,Life Orb,3.0%,,,,,,,,
 Espeon,101,held_item,8,Terrain Extender,1.9%,,,,,,,,
 Espeon,101,held_item,9,Expert Belt,1.7%,,,,,,,,
-Espeon,101,held_item,10,Banettite,1.7%,,,,,,,,
+Espeon,101,held_item,10,Banettite,1.6%,,,,,,,,
 Espeon,101,teammate,1,Charizard,,,,,,,,,
 Espeon,101,teammate,2,Garchomp,,,,,,,,,
 Espeon,101,teammate,3,Umbreon,,,,,,,,,
@@ -28,26 +28,26 @@ Espeon,101,teammate,6,Primarina,,,,,,,,,
 Espeon,101,teammate,7,Blastoise,,,,,,,,,
 Espeon,101,teammate,8,Gyarados,,,,,,,,,
 Espeon,101,teammate,9,Dragonite,,,,,,,,,
-Espeon,101,teammate,10,Scolipede,,,,,,,,,
+Espeon,101,teammate,10,Archaludon,,,,,,,,,
 Espeon,101,stat_alignment,1,Timid,51.5%,Speed,Attack,,,,,,
-Espeon,101,stat_alignment,2,Modest,27.1%,Sp. Atk,Attack,,,,,,
-Espeon,101,stat_alignment,3,Calm,9.4%,Sp. Def,Attack,,,,,,
-Espeon,101,stat_alignment,4,Bold,9.2%,Defense,Attack,,,,,,
-Espeon,101,stat_alignment,5,Mild,1.6%,Sp. Atk,Defense,,,,,,
+Espeon,101,stat_alignment,2,Modest,27.2%,Sp. Atk,Attack,,,,,,
+Espeon,101,stat_alignment,3,Calm,9.3%,Sp. Def,Attack,,,,,,
+Espeon,101,stat_alignment,4,Bold,9.0%,Defense,Attack,,,,,,
+Espeon,101,stat_alignment,5,Mild,1.5%,Sp. Atk,Defense,,,,,,
 Espeon,101,stat_alignment,6,Quiet,0.8%,Sp. Atk,Speed,,,,,,
 Espeon,101,stat_alignment,7,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
 Espeon,101,stat_alignment,8,Relaxed,0.1%,Defense,Speed,,,,,,
-Espeon,101,stat_alignment,9,Naive,0.0%,Speed,Sp. Def,,,,,,
-Espeon,101,stat_alignment,10,Hasty,0.0%,Speed,Defense,,,,,,
-Espeon,101,stat_points,1,,25.8%,,,2,0,0,32,0,32
-Espeon,101,stat_points,2,,8.6%,,,1,0,1,32,0,32
-Espeon,101,stat_points,3,,5.0%,,,32,0,0,0,26,8
-Espeon,101,stat_points,4,,4.6%,,,0,0,0,32,2,32
+Espeon,101,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
+Espeon,101,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
+Espeon,101,stat_points,1,,25.9%,,,2,0,0,32,0,32
+Espeon,101,stat_points,2,,8.5%,,,1,0,1,32,0,32
+Espeon,101,stat_points,3,,4.9%,,,32,0,0,0,26,8
+Espeon,101,stat_points,4,,4.5%,,,0,0,0,32,2,32
 Espeon,101,stat_points,5,,3.4%,,,32,0,0,2,0,32
-Espeon,101,stat_points,6,,2.8%,,,1,0,0,32,1,32
-Espeon,101,stat_points,7,,2.5%,,,32,0,2,0,0,32
-Espeon,101,stat_points,8,,1.9%,,,31,0,32,0,3,0
-Espeon,101,stat_points,9,,1.9%,,,32,0,0,32,2,0
+Espeon,101,stat_points,6,,3.0%,,,1,0,0,32,1,32
+Espeon,101,stat_points,7,,2.7%,,,32,0,2,0,0,32
+Espeon,101,stat_points,8,,1.9%,,,32,0,0,32,2,0
+Espeon,101,stat_points,9,,1.9%,,,31,0,32,0,3,0
 Espeon,101,stat_points,10,,1.7%,,,0,0,2,32,0,32
 Espeon,101,ability,1,Magic Bounce,99.4%,,,,,,,,
 Espeon,101,ability,2,Synchronize,0.6%,,,,,,,,

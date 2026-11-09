@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Froslass,85,move,1,Blizzard,96.0%,,,,,,,,
 Froslass,85,move,2,Shadow Ball,83.4%,,,,,,,,
-Froslass,85,move,3,Thunderbolt,65.3%,,,,,,,,
+Froslass,85,move,3,Thunderbolt,65.4%,,,,,,,,
 Froslass,85,move,4,Nasty Plot,43.3%,,,,,,,,
 Froslass,85,move,5,Aurora Veil,31.6%,,,,,,,,
-Froslass,85,move,6,Destiny Bond,24.4%,,,,,,,,
+Froslass,85,move,6,Destiny Bond,24.3%,,,,,,,,
 Froslass,85,move,7,Will-O-Wisp,11.2%,,,,,,,,
-Froslass,85,move,8,Taunt,7.0%,,,,,,,,
+Froslass,85,move,8,Taunt,6.9%,,,,,,,,
 Froslass,85,move,9,Ice Shard,6.7%,,,,,,,,
 Froslass,85,move,10,Hex,6.7%,,,,,,,,
 Froslass,85,held_item,1,Froslassite,96.2%,,,,,,,,
@@ -17,8 +17,8 @@ Froslass,85,held_item,5,Quick Claw,0.1%,,,,,,,,
 Froslass,85,held_item,6,Life Orb,0.1%,,,,,,,,
 Froslass,85,held_item,7,Babiri Berry,0.1%,,,,,,,,
 Froslass,85,held_item,8,Light Clay,0.0%,,,,,,,,
-Froslass,85,held_item,9,Air Balloon,0.0%,,,,,,,,
-Froslass,85,held_item,10,Abomasite,0.0%,,,,,,,,
+Froslass,85,held_item,9,Kasib Berry,0.0%,,,,,,,,
+Froslass,85,held_item,10,Air Balloon,0.0%,,,,,,,,
 Froslass,85,teammate,1,Garchomp,,,,,,,,,
 Froslass,85,teammate,2,Indeedee,,,,,,,,,
 Froslass,85,teammate,3,Primarina,,,,,,,,,
@@ -39,8 +39,8 @@ Froslass,85,stat_alignment,7,Bold,0.1%,Defense,Attack,,,,,,
 Froslass,85,stat_alignment,8,Hasty,0.1%,Speed,Defense,,,,,,
 Froslass,85,stat_alignment,9,Mild,0.0%,Sp. Atk,Defense,,,,,,
 Froslass,85,stat_alignment,10,Quiet,0.0%,Sp. Atk,Speed,,,,,,
-Froslass,85,stat_points,1,,41.9%,,,2,0,0,32,0,32
-Froslass,85,stat_points,2,,7.6%,,,14,0,0,20,0,32
+Froslass,85,stat_points,1,,41.8%,,,2,0,0,32,0,32
+Froslass,85,stat_points,2,,7.7%,,,14,0,0,20,0,32
 Froslass,85,stat_points,3,,4.5%,,,8,0,1,32,0,25
 Froslass,85,stat_points,4,,4.3%,,,0,0,0,32,2,32
 Froslass,85,stat_points,5,,4.1%,,,0,0,2,32,0,32
@@ -49,5 +49,5 @@ Froslass,85,stat_points,7,,1.6%,,,12,0,0,22,0,32
 Froslass,85,stat_points,8,,1.3%,,,26,0,0,19,3,18
 Froslass,85,stat_points,9,,1.3%,,,24,0,2,25,0,15
 Froslass,85,stat_points,10,,1.2%,,,10,0,0,24,0,32
-Froslass,85,ability,1,Cursed Body,82.9%,,,,,,,,
-Froslass,85,ability,2,Snow Cloak,17.1%,,,,,,,,
+Froslass,85,ability,1,Cursed Body,82.7%,,,,,,,,
+Froslass,85,ability,2,Snow Cloak,17.3%,,,,,,,,

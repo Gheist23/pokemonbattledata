@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Starmie,47,move,1,Aqua Jet,87.5%,,,,,,,,
-Starmie,47,move,2,Ice Spinner,73.2%,,,,,,,,
-Starmie,47,move,3,Liquidation,66.6%,,,,,,,,
-Starmie,47,move,4,Psycho Cut,62.8%,,,,,,,,
-Starmie,47,move,5,Flip Turn,61.9%,,,,,,,,
-Starmie,47,move,6,Zen Headbutt,13.2%,,,,,,,,
-Starmie,47,move,7,Minimize,5.2%,,,,,,,,
-Starmie,47,move,8,Recover,4.9%,,,,,,,,
-Starmie,47,move,9,Substitute,4.5%,,,,,,,,
-Starmie,47,move,10,Waterfall,4.0%,,,,,,,,
+Starmie,47,move,1,Aqua Jet,87.6%,,,,,,,,
+Starmie,47,move,2,Ice Spinner,73.5%,,,,,,,,
+Starmie,47,move,3,Liquidation,67.1%,,,,,,,,
+Starmie,47,move,4,Flip Turn,62.5%,,,,,,,,
+Starmie,47,move,5,Psycho Cut,61.9%,,,,,,,,
+Starmie,47,move,6,Zen Headbutt,13.0%,,,,,,,,
+Starmie,47,move,7,Minimize,5.1%,,,,,,,,
+Starmie,47,move,8,Recover,4.8%,,,,,,,,
+Starmie,47,move,9,Substitute,4.4%,,,,,,,,
+Starmie,47,move,10,Waterfall,3.9%,,,,,,,,
 Starmie,47,held_item,1,Starminite,96.6%,,,,,,,,
 Starmie,47,held_item,2,Bright Powder,1.1%,,,,,,,,
 Starmie,47,held_item,3,Focus Sash,0.7%,,,,,,,,
@@ -16,9 +16,9 @@ Starmie,47,held_item,4,Leftovers,0.5%,,,,,,,,
 Starmie,47,held_item,5,Life Orb,0.3%,,,,,,,,
 Starmie,47,held_item,6,Expert Belt,0.3%,,,,,,,,
 Starmie,47,held_item,7,Choice Scarf,0.2%,,,,,,,,
-Starmie,47,held_item,8,Chesto Berry,0.0%,,,,,,,,
-Starmie,47,held_item,9,Sitrus Berry,0.0%,,,,,,,,
-Starmie,47,held_item,10,Iron Ball,0.0%,,,,,,,,
+Starmie,47,held_item,8,Sitrus Berry,0.0%,,,,,,,,
+Starmie,47,held_item,9,Light Clay,0.0%,,,,,,,,
+Starmie,47,held_item,10,Chesto Berry,0.0%,,,,,,,,
 Starmie,47,teammate,1,Garchomp,,,,,,,,,
 Starmie,47,teammate,2,Corviknight,,,,,,,,,
 Starmie,47,teammate,3,Hippowdon,,,,,,,,,
@@ -29,26 +29,26 @@ Starmie,47,teammate,7,Hydreigon,,,,,,,,,
 Starmie,47,teammate,8,Raichu,,,,,,,,,
 Starmie,47,teammate,9,Charizard,,,,,,,,,
 Starmie,47,teammate,10,Umbreon,,,,,,,,,
-Starmie,47,stat_alignment,1,Adamant,63.0%,Attack,Sp. Atk,,,,,,
-Starmie,47,stat_alignment,2,Jolly,31.8%,Speed,Sp. Atk,,,,,,
+Starmie,47,stat_alignment,1,Adamant,63.5%,Attack,Sp. Atk,,,,,,
+Starmie,47,stat_alignment,2,Jolly,31.3%,Speed,Sp. Atk,,,,,,
 Starmie,47,stat_alignment,3,Timid,3.1%,Speed,Attack,,,,,,
 Starmie,47,stat_alignment,4,Modest,0.8%,Sp. Atk,Attack,,,,,,
 Starmie,47,stat_alignment,5,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
-Starmie,47,stat_alignment,6,Naive,0.2%,Speed,Sp. Def,,,,,,
+Starmie,47,stat_alignment,6,Naive,0.3%,Speed,Sp. Def,,,,,,
 Starmie,47,stat_alignment,7,Impish,0.2%,Defense,Sp. Atk,,,,,,
-Starmie,47,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Starmie,47,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Starmie,47,stat_alignment,9,Naughty,0.1%,Attack,Sp. Def,,,,,,
-Starmie,47,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Starmie,47,stat_points,1,,41.2%,,,2,32,0,0,0,32
-Starmie,47,stat_points,2,,6.4%,,,8,32,3,0,0,23
-Starmie,47,stat_points,3,,6.1%,,,6,30,0,0,0,30
-Starmie,47,stat_points,4,,3.9%,,,24,24,0,0,18,0
+Starmie,47,stat_alignment,10,Bold,0.1%,Defense,Attack,,,,,,
+Starmie,47,stat_points,1,,40.8%,,,2,32,0,0,0,32
+Starmie,47,stat_points,2,,6.8%,,,6,30,0,0,0,30
+Starmie,47,stat_points,3,,6.3%,,,8,32,3,0,0,23
+Starmie,47,stat_points,4,,3.8%,,,24,24,0,0,18,0
 Starmie,47,stat_points,5,,3.5%,,,8,23,3,0,0,32
-Starmie,47,stat_points,6,,3.5%,,,32,32,0,0,0,2
-Starmie,47,stat_points,7,,1.7%,,,0,32,2,0,0,32
+Starmie,47,stat_points,6,,3.4%,,,32,32,0,0,0,2
+Starmie,47,stat_points,7,,1.6%,,,0,32,2,0,0,32
 Starmie,47,stat_points,8,,1.6%,,,8,32,1,0,0,25
 Starmie,47,stat_points,9,,1.5%,,,32,32,2,0,0,0
-Starmie,47,stat_points,10,,1.4%,,,4,32,0,0,0,30
+Starmie,47,stat_points,10,,1.5%,,,4,32,0,0,0,30
 Starmie,47,ability,1,Natural Cure,91.2%,,,,,,,,
-Starmie,47,ability,2,Illuminate,5.5%,,,,,,,,
-Starmie,47,ability,3,Analytic,3.3%,,,,,,,,
+Starmie,47,ability,2,Illuminate,5.6%,,,,,,,,
+Starmie,47,ability,3,Analytic,3.2%,,,,,,,,

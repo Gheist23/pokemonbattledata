@@ -1,39 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dedenne,256,move,1,Dazzling Gleam,91.3%,,,,,,,,
-Dedenne,256,move,2,Protect,82.6%,,,,,,,,
-Dedenne,256,move,3,Electroweb,56.5%,,,,,,,,
-Dedenne,256,move,4,Fling,34.8%,,,,,,,,
-Dedenne,256,move,5,Parabolic Charge,30.4%,,,,,,,,
-Dedenne,256,move,6,Entrainment,26.1%,,,,,,,,
-Dedenne,256,move,7,Electric Terrain,26.1%,,,,,,,,
-Dedenne,256,move,8,Helping Hand,17.4%,,,,,,,,
-Dedenne,256,move,9,Super Fang,8.7%,,,,,,,,
-Dedenne,256,move,10,Sunny Day,8.7%,,,,,,,,
-Dedenne,256,held_item,1,King's Rock,34.8%,,,,,,,,
-Dedenne,256,held_item,2,Focus Sash,26.1%,,,,,,,,
-Dedenne,256,held_item,3,Sitrus Berry,17.4%,,,,,,,,
-Dedenne,256,held_item,4,Kebia Berry,8.7%,,,,,,,,
-Dedenne,256,held_item,5,Shuca Berry,8.7%,,,,,,,,
-Dedenne,256,held_item,6,Quick Claw,4.3%,,,,,,,,
+Dedenne,256,move,1,Dazzling Gleam,93.3%,,,,,,,,
+Dedenne,256,move,2,Electroweb,66.7%,,,,,,,,
+Dedenne,256,move,3,Protect,63.3%,,,,,,,,
+Dedenne,256,move,4,Super Fang,30.0%,,,,,,,,
+Dedenne,256,move,5,Fling,26.7%,,,,,,,,
+Dedenne,256,move,6,Volt Switch,23.3%,,,,,,,,
+Dedenne,256,move,7,Parabolic Charge,23.3%,,,,,,,,
+Dedenne,256,move,8,Entrainment,20.0%,,,,,,,,
+Dedenne,256,move,9,Electric Terrain,20.0%,,,,,,,,
+Dedenne,256,move,10,Helping Hand,13.3%,,,,,,,,
+Dedenne,256,held_item,1,King's Rock,26.7%,,,,,,,,
+Dedenne,256,held_item,2,Choice Scarf,23.3%,,,,,,,,
+Dedenne,256,held_item,3,Focus Sash,20.0%,,,,,,,,
+Dedenne,256,held_item,4,Sitrus Berry,13.3%,,,,,,,,
+Dedenne,256,held_item,5,Kebia Berry,6.7%,,,,,,,,
+Dedenne,256,held_item,6,Shuca Berry,6.7%,,,,,,,,
+Dedenne,256,held_item,7,Quick Claw,3.3%,,,,,,,,
 Dedenne,256,teammate,1,Rillaboom,,,,,,,,,
 Dedenne,256,teammate,2,Toxtricity,,,,,,,,,
 Dedenne,256,teammate,3,Talonflame,,,,,,,,,
 Dedenne,256,teammate,4,Floette-Eternal,,,,,,,,,
 Dedenne,256,teammate,5,Sneasler,,,,,,,,,
-Dedenne,256,teammate,6,Raichu,,,,,,,,,
-Dedenne,256,teammate,7,Heracross,,,,,,,,,
-Dedenne,256,teammate,8,Weavile,,,,,,,,,
-Dedenne,256,teammate,9,Chandelure,,,,,,,,,
-Dedenne,256,teammate,10,Goodra-Hisui,,,,,,,,,
-Dedenne,256,stat_alignment,1,Timid,60.9%,Speed,Attack,,,,,,
-Dedenne,256,stat_alignment,2,Modest,30.4%,Sp. Atk,Attack,,,,,,
-Dedenne,256,stat_alignment,3,Jolly,8.7%,Speed,Sp. Atk,,,,,,
-Dedenne,256,stat_points,1,,34.8%,,,0,0,0,32,2,32
-Dedenne,256,stat_points,2,,21.7%,,,1,0,0,32,1,32
-Dedenne,256,stat_points,3,,17.4%,,,32,0,0,32,2,0
-Dedenne,256,stat_points,4,,8.7%,,,2,0,0,32,0,32
-Dedenne,256,stat_points,5,,8.7%,,,30,0,7,0,0,29
-Dedenne,256,stat_points,6,,8.7%,,,32,0,23,0,11,0
-Dedenne,256,ability,1,Plus,60.9%,,,,,,,,
-Dedenne,256,ability,2,Cheek Pouch,34.8%,,,,,,,,
-Dedenne,256,ability,3,Pickup,4.3%,,,,,,,,
+Dedenne,256,teammate,6,Froslass,,,,,,,,,
+Dedenne,256,teammate,7,Hydreigon,,,,,,,,,
+Dedenne,256,teammate,8,Primarina,,,,,,,,,
+Dedenne,256,teammate,9,Farigiraf,,,,,,,,,
+Dedenne,256,teammate,10,Raichu,,,,,,,,,
+Dedenne,256,stat_alignment,1,Timid,46.7%,Speed,Attack,,,,,,
+Dedenne,256,stat_alignment,2,Modest,46.7%,Sp. Atk,Attack,,,,,,
+Dedenne,256,stat_alignment,3,Jolly,6.7%,Speed,Sp. Atk,,,,,,
+Dedenne,256,stat_points,1,,26.7%,,,0,0,0,32,2,32
+Dedenne,256,stat_points,2,,23.3%,,,0,0,5,32,0,29
+Dedenne,256,stat_points,3,,16.7%,,,1,0,0,32,1,32
+Dedenne,256,stat_points,4,,13.3%,,,32,0,0,32,2,0
+Dedenne,256,stat_points,5,,6.7%,,,2,0,0,32,0,32
+Dedenne,256,stat_points,6,,6.7%,,,30,0,7,0,0,29
+Dedenne,256,stat_points,7,,6.7%,,,32,0,23,0,11,0
+Dedenne,256,ability,1,Plus,70.0%,,,,,,,,
+Dedenne,256,ability,2,Cheek Pouch,26.7%,,,,,,,,
+Dedenne,256,ability,3,Pickup,3.3%,,,,,,,,

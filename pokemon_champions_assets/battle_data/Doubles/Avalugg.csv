@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Avalugg,227,move,1,Wide Guard,84.5%,,,,,,,,
-Avalugg,227,move,2,Body Press,67.8%,,,,,,,,
-Avalugg,227,move,3,Mirror Coat,40.8%,,,,,,,,
-Avalugg,227,move,4,Ice Spinner,35.1%,,,,,,,,
-Avalugg,227,move,5,Iron Defense,24.7%,,,,,,,,
-Avalugg,227,move,6,Blizzard,21.3%,,,,,,,,
-Avalugg,227,move,7,High Horsepower,21.3%,,,,,,,,
-Avalugg,227,move,8,Frost Breath,19.0%,,,,,,,,
-Avalugg,227,move,9,Aurora Veil,19.0%,,,,,,,,
-Avalugg,227,move,10,Protect,18.4%,,,,,,,,
-Avalugg,227,held_item,1,Sitrus Berry,27.6%,,,,,,,,
-Avalugg,227,held_item,2,Leftovers,27.6%,,,,,,,,
-Avalugg,227,held_item,3,Never-Melt Ice,21.3%,,,,,,,,
-Avalugg,227,held_item,4,Terrain Extender,9.2%,,,,,,,,
-Avalugg,227,held_item,5,Black Belt,5.2%,,,,,,,,
-Avalugg,227,held_item,6,Wide Lens,3.4%,,,,,,,,
-Avalugg,227,held_item,7,Light Clay,1.7%,,,,,,,,
+Avalugg,227,move,1,Wide Guard,84.7%,,,,,,,,
+Avalugg,227,move,2,Body Press,64.6%,,,,,,,,
+Avalugg,227,move,3,Mirror Coat,37.6%,,,,,,,,
+Avalugg,227,move,4,Ice Spinner,37.0%,,,,,,,,
+Avalugg,227,move,5,Blizzard,24.3%,,,,,,,,
+Avalugg,227,move,6,High Horsepower,24.3%,,,,,,,,
+Avalugg,227,move,7,Iron Defense,22.8%,,,,,,,,
+Avalugg,227,move,8,Protect,18.0%,,,,,,,,
+Avalugg,227,move,9,Icicle Crash,18.0%,,,,,,,,
+Avalugg,227,move,10,Frost Breath,17.5%,,,,,,,,
+Avalugg,227,held_item,1,Leftovers,28.6%,,,,,,,,
+Avalugg,227,held_item,2,Sitrus Berry,25.4%,,,,,,,,
+Avalugg,227,held_item,3,Never-Melt Ice,24.3%,,,,,,,,
+Avalugg,227,held_item,4,Terrain Extender,8.5%,,,,,,,,
+Avalugg,227,held_item,5,Black Belt,4.8%,,,,,,,,
+Avalugg,227,held_item,6,Wide Lens,3.2%,,,,,,,,
+Avalugg,227,held_item,7,Light Clay,1.6%,,,,,,,,
 Avalugg,227,held_item,8,Quick Claw,1.1%,,,,,,,,
 Avalugg,227,held_item,9,Focus Sash,1.1%,,,,,,,,
 Avalugg,227,held_item,10,Rocky Helmet,1.1%,,,,,,,,
@@ -28,19 +28,21 @@ Avalugg,227,teammate,6,Abomasnow,,,,,,,,,
 Avalugg,227,teammate,7,Mamoswine,,,,,,,,,
 Avalugg,227,teammate,8,Rotom-Frost,,,,,,,,,
 Avalugg,227,teammate,9,Hatterene,,,,,,,,,
-Avalugg,227,teammate,10,Toxapex,,,,,,,,,
-Avalugg,227,stat_alignment,1,Impish,52.9%,Defense,Sp. Atk,,,,,,
-Avalugg,227,stat_alignment,2,Relaxed,29.3%,Defense,Speed,,,,,,
-Avalugg,227,stat_alignment,3,Careful,9.2%,Sp. Def,Sp. Atk,,,,,,
-Avalugg,227,stat_alignment,4,Sassy,8.0%,Sp. Def,Speed,,,,,,
-Avalugg,227,stat_alignment,5,Adamant,0.6%,Attack,Sp. Atk,,,,,,
-Avalugg,227,stat_points,1,,62.1%,,,2,32,32,0,0,0
-Avalugg,227,stat_points,2,,15.5%,,,32,0,32,0,2,0
-Avalugg,227,stat_points,3,,9.8%,,,2,0,32,0,32,0
-Avalugg,227,stat_points,4,,6.3%,,,32,0,0,0,32,0
-Avalugg,227,stat_points,5,,4.0%,,,31,2,32,0,0,0
-Avalugg,227,stat_points,6,,1.7%,,,32,0,2,0,32,0
-Avalugg,227,stat_points,7,,0.6%,,,3,31,32,0,0,0
-Avalugg,227,ability,1,Sturdy,60.3%,,,,,,,,
-Avalugg,227,ability,2,Ice Body,27.6%,,,,,,,,
-Avalugg,227,ability,3,Own Tempo,12.1%,,,,,,,,
+Avalugg,227,teammate,10,Snorlax,,,,,,,,,
+Avalugg,227,stat_alignment,1,Impish,53.4%,Defense,Sp. Atk,,,,,,
+Avalugg,227,stat_alignment,2,Relaxed,27.0%,Defense,Speed,,,,,,
+Avalugg,227,stat_alignment,3,Careful,10.6%,Sp. Def,Sp. Atk,,,,,,
+Avalugg,227,stat_alignment,4,Sassy,7.4%,Sp. Def,Speed,,,,,,
+Avalugg,227,stat_alignment,5,Brave,1.1%,Attack,Speed,,,,,,
+Avalugg,227,stat_alignment,6,Adamant,0.5%,Attack,Sp. Atk,,,,,,
+Avalugg,227,stat_points,1,,63.0%,,,2,32,32,0,0,0
+Avalugg,227,stat_points,2,,14.3%,,,32,0,32,0,2,0
+Avalugg,227,stat_points,3,,9.0%,,,2,0,32,0,32,0
+Avalugg,227,stat_points,4,,5.8%,,,32,0,0,0,32,0
+Avalugg,227,stat_points,5,,3.7%,,,31,2,32,0,0,0
+Avalugg,227,stat_points,6,,2.1%,,,30,4,32,0,0,0
+Avalugg,227,stat_points,7,,1.6%,,,32,0,2,0,32,0
+Avalugg,227,stat_points,8,,0.5%,,,3,31,32,0,0,0
+Avalugg,227,ability,1,Sturdy,58.7%,,,,,,,,
+Avalugg,227,ability,2,Ice Body,30.2%,,,,,,,,
+Avalugg,227,ability,3,Own Tempo,11.1%,,,,,,,,

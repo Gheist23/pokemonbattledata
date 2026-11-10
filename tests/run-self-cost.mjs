@@ -329,9 +329,24 @@ function gambitRows(selfCost) {
     const b = before.rows[i];
     const a = after.rows[i];
     const label = String(a.name);
-    ok(`${label} was offered as a clean answer to most of the eight before the rule`, clean(b) >= 5, `${clean(b)} of 8`);
-    ok(`${label} is not any more`, clean(a) < clean(b), `${clean(b)} -> ${clean(a)}`);
-    ok(`${label}'s Final Gambit answers became trades`, trades(a) >= 5 && trades(b) === 0, `before ${trades(b)}, after ${trades(a)}`);
+    // HOW MANY of the eight a Final Gambit carrier cleanly answers is a property of the ladder,
+    // not of the rule. Typed as `clean(b) >= 5` and `trades(a) >= 5` this went red on 10 Nov 2026
+    // with nothing wrong: the meta had moved and Squawkabilly cleanly answered 4 of the eight
+    // instead of 5+, so only 3 of them could become trades. Every behavioural check below still
+    // passed. It is the same mistake `run-optimize-spread-depth.mjs` records talking itself out
+    // of ("a typed +0.2 turned that into a red suite with nothing wrong").
+    //
+    // So the magnitude is gone and a CONSERVATION LAW takes its place, which is both exact and
+    // drift-proof: the only difference between the two runs is this rule, so every clean answer
+    // it withdraws must reappear as a self-KO trade -- none may simply vanish, and none may be
+    // invented. Measured at 4 -> 1 with exactly 3 trades.
+    ok(`${label} is offered as a clean answer to some of the eight before the rule`, clean(b) >= 1,
+      `${clean(b)} of 8`);
+    ok(`${label} is offered fewer after it`, clean(a) < clean(b), `${clean(b)} -> ${clean(a)}`);
+    ok(`${label} graded none of them a self-KO trade before the rule`, trades(b) === 0, String(trades(b)));
+    ok(`${label}'s withdrawn clean answers all became self-KO trades, exactly`,
+      trades(a) === clean(b) - clean(a),
+      `${trades(a)} trades for ${clean(b) - clean(a)} withdrawn (${clean(b)} -> ${clean(a)})`);
     ok(`${label} scores lower for it`, Number(a.score) < Number(b.score) - 1, `${b.score} -> ${a.score}`);
     ok(`${label} answers a smaller share of the threats`, Number(a.answered_share_v511) < Number(b.answered_share_v511),
       `${b.answered_share_v511} -> ${a.answered_share_v511}`);

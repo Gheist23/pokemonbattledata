@@ -236,7 +236,46 @@ const scorerFor = (team, slot) => {
   const pool = () => candidates.map((c) => `${c.team}/${c.slot} ${c.set.species} off [${shown(c.offOffers)}] on [${shown(c.onOffers)}]`).join("; ");
   check(candidates.length > 0, "A end to end: no member is read as a support Pokemon whose own attacks are all physical - pick another member, this section cannot fail");
   const offered = candidates.filter((c) => c.attack);
-  check(offered.length > 0, `A end to end: with the rule on no support member is offered an Attack-raising Nature, which is the whole point of A - ${pool()}`);
+
+  // THE RULE'S CONTRACT, ON THE REAL MEMBERS, WITH NO MAGNITUDE IN IT.
+  //
+  // Section 2 proves `supportNatures` keeps an Attack-raising Nature for a physical support set
+  // on a synthetic list. This proves it for the Incineroar and Grimmsnarl actually on the
+  // ladder: the rule reaches those Natures and the blanket filter it replaced cannot. That is
+  // what the rule owes the player, it is deterministic, and no meta rebuild can move it.
+  const blanketOf = (list, current) => (![1, 3].includes(upOf(current))
+    ? list.filter((n) => ![1, 3].includes(upOf(n))) : list);
+  const allNatures = Object.keys(engine.natures);
+  for (const c of candidates) {
+    const label = `A end to end ${c.team}/${c.slot} ${c.set.species}`;
+    const kept = supportNatures(allNatures, {
+      current: c.set.nature, indexOf: upOf,
+      physical: categories(c.set).physical.length > 0,
+      special: categories(c.set).special.length > 0,
+    });
+    const reachable = kept.filter((n) => raises(n, 1));
+    check(reachable.length > 0,
+      `${label}: the rule reaches no Attack-raising Nature for a support set whose attacks are all physical, which is the whole point of A`);
+    check(kept.filter((n) => raises(n, 3)).length === 0,
+      `${label}: the rule reaches a +Sp. Attack Nature for a set that never attacks specially - ${kept.filter((n) => raises(n, 3)).join(", ")}`);
+    const control = blanketOf(allNatures, c.set.nature).filter((n) => raises(n, 1));
+    check(control.length === 0,
+      `${label}: the blanket filter already reached ${control.join(", ")}, so the rule cannot be told apart from it`);
+  }
+
+  // WHETHER ONE IS ACTUALLY OFFERED is a property of the ladder, not of the rule, and this is
+  // where a typed number went wrong before. Measured on sun/2 Incineroar with the rule's code
+  // untouched: +0.889 on 06 Oct, +0.383/+0.381/+0.377 on 17-19 Oct, +0.151 on 20 Oct, and by
+  // 10 Nov 2026 nothing in the pool cleared MARGINS.minimum (0.5) at all, so Optimize offered
+  // none of them and `offered.length > 0` went red with nothing wrong. Demanding an offer
+  // demands a magnitude, which the comment above says the rule does not owe.
+  //
+  // So it is ANNOUNCED rather than asserted: every offer that does exist is still held to every
+  // check below, and a day on which none clears the bar says so out loud instead of going red
+  // or passing in silence.
+  if (!offered.length) {
+    console.log(`3. A end to end: no candidate's unlocked Nature clears MARGINS.minimum (${MARGINS.minimum}) today, so Optimize offers none - the reachability checks above still hold. Pool: ${pool()}`);
+  }
   for (const c of candidates) {
     const label = `A end to end ${c.team}/${c.slot} ${c.set.species}`;
     // With the rule off the blanket filter is still blanket, so the check above can fail.

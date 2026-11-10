@@ -835,33 +835,68 @@ const isMegaForm = (form) => String(form || "").trim().toLowerCase().startsWith(
 }
 
 // ---------------------------------------------------------------------------
-// 5b. the pool the opponent searches lines up with the real board
+// 5b. a board index names the same Pokemon on the real board
 // ---------------------------------------------------------------------------
 {
   // The opponent's chosen actions come back as INDICES -- which seat acted, which bench slot a
-  // switch takes -- and they are applied to the real board. They only mean the same thing on
-  // both boards while the two lists are in the same order, and `buildState` reorders its rows to
-  // put whoever is standing first. `applySwitches` keeps the real list in that order too, so the
-  // two coincide; if it ever stopped doing that, the opponent would switch to the wrong Pokemon
-  // and nothing would look wrong about the turn.
+  // switch takes -- and they are applied to the real board. What matters is that an index means
+  // the same Pokemon on both, and it is `readJoint` that guarantees it: `possibleBoards` lays the
+  // rows out in SEAT order (`seatOrder` = [standing..., bench...], which is how `buildState`
+  // re-seats them) and `readJoint` looks the chosen row back up in that same order and re-indexes
+  // it into `state.sides[1]`. `chooseFoe` -- the only way an opponent's choice reaches the game --
+  // returns `readJoint(...)`, so nothing unsanitised gets through.
+  //
+  // THIS SECTION USED TO COMPARE THE TWO ORDERS AS STRINGS and demand they be equal, on the
+  // premise that the real list is kept re-seated after a switch. It is not, and it does not need
+  // to be: measured 10 Nov 2026, after both sides switched the board read
+  // [Archaludon, Golisopod, Sneasler, Grimmsnarl] against a real list of
+  // [Sneasler, Golisopod, Archaludon, Grimmsnarl] -- a genuine difference, and harmless, because
+  // `readJoint` translates. The old check tested an invariant the code had stopped needing while
+  // the one it actually relies on went untested, so this asks for the real thing instead: same
+  // Pokemon, standing first, and every index resolving to the row it named.
   const lined = new PlayGame(solver, data, FORMAT, library);
   lined.start({ player: PLAYER, foe: FOE, seed: 31 });
   const check = (when) => {
     const boards = lined.possibleBoards(4);
+    let sameSet = 0;
+    let standingFirst = 0;
+    let resolved = 0;
+    let wrong = [];
     for (const board of boards) {
       // Side 0 of a possible board is the OPPONENT, which is side 1 of the real one.
       const theirs = board.sides[0].map((row) => row.set.species);
       const real = lined.state.sides[1].map((m) => m.u.species);
-      ok(`${when}: the opponent's rows are in the board's own order`,
-        JSON.stringify(theirs) === JSON.stringify(real), `${JSON.stringify(theirs)} vs ${JSON.stringify(real)}`);
-      checked -= 1;
-      const mine = board.sides[1].map((row) => row.set.species);
-      const realMine = lined.state.sides[0].map((m) => m.u.species);
-      ok(`${when}: and so are ours`, JSON.stringify(mine) === JSON.stringify(realMine),
-        `${JSON.stringify(mine)} vs ${JSON.stringify(realMine)}`);
-      checked -= 1;
+      // (a) nobody dropped, nobody duplicated -- what the old string compare was really after.
+      if (JSON.stringify([...theirs].sort()) === JSON.stringify([...real].sort())) sameSet += 1;
+      else wrong.push(`set ${JSON.stringify(theirs)} vs ${JSON.stringify(real)}`);
+      // (b) the seat contract `buildState` re-seats by: everyone standing comes first.
+      const standing = lined.state.active[1].filter(Boolean).map((m) => m.u.species);
+      if (JSON.stringify(theirs.slice(0, standing.length)) === JSON.stringify(standing)) standingFirst += 1;
+      else wrong.push(`seats ${JSON.stringify(theirs)} vs standing ${JSON.stringify(standing)}`);
+      // (c) THE ONE THAT WOULD HURT: every index the opponent could send back must land on the
+      // Pokemon the board's row of that index names.
+      let allRight = true;
+      for (let i = 0; i < board.sides[0].length; i += 1) {
+        const [action] = lined.readJoint([{ position: 0, kind: 2, into: i }]);
+        const at = action?.into;
+        const landed = at === null || at === undefined ? null : lined.state.sides[1][at]?.u.species;
+        if (landed !== board.sides[0][i].set.species) {
+          allRight = false;
+          wrong.push(`index ${i} named ${board.sides[0][i].set.species} but landed on ${landed}`);
+        }
+      }
+      if (allRight) resolved += 1;
     }
-    checked += 2;
+    ok(`${when}: the board holds the same Pokemon as the real list`, sameSet === boards.length,
+      wrong.filter((w) => w.startsWith("set")).join("; "));
+    ok(`${when}: with everyone standing first, as buildState re-seats them`,
+      standingFirst === boards.length, wrong.filter((w) => w.startsWith("seats")).join("; "));
+    ok(`${when}: and every board index resolves to the Pokemon it named`, resolved === boards.length,
+      wrong.filter((w) => w.startsWith("index")).join("; "));
+    // ...and an index that names nobody is dropped rather than aimed at Pokemon zero.
+    const [stray] = lined.readJoint([{ position: 0, kind: 2, into: 99 }]);
+    ok(`${when}: an index that names nobody is dropped, not aimed at Pokemon zero`,
+      stray.wait === true && stray.into === null, JSON.stringify(stray));
   };
   check("at the start");
 
@@ -877,10 +912,15 @@ const isMegaForm = (form) => String(form || "").trim().toLowerCase().startsWith(
     });
     lined.resolve(ourJoint, foeJoint);
     check("after both sides switch");
+    // And the real list genuinely is NOT re-seated after a switch, which is the fact the old
+    // check got wrong. Recorded so nobody restores that assertion believing it must hold.
+    const seats = lined.seatOrder(1).map((m) => m.u.species);
+    const sides = lined.state.sides[1].map((m) => m.u.species);
+    notes.push(`after a switch, seats ${JSON.stringify(seats)} vs sides ${JSON.stringify(sides)}`
+      + (JSON.stringify(seats) === JSON.stringify(sides) ? " (identical this run)" : " (they differ, and readJoint bridges it)"));
   }
 }
 
-// ---------------------------------------------------------------------------
 // 5c. a mirror match says which side a target is on
 // ---------------------------------------------------------------------------
 {

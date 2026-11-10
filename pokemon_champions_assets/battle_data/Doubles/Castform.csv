@@ -1,37 +1,38 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Castform,256,move,1,Weather Ball,81.1%,,,,,,,,
-Castform,256,move,2,Thunder,48.6%,,,,,,,,
-Castform,256,move,3,Protect,45.9%,,,,,,,,
-Castform,256,move,4,Hurricane,29.7%,,,,,,,,
-Castform,256,move,5,Icy Wind,27.0%,,,,,,,,
-Castform,256,move,6,Ice Beam,27.0%,,,,,,,,
-Castform,256,move,7,Solar Beam,24.3%,,,,,,,,
-Castform,256,move,8,Sandstorm,18.9%,,,,,,,,
-Castform,256,move,9,Shadow Ball,18.9%,,,,,,,,
-Castform,256,move,10,Energy Ball,18.9%,,,,,,,,
-Castform,256,held_item,1,Life Orb,32.4%,,,,,,,,
-Castform,256,held_item,2,Choice Scarf,29.7%,,,,,,,,
-Castform,256,held_item,3,Expert Belt,16.2%,,,,,,,,
-Castform,256,held_item,4,Focus Sash,2.7%,,,,,,,,
-Castform,256,teammate,1,Pelipper,,,,,,,,,
-Castform,256,teammate,2,Charizard,,,,,,,,,
-Castform,256,teammate,3,Swampert,,,,,,,,,
-Castform,256,teammate,4,Archaludon,,,,,,,,,
-Castform,256,teammate,5,Qwilfish,,,,,,,,,
-Castform,256,teammate,6,Glalie,,,,,,,,,
-Castform,256,teammate,7,Araquanid,,,,,,,,,
-Castform,256,teammate,8,Oranguru,,,,,,,,,
-Castform,256,teammate,9,Milotic,,,,,,,,,
-Castform,256,teammate,10,Vanilluxe,,,,,,,,,
-Castform,256,stat_alignment,1,Modest,43.2%,Sp. Atk,Attack,,,,,,
-Castform,256,stat_alignment,2,Timid,35.1%,Speed,Attack,,,,,,
-Castform,256,stat_alignment,3,Sassy,18.9%,Sp. Def,Speed,,,,,,
-Castform,256,stat_alignment,4,Bold,2.7%,Defense,Attack,,,,,,
-Castform,256,stat_points,1,,43.2%,,,2,0,0,32,0,32
-Castform,256,stat_points,2,,18.9%,,,0,0,2,32,32,0
-Castform,256,stat_points,3,,16.2%,,,32,0,0,32,0,2
-Castform,256,stat_points,4,,13.5%,,,32,0,0,32,2,0
-Castform,256,stat_points,5,,2.7%,,,4,0,0,30,0,32
-Castform,256,stat_points,6,,2.7%,,,12,0,0,32,0,22
-Castform,256,stat_points,7,,2.7%,,,32,0,17,15,0,2
-Castform,256,ability,1,Forecast,100.0%,,,,,,,,
+Castform,255,move,1,Weather Ball,82.5%,,,,,,,,
+Castform,255,move,2,Thunder,50.0%,,,,,,,,
+Castform,255,move,3,Protect,45.0%,,,,,,,,
+Castform,255,move,4,Icy Wind,27.5%,,,,,,,,
+Castform,255,move,5,Hurricane,27.5%,,,,,,,,
+Castform,255,move,6,Ice Beam,25.0%,,,,,,,,
+Castform,255,move,7,Solar Beam,22.5%,,,,,,,,
+Castform,255,move,8,Energy Ball,20.0%,,,,,,,,
+Castform,255,move,9,Sandstorm,17.5%,,,,,,,,
+Castform,255,move,10,Rain Dance,17.5%,,,,,,,,
+Castform,255,held_item,1,Life Orb,35.0%,,,,,,,,
+Castform,255,held_item,2,Choice Scarf,30.0%,,,,,,,,
+Castform,255,held_item,3,Expert Belt,15.0%,,,,,,,,
+Castform,255,held_item,4,Focus Sash,2.5%,,,,,,,,
+Castform,255,teammate,1,Pelipper,,,,,,,,,
+Castform,255,teammate,2,Charizard,,,,,,,,,
+Castform,255,teammate,3,Archaludon,,,,,,,,,
+Castform,255,teammate,4,Swampert,,,,,,,,,
+Castform,255,teammate,5,Qwilfish,,,,,,,,,
+Castform,255,teammate,6,Glalie,,,,,,,,,
+Castform,255,teammate,7,Araquanid,,,,,,,,,
+Castform,255,teammate,8,Oranguru,,,,,,,,,
+Castform,255,teammate,9,Torkoal,,,,,,,,,
+Castform,255,teammate,10,Milotic,,,,,,,,,
+Castform,255,stat_alignment,1,Modest,42.5%,Sp. Atk,Attack,,,,,,
+Castform,255,stat_alignment,2,Timid,37.5%,Speed,Attack,,,,,,
+Castform,255,stat_alignment,3,Sassy,17.5%,Sp. Def,Speed,,,,,,
+Castform,255,stat_alignment,4,Bold,2.5%,Defense,Attack,,,,,,
+Castform,255,stat_points,1,,42.5%,,,2,0,0,32,0,32
+Castform,255,stat_points,2,,17.5%,,,0,0,2,32,32,0
+Castform,255,stat_points,3,,15.0%,,,32,0,0,32,0,2
+Castform,255,stat_points,4,,15.0%,,,32,0,0,32,2,0
+Castform,255,stat_points,5,,2.5%,,,0,0,2,32,0,32
+Castform,255,stat_points,6,,2.5%,,,4,0,0,30,0,32
+Castform,255,stat_points,7,,2.5%,,,12,0,0,32,0,22
+Castform,255,stat_points,8,,2.5%,,,32,0,17,15,0,2
+Castform,255,ability,1,Forecast,100.0%,,,,,,,,

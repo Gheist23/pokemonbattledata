@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Watchog,252,move,1,Super Fang,61.1%,,,,,,,,
-Watchog,252,move,2,Confuse Ray,42.3%,,,,,,,,
-Watchog,252,move,3,Thunder Wave,42.3%,,,,,,,,
-Watchog,252,move,4,Screech,41.1%,,,,,,,,
-Watchog,252,move,5,Ice Punch,32.0%,,,,,,,,
-Watchog,252,move,6,Crunch,22.3%,,,,,,,,
-Watchog,252,move,7,Gunk Shot,20.0%,,,,,,,,
-Watchog,252,move,8,Thunder Punch,20.0%,,,,,,,,
-Watchog,252,move,9,Baton Pass,14.3%,,,,,,,,
-Watchog,252,move,10,Hypnosis,14.3%,,,,,,,,
-Watchog,252,held_item,1,Focus Sash,43.4%,,,,,,,,
-Watchog,252,held_item,2,Expert Belt,18.9%,,,,,,,,
-Watchog,252,held_item,3,Black Belt,10.9%,,,,,,,,
-Watchog,252,held_item,4,Zoom Lens,5.7%,,,,,,,,
-Watchog,252,held_item,5,Sitrus Berry,5.1%,,,,,,,,
-Watchog,252,held_item,6,Life Orb,5.1%,,,,,,,,
+Watchog,252,move,1,Super Fang,62.0%,,,,,,,,
+Watchog,252,move,2,Confuse Ray,41.3%,,,,,,,,
+Watchog,252,move,3,Thunder Wave,41.3%,,,,,,,,
+Watchog,252,move,4,Screech,40.2%,,,,,,,,
+Watchog,252,move,5,Ice Punch,32.4%,,,,,,,,
+Watchog,252,move,6,Crunch,21.8%,,,,,,,,
+Watchog,252,move,7,Gunk Shot,19.6%,,,,,,,,
+Watchog,252,move,8,Thunder Punch,19.6%,,,,,,,,
+Watchog,252,move,9,Hypnosis,15.1%,,,,,,,,
+Watchog,252,move,10,Baton Pass,14.0%,,,,,,,,
+Watchog,252,held_item,1,Focus Sash,43.6%,,,,,,,,
+Watchog,252,held_item,2,Expert Belt,18.4%,,,,,,,,
+Watchog,252,held_item,3,Black Belt,11.7%,,,,,,,,
+Watchog,252,held_item,4,Zoom Lens,5.6%,,,,,,,,
+Watchog,252,held_item,5,Sitrus Berry,5.0%,,,,,,,,
+Watchog,252,held_item,6,Life Orb,5.0%,,,,,,,,
 Watchog,252,held_item,7,Iron Ball,3.4%,,,,,,,,
 Watchog,252,held_item,8,Choice Scarf,3.4%,,,,,,,,
 Watchog,252,held_item,9,Quick Claw,1.1%,,,,,,,,
@@ -29,24 +29,24 @@ Watchog,252,teammate,7,Simisear,,,,,,,,,
 Watchog,252,teammate,8,Emolga,,,,,,,,,
 Watchog,252,teammate,9,Simipour,,,,,,,,,
 Watchog,252,teammate,10,Golurk,,,,,,,,,
-Watchog,252,stat_alignment,1,Jolly,47.4%,Speed,Sp. Atk,,,,,,
-Watchog,252,stat_alignment,2,Brave,24.0%,Attack,Speed,,,,,,
-Watchog,252,stat_alignment,3,Quiet,10.9%,Sp. Atk,Speed,,,,,,
-Watchog,252,stat_alignment,4,Bold,6.9%,Defense,Attack,,,,,,
-Watchog,252,stat_alignment,5,Relaxed,5.1%,Defense,Speed,,,,,,
-Watchog,252,stat_alignment,6,Impish,2.9%,Defense,Sp. Atk,,,,,,
-Watchog,252,stat_alignment,7,Adamant,2.3%,Attack,Sp. Atk,,,,,,
+Watchog,252,stat_alignment,1,Jolly,46.4%,Speed,Sp. Atk,,,,,,
+Watchog,252,stat_alignment,2,Brave,23.5%,Attack,Speed,,,,,,
+Watchog,252,stat_alignment,3,Quiet,11.7%,Sp. Atk,Speed,,,,,,
+Watchog,252,stat_alignment,4,Bold,6.7%,Defense,Attack,,,,,,
+Watchog,252,stat_alignment,5,Relaxed,5.0%,Defense,Speed,,,,,,
+Watchog,252,stat_alignment,6,Adamant,3.4%,Attack,Sp. Atk,,,,,,
+Watchog,252,stat_alignment,7,Impish,2.8%,Defense,Sp. Atk,,,,,,
 Watchog,252,stat_alignment,8,Sassy,0.6%,Sp. Def,Speed,,,,,,
-Watchog,252,stat_points,1,,42.3%,,,32,0,1,0,1,32
-Watchog,252,stat_points,2,,18.9%,,,24,17,0,0,25,0
-Watchog,252,stat_points,3,,10.9%,,,32,0,2,32,0,0
-Watchog,252,stat_points,4,,6.9%,,,32,0,17,0,17,0
-Watchog,252,stat_points,5,,5.1%,,,32,0,22,0,12,0
-Watchog,252,stat_points,6,,4.6%,,,32,32,2,0,0,0
+Watchog,252,stat_points,1,,41.3%,,,32,0,1,0,1,32
+Watchog,252,stat_points,2,,18.4%,,,24,17,0,0,25,0
+Watchog,252,stat_points,3,,11.7%,,,32,0,2,32,0,0
+Watchog,252,stat_points,4,,6.7%,,,32,0,17,0,17,0
+Watchog,252,stat_points,5,,5.6%,,,32,32,2,0,0,0
+Watchog,252,stat_points,6,,5.0%,,,32,0,22,0,12,0
 Watchog,252,stat_points,7,,3.4%,,,2,32,0,0,0,32
-Watchog,252,stat_points,8,,2.9%,,,32,15,19,0,0,0
-Watchog,252,stat_points,9,,2.3%,,,32,32,1,0,1,0
+Watchog,252,stat_points,8,,2.8%,,,32,15,19,0,0,0
+Watchog,252,stat_points,9,,2.2%,,,32,32,1,0,1,0
 Watchog,252,stat_points,10,,1.1%,,,0,0,32,0,0,32
-Watchog,252,ability,1,Keen Eye,48.6%,,,,,,,,
-Watchog,252,ability,2,Analytic,41.1%,,,,,,,,
-Watchog,252,ability,3,Illuminate,10.3%,,,,,,,,
+Watchog,252,ability,1,Keen Eye,47.5%,,,,,,,,
+Watchog,252,ability,2,Analytic,42.5%,,,,,,,,
+Watchog,252,ability,3,Illuminate,10.1%,,,,,,,,

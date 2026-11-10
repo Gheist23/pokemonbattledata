@@ -1,37 +1,37 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Grapploct,140,move,1,Storm Throw,96.4%,,,,,,,,
-Grapploct,140,move,2,Mach Punch,94.4%,,,,,,,,
-Grapploct,140,move,3,Sucker Punch,42.2%,,,,,,,,
-Grapploct,140,move,4,Ice Punch,39.9%,,,,,,,,
-Grapploct,140,move,5,Brutal Swing,33.3%,,,,,,,,
-Grapploct,140,move,6,Octolock,20.6%,,,,,,,,
-Grapploct,140,move,7,Payback,19.7%,,,,,,,,
-Grapploct,140,move,8,Circle Throw,9.8%,,,,,,,,
-Grapploct,140,move,9,Taunt,8.6%,,,,,,,,
-Grapploct,140,move,10,Bulk Up,7.8%,,,,,,,,
-Grapploct,140,held_item,1,Black Belt,55.6%,,,,,,,,
-Grapploct,140,held_item,2,Life Orb,13.6%,,,,,,,,
-Grapploct,140,held_item,3,Expert Belt,7.4%,,,,,,,,
-Grapploct,140,held_item,4,Sitrus Berry,7.2%,,,,,,,,
-Grapploct,140,held_item,5,Focus Sash,5.9%,,,,,,,,
-Grapploct,140,held_item,6,Leftovers,3.8%,,,,,,,,
+Grapploct,140,move,1,Storm Throw,96.6%,,,,,,,,
+Grapploct,140,move,2,Mach Punch,94.6%,,,,,,,,
+Grapploct,140,move,3,Sucker Punch,42.4%,,,,,,,,
+Grapploct,140,move,4,Ice Punch,39.0%,,,,,,,,
+Grapploct,140,move,5,Brutal Swing,32.9%,,,,,,,,
+Grapploct,140,move,6,Octolock,20.9%,,,,,,,,
+Grapploct,140,move,7,Payback,20.6%,,,,,,,,
+Grapploct,140,move,8,Circle Throw,9.5%,,,,,,,,
+Grapploct,140,move,9,Taunt,8.7%,,,,,,,,
+Grapploct,140,move,10,Bulk Up,7.7%,,,,,,,,
+Grapploct,140,held_item,1,Black Belt,56.0%,,,,,,,,
+Grapploct,140,held_item,2,Life Orb,13.5%,,,,,,,,
+Grapploct,140,held_item,3,Expert Belt,7.5%,,,,,,,,
+Grapploct,140,held_item,4,Sitrus Berry,7.1%,,,,,,,,
+Grapploct,140,held_item,5,Focus Sash,5.8%,,,,,,,,
+Grapploct,140,held_item,6,Leftovers,3.6%,,,,,,,,
 Grapploct,140,held_item,7,Chesto Berry,2.4%,,,,,,,,
-Grapploct,140,held_item,8,Lum Berry,0.8%,,,,,,,,
+Grapploct,140,held_item,8,Lum Berry,0.9%,,,,,,,,
 Grapploct,140,held_item,9,Air Balloon,0.5%,,,,,,,,
-Grapploct,140,held_item,10,Muscle Band,0.5%,,,,,,,,
+Grapploct,140,held_item,10,Focus Band,0.4%,,,,,,,,
 Grapploct,140,teammate,1,Garchomp,,,,,,,,,
-Grapploct,140,teammate,2,Pawmot,,,,,,,,,
+Grapploct,140,teammate,2,Basculegion,,,,,,,,,
 Grapploct,140,teammate,3,Banette,,,,,,,,,
-Grapploct,140,teammate,4,Basculegion,,,,,,,,,
+Grapploct,140,teammate,4,Pawmot,,,,,,,,,
 Grapploct,140,teammate,5,Golisopod,,,,,,,,,
 Grapploct,140,teammate,6,Salamence,,,,,,,,,
-Grapploct,140,teammate,7,Archaludon,,,,,,,,,
-Grapploct,140,teammate,8,Rillaboom,,,,,,,,,
-Grapploct,140,teammate,9,Greninja,,,,,,,,,
-Grapploct,140,teammate,10,Victreebel,,,,,,,,,
-Grapploct,140,stat_alignment,1,Adamant,82.8%,Attack,Sp. Atk,,,,,,
-Grapploct,140,stat_alignment,2,Brave,6.4%,Attack,Speed,,,,,,
-Grapploct,140,stat_alignment,3,Impish,4.1%,Defense,Sp. Atk,,,,,,
+Grapploct,140,teammate,7,Greninja,,,,,,,,,
+Grapploct,140,teammate,8,Archaludon,,,,,,,,,
+Grapploct,140,teammate,9,Rillaboom,,,,,,,,,
+Grapploct,140,teammate,10,Absol,,,,,,,,,
+Grapploct,140,stat_alignment,1,Adamant,83.4%,Attack,Sp. Atk,,,,,,
+Grapploct,140,stat_alignment,2,Brave,6.1%,Attack,Speed,,,,,,
+Grapploct,140,stat_alignment,3,Impish,3.9%,Defense,Sp. Atk,,,,,,
 Grapploct,140,stat_alignment,4,Jolly,3.6%,Speed,Sp. Atk,,,,,,
 Grapploct,140,stat_alignment,5,Careful,2.1%,Sp. Def,Sp. Atk,,,,,,
 Grapploct,140,stat_alignment,6,Sassy,0.5%,Sp. Def,Speed,,,,,,
@@ -39,15 +39,15 @@ Grapploct,140,stat_alignment,7,Lonely,0.3%,Attack,Defense,,,,,,
 Grapploct,140,stat_alignment,8,Relaxed,0.1%,Defense,Speed,,,,,,
 Grapploct,140,stat_alignment,9,Naughty,0.1%,Attack,Sp. Def,,,,,,
 Grapploct,140,stat_alignment,10,Lax,0.0%,Defense,Sp. Def,,,,,,
-Grapploct,140,stat_points,1,,32.1%,,,32,32,2,0,0,0
-Grapploct,140,stat_points,2,,18.5%,,,32,32,0,0,2,0
-Grapploct,140,stat_points,3,,5.6%,,,32,25,0,0,0,9
-Grapploct,140,stat_points,4,,5.6%,,,28,32,0,0,0,6
-Grapploct,140,stat_points,5,,5.5%,,,32,32,0,0,0,2
-Grapploct,140,stat_points,6,,3.9%,,,2,32,0,0,0,32
-Grapploct,140,stat_points,7,,1.7%,,,32,32,1,0,1,0
-Grapploct,140,stat_points,8,,1.6%,,,0,32,2,0,0,32
-Grapploct,140,stat_points,9,,1.6%,,,20,32,7,0,0,7
-Grapploct,140,stat_points,10,,1.5%,,,26,32,0,0,0,8
+Grapploct,140,stat_points,1,,32.5%,,,32,32,2,0,0,0
+Grapploct,140,stat_points,2,,18.0%,,,32,32,0,0,2,0
+Grapploct,140,stat_points,3,,6.1%,,,32,32,0,0,0,2
+Grapploct,140,stat_points,4,,5.7%,,,28,32,0,0,0,6
+Grapploct,140,stat_points,5,,5.4%,,,32,25,0,0,0,9
+Grapploct,140,stat_points,6,,3.7%,,,2,32,0,0,0,32
+Grapploct,140,stat_points,7,,1.6%,,,20,32,7,0,0,7
+Grapploct,140,stat_points,8,,1.6%,,,26,32,0,0,0,8
+Grapploct,140,stat_points,9,,1.6%,,,32,32,1,0,1,0
+Grapploct,140,stat_points,10,,1.6%,,,0,32,2,0,0,32
 Grapploct,140,ability,1,Technician,98.9%,,,,,,,,
 Grapploct,140,ability,2,Limber,1.1%,,,,,,,,

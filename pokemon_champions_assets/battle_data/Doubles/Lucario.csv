@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Lucario,55,move,1,Aura Sphere,84.9%,,,,,,,,
-Lucario,55,move,2,Flash Cannon,70.1%,,,,,,,,
-Lucario,55,move,3,Detect,52.0%,,,,,,,,
-Lucario,55,move,4,Protect,31.3%,,,,,,,,
-Lucario,55,move,5,Dark Pulse,29.0%,,,,,,,,
-Lucario,55,move,6,Nasty Plot,22.3%,,,,,,,,
-Lucario,55,move,7,Calm Mind,15.4%,,,,,,,,
+Lucario,55,move,1,Aura Sphere,84.7%,,,,,,,,
+Lucario,55,move,2,Flash Cannon,70.0%,,,,,,,,
+Lucario,55,move,3,Detect,51.9%,,,,,,,,
+Lucario,55,move,4,Protect,31.1%,,,,,,,,
+Lucario,55,move,5,Dark Pulse,28.7%,,,,,,,,
+Lucario,55,move,6,Nasty Plot,22.2%,,,,,,,,
+Lucario,55,move,7,Calm Mind,15.1%,,,,,,,,
 Lucario,55,move,8,Close Combat,11.4%,,,,,,,,
-Lucario,55,move,9,Steel Beam,11.2%,,,,,,,,
-Lucario,55,move,10,Psychic,9.6%,,,,,,,,
-Lucario,55,held_item,1,Lucarionite Z,83.2%,,,,,,,,
-Lucario,55,held_item,2,Lucarionite,8.8%,,,,,,,,
+Lucario,55,move,9,Steel Beam,11.3%,,,,,,,,
+Lucario,55,move,10,Meteor Mash,9.6%,,,,,,,,
+Lucario,55,held_item,1,Lucarionite Z,82.9%,,,,,,,,
+Lucario,55,held_item,2,Lucarionite,9.2%,,,,,,,,
 Lucario,55,held_item,3,Choice Scarf,3.9%,,,,,,,,
 Lucario,55,held_item,4,Focus Sash,2.0%,,,,,,,,
 Lucario,55,held_item,5,Life Orb,1.2%,,,,,,,,
@@ -21,34 +21,34 @@ Lucario,55,held_item,9,Metronome,0.1%,,,,,,,,
 Lucario,55,held_item,10,Metal Coat,0.0%,,,,,,,,
 Lucario,55,teammate,1,Rillaboom,,,,,,,,,
 Lucario,55,teammate,2,Garchomp,,,,,,,,,
-Lucario,55,teammate,3,Basculegion,,,,,,,,,
-Lucario,55,teammate,4,Indeedee-F,,,,,,,,,
+Lucario,55,teammate,3,Indeedee-F,,,,,,,,,
+Lucario,55,teammate,4,Basculegion,,,,,,,,,
 Lucario,55,teammate,5,Incineroar,,,,,,,,,
 Lucario,55,teammate,6,Sneasler,,,,,,,,,
-Lucario,55,teammate,7,Armarouge,,,,,,,,,
-Lucario,55,teammate,8,Salamence,,,,,,,,,
+Lucario,55,teammate,7,Salamence,,,,,,,,,
+Lucario,55,teammate,8,Armarouge,,,,,,,,,
 Lucario,55,teammate,9,Charizard,,,,,,,,,
 Lucario,55,teammate,10,Whimsicott,,,,,,,,,
-Lucario,55,stat_alignment,1,Modest,46.4%,Sp. Atk,Attack,,,,,,
-Lucario,55,stat_alignment,2,Timid,37.7%,Speed,Attack,,,,,,
-Lucario,55,stat_alignment,3,Adamant,8.0%,Attack,Sp. Atk,,,,,,
-Lucario,55,stat_alignment,4,Jolly,3.6%,Speed,Sp. Atk,,,,,,
+Lucario,55,stat_alignment,1,Modest,46.0%,Sp. Atk,Attack,,,,,,
+Lucario,55,stat_alignment,2,Timid,37.8%,Speed,Attack,,,,,,
+Lucario,55,stat_alignment,3,Adamant,7.9%,Attack,Sp. Atk,,,,,,
+Lucario,55,stat_alignment,4,Jolly,3.9%,Speed,Sp. Atk,,,,,,
 Lucario,55,stat_alignment,5,Bold,1.2%,Defense,Attack,,,,,,
-Lucario,55,stat_alignment,6,Mild,0.7%,Sp. Atk,Defense,,,,,,
-Lucario,55,stat_alignment,7,Naive,0.7%,Speed,Sp. Def,,,,,,
+Lucario,55,stat_alignment,6,Mild,0.8%,Sp. Atk,Defense,,,,,,
+Lucario,55,stat_alignment,7,Naive,0.8%,Speed,Sp. Def,,,,,,
 Lucario,55,stat_alignment,8,Calm,0.3%,Sp. Def,Attack,,,,,,
 Lucario,55,stat_alignment,9,Naughty,0.3%,Attack,Sp. Def,,,,,,
-Lucario,55,stat_alignment,10,Serious,0.2%,,,,,,,,
-Lucario,55,stat_points,1,,34.4%,,,2,0,0,32,0,32
-Lucario,55,stat_points,2,,5.4%,,,2,32,0,0,0,32
-Lucario,55,stat_points,3,,3.8%,,,0,0,2,32,0,32
-Lucario,55,stat_points,4,,2.4%,,,0,32,0,0,0,32
-Lucario,55,stat_points,5,,2.4%,,,0,0,0,32,0,32
+Lucario,55,stat_alignment,10,Hasty,0.2%,Speed,Defense,,,,,,
+Lucario,55,stat_points,1,,34.6%,,,2,0,0,32,0,32
+Lucario,55,stat_points,2,,5.5%,,,2,32,0,0,0,32
+Lucario,55,stat_points,3,,3.7%,,,0,0,2,32,0,32
+Lucario,55,stat_points,4,,2.3%,,,0,0,0,32,0,32
+Lucario,55,stat_points,5,,2.3%,,,0,32,0,0,0,32
 Lucario,55,stat_points,6,,2.3%,,,32,0,0,2,0,32
-Lucario,55,stat_points,7,,1.7%,,,4,0,0,32,0,30
-Lucario,55,stat_points,8,,1.7%,,,0,0,0,32,2,32
-Lucario,55,stat_points,9,,1.6%,,,24,0,0,22,0,20
+Lucario,55,stat_points,7,,1.8%,,,4,0,0,32,0,30
+Lucario,55,stat_points,8,,1.8%,,,0,0,0,32,2,32
+Lucario,55,stat_points,9,,1.7%,,,24,0,0,22,0,20
 Lucario,55,stat_points,10,,1.5%,,,0,0,1,32,1,32
-Lucario,55,ability,1,Inner Focus,87.5%,,,,,,,,
-Lucario,55,ability,2,Steadfast,9.5%,,,,,,,,
-Lucario,55,ability,3,Justified,3.0%,,,,,,,,
+Lucario,55,ability,1,Inner Focus,87.7%,,,,,,,,
+Lucario,55,ability,2,Steadfast,9.3%,,,,,,,,
+Lucario,55,ability,3,Justified,3.1%,,,,,,,,

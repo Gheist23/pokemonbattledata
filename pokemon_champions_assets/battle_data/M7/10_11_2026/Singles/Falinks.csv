@@ -1,42 +1,44 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Falinks,203,move,1,Close Combat,96.1%,,,,,,,,
-Falinks,203,move,2,No Retreat,73.1%,,,,,,,,
-Falinks,203,move,3,Knock Off,59.8%,,,,,,,,
-Falinks,203,move,4,Iron Head,44.8%,,,,,,,,
-Falinks,203,move,5,Rock Slide,39.3%,,,,,,,,
-Falinks,203,move,6,Upper Hand,28.1%,,,,,,,,
-Falinks,203,move,7,Poison Jab,18.1%,,,,,,,,
-Falinks,203,move,8,Throat Chop,14.4%,,,,,,,,
-Falinks,203,move,9,Smart Strike,8.3%,,,,,,,,
-Falinks,203,move,10,High Horsepower,4.9%,,,,,,,,
+Falinks,203,move,1,Close Combat,94.7%,,,,,,,,
+Falinks,203,move,2,No Retreat,73.2%,,,,,,,,
+Falinks,203,move,3,Knock Off,57.9%,,,,,,,,
+Falinks,203,move,4,Iron Head,42.3%,,,,,,,,
+Falinks,203,move,5,Rock Slide,39.9%,,,,,,,,
+Falinks,203,move,6,Upper Hand,27.5%,,,,,,,,
+Falinks,203,move,7,Poison Jab,20.4%,,,,,,,,
+Falinks,203,move,8,Throat Chop,13.4%,,,,,,,,
+Falinks,203,move,9,Smart Strike,9.9%,,,,,,,,
+Falinks,203,move,10,High Horsepower,5.9%,,,,,,,,
 Falinks,203,held_item,1,Falinksite,99.0%,,,,,,,,
 Falinks,203,held_item,2,Chesto Berry,0.6%,,,,,,,,
 Falinks,203,held_item,3,Focus Sash,0.2%,,,,,,,,
 Falinks,203,held_item,4,Rocky Helmet,0.2%,,,,,,,,
+Falinks,203,held_item,5,Black Belt,0.1%,,,,,,,,
 Falinks,203,teammate,1,Basculegion,,,,,,,,,
 Falinks,203,teammate,2,Simisage,,,,,,,,,
 Falinks,203,teammate,3,Simisear,,,,,,,,,
 Falinks,203,teammate,4,Simipour,,,,,,,,,
 Falinks,203,teammate,5,Bastiodon,,,,,,,,,
 Falinks,203,teammate,6,Beedrill,,,,,,,,,
-Falinks,203,teammate,7,Sinistcha,,,,,,,,,
-Falinks,203,teammate,8,Mr. Mime,,,,,,,,,
-Falinks,203,teammate,9,Torterra,,,,,,,,,
-Falinks,203,teammate,10,Runerigus,,,,,,,,,
-Falinks,203,stat_alignment,1,Jolly,62.4%,Speed,Sp. Atk,,,,,,
-Falinks,203,stat_alignment,2,Adamant,34.6%,Attack,Sp. Atk,,,,,,
-Falinks,203,stat_alignment,3,Careful,1.6%,Sp. Def,Sp. Atk,,,,,,
-Falinks,203,stat_alignment,4,Impish,1.2%,Defense,Sp. Atk,,,,,,
+Falinks,203,teammate,7,Garchomp,,,,,,,,,
+Falinks,203,teammate,8,Sinistcha,,,,,,,,,
+Falinks,203,teammate,9,Mr. Mime,,,,,,,,,
+Falinks,203,teammate,10,Torterra,,,,,,,,,
+Falinks,203,stat_alignment,1,Jolly,59.4%,Speed,Sp. Atk,,,,,,
+Falinks,203,stat_alignment,2,Adamant,35.9%,Attack,Sp. Atk,,,,,,
+Falinks,203,stat_alignment,3,Impish,2.9%,Defense,Sp. Atk,,,,,,
+Falinks,203,stat_alignment,4,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,
 Falinks,203,stat_alignment,5,Brave,0.2%,Attack,Speed,,,,,,
-Falinks,203,stat_points,1,,44.0%,,,0,32,0,0,0,32
-Falinks,203,stat_points,2,,9.1%,,,1,32,0,0,1,32
+Falinks,203,stat_alignment,6,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Falinks,203,stat_points,1,,41.6%,,,0,32,0,0,0,32
+Falinks,203,stat_points,2,,9.9%,,,32,32,2,0,0,0
 Falinks,203,stat_points,3,,8.7%,,,2,32,0,0,0,32
-Falinks,203,stat_points,4,,8.5%,,,0,32,2,0,0,32
-Falinks,203,stat_points,5,,8.3%,,,32,32,2,0,0,0
-Falinks,203,stat_points,6,,7.6%,,,1,32,1,0,0,32
-Falinks,203,stat_points,7,,1.8%,,,11,25,0,0,0,30
-Falinks,203,stat_points,8,,1.2%,,,11,0,32,0,0,23
-Falinks,203,stat_points,9,,1.0%,,,1,32,0,0,0,32
-Falinks,203,stat_points,10,,1.0%,,,6,32,0,0,0,28
-Falinks,203,ability,1,Defiant,97.7%,,,,,,,,
-Falinks,203,ability,2,Battle Armor,2.3%,,,,,,,,
+Falinks,203,stat_points,4,,8.3%,,,1,32,0,0,1,32
+Falinks,203,stat_points,5,,7.7%,,,0,32,2,0,0,32
+Falinks,203,stat_points,6,,6.8%,,,1,32,1,0,0,32
+Falinks,203,stat_points,7,,2.7%,,,11,25,0,0,0,30
+Falinks,203,stat_points,8,,2.0%,,,32,0,32,0,0,2
+Falinks,203,stat_points,9,,1.2%,,,0,32,0,0,2,32
+Falinks,203,stat_points,10,,1.1%,,,11,0,32,0,0,23
+Falinks,203,ability,1,Defiant,97.8%,,,,,,,,
+Falinks,203,ability,2,Battle Armor,2.2%,,,,,,,,

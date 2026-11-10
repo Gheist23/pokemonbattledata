@@ -1,49 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Machamp,163,move,1,Dynamic Punch,80.3%,,,,,,,,
-Machamp,163,move,2,Stone Edge,78.7%,,,,,,,,
-Machamp,163,move,3,Wide Guard,60.9%,,,,,,,,
-Machamp,163,move,4,Bullet Punch,40.6%,,,,,,,,
-Machamp,163,move,5,Ice Punch,27.4%,,,,,,,,
-Machamp,163,move,6,Cross Chop,16.3%,,,,,,,,
-Machamp,163,move,7,Quick Guard,14.0%,,,,,,,,
-Machamp,163,move,8,Rock Slide,13.3%,,,,,,,,
-Machamp,163,move,9,Protect,9.7%,,,,,,,,
-Machamp,163,move,10,Detect,7.4%,,,,,,,,
-Machamp,163,held_item,1,Life Orb,19.2%,,,,,,,,
-Machamp,163,held_item,2,Sitrus Berry,15.6%,,,,,,,,
-Machamp,163,held_item,3,Payapa Berry,14.6%,,,,,,,,
-Machamp,163,held_item,4,Scope Lens,12.3%,,,,,,,,
-Machamp,163,held_item,5,Leftovers,10.8%,,,,,,,,
-Machamp,163,held_item,6,Expert Belt,9.6%,,,,,,,,
-Machamp,163,held_item,7,Muscle Band,4.2%,,,,,,,,
-Machamp,163,held_item,8,Focus Sash,2.8%,,,,,,,,
-Machamp,163,held_item,9,Psychic Seed,2.5%,,,,,,,,
-Machamp,163,held_item,10,Coba Berry,1.9%,,,,,,,,
-Machamp,163,teammate,1,Charizard,,,,,,,,,
-Machamp,163,teammate,2,Torkoal,,,,,,,,,
-Machamp,163,teammate,3,Indeedee-F,,,,,,,,,
-Machamp,163,teammate,4,Venusaur,,,,,,,,,
-Machamp,163,teammate,5,Typhlosion,,,,,,,,,
-Machamp,163,teammate,6,Raichu,,,,,,,,,
-Machamp,163,teammate,7,Hatterene,,,,,,,,,
-Machamp,163,teammate,8,Slowbro-Galar,,,,,,,,,
-Machamp,163,teammate,9,Farigiraf,,,,,,,,,
-Machamp,163,teammate,10,Kingambit,,,,,,,,,
-Machamp,163,stat_alignment,1,Adamant,60.4%,Attack,Sp. Atk,,,,,,
-Machamp,163,stat_alignment,2,Brave,33.5%,Attack,Speed,,,,,,
-Machamp,163,stat_alignment,3,Careful,4.2%,Sp. Def,Sp. Atk,,,,,,
-Machamp,163,stat_alignment,4,Lonely,1.0%,Attack,Defense,,,,,,
-Machamp,163,stat_alignment,5,Sassy,0.7%,Sp. Def,Speed,,,,,,
-Machamp,163,stat_alignment,6,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Machamp,163,stat_points,1,,29.1%,,,32,32,2,0,0,0
-Machamp,163,stat_points,2,,18.5%,,,32,32,0,0,2,0
-Machamp,163,stat_points,3,,15.3%,,,32,32,0,0,0,2
-Machamp,163,stat_points,4,,3.9%,,,32,20,0,0,14,0
-Machamp,163,stat_points,5,,3.8%,,,32,20,0,0,0,14
-Machamp,163,stat_points,6,,3.5%,,,32,14,0,0,0,20
-Machamp,163,stat_points,7,,3.1%,,,25,32,7,0,2,0
-Machamp,163,stat_points,8,,3.1%,,,32,0,2,0,32,0
-Machamp,163,stat_points,9,,2.4%,,,7,32,7,0,20,0
-Machamp,163,stat_points,10,,1.9%,,,32,32,0,0,0,0
-Machamp,163,ability,1,No Guard,98.6%,,,,,,,,
-Machamp,163,ability,2,Guts,1.4%,,,,,,,,
+Machamp,165,move,1,Dynamic Punch,79.4%,,,,,,,,
+Machamp,165,move,2,Stone Edge,76.2%,,,,,,,,
+Machamp,165,move,3,Wide Guard,59.6%,,,,,,,,
+Machamp,165,move,4,Bullet Punch,37.7%,,,,,,,,
+Machamp,165,move,5,Ice Punch,27.1%,,,,,,,,
+Machamp,165,move,6,Cross Chop,16.4%,,,,,,,,
+Machamp,165,move,7,Rock Slide,15.0%,,,,,,,,
+Machamp,165,move,8,Quick Guard,13.3%,,,,,,,,
+Machamp,165,move,9,Protect,13.1%,,,,,,,,
+Machamp,165,move,10,High Horsepower,7.7%,,,,,,,,
+Machamp,165,held_item,1,Life Orb,18.7%,,,,,,,,
+Machamp,165,held_item,2,Payapa Berry,15.1%,,,,,,,,
+Machamp,165,held_item,3,Sitrus Berry,14.8%,,,,,,,,
+Machamp,165,held_item,4,Scope Lens,12.2%,,,,,,,,
+Machamp,165,held_item,5,Leftovers,10.3%,,,,,,,,
+Machamp,165,held_item,6,Expert Belt,9.9%,,,,,,,,
+Machamp,165,held_item,7,Muscle Band,4.1%,,,,,,,,
+Machamp,165,held_item,8,Focus Sash,2.9%,,,,,,,,
+Machamp,165,held_item,9,Psychic Seed,2.3%,,,,,,,,
+Machamp,165,held_item,10,Choice Scarf,2.3%,,,,,,,,
+Machamp,165,teammate,1,Charizard,,,,,,,,,
+Machamp,165,teammate,2,Indeedee-F,,,,,,,,,
+Machamp,165,teammate,3,Torkoal,,,,,,,,,
+Machamp,165,teammate,4,Venusaur,,,,,,,,,
+Machamp,165,teammate,5,Typhlosion,,,,,,,,,
+Machamp,165,teammate,6,Golisopod,,,,,,,,,
+Machamp,165,teammate,7,Farigiraf,,,,,,,,,
+Machamp,165,teammate,8,Slowbro-Galar,,,,,,,,,
+Machamp,165,teammate,9,Raichu,,,,,,,,,
+Machamp,165,teammate,10,Kingambit,,,,,,,,,
+Machamp,165,stat_alignment,1,Adamant,58.0%,Attack,Sp. Atk,,,,,,
+Machamp,165,stat_alignment,2,Brave,35.1%,Attack,Speed,,,,,,
+Machamp,165,stat_alignment,3,Careful,4.3%,Sp. Def,Sp. Atk,,,,,,
+Machamp,165,stat_alignment,4,Sassy,1.0%,Sp. Def,Speed,,,,,,
+Machamp,165,stat_alignment,5,Lonely,0.9%,Attack,Defense,,,,,,
+Machamp,165,stat_alignment,6,Jolly,0.7%,Speed,Sp. Atk,,,,,,
+Machamp,165,stat_points,1,,29.9%,,,32,32,2,0,0,0
+Machamp,165,stat_points,2,,17.9%,,,32,32,0,0,2,0
+Machamp,165,stat_points,3,,14.1%,,,32,32,0,0,0,2
+Machamp,165,stat_points,4,,3.9%,,,32,20,0,0,14,0
+Machamp,165,stat_points,5,,3.5%,,,32,20,0,0,0,14
+Machamp,165,stat_points,6,,3.2%,,,32,0,2,0,32,0
+Machamp,165,stat_points,7,,3.2%,,,32,14,0,0,0,20
+Machamp,165,stat_points,8,,2.8%,,,25,32,7,0,2,0
+Machamp,165,stat_points,9,,2.3%,,,7,32,7,0,20,0
+Machamp,165,stat_points,10,,1.8%,,,32,32,0,0,0,0
+Machamp,165,ability,1,No Guard,98.0%,,,,,,,,
+Machamp,165,ability,2,Guts,2.0%,,,,,,,,

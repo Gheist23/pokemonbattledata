@@ -1,43 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simipour,219,move,1,Ice Beam,68.2%,,,,,,,,
-Simipour,219,move,2,Surf,53.8%,,,,,,,,
-Simipour,219,move,3,Focus Blast,48.9%,,,,,,,,
-Simipour,219,move,4,Grass Knot,48.2%,,,,,,,,
-Simipour,219,move,5,Hydro Pump,41.0%,,,,,,,,
-Simipour,219,move,6,Payback,29.9%,,,,,,,,
-Simipour,219,move,7,Nasty Plot,25.1%,,,,,,,,
-Simipour,219,move,8,Protect,22.5%,,,,,,,,
-Simipour,219,move,9,Flip Turn,19.5%,,,,,,,,
-Simipour,219,move,10,Attract,14.3%,,,,,,,,
-Simipour,219,held_item,1,Focus Sash,44.5%,,,,,,,,
-Simipour,219,held_item,2,Choice Scarf,37.6%,,,,,,,,
-Simipour,219,held_item,3,Mystic Water,10.4%,,,,,,,,
-Simipour,219,held_item,4,Life Orb,6.8%,,,,,,,,
-Simipour,219,held_item,5,Quick Claw,0.5%,,,,,,,,
-Simipour,219,held_item,6,Expert Belt,0.1%,,,,,,,,
-Simipour,219,teammate,1,Simisage,,,,,,,,,
-Simipour,219,teammate,2,Simisear,,,,,,,,,
-Simipour,219,teammate,3,Falinks,,,,,,,,,
-Simipour,219,teammate,4,Bastiodon,,,,,,,,,
-Simipour,219,teammate,5,Lopunny,,,,,,,,,
-Simipour,219,teammate,6,Basculegion,,,,,,,,,
-Simipour,219,teammate,7,Pelipper,,,,,,,,,
-Simipour,219,teammate,8,Furfrou,,,,,,,,,
-Simipour,219,teammate,9,Kleavor,,,,,,,,,
-Simipour,219,teammate,10,Beedrill,,,,,,,,,
-Simipour,219,stat_alignment,1,Timid,59.4%,Speed,Attack,,,,,,
-Simipour,219,stat_alignment,2,Modest,35.1%,Sp. Atk,Attack,,,,,,
-Simipour,219,stat_alignment,3,Naive,2.6%,Speed,Sp. Def,,,,,,
-Simipour,219,stat_alignment,4,Mild,2.6%,Sp. Atk,Defense,,,,,,
-Simipour,219,stat_alignment,5,Hasty,0.3%,Speed,Defense,,,,,,
-Simipour,219,stat_points,1,,48.8%,,,2,0,0,32,0,32
-Simipour,219,stat_points,2,,36.9%,,,0,0,1,32,0,32
-Simipour,219,stat_points,3,,5.2%,,,1,0,0,32,1,32
-Simipour,219,stat_points,4,,4.8%,,,1,0,1,32,0,32
-Simipour,219,stat_points,5,,1.9%,,,1,1,0,32,0,32
-Simipour,219,stat_points,6,,1.1%,,,0,0,0,32,0,32
-Simipour,219,stat_points,7,,0.8%,,,0,2,0,32,0,32
-Simipour,219,stat_points,8,,0.4%,,,0,0,0,32,2,32
-Simipour,219,stat_points,9,,0.1%,,,0,0,1,32,1,32
-Simipour,219,ability,1,Torrent,85.5%,,,,,,,,
-Simipour,219,ability,2,Gluttony,14.5%,,,,,,,,
+Simipour,221,move,1,Ice Beam,68.0%,,,,,,,,
+Simipour,221,move,2,Surf,54.8%,,,,,,,,
+Simipour,221,move,3,Focus Blast,47.2%,,,,,,,,
+Simipour,221,move,4,Grass Knot,46.0%,,,,,,,,
+Simipour,221,move,5,Hydro Pump,39.8%,,,,,,,,
+Simipour,221,move,6,Payback,28.1%,,,,,,,,
+Simipour,221,move,7,Nasty Plot,26.4%,,,,,,,,
+Simipour,221,move,8,Protect,24.0%,,,,,,,,
+Simipour,221,move,9,Flip Turn,18.5%,,,,,,,,
+Simipour,221,move,10,Attract,13.5%,,,,,,,,
+Simipour,221,held_item,1,Focus Sash,46.1%,,,,,,,,
+Simipour,221,held_item,2,Choice Scarf,35.8%,,,,,,,,
+Simipour,221,held_item,3,Mystic Water,9.8%,,,,,,,,
+Simipour,221,held_item,4,Life Orb,6.9%,,,,,,,,
+Simipour,221,held_item,5,Sitrus Berry,0.8%,,,,,,,,
+Simipour,221,held_item,6,Quick Claw,0.5%,,,,,,,,
+Simipour,221,held_item,7,Expert Belt,0.1%,,,,,,,,
+Simipour,221,teammate,1,Simisage,,,,,,,,,
+Simipour,221,teammate,2,Simisear,,,,,,,,,
+Simipour,221,teammate,3,Falinks,,,,,,,,,
+Simipour,221,teammate,4,Bastiodon,,,,,,,,,
+Simipour,221,teammate,5,Lopunny,,,,,,,,,
+Simipour,221,teammate,6,Basculegion,,,,,,,,,
+Simipour,221,teammate,7,Pelipper,,,,,,,,,
+Simipour,221,teammate,8,Furfrou,,,,,,,,,
+Simipour,221,teammate,9,Kleavor,,,,,,,,,
+Simipour,221,teammate,10,Beedrill,,,,,,,,,
+Simipour,221,stat_alignment,1,Timid,60.6%,Speed,Attack,,,,,,
+Simipour,221,stat_alignment,2,Modest,33.8%,Sp. Atk,Attack,,,,,,
+Simipour,221,stat_alignment,3,Naive,2.4%,Speed,Sp. Def,,,,,,
+Simipour,221,stat_alignment,4,Mild,2.4%,Sp. Atk,Defense,,,,,,
+Simipour,221,stat_alignment,5,Rash,0.5%,Sp. Atk,Sp. Def,,,,,,
+Simipour,221,stat_alignment,6,Hasty,0.3%,Speed,Defense,,,,,,
+Simipour,221,stat_points,1,,47.9%,,,2,0,0,32,0,32
+Simipour,221,stat_points,2,,37.5%,,,0,0,1,32,0,32
+Simipour,221,stat_points,3,,5.5%,,,1,0,0,32,1,32
+Simipour,221,stat_points,4,,4.5%,,,1,0,1,32,0,32
+Simipour,221,stat_points,5,,1.8%,,,1,1,0,32,0,32
+Simipour,221,stat_points,6,,1.0%,,,0,0,0,32,0,32
+Simipour,221,stat_points,7,,0.8%,,,0,2,0,32,0,32
+Simipour,221,stat_points,8,,0.5%,,,1,11,0,22,0,32
+Simipour,221,stat_points,9,,0.4%,,,0,0,0,32,2,32
+Simipour,221,stat_points,10,,0.1%,,,0,0,1,32,1,32
+Simipour,221,ability,1,Torrent,85.6%,,,,,,,,
+Simipour,221,ability,2,Gluttony,14.4%,,,,,,,,

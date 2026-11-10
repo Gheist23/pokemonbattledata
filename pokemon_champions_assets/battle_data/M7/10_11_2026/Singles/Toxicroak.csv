@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Toxicroak,206,move,1,Close Combat,77.5%,,,,,,,,
-Toxicroak,206,move,2,Poison Jab,67.3%,,,,,,,,
-Toxicroak,206,move,3,Taunt,37.3%,,,,,,,,
-Toxicroak,206,move,4,Toxic,35.7%,,,,,,,,
-Toxicroak,206,move,5,Sucker Punch,24.1%,,,,,,,,
-Toxicroak,206,move,6,Fake Out,24.0%,,,,,,,,
-Toxicroak,206,move,7,Gunk Shot,22.9%,,,,,,,,
-Toxicroak,206,move,8,Ice Punch,16.6%,,,,,,,,
-Toxicroak,206,move,9,Reversal,11.3%,,,,,,,,
-Toxicroak,206,move,10,Low Sweep,11.0%,,,,,,,,
-Toxicroak,206,held_item,1,Focus Sash,53.0%,,,,,,,,
-Toxicroak,206,held_item,2,Bright Powder,11.4%,,,,,,,,
-Toxicroak,206,held_item,3,Shuca Berry,11.0%,,,,,,,,
-Toxicroak,206,held_item,4,Choice Scarf,6.0%,,,,,,,,
-Toxicroak,206,held_item,5,Air Balloon,5.5%,,,,,,,,
-Toxicroak,206,held_item,6,Leftovers,4.8%,,,,,,,,
-Toxicroak,206,held_item,7,Life Orb,3.1%,,,,,,,,
-Toxicroak,206,held_item,8,Expert Belt,2.5%,,,,,,,,
-Toxicroak,206,held_item,9,Rocky Helmet,1.1%,,,,,,,,
-Toxicroak,206,held_item,10,Sitrus Berry,0.5%,,,,,,,,
+Toxicroak,206,move,1,Close Combat,73.8%,,,,,,,,
+Toxicroak,206,move,2,Poison Jab,67.8%,,,,,,,,
+Toxicroak,206,move,3,Taunt,34.0%,,,,,,,,
+Toxicroak,206,move,4,Toxic,33.5%,,,,,,,,
+Toxicroak,206,move,5,Sucker Punch,25.7%,,,,,,,,
+Toxicroak,206,move,6,Fake Out,24.5%,,,,,,,,
+Toxicroak,206,move,7,Gunk Shot,22.6%,,,,,,,,
+Toxicroak,206,move,8,Ice Punch,16.9%,,,,,,,,
+Toxicroak,206,move,9,Reversal,12.4%,,,,,,,,
+Toxicroak,206,move,10,Low Sweep,12.1%,,,,,,,,
+Toxicroak,206,held_item,1,Focus Sash,52.2%,,,,,,,,
+Toxicroak,206,held_item,2,Shuca Berry,10.5%,,,,,,,,
+Toxicroak,206,held_item,3,Bright Powder,10.4%,,,,,,,,
+Toxicroak,206,held_item,4,Life Orb,5.8%,,,,,,,,
+Toxicroak,206,held_item,5,Air Balloon,5.7%,,,,,,,,
+Toxicroak,206,held_item,6,Choice Scarf,5.6%,,,,,,,,
+Toxicroak,206,held_item,7,Leftovers,4.6%,,,,,,,,
+Toxicroak,206,held_item,8,Expert Belt,2.7%,,,,,,,,
+Toxicroak,206,held_item,9,Rocky Helmet,1.0%,,,,,,,,
+Toxicroak,206,held_item,10,Sitrus Berry,0.4%,,,,,,,,
 Toxicroak,206,teammate,1,Archaludon,,,,,,,,,
 Toxicroak,206,teammate,2,Basculegion,,,,,,,,,
 Toxicroak,206,teammate,3,Scovillain,,,,,,,,,
@@ -26,25 +26,26 @@ Toxicroak,206,teammate,4,Kingambit,,,,,,,,,
 Toxicroak,206,teammate,5,Perrserker,,,,,,,,,
 Toxicroak,206,teammate,6,Serperior,,,,,,,,,
 Toxicroak,206,teammate,7,Azumarill,,,,,,,,,
-Toxicroak,206,teammate,8,Golisopod,,,,,,,,,
-Toxicroak,206,teammate,9,Typhlosion-Hisui,,,,,,,,,
-Toxicroak,206,teammate,10,Hydreigon,,,,,,,,,
+Toxicroak,206,teammate,8,Typhlosion-Hisui,,,,,,,,,
+Toxicroak,206,teammate,9,Golisopod,,,,,,,,,
+Toxicroak,206,teammate,10,Gliscor,,,,,,,,,
 Toxicroak,206,stat_alignment,1,Jolly,51.2%,Speed,Sp. Atk,,,,,,
-Toxicroak,206,stat_alignment,2,Adamant,43.1%,Attack,Sp. Atk,,,,,,
-Toxicroak,206,stat_alignment,3,Naughty,4.3%,Attack,Sp. Def,,,,,,
-Toxicroak,206,stat_alignment,4,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
-Toxicroak,206,stat_alignment,5,Lonely,0.5%,Attack,Defense,,,,,,
-Toxicroak,206,stat_alignment,6,Impish,0.2%,Defense,Sp. Atk,,,,,,
-Toxicroak,206,stat_points,1,,46.5%,,,2,32,0,0,0,32
-Toxicroak,206,stat_points,2,,11.2%,,,0,32,0,0,2,32
+Toxicroak,206,stat_alignment,2,Adamant,43.2%,Attack,Sp. Atk,,,,,,
+Toxicroak,206,stat_alignment,3,Naughty,3.9%,Attack,Sp. Def,,,,,,
+Toxicroak,206,stat_alignment,4,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
+Toxicroak,206,stat_alignment,5,Lonely,0.4%,Attack,Defense,,,,,,
+Toxicroak,206,stat_alignment,6,Impish,0.4%,Defense,Sp. Atk,,,,,,
+Toxicroak,206,stat_alignment,7,Naive,0.2%,Speed,Sp. Def,,,,,,
+Toxicroak,206,stat_points,1,,46.0%,,,2,32,0,0,0,32
+Toxicroak,206,stat_points,2,,12.3%,,,0,32,0,0,2,32
 Toxicroak,206,stat_points,3,,9.9%,,,0,32,0,0,0,32
-Toxicroak,206,stat_points,4,,7.5%,,,0,32,2,0,0,32
-Toxicroak,206,stat_points,5,,6.3%,,,32,32,2,0,0,0
+Toxicroak,206,stat_points,4,,7.4%,,,0,32,2,0,0,32
+Toxicroak,206,stat_points,5,,5.8%,,,32,32,2,0,0,0
 Toxicroak,206,stat_points,6,,5.5%,,,32,32,0,0,0,2
-Toxicroak,206,stat_points,7,,3.9%,,,1,32,1,0,0,32
-Toxicroak,206,stat_points,8,,1.7%,,,31,32,0,0,2,1
-Toxicroak,206,stat_points,9,,1.2%,,,0,31,3,0,0,32
-Toxicroak,206,stat_points,10,,1.1%,,,1,32,0,0,1,32
-Toxicroak,206,ability,1,Poison Touch,65.6%,,,,,,,,
-Toxicroak,206,ability,2,Dry Skin,32.8%,,,,,,,,
-Toxicroak,206,ability,3,Anticipation,1.6%,,,,,,,,
+Toxicroak,206,stat_points,7,,3.5%,,,1,32,1,0,0,32
+Toxicroak,206,stat_points,8,,1.6%,,,31,32,0,0,2,1
+Toxicroak,206,stat_points,9,,1.1%,,,0,31,3,0,0,32
+Toxicroak,206,stat_points,10,,1.0%,,,1,32,0,0,1,32
+Toxicroak,206,ability,1,Poison Touch,64.9%,,,,,,,,
+Toxicroak,206,ability,2,Dry Skin,33.6%,,,,,,,,
+Toxicroak,206,ability,3,Anticipation,1.4%,,,,,,,,

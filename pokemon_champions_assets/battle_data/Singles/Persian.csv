@@ -1,42 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Persian,257,move,1,Icy Wind,70.3%,,,,,,,,
-Persian,257,move,2,Taunt,69.4%,,,,,,,,
-Persian,257,move,3,Endeavor,65.8%,,,,,,,,
-Persian,257,move,4,Snarl,44.1%,,,,,,,,
-Persian,257,move,5,Foul Play,36.0%,,,,,,,,
-Persian,257,move,6,U-turn,32.4%,,,,,,,,
-Persian,257,move,7,Hypnosis,24.3%,,,,,,,,
-Persian,257,move,8,Feint,23.4%,,,,,,,,
-Persian,257,move,9,Flail,14.4%,,,,,,,,
-Persian,257,move,10,Fake Out,8.1%,,,,,,,,
-Persian,257,held_item,1,Focus Sash,65.8%,,,,,,,,
-Persian,257,held_item,2,Sitrus Berry,24.3%,,,,,,,,
-Persian,257,held_item,3,Life Orb,7.2%,,,,,,,,
-Persian,257,held_item,4,Bright Powder,0.9%,,,,,,,,
-Persian,257,held_item,5,Choice Scarf,0.9%,,,,,,,,
-Persian,257,held_item,6,Normal Gem,0.9%,,,,,,,,
+Persian,257,move,1,Icy Wind,68.1%,,,,,,,,
+Persian,257,move,2,Taunt,66.4%,,,,,,,,
+Persian,257,move,3,Endeavor,62.9%,,,,,,,,
+Persian,257,move,4,Snarl,43.1%,,,,,,,,
+Persian,257,move,5,Foul Play,37.1%,,,,,,,,
+Persian,257,move,6,U-turn,33.6%,,,,,,,,
+Persian,257,move,7,Hypnosis,24.1%,,,,,,,,
+Persian,257,move,8,Feint,23.3%,,,,,,,,
+Persian,257,move,9,Flail,13.8%,,,,,,,,
+Persian,257,move,10,Fake Out,11.2%,,,,,,,,
+Persian,257,held_item,1,Focus Sash,62.9%,,,,,,,,
+Persian,257,held_item,2,Sitrus Berry,23.3%,,,,,,,,
+Persian,257,held_item,3,Life Orb,8.6%,,,,,,,,
+Persian,257,held_item,4,Wide Lens,1.7%,,,,,,,,
+Persian,257,held_item,5,Bright Powder,0.9%,,,,,,,,
+Persian,257,held_item,6,Choice Scarf,0.9%,,,,,,,,
+Persian,257,held_item,7,Normal Gem,0.9%,,,,,,,,
 Persian,257,teammate,1,Clefable,,,,,,,,,
 Persian,257,teammate,2,Vileplume,,,,,,,,,
 Persian,257,teammate,3,Farfetch’d,,,,,,,,,
 Persian,257,teammate,4,Flareon,,,,,,,,,
 Persian,257,teammate,5,Beedrill,,,,,,,,,
-Persian,257,teammate,6,Gholdengo,,,,,,,,,
-Persian,257,teammate,7,Lucario,,,,,,,,,
+Persian,257,teammate,6,Lucario,,,,,,,,,
+Persian,257,teammate,7,Gholdengo,,,,,,,,,
 Persian,257,teammate,8,Hippowdon,,,,,,,,,
 Persian,257,teammate,9,Alakazam,,,,,,,,,
-Persian,257,teammate,10,Ninetales-Alola,,,,,,,,,
-Persian,257,stat_alignment,1,Timid,51.4%,Speed,Attack,,,,,,
-Persian,257,stat_alignment,2,Jolly,27.9%,Speed,Sp. Atk,,,,,,
-Persian,257,stat_alignment,3,Hasty,14.4%,Speed,Defense,,,,,,
-Persian,257,stat_alignment,4,Naive,4.5%,Speed,Sp. Def,,,,,,
-Persian,257,stat_alignment,5,Adamant,0.9%,Attack,Sp. Atk,,,,,,
+Persian,257,teammate,10,Kangaskhan,,,,,,,,,
+Persian,257,stat_alignment,1,Timid,49.1%,Speed,Attack,,,,,,
+Persian,257,stat_alignment,2,Jolly,29.3%,Speed,Sp. Atk,,,,,,
+Persian,257,stat_alignment,3,Hasty,13.8%,Speed,Defense,,,,,,
+Persian,257,stat_alignment,4,Naive,5.2%,Speed,Sp. Def,,,,,,
+Persian,257,stat_alignment,5,Adamant,1.7%,Attack,Sp. Atk,,,,,,
 Persian,257,stat_alignment,6,Lax,0.9%,Defense,Sp. Def,,,,,,
-Persian,257,stat_points,1,,44.1%,,,1,0,1,32,0,32
-Persian,257,stat_points,2,,24.3%,,,31,0,3,0,0,32
-Persian,257,stat_points,3,,18.9%,,,0,32,0,2,0,32
-Persian,257,stat_points,4,,7.2%,,,2,0,0,32,0,32
-Persian,257,stat_points,5,,2.7%,,,1,32,0,0,0,32
-Persian,257,stat_points,6,,1.8%,,,2,32,0,0,0,32
-Persian,257,stat_points,7,,0.9%,,,0,32,32,0,0,2
-Persian,257,ability,1,Technician,75.7%,,,,,,,,
-Persian,257,ability,2,Limber,24.3%,,,,,,,,
+Persian,257,stat_points,1,,42.2%,,,1,0,1,32,0,32
+Persian,257,stat_points,2,,23.3%,,,31,0,3,0,0,32
+Persian,257,stat_points,3,,19.0%,,,0,32,0,2,0,32
+Persian,257,stat_points,4,,6.9%,,,2,0,0,32,0,32
+Persian,257,stat_points,5,,2.6%,,,1,32,0,0,0,32
+Persian,257,stat_points,6,,2.6%,,,2,32,0,0,0,32
+Persian,257,stat_points,7,,1.7%,,,0,32,2,0,0,32
+Persian,257,stat_points,8,,0.9%,,,0,32,0,0,2,32
+Persian,257,stat_points,9,,0.9%,,,0,32,32,0,0,2
+Persian,257,ability,1,Technician,76.7%,,,,,,,,
+Persian,257,ability,2,Limber,23.3%,,,,,,,,

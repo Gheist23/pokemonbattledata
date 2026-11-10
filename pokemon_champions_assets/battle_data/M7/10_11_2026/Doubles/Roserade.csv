@@ -1,45 +1,47 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Roserade,248,move,1,Sludge Bomb,94.9%,,,,,,,,
-Roserade,248,move,2,Protect,82.3%,,,,,,,,
-Roserade,248,move,3,Giga Drain,50.6%,,,,,,,,
-Roserade,248,move,4,Shadow Ball,38.0%,,,,,,,,
-Roserade,248,move,5,Leaf Storm,35.4%,,,,,,,,
-Roserade,248,move,6,Weather Ball,29.1%,,,,,,,,
-Roserade,248,move,7,Energy Ball,20.3%,,,,,,,,
-Roserade,248,move,8,Sleep Powder,15.2%,,,,,,,,
-Roserade,248,move,9,Dazzling Gleam,10.1%,,,,,,,,
-Roserade,248,move,10,Cotton Spore,3.8%,,,,,,,,
-Roserade,248,held_item,1,Wise Glasses,35.4%,,,,,,,,
-Roserade,248,held_item,2,Life Orb,25.3%,,,,,,,,
-Roserade,248,held_item,3,Wide Lens,12.7%,,,,,,,,
-Roserade,248,held_item,4,Choice Scarf,8.9%,,,,,,,,
-Roserade,248,held_item,5,Miracle Seed,6.3%,,,,,,,,
-Roserade,248,held_item,6,Focus Sash,5.1%,,,,,,,,
-Roserade,248,held_item,7,Expert Belt,3.8%,,,,,,,,
-Roserade,248,held_item,8,Big Root,2.5%,,,,,,,,
-Roserade,248,teammate,1,Garchomp,,,,,,,,,
-Roserade,248,teammate,2,Flareon,,,,,,,,,
-Roserade,248,teammate,3,Altaria,,,,,,,,,
-Roserade,248,teammate,4,Empoleon,,,,,,,,,
-Roserade,248,teammate,5,Weavile,,,,,,,,,
-Roserade,248,teammate,6,Gallade,,,,,,,,,
-Roserade,248,teammate,7,Pelipper,,,,,,,,,
-Roserade,248,teammate,8,Charizard,,,,,,,,,
-Roserade,248,teammate,9,Swampert,,,,,,,,,
-Roserade,248,teammate,10,Grimmsnarl,,,,,,,,,
-Roserade,248,stat_alignment,1,Modest,75.9%,Sp. Atk,Attack,,,,,,
-Roserade,248,stat_alignment,2,Timid,22.8%,Speed,Attack,,,,,,
-Roserade,248,stat_alignment,3,Calm,1.3%,Sp. Def,Attack,,,,,,
-Roserade,248,stat_points,1,,39.2%,,,2,0,0,32,0,32
-Roserade,248,stat_points,2,,35.4%,,,0,0,10,32,16,8
-Roserade,248,stat_points,3,,5.1%,,,0,0,2,32,0,32
-Roserade,248,stat_points,4,,5.1%,,,2,0,0,0,32,32
-Roserade,248,stat_points,5,,3.8%,,,4,0,15,19,0,28
-Roserade,248,stat_points,6,,2.5%,,,0,0,0,32,0,32
-Roserade,248,stat_points,7,,2.5%,,,0,0,0,32,2,32
-Roserade,248,stat_points,8,,1.3%,,,0,0,32,32,0,2
-Roserade,248,stat_points,9,,1.3%,,,2,0,0,32,3,29
-Roserade,248,stat_points,10,,1.3%,,,3,0,0,32,0,31
-Roserade,248,ability,1,Poison Point,64.6%,,,,,,,,
-Roserade,248,ability,2,Natural Cure,30.4%,,,,,,,,
-Roserade,248,ability,3,Technician,5.1%,,,,,,,,
+Roserade,246,move,1,Sludge Bomb,95.6%,,,,,,,,
+Roserade,246,move,2,Protect,77.8%,,,,,,,,
+Roserade,246,move,3,Giga Drain,50.0%,,,,,,,,
+Roserade,246,move,4,Shadow Ball,33.3%,,,,,,,,
+Roserade,246,move,5,Leaf Storm,31.1%,,,,,,,,
+Roserade,246,move,6,Weather Ball,25.6%,,,,,,,,
+Roserade,246,move,7,Energy Ball,18.9%,,,,,,,,
+Roserade,246,move,8,Sleep Powder,13.3%,,,,,,,,
+Roserade,246,move,9,Cotton Spore,10.0%,,,,,,,,
+Roserade,246,move,10,Grass Knot,10.0%,,,,,,,,
+Roserade,246,held_item,1,Wise Glasses,31.1%,,,,,,,,
+Roserade,246,held_item,2,Life Orb,24.4%,,,,,,,,
+Roserade,246,held_item,3,Wide Lens,11.1%,,,,,,,,
+Roserade,246,held_item,4,Choice Scarf,7.8%,,,,,,,,
+Roserade,246,held_item,5,Big Root,6.7%,,,,,,,,
+Roserade,246,held_item,6,Miracle Seed,5.6%,,,,,,,,
+Roserade,246,held_item,7,Focus Sash,4.4%,,,,,,,,
+Roserade,246,held_item,8,Expert Belt,3.3%,,,,,,,,
+Roserade,246,held_item,9,Grassy Seed,3.3%,,,,,,,,
+Roserade,246,held_item,10,Bright Powder,2.2%,,,,,,,,
+Roserade,246,teammate,1,Garchomp,,,,,,,,,
+Roserade,246,teammate,2,Flareon,,,,,,,,,
+Roserade,246,teammate,3,Altaria,,,,,,,,,
+Roserade,246,teammate,4,Empoleon,,,,,,,,,
+Roserade,246,teammate,5,Weavile,,,,,,,,,
+Roserade,246,teammate,6,Gallade,,,,,,,,,
+Roserade,246,teammate,7,Pelipper,,,,,,,,,
+Roserade,246,teammate,8,Charizard,,,,,,,,,
+Roserade,246,teammate,9,Swampert,,,,,,,,,
+Roserade,246,teammate,10,Grimmsnarl,,,,,,,,,
+Roserade,246,stat_alignment,1,Modest,67.8%,Sp. Atk,Attack,,,,,,
+Roserade,246,stat_alignment,2,Timid,31.1%,Speed,Attack,,,,,,
+Roserade,246,stat_alignment,3,Calm,1.1%,Sp. Def,Attack,,,,,,
+Roserade,246,stat_points,1,,46.7%,,,2,0,0,32,0,32
+Roserade,246,stat_points,2,,31.1%,,,0,0,10,32,16,8
+Roserade,246,stat_points,3,,4.4%,,,0,0,2,32,0,32
+Roserade,246,stat_points,4,,4.4%,,,2,0,0,0,32,32
+Roserade,246,stat_points,5,,3.3%,,,4,0,15,19,0,28
+Roserade,246,stat_points,6,,2.2%,,,0,0,0,32,0,32
+Roserade,246,stat_points,7,,2.2%,,,0,0,0,32,2,32
+Roserade,246,stat_points,8,,1.1%,,,0,0,32,32,0,2
+Roserade,246,stat_points,9,,1.1%,,,2,0,0,32,3,29
+Roserade,246,stat_points,10,,1.1%,,,3,0,0,32,0,31
+Roserade,246,ability,1,Poison Point,67.8%,,,,,,,,
+Roserade,246,ability,2,Natural Cure,27.8%,,,,,,,,
+Roserade,246,ability,3,Technician,4.4%,,,,,,,,

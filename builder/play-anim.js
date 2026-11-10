@@ -89,6 +89,41 @@ const BIG = 35;
  * One place on purpose: the panel used to be built from a different description of the same turn
  * and the two disagreed about both the wording and the order.
  */
+/**
+ * What each move COST, to go on the move's own line.
+ *
+ * A `hit` step says nothing by itself: `sentenceFor` keeps an ordinary hit silent on purpose,
+ * because in the animation the health bar moving IS the sentence. The transcript has no bar, so
+ * it recorded "Sneasler used Close Combat on Garchomp" and never what it did -- and a reader
+ * going back over a game could not tell a glancing blow from one that nearly killed.
+ *
+ * The numbers were on the step the whole time (`from` and `to`, already percentages). This
+ * walks the stream, gathers the hits that belong to each move, and returns the text to append.
+ * A spread move names each target it hit; a single-target move does not, because the move's own
+ * line already says who it was aimed at.
+ */
+export function damageByMove(stream, nameOf) {
+  const hits = new Map();
+  let at = -1;
+  for (let i = 0; i < stream.length; i += 1) {
+    const step = stream[i];
+    if (step.kind === "move") { at = i; continue; }
+    if (step.kind !== "hit" || at < 0) continue;
+    if (!Number.isFinite(step.from) || !Number.isFinite(step.to)) continue;
+    if (!hits.has(at)) hits.set(at, []);
+    hits.get(at).push(step);
+  }
+  const text = new Map();
+  for (const [index, landed] of hits) {
+    const parts = landed.map((hit) => {
+      const moved = `${hit.from}% → ${hit.to}%`;
+      return landed.length > 1 ? `${nameOf(hit.side, hit.tag)} ${moved}` : moved;
+    });
+    text.set(index, `, ${parts.join(", ")}`);
+  }
+  return text;
+}
+
 export function sentenceFor(step, nameOf) {
   if (!step) return "";
   if (step.text) return step.text;

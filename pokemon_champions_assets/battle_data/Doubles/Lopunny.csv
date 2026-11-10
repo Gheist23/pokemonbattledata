@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Lopunny,111,move,1,Close Combat,88.6%,,,,,,,,
-Lopunny,111,move,2,Fake Out,88.1%,,,,,,,,
-Lopunny,111,move,3,Triple Axel,63.4%,,,,,,,,
-Lopunny,111,move,4,Encore,35.3%,,,,,,,,
-Lopunny,111,move,5,Protect,32.4%,,,,,,,,
-Lopunny,111,move,6,After You,17.5%,,,,,,,,
-Lopunny,111,move,7,Giga Impact,13.8%,,,,,,,,
-Lopunny,111,move,8,Thunder Punch,12.6%,,,,,,,,
-Lopunny,111,move,9,U-turn,7.3%,,,,,,,,
-Lopunny,111,move,10,Ice Punch,4.2%,,,,,,,,
-Lopunny,111,held_item,1,Lopunnite,93.3%,,,,,,,,
-Lopunny,111,held_item,2,Chople Berry,3.1%,,,,,,,,
-Lopunny,111,held_item,3,Focus Sash,2.5%,,,,,,,,
-Lopunny,111,held_item,4,Sitrus Berry,0.4%,,,,,,,,
+Lopunny,111,move,1,Close Combat,88.9%,,,,,,,,
+Lopunny,111,move,2,Fake Out,88.3%,,,,,,,,
+Lopunny,111,move,3,Triple Axel,64.0%,,,,,,,,
+Lopunny,111,move,4,Encore,35.4%,,,,,,,,
+Lopunny,111,move,5,Protect,31.9%,,,,,,,,
+Lopunny,111,move,6,After You,17.4%,,,,,,,,
+Lopunny,111,move,7,Giga Impact,13.2%,,,,,,,,
+Lopunny,111,move,8,Thunder Punch,12.7%,,,,,,,,
+Lopunny,111,move,9,U-turn,7.4%,,,,,,,,
+Lopunny,111,move,10,Ice Punch,4.4%,,,,,,,,
+Lopunny,111,held_item,1,Lopunnite,93.6%,,,,,,,,
+Lopunny,111,held_item,2,Chople Berry,3.0%,,,,,,,,
+Lopunny,111,held_item,3,Focus Sash,2.3%,,,,,,,,
+Lopunny,111,held_item,4,Sitrus Berry,0.3%,,,,,,,,
 Lopunny,111,held_item,5,Iron Ball,0.3%,,,,,,,,
 Lopunny,111,held_item,6,Choice Scarf,0.2%,,,,,,,,
 Lopunny,111,held_item,7,White Herb,0.1%,,,,,,,,
@@ -20,32 +20,32 @@ Lopunny,111,held_item,8,Leftovers,0.1%,,,,,,,,
 Lopunny,111,held_item,9,Silk Scarf,0.0%,,,,,,,,
 Lopunny,111,held_item,10,Expert Belt,0.0%,,,,,,,,
 Lopunny,111,teammate,1,Indeedee-F,,,,,,,,,
-Lopunny,111,teammate,2,Gardevoir,,,,,,,,,
-Lopunny,111,teammate,3,Rillaboom,,,,,,,,,
-Lopunny,111,teammate,4,Farigiraf,,,,,,,,,
+Lopunny,111,teammate,2,Rillaboom,,,,,,,,,
+Lopunny,111,teammate,3,Gardevoir,,,,,,,,,
+Lopunny,111,teammate,4,Incineroar,,,,,,,,,
 Lopunny,111,teammate,5,Sneasler,,,,,,,,,
-Lopunny,111,teammate,6,Incineroar,,,,,,,,,
+Lopunny,111,teammate,6,Farigiraf,,,,,,,,,
 Lopunny,111,teammate,7,Ceruledge,,,,,,,,,
 Lopunny,111,teammate,8,Sylveon,,,,,,,,,
 Lopunny,111,teammate,9,Kingambit,,,,,,,,,
 Lopunny,111,teammate,10,Torkoal,,,,,,,,,
-Lopunny,111,stat_alignment,1,Jolly,92.0%,Speed,Sp. Atk,,,,,,
-Lopunny,111,stat_alignment,2,Adamant,7.4%,Attack,Sp. Atk,,,,,,
-Lopunny,111,stat_alignment,3,Impish,0.3%,Defense,Sp. Atk,,,,,,
-Lopunny,111,stat_alignment,4,Hasty,0.2%,Speed,Defense,,,,,,
-Lopunny,111,stat_alignment,5,Timid,0.1%,Speed,Attack,,,,,,
-Lopunny,111,stat_alignment,6,Naive,0.0%,Speed,Sp. Def,,,,,,
-Lopunny,111,stat_alignment,7,Brave,0.0%,Attack,Speed,,,,,,
-Lopunny,111,stat_points,1,,44.7%,,,2,32,0,0,0,32
+Lopunny,111,stat_alignment,1,Jolly,91.4%,Speed,Sp. Atk,,,,,,
+Lopunny,111,stat_alignment,2,Adamant,7.9%,Attack,Sp. Atk,,,,,,
+Lopunny,111,stat_alignment,3,Brave,0.3%,Attack,Speed,,,,,,
+Lopunny,111,stat_alignment,4,Impish,0.2%,Defense,Sp. Atk,,,,,,
+Lopunny,111,stat_alignment,5,Hasty,0.2%,Speed,Defense,,,,,,
+Lopunny,111,stat_alignment,6,Timid,0.1%,Speed,Attack,,,,,,
+Lopunny,111,stat_alignment,7,Naive,0.0%,Speed,Sp. Def,,,,,,
+Lopunny,111,stat_points,1,,45.2%,,,2,32,0,0,0,32
 Lopunny,111,stat_points,2,,12.1%,,,1,32,1,0,0,32
-Lopunny,111,stat_points,3,,11.2%,,,32,0,2,0,0,32
-Lopunny,111,stat_points,4,,10.5%,,,0,32,2,0,0,32
-Lopunny,111,stat_points,5,,3.0%,,,32,2,0,0,0,32
-Lopunny,111,stat_points,6,,2.7%,,,0,32,0,0,2,32
+Lopunny,111,stat_points,3,,10.6%,,,32,0,2,0,0,32
+Lopunny,111,stat_points,4,,10.4%,,,0,32,2,0,0,32
+Lopunny,111,stat_points,5,,2.8%,,,0,32,0,0,2,32
+Lopunny,111,stat_points,6,,2.8%,,,32,2,0,0,0,32
 Lopunny,111,stat_points,7,,1.7%,,,0,32,0,0,0,32
 Lopunny,111,stat_points,8,,1.6%,,,5,29,0,0,0,32
-Lopunny,111,stat_points,9,,1.6%,,,6,32,0,0,0,28
-Lopunny,111,stat_points,10,,1.0%,,,0,32,2,0,32,0
-Lopunny,111,ability,1,Limber,52.6%,,,,,,,,
-Lopunny,111,ability,2,Cute Charm,46.6%,,,,,,,,
-Lopunny,111,ability,3,Klutz,0.8%,,,,,,,,
+Lopunny,111,stat_points,9,,1.5%,,,6,32,0,0,0,28
+Lopunny,111,stat_points,10,,0.9%,,,0,32,2,0,32,0
+Lopunny,111,ability,1,Limber,53.3%,,,,,,,,
+Lopunny,111,ability,2,Cute Charm,45.6%,,,,,,,,
+Lopunny,111,ability,3,Klutz,1.2%,,,,,,,,

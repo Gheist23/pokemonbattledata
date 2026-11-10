@@ -18,7 +18,7 @@ import { BuilderData, makeSet, setFromCommon } from "./common.js";
 import { clear, editSet, h, openDialog, pickPokemon, segmented, select, sprite } from "./ui.js";
 import { getState, teamSets } from "./store.js";
 import { loadRecord, playerName, recordGame, setPlayerName } from "./play-record.js";
-import { DEFAULT_PACE, PACES, createTurnPlayer, sentenceFor, streamFromRecord } from "./play-anim.js";
+import { DEFAULT_PACE, PACES, createTurnPlayer, damageByMove, sentenceFor, streamFromRecord } from "./play-anim.js";
 import { BattleMusic } from "./play-music.js";
 import { armMega } from "./play-choice.js";
 
@@ -1335,12 +1335,14 @@ function nameFor(view, side, tag) {
  * a turn with no stream on it falls back to printing them the old way.
  */
 function renderLog(view) {
-  const line = (step, index) => {
+  const line = (step, index, damage) => {
     // THE SAME NAMES THE ANIMATION USED. This had its own lookup with no mirror rule, so the
     // caption said "the opposing Mega Garchomp Z" while the transcript beside it said
     // "Mega Garchomp Z" for both of them -- and in a mirror match the transcript named neither.
-    const text = sentenceFor(step, (side, tag) => nameFor(view, side, tag));
-    if (!text) return null;
+    const said = sentenceFor(step, (side, tag) => nameFor(view, side, tag));
+    if (!said) return null;
+    // ...and what it cost, for a move that landed one.
+    const text = said + (step.kind === "move" ? (damage?.get(index) || "") : "");
     const hurt = step.kind === "hit" || step.kind === "faint"
       || (step.kind === "residual" && step.to < step.from);
     return h("span", {
@@ -1355,7 +1357,9 @@ function renderLog(view) {
       return h("div", { class: "bd-play-log-turn" },
         entry.turn ? h("strong", {}, `Turn ${entry.turn}`) : h("strong", {}, "The teams come out"),
         stream
-          ? h("div", { class: "bd-play-log-lines" }, stream.map(line).filter(Boolean))
+          ? h("div", { class: "bd-play-log-lines" },
+            ((damage) => stream.map((step, index) => line(step, index, damage)).filter(Boolean))(
+              damageByMove(stream, (side, tag) => nameFor(view, side, tag))))
           : h("div", { class: "bd-play-log-lines" },
             (entry.plays || []).map((play) => h("span", { class: `bd-play-log-line side-${play.side}` }, play.text)),
             (entry.notes || []).map((note) => h("span", { class: "bd-play-log-line" }, note)),

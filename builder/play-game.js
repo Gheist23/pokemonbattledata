@@ -266,7 +266,26 @@ const LOST_TURN_SAID = {
 const STAT_WORDS = { atk: "Attack", spa: "Sp. Atk", spe: "Speed", def: "Defense", spd: "Sp. Def" };
 
 /** Whole percent, the way `monView` and the page's HP bar read it. */
-const percent = (share) => Math.max(0, Math.round(share * 100));
+/**
+ * A share of a Pokemon's health as the percentage to SHOW, 0-100.
+ *
+ * A LIVING POKEMON NEVER READS 0%. `Math.round` alone turned any survivor under half a percent
+ * into "0%", and the user met one: a Garchomp that took a Sucker Punch, lived on a sliver, went
+ * on attacking and read 0% HP for the rest of the game -- it had not fainted and there was no
+ * faint line for it, but every number on screen said it was gone.
+ *
+ * Only a share of exactly 0 is 0%, and `deal` writes exactly that on a knockout
+ * (`if (target.hp <= 1e-9) { target.hp = 0; target.out = true; }`), so a faint still reads 0%
+ * and nothing else can.
+ *
+ * Every HP number the page shows comes through here. Three copies of the old line had been
+ * written out by hand -- the board, the bench and the view -- so the floor is applied once.
+ */
+const percent = (share) => {
+  const value = Number(share) || 0;
+  if (value <= 0) return 0;
+  return Math.min(100, Math.max(1, Math.round(value * 100)));
+};
 /** One Pokemon, for the sets this walk keeps. `tag` is unique per side, not across both. */
 const seatKey = (side, tag) => side * 16 + tag;
 
@@ -373,7 +392,7 @@ function monView(m, full, record) {
       item: record?.item || "",
       ability: record?.ability || "",
     },
-    hp: Math.max(0, Math.round(m.hp * 100)),
+    hp: percent(m.hp),
     out: Boolean(m.out),
     // EVERY condition is read off the probability slot, because in a played game that is where
     // every condition lives: `applyStatus` pins the slot to 1 and writes no boolean beside it.
@@ -580,7 +599,7 @@ export class PlayGame {
     const standing = this.state.active[0];
     return this.state.sides[0]
       .filter((m) => m && !m.out && m.hp > 0 && !standing.includes(m))
-      .map((m) => ({ tag: m.tag, name: this.solver.label(m.u), hp: Math.max(0, Math.round(m.hp * 100)) }));
+      .map((m) => ({ tag: m.tag, name: this.solver.label(m.u), hp: percent(m.hp) }));
   }
 
   /**
@@ -840,7 +859,7 @@ export class PlayGame {
   rowOf(m, side, set) {
     return {
       set: set || this.setOf(m),
-      hp: Math.max(0, Math.round(m.hp * 100)),
+      hp: percent(m.hp),
       front: this.state.active[side].includes(m),
       justIn: Boolean(m.justIn),
       // THE PINNED SLOT FIRST, and paralysis at all.

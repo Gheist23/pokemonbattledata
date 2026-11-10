@@ -1,48 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simisear,243,move,1,Flamethrower,81.8%,,,,,,,,
-Simisear,243,move,2,Scorching Sands,57.7%,,,,,,,,
-Simisear,243,move,3,Focus Blast,53.1%,,,,,,,,
-Simisear,243,move,4,Gunk Shot,45.0%,,,,,,,,
-Simisear,243,move,5,Grass Knot,36.2%,,,,,,,,
-Simisear,243,move,6,Taunt,29.8%,,,,,,,,
-Simisear,243,move,7,Yawn,27.3%,,,,,,,,
-Simisear,243,move,8,Nasty Plot,11.8%,,,,,,,,
-Simisear,243,move,9,Will-O-Wisp,11.6%,,,,,,,,
-Simisear,243,move,10,Fire Blast,9.9%,,,,,,,,
-Simisear,243,held_item,1,Choice Scarf,53.5%,,,,,,,,
-Simisear,243,held_item,2,Life Orb,18.8%,,,,,,,,
-Simisear,243,held_item,3,Focus Sash,11.4%,,,,,,,,
-Simisear,243,held_item,4,Sitrus Berry,9.9%,,,,,,,,
-Simisear,243,held_item,5,Lum Berry,3.4%,,,,,,,,
-Simisear,243,held_item,6,Light Ball,1.5%,,,,,,,,
-Simisear,243,held_item,7,Rocky Helmet,0.6%,,,,,,,,
-Simisear,243,held_item,8,Air Balloon,0.6%,,,,,,,,
-Simisear,243,held_item,9,Quick Claw,0.2%,,,,,,,,
-Simisear,243,teammate,1,Simipour,,,,,,,,,
-Simisear,243,teammate,2,Simisage,,,,,,,,,
-Simisear,243,teammate,3,Falinks,,,,,,,,,
-Simisear,243,teammate,4,Bastiodon,,,,,,,,,
-Simisear,243,teammate,5,Beedrill,,,,,,,,,
-Simisear,243,teammate,6,Clefable,,,,,,,,,
-Simisear,243,teammate,7,Golurk,,,,,,,,,
-Simisear,243,teammate,8,Watchog,,,,,,,,,
-Simisear,243,teammate,9,Liepard,,,,,,,,,
-Simisear,243,teammate,10,Emolga,,,,,,,,,
-Simisear,243,stat_alignment,1,Naive,66.0%,Speed,Sp. Def,,,,,,
-Simisear,243,stat_alignment,2,Modest,15.9%,Sp. Atk,Attack,,,,,,
-Simisear,243,stat_alignment,3,Bold,9.1%,Defense,Attack,,,,,,
-Simisear,243,stat_alignment,4,Timid,4.7%,Speed,Attack,,,,,,
-Simisear,243,stat_alignment,5,Jolly,4.2%,Speed,Sp. Atk,,,,,,
-Simisear,243,stat_alignment,6,Adamant,0.2%,Attack,Sp. Atk,,,,,,
-Simisear,243,stat_points,1,,70.6%,,,2,0,0,32,0,32
-Simisear,243,stat_points,2,,7.8%,,,31,0,27,0,8,0
-Simisear,243,stat_points,3,,4.9%,,,11,0,0,32,0,23
-Simisear,243,stat_points,4,,3.8%,,,2,0,6,32,0,26
-Simisear,243,stat_points,5,,2.3%,,,1,1,0,32,0,32
-Simisear,243,stat_points,6,,2.1%,,,1,0,1,32,0,32
-Simisear,243,stat_points,7,,2.1%,,,1,32,1,0,0,32
-Simisear,243,stat_points,8,,1.7%,,,2,32,0,0,0,32
-Simisear,243,stat_points,9,,0.8%,,,0,0,2,32,0,32
-Simisear,243,stat_points,10,,0.6%,,,0,32,1,0,1,32
-Simisear,243,ability,1,Blaze,96.8%,,,,,,,,
-Simisear,243,ability,2,Gluttony,3.2%,,,,,,,,
+Simisear,242,move,1,Flamethrower,82.5%,,,,,,,,
+Simisear,242,move,2,Scorching Sands,59.1%,,,,,,,,
+Simisear,242,move,3,Focus Blast,53.9%,,,,,,,,
+Simisear,242,move,4,Gunk Shot,44.1%,,,,,,,,
+Simisear,242,move,5,Grass Knot,36.3%,,,,,,,,
+Simisear,242,move,6,Taunt,27.5%,,,,,,,,
+Simisear,242,move,7,Yawn,25.4%,,,,,,,,
+Simisear,242,move,8,Will-O-Wisp,12.2%,,,,,,,,
+Simisear,242,move,9,Fire Blast,11.5%,,,,,,,,
+Simisear,242,move,10,Nasty Plot,11.5%,,,,,,,,
+Simisear,242,held_item,1,Choice Scarf,54.2%,,,,,,,,
+Simisear,242,held_item,2,Life Orb,16.8%,,,,,,,,
+Simisear,242,held_item,3,Focus Sash,12.2%,,,,,,,,
+Simisear,242,held_item,4,Sitrus Berry,11.1%,,,,,,,,
+Simisear,242,held_item,5,Lum Berry,3.0%,,,,,,,,
+Simisear,242,held_item,6,Light Ball,1.3%,,,,,,,,
+Simisear,242,held_item,7,Rocky Helmet,0.6%,,,,,,,,
+Simisear,242,held_item,8,Air Balloon,0.6%,,,,,,,,
+Simisear,242,held_item,9,Quick Claw,0.2%,,,,,,,,
+Simisear,242,teammate,1,Simipour,,,,,,,,,
+Simisear,242,teammate,2,Simisage,,,,,,,,,
+Simisear,242,teammate,3,Falinks,,,,,,,,,
+Simisear,242,teammate,4,Bastiodon,,,,,,,,,
+Simisear,242,teammate,5,Beedrill,,,,,,,,,
+Simisear,242,teammate,6,Clefable,,,,,,,,,
+Simisear,242,teammate,7,Golurk,,,,,,,,,
+Simisear,242,teammate,8,Watchog,,,,,,,,,
+Simisear,242,teammate,9,Emolga,,,,,,,,,
+Simisear,242,teammate,10,Liepard,,,,,,,,,
+Simisear,242,stat_alignment,1,Naive,62.7%,Speed,Sp. Def,,,,,,
+Simisear,242,stat_alignment,2,Modest,16.8%,Sp. Atk,Attack,,,,,,
+Simisear,242,stat_alignment,3,Bold,10.0%,Defense,Attack,,,,,,
+Simisear,242,stat_alignment,4,Timid,6.2%,Speed,Attack,,,,,,
+Simisear,242,stat_alignment,5,Jolly,3.8%,Speed,Sp. Atk,,,,,,
+Simisear,242,stat_alignment,6,Calm,0.4%,Sp. Def,Attack,,,,,,
+Simisear,242,stat_alignment,7,Adamant,0.2%,Attack,Sp. Atk,,,,,,
+Simisear,242,stat_points,1,,67.6%,,,2,0,0,32,0,32
+Simisear,242,stat_points,2,,8.9%,,,31,0,27,0,8,0
+Simisear,242,stat_points,3,,4.3%,,,11,0,0,32,0,23
+Simisear,242,stat_points,4,,4.1%,,,1,0,1,32,0,32
+Simisear,242,stat_points,5,,3.4%,,,2,0,6,32,0,26
+Simisear,242,stat_points,6,,2.1%,,,1,1,0,32,0,32
+Simisear,242,stat_points,7,,1.9%,,,1,32,1,0,0,32
+Simisear,242,stat_points,8,,1.7%,,,0,0,0,32,2,32
+Simisear,242,stat_points,9,,1.5%,,,2,32,0,0,0,32
+Simisear,242,stat_points,10,,0.8%,,,0,0,2,32,0,32
+Simisear,242,ability,1,Blaze,96.8%,,,,,,,,
+Simisear,242,ability,2,Gluttony,3.2%,,,,,,,,

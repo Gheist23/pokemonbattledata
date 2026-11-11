@@ -1,37 +1,38 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tauros,261,move,1,Iron Head,80.4%,,,,,,,,
-Tauros,261,move,2,Body Slam,62.7%,,,,,,,,
-Tauros,261,move,3,Protect,47.1%,,,,,,,,
-Tauros,261,move,4,Rock Slide,39.2%,,,,,,,,
-Tauros,261,move,5,High Horsepower,37.3%,,,,,,,,
-Tauros,261,move,6,Raging Bull,37.3%,,,,,,,,
-Tauros,261,move,7,Zen Headbutt,27.5%,,,,,,,,
-Tauros,261,move,8,Close Combat,19.6%,,,,,,,,
-Tauros,261,move,9,Blizzard,19.6%,,,,,,,,
-Tauros,261,move,10,Earthquake,19.6%,,,,,,,,
-Tauros,261,held_item,1,Life Orb,72.5%,,,,,,,,
-Tauros,261,held_item,2,Chople Berry,19.6%,,,,,,,,
-Tauros,261,held_item,3,Sitrus Berry,3.9%,,,,,,,,
-Tauros,261,held_item,4,Muscle Band,2.0%,,,,,,,,
-Tauros,261,held_item,5,Expert Belt,2.0%,,,,,,,,
-Tauros,261,teammate,1,Farigiraf,,,,,,,,,
-Tauros,261,teammate,2,Pidgeot,,,,,,,,,
-Tauros,261,teammate,3,Kangaskhan,,,,,,,,,
-Tauros,261,teammate,4,Heliolisk,,,,,,,,,
-Tauros,261,teammate,5,Indeedee,,,,,,,,,
-Tauros,261,teammate,6,Indeedee-F,,,,,,,,,
-Tauros,261,teammate,7,Dragonite,,,,,,,,,
-Tauros,261,teammate,8,Mr. Mime,,,,,,,,,
-Tauros,261,teammate,9,Simipour,,,,,,,,,
-Tauros,261,teammate,10,Ceruledge,,,,,,,,,
-Tauros,261,stat_alignment,1,Adamant,58.8%,Attack,Sp. Atk,,,,,,
-Tauros,261,stat_alignment,2,Jolly,41.2%,Speed,Sp. Atk,,,,,,
-Tauros,261,stat_points,1,,47.1%,,,0,32,0,0,2,32
-Tauros,261,stat_points,2,,19.6%,,,0,32,2,0,32,0
-Tauros,261,stat_points,3,,13.7%,,,0,32,0,0,0,32
-Tauros,261,stat_points,4,,11.8%,,,19,32,0,0,5,10
-Tauros,261,stat_points,5,,3.9%,,,2,32,0,0,0,32
-Tauros,261,stat_points,6,,2.0%,,,0,32,2,0,0,32
-Tauros,261,stat_points,7,,2.0%,,,32,32,0,0,2,0
-Tauros,261,ability,1,Sheer Force,62.7%,,,,,,,,
-Tauros,261,ability,2,Intimidate,37.3%,,,,,,,,
+Tauros,261,move,1,Body Slam,65.8%,,,,,,,,
+Tauros,261,move,2,Iron Head,53.2%,,,,,,,,
+Tauros,261,move,3,Close Combat,44.3%,,,,,,,,
+Tauros,261,move,4,Zen Headbutt,43.0%,,,,,,,,
+Tauros,261,move,5,Protect,40.5%,,,,,,,,
+Tauros,261,move,6,High Horsepower,32.9%,,,,,,,,
+Tauros,261,move,7,Raging Bull,30.4%,,,,,,,,
+Tauros,261,move,8,Rock Slide,29.1%,,,,,,,,
+Tauros,261,move,9,Throat Chop,26.6%,,,,,,,,
+Tauros,261,move,10,Earthquake,13.9%,,,,,,,,
+Tauros,261,held_item,1,Life Orb,79.7%,,,,,,,,
+Tauros,261,held_item,2,Chople Berry,12.7%,,,,,,,,
+Tauros,261,held_item,3,Sitrus Berry,5.1%,,,,,,,,
+Tauros,261,held_item,4,Muscle Band,1.3%,,,,,,,,
+Tauros,261,held_item,5,Expert Belt,1.3%,,,,,,,,
+Tauros,261,teammate,1,Alcremie,,,,,,,,,
+Tauros,261,teammate,2,Sylveon,,,,,,,,,
+Tauros,261,teammate,3,Rillaboom,,,,,,,,,
+Tauros,261,teammate,4,Sneasler,,,,,,,,,
+Tauros,261,teammate,5,Salamence,,,,,,,,,
+Tauros,261,teammate,6,Farigiraf,,,,,,,,,
+Tauros,261,teammate,7,Pidgeot,,,,,,,,,
+Tauros,261,teammate,8,Kangaskhan,,,,,,,,,
+Tauros,261,teammate,9,Dragonite,,,,,,,,,
+Tauros,261,teammate,10,Heliolisk,,,,,,,,,
+Tauros,261,stat_alignment,1,Jolly,54.4%,Speed,Sp. Atk,,,,,,
+Tauros,261,stat_alignment,2,Adamant,45.6%,Attack,Sp. Atk,,,,,,
+Tauros,261,stat_points,1,,31.6%,,,0,32,0,0,2,32
+Tauros,261,stat_points,2,,26.6%,,,0,32,2,0,0,32
+Tauros,261,stat_points,3,,13.9%,,,19,32,0,0,5,10
+Tauros,261,stat_points,4,,12.7%,,,0,32,2,0,32,0
+Tauros,261,stat_points,5,,8.9%,,,0,32,0,0,0,32
+Tauros,261,stat_points,6,,5.1%,,,2,32,0,0,0,32
+Tauros,261,stat_points,7,,1.3%,,,32,32,0,0,2,0
+Tauros,261,ability,1,Sheer Force,65.8%,,,,,,,,
+Tauros,261,ability,2,Intimidate,32.9%,,,,,,,,
+Tauros,261,ability,3,Anger Point,1.3%,,,,,,,,

@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Aggron,111,move,1,Body Press,78.2%,,,,,,,,
-Aggron,111,move,2,Iron Defense,61.7%,,,,,,,,
-Aggron,111,move,3,Heavy Slam,42.7%,,,,,,,,
-Aggron,111,move,4,Metal Burst,41.7%,,,,,,,,
-Aggron,111,move,5,Earthquake,31.2%,,,,,,,,
-Aggron,111,move,6,Avalanche,21.5%,,,,,,,,
-Aggron,111,move,7,Stealth Rock,15.9%,,,,,,,,
-Aggron,111,move,8,Ice Punch,15.4%,,,,,,,,
-Aggron,111,move,9,Rest,13.3%,,,,,,,,
-Aggron,111,move,10,Stone Edge,12.5%,,,,,,,,
-Aggron,111,held_item,1,Aggronite,79.9%,,,,,,,,
+Aggron,111,move,1,Body Press,78.1%,,,,,,,,
+Aggron,111,move,2,Iron Defense,61.5%,,,,,,,,
+Aggron,111,move,3,Heavy Slam,42.5%,,,,,,,,
+Aggron,111,move,4,Metal Burst,41.4%,,,,,,,,
+Aggron,111,move,5,Earthquake,31.3%,,,,,,,,
+Aggron,111,move,6,Avalanche,21.3%,,,,,,,,
+Aggron,111,move,7,Stealth Rock,16.0%,,,,,,,,
+Aggron,111,move,8,Ice Punch,15.1%,,,,,,,,
+Aggron,111,move,9,Rest,13.4%,,,,,,,,
+Aggron,111,move,10,Stone Edge,12.7%,,,,,,,,
+Aggron,111,held_item,1,Aggronite,79.7%,,,,,,,,
 Aggron,111,held_item,2,Leftovers,7.2%,,,,,,,,
 Aggron,111,held_item,3,Red Card,4.1%,,,,,,,,
 Aggron,111,held_item,4,Rocky Helmet,2.0%,,,,,,,,
-Aggron,111,held_item,5,Focus Sash,1.2%,,,,,,,,
-Aggron,111,held_item,6,Black Belt,1.0%,,,,,,,,
-Aggron,111,held_item,7,Sitrus Berry,0.9%,,,,,,,,
+Aggron,111,held_item,5,Focus Sash,1.4%,,,,,,,,
+Aggron,111,held_item,6,Sitrus Berry,1.0%,,,,,,,,
+Aggron,111,held_item,7,Black Belt,0.9%,,,,,,,,
 Aggron,111,held_item,8,Air Balloon,0.8%,,,,,,,,
 Aggron,111,held_item,9,Mental Herb,0.5%,,,,,,,,
 Aggron,111,held_item,10,Focus Band,0.4%,,,,,,,,
@@ -29,26 +29,26 @@ Aggron,111,teammate,7,Mimikyu,,,,,,,,,
 Aggron,111,teammate,8,Gyarados,,,,,,,,,
 Aggron,111,teammate,9,Meowscarada,,,,,,,,,
 Aggron,111,teammate,10,Sneasler,,,,,,,,,
-Aggron,111,stat_alignment,1,Impish,45.0%,Defense,Sp. Atk,,,,,,
-Aggron,111,stat_alignment,2,Adamant,19.8%,Attack,Sp. Atk,,,,,,
-Aggron,111,stat_alignment,3,Careful,16.4%,Sp. Def,Sp. Atk,,,,,,
-Aggron,111,stat_alignment,4,Brave,6.2%,Attack,Speed,,,,,,
-Aggron,111,stat_alignment,5,Bold,3.6%,Defense,Attack,,,,,,
+Aggron,111,stat_alignment,1,Impish,44.6%,Defense,Sp. Atk,,,,,,
+Aggron,111,stat_alignment,2,Adamant,20.0%,Attack,Sp. Atk,,,,,,
+Aggron,111,stat_alignment,3,Careful,16.6%,Sp. Def,Sp. Atk,,,,,,
+Aggron,111,stat_alignment,4,Brave,6.1%,Attack,Speed,,,,,,
+Aggron,111,stat_alignment,5,Bold,3.5%,Defense,Attack,,,,,,
 Aggron,111,stat_alignment,6,Relaxed,2.7%,Defense,Speed,,,,,,
 Aggron,111,stat_alignment,7,Sassy,2.2%,Sp. Def,Speed,,,,,,
-Aggron,111,stat_alignment,8,Jolly,1.5%,Speed,Sp. Atk,,,,,,
+Aggron,111,stat_alignment,8,Jolly,1.6%,Speed,Sp. Atk,,,,,,
 Aggron,111,stat_alignment,9,Modest,0.9%,Sp. Atk,Attack,,,,,,
-Aggron,111,stat_alignment,10,Calm,0.8%,Sp. Def,Attack,,,,,,
-Aggron,111,stat_points,1,,17.7%,,,32,0,2,0,32,0
-Aggron,111,stat_points,2,,14.3%,,,32,0,32,0,2,0
-Aggron,111,stat_points,3,,11.3%,,,32,32,2,0,0,0
+Aggron,111,stat_alignment,10,Calm,0.7%,Sp. Def,Attack,,,,,,
+Aggron,111,stat_points,1,,17.6%,,,32,0,2,0,32,0
+Aggron,111,stat_points,2,,14.0%,,,32,0,32,0,2,0
+Aggron,111,stat_points,3,,11.1%,,,32,32,2,0,0,0
 Aggron,111,stat_points,4,,6.5%,,,32,2,32,0,0,0
-Aggron,111,stat_points,5,,5.5%,,,32,32,0,0,2,0
-Aggron,111,stat_points,6,,4.5%,,,32,32,0,0,0,2
-Aggron,111,stat_points,7,,2.8%,,,32,2,0,0,32,0
-Aggron,111,stat_points,8,,2.2%,,,0,0,32,0,0,0
+Aggron,111,stat_points,5,,5.4%,,,32,32,0,0,2,0
+Aggron,111,stat_points,6,,4.9%,,,32,32,0,0,0,2
+Aggron,111,stat_points,7,,2.7%,,,32,2,0,0,32,0
+Aggron,111,stat_points,8,,2.1%,,,0,0,32,0,0,0
 Aggron,111,stat_points,9,,2.0%,,,32,0,10,0,24,0
-Aggron,111,stat_points,10,,1.6%,,,2,0,32,0,32,0
-Aggron,111,ability,1,Sturdy,87.9%,,,,,,,,
-Aggron,111,ability,2,Heavy Metal,7.3%,,,,,,,,
-Aggron,111,ability,3,Rock Head,4.8%,,,,,,,,
+Aggron,111,stat_points,10,,1.7%,,,2,0,32,0,32,0
+Aggron,111,ability,1,Sturdy,87.8%,,,,,,,,
+Aggron,111,ability,2,Heavy Metal,7.2%,,,,,,,,
+Aggron,111,ability,3,Rock Head,4.9%,,,,,,,,

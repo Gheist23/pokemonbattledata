@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pidgeot,181,move,1,Hurricane,99.3%,,,,,,,,
-Pidgeot,181,move,2,Heat Wave,94.8%,,,,,,,,
-Pidgeot,181,move,3,Protect,88.1%,,,,,,,,
-Pidgeot,181,move,4,Tailwind,72.6%,,,,,,,,
-Pidgeot,181,move,5,Hyper Beam,28.4%,,,,,,,,
-Pidgeot,181,move,6,U-turn,5.2%,,,,,,,,
-Pidgeot,181,move,7,Round,3.9%,,,,,,,,
-Pidgeot,181,move,8,Fly,1.5%,,,,,,,,
-Pidgeot,181,move,9,Brave Bird,1.5%,,,,,,,,
-Pidgeot,181,move,10,Quick Attack,1.2%,,,,,,,,
-Pidgeot,181,held_item,1,Pidgeotite,97.3%,,,,,,,,
+Pidgeot,181,move,2,Heat Wave,95.1%,,,,,,,,
+Pidgeot,181,move,3,Protect,88.3%,,,,,,,,
+Pidgeot,181,move,4,Tailwind,73.1%,,,,,,,,
+Pidgeot,181,move,5,Hyper Beam,27.5%,,,,,,,,
+Pidgeot,181,move,6,U-turn,4.9%,,,,,,,,
+Pidgeot,181,move,7,Round,3.6%,,,,,,,,
+Pidgeot,181,move,8,Brave Bird,1.5%,,,,,,,,
+Pidgeot,181,move,9,Quick Attack,1.5%,,,,,,,,
+Pidgeot,181,move,10,Fly,1.4%,,,,,,,,
+Pidgeot,181,held_item,1,Pidgeotite,97.4%,,,,,,,,
 Pidgeot,181,held_item,2,Sharp Beak,1.2%,,,,,,,,
-Pidgeot,181,held_item,3,Damp Rock,1.0%,,,,,,,,
-Pidgeot,181,held_item,4,Shuca Berry,0.3%,,,,,,,,
+Pidgeot,181,held_item,3,Damp Rock,0.9%,,,,,,,,
+Pidgeot,181,held_item,4,Shuca Berry,0.2%,,,,,,,,
 Pidgeot,181,held_item,5,Quick Claw,0.2%,,,,,,,,
 Pidgeot,181,teammate,1,Excadrill,,,,,,,,,
 Pidgeot,181,teammate,2,Tyranitar,,,,,,,,,
@@ -23,22 +23,24 @@ Pidgeot,181,teammate,6,Sylveon,,,,,,,,,
 Pidgeot,181,teammate,7,Armarouge,,,,,,,,,
 Pidgeot,181,teammate,8,Annihilape,,,,,,,,,
 Pidgeot,181,teammate,9,Kommo-o,,,,,,,,,
-Pidgeot,181,teammate,10,Whimsicott,,,,,,,,,
-Pidgeot,181,stat_alignment,1,Timid,72.2%,Speed,Attack,,,,,,
-Pidgeot,181,stat_alignment,2,Modest,23.1%,Sp. Atk,Attack,,,,,,
-Pidgeot,181,stat_alignment,3,Jolly,4.3%,Speed,Sp. Atk,,,,,,
-Pidgeot,181,stat_alignment,4,Naive,0.3%,Speed,Sp. Def,,,,,,
-Pidgeot,181,stat_alignment,5,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Pidgeot,181,stat_points,1,,47.7%,,,2,0,0,32,0,32
+Pidgeot,181,teammate,10,Gardevoir,,,,,,,,,
+Pidgeot,181,stat_alignment,1,Timid,71.6%,Speed,Attack,,,,,,
+Pidgeot,181,stat_alignment,2,Modest,22.9%,Sp. Atk,Attack,,,,,,
+Pidgeot,181,stat_alignment,3,Jolly,4.4%,Speed,Sp. Atk,,,,,,
+Pidgeot,181,stat_alignment,4,Hasty,0.4%,Speed,Defense,,,,,,
+Pidgeot,181,stat_alignment,5,Naive,0.2%,Speed,Sp. Def,,,,,,
+Pidgeot,181,stat_alignment,6,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Pidgeot,181,stat_alignment,7,Gentle,0.1%,Sp. Def,Defense,,,,,,
+Pidgeot,181,stat_points,1,,46.9%,,,2,0,0,32,0,32
 Pidgeot,181,stat_points,2,,10.9%,,,0,0,0,32,0,32
-Pidgeot,181,stat_points,3,,8.7%,,,0,0,0,32,2,32
-Pidgeot,181,stat_points,4,,6.0%,,,1,0,1,32,0,32
-Pidgeot,181,stat_points,5,,4.6%,,,0,0,2,32,0,32
-Pidgeot,181,stat_points,6,,3.7%,,,5,0,0,32,0,29
-Pidgeot,181,stat_points,7,,3.6%,,,32,0,0,32,0,2
-Pidgeot,181,stat_points,8,,2.5%,,,13,0,0,20,1,32
-Pidgeot,181,stat_points,9,,2.4%,,,1,0,0,32,1,32
-Pidgeot,181,stat_points,10,,1.6%,,,32,0,2,32,0,0
-Pidgeot,181,ability,1,Big Pecks,47.2%,,,,,,,,
-Pidgeot,181,ability,2,Keen Eye,33.9%,,,,,,,,
-Pidgeot,181,ability,3,Tangled Feet,18.8%,,,,,,,,
+Pidgeot,181,stat_points,3,,9.0%,,,0,0,0,32,2,32
+Pidgeot,181,stat_points,4,,5.7%,,,1,0,1,32,0,32
+Pidgeot,181,stat_points,5,,5.3%,,,0,0,2,32,0,32
+Pidgeot,181,stat_points,6,,3.5%,,,5,0,0,32,0,29
+Pidgeot,181,stat_points,7,,3.4%,,,32,0,0,32,0,2
+Pidgeot,181,stat_points,8,,2.6%,,,13,0,0,20,1,32
+Pidgeot,181,stat_points,9,,2.2%,,,1,0,0,32,1,32
+Pidgeot,181,stat_points,10,,1.5%,,,32,0,2,32,0,0
+Pidgeot,181,ability,1,Big Pecks,46.9%,,,,,,,,
+Pidgeot,181,ability,2,Keen Eye,33.6%,,,,,,,,
+Pidgeot,181,ability,3,Tangled Feet,19.5%,,,,,,,,

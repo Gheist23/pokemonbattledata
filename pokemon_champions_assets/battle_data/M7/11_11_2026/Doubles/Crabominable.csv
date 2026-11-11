@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Crabominable,161,move,1,Ice Hammer,87.3%,,,,,,,,
-Crabominable,161,move,2,Drain Punch,71.9%,,,,,,,,
-Crabominable,161,move,3,Protect,58.7%,,,,,,,,
-Crabominable,161,move,4,Mach Punch,45.5%,,,,,,,,
-Crabominable,161,move,5,Thunder Punch,29.1%,,,,,,,,
-Crabominable,161,move,6,Close Combat,24.4%,,,,,,,,
-Crabominable,161,move,7,Wide Guard,23.2%,,,,,,,,
-Crabominable,161,move,8,Helping Hand,11.6%,,,,,,,,
-Crabominable,161,move,9,Rock Slide,10.7%,,,,,,,,
-Crabominable,161,move,10,Knock Off,8.4%,,,,,,,,
-Crabominable,161,held_item,1,Crabominite,79.1%,,,,,,,,
-Crabominable,161,held_item,2,Focus Sash,12.7%,,,,,,,,
-Crabominable,161,held_item,3,Black Belt,1.8%,,,,,,,,
-Crabominable,161,held_item,4,Expert Belt,1.8%,,,,,,,,
-Crabominable,161,held_item,5,Life Orb,1.6%,,,,,,,,
+Crabominable,161,move,2,Drain Punch,72.4%,,,,,,,,
+Crabominable,161,move,3,Protect,59.9%,,,,,,,,
+Crabominable,161,move,4,Mach Punch,45.7%,,,,,,,,
+Crabominable,161,move,5,Thunder Punch,29.4%,,,,,,,,
+Crabominable,161,move,6,Close Combat,23.8%,,,,,,,,
+Crabominable,161,move,7,Wide Guard,22.2%,,,,,,,,
+Crabominable,161,move,8,Rock Slide,11.1%,,,,,,,,
+Crabominable,161,move,9,Helping Hand,11.1%,,,,,,,,
+Crabominable,161,move,10,Knock Off,8.2%,,,,,,,,
+Crabominable,161,held_item,1,Crabominite,80.0%,,,,,,,,
+Crabominable,161,held_item,2,Focus Sash,12.2%,,,,,,,,
+Crabominable,161,held_item,3,Black Belt,1.7%,,,,,,,,
+Crabominable,161,held_item,4,Expert Belt,1.7%,,,,,,,,
+Crabominable,161,held_item,5,Life Orb,1.5%,,,,,,,,
 Crabominable,161,held_item,6,Sitrus Berry,1.0%,,,,,,,,
-Crabominable,161,held_item,7,Muscle Band,0.9%,,,,,,,,
+Crabominable,161,held_item,7,Muscle Band,0.8%,,,,,,,,
 Crabominable,161,held_item,8,Rocky Helmet,0.4%,,,,,,,,
 Crabominable,161,held_item,9,Chople Berry,0.3%,,,,,,,,
 Crabominable,161,held_item,10,Psychic Seed,0.3%,,,,,,,,
@@ -27,25 +27,25 @@ Crabominable,161,teammate,5,Slowking-Galar,,,,,,,,,
 Crabominable,161,teammate,6,Hatterene,,,,,,,,,
 Crabominable,161,teammate,7,Drampa,,,,,,,,,
 Crabominable,161,teammate,8,Kingambit,,,,,,,,,
-Crabominable,161,teammate,9,Blastoise,,,,,,,,,
-Crabominable,161,teammate,10,Incineroar,,,,,,,,,
-Crabominable,161,stat_alignment,1,Brave,80.1%,Attack,Speed,,,,,,
-Crabominable,161,stat_alignment,2,Adamant,16.4%,Attack,Sp. Atk,,,,,,
-Crabominable,161,stat_alignment,3,Sassy,1.4%,Sp. Def,Speed,,,,,,
-Crabominable,161,stat_alignment,4,Jolly,1.3%,Speed,Sp. Atk,,,,,,
-Crabominable,161,stat_alignment,5,Careful,0.8%,Sp. Def,Sp. Atk,,,,,,
+Crabominable,161,teammate,9,Incineroar,,,,,,,,,
+Crabominable,161,teammate,10,Blastoise,,,,,,,,,
+Crabominable,161,stat_alignment,1,Brave,78.9%,Attack,Speed,,,,,,
+Crabominable,161,stat_alignment,2,Adamant,17.5%,Attack,Sp. Atk,,,,,,
+Crabominable,161,stat_alignment,3,Sassy,1.5%,Sp. Def,Speed,,,,,,
+Crabominable,161,stat_alignment,4,Jolly,1.2%,Speed,Sp. Atk,,,,,,
+Crabominable,161,stat_alignment,5,Careful,0.7%,Sp. Def,Sp. Atk,,,,,,
 Crabominable,161,stat_alignment,6,Lonely,0.1%,Attack,Defense,,,,,,
 Crabominable,161,stat_alignment,7,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Crabominable,161,stat_points,1,,40.9%,,,32,32,0,0,2,0
-Crabominable,161,stat_points,2,,12.8%,,,32,32,2,0,0,0
-Crabominable,161,stat_points,3,,5.3%,,,31,32,3,0,0,0
-Crabominable,161,stat_points,4,,2.9%,,,32,32,0,0,0,0
-Crabominable,161,stat_points,5,,2.8%,,,2,32,0,0,32,0
-Crabominable,161,stat_points,6,,2.6%,,,3,32,8,0,23,0
-Crabominable,161,stat_points,7,,2.3%,,,8,32,8,0,18,0
-Crabominable,161,stat_points,8,,2.1%,,,0,32,12,0,22,0
-Crabominable,161,stat_points,9,,1.9%,,,29,32,0,0,5,0
-Crabominable,161,stat_points,10,,1.6%,,,32,32,1,0,1,0
-Crabominable,161,ability,1,Hyper Cutter,68.0%,,,,,,,,
-Crabominable,161,ability,2,Iron Fist,20.0%,,,,,,,,
-Crabominable,161,ability,3,Anger Point,12.0%,,,,,,,,
+Crabominable,161,stat_points,1,,40.1%,,,32,32,0,0,2,0
+Crabominable,161,stat_points,2,,13.8%,,,32,32,2,0,0,0
+Crabominable,161,stat_points,3,,5.1%,,,31,32,3,0,0,0
+Crabominable,161,stat_points,4,,3.3%,,,2,32,0,0,32,0
+Crabominable,161,stat_points,5,,2.8%,,,32,32,0,0,0,0
+Crabominable,161,stat_points,6,,2.5%,,,3,32,8,0,23,0
+Crabominable,161,stat_points,7,,2.2%,,,8,32,8,0,18,0
+Crabominable,161,stat_points,8,,2.0%,,,0,32,12,0,22,0
+Crabominable,161,stat_points,9,,2.0%,,,8,32,11,0,8,7
+Crabominable,161,stat_points,10,,1.8%,,,29,32,0,0,5,0
+Crabominable,161,ability,1,Hyper Cutter,67.6%,,,,,,,,
+Crabominable,161,ability,2,Iron Fist,20.2%,,,,,,,,
+Crabominable,161,ability,3,Anger Point,12.2%,,,,,,,,

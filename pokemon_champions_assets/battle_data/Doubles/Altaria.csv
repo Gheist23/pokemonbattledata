@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Altaria,99,move,1,Protect,77.3%,,,,,,,,
-Altaria,99,move,2,Tailwind,64.0%,,,,,,,,
-Altaria,99,move,3,Hyper Voice,44.2%,,,,,,,,
-Altaria,99,move,4,Will-O-Wisp,24.4%,,,,,,,,
-Altaria,99,move,5,Roost,22.4%,,,,,,,,
-Altaria,99,move,6,Draco Meteor,21.3%,,,,,,,,
-Altaria,99,move,7,Flamethrower,19.1%,,,,,,,,
-Altaria,99,move,8,Dragon Pulse,19.0%,,,,,,,,
-Altaria,99,move,9,Perish Song,16.7%,,,,,,,,
-Altaria,99,move,10,Ice Beam,15.7%,,,,,,,,
-Altaria,99,held_item,1,Altarianite,50.5%,,,,,,,,
-Altaria,99,held_item,2,Haban Berry,19.9%,,,,,,,,
-Altaria,99,held_item,3,Yache Berry,6.1%,,,,,,,,
-Altaria,99,held_item,4,Sitrus Berry,5.9%,,,,,,,,
-Altaria,99,held_item,5,Leftovers,3.2%,,,,,,,,
-Altaria,99,held_item,6,Focus Sash,3.1%,,,,,,,,
-Altaria,99,held_item,7,Red Card,2.2%,,,,,,,,
-Altaria,99,held_item,8,Wide Lens,2.1%,,,,,,,,
+Altaria,99,move,1,Protect,77.6%,,,,,,,,
+Altaria,99,move,2,Tailwind,64.4%,,,,,,,,
+Altaria,99,move,3,Hyper Voice,44.7%,,,,,,,,
+Altaria,99,move,4,Will-O-Wisp,24.6%,,,,,,,,
+Altaria,99,move,5,Roost,22.5%,,,,,,,,
+Altaria,99,move,6,Draco Meteor,21.1%,,,,,,,,
+Altaria,99,move,7,Dragon Pulse,18.8%,,,,,,,,
+Altaria,99,move,8,Flamethrower,18.7%,,,,,,,,
+Altaria,99,move,9,Perish Song,16.1%,,,,,,,,
+Altaria,99,move,10,Ice Beam,15.4%,,,,,,,,
+Altaria,99,held_item,1,Altarianite,50.7%,,,,,,,,
+Altaria,99,held_item,2,Haban Berry,19.7%,,,,,,,,
+Altaria,99,held_item,3,Yache Berry,6.5%,,,,,,,,
+Altaria,99,held_item,4,Sitrus Berry,6.1%,,,,,,,,
+Altaria,99,held_item,5,Focus Sash,3.1%,,,,,,,,
+Altaria,99,held_item,6,Leftovers,3.1%,,,,,,,,
+Altaria,99,held_item,7,Red Card,2.1%,,,,,,,,
+Altaria,99,held_item,8,Wide Lens,2.0%,,,,,,,,
 Altaria,99,held_item,9,Life Orb,1.1%,,,,,,,,
 Altaria,99,held_item,10,Mental Herb,0.8%,,,,,,,,
 Altaria,99,teammate,1,Rillaboom,,,,,,,,,
@@ -24,30 +24,30 @@ Altaria,99,teammate,2,Sneasler,,,,,,,,,
 Altaria,99,teammate,3,Indeedee-F,,,,,,,,,
 Altaria,99,teammate,4,Incineroar,,,,,,,,,
 Altaria,99,teammate,5,Milotic,,,,,,,,,
-Altaria,99,teammate,6,Gengar,,,,,,,,,
-Altaria,99,teammate,7,Raichu,,,,,,,,,
+Altaria,99,teammate,6,Raichu,,,,,,,,,
+Altaria,99,teammate,7,Gengar,,,,,,,,,
 Altaria,99,teammate,8,Armarouge,,,,,,,,,
 Altaria,99,teammate,9,Metagross,,,,,,,,,
 Altaria,99,teammate,10,Gardevoir,,,,,,,,,
-Altaria,99,stat_alignment,1,Modest,40.4%,Sp. Atk,Attack,,,,,,
-Altaria,99,stat_alignment,2,Timid,21.4%,Speed,Attack,,,,,,
+Altaria,99,stat_alignment,1,Modest,40.8%,Sp. Atk,Attack,,,,,,
+Altaria,99,stat_alignment,2,Timid,21.2%,Speed,Attack,,,,,,
 Altaria,99,stat_alignment,3,Calm,11.9%,Sp. Def,Attack,,,,,,
-Altaria,99,stat_alignment,4,Bold,11.0%,Defense,Attack,,,,,,
-Altaria,99,stat_alignment,5,Jolly,3.6%,Speed,Sp. Atk,,,,,,
-Altaria,99,stat_alignment,6,Careful,2.9%,Sp. Def,Sp. Atk,,,,,,
-Altaria,99,stat_alignment,7,Sassy,2.6%,Sp. Def,Speed,,,,,,
-Altaria,99,stat_alignment,8,Adamant,2.3%,Attack,Sp. Atk,,,,,,
-Altaria,99,stat_alignment,9,Quiet,1.5%,Sp. Atk,Speed,,,,,,
+Altaria,99,stat_alignment,4,Bold,10.7%,Defense,Attack,,,,,,
+Altaria,99,stat_alignment,5,Jolly,3.3%,Speed,Sp. Atk,,,,,,
+Altaria,99,stat_alignment,6,Careful,3.0%,Sp. Def,Sp. Atk,,,,,,
+Altaria,99,stat_alignment,7,Sassy,2.7%,Sp. Def,Speed,,,,,,
+Altaria,99,stat_alignment,8,Adamant,2.4%,Attack,Sp. Atk,,,,,,
+Altaria,99,stat_alignment,9,Quiet,1.4%,Sp. Atk,Speed,,,,,,
 Altaria,99,stat_alignment,10,Impish,1.1%,Defense,Sp. Atk,,,,,,
 Altaria,99,stat_points,1,,6.4%,,,32,0,5,0,0,29
-Altaria,99,stat_points,2,,4.0%,,,32,0,0,2,0,32
-Altaria,99,stat_points,3,,4.0%,,,32,0,0,32,0,2
-Altaria,99,stat_points,4,,3.5%,,,32,0,5,9,20,0
+Altaria,99,stat_points,2,,4.2%,,,32,0,0,32,0,2
+Altaria,99,stat_points,3,,3.8%,,,32,0,0,2,0,32
+Altaria,99,stat_points,4,,3.7%,,,32,0,5,9,20,0
 Altaria,99,stat_points,5,,3.3%,,,32,0,2,0,0,32
-Altaria,99,stat_points,6,,2.6%,,,28,0,0,30,0,8
-Altaria,99,stat_points,7,,2.5%,,,2,0,0,32,0,32
-Altaria,99,stat_points,8,,2.4%,,,32,0,16,18,0,0
-Altaria,99,stat_points,9,,2.3%,,,32,0,2,0,32,0
-Altaria,99,stat_points,10,,2.1%,,,32,0,2,32,0,0
+Altaria,99,stat_points,6,,2.4%,,,28,0,0,30,0,8
+Altaria,99,stat_points,7,,2.4%,,,2,0,0,32,0,32
+Altaria,99,stat_points,8,,2.3%,,,32,0,2,0,32,0
+Altaria,99,stat_points,9,,2.3%,,,32,0,16,18,0,0
+Altaria,99,stat_points,10,,2.3%,,,32,0,2,32,0,0
 Altaria,99,ability,1,Cloud Nine,99.5%,,,,,,,,
 Altaria,99,ability,2,Natural Cure,0.5%,,,,,,,,

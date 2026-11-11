@@ -1,45 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Beedrill,165,move,1,Poison Jab,97.4%,,,,,,,,
-Beedrill,165,move,2,U-turn,76.4%,,,,,,,,
-Beedrill,165,move,3,Protect,74.7%,,,,,,,,
-Beedrill,165,move,4,Drill Run,68.4%,,,,,,,,
-Beedrill,165,move,5,Fell Stinger,15.1%,,,,,,,,
-Beedrill,165,move,6,Lunge,13.9%,,,,,,,,
-Beedrill,165,move,7,Pin Missile,11.7%,,,,,,,,
-Beedrill,165,move,8,String Shot,10.3%,,,,,,,,
-Beedrill,165,move,9,Knock Off,7.3%,,,,,,,,
-Beedrill,165,move,10,Throat Chop,6.4%,,,,,,,,
-Beedrill,165,held_item,1,Beedrillite,92.0%,,,,,,,,
-Beedrill,165,held_item,2,Poison Barb,5.2%,,,,,,,,
-Beedrill,165,held_item,3,Occa Berry,0.8%,,,,,,,,
-Beedrill,165,held_item,4,Focus Sash,0.8%,,,,,,,,
-Beedrill,165,held_item,5,Scope Lens,0.7%,,,,,,,,
-Beedrill,165,held_item,6,Iron Ball,0.4%,,,,,,,,
-Beedrill,165,teammate,1,Pelipper,,,,,,,,,
-Beedrill,165,teammate,2,Garchomp,,,,,,,,,
-Beedrill,165,teammate,3,Farigiraf,,,,,,,,,
-Beedrill,165,teammate,4,Archaludon,,,,,,,,,
-Beedrill,165,teammate,5,Whimsicott,,,,,,,,,
-Beedrill,165,teammate,6,Incineroar,,,,,,,,,
-Beedrill,165,teammate,7,Indeedee-F,,,,,,,,,
-Beedrill,165,teammate,8,Kingambit,,,,,,,,,
-Beedrill,165,teammate,9,Armarouge,,,,,,,,,
-Beedrill,165,teammate,10,Blaziken,,,,,,,,,
-Beedrill,165,stat_alignment,1,Jolly,74.5%,Speed,Sp. Atk,,,,,,
-Beedrill,165,stat_alignment,2,Adamant,17.0%,Attack,Sp. Atk,,,,,,
-Beedrill,165,stat_alignment,3,Brave,7.3%,Attack,Speed,,,,,,
-Beedrill,165,stat_alignment,4,Timid,0.8%,Speed,Attack,,,,,,
-Beedrill,165,stat_alignment,5,Naive,0.4%,Speed,Sp. Def,,,,,,
-Beedrill,165,stat_alignment,6,Hasty,0.1%,Speed,Defense,,,,,,
-Beedrill,165,stat_points,1,,44.7%,,,2,32,0,0,0,32
-Beedrill,165,stat_points,2,,8.3%,,,0,32,0,0,2,32
-Beedrill,165,stat_points,3,,8.3%,,,1,32,0,0,1,32
-Beedrill,165,stat_points,4,,8.0%,,,1,32,1,0,0,32
-Beedrill,165,stat_points,5,,7.6%,,,3,0,32,0,0,31
-Beedrill,165,stat_points,6,,7.3%,,,2,32,0,0,32,0
-Beedrill,165,stat_points,7,,2.9%,,,0,30,5,0,0,31
-Beedrill,165,stat_points,8,,2.8%,,,0,32,2,0,0,32
-Beedrill,165,stat_points,9,,2.5%,,,0,32,0,0,0,32
-Beedrill,165,stat_points,10,,2.2%,,,32,0,0,0,0,32
-Beedrill,165,ability,1,Sniper,51.4%,,,,,,,,
-Beedrill,165,ability,2,Swarm,48.6%,,,,,,,,
+Beedrill,164,move,1,Poison Jab,97.6%,,,,,,,,
+Beedrill,164,move,2,U-turn,76.6%,,,,,,,,
+Beedrill,164,move,3,Protect,73.6%,,,,,,,,
+Beedrill,164,move,4,Drill Run,67.3%,,,,,,,,
+Beedrill,164,move,5,Fell Stinger,15.6%,,,,,,,,
+Beedrill,164,move,6,Lunge,14.0%,,,,,,,,
+Beedrill,164,move,7,Pin Missile,11.4%,,,,,,,,
+Beedrill,164,move,8,String Shot,10.7%,,,,,,,,
+Beedrill,164,move,9,Knock Off,8.3%,,,,,,,,
+Beedrill,164,move,10,Throat Chop,6.1%,,,,,,,,
+Beedrill,164,held_item,1,Beedrillite,91.5%,,,,,,,,
+Beedrill,164,held_item,2,Poison Barb,5.7%,,,,,,,,
+Beedrill,164,held_item,3,Focus Sash,1.0%,,,,,,,,
+Beedrill,164,held_item,4,Occa Berry,0.8%,,,,,,,,
+Beedrill,164,held_item,5,Scope Lens,0.7%,,,,,,,,
+Beedrill,164,held_item,6,Iron Ball,0.4%,,,,,,,,
+Beedrill,164,teammate,1,Pelipper,,,,,,,,,
+Beedrill,164,teammate,2,Farigiraf,,,,,,,,,
+Beedrill,164,teammate,3,Garchomp,,,,,,,,,
+Beedrill,164,teammate,4,Archaludon,,,,,,,,,
+Beedrill,164,teammate,5,Whimsicott,,,,,,,,,
+Beedrill,164,teammate,6,Incineroar,,,,,,,,,
+Beedrill,164,teammate,7,Indeedee-F,,,,,,,,,
+Beedrill,164,teammate,8,Armarouge,,,,,,,,,
+Beedrill,164,teammate,9,Kingambit,,,,,,,,,
+Beedrill,164,teammate,10,Annihilape,,,,,,,,,
+Beedrill,164,stat_alignment,1,Jolly,73.7%,Speed,Sp. Atk,,,,,,
+Beedrill,164,stat_alignment,2,Adamant,17.2%,Attack,Sp. Atk,,,,,,
+Beedrill,164,stat_alignment,3,Brave,7.8%,Attack,Speed,,,,,,
+Beedrill,164,stat_alignment,4,Timid,0.7%,Speed,Attack,,,,,,
+Beedrill,164,stat_alignment,5,Naive,0.4%,Speed,Sp. Def,,,,,,
+Beedrill,164,stat_alignment,6,Lonely,0.1%,Attack,Defense,,,,,,
+Beedrill,164,stat_alignment,7,Hasty,0.1%,Speed,Defense,,,,,,
+Beedrill,164,stat_points,1,,44.4%,,,2,32,0,0,0,32
+Beedrill,164,stat_points,2,,8.3%,,,1,32,0,0,1,32
+Beedrill,164,stat_points,3,,8.3%,,,0,32,0,0,2,32
+Beedrill,164,stat_points,4,,8.1%,,,1,32,1,0,0,32
+Beedrill,164,stat_points,5,,7.8%,,,2,32,0,0,32,0
+Beedrill,164,stat_points,6,,7.2%,,,3,0,32,0,0,31
+Beedrill,164,stat_points,7,,2.7%,,,0,30,5,0,0,31
+Beedrill,164,stat_points,8,,2.7%,,,0,32,2,0,0,32
+Beedrill,164,stat_points,9,,2.4%,,,0,32,0,0,0,32
+Beedrill,164,stat_points,10,,2.0%,,,32,0,0,0,0,32
+Beedrill,164,ability,1,Sniper,50.7%,,,,,,,,
+Beedrill,164,ability,2,Swarm,49.3%,,,,,,,,

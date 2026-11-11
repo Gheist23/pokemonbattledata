@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Alakazam,130,move,1,Focus Blast,66.1%,,,,,,,,
-Alakazam,130,move,2,Shadow Ball,60.7%,,,,,,,,
-Alakazam,130,move,3,Expanding Force,56.3%,,,,,,,,
-Alakazam,130,move,4,Psychic,38.9%,,,,,,,,
-Alakazam,130,move,5,Nasty Plot,37.4%,,,,,,,,
-Alakazam,130,move,6,Dazzling Gleam,32.9%,,,,,,,,
+Alakazam,130,move,1,Focus Blast,66.5%,,,,,,,,
+Alakazam,130,move,2,Shadow Ball,60.8%,,,,,,,,
+Alakazam,130,move,3,Expanding Force,56.6%,,,,,,,,
+Alakazam,130,move,4,Psychic,38.7%,,,,,,,,
+Alakazam,130,move,5,Nasty Plot,37.6%,,,,,,,,
+Alakazam,130,move,6,Dazzling Gleam,32.6%,,,,,,,,
 Alakazam,130,move,7,Energy Ball,25.8%,,,,,,,,
-Alakazam,130,move,8,Encore,19.7%,,,,,,,,
-Alakazam,130,move,9,Substitute,11.0%,,,,,,,,
+Alakazam,130,move,8,Encore,19.9%,,,,,,,,
+Alakazam,130,move,9,Substitute,10.7%,,,,,,,,
 Alakazam,130,move,10,Protect,7.6%,,,,,,,,
-Alakazam,130,held_item,1,Alakazite,59.9%,,,,,,,,
+Alakazam,130,held_item,1,Alakazite,60.0%,,,,,,,,
 Alakazam,130,held_item,2,Focus Sash,29.4%,,,,,,,,
-Alakazam,130,held_item,3,Life Orb,7.7%,,,,,,,,
+Alakazam,130,held_item,3,Life Orb,7.5%,,,,,,,,
 Alakazam,130,held_item,4,Choice Scarf,1.0%,,,,,,,,
-Alakazam,130,held_item,5,Wide Lens,0.8%,,,,,,,,
+Alakazam,130,held_item,5,Wide Lens,0.9%,,,,,,,,
 Alakazam,130,held_item,6,Sitrus Berry,0.3%,,,,,,,,
-Alakazam,130,held_item,7,Leftovers,0.1%,,,,,,,,
-Alakazam,130,held_item,8,King's Rock,0.1%,,,,,,,,
+Alakazam,130,held_item,7,King's Rock,0.2%,,,,,,,,
+Alakazam,130,held_item,8,Leftovers,0.1%,,,,,,,,
 Alakazam,130,held_item,9,Expert Belt,0.1%,,,,,,,,
 Alakazam,130,held_item,10,White Herb,0.1%,,,,,,,,
 Alakazam,130,teammate,1,Indeedee,,,,,,,,,
@@ -29,7 +29,7 @@ Alakazam,130,teammate,7,Charizard,,,,,,,,,
 Alakazam,130,teammate,8,Gyarados,,,,,,,,,
 Alakazam,130,teammate,9,Corviknight,,,,,,,,,
 Alakazam,130,teammate,10,Archaludon,,,,,,,,,
-Alakazam,130,stat_alignment,1,Timid,76.8%,Speed,Attack,,,,,,
+Alakazam,130,stat_alignment,1,Timid,76.9%,Speed,Attack,,,,,,
 Alakazam,130,stat_alignment,2,Modest,21.1%,Sp. Atk,Attack,,,,,,
 Alakazam,130,stat_alignment,3,Hasty,1.2%,Speed,Defense,,,,,,
 Alakazam,130,stat_alignment,4,Relaxed,0.2%,Defense,Speed,,,,,,
@@ -39,16 +39,16 @@ Alakazam,130,stat_alignment,7,Gentle,0.1%,Sp. Def,Defense,,,,,,
 Alakazam,130,stat_alignment,8,Bold,0.1%,Defense,Attack,,,,,,
 Alakazam,130,stat_alignment,9,Rash,0.0%,Sp. Atk,Sp. Def,,,,,,
 Alakazam,130,stat_alignment,10,Jolly,0.0%,Speed,Sp. Atk,,,,,,
-Alakazam,130,stat_points,1,,34.1%,,,2,0,0,32,0,32
-Alakazam,130,stat_points,2,,13.3%,,,1,0,1,32,0,32
-Alakazam,130,stat_points,3,,12.4%,,,1,0,0,32,1,32
-Alakazam,130,stat_points,4,,7.8%,,,0,0,0,32,2,32
+Alakazam,130,stat_points,1,,33.6%,,,2,0,0,32,0,32
+Alakazam,130,stat_points,2,,13.7%,,,1,0,1,32,0,32
+Alakazam,130,stat_points,3,,12.1%,,,1,0,0,32,1,32
+Alakazam,130,stat_points,4,,7.7%,,,0,0,0,32,2,32
 Alakazam,130,stat_points,5,,4.1%,,,0,0,0,32,0,32
-Alakazam,130,stat_points,6,,3.9%,,,0,0,2,32,0,32
-Alakazam,130,stat_points,7,,3.2%,,,13,0,0,26,1,26
-Alakazam,130,stat_points,8,,2.3%,,,7,0,0,32,0,27
-Alakazam,130,stat_points,9,,1.9%,,,21,0,0,32,11,2
+Alakazam,130,stat_points,6,,4.0%,,,0,0,2,32,0,32
+Alakazam,130,stat_points,7,,3.6%,,,13,0,0,26,1,26
+Alakazam,130,stat_points,8,,2.2%,,,7,0,0,32,0,27
+Alakazam,130,stat_points,9,,1.8%,,,21,0,0,32,11,2
 Alakazam,130,stat_points,10,,1.8%,,,13,0,24,2,2,25
-Alakazam,130,ability,1,Magic Guard,91.5%,,,,,,,,
-Alakazam,130,ability,2,Inner Focus,4.4%,,,,,,,,
-Alakazam,130,ability,3,Synchronize,4.1%,,,,,,,,
+Alakazam,130,ability,1,Magic Guard,91.6%,,,,,,,,
+Alakazam,130,ability,2,Inner Focus,4.3%,,,,,,,,
+Alakazam,130,ability,3,Synchronize,4.2%,,,,,,,,

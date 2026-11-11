@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Abomasnow,112,move,1,Blizzard,96.5%,,,,,,,,
-Abomasnow,112,move,2,Earth Power,72.2%,,,,,,,,
-Abomasnow,112,move,3,Protect,63.2%,,,,,,,,
-Abomasnow,112,move,4,Giga Drain,41.8%,,,,,,,,
-Abomasnow,112,move,5,Aurora Veil,32.6%,,,,,,,,
-Abomasnow,112,move,6,Energy Ball,28.4%,,,,,,,,
-Abomasnow,112,move,7,Leaf Storm,23.1%,,,,,,,,
-Abomasnow,112,move,8,Ice Shard,17.0%,,,,,,,,
-Abomasnow,112,move,9,Leech Seed,3.6%,,,,,,,,
-Abomasnow,112,move,10,Rock Slide,3.5%,,,,,,,,
-Abomasnow,112,held_item,1,Abomasite,78.8%,,,,,,,,
-Abomasnow,112,held_item,2,Quick Claw,8.6%,,,,,,,,
-Abomasnow,112,held_item,3,Icy Rock,4.3%,,,,,,,,
-Abomasnow,112,held_item,4,Life Orb,2.0%,,,,,,,,
+Abomasnow,112,move,1,Blizzard,96.7%,,,,,,,,
+Abomasnow,112,move,2,Earth Power,71.3%,,,,,,,,
+Abomasnow,112,move,3,Protect,64.0%,,,,,,,,
+Abomasnow,112,move,4,Giga Drain,41.2%,,,,,,,,
+Abomasnow,112,move,5,Aurora Veil,31.7%,,,,,,,,
+Abomasnow,112,move,6,Energy Ball,29.0%,,,,,,,,
+Abomasnow,112,move,7,Leaf Storm,22.4%,,,,,,,,
+Abomasnow,112,move,8,Ice Shard,17.3%,,,,,,,,
+Abomasnow,112,move,9,Leech Seed,4.0%,,,,,,,,
+Abomasnow,112,move,10,Rock Slide,3.9%,,,,,,,,
+Abomasnow,112,held_item,1,Abomasite,79.1%,,,,,,,,
+Abomasnow,112,held_item,2,Quick Claw,7.9%,,,,,,,,
+Abomasnow,112,held_item,3,Icy Rock,4.6%,,,,,,,,
+Abomasnow,112,held_item,4,Life Orb,2.2%,,,,,,,,
 Abomasnow,112,held_item,5,Light Clay,1.9%,,,,,,,,
-Abomasnow,112,held_item,6,Focus Sash,1.7%,,,,,,,,
-Abomasnow,112,held_item,7,Choice Scarf,1.1%,,,,,,,,
+Abomasnow,112,held_item,6,Focus Sash,1.5%,,,,,,,,
+Abomasnow,112,held_item,7,Choice Scarf,1.2%,,,,,,,,
 Abomasnow,112,held_item,8,Wide Lens,0.8%,,,,,,,,
 Abomasnow,112,held_item,9,Expert Belt,0.4%,,,,,,,,
 Abomasnow,112,held_item,10,Never-Melt Ice,0.2%,,,,,,,,
@@ -29,25 +29,25 @@ Abomasnow,112,teammate,7,Glaceon,,,,,,,,,
 Abomasnow,112,teammate,8,Venusaur,,,,,,,,,
 Abomasnow,112,teammate,9,Charizard,,,,,,,,,
 Abomasnow,112,teammate,10,Kingambit,,,,,,,,,
-Abomasnow,112,stat_alignment,1,Quiet,56.0%,Sp. Atk,Speed,,,,,,
-Abomasnow,112,stat_alignment,2,Modest,37.2%,Sp. Atk,Attack,,,,,,
-Abomasnow,112,stat_alignment,3,Timid,2.0%,Speed,Attack,,,,,,
-Abomasnow,112,stat_alignment,4,Brave,1.5%,Attack,Speed,,,,,,
-Abomasnow,112,stat_alignment,5,Jolly,0.6%,Speed,Sp. Atk,,,,,,
-Abomasnow,112,stat_alignment,6,Relaxed,0.6%,Defense,Speed,,,,,,
-Abomasnow,112,stat_alignment,7,Naive,0.5%,Speed,Sp. Def,,,,,,
-Abomasnow,112,stat_alignment,8,Rash,0.5%,Sp. Atk,Sp. Def,,,,,,
-Abomasnow,112,stat_alignment,9,Sassy,0.4%,Sp. Def,Speed,,,,,,
+Abomasnow,112,stat_alignment,1,Quiet,56.8%,Sp. Atk,Speed,,,,,,
+Abomasnow,112,stat_alignment,2,Modest,36.0%,Sp. Atk,Attack,,,,,,
+Abomasnow,112,stat_alignment,3,Timid,1.9%,Speed,Attack,,,,,,
+Abomasnow,112,stat_alignment,4,Brave,1.4%,Attack,Speed,,,,,,
+Abomasnow,112,stat_alignment,5,Sassy,1.0%,Sp. Def,Speed,,,,,,
+Abomasnow,112,stat_alignment,6,Rash,0.8%,Sp. Atk,Sp. Def,,,,,,
+Abomasnow,112,stat_alignment,7,Jolly,0.6%,Speed,Sp. Atk,,,,,,
+Abomasnow,112,stat_alignment,8,Relaxed,0.5%,Defense,Speed,,,,,,
+Abomasnow,112,stat_alignment,9,Naive,0.5%,Speed,Sp. Def,,,,,,
 Abomasnow,112,stat_alignment,10,Mild,0.2%,Sp. Atk,Defense,,,,,,
-Abomasnow,112,stat_points,1,,31.6%,,,32,0,2,32,0,0
-Abomasnow,112,stat_points,2,,18.6%,,,32,0,0,32,0,2
-Abomasnow,112,stat_points,3,,9.1%,,,32,0,0,32,2,0
-Abomasnow,112,stat_points,4,,6.3%,,,0,0,16,32,18,0
-Abomasnow,112,stat_points,5,,5.9%,,,32,2,0,32,0,0
-Abomasnow,112,stat_points,6,,2.7%,,,2,0,0,32,0,32
-Abomasnow,112,stat_points,7,,1.8%,,,0,32,0,32,2,0
-Abomasnow,112,stat_points,8,,1.4%,,,25,0,9,32,0,0
-Abomasnow,112,stat_points,9,,1.4%,,,32,0,0,32,0,0
-Abomasnow,112,stat_points,10,,1.1%,,,2,0,0,32,32,0
-Abomasnow,112,ability,1,Snow Warning,98.6%,,,,,,,,
-Abomasnow,112,ability,2,Soundproof,1.4%,,,,,,,,
+Abomasnow,112,stat_points,1,,31.4%,,,32,0,2,32,0,0
+Abomasnow,112,stat_points,2,,18.1%,,,32,0,0,32,0,2
+Abomasnow,112,stat_points,3,,9.4%,,,32,0,0,32,2,0
+Abomasnow,112,stat_points,4,,5.8%,,,0,0,16,32,18,0
+Abomasnow,112,stat_points,5,,5.5%,,,32,2,0,32,0,0
+Abomasnow,112,stat_points,6,,2.5%,,,2,0,0,32,0,32
+Abomasnow,112,stat_points,7,,2.4%,,,0,32,0,32,2,0
+Abomasnow,112,stat_points,8,,1.4%,,,32,0,0,32,0,0
+Abomasnow,112,stat_points,9,,1.3%,,,2,0,0,32,32,0
+Abomasnow,112,stat_points,10,,1.3%,,,25,0,9,32,0,0
+Abomasnow,112,ability,1,Snow Warning,98.7%,,,,,,,,
+Abomasnow,112,ability,2,Soundproof,1.3%,,,,,,,,

@@ -1,44 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Swalot,256,move,1,Yawn,70.4%,,,,,,,,
-Swalot,256,move,2,Acid Spray,66.2%,,,,,,,,
-Swalot,256,move,3,Protect,60.6%,,,,,,,,
-Swalot,256,move,4,Sludge Bomb,39.4%,,,,,,,,
-Swalot,256,move,5,Mud Shot,31.0%,,,,,,,,
-Swalot,256,move,6,Helping Hand,29.6%,,,,,,,,
-Swalot,256,move,7,Body Press,19.7%,,,,,,,,
-Swalot,256,move,8,Toxic,16.9%,,,,,,,,
-Swalot,256,move,9,Stockpile,12.7%,,,,,,,,
-Swalot,256,move,10,Pain Split,8.5%,,,,,,,,
-Swalot,256,held_item,1,Leftovers,50.7%,,,,,,,,
-Swalot,256,held_item,2,Sitrus Berry,33.8%,,,,,,,,
-Swalot,256,held_item,3,Psychic Seed,8.5%,,,,,,,,
-Swalot,256,held_item,4,Life Orb,4.2%,,,,,,,,
-Swalot,256,held_item,5,Shuca Berry,1.4%,,,,,,,,
-Swalot,256,held_item,6,Air Balloon,1.4%,,,,,,,,
-Swalot,256,teammate,1,Wigglytuff,,,,,,,,,
-Swalot,256,teammate,2,Camerupt,,,,,,,,,
-Swalot,256,teammate,3,Arcanine-Hisui,,,,,,,,,
-Swalot,256,teammate,4,Mr. Mime,,,,,,,,,
-Swalot,256,teammate,5,Reuniclus,,,,,,,,,
-Swalot,256,teammate,6,Kingambit,,,,,,,,,
-Swalot,256,teammate,7,Pikachu,,,,,,,,,
-Swalot,256,teammate,8,Ninetales-Alola,,,,,,,,,
-Swalot,256,teammate,9,Dragonite,,,,,,,,,
-Swalot,256,teammate,10,Annihilape,,,,,,,,,
-Swalot,256,stat_alignment,1,Bold,54.9%,Defense,Attack,,,,,,
-Swalot,256,stat_alignment,2,Modest,32.4%,Sp. Atk,Attack,,,,,,
-Swalot,256,stat_alignment,3,Relaxed,8.5%,Defense,Speed,,,,,,
-Swalot,256,stat_alignment,4,Adamant,2.8%,Attack,Sp. Atk,,,,,,
-Swalot,256,stat_alignment,5,Careful,1.4%,Sp. Def,Sp. Atk,,,,,,
-Swalot,256,stat_points,1,,54.9%,,,32,0,32,0,2,0
-Swalot,256,stat_points,2,,18.3%,,,32,0,1,32,1,0
-Swalot,256,stat_points,3,,11.3%,,,32,0,3,28,3,0
-Swalot,256,stat_points,4,,4.2%,,,2,32,32,0,0,0
-Swalot,256,stat_points,5,,4.2%,,,30,0,13,0,23,0
-Swalot,256,stat_points,6,,2.8%,,,32,28,3,0,3,0
-Swalot,256,stat_points,7,,1.4%,,,0,32,0,0,32,2
-Swalot,256,stat_points,8,,1.4%,,,32,0,0,32,2,0
-Swalot,256,stat_points,9,,1.4%,,,32,0,2,32,0,0
-Swalot,256,ability,1,Sticky Hold,49.3%,,,,,,,,
-Swalot,256,ability,2,Liquid Ooze,46.5%,,,,,,,,
-Swalot,256,ability,3,Gluttony,4.2%,,,,,,,,
+Swalot,255,move,1,Yawn,71.1%,,,,,,,,
+Swalot,255,move,2,Acid Spray,67.1%,,,,,,,,
+Swalot,255,move,3,Protect,57.9%,,,,,,,,
+Swalot,255,move,4,Sludge Bomb,36.8%,,,,,,,,
+Swalot,255,move,5,Mud Shot,34.2%,,,,,,,,
+Swalot,255,move,6,Helping Hand,32.9%,,,,,,,,
+Swalot,255,move,7,Body Press,18.4%,,,,,,,,
+Swalot,255,move,8,Toxic,15.8%,,,,,,,,
+Swalot,255,move,9,Stockpile,11.8%,,,,,,,,
+Swalot,255,move,10,Poison Jab,9.2%,,,,,,,,
+Swalot,255,held_item,1,Leftovers,47.4%,,,,,,,,
+Swalot,255,held_item,2,Sitrus Berry,38.2%,,,,,,,,
+Swalot,255,held_item,3,Psychic Seed,7.9%,,,,,,,,
+Swalot,255,held_item,4,Life Orb,3.9%,,,,,,,,
+Swalot,255,held_item,5,Shuca Berry,1.3%,,,,,,,,
+Swalot,255,held_item,6,Air Balloon,1.3%,,,,,,,,
+Swalot,255,teammate,1,Wigglytuff,,,,,,,,,
+Swalot,255,teammate,2,Arcanine-Hisui,,,,,,,,,
+Swalot,255,teammate,3,Pikachu,,,,,,,,,
+Swalot,255,teammate,4,Ninetales-Alola,,,,,,,,,
+Swalot,255,teammate,5,Dragonite,,,,,,,,,
+Swalot,255,teammate,6,Camerupt,,,,,,,,,
+Swalot,255,teammate,7,Mr. Mime,,,,,,,,,
+Swalot,255,teammate,8,Reuniclus,,,,,,,,,
+Swalot,255,teammate,9,Kingambit,,,,,,,,,
+Swalot,255,teammate,10,Annihilape,,,,,,,,,
+Swalot,255,stat_alignment,1,Bold,51.3%,Defense,Attack,,,,,,
+Swalot,255,stat_alignment,2,Modest,35.5%,Sp. Atk,Attack,,,,,,
+Swalot,255,stat_alignment,3,Relaxed,7.9%,Defense,Speed,,,,,,
+Swalot,255,stat_alignment,4,Adamant,2.6%,Attack,Sp. Atk,,,,,,
+Swalot,255,stat_alignment,5,Brave,1.3%,Attack,Speed,,,,,,
+Swalot,255,stat_alignment,6,Careful,1.3%,Sp. Def,Sp. Atk,,,,,,
+Swalot,255,stat_points,1,,51.3%,,,32,0,32,0,2,0
+Swalot,255,stat_points,2,,22.4%,,,32,0,1,32,1,0
+Swalot,255,stat_points,3,,10.5%,,,32,0,3,28,3,0
+Swalot,255,stat_points,4,,3.9%,,,2,32,32,0,0,0
+Swalot,255,stat_points,5,,3.9%,,,30,0,13,0,23,0
+Swalot,255,stat_points,6,,2.6%,,,32,28,3,0,3,0
+Swalot,255,stat_points,7,,1.3%,,,0,32,0,0,32,2
+Swalot,255,stat_points,8,,1.3%,,,32,0,0,32,2,0
+Swalot,255,stat_points,9,,1.3%,,,32,0,2,32,0,0
+Swalot,255,stat_points,10,,1.3%,,,32,32,2,0,0,0
+Swalot,255,ability,1,Liquid Ooze,48.7%,,,,,,,,
+Swalot,255,ability,2,Sticky Hold,46.1%,,,,,,,,
+Swalot,255,ability,3,Gluttony,5.3%,,,,,,,,

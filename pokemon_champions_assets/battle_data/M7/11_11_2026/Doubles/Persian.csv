@@ -1,24 +1,25 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Persian,245,move,1,Fake Out,87.1%,,,,,,,,
-Persian,245,move,2,Icy Wind,75.8%,,,,,,,,
-Persian,245,move,3,Endeavor,53.0%,,,,,,,,
-Persian,245,move,4,Snarl,36.4%,,,,,,,,
-Persian,245,move,5,Taunt,22.0%,,,,,,,,
-Persian,245,move,6,Thunder Wave,21.2%,,,,,,,,
-Persian,245,move,7,Hypnosis,18.2%,,,,,,,,
-Persian,245,move,8,Feint,17.4%,,,,,,,,
-Persian,245,move,9,Chilling Water,12.9%,,,,,,,,
-Persian,245,move,10,Protect,10.6%,,,,,,,,
-Persian,245,held_item,1,Focus Sash,67.4%,,,,,,,,
-Persian,245,held_item,2,Wise Glasses,23.5%,,,,,,,,
-Persian,245,held_item,3,King's Rock,4.5%,,,,,,,,
-Persian,245,held_item,4,Normal Gem,2.3%,,,,,,,,
-Persian,245,held_item,5,Chople Berry,0.8%,,,,,,,,
-Persian,245,held_item,6,White Herb,0.8%,,,,,,,,
-Persian,245,held_item,7,Eject Button,0.8%,,,,,,,,
+Persian,245,move,1,Fake Out,88.5%,,,,,,,,
+Persian,245,move,2,Icy Wind,75.0%,,,,,,,,
+Persian,245,move,3,Endeavor,49.3%,,,,,,,,
+Persian,245,move,4,Snarl,41.2%,,,,,,,,
+Persian,245,move,5,Taunt,19.6%,,,,,,,,
+Persian,245,move,6,Thunder Wave,18.9%,,,,,,,,
+Persian,245,move,7,Feint,17.6%,,,,,,,,
+Persian,245,move,8,Hypnosis,16.2%,,,,,,,,
+Persian,245,move,9,Chilling Water,11.5%,,,,,,,,
+Persian,245,move,10,Protect,10.8%,,,,,,,,
+Persian,245,held_item,1,Focus Sash,69.6%,,,,,,,,
+Persian,245,held_item,2,Wise Glasses,20.9%,,,,,,,,
+Persian,245,held_item,3,King's Rock,4.1%,,,,,,,,
+Persian,245,held_item,4,Normal Gem,2.0%,,,,,,,,
+Persian,245,held_item,5,Silk Scarf,1.4%,,,,,,,,
+Persian,245,held_item,6,Chople Berry,0.7%,,,,,,,,
+Persian,245,held_item,7,White Herb,0.7%,,,,,,,,
+Persian,245,held_item,8,Eject Button,0.7%,,,,,,,,
 Persian,245,teammate,1,Garchomp,,,,,,,,,
-Persian,245,teammate,2,Volcarona,,,,,,,,,
-Persian,245,teammate,3,Indeedee,,,,,,,,,
+Persian,245,teammate,2,Indeedee,,,,,,,,,
+Persian,245,teammate,3,Volcarona,,,,,,,,,
 Persian,245,teammate,4,Raichu,,,,,,,,,
 Persian,245,teammate,5,Drampa,,,,,,,,,
 Persian,245,teammate,6,Kangaskhan,,,,,,,,,
@@ -26,20 +27,20 @@ Persian,245,teammate,7,Pyroar,,,,,,,,,
 Persian,245,teammate,8,Farigiraf,,,,,,,,,
 Persian,245,teammate,9,Sableye,,,,,,,,,
 Persian,245,teammate,10,Floette-Eternal,,,,,,,,,
-Persian,245,stat_alignment,1,Jolly,34.1%,Speed,Sp. Atk,,,,,,
-Persian,245,stat_alignment,2,Modest,24.2%,Sp. Atk,Attack,,,,,,
-Persian,245,stat_alignment,3,Hasty,21.2%,Speed,Defense,,,,,,
-Persian,245,stat_alignment,4,Timid,12.9%,Speed,Attack,,,,,,
-Persian,245,stat_alignment,5,Adamant,6.8%,Attack,Sp. Atk,,,,,,
-Persian,245,stat_alignment,6,Naughty,0.8%,Attack,Sp. Def,,,,,,
-Persian,245,stat_points,1,,31.8%,,,2,0,0,32,0,32
-Persian,245,stat_points,2,,28.0%,,,2,32,0,0,0,32
-Persian,245,stat_points,3,,22.7%,,,0,0,0,32,0,32
-Persian,245,stat_points,4,,8.3%,,,0,32,0,0,0,32
-Persian,245,stat_points,5,,3.8%,,,1,0,1,32,0,32
-Persian,245,stat_points,6,,2.3%,,,0,32,0,0,2,32
-Persian,245,stat_points,7,,1.5%,,,0,32,2,0,0,32
-Persian,245,stat_points,8,,0.8%,,,1,32,1,0,0,32
-Persian,245,stat_points,9,,0.8%,,,2,32,32,0,0,0
-Persian,245,ability,1,Technician,98.5%,,,,,,,,
-Persian,245,ability,2,Unnerve,1.5%,,,,,,,,
+Persian,245,stat_alignment,1,Jolly,32.4%,Speed,Sp. Atk,,,,,,
+Persian,245,stat_alignment,2,Modest,21.6%,Sp. Atk,Attack,,,,,,
+Persian,245,stat_alignment,3,Timid,18.9%,Speed,Attack,,,,,,
+Persian,245,stat_alignment,4,Hasty,18.9%,Speed,Defense,,,,,,
+Persian,245,stat_alignment,5,Adamant,7.4%,Attack,Sp. Atk,,,,,,
+Persian,245,stat_alignment,6,Naughty,0.7%,Attack,Sp. Def,,,,,,
+Persian,245,stat_points,1,,35.8%,,,2,0,0,32,0,32
+Persian,245,stat_points,2,,25.0%,,,2,32,0,0,0,32
+Persian,245,stat_points,3,,20.3%,,,0,0,0,32,0,32
+Persian,245,stat_points,4,,7.4%,,,0,32,0,0,0,32
+Persian,245,stat_points,5,,4.7%,,,0,32,2,0,0,32
+Persian,245,stat_points,6,,3.4%,,,1,0,1,32,0,32
+Persian,245,stat_points,7,,2.0%,,,0,32,0,0,2,32
+Persian,245,stat_points,8,,0.7%,,,1,32,1,0,0,32
+Persian,245,stat_points,9,,0.7%,,,2,32,32,0,0,0
+Persian,245,ability,1,Technician,98.6%,,,,,,,,
+Persian,245,ability,2,Unnerve,1.4%,,,,,,,,

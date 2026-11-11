@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Houndoom,171,move,1,Dark Pulse,83.0%,,,,,,,,
-Houndoom,171,move,2,Flamethrower,64.4%,,,,,,,,
-Houndoom,171,move,3,Destiny Bond,40.7%,,,,,,,,
-Houndoom,171,move,4,Sludge Bomb,36.6%,,,,,,,,
-Houndoom,171,move,5,Nasty Plot,27.6%,,,,,,,,
-Houndoom,171,move,6,Sucker Punch,26.8%,,,,,,,,
-Houndoom,171,move,7,Counter,20.1%,,,,,,,,
-Houndoom,171,move,8,Overheat,15.7%,,,,,,,,
-Houndoom,171,move,9,Solar Beam,13.6%,,,,,,,,
-Houndoom,171,move,10,Fire Blast,10.9%,,,,,,,,
-Houndoom,171,held_item,1,Houndoominite,53.4%,,,,,,,,
-Houndoom,171,held_item,2,Focus Sash,41.8%,,,,,,,,
+Houndoom,171,move,1,Dark Pulse,83.3%,,,,,,,,
+Houndoom,171,move,2,Flamethrower,62.8%,,,,,,,,
+Houndoom,171,move,3,Destiny Bond,40.5%,,,,,,,,
+Houndoom,171,move,4,Sludge Bomb,35.4%,,,,,,,,
+Houndoom,171,move,5,Nasty Plot,26.8%,,,,,,,,
+Houndoom,171,move,6,Sucker Punch,26.0%,,,,,,,,
+Houndoom,171,move,7,Counter,19.4%,,,,,,,,
+Houndoom,171,move,8,Overheat,16.5%,,,,,,,,
+Houndoom,171,move,9,Solar Beam,13.4%,,,,,,,,
+Houndoom,171,move,10,Fire Blast,11.2%,,,,,,,,
+Houndoom,171,held_item,1,Houndoominite,53.8%,,,,,,,,
+Houndoom,171,held_item,2,Focus Sash,41.0%,,,,,,,,
 Houndoom,171,held_item,3,Choice Scarf,1.6%,,,,,,,,
-Houndoom,171,held_item,4,Sitrus Berry,1.4%,,,,,,,,
-Houndoom,171,held_item,5,Shuca Berry,0.4%,,,,,,,,
+Houndoom,171,held_item,4,Sitrus Berry,1.3%,,,,,,,,
+Houndoom,171,held_item,5,Shuca Berry,0.8%,,,,,,,,
 Houndoom,171,held_item,6,Air Balloon,0.3%,,,,,,,,
 Houndoom,171,held_item,7,Chople Berry,0.2%,,,,,,,,
 Houndoom,171,held_item,8,Focus Band,0.2%,,,,,,,,
@@ -23,32 +23,32 @@ Houndoom,171,teammate,1,Garchomp,,,,,,,,,
 Houndoom,171,teammate,2,Mimikyu,,,,,,,,,
 Houndoom,171,teammate,3,Torkoal,,,,,,,,,
 Houndoom,171,teammate,4,Venusaur,,,,,,,,,
-Houndoom,171,teammate,5,Greninja,,,,,,,,,
+Houndoom,171,teammate,5,Lucario,,,,,,,,,
 Houndoom,171,teammate,6,Archaludon,,,,,,,,,
 Houndoom,171,teammate,7,Primarina,,,,,,,,,
-Houndoom,171,teammate,8,Lucario,,,,,,,,,
-Houndoom,171,teammate,9,Corviknight,,,,,,,,,
-Houndoom,171,teammate,10,Victreebel,,,,,,,,,
-Houndoom,171,stat_alignment,1,Timid,52.6%,Speed,Attack,,,,,,
-Houndoom,171,stat_alignment,2,Modest,26.8%,Sp. Atk,Attack,,,,,,
-Houndoom,171,stat_alignment,3,Hasty,6.6%,Speed,Defense,,,,,,
-Houndoom,171,stat_alignment,4,Mild,5.3%,Sp. Atk,Defense,,,,,,
+Houndoom,171,teammate,8,Greninja,,,,,,,,,
+Houndoom,171,teammate,9,Victreebel,,,,,,,,,
+Houndoom,171,teammate,10,Corviknight,,,,,,,,,
+Houndoom,171,stat_alignment,1,Timid,53.1%,Speed,Attack,,,,,,
+Houndoom,171,stat_alignment,2,Modest,26.6%,Sp. Atk,Attack,,,,,,
+Houndoom,171,stat_alignment,3,Hasty,6.4%,Speed,Defense,,,,,,
+Houndoom,171,stat_alignment,4,Mild,5.0%,Sp. Atk,Defense,,,,,,
 Houndoom,171,stat_alignment,5,Naive,4.7%,Speed,Sp. Def,,,,,,
-Houndoom,171,stat_alignment,6,Rash,1.6%,Sp. Atk,Sp. Def,,,,,,
-Houndoom,171,stat_alignment,7,Quiet,1.5%,Sp. Atk,Speed,,,,,,
-Houndoom,171,stat_alignment,8,Bold,0.4%,Defense,Attack,,,,,,
+Houndoom,171,stat_alignment,6,Rash,1.5%,Sp. Atk,Sp. Def,,,,,,
+Houndoom,171,stat_alignment,7,Quiet,1.4%,Sp. Atk,Speed,,,,,,
+Houndoom,171,stat_alignment,8,Bold,0.8%,Defense,Attack,,,,,,
 Houndoom,171,stat_alignment,9,Calm,0.2%,Sp. Def,Attack,,,,,,
 Houndoom,171,stat_alignment,10,Jolly,0.2%,Speed,Sp. Atk,,,,,,
-Houndoom,171,stat_points,1,,27.8%,,,2,0,0,32,0,32
-Houndoom,171,stat_points,2,,16.1%,,,1,0,1,32,0,32
-Houndoom,171,stat_points,3,,12.5%,,,0,0,0,32,0,32
-Houndoom,171,stat_points,4,,5.6%,,,1,0,0,32,1,32
-Houndoom,171,stat_points,5,,4.8%,,,0,0,2,32,0,32
-Houndoom,171,stat_points,6,,4.8%,,,9,0,0,29,0,28
-Houndoom,171,stat_points,7,,4.5%,,,1,1,0,32,0,32
-Houndoom,171,stat_points,8,,4.2%,,,0,0,0,32,2,32
-Houndoom,171,stat_points,9,,3.3%,,,0,2,0,32,0,32
-Houndoom,171,stat_points,10,,2.8%,,,7,0,2,32,0,25
-Houndoom,171,ability,1,Flash Fire,94.4%,,,,,,,,
-Houndoom,171,ability,2,Unnerve,3.9%,,,,,,,,
-Houndoom,171,ability,3,Early Bird,1.7%,,,,,,,,
+Houndoom,171,stat_points,1,,28.8%,,,2,0,0,32,0,32
+Houndoom,171,stat_points,2,,15.6%,,,1,0,1,32,0,32
+Houndoom,171,stat_points,3,,12.2%,,,0,0,0,32,0,32
+Houndoom,171,stat_points,4,,5.4%,,,1,0,0,32,1,32
+Houndoom,171,stat_points,5,,4.7%,,,0,0,2,32,0,32
+Houndoom,171,stat_points,6,,4.4%,,,9,0,0,29,0,28
+Houndoom,171,stat_points,7,,4.3%,,,0,0,0,32,2,32
+Houndoom,171,stat_points,8,,4.3%,,,1,1,0,32,0,32
+Houndoom,171,stat_points,9,,3.0%,,,0,2,0,32,0,32
+Houndoom,171,stat_points,10,,2.6%,,,7,0,2,32,0,25
+Houndoom,171,ability,1,Flash Fire,94.1%,,,,,,,,
+Houndoom,171,ability,2,Unnerve,4.0%,,,,,,,,
+Houndoom,171,ability,3,Early Bird,1.9%,,,,,,,,

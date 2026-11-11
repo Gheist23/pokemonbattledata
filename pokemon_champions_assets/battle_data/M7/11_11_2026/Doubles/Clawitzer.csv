@@ -1,47 +1,48 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Clawitzer,143,move,1,Aura Sphere,92.2%,,,,,,,,
-Clawitzer,143,move,2,Dark Pulse,83.8%,,,,,,,,
-Clawitzer,143,move,3,Water Pulse,74.6%,,,,,,,,
-Clawitzer,143,move,4,Protect,52.2%,,,,,,,,
-Clawitzer,143,move,5,Ice Beam,36.5%,,,,,,,,
-Clawitzer,143,move,6,Dragon Pulse,21.9%,,,,,,,,
-Clawitzer,143,move,7,Terrain Pulse,15.7%,,,,,,,,
-Clawitzer,143,move,8,Heal Pulse,6.9%,,,,,,,,
-Clawitzer,143,move,9,Sludge Bomb,6.9%,,,,,,,,
-Clawitzer,143,move,10,Aqua Jet,3.3%,,,,,,,,
-Clawitzer,143,held_item,1,Expert Belt,47.2%,,,,,,,,
-Clawitzer,143,held_item,2,Life Orb,37.7%,,,,,,,,
-Clawitzer,143,held_item,3,Focus Sash,3.4%,,,,,,,,
-Clawitzer,143,held_item,4,Wise Glasses,2.3%,,,,,,,,
-Clawitzer,143,held_item,5,Sitrus Berry,2.2%,,,,,,,,
-Clawitzer,143,held_item,6,Black Belt,1.5%,,,,,,,,
-Clawitzer,143,held_item,7,Quick Claw,1.2%,,,,,,,,
-Clawitzer,143,held_item,8,Mystic Water,1.1%,,,,,,,,
-Clawitzer,143,held_item,9,King's Rock,1.0%,,,,,,,,
-Clawitzer,143,held_item,10,Grassy Seed,0.9%,,,,,,,,
-Clawitzer,143,teammate,1,Indeedee-F,,,,,,,,,
-Clawitzer,143,teammate,2,Golisopod,,,,,,,,,
-Clawitzer,143,teammate,3,Hatterene,,,,,,,,,
-Clawitzer,143,teammate,4,Farigiraf,,,,,,,,,
-Clawitzer,143,teammate,5,Rillaboom,,,,,,,,,
-Clawitzer,143,teammate,6,Archaludon,,,,,,,,,
-Clawitzer,143,teammate,7,Sableye,,,,,,,,,
-Clawitzer,143,teammate,8,Camerupt,,,,,,,,,
-Clawitzer,143,teammate,9,Incineroar,,,,,,,,,
-Clawitzer,143,teammate,10,Pincurchin,,,,,,,,,
-Clawitzer,143,stat_alignment,1,Quiet,53.7%,Sp. Atk,Speed,,,,,,
-Clawitzer,143,stat_alignment,2,Modest,44.7%,Sp. Atk,Attack,,,,,,
-Clawitzer,143,stat_alignment,3,Timid,1.4%,Speed,Attack,,,,,,
-Clawitzer,143,stat_alignment,4,Sassy,0.2%,Sp. Def,Speed,,,,,,
-Clawitzer,143,stat_alignment,5,Jolly,0.0%,Speed,Sp. Atk,,,,,,
-Clawitzer,143,stat_points,1,,43.4%,,,32,0,2,32,0,0
-Clawitzer,143,stat_points,2,,11.7%,,,32,0,0,32,2,0
-Clawitzer,143,stat_points,3,,6.0%,,,32,0,0,32,0,2
-Clawitzer,143,stat_points,4,,5.3%,,,32,0,1,32,1,0
-Clawitzer,143,stat_points,5,,4.9%,,,31,0,2,32,1,0
-Clawitzer,143,stat_points,6,,3.4%,,,0,0,32,32,2,0
-Clawitzer,143,stat_points,7,,2.4%,,,1,0,17,32,16,0
-Clawitzer,143,stat_points,8,,2.1%,,,0,0,2,32,32,0
-Clawitzer,143,stat_points,9,,2.0%,,,0,0,2,32,1,31
-Clawitzer,143,stat_points,10,,1.4%,,,11,0,12,32,11,0
-Clawitzer,143,ability,1,Mega Launcher,100.0%,,,,,,,,
+Clawitzer,141,move,1,Aura Sphere,91.8%,,,,,,,,
+Clawitzer,141,move,2,Dark Pulse,83.5%,,,,,,,,
+Clawitzer,141,move,3,Water Pulse,75.6%,,,,,,,,
+Clawitzer,141,move,4,Protect,51.1%,,,,,,,,
+Clawitzer,141,move,5,Ice Beam,36.2%,,,,,,,,
+Clawitzer,141,move,6,Dragon Pulse,21.6%,,,,,,,,
+Clawitzer,141,move,7,Terrain Pulse,17.0%,,,,,,,,
+Clawitzer,141,move,8,Heal Pulse,7.3%,,,,,,,,
+Clawitzer,141,move,9,Sludge Bomb,6.7%,,,,,,,,
+Clawitzer,141,move,10,Aqua Jet,3.5%,,,,,,,,
+Clawitzer,141,held_item,1,Expert Belt,45.9%,,,,,,,,
+Clawitzer,141,held_item,2,Life Orb,38.7%,,,,,,,,
+Clawitzer,141,held_item,3,Focus Sash,3.2%,,,,,,,,
+Clawitzer,141,held_item,4,Wise Glasses,2.4%,,,,,,,,
+Clawitzer,141,held_item,5,Sitrus Berry,2.1%,,,,,,,,
+Clawitzer,141,held_item,6,Mystic Water,1.5%,,,,,,,,
+Clawitzer,141,held_item,7,King's Rock,1.4%,,,,,,,,
+Clawitzer,141,held_item,8,Black Belt,1.4%,,,,,,,,
+Clawitzer,141,held_item,9,Quick Claw,1.1%,,,,,,,,
+Clawitzer,141,held_item,10,Grassy Seed,0.8%,,,,,,,,
+Clawitzer,141,teammate,1,Indeedee-F,,,,,,,,,
+Clawitzer,141,teammate,2,Golisopod,,,,,,,,,
+Clawitzer,141,teammate,3,Hatterene,,,,,,,,,
+Clawitzer,141,teammate,4,Farigiraf,,,,,,,,,
+Clawitzer,141,teammate,5,Rillaboom,,,,,,,,,
+Clawitzer,141,teammate,6,Archaludon,,,,,,,,,
+Clawitzer,141,teammate,7,Camerupt,,,,,,,,,
+Clawitzer,141,teammate,8,Sableye,,,,,,,,,
+Clawitzer,141,teammate,9,Incineroar,,,,,,,,,
+Clawitzer,141,teammate,10,Pincurchin,,,,,,,,,
+Clawitzer,141,stat_alignment,1,Quiet,53.1%,Sp. Atk,Speed,,,,,,
+Clawitzer,141,stat_alignment,2,Modest,45.1%,Sp. Atk,Attack,,,,,,
+Clawitzer,141,stat_alignment,3,Timid,1.3%,Speed,Attack,,,,,,
+Clawitzer,141,stat_alignment,4,Sassy,0.3%,Sp. Def,Speed,,,,,,
+Clawitzer,141,stat_alignment,5,Calm,0.1%,Sp. Def,Attack,,,,,,
+Clawitzer,141,stat_alignment,6,Jolly,0.0%,Speed,Sp. Atk,,,,,,
+Clawitzer,141,stat_points,1,,42.9%,,,32,0,2,32,0,0
+Clawitzer,141,stat_points,2,,11.9%,,,32,0,0,32,2,0
+Clawitzer,141,stat_points,3,,6.1%,,,32,0,0,32,0,2
+Clawitzer,141,stat_points,4,,5.1%,,,32,0,1,32,1,0
+Clawitzer,141,stat_points,5,,4.5%,,,31,0,2,32,1,0
+Clawitzer,141,stat_points,6,,3.9%,,,0,0,32,32,2,0
+Clawitzer,141,stat_points,7,,2.2%,,,1,0,17,32,16,0
+Clawitzer,141,stat_points,8,,2.0%,,,0,0,2,32,32,0
+Clawitzer,141,stat_points,9,,1.9%,,,0,0,2,32,1,31
+Clawitzer,141,stat_points,10,,1.5%,,,28,0,3,32,3,0
+Clawitzer,141,ability,1,Mega Launcher,100.0%,,,,,,,,

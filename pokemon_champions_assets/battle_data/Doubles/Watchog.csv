@@ -1,44 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Watchog,260,move,1,Detect,69.4%,,,,,,,,
-Watchog,260,move,2,Low Kick,63.9%,,,,,,,,
-Watchog,260,move,3,Ice Punch,47.2%,,,,,,,,
-Watchog,260,move,4,Hypnosis,44.4%,,,,,,,,
-Watchog,260,move,5,After You,25.0%,,,,,,,,
-Watchog,260,move,6,Helping Hand,22.2%,,,,,,,,
-Watchog,260,move,7,Giga Impact,22.2%,,,,,,,,
-Watchog,260,move,8,Zen Headbutt,22.2%,,,,,,,,
-Watchog,260,move,9,Thunder Wave,22.2%,,,,,,,,
-Watchog,260,move,10,Double-Edge,16.7%,,,,,,,,
-Watchog,260,held_item,1,Chople Berry,47.2%,,,,,,,,
-Watchog,260,held_item,2,Choice Scarf,19.4%,,,,,,,,
-Watchog,260,held_item,3,Focus Sash,16.7%,,,,,,,,
-Watchog,260,held_item,4,Iron Ball,13.9%,,,,,,,,
-Watchog,260,held_item,5,Silk Scarf,2.8%,,,,,,,,
-Watchog,260,teammate,1,Charizard,,,,,,,,,
-Watchog,260,teammate,2,Farigiraf,,,,,,,,,
+Watchog,260,move,1,Detect,57.4%,,,,,,,,
+Watchog,260,move,2,Low Kick,53.2%,,,,,,,,
+Watchog,260,move,3,Ice Punch,40.4%,,,,,,,,
+Watchog,260,move,4,Hypnosis,38.3%,,,,,,,,
+Watchog,260,move,5,Zen Headbutt,31.9%,,,,,,,,
+Watchog,260,move,6,After You,23.4%,,,,,,,,
+Watchog,260,move,7,Giga Impact,21.3%,,,,,,,,
+Watchog,260,move,8,Thunder Wave,21.3%,,,,,,,,
+Watchog,260,move,9,Stomping Tantrum,19.1%,,,,,,,,
+Watchog,260,move,10,Psych Up,17.0%,,,,,,,,
+Watchog,260,held_item,1,Chople Berry,40.4%,,,,,,,,
+Watchog,260,held_item,2,Iron Ball,23.4%,,,,,,,,
+Watchog,260,held_item,3,Choice Scarf,19.1%,,,,,,,,
+Watchog,260,held_item,4,Focus Sash,12.8%,,,,,,,,
+Watchog,260,held_item,5,Silk Scarf,2.1%,,,,,,,,
+Watchog,260,held_item,6,Normal Gem,2.1%,,,,,,,,
+Watchog,260,teammate,1,Farigiraf,,,,,,,,,
+Watchog,260,teammate,2,Charizard,,,,,,,,,
 Watchog,260,teammate,3,Venusaur,,,,,,,,,
 Watchog,260,teammate,4,Garchomp,,,,,,,,,
 Watchog,260,teammate,5,Gholdengo,,,,,,,,,
-Watchog,260,teammate,6,Salamence,,,,,,,,,
-Watchog,260,teammate,7,Aerodactyl,,,,,,,,,
-Watchog,260,teammate,8,Torkoal,,,,,,,,,
-Watchog,260,teammate,9,Simisage,,,,,,,,,
-Watchog,260,teammate,10,Simisear,,,,,,,,,
-Watchog,260,stat_alignment,1,Impish,47.2%,Defense,Sp. Atk,,,,,,
-Watchog,260,stat_alignment,2,Naive,19.4%,Speed,Sp. Def,,,,,,
-Watchog,260,stat_alignment,3,Adamant,13.9%,Attack,Sp. Atk,,,,,,
-Watchog,260,stat_alignment,4,Brave,8.3%,Attack,Speed,,,,,,
-Watchog,260,stat_alignment,5,Relaxed,5.6%,Defense,Speed,,,,,,
-Watchog,260,stat_alignment,6,Jolly,2.8%,Speed,Sp. Atk,,,,,,
-Watchog,260,stat_alignment,7,Quiet,2.8%,Sp. Atk,Speed,,,,,,
-Watchog,260,stat_points,1,,44.4%,,,32,2,32,0,0,0
-Watchog,260,stat_points,2,,19.4%,,,0,32,0,0,0,32
-Watchog,260,stat_points,3,,13.9%,,,32,32,0,0,0,2
-Watchog,260,stat_points,4,,8.3%,,,32,32,1,0,1,0
-Watchog,260,stat_points,5,,5.6%,,,32,0,11,0,23,0
-Watchog,260,stat_points,6,,2.8%,,,2,32,0,0,0,32
-Watchog,260,stat_points,7,,2.8%,,,32,0,32,0,2,0
-Watchog,260,stat_points,8,,2.8%,,,32,32,2,0,0,0
-Watchog,260,ability,1,Analytic,69.4%,,,,,,,,
-Watchog,260,ability,2,Keen Eye,27.8%,,,,,,,,
-Watchog,260,ability,3,Illuminate,2.8%,,,,,,,,
+Watchog,260,teammate,6,Grapploct,,,,,,,,,
+Watchog,260,teammate,7,Salamence,,,,,,,,,
+Watchog,260,teammate,8,Raichu,,,,,,,,,
+Watchog,260,teammate,9,Torkoal,,,,,,,,,
+Watchog,260,teammate,10,Simisage,,,,,,,,,
+Watchog,260,stat_alignment,1,Impish,40.4%,Defense,Sp. Atk,,,,,,
+Watchog,260,stat_alignment,2,Naive,19.1%,Speed,Sp. Def,,,,,,
+Watchog,260,stat_alignment,3,Brave,17.0%,Attack,Speed,,,,,,
+Watchog,260,stat_alignment,4,Adamant,10.6%,Attack,Sp. Atk,,,,,,
+Watchog,260,stat_alignment,5,Quiet,6.4%,Sp. Atk,Speed,,,,,,
+Watchog,260,stat_alignment,6,Relaxed,4.3%,Defense,Speed,,,,,,
+Watchog,260,stat_alignment,7,Jolly,2.1%,Speed,Sp. Atk,,,,,,
+Watchog,260,stat_points,1,,38.3%,,,32,2,32,0,0,0
+Watchog,260,stat_points,2,,19.1%,,,0,32,0,0,0,32
+Watchog,260,stat_points,3,,17.0%,,,32,32,1,0,1,0
+Watchog,260,stat_points,4,,10.6%,,,32,32,0,0,0,2
+Watchog,260,stat_points,5,,4.3%,,,32,0,1,32,1,0
+Watchog,260,stat_points,6,,4.3%,,,32,0,11,0,23,0
+Watchog,260,stat_points,7,,2.1%,,,2,32,0,0,0,32
+Watchog,260,stat_points,8,,2.1%,,,32,0,32,0,2,0
+Watchog,260,stat_points,9,,2.1%,,,32,32,2,0,0,0
+Watchog,260,ability,1,Analytic,72.3%,,,,,,,,
+Watchog,260,ability,2,Keen Eye,25.5%,,,,,,,,
+Watchog,260,ability,3,Illuminate,2.1%,,,,,,,,

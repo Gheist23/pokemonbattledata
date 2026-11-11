@@ -123,8 +123,8 @@ button.bd-opt-move:hover { border-color: var(--bd-line-strong); }
 .bd-opt-story-detail { font-size: 0.78rem; line-height: 1.5; color: var(--soft); }
 .bd-opt-arrow { font-style: normal; font-weight: 900; color: var(--muted); }
 .bd-opt-compare .bd-opt-sp { color: var(--soft); font-weight: 650; }
-.bd-opt-compare .bd-nature-mark.up { color: #ff9a9a; }
-.bd-opt-compare .bd-nature-mark.down { color: #9ec9ff; }
+.bd-opt-compare .bd-nature-mark.up { color: var(--bd-nature-up); font-weight: 900; }
+.bd-opt-compare .bd-nature-mark.down { color: var(--bd-nature-down); font-weight: 900; }
 
 .bd-opt-shape,
 .bd-opt-once,

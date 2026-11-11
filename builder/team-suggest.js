@@ -962,12 +962,24 @@ export function speedModePlan(profiles, metaSpeeds) {
  */
 export function boxCandidates(sg, box, activeNames) {
   const active = new Set(activeNames.map(compact).filter(Boolean));
+  // V549: and by the Mega's other spelling, for the reason `candidates()` gives -- a Box
+  // holding "Mega Salamence" was offered for a team already holding "Salamence-Mega".
+  const megaKey = (value) => {
+    const text = String(value || "").trim();
+    const bare = /^mega[\s-]+/i.test(text) ? text.replace(/^mega[\s-]+/i, "")
+      : /[\s-]mega$/i.test(text) ? text.replace(/[\s-]mega$/i, "")
+        : "";
+    return bare ? `${compact(bare)}mega` : "";
+  };
+  const megaDedupeOn = sg.ev?.duplicateMegaRule !== 0 && sg.ev?.duplicateMegaRule !== false;
+  const activeMegas = new Set(megaDedupeOn ? activeNames.map(megaKey).filter(Boolean) : []);
   const rows = [];
   (box || []).forEach((set, index) => {
     const pokemon = String(set?.species || "").trim();
     if (!pokemon) return;
     const form = String(set.form || pokemon).trim() || pokemon;
     if (active.has(compact(form)) || active.has(compact(pokemon))) return;
+    if ([form, pokemon].some((v) => megaKey(v) && activeMegas.has(megaKey(v)))) return;
     const moves = (set.moves || []).map((m) => String(m || "").trim()).filter(Boolean).slice(0, 4);
     const forced = {
       rank: 1, evaluated_count: 1, total_sets: 1, item: String(set.item || ""), ability: String(set.ability || ""), moves,
@@ -1210,6 +1222,40 @@ export class TeamSuggestions {
   /** _v476_full_suggestion_candidates: every ranked Pokemon not already on the team. */
   candidates(payload, activeNames) {
     const teamKeys = new Set(activeNames.map(compact).filter(Boolean));
+    // V549: ...and by the Mega's OTHER SPELLING. The two sides of this comparison name a Mega
+    // differently: the team's names come from `showdownName` ("Salamence-Mega") and the ranked
+    // list from the game's own display ("Mega Salamence"), so `compact` never matched them and
+    // every Mega on a team was offered back as a swap for one of its own team-mates --
+    // reported from the live site as "Swap Tyranitar-Mega -> Mega Salamence" on a team already
+    // holding Salamence.
+    //
+    // Deliberately NOT a collapse to base species, which would also drop a second FORM of a
+    // species already there (Indeedee beside Indeedee-F). The species clause says that is
+    // illegal too (play-page.js:1041) and the Companion offers it as well, but removing those
+    // candidates measurably concentrated the shown list on one swap target -- Indeedee-F went
+    // from 7 of 14 rows to 9, past the diversity bar V512 exists to hold. That is a second
+    // defect and it needs the diversity work, not a wider filter here.
+    const megaKey = (value) => {
+      const text = String(value || "").trim();
+      if (!text) return "";
+      const bare = /^mega[\s-]+/i.test(text) ? text.replace(/^mega[\s-]+/i, "")
+        : /[\s-]mega$/i.test(text) ? text.replace(/[\s-]mega$/i, "")
+          : "";
+      return bare ? `${compact(bare)}mega` : "";
+    };
+    // Off for a recorded replay: every suggestion vector here was made by the Companion, which
+    // still offers a Mega to a team already holding it, and a recording must be replayed under
+    // the rules it was made under. On everywhere else -- this is the website fixing something
+    // the Companion has not, the same arrangement `strictFinishFilters` holds for Auto Build.
+    const megaDedupeOn = this.ev?.duplicateMegaRule !== 0 && this.ev?.duplicateMegaRule !== false;
+    const teamMegas = new Set(megaDedupeOn ? activeNames.map(megaKey).filter(Boolean) : []);
+    const onTeam = (value) => {
+      const text = String(value || "").trim();
+      if (!text) return false;
+      if (teamKeys.has(compact(text))) return true;
+      const mega = megaKey(text);
+      return Boolean(mega) && teamMegas.has(mega);
+    };
     const excluded = this.ev.excludedPokemonKeys();
     const nameKeys = (value) => {
       const text = String(value || "").trim();
@@ -1223,7 +1269,8 @@ export class TeamSuggestions {
     this.allMeta().forEach((meta, index) => {
       const name = String(meta.name || meta.base_name || "").trim();
       const k = compact(name);
-      if (!k || teamKeys.has(k) || excluded.has(k) || seen.has(k)) return;
+      if (!k || seen.has(k) || excluded.has(k)) return;
+      if (onTeam(name) || onTeam(meta.form) || onTeam(meta.form_name) || onTeam(meta.base_name)) return;
       if (excluded.size && ["name", "pokemon", "pokemon_name", "base_name", "form", "form_name"].some((f) => nameKeys(meta[f]).some((v) => excluded.has(v)))) return;
       seen.add(k);
       rows.push({ ...meta, name, position: Number(meta.position) || index + 1, candidate_source: "All available Pokemon" });

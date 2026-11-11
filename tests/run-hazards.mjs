@@ -308,10 +308,18 @@ const arrive = (m, solver, state) => { solver.t.takeHazards(m, state.board, null
 {
   const worker = readFileSync(join(root, "builder", "analysis-worker.js"), "utf8");
   const built = worker.match(/new TournamentTest\([\s\S]*?\);/g) || [];
-  ok("both live engines ask for the rule",
-    built.filter((c) => /hazardsRule:\s*1/.test(c)).length === 2,
+    // V549: all THREE engines ask for it now. The Tournament Test used to be built with
+  // `{{ effects }}` alone, so every modelling rule added since was on in the two live engines
+  // and off in the one that produces the numbers on the Test against Tournament Teams screen.
+  // What it must still NOT have is either ROLLING rule: it prices expectations and rolls
+  // nothing, and a rolling cost handed to an expectation engine is counted twice.
+  ok("all three engines ask for the rule, the Tournament Test included",
+    built.filter((c) => /hazardsRule:\s*1/.test(c)).length === 3,
     String(built.filter((c) => /hazardsRule:\s*1/.test(c)).length));
-  ok("and the recorded Tournament Test does not", built.some((c) => !/hazardsRule/.test(c)));
+  const tourney = built.find((c) => !/playTournament|solverTournament/.test(c)) || "";
+  ok("and the Tournament Test still rolls nothing",
+    Boolean(tourney) && !/selfRollRule/.test(tourney) && !/actionRollRule/.test(tourney),
+    tourney.slice(0, 160));
   const page = readFileSync(join(root, "builder", "play-game.js"), "utf8");
   ok("the hazard moves are offered on the sheet", /RUNNABLE_OPS[\s\S]{0,420}"hazard"/.test(page));
   ok("and the board the opponent searches carries them", /hazards: \[describeHazards/.test(page));

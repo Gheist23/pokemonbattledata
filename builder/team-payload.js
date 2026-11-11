@@ -321,7 +321,7 @@ export class TeamEvaluation {
    * @param {Array<object|null>} sets
    * @param {object} options  {checkSelection, onProgress(done, total, name)}
    */
-  evaluate(sets, { checkSelection = null, onProgress } = {}) {
+  evaluate(sets, { checkSelection = null, teamArchetype = "", onProgress } = {}) {
     const settings = this.ev.settings;
     const team = this.slots(sets);
     if (!team.length) {
@@ -359,7 +359,7 @@ export class TeamEvaluation {
     // The app scored the "Top Meta" pair line against whatever evaluation was on
     // screen before; both now use this evaluation's critical threats.
     const synergy = this.synergy.team(team, { threats: critical, format: this.ev.format });
-    const snapshot = this.checks.snapshot(team, checkSelection, { tailwind });
+    const snapshot = this.checks.snapshot(team, checkSelection, { tailwind, teamArchetype });
     return {
       ok: true,
       settings,

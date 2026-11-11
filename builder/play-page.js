@@ -15,7 +15,7 @@
 // up against.
 
 import { BuilderData, makeSet, setFromCommon } from "./common.js";
-import { clear, editSet, h, openDialog, pickPokemon, segmented, select, sprite } from "./ui.js";
+import { clear, editSet, h, openDialog, pickPokemon, segmented, select, showSet, sprite } from "./ui.js";
 import { getState, teamSets } from "./store.js";
 import { loadRecord, playerName, recordGame, setPlayerName } from "./play-record.js";
 import { DEFAULT_PACE, PACES, createTurnPlayer, damageByMove, sentenceFor, streamFromRecord } from "./play-anim.js";
@@ -73,6 +73,19 @@ const state = {
   team: [],
   teamId: LADDER,
   teamName: "",
+  /**
+   * The Custom tab's opponent: a team the player picked and may edit, played against instead of
+   * a rolled tournament team. A game against it is an exhibition -- see `customGame`.
+   */
+  foeTeamId: LADDER,
+  foeSets: [],
+  foeTeamTitle: "",
+  /**
+   * Whether the game now in progress came from the Custom tab. Read at the END of the game, so
+   * it is captured when the teams are dealt rather than read off `state.tab` -- somebody who
+   * switches tab mid-battle must not turn an exhibition into a rated game, or the other way.
+   */
+  customGame: false,
   /** The preview: their six, and the id the worker remembers the deal by. */
   previewId: "",
   foe: [],
@@ -177,6 +190,24 @@ function useTeam(id) {
   state.teamName = team.title;
 }
 
+/** Load whichever team the opponent dropdown is on into `state.foeSets`. */
+function useFoeTeam(id) {
+  state.foeTeamId = id;
+  if (id === LADDER) {
+    state.foeSets = ladderTeam(state.format);
+    state.foeTeamTitle = "Top of the ladder";
+    return;
+  }
+  const team = savedTeams().find((entry) => entry.id === id);
+  if (!team) {
+    state.foeSets = [];
+    state.foeTeamTitle = "";
+    return;
+  }
+  state.foeSets = team.sets.slice(0, TEAM_SIZE).map((set) => makeSet(set));
+  state.foeTeamTitle = team.title;
+}
+
 /**
  * Why this team cannot battle, or "" when it can.
  *
@@ -206,12 +237,19 @@ function render() {
   clear(root);
   root.append(
     h("div", { class: "bd-play-tabs" },
-      segmented([["play", "Play"], ["leaderboard", "Leaderboard"]], state.tab, (value) => {
+      segmented([["play", "Play"], ["custom", "Custom"], ["leaderboard", "Leaderboard"]], state.tab, (value) => {
+        const was = state.tab;
         state.tab = value;
+        // Play and Custom are the same three screens with a different opponent, so moving
+        // between them goes back to the setup screen rather than dropping somebody into a team
+        // preview that was dealt for the other one.
+        if (value !== "leaderboard" && was !== "leaderboard" && was !== value && state.screen === "preview") {
+          state.screen = "setup";
+        }
         if (value === "leaderboard") syncBoardFormat();
         render();
         if (value === "leaderboard") loadBoard();
-      }, { "aria-label": "Play or leaderboard" }),
+      }, { "aria-label": "Play, custom or leaderboard" }),
       h("span", { class: "bd-play-record" }, recordLine())),
     state.tab === "leaderboard" ? renderBoard() : renderPlay());
 }
@@ -242,14 +280,19 @@ function renderSetup() {
     ...saved.map((team) => [team.id, team.title || "Untitled team"]),
     [LADDER, "Top of the ladder"],
   ];
-  const why = whyNotPlayable(state.team);
+  const custom = state.tab === "custom";
+  const why = whyNotPlayable(state.team) || (custom ? whyNotPlayable(state.foeSets) : "");
   return h("div", { class: "bd-play-setup" },
     state.error ? h("p", { class: "bd-play-error" }, state.error) : null,
     h("div", { class: "bd-card bd-play-intro" },
-      h("h2", {}, "Play the Solver (Testing Phase)"),
+      h("h2", {}, custom ? "Custom battle (Testing Phase)" : "Play the Solver (Testing Phase)"),
       h("p", {},
-        "The same search that runs on the Solver page. It brings a real tournament team and looks "
-        + "ten turns ahead."),
+        custom
+          ? "The same opponent, playing a team you choose. Pick one of your own teams for it, "
+            + "change anything in it, and battle. Custom games are not rated and do not go on "
+            + "the leaderboard."
+          : "The same search that runs on the Solver page. It brings a real tournament team and "
+            + "looks ten turns ahead."),
       h("div", { class: "bd-play-setup-row" },
         segmented([["Doubles", "Doubles"], ["Singles", "Singles"]], state.format, async (value) => {
           if (value === state.format) return;
@@ -259,6 +302,9 @@ function renderSetup() {
           // all and a Battle button that would not light.
           await data.loadMeta(value);
           useTeam(state.teamId);
+          // The opponent's side is built from the same usage file, so it is reloaded with ours
+          // -- otherwise switching to Singles left the Custom tab holding a Doubles team.
+          useFoeTeam(state.foeTeamId);
           render();
         }, { "aria-label": "Battle format" }),
         h("label", { class: "bd-play-team-select" },
@@ -272,19 +318,75 @@ function renderSetup() {
           render();
         }, { "aria-label": "What the Solver is shown of your team" }),
         h("p", { class: "bd-play-note" }, state.sheet === "open"
-          ? "The Solver is shown your sets, the way it sees a team on the Solver page. The same "
-            + "game every time, so this is what the leaderboard rates."
-          : "The Solver is not shown your sets. It guesses them from the usage data and only "
-            + "learns a move by watching you use it — a harder opponent to read, and a different "
-            + "game each time, so these are not rated."))),
+          ? "You are shown each other's sets, the way the Solver page sees a team."
+            + (custom ? "" : " The same game every time, so this is what the leaderboard rates.")
+          : "The Solver is not shown your sets, and you are not shown its. It guesses yours from "
+            + "the usage data and only learns a move by watching you use it, a harder opponent "
+            + "to read, and a different game each time"
+            + (custom ? "." : ", so these are not rated.")))),
     renderTeamCard(),
+    custom ? renderFoeTeamCard(options) : null,
     h("div", { class: "bd-play-start" },
       h("button", {
         type: "button",
         class: "primary-button bd-play-go",
         disabled: Boolean(why) || undefined,
         onclick: () => deal(),
-      }, why || "Find a battle")));
+      }, why || (custom ? "Battle this team" : "Find a battle"))));
+}
+
+/**
+ * The opponent's team on the Custom tab: which team it plays, and every slot of it open to be
+ * changed. The slots are the same cards our own team uses, so a Pokemon is edited on both sides
+ * in exactly the same way -- and editing one here changes only THIS copy, never the saved team
+ * it was loaded from, which is why `useFoeTeam` copies the sets rather than referencing them.
+ */
+function renderFoeTeamCard(options) {
+  return h("div", { class: "bd-card bd-play-team-card bd-play-foe-card" },
+    h("div", { class: "bd-play-team-head" },
+      h("h3", {}, "The Solver plays"),
+      h("label", { class: "bd-play-team-select" },
+        h("span", {}, "Their team"),
+        select(options, state.foeTeamId, (value) => { useFoeTeam(value); render(); }, { "aria-label": "The opponent's team" })),
+      h("p", { class: "bd-play-note" },
+        "Change anything you like. Your copy only, never the saved team.")),
+    state.foeSets.length
+      ? h("div", { class: "bd-play-team-grid" }, state.foeSets.map((set, index) => renderFoeSlot(set, index)))
+      : h("p", { class: "bd-play-note" }, "Pick a team for the opponent to play."),
+    state.foeSets.length && state.foeSets.length < TEAM_SIZE
+      ? h("div", { class: "bd-play-team-actions" },
+        h("button", {
+          type: "button", class: "ghost-button",
+          onclick: async () => {
+            const choice = await pickPokemon(data, { format: state.format, title: "Add to their team" });
+            if (!choice) return;
+            state.foeSets.push(setFromCommon(data.commonSet(state.format,
+              choice.row ? choice.row.species : choice.species, choice.row ? choice.row.form : choice.form)));
+            render();
+          },
+        }, `Add a Pokémon (${state.foeSets.length}/${TEAM_SIZE})`))
+      : null);
+}
+
+function renderFoeSlot(set, index) {
+  return h("div", { class: "bd-play-slot" },
+    h("div", { class: "bd-play-slot-art" },
+      sprite(data.sprite(set.species, set.form, set.item, { full: true }), "", 48, "bd-sprite")),
+    h("div", { class: "bd-play-slot-body" },
+      h("strong", {}, data.setName ? data.setName(set) : set.species),
+      h("small", {}, [set.item || "No item", set.ability].filter(Boolean).join(" · ")),
+      h("small", { class: "bd-play-slot-moves" }, (set.moves || []).filter(Boolean).join(", ") || "No moves")),
+    h("div", { class: "bd-play-slot-tools" },
+      h("button", {
+        type: "button", class: "ghost-button bd-play-edit",
+        onclick: async () => {
+          const next = await editSet(data, set, { format: state.format, title: set.species, removeLabel: "Take off their team" });
+          if (next === undefined) return;
+          if (next === null) state.foeSets.splice(index, 1);
+          else state.foeSets[index] = next;
+          render();
+        },
+      }, "Edit")));
 }
 
 function renderTeamCard() {
@@ -349,17 +451,27 @@ function renderTeamSlot(set, index) {
 
 /** Deal both teams and go to the preview. */
 async function deal() {
+  const custom = state.tab === "custom";
   state.error = "";
   state.thinking = true;
   state.screen = "preview";
   state.bring = [];
   state.foe = [];
   state.previewId = "";
+  // Captured HERE, not read at the end: the tab may change while a game is being played, and
+  // what decides whether a game counts is the tab it was started from.
+  state.customGame = custom;
   render();
   try {
     const answer = await ask("play", {
       action: "preview",
       format: state.format,
+      // Only the Custom tab sends one. Without it the worker rolls a real tournament team.
+      foe: custom ? state.foeSets.map((set) => makeSet(set)) : undefined,
+      foeName: custom ? (state.foeTeamTitle || "Custom team") : undefined,
+      // The sheet decides what comes back: under an open one the opponent's sets come with the
+      // preview, because an open sheet is open both ways.
+      sheet: state.sheet,
       settings: getState().settings || {},
       seed: (Date.now() ^ (Math.random() * 0xffffffff)) >>> 0,
     });
@@ -405,14 +517,10 @@ function renderPreview() {
         h("div", { class: "bd-play-preview-list" }, state.team.map((set, index) => renderPreviewPick(set, index)))),
       h("div", { class: "bd-card bd-play-preview-side theirs" },
         h("h3", {}, "The Solver"),
-        h("div", { class: "bd-play-preview-list" }, state.foe.map((mon) => h("div", { class: "bd-play-preview-mon" },
-          sprite(mon.sprite, "", 44, "bd-sprite"),
-          h("span", { class: "bd-play-preview-name" }, mon.name || mon.species)))))),
+        h("div", { class: "bd-play-preview-list" }, state.foe.map((mon) => renderPreviewFoe(mon))))),
     h("div", { class: "bd-play-start" },
-      h("button", {
-        type: "button", class: "ghost-button",
-        onclick: () => { state.screen = "setup"; render(); },
-      }, "Change team"),
+      // No way back to the team here on purpose: the teams are already dealt and the opponent has
+      // been shown this one, so a team changed now would not be the team the game is played with.
       h("button", {
         type: "button", class: "primary-button bd-play-go",
         disabled: !ready || undefined,
@@ -424,17 +532,62 @@ function renderPreviewPick(set, index) {
   const at = state.bring.indexOf(index);
   const picked = at >= 0;
   const leads = picked && at < ACTIVE[state.format];
+  const name = data.setName ? data.setName(set) : set.species;
+  // The card itself brings the Pokemon, so looking at it needs a control of its own -- and that
+  // control cannot live INSIDE the card, because a button inside a button is not a thing a
+  // browser will build. Hence the wrapper: two buttons side by side, one of which is on top.
+  return h("div", { class: "bd-play-preview-slot" },
+    h("button", {
+      type: "button",
+      class: `bd-play-preview-mon pick${picked ? " on" : ""}`,
+      "aria-pressed": picked ? "true" : "false",
+      onclick: () => toggleBring(index),
+    },
+    sprite(data.sprite(set.species, set.form, set.item, { full: true }), "", 44, "bd-sprite"),
+    h("span", { class: "bd-play-preview-name" }, name),
+    picked
+      ? h("span", { class: `bd-play-preview-order${leads ? " lead" : ""}` }, `${at + 1} · ${leads ? "Lead" : "Back"}`)
+      : null),
+    h("button", {
+      type: "button",
+      class: "bd-play-preview-look",
+      title: `Look at ${name}`,
+      "aria-label": `Look at ${name}`,
+      onclick: (event) => {
+        event.stopPropagation();
+        showSet(data, set, { format: state.format, title: name });
+      },
+    }, "i"));
+}
+
+/**
+ * One of the opponent's six at team preview.
+ *
+ * Under an OPEN sheet the worker sends the set down with the preview, so it is laid out here the
+ * way our own slots are and opens the same read-only overview. Under a CLOSED one nothing but
+ * the species was ever sent, so the card is a plain label: there is nothing behind it to look at
+ * yet, and a button that opens an empty panel is worse than no button.
+ */
+function renderPreviewFoe(mon) {
+  const name = mon.name || mon.species;
+  const known = Boolean(mon.moves || mon.item || mon.ability);
+  if (!known) {
+    return h("div", { class: "bd-play-preview-mon" },
+      sprite(mon.sprite, "", 44, "bd-sprite"),
+      h("span", { class: "bd-play-preview-name" }, name));
+  }
+  const moves = (mon.moves || []).filter(Boolean);
   return h("button", {
     type: "button",
-    class: `bd-play-preview-mon pick${picked ? " on" : ""}`,
-    "aria-pressed": picked ? "true" : "false",
-    onclick: () => toggleBring(index),
+    class: "bd-play-preview-mon sheet",
+    title: `Look at ${name}`,
+    onclick: () => showSet(data, mon, { format: state.format, title: name, subtitle: "From the open team sheet." }),
   },
-  sprite(data.sprite(set.species, set.form, set.item, { full: true }), "", 44, "bd-sprite"),
-  h("span", { class: "bd-play-preview-name" }, data.setName ? data.setName(set) : set.species),
-  picked
-    ? h("span", { class: `bd-play-preview-order${leads ? " lead" : ""}` }, `${at + 1} · ${leads ? "Lead" : "Back"}`)
-    : null);
+  sprite(mon.sprite, "", 44, "bd-sprite"),
+  h("span", { class: "bd-play-preview-sheet" },
+    h("span", { class: "bd-play-preview-name" }, mon.item ? `${name} - ${mon.item}` : name),
+    mon.ability ? h("small", {}, mon.ability) : null,
+    moves.length ? h("small", { class: "bd-play-preview-moves" }, moves.join(", ")) : null));
 }
 
 /** The sets you brought, in the order you brought them. */
@@ -752,6 +905,14 @@ function tagByName(side, name) {
  * the empty team -- so a resigned game rated a team nobody had ever brought.
  */
 function finishGame(result, { resigned = false } = {}) {
+  // A Custom game is an exhibition. It is not rated, it does not go on the leaderboard, and it
+  // does not go into the local record either -- a practice game against a team of your own
+  // choosing would otherwise move the win rate shown beside the tabs, which is the record of
+  // games against real tournament teams.
+  if (state.customGame) {
+    state.lastRating = null;
+    return;
+  }
   const { reported } = recordGame({
     format: state.format,
     result,
@@ -834,9 +995,11 @@ function renderStage(view) {
       // battlefield it is noise above the Pokemon. A closed sheet still says so, because that
       // one changes whether the game counts.
       h("span", { class: "bd-play-conditions" }, conditionsOf(view).join(" · ") || "Clear"),
-      state.sheet === "open"
-        ? null
-        : h("span", { class: "bd-play-unrated" }, "Closed sheet · unrated")),
+      state.customGame
+        ? h("span", { class: "bd-play-unrated" }, "Custom · unrated")
+        : state.sheet === "open"
+          ? null
+          : h("span", { class: "bd-play-unrated" }, "Closed sheet · unrated")),
     h("div", { class: "bd-play-actives theirs" }, activesOf(view, 1)),
     h("div", { class: "bd-play-actives ours" }, activesOf(view, 0)),
     // BELOW our Pokemon, not between the two sides. Sitting in the middle it split the field in
@@ -915,12 +1078,12 @@ function partyOf(view, side) {
     const form = mon ? mon.form : entry.form;
     const name = mon ? (mon.name || mon.species) : entry.name;
     const label = mon
-      ? `${name}${mon.out ? " — fainted" : ` — ${mon.hp}%`}${standing ? ", on the field" : ""}`
-      : `${entry.name}${side === 0 ? " — not brought" : " — not seen yet"}`;
+      ? `${name}${mon.out ? ", fainted" : `, ${mon.hp}%`}${standing ? ", on the field" : ""}`
+      : `${entry.name}${side === 0 ? ", not brought" : ", not seen yet"}`;
     return h("button", {
       type: "button",
       class: `bd-play-pip${!mon ? " benched" : ""}${mon?.out ? " down" : ""}${standing ? " standing" : ""}`,
-      title: mon ? `${label} — click to look` : label,
+      title: mon ? `${label}, click to look` : label,
       "aria-label": label,
       // DISABLED WHILE THE TURN PLAYS, like the tiles above. Every pip sits inside
       // `.bd-play-stage`, whose click skips the rest of the animation, so an enabled pip both
@@ -1281,13 +1444,16 @@ function renderResult(view) {
   return h("div", { class: `bd-play-controls bd-play-result${won ? " won" : drew ? "" : " lost"}` },
     h("h2", {}, drew ? "A draw" : won ? "You win" : "The Solver wins"),
     h("p", {}, view.over.why),
-    h("p", { class: "bd-play-note" }, `${view.turn} turns · ${recordLine()}`),
+    h("p", { class: "bd-play-note" }, state.customGame ? `${view.turn} turns` : `${view.turn} turns · ${recordLine()}`),
     // Said on the result rather than only on the setup screen: this is the moment somebody looks
     // for their rating, and a game that was never going to count should say so here.
-    state.sheet === "open"
-      ? null
-      : h("p", { class: "bd-play-note" },
-        "Closed Team Sheet, so this one is not on the leaderboard. Your own record still counts it."),
+    state.customGame
+      ? h("p", { class: "bd-play-note" },
+        "A custom battle, so it is not on the leaderboard and not in your record either.")
+      : state.sheet === "open"
+        ? null
+        : h("p", { class: "bd-play-note" },
+          "Closed Team Sheet, so this one is not on the leaderboard. Your own record still counts it."),
     state.lastRating
       ? h("p", { class: "bd-play-note" },
         `On the ladder: you are ${state.lastRating.player.elo} Elo over ${state.lastRating.player.games} `
@@ -1483,6 +1649,8 @@ async function main() {
     await data.loadMeta(state.format);
     const saved = savedTeams();
     useTeam(saved.length ? saved[0].id : LADDER);
+    // The Custom tab starts against the ladder's own team, which needs no saved team to exist.
+    useFoeTeam(LADDER);
     // Off unless it was turned on before. The AudioContext is not built until it is wanted, so
     // remembering the choice costs nothing to anybody who left it off.
     try { musicWanted = localStorage.getItem(MUSIC_KEY) === "1"; } catch { musicWanted = false; }

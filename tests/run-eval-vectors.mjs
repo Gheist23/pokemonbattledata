@@ -217,7 +217,15 @@ for (const testCase of cases) {
   engine.auraGuard = auraGuardRule(testCase);
   engine.fairyAura = fairyAuraRule(testCase);
   engine.guardDog = guardDogRule(testCase);
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  // V549: `threat_usage_floor` drops a threat's items and moves below a usage percentage.
+  // Every recording here was made by the Companion BEFORE that setting existed, so its settings
+  // dict does not mention it -- and a run that never had a floor is a run with a floor of 0.
+  // Said explicitly rather than left to the default, which is 5: these are the app's numbers
+  // and they must be replayed under the app's rules, exactly as `pairedRule` and `checkRule`
+  // above replay the rules each recording was made under.
+  const settings = { ...testCase.settings, threat_usage_floor: Number(testCase.settings?.threat_usage_floor) || 0 };
+  // ...and `speedAbilityRule: 0`: no Ability counted as Speed control, for the same reason.
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { speedAbilityRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   // The app's meta rows carry their raw battle-data rows; build the site's meta
   // records from exactly those, so data freshness cannot hide a logic difference.
   const metaRows = testCase.record.meta[0]?.rows || [];

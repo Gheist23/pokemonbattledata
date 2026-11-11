@@ -153,6 +153,9 @@
 
 .bd-play-sheet-row {
   display: grid;
+  /* Shrink to the toggle's own width. Without this the grid stretches its children, so a
+     two-button segmented control was drawn across the whole card. */
+  justify-items: start;
   gap: 0.35rem;
   margin-top: 0.7rem;
   padding-top: 0.7rem;
@@ -193,6 +196,42 @@
   text-align: left;
 }
 .bd-play-preview-mon.pick { cursor: pointer; }
+
+/* The card and its "look at this" button: siblings, because one button may not sit inside
+   another. The wrapper is what makes the little round one land on the card's corner. */
+.bd-play-preview-slot { position: relative; display: grid; }
+.bd-play-preview-slot .bd-play-preview-mon { width: 100%; padding-right: 2rem; }
+.bd-play-preview-look {
+  position: absolute;
+  top: 50%;
+  right: 0.4rem;
+  transform: translateY(-50%);
+  width: 1.3rem;
+  height: 1.3rem;
+  padding: 0;
+  border: 1px solid var(--bd-line);
+  border-radius: 999px;
+  background: var(--bd-control);
+  color: inherit;
+  font: 900 0.7rem/1 ui-serif, Georgia, serif;
+  opacity: 0.65;
+  cursor: pointer;
+}
+.bd-play-preview-look:hover { opacity: 1; border-color: var(--bd-on-line); }
+.bd-play-preview-look:focus-visible { opacity: 1; outline: 2px solid var(--bd-on-line); }
+
+/* The opponent's card under an open team sheet: name - item, Ability, moves. */
+.bd-play-preview-mon.sheet { cursor: pointer; align-items: center; }
+.bd-play-preview-mon.sheet:hover { border-color: var(--bd-on-line); }
+.bd-play-preview-sheet { display: grid; gap: 0.08rem; min-width: 0; }
+.bd-play-preview-sheet small {
+  font-size: 0.7rem;
+  opacity: 0.75;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.bd-play-preview-moves { opacity: 0.6 !important; }
 .bd-play-preview-mon.pick:hover { border-color: var(--bd-on-line); }
 .bd-play-preview-mon.on { border-color: var(--bd-on-line); background: var(--bd-on); }
 .bd-play-preview-name { font-weight: 800; font-size: 0.86rem; }
@@ -1243,3 +1282,8 @@
    button reset. The border, padding and background are already set where the pip is styled. */
 .bd-play-pip { font: inherit; color: inherit; cursor: pointer; }
 .bd-play-pip[disabled] { cursor: default; }
+
+/* The Custom tab's opponent card: the same card as our own team, marked as theirs. */
+.bd-play-foe-card { border-color: rgba(252, 165, 165, 0.28); }
+.bd-play-foe-card .bd-play-team-head h3 { color: #fca5a5; }
+.bd-play-foe-card .bd-play-team-head { flex-wrap: wrap; align-items: end; gap: 0.6rem; }

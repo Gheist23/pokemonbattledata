@@ -62,6 +62,16 @@ export const DEFAULT_SETTINGS = Object.freeze({
   top_meta: 30,
   calc_item_limit: 3,
   calc_move_limit: 6,
+  /**
+   * V549: the usage floor, in per cent, under which a threat's item or move is not played.
+   *
+   * The two limits above are COUNTS -- "the top 3 items", "the top 6 moves" -- so a Pokemon
+   * whose third item is used by 1.7% of its ladder entries was still priced carrying it, and a
+   * team was told it loses to a set almost nobody brings. This is the other half of the same
+   * question: how used does a thing have to be before it counts as part of the threat. Both
+   * apply, floor first.
+   */
+  threat_usage_floor: 5,
   threat_stat_distributions: "Use most common Stat Distribution",
   use_move_accuracies: true,
   use_weather_abilities: true,
@@ -96,6 +106,10 @@ export function normalizeSettings(raw = {}, topMetaCap = 1000) {
   out.top_meta = clampInt(out.top_meta, DEFAULT_SETTINGS.top_meta, 1, Math.max(1, topMetaCap));
   out.calc_item_limit = clampInt(out.calc_item_limit, 3, 1, 5);
   out.calc_move_limit = clampInt(out.calc_move_limit, 6, 1, 10);
+  // 0 means "no floor", which is what every evaluation recorded before this setting existed
+  // was run with -- so a recording replays by sending 0, not by removing the key.
+  const floor = Number(out.threat_usage_floor);
+  out.threat_usage_floor = Number.isFinite(floor) ? Math.max(0, Math.min(100, floor)) : DEFAULT_SETTINGS.threat_usage_floor;
   if (!(out.threat_stat_distributions in STAT_DISTRIBUTION_LIMITS)) out.threat_stat_distributions = DEFAULT_SETTINGS.threat_stat_distributions;
   for (const [use, ignore] of [["use_weather_abilities", "ignore_weather_abilities"], ["use_other_abilities", "ignore_other_abilities"], ["use_held_items", "ignore_held_items"]]) {
     const enabled = raw && use in raw ? Boolean(raw[use]) : !(raw && raw[ignore]);
@@ -388,12 +402,17 @@ export class TeamEvaluator {
    *   `selfCost`: what a move costs its own user (see self-cost.js SELF_COST).
    *   All four are on in production; a run recorded before one of them replays with it off.
    */
-  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES, selfCost = SELF_COST, koLabel = KO_LABEL_ON, chargeKo = CHARGE_KO_ON } = {}) {
+  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES, selfCost = SELF_COST, koLabel = KO_LABEL_ON, chargeKo = CHARGE_KO_ON, speedAbilityRule = undefined, duplicateMegaRule = undefined } = {}) {
     this.pairedSpreads = pairedOption(pairedSpreads);
     this.scoreRules = scoreRulesOption(scoreRules);
     // V514 Team Building Checks. TeamChecks reads it off the evaluator, so nothing
     // between here and there needs a new argument (builder/team-payload.js included).
     this.checkRules = teamCheckRulesOption(checkRules);
+    // V549: handed to TeamChecks, which reads it off the evaluator. Absent means production.
+    this.speedAbilityRule = speedAbilityRule;
+    // V549: whether a Mega already on the team is kept out of its own candidate list. See
+    // `TeamSuggestions.candidates`. Absent means production (on); a recorded replay sends 0.
+    this.duplicateMegaRule = duplicateMegaRule;
     // What a move costs its own user (builder/self-cost.js). Read off the evaluator by
     // Suggestions, Team Building Checks, the deep Optimize objective and Tournament Test,
     // for the same reason: one value, so the five cannot drift apart.
@@ -1508,12 +1527,25 @@ export class TeamEvaluator {
     if (this.metaEntryCache) return this.metaEntryCache;
     this.metaEntryCache = (this.metaRecords || []).map((record) => {
       const name = String(record.name);
-      const topItems = (record.items || []).map(([item]) => item).filter(Boolean).slice(0, 3);
+      // V549: the usage floor is applied HERE, which is the last place the percentages still
+      // exist -- `record.items` and `record.moves` are [name, percent] pairs and everything
+      // downstream sees names only. The most-used one is always kept: a Pokemon whose entire
+      // item spread is below the floor still holds something, and an empty list would make the
+      // threat fall back to its common set anyway, which is the same item by another route.
+      const floor = Number(this.settings?.threat_usage_floor) || 0;
+      const overFloor = (pairs, keep) => {
+        const rows = (pairs || []).filter((pair) => Array.isArray(pair) ? pair[0] : pair);
+        const passed = floor > 0
+          ? rows.filter((pair, index) => index === 0 || (Number(Array.isArray(pair) ? pair[1] : 0) || 0) >= floor)
+          : rows;
+        return passed.map((pair) => (Array.isArray(pair) ? pair[0] : pair)).filter(Boolean).slice(0, keep);
+      };
+      const topItems = overFloor(record.items, 3);
       const entry = {
         name, pokemon: name, pokemon_name: name, base_name: name,
         position: Number(record.position) || 999999,
         top_item: topItems[0] || "", top_items: topItems,
-        moves: (record.moves || []).map(([move]) => move).filter(Boolean).slice(0, 4),
+        moves: overFloor(record.moves, 4),
       };
       const item = entry.top_item;
       if (item && compact(item).endsWith("ite") && this.isMegaItemForSpecies(name, item)) {

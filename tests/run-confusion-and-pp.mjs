@@ -293,9 +293,13 @@ function board(solver, ourSets, theirSets, field = {}) {
   const page = readFileSync(join(root, "builder", "play-page.js"), "utf8");
   ok("the tile says Confused", /chips\.push\("Confused"\)/.test(page));
   const worker = readFileSync(join(root, "builder", "analysis-worker.js"), "utf8");
-  ok("the played game asks for both rules at both sites",
-    (worker.match(/confusionRule: 1/g) || []).length === 2
-    && (worker.match(/ppRule: 1/g) || []).length === 2);
+  // V549: all THREE engines ask for it. The Tournament Test used to be built with
+  // `{ effects }` alone, so every modelling rule added since was on in the two live
+  // engines and off in the one that produces the Test against Tournament Teams numbers.
+  ok("all three engines ask for both rules",
+    (worker.match(/confusionRule: 1/g) || []).length === 3
+    && (worker.match(/ppRule: 1/g) || []).length === 3,
+    `${(worker.match(/confusionRule: 1/g) || []).length} / ${(worker.match(/ppRule: 1/g) || []).length}`);
 }
 
 // ---------------------------------------------------------------------------

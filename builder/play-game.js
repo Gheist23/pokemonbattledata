@@ -1976,7 +1976,7 @@ export class PlayGame {
         const did = (event.did || []).filter((word) => !STATUS_SLOT[String(word).toLowerCase()]);
         const said = did.map((word) => EFFECT_SAID[word] || word).join(" and ");
         if (event.target) return `${by} used ${event.move} on ${name(event.target)}`;
-        return said ? `${by} used ${event.move} — ${said}` : `${by} used ${event.move}`;
+        return said ? `${by} used ${event.move}, ${said}` : `${by} used ${event.move}`;
       }
       case "lostturn": return `${by} ${LOST_TURN_SAID[event.why] || "could not move!"}`;
       case "blocked": return `${by}'s ${event.move} was blocked${event.by ? ` by ${event.by}` : ""}`;

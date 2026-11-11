@@ -66,8 +66,11 @@ export const PALETTE = Object.freeze({
   good: "#72ffab",
   mid: "#f2cf5b",
   bad: "#ff7a66",
-  natureUp: "#ff9a9a",
-  natureDown: "#9ec9ff",
+  // The raised and lowered stat carry the ONLY colour on the stat block, and at Discord's
+  // downscale the old pastels (#ff9a9a / #9ec9ff) were a shade of grey. Strong enough to read
+  // as a mark at thumbnail size, and the same pair the Team Builder uses on screen.
+  natureUp: "#ff6b6b",
+  natureDown: "#5aa9ff",
   statGreat: "#188a45",
   statGood: "#a6d854",
   statMid: "#f2cf5b",
@@ -175,6 +178,10 @@ export const TEAM = Object.freeze({
   statBarDY: 14,
   statBarH: 5,
   statGapBeforeValue: 6,
+  /** "HP +12": the gap between the stat's name and what was put into it. */
+  statGapAfterLabel: 5,
+  /** The Nature line, with the stat-points badge that used to sit beside it gone. */
+  natureWideW: 250,
   // builder-page.js:311 -- the same denominators, so the image and the tab agree.
   barMaxHp: 260,
   barMaxOther: 230,
@@ -316,15 +323,6 @@ export function bonusTotal(entry) {
   // Per stat AND in total.  engine.js caps the team's whole spend at 66, and
   // clamping only the six parts let a crafted record render "192/66 pts".
   return clamp(total, 0, MAX_BONUS_STAT_POINTS);
-}
-
-/** The Stat Points read-out is a VALUE, so it carries a value's colour.  It was
- *  a fixed PALETTE.good, which made a brand-new 0/66 team read as finished. */
-export function pointsColor(total) {
-  const points = clamp(Math.round(num(total)), 0, MAX_BONUS_STAT_POINTS);
-  if (points >= MAX_BONUS_STAT_POINTS) return PALETTE.good;
-  if (points > 0) return PALETTE.mid;
-  return PALETTE.soft;
 }
 
 /** Three columns is the widest row.  The cell's own text is laid out for that
@@ -623,15 +621,13 @@ function teamCell(ctx, entry, box, image, itemIcon) {
     sizes: ladder(FONT_LADDER.ability), color: PALETTE.muted, maxWidth: up(TEAM.textW),
   });
 
+  // No "N/66 pts" badge beside the Nature any more: the same number is in the header as the
+  // team's total, and per slot it was a scoreboard nobody asked for on a card meant to be read
+  // at a glance. What is invested is said where it is spent -- beside each stat, below.
+  // The Nature now has the width the badge was holding.
   drawText(ctx, natureLabel(entry), ...at(TEAM.textX, TEAM.natureBaseline), {
-    sizes: ladder(FONT_LADDER.nature), color: PALETTE.muted, maxWidth: up(TEAM.natureMaxW),
+    sizes: ladder(FONT_LADDER.nature), color: PALETTE.muted, maxWidth: up(TEAM.natureWideW),
   });
-  const points = bonusTotal(entry);
-  drawText(ctx, `${points}/${MAX_BONUS_STAT_POINTS} pts`, ...at(TEAM.pointsRight, TEAM.natureBaseline), {
-    sizes: ladder(FONT_LADDER.points), weight: 700, color: pointsColor(points),
-    align: "right", maxWidth: up(TEAM.pointsMaxW),
-  });
-
   const moves = Array.isArray(entry.moves) ? entry.moves : [];
   const chipW = up(TEAM.moveColW);
   const chipH = up(TEAM.moveH);
@@ -682,16 +678,21 @@ function teamCell(ctx, entry, box, image, itemIcon) {
     const sy = y + up(TEAM.statRowY[Math.floor(i / 3)]);
     const value = Math.round(num(stats[key]));
     const labelColor = i === natUp ? PALETTE.natureUp : i === natDown ? PALETTE.natureDown : PALETTE.muted;
-    drawText(ctx, STAT_LABELS[i], sx, sy + up(TEAM.statTextDY), {
+    const labelFit = drawText(ctx, STAT_LABELS[i], sx, sy + up(TEAM.statTextDY), {
       sizes: ladder(FONT_LADDER.statLabel), weight: 700, color: labelColor, maxWidth: up(40),
     });
     const valueFit = drawText(ctx, String(value), sx + colW, sy + up(TEAM.statTextDY), {
       sizes: ladder(FONT_LADDER.statValue), weight: 700, color: PALETTE.text, align: "right", maxWidth: up(44),
     });
+    // "HP +12", reading left to right: the name, then what was put in, then what came out.
+    // It used to be drawn right-aligned against the VALUE, which read as "+12 118" -- two
+    // numbers side by side with nothing saying which was which.
     const invested = clamp(Math.round(num(bonuses[i])), 0, MAX_BONUS_POINTS_PER_STAT);
     if (invested > 0) {
-      drawText(ctx, `+${invested}`, sx + colW - valueFit.width - up(TEAM.statGapBeforeValue), sy + up(TEAM.statTextDY), {
-        sizes: ladder(FONT_LADDER.statPoints), weight: 700, color: PALETTE.good, align: "right", maxWidth: up(30),
+      const room = colW - labelFit.width - valueFit.width - up(TEAM.statGapAfterLabel) - up(TEAM.statGapBeforeValue);
+      drawText(ctx, `+${invested}`, sx + labelFit.width + up(TEAM.statGapAfterLabel), sy + up(TEAM.statTextDY), {
+        sizes: ladder(FONT_LADDER.statPoints), weight: 700, color: PALETTE.good,
+        align: "left", maxWidth: Math.max(up(10), room),
       });
     }
     bar(ctx, sx, sy + up(TEAM.statBarDY), colW, up(TEAM.statBarH),

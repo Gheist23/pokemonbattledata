@@ -35,7 +35,7 @@ import { fileURLToPath } from "node:url";
 import {
   CARD, CONTEXT_OPS, ELLIPSIS, EVAL, FONT_LADDER, FOOTER, HEADER, MAX_BONUS_POINTS_PER_STAT,
   MAX_BONUS_STAT_POINTS, MAX_CARD_BYTES, PALETTE, STAT_LABELS, TEAM, bonusTotal, cellScale,
-  META, drawEvalCard, drawMetaCard, drawTeamCard, fitText, liveTeam, natureLabel, pointsColor,
+  META, drawEvalCard, drawMetaCard, drawTeamCard, fitText, liveTeam, natureLabel,
   scoreTone, spriteRequests, statBarWidth, statColor, teamCellBoxes, threatColor, threatTone,
 } from "../builder/share-card.js";
 import { BuilderData } from "../builder/common.js";
@@ -459,8 +459,8 @@ ok(teamCellBoxes(0).length === 0, "an empty team asks for no cells");
   for (const key of ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"]) {
     ok(drawn.includes(String(entry.stats[key])), `stat value ${key}=${entry.stats[key]} is drawn`);
   }
-  ok(drawn.filter((t) => /^\d+\/66 pts$/.test(t)).length === 6, "Stat Points printed once per cell");
-  ok(drawn.includes(`${bonusTotal(entry)}/66 pts`), `slot 1 prints ${bonusTotal(entry)}/66 pts`);
+  ok(drawn.filter((t) => /\d+\s*\/\s*66|pts/i.test(t)).length === 0,
+    `no per-slot "N/66 pts" badge anywhere on the card (found ${JSON.stringify(drawn.filter((t) => /\d+\s*\/\s*66|pts/i.test(t)))})`);
   ok(drawn.filter((t) => /^\+\d+$/.test(t)).length >= 6, "invested Stat Points printed beside the stats");
   ok(drawn.includes(FOOTER.leadText) && drawn.includes(FOOTER.brandText),
     `the footer reads "${FOOTER.leadText}${FOOTER.brandText}"`);
@@ -481,6 +481,25 @@ ok(teamCellBoxes(0).length === 0, "an empty team asks for no cells");
   for (const plus of statOps) {
     const row = ops.filter((o) => o.kind === "text" && o !== plus && Math.abs(o.y0 - plus.y0) < 4);
     for (const other of row) ok(!overlaps(plus, other), `invested ${plus.text} clear of ${JSON.stringify(other.text)}`);
+  }
+  // ...and it reads "HP +12": AFTER its stat's name and BEFORE that stat's value. Not
+  // overlapping is not enough -- the old layout right-aligned it against the value, which
+  // satisfied the check above while reading "+12 118", two numbers with nothing between them.
+  {
+    const labels = new Set(STAT_LABELS);
+    let placed = 0;
+    for (const plus of statOps) {
+      const row = ops.filter((o) => o.kind === "text" && Math.abs(o.y0 - plus.y0) < 4);
+      // its own cell: the nearest label to the LEFT, and that label's value to the right
+      const label = row.filter((o) => labels.has(o.text) && o.x1 <= plus.x0 + EPS).sort((a, b) => b.x1 - a.x1)[0];
+      ok(Boolean(label), `${plus.text} has a stat name to its left`);
+      if (!label) continue;
+      const value = row.filter((o) => /^\d+$/.test(o.text) && o.x0 >= plus.x1 - EPS).sort((a, b) => a.x0 - b.x0)[0];
+      ok(Boolean(value), `${label.text} ${plus.text} is followed by that stat's value`);
+      if (value) placed += 1;
+    }
+    ok(placed === statOps.length && placed > 0,
+      `every invested "+N" sits between its stat's name and its value (${placed}/${statOps.length})`);
   }
 }
 
@@ -628,26 +647,32 @@ for (const n of [1, 2, 3, 4, 5]) {
   ok(strokes.length === 24, `a six-Pokemon team with every move set still outlines 24 chips (${strokes.length})`);
 }
 
-// 4e. THE STAT POINTS READ-OUT CARRIES A VALUE'S COLOUR.
-// PALETTE.good was a fixed label colour, so 0/66 and 66/66 were the same green.
+// 4e. THE PER-SLOT STAT POINTS BADGE IS GONE.
+// "N/66 pts" used to sit beside the Nature in every cell, coloured by how much was invested.
+// The team's total is already in the header and what each stat got is now printed beside that
+// stat, so the badge went -- and a card drawn at Discord's downscale has six fewer numbers on
+// it. This holds that: no amount of investment brings it back.
 {
-  ok(pointsColor(0) === PALETTE.soft, `pointsColor(0) is the muted tone (${pointsColor(0)})`);
-  ok(pointsColor(1) === PALETTE.mid && pointsColor(65) === PALETTE.mid, "a part-invested team reads mid");
-  ok(pointsColor(MAX_BONUS_STAT_POINTS) === PALETTE.good, "a fully invested team reads good");
-  ok(pointsColor(0) !== pointsColor(MAX_BONUS_STAT_POINTS), "0/66 and 66/66 are NOT the same colour");
-  ok(pointsColor(1) !== pointsColor(MAX_BONUS_STAT_POINTS), "part-invested and fully invested are not the same colour");
-  const tone = (bonuses) => {
+  const badges = (bonuses) => {
     const digest = { v: 1, kind: "team", title: "t", format: "Doubles", team: [entryOf({ bonuses })] };
     const { ops } = render(digest, imagesFor(1));
-    return ops.find((o) => o.kind === "text" && /^\d+\/66 pts$/.test(o.text));
+    return ops.filter((o) => o.kind === "text" && /\d+\s*\/\s*66|pts/i.test(o.text)).map((o) => o.text);
   };
-  const none = tone([0, 0, 0, 0, 0, 0]);
-  const part = tone([0, 16, 0, 0, 0, 16]);
-  const all = tone([2, 32, 0, 0, 0, 32]);
-  ok(none?.text === "0/66 pts" && none?.style === PALETTE.soft, `0/66 pts is drawn ${none?.style}`);
-  ok(part?.text === "32/66 pts" && part?.style === PALETTE.mid, `32/66 pts is drawn ${part?.style}`);
-  ok(all?.text === "66/66 pts" && all?.style === PALETTE.good, `66/66 pts is drawn ${all?.style}`);
-  ok(none !== undefined && all !== undefined && none.style !== all.style, "an uninvested team does not read as a finished one");
+  for (const bonuses of [[0, 0, 0, 0, 0, 0], [0, 16, 0, 0, 0, 16], [2, 32, 0, 0, 0, 32]]) {
+    const found = badges(bonuses);
+    ok(found.length === 0, `bonuses ${bonuses.join("/")} draw no points badge (found ${JSON.stringify(found)})`);
+  }
+  // and what IS drawn instead: the per-stat "+N", one for each stat that got anything
+  const plusFor = (bonuses) => {
+    const digest = { v: 1, kind: "team", title: "t", format: "Doubles", team: [entryOf({ bonuses })] };
+    const { ops } = render(digest, imagesFor(1));
+    return ops.filter((o) => o.kind === "text" && /^\+\d+$/.test(o.text)).map((o) => o.text).sort();
+  };
+  const none = plusFor([0, 0, 0, 0, 0, 0]);
+  ok(none.length === 0, `nothing invested draws no +N at all (found ${JSON.stringify(none)})`);
+  const some = plusFor([2, 32, 0, 0, 0, 32]);
+  ok(JSON.stringify(some) === JSON.stringify(["+2", "+32", "+32"]),
+    `each invested stat draws its own +N (got ${JSON.stringify(some)})`);
 }
 
 // 4f. THE INVESTED TOTAL IS CLAMPED TO 66, not just to 32 a stat.
@@ -660,8 +685,13 @@ for (const n of [1, 2, 3, 4, 5]) {
   ok(bonusTotal({}) === 0, "no bonuses total nothing");
   const crafted = { v: 1, kind: "team", title: "t", format: "Doubles", team: [entryOf({ bonuses: [99, 99, 99, 99, 99, 99] })] };
   const { ops } = render(crafted, imagesFor(1));
-  const printed = texts(ops).filter((t) => /\/66 pts$/.test(t));
-  ok(printed.length === 1 && printed[0] === "66/66 pts", `a crafted record prints ${JSON.stringify(printed[0])}, never "192/66 pts"`);
+  // The badge that printed this total is gone, so a crafted record cannot print a total at
+  // all -- but what it CAN still reach is the per-stat "+N", which is clamped per stat.
+  const printed = texts(ops).filter((t) => /\/\s*66|pts/i.test(t));
+  ok(printed.length === 0, `a crafted record prints no total at all, never "192/66 pts" (found ${JSON.stringify(printed)})`);
+  const crafted99 = texts(ops).filter((t) => /^\+\d+$/.test(t));
+  ok(crafted99.length === 6 && crafted99.every((t) => t === "+32"),
+    `six stats crafted to 99 each print "+32", the per-stat cap (${JSON.stringify(crafted99)})`);
   // ...and the subtitle, which sums the six cells, cannot run over either
   const sixCrafted = {
     v: 1, kind: "team", title: "t", format: "Doubles",

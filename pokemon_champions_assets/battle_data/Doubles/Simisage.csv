@@ -1,37 +1,41 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simisage,251,move,1,Fake Out,98.1%,,,,,,,,
+Simisage,251,move,1,Fake Out,98.3%,,,,,,,,
 Simisage,251,move,2,Leaf Storm,70.9%,,,,,,,,
-Simisage,251,move,3,Helping Hand,57.3%,,,,,,,,
-Simisage,251,move,4,Sunny Day,50.5%,,,,,,,,
-Simisage,251,move,5,Seed Bomb,38.8%,,,,,,,,
-Simisage,251,move,6,Rock Slide,29.1%,,,,,,,,
-Simisage,251,move,7,Endure,10.7%,,,,,,,,
-Simisage,251,move,8,Bullet Seed,10.7%,,,,,,,,
-Simisage,251,move,9,Low Kick,10.7%,,,,,,,,
-Simisage,251,move,10,Taunt,9.7%,,,,,,,,
-Simisage,251,held_item,1,Coba Berry,50.5%,,,,,,,,
-Simisage,251,held_item,2,Focus Sash,36.9%,,,,,,,,
-Simisage,251,held_item,3,Miracle Seed,10.7%,,,,,,,,
-Simisage,251,held_item,4,Iron Ball,1.9%,,,,,,,,
+Simisage,251,move,3,Helping Hand,51.3%,,,,,,,,
+Simisage,251,move,4,Sunny Day,44.4%,,,,,,,,
+Simisage,251,move,5,Seed Bomb,35.9%,,,,,,,,
+Simisage,251,move,6,Rock Slide,25.6%,,,,,,,,
+Simisage,251,move,7,Endure,17.9%,,,,,,,,
+Simisage,251,move,8,Bullet Seed,17.9%,,,,,,,,
+Simisage,251,move,9,Taunt,12.0%,,,,,,,,
+Simisage,251,move,10,Rock Tomb,9.4%,,,,,,,,
+Simisage,251,held_item,1,Coba Berry,44.4%,,,,,,,,
+Simisage,251,held_item,2,Focus Sash,34.2%,,,,,,,,
+Simisage,251,held_item,3,Miracle Seed,17.9%,,,,,,,,
+Simisage,251,held_item,4,Sitrus Berry,1.7%,,,,,,,,
+Simisage,251,held_item,5,Iron Ball,1.7%,,,,,,,,
 Simisage,251,teammate,1,Simisear,,,,,,,,,
 Simisage,251,teammate,2,Simipour,,,,,,,,,
 Simisage,251,teammate,3,Gourgeist-Super,,,,,,,,,
 Simisage,251,teammate,4,Barbaracle,,,,,,,,,
 Simisage,251,teammate,5,Staraptor,,,,,,,,,
 Simisage,251,teammate,6,Aerodactyl,,,,,,,,,
-Simisage,251,teammate,7,Toxapex,,,,,,,,,
-Simisage,251,teammate,8,Samurott,,,,,,,,,
-Simisage,251,teammate,9,Swampert,,,,,,,,,
-Simisage,251,teammate,10,Pelipper,,,,,,,,,
-Simisage,251,stat_alignment,1,Timid,61.2%,Speed,Attack,,,,,,
-Simisage,251,stat_alignment,2,Jolly,26.2%,Speed,Sp. Atk,,,,,,
-Simisage,251,stat_alignment,3,Hasty,9.7%,Speed,Defense,,,,,,
-Simisage,251,stat_alignment,4,Brave,1.9%,Attack,Speed,,,,,,
-Simisage,251,stat_alignment,5,Adamant,1.0%,Attack,Sp. Atk,,,,,,
-Simisage,251,stat_points,1,,50.5%,,,32,0,0,0,14,20
-Simisage,251,stat_points,2,,16.5%,,,2,32,0,0,0,32
-Simisage,251,stat_points,3,,10.7%,,,1,32,1,0,0,32
-Simisage,251,stat_points,4,,10.7%,,,2,0,0,32,0,32
-Simisage,251,stat_points,5,,9.7%,,,0,32,0,2,0,32
-Simisage,251,stat_points,6,,1.9%,,,32,32,2,0,0,0
+Simisage,251,teammate,7,Gardevoir,,,,,,,,,
+Simisage,251,teammate,8,Indeedee-F,,,,,,,,,
+Simisage,251,teammate,9,Toxapex,,,,,,,,,
+Simisage,251,teammate,10,Samurott,,,,,,,,,
+Simisage,251,stat_alignment,1,Timid,62.4%,Speed,Attack,,,,,,
+Simisage,251,stat_alignment,2,Jolly,24.8%,Speed,Sp. Atk,,,,,,
+Simisage,251,stat_alignment,3,Hasty,8.5%,Speed,Defense,,,,,,
+Simisage,251,stat_alignment,4,Modest,1.7%,Sp. Atk,Attack,,,,,,
+Simisage,251,stat_alignment,5,Brave,1.7%,Attack,Speed,,,,,,
+Simisage,251,stat_alignment,6,Adamant,0.9%,Attack,Sp. Atk,,,,,,
+Simisage,251,stat_points,1,,44.4%,,,32,0,0,0,14,20
+Simisage,251,stat_points,2,,17.9%,,,2,0,0,32,0,32
+Simisage,251,stat_points,3,,16.2%,,,2,32,0,0,0,32
+Simisage,251,stat_points,4,,9.4%,,,1,32,1,0,0,32
+Simisage,251,stat_points,5,,8.5%,,,0,32,0,2,0,32
+Simisage,251,stat_points,6,,1.7%,,,32,32,2,0,0,0
+Simisage,251,stat_points,7,,0.9%,,,21,0,2,11,7,25
+Simisage,251,stat_points,8,,0.9%,,,28,0,6,11,7,14
 Simisage,251,ability,1,Overgrow,100.0%,,,,,,,,

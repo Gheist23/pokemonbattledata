@@ -1448,10 +1448,17 @@ const solver = makeSolver();
   ok("and asks it to price the board's live HP and status",
     Boolean(solverCall) && /liveHpRule:\s*1/.test(solverCall[0]),
     solverCall ? solverCall[0].replace(/\s+/g, " ").slice(0, 140) : "");
+  // V549: the Tournament Test prices the live board too. It used to be built with `{ effects }`
+  // alone, so it modelled none of the rules added since -- it plays short games against real
+  // teams, which is the one screen where a Pokemon's live HP decides the game. What it must
+  // still NOT have is either ROLLING rule: it prices expectations and rolls nothing.
   const properCall = worker.match(/evaluation\.tournament \|\|= new TournamentTest\([\s\S]*?\);/);
-  ok("while the recorded Tournament Test is left on the default",
-    Boolean(properCall) && !/liveHpRule/.test(properCall[0]),
+  ok("the Tournament Test prices the live board as well",
+    Boolean(properCall) && /liveHpRule:\s*1/.test(properCall[0]),
     properCall ? properCall[0].replace(/\s+/g, " ").slice(0, 140) : "");
+  ok("and still rolls nothing",
+    Boolean(properCall) && !/selfRollRule/.test(properCall[0]) && !/actionRollRule/.test(properCall[0]),
+    properCall ? properCall[0].replace(/\s+/g, " ").slice(0, 160) : "");
 
   // THE TWO ENGINES A PERSON PLAYS AGAINST MUST AGREE. The Solver page and /play/ both
   // describe a live battle, so a rule that is right for one is right for the other -- and

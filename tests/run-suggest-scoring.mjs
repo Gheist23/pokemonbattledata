@@ -63,6 +63,8 @@ function eq(label, got, want) {
 const near = (label, got, want, tolerance = 1e-9) => ok(label, Math.abs(Number(got) - Number(want)) <= tolerance, `${got} vs ${want}`);
 
 const suggest = await import("../builder/team-suggest.js");
+// V549: the shown list is shaped by V517, and one assertion below is about the SHOWN list.
+const { SUGGESTION_DIVERSITY } = await import("../builder/suggest-diversity.js");
 const TERRAIN_ROLES = ["electric terrain", "grassy terrain", "psychic terrain", "misty terrain"];
 const WEATHER_ROLES = ["rain weather", "sun weather", "sand weather", "snow weather"];
 const {
@@ -979,6 +981,14 @@ if (quick) {
     // What the reader actually sees.
     const plain = shownRows(OWNER_TEAM, 3);
     const scored = shownRows(OWNER_TEAM, 4);
+    // V549: and the list the READER really gets, which is this one shaped by V517. `shownRows`
+    // defaults diversity to 0 so the V512 price can be measured on its own, and every
+    // comparison below is right to use that -- but "one slot must not take the whole list" is a
+    // statement about what is on the screen, and on the screen V517 is on (SUGGESTION_DIVERSITY,
+    // analysis-worker.js:363). Measured here: diversity off puts Malamar-Mega on 14 of 14 rows;
+    // on, it is Malamar-Mega 7, Rillaboom 6, Indeedee-F 1. The price alone was never the thing
+    // holding the share, and asserting the share on the unshaped list made it look as if it was.
+    const shipped = shownRows(OWNER_TEAM, 4, SUGGESTION_DIVERSITY);
     const targetsOf = (rows) => rows.map((row) => String(row.swap_target || ""));
     const count = (rows, name) => targetsOf(rows).filter((t) => t === name).length;
     notes.push(`  shown rows' targets, v3: ${targetsOf(plain.rows).join(", ")}`);
@@ -1018,11 +1028,22 @@ if (quick) {
     // priced slot at 50%) and with it off (Malamar-Mega 13/14, a free slot), and it would have
     // failed on the list the owner reported (Indeedee-F 14/14, priced).
     {
-      const top = mode(targetsOf(scored.rows));
+      const top = mode(targetsOf(shipped.rows));
       const topCost = r1(outgoingRoleCostFor(liveCensus, names.indexOf(top)));
-      ok("V512: a slot may dominate the list only when giving it up costs nothing",
-        topCost === 0 || share(scored.rows, top) <= 0.6,
-        `${top} costs ${topCost} and is ${count(scored.rows, top)}/${scored.rows.length}: ${targetsOf(scored.rows).join(", ")}`);
+      ok("a slot may dominate the shown list only when giving it up costs nothing",
+        topCost === 0 || share(shipped.rows, top) <= 0.6,
+        `${top} costs ${topCost} and is ${count(shipped.rows, top)}/${shipped.rows.length}: ${targetsOf(shipped.rows).join(", ")}`);
+      // ...and every target the list offers is really on it, so the share above is a share of a
+      // list with more than one slot in it rather than of a list that only had one to give.
+      const targets = new Set(targetsOf(shipped.rows));
+      ok("and the shown list offers more than one slot", targets.size >= 2,
+        [...targets].join(", "));
+      notes.push(`  V549 shown list (V517 on): ${[...targets].map((t) => `${t} ${count(shipped.rows, t)}`).join(" · ")}`);
+      // The unshaped list is where the price is measured, and it is MORE one-sided -- which is
+      // what V517 is for. Pinned so a future change cannot quietly make the two the same list.
+      ok("the unshaped list is at least as one-sided as the shown one",
+        share(scored.rows, mode(targetsOf(scored.rows))) >= share(shipped.rows, top),
+        `unshaped ${count(scored.rows, mode(targetsOf(scored.rows)))}/${scored.rows.length} vs shown ${count(shipped.rows, top)}/${shipped.rows.length}`);
     }
     // The term is a price, not a veto: a candidate good enough at that slot may still pay it
     // and win there. What must never happen is offering the slot without charging for it.

@@ -187,12 +187,16 @@ const EIGHTH = 0.125;
   const built = worker.match(/new TournamentTest\([\s\S]*?\);/g) || [];
   ok("the worker builds the three Tournament Tests it is known to", built.length === 3, String(built.length));
   const asking = built.filter((call) => /shieldRule:\s*1/.test(call));
-  ok("two of them model Disguise: the played game and the Solver", asking.length === 2, String(asking.length));
-  // `evaluation.tournament` is the Tournament Test proper and is pinned by the recorded parity
-  // vectors, so it stays on the default -- the same split `effects`, `liveHpRule` and the rest use.
-  const proper = built.find((call) => !/shieldRule/.test(call)) || "";
-  ok("and the recorded Tournament Test is left on the default",
-    /effects: await moveEffects\(\) \}\)/.test(proper), proper.replace(/\s+/g, " ").slice(0, 120));
+  // V549: all three model Disguise. The Tournament Test proper used to be built with
+  // `{ effects }` alone and so modelled none of the rules added since -- it plays short games
+  // against real teams, which is exactly where a Disguise matters.
+  ok("all three model Disguise", asking.length === 3, String(asking.length));
+  // What it must still NOT have is either ROLLING rule: it prices expectations and rolls
+  // nothing, and a rolled cost handed to an expectation engine is counted twice.
+  const proper = built.find((call) => !/playTournament|solverTournament/.test(call)) || "";
+  ok("and the Tournament Test still rolls nothing",
+    Boolean(proper) && !/selfRollRule/.test(proper) && !/actionRollRule/.test(proper),
+    proper.replace(/\s+/g, " ").slice(0, 160));
 }
 
 for (const note of notes) console.log(`   ${note}`);

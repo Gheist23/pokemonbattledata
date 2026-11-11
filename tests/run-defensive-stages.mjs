@@ -171,7 +171,10 @@ const on = readings(1);
 
   const worker = readFileSync(join(root, "builder", "analysis-worker.js"), "utf8");
   const asks = (worker.match(/stagesRule: 1/g) || []).length;
-  ok("the played game asks for the rule at both of its construction sites", asks === 2, String(asks));
+  // V549: all THREE engines ask for it. The Tournament Test used to be built with
+  // `{ effects }` alone, so every modelling rule added since was on in the two live
+  // engines and off in the one that produces the Test against Tournament Teams numbers.
+  ok("all three engines ask for the rule", asks === 3, String(asks));
 }
 
 // ---------------------------------------------------------------------------

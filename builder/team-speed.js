@@ -20,7 +20,7 @@
 // The payload then scales the score by active slots / 6 (v47).
 
 import { pyFixed } from "./engine.js";
-import { classifyArchetype } from "./team-checks.js";
+import { classifyArchetype, speedAbilityRuleOption } from "./team-checks.js";
 
 const TEAM_SIZE = 6;
 
@@ -70,6 +70,26 @@ const V358_FIELD_SETTER_MOVES = {
   "rain dance": "Rain", "sunny day": "Sun", sandstorm: "Sand", snowscape: "Snow", "chilly reception": "Snow", "electric terrain": "Electric Terrain",
 };
 const PARALYSIS_MOVES = new Set(["Thunder Wave", "Nuzzle", "Glare", "Stun Spore"]);
+
+/** V549: whether a live Speed Ability counts as real Speed. Off for recorded replays. */
+function speedAbilityRuleOn(ev) {
+  return Boolean(speedAbilityRuleOption(ev?.speedAbilityRule));
+}
+
+/** The fields this team turns on, as `V358_SPEED_ABILITIES` spells them. */
+function fieldsSetBy(team) {
+  const fields = new Set();
+  for (const { entry, mon } of team || []) {
+    const ability = String(mon?.ability || entry?.ability || "").trim().toLowerCase();
+    const field = V358_FIELD_SETTER_ABILITIES[ability];
+    if (field) fields.add(field);
+    for (const move of entry?.moves || []) {
+      const f = V358_FIELD_SETTER_MOVES[String(move ?? "").trim().toLowerCase()];
+      if (f) fields.add(f);
+    }
+  }
+  return fields;
+}
 
 /**
  * V512, `score_composition_v512.TRICK_ROOM_WEIGHTS`: [trick_room, opposing_tailwind, standard].
@@ -209,7 +229,35 @@ export class TeamSpeed {
   }
 
   finalSpeed(mon) {
-    return Number(this.ev.engine.finalStats(mon).speed) || 0;
+    const base = Number(this.ev.engine.finalStats(mon).speed) || 0;
+    // V549: a weather Speed Ability whose field this team sets is REAL Speed, and every count
+    // below -- how many of the meta it outruns, how many it outruns through an opposing
+    // Tailwind, whether it is one of the team's fast ones -- is a comparison of Speeds. It used
+    // to compare the raw stat and then bolt a flat bonus on at the end (v358), so a Sand Rush
+    // Excadrill on a Sand Stream team was counted at 140 against a meta it beats at 280. The
+    // map is keyed on the team's own mon objects, so a meta Pokemon is never boosted by it.
+    const multiplier = this._speedAbilityBoost?.get(mon);
+    return multiplier ? Math.trunc(base * multiplier) : base;
+  }
+
+  /**
+   * {mon -> multiplier} for the FIELD doublers this team switches on.
+   *
+   * Only the five field abilities. Speed Boost and Unburden are not here on purpose: neither is
+   * live at the start of a turn-one comparison -- one needs a turn to pass, the other needs an
+   * item to be spent -- so they keep v358's flat credit instead of a doubled stat they do not
+   * yet have.
+   */
+  speedAbilityBoosts(team) {
+    const boosts = new Map();
+    if (!speedAbilityRuleOn(this.ev)) return boosts;
+    const fields = fieldsSetBy(team);
+    for (const { entry, mon } of team || []) {
+      const key = String(mon?.ability || entry?.ability || "").trim().toLowerCase();
+      const row = V358_SPEED_ABILITIES[key];
+      if (row && fields.has(row[1])) boosts.set(mon, Number(row[2]) || 2);
+    }
+    return boosts;
   }
 
   /** The v42 meta mons: common set, top item (its Mega), top moves. */
@@ -471,13 +519,22 @@ export class TeamSpeed {
     }
     const lines = [];
     let enabled = 0;
+    /** Of those, the ones Standard Speed already counted as real Speed. */
+    let countedAsSpeed = 0;
     for (const row of rows) {
       const k = row.ability_key;
       if (V358_SPEED_ABILITIES[k]) {
         const [abilityName, condition, multiplier] = V358_SPEED_ABILITIES[k];
         const enablers = setters[condition] || [];
         if (enablers.length) {
+          // V549: Standard Speed has ALREADY counted this Pokemon at its doubled Speed (see
+          // `finalSpeed`), so it must not be paid a flat bonus there too -- that was the old
+          // approximation, and keeping both credits one Ability twice. Opposing Tailwind is a
+          // different matter: that component has no Speed term in it at all, only your own
+          // Tailwind, your own Trick Room, OHKOs on the Tailwind setters and priority. There
+          // is nothing there for the doubled Speed to have improved, so the flat credit stays.
           enabled += 1;
+          if (speedAbilityRuleOn(this.ev)) countedAsSpeed += 1;
           lines.push(`${row.name}: ${abilityName} reaches ${pyG(multiplier)}× Speed in ${condition} with ${enablers.slice(0, 2).join(", ")}`);
         } else lines.push(`${row.name}: ${abilityName} needs ${condition}; no setter is currently selected`);
         continue;
@@ -505,7 +562,8 @@ export class TeamSpeed {
       speed.speed_ability_lines = lines;
       if (enabled) {
         const bonus = Math.min(22.0, enabled * 7.0);
-        speed.standard = clamp(speed.standard + bonus);
+        const standardBonus = Math.min(22.0, Math.max(0, enabled - countedAsSpeed) * 7.0);
+        speed.standard = clamp(speed.standard + standardBonus);
         speed.opposing_tailwind = clamp(speed.opposing_tailwind + bonus * 0.45);
         speed.score = clamp(speed.standard * 0.46 + speed.opposing_tailwind * 0.27 + speed.trick_room * 0.27);
       }
@@ -579,6 +637,18 @@ export class TeamSpeed {
    * @param {object} context  {profiles: synergy profiles, features: archetype features}
    */
   control(team, context) {
+    // V549: held for the length of this run, so every Speed comparison inside it is made at the
+    // Speed the Pokemon really has. Cleared in `finally`: a stale map would boost the next
+    // team's Pokemon, and the instance outlives the call.
+    this._speedAbilityBoost = this.speedAbilityBoosts(team);
+    try {
+      return this.controlInner(team, context);
+    } finally {
+      this._speedAbilityBoost = null;
+    }
+  }
+
+  controlInner(team, context) {
     const fit = roomPlan(context.profiles, this.synergy.metaSpeedRows(), this.ev.engine);
     const speed = fit.supported ? this.v465(team, context) : this.normal(team);
     speed.room_plan = fit;

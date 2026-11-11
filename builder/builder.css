@@ -15,6 +15,12 @@
   --bd-good: #72ffab;
   --bd-mid: #f2cf5b;
   --bd-bad: #ff7a66;
+  /* The Nature's raised and lowered stat. These were two pale pastels written out by hand in
+     four places, and against the panel they read as grey rather than as a mark -- so they say
+     it louder now, and from one place. share-card.js PALETTE.natureUp/natureDown carry the
+     same pair, because the image and the tab must mark the same stat the same way. */
+  --bd-nature-up: #ff6b6b;
+  --bd-nature-down: #5aa9ff;
   --bd-mono: "Cascadia Code", "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 }
 
@@ -430,8 +436,8 @@
 .bd-stat-table thead th { font-family: var(--bd-mono); font-size: 0.68rem; color: var(--soft) !important; font-weight: 800; }
 .bd-stat-table tbody th { text-align: left; font-family: var(--bd-mono); font-size: 0.74rem; color: var(--muted); }
 .bd-stat-table tr.up tbody th,
-.bd-stat-table tr.up th { color: #ff9a9a; }
-.bd-stat-table tr.down th { color: #9ec9ff; }
+.bd-stat-table tr.up th { color: var(--bd-nature-up); font-weight: 800; }
+.bd-stat-table tr.down th { color: var(--bd-nature-down); font-weight: 800; }
 .bd-nature-mark { margin-left: 0.2rem; }
 .bd-sp-cell { display: inline-flex; gap: 0.25rem; align-items: center; }
 .bd-max {
@@ -454,6 +460,12 @@
 .bd-col-boost.raised { color: var(--bd-good); }
 .bd-col-boost.lowered { color: var(--bd-bad); }
 .bd-points-left { margin: 0.35rem 0 0; font-family: var(--bd-mono); font-size: 0.74rem; color: var(--muted); text-align: right; }
+/* The remaining count is a sibling text node with nothing between it and the maximum, so
+   "Stat Points: 66 / 66" + "0 left" ran together and read "66 / 660 left" -- and a part-spent
+   spread read "34 / 6632 left". The separator is in CSS rather than in the string because the
+   same pair is built in two places (the set editor and the read-only overview). */
+.bd-points-left small { margin-left: 0.45rem; }
+.bd-points-left small::before { content: "· "; opacity: 0.55; }
 .bd-points-left.over { color: var(--bd-bad); }
 .bd-mon-details {
   display: grid;
@@ -710,8 +722,8 @@ body.bd-modal-open { overflow: hidden; }
   gap: 0.55rem;
   font-variant-numeric: tabular-nums;
 }
-.bd-stat-edit.up .bd-stat-name { color: #ff9a9a; }
-.bd-stat-edit.down .bd-stat-name { color: #9ec9ff; }
+.bd-stat-edit.up .bd-stat-name { color: var(--bd-nature-up); font-weight: 900; }
+.bd-stat-edit.down .bd-stat-name { color: var(--bd-nature-down); font-weight: 900; }
 .bd-stat-name { font-family: var(--bd-mono); font-size: 0.8rem; font-weight: 800; }
 .bd-stat-name b { margin-left: 0.2rem; }
 .bd-stat-base { color: var(--soft); font-size: 0.8rem; text-align: right; }
@@ -846,7 +858,10 @@ body.page-team-builder { --max-width: 1520px; }
 }
 .bd-mini-button:hover { color: var(--text); border-color: var(--bd-line-strong); }
 .bd-slot-stats { display: grid; gap: 0.12rem; margin-top: 0.2rem; }
-.bd-mini-stat { display: grid; grid-template-columns: 2rem 2.2rem minmax(0, 1fr); gap: 0.3rem; align-items: center; font-size: 0.66rem; font-family: var(--bd-mono); color: var(--muted); }
+.bd-mini-stat { display: grid; grid-template-columns: 2rem 1.7rem 2.2rem minmax(0, 1fr); gap: 0.3rem; align-items: center; font-size: 0.66rem; font-family: var(--bd-mono); color: var(--muted); }
+.bd-mini-stat.up .bd-mini-stat-name { color: var(--bd-nature-up); font-weight: 800; }
+.bd-mini-stat.down .bd-mini-stat-name { color: var(--bd-nature-down); font-weight: 800; }
+.bd-mini-stat-put { color: var(--bd-good, #72ffab); font-weight: 800; }
 .bd-mini-stat i { display: block; height: 5px; border-radius: 3px; background: var(--stat-good); }
 
 .bd-panel-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.7rem; }
@@ -1490,4 +1505,40 @@ body.page-team-builder { --max-width: 1520px; }
 @media (max-width: 720px) {
   .bd-shot-examples,
   .bd-shot-picks { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* --- the read-only set overview (ui.js showSet) ------------------------------------------ */
+
+.bd-view .bd-view-field { gap: 0.15rem; }
+.bd-view .bd-view-value { font-family: var(--bd-mono); font-size: 0.92rem; }
+.bd-view-none { color: var(--muted); font-weight: 400; }
+.bd-view-moves { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem; }
+.bd-view-move {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 8px;
+  background: var(--bd-card-deep);
+}
+.bd-view-move strong { font-size: 0.86rem; }
+.bd-view-move small { grid-column: 2; color: var(--muted); font-size: 0.7rem; }
+.bd-view-stats .bd-points-left { text-align: left; }
+.bd-view-stat {
+  display: grid;
+  grid-template-columns: 4.4rem 2.6rem 2.6rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.55rem;
+  font-variant-numeric: tabular-nums;
+}
+.bd-view-stat.up .bd-stat-name { color: var(--bd-nature-up); font-weight: 900; }
+.bd-view-stat.down .bd-stat-name { color: var(--bd-nature-down); font-weight: 900; }
+.bd-view-put { font-family: var(--bd-mono); font-size: 0.8rem; font-weight: 800; color: var(--bd-good); }
+.bd-view-stat .bd-stat-total { text-align: left; }
+
+@media (max-width: 640px) {
+  .bd-view-moves { grid-template-columns: minmax(0, 1fr); }
+  .bd-view-stat { grid-template-columns: 3.6rem 2.2rem 2.2rem minmax(0, 1fr); gap: 0.4rem; }
 }

@@ -16,6 +16,7 @@ const HINTS = {
   top_meta: "How many of the highest-usage Pokémon are evaluated. Example: 30 checks the current Top 30 Meta.",
   calc_item_limit: "How many of each threat's most common held items are calculated. Example: 3 tries its three most used items.",
   calc_move_limit: "How many of each Pokémon's most common moves are calculated. Example: 6 also covers moves outside its usual four.",
+  threat_usage_floor: "The least usage an item or move needs before a threat is calculated holding or using it. Example: 5% ignores a set almost nobody brings. The most used one is always kept, and 0 turns the floor off.",
   threat_stat_distributions: "Chooses whether threats use common invested Stat Points and natures. Example: a common bulky spread may survive a hit that a blank spread cannot.",
   use_move_accuracies: "Includes each move's chance to miss. Example: Hydro Pump is less reliable than a 100% accurate move.",
   use_weather_abilities: "Lets Abilities set the weather automatically. Example: Drizzle starts Rain when this is Yes.",
@@ -70,6 +71,7 @@ export function openSettingsDialog(current, onSave, options = {}) {
         row("Top X Meta", "top_meta", count("top_meta", 1, Math.max(1, maxTopMeta), "Top X Meta")),
         row("Held items per threat", "calc_item_limit", count("calc_item_limit", 1, 5, "Held items per threat")),
         row("Moves per Pokémon", "calc_move_limit", count("calc_move_limit", 1, 10, "Moves per Pokémon")),
+        row("Least usage counted", "threat_usage_floor", count("threat_usage_floor", 0, 50, "Least usage counted, per cent")),
         row("Threat Stat Points", "threat_stat_distributions", select(STAT_DISTRIBUTION_OPTIONS, draft.threat_stat_distributions, (v) => { draft.threat_stat_distributions = v; }, { "aria-label": "Threat Stat Points" }), { stack: true }),
       ]),
       section("Rules", [
@@ -381,9 +383,15 @@ export function pressureFormula(payload, which) {
   const critical = overview.critical || {};
   const score = offense ? payload?.offense_score : payload?.defense_score;
   if (overview.score_rule_v512) {
+    // V550: the trailing "…is listed below and is no longer part of this score" is gone. It
+    // explained a change nobody reading the panel today remembers, and it spent a whole
+    // sentence on a number the reader can already see in the Critical Threats row below --
+    // where it has always been. What is left is the formula itself, which is the thing the
+    // line is for. The pre-rule wording underneath still says 70/30, because a payload
+    // recorded then really was scored that way.
     return offense
-      ? `Offense ${Math.round(score)} = the team's damage pressure into the Top ${overview.top_x} Meta (${Math.round(pressure?.score ?? 0)}), at full weight. How well it answers its critical threats (${Math.round(critical.answer_score ?? 0)}) is listed below and is no longer part of this score.`
-      : `Defense ${Math.round(score)} = 100 − the meta's pressure into the team (${Math.round(pressure?.score ?? 0)}), at full weight. Critical-threat safety (${Math.round(critical.safety_score ?? 0)}) is listed below and is no longer part of this score.`;
+      ? `Offense ${Math.round(score)} = the team's damage pressure into the Top ${overview.top_x} Meta (${Math.round(pressure?.score ?? 0)}), at full weight.`
+      : `Defense ${Math.round(score)} = 100 − the meta's pressure into the team (${Math.round(pressure?.score ?? 0)}), at full weight.`;
   }
   return offense
     ? `Offense ${Math.round(score)} = 70% of the team's damage pressure into the Top ${overview.top_x} Meta (${Math.round(pressure?.score ?? 0)}) + 30% how well it answers its critical threats (${Math.round(critical.answer_score ?? 0)}).`

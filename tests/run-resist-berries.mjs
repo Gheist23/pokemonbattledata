@@ -208,8 +208,12 @@ function threeHits(solver, a, target, slot, board) {
   ok("the row carries it out", /rberry: Boolean\(m\.rberry\),/.test(play));
   ok("and an eaten one shows itself", /was\.rberry && !m\.rberry/.test(play));
   const worker = readFileSync(join(root, "builder", "analysis-worker.js"), "utf8");
-  ok("the played game asks for the rule at both sites",
-    (worker.match(/rberryRule: 1/g) || []).length === 2);
+  // V549: all THREE engines ask for it. The Tournament Test used to be built with
+  // `{ effects }` alone, so every modelling rule added since was on in the two live
+  // engines and off in the one that produces the Test against Tournament Teams numbers.
+  ok("all three engines ask for the rule",
+    (worker.match(/rberryRule: 1/g) || []).length === 3,
+    String((worker.match(/rberryRule: 1/g) || []).length));
 }
 
 // ---------------------------------------------------------------------------

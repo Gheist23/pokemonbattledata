@@ -291,7 +291,12 @@ for (const testCase of cases) {
     if (records.has(record.name)) continue;
     records.set(record.name, { ...record, position: recordedFloor + (Number(record.position) || 0) + 1 });
   }
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", testCase.settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  // V549: these are the Companion's own numbers, so they replay under the Companion's rules as
+  // they were when it produced them -- `threat_usage_floor: 0` (no usage floor on a threat's
+  // items and moves) and `speedAbilityRule: 0` (no Ability counted as Speed control). Both are
+  // ON in production on both sides; a recording made before a rule must not be judged by it.
+  const replaySettings = { ...testCase.settings, threat_usage_floor: Number(testCase.settings?.threat_usage_floor) || 0 };
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, duplicateMegaRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   // Derived from the recording, not named here: the Top-X the site replays must be the Top-X the
   // app recorded, in its order. Everything below is measured against that list, so when a live

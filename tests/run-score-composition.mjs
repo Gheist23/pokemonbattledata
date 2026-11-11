@@ -174,7 +174,12 @@ else {
   for (const which of ["offense", "defense"]) {
     const text = pressureFormula(on, which);
     check(`the ${which} formula no longer claims a 70/30 split`, !/70%|30%/.test(text), text);
-    check(`the ${which} formula still names the critical-threat number`, /critical/i.test(text), text);
+    // V550: and it no longer carries the critical-threat number at all. That number is in the
+    // Critical Threats row below, which is where the sentence used to point; saying so cost a
+    // line of the panel to explain a change rather than the score. The row still reports it --
+    // this only asserts that THIS line does not.
+    check(`the ${which} formula does not repeat the critical-threat number`, !/critical/i.test(text), text);
+    check(`the ${which} formula says what the score IS`, /at full weight\.$/.test(text.trim()), text);
     check(`a payload recorded before the rule is still described as 70/30`, /70%/.test(pressureFormula(off, which)));
   }
   const partsOn = speedParts(on.speed).map((p) => p.label);

@@ -51,6 +51,28 @@ export const TEAM_CHECK_RULES = 3;
 /** The `team_checks` version from which `attackOf` refuses a self-KO move and a 1-power record. */
 export const SELF_COST_ATTACK_RULE = 3;
 
+/**
+ * V549: whether an Ability can be Speed control (Sand Rush and the other four doublers, Speed
+ * Boost, Unburden). ON in production, in both codebases.
+ *
+ * It is an option and not a `team_checks` version bump because the two mean different things:
+ * the version says which CATALOGUE of checks a recording was made against, and this says which
+ * Abilities the profile builder knew about. Every recorded evaluation, suggestion and Auto
+ * Build vector was made by the Companion before its own V549, so those suites replay with it
+ * off -- a recording must be replayed under the rules it was made under, or the comparison is
+ * against a world that never existed.
+ */
+export const SPEED_ABILITY_RULE = 1;
+
+/** `speedAbilityRule` as a flag: absent means production (on), an explicit 0/false means off. */
+export function speedAbilityRuleOption(value) {
+  if (value === undefined || value === null) return SPEED_ABILITY_RULE;
+  if (value === false) return 0;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return 0;
+  return 1;
+}
+
 /** A `team_checks` stamp as a version: 0 (off) for null / undefined / false / "" / "0".
  *
  *  Coerces exactly as `team_check_rules_v514.active_rule` does, which is the whole job of
@@ -178,6 +200,34 @@ const SHARED_YELLOW_EXPOSURE = 3.0;      // 23.9% cumulative
 // below 5.6 against the 25% it was set at. The two SEVERITY rates have drifted as the library
 // grew, and the figures below are the fresh ones; the thresholds themselves are unchanged, so no
 // recorded reading moves.
+/**
+ * V549: Abilities that ARE Speed control, and the condition each one needs.
+ *
+ * `_V358_SPEED_ABILITIES` has been in app-data.json all along, carrying the five
+ * weather/terrain doublers and the field each needs -- and nothing on this site read it. The
+ * Companion does (`part_031.py` wraps its Speed Control analysis with it); this port did not,
+ * so a Sand team built around Tyranitar's Sand Stream and Excadrill's Sand Rush -- 280 Speed on
+ * turn one -- was told it had "no direct Speed control", because the check looked only at
+ * thirteen MOVES and at one Ability (Intimidate, and only for positioning).
+ *
+ * The condition is the whole point and is NOT assumed: a Sand Rush holder with nobody setting
+ * sand gets nothing, which is the same rule the rest of the file applies to a set that leans on
+ * a field its team does not turn on.
+ */
+const SPEED_ABILITY_FALLBACK = Object.freeze({
+  "swift swim": ["Swift Swim", "Rain", 2],
+  chlorophyll: ["Chlorophyll", "Sun", 2],
+  "sand rush": ["Sand Rush", "Sand", 2],
+  "slush rush": ["Slush Rush", "Snow", 2],
+  "surge surfer": ["Surge Surfer", "Electric Terrain", 2],
+});
+
+/** The two that need no field -- only, for Unburden, something to lose. */
+const SPEED_ABILITY_UNCONDITIONAL = Object.freeze({
+  "speed boost": ["Speed Boost", "after every turn it survives"],
+  unburden: ["Unburden", "once its item is used up"],
+});
+
 const LEAD_BAR = 5.6;                    // 25th percentile when set; 27.4% of pairs now fall below
 const LEAD_RED_FRACTION = 0.27;          // <= 4 of 15 -> 3.1% of teams (1.7% when set)
 const LEAD_YELLOW_FRACTION = 0.55;       // <= 8 of 15 -> 18.1% cumulative (11.9% when set)
@@ -672,6 +722,7 @@ export class TeamChecks {
     // argument; builder-page.js constructs TeamChecks with a stand-in `{engine, format}`
     // and no evaluator, and the `??` default is what makes Customize show the new rows.
     this.rules = teamCheckRulesOption(evaluator?.checkRules ?? TEAM_CHECK_RULES);
+    this.speedAbilityRule = speedAbilityRuleOption(evaluator?.speedAbilityRule);
     const baseRows = (tables._SIMPLE_CHECKS_V187 || []).map(([id, label, description]) =>
       (this.rules && V514_RELABELLED[id] ? [id, V514_RELABELLED[id][0], V514_RELABELLED[id][1]] : [id, label, description]));
     const known = new Set(baseRows.map(([id]) => id));
@@ -693,6 +744,22 @@ export class TeamChecks {
     };
     this.utilityGroups = Object.entries(tables._SIMPLE_UTILITY_GROUPS_V187 || {}).map(([label, keys]) => [label, asSet(keys)]);
     const keyed = (table) => Object.entries(table || {}).map(([name, keys]) => [name, asSet(keys)]);
+    // V549: {abilityKey -> {name, kind, token, multiplier}}. The table is read from app-data
+    // so the two codebases cannot drift; the literal above is the floor under an older file.
+    this.speedAbilities = new Map(
+      Object.entries(tables._V358_SPEED_ABILITIES || SPEED_ABILITY_FALLBACK).map(([key, value]) => {
+        const [label, condition, multiplier] = Array.isArray(value) ? value : [key, "", 2];
+        const text = String(condition || "");
+        const terrain = /terrain/i.test(text);
+        return [compact(key), {
+          name: String(label || key),
+          kind: terrain ? "terrain" : "weather",
+          token: text.toLowerCase().replace(" terrain", "").trim(),
+          condition: text,
+          multiplier: Number(multiplier) || 2,
+        }];
+      }),
+    );
     this.weatherSetters = keyed(tables._SIMPLE_WEATHER_SETTERS_V187);
     this.weatherUsers = keyed(tables._SIMPLE_WEATHER_USERS_V187);
     this.terrainSetters = keyed(tables._SIMPLE_TERRAIN_SETTERS_V187);
@@ -812,6 +879,11 @@ export class TeamChecks {
       damaging_types: damagingTypes,
       protect: intersects(groupKeys, this.groups.protect),
       speed_control: intersects(groupKeys, this.groups.speed),
+      // V549: what the Ability COULD do, and whether anything on this team turns it on. The
+      // second half needs the other five slots, so `profiles()` fills it; on its own a profile
+      // cannot know whether its sand is ever up. Until then it is honestly false.
+      speed_ability: this.speedAbilityOf(abilityKey, String(entry.item || "")),
+      speed_ability_live: false,
       priority: intersects(groupKeys, this.groups.priority),
       positioning: intersects(groupKeys, this.groups.positioning) || abilityKey === "intimidate",
       spread: !this.singles && intersects(groupKeys, this.groups.spread),
@@ -888,8 +960,51 @@ export class TeamChecks {
     return context;
   }
 
+  /**
+   * V549: the Speed-control Ability this member has, or null.
+   *
+   * Unburden is included only with an item to lose: with an empty item slot it can never fire,
+   * and a team cannot be credited with Speed control it has no way to switch on.
+   */
+  speedAbilityOf(abilityKey, item) {
+    const key = compact(abilityKey || "");
+    if (!key) return null;
+    const conditional = this.speedAbilities.get(key);
+    if (conditional) return { ...conditional };
+    const always = SPEED_ABILITY_UNCONDITIONAL[key];
+    if (!always) return null;
+    if (key === "unburden" && !String(item || "").trim()) return null;
+    return { name: always[0], kind: "always", token: "", condition: always[1], multiplier: 2 };
+  }
+
+  /**
+   * V549: which Speed Abilities this team actually turns on, and the Speed control that follows.
+   *
+   * Run for every caller, V514 rules on or off: a Sand Rush holder under its own team's sand is
+   * Speed control under any rule set, and gating it would have left `speed_control` disagreeing
+   * with itself depending on a toggle that is about three other checks.
+   */
+  applySpeedAbilities(rows) {
+    if (!this.speedAbilityRule) return rows;
+    const weather = new Set();
+    const terrain = new Set();
+    for (const profile of rows) {
+      for (const value of profile?.weather_set || []) weather.add(String(value).toLowerCase());
+      for (const value of profile?.terrain_set || []) terrain.add(String(value).toLowerCase());
+    }
+    for (const profile of rows) {
+      const ability = profile?.speed_ability;
+      if (!ability) continue;
+      const live = ability.kind === "always"
+        || (ability.kind === "terrain" ? terrain.has(ability.token) : weather.has(ability.token));
+      profile.speed_ability_live = live;
+      if (live) profile.speed_control = true;
+    }
+    return rows;
+  }
+
   profiles(team) {
-    const rows = team.map(({ entry, mon }) => this.profile(entry, mon));
+    const rows = this.applySpeedAbilities(team.map(({ entry, mon }) => this.profile(entry, mon)));
     if (!this.rules) return rows;
     // V514 (deviation D19): the meta context is stamped onto each profile because every
     // verdict function is fn(profiles) and `team_build_constraints` calls one of them
@@ -968,11 +1083,21 @@ export class TeamChecks {
     const direct = names(profiles, (p) => p.speed_control);
     const priority = names(profiles, (p) => p.priority);
     const fast = names(profiles, (p) => p.speed >= 110);
-    const extra = { direct, priority, fast };
+    // V549: the Abilities among them, named with the field that switches each one on, so the
+    // row says WHY a team with no Tailwind and no Icy Wind is nonetheless in control of the turn.
+    const abilityLines = profiles.filter(Boolean)
+      .filter((p) => p.speed_ability_live)
+      .map((p) => (p.speed_ability.kind === "always"
+        ? `${p.name}'s ${p.speed_ability.name} ${p.speed_ability.condition}`
+        : `${p.name}'s ${p.speed_ability.name} in ${p.speed_ability.condition}`));
+    const extra = { direct, priority, fast, speed_abilities: abilityLines };
     if (direct.length) {
-      return this.row("speed_control", "good", `direct Speed control is present on ${simpleJoin(direct, 5)}.`,
+      const how = abilityLines.length
+        ? `${simpleJoin(direct, 5)} (${simpleJoin(abilityLines, 3)})`
+        : simpleJoin(direct, 5);
+      return this.row("speed_control", "good", `direct Speed control is present on ${how}.`,
         "Move order is actively controllable instead of relying only on base Speed.", "", 0,
-        "Good = at least one direct control move such as Tailwind, Trick Room, Icy Wind, Electroweb, Thunder Wave, or similar.", extra);
+        "Good = at least one direct control move such as Tailwind, Trick Room, Icy Wind, Electroweb, Thunder Wave, or an Ability that doubles Speed in a field the team sets.", extra);
     }
     if (priority.length >= 2 || fast.length >= 2) {
       const pieces = [];
@@ -1375,6 +1500,11 @@ export class TeamChecks {
     if (ability === "intimidate") score += 2;
     if (hits(this.archetypeSets.redirection)) score += 1.5;
     if (hits(this.groups.speed)) score += 1.5;
+    // V549: a live Speed Ability is Speed control, so it scores as one -- the same 1.5 a speed
+    // drop gets. NOT added on top of a speed-drop move: one member with Icy Wind AND Sand Rush
+    // still only controls the turn once, and double-counting it would move the 5.6 bar for
+    // every team that has both.
+    else if (profile.speed_ability_live) score += 1.5;
     if (keys.has("firstimpression")) score += 1.5;
     if (hits(this.groups.priority)) score += 1;
     if (hits(this.groups.spread)) score += 1;
@@ -1935,18 +2065,44 @@ export class TeamChecks {
   }
 
   /** V462 _v403_archetype_check_row: the detected archetype and what it still misses. */
-  archetypeRow(features) {
-    const [display, key, scores] = classifyArchetype(features);
+  /**
+   * V549: the row measures the archetype the team SAYS it is, when it says anything.
+   *
+   * `classifyArchetype` reads the archetype off the features alone, and that is the only thing
+   * this row ever reported -- so a team the user built for Trick Room, or had Auto Build build
+   * for Rain, was told it is "Hyper Offense" and then measured against Hyper Offense's
+   * requirements. Its own requirements were never checked, which is the one question somebody
+   * who picked an archetype is asking.
+   *
+   * Both are kept. The chosen one decides what is measured and what the row is called; the
+   * detected one is still named when they differ, because "built for Rain, reads as Offense" is
+   * a real and useful thing to be told -- it is the build falling short, and hiding it behind
+   * the label the user picked would be worse than the old behaviour.
+   */
+  archetypeRow(features, chosenKey = "") {
+    const [detectedDisplay, detectedKey, scores] = classifyArchetype(features);
+    // The team may name its archetype by key ("hyper offense") or by label ("Hyper Offense"):
+    // the Team Builder's dropdown saves the label, Auto Build passes the key. Validated against
+    // `ARCHETYPES` and not against ARCHETYPE_DISPLAY, which holds only the multi-word ones --
+    // "sand" and "offense" are not in it and would have been thrown away.
+    const wanted = String(chosenKey || "").trim().toLowerCase();
+    const known = ARCHETYPES.find(([label, id]) => id === wanted || label.toLowerCase() === wanted);
+    const key = known && known[1] !== "automatic" ? known[1] : detectedKey;
+    const display = archetypeDisplay(key);
     const requirements = archetypeRequirements(key, features);
     const missing = requirements.filter((r) => !r.met);
     const passed = Math.max(0, requirements.length - missing.length);
-    let summary = `Detected ${display}. ${passed}/${requirements.length} archetype requirements are covered.`;
+    let summary = key === detectedKey
+      ? `Detected ${display}. ${passed}/${requirements.length} archetype requirements are covered.`
+      : `Built for ${display}, reads as ${detectedDisplay}. ${passed}/${requirements.length} ${display} requirements are covered.`;
     if (missing.length) summary += ` Missing: ${missing.slice(0, 4).map((r) => r.label || "requirement").join(", ")}.`;
     return {
       check_id: ARCHETYPE_CHECK_ID,
       kind: ARCHETYPE_CHECK_ID,
       check_label: `Archetype: ${display}`,
       archetype: display,
+      archetype_chosen_v549: key === detectedKey ? "" : display,
+      archetype_detected_v549: detectedDisplay,
       archetype_key_v403: key,
       archetype_requirements_v403: requirements,
       archetype_features_v403: features,
@@ -2066,7 +2222,7 @@ export class TeamChecks {
       rows = stableSort(rows, (r) => [severityRank(r), order[rowId(r)] ?? 999, String(r.check_label || r.text || "")]);
     }
     // V403/V462: the archetype row leads; V418: the Mega row follows it.
-    const archetype = this.archetypeRow(this.archetypeFeatures(profiles, options));
+    const archetype = this.archetypeRow(this.archetypeFeatures(profiles, options), options.teamArchetype || "");
     rows = [archetype, ...rows.filter((r) => rowId(r) !== ARCHETYPE_CHECK_ID && rowId(r) !== "mega")];
     rows.splice(1, 0, this.megaRow(team));
     // V433: Archetype is a check like the others; "disabled" only when nothing is on.

@@ -25,7 +25,7 @@
 //   4. the moves set the field, and set it for the right number of turns;
 //   5. a terrain move run by a holder of the Extender gets the eight as well;
 //   6. the played game shows the counts, and hands them to the opponent's search;
-//   7. both live engines ask for the rule.
+//   7. all three engines ask for the rule.
 //
 //   node tests/run-field-turns.mjs
 //
@@ -234,7 +234,10 @@ function runMove(moveName, { item = "", rule = 1 } = {}) {
   const worker = readFileSync(join(root, "builder", "analysis-worker.js"), "utf8");
   const built = worker.match(/new TournamentTest\([\s\S]*?\);/g) || [];
   const asking = built.filter((call) => /fieldTurnsRule:\s*1/.test(call));
-  ok("both live engines ask for the rule", asking.length === 2, String(asking.length));
+  // V549: all THREE engines ask for it. The Tournament Test used to be built with
+  // `{ effects }` alone, so every modelling rule added since was on in the two live
+  // engines and off in the one that produces the Test against Tournament Teams numbers.
+  ok("all three engines ask for the rule", asking.length === 3, String(asking.length));
   const page = readFileSync(join(root, "builder", "play-game.js"), "utf8");
   ok("and the weather moves are offered on the sheet",
     /RUNNABLE_OPS[\s\S]{0,260}"weather"[\s\S]{0,40}"terrain"/.test(page));

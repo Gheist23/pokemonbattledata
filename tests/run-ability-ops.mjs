@@ -24,7 +24,7 @@
 //      droppable;
 //   7. Unnerve stops the OTHER side eating a berry, from either seat, and leaves its own alone;
 //   8. the three newly shipped ops are really in the exported registry;
-//   9. both live engines ask for the rule and the recorded Tournament Test does not.
+//   9. all three engines ask for the rule, and the Tournament Test still rolls nothing.
 //
 //   node tests/run-ability-ops.mjs
 //
@@ -620,11 +620,18 @@ for (const [ability, field] of CONTACT) {
 
   const worker = readFileSync(join(root, "builder", "analysis-worker.js"), "utf8");
   const built = worker.match(/new TournamentTest\([\s\S]*?\);/g) || [];
-  ok("both live engines ask for the rule",
-    built.filter((call) => /abilityOpsRule:\s*1/.test(call)).length === 2,
-    String(built.filter((call) => /abilityOpsRule:\s*1/.test(call)).length));
-  ok("and the recorded Tournament Test does not",
-    built.some((call) => !/abilityOpsRule/.test(call)));
+    // V549: all THREE engines ask for it now. The Tournament Test used to be built with
+  // `{{ effects }}` alone, so every modelling rule added since was on in the two live engines
+  // and off in the one that produces the numbers on the Test against Tournament Teams screen.
+  // What it must still NOT have is either ROLLING rule: it prices expectations and rolls
+  // nothing, and a rolling cost handed to an expectation engine is counted twice.
+  ok("all three engines ask for the rule, the Tournament Test included",
+    built.filter((c) => /abilityOpsRule:\s*1/.test(c)).length === 3,
+    String(built.filter((c) => /abilityOpsRule:\s*1/.test(c)).length));
+  const tourney = built.find((c) => !/playTournament|solverTournament/.test(c)) || "";
+  ok("and the Tournament Test still rolls nothing",
+    Boolean(tourney) && !/selfRollRule/.test(tourney) && !/actionRollRule/.test(tourney),
+    tourney.slice(0, 160));
 }
 
 for (const note of notes) console.log(`   ${note}`);

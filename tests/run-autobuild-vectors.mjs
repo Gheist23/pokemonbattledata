@@ -225,7 +225,12 @@ for (const testCase of cases) {
   }
   if (!appPool.length) for (const record of siteMeta.pokemon) if (!records.has(record.name)) records.set(record.name, record);
   const settings = rec._v452_fast_autobuild_payload[0].snapshot?.settings || testCase.settings;
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  // V549: these are the Companion's own numbers, so they replay under the Companion's rules as
+  // they were when it produced them -- `threat_usage_floor: 0` (no usage floor on a threat's
+  // items and moves) and `speedAbilityRule: 0` (no Ability counted as Speed control). Both are
+  // ON in production on both sides; a recording made before a rule must not be judged by it.
+  const replaySettings = { ...settings, threat_usage_floor: Number(settings?.threat_usage_floor) || 0 };
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;

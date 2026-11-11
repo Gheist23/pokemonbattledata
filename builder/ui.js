@@ -556,6 +556,91 @@ export function editSet(data, initialSet, { format = "Doubles", title = "Edit Po
   });
 }
 
+/**
+ * One Pokemon, read-only: everything `editSet` shows, with nothing to change.
+ *
+ * The team preview needs this on BOTH sides. Ours is on the team sheet we wrote, and under an
+ * open sheet theirs is on a sheet we have been handed -- but neither may be edited there: the
+ * teams are already dealt, and a set changed after the deal would not be the set the game is
+ * being played with. So this is deliberately not `editSet` with the inputs disabled; it is the
+ * same information laid out to be read.
+ *
+ * It is tolerant of a half-known set, because a closed sheet hands over only what has been
+ * shown: a missing item, ability or move reads as a dash rather than throwing.
+ */
+export function showSet(data, rawSet, { format = "Doubles", title = "", subtitle = "" } = {}) {
+  const set = makeSet(JSON.parse(JSON.stringify(rawSet || {})));
+  const [, battleForm] = data.battleForm(set.species, set.form, set.item);
+  const name = data.displayName(set.species, battleForm, set.form) || set.form || set.species;
+  const types = data.types(set.species, set.form, set.item) || [];
+  const dash = () => h("span", { class: "bd-view-none" }, "–");
+
+  const field = (label, value) => h("div", { class: "bd-field bd-view-field" },
+    h("span", {}, label),
+    h("strong", { class: "bd-view-value" }, value || dash()));
+
+  const moves = (set.moves || []).filter(Boolean);
+  const moveRow = (move) => {
+    const meta = data.move(move) || {};
+    const power = Number(meta.power) > 0 ? `${meta.power} BP` : "";
+    const category = meta.category ? meta.category[0].toUpperCase() + meta.category.slice(1) : "";
+    return h("div", { class: "bd-view-move" },
+      meta.type ? h("img", { src: typeIcon(meta.type), alt: meta.type, width: 16, height: 16, loading: "lazy", decoding: "async" }) : null,
+      h("strong", {}, move),
+      h("small", {}, [category, power].filter(Boolean).join(" · ")));
+  };
+
+  // The same three numbers the editor shows per stat -- base, what was put in, what came out --
+  // with the slider and the box taken away.
+  const stats = data.engine.finalStats({
+    pokemon_name: set.species, form_name: set.form, item: set.item,
+    nature_name: set.nature, bonuses: set.bonuses, ability: set.ability,
+  });
+  const record = data.formRecord(...data.battleForm(set.species, set.form, set.item))
+    || data.formRecord(set.species, set.form);
+  const [up, down] = data.natures[set.nature] || ["", ""];
+  const statRows = STAT_LABELS.map((label, index) => {
+    const key = ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"][index];
+    const short = ["HP", "ATK", "DEF", "SPA", "SPD", "SPE"][index];
+    const mark = short === up ? "up" : short === down ? "down" : "";
+    const put = Number(set.bonuses?.[index]) || 0;
+    return h("div", { class: `bd-view-stat ${mark}` },
+      h("span", { class: "bd-stat-name" }, label,
+        mark ? h("b", { "aria-label": mark === "up" ? "raised by nature" : "lowered by nature" }, mark === "up" ? "+" : "−") : null),
+      h("span", { class: "bd-stat-base" }, record?.stats?.[key] ?? "–"),
+      h("span", { class: "bd-view-put" }, put ? `+${put}` : ""),
+      h("span", { class: "bd-stat-total" }, stats[key]));
+  });
+
+  return openDialog({
+    title: title || name,
+    wide: true,
+    className: "bd-dialog-editor bd-dialog-view",
+    body: h("div", { class: "bd-editor bd-view" },
+      h("div", { class: "bd-editor-head" },
+        sprite(data.sprite(set.species, set.form, set.item, { full: true }), "", 96, "bd-sprite bd-sprite-lg"),
+        h("div", { class: "bd-editor-title" },
+          h("h3", {}, name),
+          h("div", { class: "bd-type-row" }, types.map(typeChip)),
+          subtitle ? h("p", { class: "bd-note" }, subtitle) : null)),
+      h("div", { class: "bd-editor-grid" },
+        field("Form", set.form && set.form !== set.species ? set.form : "–"),
+        field("Ability", set.ability),
+        field("Held item", set.item || "No item"),
+        field("Nature", set.nature ? (data.natureLabel ? data.natureLabel(set.nature) : set.nature) : "")),
+      h("div", { class: "bd-editor-moves" },
+        h("span", { class: "bd-field-label" }, "Moves"),
+        moves.length
+          ? h("div", { class: "bd-view-moves" }, moves.map(moveRow))
+          : h("p", { class: "bd-note" }, "None shown yet")),
+      h("div", { class: "bd-field-label" }, "Stat Points"),
+      h("div", { class: "bd-editor-stats bd-view-stats" },
+        h("div", { class: "bd-points-left" }, `Stat Points: ${bonusTotal(set.bonuses)} / ${MAX_BONUS_STAT_POINTS}`),
+        ...statRows)),
+    actions: [h("span", { class: "bd-spacer" })],
+  });
+}
+
 export function formatPercent(value, digits = 0) {
   return `${Number(value || 0).toFixed(digits)}%`;
 }

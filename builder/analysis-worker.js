@@ -120,6 +120,37 @@ function foeTeam(data, format, known, rng) {
 }
 
 /**
+ * An opponent the PLAYER built, for the Custom tab.
+ *
+ * The sets arrive from the page, so nothing in them is trusted: only the fields a set is made
+ * of are read, the species must resolve, and six is the cap. A team that comes back empty is
+ * the caller's cue to deal a real one instead, which is what makes a malformed custom team fall
+ * back to an ordinary game rather than to a broken one.
+ */
+function customFoeTeam(data, format, sets, name) {
+  const built = [];
+  for (const raw of Array.isArray(sets) ? sets.slice(0, 6) : []) {
+    if (!raw || !raw.species) continue;
+    const [species, form] = data.resolve(raw.species, raw.form || raw.species);
+    if (!species) continue;
+    const usage = data.usage(format, species, form);
+    const moves = (Array.isArray(raw.moves) ? raw.moves : []).filter(Boolean).slice(0, 4);
+    built.push(makeSet({
+      species,
+      form,
+      item: String(raw.item || ""),
+      ability: String(raw.ability || "") || data.abilities(species, form)[0] || "",
+      nature: String(raw.nature || "") || usage?.set?.nature || "Serious",
+      bonuses: Array.isArray(raw.bonuses) && raw.bonuses.length === 6
+        ? raw.bonuses.map((n) => Math.max(0, Math.min(32, Number(n) || 0)))
+        : usage?.set?.bonuses || [0, 0, 0, 0, 0, 0],
+      moves: moves.length ? moves : [...(usage?.set?.moves || [])],
+    }));
+  }
+  return { name: String(name || "").slice(0, 60), sets: built };
+}
+
+/**
  * The four of the six the opponent brings, and the order it leads in.
  *
  * Searching every bring against every bring is the Tournament Test's whole job and far too slow
@@ -185,12 +216,25 @@ function foeBring(data, format, sets, { against = null, tournament = null } = {}
  * opponent's own sheet is supposed to keep. It is also simply wrong until it evolves: the
  * Pokemon standing there is an Emboar.
  */
-function previewMon(data, set) {
-  return {
+function previewMon(data, set, open = false) {
+  const mon = {
     species: set.species,
     form: set.form,
     name: set.form || set.species,
     sprite: data.sprite(set.species, set.form, ""),
+  };
+  // An OPEN team sheet is open BOTH ways. The opponent is shown our sets, so it owes us its own,
+  // and team preview is where a real open sheet is read. Under a closed sheet none of this is
+  // sent at all -- not hidden on the page, not sent -- because anything the client holds can be
+  // read out of it, and withholding the sets is the entire point of that mode.
+  if (!open) return mon;
+  return {
+    ...mon,
+    item: set.item || "",
+    ability: set.ability || "",
+    moves: (set.moves || []).filter(Boolean),
+    nature: set.nature || "Serious",
+    bonuses: set.bonuses || [0, 0, 0, 0, 0, 0],
   };
 }
 
@@ -288,6 +332,7 @@ self.addEventListener("message", async (event) => {
       const started = Date.now();
       result = transferable(evaluation.evaluate(sets, {
         checkSelection: payload.checks ?? null,
+        teamArchetype: payload.teamArchetype || "",
         onProgress: (done, total, name) => progress({ fraction: done / Math.max(1, total), message: `Calculating ${name}` }),
       }));
       result.seconds = (Date.now() - started) / 1000;
@@ -454,8 +499,26 @@ self.addEventListener("message", async (event) => {
       const { evaluation } = await appEvaluation(payload.format, payload.settings);
       evaluation.knownTeams ||= await knownTeams();
       if (!evaluation.knownTeams) throw new Error("The tournament teams could not be loaded. Check the connection and try again.");
+      // V549: the Tournament Test plays its games with the same modelling the Solver and a
+      // played game use. It was built with `{ effects }` and nothing else, so every rule added
+      // since was off HERE and on in both live engines: a two-turn move fired on the spot, a
+      // hit was priced against a full-health Pokemon whatever was standing there, and berries,
+      // stat stages, hazards, PP, Abilities and pivots did not exist. That is a weaker model of
+      // the very thing this screen claims to do -- play short games against real teams.
+      //
+      // Measured over the first 80 library teams (7,668 games): the headline win rate moved
+      // 51.09% -> 51.45%, which is why nobody noticed, but a single matchup moved 9.5 points
+      // (34.5% -> 25.0%) and the per-archetype breakdown moved up to 4.5. Those are the numbers
+      // on screen. It costs 1.78x the time.
+      //
+      // NOT `selfRollRule` / `actionRollRule`, which the played game also has: those two turn an
+      // expectation into a roll and need `effectRoll`, which only a played game sets. Handing
+      // them to an engine that rolls nothing double-counts the cost -- the same mistake that
+      // made Life Orb cheaper than it is.
       evaluation.tournament ||= new TournamentTest(evaluation, evaluation.knownTeams, new TeamSuggestions(evaluation),
-        { effects: await moveEffects() });
+        { effects: await moveEffects(), liveHpRule: 1, chargeRule: 1, berryRule: 1, stagesRule: 1,
+          confusionRule: 1, ppRule: 1, rberryRule: 1, bailRule: 1, shieldRule: 1,
+          fieldTurnsRule: 1, abilityOpsRule: 1, hazardsRule: 1, pivotRule: 1 });
       try {
         result = await evaluation.tournament.run(sets, {
           limit: Math.max(1, Number(payload.limit) || 1000),
@@ -532,7 +595,13 @@ self.addEventListener("message", async (event) => {
         // The teams are dealt here and remembered, so the four you pick are brought against the
         // very team you were shown rather than against a fresh roll.
         const seed = Number(payload.seed) || 1;
-        const foe = foeTeam(data, payload.format, evaluation.knownTeams, rollerFrom(seed));
+        // The Custom tab sends the team it wants to play; everything else gets a real one rolled
+        // from the tournament library. A custom team that does not survive `customFoeTeam`
+        // falls through to the roll rather than to an empty board.
+        const custom = payload.foe ? customFoeTeam(data, payload.format, payload.foe, payload.foeName) : null;
+        const foe = custom && custom.sets.length
+          ? custom
+          : foeTeam(data, payload.format, evaluation.knownTeams, rollerFrom(seed));
         const previewId = `p${id}`;
         if (previews.size > 4) previews.delete(previews.keys().next().value);
         previews.set(previewId, { foe, seed, format: payload.format });
@@ -542,7 +611,7 @@ self.addEventListener("message", async (event) => {
           result: {
             previewId,
             foeName: foe.name,
-            foe: foe.sets.map((set) => previewMon(data, set)),
+            foe: foe.sets.map((set) => previewMon(data, set, payload.sheet === "open")),
           },
         });
         return;

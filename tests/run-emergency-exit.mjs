@@ -217,8 +217,12 @@ function board(bailRule, { hp = 100, bench = 2 } = {}) {
     .filter((line) => line.includes("bailing")).length;
   ok("and nothing anywhere else touches the flag", touches === 4, String(touches));
   const worker = readFileSync(join(root, "builder", "analysis-worker.js"), "utf8");
-  ok("the played game asks for the rule at both sites",
-    (worker.match(/bailRule: 1/g) || []).length === 2);
+  // V549: all THREE engines ask for it. The Tournament Test used to be built with
+  // `{ effects }` alone, so every modelling rule added since was on in the two live
+  // engines and off in the one that produces the Test against Tournament Teams numbers.
+  ok("all three engines ask for the rule",
+    (worker.match(/bailRule: 1/g) || []).length === 3,
+    String((worker.match(/bailRule: 1/g) || []).length));
 }
 
 // ---------------------------------------------------------------------------

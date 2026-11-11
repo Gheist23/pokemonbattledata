@@ -384,7 +384,16 @@ function slotCard(set, index) {
     h("div", { class: "bd-slot-stats", "aria-label": "Stats" }, ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"].map((k, i) => {
       const short = ["HP", "ATK", "DEF", "SPA", "SPD", "SPE"][i];
       const color = stats[k] >= 180 ? "var(--stat-great)" : stats[k] >= 140 ? "var(--stat-good)" : stats[k] >= 100 ? "var(--stat-mid)" : "var(--stat-bad)";
-      return h("span", { class: "bd-mini-stat" }, h("span", { style: { color: short === up ? "#ff9a9a" : short === down ? "#9ec9ff" : "" } }, STAT_LABELS[i]), h("span", {}, stats[k]), h("i", { style: { width: `${Math.min(100, (stats[k] / (k === "hp" ? 260 : 230)) * 100)}%`, background: color } }));
+      // "HP +32  180": the name, what was put in, what came out -- the same reading order the
+      // share card uses, so the tab and the image say the same thing the same way. The column
+      // is rendered even at zero so the six rows stay in line with each other.
+      const put = Number(set.bonuses?.[i]) || 0;
+      const mark = short === up ? "up" : short === down ? "down" : "";
+      return h("span", { class: `bd-mini-stat ${mark}` },
+        h("span", { class: "bd-mini-stat-name" }, STAT_LABELS[i]),
+        h("span", { class: "bd-mini-stat-put" }, put ? `+${put}` : ""),
+        h("span", {}, stats[k]),
+        h("i", { style: { width: `${Math.min(100, (stats[k] / (k === "hp" ? 260 : 230)) * 100)}%`, background: color } }));
     }))),
   h("div", { class: "bd-slot-moves" }, [0, 1, 2, 3].map((i) => h("span", { class: "bd-slot-move" }, set.moves[i] || "—"))),
   h("div", { class: "bd-slot-tools" },
@@ -1466,7 +1475,10 @@ async function runEvaluation(key = evaluationKey()) {
   // The format was switched while it ran: the result is kept for that format.
   const place = () => (format() === runFormat ? view : formatShelf(runFormat));
   try {
-    const result = await analysis("evaluate", { format: runFormat, sets: plainSets(), settings: evalSettings(), checks: checkSelection() }, (progress) => {
+    // V549: the archetype the team says it is. The Archetype check measures the team against
+    // IT rather than against whatever the features read as, which is the question somebody who
+    // picked an archetype -- or had Auto Build build for one -- is actually asking.
+    const result = await analysis("evaluate", { format: runFormat, sets: plainSets(), settings: evalSettings(), checks: checkSelection(), teamArchetype: currentTeam().archetype || "" }, (progress) => {
       view.evalProgress = progress.fraction ?? view.evalProgress;
       if (progress.message) view.evalStatus = progress.message;
       if (view.tab === "evaluation") renderMain();

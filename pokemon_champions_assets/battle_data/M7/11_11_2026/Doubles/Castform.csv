@@ -1,45 +1,45 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Castform,256,move,1,Weather Ball,90.8%,,,,,,,,
-Castform,256,move,2,Thunder,55.3%,,,,,,,,
-Castform,256,move,3,Protect,52.6%,,,,,,,,
-Castform,256,move,4,Ice Beam,30.3%,,,,,,,,
-Castform,256,move,5,Hurricane,25.0%,,,,,,,,
-Castform,256,move,6,Rain Dance,21.1%,,,,,,,,
-Castform,256,move,7,Icy Wind,18.4%,,,,,,,,
-Castform,256,move,8,Blizzard,17.1%,,,,,,,,
-Castform,256,move,9,Solar Beam,15.8%,,,,,,,,
-Castform,256,move,10,Energy Ball,10.5%,,,,,,,,
-Castform,256,held_item,1,Life Orb,47.4%,,,,,,,,
-Castform,256,held_item,2,Choice Scarf,15.8%,,,,,,,,
-Castform,256,held_item,3,Expert Belt,10.5%,,,,,,,,
-Castform,256,held_item,4,Silk Scarf,7.9%,,,,,,,,
-Castform,256,held_item,5,Leftovers,3.9%,,,,,,,,
-Castform,256,held_item,6,Focus Sash,1.3%,,,,,,,,
-Castform,256,teammate,1,Pelipper,,,,,,,,,
-Castform,256,teammate,2,Charizard,,,,,,,,,
-Castform,256,teammate,3,Archaludon,,,,,,,,,
-Castform,256,teammate,4,Sableye,,,,,,,,,
-Castform,256,teammate,5,Farigiraf,,,,,,,,,
-Castform,256,teammate,6,Torkoal,,,,,,,,,
-Castform,256,teammate,7,Grimmsnarl,,,,,,,,,
-Castform,256,teammate,8,Swampert,,,,,,,,,
-Castform,256,teammate,9,Qwilfish,,,,,,,,,
-Castform,256,teammate,10,Glalie,,,,,,,,,
-Castform,256,stat_alignment,1,Modest,52.6%,Sp. Atk,Attack,,,,,,
-Castform,256,stat_alignment,2,Timid,19.7%,Speed,Attack,,,,,,
-Castform,256,stat_alignment,3,Sassy,9.2%,Sp. Def,Speed,,,,,,
-Castform,256,stat_alignment,4,Calm,7.9%,Sp. Def,Attack,,,,,,
-Castform,256,stat_alignment,5,Bold,5.3%,Defense,Attack,,,,,,
-Castform,256,stat_alignment,6,Relaxed,3.9%,Defense,Speed,,,,,,
-Castform,256,stat_alignment,7,Quiet,1.3%,Sp. Atk,Speed,,,,,,
-Castform,256,stat_points,1,,36.8%,,,32,0,0,32,2,0
-Castform,256,stat_points,2,,22.4%,,,2,0,0,32,0,32
-Castform,256,stat_points,3,,11.8%,,,2,0,32,32,0,0
-Castform,256,stat_points,4,,9.2%,,,0,0,2,32,32,0
-Castform,256,stat_points,5,,7.9%,,,32,0,0,32,0,2
-Castform,256,stat_points,6,,3.9%,,,0,0,32,0,32,2
-Castform,256,stat_points,7,,2.6%,,,21,0,0,32,0,13
-Castform,256,stat_points,8,,1.3%,,,0,0,2,32,0,32
-Castform,256,stat_points,9,,1.3%,,,4,0,0,30,0,32
-Castform,256,stat_points,10,,1.3%,,,12,0,0,32,0,22
-Castform,256,ability,1,Forecast,100.0%,,,,,,,,
+Castform,255,move,1,Weather Ball,91.1%,,,,,,,,
+Castform,255,move,2,Thunder,53.2%,,,,,,,,
+Castform,255,move,3,Protect,51.9%,,,,,,,,
+Castform,255,move,4,Ice Beam,29.1%,,,,,,,,
+Castform,255,move,5,Hurricane,27.8%,,,,,,,,
+Castform,255,move,6,Icy Wind,20.3%,,,,,,,,
+Castform,255,move,7,Rain Dance,20.3%,,,,,,,,
+Castform,255,move,8,Blizzard,16.5%,,,,,,,,
+Castform,255,move,9,Solar Beam,16.5%,,,,,,,,
+Castform,255,move,10,Thunderbolt,11.4%,,,,,,,,
+Castform,255,held_item,1,Life Orb,46.8%,,,,,,,,
+Castform,255,held_item,2,Choice Scarf,15.2%,,,,,,,,
+Castform,255,held_item,3,Expert Belt,12.7%,,,,,,,,
+Castform,255,held_item,4,Silk Scarf,7.6%,,,,,,,,
+Castform,255,held_item,5,Leftovers,3.8%,,,,,,,,
+Castform,255,held_item,6,Focus Sash,1.3%,,,,,,,,
+Castform,255,teammate,1,Pelipper,,,,,,,,,
+Castform,255,teammate,2,Charizard,,,,,,,,,
+Castform,255,teammate,3,Archaludon,,,,,,,,,
+Castform,255,teammate,4,Sableye,,,,,,,,,
+Castform,255,teammate,5,Farigiraf,,,,,,,,,
+Castform,255,teammate,6,Torkoal,,,,,,,,,
+Castform,255,teammate,7,Grimmsnarl,,,,,,,,,
+Castform,255,teammate,8,Swampert,,,,,,,,,
+Castform,255,teammate,9,Qwilfish,,,,,,,,,
+Castform,255,teammate,10,Glalie,,,,,,,,,
+Castform,255,stat_alignment,1,Modest,53.2%,Sp. Atk,Attack,,,,,,
+Castform,255,stat_alignment,2,Timid,19.0%,Speed,Attack,,,,,,
+Castform,255,stat_alignment,3,Sassy,8.9%,Sp. Def,Speed,,,,,,
+Castform,255,stat_alignment,4,Calm,7.6%,Sp. Def,Attack,,,,,,
+Castform,255,stat_alignment,5,Bold,5.1%,Defense,Attack,,,,,,
+Castform,255,stat_alignment,6,Relaxed,3.8%,Defense,Speed,,,,,,
+Castform,255,stat_alignment,7,Quiet,2.5%,Sp. Atk,Speed,,,,,,
+Castform,255,stat_points,1,,36.7%,,,32,0,0,32,2,0
+Castform,255,stat_points,2,,21.5%,,,2,0,0,32,0,32
+Castform,255,stat_points,3,,11.4%,,,2,0,32,32,0,0
+Castform,255,stat_points,4,,8.9%,,,0,0,2,32,32,0
+Castform,255,stat_points,5,,7.6%,,,32,0,0,32,0,2
+Castform,255,stat_points,6,,5.1%,,,21,0,0,32,0,13
+Castform,255,stat_points,7,,3.8%,,,0,0,32,0,32,2
+Castform,255,stat_points,8,,1.3%,,,0,0,2,32,0,32
+Castform,255,stat_points,9,,1.3%,,,4,0,0,30,0,32
+Castform,255,stat_points,10,,1.3%,,,12,0,0,32,0,22
+Castform,255,ability,1,Forecast,100.0%,,,,,,,,

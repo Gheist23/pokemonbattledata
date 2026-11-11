@@ -30,7 +30,10 @@
 //   4. the race: the first mover's own change is applied and the SECOND mover's answer moves,
 //      on a speed tie nothing is applied, and the switch replays the old answer;
 //   5. the user's own later hits: Contrary turns V494's self-drop into a rise, so
-//      `self_drop_v494` is cleared and `self_stat_rise_v525` is set.
+//      `self_drop_v494` is cleared and `self_stat_rise_v525` is set;
+//   6. THE OTHER HALF OF THE RACE -- when OUR Pokemon is the one that moves first and weakens
+//      itself. Sections 1-5 only ever exercise `side === "threat"`, which is how the `else`
+//      branch shipped with its two arguments the wrong way round for so long.
 //
 //   node tests/run-self-stat-change.mjs
 //
@@ -44,7 +47,9 @@ import {
   defensiveSelfStatChange, makeContext, makeMon, monWithStages, offensiveSelfStatChange,
   selfStatChangeAfterAbility, selfStatChangeOption,
 } from "../builder/engine.js";
-import { TeamEvaluator } from "../builder/team-eval.js";
+import { TeamEvaluator, normalizeSettings, DEFAULT_SETTINGS } from "../builder/team-eval.js";
+import { BuilderData } from "../builder/common.js";
+import { TeamEvaluation } from "../builder/team-payload.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -265,6 +270,92 @@ for (const [label, threat, expected] of [
 }
 
 for (const line of notes) console.log(line);
+/* ------------------------------------------------------------------ 6. the team moves first */
+// `selfChange.variants` is always the FIRST MOVER's own pool with its drop applied, so it is
+// the DEFENDER of the direction being recomputed. When the THREAT moves first we re-aim OUR
+// answer at it; when OUR Pokemon moves first we must re-aim THE THREAT'S attack at us.
+//
+// The `else` branch read `bestBetween(selfChange.variants, teamVariants)` -- our weakened
+// Pokemon attacking OUR OWN TEAM. Both sides ours, so the winning result carried
+// `attacker_side: "team"`, and `bestThreat` (which names the threat row and supplies its item)
+// then named one of our own members. Measured on the regional-winning team, whose Sneasler
+// carries Close Combat: three of 28 rows read "Sneasler · Mental Herb · Unburden" while their
+// own `form` was correctly Farigiraf, Volcarona and Indeedee-F.
+//
+// The Companion had it right all along (`move_self_stat_change_v525.py`:
+// `best_between_variant_sets(threat_variants, variants_with_stages(team_variants, applied))`),
+// so this was a port error and the fix restores parity rather than changing a rule.
+{
+  const meta = JSON.parse(readFileSync(join(root, "data", "builder", "meta-doubles.json"), "utf8"));
+  const data = new BuilderData(appData);
+  data.ingestMeta("Doubles", meta);
+  const set = (species, form, item, ability, nature, bonuses, moves) =>
+    ({ species, form: form || species, item, ability, nature, bonuses, moves });
+  // Close Combat on our side is the whole point: it is the move this rule was written for and
+  // the one that makes OUR Pokemon the first mover that weakens itself.
+  const WITH = ["Dire Claw", "Close Combat", "Coaching", "Protect"];
+  const WITHOUT = ["Dire Claw", "Shadow Claw", "Coaching", "Protect"];
+  const teamFor = (sneaslerMoves) => [
+    set("Salamence", "Salamence-Mega", "Salamencite", "Aerilate", "Timid", [2, 0, 0, 32, 0, 32], ["Hyper Voice", "Draco Meteor", "Flamethrower", "Protect"]),
+    set("Tyranitar", "Tyranitar-Mega", "Tyranitarite", "Sand Stream", "Jolly", [2, 32, 0, 0, 0, 32], ["Rock Slide", "Knock Off", "Low Kick", "Protect"]),
+    set("Corviknight", "", "Psychic Seed", "Mirror Armor", "Careful", [0, 32, 0, 0, 2, 32], ["Brave Bird", "Power Trip", "Bulk Up", "Roost"]),
+    set("Excadrill", "", "Focus Sash", "Sand Rush", "Adamant", [0, 32, 1, 0, 1, 32], ["Iron Head", "Protect", "Rock Slide", "High Horsepower"]),
+    set("Indeedee", "", "Choice Scarf", "Psychic Surge", "Modest", [2, 0, 0, 32, 0, 32], ["Expanding Force", "Mystical Fire", "Trick", "Protect"]),
+    set("Sneasler", "", "Mental Herb", "Unburden", "Adamant", [2, 32, 0, 0, 0, 32], sneaslerMoves),
+  ];
+  const threatsFor = (moves) => {
+    const engine = new DamageEngine(appData);
+    const ev = new TeamEvaluator(data, engine, "Doubles", normalizeSettings({ ...DEFAULT_SETTINGS, top_meta: 30 }));
+    ev.setMetaRecords(meta.pokemon || []);
+    return new TeamEvaluation(ev).evaluate(teamFor(moves), {}).threats || [];
+  };
+
+  const ids = appData.baseSpeciesIds || {};
+  const baseOf = (value) => ids[compact(value)] || compact(value);
+  const withCC = threatsFor(WITH);
+  ok("the team produces threat rows at all", withCC.length > 20, String(withCC.length));
+
+  // No row may be NAMED after a Pokemon on our own team, and no row's item may be ours.
+  const ours = new Set(teamFor(WITH).map((m) => baseOf(m.form || m.species)));
+  const ourItems = new Set(teamFor(WITH).map((m) => compact(m.item)));
+  const namedAfterUs = withCC.filter((t) => ours.has(baseOf(t.name)) && !ours.has(baseOf(t.form)));
+  ok("no threat row is named after one of our own Pokemon",
+    namedAfterUs.length === 0,
+    namedAfterUs.map((t) => `${t.name}/${t.form}`).join(", "));
+  // (No check that a threat does not hold one of OUR items: Choice Scarf and Focus Sash are
+  // ordinary meta items and several threats really do carry them. What marks the bug is the
+  // NAME, and the item only follows it.)
+
+  // The row's name must belong to the same species as the form the numbers were computed for.
+  const mismatched = withCC.filter((t) => baseOf(t.name) !== baseOf(t.form) && !/mega/i.test(`${t.name} ${t.form}`));
+  ok("every row's name is the species its own form belongs to",
+    mismatched.length === 0, mismatched.map((t) => `${t.name}/${t.form}`).join(", "));
+
+  // ...and Close Combat on our side is what used to break it, so taking it off must not be
+  // what makes the check pass -- both lists are clean, and the rows are the same rows.
+  const without = threatsFor(WITHOUT);
+  const names = (rows) => rows.map((t) => String(t.form)).sort();
+  ok("the same threats are rated either way", JSON.stringify(names(withCC)) === JSON.stringify(names(without)),
+    `${names(withCC).length} vs ${names(without).length}`);
+  const stillBad = without.filter((t) => ours.has(baseOf(t.name)) && !ours.has(baseOf(t.form)));
+  ok("and without Close Combat there is nothing wrong either", stillBad.length === 0,
+    stillBad.map((t) => `${t.name}/${t.form}`).join(", "));
+
+  // The fix is not cosmetic: the recomputed incoming is the THREAT hitting our weakened
+  // Pokemon, so for at least one row the threat pressure really moves when Close Combat is on.
+  // The incoming summary lives on the BREAKDOWN rows, not on the threat row itself.
+  const pressureOf = (rows) => Object.fromEntries(rows.map((t) => [
+    String(t.form),
+    (t.breakdown || []).map((b) => `${b.incoming_label}|${b.incoming_percent}`).join(" "),
+  ]));
+  const a = pressureOf(withCC);
+  const b = pressureOf(without);
+  const moved = Object.keys(a).filter((k) => b[k] !== undefined && a[k] !== b[k]);
+  ok("Close Combat on our side changes what the threats do to us", moved.length > 0,
+    `${moved.length} rows moved`);
+  notes.push(`  V550 side="team": ${withCC.length} rows, none named after us, ${moved.length} rows' incoming moved with Close Combat on`);
+}
+
 if (failures.length) {
   console.error(`\n${checked} checks, ${failures.length} failed:`);
   for (const line of failures) console.error(`  - ${line}`);

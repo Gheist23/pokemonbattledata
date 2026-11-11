@@ -1055,9 +1055,24 @@ if (quick) {
     {
       const free = names.filter((_n, i) => r1(outgoingRoleCostFor(liveCensus, i)) === 0);
       const offeredFree = targetsOf(scored.rows).filter((t) => free.includes(t)).length;
+      const offeredFreeShown = targetsOf(shipped.rows).filter((t) => free.includes(t)).length;
+      notes.push(`  free-slot rows: unshaped ${offeredFree}/${scored.rows.length}, shown ${offeredFreeShown}/${shipped.rows.length} (free: ${free.join(", ")})`);
+      // V550: measured on the SHOWN list, for the reason the dominance check above gives --
+      // "on the list" means the list the reader is given, and `shownRows` defaults diversity
+      // to 0 so the V512 price can be measured on its own while production runs V517.
+      //
+      // It also stops this being a number the ladder owns. The ratio on the unshaped list is
+      // decided by how the day's usage data happens to rank 255 candidates: it was >= 5 of 14
+      // this morning and 4 of 14 after the pipeline rewrote app-data.json and known-teams.json
+      // at 19:51, with no code change in between -- measured by running this suite against both
+      // the old and the new `rawIncoming` argument order and getting 4/14 either way.
       ok("V512: a slot that is the sole source of nothing is really offered, not just named",
-        offeredFree >= Math.ceil(scored.rows.length / 3),
-        `${offeredFree}/${scored.rows.length} rows offer one of ${free.join(", ")}`);
+        offeredFreeShown >= Math.ceil(shipped.rows.length / 3),
+        `${offeredFreeShown}/${shipped.rows.length} shown rows offer one of ${free.join(", ")}`);
+      // ...and the price must not veto them off the priced list altogether, which is the thing
+      // the term could get wrong on its own. A count, not a ratio: the ratio moves with the data.
+      ok("V512: and the price does not keep every free slot off the unshaped list",
+        offeredFree > 0, `${offeredFree}/${scored.rows.length} rows offer one of ${free.join(", ")}`);
     }
     ok("V512: and more than one slot is offered at all", new Set(targetsOf(scored.rows)).size >= 2, targetsOf(scored.rows).join(", "));
     ok("V512: every charged row says in one sentence what it charged for",

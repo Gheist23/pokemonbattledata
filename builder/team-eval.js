@@ -1890,8 +1890,20 @@ export class TeamEvaluator {
       // by one each, so the answer lands on a frailer Pokemon; Contrary makes it a tougher one.
       const selfChange = this.selfStatChangeInRace(variants, teamVariants, rawIncoming, rawOutgoing, first);
       if (selfChange) {
+        // `selfChange.variants` is the FIRST MOVER's own pool with its self-inflicted drop on
+        // it, so it is always the DEFENDER of the recomputed direction -- the other side is
+        // aiming at a Pokemon that just made itself frailer.
+        //
+        // V550: the `else` branch used to read `bestBetween(selfChange.variants, teamVariants)`,
+        // which is our weakened Pokemon attacking OUR OWN TEAM. Both sides ours, so the result
+        // carried `attacker_side: "team"`, and `bestThreat` -- the row's identity and its item
+        // -- then named one of our own members. Measured on a team whose Sneasler carries Close
+        // Combat (the very move this rule was written for): three of 28 threat rows came back
+        // labelled "Sneasler · Mental Herb · Unburden" while their `form` was correctly
+        // Farigiraf, Volcarona and Indeedee-F. Taking Close Combat off the set made all three
+        // correct, which is what pinned it here rather than in the display code.
         if (selfChange.side === "threat") rawOutgoing = this.bestBetween(teamVariants, selfChange.variants);
-        else rawIncoming = this.bestBetween(selfChange.variants, teamVariants);
+        else rawIncoming = this.bestBetween(variants, selfChange.variants);
       }
       let [incoming, outgoing] = this.applySpeedOrder(rawIncoming, rawOutgoing);
       incoming = { ...incoming };

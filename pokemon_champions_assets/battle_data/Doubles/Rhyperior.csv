@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Rhyperior,156,move,1,Protect,84.0%,,,,,,,,
+Rhyperior,156,move,1,Protect,84.3%,,,,,,,,
 Rhyperior,156,move,2,Rock Slide,78.2%,,,,,,,,
-Rhyperior,156,move,3,High Horsepower,60.5%,,,,,,,,
-Rhyperior,156,move,4,Ice Punch,38.7%,,,,,,,,
-Rhyperior,156,move,5,Earthquake,31.3%,,,,,,,,
-Rhyperior,156,move,6,Stone Edge,11.9%,,,,,,,,
+Rhyperior,156,move,3,High Horsepower,59.8%,,,,,,,,
+Rhyperior,156,move,4,Ice Punch,39.3%,,,,,,,,
+Rhyperior,156,move,5,Earthquake,32.1%,,,,,,,,
+Rhyperior,156,move,6,Stone Edge,11.5%,,,,,,,,
 Rhyperior,156,move,7,Supercell Slam,10.7%,,,,,,,,
-Rhyperior,156,move,8,Brick Break,10.1%,,,,,,,,
-Rhyperior,156,move,9,Helping Hand,10.0%,,,,,,,,
+Rhyperior,156,move,8,Helping Hand,9.7%,,,,,,,,
+Rhyperior,156,move,9,Brick Break,9.6%,,,,,,,,
 Rhyperior,156,move,10,Rock Wrecker,7.7%,,,,,,,,
-Rhyperior,156,held_item,1,Life Orb,25.1%,,,,,,,,
-Rhyperior,156,held_item,2,Expert Belt,12.8%,,,,,,,,
-Rhyperior,156,held_item,3,Chople Berry,9.0%,,,,,,,,
-Rhyperior,156,held_item,4,White Herb,9.0%,,,,,,,,
-Rhyperior,156,held_item,5,Focus Sash,7.5%,,,,,,,,
-Rhyperior,156,held_item,6,Sitrus Berry,7.4%,,,,,,,,
-Rhyperior,156,held_item,7,Psychic Seed,3.7%,,,,,,,,
-Rhyperior,156,held_item,8,Hard Stone,3.6%,,,,,,,,
+Rhyperior,156,held_item,1,Life Orb,24.8%,,,,,,,,
+Rhyperior,156,held_item,2,Expert Belt,12.1%,,,,,,,,
+Rhyperior,156,held_item,3,White Herb,9.3%,,,,,,,,
+Rhyperior,156,held_item,4,Chople Berry,8.8%,,,,,,,,
+Rhyperior,156,held_item,5,Focus Sash,8.7%,,,,,,,,
+Rhyperior,156,held_item,6,Sitrus Berry,7.1%,,,,,,,,
+Rhyperior,156,held_item,7,Hard Stone,3.5%,,,,,,,,
+Rhyperior,156,held_item,8,Psychic Seed,3.5%,,,,,,,,
 Rhyperior,156,held_item,9,Passho Berry,3.4%,,,,,,,,
-Rhyperior,156,held_item,10,Quick Claw,2.5%,,,,,,,,
+Rhyperior,156,held_item,10,Rindo Berry,3.1%,,,,,,,,
 Rhyperior,156,teammate,1,Farigiraf,,,,,,,,,
 Rhyperior,156,teammate,2,Charizard,,,,,,,,,
 Rhyperior,156,teammate,3,Torkoal,,,,,,,,,
@@ -29,23 +29,25 @@ Rhyperior,156,teammate,7,Indeedee-F,,,,,,,,,
 Rhyperior,156,teammate,8,Venusaur,,,,,,,,,
 Rhyperior,156,teammate,9,Sylveon,,,,,,,,,
 Rhyperior,156,teammate,10,Grimmsnarl,,,,,,,,,
-Rhyperior,156,stat_alignment,1,Brave,57.5%,Attack,Speed,,,,,,
-Rhyperior,156,stat_alignment,2,Adamant,22.1%,Attack,Sp. Atk,,,,,,
-Rhyperior,156,stat_alignment,3,Careful,14.0%,Sp. Def,Sp. Atk,,,,,,
-Rhyperior,156,stat_alignment,4,Sassy,5.8%,Sp. Def,Speed,,,,,,
-Rhyperior,156,stat_alignment,5,Relaxed,0.4%,Defense,Speed,,,,,,
-Rhyperior,156,stat_alignment,6,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Rhyperior,156,stat_alignment,7,Calm,0.0%,Sp. Def,Attack,,,,,,
-Rhyperior,156,stat_points,1,,24.7%,,,32,32,0,0,2,0
-Rhyperior,156,stat_points,2,,13.6%,,,2,32,0,0,32,0
-Rhyperior,156,stat_points,3,,10.8%,,,0,32,2,0,32,0
-Rhyperior,156,stat_points,4,,8.2%,,,11,30,0,0,25,0
+Rhyperior,156,stat_alignment,1,Brave,57.2%,Attack,Speed,,,,,,
+Rhyperior,156,stat_alignment,2,Adamant,22.4%,Attack,Sp. Atk,,,,,,
+Rhyperior,156,stat_alignment,3,Careful,13.8%,Sp. Def,Sp. Atk,,,,,,
+Rhyperior,156,stat_alignment,4,Sassy,5.5%,Sp. Def,Speed,,,,,,
+Rhyperior,156,stat_alignment,5,Lonely,0.4%,Attack,Defense,,,,,,
+Rhyperior,156,stat_alignment,6,Relaxed,0.4%,Defense,Speed,,,,,,
+Rhyperior,156,stat_alignment,7,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Rhyperior,156,stat_alignment,8,Calm,0.0%,Sp. Def,Attack,,,,,,
+Rhyperior,156,stat_alignment,9,Naughty,0.0%,Attack,Sp. Def,,,,,,
+Rhyperior,156,stat_points,1,,23.8%,,,32,32,0,0,2,0
+Rhyperior,156,stat_points,2,,13.5%,,,2,32,0,0,32,0
+Rhyperior,156,stat_points,3,,10.2%,,,0,32,2,0,32,0
+Rhyperior,156,stat_points,4,,8.6%,,,11,30,0,0,25,0
 Rhyperior,156,stat_points,5,,5.6%,,,32,32,2,0,0,0
-Rhyperior,156,stat_points,6,,4.3%,,,2,32,32,0,0,0
-Rhyperior,156,stat_points,7,,4.3%,,,32,32,0,0,0,0
-Rhyperior,156,stat_points,8,,2.5%,,,2,0,32,0,32,0
-Rhyperior,156,stat_points,9,,1.9%,,,32,0,2,0,32,0
-Rhyperior,156,stat_points,10,,1.8%,,,22,12,0,0,32,0
-Rhyperior,156,ability,1,Solid Rock,66.4%,,,,,,,,
-Rhyperior,156,ability,2,Lightning Rod,32.2%,,,,,,,,
+Rhyperior,156,stat_points,6,,4.9%,,,2,32,32,0,0,0
+Rhyperior,156,stat_points,7,,4.1%,,,32,32,0,0,0,0
+Rhyperior,156,stat_points,8,,2.4%,,,2,0,32,0,32,0
+Rhyperior,156,stat_points,9,,2.1%,,,32,0,2,0,32,0
+Rhyperior,156,stat_points,10,,2.0%,,,22,12,0,0,32,0
+Rhyperior,156,ability,1,Solid Rock,66.3%,,,,,,,,
+Rhyperior,156,ability,2,Lightning Rod,32.4%,,,,,,,,
 Rhyperior,156,ability,3,Reckless,1.3%,,,,,,,,

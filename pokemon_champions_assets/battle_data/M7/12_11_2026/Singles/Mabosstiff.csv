@@ -1,53 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mabosstiff,210,move,1,Jaw Lock,59.0%,,,,,,,,
-Mabosstiff,210,move,2,Crunch,42.7%,,,,,,,,
-Mabosstiff,210,move,3,Play Rough,37.6%,,,,,,,,
-Mabosstiff,210,move,4,Destiny Bond,31.9%,,,,,,,,
-Mabosstiff,210,move,5,Curse,26.9%,,,,,,,,
-Mabosstiff,210,move,6,Ice Fang,26.4%,,,,,,,,
-Mabosstiff,210,move,7,Taunt,24.8%,,,,,,,,
-Mabosstiff,210,move,8,Substitute,21.3%,,,,,,,,
-Mabosstiff,210,move,9,Psychic Fangs,20.1%,,,,,,,,
-Mabosstiff,210,move,10,Rest,17.7%,,,,,,,,
-Mabosstiff,210,held_item,1,Leftovers,16.5%,,,,,,,,
-Mabosstiff,210,held_item,2,Red Card,15.8%,,,,,,,,
-Mabosstiff,210,held_item,3,Choice Scarf,14.5%,,,,,,,,
-Mabosstiff,210,held_item,4,Quick Claw,13.7%,,,,,,,,
-Mabosstiff,210,held_item,5,Focus Sash,8.8%,,,,,,,,
-Mabosstiff,210,held_item,6,Sitrus Berry,8.1%,,,,,,,,
-Mabosstiff,210,held_item,7,Roseli Berry,6.6%,,,,,,,,
-Mabosstiff,210,held_item,8,Air Balloon,4.8%,,,,,,,,
-Mabosstiff,210,held_item,9,Chesto Berry,2.8%,,,,,,,,
-Mabosstiff,210,held_item,10,Lum Berry,2.5%,,,,,,,,
-Mabosstiff,210,teammate,1,Basculegion,,,,,,,,,
-Mabosstiff,210,teammate,2,Metagross,,,,,,,,,
-Mabosstiff,210,teammate,3,Primarina,,,,,,,,,
-Mabosstiff,210,teammate,4,Dragonite,,,,,,,,,
-Mabosstiff,210,teammate,5,Annihilape,,,,,,,,,
-Mabosstiff,210,teammate,6,Falinks,,,,,,,,,
-Mabosstiff,210,teammate,7,Kleavor,,,,,,,,,
-Mabosstiff,210,teammate,8,Lopunny,,,,,,,,,
-Mabosstiff,210,teammate,9,Garchomp,,,,,,,,,
-Mabosstiff,210,teammate,10,Aegislash,,,,,,,,,
-Mabosstiff,210,stat_alignment,1,Adamant,53.5%,Attack,Sp. Atk,,,,,,
-Mabosstiff,210,stat_alignment,2,Jolly,18.7%,Speed,Sp. Atk,,,,,,
-Mabosstiff,210,stat_alignment,3,Careful,14.7%,Sp. Def,Sp. Atk,,,,,,
-Mabosstiff,210,stat_alignment,4,Impish,10.3%,Defense,Sp. Atk,,,,,,
-Mabosstiff,210,stat_alignment,5,Brave,2.2%,Attack,Speed,,,,,,
-Mabosstiff,210,stat_alignment,6,Naive,0.3%,Speed,Sp. Def,,,,,,
-Mabosstiff,210,stat_alignment,7,Relaxed,0.2%,Defense,Speed,,,,,,
-Mabosstiff,210,stat_alignment,8,Lonely,0.1%,Attack,Defense,,,,,,
-Mabosstiff,210,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Mabosstiff,210,stat_points,1,,20.9%,,,32,32,2,0,0,0
-Mabosstiff,210,stat_points,2,,16.5%,,,0,32,0,0,2,32
-Mabosstiff,210,stat_points,3,,10.9%,,,32,0,2,0,32,0
-Mabosstiff,210,stat_points,4,,9.0%,,,2,32,0,0,0,32
-Mabosstiff,210,stat_points,5,,4.5%,,,32,32,0,0,2,0
-Mabosstiff,210,stat_points,6,,4.4%,,,32,0,32,0,2,0
-Mabosstiff,210,stat_points,7,,3.3%,,,32,2,32,0,0,0
-Mabosstiff,210,stat_points,8,,2.8%,,,32,32,0,0,0,2
-Mabosstiff,210,stat_points,9,,2.5%,,,32,0,0,0,2,32
-Mabosstiff,210,stat_points,10,,2.4%,,,0,32,0,0,0,32
-Mabosstiff,210,ability,1,Guard Dog,44.7%,,,,,,,,
-Mabosstiff,210,ability,2,Stakeout,35.5%,,,,,,,,
-Mabosstiff,210,ability,3,Intimidate,19.8%,,,,,,,,
+Mabosstiff,209,move,1,Jaw Lock,58.0%,,,,,,,,
+Mabosstiff,209,move,2,Crunch,43.0%,,,,,,,,
+Mabosstiff,209,move,3,Play Rough,36.8%,,,,,,,,
+Mabosstiff,209,move,4,Destiny Bond,33.2%,,,,,,,,
+Mabosstiff,209,move,5,Curse,26.3%,,,,,,,,
+Mabosstiff,209,move,6,Ice Fang,25.3%,,,,,,,,
+Mabosstiff,209,move,7,Taunt,23.9%,,,,,,,,
+Mabosstiff,209,move,8,Substitute,20.1%,,,,,,,,
+Mabosstiff,209,move,9,Psychic Fangs,19.4%,,,,,,,,
+Mabosstiff,209,move,10,Rest,17.5%,,,,,,,,
+Mabosstiff,209,held_item,1,Choice Scarf,15.9%,,,,,,,,
+Mabosstiff,209,held_item,2,Leftovers,15.7%,,,,,,,,
+Mabosstiff,209,held_item,3,Red Card,15.5%,,,,,,,,
+Mabosstiff,209,held_item,4,Quick Claw,13.5%,,,,,,,,
+Mabosstiff,209,held_item,5,Focus Sash,9.8%,,,,,,,,
+Mabosstiff,209,held_item,6,Sitrus Berry,7.7%,,,,,,,,
+Mabosstiff,209,held_item,7,Roseli Berry,6.2%,,,,,,,,
+Mabosstiff,209,held_item,8,Air Balloon,4.6%,,,,,,,,
+Mabosstiff,209,held_item,9,Lum Berry,2.8%,,,,,,,,
+Mabosstiff,209,held_item,10,Chesto Berry,2.8%,,,,,,,,
+Mabosstiff,209,teammate,1,Basculegion,,,,,,,,,
+Mabosstiff,209,teammate,2,Metagross,,,,,,,,,
+Mabosstiff,209,teammate,3,Dragonite,,,,,,,,,
+Mabosstiff,209,teammate,4,Primarina,,,,,,,,,
+Mabosstiff,209,teammate,5,Annihilape,,,,,,,,,
+Mabosstiff,209,teammate,6,Falinks,,,,,,,,,
+Mabosstiff,209,teammate,7,Garchomp,,,,,,,,,
+Mabosstiff,209,teammate,8,Kleavor,,,,,,,,,
+Mabosstiff,209,teammate,9,Lopunny,,,,,,,,,
+Mabosstiff,209,teammate,10,Mimikyu,,,,,,,,,
+Mabosstiff,209,stat_alignment,1,Adamant,52.4%,Attack,Sp. Atk,,,,,,
+Mabosstiff,209,stat_alignment,2,Jolly,18.8%,Speed,Sp. Atk,,,,,,
+Mabosstiff,209,stat_alignment,3,Careful,14.4%,Sp. Def,Sp. Atk,,,,,,
+Mabosstiff,209,stat_alignment,4,Impish,9.8%,Defense,Sp. Atk,,,,,,
+Mabosstiff,209,stat_alignment,5,Brave,2.1%,Attack,Speed,,,,,,
+Mabosstiff,209,stat_alignment,6,Lonely,1.4%,Attack,Defense,,,,,,
+Mabosstiff,209,stat_alignment,7,Naughty,0.6%,Attack,Sp. Def,,,,,,
+Mabosstiff,209,stat_alignment,8,Naive,0.3%,Speed,Sp. Def,,,,,,
+Mabosstiff,209,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,
+Mabosstiff,209,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Mabosstiff,209,stat_points,1,,19.7%,,,32,32,2,0,0,0
+Mabosstiff,209,stat_points,2,,17.0%,,,0,32,0,0,2,32
+Mabosstiff,209,stat_points,3,,10.6%,,,32,0,2,0,32,0
+Mabosstiff,209,stat_points,4,,9.3%,,,2,32,0,0,0,32
+Mabosstiff,209,stat_points,5,,5.6%,,,32,32,0,0,2,0
+Mabosstiff,209,stat_points,6,,4.1%,,,32,0,32,0,2,0
+Mabosstiff,209,stat_points,7,,3.1%,,,32,2,32,0,0,0
+Mabosstiff,209,stat_points,8,,2.6%,,,32,32,0,0,0,2
+Mabosstiff,209,stat_points,9,,2.3%,,,32,0,0,0,2,32
+Mabosstiff,209,stat_points,10,,2.3%,,,0,32,0,0,0,32
+Mabosstiff,209,ability,1,Guard Dog,43.6%,,,,,,,,
+Mabosstiff,209,ability,2,Stakeout,37.0%,,,,,,,,
+Mabosstiff,209,ability,3,Intimidate,19.4%,,,,,,,,

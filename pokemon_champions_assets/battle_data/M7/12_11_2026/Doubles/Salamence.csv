@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Salamence,20,move,1,Protect,94.1%,,,,,,,,
+Salamence,20,move,1,Protect,94.0%,,,,,,,,
 Salamence,20,move,2,Hyper Voice,90.1%,,,,,,,,
 Salamence,20,move,3,Draco Meteor,64.1%,,,,,,,,
-Salamence,20,move,4,Tailwind,60.5%,,,,,,,,
+Salamence,20,move,4,Tailwind,60.4%,,,,,,,,
 Salamence,20,move,5,Flamethrower,38.4%,,,,,,,,
-Salamence,20,move,6,Double-Edge,13.9%,,,,,,,,
+Salamence,20,move,6,Double-Edge,14.0%,,,,,,,,
 Salamence,20,move,7,Dragon Pulse,9.6%,,,,,,,,
 Salamence,20,move,8,Heat Wave,5.3%,,,,,,,,
-Salamence,20,move,9,Dragon Claw,3.5%,,,,,,,,
+Salamence,20,move,9,Dragon Claw,3.6%,,,,,,,,
 Salamence,20,move,10,Dragon Dance,2.2%,,,,,,,,
 Salamence,20,held_item,1,Salamencite,96.3%,,,,,,,,
 Salamence,20,held_item,2,Life Orb,0.8%,,,,,,,,
@@ -30,9 +30,9 @@ Salamence,20,teammate,8,Incineroar,,,,,,,,,
 Salamence,20,teammate,9,Excadrill,,,,,,,,,
 Salamence,20,teammate,10,Gholdengo,,,,,,,,,
 Salamence,20,stat_alignment,1,Timid,43.7%,Speed,Attack,,,,,,
-Salamence,20,stat_alignment,2,Modest,37.8%,Sp. Atk,Attack,,,,,,
+Salamence,20,stat_alignment,2,Modest,37.7%,Sp. Atk,Attack,,,,,,
 Salamence,20,stat_alignment,3,Hasty,8.0%,Speed,Defense,,,,,,
-Salamence,20,stat_alignment,4,Adamant,3.6%,Attack,Sp. Atk,,,,,,
+Salamence,20,stat_alignment,4,Adamant,3.7%,Attack,Sp. Atk,,,,,,
 Salamence,20,stat_alignment,5,Jolly,2.8%,Speed,Sp. Atk,,,,,,
 Salamence,20,stat_alignment,6,Naive,2.1%,Speed,Sp. Def,,,,,,
 Salamence,20,stat_alignment,7,Lonely,0.4%,Attack,Defense,,,,,,
@@ -46,8 +46,8 @@ Salamence,20,stat_points,4,,3.2%,,,2,32,0,0,0,32
 Salamence,20,stat_points,5,,3.0%,,,21,0,0,20,2,23
 Salamence,20,stat_points,6,,2.7%,,,0,0,0,32,2,32
 Salamence,20,stat_points,7,,2.1%,,,15,0,0,0,31,20
-Salamence,20,stat_points,8,,1.7%,,,5,0,0,20,9,32
-Salamence,20,stat_points,9,,1.7%,,,1,0,1,32,0,32
+Salamence,20,stat_points,8,,1.7%,,,1,0,1,32,0,32
+Salamence,20,stat_points,9,,1.7%,,,5,0,0,20,9,32
 Salamence,20,stat_points,10,,1.5%,,,13,1,0,0,28,24
 Salamence,20,ability,1,Intimidate,99.1%,,,,,,,,
 Salamence,20,ability,2,Moxie,0.9%,,,,,,,,

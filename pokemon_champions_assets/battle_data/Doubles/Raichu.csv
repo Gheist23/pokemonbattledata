@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Raichu,9,move,1,Fake Out,82.5%,,,,,,,,
-Raichu,9,move,2,Protect,70.8%,,,,,,,,
-Raichu,9,move,3,Zap Cannon,65.7%,,,,,,,,
-Raichu,9,move,4,Focus Blast,63.8%,,,,,,,,
+Raichu,9,move,2,Protect,70.9%,,,,,,,,
+Raichu,9,move,3,Zap Cannon,65.8%,,,,,,,,
+Raichu,9,move,4,Focus Blast,63.9%,,,,,,,,
 Raichu,9,move,5,Volt Switch,25.3%,,,,,,,,
 Raichu,9,move,6,Volt Tackle,24.9%,,,,,,,,
-Raichu,9,move,7,Encore,19.2%,,,,,,,,
+Raichu,9,move,7,Encore,18.9%,,,,,,,,
 Raichu,9,move,8,Feint,16.5%,,,,,,,,
 Raichu,9,move,9,Rising Voltage,4.2%,,,,,,,,
 Raichu,9,move,10,Charm,3.3%,,,,,,,,
-Raichu,9,held_item,1,Raichunite Y,65.6%,,,,,,,,
+Raichu,9,held_item,1,Raichunite Y,65.7%,,,,,,,,
 Raichu,9,held_item,2,Raichunite X,29.9%,,,,,,,,
 Raichu,9,held_item,3,Focus Sash,2.8%,,,,,,,,
 Raichu,9,held_item,4,Shuca Berry,0.2%,,,,,,,,
@@ -29,7 +29,7 @@ Raichu,9,teammate,7,Gholdengo,,,,,,,,,
 Raichu,9,teammate,8,Garchomp,,,,,,,,,
 Raichu,9,teammate,9,Basculegion-F,,,,,,,,,
 Raichu,9,teammate,10,Staraptor,,,,,,,,,
-Raichu,9,stat_alignment,1,Timid,68.4%,Speed,Attack,,,,,,
+Raichu,9,stat_alignment,1,Timid,68.3%,Speed,Attack,,,,,,
 Raichu,9,stat_alignment,2,Jolly,23.7%,Speed,Sp. Atk,,,,,,
 Raichu,9,stat_alignment,3,Modest,4.9%,Sp. Atk,Attack,,,,,,
 Raichu,9,stat_alignment,4,Adamant,1.2%,Attack,Sp. Atk,,,,,,
@@ -39,10 +39,10 @@ Raichu,9,stat_alignment,7,Brave,0.3%,Attack,Speed,,,,,,
 Raichu,9,stat_alignment,8,Naive,0.2%,Speed,Sp. Def,,,,,,
 Raichu,9,stat_alignment,9,Quiet,0.2%,Sp. Atk,Speed,,,,,,
 Raichu,9,stat_alignment,10,Impish,0.1%,Defense,Sp. Atk,,,,,,
-Raichu,9,stat_points,1,,14.8%,,,2,0,0,32,0,32
-Raichu,9,stat_points,2,,10.0%,,,32,0,11,0,0,23
-Raichu,9,stat_points,3,,4.4%,,,2,32,0,0,0,32
-Raichu,9,stat_points,4,,4.3%,,,32,0,2,0,0,32
+Raichu,9,stat_points,1,,14.9%,,,2,0,0,32,0,32
+Raichu,9,stat_points,2,,10.1%,,,32,0,11,0,0,23
+Raichu,9,stat_points,3,,4.5%,,,2,32,0,0,0,32
+Raichu,9,stat_points,4,,4.2%,,,32,0,2,0,0,32
 Raichu,9,stat_points,5,,4.2%,,,24,1,10,0,3,28
 Raichu,9,stat_points,6,,3.9%,,,30,0,4,0,0,32
 Raichu,9,stat_points,7,,2.5%,,,0,0,2,32,0,32

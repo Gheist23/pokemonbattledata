@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Lucario,5,move,1,Dark Pulse,81.7%,,,,,,,,
-Lucario,5,move,2,Aura Sphere,70.7%,,,,,,,,
+Lucario,5,move,2,Aura Sphere,70.8%,,,,,,,,
 Lucario,5,move,3,Vacuum Wave,56.1%,,,,,,,,
 Lucario,5,move,4,Steel Beam,52.4%,,,,,,,,
 Lucario,5,move,5,Nasty Plot,44.0%,,,,,,,,
 Lucario,5,move,6,Flash Cannon,37.5%,,,,,,,,
-Lucario,5,move,7,Close Combat,11.7%,,,,,,,,
+Lucario,5,move,7,Close Combat,11.6%,,,,,,,,
 Lucario,5,move,8,Meteor Mash,8.4%,,,,,,,,
 Lucario,5,move,9,Bullet Punch,7.6%,,,,,,,,
 Lucario,5,move,10,Swords Dance,7.5%,,,,,,,,
-Lucario,5,held_item,1,Lucarionite Z,84.9%,,,,,,,,
+Lucario,5,held_item,1,Lucarionite Z,85.0%,,,,,,,,
 Lucario,5,held_item,2,Lucarionite,14.4%,,,,,,,,
 Lucario,5,held_item,3,Focus Sash,0.4%,,,,,,,,
 Lucario,5,held_item,4,Choice Scarf,0.1%,,,,,,,,
@@ -29,9 +29,9 @@ Lucario,5,teammate,7,Rillaboom,,,,,,,,,
 Lucario,5,teammate,8,Dragonite,,,,,,,,,
 Lucario,5,teammate,9,Salamence,,,,,,,,,
 Lucario,5,teammate,10,Meowscarada,,,,,,,,,
-Lucario,5,stat_alignment,1,Timid,55.1%,Speed,Attack,,,,,,
+Lucario,5,stat_alignment,1,Timid,55.2%,Speed,Attack,,,,,,
 Lucario,5,stat_alignment,2,Modest,31.9%,Sp. Atk,Attack,,,,,,
-Lucario,5,stat_alignment,3,Jolly,8.2%,Speed,Sp. Atk,,,,,,
+Lucario,5,stat_alignment,3,Jolly,8.1%,Speed,Sp. Atk,,,,,,
 Lucario,5,stat_alignment,4,Adamant,3.6%,Attack,Sp. Atk,,,,,,
 Lucario,5,stat_alignment,5,Naive,0.5%,Speed,Sp. Def,,,,,,
 Lucario,5,stat_alignment,6,Hasty,0.3%,Speed,Defense,,,,,,
@@ -40,7 +40,7 @@ Lucario,5,stat_alignment,8,Lonely,0.1%,Attack,Defense,,,,,,
 Lucario,5,stat_alignment,9,Naughty,0.1%,Attack,Sp. Def,,,,,,
 Lucario,5,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Lucario,5,stat_points,1,,52.6%,,,2,0,0,32,0,32
-Lucario,5,stat_points,2,,8.4%,,,2,32,0,0,0,32
+Lucario,5,stat_points,2,,8.3%,,,2,32,0,0,0,32
 Lucario,5,stat_points,3,,5.2%,,,30,0,11,16,0,9
 Lucario,5,stat_points,4,,4.8%,,,1,0,0,32,1,32
 Lucario,5,stat_points,5,,2.4%,,,4,0,0,32,0,30

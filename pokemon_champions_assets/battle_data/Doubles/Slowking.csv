@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slowking,137,move,1,Trick Room,94.8%,,,,,,,,
-Slowking,137,move,2,Scald,67.4%,,,,,,,,
-Slowking,137,move,3,Expanding Force,62.9%,,,,,,,,
-Slowking,137,move,4,Flamethrower,50.3%,,,,,,,,
-Slowking,137,move,5,Ice Beam,22.6%,,,,,,,,
-Slowking,137,move,6,Sunny Day,21.6%,,,,,,,,
-Slowking,137,move,7,Surf,21.5%,,,,,,,,
-Slowking,137,move,8,Chilly Reception,9.2%,,,,,,,,
-Slowking,137,move,9,Psychic,8.6%,,,,,,,,
-Slowking,137,move,10,Muddy Water,5.5%,,,,,,,,
-Slowking,137,held_item,1,Life Orb,57.0%,,,,,,,,
-Slowking,137,held_item,2,Electric Seed,19.1%,,,,,,,,
-Slowking,137,held_item,3,Leftovers,9.4%,,,,,,,,
+Slowking,137,move,1,Trick Room,94.5%,,,,,,,,
+Slowking,137,move,2,Scald,67.3%,,,,,,,,
+Slowking,137,move,3,Expanding Force,63.3%,,,,,,,,
+Slowking,137,move,4,Flamethrower,50.5%,,,,,,,,
+Slowking,137,move,5,Ice Beam,21.8%,,,,,,,,
+Slowking,137,move,6,Surf,20.8%,,,,,,,,
+Slowking,137,move,7,Sunny Day,20.6%,,,,,,,,
+Slowking,137,move,8,Chilly Reception,10.2%,,,,,,,,
+Slowking,137,move,9,Psychic,8.8%,,,,,,,,
+Slowking,137,move,10,Muddy Water,5.8%,,,,,,,,
+Slowking,137,held_item,1,Life Orb,57.4%,,,,,,,,
+Slowking,137,held_item,2,Electric Seed,18.0%,,,,,,,,
+Slowking,137,held_item,3,Leftovers,9.2%,,,,,,,,
 Slowking,137,held_item,4,Sitrus Berry,5.5%,,,,,,,,
-Slowking,137,held_item,5,Focus Sash,2.0%,,,,,,,,
-Slowking,137,held_item,6,Rocky Helmet,1.9%,,,,,,,,
-Slowking,137,held_item,7,Colbur Berry,1.6%,,,,,,,,
-Slowking,137,held_item,8,Mental Herb,1.6%,,,,,,,,
+Slowking,137,held_item,5,Focus Sash,2.1%,,,,,,,,
+Slowking,137,held_item,6,Rocky Helmet,2.1%,,,,,,,,
+Slowking,137,held_item,7,Colbur Berry,2.0%,,,,,,,,
+Slowking,137,held_item,8,Mental Herb,1.7%,,,,,,,,
 Slowking,137,held_item,9,Bright Powder,0.8%,,,,,,,,
 Slowking,137,held_item,10,Red Card,0.4%,,,,,,,,
 Slowking,137,teammate,1,Indeedee-F,,,,,,,,,
@@ -26,26 +26,27 @@ Slowking,137,teammate,4,Metagross,,,,,,,,,
 Slowking,137,teammate,5,Kingambit,,,,,,,,,
 Slowking,137,teammate,6,Raichu,,,,,,,,,
 Slowking,137,teammate,7,Farigiraf,,,,,,,,,
-Slowking,137,teammate,8,Arboliva,,,,,,,,,
-Slowking,137,teammate,9,Basculegion,,,,,,,,,
-Slowking,137,teammate,10,Glimmora,,,,,,,,,
-Slowking,137,stat_alignment,1,Quiet,79.0%,Sp. Atk,Speed,,,,,,
-Slowking,137,stat_alignment,2,Relaxed,6.8%,Defense,Speed,,,,,,
+Slowking,137,teammate,8,Glimmora,,,,,,,,,
+Slowking,137,teammate,9,Arboliva,,,,,,,,,
+Slowking,137,teammate,10,Basculegion,,,,,,,,,
+Slowking,137,stat_alignment,1,Quiet,78.0%,Sp. Atk,Speed,,,,,,
+Slowking,137,stat_alignment,2,Relaxed,7.0%,Defense,Speed,,,,,,
 Slowking,137,stat_alignment,3,Sassy,5.4%,Sp. Def,Speed,,,,,,
-Slowking,137,stat_alignment,4,Modest,4.6%,Sp. Atk,Attack,,,,,,
-Slowking,137,stat_alignment,5,Bold,3.6%,Defense,Attack,,,,,,
+Slowking,137,stat_alignment,4,Modest,4.9%,Sp. Atk,Attack,,,,,,
+Slowking,137,stat_alignment,5,Bold,4.2%,Defense,Attack,,,,,,
 Slowking,137,stat_alignment,6,Calm,0.5%,Sp. Def,Attack,,,,,,
 Slowking,137,stat_alignment,7,Gentle,0.0%,Sp. Def,Defense,,,,,,
-Slowking,137,stat_points,1,,48.3%,,,29,0,5,32,0,0
-Slowking,137,stat_points,2,,19.4%,,,31,0,4,16,15,0
+Slowking,137,stat_alignment,8,Adamant,0.0%,Attack,Sp. Atk,,,,,,
+Slowking,137,stat_points,1,,48.2%,,,29,0,5,32,0,0
+Slowking,137,stat_points,2,,18.2%,,,31,0,4,16,15,0
 Slowking,137,stat_points,3,,6.8%,,,32,0,2,32,0,0
 Slowking,137,stat_points,4,,3.8%,,,32,0,0,32,2,0
-Slowking,137,stat_points,5,,2.5%,,,2,0,32,0,32,0
-Slowking,137,stat_points,6,,1.9%,,,32,0,0,30,0,4
-Slowking,137,stat_points,7,,1.6%,,,32,0,2,0,32,0
-Slowking,137,stat_points,8,,1.4%,,,31,0,23,7,5,0
-Slowking,137,stat_points,9,,1.4%,,,32,0,32,0,2,0
-Slowking,137,stat_points,10,,1.4%,,,32,0,30,0,4,0
-Slowking,137,ability,1,Regenerator,74.3%,,,,,,,,
-Slowking,137,ability,2,Oblivious,24.1%,,,,,,,,
-Slowking,137,ability,3,Own Tempo,1.6%,,,,,,,,
+Slowking,137,stat_points,5,,2.3%,,,2,0,32,0,32,0
+Slowking,137,stat_points,6,,2.0%,,,32,0,0,30,0,4
+Slowking,137,stat_points,7,,1.4%,,,32,0,2,0,32,0
+Slowking,137,stat_points,8,,1.4%,,,32,0,30,0,4,0
+Slowking,137,stat_points,9,,1.3%,,,31,0,23,7,5,0
+Slowking,137,stat_points,10,,1.3%,,,32,0,32,0,2,0
+Slowking,137,ability,1,Regenerator,75.0%,,,,,,,,
+Slowking,137,ability,2,Oblivious,23.3%,,,,,,,,
+Slowking,137,ability,3,Own Tempo,1.7%,,,,,,,,

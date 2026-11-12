@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Mr. Mime,227,move,1,Dazzling Gleam,68.5%,,,,,,,,
+Mr. Mime,227,move,1,Dazzling Gleam,68.4%,,,,,,,,
 Mr. Mime,227,move,2,Psychic,65.7%,,,,,,,,
-Mr. Mime,227,move,3,Thunderbolt,35.5%,,,,,,,,
-Mr. Mime,227,move,4,Icy Wind,26.6%,,,,,,,,
-Mr. Mime,227,move,5,Shadow Ball,22.0%,,,,,,,,
-Mr. Mime,227,move,6,Mystical Fire,20.5%,,,,,,,,
-Mr. Mime,227,move,7,Focus Blast,19.4%,,,,,,,,
-Mr. Mime,227,move,8,Encore,19.0%,,,,,,,,
-Mr. Mime,227,move,9,Trick Room,10.8%,,,,,,,,
-Mr. Mime,227,move,10,Nasty Plot,9.7%,,,,,,,,
-Mr. Mime,227,held_item,1,Focus Sash,25.0%,,,,,,,,
-Mr. Mime,227,held_item,2,Life Orb,24.9%,,,,,,,,
-Mr. Mime,227,held_item,3,Sitrus Berry,15.2%,,,,,,,,
+Mr. Mime,227,move,3,Thunderbolt,35.4%,,,,,,,,
+Mr. Mime,227,move,4,Icy Wind,26.5%,,,,,,,,
+Mr. Mime,227,move,5,Shadow Ball,21.8%,,,,,,,,
+Mr. Mime,227,move,6,Mystical Fire,20.4%,,,,,,,,
+Mr. Mime,227,move,7,Focus Blast,19.3%,,,,,,,,
+Mr. Mime,227,move,8,Encore,19.3%,,,,,,,,
+Mr. Mime,227,move,9,Trick Room,10.9%,,,,,,,,
+Mr. Mime,227,move,10,Nasty Plot,9.6%,,,,,,,,
+Mr. Mime,227,held_item,1,Focus Sash,24.9%,,,,,,,,
+Mr. Mime,227,held_item,2,Life Orb,24.8%,,,,,,,,
+Mr. Mime,227,held_item,3,Sitrus Berry,15.3%,,,,,,,,
 Mr. Mime,227,held_item,4,Bright Powder,6.1%,,,,,,,,
 Mr. Mime,227,held_item,5,Leftovers,5.2%,,,,,,,,
-Mr. Mime,227,held_item,6,Light Clay,4.6%,,,,,,,,
-Mr. Mime,227,held_item,7,Choice Scarf,4.5%,,,,,,,,
+Mr. Mime,227,held_item,6,Choice Scarf,4.8%,,,,,,,,
+Mr. Mime,227,held_item,7,Light Clay,4.6%,,,,,,,,
 Mr. Mime,227,held_item,8,Expert Belt,4.0%,,,,,,,,
 Mr. Mime,227,held_item,9,Kebia Berry,2.1%,,,,,,,,
 Mr. Mime,227,held_item,10,Quick Claw,1.8%,,,,,,,,
@@ -26,28 +26,29 @@ Mr. Mime,227,teammate,4,Pincurchin,,,,,,,,,
 Mr. Mime,227,teammate,5,Charizard,,,,,,,,,
 Mr. Mime,227,teammate,6,Meowscarada,,,,,,,,,
 Mr. Mime,227,teammate,7,Toxtricity,,,,,,,,,
-Mr. Mime,227,teammate,8,Morpeko,,,,,,,,,
-Mr. Mime,227,teammate,9,Tyranitar,,,,,,,,,
-Mr. Mime,227,teammate,10,Runerigus,,,,,,,,,
-Mr. Mime,227,stat_alignment,1,Timid,48.1%,Speed,Attack,,,,,,
-Mr. Mime,227,stat_alignment,2,Modest,28.8%,Sp. Atk,Attack,,,,,,
+Mr. Mime,227,teammate,8,Tyranitar,,,,,,,,,
+Mr. Mime,227,teammate,9,Morpeko,,,,,,,,,
+Mr. Mime,227,teammate,10,Houndoom,,,,,,,,,
+Mr. Mime,227,stat_alignment,1,Timid,47.9%,Speed,Attack,,,,,,
+Mr. Mime,227,stat_alignment,2,Modest,28.6%,Sp. Atk,Attack,,,,,,
 Mr. Mime,227,stat_alignment,3,Calm,12.8%,Sp. Def,Attack,,,,,,
-Mr. Mime,227,stat_alignment,4,Bold,9.3%,Defense,Attack,,,,,,
+Mr. Mime,227,stat_alignment,4,Bold,9.4%,Defense,Attack,,,,,,
 Mr. Mime,227,stat_alignment,5,Gentle,0.6%,Sp. Def,Defense,,,,,,
-Mr. Mime,227,stat_alignment,6,Relaxed,0.2%,Defense,Speed,,,,,,
-Mr. Mime,227,stat_alignment,7,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Mr. Mime,227,stat_alignment,8,Hasty,0.1%,Speed,Defense,,,,,,
-Mr. Mime,227,stat_alignment,9,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
-Mr. Mime,227,stat_points,1,,32.4%,,,0,0,0,32,2,32
-Mr. Mime,227,stat_points,2,,24.5%,,,2,0,0,32,0,32
-Mr. Mime,227,stat_points,3,,14.4%,,,32,0,32,0,2,0
+Mr. Mime,227,stat_alignment,6,Jolly,0.2%,Speed,Sp. Atk,,,,,,
+Mr. Mime,227,stat_alignment,7,Relaxed,0.2%,Defense,Speed,,,,,,
+Mr. Mime,227,stat_alignment,8,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Mr. Mime,227,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
+Mr. Mime,227,stat_alignment,10,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
+Mr. Mime,227,stat_points,1,,32.3%,,,0,0,0,32,2,32
+Mr. Mime,227,stat_points,2,,24.4%,,,2,0,0,32,0,32
+Mr. Mime,227,stat_points,3,,14.6%,,,32,0,32,0,2,0
 Mr. Mime,227,stat_points,4,,3.3%,,,2,0,0,32,3,29
-Mr. Mime,227,stat_points,5,,3.1%,,,0,0,22,16,0,28
+Mr. Mime,227,stat_points,5,,3.0%,,,0,0,22,16,0,28
 Mr. Mime,227,stat_points,6,,2.2%,,,0,0,2,32,32,0
 Mr. Mime,227,stat_points,7,,1.8%,,,0,0,0,32,0,32
 Mr. Mime,227,stat_points,8,,1.7%,,,0,0,32,0,32,0
 Mr. Mime,227,stat_points,9,,1.4%,,,32,0,32,0,0,0
 Mr. Mime,227,stat_points,10,,1.2%,,,22,0,1,32,1,10
-Mr. Mime,227,ability,1,Filter,43.4%,,,,,,,,
-Mr. Mime,227,ability,2,Soundproof,37.1%,,,,,,,,
-Mr. Mime,227,ability,3,Technician,19.5%,,,,,,,,
+Mr. Mime,227,ability,1,Filter,43.7%,,,,,,,,
+Mr. Mime,227,ability,2,Soundproof,36.9%,,,,,,,,
+Mr. Mime,227,ability,3,Technician,19.4%,,,,,,,,

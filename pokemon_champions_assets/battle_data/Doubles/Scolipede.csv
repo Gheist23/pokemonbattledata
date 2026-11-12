@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Scolipede,185,move,1,Protect,93.7%,,,,,,,,
 Scolipede,185,move,2,Leech Life,70.0%,,,,,,,,
-Scolipede,185,move,3,Swords Dance,56.1%,,,,,,,,
+Scolipede,185,move,3,Swords Dance,56.2%,,,,,,,,
 Scolipede,185,move,4,Poison Jab,51.3%,,,,,,,,
-Scolipede,185,move,5,Earthquake,20.5%,,,,,,,,
-Scolipede,185,move,6,Gunk Shot,18.9%,,,,,,,,
-Scolipede,185,move,7,Rock Slide,17.7%,,,,,,,,
-Scolipede,185,move,8,Megahorn,12.7%,,,,,,,,
-Scolipede,185,move,9,Baton Pass,12.6%,,,,,,,,
+Scolipede,185,move,5,Earthquake,20.4%,,,,,,,,
+Scolipede,185,move,6,Gunk Shot,18.8%,,,,,,,,
+Scolipede,185,move,7,Rock Slide,17.8%,,,,,,,,
+Scolipede,185,move,8,Baton Pass,12.8%,,,,,,,,
+Scolipede,185,move,9,Megahorn,12.6%,,,,,,,,
 Scolipede,185,move,10,Steel Roller,8.0%,,,,,,,,
-Scolipede,185,held_item,1,Scolipite,49.0%,,,,,,,,
+Scolipede,185,held_item,1,Scolipite,48.9%,,,,,,,,
 Scolipede,185,held_item,2,Life Orb,16.7%,,,,,,,,
-Scolipede,185,held_item,3,Focus Sash,12.0%,,,,,,,,
+Scolipede,185,held_item,3,Focus Sash,12.1%,,,,,,,,
 Scolipede,185,held_item,4,Expert Belt,4.0%,,,,,,,,
 Scolipede,185,held_item,5,Grassy Seed,2.8%,,,,,,,,
 Scolipede,185,held_item,6,Psychic Seed,2.4%,,,,,,,,
-Scolipede,185,held_item,7,Occa Berry,1.8%,,,,,,,,
+Scolipede,185,held_item,7,Occa Berry,2.0%,,,,,,,,
 Scolipede,185,held_item,8,Focus Band,1.5%,,,,,,,,
 Scolipede,185,held_item,9,White Herb,1.4%,,,,,,,,
 Scolipede,185,held_item,10,Shell Bell,1.4%,,,,,,,,
@@ -24,12 +24,12 @@ Scolipede,185,teammate,2,Garchomp,,,,,,,,,
 Scolipede,185,teammate,3,Milotic,,,,,,,,,
 Scolipede,185,teammate,4,Pelipper,,,,,,,,,
 Scolipede,185,teammate,5,Rillaboom,,,,,,,,,
-Scolipede,185,teammate,6,Sinistcha,,,,,,,,,
-Scolipede,185,teammate,7,Incineroar,,,,,,,,,
+Scolipede,185,teammate,6,Incineroar,,,,,,,,,
+Scolipede,185,teammate,7,Sinistcha,,,,,,,,,
 Scolipede,185,teammate,8,Charizard,,,,,,,,,
 Scolipede,185,teammate,9,Sneasler,,,,,,,,,
 Scolipede,185,teammate,10,Archaludon,,,,,,,,,
-Scolipede,185,stat_alignment,1,Adamant,58.9%,Attack,Sp. Atk,,,,,,
+Scolipede,185,stat_alignment,1,Adamant,58.8%,Attack,Sp. Atk,,,,,,
 Scolipede,185,stat_alignment,2,Jolly,25.1%,Speed,Sp. Atk,,,,,,
 Scolipede,185,stat_alignment,3,Careful,10.3%,Sp. Def,Sp. Atk,,,,,,
 Scolipede,185,stat_alignment,4,Brave,2.1%,Attack,Speed,,,,,,
@@ -39,11 +39,11 @@ Scolipede,185,stat_alignment,7,Hasty,0.5%,Speed,Defense,,,,,,
 Scolipede,185,stat_alignment,8,Naughty,0.3%,Attack,Sp. Def,,,,,,
 Scolipede,185,stat_alignment,9,Gentle,0.3%,Sp. Def,Defense,,,,,,
 Scolipede,185,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
-Scolipede,185,stat_points,1,,11.4%,,,2,32,0,0,0,32
+Scolipede,185,stat_points,1,,11.5%,,,2,32,0,0,0,32
 Scolipede,185,stat_points,2,,11.0%,,,32,6,0,0,0,28
 Scolipede,185,stat_points,3,,10.7%,,,0,32,2,0,0,32
 Scolipede,185,stat_points,4,,5.4%,,,32,32,0,0,0,2
-Scolipede,185,stat_points,5,,4.7%,,,32,32,0,0,2,0
+Scolipede,185,stat_points,5,,4.6%,,,32,32,0,0,2,0
 Scolipede,185,stat_points,6,,4.0%,,,0,32,0,0,2,32
 Scolipede,185,stat_points,7,,3.1%,,,20,32,0,0,0,14
 Scolipede,185,stat_points,8,,2.9%,,,32,2,0,0,32,0
@@ -51,4 +51,4 @@ Scolipede,185,stat_points,9,,2.7%,,,0,32,2,0,32,0
 Scolipede,185,stat_points,10,,2.6%,,,5,31,0,0,0,30
 Scolipede,185,ability,1,Speed Boost,97.9%,,,,,,,,
 Scolipede,185,ability,2,Poison Point,1.4%,,,,,,,,
-Scolipede,185,ability,3,Swarm,0.8%,,,,,,,,
+Scolipede,185,ability,3,Swarm,0.7%,,,,,,,,

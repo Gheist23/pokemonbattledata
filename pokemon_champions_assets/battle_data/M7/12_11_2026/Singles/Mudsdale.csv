@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Mudsdale,177,move,1,Earthquake,76.1%,,,,,,,,
 Mudsdale,177,move,2,Body Press,72.0%,,,,,,,,
-Mudsdale,177,move,3,Stealth Rock,60.0%,,,,,,,,
+Mudsdale,177,move,3,Stealth Rock,59.9%,,,,,,,,
 Mudsdale,177,move,4,Roar,45.5%,,,,,,,,
-Mudsdale,177,move,5,Rest,30.4%,,,,,,,,
+Mudsdale,177,move,5,Rest,30.5%,,,,,,,,
 Mudsdale,177,move,6,Fissure,22.2%,,,,,,,,
-Mudsdale,177,move,7,Iron Defense,15.8%,,,,,,,,
-Mudsdale,177,move,8,Smack Down,12.6%,,,,,,,,
+Mudsdale,177,move,7,Iron Defense,15.7%,,,,,,,,
+Mudsdale,177,move,8,Smack Down,12.5%,,,,,,,,
 Mudsdale,177,move,9,Rock Tomb,9.1%,,,,,,,,
 Mudsdale,177,move,10,Sleep Talk,9.0%,,,,,,,,
 Mudsdale,177,held_item,1,Leftovers,33.3%,,,,,,,,
@@ -14,7 +14,7 @@ Mudsdale,177,held_item,2,Sitrus Berry,32.9%,,,,,,,,
 Mudsdale,177,held_item,3,Chesto Berry,15.9%,,,,,,,,
 Mudsdale,177,held_item,4,Rocky Helmet,9.0%,,,,,,,,
 Mudsdale,177,held_item,5,Lum Berry,2.7%,,,,,,,,
-Mudsdale,177,held_item,6,Quick Claw,2.1%,,,,,,,,
+Mudsdale,177,held_item,6,Quick Claw,2.0%,,,,,,,,
 Mudsdale,177,held_item,7,Expert Belt,1.0%,,,,,,,,
 Mudsdale,177,held_item,8,Life Orb,1.0%,,,,,,,,
 Mudsdale,177,held_item,9,Focus Sash,1.0%,,,,,,,,
@@ -39,9 +39,9 @@ Mudsdale,177,stat_alignment,7,Sassy,0.6%,Sp. Def,Speed,,,,,,
 Mudsdale,177,stat_alignment,8,Calm,0.4%,Sp. Def,Attack,,,,,,
 Mudsdale,177,stat_alignment,9,Naughty,0.2%,Attack,Sp. Def,,,,,,
 Mudsdale,177,stat_alignment,10,Bold,0.1%,Defense,Attack,,,,,,
-Mudsdale,177,stat_points,1,,31.0%,,,32,0,32,0,2,0
+Mudsdale,177,stat_points,1,,30.9%,,,32,0,32,0,2,0
 Mudsdale,177,stat_points,2,,14.1%,,,32,0,2,0,32,0
-Mudsdale,177,stat_points,3,,8.2%,,,32,2,32,0,0,0
+Mudsdale,177,stat_points,3,,8.1%,,,32,2,32,0,0,0
 Mudsdale,177,stat_points,4,,4.4%,,,2,0,32,0,32,0
 Mudsdale,177,stat_points,5,,3.5%,,,2,32,32,0,0,0
 Mudsdale,177,stat_points,6,,3.1%,,,32,0,32,0,0,2

@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Blastoise,42,move,1,Shell Smash,87.6%,,,,,,,,
-Blastoise,42,move,2,Aura Sphere,84.2%,,,,,,,,
+Blastoise,42,move,2,Aura Sphere,84.1%,,,,,,,,
 Blastoise,42,move,3,Dark Pulse,77.9%,,,,,,,,
 Blastoise,42,move,4,Terrain Pulse,53.9%,,,,,,,,
 Blastoise,42,move,5,Ice Beam,29.9%,,,,,,,,
 Blastoise,42,move,6,Water Pulse,22.3%,,,,,,,,
-Blastoise,42,move,7,Water Spout,14.3%,,,,,,,,
+Blastoise,42,move,7,Water Spout,14.2%,,,,,,,,
 Blastoise,42,move,8,Surf,8.0%,,,,,,,,
-Blastoise,42,move,9,Dragon Pulse,5.8%,,,,,,,,
+Blastoise,42,move,9,Dragon Pulse,5.9%,,,,,,,,
 Blastoise,42,move,10,Mirror Coat,3.6%,,,,,,,,
 Blastoise,42,held_item,1,Blastoisinite,91.0%,,,,,,,,
 Blastoise,42,held_item,2,White Herb,2.4%,,,,,,,,
@@ -30,7 +30,7 @@ Blastoise,42,teammate,8,Lucario,,,,,,,,,
 Blastoise,42,teammate,9,Basculegion,,,,,,,,,
 Blastoise,42,teammate,10,Hippowdon,,,,,,,,,
 Blastoise,42,stat_alignment,1,Modest,78.2%,Sp. Atk,Attack,,,,,,
-Blastoise,42,stat_alignment,2,Timid,17.7%,Speed,Attack,,,,,,
+Blastoise,42,stat_alignment,2,Timid,17.8%,Speed,Attack,,,,,,
 Blastoise,42,stat_alignment,3,Quiet,1.4%,Sp. Atk,Speed,,,,,,
 Blastoise,42,stat_alignment,4,Bold,0.9%,Defense,Attack,,,,,,
 Blastoise,42,stat_alignment,5,Calm,0.5%,Sp. Def,Attack,,,,,,
@@ -39,7 +39,7 @@ Blastoise,42,stat_alignment,7,Mild,0.3%,Sp. Atk,Defense,,,,,,
 Blastoise,42,stat_alignment,8,Relaxed,0.2%,Defense,Speed,,,,,,
 Blastoise,42,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
 Blastoise,42,stat_alignment,10,Jolly,0.1%,Speed,Sp. Atk,,,,,,
-Blastoise,42,stat_points,1,,12.0%,,,2,0,0,32,0,32
+Blastoise,42,stat_points,1,,12.1%,,,2,0,0,32,0,32
 Blastoise,42,stat_points,2,,5.9%,,,1,0,1,32,0,32
 Blastoise,42,stat_points,3,,5.4%,,,5,0,0,32,0,29
 Blastoise,42,stat_points,4,,5.4%,,,11,0,0,25,0,30
@@ -49,5 +49,5 @@ Blastoise,42,stat_points,7,,2.0%,,,3,0,0,31,0,32
 Blastoise,42,stat_points,8,,1.9%,,,21,0,0,25,1,19
 Blastoise,42,stat_points,9,,1.9%,,,5,0,4,25,0,32
 Blastoise,42,stat_points,10,,1.8%,,,17,0,1,16,0,32
-Blastoise,42,ability,1,Torrent,62.6%,,,,,,,,
-Blastoise,42,ability,2,Rain Dish,37.4%,,,,,,,,
+Blastoise,42,ability,1,Torrent,62.7%,,,,,,,,
+Blastoise,42,ability,2,Rain Dish,37.3%,,,,,,,,

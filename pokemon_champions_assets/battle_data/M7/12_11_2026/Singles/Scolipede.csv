@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Scolipede,90,move,1,Baton Pass,59.1%,,,,,,,,
-Scolipede,90,move,2,Earthquake,54.1%,,,,,,,,
-Scolipede,90,move,3,Protect,51.7%,,,,,,,,
-Scolipede,90,move,4,Swords Dance,49.7%,,,,,,,,
+Scolipede,90,move,2,Earthquake,53.7%,,,,,,,,
+Scolipede,90,move,3,Protect,52.0%,,,,,,,,
+Scolipede,90,move,4,Swords Dance,49.9%,,,,,,,,
 Scolipede,90,move,5,Iron Defense,47.2%,,,,,,,,
-Scolipede,90,move,6,Substitute,38.3%,,,,,,,,
-Scolipede,90,move,7,Leech Life,37.4%,,,,,,,,
-Scolipede,90,move,8,Poison Jab,28.9%,,,,,,,,
+Scolipede,90,move,6,Substitute,37.9%,,,,,,,,
+Scolipede,90,move,7,Leech Life,37.6%,,,,,,,,
+Scolipede,90,move,8,Poison Jab,28.8%,,,,,,,,
 Scolipede,90,move,9,Gunk Shot,12.4%,,,,,,,,
 Scolipede,90,move,10,Rock Slide,6.6%,,,,,,,,
-Scolipede,90,held_item,1,Focus Sash,28.1%,,,,,,,,
-Scolipede,90,held_item,2,Scolipite,27.2%,,,,,,,,
-Scolipede,90,held_item,3,Sitrus Berry,16.6%,,,,,,,,
-Scolipede,90,held_item,4,Leftovers,8.3%,,,,,,,,
+Scolipede,90,held_item,1,Focus Sash,28.0%,,,,,,,,
+Scolipede,90,held_item,2,Scolipite,27.0%,,,,,,,,
+Scolipede,90,held_item,3,Sitrus Berry,16.3%,,,,,,,,
+Scolipede,90,held_item,4,Leftovers,8.8%,,,,,,,,
 Scolipede,90,held_item,5,Mental Herb,5.2%,,,,,,,,
-Scolipede,90,held_item,6,Life Orb,4.0%,,,,,,,,
-Scolipede,90,held_item,7,Psychic Seed,2.7%,,,,,,,,
+Scolipede,90,held_item,6,Life Orb,4.1%,,,,,,,,
+Scolipede,90,held_item,7,Psychic Seed,2.5%,,,,,,,,
 Scolipede,90,held_item,8,Lum Berry,1.7%,,,,,,,,
 Scolipede,90,held_item,9,Occa Berry,1.5%,,,,,,,,
 Scolipede,90,held_item,10,Bright Powder,1.3%,,,,,,,,
@@ -29,26 +29,26 @@ Scolipede,90,teammate,7,Archaludon,,,,,,,,,
 Scolipede,90,teammate,8,Volcarona,,,,,,,,,
 Scolipede,90,teammate,9,Golisopod,,,,,,,,,
 Scolipede,90,teammate,10,Primarina,,,,,,,,,
-Scolipede,90,stat_alignment,1,Adamant,36.6%,Attack,Sp. Atk,,,,,,
-Scolipede,90,stat_alignment,2,Jolly,28.2%,Speed,Sp. Atk,,,,,,
-Scolipede,90,stat_alignment,3,Impish,12.1%,Defense,Sp. Atk,,,,,,
-Scolipede,90,stat_alignment,4,Careful,9.0%,Sp. Def,Sp. Atk,,,,,,
+Scolipede,90,stat_alignment,1,Adamant,36.5%,Attack,Sp. Atk,,,,,,
+Scolipede,90,stat_alignment,2,Jolly,27.8%,Speed,Sp. Atk,,,,,,
+Scolipede,90,stat_alignment,3,Impish,12.3%,Defense,Sp. Atk,,,,,,
+Scolipede,90,stat_alignment,4,Careful,9.2%,Sp. Def,Sp. Atk,,,,,,
 Scolipede,90,stat_alignment,5,Bold,6.4%,Defense,Attack,,,,,,
 Scolipede,90,stat_alignment,6,Timid,5.2%,Speed,Attack,,,,,,
-Scolipede,90,stat_alignment,7,Calm,1.5%,Sp. Def,Attack,,,,,,
-Scolipede,90,stat_alignment,8,Hasty,0.4%,Speed,Defense,,,,,,
-Scolipede,90,stat_alignment,9,Serious,0.3%,,,,,,,,
-Scolipede,90,stat_alignment,10,Brave,0.1%,Attack,Speed,,,,,,
-Scolipede,90,stat_points,1,,12.1%,,,2,32,0,0,0,32
-Scolipede,90,stat_points,2,,9.3%,,,32,0,0,0,2,32
-Scolipede,90,stat_points,3,,5.5%,,,24,20,0,0,0,22
-Scolipede,90,stat_points,4,,4.7%,,,32,0,2,0,32,0
-Scolipede,90,stat_points,5,,3.8%,,,30,0,30,0,0,6
+Scolipede,90,stat_alignment,7,Calm,1.6%,Sp. Def,Attack,,,,,,
+Scolipede,90,stat_alignment,8,Serious,0.4%,,,,,,,,
+Scolipede,90,stat_alignment,9,Hasty,0.3%,Speed,Defense,,,,,,
+Scolipede,90,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
+Scolipede,90,stat_points,1,,11.9%,,,2,32,0,0,0,32
+Scolipede,90,stat_points,2,,9.1%,,,32,0,0,0,2,32
+Scolipede,90,stat_points,3,,5.4%,,,24,20,0,0,0,22
+Scolipede,90,stat_points,4,,5.0%,,,32,0,2,0,32,0
+Scolipede,90,stat_points,5,,3.7%,,,30,0,30,0,0,6
 Scolipede,90,stat_points,6,,2.7%,,,32,0,32,0,2,0
 Scolipede,90,stat_points,7,,2.5%,,,14,20,0,0,0,32
-Scolipede,90,stat_points,8,,2.5%,,,0,32,2,0,0,32
-Scolipede,90,stat_points,9,,2.3%,,,32,0,2,0,0,32
-Scolipede,90,stat_points,10,,2.0%,,,26,0,17,0,0,23
+Scolipede,90,stat_points,8,,2.4%,,,0,32,2,0,0,32
+Scolipede,90,stat_points,9,,2.4%,,,32,0,2,0,0,32
+Scolipede,90,stat_points,10,,2.2%,,,26,0,17,0,0,23
 Scolipede,90,ability,1,Speed Boost,99.8%,,,,,,,,
 Scolipede,90,ability,2,Poison Point,0.1%,,,,,,,,
-Scolipede,90,ability,3,Swarm,0.0%,,,,,,,,
+Scolipede,90,ability,3,Swarm,0.1%,,,,,,,,

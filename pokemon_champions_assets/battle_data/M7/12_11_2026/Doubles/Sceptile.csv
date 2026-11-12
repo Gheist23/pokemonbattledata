@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sceptile,80,move,1,Dragon Pulse,92.5%,,,,,,,,
 Sceptile,80,move,2,Earth Power,89.5%,,,,,,,,
-Sceptile,80,move,3,Detect,71.3%,,,,,,,,
+Sceptile,80,move,3,Detect,71.4%,,,,,,,,
 Sceptile,80,move,4,Energy Ball,54.5%,,,,,,,,
 Sceptile,80,move,5,Leaf Storm,31.5%,,,,,,,,
 Sceptile,80,move,6,Protect,20.1%,,,,,,,,
@@ -10,7 +10,7 @@ Sceptile,80,move,8,Shed Tail,4.0%,,,,,,,,
 Sceptile,80,move,9,Vacuum Wave,3.3%,,,,,,,,
 Sceptile,80,move,10,Focus Blast,3.2%,,,,,,,,
 Sceptile,80,held_item,1,Sceptilite,89.0%,,,,,,,,
-Sceptile,80,held_item,2,White Herb,2.2%,,,,,,,,
+Sceptile,80,held_item,2,White Herb,2.3%,,,,,,,,
 Sceptile,80,held_item,3,Psychic Seed,1.7%,,,,,,,,
 Sceptile,80,held_item,4,Electric Seed,1.4%,,,,,,,,
 Sceptile,80,held_item,5,Life Orb,1.0%,,,,,,,,
@@ -39,8 +39,8 @@ Sceptile,80,stat_alignment,7,Naive,0.4%,Speed,Sp. Def,,,,,,
 Sceptile,80,stat_alignment,8,Quiet,0.3%,Sp. Atk,Speed,,,,,,
 Sceptile,80,stat_alignment,9,Bold,0.3%,Defense,Attack,,,,,,
 Sceptile,80,stat_alignment,10,Jolly,0.2%,Speed,Sp. Atk,,,,,,
-Sceptile,80,stat_points,1,,53.7%,,,2,0,0,32,0,32
-Sceptile,80,stat_points,2,,7.7%,,,0,0,0,32,2,32
+Sceptile,80,stat_points,1,,53.8%,,,2,0,0,32,0,32
+Sceptile,80,stat_points,2,,7.6%,,,0,0,0,32,2,32
 Sceptile,80,stat_points,3,,6.1%,,,1,0,1,32,0,32
 Sceptile,80,stat_points,4,,5.2%,,,0,0,2,32,0,32
 Sceptile,80,stat_points,5,,1.7%,,,32,0,0,32,0,2

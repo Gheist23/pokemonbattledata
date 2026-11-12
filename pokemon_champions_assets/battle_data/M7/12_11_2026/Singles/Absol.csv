@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Absol,74,move,1,Shadow Claw,91.1%,,,,,,,,
+Absol,74,move,1,Shadow Claw,91.0%,,,,,,,,
 Absol,74,move,2,Sucker Punch,82.1%,,,,,,,,
-Absol,74,move,3,Close Combat,78.5%,,,,,,,,
-Absol,74,move,4,Swords Dance,74.8%,,,,,,,,
-Absol,74,move,5,Night Slash,20.9%,,,,,,,,
-Absol,74,move,6,Psycho Cut,10.3%,,,,,,,,
-Absol,74,move,7,Substitute,7.4%,,,,,,,,
+Absol,74,move,3,Close Combat,78.2%,,,,,,,,
+Absol,74,move,4,Swords Dance,74.6%,,,,,,,,
+Absol,74,move,5,Night Slash,21.1%,,,,,,,,
+Absol,74,move,6,Psycho Cut,10.2%,,,,,,,,
+Absol,74,move,7,Substitute,7.5%,,,,,,,,
 Absol,74,move,8,Shadow Sneak,5.0%,,,,,,,,
-Absol,74,move,9,X-Scissor,3.8%,,,,,,,,
+Absol,74,move,9,X-Scissor,3.9%,,,,,,,,
 Absol,74,move,10,Play Rough,3.3%,,,,,,,,
-Absol,74,held_item,1,Absolite Z,95.8%,,,,,,,,
-Absol,74,held_item,2,Absolite,3.9%,,,,,,,,
+Absol,74,held_item,1,Absolite Z,95.6%,,,,,,,,
+Absol,74,held_item,2,Absolite,4.1%,,,,,,,,
 Absol,74,held_item,3,Scope Lens,0.1%,,,,,,,,
 Absol,74,held_item,4,Focus Sash,0.1%,,,,,,,,
 Absol,74,held_item,5,Leftovers,0.0%,,,,,,,,
@@ -21,34 +21,34 @@ Absol,74,held_item,9,White Herb,0.0%,,,,,,,,
 Absol,74,held_item,10,Eject Button,0.0%,,,,,,,,
 Absol,74,teammate,1,Garchomp,,,,,,,,,
 Absol,74,teammate,2,Ninetales-Alola,,,,,,,,,
-Absol,74,teammate,3,Primarina,,,,,,,,,
-Absol,74,teammate,4,Archaludon,,,,,,,,,
+Absol,74,teammate,3,Archaludon,,,,,,,,,
+Absol,74,teammate,4,Primarina,,,,,,,,,
 Absol,74,teammate,5,Lucario,,,,,,,,,
 Absol,74,teammate,6,Hippowdon,,,,,,,,,
 Absol,74,teammate,7,Corviknight,,,,,,,,,
 Absol,74,teammate,8,Swampert,,,,,,,,,
 Absol,74,teammate,9,Glimmora,,,,,,,,,
 Absol,74,teammate,10,Gyarados,,,,,,,,,
-Absol,74,stat_alignment,1,Jolly,53.9%,Speed,Sp. Atk,,,,,,
-Absol,74,stat_alignment,2,Adamant,41.4%,Attack,Sp. Atk,,,,,,
+Absol,74,stat_alignment,1,Jolly,53.4%,Speed,Sp. Atk,,,,,,
+Absol,74,stat_alignment,2,Adamant,41.8%,Attack,Sp. Atk,,,,,,
 Absol,74,stat_alignment,3,Naive,2.3%,Speed,Sp. Def,,,,,,
-Absol,74,stat_alignment,4,Impish,0.6%,Defense,Sp. Atk,,,,,,
-Absol,74,stat_alignment,5,Timid,0.5%,Speed,Attack,,,,,,
-Absol,74,stat_alignment,6,Modest,0.3%,Sp. Atk,Attack,,,,,,
+Absol,74,stat_alignment,4,Timid,0.6%,Speed,Attack,,,,,,
+Absol,74,stat_alignment,5,Impish,0.6%,Defense,Sp. Atk,,,,,,
+Absol,74,stat_alignment,6,Modest,0.4%,Sp. Atk,Attack,,,,,,
 Absol,74,stat_alignment,7,Lax,0.2%,Defense,Sp. Def,,,,,,
-Absol,74,stat_alignment,8,Hasty,0.1%,Speed,Defense,,,,,,
-Absol,74,stat_alignment,9,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Absol,74,stat_alignment,8,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Absol,74,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
 Absol,74,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Absol,74,stat_points,1,,32.5%,,,2,32,0,0,0,32
 Absol,74,stat_points,2,,18.5%,,,1,32,1,0,0,32
 Absol,74,stat_points,3,,5.6%,,,19,16,23,0,0,8
-Absol,74,stat_points,4,,4.2%,,,0,32,2,0,0,32
-Absol,74,stat_points,5,,3.4%,,,11,32,1,0,0,22
-Absol,74,stat_points,6,,2.8%,,,1,32,0,0,1,32
+Absol,74,stat_points,4,,4.1%,,,0,32,2,0,0,32
+Absol,74,stat_points,5,,3.6%,,,11,32,1,0,0,22
+Absol,74,stat_points,6,,2.9%,,,1,32,0,0,1,32
 Absol,74,stat_points,7,,2.7%,,,1,32,25,0,0,8
 Absol,74,stat_points,8,,1.7%,,,0,32,0,0,2,32
 Absol,74,stat_points,9,,1.6%,,,19,19,16,0,0,12
-Absol,74,stat_points,10,,1.4%,,,0,32,1,0,1,32
-Absol,74,ability,1,Justified,74.0%,,,,,,,,
-Absol,74,ability,2,Super Luck,18.2%,,,,,,,,
-Absol,74,ability,3,Pressure,7.9%,,,,,,,,
+Absol,74,stat_points,10,,1.5%,,,0,32,1,0,1,32
+Absol,74,ability,1,Justified,73.9%,,,,,,,,
+Absol,74,ability,2,Super Luck,18.3%,,,,,,,,
+Absol,74,ability,3,Pressure,7.8%,,,,,,,,

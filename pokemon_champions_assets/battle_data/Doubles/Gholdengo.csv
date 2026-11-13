@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gholdengo,15,move,1,Make It Rain,99.3%,,,,,,,,
 Gholdengo,15,move,2,Shadow Ball,99.1%,,,,,,,,
-Gholdengo,15,move,3,Protect,89.9%,,,,,,,,
-Gholdengo,15,move,4,Nasty Plot,83.6%,,,,,,,,
+Gholdengo,15,move,3,Protect,89.8%,,,,,,,,
+Gholdengo,15,move,4,Nasty Plot,83.5%,,,,,,,,
 Gholdengo,15,move,5,Power Gem,11.3%,,,,,,,,
-Gholdengo,15,move,6,Thunderbolt,5.7%,,,,,,,,
+Gholdengo,15,move,6,Thunderbolt,5.8%,,,,,,,,
 Gholdengo,15,move,7,Trick,2.9%,,,,,,,,
 Gholdengo,15,move,8,Psychic,1.8%,,,,,,,,
 Gholdengo,15,move,9,Dazzling Gleam,1.5%,,,,,,,,
 Gholdengo,15,move,10,Focus Blast,1.5%,,,,,,,,
-Gholdengo,15,held_item,1,Life Orb,80.1%,,,,,,,,
+Gholdengo,15,held_item,1,Life Orb,80.0%,,,,,,,,
 Gholdengo,15,held_item,2,Choice Scarf,7.8%,,,,,,,,
 Gholdengo,15,held_item,3,White Herb,2.3%,,,,,,,,
 Gholdengo,15,held_item,4,Focus Sash,2.3%,,,,,,,,
-Gholdengo,15,held_item,5,Leftovers,1.8%,,,,,,,,
+Gholdengo,15,held_item,5,Leftovers,1.9%,,,,,,,,
 Gholdengo,15,held_item,6,Metal Coat,1.0%,,,,,,,,
-Gholdengo,15,held_item,7,Sitrus Berry,0.9%,,,,,,,,
+Gholdengo,15,held_item,7,Sitrus Berry,0.8%,,,,,,,,
 Gholdengo,15,held_item,8,Air Balloon,0.7%,,,,,,,,
 Gholdengo,15,held_item,9,Wise Glasses,0.4%,,,,,,,,
 Gholdengo,15,held_item,10,Occa Berry,0.4%,,,,,,,,
@@ -29,9 +29,9 @@ Gholdengo,15,teammate,7,Raichu,,,,,,,,,
 Gholdengo,15,teammate,8,Incineroar,,,,,,,,,
 Gholdengo,15,teammate,9,Garchomp,,,,,,,,,
 Gholdengo,15,teammate,10,Sneasler,,,,,,,,,
-Gholdengo,15,stat_alignment,1,Modest,78.7%,Sp. Atk,Attack,,,,,,
-Gholdengo,15,stat_alignment,2,Timid,18.2%,Speed,Attack,,,,,,
-Gholdengo,15,stat_alignment,3,Calm,1.3%,Sp. Def,Attack,,,,,,
+Gholdengo,15,stat_alignment,1,Modest,78.6%,Sp. Atk,Attack,,,,,,
+Gholdengo,15,stat_alignment,2,Timid,18.3%,Speed,Attack,,,,,,
+Gholdengo,15,stat_alignment,3,Calm,1.2%,Sp. Def,Attack,,,,,,
 Gholdengo,15,stat_alignment,4,Quiet,0.7%,Sp. Atk,Speed,,,,,,
 Gholdengo,15,stat_alignment,5,Bold,0.5%,Defense,Attack,,,,,,
 Gholdengo,15,stat_alignment,6,Mild,0.4%,Sp. Atk,Defense,,,,,,
@@ -39,14 +39,14 @@ Gholdengo,15,stat_alignment,7,Serious,0.1%,,,,,,,,
 Gholdengo,15,stat_alignment,8,Adamant,0.1%,Attack,Sp. Atk,,,,,,
 Gholdengo,15,stat_alignment,9,Brave,0.0%,Attack,Speed,,,,,,
 Gholdengo,15,stat_alignment,10,Rash,0.0%,Sp. Atk,Sp. Def,,,,,,
-Gholdengo,15,stat_points,1,,18.2%,,,27,0,12,0,17,10
-Gholdengo,15,stat_points,2,,15.4%,,,2,0,0,32,0,32
+Gholdengo,15,stat_points,1,,18.1%,,,27,0,12,0,17,10
+Gholdengo,15,stat_points,2,,15.5%,,,2,0,0,32,0,32
 Gholdengo,15,stat_points,3,,6.4%,,,17,0,0,17,0,32
-Gholdengo,15,stat_points,4,,5.1%,,,17,0,0,7,22,20
+Gholdengo,15,stat_points,4,,5.2%,,,17,0,0,7,22,20
 Gholdengo,15,stat_points,5,,2.7%,,,7,0,0,27,0,32
 Gholdengo,15,stat_points,6,,2.6%,,,0,0,0,32,2,32
-Gholdengo,15,stat_points,7,,1.6%,,,0,0,2,32,0,32
-Gholdengo,15,stat_points,8,,1.6%,,,27,0,0,0,25,14
+Gholdengo,15,stat_points,7,,1.6%,,,27,0,0,0,25,14
+Gholdengo,15,stat_points,8,,1.6%,,,0,0,2,32,0,32
 Gholdengo,15,stat_points,9,,1.0%,,,1,0,0,32,1,32
 Gholdengo,15,stat_points,10,,1.0%,,,1,0,1,32,0,32
 Gholdengo,15,ability,1,Good as Gold,100.0%,,,,,,,,

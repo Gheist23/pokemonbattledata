@@ -38,8 +38,8 @@
 // The Solver starts from the board you give it, at any point in a game.
 
 import {
-  ACTION_KINDS, ACTIVE_BY_FORMAT, BRING_BY_FORMAT, TURN_CAP_BY_FORMAT, alive, clampStage,
-  WEATHERS as BOARD_WEATHERS, TERRAINS as BOARD_TERRAINS, setHazardLayers,
+  ACTION_KINDS, ACTIVE_BY_FORMAT, AIMED_AT_FOE, BRING_BY_FORMAT, RUNNABLE_OPS, TURN_CAP_BY_FORMAT,
+  alive, clampStage, WEATHERS as BOARD_WEATHERS, TERRAINS as BOARD_TERRAINS, setHazardLayers,
 } from "./tournament-test.js";
 import { compact } from "./engine.js";
 
@@ -70,6 +70,13 @@ export const SOLVER_SLEEP_TURNS = 2;
 export const LOOKAHEAD_RANGE = [2, 12];
 /** How many of a Pokemon's own actions are kept, best first, so the statistics stay meaningful. */
 export const TOP_PER_SLOT = 8;
+/**
+ * What each condition is worth as a shortlist prior, on the scale the action kinds use.
+ * Will-O-Wisp's burn is 3 and a sleep is 4 plus its turns, so these sit beside them.
+ */
+const STATUS_WORTH = {
+  burn: 3, paralysis: 3, poison: 2.5, toxic: 3.5, badly_poisoned: 3.5, sleep: 4, freeze: 4,
+};
 /** The cap on one side's joint actions, after the per-slot cut. */
 export const MAX_JOINTS = 72;
 /**
@@ -799,7 +806,20 @@ export class Solver {
       if (k.lowers.includes(slot)) {
         if (info.spread) add({ kind: LOWER, slot, target: -1, move: info.name, spread: true, value: 2.5 });
         else for (const [, fp] of liveFoes) add({ kind: LOWER, slot, target: fp, move: info.name, pr: k.prankster && !info.damaging ? 1 : 0, value: 2 });
+        return;
       }
+      // --- EVERY OTHER STATUS MOVE, STRAIGHT OFF THE EFFECTS REGISTRY --------------------
+      //
+      // Reaching here means none of the kinds above claimed this move, so the search has no
+      // bid for it -- a Thunder Wave, a Toxic, a Nasty Plot, a Recover, a Stealth Rock. These
+      // used to be generated for the PLAYER only, in `PlayGame.slotActions`, which left the
+      // opponent unable to choose a move the player could: it never paralysed, never poisoned,
+      // never set up and never healed.
+      //
+      // It belongs here because this is the one action generator the search and the player
+      // share. It is NOT in `TournamentTest.planSide`, which is the planner the recorded parity
+      // vectors and the published scores run through, and which this method never touches.
+      for (const entry of this.effectActions(m, slot, info, state, s, cap)) add(entry);
     });
 
     // Switches resolve before every move, so they are offered whatever else this Pokemon has.
@@ -837,6 +857,94 @@ export class Solver {
       .filter((a) => a.kind !== SWITCH && !a.wait)
       .map((a) => ({ ...a, mega: true }));
     return [...kept, ...evolving];
+  }
+
+  /**
+   * A move the search has no kind for, as an action it can actually choose.
+   *
+   * Three gates, each of which was a real bug before it was there:
+   *   * an ATTACK already has a kind, so a damaging move is never missing for want of one.
+   *     Without this, Fake Out came back as a free certain flinch with no damage and none of
+   *     the gates that go with it, and a Thunderbolt aimed at a Ground type still paralysed it.
+   *   * a move the kit records IS priced, so its absence is a rule of the game -- Protect
+   *     cannot be used twice running -- and handing it back hands back the rule.
+   *   * every one of its ops has to be runnable, not merely one of them. Rest is
+   *     cure_status + heal + sleep: running the two we have would heal it to full and then
+   *     fail to sleep, which is the opposite of what Rest is for.
+   */
+  effectActions(m, slot, info, state, s, cap) {
+    if (info.damaging || info.attack) return [];
+    if (!this.t.hasPp(m, slot) || this.t.slotDisabled(m, slot)) return [];
+    const ops = info.fx || [];
+    if (!ops.length || !ops.every((fx) => RUNNABLE_OPS.has(String(fx.op || "")))) return [];
+    const value = this.effectValue(m, info, ops, state, s);
+    // Worth nothing on this board -- a Recover at full health, a weather already up. The person
+    // playing keeps the option anyway (`cap === 0` is their own uncut list, where every legal
+    // move belongs); the search drops it, because for the search the board is fixed.
+    if (value <= 0 && cap > 0) return [];
+    const pr = (info.priority || 0) + (m.k.prankster ? 1 : 0);
+    const aimed = ops.some((fx) => AIMED_AT_FOE.has(String(fx.target || "")));
+    if (!aimed) return [{ kind: EFFECT, slot, ops, move: info.name, target: null, pr, value }];
+    const out = [];
+    state.active[1 - s].forEach((foe, i) => {
+      if (!alive(foe)) return;
+      out.push({ kind: EFFECT, slot, ops, move: info.name, target: i, pr, value });
+    });
+    return out;
+  }
+
+  /**
+   * Roughly what such a move is worth, on the same scale the kinds above are scored on.
+   *
+   * This is a SHORTLIST PRIOR and nothing more. `slotCandidates` sorts by it and keeps the top
+   * few; what the move is actually worth is then found the way everything else is found -- by
+   * playing it and scoring the board it leaves, where a halved Speed, a burn's chip, a poison
+   * that grows and a +2 Sp. Atk are all already modelled. So this only has to be good enough to
+   * earn a place on the list, which is why it is a handful of readable rules rather than a
+   * table of tuned constants.
+   */
+  effectValue(m, info, ops, state, s) {
+    const t = this.t;
+    const foes = state.active[1 - s].filter(alive);
+    let value = 0;
+    for (const fx of ops) {
+      const at = String(fx.target || "user");
+      const onFoe = AIMED_AT_FOE.has(at);
+      if (fx.op === "status") {
+        // The same scale as the kinds above: Will-O-Wisp's burn is 3, a sleep is 4 plus the
+        // turns it lasts. Worth nothing against a side that cannot take it.
+        const kind = String(fx.status || "").toLowerCase();
+        const takers = onFoe ? foes.filter((f) => t.statusFree(f) > 0) : [];
+        if (onFoe && !takers.length) continue;
+        value += STATUS_WORTH[kind] || 2.5;
+      } else if (fx.op === "stage") {
+        // A stage is a stage whichever way it points: the existing LOWER entries are 2 for one
+        // foe and 2.5 spread, so one step is worth about one and a quarter.
+        const amount = Math.abs(Number(fx.amount) || 0);
+        const stats = (fx.stats || []).length || 1;
+        value += amount * stats * 1.25;
+      } else if (fx.op === "heal" || fx.op === "weather_heal") {
+        // On the ATTACK scale, which is the fraction of a health bar times ten. Healing is
+        // worth what it actually restores, so a Recover at full health is worth nothing.
+        const share = Math.max(0, Math.min(1, Number(fx.fraction) || 0.5));
+        value += Math.min(share, 1 - m.hp) * 10;
+      } else if (fx.op === "flinch") {
+        value += 2;
+      } else if (fx.op === "hazard") {
+        // Only while there is something left to walk into them.
+        value += state.sides[1 - s].filter(alive).length > state.active[1 - s].filter(alive).length ? 3 : 0;
+      } else if (fx.op === "weather" || fx.op === "terrain") {
+        const already = fx.op === "weather"
+          ? BOARD_WEATHERS[state.board.w] === fx.weather
+          : BOARD_TERRAINS[state.board.t] === fx.terrain;
+        value += already ? 0 : 3;
+      } else {
+        // Everything else the registry can run -- Leech Seed, Pain Split, Psych Up, a pivot,
+        // sweeping hazards away. Enough to be looked at, not enough to crowd out an attack.
+        value += 2;
+      }
+    }
+    return value * t.accuracyOf(info, m);
   }
 
   /** Every combination of what the Pokemon on the field could do, capped.
@@ -976,7 +1084,28 @@ export class Solver {
     // ours cost 25 and losing one of theirs gained 12.5, and the board still opened at an even
     // 50 -- which said a two-against-four board was level. Now a knockout is worth 50/n whoever
     // loses it, and a short side starts behind, which is what being short means.
-    const total = (list) => list.reduce((sum, m) => sum + Math.max(0, m.hp), 0);
+    // A CONDITION IS WORTH SOMETHING, AND THIS IS WHERE IT HAS TO SAY SO.
+    //
+    // The score was the health left on each side and nothing else, so at the end of a line a
+    // paralysed, poisoned or burned Pokemon was worth exactly as much as a clean one. That is
+    // not an opinion about status, it is a blind spot: a Thunder Wave moves no health, so every
+    // line that contained one scored the same as the line without it and the search could never
+    // prefer it. The moves were on offer (`effectActions`) and never chosen.
+    //
+    // Each condition is priced as a share of the health it stands on, because that is the unit
+    // this function already counts in. The shares are what the engine elsewhere says they are
+    // worth: poison takes an eighth of a bar every turn and a bad poison more each turn after;
+    // a burn takes a sixteenth AND halves a physical attack; paralysis costs a quarter of the
+    // Pokemon's turns (`actionScale`) and half its Speed; sleep costs whole turns while it
+    // lasts. `st` holds a PROBABILITY, so a one-in-ten chance of a burn is worth a tenth of a
+    // burn -- the same way every other effect is weighed in a search.
+    const drag = (m) => {
+      const st = m.st;
+      if (!st) return 0;
+      return Math.min(0.6, (st.brn || 0) * 0.18 + (st.psn || 0) * 0.2 + (st.tox || 0) * 0.28
+        + (st.par || 0) * 0.2 + (st.slp || 0) * 0.3 + (st.frz || 0) * 0.3);
+    };
+    const total = (list) => list.reduce((sum, m) => sum + Math.max(0, m.hp) * (1 - drag(m)), 0);
     const n = Math.max(1, state.sides[0].length, state.sides[1].length);
     return Math.max(0, Math.min(100, 50 + (50 * (total(state.sides[0]) - total(state.sides[1]))) / n));
   }

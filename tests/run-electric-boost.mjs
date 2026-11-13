@@ -158,11 +158,24 @@ const twoVsTwo = (solver, extra = {}) => solver.buildState(board(
     .includes(String(fx.op || "")));
   ok("every one of Charge's ops is runnable, so the played game still offers it", runnable,
     JSON.stringify(charge.map((fx) => fx.op)));
-  // And the move really is one the search has no kind for, which is why the gate above matters.
+  // And the move really is one the search has no HAND-WRITTEN kind for, which is why the gate
+  // above matters: it reaches the board through the registry path instead.
+  //
+  // This used to be checked by asserting `slotCandidates` did not offer Charge at all. That
+  // stopped being the same question when the registry fallback moved INTO that generator so the
+  // opponent could choose these moves too -- before, only the player was offered them and the
+  // Solver could never paralyse, poison, set up or heal. Charge is offered now; what matters is
+  // that it arrives as an EFFECT, carrying its ops, rather than as a kind of the search's own.
   const solver = makeSolver();
   const state = twoVsTwo(solver);
-  const offered = solver.slotCandidates(state, 0, 0, { cap: 0 }).map((a) => a.move);
-  ok("and it is not one of the search's own kinds", !offered.includes("Charge"), offered.join(", "));
+  const offered = solver.slotCandidates(state, 0, 0, { cap: 0 });
+  const chargeAction = offered.find((a) => a.move === "Charge");
+  ok("the search reaches Charge through the registry path, not a kind of its own",
+    Boolean(chargeAction) && chargeAction.kind === ACTION_KINDS.EFFECT,
+    JSON.stringify(offered.map((a) => [a.move, a.kind])));
+  ok("and it carries the ops that make it work",
+    Array.isArray(chargeAction?.ops) && chargeAction.ops.some((fx) => fx.op === "electric_boost"),
+    JSON.stringify(chargeAction?.ops || null));
 }
 
 // ---------------------------------------------------------------------------

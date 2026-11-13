@@ -282,7 +282,7 @@ function renderSetup() {
   ];
   const custom = state.tab === "custom";
   const why = whyNotPlayable(state.team) || (custom ? whyNotPlayable(state.foeSets) : "");
-  return h("div", { class: "bd-play-setup" },
+  return h("div", { class: `bd-play-setup${custom ? " is-custom" : ""}` },
     state.error ? h("p", { class: "bd-play-error" }, state.error) : null,
     h("div", { class: "bd-card bd-play-intro" },
       h("h2", {}, custom ? "Custom battle (Testing Phase)" : "Play the Solver (Testing Phase)"),
@@ -347,9 +347,7 @@ function renderFoeTeamCard(options) {
       h("h3", {}, "The Solver plays"),
       h("label", { class: "bd-play-team-select" },
         h("span", {}, "Their team"),
-        select(options, state.foeTeamId, (value) => { useFoeTeam(value); render(); }, { "aria-label": "The opponent's team" })),
-      h("p", { class: "bd-play-note" },
-        "Change anything you like. Your copy only, never the saved team.")),
+        select(options, state.foeTeamId, (value) => { useFoeTeam(value); render(); }, { "aria-label": "The opponent's team" }))),
     state.foeSets.length
       ? h("div", { class: "bd-play-team-grid" }, state.foeSets.map((set, index) => renderFoeSlot(set, index)))
       : h("p", { class: "bd-play-note" }, "Pick a team for the opponent to play."),

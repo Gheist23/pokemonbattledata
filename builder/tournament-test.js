@@ -1386,8 +1386,46 @@ const EFFECT = 16;
 /** The stat stages a row really carries, for telling whether a stat change did anything. */
 const STAGE_FIELDS = ["atk", "spa", "def", "spd", "spe"];
 // The actions that are status moves (Taunt stops them; Encore locks a Pokémon that used one).
-/** The registry's words for an op aimed at the other side. Shared with builder/play-game.js. */
+/** The registry's words for an op aimed at the other side. Shared with the action generator. */
 export const AIMED_AT_FOE = new Set(["target", "foe_side", "all_others"]);
+/**
+ * The registry ops a played turn can carry out, and so the ones that make a move choosable.
+ *
+ * A screen and a hazard are deliberately absent: this model has no Reflect and no Stealth Rock,
+ * and offering the move would be offering one that does nothing. The move is still DRAWN on the
+ * sheet -- all four always are -- and says it cannot be used.
+ */
+// `electric_boost` is here for a reason worth stating: `:549` requires EVERY op of a move to
+// be runnable, and Charge's ops are now [electric_boost, stage]. Shipping the op without adding
+// it here would have taken Charge OUT of the played game's move sheet -- a data-only change
+// would have been strictly worse than not shipping it at all.
+// `weather` and `terrain` joined when TOURNAMENT_FIELD_TURNS gave `runEffectOps` a branch for
+// them; before that Rain Dance and the terrain moves were refused on the sheet, which is how
+// a move that does nothing shows up to a player.
+export const RUNNABLE_OPS = new Set(["status", "stage", "heal", "weather_heal", "flinch", "electric_boost",
+  "weather", "terrain",
+  // ...and the entry hazards, laid and swept (TOURNAMENT_HAZARDS). Stealth Rock, Spikes,
+  // Toxic Spikes, Sticky Web, Rapid Spin, Mortal Spin, Defog and Tidy Up were all refused
+  // on the sheet while the engine had no branch for their ops.
+  "hazard", "clear_user_hazards", "clear_field_conditions", "clear_substitutes_hazards",
+  "clear_user_bindings",
+  // ...and the six that act on the board rather than on a slot: Psych Up, Topsy-Turvy,
+  // Pain Split, Aqua Ring, Leech Seed and Revival Blessing.
+  "copy_stages", "invert_stages", "pain_split", "aqua_ring", "leech_seed", "revive_ally",
+  // Parting Shot, Baton Pass, Chilly Reception and Teleport (TOURNAMENT_PIVOT). The
+  // damaging pivots -- U-turn, Flip Turn, Volt Switch -- are ATTACKS and were always
+  // offered; they just never switched anybody out.
+  "pivot",
+  // Skill Swap, Entrainment and Role Play, which rebuild the unit to change its Ability.
+  "swap_abilities", "set_ability", "copy_ability",
+  // Trick and Switcheroo.
+  "swap_items",
+  // Speed Swap, Magnet Rise and Destiny Bond.
+  "swap_stats", "magnet_rise", "destiny_bond",
+  // Magic Powder and Soak.
+  "set_type",
+  // Copycat.
+  "repeat_last_move"]);
 const STATUS_ACTIONS = new Set([TAILWIND, TRICK_ROOM, REDIRECT, PROTECT, HELPING_HAND, WIDE_GUARD, QUICK_GUARD, SLEEP, TAUNT, ENCORE, BURN, EFFECT]);
 
 /**
@@ -3539,16 +3577,28 @@ export class TournamentTest {
     const info = m.u.moves[a.slot];
     const roll = this.effectRoll;
     const did = [];
-    // A STATUS MOVE HITS OR IT DOES NOT, ONCE, FOR THE WHOLE MOVE. The accuracy used to be
-    // folded into every op's magnitude instead, which is right for an expectation and wrong for
-    // a turn being played: a 90%-accurate Nasty Plot became +1.8 Sp. Atk, and `shiftStages`
-    // spends whole stages, so it gave +1 and carried the rest. Rolled here, the move either
-    // happens or it misses, and what happens happens at full strength.
-    if (roll && roll() >= this.accuracyOf(info, m)) return { did, missed: true };
+    // THE TWO LAYERS, IN ONE METHOD, AND THE RULE IS WHICHEVER ONE LENT US A ROLL.
+    //
+    // A TURN BEING PLAYED rolls: the move hits or it does not, once, for the whole move, and
+    // what happens then happens at FULL strength. Folding accuracy into each op's magnitude
+    // instead made a 90%-accurate Nasty Plot worth +1.8 Sp. Atk, and `shiftStages` spends whole
+    // stages, so it gave +1 and quietly carried the rest.
+    //
+    // A SEARCH does not roll -- it prices. Every other effect this engine weighs is an
+    // expectation there, and it has to be, or the opponent would answer a different move each
+    // time it was asked the same question and the evenness this model is built on would go. So
+    // with no roll lent to it a 90%-accurate Thunder Wave is nine tenths of a paralysis, which
+    // is exactly how a 10% secondary burn has always been priced.
+    const acc = this.accuracyOf(info, m);
+    if (roll && roll() >= acc) return { did, missed: true };
     for (const fx of a.ops || []) {
       const chance = Math.max(0, Math.min(1, (Number(fx.chance) || 100) / 100));
       if (chance <= 0) continue;
       if (roll && roll() >= chance) continue;
+      // What one application is worth: all of it when it was rolled for, its likelihood when
+      // it was not. NOT named `share` -- the heal branch below already has one of its own, and
+      // shadowing it would have made a recovery move ignore the layer it is running in.
+      const weight = roll ? 1 : chance * acc;
       // THE FIELD IS NOT A TARGET. Weather and terrain are set on the board, so they are
       // handled HERE and not inside the per-target loop below: a `weather` op carries no
       // target word, `effectTargets` hands back nothing for it, and a branch down there
@@ -3782,12 +3832,12 @@ export class TournamentTest {
           // The same gate a modelled status move passes: a Pokemon it cannot touch is not
           // statused by it. Without this a Thunder Wave paralysed a Ground type.
           if (at !== m && !this.canStatus(m, at, info, active[1 - m.s] || [])) continue;
-          if (this.applyStatus(at, String(fx.status || ""), 1) > 0) did.push(String(fx.status || "status"));
+          if (this.applyStatus(at, String(fx.status || ""), weight) > 0) did.push(String(fx.status || "status"));
         } else if (fx.op === "stage") {
           const amount = Number(fx.amount) || 0;
           if (!amount) continue;
           const before = STAGE_FIELDS.map((key) => at[key] || 0).join(",");
-          this.shiftStages(at, fx.stats, amount);
+          this.shiftStages(at, fx.stats, amount * weight);
           // Reported only if it MOVED. `shiftStages` maps no field for evasion or accuracy and
           // refuses a drop on a Clear Body holder, and `did` claimed it anyway.
           if (STAGE_FIELDS.map((key) => at[key] || 0).join(",") !== before) {
@@ -3803,7 +3853,7 @@ export class TournamentTest {
             ? Math.max(0, Math.min(1, weatherHealShare(fx, WEATHERS[board ? board.w : this.fixedWeather])))
             : Math.max(0, Math.min(1, Number(fx.fraction) || 0));
           if (share <= 0 || at.hp >= 1) continue;
-          at.hp = Math.min(1, at.hp + share);
+          at.hp = Math.min(1, at.hp + share * weight);
           did.push("heal");
         } else if (fx.op === "electric_boost") {
           // Charge. Its other op is the +1 Sp. Def, applied by the `stage` branch as usual.
@@ -3811,7 +3861,7 @@ export class TournamentTest {
           did.push("charged itself");
         } else if (fx.op === "flinch") {
           if (at.k.flinchProof || at.k.secondaryProof) continue;
-          at.flinchP = 1 - (1 - at.flinchP) * (1 - chance);
+          at.flinchP = 1 - (1 - at.flinchP) * (1 - weight);
           did.push("flinch");
         }
       }

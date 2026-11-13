@@ -30,6 +30,7 @@ import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
 import { TournamentTest, TOURNAMENT_PIVOT, tournamentPivotOption } from "../builder/tournament-test.js";
 import { Solver } from "../builder/solver.js";
+import { RUNNABLE_OPS } from "../builder/tournament-test.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -203,13 +204,12 @@ const pivotSlot = (m, key) => m.u.moves.findIndex((i) => i?.key === key);
   ok("and the Tournament Test still rolls nothing",
     Boolean(tourney) && !/selfRollRule/.test(tourney) && !/actionRollRule/.test(tourney),
     tourney.slice(0, 160));
-  const page = readFileSync(join(root, "builder", "play-game.js"), "utf8");
-  // The whole declaration, however long its comments have grown: from `const RUNNABLE_OPS`
-  // to the `]);` that closes it.
-  const at = page.indexOf("const RUNNABLE_OPS");
-  const runnable = page.slice(at, page.indexOf("]);", at));
-  ok("the status pivots are offered on the sheet", runnable.includes('"pivot"'),
-    runnable.replace(/\s+/g, " ").slice(-140));
+// WHERE THE SET LIVES IS NOT THE POINT. This used to read the text of play-game.js and look
+// for the op's name; `RUNNABLE_OPS` now sits beside `runEffectOps` in tournament-test.js,
+// because that is the method whose branches it describes. Asking the exported SET is both
+// smaller and stronger than matching a spelling: it tests the value the generator really reads.
+  ok("the status pivots are offered on the sheet", RUNNABLE_OPS.has("pivot"),
+    JSON.stringify([...RUNNABLE_OPS]));
 }
 
 for (const note of notes) console.log(`   ${note}`);

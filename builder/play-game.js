@@ -157,44 +157,6 @@ const LEEK_HOLDERS = new Set(["farfetchd", "sirfetchd", "farfetchdgalar"]);
 const ATTEMPT = "play:attempt";
 /** A condition that really landed this turn, rolled from the chance the engine would have added. */
 const STATUS = "play:status";
-/**
- * The registry ops a played turn can carry out, and so the ones that make a move choosable.
- *
- * A screen and a hazard are deliberately absent: this model has no Reflect and no Stealth Rock,
- * and offering the move would be offering one that does nothing. The move is still DRAWN on the
- * sheet -- all four always are -- and says it cannot be used.
- */
-// `electric_boost` is here for a reason worth stating: `:549` requires EVERY op of a move to
-// be runnable, and Charge's ops are now [electric_boost, stage]. Shipping the op without adding
-// it here would have taken Charge OUT of the played game's move sheet -- a data-only change
-// would have been strictly worse than not shipping it at all.
-// `weather` and `terrain` joined when TOURNAMENT_FIELD_TURNS gave `runEffectOps` a branch for
-// them; before that Rain Dance and the terrain moves were refused on the sheet, which is how
-// a move that does nothing shows up to a player.
-const RUNNABLE_OPS = new Set(["status", "stage", "heal", "weather_heal", "flinch", "electric_boost",
-  "weather", "terrain",
-  // ...and the entry hazards, laid and swept (TOURNAMENT_HAZARDS). Stealth Rock, Spikes,
-  // Toxic Spikes, Sticky Web, Rapid Spin, Mortal Spin, Defog and Tidy Up were all refused
-  // on the sheet while the engine had no branch for their ops.
-  "hazard", "clear_user_hazards", "clear_field_conditions", "clear_substitutes_hazards",
-  "clear_user_bindings",
-  // ...and the six that act on the board rather than on a slot: Psych Up, Topsy-Turvy,
-  // Pain Split, Aqua Ring, Leech Seed and Revival Blessing.
-  "copy_stages", "invert_stages", "pain_split", "aqua_ring", "leech_seed", "revive_ally",
-  // Parting Shot, Baton Pass, Chilly Reception and Teleport (TOURNAMENT_PIVOT). The
-  // damaging pivots -- U-turn, Flip Turn, Volt Switch -- are ATTACKS and were always
-  // offered; they just never switched anybody out.
-  "pivot",
-  // Skill Swap, Entrainment and Role Play, which rebuild the unit to change its Ability.
-  "swap_abilities", "set_ability", "copy_ability",
-  // Trick and Switcheroo.
-  "swap_items",
-  // Speed Swap, Magnet Rise and Destiny Bond.
-  "swap_stats", "magnet_rise", "destiny_bond",
-  // Magic Powder and Soak.
-  "set_type",
-  // Copycat.
-  "repeat_last_move"]);
 // `volatile` is deliberately NOT in that set, which is worth stating because Attract DOES ship
 // with its clause intact -- data/builder/move-effects.json carries
 // `attract: [{op: "volatile", status: "infatuation", condition: "opposite_gender"}]`, because
@@ -211,21 +173,8 @@ const RUNNABLE_OPS = new Set(["status", "stage", "heal", "weather_heal", "flinch
 // Adding the op to this set without those would offer Attract in the move sheet and have it do
 // nothing, which is worse than not offering it.
 
-/**
- * The moves the SEARCH already has a kind for, by name.
- *
- * Nothing here may ever be re-offered as an EFFECT: when one of these is missing from a slot's
- * candidates it is missing because a RULE OF THE GAME removed it this turn -- Protect cannot be
- * used twice running, Fake Out only works on the turn its user came in -- and handing it back
- * is handing back a rule. The slot-indexed kinds (Fake Out, the sleep move, Taunt, Encore,
- * Will-O-Wisp, the stat drops) are read off the unit's own kit instead, which is where the
- * search records which slot each of them is.
- */
-const MODELLED_MOVES = new Set(["tailwind", "trickroom", "helpinghand", "wideguard", "quickguard",
-  "followme", "ragepowder", "taunt", "encore", "willowisp", "fakeout", "firstimpression"]);
 /** What a registry op DID, for the line that reports it. A condition says itself; these do not. */
 const EFFECT_SAID = { heal: "and regained health", flinch: "and made it flinch" };
-/** The registry's words for an op aimed at the other side, as opposed to at the user's own. */
 /** The chance a frozen Pokemon thaws at the end of a turn, as the games have it: one in five. */
 const FREEZE_THAW = 0.2;
 const ENTERED = "play:entered";
@@ -674,7 +623,7 @@ export class PlayGame {
   options() {
     return this.state.active[0].map((m, position) => {
       if (!alive(m)) return { position, empty: true, actions: [] };
-      const actions = this.slotActions(position, this.solver.slotCandidates(this.state, 0, position, { cap: 0 }));
+      const actions = this.solver.slotCandidates(this.state, 0, position, { cap: 0 });
       return {
         position,
         empty: false,
@@ -710,78 +659,7 @@ export class PlayGame {
    * Each of those gets an `EFFECT` action here, which the turn machinery runs off the registry.
    * One per live foe for a move aimed at a foe, one for a move aimed at its user.
    */
-  slotActions(position, candidates) {
-    const m = this.state.active[0][position];
-    if (!m) return candidates;
-    // Locked into landing a two-turn move: `slotCandidates` has already cut the list to that one
-    // move, and this function's whole job is to ADD moves the search has no kind for -- which
-    // would hand the lock straight back (TOURNAMENT_CHARGE).
-    if (m.charging) return candidates;
-    const offered = new Set(candidates.map((a) => (a.move ? compact(a.move) : "")).filter(Boolean));
-    const modelled = this.modelledSlots(m);
-    const extra = [];
-    (m.u.moves || []).forEach((info, slot) => {
-      if (!info?.name || offered.has(compact(info.name))) return;
-      // Out of PP, not offered (TOURNAMENT_PP). The person is entitled to every move their
-      // Pokemon really has -- and a move with no PP left is one it does not have right now.
-      if (!this.solver.t.hasPp(m, slot)) return;
-      // ...and a move a Cursed Body shut off is one it does not have right now either.
-      if (this.solver.t.slotDisabled(m, slot)) return;
-      // A MOVE THE SEARCH HAS NO KIND FOR, never one it declined this turn. Three gates, and
-      // each of them was a real bug before it was there:
-      //   * an ATTACK is already a kind, so a damaging move is never missing for want of one.
-      //     Without this, Fake Out came back every turn as a free certain flinch at +3 priority
-      //     and a Thunderbolt aimed at a Ground type still paralysed it, because the EFFECT
-      //     path runs a move's secondary without the damage and without any of the gates that
-      //     go with it (Sheer Force, Shield Dust, a Covert Cloak, "can this even touch it").
-      //   * a move whose slot or name the kit records IS priced; its absence is a game rule.
-      //   * every one of its ops has to be runnable, not merely one of them. Rest is
-      //     cure_status + heal + sleep: running the two we have left it healing to full and
-      //     then failing to sleep, which is the opposite of what Rest is for.
-      if (info.damaging || info.attack) return;
-      if (modelled.has(slot) || MODELLED_MOVES.has(compact(info.name))) return;
-      const ops = info.fx || [];
-      if (!ops.length || !ops.every((fx) => RUNNABLE_OPS.has(String(fx.op || "")))) return;
-      const aimed = ops.some((fx) => AIMED_AT_FOE.has(String(fx.target || "")));
-      if (!aimed) {
-        extra.push({ kind: ACTION_KINDS.EFFECT, slot, ops, move: info.name, target: null, pr: info.priority || 0 });
-        return;
-      }
-      this.state.active[1].forEach((foe, i) => {
-        if (!alive(foe)) return;
-        extra.push({ kind: ACTION_KINDS.EFFECT, slot, ops, move: info.name, target: i, pr: info.priority || 0 });
-      });
-    });
-    if (!extra.length) return candidates;
-    // The same mega twins `slotCandidates` adds to everything else, and for the same reason:
-    // Mega Evolution is a flag on whatever the Pokemon was going to do, not an action of its
-    // own. Without them, arming the stone made every status move vanish from the sheet and a
-    // Pokemon holding four of them never showed a Mega Evolve button at all.
-    const twins = this.solver.canMega(this.state, 0, position)
-      ? extra.map((a) => ({ ...a, mega: true })) : [];
-    return [...candidates, ...extra, ...twins];
-  }
 
-  /**
-   * The move slots this Pokemon's kit already accounts for.
-   *
-   * The kit is where `unitFor` writes down which slot holds the Fake Out, the sleep move, the
-   * Taunt, the Encore, the Will-O-Wisp and the stat drops. A slot in here has a kind, so the
-   * search can price it, so its absence from a slot's candidates is a decision and not a gap.
-   */
-  modelledSlots(m) {
-    const k = m.k || {};
-    const slots = new Set();
-    for (const slot of [k.fakeOut, k.firstImpression, k.sleep, k.taunt, k.encore, k.wisp, k.speedDrop]) {
-      if (Number.isInteger(slot) && slot >= 0) slots.add(slot);
-    }
-    for (const slot of k.lowers || []) if (Number.isInteger(slot) && slot >= 0) slots.add(slot);
-    // Protect and its family are recorded as a flag rather than a slot, so they go by name.
-    (m.u.moves || []).forEach((info, slot) => {
-      if (info?.name && this.solver.t.protectMoves.has(compact(info.name))) slots.add(slot);
-    });
-    return slots;
-  }
 
   /**
    * Whether the opponent has SEEN this Pokemon of the player's.

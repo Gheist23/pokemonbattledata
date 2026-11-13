@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Scizor,43,move,1,Bullet Punch,99.7%,,,,,,,,
-Scizor,43,move,2,U-turn,75.9%,,,,,,,,
-Scizor,43,move,3,Roost,69.4%,,,,,,,,
+Scizor,43,move,2,U-turn,75.8%,,,,,,,,
+Scizor,43,move,3,Roost,69.3%,,,,,,,,
 Scizor,43,move,4,Knock Off,38.8%,,,,,,,,
-Scizor,43,move,5,Swords Dance,34.4%,,,,,,,,
-Scizor,43,move,6,Close Combat,28.0%,,,,,,,,
-Scizor,43,move,7,Curse,13.8%,,,,,,,,
+Scizor,43,move,5,Swords Dance,34.6%,,,,,,,,
+Scizor,43,move,6,Close Combat,28.2%,,,,,,,,
+Scizor,43,move,7,Curse,13.7%,,,,,,,,
 Scizor,43,move,8,Defog,11.0%,,,,,,,,
 Scizor,43,move,9,Dual Wingbeat,7.5%,,,,,,,,
 Scizor,43,move,10,Bug Bite,3.6%,,,,,,,,
-Scizor,43,held_item,1,Rocky Helmet,60.1%,,,,,,,,
-Scizor,43,held_item,2,Scizorite,16.3%,,,,,,,,
+Scizor,43,held_item,1,Rocky Helmet,60.0%,,,,,,,,
+Scizor,43,held_item,2,Scizorite,16.4%,,,,,,,,
 Scizor,43,held_item,3,Life Orb,7.9%,,,,,,,,
 Scizor,43,held_item,4,Sitrus Berry,5.6%,,,,,,,,
-Scizor,43,held_item,5,Metal Coat,2.8%,,,,,,,,
-Scizor,43,held_item,6,Leftovers,2.6%,,,,,,,,
+Scizor,43,held_item,5,Metal Coat,2.9%,,,,,,,,
+Scizor,43,held_item,6,Leftovers,2.5%,,,,,,,,
 Scizor,43,held_item,7,Lum Berry,1.5%,,,,,,,,
 Scizor,43,held_item,8,Focus Sash,0.7%,,,,,,,,
 Scizor,43,held_item,9,Occa Berry,0.7%,,,,,,,,
@@ -28,10 +28,10 @@ Scizor,43,teammate,6,Dragonite,,,,,,,,,
 Scizor,43,teammate,7,Salamence,,,,,,,,,
 Scizor,43,teammate,8,Hippowdon,,,,,,,,,
 Scizor,43,teammate,9,Meowscarada,,,,,,,,,
-Scizor,43,teammate,10,Indeedee,,,,,,,,,
-Scizor,43,stat_alignment,1,Adamant,39.9%,Attack,Sp. Atk,,,,,,
-Scizor,43,stat_alignment,2,Relaxed,21.5%,Defense,Speed,,,,,,
-Scizor,43,stat_alignment,3,Impish,20.5%,Defense,Sp. Atk,,,,,,
+Scizor,43,teammate,10,Archaludon,,,,,,,,,
+Scizor,43,stat_alignment,1,Adamant,40.0%,Attack,Sp. Atk,,,,,,
+Scizor,43,stat_alignment,2,Relaxed,21.3%,Defense,Speed,,,,,,
+Scizor,43,stat_alignment,3,Impish,20.6%,Defense,Sp. Atk,,,,,,
 Scizor,43,stat_alignment,4,Brave,15.2%,Attack,Speed,,,,,,
 Scizor,43,stat_alignment,5,Careful,1.5%,Sp. Def,Sp. Atk,,,,,,
 Scizor,43,stat_alignment,6,Jolly,0.7%,Speed,Sp. Atk,,,,,,
@@ -42,13 +42,13 @@ Scizor,43,stat_alignment,10,Modest,0.1%,Sp. Atk,Attack,,,,,,
 Scizor,43,stat_points,1,,26.0%,,,32,2,32,0,0,0
 Scizor,43,stat_points,2,,12.0%,,,32,1,32,0,1,0
 Scizor,43,stat_points,3,,10.0%,,,32,0,32,0,2,0
-Scizor,43,stat_points,4,,6.1%,,,32,32,2,0,0,0
+Scizor,43,stat_points,4,,6.2%,,,32,32,2,0,0,0
 Scizor,43,stat_points,5,,3.1%,,,32,32,0,0,2,0
-Scizor,43,stat_points,6,,3.0%,,,32,32,0,0,0,2
+Scizor,43,stat_points,6,,3.1%,,,32,32,0,0,0,2
 Scizor,43,stat_points,7,,2.6%,,,31,3,32,0,0,0
 Scizor,43,stat_points,8,,1.5%,,,2,32,0,0,0,32
 Scizor,43,stat_points,9,,1.0%,,,30,4,32,0,0,0
-Scizor,43,stat_points,10,,1.0%,,,20,32,1,0,1,12
+Scizor,43,stat_points,10,,0.9%,,,30,32,0,0,0,4
 Scizor,43,ability,1,Technician,99.1%,,,,,,,,
 Scizor,43,ability,2,Swarm,0.5%,,,,,,,,
 Scizor,43,ability,3,Light Metal,0.4%,,,,,,,,

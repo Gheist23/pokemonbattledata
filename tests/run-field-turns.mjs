@@ -43,6 +43,7 @@ import { KnownTeams } from "../builder/known-teams.js";
 import { TournamentTest, TOURNAMENT_FIELD_TURNS, tournamentFieldTurnsOption, WEATHERS, TERRAINS } from "../builder/tournament-test.js";
 import { Solver } from "../builder/solver.js";
 import { PlayGame, teamFromKnown } from "../builder/play-game.js";
+import { RUNNABLE_OPS } from "../builder/tournament-test.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -238,9 +239,13 @@ function runMove(moveName, { item = "", rule = 1 } = {}) {
   // `{ effects }` alone, so every modelling rule added since was on in the two live
   // engines and off in the one that produces the Test against Tournament Teams numbers.
   ok("all three engines ask for the rule", asking.length === 3, String(asking.length));
-  const page = readFileSync(join(root, "builder", "play-game.js"), "utf8");
+// WHERE THE SET LIVES IS NOT THE POINT. This used to read the text of play-game.js and look
+// for the op's name; `RUNNABLE_OPS` now sits beside `runEffectOps` in tournament-test.js,
+// because that is the method whose branches it describes. Asking the exported SET is both
+// smaller and stronger than matching a spelling: it tests the value the generator really reads.
   ok("and the weather moves are offered on the sheet",
-    /RUNNABLE_OPS[\s\S]{0,260}"weather"[\s\S]{0,40}"terrain"/.test(page));
+    RUNNABLE_OPS.has("weather") && RUNNABLE_OPS.has("terrain"),
+    JSON.stringify([...RUNNABLE_OPS]));
 }
 
 for (const note of notes) console.log(`   ${note}`);

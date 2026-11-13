@@ -210,7 +210,12 @@ const ok = (label, condition, detail = "") => {
   let turns = 0;
   const offenders = [];
   const zeroShown = [];
-  for (const seed of [3, 11, 19, 27, 35, 43, 51, 59]) {
+  // MORE SEEDS, NOT A LOWER BAR. The games began ending a turn or two earlier once the
+  // opponent's candidate list gained the registry status moves -- the greedy `l[0]` this
+  // harness picks will now sometimes set up or heal instead of attacking, which is the point
+  // of the change. The threshold below is a check that enough was exercised, so the honest
+  // answer to exercising less per game is to play more of them.
+  for (const seed of [3, 11, 19, 27, 35, 43, 51, 59, 67, 75, 83, 91]) {
     const game = new PlayGame(solver, data, FORMAT, library);
     let view = game.start({ player: PLAYER, foe: FOE, seed });
     const look = (where) => {

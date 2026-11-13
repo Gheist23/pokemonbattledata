@@ -25,6 +25,7 @@ import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
 import { TournamentTest } from "../builder/tournament-test.js";
 import { Solver } from "../builder/solver.js";
+import { RUNNABLE_OPS } from "../builder/tournament-test.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -382,11 +383,14 @@ for (const name of ["Psych Up", "Topsy-Turvy", "Pain Split", "Aqua Ring", "Leech
 
 /* ---------------------------------------------------- offered on the sheet */
 {
-  const page = readFileSync(join(root, "builder", "play-game.js"), "utf8");
+// WHERE THE SET LIVES IS NOT THE POINT. This used to read the text of play-game.js and look
+// for the op's name; `RUNNABLE_OPS` now sits beside `runEffectOps` in tournament-test.js,
+// because that is the method whose branches it describes. Asking the exported SET is both
+// smaller and stronger than matching a spelling: it tests the value the generator really reads.
   for (const op of ["copy_stages", "invert_stages", "pain_split", "aqua_ring", "leech_seed", "revive_ally",
     "swap_abilities", "set_ability", "copy_ability",
     "swap_stats", "magnet_rise", "destiny_bond", "set_type", "repeat_last_move"]) {
-    ok(`${op} is runnable, so its move is offered`, page.includes(`"${op}"`), op);
+    ok(`${op} is runnable, so its move is offered`, RUNNABLE_OPS.has(op), op);
   }
 }
 

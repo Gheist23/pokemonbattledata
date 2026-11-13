@@ -78,6 +78,15 @@
 .bd-play-setup > .bd-play-error,
 .bd-play-setup > .bd-play-start { grid-column: 1 / -1; }
 
+/* THE CUSTOM TAB PLACES ITS THREE CARDS ITSELF.
+   Left to flow, the two team cards take a row each: the opponent's card began under whichever of
+   the first row's two cards was taller, which left a 235px hole between "Custom battle" and it.
+   Your own team belongs directly under the card that explains the tab, and the opponent's belongs
+   beside it rather than below, so the two teams read as a pair and start at the same height. */
+.bd-play-setup.is-custom > .bd-play-intro { grid-column: 1; grid-row: 1; }
+.bd-play-setup.is-custom > .bd-play-team-card:not(.bd-play-foe-card) { grid-column: 1; grid-row: 2; }
+.bd-play-setup.is-custom > .bd-play-foe-card { grid-column: 2; grid-row: 2; }
+
 .bd-play-intro h2 { margin: 0 0 0.35rem; }
 .bd-play-intro p { margin: 0 0 0.7rem; opacity: 0.85; max-width: 62ch; }
 
@@ -632,6 +641,10 @@
   /* One column again, and the team grid stops asking for two 15rem tracks inside it -- which is
      what would otherwise push the page wider than a phone. */
   .bd-play-setup { grid-template-columns: minmax(0, 1fr); }
+  /* One column: the explicit rows above would stack the two team cards in the same cell. */
+  .bd-play-setup.is-custom > .bd-play-intro,
+  .bd-play-setup.is-custom > .bd-play-team-card:not(.bd-play-foe-card),
+  .bd-play-setup.is-custom > .bd-play-foe-card { grid-column: 1; grid-row: auto; }
 }
 
 @media (max-width: 1180px) {
@@ -1287,3 +1300,6 @@
 .bd-play-foe-card { border-color: rgba(252, 165, 165, 0.28); }
 .bd-play-foe-card .bd-play-team-head h3 { color: #fca5a5; }
 .bd-play-foe-card .bd-play-team-head { flex-wrap: wrap; align-items: end; gap: 0.6rem; }
+/* The team picker drops below the heading rather than sitting on its baseline, so the card's
+   title has room of its own. */
+.bd-play-foe-card .bd-play-team-head .bd-play-team-select { margin-top: 0.55rem; }

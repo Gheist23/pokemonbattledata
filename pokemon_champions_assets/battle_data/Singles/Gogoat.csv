@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gogoat,250,move,1,Horn Leech,52.1%,,,,,,,,
-Gogoat,250,move,2,Giga Drain,41.2%,,,,,,,,
-Gogoat,250,move,3,Endeavor,39.7%,,,,,,,,
-Gogoat,250,move,4,Aerial Ace,39.4%,,,,,,,,
-Gogoat,250,move,5,Mud Shot,39.2%,,,,,,,,
-Gogoat,250,move,6,Leech Seed,35.2%,,,,,,,,
-Gogoat,250,move,7,Earthquake,32.2%,,,,,,,,
-Gogoat,250,move,8,Milk Drink,28.7%,,,,,,,,
-Gogoat,250,move,9,Grassy Terrain,15.9%,,,,,,,,
-Gogoat,250,move,10,Bulk Up,15.0%,,,,,,,,
-Gogoat,250,held_item,1,Sitrus Berry,51.5%,,,,,,,,
-Gogoat,250,held_item,2,Leftovers,21.7%,,,,,,,,
-Gogoat,250,held_item,3,Rocky Helmet,12.0%,,,,,,,,
-Gogoat,250,held_item,4,Grassy Seed,8.5%,,,,,,,,
-Gogoat,250,held_item,5,Life Orb,1.8%,,,,,,,,
-Gogoat,250,held_item,6,Miracle Seed,1.0%,,,,,,,,
-Gogoat,250,held_item,7,Terrain Extender,1.0%,,,,,,,,
-Gogoat,250,held_item,8,Damp Rock,0.7%,,,,,,,,
-Gogoat,250,held_item,9,Big Root,0.6%,,,,,,,,
-Gogoat,250,held_item,10,Bright Powder,0.3%,,,,,,,,
+Gogoat,250,move,1,Horn Leech,52.3%,,,,,,,,
+Gogoat,250,move,2,Giga Drain,40.1%,,,,,,,,
+Gogoat,250,move,3,Endeavor,39.5%,,,,,,,,
+Gogoat,250,move,4,Aerial Ace,38.2%,,,,,,,,
+Gogoat,250,move,5,Mud Shot,38.1%,,,,,,,,
+Gogoat,250,move,6,Leech Seed,35.5%,,,,,,,,
+Gogoat,250,move,7,Earthquake,33.3%,,,,,,,,
+Gogoat,250,move,8,Milk Drink,29.4%,,,,,,,,
+Gogoat,250,move,9,Bulk Up,15.8%,,,,,,,,
+Gogoat,250,move,10,Grassy Terrain,15.6%,,,,,,,,
+Gogoat,250,held_item,1,Sitrus Berry,50.0%,,,,,,,,
+Gogoat,250,held_item,2,Leftovers,22.5%,,,,,,,,
+Gogoat,250,held_item,3,Rocky Helmet,11.8%,,,,,,,,
+Gogoat,250,held_item,4,Grassy Seed,8.3%,,,,,,,,
+Gogoat,250,held_item,5,Life Orb,2.0%,,,,,,,,
+Gogoat,250,held_item,6,Bright Powder,1.3%,,,,,,,,
+Gogoat,250,held_item,7,Miracle Seed,1.0%,,,,,,,,
+Gogoat,250,held_item,8,Terrain Extender,1.0%,,,,,,,,
+Gogoat,250,held_item,9,Damp Rock,0.7%,,,,,,,,
+Gogoat,250,held_item,10,Big Root,0.6%,,,,,,,,
 Gogoat,250,teammate,1,Garchomp,,,,,,,,,
 Gogoat,250,teammate,2,Primarina,,,,,,,,,
 Gogoat,250,teammate,3,Basculegion,,,,,,,,,
@@ -29,25 +29,25 @@ Gogoat,250,teammate,7,Quaquaval,,,,,,,,,
 Gogoat,250,teammate,8,Pidgeot,,,,,,,,,
 Gogoat,250,teammate,9,Gengar,,,,,,,,,
 Gogoat,250,teammate,10,Houndoom,,,,,,,,,
-Gogoat,250,stat_alignment,1,Bold,39.5%,Defense,Attack,,,,,,
-Gogoat,250,stat_alignment,2,Adamant,26.8%,Attack,Sp. Atk,,,,,,
-Gogoat,250,stat_alignment,3,Impish,20.4%,Defense,Sp. Atk,,,,,,
-Gogoat,250,stat_alignment,4,Careful,7.3%,Sp. Def,Sp. Atk,,,,,,
+Gogoat,250,stat_alignment,1,Bold,38.4%,Defense,Attack,,,,,,
+Gogoat,250,stat_alignment,2,Adamant,28.3%,Attack,Sp. Atk,,,,,,
+Gogoat,250,stat_alignment,3,Impish,19.9%,Defense,Sp. Atk,,,,,,
+Gogoat,250,stat_alignment,4,Careful,7.1%,Sp. Def,Sp. Atk,,,,,,
 Gogoat,250,stat_alignment,5,Timid,1.9%,Speed,Attack,,,,,,
 Gogoat,250,stat_alignment,6,Sassy,1.6%,Sp. Def,Speed,,,,,,
 Gogoat,250,stat_alignment,7,Modest,1.0%,Sp. Atk,Attack,,,,,,
-Gogoat,250,stat_alignment,8,Relaxed,0.9%,Defense,Speed,,,,,,
-Gogoat,250,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,
+Gogoat,250,stat_alignment,8,Relaxed,1.0%,Defense,Speed,,,,,,
+Gogoat,250,stat_alignment,9,Brave,0.6%,Attack,Speed,,,,,,
 Gogoat,250,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
-Gogoat,250,stat_points,1,,39.2%,,,32,0,2,32,0,0
-Gogoat,250,stat_points,2,,14.8%,,,32,0,32,0,2,0
-Gogoat,250,stat_points,3,,12.0%,,,32,32,2,0,0,0
-Gogoat,250,stat_points,4,,6.6%,,,2,32,32,0,0,0
-Gogoat,250,stat_points,5,,6.1%,,,14,20,0,0,32,0
-Gogoat,250,stat_points,6,,5.2%,,,2,30,18,0,9,7
+Gogoat,250,stat_points,1,,38.1%,,,32,0,2,32,0,0
+Gogoat,250,stat_points,2,,14.5%,,,32,0,32,0,2,0
+Gogoat,250,stat_points,3,,11.6%,,,32,32,2,0,0,0
+Gogoat,250,stat_points,4,,6.4%,,,2,32,32,0,0,0
+Gogoat,250,stat_points,5,,6.0%,,,14,20,0,0,32,0
+Gogoat,250,stat_points,6,,5.1%,,,2,30,18,0,9,7
 Gogoat,250,stat_points,7,,1.9%,,,4,20,32,0,0,6
 Gogoat,250,stat_points,8,,1.9%,,,26,8,0,0,32,0
 Gogoat,250,stat_points,9,,1.6%,,,32,0,0,2,32,0
 Gogoat,250,stat_points,10,,1.5%,,,32,32,0,0,2,0
-Gogoat,250,ability,1,Sap Sipper,77.5%,,,,,,,,
-Gogoat,250,ability,2,Grass Pelt,22.5%,,,,,,,,
+Gogoat,250,ability,1,Sap Sipper,77.8%,,,,,,,,
+Gogoat,250,ability,2,Grass Pelt,22.2%,,,,,,,,

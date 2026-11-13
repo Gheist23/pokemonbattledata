@@ -1,43 +1,46 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Tauros,260,move,1,Body Slam,77.1%,,,,,,,,
-Tauros,260,move,2,Zen Headbutt,49.3%,,,,,,,,
-Tauros,260,move,3,Close Combat,47.9%,,,,,,,,
-Tauros,260,move,4,Iron Head,47.9%,,,,,,,,
-Tauros,260,move,5,Throat Chop,42.4%,,,,,,,,
-Tauros,260,move,6,Protect,33.3%,,,,,,,,
-Tauros,260,move,7,Rock Slide,27.1%,,,,,,,,
-Tauros,260,move,8,Raging Bull,22.9%,,,,,,,,
-Tauros,260,move,9,High Horsepower,22.2%,,,,,,,,
-Tauros,260,move,10,Earthquake,8.3%,,,,,,,,
-Tauros,260,held_item,1,Life Orb,83.3%,,,,,,,,
-Tauros,260,held_item,2,Chople Berry,7.6%,,,,,,,,
-Tauros,260,held_item,3,Sitrus Berry,3.5%,,,,,,,,
-Tauros,260,held_item,4,White Herb,2.1%,,,,,,,,
-Tauros,260,held_item,5,Silk Scarf,2.1%,,,,,,,,
-Tauros,260,held_item,6,Muscle Band,0.7%,,,,,,,,
-Tauros,260,held_item,7,Expert Belt,0.7%,,,,,,,,
+Tauros,260,move,1,Body Slam,71.1%,,,,,,,,
+Tauros,260,move,2,Zen Headbutt,44.7%,,,,,,,,
+Tauros,260,move,3,Close Combat,43.4%,,,,,,,,
+Tauros,260,move,4,Iron Head,43.4%,,,,,,,,
+Tauros,260,move,5,Throat Chop,38.4%,,,,,,,,
+Tauros,260,move,6,Protect,30.2%,,,,,,,,
+Tauros,260,move,7,Rock Slide,24.5%,,,,,,,,
+Tauros,260,move,8,Raging Bull,22.0%,,,,,,,,
+Tauros,260,move,9,High Horsepower,20.1%,,,,,,,,
+Tauros,260,move,10,Shadow Ball,8.2%,,,,,,,,
+Tauros,260,held_item,1,Life Orb,83.6%,,,,,,,,
+Tauros,260,held_item,2,Chople Berry,6.9%,,,,,,,,
+Tauros,260,held_item,3,Sitrus Berry,3.1%,,,,,,,,
+Tauros,260,held_item,4,Silk Scarf,3.1%,,,,,,,,
+Tauros,260,held_item,5,White Herb,1.9%,,,,,,,,
+Tauros,260,held_item,6,Muscle Band,0.6%,,,,,,,,
+Tauros,260,held_item,7,Expert Belt,0.6%,,,,,,,,
 Tauros,260,teammate,1,Salamence,,,,,,,,,
 Tauros,260,teammate,2,Rillaboom,,,,,,,,,
 Tauros,260,teammate,3,Alcremie,,,,,,,,,
 Tauros,260,teammate,4,Sneasler,,,,,,,,,
 Tauros,260,teammate,5,Sylveon,,,,,,,,,
-Tauros,260,teammate,6,Indeedee-F,,,,,,,,,
-Tauros,260,teammate,7,Indeedee,,,,,,,,,
-Tauros,260,teammate,8,Mamoswine,,,,,,,,,
-Tauros,260,teammate,9,Armarouge,,,,,,,,,
-Tauros,260,teammate,10,Oranguru,,,,,,,,,
-Tauros,260,stat_alignment,1,Jolly,71.5%,Speed,Sp. Atk,,,,,,
-Tauros,260,stat_alignment,2,Adamant,26.4%,Attack,Sp. Atk,,,,,,
-Tauros,260,stat_alignment,3,Lonely,2.1%,Attack,Defense,,,,,,
-Tauros,260,stat_points,1,,35.4%,,,0,32,2,0,0,32
-Tauros,260,stat_points,2,,28.5%,,,0,32,0,0,2,32
-Tauros,260,stat_points,3,,10.4%,,,2,32,0,0,0,32
-Tauros,260,stat_points,4,,8.3%,,,19,32,0,0,5,10
-Tauros,260,stat_points,5,,7.6%,,,0,32,2,0,32,0
-Tauros,260,stat_points,6,,4.9%,,,0,32,0,0,0,32
-Tauros,260,stat_points,7,,2.1%,,,1,32,0,0,1,32
-Tauros,260,stat_points,8,,2.1%,,,22,32,0,0,0,12
-Tauros,260,stat_points,9,,0.7%,,,32,32,0,0,2,0
-Tauros,260,ability,1,Sheer Force,75.7%,,,,,,,,
-Tauros,260,ability,2,Intimidate,21.5%,,,,,,,,
-Tauros,260,ability,3,Anger Point,2.8%,,,,,,,,
+Tauros,260,teammate,6,Farigiraf,,,,,,,,,
+Tauros,260,teammate,7,Indeedee-F,,,,,,,,,
+Tauros,260,teammate,8,Indeedee,,,,,,,,,
+Tauros,260,teammate,9,Mamoswine,,,,,,,,,
+Tauros,260,teammate,10,Milotic,,,,,,,,,
+Tauros,260,stat_alignment,1,Jolly,64.8%,Speed,Sp. Atk,,,,,,
+Tauros,260,stat_alignment,2,Adamant,23.9%,Attack,Sp. Atk,,,,,,
+Tauros,260,stat_alignment,3,Timid,8.2%,Speed,Attack,,,,,,
+Tauros,260,stat_alignment,4,Lonely,1.9%,Attack,Defense,,,,,,
+Tauros,260,stat_alignment,5,Hasty,1.3%,Speed,Defense,,,,,,
+Tauros,260,stat_points,1,,32.1%,,,0,32,2,0,0,32
+Tauros,260,stat_points,2,,25.8%,,,0,32,0,0,2,32
+Tauros,260,stat_points,3,,9.4%,,,2,32,0,0,0,32
+Tauros,260,stat_points,4,,8.2%,,,2,0,0,32,0,32
+Tauros,260,stat_points,5,,7.5%,,,19,32,0,0,5,10
+Tauros,260,stat_points,6,,6.9%,,,0,32,2,0,32,0
+Tauros,260,stat_points,7,,5.7%,,,0,32,0,0,0,32
+Tauros,260,stat_points,8,,1.9%,,,1,32,0,0,1,32
+Tauros,260,stat_points,9,,1.9%,,,22,32,0,0,0,12
+Tauros,260,stat_points,10,,0.6%,,,32,32,0,0,2,0
+Tauros,260,ability,1,Sheer Force,76.7%,,,,,,,,
+Tauros,260,ability,2,Intimidate,19.5%,,,,,,,,
+Tauros,260,ability,3,Anger Point,3.8%,,,,,,,,

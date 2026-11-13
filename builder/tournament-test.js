@@ -3369,9 +3369,24 @@ export class TournamentTest {
     const info = att.u.moves[hit.slot];
     const list = info?.fx;
     if (!list || !alive(target) || att.k.sheerForce || target.k.secondaryProof) return;
+    // THE SAME TWO LAYERS AS `runEffectOps`, AND FOR THE SAME REASON.
+    //
+    // A TURN BEING PLAYED rolls: the secondary happens or it does not, once, and then it is a
+    // fact at FULL strength. Pricing it as a fraction instead reaches `shiftStages`, which
+    // spends WHOLE stages and banks the rest -- so a 30% Attack drop moved nothing visible and
+    // quietly left -0.30 on the carry. Two of those, and the next Bulk Up put Defense up by one
+    // and Attack by NOTHING, because its +1 went into paying the carry off. With both stats
+    // carrying, the whole move vanished: `did` stays empty and the log says only
+    // "Corviknight used Bulk Up", with no effect after it. That is the bug this fixes.
+    //
+    // A SEARCH does not roll -- it prices -- so with no roll lent `p` is the chance exactly as
+    // before and every expectation this engine is built on is unchanged.
+    const roll = this.effectRoll;
     for (const fx of list) {
-      const p = Math.max(0, Math.min(1, (Number(fx.chance) || 100) / 100));
-      if (p <= 0) continue;
+      const chance = Math.max(0, Math.min(1, (Number(fx.chance) || 100) / 100));
+      if (chance <= 0) continue;
+      if (roll && roll() >= chance) continue;
+      const p = roll ? 1 : chance;
       // KNOCK OFF and THIEF are DAMAGING moves, so their registry ops arrive HERE and not in
       // `runEffectOps` -- the same trap Cursed Body fell into. Trick and Switcheroo are status
       // moves and are handled there; these two are handled here, and both call `setItem`.

@@ -1,47 +1,49 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Garbodor,261,move,1,Rock Blast,77.2%,,,,,,,,
-Garbodor,261,move,2,Explosion,62.4%,,,,,,,,
-Garbodor,261,move,3,Poison Jab,61.4%,,,,,,,,
-Garbodor,261,move,4,Drain Punch,52.5%,,,,,,,,
-Garbodor,261,move,5,Clear Smog,40.6%,,,,,,,,
-Garbodor,261,move,6,Gunk Shot,36.6%,,,,,,,,
-Garbodor,261,move,7,Stockpile,13.9%,,,,,,,,
-Garbodor,261,move,8,Protect,12.9%,,,,,,,,
-Garbodor,261,move,9,Toxic Spikes,11.9%,,,,,,,,
-Garbodor,261,move,10,Spikes,5.9%,,,,,,,,
-Garbodor,261,held_item,1,Normal Gem,61.4%,,,,,,,,
-Garbodor,261,held_item,2,Leftovers,22.8%,,,,,,,,
-Garbodor,261,held_item,3,Life Orb,5.9%,,,,,,,,
-Garbodor,261,held_item,4,Sitrus Berry,4.0%,,,,,,,,
-Garbodor,261,held_item,5,Choice Scarf,3.0%,,,,,,,,
-Garbodor,261,held_item,6,Poison Barb,2.0%,,,,,,,,
-Garbodor,261,held_item,7,Rocky Helmet,1.0%,,,,,,,,
+Garbodor,261,move,1,Rock Blast,69.0%,,,,,,,,
+Garbodor,261,move,2,Poison Jab,57.5%,,,,,,,,
+Garbodor,261,move,3,Explosion,55.8%,,,,,,,,
+Garbodor,261,move,4,Drain Punch,54.9%,,,,,,,,
+Garbodor,261,move,5,Gunk Shot,40.7%,,,,,,,,
+Garbodor,261,move,6,Clear Smog,36.3%,,,,,,,,
+Garbodor,261,move,7,Protect,14.2%,,,,,,,,
+Garbodor,261,move,8,Payback,13.3%,,,,,,,,
+Garbodor,261,move,9,Stockpile,12.4%,,,,,,,,
+Garbodor,261,move,10,Stomping Tantrum,11.5%,,,,,,,,
+Garbodor,261,held_item,1,Normal Gem,54.9%,,,,,,,,
+Garbodor,261,held_item,2,Leftovers,20.4%,,,,,,,,
+Garbodor,261,held_item,3,Choice Scarf,8.8%,,,,,,,,
+Garbodor,261,held_item,4,Life Orb,5.3%,,,,,,,,
+Garbodor,261,held_item,5,Sitrus Berry,3.5%,,,,,,,,
+Garbodor,261,held_item,6,Grassy Seed,2.7%,,,,,,,,
+Garbodor,261,held_item,7,Quick Claw,1.8%,,,,,,,,
+Garbodor,261,held_item,8,Poison Barb,1.8%,,,,,,,,
+Garbodor,261,held_item,9,Rocky Helmet,0.9%,,,,,,,,
 Garbodor,261,teammate,1,Tyranitar,,,,,,,,,
-Garbodor,261,teammate,2,Gallade,,,,,,,,,
-Garbodor,261,teammate,3,Metagross,,,,,,,,,
+Garbodor,261,teammate,2,Metagross,,,,,,,,,
+Garbodor,261,teammate,3,Gallade,,,,,,,,,
 Garbodor,261,teammate,4,Pawmot,,,,,,,,,
 Garbodor,261,teammate,5,Houndstone,,,,,,,,,
 Garbodor,261,teammate,6,Rillaboom,,,,,,,,,
-Garbodor,261,teammate,7,Gogoat,,,,,,,,,
-Garbodor,261,teammate,8,Aromatisse,,,,,,,,,
-Garbodor,261,teammate,9,Drampa,,,,,,,,,
-Garbodor,261,teammate,10,Indeedee,,,,,,,,,
-Garbodor,261,stat_alignment,1,Adamant,71.3%,Attack,Sp. Atk,,,,,,
-Garbodor,261,stat_alignment,2,Careful,8.9%,Sp. Def,Sp. Atk,,,,,,
-Garbodor,261,stat_alignment,3,Brave,7.9%,Attack,Speed,,,,,,
-Garbodor,261,stat_alignment,4,Sassy,5.9%,Sp. Def,Speed,,,,,,
-Garbodor,261,stat_alignment,5,Serious,4.0%,,,,,,,,
-Garbodor,261,stat_alignment,6,Impish,2.0%,Defense,Sp. Atk,,,,,,
-Garbodor,261,stat_points,1,,33.7%,,,2,32,0,0,0,32
-Garbodor,261,stat_points,2,,20.8%,,,10,32,0,0,0,24
-Garbodor,261,stat_points,3,,8.9%,,,32,0,32,0,2,0
-Garbodor,261,stat_points,4,,8.9%,,,32,32,0,0,2,0
-Garbodor,261,stat_points,5,,7.9%,,,15,32,0,0,18,0
-Garbodor,261,stat_points,6,,5.9%,,,32,32,0,0,0,2
-Garbodor,261,stat_points,7,,5.0%,,,11,15,8,0,32,0
-Garbodor,261,stat_points,8,,4.0%,,,32,32,1,0,1,0
-Garbodor,261,stat_points,9,,2.0%,,,32,28,4,0,2,0
-Garbodor,261,stat_points,10,,1.0%,,,0,32,28,0,0,6
-Garbodor,261,ability,1,Weak Armor,48.5%,,,,,,,,
-Garbodor,261,ability,2,Stench,40.6%,,,,,,,,
-Garbodor,261,ability,3,Aftermath,10.9%,,,,,,,,
+Garbodor,261,teammate,7,Indeedee,,,,,,,,,
+Garbodor,261,teammate,8,Serperior,,,,,,,,,
+Garbodor,261,teammate,9,Reuniclus,,,,,,,,,
+Garbodor,261,teammate,10,Beartic,,,,,,,,,
+Garbodor,261,stat_alignment,1,Adamant,71.7%,Attack,Sp. Atk,,,,,,
+Garbodor,261,stat_alignment,2,Careful,8.0%,Sp. Def,Sp. Atk,,,,,,
+Garbodor,261,stat_alignment,3,Brave,7.1%,Attack,Speed,,,,,,
+Garbodor,261,stat_alignment,4,Sassy,5.3%,Sp. Def,Speed,,,,,,
+Garbodor,261,stat_alignment,5,Impish,4.4%,Defense,Sp. Atk,,,,,,
+Garbodor,261,stat_alignment,6,Serious,3.5%,,,,,,,,
+Garbodor,261,stat_points,1,,30.1%,,,2,32,0,0,0,32
+Garbodor,261,stat_points,2,,18.6%,,,10,32,0,0,0,24
+Garbodor,261,stat_points,3,,13.3%,,,32,32,0,0,0,2
+Garbodor,261,stat_points,4,,10.6%,,,32,0,32,0,2,0
+Garbodor,261,stat_points,5,,8.0%,,,32,32,0,0,2,0
+Garbodor,261,stat_points,6,,7.1%,,,15,32,0,0,18,0
+Garbodor,261,stat_points,7,,4.4%,,,11,15,8,0,32,0
+Garbodor,261,stat_points,8,,3.5%,,,32,32,1,0,1,0
+Garbodor,261,stat_points,9,,1.8%,,,32,28,4,0,2,0
+Garbodor,261,stat_points,10,,0.9%,,,0,32,28,0,0,6
+Garbodor,261,ability,1,Stench,46.9%,,,,,,,,
+Garbodor,261,ability,2,Weak Armor,43.4%,,,,,,,,
+Garbodor,261,ability,3,Aftermath,9.7%,,,,,,,,

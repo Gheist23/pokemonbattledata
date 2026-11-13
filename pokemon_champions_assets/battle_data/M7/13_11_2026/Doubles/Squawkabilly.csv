@@ -1,20 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Squawkabilly,226,move,1,Final Gambit,81.2%,,,,,,,,
-Squawkabilly,226,move,2,Parting Shot,77.1%,,,,,,,,
-Squawkabilly,226,move,3,Brave Bird,72.1%,,,,,,,,
-Squawkabilly,226,move,4,Tailwind,45.7%,,,,,,,,
-Squawkabilly,226,move,5,Feather Dance,25.3%,,,,,,,,
-Squawkabilly,226,move,6,Taunt,24.7%,,,,,,,,
+Squawkabilly,226,move,1,Final Gambit,81.6%,,,,,,,,
+Squawkabilly,226,move,2,Parting Shot,77.4%,,,,,,,,
+Squawkabilly,226,move,3,Brave Bird,71.7%,,,,,,,,
+Squawkabilly,226,move,4,Tailwind,44.7%,,,,,,,,
+Squawkabilly,226,move,5,Feather Dance,25.7%,,,,,,,,
+Squawkabilly,226,move,6,Taunt,24.9%,,,,,,,,
 Squawkabilly,226,move,7,U-turn,20.1%,,,,,,,,
-Squawkabilly,226,move,8,Foul Play,17.7%,,,,,,,,
-Squawkabilly,226,move,9,Lunge,13.4%,,,,,,,,
-Squawkabilly,226,move,10,Double-Edge,5.6%,,,,,,,,
-Squawkabilly,226,held_item,1,Choice Scarf,82.2%,,,,,,,,
-Squawkabilly,226,held_item,2,Focus Sash,15.6%,,,,,,,,
+Squawkabilly,226,move,8,Foul Play,18.0%,,,,,,,,
+Squawkabilly,226,move,9,Lunge,13.3%,,,,,,,,
+Squawkabilly,226,move,10,Double-Edge,5.4%,,,,,,,,
+Squawkabilly,226,held_item,1,Choice Scarf,82.0%,,,,,,,,
+Squawkabilly,226,held_item,2,Focus Sash,15.3%,,,,,,,,
 Squawkabilly,226,held_item,3,Silk Scarf,0.8%,,,,,,,,
 Squawkabilly,226,held_item,4,Sitrus Berry,0.6%,,,,,,,,
 Squawkabilly,226,held_item,5,Grassy Seed,0.6%,,,,,,,,
-Squawkabilly,226,held_item,6,Life Orb,0.2%,,,,,,,,
+Squawkabilly,226,held_item,6,Iron Ball,0.3%,,,,,,,,
+Squawkabilly,226,held_item,7,Quick Claw,0.2%,,,,,,,,
+Squawkabilly,226,held_item,8,Life Orb,0.2%,,,,,,,,
 Squawkabilly,226,teammate,1,Farigiraf,,,,,,,,,
 Squawkabilly,226,teammate,2,Sinistcha,,,,,,,,,
 Squawkabilly,226,teammate,3,Camerupt,,,,,,,,,
@@ -26,20 +28,21 @@ Squawkabilly,226,teammate,8,Corviknight,,,,,,,,,
 Squawkabilly,226,teammate,9,Grapploct,,,,,,,,,
 Squawkabilly,226,teammate,10,Blaziken,,,,,,,,,
 Squawkabilly,226,stat_alignment,1,Jolly,89.8%,Speed,Sp. Atk,,,,,,
-Squawkabilly,226,stat_alignment,2,Adamant,4.6%,Attack,Sp. Atk,,,,,,
-Squawkabilly,226,stat_alignment,3,Timid,3.7%,Speed,Attack,,,,,,
+Squawkabilly,226,stat_alignment,2,Adamant,4.5%,Attack,Sp. Atk,,,,,,
+Squawkabilly,226,stat_alignment,3,Timid,3.6%,Speed,Attack,,,,,,
 Squawkabilly,226,stat_alignment,4,Careful,1.1%,Sp. Def,Sp. Atk,,,,,,
 Squawkabilly,226,stat_alignment,5,Lonely,0.8%,Attack,Defense,,,,,,
-Squawkabilly,226,stat_points,1,,54.3%,,,32,2,0,0,0,32
-Squawkabilly,226,stat_points,2,,15.1%,,,32,0,2,0,0,32
-Squawkabilly,226,stat_points,3,,13.7%,,,0,32,2,0,0,32
-Squawkabilly,226,stat_points,4,,3.3%,,,32,0,0,0,0,32
-Squawkabilly,226,stat_points,5,,3.0%,,,0,32,0,0,2,32
-Squawkabilly,226,stat_points,6,,2.9%,,,32,0,0,2,0,32
-Squawkabilly,226,stat_points,7,,2.9%,,,32,15,0,0,0,19
+Squawkabilly,226,stat_alignment,6,Brave,0.3%,Attack,Speed,,,,,,
+Squawkabilly,226,stat_points,1,,54.5%,,,32,2,0,0,0,32
+Squawkabilly,226,stat_points,2,,14.9%,,,32,0,2,0,0,32
+Squawkabilly,226,stat_points,3,,13.3%,,,0,32,2,0,0,32
+Squawkabilly,226,stat_points,4,,3.4%,,,32,0,0,0,0,32
+Squawkabilly,226,stat_points,5,,2.9%,,,0,32,0,0,2,32
+Squawkabilly,226,stat_points,6,,2.8%,,,32,0,0,2,0,32
+Squawkabilly,226,stat_points,7,,2.8%,,,32,15,0,0,0,19
 Squawkabilly,226,stat_points,8,,1.4%,,,32,0,4,0,5,25
 Squawkabilly,226,stat_points,9,,0.8%,,,0,32,0,0,0,32
 Squawkabilly,226,stat_points,10,,0.6%,,,32,0,5,0,29,0
-Squawkabilly,226,ability,1,Intimidate,83.4%,,,,,,,,
-Squawkabilly,226,ability,2,Hustle,16.4%,,,,,,,,
+Squawkabilly,226,ability,1,Intimidate,83.9%,,,,,,,,
+Squawkabilly,226,ability,2,Hustle,15.9%,,,,,,,,
 Squawkabilly,226,ability,3,Guts,0.2%,,,,,,,,

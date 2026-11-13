@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pelipper,51,move,1,Hurricane,97.3%,,,,,,,,
 Pelipper,51,move,2,U-turn,89.4%,,,,,,,,
-Pelipper,51,move,3,Ice Beam,62.7%,,,,,,,,
-Pelipper,51,move,4,Surf,60.6%,,,,,,,,
-Pelipper,51,move,5,Weather Ball,28.7%,,,,,,,,
+Pelipper,51,move,3,Ice Beam,62.8%,,,,,,,,
+Pelipper,51,move,4,Surf,60.4%,,,,,,,,
+Pelipper,51,move,5,Weather Ball,28.9%,,,,,,,,
 Pelipper,51,move,6,Roost,24.3%,,,,,,,,
 Pelipper,51,move,7,Tailwind,9.7%,,,,,,,,
-Pelipper,51,move,8,Hydro Pump,7.5%,,,,,,,,
-Pelipper,51,move,9,Rain Dance,4.9%,,,,,,,,
+Pelipper,51,move,8,Hydro Pump,7.4%,,,,,,,,
+Pelipper,51,move,9,Rain Dance,4.8%,,,,,,,,
 Pelipper,51,move,10,Quick Attack,4.8%,,,,,,,,
 Pelipper,51,held_item,1,Damp Rock,63.8%,,,,,,,,
 Pelipper,51,held_item,2,Rocky Helmet,14.5%,,,,,,,,
@@ -29,16 +29,16 @@ Pelipper,51,teammate,7,Indeedee,,,,,,,,,
 Pelipper,51,teammate,8,Politoed,,,,,,,,,
 Pelipper,51,teammate,9,Mimikyu,,,,,,,,,
 Pelipper,51,teammate,10,Glimmora,,,,,,,,,
-Pelipper,51,stat_alignment,1,Modest,30.8%,Sp. Atk,Attack,,,,,,
+Pelipper,51,stat_alignment,1,Modest,30.9%,Sp. Atk,Attack,,,,,,
 Pelipper,51,stat_alignment,2,Bold,23.6%,Defense,Attack,,,,,,
-Pelipper,51,stat_alignment,3,Relaxed,22.0%,Defense,Speed,,,,,,
+Pelipper,51,stat_alignment,3,Relaxed,21.9%,Defense,Speed,,,,,,
 Pelipper,51,stat_alignment,4,Quiet,7.9%,Sp. Atk,Speed,,,,,,
-Pelipper,51,stat_alignment,5,Timid,7.8%,Speed,Attack,,,,,,
-Pelipper,51,stat_alignment,6,Calm,3.7%,Sp. Def,Attack,,,,,,
+Pelipper,51,stat_alignment,5,Timid,7.9%,Speed,Attack,,,,,,
+Pelipper,51,stat_alignment,6,Calm,3.8%,Sp. Def,Attack,,,,,,
 Pelipper,51,stat_alignment,7,Sassy,3.5%,Sp. Def,Speed,,,,,,
 Pelipper,51,stat_alignment,8,Hasty,0.1%,Speed,Defense,,,,,,
-Pelipper,51,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
-Pelipper,51,stat_alignment,10,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Pelipper,51,stat_alignment,9,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Pelipper,51,stat_alignment,10,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
 Pelipper,51,stat_points,1,,12.4%,,,32,0,32,0,2,0
 Pelipper,51,stat_points,2,,11.5%,,,2,0,0,32,0,32
 Pelipper,51,stat_points,3,,9.1%,,,32,0,26,0,0,8
@@ -48,7 +48,7 @@ Pelipper,51,stat_points,6,,4.9%,,,32,0,0,32,2,0
 Pelipper,51,stat_points,7,,4.4%,,,32,0,32,2,0,0
 Pelipper,51,stat_points,8,,2.8%,,,32,0,2,0,32,0
 Pelipper,51,stat_points,9,,2.8%,,,32,0,0,32,0,2
-Pelipper,51,stat_points,10,,2.5%,,,0,0,0,32,2,32
+Pelipper,51,stat_points,10,,2.6%,,,0,0,0,32,2,32
 Pelipper,51,ability,1,Drizzle,99.9%,,,,,,,,
 Pelipper,51,ability,2,Keen Eye,0.1%,,,,,,,,
 Pelipper,51,ability,3,Rain Dish,0.0%,,,,,,,,

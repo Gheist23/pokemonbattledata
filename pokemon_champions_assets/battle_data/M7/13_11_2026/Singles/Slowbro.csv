@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slowbro,108,move,1,Slack Off,83.7%,,,,,,,,
-Slowbro,108,move,2,Scald,78.0%,,,,,,,,
-Slowbro,108,move,3,Iron Defense,49.8%,,,,,,,,
-Slowbro,108,move,4,Body Press,36.7%,,,,,,,,
-Slowbro,108,move,5,Ice Beam,36.5%,,,,,,,,
-Slowbro,108,move,6,Calm Mind,26.7%,,,,,,,,
-Slowbro,108,move,7,Flamethrower,12.2%,,,,,,,,
-Slowbro,108,move,8,Stored Power,9.7%,,,,,,,,
-Slowbro,108,move,9,Psychic,9.5%,,,,,,,,
-Slowbro,108,move,10,Psychic Noise,7.7%,,,,,,,,
-Slowbro,108,held_item,1,Slowbronite,75.2%,,,,,,,,
-Slowbro,108,held_item,2,Rocky Helmet,7.9%,,,,,,,,
-Slowbro,108,held_item,3,Sitrus Berry,6.0%,,,,,,,,
-Slowbro,108,held_item,4,Leftovers,4.9%,,,,,,,,
+Slowbro,108,move,1,Slack Off,83.9%,,,,,,,,
+Slowbro,108,move,2,Scald,77.9%,,,,,,,,
+Slowbro,108,move,3,Iron Defense,50.3%,,,,,,,,
+Slowbro,108,move,4,Body Press,36.9%,,,,,,,,
+Slowbro,108,move,5,Ice Beam,36.2%,,,,,,,,
+Slowbro,108,move,6,Calm Mind,26.5%,,,,,,,,
+Slowbro,108,move,7,Flamethrower,12.1%,,,,,,,,
+Slowbro,108,move,8,Stored Power,9.6%,,,,,,,,
+Slowbro,108,move,9,Psychic,9.4%,,,,,,,,
+Slowbro,108,move,10,Yawn,7.6%,,,,,,,,
+Slowbro,108,held_item,1,Slowbronite,75.4%,,,,,,,,
+Slowbro,108,held_item,2,Rocky Helmet,7.7%,,,,,,,,
+Slowbro,108,held_item,3,Sitrus Berry,5.9%,,,,,,,,
+Slowbro,108,held_item,4,Leftovers,5.0%,,,,,,,,
 Slowbro,108,held_item,5,Life Orb,1.1%,,,,,,,,
-Slowbro,108,held_item,6,Expert Belt,1.0%,,,,,,,,
+Slowbro,108,held_item,6,Expert Belt,0.9%,,,,,,,,
 Slowbro,108,held_item,7,Focus Sash,0.8%,,,,,,,,
-Slowbro,108,held_item,8,Quick Claw,0.5%,,,,,,,,
-Slowbro,108,held_item,9,Rindo Berry,0.4%,,,,,,,,
+Slowbro,108,held_item,8,Quick Claw,0.6%,,,,,,,,
+Slowbro,108,held_item,9,Rindo Berry,0.3%,,,,,,,,
 Slowbro,108,held_item,10,Bright Powder,0.3%,,,,,,,,
 Slowbro,108,teammate,1,Snorlax,,,,,,,,,
 Slowbro,108,teammate,2,Garchomp,,,,,,,,,
@@ -30,8 +30,8 @@ Slowbro,108,teammate,8,Glimmora,,,,,,,,,
 Slowbro,108,teammate,9,Slowking-Galar,,,,,,,,,
 Slowbro,108,teammate,10,Tyranitar,,,,,,,,,
 Slowbro,108,stat_alignment,1,Bold,65.0%,Defense,Attack,,,,,,
-Slowbro,108,stat_alignment,2,Calm,14.9%,Sp. Def,Attack,,,,,,
-Slowbro,108,stat_alignment,3,Modest,7.1%,Sp. Atk,Attack,,,,,,
+Slowbro,108,stat_alignment,2,Calm,15.0%,Sp. Def,Attack,,,,,,
+Slowbro,108,stat_alignment,3,Modest,7.0%,Sp. Atk,Attack,,,,,,
 Slowbro,108,stat_alignment,4,Quiet,4.8%,Sp. Atk,Speed,,,,,,
 Slowbro,108,stat_alignment,5,Relaxed,4.0%,Defense,Speed,,,,,,
 Slowbro,108,stat_alignment,6,Sassy,2.7%,Sp. Def,Speed,,,,,,
@@ -39,16 +39,16 @@ Slowbro,108,stat_alignment,7,Impish,0.8%,Defense,Sp. Atk,,,,,,
 Slowbro,108,stat_alignment,8,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
 Slowbro,108,stat_alignment,9,Adamant,0.2%,Attack,Sp. Atk,,,,,,
 Slowbro,108,stat_alignment,10,Timid,0.2%,Speed,Attack,,,,,,
-Slowbro,108,stat_points,1,,26.5%,,,32,0,32,0,2,0
-Slowbro,108,stat_points,2,,8.4%,,,32,0,2,0,32,0
+Slowbro,108,stat_points,1,,26.6%,,,32,0,32,0,2,0
+Slowbro,108,stat_points,2,,8.5%,,,32,0,2,0,32,0
 Slowbro,108,stat_points,3,,7.5%,,,31,0,32,0,3,0
 Slowbro,108,stat_points,4,,4.9%,,,32,0,32,2,0,0
-Slowbro,108,stat_points,5,,4.1%,,,31,0,3,0,32,0
-Slowbro,108,stat_points,6,,2.6%,,,31,0,32,1,2,0
+Slowbro,108,stat_points,5,,4.2%,,,31,0,3,0,32,0
+Slowbro,108,stat_points,6,,2.7%,,,31,0,32,1,2,0
 Slowbro,108,stat_points,7,,2.6%,,,31,0,32,3,0,0
 Slowbro,108,stat_points,8,,2.4%,,,32,0,0,32,2,0
 Slowbro,108,stat_points,9,,2.1%,,,32,0,2,32,0,0
-Slowbro,108,stat_points,10,,2.0%,,,32,0,32,0,0,0
-Slowbro,108,ability,1,Regenerator,85.2%,,,,,,,,
-Slowbro,108,ability,2,Oblivious,12.8%,,,,,,,,
+Slowbro,108,stat_points,10,,1.9%,,,32,0,32,0,0,0
+Slowbro,108,ability,1,Regenerator,85.3%,,,,,,,,
+Slowbro,108,ability,2,Oblivious,12.7%,,,,,,,,
 Slowbro,108,ability,3,Own Tempo,2.0%,,,,,,,,

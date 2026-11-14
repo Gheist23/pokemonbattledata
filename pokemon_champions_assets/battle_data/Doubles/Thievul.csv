@@ -1,53 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Thievul,222,move,1,Snarl,92.6%,,,,,,,,
-Thievul,222,move,2,Protect,62.5%,,,,,,,,
-Thievul,222,move,3,Dark Pulse,49.9%,,,,,,,,
-Thievul,222,move,4,Parting Shot,47.5%,,,,,,,,
-Thievul,222,move,5,Taunt,27.9%,,,,,,,,
-Thievul,222,move,6,Foul Play,23.3%,,,,,,,,
-Thievul,222,move,7,Fake Tears,21.6%,,,,,,,,
-Thievul,222,move,8,Psychic,15.8%,,,,,,,,
-Thievul,222,move,9,Quick Guard,11.7%,,,,,,,,
-Thievul,222,move,10,Shadow Ball,11.0%,,,,,,,,
-Thievul,222,held_item,1,Life Orb,40.9%,,,,,,,,
-Thievul,222,held_item,2,Psychic Seed,21.3%,,,,,,,,
-Thievul,222,held_item,3,Grassy Seed,20.6%,,,,,,,,
-Thievul,222,held_item,4,Choice Scarf,4.6%,,,,,,,,
-Thievul,222,held_item,5,Red Card,3.6%,,,,,,,,
-Thievul,222,held_item,6,Leftovers,2.7%,,,,,,,,
-Thievul,222,held_item,7,Electric Seed,2.7%,,,,,,,,
-Thievul,222,held_item,8,Focus Sash,1.4%,,,,,,,,
-Thievul,222,held_item,9,Sitrus Berry,0.9%,,,,,,,,
-Thievul,222,held_item,10,Black Glasses,0.3%,,,,,,,,
-Thievul,222,teammate,1,Rillaboom,,,,,,,,,
-Thievul,222,teammate,2,Klefki,,,,,,,,,
-Thievul,222,teammate,3,Wigglytuff,,,,,,,,,
-Thievul,222,teammate,4,Ampharos,,,,,,,,,
-Thievul,222,teammate,5,Toxicroak,,,,,,,,,
-Thievul,222,teammate,6,Beedrill,,,,,,,,,
-Thievul,222,teammate,7,Indeedee,,,,,,,,,
-Thievul,222,teammate,8,Raichu,,,,,,,,,
-Thievul,222,teammate,9,Pelipper,,,,,,,,,
-Thievul,222,teammate,10,Trevenant,,,,,,,,,
-Thievul,222,stat_alignment,1,Quiet,34.6%,Sp. Atk,Speed,,,,,,
-Thievul,222,stat_alignment,2,Timid,30.0%,Speed,Attack,,,,,,
-Thievul,222,stat_alignment,3,Modest,13.1%,Sp. Atk,Attack,,,,,,
-Thievul,222,stat_alignment,4,Bold,10.4%,Defense,Attack,,,,,,
-Thievul,222,stat_alignment,5,Lax,6.4%,Defense,Sp. Def,,,,,,
-Thievul,222,stat_alignment,6,Calm,2.7%,Sp. Def,Attack,,,,,,
-Thievul,222,stat_alignment,7,Jolly,1.4%,Speed,Sp. Atk,,,,,,
-Thievul,222,stat_alignment,8,Hasty,1.2%,Speed,Defense,,,,,,
-Thievul,222,stat_alignment,9,Mild,0.1%,Sp. Atk,Defense,,,,,,
-Thievul,222,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,
-Thievul,222,stat_points,1,,34.8%,,,2,0,0,32,32,0
-Thievul,222,stat_points,2,,12.5%,,,32,0,2,0,0,32
-Thievul,222,stat_points,3,,6.8%,,,0,0,2,32,0,32
-Thievul,222,stat_points,4,,6.4%,,,0,32,0,32,0,0
-Thievul,222,stat_points,5,,6.3%,,,32,0,32,0,0,2
-Thievul,222,stat_points,6,,4.8%,,,32,0,0,0,2,32
-Thievul,222,stat_points,7,,3.6%,,,32,0,2,32,0,0
-Thievul,222,stat_points,8,,3.2%,,,32,0,13,0,21,0
-Thievul,222,stat_points,9,,3.0%,,,25,0,19,0,18,4
-Thievul,222,stat_points,10,,2.7%,,,0,0,2,32,32,0
-Thievul,222,ability,1,Unburden,52.8%,,,,,,,,
-Thievul,222,ability,2,Stakeout,47.2%,,,,,,,,
+Thievul,220,move,1,Snarl,92.0%,,,,,,,,
+Thievul,220,move,2,Protect,60.0%,,,,,,,,
+Thievul,220,move,3,Dark Pulse,48.8%,,,,,,,,
+Thievul,220,move,4,Parting Shot,46.1%,,,,,,,,
+Thievul,220,move,5,Taunt,29.3%,,,,,,,,
+Thievul,220,move,6,Foul Play,24.6%,,,,,,,,
+Thievul,220,move,7,Fake Tears,21.4%,,,,,,,,
+Thievul,220,move,8,Psychic,15.1%,,,,,,,,
+Thievul,220,move,9,Quick Guard,12.6%,,,,,,,,
+Thievul,220,move,10,Shadow Ball,10.9%,,,,,,,,
+Thievul,220,held_item,1,Life Orb,38.7%,,,,,,,,
+Thievul,220,held_item,2,Grassy Seed,21.6%,,,,,,,,
+Thievul,220,held_item,3,Psychic Seed,21.2%,,,,,,,,
+Thievul,220,held_item,4,Red Card,4.8%,,,,,,,,
+Thievul,220,held_item,5,Choice Scarf,4.4%,,,,,,,,
+Thievul,220,held_item,6,Electric Seed,2.8%,,,,,,,,
+Thievul,220,held_item,7,Leftovers,2.6%,,,,,,,,
+Thievul,220,held_item,8,Sitrus Berry,1.3%,,,,,,,,
+Thievul,220,held_item,9,Focus Sash,1.3%,,,,,,,,
+Thievul,220,held_item,10,Black Glasses,0.5%,,,,,,,,
+Thievul,220,teammate,1,Rillaboom,,,,,,,,,
+Thievul,220,teammate,2,Klefki,,,,,,,,,
+Thievul,220,teammate,3,Wigglytuff,,,,,,,,,
+Thievul,220,teammate,4,Ampharos,,,,,,,,,
+Thievul,220,teammate,5,Toxicroak,,,,,,,,,
+Thievul,220,teammate,6,Beedrill,,,,,,,,,
+Thievul,220,teammate,7,Raichu,,,,,,,,,
+Thievul,220,teammate,8,Indeedee,,,,,,,,,
+Thievul,220,teammate,9,Pelipper,,,,,,,,,
+Thievul,220,teammate,10,Gliscor,,,,,,,,,
+Thievul,220,stat_alignment,1,Quiet,32.7%,Sp. Atk,Speed,,,,,,
+Thievul,220,stat_alignment,2,Timid,30.6%,Speed,Attack,,,,,,
+Thievul,220,stat_alignment,3,Modest,13.9%,Sp. Atk,Attack,,,,,,
+Thievul,220,stat_alignment,4,Bold,10.6%,Defense,Attack,,,,,,
+Thievul,220,stat_alignment,5,Lax,6.0%,Defense,Sp. Def,,,,,,
+Thievul,220,stat_alignment,6,Calm,2.9%,Sp. Def,Attack,,,,,,
+Thievul,220,stat_alignment,7,Jolly,1.3%,Speed,Sp. Atk,,,,,,
+Thievul,220,stat_alignment,8,Hasty,1.1%,Speed,Defense,,,,,,
+Thievul,220,stat_alignment,9,Mild,0.6%,Sp. Atk,Defense,,,,,,
+Thievul,220,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Thievul,220,stat_points,1,,32.9%,,,2,0,0,32,32,0
+Thievul,220,stat_points,2,,13.3%,,,32,0,2,0,0,32
+Thievul,220,stat_points,3,,6.5%,,,0,0,2,32,0,32
+Thievul,220,stat_points,4,,6.4%,,,32,0,32,0,0,2
+Thievul,220,stat_points,5,,6.0%,,,0,32,0,32,0,0
+Thievul,220,stat_points,6,,4.7%,,,32,0,0,0,2,32
+Thievul,220,stat_points,7,,4.5%,,,32,0,2,32,0,0
+Thievul,220,stat_points,8,,3.0%,,,32,0,13,0,21,0
+Thievul,220,stat_points,9,,2.8%,,,25,0,19,0,18,4
+Thievul,220,stat_points,10,,2.6%,,,0,0,2,32,32,0
+Thievul,220,ability,1,Unburden,54.1%,,,,,,,,
+Thievul,220,ability,2,Stakeout,45.9%,,,,,,,,

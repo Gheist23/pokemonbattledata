@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Ditto,62,move,1,Transform,100.0%,,,,,,,,
 Ditto,62,held_item,1,Choice Scarf,68.0%,,,,,,,,
-Ditto,62,held_item,2,Red Card,14.8%,,,,,,,,
+Ditto,62,held_item,2,Red Card,14.7%,,,,,,,,
 Ditto,62,held_item,3,Focus Sash,7.2%,,,,,,,,
 Ditto,62,held_item,4,Quick Claw,5.9%,,,,,,,,
 Ditto,62,held_item,5,Life Orb,0.9%,,,,,,,,
 Ditto,62,held_item,6,Sitrus Berry,0.6%,,,,,,,,
-Ditto,62,held_item,7,Leftovers,0.2%,,,,,,,,
-Ditto,62,held_item,8,Bright Powder,0.2%,,,,,,,,
+Ditto,62,held_item,7,Bright Powder,0.3%,,,,,,,,
+Ditto,62,held_item,8,Leftovers,0.2%,,,,,,,,
 Ditto,62,held_item,9,White Herb,0.1%,,,,,,,,
 Ditto,62,held_item,10,Rocky Helmet,0.1%,,,,,,,,
 Ditto,62,teammate,1,Garchomp,,,,,,,,,
@@ -32,11 +32,11 @@ Ditto,62,stat_alignment,9,Hasty,2.9%,Speed,Defense,,,,,,
 Ditto,62,stat_alignment,10,Impish,2.8%,Defense,Sp. Atk,,,,,,
 Ditto,62,stat_points,1,,18.1%,,,32,0,0,0,0,0
 Ditto,62,stat_points,2,,13.0%,,,32,0,2,0,32,0
-Ditto,62,stat_points,3,,11.2%,,,32,0,32,0,2,0
+Ditto,62,stat_points,3,,11.1%,,,32,0,32,0,2,0
 Ditto,62,stat_points,4,,5.6%,,,32,2,32,0,0,0
-Ditto,62,stat_points,5,,4.5%,,,32,0,0,0,2,32
-Ditto,62,stat_points,6,,4.5%,,,32,0,2,0,0,32
-Ditto,62,stat_points,7,,3.6%,,,32,2,0,0,0,32
+Ditto,62,stat_points,5,,4.6%,,,32,0,2,0,0,32
+Ditto,62,stat_points,6,,4.5%,,,32,0,0,0,2,32
+Ditto,62,stat_points,7,,3.7%,,,32,2,0,0,0,32
 Ditto,62,stat_points,8,,3.5%,,,32,0,0,0,0,32
 Ditto,62,stat_points,9,,3.4%,,,32,0,0,0,32,0
 Ditto,62,stat_points,10,,2.3%,,,32,32,2,0,0,0

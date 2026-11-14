@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Watchog,255,move,1,Zen Headbutt,59.9%,,,,,,,,
-Watchog,255,move,2,Giga Impact,59.5%,,,,,,,,
-Watchog,255,move,3,After You,59.0%,,,,,,,,
-Watchog,255,move,4,Thunder Wave,58.1%,,,,,,,,
+Watchog,255,move,1,Giga Impact,59.9%,,,,,,,,
+Watchog,255,move,2,Zen Headbutt,58.6%,,,,,,,,
+Watchog,255,move,3,After You,57.7%,,,,,,,,
+Watchog,255,move,4,Thunder Wave,56.8%,,,,,,,,
 Watchog,255,move,5,Low Kick,22.5%,,,,,,,,
-Watchog,255,move,6,Ice Punch,21.2%,,,,,,,,
+Watchog,255,move,6,Ice Punch,21.1%,,,,,,,,
 Watchog,255,move,7,Detect,16.7%,,,,,,,,
-Watchog,255,move,8,Crunch,11.3%,,,,,,,,
-Watchog,255,move,9,Fire Punch,10.8%,,,,,,,,
-Watchog,255,move,10,Thunder Punch,10.8%,,,,,,,,
-Watchog,255,held_item,1,Choice Scarf,57.2%,,,,,,,,
+Watchog,255,move,8,Crunch,11.0%,,,,,,,,
+Watchog,255,move,9,Fire Punch,10.6%,,,,,,,,
+Watchog,255,move,10,Thunder Punch,10.6%,,,,,,,,
+Watchog,255,held_item,1,Choice Scarf,55.9%,,,,,,,,
 Watchog,255,held_item,2,Chople Berry,19.4%,,,,,,,,
-Watchog,255,held_item,3,Iron Ball,6.3%,,,,,,,,
-Watchog,255,held_item,4,Focus Sash,5.9%,,,,,,,,
-Watchog,255,held_item,5,Chesto Berry,3.6%,,,,,,,,
-Watchog,255,held_item,6,Sitrus Berry,3.2%,,,,,,,,
-Watchog,255,held_item,7,Silk Scarf,2.3%,,,,,,,,
-Watchog,255,held_item,8,Normal Gem,2.3%,,,,,,,,
+Watchog,255,held_item,3,Iron Ball,6.2%,,,,,,,,
+Watchog,255,held_item,4,Focus Sash,5.7%,,,,,,,,
+Watchog,255,held_item,5,Silk Scarf,4.0%,,,,,,,,
+Watchog,255,held_item,6,Chesto Berry,3.5%,,,,,,,,
+Watchog,255,held_item,7,Sitrus Berry,3.1%,,,,,,,,
+Watchog,255,held_item,8,Normal Gem,2.2%,,,,,,,,
 Watchog,255,teammate,1,Simisage,,,,,,,,,
 Watchog,255,teammate,2,Simisear,,,,,,,,,
 Watchog,255,teammate,3,Simipour,,,,,,,,,
@@ -27,23 +27,23 @@ Watchog,255,teammate,7,Charizard,,,,,,,,,
 Watchog,255,teammate,8,Garchomp,,,,,,,,,
 Watchog,255,teammate,9,Crabominable,,,,,,,,,
 Watchog,255,teammate,10,Raichu,,,,,,,,,
-Watchog,255,stat_alignment,1,Naive,57.2%,Speed,Sp. Def,,,,,,
-Watchog,255,stat_alignment,2,Adamant,13.5%,Attack,Sp. Atk,,,,,,
-Watchog,255,stat_alignment,3,Impish,10.4%,Defense,Sp. Atk,,,,,,
-Watchog,255,stat_alignment,4,Relaxed,8.6%,Defense,Speed,,,,,,
-Watchog,255,stat_alignment,5,Brave,5.4%,Attack,Speed,,,,,,
-Watchog,255,stat_alignment,6,Quiet,3.6%,Sp. Atk,Speed,,,,,,
-Watchog,255,stat_alignment,7,Jolly,1.4%,Speed,Sp. Atk,,,,,,
-Watchog,255,stat_points,1,,56.8%,,,0,32,0,0,0,32
-Watchog,255,stat_points,2,,11.3%,,,32,32,2,0,0,0
-Watchog,255,stat_points,3,,9.9%,,,32,2,32,0,0,0
-Watchog,255,stat_points,4,,6.8%,,,32,0,2,0,32,0
-Watchog,255,stat_points,5,,5.4%,,,32,32,1,0,1,0
-Watchog,255,stat_points,6,,3.2%,,,32,0,1,32,1,0
-Watchog,255,stat_points,7,,2.7%,,,32,32,0,0,0,2
+Watchog,255,stat_alignment,1,Naive,55.9%,Speed,Sp. Def,,,,,,
+Watchog,255,stat_alignment,2,Adamant,13.2%,Attack,Sp. Atk,,,,,,
+Watchog,255,stat_alignment,3,Impish,10.6%,Defense,Sp. Atk,,,,,,
+Watchog,255,stat_alignment,4,Relaxed,8.4%,Defense,Speed,,,,,,
+Watchog,255,stat_alignment,5,Brave,7.0%,Attack,Speed,,,,,,
+Watchog,255,stat_alignment,6,Quiet,3.5%,Sp. Atk,Speed,,,,,,
+Watchog,255,stat_alignment,7,Jolly,1.3%,Speed,Sp. Atk,,,,,,
+Watchog,255,stat_points,1,,55.5%,,,0,32,0,0,0,32
+Watchog,255,stat_points,2,,11.0%,,,32,32,2,0,0,0
+Watchog,255,stat_points,3,,10.1%,,,32,2,32,0,0,0
+Watchog,255,stat_points,4,,7.0%,,,32,32,1,0,1,0
+Watchog,255,stat_points,5,,6.6%,,,32,0,2,0,32,0
+Watchog,255,stat_points,6,,3.1%,,,32,0,1,32,1,0
+Watchog,255,stat_points,7,,2.6%,,,32,32,0,0,0,2
 Watchog,255,stat_points,8,,1.8%,,,32,0,11,0,23,0
-Watchog,255,stat_points,9,,1.4%,,,2,32,0,0,0,32
-Watchog,255,stat_points,10,,0.5%,,,0,32,2,0,0,32
-Watchog,255,ability,1,Keen Eye,59.5%,,,,,,,,
-Watchog,255,ability,2,Analytic,39.6%,,,,,,,,
+Watchog,255,stat_points,9,,1.3%,,,2,32,0,0,0,32
+Watchog,255,stat_points,10,,0.4%,,,0,32,2,0,0,32
+Watchog,255,ability,1,Keen Eye,58.1%,,,,,,,,
+Watchog,255,ability,2,Analytic,41.0%,,,,,,,,
 Watchog,255,ability,3,Illuminate,0.9%,,,,,,,,

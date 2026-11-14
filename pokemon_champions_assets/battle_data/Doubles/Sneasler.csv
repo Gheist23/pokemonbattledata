@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Sneasler,1,move,1,Close Combat,99.6%,,,,,,,,
-Sneasler,1,move,2,Dire Claw,81.2%,,,,,,,,
+Sneasler,1,move,2,Dire Claw,81.3%,,,,,,,,
 Sneasler,1,move,3,Protect,70.6%,,,,,,,,
 Sneasler,1,move,4,Fake Out,44.1%,,,,,,,,
-Sneasler,1,move,5,Rock Slide,31.1%,,,,,,,,
-Sneasler,1,move,6,Throat Chop,16.0%,,,,,,,,
+Sneasler,1,move,5,Rock Slide,31.0%,,,,,,,,
+Sneasler,1,move,6,Throat Chop,16.1%,,,,,,,,
 Sneasler,1,move,7,Poison Jab,10.3%,,,,,,,,
 Sneasler,1,move,8,Rock Tomb,9.7%,,,,,,,,
 Sneasler,1,move,9,Swords Dance,7.5%,,,,,,,,
@@ -14,7 +14,7 @@ Sneasler,1,held_item,2,Psychic Seed,24.7%,,,,,,,,
 Sneasler,1,held_item,3,Focus Sash,17.1%,,,,,,,,
 Sneasler,1,held_item,4,Grassy Seed,8.3%,,,,,,,,
 Sneasler,1,held_item,5,Electric Seed,7.8%,,,,,,,,
-Sneasler,1,held_item,6,Life Orb,1.1%,,,,,,,,
+Sneasler,1,held_item,6,Life Orb,1.2%,,,,,,,,
 Sneasler,1,held_item,7,Normal Gem,0.7%,,,,,,,,
 Sneasler,1,held_item,8,Lum Berry,0.6%,,,,,,,,
 Sneasler,1,held_item,9,Iron Ball,0.6%,,,,,,,,
@@ -29,10 +29,10 @@ Sneasler,1,teammate,7,Incineroar,,,,,,,,,
 Sneasler,1,teammate,8,Whimsicott,,,,,,,,,
 Sneasler,1,teammate,9,Raichu,,,,,,,,,
 Sneasler,1,teammate,10,Salamence,,,,,,,,,
-Sneasler,1,stat_alignment,1,Adamant,67.2%,Attack,Sp. Atk,,,,,,
-Sneasler,1,stat_alignment,2,Jolly,30.5%,Speed,Sp. Atk,,,,,,
+Sneasler,1,stat_alignment,1,Adamant,67.1%,Attack,Sp. Atk,,,,,,
+Sneasler,1,stat_alignment,2,Jolly,30.6%,Speed,Sp. Atk,,,,,,
 Sneasler,1,stat_alignment,3,Brave,0.6%,Attack,Speed,,,,,,
-Sneasler,1,stat_alignment,4,Naive,0.5%,Speed,Sp. Def,,,,,,
+Sneasler,1,stat_alignment,4,Naive,0.6%,Speed,Sp. Def,,,,,,
 Sneasler,1,stat_alignment,5,Naughty,0.4%,Attack,Sp. Def,,,,,,
 Sneasler,1,stat_alignment,6,Lonely,0.2%,Attack,Defense,,,,,,
 Sneasler,1,stat_alignment,7,Hasty,0.2%,Speed,Defense,,,,,,
@@ -44,8 +44,8 @@ Sneasler,1,stat_points,2,,7.7%,,,0,32,2,0,0,32
 Sneasler,1,stat_points,3,,4.9%,,,0,32,0,0,2,32
 Sneasler,1,stat_points,4,,4.3%,,,16,20,0,0,0,30
 Sneasler,1,stat_points,5,,2.2%,,,23,20,0,0,5,18
-Sneasler,1,stat_points,6,,2.0%,,,32,2,6,0,4,22
-Sneasler,1,stat_points,7,,2.0%,,,14,20,0,0,0,32
+Sneasler,1,stat_points,6,,2.0%,,,14,20,0,0,0,32
+Sneasler,1,stat_points,7,,2.0%,,,32,2,6,0,4,22
 Sneasler,1,stat_points,8,,1.8%,,,20,0,15,0,1,30
 Sneasler,1,stat_points,9,,1.5%,,,1,32,1,0,0,32
 Sneasler,1,stat_points,10,,1.2%,,,0,32,0,0,0,32

@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Raichu,29,move,1,Zap Cannon,96.2%,,,,,,,,
-Raichu,29,move,2,Focus Blast,95.9%,,,,,,,,
+Raichu,29,move,2,Focus Blast,96.0%,,,,,,,,
 Raichu,29,move,3,Grass Knot,53.1%,,,,,,,,
 Raichu,29,move,4,Fake Out,43.4%,,,,,,,,
 Raichu,29,move,5,Substitute,29.6%,,,,,,,,
-Raichu,29,move,6,Volt Switch,29.5%,,,,,,,,
+Raichu,29,move,6,Volt Switch,29.4%,,,,,,,,
 Raichu,29,move,7,Encore,10.8%,,,,,,,,
 Raichu,29,move,8,Nasty Plot,9.9%,,,,,,,,
 Raichu,29,move,9,Alluring Voice,6.6%,,,,,,,,
@@ -29,7 +29,7 @@ Raichu,29,teammate,7,Starmie,,,,,,,,,
 Raichu,29,teammate,8,Meowscarada,,,,,,,,,
 Raichu,29,teammate,9,Archaludon,,,,,,,,,
 Raichu,29,teammate,10,Rillaboom,,,,,,,,,
-Raichu,29,stat_alignment,1,Timid,78.8%,Speed,Attack,,,,,,
+Raichu,29,stat_alignment,1,Timid,78.9%,Speed,Attack,,,,,,
 Raichu,29,stat_alignment,2,Modest,15.3%,Sp. Atk,Attack,,,,,,
 Raichu,29,stat_alignment,3,Jolly,2.1%,Speed,Sp. Atk,,,,,,
 Raichu,29,stat_alignment,4,Hasty,1.2%,Speed,Defense,,,,,,
@@ -39,7 +39,7 @@ Raichu,29,stat_alignment,7,Adamant,0.4%,Attack,Sp. Atk,,,,,,
 Raichu,29,stat_alignment,8,Mild,0.3%,Sp. Atk,Defense,,,,,,
 Raichu,29,stat_alignment,9,Calm,0.2%,Sp. Def,Attack,,,,,,
 Raichu,29,stat_alignment,10,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
-Raichu,29,stat_points,1,,60.1%,,,2,0,0,32,0,32
+Raichu,29,stat_points,1,,60.3%,,,2,0,0,32,0,32
 Raichu,29,stat_points,2,,5.1%,,,0,0,2,32,0,32
 Raichu,29,stat_points,3,,2.6%,,,0,0,0,32,2,32
 Raichu,29,stat_points,4,,1.7%,,,2,32,0,0,0,32
@@ -49,5 +49,5 @@ Raichu,29,stat_points,7,,0.7%,,,32,0,29,0,0,5
 Raichu,29,stat_points,8,,0.7%,,,32,0,2,6,0,26
 Raichu,29,stat_points,9,,0.6%,,,32,0,0,1,13,20
 Raichu,29,stat_points,10,,0.6%,,,32,0,0,2,0,32
-Raichu,29,ability,1,Lightning Rod,87.0%,,,,,,,,
-Raichu,29,ability,2,Static,13.0%,,,,,,,,
+Raichu,29,ability,1,Lightning Rod,86.9%,,,,,,,,
+Raichu,29,ability,2,Static,13.1%,,,,,,,,

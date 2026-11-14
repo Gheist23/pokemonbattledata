@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Persian-Alola,188,move,1,Fake Out,73.3%,,,,,,,,
-Persian-Alola,188,move,2,Snarl,64.1%,,,,,,,,
+Persian-Alola,188,move,2,Snarl,64.2%,,,,,,,,
 Persian-Alola,188,move,3,Parting Shot,61.5%,,,,,,,,
-Persian-Alola,188,move,4,Foul Play,45.0%,,,,,,,,
-Persian-Alola,188,move,5,Icy Wind,44.7%,,,,,,,,
-Persian-Alola,188,move,6,Taunt,30.7%,,,,,,,,
-Persian-Alola,188,move,7,Charm,8.1%,,,,,,,,
-Persian-Alola,188,move,8,Fake Tears,7.2%,,,,,,,,
-Persian-Alola,188,move,9,Hypnosis,7.0%,,,,,,,,
+Persian-Alola,188,move,4,Icy Wind,44.8%,,,,,,,,
+Persian-Alola,188,move,5,Foul Play,44.7%,,,,,,,,
+Persian-Alola,188,move,6,Taunt,30.9%,,,,,,,,
+Persian-Alola,188,move,7,Charm,8.0%,,,,,,,,
+Persian-Alola,188,move,8,Fake Tears,7.1%,,,,,,,,
+Persian-Alola,188,move,9,Hypnosis,7.1%,,,,,,,,
 Persian-Alola,188,move,10,Feint,6.5%,,,,,,,,
-Persian-Alola,188,held_item,1,Sitrus Berry,24.1%,,,,,,,,
+Persian-Alola,188,held_item,1,Sitrus Berry,23.9%,,,,,,,,
 Persian-Alola,188,held_item,2,Focus Sash,17.3%,,,,,,,,
-Persian-Alola,188,held_item,3,Choice Scarf,10.2%,,,,,,,,
-Persian-Alola,188,held_item,4,Rocky Helmet,9.4%,,,,,,,,
-Persian-Alola,188,held_item,5,Roseli Berry,7.1%,,,,,,,,
-Persian-Alola,188,held_item,6,Leftovers,6.6%,,,,,,,,
-Persian-Alola,188,held_item,7,Black Glasses,5.0%,,,,,,,,
-Persian-Alola,188,held_item,8,Chople Berry,4.6%,,,,,,,,
-Persian-Alola,188,held_item,9,Bright Powder,3.2%,,,,,,,,
-Persian-Alola,188,held_item,10,Eject Button,3.2%,,,,,,,,
+Persian-Alola,188,held_item,3,Choice Scarf,10.3%,,,,,,,,
+Persian-Alola,188,held_item,4,Rocky Helmet,9.3%,,,,,,,,
+Persian-Alola,188,held_item,5,Roseli Berry,7.0%,,,,,,,,
+Persian-Alola,188,held_item,6,Leftovers,6.7%,,,,,,,,
+Persian-Alola,188,held_item,7,Black Glasses,4.9%,,,,,,,,
+Persian-Alola,188,held_item,8,Chople Berry,4.7%,,,,,,,,
+Persian-Alola,188,held_item,9,Bright Powder,3.1%,,,,,,,,
+Persian-Alola,188,held_item,10,Eject Button,3.1%,,,,,,,,
 Persian-Alola,188,teammate,1,Rillaboom,,,,,,,,,
 Persian-Alola,188,teammate,2,Sneasler,,,,,,,,,
 Persian-Alola,188,teammate,3,Indeedee-F,,,,,,,,,
@@ -35,20 +35,20 @@ Persian-Alola,188,stat_alignment,3,Modest,6.5%,Sp. Atk,Attack,,,,,,
 Persian-Alola,188,stat_alignment,4,Impish,4.7%,Defense,Sp. Atk,,,,,,
 Persian-Alola,188,stat_alignment,5,Bold,3.3%,Defense,Attack,,,,,,
 Persian-Alola,188,stat_alignment,6,Hasty,1.4%,Speed,Defense,,,,,,
-Persian-Alola,188,stat_alignment,7,Calm,1.1%,Sp. Def,Attack,,,,,,
+Persian-Alola,188,stat_alignment,7,Calm,1.2%,Sp. Def,Attack,,,,,,
 Persian-Alola,188,stat_alignment,8,Naive,0.8%,Speed,Sp. Def,,,,,,
 Persian-Alola,188,stat_alignment,9,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,
 Persian-Alola,188,stat_alignment,10,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
 Persian-Alola,188,stat_points,1,,17.8%,,,2,0,0,32,0,32
-Persian-Alola,188,stat_points,2,,12.5%,,,32,0,0,0,2,32
-Persian-Alola,188,stat_points,3,,9.4%,,,32,0,2,0,0,32
+Persian-Alola,188,stat_points,2,,12.4%,,,32,0,0,0,2,32
+Persian-Alola,188,stat_points,3,,9.3%,,,32,0,2,0,0,32
 Persian-Alola,188,stat_points,4,,6.0%,,,32,0,0,2,0,32
-Persian-Alola,188,stat_points,5,,4.4%,,,14,0,24,0,0,28
-Persian-Alola,188,stat_points,6,,3.4%,,,0,0,32,0,0,32
+Persian-Alola,188,stat_points,5,,4.3%,,,14,0,24,0,0,28
+Persian-Alola,188,stat_points,6,,3.5%,,,0,0,32,0,0,32
 Persian-Alola,188,stat_points,7,,3.2%,,,12,0,26,0,0,28
 Persian-Alola,188,stat_points,8,,3.0%,,,19,0,6,0,13,28
 Persian-Alola,188,stat_points,9,,1.9%,,,32,0,19,0,15,0
-Persian-Alola,188,stat_points,10,,1.8%,,,0,30,3,0,1,32
-Persian-Alola,188,ability,1,Fur Coat,72.8%,,,,,,,,
-Persian-Alola,188,ability,2,Technician,25.8%,,,,,,,,
-Persian-Alola,188,ability,3,Rattled,1.4%,,,,,,,,
+Persian-Alola,188,stat_points,10,,1.9%,,,0,0,0,32,2,32
+Persian-Alola,188,ability,1,Fur Coat,72.7%,,,,,,,,
+Persian-Alola,188,ability,2,Technician,25.9%,,,,,,,,
+Persian-Alola,188,ability,3,Rattled,1.3%,,,,,,,,

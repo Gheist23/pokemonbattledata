@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Aggron,110,move,1,Body Press,76.7%,,,,,,,,
-Aggron,110,move,2,Iron Defense,62.1%,,,,,,,,
+Aggron,110,move,2,Iron Defense,62.0%,,,,,,,,
 Aggron,110,move,3,Heavy Slam,45.8%,,,,,,,,
 Aggron,110,move,4,Metal Burst,39.7%,,,,,,,,
 Aggron,110,move,5,Earthquake,29.8%,,,,,,,,
@@ -13,7 +13,7 @@ Aggron,110,held_item,1,Aggronite,79.7%,,,,,,,,
 Aggron,110,held_item,2,Leftovers,5.1%,,,,,,,,
 Aggron,110,held_item,3,Red Card,4.5%,,,,,,,,
 Aggron,110,held_item,4,Rocky Helmet,2.6%,,,,,,,,
-Aggron,110,held_item,5,Focus Sash,1.4%,,,,,,,,
+Aggron,110,held_item,5,Focus Sash,1.5%,,,,,,,,
 Aggron,110,held_item,6,Sitrus Berry,1.0%,,,,,,,,
 Aggron,110,held_item,7,Quick Claw,0.9%,,,,,,,,
 Aggron,110,held_item,8,Air Balloon,0.9%,,,,,,,,
@@ -40,7 +40,7 @@ Aggron,110,stat_alignment,8,Jolly,1.4%,Speed,Sp. Atk,,,,,,
 Aggron,110,stat_alignment,9,Modest,1.0%,Sp. Atk,Attack,,,,,,
 Aggron,110,stat_alignment,10,Calm,0.5%,Sp. Def,Attack,,,,,,
 Aggron,110,stat_points,1,,19.2%,,,32,0,2,0,32,0
-Aggron,110,stat_points,2,,14.5%,,,32,0,32,0,2,0
+Aggron,110,stat_points,2,,14.4%,,,32,0,32,0,2,0
 Aggron,110,stat_points,3,,8.8%,,,32,32,2,0,0,0
 Aggron,110,stat_points,4,,6.2%,,,32,2,32,0,0,0
 Aggron,110,stat_points,5,,5.8%,,,32,32,0,0,2,0

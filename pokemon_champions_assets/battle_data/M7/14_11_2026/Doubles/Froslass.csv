@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Froslass,29,move,1,Blizzard,99.2%,,,,,,,,
 Froslass,29,move,2,Shadow Ball,94.5%,,,,,,,,
-Froslass,29,move,3,Protect,93.4%,,,,,,,,
+Froslass,29,move,3,Protect,93.3%,,,,,,,,
 Froslass,29,move,4,Aurora Veil,77.1%,,,,,,,,
 Froslass,29,move,5,Thunderbolt,8.3%,,,,,,,,
 Froslass,29,move,6,Taunt,5.0%,,,,,,,,
 Froslass,29,move,7,Nasty Plot,4.1%,,,,,,,,
-Froslass,29,move,8,Destiny Bond,3.5%,,,,,,,,
+Froslass,29,move,8,Destiny Bond,3.6%,,,,,,,,
 Froslass,29,move,9,Rain Dance,3.3%,,,,,,,,
 Froslass,29,move,10,Weather Ball,1.4%,,,,,,,,
 Froslass,29,held_item,1,Froslassite,98.9%,,,,,,,,
@@ -15,8 +15,8 @@ Froslass,29,held_item,3,Choice Scarf,0.2%,,,,,,,,
 Froslass,29,held_item,4,Wide Lens,0.1%,,,,,,,,
 Froslass,29,held_item,5,Light Clay,0.1%,,,,,,,,
 Froslass,29,held_item,6,Never-Melt Ice,0.0%,,,,,,,,
-Froslass,29,held_item,7,Bright Powder,0.0%,,,,,,,,
-Froslass,29,held_item,8,Sitrus Berry,0.0%,,,,,,,,
+Froslass,29,held_item,7,Sitrus Berry,0.0%,,,,,,,,
+Froslass,29,held_item,8,Bright Powder,0.0%,,,,,,,,
 Froslass,29,held_item,9,Leftovers,0.0%,,,,,,,,
 Froslass,29,held_item,10,Quick Claw,0.0%,,,,,,,,
 Froslass,29,teammate,1,Sneasler,,,,,,,,,
@@ -29,22 +29,22 @@ Froslass,29,teammate,7,Basculegion,,,,,,,,,
 Froslass,29,teammate,8,Incineroar,,,,,,,,,
 Froslass,29,teammate,9,Volcarona,,,,,,,,,
 Froslass,29,teammate,10,Raichu,,,,,,,,,
-Froslass,29,stat_alignment,1,Timid,73.7%,Speed,Attack,,,,,,
-Froslass,29,stat_alignment,2,Modest,24.8%,Sp. Atk,Attack,,,,,,
+Froslass,29,stat_alignment,1,Timid,73.8%,Speed,Attack,,,,,,
+Froslass,29,stat_alignment,2,Modest,24.7%,Sp. Atk,Attack,,,,,,
 Froslass,29,stat_alignment,3,Mild,0.5%,Sp. Atk,Defense,,,,,,
 Froslass,29,stat_alignment,4,Jolly,0.3%,Speed,Sp. Atk,,,,,,
 Froslass,29,stat_alignment,5,Calm,0.2%,Sp. Def,Attack,,,,,,
 Froslass,29,stat_alignment,6,Bold,0.2%,Defense,Attack,,,,,,
 Froslass,29,stat_alignment,7,Hasty,0.1%,Speed,Defense,,,,,,
 Froslass,29,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
-Froslass,29,stat_alignment,9,Adamant,0.1%,Attack,Sp. Atk,,,,,,
-Froslass,29,stat_alignment,10,Quiet,0.0%,Sp. Atk,Speed,,,,,,
-Froslass,29,stat_points,1,,28.1%,,,2,0,0,32,0,32
-Froslass,29,stat_points,2,,16.2%,,,32,0,0,2,0,32
-Froslass,29,stat_points,3,,3.7%,,,0,0,2,32,0,32
+Froslass,29,stat_alignment,9,Quiet,0.1%,Sp. Atk,Speed,,,,,,
+Froslass,29,stat_alignment,10,Adamant,0.0%,Attack,Sp. Atk,,,,,,
+Froslass,29,stat_points,1,,28.2%,,,2,0,0,32,0,32
+Froslass,29,stat_points,2,,16.3%,,,32,0,0,2,0,32
+Froslass,29,stat_points,3,,3.6%,,,0,0,2,32,0,32
 Froslass,29,stat_points,4,,3.3%,,,12,0,1,20,1,32
 Froslass,29,stat_points,5,,3.1%,,,0,0,0,32,2,32
-Froslass,29,stat_points,6,,2.6%,,,2,0,12,20,0,32
+Froslass,29,stat_points,6,,2.5%,,,2,0,12,20,0,32
 Froslass,29,stat_points,7,,2.0%,,,24,0,0,10,0,32
 Froslass,29,stat_points,8,,1.5%,,,4,0,0,32,0,30
 Froslass,29,stat_points,9,,1.4%,,,14,0,0,20,0,32

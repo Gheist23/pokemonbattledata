@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Heracross,93,move,1,Rock Blast,92.9%,,,,,,,,
 Heracross,93,move,2,Bullet Seed,89.8%,,,,,,,,
-Heracross,93,move,3,Close Combat,89.3%,,,,,,,,
-Heracross,93,move,4,Earthquake,66.0%,,,,,,,,
-Heracross,93,move,5,Pin Missile,36.9%,,,,,,,,
-Heracross,93,move,6,Trailblaze,6.7%,,,,,,,,
-Heracross,93,move,7,Megahorn,3.1%,,,,,,,,
+Heracross,93,move,3,Close Combat,89.2%,,,,,,,,
+Heracross,93,move,4,Earthquake,66.2%,,,,,,,,
+Heracross,93,move,5,Pin Missile,36.7%,,,,,,,,
+Heracross,93,move,6,Trailblaze,6.5%,,,,,,,,
+Heracross,93,move,7,Megahorn,3.2%,,,,,,,,
 Heracross,93,move,8,Swords Dance,1.8%,,,,,,,,
-Heracross,93,move,9,Feint,1.7%,,,,,,,,
+Heracross,93,move,9,Feint,1.6%,,,,,,,,
 Heracross,93,move,10,Brick Break,1.6%,,,,,,,,
 Heracross,93,held_item,1,Heracronite,96.2%,,,,,,,,
 Heracross,93,held_item,2,Choice Scarf,2.2%,,,,,,,,
@@ -17,8 +17,8 @@ Heracross,93,held_item,5,White Herb,0.2%,,,,,,,,
 Heracross,93,held_item,6,Quick Claw,0.1%,,,,,,,,
 Heracross,93,held_item,7,Rocky Helmet,0.1%,,,,,,,,
 Heracross,93,held_item,8,Occa Berry,0.1%,,,,,,,,
-Heracross,93,held_item,9,Life Orb,0.1%,,,,,,,,
-Heracross,93,held_item,10,Muscle Band,0.0%,,,,,,,,
+Heracross,93,held_item,9,Muscle Band,0.1%,,,,,,,,
+Heracross,93,held_item,10,Life Orb,0.1%,,,,,,,,
 Heracross,93,teammate,1,Polteageist,,,,,,,,,
 Heracross,93,teammate,2,Grimmsnarl,,,,,,,,,
 Heracross,93,teammate,3,Mimikyu,,,,,,,,,
@@ -26,29 +26,29 @@ Heracross,93,teammate,4,Archaludon,,,,,,,,,
 Heracross,93,teammate,5,Gholdengo,,,,,,,,,
 Heracross,93,teammate,6,Garchomp,,,,,,,,,
 Heracross,93,teammate,7,Slowking-Galar,,,,,,,,,
-Heracross,93,teammate,8,Floette-Eternal,,,,,,,,,
-Heracross,93,teammate,9,Dragonite,,,,,,,,,
-Heracross,93,teammate,10,Lucario,,,,,,,,,
-Heracross,93,stat_alignment,1,Adamant,76.9%,Attack,Sp. Atk,,,,,,
-Heracross,93,stat_alignment,2,Jolly,11.8%,Speed,Sp. Atk,,,,,,
-Heracross,93,stat_alignment,3,Brave,9.6%,Attack,Speed,,,,,,
+Heracross,93,teammate,8,Dragonite,,,,,,,,,
+Heracross,93,teammate,9,Floette-Eternal,,,,,,,,,
+Heracross,93,teammate,10,Basculegion,,,,,,,,,
+Heracross,93,stat_alignment,1,Adamant,76.8%,Attack,Sp. Atk,,,,,,
+Heracross,93,stat_alignment,2,Jolly,11.7%,Speed,Sp. Atk,,,,,,
+Heracross,93,stat_alignment,3,Brave,9.7%,Attack,Speed,,,,,,
 Heracross,93,stat_alignment,4,Impish,0.6%,Defense,Sp. Atk,,,,,,
 Heracross,93,stat_alignment,5,Careful,0.3%,Sp. Def,Sp. Atk,,,,,,
 Heracross,93,stat_alignment,6,Lax,0.2%,Defense,Sp. Def,,,,,,
-Heracross,93,stat_alignment,7,Hasty,0.1%,Speed,Defense,,,,,,
-Heracross,93,stat_alignment,8,Naughty,0.1%,Attack,Sp. Def,,,,,,
+Heracross,93,stat_alignment,7,Naughty,0.2%,Attack,Sp. Def,,,,,,
+Heracross,93,stat_alignment,8,Hasty,0.1%,Speed,Defense,,,,,,
 Heracross,93,stat_alignment,9,Serious,0.1%,,,,,,,,
-Heracross,93,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
-Heracross,93,stat_points,1,,39.3%,,,2,32,0,0,0,32
-Heracross,93,stat_points,2,,11.9%,,,32,32,2,0,0,0
-Heracross,93,stat_points,3,,9.5%,,,28,9,13,0,16,0
+Heracross,93,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
+Heracross,93,stat_points,1,,38.8%,,,2,32,0,0,0,32
+Heracross,93,stat_points,2,,12.1%,,,32,32,2,0,0,0
+Heracross,93,stat_points,3,,9.9%,,,28,9,13,0,16,0
 Heracross,93,stat_points,4,,4.1%,,,0,32,2,0,0,32
 Heracross,93,stat_points,5,,1.7%,,,32,32,0,0,2,0
 Heracross,93,stat_points,6,,1.5%,,,16,32,0,0,0,18
 Heracross,93,stat_points,7,,1.4%,,,32,32,1,0,1,0
 Heracross,93,stat_points,8,,1.4%,,,0,32,0,0,2,32
-Heracross,93,stat_points,9,,1.0%,,,0,32,0,0,0,32
-Heracross,93,stat_points,10,,1.0%,,,32,32,0,0,0,2
-Heracross,93,ability,1,Moxie,55.3%,,,,,,,,
-Heracross,93,ability,2,Guts,42.9%,,,,,,,,
+Heracross,93,stat_points,9,,1.0%,,,32,32,0,0,0,2
+Heracross,93,stat_points,10,,1.0%,,,0,32,0,0,0,32
+Heracross,93,ability,1,Moxie,55.4%,,,,,,,,
+Heracross,93,ability,2,Guts,42.8%,,,,,,,,
 Heracross,93,ability,3,Swarm,1.8%,,,,,,,,

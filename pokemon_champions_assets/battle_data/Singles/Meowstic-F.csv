@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Meowstic-F,242,move,1,Thunderbolt,70.6%,,,,,,,,
-Meowstic-F,242,move,2,Alluring Voice,66.3%,,,,,,,,
-Meowstic-F,242,move,3,Psychic,53.2%,,,,,,,,
-Meowstic-F,242,move,4,Dark Pulse,42.5%,,,,,,,,
-Meowstic-F,242,move,5,Expanding Force,24.6%,,,,,,,,
-Meowstic-F,242,move,6,Calm Mind,24.1%,,,,,,,,
-Meowstic-F,242,move,7,Nasty Plot,23.1%,,,,,,,,
-Meowstic-F,242,move,8,Shadow Ball,13.5%,,,,,,,,
-Meowstic-F,242,move,9,Psychic Noise,13.2%,,,,,,,,
-Meowstic-F,242,move,10,Energy Ball,8.0%,,,,,,,,
+Meowstic-F,242,move,1,Thunderbolt,70.2%,,,,,,,,
+Meowstic-F,242,move,2,Alluring Voice,66.6%,,,,,,,,
+Meowstic-F,242,move,3,Psychic,53.7%,,,,,,,,
+Meowstic-F,242,move,4,Dark Pulse,42.1%,,,,,,,,
+Meowstic-F,242,move,5,Calm Mind,24.5%,,,,,,,,
+Meowstic-F,242,move,6,Expanding Force,24.1%,,,,,,,,
+Meowstic-F,242,move,7,Nasty Plot,23.5%,,,,,,,,
+Meowstic-F,242,move,8,Shadow Ball,13.3%,,,,,,,,
+Meowstic-F,242,move,9,Psychic Noise,12.8%,,,,,,,,
+Meowstic-F,242,move,10,Energy Ball,7.9%,,,,,,,,
 Meowstic-F,242,held_item,1,Meowsticite,90.3%,,,,,,,,
-Meowstic-F,242,held_item,2,Light Clay,4.1%,,,,,,,,
-Meowstic-F,242,held_item,3,Choice Scarf,4.0%,,,,,,,,
+Meowstic-F,242,held_item,2,Light Clay,4.3%,,,,,,,,
+Meowstic-F,242,held_item,3,Choice Scarf,3.9%,,,,,,,,
 Meowstic-F,242,held_item,4,Lum Berry,0.3%,,,,,,,,
 Meowstic-F,242,held_item,5,Leftovers,0.3%,,,,,,,,
 Meowstic-F,242,held_item,6,Focus Sash,0.2%,,,,,,,,
@@ -25,26 +25,26 @@ Meowstic-F,242,teammate,5,Krookodile,,,,,,,,,
 Meowstic-F,242,teammate,6,Mimikyu,,,,,,,,,
 Meowstic-F,242,teammate,7,Arcanine-Hisui,,,,,,,,,
 Meowstic-F,242,teammate,8,Kingambit,,,,,,,,,
-Meowstic-F,242,teammate,9,Sylveon,,,,,,,,,
-Meowstic-F,242,teammate,10,Primarina,,,,,,,,,
-Meowstic-F,242,stat_alignment,1,Timid,68.6%,Speed,Attack,,,,,,
-Meowstic-F,242,stat_alignment,2,Modest,15.3%,Sp. Atk,Attack,,,,,,
-Meowstic-F,242,stat_alignment,3,Bold,7.5%,Defense,Attack,,,,,,
-Meowstic-F,242,stat_alignment,4,Hasty,6.4%,Speed,Defense,,,,,,
-Meowstic-F,242,stat_alignment,5,Calm,0.8%,Sp. Def,Attack,,,,,,
+Meowstic-F,242,teammate,9,Greninja,,,,,,,,,
+Meowstic-F,242,teammate,10,Sylveon,,,,,,,,,
+Meowstic-F,242,stat_alignment,1,Timid,68.8%,Speed,Attack,,,,,,
+Meowstic-F,242,stat_alignment,2,Modest,15.2%,Sp. Atk,Attack,,,,,,
+Meowstic-F,242,stat_alignment,3,Bold,7.3%,Defense,Attack,,,,,,
+Meowstic-F,242,stat_alignment,4,Hasty,6.2%,Speed,Defense,,,,,,
+Meowstic-F,242,stat_alignment,5,Calm,1.1%,Sp. Def,Attack,,,,,,
 Meowstic-F,242,stat_alignment,6,Mild,0.7%,Sp. Atk,Defense,,,,,,
-Meowstic-F,242,stat_alignment,7,Rash,0.7%,Sp. Atk,Sp. Def,,,,,,
+Meowstic-F,242,stat_alignment,7,Rash,0.6%,Sp. Atk,Sp. Def,,,,,,
 Meowstic-F,242,stat_alignment,8,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Meowstic-F,242,stat_points,1,,57.7%,,,2,0,0,32,0,32
-Meowstic-F,242,stat_points,2,,8.2%,,,0,0,0,32,2,32
-Meowstic-F,242,stat_points,3,,5.6%,,,0,0,32,32,2,0
-Meowstic-F,242,stat_points,4,,3.4%,,,32,0,0,0,2,32
-Meowstic-F,242,stat_points,5,,3.2%,,,2,0,32,0,32,0
+Meowstic-F,242,stat_points,1,,58.3%,,,2,0,0,32,0,32
+Meowstic-F,242,stat_points,2,,8.1%,,,0,0,0,32,2,32
+Meowstic-F,242,stat_points,3,,5.5%,,,0,0,32,32,2,0
+Meowstic-F,242,stat_points,4,,3.3%,,,32,0,0,0,2,32
+Meowstic-F,242,stat_points,5,,3.1%,,,2,0,32,0,32,0
 Meowstic-F,242,stat_points,6,,2.6%,,,0,0,2,32,0,32
-Meowstic-F,242,stat_points,7,,2.6%,,,0,0,6,27,1,32
-Meowstic-F,242,stat_points,8,,2.6%,,,32,0,0,32,0,2
+Meowstic-F,242,stat_points,7,,2.6%,,,32,0,0,32,0,2
+Meowstic-F,242,stat_points,8,,2.5%,,,0,0,6,27,1,32
 Meowstic-F,242,stat_points,9,,1.7%,,,4,0,1,32,0,29
 Meowstic-F,242,stat_points,10,,1.6%,,,0,0,32,32,0,2
-Meowstic-F,242,ability,1,Competitive,80.9%,,,,,,,,
-Meowstic-F,242,ability,2,Infiltrator,12.6%,,,,,,,,
-Meowstic-F,242,ability,3,Keen Eye,6.5%,,,,,,,,
+Meowstic-F,242,ability,1,Competitive,81.2%,,,,,,,,
+Meowstic-F,242,ability,2,Infiltrator,12.5%,,,,,,,,
+Meowstic-F,242,ability,3,Keen Eye,6.3%,,,,,,,,

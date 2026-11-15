@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gengar,24,move,1,Shadow Ball,79.7%,,,,,,,,
-Gengar,24,move,2,Sludge Wave,67.1%,,,,,,,,
+Gengar,24,move,1,Shadow Ball,79.8%,,,,,,,,
+Gengar,24,move,2,Sludge Wave,67.2%,,,,,,,,
 Gengar,24,move,3,Icy Wind,56.3%,,,,,,,,
-Gengar,24,move,4,Destiny Bond,41.0%,,,,,,,,
+Gengar,24,move,4,Destiny Bond,41.2%,,,,,,,,
 Gengar,24,move,5,Protect,26.7%,,,,,,,,
 Gengar,24,move,6,Perish Song,16.8%,,,,,,,,
-Gengar,24,move,7,Hex,16.1%,,,,,,,,
+Gengar,24,move,7,Hex,16.0%,,,,,,,,
 Gengar,24,move,8,Focus Blast,13.6%,,,,,,,,
-Gengar,24,move,9,Sludge Bomb,12.1%,,,,,,,,
-Gengar,24,move,10,Toxic Spikes,11.2%,,,,,,,,
+Gengar,24,move,9,Sludge Bomb,12.0%,,,,,,,,
+Gengar,24,move,10,Toxic Spikes,11.1%,,,,,,,,
 Gengar,24,held_item,1,Gengarite,57.9%,,,,,,,,
 Gengar,24,held_item,2,Focus Sash,38.3%,,,,,,,,
 Gengar,24,held_item,3,Choice Scarf,1.2%,,,,,,,,
@@ -17,8 +17,8 @@ Gengar,24,held_item,5,Quick Claw,0.4%,,,,,,,,
 Gengar,24,held_item,6,Life Orb,0.3%,,,,,,,,
 Gengar,24,held_item,7,Wide Lens,0.2%,,,,,,,,
 Gengar,24,held_item,8,Leftovers,0.1%,,,,,,,,
-Gengar,24,held_item,9,Expert Belt,0.1%,,,,,,,,
-Gengar,24,held_item,10,Spell Tag,0.1%,,,,,,,,
+Gengar,24,held_item,9,Spell Tag,0.1%,,,,,,,,
+Gengar,24,held_item,10,Expert Belt,0.1%,,,,,,,,
 Gengar,24,teammate,1,Garchomp,,,,,,,,,
 Gengar,24,teammate,2,Primarina,,,,,,,,,
 Gengar,24,teammate,3,Corviknight,,,,,,,,,
@@ -30,7 +30,7 @@ Gengar,24,teammate,8,Blaziken,,,,,,,,,
 Gengar,24,teammate,9,Indeedee,,,,,,,,,
 Gengar,24,teammate,10,Golisopod,,,,,,,,,
 Gengar,24,stat_alignment,1,Timid,78.2%,Speed,Attack,,,,,,
-Gengar,24,stat_alignment,2,Modest,19.5%,Sp. Atk,Attack,,,,,,
+Gengar,24,stat_alignment,2,Modest,19.4%,Sp. Atk,Attack,,,,,,
 Gengar,24,stat_alignment,3,Calm,0.6%,Sp. Def,Attack,,,,,,
 Gengar,24,stat_alignment,4,Hasty,0.5%,Speed,Defense,,,,,,
 Gengar,24,stat_alignment,5,Naive,0.5%,Speed,Sp. Def,,,,,,
@@ -38,14 +38,14 @@ Gengar,24,stat_alignment,6,Bold,0.3%,Defense,Attack,,,,,,
 Gengar,24,stat_alignment,7,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Gengar,24,stat_alignment,8,Jolly,0.1%,Speed,Sp. Atk,,,,,,
 Gengar,24,stat_alignment,9,Rash,0.0%,Sp. Atk,Sp. Def,,,,,,
-Gengar,24,stat_alignment,10,Adamant,0.0%,Attack,Sp. Atk,,,,,,
+Gengar,24,stat_alignment,10,Relaxed,0.0%,Defense,Speed,,,,,,
 Gengar,24,stat_points,1,,47.4%,,,2,0,0,32,0,32
 Gengar,24,stat_points,2,,6.0%,,,0,0,2,32,0,32
 Gengar,24,stat_points,3,,4.1%,,,14,0,0,20,0,32
 Gengar,24,stat_points,4,,3.2%,,,1,0,1,32,0,32
 Gengar,24,stat_points,5,,2.9%,,,0,0,0,32,2,32
 Gengar,24,stat_points,6,,2.7%,,,14,0,0,23,0,29
-Gengar,24,stat_points,7,,2.6%,,,10,0,0,24,0,32
+Gengar,24,stat_points,7,,2.5%,,,10,0,0,24,0,32
 Gengar,24,stat_points,8,,2.3%,,,29,0,0,5,0,32
 Gengar,24,stat_points,9,,2.1%,,,24,0,0,10,0,32
 Gengar,24,stat_points,10,,2.1%,,,32,0,0,2,0,32

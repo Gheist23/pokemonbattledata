@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Manectric,192,move,1,Volt Switch,82.3%,,,,,,,,
-Manectric,192,move,2,Thunderbolt,81.9%,,,,,,,,
-Manectric,192,move,3,Overheat,65.6%,,,,,,,,
-Manectric,192,move,4,Snarl,45.6%,,,,,,,,
-Manectric,192,move,5,Flamethrower,26.2%,,,,,,,,
-Manectric,192,move,6,Thunder,11.1%,,,,,,,,
-Manectric,192,move,7,Electric Terrain,11.0%,,,,,,,,
-Manectric,192,move,8,Thunder Wave,9.2%,,,,,,,,
-Manectric,192,move,9,Eerie Impulse,7.9%,,,,,,,,
-Manectric,192,move,10,Roar,7.6%,,,,,,,,
+Manectric,192,move,1,Thunderbolt,82.4%,,,,,,,,
+Manectric,192,move,2,Volt Switch,82.0%,,,,,,,,
+Manectric,192,move,3,Overheat,65.5%,,,,,,,,
+Manectric,192,move,4,Snarl,45.4%,,,,,,,,
+Manectric,192,move,5,Flamethrower,26.0%,,,,,,,,
+Manectric,192,move,6,Electric Terrain,11.2%,,,,,,,,
+Manectric,192,move,7,Thunder,10.9%,,,,,,,,
+Manectric,192,move,8,Thunder Wave,9.0%,,,,,,,,
+Manectric,192,move,9,Eerie Impulse,8.2%,,,,,,,,
+Manectric,192,move,10,Roar,8.0%,,,,,,,,
 Manectric,192,held_item,1,Manectite,71.8%,,,,,,,,
-Manectric,192,held_item,2,Quick Claw,8.7%,,,,,,,,
-Manectric,192,held_item,3,Choice Scarf,5.9%,,,,,,,,
-Manectric,192,held_item,4,Magnet,1.8%,,,,,,,,
-Manectric,192,held_item,5,Focus Sash,1.4%,,,,,,,,
+Manectric,192,held_item,2,Quick Claw,8.4%,,,,,,,,
+Manectric,192,held_item,3,Choice Scarf,6.0%,,,,,,,,
+Manectric,192,held_item,4,Magnet,1.7%,,,,,,,,
+Manectric,192,held_item,5,Focus Sash,1.5%,,,,,,,,
 Manectric,192,held_item,6,Leftovers,1.1%,,,,,,,,
 Manectric,192,held_item,7,Expert Belt,1.1%,,,,,,,,
 Manectric,192,held_item,8,Life Orb,1.0%,,,,,,,,
@@ -29,9 +29,9 @@ Manectric,192,teammate,7,Victreebel,,,,,,,,,
 Manectric,192,teammate,8,Rillaboom,,,,,,,,,
 Manectric,192,teammate,9,Mimikyu,,,,,,,,,
 Manectric,192,teammate,10,Armarouge,,,,,,,,,
-Manectric,192,stat_alignment,1,Timid,71.7%,Speed,Attack,,,,,,
-Manectric,192,stat_alignment,2,Modest,21.5%,Sp. Atk,Attack,,,,,,
-Manectric,192,stat_alignment,3,Naive,2.5%,Speed,Sp. Def,,,,,,
+Manectric,192,stat_alignment,1,Timid,71.0%,Speed,Attack,,,,,,
+Manectric,192,stat_alignment,2,Modest,22.2%,Sp. Atk,Attack,,,,,,
+Manectric,192,stat_alignment,3,Naive,2.6%,Speed,Sp. Def,,,,,,
 Manectric,192,stat_alignment,4,Hasty,1.8%,Speed,Defense,,,,,,
 Manectric,192,stat_alignment,5,Rash,1.1%,Sp. Atk,Sp. Def,,,,,,
 Manectric,192,stat_alignment,6,Mild,0.7%,Sp. Atk,Defense,,,,,,
@@ -39,16 +39,16 @@ Manectric,192,stat_alignment,7,Quiet,0.3%,Sp. Atk,Speed,,,,,,
 Manectric,192,stat_alignment,8,Jolly,0.2%,Speed,Sp. Atk,,,,,,
 Manectric,192,stat_alignment,9,Calm,0.1%,Sp. Def,Attack,,,,,,
 Manectric,192,stat_alignment,10,Bold,0.0%,Defense,Attack,,,,,,
-Manectric,192,stat_points,1,,70.0%,,,2,0,0,32,0,32
-Manectric,192,stat_points,2,,6.6%,,,0,0,0,32,2,32
-Manectric,192,stat_points,3,,5.0%,,,0,0,1,32,1,32
+Manectric,192,stat_points,1,,70.3%,,,2,0,0,32,0,32
+Manectric,192,stat_points,2,,6.4%,,,0,0,0,32,2,32
+Manectric,192,stat_points,3,,4.9%,,,0,0,1,32,1,32
 Manectric,192,stat_points,4,,2.2%,,,0,0,2,32,0,32
-Manectric,192,stat_points,5,,2.1%,,,2,0,32,0,0,32
+Manectric,192,stat_points,5,,2.0%,,,2,0,32,0,0,32
 Manectric,192,stat_points,6,,1.6%,,,6,0,0,32,0,28
-Manectric,192,stat_points,7,,1.5%,,,4,0,8,30,0,24
+Manectric,192,stat_points,7,,1.4%,,,4,0,8,30,0,24
 Manectric,192,stat_points,8,,1.0%,,,16,0,0,18,0,32
 Manectric,192,stat_points,9,,0.9%,,,6,0,11,25,0,24
-Manectric,192,stat_points,10,,0.9%,,,30,0,7,1,0,28
-Manectric,192,ability,1,Lightning Rod,85.1%,,,,,,,,
-Manectric,192,ability,2,Static,13.7%,,,,,,,,
+Manectric,192,stat_points,10,,0.8%,,,30,0,7,1,0,28
+Manectric,192,ability,1,Lightning Rod,85.5%,,,,,,,,
+Manectric,192,ability,2,Static,13.3%,,,,,,,,
 Manectric,192,ability,3,Minus,1.2%,,,,,,,,

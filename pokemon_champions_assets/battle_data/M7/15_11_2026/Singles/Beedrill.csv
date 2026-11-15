@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Beedrill,160,move,1,Poison Jab,93.3%,,,,,,,,
-Beedrill,160,move,2,Drill Run,83.8%,,,,,,,,
-Beedrill,160,move,3,U-turn,74.4%,,,,,,,,
-Beedrill,160,move,4,Fell Stinger,54.5%,,,,,,,,
-Beedrill,160,move,5,Knock Off,32.6%,,,,,,,,
-Beedrill,160,move,6,Lunge,14.5%,,,,,,,,
-Beedrill,160,move,7,Swords Dance,7.0%,,,,,,,,
-Beedrill,160,move,8,Pin Missile,6.1%,,,,,,,,
-Beedrill,160,move,9,Throat Chop,5.9%,,,,,,,,
+Beedrill,160,move,1,Poison Jab,92.9%,,,,,,,,
+Beedrill,160,move,2,Drill Run,83.2%,,,,,,,,
+Beedrill,160,move,3,U-turn,74.1%,,,,,,,,
+Beedrill,160,move,4,Fell Stinger,54.6%,,,,,,,,
+Beedrill,160,move,5,Knock Off,33.1%,,,,,,,,
+Beedrill,160,move,6,Lunge,14.6%,,,,,,,,
+Beedrill,160,move,7,Swords Dance,7.1%,,,,,,,,
+Beedrill,160,move,8,Throat Chop,6.3%,,,,,,,,
+Beedrill,160,move,9,Pin Missile,6.3%,,,,,,,,
 Beedrill,160,move,10,Cross Poison,5.8%,,,,,,,,
-Beedrill,160,held_item,1,Beedrillite,95.6%,,,,,,,,
+Beedrill,160,held_item,1,Beedrillite,95.3%,,,,,,,,
 Beedrill,160,held_item,2,Focus Sash,1.6%,,,,,,,,
-Beedrill,160,held_item,3,White Herb,1.1%,,,,,,,,
-Beedrill,160,held_item,4,Choice Scarf,0.5%,,,,,,,,
-Beedrill,160,held_item,5,Scope Lens,0.2%,,,,,,,,
-Beedrill,160,held_item,6,Quick Claw,0.2%,,,,,,,,
+Beedrill,160,held_item,3,White Herb,1.0%,,,,,,,,
+Beedrill,160,held_item,4,Choice Scarf,0.8%,,,,,,,,
+Beedrill,160,held_item,5,Quick Claw,0.3%,,,,,,,,
+Beedrill,160,held_item,6,Scope Lens,0.2%,,,,,,,,
 Beedrill,160,held_item,7,Air Balloon,0.1%,,,,,,,,
 Beedrill,160,held_item,8,Muscle Band,0.0%,,,,,,,,
 Beedrill,160,held_item,9,Life Orb,0.0%,,,,,,,,
@@ -25,12 +25,12 @@ Beedrill,160,teammate,4,Primarina,,,,,,,,,
 Beedrill,160,teammate,5,Volcarona,,,,,,,,,
 Beedrill,160,teammate,6,Archaludon,,,,,,,,,
 Beedrill,160,teammate,7,Kingambit,,,,,,,,,
-Beedrill,160,teammate,8,Baxcalibur,,,,,,,,,
-Beedrill,160,teammate,9,Scizor,,,,,,,,,
+Beedrill,160,teammate,8,Scizor,,,,,,,,,
+Beedrill,160,teammate,9,Araquanid,,,,,,,,,
 Beedrill,160,teammate,10,Charizard,,,,,,,,,
-Beedrill,160,stat_alignment,1,Jolly,79.1%,Speed,Sp. Atk,,,,,,
-Beedrill,160,stat_alignment,2,Adamant,13.1%,Attack,Sp. Atk,,,,,,
-Beedrill,160,stat_alignment,3,Hasty,5.5%,Speed,Defense,,,,,,
+Beedrill,160,stat_alignment,1,Jolly,79.5%,Speed,Sp. Atk,,,,,,
+Beedrill,160,stat_alignment,2,Adamant,13.0%,Attack,Sp. Atk,,,,,,
+Beedrill,160,stat_alignment,3,Hasty,5.3%,Speed,Defense,,,,,,
 Beedrill,160,stat_alignment,4,Impish,0.7%,Defense,Sp. Atk,,,,,,
 Beedrill,160,stat_alignment,5,Naughty,0.5%,Attack,Sp. Def,,,,,,
 Beedrill,160,stat_alignment,6,Lonely,0.4%,Attack,Defense,,,,,,
@@ -38,15 +38,15 @@ Beedrill,160,stat_alignment,7,Gentle,0.4%,Sp. Def,Defense,,,,,,
 Beedrill,160,stat_alignment,8,Naive,0.2%,Speed,Sp. Def,,,,,,
 Beedrill,160,stat_alignment,9,Timid,0.1%,Speed,Attack,,,,,,
 Beedrill,160,stat_alignment,10,Brave,0.1%,Attack,Speed,,,,,,
-Beedrill,160,stat_points,1,,51.6%,,,2,32,0,0,0,32
-Beedrill,160,stat_points,2,,13.4%,,,1,32,1,0,0,32
-Beedrill,160,stat_points,3,,9.2%,,,0,32,2,0,0,32
-Beedrill,160,stat_points,4,,8.4%,,,1,32,0,0,1,32
-Beedrill,160,stat_points,5,,4.9%,,,0,32,0,0,2,32
+Beedrill,160,stat_points,1,,51.9%,,,2,32,0,0,0,32
+Beedrill,160,stat_points,2,,13.6%,,,1,32,1,0,0,32
+Beedrill,160,stat_points,3,,9.0%,,,0,32,2,0,0,32
+Beedrill,160,stat_points,4,,8.0%,,,1,32,0,0,1,32
+Beedrill,160,stat_points,5,,4.7%,,,0,32,0,0,2,32
 Beedrill,160,stat_points,6,,1.9%,,,0,32,0,0,0,32
-Beedrill,160,stat_points,7,,1.4%,,,0,32,4,0,0,30
-Beedrill,160,stat_points,8,,1.4%,,,3,32,0,0,0,31
+Beedrill,160,stat_points,7,,1.7%,,,3,32,0,0,0,31
+Beedrill,160,stat_points,8,,1.5%,,,0,32,4,0,0,30
 Beedrill,160,stat_points,9,,1.0%,,,7,32,2,0,0,25
 Beedrill,160,stat_points,10,,0.7%,,,3,28,4,0,0,31
-Beedrill,160,ability,1,Sniper,53.7%,,,,,,,,
-Beedrill,160,ability,2,Swarm,46.3%,,,,,,,,
+Beedrill,160,ability,1,Sniper,53.6%,,,,,,,,
+Beedrill,160,ability,2,Swarm,46.4%,,,,,,,,

@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pangoro,204,move,1,Bullet Punch,58.6%,,,,,,,,
-Pangoro,204,move,2,Darkest Lariat,57.5%,,,,,,,,
-Pangoro,204,move,3,Drain Punch,56.0%,,,,,,,,
-Pangoro,204,move,4,Close Combat,31.1%,,,,,,,,
-Pangoro,204,move,5,Ice Punch,23.0%,,,,,,,,
-Pangoro,204,move,6,Comeuppance,21.7%,,,,,,,,
+Pangoro,204,move,1,Bullet Punch,59.2%,,,,,,,,
+Pangoro,204,move,2,Darkest Lariat,57.2%,,,,,,,,
+Pangoro,204,move,3,Drain Punch,55.6%,,,,,,,,
+Pangoro,204,move,4,Close Combat,31.2%,,,,,,,,
+Pangoro,204,move,5,Ice Punch,23.1%,,,,,,,,
+Pangoro,204,move,6,Comeuppance,22.4%,,,,,,,,
 Pangoro,204,move,7,Headlong Rush,20.5%,,,,,,,,
-Pangoro,204,move,8,Gunk Shot,16.7%,,,,,,,,
-Pangoro,204,move,9,Swords Dance,14.9%,,,,,,,,
-Pangoro,204,move,10,Thunder Punch,11.1%,,,,,,,,
-Pangoro,204,held_item,1,Focus Sash,38.5%,,,,,,,,
-Pangoro,204,held_item,2,Life Orb,10.9%,,,,,,,,
-Pangoro,204,held_item,3,Chople Berry,8.9%,,,,,,,,
-Pangoro,204,held_item,4,Black Belt,8.3%,,,,,,,,
-Pangoro,204,held_item,5,Lum Berry,7.2%,,,,,,,,
+Pangoro,204,move,8,Gunk Shot,16.9%,,,,,,,,
+Pangoro,204,move,9,Swords Dance,14.7%,,,,,,,,
+Pangoro,204,move,10,Thunder Punch,11.0%,,,,,,,,
+Pangoro,204,held_item,1,Focus Sash,39.0%,,,,,,,,
+Pangoro,204,held_item,2,Life Orb,10.8%,,,,,,,,
+Pangoro,204,held_item,3,Chople Berry,9.0%,,,,,,,,
+Pangoro,204,held_item,4,Black Belt,8.2%,,,,,,,,
+Pangoro,204,held_item,5,Lum Berry,7.1%,,,,,,,,
 Pangoro,204,held_item,6,Roseli Berry,3.4%,,,,,,,,
 Pangoro,204,held_item,7,Rocky Helmet,3.1%,,,,,,,,
-Pangoro,204,held_item,8,Sitrus Berry,3.1%,,,,,,,,
+Pangoro,204,held_item,8,Sitrus Berry,3.0%,,,,,,,,
 Pangoro,204,held_item,9,White Herb,2.8%,,,,,,,,
 Pangoro,204,held_item,10,Wide Lens,2.5%,,,,,,,,
 Pangoro,204,teammate,1,Garchomp,,,,,,,,,
@@ -28,27 +28,27 @@ Pangoro,204,teammate,6,Archaludon,,,,,,,,,
 Pangoro,204,teammate,7,Charizard,,,,,,,,,
 Pangoro,204,teammate,8,Hydreigon,,,,,,,,,
 Pangoro,204,teammate,9,Indeedee,,,,,,,,,
-Pangoro,204,teammate,10,Dragonite,,,,,,,,,
-Pangoro,204,stat_alignment,1,Adamant,71.0%,Attack,Sp. Atk,,,,,,
-Pangoro,204,stat_alignment,2,Brave,15.2%,Attack,Speed,,,,,,
-Pangoro,204,stat_alignment,3,Jolly,7.1%,Speed,Sp. Atk,,,,,,
-Pangoro,204,stat_alignment,4,Careful,4.4%,Sp. Def,Sp. Atk,,,,,,
+Pangoro,204,teammate,10,Greninja,,,,,,,,,
+Pangoro,204,stat_alignment,1,Adamant,70.7%,Attack,Sp. Atk,,,,,,
+Pangoro,204,stat_alignment,2,Brave,15.5%,Attack,Speed,,,,,,
+Pangoro,204,stat_alignment,3,Jolly,7.0%,Speed,Sp. Atk,,,,,,
+Pangoro,204,stat_alignment,4,Careful,4.3%,Sp. Def,Sp. Atk,,,,,,
 Pangoro,204,stat_alignment,5,Impish,0.7%,Defense,Sp. Atk,,,,,,
 Pangoro,204,stat_alignment,6,Naughty,0.5%,Attack,Sp. Def,,,,,,
-Pangoro,204,stat_alignment,7,Relaxed,0.4%,Defense,Speed,,,,,,
+Pangoro,204,stat_alignment,7,Relaxed,0.5%,Defense,Speed,,,,,,
 Pangoro,204,stat_alignment,8,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Pangoro,204,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
 Pangoro,204,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Pangoro,204,stat_points,1,,17.6%,,,32,32,0,0,2,0
-Pangoro,204,stat_points,2,,12.7%,,,2,32,0,0,0,32
-Pangoro,204,stat_points,3,,8.2%,,,32,32,2,0,0,0
-Pangoro,204,stat_points,4,,6.7%,,,1,32,1,0,0,32
-Pangoro,204,stat_points,5,,4.9%,,,1,32,0,0,1,32
+Pangoro,204,stat_points,1,,17.5%,,,32,32,0,0,2,0
+Pangoro,204,stat_points,2,,12.6%,,,2,32,0,0,0,32
+Pangoro,204,stat_points,3,,8.6%,,,32,32,2,0,0,0
+Pangoro,204,stat_points,4,,7.0%,,,1,32,1,0,0,32
+Pangoro,204,stat_points,5,,4.8%,,,1,32,0,0,1,32
 Pangoro,204,stat_points,6,,3.9%,,,9,32,0,0,3,22
 Pangoro,204,stat_points,7,,3.9%,,,32,25,5,0,0,4
 Pangoro,204,stat_points,8,,3.7%,,,0,32,2,0,0,32
 Pangoro,204,stat_points,9,,3.3%,,,32,27,3,0,0,4
-Pangoro,204,stat_points,10,,2.5%,,,2,32,32,0,0,0
+Pangoro,204,stat_points,10,,2.6%,,,3,32,14,0,17,0
 Pangoro,204,ability,1,Iron Fist,51.2%,,,,,,,,
 Pangoro,204,ability,2,Scrappy,31.3%,,,,,,,,
 Pangoro,204,ability,3,Mold Breaker,17.5%,,,,,,,,

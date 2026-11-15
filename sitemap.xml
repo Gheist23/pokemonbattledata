@@ -2647,7 +2647,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/aromatic-mist/</loc>
+    <loc>https://championsbattledata.com/moves/psych-up/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -3055,12 +3055,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/burn-up/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/head-smash/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
@@ -3127,12 +3121,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/string-shot/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/foul-play/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
@@ -3193,13 +3181,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/moves/aromatic-mist/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/moves/misty-explosion/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/wish/</loc>
+    <loc>https://championsbattledata.com/moves/sweet-kiss/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -3224,6 +3218,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/healing-wish/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/moves/wish/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -3421,19 +3421,25 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/moves/string-shot/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/moves/pin-missile/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/slack-off/</loc>
+    <loc>https://championsbattledata.com/moves/toxic/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/toxic/</loc>
+    <loc>https://championsbattledata.com/moves/slack-off/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -3523,13 +3529,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/hurricane/</loc>
+    <loc>https://championsbattledata.com/moves/scald/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/scald/</loc>
+    <loc>https://championsbattledata.com/moves/hurricane/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -3662,12 +3668,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/follow-me/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/moves/psych-up/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -4633,6 +4633,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/moves/burn-up/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/moves/shell-side-arm/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
@@ -4676,6 +4682,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/snap-trap/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/moves/reflect-type/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -4921,6 +4933,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/items/psychic-seed/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/items/focus-band/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
@@ -4928,12 +4946,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/muscle-band/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/items/psychic-seed/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -4963,13 +4975,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/white-herb/</loc>
+    <loc>https://championsbattledata.com/items/air-balloon/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/air-balloon/</loc>
+    <loc>https://championsbattledata.com/items/white-herb/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5095,7 +5107,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/mental-herb/</loc>
+    <loc>https://championsbattledata.com/items/light-ball/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5119,13 +5131,19 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/roseli-berry/</loc>
+    <loc>https://championsbattledata.com/items/mental-herb/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://championsbattledata.com/items/binding-band/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/roseli-berry/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5144,12 +5162,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/shell-bell/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/items/light-ball/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5245,12 +5257,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/charti-berry/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/items/heat-rock/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
@@ -5258,12 +5264,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/audinite/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/items/wacan-berry/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5365,7 +5365,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/tanga-berry/</loc>
+    <loc>https://championsbattledata.com/items/wacan-berry/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5438,6 +5438,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/emboarite/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/charti-berry/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5600,6 +5606,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/malamarite/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/tanga-berry/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5774,6 +5786,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/victreebelite/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/shed-shell/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5978,12 +5996,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/rock-type-affinity-ticket/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/items/shed-shell/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -12097,13 +12109,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sneasler/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-sneasler/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-sneasler/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sneasler/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12265,13 +12277,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-rillaboom/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-rillaboom/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-rillaboom/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-rillaboom/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12427,13 +12439,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-garchomp/</loc>
+    <loc>https://championsbattledata.com/pokemon/garchomp-vs-gardevoir/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/garchomp-vs-gardevoir/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-garchomp/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12583,13 +12595,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-kingambit/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-kingambit/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-kingambit/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-kingambit/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12733,13 +12745,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-incineroar/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-incineroar/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-incineroar/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-incineroar/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12877,13 +12889,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/charizard-vs-floette-eternal/</loc>
+    <loc>https://championsbattledata.com/pokemon/charizard-vs-gardevoir/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/charizard-vs-gardevoir/</loc>
+    <loc>https://championsbattledata.com/pokemon/charizard-vs-floette-eternal/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13015,13 +13027,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-indeedee-f/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-indeedee-f/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-indeedee-f/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-indeedee-f/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13147,13 +13159,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-raichu/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-raichu/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-raichu/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-raichu/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13273,13 +13285,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-whimsicott/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-whimsicott/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-whimsicott/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-whimsicott/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13393,13 +13405,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/basculegion-vs-floette-eternal/</loc>
+    <loc>https://championsbattledata.com/pokemon/basculegion-vs-gardevoir/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/basculegion-vs-gardevoir/</loc>
+    <loc>https://championsbattledata.com/pokemon/basculegion-vs-floette-eternal/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13507,13 +13519,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/archaludon-vs-floette-eternal/</loc>
+    <loc>https://championsbattledata.com/pokemon/archaludon-vs-gardevoir/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/archaludon-vs-gardevoir/</loc>
+    <loc>https://championsbattledata.com/pokemon/archaludon-vs-floette-eternal/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13615,13 +13627,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-pelipper/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-pelipper/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-pelipper/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-pelipper/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13717,13 +13729,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-staraptor/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-staraptor/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-staraptor/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-staraptor/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13813,13 +13825,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/farigiraf-vs-floette-eternal/</loc>
+    <loc>https://championsbattledata.com/pokemon/farigiraf-vs-gardevoir/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/farigiraf-vs-gardevoir/</loc>
+    <loc>https://championsbattledata.com/pokemon/farigiraf-vs-floette-eternal/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13903,13 +13915,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-gholdengo/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-gholdengo/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-gholdengo/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-gholdengo/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13987,13 +13999,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-milotic/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-milotic/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-milotic/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-milotic/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14065,13 +14077,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-tyranitar/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-tyranitar/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-tyranitar/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-tyranitar/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14137,13 +14149,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-golisopod/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-golisopod/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-golisopod/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-golisopod/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14203,13 +14215,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-salamence/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-salamence/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-salamence/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-salamence/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14263,13 +14275,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sinistcha/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-sinistcha/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-sinistcha/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sinistcha/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14317,13 +14329,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sylveon/</loc>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-sylveon/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-sylveon/</loc>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sylveon/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14377,48 +14389,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/excadrill-vs-floette-eternal/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/armarouge-vs-floette-eternal/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-volcarona/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-indeedee/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-primarina/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-froslass/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/dragonite-vs-floette-eternal/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-gardevoir/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
@@ -14456,6 +14426,48 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/dragonite-vs-gardevoir/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/excadrill-vs-floette-eternal/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/armarouge-vs-floette-eternal/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-volcarona/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-indeedee/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-primarina/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-froslass/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/dragonite-vs-floette-eternal/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

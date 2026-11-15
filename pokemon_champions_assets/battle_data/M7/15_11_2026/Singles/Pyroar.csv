@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pyroar,116,move,1,Flamethrower,92.9%,,,,,,,,
 Pyroar,116,move,2,Overheat,71.5%,,,,,,,,
-Pyroar,116,move,3,Yawn,43.3%,,,,,,,,
+Pyroar,116,move,3,Yawn,43.4%,,,,,,,,
 Pyroar,116,move,4,Hyper Voice,39.0%,,,,,,,,
 Pyroar,116,move,5,Scorching Sands,21.9%,,,,,,,,
 Pyroar,116,move,6,Substitute,19.6%,,,,,,,,
 Pyroar,116,move,7,Sunny Day,17.2%,,,,,,,,
-Pyroar,116,move,8,Protect,14.7%,,,,,,,,
-Pyroar,116,move,9,Will-O-Wisp,14.0%,,,,,,,,
+Pyroar,116,move,8,Protect,14.8%,,,,,,,,
+Pyroar,116,move,9,Will-O-Wisp,13.9%,,,,,,,,
 Pyroar,116,move,10,Flame Charge,13.5%,,,,,,,,
 Pyroar,116,held_item,1,Pyroarite,97.0%,,,,,,,,
 Pyroar,116,held_item,2,Choice Scarf,0.8%,,,,,,,,
@@ -41,7 +41,7 @@ Pyroar,116,stat_alignment,9,Rash,0.0%,Sp. Atk,Sp. Def,,,,,,
 Pyroar,116,stat_alignment,10,Jolly,0.0%,Speed,Sp. Atk,,,,,,
 Pyroar,116,stat_points,1,,45.8%,,,2,0,0,32,0,32
 Pyroar,116,stat_points,2,,8.4%,,,0,0,0,32,2,32
-Pyroar,116,stat_points,3,,6.8%,,,10,0,0,32,0,24
+Pyroar,116,stat_points,3,,6.9%,,,10,0,0,32,0,24
 Pyroar,116,stat_points,4,,4.4%,,,0,0,2,32,0,32
 Pyroar,116,stat_points,5,,3.4%,,,4,0,0,32,0,30
 Pyroar,116,stat_points,6,,2.7%,,,32,0,0,14,0,20
@@ -51,4 +51,4 @@ Pyroar,116,stat_points,9,,1.6%,,,14,0,1,32,0,19
 Pyroar,116,stat_points,10,,1.2%,,,8,0,0,31,0,27
 Pyroar,116,ability,1,Unnerve,79.0%,,,,,,,,
 Pyroar,116,ability,2,Moxie,11.3%,,,,,,,,
-Pyroar,116,ability,3,Rivalry,9.7%,,,,,,,,
+Pyroar,116,ability,3,Rivalry,9.8%,,,,,,,,

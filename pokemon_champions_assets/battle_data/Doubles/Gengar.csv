@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gengar,38,move,1,Shadow Ball,95.1%,,,,,,,,
 Gengar,38,move,2,Protect,91.1%,,,,,,,,
-Gengar,38,move,3,Sludge Bomb,77.1%,,,,,,,,
+Gengar,38,move,3,Sludge Bomb,77.0%,,,,,,,,
 Gengar,38,move,4,Perish Song,59.6%,,,,,,,,
 Gengar,38,move,5,Icy Wind,16.0%,,,,,,,,
 Gengar,38,move,6,Disable,12.4%,,,,,,,,
@@ -46,7 +46,7 @@ Gengar,38,stat_points,4,,3.0%,,,32,0,1,1,29,3
 Gengar,38,stat_points,5,,2.8%,,,20,0,4,10,0,32
 Gengar,38,stat_points,6,,2.3%,,,30,0,1,1,28,6
 Gengar,38,stat_points,7,,2.1%,,,0,0,2,32,0,32
-Gengar,38,stat_points,8,,2.0%,,,0,0,1,32,1,32
-Gengar,38,stat_points,9,,1.9%,,,32,0,2,0,0,32
-Gengar,38,stat_points,10,,1.8%,,,0,0,0,32,2,32
+Gengar,38,stat_points,8,,2.0%,,,32,0,2,0,0,32
+Gengar,38,stat_points,9,,2.0%,,,0,0,1,32,1,32
+Gengar,38,stat_points,10,,1.9%,,,0,0,0,32,2,32
 Gengar,38,ability,1,Cursed Body,100.0%,,,,,,,,

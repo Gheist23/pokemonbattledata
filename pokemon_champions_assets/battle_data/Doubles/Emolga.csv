@@ -1,52 +1,53 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emolga,234,move,1,Air Slash,43.8%,,,,,,,,
-Emolga,234,move,2,Encore,43.0%,,,,,,,,
-Emolga,234,move,3,Speed Swap,35.5%,,,,,,,,
-Emolga,234,move,4,Electroweb,33.7%,,,,,,,,
-Emolga,234,move,5,Nuzzle,31.9%,,,,,,,,
-Emolga,234,move,6,Discharge,29.9%,,,,,,,,
-Emolga,234,move,7,Protect,27.6%,,,,,,,,
-Emolga,234,move,8,Charm,20.7%,,,,,,,,
-Emolga,234,move,9,Energy Ball,17.5%,,,,,,,,
-Emolga,234,move,10,Eerie Impulse,15.9%,,,,,,,,
-Emolga,234,held_item,1,Focus Sash,50.5%,,,,,,,,
-Emolga,234,held_item,2,Bright Powder,18.2%,,,,,,,,
-Emolga,234,held_item,3,Wise Glasses,6.4%,,,,,,,,
-Emolga,234,held_item,4,Muscle Band,3.9%,,,,,,,,
-Emolga,234,held_item,5,Life Orb,3.6%,,,,,,,,
+Emolga,234,move,1,Air Slash,45.0%,,,,,,,,
+Emolga,234,move,2,Encore,41.7%,,,,,,,,
+Emolga,234,move,3,Speed Swap,35.2%,,,,,,,,
+Emolga,234,move,4,Electroweb,33.4%,,,,,,,,
+Emolga,234,move,5,Nuzzle,31.5%,,,,,,,,
+Emolga,234,move,6,Discharge,30.5%,,,,,,,,
+Emolga,234,move,7,Protect,27.7%,,,,,,,,
+Emolga,234,move,8,Charm,19.9%,,,,,,,,
+Emolga,234,move,9,Energy Ball,18.5%,,,,,,,,
+Emolga,234,move,10,Taunt,16.9%,,,,,,,,
+Emolga,234,held_item,1,Focus Sash,50.6%,,,,,,,,
+Emolga,234,held_item,2,Bright Powder,19.2%,,,,,,,,
+Emolga,234,held_item,3,Wise Glasses,6.2%,,,,,,,,
+Emolga,234,held_item,4,Muscle Band,3.7%,,,,,,,,
+Emolga,234,held_item,5,Life Orb,3.5%,,,,,,,,
 Emolga,234,held_item,6,Magnet,2.3%,,,,,,,,
-Emolga,234,held_item,7,Psychic Seed,2.0%,,,,,,,,
-Emolga,234,held_item,8,Charti Berry,1.9%,,,,,,,,
-Emolga,234,held_item,9,Sitrus Berry,1.7%,,,,,,,,
-Emolga,234,held_item,10,Focus Band,1.7%,,,,,,,,
+Emolga,234,held_item,7,Psychic Seed,1.9%,,,,,,,,
+Emolga,234,held_item,8,Charti Berry,1.8%,,,,,,,,
+Emolga,234,held_item,9,Sitrus Berry,1.6%,,,,,,,,
+Emolga,234,held_item,10,Focus Band,1.6%,,,,,,,,
 Emolga,234,teammate,1,Bellibolt,,,,,,,,,
-Emolga,234,teammate,2,Garchomp,,,,,,,,,
-Emolga,234,teammate,3,Raichu,,,,,,,,,
+Emolga,234,teammate,2,Raichu,,,,,,,,,
+Emolga,234,teammate,3,Garchomp,,,,,,,,,
 Emolga,234,teammate,4,Indeedee-F,,,,,,,,,
 Emolga,234,teammate,5,Pelipper,,,,,,,,,
 Emolga,234,teammate,6,Sceptile,,,,,,,,,
-Emolga,234,teammate,7,Charizard,,,,,,,,,
-Emolga,234,teammate,8,Lopunny,,,,,,,,,
-Emolga,234,teammate,9,Rillaboom,,,,,,,,,
-Emolga,234,teammate,10,Excadrill,,,,,,,,,
-Emolga,234,stat_alignment,1,Timid,47.6%,Speed,Attack,,,,,,
-Emolga,234,stat_alignment,2,Modest,27.8%,Sp. Atk,Attack,,,,,,
-Emolga,234,stat_alignment,3,Jolly,14.0%,Speed,Sp. Atk,,,,,,
-Emolga,234,stat_alignment,4,Adamant,9.2%,Attack,Sp. Atk,,,,,,
+Emolga,234,teammate,7,Lopunny,,,,,,,,,
+Emolga,234,teammate,8,Typhlosion-Hisui,,,,,,,,,
+Emolga,234,teammate,9,Alcremie,,,,,,,,,
+Emolga,234,teammate,10,Charizard,,,,,,,,,
+Emolga,234,stat_alignment,1,Timid,47.5%,Speed,Attack,,,,,,
+Emolga,234,stat_alignment,2,Modest,28.5%,Sp. Atk,Attack,,,,,,
+Emolga,234,stat_alignment,3,Jolly,13.7%,Speed,Sp. Atk,,,,,,
+Emolga,234,stat_alignment,4,Adamant,8.8%,Attack,Sp. Atk,,,,,,
 Emolga,234,stat_alignment,5,Rash,0.4%,Sp. Atk,Sp. Def,,,,,,
 Emolga,234,stat_alignment,6,Impish,0.4%,Defense,Sp. Atk,,,,,,
 Emolga,234,stat_alignment,7,Lonely,0.2%,Attack,Defense,,,,,,
-Emolga,234,stat_alignment,8,Brave,0.1%,Attack,Speed,,,,,,
-Emolga,234,stat_alignment,9,Calm,0.1%,Sp. Def,Attack,,,,,,
-Emolga,234,stat_points,1,,37.1%,,,2,0,0,32,0,32
-Emolga,234,stat_points,2,,8.1%,,,0,0,0,32,0,32
-Emolga,234,stat_points,3,,8.1%,,,2,0,16,0,16,32
-Emolga,234,stat_points,4,,7.8%,,,32,0,1,0,1,32
-Emolga,234,stat_points,5,,7.7%,,,2,32,0,0,0,32
-Emolga,234,stat_points,6,,4.4%,,,12,27,16,0,11,0
-Emolga,234,stat_points,7,,4.2%,,,14,0,10,0,10,32
-Emolga,234,stat_points,8,,4.0%,,,32,0,0,0,0,32
-Emolga,234,stat_points,9,,3.1%,,,3,0,0,32,0,31
-Emolga,234,stat_points,10,,2.8%,,,20,0,4,10,0,32
-Emolga,234,ability,1,Motor Drive,74.8%,,,,,,,,
-Emolga,234,ability,2,Static,25.2%,,,,,,,,
+Emolga,234,stat_alignment,8,Calm,0.2%,Sp. Def,Attack,,,,,,
+Emolga,234,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
+Emolga,234,stat_alignment,10,Brave,0.1%,Attack,Speed,,,,,,
+Emolga,234,stat_points,1,,37.4%,,,2,0,0,32,0,32
+Emolga,234,stat_points,2,,9.5%,,,0,0,0,32,0,32
+Emolga,234,stat_points,3,,7.8%,,,2,0,16,0,16,32
+Emolga,234,stat_points,4,,7.8%,,,2,32,0,0,0,32
+Emolga,234,stat_points,5,,7.5%,,,32,0,1,0,1,32
+Emolga,234,stat_points,6,,4.3%,,,12,27,16,0,11,0
+Emolga,234,stat_points,7,,4.0%,,,14,0,10,0,10,32
+Emolga,234,stat_points,8,,3.8%,,,32,0,0,0,0,32
+Emolga,234,stat_points,9,,3.0%,,,3,0,0,32,0,31
+Emolga,234,stat_points,10,,2.7%,,,20,0,4,10,0,32
+Emolga,234,ability,1,Motor Drive,75.6%,,,,,,,,
+Emolga,234,ability,2,Static,24.4%,,,,,,,,

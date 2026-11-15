@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Palafin,135,move,1,Jet Punch,82.5%,,,,,,,,
-Palafin,135,move,2,Wave Crash,69.7%,,,,,,,,
+Palafin,135,move,2,Wave Crash,69.6%,,,,,,,,
 Palafin,135,move,3,Flip Turn,66.0%,,,,,,,,
-Palafin,135,move,4,Ice Punch,61.9%,,,,,,,,
-Palafin,135,move,5,Close Combat,40.3%,,,,,,,,
+Palafin,135,move,4,Ice Punch,61.7%,,,,,,,,
+Palafin,135,move,5,Close Combat,40.0%,,,,,,,,
 Palafin,135,move,6,Drain Punch,29.0%,,,,,,,,
-Palafin,135,move,7,Bulk Up,20.8%,,,,,,,,
+Palafin,135,move,7,Bulk Up,20.7%,,,,,,,,
 Palafin,135,move,8,Taunt,6.7%,,,,,,,,
 Palafin,135,move,9,Substitute,2.9%,,,,,,,,
 Palafin,135,move,10,Encore,2.8%,,,,,,,,
-Palafin,135,held_item,1,Mystic Water,33.7%,,,,,,,,
+Palafin,135,held_item,1,Mystic Water,33.5%,,,,,,,,
 Palafin,135,held_item,2,Choice Scarf,28.6%,,,,,,,,
 Palafin,135,held_item,3,Leftovers,10.8%,,,,,,,,
-Palafin,135,held_item,4,Life Orb,8.6%,,,,,,,,
-Palafin,135,held_item,5,Sitrus Berry,7.9%,,,,,,,,
+Palafin,135,held_item,4,Life Orb,8.5%,,,,,,,,
+Palafin,135,held_item,5,Sitrus Berry,7.8%,,,,,,,,
 Palafin,135,held_item,6,Eject Button,2.5%,,,,,,,,
 Palafin,135,held_item,7,Lum Berry,2.1%,,,,,,,,
-Palafin,135,held_item,8,Focus Sash,1.6%,,,,,,,,
-Palafin,135,held_item,9,Scope Lens,0.9%,,,,,,,,
-Palafin,135,held_item,10,Muscle Band,0.8%,,,,,,,,
+Palafin,135,held_item,8,Focus Sash,1.5%,,,,,,,,
+Palafin,135,held_item,9,Muscle Band,1.0%,,,,,,,,
+Palafin,135,held_item,10,Scope Lens,0.8%,,,,,,,,
 Palafin,135,teammate,1,Garchomp,,,,,,,,,
 Palafin,135,teammate,2,Golisopod,,,,,,,,,
 Palafin,135,teammate,3,Archaludon,,,,,,,,,
@@ -29,11 +29,11 @@ Palafin,135,teammate,7,Rillaboom,,,,,,,,,
 Palafin,135,teammate,8,Corviknight,,,,,,,,,
 Palafin,135,teammate,9,Mimikyu,,,,,,,,,
 Palafin,135,teammate,10,Charizard,,,,,,,,,
-Palafin,135,stat_alignment,1,Adamant,77.1%,Attack,Sp. Atk,,,,,,
+Palafin,135,stat_alignment,1,Adamant,76.9%,Attack,Sp. Atk,,,,,,
 Palafin,135,stat_alignment,2,Jolly,15.5%,Speed,Sp. Atk,,,,,,
 Palafin,135,stat_alignment,3,Careful,2.1%,Sp. Def,Sp. Atk,,,,,,
 Palafin,135,stat_alignment,4,Serious,2.0%,,,,,,,,
-Palafin,135,stat_alignment,5,Naughty,0.9%,Attack,Sp. Def,,,,,,
+Palafin,135,stat_alignment,5,Naughty,1.0%,Attack,Sp. Def,,,,,,
 Palafin,135,stat_alignment,6,Impish,0.9%,Defense,Sp. Atk,,,,,,
 Palafin,135,stat_alignment,7,Hasty,0.6%,Speed,Defense,,,,,,
 Palafin,135,stat_alignment,8,Lonely,0.4%,Attack,Defense,,,,,,
@@ -41,12 +41,12 @@ Palafin,135,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,
 Palafin,135,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
 Palafin,135,stat_points,1,,45.1%,,,2,32,0,0,0,32
 Palafin,135,stat_points,2,,8.5%,,,32,32,0,0,0,2
-Palafin,135,stat_points,3,,7.3%,,,0,32,2,0,0,32
+Palafin,135,stat_points,3,,7.2%,,,0,32,2,0,0,32
 Palafin,135,stat_points,4,,4.1%,,,0,32,0,0,2,32
-Palafin,135,stat_points,5,,3.1%,,,32,32,0,0,2,0
-Palafin,135,stat_points,6,,2.9%,,,0,32,1,0,1,32
-Palafin,135,stat_points,7,,2.2%,,,32,32,2,0,0,0
-Palafin,135,stat_points,8,,1.6%,,,30,18,14,0,0,4
+Palafin,135,stat_points,5,,3.0%,,,32,32,0,0,2,0
+Palafin,135,stat_points,6,,2.8%,,,0,32,1,0,1,32
+Palafin,135,stat_points,7,,2.4%,,,32,32,2,0,0,0
+Palafin,135,stat_points,8,,1.7%,,,30,18,14,0,0,4
 Palafin,135,stat_points,9,,1.4%,,,0,32,0,0,0,32
 Palafin,135,stat_points,10,,1.3%,,,32,2,0,0,32,0
 Palafin,135,ability,1,Zero to Hero,100.0%,,,,,,,,

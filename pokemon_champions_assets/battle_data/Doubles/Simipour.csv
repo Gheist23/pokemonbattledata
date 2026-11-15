@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Simipour,244,move,1,Scald,81.9%,,,,,,,,
-Simipour,244,move,2,Ice Beam,66.7%,,,,,,,,
-Simipour,244,move,3,Fake Out,50.7%,,,,,,,,
-Simipour,244,move,4,Protect,46.4%,,,,,,,,
+Simipour,244,move,2,Ice Beam,66.8%,,,,,,,,
+Simipour,244,move,3,Fake Out,50.6%,,,,,,,,
+Simipour,244,move,4,Protect,46.5%,,,,,,,,
 Simipour,244,move,5,Hydro Pump,28.1%,,,,,,,,
 Simipour,244,move,6,Surf,24.3%,,,,,,,,
-Simipour,244,move,7,Focus Blast,23.4%,,,,,,,,
+Simipour,244,move,7,Focus Blast,23.6%,,,,,,,,
 Simipour,244,move,8,Flip Turn,21.0%,,,,,,,,
 Simipour,244,move,9,Endure,13.6%,,,,,,,,
 Simipour,244,move,10,Grass Knot,12.2%,,,,,,,,
-Simipour,244,held_item,1,Mystic Water,45.5%,,,,,,,,
+Simipour,244,held_item,1,Mystic Water,45.6%,,,,,,,,
 Simipour,244,held_item,2,Choice Scarf,16.2%,,,,,,,,
-Simipour,244,held_item,3,Focus Sash,11.6%,,,,,,,,
+Simipour,244,held_item,3,Focus Sash,11.5%,,,,,,,,
 Simipour,244,held_item,4,Sitrus Berry,7.6%,,,,,,,,
 Simipour,244,held_item,5,Life Orb,4.8%,,,,,,,,
 Simipour,244,held_item,6,Expert Belt,3.6%,,,,,,,,
@@ -29,7 +29,7 @@ Simipour,244,teammate,7,Gardevoir,,,,,,,,,
 Simipour,244,teammate,8,Indeedee-F,,,,,,,,,
 Simipour,244,teammate,9,Torkoal,,,,,,,,,
 Simipour,244,teammate,10,Garchomp,,,,,,,,,
-Simipour,244,stat_alignment,1,Modest,57.2%,Sp. Atk,Attack,,,,,,
+Simipour,244,stat_alignment,1,Modest,57.3%,Sp. Atk,Attack,,,,,,
 Simipour,244,stat_alignment,2,Timid,32.4%,Speed,Attack,,,,,,
 Simipour,244,stat_alignment,3,Jolly,4.1%,Speed,Sp. Atk,,,,,,
 Simipour,244,stat_alignment,4,Naive,3.6%,Speed,Sp. Def,,,,,,
@@ -37,8 +37,8 @@ Simipour,244,stat_alignment,5,Adamant,1.2%,Attack,Sp. Atk,,,,,,
 Simipour,244,stat_alignment,6,Hasty,1.0%,Speed,Defense,,,,,,
 Simipour,244,stat_alignment,7,Quiet,0.2%,Sp. Atk,Speed,,,,,,
 Simipour,244,stat_alignment,8,Calm,0.2%,Sp. Def,Attack,,,,,,
-Simipour,244,stat_points,1,,37.6%,,,2,0,0,32,0,32
-Simipour,244,stat_points,2,,36.6%,,,0,0,0,32,0,32
+Simipour,244,stat_points,1,,37.5%,,,2,0,0,32,0,32
+Simipour,244,stat_points,2,,36.7%,,,0,0,0,32,0,32
 Simipour,244,stat_points,3,,7.4%,,,32,0,2,0,0,32
 Simipour,244,stat_points,4,,6.2%,,,0,0,0,32,2,32
 Simipour,244,stat_points,5,,4.8%,,,15,0,17,0,17,17

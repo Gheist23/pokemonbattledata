@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Perrserker,200,move,1,Iron Head,91.0%,,,,,,,,
-Perrserker,200,move,2,Fake Out,89.2%,,,,,,,,
-Perrserker,200,move,3,Protect,46.7%,,,,,,,,
-Perrserker,200,move,4,Close Combat,44.0%,,,,,,,,
-Perrserker,200,move,5,Helping Hand,40.8%,,,,,,,,
-Perrserker,200,move,6,Knock Off,24.0%,,,,,,,,
-Perrserker,200,move,7,U-turn,14.0%,,,,,,,,
-Perrserker,200,move,8,Taunt,8.2%,,,,,,,,
-Perrserker,200,move,9,Metal Burst,4.9%,,,,,,,,
-Perrserker,200,move,10,Gyro Ball,4.8%,,,,,,,,
-Perrserker,200,held_item,1,Focus Sash,41.0%,,,,,,,,
-Perrserker,200,held_item,2,Life Orb,12.5%,,,,,,,,
-Perrserker,200,held_item,3,Chople Berry,11.9%,,,,,,,,
+Perrserker,200,move,1,Iron Head,90.9%,,,,,,,,
+Perrserker,200,move,2,Fake Out,89.6%,,,,,,,,
+Perrserker,200,move,3,Protect,46.0%,,,,,,,,
+Perrserker,200,move,4,Close Combat,43.9%,,,,,,,,
+Perrserker,200,move,5,Helping Hand,41.5%,,,,,,,,
+Perrserker,200,move,6,Knock Off,23.9%,,,,,,,,
+Perrserker,200,move,7,U-turn,14.5%,,,,,,,,
+Perrserker,200,move,8,Taunt,8.1%,,,,,,,,
+Perrserker,200,move,9,Metal Burst,5.0%,,,,,,,,
+Perrserker,200,move,10,Gyro Ball,4.7%,,,,,,,,
+Perrserker,200,held_item,1,Focus Sash,40.4%,,,,,,,,
+Perrserker,200,held_item,2,Life Orb,13.1%,,,,,,,,
+Perrserker,200,held_item,3,Chople Berry,11.7%,,,,,,,,
 Perrserker,200,held_item,4,Metal Coat,5.6%,,,,,,,,
 Perrserker,200,held_item,5,Occa Berry,5.3%,,,,,,,,
-Perrserker,200,held_item,6,Sitrus Berry,2.9%,,,,,,,,
-Perrserker,200,held_item,7,Air Balloon,2.5%,,,,,,,,
-Perrserker,200,held_item,8,Quick Claw,2.5%,,,,,,,,
-Perrserker,200,held_item,9,Rocky Helmet,2.5%,,,,,,,,
-Perrserker,200,held_item,10,Shuca Berry,2.3%,,,,,,,,
+Perrserker,200,held_item,6,Sitrus Berry,3.1%,,,,,,,,
+Perrserker,200,held_item,7,Quick Claw,2.4%,,,,,,,,
+Perrserker,200,held_item,8,Rocky Helmet,2.4%,,,,,,,,
+Perrserker,200,held_item,9,Air Balloon,2.4%,,,,,,,,
+Perrserker,200,held_item,10,Leftovers,2.3%,,,,,,,,
 Perrserker,200,teammate,1,Farigiraf,,,,,,,,,
 Perrserker,200,teammate,2,Gholdengo,,,,,,,,,
 Perrserker,200,teammate,3,Pelipper,,,,,,,,,
@@ -27,27 +27,28 @@ Perrserker,200,teammate,5,Lucario,,,,,,,,,
 Perrserker,200,teammate,6,Tyranitar,,,,,,,,,
 Perrserker,200,teammate,7,Metagross,,,,,,,,,
 Perrserker,200,teammate,8,Incineroar,,,,,,,,,
-Perrserker,200,teammate,9,Sinistcha,,,,,,,,,
-Perrserker,200,teammate,10,Golisopod,,,,,,,,,
-Perrserker,200,stat_alignment,1,Brave,34.4%,Attack,Speed,,,,,,
-Perrserker,200,stat_alignment,2,Adamant,33.9%,Attack,Sp. Atk,,,,,,
+Perrserker,200,teammate,9,Golisopod,,,,,,,,,
+Perrserker,200,teammate,10,Sinistcha,,,,,,,,,
+Perrserker,200,stat_alignment,1,Adamant,34.5%,Attack,Sp. Atk,,,,,,
+Perrserker,200,stat_alignment,2,Brave,33.7%,Attack,Speed,,,,,,
 Perrserker,200,stat_alignment,3,Careful,7.1%,Sp. Def,Sp. Atk,,,,,,
-Perrserker,200,stat_alignment,4,Impish,6.3%,Defense,Sp. Atk,,,,,,
-Perrserker,200,stat_alignment,5,Naughty,5.0%,Attack,Sp. Def,,,,,,
-Perrserker,200,stat_alignment,6,Relaxed,5.0%,Defense,Speed,,,,,,
-Perrserker,200,stat_alignment,7,Jolly,4.5%,Speed,Sp. Atk,,,,,,
-Perrserker,200,stat_alignment,8,Sassy,2.2%,Sp. Def,Speed,,,,,,
+Perrserker,200,stat_alignment,4,Impish,6.5%,Defense,Sp. Atk,,,,,,
+Perrserker,200,stat_alignment,5,Naughty,5.1%,Attack,Sp. Def,,,,,,
+Perrserker,200,stat_alignment,6,Relaxed,4.9%,Defense,Speed,,,,,,
+Perrserker,200,stat_alignment,7,Jolly,4.4%,Speed,Sp. Atk,,,,,,
+Perrserker,200,stat_alignment,8,Sassy,2.3%,Sp. Def,Speed,,,,,,
 Perrserker,200,stat_alignment,9,Naive,0.9%,Speed,Sp. Def,,,,,,
 Perrserker,200,stat_alignment,10,Hasty,0.7%,Speed,Defense,,,,,,
-Perrserker,200,stat_points,1,,31.0%,,,32,32,0,0,2,0
-Perrserker,200,stat_points,2,,5.1%,,,2,32,0,0,0,32
-Perrserker,200,stat_points,3,,4.6%,,,2,32,0,0,32,0
+Perrserker,200,stat_points,1,,31.3%,,,32,32,0,0,2,0
+Perrserker,200,stat_points,2,,5.2%,,,2,32,0,0,0,32
+Perrserker,200,stat_points,3,,4.4%,,,2,32,0,0,32,0
 Perrserker,200,stat_points,4,,3.9%,,,0,32,2,0,0,32
 Perrserker,200,stat_points,5,,3.1%,,,2,32,32,0,0,0
-Perrserker,200,stat_points,6,,3.1%,,,32,23,0,0,0,11
-Perrserker,200,stat_points,7,,2.8%,,,23,23,0,0,20,0
-Perrserker,200,stat_points,8,,2.8%,,,32,32,2,0,0,0
-Perrserker,200,stat_points,9,,2.7%,,,32,0,2,0,32,0
-Perrserker,200,stat_points,10,,2.6%,,,0,32,2,0,32,0
-Perrserker,200,ability,1,Steely Spirit,83.5%,,,,,,,,
-Perrserker,200,ability,2,Tough Claws,16.5%,,,,,,,,
+Perrserker,200,stat_points,6,,3.0%,,,32,0,2,0,32,0
+Perrserker,200,stat_points,7,,3.0%,,,32,23,0,0,0,11
+Perrserker,200,stat_points,8,,2.7%,,,23,23,0,0,20,0
+Perrserker,200,stat_points,9,,2.7%,,,32,32,2,0,0,0
+Perrserker,200,stat_points,10,,2.5%,,,0,32,2,0,32,0
+Perrserker,200,ability,1,Steely Spirit,82.9%,,,,,,,,
+Perrserker,200,ability,2,Tough Claws,16.8%,,,,,,,,
+Perrserker,200,ability,3,Battle Armor,0.2%,,,,,,,,

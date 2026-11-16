@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Emboar,201,move,1,Flare Blitz,90.1%,,,,,,,,
-Emboar,201,move,2,Protect,58.6%,,,,,,,,
-Emboar,201,move,3,Close Combat,45.3%,,,,,,,,
-Emboar,201,move,4,Sucker Punch,42.0%,,,,,,,,
-Emboar,201,move,5,Drain Punch,32.2%,,,,,,,,
-Emboar,201,move,6,Wild Charge,23.3%,,,,,,,,
-Emboar,201,move,7,Storm Throw,17.5%,,,,,,,,
-Emboar,201,move,8,Head Smash,16.8%,,,,,,,,
-Emboar,201,move,9,Rock Slide,11.0%,,,,,,,,
-Emboar,201,move,10,Bulk Up,8.4%,,,,,,,,
-Emboar,201,held_item,1,Emboarite,68.6%,,,,,,,,
-Emboar,201,held_item,2,Expert Belt,5.8%,,,,,,,,
-Emboar,201,held_item,3,Muscle Band,3.8%,,,,,,,,
-Emboar,201,held_item,4,Focus Sash,3.4%,,,,,,,,
-Emboar,201,held_item,5,Sitrus Berry,3.2%,,,,,,,,
-Emboar,201,held_item,6,Life Orb,3.1%,,,,,,,,
-Emboar,201,held_item,7,Choice Scarf,1.7%,,,,,,,,
-Emboar,201,held_item,8,Bright Powder,1.3%,,,,,,,,
+Emboar,201,move,1,Flare Blitz,90.0%,,,,,,,,
+Emboar,201,move,2,Protect,59.2%,,,,,,,,
+Emboar,201,move,3,Close Combat,45.6%,,,,,,,,
+Emboar,201,move,4,Sucker Punch,42.7%,,,,,,,,
+Emboar,201,move,5,Drain Punch,32.6%,,,,,,,,
+Emboar,201,move,6,Wild Charge,23.0%,,,,,,,,
+Emboar,201,move,7,Storm Throw,17.2%,,,,,,,,
+Emboar,201,move,8,Head Smash,16.5%,,,,,,,,
+Emboar,201,move,9,Rock Slide,10.9%,,,,,,,,
+Emboar,201,move,10,Bulk Up,8.5%,,,,,,,,
+Emboar,201,held_item,1,Emboarite,68.9%,,,,,,,,
+Emboar,201,held_item,2,Expert Belt,5.6%,,,,,,,,
+Emboar,201,held_item,3,Life Orb,3.7%,,,,,,,,
+Emboar,201,held_item,4,Muscle Band,3.6%,,,,,,,,
+Emboar,201,held_item,5,Sitrus Berry,3.3%,,,,,,,,
+Emboar,201,held_item,6,Focus Sash,3.3%,,,,,,,,
+Emboar,201,held_item,7,Choice Scarf,1.6%,,,,,,,,
+Emboar,201,held_item,8,Bright Powder,1.2%,,,,,,,,
 Emboar,201,held_item,9,Charcoal,0.9%,,,,,,,,
-Emboar,201,held_item,10,Black Belt,0.7%,,,,,,,,
+Emboar,201,held_item,10,Iron Ball,0.7%,,,,,,,,
 Emboar,201,teammate,1,Farigiraf,,,,,,,,,
 Emboar,201,teammate,2,Rillaboom,,,,,,,,,
 Emboar,201,teammate,3,Kingambit,,,,,,,,,
@@ -27,27 +27,27 @@ Emboar,201,teammate,5,Indeedee-F,,,,,,,,,
 Emboar,201,teammate,6,Torkoal,,,,,,,,,
 Emboar,201,teammate,7,Gardevoir,,,,,,,,,
 Emboar,201,teammate,8,Kleavor,,,,,,,,,
-Emboar,201,teammate,9,Indeedee,,,,,,,,,
-Emboar,201,teammate,10,Whimsicott,,,,,,,,,
-Emboar,201,stat_alignment,1,Adamant,56.9%,Attack,Sp. Atk,,,,,,
-Emboar,201,stat_alignment,2,Brave,30.9%,Attack,Speed,,,,,,
-Emboar,201,stat_alignment,3,Jolly,4.2%,Speed,Sp. Atk,,,,,,
-Emboar,201,stat_alignment,4,Careful,2.2%,Sp. Def,Sp. Atk,,,,,,
+Emboar,201,teammate,9,Whimsicott,,,,,,,,,
+Emboar,201,teammate,10,Indeedee,,,,,,,,,
+Emboar,201,stat_alignment,1,Adamant,57.6%,Attack,Sp. Atk,,,,,,
+Emboar,201,stat_alignment,2,Brave,30.7%,Attack,Speed,,,,,,
+Emboar,201,stat_alignment,3,Jolly,4.1%,Speed,Sp. Atk,,,,,,
+Emboar,201,stat_alignment,4,Careful,2.1%,Sp. Def,Sp. Atk,,,,,,
 Emboar,201,stat_alignment,5,Sassy,1.4%,Sp. Def,Speed,,,,,,
-Emboar,201,stat_alignment,6,Impish,1.4%,Defense,Sp. Atk,,,,,,
-Emboar,201,stat_alignment,7,Lonely,1.3%,Attack,Defense,,,,,,
-Emboar,201,stat_alignment,8,Relaxed,0.7%,Defense,Speed,,,,,,
+Emboar,201,stat_alignment,6,Impish,1.3%,Defense,Sp. Atk,,,,,,
+Emboar,201,stat_alignment,7,Lonely,1.2%,Attack,Defense,,,,,,
+Emboar,201,stat_alignment,8,Relaxed,0.6%,Defense,Speed,,,,,,
 Emboar,201,stat_alignment,9,Hardy,0.6%,,,,,,,,
 Emboar,201,stat_alignment,10,Quiet,0.3%,Sp. Atk,Speed,,,,,,
-Emboar,201,stat_points,1,,12.5%,,,32,32,1,0,1,0
-Emboar,201,stat_points,2,,9.7%,,,32,32,2,0,0,0
-Emboar,201,stat_points,3,,8.8%,,,32,32,0,0,2,0
-Emboar,201,stat_points,4,,7.6%,,,32,32,0,0,0,2
-Emboar,201,stat_points,5,,6.1%,,,2,32,0,0,0,32
-Emboar,201,stat_points,6,,4.1%,,,0,32,32,0,2,0
-Emboar,201,stat_points,7,,3.2%,,,25,32,0,0,9,0
+Emboar,201,stat_points,1,,12.9%,,,32,32,1,0,1,0
+Emboar,201,stat_points,2,,9.6%,,,32,32,2,0,0,0
+Emboar,201,stat_points,3,,9.3%,,,32,32,0,0,2,0
+Emboar,201,stat_points,4,,7.3%,,,32,32,0,0,0,2
+Emboar,201,stat_points,5,,5.9%,,,2,32,0,0,0,32
+Emboar,201,stat_points,6,,4.4%,,,0,32,32,0,2,0
+Emboar,201,stat_points,7,,3.1%,,,25,32,0,0,9,0
 Emboar,201,stat_points,8,,2.8%,,,2,32,32,0,0,0
-Emboar,201,stat_points,9,,2.4%,,,0,32,17,0,17,0
-Emboar,201,stat_points,10,,2.3%,,,0,32,2,0,32,0
-Emboar,201,ability,1,Reckless,69.6%,,,,,,,,
-Emboar,201,ability,2,Blaze,30.4%,,,,,,,,
+Emboar,201,stat_points,9,,2.4%,,,0,32,2,0,32,0
+Emboar,201,stat_points,10,,2.3%,,,0,32,17,0,17,0
+Emboar,201,ability,1,Reckless,69.7%,,,,,,,,
+Emboar,201,ability,2,Blaze,30.3%,,,,,,,,

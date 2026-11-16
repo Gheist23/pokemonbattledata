@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Garbodor,256,move,1,Poison Jab,78.2%,,,,,,,,
-Garbodor,256,move,2,Drain Punch,77.1%,,,,,,,,
-Garbodor,256,move,3,Rock Blast,73.1%,,,,,,,,
-Garbodor,256,move,4,Explosion,68.3%,,,,,,,,
-Garbodor,256,move,5,Gunk Shot,20.4%,,,,,,,,
-Garbodor,256,move,6,Protect,17.8%,,,,,,,,
-Garbodor,256,move,7,Clear Smog,11.6%,,,,,,,,
-Garbodor,256,move,8,Payback,10.2%,,,,,,,,
-Garbodor,256,move,9,Stomping Tantrum,9.9%,,,,,,,,
-Garbodor,256,move,10,Stockpile,6.5%,,,,,,,,
-Garbodor,256,held_item,1,Normal Gem,58.6%,,,,,,,,
-Garbodor,256,held_item,2,Leftovers,11.3%,,,,,,,,
-Garbodor,256,held_item,3,Choice Scarf,9.1%,,,,,,,,
+Garbodor,256,move,1,Poison Jab,77.9%,,,,,,,,
+Garbodor,256,move,2,Drain Punch,76.8%,,,,,,,,
+Garbodor,256,move,3,Rock Blast,73.4%,,,,,,,,
+Garbodor,256,move,4,Explosion,67.5%,,,,,,,,
+Garbodor,256,move,5,Gunk Shot,20.7%,,,,,,,,
+Garbodor,256,move,6,Protect,17.6%,,,,,,,,
+Garbodor,256,move,7,Clear Smog,11.5%,,,,,,,,
+Garbodor,256,move,8,Stomping Tantrum,10.4%,,,,,,,,
+Garbodor,256,move,9,Payback,10.1%,,,,,,,,
+Garbodor,256,move,10,Stockpile,6.4%,,,,,,,,
+Garbodor,256,held_item,1,Normal Gem,58.0%,,,,,,,,
+Garbodor,256,held_item,2,Leftovers,11.8%,,,,,,,,
+Garbodor,256,held_item,3,Choice Scarf,9.0%,,,,,,,,
 Garbodor,256,held_item,4,Sitrus Berry,5.9%,,,,,,,,
 Garbodor,256,held_item,5,Hard Stone,3.1%,,,,,,,,
 Garbodor,256,held_item,6,Grassy Seed,3.1%,,,,,,,,
 Garbodor,256,held_item,7,Life Orb,2.8%,,,,,,,,
 Garbodor,256,held_item,8,Quick Claw,2.0%,,,,,,,,
-Garbodor,256,held_item,9,Bright Powder,0.8%,,,,,,,,
-Garbodor,256,held_item,10,Focus Sash,0.8%,,,,,,,,
+Garbodor,256,held_item,9,Rocky Helmet,1.4%,,,,,,,,
+Garbodor,256,held_item,10,Bright Powder,0.8%,,,,,,,,
 Garbodor,256,teammate,1,Tyranitar,,,,,,,,,
 Garbodor,256,teammate,2,Metagross,,,,,,,,,
 Garbodor,256,teammate,3,Pawmot,,,,,,,,,
@@ -27,26 +27,26 @@ Garbodor,256,teammate,5,Houndstone,,,,,,,,,
 Garbodor,256,teammate,6,Mudsdale,,,,,,,,,
 Garbodor,256,teammate,7,Rillaboom,,,,,,,,,
 Garbodor,256,teammate,8,Salamence,,,,,,,,,
-Garbodor,256,teammate,9,Sinistcha,,,,,,,,,
-Garbodor,256,teammate,10,Gyarados,,,,,,,,,
-Garbodor,256,stat_alignment,1,Adamant,81.3%,Attack,Sp. Atk,,,,,,
+Garbodor,256,teammate,9,Reuniclus,,,,,,,,,
+Garbodor,256,teammate,10,Sinistcha,,,,,,,,,
+Garbodor,256,stat_alignment,1,Adamant,80.4%,Attack,Sp. Atk,,,,,,
 Garbodor,256,stat_alignment,2,Impish,6.2%,Defense,Sp. Atk,,,,,,
-Garbodor,256,stat_alignment,3,Brave,5.4%,Attack,Speed,,,,,,
+Garbodor,256,stat_alignment,3,Brave,5.3%,Attack,Speed,,,,,,
 Garbodor,256,stat_alignment,4,Careful,2.5%,Sp. Def,Sp. Atk,,,,,,
-Garbodor,256,stat_alignment,5,Sassy,1.7%,Sp. Def,Speed,,,,,,
+Garbodor,256,stat_alignment,5,Sassy,2.2%,Sp. Def,Speed,,,,,,
 Garbodor,256,stat_alignment,6,Jolly,1.4%,Speed,Sp. Atk,,,,,,
 Garbodor,256,stat_alignment,7,Serious,1.1%,,,,,,,,
-Garbodor,256,stat_alignment,8,Relaxed,0.3%,Defense,Speed,,,,,,
-Garbodor,256,stat_points,1,,46.7%,,,10,32,0,0,0,24
-Garbodor,256,stat_points,2,,18.1%,,,2,32,0,0,0,32
-Garbodor,256,stat_points,3,,10.8%,,,32,32,0,0,0,2
-Garbodor,256,stat_points,4,,5.7%,,,32,0,32,0,2,0
+Garbodor,256,stat_alignment,8,Relaxed,0.8%,Defense,Speed,,,,,,
+Garbodor,256,stat_points,1,,46.2%,,,10,32,0,0,0,24
+Garbodor,256,stat_points,2,,17.9%,,,2,32,0,0,0,32
+Garbodor,256,stat_points,3,,10.6%,,,32,32,0,0,0,2
+Garbodor,256,stat_points,4,,5.6%,,,32,0,32,0,2,0
 Garbodor,256,stat_points,5,,3.4%,,,32,32,0,0,2,0
 Garbodor,256,stat_points,6,,3.1%,,,0,32,21,0,13,0
-Garbodor,256,stat_points,7,,2.3%,,,15,32,0,0,18,0
+Garbodor,256,stat_points,7,,2.2%,,,15,32,0,0,18,0
 Garbodor,256,stat_points,8,,1.7%,,,32,0,8,0,8,18
 Garbodor,256,stat_points,9,,1.7%,,,32,32,1,0,1,0
 Garbodor,256,stat_points,10,,1.7%,,,32,32,2,0,0,0
-Garbodor,256,ability,1,Weak Armor,63.5%,,,,,,,,
-Garbodor,256,ability,2,Stench,20.4%,,,,,,,,
-Garbodor,256,ability,3,Aftermath,16.1%,,,,,,,,
+Garbodor,256,ability,1,Weak Armor,62.7%,,,,,,,,
+Garbodor,256,ability,2,Stench,20.2%,,,,,,,,
+Garbodor,256,ability,3,Aftermath,17.1%,,,,,,,,

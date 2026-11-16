@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Alakazam,130,move,1,Shadow Ball,65.6%,,,,,,,,
-Alakazam,130,move,2,Focus Blast,62.8%,,,,,,,,
+Alakazam,130,move,2,Focus Blast,62.9%,,,,,,,,
 Alakazam,130,move,3,Expanding Force,53.1%,,,,,,,,
 Alakazam,130,move,4,Psychic,43.9%,,,,,,,,
-Alakazam,130,move,5,Dazzling Gleam,38.6%,,,,,,,,
-Alakazam,130,move,6,Nasty Plot,35.0%,,,,,,,,
-Alakazam,130,move,7,Energy Ball,27.1%,,,,,,,,
+Alakazam,130,move,5,Dazzling Gleam,38.5%,,,,,,,,
+Alakazam,130,move,6,Nasty Plot,35.2%,,,,,,,,
+Alakazam,130,move,7,Energy Ball,27.0%,,,,,,,,
 Alakazam,130,move,8,Encore,18.7%,,,,,,,,
 Alakazam,130,move,9,Substitute,8.0%,,,,,,,,
 Alakazam,130,move,10,Grass Knot,6.9%,,,,,,,,
 Alakazam,130,held_item,1,Alakazite,60.5%,,,,,,,,
-Alakazam,130,held_item,2,Focus Sash,29.2%,,,,,,,,
+Alakazam,130,held_item,2,Focus Sash,29.3%,,,,,,,,
 Alakazam,130,held_item,3,Life Orb,5.7%,,,,,,,,
 Alakazam,130,held_item,4,Choice Scarf,1.5%,,,,,,,,
 Alakazam,130,held_item,5,Sitrus Berry,0.4%,,,,,,,,
@@ -25,8 +25,8 @@ Alakazam,130,teammate,3,Blastoise,,,,,,,,,
 Alakazam,130,teammate,4,Sneasler,,,,,,,,,
 Alakazam,130,teammate,5,Charizard,,,,,,,,,
 Alakazam,130,teammate,6,Mimikyu,,,,,,,,,
-Alakazam,130,teammate,7,Primarina,,,,,,,,,
-Alakazam,130,teammate,8,Blaziken,,,,,,,,,
+Alakazam,130,teammate,7,Blaziken,,,,,,,,,
+Alakazam,130,teammate,8,Primarina,,,,,,,,,
 Alakazam,130,teammate,9,Archaludon,,,,,,,,,
 Alakazam,130,teammate,10,Gyarados,,,,,,,,,
 Alakazam,130,stat_alignment,1,Timid,74.2%,Speed,Attack,,,,,,
@@ -41,12 +41,12 @@ Alakazam,130,stat_alignment,9,Gentle,0.2%,Sp. Def,Defense,,,,,,
 Alakazam,130,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
 Alakazam,130,stat_points,1,,35.9%,,,2,0,0,32,0,32
 Alakazam,130,stat_points,2,,11.0%,,,1,0,1,32,0,32
-Alakazam,130,stat_points,3,,10.9%,,,0,0,0,32,2,32
+Alakazam,130,stat_points,3,,11.0%,,,0,0,0,32,2,32
 Alakazam,130,stat_points,4,,10.0%,,,1,0,0,32,1,32
-Alakazam,130,stat_points,5,,5.3%,,,0,0,2,32,0,32
+Alakazam,130,stat_points,5,,5.2%,,,0,0,2,32,0,32
 Alakazam,130,stat_points,6,,4.2%,,,0,0,0,32,0,32
-Alakazam,130,stat_points,7,,3.1%,,,13,0,0,26,1,26
-Alakazam,130,stat_points,8,,1.0%,,,7,0,0,32,0,27
+Alakazam,130,stat_points,7,,3.0%,,,13,0,0,26,1,26
+Alakazam,130,stat_points,8,,1.1%,,,7,0,0,32,0,27
 Alakazam,130,stat_points,9,,1.0%,,,29,0,9,8,0,20
 Alakazam,130,stat_points,10,,0.9%,,,32,0,0,32,0,2
 Alakazam,130,ability,1,Magic Guard,90.0%,,,,,,,,

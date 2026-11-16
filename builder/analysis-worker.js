@@ -591,6 +591,22 @@ self.addEventListener("message", async (event) => {
         return;
       }
 
+      // ONE TOURNAMENT TEAM, ROLLED, FOR EITHER SIDE TO PLAY.
+      //
+      // The library lives in the worker -- it is 1.3MB of it -- and the page has never had a
+      // copy. The opponent's team was always rolled here; this is the same roll, handed back so
+      // the page can put a real team on EITHER side of a custom battle.
+      if (payload.action === "randomTeam") {
+        const rolled = foeTeam(data, payload.format, evaluation.knownTeams,
+          rollerFrom(Number(payload.seed) || 1));
+        self.postMessage({
+          id,
+          ok: true,
+          result: { name: rolled.name, sets: rolled.sets.map((set) => makeSet(set)) },
+        });
+        return;
+      }
+
       if (payload.action === "preview") {
         // The teams are dealt here and remembered, so the four you pick are brought against the
         // very team you were shown rather than against a fresh roll.

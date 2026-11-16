@@ -1,18 +1,18 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Pinsir,215,move,1,Feint,79.8%,,,,,,,,
-Pinsir,215,move,2,Storm Throw,60.0%,,,,,,,,
-Pinsir,215,move,3,Body Slam,58.6%,,,,,,,,
-Pinsir,215,move,4,Protect,41.4%,,,,,,,,
-Pinsir,215,move,5,Detect,35.5%,,,,,,,,
-Pinsir,215,move,6,Lunge,23.9%,,,,,,,,
-Pinsir,215,move,7,Close Combat,21.0%,,,,,,,,
-Pinsir,215,move,8,Giga Impact,12.7%,,,,,,,,
-Pinsir,215,move,9,Quick Attack,8.8%,,,,,,,,
-Pinsir,215,move,10,X-Scissor,8.6%,,,,,,,,
-Pinsir,215,held_item,1,Pinsirite,92.8%,,,,,,,,
-Pinsir,215,held_item,2,Focus Sash,2.3%,,,,,,,,
-Pinsir,215,held_item,3,Choice Scarf,2.3%,,,,,,,,
-Pinsir,215,held_item,4,Quick Claw,1.1%,,,,,,,,
+Pinsir,215,move,1,Feint,79.3%,,,,,,,,
+Pinsir,215,move,2,Storm Throw,60.1%,,,,,,,,
+Pinsir,215,move,3,Body Slam,58.5%,,,,,,,,
+Pinsir,215,move,4,Protect,41.8%,,,,,,,,
+Pinsir,215,move,5,Detect,34.7%,,,,,,,,
+Pinsir,215,move,6,Lunge,24.4%,,,,,,,,
+Pinsir,215,move,7,Close Combat,20.7%,,,,,,,,
+Pinsir,215,move,8,Giga Impact,12.9%,,,,,,,,
+Pinsir,215,move,9,Quick Attack,9.1%,,,,,,,,
+Pinsir,215,move,10,X-Scissor,8.4%,,,,,,,,
+Pinsir,215,held_item,1,Pinsirite,92.5%,,,,,,,,
+Pinsir,215,held_item,2,Choice Scarf,2.7%,,,,,,,,
+Pinsir,215,held_item,3,Focus Sash,2.3%,,,,,,,,
+Pinsir,215,held_item,4,Quick Claw,1.0%,,,,,,,,
 Pinsir,215,held_item,5,Life Orb,0.8%,,,,,,,,
 Pinsir,215,held_item,6,Expert Belt,0.3%,,,,,,,,
 Pinsir,215,held_item,7,Sitrus Berry,0.3%,,,,,,,,
@@ -24,29 +24,29 @@ Pinsir,215,teammate,4,Metagross,,,,,,,,,
 Pinsir,215,teammate,5,Incineroar,,,,,,,,,
 Pinsir,215,teammate,6,Raichu,,,,,,,,,
 Pinsir,215,teammate,7,Pelipper,,,,,,,,,
-Pinsir,215,teammate,8,Archaludon,,,,,,,,,
-Pinsir,215,teammate,9,Farigiraf,,,,,,,,,
+Pinsir,215,teammate,8,Farigiraf,,,,,,,,,
+Pinsir,215,teammate,9,Archaludon,,,,,,,,,
 Pinsir,215,teammate,10,Garchomp,,,,,,,,,
-Pinsir,215,stat_alignment,1,Jolly,66.5%,Speed,Sp. Atk,,,,,,
-Pinsir,215,stat_alignment,2,Adamant,24.4%,Attack,Sp. Atk,,,,,,
-Pinsir,215,stat_alignment,3,Hasty,3.1%,Speed,Defense,,,,,,
-Pinsir,215,stat_alignment,4,Timid,1.8%,Speed,Attack,,,,,,
+Pinsir,215,stat_alignment,1,Jolly,66.6%,Speed,Sp. Atk,,,,,,
+Pinsir,215,stat_alignment,2,Adamant,23.8%,Attack,Sp. Atk,,,,,,
+Pinsir,215,stat_alignment,3,Hasty,3.0%,Speed,Defense,,,,,,
+Pinsir,215,stat_alignment,4,Timid,2.3%,Speed,Attack,,,,,,
 Pinsir,215,stat_alignment,5,Naive,1.4%,Speed,Sp. Def,,,,,,
 Pinsir,215,stat_alignment,6,Impish,1.1%,Defense,Sp. Atk,,,,,,
-Pinsir,215,stat_alignment,7,Brave,0.9%,Attack,Speed,,,,,,
+Pinsir,215,stat_alignment,7,Brave,1.0%,Attack,Speed,,,,,,
 Pinsir,215,stat_alignment,8,Bold,0.3%,Defense,Attack,,,,,,
 Pinsir,215,stat_alignment,9,Relaxed,0.3%,Defense,Speed,,,,,,
 Pinsir,215,stat_alignment,10,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
-Pinsir,215,stat_points,1,,48.6%,,,2,32,0,0,0,32
-Pinsir,215,stat_points,2,,8.0%,,,32,0,2,0,0,32
-Pinsir,215,stat_points,3,,6.4%,,,0,32,0,0,2,32
-Pinsir,215,stat_points,4,,5.3%,,,0,0,2,32,0,32
-Pinsir,215,stat_points,5,,3.2%,,,0,32,2,0,0,32
-Pinsir,215,stat_points,6,,3.0%,,,31,0,0,0,3,32
-Pinsir,215,stat_points,7,,2.6%,,,1,32,1,0,0,32
-Pinsir,215,stat_points,8,,1.8%,,,0,32,0,0,0,32
+Pinsir,215,stat_points,1,,47.7%,,,2,32,0,0,0,32
+Pinsir,215,stat_points,2,,8.1%,,,32,0,2,0,0,32
+Pinsir,215,stat_points,3,,6.2%,,,0,32,0,0,2,32
+Pinsir,215,stat_points,4,,5.1%,,,0,0,2,32,0,32
+Pinsir,215,stat_points,5,,3.4%,,,0,32,2,0,0,32
+Pinsir,215,stat_points,6,,2.9%,,,31,0,0,0,3,32
+Pinsir,215,stat_points,7,,2.5%,,,1,32,1,0,0,32
+Pinsir,215,stat_points,8,,1.7%,,,0,32,0,0,0,32
 Pinsir,215,stat_points,9,,1.7%,,,17,32,0,0,0,17
 Pinsir,215,stat_points,10,,1.4%,,,0,32,1,0,1,32
-Pinsir,215,ability,1,Hyper Cutter,90.6%,,,,,,,,
-Pinsir,215,ability,2,Moxie,5.1%,,,,,,,,
-Pinsir,215,ability,3,Mold Breaker,4.3%,,,,,,,,
+Pinsir,215,ability,1,Hyper Cutter,89.3%,,,,,,,,
+Pinsir,215,ability,2,Moxie,5.7%,,,,,,,,
+Pinsir,215,ability,3,Mold Breaker,5.0%,,,,,,,,

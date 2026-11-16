@@ -1542,3 +1542,18 @@ body.page-team-builder { --max-width: 1520px; }
   .bd-view-moves { grid-template-columns: minmax(0, 1fr); }
   .bd-view-stat { grid-template-columns: 3.6rem 2.2rem 2.2rem minmax(0, 1fr); gap: 0.4rem; }
 }
+
+/* Clearing the two teams a battle handed to this page (builder/calc-page.js renderImport). */
+.bd-import-forget {
+  border: 1px solid var(--bd-line);
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.68rem;
+  padding: 0.05rem 0.35rem;
+  margin-left: 0.4rem;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.bd-import-forget:hover { opacity: 1; border-color: var(--bd-on-line); }

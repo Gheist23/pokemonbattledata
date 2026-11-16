@@ -203,22 +203,38 @@ function runMove(moveName, { item = "", rule = 1 } = {}) {
 {
   const solver = makeSolver(1);
   const setter = setOf(DRIZZLE.species, DRIZZLE.form);
-  const game = new PlayGame(solver, data, FORMAT, library, { pickReplacement: false });
   const FOE = teamFromKnown(data, FORMAT, known.teams[0]).slice(0, 6);
-  let view = game.start({ player: [setter, PLAIN[0], PLAIN[1], PLAIN[2]], foe: FOE, seed: 4 });
-  ok("the game opens with the count on the view", view.field.weatherTurns === 5,
-    JSON.stringify(view.field));
-  const seen = [`${view.field.weather}:${view.field.weatherTurns}`];
-  for (let turn = 1; turn <= 6 && !game.over(); turn += 1) {
-    const options = game.options();
-    const chosen = options.filter((o) => !o.empty).map((o) => o.actions[0]?.id).filter(Boolean);
-    if (!chosen.length) break;
-    const foeOptions = [0, 1].map((p) => solver.slotCandidates(game.state, 1, p, { cap: 0 }));
-    game.resolve(game.jointFrom(options, chosen),
-      solver.planFor(game.state, foeOptions.map((l) => l[0]).filter(Boolean), 1));
-    view = game.view();
-    seen.push(`${view.field.weather}:${view.field.weatherTurns}`);
+
+  // MORE THAN ONE GAME, because a Drizzle needs five turns to run out and not every game lasts
+  // five. This was one game on one seed; it ended on turn four when something was knocked out
+  // (`pickReplacement: false` leaves the side with no action), so the rain was last seen at 1
+  // and the suite went red without the weather rule having changed at all. Played until a game
+  // is long enough to watch it expire, which is the thing being checked.
+  let game = null;
+  let view = null;
+  let seen = [];
+  let opened = 0;
+  for (let seed = 4; seed < 24 && !seen.some((s) => s.startsWith("None")); seed += 1) {
+    game = new PlayGame(solver, data, FORMAT, library, { pickReplacement: false });
+    view = game.start({ player: [setter, PLAIN[0], PLAIN[1], PLAIN[2]], foe: FOE, seed });
+    if (view.field.weatherTurns === 5) opened += 1;
+    seen = [`${view.field.weather}:${view.field.weatherTurns}`];
+    for (let turn = 1; turn <= 8 && !game.over(); turn += 1) {
+      const options = game.options();
+      const chosen = options.filter((o) => !o.empty).map((o) => o.actions[0]?.id).filter(Boolean);
+      if (!chosen.length) break;
+      const foeOptions = [0, 1].map((p) => solver.slotCandidates(game.state, 1, p, { cap: 0 }));
+      game.resolve(game.jointFrom(options, chosen),
+        solver.planFor(game.state, foeOptions.map((l) => l[0]).filter(Boolean), 1));
+      view = game.view();
+      seen.push(`${view.field.weather}:${view.field.weatherTurns}`);
+    }
   }
+  ok("the game opens with the count on the view", opened > 0, String(opened));
+  // It counts DOWN, one a turn, and never climbs: the thing a five-turn weather has to do.
+  const counts = seen.filter((s) => s.startsWith("Rain")).map((s) => Number(s.split(":")[1]));
+  ok("the count falls by one a turn while it is up",
+    counts.every((n, i) => i === 0 || n === counts[i - 1] - 1), seen.join(" "));
   ok("and the rain really stops during the game", seen.some((s) => s.startsWith("None")), seen.join(" "));
   // ...and the opponent searches a board that knows it
   const boards = game.possibleBoards(1);

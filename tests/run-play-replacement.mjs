@@ -81,8 +81,28 @@ const setFor = (record) => {
 };
 const ranked = meta.pokemon.map(setFor).filter(Boolean);
 const FOE = teamFromKnown(data, FORMAT, known.teams[0]).slice(0, 6);
+/**
+ * A side that actually LOSES Pokemon, which is the only way to reach the question this suite is
+ * about.
+ *
+ * The checks below used the six most-used Pokemon in the meta, and against a real tournament
+ * team those six now win without losing anybody: measured over 12 seeds, our side was knocked
+ * down 0 times and the game was never once asked who comes in next. Nothing had broken -- the
+ * usage data had simply moved until the matchup was one-sided. The least-used six lose, which
+ * is what these checks need to watch.
+ */
+const FRAIL = ranked.slice(-6);
 
 /** Play until the game asks for a replacement, or the turn budget runs out. */
+/**
+ * Play until the game stops to ask who comes in next -- ACROSS SEEDS.
+ *
+ * `askedGame` is the one to use: it keeps dealing fresh games until one actually reaches a
+ * knockout with a choice behind it. A single seed used to be enough, and then secondaries began
+ * to be rolled in a played game rather than priced, which moved every outcome a little: seed 5
+ * stopped producing the knockout these checks are about and four of them went red with nothing
+ * wrong behind them. What is being tested is the replacement question, not seed 5.
+ */
 function playUntilAsked(game, solver, { team, seed = 5, cap = 30 }) {
   let view = game.start({ player: team, foe: FOE, seed });
   let turns = 0;
@@ -104,6 +124,16 @@ function playUntilAsked(game, solver, { team, seed = 5, cap = 30 }) {
   return { view, turns, offeredWhileWaiting };
 }
 
+/** A game that really was asked, and the solver that played it. Null if no seed managed it. */
+function askedGame({ team = FRAIL, seeds = 60, cap = 30 } = {}) {
+  for (let seed = 5; seed < 5 + seeds; seed += 1) {
+    const { solver, game } = freshGame();
+    const played = playUntilAsked(game, solver, { team, seed, cap });
+    if (played.view?.replacement) return { solver, game, ...played, seed };
+  }
+  return null;
+}
+
 // ---------------------------------------------------------------------------
 // 1. nothing to choose, nothing asked
 // ---------------------------------------------------------------------------
@@ -122,10 +152,17 @@ function playUntilAsked(game, solver, { team, seed = 5, cap = 30 }) {
 // ---------------------------------------------------------------------------
 {
   const outcomes = [];
+  // ONE seed, found once, and then played twice. The two runs differ only in which candidate is
+  // chosen -- that is the whole of the last check in this block, which would mean nothing if the
+  // runs were different games.
+  const found = askedGame();
+  ok("some game reaches a replacement choice", Boolean(found),
+    found ? `seed ${found.seed}` : "no seed in 60 produced one");
+  const seed = found ? found.seed : 5;
   for (const [label, pickFrom] of [["the last candidate", (c) => c[c.length - 1]],
     ["the first candidate", (c) => c[0]]]) {
     const { solver, game } = freshGame();
-    const { view, offeredWhileWaiting } = playUntilAsked(game, solver, { team: ranked.slice(0, 6) });
+    const { view, offeredWhileWaiting } = playUntilAsked(game, solver, { team: FRAIL, seed });
     ok(`${label}: the game asks`, Boolean(view.replacement), JSON.stringify(view.replacement));
     if (!view.replacement) continue;
     const choices = view.replacement.choices;
@@ -189,9 +226,10 @@ function playUntilAsked(game, solver, { team, seed = 5, cap = 30 }) {
 // 4. a tag that is not on offer
 // ---------------------------------------------------------------------------
 {
-  const { solver, game } = freshGame();
-  const { view } = playUntilAsked(game, solver, { team: ranked.slice(0, 6) });
-  if (view.replacement) {
+  const found = askedGame();
+  const game = found?.game;
+  const view = found?.view;
+  if (view?.replacement) {
     const offered = new Set(view.replacement.choices.map((c) => c.tag));
     const standingTag = view.standing[0].find((tag) => tag !== null && !offered.has(tag));
     ok("a Pokemon already standing is refused", game.chooseReplacement(standingTag) === false,

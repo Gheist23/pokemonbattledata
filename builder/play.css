@@ -158,7 +158,10 @@
   text-transform: uppercase;
   opacity: 0.7;
 }
-.bd-play-team-select .bd-select { min-width: 12rem; }
+/* Wide enough to read a team name, and no wider. Left to itself the picker took the whole
+   width of the card it sits on, which on the Custom tab made two dropdowns the widest thing on
+   the screen. */
+.bd-play-team-select .bd-select { min-width: 12rem; max-width: 18rem; width: auto; }
 
 .bd-play-sheet-row {
   display: grid;
@@ -209,27 +212,18 @@
 /* The card and its "look at this" button: siblings, because one button may not sit inside
    another. The wrapper is what makes the little round one land on the card's corner. */
 .bd-play-preview-slot { position: relative; display: grid; }
-.bd-play-preview-slot .bd-play-preview-mon { width: 100%; padding-right: 2rem; }
-.bd-play-preview-look {
-  position: absolute;
-  top: 50%;
-  right: 0.4rem;
-  transform: translateY(-50%);
-  width: 1.3rem;
-  height: 1.3rem;
-  padding: 0;
-  border: 1px solid var(--bd-line);
-  border-radius: 999px;
-  background: var(--bd-control);
-  color: inherit;
-  font: 900 0.7rem/1 ui-serif, Georgia, serif;
-  opacity: 0.65;
-  cursor: pointer;
-}
-.bd-play-preview-look:hover { opacity: 1; border-color: var(--bd-on-line); }
-.bd-play-preview-look:focus-visible { opacity: 1; outline: 2px solid var(--bd-on-line); }
-
-/* The opponent's card under an open team sheet: name - item, Ability, moves. */
+/* No "i" button to leave room for any more: the set is on the card. */
+.bd-play-preview-slot .bd-play-preview-mon { width: 100%; }
+/* BOTH COLUMNS, ONE ROW HEIGHT. Ours carry the order badge and theirs do not, and under a
+   closed sheet theirs carry no set at all, so left to themselves the two sides line up only by
+   accident. The sprite is 44px and the three lines of a set come to about that, so a row is as
+   tall as its sprite and no taller. */
+.bd-play-preview-list .bd-play-preview-mon,
+.bd-play-preview-list .bd-play-preview-slot { min-height: 3.9rem; }
+.bd-play-preview-mon.pick .bd-play-preview-sheet { text-align: left; }
+/* The order badge sits at the end of the row rather than after the text, so a long move list
+   cannot push it out of line with the badge on the row above. */
+.bd-play-preview-mon.pick .bd-play-preview-order { margin-left: auto; align-self: center; flex: none; }
 .bd-play-preview-mon.sheet { cursor: pointer; align-items: center; }
 .bd-play-preview-mon.sheet:hover { border-color: var(--bd-on-line); }
 .bd-play-preview-sheet { display: grid; gap: 0.08rem; min-width: 0; }
@@ -1297,9 +1291,31 @@
 .bd-play-pip[disabled] { cursor: default; }
 
 /* The Custom tab's opponent card: the same card as our own team, marked as theirs. */
+/* THE TWO TEAM CARDS ARE A PAIR. Same head: a title, then the picker under it. They differ in
+   their accent colour and in nothing else, so the Custom tab reads as two of the same thing
+   rather than as a team and a form. */
+.bd-play-own-card .bd-play-team-head h3 { color: #93c5fd; }
+.bd-play-own-card .bd-play-team-head,
+.bd-play-foe-card .bd-play-team-head { flex-wrap: wrap; align-items: end; gap: 0.6rem; }
+.bd-play-own-card .bd-play-team-head .bd-play-team-select,
+.bd-play-foe-card .bd-play-team-head .bd-play-team-select { margin-top: 0.55rem; }
+.bd-play-own-card { border-color: rgba(147, 197, 253, 0.28); }
+
 .bd-play-foe-card { border-color: rgba(252, 165, 165, 0.28); }
 .bd-play-foe-card .bd-play-team-head h3 { color: #fca5a5; }
-.bd-play-foe-card .bd-play-team-head { flex-wrap: wrap; align-items: end; gap: 0.6rem; }
-/* The team picker drops below the heading rather than sitting on its baseline, so the card's
-   title has room of its own. */
-.bd-play-foe-card .bd-play-team-head .bd-play-team-select { margin-top: 0.55rem; }
+
+
+/* --- opening the Damage Calculator from a game ------------------------------------------------ */
+/* A link wearing the ghost button's clothes: anchors do not centre their text or take a button's
+   padding on their own. */
+.bd-play-calc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+/* On the preview the Battle button takes the room and this sits beside it. */
+.bd-play-start { display: flex; align-items: center; gap: 0.6rem; }
+.bd-play-start .bd-play-go { flex: 1 1 auto; }
+.bd-play-start .bd-play-calc { flex: none; }

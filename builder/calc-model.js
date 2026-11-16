@@ -105,6 +105,15 @@ export function defaultCalcState() {
     // Which saved team the import row shows; "" follows the Team Builder's
     // selected team (builder/calc-page.js importSource()).
     importTeamId: "",
+    /**
+     * THE TWO TEAMS OF A BATTLE, when the calculator was opened from one.
+     *
+     * `{ ours: [set], theirs: [set], ourName, theirName }`, or null. The import row below draws
+     * a chip for each of them on its own side, so a game in progress can be worked out here
+     * without building either team by hand. Null everywhere else, which is every other way of
+     * arriving at this page.
+     */
+    battle: null,
   };
 }
 

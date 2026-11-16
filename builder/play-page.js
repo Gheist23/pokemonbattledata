@@ -30,6 +30,11 @@ const ACTIVE = { Doubles: 2, Singles: 1 };
 const TEAM_SIZE = 6;
 /** The dropdown's entry for somebody who has not built a team yet. */
 const LADDER = "__ladder";
+/**
+ * "Roll me a real one." The tournament library lives in the worker -- 1.3MB of it -- so this id
+ * stands for a team that does not exist until it is asked for, and `rollTeam` goes and gets it.
+ */
+const RANDOM = "__random";
 const MUSIC_KEY = "bd-play-music";
 const SHEET_KEY = "bd-play-sheet";
 const PACE_KEY = "bd-play-pace";
@@ -171,10 +176,44 @@ function ladderTeam(format) {
   return sets;
 }
 
+/**
+ * A tournament team, rolled by the worker, onto whichever side asked for it.
+ *
+ * Asynchronous because the library is the worker's, and the dropdown has to answer immediately:
+ * the side shows as empty for the moment the roll takes and fills in when it lands. A roll that
+ * fails leaves the side on the ladder team rather than on nothing.
+ */
+async function rollTeam(side) {
+  const seed = (Date.now() ^ (Math.random() * 0xffffffff)) >>> 0;
+  try {
+    const answer = await ask("play", { action: "randomTeam", format: state.format, seed });
+    const sets = (answer.sets || []).slice(0, TEAM_SIZE).map((set) => makeSet(set));
+    if (!sets.length) throw new Error("no team came back");
+    if (side === 0) {
+      state.team = sets;
+      state.teamName = answer.name || "Tournament team";
+      state.bring = [];
+    } else {
+      state.foeSets = sets;
+      state.foeTeamTitle = answer.name || "Tournament team";
+    }
+  } catch {
+    if (side === 0) { state.team = ladderTeam(state.format); state.teamName = "Top of the ladder"; }
+    else { state.foeSets = ladderTeam(state.format); state.foeTeamTitle = "Top of the ladder"; }
+  }
+  render();
+}
+
 /** Load whichever team the dropdown is on into `state.team`. */
 function useTeam(id) {
   state.teamId = id;
   state.bring = [];
+  if (id === RANDOM) {
+    state.team = [];
+    state.teamName = "Rolling a tournament team…";
+    rollTeam(0);
+    return;
+  }
   if (id === LADDER) {
     state.team = ladderTeam(state.format);
     state.teamName = "Top of the ladder";
@@ -193,6 +232,12 @@ function useTeam(id) {
 /** Load whichever team the opponent dropdown is on into `state.foeSets`. */
 function useFoeTeam(id) {
   state.foeTeamId = id;
+  if (id === RANDOM) {
+    state.foeSets = [];
+    state.foeTeamTitle = "Rolling a tournament team…";
+    rollTeam(1);
+    return;
+  }
   if (id === LADDER) {
     state.foeSets = ladderTeam(state.format);
     state.foeTeamTitle = "Top of the ladder";
@@ -279,6 +324,7 @@ function renderSetup() {
   const options = [
     ...saved.map((team) => [team.id, team.title || "Untitled team"]),
     [LADDER, "Top of the ladder"],
+    [RANDOM, "Random tournament team"],
   ];
   const custom = state.tab === "custom";
   const why = whyNotPlayable(state.team) || (custom ? whyNotPlayable(state.foeSets) : "");
@@ -293,6 +339,8 @@ function renderSetup() {
             + "the leaderboard."
           : "The same search that runs on the Solver page. It brings a real tournament team and "
             + "looks ten turns ahead."),
+      // The team picker used to sit here. It belongs on the card that shows the team it picks,
+      // beside the opponent's -- which has always had its own.
       h("div", { class: "bd-play-setup-row" },
         segmented([["Doubles", "Doubles"], ["Singles", "Singles"]], state.format, async (value) => {
           if (value === state.format) return;
@@ -306,10 +354,7 @@ function renderSetup() {
           // -- otherwise switching to Singles left the Custom tab holding a Doubles team.
           useFoeTeam(state.foeTeamId);
           render();
-        }, { "aria-label": "Battle format" }),
-        h("label", { class: "bd-play-team-select" },
-          h("span", {}, "Your team"),
-          select(options, state.teamId, (value) => { useTeam(value); render(); }, { "aria-label": "Your team" }))),
+        }, { "aria-label": "Battle format" })),
       h("div", { class: "bd-play-sheet-row" },
         segmented([["open", "Open Team Sheet"], ["closed", "Closed Team Sheet"]], state.sheet, (value) => {
           if (value === state.sheet) return;
@@ -324,7 +369,7 @@ function renderSetup() {
             + "the usage data and only learns a move by watching you use it, a harder opponent "
             + "to read, and a different game each time"
             + (custom ? "." : ", so these are not rated.")))),
-    renderTeamCard(),
+    renderTeamCard(options, custom),
     custom ? renderFoeTeamCard(options) : null,
     h("div", { class: "bd-play-start" },
       h("button", {
@@ -387,25 +432,28 @@ function renderFoeSlot(set, index) {
       }, "Edit")));
 }
 
-function renderTeamCard() {
-  if (!state.team.length) {
-    return h("div", { class: "bd-card" }, h("p", { class: "bd-play-note" }, "Pick a team to go on."));
-  }
-  return h("div", { class: "bd-card bd-play-team-card" },
+function renderTeamCard(options, custom) {
+  return h("div", { class: "bd-card bd-play-team-card bd-play-own-card" },
     h("div", { class: "bd-play-team-head" },
       // The column's own name when the team has no title of its own. The preview screen and the
       // party row keep "Your team": there the Pokemon are on a board beside the opponent's and
       // "yours" is the distinction that matters, where here it is a column heading.
-      h("h3", {}, state.teamName || "My Team"),
-      h("p", { class: "bd-play-note" },
+      h("h3", {}, "My Team"),
+      h("label", { class: "bd-play-team-select" },
+        h("span", {}, "Your team"),
+        select(options, state.teamId, (value) => { useTeam(value); render(); }, { "aria-label": "Your team" })),
+      // The ladder rules do not apply to a custom battle and are not worth the room there; the
+      // two cards sit side by side on that tab and are meant to read as a pair.
+      custom ? null : h("p", { class: "bd-play-note" },
         `All six come to the battle. You choose the ${BRING[state.format]} you bring once you have `
         + "seen what you are up against."),
       // The rule is not guessable from the screen, and it is the one that decides whether a
       // rating is worth anything: a team is its CONTENTS, so changing a move is a new team on
       // the ladder with no record behind it.
-      h("p", { class: "bd-play-note" },
+      custom ? null : h("p", { class: "bd-play-note" },
         "On the ladder a team is what it is made of. Change a move, an item or a Pokémon and "
         + "it goes on as a new team, at the starting rating with no games behind it.")),
+    state.team.length ? null : h("p", { class: "bd-play-note" }, "Pick a team to go on."),
     h("div", { class: "bd-play-team-grid" }, state.team.map((set, index) => renderTeamSlot(set, index))),
     h("div", { class: "bd-play-team-actions" },
       state.team.length < TEAM_SIZE
@@ -523,39 +571,43 @@ function renderPreview() {
         type: "button", class: "primary-button bd-play-go",
         disabled: !ready || undefined,
         onclick: () => startGame(),
-      }, ready ? "Battle" : `Choose ${need - state.bring.length} more`)));
+      }, ready ? "Battle" : `Choose ${need - state.bring.length} more`),
+      calculatorButton()));
 }
 
+/**
+ * One of our six at team preview, laid out exactly as the opponent's six are.
+ *
+ * It used to be a name and a sprite with a small "i" beside it that opened the set in a dialog,
+ * which made our column a list of labels against their column of sets -- different information,
+ * different row heights, and the one thing you want while choosing who to bring (what each of
+ * them actually does) hidden behind six clicks. The set is simply shown, the way theirs is.
+ *
+ * Still one button, because the card's job is to bring the Pokemon: everything inside it is
+ * text, and a button inside a button is not something a browser will build.
+ */
 function renderPreviewPick(set, index) {
   const at = state.bring.indexOf(index);
   const picked = at >= 0;
   const leads = picked && at < ACTIVE[state.format];
   const name = data.setName ? data.setName(set) : set.species;
-  // The card itself brings the Pokemon, so looking at it needs a control of its own -- and that
-  // control cannot live INSIDE the card, because a button inside a button is not a thing a
-  // browser will build. Hence the wrapper: two buttons side by side, one of which is on top.
+  const moves = (set.moves || []).filter(Boolean);
   return h("div", { class: "bd-play-preview-slot" },
     h("button", {
       type: "button",
-      class: `bd-play-preview-mon pick${picked ? " on" : ""}`,
+      class: `bd-play-preview-mon pick sheet${picked ? " on" : ""}`,
       "aria-pressed": picked ? "true" : "false",
+      title: `Bring ${name}`,
       onclick: () => toggleBring(index),
     },
     sprite(data.sprite(set.species, set.form, set.item, { full: true }), "", 44, "bd-sprite"),
-    h("span", { class: "bd-play-preview-name" }, name),
+    h("span", { class: "bd-play-preview-sheet" },
+      h("span", { class: "bd-play-preview-name" }, set.item ? `${name} - ${set.item}` : name),
+      set.ability ? h("small", {}, set.ability) : null,
+      moves.length ? h("small", { class: "bd-play-preview-moves" }, moves.join(", ")) : null),
     picked
       ? h("span", { class: `bd-play-preview-order${leads ? " lead" : ""}` }, `${at + 1} · ${leads ? "Lead" : "Back"}`)
-      : null),
-    h("button", {
-      type: "button",
-      class: "bd-play-preview-look",
-      title: `Look at ${name}`,
-      "aria-label": `Look at ${name}`,
-      onclick: (event) => {
-        event.stopPropagation();
-        showSet(data, set, { format: state.format, title: name });
-      },
-    }, "i"));
+      : null));
 }
 
 /**
@@ -586,6 +638,98 @@ function renderPreviewFoe(mon) {
     h("span", { class: "bd-play-preview-name" }, mon.item ? `${name} - ${mon.item}` : name),
     mon.ability ? h("small", {}, mon.ability) : null,
     moves.length ? h("small", { class: "bd-play-preview-moves" }, moves.join(", ")) : null));
+}
+
+/**
+ * Both teams, handed to the Damage Calculator, and go there.
+ *
+ * THE OPPONENT'S SETS ARE ONLY SOMETIMES KNOWN. Under an open sheet they came down with the
+ * preview and are used as they are. Under a closed one nothing was ever sent -- that is the
+ * whole point of the mode, and the page could not reveal them if it wanted to -- so each of
+ * their species is filled in with the MOST COMMON SET for it, which is the same guess the
+ * opponent makes about us and the best answer available to anyone working the game out.
+ *
+ * Written through the calculator's own saved state, so it opens on the teams rather than on
+ * whatever was last worked out there. The key and shape are the calculator's
+ * (builder/calc-page.js STORAGE_KEY), and anything already saved is kept except the two sides.
+ */
+function openInCalculator() {
+  const open = state.sheet === "open";
+  const ours = (state.bring.length ? broughtSets() : state.team).map((set) => makeSet(set));
+  const theirs = (state.foe || []).map((mon) => {
+    const known = open && (mon.moves?.length || mon.item || mon.ability);
+    if (known) {
+      return makeSet({
+        species: mon.species,
+        form: mon.form || "",
+        item: mon.item || "",
+        ability: mon.ability || "",
+        moves: (mon.moves || []).filter(Boolean),
+        nature: mon.nature || "Serious",
+        bonuses: mon.bonuses || [0, 0, 0, 0, 0, 0],
+      });
+    }
+    return setFromCommon(data.commonSet(state.format, mon.species, mon.form || ""));
+  });
+  const side = (set) => ({
+    set: JSON.parse(JSON.stringify(set)),
+    hp: 100,
+    stages: { attack_stage: 0, defense_stage: 0, sp_attack_stage: 0, sp_defense_stage: 0, speed_stage: 0 },
+    status: "",
+    gender: "Unspecified",
+  });
+  try {
+    const saved = JSON.parse(localStorage.getItem("cbd.calc.v1") || "null") || {};
+    const next = {
+      ...saved,
+      format: state.format,
+      selectedSide: "",
+      selectedIndex: -1,
+      battle: {
+        ours,
+        theirs,
+        ourName: state.teamName || "Your team",
+        // The tournament library names its teams after the files they were read from, so a
+        // heading would otherwise read "team401.txt".
+        theirName: tidyTeamName(state.foeName || state.foeTeamTitle) || "The Solver",
+      },
+    };
+    if (ours.length || theirs.length) {
+      next.mons = {
+        ...(saved.mons || {}),
+        left: ours.length ? side(ours[0]) : saved.mons?.left,
+        right: theirs.length ? side(theirs[0]) : saved.mons?.right,
+      };
+    }
+    localStorage.setItem("cbd.calc.v1", JSON.stringify(next));
+  } catch {
+    // Storage is unavailable (a private window). The calculator still opens, on its own state.
+  }
+}
+
+/** A team's name as a heading rather than as a filename. */
+function tidyTeamName(name) {
+  return String(name || "").replace(/\.(txt|json|csv)$/i, "").trim();
+}
+
+/**
+ * The control that does it, in whichever toolbar it is asked for.
+ *
+ * A LINK, not a button calling `window.open`: a popup blocker eats the latter and nothing
+ * happens, which looks exactly like a broken button. As a link the browser opens it the way the
+ * person asked -- a new tab, or a middle click, or a long press -- and the game they are in the
+ * middle of stays open behind it. The teams are written to the calculator's saved state on the
+ * way out, before the browser follows the link.
+ */
+function calculatorButton() {
+  return h("a", {
+    class: "ghost-button bd-play-calc",
+    href: "/damage-calculator/",
+    target: "_blank",
+    rel: "noopener",
+    title: "Open the Damage Calculator with both teams loaded",
+    onclick: () => { openInCalculator(); },
+  }, "Damage Calculator");
 }
 
 /** The sets you brought, in the order you brought them. */
@@ -1216,6 +1360,7 @@ function renderControls(view) {
         type: "button", class: "ghost-button",
         onclick: () => { state.chosen = []; state.mega = []; state.targeting = null; render(); },
       }, "Clear"),
+      calculatorButton(),
       h("button", {
         type: "button", class: "ghost-button bd-play-resign",
         onclick: () => resign(),

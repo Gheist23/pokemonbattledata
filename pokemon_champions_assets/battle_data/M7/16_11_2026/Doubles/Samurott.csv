@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Samurott,252,move,1,Ice Beam,72.6%,,,,,,,,
-Samurott,252,move,2,Vacuum Wave,63.6%,,,,,,,,
-Samurott,252,move,3,Hydro Pump,55.0%,,,,,,,,
-Samurott,252,move,4,Hydro Cannon,37.4%,,,,,,,,
-Samurott,252,move,5,Helping Hand,28.2%,,,,,,,,
-Samurott,252,move,6,Aqua Cutter,21.2%,,,,,,,,
+Samurott,252,move,1,Ice Beam,71.9%,,,,,,,,
+Samurott,252,move,2,Vacuum Wave,62.6%,,,,,,,,
+Samurott,252,move,3,Hydro Pump,54.9%,,,,,,,,
+Samurott,252,move,4,Hydro Cannon,36.8%,,,,,,,,
+Samurott,252,move,5,Helping Hand,27.8%,,,,,,,,
+Samurott,252,move,6,Aqua Cutter,21.7%,,,,,,,,
 Samurott,252,move,7,Night Slash,14.4%,,,,,,,,
-Samurott,252,move,8,Grass Knot,14.2%,,,,,,,,
-Samurott,252,move,9,Aqua Jet,13.4%,,,,,,,,
-Samurott,252,move,10,Swords Dance,13.2%,,,,,,,,
-Samurott,252,held_item,1,Life Orb,56.0%,,,,,,,,
-Samurott,252,held_item,2,Mystic Water,16.4%,,,,,,,,
+Samurott,252,move,8,Grass Knot,14.0%,,,,,,,,
+Samurott,252,move,9,Swords Dance,13.8%,,,,,,,,
+Samurott,252,move,10,Aqua Jet,13.4%,,,,,,,,
+Samurott,252,held_item,1,Life Orb,55.7%,,,,,,,,
+Samurott,252,held_item,2,Mystic Water,16.5%,,,,,,,,
 Samurott,252,held_item,3,Scope Lens,14.6%,,,,,,,,
-Samurott,252,held_item,4,Leftovers,3.6%,,,,,,,,
+Samurott,252,held_item,4,Leftovers,3.5%,,,,,,,,
 Samurott,252,held_item,5,Rindo Berry,2.6%,,,,,,,,
 Samurott,252,held_item,6,Wacan Berry,2.0%,,,,,,,,
-Samurott,252,held_item,7,Focus Sash,1.4%,,,,,,,,
+Samurott,252,held_item,7,Focus Sash,1.8%,,,,,,,,
 Samurott,252,held_item,8,Choice Scarf,1.4%,,,,,,,,
 Samurott,252,held_item,9,Expert Belt,0.6%,,,,,,,,
 Samurott,252,held_item,10,Sitrus Berry,0.4%,,,,,,,,
@@ -23,31 +23,31 @@ Samurott,252,teammate,1,Stunfisk,,,,,,,,,
 Samurott,252,teammate,2,Alakazam,,,,,,,,,
 Samurott,252,teammate,3,Glimmora,,,,,,,,,
 Samurott,252,teammate,4,Baxcalibur,,,,,,,,,
-Samurott,252,teammate,5,Meowscarada,,,,,,,,,
-Samurott,252,teammate,6,Altaria,,,,,,,,,
+Samurott,252,teammate,5,Altaria,,,,,,,,,
+Samurott,252,teammate,6,Meowscarada,,,,,,,,,
 Samurott,252,teammate,7,Grapploct,,,,,,,,,
 Samurott,252,teammate,8,Absol,,,,,,,,,
 Samurott,252,teammate,9,Houndoom,,,,,,,,,
 Samurott,252,teammate,10,Wyrdeer,,,,,,,,,
-Samurott,252,stat_alignment,1,Quiet,62.4%,Sp. Atk,Speed,,,,,,
-Samurott,252,stat_alignment,2,Adamant,17.0%,Attack,Sp. Atk,,,,,,
-Samurott,252,stat_alignment,3,Modest,11.8%,Sp. Atk,Attack,,,,,,
-Samurott,252,stat_alignment,4,Brave,6.4%,Attack,Speed,,,,,,
+Samurott,252,stat_alignment,1,Quiet,61.8%,Sp. Atk,Speed,,,,,,
+Samurott,252,stat_alignment,2,Adamant,17.5%,Attack,Sp. Atk,,,,,,
+Samurott,252,stat_alignment,3,Modest,11.6%,Sp. Atk,Attack,,,,,,
+Samurott,252,stat_alignment,4,Brave,6.3%,Attack,Speed,,,,,,
 Samurott,252,stat_alignment,5,Careful,1.4%,Sp. Def,Sp. Atk,,,,,,
-Samurott,252,stat_alignment,6,Jolly,0.2%,Speed,Sp. Atk,,,,,,
-Samurott,252,stat_alignment,7,Naive,0.2%,Speed,Sp. Def,,,,,,
-Samurott,252,stat_alignment,8,Gentle,0.2%,Sp. Def,Defense,,,,,,
-Samurott,252,stat_alignment,9,Sassy,0.2%,Sp. Def,Speed,,,,,,
-Samurott,252,stat_alignment,10,Bold,0.2%,Defense,Attack,,,,,,
-Samurott,252,stat_points,1,,63.2%,,,11,0,13,32,10,0
+Samurott,252,stat_alignment,6,Timid,0.4%,Speed,Attack,,,,,,
+Samurott,252,stat_alignment,7,Jolly,0.2%,Speed,Sp. Atk,,,,,,
+Samurott,252,stat_alignment,8,Naive,0.2%,Speed,Sp. Def,,,,,,
+Samurott,252,stat_alignment,9,Gentle,0.2%,Sp. Def,Defense,,,,,,
+Samurott,252,stat_alignment,10,Sassy,0.2%,Sp. Def,Speed,,,,,,
+Samurott,252,stat_points,1,,62.2%,,,11,0,13,32,10,0
 Samurott,252,stat_points,2,,13.4%,,,11,32,13,0,10,0
-Samurott,252,stat_points,3,,4.4%,,,2,32,0,0,32,0
+Samurott,252,stat_points,3,,4.3%,,,2,32,0,0,32,0
 Samurott,252,stat_points,4,,2.8%,,,27,0,0,28,11,0
 Samurott,252,stat_points,5,,2.6%,,,32,10,8,0,0,16
 Samurott,252,stat_points,6,,2.2%,,,2,0,0,32,0,32
 Samurott,252,stat_points,7,,2.0%,,,32,0,0,32,0,0
 Samurott,252,stat_points,8,,2.0%,,,32,0,8,10,0,16
-Samurott,252,stat_points,9,,1.0%,,,32,0,18,0,16,0
-Samurott,252,stat_points,10,,0.8%,,,0,0,32,32,2,0
-Samurott,252,ability,1,Torrent,86.2%,,,,,,,,
-Samurott,252,ability,2,Shell Armor,13.8%,,,,,,,,
+Samurott,252,stat_points,9,,1.2%,,,0,0,32,32,2,0
+Samurott,252,stat_points,10,,1.2%,,,29,20,6,0,11,0
+Samurott,252,ability,1,Torrent,86.4%,,,,,,,,
+Samurott,252,ability,2,Shell Armor,13.6%,,,,,,,,

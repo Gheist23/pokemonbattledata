@@ -245,6 +245,23 @@ function renderMon(side) {
   const abilityField = forcedAbility && battleForm !== set.form
     ? h("span", { class: "bd-forced" }, forcedAbility)
     : select(abilityOptions, set.ability, (value) => { set.ability = value; render(); }, { "aria-label": "Ability" });
+  // THE FORM SHOWN IS THE FORM USED. A Mega Stone makes its holder Mega Evolve, so everything
+  // else on this card already answers about the Mega -- the sprite, the name, the types, the
+  // base stats and, just above, the Ability. The Form control alone still read the form the set
+  // was built from, so a Tyranitar holding a Tyranitarite was drawn and calculated as Mega
+  // Tyranitar while this said "Tyranitar".
+  //
+  // Shown as text rather than a control, for the same reason the Ability is: the stone decides
+  // it, so a dropdown here would snap back to the Mega the moment it was changed. Take the
+  // stone off and the choice comes back.
+  const formField = battleForm !== set.form
+    ? h("span", { class: "bd-forced" }, data.displayName(battleSpecies, battleForm) || battleForm)
+    : select(data.legalForms(set.species, set.form), set.form, (value) => {
+      set.form = value;
+      const legal = data.abilities(set.species, value);
+      if (!legal.includes(set.ability)) set.ability = legal[0] || set.ability;
+      render();
+    }, { "aria-label": "Form" });
   const usage = data.usage(state.format, set.species, set.form);
   const itemUsage = new Map((usage?.items || []).map(([name, pct]) => [name.toLowerCase(), pct]));
   const itemCombo = searchSelect({
@@ -347,12 +364,7 @@ function renderMon(side) {
 
   const details = h("div", { class: "bd-mon-details" },
     h("label", { class: "bd-field" }, h("span", {}, "Nature"), select(NATURE_ORDER.map((name) => [name, data.natureLabel(name)]), set.nature, (value) => { set.nature = value; render(); }, { "aria-label": "Nature" })),
-    h("label", { class: "bd-field" }, h("span", {}, "Form"), select(data.legalForms(set.species, set.form), set.form, (value) => {
-      set.form = value;
-      const legal = data.abilities(set.species, value);
-      if (!legal.includes(set.ability)) set.ability = legal[0] || set.ability;
-      render();
-    }, { "aria-label": "Form" })),
+    h("label", { class: "bd-field" }, h("span", {}, "Form"), formField),
     h("label", { class: "bd-field" }, h("span", {}, "Status"), select(STATUSES, entry.status || "Healthy", (value) => { entry.status = value === "Healthy" ? "" : value; render(); }, { "aria-label": "Status" })),
     h("label", { class: "bd-field" }, h("span", {}, "Gender"), select(GENDERS, entry.gender || "Unspecified", (value) => { entry.gender = value; render(); }, { "aria-label": "Gender" })));
 
@@ -409,7 +421,27 @@ function renderImport(side) {
       render();
     }, { class: "bd-select bd-import-team", "aria-label": `Team to import from, ${side === LEFT ? "our" : "opposing"} Pokémon` })
     : null;
+  // THE BATTLE'S OWN TEAMS FIRST, when there is a battle. Each side gets ITS side's six, so
+  // opening the calculator from a game puts both teams one click away instead of asking the
+  // player to rebuild the opponent's from memory.
+  const battle = model.state.battle;
+  const battleSets = battle ? (side === LEFT ? battle.ours : battle.theirs) || [] : [];
+  const battleRow = battleSets.length
+    ? h("div", { class: "bd-import-row" },
+      h("div", { class: "bd-import-head" },
+        h("span", { class: "bd-field-label" },
+          side === LEFT ? (battle.ourName || "Your team") : (battle.theirName || "The Solver")),
+        h("button", {
+          type: "button",
+          class: "bd-import-forget",
+          title: "Forget the teams from that battle",
+          onclick: () => { model.state.battle = null; render(); },
+        }, "Clear")),
+      h("div", { class: "bd-import-chips" },
+        battleSets.map((set) => chip(set, data.displayName(set.species, set.form)))))
+    : null;
   return h("div", { class: "bd-import" },
+    battleRow,
     h("div", { class: "bd-import-row" },
       h("div", { class: "bd-import-head" }, h("span", { class: "bd-field-label" }, "Import from"), picker),
       h("div", { class: "bd-import-chips" }, teamRow)),

@@ -188,16 +188,34 @@ function profilesFor(team, extra = {}, settings = {}) {
     return (ev.metaEntries() || []).find((e) => /incineroar/i.test(String(e.pokemon || e.name)));
   };
   const none = entryFor(0);
-  const five = entryFor(5);
   ok("with no floor the top three items are used", none.top_items.length === 3, JSON.stringify(none.top_items));
-  ok("at 5% the ones below it are dropped", five.top_items.length < none.top_items.length,
-    `${JSON.stringify(none.top_items)} -> ${JSON.stringify(five.top_items)}`);
   const pct = new Map((row.items || []).map(([name, value]) => [name, Number(value)]));
-  for (const item of five.top_items.slice(1)) {
-    ok(`${item} is at or above 5%`, (pct.get(item) || 0) >= 5, String(pct.get(item)));
+
+  // A FLOOR THE DATA ACTUALLY SEPARATES ON, worked out from the data itself.
+  //
+  // This used to pass 5 and assert something was dropped, which held only while one of
+  // Incineroar's top three sat under 5%. The 13 Nov usage refresh moved the third to 5.8% and
+  // nothing was below the floor any more, so the suite went red with no defect behind it -- the
+  // rule it is guarding never changed. Pitched between the second and third most used items, it
+  // drops exactly one whatever the percentages say this week.
+  const used = none.top_items.map((item) => pct.get(item) || 0);
+  const floor = (used[1] + used[2]) / 2;
+  const above = entryFor(floor);
+  ok("a floor between the second and third item drops the third",
+    above.top_items.length === none.top_items.length - 1,
+    `floor ${floor.toFixed(2)}: ${JSON.stringify(none.top_items)} -> ${JSON.stringify(above.top_items)}`);
+  for (const item of above.top_items.slice(1)) {
+    ok(`${item} is at or above the floor`, (pct.get(item) || 0) >= floor,
+      `${pct.get(item)} vs ${floor.toFixed(2)}`);
   }
-  ok("the most used item is always kept", five.top_items[0] === none.top_items[0],
-    `${five.top_items[0]} vs ${none.top_items[0]}`);
+  ok("the most used item is always kept", above.top_items[0] === none.top_items[0],
+    `${above.top_items[0]} vs ${none.top_items[0]}`);
+  // ...and a floor above everything still keeps the one most used, which is the rule that
+  // stops a Pokemon losing its item entirely.
+  const brutal = entryFor(99);
+  ok("a floor above every item still keeps the most used one",
+    brutal.top_items.length === 1 && brutal.top_items[0] === none.top_items[0],
+    JSON.stringify(brutal.top_items));
 
   // the default really is 5, and a recording that says nothing replays with no floor
   ok("the setting defaults to 5", normalizeSettings({}).threat_usage_floor === 5,

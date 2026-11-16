@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Leafeon,213,move,1,Knock Off,72.5%,,,,,,,,
-Leafeon,213,move,2,Solar Blade,67.0%,,,,,,,,
-Leafeon,213,move,3,Detect,62.4%,,,,,,,,
-Leafeon,213,move,4,Leaf Blade,59.9%,,,,,,,,
-Leafeon,213,move,5,Sunny Day,20.0%,,,,,,,,
-Leafeon,213,move,6,Protect,18.4%,,,,,,,,
-Leafeon,213,move,7,Rain Dance,15.0%,,,,,,,,
-Leafeon,213,move,8,Fake Tears,13.1%,,,,,,,,
-Leafeon,213,move,9,X-Scissor,11.2%,,,,,,,,
-Leafeon,213,move,10,Swords Dance,10.9%,,,,,,,,
-Leafeon,213,held_item,1,Life Orb,28.5%,,,,,,,,
-Leafeon,213,held_item,2,Focus Sash,25.6%,,,,,,,,
-Leafeon,213,held_item,3,Miracle Seed,21.9%,,,,,,,,
-Leafeon,213,held_item,4,Scope Lens,12.3%,,,,,,,,
-Leafeon,213,held_item,5,Sitrus Berry,2.9%,,,,,,,,
-Leafeon,213,held_item,6,Occa Berry,1.3%,,,,,,,,
+Leafeon,213,move,1,Knock Off,72.1%,,,,,,,,
+Leafeon,213,move,2,Solar Blade,66.9%,,,,,,,,
+Leafeon,213,move,3,Detect,61.3%,,,,,,,,
+Leafeon,213,move,4,Leaf Blade,60.6%,,,,,,,,
+Leafeon,213,move,5,Protect,19.6%,,,,,,,,
+Leafeon,213,move,6,Sunny Day,19.6%,,,,,,,,
+Leafeon,213,move,7,Rain Dance,15.1%,,,,,,,,
+Leafeon,213,move,8,Fake Tears,12.8%,,,,,,,,
+Leafeon,213,move,9,X-Scissor,11.1%,,,,,,,,
+Leafeon,213,move,10,Swords Dance,10.8%,,,,,,,,
+Leafeon,213,held_item,1,Life Orb,28.1%,,,,,,,,
+Leafeon,213,held_item,2,Focus Sash,25.5%,,,,,,,,
+Leafeon,213,held_item,3,Miracle Seed,22.2%,,,,,,,,
+Leafeon,213,held_item,4,Scope Lens,12.2%,,,,,,,,
+Leafeon,213,held_item,5,Sitrus Berry,3.0%,,,,,,,,
+Leafeon,213,held_item,6,Occa Berry,1.5%,,,,,,,,
 Leafeon,213,held_item,7,Leftovers,1.3%,,,,,,,,
 Leafeon,213,held_item,8,Psychic Seed,1.3%,,,,,,,,
 Leafeon,213,held_item,9,Expert Belt,1.1%,,,,,,,,
@@ -30,24 +30,24 @@ Leafeon,213,teammate,8,Jolteon,,,,,,,,,
 Leafeon,213,teammate,9,Umbreon,,,,,,,,,
 Leafeon,213,teammate,10,Ninetales,,,,,,,,,
 Leafeon,213,stat_alignment,1,Adamant,77.3%,Attack,Sp. Atk,,,,,,
-Leafeon,213,stat_alignment,2,Jolly,10.5%,Speed,Sp. Atk,,,,,,
-Leafeon,213,stat_alignment,3,Serious,2.9%,,,,,,,,
-Leafeon,213,stat_alignment,4,Impish,2.2%,Defense,Sp. Atk,,,,,,
-Leafeon,213,stat_alignment,5,Careful,2.2%,Sp. Def,Sp. Atk,,,,,,
-Leafeon,213,stat_alignment,6,Naughty,1.8%,Attack,Sp. Def,,,,,,
-Leafeon,213,stat_alignment,7,Relaxed,1.3%,Defense,Speed,,,,,,
+Leafeon,213,stat_alignment,2,Jolly,10.3%,Speed,Sp. Atk,,,,,,
+Leafeon,213,stat_alignment,3,Serious,2.8%,,,,,,,,
+Leafeon,213,stat_alignment,4,Impish,2.4%,Defense,Sp. Atk,,,,,,
+Leafeon,213,stat_alignment,5,Careful,2.3%,Sp. Def,Sp. Atk,,,,,,
+Leafeon,213,stat_alignment,6,Naughty,1.7%,Attack,Sp. Def,,,,,,
+Leafeon,213,stat_alignment,7,Relaxed,1.2%,Defense,Speed,,,,,,
 Leafeon,213,stat_alignment,8,Brave,0.8%,Attack,Speed,,,,,,
 Leafeon,213,stat_alignment,9,Lonely,0.6%,Attack,Defense,,,,,,
 Leafeon,213,stat_alignment,10,Sassy,0.2%,Sp. Def,Speed,,,,,,
-Leafeon,213,stat_points,1,,27.0%,,,2,32,0,0,0,32
-Leafeon,213,stat_points,2,,5.9%,,,6,32,0,0,0,28
-Leafeon,213,stat_points,3,,5.9%,,,10,32,0,0,10,14
-Leafeon,213,stat_points,4,,5.0%,,,0,32,0,0,0,32
+Leafeon,213,stat_points,1,,26.5%,,,2,32,0,0,0,32
+Leafeon,213,stat_points,2,,5.7%,,,6,32,0,0,0,28
+Leafeon,213,stat_points,3,,5.7%,,,10,32,0,0,10,14
+Leafeon,213,stat_points,4,,4.9%,,,0,32,0,0,0,32
 Leafeon,213,stat_points,5,,4.7%,,,0,32,0,0,2,32
-Leafeon,213,stat_points,6,,4.3%,,,32,32,0,0,2,0
-Leafeon,213,stat_points,7,,3.5%,,,0,32,2,0,0,32
-Leafeon,213,stat_points,8,,3.3%,,,32,32,0,0,0,2
+Leafeon,213,stat_points,6,,4.2%,,,32,32,0,0,2,0
+Leafeon,213,stat_points,7,,3.9%,,,32,32,0,0,0,2
+Leafeon,213,stat_points,8,,3.4%,,,0,32,2,0,0,32
 Leafeon,213,stat_points,9,,3.1%,,,0,32,17,0,8,9
-Leafeon,213,stat_points,10,,2.9%,,,10,32,0,0,0,24
+Leafeon,213,stat_points,10,,2.8%,,,10,32,0,0,0,24
 Leafeon,213,ability,1,Chlorophyll,99.3%,,,,,,,,
 Leafeon,213,ability,2,Leaf Guard,0.7%,,,,,,,,

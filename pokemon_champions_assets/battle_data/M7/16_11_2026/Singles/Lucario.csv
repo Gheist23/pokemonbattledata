@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Lucario,6,move,1,Dark Pulse,81.8%,,,,,,,,
-Lucario,6,move,2,Aura Sphere,71.6%,,,,,,,,
-Lucario,6,move,3,Vacuum Wave,55.8%,,,,,,,,
+Lucario,6,move,2,Aura Sphere,71.7%,,,,,,,,
+Lucario,6,move,3,Vacuum Wave,55.7%,,,,,,,,
 Lucario,6,move,4,Steel Beam,51.9%,,,,,,,,
 Lucario,6,move,5,Nasty Plot,44.2%,,,,,,,,
 Lucario,6,move,6,Flash Cannon,38.2%,,,,,,,,
@@ -30,7 +30,7 @@ Lucario,6,teammate,8,Salamence,,,,,,,,,
 Lucario,6,teammate,9,Dragonite,,,,,,,,,
 Lucario,6,teammate,10,Meowscarada,,,,,,,,,
 Lucario,6,stat_alignment,1,Timid,55.7%,Speed,Attack,,,,,,
-Lucario,6,stat_alignment,2,Modest,31.5%,Sp. Atk,Attack,,,,,,
+Lucario,6,stat_alignment,2,Modest,31.4%,Sp. Atk,Attack,,,,,,
 Lucario,6,stat_alignment,3,Jolly,7.8%,Speed,Sp. Atk,,,,,,
 Lucario,6,stat_alignment,4,Adamant,3.5%,Attack,Sp. Atk,,,,,,
 Lucario,6,stat_alignment,5,Naive,0.6%,Speed,Sp. Def,,,,,,
@@ -41,7 +41,7 @@ Lucario,6,stat_alignment,9,Naughty,0.1%,Attack,Sp. Def,,,,,,
 Lucario,6,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
 Lucario,6,stat_points,1,,53.2%,,,2,0,0,32,0,32
 Lucario,6,stat_points,2,,8.1%,,,2,32,0,0,0,32
-Lucario,6,stat_points,3,,5.2%,,,30,0,11,16,0,9
+Lucario,6,stat_points,3,,5.1%,,,30,0,11,16,0,9
 Lucario,6,stat_points,4,,4.7%,,,1,0,0,32,1,32
 Lucario,6,stat_points,5,,2.4%,,,0,0,2,32,0,32
 Lucario,6,stat_points,6,,2.2%,,,4,0,0,32,0,30
@@ -51,4 +51,4 @@ Lucario,6,stat_points,9,,1.2%,,,0,0,0,32,2,32
 Lucario,6,stat_points,10,,0.9%,,,0,0,0,32,0,32
 Lucario,6,ability,1,Inner Focus,84.3%,,,,,,,,
 Lucario,6,ability,2,Steadfast,10.1%,,,,,,,,
-Lucario,6,ability,3,Justified,5.6%,,,,,,,,
+Lucario,6,ability,3,Justified,5.5%,,,,,,,,

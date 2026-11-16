@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Hatterene,52,move,1,Dazzling Gleam,94.2%,,,,,,,,
 Hatterene,52,move,2,Trick Room,92.9%,,,,,,,,
-Hatterene,52,move,3,Expanding Force,83.9%,,,,,,,,
-Hatterene,52,move,4,Protect,73.3%,,,,,,,,
+Hatterene,52,move,3,Expanding Force,84.0%,,,,,,,,
+Hatterene,52,move,4,Protect,73.1%,,,,,,,,
 Hatterene,52,move,5,Magic Powder,13.5%,,,,,,,,
 Hatterene,52,move,6,Mystical Fire,11.7%,,,,,,,,
 Hatterene,52,move,7,Psychic,10.4%,,,,,,,,
 Hatterene,52,move,8,Draining Kiss,2.6%,,,,,,,,
 Hatterene,52,move,9,Dark Pulse,1.8%,,,,,,,,
-Hatterene,52,move,10,Giga Drain,1.7%,,,,,,,,
-Hatterene,52,held_item,1,Life Orb,67.7%,,,,,,,,
+Hatterene,52,move,10,Giga Drain,1.8%,,,,,,,,
+Hatterene,52,held_item,1,Life Orb,67.6%,,,,,,,,
 Hatterene,52,held_item,2,Focus Sash,11.3%,,,,,,,,
 Hatterene,52,held_item,3,Sitrus Berry,5.0%,,,,,,,,
 Hatterene,52,held_item,4,Fairy Feather,3.7%,,,,,,,,
-Hatterene,52,held_item,5,Twisted Spoon,2.4%,,,,,,,,
-Hatterene,52,held_item,6,Psychic Seed,2.3%,,,,,,,,
-Hatterene,52,held_item,7,Babiri Berry,1.9%,,,,,,,,
-Hatterene,52,held_item,8,Leftovers,1.9%,,,,,,,,
+Hatterene,52,held_item,5,Twisted Spoon,2.5%,,,,,,,,
+Hatterene,52,held_item,6,Psychic Seed,2.4%,,,,,,,,
+Hatterene,52,held_item,7,Leftovers,1.9%,,,,,,,,
+Hatterene,52,held_item,8,Babiri Berry,1.9%,,,,,,,,
 Hatterene,52,held_item,9,Bright Powder,0.5%,,,,,,,,
 Hatterene,52,held_item,10,Expert Belt,0.4%,,,,,,,,
 Hatterene,52,teammate,1,Indeedee-F,,,,,,,,,
@@ -29,18 +29,18 @@ Hatterene,52,teammate,7,Absol,,,,,,,,,
 Hatterene,52,teammate,8,Pyroar,,,,,,,,,
 Hatterene,52,teammate,9,Kingambit,,,,,,,,,
 Hatterene,52,teammate,10,Farigiraf,,,,,,,,,
-Hatterene,52,stat_alignment,1,Quiet,79.6%,Sp. Atk,Speed,,,,,,
+Hatterene,52,stat_alignment,1,Quiet,79.5%,Sp. Atk,Speed,,,,,,
 Hatterene,52,stat_alignment,2,Modest,9.0%,Sp. Atk,Attack,,,,,,
 Hatterene,52,stat_alignment,3,Relaxed,4.5%,Defense,Speed,,,,,,
 Hatterene,52,stat_alignment,4,Bold,2.7%,Defense,Attack,,,,,,
-Hatterene,52,stat_alignment,5,Sassy,2.2%,Sp. Def,Speed,,,,,,
+Hatterene,52,stat_alignment,5,Sassy,2.3%,Sp. Def,Speed,,,,,,
 Hatterene,52,stat_alignment,6,Calm,1.5%,Sp. Def,Attack,,,,,,
-Hatterene,52,stat_alignment,7,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Hatterene,52,stat_alignment,7,Mild,0.3%,Sp. Atk,Defense,,,,,,
 Hatterene,52,stat_alignment,8,Lax,0.1%,Defense,Sp. Def,,,,,,
 Hatterene,52,stat_alignment,9,Brave,0.1%,Attack,Speed,,,,,,
 Hatterene,52,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,
 Hatterene,52,stat_points,1,,47.1%,,,32,0,2,32,0,0
-Hatterene,52,stat_points,2,,9.4%,,,32,0,0,32,2,0
+Hatterene,52,stat_points,2,,9.3%,,,32,0,0,32,2,0
 Hatterene,52,stat_points,3,,9.0%,,,27,0,7,32,0,0
 Hatterene,52,stat_points,4,,2.4%,,,0,0,32,32,2,0
 Hatterene,52,stat_points,5,,2.2%,,,32,0,32,0,2,0
@@ -48,7 +48,7 @@ Hatterene,52,stat_points,6,,1.7%,,,0,0,2,32,32,0
 Hatterene,52,stat_points,7,,1.1%,,,32,0,1,32,1,0
 Hatterene,52,stat_points,8,,1.1%,,,27,0,5,32,2,0
 Hatterene,52,stat_points,9,,1.0%,,,31,0,3,32,0,0
-Hatterene,52,stat_points,10,,1.0%,,,32,0,0,32,0,0
-Hatterene,52,ability,1,Magic Bounce,95.1%,,,,,,,,
-Hatterene,52,ability,2,Healer,3.6%,,,,,,,,
+Hatterene,52,stat_points,10,,0.9%,,,32,0,0,32,0,0
+Hatterene,52,ability,1,Magic Bounce,95.0%,,,,,,,,
+Hatterene,52,ability,2,Healer,3.7%,,,,,,,,
 Hatterene,52,ability,3,Anticipation,1.3%,,,,,,,,

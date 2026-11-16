@@ -2893,13 +2893,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/hydro-pump/</loc>
+    <loc>https://championsbattledata.com/moves/surf/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/surf/</loc>
+    <loc>https://championsbattledata.com/moves/hydro-pump/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -2947,7 +2947,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/acid-spray/</loc>
+    <loc>https://championsbattledata.com/moves/breaking-swipe/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -3439,6 +3439,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/moves/acid-spray/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/moves/reflect/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/moves/water-spout/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
@@ -3517,13 +3529,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/scald/</loc>
+    <loc>https://championsbattledata.com/moves/rain-dance/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/rain-dance/</loc>
+    <loc>https://championsbattledata.com/moves/scald/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -3901,12 +3913,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/focus-energy/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/twin-beam/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
@@ -4153,12 +4159,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/reflect/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/spirit-break/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
@@ -4250,6 +4250,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/snipe-shot/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/moves/focus-energy/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -4747,12 +4753,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/skitter-smack/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/trop-kick/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
@@ -4760,12 +4760,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/infernal-parade/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/moves/breaking-swipe/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -4945,6 +4939,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/items/black-glasses/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/items/muscle-band/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
@@ -4952,12 +4952,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/lum-berry/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/items/black-glasses/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -4981,25 +4975,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/colbur-berry/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/items/air-balloon/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/shuca-berry/</loc>
+    <loc>https://championsbattledata.com/items/colbur-berry/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://championsbattledata.com/items/rocky-helmet/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/shuca-berry/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5143,12 +5137,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/roseli-berry/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/items/ampharosite/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
@@ -5167,19 +5155,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/light-ball/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/items/coba-berry/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/items/light-ball/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/items/chesto-berry/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/roseli-berry/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5461,12 +5455,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/persim-berry/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/items/leek/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
@@ -5600,6 +5588,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/lucarionite/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/persim-berry/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -12115,19 +12109,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sneasler/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-sneasler/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sneasler/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-sneasler/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-sneasler/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12140,12 +12140,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/sneasler-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-sneasler/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12283,19 +12277,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-rillaboom/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-rillaboom/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-rillaboom/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-rillaboom/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-rillaboom/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12308,12 +12308,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/rillaboom-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-rillaboom/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12445,19 +12439,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-garchomp/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-garchomp/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-garchomp/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-garchomp/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/garchomp-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12470,12 +12470,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/garchomp-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/garchomp-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12601,19 +12595,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-incineroar/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-incineroar/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-incineroar/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-incineroar/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/incineroar-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12626,12 +12626,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/incineroar-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/incineroar-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12751,19 +12745,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-kingambit/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-kingambit/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-kingambit/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-kingambit/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-kingambit/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12776,12 +12776,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/kingambit-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-kingambit/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12895,19 +12889,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/charizard-vs-floette-eternal/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/charizard-vs-excadrill/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/charizard-vs-floette-eternal/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-charizard/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/charizard-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -12920,12 +12920,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/charizard-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/charizard-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13033,19 +13027,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-indeedee-f/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-indeedee-f/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-indeedee-f/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-indeedee-f/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-indeedee-f/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13058,12 +13058,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/indeedee-f-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-indeedee-f/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13165,19 +13159,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-raichu/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-raichu/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-raichu/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-raichu/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-raichu/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13190,12 +13190,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/raichu-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-raichu/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13291,19 +13285,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-whimsicott/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-whimsicott/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-whimsicott/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-whimsicott/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-whimsicott/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13316,12 +13316,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/volcarona-vs-whimsicott/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-whimsicott/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13411,19 +13405,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/basculegion-vs-floette-eternal/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/basculegion-vs-excadrill/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/basculegion-vs-floette-eternal/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-basculegion/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/basculegion-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13436,12 +13436,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/basculegion-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/basculegion-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13525,19 +13519,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/archaludon-vs-floette-eternal/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/archaludon-vs-excadrill/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/archaludon-vs-floette-eternal/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/archaludon-vs-armarouge/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/archaludon-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13550,12 +13550,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/archaludon-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/archaludon-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13633,19 +13627,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-pelipper/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-pelipper/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-pelipper/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-pelipper/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-pelipper/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13658,12 +13658,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/pelipper-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-pelipper/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13735,19 +13729,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-staraptor/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-staraptor/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-staraptor/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-staraptor/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-staraptor/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13760,12 +13760,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/staraptor-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-staraptor/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13831,19 +13825,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/farigiraf-vs-floette-eternal/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-farigiraf/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/farigiraf-vs-floette-eternal/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-farigiraf/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/farigiraf-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13856,12 +13856,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/farigiraf-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/farigiraf-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13921,19 +13915,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-gholdengo/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-gholdengo/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-gholdengo/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-gholdengo/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/gholdengo-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13946,12 +13946,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/gholdengo-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/gholdengo-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14005,19 +13999,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-milotic/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-milotic/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-milotic/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-milotic/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-milotic/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14030,12 +14030,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/milotic-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-milotic/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14083,19 +14077,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-tyranitar/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-tyranitar/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-tyranitar/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-tyranitar/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-tyranitar/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14108,12 +14108,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/tyranitar-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-tyranitar/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14155,19 +14149,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-salamence/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-salamence/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-salamence/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-salamence/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-salamence/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14180,12 +14180,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/salamence-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-salamence/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14221,19 +14215,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-golisopod/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-golisopod/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-golisopod/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-golisopod/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/golisopod-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14246,12 +14246,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/golisopod-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/golisopod-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14281,19 +14275,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sinistcha/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-sinistcha/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sinistcha/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-sinistcha/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-sinistcha/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14306,12 +14306,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/sinistcha-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-sinistcha/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14335,19 +14329,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sylveon/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-sylveon/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-sylveon/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-sylveon/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-sylveon/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14365,12 +14365,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-sylveon/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/froslass-vs-sylveon/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
@@ -14383,19 +14377,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-gardevoir/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-gardevoir/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-gardevoir/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-gardevoir/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14408,12 +14408,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/gardevoir-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/gardevoir-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14437,43 +14431,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/armarouge-vs-floette-eternal/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-primarina/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-indeedee/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-froslass/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/dragonite-vs-floette-eternal/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-excadrill/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/excadrill-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14491,12 +14455,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/excadrill-vs-indeedee/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/excadrill-vs-froslass/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
@@ -14504,6 +14462,48 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/dragonite-vs-excadrill/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/armarouge-vs-floette-eternal/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-indeedee/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-primarina/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-volcarona/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/floette-eternal-vs-froslass/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/dragonite-vs-floette-eternal/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/armarouge-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14521,12 +14521,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/armarouge-vs-indeedee/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/armarouge-vs-froslass/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
@@ -14539,13 +14533,31 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/primarina-vs-volcarona/</loc>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-primarina/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-primarina/</loc>
+    <loc>https://championsbattledata.com/pokemon/indeedee-vs-volcarona/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/froslass-vs-indeedee/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/dragonite-vs-indeedee/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/pokemon/primarina-vs-volcarona/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14563,12 +14575,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/pokemon/indeedee-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/pokemon/froslass-vs-volcarona/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
@@ -14576,18 +14582,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/pokemon/dragonite-vs-volcarona/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/froslass-vs-indeedee/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/pokemon/dragonite-vs-indeedee/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

@@ -28,7 +28,7 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { BEAT, DEFAULT_PACE, PACES, createTurnPlayer, streamFromRecord } from "../builder/play-anim.js";
+import { BEAT, DEFAULT_PACE, PACES, createTurnPlayer, damageByMove, streamFromRecord } from "../builder/play-anim.js";
 
 const site = dirname(dirname(fileURLToPath(import.meta.url)));
 
@@ -318,6 +318,45 @@ function board(mons) {
   ok("the Protect screen faces the other team",
     css.includes('[data-side="0"] .bd-play-fx.fx-protect') && css.includes('[data-side="1"] .bd-play-fx.fx-protect'),
     "both sides must anchor the bright edge");
+}
+
+// --- whose health moved -------------------------------------------------------------------------
+{
+  // A SPREAD MOVE NAMES NOBODY WHEN IT IS USED, so the damage line has to.
+  //
+  // Reported from a real game: "Excadrill used Rock Slide, 100% → 78%" with two foes standing
+  // and one of them behind a Protect. The 78% belonged to the one that was not protected, and
+  // nothing on the line said so. The victim used to be named only when a move hit more than
+  // one of them, which a Protect had just made false.
+  const names = { "1:0": "Tyranitar", "1:1": "Corviknight", "0:0": "Excadrill" };
+  const nameOf = (side, tag) => names[`${side}:${tag}`] || "";
+
+  const spread = [
+    { kind: "move", side: 0, tag: 0, move: "Rock Slide", targetTag: null },
+    { kind: "hit", side: 1, tag: 1, from: 100, to: 78 },
+  ];
+  const spreadText = damageByMove(spread, nameOf).get(0) || "";
+  ok("a spread move names the one it hurt", /Corviknight/.test(spreadText), spreadText);
+  ok("...and does not claim the one that blocked it", !/Tyranitar/.test(spreadText), spreadText);
+
+  // A move aimed at somebody already says so, so the number stands alone.
+  const aimed = [
+    { kind: "move", side: 0, tag: 0, move: "Knock Off", targetSide: 1, targetTag: 1 },
+    { kind: "hit", side: 1, tag: 1, from: 78, to: 57 },
+  ];
+  const aimedText = damageByMove(aimed, nameOf).get(0) || "";
+  ok("a single-target move does not repeat the name", !/Corviknight/.test(aimedText), aimedText);
+  ok("...but still reports what it cost", /78% → 57%/.test(aimedText), aimedText);
+
+  // Two hurt by one move: both named, as before.
+  const both = [
+    { kind: "move", side: 0, tag: 0, move: "Rock Slide", targetTag: null },
+    { kind: "hit", side: 1, tag: 0, from: 100, to: 80 },
+    { kind: "hit", side: 1, tag: 1, from: 100, to: 70 },
+  ];
+  const bothText = damageByMove(both, nameOf).get(0) || "";
+  ok("a spread move that hits both names both",
+    /Tyranitar/.test(bothText) && /Corviknight/.test(bothText), bothText);
 }
 
 // --- the result ----------------------------------------------------------------------------------

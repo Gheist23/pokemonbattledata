@@ -394,6 +394,54 @@ for (const name of ["Psych Up", "Topsy-Turvy", "Pain Split", "Aqua Ring", "Leech
   }
 }
 
+/* ------------------------------------ an ally is not the user */
+{
+  // THE MOVE'S OWN TEXT SAYS WHETHER THE USER IS INCLUDED, and the registry has to agree.
+  //
+  // `ally_side` means everyone on the user's side, the user included; `ally` means the partner.
+  // The exporter decided between them by looking for the word "allies", which appears in both
+  // "the user and its allies" (Howl, Life Dew) and "Boosts allies' Attack and Defense"
+  // (Coaching) -- so Coaching came through as `ally_side` and raised the stats of the Pokemon
+  // that used it as well as its partner. Reported from a played game, 17 Nov 2026.
+  //
+  // Checked against the description shipped in app-data.json rather than a list written here,
+  // so a move added later is held to the same rule and a re-export cannot quietly undo it.
+  // The same phrases the exporter decides on (pct_tool94 tools/import_move_ability_descriptions.py
+   // `target_from`), so the generator and this guard cannot disagree about a move.
+  const WHOLE_SIDE = ["user's side", "user’s side", "entire team", "user's party",
+    "user’s party", "user and its allies", "user and allies", "user and the allies",
+    // "If the user or its allies have the Plus Ability" (Magnetic Flux): the user is one of
+    // the Pokemon it reaches, so that is the whole side too.
+    "user or its allies", "user or their allies"];
+  const describe = new Map(Object.entries(appData.moves || {})
+    .map(([name, entry]) => [String(name).toLowerCase().replace(/[^a-z0-9]/g, ""), String(entry?.description || "")]));
+  const wrong = [];
+  let checkedMoves = 0;
+  for (const [key, ops] of Object.entries(effects.moves || {})) {
+    const text = (describe.get(key) || "").toLowerCase();
+    if (!text) continue;
+    const side = ops.filter((fx) => fx.target === "ally_side" || fx.target === "ally");
+    if (!side.length) continue;
+    checkedMoves += 1;
+    const includesUser = WHOLE_SIDE.some((phrase) => text.includes(phrase));
+    for (const fx of side) {
+      const want = includesUser ? "ally_side" : "ally";
+      if (fx.target !== want) wrong.push(`${key}: ${fx.target} but its text says ${want} -- "${text.slice(0, 60)}"`);
+    }
+  }
+  ok("there are ally-targeted moves to check", checkedMoves >= 8, String(checkedMoves));
+  ok("every one of them includes the user exactly when its own text does",
+    wrong.length === 0, wrong.join(" | "));
+  // The two that prove the rule has a side each way.
+  ok("Coaching reaches the ally only",
+    (effects.moves.coaching || []).every((fx) => fx.target === "ally"),
+    JSON.stringify(effects.moves.coaching));
+  ok("Howl reaches the user as well",
+    (effects.moves.howl || []).every((fx) => fx.target === "ally_side"),
+    JSON.stringify(effects.moves.howl));
+  notes.push(`ally targets: ${checkedMoves} moves agree with their own text`);
+}
+
 for (const note of notes) console.log(`   ${note}`);
 console.log(`${checked} checked, ${failures.length} failed.`);
 for (const failure of failures) console.log(`  FAIL ${failure}`);

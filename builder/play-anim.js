@@ -115,9 +115,19 @@ export function damageByMove(stream, nameOf) {
   }
   const text = new Map();
   for (const [index, landed] of hits) {
+    // WHOSE HEALTH MOVED, unless the move's own line already said.
+    //
+    // The victim used to be named only when a move hit more than one of them, on the reasoning
+    // that one hit has only one possible owner. A SPREAD move breaks that: it names nobody when
+    // it is used, so a Rock Slide into two foes that one of them Protected left a bare
+    // "Excadrill used Rock Slide, 100% → 78%" with nothing to say whether the 78% was the
+    // Pokemon that blocked it or the one standing beside it. `sentenceFor` appends "on X" only
+    // when the move step carries a target, so that is exactly the question to ask.
+    const move = stream[index];
+    const aimed = move && move.targetTag !== null && move.targetTag !== undefined;
     const parts = landed.map((hit) => {
       const moved = `${hit.from}% → ${hit.to}%`;
-      return landed.length > 1 ? `${nameOf(hit.side, hit.tag)} ${moved}` : moved;
+      return landed.length > 1 || !aimed ? `${nameOf(hit.side, hit.tag)} ${moved}` : moved;
     });
     text.set(index, `, ${parts.join(", ")}`);
   }

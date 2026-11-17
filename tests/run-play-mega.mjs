@@ -182,7 +182,12 @@ if (holders.length === 2) {
     // ...and it really evolves, on the board, which is the thing the player was watching for.
     const names = [0, 1].map((i) => `${game.state.active[0][i].u.species}/${game.state.active[0][i].u.form}`);
     const foeOptions = [0, 1].map((p) => solver.slotCandidates(game.state, 1, p, { cap: 0 }));
-    game.resolve(after, solver.planFor(game.state, foeOptions.map((l) => l[0]).filter(Boolean), 1));
+    // THE CANDIDATES ARE THE JOINT. `resolve` plans both sides itself, so wrapping these in
+    // `planFor` first handed it a plan where it wanted a joint: `planFor` reads
+    // `action.position`, a plan entry has none, and every one of the opponent's actions was
+    // dropped on the floor. The opponent did NOTHING in this harness, which is why our side
+    // swept every game and a knockout was so hard to come by.
+    game.resolve(after, foeOptions.map((l) => l[0]).filter(Boolean));
     const nowForm = (i) => String(game.state.active[0][i]?.u?.form || "");
     ok("seat 1 is the one standing in its Mega form", /^mega\b/i.test(nowForm(1)),
       `${names[1]} -> ${nowForm(1)}`);

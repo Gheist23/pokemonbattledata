@@ -206,10 +206,10 @@ function runMove(moveName, { item = "", rule = 1 } = {}) {
   const FOE = teamFromKnown(data, FORMAT, known.teams[0]).slice(0, 6);
 
   // MORE THAN ONE GAME, because a Drizzle needs five turns to run out and not every game lasts
-  // five. This was one game on one seed; it ended on turn four when something was knocked out
-  // (`pickReplacement: false` leaves the side with no action), so the rain was last seen at 1
-  // and the suite went red without the weather rule having changed at all. Played until a game
-  // is long enough to watch it expire, which is the thing being checked.
+  // five. One seed is a game that might end on turn four -- `pickReplacement: false` leaves a
+  // side with no action once it loses somebody -- and then the rain is last seen at 1 and the
+  // check fails with the weather rule working perfectly. Played until a game is long enough to
+  // watch it expire, which is the thing being checked.
   let game = null;
   let view = null;
   let seen = [];
@@ -224,8 +224,12 @@ function runMove(moveName, { item = "", rule = 1 } = {}) {
       const chosen = options.filter((o) => !o.empty).map((o) => o.actions[0]?.id).filter(Boolean);
       if (!chosen.length) break;
       const foeOptions = [0, 1].map((p) => solver.slotCandidates(game.state, 1, p, { cap: 0 }));
-      game.resolve(game.jointFrom(options, chosen),
-        solver.planFor(game.state, foeOptions.map((l) => l[0]).filter(Boolean), 1));
+      // THE CANDIDATES ARE THE JOINT. `resolve` plans both sides itself, so wrapping these in
+      // `planFor` first handed it a plan where it wanted a joint: `planFor` reads
+      // `action.position`, a plan entry has none, and every one of the opponent's actions was
+      // dropped on the floor. The opponent did NOTHING in this harness, which is why our side
+      // swept every game and a knockout was so hard to come by.
+      game.resolve(game.jointFrom(options, chosen), foeOptions.map((l) => l[0]).filter(Boolean));
       view = game.view();
       seen.push(`${view.field.weather}:${view.field.weatherTurns}`);
     }

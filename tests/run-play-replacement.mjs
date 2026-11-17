@@ -81,27 +81,14 @@ const setFor = (record) => {
 };
 const ranked = meta.pokemon.map(setFor).filter(Boolean);
 const FOE = teamFromKnown(data, FORMAT, known.teams[0]).slice(0, 6);
-/**
- * A side that actually LOSES Pokemon, which is the only way to reach the question this suite is
- * about.
- *
- * The checks below used the six most-used Pokemon in the meta, and against a real tournament
- * team those six now win without losing anybody: measured over 12 seeds, our side was knocked
- * down 0 times and the game was never once asked who comes in next. Nothing had broken -- the
- * usage data had simply moved until the matchup was one-sided. The least-used six lose, which
- * is what these checks need to watch.
- */
-const FRAIL = ranked.slice(-6);
 
 /** Play until the game asks for a replacement, or the turn budget runs out. */
 /**
  * Play until the game stops to ask who comes in next -- ACROSS SEEDS.
  *
- * `askedGame` is the one to use: it keeps dealing fresh games until one actually reaches a
- * knockout with a choice behind it. A single seed used to be enough, and then secondaries began
- * to be rolled in a played game rather than priced, which moved every outcome a little: seed 5
- * stopped producing the knockout these checks are about and four of them went red with nothing
- * wrong behind them. What is being tested is the replacement question, not seed 5.
+ * `askedGame` is the one to use: it deals fresh games until one reaches a knockout with a
+ * choice behind it, rather than resting on a single seed. What is being tested is the
+ * replacement question, not seed 5.
  */
 function playUntilAsked(game, solver, { team, seed = 5, cap = 30 }) {
   let view = game.start({ player: team, foe: FOE, seed });
@@ -117,15 +104,19 @@ function playUntilAsked(game, solver, { team, seed = 5, cap = 30 }) {
     const chosen = options.filter((o) => !o.empty).map((o) => o.actions[0]?.id).filter(Boolean);
     if (!chosen.length) break;
     const foeOptions = [0, 1].map((p) => solver.slotCandidates(game.state, 1, p, { cap: 0 }));
-    game.resolve(game.jointFrom(options, chosen),
-      solver.planFor(game.state, foeOptions.map((l) => l[0]).filter(Boolean), 1));
+    // THE CANDIDATES ARE THE JOINT. `resolve` plans both sides itself, so wrapping these in
+    // `planFor` first handed it a plan where it wanted a joint: `planFor` reads
+    // `action.position`, a plan entry has none, and every one of the opponent's actions was
+    // dropped on the floor. The opponent did NOTHING in this harness, which is why our side
+    // swept every game and a knockout was so hard to come by.
+    game.resolve(game.jointFrom(options, chosen), foeOptions.map((l) => l[0]).filter(Boolean));
     view = game.view();
   }
   return { view, turns, offeredWhileWaiting };
 }
 
 /** A game that really was asked, and the solver that played it. Null if no seed managed it. */
-function askedGame({ team = FRAIL, seeds = 60, cap = 30 } = {}) {
+function askedGame({ team = ranked.slice(0, 6), seeds = 20, cap = 30 } = {}) {
   for (let seed = 5; seed < 5 + seeds; seed += 1) {
     const { solver, game } = freshGame();
     const played = playUntilAsked(game, solver, { team, seed, cap });
@@ -162,7 +153,7 @@ function askedGame({ team = FRAIL, seeds = 60, cap = 30 } = {}) {
   for (const [label, pickFrom] of [["the last candidate", (c) => c[c.length - 1]],
     ["the first candidate", (c) => c[0]]]) {
     const { solver, game } = freshGame();
-    const { view, offeredWhileWaiting } = playUntilAsked(game, solver, { team: FRAIL, seed });
+    const { view, offeredWhileWaiting } = playUntilAsked(game, solver, { team: ranked.slice(0, 6), seed });
     ok(`${label}: the game asks`, Boolean(view.replacement), JSON.stringify(view.replacement));
     if (!view.replacement) continue;
     const choices = view.replacement.choices;

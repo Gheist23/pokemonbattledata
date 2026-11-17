@@ -142,11 +142,14 @@ const ok = (label, condition, detail = "") => {
   ok("a hit with no numbers on it is skipped",
     damageByMove([{ kind: "move", side: 0, tag: 0, move: "Tackle" },
       { kind: "hit", side: 1, tag: 0 }], nameOf).size === 0);
-  // Two moves in a turn must not pool their damage onto the first one.
+  // A SINGLE-TARGET MOVE CARRIES ITS TARGET, so these say so: `ensureMove` sets `targetTag` on
+  // every move step it builds -- the tag for an aimed move, null for a spread or shared one --
+  // and the damage line names the victim only when the move's own line did not. Written without
+  // the field, these fixtures described a move that names nobody, which is the spread case.
   const two = damageByMove([
-    { kind: "move", side: 0, tag: 0, move: "Close Combat" },
+    { kind: "move", side: 0, tag: 0, move: "Close Combat", targetSide: 1, targetTag: 0 },
     { kind: "hit", side: 1, tag: 0, from: 100, to: 76 },
-    { kind: "move", side: 1, tag: 0, move: "Earth Power" },
+    { kind: "move", side: 1, tag: 0, move: "Earth Power", targetSide: 0, targetTag: 0 },
     { kind: "hit", side: 0, tag: 0, from: 100, to: 54 },
   ], nameOf);
   ok("each move keeps its own damage", two.get(0) === ", 100% → 76%" && two.get(2) === ", 100% → 54%",
@@ -154,11 +157,18 @@ const ok = (label, condition, detail = "") => {
   ok("and nothing is attributed to a step that is not a move", two.size === 2, String(two.size));
   // A residual (Leftovers, a burn) is not a move's damage and must not be swept up.
   const resid = damageByMove([
-    { kind: "move", side: 0, tag: 0, move: "Close Combat" },
+    { kind: "move", side: 0, tag: 0, move: "Close Combat", targetSide: 1, targetTag: 0 },
     { kind: "hit", side: 1, tag: 0, from: 100, to: 76 },
     { kind: "residual", side: 0, tag: 0, from: 100, to: 94, cause: "lifeorb" },
   ], nameOf);
   ok("a residual is left to its own line", resid.get(0) === ", 100% → 76%", resid.get(0));
+  // ...and a move that names nobody -- a spread, or one whose target was not recorded -- says
+  // whose health moved, because its own line cannot.
+  const spread = damageByMove([
+    { kind: "move", side: 0, tag: 0, move: "Rock Slide", targetSide: null, targetTag: null },
+    { kind: "hit", side: 1, tag: 0, from: 100, to: 76 },
+  ], nameOf);
+  ok("a spread move names the one it hurt", spread.get(0) === ", It 100% → 76%", spread.get(0));
 }
 
 /* ------------------------------------------------- 6. the page really uses it */
@@ -239,8 +249,12 @@ const ok = (label, condition, detail = "") => {
       const chosen = options.filter((o) => !o.empty).map((o) => o.actions[0]?.id).filter(Boolean);
       if (!chosen.length) break;
       const foeOptions = [0, 1].map((pos) => solver.slotCandidates(game.state, 1, pos, { cap: 0 }));
-      game.resolve(game.jointFrom(options, chosen),
-        solver.planFor(game.state, foeOptions.map((l) => l[0]).filter(Boolean), 1));
+      // THE CANDIDATES ARE THE JOINT. `resolve` plans both sides itself, so wrapping these in
+      // `planFor` first handed it a plan where it wanted a joint: `planFor` reads
+      // `action.position`, a plan entry has none, and every one of the opponent's actions was
+      // dropped on the floor. The opponent did NOTHING in this harness, which is why our side
+      // swept every game and a knockout was so hard to come by.
+      game.resolve(game.jointFrom(options, chosen), foeOptions.map((l) => l[0]).filter(Boolean));
       view = game.view();
       turns += 1;
       look(`seed ${seed} turn ${turn}`);

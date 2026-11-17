@@ -140,7 +140,9 @@ notes.push(`lead: ${MEGA_LEAD?.species} holding ${MEGA_LEAD?.item}`);
 
   const ourJoint = game.jointFrom(options, chosen);
   const foeOptions = [0, 1].map((position) => game.solver.slotCandidates(game.state, 1, position, { cap: 0 }));
-  const foeJoint = game.solver.planFor(game.state, foeOptions.map((list) => list[0]).filter(Boolean), 1);
+  // `resolve` plans both sides itself; a plan handed to it is read as a joint, and a plan
+  // entry has no `position`, so every opponent action was dropped.
+  const foeJoint = foeOptions.map((list) => list[0]).filter(Boolean);
   const record = game.resolve(ourJoint, foeJoint);
   const stream = record.stream || [];
   const megaSteps = stream.filter((s) => s.kind === "mega");
@@ -207,7 +209,7 @@ notes.push(`lead: ${MEGA_LEAD?.species} holding ${MEGA_LEAD?.item}`);
   const foeOptions = [0, 1].map((position) => game.solver.slotCandidates(game.state, 1, position, { cap: 0 }));
   const record = game.resolve(
     game.jointFrom(options, chosen),
-    game.solver.planFor(game.state, foeOptions.map((list) => list[0]).filter(Boolean), 1));
+    foeOptions.map((list) => list[0]).filter(Boolean));
   const ours = (record.stream || []).filter((s) => s.kind === "mega" && s.side === 0);
   ok("so our side produces no mega step", ours.length === 0, JSON.stringify(ours));
 }

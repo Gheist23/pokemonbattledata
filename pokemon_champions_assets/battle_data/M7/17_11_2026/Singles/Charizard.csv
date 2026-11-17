@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Charizard,8,move,1,Solar Beam,65.9%,,,,,,,,
-Charizard,8,move,2,Flamethrower,43.7%,,,,,,,,
+Charizard,8,move,1,Solar Beam,66.0%,,,,,,,,
+Charizard,8,move,2,Flamethrower,43.9%,,,,,,,,
 Charizard,8,move,3,Dragon Pulse,38.9%,,,,,,,,
-Charizard,8,move,4,Roost,30.8%,,,,,,,,
-Charizard,8,move,5,Flare Blitz,29.9%,,,,,,,,
-Charizard,8,move,6,Air Slash,23.1%,,,,,,,,
+Charizard,8,move,4,Roost,30.9%,,,,,,,,
+Charizard,8,move,5,Flare Blitz,29.8%,,,,,,,,
+Charizard,8,move,6,Air Slash,23.2%,,,,,,,,
 Charizard,8,move,7,Weather Ball,22.7%,,,,,,,,
-Charizard,8,move,8,Dragon Dance,20.9%,,,,,,,,
-Charizard,8,move,9,Thunder Punch,20.1%,,,,,,,,
+Charizard,8,move,8,Dragon Dance,20.8%,,,,,,,,
+Charizard,8,move,9,Thunder Punch,20.0%,,,,,,,,
 Charizard,8,move,10,Dragon Claw,19.5%,,,,,,,,
-Charizard,8,held_item,1,Charizardite Y,67.3%,,,,,,,,
-Charizard,8,held_item,2,Charizardite X,31.1%,,,,,,,,
+Charizard,8,held_item,1,Charizardite Y,67.4%,,,,,,,,
+Charizard,8,held_item,2,Charizardite X,31.0%,,,,,,,,
 Charizard,8,held_item,3,Choice Scarf,0.2%,,,,,,,,
 Charizard,8,held_item,4,Lum Berry,0.1%,,,,,,,,
 Charizard,8,held_item,5,Focus Sash,0.1%,,,,,,,,
@@ -31,7 +31,7 @@ Charizard,8,teammate,9,Metagross,,,,,,,,,
 Charizard,8,teammate,10,Baxcalibur,,,,,,,,,
 Charizard,8,stat_alignment,1,Modest,45.6%,Sp. Atk,Attack,,,,,,
 Charizard,8,stat_alignment,2,Jolly,17.1%,Speed,Sp. Atk,,,,,,
-Charizard,8,stat_alignment,3,Timid,15.6%,Speed,Attack,,,,,,
+Charizard,8,stat_alignment,3,Timid,15.7%,Speed,Attack,,,,,,
 Charizard,8,stat_alignment,4,Adamant,14.1%,Attack,Sp. Atk,,,,,,
 Charizard,8,stat_alignment,5,Bold,6.0%,Defense,Attack,,,,,,
 Charizard,8,stat_alignment,6,Calm,0.3%,Sp. Def,Attack,,,,,,
@@ -40,9 +40,9 @@ Charizard,8,stat_alignment,8,Impish,0.2%,Defense,Sp. Atk,,,,,,
 Charizard,8,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
 Charizard,8,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
 Charizard,8,stat_points,1,,20.9%,,,2,0,0,32,0,32
-Charizard,8,stat_points,2,,15.6%,,,2,32,0,0,0,32
-Charizard,8,stat_points,3,,3.5%,,,4,30,0,0,0,32
-Charizard,8,stat_points,4,,3.5%,,,32,0,15,11,8,0
+Charizard,8,stat_points,2,,15.5%,,,2,32,0,0,0,32
+Charizard,8,stat_points,3,,3.5%,,,32,0,15,11,8,0
+Charizard,8,stat_points,4,,3.5%,,,4,30,0,0,0,32
 Charizard,8,stat_points,5,,2.7%,,,32,0,32,2,0,0
 Charizard,8,stat_points,6,,2.6%,,,0,0,2,32,0,32
 Charizard,8,stat_points,7,,2.5%,,,20,0,13,1,0,32

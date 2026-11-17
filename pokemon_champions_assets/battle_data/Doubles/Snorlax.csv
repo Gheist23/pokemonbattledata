@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Snorlax,94,move,1,Protect,65.8%,,,,,,,,
-Snorlax,94,move,2,Fissure,34.5%,,,,,,,,
-Snorlax,94,move,3,Belly Drum,29.8%,,,,,,,,
-Snorlax,94,move,4,Yawn,21.8%,,,,,,,,
-Snorlax,94,move,5,Stockpile,21.5%,,,,,,,,
-Snorlax,94,move,6,Body Slam,21.3%,,,,,,,,
-Snorlax,94,move,7,High Horsepower,20.8%,,,,,,,,
-Snorlax,94,move,8,Earthquake,18.5%,,,,,,,,
-Snorlax,94,move,9,Rock Slide,16.3%,,,,,,,,
-Snorlax,94,move,10,Self-Destruct,12.5%,,,,,,,,
-Snorlax,94,held_item,1,Leftovers,44.3%,,,,,,,,
-Snorlax,94,held_item,2,Sitrus Berry,29.8%,,,,,,,,
-Snorlax,94,held_item,3,Normal Gem,5.4%,,,,,,,,
+Snorlax,94,move,1,Protect,65.9%,,,,,,,,
+Snorlax,94,move,2,Fissure,35.1%,,,,,,,,
+Snorlax,94,move,3,Belly Drum,29.7%,,,,,,,,
+Snorlax,94,move,4,Yawn,22.4%,,,,,,,,
+Snorlax,94,move,5,Stockpile,21.3%,,,,,,,,
+Snorlax,94,move,6,Body Slam,21.2%,,,,,,,,
+Snorlax,94,move,7,High Horsepower,20.5%,,,,,,,,
+Snorlax,94,move,8,Earthquake,18.4%,,,,,,,,
+Snorlax,94,move,9,Rock Slide,16.1%,,,,,,,,
+Snorlax,94,move,10,Double-Edge,13.0%,,,,,,,,
+Snorlax,94,held_item,1,Leftovers,44.8%,,,,,,,,
+Snorlax,94,held_item,2,Sitrus Berry,29.5%,,,,,,,,
+Snorlax,94,held_item,3,Normal Gem,5.3%,,,,,,,,
 Snorlax,94,held_item,4,Life Orb,5.2%,,,,,,,,
 Snorlax,94,held_item,5,Chople Berry,5.0%,,,,,,,,
 Snorlax,94,held_item,6,Chesto Berry,3.0%,,,,,,,,
 Snorlax,94,held_item,7,Lum Berry,1.4%,,,,,,,,
-Snorlax,94,held_item,8,Expert Belt,1.0%,,,,,,,,
+Snorlax,94,held_item,8,Expert Belt,0.9%,,,,,,,,
 Snorlax,94,held_item,9,Silk Scarf,0.8%,,,,,,,,
 Snorlax,94,held_item,10,Scope Lens,0.7%,,,,,,,,
 Snorlax,94,teammate,1,Incineroar,,,,,,,,,
@@ -29,26 +29,26 @@ Snorlax,94,teammate,7,Gengar,,,,,,,,,
 Snorlax,94,teammate,8,Charizard,,,,,,,,,
 Snorlax,94,teammate,9,Dragonite,,,,,,,,,
 Snorlax,94,teammate,10,Torkoal,,,,,,,,,
-Snorlax,94,stat_alignment,1,Relaxed,31.1%,Defense,Speed,,,,,,
-Snorlax,94,stat_alignment,2,Brave,24.3%,Attack,Speed,,,,,,
-Snorlax,94,stat_alignment,3,Impish,17.8%,Defense,Sp. Atk,,,,,,
-Snorlax,94,stat_alignment,4,Adamant,12.4%,Attack,Sp. Atk,,,,,,
-Snorlax,94,stat_alignment,5,Careful,5.1%,Sp. Def,Sp. Atk,,,,,,
-Snorlax,94,stat_alignment,6,Sassy,4.7%,Sp. Def,Speed,,,,,,
+Snorlax,94,stat_alignment,1,Relaxed,31.4%,Defense,Speed,,,,,,
+Snorlax,94,stat_alignment,2,Brave,24.0%,Attack,Speed,,,,,,
+Snorlax,94,stat_alignment,3,Impish,17.9%,Defense,Sp. Atk,,,,,,
+Snorlax,94,stat_alignment,4,Adamant,12.2%,Attack,Sp. Atk,,,,,,
+Snorlax,94,stat_alignment,5,Careful,5.0%,Sp. Def,Sp. Atk,,,,,,
+Snorlax,94,stat_alignment,6,Sassy,4.6%,Sp. Def,Speed,,,,,,
 Snorlax,94,stat_alignment,7,Bold,3.0%,Defense,Attack,,,,,,
 Snorlax,94,stat_alignment,8,Timid,0.6%,Speed,Attack,,,,,,
-Snorlax,94,stat_alignment,9,Jolly,0.2%,Speed,Sp. Atk,,,,,,
-Snorlax,94,stat_alignment,10,Lonely,0.2%,Attack,Defense,,,,,,
-Snorlax,94,stat_points,1,,15.6%,,,32,0,32,0,2,0
-Snorlax,94,stat_points,2,,5.4%,,,32,32,0,0,2,0
+Snorlax,94,stat_alignment,9,Lonely,0.2%,Attack,Defense,,,,,,
+Snorlax,94,stat_alignment,10,Jolly,0.2%,Speed,Sp. Atk,,,,,,
+Snorlax,94,stat_points,1,,15.5%,,,32,0,32,0,2,0
+Snorlax,94,stat_points,2,,5.3%,,,32,32,0,0,2,0
 Snorlax,94,stat_points,3,,5.3%,,,32,32,2,0,0,0
-Snorlax,94,stat_points,4,,5.1%,,,2,32,32,0,0,0
-Snorlax,94,stat_points,5,,4.1%,,,21,0,30,0,15,0
+Snorlax,94,stat_points,4,,5.0%,,,2,32,32,0,0,0
+Snorlax,94,stat_points,5,,4.7%,,,21,0,30,0,15,0
 Snorlax,94,stat_points,6,,3.6%,,,21,0,31,0,0,14
 Snorlax,94,stat_points,7,,3.2%,,,0,32,32,0,2,0
-Snorlax,94,stat_points,8,,3.0%,,,15,21,25,0,5,0
-Snorlax,94,stat_points,9,,3.0%,,,2,32,0,0,32,0
+Snorlax,94,stat_points,8,,3.0%,,,2,32,0,0,32,0
+Snorlax,94,stat_points,9,,2.9%,,,15,21,25,0,5,0
 Snorlax,94,stat_points,10,,2.1%,,,31,0,32,0,3,0
-Snorlax,94,ability,1,Thick Fat,91.1%,,,,,,,,
-Snorlax,94,ability,2,Gluttony,5.3%,,,,,,,,
-Snorlax,94,ability,3,Immunity,3.6%,,,,,,,,
+Snorlax,94,ability,1,Thick Fat,91.2%,,,,,,,,
+Snorlax,94,ability,2,Gluttony,5.2%,,,,,,,,
+Snorlax,94,ability,3,Immunity,3.5%,,,,,,,,

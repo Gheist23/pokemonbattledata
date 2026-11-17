@@ -34,6 +34,7 @@ import {
   TTL_DAYS, TTL_MS, cardDescription, cardTitle, cleanDigest, cleanMetaDigest, escapeHtml,
   fallbackPng, imageKey, newCode, normaliseCode, recordKey, usageKey, validatePng,
 } from "../functions/api/share/_lib.js";
+import { devOnlyPaths } from "../tools/pages-excludes.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -901,10 +902,16 @@ let liveBucket = null;
 
 // 21. deploy safety -------------------------------------------------------------
 {
+  // WHAT IS EXCLUDED, ASKED OF THE LIST ITSELF. This used to match the text of a `devOnlyPaths`
+  // declaration inside tools/deploy.mjs; the list moved to tools/pages-excludes.mjs so the manual
+  // deploy and the Cloudflare Pages build could share one copy and never publish different sites.
+  // Importing it tests the value both of them read, which is the thing that matters and cannot go
+  // stale when a declaration moves house again.
+  ok(!devOnlyPaths.some((entry) => entry.includes("share")),
+    `the excluded list does not exclude /share/: ${JSON.stringify(devOnlyPaths)}`);
+  ok(devOnlyPaths.includes("tests"), "and tests/ is still excluded, so this suite is never deployed");
+  // This one really is about deploy.mjs: `rootIgnored` is its own.
   const deploy = readFileSync(join(root, "tools/deploy.mjs"), "utf8");
-  const devOnly = deploy.match(/const devOnlyPaths = \[([^\]]*)\]/)?.[1] || "";
-  ok(!devOnly.includes("share"), `deploy.mjs's devOnlyPaths does not exclude /share/: ${devOnly.trim()}`);
-  ok(devOnly.includes('"tests"'), "and tests/ is still excluded, so this suite is never deployed");
   ok(deploy.includes('rootIgnored = new Set(["_worker.js", "_redirects", "_headers", "_routes.json", "functions"])'),
     "functions/ is not counted against the 20,000-file Pages cap, so the four new Function files cost nothing");
   const redirects = readFileSync(join(root, "_redirects"), "utf8");

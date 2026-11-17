@@ -26,6 +26,7 @@ import {
   routeInteraction, onRequestPost, onRequestGet, discordFetch, sendFollowUp, withBudget,
   AUTOCOMPLETE_LIMIT, RESPONSE_PONG, RESPONSE_MESSAGE, RESPONSE_DEFERRED, RESPONSE_AUTOCOMPLETE
 } from "../functions/api/discord/interactions.js";
+import { devOnlyPaths } from "../tools/pages-excludes.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -850,8 +851,15 @@ const liveAppData = JSON.parse(readFileSync(join(root, "data", "builder", "app-d
 check("the /matchup type list still matches the site's own", TYPE_NAMES.join() === (liveAppData.types || []).join(),
   `${TYPE_NAMES.length} vs ${(liveAppData.types || []).length}`);
 
+// WHAT IS EXCLUDED, ASKED OF THE LIST ITSELF. This used to match the text of a `devOnlyPaths`
+// declaration inside tools/deploy.mjs; the list moved to tools/pages-excludes.mjs so the manual
+// deploy and the Cloudflare Pages build could share one copy and never publish different sites.
+// Importing it tests the value both of them read, which is the thing that matters and cannot go
+// stale when a declaration moves house again.
+check("tests/ stays out of the deploy", devOnlyPaths.includes("tests"), JSON.stringify(devOnlyPaths));
+// This one really is about deploy.mjs: `rootIgnored` is its own, and says which top-level
+// directories are Function source rather than uploaded assets.
 const deploy = readFileSync(join(root, "tools", "deploy.mjs"), "utf8");
-check("tests/ stays out of the deploy", /devOnlyPaths\s*=\s*\[[^\]]*"tests"/.test(deploy));
 check("functions/ is Function source, not an uploaded asset", /rootIgnored\s*=\s*new Set\(\[[^\]]*"functions"/.test(deploy));
 
 // tools/ IS uploaded with the site, so the registration script must hold no

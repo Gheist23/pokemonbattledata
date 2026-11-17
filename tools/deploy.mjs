@@ -14,21 +14,15 @@
 import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, renameSync, rmSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { archivedSeasonPaths, parkedSnapshotPaths } from "./archived-seasons.mjs";
+import { excludedPathsFor } from "./pages-excludes.mjs";
 
 const cwd = process.cwd();
 const parkRoot = join(cwd, ".wrangler", "deploy-excluded");
 const pagesFileLimit = 20000;
 
-// Local-only scaffolding that must never become a public asset, plus the
-// archived seasons. Wrangler already skips .git, node_modules and .wrangler.
-// `tests` holds the damage-engine parity vectors (several MB of JSON) and
-// their runner; they are for development, not for the published site.
-const devOnlyPaths = [".claude", ".dev.vars", ".license-private-key.txt", "tests"];
-// The live season's older dated snapshots as well, so a deployment stays under the
-// 20,000-file cap without anyone remembering to pass --exclude (archived-seasons.mjs).
-const defaultExcludedPaths = [...devOnlyPaths, ...archivedSeasonPaths,
-  ...parkedSnapshotPaths((dir) => readdirSync(dir), cwd.split(/[\\/]/).join("/"))];
+// What a deployment leaves out, shared with the Pages build so the two cannot publish
+// different sites (tools/pages-excludes.mjs).
+const defaultExcludedPaths = excludedPathsFor((dir) => readdirSync(dir), cwd.split(/[\\/]/).join("/"));
 
 function parseArgs(argv) {
   const options = { projectName: "pokemonbattledata", excluded: [...defaultExcludedPaths], extra: [], dryRun: false };

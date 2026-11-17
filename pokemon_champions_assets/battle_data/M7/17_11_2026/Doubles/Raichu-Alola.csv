@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Raichu-Alola,176,move,1,Protect,65.1%,,,,,,,,
 Raichu-Alola,176,move,2,Rising Voltage,63.2%,,,,,,,,
-Raichu-Alola,176,move,3,Expanding Force,62.2%,,,,,,,,
-Raichu-Alola,176,move,4,Fake Out,37.1%,,,,,,,,
-Raichu-Alola,176,move,5,Psychic,23.7%,,,,,,,,
-Raichu-Alola,176,move,6,Thunderbolt,20.6%,,,,,,,,
-Raichu-Alola,176,move,7,Volt Switch,15.5%,,,,,,,,
-Raichu-Alola,176,move,8,Discharge,13.6%,,,,,,,,
-Raichu-Alola,176,move,9,Dazzling Gleam,11.9%,,,,,,,,
-Raichu-Alola,176,move,10,Grass Knot,10.3%,,,,,,,,
-Raichu-Alola,176,held_item,1,Life Orb,35.2%,,,,,,,,
-Raichu-Alola,176,held_item,2,Focus Sash,31.4%,,,,,,,,
-Raichu-Alola,176,held_item,3,Magnet,9.0%,,,,,,,,
-Raichu-Alola,176,held_item,4,Choice Scarf,4.4%,,,,,,,,
+Raichu-Alola,176,move,3,Expanding Force,62.6%,,,,,,,,
+Raichu-Alola,176,move,4,Fake Out,37.3%,,,,,,,,
+Raichu-Alola,176,move,5,Psychic,23.3%,,,,,,,,
+Raichu-Alola,176,move,6,Thunderbolt,20.5%,,,,,,,,
+Raichu-Alola,176,move,7,Volt Switch,15.6%,,,,,,,,
+Raichu-Alola,176,move,8,Discharge,14.0%,,,,,,,,
+Raichu-Alola,176,move,9,Dazzling Gleam,11.6%,,,,,,,,
+Raichu-Alola,176,move,10,Grass Knot,10.1%,,,,,,,,
+Raichu-Alola,176,held_item,1,Life Orb,35.7%,,,,,,,,
+Raichu-Alola,176,held_item,2,Focus Sash,31.3%,,,,,,,,
+Raichu-Alola,176,held_item,3,Magnet,8.9%,,,,,,,,
+Raichu-Alola,176,held_item,4,Choice Scarf,4.3%,,,,,,,,
 Raichu-Alola,176,held_item,5,Sitrus Berry,3.4%,,,,,,,,
-Raichu-Alola,176,held_item,6,Electric Seed,2.4%,,,,,,,,
-Raichu-Alola,176,held_item,7,Quick Claw,2.1%,,,,,,,,
-Raichu-Alola,176,held_item,8,Colbur Berry,2.0%,,,,,,,,
+Raichu-Alola,176,held_item,6,Electric Seed,2.3%,,,,,,,,
+Raichu-Alola,176,held_item,7,Quick Claw,2.0%,,,,,,,,
+Raichu-Alola,176,held_item,8,Colbur Berry,1.9%,,,,,,,,
 Raichu-Alola,176,held_item,9,Air Balloon,1.5%,,,,,,,,
-Raichu-Alola,176,held_item,10,Bright Powder,1.4%,,,,,,,,
+Raichu-Alola,176,held_item,10,Wise Glasses,1.4%,,,,,,,,
 Raichu-Alola,176,teammate,1,Pincurchin,,,,,,,,,
 Raichu-Alola,176,teammate,2,Indeedee-F,,,,,,,,,
 Raichu-Alola,176,teammate,3,Staraptor,,,,,,,,,
@@ -27,12 +27,12 @@ Raichu-Alola,176,teammate,5,Charizard,,,,,,,,,
 Raichu-Alola,176,teammate,6,Archaludon,,,,,,,,,
 Raichu-Alola,176,teammate,7,Golisopod,,,,,,,,,
 Raichu-Alola,176,teammate,8,Rillaboom,,,,,,,,,
-Raichu-Alola,176,teammate,9,Pelipper,,,,,,,,,
-Raichu-Alola,176,teammate,10,Sneasler,,,,,,,,,
-Raichu-Alola,176,stat_alignment,1,Modest,61.6%,Sp. Atk,Attack,,,,,,
-Raichu-Alola,176,stat_alignment,2,Timid,33.3%,Speed,Attack,,,,,,
-Raichu-Alola,176,stat_alignment,3,Mild,1.6%,Sp. Atk,Defense,,,,,,
-Raichu-Alola,176,stat_alignment,4,Hasty,1.1%,Speed,Defense,,,,,,
+Raichu-Alola,176,teammate,9,Sneasler,,,,,,,,,
+Raichu-Alola,176,teammate,10,Pelipper,,,,,,,,,
+Raichu-Alola,176,stat_alignment,1,Modest,61.9%,Sp. Atk,Attack,,,,,,
+Raichu-Alola,176,stat_alignment,2,Timid,32.8%,Speed,Attack,,,,,,
+Raichu-Alola,176,stat_alignment,3,Mild,1.5%,Sp. Atk,Defense,,,,,,
+Raichu-Alola,176,stat_alignment,4,Hasty,1.4%,Speed,Defense,,,,,,
 Raichu-Alola,176,stat_alignment,5,Brave,1.0%,Attack,Speed,,,,,,
 Raichu-Alola,176,stat_alignment,6,Bold,0.6%,Defense,Attack,,,,,,
 Raichu-Alola,176,stat_alignment,7,Relaxed,0.4%,Defense,Speed,,,,,,
@@ -40,13 +40,13 @@ Raichu-Alola,176,stat_alignment,8,Adamant,0.2%,Attack,Sp. Atk,,,,,,
 Raichu-Alola,176,stat_alignment,9,Jolly,0.1%,Speed,Sp. Atk,,,,,,
 Raichu-Alola,176,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
 Raichu-Alola,176,stat_points,1,,54.6%,,,2,0,0,32,0,32
-Raichu-Alola,176,stat_points,2,,11.8%,,,0,0,0,32,2,32
-Raichu-Alola,176,stat_points,3,,7.0%,,,0,0,2,32,0,32
-Raichu-Alola,176,stat_points,4,,3.9%,,,0,0,0,32,0,32
-Raichu-Alola,176,stat_points,5,,2.1%,,,0,0,0,32,32,2
-Raichu-Alola,176,stat_points,6,,1.8%,,,4,0,0,32,0,30
+Raichu-Alola,176,stat_points,2,,11.6%,,,0,0,0,32,2,32
+Raichu-Alola,176,stat_points,3,,7.3%,,,0,0,2,32,0,32
+Raichu-Alola,176,stat_points,4,,3.8%,,,0,0,0,32,0,32
+Raichu-Alola,176,stat_points,5,,2.0%,,,0,0,0,32,32,2
+Raichu-Alola,176,stat_points,6,,1.9%,,,4,0,0,32,0,30
 Raichu-Alola,176,stat_points,7,,1.7%,,,4,0,0,30,0,32
 Raichu-Alola,176,stat_points,8,,1.5%,,,0,0,32,32,2,0
 Raichu-Alola,176,stat_points,9,,1.3%,,,32,0,2,32,0,0
-Raichu-Alola,176,stat_points,10,,1.1%,,,23,0,0,32,0,11
+Raichu-Alola,176,stat_points,10,,1.1%,,,2,0,32,32,0,0
 Raichu-Alola,176,ability,1,Surge Surfer,100.0%,,,,,,,,

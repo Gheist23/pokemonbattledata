@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Froslass,29,move,1,Blizzard,99.2%,,,,,,,,
-Froslass,29,move,2,Shadow Ball,94.2%,,,,,,,,
-Froslass,29,move,3,Protect,92.6%,,,,,,,,
+Froslass,29,move,2,Shadow Ball,94.1%,,,,,,,,
+Froslass,29,move,3,Protect,92.5%,,,,,,,,
 Froslass,29,move,4,Aurora Veil,76.2%,,,,,,,,
-Froslass,29,move,5,Thunderbolt,8.8%,,,,,,,,
+Froslass,29,move,5,Thunderbolt,8.9%,,,,,,,,
 Froslass,29,move,6,Taunt,4.9%,,,,,,,,
 Froslass,29,move,7,Nasty Plot,4.2%,,,,,,,,
 Froslass,29,move,8,Destiny Bond,3.8%,,,,,,,,
@@ -16,9 +16,9 @@ Froslass,29,held_item,4,Choice Scarf,0.1%,,,,,,,,
 Froslass,29,held_item,5,Bright Powder,0.1%,,,,,,,,
 Froslass,29,held_item,6,Wide Lens,0.1%,,,,,,,,
 Froslass,29,held_item,7,Light Clay,0.1%,,,,,,,,
-Froslass,29,held_item,8,Leftovers,0.0%,,,,,,,,
+Froslass,29,held_item,8,Sitrus Berry,0.0%,,,,,,,,
 Froslass,29,held_item,9,Quick Claw,0.0%,,,,,,,,
-Froslass,29,held_item,10,Sitrus Berry,0.0%,,,,,,,,
+Froslass,29,held_item,10,Leftovers,0.0%,,,,,,,,
 Froslass,29,teammate,1,Sneasler,,,,,,,,,
 Froslass,29,teammate,2,Kingambit,,,,,,,,,
 Froslass,29,teammate,3,Garchomp,,,,,,,,,
@@ -38,16 +38,16 @@ Froslass,29,stat_alignment,6,Hasty,0.2%,Speed,Defense,,,,,,
 Froslass,29,stat_alignment,7,Bold,0.1%,Defense,Attack,,,,,,
 Froslass,29,stat_alignment,8,Quiet,0.1%,Sp. Atk,Speed,,,,,,
 Froslass,29,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,
-Froslass,29,stat_alignment,10,Adamant,0.0%,Attack,Sp. Atk,,,,,,
-Froslass,29,stat_points,1,,29.5%,,,2,0,0,32,0,32
-Froslass,29,stat_points,2,,15.7%,,,32,0,0,2,0,32
+Froslass,29,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,
+Froslass,29,stat_points,1,,29.6%,,,2,0,0,32,0,32
+Froslass,29,stat_points,2,,15.6%,,,32,0,0,2,0,32
 Froslass,29,stat_points,3,,3.7%,,,0,0,2,32,0,32
 Froslass,29,stat_points,4,,3.2%,,,0,0,0,32,2,32
-Froslass,29,stat_points,5,,3.1%,,,12,0,1,20,1,32
-Froslass,29,stat_points,6,,2.2%,,,2,0,12,20,0,32
-Froslass,29,stat_points,7,,2.0%,,,24,0,0,10,0,32
+Froslass,29,stat_points,5,,3.0%,,,12,0,1,20,1,32
+Froslass,29,stat_points,6,,2.1%,,,2,0,12,20,0,32
+Froslass,29,stat_points,7,,1.9%,,,24,0,0,10,0,32
 Froslass,29,stat_points,8,,1.3%,,,14,0,0,20,0,32
-Froslass,29,stat_points,9,,1.3%,,,4,0,0,32,0,30
+Froslass,29,stat_points,9,,1.2%,,,4,0,0,32,0,30
 Froslass,29,stat_points,10,,1.0%,,,0,0,0,32,0,32
-Froslass,29,ability,1,Cursed Body,78.3%,,,,,,,,
-Froslass,29,ability,2,Snow Cloak,21.7%,,,,,,,,
+Froslass,29,ability,1,Cursed Body,78.2%,,,,,,,,
+Froslass,29,ability,2,Snow Cloak,21.8%,,,,,,,,

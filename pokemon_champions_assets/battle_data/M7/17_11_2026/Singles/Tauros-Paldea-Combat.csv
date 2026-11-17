@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Tauros-Paldea-Combat,262,move,1,Raging Bull,76.7%,,,,,,,,
-Tauros-Paldea-Combat,262,move,2,Earthquake,57.3%,,,,,,,,
-Tauros-Paldea-Combat,262,move,3,Wild Charge,56.8%,,,,,,,,
-Tauros-Paldea-Combat,262,move,4,Close Combat,33.9%,,,,,,,,
-Tauros-Paldea-Combat,262,move,5,Trailblaze,27.9%,,,,,,,,
-Tauros-Paldea-Combat,262,move,6,Rock Slide,27.4%,,,,,,,,
+Tauros-Paldea-Combat,262,move,2,Earthquake,57.2%,,,,,,,,
+Tauros-Paldea-Combat,262,move,3,Wild Charge,56.7%,,,,,,,,
+Tauros-Paldea-Combat,262,move,4,Close Combat,34.0%,,,,,,,,
+Tauros-Paldea-Combat,262,move,5,Trailblaze,27.8%,,,,,,,,
+Tauros-Paldea-Combat,262,move,6,Rock Slide,27.3%,,,,,,,,
 Tauros-Paldea-Combat,262,move,7,Iron Head,23.6%,,,,,,,,
 Tauros-Paldea-Combat,262,move,8,Bulk Up,14.8%,,,,,,,,
-Tauros-Paldea-Combat,262,move,9,Throat Chop,12.9%,,,,,,,,
+Tauros-Paldea-Combat,262,move,9,Throat Chop,13.0%,,,,,,,,
 Tauros-Paldea-Combat,262,move,10,Outrage,8.1%,,,,,,,,
 Tauros-Paldea-Combat,262,held_item,1,Sitrus Berry,24.1%,,,,,,,,
-Tauros-Paldea-Combat,262,held_item,2,Lum Berry,18.1%,,,,,,,,
-Tauros-Paldea-Combat,262,held_item,3,Life Orb,16.0%,,,,,,,,
-Tauros-Paldea-Combat,262,held_item,4,Choice Scarf,12.1%,,,,,,,,
-Tauros-Paldea-Combat,262,held_item,5,Focus Sash,9.0%,,,,,,,,
+Tauros-Paldea-Combat,262,held_item,2,Lum Berry,18.0%,,,,,,,,
+Tauros-Paldea-Combat,262,held_item,3,Life Orb,15.9%,,,,,,,,
+Tauros-Paldea-Combat,262,held_item,4,Choice Scarf,12.2%,,,,,,,,
+Tauros-Paldea-Combat,262,held_item,5,Focus Sash,8.9%,,,,,,,,
 Tauros-Paldea-Combat,262,held_item,6,Expert Belt,6.0%,,,,,,,,
 Tauros-Paldea-Combat,262,held_item,7,Rocky Helmet,3.1%,,,,,,,,
 Tauros-Paldea-Combat,262,held_item,8,White Herb,2.9%,,,,,,,,
@@ -29,8 +29,8 @@ Tauros-Paldea-Combat,262,teammate,7,Archaludon,,,,,,,,,
 Tauros-Paldea-Combat,262,teammate,8,Metagross,,,,,,,,,
 Tauros-Paldea-Combat,262,teammate,9,Starmie,,,,,,,,,
 Tauros-Paldea-Combat,262,teammate,10,Charizard,,,,,,,,,
-Tauros-Paldea-Combat,262,stat_alignment,1,Adamant,69.5%,Attack,Sp. Atk,,,,,,
-Tauros-Paldea-Combat,262,stat_alignment,2,Jolly,21.3%,Speed,Sp. Atk,,,,,,
+Tauros-Paldea-Combat,262,stat_alignment,1,Adamant,69.4%,Attack,Sp. Atk,,,,,,
+Tauros-Paldea-Combat,262,stat_alignment,2,Jolly,21.5%,Speed,Sp. Atk,,,,,,
 Tauros-Paldea-Combat,262,stat_alignment,3,Impish,3.9%,Defense,Sp. Atk,,,,,,
 Tauros-Paldea-Combat,262,stat_alignment,4,Gentle,2.0%,Sp. Def,Defense,,,,,,
 Tauros-Paldea-Combat,262,stat_alignment,5,Naughty,1.8%,Attack,Sp. Def,,,,,,
@@ -40,7 +40,7 @@ Tauros-Paldea-Combat,262,stat_alignment,8,Bold,0.3%,Defense,Attack,,,,,,
 Tauros-Paldea-Combat,262,stat_points,1,,32.7%,,,2,32,0,0,0,32
 Tauros-Paldea-Combat,262,stat_points,2,,22.3%,,,1,32,0,0,1,32
 Tauros-Paldea-Combat,262,stat_points,3,,15.1%,,,1,32,1,0,0,32
-Tauros-Paldea-Combat,262,stat_points,4,,9.0%,,,0,32,2,0,0,32
+Tauros-Paldea-Combat,262,stat_points,4,,9.1%,,,0,32,2,0,0,32
 Tauros-Paldea-Combat,262,stat_points,5,,3.3%,,,2,32,32,0,0,0
 Tauros-Paldea-Combat,262,stat_points,6,,2.9%,,,0,32,0,0,2,32
 Tauros-Paldea-Combat,262,stat_points,7,,2.9%,,,32,32,0,0,2,0
@@ -48,5 +48,5 @@ Tauros-Paldea-Combat,262,stat_points,8,,2.0%,,,2,32,0,0,32,0
 Tauros-Paldea-Combat,262,stat_points,9,,1.6%,,,32,32,0,0,0,2
 Tauros-Paldea-Combat,262,stat_points,10,,1.5%,,,0,32,7,0,2,25
 Tauros-Paldea-Combat,262,ability,1,Intimidate,78.2%,,,,,,,,
-Tauros-Paldea-Combat,262,ability,2,Cud Chew,18.6%,,,,,,,,
+Tauros-Paldea-Combat,262,ability,2,Cud Chew,18.5%,,,,,,,,
 Tauros-Paldea-Combat,262,ability,3,Anger Point,3.3%,,,,,,,,

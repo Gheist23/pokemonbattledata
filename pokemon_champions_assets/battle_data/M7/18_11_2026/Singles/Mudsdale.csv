@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Mudsdale,170,move,1,Earthquake,81.1%,,,,,,,,
-Mudsdale,170,move,2,Body Press,76.6%,,,,,,,,
+Mudsdale,170,move,2,Body Press,76.7%,,,,,,,,
 Mudsdale,170,move,3,Stealth Rock,60.5%,,,,,,,,
 Mudsdale,170,move,4,Roar,47.1%,,,,,,,,
 Mudsdale,170,move,5,Rest,25.8%,,,,,,,,
-Mudsdale,170,move,6,Fissure,16.5%,,,,,,,,
+Mudsdale,170,move,6,Fissure,16.4%,,,,,,,,
 Mudsdale,170,move,7,Iron Defense,14.6%,,,,,,,,
 Mudsdale,170,move,8,Smack Down,11.6%,,,,,,,,
 Mudsdale,170,move,9,Heavy Slam,7.6%,,,,,,,,
@@ -23,13 +23,13 @@ Mudsdale,170,teammate,1,Charizard,,,,,,,,,
 Mudsdale,170,teammate,2,Primarina,,,,,,,,,
 Mudsdale,170,teammate,3,Meowscarada,,,,,,,,,
 Mudsdale,170,teammate,4,Garchomp,,,,,,,,,
-Mudsdale,170,teammate,5,Golisopod,,,,,,,,,
-Mudsdale,170,teammate,6,Dragonite,,,,,,,,,
+Mudsdale,170,teammate,5,Dragonite,,,,,,,,,
+Mudsdale,170,teammate,6,Golisopod,,,,,,,,,
 Mudsdale,170,teammate,7,Mimikyu,,,,,,,,,
 Mudsdale,170,teammate,8,Baxcalibur,,,,,,,,,
 Mudsdale,170,teammate,9,Lucario,,,,,,,,,
 Mudsdale,170,teammate,10,Gyarados,,,,,,,,,
-Mudsdale,170,stat_alignment,1,Impish,58.5%,Defense,Sp. Atk,,,,,,
+Mudsdale,170,stat_alignment,1,Impish,58.4%,Defense,Sp. Atk,,,,,,
 Mudsdale,170,stat_alignment,2,Careful,19.9%,Sp. Def,Sp. Atk,,,,,,
 Mudsdale,170,stat_alignment,3,Adamant,8.1%,Attack,Sp. Atk,,,,,,
 Mudsdale,170,stat_alignment,4,Relaxed,4.3%,Defense,Speed,,,,,,
@@ -37,16 +37,16 @@ Mudsdale,170,stat_alignment,5,Jolly,2.4%,Speed,Sp. Atk,,,,,,
 Mudsdale,170,stat_alignment,6,Brave,1.9%,Attack,Speed,,,,,,
 Mudsdale,170,stat_alignment,7,Sassy,1.4%,Sp. Def,Speed,,,,,,
 Mudsdale,170,stat_alignment,8,Lax,1.2%,Defense,Sp. Def,,,,,,
-Mudsdale,170,stat_alignment,9,Calm,0.8%,Sp. Def,Attack,,,,,,
-Mudsdale,170,stat_alignment,10,Bold,0.8%,Defense,Attack,,,,,,
-Mudsdale,170,stat_points,1,,29.4%,,,32,0,32,0,2,0
-Mudsdale,170,stat_points,2,,10.7%,,,32,0,2,0,32,0
-Mudsdale,170,stat_points,3,,6.6%,,,32,2,32,0,0,0
+Mudsdale,170,stat_alignment,9,Bold,0.8%,Defense,Attack,,,,,,
+Mudsdale,170,stat_alignment,10,Calm,0.8%,Sp. Def,Attack,,,,,,
+Mudsdale,170,stat_points,1,,29.3%,,,32,0,32,0,2,0
+Mudsdale,170,stat_points,2,,10.6%,,,32,0,2,0,32,0
+Mudsdale,170,stat_points,3,,6.5%,,,32,2,32,0,0,0
 Mudsdale,170,stat_points,4,,4.0%,,,2,0,32,0,32,0
 Mudsdale,170,stat_points,5,,3.5%,,,2,32,32,0,0,0
 Mudsdale,170,stat_points,6,,2.6%,,,32,0,32,0,0,0
 Mudsdale,170,stat_points,7,,2.5%,,,32,0,20,0,14,0
-Mudsdale,170,stat_points,8,,2.4%,,,2,32,0,0,0,32
+Mudsdale,170,stat_points,8,,2.5%,,,2,32,0,0,0,32
 Mudsdale,170,stat_points,9,,1.7%,,,32,2,0,0,32,0
 Mudsdale,170,stat_points,10,,1.6%,,,32,0,30,0,4,0
 Mudsdale,170,ability,1,Stamina,96.6%,,,,,,,,

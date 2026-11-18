@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Araquanid,96,move,1,Liquidation,87.2%,,,,,,,,
 Araquanid,96,move,2,Wide Guard,83.6%,,,,,,,,
-Araquanid,96,move,3,Leech Life,59.2%,,,,,,,,
+Araquanid,96,move,3,Leech Life,59.3%,,,,,,,,
 Araquanid,96,move,4,Protect,55.1%,,,,,,,,
-Araquanid,96,move,5,Mirror Coat,13.6%,,,,,,,,
-Araquanid,96,move,6,Infestation,13.4%,,,,,,,,
-Araquanid,96,move,7,Soak,9.6%,,,,,,,,
+Araquanid,96,move,5,Mirror Coat,13.5%,,,,,,,,
+Araquanid,96,move,6,Infestation,13.3%,,,,,,,,
+Araquanid,96,move,7,Soak,9.5%,,,,,,,,
 Araquanid,96,move,8,Icy Wind,9.2%,,,,,,,,
 Araquanid,96,move,9,Hydro Pump,7.2%,,,,,,,,
 Araquanid,96,move,10,Surf,7.2%,,,,,,,,
@@ -29,7 +29,7 @@ Araquanid,96,teammate,7,Raichu,,,,,,,,,
 Araquanid,96,teammate,8,Whimsicott,,,,,,,,,
 Araquanid,96,teammate,9,Golisopod,,,,,,,,,
 Araquanid,96,teammate,10,Staraptor,,,,,,,,,
-Araquanid,96,stat_alignment,1,Brave,34.6%,Attack,Speed,,,,,,
+Araquanid,96,stat_alignment,1,Brave,34.5%,Attack,Speed,,,,,,
 Araquanid,96,stat_alignment,2,Adamant,26.8%,Attack,Sp. Atk,,,,,,
 Araquanid,96,stat_alignment,3,Careful,12.6%,Sp. Def,Sp. Atk,,,,,,
 Araquanid,96,stat_alignment,4,Relaxed,7.7%,Defense,Speed,,,,,,
@@ -37,9 +37,9 @@ Araquanid,96,stat_alignment,5,Quiet,7.5%,Sp. Atk,Speed,,,,,,
 Araquanid,96,stat_alignment,6,Impish,4.8%,Defense,Sp. Atk,,,,,,
 Araquanid,96,stat_alignment,7,Sassy,3.0%,Sp. Def,Speed,,,,,,
 Araquanid,96,stat_alignment,8,Modest,2.0%,Sp. Atk,Attack,,,,,,
-Araquanid,96,stat_alignment,9,Naughty,0.5%,Attack,Sp. Def,,,,,,
+Araquanid,96,stat_alignment,9,Naughty,0.4%,Attack,Sp. Def,,,,,,
 Araquanid,96,stat_alignment,10,Jolly,0.2%,Speed,Sp. Atk,,,,,,
-Araquanid,96,stat_points,1,,28.3%,,,32,32,2,0,0,0
+Araquanid,96,stat_points,1,,28.4%,,,32,32,2,0,0,0
 Araquanid,96,stat_points,2,,6.7%,,,32,32,0,0,2,0
 Araquanid,96,stat_points,3,,6.1%,,,32,0,32,0,2,0
 Araquanid,96,stat_points,4,,4.0%,,,32,0,2,32,0,0

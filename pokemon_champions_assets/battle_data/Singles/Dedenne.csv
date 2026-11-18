@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Dedenne,237,move,1,Dazzling Gleam,70.7%,,,,,,,,
-Dedenne,237,move,2,Nuzzle,70.7%,,,,,,,,
+Dedenne,237,move,1,Nuzzle,70.8%,,,,,,,,
+Dedenne,237,move,2,Dazzling Gleam,70.1%,,,,,,,,
 Dedenne,237,move,3,Super Fang,44.1%,,,,,,,,
-Dedenne,237,move,4,Thunderbolt,38.7%,,,,,,,,
-Dedenne,237,move,5,Grass Knot,31.1%,,,,,,,,
+Dedenne,237,move,4,Thunderbolt,38.6%,,,,,,,,
+Dedenne,237,move,5,Grass Knot,30.9%,,,,,,,,
 Dedenne,237,move,6,Endeavor,23.9%,,,,,,,,
-Dedenne,237,move,7,Charm,21.3%,,,,,,,,
-Dedenne,237,move,8,Volt Switch,16.6%,,,,,,,,
-Dedenne,237,move,9,Eerie Impulse,11.5%,,,,,,,,
-Dedenne,237,move,10,Draining Kiss,11.0%,,,,,,,,
+Dedenne,237,move,7,Charm,21.6%,,,,,,,,
+Dedenne,237,move,8,Volt Switch,16.7%,,,,,,,,
+Dedenne,237,move,9,Eerie Impulse,11.7%,,,,,,,,
+Dedenne,237,move,10,Draining Kiss,11.2%,,,,,,,,
 Dedenne,237,held_item,1,Sitrus Berry,42.7%,,,,,,,,
-Dedenne,237,held_item,2,Focus Sash,34.3%,,,,,,,,
+Dedenne,237,held_item,2,Focus Sash,34.2%,,,,,,,,
 Dedenne,237,held_item,3,Choice Scarf,8.3%,,,,,,,,
 Dedenne,237,held_item,4,Shuca Berry,4.7%,,,,,,,,
-Dedenne,237,held_item,5,Air Balloon,4.6%,,,,,,,,
+Dedenne,237,held_item,5,Air Balloon,4.5%,,,,,,,,
 Dedenne,237,held_item,6,Life Orb,1.8%,,,,,,,,
-Dedenne,237,held_item,7,Metronome,0.9%,,,,,,,,
+Dedenne,237,held_item,7,Metronome,1.1%,,,,,,,,
 Dedenne,237,held_item,8,Leftovers,0.4%,,,,,,,,
 Dedenne,237,held_item,9,Focus Band,0.3%,,,,,,,,
 Dedenne,237,held_item,10,Heat Rock,0.3%,,,,,,,,
@@ -24,31 +24,31 @@ Dedenne,237,teammate,2,Greninja,,,,,,,,,
 Dedenne,237,teammate,3,Garchomp,,,,,,,,,
 Dedenne,237,teammate,4,Basculegion,,,,,,,,,
 Dedenne,237,teammate,5,Charizard,,,,,,,,,
-Dedenne,237,teammate,6,Dragonite,,,,,,,,,
-Dedenne,237,teammate,7,Maushold-Four,,,,,,,,,
+Dedenne,237,teammate,6,Maushold-Four,,,,,,,,,
+Dedenne,237,teammate,7,Dragonite,,,,,,,,,
 Dedenne,237,teammate,8,Mimikyu,,,,,,,,,
 Dedenne,237,teammate,9,Salamence,,,,,,,,,
 Dedenne,237,teammate,10,Gardevoir,,,,,,,,,
-Dedenne,237,stat_alignment,1,Timid,53.0%,Speed,Attack,,,,,,
-Dedenne,237,stat_alignment,2,Modest,21.0%,Sp. Atk,Attack,,,,,,
-Dedenne,237,stat_alignment,3,Bold,15.7%,Defense,Attack,,,,,,
+Dedenne,237,stat_alignment,1,Timid,52.8%,Speed,Attack,,,,,,
+Dedenne,237,stat_alignment,2,Modest,20.8%,Sp. Atk,Attack,,,,,,
+Dedenne,237,stat_alignment,3,Bold,15.8%,Defense,Attack,,,,,,
 Dedenne,237,stat_alignment,4,Impish,2.7%,Defense,Sp. Atk,,,,,,
-Dedenne,237,stat_alignment,5,Jolly,2.4%,Speed,Sp. Atk,,,,,,
+Dedenne,237,stat_alignment,5,Jolly,2.5%,Speed,Sp. Atk,,,,,,
 Dedenne,237,stat_alignment,6,Hasty,1.6%,Speed,Defense,,,,,,
 Dedenne,237,stat_alignment,7,Calm,1.6%,Sp. Def,Attack,,,,,,
-Dedenne,237,stat_alignment,8,Rash,0.7%,Sp. Atk,Sp. Def,,,,,,
-Dedenne,237,stat_alignment,9,Mild,0.7%,Sp. Atk,Defense,,,,,,
+Dedenne,237,stat_alignment,8,Mild,0.7%,Sp. Atk,Defense,,,,,,
+Dedenne,237,stat_alignment,9,Rash,0.7%,Sp. Atk,Sp. Def,,,,,,
 Dedenne,237,stat_alignment,10,Sassy,0.5%,Sp. Def,Speed,,,,,,
-Dedenne,237,stat_points,1,,26.5%,,,0,0,2,32,0,32
-Dedenne,237,stat_points,2,,18.2%,,,2,0,0,32,0,32
-Dedenne,237,stat_points,3,,10.9%,,,32,0,32,0,2,0
-Dedenne,237,stat_points,4,,6.5%,,,0,0,0,32,0,32
-Dedenne,237,stat_points,5,,6.4%,,,0,0,18,16,0,32
-Dedenne,237,stat_points,6,,4.5%,,,1,0,1,32,0,32
-Dedenne,237,stat_points,7,,3.1%,,,1,0,0,32,1,32
+Dedenne,237,stat_points,1,,26.4%,,,0,0,2,32,0,32
+Dedenne,237,stat_points,2,,18.1%,,,2,0,0,32,0,32
+Dedenne,237,stat_points,3,,11.1%,,,32,0,32,0,2,0
+Dedenne,237,stat_points,4,,6.4%,,,0,0,0,32,0,32
+Dedenne,237,stat_points,5,,6.3%,,,0,0,18,16,0,32
+Dedenne,237,stat_points,6,,4.4%,,,1,0,1,32,0,32
+Dedenne,237,stat_points,7,,3.0%,,,1,0,0,32,1,32
 Dedenne,237,stat_points,8,,2.8%,,,32,0,32,0,0,2
 Dedenne,237,stat_points,9,,2.1%,,,32,0,0,32,0,2
 Dedenne,237,stat_points,10,,2.1%,,,32,0,2,0,0,32
-Dedenne,237,ability,1,Cheek Pouch,66.7%,,,,,,,,
-Dedenne,237,ability,2,Pickup,29.6%,,,,,,,,
+Dedenne,237,ability,1,Cheek Pouch,66.9%,,,,,,,,
+Dedenne,237,ability,2,Pickup,29.4%,,,,,,,,
 Dedenne,237,ability,3,Plus,3.7%,,,,,,,,

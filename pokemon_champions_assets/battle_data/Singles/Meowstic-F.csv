@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Meowstic-F,242,move,1,Thunderbolt,70.1%,,,,,,,,
-Meowstic-F,242,move,2,Alluring Voice,67.7%,,,,,,,,
-Meowstic-F,242,move,3,Psychic,59.5%,,,,,,,,
-Meowstic-F,242,move,4,Dark Pulse,42.2%,,,,,,,,
+Meowstic-F,242,move,1,Thunderbolt,70.0%,,,,,,,,
+Meowstic-F,242,move,2,Alluring Voice,67.8%,,,,,,,,
+Meowstic-F,242,move,3,Psychic,59.6%,,,,,,,,
+Meowstic-F,242,move,4,Dark Pulse,42.3%,,,,,,,,
 Meowstic-F,242,move,5,Nasty Plot,25.0%,,,,,,,,
-Meowstic-F,242,move,6,Calm Mind,22.4%,,,,,,,,
+Meowstic-F,242,move,6,Calm Mind,22.5%,,,,,,,,
 Meowstic-F,242,move,7,Expanding Force,21.6%,,,,,,,,
-Meowstic-F,242,move,8,Shadow Ball,15.5%,,,,,,,,
-Meowstic-F,242,move,9,Psychic Noise,11.3%,,,,,,,,
-Meowstic-F,242,move,10,Energy Ball,8.9%,,,,,,,,
+Meowstic-F,242,move,8,Shadow Ball,15.6%,,,,,,,,
+Meowstic-F,242,move,9,Psychic Noise,11.2%,,,,,,,,
+Meowstic-F,242,move,10,Energy Ball,8.8%,,,,,,,,
 Meowstic-F,242,held_item,1,Meowsticite,88.8%,,,,,,,,
 Meowstic-F,242,held_item,2,Choice Scarf,3.2%,,,,,,,,
 Meowstic-F,242,held_item,3,Light Clay,3.0%,,,,,,,,
@@ -29,8 +29,8 @@ Meowstic-F,242,teammate,7,Mimikyu,,,,,,,,,
 Meowstic-F,242,teammate,8,Houndstone,,,,,,,,,
 Meowstic-F,242,teammate,9,Talonflame,,,,,,,,,
 Meowstic-F,242,teammate,10,Scrafty,,,,,,,,,
-Meowstic-F,242,stat_alignment,1,Timid,66.0%,Speed,Attack,,,,,,
-Meowstic-F,242,stat_alignment,2,Modest,18.4%,Sp. Atk,Attack,,,,,,
+Meowstic-F,242,stat_alignment,1,Timid,66.1%,Speed,Attack,,,,,,
+Meowstic-F,242,stat_alignment,2,Modest,18.3%,Sp. Atk,Attack,,,,,,
 Meowstic-F,242,stat_alignment,3,Hasty,6.8%,Speed,Defense,,,,,,
 Meowstic-F,242,stat_alignment,4,Bold,6.4%,Defense,Attack,,,,,,
 Meowstic-F,242,stat_alignment,5,Calm,1.1%,Sp. Def,Attack,,,,,,
@@ -39,7 +39,7 @@ Meowstic-F,242,stat_alignment,7,Rash,0.4%,Sp. Atk,Sp. Def,,,,,,
 Meowstic-F,242,stat_alignment,8,Quiet,0.2%,Sp. Atk,Speed,,,,,,
 Meowstic-F,242,stat_alignment,9,Sassy,0.1%,Sp. Def,Speed,,,,,,
 Meowstic-F,242,stat_points,1,,57.4%,,,2,0,0,32,0,32
-Meowstic-F,242,stat_points,2,,7.4%,,,0,0,0,32,2,32
+Meowstic-F,242,stat_points,2,,7.5%,,,0,0,0,32,2,32
 Meowstic-F,242,stat_points,3,,6.2%,,,0,0,32,32,2,0
 Meowstic-F,242,stat_points,4,,3.9%,,,0,0,2,32,0,32
 Meowstic-F,242,stat_points,5,,2.4%,,,32,0,0,32,0,2
@@ -48,6 +48,6 @@ Meowstic-F,242,stat_points,7,,2.1%,,,32,0,0,0,2,32
 Meowstic-F,242,stat_points,8,,1.8%,,,0,0,6,27,1,32
 Meowstic-F,242,stat_points,9,,1.5%,,,0,0,32,32,0,2
 Meowstic-F,242,stat_points,10,,1.5%,,,6,0,3,25,0,32
-Meowstic-F,242,ability,1,Competitive,81.9%,,,,,,,,
+Meowstic-F,242,ability,1,Competitive,82.0%,,,,,,,,
 Meowstic-F,242,ability,2,Infiltrator,11.1%,,,,,,,,
 Meowstic-F,242,ability,3,Keen Eye,7.0%,,,,,,,,

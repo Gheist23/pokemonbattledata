@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Krookodile,159,move,1,Earthquake,90.4%,,,,,,,,
 Krookodile,159,move,2,Knock Off,62.7%,,,,,,,,
-Krookodile,159,move,3,Stealth Rock,35.0%,,,,,,,,
+Krookodile,159,move,3,Stealth Rock,34.9%,,,,,,,,
 Krookodile,159,move,4,Taunt,30.2%,,,,,,,,
 Krookodile,159,move,5,Close Combat,21.4%,,,,,,,,
-Krookodile,159,move,6,Stone Edge,18.8%,,,,,,,,
-Krookodile,159,move,7,Gunk Shot,17.8%,,,,,,,,
-Krookodile,159,move,8,Crunch,16.9%,,,,,,,,
+Krookodile,159,move,6,Stone Edge,18.7%,,,,,,,,
+Krookodile,159,move,7,Gunk Shot,17.9%,,,,,,,,
+Krookodile,159,move,8,Crunch,17.0%,,,,,,,,
 Krookodile,159,move,9,Rock Tomb,13.7%,,,,,,,,
 Krookodile,159,move,10,Bulk Up,9.7%,,,,,,,,
 Krookodile,159,held_item,1,Focus Sash,32.5%,,,,,,,,
 Krookodile,159,held_item,2,Choice Scarf,24.7%,,,,,,,,
 Krookodile,159,held_item,3,Sitrus Berry,12.7%,,,,,,,,
 Krookodile,159,held_item,4,Rocky Helmet,6.1%,,,,,,,,
-Krookodile,159,held_item,5,Life Orb,5.6%,,,,,,,,
+Krookodile,159,held_item,5,Life Orb,5.5%,,,,,,,,
 Krookodile,159,held_item,6,Chople Berry,3.6%,,,,,,,,
 Krookodile,159,held_item,7,Lum Berry,2.9%,,,,,,,,
 Krookodile,159,held_item,8,Light Ball,1.4%,,,,,,,,
@@ -39,8 +39,8 @@ Krookodile,159,stat_alignment,7,Lonely,0.3%,Attack,Defense,,,,,,
 Krookodile,159,stat_alignment,8,Brave,0.1%,Attack,Speed,,,,,,
 Krookodile,159,stat_alignment,9,Lax,0.1%,Defense,Sp. Def,,,,,,
 Krookodile,159,stat_alignment,10,Timid,0.1%,Speed,Attack,,,,,,
-Krookodile,159,stat_points,1,,36.8%,,,2,32,0,0,0,32
-Krookodile,159,stat_points,2,,12.5%,,,1,32,1,0,0,32
+Krookodile,159,stat_points,1,,36.9%,,,2,32,0,0,0,32
+Krookodile,159,stat_points,2,,12.4%,,,1,32,1,0,0,32
 Krookodile,159,stat_points,3,,4.1%,,,0,32,2,0,0,32
 Krookodile,159,stat_points,4,,3.8%,,,0,32,0,0,2,32
 Krookodile,159,stat_points,5,,1.9%,,,1,32,0,0,1,32
@@ -50,5 +50,5 @@ Krookodile,159,stat_points,8,,1.4%,,,0,23,32,0,0,11
 Krookodile,159,stat_points,9,,1.3%,,,2,32,32,0,0,0
 Krookodile,159,stat_points,10,,1.2%,,,0,32,2,0,32,0
 Krookodile,159,ability,1,Intimidate,70.6%,,,,,,,,
-Krookodile,159,ability,2,Moxie,28.0%,,,,,,,,
+Krookodile,159,ability,2,Moxie,28.1%,,,,,,,,
 Krookodile,159,ability,3,Anger Point,1.3%,,,,,,,,

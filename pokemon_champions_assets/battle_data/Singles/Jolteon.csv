@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Jolteon,151,move,1,Thunderbolt,79.2%,,,,,,,,
-Jolteon,151,move,2,Alluring Voice,57.8%,,,,,,,,
-Jolteon,151,move,3,Volt Switch,48.6%,,,,,,,,
+Jolteon,151,move,2,Alluring Voice,57.7%,,,,,,,,
+Jolteon,151,move,3,Volt Switch,48.7%,,,,,,,,
 Jolteon,151,move,4,Shadow Ball,44.6%,,,,,,,,
 Jolteon,151,move,5,Yawn,16.1%,,,,,,,,
 Jolteon,151,move,6,Calm Mind,15.3%,,,,,,,,
 Jolteon,151,move,7,Thunder Wave,14.8%,,,,,,,,
-Jolteon,151,move,8,Quick Attack,12.3%,,,,,,,,
+Jolteon,151,move,8,Quick Attack,12.2%,,,,,,,,
 Jolteon,151,move,9,Thunder,11.5%,,,,,,,,
 Jolteon,151,move,10,Weather Ball,11.4%,,,,,,,,
 Jolteon,151,held_item,1,Focus Sash,20.6%,,,,,,,,
@@ -29,8 +29,8 @@ Jolteon,151,teammate,7,Glaceon,,,,,,,,,
 Jolteon,151,teammate,8,Gyarados,,,,,,,,,
 Jolteon,151,teammate,9,Flareon,,,,,,,,,
 Jolteon,151,teammate,10,Ampharos,,,,,,,,,
-Jolteon,151,stat_alignment,1,Timid,68.6%,Speed,Attack,,,,,,
-Jolteon,151,stat_alignment,2,Modest,22.8%,Sp. Atk,Attack,,,,,,
+Jolteon,151,stat_alignment,1,Timid,68.5%,Speed,Attack,,,,,,
+Jolteon,151,stat_alignment,2,Modest,22.9%,Sp. Atk,Attack,,,,,,
 Jolteon,151,stat_alignment,3,Mild,2.8%,Sp. Atk,Defense,,,,,,
 Jolteon,151,stat_alignment,4,Hasty,2.1%,Speed,Defense,,,,,,
 Jolteon,151,stat_alignment,5,Bold,1.2%,Defense,Attack,,,,,,
@@ -42,7 +42,7 @@ Jolteon,151,stat_alignment,10,Naive,0.1%,Speed,Sp. Def,,,,,,
 Jolteon,151,stat_points,1,,37.9%,,,2,0,0,32,0,32
 Jolteon,151,stat_points,2,,13.3%,,,1,0,1,32,0,32
 Jolteon,151,stat_points,3,,11.4%,,,0,0,2,32,0,32
-Jolteon,151,stat_points,4,,8.6%,,,0,0,0,32,2,32
+Jolteon,151,stat_points,4,,8.7%,,,0,0,0,32,2,32
 Jolteon,151,stat_points,5,,2.7%,,,0,0,0,32,0,32
 Jolteon,151,stat_points,6,,1.7%,,,1,0,0,32,1,32
 Jolteon,151,stat_points,7,,1.4%,,,3,0,0,32,5,26

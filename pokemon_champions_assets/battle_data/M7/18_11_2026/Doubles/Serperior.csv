@@ -2,15 +2,15 @@ pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_point
 Serperior,136,move,1,Leaf Storm,99.1%,,,,,,,,
 Serperior,136,move,2,Protect,78.6%,,,,,,,,
 Serperior,136,move,3,Dragon Pulse,75.8%,,,,,,,,
-Serperior,136,move,4,Giga Drain,58.2%,,,,,,,,
+Serperior,136,move,4,Giga Drain,58.1%,,,,,,,,
 Serperior,136,move,5,Glare,19.5%,,,,,,,,
 Serperior,136,move,6,Taunt,15.6%,,,,,,,,
 Serperior,136,move,7,Leech Seed,8.2%,,,,,,,,
-Serperior,136,move,8,Synthesis,6.8%,,,,,,,,
+Serperior,136,move,8,Synthesis,6.9%,,,,,,,,
 Serperior,136,move,9,Gastro Acid,5.0%,,,,,,,,
 Serperior,136,move,10,Substitute,4.4%,,,,,,,,
 Serperior,136,held_item,1,Leftovers,23.9%,,,,,,,,
-Serperior,136,held_item,2,Miracle Seed,14.8%,,,,,,,,
+Serperior,136,held_item,2,Miracle Seed,14.7%,,,,,,,,
 Serperior,136,held_item,3,Sitrus Berry,12.8%,,,,,,,,
 Serperior,136,held_item,4,Wide Lens,10.1%,,,,,,,,
 Serperior,136,held_item,5,Choice Scarf,8.0%,,,,,,,,
@@ -35,7 +35,7 @@ Serperior,136,stat_alignment,3,Bold,3.4%,Defense,Attack,,,,,,
 Serperior,136,stat_alignment,4,Calm,3.2%,Sp. Def,Attack,,,,,,
 Serperior,136,stat_alignment,5,Mild,1.0%,Sp. Atk,Defense,,,,,,
 Serperior,136,stat_alignment,6,Hasty,0.7%,Speed,Defense,,,,,,
-Serperior,136,stat_alignment,7,Naive,0.7%,Speed,Sp. Def,,,,,,
+Serperior,136,stat_alignment,7,Naive,0.6%,Speed,Sp. Def,,,,,,
 Serperior,136,stat_alignment,8,Adamant,0.6%,Attack,Sp. Atk,,,,,,
 Serperior,136,stat_alignment,9,Jolly,0.5%,Speed,Sp. Atk,,,,,,
 Serperior,136,stat_alignment,10,Quiet,0.5%,Sp. Atk,Speed,,,,,,
@@ -48,6 +48,6 @@ Serperior,136,stat_points,6,,3.4%,,,0,0,0,32,2,32
 Serperior,136,stat_points,7,,3.2%,,,1,0,1,32,0,32
 Serperior,136,stat_points,8,,3.1%,,,32,0,0,32,0,2
 Serperior,136,stat_points,9,,2.0%,,,30,0,1,2,1,32
-Serperior,136,stat_points,10,,1.5%,,,9,0,0,25,0,32
+Serperior,136,stat_points,10,,1.5%,,,32,0,0,0,2,32
 Serperior,136,ability,1,Contrary,99.3%,,,,,,,,
 Serperior,136,ability,2,Overgrow,0.7%,,,,,,,,

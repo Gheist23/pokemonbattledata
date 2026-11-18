@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Espeon,145,move,1,Expanding Force,73.1%,,,,,,,,
-Espeon,145,move,2,Power Gem,56.9%,,,,,,,,
+Espeon,145,move,2,Power Gem,57.0%,,,,,,,,
 Espeon,145,move,3,Dazzling Gleam,34.7%,,,,,,,,
-Espeon,145,move,4,Detect,31.1%,,,,,,,,
+Espeon,145,move,4,Detect,31.2%,,,,,,,,
 Espeon,145,move,5,Psychic,29.1%,,,,,,,,
-Espeon,145,move,6,Shadow Ball,25.1%,,,,,,,,
-Espeon,145,move,7,Protect,24.6%,,,,,,,,
+Espeon,145,move,6,Shadow Ball,25.0%,,,,,,,,
+Espeon,145,move,7,Protect,24.5%,,,,,,,,
 Espeon,145,move,8,Trick Room,19.4%,,,,,,,,
 Espeon,145,move,9,Yawn,10.7%,,,,,,,,
-Espeon,145,move,10,Weather Ball,10.2%,,,,,,,,
+Espeon,145,move,10,Weather Ball,10.3%,,,,,,,,
 Espeon,145,held_item,1,Focus Sash,22.2%,,,,,,,,
 Espeon,145,held_item,2,Life Orb,21.4%,,,,,,,,
 Espeon,145,held_item,3,Choice Scarf,15.0%,,,,,,,,
@@ -36,17 +36,17 @@ Espeon,145,stat_alignment,4,Bold,2.5%,Defense,Attack,,,,,,
 Espeon,145,stat_alignment,5,Mild,1.2%,Sp. Atk,Defense,,,,,,
 Espeon,145,stat_alignment,6,Calm,1.1%,Sp. Def,Attack,,,,,,
 Espeon,145,stat_alignment,7,Hasty,1.0%,Speed,Defense,,,,,,
-Espeon,145,stat_alignment,8,Impish,0.8%,Defense,Sp. Atk,,,,,,
+Espeon,145,stat_alignment,8,Impish,0.7%,Defense,Sp. Atk,,,,,,
 Espeon,145,stat_alignment,9,Relaxed,0.5%,Defense,Speed,,,,,,
 Espeon,145,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,
 Espeon,145,stat_points,1,,35.3%,,,2,0,0,32,0,32
-Espeon,145,stat_points,2,,10.4%,,,0,0,2,32,0,32
+Espeon,145,stat_points,2,,10.5%,,,0,0,2,32,0,32
 Espeon,145,stat_points,3,,7.4%,,,0,0,0,32,2,32
 Espeon,145,stat_points,4,,5.3%,,,1,0,1,32,0,32
 Espeon,145,stat_points,5,,4.4%,,,32,0,0,11,0,23
 Espeon,145,stat_points,6,,3.8%,,,32,0,0,32,0,2
-Espeon,145,stat_points,7,,2.3%,,,32,0,5,0,0,29
-Espeon,145,stat_points,8,,2.2%,,,32,0,0,32,2,0
+Espeon,145,stat_points,7,,2.2%,,,32,0,5,0,0,29
+Espeon,145,stat_points,8,,2.1%,,,32,0,0,32,2,0
 Espeon,145,stat_points,9,,1.7%,,,0,0,0,32,0,32
 Espeon,145,stat_points,10,,1.7%,,,2,0,0,30,2,32
 Espeon,145,ability,1,Magic Bounce,92.9%,,,,,,,,

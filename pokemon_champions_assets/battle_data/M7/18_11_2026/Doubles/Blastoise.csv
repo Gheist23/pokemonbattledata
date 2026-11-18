@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Blastoise,46,move,1,Water Spout,85.1%,,,,,,,,
-Blastoise,46,move,2,Protect,61.0%,,,,,,,,
+Blastoise,46,move,2,Protect,60.9%,,,,,,,,
 Blastoise,46,move,3,Dark Pulse,60.0%,,,,,,,,
 Blastoise,46,move,4,Shell Smash,59.2%,,,,,,,,
 Blastoise,46,move,5,Aura Sphere,40.0%,,,,,,,,
@@ -10,7 +10,7 @@ Blastoise,46,move,8,Ice Beam,17.4%,,,,,,,,
 Blastoise,46,move,9,Dragon Pulse,7.9%,,,,,,,,
 Blastoise,46,move,10,Water Pulse,7.5%,,,,,,,,
 Blastoise,46,held_item,1,Blastoisinite,86.7%,,,,,,,,
-Blastoise,46,held_item,2,White Herb,3.2%,,,,,,,,
+Blastoise,46,held_item,2,White Herb,3.3%,,,,,,,,
 Blastoise,46,held_item,3,Mystic Water,2.2%,,,,,,,,
 Blastoise,46,held_item,4,Leftovers,1.6%,,,,,,,,
 Blastoise,46,held_item,5,Sitrus Berry,1.5%,,,,,,,,
@@ -29,7 +29,7 @@ Blastoise,46,teammate,7,Armarouge,,,,,,,,,
 Blastoise,46,teammate,8,Pelipper,,,,,,,,,
 Blastoise,46,teammate,9,Kingambit,,,,,,,,,
 Blastoise,46,teammate,10,Gardevoir,,,,,,,,,
-Blastoise,46,stat_alignment,1,Modest,73.3%,Sp. Atk,Attack,,,,,,
+Blastoise,46,stat_alignment,1,Modest,73.2%,Sp. Atk,Attack,,,,,,
 Blastoise,46,stat_alignment,2,Quiet,15.6%,Sp. Atk,Speed,,,,,,
 Blastoise,46,stat_alignment,3,Timid,6.6%,Speed,Attack,,,,,,
 Blastoise,46,stat_alignment,4,Bold,1.1%,Defense,Attack,,,,,,
@@ -44,7 +44,7 @@ Blastoise,46,stat_points,2,,12.3%,,,32,0,2,32,0,0
 Blastoise,46,stat_points,3,,4.9%,,,1,0,1,32,0,32
 Blastoise,46,stat_points,4,,4.4%,,,32,0,0,32,2,0
 Blastoise,46,stat_points,5,,2.2%,,,32,0,0,32,0,2
-Blastoise,46,stat_points,6,,2.2%,,,0,0,2,32,0,32
+Blastoise,46,stat_points,6,,2.1%,,,0,0,2,32,0,32
 Blastoise,46,stat_points,7,,1.9%,,,22,0,0,25,0,19
 Blastoise,46,stat_points,8,,1.8%,,,0,0,0,32,2,32
 Blastoise,46,stat_points,9,,1.8%,,,32,0,1,32,1,0

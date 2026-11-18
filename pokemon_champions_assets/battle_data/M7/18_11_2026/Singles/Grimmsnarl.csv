@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Grimmsnarl,52,move,1,Reflect,87.8%,,,,,,,,
 Grimmsnarl,52,move,2,Light Screen,85.5%,,,,,,,,
-Grimmsnarl,52,move,3,Parting Shot,62.9%,,,,,,,,
-Grimmsnarl,52,move,4,Spirit Break,58.9%,,,,,,,,
-Grimmsnarl,52,move,5,Taunt,43.5%,,,,,,,,
-Grimmsnarl,52,move,6,Foul Play,28.6%,,,,,,,,
+Grimmsnarl,52,move,3,Parting Shot,63.0%,,,,,,,,
+Grimmsnarl,52,move,4,Spirit Break,59.0%,,,,,,,,
+Grimmsnarl,52,move,5,Taunt,43.4%,,,,,,,,
+Grimmsnarl,52,move,6,Foul Play,28.5%,,,,,,,,
 Grimmsnarl,52,move,7,Sucker Punch,8.7%,,,,,,,,
 Grimmsnarl,52,move,8,Fake Out,7.1%,,,,,,,,
 Grimmsnarl,52,move,9,Crunch,4.2%,,,,,,,,
@@ -13,9 +13,9 @@ Grimmsnarl,52,held_item,1,Light Clay,84.3%,,,,,,,,
 Grimmsnarl,52,held_item,2,Leftovers,6.4%,,,,,,,,
 Grimmsnarl,52,held_item,3,Sitrus Berry,2.1%,,,,,,,,
 Grimmsnarl,52,held_item,4,Life Orb,1.7%,,,,,,,,
-Grimmsnarl,52,held_item,5,Black Glasses,0.6%,,,,,,,,
-Grimmsnarl,52,held_item,6,Expert Belt,0.6%,,,,,,,,
-Grimmsnarl,52,held_item,7,Rocky Helmet,0.6%,,,,,,,,
+Grimmsnarl,52,held_item,5,Black Glasses,0.7%,,,,,,,,
+Grimmsnarl,52,held_item,6,Expert Belt,0.7%,,,,,,,,
+Grimmsnarl,52,held_item,7,Rocky Helmet,0.5%,,,,,,,,
 Grimmsnarl,52,held_item,8,Focus Sash,0.5%,,,,,,,,
 Grimmsnarl,52,held_item,9,Air Balloon,0.5%,,,,,,,,
 Grimmsnarl,52,held_item,10,Choice Scarf,0.4%,,,,,,,,
@@ -30,7 +30,7 @@ Grimmsnarl,52,teammate,8,Primarina,,,,,,,,,
 Grimmsnarl,52,teammate,9,Hippowdon,,,,,,,,,
 Grimmsnarl,52,teammate,10,Charizard,,,,,,,,,
 Grimmsnarl,52,stat_alignment,1,Impish,49.4%,Defense,Sp. Atk,,,,,,
-Grimmsnarl,52,stat_alignment,2,Careful,27.5%,Sp. Def,Sp. Atk,,,,,,
+Grimmsnarl,52,stat_alignment,2,Careful,27.4%,Sp. Def,Sp. Atk,,,,,,
 Grimmsnarl,52,stat_alignment,3,Adamant,12.6%,Attack,Sp. Atk,,,,,,
 Grimmsnarl,52,stat_alignment,4,Bold,4.8%,Defense,Attack,,,,,,
 Grimmsnarl,52,stat_alignment,5,Calm,1.9%,Sp. Def,Attack,,,,,,
@@ -45,8 +45,8 @@ Grimmsnarl,52,stat_points,3,,4.1%,,,32,0,26,0,8,0
 Grimmsnarl,52,stat_points,4,,3.9%,,,31,0,24,0,10,1
 Grimmsnarl,52,stat_points,5,,3.1%,,,32,0,24,0,10,0
 Grimmsnarl,52,stat_points,6,,2.7%,,,32,32,2,0,0,0
-Grimmsnarl,52,stat_points,7,,2.6%,,,31,0,25,0,10,0
-Grimmsnarl,52,stat_points,8,,2.6%,,,2,0,32,0,32,0
+Grimmsnarl,52,stat_points,7,,2.6%,,,2,0,32,0,32,0
+Grimmsnarl,52,stat_points,8,,2.6%,,,31,0,25,0,10,0
 Grimmsnarl,52,stat_points,9,,2.3%,,,32,0,2,0,32,0
 Grimmsnarl,52,stat_points,10,,2.1%,,,31,0,32,0,3,0
 Grimmsnarl,52,ability,1,Prankster,98.8%,,,,,,,,

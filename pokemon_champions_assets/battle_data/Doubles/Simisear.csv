@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simisear,251,move,1,Fake Out,66.5%,,,,,,,,
-Simisear,251,move,2,Heat Wave,53.1%,,,,,,,,
+Simisear,251,move,1,Fake Out,66.6%,,,,,,,,
+Simisear,251,move,2,Heat Wave,53.2%,,,,,,,,
 Simisear,251,move,3,Protect,45.7%,,,,,,,,
-Simisear,251,move,4,Overheat,37.3%,,,,,,,,
-Simisear,251,move,5,Scorching Sands,34.9%,,,,,,,,
+Simisear,251,move,4,Overheat,37.0%,,,,,,,,
+Simisear,251,move,5,Scorching Sands,35.0%,,,,,,,,
 Simisear,251,move,6,Rock Slide,22.7%,,,,,,,,
-Simisear,251,move,7,Will-O-Wisp,20.2%,,,,,,,,
-Simisear,251,move,8,Flare Blitz,19.3%,,,,,,,,
-Simisear,251,move,9,Yawn,18.1%,,,,,,,,
+Simisear,251,move,7,Will-O-Wisp,20.1%,,,,,,,,
+Simisear,251,move,8,Flare Blitz,19.4%,,,,,,,,
+Simisear,251,move,9,Yawn,18.2%,,,,,,,,
 Simisear,251,move,10,Taunt,14.1%,,,,,,,,
-Simisear,251,held_item,1,Life Orb,26.5%,,,,,,,,
-Simisear,251,held_item,2,Charcoal,20.7%,,,,,,,,
-Simisear,251,held_item,3,Focus Sash,18.6%,,,,,,,,
-Simisear,251,held_item,4,Quick Claw,11.8%,,,,,,,,
+Simisear,251,held_item,1,Life Orb,26.3%,,,,,,,,
+Simisear,251,held_item,2,Charcoal,20.8%,,,,,,,,
+Simisear,251,held_item,3,Focus Sash,18.7%,,,,,,,,
+Simisear,251,held_item,4,Quick Claw,11.7%,,,,,,,,
 Simisear,251,held_item,5,Rocky Helmet,4.3%,,,,,,,,
 Simisear,251,held_item,6,Choice Scarf,2.8%,,,,,,,,
-Simisear,251,held_item,7,Shuca Berry,2.4%,,,,,,,,
-Simisear,251,held_item,8,Wise Glasses,2.4%,,,,,,,,
-Simisear,251,held_item,9,Sitrus Berry,2.2%,,,,,,,,
-Simisear,251,held_item,10,Iron Ball,2.1%,,,,,,,,
+Simisear,251,held_item,7,Sitrus Berry,2.4%,,,,,,,,
+Simisear,251,held_item,8,Shuca Berry,2.4%,,,,,,,,
+Simisear,251,held_item,9,Wise Glasses,2.4%,,,,,,,,
+Simisear,251,held_item,10,Iron Ball,2.2%,,,,,,,,
 Simisear,251,teammate,1,Simisage,,,,,,,,,
 Simisear,251,teammate,2,Simipour,,,,,,,,,
 Simisear,251,teammate,3,Salamence,,,,,,,,,
@@ -29,21 +29,21 @@ Simisear,251,teammate,7,Overqwil,,,,,,,,,
 Simisear,251,teammate,8,Audino,,,,,,,,,
 Simisear,251,teammate,9,Torkoal,,,,,,,,,
 Simisear,251,teammate,10,Crabominable,,,,,,,,,
-Simisear,251,stat_alignment,1,Modest,38.1%,Sp. Atk,Attack,,,,,,
-Simisear,251,stat_alignment,2,Jolly,27.6%,Speed,Sp. Atk,,,,,,
+Simisear,251,stat_alignment,1,Modest,38.2%,Sp. Atk,Attack,,,,,,
+Simisear,251,stat_alignment,2,Jolly,27.4%,Speed,Sp. Atk,,,,,,
 Simisear,251,stat_alignment,3,Timid,23.1%,Speed,Attack,,,,,,
-Simisear,251,stat_alignment,4,Adamant,5.5%,Attack,Sp. Atk,,,,,,
-Simisear,251,stat_alignment,5,Brave,2.1%,Attack,Speed,,,,,,
+Simisear,251,stat_alignment,4,Adamant,5.4%,Attack,Sp. Atk,,,,,,
+Simisear,251,stat_alignment,5,Brave,2.2%,Attack,Speed,,,,,,
 Simisear,251,stat_alignment,6,Quiet,1.8%,Sp. Atk,Speed,,,,,,
 Simisear,251,stat_alignment,7,Naive,1.1%,Speed,Sp. Def,,,,,,
 Simisear,251,stat_alignment,8,Mild,0.7%,Sp. Atk,Defense,,,,,,
 Simisear,251,stat_points,1,,50.8%,,,2,0,0,32,0,32
-Simisear,251,stat_points,2,,17.4%,,,2,32,0,0,0,32
-Simisear,251,stat_points,3,,13.3%,,,32,0,2,0,0,32
-Simisear,251,stat_points,4,,4.5%,,,32,32,2,0,0,0
+Simisear,251,stat_points,2,,17.3%,,,2,32,0,0,0,32
+Simisear,251,stat_points,3,,13.2%,,,32,0,2,0,0,32
+Simisear,251,stat_points,4,,4.6%,,,32,32,2,0,0,0
 Simisear,251,stat_points,5,,3.6%,,,0,0,2,32,0,32
-Simisear,251,stat_points,6,,2.4%,,,20,0,16,13,0,17
-Simisear,251,stat_points,7,,2.4%,,,32,0,1,0,1,32
+Simisear,251,stat_points,6,,2.5%,,,32,0,1,0,1,32
+Simisear,251,stat_points,7,,2.4%,,,20,0,16,13,0,17
 Simisear,251,stat_points,8,,1.8%,,,32,0,0,32,2,0
 Simisear,251,stat_points,9,,0.7%,,,0,0,0,32,2,32
 Simisear,251,stat_points,10,,0.7%,,,26,0,7,0,1,32

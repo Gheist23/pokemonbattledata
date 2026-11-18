@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Persian,240,move,1,Fake Out,68.8%,,,,,,,,
-Persian,240,move,2,Icy Wind,54.6%,,,,,,,,
-Persian,240,move,3,Taunt,38.5%,,,,,,,,
-Persian,240,move,4,Endeavor,35.9%,,,,,,,,
-Persian,240,move,5,Feint,30.6%,,,,,,,,
-Persian,240,move,6,Snarl,28.5%,,,,,,,,
-Persian,240,move,7,Protect,20.4%,,,,,,,,
-Persian,240,move,8,Chilling Water,16.6%,,,,,,,,
-Persian,240,move,9,Round,10.7%,,,,,,,,
-Persian,240,move,10,Hypnosis,10.4%,,,,,,,,
-Persian,240,held_item,1,Focus Sash,56.3%,,,,,,,,
-Persian,240,held_item,2,Wise Glasses,15.6%,,,,,,,,
-Persian,240,held_item,3,Normal Gem,7.7%,,,,,,,,
+Persian,240,move,1,Fake Out,68.4%,,,,,,,,
+Persian,240,move,2,Icy Wind,54.9%,,,,,,,,
+Persian,240,move,3,Taunt,38.1%,,,,,,,,
+Persian,240,move,4,Endeavor,35.6%,,,,,,,,
+Persian,240,move,5,Feint,30.3%,,,,,,,,
+Persian,240,move,6,Snarl,28.3%,,,,,,,,
+Persian,240,move,7,Protect,20.9%,,,,,,,,
+Persian,240,move,8,Chilling Water,16.4%,,,,,,,,
+Persian,240,move,9,Round,11.4%,,,,,,,,
+Persian,240,move,10,Hypnosis,10.2%,,,,,,,,
+Persian,240,held_item,1,Focus Sash,56.5%,,,,,,,,
+Persian,240,held_item,2,Wise Glasses,15.4%,,,,,,,,
+Persian,240,held_item,3,Normal Gem,7.8%,,,,,,,,
 Persian,240,held_item,4,Silk Scarf,7.0%,,,,,,,,
-Persian,240,held_item,5,King's Rock,3.8%,,,,,,,,
-Persian,240,held_item,6,Chople Berry,3.2%,,,,,,,,
-Persian,240,held_item,7,Wide Lens,2.1%,,,,,,,,
+Persian,240,held_item,5,King's Rock,3.7%,,,,,,,,
+Persian,240,held_item,6,Chople Berry,3.1%,,,,,,,,
+Persian,240,held_item,7,Wide Lens,2.0%,,,,,,,,
 Persian,240,held_item,8,Sitrus Berry,1.5%,,,,,,,,
 Persian,240,held_item,9,Black Glasses,0.7%,,,,,,,,
 Persian,240,held_item,10,Rocky Helmet,0.7%,,,,,,,,
@@ -28,27 +28,27 @@ Persian,240,teammate,6,Kingambit,,,,,,,,,
 Persian,240,teammate,7,Milotic,,,,,,,,,
 Persian,240,teammate,8,Clefable,,,,,,,,,
 Persian,240,teammate,9,Sinistcha,,,,,,,,,
-Persian,240,teammate,10,Indeedee,,,,,,,,,
-Persian,240,stat_alignment,1,Jolly,29.5%,Speed,Sp. Atk,,,,,,
-Persian,240,stat_alignment,2,Timid,22.2%,Speed,Attack,,,,,,
-Persian,240,stat_alignment,3,Modest,16.1%,Sp. Atk,Attack,,,,,,
-Persian,240,stat_alignment,4,Naive,15.9%,Speed,Sp. Def,,,,,,
-Persian,240,stat_alignment,5,Adamant,8.1%,Attack,Sp. Atk,,,,,,
+Persian,240,teammate,10,Sylveon,,,,,,,,,
+Persian,240,stat_alignment,1,Jolly,29.3%,Speed,Sp. Atk,,,,,,
+Persian,240,stat_alignment,2,Timid,22.8%,Speed,Attack,,,,,,
+Persian,240,stat_alignment,3,Modest,16.0%,Sp. Atk,Attack,,,,,,
+Persian,240,stat_alignment,4,Naive,15.7%,Speed,Sp. Def,,,,,,
+Persian,240,stat_alignment,5,Adamant,8.0%,Attack,Sp. Atk,,,,,,
 Persian,240,stat_alignment,6,Hasty,4.4%,Speed,Defense,,,,,,
-Persian,240,stat_alignment,7,Naughty,3.1%,Attack,Sp. Def,,,,,,
+Persian,240,stat_alignment,7,Naughty,3.0%,Attack,Sp. Def,,,,,,
 Persian,240,stat_alignment,8,Lonely,0.4%,Attack,Defense,,,,,,
 Persian,240,stat_alignment,9,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
 Persian,240,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Persian,240,stat_points,1,,32.3%,,,2,0,0,32,0,32
-Persian,240,stat_points,2,,25.0%,,,2,32,0,0,0,32
-Persian,240,stat_points,3,,13.1%,,,32,0,0,2,0,32
+Persian,240,stat_points,1,,32.1%,,,2,0,0,32,0,32
+Persian,240,stat_points,2,,24.9%,,,2,32,0,0,0,32
+Persian,240,stat_points,3,,12.9%,,,32,0,0,2,0,32
 Persian,240,stat_points,4,,5.3%,,,0,32,0,0,2,32
 Persian,240,stat_points,5,,4.3%,,,0,0,0,32,0,32
 Persian,240,stat_points,6,,4.2%,,,0,32,2,0,0,32
-Persian,240,stat_points,7,,3.9%,,,32,0,2,0,0,32
-Persian,240,stat_points,8,,3.2%,,,2,32,32,0,0,0
+Persian,240,stat_points,7,,3.8%,,,32,0,2,0,0,32
+Persian,240,stat_points,8,,3.1%,,,2,32,32,0,0,0
 Persian,240,stat_points,9,,2.7%,,,6,26,2,0,0,32
-Persian,240,stat_points,10,,1.4%,,,0,32,0,0,0,32
-Persian,240,ability,1,Technician,78.6%,,,,,,,,
-Persian,240,ability,2,Unnerve,20.6%,,,,,,,,
+Persian,240,stat_points,10,,1.9%,,,0,0,2,32,0,32
+Persian,240,ability,1,Technician,78.9%,,,,,,,,
+Persian,240,ability,2,Unnerve,20.4%,,,,,,,,
 Persian,240,ability,3,Limber,0.7%,,,,,,,,

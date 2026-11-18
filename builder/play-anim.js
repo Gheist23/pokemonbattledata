@@ -172,6 +172,15 @@ export function sentenceFor(step, nameOf) {
     case "switch": {
       const out = name(step.side, step.outTag);
       const into = name(step.side, step.inTag);
+      // A BAIL-OUT is not a choice anybody made, and reading it as one is confusing: it happens
+      // at the end of the turn, after the hit that caused it, and the player never asked for it.
+      // `why` is set only by the engine's own end-of-turn switches; a pivot move already said
+      // what it was, so only the Ability needs naming here.
+      if (step.why === "bailout") {
+        return step.ability
+          ? `${out}'s ${step.ability} took it off the field, and out came ${into}`
+          : `${out} was driven off the field, and out came ${into}`;
+      }
       return `${out} went back, and out came ${into}`;
     }
     default: return "";

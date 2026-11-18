@@ -331,7 +331,13 @@ const isMegaForm = (form) => String(form || "").trim().toLowerCase().startsWith(
   const foe = copy.state.sides[1];
   foe[0].hp = 0; foe[0].out = true;              // knock the front one out...
   copy.state.active[1][0] = null;
-  t.refill(copy.state.active, copy.state.sides, copy.state.board, []);  // ...and let one in
+  // `next` and `board`, in that order. This read `(active, sides, board, [])` -- the board where
+  // the watermark goes -- so `next[s]` came back undefined, nobody was ever let in, and the check
+  // below compared the seat order of a board that had not been refilled. It passed either way,
+  // which is the whole problem: it is the guard for seat order AFTER A REPLACEMENT.
+  t.refill(copy.state.active, copy.state.sides, copy.state.next, copy.state.board);
+  ok("the replacement actually came in", copy.state.active[1].filter(Boolean).length === 2,
+    copy.state.active[1].map((m) => (m ? solver.label(m.u) : "EMPTY")).join(", "));
   const standing = copy.state.active[1].filter(Boolean).map((m) => m.u.species);
   // In the opponent's own board side 0 is the opponent: the Solver always scores side 0.
   const rebuilt = solver.buildState(copy.possibleBoards(1)[0]);

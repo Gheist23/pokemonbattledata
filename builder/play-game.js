@@ -559,12 +559,15 @@ export class PlayGame {
    * off the bench as it always has, and that one is now the chosen one. Nothing in the engine
    * learns about a choice, which is why seat rule 1 and the arrival order are untouched.
    *
-   * THE LIST IS THE DERIVED ONE, not `state.sides[0]`: `tickBoard` hands `refill` the output of
-   * `benchFor`, with the fainted and the standing filtered out, and that array is already built
-   * when the call is held. Reordering `sides` instead reached nothing -- measured, choosing
-   * Incineroar brought Garchomp in. `m.ix` is an index into `sides` and is deliberately NOT
-   * touched: the derived list is a different array, and `applySwitches` reads `ix` against
-   * `sides`, exactly as it does for the sequential pick this replaces.
+   * THE LIST IS `state.sides[0]` ITSELF, which is what `refill` now reads. It used to be handed
+   * a filtered COPY, so this had to reorder that copy instead -- reordering `sides` reached
+   * nothing, and choosing Incineroar brought Garchomp in. The copy is gone (see the note on
+   * `refill`), and with it the reason `ix` was left alone: `ix` is a row's place in this very
+   * list, so a swap here MUST carry it, or every reader of `ix` is given a wrong seat.
+   *
+   * The target is computed with `refill`'s own pick rule rather than assumed to be `next[0]`:
+   * the pick now steps over anyone knocked out or already standing, so the chosen Pokemon has to
+   * be put where that pick will actually land.
    */
   chooseReplacement(tag) {
     const held = this.heldRefill;
@@ -572,15 +575,25 @@ export class PlayGame {
     const wanted = Math.trunc(Number(tag));
     const allowed = new Set(this.replacementChoices().map((choice) => choice.tag));
     if (!allowed.has(wanted)) return false;
-    const bench = held.args?.[1]?.[0];
-    const slot = this.state.next[0];
-    if (!Array.isArray(bench) || slot >= bench.length) return false;
-    const at = bench.findIndex((m) => m && m.tag === wanted);
-    if (at < 0) return false;
-    if (at !== slot) {
-      const other = bench[slot];
-      bench[slot] = bench[at];
-      bench[at] = other;
+    const rows = this.state.sides[0];
+    if (!Array.isArray(rows)) return false;
+    const standing = this.state.active[0];
+    const free = (m) => Boolean(m) && !m.out && m.hp > 0 && !standing.includes(m);
+    // Where `refill` will look: the first one it can use at or after the watermark, and failing
+    // that its last-resort scan from the front.
+    let target = -1;
+    for (let i = Math.max(0, this.state.next[0]); i < rows.length; i += 1) {
+      if (free(rows[i])) { target = i; break; }
+    }
+    if (target < 0) target = rows.findIndex(free);
+    const at = rows.findIndex((m) => m && m.tag === wanted);
+    if (at < 0 || target < 0) return false;
+    if (at !== target) {
+      const other = rows[target];
+      rows[target] = rows[at];
+      rows[at] = other;
+      rows[target].ix = target;
+      if (other) other.ix = at;
     }
     this.heldRefill = null;
     // `tickBoard` marks the arrivals `justIn` and `entered` AFTER it calls `refill`, and that
@@ -606,6 +619,23 @@ export class PlayGame {
     if (!left[0] && !left[1]) return { winner: "draw", why: "Both sides went down together." };
     if (!left[0]) return { winner: 1, why: "You have nothing left standing." };
     if (!left[1]) return { winner: 0, why: "Their last Pokemon went down." };
+    // AND A SIDE THAT CANNOT PUT ANYBODY ON THE FIELD HAS LOST, whatever its bench says.
+    //
+    // The three rules above ask what is still alive, which is the right question only while
+    // everything alive that can stand IS standing. A Pokemon stranded on the bench by a broken
+    // replacement kept a side "alive" with an empty field, so the game was neither finishable
+    // nor finished: it offered a turn with nothing to choose, for ever. `refill` no longer
+    // strands anybody (see the note on it in tournament-test.js) and this should not be
+    // reachable -- it is here because a game that cannot end is the worst way to be wrong.
+    //
+    // Not while a replacement is PENDING: the seats are deliberately empty then, waiting for the
+    // player to say who comes in, and that is a turn in progress rather than a lost game.
+    if (!this.heldRefill) {
+      const standing = this.state.active.map((row) => row.filter((m) => m && !m.out && m.hp > 0).length);
+      if (!standing[0] && !standing[1]) return { winner: "draw", why: "Neither side has anybody left to send out." };
+      if (!standing[0]) return { winner: 1, why: "You have nobody left to send out." };
+      if (!standing[1]) return { winner: 0, why: "They have nobody left to send out." };
+    }
     if (this.turn >= TURN_LIMIT) {
       const hp = this.state.sides.map((list) => list.reduce((sum, m) => sum + Math.max(0, m.hp), 0));
       if (Math.abs(hp[0] - hp[1]) < 1e-9) return { winner: "draw", why: `${TURN_LIMIT} turns, and nothing between you.` };
@@ -1182,11 +1212,10 @@ export class PlayGame {
     // apart from one that was already gone.
     const heldBefore = this.state.sides.map((list) =>
       new Map(list.map((m) => [m.tag, { sash: m.sash, berry: m.berry, oran: m.oran, cure: m.cure, leppa: m.leppa, rberry: m.rberry, mega: Boolean(m.mega), busted: Boolean(m.busted) }])));
-    // Read BEFORE the turn, because this is the only moment either survives: a joint action's
+    // Read BEFORE the turn, because this is the only moment it survives: a joint action's
     // `position` means what it says until `applySwitches` moves Pokemon between the field and
-    // the bench, and `ix` is where each Pokemon sits in its side's list before that same swap.
+    // the bench.
     const declared = [this.declare(ourJoint, 0), this.declare(theirJoint, 1)];
-    const ixWas = this.state.sides.map((list) => new Map(list.map((m) => [m.tag, m.ix])));
     const events = [];
     const watch = this.watchTurn(events);
     // THE TURN GETS ITS OWN ROLL STREAM. The hit and damage rolls do not come from `this.rng` --
@@ -1219,7 +1248,7 @@ export class PlayGame {
     const record = this.solver.turnRecord(this.turn, chosen, events, before, this.solver.snapshot(this.state));
     // Additive, and last: the four buckets above are built from the same events and the same
     // snapshots they always were.
-    record.stream = this.streamFrom({ events, before, declared, ixWas });
+    record.stream = this.streamFrom({ events, before, declared });
     this.log.push(record);
     return record;
   }
@@ -1477,11 +1506,10 @@ export class PlayGame {
       // rule 1 says everyone replaced this turn is on the field before any of them triggers.
       // Filling only the opponent first would send its Intimidate at an empty seat.
       if (game.replacementNeeded()) {
-        // The ARGUMENTS travel with it. `refill` is handed `benchFor(state)`, a list DERIVED
-        // from `sides` with the fainted and the standing filtered out, and it is already
-        // built by the time this runs -- so reordering `state.sides` afterwards reaches
-        // nothing. Measured: choosing Incineroar brought Garchomp in. The choice has to
-        // reorder the list refill will actually read.
+        // The ARGUMENTS travel with it, so the call that eventually runs is the same call.
+        // `refill` is handed `state.sides` itself now, so `chooseReplacement` reorders that --
+        // it was once handed a filtered copy built before the hold, and reordering `state.sides`
+        // then reached nothing at all. Measured: choosing Incineroar brought Garchomp in.
         game.heldRefill = { args, run: () => was.apply(this, args) };
         return undefined;
       }
@@ -1510,10 +1538,11 @@ export class PlayGame {
   /**
    * One turn as an ordered list of steps: one walk, over one array, in order.
    *
-   * `before` is the HP snapshot the turn started from, `declared` what each side chose and
-   * `ixWas` where everybody sat before the switches. The opening has neither of the last two.
+   * `before` is the HP snapshot the turn started from and `declared` what each side chose. The
+   * opening has neither. Switches are NOT derived from the board here -- they are events; see
+   * the note on them below.
    */
-  streamFrom({ events, before, declared = [null, null], ixWas = null }) {
+  streamFrom({ events, before, declared = [null, null] }) {
     const steps = [];
     const moved = new Set();
     const gone = new Set();
@@ -1532,24 +1561,30 @@ export class PlayGame {
       }
     }
 
-    // Switches first, because `applySwitches` is the first thing a turn does -- and it pushes no
-    // event, so this is read off the board instead. `ix` is where a Pokemon sits in its side's
-    // list, the switch is the only thing that ever moves it, and it swaps the leaver's with the
-    // arriver's: so the arriver is whichever of a swapped pair ended up with the LOWER index,
-    // because the standing Pokemon are the front of that list. Read rather than re-derived, so
-    // a switch the engine refused does not appear here as one that happened.
-    if (ixWas) {
-      for (let s = 0; s < 2; s += 1) {
-        for (const m of this.state.sides[s]) {
-          const was = ixWas[s].get(m.tag);
-          if (was === undefined || m.ix >= was) continue;
-          const left = this.state.sides[s].find((o) => o !== m && o.ix === was);
-          if (!left) continue;
-          steps.push({ kind: "switch", side: s, outTag: left.tag, inTag: m.tag });
-          arrived.add(seatKey(s, m.tag));
-          replaced.set(seatKey(s, left.tag), m.tag);
-        }
-      }
+    // THE CHOSEN SWITCHES, first, because `applySwitches` is the first thing a turn does.
+    //
+    // Taken from the engine's own `switchout` events. This used to be WORKED OUT afterwards from
+    // the `ix` each row ended the turn with -- the arriver being whichever of a swapped pair came
+    // out with the lower index -- and that derivation cannot be made to work, for two reasons
+    // that each produced a wrong line in a real game:
+    //
+    //   * two switches on one side in one turn swap two pairs of indices at once, and the
+    //     `find` for "who ended up where the arriver was" then lands on the OTHER switch's
+    //     arriver. One step named the wrong Pokemon as the one that had left;
+    //   * a bail-out (Emergency Exit) and a pivot move move a Pokemon off the field at the END
+    //     of the turn, inside `refill`, and swap `ix` in exactly the same way. Read off the
+    //     board there is nothing to tell the two apart, so those were announced at the TOP of
+    //     the turn as well -- which is how a log came to read "Golisopod went back, and out came
+    //     Rillaboom" and then show Golisopod taking both of that turn's Rock Slides.
+    //
+    // Events are still only emitted for switches that HAPPENED: `applySwitches` refuses what the
+    // board cannot do, and pushes nothing when it does. The late ones are handled in the walk
+    // below, where they belong.
+    for (const event of events || []) {
+      if (!event || event.kind !== "switchout") continue;
+      steps.push({ kind: "switch", side: event.s, outTag: event.outTag, inTag: event.inTag });
+      arrived.add(seatKey(event.s, event.inTag));
+      replaced.set(seatKey(event.s, event.outTag), event.inTag);
     }
 
     const faint = (m) => {
@@ -1714,6 +1749,16 @@ export class PlayGame {
         }
         continue;
       }
+      // A BAIL-OUT or a PIVOT, in its place: the leaver is alive and has gone to the bench, so
+      // this is a switch and not a knockout's replacement. Pushed here, which is after the moves
+      // and the end-of-turn chip -- where it happened -- and `arrived` is marked so the ENTERED
+      // event that follows does not also announce the arriver as a fresh send.
+      if (event.kind === "bailout" || event.kind === "pivotout") {
+        steps.push({ kind: "switch", side: event.s, outTag: event.outTag, inTag: event.inTag,
+                     why: event.kind, ability: event.ability || "" });
+        arrived.add(seatKey(event.s, event.inTag));
+        continue;
+      }
       if (event.kind === ENTERED) {
         const m = event.mon;
         // A Pokemon that switched in already has a step that says where it came from. One that
@@ -1837,6 +1882,10 @@ export class PlayGame {
       case "terrain": return `${by} set ${event.value} Terrain`;
       case "mega": return `${by} Mega Evolved`;
       case "intimidate": return `${by} lowered ${list(event.targets)}'s Attack`;
+      // STAMINA, which answers every hit that lands on its holder. A critical hit ignores the
+      // Defense it has built up, which is the game's rule, so the line can be followed by a crit
+      // that looks as though the stage were never there.
+      case "stamina": return `${by}'s Stamina raised its Defense`;
       case "speeddrop":
       case "lower": {
         const stats = (DROPPED[event.kind] || event.stats || []).map((key) => STAT_WORDS[key] || key);

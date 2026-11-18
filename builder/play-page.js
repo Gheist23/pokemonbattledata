@@ -91,6 +91,8 @@ const state = {
    * switches tab mid-battle must not turn an exhibition into a rated game, or the other way.
    */
   customGame: false,
+  /** A next game being dealt, so a second click cannot write a second loss for one game. */
+  nexting: false,
   /** The preview: their six, and the id the worker remembers the deal by. */
   previewId: "",
   foe: [],
@@ -795,6 +797,10 @@ async function startGame() {
 
 /** Every Pokemon that has something to choose has had it chosen, and nothing is half-chosen. */
 function turnReady() {
+  // A finished game has no next turn. `renderControls` shows the result instead of the choices,
+  // so these should not be reachable -- but a click that was already in flight, or a stale
+  // `state.options` left over from the last turn, must not start one.
+  if (state.view?.over) return false;
   const slots = state.options.filter((slot) => !slot.empty);
   return slots.length > 0 && !state.targeting && slots.every((slot) => state.chosen[slot.position]);
 }
@@ -807,6 +813,7 @@ function turnReady() {
  * having -- it is the only way back, so it stays on screen the whole time.
  */
 function afterChoice() {
+  if (state.view?.over) return;
   render();
   if (turnReady()) sendTurn();
 }
@@ -820,7 +827,7 @@ function afterChoice() {
  * question is simply drawn again rather than the turn being lost.
  */
 async function sendReplacement(tag) {
-  if (state.thinking || state.animating || !state.gameId) return;
+  if (state.thinking || state.animating || !state.gameId || state.view?.over) return;
   state.thinking = true;
   render();
   let answer;
@@ -859,7 +866,7 @@ async function sendReplacement(tag) {
 }
 
 async function sendTurn() {
-  if (state.thinking || state.animating || !state.gameId) return;
+  if (state.thinking || state.animating || !state.gameId || state.view?.over) return;
   state.thinking = true;
   render();
   let answer;
@@ -1365,6 +1372,15 @@ function renderControls(view) {
         type: "button", class: "ghost-button bd-play-resign",
         onclick: () => resign(),
       }, "Resign"),
+      h("button", {
+        type: "button", class: "ghost-button bd-play-next",
+        // Said on the button itself rather than behind a second dialog: Resign is the deliberate
+        // way out and already asks, and this one is meant to be quick.
+        title: state.customGame
+          ? "Give this one up and deal the next against the same team"
+          : "Give this one up (it counts as a loss) and deal the next against a new team",
+        onclick: () => nextGame(),
+      }, "Next game"),
       h("label", { class: "bd-play-pace" },
         h("span", {}, "Pace"),
         select(PACES.map(([value, label]) => [String(value), label]), String(state.pace), (value) => {
@@ -1548,6 +1564,44 @@ function renderSlotChoice(slot, view) {
         }, `→ ${action.intoName}`);
       }))
       : null);
+}
+
+/**
+ * Start the next game, from wherever this one got to.
+ *
+ * Beside Resign, and it costs the same thing while a game is still running: the game is written
+ * down as a loss, exactly as resigning writes it down, because leaving a rated game unfinished
+ * cannot be free. Nothing is taken for a game that is already over, or for a Custom one, which
+ * `finishGame` keeps off the record entirely.
+ *
+ * Then straight back to the team preview through `deal`, which already knows the difference the
+ * two tabs make: the Custom tab sends its own opponent again, so the next game is against the
+ * SAME team, and anywhere else the worker rolls a fresh tournament team.
+ */
+async function nextGame() {
+  if (state.nexting) return;
+  state.nexting = true;
+  try {
+    const gameId = state.gameId;
+    // The board is left FIRST and the worker told afterwards, which is the lesson `resign` is
+    // written around: waiting on the worker leaves this button on screen and clickable, and a
+    // second click wrote a second loss for one game.
+    if (gameId && !state.view?.over) {
+      await musicForBattle(false);
+      finishGame("loss", { resigned: true });
+      state.gameId = "";
+      state.view = null;
+      state.options = [];
+      state.chosen = [];
+      state.mega = [];
+      state.targeting = null;
+      ask("play", { action: "resign", format: state.format, settings: getState().settings || {}, gameId })
+        .catch(() => {});
+    }
+    await deal();
+  } finally {
+    state.nexting = false;
+  }
 }
 
 function resign() {

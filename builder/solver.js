@@ -310,7 +310,10 @@ export class Solver {
     // decides whether a line actually works.
     this.t.rollHit = (hit) => this.rollDamage(hit);
     // And this is what a Pokemon does about being hit. The Tournament Test leaves it unset.
-    this.t.onHit = (target) => this.afterBeingHit(target);
+    // ALL FOUR ARGUMENTS. This forwarded only the target, so `events` never arrived and the
+    // Stamina line was written nowhere -- the stage went up, the damage came down, and the log
+    // said nothing about why.
+    this.t.onHit = (target, att, hit, events) => this.afterBeingHit(target, att, hit, events);
   }
 
   /**
@@ -325,12 +328,17 @@ export class Solver {
    * `m.def` is a DELTA on top of the stage the board was set up with, which is why it starts at
    * zero and why `hitOn` adds the two together rather than replacing one with the other.
    */
-  afterBeingHit(target) {
+  afterBeingHit(target, att, hit, events = null) {
     if (!target || target.out) return;
     if (compact(target.u.mon.ability || "") !== "stamina") return;
     // +6 is the ceiling the game has, and the stage the board was set up with counts towards it.
     const base = target.u.mon.defense_stage || 0;
-    target.def = clampStage(base + (target.def || 0) + 1) - base;
+    const was = target.def || 0;
+    target.def = clampStage(base + was + 1) - base;
+    // Said only when the stage actually moved, so a holder already at +6 does not announce a
+    // raise that did not happen. Nothing used to be said at all, and a player watching the
+    // damage come down had no way to tell this from a bad roll.
+    if (target.def !== was) events?.push({ s: target.s, kind: "stamina", actor: target.u });
   }
 
   /**
@@ -972,12 +980,34 @@ export class Solver {
 
   // --- playing one line ------------------------------------------------------------------
 
-  /** The switches of a joint action, which resolve before anything else on the turn. */
-  applySwitches(state, joint, s) {
+  /**
+   * The switches of a joint action, which resolve before anything else on the turn.
+   *
+   * `events` is optional, as everywhere else: the search runs millions of these and wants none of
+   * it. With an array to hand, each switch that actually HAPPENS says so, naming both Pokemon by
+   * tag. The stream used to work them out afterwards from the `ix` each row ended the turn with,
+   * and that cannot be done: two switches on one side in one turn swap two pairs of indices at
+   * once, and the pairing then came out crossed -- one step named the other switch's arriver as
+   * the Pokemon that had left. A log said "Golisopod went back, and out came Rillaboom" when it
+   * was Salamence that left.
+   */
+  applySwitches(state, joint, s, events = null) {
+    // WHO IS LEAVING, before any of them has. Both seats can switch on the same turn, and the
+    // game gives them two DIFFERENT Pokemon off the bench. Without this, the second seat was
+    // allowed to name the Pokemon the first seat was sending away -- the guard below only asks
+    // whether it is standing, and by then it had already been taken off -- so one Pokemon left
+    // one seat and walked straight into the other. Measured over 120 games: 21 turns.
+    const leaving = new Set();
+    for (const action of joint) {
+      if (action.kind !== SWITCH) continue;
+      const m = state.active[s][action.position];
+      if (m) leaving.add(m);
+    }
     for (const action of joint) {
       if (action.kind !== SWITCH) continue;
       const out = state.active[s][action.position];
       const into = state.sides[s][action.into];
+      if (into && leaving.has(into)) continue;
       // `out` is never empty for an action that was offered (a slot with nothing in it offers
       // no switch), but the swap below would put a hole in `sides` if it ever were, and
       // `valueOf` reduces over that list.
@@ -1009,6 +1039,8 @@ export class Solver {
       if (out.st) out.st.cnf = 0;
       // ZERO TO HERO: Palafin leaves as Zero and will come back as Hero.
       this.t.leaveField(out);
+      // Said at the moment it happens, by the only code that knows both halves of the pair.
+      events?.push({ s, kind: "switchout", actor: out.u, into: into.u, outTag: out.tag, inTag: into.tag });
       // NATURAL CURE: the condition goes with the stages, which is the one Ability for which
       // the line above is not the whole truth (TOURNAMENT_ABILITY_OPS).
       if (this.t.abilityOpsOn && out.k.cureOnSwitchOut && out.st) {
@@ -1156,8 +1188,8 @@ export class Solver {
    */
   applyChosenTurn(state, ourJoint, theirJoint, turn, events) {
     const { active, sides, next, board, slower } = state;
-    this.applySwitches(state, ourJoint, 0);
-    this.applySwitches(state, theirJoint, 1);
+    this.applySwitches(state, ourJoint, 0, events);
+    this.applySwitches(state, theirJoint, 1, events);
     // A Pokemon that came in this turn gets its entry Ability, exactly as a replacement does --
     // and in the same order `refill` uses, fastest first, so that the SLOWER one's weather is the
     // one left on the board. Walking the seats instead meant side 1 always won a weather war.
@@ -1172,7 +1204,7 @@ export class Solver {
     this.thaw(state);
     const plans = [this.planFor(state, ourJoint, 0), this.planFor(state, theirJoint, 1)];
     this.t.plannedTurn(active, board, slower, turn, events, null, plans);
-    this.tickBoard(state);
+    this.tickBoard(state, events);
   }
 
   /**
@@ -1301,7 +1333,7 @@ export class Solver {
     this.applyStances(state, null, events);
     this.thaw(state);
     const plans = this.t.plannedTurn(active, board, slower, turn, events, null);
-    this.tickBoard(state);
+    this.tickBoard(state, events);
     return plans;
   }
 
@@ -1383,9 +1415,9 @@ export class Solver {
     }
   }
 
-  tickBoard(state) {
-    // Not `sides`: what goes to `refill` is `benchFor(state)`, and a binding left here would
-    // read as though the raw list still did.
+  tickBoard(state, events = null) {
+    // `sides` is deliberately not destructured here: `refill` is reached through the call below,
+    // which names `state.sides` where it is needed.
     const { active, next, board } = state;
     // Before the empty slots are filled, so a Pokemon that goes down to its own poison is
     // replaced on the same turn as one that was knocked out by a move.
@@ -1403,7 +1435,11 @@ export class Solver {
     // flag for the rest of the line.
     const before = active.map((row) => row.map((m) => (m && !m.out ? m.u.id : null)));
     for (const row of active) for (const m of row) if (m) m.justIn = false;
-    this.t.refill(active, this.benchFor(state), next, board);
+    // THE LIVE LIST, with the filtering done at the moment of the pick (`skipSpent`). This used
+    // to hand over `benchFor(state)`, a copy with the fainted and the standing already removed,
+    // and a copy cannot work here: `refill` writes to the list as well as reading it. See the
+    // note on `refill` for the three defects that came out of it.
+    this.t.refill(active, state.sides, next, board, { events, skipSpent: true });
     // A replacement sent out to fill a gap has only just arrived, so it gets what the game gives
     // a Pokemon that has only just arrived: Fake Out and First Impression on the turn it acts.
     //
@@ -1416,37 +1452,6 @@ export class Solver {
         m.entered = true;
       }
     }));
-  }
-
-  /**
-   * `sides`, with the bench narrowed to the Pokemon that can still be sent out.
-   *
-   * `refill` takes whatever is next off the bench without asking whether it is still standing,
-   * and `enter` then fires that Pokemon's entry Ability. So the bodies walked onto the field one
-   * a turn, each one setting its weather and its Intimidate: measured, a fainted Pelipper put up
-   * Rain and then a fainted Incineroar lowered both of the other side's Attack.
-   *
-   * READ THIS BEFORE ASSUMING IT IS ONLY ABOUT THE NEW CASE. It is not. Any board with a
-   * knocked-out Pokemon behind the field reaches it, which the HP slider produces on an ordinary
-   * two-standing board, and over 357 page-shaped boards (6,325 turns) 41 walk-ons fired -- not
-   * one of them on a board with a side standing alone. Boards people have already answered
-   * answer differently now: measured on one, the value moved 32.04 to 29.93 and the top line
-   * changed which Pokemon it aimed at. That is the fix working, and it is still a change to
-   * answers that were given before.
-   *
-   * Narrowing what is handed over rather than teaching `refill` to check: that method is the
-   * Tournament Test's own and every recorded game was played through it exactly as it is.
-   *
-   * The first `next[s]` entries are passed through untouched, because `next` indexes into this
-   * list and nothing may shift under it. Only the bench behind that is filtered, and it drops
-   * both the fainted and anyone already standing -- the second is what keeps a Pokemon that a
-   * switch moved down the list from being sent out while it is on the field.
-   */
-  benchFor({ sides, active, next }) {
-    return sides.map((list, s) => [
-      ...list.slice(0, next[s]),
-      ...list.slice(next[s]).filter((m) => !m.out && !active[s].includes(m)),
-    ]);
   }
 
   /** Whether there is anything left to play. */

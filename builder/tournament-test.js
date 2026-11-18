@@ -3306,7 +3306,11 @@ export class TournamentTest {
         att.resid -= damage * (target.k.maxHp / Math.max(1, att.k.maxHp)) * share;
       }
     }
-    if (this.onHit) this.onHit(target, att, hit);
+    // `events` goes with it so an Ability that answers a hit can SAY so. Stamina has been raising
+    // Archaludon's Defense correctly all along -- measured, four hits took 6.66%, 4.42%, 3.29%,
+    // 2.77%, which is the Defense-stage ladder exactly -- and the log said nothing, so from the
+    // outside it looked as though nothing happened.
+    if (this.onHit) this.onHit(target, att, hit, events);
     return true;
   }
 
@@ -5634,7 +5638,38 @@ export class TournamentTest {
    * bring [1,2,3,4] came out at 44.21 instead of 50.00), and it put the weather of whichever side
    * refilled second on the board whatever the Speed.
    */
-  refill(active, sides, next, board) {
+  /**
+   * `skipSpent` makes the pick below step over anyone already knocked out or already standing,
+   * instead of handing them out. OFF by default, and every caller inside this class leaves it
+   * off: `refill` takes whatever is next off the bench without asking, `enter` then fires that
+   * Pokemon's entry Ability, and so the bodies walked onto the field one a turn, each setting its
+   * weather and its Intimidate. That is a real defect of the Tournament Test, but its numbers are
+   * published and compared against the Companion -- measured on one board, fixing it moved the
+   * value from 32.04 to 29.93 and changed which Pokemon the top line aimed at -- so it is fixed
+   * for the Solver and the played game and left exactly as recorded here.
+   *
+   * The Solver used to get that by handing over a COPY of its side lists with the fainted and the
+   * standing filtered out (`benchFor`). A copy cannot work, because this method both reads the
+   * list and writes to it:
+   *
+   *   * the bail-out and pivot SWAP below wrote into the copy, which was thrown away, while the
+   *     `ix` it writes went onto the rows and survived -- so `state.sides` kept its old order
+   *     while the rows carried swapped indices, and `ix`, which every reader takes to mean "where
+   *     this Pokemon sits in its side's list", was wrong from then on;
+   *   * and the copy was taken BEFORE that swap, so a Pokemon the swap had just brought onto the
+   *     field was still listed as available and was handed out a second time. Measured: Rillaboom
+   *     standing in both of one side's seats at once.
+   *
+   * So the live list is passed, and the filtering happens at the moment of the pick instead.
+   * Over 120 games this took 291 turns with a broken `ix`, 74 turns that left a seat empty with a
+   * healthy Pokemon on the bench, 39 turns whose log said a Pokemon had gone back and then showed
+   * it taking a hit, and 4 boards with one Pokemon in two seats, down to none.
+   *
+   * `events` is optional for the same reason it is everywhere else in here: the search runs
+   * millions of these turns and wants none of it. With an array to hand, a bail-out says so, which
+   * is how the stream can put the step at the end of the turn, where it actually happened.
+   */
+  refill(active, sides, next, board, { events = null, skipSpent = false } = {}) {
     const arriving = [];
     // EMERGENCY EXIT, before the fainted are replaced (TOURNAMENT_BAIL). The swap is the one
     // `applySwitches` makes -- the leaver goes to the BENCH and keeps its HP, so it can come
@@ -5669,6 +5704,17 @@ export class TournamentTest {
           out.ix = intoIx;
           into.ix = outIx;
           into.justIn = true;
+          // It happened HERE, at the end of the turn, and not with the chosen switches at the
+          // start of it. Without this the stream worked the switch out from the `ix` it can see
+          // afterwards and put the step at the top, so a log read "Golisopod went back, and out
+          // came Rillaboom" and then showed Golisopod taking both of that turn's Rock Slides.
+          // By TAG, which is the row's own index and needs no lookup. `label` lives on the
+          // Solver, not here.
+          events?.push({ s, kind: bails ? "bailout" : "pivotout", actor: out.u, into: into.u,
+                         outTag: out.tag, inTag: into.tag,
+                         // The Ability that did it, so the line can say so. Only a bail-out has
+                         // one -- a pivot is a move, and its own "used U-turn" line came first.
+                         ability: bails ? (out.u?.mon?.ability || "") : "" });
           // Stat stages are lost the moment a Pokemon leaves the field, exactly as in
           // `applySwitches`, and so are its volatiles -- unless this is a BATON PASS, whose
           // whole point is that they go to whoever comes in.
@@ -5741,7 +5787,27 @@ export class TournamentTest {
           // than this line being left faithful to a defect.
           m.charged = false;
         }
-        const incoming = next[s] < sides[s].length ? sides[s][next[s]++] : null;
+        let incoming = null;
+        while (next[s] < sides[s].length) {
+          const candidate = sides[s][next[s]];
+          next[s] += 1;
+          // `skipSpent` off is the recorded behaviour: take it whatever state it is in.
+          if (!skipSpent || (candidate && !candidate.out && candidate.hp > 0 && !active[s].includes(candidate))) {
+            incoming = candidate;
+            break;
+          }
+        }
+        // LAST RESORT, and only reachable where the loop above comes back empty while somebody is
+        // plainly still available. `next[s]` is a watermark -- it counts replacements rather than
+        // naming them -- and it walks forward over a list that a switch or a bail-out reorders
+        // underneath it, so it can run off the end with a healthy Pokemon still on the bench. The
+        // seat then stays empty for the rest of the game: measured, Archaludon went down and
+        // Salamence, alive on the bench, was never sent out. Under `skipSpent` the swap now keeps
+        // the leaver behind the watermark and this should never fire -- it is here because a seat
+        // left empty is a game that cannot be finished, which is the worst way to be wrong.
+        if (!incoming && skipSpent) {
+          incoming = sides[s].find((b) => b && !b.out && b.hp > 0 && !active[s].includes(b)) || null;
+        }
         active[s][slot] = incoming;
         if (!incoming) continue;
         if (this.seatRule >= 1) arriving.push(incoming);

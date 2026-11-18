@@ -1,54 +1,54 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Persian,259,move,1,Fake Out,60.0%,,,,,,,,
-Persian,259,move,2,Icy Wind,37.5%,,,,,,,,
-Persian,259,move,3,Taunt,36.7%,,,,,,,,
-Persian,259,move,4,U-turn,29.3%,,,,,,,,
-Persian,259,move,5,Endeavor,24.5%,,,,,,,,
-Persian,259,move,6,Bite,20.3%,,,,,,,,
-Persian,259,move,7,Feint,19.9%,,,,,,,,
-Persian,259,move,8,Covet,19.6%,,,,,,,,
-Persian,259,move,9,Snarl,19.4%,,,,,,,,
-Persian,259,move,10,Foul Play,13.8%,,,,,,,,
-Persian,259,held_item,1,Focus Sash,43.4%,,,,,,,,
-Persian,259,held_item,2,Normal Gem,17.6%,,,,,,,,
-Persian,259,held_item,3,Sitrus Berry,11.2%,,,,,,,,
-Persian,259,held_item,4,Life Orb,10.0%,,,,,,,,
-Persian,259,held_item,5,Choice Scarf,5.0%,,,,,,,,
-Persian,259,held_item,6,Silk Scarf,2.7%,,,,,,,,
-Persian,259,held_item,7,Bright Powder,2.1%,,,,,,,,
-Persian,259,held_item,8,Expert Belt,1.4%,,,,,,,,
-Persian,259,held_item,9,Focus Band,0.7%,,,,,,,,
-Persian,259,held_item,10,Wide Lens,0.6%,,,,,,,,
+Persian,259,move,1,Fake Out,61.2%,,,,,,,,
+Persian,259,move,2,Icy Wind,36.4%,,,,,,,,
+Persian,259,move,3,Taunt,35.4%,,,,,,,,
+Persian,259,move,4,U-turn,30.3%,,,,,,,,
+Persian,259,move,5,Endeavor,24.3%,,,,,,,,
+Persian,259,move,6,Feint,20.3%,,,,,,,,
+Persian,259,move,7,Bite,20.3%,,,,,,,,
+Persian,259,move,8,Covet,19.5%,,,,,,,,
+Persian,259,move,9,Snarl,18.9%,,,,,,,,
+Persian,259,move,10,Foul Play,13.9%,,,,,,,,
+Persian,259,held_item,1,Focus Sash,43.0%,,,,,,,,
+Persian,259,held_item,2,Normal Gem,17.3%,,,,,,,,
+Persian,259,held_item,3,Life Orb,11.4%,,,,,,,,
+Persian,259,held_item,4,Sitrus Berry,11.0%,,,,,,,,
+Persian,259,held_item,5,Choice Scarf,4.8%,,,,,,,,
+Persian,259,held_item,6,Silk Scarf,2.6%,,,,,,,,
+Persian,259,held_item,7,Bright Powder,2.0%,,,,,,,,
+Persian,259,held_item,8,Expert Belt,1.5%,,,,,,,,
+Persian,259,held_item,9,Focus Band,0.6%,,,,,,,,
+Persian,259,held_item,10,Wide Lens,0.5%,,,,,,,,
 Persian,259,teammate,1,Kangaskhan,,,,,,,,,
-Persian,259,teammate,2,Zoroark-Hisui,,,,,,,,,
-Persian,259,teammate,3,Salamence,,,,,,,,,
-Persian,259,teammate,4,Snorlax,,,,,,,,,
-Persian,259,teammate,5,Mimikyu,,,,,,,,,
-Persian,259,teammate,6,Toxapex,,,,,,,,,
-Persian,259,teammate,7,Garchomp,,,,,,,,,
-Persian,259,teammate,8,Gyarados,,,,,,,,,
-Persian,259,teammate,9,Hydreigon,,,,,,,,,
-Persian,259,teammate,10,Toucannon,,,,,,,,,
+Persian,259,teammate,2,Salamence,,,,,,,,,
+Persian,259,teammate,3,Zoroark-Hisui,,,,,,,,,
+Persian,259,teammate,4,Mimikyu,,,,,,,,,
+Persian,259,teammate,5,Snorlax,,,,,,,,,
+Persian,259,teammate,6,Hydreigon,,,,,,,,,
+Persian,259,teammate,7,Toxapex,,,,,,,,,
+Persian,259,teammate,8,Garchomp,,,,,,,,,
+Persian,259,teammate,9,Lucario,,,,,,,,,
+Persian,259,teammate,10,Gyarados,,,,,,,,,
 Persian,259,stat_alignment,1,Jolly,40.8%,Speed,Sp. Atk,,,,,,
-Persian,259,stat_alignment,2,Timid,23.8%,Speed,Attack,,,,,,
-Persian,259,stat_alignment,3,Adamant,17.0%,Attack,Sp. Atk,,,,,,
-Persian,259,stat_alignment,4,Hasty,5.6%,Speed,Defense,,,,,,
-Persian,259,stat_alignment,5,Naive,4.7%,Speed,Sp. Def,,,,,,
-Persian,259,stat_alignment,6,Naughty,3.7%,Attack,Sp. Def,,,,,,
-Persian,259,stat_alignment,7,Modest,3.3%,Sp. Atk,Attack,,,,,,
-Persian,259,stat_alignment,8,Lonely,0.7%,Attack,Defense,,,,,,
+Persian,259,stat_alignment,2,Timid,23.1%,Speed,Attack,,,,,,
+Persian,259,stat_alignment,3,Adamant,18.2%,Attack,Sp. Atk,,,,,,
+Persian,259,stat_alignment,4,Hasty,5.5%,Speed,Defense,,,,,,
+Persian,259,stat_alignment,5,Naive,4.5%,Speed,Sp. Def,,,,,,
+Persian,259,stat_alignment,6,Naughty,3.6%,Attack,Sp. Def,,,,,,
+Persian,259,stat_alignment,7,Modest,3.2%,Sp. Atk,Attack,,,,,,
+Persian,259,stat_alignment,8,Lonely,0.6%,Attack,Defense,,,,,,
 Persian,259,stat_alignment,9,Impish,0.2%,Defense,Sp. Atk,,,,,,
 Persian,259,stat_alignment,10,Quiet,0.1%,Sp. Atk,Speed,,,,,,
 Persian,259,stat_points,1,,27.0%,,,2,32,0,0,0,32
-Persian,259,stat_points,2,,17.1%,,,2,0,0,32,0,32
-Persian,259,stat_points,3,,8.9%,,,32,32,0,0,0,2
-Persian,259,stat_points,4,,6.6%,,,0,32,0,0,2,32
-Persian,259,stat_points,5,,6.3%,,,1,0,1,32,0,32
-Persian,259,stat_points,6,,4.5%,,,0,32,2,0,0,32
-Persian,259,stat_points,7,,3.5%,,,1,32,0,0,1,32
-Persian,259,stat_points,8,,3.4%,,,1,0,23,0,10,32
-Persian,259,stat_points,9,,3.4%,,,31,0,3,0,0,32
-Persian,259,stat_points,10,,3.1%,,,0,32,0,2,0,32
-Persian,259,ability,1,Technician,93.7%,,,,,,,,
-Persian,259,ability,2,Limber,3.4%,,,,,,,,
-Persian,259,ability,3,Unnerve,2.9%,,,,,,,,
+Persian,259,stat_points,2,,16.8%,,,2,0,0,32,0,32
+Persian,259,stat_points,3,,8.8%,,,32,32,0,0,0,2
+Persian,259,stat_points,4,,6.3%,,,0,32,0,0,2,32
+Persian,259,stat_points,5,,6.1%,,,1,0,1,32,0,32
+Persian,259,stat_points,6,,5.0%,,,0,32,2,0,0,32
+Persian,259,stat_points,7,,4.4%,,,1,32,0,0,1,32
+Persian,259,stat_points,8,,3.3%,,,1,0,23,0,10,32
+Persian,259,stat_points,9,,3.3%,,,31,0,3,0,0,32
+Persian,259,stat_points,10,,3.0%,,,0,32,0,2,0,32
+Persian,259,ability,1,Technician,93.3%,,,,,,,,
+Persian,259,ability,2,Unnerve,3.4%,,,,,,,,
+Persian,259,ability,3,Limber,3.3%,,,,,,,,

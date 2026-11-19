@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Tyranitar,31,move,1,Knock Off,76.6%,,,,,,,,
 Tyranitar,31,move,2,Stealth Rock,48.8%,,,,,,,,
-Tyranitar,31,move,3,Ice Punch,43.5%,,,,,,,,
-Tyranitar,31,move,4,Stone Edge,42.0%,,,,,,,,
-Tyranitar,31,move,5,Earthquake,31.0%,,,,,,,,
-Tyranitar,31,move,6,Rock Tomb,30.2%,,,,,,,,
+Tyranitar,31,move,3,Ice Punch,43.4%,,,,,,,,
+Tyranitar,31,move,4,Stone Edge,41.9%,,,,,,,,
+Tyranitar,31,move,5,Earthquake,31.1%,,,,,,,,
+Tyranitar,31,move,6,Rock Tomb,30.1%,,,,,,,,
 Tyranitar,31,move,7,Taunt,17.9%,,,,,,,,
-Tyranitar,31,move,8,Dragon Dance,15.6%,,,,,,,,
+Tyranitar,31,move,8,Dragon Dance,15.7%,,,,,,,,
 Tyranitar,31,move,9,Ice Beam,10.7%,,,,,,,,
-Tyranitar,31,move,10,Rock Slide,10.2%,,,,,,,,
+Tyranitar,31,move,10,Rock Slide,10.3%,,,,,,,,
 Tyranitar,31,held_item,1,Tyranitarite,39.4%,,,,,,,,
 Tyranitar,31,held_item,2,Smooth Rock,21.4%,,,,,,,,
 Tyranitar,31,held_item,3,Leftovers,11.0%,,,,,,,,
@@ -31,14 +31,14 @@ Tyranitar,31,teammate,9,Dragonite,,,,,,,,,
 Tyranitar,31,teammate,10,Gholdengo,,,,,,,,,
 Tyranitar,31,stat_alignment,1,Adamant,40.6%,Attack,Sp. Atk,,,,,,
 Tyranitar,31,stat_alignment,2,Careful,29.2%,Sp. Def,Sp. Atk,,,,,,
-Tyranitar,31,stat_alignment,3,Jolly,8.8%,Speed,Sp. Atk,,,,,,
+Tyranitar,31,stat_alignment,3,Jolly,8.9%,Speed,Sp. Atk,,,,,,
 Tyranitar,31,stat_alignment,4,Impish,7.8%,Defense,Sp. Atk,,,,,,
 Tyranitar,31,stat_alignment,5,Bold,5.0%,Defense,Attack,,,,,,
 Tyranitar,31,stat_alignment,6,Modest,3.7%,Sp. Atk,Attack,,,,,,
 Tyranitar,31,stat_alignment,7,Sassy,1.5%,Sp. Def,Speed,,,,,,
 Tyranitar,31,stat_alignment,8,Brave,1.2%,Attack,Speed,,,,,,
 Tyranitar,31,stat_alignment,9,Calm,0.6%,Sp. Def,Attack,,,,,,
-Tyranitar,31,stat_alignment,10,Quiet,0.4%,Sp. Atk,Speed,,,,,,
+Tyranitar,31,stat_alignment,10,Relaxed,0.4%,Defense,Speed,,,,,,
 Tyranitar,31,stat_points,1,,13.8%,,,32,0,2,0,32,0
 Tyranitar,31,stat_points,2,,9.7%,,,32,32,0,0,2,0
 Tyranitar,31,stat_points,3,,6.4%,,,32,2,0,0,32,0
@@ -47,7 +47,7 @@ Tyranitar,31,stat_points,5,,4.7%,,,2,32,0,0,0,32
 Tyranitar,31,stat_points,6,,4.0%,,,20,0,4,10,0,32
 Tyranitar,31,stat_points,7,,2.7%,,,32,32,0,0,0,2
 Tyranitar,31,stat_points,8,,2.2%,,,32,0,0,0,12,22
-Tyranitar,31,stat_points,9,,2.1%,,,32,19,6,0,2,7
-Tyranitar,31,stat_points,10,,2.1%,,,16,0,17,0,1,32
+Tyranitar,31,stat_points,9,,2.1%,,,16,0,17,0,1,32
+Tyranitar,31,stat_points,10,,2.0%,,,32,19,6,0,2,7
 Tyranitar,31,ability,1,Sand Stream,99.6%,,,,,,,,
 Tyranitar,31,ability,2,Unnerve,0.4%,,,,,,,,

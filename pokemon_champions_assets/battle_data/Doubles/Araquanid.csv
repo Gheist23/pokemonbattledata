@@ -1,16 +1,16 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Araquanid,96,move,1,Liquidation,87.5%,,,,,,,,
 Araquanid,96,move,2,Wide Guard,83.8%,,,,,,,,
-Araquanid,96,move,3,Leech Life,60.0%,,,,,,,,
-Araquanid,96,move,4,Protect,54.9%,,,,,,,,
-Araquanid,96,move,5,Mirror Coat,13.5%,,,,,,,,
-Araquanid,96,move,6,Infestation,13.0%,,,,,,,,
-Araquanid,96,move,7,Icy Wind,9.4%,,,,,,,,
-Araquanid,96,move,8,Soak,9.1%,,,,,,,,
+Araquanid,96,move,3,Leech Life,59.8%,,,,,,,,
+Araquanid,96,move,4,Protect,54.7%,,,,,,,,
+Araquanid,96,move,5,Mirror Coat,13.6%,,,,,,,,
+Araquanid,96,move,6,Infestation,12.9%,,,,,,,,
+Araquanid,96,move,7,Icy Wind,9.3%,,,,,,,,
+Araquanid,96,move,8,Soak,9.2%,,,,,,,,
 Araquanid,96,move,9,Hydro Pump,7.0%,,,,,,,,
-Araquanid,96,move,10,Surf,6.9%,,,,,,,,
-Araquanid,96,held_item,1,Mystic Water,42.1%,,,,,,,,
-Araquanid,96,held_item,2,Sitrus Berry,18.7%,,,,,,,,
+Araquanid,96,move,10,Lunge,6.9%,,,,,,,,
+Araquanid,96,held_item,1,Mystic Water,41.9%,,,,,,,,
+Araquanid,96,held_item,2,Sitrus Berry,18.8%,,,,,,,,
 Araquanid,96,held_item,3,Leftovers,13.5%,,,,,,,,
 Araquanid,96,held_item,4,Life Orb,8.0%,,,,,,,,
 Araquanid,96,held_item,5,Grassy Seed,3.1%,,,,,,,,
@@ -29,25 +29,25 @@ Araquanid,96,teammate,7,Raichu,,,,,,,,,
 Araquanid,96,teammate,8,Whimsicott,,,,,,,,,
 Araquanid,96,teammate,9,Golisopod,,,,,,,,,
 Araquanid,96,teammate,10,Sinistcha,,,,,,,,,
-Araquanid,96,stat_alignment,1,Brave,35.1%,Attack,Speed,,,,,,
-Araquanid,96,stat_alignment,2,Adamant,26.9%,Attack,Sp. Atk,,,,,,
-Araquanid,96,stat_alignment,3,Careful,11.9%,Sp. Def,Sp. Atk,,,,,,
-Araquanid,96,stat_alignment,4,Relaxed,7.8%,Defense,Speed,,,,,,
+Araquanid,96,stat_alignment,1,Brave,34.9%,Attack,Speed,,,,,,
+Araquanid,96,stat_alignment,2,Adamant,26.8%,Attack,Sp. Atk,,,,,,
+Araquanid,96,stat_alignment,3,Careful,11.8%,Sp. Def,Sp. Atk,,,,,,
+Araquanid,96,stat_alignment,4,Relaxed,7.9%,Defense,Speed,,,,,,
 Araquanid,96,stat_alignment,5,Quiet,7.1%,Sp. Atk,Speed,,,,,,
-Araquanid,96,stat_alignment,6,Impish,5.0%,Defense,Sp. Atk,,,,,,
+Araquanid,96,stat_alignment,6,Impish,5.2%,Defense,Sp. Atk,,,,,,
 Araquanid,96,stat_alignment,7,Sassy,2.9%,Sp. Def,Speed,,,,,,
 Araquanid,96,stat_alignment,8,Modest,2.0%,Sp. Atk,Attack,,,,,,
-Araquanid,96,stat_alignment,9,Jolly,0.5%,Speed,Sp. Atk,,,,,,
+Araquanid,96,stat_alignment,9,Jolly,0.6%,Speed,Sp. Atk,,,,,,
 Araquanid,96,stat_alignment,10,Naughty,0.4%,Attack,Sp. Def,,,,,,
-Araquanid,96,stat_points,1,,29.0%,,,32,32,2,0,0,0
-Araquanid,96,stat_points,2,,6.8%,,,32,32,0,0,2,0
-Araquanid,96,stat_points,3,,5.9%,,,32,0,32,0,2,0
+Araquanid,96,stat_points,1,,28.9%,,,32,32,2,0,0,0
+Araquanid,96,stat_points,2,,6.7%,,,32,32,0,0,2,0
+Araquanid,96,stat_points,3,,6.0%,,,32,0,32,0,2,0
 Araquanid,96,stat_points,4,,3.9%,,,32,0,2,32,0,0
 Araquanid,96,stat_points,5,,2.8%,,,32,13,19,0,2,0
 Araquanid,96,stat_points,6,,2.7%,,,32,0,22,0,0,12
 Araquanid,96,stat_points,7,,2.0%,,,0,32,2,0,32,0
 Araquanid,96,stat_points,8,,1.9%,,,2,32,32,0,0,0
-Araquanid,96,stat_points,9,,1.9%,,,0,32,32,0,2,0
+Araquanid,96,stat_points,9,,1.8%,,,0,32,32,0,2,0
 Araquanid,96,stat_points,10,,1.7%,,,2,32,0,0,32,0
 Araquanid,96,ability,1,Water Bubble,98.4%,,,,,,,,
 Araquanid,96,ability,2,Water Absorb,1.6%,,,,,,,,

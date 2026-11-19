@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Noivern,168,move,1,Draco Meteor,90.7%,,,,,,,,
+Noivern,168,move,1,Draco Meteor,90.6%,,,,,,,,
 Noivern,168,move,2,Flamethrower,68.3%,,,,,,,,
-Noivern,168,move,3,Air Slash,57.6%,,,,,,,,
-Noivern,168,move,4,Taunt,35.0%,,,,,,,,
-Noivern,168,move,5,Switcheroo,28.7%,,,,,,,,
-Noivern,168,move,6,U-turn,25.6%,,,,,,,,
-Noivern,168,move,7,Boomburst,18.7%,,,,,,,,
+Noivern,168,move,3,Air Slash,57.8%,,,,,,,,
+Noivern,168,move,4,Taunt,35.1%,,,,,,,,
+Noivern,168,move,5,Switcheroo,28.4%,,,,,,,,
+Noivern,168,move,6,U-turn,25.4%,,,,,,,,
+Noivern,168,move,7,Boomburst,18.6%,,,,,,,,
 Noivern,168,move,8,Hurricane,13.9%,,,,,,,,
-Noivern,168,move,9,Dragon Pulse,8.0%,,,,,,,,
+Noivern,168,move,9,Dragon Pulse,8.2%,,,,,,,,
 Noivern,168,move,10,Super Fang,7.1%,,,,,,,,
-Noivern,168,held_item,1,Choice Scarf,37.9%,,,,,,,,
-Noivern,168,held_item,2,Life Orb,27.7%,,,,,,,,
-Noivern,168,held_item,3,Focus Sash,13.1%,,,,,,,,
-Noivern,168,held_item,4,White Herb,5.7%,,,,,,,,
-Noivern,168,held_item,5,Expert Belt,2.5%,,,,,,,,
-Noivern,168,held_item,6,Wide Lens,1.6%,,,,,,,,
+Noivern,168,held_item,1,Choice Scarf,37.6%,,,,,,,,
+Noivern,168,held_item,2,Life Orb,27.9%,,,,,,,,
+Noivern,168,held_item,3,Focus Sash,13.0%,,,,,,,,
+Noivern,168,held_item,4,White Herb,5.6%,,,,,,,,
+Noivern,168,held_item,5,Expert Belt,2.6%,,,,,,,,
+Noivern,168,held_item,6,Wide Lens,1.7%,,,,,,,,
 Noivern,168,held_item,7,Red Card,1.2%,,,,,,,,
 Noivern,168,held_item,8,Quick Claw,1.2%,,,,,,,,
 Noivern,168,held_item,9,King's Rock,1.0%,,,,,,,,
@@ -24,13 +24,13 @@ Noivern,168,teammate,2,Golisopod,,,,,,,,,
 Noivern,168,teammate,3,Basculegion,,,,,,,,,
 Noivern,168,teammate,4,Volcarona,,,,,,,,,
 Noivern,168,teammate,5,Clefable,,,,,,,,,
-Noivern,168,teammate,6,Greninja,,,,,,,,,
-Noivern,168,teammate,7,Lucario,,,,,,,,,
+Noivern,168,teammate,6,Lucario,,,,,,,,,
+Noivern,168,teammate,7,Greninja,,,,,,,,,
 Noivern,168,teammate,8,Charizard,,,,,,,,,
 Noivern,168,teammate,9,Cinderace,,,,,,,,,
-Noivern,168,teammate,10,Raichu,,,,,,,,,
-Noivern,168,stat_alignment,1,Timid,64.0%,Speed,Attack,,,,,,
-Noivern,168,stat_alignment,2,Modest,30.7%,Sp. Atk,Attack,,,,,,
+Noivern,168,teammate,10,Primarina,,,,,,,,,
+Noivern,168,stat_alignment,1,Timid,64.3%,Speed,Attack,,,,,,
+Noivern,168,stat_alignment,2,Modest,30.5%,Sp. Atk,Attack,,,,,,
 Noivern,168,stat_alignment,3,Hasty,1.5%,Speed,Defense,,,,,,
 Noivern,168,stat_alignment,4,Mild,1.0%,Sp. Atk,Defense,,,,,,
 Noivern,168,stat_alignment,5,Bold,0.7%,Defense,Attack,,,,,,
@@ -39,10 +39,10 @@ Noivern,168,stat_alignment,7,Jolly,0.5%,Speed,Sp. Atk,,,,,,
 Noivern,168,stat_alignment,8,Naive,0.5%,Speed,Sp. Def,,,,,,
 Noivern,168,stat_alignment,9,Impish,0.1%,Defense,Sp. Atk,,,,,,
 Noivern,168,stat_alignment,10,Adamant,0.1%,Attack,Sp. Atk,,,,,,
-Noivern,168,stat_points,1,,48.0%,,,2,0,0,32,0,32
-Noivern,168,stat_points,2,,22.1%,,,1,0,1,32,0,32
+Noivern,168,stat_points,1,,47.7%,,,2,0,0,32,0,32
+Noivern,168,stat_points,2,,22.3%,,,1,0,1,32,0,32
 Noivern,168,stat_points,3,,7.1%,,,0,0,0,32,2,32
-Noivern,168,stat_points,4,,3.7%,,,1,0,0,32,1,32
+Noivern,168,stat_points,4,,3.8%,,,1,0,0,32,1,32
 Noivern,168,stat_points,5,,3.5%,,,0,0,2,32,0,32
 Noivern,168,stat_points,6,,2.7%,,,0,0,0,32,0,32
 Noivern,168,stat_points,7,,1.1%,,,0,0,1,32,1,32
@@ -50,5 +50,5 @@ Noivern,168,stat_points,8,,0.8%,,,0,25,2,32,0,7
 Noivern,168,stat_points,9,,0.6%,,,9,0,5,27,1,24
 Noivern,168,stat_points,10,,0.5%,,,1,0,1,31,1,32
 Noivern,168,ability,1,Infiltrator,55.6%,,,,,,,,
-Noivern,168,ability,2,Frisk,42.7%,,,,,,,,
+Noivern,168,ability,2,Frisk,42.6%,,,,,,,,
 Noivern,168,ability,3,Telepathy,1.7%,,,,,,,,

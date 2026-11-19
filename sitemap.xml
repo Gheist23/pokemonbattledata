@@ -2905,7 +2905,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/surf/</loc>
+    <loc>https://championsbattledata.com/moves/lunge/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -2917,7 +2917,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/lunge/</loc>
+    <loc>https://championsbattledata.com/moves/surf/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -2929,13 +2929,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/coil/</loc>
+    <loc>https://championsbattledata.com/moves/glare/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/glare/</loc>
+    <loc>https://championsbattledata.com/moves/coil/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -3289,6 +3289,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/moves/crunch/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/moves/rock-blast/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -3535,12 +3541,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/cosmic-power/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/rain-dance/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -3608,6 +3608,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/synthesis/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/moves/cosmic-power/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -3728,6 +3734,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/ice-hammer/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/moves/crabhammer/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -3883,12 +3895,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/smart-strike/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/feint/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -3920,12 +3926,6 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/twin-beam/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/moves/crunch/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -4027,7 +4027,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/payback/</loc>
+    <loc>https://championsbattledata.com/moves/stockpile/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -4112,6 +4112,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/grassy-terrain/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/moves/payback/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -4489,12 +4495,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/stockpile/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/barb-barrage/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -4657,12 +4657,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/quick-guard/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/drill-peck/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -4711,12 +4705,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/moves/fly/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/moves/snap-trap/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -4724,6 +4712,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/moves/reflect-type/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/moves/quick-guard/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -4885,25 +4879,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/choice-scarf/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/items/never-melt-ice/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/big-root/</loc>
+    <loc>https://championsbattledata.com/items/choice-scarf/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://championsbattledata.com/items/leftovers/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/big-root/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5065,6 +5059,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/items/mental-herb/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/items/alakazite/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -5167,6 +5167,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://championsbattledata.com/items/grassy-seed/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://championsbattledata.com/items/miracle-seed/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -5185,12 +5191,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/grassy-seed/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/items/wacan-berry/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -5203,25 +5203,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/mental-herb/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/items/poison-barb/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/items/electric-seed/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://championsbattledata.com/items/payapa-berry/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5312,6 +5294,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/beedrillite/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/electric-seed/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5420,6 +5408,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/dragalgite/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/payapa-berry/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -5797,12 +5791,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/items/shed-shell/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://championsbattledata.com/items/aspear-berry/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -6002,6 +5990,12 @@
   </url>
   <url>
     <loc>https://championsbattledata.com/items/rock-type-affinity-ticket/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://championsbattledata.com/items/shed-shell/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -6721,13 +6715,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/abilities/aftermath/</loc>
+    <loc>https://championsbattledata.com/abilities/stench/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://championsbattledata.com/abilities/stench/</loc>
+    <loc>https://championsbattledata.com/abilities/aftermath/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>

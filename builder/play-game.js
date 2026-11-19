@@ -1886,6 +1886,17 @@ export class PlayGame {
       // Defense it has built up, which is the game's rule, so the line can be followed by a crit
       // that looks as though the stage were never there.
       case "stamina": return `${by}'s Stamina raised its Defense`;
+      // A MOVE THAT LOWERS ITS OWN USER (TOURNAMENT_SELF_STAT). Said out loud for the same
+      // reason Stamina is: the stage really moved and the log claimed nothing, so from the
+      // outside a Make It Rain looked like a free 120 BP spread move. Scale Shot raises one
+      // stat and lowers another in the same breath, so both halves are carried.
+      case "selfstat": {
+        const said = (keys) => keys.map((key) => STAT_WORDS[key] || key).join(" and ");
+        const lines = [];
+        if ((event.lowered || []).length) lines.push(`${by}'s ${event.move} lowered its own ${said(event.lowered)}`);
+        if ((event.raised || []).length) lines.push(`${by}'s ${event.move} raised its own ${said(event.raised)}`);
+        return lines.join("; ");
+      }
       case "speeddrop":
       case "lower": {
         const stats = (DROPPED[event.kind] || event.stats || []).map((key) => STAT_WORDS[key] || key);

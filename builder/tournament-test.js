@@ -954,6 +954,53 @@ export const TOURNAMENT_SELF_ROLL = 0;
 export const TOURNAMENT_ACTION_ROLL = 0;
 
 /**
+ * A MOVE THAT LOWERS ITS OWN USER'S STATS DOES SO (TOURNAMENT_SELF_STAT).
+ *
+ * The owner's report: "Make it Rain doesn't reduce the attacker's special attack." It did not,
+ * and nor did eleven other moves. `secondaries` -- the one place a DAMAGING move's registry ops
+ * are read -- applied `stage` aimed at the user only when the amount was POSITIVE:
+ *
+ *     } else if (fx.op === "stage" && fx.target === "user" && Number(fx.amount) > 0) {
+ *
+ * so every self-boost worked and every self-drop was dropped on the floor. Measured across the
+ * 1,945 registered teams: Close Combat 1,094 appearances, Make It Rain 584, Draco Meteor 488,
+ * Overheat 267, Leaf Storm 103, Clanging Scales 89, Armor Cannon 59, Superpower 34, Hammer Arm 8,
+ * Scale Shot 7, Headlong Rush 6, Ice Hammer 2 -- 2,741 in all, none of them paying their cost.
+ * A Close Combat was a free 120 BP Fighting move and a Make It Rain a free 120 BP spread.
+ *
+ * FOUR THINGS THAT MAKE IT CORRECT RATHER THAN MERELY PRESENT, and each was wrong before:
+ *
+ *   * ONE CHANGE PER MOVE USE, not one per Pokemon hit. Make It Rain is a spread move, so the
+ *     per-target loop in `secondaries` would have dropped Sp. Atk TWICE in Doubles. This is
+ *     applied where `oweSelf` is -- the site that already exists for "what this move cost its
+ *     user, once, however many it hit" -- for exactly that reason.
+ *   * IT IS NOT A SECONDARY EFFECT. Sheer Force, Shield Dust and a Covert Cloak remove added
+ *     effects; the drop written into Close Combat's own text is not one, and the target's items
+ *     have nothing to say about what the attacker does to itself. `secondaries` returns early on
+ *     all three and on a target that the hit has just KNOCKED OUT, and a Close Combat that
+ *     faints something still lowers its Defense.
+ *   * CLEAR BODY DOES NOT STOP IT. `shiftStages` refuses a drop on a `statProof` holder, which
+ *     is right for a drop coming from the other side and wrong for one a Pokemon does to itself
+ *     -- the app's rollout exempts it for the same reason (`mcts/engine.py _apply_stage`), and
+ *     so does this site's own calculator (`engine.js selfStatChangeAfterAbility`).
+ *   * ONE SOURCE WITH THE CALCULATOR. The stages come from `engine.selfStatChangeFor`, the V525
+ *     table (`appData.selfStatChanges`, 71 moves compiled from the game's own move archive) that
+ *     the Damage Calculator and the Threat Calcs already read, so Contrary inverting the change,
+ *     Simple doubling it and a White Herb refusing it are answered once rather than twice. The
+ *     registry op is the same data; the table is the side both codebases already agree on.
+ *
+ * The White Herb is then SPENT, which the calculator has no turns to do. 291 Pokemon in the
+ * library hold one and the move they hold it for is nearly always the self-dropper -- a herb
+ * that cancelled every Close Combat for ever would have been further from the game than no
+ * drop at all.
+ *
+ * 0 by default, like every rule above it: the Tournament Test's numbers are published and
+ * compared against the Companion. `analysis-worker.js` turns it on for the played game and for
+ * the Solver, which must answer with the same rules (see builder/play-game.js).
+ */
+export const TOURNAMENT_SELF_STAT = 0;
+
+/**
  * The four hazards, packed into ONE integer a side.
  *
  * Packed rather than an object because the board is COPIED in four places and every copy
@@ -1155,6 +1202,10 @@ export function tournamentSelfRollOption(value) {
 /** An `action_roll` stamp as a version; coerces exactly as `tournamentPivotOption`. */
 export function tournamentActionRollOption(value) {
   return ruleVersion(value, TOURNAMENT_ACTION_ROLL);
+}
+
+export function tournamentSelfStatOption(value) {
+  return ruleVersion(value, TOURNAMENT_SELF_STAT);
 }
 
 export function tournamentEffectsOption(value) {
@@ -1385,6 +1436,10 @@ const BURN = 15;
 const EFFECT = 16;
 /** The stat stages a row really carries, for telling whether a stat change did anything. */
 const STAGE_FIELDS = ["atk", "spa", "def", "spd", "spe"];
+/** The V525 table's stat names as the five fields a stage lives in (TOURNAMENT_SELF_STAT). */
+const STAT_FIELD = Object.freeze({
+  attack: "atk", sp_attack: "spa", defense: "def", sp_defense: "spd", speed: "spe",
+});
 // The actions that are status moves (Taunt stops them; Encore locks a Pokémon that used one).
 /** The registry's words for an op aimed at the other side. Shared with the action generator. */
 export const AIMED_AT_FOE = new Set(["target", "foe_side", "all_others"]);
@@ -1600,7 +1655,7 @@ export class TournamentTest {
    *   `varPowerRule`: the variable-power attacks (TOURNAMENT_VAR_POWER); 0 replays a recording made
    *   before it, where a 0-power attack was no attack at all.
    */
-  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, liveHpRule = TOURNAMENT_LIVE_HP, chargeRule = TOURNAMENT_CHARGE, berryRule = TOURNAMENT_BERRY, stagesRule = TOURNAMENT_STAGES, confusionRule = TOURNAMENT_CONFUSION, ppRule = TOURNAMENT_PP, rberryRule = TOURNAMENT_RBERRY, bailRule = TOURNAMENT_BAIL, shieldRule = TOURNAMENT_SHIELD, fieldTurnsRule = TOURNAMENT_FIELD_TURNS, abilityOpsRule = TOURNAMENT_ABILITY_OPS, hazardsRule = TOURNAMENT_HAZARDS, pivotRule = TOURNAMENT_PIVOT, selfRollRule = TOURNAMENT_SELF_ROLL, actionRollRule = TOURNAMENT_ACTION_ROLL, effects = null } = {}) {
+  constructor(evaluation, known, suggestions, { turnOneRule = TOURNAMENT_TURN_ONE, seatRule = TOURNAMENT_SEAT, bringRule = TOURNAMENT_BRING, fieldRule = TOURNAMENT_FIELD, megaRule = TOURNAMENT_MEGA, altRule = TOURNAMENT_ALT, depthRule = TOURNAMENT_DEPTH, falloffRule = TOURNAMENT_FALLOFF, guardRule = TOURNAMENT_GUARD, varPowerRule = TOURNAMENT_VAR_POWER, effectsRule = TOURNAMENT_EFFECTS, liveHpRule = TOURNAMENT_LIVE_HP, chargeRule = TOURNAMENT_CHARGE, berryRule = TOURNAMENT_BERRY, stagesRule = TOURNAMENT_STAGES, confusionRule = TOURNAMENT_CONFUSION, ppRule = TOURNAMENT_PP, rberryRule = TOURNAMENT_RBERRY, bailRule = TOURNAMENT_BAIL, shieldRule = TOURNAMENT_SHIELD, fieldTurnsRule = TOURNAMENT_FIELD_TURNS, abilityOpsRule = TOURNAMENT_ABILITY_OPS, hazardsRule = TOURNAMENT_HAZARDS, pivotRule = TOURNAMENT_PIVOT, selfRollRule = TOURNAMENT_SELF_ROLL, actionRollRule = TOURNAMENT_ACTION_ROLL, selfStatRule = TOURNAMENT_SELF_STAT, effects = null } = {}) {
     this.turnOneRule = tournamentTurnOneOption(turnOneRule);
     this.seatRule = tournamentSeatOption(seatRule);
     this.bringRule = tournamentBringOption(bringRule);
@@ -1627,6 +1682,7 @@ export class TournamentTest {
     this.pivotRule = tournamentPivotOption(pivotRule);
     this.selfRollRule = tournamentSelfRollOption(selfRollRule);
     this.actionRollRule = tournamentActionRollOption(actionRollRule);
+    this.selfStatRule = tournamentSelfStatOption(selfStatRule);
     // The compiled move and Ability effects. Handed in rather than fetched, because this file is
     // run from a Worker, from node and from six suites; `effectsOn` is the one gate every new
     // rule below asks, so a run with no registry behaves exactly as it did before them.
@@ -1660,6 +1716,7 @@ export class TournamentTest {
     this.pivotOn = this.pivotRule >= 1;
     this.selfRollOn = this.selfRollRule >= 1;
     this.actionRollOn = this.actionRollRule >= 1;
+    this.selfStatOn = this.selfStatRule >= 1 && this.effectsOn;
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -3067,6 +3124,11 @@ export class TournamentTest {
       hidden: false,
       // A Power Herb is spent on the charge it pays for, so it can only do that once.
       herbUsed: false,
+      // ...and a White Herb on the self-inflicted stat drop it refuses (TOURNAMENT_SELF_STAT).
+      // The item itself is taken off the Pokemon when that happens, so this is the second lock
+      // and not the only one: it holds for a caller that has the rule on and `abilityOpsOn`
+      // off, where `setItem` declines to rebuild the unit.
+      whiteHerbUsed: false,
       // CHARGE: "The user gains the Electric Boost status", which doubles its next Electric
       // move and is spent on it. A scalar for the same reason `charging` is one: `solver.js
       // cloneState` shallow-copies a row with `{ ...m }`, so an object would be shared between
@@ -3417,8 +3479,15 @@ export class TournamentTest {
         // well made one Snarl -2 Sp. Atk and one Icy Wind -2 Speed.
         if (info.drop) continue;
         this.shiftStages(target, fx.stats, Number(fx.amount) * p);
-      } else if (fx.op === "stage" && fx.target === "user" && Number(fx.amount) > 0) {
-        this.shiftStages(att, fx.stats, Number(fx.amount) * p);
+      } else if (fx.op === "stage" && fx.target === "user") {
+        // ONCE PER MOVE USE AND NOT ONCE PER TARGET, with the rule on (TOURNAMENT_SELF_STAT):
+        // `applySelfStat` owns every change a move makes to its own user, so this branch steps
+        // aside rather than applying a second copy -- a spread Make It Rain reaches here twice.
+        // With the rule off it is the line it always was, positive amounts only, so a recording
+        // made before the rule replays byte-identically: `+ 0` self-boosts were applied per
+        // target and self-DROPS were silently dropped on the floor, which is the bug.
+        if (this.selfStatOn) continue;
+        if (Number(fx.amount) > 0) this.shiftStages(att, fx.stats, Number(fx.amount) * p);
       } else if (fx.op === "volatile" && fx.target === "target"
         && String(fx.status || "").toLowerCase() === "confusion") {
         // Twenty moves carry this and the engine read none of them.
@@ -4004,20 +4073,25 @@ export class TournamentTest {
     return true;
   }
 
-  shiftStages(unit, stats, amount) {
+  shiftStages(unit, stats, amount, self = false) {
     if (!alive(unit) || !Array.isArray(stats) || !amount) return;
-    if (amount < 0 && unit.k.statProof) return;
+    // `self` is a change a Pokemon does to ITSELF (TOURNAMENT_SELF_STAT). Clear Body, White
+    // Smoke, Full Metal Body and Hyper Cutter refuse a drop coming from the other side and do
+    // NOT refuse this one -- Superpower lowers a Hyper Cutter holder's Attack, and the app's
+    // rollout and this site's own calculator both exempt it (`engine.js
+    // selfStatChangeAfterAbility`). Every existing caller omits the argument and is unchanged.
+    if (amount < 0 && !self && unit.k.statProof) return;
     for (const raw of stats) {
       const stat = String(raw || "").toLowerCase();
       const field = stat === "attack" ? "atk" : stat === "special_attack" || stat === "sp_attack" || stat === "spatk" ? "spa"
         : stat === "defense" ? "def" : stat === "special_defense" || stat === "sp_defense" || stat === "spdef" ? "spd"
           : stat === "speed" ? "spe" : "";
       if (!field) continue;
-      if (field === "atk" && amount < 0 && unit.k.hyperCutter) continue;
+      if (field === "atk" && amount < 0 && !self && unit.k.hyperCutter) continue;
       // Big Pecks keeps its Defense, Keen Eye and Illuminate their accuracy
       // (TOURNAMENT_ABILITY_OPS). `stat_drop_immunity` has been shipped since the registry
       // existed and had no reader; `statProof` above is the all-stats one and is hand-listed.
-      if (amount < 0 && this.abilityOpsOn && unit.k.dropProof?.has(field)) continue;
+      if (amount < 0 && !self && this.abilityOpsOn && unit.k.dropProof?.has(field)) continue;
       // The REMAINDER is carried and only whole stages are spent. A fractional stage would land
       // in the damage cache key and multiply the number of entries -- measured at +147% engine
       // calls -- for a difference smaller than one step of the stage table.
@@ -4232,6 +4306,53 @@ export class TournamentTest {
     const cost = Number(share) || 0;
     if (!(cost > 0) || !att) return;
     att.selfOwed = (att.selfOwed || 0) + cost;
+  }
+
+  /**
+   * WHAT A MOVE DOES TO ITS OWN USER'S STATS, ONCE PER USE (TOURNAMENT_SELF_STAT).
+   *
+   * Beside `oweSelf` and called from the same four places for the same reason: a spread move
+   * hits two Pokemon and lowers its own Sp. Atk once. See the rule's note for why this is not
+   * a secondary effect and why Clear Body has nothing to say about it.
+   *
+   * The stages are `engine.selfStatChangeFor`'s, so Contrary, Simple and the White Herb are
+   * already answered -- the one source the Damage Calculator and the Threat Calcs read. The
+   * herb is then SPENT, which a static calculation has no turns to do: asked again without the
+   * item, a move the table knows comes back with its drop intact, and that difference is the
+   * herb having been the thing that refused it.
+   *
+   * A drop the opponent causes (`lowerStats`) deliberately does NOT spend the herb here. That
+   * is the same simplification the calculator makes and it is the conservative one: the herb is
+   * kept for the move its holder is carrying it for.
+   *
+   * Returns null when nothing moved, so the caller knows whether there is anything to say.
+   */
+  applySelfStat(m, info, events = null) {
+    if (!this.selfStatOn || !m || !info || !alive(m)) return null;
+    const mon = m.u?.mon || {};
+    const base = this.ev.engine.selfStatChangeFor(info.name, mon.ability, "") || {};
+    const entries = Object.entries(base).filter(([, amount]) => Number(amount) || 0);
+    if (!entries.length) return null;
+    const herb = !m.whiteHerbUsed && compact(mon.item) === "whiteherb"
+      && entries.some(([, amount]) => Number(amount) < 0);
+    const raised = [];
+    const lowered = [];
+    for (const [stat, amount] of entries) {
+      const value = Number(amount) || 0;
+      if (value < 0 && herb) continue;
+      const before = STAGE_FIELDS.map((key) => m[key] || 0).join(",");
+      this.shiftStages(m, [stat], value, true);
+      if (STAGE_FIELDS.map((key) => m[key] || 0).join(",") === before) continue;
+      (value > 0 ? raised : lowered).push(STAT_FIELD[stat] || stat);
+    }
+    if (herb) {
+      m.whiteHerbUsed = true;
+      this.setItem(m, "");
+    }
+    if (!raised.length && !lowered.length) return null;
+    const done = { raised, lowered, herb };
+    events?.push({ s: m.s, kind: "selfstat", actor: m.u, move: info.name, raised, lowered });
+    return done;
   }
 
   /**
@@ -5475,8 +5596,10 @@ export class TournamentTest {
     if (!info) return out;
     const wide = board.wide || 0;
     const quick = board.quick || 0;
-    // One move use owes its own cost once, however many Pokemon it hits (`oweSelf`).
+    // One move use owes its own cost once, however many Pokemon it hits (`oweSelf`), and
+    // lowers its own user's stats once for the same reason (`applySelfStat`).
     let selfCost = 0;
+    let landed = false;
     if (hit.spread) {
       if (wide & (1 << (1 - m.s))) events?.push({ s: m.s, kind: "blocked", actor: m.u, move: info.name, by: "Wide Guard" });
       else {
@@ -5486,6 +5609,7 @@ export class TournamentTest {
           if (h.priority > 0 && quick & (1 << foe.s)) continue;
           if (!this.deal(m, foe, h, events, false, pre, allies, board)) continue;
           selfCost = Math.max(selfCost, this.selfShare(h));
+          landed = true;
           const stats = this.afterHit(m, foe, info);
           if (stats.length) out.lowered.push({ m: foe, stats });
         }
@@ -5496,11 +5620,13 @@ export class TournamentTest {
           const h = this.hitOn(m, ally, slot, board, m.helped, pre);
           if (!this.deal(m, ally, h, events, true, pre, allies, board)) continue;
           selfCost = Math.max(selfCost, this.selfShare(h));
+          landed = true;
           const stats = this.afterHit(m, ally, info);
           if (stats.length) out.own.push({ m: ally, stats });
         }
       }
       this.oweSelf(m, selfCost);
+      if (landed) this.applySelfStat(m, info, events);
       return out;
     }
     // REDIRECTION IS RESOLVED FIRST, above the split. Follow Me and Rage Powder pull a
@@ -5527,10 +5653,12 @@ export class TournamentTest {
           // Owed once for the move, not once per dart -- the same `Math.max` the spread branch
           // above uses, for the same reason.
           selfCost = Math.max(selfCost, this.selfShare(h));
+          landed = true;
           const stats = this.afterHit(m, foe, info);
           if (stats.length) out.lowered.push({ m: foe, stats });
         }
         this.oweSelf(m, selfCost);
+        if (landed) this.applySelfStat(m, info, events);
         return out;
       }
       // Exactly one foe can take them, so it takes BOTH -- the single-target path below, aimed
@@ -5547,6 +5675,7 @@ export class TournamentTest {
       this.oweSelf(m, this.selfShare(h));
       const stats = this.afterHit(m, aim, info);
       if (stats.length) out.lowered.push({ m: aim, stats });
+      this.applySelfStat(m, info, events);
     }
     return out;
   }

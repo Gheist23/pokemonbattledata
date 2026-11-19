@@ -1068,6 +1068,10 @@ body.page-team-builder { --max-width: 1520px; }
 .bd-gate p { margin: 0; max-width: 56ch; color: var(--muted); line-height: 1.5; }
 .bd-gate ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.3rem; text-align: left; }
 .bd-gate li::before { content: "✓ "; color: var(--bd-good); font-weight: 800; }
+/* What Pro costs, under the bullets and above the button. Its own rule rather than .bd-gate p
+   because it is the one line in the block that must not read as body copy: somebody deciding
+   whether to start a trial is looking for exactly this sentence. */
+.bd-gate-terms { font-weight: 650; color: var(--text) !important; max-width: 56ch; }
 .bd-gate-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
 
 .bd-progress { display: grid; gap: 0.5rem; }

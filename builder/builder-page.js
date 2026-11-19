@@ -905,6 +905,34 @@ function plansUrl(where) {
 const FEATURE_LABELS = { evaluation: "Team Evaluation", autobuild: "Auto Build", tournament: "Test against Tournament Teams" };
 
 /**
+ * WHAT PRO COSTS, SAID WHERE IT IS ASKED FOR.
+ *
+ * The gate used to say "Keep using X with Pro", list four bullets that all began "Unlimited",
+ * and link away to the plans page. It named no price, never mentioned that the trial is free,
+ * and said nothing about how you pay -- so the one moment on this site where somebody has
+ * already shown they want the thing was also the moment they were asked to go and find out what
+ * it costs. 740 people reached the plans page in 27 days and about five bought.
+ *
+ * Three facts, in the order a person asks them: is this free to start, what does it cost after,
+ * and can I actually pay. The last is not decoration -- this audience skews young and a card-only
+ * checkout is a wall for a large part of it, which is why PayPal and Google Pay are on.
+ */
+const PRO_TERMS = "Free for 7 days, then €5 a month or €45 a year. Cancel any time and you keep every team.";
+const PRO_PAYMENT = "Card, PayPal, Google Pay or Klarna.";
+
+/** The bullets, with the thing you cannot get any other way first. */
+function proBullets() {
+  return h("ul", {},
+    // Live Mode leads because it is the only item here a free user cannot reproduce by clearing
+    // their browser storage: it reads the running game. "Unlimited" is a weaker promise -- it is
+    // more of something the visitor has already had for nothing.
+    h("li", {}, h("strong", {}, "Live Mode in the Companion app"), ": it reads the game while you play, recognises the opponent's six during team preview and keeps your lead and back suggestions current"),
+    h("li", {}, h("strong", {}, "Unlimited Team Evaluation"), ": every check, every critical threat and your best answer to each"),
+    h("li", {}, h("strong", {}, "Unlimited Auto Build"), " from your Box or the ranked meta, and unlimited Solver searches"),
+    h("li", {}, h("strong", {}, "Unlimited Tournament Tests"), " against 2,800+ real tournament teams"));
+}
+
+/**
  * The free-run pill the three Pro features share. Team Evaluation, Auto Build and Test
  * against Tournament Teams each get the same free tries, counted only when a run really
  * finished, so each panel says the same thing in the same place: how many are left, then
@@ -935,16 +963,15 @@ function gate(feature) {
   const where = ALSO_IN_APP.has(feature) ? ", on this website and in the Companion app" : " on this website";
   return h("div", { class: "bd-gate" },
     h("h3", {}, `Keep using ${label} with Pro`),
-    h("p", {}, `You've had the full result — Pro makes it unlimited${where}.`),
-    h("ul", {},
-      h("li", {}, "Unlimited Team Evaluation: scores, checks and every critical threat"),
-      h("li", {}, "Unlimited Auto Build from your Box or the ranked meta"),
-      h("li", {}, "Unlimited tests against 2,800+ tournament teams"),
-      h("li", {}, "The Companion's Live Mode and Top Lead as a bonus")),
+    h("p", {}, `You've had the full result — Pro makes it unlimited${where}, and brings the Companion app with it.`),
+    proBullets(),
+    h("p", { class: "bd-gate-terms" }, PRO_TERMS),
     h("div", { class: "bd-gate-actions" },
-      h("a", { class: "primary-button", href: plansUrl(`gate-${feature}`) }, "See Pro plans"),
+      // The button says what it DOES. "See Pro plans" asks somebody to go and read a page;
+      // "Start the free trial" is the thing they would actually be choosing, and it is true.
+      h("a", { class: "primary-button", href: plansUrl(`gate-${feature}`) }, "Start the 7-day free trial"),
       h("button", { type: "button", class: "ghost-button", onclick: openProDialog }, "I have a key")),
-    h("p", { class: "bd-note" }, "Everything else in the Team Builder and the Damage Calculator stays free."));
+    h("p", { class: "bd-note" }, `${PRO_PAYMENT} Everything else in the Team Builder and the Damage Calculator stays free.`));
 }
 
 /**
@@ -957,13 +984,15 @@ function openGateDialog(feature) {
   const where = ALSO_IN_APP.has(feature) ? ", on this website and in the Companion app" : " on this website";
   const body = h("div", { class: "bd-list" },
     h("p", { class: "bd-confirm-text" }, `You've used your free runs of ${label}. The last result stays on screen; with Pro you can run it again as often as you like${where}.`),
-    h("p", { class: "bd-note" }, "Everything else in the Team Builder and the Damage Calculator stays free."));
+    proBullets(),
+    h("p", { class: "bd-gate-terms" }, PRO_TERMS),
+    h("p", { class: "bd-note" }, `${PRO_PAYMENT} Everything else in the Team Builder and the Damage Calculator stays free.`));
   const { close } = openDialog({
     title: `Keep using ${label} with Pro`,
     body,
     actions: [
       h("button", { type: "button", class: "ghost-button", onclick: () => { close(); openProDialog(); } }, "I have a key"),
-      h("a", { class: "primary-button", href: plansUrl(`gate-${feature}`) }, "See Pro plans"),
+      h("a", { class: "primary-button", href: plansUrl(`gate-${feature}`) }, "Start the 7-day free trial"),
     ],
   });
 }

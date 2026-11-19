@@ -259,6 +259,10 @@ code {
 /* The three tools under the landing page's lead (index.html, `home-only`). Buttons rather than
    links because they are the page's only actions, and `width: auto` because styles.css makes
    every .ghost-button full width on a phone -- the same override .companion-cta-actions needs. */
+/* The price line in a tool hero: the one sentence somebody on the plans page is looking for,
+   so it is not allowed to read as another paragraph of body copy. */
+.hero-terms { margin-top: 0.6rem; opacity: 1; }
+
 .hero-tools { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
 .hero-tools :is(.primary-button, .ghost-button) {
   width: auto;

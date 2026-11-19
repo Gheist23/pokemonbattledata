@@ -1434,13 +1434,13 @@ function proDialog() {
     body: h("div", {},
       h("p", {}, `You have had ${FREE_RUNS} complete searches \u2014 the whole answer, not a preview. Pro keeps the Solver unlimited here and in the Companion, along with Team Evaluation, Auto Build and Test against Tournament Teams.`),
       h("p", {}, "Free for 7 days, then €5 a month or €45 a year. It covers the website and the app, and you can cancel any time."),
-      h("p", { class: "bd-note" }, "Card, PayPal, Google Pay or Klarna.")),
+      h("p", { class: "bd-note" }, "Card, Klarna and more at checkout.")),
     actions: [
       h("a", { class: "ghost-button", href: "/pro-tool/key/" }, "I have a key"),
       h("span", { class: "bd-spacer" }),
       h("button", { class: "ghost-button", type: "button", onclick: () => close() }, "Not now"),
       // Says what it does, rather than sending somebody off to read a page about it.
-      h("a", { class: "primary-button", href: "/pro-tool/plans/?from=gate-solver" }, "Start the 7-day free trial"),
+      h("a", { class: "primary-button", href: "/pro-tool/plans/?from=gate-solver#planCards" }, "Start the 7-day free trial"),
     ],
   });
 }

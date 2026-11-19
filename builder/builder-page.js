@@ -899,7 +899,11 @@ async function addPokemonToBox() {
  */
 function plansUrl(where) {
   const clean = String(where || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 40);
-  return clean ? `/pro-tool/plans/?from=${clean}` : "/pro-tool/plans/";
+  // #planCards lands on the two plan buttons rather than at the top of a page of prose. Somebody
+  // arriving from a gate has already decided to find out what it costs; making them read a hero
+  // again to get to the button is an interstitial re-selling a decision they have made.
+  const anchor = "#planCards";
+  return clean ? `/pro-tool/plans/?from=${clean}${anchor}` : `/pro-tool/plans/${anchor}`;
 }
 
 const FEATURE_LABELS = { evaluation: "Team Evaluation", autobuild: "Auto Build", tournament: "Test against Tournament Teams" };
@@ -918,7 +922,17 @@ const FEATURE_LABELS = { evaluation: "Team Evaluation", autobuild: "Auto Build",
  * checkout is a wall for a large part of it, which is why PayPal and Google Pay are on.
  */
 const PRO_TERMS = "Free for 7 days, then €5 a month or €45 a year. Cancel any time and you keep every team.";
-const PRO_PAYMENT = "Card, PayPal, Google Pay or Klarna.";
+//
+// CHECKED AGAINST THE LIVE CHECKOUT, 19 Nov 2026, and it is not the same on both plans:
+//   yearly  link offers Karte, PayPal, Klarna, Satispay, Link
+//   monthly link offers Karte,         Klarna, Satispay, Link   <- NO PayPal
+// PayPal is enabled on the account; the monthly Payment Link was created before that and
+// carries its own frozen method list. Monthly is the plan 24 of 34 buyers chose, so this is
+// the one that matters. Until it is fixed in the Stripe dashboard this line must not promise
+// PayPal -- a payment method named on the site and absent at the till is worse than naming
+// none, because the visitor has already decided by then.
+// WHEN THE MONTHLY LINK OFFERS PAYPAL, restore: "Card, PayPal, Klarna and more."
+const PRO_PAYMENT = "Card, Klarna and more at checkout.";
 
 /** The bullets, with the thing you cannot get any other way first. */
 function proBullets() {

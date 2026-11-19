@@ -1564,17 +1564,32 @@ function pokemonPageJsonLd(page) {
   };
 }
 
+/**
+ * The Team Builder block on all 1,575 Pokemon pages.
+ *
+ * It has been here for months and every click landed on Team OVERVIEW -- a free panel showing
+ * coverage for a team of one. The question a profile page raises is "is this any good against
+ * what people actually bring", and the two panels that answer it are Auto Build (fill the other
+ * five from what is winning) and Team Evaluation (score the six and name what beats them). Both
+ * are free to try and both are Pro afterwards, so this is the one link on the site where a
+ * reader meets what the site sells by asking for something they already wanted.
+ *
+ * `tab=auto` and not `tab=evaluation`: evaluating a team of ONE Pokemon is a thin result and a
+ * poor first impression. Auto Build hands back a whole team, and its `keep` switch defaults on,
+ * so the Pokemon the reader came for is still in it.
+ */
 function companionCta(page) {
   const name = escapeHtml(page.name);
   const key = encodeURIComponent(page.battleName || page.name || "");
   return `<aside class="companion-cta" aria-label="Team Builder">
       <div>
         <p class="eyebrow">Free Team Builder</p>
-        <h2>Build a Team with ${name}</h2>
-        <p>This starts a brand new team with ${name} in the first slot, on its most common set. The Team Builder then scores the six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
+        <h2>Build a team around ${name}</h2>
+        <p>Auto Build starts from ${name} and fills the other five slots from what is winning on the ranked ladder right now. Team Evaluation then scores the six for Synergy, Offense, Defense and Speed, runs the Team Building Checks, and lists every Pokemon in the meta that beats them with the damage calcs behind it. Both are free to try, and ${name} stays in the team.</p>
       </div>
       <div class="companion-cta-actions">
-        <a class="primary-button" href="/team-builder/?build=${key}">Build Team with it</a>
+        <a class="primary-button" href="/team-builder/?build=${key}&amp;tab=auto">Build a team around ${name}</a>
+        <a class="ghost-button" href="/team-builder/?build=${key}">Just open the builder</a>
       </div>
     </aside>`;
 }
@@ -1668,7 +1683,13 @@ function basePageHtml({ title, description, keywords, canonicalUrl, jsonLd, stat
     // nav that asks a reader to join a chat server is noise on a Pokemon detail page. The
     // /api_guide page keeps a button of its own, pointing at the bot's OAuth invite rather than
     // the server, and that page is hand-written rather than generated here.
-    .replace(/\s*<a class="discord-button" href="https:\/\/discord\.gg\/[^"]*"[^>]*>Discord<\/a>/, '');
+    .replace(/\s*<a class="discord-button" href="https:\/\/discord\.gg\/[^"]*"[^>]*>Discord<\/a>/, '')
+    // ...and the landing page's three-tool signpost, for the same reason: it tells a first-time
+    // visitor what this site does, and a Pokemon detail page has already said so in its own
+    // words above. Each of these 2,700 pages carries its OWN call to action (`companionCta`,
+    // seo-pages.mjs `buildCta`), aimed at the Pokemon or the archetype the page is about, which
+    // is a better link than a generic one. The marker class is the whole contract.
+    .replace(/\s*<div class="hero-tools home-only">[\s\S]*?<\/div>/, '');
   if (pokemonSlug) {
     html = html.replace('<script src="app.js" defer></script>', `<script>window.__POKEMON_SLUG__ = ${JSON.stringify(pokemonSlug)};</script>\n  <script src="app.js" defer></script>`);
   }

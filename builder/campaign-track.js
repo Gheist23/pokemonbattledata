@@ -40,6 +40,34 @@ export function visitorId() {
  * this page for the Team Builder -- happens while the page is being torn down,
  * and a plain fetch is cancelled with it.
  */
+/**
+ * The site's own funnel, under one reserved code.
+ *
+ * Same mechanism, same endpoint, same privacy: one step name and a random 16-character id the
+ * browser invented for itself. It exists because for two months the only funnel anybody could
+ * see was one creator video's -- so "where do people leave" had one answer, about 786 visitors,
+ * and nothing at all was known about the other ~10,000 a day.
+ *
+ * A PAGE VIEW IS NOT COUNTED HERE. Cloudflare's zone analytics already counts those for free,
+ * and this counter costs one R2 write per visitor per step per day against a 1,000,000-a-month
+ * allowance -- so it is spent only on the steps that are rare and that nothing else can see:
+ * which tool was opened, which Pro feature was reached, and whether the gate, the plans page and
+ * the checkout click ever happened.
+ *
+ * `once` keeps a page load from spending a write twice for the same step. The storage key is the
+ * same either way, so a duplicate was never a double count -- only a wasted operation.
+ */
+export const SITE_FUNNEL = "site";
+
+const spent = new Set();
+
+export function trackSite(step) {
+  const key = String(step || "");
+  if (!key || spent.has(key)) return;
+  spent.add(key);
+  trackCampaign(SITE_FUNNEL, key);
+}
+
 export function trackCampaign(code, step) {
   const clean = String(code || "").toLowerCase().replace(/[^a-z0-9-]/g, "");
   if (!clean) return;

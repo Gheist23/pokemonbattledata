@@ -118,6 +118,18 @@ async function onCheckoutCompleted(env, session) {
     stripeSubscription: session.subscription || "",
     periodEnd,
     createdAt: Math.floor(Date.now() / 1000),
+    // WHERE THE SALE CAME FROM, which no record written before 19 Nov 2026 says.
+    //
+    // Thirty-four sales in two months and not one of them could be traced to a page, because a
+    // Stripe Payment Link carries nothing from the click that opened it. It does carry
+    // `client_reference_id`, which pro-tool/plans/index.html now sets to the plan plus a short
+    // source label -- "monthly-gate-evaluation", "yearly-pokemon", "monthly-direct".
+    //
+    // It is a LABEL and never the visitor id the funnel counter uses: counting anonymous steps
+    // is one thing, and joining a browsing id to an email address in a stored record is another.
+    // Cleaned here rather than trusted, because this field arrives from the open internet -- a
+    // crafted link can put anything in it, and it is stored and later displayed.
+    source: String(session.client_reference_id || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 64),
   };
   await putRecord(env, record);
   await env.LICENSES.put(`session:${session.id}`, record.key);

@@ -17,7 +17,8 @@
 import { BuilderData, makeSet, setFromCommon } from "./common.js";
 import { clear, editSet, h, openDialog, pickPokemon, segmented, select, showSet, sprite } from "./ui.js";
 import { getState, teamSets } from "./store.js";
-import { loadRecord, playerName, recordGame, setPlayerName } from "./play-record.js";
+import { ensurePlayerName, loadRecord, playerName, recordGame, setPlayerName } from "./play-record.js";
+import { trackSite } from "./campaign-track.js";
 import { DEFAULT_PACE, PACES, createTurnPlayer, damageByMove, sentenceFor, streamFromRecord } from "./play-anim.js";
 import { BattleMusic } from "./play-music.js";
 import { armMega } from "./play-choice.js";
@@ -454,7 +455,16 @@ function renderTeamCard(options, custom) {
       // the ladder with no record behind it.
       custom ? null : h("p", { class: "bd-play-note" },
         "On the ladder a team is what it is made of. Change a move, an item or a Pokémon and "
-        + "it goes on as a new team, at the starting rating with no games behind it.")),
+        + "it goes on as a new team, at the starting rating with no games behind it."),
+      // SAID OUT LOUD, because a player who brings Perish Song and watches it do nothing learns
+      // the wrong thing about their team. This engine has no trapping of any kind -- Perish
+      // Song, Shadow Tag, Arena Trap, Mean Look -- and a move that does nothing here is not a
+      // move that does nothing in the game. It belongs on the setup screen rather than in the
+      // log, because by the time it matters the turn has already been wasted.
+      h("p", { class: "bd-play-note" },
+        "Not modelled here: trapping. Perish Song, Shadow Tag, Arena Trap and Mean Look do "
+        + "nothing in this game, so a team built around them will read worse here than it "
+        + "plays. Everything else the Team Evaluation prices is priced the same way.")),
     state.team.length ? null : h("p", { class: "bd-play-note" }, "Pick a team to go on."),
     h("div", { class: "bd-play-team-grid" }, state.team.map((set, index) => renderTeamSlot(set, index))),
     h("div", { class: "bd-play-team-actions" },
@@ -1656,10 +1666,9 @@ function renderResult(view) {
         `On the ladder: you are ${state.lastRating.player.elo} Elo over ${state.lastRating.player.games} `
         + `game${state.lastRating.player.games === 1 ? "" : "s"}, this team is ${state.lastRating.team.elo}, `
         + `and ${state.lastRating.solverTeam.name} is now ${state.lastRating.solverTeam.elo}.`)
-      : playerName()
-        ? null
-        : h("p", { class: "bd-play-note" },
-          "Pick a name on the Leaderboard tab and your games start counting towards a rating."),
+      : h("p", { class: "bd-play-note" },
+        "Open-sheet games count towards a rating from the first one. You are "
+        + `${ensurePlayerName()} on the board, and the Leaderboard tab can change that.`),
     h("div", { class: "bd-play-submit" },
       h("button", { type: "button", class: "primary-button", onclick: () => deal() }, "Play again"),
       h("button", {
@@ -1779,11 +1788,11 @@ function renderBoard() {
           loadBoard();
         }, { "aria-label": "Leaderboard format" })),
       h("p", { class: "bd-play-note" },
-        `You are ${playerName() || "not named yet"}. `,
+        `You are ${ensurePlayerName()}. `,
         h("button", {
           type: "button", class: "bd-linkish",
           onclick: () => askName(),
-        }, playerName() ? "Change name" : "Pick a name")),
+        }, "Change name")),
       h("p", { class: "bd-play-note" },
         `Your record in this browser: ${record.wins}W ${record.losses}L${record.draws ? ` ${record.draws}D` : ""}.`)),
     boardState.loading
@@ -1822,13 +1831,15 @@ function askName() {
   const input = h("input", { type: "text", maxlength: "24", value: playerName(), class: "bd-play-name-input", placeholder: "A name for the ladder" });
   const { close } = openDialog({
     title: "Your name on the ladder",
-    body: h("div", {}, h("p", {}, "Shown beside your results. No account, no email: it is kept in this browser."), input),
+    body: h("div", {}, h("p", {}, "Shown beside your results. No account, no email: it is kept in this browser, and your rating follows the browser rather than the name."), input),
     actions: [
       h("button", { class: "ghost-button", type: "button", onclick: () => close() }, "Not now"),
       h("button", {
         class: "primary-button", type: "button",
         onclick: () => {
-          setPlayerName(input.value);
+          // An empty box is "leave it alone", not "go back to having no name": the rating on
+          // the board is already published under one.
+          if (input.value.trim()) setPlayerName(input.value);
           close();
           render();
         },
@@ -1871,3 +1882,4 @@ async function main() {
 }
 
 main();
+trackSite("play");

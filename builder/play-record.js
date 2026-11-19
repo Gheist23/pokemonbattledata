@@ -55,6 +55,30 @@ export function playerName() {
   }
 }
 
+/**
+ * A NAME, WHETHER OR NOT ANYBODY PICKED ONE.
+ *
+ * The ladder had three games and two players on it a month after it opened, and the reason was
+ * not that nobody played: `report` below sent NOTHING for a player with no name, and the place
+ * to pick one is a different tab from the one the game is on. So the one surface on this site
+ * that could bring somebody back tomorrow was invisible, and the only honest thing anybody could
+ * say about how much it is played was "unmeasured".
+ *
+ * Asking first is the wrong order. A player has no reason to care what they are called until
+ * they have won something, so they get a name when their first game finishes and may change it
+ * whenever they like -- which is the same deal as the random id this browser already gave
+ * itself, and which the page has always said out loud.
+ *
+ * Derived from that id rather than rolled, so it is STABLE: the same browser is the same Trainer
+ * on the board next week, which is the whole point of a rating. Four hex characters out of
+ * sixteen identify nobody, and the id itself is never shown.
+ */
+export function ensurePlayerName() {
+  const kept = playerName();
+  if (kept) return kept;
+  return setPlayerName(`Trainer ${deviceId().slice(0, 4)}`);
+}
+
 export function setPlayerName(value) {
   const clean = String(value || "").replace(/[^\p{L}\p{N} '_.-]/gu, "").trim().slice(0, 24);
   try { localStorage.setItem(NAME_KEY, clean); } catch { /* nothing to do */ }
@@ -94,8 +118,10 @@ export function recordGame(game) {
 }
 
 function report(entry) {
-  const name = playerName();
-  // Nobody unnamed goes on the ladder, and nothing is sent for them either.
+  // A finished game counts from the FIRST one: `ensurePlayerName` gives this browser a name if
+  // nothing has picked one yet (see the note on it). What used to be here refused to send
+  // anything at all without a name, which is why the ladder had three games on it.
+  const name = ensurePlayerName();
   if (!name) return Promise.resolve(null);
   // Only an Open Team Sheet game is rated. A Closed one is a different game -- the opponent is
   // guessing, and what it guesses differs from run to run -- so two players bringing the same

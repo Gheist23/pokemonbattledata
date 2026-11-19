@@ -35,9 +35,30 @@
 // counts are open, which is the state this ships in.
 
 // The funnel, in order. `land` is the click the video bought; `builder` means
-// the teams really arrived; the last two are the visitor asking the site to do
+// the teams really arrived; the next two are the visitor asking the site to do
 // something with one. `land` without `builder` is the failure worth seeing.
-const STEPS = ["land", "builder", "evaluation", "autobuild"];
+//
+// THE SAME COUNTER, AIMED AT THE SITE ITSELF (code `site`, builder/campaign-track.js).
+// For two months the only funnel anybody could see was one creator video's, so the whole
+// question "where do people leave" had exactly one answer and it was about 786 visitors. The
+// steps below are the rest of it: which tool was opened, which Pro feature was reached, whether
+// the Pro gate was ever seen, whether the plans page was ever reached, and whether anybody
+// clicked through to Stripe. Nothing identifies a person; see campaign-track.js.
+//
+// A PAGE VIEW IS DELIBERATELY NOT A STEP. This counter writes one R2 object per visitor per
+// step per day and READS by listing them, and R2's free tier is 1,000,000 Class A operations a
+// month. At this site's traffic a page-view step would be ~300,000 writes a month on its own and
+// several steps would put the account over. Cloudflare's own zone analytics already counts page
+// views for nothing, so the cheap half of the funnel is left where it is already free and only
+// the deep half -- hundreds of events a day, not tens of thousands -- is counted here.
+const STEPS = ["land", "builder", "evaluation", "autobuild",
+  // A visitor whose browser already holds this code: turned away before any fetch, so it is a
+  // `land` with no `builder` by design. Without this the gap between the two was returning
+  // visitors and real failures mixed together, and the one number a campaign is judged on could
+  // not be read. `land` - `builder` - `seen` is the real failure rate.
+  "seen",
+  // the rest of the website's own funnel
+  "tournament", "solver", "calc", "play", "gate", "plans", "checkout"];
 const MAX_LIST_PAGES = 25; // 25,000 objects; beyond that the answer says so rather than lying
 
 const headers = {

@@ -650,8 +650,6 @@
   .bd-play-moves { grid-template-columns: minmax(0, 1fr); }
   .bd-play-mon { min-width: 0; width: 100%; }
   .bd-play-actives { flex-direction: column; }
-  .bd-play-banner { flex-direction: column; align-items: flex-start; }
-  .bd-play-banner .bd-play-banner-actions { margin-left: 0; }
 }
 
 /* A board with five columns does not fit a phone, and a leaderboard that is cut off at the

@@ -1186,14 +1186,22 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
     const prompt = document.createElement("aside");
     prompt.className = "companion-cta";
     prompt.setAttribute("aria-label", "Team Builder");
+    // KEEP THIS IN STEP WITH `companionCta()` in tools/generate-manifest.mjs, which writes the
+    // same block into the static page. They are the same offer to two different readers -- the
+    // comment above says which is which -- and they drifted the moment one of them was improved.
+    //
+    // `tab=auto` and not `tab=evaluation`: evaluating a team of ONE Pokemon is a thin result and
+    // a poor first impression, where Auto Build hands back a whole team and keeps the Pokemon
+    // that was asked for (its `keep` switch defaults on).
     prompt.innerHTML = `
       <div>
         <p class="eyebrow">Free Team Builder</p>
-        <h2>Build a Team with ${name}</h2>
-        <p>This starts a brand new team with ${name} in the first slot, on its most common set. The Team Builder then scores the six against the current ladder, names the Pokemon that beat them, and shows where ${name} helps and where it does not.</p>
+        <h2>Build a team around ${name}</h2>
+        <p>Auto Build starts from ${name} and fills the other five slots from what is winning on the ranked ladder right now. Team Evaluation then scores the six for Synergy, Offense, Defense and Speed, runs the Team Building Checks, and lists every Pokemon in the meta that beats them with the damage calcs behind it. Both are free to try, and ${name} stays in the team.</p>
       </div>
       <div class="companion-cta-actions">
-        <a class="primary-button" href="/team-builder/?build=${key}">Build Team with it</a>
+        <a class="primary-button" href="/team-builder/?build=${key}&amp;tab=auto">Build a team around ${name}</a>
+        <a class="ghost-button" href="/team-builder/?build=${key}">Just open the builder</a>
       </div>`;
     return prompt;
   }
@@ -2668,11 +2676,6 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       return [];
     }
   }
-
-  // There is a game now. This file is a classic script and the banner is a module, so it is
-  // pulled in dynamically -- which also means a browser that cannot load it simply does not get
-  // the offer, rather than failing the Explorer.
-  import("/builder/play-banner.js").then((module) => module.offerPlay()).catch(() => {});
 
   function escapeHtml(value) {
     return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");

@@ -225,6 +225,46 @@ export function writeSeoPages(ctx) {
     if (sitemap) urls.push(url);
   }
 
+  /**
+   * ONE CALL TO ACTION, ON THE PAGES THAT HAD NONE.
+   *
+   * The Pokemon profile pages have carried a Team Builder block for months
+   * (`companionCta`, tools/generate-manifest.mjs). The 430 move pages, 200 item
+   * pages, 203 ability pages and the archetype pages never did: between them
+   * they are a large slice of this site's traffic and the only thing on them
+   * that pointed anywhere was the nav.
+   *
+   * It is a block IN THE CONTENT and not an overlay. The one interstitial this
+   * site ever had was deleted on 19 Nov 2026 and nothing here reintroduces one:
+   * a reader who came for the usage table reads the usage table.
+   *
+   * `href` carries `tab=` so the click lands on the panel that answers the
+   * question the page just raised rather than on an empty Team Overview -- and
+   * that tab is counted as a funnel step, which is the only way anyone will
+   * know whether this block does anything (builder/campaign-track.js).
+   */
+  function buildCta({ eyebrow, heading, lead, href, label, secondary = null }) {
+    const second = secondary
+      ? `<a class="ghost-button" href="${escapeHtml(secondary.href)}">${escapeHtml(secondary.label)}</a>`
+      : "";
+    return `<aside class="companion-cta" aria-label="Team Builder">
+      <div>
+        <p class="eyebrow">${escapeHtml(eyebrow)}</p>
+        <h2>${escapeHtml(heading)}</h2>
+        <p>${escapeHtml(lead)}</p>
+      </div>
+      <div class="companion-cta-actions">
+        <a class="primary-button" href="${escapeHtml(href)}">${escapeHtml(label)}</a>
+        ${second}
+      </div>
+    </aside>`;
+  }
+
+  /** A Pokemon as the Team Builder's `build=` parameter takes it. `data.resolveName`
+   *  at the other end accepts the battle name, so that spelling is preferred where
+   *  a record carries one. */
+  const buildKey = (record) => encodeURIComponent(record?.battleName || record?.name || "");
+
   function shell({ eyebrow, h1, lead, body, related = "" }) {
     return `<section class="section-shell static-seo-content" aria-label="${escapeHtml(h1)}">
     <div class="content-area static-seo-panel">
@@ -401,11 +441,31 @@ export function writeSeoPages(ctx) {
         ? `<div class="static-hero">${artwork}<div><h2>${escapeHtml(entry.name)} at a glance</h2>${factTable(factRows)}</div></div>`
         : `<h2>${escapeHtml(entry.name)} at a glance</h2>${factTable(factRows)}`;
 
+      // The page has just said who runs this best, so the action is to build the
+      // team around that Pokemon -- which is Auto Build, and which hands back a
+      // whole team rather than one slot, so the single click is worth something.
+      const best = doubles[0]?.record || singles[0]?.record || null;
+      const verb = category === "held_item" ? "holds" : category === "ability" ? "has" : "runs";
+      const cta = best
+        ? buildCta({
+            eyebrow: "Free Team Builder",
+            heading: `Build a team around ${best.name}`,
+            lead: `${best.name} ${verb} ${entry.name} more often than anything else on the ranked ladder. `
+              + "Auto Build starts from it and fills the other five from what is winning now; Team "
+              + "Evaluation then scores the six and names every Pokemon in the meta that beats them. "
+              + "Both are free to try.",
+            href: `/team-builder/?build=${buildKey(best)}&tab=auto`,
+            label: `Build around ${best.name}`,
+            secondary: { href: `/damage-calculator/?attacker=${buildKey(best)}`, label: "Open the calculator" },
+          })
+        : "";
+
       const body = [
         description ? `<p class="static-seo-lead">${escapeHtml(description)}</p>` : "",
         hero,
         doubles.length ? `<h2>Doubles usage</h2>${usageTable(doubles)}` : "",
         singles.length ? `<h2>Singles usage</h2>${usageTable(singles)}` : "",
+        cta,
         owners.length
           ? `<h2>Pokemon with ${escapeHtml(entry.name)}</h2>${pokemonNameList(owners)}`
           : ""
@@ -667,7 +727,17 @@ export function writeSeoPages(ctx) {
           eyebrow: `${record.name} ${sub.label}`,
           h1: title,
           lead,
-          body: pokemonHero(record) + tables.join(""),
+          body: pokemonHero(record) + tables.join("") + buildCta({
+            eyebrow: "Free Team Builder",
+            heading: `Build a team around ${record.name}`,
+            lead: `This page is what ${record.name} runs. Auto Build is what to put beside it: it `
+              + "fills the other five slots from what is winning on the ranked ladder, and Team "
+              + "Evaluation then scores the six and names every Pokemon in the meta that beats "
+              + "them. Both are free to try.",
+            href: `/team-builder/?build=${buildKey(record)}&tab=auto`,
+            label: `Build around ${record.name}`,
+            secondary: { href: `/pokemon/${record.slug}/`, label: `${record.name} profile` },
+          }),
           // Only the sibling subpages that WILL be written: `hasRows` is decided per category,
           // so a Pokemon with move rows and no teammate rows gets a moves page and no
           // teammates page, and a link to the second would be dead. `/teams/` is gated on the
@@ -780,7 +850,21 @@ export function writeSeoPages(ctx) {
           eyebrow: "Pokemon Champions comparison",
           h1: title,
           lead,
-          body: `${versusArt}<h2>Base stats</h2>${statTable}<h2>Ranked profile</h2>${metaTable}<h2>Verdict</h2><p>${escapeHtml(verdict)}</p>`,
+          // A comparison page asks one question -- which of these two wins -- and the
+          // Damage Calculator is the only thing on this site that answers it with a number
+          // rather than a verdict. It takes both sides straight off the URL.
+          body: `${versusArt}<h2>Base stats</h2>${statTable}<h2>Ranked profile</h2>${metaTable}<h2>Verdict</h2><p>${escapeHtml(verdict)}</p>`
+            + buildCta({
+              eyebrow: "Free Damage Calculator",
+              heading: `Price ${a.name} against ${b.name}`,
+              lead: `The verdict above is a summary; the calculator is the number. It opens with `
+                + `${a.name} attacking ${b.name} on their most common sets and reports KO odds `
+                + "rather than a damage range, with the whole field -- weather, terrain, screens, "
+                + "Tailwind, hazards, status and stat stages -- on the board. Free, no account.",
+              href: `/damage-calculator/?attacker=${buildKey(a)}&defender=${buildKey(b)}`,
+              label: `Calculate ${a.name} vs ${b.name}`,
+              secondary: { href: `/team-builder/?build=${buildKey(a)}&tab=auto`, label: `Build around ${a.name}` },
+            }),
           related: linkList("Full profiles", [
             { href: `/pokemon/${a.slug}/`, label: `${a.name} profile` },
             { href: `/pokemon/${b.slug}/`, label: `${b.name} profile` },
@@ -840,10 +924,23 @@ export function writeSeoPages(ctx) {
         eyebrow: "Pokemon Champions teams",
         h1: title,
         lead,
+        // A teammates page is already the question "who do I put beside it", so the
+        // call to action is the one panel that answers it for all five slots at once.
         body: pokemonHero(record, [
           ["Top Doubles move", rowName(summaryFor(record, "Doubles").top?.move) || "-"],
           ["Top Doubles item", "", itemCell(rowName(summaryFor(record, "Doubles").top?.held_item))]
-        ]) + partnersTable(rows, "Doubles") + partnersTable(singlesRows, "Singles"),
+        ]) + partnersTable(rows, "Doubles") + partnersTable(singlesRows, "Singles")
+          + buildCta({
+            eyebrow: "Free Team Builder",
+            heading: `Build the other five around ${record.name}`,
+            lead: `These are the partners ${record.name} is brought with. Auto Build picks the whole `
+              + "five from what is winning on the ranked ladder rather than from usage alone, and Team "
+              + "Evaluation then scores the six and names every Pokemon in the meta that beats them. "
+              + "Both are free to try.",
+            href: `/team-builder/?build=${buildKey(record)}&tab=auto`,
+            label: `Build around ${record.name}`,
+            secondary: { href: `/pokemon/${record.slug}/`, label: `${record.name} profile` },
+          }),
         related: linkList(`More ${record.name} data`, [
           { href: `/pokemon/${record.slug}/`, label: `${record.name} profile` },
           { href: `/pokemon/${record.slug}/moves/`, label: `${record.name} moves` },
@@ -908,7 +1005,20 @@ export function writeSeoPages(ctx) {
         eyebrow: "Pokemon Champions archetype",
         h1: title,
         lead,
-        body: table,
+        // An archetype IS an Auto Build option, so this is the one page kind whose
+        // call to action needs no translation beyond hyphen-to-space, which
+        // `archetypeKey` does at the other end. One it does not recognise --
+        // Redirection has no Auto Build equivalent -- degrades to a plain Auto
+        // Build rather than to a broken link.
+        body: table + buildCta({
+          eyebrow: "Free Team Builder",
+          heading: `Build a ${archetype.name} team`,
+          lead: `Auto Build takes ${archetype.name} as the target and fills all six slots from what is `
+            + "winning on the ranked ladder; Team Evaluation then scores the result and names every "
+            + "Pokemon in the meta that beats it. Free to try, and anything you add first is kept.",
+          href: `/team-builder/?tab=auto&archetype=${encodeURIComponent(archetype.slug)}`,
+          label: `Auto Build a ${archetype.name} team`,
+        }),
         related: linkList("Other archetypes", TEAM_ARCHETYPES
           .filter((other) => other.slug !== archetype.slug)
           .map((other) => ({ href: `/teams/${other.slug}/`, label: `${other.name} teams` })))
@@ -1103,7 +1213,18 @@ export function writeSeoPages(ctx) {
         eyebrow: "Pokemon Champions rankings",
         h1: page.title,
         lead,
-        body,
+        // A ranking page names no single Pokemon, so the action is the one that needs
+        // none: fill all six from the ranked meta the table is made of.
+        body: body + buildCta({
+          eyebrow: "Free Team Builder",
+          heading: "Build a team from the ranked meta",
+          lead: "Auto Build fills all six slots from the same ladder data this table is made of, "
+            + "then Team Evaluation scores the six and names every Pokemon in the meta that beats "
+            + "them, with the damage calcs behind each one. Both are free to try.",
+          href: "/team-builder/?tab=auto",
+          label: "Auto Build a team",
+          secondary: { href: "/damage-calculator/", label: "Open the calculator" },
+        }),
         related: linkList("Other rankings", rankingLinks.filter((link) => link.href !== `/rankings/${page.slug}/`))
       })
     });

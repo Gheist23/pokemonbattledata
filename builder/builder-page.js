@@ -21,7 +21,6 @@ import {
   BuilderData, STAT_LABELS, TEAM_SIZE, boxEntryToSet, isEmptySet, makeSet, parseShowdown,
   setFromCommon, setToBoxEntry, setToShowdown,
 } from "./common.js";
-import { offerPlay } from "./play-banner.js";
 import {
   addBox, addToBox, currentBox, currentTeam, deleteBox, deleteTeam, dropEmptyPlaceholders, duplicateTeam,
   getState, newTeam,
@@ -34,7 +33,7 @@ import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, s
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
 import { keepPlace } from "./scroll-anchor.js";
 import { cleanCampaignCode, installCampaignTeams } from "./campaign-teams.js";
-import { trackCampaign } from "./campaign-track.js";
+import { trackCampaign, trackSite } from "./campaign-track.js";
 import { OPTIMIZE_DEFAULTS, optimizeView, updateProgress } from "./optimize-view.js";
 import { MESSAGES as SHARE_MESSAGES, ShareError, cardHost, evaluationDigest, shareButton, slotStats, teamDigest } from "./share-client.js";
 
@@ -891,6 +890,18 @@ async function addPokemonToBox() {
 
 // ---- Pro gate ----
 
+/**
+ * The plans page, told where the click came from (`?from=`).
+ *
+ * pro-tool/plans/index.html turns this into the `client_reference_id` on the Stripe link, and
+ * the webhook stores it on the licence record -- so a sale can finally be traced to the gate,
+ * the tab or the page that produced it. A label only, never anything that identifies a person.
+ */
+function plansUrl(where) {
+  const clean = String(where || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 40);
+  return clean ? `/pro-tool/plans/?from=${clean}` : "/pro-tool/plans/";
+}
+
 const FEATURE_LABELS = { evaluation: "Team Evaluation", autobuild: "Auto Build", tournament: "Test against Tournament Teams" };
 
 /**
@@ -916,6 +927,10 @@ function proPill(feature) {
 const ALSO_IN_APP = new Set(["evaluation", "autobuild"]);
 
 function gate(feature) {
+  // The step nothing could see: how many people reach the Pro ask at all. 168 visits a week to
+  // the plans page was the only number there was, and it could not say whether they arrived from
+  // a gate, from the nav, or from a link somebody posted.
+  trackSite("gate");
   const label = FEATURE_LABELS[feature] || "Pro";
   const where = ALSO_IN_APP.has(feature) ? ", on this website and in the Companion app" : " on this website";
   return h("div", { class: "bd-gate" },
@@ -927,7 +942,7 @@ function gate(feature) {
       h("li", {}, "Unlimited tests against 2,800+ tournament teams"),
       h("li", {}, "The Companion's Live Mode and Top Lead as a bonus")),
     h("div", { class: "bd-gate-actions" },
-      h("a", { class: "primary-button", href: "/pro-tool/plans/" }, "See Pro plans"),
+      h("a", { class: "primary-button", href: plansUrl(`gate-${feature}`) }, "See Pro plans"),
       h("button", { type: "button", class: "ghost-button", onclick: openProDialog }, "I have a key")),
     h("p", { class: "bd-note" }, "Everything else in the Team Builder and the Damage Calculator stays free."));
 }
@@ -937,6 +952,7 @@ function gate(feature) {
  * the button did not run (it used to swap the result for the gate).
  */
 function openGateDialog(feature) {
+  trackSite("gate");
   const label = FEATURE_LABELS[feature] || "this feature";
   const where = ALSO_IN_APP.has(feature) ? ", on this website and in the Companion app" : " on this website";
   const body = h("div", { class: "bd-list" },
@@ -947,7 +963,7 @@ function openGateDialog(feature) {
     body,
     actions: [
       h("button", { type: "button", class: "ghost-button", onclick: () => { close(); openProDialog(); } }, "I have a key"),
-      h("a", { class: "primary-button", href: "/pro-tool/plans/" }, "See Pro plans"),
+      h("a", { class: "primary-button", href: plansUrl(`gate-${feature}`) }, "See Pro plans"),
     ],
   });
 }
@@ -984,7 +1000,7 @@ function openProDialog() {
     isPro() && summary
       ? h("div", {}, h("p", { class: "bd-confirm-text" }, `Pro is active (${summary.plan}). Renewed automatically while your subscription runs.`), h("p", { class: "bd-note" }, `Key ${summary.key} · valid until ${summary.expires.toLocaleDateString()}`), cancelLine())
       : h("div", {}, h("p", { class: "bd-confirm-text" }, "Enter the licence key from your purchase email. The same key unlocks Pro here and in the Companion app."), input, message),
-    h("p", { class: "bd-note" }, h("a", { href: "/pro-tool/plans/" }, "See the plans"), " · ", h("a", { href: "/pro-tool/key/" }, "Lost your key?")));
+    h("p", { class: "bd-note" }, h("a", { href: plansUrl("pro-dialog") }, "See the plans"), " · ", h("a", { href: "/pro-tool/key/" }, "Lost your key?")));
   const actions = isPro()
     ? [h("button", { type: "button", class: "ghost-button", onclick: () => { deactivate(); close(); renderAll(); } }, "Remove key from this browser"), h("span", { class: "bd-spacer" }), h("button", { type: "button", class: "primary-button", onclick: () => close() }, "Done")]
     : [h("span", { class: "bd-spacer" }), h("button", { type: "button", class: "ghost-button", onclick: () => close() }, "Cancel"), h("button", { type: "button", class: "primary-button", onclick: async (event) => {
@@ -1460,6 +1476,9 @@ async function runSuggestions() {
 // just finished was immediately called out of date although nothing had
 // changed; the key a missing argument means is the team as it is right now.
 async function runEvaluation(key = evaluationKey()) {
+  // Counted where the button is pressed, not where a tab opens: a run is a decision, and it is
+  // the only thing on this page worth calling tool engagement.
+  trackSite("evaluation");
   if (!canRun("evaluation")) {
     if (isEvaluation(view.evaluation)) openGateDialog("evaluation");
     else renderMain();
@@ -1916,6 +1935,7 @@ function paintTournament() {
 async function runTournament() {
   const tour = view.tour;
   if (tour.running) return;
+  trackSite("tournament");
   if (!canRun("tournament")) {
     if (tour.snapshot) openGateDialog("tournament");
     else renderMain();
@@ -2038,6 +2058,9 @@ function stopTournament() {
 }
 
 async function runAutoBuild() {
+  // Counted where the button is pressed, not where a tab opens: a run is a decision, and it is
+  // the only thing on this page worth calling tool engagement.
+  trackSite("autobuild");
   if (!canRun("autobuild")) {
     if (view.auto.result) openGateDialog("autobuild");
     else renderMain();
@@ -2218,6 +2241,20 @@ let campaignOnScreen = "";
 const CAMPAIGN_TABS = { evaluation: "evaluation", auto: "autobuild" };
 const trackedTabs = new Set();
 
+/**
+ * The campaign's own two steps, on a tab being opened. Left exactly as they were.
+ *
+ * It is worth saying what they are NOT, because the number they produce has been read as
+ * something else: this is the tab BUTTON's onclick, so the step means "opened the Team
+ * Evaluation tab", not "ran a Team Evaluation" -- the collaboration's funnel has no
+ * completed-run step in it at all. And `/giuseppe` is a 302 straight into this page, so its
+ * `land` and `builder` steps both fire on one page load with no user action between them:
+ * the 91% that looked like a conversion rate is a fetch succeeding, nothing more.
+ *
+ * They stay as they are anyway, because the collaboration's numbers are a running series and a
+ * step that changes meaning half way through is worse than a step nobody counted. The SITE's
+ * funnel, below, is where the honest version lives.
+ */
 function trackCampaignTab(tab) {
   if (!campaignOnScreen) return;
   const step = CAMPAIGN_TABS[tab];
@@ -2255,10 +2292,21 @@ async function handleCampaignParam() {
     console.error(error);
     return;
   }
-  // The second step: the teams really are in the library and on screen. `land`
-  // without `builder` is a visitor who arrived and got nothing, which is the one
-  // failure this counter exists to make visible.
-  if (answer.loaded) {
+  // The second step: the teams really are in the library and on screen.
+  //
+  // `land` WITHOUT `builder` was supposed to mean "arrived and got nothing", and it does not:
+  // a visitor whose browser already holds the code is turned away above with
+  // `skipped: "seen"` and no fetch, while the R2 key is per DAY -- so somebody coming back
+  // tomorrow from the pinned comment is a `land` with no `builder` BY DESIGN. The gap was
+  // therefore returning visitors and genuine failures mixed together and indistinguishable,
+  // which is why the one number this counter exists to produce could not be read.
+  //
+  // `seen` separates them. After this, `land` minus `builder` minus `seen` is the real failure
+  // rate, and it is worth knowing before another collaboration is paid for.
+  if (answer.skipped === "seen") {
+    trackCampaign(code, "seen");
+    campaignOnScreen = code;
+  } else if (answer.loaded) {
     trackCampaign(code, "builder");
     campaignOnScreen = code;
   }
@@ -2276,6 +2324,44 @@ async function handleCampaignParam() {
   toast(`${answer.loaded} team${answer.loaded === 1 ? "" : "s"} added to your library`);
 }
 
+/**
+ * Which tab a `?build=` link may land on.
+ *
+ * The 2,700 content pages link in here, and until now every one of them landed on Team
+ * Overview -- a free panel. The point of arriving from a Pokemon page is usually the question
+ * the page just raised ("is this any good against what people actually bring?"), and the panel
+ * that answers it is Team Evaluation. An unknown or missing value is Overview exactly as before,
+ * so every link written before this keeps its behaviour.
+ */
+const DEEP_LINK_TABS = new Set(["overview", "evaluation", "auto", "tournament"]);
+
+/**
+ * `?tab=` and `?archetype=`, for a link that names no Pokemon.
+ *
+ * The 272 team pages (/teams/trick-room/, /teams/rain/ ...) are the second-largest section of
+ * the site by traffic and had no call to action at all. What they are about maps exactly onto an
+ * Auto Build option, so their link opens Auto Build with that archetype already chosen -- which
+ * is a Pro feature, free to try, producing a whole team from one click.
+ *
+ * `archetypeKey` is the authority on what an archetype is called: anything it does not
+ * recognise becomes "automatic", so a stale link degrades to a plain Auto Build rather than
+ * failing. The slug on a page is hyphenated and the key is spaced, which is the only translation.
+ */
+function applyViewParams(params) {
+  const askedTab = String(params.get("tab") || "").toLowerCase();
+  const askedArchetype = String(params.get("archetype") || "").toLowerCase().replace(/-/g, " ");
+  if (askedArchetype) view.auto.archetype = archetypeKey(askedArchetype);
+  if (!DEEP_LINK_TABS.has(askedTab)) return false;
+  view.tab = askedTab;
+  // NOTHING IS COUNTED HERE, and that is the point. A link from one of the 2,700 content pages
+  // carries `tab=auto`, so counting a step on arrival would file every one of those arrivals as
+  // "ran Auto Build" -- a tool-engagement number manufactured by a redirect, at content-page
+  // scale, in the very instrument installed to stop guessing. The three feature steps are sent
+  // from `runEvaluation`, `runAutoBuild` and `runTournament`, where somebody has actually
+  // pressed the button.
+  return true;
+}
+
 async function handleAddParam() {
   const params = new URLSearchParams(location.search);
   const wanted = params.get("add") || params.get("build");
@@ -2291,7 +2377,7 @@ async function handleAddParam() {
   } else {
     await addToTeamFlow(set);
   }
-  view.tab = "overview";
+  if (!applyViewParams(params)) view.tab = "overview";
   renderAll();
   const banner = document.getElementById("addBanner");
   if (banner) {
@@ -2334,6 +2420,13 @@ async function main() {
     // campaign's teams are the whole reason that visitor is here.
     await handleCampaignParam();
     await handleAddParam();
+    // ...and a link that names a tab but no Pokemon -- a team-archetype page, which is about a
+    // style rather than a species. `handleAddParam` returns before touching the query when
+    // there is nothing to add, so the parameters are still there to read.
+    if (applyViewParams(new URLSearchParams(location.search))) {
+      history.replaceState(null, "", location.pathname);
+      renderAll();
+    }
     initSync(data);
     refreshLicence().then(() => renderToolbar());
     document.getElementById("addBanner")?.querySelectorAll("button[data-action]").forEach((button) => button.addEventListener("click", () => {
@@ -2349,5 +2442,4 @@ async function main() {
 }
 
 main();
-// Once the page is up, and only once a visit: there is a game now.
-offerPlay();
+trackSite("builder");

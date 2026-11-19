@@ -253,18 +253,40 @@ check("the card is wider than the old popover", cardWidths.length > 0 && cardWid
 
 /* ------------------------------------------- the Team Builder call to action */
 
+// THE SAME BLOCK EXISTS TWICE and the two halves have different readers: app.js builds it
+// inside the profile modal, which covers the viewport, and tools/generate-manifest.mjs writes
+// it into the static page underneath, which is what a crawler sees. On 19 Nov 2026 the static
+// half was improved and the modal half was not, so the copy that got fixed was the half nobody
+// reads. These are written as a PAIRING for that reason: whatever the contract is, both halves
+// must satisfy it.
 const companionSource = appSource.match(/function companionPrompt\([\s\S]*?\n  \}/)?.[0] || "";
 check("the profile still offers the Team Builder", !!companionSource);
 check("the profile button starts a new team", /team-builder\/\?build=/.test(companionSource), companionSource);
 check("the profile offers no damage-calculator button", !/damage-calculator/.test(companionSource), companionSource);
+check("the modal copy names the file it must stay in step with",
+  /generate-manifest\.mjs/.test(companionSource), companionSource.slice(0, 400));
+check("the modal button opens Auto Build with that Pokemon",
+  /href="\/team-builder\/\?build=\$\{key\}&amp;tab=auto"/.test(companionSource), companionSource.slice(0, 600));
+check("...with a plain-builder fallback beside it",
+  /href="\/team-builder\/\?build=\$\{key\}"/.test(companionSource), companionSource.slice(0, 600));
 
 const staticCta = read("pokemon", "abomasnow", "index.html").match(/<aside class="companion-cta"[\s\S]*?<\/aside>/)?.[0] || "";
 check("the generated page carries the same block", !!staticCta);
-check("the generated heading builds a team", /<h2>Build a Team with Abomasnow<\/h2>/.test(staticCta), staticCta.slice(0, 260));
-check("the generated button says Build Team with it", />Build Team with it</.test(staticCta), staticCta);
-check("the generated button links to ?build=", /href="\/team-builder\/\?build=Abomasnow"/.test(staticCta), staticCta);
+check("the generated heading names the Pokemon it is about",
+  /<h2>Build a team around Abomasnow<\/h2>/.test(staticCta), staticCta.slice(0, 260));
+// `tab=auto` and not a bare `?build=`: the link used to land on Team Overview, a free panel
+// showing coverage for a team of ONE. Auto Build fills the other five and keeps the Pokemon the
+// reader arrived for, which is the thing worth one click from a profile page.
+check("the generated button opens Auto Build with that Pokemon",
+  /href="\/team-builder\/\?build=Abomasnow&amp;tab=auto"/.test(staticCta), staticCta);
+check("...and a plain-builder fallback sits beside it",
+  /href="\/team-builder\/\?build=Abomasnow"/.test(staticCta), staticCta);
 check("the generated block offers no damage calculator", !/Calculate damage/.test(staticCta), staticCta);
-check("the generated block has one button only", (staticCta.match(/<a /g) || []).length === 1, staticCta);
+check("the generated block has exactly the two buttons", (staticCta.match(/<a /g) || []).length === 2, staticCta);
+for (const promise of ["Auto Build", "Team Evaluation", "free to try"]) {
+  check(`both halves promise "${promise}"`,
+    staticCta.includes(promise) && companionSource.includes(promise));
+}
 
 // ?build= is the Team Builder's half of that button: a brand new team with
 // that Pokemon in slot 1. ?add= keeps dropping it into the team already open.
@@ -678,9 +700,16 @@ if (moveButton) {
 const cta = page.querySelector(".companion-cta");
 check("the profile shows the Team Builder block", !!cta);
 if (cta) {
-  check("its heading builds a team", cta.textContent.includes("Build a Team with Abomasnow"), cta.textContent.slice(0, 200));
-  check("its button says Build Team with it", cta.textContent.includes("Build Team with it"));
-  check("it says the button starts a new team", /starts a brand new team/i.test(cta.textContent), cta.textContent.slice(0, 300));
+  check("its heading names the Pokemon it is about", cta.textContent.includes("Build a team around Abomasnow"), cta.textContent.slice(0, 200));
+  // TEXT ONLY HERE, and deliberately. The small DOM this file builds keeps what a node was
+  // given as a string and does not parse it into children or keep attributes -- the same
+  // reason the Aurora Veil check below reads text rather than cells -- so an href assertion
+  // against this object silently passes or silently fails on nothing. The hrefs are guarded
+  // where they can be: against app.js's own source, above.
+  check("it offers both actions by name",
+    cta.textContent.includes("Build a team around Abomasnow") && cta.textContent.includes("Just open the builder"),
+    cta.textContent.slice(0, 300));
+  check("it says what Auto Build does", /fills the other five/i.test(cta.textContent), cta.textContent.slice(0, 300));
   check("it offers no damage calculator", !cta.textContent.includes("Calculate damage"));
 }
 

@@ -13,8 +13,8 @@ import { STAT_KEYS } from "./engine.js";
 import { FREE_RUNS, canRun, freeRunsLeft, isPro, recordRun } from "./pro.js";
 import { FIELD_TURNS, fieldTurns, LOOKAHEAD_RANGE, DEFAULT_LOOKAHEAD, SETTLE_LINES, SOLVER_FEATURE, SWITCH } from "./solver.js";
 import { blankSet } from "./pokemon-sets.js";
+import { trackSite } from "./campaign-track.js";
 import { clear, editSet, h, openDialog, pickPokemon, segmented, select, sprite, toast } from "./ui.js";
-import { offerPlay } from "./play-banner.js";
 import { currentTeam, getState, subscribe, teamSets } from "./store.js";
 
 
@@ -1428,6 +1428,7 @@ function renderResults() {
 // --- the search --------------------------------------------------------------------------
 
 function proDialog() {
+  trackSite("gate");
   const { close } = openDialog({
     title: "The Solver is a Pro feature",
     body: h("div", {},
@@ -1437,7 +1438,7 @@ function proDialog() {
       h("a", { class: "ghost-button", href: "/pro-tool/key/" }, "I have a key"),
       h("span", { class: "bd-spacer" }),
       h("button", { class: "ghost-button", type: "button", onclick: () => close() }, "Not now"),
-      h("a", { class: "primary-button", href: "/pro-tool/plans/" }, "See the plans"),
+      h("a", { class: "primary-button", href: "/pro-tool/plans/?from=gate-solver" }, "See the plans"),
     ],
   });
 }
@@ -1626,5 +1627,4 @@ async function start() {
 }
 
 start();
-// Once the page is up, and only once a visit: there is a game now.
-offerPlay();
+trackSite("solver");

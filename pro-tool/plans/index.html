@@ -239,14 +239,93 @@
     var STRIPE_PORTAL = "https://billing.stripe.com/p/login/3cIaEX7TQfju0rIei157W00";
 
     (function () {
+      // -------------------------------------------------------------------
+      // WHERE DID THIS BUYER COME FROM?
+      //
+      // Two months of sales and not one of them could be attributed, because a
+      // Stripe PAYMENT LINK carries nothing from the page that sent the click.
+      // It does accept one thing -- client_reference_id -- and Stripe hands it
+      // straight back on checkout.session.completed, where the webhook now
+      // stores it on the licence record (functions/api/stripe/webhook.js).
+      //
+      // What travels is a SOURCE LABEL and nothing else: "gate-evaluation",
+      // "pokemon", "nav". Deliberately NOT the visitor id the funnel counter
+      // uses -- that id is in the clear on this site by design, and joining it
+      // to an email address in a stored record is a different thing from
+      // counting anonymous steps. The label answers the only question worth
+      // asking of a sale, and it cannot identify anybody.
+      // -------------------------------------------------------------------
+      function sourceLabel() {
+        try {
+          var from = new URLSearchParams(location.search).get("from") || "";
+          var clean = from.toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 40);
+          if (clean) return clean;
+          var ref = document.referrer || "";
+          if (!ref) return "direct";
+          var url = new URL(ref);
+          if (url.host !== location.host) return "external";
+          var first = url.pathname.split("/").filter(Boolean)[0] || "home";
+          return first.toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 40) || "home";
+        } catch (error) {
+          return "direct";
+        }
+      }
+
+      // The funnel counter, inline. Same endpoint, same step names and the same
+      // visitor-id key as builder/campaign-track.js, because this page is a
+      // plain document with no module graph to import it from.
+      function visitorId() {
+        var make = function () {
+          var bytes = new Uint8Array(8);
+          crypto.getRandomValues(bytes);
+          return Array.prototype.map.call(bytes, function (b) {
+            return b.toString(16).padStart(2, "0");
+          }).join("");
+        };
+        try {
+          var stored = localStorage.getItem("cbd.visitor");
+          if (stored && /^[0-9a-f]{16}$/.test(stored)) return stored;
+          var made = make();
+          localStorage.setItem("cbd.visitor", made);
+          return made;
+        } catch (error) {
+          return make();
+        }
+      }
+      var spent = {};
+      function step(name) {
+        if (spent[name]) return;
+        spent[name] = true;
+        try {
+          fetch("/api/campaign/site", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ step: name, visitor: visitorId() }),
+            keepalive: true,
+          }).catch(function () {});
+        } catch (error) {
+          // A blocker, no network, no fetch: never worth a broken page.
+        }
+      }
+
+      var source = sourceLabel();
+      step("plans");
+
       var links = { monthly: STRIPE_MONTHLY, yearly: STRIPE_YEARLY };
       Object.keys(links).forEach(function (plan) {
         var url = (links[plan] || "").trim();
         if (!/^https:\/\//.test(url)) return;
+        // `client_reference_id` is appended rather than replacing anything, so a
+        // payment link that already carries parameters keeps them.
+        var withRef = url + (url.indexOf("?") >= 0 ? "&" : "?")
+          + "client_reference_id=" + encodeURIComponent(plan + "-" + source);
         document.querySelectorAll('[data-plan="' + plan + '"]').forEach(function (node) {
-          node.setAttribute("href", url);
+          node.setAttribute("href", withRef);
           node.removeAttribute("target");
           node.removeAttribute("rel");
+          // The last step on this site. Sent with keepalive because the page is
+          // being torn down by the navigation that follows.
+          node.addEventListener("click", function () { step("checkout"); });
         });
       });
 

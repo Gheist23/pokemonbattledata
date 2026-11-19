@@ -255,6 +255,20 @@ code {
   padding-block: clamp(1.3rem, 3vw, 2.25rem) 0.85rem;
 }
 .hero-copy { align-self: center; }
+
+/* The three tools under the landing page's lead (index.html, `home-only`). Buttons rather than
+   links because they are the page's only actions, and `width: auto` because styles.css makes
+   every .ghost-button full width on a phone -- the same override .companion-cta-actions needs. */
+.hero-tools { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+.hero-tools :is(.primary-button, .ghost-button) {
+  width: auto;
+  min-width: 10rem;
+  justify-content: center;
+  padding-inline: 1.3rem;
+}
+@media (max-width: 620px) {
+  .hero-tools :is(.primary-button, .ghost-button) { width: 100%; min-width: 0; }
+}
 .eyebrow {
   margin: 0 0 0.75rem;
   color: var(--brand);
@@ -9645,41 +9659,3 @@ a.answer-card:focus-visible {
 
 .meta-share-button:disabled { opacity: 0.6; cursor: default; }
 
-/* The strip that offers the game against the Solver (builder/play-banner.js).
-   It lives here and not in the builder's own stylesheet because it appears on every kind of
-   page, including the Explorer, which never loads builder.css -- so it carries its own colours
-   rather than borrowing the builder theme's variables. */
-.bd-play-banner {
-  position: fixed;
-  left: 50%;
-  bottom: 1rem;
-  transform: translateX(-50%);
-  z-index: 60;
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  max-width: min(62rem, calc(100vw - 2rem));
-  padding: 0.8rem 1.1rem;
-  border: 1px solid rgba(114, 255, 171, 0.5);
-  border-radius: 12px;
-  background: rgba(8, 17, 12, 0.98);
-  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
-  color: #e8f6ee;
-}
-
-.bd-play-banner p { margin: 0; font-size: 0.82rem; opacity: 0.85; }
-.bd-play-banner strong { display: block; font-size: 0.94rem; opacity: 1; margin-bottom: 0.1rem; }
-.bd-play-banner .bd-play-banner-actions { display: flex; gap: 0.5rem; margin-left: auto; flex-shrink: 0; }
-/* Both buttons wide enough to read as buttons rather than as links that happen to have a border.
-   `width: auto` because styles.css makes every .ghost-button full width on a phone. */
-.bd-play-banner .bd-play-banner-actions :is(.primary-button, .ghost-button) {
-  width: auto !important;
-  min-width: 8.5rem;
-  justify-content: center;
-  padding-inline: 1.4rem;
-}
-
-@media (max-width: 620px) {
-  .bd-play-banner { flex-direction: column; align-items: flex-start; }
-  .bd-play-banner .bd-play-banner-actions { margin-left: 0; }
-}

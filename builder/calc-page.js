@@ -2,11 +2,11 @@
 
 import { BuilderData, NATURE_ORDER, STAT_LABELS, bonusTotal, makeSet, parseShowdown, setFromCommon } from "./common.js";
 import { loadSetLibrary, setsFor } from "./pokemon-sets.js";
-import { offerPlay } from "./play-banner.js";
 import { CalcModel, FIELD_LABELS, GENDERS, LEFT, RIGHT, STATUSES, defaultCalcState, defaultMonState, other } from "./calc-model.js";
 import { MAX_BONUS_POINTS_PER_STAT, MAX_BONUS_STAT_POINTS } from "./engine.js";
 import { clear, h, openDialog, pickPokemon, searchSelect, select, sprite, toast, typeChip } from "./ui.js";
 import { keepPlace } from "./scroll-anchor.js";
+import { trackSite } from "./campaign-track.js";
 import { currentTeam, getState, subscribe, teamSets } from "./store.js";
 
 
@@ -625,5 +625,4 @@ async function main() {
 }
 
 main();
-// Once the page is up, and only once a visit: there is a game now.
-offerPlay();
+trackSite("calc");

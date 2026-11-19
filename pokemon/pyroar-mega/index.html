@@ -158,11 +158,12 @@
       <aside class="companion-cta" aria-label="Team Builder">
       <div>
         <p class="eyebrow">Free Team Builder</p>
-        <h2>Build a Team with Pyroar-Mega</h2>
-        <p>This starts a brand new team with Pyroar-Mega in the first slot, on its most common set. The Team Builder then scores the six against the current ladder, names the Pokemon that beat them, and shows where Pyroar-Mega helps and where it does not.</p>
+        <h2>Build a team around Pyroar-Mega</h2>
+        <p>Auto Build starts from Pyroar-Mega and fills the other five slots from what is winning on the ranked ladder right now. Team Evaluation then scores the six for Synergy, Offense, Defense and Speed, runs the Team Building Checks, and lists every Pokemon in the meta that beats them with the damage calcs behind it. Both are free to try, and Pyroar-Mega stays in the team.</p>
       </div>
       <div class="companion-cta-actions">
-        <a class="primary-button" href="/team-builder/?build=Pyroar">Build Team with it</a>
+        <a class="primary-button" href="/team-builder/?build=Pyroar&amp;tab=auto">Build a team around Pyroar-Mega</a>
+        <a class="ghost-button" href="/team-builder/?build=Pyroar">Just open the builder</a>
       </div>
     </aside>
       <h2>Related forms</h2><ul class="static-sprite-list"><li><span class="static-name-cell"><img class="static-mini-sprite" src="/pokemon_champions_assets/pokemon_mini/Pyroar.png" alt="" width="48" height="48" loading="lazy" decoding="async" /><a href="/pokemon/pyroar/">Pyroar</a></span></li></ul>
@@ -182,6 +183,15 @@
         <p class="eyebrow">Pokemon Champions Competitive Data Explorer</p>
         <h1 id="pageTitle">Pokemon Champions Battle Data + API</h1>
         <p class="hero-text">Explore Pokemon Champions battle data with usage stats, ranked meta trends, Singles and Doubles movesets, best held items, abilities, teammates, stat spreads, learnable moves, and API access for competitive team building.</p>
+        <!-- THE THREE TOOLS, on the landing page only.
+             ~840 visits a day arrive here and the first thing they meet is a search box over a
+             CSV: nothing on the page says that this site also builds teams, prices a hit or
+             plays a game against the Solver, so the tools were reachable only from the nav.
+             This is not a Pro pitch -- all three are free, and the one interstitial this site
+             had was deleted on 19 Nov 2026. It is a signpost.
+             `home-only` is stripped from every generated page by basePageHtml
+             (tools/generate-manifest.mjs), the same way the Discord button is: 2,717 pages are
+             built from this file as a template and inherit whatever is in it. -->
       </div>
 
       <aside class="hero-card battle-entry-panel" aria-label="Battle data entries">

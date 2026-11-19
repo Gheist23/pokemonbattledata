@@ -1,21 +1,21 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simisage,250,move,1,Fake Out,97.6%,,,,,,,,
-Simisage,250,move,2,Taunt,40.1%,,,,,,,,
-Simisage,250,move,3,Leaf Storm,37.8%,,,,,,,,
-Simisage,250,move,4,Seed Bomb,34.5%,,,,,,,,
-Simisage,250,move,5,Protect,28.2%,,,,,,,,
-Simisage,250,move,6,Rock Tomb,23.0%,,,,,,,,
-Simisage,250,move,7,Sunny Day,22.1%,,,,,,,,
-Simisage,250,move,8,Leech Seed,18.8%,,,,,,,,
-Simisage,250,move,9,Helping Hand,14.7%,,,,,,,,
+Simisage,250,move,1,Fake Out,97.5%,,,,,,,,
+Simisage,250,move,2,Taunt,40.2%,,,,,,,,
+Simisage,250,move,3,Leaf Storm,38.0%,,,,,,,,
+Simisage,250,move,4,Seed Bomb,34.3%,,,,,,,,
+Simisage,250,move,5,Protect,28.1%,,,,,,,,
+Simisage,250,move,6,Rock Tomb,22.6%,,,,,,,,
+Simisage,250,move,7,Sunny Day,21.8%,,,,,,,,
+Simisage,250,move,8,Leech Seed,19.4%,,,,,,,,
+Simisage,250,move,9,Helping Hand,14.8%,,,,,,,,
 Simisage,250,move,10,Solar Blade,14.4%,,,,,,,,
-Simisage,250,held_item,1,Focus Sash,40.0%,,,,,,,,
+Simisage,250,held_item,1,Focus Sash,39.8%,,,,,,,,
 Simisage,250,held_item,2,Miracle Seed,13.9%,,,,,,,,
-Simisage,250,held_item,3,Eject Button,10.6%,,,,,,,,
-Simisage,250,held_item,4,Life Orb,9.1%,,,,,,,,
-Simisage,250,held_item,5,Coba Berry,7.9%,,,,,,,,
-Simisage,250,held_item,6,Sitrus Berry,6.6%,,,,,,,,
-Simisage,250,held_item,7,King's Rock,3.1%,,,,,,,,
+Simisage,250,held_item,3,Eject Button,11.2%,,,,,,,,
+Simisage,250,held_item,4,Life Orb,8.9%,,,,,,,,
+Simisage,250,held_item,5,Coba Berry,7.8%,,,,,,,,
+Simisage,250,held_item,6,Sitrus Berry,6.5%,,,,,,,,
+Simisage,250,held_item,7,King's Rock,3.0%,,,,,,,,
 Simisage,250,held_item,8,Bright Powder,2.9%,,,,,,,,
 Simisage,250,held_item,9,Muscle Band,1.8%,,,,,,,,
 Simisage,250,held_item,10,Quick Claw,1.4%,,,,,,,,
@@ -25,27 +25,28 @@ Simisage,250,teammate,3,Salamence,,,,,,,,,
 Simisage,250,teammate,4,Watchog,,,,,,,,,
 Simisage,250,teammate,5,Overqwil,,,,,,,,,
 Simisage,250,teammate,6,Staraptor,,,,,,,,,
-Simisage,250,teammate,7,Noivern,,,,,,,,,
-Simisage,250,teammate,8,Clefable,,,,,,,,,
-Simisage,250,teammate,9,Audino,,,,,,,,,
+Simisage,250,teammate,7,Clefable,,,,,,,,,
+Simisage,250,teammate,8,Audino,,,,,,,,,
+Simisage,250,teammate,9,Noivern,,,,,,,,,
 Simisage,250,teammate,10,Crabominable,,,,,,,,,
 Simisage,250,stat_alignment,1,Timid,39.1%,Speed,Attack,,,,,,
 Simisage,250,stat_alignment,2,Jolly,30.1%,Speed,Sp. Atk,,,,,,
-Simisage,250,stat_alignment,3,Adamant,14.9%,Attack,Sp. Atk,,,,,,
-Simisage,250,stat_alignment,4,Hasty,9.6%,Speed,Defense,,,,,,
+Simisage,250,stat_alignment,3,Adamant,14.7%,Attack,Sp. Atk,,,,,,
+Simisage,250,stat_alignment,4,Hasty,9.4%,Speed,Defense,,,,,,
 Simisage,250,stat_alignment,5,Modest,5.4%,Sp. Atk,Attack,,,,,,
-Simisage,250,stat_alignment,6,Calm,0.5%,Sp. Def,Attack,,,,,,
+Simisage,250,stat_alignment,6,Calm,0.8%,Sp. Def,Attack,,,,,,
 Simisage,250,stat_alignment,7,Brave,0.3%,Attack,Speed,,,,,,
 Simisage,250,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
-Simisage,250,stat_points,1,,32.6%,,,2,32,0,0,0,32
-Simisage,250,stat_points,2,,15.2%,,,32,0,2,0,0,32
+Simisage,250,stat_alignment,9,Mild,0.1%,Sp. Atk,Defense,,,,,,
+Simisage,250,stat_points,1,,32.1%,,,2,32,0,0,0,32
+Simisage,250,stat_points,2,,15.7%,,,32,0,2,0,0,32
 Simisage,250,stat_points,3,,12.4%,,,2,0,0,32,0,32
-Simisage,250,stat_points,4,,9.1%,,,29,32,0,0,0,5
-Simisage,250,stat_points,5,,6.9%,,,32,0,0,0,14,20
-Simisage,250,stat_points,6,,5.0%,,,0,0,0,32,2,32
-Simisage,250,stat_points,7,,4.6%,,,0,32,0,2,0,32
-Simisage,250,stat_points,8,,3.2%,,,0,0,0,32,0,32
+Simisage,250,stat_points,4,,8.9%,,,29,32,0,0,0,5
+Simisage,250,stat_points,5,,6.8%,,,32,0,0,0,14,20
+Simisage,250,stat_points,6,,4.9%,,,0,0,0,32,2,32
+Simisage,250,stat_points,7,,4.5%,,,0,32,0,2,0,32
+Simisage,250,stat_points,8,,3.1%,,,0,0,0,32,0,32
 Simisage,250,stat_points,9,,2.4%,,,30,0,0,13,14,9
 Simisage,250,stat_points,10,,2.0%,,,28,0,6,11,7,14
-Simisage,250,ability,1,Overgrow,95.3%,,,,,,,,
-Simisage,250,ability,2,Gluttony,4.7%,,,,,,,,
+Simisage,250,ability,1,Overgrow,95.4%,,,,,,,,
+Simisage,250,ability,2,Gluttony,4.6%,,,,,,,,

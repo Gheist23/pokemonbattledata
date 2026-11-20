@@ -61,6 +61,21 @@ MAX_MOVERS = 12       # per direction, which is far more than a mail shows
 
 DEFAULT_ENDPOINT = "https://championsbattledata.com/api/watch/digest"
 
+# CLOUDFLARE BLOCKS THE DEFAULT urllib USER-AGENT. Verified against the live site on 20 Nov 2026:
+# a POST sent as "Python-urllib/3.11" is refused with 403 and Cloudflare error code 1010 ("banned
+# based on your browser's signature") before it ever reaches the Pages Function, while the same
+# request with any ordinary User-Agent answers 200. Nothing in the project's own config does this
+# -- it is the zone's default bot handling, so it would also have applied to any other urllib
+# caller added later.
+#
+# This is the exact shape of failure the whole design is meant to avoid: the publisher would have
+# printed one "failed (HTTP Error 403)" line into a log nobody reads, every morning, and the list
+# would simply never have been mailed. It is named here so the next person does not spend an hour
+# on the key.
+#
+# A plain client name and a version. NOT an email address or anything identifying the operator.
+USER_AGENT = "championsbattledata-meta-digest/1"
+
 
 def load(path):
     with io.open(path, "r", encoding="utf-8") as handle:
@@ -203,7 +218,7 @@ def post(endpoint, key, payload, dry_run):
     body = json.dumps(payload).encode("utf-8")
     request = urllib.request.Request(
         url, data=body, method="POST",
-        headers={"content-type": "application/json"},
+        headers={"content-type": "application/json", "User-Agent": USER_AGENT},
     )
     with urllib.request.urlopen(request, timeout=60) as response:
         return json.loads(response.read().decode("utf-8"))

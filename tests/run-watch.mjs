@@ -404,6 +404,16 @@ ok("the box only appears once there is a team to watch",
 ok("...and never counts a pristine placeholder team as one",
   /!team\.pristine/.test(watch));
 
+/* ------------------------------------- the one header without which none of this runs */
+// Cloudflare refuses "Python-urllib/..." on this zone with 403 / error 1010 before the request
+// reaches the Function at all, so the digest would compute correctly every morning and never be
+// delivered. Verified live 20 Nov 2026. Pinned here because nothing else would notice.
+const digestTool = read("tools", "meta_digest.py");
+ok("the digest poster sends a User-Agent at all", /"User-Agent": USER_AGENT/.test(digestTool));
+ok("...a plain client name, not an address or anything identifying the operator",
+  /^USER_AGENT = "[a-z0-9-]+\/\d+"$/m.test(digestTool));
+ok("...and records that Cloudflare is why", /1010/.test(digestTool));
+
 /* ---------------------------------------------- the publisher actually calls it */
 // publish_champions_data.py lives in PokemonChampionsData/, one level ABOVE this repo, and that
 // folder is not under version control -- so on a fresh clone it simply is not there. Checked

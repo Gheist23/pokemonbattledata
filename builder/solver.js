@@ -714,14 +714,25 @@ export class Solver {
       if (key === "fakeout") {
         if (!m.justIn) return;
         for (const [foe, fp] of liveFoes) {
-          if (foe.k.flinchProof) continue;
-          if (t.hitOn(m, foe, slot, state.board, false).frac <= 0) {
+          // FLINCH-PROOF IS NOT UNTARGETABLE. Inner Focus, Own Tempo, Shield Dust and Covert
+          // Cloak stop the flinch and nothing else: Fake Out is a 40 BP priority attack and it
+          // still lands. This used to `continue`, which deleted the action entirely -- the
+          // player picked the move, was offered one of the two foes and had no way to learn
+          // why. Reported as "why can't I target Dragonite with Fake Out?"; that Dragonite had
+          // Inner Focus. The flinch is now refused in tournament-test.js, where it belongs,
+          // instead of by refusing to let the move be chosen at all.
+          const frac = t.hitOn(m, foe, slot, state.board, false).frac;
+          const proof = foe.k.flinchProof;
+          if (frac <= 0) {
             // Same rule as the ordinary attacks below: a Fake Out a Ghost is immune to still
             // flinches whatever is switched into that slot, so the player keeps the option.
             if (cap === 0) add({ kind: FAKE_OUT, slot, target: fp, move: info.name, value: 0, noEffect: true });
             continue;
           }
-          add({ kind: FAKE_OUT, slot, target: fp, move: info.name, value: 6 + t.threatTo(foe, mine, state.board) });
+          // Priced as the plain priority attack it is when the flinch cannot happen, so the
+          // search stops valuing a flinch-proof foe as a free turn of denial.
+          add({ kind: FAKE_OUT, slot, target: fp, move: info.name,
+            value: proof ? frac * 10 : 6 + t.threatTo(foe, mine, state.board) });
         }
         return;
       }
@@ -1549,6 +1560,7 @@ export class Solver {
       helpinghand: "used Helping Hand", fakeout: "flinched the target with Fake Out",
       tailwind: "set Tailwind", trickroom: "turned Trick Room", redirect: "drew the attacks in",
       sleep: "put the target to sleep", taunt: "taunted the target",
+      flinchproof: "could not flinch the target",
       encore: "locked the target with Encore", burn: "burned the target", blocked: "was blocked",
     };
     /**
@@ -1577,6 +1589,16 @@ export class Solver {
       }
       if (event.kind === "weather" || event.kind === "terrain") {
         add(`${this.label(event.actor)} set ${event.value}`);
+        continue;
+      }
+      // What Intimidate did NOT do, named rather than left as a silence that reads as a bug.
+      if (event.kind === "intimidateblocked" || event.kind === "intimidateraised") {
+        const who = (event.targets || []).map((unit) => this.label(unit));
+        if (who.length) {
+          add(event.kind === "intimidateblocked"
+            ? `${whose(who)} Attack was not lowered`
+            : `${whose(who)} Attack rose instead`);
+        }
         continue;
       }
       if (Object.prototype.hasOwnProperty.call(DROPS, event.kind)) {

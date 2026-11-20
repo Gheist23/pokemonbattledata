@@ -3208,25 +3208,38 @@ export class TournamentTest {
   intimidateFrom(m, active, events) {
     const source = m.u.intimidateMon || m.u.mon;
     const lowered = [];
+    // WHAT IT DID NOT DO IS ALSO NEWS. Intimidate hits BOTH foes, so a doubles log naming only
+    // one of them reads as a bug -- and the commonest reason it names one is that the other
+    // holds Inner Focus, Clear Body, Own Tempo or Oblivious and was legitimately immune.
+    // Reported by a player as "why is Dragonite's Attack not lowered?", where that Dragonite
+    // had Inner Focus (44.9% of them run it) and the engine was exactly right and said nothing.
+    // Defiant, Competitive and Guard Dog turn it into a RAISE, which was equally silent.
+    const unmoved = [];
+    const raised = [];
     for (const foe of active[1 - m.s]) {
       if (!alive(foe)) continue;
       const target = foe.u.base || foe.u.mon;
       const ability = compact(target.ability);
-      if (ability === "hypercutter" || ability === "mirrorarmor") continue;
+      if (ability === "hypercutter" || ability === "mirrorarmor") { unmoved.push(foe.u); continue; }
       if (ability === "guarddog") {
         foe.atk = clampStage(foe.atk + 1);
+        raised.push(foe.u);
         continue;
       }
       const offsets = intimidateOffsets(source, target);
-      if (!offsets.attack_stage && !offsets.sp_attack_stage) continue;
+      if (!offsets.attack_stage && !offsets.sp_attack_stage) { unmoved.push(foe.u); continue; }
       foe.atk = clampStage(foe.atk + offsets.attack_stage);
       foe.spa = clampStage(foe.spa + offsets.sp_attack_stage);
       if (offsets.attack_stage < 0) {
         lowered.push(foe.u);
         foe.intimidated = true;
+      } else {
+        raised.push(foe.u);
       }
     }
     if (lowered.length) events?.push({ s: m.s, kind: "intimidate", actor: m.u, targets: lowered });
+    if (raised.length) events?.push({ s: m.s, kind: "intimidateraised", actor: m.u, targets: raised });
+    if (unmoved.length) events?.push({ s: m.s, kind: "intimidateblocked", actor: m.u, targets: unmoved });
   }
 
   /**
@@ -5421,8 +5434,18 @@ export class TournamentTest {
         }
         const fakeHit = this.hitOn(m, target, m.k.fakeOut, board, m.helped, pre);
         if (this.deal(m, target, fakeHit, events)) this.oweSelf(m, this.selfShare(fakeHit));
-        target.flinch = true;
-        events?.push({ s, kind: "fakeout", actor: m.u, target: target.u });
+        // INNER FOCUS, OWN TEMPO, SHIELD DUST, COVERT CLOAK: the 40 BP lands on all of them and
+        // only the FLINCH is stopped. This was unconditional, and the only reason it never
+        // showed was that slotCandidates refused to generate a Fake Out at a flinch-proof foe
+        // at all -- so the move could not be used on one, and the moment it could it would have
+        // flinched it. Both halves are fixed in the same commit on purpose: either one alone is
+        // worse than neither.
+        if (target.k.flinchProof) {
+          events?.push({ s, kind: "flinchproof", actor: m.u, target: target.u, move: "Fake Out" });
+        } else {
+          target.flinch = true;
+          events?.push({ s, kind: "fakeout", actor: m.u, target: target.u });
+        }
       } else if (a.kind === TAILWIND) {
         board.tw[s] = TAILWIND_TURNS;
         events?.push({ s, kind: "tailwind", actor: m.u });

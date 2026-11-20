@@ -1882,6 +1882,11 @@ export class PlayGame {
       case "terrain": return `${by} set ${event.value} Terrain`;
       case "mega": return `${by} Mega Evolved`;
       case "intimidate": return `${by} lowered ${list(event.targets)}'s Attack`;
+      // The other two outcomes of the same Ability. The silence here is what made a correct
+      // Inner Focus look like a missing Intimidate; see intimidateFrom in tournament-test.js.
+      case "intimidateblocked": return `${list(event.targets)} was not affected`;
+      case "intimidateraised": return `${list(event.targets)}'s Attack rose instead`;
+      case "flinchproof": return `${name(event.target)} did not flinch`;
       // STAMINA, which answers every hit that lands on its holder. A critical hit ignores the
       // Defense it has built up, which is the game's rule, so the line can be followed by a crit
       // that looks as though the stage were never there.
@@ -1992,11 +1997,23 @@ export class PlayGame {
     return this.rng() < CRIT_CHANCE[Math.min(CRIT_CHANCE.length - 1, Math.max(0, stage))];
   }
 
-  /** `turnRecord` builds its own notes; this is for the opening, which has no actions. */
+  /** `turnRecord` builds its own notes; this is for the opening, which has no actions.
+   *
+   * THE LIST IS THE OPENING'S WHOLE VOCABULARY. It was three kinds -- weather, terrain,
+   * intimidate -- so an entry event of any other kind was dropped here even though `noteFor`
+   * had a sentence ready for it. That is how "Dragonite was not affected" went missing while
+   * the same event rendered correctly everywhere else: two lists, one updated.
+   */
   noteLines(events) {
+    const ENTRY_KINDS = new Set([
+      "weather", "terrain", "intimidate",
+      // The other two ends of Intimidate. Silence here is what made a correct Inner Focus look
+      // like an engine that had forgotten the second foe.
+      "intimidateblocked", "intimidateraised",
+    ]);
     const out = [];
     for (const event of events || []) {
-      if (event.kind !== "weather" && event.kind !== "terrain" && event.kind !== "intimidate") continue;
+      if (!ENTRY_KINDS.has(event.kind)) continue;
       const line = this.noteFor(event);
       if (line) out.push(line);
     }

@@ -4115,6 +4115,7 @@ code,
 
 .fact,
 .metric,
+.detail-build-cta,
 .data-table-wrap,
 .percent-bar,
 .stat-track {
@@ -4124,6 +4125,7 @@ code,
 
 .fact strong,
 .metric strong,
+.detail-build-cta,
 .form-stat-line span:last-child,
 .nature-neutral,
 td {
@@ -4435,6 +4437,7 @@ code,
 .data-table-wrap,
 .fact,
 .metric,
+.detail-build-cta,
 .percent-bar,
 .stat-track {
   background: rgba(4, 10, 7, 0.58) !important;
@@ -6118,7 +6121,8 @@ body.page-api::before {
     margin-top: 0.62rem !important;
   }
 
-  .page-explorer .metric {
+  .page-explorer .metric,
+  .page-explorer .detail-build-cta {
     padding: 0.58rem 0.62rem !important;
     border-radius: 8px !important;
     min-width: 0 !important;
@@ -7241,7 +7245,8 @@ body.page-api::before {
     grid-row: 4 !important;
   }
 
-  .page-explorer .metric {
+  .page-explorer .metric,
+  .page-explorer .detail-build-cta {
     width: 100% !important;
     min-height: 58px !important;
     padding: 0.78rem 0.88rem !important;
@@ -9757,25 +9762,27 @@ a.answer-card:focus-visible {
 }
 
 @media (max-width: 760px) {
+  /* THE SAME TILE AS THE THREE ABOVE IT -- and it IS one, by construction. The
+     selector is joined to the themed rules that decide a `.metric`'s
+     background, border colour, radius, padding and text colour, rather than
+     copying their values here. Copying was the first attempt and it drew the
+     wrong tile: the base `.metric` rule is overridden three times further down
+     this file, so its values are not the ones on screen.
+
+     What is left is only what a tile does not say: this is an anchor, so it
+     brings a link colour and an underline of its own, and its single line of
+     text is centred where a tile's is left-aligned over two. */
   .detail-build-cta {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 2.9rem;
-    padding: 0.72rem 0.9rem;
-    border: 1px solid var(--brand, #4fd675);
-    border-radius: 15px;
-    background: color-mix(in srgb, var(--brand, #4fd675) 16%, transparent);
-    color: var(--brand, #4fd675);
-    font-size: 0.92rem;
-    font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.25;
     text-align: center;
     text-decoration: none;
-  }
-
-  .detail-build-cta:active {
-    background: color-mix(in srgb, var(--brand, #4fd675) 26%, transparent);
+    /* The themed rules above set the border COLOUR and leave the width to the
+       base `.metric` rule -- which an anchor does not match, so the button came
+       out colour-correct and borderless beside three outlined tiles. */
+    border: 1px solid var(--line);
   }
 
   /* One tile per row on a phone, so the button is full width and its label fits

@@ -58,7 +58,11 @@ const STEPS = ["land", "builder", "evaluation", "autobuild",
   // not be read. `land` - `builder` - `seen` is the real failure rate.
   "seen",
   // the rest of the website's own funnel
-  "tournament", "solver", "calc", "play", "gate", "plans", "checkout"];
+  "tournament", "solver", "calc", "play", "gate", "plans", "checkout",
+  // The meta watch box in the team library (builder/watch.js). Sent once a visitor has
+  // actually asked for the mail, not when the box is merely shown -- "was it seen" is
+  // already answered by `builder`, since the box lives in the Team Builder.
+  "watch"];
 const MAX_LIST_PAGES = 25; // 25,000 objects; beyond that the answer says so rather than lying
 
 const headers = {

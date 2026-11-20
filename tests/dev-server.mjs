@@ -89,6 +89,12 @@ const env = {
   },
   SHARES: memoryBucket(),
   PLAY: memoryDatabase(),
+  // The meta watch list (functions/api/watch/*) stores in the same bucket stand-in above.
+  // These two make the flow runnable here: the "key" is only checked against itself, and the
+  // mailer is intercepted below so the confirmation link is PRINTED rather than sent.
+  RESEND_API_KEY: "re_local_stub",
+  DIGEST_KEY: "local",
+  SITE_ORIGIN: `http://127.0.0.1:${port}`,
   // The live ladder refuses a second DIFFERENT game from one device inside five seconds, which
   // is right there and wrong here: clicking through games to try the page out would answer 429
   // and show no rating. Switched off for local work only.
@@ -113,6 +119,34 @@ const shareIndex = await import(pathToFileURL(join(root, "functions/api/share/in
 const shareCode = await import(pathToFileURL(join(root, "functions/api/share/[code].js")).href);
 const shareImage = await import(pathToFileURL(join(root, "functions/api/share/img/[code].js")).href);
 const campaign = await import(pathToFileURL(join(root, "functions/api/campaign/[code].js")).href);
+const watchIndex = await import(pathToFileURL(join(root, "functions/api/watch/index.js")).href);
+const watchConfirm = await import(pathToFileURL(join(root, "functions/api/watch/confirm.js")).href);
+const watchUnsub = await import(pathToFileURL(join(root, "functions/api/watch/unsubscribe.js")).href);
+const watchDigest = await import(pathToFileURL(join(root, "functions/api/watch/digest.js")).href);
+
+// NOTHING LEAVES THIS MACHINE. The watch endpoints send through Resend over global fetch, so
+// local work would either need a real API key or produce no mail to look at. This intercepts
+// api.resend.com and prints what would have gone out -- which for the confirmation is the only
+// way to reach the confirm link, since the whole point of the design is that no other route
+// exists. Every other fetch is passed straight through.
+const realFetch = globalThis.fetch;
+globalThis.fetch = async (input, init = {}) => {
+  const target = String(typeof input === "string" ? input : input?.url || "");
+  if (!target.startsWith("https://api.resend.com/")) return realFetch(input, init);
+  let body = null;
+  try { body = JSON.parse(init.body); } catch { /* not ours */ }
+  for (const mail of Array.isArray(body) ? body : [body]) {
+    if (!mail) continue;
+    console.log(`
+  --- MAIL (not sent) to ${mail.to} ---
+  ${mail.subject}`);
+    for (const link of String(mail.html || "").match(/https?:\/\/[^"'\s<>]+/g) || []) {
+      console.log(`  ${link}`);
+    }
+  }
+  return new Response(JSON.stringify({ id: "local" }), { status: 200 });
+};
+
 const playReport = await import(pathToFileURL(join(root, "functions/api/play/report.js")).href);
 const playBoard = await import(pathToFileURL(join(root, "functions/api/play/leaderboard.js")).href);
 
@@ -169,6 +203,23 @@ createServer(async (req, res) => {
     if (url.pathname === "/api/play/leaderboard") {
       if (!["GET", "HEAD"].includes(req.method)) return send(res, new Response("", { status: 405 }));
       return send(res, await playBoard.onRequestGet({ request: await toRequest(req, url), env }));
+    }
+    // --- the meta watch list: subscribe, confirm, unsubscribe, digest ---
+    if (url.pathname === "/api/watch" || url.pathname === "/api/watch/") {
+      if (req.method !== "POST") return send(res, new Response("", { status: 405 }));
+      return send(res, await watchIndex.onRequestPost({ request: await toRequest(req, url), env }));
+    }
+    if (url.pathname === "/api/watch/confirm") {
+      return send(res, await watchConfirm.onRequestGet({ request: await toRequest(req, url), env }));
+    }
+    if (url.pathname === "/api/watch/unsubscribe") {
+      const request = await toRequest(req, url);
+      if (req.method === "POST") return send(res, await watchUnsub.onRequestPost({ request, env }));
+      return send(res, await watchUnsub.onRequestGet({ request, env }));
+    }
+    if (url.pathname === "/api/watch/digest") {
+      if (req.method !== "POST") return send(res, new Response("", { status: 405 }));
+      return send(res, await watchDigest.onRequestPost({ request: await toRequest(req, url), env }));
     }
     // --- campaign counters: the creator-collaboration funnel ---
     const campaignOne = url.pathname.match(/^\/api\/campaign\/([^/]+)$/);

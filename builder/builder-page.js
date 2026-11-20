@@ -34,6 +34,7 @@ import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
 import { keepPlace } from "./scroll-anchor.js";
 import { cleanCampaignCode, installCampaignTeams } from "./campaign-teams.js";
 import { trackCampaign, trackSite } from "./campaign-track.js";
+import { watchBlock } from "./watch.js";
 import { OPTIMIZE_DEFAULTS, optimizeView, updateProgress } from "./optimize-view.js";
 import { MESSAGES as SHARE_MESSAGES, ShareError, cardHost, evaluationDigest, shareButton, slotStats, teamDigest } from "./share-client.js";
 
@@ -440,6 +441,9 @@ function renderLibrary() {
     renderLibraryList(listHost, state.teams.filter((team) => (view.libraryFilter === "All" || (team.archetype || "Balanced") === view.libraryFilter) && (!q || `${team.title} ${team.team.map((e) => e[0]).join(" ")}`.toLowerCase().includes(q))));
   };
   renderLibraryList(listHost, teams);
+  // Only ever non-null once a team has something in it (builder/watch.js), so a
+  // first-time visitor with the placeholder team never sees an email box.
+  const watch = watchBlock(state, { onChange: renderLibrary });
   clear(hosts.library).append(
     h("div", { class: "bd-panel-head" }, h("div", {}, h("h2", {}, "Teams"), h("p", {}, `${state.teams.length} saved`)),
       h("button", { type: "button", class: "primary-button compact", onclick: () => { newTeam(); view.tab = "overview"; } }, "New Team")),
@@ -451,7 +455,8 @@ function renderLibrary() {
         if (await confirmDialog(`Delete “${currentTeam().title}”? This cannot be undone.`, { confirmLabel: "Delete team" })) deleteTeam(currentTeam().id);
       } }, "Delete")),
     h("div", { class: "bd-team-meta" }, search, filter),
-    listHost);
+    listHost,
+    watch);
 }
 
 function renderLibraryList(host, teams) {

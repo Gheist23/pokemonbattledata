@@ -64,6 +64,10 @@ const clientFiles = [
   ["builder/calc-page.js", read("builder", "calc-page.js")],
   ["builder/solver-page.js", read("builder", "solver-page.js")],
   ["builder/play-page.js", read("builder", "play-page.js")],
+  // The meta watch box is its own module, so without this line its trackSite("watch") is
+  // invisible here and the one check that matters -- is the step the client sends actually on
+  // the server's whitelist -- silently stops covering it.
+  ["builder/watch.js", read("builder", "watch.js")],
   ["pro-tool/plans/index.html", plans],
 ];
 const sent = new Map();

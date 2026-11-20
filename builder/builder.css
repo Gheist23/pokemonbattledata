@@ -1561,3 +1561,26 @@ body.page-team-builder { --max-width: 1520px; }
   cursor: pointer;
 }
 .bd-import-forget:hover { opacity: 1; border-color: var(--bd-on-line); }
+
+/* The meta watch box, under the saved teams in the library panel
+   (builder/watch.js). Set apart from the team list with a top rule rather than a
+   card, because it is an aside to the panel it sits in and not a sixth control:
+   a boxed call-to-action here reads as an advert and gets the same treatment. */
+.bd-watch { margin-top: 0.9rem; padding-top: 0.85rem; border-top: 1px solid var(--line, rgba(128, 150, 180, 0.28)); display: grid; gap: 0.5rem; }
+.bd-watch-pitch { margin: 0; font-size: 0.92rem; line-height: 1.45; }
+.bd-watch-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, auto); gap: 0.4rem; }
+.bd-watch-input {
+  min-width: 0; padding: 0.45rem 0.6rem; border-radius: 8px; font: inherit; font-size: 0.9rem;
+  border: 1px solid var(--line, rgba(128, 150, 180, 0.4)); background: var(--surface-2, rgba(255, 255, 255, 0.04)); color: inherit;
+}
+.bd-watch-input:focus-visible { outline: 2px solid var(--accent, #4c9ffe); outline-offset: 1px; }
+.bd-watch-small { margin: 0; font-size: 0.78rem; line-height: 1.4; opacity: 0.72; }
+.bd-watch-done { margin: 0; font-size: 0.9rem; }
+.bd-watch-reset {
+  justify-self: start; padding: 0; border: 0; background: none; color: inherit; font: inherit;
+  font-size: 0.78rem; opacity: 0.7; text-decoration: underline; cursor: pointer;
+}
+.bd-watch-reset:hover { opacity: 1; }
+@media (max-width: 560px) {
+  .bd-watch-row { grid-template-columns: minmax(0, 1fr); }
+}

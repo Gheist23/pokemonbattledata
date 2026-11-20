@@ -1317,3 +1317,25 @@
 .bd-play-start { display: flex; align-items: center; gap: 0.6rem; }
 .bd-play-start .bd-play-go { flex: 1 1 auto; }
 .bd-play-start .bd-play-calc { flex: none; }
+
+/* The dice that rolls a tournament team, beside the team dropdown (play-page.js).
+   Square and the same height as the select it sits next to, so the pair reads as
+   one control rather than a button that happened to land there. */
+.bd-play-team-pick { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.4rem; align-items: stretch; }
+.bd-play-team-pick > select { min-width: 0; }
+.bd-play-dice {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  padding: 0;
+  border: 1px solid var(--line, rgba(128, 150, 180, 0.4));
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  cursor: pointer;
+}
+.bd-play-dice:hover { background: rgba(255, 255, 255, 0.09); }
+.bd-play-dice:focus-visible { outline: 2px solid var(--accent, #4c9ffe); outline-offset: 1px; }
+.bd-play-dice:active { transform: translateY(1px); }
+@media (prefers-reduced-motion: reduce) { .bd-play-dice:active { transform: none; } }

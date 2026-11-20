@@ -186,6 +186,17 @@ function ladderTeam(format) {
  * the side shows as empty for the moment the roll takes and fills in when it lands. A roll that
  * fails leaves the side on the ladder team rather than on nothing.
  */
+/** The library stores a tournament team under its source FILENAME, so a roll came back as
+ *  "team1743.txt" and that is what the page showed the player. Keeps any real name a team has,
+ *  and turns the generated ones into something that reads as a label rather than as a leak of
+ *  how the library is stored. */
+function tournamentTeamName(raw) {
+  const name = String(raw || "").replace(/\.(txt|json)$/i, "").trim();
+  if (!name) return "Tournament team";
+  const numbered = /^team[\s_-]?(\d+)$/i.exec(name);
+  return numbered ? `Tournament team #${numbered[1]}` : name;
+}
+
 async function rollTeam(side) {
   const seed = (Date.now() ^ (Math.random() * 0xffffffff)) >>> 0;
   try {
@@ -194,11 +205,11 @@ async function rollTeam(side) {
     if (!sets.length) throw new Error("no team came back");
     if (side === 0) {
       state.team = sets;
-      state.teamName = answer.name || "Tournament team";
+      state.teamName = tournamentTeamName(answer.name);
       state.bring = [];
     } else {
       state.foeSets = sets;
-      state.foeTeamTitle = answer.name || "Tournament team";
+      state.foeTeamTitle = tournamentTeamName(answer.name);
     }
   } catch {
     if (side === 0) { state.team = ladderTeam(state.format); state.teamName = "Top of the ladder"; }
@@ -322,13 +333,63 @@ function renderPlay() {
 
 // --- the setup screen ---------------------------------------------------------------------------
 
+/**
+ * ROLLING IS A BUTTON, NOT A LIST ENTRY.
+ *
+ * As a dropdown option it could only be chosen ONCE: picking "Random tournament team" while the
+ * dropdown already said "Random tournament team" is not a change, so the select fired no event
+ * and there was no way to ask for a different one without first selecting something else and
+ * coming back. The dice beside it rolls every time it is pressed.
+ *
+ * The value still exists -- it is what a side is ON once a team has been rolled -- so the list
+ * gains a row for it only while it is selected, labelled with the team that came back rather
+ * than with the word "Random".
+ *
+ * Module level and not inside renderSetup: the opponent's card is its own function
+ * (`renderFoeTeamCard`) and cannot see anything declared in there.
+ */
+function teamListFor(options, id, title) {
+  if (id !== RANDOM) return options;
+  if (!title || /^Rolling/.test(title)) return [...options, [RANDOM, "Tournament team"]];
+  // `tournamentTeamName` already says "Tournament team #760" for the generated ones, so the
+  // prefix is only for a team that carries a real name of its own.
+  const label = /^tournament/i.test(title) ? title : `Tournament: ${title}`;
+  return [...options, [RANDOM, label]];
+}
+
+function diceButton(side) {
+  // An inline SVG and not an emoji: a die renders as a different glyph on every platform and
+  // as a coloured picture on some, which is not what the rest of this toolbar looks like.
+  const svg = (tag, attrs) => {
+    const node = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    for (const [key, value] of Object.entries(attrs)) node.setAttribute(key, String(value));
+    return node;
+  };
+  const art = svg("svg", { viewBox: "0 0 24 24", width: 18, height: 18, "aria-hidden": "true", focusable: "false" });
+  art.appendChild(svg("rect", { x: 3, y: 3, width: 18, height: 18, rx: 4, fill: "none", stroke: "currentColor", "stroke-width": 1.7 }));
+  for (const [cx, cy] of [[8, 8], [16, 8], [12, 12], [8, 16], [16, 16]]) {
+    art.appendChild(svg("circle", { cx, cy, r: 1.6, fill: "currentColor" }));
+  }
+  return h("button", {
+    type: "button",
+    class: "bd-play-dice",
+    title: "Roll a random tournament team",
+    "aria-label": "Roll a random tournament team",
+    onclick: () => {
+      if (side === 0) useTeam(RANDOM);
+      else useFoeTeam(RANDOM);
+      render();
+    },
+  }, art);
+}
+
 function renderSetup() {
   const saved = savedTeams();
   const options = [
     ...saved.map((team) => [team.id, team.title || "Untitled team"]),
     [LADDER, "Top of the ladder"],
-    [RANDOM, "Random tournament team"],
   ];
+
   const custom = state.tab === "custom";
   const why = whyNotPlayable(state.team) || (custom ? whyNotPlayable(state.foeSets) : "");
   return h("div", { class: `bd-play-setup${custom ? " is-custom" : ""}` },
@@ -395,7 +456,10 @@ function renderFoeTeamCard(options) {
       h("h3", {}, "The Solver plays"),
       h("label", { class: "bd-play-team-select" },
         h("span", {}, "Their team"),
-        select(options, state.foeTeamId, (value) => { useFoeTeam(value); render(); }, { "aria-label": "The opponent's team" }))),
+        h("span", { class: "bd-play-team-pick" },
+          select(teamListFor(options, state.foeTeamId, state.foeTeamTitle), state.foeTeamId,
+            (value) => { useFoeTeam(value); render(); }, { "aria-label": "The opponent's team" }),
+          diceButton(1)))),
     state.foeSets.length
       ? h("div", { class: "bd-play-team-grid" }, state.foeSets.map((set, index) => renderFoeSlot(set, index)))
       : h("p", { class: "bd-play-note" }, "Pick a team for the opponent to play."),
@@ -444,7 +508,10 @@ function renderTeamCard(options, custom) {
       h("h3", {}, "My Team"),
       h("label", { class: "bd-play-team-select" },
         h("span", {}, "Your team"),
-        select(options, state.teamId, (value) => { useTeam(value); render(); }, { "aria-label": "Your team" })),
+        h("span", { class: "bd-play-team-pick" },
+          select(teamListFor(options, state.teamId, state.teamName), state.teamId,
+            (value) => { useTeam(value); render(); }, { "aria-label": "Your team" }),
+          diceButton(0))),
       // The ladder rules do not apply to a custom battle and are not worth the room there; the
       // two cards sit side by side on that tab and are meant to read as a pair.
       custom ? null : h("p", { class: "bd-play-note" },

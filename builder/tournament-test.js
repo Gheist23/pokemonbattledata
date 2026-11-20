@@ -5603,6 +5603,16 @@ export class TournamentTest {
     } else if (a.kind === LOWER) {
       const stats = this.lowerStats(target, info.drop, true);
       if (stats.length) events?.push({ s, kind: "lower", actor: m.u, move: a.move, targets: [target.u], own: null, stats });
+      // PARTING SHOT IS A `LOWER`, NOT AN `EFFECT`. It carries a `drop`, so slotCandidates files
+      // it as a plain stat-drop move and it never reached the EFFECT branch above, which is the
+      // only place `markPivot` was called from. The result: it lowered the target's Attack and
+      // Sp. Atk and then stood exactly where it was, with the rule switched on and the op in the
+      // data. The switch happens whether or not the drop landed -- a Clear Body target refuses
+      // the stats and the user still leaves -- but not if the move was blocked or missed, which
+      // the branches above have already returned on.
+      if (this.markPivot(m, info, this.benchPool, active)) {
+        events?.push({ s: m.s, kind: "pivot", actor: m.u, move: info?.name || a.move });
+      }
     }
   }
 

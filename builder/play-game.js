@@ -539,7 +539,16 @@ export class PlayGame {
   replacementNeeded() {
     if (!this.pickReplacement) return false;
     const empty = this.state.active[0].filter((m) => !m || m.out).length;
-    if (!empty) return false;
+    // ...OR A SEAT A PIVOT MOVE IS ABOUT TO EMPTY. U-turn, Flip Turn, Volt Switch, Parting
+    // Shot, Baton Pass, Teleport and Chilly Reception all send their own user back, and the
+    // swap happens in the very same `refill` loop the knockout path already holds -- so the
+    // machinery was there and simply never fired, because this test asked for an EMPTY seat
+    // and a pivoting Pokemon is alive and still standing in its own. The engine then took the
+    // next one off the bench, which means the order the team was typed in decided who came in.
+    // Reported as "parting shot switches out the Pokemon that used it, the player needs to
+    // have a choice for switch in".
+    const pivoting = this.state.active[0].some((m) => m && m.pivoting && !m.out && m.hp > 0);
+    if (!empty && !pivoting) return false;
     return this.replacementChoices().length > 1;
   }
 
@@ -1881,6 +1890,11 @@ export class PlayGame {
       case "weather": return `${by} set ${event.value}`;
       case "terrain": return `${by} set ${event.value} Terrain`;
       case "mega": return `${by} Mega Evolved`;
+      // THE SWITCH NOBODY ANNOUNCED. A pivot move takes its own user off the field at the end
+      // of the turn, and this had no case at all -- so Parting Shot read as a stat drop and
+      // then the board quietly held a different Pokemon, with nothing in the log between the
+      // two. Reported from a played game.
+      case "pivot": return `${by} went back after ${event.move || "a pivot move"}`;
       case "intimidate": return `${by} lowered ${list(event.targets)}'s Attack`;
       // The other two outcomes of the same Ability. The silence here is what made a correct
       // Inner Focus look like a missing Intimidate; see intimidateFrom in tournament-test.js.

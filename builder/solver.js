@@ -1560,6 +1560,9 @@ export class Solver {
       helpinghand: "used Helping Hand", fakeout: "flinched the target with Fake Out",
       tailwind: "set Tailwind", trickroom: "turned Trick Room", redirect: "drew the attacks in",
       sleep: "put the target to sleep", taunt: "taunted the target",
+      // A pivot move's user leaves at the end of the turn; without this the written record had
+      // the move and never the switch it caused.
+      pivot: "went back",
       flinchproof: "could not flinch the target",
       encore: "locked the target with Encore", burn: "burned the target", blocked: "was blocked",
     };

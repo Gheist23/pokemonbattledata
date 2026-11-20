@@ -1,0 +1,51 @@
+pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
+Castform,248,move,1,Weather Ball,94.9%,,,,,,,,
+Castform,248,move,2,Thunder,64.5%,,,,,,,,
+Castform,248,move,3,Protect,41.4%,,,,,,,,
+Castform,248,move,4,Ice Beam,33.9%,,,,,,,,
+Castform,248,move,5,Blizzard,21.3%,,,,,,,,
+Castform,248,move,6,Flamethrower,18.0%,,,,,,,,
+Castform,248,move,7,Solar Beam,17.9%,,,,,,,,
+Castform,248,move,8,Hurricane,16.6%,,,,,,,,
+Castform,248,move,9,Icy Wind,13.9%,,,,,,,,
+Castform,248,move,10,Sunny Day,10.5%,,,,,,,,
+Castform,248,held_item,1,Life Orb,22.6%,,,,,,,,
+Castform,248,held_item,2,Choice Scarf,20.8%,,,,,,,,
+Castform,248,held_item,3,Focus Sash,15.4%,,,,,,,,
+Castform,248,held_item,4,Leftovers,8.8%,,,,,,,,
+Castform,248,held_item,5,Quick Claw,7.1%,,,,,,,,
+Castform,248,held_item,6,Expert Belt,6.1%,,,,,,,,
+Castform,248,held_item,7,Sitrus Berry,6.0%,,,,,,,,
+Castform,248,held_item,8,Wise Glasses,2.4%,,,,,,,,
+Castform,248,held_item,9,Rocky Helmet,2.1%,,,,,,,,
+Castform,248,held_item,10,Silk Scarf,2.0%,,,,,,,,
+Castform,248,teammate,1,Pelipper,,,,,,,,,
+Castform,248,teammate,2,Archaludon,,,,,,,,,
+Castform,248,teammate,3,Charizard,,,,,,,,,
+Castform,248,teammate,4,Sableye,,,,,,,,,
+Castform,248,teammate,5,Swampert,,,,,,,,,
+Castform,248,teammate,6,Venusaur,,,,,,,,,
+Castform,248,teammate,7,Froslass,,,,,,,,,
+Castform,248,teammate,8,Politoed,,,,,,,,,
+Castform,248,teammate,9,Qwilfish,,,,,,,,,
+Castform,248,teammate,10,Farigiraf,,,,,,,,,
+Castform,248,stat_alignment,1,Modest,62.1%,Sp. Atk,Attack,,,,,,
+Castform,248,stat_alignment,2,Timid,16.1%,Speed,Attack,,,,,,
+Castform,248,stat_alignment,3,Quiet,6.4%,Sp. Atk,Speed,,,,,,
+Castform,248,stat_alignment,4,Sassy,4.3%,Sp. Def,Speed,,,,,,
+Castform,248,stat_alignment,5,Bold,4.1%,Defense,Attack,,,,,,
+Castform,248,stat_alignment,6,Relaxed,3.3%,Defense,Speed,,,,,,
+Castform,248,stat_alignment,7,Rash,1.7%,Sp. Atk,Sp. Def,,,,,,
+Castform,248,stat_alignment,8,Calm,1.7%,Sp. Def,Attack,,,,,,
+Castform,248,stat_alignment,9,Hasty,0.3%,Speed,Defense,,,,,,
+Castform,248,stat_points,1,,27.8%,,,2,0,0,32,0,32
+Castform,248,stat_points,2,,19.5%,,,32,0,0,32,2,0
+Castform,248,stat_points,3,,5.5%,,,0,0,2,32,0,32
+Castform,248,stat_points,4,,5.3%,,,0,0,2,32,32,0
+Castform,248,stat_points,5,,4.8%,,,2,0,32,32,0,0
+Castform,248,stat_points,6,,4.6%,,,0,0,0,32,2,32
+Castform,248,stat_points,7,,3.9%,,,0,0,1,32,1,32
+Castform,248,stat_points,8,,3.5%,,,32,0,0,32,0,2
+Castform,248,stat_points,9,,2.9%,,,0,0,32,32,2,0
+Castform,248,stat_points,10,,2.9%,,,4,0,0,30,0,32
+Castform,248,ability,1,Forecast,100.0%,,,,,,,,

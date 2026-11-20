@@ -30,7 +30,7 @@ import { TeamEvaluator, normalizeSettings, DEFAULT_SETTINGS } from "../builder/t
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
-import { TournamentTest } from "../builder/tournament-test.js";
+import { TournamentTest, hpPercent } from "../builder/tournament-test.js";
 import { Solver } from "../builder/solver.js";
 import { PlayGame } from "../builder/play-game.js";
 import { damageByMove, sentenceFor } from "../builder/play-anim.js";
@@ -49,37 +49,60 @@ const ok = (label, condition, detail = "") => {
 
 /* ------------------------------------------------- 1. the readout itself */
 {
-  // `percent` is module-private, so it is exercised through the source it is written in -- and
-  // the shape of the rule is what matters: a floor of 1 that only an exact zero escapes.
-  const src = readFileSync(join(root, "builder", "play-game.js"), "utf8");
-  const at = src.indexOf("const percent = (share)");
-  ok("percent is still the one place a share becomes a percentage", at >= 0, String(at));
-  const body = src.slice(at, src.indexOf("\n};", at) + 3);
-  ok("an exact zero is still 0%", /value <= 0\) return 0/.test(body), body);
-  ok("and anything alive is floored at 1%", /Math\.max\(1,/.test(body), body);
-  ok("and nothing exceeds 100%", /Math\.min\(100,/.test(body), body);
-
-  // The three hand-written copies are gone: the board, the bench and the view all ask `percent`.
-  const code = src.split(/\r?\n/).filter((l) => {
+  // THERE IS ONE DEFINITION AND EVERY READER IMPORTS IT. This used to read the source of
+  // play-game.js and look for `const percent = (share)` there, which asserted the rule's
+  // LOCATION rather than the rule -- so when a fourth hand-written copy turned up in
+  // `Solver.snapshot` (rounding, no floor, and read both by this log and by the board the
+  // opponent searches) this check had nothing to say about it. The definition moved down to
+  // tournament-test.js as the exported `hpPercent`, low enough for solver.js and play-game.js
+  // both, and what is asserted here now is that NOTHING in builder/ converts health to a
+  // percentage on its own.
+  const files = ["play-game.js", "solver.js", "tournament-test.js", "play-anim.js", "play-page.js"];
+  const bodies = new Map(files.map((name) => [name, readFileSync(join(root, "builder", name), "utf8")]));
+  const codeOf = (text) => text.split(/\r?\n/).filter((l) => {
     const t = l.trim();
     return t && !t.startsWith("//") && !t.startsWith("*") && !t.startsWith("/*");
   });
-  const copies = code.filter((l) => /Math\.round\(m\.hp \* 100\)/.test(l));
-  ok("no copy of the conversion is left", copies.length === 0,
-    JSON.stringify(copies.map((l) => l.trim())));
-  // Four now: the three that had a hand-written copy, plus the residual walk that always asked.
-  const callers = code.filter((l) => /percent\(m\.hp\)/.test(l));
-  ok("every HP readout asks percent", callers.length === 4, String(callers.length));
+
+  const defs = [...bodies.entries()]
+    .filter(([, text]) => /export const hpPercent = \(share\)/.test(text))
+    .map(([name]) => name);
+  ok("hpPercent is defined once", defs.length === 1 && defs[0] === "tournament-test.js",
+    JSON.stringify(defs));
+  ok("and play-game.js takes it rather than writing its own",
+    /const percent = hpPercent;/.test(bodies.get("play-game.js"))
+    && !/const percent = \(share\)/.test(bodies.get("play-game.js")));
+  ok("and the snapshot the opponent reads takes it too",
+    /hp: hpPercent\(m\.hp\)/.test(bodies.get("solver.js")));
+
+  // THE ONE ALLOWED EXCEPTION, named so a new copy cannot hide behind it: the Tournament Test's
+  // own `hpAfterTurnOne`, whose formatted board is pinned by recorded suites.
+  const copies = [];
+  for (const [name, text] of bodies) {
+    for (const line of codeOf(text)) {
+      if (!/Math\.round\([^)]*\.hp \* 100\)/.test(line)) continue;
+      if (name === "tournament-test.js" && /const hpAfterTurnOne = /.test(line)) continue;
+      copies.push(name + ": " + line.trim());
+    }
+  }
+  ok("no file converts health to a percentage on its own", copies.length === 0,
+    JSON.stringify(copies));
+
+  // Four in play-game.js -- the board, the bench, the view and the residual walk -- and the
+  // snapshot in solver.js, which is the one this check could not see before.
+  const callers = codeOf(bodies.get("play-game.js")).filter((l) => /percent\(m\.hp\)/.test(l));
+  ok("every HP readout on the page asks for it", callers.length === 4, String(callers.length));
+  const snapshots = codeOf(bodies.get("solver.js")).filter((l) => /hpPercent\(m\.hp\)/.test(l));
+  ok("and so does the snapshot", snapshots.length === 1, String(snapshots.length));
 }
 
 /* ------------------------------------------------- 2. the rule, run as the page runs it */
 {
-  // The same arithmetic, so the boundaries are pinned by number and not only by shape.
-  const percent = (share) => {
-    const value = Number(share) || 0;
-    if (value <= 0) return 0;
-    return Math.min(100, Math.max(1, Math.round(value * 100)));
-  };
+  // THE REAL FUNCTION, not a copy of it. This used to re-implement `percent` here, because the
+  // page's copy was module-private -- so the table pinned the boundaries of a reimplementation
+  // and would have passed with the page's own rule changed underneath it. `hpPercent` is
+  // exported, so the table runs against the thing the page actually calls.
+  const percent = hpPercent;
   const cases = [
     [0, 0, "a fainted Pokemon"],
     [1e-9, 1, "the thinnest sliver there is"],

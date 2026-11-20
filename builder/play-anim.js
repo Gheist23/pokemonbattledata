@@ -197,7 +197,11 @@ export function sentenceFor(step, nameOf) {
       // a Leftovers and a burn, a Life Orb and a sandstorm -- and naming only the largest was how
       // a net heal came to be announced as a burn. `causes` is the engine's own record (see
       // `whyOf` in play-game.js); `cause` alone is what a board settled without it has.
-      const said = (step.causes || []).map((one) => RESIDUAL_SAID[one.cause]).filter(Boolean);
+      // DEDUPLICATED BY THE PHRASE, not by the cause. `whyOf` already merges two charges of the
+      // same cause, but two DIFFERENT causes can share a sentence -- a poison and a bad poison
+      // are both "was hurt by the poison", and the model carries both as shares, so a Pokemon
+      // can hold some of each and said it twice.
+      const said = [...new Set((step.causes || []).map((one) => RESIDUAL_SAID[one.cause]).filter(Boolean))];
       if (said.length) return `${who} ${said.join(", and ")}`;
       const one = RESIDUAL_SAID[step.cause];
       if (one) return `${who} ${one}`;

@@ -1789,6 +1789,13 @@ export class PlayGame {
             steps.push({ kind: "residual", side: s, tag: m.tag, from: hp.get(key), to: now, ...why });
             hp.set(key, now);
           }
+          // SPENT, whether it was read or not. `endOfTurn` hands the record over for the Pokemon
+          // on the FIELD, and only those; a bench Pokemon can still be charged -- an op aimed at
+          // the `party` heals one -- and would otherwise carry that reason until the turn it came
+          // in and have it read against the wrong turn. This walk is the one place that sees both
+          // sides whole, so it is where the record ends.
+          m.paid = null;
+          m.why = null;
           if (m.out) faint(m);
         }
       }

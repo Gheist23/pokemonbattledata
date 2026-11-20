@@ -730,10 +730,19 @@ export class Solver {
     // The two mutable fields are named rather than deep-copied, because `u`, `k` and `mega` are
     // the prepared unit, its kit and its Mega form: read-only, and shared on purpose. A deep
     // copy would rebuild those on every clone, and the search makes millions.
+    //
+    // `why` and `paid` are DROPPED rather than copied. They are the third mutable field
+    // (`TournamentTest.chargeWhy`) and the only one a clone has no use for: nothing in a search
+    // reads why a board's health moved, and a shared array would let a searched line push onto
+    // the real game's record. Nothing clones inside a played turn today, which is the only
+    // window in which they are written at all -- dropped here so that stays true if something
+    // does.
     const sides = base.sides.map((list) => list.map((m) => ({
       ...m,
       st: m.st ? { ...m.st } : m.st,
       pp: Array.isArray(m.pp) ? [...m.pp] : m.pp,
+      why: null,
+      paid: null,
     })));
     const active = base.active.map((row, s) => row.map((m) => (m ? sides[s][m.ix] : null)));
     return {

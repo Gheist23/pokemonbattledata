@@ -1160,20 +1160,43 @@ body.page-team-builder { --max-width: 1520px; }
   .bd-hero { padding-block: 1rem 0.6rem; }
   .bd-hero .eyebrow { font-size: 0.7rem; }
   .bd-hero .hero-text { font-size: 0.95rem; line-height: 1.5; }
+  /* ROWS, NOT A SIDE-SCROLLER. The strip was 1096px wide inside a 375px window,
+     so five of the nine controls were off-screen with nothing to say so -- a
+     horizontal scroller inside a vertically scrolling page is the one gesture
+     people do not go looking for. Two per row fits "Team Evaluation" and
+     "Tournament Test" without truncating either. */
   .bd-toolbar {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    margin-inline: -11px; /* .section-shell's phone gutter (styles.css) */
-    padding: 0 11px 0.3rem;
-    scroll-snap-type: x proximity;
-    scrollbar-width: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem;
+    overflow-x: visible;
   }
-  .bd-toolbar::-webkit-scrollbar { display: none; }
   .bd-toolbar .bd-spacer { display: none; }
-  .bd-toolbar .bd-tab { flex: 0 0 auto; scroll-snap-align: start; white-space: nowrap; }
+  .bd-toolbar .bd-tab {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+  }
+  /* The status line is its own full-width row under the grid rather than half a
+     cell, because its text length changes with the sync state. */
+  .bd-sync-state { grid-column: 1 / -1; }
+
+  /* Pro is not sold here on a phone: the dialog behind it is a desktop layout,
+     and the gate that appears when a Pro feature is actually used is the offer
+     that converts anyway. Hidden rather than removed so the desktop toolbar and
+     the tests that read it are untouched. */
+  .bd-tab-pro { display: none; }
   .bd-sync-state { flex: 0 0 auto; align-self: center; white-space: nowrap; }
   /* Phones: one compact row per Pokemon; the full set is one tap away. */
   .bd-slot { grid-template-columns: 52px minmax(0, 1fr) auto; padding: 0.5rem; gap: 0.5rem; }
+  /* MUST COME AFTER .bd-slot ABOVE. .bd-slot-empty sets a single column at the
+     top of this file, but that rule is earlier and equally specific, so the
+     three-column phone layout won every time: "+ Add Pokemon (slot 1)" was
+     being painted into the 52px sprite column, 71px wide and wrapped onto three
+     lines. One column, one line, centred. */
+  .bd-slot-empty { grid-template-columns: 1fr; }
+  .bd-slot-empty span { white-space: nowrap; font-size: 0.86rem; }
   .bd-slot-stats,
   .bd-slot-moves { display: none; }
   .bd-slot-tools { position: static; grid-column: auto; align-self: center; flex-direction: column; opacity: 1; }
@@ -1583,4 +1606,50 @@ body.page-team-builder { --max-width: 1520px; }
 .bd-watch-reset:hover { opacity: 1; }
 @media (max-width: 560px) {
   .bd-watch-row { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---- folding the calculator's cards on a phone ------------------------------
+   Desktop never folds: the toggle is not rendered as a control there and
+   .is-collapsed is never set (builder/calc-page.js decides once, at load). */
+.bd-card-toggle { display: none; }
+.bd-field-peek { display: none; }
+
+@media (max-width: 760px) {
+  .bd-card-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* 40px square: a chevron is a small thing to hit and this is the control
+       that reveals the whole card. */
+    width: 40px;
+    min-height: 40px;
+    margin-left: auto;
+    padding: 0;
+    border: 1px solid var(--line, rgba(128, 150, 180, 0.35));
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.04);
+    color: inherit;
+    font-size: 0.95rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  /* Folded: the title and the head stay exactly where they were, so the card
+     reads as itself closed rather than as a different card. Everything under
+     them goes. */
+  .bd-mon.is-collapsed > :not(.bd-card-title):not(.bd-mon-head) { display: none; }
+  .bd-mon.is-collapsed .bd-mon-head .bd-type-row,
+  .bd-mon.is-collapsed .bd-mon-head .bd-inline-field { display: none; }
+  .bd-mon.is-collapsed .bd-mon-head { padding-bottom: 0.2rem; }
+
+  /* The field's summary replaces its controls rather than sitting above them,
+     so a folded field still says what it is doing to the damage numbers. */
+  .bd-field-panel.is-collapsed > :not(.bd-card-title):not(.bd-field-peek) { display: none; }
+  .bd-field-panel.is-collapsed .bd-field-peek {
+    display: block;
+    margin: 0.1rem 0 0;
+    color: var(--soft);
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
 }

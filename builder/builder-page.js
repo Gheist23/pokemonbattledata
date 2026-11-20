@@ -309,7 +309,8 @@ function renderToolbar() {
     h("button", { type: "button", class: "bd-tab", onclick: openEvaluationSettings, title: "Settings for Team Evaluation, Suggestions, Optimize, Auto Build and the Tournament Test" }, "Settings"),
     h("span", { class: "bd-spacer" }),
     h("button", { type: "button", class: "bd-tab", onclick: () => openSyncDialog(data) }, "Sync with Companion"),
-    h("button", { type: "button", class: `bd-tab ${isPro() ? "on" : ""}`, onclick: openProDialog }, isPro() ? "Pro ✓" : "Get Pro"),
+    // bd-tab-pro is the hook builder.css uses to drop this on a phone; see there for why.
+    h("button", { type: "button", class: `bd-tab bd-tab-pro ${isPro() ? "on" : ""}`, onclick: openProDialog }, isPro() ? "Pro ✓" : "Get Pro"),
     h("span", { class: `bd-sync-state ${status.tone}` }, status.text),
   );
 }
@@ -2429,7 +2430,13 @@ async function handleAddParam() {
   if (!applyViewParams(params)) view.tab = "overview";
   renderAll();
   const banner = document.getElementById("addBanner");
-  if (banner) {
+  // NOT after "Build a team around X" on a Pokemon profile. That link carries
+  // `tab=auto`, so Auto Build is the thing the visitor just asked for and is
+  // already running below -- and the banner's own primary button is "Build
+  // around it", i.e. the button they clicked to get here, offered again above
+  // the result. The other entry point (`?build=X` with no tab, "Just open the
+  // builder") has made no such choice, and there the banner is the whole point.
+  if (banner && params.get("tab") !== "auto") {
     banner.hidden = false;
     banner.querySelector("[data-name]").textContent = name(set);
   }

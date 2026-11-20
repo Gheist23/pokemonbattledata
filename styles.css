@@ -9741,3 +9741,53 @@ a.answer-card:focus-visible {
   font-size: 0.82rem;
   opacity: 0.72;
 }
+
+/* ---- "Build a team around X" on a Pokemon profile --------------------------
+   Desktop keeps the `companion-cta` aside, which has room for the paragraph
+   explaining what Auto Build will do. A phone does not: there the aside is a
+   heading, four lines of body copy and two links, all below the fold, and the
+   paragraph is the reason the link never gets reached. So on narrow screens the
+   aside goes and this takes its place -- the same offer, as one more tile in
+   the Top move / Top item / Top ability row the reader is already reading.
+
+   It borrows .metric's border, radius and background on purpose, so it belongs
+   to that row instead of looking like an advert dropped between the tiles. */
+.detail-build-cta {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .detail-build-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    padding: 0.72rem 0.9rem;
+    border: 1px solid var(--brand, #4fd675);
+    border-radius: 15px;
+    background: color-mix(in srgb, var(--brand, #4fd675) 16%, transparent);
+    color: var(--brand, #4fd675);
+    font-size: 0.92rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .detail-build-cta:active {
+    background: color-mix(in srgb, var(--brand, #4fd675) 26%, transparent);
+  }
+
+  /* One tile per row on a phone, so the button is full width and its label fits
+     on one line rather than wrapping inside a third of the screen. */
+  .detail-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  /* Replaced by the button above. Hidden rather than removed from the markup so
+     the static copy stays in the page for crawlers, which is what it is for
+     (see companionCta() in tools/generate-manifest.mjs). */
+  .companion-cta {
+    display: none;
+  }
+}

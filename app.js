@@ -1278,6 +1278,19 @@ Garchomp,1,ability,1,Rough Skin,94%,,,,,,,,`;
       metric("Top ability", rowWithPercent(summary.top?.ability))
     );
 
+    // ON A PHONE THIS REPLACES THE WHOLE `companion-cta` ASIDE (hidden there by
+    // styles.css). That aside is a heading, a four-line paragraph and two links
+    // sitting below the fold; on a narrow screen the paragraph is the reason
+    // nobody reaches the link. This is the same offer as one tile, in the row
+    // the reader is already looking at, and it inherits the metric tiles' shape
+    // so it reads as part of that row rather than as an advert dropped into it.
+    const buildKey = encodeURIComponent(record.battleName || record.name || "");
+    const build = document.createElement("a");
+    build.className = "detail-build-cta";
+    build.href = `/team-builder/?build=${buildKey}&tab=auto`;
+    build.textContent = `Build a team around ${record.name || "this Pokemon"}`;
+    metrics.append(build);
+
     copy.append(typeRow, metrics);
     hero.append(art, copy);
     return hero;

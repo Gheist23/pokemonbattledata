@@ -74,6 +74,61 @@ async function initialSets(format) {
 
 // --- rendering ------------------------------------------------------------------
 
+/* ---- collapsing the big cards on a phone -------------------------------------------
+ *
+ * Stacked on a 375px screen the calculator is four full screens of controls before the
+ * first damage number: our Pokemon, the field, the opposing Pokemon, then the results.
+ * Our own set and the field are usually already right -- the thing being changed is the
+ * opponent -- so those two start folded and the answer moves up to where it can be seen.
+ *
+ * The fold is MOBILE ONLY and decided once, at load: resizing a desktop window narrow
+ * does not fold a card the reader has open, and resizing back does not throw away a
+ * choice they made. On a desktop nothing here does anything -- `collapsed` stays false
+ * for every card and the toggle itself is display:none.
+ *
+ * State lives out here because render() runs on every keystroke and would otherwise
+ * refold the card being typed into.
+ */
+const PHONE = (() => {
+  try { return window.matchMedia("(max-width: 760px)").matches; } catch { return false; }
+})();
+const collapsed = { [LEFT]: PHONE, [RIGHT]: false, field: PHONE };
+
+/** The chevron that folds a card. Hidden on desktop by builder.css. */
+function collapseToggle(key, label) {
+  const open = !collapsed[key];
+  return h("button", {
+    type: "button",
+    class: "bd-card-toggle",
+    "aria-expanded": open ? "true" : "false",
+    "aria-label": `${open ? "Collapse" : "Expand"} ${label}`,
+    onclick: () => { collapsed[key] = !collapsed[key]; render(); },
+  }, h("span", { "aria-hidden": "true" }, open ? "▴" : "▾"));
+}
+
+/** Everything the field currently has switched on, as one readable line.
+ *  Shown under the title while the field is folded, so folding it does not
+ *  hide the thing a damage number most often turns on. */
+function fieldSummary() {
+  const state = model.state;
+  const parts = [];
+  const weather = model.effectiveWeather();
+  const terrain = model.effectiveTerrain();
+  if (weather && weather !== "None") parts.push(weather);
+  const shownTerrain = state.terrain !== "None" ? state.terrain : terrain;
+  if (shownTerrain && shownTerrain !== "None") parts.push(`${shownTerrain} Terrain`);
+  for (const side of [LEFT, RIGHT]) {
+    const field = state.field[side] || {};
+    const who = side === LEFT ? "Our" : "Opposing";
+    for (const [key, label] of Object.entries(FIELD_LABELS)) {
+      if (field[key]) parts.push(`${who} ${label}`);
+    }
+    const spikes = Number(field.spikes || 0);
+    if (spikes) parts.push(`${who} ${spikes} Spikes`);
+  }
+  return parts;
+}
+
 function render() {
   // The whole page is rebuilt, so the browser cannot hold the reading position
   // itself: note where the top of the screen is and put it back (scroll-anchor.js).
@@ -368,10 +423,16 @@ function renderMon(side) {
     h("label", { class: "bd-field" }, h("span", {}, "Status"), select(STATUSES, entry.status || "Healthy", (value) => { entry.status = value === "Healthy" ? "" : value; render(); }, { "aria-label": "Status" })),
     h("label", { class: "bd-field" }, h("span", {}, "Gender"), select(GENDERS, entry.gender || "Unspecified", (value) => { entry.gender = value; render(); }, { "aria-label": "Gender" })));
 
-  return h("section", { class: `bd-card bd-mon bd-side-${side}`, "aria-label": side === LEFT ? "Our Pokémon" : "Opposing Pokémon" },
-    h("h2", { class: "bd-card-title" }, side === LEFT ? "Our Pokémon" : "Opposing Pokémon",
+  const title = side === LEFT ? "Our Pokémon" : "Opposing Pokémon";
+  // `header` stays in the DOM when folded, so the sprite and the name keep the
+  // exact position they have open -- only the rows under them are hidden
+  // (builder.css). Folding a card that moved its own title would read as a
+  // different card rather than the same one closed.
+  return h("section", { class: `bd-card bd-mon bd-side-${side} ${collapsed[side] ? "is-collapsed" : ""}`, "aria-label": title },
+    h("h2", { class: "bd-card-title" }, title,
       h("button", { type: "button", class: "ghost-button compact", title: "Swap our and opposing Pokémon", onclick: swapSides }, "⇄ Swap"),
-      h("button", { type: "button", class: "ghost-button compact", title: "Paste a set as text", onclick: (event) => pasteSet(side, event) }, "Paste set")),
+      h("button", { type: "button", class: "ghost-button compact", title: "Paste a set as text", onclick: (event) => pasteSet(side, event) }, "Paste set"),
+      collapseToggle(side, title)),
     header, moves, hp, stats, details, renderImport(side));
 }
 
@@ -521,8 +582,10 @@ function renderField() {
         }, n === 3 ? "3 Spikes" : String(n)))),
       toggle("salt_cure"));
   };
-  return h("section", { class: "bd-card bd-field-panel", "aria-label": "Field" },
-    h("h2", { class: "bd-card-title" }, "Field"),
+  const active = fieldSummary();
+  return h("section", { class: `bd-card bd-field-panel ${collapsed.field ? "is-collapsed" : ""}`, "aria-label": "Field" },
+    h("h2", { class: "bd-card-title" }, "Field", collapseToggle("field", "Field")),
+    h("p", { class: "bd-field-peek" }, active.length ? active.join(" · ") : "Nothing set"),
     h("div", { class: "bd-field-settings" },
       h("span", { class: "bd-field-label" }, "Weather", state.weatherMode === "Auto" ? h("small", {}, " · auto from abilities") : h("button", { type: "button", class: "bd-link", onclick: () => { state.weatherMode = "Auto"; state.weather = "None"; render(); } }, " · back to auto")),
       buttons(["None", "Sun", "Rain", "Sand", "Snow"], weather, (value) => { state.weather = value; state.weatherMode = "Manual"; render(); }, "Weather"),

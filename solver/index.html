@@ -35,7 +35,7 @@
         "description": "Recreate any Pokemon Champions battle position and search it. Both sides choose at the same time, thousands of lines are played out, and the best move for each side emerges from what those lines came out at.",
         "offers": [
           { "@type": "Offer", "name": "Three free searches", "price": "0", "priceCurrency": "EUR" },
-          { "@type": "Offer", "name": "Pro monthly", "price": "5", "priceCurrency": "EUR" }
+          { "@type": "Offer", "name": "Pro monthly", "price": "9", "priceCurrency": "EUR" }
         ],
         "isPartOf": { "@id": "https://championsbattledata.com/#website" }
       },
@@ -174,7 +174,12 @@
     <p>This fan-made project is not affiliated with, endorsed by, or sponsored by Pokemon, Nintendo, Game Freak, or Creatures Inc. <a href="/license.html">License</a>.</p>
   </footer>
 
-  <script type="module" src="/builder/solver-page.js"></script>
+  <!-- ?v= is the PRICE this module quotes. /builder/*.js is served max-age=14400 by
+       Cloudflare whatever _headers says, so without a new URL a returning visitor can
+       read the old price in the gate for four hours after a price change while the
+       checkout already charges the new one. Keyed on the price, not a date, so that
+       tests/run-pricing.mjs can refuse a price change that forgets to bump it. -->
+  <script type="module" src="/builder/solver-page.js?v=p9-69"></script>
   <script>
   // A stale-module guard. The site asks Cloudflare for `no-cache` on /builder/*; measured on
   // the live site it answers `max-age=14400`, so a returning visitor pairs today's HTML with

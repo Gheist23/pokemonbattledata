@@ -921,18 +921,18 @@ const FEATURE_LABELS = { evaluation: "Team Evaluation", autobuild: "Auto Build",
  * and can I actually pay. The last is not decoration -- this audience skews young and a card-only
  * checkout is a wall for a large part of it, which is why PayPal and Google Pay are on.
  */
-const PRO_TERMS = "Free for 7 days, then €5 a month or €45 a year. Cancel any time and you keep every team.";
+const PRO_TERMS = "Free for 7 days, then €9 a month or €69 a year. Cancel any time and you keep every team.";
 //
-// CHECKED AGAINST THE LIVE CHECKOUT, 19 Nov 2026, and it is not the same on both plans:
-//   yearly  link offers Karte, PayPal, Klarna, Satispay, Link
-//   monthly link offers Karte,         Klarna, Satispay, Link   <- NO PayPal
-// PayPal is enabled on the account; the monthly Payment Link was created before that and
-// carries its own frozen method list. Monthly is the plan 24 of 34 buyers chose, so this is
-// the one that matters. Until it is fixed in the Stripe dashboard this line must not promise
-// PayPal -- a payment method named on the site and absent at the till is worse than naming
-// none, because the visitor has already decided by then.
-// WHEN THE MONTHLY LINK OFFERS PAYPAL, restore: "Card, PayPal, Klarna and more."
-const PRO_PAYMENT = "Card, Klarna and more at checkout.";
+// RE-CHECKED AGAINST THE LIVE CHECKOUT, 20 Nov 2026, and it is now the same on both plans:
+//   both links offer Karte, PayPal, Amazon Pay, Klarna, Satispay, Link
+// A Payment Link freezes the account's payment-method set at the moment it is CREATED, and
+// enabling a method afterwards does not reach it -- which is why the OLD monthly link still
+// shows no PayPal today, a day after PayPal was switched on, while the new one does. The
+// price rise to €9/€69 needed new links, so it fixed this as a side effect. If a method is
+// ever enabled again WITHOUT new links being made, check the live checkout before naming it
+// here: a method named on the site and absent at the till is worse than naming none, because
+// the visitor has already decided by then. tests/run-pricing.mjs pins both halves together.
+const PRO_PAYMENT = "Card, PayPal, Klarna and more at checkout.";
 
 /** The bullets, with the thing you cannot get any other way first. */
 function proBullets() {

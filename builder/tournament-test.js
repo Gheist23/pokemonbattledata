@@ -1460,6 +1460,12 @@ const PARA_PROOF = new Set(["comatose"]);
 const FREEZE_PROOF = new Set(["magmaarmor", "comatose"]);
 /** Iron Barbs is Rough Skin by another name and the registry has no entry for it. */
 const CONTACT_ANSWER = new Map([["ironbarbs", 1 / 8]]);
+/** The Rocky Helmet's share of the attacker's max HP. Named because `answerContact` has to be
+ *  able to tell the helmet's part of a contact answer from the Ability's when it says which one
+ *  took the HP, and two copies of `1 / 6` could not. */
+const ROCKY_HELMET = 1 / 6;
+/** The Life Orb's share of its holder's max HP, from `self-cost.js` (`share += 1 / 10`). */
+const LIFE_ORB = 1 / 10;
 const NO_HIT = Object.freeze({ slot: -1, frac: 0, lo: 0, hi: 0, priority: 0, spread: false, self: 0 });
 
 // The stances a side chooses between on turn 1 when the scoring game is searched
@@ -1620,6 +1626,29 @@ const who = (unit) => (unit.stone
   ? { species: unit.species, form: unit.form, item: "", stone: unit.stone }
   : { species: unit.species, form: unit.form, item: unit.item });
 const alive = (m) => Boolean(m && !m.out);
+
+/**
+ * HEALTH AS A PERCENTAGE, with a floor of 1 for anything still standing.
+ *
+ * Only a share of exactly 0 is 0%, and `deal` writes exactly that on a knockout
+ * (`if (target.hp <= 1e-9) { target.hp = 0; target.out = true; }`), so a faint reads 0% and
+ * nothing else can.
+ *
+ * THE FLOOR IS THE WHOLE POINT, and it lives here rather than beside any one reader because the
+ * same line had been written out by hand in four places and the fourth did not have it:
+ * `Solver.snapshot` rounded instead, so a Pokemon clinging on under half a percent was reported
+ * at 0%. That snapshot is a turn's `before`, which is read twice -- the played game's log draws
+ * its health bars from it, and the OPPONENT'S SEARCH is handed it as the board it is playing on.
+ * So the one survivor on the field both produced a phantom "recovered" line every turn, as the
+ * log's end-of-turn pass found 1% where the snapshot had said 0%, and told the opponent it was
+ * already dead.
+ */
+export const hpPercent = (share) => {
+  const value = Number(share) || 0;
+  if (value <= 0) return 0;
+  return Math.min(100, Math.max(1, Math.round(value * 100)));
+};
+
 export { alive, clampStage };
 
 function combinations(size, k) {
@@ -1814,6 +1843,20 @@ export class TournamentTest {
     this.selfRollOn = this.selfRollRule >= 1;
     this.actionRollOn = this.actionRollRule >= 1;
     this.selfStatOn = this.selfStatRule >= 1 && this.effectsOn;
+    /**
+     * WHETHER TO RECORD WHY A POKEMON'S HEALTH MOVED AT THE END OF A TURN.
+     *
+     * `endOfTurn` settles everything owed into one number and keeps none of the reasons, so a
+     * reader was left to work them out again from the board afterwards -- and two of them leave
+     * no mark on a board at all. A Gholdengo paying its Life Orb and a Sneasler killed by a
+     * Rocky Helmet both read "was worn down" over an empty field, which is what a player
+     * reported. See `chargeWhy`.
+     *
+     * OFF by default and on for one thing only, the played game, which settles one turn at a
+     * time and shows every one of them. The search settles millions and reads none, so it pays
+     * nothing for this.
+     */
+    this.explainResiduals = false;
     this.evaluation = evaluation;
     this.ev = evaluation.ev;
     this.known = known;
@@ -2485,7 +2528,10 @@ export class TournamentTest {
       freezeProof: types.includes("Ice") || this.abilityImmunity(ability, "freeze") || FREEZE_PROOF.has(ability),
       // What a contact move costs its user against this Pokemon: Rough Skin and Iron Barbs take
       // an eighth, Rocky Helmet a sixth. A share of the ATTACKER's own max HP.
-      contactAnswer: (item === "rockyhelmet" ? 1 / 6 : 0) + this.contactAnswerOf(ability),
+      contactAnswer: (item === "rockyhelmet" ? ROCKY_HELMET : 0) + this.contactAnswerOf(ability),
+      // The helmet's part of it, kept apart from the Ability's for one reason only: `answerContact`
+      // names which of the two took the HP, and a single total cannot be split back up.
+      contactHelmet: item === "rockyhelmet" ? ROCKY_HELMET : 0,
       // Own Tempo. Read from the registry rather than hand-listed, because that is where the
       // immunity already ships: `{op: "status_immunity", statuses: ["confusion"]}`, the same
       // shape `paraProof` and `freezeProof` above read for their own conditions.
@@ -3567,10 +3613,16 @@ export class TournamentTest {
       if (drain) {
         // BIG ROOT gives a draining move back a third again as much (the Companion's 1.3).
         const rooted = this.abilityOpsOn && att.k.bigRoot ? 1.3 : 1;
-        att.resid -= dealtNow * intoOwn * Math.max(0, Number(drain.fraction) || 0.5) * rooted;
+        const drained = dealtNow * intoOwn * Math.max(0, Number(drain.fraction) || 0.5) * rooted;
+        att.resid -= drained;
+        this.chargeWhy(att, "drain", -drained);
       }
       // SHELL BELL gives an EIGHTH of what ANY hit dealt, draining or not.
-      if (this.abilityOpsOn && att.k.shellBell) att.resid -= (dealtNow * intoOwn) / 8;
+      if (this.abilityOpsOn && att.k.shellBell) {
+        const belled = (dealtNow * intoOwn) / 8;
+        att.resid -= belled;
+        this.chargeWhy(att, "shellbell", -belled);
+      }
     }
     target.hp -= damage;
     if (target.hp <= 1e-9) {
@@ -3658,6 +3710,12 @@ export class TournamentTest {
     if (!info?.contact || !alive(att)) return;
     const share = target.k.contactAnswer || 0;
     if (share > 0) att.resid += share;
+    // Which of the two it was. `contactHelmet` is the helmet's part of the total above, so the
+    // remainder is the Ability's -- and a Pokemon carrying a Rocky Helmet AND Rough Skin charges
+    // both, which is a sentence that names both.
+    const helmet = Math.min(share, target.k.contactHelmet || 0);
+    this.chargeWhy(att, "helmet", helmet);
+    this.chargeWhy(att, "roughskin", share - helmet);
     if (!this.abilityOpsOn) return;
     // FLAME BODY, STATIC, POISON POINT (`on_hit_status_attacker`) -- the biggest Ability in
     // the library at 329 appearances, and inert until now: the op has been shipped in
@@ -4282,8 +4340,14 @@ export class TournamentTest {
         const mine = Math.max(1, m.k.maxHp || 1);
         const theirs = Math.max(1, target.k.maxHp || 1);
         const pool = (m.hp * mine + target.hp * theirs) / 2;
+        const wasMine = m.hp;
+        const wasTheirs = target.hp;
         m.hp = Math.max(0, Math.min(1, pool / mine));
         target.hp = Math.max(0, Math.min(1, pool / theirs));
+        // Both ends, because Pain Split moves BOTH and either one can be the one that ends the
+        // turn looking unexplained.
+        this.chargeWhy(m, "painsplit", wasMine - m.hp);
+        this.chargeWhy(target, "painsplit", wasTheirs - target.hp);
         did.push("split the pain");
         continue;
       }
@@ -4434,7 +4498,13 @@ export class TournamentTest {
             ? Math.max(0, Math.min(1, weatherHealShare(fx, WEATHERS[board ? board.w : this.fixedWeather])))
             : Math.max(0, Math.min(1, Number(fx.fraction) || 0));
           if (share <= 0 || at.hp >= 1) continue;
+          const was = at.hp;
           at.hp = Math.min(1, at.hp + share * weight);
+          // Not owed, PAID -- a recovery move moves health the moment it is used, and the stream
+          // has no step for it, so the page finds it at the end of the turn like any other
+          // residual. Recorded for the same reason: without this a Roost read "Staraptor
+          // recovered" with nothing to say which of the turn's half-dozen reasons it was.
+          this.chargeWhy(at, "heal", -(at.hp - was));
           did.push("heal");
         } else if (fx.op === "hp_cost") {
           // BELLY DRUM, CLANGOROUS SOUL, FILLET AWAY and SHED TAIL buy what they do with HP, and
@@ -4450,8 +4520,10 @@ export class TournamentTest {
           // deliberately left without a branch for the same reason.
           const share = Math.max(0, Math.min(1, Number(fx.fraction) || 0));
           if (share <= 0) continue;
+          const was = at.hp;
           at.hp = Math.max(0, at.hp - share * weight);
           if (at.hp <= 1e-9) { at.hp = 0; at.out = true; }
+          this.chargeWhy(at, "hpcost", was - at.hp);
           did.push("spent its own HP");
         } else if (fx.op === "set_stage") {
           // BELLY DRUM, AND ONLY BELLY DRUM: it does not raise Attack by six, it SETS it to the
@@ -4708,10 +4780,13 @@ export class TournamentTest {
         if (!m || m.out) continue;
         if (m.seededBy !== 0 && m.seededBy !== 1) continue;
         m.resid = (m.resid || 0) + 1 / 8;
+        this.chargeWhy(m, "seed", 1 / 8);
         const drinker = (active[m.seededBy] || []).find((x) => x && !x.out);
         if (!drinker) continue;
         const points = (1 / 8) * (m.k.maxHp || 1);
-        drinker.resid = (drinker.resid || 0) - points / Math.max(1, drinker.k.maxHp || 1);
+        const sapped = points / Math.max(1, drinker.k.maxHp || 1);
+        drinker.resid = (drinker.resid || 0) - sapped;
+        this.chargeWhy(drinker, "sapped", -sapped);
       }
     }
   }
@@ -4800,6 +4875,25 @@ export class TournamentTest {
     m.leppa = false;
   }
 
+  /**
+   * A berry eaten AT THE END OF THE TURN, recorded.
+   *
+   * Only the end-of-turn calls need this. Mid-turn the berry is already inside the hit's own
+   * numbers -- `deal` reads `target.hp` for its event after `berry` has run -- so tagging those
+   * would say it twice. Measured rather than assumed, so it is exactly what the berry gave back
+   * whichever berry it was, and 0 when `berry` declined to fire (Unnerve, above half, none left).
+   *
+   * Found by arithmetic: a Farigiraf in a sandstorm went from 54% to 72% and the only reason on
+   * record was the sandstorm, so the log said it had been buffeted while its health bar went up.
+   */
+  berryOwed(target, foes = null) {
+    if (!this.explainResiduals) { this.berry(target, foes); return; }
+    const was = target.hp;
+    const sitrus = Boolean(target.berry);
+    this.berry(target, foes);
+    this.chargeWhy(target, sitrus ? "sitrus" : "oran", -(target.hp - was));
+  }
+
   berry(target, foes = null) {
     if (target.out || target.hp > 0.5) return;
     // UNNERVE: while it is standing, the other side cannot eat a berry at all
@@ -4852,10 +4946,48 @@ export class TournamentTest {
     return this.selfRollOn ? (hit.selfFull || 0) : (hit.self || 0);
   }
 
+  /**
+   * WHY this Pokemon is about to lose (or gain) health at the end of the turn.
+   *
+   * Recorded at the site that CHARGES it, because that is the only place the reason exists.
+   * `endOfTurn` adds a self cost, a Leech Seed, a contact answer, a Leftovers, an Aqua Ring, a
+   * Grassy Terrain, a weather chip and three kinds of status chip into two numbers and then
+   * spends them, and the page has nothing left to read. Working the reasons out again from the
+   * board afterwards cannot be made to work, for two reasons that each produced a wrong line in
+   * a real game:
+   *
+   *   * a Life Orb and a Rocky Helmet are not on the board. They are on a Pokemon that may have
+   *     already left it, and the field they fire over is empty -- which is exactly the report
+   *     this exists for: "Gholdengo was worn down because there was no field condition at all";
+   *   * a Pokemon with Leftovers AND a burn has ONE number and TWO reasons, and the one the old
+   *     reconstruction named was whichever came first in its list. A net heal was announced as
+   *     a burn while the health bar went up.
+   *
+   * The amounts are shares of that Pokemon's own max HP, signed the way `resid` is: positive
+   * takes health, negative gives it back. Collected across the whole turn and handed over by
+   * `endOfTurn` as `paid`.
+   */
+  chargeWhy(m, cause, amount) {
+    if (!this.explainResiduals || !m || !cause) return;
+    const share = Number(amount) || 0;
+    if (!share) return;
+    (m.why || (m.why = [])).push({ cause, amount: share });
+  }
+
   oweSelf(att, share) {
     const cost = Number(share) || 0;
     if (!(cost > 0) || !att) return;
     att.selfOwed = (att.selfOwed || 0) + cost;
+    // A LIFE ORB OR THE MOVE'S OWN RECOIL, told apart rather than lumped together as "recoil".
+    // `resultRecoilShare` hands over one number for both (`self-cost.js` adds the orb's tenth to
+    // the move's recoil and the engine publishes the sum), and every call here sits behind a
+    // `deal` that returned true -- a landed damaging hit, which is exactly when the orb charges.
+    // So a holder's tenth is in this cost by construction; `min` keeps the split honest when the
+    // engine's own number came in under it.
+    if (!this.explainResiduals) return;
+    const orb = compact(att.u?.mon?.item) === "lifeorb" ? Math.min(cost, LIFE_ORB) : 0;
+    this.chargeWhy(att, "lifeorb", orb);
+    this.chargeWhy(att, "recoil", cost - orb);
   }
 
   /**
@@ -6301,7 +6433,7 @@ export class TournamentTest {
               m.hp = 0;
               m.out = true;
               events?.push({ s: m.s, kind: "recoil", actor: m.u });
-            } else this.berry(m, active[1 - m.s]);
+            } else this.berryOwed(m, active[1 - m.s]);
           }
         }
         // Residuals and the answers to contact moves, settled together and only now: poison and
@@ -6311,11 +6443,19 @@ export class TournamentTest {
           // Leftovers and Black Sludge give a sixteenth back; Grassy Terrain gives a sixteenth to
           // everything standing on the ground; sand and hail take a sixteenth from everything not
           // built for them. These are the four the comments promised and nothing delivered.
-          if (m.k.leftovers) m.resid -= 1 / 16;
+          if (m.k.leftovers) { m.resid -= 1 / 16; this.chargeWhy(m, "leftovers", -1 / 16); }
           // AQUA RING, beside Leftovers and settled the same way.
-          if (this.abilityOpsOn && m.aquaRing) m.resid -= 1 / 16;
-          if (board && board.t === GRASSY && this.grounded(m)) m.resid -= 1 / 16;
-          if (board && m.k.chippedBy && board.w === m.k.chippedBy) m.resid += 1 / 16;
+          if (this.abilityOpsOn && m.aquaRing) { m.resid -= 1 / 16; this.chargeWhy(m, "aquaring", -1 / 16); }
+          if (board && board.t === GRASSY && this.grounded(m)) {
+            m.resid -= 1 / 16;
+            this.chargeWhy(m, "grassy", -1 / 16);
+          }
+          if (board && m.k.chippedBy && board.w === m.k.chippedBy) {
+            m.resid += 1 / 16;
+            // NAMED BY THE WEATHER, not by the word "weather": the sandstorm and the hail say
+            // different things, and `WEATHERS` is the one list both ends of this already read.
+            this.chargeWhy(m, WEATHERS[board.w] || "weather", 1 / 16);
+          }
           const st = m.st;
           // Poison takes an eighth; a bad poison grows by a sixteenth every turn it has been on,
           // which is what makes it worth more than plain poison on a long game. A burn takes a
@@ -6330,6 +6470,9 @@ export class TournamentTest {
           const chip = (1 / 8) * own("psn")
             + (1 / 16) * own("tox") * Math.min(15, m.toxTurns)
             + (1 / 16) * own("brn");
+          this.chargeWhy(m, "psn", (1 / 8) * own("psn"));
+          this.chargeWhy(m, "tox", (1 / 16) * own("tox") * Math.min(15, m.toxTurns));
+          this.chargeWhy(m, "burn", (1 / 16) * own("brn"));
           const owed = (m.resid || 0) + chip;
           m.resid = 0;
           // Sleep wears off -- one to three turns, so about half of it goes each turn -- and a
@@ -6357,7 +6500,7 @@ export class TournamentTest {
               m.hp = 0;
               m.out = true;
               events?.push({ s: m.s, kind: "residual", actor: m.u });
-            } else this.berry(m, active[1 - m.s]);
+            } else this.berryOwed(m, active[1 - m.s]);
           } else if (owed < 0) {
             m.hp = Math.min(1, m.hp - owed);
           }
@@ -6368,13 +6511,24 @@ export class TournamentTest {
         // `TournamentTest.endOfTurn`"). The `st` chip above skips exactly this one (`baked`), so
         // between them the sixteenth is taken once; a burn LANDED mid-run has no boolean and is
         // paid there instead.
-        if (!alive(m) || !m.burn) continue;
-        m.hp -= 1 / 16;
-        if (m.hp <= 1e-9) {
-          m.hp = 0;
-          m.out = true;
-          events?.push({ s: m.s, kind: "burnout", actor: m.u });
-        } else this.berry(m, active[1 - m.s]);
+        if (alive(m) && m.burn) {
+          m.hp -= 1 / 16;
+          this.chargeWhy(m, "burn", 1 / 16);
+          if (m.hp <= 1e-9) {
+            m.hp = 0;
+            m.out = true;
+            events?.push({ s: m.s, kind: "burnout", actor: m.u });
+          } else this.berryOwed(m, active[1 - m.s]);
+        }
+        // AND HANDED OVER, last, as `paid`. Everything charged since the previous end of turn
+        // (`chargeWhy`), which is the same window the two numbers spent above cover. Replaced
+        // rather than appended, so a Pokemon that paid nothing this turn is not still carrying
+        // last turn's reasons; `null` when there is nothing to say, which is what a reader
+        // tells "no reasons recorded" from "this engine is not recording them" by.
+        if (this.explainResiduals) {
+          m.paid = m.why && m.why.length ? m.why : null;
+          m.why = null;
+        }
       }
     }
   }
@@ -6623,6 +6777,11 @@ export class TournamentTest {
   hazardDamage(m, share, events, what) {
     if (!(share > 0) || !alive(m)) return;
     m.hp -= share;
+    // A REPLACEMENT WALKING INTO A HAZARD. `refill` is also the moment the page settles the
+    // turn's health, so this lands in the same end-of-turn pass as a burn and used to come out
+    // of it as the bare "was worn down" -- the hazard it stepped on is on the board, but the
+    // old reconstruction only ever asked about weather, terrain and status.
+    this.chargeWhy(m, String(what || "hazard"), share);
     if (m.hp <= 1e-9) {
       m.hp = 0;
       m.out = true;

@@ -21,7 +21,7 @@
 // model has, and without it the opponent plays worse the longer the game goes on.
 
 import { HiddenSets } from "./hidden-sets.js";
-import { ACTION_KINDS, ACTIVE_BY_FORMAT, AIMED_AT_FOE, BRING_BY_FORMAT, TERRAINS, WEATHERS, alive, hazardLayers, screenTurns } from "./tournament-test.js";
+import { ACTION_KINDS, ACTIVE_BY_FORMAT, AIMED_AT_FOE, BRING_BY_FORMAT, TERRAINS, WEATHERS, alive, hazardLayers, hpPercent, screenTurns } from "./tournament-test.js";
 import { SOLVER_SLEEP_TURNS, SWITCH } from "./solver.js";
 import { pointsForNature } from "./nature-spreads.js";
 import { makeSet } from "./common.js";
@@ -243,12 +243,12 @@ const STAT_WORDS = { atk: "Attack", spa: "Sp. Atk", spe: "Speed", def: "Defense"
  *
  * Every HP number the page shows comes through here. Three copies of the old line had been
  * written out by hand -- the board, the bench and the view -- so the floor is applied once.
+ *
+ * THERE WAS A FOURTH, and it did not have the floor: `Solver.snapshot` rounded. See `hpPercent`,
+ * which is where the line now lives -- low enough that the snapshot can reach it too, which is
+ * the only way "applied once" can be true of both files.
  */
-const percent = (share) => {
-  const value = Number(share) || 0;
-  if (value <= 0) return 0;
-  return Math.min(100, Math.max(1, Math.round(value * 100)));
-};
+const percent = hpPercent;
 /** One Pokemon, for the sets this walk keeps. `tag` is unique per side, not across both. */
 const seatKey = (side, tag) => side * 16 + tag;
 
@@ -1286,12 +1286,20 @@ export class PlayGame {
     // the same every time, and the search's own stream is handed back untouched.
     const borrowed = this.solver.random;
     this.solver.random = randomFrom((this.seed ^ ((this.turn + 1) * 0x85ebca6b)) >>> 0);
+    // AND THE REASONS A POKEMON'S HEALTH MOVES AT THE END OF THE TURN, for this one turn only.
+    // `chargeWhy` records them at the sites that charge them, which is the only place a Life Orb
+    // or a Rocky Helmet exists at all; left on, the opponent's own search would pay for a record
+    // of millions of turns nobody reads. Borrowed and given back exactly like the roll stream
+    // above, and for the same reason.
+    const explaining = this.solver.t.explainResiduals;
+    this.solver.t.explainResiduals = true;
     try {
       this.solver.applyChosenTurn(this.state, ourJoint, theirJoint, this.turn, events);
     } finally {
       // Whatever happens, the engine goes back exactly as it was found. A turn that left
       // `onHit` wrapped would be a game that quietly stops Stamina working after turn one.
       this.solver.random = borrowed;
+      this.solver.t.explainResiduals = explaining;
       watch.release();
     }
     this.settleConditions();
@@ -1707,12 +1715,22 @@ export class PlayGame {
     const releaseAll = () => { while (pending.length) steps.push(pending.shift().step); };
 
     /**
-     * WHY a Pokemon's health moved at the end of the turn.
+     * WHY a Pokemon's health moved at the end of the turn -- THE FALLBACK.
      *
-     * `endOfTurn` knows the cause and keeps none of it -- it settles everything owed into one
-     * number -- so the same four questions it asked are asked again here, in its order, against
-     * the same board. Without this the turn ends with "was worn down", which is true of a burn,
-     * a sandstorm and a Rocky Helmet alike and tells the player nothing about which.
+     * This used to be the whole answer: `endOfTurn` settled everything owed into one number and
+     * kept none of the reasons, so the questions it had asked were asked again here, against the
+     * same board. That cannot be made to work and a player found both halves of why:
+     *
+     *   * HALF THE REASONS ARE NOT ON A BOARD. A Life Orb and a Rocky Helmet are carried by a
+     *     Pokemon, not set on a field, so a Gholdengo paying its Life Orb and a Sneasler killed
+     *     by a Rocky Helmet both came out as the bare "was worn down" over an empty field --
+     *     "there was no field condition at all", which was exactly right;
+     *   * ONE NUMBER CAN HAVE SEVERAL REASONS. The order below is a priority list, so a Pokemon
+     *     with Leftovers and a burn was announced as a burn whichever way its health went.
+     *
+     * The engine records them now, at the sites that charge them (`TournamentTest.chargeWhy`),
+     * and `whyOf` below reads them. This is what is left: a board whose turn was settled with
+     * the recording off, which is every board the search ever built.
      */
     const causeOf = (m) => {
       const st = m.st || {};
@@ -1724,6 +1742,32 @@ export class PlayGame {
       if (field.t === TERRAINS.indexOf("Grassy") && m.u?.grounded) return "grassy";
       if (m.k?.leftovers) return "leftovers";
       return "";
+    };
+
+    /**
+     * EVERY reason the engine recorded, biggest first.
+     *
+     * `[{cause, amount}]` with the amounts signed as `resid` is -- positive took health, negative
+     * gave it back -- so the sentence can name all of them and the animation can still pick one
+     * word out of `cause` for its chip or its mend. Same-cause entries are merged because a
+     * condition can be charged from two places in one turn (a burn from the status slot and a
+     * burn the board arrived with are both "burn", and `baked` is what keeps only one of them
+     * firing).
+     */
+    const whyOf = (m, fallback = "") => {
+      const totals = new Map();
+      for (const one of m?.paid || []) {
+        const amount = Number(one?.amount) || 0;
+        if (!one?.cause || !amount) continue;
+        totals.set(one.cause, (totals.get(one.cause) || 0) + amount);
+      }
+      const causes = [...totals.entries()]
+        .filter(([, amount]) => Math.abs(amount) > 1e-9)
+        .map(([cause, amount]) => ({ cause, amount }))
+        .sort((a, b) => Math.abs(b.amount) - Math.abs(a.amount));
+      if (causes.length) return { cause: causes[0].cause, causes };
+      // Nothing recorded. The board is all there is, which is where this started.
+      return { cause: fallback || causeOf(m), causes: [] };
     };
 
     let settled = false;
@@ -1741,7 +1785,8 @@ export class PlayGame {
           if (!hp.has(key)) continue;
           const now = percent(m.hp);
           if (now !== hp.get(key)) {
-            steps.push({ kind: "residual", side: s, tag: m.tag, from: hp.get(key), to: now, cause: causeOf(m) });
+            const why = whyOf(m);
+            steps.push({ kind: "residual", side: s, tag: m.tag, from: hp.get(key), to: now, ...why });
             hp.set(key, now);
           }
           if (m.out) faint(m);
@@ -1846,7 +1891,16 @@ export class PlayGame {
         const victim = this.monFor(event.actor, event.s);
         if (victim) {
           const key = seatKey(victim.s, victim.tag);
-          if (hp.get(key) > 0) steps.push({ kind: "residual", side: victim.s, tag: victim.tag, from: hp.get(key), to: 0 });
+          // NAMED, like any other residual. A Pokemon knocked out at the end of a turn is the one
+          // case where the player most needs the reason and the one that said least: this step
+          // carried no cause at all, so losing a Sneasler to a Rocky Helmet read "Sneasler was
+          // worn down" and then "Sneasler fainted". The fallback is for `burnout` -- the burn the
+          // board arrived with -- so that it still names itself on a board settled with the
+          // recording off, which is every board the search builds.
+          const why = whyOf(victim, event.kind === "burnout" ? "burn" : "");
+          if (hp.get(key) > 0) {
+            steps.push({ kind: "residual", side: victim.s, tag: victim.tag, from: hp.get(key), to: 0, ...why });
+          }
           hp.set(key, 0);
         }
         faint(victim);

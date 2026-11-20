@@ -40,7 +40,7 @@
 import {
   ACTION_KINDS, ACTIVE_BY_FORMAT, AIMED_AT_FOE, BRING_BY_FORMAT, RUNNABLE_OPS, TURN_CAP_BY_FORMAT,
   alive, clampStage, WEATHERS as BOARD_WEATHERS, TERRAINS as BOARD_TERRAINS, setHazardLayers,
-  statusField, STATUS_SLOTS, stageField, SCREEN_KINDS, screenTurns, setScreenTurns,
+  statusField, STATUS_SLOTS, stageField, SCREEN_KINDS, screenTurns, setScreenTurns, hpPercent,
 } from "./tournament-test.js";
 import { compact } from "./engine.js";
 
@@ -1357,7 +1357,9 @@ export class Solver {
   /** Everyone's HP, as whole percentages, for a before-and-after. */
   snapshot(state) {
     return state.sides.map((list) => list.map((m) => ({
-      tag: m.tag, name: this.label(m.u), hp: Math.round(m.hp * 100), out: Boolean(m.out),
+      // `hpPercent`, not a round of its own: see the note on it. A survivor under half a percent
+      // was rounded to 0 here, and this snapshot is what the log and the opponent both read.
+      tag: m.tag, name: this.label(m.u), hp: hpPercent(m.hp), out: Boolean(m.out),
     })));
   }
 

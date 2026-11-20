@@ -63,6 +63,14 @@ const CONDITION_SAID = {
 };
 
 /** Why the health bar moved at the end of a turn, in the game's own words. */
+/**
+ * WHAT TOOK THE HEALTH, as the log says it.
+ *
+ * Keyed by the words `TournamentTest.chargeWhy` records -- the engine names the cause at the site
+ * that charges it, and this is the only place those words are turned into English. Anything the
+ * engine can charge belongs here: a word with no entry falls through to the bare "was worn down",
+ * which is the line a player reported for a Life Orb ("there was no field condition at all").
+ */
 const RESIDUAL_SAID = {
   burn: "was hurt by its burn",
   psn: "was hurt by the poison",
@@ -71,6 +79,34 @@ const RESIDUAL_SAID = {
   Snow: "was pelted by the hail",
   grassy: "was healed by the Grassy Terrain",
   leftovers: "restored a little health",
+  // CARRIED, NOT ON THE FIELD. These four are the ones no board shows, and the reason the log
+  // used to go quiet: the item or the Ability is on a Pokemon, and the field it fires over can
+  // be completely empty.
+  lifeorb: "was hurt by its Life Orb",
+  recoil: "was hurt by the recoil",
+  helmet: "was hurt by the Rocky Helmet",
+  // Iron Barbs shares this word. The engine has one number for both ("Iron Barbs is Rough Skin
+  // by another name" -- CONTACT_ANSWER), so rather than guess which Ability it was, the line
+  // names the one the engine itself is named after.
+  roughskin: "was hurt by Rough Skin",
+  shellbell: "restored a little health with its Shell Bell",
+  seed: "had its health sapped by Leech Seed",
+  sapped: "drank the sapped health",
+  aquaring: "restored health with Aqua Ring",
+  drain: "drained health from its target",
+  sitrus: "ate its Sitrus Berry",
+  oran: "ate its Oran Berry",
+  // MOVED BY A MOVE, not by the turn ending. These three write health straight onto the board
+  // and the stream has no step for them, so the page finds them in the same end-of-turn pass.
+  heal: "restored its health",
+  hpcost: "paid with its own health",
+  painsplit: "shared its health",
+  // A REPLACEMENT'S WELCOME. `hazardDamage` passes the hazard's own name as the cause, exactly
+  // the two words it already puts in its `hazardko` event, so these keys are its spelling and
+  // not a second one.
+  "stealth rock": "was hurt by the Stealth Rock",
+  spikes: "was hurt by the Spikes",
+  hazard: "was hurt by the hazards",
 };
 
 /** A hit worth a bigger shake, in percentage points of health. */
@@ -157,8 +193,14 @@ export function sentenceFor(step, nameOf) {
     // Named, not merely noticed. A burn, a sandstorm, a Grassy Terrain and a Leftovers all move
     // the health bar at the end of a turn, and which one it was is the whole of the information.
     case "residual": {
-      const said = RESIDUAL_SAID[step.cause];
-      if (said) return `${who} ${said}`;
+      // EVERY reason, not the biggest one. One end-of-turn step can be several things at once --
+      // a Leftovers and a burn, a Life Orb and a sandstorm -- and naming only the largest was how
+      // a net heal came to be announced as a burn. `causes` is the engine's own record (see
+      // `whyOf` in play-game.js); `cause` alone is what a board settled without it has.
+      const said = (step.causes || []).map((one) => RESIDUAL_SAID[one.cause]).filter(Boolean);
+      if (said.length) return `${who} ${said.join(", and ")}`;
+      const one = RESIDUAL_SAID[step.cause];
+      if (one) return `${who} ${one}`;
       return step.to > step.from ? `${who} recovered` : `${who} was worn down`;
     }
     // A condition that really landed. Said out loud, because it changes every turn after this

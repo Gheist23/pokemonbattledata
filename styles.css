@@ -8416,19 +8416,92 @@ body.page-api::before {
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
 }
 
-.tool-shot-wide figcaption {
+.tool-shot-wide figcaption,
+.tool-feature-shot figcaption {
   margin-top: 0.7rem;
   color: var(--soft);
   font-size: 0.85rem;
   text-align: center;
 }
 
+/* ---- click a screenshot to see it at its real size -------------------------
+   Without this the only way to read one was to open it in a new tab, which is
+   a thing nobody does on a sales page. The button is added by the script at the
+   foot of /pro-tool/, so with no JavaScript the figures stay exactly as they
+   are rather than becoming dead. */
+.tool-shot-zoom {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.tool-shot-hint {
+  display: inline-block;
+  margin-left: 0.4rem;
+  opacity: 0.75;
+}
+
+.shot-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  border: 0;
+  background: rgba(4, 8, 16, 0.92);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.shot-lightbox img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  cursor: zoom-in;
+}
+
+/* The second click goes to 1:1 and lets the overlay scroll, which is what
+   "I want to read the small text" actually needs on a laptop screen. */
+.shot-lightbox.is-actual img {
+  max-width: none;
+  width: auto;
+  cursor: zoom-out;
+}
+
+.shot-lightbox-close {
+  position: fixed;
+  top: 0.9rem;
+  right: 1rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot-lightbox { scroll-behavior: auto; }
+}
+
 .tool-feature {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  align-items: center;
-  gap: 1.8rem;
-  padding-block: 2rem;
+  /* ONE COLUMN, ALWAYS. These are 1600px screenshots of a dense desktop UI, and
+     in the old two-column layout they were painted into ~650px -- about 40% --
+     which turned every label inside them into mush. Full width is the single
+     biggest thing that makes them readable; .tool-shot-zoom below handles the
+     rest by opening the file at its real size in place. */
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  padding-block: 2.2rem;
   border-top: 1px solid var(--line);
 }
 
@@ -8436,15 +8509,11 @@ body.page-api::before {
   border-top: 0;
 }
 
-/* Alternating sides stop five stacked features reading as one long column.
-   The column widths flip with them, so the screenshot keeps the wider half on
-   every row instead of shrinking on every other one. */
-.tool-feature-flip {
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-}
-
+/* Kept as a hook so the markup does not have to change, but it no longer moves
+   anything: stacked, the picture belongs under the text it illustrates, every
+   time. */
 .tool-feature-flip .tool-feature-copy {
-  order: 2;
+  order: 0;
 }
 
 .tool-feature-copy h2 {
@@ -9663,3 +9732,12 @@ a.answer-card:focus-visible {
 
 .meta-share-button:disabled { opacity: 0.6; cursor: default; }
 
+
+/* What the app needs, sitting with the download button instead of nine FAQ
+   entries further down. Quieter than the note above it: it is a qualifier, not
+   a pitch, and someone on a Mac is better off reading it before installing. */
+.tool-cta-req {
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+  opacity: 0.72;
+}

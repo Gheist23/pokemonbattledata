@@ -69,6 +69,7 @@ const clientFiles = [
   // the server's whitelist -- silently stops covering it.
   ["builder/watch.js", read("builder", "watch.js")],
   ["pro-tool/plans/index.html", plans],
+  ["pro-tool/index.html", read("pro-tool", "index.html")],
 ];
 const sent = new Map();
 for (const [name, text] of clientFiles) {

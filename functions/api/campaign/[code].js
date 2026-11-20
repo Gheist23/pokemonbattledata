@@ -62,7 +62,14 @@ const STEPS = ["land", "builder", "evaluation", "autobuild",
   // The meta watch box in the team library (builder/watch.js). Sent once a visitor has
   // actually asked for the mail, not when the box is merely shown -- "was it seen" is
   // already answered by `builder`, since the box lives in the Team Builder.
-  "watch"];
+  "watch",
+  // THE COMPANION PAGE. `companion` is a page view, which every other page here is deliberately
+  // denied -- the note above explains why, and it still holds for the 2,717 content pages. This
+  // one is the exception on volume and on worth: /pro-tool/ takes about 26 visits a day, so it
+  // costs ~800 R2 writes a month against a 1,000,000 allowance, and without it `download` has no
+  // denominator. Until now the single most important number on that page -- what share of the
+  // people who read it actually take the app -- could not be computed at all.
+  "companion", "download"];
 const MAX_LIST_PAGES = 25; // 25,000 objects; beyond that the answer says so rather than lying
 
 const headers = {

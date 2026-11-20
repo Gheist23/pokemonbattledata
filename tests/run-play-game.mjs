@@ -36,6 +36,8 @@ import { KnownTeams } from "../builder/known-teams.js";
 import { ACTION_KINDS, TournamentTest } from "../builder/tournament-test.js";
 import { Solver } from "../builder/solver.js";
 import { PlayGame, OPEN_BACK_BOARDS, THINK_RANGE, LOOKAHEAD_BAND, TURN_LIMIT, teamFromKnown } from "../builder/play-game.js";
+// The page's log renders EVERY stream step through this, so it is what the log really says.
+import { sentenceFor } from "../builder/play-anim.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -1582,6 +1584,54 @@ for (const line of notes) console.log(line);
     ok("the play-out says it had no effect", said.length > 0,
       JSON.stringify(record.stream.filter((s) => s.kind === "note").map((s) => s.text)));
   }
+}
+
+/* ============================ a move the log says ONCE, and does not stop saying at all */
+
+{
+  // Reported from a played game: the log read
+  //
+  //     Pelipper used Wide Guard
+  //     Pelipper used Wide Guard
+  //
+  // `renderLog` prints EVERY stream step through `sentenceFor`, and Wide Guard produced two
+  // that say the same words: a `move` step (it is in ACTING, so `ensureMove` emits one, and
+  // `sentenceFor` renders that as "X used <move>") and a `note` whose text was
+  // "${by} used Wide Guard" -- word for word the same. Protect never had the fault because it
+  // has a step of its own and never reaches the note tail.
+  //
+  // THE TRAP IN THE FIX, and the reason this checks for the line as well as against the
+  // repeat: `ensureMove` used to be called BELOW `if (!text) continue`, so simply removing the
+  // note took the move step with it and Wide Guard disappeared from the log altogether.
+  const said = (stream) => (stream || [])
+    .map((step) => sentenceFor(step, (side, tag) => `s${side}t${tag}`))
+    .filter(Boolean);
+  // A lead that really brings all three. The ranked team does not, and a loop that finds
+  // nothing adds no checks at all -- which is exactly what the first version of this did: it
+  // reported "all passed" while asking nothing.
+  const GUARDS = withMoves(PLAYER[0], ["Wide Guard", "Quick Guard", "Tailwind", "Protect"]);
+  let asked = 0;
+  for (const name of ["Wide Guard", "Quick Guard", "Tailwind"]) {
+    const game = new PlayGame(solver, data, FORMAT, library, { sheet: "open" });
+    game.start({ player: [GUARDS, ...PLAYER.slice(1)], foe: FOE, seed: 11 });
+    const fresh = game.options();
+    const mine = fresh[0].actions.find((a) => a.move === name);
+    if (!mine) continue;
+    asked += 1;
+    const other = fresh[1] && !fresh[1].empty
+      ? (fresh[1].actions.find((a) => a.move === "Protect")
+        || fresh[1].actions.filter((a) => !a.wait && a.move)[0])
+      : null;
+    const chosen = [mine.id];
+    if (other) chosen[1] = other.id;
+    const record = game.resolve(game.jointFrom(fresh, chosen), []);
+    const lines = said(record.stream);
+    const used = lines.filter((line) => line.includes(`used ${name}`));
+    ok(`${name} is in the log at all`, used.length >= 1, JSON.stringify(lines));
+    ok(`...and said ONCE rather than twice`, used.length === 1, JSON.stringify(used));
+  }
+  // A loop that silently asked nothing is how this check stops working.
+  ok("all three guard moves were really exercised", asked === 3, `asked ${asked}`);
 }
 
 /* ========================= the field the PAGE is handed, said in words and not twice over */

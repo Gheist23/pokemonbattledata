@@ -1934,10 +1934,14 @@ export class PlayGame {
           });
         }
       }
+      const actor = this.monFor(event.actor, event.s);
+      // THE `move` STEP FIRST, AND WHETHER OR NOT THERE IS A NOTE BESIDE IT. An ACTING event is
+      // a Pokemon using a move, and the step that says so must not depend on the note: this used
+      // to sit below `if (!text) continue`, so the moment Wide Guard's note was removed as a
+      // duplicate its move step went with it and the move vanished from the log entirely.
+      if (ACTING.has(event.kind)) ensureMove(actor);
       const text = this.noteFor(event);
       if (!text) continue;
-      const actor = this.monFor(event.actor, event.s);
-      if (ACTING.has(event.kind)) ensureMove(actor);
       steps.push(actor ? { kind: "note", text, side: actor.s, tag: actor.tag } : { kind: "note", text });
     }
     if (!settled) settle();
@@ -2016,11 +2020,29 @@ export class PlayGame {
       case "encore": return `${by} locked ${name(event.target)} with Encore`;
       case "encorefail": return `${by}'s Encore failed`;
       case "helpinghand": return `${by} helped ${name(event.target)}`;
-      case "tailwind": return `${by} set Tailwind`;
+      // SAID TWICE, in a real game's log: "Pelipper used Wide Guard / Pelipper used Wide Guard".
+      //
+      // These three are in `ACTING`, so the stream already gives them a `move` step -- and
+      // `sentenceFor` renders that as "X used <move>", which is word for word what the note
+      // below used to add. `renderLog` prints every step, so the reader saw both. This is the
+      // "" this method's own docstring describes: "or "" for the ones the stream says with a
+      // step of its own".
+      //
+      // Protect never had the fault because it has a step of its own and never reaches here.
+      // Tailwind is included: its event is UNCONDITIONAL (`board.tw[s] = TAILWIND_TURNS` and
+      // then push), so "set Tailwind" after "used Tailwind" is a synonym and not a confirmation.
+      //
+      // Trick Room and Rage Powder stay, and the difference is that they say something the move
+      // name does not: Trick Room TOGGLES, so whether it went on or off is the whole point, and
+      // "drew the attacks in" is what Rage Powder does rather than what it is called.
+      //
+      // The log the page falls back to when a turn has no stream is unaffected: those notes are
+      // the Solver's own (`turnRecord`), not these, and there is no `move` step there to repeat.
+      case "tailwind":
+      case "wideguard":
+      case "quickguard": return "";
       case "trickroom": return `${by} turned Trick Room ${event.on ? "on" : "off"}`;
       case "redirect": return `${by} drew the attacks in`;
-      case "wideguard": return `${by} used Wide Guard`;
-      case "quickguard": return `${by} used Quick Guard`;
       default: return "";
     }
   }

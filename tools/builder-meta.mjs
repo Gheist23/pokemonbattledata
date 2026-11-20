@@ -21,6 +21,52 @@ const STAT_COLUMNS = ["hp_points", "attack_points", "defense_points", "sp_atk_po
 // Natures and Stat Points as deep as the app reads them (common_stat_alignment_spreads: 10 and 12).
 const LIMITS = { move: 12, held_item: 10, ability: 4, teammate: 10, stat_alignment: 10, stat_points: 12 };
 
+/**
+ * The usage CSVs, as rows of named fields.
+ *
+ * Moved here from `generate-manifest.mjs`, which declared it and injected it into
+ * `writeBuilderMeta` below. That made the meta files reachable only by running the whole
+ * manifest build -- which has top-level side effects, so it cannot be imported for the sake
+ * of one function -- and a second copy beside it would be a second thing to keep in step.
+ * The injection parameter is kept so the publisher's call is unchanged.
+ */
+export function parseCSV(text) {
+  const rows = [];
+  let row = [];
+  let cell = "";
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i += 1) {
+    const char = text[i];
+    const next = text[i + 1];
+    if (char === '"') {
+      if (inQuotes && next === '"') {
+        cell += '"';
+        i += 1;
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (char === "," && !inQuotes) {
+      row.push(cell.trim());
+      cell = "";
+    } else if ((char === "\n" || char === "\r") && !inQuotes) {
+      if (char === "\r" && next === "\n") i += 1;
+      row.push(cell.trim());
+      if (row.some(Boolean)) rows.push(row);
+      row = [];
+      cell = "";
+    } else {
+      cell += char;
+    }
+  }
+  if (cell.length || row.length) {
+    row.push(cell.trim());
+    if (row.some(Boolean)) rows.push(row);
+  }
+  if (!rows.length) return [];
+  const headers = rows.shift().map((header) => header.replace(/^\uFEFF/, "").trim());
+  return rows.map((values) => Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""])));
+}
+
 function number(value) {
   const parsed = Number(String(value ?? "").replace(/[^0-9.+-]/g, ""));
   return Number.isFinite(parsed) ? parsed : null;
@@ -84,7 +130,7 @@ export function pokemonRecord(stem, rows, aliases) {
   };
 }
 
-export function writeBuilderMeta({ cwd, parseCSV, generatedAt }) {
+export function writeBuilderMeta({ cwd, parseCSV: parse = parseCSV, generatedAt }) {
   const builderDir = join(cwd, "data", "builder");
   const appDataPath = join(builderDir, "app-data.json");
   if (!existsSync(appDataPath)) {
@@ -99,7 +145,7 @@ export function writeBuilderMeta({ cwd, parseCSV, generatedAt }) {
     if (!existsSync(dir)) continue;
     const pokemon = [];
     for (const file of readdirSync(dir).filter((name) => name.toLowerCase().endsWith(".csv")).sort()) {
-      const rows = parseCSV(readFileSync(join(dir, file), "utf8"));
+      const rows = parse(readFileSync(join(dir, file), "utf8"));
       if (!rows.length) continue;
       pokemon.push(pokemonRecord(file.replace(/\.csv$/i, ""), rows, aliases));
     }

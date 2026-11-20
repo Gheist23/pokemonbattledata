@@ -3,7 +3,7 @@ import { basename, extname, join, relative, sep } from "node:path";
 import { writeSeoPages, REGULATION_KEYWORDS } from "./seo-pages.mjs";
 import { isArchivedSeason } from "./archived-seasons.mjs";
 import { writePokemonSets } from "./pokemon-sets.mjs";
-import { writeBuilderMeta } from "./builder-meta.mjs";
+import { writeBuilderMeta, parseCSV } from "./builder-meta.mjs";
 
 const assetRoot = "pokemon_champions_assets";
 const cwd = process.cwd();
@@ -338,43 +338,6 @@ function csvFilesRecursive(dir) {
     else if (extname(entry).toLowerCase() === ".csv") files.push(fullPath);
   }
   return files;
-}
-
-function parseCSV(text) {
-  const rows = [];
-  let row = [];
-  let cell = "";
-  let inQuotes = false;
-  for (let i = 0; i < text.length; i += 1) {
-    const char = text[i];
-    const next = text[i + 1];
-    if (char === '"') {
-      if (inQuotes && next === '"') {
-        cell += '"';
-        i += 1;
-      } else {
-        inQuotes = !inQuotes;
-      }
-    } else if (char === "," && !inQuotes) {
-      row.push(cell.trim());
-      cell = "";
-    } else if ((char === "\n" || char === "\r") && !inQuotes) {
-      if (char === "\r" && next === "\n") i += 1;
-      row.push(cell.trim());
-      if (row.some(Boolean)) rows.push(row);
-      row = [];
-      cell = "";
-    } else {
-      cell += char;
-    }
-  }
-  if (cell.length || row.length) {
-    row.push(cell.trim());
-    if (row.some(Boolean)) rows.push(row);
-  }
-  if (!rows.length) return [];
-  const headers = rows.shift().map((header) => header.replace(/^\uFEFF/, "").trim());
-  return rows.map((values) => Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""])));
 }
 
 function normalizeHeader(value) {

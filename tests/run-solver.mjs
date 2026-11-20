@@ -30,7 +30,7 @@ import { TeamEvaluator, normalizeSettings, DEFAULT_SETTINGS } from "../builder/t
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
-import { TournamentTest, WEATHERS as BOARD_WEATHERS } from "../builder/tournament-test.js";
+import { TournamentTest, WEATHERS as BOARD_WEATHERS, screenTurns } from "../builder/tournament-test.js";
 import { Solver, SETTLE_LINES, SWITCH, MAX_JOINTS, SEARCH_DEPTH, hasSettled,
   FIELD_TURNS, fieldTurns } from "../builder/solver.js";
 
@@ -284,18 +284,27 @@ const solver = makeSolver();
   const asleep = solver.buildState(board([row(HITTER, { front: true, status: "sleep" })], [row(BULKY, { front: true })]));
   ok("sleep costs the turn model some turns", asleep.active[0][0].idle > 0 && asleep.active[0][0].sleep === true);
 
-  // The field the board cannot carry goes to the damage calculation instead. Screens and Friend
-  // Guard belong to a SIDE, so they travel on `solverField`; an item being off and the two
-  // counters belong to one Pokemon, so they travel on the unit -- which is also what puts them
-  // in the damage cache key.
-  solver.buildState(board([row(HITTER, { front: true })], [row(BULKY, { front: true })], {
+  // THE SCREENS ARE ON THE BOARD NOW, not on `solverField`. They were a side-channel set once
+  // for a whole run, which is why they could never change -- and a screen that cannot change
+  // cannot be SET, so `screen` and `clear_screen` were not runnable and Reflect could not be
+  // clicked. `board.sc` carries them as turns, the way the hazards are carried, and
+  // `tests/run-screens.mjs` is what measures them. Friend Guard stays on the side-channel
+  // because it is an ABILITY: it cannot be set, broken or run out.
+  const withScreens = solver.buildState(board([row(HITTER, { front: true })], [row(BULKY, { front: true })], {
     reflect: [false, true], lightScreen: [true, false], friendGuard: [false, false],
     auroraVeil: [false, false],
   }));
+  ok("the screens reach the BOARD, by the side they protect",
+     screenTurns(withScreens.board.sc[1], "reflect") > 0
+     && screenTurns(withScreens.board.sc[0], "light_screen") > 0,
+     JSON.stringify(withScreens.board.sc));
+  ok("...and not the side they do not",
+     screenTurns(withScreens.board.sc[0], "reflect") === 0
+     && screenTurns(withScreens.board.sc[1], "light_screen") === 0,
+     JSON.stringify(withScreens.board.sc));
   const handed = solver.t.solverField;
-  ok("the screens reach the engine, by the side they protect",
-     handed && handed.reflect[1] === true && handed.lightScreen[0] === true,
-     JSON.stringify(handed));
+  ok("Friend Guard is still handed to the damage calculation", handed
+     && Array.isArray(handed.friendGuard), JSON.stringify(handed));
   ok("the dead rule switches are gone",
      handed && handed.items === undefined && handed.abilities === undefined
      && handed.weatherAbilities === undefined, JSON.stringify(handed));

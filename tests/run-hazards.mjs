@@ -136,19 +136,32 @@ function useMove(solver, state, m, moveName) {
     ok("and neither does the search's own clone",
       hazardLayers(state.board.hz[0], "stealth_rock") === 1, String(state.board.hz[0]));
   }
-  // EVERY board copy must spread `hz` beside `tw`, or that copy shares its hazards by
-  // reference with the board it came from -- one searched line's Stealth Rock on every other.
-  // Counted per LINE and comments skipped, because the comment explaining this contains the
-  // very pattern it is about.
+  // EVERY board copy must spread `hz` AND `sc` beside `tw`, or that copy shares its hazards or
+  // its screens by reference with the board it came from -- one searched line's Stealth Rock, or
+  // its Reflect, on every other line.
+  //
+  // WIDENED FROM ONE LINE TO A WINDOW. This used to require `hz: [...` on the SAME line as
+  // `tw: [...`, which stopped being true the moment a board copy was written over several lines
+  // (`Solver.cloneState`, when `sc` joined it) -- and the check went red on a copy that was
+  // correct. A window is strictly stronger, not weaker: it guards two arrays instead of one and
+  // no longer cares how the object is laid out. Comments are skipped, because the comment
+  // explaining this contains the very pattern it is about.
   const bad = [];
+  const WINDOW = 4;
   for (const name of ["tournament-test.js", "solver.js"]) {
     const lines = readFileSync(join(root, "builder", name), "utf8").split(String.fromCharCode(10));
-    lines.forEach((line, i) => {
-      if (line.trim().startsWith("*") || line.trim().startsWith("//")) return;
-      if (/tw: \[\.\.\./.test(line) && !/hz: \[\.\.\./.test(line)) bad.push(`${name}:${i + 1}`);
+    const code = lines.map((line) => (line.trim().startsWith("*") || line.trim().startsWith("//") ? "" : line));
+    code.forEach((line, i) => {
+      if (!/tw: \[\.\.\./.test(line)) return;
+      const near = code.slice(i, i + WINDOW).join(String.fromCharCode(10));
+      // A plain substring, not a regular expression: the pattern being looked for is three
+      // literal dots inside a bracket, which is a character class as soon as it is compiled.
+      for (const key of ["hz", "sc"]) {
+        if (!near.includes(`${key}: [...`)) bad.push(`${name}:${i + 1} (no ${key})`);
+      }
     });
   }
-  ok("every board copy spreads `hz` beside `tw`", bad.length === 0, bad.join(", "));
+  ok("every board copy spreads `hz` and `sc` beside `tw`", bad.length === 0, bad.join(", "));
 }
 
 /* -------------------------------------------- 3. the moves lay them */

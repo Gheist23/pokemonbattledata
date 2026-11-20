@@ -254,13 +254,32 @@ const previews = new Map();
  * The worker already has it. So the field arrives already named, and the page has no order of
  * its own to get wrong.
  */
+/**
+ * ...AND IT TRANSLATED TWICE, so the page never saw a weather or a terrain at all.
+ *
+ * `PlayGame.view()` names them itself now and says so in as many words ("IN WORDS, not as the
+ * index" -- it was handing the index over raw and Pelipper's Drizzle showed as "2"). This kept
+ * indexing the lists with what it was given, and `WEATHERS["Rain"]` is `undefined`, so every
+ * field fell through to "None": the battlefield banner on /play/ read "Clear" under a Grassy
+ * Terrain, a Rain and a Snow alike, for every game. Measured in a played game -- the log said
+ * "Rillaboom set Grassy Terrain" on the line above a banner that said CLEAR.
+ *
+ * So it translates only a NUMBER, which is what an index is, and passes a word through. Either
+ * side may name them and the page still never sees an index, which is this function's whole job.
+ */
+const fieldWord = (list, value) => {
+  if (typeof value === "number") return list[value] || "None";
+  const text = String(value ?? "").trim();
+  return text || "None";
+};
+
 function named(view) {
   return {
     ...view,
     field: {
       ...view.field,
-      weather: WEATHERS[view.field.weather] || "None",
-      terrain: TERRAINS[view.field.terrain] || "None",
+      weather: fieldWord(WEATHERS, view.field.weather),
+      terrain: fieldWord(TERRAINS, view.field.terrain),
     },
   };
 }

@@ -1180,10 +1180,16 @@ function editField() {
   const redraw = () => { save(); render(); };
   // Tailwind is not here: it is the one row in this column that is COUNTED, so it is drawn by
   // `tailwindControl` with its turns picker beside it. The four below are either up or not.
+  //
+  // NOT "HALVES", in Doubles. The game's own number for a screen with two Pokemon on the field
+  // is 2732/4096, which is two thirds -- `engine.js` writes it as `doubles ? 2 / 3 : 0.5` -- so
+  // the old wording was telling the person a third more reduction than they were getting. The
+  // format is a setting on this very page, so the words follow it.
+  const cut = state.format === "Singles" ? "Halves" : "Cuts a third off";
   const ROWS = [
-    ["Reflect", "reflect", "Halves the physical damage that side takes."],
-    ["Light Screen", "lightScreen", "Halves the special damage that side takes."],
-    ["Aurora Veil", "auroraVeil", "Halves both."],
+    ["Reflect", "reflect", `${cut} the physical damage that side takes.`],
+    ["Light Screen", "lightScreen", `${cut} the special damage that side takes.`],
+    ["Aurora Veil", "auroraVeil", `${cut} both.`],
     ["Friend Guard", "friendGuard", "An ally with Friend Guard cuts the damage its partner takes."],
   ];
   const on = (key, s) => Boolean(field[key][s]);

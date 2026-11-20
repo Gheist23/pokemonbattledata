@@ -21,7 +21,7 @@
 // model has, and without it the opponent plays worse the longer the game goes on.
 
 import { HiddenSets } from "./hidden-sets.js";
-import { ACTION_KINDS, ACTIVE_BY_FORMAT, AIMED_AT_FOE, BRING_BY_FORMAT, TERRAINS, WEATHERS, alive, hazardLayers } from "./tournament-test.js";
+import { ACTION_KINDS, ACTIVE_BY_FORMAT, AIMED_AT_FOE, BRING_BY_FORMAT, TERRAINS, WEATHERS, alive, hazardLayers, screenTurns } from "./tournament-test.js";
 import { SOLVER_SLEEP_TURNS, SWITCH } from "./solver.js";
 import { pointsForNature } from "./nature-spreads.js";
 import { makeSet } from "./common.js";
@@ -174,7 +174,21 @@ const STATUS = "play:status";
 // nothing, which is worse than not offering it.
 
 /** What a registry op DID, for the line that reports it. A condition says itself; these do not. */
-const EFFECT_SAID = { heal: "and regained health", flinch: "and made it flinch" };
+/**
+ * What a registry op's own word becomes in the log.
+ *
+ * `runEffectOps` pushes a word per op and `noteFor` joins them after the move's name, so a word
+ * that is not a phrase reads badly: a Reflect came out as "Grimmsnarl used Reflect, reflect".
+ * Anything not listed here is printed as it stands, which is right for the ops whose word
+ * already is a phrase ("charged itself", "seeded it", "cleared the hazards").
+ */
+const EFFECT_SAID = {
+  heal: "and regained health",
+  flinch: "and made it flinch",
+  reflect: "and the Reflect went up",
+  "light screen": "and the Light Screen went up",
+  "aurora veil": "and the Aurora Veil went up",
+};
 /** The chance a frozen Pokemon thaws at the end of a turn, as the games have it: one in five. */
 const FREEZE_THAW = 0.2;
 const ENTERED = "play:entered";
@@ -517,6 +531,28 @@ export class PlayGame {
         weatherTurns: Math.max(0, board.wt || 0),
         terrainTurns: Math.max(0, board.tt || 0),
         hazards: [describeHazards(board.hz?.[0]), describeHazards(board.hz?.[1])],
+        // AND THE SCREENS, said the same way. This is the field the PAGE draws, which is a
+        // different object from `fieldOf()` -- that one is handed to the opponent's search. Both
+        // need them and for different reasons: the search has to know what is halving its
+        // damage, and the person playing has to be able to see that the Reflect they just set
+        // is up and how long it has left.
+        reflect: [screenTurns(board.sc?.[0], "reflect") > 0, screenTurns(board.sc?.[1], "reflect") > 0],
+        lightScreen: [screenTurns(board.sc?.[0], "light_screen") > 0,
+          screenTurns(board.sc?.[1], "light_screen") > 0],
+        auroraVeil: [screenTurns(board.sc?.[0], "aurora_veil") > 0,
+          screenTurns(board.sc?.[1], "aurora_veil") > 0],
+        screenTurns: [
+          {
+            reflect: screenTurns(board.sc?.[0], "reflect"),
+            lightScreen: screenTurns(board.sc?.[0], "light_screen"),
+            auroraVeil: screenTurns(board.sc?.[0], "aurora_veil"),
+          },
+          {
+            reflect: screenTurns(board.sc?.[1], "reflect"),
+            lightScreen: screenTurns(board.sc?.[1], "light_screen"),
+            auroraVeil: screenTurns(board.sc?.[1], "aurora_veil"),
+          },
+        ],
       },
       value: Math.round(this.solver.valueOf(this.state) * 10) / 10,
       over: this.over(),
@@ -989,6 +1025,21 @@ export class PlayGame {
       // The hazards go with them, for the same reason: without these the opponent searches a
       // field with nothing on it and switches freely into a Stealth Rock it cannot see.
       hazards: [describeHazards(board.hz?.[0]), describeHazards(board.hz?.[1])],
+      // AND THE SCREENS, for exactly the reason the hazards and the counts above are here: this
+      // field is handed back into `buildState` for the opponent's own search, and without them
+      // the opponent searches a board with no Reflect on it while a Reflect is halving every
+      // physical move it throws. Both the switch and the count, because `screensFrom` reads
+      // both and a Reflect with one turn left is not a Reflect with five.
+      reflect: [screenTurns(board.sc?.[0], "reflect") > 0, screenTurns(board.sc?.[1], "reflect") > 0],
+      lightScreen: [screenTurns(board.sc?.[0], "light_screen") > 0,
+        screenTurns(board.sc?.[1], "light_screen") > 0],
+      auroraVeil: [screenTurns(board.sc?.[0], "aurora_veil") > 0,
+        screenTurns(board.sc?.[1], "aurora_veil") > 0],
+      reflectTurns: [screenTurns(board.sc?.[0], "reflect"), screenTurns(board.sc?.[1], "reflect")],
+      lightScreenTurns: [screenTurns(board.sc?.[0], "light_screen"),
+        screenTurns(board.sc?.[1], "light_screen")],
+      auroraVeilTurns: [screenTurns(board.sc?.[0], "aurora_veil"),
+        screenTurns(board.sc?.[1], "aurora_veil")],
     };
   }
 

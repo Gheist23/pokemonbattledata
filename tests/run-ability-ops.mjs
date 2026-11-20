@@ -39,7 +39,7 @@ import { TeamEvaluator, normalizeSettings, DEFAULT_SETTINGS } from "../builder/t
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamSuggestions } from "../builder/team-suggest.js";
 import { KnownTeams } from "../builder/known-teams.js";
-import { TournamentTest, TOURNAMENT_ABILITY_OPS, tournamentAbilityOpsOption } from "../builder/tournament-test.js";
+import { TournamentTest, TOURNAMENT_ABILITY_OPS, tournamentAbilityOpsOption, setScreenTurns } from "../builder/tournament-test.js";
 import { Solver } from "../builder/solver.js";
 import { PlayGame, teamFromKnown } from "../builder/play-game.js";
 
@@ -429,12 +429,15 @@ for (const [ability, field] of CONTACT) {
   // SCREEN CLEANER sweeps both sides.
   const clean = duel(1, setFor("Garchomp", { ability: "Screen Cleaner" }), setFor("Dragonite"));
   ok("Screen Cleaner is read onto the kit", clean.me.k.entryScreenCleaner === true);
-  clean.solver.t.solverField = { reflect: [true, true], lightScreen: [true, false], auroraVeil: [false, true], friendGuard: [false, false] };
+  // ON THE BOARD, not on `solverField`: the screens moved there so that they could be set and
+  // broken at all, and sweeping the side-channel would have swept them for the whole Solver run
+  // rather than for the game. `board.sc` is turns a side, packed like the hazards.
+  clean.state.board.sc[0] = setScreenTurns(setScreenTurns(0, "reflect", 5), "light_screen", 5);
+  clean.state.board.sc[1] = setScreenTurns(setScreenTurns(0, "reflect", 5), "aurora_veil", 5);
   clean.solver.t.enter(clean.me, clean.state.active, clean.state.board, null);
   ok("every screen is gone from both sides",
-    clean.solver.t.solverField.reflect.concat(clean.solver.t.solverField.lightScreen,
-      clean.solver.t.solverField.auroraVeil).every((v) => v === false),
-    JSON.stringify(clean.solver.t.solverField));
+    clean.state.board.sc[0] === 0 && clean.state.board.sc[1] === 0,
+    JSON.stringify(clean.state.board.sc));
 
   // NATURAL CURE takes the condition with it when it leaves.
   const cure = duel(1, setFor("Garchomp", { ability: "Natural Cure" }), setFor("Dragonite"));

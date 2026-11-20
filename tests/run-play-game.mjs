@@ -1584,6 +1584,42 @@ for (const line of notes) console.log(line);
   }
 }
 
+/* ========================= the field the PAGE is handed, said in words and not twice over */
+
+{
+  // THE BANNER READ "CLEAR" UNDER A GRASSY TERRAIN, in every game on /play/.
+  //
+  // `PlayGame.view()` names the weather and the terrain itself -- it says so in as many words,
+  // "IN WORDS, not as the index", because it used to hand the index over raw and Pelipper's
+  // Drizzle came up on screen as "2". `analysis-worker.js`'s `named()` then indexed the engine's
+  // own lists with what it was given, and `WEATHERS["Rain"]` is `undefined`, so every field fell
+  // through to "None". Two fixes for one bug, each right on its own, and together they undid
+  // each other: measured in a played game, the log said "Rillaboom set Grassy Terrain" on the
+  // line above a banner that said CLEAR.
+  //
+  // The worker is not imported here -- it wants a Worker global -- so the contract is checked at
+  // both ends: `view()` hands over a WORD, and the worker's own translation passes a word
+  // through and translates only a NUMBER. A regression at either end fails this. Reading the
+  // file rather than importing it is how tests/run-campaign.mjs checks the Pages Functions.
+  const lively = new PlayGame(solver, data, FORMAT, library, { sheet: "open" });
+  lively.start({ player: PLAYER, foe: FOE, seed: 11 });
+  const field = lively.view().field;
+  ok("view() names the terrain rather than handing over its index",
+    typeof field.terrain === "string", `${typeof field.terrain} ${JSON.stringify(field.terrain)}`);
+  ok("...and the weather", typeof field.weather === "string",
+    `${typeof field.weather} ${JSON.stringify(field.weather)}`);
+
+  const worker = readFileSync(join(root, "builder", "analysis-worker.js"), "utf8");
+  ok("the worker translates an index and passes a word through",
+    worker.includes('typeof value === "number"') && worker.includes("fieldWord(WEATHERS")
+      && worker.includes("fieldWord(TERRAINS"),
+    "analysis-worker.js named() / fieldWord");
+  ok("...and does not index the list with whatever it was handed",
+    !worker.includes("weather: WEATHERS[view.field.weather]")
+      && !worker.includes("terrain: TERRAINS[view.field.terrain]"),
+    "analysis-worker.js named()");
+}
+
 if (failures.length) {
   console.error(`\n${checked} checks, ${failures.length} failed:`);
   for (const line of failures) console.error(`  - ${line}`);

@@ -1256,6 +1256,28 @@ function conditionsOf(view) {
   const tw = view.field.tailwindTurns || [0, 0];
   if (view.field.tailwind[0]) out.push(`Your Tailwind${left(tw[0])}`);
   if (view.field.tailwind[1]) out.push(`Their Tailwind${left(tw[1])}`);
+  // THE SCREENS. They could not be set at all until the board learnt to carry them, so there
+  // was nothing to draw; now a Reflect halves every physical move into the side it is on and
+  // the person playing has to be able to see whose it is and how long it has left.
+  const sc = view.field.screenTurns || [{}, {}];
+  for (const [key, label] of [["reflect", "Reflect"], ["lightScreen", "Light Screen"],
+    ["auroraVeil", "Aurora Veil"]]) {
+    for (const side of [0, 1]) {
+      if (!(view.field[key] || [])[side]) continue;
+      out.push(`${side === 0 ? "Your" : "Their"} ${label}${left((sc[side] || {})[key])}`);
+    }
+  }
+  // ...AND THE HAZARDS, which the view has carried all along and the banner never said. A player
+  // who cannot see a Stealth Rock switches into it, and this page's whole job is to let them see
+  // the board they are playing.
+  for (const side of [0, 1]) {
+    const hz = (view.field.hazards || [])[side] || {};
+    const whose = side === 0 ? "Your side" : "Their side";
+    if (hz.stealthRock) out.push(`${whose}: Stealth Rock`);
+    if (hz.spikes) out.push(`${whose}: Spikes${hz.spikes > 1 ? ` x${hz.spikes}` : ""}`);
+    if (hz.toxicSpikes) out.push(`${whose}: Toxic Spikes${hz.toxicSpikes > 1 ? ` x${hz.toxicSpikes}` : ""}`);
+    if (hz.stickyWeb) out.push(`${whose}: Sticky Web`);
+  }
   return out;
 }
 

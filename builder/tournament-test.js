@@ -94,6 +94,43 @@ import { mostSimilarTeam } from "./known-teams.js";
 import { resultRecoilShare } from "./self-cost.js";
 import { classifyArchetype, tailwindBeneficiaries } from "./team-checks.js";
 
+/** Which slot of `st` a condition lives in, or "" for a word this model has no slot for.
+ *
+ * Extracted from `applyStatus`, which held the only copy inline. The cure side added by
+ * `cure_status` reads the same table rather than carrying a second one that can drift from it,
+ * and `STATUS_SLOTS` is the whole list for the moves that cure everything at once.
+ *
+ * A condition in this engine is a PROBABILITY and not a flag, so both sides work in shares of
+ * one: a 30% burn is three tenths of the slot, and curing it gives three tenths back. */
+export function statusField(status) {
+  const kind = String(status || "").toLowerCase();
+  if (kind === "burn") return "brn";
+  if (kind === "poison") return "psn";
+  if (kind === "badly_poisoned" || kind === "toxic") return "tox";
+  if (kind === "paralysis") return "par";
+  if (kind === "sleep") return "slp";
+  if (kind === "freeze") return "frz";
+  return "";
+}
+
+/** Which stage field a registry stat name lives in, or "" for one this model has no field for.
+ *
+ * Extracted from `shiftStages`, which held the only copy inline. `set_stage` needs to READ the
+ * current stage before it can work out the step that reaches the one it wants, and a second copy
+ * of this table beside it would be a second thing to keep in step with the first. */
+export function stageField(stat) {
+  const name = String(stat || "").toLowerCase();
+  if (name === "attack") return "atk";
+  if (name === "special_attack" || name === "sp_attack" || name === "spatk") return "spa";
+  if (name === "defense") return "def";
+  if (name === "special_defense" || name === "sp_defense" || name === "spdef") return "spd";
+  if (name === "speed") return "spe";
+  return "";
+}
+
+/** Every major condition, in slot order. What a move that names none of them cures. */
+export const STATUS_SLOTS = Object.freeze(["brn", "psn", "tox", "par", "slp", "frz"]);
+
 const BRING = { Singles: 3, Doubles: 4 };
 const ACTIVE = { Singles: 1, Doubles: 2 };
 const TURN_CAP = { Singles: 12, Doubles: 10 };
@@ -1032,6 +1069,50 @@ export function setHazardLayers(packed, kind, layers) {
   return ((Math.trunc(packed || 0) & ~mask) | (value << spec.shift)) >>> 0;
 }
 
+/**
+ * THE SCREENS, packed one integer a side exactly as the hazards are, and for the same reasons.
+ *
+ * They were not modelled at all -- this file's own TOURNAMENT_FIELD note says so: "the board has
+ * no screen, no turn count and no Light Clay to price that with". `screen` and `clear_screen`
+ * were therefore not runnable, which on the website means a player on /play/ COULD NOT CLICK
+ * REFLECT: `Solver.effectActions` refuses a status move unless every one of its ops is runnable,
+ * so Reflect, Light Screen, Aurora Veil, Glitzy Glow and Baddy Bad were all off the sheet.
+ * Measured usage on their own carriers: Aurora Veil 94.9%, Light Screen 89.3%, Reflect 87.7%.
+ *
+ * TURNS AND NOT FLAGS, like `tw` and `tr`: five turns normally and eight behind a Light Clay, so
+ * whether a line can outlast a screen is a question the board can answer. Four bits each covers
+ * both and puts a whole side in twelve.
+ */
+const SCREEN_SPEC = Object.freeze({
+  reflect: Object.freeze({ shift: 0, bits: 4, max: 8 }),
+  light_screen: Object.freeze({ shift: 4, bits: 4, max: 8 }),
+  aurora_veil: Object.freeze({ shift: 8, bits: 4, max: 8 }),
+});
+
+/** Every screen, in packing order. */
+export const SCREEN_KINDS = Object.freeze(["reflect", "light_screen", "aurora_veil"]);
+
+/** How many turns of one screen a side has left. */
+export function screenTurns(packed, kind) {
+  const spec = SCREEN_SPEC[kind];
+  if (!spec) return 0;
+  return (Math.trunc(packed || 0) >> spec.shift) & ((1 << spec.bits) - 1);
+}
+
+/** The same side with one screen set to `turns`, capped at what a Light Clay can buy. */
+export function setScreenTurns(packed, kind, turns) {
+  const spec = SCREEN_SPEC[kind];
+  if (!spec) return Math.trunc(packed || 0);
+  const mask = ((1 << spec.bits) - 1) << spec.shift;
+  const value = Math.max(0, Math.min(spec.max, Math.trunc(turns || 0)));
+  return ((Math.trunc(packed || 0) & ~mask) | (value << spec.shift)) >>> 0;
+}
+
+/** A Light Clay holder's screens last eight turns instead of five. */
+const LIGHT_CLAY = "lightclay";
+const SCREEN_TURNS_PLAIN = 5;
+const SCREEN_TURNS_EXTENDED = 8;
+
 /** What Spikes costs on the way in, by how many layers are down. */
 const SPIKE_SHARE = Object.freeze([0, 1 / 8, 1 / 6, 1 / 4]);
 /** What a Stealth Rock costs at neutral effectiveness. */
@@ -1458,6 +1539,22 @@ export const AIMED_AT_FOE = new Set(["target", "foe_side", "all_others"]);
 // them; before that Rain Dance and the terrain moves were refused on the sheet, which is how
 // a move that does nothing shows up to a player.
 export const RUNNABLE_OPS = new Set(["status", "stage", "heal", "weather_heal", "flinch", "electric_boost",
+  // THE SCREENS. Reflect 87.7%, Light Screen 89.3% and Aurora Veil 94.9% of the Pokemon that
+  // carry them -- and not one of them could be CLICKED, because this set had no word for the op
+  // and `Solver.effectActions` refuses a status move unless every op of it is runnable. The
+  // board carries them now (`board.sc`), so there is something for the move to do.
+  "screen", "clear_screen",
+  // `hp_cost` and `set_stage` joined together, and they had to: Belly Drum is the two of them,
+  // and the website's registry carried only the cost until the exporter's whitelist learnt
+  // `set_stage`, so making `hp_cost` runnable on its own would have put a move on the sheet that
+  // spends half a health bar for nothing. With both, the four moves that buy what they do with
+  // HP are choosable -- Belly Drum, Clangorous Soul (45% of Kommo-o), Fillet Away, Shed Tail.
+  "hp_cost", "set_stage",
+  // `cure_status` joined when `TournamentTest.clearStatus` was written. Until then Rest, Heal
+  // Bell, Aromatherapy, Refresh, Purify, Jungle Healing, Lunar Blessing, Sparkly Swirl and Take
+  // Heart were all refused outright by `Solver.effectActions`, which requires EVERY op of a
+  // status move to be runnable. Rest is 29.3% of the Pokemon that carry it.
+  "cure_status",
   "weather", "terrain",
   // ...and the entry hazards, laid and swept (TOURNAMENT_HAZARDS). Stealth Rock, Spikes,
   // Toxic Spikes, Sticky Web, Rapid Spin, Mortal Spin, Defog and Tidy Up were all refused
@@ -1756,6 +1853,17 @@ export class TournamentTest {
     // `chargedHits` exists: the key is already past what a double holds exactly.
     this.spentBerryHits = new Map();
     this.chargedSpentBerryHits = new Map();
+    // AND THE SAME NUMBERS BEHIND A SCREEN. A screen halves the damage, so it is a different
+    // answer for the same key -- and the key cannot take another factor: `att.id` is a unit id
+    // off `Solver.unitCache`, which grows all session, and the mixed radix already overflows
+    // exact integer arithmetic somewhere around the 2,000th unit. So a screened hit gets its own
+    // store, exactly as the Electric Boost and the eaten resistance berry do.
+    //
+    // Made on demand and indexed rather than named: a hit can meet four screen states (the
+    // screen for its own category, an Aurora Veil, both, neither) across the four stores above,
+    // and twelve named fields would be twelve names to keep in step. EVERY Tournament Test run
+    // and every recorded suite has no screen at all, so they never leave the four above.
+    this.screenedHits = [];
     this.best = new Map();
     this.bestSafe = new Map();
     this.speeds = new Map();
@@ -2456,6 +2564,34 @@ export class TournamentTest {
       cures: CURE_BERRIES[item] || null,
       // A sixteenth back at the end of every turn.
       leftovers: item === "leftovers" || item === "blacksludge",
+      // THREE ITEMS THE ENGINE HAD NEVER HEARD OF.
+      //
+      // Audited 20 Nov 2026 the way the move ops were: every item the meta actually brings, set
+      // against the engine's whole vocabulary. The Mega stones that audit reports are a false
+      // positive -- `isMegaStone` reads them from the item table and a suffix rule, so a new one
+      // needs no code -- but these three are named NOWHERE in builder/, and the Companion models
+      // all of them. The numbers below are ITS numbers (`mcts/engine.py`), so the two engines
+      // cannot drift over them:
+      //
+      //   Wide Lens                    the user's accuracy x 1.1       64.1% of Maushold-Four
+      //   Bright Powder / Lax Incense  the attacker's accuracy x 0.9   47.7% of Glaceon
+      //   King's Rock / Razor Fang     a tenth of a flinch, as a FLOOR 18.5% of Maushold-Four
+      wideLens: item === "widelens",
+      dimming: item === "brightpowder" || item === "laxincense",
+      flinchItem: item === "kingsrock" || item === "razorfang",
+      // ...AND THREE MORE the same audit turned up on its second run, once the first three
+      // stopped burying them. The Companion has all three and these are its numbers again:
+      //
+      //   Big Root     a draining move gives back 1.3x as much   16.2% of Vileplume
+      //   Focus Band   one hit in ten is survived on 1 HP         9.4% of Stunfisk
+      //   Shell Bell   an eighth of the damage dealt, back        6.7% of Tauros-Paldea-Combat
+      //
+      // Focus Band is the Focus Sash's machinery with a roll in front of it, so it rides on
+      // `sash` rather than growing a second copy -- but it is a CHANCE, so it cannot be seeded
+      // as a flag the way the Sash is; `band` is the chance and `deal` rolls it.
+      bigRoot: item === "bigroot",
+      band: item === "focusband",
+      shellBell: item === "shellbell",
       // The weather that hurts it, if any: sand spares Rock, Ground and Steel, snow spares Ice.
       chippedBy: !types.includes("Rock") && !types.includes("Ground") && !types.includes("Steel")
         ? WEATHERS.indexOf("Sand")
@@ -2542,8 +2678,11 @@ export class TournamentTest {
     // a handful of times a turn by a played game, never by the search, so a factor in the key
     // would cost every other caller a wider key to buy nothing. Going straight to `calc` leaves
     // the key -- and therefore every cached number in the run -- exactly as it was.
+    // Which of the DEFENDER's screens this hit meets. Zero for every Tournament Test run -- no
+    // board there carries one -- so everything below keeps the store and the key it had.
+    const screens = this.screensAgainst(board, info, def.side === 1 ? 1 : 0);
     if (critical || (this.effectsOn && info.counter)) {
-      return this.calc(att, def, info, slot, w, t, stage, f, bucket, defending, took, critical, defBucket, defCond, berrySpent);
+      return this.calc(att, def, info, slot, w, t, stage, f, bucket, defending, took, critical, defBucket, defCond, berrySpent, screens);
     }
     // Mixed radix, one factor a line. It was a single nested expression and grew a tenth level
     // of parentheses that did not close; written this way the arithmetic is the same and the
@@ -2568,12 +2707,18 @@ export class TournamentTest {
     // Four stores, two bits: the Electric Boost and the eaten resistance berry. Each is a
     // separate store rather than a wider key, for the reason stated above the key.
     const spent = this.resistBerryOn && berrySpent;
-    const store = spent
-      ? ((f & 4) ? this.chargedSpentBerryHits : this.spentBerryHits)
-      : ((f & 4) ? this.chargedHits : this.hits);
+    // A screened hit is a different number for the same key, so it gets a store of its own --
+    // the third thing to do that, after the Electric Boost and the eaten resistance berry, and
+    // for the same stated reason: the key cannot take another factor. With no screen up the
+    // four stores below are exactly the four that were always used.
+    const store = screens
+      ? this.screenedStore(screens, spent, Boolean(f & 4))
+      : (spent
+        ? ((f & 4) ? this.chargedSpentBerryHits : this.spentBerryHits)
+        : ((f & 4) ? this.chargedHits : this.hits));
     let hit = store.get(key);
     if (hit === undefined) {
-      hit = this.calc(att, def, info, slot, w, t, stage, f, bucket, defending, 0, false, defBucket, defCond, berrySpent);
+      hit = this.calc(att, def, info, slot, w, t, stage, f, bucket, defending, 0, false, defBucket, defCond, berrySpent, screens);
       store.set(key, hit);
     }
     return this.galeWings(att, def, info, hit, hp, t);
@@ -2600,7 +2745,7 @@ export class TournamentTest {
   }
 
   calc(att, def, info, slot, w, t, stage, f, bucket = HP_BUCKETS - 1, defStage = 0, took = 0, critical = false,
-    defBucket = HP_BUCKETS - 1, defCond = 0, berrySpent = false) {
+    defBucket = HP_BUCKETS - 1, defCond = 0, berrySpent = false, screens = 0) {
     // Grassy Glide is +1 in Grassy Terrain when its user is on the ground.
     const priority = info.priority + (info.key === "grassyglide" && t === GRASSY && att.grounded ? 1 : 0);
     // Priority the move table does not list is priority the engine cannot see, so its
@@ -2668,6 +2813,22 @@ export class TournamentTest {
         ctx.attacker_state.tailwind = false;
         ctx.defender_state.tailwind = false;
       }
+      // THE SCREENS, from the BOARD and not from `solverField` any more.
+      //
+      // They used to come off `solverField`, which is set once for a whole Solver run -- so they
+      // could not change, and `screen` / `clear_screen` could not be run, and Reflect could not
+      // be clicked. They are on `board.sc` now (turns a side, packed), and they arrive here as
+      // `screens` BECAUSE THEY ARE PART OF THE ANSWER: a cached number blind to the screen that
+      // halved it would be handed back for the turn after it broke. `moveHit` picks a separate
+      // store per screen state rather than widening the key, which it cannot take.
+      //
+      // Which one the move meets was worked out by `screensAgainst`, which knows the category;
+      // all this has to do is say so. An Aurora Veil halves both.
+      if (screens & 1) {
+        if (info.physical) ctx.reflect = true;
+        else if (info.special) ctx.light_screen = true;
+      }
+      if (screens & 2) ctx.aurora_veil = true;
       // The Solver sets a board that the Tournament Test never does: it starts mid-game, so the
       // screens, Friend Guard and the two conditional counters CAN already be up, and the player
       // may want the rules themselves switched (items off, abilities off). `solverField` is unset
@@ -2679,10 +2840,6 @@ export class TournamentTest {
         // attacker's own partner, and the screen that protects it is its own side's. Taking it as
         // `1 - attackSide` applied the opponent's Reflect to your partner and left yours off.
         const defendSide = def.side === 1 ? 1 : 0;
-        const physical = info.physical;
-        if (physical && solver.reflect[defendSide]) ctx.reflect = true;
-        if (info.special && solver.lightScreen[defendSide]) ctx.light_screen = true;
-        if (solver.auroraVeil[defendSide]) ctx.aurora_veil = true;
         if (solver.friendGuard[defendSide]) ctx.friend_guard = true;
         // Supreme Overlord and Last Respects read how many of the user's own side are down,
         // and Rage Fist how many times its user has been hit. Both are facts about one Pokemon
@@ -2789,6 +2946,50 @@ export class TournamentTest {
   }
 
   /**
+   * The cache store for a hit that meets a screen, made the first time it is asked for.
+   *
+   * `bits` is 1 for the screen that matches the move's own category (Reflect for a physical move,
+   * Light Screen for a special one) and 2 for an Aurora Veil, which halves both. A move is one
+   * category or the other, so the two never collide and four states cover every hit.
+   */
+  screenedStore(bits, spent, charged) {
+    const index = ((Math.trunc(bits) & 3) << 2) | (spent ? 2 : 0) | (charged ? 1 : 0);
+    let store = this.screenedHits[index];
+    if (!store) {
+      store = new Map();
+      this.screenedHits[index] = store;
+    }
+    return store;
+  }
+
+  /**
+   * Which of the defending side's screens this hit actually meets, as `screenedStore`'s bits.
+   *
+   * NOT GATED ON `fieldTurnsOn`, and the difference matters. That rule governs how long a field
+   * condition LASTS, and it already does so here: with it off `tickField` returns early, so a
+   * screen a board arrived with never counts down and stands for the whole run -- which is
+   * exactly what `solverField` used to do, set once and never changed. What the rule must not
+   * do is stop a screen HALVING: a board that says Reflect is up has always halved the physical
+   * moves into that side, and gating this turned it off for every caller that builds a Solver
+   * without rules. Setting one is a different thing again and is gated, in `runEffectOps`.
+   */
+  screensAgainst(board, info, defSide) {
+    if (!board || !board.sc) return 0;
+    const packed = Number(board.sc[defSide === 1 ? 1 : 0]) || 0;
+    if (!packed) return 0;
+    const own = info.physical ? "reflect" : info.special ? "light_screen" : "";
+    return (own && screenTurns(packed, own) > 0 ? 1 : 0)
+      | ((info.physical || info.special) && screenTurns(packed, "aurora_veil") > 0 ? 2 : 0);
+  }
+
+  /** How long a screen this unit sets lasts: five turns, or eight behind a Light Clay. */
+  screenLength(unit) {
+    if (!this.fieldTurnsOn) return 0;
+    const item = compact(unit?.mon?.item || unit?.item || "");
+    return item === LIGHT_CLAY ? SCREEN_TURNS_EXTENDED : SCREEN_TURNS_PLAIN;
+  }
+
+  /**
    * A row's condition as an index into LIVE_STATUS, so it can go in a cache key.
    *
    * `m.burn` and `m.sleep` are the booleans the engine uses when the effects registry is OFF.
@@ -2873,7 +3074,11 @@ export class TournamentTest {
     // Paralysis halves Speed. As an expectation it halves the share of it that is paralysed,
     // which is also what makes Nuzzle and Thunder Wave worth anything to the planner: before
     // this they inflicted a condition that did not slow anybody down.
-    return this.effectsOn && m.st?.par > 0 ? base * (1 - 0.5 * m.st.par) : base;
+    // Not a paralysis the board arrived with: `speedOf` read it off the prepared unit, which the
+    // calculator built with "Paralyzed" on it and already halved (engine.js, the Speed
+    // modifiers). `bakedStatus` is how the two representations stay out of each other's way.
+    const par = m.bakedStatus === "par" ? 0 : (m.st?.par || 0);
+    return this.effectsOn && par > 0 ? base * (1 - 0.5 * par) : base;
   }
 
   /** The Speed a unit has as it comes in (a Mega Stone holder's base form). */
@@ -3167,13 +3372,16 @@ export class TournamentTest {
         }
         events?.push({ s: m.s, kind: "clearstages", actor: m.u });
       }
-      // SCREEN CLEANER takes the screens off BOTH sides as it arrives.
-      if (k.entryScreenCleaner && this.solverField) {
-        const f = this.solverField;
-        f.reflect = [false, false];
-        f.lightScreen = [false, false];
-        f.auroraVeil = [false, false];
-        events?.push({ s: m.s, kind: "screenclean", actor: m.u });
+      // SCREEN CLEANER takes the screens off BOTH sides as it arrives. On the BOARD now: it used
+      // to blank `solverField`, which is the static side-channel, so the sweep lasted for the
+      // whole Solver run rather than for the game -- and nothing could put a screen back up,
+      // because nothing could put one up at all.
+      if (k.entryScreenCleaner && board && board.sc) {
+        if (board.sc[0] || board.sc[1]) {
+          board.sc[0] = 0;
+          board.sc[1] = 0;
+          events?.push({ s: m.s, kind: "screenclean", actor: m.u });
+        }
       }
     }
     if (!k.intimidate) return;
@@ -3293,7 +3501,13 @@ export class TournamentTest {
     // A burn halves what a physical move does, in proportion to how burned its user is. Read
     // from the FROZEN run, like `outScale` and `pre.atk` before it: a burn landed by the first
     // action of a run must not reach the second one, or the two stop being simultaneous.
-    const burn = (pre || att).st?.brn || 0;
+    // ...and NOT a burn the board arrived with. `bakedStatus` says the condition was handed to
+    // the damage CALCULATOR as well (`Solver.unitFor` -> `mon.status = "Burned"`), and the
+    // calculator halves a burned physical attack itself -- and knows the two exceptions this
+    // line does not, Guts and Facade. Halving again here would price a board-burned attacker at
+    // a quarter and would halve Facade. A burn LANDED during the run has no baked side, so this
+    // is the only halving it gets.
+    const burn = att.bakedStatus === "brn" ? 0 : ((pre || att).st?.brn || 0);
     if (this.effectsOn && burn > 0 && att.u.moves[hit.slot]?.physical) {
       damage *= 1 - 0.5 * burn;
     }
@@ -3310,6 +3524,40 @@ export class TournamentTest {
     if (target.sash && target.hp >= 0.999 && damage >= target.hp) {
       damage = target.hp - 0.01;
       target.sash = false;
+    } else if (this.abilityOpsOn && target.k.band && damage >= target.hp && alive(target)
+      && this.effectRoll && this.effectRoll() < 0.1) {
+      // FOCUS BAND: one hit in ten is survived on a sliver, from ANY health rather than only
+      // from full -- which is the difference from the Sash above and why it cannot set the same
+      // flag. Not consumed, as the Companion does not consume it either (`mcts/engine.py`).
+      //
+      // ROLLED, NEVER PRICED. Every other effect here is weighed as an expectation, and this one
+      // must not be: "a tenth of a survival" on an HP axis is a Pokemon left standing at a
+      // thousandth of a bar, and a Pokemon at a thousandth of a bar is ALIVE to every reader in
+      // this engine and on the page -- nine times in ten a lie, and the live board feeds the
+      // displayed HP straight back into the search as truth. With no roll to hand the search
+      // simply prices the knockout, which is right nine times in ten and never invents a
+      // Pokemon that is not there.
+      damage = target.hp - 0.01;
+    }
+    // WHAT THE ATTACKER GETS BACK, settled here and not below, because the knockout branch
+    // under this line RETURNS -- so a Giga Drain that knocked its target out gave its user
+    // nothing at all, which is the normal case for a draining move and the opposite of what the
+    // game does. Capped at the damage actually DEALT for the same reason: half of an overkill is
+    // not half of what was taken off, and the uncapped figure was healing a Drain Punch user for
+    // a bar the target never had.
+    //
+    // Credited to the owed pile like everything else, so nothing moves the board mid-turn.
+    const dealtNow = Math.min(damage, target.hp);
+    const intoOwn = target.k.maxHp / Math.max(1, att.k.maxHp);
+    if (this.effectsOn && alive(att)) {
+      const drain = (att.u.moves[hit.slot]?.fx || []).find((fx) => fx.op === "drain");
+      if (drain) {
+        // BIG ROOT gives a draining move back a third again as much (the Companion's 1.3).
+        const rooted = this.abilityOpsOn && att.k.bigRoot ? 1.3 : 1;
+        att.resid -= dealtNow * intoOwn * Math.max(0, Number(drain.fraction) || 0.5) * rooted;
+      }
+      // SHELL BELL gives an EIGHTH of what ANY hit dealt, draining or not.
+      if (this.abilityOpsOn && att.k.shellBell) att.resid -= (dealtNow * intoOwn) / 8;
     }
     target.hp -= damage;
     if (target.hp <= 1e-9) {
@@ -3372,14 +3620,10 @@ export class TournamentTest {
       // rule 1, and `refill` is the one place that already moves Pokemon safely.
       if (wasAboveHalf && target.hp > 0 && target.hp <= 0.5) target.bailing = true;
       this.answerContact(att, target, hit);
-      this.secondaries(att, target, hit);
-      // A draining move gives its user back a share of what it just dealt. Credited to the owed
-      // pile like everything else, so nothing changes the board in the middle of a turn.
-      const drain = (att.u.moves[hit.slot]?.fx || []).find((fx) => fx.op === "drain");
-      if (drain && alive(att)) {
-        const share = Math.max(0, Number(drain.fraction) || 0.5);
-        att.resid -= damage * (target.k.maxHp / Math.max(1, att.k.maxHp)) * share;
-      }
+      this.secondaries(att, target, hit, board);
+      // AFTER the move's own ops, because the item is a floor under whatever they said and
+      // `secondaries` never runs at all for a move with no ops.
+      this.itemFlinch(att, target, att.u.moves[hit.slot]);
     }
     // `events` goes with it so an Ability that answers a hit can SAY so. Stamina has been raising
     // Archaludon's Defense correctly all along -- measured, four hits took 6.66%, 4.42%, 3.29%,
@@ -3444,7 +3688,7 @@ export class TournamentTest {
    * hit happens to be nth in a shared stream, so swapping the two seats gives the same hits
    * different numbers.
    */
-  secondaries(att, target, hit) {
+  secondaries(att, target, hit, board = null) {
     const info = att.u.moves[hit.slot];
     const list = info?.fx;
     if (!list || !alive(target) || att.k.sheerForce || target.k.secondaryProof) return;
@@ -3481,6 +3725,37 @@ export class TournamentTest {
         }
         continue;
       }
+      if (fx.op === "clear_screen") {
+        // BRICK BREAK, PSYCHIC FANGS (93.6% of the Metagross that bring it) and RAGING BULL
+        // (88.8% of Tauros-Paldea) break the screens on the side they hit -- and they are
+        // DAMAGING, so their ops arrive here and never reach `runEffectOps`, the same trap Dire
+        // Claw and Knock Off were in. The move still does its damage THROUGH the screen it is
+        // breaking, which is why this runs after the hit rather than before it.
+        if (this.fieldTurnsOn && board && board.sc && target) {
+          const kind = String(fx.screen || "");
+          const at = target.s === 1 ? 1 : 0;
+          if (SCREEN_KINDS.includes(kind) && screenTurns(board.sc[at], kind) > 0) {
+            board.sc[at] = setScreenTurns(board.sc[at], kind, 0);
+          }
+        }
+        continue;
+      }
+      if (fx.op === "break_protect") {
+        // FEINT (70.1% of the Pinsir that bring it), HYPERSPACE HOLE and HYPERSPACE FURY: the
+        // Protect does not merely fail to stop them, it is GONE afterwards -- so the partner's
+        // move lands too, which is the whole reason Feint is in a Doubles team. `bypass_protect`
+        // was implemented and this half was not, so Feint hit through a Protect and then left it
+        // standing for everything that followed it in the turn.
+        //
+        // `m.guard` is Protect alone: Wide Guard and Quick Guard are action kinds of their own
+        // (`plans`, not a flag on the Pokemon), and Feint does not break either of those in the
+        // real game, so clearing this flag is exactly as much as the move does.
+        //
+        // Not scaled by `p`: a Protect is standing or it is not, and the flag cannot be
+        // three-tenths cleared. Every holder carries the op at 100% anyway.
+        if (this.effectsOn) target.guard = false;
+        continue;
+      }
       if (fx.op === "flinch" && fx.target === "target") {
         // Accumulated, not applied: `freezeRun` decides which actions can see it.
         target.flinchP = 1 - (1 - target.flinchP) * (1 - p);
@@ -3505,6 +3780,18 @@ export class TournamentTest {
         && String(fx.status || "").toLowerCase() === "confusion") {
         // Twenty moves carry this and the engine read none of them.
         this.confuse(target, p);
+      } else if (fx.op === "cure_status") {
+        // SCALD, FLARE BLITZ, PYRO BALL, SACRED FIRE, SCORCHING SANDS, STEAM ERUPTION, FLAME
+        // WHEEL and BURN UP thaw; SPARKLING ARIA takes a burn off what it hits; SMELLING SALTS
+        // and WAKE-UP SLAP wake theirs. All of them are DAMAGING, so their ops arrive here and
+        // never reach `runEffectOps` -- the same trap Dire Claw was in.
+        //
+        // `fx.target` decides whose, and the fire moves' own-thaw (`target: "user"`,
+        // `before_action: true`) is read here as what it is: by the time a hit has landed the
+        // user was not frozen for it.
+        const who = String(fx.target || "user") === "target" ? target : att;
+        const names = (fx.statuses || []).map((entry) => statusField(entry)).filter(Boolean);
+        if (who) this.clearStatus(who, p, names);
       } else if (fx.op === "random_status" && fx.target === "target") {
         // DIRE CLAW: a 30% chance of ONE of poison, paralysis or sleep -- not all three, and
         // not none. 93.7% of Sneaslers carry it and nothing anywhere read the op, so the move
@@ -3551,7 +3838,8 @@ export class TournamentTest {
     if (roll() < (pre.flinchP || 0)) return "flinch";
     const st = pre.st;
     if (!st) return "";
-    if (roll() < (st.frz || 0)) return "freeze";
+    // A board freeze belongs to `Solver.thaw`, which draws its own one-in-five and sets `idle`.
+    if (!this.baked(pre, "frz") && roll() < (st.frz || 0)) return "freeze";
     // A paralysed Pokemon loses one turn in four, a confused one one in three.
     if (roll() < 0.25 * (st.par || 0)) return "paralysis";
     if (roll() < (st.cnf || 0) / 3) return "confusion";
@@ -3565,16 +3853,46 @@ export class TournamentTest {
     // A confused Pokemon hurts itself instead of acting one time in three, so a third of the
     // confusion is an action it does not get. Its own factor beside the others, because a
     // confusion is independent of them: a Pokemon can be both asleep and confused.
-    return Math.max(0, flinch * (1 - st.slp) * (1 - st.frz) * (1 - 0.25 * st.par)
+    // A BOARD SLEEP AND A BOARD FREEZE ARE ALREADY COUNTED, in turns: `m.idle` is the counter
+    // the turn machinery skips a Pokemon by, and `Solver.thaw` sets it. Multiplying by the slot
+    // as well took the turn away twice. A board PARALYSIS is the opposite case and the reason
+    // the slot is pinned at all -- nothing anywhere took its one turn in four, which the
+    // Solver's own note admitted.
+    const slp = this.baked(pre, "slp") ? 0 : st.slp;
+    const frz = this.baked(pre, "frz") ? 0 : st.frz;
+    return Math.max(0, flinch * (1 - slp) * (1 - frz) * (1 - 0.25 * st.par)
       * (1 - (st.cnf || 0) / 3));
+  }
+
+  /**
+   * Is this slot's condition the BOARD's own, rather than one landed during the run?
+   *
+   * A board condition is written to BOTH representations by `Solver.buildState`: to the boolean,
+   * which is what the board's own per-turn path reads (`Solver.residual` chips a poison,
+   * `Solver.thaw` runs a freeze, `endOfTurn` pays a burn, `m.idle` counts a sleep, and the
+   * damage CALCULATOR already halved a burned attack and a paralysed Speed from `mon.status`),
+   * and to the probability slot, which is what `statusFree`, `Solver.drag`, `actionScale`'s
+   * paralysis term and `cure_status` read and which used to be empty.
+   *
+   * So the slot is there to be SEEN, not to be charged for a second time. Every per-turn reader
+   * of it asks this first. A condition landed mid-run has no `bakedStatus` and is paid here as
+   * it always was.
+   */
+  baked(m, slot) {
+    return Boolean(m) && m.bakedStatus === slot;
   }
 
   /** How much of the status slot is still free: 1 on a clean Pokemon, 0 on a fully statused one. */
   statusFree(unit) {
     const st = unit.st;
     if (!st) return unit.burn || unit.sleep ? 0 : 1;
-    return Math.max(0, 1 - (st.brn + st.psn + st.tox + st.par + st.slp + st.frz))
-      - (unit.burn || unit.sleep ? 1 : 0);
+    const filled = st.brn + st.psn + st.tox + st.par + st.slp + st.frz;
+    // The boolean is a WHOLE condition -- but only where the slot beside it is empty. A board
+    // condition is written to both now, and adding both drove this NEGATIVE (1 - 1 - 1), which
+    // no caller expects: `applyStatus` takes `Math.min(chance, free)` and the callers ask
+    // `<= 0`. Clamped once at the end rather than on the first term, for the same reason.
+    const loose = (unit.burn && st.brn <= 0) || (unit.sleep && st.slp <= 0) ? 1 : 0;
+    return Math.max(0, 1 - filled - loose);
   }
 
   /**
@@ -3594,12 +3912,7 @@ export class TournamentTest {
   applyStatus(target, status, chance, source = null) {
     if (!alive(target) || !target.st) return 0;
     const kind = String(status || "").toLowerCase();
-    const field = kind === "burn" ? "brn"
-      : kind === "poison" ? "psn"
-        : kind === "badly_poisoned" || kind === "toxic" ? "tox"
-          : kind === "paralysis" ? "par"
-            : kind === "sleep" ? "slp"
-              : kind === "freeze" ? "frz" : "";
+    const field = statusField(status);
     if (!field) return 0;
     if (field === "brn" && target.k.burnProof) return 0;
     // CORROSION goes through the TYPE's immunity and not through an Ability's.
@@ -3657,6 +3970,62 @@ export class TournamentTest {
   }
 
   /**
+   * THE CURE SIDE of `applyStatus`, and the only place `cure_status` is carried out.
+   *
+   * `share` is how much of the condition this use is worth -- all of it on a played turn, the
+   * move's likelihood in a search -- exactly as `weight` is on the way in. So a 100% Heal Bell
+   * takes a whole burn off and a half-likely one takes half of it, which is the same convention
+   * the cure BERRIES already use (`applyStatus`, where a 30% burn eats 0.3 of a Rawst).
+   *
+   * `slots` is the list to clear, or nothing for every one of them -- which is what Rest, Heal
+   * Bell, Aromatherapy, Jungle Healing, Sparkly Swirl and Take Heart carry: the registry gives
+   * them no `statuses` at all, and "no list" there means "all of them", not "none".
+   *
+   * The legacy booleans go with the slot. `m.burn` and `m.sleep` are the representation the
+   * engine uses with the effects registry OFF, and a cure that cleared only the slot left a
+   * Pokemon the end-of-turn chip still read as burned.
+   *
+   * WHAT IT CANNOT UNDO, stated because it is a real limit and not an oversight: a condition the
+   * BOARD arrived with was handed to the damage calculator as well (`Solver.unitFor` sets
+   * `mon.status`), and that is what halves a burned Pokemon's physical attack and a paralysed
+   * one's Speed. Those numbers are baked into the prepared unit, so curing frees the slot and
+   * stops the per-turn cost but does not hand the attack or the Speed back. That under-values
+   * the cure; it does not misreport the board. A condition LANDED during the run has no baked
+   * side and is undone whole. See `bakedStatus`.
+   */
+  clearStatus(unit, share, slots = null) {
+    if (!unit || !unit.st) return 0;
+    const want = (slots && slots.length ? slots : STATUS_SLOTS);
+    const amount = Math.max(0, Math.min(1, Number(share) || 0));
+    if (amount <= 0) return 0;
+    let freed = 0;
+    for (const slot of want) {
+      if (!slot || !(slot in unit.st)) continue;
+      const had = Number(unit.st[slot]) || 0;
+      if (had <= 0) continue;
+      const taken = Math.min(had, amount);
+      unit.st[slot] = had - taken;
+      if (unit.st[slot] < 1e-9) unit.st[slot] = 0;
+      freed += taken;
+      // The slot is empty now, so the boolean beside it and the two counters that belong to it
+      // go as well. A partial cure leaves both alone: half a sleep is still a sleep that has a
+      // turn left to run.
+      if (unit.st[slot] > 0) continue;
+      if (slot === "brn") unit.burn = false;
+      if (slot === "slp") { unit.sleep = false; unit.idle = 0; }
+      if (slot === "psn") unit.psn = false;
+      if (slot === "tox") { unit.tox = false; unit.toxTurns = 0; }
+      if (slot === "frz") unit.frozen = false;
+      // ...and it is no longer the board's condition, so the per-turn readers that stood down
+      // for it (`baked`) have nothing left to stand down from. A PARTIAL cure does not reach
+      // here: half a board poison still chips its whole eighth, because the boolean the chip
+      // reads cannot be half set. That under-values a partial cure, which is the safe direction.
+      if (unit.bakedStatus === slot) unit.bakedStatus = "";
+    }
+    return freed;
+  }
+
+  /**
    * Confusion, as the chance of carrying it (TOURNAMENT_CONFUSION).
    *
    * Its own room, not the major status slot: a confusion stacks with a burn, so the share
@@ -3709,9 +4078,46 @@ export class TournamentTest {
     // time it was asked the same question and the evenness this model is built on would go. So
     // with no roll lent to it a 90%-accurate Thunder Wave is nine tenths of a paralysis, which
     // is exactly how a 10% secondary burn has always been priced.
-    const acc = this.accuracyOf(info, m);
+    const acc = this.accuracyOf(info, m, target);
     if (roll && roll() >= acc) return { did, missed: true };
-    for (const fx of a.ops || []) {
+    // REST FAILS AT FULL HEALTH, and on a Pokemon that cannot sleep. A rule of the game rather
+    // than a scoring question: the search prices Rest at nothing there and drops it
+    // (`Solver.effectValue`), but /play/ hands the player every legal move, and without this a
+    // player who chose Rest on a healthy Pokemon was put to sleep for nothing in return.
+    //
+    // Read off the OPS and not off the move's name: a heal that restores the whole bar together
+    // with a sleep laid on its own user is what Rest is, and nothing else in the registry has
+    // that shape.
+    const ops = a.ops || [];
+    const restLike = ops.some((fx) => (fx.op === "heal") && Number(fx.fraction) >= 1
+      && String(fx.target || "user") === "user")
+      && ops.some((fx) => fx.op === "status" && String(fx.status || "").toLowerCase() === "sleep"
+        && String(fx.target || "user") === "user");
+    if (restLike && (m.hp >= 1 || m.k.sleepProof)) return { did, missed: false };
+    // AND A MOVE PAID FOR IN HP FAILS WHEN THE USER CANNOT PAY. Belly Drum and Clangorous Soul
+    // both say so in their own text -- "This move fails if the user doesn't have enough
+    // remaining HP" -- and without it the move knocked its own user out to buy a stat boost,
+    // which is not a trade the game offers. Strictly more than the cost is needed: at exactly
+    // half a bar Belly Drum fails.
+    //
+    // `after_damage` is the damaging moves' spelling (Steel Beam, Mind Blown, Chloroblast,
+    // Struggle); those do knock their user out when they must, and are not refused here. They
+    // are damaging, so they never reach this method anyway -- the clause is in the condition
+    // rather than in a comment because that is cheaper to keep true.
+    for (const fx of ops) {
+      if (fx.op !== "hp_cost" || fx.after_damage) continue;
+      const share = Math.max(0, Math.min(1, Number(fx.fraction) || 0));
+      if (share > 0 && m.hp <= share) return { did, missed: false };
+    }
+    // How much condition this move has actually taken off, for the one op that is paid for it:
+    // Purify heals its user only if the Pokemon it cured HAD something to cure.
+    let cured = 0;
+    for (const fx of ops) {
+      // PURIFY: "the user restores half its HP, but only if the target had a status". The
+      // registry says so in the op (`condition: "target_had_status"`) and nothing read it, so
+      // Purify healed half a bar off a perfectly healthy Pokemon. `cured` is filled by the
+      // cure_status op that stands before it in the same list.
+      if (String(fx.condition || "") === "target_had_status" && cured <= 0) continue;
       const chance = Math.max(0, Math.min(1, (Number(fx.chance) || 100) / 100));
       if (chance <= 0) continue;
       if (roll && roll() >= chance) continue;
@@ -3924,6 +4330,48 @@ export class TournamentTest {
         if (swept) did.push("cleared the hazards");
         continue;
       }
+      if (fx.op === "screen" || fx.op === "clear_screen") {
+        // REFLECT, LIGHT SCREEN, AURORA VEIL, GLITZY GLOW and BADDY BAD put one up; BRICK BREAK,
+        // PSYCHIC FANGS and RAGING BULL take one down. THE FIELD IS NOT A TARGET, so these are
+        // handled here with the weather and the terrain rather than inside the per-target loop,
+        // which is handed nothing for an op with no target word.
+        //
+        // Gated on the same rule as the weather and the terrain, because that is what they are:
+        // a field condition with a turn count. Under rule 0 nothing expires and nothing is set,
+        // which is the board every caller older than the rule was getting.
+        if (!this.fieldTurnsOn || !board || !board.sc) continue;
+        const kind = String(fx.screen || "");
+        if (!SCREEN_KINDS.includes(kind)) continue;
+        if (fx.op === "screen") {
+          // AURORA VEIL NEEDS THE SNOW, which is its own entry's word (`requires_weather`) and
+          // the one clause that makes it fail. Without it the move is simply refused, exactly
+          // as the game refuses it.
+          const needs = String(fx.requires_weather || "");
+          if (needs && WEATHERS[board.w] !== needs) {
+            did.push("but there was no snow");
+            continue;
+          }
+          // Already up: the move fails rather than resetting the counter, which is the game's
+          // own rule and also what stops a searched line spending every turn on it.
+          if (screenTurns(board.sc[m.s], kind) > 0) continue;
+          // HOW LONG IS THE HOLDER'S QUESTION, not the registry's. Every screen entry says
+          // `turns: 5`, which is the plain length; a Light Clay buys eight, and `screenLength`
+          // is the one place that knows which -- the same shape as `fieldLength` for the
+          // weather rocks beside it.
+          board.sc[m.s] = setScreenTurns(board.sc[m.s], kind, this.screenLength(m.u));
+          did.push(kind.replace(/_/g, " "));
+        } else {
+          // `target_side` is the registry's own word for the side being hit, which for a
+          // damaging move is the other one. These three are damaging, so they arrive through
+          // `secondaries` -- this branch is here for completeness and for a status move that
+          // ever carries the op.
+          const at = String(fx.target || "target_side") === "user_side" ? m.s : 1 - m.s;
+          if (screenTurns(board.sc[at], kind) <= 0) continue;
+          board.sc[at] = setScreenTurns(board.sc[at], kind, 0);
+          did.push(`broke the ${kind.replace(/_/g, " ")}`);
+        }
+        continue;
+      }
       if (fx.op === "weather" || fx.op === "terrain") {
         if (!this.fieldTurnsOn || !board) continue;
         if (fx.op === "weather") {
@@ -3975,6 +4423,51 @@ export class TournamentTest {
           if (share <= 0 || at.hp >= 1) continue;
           at.hp = Math.min(1, at.hp + share * weight);
           did.push("heal");
+        } else if (fx.op === "hp_cost") {
+          // BELLY DRUM, CLANGOROUS SOUL, FILLET AWAY and SHED TAIL buy what they do with HP, and
+          // the cost was never charged -- the op was not runnable, so none of the four could be
+          // chosen at all. Clangorous Soul is 45% of the Kommo-o in the current meta, which is
+          // what `tests/run-op-coverage.mjs` ranked it by.
+          //
+          // The DAMAGING ones are not here and must not be: Steel Beam, Mind Blown and
+          // Chloroblast carry the same op, but they are charged by NAME in the damage calculator
+          // (`engine.js`, MAX_HP_RECOIL_FRACTIONS), which reaches every consumer and knows Rock
+          // Head. Charging them here as well would take their half twice. They are damaging, so
+          // they never reach this method at all -- but they do reach `secondaries`, which is
+          // deliberately left without a branch for the same reason.
+          const share = Math.max(0, Math.min(1, Number(fx.fraction) || 0));
+          if (share <= 0) continue;
+          at.hp = Math.max(0, at.hp - share * weight);
+          if (at.hp <= 1e-9) { at.hp = 0; at.out = true; }
+          did.push("spent its own HP");
+        } else if (fx.op === "set_stage") {
+          // BELLY DRUM, AND ONLY BELLY DRUM: it does not raise Attack by six, it SETS it to the
+          // sixth stage, so a Pokemon already at +2 gains four and one already at +6 gains
+          // nothing. A `stage` op cannot say that, which is why the registry has its own word.
+          //
+          // It reached the website late: the exporter's whitelist shipped Belly Drum's `hp_cost`
+          // and not this, so the site had a move that spends half a health bar for nothing --
+          // which is exactly why `hp_cost` could not be made runnable on its own.
+          const field = stageField(fx.stat);
+          if (!field) continue;
+          const want = clampStage(Math.trunc(Number(fx.value) || 0));
+          const step = want - (Number(at[field]) || 0);
+          if (!step) continue;
+          // Through `shiftStages`, which is the one place that knows Clear Body, Contrary,
+          // Hyper Cutter and the carried remainder, rather than writing the field and going
+          // round all of them.
+          this.shiftStages(at, [String(fx.stat || "")], step * weight);
+          did.push("maximised its Attack");
+        } else if (fx.op === "cure_status") {
+          // REST, HEAL BELL, AROMATHERAPY, REFRESH, PURIFY, JUNGLE HEALING, LUNAR BLESSING,
+          // SPARKLY SWIRL and TAKE HEART. None of them could be CHOSEN before this branch
+          // existed: `Solver.effectActions` refuses a status move unless EVERY one of its ops is
+          // runnable, so one unread op took the whole move off the sheet rather than running the
+          // rest of it. Rest is the clearest case -- cure_status + heal + sleep, and the comment
+          // there says exactly why running two of the three would be worse than running none.
+          const names = (fx.statuses || []).map((entry) => statusField(entry)).filter(Boolean);
+          const freed = this.clearStatus(at, weight, names);
+          if (freed > 0) { cured += freed; did.push("cured its status"); }
         } else if (fx.op === "electric_boost") {
           // Charge. Its other op is the +1 Sp. Def, applied by the `stage` branch as usual.
           at.charged = true;
@@ -4005,6 +4498,21 @@ export class TournamentTest {
       case "foe_side": return foes.filter(Boolean);
       case "all_others": return [...foes, ...ally].filter(Boolean);
       case "ally_side": return [m, ...ally];
+      case "party": {
+        // HEAL BELL AND AROMATHERAPY cure the whole PARTY, bench included -- and `party` was a
+        // word this method had never been told, so it fell through `default` and both moves
+        // cured their own user and nobody else.
+        //
+        // The bench is already handed to the engine for two other things that need it
+        // (`benchPool`: who is down, for Revival Blessing, and whether a pivot has anybody to
+        // go to). Where it is not set -- the recorded tournament path never sets it -- the move
+        // reaches our side of the field, which is the half that can matter inside a four-turn
+        // search anyway. A fainted team-mate is dropped by the `alive` check in the caller.
+        const pool = this.benchPool?.[m.s];
+        if (!pool || !pool.length) return [m, ...ally];
+        const standing = new Set([m, ...ally]);
+        return [m, ...ally, ...pool.filter((x) => x && !standing.has(x))];
+      }
       case "ally": return ally;
       case "user":
       case "user_or_ally":
@@ -4114,10 +4622,7 @@ export class TournamentTest {
     // selfStatChangeAfterAbility`). Every existing caller omits the argument and is unchanged.
     if (amount < 0 && !self && unit.k.statProof) return;
     for (const raw of stats) {
-      const stat = String(raw || "").toLowerCase();
-      const field = stat === "attack" ? "atk" : stat === "special_attack" || stat === "sp_attack" || stat === "spatk" ? "spa"
-        : stat === "defense" ? "def" : stat === "special_defense" || stat === "sp_defense" || stat === "spdef" ? "spd"
-          : stat === "speed" ? "spe" : "";
+      const field = stageField(raw);
       if (!field) continue;
       if (field === "atk" && amount < 0 && !self && unit.k.hyperCutter) continue;
       // Big Pecks keeps its Defense, Keen Eye and Illuminate their accuracy
@@ -4429,13 +4934,47 @@ export class TournamentTest {
    * (TOURNAMENT_ABILITY_OPS, `accuracy_multiplier`). A caller that does not pass one gets
    * exactly the number it always got.
    */
-  accuracyOf(info, user = null) {
+  /**
+   * How often this move lands, as a share of one.
+   *
+   * `target` is OPTIONAL, and every caller written before the items below omits it -- which is
+   * what keeps their numbers where they were: with no target there is no Bright Powder to find.
+   * The two factors are the Companion's own (`mcts/engine.py`: `widelens` x 1.1,
+   * `brightpowder`/`laxincense` x 0.9), so the two engines cannot drift over them.
+   */
+  accuracyOf(info, user = null, target = null) {
     const raw = this.ev.meta(info?.name || "")?.accuracy;
     if (raw === undefined || raw === null || raw === "") return 1;
     const value = Number(String(raw).replace("%", ""));
     if (!Number.isFinite(value) || value <= 0) return 1;
     const boost = this.abilityOpsOn ? (user?.k?.accuracyBoost || 1) : 1;
-    return Math.max(0, Math.min(1, (value / 100) * boost));
+    // Gated on the same rule as the Abilities beside them: an ITEM that changes a number is the
+    // same kind of thing as an Ability that does, and a run recorded before either replays with
+    // both off.
+    const lens = this.abilityOpsOn && user?.k?.wideLens ? 1.1 : 1;
+    const dim = this.abilityOpsOn && target?.k?.dimming ? 0.9 : 1;
+    return Math.max(0, Math.min(1, (value / 100) * boost * lens * dim));
+  }
+
+  /**
+   * KING'S ROCK AND RAZOR FANG, applied to a hit that has already landed.
+   *
+   * A FLOOR AND NOT A SUM: the item gives a move with no flinch of its own a tenth of one, and a
+   * move that already flinches keeps the larger of the two. That is the Companion's rule
+   * (`max(move.flinch_chance, extra_flinch)`), and `secondaries` cannot do it -- it returns
+   * early for a move with no registry ops at all, which is most moves, and the item works on
+   * every damaging move.
+   *
+   * Inner Focus refuses it, which is the only thing the Companion checks. `flinchP` is
+   * accumulated everywhere else; here it is raised, because two sources of the same flinch are
+   * not two flinches.
+   */
+  itemFlinch(att, target, info) {
+    if (!this.abilityOpsOn || !att?.k?.flinchItem || !info?.damaging) return;
+    if (!alive(target) || target.k.flinchProof) return;
+    const roll = this.effectRoll;
+    const share = roll ? (roll() < 0.1 ? 1 : 0) : 0.1;
+    target.flinchP = Math.max(Number(target.flinchP) || 0, share);
   }
 
   /** An attack's sure stat drop after it landed (Sheer Force, Shield Dust and Covert Cloak remove it). */
@@ -5554,7 +6093,7 @@ export class TournamentTest {
       if (this.effectsOn) {
         // Sleep Powder lands three times in four, Hypnosis three times in five. The target is
         // that much asleep, and it wears off over the next turns the way a sleep does.
-        const landed = this.applyStatus(target, "sleep", this.accuracyOf(info));
+        const landed = this.applyStatus(target, "sleep", this.accuracyOf(info, m, target));
         if (landed <= 0) {
           events?.push({ s, kind: "fails", actor: m.u, target: target.u, move: a.move });
           return;
@@ -5595,7 +6134,7 @@ export class TournamentTest {
           events?.push({ s, kind: "fails", actor: m.u, target: target.u, move: a.move });
           return;
         }
-        const landed = this.applyStatus(target, kind, this.accuracyOf(info));
+        const landed = this.applyStatus(target, kind, this.accuracyOf(info, m, target));
         if (landed <= 0) {
           events?.push({ s, kind: "fails", actor: m.u, target: target.u, move: a.move });
           return;
@@ -5768,10 +6307,16 @@ export class TournamentTest {
           // Poison takes an eighth; a bad poison grows by a sixteenth every turn it has been on,
           // which is what makes it worth more than plain poison on a long game. A burn takes a
           // sixteenth. All of them in proportion to how likely the condition is.
-          m.toxTurns = st.tox > 0 ? (m.toxTurns || 0) + 1 : 0;
-          const chip = (1 / 8) * st.psn
-            + (1 / 16) * st.tox * Math.min(15, m.toxTurns)
-            + (1 / 16) * st.brn;
+          //
+          // NOT A CONDITION THE BOARD ARRIVED WITH (`baked`): the board's own path already
+          // charges for those -- `Solver.residual` the poison and the bad poison, the burn line
+          // at the foot of this method the burn -- and charging here as well took an eighth a
+          // turn off a burned Pokemon and a quarter off a poisoned one.
+          const own = (slot) => (this.baked(m, slot) ? 0 : Number(st[slot]) || 0);
+          m.toxTurns = own("tox") > 0 ? (m.toxTurns || 0) + 1 : m.toxTurns;
+          const chip = (1 / 8) * own("psn")
+            + (1 / 16) * own("tox") * Math.min(15, m.toxTurns)
+            + (1 / 16) * own("brn");
           const owed = (m.resid || 0) + chip;
           m.resid = 0;
           // Sleep wears off -- one to three turns, so about half of it goes each turn -- and a
@@ -5781,10 +6326,18 @@ export class TournamentTest {
           // after one -- 0.6 against sleep's 0.5, which is one to three.
           st.cnf *= 0.6;
           if (st.cnf < 1e-6) st.cnf = 0;
-          st.slp *= 0.5;
-          st.frz *= 0.8;
-          if (st.slp < 1e-6) st.slp = 0;
-          if (st.frz < 1e-6) st.frz = 0;
+          // AND NEITHER DECAY TOUCHES A BOARD CONDITION. A board sleep is counted in TURNS
+          // (`m.idle`) and a board freeze thaws one turn in five (`Solver.thaw`); decaying the
+          // slot underneath them left a Pokemon half asleep -- which `statusFree` then read as a
+          // half-free slot, so the next Thunder Wave landed on it.
+          if (!this.baked(m, "slp")) {
+            st.slp *= 0.5;
+            if (st.slp < 1e-6) st.slp = 0;
+          }
+          if (!this.baked(m, "frz")) {
+            st.frz *= 0.8;
+            if (st.frz < 1e-6) st.frz = 0;
+          }
           if (owed > 0) {
             m.hp -= owed;
             if (m.hp <= 1e-9) {
@@ -5797,6 +6350,11 @@ export class TournamentTest {
           }
         }
         this.moodyStages(m);
+        // THE BURN THE BOARD ARRIVED WITH, which is what `m.burn` means: `Solver.buildState`
+        // sets it and `Solver.residual`'s own note points here for it ("Burn is paid by
+        // `TournamentTest.endOfTurn`"). The `st` chip above skips exactly this one (`baked`), so
+        // between them the sixteenth is taken once; a burn LANDED mid-run has no boolean and is
+        // paid there instead.
         if (!alive(m) || !m.burn) continue;
         m.hp -= 1 / 16;
         if (m.hp <= 1e-9) {
@@ -6004,7 +6562,7 @@ export class TournamentTest {
   freshBoard() {
     // `wt`/`tt` start at 0, which means NO TIMER: a field pinned in the Rules panel must not
     // rain itself off after five turns (TOURNAMENT_FIELD_TURNS).
-    return { w: this.fixedWeather, t: this.fixedTerrain, tw: [0, 0], tr: 0, trBy: -1, wide: 0, quick: 0, wt: 0, tt: 0, hz: [0, 0] };
+    return { w: this.fixedWeather, t: this.fixedTerrain, tw: [0, 0], tr: 0, trBy: -1, wide: 0, quick: 0, wt: 0, tt: 0, hz: [0, 0], sc: [0, 0] };
   }
 
   /**
@@ -6084,6 +6642,19 @@ export class TournamentTest {
     if (board.tt > 0) {
       board.tt -= 1;
       if (board.tt <= 0) { board.t = 0; board.tt = 0; }
+    }
+    // AND THE SCREENS, each side's three counted down together. A screen that runs out simply
+    // stops halving: there is no state left over, so the slot going to zero is the whole of it.
+    if (board.sc) {
+      for (let side = 0; side < 2; side += 1) {
+        let packed = Number(board.sc[side]) || 0;
+        if (!packed) continue;
+        for (const kind of SCREEN_KINDS) {
+          const left = screenTurns(packed, kind);
+          if (left > 0) packed = setScreenTurns(packed, kind, left - 1);
+        }
+        board.sc[side] = packed;
+      }
     }
   }
 
@@ -6172,18 +6743,18 @@ export class TournamentTest {
     const memoKey = memo && !record && !deep ? `${ours.leadKey}|${theirs.leadKey}|${slower[0] ? 1 : slower[1] ? 2 : 0}` : "";
     const saved = memoKey ? memo.get(memoKey) : undefined;
     if (saved) {
-      board = { ...saved.board, tw: [...saved.board.tw], hz: [...(saved.board.hz || [0, 0])] };
+      board = { ...saved.board, tw: [...saved.board.tw], hz: [...(saved.board.hz || [0, 0])], sc: [...(saved.board.sc || [0, 0])] };
       for (let s = 0; s < 2; s += 1) saved.leads[s].forEach((state, i) => Object.assign(active[s][i], state));
     } else {
       this.turnOne(active, board, slower, events, deep ? deep.stances : null);
       if (memoKey) {
         const keep = (m) => ({ hp: m.hp, spe: m.spe, atk: m.atk, spa: m.spa, sash: m.sash, berry: m.berry, oran: m.oran, cure: m.cure, out: m.out, kos: m.kos, flinch: m.flinch, guard: m.guard, intimidated: m.intimidated, idle: m.idle, sleep: m.sleep, burn: m.burn, busted: m.busted });
-        memo.set(memoKey, { board: { ...board, tw: [...board.tw], hz: [...(board.hz || [0, 0])] }, leads: [active[0].map(keep), active[1].map(keep)] });
+        memo.set(memoKey, { board: { ...board, tw: [...board.tw], hz: [...(board.hz || [0, 0])], sc: [...(board.sc || [0, 0])] }, leads: [active[0].map(keep), active[1].map(keep)] });
       }
     }
     const hpAfterTurnOne = record ? sides.map((list) => list.map((m) => Math.round(m.hp * 100))) : null;
     this.refill(active, sides, next, board);
-    const boardAfterTurnOne = record ? { ...board, tw: [...board.tw], hz: [...(board.hz || [0, 0])] } : null;
+    const boardAfterTurnOne = record ? { ...board, tw: [...board.tw], hz: [...(board.hz || [0, 0])], sc: [...(board.sc || [0, 0])] } : null;
     const after = record ? this.afterTurnOne(active, board, hpAfterTurnOne, sides) : null;
 
     let turn = 2;
@@ -6571,6 +7142,9 @@ export class TournamentTest {
     if (this.hits.size + this.chargedHits.size > MAX_CACHED_HITS) {
       this.hits.clear();
       this.chargedHits.clear();
+      // The screened stores go with them: they are the same numbers behind a screen, so holding
+      // them while the plain ones are dropped would keep a cache the run can no longer match.
+      this.screenedHits = [];
       this.best.clear();
       this.bestSafe.clear();
     }

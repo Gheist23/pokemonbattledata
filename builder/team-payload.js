@@ -340,6 +340,21 @@ export class TeamEvaluation {
     const tailwind = tailwindBeneficiaries(synergyProfiles, this.synergy.metaSpeedRows());
     const features = this.checks.archetypeFeatures(checkProfiles, { tailwind });
     const speed = this.speed.control(team, { profiles: synergyProfiles, features });
+    // V47'S SLOT SCALE, RECORDED AS WELL AS APPLIED.
+    //
+    // The Companion's own payload applies this very scale -- `part_004`,
+    // `_team_analysis_compute_payload_v47` -- one layer ABOVE `speed_control`. So a caller that
+    // takes this payload back into that path, which is what `web_engine_analysis_v552` does,
+    // gets the scale twice: measured on a four-Pokemon team, the Speed score came back 12.05
+    // where the app's own read 18.56, and 12.05 is 18.56 scaled by 4/6 one time too many. It
+    // read as the two engines disagreeing about Speed and it was the same engine scaling once
+    // more than it should.
+    //
+    // The sub-scores are a different matter and are NOT touched here: `TeamSpeed.v51` scales
+    // `trick_room`, `opposing_tailwind` and `priority` itself, exactly as the app's part_005
+    // does, so those already agree.
+    speed.slot_factor = factor;
+    speed.score_before_slots = speed.score;
     speed.score = clamp(speed.score * factor);
 
     const threats = evaluation.threats.map((row) => this.enrichThreat(row));

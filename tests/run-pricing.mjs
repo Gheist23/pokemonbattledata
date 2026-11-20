@@ -32,18 +32,23 @@ const read = (...parts) => readFileSync(join(root, ...parts), "utf8");
 // disagrees -- which is the whole point of it.
 // ---------------------------------------------------------------------------
 const MONTHLY = 9;
-const YEARLY = 69;
+const YEARLY = 89;
 const PER_MONTH = (YEARLY / 12).toFixed(2);          // "5.75"
 const SAVING = MONTHLY * 12 - YEARLY;                // 39
 
 // The live Payment Links these prices belong to. Replacing a price means replacing the link:
 // a Stripe Payment Link's amount cannot be edited after the link is created.
 const LINK_MONTHLY = "https://buy.stripe.com/7sYbJ1eie7R27Ua0rb57W02";
-const LINK_YEARLY = "https://buy.stripe.com/14A9AT1vs3AM3DUddX57W03";
-// Superseded 20 Nov 2026 (EUR 5 / EUR 45). Deactivated in Stripe; must appear nowhere.
+const LINK_YEARLY = "https://buy.stripe.com/bJe8wP6PM8V6eiygq957W04";
+// Superseded. Deactivated in Stripe; each must appear nowhere on the site.
+//   EUR 5/month and EUR 45/year, retired 20 Nov 2026 on the rise to EUR 9/EUR 69.
+//   EUR 69/year, retired the same day: yearly subscribers churn at 60% against monthly's 33%,
+//   so the 36% yearly discount was being handed to the worst-retaining cohort. EUR 89 is an 18%
+//   discount, which is a saving worth naming without funding the churn.
 const RETIRED_LINKS = [
   "https://buy.stripe.com/3cIaEX7TQfju0rIei157W00",
   "https://buy.stripe.com/14A00j4HE7R24HY8XH57W01",
+  "https://buy.stripe.com/14A9AT1vs3AM3DUddX57W03",
 ];
 
 let checked = 0;

@@ -921,14 +921,15 @@ const FEATURE_LABELS = { evaluation: "Team Evaluation", autobuild: "Auto Build",
  * and can I actually pay. The last is not decoration -- this audience skews young and a card-only
  * checkout is a wall for a large part of it, which is why PayPal and Google Pay are on.
  */
-const PRO_TERMS = "Free for 7 days, then €9 a month or €69 a year. Cancel any time and you keep every team.";
+const PRO_TERMS = "Free for 7 days, then €9 a month or €89 a year. Cancel any time and you keep every team.";
 //
 // RE-CHECKED AGAINST THE LIVE CHECKOUT, 20 Nov 2026, and it is now the same on both plans:
 //   both links offer Karte, PayPal, Amazon Pay, Klarna, Satispay, Link
 // A Payment Link freezes the account's payment-method set at the moment it is CREATED, and
 // enabling a method afterwards does not reach it -- which is why the OLD monthly link still
 // shows no PayPal today, a day after PayPal was switched on, while the new one does. The
-// price rise to €9/€69 needed new links, so it fixed this as a side effect. If a method is
+// price rise to €9/€69 needed new links, so it fixed this as a side effect, and the yearly
+// move to €89 later the same day was re-checked the same way. If a method is
 // ever enabled again WITHOUT new links being made, check the live checkout before naming it
 // here: a method named on the site and absent at the till is worse than naming none, because
 // the visitor has already decided by then. tests/run-pricing.mjs pins both halves together.

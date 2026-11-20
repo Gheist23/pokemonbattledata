@@ -1433,7 +1433,7 @@ function proDialog() {
     title: "The Solver is a Pro feature",
     body: h("div", {},
       h("p", {}, `You have had ${FREE_RUNS} complete searches \u2014 the whole answer, not a preview. Pro keeps the Solver unlimited here and in the Companion, along with Team Evaluation, Auto Build and Test against Tournament Teams.`),
-      h("p", {}, "Free for 7 days, then €9 a month or €69 a year. It covers the website and the app, and you can cancel any time."),
+      h("p", {}, "Free for 7 days, then €9 a month or €89 a year. It covers the website and the app, and you can cancel any time."),
       h("p", { class: "bd-note" }, "Card, PayPal, Klarna and more at checkout.")),
     actions: [
       h("a", { class: "ghost-button", href: "/pro-tool/key/" }, "I have a key"),

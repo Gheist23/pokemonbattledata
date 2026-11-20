@@ -102,6 +102,66 @@ function board(mons) {
   return { player, captions, byKey };
 }
 
+// --- a stat change is DRAWN, which is the half a log line cannot do ---------------------------
+//
+// Reported from a played game: "Play still doesn't show instant attack drop when an Intimidate
+// user enters, otherwise players think it's applied once the turn is over." The animation had no
+// stat change in its vocabulary at all, so the tile's chips did not move until the finished view
+// replaced the whole board. The sentence was never the problem.
+{
+  const target = fakeMon(1, 0, { chips: "" });
+  const { player, captions } = board([target]);
+  await player.play([{ kind: "stage", side: 1, tag: 0, stat: "atk", by: -1, to: -1 }], { pace: "fast" });
+  ok("the chip appears on the tile that was lowered", target.parts.chips.textContent === "Atk -1",
+    JSON.stringify(target.parts.chips.textContent));
+  ok("...and the tile wears a class for it", target.history.some((c) => c === "is-stage-down"),
+    JSON.stringify(target.history));
+  ok("...and says what happened", captions.some((c) => /Attack fell/i.test(c.text)),
+    JSON.stringify(captions.map((c) => c.text)));
+}
+{
+  // A RAISE is the other end -- Contrary, Guard Dog -- and must not read as a drop.
+  const target = fakeMon(1, 0, { chips: "" });
+  const { player, captions } = board([target]);
+  await player.play([{ kind: "stage", side: 1, tag: 0, stat: "atk", by: 1, to: 1 }], { pace: "fast" });
+  ok("a raise shows a plus", target.parts.chips.textContent === "Atk +1",
+    JSON.stringify(target.parts.chips.textContent));
+  ok("...and its own class", target.history.some((c) => c === "is-stage-up"), JSON.stringify(target.history));
+  ok("...and its own word", captions.some((c) => /Attack rose/i.test(c.text)),
+    JSON.stringify(captions.map((c) => c.text)));
+}
+{
+  // THE CHIP IS EDITED, NOT REBUILT: everything else on that line belongs to the page and has
+  // to survive, and a second change to the same stat must replace rather than stack.
+  const target = fakeMon(1, 0, { chips: "Burned · Atk -1" });
+  const { player } = board([target]);
+  await player.play([{ kind: "stage", side: 1, tag: 0, stat: "atk", by: -1, to: -2 }], { pace: "fast" });
+  ok("the status chip beside it survives", /Burned/.test(target.parts.chips.textContent),
+    JSON.stringify(target.parts.chips.textContent));
+  ok("...and the stat is replaced rather than repeated",
+    (target.parts.chips.textContent.match(/Atk/g) || []).length === 1
+    && /Atk -2/.test(target.parts.chips.textContent),
+    JSON.stringify(target.parts.chips.textContent));
+}
+{
+  // ...and a stage back to zero takes the chip away, as the page would.
+  const target = fakeMon(1, 0, { chips: "Atk -1" });
+  const { player } = board([target]);
+  await player.play([{ kind: "stage", side: 1, tag: 0, stat: "atk", by: 1, to: 0 }], { pace: "fast" });
+  ok("a stat back at zero has no chip", target.parts.chips.textContent === "",
+    JSON.stringify(target.parts.chips.textContent));
+}
+{
+  // ON THE NAMED SIDE ONLY. The event belongs to the Pokemon that CAUSED the drop; the step
+  // names the one whose stat moved, and getting that backwards floats the arrow off our own.
+  const ours = fakeMon(0, 0, { chips: "" });
+  const theirs = fakeMon(1, 0, { chips: "" });
+  const { player } = board([ours, theirs]);
+  await player.play([{ kind: "stage", side: 1, tag: 0, stat: "atk", by: -1, to: -1 }], { pace: "fast" });
+  ok("our own tile is untouched", ours.parts.chips.textContent === "" && ours.history.length === 0,
+    JSON.stringify([ours.parts.chips.textContent, ours.history]));
+}
+
 // --- 1, 2: in order, on the right Pokemon, and cleaned up afterwards ---------------------------
 {
   const ours = fakeMon(0, 2);

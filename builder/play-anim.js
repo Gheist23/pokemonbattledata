@@ -42,6 +42,9 @@ export const BEAT = {
   crit: 480,
   residual: 320,
   status: 420,
+  // A stat change is read, not felt: it wants long enough to see the chip appear and the arrow
+  // float, and no longer. Between a miss and a status.
+  stage: 380,
   mega: 520,
   miss: 340,
   protect: 360,
@@ -165,6 +168,10 @@ export function sentenceFor(step, nameOf) {
     case "mega": return "";
     // The three results the reference recording always says out loud, because none of them can
     // be read off a health bar: nothing happened, and the reason differs every time.
+    case "stage": {
+      const label = { atk: "Attack", spa: "Sp. Atk", spe: "Speed", def: "Defense", spd: "Sp. Def" }[step.stat] || step.stat;
+      return `${who}'s ${label} ${step.by < 0 ? "fell" : "rose"}!`;
+    }
     case "miss": return `It missed ${who}!`;
     case "protect": return `${who} protected itself!`;
     case "flinch": return `${who} flinched and could not move!`;
@@ -267,6 +274,42 @@ export function createTurnPlayer({ monEl, monInfo, freeSeat, sideBox, nameOf, ca
     setTimeout(() => tag.remove(), 1400);
   }
 
+  /** The short name the tile's chips use for each stat. The page's own list, same order. */
+  const STAGE_CHIP = { atk: "Atk", spa: "SpA", spe: "Spe", def: "Def", spd: "SpD" };
+
+  /**
+   * A stat change, shown AS IT HAPPENS.
+   *
+   * Two halves, because they answer two different questions. The arrow floats off the tile the
+   * way a hit's damage does -- that is what makes the drop readable at the moment it lands -- and
+   * the chip is updated so the board still says so a second later. Without the second half the
+   * tile goes back to looking untouched the instant the arrow fades.
+   *
+   * The chip is edited in place rather than rebuilt: the page owns that line's full composition
+   * (status, confusion, then the five stages in order) and a second copy of that here would be a
+   * second thing to keep in step. Appending an absent stat at the end can put it out of the
+   * page's order for the rest of the animation, which is cosmetic and corrects itself the moment
+   * the finished view is rendered.
+   */
+  function showStage(el, stat, by, to) {
+    if (!el || !by) return;
+    const label = STAGE_CHIP[stat] || stat;
+    const layer = el.querySelector(".bd-play-fx");
+    if (layer && typeof document !== "undefined" && layer.append) {
+      const tag = document.createElement("span");
+      tag.className = `bd-play-stagefx${by < 0 ? " down" : " up"}`;
+      tag.textContent = `${label} ${by > 0 ? "+" : ""}${by}`;
+      layer.append(tag);
+      setTimeout(() => tag.remove(), 1400);
+    }
+    const chips = el.querySelector(".bd-play-chips");
+    if (!chips) return;
+    const parts = String(chips.textContent || "").split(" · ").map((p) => p.trim()).filter(Boolean);
+    const kept = parts.filter((part) => part !== label && !part.startsWith(`${label} `));
+    if (to) kept.push(`${label} ${to > 0 ? "+" : ""}${to}`);
+    chips.textContent = kept.join(" · ");
+  }
+
   /** Move a health bar to where the turn left it. The width is transitioned in CSS. */
   function setHp(el, hp) {
     if (!el || !Number.isFinite(hp)) return;
@@ -351,6 +394,14 @@ export function createTurnPlayer({ monEl, monInfo, freeSeat, sideBox, nameOf, ca
         const up = item.to > item.from;
         setHp(el, item.to);
         await beat(el, up ? "is-mend" : "is-chip", paced(BEAT.residual), up ? "fx-mend" : "fx-chip");
+        return;
+      }
+      case "stage": {
+        // On the Pokemon whose stat moved, which for an Intimidate is a FOE of the Pokemon that
+        // caused it -- `side` and `tag` are the target's own, written by the engine.
+        showStage(el, item.stat, item.by, item.to);
+        await beat(el, item.by < 0 ? "is-stage-down" : "is-stage-up", paced(BEAT.stage),
+          item.by < 0 ? "fx-stage-down" : "fx-stage-up");
         return;
       }
       case "miss":

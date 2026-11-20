@@ -184,6 +184,43 @@ ok("the Play log can say all three Intimidate outcomes",
   /intimidateblocked/.test(playSource) && /intimidateraised/.test(playSource)
   && /flinchproof/.test(playSource));
 
+/* ===================== 4. ...and the Attack drop is SHOWN when it happens, not after */
+
+{
+  // Reported from a played game: "Play still doesn't show instant attack drop when an
+  // Intimidate user enters, otherwise players think it's applied once the turn is over."
+  //
+  // The cause was that the animation had no stat change in its vocabulary at all -- send,
+  // move, hit, residual, status, mega, miss, protect, flinch, faint, switch -- so the tile's
+  // chips did not move until the finished view replaced the whole board. A LINE in the log was
+  // never the problem; `noteFor` has had one since Intimidate did.
+  const game = opened(DRAGONITE_PROOF);
+  const stream = (game.log[0] && game.log[0].stream) || [];
+  const stages = stream.filter((step) => step.kind === "stage");
+  ok("the opening carries a stage step, which is what the tile animates",
+    stages.length > 0, JSON.stringify(stream.map((s) => s.kind)));
+  ok("...for the Attack, which is what Intimidate moves",
+    stages.every((step) => step.stat === "atk"), JSON.stringify(stages));
+  // THE REAL OFFSET AND NOT AN ASSUMED -1: Contrary, Simple and Guard Dog all change it, so the
+  // step carries what the engine actually applied.
+  ok("...carrying the offset the engine really applied, and where it landed",
+    stages.every((step) => step.by === -1 && step.to === -1), JSON.stringify(stages));
+  // ON THE FOE'S SEAT. The event belongs to the Pokemon that CAUSED it; the step has to name
+  // the one whose stat moved, or the arrow floats off the wrong tile.
+  ok("...on the side that was intimidated, not the side that did it",
+    stages.every((step) => step.side === 1), JSON.stringify(stages));
+  // AND BEFORE THE SENTENCE, so the drop is seen as it is read rather than after it.
+  const firstStage = stream.findIndex((step) => step.kind === "stage");
+  const theLine = stream.findIndex((step) => step.kind === "note" && /lowered .*Attack/i.test(step.text || ""));
+  ok("...and ahead of the line that describes it", firstStage >= 0 && theLine > firstStage,
+    `stage at ${firstStage}, note at ${theLine}`);
+  notes.push(`opening stage steps: ${JSON.stringify(stages.map((s) => [s.side, s.tag, s.stat, s.by]))}`);
+}
+
+// The ANIMATION's half of this contract is checked where the animation is, over its own fake
+// DOM (`tests/run-play-anim.mjs`): a source grep for `case "stage"` matches `sentenceFor`'s
+// case as well as the one that draws, so it passed with the drawing removed. Measured.
+
 if (failures.length) {
   console.error(`run-flinch-and-intimidate: ${failures.length} of ${checked} checks FAILED`);
   for (const line of failures) console.error(`  - ${line}`);

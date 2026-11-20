@@ -687,6 +687,10 @@
   --beat-crit: 480ms;
   --beat-residual: 320ms;
   --beat-status: 420ms;
+  /* A stat change, which is READ rather than felt -- see BEAT.stage in play-anim.js. The two
+     lists have to agree: a CSS animation must last exactly as long as the beat that waits for
+     it, or the next step starts over the top of this one. */
+  --beat-stage: 380ms;
   --beat-mega: 520ms;
   --beat-miss: 340ms;
   --beat-protect: 360ms;
@@ -1141,6 +1145,62 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .bd-play-damage { animation: none; opacity: 1; transform: translate(-50%, -10px); }
+}
+
+/* --- a stat change, shown as it happens ------------------------------------------------------- */
+/* The tile's chips used to be the only sign a stage had moved, and they do not move until the
+   finished view replaces the board -- so an Intimidate on entry looked as though it applied when
+   the turn ended. The arrow floats like a hit's damage number; `showStage` updates the chip
+   behind it so the board still says so once the arrow has gone. */
+.bd-play-mon.is-stage-down { animation: bd-stage-sink calc(var(--beat-stage) * var(--beat-scale)) ease; }
+.bd-play-mon.is-stage-up { animation: bd-stage-lift calc(var(--beat-stage) * var(--beat-scale)) ease; }
+@keyframes bd-stage-sink {
+  0% { transform: translateY(0); filter: none; }
+  45% { transform: translateY(3px); filter: brightness(0.82) saturate(0.7); }
+  100% { transform: translateY(0); filter: none; }
+}
+@keyframes bd-stage-lift {
+  0% { transform: translateY(0); filter: none; }
+  45% { transform: translateY(-3px); filter: brightness(1.18) saturate(1.15); }
+  100% { transform: translateY(0); filter: none; }
+}
+@keyframes bd-stage-float {
+  0% { opacity: 0; transform: translate(-50%, 0) scale(0.9); }
+  18% { opacity: 1; transform: translate(-50%, -8px) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -26px) scale(0.95); }
+}
+.bd-play-stagefx {
+  position: absolute;
+  left: 42px;
+  top: 22px;
+  transform: translate(-50%, 0);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  white-space: nowrap;
+  animation: bd-stage-float calc(var(--beat-stage) * var(--beat-scale)) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+/* Down is the common one and reads as a loss; up is the Contrary / Guard Dog answer. */
+.bd-play-stagefx.down { color: #fca5a5; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75), 0 0 10px rgba(248, 113, 113, 0.7); }
+.bd-play-stagefx.up { color: #86efac; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75), 0 0 10px rgba(74, 222, 128, 0.7); }
+.bd-play-fx.fx-stage-down::before,
+.bd-play-fx.fx-stage-up::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  animation: bd-flash calc(var(--beat-stage) * var(--beat-scale)) ease;
+}
+.bd-play-fx.fx-stage-down::before { background: radial-gradient(circle at 50% 60%, rgba(248, 113, 113, 0.30), transparent 70%); }
+.bd-play-fx.fx-stage-up::before { background: radial-gradient(circle at 50% 60%, rgba(74, 222, 128, 0.28), transparent 70%); }
+@media (prefers-reduced-motion: reduce) {
+  .bd-play-mon.is-stage-down,
+  .bd-play-mon.is-stage-up { animation: none; }
+  .bd-play-stagefx { animation: none; opacity: 1; transform: translate(-50%, -8px); }
+  .bd-play-fx.fx-stage-down::before,
+  .bd-play-fx.fx-stage-up::before { animation: none; }
 }
 
 /* --- Mega Evolution --------------------------------------------------------------------------- */

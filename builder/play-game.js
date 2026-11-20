@@ -1915,6 +1915,25 @@ export class PlayGame {
           });
         }
       }
+      // A STAGE THAT MOVED GETS A STEP OF ITS OWN as well as its line, for the reason the Mega
+      // above does: it has to appear on screen AT THAT MOMENT rather than when the turn is
+      // over. Reported from a played game -- "Play still doesn't show instant attack drop when
+      // an Intimidate user enters, otherwise players think it's applied once the turn is over"
+      // -- and the report is exactly right about the cause: the animation's whole vocabulary
+      // was send / move / hit / residual / status / mega / miss / protect / flinch / faint /
+      // switch, with no stat change anywhere in it. The chips on the tile therefore did not
+      // move until the final view replaced the board.
+      //
+      // `stages` is carried by the ENGINE (`intimidateFrom`), seat by seat and with the real
+      // offsets, because Contrary and Simple change them and -1 would be an assumption.
+      for (const change of event.stages || []) {
+        for (const one of change.moved || []) {
+          steps.push({
+            kind: "stage", side: change.s, tag: change.tag,
+            stat: String(one.stat || ""), by: Number(one.by) || 0, to: Number(one.to) || 0,
+          });
+        }
+      }
       const text = this.noteFor(event);
       if (!text) continue;
       const actor = this.monFor(event.actor, event.s);

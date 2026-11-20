@@ -3424,6 +3424,8 @@ export class TournamentTest {
     // Defiant, Competitive and Guard Dog turn it into a RAISE, which was equally silent.
     const unmoved = [];
     const raised = [];
+    /** Every stage this entry really moved, by seat: what the page draws with. */
+    const stages = [];
     for (const foe of active[1 - m.s]) {
       if (!alive(foe)) continue;
       const target = foe.u.base || foe.u.mon;
@@ -3436,8 +3438,19 @@ export class TournamentTest {
       }
       const offsets = intimidateOffsets(source, target);
       if (!offsets.attack_stage && !offsets.sp_attack_stage) { unmoved.push(foe.u); continue; }
+      // WHAT ACTUALLY MOVED, AND ON WHICH SEAT, carried beside the units. The event said only
+      // WHO was intimidated, so the page could write the sentence and had nothing to draw with:
+      // the Attack drop appeared on the tile when the whole turn finished rendering, and a
+      // player reading the board reasonably concluded it had not happened yet. A step needs the
+      // seat (`tag`) and the real offsets -- Contrary and Simple change them, so -1 is an
+      // assumption and this is the measurement.
+      const before = { atk: foe.atk, spa: foe.spa };
       foe.atk = clampStage(foe.atk + offsets.attack_stage);
       foe.spa = clampStage(foe.spa + offsets.sp_attack_stage);
+      const moved = [];
+      if (foe.atk !== before.atk) moved.push({ stat: "atk", by: foe.atk - before.atk, to: foe.atk });
+      if (foe.spa !== before.spa) moved.push({ stat: "spa", by: foe.spa - before.spa, to: foe.spa });
+      if (moved.length) stages.push({ s: foe.s, tag: foe.tag, moved });
       if (offsets.attack_stage < 0) {
         lowered.push(foe.u);
         foe.intimidated = true;
@@ -3445,8 +3458,8 @@ export class TournamentTest {
         raised.push(foe.u);
       }
     }
-    if (lowered.length) events?.push({ s: m.s, kind: "intimidate", actor: m.u, targets: lowered });
-    if (raised.length) events?.push({ s: m.s, kind: "intimidateraised", actor: m.u, targets: raised });
+    if (lowered.length) events?.push({ s: m.s, kind: "intimidate", actor: m.u, targets: lowered, stages });
+    if (raised.length) events?.push({ s: m.s, kind: "intimidateraised", actor: m.u, targets: raised, stages });
     if (unmoved.length) events?.push({ s: m.s, kind: "intimidateblocked", actor: m.u, targets: unmoved });
   }
 

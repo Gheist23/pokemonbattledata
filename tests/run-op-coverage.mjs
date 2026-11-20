@@ -137,7 +137,6 @@ const reachable = gaps.filter((g) => g.share > 0);
  * tool starts guarding it.
  */
 const KNOWN = new Set([
-  "random_status:direclaw",        // Sneasler's signature move, 30% poison/paralysis/sleep
   "clear_screen:psychicfangs",     // breaks Light Screen / Reflect / Aurora Veil
   "clear_screen:brickbreak",
   "hp_cost:clangoroussoul",        // the `stage` half runs; the 1/3 HP cost does not

@@ -3505,6 +3505,25 @@ export class TournamentTest {
         && String(fx.status || "").toLowerCase() === "confusion") {
         // Twenty moves carry this and the engine read none of them.
         this.confuse(target, p);
+      } else if (fx.op === "random_status" && fx.target === "target") {
+        // DIRE CLAW: a 30% chance of ONE of poison, paralysis or sleep -- not all three, and
+        // not none. 93.7% of Sneaslers carry it and nothing anywhere read the op, so the move
+        // was 80 BP and silence. Found by tests/run-op-coverage.mjs.
+        //
+        // The two layers, as everywhere else in this method. A turn being PLAYED has already
+        // spent its roll on the 30% above, so exactly one of the three happens and it happens
+        // whole; a SEARCH is pricing, and "one of three" is worth a third of the chance each.
+        // Splitting it evenly rather than picking is what keeps the opponent answering the
+        // same question the same way twice.
+        const names = (fx.statuses || []).map((entry) => String(entry || "")).filter(Boolean);
+        if (names.length) {
+          if (roll) {
+            const pick = names[Math.min(names.length - 1, Math.floor(roll() * names.length))];
+            this.inflict(target, pick, p);
+          } else {
+            for (const name of names) this.inflict(target, name, p / names.length);
+          }
+        }
       }
     }
   }

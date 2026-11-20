@@ -34,7 +34,12 @@ const read = (...parts) => readFileSync(join(root, ...parts), "utf8");
 const MONTHLY = 9;
 const YEARLY = 89;
 const PER_MONTH = (YEARLY / 12).toFixed(2);          // "5.75"
-const SAVING = MONTHLY * 12 - YEARLY;                // 39
+const SAVING = MONTHLY * 12 - YEARLY;                // 19
+// The same saving said the way the card says it: how many months of the monthly price the
+// yearly plan gives away. Floored, so the claim is never more generous than the arithmetic --
+// EUR 19 off EUR 9 a month is 2.1 months, and the card promises two.
+const MONTHS_FREE = Math.floor(SAVING / MONTHLY);
+const IN_WORDS = ["no", "one", "two", "three", "four", "five", "six"];
 
 // The live Payment Links these prices belong to. Replacing a price means replacing the link:
 // a Stripe Payment Link's amount cannot be edited after the link is created.
@@ -89,9 +94,16 @@ ok("the monthly card shows the monthly price",
 // The two a price change forgets, because they are not the price.
 ok("the yearly card's per-month figure is right",
   plans.includes(`&euro;${PER_MONTH} a month`), `expected &euro;${PER_MONTH} a month`);
+// The card states the saving in MONTHS rather than in euro -- "two months free against
+// monthly" reads as a reason to pick yearly where "saves &euro;19" reads as a rebate -- so what
+// is checked is that the word still matches the arithmetic. Raise the yearly price to &euro;99
+// and this fails, which is the whole job: 12 x &euro;9 - &euro;99 is one month, not two.
 ok("...and the saving against monthly is right",
-  plans.includes(`saves &euro;${SAVING} against monthly`), `expected saves &euro;${SAVING}`);
-notes.push(`EUR ${MONTHLY}/month, EUR ${YEARLY}/year -> EUR ${PER_MONTH} a month, saves EUR ${SAVING}`);
+  plans.includes(`${IN_WORDS[MONTHS_FREE]} months free against monthly`),
+  `expected "${IN_WORDS[MONTHS_FREE]} months free against monthly" (&euro;${SAVING} off &euro;${MONTHLY} a month)`);
+ok("...and the card does not promise more months than the prices give",
+  MONTHS_FREE * MONTHLY <= SAVING, `${MONTHS_FREE} x ${MONTHLY} > ${SAVING}`);
+notes.push(`EUR ${MONTHLY}/month, EUR ${YEARLY}/year -> EUR ${PER_MONTH} a month, saves EUR ${SAVING} = ${MONTHS_FREE} months`);
 
 /* ------------------------------------------------- 4. the structured data agrees */
 // Google reads these, and a stale Offer price is a wrong price shown in a search result -- the

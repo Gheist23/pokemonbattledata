@@ -9340,10 +9340,13 @@ a.answer-card:focus-visible {
   text-align: left !important;
   text-transform: uppercase;
 }
-.plan-list .plan-bonus {
-  margin-top: 0.5rem;
-  color: var(--gold);
-}
+/* v49's Pro bonus line was `.plan-list .plan-bonus { margin-top: .5rem; color: var(--gold) }`,
+   and the rule is gone rather than tuned. It was the Live Mode line, written gold and pushed to
+   the FOOT of the list as an afterthought -- the one feature a free plan can never give you,
+   last and in a different colour from everything above it. It is the FIRST item in both Pro
+   lists now and reads in `--muted` like every other one: the featured card already carries the
+   gold in its border and its "Best value" flag, so gold body text inside it was the accent used
+   twice. Nothing else uses the class, which is why there is no rule here to keep. */
 @media (max-width: 760px) {
   .tool-table-wrap tr.tool-section-row {
     padding: 0.8rem 0 0 !important;

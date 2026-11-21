@@ -1,23 +1,23 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Slowking,134,move,1,Chilly Reception,85.0%,,,,,,,,
+Slowking,134,move,1,Chilly Reception,85.1%,,,,,,,,
 Slowking,134,move,2,Scald,79.7%,,,,,,,,
-Slowking,134,move,3,Slack Off,58.6%,,,,,,,,
-Slowking,134,move,4,Protect,39.8%,,,,,,,,
-Slowking,134,move,5,Yawn,30.4%,,,,,,,,
-Slowking,134,move,6,Ice Beam,21.9%,,,,,,,,
-Slowking,134,move,7,Trick Room,14.7%,,,,,,,,
-Slowking,134,move,8,Flamethrower,10.1%,,,,,,,,
+Slowking,134,move,3,Slack Off,58.4%,,,,,,,,
+Slowking,134,move,4,Protect,39.6%,,,,,,,,
+Slowking,134,move,5,Yawn,30.5%,,,,,,,,
+Slowking,134,move,6,Ice Beam,21.8%,,,,,,,,
+Slowking,134,move,7,Trick Room,14.9%,,,,,,,,
+Slowking,134,move,8,Flamethrower,10.2%,,,,,,,,
 Slowking,134,move,9,Psychic Noise,10.1%,,,,,,,,
-Slowking,134,move,10,Psychic,8.4%,,,,,,,,
-Slowking,134,held_item,1,Leftovers,64.1%,,,,,,,,
-Slowking,134,held_item,2,Sitrus Berry,20.6%,,,,,,,,
+Slowking,134,move,10,Psychic,8.5%,,,,,,,,
+Slowking,134,held_item,1,Leftovers,63.9%,,,,,,,,
+Slowking,134,held_item,2,Sitrus Berry,20.7%,,,,,,,,
 Slowking,134,held_item,3,Rocky Helmet,2.8%,,,,,,,,
 Slowking,134,held_item,4,Life Orb,2.0%,,,,,,,,
 Slowking,134,held_item,5,Light Clay,1.6%,,,,,,,,
 Slowking,134,held_item,6,Icy Rock,1.4%,,,,,,,,
-Slowking,134,held_item,7,Expert Belt,0.9%,,,,,,,,
-Slowking,134,held_item,8,Focus Sash,0.9%,,,,,,,,
-Slowking,134,held_item,9,Lum Berry,0.9%,,,,,,,,
+Slowking,134,held_item,7,Focus Sash,0.9%,,,,,,,,
+Slowking,134,held_item,8,Expert Belt,0.9%,,,,,,,,
+Slowking,134,held_item,9,Lum Berry,0.8%,,,,,,,,
 Slowking,134,held_item,10,Colbur Berry,0.7%,,,,,,,,
 Slowking,134,teammate,1,Corviknight,,,,,,,,,
 Slowking,134,teammate,2,Gengar,,,,,,,,,
@@ -28,20 +28,20 @@ Slowking,134,teammate,6,Garchomp,,,,,,,,,
 Slowking,134,teammate,7,Baxcalibur,,,,,,,,,
 Slowking,134,teammate,8,Lucario,,,,,,,,,
 Slowking,134,teammate,9,Golisopod,,,,,,,,,
-Slowking,134,teammate,10,Rillaboom,,,,,,,,,
-Slowking,134,stat_alignment,1,Sassy,51.1%,Sp. Def,Speed,,,,,,
-Slowking,134,stat_alignment,2,Calm,24.0%,Sp. Def,Attack,,,,,,
+Slowking,134,teammate,10,Charizard,,,,,,,,,
+Slowking,134,stat_alignment,1,Sassy,51.0%,Sp. Def,Speed,,,,,,
+Slowking,134,stat_alignment,2,Calm,24.2%,Sp. Def,Attack,,,,,,
 Slowking,134,stat_alignment,3,Bold,10.5%,Defense,Attack,,,,,,
-Slowking,134,stat_alignment,4,Relaxed,5.5%,Defense,Speed,,,,,,
-Slowking,134,stat_alignment,5,Modest,5.5%,Sp. Atk,Attack,,,,,,
-Slowking,134,stat_alignment,6,Quiet,2.9%,Sp. Atk,Speed,,,,,,
+Slowking,134,stat_alignment,4,Modest,5.5%,Sp. Atk,Attack,,,,,,
+Slowking,134,stat_alignment,5,Relaxed,5.5%,Defense,Speed,,,,,,
+Slowking,134,stat_alignment,6,Quiet,3.0%,Sp. Atk,Speed,,,,,,
 Slowking,134,stat_alignment,7,Timid,0.1%,Speed,Attack,,,,,,
 Slowking,134,stat_alignment,8,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Slowking,134,stat_alignment,9,Gentle,0.1%,Sp. Def,Defense,,,,,,
 Slowking,134,stat_alignment,10,Hardy,0.1%,,,,,,,,
-Slowking,134,stat_points,1,,33.0%,,,31,0,20,0,15,0
-Slowking,134,stat_points,2,,11.4%,,,31,0,15,0,20,0
-Slowking,134,stat_points,3,,8.8%,,,32,0,32,0,2,0
+Slowking,134,stat_points,1,,32.9%,,,31,0,20,0,15,0
+Slowking,134,stat_points,2,,11.5%,,,31,0,15,0,20,0
+Slowking,134,stat_points,3,,8.7%,,,32,0,32,0,2,0
 Slowking,134,stat_points,4,,8.0%,,,32,0,2,0,32,0
 Slowking,134,stat_points,5,,4.3%,,,31,0,25,0,10,0
 Slowking,134,stat_points,6,,2.4%,,,31,0,32,0,3,0
@@ -49,6 +49,6 @@ Slowking,134,stat_points,7,,1.6%,,,32,0,0,2,32,0
 Slowking,134,stat_points,8,,1.5%,,,32,0,24,0,10,0
 Slowking,134,stat_points,9,,1.2%,,,32,0,32,2,0,0
 Slowking,134,stat_points,10,,1.2%,,,31,0,3,0,32,0
-Slowking,134,ability,1,Regenerator,96.4%,,,,,,,,
+Slowking,134,ability,1,Regenerator,96.3%,,,,,,,,
 Slowking,134,ability,2,Oblivious,2.3%,,,,,,,,
-Slowking,134,ability,3,Own Tempo,1.4%,,,,,,,,
+Slowking,134,ability,3,Own Tempo,1.3%,,,,,,,,

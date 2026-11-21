@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Aurorus,169,move,1,Protect,60.8%,,,,,,,,
 Aurorus,169,move,2,Ancient Power,59.5%,,,,,,,,
-Aurorus,169,move,3,Blizzard,56.2%,,,,,,,,
+Aurorus,169,move,3,Blizzard,56.1%,,,,,,,,
 Aurorus,169,move,4,Freeze-Dry,52.5%,,,,,,,,
 Aurorus,169,move,5,Earth Power,35.2%,,,,,,,,
-Aurorus,169,move,6,Hyper Voice,32.9%,,,,,,,,
+Aurorus,169,move,6,Hyper Voice,33.1%,,,,,,,,
 Aurorus,169,move,7,Aurora Veil,31.6%,,,,,,,,
-Aurorus,169,move,8,Round,8.8%,,,,,,,,
+Aurorus,169,move,8,Round,8.7%,,,,,,,,
 Aurorus,169,move,9,Thunderbolt,7.3%,,,,,,,,
-Aurorus,169,move,10,Psychic,6.8%,,,,,,,,
-Aurorus,169,held_item,1,Focus Sash,22.2%,,,,,,,,
-Aurorus,169,held_item,2,Never-Melt Ice,16.3%,,,,,,,,
-Aurorus,169,held_item,3,Expert Belt,14.5%,,,,,,,,
-Aurorus,169,held_item,4,Life Orb,10.0%,,,,,,,,
+Aurorus,169,move,10,Psychic,6.7%,,,,,,,,
+Aurorus,169,held_item,1,Focus Sash,22.0%,,,,,,,,
+Aurorus,169,held_item,2,Never-Melt Ice,16.2%,,,,,,,,
+Aurorus,169,held_item,3,Expert Belt,14.6%,,,,,,,,
+Aurorus,169,held_item,4,Life Orb,10.2%,,,,,,,,
 Aurorus,169,held_item,5,Light Clay,7.8%,,,,,,,,
 Aurorus,169,held_item,6,Chople Berry,5.0%,,,,,,,,
-Aurorus,169,held_item,7,Quick Claw,4.8%,,,,,,,,
+Aurorus,169,held_item,7,Quick Claw,4.9%,,,,,,,,
 Aurorus,169,held_item,8,Sitrus Berry,3.7%,,,,,,,,
-Aurorus,169,held_item,9,Icy Rock,3.5%,,,,,,,,
-Aurorus,169,held_item,10,Choice Scarf,3.3%,,,,,,,,
+Aurorus,169,held_item,9,Icy Rock,3.4%,,,,,,,,
+Aurorus,169,held_item,10,Choice Scarf,3.4%,,,,,,,,
 Aurorus,169,teammate,1,Rillaboom,,,,,,,,,
 Aurorus,169,teammate,2,Incineroar,,,,,,,,,
 Aurorus,169,teammate,3,Charizard,,,,,,,,,
@@ -29,11 +29,11 @@ Aurorus,169,teammate,7,Farigiraf,,,,,,,,,
 Aurorus,169,teammate,8,Froslass,,,,,,,,,
 Aurorus,169,teammate,9,Baxcalibur,,,,,,,,,
 Aurorus,169,teammate,10,Gardevoir,,,,,,,,,
-Aurorus,169,stat_alignment,1,Quiet,37.5%,Sp. Atk,Speed,,,,,,
-Aurorus,169,stat_alignment,2,Modest,36.5%,Sp. Atk,Attack,,,,,,
-Aurorus,169,stat_alignment,3,Timid,9.1%,Speed,Attack,,,,,,
-Aurorus,169,stat_alignment,4,Calm,4.5%,Sp. Def,Attack,,,,,,
-Aurorus,169,stat_alignment,5,Bold,4.0%,Defense,Attack,,,,,,
+Aurorus,169,stat_alignment,1,Quiet,37.8%,Sp. Atk,Speed,,,,,,
+Aurorus,169,stat_alignment,2,Modest,36.1%,Sp. Atk,Attack,,,,,,
+Aurorus,169,stat_alignment,3,Timid,9.2%,Speed,Attack,,,,,,
+Aurorus,169,stat_alignment,4,Calm,4.6%,Sp. Def,Attack,,,,,,
+Aurorus,169,stat_alignment,5,Bold,4.1%,Defense,Attack,,,,,,
 Aurorus,169,stat_alignment,6,Mild,3.2%,Sp. Atk,Defense,,,,,,
 Aurorus,169,stat_alignment,7,Relaxed,2.4%,Defense,Speed,,,,,,
 Aurorus,169,stat_alignment,8,Sassy,1.8%,Sp. Def,Speed,,,,,,
@@ -41,13 +41,13 @@ Aurorus,169,stat_alignment,9,Gentle,0.4%,Sp. Def,Defense,,,,,,
 Aurorus,169,stat_alignment,10,Naive,0.3%,Speed,Sp. Def,,,,,,
 Aurorus,169,stat_points,1,,12.9%,,,32,0,2,32,0,0
 Aurorus,169,stat_points,2,,12.7%,,,2,0,0,32,0,32
-Aurorus,169,stat_points,3,,9.5%,,,16,0,18,32,0,0
-Aurorus,169,stat_points,4,,9.0%,,,32,0,0,32,2,0
-Aurorus,169,stat_points,5,,2.7%,,,2,0,0,32,32,0
-Aurorus,169,stat_points,6,,2.6%,,,2,0,32,0,32,0
+Aurorus,169,stat_points,3,,9.6%,,,16,0,18,32,0,0
+Aurorus,169,stat_points,4,,8.9%,,,32,0,0,32,2,0
+Aurorus,169,stat_points,5,,2.8%,,,2,0,0,32,32,0
+Aurorus,169,stat_points,6,,2.7%,,,2,0,32,0,32,0
 Aurorus,169,stat_points,7,,2.2%,,,2,0,32,32,0,0
 Aurorus,169,stat_points,8,,2.1%,,,1,0,0,32,1,32
 Aurorus,169,stat_points,9,,2.0%,,,32,0,32,0,2,0
 Aurorus,169,stat_points,10,,1.7%,,,0,0,32,32,0,2
-Aurorus,169,ability,1,Snow Warning,62.4%,,,,,,,,
-Aurorus,169,ability,2,Refrigerate,37.6%,,,,,,,,
+Aurorus,169,ability,1,Snow Warning,62.2%,,,,,,,,
+Aurorus,169,ability,2,Refrigerate,37.8%,,,,,,,,

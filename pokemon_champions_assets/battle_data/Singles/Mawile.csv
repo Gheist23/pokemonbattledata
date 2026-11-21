@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Mawile,58,move,1,Play Rough,98.3%,,,,,,,,
 Mawile,58,move,2,Sucker Punch,93.6%,,,,,,,,
-Mawile,58,move,3,Fire Fang,65.1%,,,,,,,,
+Mawile,58,move,3,Fire Fang,65.0%,,,,,,,,
 Mawile,58,move,4,Swords Dance,43.5%,,,,,,,,
 Mawile,58,move,5,Ice Punch,26.9%,,,,,,,,
-Mawile,58,move,6,Iron Head,24.8%,,,,,,,,
-Mawile,58,move,7,Thunder Punch,20.0%,,,,,,,,
+Mawile,58,move,6,Iron Head,24.7%,,,,,,,,
+Mawile,58,move,7,Thunder Punch,20.1%,,,,,,,,
 Mawile,58,move,8,Knock Off,12.8%,,,,,,,,
 Mawile,58,move,9,Psychic Fangs,7.0%,,,,,,,,
 Mawile,58,move,10,Brick Break,1.9%,,,,,,,,
@@ -29,8 +29,8 @@ Mawile,58,teammate,7,Meowscarada,,,,,,,,,
 Mawile,58,teammate,8,Hatterene,,,,,,,,,
 Mawile,58,teammate,9,Greninja,,,,,,,,,
 Mawile,58,teammate,10,Dragonite,,,,,,,,,
-Mawile,58,stat_alignment,1,Adamant,88.2%,Attack,Sp. Atk,,,,,,
-Mawile,58,stat_alignment,2,Brave,9.6%,Attack,Speed,,,,,,
+Mawile,58,stat_alignment,1,Adamant,88.1%,Attack,Sp. Atk,,,,,,
+Mawile,58,stat_alignment,2,Brave,9.7%,Attack,Speed,,,,,,
 Mawile,58,stat_alignment,3,Jolly,0.8%,Speed,Sp. Atk,,,,,,
 Mawile,58,stat_alignment,4,Impish,0.6%,Defense,Sp. Atk,,,,,,
 Mawile,58,stat_alignment,5,Careful,0.4%,Sp. Def,Sp. Atk,,,,,,
@@ -39,8 +39,8 @@ Mawile,58,stat_alignment,7,Relaxed,0.1%,Defense,Speed,,,,,,
 Mawile,58,stat_alignment,8,Lonely,0.1%,Attack,Defense,,,,,,
 Mawile,58,stat_alignment,9,Sassy,0.0%,Sp. Def,Speed,,,,,,
 Mawile,58,stat_alignment,10,Lax,0.0%,Defense,Sp. Def,,,,,,
-Mawile,58,stat_points,1,,38.5%,,,32,32,0,0,2,0
-Mawile,58,stat_points,2,,17.3%,,,32,32,2,0,0,0
+Mawile,58,stat_points,1,,38.4%,,,32,32,0,0,2,0
+Mawile,58,stat_points,2,,17.4%,,,32,32,2,0,0,0
 Mawile,58,stat_points,3,,6.7%,,,30,32,0,0,0,4
 Mawile,58,stat_points,4,,6.4%,,,32,32,0,0,0,2
 Mawile,58,stat_points,5,,4.2%,,,32,32,1,0,1,0

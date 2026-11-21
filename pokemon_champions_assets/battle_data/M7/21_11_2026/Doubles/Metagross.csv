@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Metagross,32,move,1,Psychic Fangs,93.5%,,,,,,,,
-Metagross,32,move,2,Protect,66.9%,,,,,,,,
-Metagross,32,move,3,Steel Roller,40.1%,,,,,,,,
+Metagross,32,move,2,Protect,66.8%,,,,,,,,
+Metagross,32,move,3,Steel Roller,40.0%,,,,,,,,
 Metagross,32,move,4,Iron Head,38.8%,,,,,,,,
-Metagross,32,move,5,Stomping Tantrum,33.2%,,,,,,,,
+Metagross,32,move,5,Stomping Tantrum,33.1%,,,,,,,,
 Metagross,32,move,6,Bullet Punch,30.9%,,,,,,,,
 Metagross,32,move,7,Ice Punch,26.3%,,,,,,,,
-Metagross,32,move,8,Meteor Mash,14.9%,,,,,,,,
+Metagross,32,move,8,Meteor Mash,15.0%,,,,,,,,
 Metagross,32,move,9,Body Press,12.1%,,,,,,,,
 Metagross,32,move,10,Rock Slide,5.7%,,,,,,,,
 Metagross,32,held_item,1,Metagrossite,84.9%,,,,,,,,
@@ -40,7 +40,7 @@ Metagross,32,stat_alignment,8,Lonely,0.2%,Attack,Defense,,,,,,
 Metagross,32,stat_alignment,9,Quiet,0.2%,Sp. Atk,Speed,,,,,,
 Metagross,32,stat_alignment,10,Naive,0.2%,Speed,Sp. Def,,,,,,
 Metagross,32,stat_points,1,,26.7%,,,2,32,0,0,0,32
-Metagross,32,stat_points,2,,4.1%,,,6,32,0,0,0,28
+Metagross,32,stat_points,2,,4.0%,,,6,32,0,0,0,28
 Metagross,32,stat_points,3,,3.8%,,,32,32,0,0,2,0
 Metagross,32,stat_points,4,,3.4%,,,0,32,2,0,0,32
 Metagross,32,stat_points,5,,2.9%,,,0,32,0,0,2,32

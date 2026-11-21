@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Alcremie,120,move,1,Decorate,95.1%,,,,,,,,
-Alcremie,120,move,2,Dazzling Gleam,69.7%,,,,,,,,
-Alcremie,120,move,3,Protect,40.9%,,,,,,,,
-Alcremie,120,move,4,Mystical Fire,39.2%,,,,,,,,
-Alcremie,120,move,5,Helping Hand,37.5%,,,,,,,,
-Alcremie,120,move,6,Draining Kiss,10.8%,,,,,,,,
-Alcremie,120,move,7,Psych Up,10.8%,,,,,,,,
-Alcremie,120,move,8,Encore,10.4%,,,,,,,,
-Alcremie,120,move,9,Recover,9.5%,,,,,,,,
-Alcremie,120,move,10,Aromatic Mist,8.6%,,,,,,,,
+Alcremie,120,move,1,Decorate,95.0%,,,,,,,,
+Alcremie,120,move,2,Dazzling Gleam,69.4%,,,,,,,,
+Alcremie,120,move,3,Protect,41.1%,,,,,,,,
+Alcremie,120,move,4,Mystical Fire,39.1%,,,,,,,,
+Alcremie,120,move,5,Helping Hand,37.2%,,,,,,,,
+Alcremie,120,move,6,Draining Kiss,11.0%,,,,,,,,
+Alcremie,120,move,7,Psych Up,11.0%,,,,,,,,
+Alcremie,120,move,8,Encore,10.5%,,,,,,,,
+Alcremie,120,move,9,Recover,9.4%,,,,,,,,
+Alcremie,120,move,10,Aromatic Mist,8.5%,,,,,,,,
 Alcremie,120,held_item,1,Sitrus Berry,21.3%,,,,,,,,
-Alcremie,120,held_item,2,Rocky Helmet,14.5%,,,,,,,,
-Alcremie,120,held_item,3,Choice Scarf,14.4%,,,,,,,,
-Alcremie,120,held_item,4,Leftovers,12.4%,,,,,,,,
+Alcremie,120,held_item,2,Choice Scarf,14.4%,,,,,,,,
+Alcremie,120,held_item,3,Rocky Helmet,14.4%,,,,,,,,
+Alcremie,120,held_item,4,Leftovers,12.7%,,,,,,,,
 Alcremie,120,held_item,5,Quick Claw,8.8%,,,,,,,,
 Alcremie,120,held_item,6,Focus Sash,7.3%,,,,,,,,
 Alcremie,120,held_item,7,Babiri Berry,6.3%,,,,,,,,
-Alcremie,120,held_item,8,Kebia Berry,3.3%,,,,,,,,
+Alcremie,120,held_item,8,Kebia Berry,3.2%,,,,,,,,
 Alcremie,120,held_item,9,Iron Ball,2.0%,,,,,,,,
 Alcremie,120,held_item,10,Fairy Feather,2.0%,,,,,,,,
 Alcremie,120,teammate,1,Garchomp,,,,,,,,,
@@ -29,10 +29,10 @@ Alcremie,120,teammate,7,Salamence,,,,,,,,,
 Alcremie,120,teammate,8,Torkoal,,,,,,,,,
 Alcremie,120,teammate,9,Sinistcha,,,,,,,,,
 Alcremie,120,teammate,10,Incineroar,,,,,,,,,
-Alcremie,120,stat_alignment,1,Bold,43.2%,Defense,Attack,,,,,,
-Alcremie,120,stat_alignment,2,Timid,23.4%,Speed,Attack,,,,,,
-Alcremie,120,stat_alignment,3,Modest,9.9%,Sp. Atk,Attack,,,,,,
-Alcremie,120,stat_alignment,4,Relaxed,9.4%,Defense,Speed,,,,,,
+Alcremie,120,stat_alignment,1,Bold,43.1%,Defense,Attack,,,,,,
+Alcremie,120,stat_alignment,2,Timid,23.3%,Speed,Attack,,,,,,
+Alcremie,120,stat_alignment,3,Modest,10.0%,Sp. Atk,Attack,,,,,,
+Alcremie,120,stat_alignment,4,Relaxed,9.5%,Defense,Speed,,,,,,
 Alcremie,120,stat_alignment,5,Calm,6.1%,Sp. Def,Attack,,,,,,
 Alcremie,120,stat_alignment,6,Sassy,3.5%,Sp. Def,Speed,,,,,,
 Alcremie,120,stat_alignment,7,Quiet,2.6%,Sp. Atk,Speed,,,,,,
@@ -41,13 +41,13 @@ Alcremie,120,stat_alignment,9,Gentle,0.5%,Sp. Def,Defense,,,,,,
 Alcremie,120,stat_alignment,10,Impish,0.4%,Defense,Sp. Atk,,,,,,
 Alcremie,120,stat_points,1,,24.2%,,,32,0,32,0,2,0
 Alcremie,120,stat_points,2,,5.4%,,,32,0,2,0,0,32
-Alcremie,120,stat_points,3,,5.0%,,,32,0,32,2,0,0
-Alcremie,120,stat_points,4,,3.5%,,,2,0,0,32,0,32
+Alcremie,120,stat_points,3,,4.9%,,,32,0,32,2,0,0
+Alcremie,120,stat_points,4,,3.4%,,,2,0,0,32,0,32
 Alcremie,120,stat_points,5,,3.1%,,,2,0,32,0,32,0
-Alcremie,120,stat_points,6,,2.2%,,,32,0,2,32,0,0
+Alcremie,120,stat_points,6,,2.1%,,,32,0,2,32,0,0
 Alcremie,120,stat_points,7,,2.0%,,,32,0,32,0,0,2
-Alcremie,120,stat_points,8,,1.6%,,,32,0,15,0,19,0
+Alcremie,120,stat_points,8,,1.7%,,,32,0,15,0,19,0
 Alcremie,120,stat_points,9,,1.6%,,,2,0,32,0,0,32
-Alcremie,120,stat_points,10,,1.4%,,,32,0,25,0,9,0
-Alcremie,120,ability,1,Aroma Veil,67.3%,,,,,,,,
-Alcremie,120,ability,2,Sweet Veil,32.7%,,,,,,,,
+Alcremie,120,stat_points,10,,1.4%,,,0,0,0,32,32,2
+Alcremie,120,ability,1,Aroma Veil,67.5%,,,,,,,,
+Alcremie,120,ability,2,Sweet Veil,32.5%,,,,,,,,

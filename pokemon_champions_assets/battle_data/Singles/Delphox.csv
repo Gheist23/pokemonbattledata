@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Delphox,49,move,1,Flamethrower,70.6%,,,,,,,,
 Delphox,49,move,2,Nasty Plot,55.3%,,,,,,,,
-Delphox,49,move,3,Psychic,51.0%,,,,,,,,
-Delphox,49,move,4,Substitute,48.0%,,,,,,,,
-Delphox,49,move,5,Psyshock,34.2%,,,,,,,,
+Delphox,49,move,3,Psychic,51.1%,,,,,,,,
+Delphox,49,move,4,Substitute,47.9%,,,,,,,,
+Delphox,49,move,5,Psyshock,34.1%,,,,,,,,
 Delphox,49,move,6,Dazzling Gleam,30.6%,,,,,,,,
-Delphox,49,move,7,Encore,26.9%,,,,,,,,
+Delphox,49,move,7,Encore,27.0%,,,,,,,,
 Delphox,49,move,8,Mystical Fire,17.1%,,,,,,,,
-Delphox,49,move,9,Will-O-Wisp,12.1%,,,,,,,,
+Delphox,49,move,9,Will-O-Wisp,12.2%,,,,,,,,
 Delphox,49,move,10,Psychic Noise,11.1%,,,,,,,,
 Delphox,49,held_item,1,Delphoxite,96.8%,,,,,,,,
 Delphox,49,held_item,2,Choice Scarf,0.8%,,,,,,,,
@@ -16,8 +16,8 @@ Delphox,49,held_item,4,Sitrus Berry,0.3%,,,,,,,,
 Delphox,49,held_item,5,Life Orb,0.1%,,,,,,,,
 Delphox,49,held_item,6,Air Balloon,0.1%,,,,,,,,
 Delphox,49,held_item,7,Wise Glasses,0.1%,,,,,,,,
-Delphox,49,held_item,8,Colbur Berry,0.1%,,,,,,,,
-Delphox,49,held_item,9,Red Card,0.1%,,,,,,,,
+Delphox,49,held_item,8,Red Card,0.1%,,,,,,,,
+Delphox,49,held_item,9,Colbur Berry,0.1%,,,,,,,,
 Delphox,49,held_item,10,Charcoal,0.1%,,,,,,,,
 Delphox,49,teammate,1,Garchomp,,,,,,,,,
 Delphox,49,teammate,2,Primarina,,,,,,,,,
@@ -40,7 +40,7 @@ Delphox,49,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
 Delphox,49,stat_alignment,9,Jolly,0.0%,Speed,Sp. Atk,,,,,,
 Delphox,49,stat_alignment,10,Sassy,0.0%,Sp. Def,Speed,,,,,,
 Delphox,49,stat_points,1,,20.9%,,,2,0,0,32,0,32
-Delphox,49,stat_points,2,,12.8%,,,1,0,1,32,0,32
+Delphox,49,stat_points,2,,12.7%,,,1,0,1,32,0,32
 Delphox,49,stat_points,3,,3.9%,,,0,0,2,32,0,32
 Delphox,49,stat_points,4,,3.7%,,,0,0,0,32,2,32
 Delphox,49,stat_points,5,,3.5%,,,31,0,31,0,0,4

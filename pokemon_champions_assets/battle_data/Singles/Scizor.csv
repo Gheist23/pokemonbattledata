@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Scizor,45,move,1,Bullet Punch,99.6%,,,,,,,,
-Scizor,45,move,2,U-turn,71.7%,,,,,,,,
+Scizor,45,move,2,U-turn,71.6%,,,,,,,,
 Scizor,45,move,3,Roost,67.4%,,,,,,,,
-Scizor,45,move,4,Knock Off,38.1%,,,,,,,,
+Scizor,45,move,4,Knock Off,38.0%,,,,,,,,
 Scizor,45,move,5,Swords Dance,37.8%,,,,,,,,
 Scizor,45,move,6,Close Combat,28.8%,,,,,,,,
 Scizor,45,move,7,Curse,13.2%,,,,,,,,
 Scizor,45,move,8,Defog,10.3%,,,,,,,,
-Scizor,45,move,9,Dual Wingbeat,9.1%,,,,,,,,
+Scizor,45,move,9,Dual Wingbeat,9.2%,,,,,,,,
 Scizor,45,move,10,Bug Bite,4.5%,,,,,,,,
-Scizor,45,held_item,1,Rocky Helmet,56.0%,,,,,,,,
+Scizor,45,held_item,1,Rocky Helmet,55.9%,,,,,,,,
 Scizor,45,held_item,2,Scizorite,19.2%,,,,,,,,
 Scizor,45,held_item,3,Life Orb,8.1%,,,,,,,,
 Scizor,45,held_item,4,Sitrus Berry,5.5%,,,,,,,,
@@ -39,7 +39,7 @@ Scizor,45,stat_alignment,7,Sassy,0.2%,Sp. Def,Speed,,,,,,
 Scizor,45,stat_alignment,8,Naughty,0.2%,Attack,Sp. Def,,,,,,
 Scizor,45,stat_alignment,9,Lonely,0.1%,Attack,Defense,,,,,,
 Scizor,45,stat_alignment,10,Bold,0.1%,Defense,Attack,,,,,,
-Scizor,45,stat_points,1,,25.2%,,,32,2,32,0,0,0
+Scizor,45,stat_points,1,,25.1%,,,32,2,32,0,0,0
 Scizor,45,stat_points,2,,10.8%,,,32,1,32,0,1,0
 Scizor,45,stat_points,3,,9.3%,,,32,0,32,0,2,0
 Scizor,45,stat_points,4,,7.1%,,,32,32,2,0,0,0
@@ -50,5 +50,5 @@ Scizor,45,stat_points,8,,1.7%,,,2,32,0,0,0,32
 Scizor,45,stat_points,9,,1.0%,,,32,0,32,0,0,2
 Scizor,45,stat_points,10,,1.0%,,,2,32,32,0,0,0
 Scizor,45,ability,1,Technician,99.1%,,,,,,,,
-Scizor,45,ability,2,Swarm,0.5%,,,,,,,,
-Scizor,45,ability,3,Light Metal,0.5%,,,,,,,,
+Scizor,45,ability,2,Light Metal,0.5%,,,,,,,,
+Scizor,45,ability,3,Swarm,0.5%,,,,,,,,

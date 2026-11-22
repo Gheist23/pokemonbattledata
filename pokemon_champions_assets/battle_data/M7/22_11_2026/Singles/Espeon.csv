@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Espeon,101,move,1,Psychic,64.3%,,,,,,,,
-Espeon,101,move,2,Power Gem,41.2%,,,,,,,,
+Espeon,101,move,2,Power Gem,41.1%,,,,,,,,
 Espeon,101,move,3,Shadow Ball,36.2%,,,,,,,,
 Espeon,101,move,4,Alluring Voice,35.6%,,,,,,,,
 Espeon,101,move,5,Trick,24.6%,,,,,,,,
@@ -10,11 +10,11 @@ Espeon,101,move,8,Yawn,20.7%,,,,,,,,
 Espeon,101,move,9,Psychic Noise,15.4%,,,,,,,,
 Espeon,101,move,10,Dazzling Gleam,14.2%,,,,,,,,
 Espeon,101,held_item,1,Choice Scarf,28.0%,,,,,,,,
-Espeon,101,held_item,2,Focus Sash,19.0%,,,,,,,,
+Espeon,101,held_item,2,Focus Sash,18.9%,,,,,,,,
 Espeon,101,held_item,3,Light Clay,9.8%,,,,,,,,
-Espeon,101,held_item,4,Sitrus Berry,8.1%,,,,,,,,
+Espeon,101,held_item,4,Sitrus Berry,8.0%,,,,,,,,
 Espeon,101,held_item,5,Leftovers,7.1%,,,,,,,,
-Espeon,101,held_item,6,Air Balloon,6.2%,,,,,,,,
+Espeon,101,held_item,6,Air Balloon,6.3%,,,,,,,,
 Espeon,101,held_item,7,Life Orb,5.4%,,,,,,,,
 Espeon,101,held_item,8,Expert Belt,3.5%,,,,,,,,
 Espeon,101,held_item,9,Terrain Extender,1.8%,,,,,,,,
@@ -27,10 +27,10 @@ Espeon,101,teammate,5,Sylveon,,,,,,,,,
 Espeon,101,teammate,6,Vaporeon,,,,,,,,,
 Espeon,101,teammate,7,Primarina,,,,,,,,,
 Espeon,101,teammate,8,Golisopod,,,,,,,,,
-Espeon,101,teammate,9,Clefable,,,,,,,,,
-Espeon,101,teammate,10,Dragonite,,,,,,,,,
-Espeon,101,stat_alignment,1,Timid,51.0%,Speed,Attack,,,,,,
-Espeon,101,stat_alignment,2,Modest,32.4%,Sp. Atk,Attack,,,,,,
+Espeon,101,teammate,9,Dragonite,,,,,,,,,
+Espeon,101,teammate,10,Clefable,,,,,,,,,
+Espeon,101,stat_alignment,1,Timid,50.9%,Speed,Attack,,,,,,
+Espeon,101,stat_alignment,2,Modest,32.6%,Sp. Atk,Attack,,,,,,
 Espeon,101,stat_alignment,3,Calm,7.3%,Sp. Def,Attack,,,,,,
 Espeon,101,stat_alignment,4,Bold,6.5%,Defense,Attack,,,,,,
 Espeon,101,stat_alignment,5,Mild,1.2%,Sp. Atk,Defense,,,,,,
@@ -42,9 +42,9 @@ Espeon,101,stat_alignment,10,Careful,0.2%,Sp. Def,Sp. Atk,,,,,,
 Espeon,101,stat_points,1,,29.6%,,,2,0,0,32,0,32
 Espeon,101,stat_points,2,,7.5%,,,1,0,1,32,0,32
 Espeon,101,stat_points,3,,6.1%,,,0,0,0,32,2,32
-Espeon,101,stat_points,4,,4.5%,,,0,0,2,32,0,32
+Espeon,101,stat_points,4,,4.6%,,,0,0,2,32,0,32
 Espeon,101,stat_points,5,,3.4%,,,1,0,0,32,1,32
-Espeon,101,stat_points,6,,3.0%,,,32,0,0,0,26,8
+Espeon,101,stat_points,6,,2.9%,,,32,0,0,0,26,8
 Espeon,101,stat_points,7,,2.4%,,,32,0,2,0,0,32
 Espeon,101,stat_points,8,,2.0%,,,32,0,32,0,2,0
 Espeon,101,stat_points,9,,1.5%,,,0,0,0,32,0,32

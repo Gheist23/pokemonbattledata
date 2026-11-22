@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Armarouge,25,move,1,Expanding Force,94.5%,,,,,,,,
 Armarouge,25,move,2,Armor Cannon,85.0%,,,,,,,,
-Armarouge,25,move,3,Wide Guard,67.3%,,,,,,,,
+Armarouge,25,move,3,Wide Guard,67.2%,,,,,,,,
 Armarouge,25,move,4,Protect,62.9%,,,,,,,,
 Armarouge,25,move,5,Trick Room,27.3%,,,,,,,,
 Armarouge,25,move,6,Aura Sphere,19.4%,,,,,,,,
@@ -29,7 +29,7 @@ Armarouge,25,teammate,7,Staraptor,,,,,,,,,
 Armarouge,25,teammate,8,Drampa,,,,,,,,,
 Armarouge,25,teammate,9,Raichu,,,,,,,,,
 Armarouge,25,teammate,10,Garchomp,,,,,,,,,
-Armarouge,25,stat_alignment,1,Modest,66.8%,Sp. Atk,Attack,,,,,,
+Armarouge,25,stat_alignment,1,Modest,66.7%,Sp. Atk,Attack,,,,,,
 Armarouge,25,stat_alignment,2,Quiet,19.3%,Sp. Atk,Speed,,,,,,
 Armarouge,25,stat_alignment,3,Timid,11.0%,Speed,Attack,,,,,,
 Armarouge,25,stat_alignment,4,Bold,0.9%,Defense,Attack,,,,,,
@@ -39,10 +39,10 @@ Armarouge,25,stat_alignment,7,Relaxed,0.4%,Defense,Speed,,,,,,
 Armarouge,25,stat_alignment,8,Mild,0.2%,Sp. Atk,Defense,,,,,,
 Armarouge,25,stat_alignment,9,Serious,0.1%,,,,,,,,
 Armarouge,25,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
-Armarouge,25,stat_points,1,,35.4%,,,2,0,0,32,0,32
-Armarouge,25,stat_points,2,,13.2%,,,32,0,0,32,2,0
-Armarouge,25,stat_points,3,,5.7%,,,32,0,2,32,0,0
-Armarouge,25,stat_points,4,,4.9%,,,1,0,0,32,1,32
+Armarouge,25,stat_points,1,,35.3%,,,2,0,0,32,0,32
+Armarouge,25,stat_points,2,,13.3%,,,32,0,0,32,2,0
+Armarouge,25,stat_points,3,,5.8%,,,32,0,2,32,0,0
+Armarouge,25,stat_points,4,,4.8%,,,1,0,0,32,1,32
 Armarouge,25,stat_points,5,,2.7%,,,0,0,0,32,2,32
 Armarouge,25,stat_points,6,,1.8%,,,0,0,2,32,0,32
 Armarouge,25,stat_points,7,,1.6%,,,29,0,0,32,5,0

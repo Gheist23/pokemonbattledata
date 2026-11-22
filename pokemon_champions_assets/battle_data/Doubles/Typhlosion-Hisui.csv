@@ -1,17 +1,17 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Typhlosion-Hisui,64,move,1,Eruption,95.4%,,,,,,,,
-Typhlosion-Hisui,64,move,2,Shadow Ball,79.1%,,,,,,,,
-Typhlosion-Hisui,64,move,3,Heat Wave,54.3%,,,,,,,,
-Typhlosion-Hisui,64,move,4,Protect,25.1%,,,,,,,,
-Typhlosion-Hisui,64,move,5,Infernal Parade,21.3%,,,,,,,,
-Typhlosion-Hisui,64,move,6,Overheat,18.3%,,,,,,,,
+Typhlosion-Hisui,64,move,2,Shadow Ball,79.2%,,,,,,,,
+Typhlosion-Hisui,64,move,3,Heat Wave,54.2%,,,,,,,,
+Typhlosion-Hisui,64,move,4,Protect,25.0%,,,,,,,,
+Typhlosion-Hisui,64,move,5,Infernal Parade,21.2%,,,,,,,,
+Typhlosion-Hisui,64,move,6,Overheat,18.4%,,,,,,,,
 Typhlosion-Hisui,64,move,7,Solar Beam,17.1%,,,,,,,,
-Typhlosion-Hisui,64,move,8,Flamethrower,15.0%,,,,,,,,
+Typhlosion-Hisui,64,move,8,Flamethrower,14.9%,,,,,,,,
 Typhlosion-Hisui,64,move,9,Extrasensory,13.9%,,,,,,,,
 Typhlosion-Hisui,64,move,10,Focus Blast,13.4%,,,,,,,,
 Typhlosion-Hisui,64,held_item,1,Choice Scarf,70.3%,,,,,,,,
 Typhlosion-Hisui,64,held_item,2,Charcoal,14.1%,,,,,,,,
-Typhlosion-Hisui,64,held_item,3,Life Orb,5.5%,,,,,,,,
+Typhlosion-Hisui,64,held_item,3,Life Orb,5.6%,,,,,,,,
 Typhlosion-Hisui,64,held_item,4,Focus Sash,4.5%,,,,,,,,
 Typhlosion-Hisui,64,held_item,5,Quick Claw,0.7%,,,,,,,,
 Typhlosion-Hisui,64,held_item,6,Sitrus Berry,0.7%,,,,,,,,
@@ -29,24 +29,24 @@ Typhlosion-Hisui,64,teammate,7,Torkoal,,,,,,,,,
 Typhlosion-Hisui,64,teammate,8,Raichu,,,,,,,,,
 Typhlosion-Hisui,64,teammate,9,Staraptor,,,,,,,,,
 Typhlosion-Hisui,64,teammate,10,Indeedee,,,,,,,,,
-Typhlosion-Hisui,64,stat_alignment,1,Modest,59.0%,Sp. Atk,Attack,,,,,,
+Typhlosion-Hisui,64,stat_alignment,1,Modest,58.9%,Sp. Atk,Attack,,,,,,
 Typhlosion-Hisui,64,stat_alignment,2,Timid,34.9%,Speed,Attack,,,,,,
 Typhlosion-Hisui,64,stat_alignment,3,Mild,2.1%,Sp. Atk,Defense,,,,,,
 Typhlosion-Hisui,64,stat_alignment,4,Quiet,1.8%,Sp. Atk,Speed,,,,,,
 Typhlosion-Hisui,64,stat_alignment,5,Hasty,0.9%,Speed,Defense,,,,,,
 Typhlosion-Hisui,64,stat_alignment,6,Bold,0.4%,Defense,Attack,,,,,,
 Typhlosion-Hisui,64,stat_alignment,7,Naive,0.4%,Speed,Sp. Def,,,,,,
-Typhlosion-Hisui,64,stat_alignment,8,Gentle,0.1%,Sp. Def,Defense,,,,,,
-Typhlosion-Hisui,64,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
+Typhlosion-Hisui,64,stat_alignment,8,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
+Typhlosion-Hisui,64,stat_alignment,9,Gentle,0.1%,Sp. Def,Defense,,,,,,
 Typhlosion-Hisui,64,stat_alignment,10,Calm,0.1%,Sp. Def,Attack,,,,,,
 Typhlosion-Hisui,64,stat_points,1,,46.5%,,,2,0,0,32,0,32
 Typhlosion-Hisui,64,stat_points,2,,12.6%,,,0,0,2,32,0,32
 Typhlosion-Hisui,64,stat_points,3,,10.3%,,,1,0,1,32,0,32
-Typhlosion-Hisui,64,stat_points,4,,9.8%,,,0,0,0,32,2,32
+Typhlosion-Hisui,64,stat_points,4,,9.9%,,,0,0,0,32,2,32
 Typhlosion-Hisui,64,stat_points,5,,2.2%,,,0,0,0,32,0,32
-Typhlosion-Hisui,64,stat_points,6,,1.5%,,,1,0,0,32,0,32
+Typhlosion-Hisui,64,stat_points,6,,1.4%,,,1,0,0,32,0,32
 Typhlosion-Hisui,64,stat_points,7,,1.4%,,,0,0,0,32,1,32
-Typhlosion-Hisui,64,stat_points,8,,1.0%,,,32,0,2,32,0,0
+Typhlosion-Hisui,64,stat_points,8,,1.1%,,,32,0,2,32,0,0
 Typhlosion-Hisui,64,stat_points,9,,0.7%,,,1,0,0,32,1,32
 Typhlosion-Hisui,64,stat_points,10,,0.7%,,,0,0,32,32,0,2
 Typhlosion-Hisui,64,ability,1,Frisk,65.4%,,,,,,,,

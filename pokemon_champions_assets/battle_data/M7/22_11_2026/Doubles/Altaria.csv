@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Altaria,105,move,1,Protect,72.5%,,,,,,,,
-Altaria,105,move,2,Tailwind,60.2%,,,,,,,,
-Altaria,105,move,3,Hyper Voice,48.3%,,,,,,,,
-Altaria,105,move,4,Will-O-Wisp,28.5%,,,,,,,,
-Altaria,105,move,5,Roost,23.7%,,,,,,,,
-Altaria,105,move,6,Draco Meteor,19.5%,,,,,,,,
+Altaria,105,move,1,Protect,72.2%,,,,,,,,
+Altaria,105,move,2,Tailwind,60.0%,,,,,,,,
+Altaria,105,move,3,Hyper Voice,48.4%,,,,,,,,
+Altaria,105,move,4,Will-O-Wisp,28.3%,,,,,,,,
+Altaria,105,move,5,Roost,23.8%,,,,,,,,
+Altaria,105,move,6,Draco Meteor,19.4%,,,,,,,,
 Altaria,105,move,7,Dragon Pulse,17.6%,,,,,,,,
 Altaria,105,move,8,Flamethrower,15.3%,,,,,,,,
-Altaria,105,move,9,Ice Beam,14.6%,,,,,,,,
-Altaria,105,move,10,Perish Song,12.9%,,,,,,,,
-Altaria,105,held_item,1,Altarianite,54.6%,,,,,,,,
-Altaria,105,held_item,2,Haban Berry,16.4%,,,,,,,,
-Altaria,105,held_item,3,Sitrus Berry,7.3%,,,,,,,,
+Altaria,105,move,9,Ice Beam,14.5%,,,,,,,,
+Altaria,105,move,10,Perish Song,12.8%,,,,,,,,
+Altaria,105,held_item,1,Altarianite,54.8%,,,,,,,,
+Altaria,105,held_item,2,Haban Berry,16.2%,,,,,,,,
+Altaria,105,held_item,3,Sitrus Berry,7.2%,,,,,,,,
 Altaria,105,held_item,4,Leftovers,4.6%,,,,,,,,
-Altaria,105,held_item,5,Yache Berry,4.5%,,,,,,,,
-Altaria,105,held_item,6,Focus Sash,2.9%,,,,,,,,
+Altaria,105,held_item,5,Yache Berry,4.6%,,,,,,,,
+Altaria,105,held_item,6,Focus Sash,2.8%,,,,,,,,
 Altaria,105,held_item,7,Wide Lens,1.2%,,,,,,,,
 Altaria,105,held_item,8,Rocky Helmet,1.1%,,,,,,,,
 Altaria,105,held_item,9,Roseli Berry,0.9%,,,,,,,,
-Altaria,105,held_item,10,Life Orb,0.7%,,,,,,,,
+Altaria,105,held_item,10,Quick Claw,0.7%,,,,,,,,
 Altaria,105,teammate,1,Rillaboom,,,,,,,,,
 Altaria,105,teammate,2,Sneasler,,,,,,,,,
 Altaria,105,teammate,3,Indeedee-F,,,,,,,,,
@@ -29,8 +29,8 @@ Altaria,105,teammate,7,Raichu,,,,,,,,,
 Altaria,105,teammate,8,Kingambit,,,,,,,,,
 Altaria,105,teammate,9,Gholdengo,,,,,,,,,
 Altaria,105,teammate,10,Garchomp,,,,,,,,,
-Altaria,105,stat_alignment,1,Modest,44.1%,Sp. Atk,Attack,,,,,,
-Altaria,105,stat_alignment,2,Timid,16.0%,Speed,Attack,,,,,,
+Altaria,105,stat_alignment,1,Modest,44.2%,Sp. Atk,Attack,,,,,,
+Altaria,105,stat_alignment,2,Timid,15.9%,Speed,Attack,,,,,,
 Altaria,105,stat_alignment,3,Calm,11.3%,Sp. Def,Attack,,,,,,
 Altaria,105,stat_alignment,4,Bold,8.4%,Defense,Attack,,,,,,
 Altaria,105,stat_alignment,5,Jolly,5.3%,Speed,Sp. Atk,,,,,,
@@ -39,15 +39,15 @@ Altaria,105,stat_alignment,7,Adamant,3.1%,Attack,Sp. Atk,,,,,,
 Altaria,105,stat_alignment,8,Sassy,2.5%,Sp. Def,Speed,,,,,,
 Altaria,105,stat_alignment,9,Quiet,1.7%,Sp. Atk,Speed,,,,,,
 Altaria,105,stat_alignment,10,Relaxed,1.5%,Defense,Speed,,,,,,
-Altaria,105,stat_points,1,,6.7%,,,32,0,5,0,0,29
-Altaria,105,stat_points,2,,4.1%,,,32,0,0,32,0,2
+Altaria,105,stat_points,1,,6.6%,,,32,0,5,0,0,29
+Altaria,105,stat_points,2,,4.2%,,,32,0,0,32,0,2
 Altaria,105,stat_points,3,,3.9%,,,2,0,0,32,0,32
-Altaria,105,stat_points,4,,3.9%,,,32,0,2,32,0,0
+Altaria,105,stat_points,4,,3.8%,,,32,0,2,32,0,0
 Altaria,105,stat_points,5,,3.3%,,,28,0,0,30,0,8
-Altaria,105,stat_points,6,,3.1%,,,32,0,5,9,20,0
-Altaria,105,stat_points,7,,2.6%,,,32,0,2,0,32,0
+Altaria,105,stat_points,6,,3.0%,,,32,0,5,9,20,0
+Altaria,105,stat_points,7,,2.7%,,,32,0,2,0,32,0
 Altaria,105,stat_points,8,,1.9%,,,21,24,0,0,0,21
 Altaria,105,stat_points,9,,1.9%,,,32,0,0,32,2,0
-Altaria,105,stat_points,10,,1.5%,,,32,0,2,0,0,32
-Altaria,105,ability,1,Cloud Nine,96.5%,,,,,,,,
-Altaria,105,ability,2,Natural Cure,3.5%,,,,,,,,
+Altaria,105,stat_points,10,,1.4%,,,32,0,2,0,0,32
+Altaria,105,ability,1,Cloud Nine,96.4%,,,,,,,,
+Altaria,105,ability,2,Natural Cure,3.6%,,,,,,,,

@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Dragalge,91,move,1,Flip Turn,85.5%,,,,,,,,
 Dragalge,91,move,2,Draco Meteor,85.2%,,,,,,,,
-Dragalge,91,move,3,Toxic,51.4%,,,,,,,,
+Dragalge,91,move,3,Toxic,51.5%,,,,,,,,
 Dragalge,91,move,4,Thunderbolt,37.8%,,,,,,,,
 Dragalge,91,move,5,Sludge Bomb,29.3%,,,,,,,,
 Dragalge,91,move,6,Toxic Spikes,25.2%,,,,,,,,
@@ -13,7 +13,7 @@ Dragalge,91,held_item,1,Dragalgite,93.6%,,,,,,,,
 Dragalge,91,held_item,2,Life Orb,1.5%,,,,,,,,
 Dragalge,91,held_item,3,Air Balloon,0.7%,,,,,,,,
 Dragalge,91,held_item,4,Sitrus Berry,0.7%,,,,,,,,
-Dragalge,91,held_item,5,Quick Claw,0.5%,,,,,,,,
+Dragalge,91,held_item,5,Quick Claw,0.6%,,,,,,,,
 Dragalge,91,held_item,6,Leftovers,0.5%,,,,,,,,
 Dragalge,91,held_item,7,Focus Sash,0.4%,,,,,,,,
 Dragalge,91,held_item,8,Dragon Fang,0.3%,,,,,,,,
@@ -33,14 +33,14 @@ Dragalge,91,stat_alignment,1,Sassy,51.7%,Sp. Def,Speed,,,,,,
 Dragalge,91,stat_alignment,2,Calm,19.2%,Sp. Def,Attack,,,,,,
 Dragalge,91,stat_alignment,3,Modest,10.5%,Sp. Atk,Attack,,,,,,
 Dragalge,91,stat_alignment,4,Quiet,8.6%,Sp. Atk,Speed,,,,,,
-Dragalge,91,stat_alignment,5,Bold,5.0%,Defense,Attack,,,,,,
+Dragalge,91,stat_alignment,5,Bold,4.9%,Defense,Attack,,,,,,
 Dragalge,91,stat_alignment,6,Relaxed,4.1%,Defense,Speed,,,,,,
 Dragalge,91,stat_alignment,7,Docile,0.2%,,,,,,,,
 Dragalge,91,stat_alignment,8,Timid,0.2%,Speed,Attack,,,,,,
 Dragalge,91,stat_alignment,9,Mild,0.1%,Sp. Atk,Defense,,,,,,
 Dragalge,91,stat_alignment,10,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
-Dragalge,91,stat_points,1,,16.5%,,,32,0,2,0,32,0
-Dragalge,91,stat_points,2,,9.4%,,,32,0,0,2,32,0
+Dragalge,91,stat_points,1,,16.7%,,,32,0,2,0,32,0
+Dragalge,91,stat_points,2,,9.5%,,,32,0,0,2,32,0
 Dragalge,91,stat_points,3,,7.1%,,,31,0,8,9,18,0
 Dragalge,91,stat_points,4,,4.3%,,,31,0,0,3,32,0
 Dragalge,91,stat_points,5,,4.2%,,,32,0,2,32,0,0
@@ -48,7 +48,7 @@ Dragalge,91,stat_points,6,,3.6%,,,32,0,7,0,27,0
 Dragalge,91,stat_points,7,,3.5%,,,32,0,32,0,2,0
 Dragalge,91,stat_points,8,,3.0%,,,31,0,3,0,32,0
 Dragalge,91,stat_points,9,,2.7%,,,32,0,0,32,2,0
-Dragalge,91,stat_points,10,,2.2%,,,32,0,17,0,17,0
+Dragalge,91,stat_points,10,,2.1%,,,32,0,17,0,17,0
 Dragalge,91,ability,1,Adaptability,60.5%,,,,,,,,
 Dragalge,91,ability,2,Poison Point,35.8%,,,,,,,,
 Dragalge,91,ability,3,Poison Touch,3.7%,,,,,,,,

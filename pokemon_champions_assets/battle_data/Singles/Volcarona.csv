@@ -1,6 +1,6 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Volcarona,30,move,1,Quiver Dance,96.3%,,,,,,,,
-Volcarona,30,move,2,Fiery Dance,80.5%,,,,,,,,
+Volcarona,30,move,2,Fiery Dance,80.4%,,,,,,,,
 Volcarona,30,move,3,Giga Drain,77.2%,,,,,,,,
 Volcarona,30,move,4,Morning Sun,59.0%,,,,,,,,
 Volcarona,30,move,5,Bug Buzz,35.6%,,,,,,,,
@@ -16,7 +16,7 @@ Volcarona,30,held_item,4,Focus Sash,8.5%,,,,,,,,
 Volcarona,30,held_item,5,Rocky Helmet,3.9%,,,,,,,,
 Volcarona,30,held_item,6,Choice Scarf,2.5%,,,,,,,,
 Volcarona,30,held_item,7,Life Orb,1.9%,,,,,,,,
-Volcarona,30,held_item,8,Charti Berry,0.5%,,,,,,,,
+Volcarona,30,held_item,8,Charti Berry,0.6%,,,,,,,,
 Volcarona,30,held_item,9,Passho Berry,0.4%,,,,,,,,
 Volcarona,30,held_item,10,Charcoal,0.4%,,,,,,,,
 Volcarona,30,teammate,1,Garchomp,,,,,,,,,
@@ -33,7 +33,7 @@ Volcarona,30,stat_alignment,1,Bold,38.4%,Defense,Attack,,,,,,
 Volcarona,30,stat_alignment,2,Modest,33.3%,Sp. Atk,Attack,,,,,,
 Volcarona,30,stat_alignment,3,Timid,23.1%,Speed,Attack,,,,,,
 Volcarona,30,stat_alignment,4,Calm,4.4%,Sp. Def,Attack,,,,,,
-Volcarona,30,stat_alignment,5,Mild,0.2%,Sp. Atk,Defense,,,,,,
+Volcarona,30,stat_alignment,5,Mild,0.3%,Sp. Atk,Defense,,,,,,
 Volcarona,30,stat_alignment,6,Quiet,0.2%,Sp. Atk,Speed,,,,,,
 Volcarona,30,stat_alignment,7,Hasty,0.2%,Speed,Defense,,,,,,
 Volcarona,30,stat_alignment,8,Impish,0.0%,Defense,Sp. Atk,,,,,,
@@ -42,8 +42,8 @@ Volcarona,30,stat_alignment,10,Relaxed,0.0%,Defense,Speed,,,,,,
 Volcarona,30,stat_points,1,,14.0%,,,32,0,32,0,0,2
 Volcarona,30,stat_points,2,,6.5%,,,1,0,1,32,0,32
 Volcarona,30,stat_points,3,,5.8%,,,2,0,0,32,0,32
-Volcarona,30,stat_points,4,,4.9%,,,32,0,32,0,2,0
-Volcarona,30,stat_points,5,,4.6%,,,32,0,32,2,0,0
+Volcarona,30,stat_points,4,,5.0%,,,32,0,32,0,2,0
+Volcarona,30,stat_points,5,,4.5%,,,32,0,32,2,0,0
 Volcarona,30,stat_points,6,,3.2%,,,32,0,28,0,0,6
 Volcarona,30,stat_points,7,,2.7%,,,32,0,32,0,1,1
 Volcarona,30,stat_points,8,,2.5%,,,32,0,12,1,0,21

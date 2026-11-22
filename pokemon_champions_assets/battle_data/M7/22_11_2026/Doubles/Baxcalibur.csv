@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Baxcalibur,57,move,1,Glaive Rush,92.2%,,,,,,,,
 Baxcalibur,57,move,2,Ice Shard,81.2%,,,,,,,,
-Baxcalibur,57,move,3,Protect,81.2%,,,,,,,,
+Baxcalibur,57,move,3,Protect,81.1%,,,,,,,,
 Baxcalibur,57,move,4,Icicle Crash,31.5%,,,,,,,,
-Baxcalibur,57,move,5,Swords Dance,28.3%,,,,,,,,
+Baxcalibur,57,move,5,Swords Dance,28.4%,,,,,,,,
 Baxcalibur,57,move,6,High Horsepower,26.6%,,,,,,,,
 Baxcalibur,57,move,7,Dragon Dance,12.9%,,,,,,,,
-Baxcalibur,57,move,8,Earthquake,11.0%,,,,,,,,
-Baxcalibur,57,move,9,Iron Head,7.3%,,,,,,,,
-Baxcalibur,57,move,10,Icicle Spear,6.4%,,,,,,,,
+Baxcalibur,57,move,8,Earthquake,10.9%,,,,,,,,
+Baxcalibur,57,move,9,Iron Head,7.4%,,,,,,,,
+Baxcalibur,57,move,10,Icicle Spear,6.3%,,,,,,,,
 Baxcalibur,57,held_item,1,Baxcalibrite,68.7%,,,,,,,,
 Baxcalibur,57,held_item,2,Life Orb,12.5%,,,,,,,,
-Baxcalibur,57,held_item,3,Leftovers,3.4%,,,,,,,,
-Baxcalibur,57,held_item,4,Choice Scarf,3.1%,,,,,,,,
-Baxcalibur,57,held_item,5,Never-Melt Ice,2.7%,,,,,,,,
+Baxcalibur,57,held_item,3,Leftovers,3.3%,,,,,,,,
+Baxcalibur,57,held_item,4,Choice Scarf,3.2%,,,,,,,,
+Baxcalibur,57,held_item,5,Never-Melt Ice,2.6%,,,,,,,,
 Baxcalibur,57,held_item,6,Focus Sash,2.6%,,,,,,,,
 Baxcalibur,57,held_item,7,Sitrus Berry,1.9%,,,,,,,,
 Baxcalibur,57,held_item,8,Expert Belt,0.8%,,,,,,,,
@@ -30,7 +30,7 @@ Baxcalibur,57,teammate,8,Kingambit,,,,,,,,,
 Baxcalibur,57,teammate,9,Gholdengo,,,,,,,,,
 Baxcalibur,57,teammate,10,Charizard,,,,,,,,,
 Baxcalibur,57,stat_alignment,1,Adamant,78.5%,Attack,Sp. Atk,,,,,,
-Baxcalibur,57,stat_alignment,2,Jolly,11.2%,Speed,Sp. Atk,,,,,,
+Baxcalibur,57,stat_alignment,2,Jolly,11.3%,Speed,Sp. Atk,,,,,,
 Baxcalibur,57,stat_alignment,3,Brave,3.6%,Attack,Speed,,,,,,
 Baxcalibur,57,stat_alignment,4,Careful,3.0%,Sp. Def,Sp. Atk,,,,,,
 Baxcalibur,57,stat_alignment,5,Impish,1.2%,Defense,Sp. Atk,,,,,,
@@ -43,10 +43,10 @@ Baxcalibur,57,stat_points,1,,12.3%,,,2,32,0,0,0,32
 Baxcalibur,57,stat_points,2,,11.8%,,,18,25,1,0,17,5
 Baxcalibur,57,stat_points,3,,5.3%,,,32,32,0,0,2,0
 Baxcalibur,57,stat_points,4,,4.6%,,,32,32,0,0,0,2
-Baxcalibur,57,stat_points,5,,2.9%,,,32,32,2,0,0,0
+Baxcalibur,57,stat_points,5,,2.8%,,,32,32,2,0,0,0
 Baxcalibur,57,stat_points,6,,2.8%,,,0,32,0,0,2,32
-Baxcalibur,57,stat_points,7,,2.1%,,,27,15,4,0,14,6
-Baxcalibur,57,stat_points,8,,1.8%,,,31,0,10,0,24,1
+Baxcalibur,57,stat_points,7,,2.2%,,,27,15,4,0,14,6
+Baxcalibur,57,stat_points,8,,1.7%,,,31,0,10,0,24,1
 Baxcalibur,57,stat_points,9,,1.7%,,,0,32,2,0,0,32
 Baxcalibur,57,stat_points,10,,1.3%,,,2,32,32,0,0,0
 Baxcalibur,57,ability,1,Thermal Exchange,85.5%,,,,,,,,

@@ -71,6 +71,45 @@ const V358_FIELD_SETTER_MOVES = {
 };
 const PARALYSIS_MOVES = new Set(["Thunder Wave", "Nuzzle", "Glare", "Stun Spore"]);
 
+/**
+ * V555 half two: Opposing Speed Control had no Speed term in it.
+ *
+ * The component carries 27% of the Speed score and was built from four answers to a speed war
+ * -- your own Tailwind (22), your own Trick Room (20), OHKOs on the meta's Tailwind setters
+ * (`min(28, ohkos * 4)`) and priority moves (7 each) -- and nothing at all for "I am still
+ * faster than you are with Tailwind up". A team whose answer to a speed war IS its Speed scored
+ * nothing here, which is why the regional-winning sand team came out below every real library
+ * team on Speed while its other three axes were unremarkable.
+ *
+ * The number that answers it was already being computed and thrown away: the per-member line in
+ * `v42` reads `outspeeds into opposing Tailwind: n/30` and spent it on display text only, the
+ * same shape as the Damage Calculator's unused `details` channel. So the count becomes a term,
+ * in the idiom the component already uses -- a capped multiple of a count, like the OHKO term
+ * beside it.
+ *
+ * THE CAP is the own-Tailwind credit, 22, because the two answer the same question and neither
+ * deserves to outrank the other. THE STEP reaches that cap at 60 member-by-meta matchups, which
+ * is two members outrunning a whole Top 30. Both are choices, calibrated on a handful of boards
+ * and not on the full library, and that is stated rather than implied.
+ *
+ * Ported from the Companion's `speed_ability_speed_v555.py` (`OUTSPEED_CAP`, `OUTSPEED_STEP`,
+ * `TAILWIND_MULTIPLIER`, `outspeed_term`) and paid by `v358` behind the SAME `speedAbilityRule`
+ * as half one, because the two are one defect: the doubled Speed has nothing to improve while
+ * this component ignores Speed, and this term has little to show while the stat is raw. Every
+ * recorded vector suite pins that rule off, so they replay the world they were recorded in.
+ */
+export const OUTSPEED_CAP = 22.0;
+export const OUTSPEED_STEP = 22.0 / 60.0;
+
+/** What a member must beat to count: twice a meta member's Speed. */
+export const TAILWIND_MULTIPLIER = 2.0;
+
+/** V555: the Opposing Speed Control credit for outrunning a Tailwinded meta. */
+export function outspeedTerm(matchups) {
+  const n = Math.max(0, Number(matchups) || 0);
+  return Math.min(OUTSPEED_CAP, n * OUTSPEED_STEP);
+}
+
 /** V549: whether a live Speed Ability counts as real Speed. Off for recorded replays. */
 function speedAbilityRuleOn(ev) {
   return Boolean(speedAbilityRuleOption(ev?.speedAbilityRule));
@@ -343,6 +382,8 @@ export class TeamSpeed {
     let trOhkos = 0;
     let twOhkos = 0;
     let outspeedTotal = 0;
+    // V555: the Tailwind outspeed count, kept instead of only printed (see `outspeedTerm`).
+    let twOutspeedTotal = 0;
     for (const mon of teamMons) {
       const speed = this.finalSpeed(mon);
       const own = this.priorityMoves(mon.moves);
@@ -366,12 +407,18 @@ export class TeamSpeed {
       if (moveNames(mon).has("Tailwind")) twBits.push("own Tailwind");
       if (moveNames(mon).has("Trick Room")) twBits.push("Trick Room answer");
       if (own.length) twBits.push(`priority: ${own.slice(0, 3).join(", ")}`);
-      twBits.push(`outspeeds into opposing Tailwind: ${metaSpeeds.filter((s) => speed > s * 2).length}/${metaCount}`);
+      const twOutspeeds = metaSpeeds.filter((s) => speed > s * TAILWIND_MULTIPLIER).length;
+      twOutspeedTotal += twOutspeeds;
+      twBits.push(`outspeeds into opposing Tailwind: ${twOutspeeds}/${metaCount}`);
       tailwindLines.push(`${this.ev.display(mon)}: ${twBits.join(" · ")}`);
       standardLines.push(`${this.ev.display(mon)}: SPE ${speed} · outspeeds ${outspeeds}/${metaCount} meta`);
     }
     const trFactor = trickUsers.length ? Math.min(28, trOhkos * 4) : 0;
     const twFactor = tailwindUsers.length ? Math.min(28, twOhkos * 4) : 0;
+    // V555: held on the instance for the rest of this `control()` run, the same way the
+    // boost map is. `v358` is the layer that owns the Opposing Speed Control sum and the
+    // rule gate, so it is the one that pays for this. Cleared in `control()`'s `finally`.
+    this._v555TailwindOutspeed = { matchups: twOutspeedTotal, pairs: teamMons.length * metaCount, metaCount };
     const slowTeam = teamMons.filter((m) => this.finalSpeed(m) <= avg * 0.72).length;
     const fastTeam = teamMons.filter((m) => this.finalSpeed(m) >= avg * 1.02).length;
     const trickRoom = clamp((ownTrickRoom ? 25 : 0) + slowTeam * 8 + trFactor + priorityMoves.length * 4);
@@ -565,6 +612,23 @@ export class TeamSpeed {
         const standardBonus = Math.min(22.0, Math.max(0, enabled - countedAsSpeed) * 7.0);
         speed.standard = clamp(speed.standard + standardBonus);
         speed.opposing_tailwind = clamp(speed.opposing_tailwind + bonus * 0.45);
+        // V555 half two: and the Speed term this component never had, out of the count `v42`
+        // computed and threw away. Paid to a team with a live Speed Ability of its own and to
+        // no other -- `enabled` is that gate, and it is v358's own, which is why the term sits
+        // here and not in v42. Unburden and Speed Boost are inside it: they are live Speed
+        // Abilities in v358's sense, they keep the flat credit, and the Companion pays them
+        // the same way (`apply` runs on `doublers or enabled_count`).
+        if (speedAbilityRuleOn(this.ev)) {
+          const counts = this._v555TailwindOutspeed || { matchups: 0, pairs: 0, metaCount: 0 };
+          const term = outspeedTerm(counts.matchups);
+          if (term > 0) {
+            speed.opposing_tailwind = clamp(speed.opposing_tailwind + term);
+            const sentence = `Outruns a Tailwinded Top ${counts.metaCount} in ${counts.matchups} of ${counts.pairs} matchups, worth ${term.toFixed(1)} here.`;
+            if (!(speed.tailwind_lines || []).some((line) => String(line) === sentence)) {
+              speed.tailwind_lines = [sentence, ...(speed.tailwind_lines || [])];
+            }
+          }
+        }
         speed.score = clamp(speed.standard * 0.46 + speed.opposing_tailwind * 0.27 + speed.trick_room * 0.27);
       }
     } else if (!speed.speed_ability_lines) speed.speed_ability_lines = [];
@@ -645,6 +709,7 @@ export class TeamSpeed {
       return this.controlInner(team, context);
     } finally {
       this._speedAbilityBoost = null;
+      this._v555TailwindOutspeed = null;
     }
   }
 

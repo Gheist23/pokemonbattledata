@@ -24,7 +24,7 @@ import { BuilderData } from "../builder/common.js";
 import { TeamEvaluator, normalizeSettings, DEFAULT_SETTINGS } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { TeamChecks, SPEED_ABILITY_RULE, speedAbilityRuleOption } from "../builder/team-checks.js";
-import { TeamSpeed } from "../builder/team-speed.js";
+import { TeamSpeed, outspeedTerm, OUTSPEED_CAP, TAILWIND_MULTIPLIER } from "../builder/team-speed.js";
 import { TeamSuggestions, boxCandidates } from "../builder/team-suggest.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -344,6 +344,144 @@ function profilesFor(team, extra = {}, settings = {}) {
   ok("control() clears the boost map when it is done", payload2.speed._speedAbilityBoost == null,
     String(payload2.speed?._speedAbilityBoost));
   ok("and the Speed score still comes out", Number(result.speed?.score) > 0, String(result.speed?.score));
+}
+
+// --- 8b. V555 half two: outrunning a Tailwinded meta is worth something -------------------
+// `opposing_tailwind` carries 27% of the Speed score and had NO Speed term in it -- only your
+// own Tailwind, your own Trick Room, OHKOs on the setters and priority. So a team whose answer
+// to a speed war is "I am still faster than you are with Tailwind up" scored nothing for it,
+// and the count that answers it was already being computed one line above and spent on display
+// text. These checks are the A/B, the gate and the arithmetic -- deliberately NOT a pinned
+// score, which would go red on a data refresh with no defect behind it.
+{
+  // the pure term first: the cap and the step are code, not data
+  ok("no matchups is no term", outspeedTerm(0) === 0, String(outspeedTerm(0)));
+  ok("the step reaches the cap at 60 matchups", outspeedTerm(60) === OUTSPEED_CAP, String(outspeedTerm(60)));
+  ok("and it never exceeds it", outspeedTerm(600) === OUTSPEED_CAP, String(outspeedTerm(600)));
+  ok("half the cap at half the matchups", Math.abs(outspeedTerm(30) - OUTSPEED_CAP / 2) < 1e-9, String(outspeedTerm(30)));
+  ok("the cap is the own-Tailwind credit", OUTSPEED_CAP === 22, String(OUTSPEED_CAP));
+  ok("a member must beat twice a meta Speed", TAILWIND_MULTIPLIER === 2, String(TAILWIND_MULTIPLIER));
+  ok("nonsense is not a term", outspeedTerm(-5) === 0 && outspeedTerm(NaN) === 0 && outspeedTerm(undefined) === 0);
+
+  const speedFor = (team, extra) => {
+    const ev = evaluatorFor(extra);
+    const payload = new TeamEvaluation(ev);
+    const result = payload.evaluate(team, {});
+    const speed = result.speed || {};
+    return {
+      score: Number(speed.score || 0),
+      standard: Number(speed.standard || 0),
+      tw: Number(speed.opposing_tailwind || 0),
+      lines: (speed.tailwind_lines || []).map(String),
+      held: payload.speed?._v555TailwindOutspeed,
+    };
+  };
+
+  // --- the board the defect was reported on ---------------------------------------------
+  const off = speedFor(REGIONAL, { speedAbilityRule: 0 });
+  const on = speedFor(REGIONAL, {});
+  ok("the sand team's Opposing Speed Control rises", on.tw > off.tw, `${off.tw} -> ${on.tw}`);
+  ok("and so does its Speed score", on.score > off.score, `${off.score} -> ${on.score}`);
+
+  // the sentence is the report, and it must say what it paid
+  const said = on.lines.filter((line) => /Tailwinded Top/.test(line));
+  ok("it reports the term it paid, once", said.length === 1, said.join(" | "));
+  const match = /Top (\d+) in (\d+) of (\d+) matchups, worth ([\d.]+) here/.exec(said[0] || "");
+  ok("the sentence parses", Boolean(match), said[0] || "");
+  if (match) {
+    const [, metaCount, matchups, pairs, worth] = match.map(Number);
+    ok("it counted a Top 30", metaCount === 30, String(metaCount));
+    ok("over six members against all thirty", pairs === 6 * 30, String(pairs));
+    ok("it found matchups to pay for", matchups > 0, String(matchups));
+    ok("and the term is that count through the step",
+      Math.abs(worth - outspeedTerm(matchups)) < 0.05, `${worth} vs ${outspeedTerm(matchups)}`);
+
+    // THE ARITHMETIC: the rise in this component is the term and NOTHING else.
+    //
+    // Measured, because the obvious expectation is wrong: v358's flat Tailwind share
+    // (`bonus * 0.45`) is paid in both runs. It is not gated on `speedAbilityRule` and it was
+    // never meant to be -- half one withholds the flat credit only from `standard`, where a
+    // real Speed comparison replaced it, and deliberately leaves this component's share alone
+    // because there was no Speed term here for the doubled stat to have improved. Half two adds
+    // that term; it does not touch the share. So the two runs differ here by the term alone,
+    // which is a tighter claim than "the share plus the term" and would catch either half
+    // starting to pay for the other.
+    ok("the component rose by exactly the term, the flat share being paid either way",
+      Math.abs(on.tw - off.tw - outspeedTerm(matchups)) < 0.05,
+      `${(on.tw - off.tw).toFixed(2)} vs ${outspeedTerm(matchups).toFixed(2)}`);
+  }
+
+  // --- who does NOT move: the gate -------------------------------------------------------
+  // `enabled` is v358's own count of live Speed Abilities. A team with none is not touched by
+  // either half, which is what keeps this a defect fix and not a rescale of every team's score.
+  const noAbility = {
+    "top-meta goodstuff": [
+      set("Incineroar", "", "Sitrus Berry", "Intimidate", "Careful", [2, 0, 32, 0, 32, 0], ["Fake Out", "Parting Shot", "Flare Blitz", "Knock Off"]),
+      set("Rillaboom", "", "Assault Vest", "Grassy Surge", "Adamant", [2, 32, 0, 0, 0, 32], ["Grassy Glide", "Wood Hammer", "U-turn", "Fake Out"]),
+      set("Garchomp", "", "Life Orb", "Rough Skin", "Jolly", [2, 32, 0, 0, 0, 32], ["Earthquake", "Dragon Claw", "Rock Slide", "Protect"]),
+      set("Whimsicott", "", "Covert Cloak", "Prankster", "Timid", [2, 0, 0, 32, 0, 32], ["Moonblast", "Tailwind", "Fake Tears", "Protect"]),
+      set("Kingambit", "", "Black Glasses", "Defiant", "Adamant", [2, 32, 0, 0, 0, 32], ["Kowtow Cleave", "Sucker Punch", "Iron Head", "Protect"]),
+      set("Gholdengo", "", "Choice Specs", "Good as Gold", "Modest", [2, 0, 0, 32, 0, 32], ["Make It Rain", "Shadow Ball", "Power Gem", "Protect"]),
+    ],
+    "a Trick Room six": [
+      set("Indeedee", "Indeedee-F", "Psychic Seed", "Psychic Surge", "Relaxed", [2, 0, 32, 0, 32, 0], ["Follow Me", "Expanding Force", "Helping Hand", "Trick Room"]),
+      set("Hatterene", "", "Life Orb", "Magic Bounce", "Quiet", [2, 0, 0, 32, 32, 0], ["Expanding Force", "Dazzling Gleam", "Trick Room", "Protect"]),
+      set("Incineroar", "", "Sitrus Berry", "Intimidate", "Careful", [2, 0, 32, 0, 32, 0], ["Fake Out", "Parting Shot", "Flare Blitz", "Knock Off"]),
+      set("Gholdengo", "", "Choice Specs", "Good as Gold", "Modest", [2, 0, 0, 32, 0, 32], ["Make It Rain", "Shadow Ball", "Power Gem", "Protect"]),
+      set("Farigiraf", "", "Sitrus Berry", "Armor Tail", "Relaxed", [2, 0, 32, 0, 32, 0], ["Trick Room", "Psychic", "Helping Hand", "Protect"]),
+      set("Rillaboom", "", "Assault Vest", "Grassy Surge", "Adamant", [2, 32, 0, 0, 0, 32], ["Grassy Glide", "Wood Hammer", "U-turn", "Fake Out"]),
+    ],
+  };
+  for (const [label, team] of Object.entries(noAbility)) {
+    const a = speedFor(team, { speedAbilityRule: 0 });
+    const b = speedFor(team, {});
+    ok(`${label} is untouched`, a.score === b.score && a.tw === b.tw, `${a.score} -> ${b.score}`);
+    ok(`${label} says nothing about Tailwind outspeeds`,
+      !b.lines.some((line) => /Tailwinded Top/.test(line)), b.lines.join(" | "));
+  }
+
+  // A doubler with no setter is not a live Ability: v358 writes the "needs Sand" line and
+  // `enabled` stays 0, so this board is untouched as well -- the same rule as half one.
+  {
+    const lonely = [REGIONAL[3], ...noAbility["top-meta goodstuff"].slice(0, 5)];
+    const a = speedFor(lonely, { speedAbilityRule: 0 });
+    const b = speedFor(lonely, {});
+    ok("Sand Rush with no sand setter is untouched", a.score === b.score, `${a.score} -> ${b.score}`);
+  }
+
+  // ...but Unburden with no doubler IS live: it keeps v358's flat credit AND it is paid the
+  // term, because the Companion's `apply` runs on `doublers or enabled_count` too. This is the
+  // one population the gate admits that is not a weather team, and it is measured here rather
+  // than left to be discovered.
+  {
+    const unburden = [REGIONAL[5], ...noAbility["top-meta goodstuff"].slice(0, 5)];
+    const a = speedFor(unburden, { speedAbilityRule: 0 });
+    const b = speedFor(unburden, {});
+    ok("an Unburden team is paid the term too", b.score > a.score, `${a.score} -> ${b.score}`);
+    ok("and it reports it", b.lines.some((line) => /Tailwinded Top/.test(line)), b.lines.join(" | "));
+  }
+
+  // --- the held count does not leak into the next team -----------------------------------
+  ok("control() clears the held count when it is done", on.held == null, String(on.held));
+}
+
+// --- 8c. the two ports must not drift apart ------------------------------------------------
+// The Companion's V555 and this file are one rule in two languages. A cap or a step changed in
+// one and not the other is a silent divergence no vector suite can see, because every recorded
+// suite replays with the rule off.
+{
+  const appModule = join(root, "..", "..", "pct_tool94", "pokemon_champions_tool", "speed_ability_speed_v555.py");
+  let app = "";
+  try { app = readFileSync(appModule, "utf8"); } catch { /* a checkout without the app */ }
+  if (app) {
+    ok("the Companion caps the term at the same 22", /OUTSPEED_CAP\s*=\s*22\.0/.test(app));
+    ok("and reaches it over the same 60 matchups", /OUTSPEED_STEP\s*=\s*22\.0\s*\/\s*60\.0/.test(app));
+    ok("and asks for twice the meta Speed", /TAILWIND_MULTIPLIER\s*=\s*2\.0/.test(app));
+    ok("and pays the term on either a doubler or a flat Ability",
+      /if\s+doublers\s+or\s+enabled_count/.test(app));
+  } else {
+    ok("the Companion module was not readable from here (skipped)", true);
+  }
 }
 
 // --- 9. Suggestions never offers a Pokemon the team already has ---------------------------

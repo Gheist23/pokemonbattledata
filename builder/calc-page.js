@@ -94,6 +94,32 @@ const PHONE = (() => {
 })();
 const collapsed = { [LEFT]: PHONE, [RIGHT]: false, field: PHONE };
 
+/** Which card's own top the next render has to hold still, set by `foldCard`. */
+let foldAnchor = null;
+const CARD_SELECTOR = {
+  [LEFT]: ".bd-mon.bd-side-left",
+  [RIGHT]: ".bd-mon.bd-side-right",
+  field: ".bd-field-panel",
+};
+
+/**
+ * Fold or unfold one card, and hold THAT CARD'S TOP still across the redraw.
+ *
+ * Not `keepPlace`'s median (scroll-anchor.js), which is right for every other
+ * redraw and wrong for this one. Unfolding a card moves everything below it down,
+ * and below it is most of what is on screen, so the median follows that content
+ * and the page scrolls past the card that just opened -- the Field opened and the
+ * phone showed its BOTTOM. The card the player tapped is the one anchor that means
+ * anything here: hold its top and it grows downwards, which is also what makes
+ * folding leave the view exactly where it was.
+ */
+function foldCard(key, next) {
+  if (collapsed[key] === next) return;
+  collapsed[key] = next;
+  foldAnchor = key;
+  render();
+}
+
 /** The chevron that folds a card. Hidden on desktop by builder.css. */
 function collapseToggle(key, label) {
   const open = !collapsed[key];
@@ -102,8 +128,28 @@ function collapseToggle(key, label) {
     class: "bd-card-toggle",
     "aria-expanded": open ? "true" : "false",
     "aria-label": `${open ? "Collapse" : "Expand"} ${label}`,
-    onclick: () => { collapsed[key] = !collapsed[key]; render(); },
+    onclick: () => foldCard(key, open),
   }, h("span", { "aria-hidden": "true" }, open ? "▴" : "▾"));
+}
+
+/**
+ * A TAP ANYWHERE ON A FOLDED CARD OPENS IT.
+ *
+ * A folded card is a thing to open, so the whole of it is the target and not a
+ * 40px chevron. Only while folded: once it is open a tap inside it is somebody
+ * using the card, and closing it under them would be the opposite of helpful --
+ * the chevron closes it.
+ *
+ * Two exceptions, both on the Pokemon cards, because they do something while the
+ * card is shut and are marked `bd-keep-folded` for it: Swap and Paste set.
+ */
+function tapToExpand(key) {
+  if (!collapsed[key]) return undefined;
+  return (event) => {
+    const target = event.target instanceof Element ? event.target : null;
+    if (target && target.closest(".bd-card-toggle, .bd-keep-folded")) return;
+    foldCard(key, false);
+  };
 }
 
 /** Everything the field currently has switched on, as one readable line.
@@ -132,7 +178,12 @@ function fieldSummary() {
 function render() {
   // The whole page is rebuilt, so the browser cannot hold the reading position
   // itself: note where the top of the screen is and put it back (scroll-anchor.js).
-  const keepPosition = keepPlace("calc");
+  // A FOLD IS THE ONE REDRAW THAT DOES NOT WANT THE MEDIAN -- see `foldCard`.
+  const folded = foldAnchor;
+  foldAnchor = null;
+  const anchor = folded ? root.querySelector(CARD_SELECTOR[folded]) : null;
+  const anchorTop = anchor ? anchor.getBoundingClientRect().top : 0;
+  const keepPosition = anchor ? null : keepPlace("calc");
   clear(root);
   root.append(
     renderResults(),
@@ -140,7 +191,11 @@ function render() {
   );
   syncFormatSwitch();
   save();
-  keepPosition();
+  if (anchor) {
+    const again = root.querySelector(CARD_SELECTOR[folded]);
+    const moved = again ? again.getBoundingClientRect().top - anchorTop : 0;
+    if (Math.abs(moved) >= 1) window.scrollBy(0, moved);
+  } else keepPosition();
 }
 
 function monName(side) {
@@ -357,10 +412,13 @@ function renderMon(side) {
   })));
 
   const header = h("div", { class: "bd-mon-head" },
-    h("button", { type: "button", class: "bd-mon-art", onclick: changePokemon, "aria-label": "Change Pokémon" },
+    // While the card is FOLDED these two open it (the tap handler on the section sees
+    // the click bubble up); open, they do what they say. Without this the sprite and
+    // the name were the two places on a folded card that did something else.
+    h("button", { type: "button", class: "bd-mon-art", onclick: collapsed[side] ? undefined : changePokemon, "aria-label": collapsed[side] ? "Open this card" : "Change Pokémon" },
       sprite(data.sprite(set.species, set.form, set.item, { full: true }), "", 84, "bd-sprite bd-sprite-lg")),
     h("div", { class: "bd-mon-id" },
-      h("button", { type: "button", class: "bd-mon-name", onclick: changePokemon }, data.displayName(battleSpecies, battleForm, set.form) || "Choose Pokémon", h("span", { "aria-hidden": "true" }, " ▾")),
+      h("button", { type: "button", class: "bd-mon-name", onclick: collapsed[side] ? undefined : changePokemon }, data.displayName(battleSpecies, battleForm, set.form) || "Choose Pokémon", h("span", { "aria-hidden": "true" }, " ▾")),
       h("div", { class: "bd-type-row" }, types.map(typeChip)),
       h("label", { class: "bd-inline-field" }, h("span", {}, "Ability"), abilityField),
       h("div", { class: "bd-inline-field" }, h("span", {}, "Item"), itemCombo)));
@@ -428,11 +486,20 @@ function renderMon(side) {
   // exact position they have open -- only the rows under them are hidden
   // (builder.css). Folding a card that moved its own title would read as a
   // different card rather than the same one closed.
-  return h("section", { class: `bd-card bd-mon bd-side-${side} ${collapsed[side] ? "is-collapsed" : ""}`, "aria-label": title },
+  return h("section", {
+    class: `bd-card bd-mon bd-side-${side} ${collapsed[side] ? "is-collapsed" : ""}`,
+    "aria-label": title,
+    onclick: tapToExpand(side),
+  },
+    // THE CHEVRON SITS NEXT TO THE TITLE, not after Swap and Paste set. Pushed to the
+    // far end of the row it was two buttons away from the card it belongs to, and the
+    // row is tight enough on a phone that flex shrank it out of its own 40px square
+    // while the Field's -- alone in its row -- kept the full size. `bd-keep-folded`
+    // takes the two buttons to the right instead (builder.css).
     h("h2", { class: "bd-card-title" }, title,
-      h("button", { type: "button", class: "ghost-button compact", title: "Swap our and opposing Pokémon", onclick: swapSides }, "⇄ Swap"),
-      h("button", { type: "button", class: "ghost-button compact", title: "Paste a set as text", onclick: (event) => pasteSet(side, event) }, "Paste set"),
-      collapseToggle(side, title)),
+      collapseToggle(side, title),
+      h("button", { type: "button", class: "ghost-button compact bd-keep-folded", title: "Swap our and opposing Pokémon", onclick: swapSides }, "⇄ Swap"),
+      h("button", { type: "button", class: "ghost-button compact bd-keep-folded", title: "Paste a set as text", onclick: (event) => pasteSet(side, event) }, "Paste set")),
     header, moves, hp, stats, details, renderImport(side));
 }
 
@@ -583,7 +650,11 @@ function renderField() {
       toggle("salt_cure"));
   };
   const active = fieldSummary();
-  return h("section", { class: `bd-card bd-field-panel ${collapsed.field ? "is-collapsed" : ""}`, "aria-label": "Field" },
+  return h("section", {
+    class: `bd-card bd-field-panel ${collapsed.field ? "is-collapsed" : ""}`,
+    "aria-label": "Field",
+    onclick: tapToExpand("field"),
+  },
     h("h2", { class: "bd-card-title" }, "Field", collapseToggle("field", "Field")),
     h("p", { class: "bd-field-peek" }, active.length ? active.join(" · ") : "Nothing set"),
     h("div", { class: "bd-field-settings" },

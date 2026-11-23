@@ -1620,10 +1620,13 @@ body.page-team-builder { --max-width: 1520px; }
     align-items: center;
     justify-content: center;
     /* 40px square: a chevron is a small thing to hit and this is the control
-       that reveals the whole card. */
+       that reveals the whole card. FLEX MUST NOT SHRINK IT -- the Pokemon cards
+       carry Swap and Paste set in the same row and on a 375px phone the row is
+       over budget, so the chevron was the flex item that gave way: a thin tall
+       sliver next to the Field's full 40px square. `flex` pins both. */
+    flex: 0 0 auto;
     width: 40px;
     min-height: 40px;
-    margin-left: auto;
     padding: 0;
     border: 1px solid var(--line, rgba(128, 150, 180, 0.35));
     border-radius: 9px;
@@ -1634,6 +1637,16 @@ body.page-team-builder { --max-width: 1520px; }
     cursor: pointer;
   }
 
+  /* Swap and Paste set go to the right-hand end, which is where the chevron used
+     to be pushed; the chevron now sits beside the title it belongs to. */
+  .bd-card-title .bd-keep-folded:first-of-type { margin-left: auto; }
+
+  /* NO SECOND ARROW BESIDE THE NAME. `.bd-mon-name` carries a caret to say it
+     opens the species picker, and beside a folded card's chevron that is two
+     arrows an inch apart meaning two different things. The picker is still there
+     on a tap; on a phone it simply stops advertising itself. */
+  .bd-mon-name > span { display: none; }
+
   /* Folded: the title and the head stay exactly where they were, so the card
      reads as itself closed rather than as a different card. Everything under
      them goes. */
@@ -1641,6 +1654,10 @@ body.page-team-builder { --max-width: 1520px; }
   .bd-mon.is-collapsed .bd-mon-head .bd-type-row,
   .bd-mon.is-collapsed .bd-mon-head .bd-inline-field { display: none; }
   .bd-mon.is-collapsed .bd-mon-head { padding-bottom: 0.2rem; }
+
+  /* A folded card is one big target (`tapToExpand`), so it reads as one. */
+  .bd-mon.is-collapsed,
+  .bd-field-panel.is-collapsed { cursor: pointer; }
 
   /* The field's summary replaces its controls rather than sitting above them,
      so a folded field still says what it is doing to the damage numbers. */

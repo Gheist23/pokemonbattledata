@@ -55,6 +55,9 @@ ok("the calculator still mounts on #calcApp", html.includes('id="calcApp"'));
 
 // ------------------------------------------------------------------- a small DOM
 
+/** Every window.scrollBy the page asked for, so a fold can be shown not to scroll. */
+const scrolledBy = [];
+
 const camelToKebab = (s) => s.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`);
 
 class NodeBase {
@@ -195,9 +198,25 @@ class Element extends NodeBase {
     const i = list.indexOf(fn);
     if (i >= 0) list.splice(i, 1);
   }
+  /* BUBBLES, like the real thing. This used to fire the target's own listeners and
+     stop, which is a gap big enough to hide a feature: the calculator puts one
+     handler on a folded card and relies on a tap anywhere inside it reaching that
+     handler, and with no bubbling the test passed in a browser and failed here for
+     a reason that had nothing to do with the page. `stopPropagation` is honoured. */
   dispatch(type, extra = {}) {
-    const event = { type, target: this, currentTarget: this, preventDefault() {}, stopPropagation() {}, ...extra };
-    for (const fn of [...(this.listeners.get(type) || [])]) fn(event);
+    let stopped = false;
+    const event = {
+      type, target: this, currentTarget: this,
+      preventDefault() {}, stopPropagation() { stopped = true; }, ...extra,
+    };
+    for (let node = this; node; node = node.parentNode) {
+      event.currentTarget = node;
+      for (const fn of [...(node.listeners?.get(type) || [])]) {
+        fn(event);
+        if (stopped) return;
+      }
+      if (stopped) return;
+    }
   }
   click() { this.dispatch("click"); }
   querySelectorAll(sel) {
@@ -214,6 +233,11 @@ class Element extends NodeBase {
     return out;
   }
   querySelector(sel) { return this.querySelectorAll(sel)[0] || null; }
+  /* No layout here, so every rect is zero. That is enough: `foldCard` measures a
+     card's top before and after, and zero-minus-zero is "it did not move", which
+     is the branch that does NOT scroll. What the fold tests below check is the
+     tap rules, not the geometry -- geometry needs a browser. */
+  getBoundingClientRect() { return { top: 0, left: 0, right: 0, bottom: 0, width: 0, height: 0 }; }
   closest(sel) {
     let n = this;
     while (n && n instanceof Element) {
@@ -271,6 +295,8 @@ function installDom(siteRoot) {
   };
   globalThis.matchMedia = () => ({ matches: false, addEventListener() {}, removeEventListener() {} });
   globalThis.requestAnimationFrame = (fn) => setTimeout(() => fn(0), 0);
+  globalThis.scrollY = 0;
+  globalThis.scrollBy = (x, y) => { scrolledBy.push([x, y]); };
   globalThis.fetch = async (url) => {
     const path = String(url).split("?")[0];
     const file = join(siteRoot, path);
@@ -466,6 +492,70 @@ check("a reload comes back on the team that was picked", pickers().map(pickerVal
 check("with that team's chips", chipNames(teamChips()), ["Pelipper", "Basculegion", "Garchomp"]);
 
 ok("the page logged no errors", pageErrors.length === 0, pageErrors.slice(0, 3).join(" | "));
+
+// ------------------------------------------------- folding the cards on a phone
+//
+// A FOLDED CARD IS ONE BIG TARGET. On a phone "Our Pokemon" and the Field start
+// folded, and a 40px chevron is not the whole of what a player will tap to open
+// one -- so a tap anywhere on a folded card opens it, with two exceptions that do
+// something while it is shut: Swap and Paste set.
+//
+// Geometry is NOT checked here and cannot be: holding the card's own top still
+// across the redraw needs a layout engine, and every rect in this file is zero.
+// That half was measured in a real browser at 375px (the Field and both Pokemon
+// cards moved 0px on open and 0px on close). What IS checked is every rule that
+// is a fact about the DOM: who is folded at the start, what a tap does, which
+// buttons are exempt, and that the chevron sits beside the title rather than
+// after the two buttons.
+{
+  globalThis.matchMedia = () => ({ matches: true, addEventListener() {}, removeEventListener() {} });
+  writeTeams([MY_TEAM, RAIN_TEAM], "team_my");
+  await import(`${pageUrl}?phone=1`);
+  ok("the phone page draws", await settle(() => document.querySelectorAll(".bd-mon").length === 2));
+  await sleep(30);
+
+  const card = (sel) => document.querySelector(sel);
+  const folded = (sel) => Boolean(card(sel)?.classList.contains("is-collapsed"));
+  const buttonIn = (sel, text) =>
+    card(sel).querySelectorAll("button").find((b) => (b.textContent || "").includes(text));
+
+  check("our Pokemon and the field start folded, the opponent open",
+    [folded(".bd-mon.bd-side-left"), folded(".bd-field-panel"), folded(".bd-mon.bd-side-right")], [true, true, false]);
+
+  // The chevron is BESIDE THE TITLE. It used to be last in the row, two buttons
+  // away from the card it opens, and flex shrank it out of its own 40px square.
+  const titleKids = card(".bd-mon.bd-side-left").querySelector(".bd-card-title").childNodes
+    .filter((n) => n.tagName === "BUTTON").map((b) => b.className);
+  ok("the chevron comes before Swap and Paste set in the title row",
+    titleKids[0]?.includes("bd-card-toggle"), JSON.stringify(titleKids));
+  ok("and both of those are marked as exempt from the tap",
+    titleKids.slice(1).every((c) => c.includes("bd-keep-folded")), JSON.stringify(titleKids));
+
+  // SWAP DOES NOT OPEN IT.
+  scrolledBy.length = 0;
+  buttonIn(".bd-mon.bd-side-left", "Swap").click();
+  await sleep(30);
+  ok("tapping Swap on a folded card leaves it folded", folded(".bd-mon.bd-side-left"));
+
+  // THE NAME AND THE SPRITE DO, and they do not open the species picker.
+  card(".bd-mon.bd-side-left").querySelector(".bd-mon-name").click();
+  await sleep(30);
+  ok("tapping the name opens the card", !folded(".bd-mon.bd-side-left"));
+  ok("and does not open the species picker instead",
+    !document.querySelector(".bd-dialog-picker"), "a picker opened over a folded card");
+
+  // A TAP ANYWHERE ON THE FOLDED FIELD OPENS IT -- here, its summary line.
+  if (!folded(".bd-field-panel")) card(".bd-field-panel").querySelector(".bd-card-toggle").click();
+  await sleep(30);
+  ok("the field can be folded", folded(".bd-field-panel"));
+  (card(".bd-field-panel").querySelector(".bd-field-peek") || card(".bd-field-panel")).click();
+  await sleep(30);
+  ok("and a tap on its summary opens it", !folded(".bd-field-panel"));
+
+  // With no layout every rect is zero, so a fold must ask for no scroll at all.
+  ok("a fold with nothing to correct scrolls by nothing", scrolledBy.length === 0,
+    JSON.stringify(scrolledBy));
+}
 
 // ------------------------------------------------------------------------ report
 

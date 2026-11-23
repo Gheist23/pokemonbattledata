@@ -84,6 +84,13 @@ const KNOWN = new Map([
   ["redcard", "drags the attacker out; the Companion has it (mcts/engine.py)"],
   ["bindingband", "stronger binding damage; neither engine models binding at all"],
   ["zoomlens", "+20% accuracy when its holder moves second; NEITHER engine has it"],
+  // Arrived on a meta set on 23 Nov 2026 (Mabosstiff, 1.8%). Its ONLY function is
+  // letting its holder switch out while trapped, and this engine models no trapping
+  // at all -- no Shadow Tag, no Arena Trap, no partial-trapping move keeps anything
+  // in, so there is nothing here for it to escape from. Inert by construction rather
+  // than by oversight, which is Binding Band's case above. Implementing it means
+  // implementing trapping first, and then this item follows for free.
+  ["shedshell", "switches out while trapped; this engine models no trapping to escape"],
 ]);
 
 const rows = [...usage().entries()]

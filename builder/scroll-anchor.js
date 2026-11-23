@@ -170,8 +170,14 @@ function find(scope, mark) {
   return here && shape(here) === mark.shape ? here : null;
 }
 
-/** Scroll without the smooth animation styles.css asks for site-wide. */
-function jumpTo(top) {
+/** Scroll without the smooth animation styles.css asks for site-wide.
+ *
+ *  EXPORTED because it is not only this file's business: `html { scroll-behavior:
+ *  smooth }` (styles.css:30) animates every programmatic scroll on the site, so any
+ *  code that corrects a scroll to hold something still has to opt out of it or the
+ *  correction glides instead of holding. The calculator's fold anchor got this
+ *  wrong by calling `scrollBy` plainly (`calc-page.js`, `foldCard`). */
+export function jumpTo(top) {
   const html = document.documentElement;
   const had = html.style.scrollBehavior;
   html.style.scrollBehavior = "auto";

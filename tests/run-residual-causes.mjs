@@ -441,10 +441,17 @@ const saidFor = (cause, hurting = true) => sentenceFor({
     }
   }
   // THE FLOOR IS THE POINT. Without it a sweep that reached no end-of-turn health at all would
-  // report that every one of them had been explained. A floor and not a count, because the meta
-  // is rebuilt every morning and the same 24 games are not the same 24 games tomorrow.
-  ok("the sweep saw enough end-of-turn health to be asking anything", seen >= 60, String(seen));
-  ok("and more than a couple of different reasons for it", causes.size >= 5,
+  // report that every one of them had been explained.
+  //
+  // AND IT HAS TO BE A LOW FLOOR, which this file said and then got wrong: 60 and 5 were
+  // yesterday's numbers written down as thresholds, and three days of ordinary meta drift took
+  // the same 24 games to 53 moves and 5 reasons -- one of them already on the line. The counts
+  // swing because the sets come from a ladder that rebuilds every morning and the opponent's
+  // search is time-bounded, so what is pinned here is "this sweep is exercising the engine",
+  // nothing finer. 53 and 63 have both been seen; 20 and 3 are far enough below to survive a
+  // bad week and still nowhere near the 0 and 1 a sweep that had stopped working would give.
+  ok("the sweep saw enough end-of-turn health to be asking anything", seen >= 20, String(seen));
+  ok("and more than a couple of different reasons for it", causes.size >= 3,
     [...causes.keys()].join(", "));
   ok("and not one line the log could not justify", generic.length === 0,
     `${generic.length} of ${seen}\n  ${generic.slice(0, 6).join("\n  ")}`);

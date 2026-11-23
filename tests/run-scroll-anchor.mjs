@@ -518,6 +518,23 @@ try {
     if (firstDraw !== 0) failures.push(`calculator ${width}px: the first draw scrolled the page to ${firstDraw}`);
     for (const fraction of [0.35, 0.7]) {
       await open("/damage-calculator/?attacker=Garchomp&defender=Incineroar&format=Doubles");
+      // ON A PHONE THE CALCULATOR OPENS FOLDED: "Our Pokemon" and the field start
+      // shut (calc-page.js), and a folded card answers a tap ANYWHERE on it by
+      // opening. These scenarios measure what a REDRAW does to the reading
+      // position, so each one has to be the action it says it is -- the name
+      // button has to open the picker and the Protect toggle has to flip Protect,
+      // not open the card they are sitting in. Folding has its own measurement
+      // below. Re-queried each time because opening one rebuilds the page.
+      await evaluate(`(async () => {
+        for (let i = 0; i < 4; i += 1) {
+          const b = document.querySelector(".bd-card.is-collapsed .bd-card-toggle");
+          if (!b) break;
+          b.click();
+          await new Promise((r) => setTimeout(r, 140));
+        }
+        return document.querySelectorAll(".bd-card.is-collapsed").length;
+      })()`);
+      await sleep(250);
       for (const [label, action, still] of CALC_ACTIONS) await measure(label, `calculator ${width}px @${fraction}`, fraction, action, still === "still");
     }
     await evaluate(`window.__jump(0)`);
@@ -527,6 +544,52 @@ try {
     checked += 1;
     const calcTop = await evaluate(`scrollY`);
     if (calcTop !== 0) failures.push(`calculator ${width}px: an action at the top of the page scrolled to ${calcTop}`);
+
+    // --- FOLDING IS THE ONE REDRAW THAT MUST NOT HOLD THE MEDIAN.
+    //
+    // Opening a card pushes everything below it down, and below it is most of what
+    // is on screen, so the median followed that content and scrolled the page past
+    // the card that had just opened: the player's report was that the field opens
+    // and the phone shows its BOTTOM. `foldCard` (calc-page.js) anchors on the card
+    // the player tapped instead, which is also what makes closing one leave the
+    // view alone. Measured here because it needs a real layout; the DOM half of the
+    // same behaviour is in tests/run-calc-page.mjs.
+    if (width <= 760) {
+      for (const [what, sel] of [["the field", ".bd-field-panel"], ["our Pokemon", ".bd-mon.bd-side-left"]]) {
+        await open("/damage-calculator/?attacker=Garchomp&defender=Incineroar&format=Doubles");
+        await sleep(250);
+        // Part way down the screen, so there is content above it that must not move.
+        // THROUGH `__jump`, not scrollIntoView: styles.css asks for smooth scrolling
+        // site-wide, so scrollIntoView animates for a few hundred ms and the "before"
+        // reading below was taken mid-glide -- which is what the first version of this
+        // measured and blamed on the fold (-83px, the distance the page still had to
+        // travel). `__jump` is the opt-out this file already carries.
+        await evaluate(`(() => {
+          const card = document.querySelector(${JSON.stringify(sel)});
+          const want = Math.round(window.scrollY + card.getBoundingClientRect().top - innerHeight / 3);
+          return window.__jump(Math.max(0, want));
+        })()`);
+        await sleep(250);
+        for (const step of ["opening", "closing"]) {
+          const top = `Math.round(document.querySelector(${JSON.stringify(sel)}).getBoundingClientRect().top)`;
+          const before = await evaluate(top);
+          const did = await evaluate(`(() => {
+            const card = document.querySelector(${JSON.stringify(sel)});
+            const b = card && card.querySelector(".bd-card-toggle");
+            if (!b) return "no toggle";
+            b.click();
+            return true;
+          })()`);
+          await sleep(320);
+          const after = await evaluate(top);
+          checked += 1;
+          if (did !== true) failures.push(`calculator ${width}px: ${step} ${what} did not run (${did})`);
+          else if (Math.abs(after - before) > TOLERANCE) {
+            failures.push(`calculator ${width}px: ${step} ${what} moved its own top by ${after - before}px`);
+          }
+        }
+      }
+    }
   }
 
   // Landmarks that are genuinely removed by their own action cannot be looked for

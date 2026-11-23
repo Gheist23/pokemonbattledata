@@ -5,7 +5,7 @@ import { loadSetLibrary, setsFor } from "./pokemon-sets.js";
 import { CalcModel, FIELD_LABELS, GENDERS, LEFT, RIGHT, STATUSES, defaultCalcState, defaultMonState, other } from "./calc-model.js";
 import { MAX_BONUS_POINTS_PER_STAT, MAX_BONUS_STAT_POINTS } from "./engine.js";
 import { clear, h, openDialog, pickPokemon, searchSelect, select, sprite, toast, typeChip } from "./ui.js";
-import { keepPlace } from "./scroll-anchor.js";
+import { jumpTo, keepPlace } from "./scroll-anchor.js";
 import { trackSite } from "./campaign-track.js";
 import { currentTeam, getState, subscribe, teamSets } from "./store.js";
 
@@ -194,7 +194,12 @@ function render() {
   if (anchor) {
     const again = root.querySelector(CARD_SELECTOR[folded]);
     const moved = again ? again.getBoundingClientRect().top - anchorTop : 0;
-    if (Math.abs(moved) >= 1) window.scrollBy(0, moved);
+    // `jumpTo`, NOT `scrollBy`: styles.css asks for smooth scrolling site-wide, so a
+    // plain scrollBy ANIMATES the correction -- the card slid into place over about
+    // a third of a second instead of never appearing to move, which is the whole
+    // point of holding its top. tests/run-scroll-anchor.mjs measured it mid-glide at
+    // -83px; scroll-anchor.js had the opt-out already and this was not using it.
+    if (Math.abs(moved) >= 1) jumpTo(window.scrollY + moved);
   } else keepPosition();
 }
 

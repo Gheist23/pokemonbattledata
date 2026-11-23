@@ -557,6 +557,50 @@ ok("the page logged no errors", pageErrors.length === 0, pageErrors.slice(0, 3).
     JSON.stringify(scrolledBy));
 }
 
+// ------------------------------- a stale cached module must not kill the whole page
+
+// `/builder/*.js` is served `max-age=14400` and every file is cached SEPARATELY, so
+// a visitor can hold an OLD scroll-anchor.js against a NEW calc-page.js -- the Team
+// Builder imports the same module, so merely having opened that page is enough. An
+// ES module graph is ALL-OR-NOTHING: one named import the cached neighbour does not
+// export and the browser refuses every module in the graph, so the page never runs
+// and its own error handling never runs either.
+//
+// This proves the real thing instead of reading the import line: it builds a copy of
+// builder/ whose scroll-anchor.js declares `jumpTo` WITHOUT exporting it -- which is
+// exactly the revision this site served until 23 Nov 2026 -- and loads the
+// calculator against it.
+{
+  const { cpSync, mkdtempSync, readFileSync: read, rmSync, writeFileSync } =
+    await import("node:fs");
+  const { tmpdir } = await import("node:os");
+
+  const stale = mkdtempSync(join(tmpdir(), "bd-stale-module-"));
+  try {
+    cpSync(join(root, "builder"), join(stale, "builder"), { recursive: true });
+    const anchor = join(stale, "builder", "scroll-anchor.js");
+    const before = read(anchor, "utf8");
+    const after = before.replace("export function jumpTo", "function jumpTo");
+    // Guard the guard: if the rename ever stops matching, this check must not pass
+    // by having changed nothing at all.
+    ok("the stale copy really does lose the `jumpTo` export", after !== before);
+    writeFileSync(anchor, after);
+
+    const { pathToFileURL } = await import("node:url");
+    const staleUrl = pathToFileURL(join(stale, "builder", "calc-page.js")).href;
+    let failed = null;
+    try {
+      await import(staleUrl);
+    } catch (error) {
+      failed = error;
+    }
+    ok("the calculator still loads against a cached scroll-anchor.js with no `jumpTo`",
+      !failed, failed && String(failed.message || failed));
+  } finally {
+    rmSync(stale, { recursive: true, force: true });
+  }
+}
+
 // ------------------------------------------------------------------------ report
 
 if (failures.length) {

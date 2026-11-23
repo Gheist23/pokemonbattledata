@@ -5,7 +5,15 @@ import { loadSetLibrary, setsFor } from "./pokemon-sets.js";
 import { CalcModel, FIELD_LABELS, GENDERS, LEFT, RIGHT, STATUSES, defaultCalcState, defaultMonState, other } from "./calc-model.js";
 import { MAX_BONUS_POINTS_PER_STAT, MAX_BONUS_STAT_POINTS } from "./engine.js";
 import { clear, h, openDialog, pickPokemon, searchSelect, select, sprite, toast, typeChip } from "./ui.js";
-import { jumpTo, keepPlace } from "./scroll-anchor.js";
+// `import *`, NOT `{ jumpTo, keepPlace }`: a NAMED import of a name that a CACHED
+// copy of scroll-anchor.js does not export makes the browser refuse the ENTIRE
+// module graph, so this page would not run at all. The zone serves /builder/*.js
+// with `max-age=14400`, this file and that one are cached independently, and
+// builder-page.js imports the same module -- so a visitor who opened the Team
+// Builder before `jumpTo` gained its `export` holds a copy that declares it
+// without one, and a named import here would hand them a dead calculator for up
+// to four hours. A namespace import yields `undefined` for a missing name.
+import * as scrollAnchor from "./scroll-anchor.js";
 import { trackSite } from "./campaign-track.js";
 import { currentTeam, getState, subscribe, teamSets } from "./store.js";
 
@@ -183,7 +191,7 @@ function render() {
   foldAnchor = null;
   const anchor = folded ? root.querySelector(CARD_SELECTOR[folded]) : null;
   const anchorTop = anchor ? anchor.getBoundingClientRect().top : 0;
-  const keepPosition = anchor ? null : keepPlace("calc");
+  const keepPosition = anchor ? null : scrollAnchor.keepPlace("calc");
   clear(root);
   root.append(
     renderResults(),
@@ -199,7 +207,13 @@ function render() {
     // a third of a second instead of never appearing to move, which is the whole
     // point of holding its top. tests/run-scroll-anchor.mjs measured it mid-glide at
     // -83px; scroll-anchor.js had the opt-out already and this was not using it.
-    if (Math.abs(moved) >= 1) jumpTo(window.scrollY + moved);
+    if (Math.abs(moved) >= 1) {
+      const top = window.scrollY + moved;
+      // Degrades to the old ANIMATED correction rather than throwing, for a
+      // visitor whose cached scroll-anchor.js predates `jumpTo` (see the import).
+      if (scrollAnchor.jumpTo) scrollAnchor.jumpTo(top);
+      else window.scrollTo(window.scrollX, top);
+    }
   } else keepPosition();
 }
 

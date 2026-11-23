@@ -1,13 +1,13 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Excadrill,24,move,1,Iron Head,97.8%,,,,,,,,
 Excadrill,24,move,2,Protect,96.1%,,,,,,,,
-Excadrill,24,move,3,High Horsepower,88.1%,,,,,,,,
+Excadrill,24,move,3,High Horsepower,88.0%,,,,,,,,
 Excadrill,24,move,4,Rock Slide,85.0%,,,,,,,,
 Excadrill,24,move,5,Earthquake,19.0%,,,,,,,,
 Excadrill,24,move,6,Swords Dance,2.3%,,,,,,,,
-Excadrill,24,move,7,Drill Run,1.8%,,,,,,,,
+Excadrill,24,move,7,Drill Run,1.9%,,,,,,,,
 Excadrill,24,move,8,Rock Tomb,1.6%,,,,,,,,
-Excadrill,24,move,9,Stomping Tantrum,1.5%,,,,,,,,
+Excadrill,24,move,9,Stomping Tantrum,1.4%,,,,,,,,
 Excadrill,24,move,10,Horn Drill,1.0%,,,,,,,,
 Excadrill,24,held_item,1,Focus Sash,89.5%,,,,,,,,
 Excadrill,24,held_item,2,Life Orb,4.8%,,,,,,,,
@@ -38,9 +38,9 @@ Excadrill,24,stat_alignment,6,Impish,0.2%,Defense,Sp. Atk,,,,,,
 Excadrill,24,stat_alignment,7,Naive,0.2%,Speed,Sp. Def,,,,,,
 Excadrill,24,stat_alignment,8,Careful,0.1%,Sp. Def,Sp. Atk,,,,,,
 Excadrill,24,stat_alignment,9,Hasty,0.1%,Speed,Defense,,,,,,
-Excadrill,24,stat_alignment,10,Gentle,0.0%,Sp. Def,Defense,,,,,,
-Excadrill,24,stat_points,1,,50.4%,,,2,32,0,0,0,32
-Excadrill,24,stat_points,2,,19.3%,,,0,32,1,0,1,32
+Excadrill,24,stat_alignment,10,Gentle,0.1%,Sp. Def,Defense,,,,,,
+Excadrill,24,stat_points,1,,50.5%,,,2,32,0,0,0,32
+Excadrill,24,stat_points,2,,19.2%,,,0,32,1,0,1,32
 Excadrill,24,stat_points,3,,12.5%,,,0,32,2,0,0,32
 Excadrill,24,stat_points,4,,4.8%,,,0,32,0,0,2,32
 Excadrill,24,stat_points,5,,1.6%,,,0,32,0,0,0,32

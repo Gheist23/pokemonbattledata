@@ -1,11 +1,11 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Gallade,78,move,1,Sacred Sword,92.4%,,,,,,,,
 Gallade,78,move,2,Leaf Blade,80.4%,,,,,,,,
-Gallade,78,move,3,Psycho Cut,70.9%,,,,,,,,
-Gallade,78,move,4,Shadow Sneak,46.1%,,,,,,,,
-Gallade,78,move,5,Triple Axel,33.5%,,,,,,,,
-Gallade,78,move,6,Destiny Bond,15.9%,,,,,,,,
-Gallade,78,move,7,Night Slash,10.4%,,,,,,,,
+Gallade,78,move,3,Psycho Cut,71.0%,,,,,,,,
+Gallade,78,move,4,Shadow Sneak,46.0%,,,,,,,,
+Gallade,78,move,5,Triple Axel,33.4%,,,,,,,,
+Gallade,78,move,6,Destiny Bond,15.8%,,,,,,,,
+Gallade,78,move,7,Night Slash,10.5%,,,,,,,,
 Gallade,78,move,8,Shadow Claw,8.9%,,,,,,,,
 Gallade,78,move,9,Swords Dance,4.9%,,,,,,,,
 Gallade,78,move,10,Close Combat,4.3%,,,,,,,,
@@ -20,8 +20,8 @@ Gallade,78,held_item,8,Sitrus Berry,1.1%,,,,,,,,
 Gallade,78,held_item,9,Quick Claw,0.6%,,,,,,,,
 Gallade,78,held_item,10,Muscle Band,0.4%,,,,,,,,
 Gallade,78,teammate,1,Garchomp,,,,,,,,,
-Gallade,78,teammate,2,Basculegion,,,,,,,,,
-Gallade,78,teammate,3,Primarina,,,,,,,,,
+Gallade,78,teammate,2,Primarina,,,,,,,,,
+Gallade,78,teammate,3,Basculegion,,,,,,,,,
 Gallade,78,teammate,4,Greninja,,,,,,,,,
 Gallade,78,teammate,5,Indeedee,,,,,,,,,
 Gallade,78,teammate,6,Golisopod,,,,,,,,,
@@ -29,8 +29,8 @@ Gallade,78,teammate,7,Blaziken,,,,,,,,,
 Gallade,78,teammate,8,Mimikyu,,,,,,,,,
 Gallade,78,teammate,9,Charizard,,,,,,,,,
 Gallade,78,teammate,10,Archaludon,,,,,,,,,
-Gallade,78,stat_alignment,1,Adamant,55.7%,Attack,Sp. Atk,,,,,,
-Gallade,78,stat_alignment,2,Jolly,40.9%,Speed,Sp. Atk,,,,,,
+Gallade,78,stat_alignment,1,Adamant,55.8%,Attack,Sp. Atk,,,,,,
+Gallade,78,stat_alignment,2,Jolly,40.8%,Speed,Sp. Atk,,,,,,
 Gallade,78,stat_alignment,3,Impish,1.1%,Defense,Sp. Atk,,,,,,
 Gallade,78,stat_alignment,4,Brave,0.7%,Attack,Speed,,,,,,
 Gallade,78,stat_alignment,5,Careful,0.5%,Sp. Def,Sp. Atk,,,,,,
@@ -39,11 +39,11 @@ Gallade,78,stat_alignment,7,Hasty,0.2%,Speed,Defense,,,,,,
 Gallade,78,stat_alignment,8,Naive,0.2%,Speed,Sp. Def,,,,,,
 Gallade,78,stat_alignment,9,Relaxed,0.2%,Defense,Speed,,,,,,
 Gallade,78,stat_alignment,10,Naughty,0.1%,Attack,Sp. Def,,,,,,
-Gallade,78,stat_points,1,,46.1%,,,2,32,0,0,0,32
+Gallade,78,stat_points,1,,46.0%,,,2,32,0,0,0,32
 Gallade,78,stat_points,2,,8.2%,,,0,32,2,0,0,32
 Gallade,78,stat_points,3,,7.0%,,,26,32,0,0,0,8
-Gallade,78,stat_points,4,,3.9%,,,32,25,9,0,0,0
-Gallade,78,stat_points,5,,3.9%,,,0,32,0,0,2,32
+Gallade,78,stat_points,4,,3.9%,,,0,32,0,0,2,32
+Gallade,78,stat_points,5,,3.9%,,,32,25,9,0,0,0
 Gallade,78,stat_points,6,,2.2%,,,6,32,0,0,0,28
 Gallade,78,stat_points,7,,1.6%,,,32,32,2,0,0,0
 Gallade,78,stat_points,8,,1.6%,,,0,32,0,0,0,32

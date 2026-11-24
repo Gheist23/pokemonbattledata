@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Polteageist,82,move,1,Shell Smash,98.9%,,,,,,,,
 Polteageist,82,move,2,Shadow Ball,79.1%,,,,,,,,
-Polteageist,82,move,3,Stored Power,75.5%,,,,,,,,
+Polteageist,82,move,3,Stored Power,75.4%,,,,,,,,
 Polteageist,82,move,4,Baton Pass,49.2%,,,,,,,,
 Polteageist,82,move,5,Giga Drain,41.5%,,,,,,,,
 Polteageist,82,move,6,Strength Sap,39.5%,,,,,,,,
 Polteageist,82,move,7,Substitute,3.1%,,,,,,,,
 Polteageist,82,move,8,Dark Pulse,2.4%,,,,,,,,
 Polteageist,82,move,9,Sucker Punch,2.0%,,,,,,,,
-Polteageist,82,move,10,Will-O-Wisp,1.8%,,,,,,,,
+Polteageist,82,move,10,Will-O-Wisp,1.9%,,,,,,,,
 Polteageist,82,held_item,1,White Herb,49.7%,,,,,,,,
-Polteageist,82,held_item,2,Focus Sash,48.2%,,,,,,,,
+Polteageist,82,held_item,2,Focus Sash,48.3%,,,,,,,,
 Polteageist,82,held_item,3,Sitrus Berry,0.4%,,,,,,,,
-Polteageist,82,held_item,4,Mental Herb,0.3%,,,,,,,,
-Polteageist,82,held_item,5,Leftovers,0.3%,,,,,,,,
+Polteageist,82,held_item,4,Leftovers,0.3%,,,,,,,,
+Polteageist,82,held_item,5,Mental Herb,0.3%,,,,,,,,
 Polteageist,82,held_item,6,Rocky Helmet,0.1%,,,,,,,,
-Polteageist,82,held_item,7,Lum Berry,0.1%,,,,,,,,
-Polteageist,82,held_item,8,Focus Band,0.1%,,,,,,,,
+Polteageist,82,held_item,7,Focus Band,0.1%,,,,,,,,
+Polteageist,82,held_item,8,Lum Berry,0.1%,,,,,,,,
 Polteageist,82,held_item,9,Spell Tag,0.1%,,,,,,,,
 Polteageist,82,held_item,10,Life Orb,0.1%,,,,,,,,
 Polteageist,82,teammate,1,Indeedee,,,,,,,,,
@@ -29,9 +29,9 @@ Polteageist,82,teammate,7,Lucario,,,,,,,,,
 Polteageist,82,teammate,8,Heracross,,,,,,,,,
 Polteageist,82,teammate,9,Gyarados,,,,,,,,,
 Polteageist,82,teammate,10,Archaludon,,,,,,,,,
-Polteageist,82,stat_alignment,1,Modest,36.9%,Sp. Atk,Attack,,,,,,
+Polteageist,82,stat_alignment,1,Modest,36.8%,Sp. Atk,Attack,,,,,,
 Polteageist,82,stat_alignment,2,Bold,32.1%,Defense,Attack,,,,,,
-Polteageist,82,stat_alignment,3,Timid,25.9%,Speed,Attack,,,,,,
+Polteageist,82,stat_alignment,3,Timid,26.0%,Speed,Attack,,,,,,
 Polteageist,82,stat_alignment,4,Calm,2.8%,Sp. Def,Attack,,,,,,
 Polteageist,82,stat_alignment,5,Mild,1.0%,Sp. Atk,Defense,,,,,,
 Polteageist,82,stat_alignment,6,Rash,0.3%,Sp. Atk,Sp. Def,,,,,,
@@ -39,8 +39,8 @@ Polteageist,82,stat_alignment,7,Relaxed,0.2%,Defense,Speed,,,,,,
 Polteageist,82,stat_alignment,8,Hasty,0.2%,Speed,Defense,,,,,,
 Polteageist,82,stat_alignment,9,Naive,0.1%,Speed,Sp. Def,,,,,,
 Polteageist,82,stat_alignment,10,Sassy,0.1%,Sp. Def,Speed,,,,,,
-Polteageist,82,stat_points,1,,38.1%,,,2,0,0,32,0,32
-Polteageist,82,stat_points,2,,11.2%,,,19,0,25,0,0,22
+Polteageist,82,stat_points,1,,38.2%,,,2,0,0,32,0,32
+Polteageist,82,stat_points,2,,11.1%,,,19,0,25,0,0,22
 Polteageist,82,stat_points,3,,2.9%,,,32,0,32,0,2,0
 Polteageist,82,stat_points,4,,2.6%,,,0,0,2,32,0,32
 Polteageist,82,stat_points,5,,2.5%,,,0,0,0,32,2,32
@@ -49,5 +49,5 @@ Polteageist,82,stat_points,7,,1.7%,,,0,0,0,32,0,32
 Polteageist,82,stat_points,8,,1.3%,,,32,0,12,0,0,22
 Polteageist,82,stat_points,9,,1.2%,,,32,0,2,0,0,32
 Polteageist,82,stat_points,10,,1.0%,,,32,0,32,0,0,2
-Polteageist,82,ability,1,Weak Armor,51.0%,,,,,,,,
-Polteageist,82,ability,2,Cursed Body,49.0%,,,,,,,,
+Polteageist,82,ability,1,Weak Armor,51.1%,,,,,,,,
+Polteageist,82,ability,2,Cursed Body,48.9%,,,,,,,,

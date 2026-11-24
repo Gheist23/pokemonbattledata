@@ -19,6 +19,15 @@ import { h, segmented, sprite, switchRow } from "./ui.js";
 const STATS = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
 /** The same six, spelled out: the short labels head the bars, these go in the sentence. */
 const STAT_WORDS = ["HP", "Attack", "Defense", "Special Attack", "Special Defense", "Speed"];
+/** The tail of each stat's colour token in styles.css (v52), in the same order. */
+const STAT_KEYS = ["hp", "atk", "def", "spa", "spd", "spe"];
+/**
+ * A stat's own colour, named at the use site instead of written out there, with the fill
+ * it replaces as the var() fallback. /styles.css is served with a four-hour browser
+ * cache, so this markup can reach a browser that still holds the stylesheet from before
+ * these colours existed; there the bar simply renders the way it used to.
+ */
+const statFill = (index, fallback) => `var(--bd-stat-${STAT_KEYS[index]}, ${fallback})`;
 const MAX_POINTS = MAX_BONUS_STAT_POINTS;
 const CHANGE_LIMIT = 8;
 
@@ -259,9 +268,13 @@ function pointsNote(result) {
  * bar per side (the same length both times when nothing was unspent, so the eye reads a
  * re-spend, not a gain), and the Nature with the stats it raises and lowers.
  *
+ * Colour says one thing and only one: which of the six stats a bar is. The six hues and
+ * the reason they are those six, in that order, are in styles.css (v52).
+ *
  * Nothing here colours a direction: less Speed for more bulk is a trade, not a loss.
- * Direction is carried by the stripe/hollow pattern, by ↑ ↓ and by the signed number, so
- * it survives one dark theme and a colour-blind reader. ▲ and ▼ stay the Nature's marks.
+ * Direction is carried by the stripe/hollow pattern, by ↑ ↓ and by the signed number, and
+ * every bar has its stat's name beside it, so none of this leans on colour: it survives a
+ * colour-blind reader and a greyscale print. ▲ and ▼ stay the Nature's marks.
  */
 function compareTable(result) {
   const { before, after } = result;
@@ -390,13 +403,18 @@ function shapeTable(before, after, shifts) {
     const now = after.stats[shift.index];
     const grew = now > was;
     const lost = now < was;
-    return h("div", { class: `bd-opt-srow ${shift.stat || shift.points ? "changed" : "same"}`, role: "row" },
+    const changed = Boolean(shift.stat || shift.points);
+    return h("div", { class: `bd-opt-srow ${changed ? "changed" : "same"}`, role: "row" },
       h("span", { class: "bd-opt-srow-stat", role: "rowheader" }, shift.label),
       h("span", { class: "bd-opt-track", role: "cell" },
-        // The solid bar is always the stat as it is now.
-        h("i", { class: "bd-opt-now", style: { width: pos(now) } }),
+        // The solid bar is always the stat as it is now, in that stat's own colour. The
+        // fallbacks are the two fills this replaces: the brighter one marked a row that
+        // changed, which the row's own background and its Change column say as well.
+        h("i", { class: "bd-opt-now", style: { width: pos(now), background: statFill(shift.index, changed ? "rgba(214, 240, 226, 0.78)" : "rgba(203, 227, 214, 0.42)") } }),
         grew ? h("i", { class: "bd-opt-gain", style: { left: pos(was), width: pos(now - was) } }) : null,
-        lost ? h("i", { class: "bd-opt-loss", style: { left: pos(now), width: pos(was - now) } }) : null),
+        // The outline of what it gave up is the same stat, so it is tinted to match. What
+        // makes it a loss is still the hollow and the dash, not the colour.
+        lost ? h("i", { class: "bd-opt-loss", style: { left: pos(now), width: pos(was - now), borderColor: statFill(shift.index, "rgba(214, 240, 226, 0.6)") } }) : null),
       h("span", { class: "bd-opt-vals", role: "cell" },
         h("b", {}, h("span", { class: "bd-opt-sp" }, String(after.bonuses[shift.index])), " · ", String(now), natureMark(after, shift.index)),
         h("small", {}, "was ", h("span", { class: "bd-opt-sp" }, String(before.bonuses[shift.index])), " · ", String(was), natureMark(before, shift.index))),
@@ -445,12 +463,20 @@ function budgetRow(label, side, cap) {
   STATS.forEach((stat, index) => {
     const points = side.bonuses[index];
     if (!points) return;
-    // The shade is the stat's own, the same on both bars, so a block that shrinks on one
-    // and grows on the other is the same block. It is one hue: no stat is "good".
+    // The colour is the stat's own -- the same one its bar wears above -- so a block that
+    // shrinks on one row and grows on the other is visibly the same stat, and the eye can
+    // carry a stat between the two charts. It still says only WHICH stat: none of the six
+    // is the "good" one. A stat that spends nothing draws no block, so any two of the six
+    // can end up side by side; what separates them is the 2px gap, the fixed stat order
+    // and the label, never the hue on its own.
     // A block narrower than about an eighth of the bar cannot hold its label legibly.
     const wide = points / cap >= 0.12;
-    track.append(h("i", { class: "bd-opt-budget-seg", style: { width: `${(points / cap) * 100}%`, "--i": String(index) }, title: `${stat}: ${pointWord(points)}` },
-      wide ? h("span", {}, `${stat} ${points}`) : null));
+    track.append(h("i", {
+      class: "bd-opt-budget-seg",
+      // --i stays: builder/optimize.css still reads it, and this background overrides it.
+      style: { width: `${(points / cap) * 100}%`, "--i": String(index), background: statFill(index, "rgba(214, 240, 226, 0.8)"), borderRightWidth: "2px" },
+      title: `${stat}: ${pointWord(points)}`,
+    }, wide ? h("span", { style: { color: "var(--bd-stat-ink, #04120a)" } }, `${stat} ${points}`) : null));
   });
   const unspent = MAX_POINTS - side.total;
   if (unspent > 0) track.append(h("i", { class: "bd-opt-budget-free", style: { width: `${(unspent / cap) * 100}%` }, title: `${pointWord(unspent)} not spent` }));

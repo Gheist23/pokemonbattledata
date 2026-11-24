@@ -9801,3 +9801,49 @@ a.answer-card:focus-visible {
     display: none;
   }
 }
+
+/* v52 Optimize stat bars: one colour per stat, so a stat looks the same everywhere in
+   the Optimize panel -- its bar in "Previously and now", and its block in the 66 Stat
+   Points bar underneath. Before this the bars were one pale mint for every stat and the
+   blocks were that mint stepped by 0.08 alpha per stat index, which is below what an eye
+   resolves: the only thing that told you which stat a bar was, was the label beside it.
+
+   Colour here means ONE thing: WHICH stat this is. It never means how big the stat is --
+   the bar's length already says that, on one scale shared by all six -- and it never
+   means whether the change was good, because less Speed for more bulk is a trade, not a
+   loss. Direction stays where it was: the striped gain tip, the hollow loss tip, the
+   arrow and the signed number, so the panel still reads with the colour taken away.
+
+   The six are the dataviz skill's documented dark categorical steps, and their ORDER is
+   not cosmetic -- it is what keeps two neighbouring bars apart for a colour-blind reader.
+   All 720 orderings were run through that skill's scripts/validate_palette.js against
+   this panel's real surface (#151d1f, the measured colour of the bar track); 28 pass, and
+   this is the one among them that also reads sensibly: HP green, the two defences cool
+   cousins (Def blue, SpD aqua), the two offences warm cousins (Atk magenta, SpA orange),
+   Speed yellow. Worst neighbouring pair ΔE 8.4 under protanopia, 19.8 in normal vision,
+   every step at least 3:1 against the track. Changing a hex, or swapping two of them
+   round, needs that validator run again -- the obvious mapping (Atk orange) is one of the
+   691 that fail, because orange next to HP's green is ΔE 1.4 to a deuteranope.
+
+   The six are deliberately NOT the --stat-bad/mid/good/great above, which colour a stat
+   by how big it is. That is the right encoding for a lone stat bar elsewhere on the site
+   and the wrong one here, where length is already the magnitude and the reader needs to
+   tell six stats apart instead.
+
+   --bd-stat-ink is the label printed inside a block of the 66 Stat Points bar: white on
+   all six. By APCA -- which the skill prefers where it and WCAG 2 disagree, as they do
+   here -- white scores Lc 63-72 on these fills against near-black's 38-47.
+
+   Used from builder/optimize-view.js, which names each token at the use site with the
+   colour it replaces as the var() fallback. /styles.css is served with a four-hour
+   browser cache, so the new markup can arrive at a browser still holding the old
+   stylesheet; when it does, the bars simply look the way they did before. */
+:root {
+  --bd-stat-hp: #0ca30c;
+  --bd-stat-atk: #d55181;
+  --bd-stat-def: #3987e5;
+  --bd-stat-spa: #d95926;
+  --bd-stat-spd: #199e70;
+  --bd-stat-spe: #c98500;
+  --bd-stat-ink: #ffffff;
+}

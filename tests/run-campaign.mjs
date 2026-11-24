@@ -324,20 +324,52 @@ function harness(campaign) {
 // --- 4. the link the video reads out -------------------------------------------------------
 
 const redirects = read("_redirects");
-// Both spellings, because a URL read out loud is typed without the slash as often as with it.
-for (const from of ["/giuseppe", "/giuseppe/"]) {
-  const rule = redirects.split(/\r?\n/).find((line) => line.trim().split(/\s+/)[0] === from);
-  ok(`${from} is a rule`, Boolean(rule), "nothing in _redirects matches it");
-  if (!rule) continue;
-  const [, to, status] = rule.trim().split(/\s+/);
-  same(`${from} goes straight into the Team Builder`, to, "/team-builder/?campaign=giuseppe");
+// DERIVED, NOT LISTED.  This used to assert the one rule `/giuseppe` ->
+// `?campaign=giuseppe` by name, which meant repointing the spoken URL at a new
+// campaign -- the thing the comment in _redirects says is exactly what happens --
+// turned this suite red for doing the right thing. Reading the rules back out of
+// the file instead makes it a stronger check, because it holds EVERY creator URL
+// to all of it, including ones added later, and it catches the failure the hand-
+// written version could not see: a URL in a video pointing at a campaign file
+// that is not there. That nearly shipped in October 2026.
+const campaignRules = redirects.split(/\r?\n/)
+  .map((line) => line.trim())
+  .filter((line) => line && !line.startsWith("#"))
+  .map((line) => line.split(/\s+/))
+  .filter(([, to]) => String(to || "").startsWith("/team-builder/?campaign="));
+ok("there is at least one creator URL", campaignRules.length > 0);
+
+const targeted = new Map(); // path without trailing slash -> code
+for (const [from, to, status] of campaignRules) {
+  const code = to.slice("/team-builder/?campaign=".length);
+  ok(`${from} names a campaign code`, /^[a-z0-9-]{2,32}$/.test(code), code);
   // 302, not 301: a permanent redirect is cached in the browser forever and a
   // campaign's destination is exactly what gets changed mid-flight.
   same(`${from} is a temporary redirect`, status, "302");
+  // THE AD MUST POINT AT SOMETHING. A rule whose campaign file is missing hands
+  // everybody who followed the link a plain Team Builder -- the deliberate
+  // fallback, but not what the video was paid for.
+  ok(`${from} points at a campaign file that exists`,
+    existsSync(join(campaignDir, `${code}.json`)), `data/campaigns/${code}.json`);
+  targeted.set(from.replace(/\/$/, ""), code);
 }
-// A directory would be served as an asset and shadow the rule.
-ok("no stale landing page shadows the redirect", !existsSync(join(root, "giuseppe")));
-ok("a campaign page is not in the sitemap", !read("sitemap.xml").includes("/giuseppe"));
+
+// Both spellings, because a URL read out loud is typed without the slash as often
+// as with it, and they must agree about where they go.
+for (const [bare, code] of targeted) {
+  for (const from of [bare, `${bare}/`]) {
+    const rule = campaignRules.find(([source]) => source === from);
+    ok(`${from} is a rule`, Boolean(rule), "nothing in _redirects matches it");
+    if (rule) same(`${from} goes to the same campaign as its other spelling`,
+      rule[1], `/team-builder/?campaign=${code}`);
+  }
+  // A directory would be served as an asset and shadow the rule.
+  ok(`no stale landing page shadows ${bare}`, !existsSync(join(root, bare.slice(1))));
+  // Both spellings, and anchored on the closing tag so `/giuseppe` does not
+  // report `/giuseppe-md` as a hit.
+  ok(`${bare} is not in the sitemap`,
+    !read("sitemap.xml").includes(`${bare}<`) && !read("sitemap.xml").includes(`${bare}/<`));
+}
 // The campaign file is edited after the link is already live.
 ok("the campaign files are served uncached", read("_headers").includes("/data/campaigns/*"));
 
@@ -394,14 +426,21 @@ for (const step of sent) ok(`the endpoint accepts the step "${step}" the site se
 // --- 7. the file is what the tool would write ----------------------------------------------
 
 const { execFileSync } = await import("node:child_process");
-let checkCode = 0;
-try {
-  execFileSync(process.execPath, [join(root, "tools", "build-campaign.mjs"), "giuseppe", "--check"], { cwd: root, stdio: "pipe" });
-} catch (error) {
-  checkCode = error.status ?? 1;
+// Every campaign file, not just the first one that was ever written: a second
+// collaboration whose pastes had never been through the tool was exactly the
+// shape of the October 2026 near-miss.
+for (const name of campaignFiles) {
+  const code = name.replace(/\.json$/, "");
+  let checkCode = 0;
+  try {
+    execFileSync(process.execPath, [join(root, "tools", "build-campaign.mjs"), code, "--check"],
+      { cwd: root, stdio: "pipe" });
+  } catch (error) {
+    checkCode = error.status ?? 1;
+  }
+  ok(`data/campaigns/${name} matches its own pastes (build-campaign.mjs --check)`, checkCode === 0,
+    `run node tools/build-campaign.mjs ${code}`);
 }
-ok("data/campaigns/giuseppe.json matches its own pastes (build-campaign.mjs --check)", checkCode === 0,
-  "run node tools/build-campaign.mjs giuseppe");
 
 // --- report --------------------------------------------------------------------------------
 

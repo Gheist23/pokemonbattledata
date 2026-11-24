@@ -55,10 +55,22 @@ export function watchPayload(state) {
     }));
 }
 
-/** Null when there is nothing to watch, so the caller can simply append it. */
-export function watchBlock(state, { onChange } = {}) {
+/**
+ * Null when there is nothing to watch, so the caller can simply append it.
+ *
+ * `regulation` is the ruleset a creator campaign's teams were built for, out of
+ * that campaign's own file -- "M-D", or "" for an ordinary visit. It changes only
+ * the sentence, and it is here because of what the October 2026 collaboration
+ * cost: 771 arrivals, and not one reachable afterwards, because this box did not
+ * exist yet. The next regulation is the single best moment to ask -- somebody who
+ * has just been handed five teams for a ruleset nobody has solved yet has an
+ * obvious reason to want to hear how it moves, and a generic "the meta moves
+ * every week" does not say that back to them.
+ */
+export function watchBlock(state, { onChange, regulation = "" } = {}) {
   const teams = watchPayload(state);
   if (!teams.length) return null;
+  const reg = String(regulation || "").trim().replace(/[^A-Za-z0-9-]/g, "").slice(0, 12);
 
   const saved = read();
   const format = state?.format === "Singles" ? "Singles" : "Doubles";
@@ -124,8 +136,14 @@ export function watchBlock(state, { onChange } = {}) {
 
   host.append(
     h("p", { class: "bd-watch-pitch" },
-      "The meta moves every week. Get a note when it moves against ",
-      h("strong", {}, teams.length === 1 ? "this team" : `your ${teams.length} teams`), "."),
+      ...(reg
+        // A new ruleset has no settled meta yet, which is the whole reason to ask
+        // to be told: the first week of ladder data is the answer nobody has.
+        ? [`Regulation ${reg} is new — nobody knows what wins yet. The ladder will, within a week. `,
+          "Get a note when it moves against ",
+          h("strong", {}, teams.length === 1 ? "this team" : `these ${teams.length} teams`), "."]
+        : ["The meta moves every week. Get a note when it moves against ",
+          h("strong", {}, teams.length === 1 ? "this team" : `your ${teams.length} teams`), "."])),
     h("div", { class: "bd-watch-row" }, input, button),
     h("p", { class: "bd-watch-small" },
       "One mail a week at most, only when something actually moved. We keep your address and the ",

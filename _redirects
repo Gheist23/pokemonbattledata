@@ -12,8 +12,25 @@
 #
 # 302 and not 301: a permanent redirect is cached by the browser forever, and a
 # campaign's destination is exactly the kind of thing that gets changed mid-flight.
-/giuseppe /team-builder/?campaign=giuseppe 302
-/giuseppe/ /team-builder/?campaign=giuseppe 302
+# That is not hypothetical -- the two rules below have been repointed once already.
+#
+# THE SPOKEN URL IS STABLE, THE CAMPAIGN CODE IS NOT.  /giuseppe is what gets read
+# out in a video and typed from memory months later, so it keeps pointing at the
+# creator's CURRENT teams: repointed 24 Nov 2026 from `giuseppe` (the Oct 2026
+# M-7 video, five teams that Regulation M-D makes stale) to `giuseppe-md`.  The
+# old video's description link therefore hands its late arrivals -- still a few a
+# day six weeks on -- teams that are legal, instead of teams that are not.
+#
+# The FUNNEL stays split, because it is keyed on the campaign code and not on the
+# URL: /api/campaign/giuseppe is still campaign one's 771 arrivals, untouched and
+# readable, while /api/campaign/giuseppe-md counts campaign two from zero.  That
+# separation is the whole reason the destination changed and the file did not.
+# data/campaigns/giuseppe.json stays on disk as the record of what shipped.
+/giuseppe /team-builder/?campaign=giuseppe-md 302
+/giuseppe/ /team-builder/?campaign=giuseppe-md 302
+# The explicit spelling too, in case the new video writes the longer one.
+/giuseppe-md /team-builder/?campaign=giuseppe-md 302
+/giuseppe-md/ /team-builder/?campaign=giuseppe-md 302
 
 # Old URLs from before the switch to Pokemon Showdown names (2026-09-14) are
 # generated below from tools/legacy-pokemon-names.json and the metadata, as

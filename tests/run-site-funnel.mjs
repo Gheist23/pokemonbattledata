@@ -125,8 +125,53 @@ const builder = read("builder", "builder-page.js");
 ok("the gate links to the plans page with its own origin",
   /plansUrl\(`gate-\$\{feature\}`\)/.test(builder));
 ok("the Solver's gate does too", /from=gate-solver/.test(read("builder", "solver-page.js")));
+// THE FUNCTION'S OWN BODY, not a character window after its name. The window
+// version of this check went red on 24 Nov 2026 for a comment being added above
+// the line it was looking for -- a guard that fails when the code is documented
+// is a guard that teaches people to delete it. Braces are counted instead, so the
+// checks below hold whatever is written around them.
+function bodyOf(source, signature) {
+  const start = source.indexOf(signature);
+  if (start < 0) return "";
+  let depth = 0;
+  for (let i = source.indexOf("{", start); i < source.length; i += 1) {
+    if (source[i] === "{") depth += 1;
+    else if (source[i] === "}") {
+      depth -= 1;
+      if (!depth) return source.slice(start, i + 1);
+    }
+  }
+  return "";
+}
+const plansUrlBody = bodyOf(builder, "function plansUrl(where)");
+ok("plansUrl is still there to read", Boolean(plansUrlBody));
 ok("plansUrl sanitises what it is given",
-  /function plansUrl\(where\)[\s\S]{0,260}replace\(\/\[\^a-z0-9-\]\/g, ""\)/.test(builder));
+  /replace\(\/\[\^a-z0-9-\]\/g, ""\)/.test(plansUrlBody));
+ok("...and bounds it, because the plans page only carries 40 characters of source",
+  /\.slice\(0, 40\)/.test(plansUrlBody));
+
+// WHICH CAMPAIGN PAID FOR THE VISITOR.
+//
+// Without this the October 2026 collaboration's sales were indistinguishable from organic ones:
+// the gate's label is `gate-evaluation` for everybody, and `sourceLabel()` on the plans page
+// falls back to the referrer's FIRST PATH SEGMENT -- `team-builder` whether the visitor came off
+// a video or off a Google result. Sixteen sales had to be argued from their dates instead, and
+// the same argument would have had to be made again for every future campaign.
+ok("plansUrl carries the campaign the visitor arrived on", /campaignOnScreen/.test(plansUrlBody));
+ok("the campaign is appended to the gate's own label, not instead of it",
+  /\[where, campaignOnScreen\]/.test(plansUrlBody));
+// The visitor id is the one thing that must never travel with a sale: it is in the clear on this
+// site by design, and the licence record it would land in holds an email address.
+ok("the visitor id does not travel to the plans page", !/visitorId/.test(plansUrlBody));
+
+// The longest label the gate can now build must survive both ends intact, or an attribution that
+// looks present is silently truncated into a different campaign's name.
+const longestLabel = `yearly-gate-tournament-${"giuseppe-md"}`;
+ok("the longest real label fits the plans page's 40 characters",
+  `gate-tournament-giuseppe-md`.length <= 40, String(`gate-tournament-giuseppe-md`.length));
+const webhookLimit = Number((/client_reference_id[\s\S]{0,200}\.slice\(0, (\d+)\)/.exec(webhook) || [])[1] || 0);
+ok("...and the whole reference fits the webhook's own limit",
+  webhookLimit >= longestLabel.length, `${longestLabel.length} > ${webhookLimit}`);
 // The nav is deliberately NOT tagged: with no ?from= the plans page falls back to the referrer's
 // first path segment, which says "pokemon" or "moves" instead of a flat "nav" -- a better answer
 // than the one a tag would have given.

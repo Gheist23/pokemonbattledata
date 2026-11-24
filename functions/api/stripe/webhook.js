@@ -3,9 +3,15 @@
 //
 //   checkout.session.completed      a new purchase: mint a key and email it
 //   invoice.paid                    a renewal: push the expiry out
+//   invoice.payment_failed          a declined card: mail the customer a way to fix it
 //   customer.subscription.deleted   cancelled: stop refreshing
 //   customer.subscription.updated   catches past_due / unpaid / resumed
 //   charge.refunded                 refunded: revoke immediately
+//
+// `invoice.payment_failed` MUST BE TICKED IN THE STRIPE DASHBOARD -- it was not,
+// and nothing failed to say so, which is how EUR 205 of invoices went uncollected
+// with nobody told. tests/run-licence-recovery.mjs holds the handler to existing;
+// only the dashboard can decide whether the event is ever sent.
 //
 // The signature is checked with Web Crypto rather than the stripe-node SDK:
 // the SDK pulls a large dependency into the Worker for what is one HMAC.
@@ -14,6 +20,7 @@ import {
   emailHash, getRecord, graceExpiry, json, mintToken,
   newLicenceKey, normaliseEmail, putRecord, subscriptionPeriodEnd,
 } from "../license/_lib.js";
+import { sendRecoveryEmail } from "../license/portal.js";
 
 const SIGNATURE_TOLERANCE_SECONDS = 300;
 
@@ -140,6 +147,15 @@ async function onCheckoutCompleted(env, session) {
   return { issued: record.key, mail };
 }
 
+/** The licence behind a subscription id, or null. Same `sub:` index
+ *  updateBySubscription uses, pulled out because the payment-failure branch needs
+ *  the record itself (an address to write to) rather than just somewhere to write. */
+async function recordForSubscription(env, subscriptionId) {
+  if (!subscriptionId) return null;
+  const key = await env.LICENSES.get(`sub:${subscriptionId}`);
+  return key ? getRecord(env, key) : null;
+}
+
 async function updateBySubscription(env, subscriptionId, changes) {
   const key = await env.LICENSES.get(`sub:${subscriptionId}`);
   if (!key) return { ignored: "unknown subscription" };
@@ -178,6 +194,33 @@ export async function onRequestPost({ request, env }) {
         const updatedEnd = subscriptionPeriodEnd(object);
         if (updatedEnd) changes.periodEnd = updatedEnd;
         return json(await updateBySubscription(env, object.id, changes));
+      }
+      // THE EVENT THAT WAS NOT LISTENED FOR, AND IT IS THE EXPENSIVE ONE.
+      //
+      // Measured on the live account 24 Nov 2026: EUR 205 invoiced and never collected against
+      // EUR 270 ever collected, and `payment_failed` is why 7 of 20 dead subscriptions died. In
+      // the cohort that came off the October creator video it was the ONLY cause -- 16 signups,
+      // 11 still paying, 4 killed by a declined card, not one cancellation and not one trial
+      // drop-out. Stripe retried nine times and gave up; nothing ever told the customer, and
+      // there was nowhere for them to go if it had.
+      //
+      // So the moment a charge fails, the person it failed for hears about it and gets a link
+      // straight into Stripe's billing portal (functions/api/license/portal.js).
+      case "invoice.payment_failed": {
+        const subscription = object.subscription
+          || object.parent?.subscription_details?.subscription || "";
+        const record = await recordForSubscription(env, subscription);
+        if (!record) return json({ ignored: "unknown subscription" });
+        // Stripe fires this on EVERY retry -- nine of them, over three to four weeks -- and nine
+        // identical mails is a spam complaint, not a recovery. One when it first fails, one more
+        // late in the dunning run in case the first was missed or filed as junk, and no others.
+        const attempt = Number(object.attempt_count) || 1;
+        const stage = attempt >= 5 ? "late" : "first";
+        const mailKey = `failmail:${object.id}:${stage}`;
+        if (await env.LICENSES.get(mailKey)) return json({ deduped: mailKey });
+        await env.LICENSES.put(mailKey, "1", { expirationTtl: 60 * 86400 });
+        const mail = await sendRecoveryEmail(env, record, { reason: "payment_failed" });
+        return json({ notified: stage, attempt, mail });
       }
       case "customer.subscription.deleted":
         return json(await updateBySubscription(env, object.id, { status: "cancelled" }));

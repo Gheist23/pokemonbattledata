@@ -23,21 +23,97 @@ import { basename, join } from "node:path";
 const USAGE_CATEGORIES = { move: "move", held_item: "held_item", ability: "ability" };
 const FORMATS = ["Doubles", "Singles"];
 
-// Ruleset terms the ladder data is published under. Included in the keyword
-// set of every generated page so the regulation queries resolve to the site.
+// THE RULESETS, IN ONE PLACE, BECAUSE A NEW ONE IS THE YEAR'S BIGGEST SEARCH SPIKE.
+//
+// A regulation change is the one moment every player's teams stop being legal at
+// once, and the ~2,700 generated pages are the surface that has to be carrying
+// the new term when the searches start. Until 24 Nov 2026 this was a hand-written
+// list and a hand-written sentence naming M-A, M-B and M-C, so the day a fourth
+// regulation landed the whole site would have been mute on the only phrase anybody
+// was typing, and nothing would have failed to say so.
+//
+// Two different jobs, which is why the shape below is not one list:
+//
+//   KEYWORDS name a regulation BEFORE it starts. A keyword is a search term, the
+//   searching starts while people are still guessing at the new rules, and
+//   indexing takes days it is not worth losing.
+//
+//   THE NOTE is a claim about the data, so it names only what the ladder has
+//   actually been played under. It is computed from the date at generation time,
+//   and the daily publish regenerates every page -- so the sentence takes the new
+//   regulation in by itself on the morning it starts, with nobody editing a file.
+//
+// Adding the next one: move the started regulation into REGULATIONS and put the
+// next in NEXT_REGULATION. tests/run-regulations.mjs fails if the two disagree
+// with the keyword set or the note.
+export const REGULATIONS = ["M-A", "M-B", "M-C"];
+
+/** The ruleset that has not started yet, and the day it does (`YYYY-MM-DD`, the
+ *  official start). Null when there is no announced next one. */
+export const NEXT_REGULATION = { name: "M-D", from: "2026-12-02" };
+
+/** Every regulation the ladder has actually been played under, as of `on`. */
+export function startedRegulations(on = new Date()) {
+  const names = [...REGULATIONS];
+  const from = NEXT_REGULATION && Date.parse(`${NEXT_REGULATION.from}T00:00:00Z`);
+  if (from && on.getTime() >= from) names.push(NEXT_REGULATION.name);
+  return names;
+}
+
+/** "A, B and C" -- the Oxford-less join an English sentence wants. */
+function andList(items) {
+  if (items.length <= 1) return items.join("");
+  return `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+}
+
 export const REGULATION_KEYWORDS = [
-  "Regulation M-A",
-  "Regulation M-B",
-  "Regulation M-C",
-  "Pokemon Champions Regulation M-A",
-  "Pokemon Champions Regulation M-B",
-  "Pokemon Champions Regulation M-C",
+  ...[...REGULATIONS, ...(NEXT_REGULATION ? [NEXT_REGULATION.name] : [])].flatMap((name) => [
+    `Regulation ${name}`,
+    `Pokemon Champions Regulation ${name}`,
+  ]),
   "Pokemon Champions regulations"
 ];
 
-const REGULATION_NOTE =
-  "Usage is collected from Pokemon Champions ranked ladder play across the current " +
-  "regulations (Regulation M-A, Regulation M-B and Regulation M-C).";
+export function regulationNote(on = new Date()) {
+  const names = startedRegulations(on).map((name) => `Regulation ${name}`);
+  return "Usage is collected from Pokemon Champions ranked ladder play across the current "
+    + `${names.length === 1 ? "regulation" : "regulations"} (${andList(names)}).`;
+}
+
+/** The regulation being played right now -- the one with the search demand. */
+export function currentRegulation(on = new Date()) {
+  const started = startedRegulations(on);
+  return started[started.length - 1];
+}
+
+/**
+ * The site-wide footer sentence, on every page including the ~2,700 generated ones.
+ *
+ * It names ONE regulation, not the list. The list was hand-written here until
+ * 24 Nov 2026 ("for Regulation M-A, Regulation M-B and Regulation M-C") and it was
+ * wrong three ways at once: it went stale the day a new ruleset landed, it grew by
+ * a clause every time one did, and the term it spent that space on was the OLDEST
+ * one rather than the one anybody is searching for. The page body keeps the full
+ * span in `regulationNote` -- that sentence is a claim about what the data covers,
+ * which does need all of them.
+ */
+export function regulationFooter(on = new Date()) {
+  return `Pokemon Champions ranked usage stats for Regulation ${currentRegulation(on)},`
+    + " rebuilt daily from ladder snapshots.";
+}
+
+/** Matches whichever version of the sentence above a page is currently carrying,
+ *  so the daily rebuild can bring an old one forward. Kept beside the writer: a
+ *  reader and a writer that disagree is the one way this silently stops working. */
+//  `[^<]*?` and not `[^,<]*`: the sentence being replaced is the OLD one, and the
+//  old one had commas in it ("for Regulation M-A, Regulation M-B and Regulation
+//  M-C"). Refusing commas matched only the new shape, so the rewrite would have
+//  been a no-op on every page that actually needed it. Excluding `<` keeps the
+//  match inside one element, so it can never swallow a page's markup.
+export const REGULATION_FOOTER_PATTERN =
+  /Pokemon Champions ranked usage stats(?: for Regulation [^<]*?)?, rebuilt daily from ladder snapshots\./g;
+
+const REGULATION_NOTE = regulationNote();
 
 // Team archetypes are derived from signal moves/abilities rather than being
 // hand-maintained, so a shifting meta keeps the pages accurate by itself.

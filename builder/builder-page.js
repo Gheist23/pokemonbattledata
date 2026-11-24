@@ -444,7 +444,7 @@ function renderLibrary() {
   renderLibraryList(listHost, teams);
   // Only ever non-null once a team has something in it (builder/watch.js), so a
   // first-time visitor with the placeholder team never sees an email box.
-  const watch = watchBlock(state, { onChange: renderLibrary });
+  const watch = watchBlock(state, { onChange: renderLibrary, regulation: campaignRegulation });
   clear(hosts.library).append(
     h("div", { class: "bd-panel-head" }, h("div", {}, h("h2", {}, "Teams"), h("p", {}, `${state.teams.length} saved`)),
       h("button", { type: "button", class: "primary-button compact", onclick: () => { newTeam(); view.tab = "overview"; } }, "New Team")),
@@ -902,9 +902,24 @@ async function addPokemonToBox() {
  * pro-tool/plans/index.html turns this into the `client_reference_id` on the Stripe link, and
  * the webhook stores it on the licence record -- so a sale can finally be traced to the gate,
  * the tab or the page that produced it. A label only, never anything that identifies a person.
+ *
+ * AND WHICH CAMPAIGN PAID FOR THE VISITOR, which is the half that was missing. The October 2026
+ * collaboration could never be attributed: the label said `gate-evaluation`, and so did every
+ * organic visitor's, because `sourceLabel()` on the plans page falls back to the REFERRER'S FIRST
+ * PATH SEGMENT -- `team-builder` either way. Sixteen sales in the sixteen days after the video had
+ * to be argued from their dates. A campaign the visitor arrived on is appended here, so the next
+ * one is answered by the licence record instead: `monthly-gate-evaluation-giuseppe-md`.
+ *
+ * It is still only a label. `campaignOnScreen` is a campaign code out of `_redirects` -- the same
+ * string for everybody who followed that link -- never the visitor id the funnel counter uses,
+ * which is deliberately kept out of anything that is stored next to an email address.
  */
 function plansUrl(where) {
-  const clean = String(where || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 40);
+  const parts = [where, campaignOnScreen].filter(Boolean).join("-");
+  // The whole label, then trimmed: `client_reference_id` is `<plan>-<source>` and the plans page
+  // allows 40 characters for the source, so the campaign is what gets cut if anything does. Both
+  // ends clean the same way, so a trim here can never produce a label the webhook rejects.
+  const clean = String(parts || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 40);
   // #planCards lands on the two plan buttons rather than at the top of a page of prose. Somebody
   // arriving from a gate has already decided to find out what it costs; making them read a hero
   // again to get to the button is an interstitial re-selling a decision they have made.
@@ -1050,7 +1065,7 @@ function openProDialog() {
     isPro() && summary
       ? h("div", {}, h("p", { class: "bd-confirm-text" }, `Pro is active (${summary.plan}). Renewed automatically while your subscription runs.`), h("p", { class: "bd-note" }, `Key ${summary.key} · valid until ${summary.expires.toLocaleDateString()}`), cancelLine())
       : h("div", {}, h("p", { class: "bd-confirm-text" }, "Enter the licence key from your purchase email. The same key unlocks Pro here and in the Companion app."), input, message),
-    h("p", { class: "bd-note" }, h("a", { href: plansUrl("pro-dialog") }, "See the plans"), " · ", h("a", { href: "/pro-tool/key/" }, "Lost your key?")));
+    h("p", { class: "bd-note" }, h("a", { href: plansUrl("pro-dialog") }, "See the plans"), " · ", h("a", { href: "/pro-tool/key/" }, "Lost your key or payment failed?")));
   const actions = isPro()
     ? [h("button", { type: "button", class: "ghost-button", onclick: () => { deactivate(); close(); renderAll(); } }, "Remove key from this browser"), h("span", { class: "bd-spacer" }), h("button", { type: "button", class: "primary-button", onclick: () => close() }, "Done")]
     : [h("span", { class: "bd-spacer" }), h("button", { type: "button", class: "ghost-button", onclick: () => close() }, "Cancel"), h("button", { type: "button", class: "primary-button", onclick: async (event) => {
@@ -2287,6 +2302,10 @@ function syncFormatSwitch() {
 // the banner can be counted as well. Not persisted: a campaign is one visit,
 // and a number that keeps counting a week later says nothing useful.
 let campaignOnScreen = "";
+// The ruleset that campaign's teams were built for, straight out of its own file
+// (`regulation` in data/campaigns/<code>.json). Only the meta-watch box reads it,
+// to ask for an address in the words that moment deserves -- see builder/watch.js.
+let campaignRegulation = "";
 /** Which tabs count as using a campaign's team, and the step each one sends. */
 const CAMPAIGN_TABS = { evaluation: "evaluation", auto: "autobuild" };
 const trackedTabs = new Set();
@@ -2359,6 +2378,7 @@ async function handleCampaignParam() {
   } else if (answer.loaded) {
     trackCampaign(code, "builder");
     campaignOnScreen = code;
+    campaignRegulation = String(answer.campaign?.regulation || "");
   }
   if (!answer.loaded) return;
   // The empty starting team would otherwise sit above the creator's five, which

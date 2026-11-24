@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Lost your Champions Battle Data Companion licence key? Enter the email you subscribed with and it will be sent again." />
+  <meta name="description" content="Lost your Champions Battle Data Companion licence key, or did a payment fail? Enter the email you subscribed with to have the key sent again or to update your payment method." />
   <meta name="robots" content="noindex, follow" />
   <meta name="theme-color" content="#050c08" />
   <link rel="canonical" href="https://championsbattledata.com/pro-tool/key/" />
-  <title>Resend your licence key - Champions Battle Data Companion</title>
+  <title>Licence key and billing help - Champions Battle Data Companion</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="stylesheet" href="/styles.css" />
@@ -63,6 +63,38 @@
         </form>
       </div>
 
+      <!-- THE PAYMENT PROBLEM, WHICH USED TO HAVE NO PAGE AT ALL.
+           Measured 24 Nov 2026: EUR 205 of invoices billed and never collected against EUR 270
+           ever collected, and a declined card is why 7 of 20 dead subscriptions died -- the ONLY
+           reason any of the creator-campaign cohort did. Those customers had not decided to
+           leave; they were locked out by a card and had nowhere on this site to fix it. -->
+      <div class="panel-heading" id="billing">
+        <div>
+          <p class="eyebrow eyebrow-pro">Pro</p>
+          <h2>Pro stopped working after a payment failed?</h2>
+          <p class="panel-sub">Nothing is lost. Your teams, your Box and your key all stay as they
+            are, and Pro starts working again as soon as a payment goes through.</p>
+        </div>
+      </div>
+
+      <div class="licence-card">
+        <form id="billingForm" novalidate>
+          <label class="licence-label" for="billingEmail">Email address</label>
+          <div class="licence-key-row">
+            <input class="licence-input" id="billingEmail" name="billingEmail" type="email"
+                   autocomplete="email" placeholder="you@example.com" required />
+            <button class="primary-button licence-copy" id="billingButton" type="submit">Send the link</button>
+          </div>
+          <p class="licence-state" id="billingMessage" hidden></p>
+          <p class="licence-plan">
+            The link goes to your inbox rather than opening here, so nobody but you can reach
+            your billing details. It takes you straight to Stripe, where you can switch card or
+            pay with PayPal, Klarna or Amazon Pay instead. A prepaid card that has run out is by
+            far the most common reason this happens.
+          </p>
+        </form>
+      </div>
+
       <div class="licence-notes">
         <h2>If that does not help</h2>
         <ul class="licence-note-list">
@@ -76,7 +108,7 @@
   </main>
 
   <footer class="site-footer section-shell" aria-label="Site notice">
-    <p>Pokemon Champions ranked usage stats for Regulation M-A, Regulation M-B and Regulation M-C, rebuilt daily from ladder snapshots.</p>
+    <p>Pokemon Champions ranked usage stats for Regulation M-C, rebuilt daily from ladder snapshots.</p>
     <p>This fan-made project is not affiliated with, endorsed by, or sponsored by Pokemon, Nintendo, Game Freak, or Creatures Inc. <a href="/license.html">License</a>.</p>
   </footer>
 
@@ -116,6 +148,45 @@
         }).then(function () {
           button.disabled = false;
           button.textContent = "Send it";
+        });
+      });
+
+      // The billing-recovery form. Same shape, same privacy answer, different endpoint:
+      // /api/license/portal mails a link that opens Stripe's billing portal.
+      var billingForm = document.getElementById("billingForm");
+      var billingField = document.getElementById("billingEmail");
+      var billingButton = document.getElementById("billingButton");
+      var billingMessage = document.getElementById("billingMessage");
+
+      function sayBilling(text, tone) {
+        billingMessage.textContent = text;
+        billingMessage.hidden = false;
+        billingMessage.dataset.tone = tone || "";
+      }
+
+      billingForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var email = billingField.value.trim();
+        if (!email || email.indexOf("@") < 1) {
+          sayBilling("That does not look like an email address.", "bad");
+          return;
+        }
+        billingButton.disabled = true;
+        billingButton.textContent = "Sending";
+        fetch("/api/license/portal", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ email: email })
+        }).then(function (response) {
+          return response.json().catch(function () { return {}; });
+        }).then(function (data) {
+          sayBilling(data.message ||
+            "If that address has a subscription, a link to update the payment method is on its way.", "ok");
+        }).catch(function () {
+          sayBilling("Could not reach the server. Try again in a moment, or ask in the Discord.", "bad");
+        }).then(function () {
+          billingButton.disabled = false;
+          billingButton.textContent = "Send the link";
         });
       });
     })();

@@ -66,7 +66,28 @@ export async function onRequestPost({ request, env }) {
     record = refreshed;
   }
   if (!ACTIVE.has(record.status)) {
-    return json({ error: `This licence is ${record.status}.`, status: record.status }, 403);
+    // A ROUTE OUT, NOT JUST A STATUS WORD.
+    //
+    // This used to answer `This licence is past_due.` and stop there, which is
+    // what a paying customer saw the moment a card expired: a tool that stopped
+    // working, one word of explanation and nowhere to go. Measured 24 Nov 2026,
+    // `payment_failed` is the reason 7 of 20 dead subscriptions died and the ONLY
+    // reason any of the creator-campaign cohort did -- nobody in it chose to
+    // leave. So a recoverable status now says it is recoverable and says where.
+    const recoverable = record.status === "past_due" || record.status === "unpaid"
+      || record.status === "incomplete" || record.status === "incomplete_expired";
+    return json({
+      error: recoverable
+        ? "Your last payment did not go through, so Pro is on hold rather than cancelled. "
+          + "Update the payment method and it starts working again straight away."
+        : `This licence is ${record.status}.`,
+      status: record.status,
+      recoverable,
+      // Both halves: a link for a human, and the endpoint that mails them one if
+      // they would rather not type an address into a dialog.
+      recover: recoverable ? "https://championsbattledata.com/pro-tool/key/" : "",
+      recoverApi: recoverable ? "/api/license/portal" : "",
+    }, 403);
   }
 
   const expires = graceExpiry(record.periodEnd);

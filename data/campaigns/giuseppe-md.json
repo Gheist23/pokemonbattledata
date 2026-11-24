@@ -1,0 +1,48 @@
+{
+  "code": "giuseppe-md",
+  "howToFill": "Paste each team's Showdown export into teams[].showdown, give it a title and a one-line note, then run: node tools/build-campaign.mjs giuseppe-md . Check it is publication-ready with: node tools/build-campaign.mjs giuseppe-md --ready . championsbattledata.com/giuseppe redirects straight into the Team Builder (_redirects) and builder/campaign-teams.js reads this file there. The tool fills in each team's members, and that list is the proof every paste resolved.",
+  "creator": {
+    "name": "PokeGiuseppe",
+    "url": "https://www.youtube.com/@PokeGiuseppe"
+  },
+  "video": {
+    "title": "The 5 Best Teams in Pokemon Champions",
+    "url": ""
+  },
+  "format": "Doubles",
+  "regulation": "M-D",
+  "season": "M-8",
+  "generatedAt": "2026-11-24T09:57:54.184Z",
+  "teams": [
+    {
+      "title": "Team 1",
+      "note": "",
+      "showdown": "",
+      "members": []
+    },
+    {
+      "title": "Team 2",
+      "note": "",
+      "showdown": "",
+      "members": []
+    },
+    {
+      "title": "Team 3",
+      "note": "",
+      "showdown": "",
+      "members": []
+    },
+    {
+      "title": "Team 4",
+      "note": "",
+      "showdown": "",
+      "members": []
+    },
+    {
+      "title": "Team 5",
+      "note": "",
+      "showdown": "",
+      "members": []
+    }
+  ]
+}

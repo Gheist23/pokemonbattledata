@@ -1,6 +1,8 @@
 import { closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, readSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { basename, extname, join, relative, sep } from "node:path";
-import { writeSeoPages, REGULATION_KEYWORDS } from "./seo-pages.mjs";
+import {
+  writeSeoPages, REGULATION_KEYWORDS, REGULATION_FOOTER_PATTERN, regulationFooter,
+} from "./seo-pages.mjs";
 import { isArchivedSeason } from "./archived-seasons.mjs";
 import { writePokemonSets } from "./pokemon-sets.mjs";
 import { writeBuilderMeta, parseCSV } from "./builder-meta.mjs";
@@ -1626,6 +1628,83 @@ function pokemonStaticContent(page) {
   </section>`;
 }
 
+/**
+ * BRING THE HAND-WRITTEN PAGES' FOOTER FORWARD TO THE CURRENT REGULATION.
+ *
+ * The ~2,700 generated pages take their footer from index.html, which this runs
+ * before, so fixing the hand-written ones fixes everything. There are ten of
+ * them -- the home page, the four tools, /play/, 404 and the three Companion
+ * pages -- and each carried its own copy of a sentence naming the rulesets by
+ * hand. On 24 Nov 2026 all ten still said "Regulation M-A, Regulation M-B and
+ * Regulation M-C" with Regulation M-D eight days out, and nothing anywhere would
+ * have failed when it landed; the whole site would simply have gone on naming
+ * three obsolete rulesets and not the one being played.
+ *
+ * So it is computed and re-applied on every build. The daily publish runs this,
+ * which means the morning a regulation starts the entire site says so without
+ * anybody editing a file. Found by PATTERN and not by a list of paths, so a page
+ * added later is picked up rather than quietly left behind.
+ *
+ * TWO PASSES, AND THE REASON IS AN ORDERING TRAP I WALKED INTO.  The first pass
+ * fixes index.html alone, BEFORE generation, because it is the template every
+ * generated page is built from -- a stale template propagates the stale sentence
+ * to 2,700 pages no matter what is done afterwards.  The second runs AFTER
+ * generation and sweeps whatever is left, which is only the hand-written pages,
+ * because the generated ones already came out of the corrected template.
+ *
+ * The first version of this skipped directories it ASSUMED were generated, and
+ * `meta/` turned out to hold a hand-written index: one page out of 2,709 kept the
+ * obsolete sentence and the only reason I know is that I counted. Nothing is
+ * assumed now -- the sweep reads every page and writes the ones that disagree.
+ */
+function syncRegulationFooters({ templateOnly = false } = {}) {
+  const want = regulationFooter();
+  const changed = [];
+  const rewrite = (path) => {
+    const before = readFileSync(path, "utf8");
+    let after = before.replace(REGULATION_FOOTER_PATTERN, want);
+    // AND THE KEYWORDS, which on a hand-written page are hand-written too. The
+    // home page -- the largest single surface on the site -- listed M-A, M-B and
+    // M-C and would have gone into a new regulation naming none of it.
+    //
+    // APPEND-ONLY, deliberately: stripping and re-emitting the regulation terms
+    // would also rewrite the 2,700 generated pages, whose keywords the generator
+    // composes itself, and the two would then overwrite each other on every build
+    // and churn the whole tree in git for ever. Adding only what is missing is a
+    // no-op on a page that is already right.
+    after = after.replace(/(<meta name="keywords" content=")([^"]*)(")/, (all, open, content, close) => {
+      if (!/Regulation /.test(content)) return all; // not a page that lists them
+      const missing = REGULATION_KEYWORDS.filter((keyword) => !content.includes(keyword));
+      return missing.length ? `${open}${content}, ${missing.join(", ")}${close}` : all;
+    });
+    if (after === before) return;
+    writeFileSync(path, after);
+    changed.push(relative(cwd, path));
+  };
+  if (templateOnly) {
+    rewrite(join(cwd, "index.html"));
+    return changed;
+  }
+  // Only what cannot hold a page: no list of page directories, because that list
+  // is exactly what was wrong before.
+  const skip = new Set([
+    "node_modules", ".git", ".wrangler", ".claude", "tests", "data", "builder",
+    "pokemon_champions_assets",
+  ]);
+  const walk = (dir, depth) => {
+    if (depth > 4) return;
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.isDirectory()) {
+        if (!skip.has(entry.name)) walk(join(dir, entry.name), depth + 1);
+      } else if (entry.name.endsWith(".html")) {
+        rewrite(join(dir, entry.name));
+      }
+    }
+  };
+  walk(cwd, 1);
+  return changed;
+}
+
 function basePageHtml({ title, description, keywords, canonicalUrl, jsonLd, staticContent, pokemonSlug = "" }) {
   const template = readFileSync(join(cwd, "index.html"), "utf8");
   let html = template
@@ -2067,6 +2146,10 @@ writeApiData(manifest);
 const effectDescriptionCounts = writeEffectDescriptions();
 writeMetaTrends(pokemon);
 const builderMetaCount = writeBuilderMeta({ cwd, parseCSV, generatedAt });
+// Before writePokemonPages(): every generated page is built from index.html as a
+// template, so the footer has to be current in the template first. The rest of the
+// hand-written pages are swept after generation, once the template has propagated.
+syncRegulationFooters({ templateOnly: true });
 writePokemonPages(pokemonPages);
 writeTopicPages(topicPages);
 
@@ -2118,7 +2201,10 @@ const sitemapCount = writeSitemap(pokemonPages, topicPages, generatedAt, seo.url
 
 console.log(`Generated data/pokemon-index.json with ${pokemon.length} Pokemon, ${pokemonPages.length} profile page(s), and ${topicPages.length} topic page(s).`);
 console.log(`Generated ${seo.counts.total} SEO page(s): ${seo.counts.moves} move, ${seo.counts.items} item, ${seo.counts.abilities} ability, plus per-Pokemon, comparison, team, meta and ranking pages.`);
+const regulationFooterUpdates = syncRegulationFooters();
 console.log(`Sitemap lists ${sitemapCount} URL(s).`);
+console.log(`Footer: ${regulationFooter()}`);
+console.log(`  ${regulationFooterUpdates.length} hand-written page(s) brought forward${regulationFooterUpdates.length ? `: ${regulationFooterUpdates.join(", ")}` : ""}`);
 console.log(`data/api/rankings.json published, and every season now carries its own battleSummary.`);
 console.log(`_redirects: ${seo.counts.legacyRedirects} old-name and ${seo.counts.redirects} reverse-comparison rule(s); ${seo.counts.staticRedirects} static (limit 2000), ${seo.counts.dynamicRedirects} dynamic (limit 100).`);
 console.log(`Builder meta covers ${builderMetaCount} ranked Pokemon across both formats.`);

@@ -2,6 +2,8 @@
 //
 //   node tools/build-campaign.mjs giuseppe
 //   node tools/build-campaign.mjs giuseppe --check     (changes nothing; exits 1 if stale)
+//   node tools/build-campaign.mjs giuseppe --ready     (changes nothing; exits 1 unless every
+//                                                       team is pasted, resolved and six strong)
 //
 // Paste each team into data/campaigns/<code>.json under teams[].showdown, give
 // it a title, and run this. It resolves every paste through the SAME reader the
@@ -28,6 +30,13 @@ const root = join(here, "..");
 
 const args = process.argv.slice(2);
 const check = args.includes("--check");
+// --ready is the question nobody could ask before the video went live in October
+// 2026: not "is this file consistent" but "is there anything in it at all".  The
+// campaign file was committed EMPTY, the URL was already in the creator's script,
+// and for two days /giuseppe handed everybody who followed it a plain Team
+// Builder.  --check was green throughout, because an empty file is a consistent
+// one.  Run this before the link is read out, not after.
+const ready = args.includes("--ready");
 const code = (args.find((value) => !value.startsWith("-")) || "").toLowerCase().replace(/[^a-z0-9-]/g, "");
 if (!code) {
   console.error("Usage: node tools/build-campaign.mjs <code> [--check]");
@@ -83,6 +92,33 @@ const next = `${JSON.stringify(campaign, null, 2)}\n`;
 const current = readFileSync(file, "utf8");
 // Everything but the stamp, so --check does not fail merely because time passed.
 const withoutStamp = (text) => text.replace(/"generatedAt":\s*"[^"]*"/, '"generatedAt": ""');
+
+if (ready) {
+  // Nothing is written: this only reports. It re-resolves every paste above, so
+  // a team that stopped resolving since the last run shows up here too.
+  const empty = teams.filter((team) => !String(team?.showdown || "").trim());
+  const unresolved = teams.filter((team) => String(team?.showdown || "").trim()
+    && !(Array.isArray(team.members) && team.members.length));
+  const short = teams.filter((team) => (team.members || []).length
+    && (team.members || []).length < 6);
+  const stale = withoutStamp(current) !== withoutStamp(next);
+  console.log(`${code}: ${filled} of ${teams.length} team(s) ready`);
+  for (const problem of problems) console.error(`  ${problem}`);
+  for (const team of empty) console.error(`  EMPTY       "${team.title || "untitled"}" has no paste`);
+  for (const team of unresolved) console.error(`  UNRESOLVED  "${team.title || "untitled"}" has a paste that resolved to nothing`);
+  for (const team of short) {
+    console.error(`  SHORT       "${team.title}" has ${team.members.length} Pokemon, not 6`
+      + ` -- ${team.members.map((member) => member.name).join(", ")}`);
+  }
+  if (stale) console.error(`  STALE       run node tools/build-campaign.mjs ${code} first`);
+  const bad = problems.length + empty.length + unresolved.length + short.length + (stale ? 1 : 0);
+  if (bad) {
+    console.error(`\nNOT READY: ${code} must not be read out on air yet.`);
+    process.exit(1);
+  }
+  console.log(`READY: championsbattledata.com is safe to read out for ${code}.`);
+  process.exit(0);
+}
 
 if (check) {
   const stale = withoutStamp(current) !== withoutStamp(next);

@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Orthworm,111,move,1,Shed Tail,83.5%,,,,,,,,
 Orthworm,111,move,2,Body Press,79.2%,,,,,,,,
-Orthworm,111,move,3,Stealth Rock,57.4%,,,,,,,,
+Orthworm,111,move,3,Stealth Rock,57.5%,,,,,,,,
 Orthworm,111,move,4,Iron Defense,44.3%,,,,,,,,
 Orthworm,111,move,5,Heavy Slam,37.0%,,,,,,,,
 Orthworm,111,move,6,Metal Burst,35.4%,,,,,,,,
@@ -11,8 +11,8 @@ Orthworm,111,move,9,Iron Head,8.9%,,,,,,,,
 Orthworm,111,move,10,Earthquake,8.4%,,,,,,,,
 Orthworm,111,held_item,1,Sitrus Berry,74.9%,,,,,,,,
 Orthworm,111,held_item,2,Leftovers,7.7%,,,,,,,,
-Orthworm,111,held_item,3,Rocky Helmet,7.6%,,,,,,,,
-Orthworm,111,held_item,4,Focus Sash,3.1%,,,,,,,,
+Orthworm,111,held_item,3,Rocky Helmet,7.7%,,,,,,,,
+Orthworm,111,held_item,4,Focus Sash,3.0%,,,,,,,,
 Orthworm,111,held_item,5,Chesto Berry,1.7%,,,,,,,,
 Orthworm,111,held_item,6,Occa Berry,1.4%,,,,,,,,
 Orthworm,111,held_item,7,Choice Scarf,1.1%,,,,,,,,
@@ -33,7 +33,7 @@ Orthworm,111,stat_alignment,1,Impish,47.8%,Defense,Sp. Atk,,,,,,
 Orthworm,111,stat_alignment,2,Relaxed,23.6%,Defense,Speed,,,,,,
 Orthworm,111,stat_alignment,3,Sassy,10.8%,Sp. Def,Speed,,,,,,
 Orthworm,111,stat_alignment,4,Bold,7.1%,Defense,Attack,,,,,,
-Orthworm,111,stat_alignment,5,Careful,6.1%,Sp. Def,Sp. Atk,,,,,,
+Orthworm,111,stat_alignment,5,Careful,6.2%,Sp. Def,Sp. Atk,,,,,,
 Orthworm,111,stat_alignment,6,Jolly,1.5%,Speed,Sp. Atk,,,,,,
 Orthworm,111,stat_alignment,7,Adamant,1.0%,Attack,Sp. Atk,,,,,,
 Orthworm,111,stat_alignment,8,Calm,0.8%,Sp. Def,Attack,,,,,,
@@ -48,6 +48,6 @@ Orthworm,111,stat_points,6,,3.4%,,,31,0,32,0,3,0
 Orthworm,111,stat_points,7,,2.7%,,,32,2,32,0,0,0
 Orthworm,111,stat_points,8,,2.7%,,,31,0,15,0,17,3
 Orthworm,111,stat_points,9,,2.2%,,,32,0,32,0,0,0
-Orthworm,111,stat_points,10,,1.7%,,,32,0,25,0,0,9
+Orthworm,111,stat_points,10,,1.8%,,,32,0,25,0,0,9
 Orthworm,111,ability,1,Earth Eater,99.5%,,,,,,,,
 Orthworm,111,ability,2,Sand Veil,0.5%,,,,,,,,

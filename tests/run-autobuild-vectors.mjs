@@ -241,7 +241,12 @@ for (const testCase of cases) {
   // unconditionally when these were recorded, so they replay under that. V557 withholds
   // part of it from a team hedging between two speed plans; tests/run-speed-plan.mjs is the
   // only suite that exercises it ON, and asserts this flag is still here.
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, statProfileRule: 0, fieldDependencyRule: 0, speedPlanRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  // ...and `fieldSetterRule: 0`: a chosen weather or terrain archetype did not yet ask for
+  // the Ability rather than the move when these were recorded. V558 adds a CRITICAL
+  // requirement, which is precisely what Auto Build ranks on, so with the rule on 147 of
+  // these 2,599 comparisons move. tests/run-field-setters.mjs exercises it ON and asserts
+  // this flag is still here.
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, statProfileRule: 0, fieldDependencyRule: 0, speedPlanRule: 0, fieldSetterRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;

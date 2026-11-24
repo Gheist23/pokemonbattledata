@@ -307,7 +307,11 @@ for (const testCase of cases) {
   // unconditionally when these were recorded, so they replay under that. V557 withholds
   // part of it from a team hedging between two speed plans; tests/run-speed-plan.mjs is the
   // only suite that exercises it ON, and asserts this flag is still here.
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, duplicateMegaRule: 0, statProfileRule: 0, fieldDependencyRule: 0, speedPlanRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  // ...and `fieldSetterRule: 0`, for the same reason as the Auto Build vectors: a chosen
+  // weather or terrain archetype did not yet demand the Ability when these were recorded.
+  // Suggestions reads the same `archetypeRequirements`, so 484 of these 5,430 comparisons
+  // move with the rule on -- it is NOT an Auto-Build-only rule, which is easy to assume.
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, duplicateMegaRule: 0, statProfileRule: 0, fieldDependencyRule: 0, speedPlanRule: 0, fieldSetterRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   // Derived from the recording, not named here: the Top-X the site replays must be the Top-X the
   // app recorded, in its order. Everything below is measured against that list, so when a live

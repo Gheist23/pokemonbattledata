@@ -131,6 +131,12 @@ check("rule off: no new check has a verdict function",
   V514_NEW_IDS.every((id) => listOff.checkFor(id) === undefined || !listOff.baseIds.includes(id)));
 
 const listOn = new TeamChecks({ engine, format: "Doubles" });
+// V559 always adds "mega" to a selection, because the Mega Options row is always emitted and
+// `snapshot()` scores only selected ids -- so the row was shown in red and priced at zero. The
+// SELECTION MAPPING below is a recorded parity fixture of the app's answers from before that
+// rule, so it is replayed against a TeamChecks with the rule off, the way every other recorded
+// suite here replays. What the rule DOES is then asserted separately, as the exact delta.
+const listPre = new TeamChecks({ engine, format: "Doubles", megaExclusivityRule: 0 });
 same("rule on: the twelve ids plus Archetype", [...PRE_V514_IDS, ...V514_NEW_IDS], listOn.allCheckIds());
 check("rule on: the new label", listOn.labels.defensive_switch_ins === "Shared Weakness");
 for (const [id, label, description] of V514_CHECKS) {
@@ -153,11 +159,11 @@ for (const [id, [label, description]] of Object.entries(V514_RELABELLED)) {
 //
 // A default the app also grants: `selectedIds(null)` is everything, including the new rows,
 // which is how a user who never opened Customize gets them.
-check("nothing saved means every check", listOn.selectedIds(null).size === listOn.allCheckIds().length);
+check("nothing saved means every check", listPre.selectedIds(null).size === listPre.allCheckIds().length);
 check("and that includes the three new rows",
   V514_NEW_IDS.every((id) => listOn.selectedIds(null).has(id)));
 // The saved nine keep working through the rename (the id never moved)...
-const saved = listOn.selectedIds(PRE_V514_IDS.slice(1));
+const saved = listPre.selectedIds(PRE_V514_IDS.slice(1));
 check("a saved selection with the old id still enables the row", saved.has("defensive_switch_ins"));
 // ...and gain nothing.
 same("a saved selection is taken literally: nothing is added to it",
@@ -169,7 +175,7 @@ check("an explicit empty selection stays empty", listOn.selectedIds([]).size ===
 check("and an empty saved string too", listOn.selectedIds("").size === 0);
 // A saved list that names some new rows and not others round-trips exactly.
 same("turning one new check on and another off sticks",
-  ["coverage_gaps", "speed_control"], [...listOn.selectedIds(["speed_control", "coverage_gaps"])].sort());
+  ["coverage_gaps", "speed_control"], [...listPre.selectedIds(["speed_control", "coverage_gaps"])].sort());
 // D12: the id never moved, so the pre-V201 name still maps forward to it.
 check("the pre-V201 id shared_weaknesses still maps to defensive_switch_ins",
   listOn.selectedIds(["shared_weaknesses"]).has("defensive_switch_ins"));
@@ -189,9 +195,21 @@ for (const row of fixture.selection_matrix) {
   // which is exactly why the app had to be the one to change.
   const want = [...(row.resolves.length === 1 && row.resolves[0] === fixture.catalogue_marker
     ? listOn.allCheckIds() : row.resolves)].sort();
-  const got = [...listOn.selectedIds(row.stored === null ? null : row.stored)].sort();
+  const got = [...listPre.selectedIds(row.stored === null ? null : row.stored)].sort();
   same(`the selection matrix: ${row.name}`, want, got);
+  // V559, over the same eleven shapes: the answer is the recorded one plus "mega", and
+  // nothing else moves. An empty selection is the one shape that stays empty, because the
+  // page has a row for "no Team Building Checks are enabled" and it has to stay reachable.
+  const live = [...listOn.selectedIds(row.stored === null ? null : row.stored)].sort();
+  same(`V559 adds one id and only one: ${row.name}`,
+    got.length ? [...new Set([...got, "mega"])].sort() : [], live);
 }
+check("so the live default is one larger than the Customize list",
+  listOn.selectedIds(null).size === listOn.allCheckIds().length + 1,
+  `${listOn.selectedIds(null).size} vs ${listOn.allCheckIds().length}`);
+check("and Customize itself is not given a new row",
+  listOn.checkList().length === listPre.checkList().length
+  && !listOn.checkList().some((c) => c.id === "mega"), String(listOn.checkList().length));
 
 // --- THE RENDERING CONTRACT: which parts of a row the player actually reads ----------
 // Both suites capture the ARGUMENTS handed to row() and never the assembled string, so a port

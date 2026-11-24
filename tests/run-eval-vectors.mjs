@@ -225,6 +225,9 @@ for (const testCase of cases) {
   // above replay the rules each recording was made under.
   const settings = { ...testCase.settings, threat_usage_floor: Number(testCase.settings?.threat_usage_floor) || 0 };
   // ...and `speedAbilityRule: 0`: no Ability counted as Speed control, for the same reason.
+  // ...and `megaExclusivityRule: 0`, for the same reason: no recording carries a
+  // `mega_exclusivity` stamp, so every one of them was made while Suggestions would hand a
+  // team a third Mega Stone and the Mega Options check was invisible to the checks layer.
   // ...and `fieldDependencyRule: 0`: no recording carries a `field_dependency` stamp, so every
   // one of them was made before a field was worth what it switches on. tests/run-field-dependency.mjs
   // is the only suite that exercises the rule ON.
@@ -232,7 +235,7 @@ for (const testCase of cases) {
   // unconditionally when these were recorded, so they replay under that. V557 withholds
   // part of it from a team hedging between two speed plans; tests/run-speed-plan.mjs is the
   // only suite that exercises it ON, and asserts this flag is still here.
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { speedAbilityRule: 0, fieldDependencyRule: 0, speedPlanRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { speedAbilityRule: 0, fieldDependencyRule: 0, megaExclusivityRule: 0, speedPlanRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   // The app's meta rows carry their raw battle-data rows; build the site's meta
   // records from exactly those, so data freshness cannot hide a logic difference.
   const metaRows = testCase.record.meta[0]?.rows || [];

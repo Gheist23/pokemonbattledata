@@ -78,18 +78,6 @@
 .bd-sg-impact li.red > span:last-child { color: #ffab9c; }
 .bd-sg-impact li.good > span:last-child { color: var(--text); }
 .bd-sg-impact li.neutral > span:last-child { color: var(--muted); }
-.bd-sg-more {
-  justify-self: start;
-  padding: 0.15rem 0.5rem;
-  border: 1px solid var(--bd-line);
-  border-radius: 6px;
-  color: var(--bd-good);
-  background: transparent;
-  font-size: 0.74rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-.bd-sg-more:hover, .bd-sg-more:focus-visible { border-color: var(--bd-line-strong); }
 
 .bd-sg-checks { display: grid; gap: 0.35rem; margin: 0; padding: 0; list-style: none; }
 .bd-sg-checks li { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 0.45rem; font-size: 0.78rem; }

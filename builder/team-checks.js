@@ -13,6 +13,7 @@
 
 import { compact } from "./engine.js";
 import { selfKo } from "./self-cost.js";
+import { megaExclusivityOn } from "./mega-exclusivity.js";
 
 export const ARCHETYPE_CHECK_ID = "archetype_fit";
 
@@ -750,6 +751,8 @@ export class TeamChecks {
     // and no evaluator, and the `??` default is what makes Customize show the new rows.
     this.rules = teamCheckRulesOption(evaluator?.checkRules ?? TEAM_CHECK_RULES);
     this.speedAbilityRule = speedAbilityRuleOption(evaluator?.speedAbilityRule);
+    // V559: whether the Mega Options check is one the scoring layers can see. See `selectedIds`.
+    this.megaExclusivityRule = megaExclusivityOn(evaluator);
     const baseRows = (tables._SIMPLE_CHECKS_V187 || []).map(([id, label, description]) =>
       (this.rules && V514_RELABELLED[id] ? [id, V514_RELABELLED[id][0], V514_RELABELLED[id][1]] : [id, label, description]));
     const known = new Set(baseRows.map(([id]) => id));
@@ -827,7 +830,22 @@ export class TeamChecks {
    *  same person's Companion and browser disagreed about their own settings, and a user who
    *  had turned everything off got three checks back. */
   selectedIds(raw) {
-    if (raw === undefined || raw === null) return new Set(this.allCheckIds());
+    // V559: "mega" is always selected, because the Mega Options row is always emitted.
+    //
+    // `rows()` splices `megaRow(team)` in at position 1 whatever the selection is, but "mega"
+    // is in neither `allCheckIds()` nor `checkList()` -- it cannot be selected and was never
+    // selected by default. `snapshot()` counts pressure, warnings and reds over
+    // `selected.has(rowId(r))` ONLY, so the Mega Options check contributed exactly zero to the
+    // checks component that `checkAdjust` scores a suggestion with: of the two layers that
+    // price a check movement, only V418's `checks_new` (which reads the raw row lists) ever saw
+    // a team go from two Megas to three. Measured: `allCheckIds()` is 13 ids, none of them
+    // "mega", and `selectedIds(["mega"])` could not select it either.
+    //
+    // It is not added to `checkList()`: the row is structural -- one Mega happens per battle
+    // whatever the builder wants -- so it is not a check to switch off, and Customize is left
+    // exactly as it was.
+    const always = this.megaExclusivityRule ? ["mega"] : [];
+    if (raw === undefined || raw === null) return new Set([...this.allCheckIds(), ...always]);
     const values = typeof raw === "string" ? raw.split(",").map((v) => v.trim()).filter(Boolean) : [...raw];
     const selected = new Set();
     for (const value of values) {
@@ -836,6 +854,9 @@ export class TeamChecks {
       for (const mapped of this.oldMap[k] || []) if (this.baseIds.includes(mapped)) selected.add(mapped);
     }
     if (values.includes(ARCHETYPE_CHECK_ID)) selected.add(ARCHETYPE_CHECK_ID);
+    // Only onto a selection that is not empty: "no checks are enabled" has to stay reachable,
+    // or the `checks_disabled` row below could never be shown again.
+    if (selected.size) for (const id of always) selected.add(id);
     return selected;
   }
 

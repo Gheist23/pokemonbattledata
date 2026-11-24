@@ -15,6 +15,7 @@
 
 import { compact, pyFixed } from "./engine.js";
 import { fieldDependencyOn, fieldMember, teamAdjustment } from "./field-dependency.js";
+import { megaExclusivityOn, megaMember, teamAdjustment as megaTeamAdjustment } from "./mega-exclusivity.js";
 
 const TYPES = ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"];
 
@@ -605,11 +606,37 @@ export class TeamSynergy {
       // rule off.
       score = clamp(round(score, 1) + Number(field.adjustment || 0));
     }
+    // V559: one Mega happens, so a stone the team cannot use is a dead item. The Mega Options
+    // check has said "red" for three stones since V418, but the SCORE said nothing -- a
+    // three-Mega team was credited its third Mega's profile in full. Charged at V402's own
+    // HARD_GRADE, the grade it gives an Ability that cannot work. A team at or under
+    // MAX_STONES is untouched, so no existing team moves unless it really carries a third.
+    //
+    // AFTER V556 and on the same already-rounded score, because on the app this is a wrapper
+    // standing OUTSIDE V556's wrapper over the same five `_team_synergy` aliases.
+    let megaWaste = null;
+    if (megaExclusivityOn(this.ev)) {
+      const engine = this.ev?.engine;
+      megaWaste = megaTeamAdjustment(profiles.map((p) => {
+        let stone = false;
+        try {
+          stone = Boolean(p.item && engine && engine.isMegaStone(p.item));
+        } catch {
+          stone = false;
+        }
+        return megaMember(p.name, stone, p.item);
+      }));
+      if (megaWaste.adjustment) score = clamp(round(score, 1) + Number(megaWaste.adjustment));
+    }
     const first = (better) => pairs.reduce((pick, pair) => (pick === null || better(Number(pair.score), Number(pick.score)) ? pair : pick), null);
     return {
       score: round(score, 1), version: 465, pair_count: pairs.length, pairs,
       ...(field ? { field_dependencies: field.dependencies, field_dependency_v556: {
         support: field.support, stranded: field.stranded, adjustment: field.adjustment,
+      } } : {}),
+      ...(megaWaste ? { mega_exclusivity_v559: {
+        stones: megaWaste.stones, dead: megaWaste.dead, broken: megaWaste.broken,
+        adjustment: megaWaste.adjustment,
       } } : {}),
       members: profiles.map((p) => String(p.name || "Pokemon")),
       interaction_count: pairs.reduce((s, pair) => s + pair.interaction_count, 0),
@@ -624,6 +651,10 @@ export class TeamSynergy {
           field_support_bonus: field.support,
           unsupported_field_ability_penalty: field.stranded,
           field_dependency_v556: field.adjustment,
+        } : {}),
+        ...(megaWaste && megaWaste.adjustment ? {
+          mega_exclusivity_waste_penalty: megaWaste.adjustment,
+          mega_stones_held: megaWaste.stones,
         } : {}),
       },
       profiles,

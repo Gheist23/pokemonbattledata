@@ -403,7 +403,7 @@ export class TeamEvaluator {
    *   All four are on in production; a run recorded before one of them replays with it off.
    */
   constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES, selfCost = SELF_COST, koLabel = KO_LABEL_ON, chargeKo = CHARGE_KO_ON, speedAbilityRule = undefined, duplicateMegaRule = undefined, statProfileRule = undefined, fieldDependencyRule = undefined, speedPlanRule = undefined,
-    fieldSetterRule = undefined } = {}) {
+    fieldSetterRule = undefined, megaExclusivityRule = undefined } = {}) {
     this.pairedSpreads = pairedOption(pairedSpreads);
     this.scoreRules = scoreRulesOption(scoreRules);
     // V514 Team Building Checks. TeamChecks reads it off the evaluator, so nothing
@@ -425,6 +425,10 @@ export class TeamEvaluator {
     // evaluator by TeamSynergy and TeamSuggestions. Every recorded vector predates it, so those
     // suites pass 0; absent means production (on).
     this.fieldDependencyRule = fieldDependencyRule;
+    // V559: one Mega happens, so a Mega Stone the team cannot use is a dead item -- the
+    // Suggestions refusal and the Synergy charge. Read off the evaluator by TeamSynergy and
+    // TeamSuggestions. Every recorded vector predates it, so those suites pass 0.
+    this.megaExclusivityRule = megaExclusivityRule;
     // V549: whether a Mega already on the team is kept out of its own candidate list. See
     // `TeamSuggestions.candidates`. Absent means production (on); a recorded replay sends 0.
     this.duplicateMegaRule = duplicateMegaRule;

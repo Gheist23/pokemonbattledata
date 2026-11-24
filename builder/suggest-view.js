@@ -38,7 +38,10 @@ import { h, segmented, sprite } from "./ui.js";
 
 const METRICS = [["synergy", "Synergy", "Syn"], ["offense", "Offense", "Off"], ["defense", "Defense", "Def"], ["speed", "Speed", "Spe"], ["archetype", "Archetype", "Arch"]];
 const IMPACT_ORDER = { good: 0, yellow: 1, red: 2, neutral: 3 };
-const IMPACT_LIMIT = 7;
+// "Why it fits" shows every reason. It used to show the first 7 behind a "Show all N" /
+// "Show fewer" button, which hid the warnings: the sort puts good first, so the reasons a
+// reader most needs -- the "!" lines -- were the ones below the fold. The row is already
+// inside a <details>, so the reader has opened it on purpose.
 const STATUS = { good: "Good", yellow: "Needs Attention", red: "Problem" };
 const STAT_SHORT = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
 
@@ -206,11 +209,9 @@ function section(title, ...children) {
 }
 
 function breakdown(row, helpers, result) {
-  const { ui } = helpers;
   const { text: named } = namers(helpers);
   const names = rowNames(row);
   const text = (value) => named(value, names);
-  const key = String(row.key || row.action);
   const projected = row.projected && !row.projected.error ? row.projected : null;
   const waiting = !row.projected && result?.checking;
   const body = h("div", { class: "bd-sg-body" });
@@ -252,23 +253,10 @@ function breakdown(row, helpers, result) {
   const impacts = (row.details || []).map((text, i) => [String(text), severities[String(text).toLowerCase()] || "neutral", i])
     .sort((a, b) => (IMPACT_ORDER[a[1]] ?? 3) - (IMPACT_ORDER[b[1]] ?? 3) || a[2] - b[2]);
   if (impacts.length) {
-    const showAll = Boolean(ui?.all?.has(key));
-    const list = h("ul", { class: "bd-sg-impact" }, (showAll ? impacts : impacts.slice(0, IMPACT_LIMIT)).map(([reason, sev]) => h("li", { class: sev },
+    const list = h("ul", { class: "bd-sg-impact" }, impacts.map(([reason, sev]) => h("li", { class: sev },
       h("span", { class: `bd-sg-badge ${sev}`, "aria-hidden": "true" }, sev === "good" ? "✓" : sev === "neutral" ? "i" : "!"),
       h("span", {}, text(reason)))));
-    const more = impacts.length > IMPACT_LIMIT ? h("button", {
-      type: "button",
-      class: "bd-sg-more",
-      onclick: (event) => {
-        event.preventDefault();
-        if (!ui?.all) return;
-        if (showAll) ui.all.delete(key);
-        else ui.all.add(key);
-        const row2 = event.currentTarget.closest(".bd-sg-row");
-        row2?.replaceWith(suggestionRow(row, helpers, result));
-      },
-    }, showAll ? "Show fewer" : `Show all ${impacts.length}`) : null;
-    body.append(section("Why it fits", list, more));
+    body.append(section("Why it fits", list));
   }
 
   // 3. Team Building Checks whose status changes, then archetype requirements.

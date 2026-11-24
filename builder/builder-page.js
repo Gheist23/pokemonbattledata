@@ -82,7 +82,7 @@ const view = {
   suggestScope: "all",
   suggestRequest: 0,
   suggestKey: "",
-  suggestUi: { open: new Set(), all: new Set() },
+  suggestUi: { open: new Set() },
   suggestHost: null,
   optimize: {},
   auto: { running: false, stopping: false, requestId: 0, fraction: 0, status: "", result: null, error: "", keep: true, onlyBox: false, depth: "deep", archetype: "automatic", prioritizeMeta: false },
@@ -190,7 +190,13 @@ function openEvaluationSettings() {
   }, {
     maxTopMeta: metaCount() || 262,
     onCustomizeChecks: openCustomizeChecks,
-    checksSummary: () => `${checks.selectedIds(checkSelection()).size} of ${total} in use`,
+    // Counted over the Customize list, not over the whole selected set: V559 always selects
+    // "mega", which is not a row in that list, and this read "14 of 13 in use".
+    checksSummary: () => {
+      const selected = checks.selectedIds(checkSelection());
+      const listed = checks.checkList().filter((row) => selected.has(row.id)).length;
+      return `${listed} of ${total} in use`;
+    },
   });
 }
 
@@ -1483,7 +1489,7 @@ async function runSuggestions() {
   const onlyBox = view.suggestScope === "box" && boxSets.length > 0;
   Object.assign(view, {
     suggesting: true, suggestError: "", suggestProgress: 0, suggestStatus: "Evaluating the current team…",
-    suggestions: null, suggestUi: { open: new Set(), all: new Set() }, suggestRequest: 0, suggestKey: evaluationKey(),
+    suggestions: null, suggestUi: { open: new Set() }, suggestRequest: 0, suggestKey: evaluationKey(),
   });
   renderMain();
   let id = 0;

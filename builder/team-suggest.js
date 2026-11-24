@@ -45,6 +45,7 @@ import {
 // candidate spreads and the pairing here cannot drift apart; re-exported for its old callers.
 export { spreadPointsForNature } from "./nature-spreads.js";
 import { diversityOption, selectDiverse, SUGGESTION_DIVERSITY } from "./suggest-diversity.js";
+import { megaExclusivityOn, refusesRow as megaRefusesRow } from "./mega-exclusivity.js";
 export { SUGGESTION_DIVERSITY, perTargetCap, selectDiverse } from "./suggest-diversity.js";
 
 const TEAM_SIZE = 6;
@@ -2239,6 +2240,12 @@ export class TeamSuggestions {
     for (const text of (row.details || []).map((v) => String(v).trim()).filter(Boolean)) {
       const low = text.toLowerCase();
       if (low.startsWith("improves team building checks:") || low.startsWith("tradeoff: may introduce")) continue;
+      // V559: and the "Worsens" line too, which V433 forgot. V418 writes one from the raw
+      // check text (truncated at 96 characters, so it ends in an ellipsis) and V433 writes its
+      // own from the status transitions; V433's filter dropped the "Improves" duplicate and not
+      // this one, so every row with a worsened check showed BOTH lines. Only ever visible with
+      // "Why it fits" showing more than seven reasons, which it now always does.
+      if (megaExclusivityOn(this.ev) && low.startsWith("worsens team building checks:")) continue;
       if (low.startsWith("adds direct speed control") || low.startsWith("adds priority")) continue;
       if (low.startsWith("replaces ") && low.includes("review any role unique")) continue;
       if (row.action_kind === "swap" && (low.startsWith("adds type-based counterplay") || low.startsWith("adds safer switch options") || low.startsWith("tradeoff: shares existing"))) continue;
@@ -2997,6 +3004,27 @@ export class TeamSuggestions {
       }
     }
     if (!row) return null;
+    // V559: one Mega happens, so this is not offered at a target that would leave the team
+    // over MAX_STONES. The builder already refuses it twice -- `analysis.js`'s beam search
+    // ("two stones is flexibility, three is waste") and `team-autobuild.js`'s MAX_MEGA_STONES
+    // filter -- and Suggestions was the one place that did not.
+    //
+    // Refusing the ROW and not the candidate: `run()` evaluates every target for a candidate
+    // and keeps its best, so a Mega candidate is still offered, at a target that frees a stone.
+    // On the owner's sand six that turns "Swap Corviknight -> Dragonite-Mega" (three stones)
+    // into the row the breakdown itself pointed at, "replacing Salamence-Mega starts level".
+    //
+    // `!auto` on purpose: Auto Build has its own handling (a soft filter here, and the app's
+    // `_v494_trim_excess_mega_stones` on the finished team), and a hard refusal on that path
+    // could starve a slot whose whole candidate list holds stones. It is checked BEFORE V494
+    // renames the row, so `rowIsStone` reads the item rather than a resolved Mega name.
+    if (!auto && megaExclusivityOn(this.ev)) {
+      const [refused, why] = megaRefusesRow(this.ev?.engine, row, context.teamEntries, context.swapTarget);
+      if (refused) {
+        row.mega_exclusivity_refused_v559 = why;
+        return null;
+      }
+    }
     // V494: a Mega Stone candidate is named as its Mega.
     const species = String(meta.base_name || meta.pokemon || meta.name || "");
     const [form, ability] = this.megaIdentity(this.ev.baseSpeciesFromDisplay(species), row.item, row.ability);

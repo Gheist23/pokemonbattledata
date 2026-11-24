@@ -234,6 +234,9 @@ for (const testCase of cases) {
   // stamp, so every one of them was made before a candidate's own stats and the team's stat
   // shape were priced. tests/run-stat-profile.mjs asserts this flag is still here, and is the
   // only suite that exercises the rule ON.
+  // ...and `megaExclusivityRule: 0`, for the same reason: no recording carries a
+  // `mega_exclusivity` stamp, so every one of them was made while Suggestions would hand a
+  // team a third Mega Stone and the Mega Options check was invisible to the checks layer.
   // ...and `fieldDependencyRule: 0`: no recording carries a `field_dependency` stamp, so every
   // one of them was made before a field was worth what it switches on. tests/run-field-dependency.mjs
   // is the only suite that exercises the rule ON.
@@ -246,7 +249,7 @@ for (const testCase of cases) {
   // requirement, which is precisely what Auto Build ranks on, so with the rule on 147 of
   // these 2,599 comparisons move. tests/run-field-setters.mjs exercises it ON and asserts
   // this flag is still here.
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, statProfileRule: 0, fieldDependencyRule: 0, speedPlanRule: 0, fieldSetterRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, statProfileRule: 0, fieldDependencyRule: 0, megaExclusivityRule: 0, speedPlanRule: 0, fieldSetterRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;

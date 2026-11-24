@@ -394,10 +394,20 @@ if (quick) {
       `${synOff.delta} ${synOn.delta} ${rowOn.field_dependency_term_v556}`);
   }
   // A swap that strands nothing is charged nothing, measured on the same team.
-  const innocent = rowFor(undefined, "Corviknight", "Dragonite");
+  //
+  // At the Mega slot and not at Corviknight's, which is where this used to be measured: V559
+  // refuses Dragonite-Mega for Corviknight outright, because that is the swap that would leave
+  // the team carrying three Mega Stones. Replacing a stone with a stone keeps the count, so
+  // this row still exists -- and it strands nothing either way, Corviknight's Psychic Seed
+  // being a dead item on a Flying-type whatever happens to the rest of the team.
+  const innocent = rowFor(undefined, "Salamence-Mega", "Dragonite");
   ok("a swap that strands nothing is charged nothing",
     Boolean(innocent) && !innocent.field_dependency_term_v556,
     String(innocent && innocent.field_dependency_term_v556));
+  // ...and the row V559 now refuses is refused with this rule on too, so the two rules are
+  // measured together rather than each in a world where the other is off.
+  ok("the three-stone row is gone and this suite says so",
+    rowFor(undefined, "Corviknight", "Dragonite") === null);
 }
 
 for (const line of notes) console.log(line);

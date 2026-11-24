@@ -31,6 +31,20 @@
 # The explicit spelling too, in case the new video writes the longer one.
 /giuseppe-md /team-builder/?campaign=giuseppe-md 302
 /giuseppe-md/ /team-builder/?campaign=giuseppe-md 302
+#
+# THE SHORT GETS ITS OWN URL, which is the only way to find out what a short is
+# worth. The long video and the short go out the same day (5 Dec 2026, 10:00 and
+# 13:00 Eastern) and show the SAME five teams, so `giuseppe-s` carries no pastes
+# of its own: data/campaigns/giuseppe-s.json names giuseppe-md in `teamsFrom` and
+# builder/campaign-teams.js borrows them. One set of pastes, two funnels --
+# /api/campaign/giuseppe-s against /api/campaign/giuseppe-md -- and no pair of
+# files that can drift apart the day a team is corrected.
+#
+# This link is also going in the creator's bio on every platform, which is a
+# standing placement rather than a one-day spike, so its tail is the thing worth
+# watching after the first week.
+/giuseppe-s /team-builder/?campaign=giuseppe-s 302
+/giuseppe-s/ /team-builder/?campaign=giuseppe-s 302
 
 # Old URLs from before the switch to Pokemon Showdown names (2026-09-14) are
 # generated below from tools/legacy-pokemon-names.json and the metadata, as

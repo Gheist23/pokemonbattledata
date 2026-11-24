@@ -52,6 +52,28 @@ try {
   process.exit(2);
 }
 
+// A campaign that borrows another's teams (`teamsFrom`, see
+// builder/campaign-teams.js) has no pastes of its own, so "is it ready to be read
+// out on air" is a question about the file it points at. Without this, the short's
+// link would report NOT READY for ever while being perfectly fine.
+const borrowFrom = String(campaign.teamsFrom || "").toLowerCase().replace(/[^a-z0-9-]/g, "");
+if (borrowFrom && borrowFrom !== code) {
+  if (!ready) {
+    // Nothing to fill in and nothing that can go stale: its teams live elsewhere.
+    console.log(`${code}: borrows its teams from ${borrowFrom}, nothing to build here.`);
+    process.exit(0);
+  }
+  const { execFileSync } = await import("node:child_process");
+  console.log(`${code}: borrows its teams from ${borrowFrom}, checking that instead.`);
+  try {
+    execFileSync(process.execPath, [join(here, "build-campaign.mjs"), borrowFrom, "--ready"],
+      { cwd: root, stdio: "inherit" });
+  } catch (error) {
+    process.exit(error.status ?? 1);
+  }
+  process.exit(0);
+}
+
 const data = new BuilderData(JSON.parse(readFileSync(join(root, "data", "builder", "app-data.json"), "utf8")));
 
 const problems = [];

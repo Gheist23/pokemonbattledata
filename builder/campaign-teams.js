@@ -81,11 +81,46 @@ export async function installCampaignTeams(code, deps, { force = false, only = 0
   // so a reload does not re-add the whole set, not to refuse a second team.
   if (!force && !only && alreadyLoaded(clean)) return { ...empty, skipped: "seen" };
 
+  const fetchCampaign = deps.fetchCampaign || loadCampaign;
   let campaign;
   try {
-    campaign = await (deps.fetchCampaign || loadCampaign)(clean);
+    campaign = await fetchCampaign(clean);
   } catch {
     return empty;
+  }
+
+  // TWO LINKS, ONE SET OF TEAMS (`teamsFrom`).
+  //
+  // A creator's long video and their short go out on the same day and show the
+  // same five teams, but each needs its OWN URL or there is no way to tell which
+  // one brought anybody -- which is the whole reason the second one is being paid
+  // for separately. Copying the pastes into a second file would mean two files to
+  // keep in step and a silent drift the day one of them is corrected, so the
+  // second file carries no pastes at all and names the first instead.
+  //
+  // The identity stays with the arriving code (its own creator, its own video,
+  // its own funnel under /api/campaign/<code>); only the teams are borrowed.
+  let teamsCode = clean;
+  const borrowFrom = cleanCampaignCode(campaign?.teamsFrom);
+  if (borrowFrom && borrowFrom !== clean) {
+    teamsCode = borrowFrom;
+    // Rule 2 holds ACROSS the pair: somebody who watched the video and then the
+    // short must not be handed the same five teams twice. The seen-check is on
+    // the teams, not on the link.
+    if (!force && !only && alreadyLoaded(borrowFrom)) {
+      remember(clean);
+      return { ...empty, campaign, skipped: "seen" };
+    }
+    try {
+      const source = await fetchCampaign(borrowFrom);
+      // Own fields win -- this campaign's creator, video and code are its own --
+      // and the teams come from the file that actually holds the pastes.
+      campaign = { ...source, ...campaign, teams: source?.teams };
+    } catch {
+      // The borrowed file is missing or unreadable: the Team Builder still opens,
+      // which is rule 3. One link being broken may not break the other.
+      return empty;
+    }
   }
 
   const teams = Array.isArray(campaign?.teams) ? campaign.teams : [];
@@ -120,6 +155,11 @@ export async function installCampaignTeams(code, deps, { force = false, only = 0
 
   // The video's first team is what is open when the page settles.
   if (first && deps.select) deps.select(first);
-  if (titles.length) remember(clean);
+  // Both: the link, so this URL short-circuits next time, and the teams, so the
+  // other link that shares them does too.
+  if (titles.length) {
+    remember(clean);
+    if (teamsCode !== clean) remember(teamsCode);
+  }
   return { loaded: titles.length, titles, campaign };
 }

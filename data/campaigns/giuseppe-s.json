@@ -1,0 +1,18 @@
+{
+  "code": "giuseppe-s",
+  "howToFill": "NOTHING TO FILL IN. This campaign shows the teams from giuseppe-md: teamsFrom names that file, builder/campaign-teams.js reads it, and the pastes live in one place so the two links can never drift apart. It exists only so the SHORT has a URL of its own and a funnel of its own, read at /api/campaign/giuseppe-s. Edit the teams in data/campaigns/giuseppe-md.json.",
+  "creator": {
+    "name": "PokeGiuseppe",
+    "url": "https://www.youtube.com/@PokeGiuseppe"
+  },
+  "video": {
+    "title": "The 5 Best Teams in Pokemon Champions (short)",
+    "url": ""
+  },
+  "teamsFrom": "giuseppe-md",
+  "format": "Doubles",
+  "regulation": "M-D",
+  "season": "M-8",
+  "generatedAt": "2026-11-24T16:30:24.972Z",
+  "teams": []
+}

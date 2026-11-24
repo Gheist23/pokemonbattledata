@@ -321,6 +321,110 @@ function harness(campaign) {
   same("an unnamed format is left alone", formats, []);
 }
 
+// --- 3b. TWO LINKS, ONE SET OF TEAMS (`teamsFrom`) -----------------------------------------
+//
+// The long video and the short go out the same day showing the same five teams, and each needs
+// its own URL or there is no way to tell which one brought anybody -- which is the whole reason
+// the short is paid for separately. The second file therefore carries no pastes and names the
+// first in `teamsFrom`, so there is exactly one place a team is written and no pair of files
+// that can drift apart the day one is corrected.
+{
+  const store = new Map();
+  globalThis.localStorage = {
+    getItem: (key) => (store.has(key) ? store.get(key) : null),
+    setItem: (key, value) => store.set(key, String(value)),
+    removeItem: (key) => store.delete(key),
+  };
+  const library = {
+    long: { code: "long", format: "Doubles", regulation: "M-D", creator: { name: "Creator" },
+      teams: [{ title: "One", showdown: PASTE_ONE }, { title: "Two", showdown: PASTE_TWO }] },
+    short: { code: "short", format: "Doubles", creator: { name: "Creator" },
+      video: { title: "the short" }, teamsFrom: "long", teams: [] },
+    orphan: { code: "orphan", format: "Doubles", creator: { name: "Creator" },
+      teamsFrom: "missing", teams: [] },
+    selfref: { code: "selfref", format: "Doubles", creator: { name: "Creator" },
+      teamsFrom: "selfref", teams: [{ title: "Own", showdown: PASTE_ONE }] },
+  };
+  const rig = () => {
+    const added = [];
+    const asked = [];
+    return { added, asked, deps: {
+      parse: (text) => parseShowdown(text, data),
+      add: (sets, title) => { const team = { id: `t${added.length + 1}`, title }; added.push(team); return team; },
+      fetchCampaign: async (code) => {
+        asked.push(code);
+        if (!library[code]) throw new Error("404");
+        return JSON.parse(JSON.stringify(library[code]));
+      },
+    } };
+  };
+  try {
+    const viaShort = rig();
+    const answer = await installCampaignTeams("short", viaShort.deps);
+    same("the short installs the teams it borrows", answer.loaded, 2);
+    same("...by reading both files", viaShort.asked, ["short", "long"]);
+    // Its OWN identity, or the funnel and the credit belong to the wrong campaign.
+    same("...while keeping its own code", answer.campaign.code, "short");
+    same("...and its own video", answer.campaign.video.title, "the short");
+    // Inherited from the file that holds the teams, so the watch box still knows
+    // which regulation they were built for.
+    same("...and inherits the regulation of the teams", answer.campaign.regulation, "M-D");
+
+    // THE INVARIANT THAT MATTERS: somebody who watched the video and then the short
+    // is one person who has already been given these five teams.
+    const thenLong = rig();
+    const second = await installCampaignTeams("long", thenLong.deps);
+    same("the long video then adds nothing", second.loaded, 0);
+    same("...and says why", second.skipped, "seen");
+    same("...having added no team", thenLong.added.length, 0);
+
+    // ...and the other way round.
+    store.clear();
+    const viaLong = rig();
+    same("the long video installs", (await installCampaignTeams("long", viaLong.deps)).loaded, 2);
+    const thenShort = rig();
+    const back = await installCampaignTeams("short", thenShort.deps);
+    same("the short then adds nothing", back.loaded, 0);
+    same("...and says why", back.skipped, "seen");
+    // It still had to open its own file to learn whose teams they are, but it must
+    // NOT have fetched the teams again.
+    ok("...without fetching the borrowed teams", !thenShort.asked.includes("long"),
+      thenShort.asked.join(","));
+
+    // Rule 3: one broken link may not break the other, or the page.
+    store.clear();
+    const broken = rig();
+    const nothing = await installCampaignTeams("orphan", broken.deps);
+    same("a teamsFrom pointing at nothing installs nothing", nothing.loaded, 0);
+    same("...and adds nothing", broken.added.length, 0);
+
+    // A file naming itself is its own teams, not an infinite loop.
+    store.clear();
+    const self = rig();
+    same("a campaign naming itself just uses its own teams",
+      (await installCampaignTeams("selfref", self.deps)).loaded, 1);
+    same("...and reads one file", self.asked, ["selfref"]);
+  } finally {
+    delete globalThis.localStorage;
+  }
+}
+
+// Every `teamsFrom` on disk must point at a file that is really there, and the pair must agree
+// about the format -- a Doubles team scored against the Singles meta is a different team.
+for (const name of campaignFiles) {
+  const file = JSON.parse(read("data", "campaigns", name));
+  if (!file.teamsFrom) continue;
+  const source = join(campaignDir, `${file.teamsFrom}.json`);
+  ok(`${name} borrows from a campaign that exists`, existsSync(source), `${file.teamsFrom}.json`);
+  if (!existsSync(source)) continue;
+  const from = JSON.parse(readFileSync(source, "utf8"));
+  same(`${name} and ${file.teamsFrom}.json agree on the format`, file.format, from.format);
+  ok(`${name} carries no pastes of its own`, (file.teams || []).every((team) => !team?.showdown),
+    "a borrowed campaign with its own pastes is two sources of truth");
+  ok(`${file.teamsFrom}.json is not itself borrowing`, !from.teamsFrom,
+    "teamsFrom is one hop, not a chain");
+}
+
 // --- 4. the link the video reads out -------------------------------------------------------
 
 const redirects = read("_redirects");

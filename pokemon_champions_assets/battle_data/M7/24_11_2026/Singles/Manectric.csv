@@ -1,22 +1,22 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Manectric,184,move,1,Thunderbolt,88.7%,,,,,,,,
-Manectric,184,move,2,Volt Switch,83.5%,,,,,,,,
-Manectric,184,move,3,Overheat,69.1%,,,,,,,,
+Manectric,184,move,1,Thunderbolt,88.5%,,,,,,,,
+Manectric,184,move,2,Volt Switch,83.6%,,,,,,,,
+Manectric,184,move,3,Overheat,69.2%,,,,,,,,
 Manectric,184,move,4,Snarl,54.0%,,,,,,,,
 Manectric,184,move,5,Flamethrower,24.5%,,,,,,,,
 Manectric,184,move,6,Roar,7.0%,,,,,,,,
-Manectric,184,move,7,Electric Terrain,6.8%,,,,,,,,
+Manectric,184,move,7,Electric Terrain,6.7%,,,,,,,,
 Manectric,184,move,8,Thunder,6.6%,,,,,,,,
-Manectric,184,move,9,Thunder Wave,6.3%,,,,,,,,
+Manectric,184,move,9,Thunder Wave,6.2%,,,,,,,,
 Manectric,184,move,10,Eerie Impulse,5.9%,,,,,,,,
-Manectric,184,held_item,1,Manectite,64.5%,,,,,,,,
+Manectric,184,held_item,1,Manectite,64.4%,,,,,,,,
 Manectric,184,held_item,2,Quick Claw,13.9%,,,,,,,,
-Manectric,184,held_item,3,Leftovers,5.4%,,,,,,,,
+Manectric,184,held_item,3,Leftovers,5.5%,,,,,,,,
 Manectric,184,held_item,4,Choice Scarf,5.0%,,,,,,,,
 Manectric,184,held_item,5,Focus Sash,1.5%,,,,,,,,
 Manectric,184,held_item,6,Magnet,1.4%,,,,,,,,
 Manectric,184,held_item,7,Expert Belt,1.3%,,,,,,,,
-Manectric,184,held_item,8,Air Balloon,0.9%,,,,,,,,
+Manectric,184,held_item,8,Air Balloon,0.8%,,,,,,,,
 Manectric,184,held_item,9,White Herb,0.4%,,,,,,,,
 Manectric,184,held_item,10,Wise Glasses,0.4%,,,,,,,,
 Manectric,184,teammate,1,Victreebel,,,,,,,,,
@@ -29,8 +29,8 @@ Manectric,184,teammate,7,Lucario,,,,,,,,,
 Manectric,184,teammate,8,Garchomp,,,,,,,,,
 Manectric,184,teammate,9,Sylveon,,,,,,,,,
 Manectric,184,teammate,10,Primarina,,,,,,,,,
-Manectric,184,stat_alignment,1,Timid,75.3%,Speed,Attack,,,,,,
-Manectric,184,stat_alignment,2,Modest,20.1%,Sp. Atk,Attack,,,,,,
+Manectric,184,stat_alignment,1,Timid,75.5%,Speed,Attack,,,,,,
+Manectric,184,stat_alignment,2,Modest,19.9%,Sp. Atk,Attack,,,,,,
 Manectric,184,stat_alignment,3,Naive,1.6%,Speed,Sp. Def,,,,,,
 Manectric,184,stat_alignment,4,Hasty,1.4%,Speed,Defense,,,,,,
 Manectric,184,stat_alignment,5,Mild,0.5%,Sp. Atk,Defense,,,,,,
@@ -38,11 +38,11 @@ Manectric,184,stat_alignment,6,Rash,0.4%,Sp. Atk,Sp. Def,,,,,,
 Manectric,184,stat_alignment,7,Bold,0.2%,Defense,Attack,,,,,,
 Manectric,184,stat_alignment,8,Jolly,0.2%,Speed,Sp. Atk,,,,,,
 Manectric,184,stat_alignment,9,Quiet,0.1%,Sp. Atk,Speed,,,,,,
-Manectric,184,stat_alignment,10,Calm,0.1%,Sp. Def,Attack,,,,,,
+Manectric,184,stat_alignment,10,Adamant,0.1%,Attack,Sp. Atk,,,,,,
 Manectric,184,stat_points,1,,79.2%,,,2,0,0,32,0,32
-Manectric,184,stat_points,2,,3.8%,,,0,0,0,32,2,32
-Manectric,184,stat_points,3,,2.9%,,,0,0,2,32,0,32
-Manectric,184,stat_points,4,,2.4%,,,0,0,1,32,1,32
+Manectric,184,stat_points,2,,3.7%,,,0,0,0,32,2,32
+Manectric,184,stat_points,3,,3.0%,,,0,0,2,32,0,32
+Manectric,184,stat_points,4,,2.3%,,,0,0,1,32,1,32
 Manectric,184,stat_points,5,,0.9%,,,0,0,0,32,0,32
 Manectric,184,stat_points,6,,0.7%,,,6,0,0,32,0,28
 Manectric,184,stat_points,7,,0.6%,,,2,0,32,0,0,32

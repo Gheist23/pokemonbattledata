@@ -14,6 +14,7 @@
 // different team's. Both now pass the current evaluation's critical threats.
 
 import { compact, pyFixed } from "./engine.js";
+import { fieldDependencyOn, fieldMember, teamAdjustment } from "./field-dependency.js";
 
 const TYPES = ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"];
 
@@ -586,10 +587,30 @@ export class TeamSynergy {
     const connected = pairs.filter((pair) => pair.interaction_count >= 2).length;
     const ratio = connected / Math.max(1, pairs.length);
     const weighted = average * 0.68 + best * 0.1 + weakest * 0.22;
-    const score = clamp(weighted + Math.min(4.0, ratio * 4.0));
+    let score = clamp(weighted + Math.min(4.0, ratio * 4.0));
+    // V556: the field-dependency term the app's V402 computed and its own V465 deleted -- and
+    // that this port, copying V465, never had. A dependency a partner supplies is paid, one
+    // nobody supplies is charged, and for the five Speed doublers the grade is MEASURED
+    // against the Top X rather than flat. Mega Tyranitar's sand on an Excadrill team is worth
+    // +4.79 here; take Mega Tyranitar away and the same team pays -5.90.
+    let field = null;
+    if (fieldDependencyOn(this.ev)) {
+      field = teamAdjustment(
+        profiles.map((p) => fieldMember(p.name, p.types, p.ability, p.item, p.moves, p.speed)),
+        this.metaSpeedRows().map(([, speed]) => speed));
+      // `round(score, 1)` and not the raw sum: on the app this term is a WRAPPER over
+      // `_v252_team_synergy`, so it adds to the score that function has already rounded to one
+      // decimal. Adding to the unrounded one here would put the two sides up to 0.05 apart on
+      // the same input, and no recorded suite could see it -- every recording replays with the
+      // rule off.
+      score = clamp(round(score, 1) + Number(field.adjustment || 0));
+    }
     const first = (better) => pairs.reduce((pick, pair) => (pick === null || better(Number(pair.score), Number(pick.score)) ? pair : pick), null);
     return {
       score: round(score, 1), version: 465, pair_count: pairs.length, pairs,
+      ...(field ? { field_dependencies: field.dependencies, field_dependency_v556: {
+        support: field.support, stranded: field.stranded, adjustment: field.adjustment,
+      } } : {}),
       members: profiles.map((p) => String(p.name || "Pokemon")),
       interaction_count: pairs.reduce((s, pair) => s + pair.interaction_count, 0),
       strongest: first((x, y) => x > y),
@@ -599,6 +620,11 @@ export class TeamSynergy {
         connected_pairs: connected, connected_ratio: round(ratio, 4),
         weighted_pair_score: round(weighted, 2), connection_bonus: round(Math.min(4.0, ratio * 4.0), 2),
         weights: { average: 0.68, strongest: 0.1, weakest: 0.22 },
+        ...(field ? {
+          field_support_bonus: field.support,
+          unsupported_field_ability_penalty: field.stranded,
+          field_dependency_v556: field.adjustment,
+        } : {}),
       },
       profiles,
     };

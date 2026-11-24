@@ -26,6 +26,11 @@
 // instead of by the two usage lists' positions, unless that option is switched off too.
 
 import { compact, makeMon, pyFixed, pyRound } from "./engine.js";
+// V556: the dependency graph, the measurement and the three tables the whole codebase shares.
+import {
+  ABILITY_SUPPORT, AXES, ITEM_SUPPORT, MOVE_SUPPORT, dependencyDelta, fieldDependencyOn,
+  fieldGainSentence, fieldMember, problemCredit, removalLoads, strandSentence, teamAdjustment,
+} from "./field-dependency.js";
 import { GUARANTEED_MOVE_SHARE, describeChanges, enforce, lockedMoves, moveShares, shareOption } from "./guaranteed-moves.js";
 import { PAIRED_SPREADS, pairedOption, spreadPointsForNature } from "./nature-spreads.js";
 import { FOUND_IN_TEAM_NOTE } from "./known-teams.js";
@@ -42,15 +47,11 @@ const TEAM_SIZE = 6;
 const ROW_LIMIT = 14;
 const TYPES = ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"];
 
-// _V494_MOVES_NEEDING_SUPPORT (+ field_synergy EXTRA_MOVES_NEEDING_SUPPORT)
-export const MOVES_NEEDING_SUPPORT = {
-  solarbeam: "sun", solarblade: "sun", electroshot: "rain", auroraveil: "snow", steelroller: "terrain",
-  grassyglide: "grassy", weatherball: "weather", terrainpulse: "terrain", thunder: "rain", hurricane: "rain",
-  blizzard: "snow", expandingforce: "psychic", risingvoltage: "electric",
-};
-// field_synergy ITEM_SUPPORT / ABILITY_SUPPORT
-const ITEM_SUPPORT = { psychicseed: "psychic", grassyseed: "grassy", electricseed: "electric", mistyseed: "misty", terrainextender: "terrain", heatrock: "sun", damprock: "rain", smoothrock: "sand", icyrock: "snow" };
-const ABILITY_SUPPORT = { chlorophyll: "sun", solarpower: "sun", flowergift: "sun", swiftswim: "rain", raindish: "rain", sandrush: "sand", sandforce: "sand", sandveil: "sand", slushrush: "snow", snowcloak: "snow", surgesurfer: "electric", grasspelt: "grassy" };
+// _V494_MOVES_NEEDING_SUPPORT (+ field_synergy EXTRA_MOVES_NEEDING_SUPPORT), and
+// field_synergy's ITEM_SUPPORT / ABILITY_SUPPORT beside it. All three moved into
+// builder/field-dependency.js with V556, so the dependency graph and the set repair cannot
+// read two different vocabularies; re-exported here under the name team-autobuild.js imports.
+export const MOVES_NEEDING_SUPPORT = MOVE_SUPPORT;
 const TERRAIN_CONDITIONS = ["grassy", "psychic", "electric", "misty"];
 // team_evaluation_v466 FAST_SPEED_CONTROL
 const FAST_SPEED_CONTROL = new Set(["tailwind", "icywind", "electroweb", "thunderwave", "nuzzle", "scaryface", "stringshot", "bulldoze", "rocktomb", "lowsweep", "pounce", "mudshot", "drumbeating"]);
@@ -1869,6 +1870,74 @@ export class TeamSuggestions {
   }
 
   /**
+   * V556 (a4): what a swap switches off, measured.
+   *
+   * The member view and the profile source are the app's: `TeamChecks.profile` on both sides,
+   * so the two implementations measure the same set. The term is the whole Synergy delta of
+   * the projected team against the team as it stands, divided by the four axes.
+   * @returns {[number, object|null]}
+   */
+  fieldDependencyValue(row, context) {
+    if (!fieldDependencyOn(this.ev)) return [0, null];
+    if (row.action_kind !== "swap" || !row.swap_target) return [0, null];
+    // Auto Build is left exactly as it was, because the app leaves it exactly as it was:
+    // `_rescore_stage_one` returns early on `_auto_build_calculation_v427`, so an Auto Build
+    // calculation never sees V511's terms at all. Auto Build's own recordings carry no
+    // `suggestion_scoring` stamp -- there is no version for them to replay -- and paying the
+    // term here and not there would widen a gap instead of closing one.
+    if (context.autoBuild || !this.synergy) return [0, null];
+    const slots = context.teamSlots || [];
+    const slot = this.entryIndexForSwap(context.teamEntries, row.swap_target);
+    if (!(slot >= 0 && slot < slots.length)) return [0, null];
+    const memberOf = (profile) => fieldMember(profile.name, profile.types, profile.ability,
+      profile.item, profile.moves, profile.speed);
+    const members = slots.map(({ entry, mon }) => memberOf(this.checks.profile(entry, mon)));
+    const candidateSlot = row._candidate_slot;
+    const candidate = candidateSlot
+      ? memberOf(this.checks.profile(candidateSlot.entry, candidateSlot.mon))
+      : fieldMember(row.name, row._candidate_profile?.types || [], row.ability, row.item, row.moves, 0);
+    // The candidate's own set, not the species' common one: the row carries what it would run.
+    candidate.name = String(row.name || candidate.name);
+    candidate.ability = String(row.ability || candidate.ability);
+    candidate.item = String(row.item || candidate.item);
+    if ((row.moves || []).length) candidate.moves = [...row.moves];
+    const projected = [...members];
+    projected[slot] = candidate;
+    const speeds = this.synergy.metaSpeedRows().map(([, speed]) => speed);
+    const before = teamAdjustment(members, speeds);
+    const after = teamAdjustment(projected, speeds);
+    const delta = dependencyDelta(before, after);
+    if (Math.abs(delta) < 1e-9) return [0, null];
+
+    const move = delta / AXES;
+    row.field_dependency_term_v556 = r2(move);
+    row.field_dependency_v556 = {
+      before: before.adjustment, after: after.adjustment, delta: r2(delta),
+      stranded: after.dependencies,
+    };
+    const projectedSynergy = clamp(Number(row.projected_synergy_score ?? 50) + delta);
+    row.projected_synergy_score = r1(projectedSynergy);
+    const components = { ...(row.suggestion_score_components_v318 || {}) };
+    if (components.synergy) {
+      components.synergy = {
+        ...components.synergy,
+        projected: r1(projectedSynergy),
+        delta: r1(projectedSynergy - Number(components.synergy.current ?? 50)),
+      };
+      row.suggestion_score_components_v318 = components;
+    }
+    const outgoing = String(members[slot]?.name || row.swap_target);
+    return [move, {
+      key: "field_dependency_v556",
+      label: delta < 0 ? "What the swap strands" : "What the swap switches on",
+      delta: r1(move),
+      raw: r1(move),
+      detail: delta < 0 ? strandSentence(after.dependencies, outgoing)
+        : fieldGainSentence(before.dependencies, String(row.name || "")),
+    }];
+  }
+
+  /**
    * The role census of the team on screen, built once per run.
    *
    * The team does not change while a scan runs, so this is kept against the team's own
@@ -2562,6 +2631,20 @@ export class TeamSuggestions {
     if (outgoingPiece) {
       score += outgoing;
       pieces.push(outgoingPiece);
+    }
+
+    // (a4) V556: and the projected Synergy knows what the swap switches off.
+    //
+    // `teamFit` is the type chart and nothing else, and the projected Synergy is
+    // `current + (fit - 50) * 0.34`, so on the owner's sand team "Swap Tyranitar-Mega ->
+    // Dragonite-Mega" read Syn +4.1 while the full evaluation of the same projected team read
+    // -3.5. This is the Team Evaluation's own field-dependency term, before minus after, at
+    // the quarter weight every axis gets -- and it moves `projected_synergy_score` and the
+    // components with it, so the breakdown's Syn line and this one cannot disagree again.
+    const [fieldMove, fieldPiece] = this.fieldDependencyValue(row, context);
+    if (fieldPiece) {
+      score += fieldMove;
+      pieces.push(fieldPiece);
     }
 
     // (b) a Trick Room team wants the slow half of the speed tiers, and a candidate whose only
@@ -3336,9 +3419,19 @@ export class TeamSuggestions {
   swapTargets(context) {
     const problems = (context.payload.checks?.rows || []).filter((r) => ["red", "yellow"].includes(String(r.severity || "").toLowerCase()));
     const profiles = context.teamSlots.map(({ entry, mon }) => this.checks.profile(entry, mon));
+    // V556: `problemSlotScore` asks what a member FAILS to answer and never what it provides,
+    // so on the owner's sand team five of six scored exactly 2.25 and the three targets were
+    // decided by slot order -- Mega Tyranitar, the team's only sand, among them. The credit is
+    // in this function's own units and is bounded by one yellow check, because that is what
+    // removing a sole setter breaks: `field_weather_consistency` goes to "missing setter for
+    // Sand". A member that genuinely answers fewer failing checks is still the target.
+    const credit = fieldDependencyOn(this.ev) && this.synergy
+      ? removalLoads(profiles.map((p) => fieldMember(p.name, p.types, p.ability, p.item, p.moves, p.speed)),
+        this.synergy.metaSpeedRows().map(([, speed]) => speed)).map(problemCredit)
+      : profiles.map(() => 0);
     let fromChecks = [];
     if (problems.length) {
-      const scored = profiles.map((profile, i) => [this.problemSlotScore(profile, problems), i, profile.name]);
+      const scored = profiles.map((profile, i) => [this.problemSlotScore(profile, problems) - credit[i], i, profile.name]);
       scored.sort((a, b) => b[0] - a[0] || a[1] - b[1]);
       fromChecks = scored.filter(([score]) => score > 0).slice(0, 3).map(([, , n]) => n);
       if (!fromChecks.length) fromChecks = scored.slice(0, 3).map(([, , n]) => n);

@@ -130,7 +130,13 @@ function contextFor(suggester, sets) {
 }
 
 const scoreOf = (row) => Number(row?.score) || 0;
-const costOf = (row) => Number(row?.outgoing_role_cost_v512) || 0;
+// The two REPLACEMENT COSTS, neither of which is a baseline error, so the invariant is stated
+// net of both. V512 prices a role only the outgoing Pokemon provides; V556 prices the field it
+// switches off -- and a field can only be measured against the team that still has the setter,
+// so the five-team the add is scored on has already lost it and reports nothing. The gap must
+// still close, so a basis error anywhere else still shows up here.
+const costOf = (row) => (Number(row?.outgoing_role_cost_v512) || 0)
+  + (Number(row?.field_dependency_term_v556) || 0);
 
 /**
  * One candidate scored both ways: as a swap on the whole team, and as an add to the same team
@@ -255,8 +261,9 @@ for (const version of [6, 5]) {
     // net before/after wording, so the warning is the ledger's, not that line's.
     ok("the swap carries a replacement cost line or a net-change line",
        (result.swap.details || []).length > 0, JSON.stringify(result.swap.details));
-    // the one term that legitimately separates a swap from an add
-    ok("the add row carries no replacement cost", !result.add.outgoing_role_cost_v512);
+    // the two terms that legitimately separate a swap from an add
+    ok("the add row carries no replacement cost",
+       !result.add.outgoing_role_cost_v512 && !result.add.field_dependency_term_v556);
     // the candidate's set is built against the field the remaining team can still turn on
     const have = suggester.fieldSupport(result.basis?.entries || []);
     ok("the swap cannot be handed a move the remaining team cannot support",

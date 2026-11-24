@@ -296,7 +296,14 @@ for (const testCase of cases) {
   // items and moves) and `speedAbilityRule: 0` (no Ability counted as Speed control). Both are
   // ON in production on both sides; a recording made before a rule must not be judged by it.
   const replaySettings = { ...testCase.settings, threat_usage_floor: Number(testCase.settings?.threat_usage_floor) || 0 };
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, duplicateMegaRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  // ...and `statProfileRule: 0`: not one of the nine recordings carries a `stat_profile`
+  // stamp, so every one of them was made before a candidate's own stats and the team's stat
+  // shape were priced. tests/run-stat-profile.mjs asserts this flag is still here, and is the
+  // only suite that exercises the rule ON.
+  // ...and `fieldDependencyRule: 0`: no recording carries a `field_dependency` stamp, so every
+  // one of them was made before a field was worth what it switches on. tests/run-field-dependency.mjs
+  // is the only suite that exercises the rule ON.
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, duplicateMegaRule: 0, statProfileRule: 0, fieldDependencyRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   // Derived from the recording, not named here: the Top-X the site replays must be the Top-X the
   // app recorded, in its order. Everything below is measured against that list, so when a live

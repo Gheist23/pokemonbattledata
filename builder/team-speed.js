@@ -110,6 +110,26 @@ export function outspeedTerm(matchups) {
   return Math.min(OUTSPEED_CAP, n * OUTSPEED_STEP);
 }
 
+/** V557: the flat credit OWNING Trick Room pays into each component in `v42`. */
+export const OWN_TRICK_ROOM_CREDIT = 25.0;
+export const OWN_TRICK_ROOM_TAILWIND_CREDIT = 20.0;
+
+/** Production is on. A replay harness turns it off to match what it recorded. */
+export const SPEED_PLAN_RULE = 1;
+
+/** `speedPlanRule` as a flag: absent means production (on), an explicit 0/false means off. */
+export function speedPlanRuleOption(value) {
+  if (value === undefined || value === null) return SPEED_PLAN_RULE;
+  if (value === false) return 0;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return 0;
+  return 1;
+}
+
+function speedPlanRuleOn(ev) {
+  return Boolean(speedPlanRuleOption(ev?.speedPlanRule));
+}
+
 /** V549: whether a live Speed Ability counts as real Speed. Off for recorded replays. */
 function speedAbilityRuleOn(ev) {
   return Boolean(speedAbilityRuleOption(ev?.speedAbilityRule));
@@ -421,10 +441,87 @@ export class TeamSpeed {
     this._v555TailwindOutspeed = { matchups: twOutspeedTotal, pairs: teamMons.length * metaCount, metaCount };
     const slowTeam = teamMons.filter((m) => this.finalSpeed(m) <= avg * 0.72).length;
     const fastTeam = teamMons.filter((m) => this.finalSpeed(m) >= avg * 1.02).length;
-    const trickRoom = clamp((ownTrickRoom ? 25 : 0) + slowTeam * 8 + trFactor + priorityMoves.length * 4);
+    // V557: A TRICK ROOM THE TEAM CANNOT RUN IS NOT A SPEED PLAN.
+    //
+    // Owning the move paid a flat 25 here and another 20 into Opposing Speed Control, with
+    // nothing asking whether the team can actually use it -- while `roomPlan`, computed in
+    // `controlInner` immediately above this call, already answers exactly that. The two halves
+    // of this file gave opposite answers about one team, which is the same defect `roomPlan`'s
+    // own comment describes.
+    //
+    // MEASURED on a six holding one Trick Room setter against Sneasler's Unburden, Mega
+    // Dragonite's 32 Speed and Milotic's Icy Wind -- three members the Room helps and three it
+    // turns round. `roomPlan` returned `supported: false`, yet Speed scored 75.2, its best
+    // component, and REMOVING the Trick Room dropped it to 57.8. The score paid 5.1 points of
+    // team total for holding two mutually exclusive speed plans, so Auto Build built one.
+    // `redundant` could not catch it: it is `max(0, setters - 1)`, which is 0 for a single
+    // unsupported setter.
+    //
+    // WHAT IS WITHHELD, and what is not. Only the flat credit for YOUR OWN plan goes. The rest
+    // of this component is the team's standing in a Trick Room regime whoever sets it --
+    // `slowTeam * 8` and the OHKOs on the meta's own Room setters are facts about the team
+    // against an OPPONENT's Room, and a team that cannot run its own is still judged under
+    // theirs. So this withholds credit for a plan, never credit for a matchup.
+    const ruleOn = speedPlanRuleOn(this.ev);
+    const roomUnusable = ownTrickRoom && ruleOn
+      && Boolean(this._v557RoomPlan) && !this._v557RoomPlan.supported;
+    // AND THE SECOND HALF: A TEAM CANNOT RUN TWO SPEED PLANS IN ONE GAME.
+    //
+    // `supported` being true is not the same as the team committing to the Room. The six
+    // measured above holds ONE setter, and `roomPlan` calls it supported (3 beneficiaries
+    // against 2 harmed) -- yet `classifyArchetype` refuses to call it a Trick Room team at all,
+    // because its gate wants 4 slow members behind a single setter. So `v465` returns the
+    // NORMAL composition, and the flat credit for owning the move is paid into it in full.
+    // Three parts of this file hold three different notions of whether this is a Trick Room
+    // team, and the team is paid under the most generous one.
+    //
+    // WHAT COUNTS AS A COMPETING PLAN, and what does not. The first version of this scaled by
+    // `fastTeam / team`, which was wrong: it charged a RECORDED, legitimate Trick Room six
+    // (Indeedee-F / Hatterene / Incineroar / Gholdengo) 25% for holding one fast attacker, and
+    // turned `run-trick-room-speed` red for the right reason. A fast Pokemon is not a plan --
+    // real Room teams carry a flex slot. What makes two plans is the team INVESTING in both:
+    //   * its own Tailwind,
+    //   * a Speed-lowering move (Icy Wind, Electroweb, Thunder Wave: `dropStage`'s own map), or
+    //   * a Speed-doubling Ability that this team actually switches on (V549's live boost map).
+    // Each of those is a turn and a slot spent making the team FAST, which is what a Room
+    // undoes. 25% of the own-Room credit per competing piece, capped at half: the Room is still
+    // worth something to the slow half, and it is never worth all of it to a team hedging.
+    const dropMoves = this.dropStage || {};
+    const hasSpeedDrop = teamMons.some((m) => [...moveNames(m)].some((n) => dropMoves[n] !== undefined));
+    const liveDoublers = Object.keys(this._speedAbilityBoost || {}).length;
+    const competing = (ownTailwind ? 1 : 0) + (hasSpeedDrop ? 1 : 0) + Math.min(1, liveDoublers);
+    // WEIGHED AGAINST THE ROOM'S OWN COMMITMENT, which is the correction the recorded suites
+    // forced twice. A six carrying THREE Trick Room setters and one Icy Wind is a committed Room
+    // team with a flex move, not a hedge -- `run-eval-vectors` holds exactly that team and went
+    // red when this charged it. A six carrying ONE setter against an Icy Wind is the hedge. So
+    // the test is whether the fast investment MATCHES OR EXCEEDS the Room investment; below that
+    // the Room is plainly the plan and keeps all of its credit.
+    const setters = Number(this._v557RoomPlan?.setters) || 0;
+    const hedging = competing > 0 && setters > 0 && competing >= setters;
+    const roomFactor = !ownTrickRoom || roomUnusable ? 0
+      : ruleOn && hedging ? Math.max(0.5, 1 - 0.25 * competing) : 1;
+    const trickRoom = clamp(OWN_TRICK_ROOM_CREDIT * roomFactor
+      + slowTeam * 8 + trFactor + priorityMoves.length * 4);
     const ratio = outspeedTotal / Math.max(1, teamMons.length * metaCount);
     const standard = clamp(25 + fastTeam * 10 + Math.min(35, ratio * 70));
-    const opposingTailwind = clamp((ownTailwind ? 22 : 0) + (ownTrickRoom ? 20 : 0) + twFactor + priorityMoves.length * 7);
+    const opposingTailwind = clamp((ownTailwind ? 22 : 0)
+      + OWN_TRICK_ROOM_TAILWIND_CREDIT * roomFactor + twFactor + priorityMoves.length * 7);
+    if (ownTrickRoom && !roomUnusable && roomFactor < 1) {
+      const share = Math.round((1 - roomFactor) * 100);
+      const note = `Trick Room shares this team with ${competing} way${competing === 1 ? "" : "s"} of`
+        + ` making it FAST instead, so ${share}% of the credit for the Room is withheld: only one`
+        + " speed plan can be run in a game.";
+      trickLines.unshift(note);
+      tailwindLines.unshift(note);
+    }
+    if (roomUnusable) {
+      const slow = this._v557RoomPlan.beneficiaries;
+      const note = `Trick Room is on the team but it cannot run it: only ${slow} slow attacker`
+        + `${slow === 1 ? "" : "s"} would gain the turn order, so the Room is not counted as this`
+        + " team's speed plan.";
+      trickLines.unshift(note);
+      tailwindLines.unshift(note);
+    }
     const speed = {
       score: 0,
       trick_room: trickRoom,
@@ -710,11 +807,15 @@ export class TeamSpeed {
     } finally {
       this._speedAbilityBoost = null;
       this._v555TailwindOutspeed = null;
+      this._v557RoomPlan = null;
     }
   }
 
   controlInner(team, context) {
     const fit = roomPlan(context.profiles, this.synergy.metaSpeedRows(), this.ev.engine);
+    // V557: `v42` needs this verdict and is handed only the team, so it travels on the instance
+    // the way the V549 boost map and the V555 counts do. Cleared in `control()`'s `finally`.
+    this._v557RoomPlan = fit;
     const speed = fit.supported ? this.v465(team, context) : this.normal(team);
     speed.room_plan = fit;
     if (fit.redundant) {

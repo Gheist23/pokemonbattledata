@@ -43,7 +43,7 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { DatabaseSync } from "node:sqlite";
-import { DEFAULT_ELO, K, elo } from "../functions/api/play/_lib.js";
+import { DEFAULT_ELO, K, MIN_GAMES, elo } from "../functions/api/play/_lib.js";
 import { onRequestPost } from "../functions/api/play/report.js";
 import { onRequestGet } from "../functions/api/play/leaderboard.js";
 
@@ -334,12 +334,22 @@ const countOf = (env, table) => Number(one(env, `SELECT COUNT(*) AS n FROM ${tab
 // ---------------------------------------------------------------------------
 {
   const env = serverWith();
-  // Three players, different records, enough games to be ranked.
+  // Three players with settled records, plus the two that sit either side of the ranking
+  // threshold. Both of those are counted OFF MIN_GAMES rather than written out: the threshold is
+  // a tuneable (it was 3, it is 1 while the ladder is small) and a boundary test written in
+  // literals stops testing the boundary the moment the boundary moves.
+  const wins = (n) => Array.from({ length: Math.max(0, n) }, () => "win");
   const people = [
     ["1111111111111111", "Winner", ["win", "win", "win", "win"]],
     ["2222222222222222", "Middle", ["win", "loss", "win", "loss"]],
     ["3333333333333333", "Loser", ["loss", "loss", "loss", "loss"]],
-    ["4444444444444444", "TooFew", ["win"]],
+    // One short of the threshold: must NOT be ranked. At MIN_GAMES = 1 that is no games at all,
+    // so there is no row to leave off and the check below holds trivially -- which is the right
+    // answer, because a threshold of one excludes nobody who has played.
+    ["4444444444444444", "TooFew", wins(MIN_GAMES - 1)],
+    // Exactly the threshold: must BE ranked. This is the half of the boundary that still has
+    // teeth at MIN_GAMES = 1, which is why the pair is here and not just the one.
+    ["7777777777777777", "JustEnough", wins(MIN_GAMES)],
   ];
   for (const [device, name, results] of people) {
     for (const result of results) await post(env, game({ device, name, result, teamName: `${name}'s team` }));
@@ -355,16 +365,25 @@ const countOf = (env, table) => Number(one(env, `SELECT COUNT(*) AS n FROM ${tab
   ok("and the worst is last", board.players[board.players.length - 1]?.name === "Loser", JSON.stringify(board.players.map((p) => p.name)));
   ok("a player with too few games is not ranked", !board.players.some((p) => p.name === "TooFew"),
     JSON.stringify(board.players.map((p) => p.name)));
+  ok("and one with exactly enough is", board.players.some((p) => p.name === "JustEnough"),
+    JSON.stringify(board.players.map((p) => p.name)));
   ok("nor is somebody who only played the other format",
     !board.players.some((p) => p.name === "SinglesOnly"), JSON.stringify(board.players.map((p) => p.name)));
   ok("the ratings are in order",
     board.players.every((row, i) => i === 0 || board.players[i - 1].elo >= row.elo),
     JSON.stringify(board.players.map((p) => p.elo)));
-  ok("every row carries its record", board.players.every((row) => typeof row.games === "number" && row.games >= 3));
+  ok("every row carries its record",
+    board.players.every((row) => typeof row.games === "number" && row.games >= MIN_GAMES));
+  // Four, not five: TooFew's team is held off the board by the same threshold its owner is, at
+  // any MIN_GAMES -- either it has too few games to rank or it was never reported at all.
   ok("each player's team is its own entry, not one shared by everyone who brings the same six",
-    board.playerTeams.length === 3, JSON.stringify(board.playerTeams.map((t) => `${t.name} ${t.games}`)));
+    board.playerTeams.length === 4, JSON.stringify(board.playerTeams.map((t) => `${t.name} ${t.games}`)));
   ok("and the Solver's teams are", board.solverTeams.length >= 1, JSON.stringify(board.solverTeams.map((t) => t.name)));
-  ok("every reported game is kept, none lost to a clashing id", board.games === 13, String(board.games));
+  // 4 + 4 + 4 from the settled players, plus whatever the two boundary players were given.
+  // Computed rather than written out, for the reason the people list above gives.
+  const expectedDoubles = 12 + (MIN_GAMES - 1) + MIN_GAMES;
+  ok("every reported game is kept, none lost to a clashing id", board.games === expectedDoubles,
+    `${board.games} of ${expectedDoubles}`);
 
   const singles = await (await get(env, "Singles")).json();
   ok("the other format is its own board", singles.games === 1, String(singles.games));

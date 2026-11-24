@@ -64,6 +64,18 @@ export const SELF_COST_ATTACK_RULE = 3;
  */
 export const SPEED_ABILITY_RULE = 1;
 
+/** Production is on. A replay harness turns it off to match what it recorded. */
+export const FIELD_SETTER_RULE = 1;
+
+/** `fieldSetterRule` as a flag: absent means production (on), an explicit 0/false means off. */
+export function fieldSetterRuleOption(value) {
+  if (value === undefined || value === null) return FIELD_SETTER_RULE;
+  if (value === false) return 0;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return 0;
+  return 1;
+}
+
 /** `speedAbilityRule` as a flag: absent means production (on), an explicit 0/false means off. */
 export function speedAbilityRuleOption(value) {
   if (value === undefined || value === null) return SPEED_ABILITY_RULE;
@@ -660,6 +672,12 @@ function doublesRequirements(key, f) {
       minimum("Attackers", "attackers", 3),
     ],
     terrain: [
+      // V558, same reasoning as the four weathers: a Surge Ability is the plan and the move is
+      // the fallback. TRICK ROOM IS DELIBERATELY NOT HERE -- no Ability sets Trick Room, so the
+      // rule has nothing to prefer for it and asking would be an unmeetable critical.
+      ...(f.terrain_ability_setters !== undefined
+        ? [minRequirement("Terrain from an Ability", f.terrain_ability_setters || 0, 1, true)]
+        : []),
       minimum("Terrain setters", "terrain_setters", 1, true), minimum("Terrain beneficiaries", "terrain_beneficiaries", 2),
       maxRequirement("Conflicting terrains", f.terrain_types || 0, 1), minimum("Positioning users", "positioning", 2),
     ],
@@ -669,9 +687,18 @@ function doublesRequirements(key, f) {
       minimum("Speed-control users", "speed_control", 1),
     ],
   };
+  // V558: the Ability is the plan, so a chosen weather archetype asks for one CRITICALLY.
+  // Auto Build ranks a candidate on how many of the chosen archetype's requirements the
+  // projected team still misses and weights a critical one 2.4x, so this is the lever that
+  // actually moves a pick -- a non-critical requirement would be a preference, not a priority.
+  // Gated on the count being present, which `archetypeFeatures` only does with the rule on.
+  const abilitySetters = f.weather_ability_setters;
   for (const [desired, display] of [["rain", "Rain"], ["sun", "Sun"], ["sand", "Sand"], ["snow", "Snow"]]) {
     const setterTarget = desired === "rain" || desired === "sun" ? 2 : 1;
     specs[desired] = [
+      ...(abilitySetters
+        ? [minRequirement(`${display} from an Ability`, abilitySetters[desired] || 0, 1, true)]
+        : []),
       minRequirement(`${display} setters`, weather[desired] || 0, setterTarget, true),
       minRequirement(`${display} beneficiaries`, beneficiaries[desired] || 0, 3),
       minRequirement(`${display} ability users`, weatherUsers[desired] || 0, 1),
@@ -853,6 +880,23 @@ export class TeamChecks {
       }
     }
     const allKeys = new Set([...moveKeys, abilityKey]);
+    // V558: WHERE THE FIELD COMES FROM, which nothing recorded before.
+    //
+    // `allKeys` merges the moves and the Ability into one set and then asks which weather this
+    // Pokemon can set -- so Pelipper's Drizzle and a Rain Dance user were recorded identically,
+    // and `weather_setters.rain` counted them the same. They are not the same thing: an Ability
+    // sets the field on entry, for free, every time it switches in, and costs no move slot and
+    // no turn. A move costs a slot, a turn, and can be Taunted, Protected around or simply
+    // outsped. A weather or terrain archetype is built on the Ability; the move is the fallback.
+    //
+    // (`weather_use` below is a DIFFERENT question and already existed: abilities that BENEFIT
+    // from the weather, like Swift Swim. The existing "<Weather> ability users" requirement is
+    // about those, not about setters, which is why nothing here was already answering this.)
+    const abilityOnly = new Set([abilityKey]);
+    const weatherSetByAbility = new Set(
+      this.weatherSetters.filter(([, keys]) => intersects(abilityOnly, keys)).map(([w]) => w));
+    const terrainSetByAbility = new Set(
+      this.terrainSetters.filter(([, keys]) => intersects(abilityOnly, keys)).map(([t]) => t));
     const weatherSet = new Set(this.weatherSetters.filter(([, keys]) => intersects(allKeys, keys)).map(([w]) => w));
     const weatherUse = new Set(this.weatherUsers.filter(([, keys]) => keys.has(abilityKey)).map(([w]) => w));
     const terrainSet = new Set(this.terrainSetters.filter(([, keys]) => intersects(allKeys, keys)).map(([t]) => t));
@@ -860,6 +904,9 @@ export class TeamChecks {
     const [weather, terrain] = this.abilityFields[ability] || this.abilityFields[pyTitleWord(ability)] || ["", ""];
     if (weather) weatherSet.add(weather.toLowerCase());
     if (terrain) terrainSet.add(terrain.toLowerCase().replace(" terrain", ""));
+    // V303's `abilityFields` is the Ability's OWN field, so it counts for both.
+    if (weather) weatherSetByAbility.add(weather.toLowerCase());
+    if (terrain) terrainSetByAbility.add(terrain.toLowerCase().replace(" terrain", ""));
     const stats = this.ev.statsFor(mon);
     // Singles: partner-only moves count for no group, and nothing is a spread move.
     const groupKeys = this.singles ? new Set([...moveKeys].filter((k) => !SINGLES_NO_EFFECT.has(k))) : moveKeys;
@@ -891,6 +938,8 @@ export class TeamChecks {
       speed: Number(stats.speed) || 0,
       stats,
       weather_set: weatherSet,
+      weather_set_by_ability: weatherSetByAbility,
+      terrain_set_by_ability: terrainSetByAbility,
       weather_use: weatherUse,
       terrain_set: terrainSet,
     };
@@ -1949,6 +1998,12 @@ export class TeamChecks {
   archetypeFeatures(profiles, { tailwind = null } = {}) {
     const s = this.archetypeSets;
     const weatherSetters = { rain: 0, sun: 0, sand: 0, snow: 0 };
+    // V558: counted separately, and ONLY when the rule is on -- `archetypeRequirements` gates on
+    // the field being present rather than on a flag it is not handed, so leaving it undefined is
+    // what makes a recording replay under the world it was recorded in.
+    const fieldSetterRule = fieldSetterRuleOption(this.ev?.fieldSetterRule);
+    const weatherAbilitySetters = { rain: 0, sun: 0, sand: 0, snow: 0 };
+    let terrainAbilitySetters = 0;
     const weatherUsers = { rain: 0, sun: 0, sand: 0, snow: 0 };
     const weatherBeneficiaries = { rain: 0, sun: 0, sand: 0, snow: 0 };
     const terrainTypes = new Set();
@@ -2023,6 +2078,10 @@ export class TeamChecks {
           weatherSetters[weather] += 1;
           mark(`${weather}_setters`, profile);
         }
+        if (fieldSetterRule && (profile.weather_set_by_ability || new Set()).has(weather)) {
+          weatherAbilitySetters[weather] += 1;
+          mark(`${weather}_ability_setters`, profile);
+        }
         if (profile.weather_use.has(weather)) {
           weatherUsers[weather] += 1;
           mark(`${weather}_users`, profile);
@@ -2039,6 +2098,10 @@ export class TeamChecks {
       }
       for (const t of profile.terrain_set) terrainTypes.add(t);
       if (profile.terrain_set.size) mark("terrain_setters", profile);
+      if (fieldSetterRule && (profile.terrain_set_by_ability || new Set()).size) {
+        terrainAbilitySetters += 1;
+        mark("terrain_ability_setters", profile);
+      }
       let payoff = ["risingvoltage", "expandingforce", "grassyglide", "terrainpulse"].some((m) => moves.has(m));
       payoff = payoff || ["surgesurfer", "quarkdrive"].includes(ability) || item.endsWith("seed");
       if (payoff) {
@@ -2052,6 +2115,10 @@ export class TeamChecks {
     values.terrain_types = terrainTypes.size;
     values.terrain_beneficiaries = terrainBeneficiaries;
     values.weather_setters = weatherSetters;
+    if (fieldSetterRule) {
+      values.weather_ability_setters = weatherAbilitySetters;
+      values.terrain_ability_setters = terrainAbilitySetters;
+    }
     values.weather_users = weatherUsers;
     values.weather_beneficiaries = weatherBeneficiaries;
     values.weather_types = Object.values(weatherSetters).filter(Boolean).length;

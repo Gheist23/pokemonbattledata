@@ -402,7 +402,8 @@ export class TeamEvaluator {
    *   `selfCost`: what a move costs its own user (see self-cost.js SELF_COST).
    *   All four are on in production; a run recorded before one of them replays with it off.
    */
-  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES, selfCost = SELF_COST, koLabel = KO_LABEL_ON, chargeKo = CHARGE_KO_ON, speedAbilityRule = undefined, duplicateMegaRule = undefined, statProfileRule = undefined, fieldDependencyRule = undefined } = {}) {
+  constructor(data, engine, format, settings, { pairedSpreads = PAIRED_SPREADS, scoreRules = SCORE_RULES, checkRules = TEAM_CHECK_RULES, selfCost = SELF_COST, koLabel = KO_LABEL_ON, chargeKo = CHARGE_KO_ON, speedAbilityRule = undefined, duplicateMegaRule = undefined, statProfileRule = undefined, fieldDependencyRule = undefined, speedPlanRule = undefined,
+    fieldSetterRule = undefined } = {}) {
     this.pairedSpreads = pairedOption(pairedSpreads);
     this.scoreRules = scoreRulesOption(scoreRules);
     // V514 Team Building Checks. TeamChecks reads it off the evaluator, so nothing
@@ -413,6 +414,12 @@ export class TeamEvaluator {
     // V553: the candidate's own stats and the team's stat shape. Every recorded vector predates
     // the rule, so those suites pass 0 and replay the world they were recorded in.
     this.statProfileRule = statProfileRule;
+    // V557: whether an unusable Trick Room is still paid for as a speed plan. Every recorded
+    // vector was made while it was, so those suites pass 0.
+    this.speedPlanRule = speedPlanRule;
+    // V558: whether a weather or terrain archetype asks for the Ability rather than the move.
+    // Every recorded vector predates it, so those suites pass 0.
+    this.fieldSetterRule = fieldSetterRule;
     // V556: whether a field is worth what it switches on -- the Synergy term the app's V402
     // computed and its own V465 deleted, plus the two places Suggestions reads it. Read off the
     // evaluator by TeamSynergy and TeamSuggestions. Every recorded vector predates it, so those

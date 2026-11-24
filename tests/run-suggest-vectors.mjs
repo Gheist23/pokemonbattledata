@@ -303,7 +303,11 @@ for (const testCase of cases) {
   // ...and `fieldDependencyRule: 0`: no recording carries a `field_dependency` stamp, so every
   // one of them was made before a field was worth what it switches on. tests/run-field-dependency.mjs
   // is the only suite that exercises the rule ON.
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, duplicateMegaRule: 0, statProfileRule: 0, fieldDependencyRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  // ...and `speedPlanRule: 0`: the flat credit for OWNING Trick Room was paid
+  // unconditionally when these were recorded, so they replay under that. V557 withholds
+  // part of it from a team hedging between two speed plans; tests/run-speed-plan.mjs is the
+  // only suite that exercises it ON, and asserts this flag is still here.
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, duplicateMegaRule: 0, statProfileRule: 0, fieldDependencyRule: 0, speedPlanRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   // Derived from the recording, not named here: the Top-X the site replays must be the Top-X the
   // app recorded, in its order. Everything below is measured against that list, so when a live

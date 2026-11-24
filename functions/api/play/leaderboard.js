@@ -6,8 +6,10 @@
 //   playerTeams  -- which team brought to the challenge holds up best
 //   solverTeams  -- which of the Solver's tournament teams is hardest to beat
 //
-// A rating with two games behind it is noise, so nothing under MIN_GAMES is ranked; the count is
-// printed beside every row so the number can be judged rather than trusted.
+// Nothing under MIN_GAMES is ranked; the count is printed beside every row so the number can be
+// judged rather than trusted. That count is carrying more weight than it used to: MIN_GAMES is
+// currently 1, because a threshold of 3 left every board on this ladder empty -- see the note on
+// it in _lib.js, which also says what has to be true before it goes back up.
 //
 // The total is the number of games the board is MADE of, which is the Open Team Sheet ones --
 // the only ones that are rated. The live database also holds closed-sheet games from before that

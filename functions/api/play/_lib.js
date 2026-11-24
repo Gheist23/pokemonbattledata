@@ -8,8 +8,26 @@ export const DEFAULT_ELO = 1000;
 /** How much one game can move a rating. 24 is a compromise: a new team finds its level inside a
  *  dozen games, and a settled one does not swing on a single lucky crit. */
 export const K = 24;
-/** Nothing below this many games is ranked, so one lucky win does not top the board. */
-export const MIN_GAMES = 3;
+/**
+ * Nothing below this many games is ranked.
+ *
+ * It was 3, so that one lucky win could not top the board. That is the right rule for a ladder
+ * with games on it and the wrong one for this one: on 24 Nov 2026 the live ladder held 11 rated
+ * games from 10 devices, almost every one of them a single game, so NOTHING cleared three and
+ * all three boards rendered empty. The page then spent its only piece of social proof telling
+ * every visitor that nobody plays this -- which is worse than showing a short, noisy board,
+ * because an empty leaderboard reads as a dead feature rather than as a new one.
+ *
+ * So the threshold is 1 while the ladder is this small. The cost is real and is not hidden: a
+ * rating with one game behind it is the starting 1000 plus a single K-step, so the early board
+ * is ordered by very little. That is why every row prints its own game count beside the rating
+ * (see `boardRow`) -- the number can be judged rather than trusted.
+ *
+ * RAISE IT BACK once there are enough games for three to be a threshold rather than a wall;
+ * nothing else has to change, because the page reads this number off the payload and says it
+ * out loud in its own empty-state copy.
+ */
+export const MIN_GAMES = 1;
 
 /**
  * The game's own turn ceiling, MIRRORED from builder/play-game.js.

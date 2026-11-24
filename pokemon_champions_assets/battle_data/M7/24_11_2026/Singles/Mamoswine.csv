@@ -1,15 +1,15 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Mamoswine,72,move,1,Earthquake,98.7%,,,,,,,,
 Mamoswine,72,move,2,Ice Shard,96.1%,,,,,,,,
-Mamoswine,72,move,3,Icicle Crash,55.4%,,,,,,,,
+Mamoswine,72,move,3,Icicle Crash,55.3%,,,,,,,,
 Mamoswine,72,move,4,Rock Tomb,37.1%,,,,,,,,
 Mamoswine,72,move,5,Stealth Rock,35.0%,,,,,,,,
-Mamoswine,72,move,6,Icicle Spear,26.8%,,,,,,,,
+Mamoswine,72,move,6,Icicle Spear,26.9%,,,,,,,,
 Mamoswine,72,move,7,Endeavor,16.6%,,,,,,,,
 Mamoswine,72,move,8,Stone Edge,5.8%,,,,,,,,
 Mamoswine,72,move,9,Rock Slide,5.7%,,,,,,,,
 Mamoswine,72,move,10,Superpower,3.6%,,,,,,,,
-Mamoswine,72,held_item,1,Focus Sash,78.5%,,,,,,,,
+Mamoswine,72,held_item,1,Focus Sash,78.6%,,,,,,,,
 Mamoswine,72,held_item,2,Life Orb,11.6%,,,,,,,,
 Mamoswine,72,held_item,3,Choice Scarf,2.2%,,,,,,,,
 Mamoswine,72,held_item,4,Sitrus Berry,1.8%,,,,,,,,
@@ -30,7 +30,7 @@ Mamoswine,72,teammate,8,Salamence,,,,,,,,,
 Mamoswine,72,teammate,9,Archaludon,,,,,,,,,
 Mamoswine,72,teammate,10,Lucario,,,,,,,,,
 Mamoswine,72,stat_alignment,1,Adamant,83.1%,Attack,Sp. Atk,,,,,,
-Mamoswine,72,stat_alignment,2,Jolly,12.2%,Speed,Sp. Atk,,,,,,
+Mamoswine,72,stat_alignment,2,Jolly,12.3%,Speed,Sp. Atk,,,,,,
 Mamoswine,72,stat_alignment,3,Naughty,1.3%,Attack,Sp. Def,,,,,,
 Mamoswine,72,stat_alignment,4,Impish,1.1%,Defense,Sp. Atk,,,,,,
 Mamoswine,72,stat_alignment,5,Careful,0.6%,Sp. Def,Sp. Atk,,,,,,
@@ -39,7 +39,7 @@ Mamoswine,72,stat_alignment,7,Lonely,0.4%,Attack,Defense,,,,,,
 Mamoswine,72,stat_alignment,8,Naive,0.1%,Speed,Sp. Def,,,,,,
 Mamoswine,72,stat_alignment,9,Rash,0.1%,Sp. Atk,Sp. Def,,,,,,
 Mamoswine,72,stat_alignment,10,Hasty,0.1%,Speed,Defense,,,,,,
-Mamoswine,72,stat_points,1,,56.8%,,,2,32,0,0,0,32
+Mamoswine,72,stat_points,1,,56.7%,,,2,32,0,0,0,32
 Mamoswine,72,stat_points,2,,11.4%,,,0,32,2,0,0,32
 Mamoswine,72,stat_points,3,,7.0%,,,0,32,0,0,2,32
 Mamoswine,72,stat_points,4,,2.3%,,,32,32,0,0,0,2
@@ -49,6 +49,6 @@ Mamoswine,72,stat_points,7,,1.7%,,,32,32,2,0,0,0
 Mamoswine,72,stat_points,8,,1.5%,,,32,32,0,0,2,0
 Mamoswine,72,stat_points,9,,0.8%,,,2,32,32,0,0,0
 Mamoswine,72,stat_points,10,,0.8%,,,4,32,13,0,0,17
-Mamoswine,72,ability,1,Oblivious,51.0%,,,,,,,,
+Mamoswine,72,ability,1,Oblivious,51.1%,,,,,,,,
 Mamoswine,72,ability,2,Thick Fat,47.5%,,,,,,,,
 Mamoswine,72,ability,3,Snow Cloak,1.4%,,,,,,,,

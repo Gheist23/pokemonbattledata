@@ -36,6 +36,10 @@ import { PAIRED_SPREADS, pairedOption, spreadPointsForNature } from "./nature-sp
 import { FOUND_IN_TEAM_NOTE } from "./known-teams.js";
 import { classifyArchetype, tailwindBeneficiaries } from "./team-checks.js";
 import { roomPlan } from "./team-speed.js";
+import {
+  balanceScoreDelta, candidateDeltas, candidateLine, directedSpeedFitFromBase,
+  memberFromProfile, statProfileRuleOn, teamBalance,
+} from "./stat-profile.js";
 
 // The Nature / Stat Point pairing lives in builder/nature-spreads.js, so team-eval.js's
 // candidate spreads and the pairing here cannot drift apart; re-exported for its old callers.
@@ -1437,7 +1441,13 @@ export class TeamSuggestions {
         if (!answers.includes(label)) answers.push(label);
       }
     }
-    if (total <= 0) return [50, 50, []];
+    // V553: the candidate's OWN stats, on top of the type verdict. The chart above cannot tell
+    // a frail Pokemon from a bulky one of the same typing, and this is the only place in the row
+    // score that reads the stats at all -- Team Evaluation's Offense and Defense are real damage
+    // rolls and already price them, so a factor there would charge twice for one thing.
+    const statMember = statProfileRuleOn(this.ev) ? memberFromProfile(profile) : null;
+    const [statOffense, statDefense] = statMember ? candidateDeltas(statMember) : [0, 0];
+    if (total <= 0) return [clamp(50 + statOffense), clamp(50 + statDefense), []];
     let offense = wOff / total;
     const listed = answers.slice(0, 5);
     const byName = new Map((payload.threats || []).map((t) => [String(t.name || t.base_name || ""), t]));
@@ -1454,7 +1464,7 @@ export class TeamSuggestions {
       kept.push(n);
     }
     if (struck) offense = Math.max(0, offense - struck * 8);
-    return [offense, wDef / total, kept];
+    return [clamp(offense + statOffense), clamp(wDef / total + statDefense), kept];
   }
 
   /** _v494_profile_loses_to_threat: the matchup itself, speed order included. */
@@ -1639,11 +1649,17 @@ export class TeamSuggestions {
     return [clamp(fit), covers.slice(0, 4), stacks.slice(0, 4)];
   }
 
-  speedFit(profile) {
+  speedFit(profile, archetype = "") {
     let score = 35 + Math.min(30, (Number(profile.speed) || 0) / 5);
     if (profile.speed_control) score += 24;
     if (profile.priority) score += 10;
-    return clamp(score);
+    const base = clamp(score);
+    // V553: on a Trick Room team the slow half of the speed tiers is the half you want, and
+    // `35 + min(30, speed / 5)` pays for the opposite. Only the raw-Speed term is redirected --
+    // the Speed-control and priority credits above are kept exactly as they are. This is the
+    // Auto Build path; Suggestions already had the same correction through V511.
+    if (!statProfileRuleOn(this.ev)) return base;
+    return directedSpeedFitFromBase(profile.speed, archetype, base);
   }
 
   scoreFromPayload(payload, k) {
@@ -1707,6 +1723,21 @@ export class TeamSuggestions {
     return context.basisSlots || context.teamSlots;
   }
 
+  /** `_v466_actual_archetype`: the archetype this board is scored as -- an Auto Build selection
+   *  first, then the team's own archetype check row, then the classifier.
+   *
+   *  ONE resolver, because two of them would be two plans. V553's speed fit is applied while the
+   *  row is being BUILT and its balance term while the row is being PRICED, and the app is
+   *  explicit that the second must not disagree with the archetype the first was priced against.
+   *  The classifier is the expensive arm and the rare one: Auto Build supplies a key, and for
+   *  Suggestions the team's own `archetype_fit` check row almost always carries one. */
+  actualArchetype(context, beforeRows) {
+    const row = this.archetypeRow(beforeRows);
+    const key = String(context?.archetype?.key || row?.archetype_key_v403 || row?.archetype || "").trim().toLowerCase();
+    if (key) return key;
+    return classifyArchetype(this.featuresFor(this.basisSlotsOf(context)))[1] || "balanced";
+  }
+
   /** with_tailwind_payoff(_v403_archetype_features) for a list of slots. */
   featuresFor(slots) {
     const profiles = slots.map(({ entry, mon }) => this.synergy.profile(entry, mon));
@@ -1763,7 +1794,7 @@ export class TeamSuggestions {
     const [offenseFit, defenseFit, answers] = this.typeFit(payload, profile, answerCalcs);
     const teamProfiles = this.basisSlotsOf(context).map(({ entry, mon }) => this.checks.profile(entry, mon));
     const [synergyFit, covered, stacked] = this.teamFit(teamProfiles, profile);
-    const speedFit = this.speedFit(profile);
+    const speedFit = this.speedFit(profile, this.actualArchetype(context, before?.rows));
     const current = Object.fromEntries(["synergy", "offense", "defense", "speed"].map((k) => [k, this.scoreFromPayload(payload, k)]));
     const projected = {
       synergy: clamp(current.synergy + (synergyFit - 50) * 0.34 + (afterQuality - beforeQuality) * 0.1),
@@ -2394,14 +2425,13 @@ export class TeamSuggestions {
   strategyFit(row, context) {
     const { payload } = context;
     // part_115 base (_v466_actual_archetype): a chosen Auto Build archetype is authoritative.
-    const beforeArchetype = this.archetypeRow(row._before_check_rows);
-    let archetype = String(context.archetype?.key || beforeArchetype?.archetype_key_v403 || beforeArchetype?.archetype || "").trim().toLowerCase();
+    const archetype = this.actualArchetype(context, row._before_check_rows);
     // V524: which plan the row is judged against, the setter count the archetype reward is
     // damped by, and `payoff`'s own `before` are all properties of the team the candidate
     // joins -- on a swap, the team without the member it replaces. With the whole team here,
     // "gets more out of the team's Trick Room than the slot does now" fired for an add and not
     // for the identical swap, a flat 9 points apart on the same six Pokemon.
-    if (!archetype) archetype = classifyArchetype(this.featuresFor(this.basisSlotsOf(context)))[1] || "balanced";
+    // (the classifier fallback moved into `actualArchetype`, above.)
     const teamFeatures = this.featuresFor(this.basisSlotsOf(context));
     const fit = archetypeSpeedControlFit(archetype, row.moves?.length ? row.moves : row.candidate_entry.moves, Number(teamFeatures.trick_room_setters) || 0, Number(teamFeatures.tailwind_setters) || 0);
     const res = checkResolution(row._before_check_rows, row._after_check_rows);
@@ -2468,6 +2498,68 @@ export class TeamSuggestions {
     this.conditionalValue(row, context, projected);
     if (row.conditional_dependence_v499 && row._conditional_value_applied) piece("conditional", "Relies on a condition the team does not set", before, -(Number(row.conditional_dependence_v499.cost) || 0));
     row._strategy_ledger = pieces;
+    return row;
+  }
+
+  /** V553: what the candidate does to the team's STAT SHAPE.
+   *
+   *  Here and not on the synergy fit, because `teamFit` is handed the team and the candidate and
+   *  no slot -- so for a swap it cannot tell "adds a third frail member" from "replaces one frail
+   *  member with another". The row carries the slot and the action, so the projection is exact.
+   *
+   *  ONCE PER ROW, guarded on `stat_profile_v553`: a row whose set is optimised after it is built
+   *  can come through twice, and charging the balance term per pass breaks the rule that a swap
+   *  scores what the equivalent add scores -- the two sides do not take the same number of passes.
+   */
+  statBalanceFit(row, context) {
+    if (!statProfileRuleOn(this.ev) || row.stat_profile_v553) return row;
+    const member = memberFromProfile(row._candidate_profile);
+    if (!member) return row;
+    // The archetype the row's own speed-plan term was priced against, so one row cannot be
+    // charged for two different plans; `strategyFit` ran before this layer and left it here.
+    const archetype = String(row.strategy_archetype_v466 || "").trim().toLowerCase()
+      || this.actualArchetype(context, row._before_check_rows);
+    const membersOf = (slots) => (slots || [])
+      .map(({ entry, mon }) => memberFromProfile(this.synergy.profile(entry, mon)))
+      .filter(Boolean);
+    // A SWAP IS SCORED AGAINST THE TEAM IT WOULD LEAVE BEHIND (V524). Where a basis is active the
+    // outgoing member is already gone from it, so the candidate is APPENDED; where there is none,
+    // the slot projection is kept, and that invariant is not expected to hold there either.
+    const basis = context.basisSlots || null;
+    const statsBefore = teamBalance(membersOf(basis || context.teamSlots), archetype);
+    const statsAfter = basis
+      ? teamBalance([...membersOf(basis), member], archetype)
+      : teamBalance(membersOf(this.projectedSlots(context, row)), archetype);
+    const delta = balanceScoreDelta(statsBefore, statsAfter);
+    row.stat_profile_v553 = {
+      member,
+      balance_before: statsBefore.penalty,
+      balance_after: statsAfter.penalty,
+      balance_score_delta: r2(delta),
+      archetype,
+      frail_before: statsBefore.frail,
+      frail_after: statsAfter.frail,
+      powerless_before: statsBefore.powerless,
+      powerless_after: statsAfter.powerless,
+    };
+    if (Math.abs(delta) > 1e-9) {
+      row.score = r1(clamp(row.score + delta));
+      row.total_component = row.score;
+      row._raw_adjust = delta;
+      const reason = (delta < 0 ? statsAfter.summary : statsBefore.summary) || "";
+      if (reason && !row.details.includes(reason)) {
+        if (delta < 0) row.details.push(reason);
+        else row.details.unshift(reason);
+        row._v104_detail_severities[reason.toLowerCase()] = delta < 0 ? "red" : "good";
+      }
+    }
+    // The sentence goes on whether or not the balance moved: "frail for this meta" is worth
+    // saying about a candidate even when the team can still afford it.
+    const line = candidateLine(member, delta);
+    if (line && !row.details.includes(line)) {
+      row.details.push(line);
+      row._v104_detail_severities[line.toLowerCase()] = member.frail || member.powerless ? "yellow" : "good";
+    }
     return row;
   }
 
@@ -2867,6 +2959,12 @@ export class TeamSuggestions {
       layer("known_team", "Found in a tournament team", (r) => this.knownTeamFit(r, context));
       // V511 stage one, after every layer above it (Auto Build keeps the old weights).
       if (!auto && this.suggestionScoring) layer("scoring_v511", "Speed plan", (r) => this.rescoreStageOne(r, context));
+      // V553 is OUTERMOST on the row, which is where the app puts it: in the app V553 and V511
+      // both wrap `_v466_apply_strategy_fit` with V553 outside, so its term lands AFTER V511's
+      // stage-one rescore. Here those are two layers and `strategyFit` runs first, so the term
+      // needs its own layer here rather than that function's tail. Auto Build, where V511 stands
+      // down entirely, gets it either way.
+      layer("stat_balance", "Fits the team's stat balance", (r) => this.statBalanceFit(r, context));
       row.score_ledger = ledger;
       row.score_uncapped = r1(ledger.reduce((sum, item) => sum + (item.value ?? item.raw ?? item.delta ?? 0), 0));
       if (auto) {

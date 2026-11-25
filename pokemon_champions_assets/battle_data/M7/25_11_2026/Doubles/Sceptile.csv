@@ -1,12 +1,12 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Sceptile,77,move,1,Dragon Pulse,91.7%,,,,,,,,
-Sceptile,77,move,2,Earth Power,87.1%,,,,,,,,
-Sceptile,77,move,3,Detect,60.3%,,,,,,,,
+Sceptile,77,move,1,Dragon Pulse,91.6%,,,,,,,,
+Sceptile,77,move,2,Earth Power,87.0%,,,,,,,,
+Sceptile,77,move,3,Detect,60.1%,,,,,,,,
 Sceptile,77,move,4,Energy Ball,54.2%,,,,,,,,
 Sceptile,77,move,5,Leaf Storm,25.7%,,,,,,,,
-Sceptile,77,move,6,Protect,24.5%,,,,,,,,
-Sceptile,77,move,7,Giga Drain,18.9%,,,,,,,,
-Sceptile,77,move,8,Focus Blast,4.9%,,,,,,,,
+Sceptile,77,move,6,Protect,24.6%,,,,,,,,
+Sceptile,77,move,7,Giga Drain,19.0%,,,,,,,,
+Sceptile,77,move,8,Focus Blast,5.0%,,,,,,,,
 Sceptile,77,move,9,Shed Tail,4.6%,,,,,,,,
 Sceptile,77,move,10,Vacuum Wave,4.5%,,,,,,,,
 Sceptile,77,held_item,1,Sceptilite,87.8%,,,,,,,,
@@ -29,8 +29,8 @@ Sceptile,77,teammate,7,Armarouge,,,,,,,,,
 Sceptile,77,teammate,8,Pelipper,,,,,,,,,
 Sceptile,77,teammate,9,Jolteon,,,,,,,,,
 Sceptile,77,teammate,10,Incineroar,,,,,,,,,
-Sceptile,77,stat_alignment,1,Timid,64.7%,Speed,Attack,,,,,,
-Sceptile,77,stat_alignment,2,Modest,28.7%,Sp. Atk,Attack,,,,,,
+Sceptile,77,stat_alignment,1,Timid,64.6%,Speed,Attack,,,,,,
+Sceptile,77,stat_alignment,2,Modest,28.8%,Sp. Atk,Attack,,,,,,
 Sceptile,77,stat_alignment,3,Adamant,1.3%,Attack,Sp. Atk,,,,,,
 Sceptile,77,stat_alignment,4,Hasty,0.8%,Speed,Defense,,,,,,
 Sceptile,77,stat_alignment,5,Mild,0.8%,Sp. Atk,Defense,,,,,,
@@ -40,7 +40,7 @@ Sceptile,77,stat_alignment,8,Bold,0.5%,Defense,Attack,,,,,,
 Sceptile,77,stat_alignment,9,Rash,0.4%,Sp. Atk,Sp. Def,,,,,,
 Sceptile,77,stat_alignment,10,Naive,0.3%,Speed,Sp. Def,,,,,,
 Sceptile,77,stat_points,1,,49.6%,,,2,0,0,32,0,32
-Sceptile,77,stat_points,2,,7.6%,,,0,0,2,32,0,32
+Sceptile,77,stat_points,2,,7.5%,,,0,0,2,32,0,32
 Sceptile,77,stat_points,3,,6.7%,,,1,0,1,32,0,32
 Sceptile,77,stat_points,4,,6.4%,,,0,0,0,32,2,32
 Sceptile,77,stat_points,5,,2.6%,,,0,0,0,32,0,32
@@ -49,5 +49,5 @@ Sceptile,77,stat_points,7,,1.1%,,,9,0,0,32,0,25
 Sceptile,77,stat_points,8,,0.8%,,,2,32,0,0,0,32
 Sceptile,77,stat_points,9,,0.8%,,,32,0,0,2,0,32
 Sceptile,77,stat_points,10,,0.7%,,,3,0,0,32,0,31
-Sceptile,77,ability,1,Overgrow,72.1%,,,,,,,,
-Sceptile,77,ability,2,Unburden,27.9%,,,,,,,,
+Sceptile,77,ability,1,Overgrow,72.0%,,,,,,,,
+Sceptile,77,ability,2,Unburden,28.0%,,,,,,,,

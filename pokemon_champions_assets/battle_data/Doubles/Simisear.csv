@@ -1,19 +1,19 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Simisear,256,move,1,Fake Out,76.0%,,,,,,,,
-Simisear,256,move,2,Heat Wave,42.6%,,,,,,,,
-Simisear,256,move,3,Protect,41.3%,,,,,,,,
+Simisear,256,move,1,Fake Out,75.9%,,,,,,,,
+Simisear,256,move,2,Heat Wave,43.0%,,,,,,,,
+Simisear,256,move,3,Protect,41.0%,,,,,,,,
 Simisear,256,move,4,Scorching Sands,27.2%,,,,,,,,
-Simisear,256,move,5,Rock Slide,26.8%,,,,,,,,
-Simisear,256,move,6,Overheat,22.8%,,,,,,,,
-Simisear,256,move,7,Will-O-Wisp,21.5%,,,,,,,,
-Simisear,256,move,8,Yawn,18.5%,,,,,,,,
-Simisear,256,move,9,Flare Blitz,17.4%,,,,,,,,
-Simisear,256,move,10,Taunt,15.1%,,,,,,,,
-Simisear,256,held_item,1,Focus Sash,28.5%,,,,,,,,
-Simisear,256,held_item,2,Charcoal,17.5%,,,,,,,,
-Simisear,256,held_item,3,Life Orb,15.8%,,,,,,,,
+Simisear,256,move,5,Rock Slide,26.7%,,,,,,,,
+Simisear,256,move,6,Overheat,22.6%,,,,,,,,
+Simisear,256,move,7,Will-O-Wisp,21.4%,,,,,,,,
+Simisear,256,move,8,Yawn,18.3%,,,,,,,,
+Simisear,256,move,9,Flare Blitz,17.3%,,,,,,,,
+Simisear,256,move,10,Taunt,14.9%,,,,,,,,
+Simisear,256,held_item,1,Focus Sash,28.4%,,,,,,,,
+Simisear,256,held_item,2,Charcoal,17.6%,,,,,,,,
+Simisear,256,held_item,3,Life Orb,15.7%,,,,,,,,
 Simisear,256,held_item,4,Quick Claw,8.8%,,,,,,,,
-Simisear,256,held_item,5,Wide Lens,8.6%,,,,,,,,
+Simisear,256,held_item,5,Wide Lens,8.5%,,,,,,,,
 Simisear,256,held_item,6,Sitrus Berry,3.9%,,,,,,,,
 Simisear,256,held_item,7,Rocky Helmet,3.7%,,,,,,,,
 Simisear,256,held_item,8,Iron Ball,2.1%,,,,,,,,
@@ -30,23 +30,23 @@ Simisear,256,teammate,8,Garchomp,,,,,,,,,
 Simisear,256,teammate,9,Staraptor,,,,,,,,,
 Simisear,256,teammate,10,Audino,,,,,,,,,
 Simisear,256,stat_alignment,1,Modest,29.3%,Sp. Atk,Attack,,,,,,
-Simisear,256,stat_alignment,2,Jolly,28.0%,Speed,Sp. Atk,,,,,,
-Simisear,256,stat_alignment,3,Timid,26.2%,Speed,Attack,,,,,,
-Simisear,256,stat_alignment,4,Brave,6.2%,Attack,Speed,,,,,,
+Simisear,256,stat_alignment,2,Jolly,27.8%,Speed,Sp. Atk,,,,,,
+Simisear,256,stat_alignment,3,Timid,26.4%,Speed,Attack,,,,,,
+Simisear,256,stat_alignment,4,Brave,6.3%,Attack,Speed,,,,,,
 Simisear,256,stat_alignment,5,Adamant,5.7%,Attack,Sp. Atk,,,,,,
 Simisear,256,stat_alignment,6,Quiet,1.2%,Sp. Atk,Speed,,,,,,
-Simisear,256,stat_alignment,7,Bold,1.1%,Defense,Attack,,,,,,
+Simisear,256,stat_alignment,7,Bold,1.0%,Defense,Attack,,,,,,
 Simisear,256,stat_alignment,8,Naive,0.8%,Speed,Sp. Def,,,,,,
 Simisear,256,stat_alignment,9,Mild,0.6%,Sp. Atk,Defense,,,,,,
 Simisear,256,stat_alignment,10,Serious,0.5%,,,,,,,,
 Simisear,256,stat_points,1,,35.3%,,,2,0,0,32,0,32
-Simisear,256,stat_points,2,,18.9%,,,2,32,0,0,0,32
-Simisear,256,stat_points,3,,9.7%,,,32,0,2,0,0,32
+Simisear,256,stat_points,2,,18.7%,,,2,32,0,0,0,32
+Simisear,256,stat_points,3,,9.6%,,,32,0,2,0,0,32
 Simisear,256,stat_points,4,,9.1%,,,0,0,2,32,0,32
-Simisear,256,stat_points,5,,4.4%,,,32,32,2,0,0,0
+Simisear,256,stat_points,5,,4.3%,,,32,32,2,0,0,0
 Simisear,256,stat_points,6,,3.4%,,,0,0,1,32,1,32
-Simisear,256,stat_points,7,,3.2%,,,0,32,2,32,0,0
-Simisear,256,stat_points,8,,2.8%,,,0,0,0,32,2,32
+Simisear,256,stat_points,7,,3.4%,,,0,32,2,32,0,0
+Simisear,256,stat_points,8,,3.1%,,,0,0,0,32,2,32
 Simisear,256,stat_points,9,,2.0%,,,0,32,0,0,0,32
 Simisear,256,stat_points,10,,1.9%,,,32,0,1,0,1,32
 Simisear,256,ability,1,Blaze,88.1%,,,,,,,,

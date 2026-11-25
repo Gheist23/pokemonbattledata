@@ -1,24 +1,24 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Swalot,248,move,1,Toxic,68.0%,,,,,,,,
-Swalot,248,move,2,Body Press,62.8%,,,,,,,,
-Swalot,248,move,3,Protect,53.7%,,,,,,,,
-Swalot,248,move,4,Stockpile,46.3%,,,,,,,,
-Swalot,248,move,5,Acid Armor,16.4%,,,,,,,,
-Swalot,248,move,6,Gunk Shot,13.9%,,,,,,,,
-Swalot,248,move,7,Yawn,12.8%,,,,,,,,
-Swalot,248,move,8,Rest,10.8%,,,,,,,,
-Swalot,248,move,9,Amnesia,9.9%,,,,,,,,
+Swalot,248,move,1,Toxic,67.8%,,,,,,,,
+Swalot,248,move,2,Body Press,63.2%,,,,,,,,
+Swalot,248,move,3,Protect,53.6%,,,,,,,,
+Swalot,248,move,4,Stockpile,46.0%,,,,,,,,
+Swalot,248,move,5,Acid Armor,16.5%,,,,,,,,
+Swalot,248,move,6,Gunk Shot,14.2%,,,,,,,,
+Swalot,248,move,7,Yawn,12.6%,,,,,,,,
+Swalot,248,move,8,Rest,10.5%,,,,,,,,
+Swalot,248,move,9,Amnesia,10.0%,,,,,,,,
 Swalot,248,move,10,Destiny Bond,8.4%,,,,,,,,
-Swalot,248,held_item,1,Leftovers,58.6%,,,,,,,,
-Swalot,248,held_item,2,Sitrus Berry,18.9%,,,,,,,,
+Swalot,248,held_item,1,Leftovers,58.1%,,,,,,,,
+Swalot,248,held_item,2,Sitrus Berry,19.2%,,,,,,,,
 Swalot,248,held_item,3,Rocky Helmet,4.9%,,,,,,,,
 Swalot,248,held_item,4,Grassy Seed,2.7%,,,,,,,,
 Swalot,248,held_item,5,Poison Barb,2.2%,,,,,,,,
 Swalot,248,held_item,6,Air Balloon,2.2%,,,,,,,,
-Swalot,248,held_item,7,Psychic Seed,1.8%,,,,,,,,
-Swalot,248,held_item,8,Quick Claw,1.6%,,,,,,,,
+Swalot,248,held_item,7,Quick Claw,1.8%,,,,,,,,
+Swalot,248,held_item,8,Psychic Seed,1.8%,,,,,,,,
 Swalot,248,held_item,9,Black Belt,1.0%,,,,,,,,
-Swalot,248,held_item,10,Chesto Berry,0.8%,,,,,,,,
+Swalot,248,held_item,10,Focus Band,0.9%,,,,,,,,
 Swalot,248,teammate,1,Audino,,,,,,,,,
 Swalot,248,teammate,2,Rillaboom,,,,,,,,,
 Swalot,248,teammate,3,Absol,,,,,,,,,
@@ -28,27 +28,27 @@ Swalot,248,teammate,6,Incineroar,,,,,,,,,
 Swalot,248,teammate,7,Arboliva,,,,,,,,,
 Swalot,248,teammate,8,Sinistcha,,,,,,,,,
 Swalot,248,teammate,9,Golisopod,,,,,,,,,
-Swalot,248,teammate,10,Kingambit,,,,,,,,,
-Swalot,248,stat_alignment,1,Careful,21.2%,Sp. Def,Sp. Atk,,,,,,
+Swalot,248,teammate,10,Garchomp,,,,,,,,,
+Swalot,248,stat_alignment,1,Careful,20.7%,Sp. Def,Sp. Atk,,,,,,
 Swalot,248,stat_alignment,2,Bold,15.0%,Defense,Attack,,,,,,
-Swalot,248,stat_alignment,3,Relaxed,13.1%,Defense,Speed,,,,,,
-Swalot,248,stat_alignment,4,Sassy,10.8%,Sp. Def,Speed,,,,,,
-Swalot,248,stat_alignment,5,Calm,8.5%,Sp. Def,Attack,,,,,,
-Swalot,248,stat_alignment,6,Modest,5.8%,Sp. Atk,Attack,,,,,,
-Swalot,248,stat_alignment,7,Brave,5.7%,Attack,Speed,,,,,,
-Swalot,248,stat_alignment,8,Impish,5.4%,Defense,Sp. Atk,,,,,,
-Swalot,248,stat_alignment,9,Adamant,4.5%,Attack,Sp. Atk,,,,,,
-Swalot,248,stat_alignment,10,Quiet,3.1%,Sp. Atk,Speed,,,,,,
-Swalot,248,stat_points,1,,21.6%,,,2,0,32,0,32,0
+Swalot,248,stat_alignment,3,Relaxed,12.9%,Defense,Speed,,,,,,
+Swalot,248,stat_alignment,4,Sassy,10.9%,Sp. Def,Speed,,,,,,
+Swalot,248,stat_alignment,5,Calm,8.3%,Sp. Def,Attack,,,,,,
+Swalot,248,stat_alignment,6,Impish,6.0%,Defense,Sp. Atk,,,,,,
+Swalot,248,stat_alignment,7,Modest,6.0%,Sp. Atk,Attack,,,,,,
+Swalot,248,stat_alignment,8,Brave,5.6%,Attack,Speed,,,,,,
+Swalot,248,stat_alignment,9,Adamant,4.8%,Attack,Sp. Atk,,,,,,
+Swalot,248,stat_alignment,10,Quiet,3.0%,Sp. Atk,Speed,,,,,,
+Swalot,248,stat_points,1,,21.1%,,,2,0,32,0,32,0
 Swalot,248,stat_points,2,,16.8%,,,32,0,17,0,17,0
-Swalot,248,stat_points,3,,8.2%,,,32,0,32,0,2,0
-Swalot,248,stat_points,4,,4.7%,,,32,32,0,0,2,0
-Swalot,248,stat_points,5,,4.7%,,,32,32,2,0,0,0
+Swalot,248,stat_points,3,,8.6%,,,32,0,32,0,2,0
+Swalot,248,stat_points,4,,4.7%,,,32,32,2,0,0,0
+Swalot,248,stat_points,5,,4.7%,,,32,32,0,0,2,0
 Swalot,248,stat_points,6,,3.8%,,,1,0,32,1,32,0
-Swalot,248,stat_points,7,,3.3%,,,32,32,0,0,0,2
-Swalot,248,stat_points,8,,3.2%,,,32,0,20,0,14,0
+Swalot,248,stat_points,7,,3.5%,,,32,32,0,0,0,2
+Swalot,248,stat_points,8,,3.1%,,,32,0,20,0,14,0
 Swalot,248,stat_points,9,,3.0%,,,32,0,2,0,32,0
-Swalot,248,stat_points,10,,2.3%,,,30,0,13,0,23,0
-Swalot,248,ability,1,Liquid Ooze,52.5%,,,,,,,,
-Swalot,248,ability,2,Sticky Hold,41.7%,,,,,,,,
-Swalot,248,ability,3,Gluttony,5.8%,,,,,,,,
+Swalot,248,stat_points,10,,2.2%,,,30,0,13,0,23,0
+Swalot,248,ability,1,Liquid Ooze,52.4%,,,,,,,,
+Swalot,248,ability,2,Sticky Hold,41.3%,,,,,,,,
+Swalot,248,ability,3,Gluttony,6.2%,,,,,,,,

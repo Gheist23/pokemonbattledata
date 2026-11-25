@@ -128,12 +128,21 @@ function foldCard(key, next) {
   render();
 }
 
-/** The chevron that folds a card. Hidden on desktop by builder.css. */
+/**
+ * The chevron that folds a card. Hidden on desktop by builder.css.
+ *
+ * IT IS A `ghost-button compact`, exactly like Swap and Paste set, which it now
+ * sits beside at the right-hand end of the title row. That is not decoration:
+ * styles.css settles the colour of a `.ghost-button` in several append-only
+ * `!important` layers, so a colour written on `.bd-card-toggle` alone would lose
+ * to them -- being the SAME colour as Paste set means being the same kind of
+ * button. `bd-card-toggle` only adds the phone-only display and the square.
+ */
 function collapseToggle(key, label) {
   const open = !collapsed[key];
   return h("button", {
     type: "button",
-    class: "bd-card-toggle",
+    class: "ghost-button compact bd-card-toggle",
     "aria-expanded": open ? "true" : "false",
     "aria-label": `${open ? "Collapse" : "Expand"} ${label}`,
     onclick: () => foldCard(key, open),
@@ -141,22 +150,65 @@ function collapseToggle(key, label) {
 }
 
 /**
- * A TAP ANYWHERE ON A FOLDED CARD OPENS IT.
+ * The card's own heading, and ON A PHONE A BUTTON that opens the species picker.
+ *
+ * A phone has no other way left: every tap on the card that is not a control
+ * folds it (`tapToFold`), so the three places that change the Pokemon are this
+ * heading, the sprite and the name -- which is why all three stay live while the
+ * card is shut. On a desktop the heading is plain text, as it has always been.
+ */
+function cardHeading(text, onOpen) {
+  if (!PHONE || !onOpen) return h("span", { class: "bd-card-heading" }, text);
+  return h("button", {
+    type: "button",
+    class: "bd-card-heading bd-card-heading-open",
+    "aria-label": `Change ${text}`,
+    onclick: onOpen,
+  }, text);
+}
+
+/**
+ * A click on one of these is somebody USING the card, so it leaves the fold
+ * alone; everything else on the card is the fold's own target (`tapToFold`).
+ *
+ * Buttons cover most of it -- Swap, Paste set, the chevron, the sprite, the
+ * name, the import chips, every field toggle, Max. The rest are the controls
+ * that are not buttons: the selects and number inputs, the HP slider, the
+ * labels that focus them, the combo boxes for the item and the moves (a tap on
+ * the padding of one is still aimed at the control inside it) and the option
+ * rows they drop down.
+ *
+ * Attribute values are double-quoted on purpose: the test DOM's selector parser
+ * keeps single quotes as part of the value.
+ */
+const CARD_CONTROLS = [
+  "button", "a", "input", "select", "textarea", "label",
+  ".bd-combo", "[role=\"listbox\"]", "[role=\"option\"]",
+].join(", ");
+
+/**
+ * A TAP ON THE CARD FOLDS IT, AND UNFOLDS IT -- phones only.
  *
  * A folded card is a thing to open, so the whole of it is the target and not a
- * 40px chevron. Only while folded: once it is open a tap inside it is somebody
- * using the card, and closing it under them would be the opposite of helpful --
- * the chevron closes it.
+ * 40px chevron; an open card is a thing to get out of the way once it has been
+ * read, and on a phone screen that is most of what is on it. So the one tap
+ * does both, and the card stops being a one-way trip into the chevron.
  *
- * Two exceptions, both on the Pokemon cards, because they do something while the
- * card is shut and are marked `bd-keep-folded` for it: Swap and Paste set.
+ * What it must not do is fire when the tap was aimed at something IN the card:
+ * `CARD_CONTROLS` is that list. The heading, the sprite and the name are buttons
+ * on this list and open the species picker instead -- on a phone they are the
+ * only way to change the Pokemon, so they keep that job while the card is shut.
+ *
+ * Desktop gets no handler at all: the chevron is not rendered as a control there
+ * and nothing is ever folded, so a toggle would close a card with nothing on
+ * screen to open it again.
  */
-function tapToExpand(key) {
-  if (!collapsed[key]) return undefined;
+function tapToFold(key) {
+  if (!PHONE) return undefined;
   return (event) => {
     const target = event.target instanceof Element ? event.target : null;
-    if (target && target.closest(".bd-card-toggle, .bd-keep-folded")) return;
-    foldCard(key, false);
+    if (target && target.closest(CARD_CONTROLS)) return;
+    foldCard(key, !collapsed[key]);
   };
 }
 
@@ -431,13 +483,15 @@ function renderMon(side) {
   })));
 
   const header = h("div", { class: "bd-mon-head" },
-    // While the card is FOLDED these two open it (the tap handler on the section sees
-    // the click bubble up); open, they do what they say. Without this the sprite and
-    // the name were the two places on a folded card that did something else.
-    h("button", { type: "button", class: "bd-mon-art", onclick: collapsed[side] ? undefined : changePokemon, "aria-label": collapsed[side] ? "Open this card" : "Change Pokémon" },
+    // THESE TWO ALWAYS OPEN THE PICKER, folded or not. They used to open the card
+    // instead while it was shut, which left a phone with no way to change the Pokemon
+    // at all once a tap anywhere else folds and unfolds the card: the sprite, the name
+    // and the heading above them are now that way, and the rest of the card is the
+    // fold's.
+    h("button", { type: "button", class: "bd-mon-art", onclick: changePokemon, "aria-label": "Change Pokémon" },
       sprite(data.sprite(set.species, set.form, set.item, { full: true }), "", 84, "bd-sprite bd-sprite-lg")),
     h("div", { class: "bd-mon-id" },
-      h("button", { type: "button", class: "bd-mon-name", onclick: collapsed[side] ? undefined : changePokemon }, data.displayName(battleSpecies, battleForm, set.form) || "Choose Pokémon", h("span", { "aria-hidden": "true" }, " ▾")),
+      h("button", { type: "button", class: "bd-mon-name", onclick: changePokemon }, data.displayName(battleSpecies, battleForm, set.form) || "Choose Pokémon", h("span", { "aria-hidden": "true" }, " ▾")),
       h("div", { class: "bd-type-row" }, types.map(typeChip)),
       h("label", { class: "bd-inline-field" }, h("span", {}, "Ability"), abilityField),
       h("div", { class: "bd-inline-field" }, h("span", {}, "Item"), itemCombo)));
@@ -508,17 +562,17 @@ function renderMon(side) {
   return h("section", {
     class: `bd-card bd-mon bd-side-${side} ${collapsed[side] ? "is-collapsed" : ""}`,
     "aria-label": title,
-    onclick: tapToExpand(side),
+    onclick: tapToFold(side),
   },
-    // THE CHEVRON SITS NEXT TO THE TITLE, not after Swap and Paste set. Pushed to the
-    // far end of the row it was two buttons away from the card it belongs to, and the
-    // row is tight enough on a phone that flex shrank it out of its own 40px square
-    // while the Field's -- alone in its row -- kept the full size. `bd-keep-folded`
-    // takes the two buttons to the right instead (builder.css).
-    h("h2", { class: "bd-card-title" }, title,
-      collapseToggle(side, title),
-      h("button", { type: "button", class: "ghost-button compact bd-keep-folded", title: "Swap our and opposing Pokémon", onclick: swapSides }, "⇄ Swap"),
-      h("button", { type: "button", class: "ghost-button compact bd-keep-folded", title: "Paste a set as text", onclick: (event) => pasteSet(side, event) }, "Paste set")),
+    // THE CHEVRON IS LAST IN THE ROW, to the right of Paste set, and is the same kind
+    // of button as the two beside it so it is the same colour. It sat next to the title
+    // while the row was pushed apart by `justify-content`, where flex shrank it out of
+    // its own 40px square; the three now travel together as one cluster at the right-hand
+    // end (`bd-card-heading` takes the free space, builder.css), so nothing shrinks.
+    h("h2", { class: "bd-card-title" }, cardHeading(title, changePokemon),
+      h("button", { type: "button", class: "ghost-button compact bd-card-action", title: "Swap our and opposing Pokémon", onclick: swapSides }, "⇄ Swap"),
+      h("button", { type: "button", class: "ghost-button compact bd-card-action", title: "Paste a set as text", onclick: (event) => pasteSet(side, event) }, "Paste set"),
+      collapseToggle(side, title)),
     header, moves, hp, stats, details, renderImport(side));
 }
 
@@ -672,9 +726,9 @@ function renderField() {
   return h("section", {
     class: `bd-card bd-field-panel ${collapsed.field ? "is-collapsed" : ""}`,
     "aria-label": "Field",
-    onclick: tapToExpand("field"),
+    onclick: tapToFold("field"),
   },
-    h("h2", { class: "bd-card-title" }, "Field", collapseToggle("field", "Field")),
+    h("h2", { class: "bd-card-title" }, cardHeading("Field"), collapseToggle("field", "Field")),
     h("p", { class: "bd-field-peek" }, active.length ? active.join(" · ") : "Nothing set"),
     h("div", { class: "bd-field-settings" },
       h("span", { class: "bd-field-label" }, "Weather", state.weatherMode === "Auto" ? h("small", {}, " · auto from abilities") : h("button", { type: "button", class: "bd-link", onclick: () => { state.weatherMode = "Auto"; state.weather = "None"; render(); } }, " · back to auto")),

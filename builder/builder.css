@@ -1614,38 +1614,70 @@ body.page-team-builder { --max-width: 1520px; }
 .bd-card-toggle { display: none; }
 .bd-field-peek { display: none; }
 
+/* The card's heading. A phone makes it a BUTTON that opens the species picker
+   (calc-page.js `cardHeading`), so it carries the whole button reset -- and it
+   carries it outside the media query, because `PHONE` is settled once at load
+   and a window dragged wider keeps the button it already drew. */
+.bd-card-heading { min-width: 0; }
+.bd-card-heading-open {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 @media (max-width: 760px) {
   .bd-card-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    /* 40px square: a chevron is a small thing to hit and this is the control
-       that reveals the whole card. FLEX MUST NOT SHRINK IT -- the Pokemon cards
-       carry Swap and Paste set in the same row and on a 375px phone the row is
-       over budget, so the chevron was the flex item that gave way: a thin tall
-       sliver next to the Field's full 40px square. `flex` pins both. */
+    /* 40px: a chevron is a small thing to hit and this is the control that
+       reveals the whole card. FLEX MUST NOT SHRINK IT -- the Pokemon cards carry
+       Swap and Paste set in the same row and on a 375px phone the row is over
+       budget, so the chevron was the flex item that gave way: a thin tall sliver
+       next to the Field's full 40px square. `flex` pins it.
+       NOTHING HERE SETS A COLOUR. It is a `.ghost-button` now (calc-page.js
+       `collapseToggle`), which is the only way to be the same colour as Paste
+       set beside it: styles.css settles that colour with `!important`. Round,
+       not the old 9px, so it reads as one of the three pills in the row. */
     flex: 0 0 auto;
     width: 40px;
     min-height: 40px;
     padding: 0;
-    border: 1px solid var(--line, rgba(128, 150, 180, 0.35));
-    border-radius: 9px;
-    background: rgba(255, 255, 255, 0.04);
-    color: inherit;
+    border-radius: 999px;
     font-size: 0.95rem;
     line-height: 1;
-    cursor: pointer;
   }
 
-  /* Swap and Paste set go to the right-hand end, which is where the chevron used
-     to be pushed; the chevron now sits beside the title it belongs to. */
-  .bd-card-title .bd-keep-folded:first-of-type { margin-left: auto; }
+  /* EVERY `.ghost-button` IS FULL WIDTH AT THIS BREAKPOINT -- styles.css says so
+     with `!important`, for the stacked controls in the site header. In a card's
+     title row that is three buttons each demanding the whole row: they shrink to
+     their text and the heading, which can shrink further, is squeezed to nothing.
+     Measured at 505px: the heading was 0px wide and the chevron 327px.
+     Undone here rather than narrowed there, because the header still wants it. */
+  .bd-card-title .ghost-button {
+    width: auto !important;
+    /* AND THEIR OWN LABELS DO NOT WRAP. Narrow enough and flex takes the row's
+       deficit out of the buttons, which broke "Paste set" over two lines and
+       left the arrow of "<-> Swap" on a line of its own. The heading is the one
+       thing in the row that may wrap, so it is the one that gives. */
+    white-space: nowrap;
+    padding: 0 0.6rem;
+  }
+  .bd-card-title .bd-card-toggle { width: 40px !important; padding: 0; }
 
-  /* NO SECOND ARROW BESIDE THE NAME. `.bd-mon-name` carries a caret to say it
-     opens the species picker, and beside a folded card's chevron that is two
-     arrows an inch apart meaning two different things. The picker is still there
-     on a tap; on a phone it simply stops advertising itself. */
-  .bd-mon-name > span { display: none; }
+  /* THE THREE BUTTONS TRAVEL TOGETHER at the right-hand end: Swap, Paste set,
+     then the chevron. The heading eats the free space, so `justify-content`
+     has none left to spread them with -- that spreading is what used to shrink
+     the chevron. It hangs on the heading rather than on the first button
+     because the heading is the one child every card's row has. */
+  .bd-card-title .bd-card-heading { margin-right: auto; }
+  /* 0.6rem three times over is more than a 375px row can spare. */
+  .bd-mon .bd-card-title { gap: 0.45rem; }
 
   /* Folded: the title and the head stay exactly where they were, so the card
      reads as itself closed rather than as a different card. Everything under
@@ -1655,7 +1687,10 @@ body.page-team-builder { --max-width: 1520px; }
   .bd-mon.is-collapsed .bd-mon-head .bd-inline-field { display: none; }
   .bd-mon.is-collapsed .bd-mon-head { padding-bottom: 0.2rem; }
 
-  /* A folded card is one big target (`tapToExpand`), so it reads as one. */
+  /* A folded card is one big target (`tapToFold`), so it reads as one. An open
+     one is a target too -- a tap that misses every control folds it again -- but
+     it does not say so with a cursor: on an open card that is mostly controls
+     and their labels, a pointer over all of it would be a lie about the labels. */
   .bd-mon.is-collapsed,
   .bd-field-panel.is-collapsed { cursor: pointer; }
 

@@ -251,7 +251,18 @@ class Element extends NodeBase {
   select() {}
   scrollIntoView() {}
   showModal() { this.setAttribute("open", ""); }
-  close() { this.removeAttribute("open"); }
+  /* A <dialog> that really closes. `openDialog` guards on `dialog.open` and does
+     its own cleanup -- resolving the picker's promise and taking the element out
+     of the body -- in a "close" listener, so without the property and the event
+     a dialog opened in this file could never be shut again, and the next one to
+     open would find the last one still in the document. */
+  get open() { return this.hasAttribute("open"); }
+  set open(v) { if (v) this.setAttribute("open", ""); else this.removeAttribute("open"); }
+  close() {
+    if (!this.hasAttribute("open")) return;
+    this.removeAttribute("open");
+    this.dispatch("close");
+  }
 }
 
 class Fragment extends NodeBase {
@@ -292,6 +303,13 @@ function installDom(siteRoot) {
   globalThis.addEventListener = (type, fn) => {
     if (!windowListeners.has(type)) windowListeners.set(type, []);
     windowListeners.get(type).push(fn);
+  };
+  /* Node has neither of these on globalThis. A dialog drops its resize listener
+     when it closes, so without this the close threw instead of closing. */
+  globalThis.removeEventListener = (type, fn) => {
+    const list = windowListeners.get(type) || [];
+    const i = list.indexOf(fn);
+    if (i >= 0) list.splice(i, 1);
   };
   globalThis.matchMedia = () => ({ matches: false, addEventListener() {}, removeEventListener() {} });
   globalThis.requestAnimationFrame = (fn) => setTimeout(() => fn(0), 0);
@@ -493,20 +511,36 @@ check("with that team's chips", chipNames(teamChips()), ["Pelipper", "Basculegio
 
 ok("the page logged no errors", pageErrors.length === 0, pageErrors.slice(0, 3).join(" | "));
 
+// On a DESKTOP none of the phone's folding exists: the heading is plain text (the
+// species picker is on the name, as it always was) and a tap on a card does not
+// fold it -- there is no chevron drawn there to open it again.
+check("no desktop card has a heading button", document.querySelectorAll(".bd-card-heading-open").length, 0);
+document.querySelector(".bd-mon.bd-side-left .bd-points-left")?.click();
+await sleep(10);
+ok("and a tap on a desktop card does not fold it",
+  !document.querySelector(".bd-mon.bd-side-left")?.classList.contains("is-collapsed"));
+
 // ------------------------------------------------- folding the cards on a phone
 //
-// A FOLDED CARD IS ONE BIG TARGET. On a phone "Our Pokemon" and the Field start
-// folded, and a 40px chevron is not the whole of what a player will tap to open
-// one -- so a tap anywhere on a folded card opens it, with two exceptions that do
-// something while it is shut: Swap and Paste set.
+// THE CARD IS THE FOLD'S TARGET, BOTH WAYS. On a phone "Our Pokemon" and the Field
+// start folded, and a 40px chevron is not the whole of what a player will tap to
+// open one -- nor, once it is open and filling the screen, to shut it again. So a
+// tap anywhere on a card folds and unfolds it, and the exceptions are the things
+// that tap was aimed AT: every button and every control (`CARD_CONTROLS`).
+//
+// Three of those buttons open the species picker instead -- the heading, the
+// sprite and the name -- and they do it folded as well as open, because with the
+// rest of the card given to the fold they are the only way left on a phone to
+// change the Pokemon.
 //
 // Geometry is NOT checked here and cannot be: holding the card's own top still
 // across the redraw needs a layout engine, and every rect in this file is zero.
 // That half was measured in a real browser at 375px (the Field and both Pokemon
 // cards moved 0px on open and 0px on close). What IS checked is every rule that
-// is a fact about the DOM: who is folded at the start, what a tap does, which
-// buttons are exempt, and that the chevron sits beside the title rather than
-// after the two buttons.
+// is a fact about the DOM: who is folded at the start, what a tap does, what is
+// exempt from it, and that the chevron is last in the row and the same kind of
+// button as the two beside it -- which is the only way it is the same colour,
+// since styles.css settles `.ghost-button` with `!important`.
 {
   globalThis.matchMedia = () => ({ matches: true, addEventListener() {}, removeEventListener() {} });
   writeTeams([MY_TEAM, RAIN_TEAM], "team_my");
@@ -522,35 +556,81 @@ ok("the page logged no errors", pageErrors.length === 0, pageErrors.slice(0, 3).
   check("our Pokemon and the field start folded, the opponent open",
     [folded(".bd-mon.bd-side-left"), folded(".bd-field-panel"), folded(".bd-mon.bd-side-right")], [true, true, false]);
 
-  // The chevron is BESIDE THE TITLE. It used to be last in the row, two buttons
-  // away from the card it opens, and flex shrank it out of its own 40px square.
-  const titleKids = card(".bd-mon.bd-side-left").querySelector(".bd-card-title").childNodes
+  // THE CHEVRON IS LAST IN THE ROW, to the right of Paste set, and the three buttons
+  // sit together at its right-hand end. It used to come first, beside the title, where
+  // `justify-content` spread the row and flex shrank it out of its own 40px square.
+  const titleButtons = card(".bd-mon.bd-side-left").querySelector(".bd-card-title").childNodes
     .filter((n) => n.tagName === "BUTTON").map((b) => b.className);
-  ok("the chevron comes before Swap and Paste set in the title row",
-    titleKids[0]?.includes("bd-card-toggle"), JSON.stringify(titleKids));
-  ok("and both of those are marked as exempt from the tap",
-    titleKids.slice(1).every((c) => c.includes("bd-keep-folded")), JSON.stringify(titleKids));
+  const roles = titleButtons.map((name) => {
+    const classes = name.split(/\s+/);
+    return ["bd-card-heading-open", "bd-card-action", "bd-card-toggle"].find((one) => classes.includes(one)) || name;
+  });
+  check("the title row runs heading, Swap, Paste set, chevron", roles,
+    ["bd-card-heading-open", "bd-card-action", "bd-card-action", "bd-card-toggle"]);
+  ok("the chevron is a ghost-button, like Paste set beside it",
+    /(^|\s)ghost-button(\s|$)/.test(titleButtons.at(-1) || "") && /(^|\s)compact(\s|$)/.test(titleButtons.at(-1) || ""),
+    JSON.stringify(titleButtons));
+  ok("and it is the only thing in the row that is phone-only",
+    titleButtons.filter((name) => name.includes("bd-card-toggle")).length === 1, JSON.stringify(titleButtons));
 
-  // SWAP DOES NOT OPEN IT.
+  // SWAP AND PASTE SET LEAVE THE FOLD ALONE.
   scrolledBy.length = 0;
   buttonIn(".bd-mon.bd-side-left", "Swap").click();
   await sleep(30);
   ok("tapping Swap on a folded card leaves it folded", folded(".bd-mon.bd-side-left"));
 
-  // THE NAME AND THE SPRITE DO, and they do not open the species picker.
-  card(".bd-mon.bd-side-left").querySelector(".bd-mon-name").click();
-  await sleep(30);
-  ok("tapping the name opens the card", !folded(".bd-mon.bd-side-left"));
-  ok("and does not open the species picker instead",
-    !document.querySelector(".bd-dialog-picker"), "a picker opened over a folded card");
+  // THE HEADING, THE SPRITE AND THE NAME OPEN THE SPECIES PICKER, FOLDED OR NOT.
+  // They used to open the card instead while it was shut, which -- now that the rest
+  // of the card folds and unfolds -- would leave a phone with no way to change the
+  // Pokemon at all.
+  const picker = () => document.querySelector(".bd-dialog-picker");
+  const closePicker = () => picker()?.querySelectorAll("button")
+    .find((b) => b.getAttribute("aria-label") === "Close")?.click();
+  for (const [what, sel] of [["the heading", ".bd-card-heading-open"], ["the sprite", ".bd-mon-art"], ["the name", ".bd-mon-name"]]) {
+    ok(`${what} is there to tap`, Boolean(card(".bd-mon.bd-side-left").querySelector(sel)), sel);
+    card(".bd-mon.bd-side-left").querySelector(sel)?.click();
+    await sleep(30);
+    ok(`tapping ${what} on a folded card opens the species picker`, Boolean(picker()));
+    ok(`tapping ${what} leaves the card folded`, folded(".bd-mon.bd-side-left"));
+    closePicker();
+    await sleep(30);
+    ok(`the picker opened by ${what} closes again`, !picker());
+  }
 
-  // A TAP ANYWHERE ON THE FOLDED FIELD OPENS IT -- here, its summary line.
+  // AND THE CARD ITSELF FOLDS BOTH WAYS.
+  card(".bd-mon.bd-side-left").querySelector(".bd-card-toggle").click();
+  await sleep(30);
+  ok("the chevron opens the card", !folded(".bd-mon.bd-side-left"));
+  card(".bd-mon.bd-side-left").querySelector(".bd-points-left").click();
+  await sleep(30);
+  ok("a tap on the open card's own text folds it again", folded(".bd-mon.bd-side-left"));
+
+  // A CONTROL IS NOT THE CARD. Shutting the card under somebody who is setting a
+  // Nature, a stat point or an item would be the opposite of helpful.
+  card(".bd-mon.bd-side-left").querySelector(".bd-card-toggle").click();
+  await sleep(30);
+  for (const sel of [".bd-select", "input", ".bd-combo", "label"]) {
+    const node = card(".bd-mon.bd-side-left").querySelector(sel);
+    ok(`the open card has a ${sel} to tap`, Boolean(node), sel);
+    node?.click();
+    await sleep(10);
+    ok(`a tap on ${sel} leaves the card open`, !folded(".bd-mon.bd-side-left"));
+  }
+
+  // A TAP ANYWHERE ON THE FOLDED FIELD OPENS IT -- here, its summary line -- and a
+  // tap on the open one shuts it.
   if (!folded(".bd-field-panel")) card(".bd-field-panel").querySelector(".bd-card-toggle").click();
   await sleep(30);
   ok("the field can be folded", folded(".bd-field-panel"));
   (card(".bd-field-panel").querySelector(".bd-field-peek") || card(".bd-field-panel")).click();
   await sleep(30);
   ok("and a tap on its summary opens it", !folded(".bd-field-panel"));
+  card(".bd-field-panel").querySelector(".bd-field-label").click();
+  await sleep(30);
+  ok("and a tap on the open field's own label shuts it", folded(".bd-field-panel"));
+  buttonIn(".bd-field-panel", "Rain").click();
+  await sleep(30);
+  ok("while one of its own toggles leaves it alone", folded(".bd-field-panel"));
 
   // With no layout every rect is zero, so a fold must ask for no scroll at all.
   ok("a fold with nothing to correct scrolls by nothing", scrolledBy.length === 0,

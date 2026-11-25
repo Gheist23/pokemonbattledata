@@ -32,6 +32,7 @@ import { GUARANTEED_MOVE_SHARE, describeChanges, effectiveAbility, enforce, form
 import { AutoBuildSearch, additionForPage } from "./autobuild-search.js";
 import { AutoBuildArchetype, archetypeDisplay, archetypeKey, candidateKey, manualArchetype, resolveAutomaticArchetype, topMetaKeys } from "./autobuild-archetype.js";
 import { metaPriorityOption, promoteMetaTier } from "./autobuild-meta-priority.js";
+import { freshBuildRuleOption, freshOptions, freshSeed, stampFresh, teamIsFull } from "./fresh-build.js";
 import { TeamOptimizer } from "./team-optimize.js";
 import { MOVES_NEEDING_SUPPORT, TeamSuggestions, boxCandidates, speedModePlan, uniqueNames } from "./team-suggest.js";
 
@@ -442,8 +443,27 @@ export class TeamAutoBuild {
     // The Prioritize Meta tier rule, for both paths (the search reads it off the builder).
     // Only a run that names it overrides what the constructor was given.
     if (options && "autobuildMetaPriority" in options) this.metaPriority = metaPriorityOption(options.autobuildMetaPriority);
-    if (options.search && options.search !== "companion") return new AutoBuildSearch(this, AUTO_BUILD_PROFILES).run(sets, options);
-    return this.runGreedy(sets, options);
+    // V561: a full team has no slots to fill, so Auto Build builds a NEW team instead of
+    // handing back the one it was given. builder/fresh-build.js says what was wrong and why
+    // the seeded team's cached Team Evaluation has to go with the seed.
+    //
+    // DECIDED HERE, in the one entry both paths go through, because the website runs the beam
+    // search and the app's greedy path is what the recorded vectors replay: a rule put in
+    // either one alone would be a silent no-op for the other. Calling runGreedy() or
+    // AutoBuildSearch.run() directly still seeds exactly what it is handed, which is how a
+    // recording stays replayable.
+    const fresh = Boolean(freshBuildRuleOption(options.freshBuildRule ?? this.ev?.freshBuildRule))
+      && teamIsFull(sets, TEAM_SIZE);
+    const seed = fresh ? freshSeed(TEAM_SIZE) : sets;
+    const opts = fresh ? freshOptions(options) : options;
+    if (opts.search && opts.search !== "companion") {
+      const run = new AutoBuildSearch(this, AUTO_BUILD_PROFILES).run(seed, opts);
+      return fresh ? run.then(stampFresh) : run;
+    }
+    // Deliberately not wrapped in a Promise when the rule does not fire: the greedy path
+    // answers synchronously and every caller of it expects that.
+    const out = this.runGreedy(seed, opts);
+    return fresh ? stampFresh(out) : out;
   }
 
   /** The app's own Auto Build: one committed pick per slot, then the finish chain. */

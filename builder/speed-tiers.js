@@ -21,6 +21,49 @@ export const SPEED_ABILITY_RULES = {
   "steam engine": { name: "Steam Engine", stage: 6 },
 };
 
+/**
+ * V562: a Pokemon that almost never plays WITHOUT its Mega Stone is shown only as its Mega.
+ *
+ * THE DEFECT. The Speed list gives every Top-X Pokemon a row for its common set and another
+ * for each of its top five held items that matters, Choice Scarf among them. Salamence holds
+ * Salamencite 96.6% of the time in Doubles -- and Choice Scarf 0.3% -- so the list carried a
+ * "Salamence @ Choice Scarf" row at a Speed nobody on the ladder actually presents, while the
+ * row that matters (Mega Salamence) sat elsewhere. Measured on the bundled data: Charizard
+ * 98.4%, Floette 98.4%, Golisopod 97.6%, Salamence 96.6% and Raichu 96.0% clear the bar in
+ * Doubles, and three of those five were carrying that phantom Scarf row.
+ *
+ * THE SHARE IS SUMMED OVER THE SPECIES' STONES, not read off the top item: Charizardite X and
+ * Y are two items for one Pokemon, so a species can be 98% committed to its Mega with no
+ * single stone above 50%.
+ *
+ * 95, INCLUSIVE, is the cutoff this project already uses for "almost everybody does this"
+ * (GUARANTEED_MOVE_SHARE in builder/guaranteed-moves.js, and the app's own copy). It is doing
+ * real work rather than catching everything: Gardevoir sits at 94.7% in Doubles and Salamence
+ * at 93.8% in SINGLES, so the same Pokemon is Mega-only in one format and not in the other.
+ *
+ * WHAT IS NOT TOUCHED. `metaVariants()` still produces every row it ever did, because the
+ * Optimize objective and DeepOptimizer tune against that list (builder/optimize-objective.js,
+ * builder/optimize-deep.js) and what a BENCHMARK list should hold is a different question from
+ * what the Speed Tiers panel should show. This rule filters the shown list, in `rows()`. Our
+ * own team is never filtered: `ourVariants()` is the team as the player built it.
+ */
+export const MEGA_ONLY_RULE = 1;
+
+/** Percent of a species' usage holding one of its own stones, at or above which only its Mega
+ *  is shown. The same cutoff as GUARANTEED_MOVE_SHARE. */
+export const MEGA_ONLY_SHARE = 95;
+
+/** `megaOnlyRule` as a flag: absent means production (on), an explicit 0/false means off. */
+export function megaOnlyRuleOption(value) {
+  if (value === undefined || value === null) return MEGA_ONLY_RULE;
+  if (value === false) return 0;
+  const text = String(value).trim().toLowerCase();
+  if (!text || text === "0" || text === "off" || text === "false" || text === "no" || text === "none") return 0;
+  return 1;
+}
+
+const isMegaForm = (form) => /^mega[\s-]/i.test(String(form || ""));
+
 export const DEFAULT_SPEED_STATE = Object.freeze({ top_x: 30, weather: "None", own_tailwind: false, opposing_tailwind: false, trick_room: false, our_stage: 0, opponent_stage: 0 });
 
 const abilityKey = (value) => String(value ?? "").trim().toLowerCase();
@@ -48,10 +91,76 @@ export class SpeedTiers {
   /**
    * @param {TeamEvaluator} evaluator  (meta records set)
    * @param {BuilderData|null} data    for legal Abilities of a form
+   * @param {{megaOnlyRule?: number|string|boolean}} rules  V562, absent means production
+   *
+   * The V562 flag is read off the EVALUATOR when it is not passed here, because SpeedTiers is
+   * built in six places (the worker, the overview, the Optimize objective, DeepOptimizer and
+   * two suites) and all six build it from an evaluator they already hold: one assignment,
+   * `ev.megaOnlyRule = 0`, therefore reaches every one of them, which is what a replay harness
+   * needs. It is deliberately NOT a key of TeamEvaluator's own rules argument -- that argument
+   * is the Team Evaluation's scoring rules, and this rule changes a list a panel shows.
    */
-  constructor(evaluator, data = null) {
+  constructor(evaluator, data = null, { megaOnlyRule = undefined } = {}) {
     this.ev = evaluator;
     this.data = data;
+    this.megaOnlyRule = megaOnlyRule === undefined ? evaluator?.megaOnlyRule : megaOnlyRule;
+  }
+
+  /** V562: percent of this record's usage holding one of the species' own Mega Stones. */
+  stoneShare(record, species) {
+    let total = 0;
+    for (const pair of record?.items || []) {
+      const [item, share] = Array.isArray(pair) ? pair : [pair, 0];
+      if (!item) continue;
+      // Both predicates, as V305's own clean-up below uses both: one maps the stone through
+      // the engine's holder table, the other through the V67 species key.
+      if (this.ev.stoneMatchesSpecies(species, item) || this.ev.isMegaItemForSpecies(species, item)) {
+        total += Number(share) || 0;
+      }
+    }
+    return total;
+  }
+
+  /** V562: the Top-X species shown as their Mega only. Empty when the rule is off. */
+  megaOnlySpecies(topX) {
+    const out = new Set();
+    if (!megaOnlyRuleOption(this.megaOnlyRule)) return out;
+    // The same records, the same filter and the same slice `metaVariants` uses, so the two
+    // cannot disagree about which Pokemon are in the list at all.
+    const records = (this.ev.metaRecords || []).filter((r) => Number(r.position) < 999999).slice(0, Math.max(1, topX));
+    for (const record of records) {
+      const species = String(record.species || record.name);
+      if (this.stoneShare(record, species) >= MEGA_ONLY_SHARE) out.add(compact(species));
+    }
+    return out;
+  }
+
+  /** V562: drop those species' non-Mega rows, without ever dropping the species itself. */
+  keepMegaOnly(rows, species) {
+    if (!species.size) return rows;
+    const out = [];
+    const kept = new Set();
+    for (const entry of rows) {
+      const key = compact(entry[0].pokemon_name);
+      if (!species.has(key)) {
+        out.push(entry);
+        continue;
+      }
+      if (!isMegaForm(entry[0].form_name)) continue;
+      out.push(entry);
+      kept.add(key);
+    }
+    // A species the rule applies to must NOT vanish from the Speed list. Nothing in today's
+    // data reaches this -- all five have a Mega row -- but it is one upstream change away: the
+    // baseline row is base-formed when the common Ability is a Speed Ability
+    // (`commonSpeedAbility` below), so a Mega whose own Ability was one would have no Mega row
+    // left, and the opponent's fastest Pokemon would quietly leave the list.
+    for (const key of species) {
+      if (kept.has(key)) continue;
+      const first = rows.find((entry) => compact(entry[0].pokemon_name) === key);
+      if (first) out.push(first);
+    }
+    return out;
   }
 
   legalAbilities(species, form) {
@@ -196,8 +305,13 @@ export class SpeedTiers {
   rows(sets, state = DEFAULT_SPEED_STATE) {
     const s = { ...DEFAULT_SPEED_STATE, ...(state || {}) };
     const stage = (value) => Math.max(-6, Math.min(6, Number(value) || 0));
+    const topX = Number(s.top_x) || 30;
+    // V562: the opponent's side only. Our own rows come from `ourVariants` and are the team as
+    // the player built it, so "the Pokemon that are not on our team" is settled by which of the
+    // two lists the filter is applied to.
+    const metaRows = this.keepMegaOnly(this.metaVariants(topX), this.megaOnlySpecies(topX));
     const variants = [
-      ...this.metaVariants(Number(s.top_x) || 30).map(([mon, info]) => [Object.assign(mon, { speed_stage: stage((mon.speed_stage || 0) + stage(s.opponent_stage)) }), info]),
+      ...metaRows.map(([mon, info]) => [Object.assign(mon, { speed_stage: stage((mon.speed_stage || 0) + stage(s.opponent_stage)) }), info]),
       ...this.ourVariants(sets).map(([mon, info]) => [Object.assign(mon, { speed_stage: stage((mon.speed_stage || 0) + stage(s.our_stage)) }), info]),
     ];
     const rows = variants.map(([mon, info]) => {
@@ -222,7 +336,7 @@ export class SpeedTiers {
     return {
       rows,
       maximum: Math.max(1, ...rows.map((r) => r.speed)),
-      summary: `Our Team + Top ${Number(s.top_x) || 30} Meta · ${conditions.join(" · ")}`,
+      summary: `Our Team + Top ${topX} Meta · ${conditions.join(" · ")}`,
       state: s,
     };
   }

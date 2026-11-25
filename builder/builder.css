@@ -1670,3 +1670,35 @@ body.page-team-builder { --max-width: 1520px; }
     line-height: 1.45;
   }
 }
+
+/* The Box's filter input: the picker's search language, over the Pokemon the player owns
+   (builder/common.js boxSearchSource). Appended rather than slotted in beside .bd-box-bar so
+   nothing later in this file can quietly win over it. */
+.bd-box-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.7rem;
+  align-items: center;
+  margin: 0 0 0.7rem;
+}
+.bd-box-filter .bd-search { flex: 1 1 260px; min-width: 0; }
+.bd-box-filter > .bd-note { flex: 0 0 auto; white-space: nowrap; }
+.bd-box-filter-help { flex: 0 0 auto; }
+.bd-box-filter-help > summary {
+  cursor: pointer;
+  color: var(--soft);
+  font-size: 0.86rem;
+}
+.bd-box-filter-help > summary:hover { color: var(--text); }
+.bd-box-filter-help[open] {
+  flex: 1 1 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel-2, var(--panel));
+}
+.bd-box-filter-help > p { margin: 0.45rem 0 0.6rem; }
+
+@media (max-width: 620px) {
+  .bd-box-filter .bd-search { flex: 1 1 100%; }
+}

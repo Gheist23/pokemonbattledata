@@ -141,6 +141,13 @@ for (const testCase of cases) {
   const scoreStamp = testCase.record?.rules?.score_composition ?? testCase.rules?.score_composition ?? evalCase?.record?.rules?.score_composition ?? null;
   const ev = new TeamEvaluator(null, engine, "Doubles", evalCase?.settings || {}, { pairedSpreads: stamp, scoreRules: scoreStamp, checkRules: testCase.record?.rules?.team_checks ?? evalCase?.record?.rules?.team_checks ?? null, selfCost: testCase.record?.rules?.self_cost ?? evalCase?.record?.rules?.self_cost ?? null });
   ev.setMetaRecords(records);
+  // V562 (builder/speed-tiers.js): a species that holds a Mega Stone in at least 95% of its
+  // usage is shown only as its Mega, so the Choice Scarf rows of Salamence, Charizard and
+  // Floette are gone from the live Speed list. These recordings are the APP's rows, made
+  // before the rule: measured with it on, 36 of this suite's 66 comparisons move and the list
+  // is 32 rows against the app's 36. SpeedTiers reads the flag off the evaluator, which is
+  // what every one of its six construction sites is built from.
+  ev.megaOnlyRule = 0;
   const entries = evalCase ? evalCase.record.team_mons.at(-1).mons : [];
   const sets = entries.map((m) => ({ species: m.pokemon_name, form: m.form_name, item: m.item, ability: m.ability, moves: m.moves, nature: m.nature_name, bonuses: m.bonuses }));
 

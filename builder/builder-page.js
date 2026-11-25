@@ -29,7 +29,7 @@ import {
 } from "./store.js";
 import { activate, canRun, deactivate, DISCORD_URL, FREE_RUNS, freeRunsLeft, isPro, licenceSummary, portalUrl, recordRun, refreshLicence } from "./pro.js";
 import { resetTournamentView, SNAPSHOT_VERSION, tournamentAnalysis, tournamentExplainer, tournamentProgress } from "./tournament-view.js";
-import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, segmented, select, sprite, switchRow, toast, typeChip } from "./ui.js";
+import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, searchHelpCard, segmented, select, sprite, switchRow, toast, typeChip } from "./ui.js";
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
 import { keepPlace } from "./scroll-anchor.js";
 import { cleanCampaignCode, installCampaignTeams } from "./campaign-teams.js";
@@ -87,6 +87,8 @@ const view = {
   optimize: {},
   auto: { running: false, stopping: false, requestId: 0, fraction: 0, status: "", result: null, error: "", keep: true, onlyBox: false, depth: "deep", archetype: "automatic", prioritizeMeta: false },
   // limit 0 is "All": the whole tournament library, which is what the test is for.
+  // The Box filter, kept here so switching tab and back does not lose what was typed.
+  boxQuery: "",
   tour: { running: false, stopping: false, limit: 0, snapshot: null, error: "", requestId: 0, key: "", host: null, paintQueued: false, runFormat: "" },
   libraryQuery: "",
   libraryFilter: "All",
@@ -869,10 +871,46 @@ function renderBox() {
       h("div", { class: "bd-gate-actions" }, h("button", { type: "button", class: "primary-button", onclick: addPokemonToBox }, "+ Add Pokémon"), h("button", { type: "button", class: "ghost-button", onclick: () => openSyncDialog(data) }, "Sync with Companion"))));
     return;
   }
-  hosts.main.append(h("div", { class: "bd-box-grid" }, box.box.map((entry, index) => {
-    const set = boxEntryToSet(entry, data);
-    if (!set.species) return null;
-    return h("div", {
+  // The same filter input as the picker: one search language, in builder/search-query.js, and
+  // the Box answers it from the Pokemon the player owns (BuilderData.boxSearchSource says which
+  // clause each side answers). Only the grid is re-filled as it is typed in -- a renderMain()
+  // per keystroke would rebuild the input and take the caret with it.
+  const input = h("input", {
+    type: "search", class: "bd-search", placeholder: "Name, type, move, ability, or spe>=100\u2026",
+    value: view.boxQuery || "", autocomplete: "off", spellcheck: "false", "aria-label": "Filter the Box",
+  });
+  const count = h("span", { class: "bd-note", "aria-live": "polite" });
+  const grid = h("div", { class: "bd-box-grid" });
+  const cards = box.box
+    .map((entry, index) => ({ entry, index, set: boxEntryToSet(entry, data) }))
+    .filter((card) => card.set.species);
+
+  const fill = () => {
+    clear(grid);
+    clear(count);
+    const keep = data.boxFilter(view.boxQuery, format());
+    const shown = cards.filter((card) => keep(card.set));
+    count.append((view.boxQuery || "").trim()
+      ? `${shown.length} of ${cards.length} shown`
+      : `${cards.length} Pok\u00e9mon`);
+    if (!shown.length) {
+      grid.append(h("p", { class: "bd-empty" }, "No Pok\u00e9mon in this box matched."));
+      return;
+    }
+    for (const card of shown) grid.append(boxCard(card.entry, card.index, card.set));
+  };
+  input.addEventListener("input", () => { view.boxQuery = input.value; fill(); });
+  hosts.main.append(h("div", { class: "bd-box-filter" }, input, count,
+    h("details", { class: "bd-box-filter-help" }, h("summary", {}, "What can I filter for?"),
+      h("p", { class: "bd-note" }, "In the Box the clauses are answered by the Pok\u00e9mon you own \u2014 its own held item, Ability, Nature and four moves \u2014 rather than by the battle data, so item=Choice Scarf finds the one carrying a Scarf. Names, types, stats, teammates and ranks work as below."),
+      searchHelpCard())));
+  hosts.main.append(grid);
+  fill();
+}
+
+/** One Box card. `index` is the position in the box itself, not in the filtered list. */
+function boxCard(entry, index, set) {
+  return h("div", {
       class: "bd-box-card",
       draggable: "true",
       ondragstart: () => { view.dragBox = set; view.dragSlot = null; },
@@ -889,7 +927,6 @@ function renderBox() {
         else replaceBoxEntry(index, { ...entry, ...setToBoxEntry(result, data, { build_source: entry.build_source || "website", confidence: entry.confidence ?? 1 }) });
       } }, "✎"),
       h("button", { type: "button", class: "bd-mini-button", title: "Remove from Box", "aria-label": `Remove ${name(set)} from the Box`, onclick: () => removeFromBox(index) }, "×")));
-  })));
 }
 
 async function addPokemonToBox() {
@@ -1717,7 +1754,13 @@ function renderAuto() {
         select(AUTO_BUILD_ARCHETYPES.map(([label, key]) => [key, label]), archetypeKey(auto.archetype), (value) => { auto.archetype = archetypeKey(value); renderMain(); }, { "aria-label": "Preferred archetype" }),
         h("p", { class: "bd-note" }, archetypeDescription(auto.archetype)))),
     h("div", { class: "bd-auto-switches" },
-      switchRow(locked.length ? `Keep the current ${locked.length} Pokémon` : "Keep the current team", auto.keep, (on) => { auto.keep = on; }),
+      // V561: with six on the team there is nothing to fill, so the switch has nothing to do
+      // and Auto Build searches for a new team. Saying so beats a switch that looks live and
+      // changes nothing. A visible note, not switchRow's `hint`, which is only a title=.
+      locked.length >= 6
+        ? switchRow("Keep the current team", false, () => {}, { disabled: true, hint: "Your team is already full." })
+        : switchRow(locked.length ? `Keep the current ${locked.length} Pokémon` : "Keep the current team", auto.keep, (on) => { auto.keep = on; }),
+      locked.length >= 6 ? h("p", { class: "bd-note" }, "Your team is already full, so Auto Build searches for a completely new team. Your current team stays as it is until you press Save as new team or Replace current team.") : null,
       switchRow(boxCount ? "Only use my Box" : "Only use my Box (empty)", Boolean(auto.onlyBox && boxCount), (on) => { auto.onlyBox = on; }, { disabled: !boxCount, hint: "Build only from the Pokémon in your Box." }),
       switchRow("Prioritize Meta Pokémon", Boolean(auto.prioritizeMeta), (on) => { auto.prioritizeMeta = on; }, { hint: `Ranks the Top ${topMeta} ${format()} Meta ahead of other Pokémon once the Team Building Checks are settled, for each slot and when the complete teams are compared.` }),
       switchRow("Optimize Stat Points", Boolean(auto.optimizeStats), (on) => { auto.optimizeStats = on; }, { hint: "After the build, tune every member's Stat Points and Nature (slower)." })),
@@ -1748,7 +1791,7 @@ function renderAuto() {
   // not add, the swap the Team Evaluation asked for, a build stopped early (names in
   // Showdown spelling, as everywhere on the page).
   const swapNames = (result.compared || []).flatMap((team) => (team.swap ? [team.swap.out, team.swap.in] : []));
-  const caveats = (result.log || []).filter((line) => /^No Pokémon for the last slot|^Auto Build could not reach|^Auto Build reached \d|^Swapped |^Auto Build was stopped|^The best pick per slot could not/.test(line))
+  const caveats = (result.log || []).filter((line) => /^Your team was already full|^No Pokémon for the last slot|^Auto Build could not reach|^Auto Build reached \d|^Swapped |^Auto Build was stopped|^The best pick per slot could not/.test(line))
     .map((line) => showdownText(line, swapNames));
   const search = result.search || null;
   // The search is bounded by fixed counts; only its time limit (a safety net for a very

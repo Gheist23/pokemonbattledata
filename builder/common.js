@@ -426,6 +426,98 @@ export class BuilderData {
     };
   }
 
+  /**
+   * One Pokemon THE PLAYER OWNS, seen the way builder/search-query.js wants to see it, so the
+   * Box box answers the same queries as the picker and the Explorer.
+   *
+   * WHICH SIDE ANSWERS WHAT. A Box card is one concrete set, not a species, so the three kinds
+   * of clause come from three places and the rule is worth stating once:
+   *
+   *   what it IS          name, type, hp/atk/def/spa/spd/spe/bst   -> the species
+   *   what THIS ONE has   item, ability, nature, moves, stat points -> the set the player owns
+   *   the battle data      teammate, rank, usage                    -> the species, as the
+   *                                                                    picker already answers it
+   *
+   * So `item=Choice Scarf` in the Box finds the Pokemon HOLDING a Scarf, not the ones whose
+   * usage table mentions one, and `move=Fake Out` finds the ones that have it on the set rather
+   * than the ones that could learn it. In a Box that is the only reading that is any use: the
+   * player is looking through Pokemon they have already trained.
+   *
+   * Each owned attribute is reported as rank 1 at 100%, because for this one Pokemon that is
+   * literally true -- it holds that item every time it is brought -- which keeps `topitem=`
+   * and `move<=5=` answering yes rather than inventing a usage table the Box does not have.
+   */
+  boxSearchSource(set, format = "Doubles") {
+    const species = String(set?.species || "").trim();
+    const written = String(set?.form || species).trim();
+    // THE FORM IT BATTLES AS, not the one stored. A Box entry keeps the base form plus the
+    // stone -- {pokemon: "Dragonite", form: "Dragonite", item: "Dragoninite"} -- while the card
+    // is LABELLED by `setName`, which resolves the Mega, so the player is looking at
+    // "Dragonite-Mega". Reading the stored form here made `spe>=120` skip the very card that
+    // shows 120. Both spellings still find it: `names()` below carries the written form too,
+    // and an identity's keys already include its base species.
+    const [, battled] = this.battleForm(species, written, String(set?.item || ""));
+    const form = String(battled || written).trim();
+    // `byName` is keyed by the SHOWDOWN spelling, so compact("Mega Dragonite") is not in it and
+    // a direct lookup of the app's form name silently falls through to the base species -- which
+    // is how this first read 100 Speed for a card showing 120.
+    const look = (value) => {
+      const text = String(value || "").trim();
+      if (!text) return null;
+      return this.byName.get(compact(this.showdownName(text))) || this.byName.get(compact(text)) || null;
+    };
+    const identity = look(form) || look(written) || look(species);
+    // The picker's own source answers everything that belongs to the species; only the fields
+    // the owned set is the authority on are replaced below.
+    const base = identity ? this.searchSource(identity, format) : null;
+    const moves = (set?.moves || []).map((move) => String(move || "").trim()).filter(Boolean);
+    const item = String(set?.item || "").trim();
+    const ability = String(set?.ability || "").trim();
+    const nature = String(set?.nature || "").trim();
+    const bonuses = set?.bonuses || [];
+    const owned = (category) => {
+      if (category === "move") return moves;
+      if (category === "held_item") return item ? [item] : [];
+      if (category === "ability") return ability ? [ability] : [];
+      if (category === "stat_alignment") return nature ? [nature] : [];
+      if (category === "stat_points") return [bonuses.join("/")];
+      return null; // teammate is a fact about the species, so the species answers it
+    };
+    const arrows = this.natures[nature] || ["", ""];
+    return {
+      ...(base || {}),
+      names: () => [form, written, species, ...(base ? base.names() : [])].filter(Boolean),
+      abilities: () => (ability ? [ability] : []),
+      learnset: () => moves,
+      extraText: () => [item, nature, form, written, species, ...(base ? base.extraText() : [])].filter(Boolean),
+      battleText: () => [item, ability, nature, ...moves].filter(Boolean),
+      rows: (category) => {
+        const own = owned(category);
+        if (!own) return base ? base.rows(category) : [];
+        return own.filter(Boolean).map((label) => ({ label, rank: 1, percentage: 100 }));
+      },
+      points: (column) => {
+        const at = ["hp_points", "attack_points", "defense_points", "sp_atk_points", "sp_def_points", "speed_points"].indexOf(column);
+        return at < 0 ? [] : [Number(bonuses[at] || 0)];
+      },
+      statUp: () => [NATURE_STAT_NAMES[arrows[0]] || ""],
+      statDown: () => [NATURE_STAT_NAMES[arrows[1]] || ""],
+    };
+  }
+
+  /**
+   * A predicate for one Box query, parsed once rather than per card.
+   *
+   * An empty query keeps everything; a query the language cannot parse into clauses falls back
+   * to the same plain-word search the picker does (`plan.mode === "name"`), so typing half a
+   * name narrows the Box the way it narrows the picker.
+   */
+  boxFilter(query, format = "Doubles") {
+    const plan = parseSearchQuery(query);
+    if (plan.mode === "empty") return () => true;
+    return (set) => Boolean(set?.species) && matchesPlan(plan, this.boxSearchSource(set, format));
+  }
+
   /** Picker rows: one per Pokemon (Showdown identity), labelled with its
    *  Showdown name.  A query matches the Showdown name or any app spelling of
    *  that Pokemon, so "ninetales-alola" and "alolan ninetales" both find it,

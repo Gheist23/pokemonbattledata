@@ -651,9 +651,19 @@ export function scoreTone(score) {
   return "bad";
 }
 
-export function scoreRing(score, label = "") {
+/**
+ * A score as a ring.
+ *
+ * `tone` overrides the absolute-value colour, and `note` is appended to the spoken label. The
+ * four Team Evaluation axes pass both from builder/score-calibration.js, because on those axes
+ * the absolute value is not comparable to 0-100: Offense and Defense cannot reach 60 on any
+ * real team, so `scoreTone`'s >=70 green was unreachable and its <50 red covered most of the
+ * library. Every other ring (the Speed sub-scores, the tournament head) passes neither and is
+ * coloured exactly as before.
+ */
+export function scoreRing(score, label = "", { tone = "", note = "" } = {}) {
   const value = Math.max(0, Math.min(100, Math.round(score || 0)));
-  const ring = h("span", { class: `bd-ring bd-ring-${scoreTone(value)}`, style: { "--value": value }, role: "img", "aria-label": `${label ? `${label} ` : ""}${value} out of 100` }, h("b", {}, value));
+  const ring = h("span", { class: `bd-ring bd-ring-${tone || scoreTone(value)}`, style: { "--value": value }, role: "img", "aria-label": `${label ? `${label} ` : ""}${value} out of 100${note ? `, ${note}` : ""}` }, h("b", {}, value));
   return ring;
 }
 

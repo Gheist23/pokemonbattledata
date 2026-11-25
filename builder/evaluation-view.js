@@ -338,13 +338,31 @@ export function threatsView(payload, { spriteFor, name }) {
 
 // --- Synergy, Offense and Defense popups ---------------------------------------------------
 
-export function openSynergyDialog(payload, { spriteFor, slots }) {
+/**
+ * Where the score stands among real teams, as a sentence -- the thing the 0-100 dial cannot
+ * say, and the reason somebody opens one of these popups about a number like "Offense 44".
+ * `standing` comes from builder/score-calibration.js via the page, which is where the format
+ * and the reference table are known; null when there is none (partial team, no table yet).
+ */
+function standingNote(standing) {
+  return standing?.title ? h("p", { class: "bd-note" }, standing.title) : null;
+}
+
+/** A partial team has a label but no standing, so its ring keeps its old absolute colour. */
+function standingRing(score, label, standing) {
+  const has = standing && standing.percentile !== null;
+  return scoreRing(score, label, { tone: has ? standing.tone : "", note: has ? standing.label : "" });
+}
+
+export function openSynergyDialog(payload, { spriteFor, slots, standing = null }) {
   const members = payload.synergy_members || [];
   const weakest = Math.min(...members.map((m) => m.score), 100);
   const slotFor = (memberName) => (slots || []).find((s) => s.name === memberName);
   const body = h("div", { class: "bd-list" },
-    h("div", { class: "bd-synergy-head" }, scoreRing(payload.synergy_score, "Synergy"),
-      h("p", { class: "bd-section-note" }, "Each Pokémon lists its synergy with every teammate. Low-connection members are highlighted so weak links are easy to spot.")),
+    h("div", { class: "bd-synergy-head" }, standingRing(payload.synergy_score, "Synergy", standing),
+      h("div", {},
+        h("p", { class: "bd-section-note" }, "Each Pokémon lists its synergy with every teammate. Low-connection members are highlighted so weak links are easy to spot."),
+        standingNote(standing))),
     members.map((member) => {
       const slot = slotFor(member.name);
       return h("details", { class: `bd-synergy-member ${member.score <= weakest + 0.01 ? "weakest" : ""}` },
@@ -363,8 +381,15 @@ export function openSynergyDialog(payload, { spriteFor, slots }) {
 }
 
 /** The Speed score's overview: how it is made up (normal Speed, opposing Tailwind, Trick Room). */
-export function openSpeedDialog(payload) {
-  openDialog({ title: "Speed Control", body: h("div", { class: "bd-list" }, scoreRing(payload.speed?.score ?? 0, "Speed"), speedView(payload)), wide: true });
+export function openSpeedDialog(payload, { standing = null } = {}) {
+  openDialog({
+    title: "Speed Control",
+    body: h("div", { class: "bd-list" },
+      standingRing(payload.speed?.score ?? 0, "Speed", standing),
+      standingNote(standing),
+      speedView(payload)),
+    wide: true,
+  });
 }
 
 /**
@@ -398,7 +423,7 @@ export function pressureFormula(payload, which) {
     : `Defense ${Math.round(score)} = 70% of (100 − the meta's pressure into the team, ${Math.round(pressure?.score ?? 0)}) + 30% critical-threat safety (${Math.round(critical.safety_score ?? 0)}).`;
 }
 
-export function openPressureDialog(payload, which) {
+export function openPressureDialog(payload, which, { standing = null } = {}) {
   const overview = payload.pressure_overview_v188 || {};
   const offense = which === "offense";
   const pressure = offense ? overview.team_to_meta : overview.meta_to_team;
@@ -408,6 +433,7 @@ export function openPressureDialog(payload, which) {
   const types = Object.entries(pressure?.type_summary || {}).filter(([, v]) => v.count > 0).sort((a, b) => b[1].pressure - a[1].pressure);
   const body = h("div", { class: "bd-list" },
     h("p", { class: "bd-confirm-text" }, formula),
+    standingNote(standing),
     h("p", { class: "bd-note" }, `Per-matchup damage with the real sets, capped at 100% per target before averaging. Average type multiplier ${Number(pressure?.average_type_multiplier ?? 1).toFixed(2)}× · ${Math.round((pressure?.physical_share ?? 0) * 100)}% physical · ${Math.round((pressure?.special_share ?? 0) * 100)}% special.`),
     h("h3", { class: "bd-field-label" }, offense ? "Your strongest attacks into the meta" : "The meta's strongest attacks into you"),
     (pressure?.top_moves || []).map((row) => h("div", { class: "bd-row" },

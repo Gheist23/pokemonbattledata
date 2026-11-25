@@ -314,7 +314,12 @@ for (const testCase of cases) {
   // weather or terrain archetype did not yet demand the Ability when these were recorded.
   // Suggestions reads the same `archetypeRequirements`, so 484 of these 5,430 comparisons
   // move with the rule on -- it is NOT an Auto-Build-only rule, which is easy to assume.
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, duplicateMegaRule: 0, statProfileRule: 0, fieldDependencyRule: 0, megaExclusivityRule: 0, speedPlanRule: 0, fieldSetterRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  // ...and `itemClauseRankingRule: 0`: no recording carries an `item_clause_ranking`
+  // stamp, so every one of them was made while a Suggestions row could be ranked on an
+  // item a remaining teammate already holds -- 28.8% of the rows a scan produces on the
+  // owner's own team. tests/run-item-clause-ranking.mjs is the only suite that exercises
+  // the rule ON.
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, duplicateMegaRule: 0, statProfileRule: 0, fieldDependencyRule: 0, megaExclusivityRule: 0, itemClauseRankingRule: 0, speedPlanRule: 0, fieldSetterRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   // Derived from the recording, not named here: the Top-X the site replays must be the Top-X the
   // app recorded, in its order. Everything below is measured against that list, so when a live

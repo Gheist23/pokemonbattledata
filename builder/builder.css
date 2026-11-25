@@ -1702,3 +1702,15 @@ body.page-team-builder { --max-width: 1520px; }
 @media (max-width: 620px) {
   .bd-box-filter .bd-search { flex: 1 1 100%; }
 }
+
+/* --- how a score stands among real teams (builder/score-calibration.js) ------------------ */
+/* The percentile line under a Team Evaluation score. It is NOT the "Details ›" affordance,
+   so it keeps its own colour when the card is hovered -- otherwise both lines turn brand
+   and the standing reads as another "click me". */
+.bd-score-text .bd-score-pct {
+  color: var(--text);
+  font-family: var(--bd-mono);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+.bd-score:hover .bd-score-text .bd-score-pct { color: var(--text); }

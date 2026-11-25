@@ -235,7 +235,12 @@ for (const testCase of cases) {
   // unconditionally when these were recorded, so they replay under that. V557 withholds
   // part of it from a team hedging between two speed plans; tests/run-speed-plan.mjs is the
   // only suite that exercises it ON, and asserts this flag is still here.
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { speedAbilityRule: 0, fieldDependencyRule: 0, megaExclusivityRule: 0, speedPlanRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  // ...and `itemClauseRankingRule: 0`: no recording carries an `item_clause_ranking`
+  // stamp, so every one of them was made while a Suggestions row could be ranked on an
+  // item a remaining teammate already holds -- 28.8% of the rows a scan produces on the
+  // owner's own team. tests/run-item-clause-ranking.mjs is the only suite that exercises
+  // the rule ON.
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", settings, { speedAbilityRule: 0, fieldDependencyRule: 0, megaExclusivityRule: 0, itemClauseRankingRule: 0, speedPlanRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   // The app's meta rows carry their raw battle-data rows; build the site's meta
   // records from exactly those, so data freshness cannot hide a logic difference.
   const metaRows = testCase.record.meta[0]?.rows || [];

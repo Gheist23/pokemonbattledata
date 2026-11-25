@@ -249,7 +249,12 @@ for (const testCase of cases) {
   // requirement, which is precisely what Auto Build ranks on, so with the rule on 147 of
   // these 2,599 comparisons move. tests/run-field-setters.mjs exercises it ON and asserts
   // this flag is still here.
-  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, statProfileRule: 0, fieldDependencyRule: 0, megaExclusivityRule: 0, speedPlanRule: 0, fieldSetterRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
+  // ...and `itemClauseRankingRule: 0`: no recording carries an `item_clause_ranking`
+  // stamp, so every one of them was made while a Suggestions row could be ranked on an
+  // item a remaining teammate already holds -- 28.8% of the rows a scan produces on the
+  // owner's own team. tests/run-item-clause-ranking.mjs is the only suite that exercises
+  // the rule ON.
+  const evaluator = new TeamEvaluator(null, engine, "Doubles", replaySettings, { speedAbilityRule: 0, statProfileRule: 0, fieldDependencyRule: 0, megaExclusivityRule: 0, itemClauseRankingRule: 0, speedPlanRule: 0, fieldSetterRule: 0, pairedSpreads: pairedRule(testCase), scoreRules: scoreRule(testCase), checkRules: checkRule(testCase), selfCost: selfCostRule(testCase), koLabel: koLabelRule(testCase), chargeKo: chargeKoRule(testCase) });
   evaluator.setMetaRecords([...records.values()]);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = knownTeams;

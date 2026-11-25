@@ -30,6 +30,7 @@ import {
 import { activate, canRun, deactivate, DISCORD_URL, FREE_RUNS, freeRunsLeft, isPro, licenceSummary, portalUrl, recordRun, refreshLicence } from "./pro.js";
 import { resetTournamentView, SNAPSHOT_VERSION, tournamentAnalysis, tournamentExplainer, tournamentProgress } from "./tournament-view.js";
 import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, searchHelpCard, segmented, select, sprite, switchRow, toast, typeChip } from "./ui.js";
+import { ANCHOR_TEAM_SIZE, calibrate, loadScoreAnchors, scoreAnchors } from "./score-calibration.js";
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
 import { keepPlace } from "./scroll-anchor.js";
 import { cleanCampaignCode, installCampaignTeams } from "./campaign-teams.js";
@@ -86,9 +87,9 @@ const view = {
   suggestHost: null,
   optimize: {},
   auto: { running: false, stopping: false, requestId: 0, fraction: 0, status: "", result: null, error: "", keep: true, onlyBox: false, depth: "deep", archetype: "automatic", prioritizeMeta: false },
-  // limit 0 is "All": the whole tournament library, which is what the test is for.
   // The Box filter, kept here so switching tab and back does not lose what was typed.
   boxQuery: "",
+  // limit 0 is "All": the whole tournament library, which is what the test is for.
   tour: { running: false, stopping: false, limit: 0, snapshot: null, error: "", requestId: 0, key: "", host: null, paintQueued: false, runFormat: "" },
   libraryQuery: "",
   libraryFilter: "All",
@@ -1174,11 +1175,23 @@ function renderEvaluation() {
   const wrap = h("div", { class: stale ? "bd-stale" : "" });
   if (stale) wrap.append(h("p", { class: "bd-note bd-stale-note" }, "The team or the settings changed since this evaluation. Press “Evaluate changes” to update it."));
   const slots = (result.slots || []).map(({ entry, mon }) => ({ name: data ? mon.form_name : "", species: entry.pokemon, form: mon.form_name, item: entry.item }));
+  ensureScoreAnchors();
+  const size = (result.team || []).length;
+  const stand = (label, value) => axisCalibration(label, value, size);
   wrap.append(h("div", { class: "bd-scores" },
-    scoreButton("Synergy", result.synergy_score, () => openSynergyDialog(result, { spriteFor, slots: slots.map((slot) => ({ ...slot, name: memberName(result, slot) })) }), "Team Synergy by Pokémon"),
-    scoreButton("Offense", result.offense_score, () => openPressureDialog(result, "offense"), "Offense Overview"),
-    scoreButton("Defense", result.defense_score, () => openPressureDialog(result, "defense"), "Defense Overview"),
-    scoreButton("Speed", result.speed.score, () => openSpeedDialog(result), "Speed Control")));
+    scoreButton("Synergy", result.synergy_score, () => openSynergyDialog(result, { spriteFor, slots: slots.map((slot) => ({ ...slot, name: memberName(result, slot) })), standing: stand("Synergy", result.synergy_score) }), "Team Synergy by Pokémon", stand("Synergy", result.synergy_score)),
+    scoreButton("Offense", result.offense_score, () => openPressureDialog(result, "offense", { standing: stand("Offense", result.offense_score) }), "Offense Overview", stand("Offense", result.offense_score)),
+    scoreButton("Defense", result.defense_score, () => openPressureDialog(result, "defense", { standing: stand("Defense", result.defense_score) }), "Defense Overview", stand("Defense", result.defense_score)),
+    scoreButton("Speed", result.speed.score, () => openSpeedDialog(result, { standing: stand("Speed", result.speed.score) }), "Speed Control", stand("Speed", result.speed.score))));
+  // A partial team gets no percentile, and is told why: its Offense is a mean over the members
+  // present and its Defense is 100 minus the meta's pressure into them, so both FALL as slots
+  // fill. One bulky Pokemon alone scores a Defense above every complete team in the library.
+  if (size && size < ANCHOR_TEAM_SIZE && scoreAnchors(format())) {
+    wrap.append(h("p", { class: "bd-note" },
+      `Scored on ${size} of ${ANCHOR_TEAM_SIZE} Pokémon. Offense and Defense are measured over the Pokémon`
+      + " present and Speed is scaled by the empty slots, so these are not comparable with a complete"
+      + " team's — no standing against real teams is shown until the team is full."));
+  }
   const archetype = result.archetype?.archetype;
   wrap.append(h("p", { class: "bd-eval-meta" }, [archetype ? `Detected archetype: ${archetype}` : "", `${result.threats.length} critical threat${result.threats.length === 1 ? "" : "s"} in the Top ${result.all_top_meta_threat_rows_v462}`, result.seconds ? `calculated in ${result.seconds.toFixed(1)} s` : ""].filter(Boolean).join(" · ")));
   wrap.append(h("div", { class: "bd-subtabs", role: "tablist", style: "--tabs: 5" },
@@ -1209,14 +1222,48 @@ function showdownName(value) {
   return data.showdownName(value);
 }
 
-function scoreButton(label, value, onClick, hint) {
+/**
+ * Where one of the four scores stands among real teams, or null when it may not be said.
+ *
+ * Null for a partial team, for a format with no anchor table, and before the table has
+ * arrived -- in each case the card falls back to exactly what it showed before, so a missing
+ * table is invisible rather than an error. `ensureScoreAnchors` fetches it once and re-renders.
+ */
+function axisCalibration(label, value, teamSize) {
+  return calibrate(scoreAnchors(format()), String(label).toLowerCase(), value, teamSize);
+}
+
+/** Fetch the reference distribution once, and redraw if it was not in hand yet. */
+function ensureScoreAnchors() {
+  if (scoreAnchors(format())) return;
+  loadScoreAnchors(format()).then((table) => { if (table) renderMain(); });
+}
+
+/** The percentile line, and the "Details ›" affordance when the card opens something. */
+function scoreText(label, calibration, details) {
+  return h("span", { class: "bd-score-text" },
+    h("strong", {}, label),
+    calibration ? h("small", { class: "bd-score-pct", title: calibration.title }, calibration.label) : null,
+    details ? h("small", {}, "Details ›") : null);
+}
+
+/** A partial team has a label ("needs 6") but no standing, so it gets neither tone nor note. */
+function ringOptions(calibration) {
+  const standing = calibration && calibration.percentile !== null;
+  return { tone: standing ? calibration.tone : "", note: standing ? calibration.label : "" };
+}
+
+function scoreButton(label, value, onClick, hint, calibration = null) {
   return h("button", { type: "button", class: "bd-score", onclick: onClick, title: `Open ${hint}` },
-    scoreRing(value, label), h("span", { class: "bd-score-text" }, h("strong", {}, label), h("small", {}, "Details ›")));
+    scoreRing(value, label, ringOptions(calibration)),
+    scoreText(label, calibration, true));
 }
 
 /** A score shown without anything behind it (Auto Build's result). */
-function scoreCard(label, value) {
-  return h("div", { class: "bd-score static" }, scoreRing(value, label), h("span", { class: "bd-score-text" }, h("strong", {}, label)));
+function scoreCard(label, value, calibration = null) {
+  return h("div", { class: "bd-score static" },
+    scoreRing(value, label, ringOptions(calibration)),
+    scoreText(label, calibration, false));
 }
 
 /**
@@ -1602,6 +1649,10 @@ async function runEvaluation(key = evaluationKey()) {
   // The format was switched while it ran: the result is kept for that format.
   const place = () => (format() === runFormat ? view : formatShelf(runFormat));
   try {
+    // The reference distribution the scores are reported against, fetched while the user is
+    // already waiting on the run. Resolves to null rather than throwing, so it can never fail
+    // an evaluation: without it the cards show what they always showed.
+    loadScoreAnchors(runFormat);
     // V549: the archetype the team says it is. The Archetype check measures the team against
     // IT rather than against whatever the features read as, which is the question somebody who
     // picked an archetype -- or had Auto Build build for one -- is actually asking.
@@ -1780,6 +1831,8 @@ function renderAuto() {
   const result = auto.result;
   const added = new Map((result.additions || []).map((a) => [a.slot, a]));
   const evaluation = isEvaluation(result.evaluation) ? result.evaluation : null;
+  if (evaluation) ensureScoreAnchors();
+  const autoStand = (label, value) => axisCalibration(label, value, (evaluation?.team || []).length);
   const built = result.sets.map((set) => (set ? makeSet(set) : makeSet()));
   // _v494_label_team_with_archetype: the archetype it was built for, else the one it reads as.
   const teamLabel = result.archetype || evaluation?.archetype?.archetype || "Balanced";
@@ -1808,8 +1861,10 @@ function renderAuto() {
       ].filter(Boolean).join(" · "))),
     caveats.length ? h("p", { class: "bd-note bd-auto-caveat" }, caveats.join(" ")) : null,
     evaluation ? h("div", { class: "bd-scores" },
-      scoreCard("Synergy", evaluation.synergy_score), scoreCard("Offense", evaluation.offense_score),
-      scoreCard("Defense", evaluation.defense_score), scoreCard("Speed", evaluation.speed.score)) : null,
+      scoreCard("Synergy", evaluation.synergy_score, autoStand("Synergy", evaluation.synergy_score)),
+      scoreCard("Offense", evaluation.offense_score, autoStand("Offense", evaluation.offense_score)),
+      scoreCard("Defense", evaluation.defense_score, autoStand("Defense", evaluation.defense_score)),
+      scoreCard("Speed", evaluation.speed.score, autoStand("Speed", evaluation.speed.score))) : null,
     h("div", { class: "bd-auto-members" }, result.sets.map((set, index) => {
       if (!set) return null;
       const pick = added.get(index);

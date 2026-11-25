@@ -46,6 +46,12 @@ import {
 export { spreadPointsForNature } from "./nature-spreads.js";
 import { diversityOption, selectDiverse, SUGGESTION_DIVERSITY } from "./suggest-diversity.js";
 import { megaExclusivityOn, refusesRow as megaRefusesRow } from "./mega-exclusivity.js";
+import {
+  USAGE_DEPTH as ITEM_USAGE_DEPTH, REPLACED_FIELD as ITEM_REPLACED_FIELD,
+  REFUSAL_FIELD as ITEM_REFUSAL_FIELD, ROW_FIELD as ITEM_RANKED_FIELD,
+  addItemDetail, decideItem, forcedSetFor, heldElsewhere, itemClauseRankingOn,
+  itemMembersFromEntries, itemRefusalSentence, itemSlotOf, substitutionSentence,
+} from "./item-clause-ranking.js";
 export { SUGGESTION_DIVERSITY, perTargetCap, selectDiverse } from "./suggest-diversity.js";
 
 const TEAM_SIZE = 6;
@@ -3004,6 +3010,63 @@ export class TeamSuggestions {
       }
     }
     if (!row) return null;
+    // V560: the row is scored on the item Use would really give it.
+    //
+    // Measured on the owner's sand six, ten of the fourteen SHOWN rows were scored on an item
+    // a remaining teammate already holds (184 of the 638 rows produced, 28.8%). Use swaps the
+    // item for the first free one out of the same pool, so the score belonged to a set the
+    // reader could not have -- and `projectedDetail` below says so out loud ("Another member
+    // already holds X, so the check used Y (as Use would)"), which is the projection and the
+    // ranking disagreeing in the UI.
+    //
+    // `!auto` because the V482 block above already handles Auto Build, and better: it takes a
+    // whole non-conflicting SET rather than swapping one item. This path matches Use instead,
+    // because the point of the rule is that the number on the row is the number you get.
+    //
+    // BEFORE V559, so V559 judges the row this has already fixed: a candidate whose ranked
+    // item is a Mega Stone a teammate holds loses the stone here and is no longer a Mega, and
+    // one that picks a stone up here is still refused if the team would end up over the cap.
+    if (!auto && itemClauseRankingOn(this.ev)) {
+      const members = itemMembersFromEntries(context.teamEntries);
+      const slot = itemSlotOf(row, Math.max(TEAM_SIZE, members.length));
+      const used = heldElsewhere(members, slot);
+      const species = String(row.candidate_entry?.pokemon || row.base_name || row.name || "");
+      const current = String(row.candidate_entry?.item || row.item || "");
+      // `_v480_item_options`: the set's own item, then the common set's item, then the
+      // Pokemon's top-30 held items. The same list Use picks out of, in the same order.
+      const pool = () => uniqueNames([current, this.common(species).item, ...this.usage(species, "held_item", ITEM_USAGE_DEPTH)], 99);
+      // The replacement must not break the OTHER structural rule on its way past this one.
+      // Measured: the first free item for Aerodactyl, Blaziken and Audino on this team is
+      // their own Mega Stone, so without this veto all three lost their rows to V559 -- the
+      // rule would have been removing candidates rather than correcting them. The ordinary
+      // item it falls to instead comes out of the same usage list, so it depends on the
+      // battle-data snapshot and is not the same item in the app.
+      const allow = megaExclusivityOn(this.ev)
+        ? (item) => !megaRefusesRow(this.ev?.engine, { item, slot_index: row.slot_index, swap_target: row.swap_target }, context.teamEntries, context.swapTarget)[0]
+        : null;
+      const verdict = decideItem(current, used.size ? pool() : [], used, allow);
+      if (verdict.refused) {
+        // Use already refuses this row ("Cannot apply suggestion: X is already used by
+        // another team member"), so offering it was never anything but a dead end.
+        row[ITEM_REFUSAL_FIELD] = itemRefusalSentence(row.name, verdict.dropped, verdict.holder);
+        return null;
+      }
+      if (!verdict.changed) row[ITEM_RANKED_FIELD] = true;
+      else {
+        const set = forcedSetFor(row, verdict.item);
+        let candidate = inner(this.metaWithSet(structuredClone(meta), set));
+        if (!candidate) return null;
+        candidate = this.applySetFields(candidate, set);
+        // The forced item has to have landed and the clause itself has to agree; if either
+        // fails there is no honest row, because the number would again be for a set the
+        // reader cannot have.
+        if (compact(candidate.item) !== compact(verdict.item)) return null;
+        if (!this.obeysItemClause(candidate, context)) return null;
+        candidate[ITEM_RANKED_FIELD] = true;
+        candidate[ITEM_REPLACED_FIELD] = { from: verdict.dropped, to: verdict.item, holder: verdict.holder };
+        row = addItemDetail(candidate, substitutionSentence(verdict.item, verdict.dropped, verdict.holder));
+      }
+    }
     // V559: one Mega happens, so this is not offered at a target that would leave the team
     // over MAX_STONES. The builder already refuses it twice -- `analysis.js`'s beam search
     // ("two stones is flexibility, three is waste") and `team-autobuild.js`'s MAX_MEGA_STONES

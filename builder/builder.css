@@ -1640,15 +1640,16 @@ body.page-team-builder { --max-width: 1520px; }
        Swap and Paste set in the same row and on a 375px phone the row is over
        budget, so the chevron was the flex item that gave way: a thin tall sliver
        next to the Field's full 40px square. `flex` pins it.
-       NOTHING HERE SETS A COLOUR. It is a `.ghost-button` now (calc-page.js
-       `collapseToggle`), which is the only way to be the same colour as Paste
-       set beside it: styles.css settles that colour with `!important`. Round,
-       not the old 9px, so it reads as one of the three pills in the row. */
+       NOTHING HERE SETS A COLOUR OR A CORNER. It is a `.ghost-button` now
+       (calc-page.js `collapseToggle`), which is the only way to be the same
+       colour as Paste set beside it: styles.css settles the colour, the border
+       and the 6px radius of both with `!important`, so a value written here
+       would be dead. Measured: both come out rgba(7,17,11,0.96) on
+       rgba(114,255,171,0.2), 6px, 40px tall. */
     flex: 0 0 auto;
     width: 40px;
     min-height: 40px;
     padding: 0;
-    border-radius: 999px;
     font-size: 0.95rem;
     line-height: 1;
   }

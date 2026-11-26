@@ -345,13 +345,19 @@ export function threatsView(payload, { spriteFor, name }) {
  * and the reference table are known; null when there is none (partial team, no table yet).
  */
 function standingNote(standing) {
-  return standing?.sentence ? h("p", { class: "bd-note", title: standing.title || null }, standing.sentence) : null;
+  // `|| standing.title` for the cache-skew window: paired with the previous
+  // score-calibration.js there is no `sentence`, and the long sentence it did set is exactly
+  // what this line used to show.
+  const line = standing?.sentence || standing?.title;
+  return line ? h("p", { class: "bd-note", title: standing.sentence ? (standing.title || null) : null }, line) : null;
 }
 
 /** No standing means the raw score in the ring and its old absolute colour, as before V563. */
 function standingRing(score, label, standing) {
   const has = standing && standing.percentile !== null;
-  return scoreRing(has ? standing.ring : score, label, { tone: has ? standing.tone : "", aria: has ? standing.aria : "" });
+  // The same defensive read as the page's `axisRing`, for the same max-age=14400 reason.
+  const ring = has && Number.isFinite(standing.ring) ? standing.ring : score;
+  return scoreRing(ring, label, { tone: has ? standing.tone : "", aria: has ? (standing.aria || "") : "" });
 }
 
 export function openSynergyDialog(payload, { spriteFor, slots, standing = null }) {

@@ -1243,7 +1243,7 @@ function ensureScoreAnchors() {
 function scoreText(label, calibration, details) {
   return h("span", { class: "bd-score-text" },
     h("strong", {}, label),
-    calibration ? h("small", { class: "bd-score-pct", title: calibration.title }, calibration.note) : null,
+    calibration ? h("small", { class: "bd-score-pct", title: calibration.title }, calibration.note || calibration.label || "") : null,
     details ? h("small", {}, "Details ›") : null);
 }
 
@@ -1257,9 +1257,17 @@ function scoreText(label, calibration, details) {
  */
 function axisRing(label, value, calibration) {
   const standing = calibration && calibration.percentile !== null;
-  return scoreRing(standing ? calibration.ring : value, label, {
+  // READ DEFENSIVELY, AND NOT OUT OF CAUTION. /builder/*.js is served max-age=14400 whatever
+  // _headers asks for, so for a few hours after a publish a visitor can pair this file with the
+  // PREVIOUS score-calibration.js. That version set no `ring`, and because the export names did
+  // not change the module graph still links -- so the page's stale-module guard, which only
+  // fires when the graph refuses to load, never sees it. `scoreRing` clamps a missing value to
+  // 0, so the unguarded read would draw a confident zero in every ring. Falling back to the
+  // score means the worst a cache skew can do is show what the page showed yesterday.
+  const ring = standing && Number.isFinite(calibration.ring) ? calibration.ring : value;
+  return scoreRing(ring, label, {
     tone: standing ? calibration.tone : "",
-    aria: standing ? calibration.aria : "",
+    aria: standing ? (calibration.aria || "") : "",
   });
 }
 

@@ -342,14 +342,33 @@ check("a complete team's ring is handed the standing, not the score",
 check("the standing still comes from the unrounded score",
   standing.percentile === percentileOf(table, "offense", 46.2), JSON.stringify(standing));
 check("the page draws the ring from the calibration and falls back to the raw score",
-  page.includes("scoreRing(standing ? calibration.ring : value, label, {"),
+  page.includes("const ring = standing && Number.isFinite(calibration.ring) ? calibration.ring : value;"),
   "builder-page.js axisRing is the one place that decides which number a score ring holds");
+// THE CACHE-SKEW READ. /builder/*.js is served max-age=14400 whatever _headers asks for, so a
+// visitor can pair a fresh builder-page.js with the previous score-calibration.js for hours
+// after a publish. The export names did not change, so the graph links and the page's
+// stale-module guard -- which only fires when the graph REFUSES to load -- never sees it.
+// Reading a key that version did not set would draw a clamped 0 in every ring.
+check("a calibration without the newer keys falls back instead of drawing zero",
+  (() => {
+    const old = { percentile: 72, tone: "good", label: "72nd pct", title: "..." };
+    const ring = old && old.percentile !== null && Number.isFinite(old.ring) ? old.ring : 46;
+    return ring === 46;
+  })(),
+  "the guard in axisRing, exercised on the shape the previous module returned");
+check("the word under the ring falls back to the older key too",
+  page.includes("calibration.note || calibration.label"),
+  "builder-page.js scoreText");
+check("the dialogs fall back the same way",
+  readFileSync(join(root, "builder", "evaluation-view.js"), "utf8")
+    .includes("const ring = has && Number.isFinite(standing.ring) ? standing.ring : score;"),
+  "evaluation-view.js standingRing");
 check("the word under the ring comes from the calibration, not from the score",
-  page.includes("}, calibration.note) : null,"),
+  page.includes("}, calibration.note || calibration.label"),
   "builder-page.js scoreText");
 const view = readFileSync(join(root, "builder", "evaluation-view.js"), "utf8");
 check("the dialogs' rings do the same, so a card and its dialog cannot disagree",
-  view.includes("scoreRing(has ? standing.ring : score, label,"),
+  view.includes("scoreRing(ring, label, { tone: has ? standing.tone"),
   "evaluation-view.js standingRing");
 
 // TWO LINES, NOT THREE. The dialog shows what the number is and where it stands; the formula it
@@ -363,7 +382,7 @@ check("the per-matchup method is kept, on the heading it describes",
   view.includes("bd-field-label\", title: method }"),
   "evaluation-view.js openPressureDialog -- dropped rather than demoted would lose it");
 check("the standing note shows the short sentence with the long one on hover",
-  view.includes("title: standing.title || null }, standing.sentence)"),
+  view.includes("const line = standing?.sentence || standing?.title;"),
   "evaluation-view.js standingNote");
 
 // --- 8. what the generator may not write ----------------------------------------------------

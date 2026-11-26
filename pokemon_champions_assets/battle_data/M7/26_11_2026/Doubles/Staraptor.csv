@@ -1,10 +1,10 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Staraptor,13,move,1,Close Combat,98.7%,,,,,,,,
 Staraptor,13,move,2,Brave Bird,89.3%,,,,,,,,
-Staraptor,13,move,3,Protect,88.5%,,,,,,,,
-Staraptor,13,move,4,Roost,49.1%,,,,,,,,
+Staraptor,13,move,3,Protect,88.4%,,,,,,,,
+Staraptor,13,move,4,Roost,49.2%,,,,,,,,
 Staraptor,13,move,5,Tailwind,43.4%,,,,,,,,
-Staraptor,13,move,6,Dual Wingbeat,9.4%,,,,,,,,
+Staraptor,13,move,6,Dual Wingbeat,9.5%,,,,,,,,
 Staraptor,13,move,7,Final Gambit,6.7%,,,,,,,,
 Staraptor,13,move,8,U-turn,5.0%,,,,,,,,
 Staraptor,13,move,9,Blaze Kick,4.5%,,,,,,,,
@@ -29,8 +29,8 @@ Staraptor,13,teammate,7,Rillaboom,,,,,,,,,
 Staraptor,13,teammate,8,Raichu,,,,,,,,,
 Staraptor,13,teammate,9,Garchomp,,,,,,,,,
 Staraptor,13,teammate,10,Kingambit,,,,,,,,,
-Staraptor,13,stat_alignment,1,Jolly,80.5%,Speed,Sp. Atk,,,,,,
-Staraptor,13,stat_alignment,2,Adamant,14.7%,Attack,Sp. Atk,,,,,,
+Staraptor,13,stat_alignment,1,Jolly,80.4%,Speed,Sp. Atk,,,,,,
+Staraptor,13,stat_alignment,2,Adamant,14.8%,Attack,Sp. Atk,,,,,,
 Staraptor,13,stat_alignment,3,Careful,2.0%,Sp. Def,Sp. Atk,,,,,,
 Staraptor,13,stat_alignment,4,Brave,0.8%,Attack,Speed,,,,,,
 Staraptor,13,stat_alignment,5,Impish,0.4%,Defense,Sp. Atk,,,,,,
@@ -39,7 +39,7 @@ Staraptor,13,stat_alignment,7,Lonely,0.3%,Attack,Defense,,,,,,
 Staraptor,13,stat_alignment,8,Naughty,0.3%,Attack,Sp. Def,,,,,,
 Staraptor,13,stat_alignment,9,Hasty,0.2%,Speed,Defense,,,,,,
 Staraptor,13,stat_alignment,10,Timid,0.2%,Speed,Attack,,,,,,
-Staraptor,13,stat_points,1,,19.0%,,,29,1,0,0,4,32
+Staraptor,13,stat_points,1,,18.9%,,,29,1,0,0,4,32
 Staraptor,13,stat_points,2,,13.8%,,,2,32,0,0,0,32
 Staraptor,13,stat_points,3,,9.5%,,,32,2,0,0,0,32
 Staraptor,13,stat_points,4,,2.6%,,,0,32,0,0,2,32

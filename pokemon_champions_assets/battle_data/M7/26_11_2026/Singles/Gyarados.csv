@@ -1,7 +1,7 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Gyarados,18,move,1,Earthquake,72.7%,,,,,,,,
+Gyarados,18,move,1,Earthquake,72.8%,,,,,,,,
 Gyarados,18,move,2,Dragon Dance,61.9%,,,,,,,,
-Gyarados,18,move,3,Power Whip,56.1%,,,,,,,,
+Gyarados,18,move,3,Power Whip,56.0%,,,,,,,,
 Gyarados,18,move,4,Waterfall,55.7%,,,,,,,,
 Gyarados,18,move,5,Ice Fang,47.3%,,,,,,,,
 Gyarados,18,move,6,Taunt,29.6%,,,,,,,,
@@ -9,10 +9,10 @@ Gyarados,18,move,7,Avalanche,24.6%,,,,,,,,
 Gyarados,18,move,8,Temper Flare,15.4%,,,,,,,,
 Gyarados,18,move,9,Crunch,13.1%,,,,,,,,
 Gyarados,18,move,10,Stone Edge,4.0%,,,,,,,,
-Gyarados,18,held_item,1,Gyaradosite,50.9%,,,,,,,,
+Gyarados,18,held_item,1,Gyaradosite,50.8%,,,,,,,,
 Gyarados,18,held_item,2,Rocky Helmet,19.1%,,,,,,,,
 Gyarados,18,held_item,3,Leftovers,9.6%,,,,,,,,
-Gyarados,18,held_item,4,Lum Berry,7.4%,,,,,,,,
+Gyarados,18,held_item,4,Lum Berry,7.5%,,,,,,,,
 Gyarados,18,held_item,5,Expert Belt,5.8%,,,,,,,,
 Gyarados,18,held_item,6,Sitrus Berry,4.2%,,,,,,,,
 Gyarados,18,held_item,7,Focus Sash,0.7%,,,,,,,,
@@ -38,15 +38,15 @@ Gyarados,18,stat_alignment,6,Modest,0.3%,Sp. Atk,Attack,,,,,,
 Gyarados,18,stat_alignment,7,Naughty,0.2%,Attack,Sp. Def,,,,,,
 Gyarados,18,stat_alignment,8,Bold,0.2%,Defense,Attack,,,,,,
 Gyarados,18,stat_alignment,9,Brave,0.2%,Attack,Speed,,,,,,
-Gyarados,18,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
+Gyarados,18,stat_alignment,10,Lonely,0.1%,Attack,Defense,,,,,,
 Gyarados,18,stat_points,1,,13.9%,,,1,32,1,0,0,32
 Gyarados,18,stat_points,2,,11.9%,,,2,32,0,0,0,32
-Gyarados,18,stat_points,3,,3.3%,,,32,2,32,0,0,0
+Gyarados,18,stat_points,3,,3.4%,,,32,2,32,0,0,0
 Gyarados,18,stat_points,4,,2.8%,,,21,10,8,0,1,26
 Gyarados,18,stat_points,5,,2.5%,,,31,32,3,0,0,0
 Gyarados,18,stat_points,6,,2.0%,,,0,32,2,0,0,32
 Gyarados,18,stat_points,7,,2.0%,,,32,0,32,0,2,0
-Gyarados,18,stat_points,8,,1.9%,,,5,32,0,0,0,29
+Gyarados,18,stat_points,8,,2.0%,,,5,32,0,0,0,29
 Gyarados,18,stat_points,9,,1.8%,,,9,25,0,0,0,32
 Gyarados,18,stat_points,10,,1.8%,,,32,0,32,0,0,2
 Gyarados,18,ability,1,Intimidate,98.6%,,,,,,,,

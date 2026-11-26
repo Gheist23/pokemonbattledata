@@ -4,13 +4,15 @@
 //
 //   node tools/generate-score-anchors.mjs [--sample 240] [--format Doubles]
 //
-// WHY THIS FILE EXISTS. Measured over 80 library teams (25 Nov 2026), the four scores occupy
-// about a sixth of 0-100 and their ends are structurally unreachable, not merely unoccupied:
-// Offense cannot pass ~60 (it would need every member's two best moves to average 100% damage
-// against all 30 meta Pokemon) and Defense cannot either. So the old `scoreTone` thresholds
-// (>=70 green, >=50 amber) gave NO real team a green Offense or Defense, and showed red to 36
-// of 80 teams on Offense and 60 of 80 on Defense. The number's place on the dial and its place
-// among real teams disagreed, and only the dial was shown.
+// WHY THIS FILE EXISTS. Measured over the 240 library teams the shipped table is cut from
+// (25 Nov 2026), the four scores occupy about a sixth of 0-100 and their ends are structurally
+// unreachable, not merely unoccupied: Offense cannot pass ~60 (it would need every member's two
+// best moves to average 100% damage against all 30 meta Pokemon) and Defense cannot either. So
+// the old `scoreTone` thresholds (>=70 green, >=50 amber) gave NO real team a green Offense or
+// Defense, showed a red Defense to three quarters of them and a red Offense to half, and made
+// Synergy amber for 96%. The number's place on the dial and its place among real teams
+// disagreed, and only the dial was shown. The per-axis figures are in score-calibration.js,
+// recomputed from the shipped table by tests/run-score-calibration.mjs.
 //
 // WHAT IT IS NOT. This changes no score. The anchors are a reference distribution for display
 // only; `TeamEvaluation.evaluate` is untouched and every recorded vector replays unchanged.
@@ -28,7 +30,7 @@ import { DamageEngine } from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
 import { TeamEvaluation } from "../builder/team-payload.js";
 import { KnownTeams } from "../builder/known-teams.js";
-import { AXES, QUANTILES } from "../builder/score-calibration.js";
+import { AXES, QUANTILES, anchorTableRefusal } from "../builder/score-calibration.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -107,8 +109,13 @@ for (const axis of AXES) {
   const q = quantiles(scores[axis]);
   if (q) axes[axis] = q;
 }
-if (Object.keys(axes).length !== AXES.length) {
-  console.error("Not every axis produced a distribution; refusing to write a partial table.");
+// REFUSED, NOT DEFAULTED -- and judged on the OUTPUT, not on the run. The guard this replaces
+// asked whether every axis produced some distribution, which a run that scored a single team
+// passes, and so does a run in which every team scored identically. `anchorTableRefusal` says
+// why not, in a sentence meant for a log nobody reads until the table is already wrong.
+const refusal = anchorTableRefusal({ scored: scores.offense.length, attempted: picked.length, failed, axes });
+if (refusal) {
+  console.error(`Refusing to write ${out}: ${refusal}.`);
   process.exit(1);
 }
 

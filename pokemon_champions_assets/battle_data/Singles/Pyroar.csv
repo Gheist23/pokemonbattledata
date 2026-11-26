@@ -1,9 +1,9 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Pyroar,125,move,1,Flamethrower,91.4%,,,,,,,,
 Pyroar,125,move,2,Overheat,66.2%,,,,,,,,
-Pyroar,125,move,3,Yawn,42.3%,,,,,,,,
+Pyroar,125,move,3,Yawn,42.2%,,,,,,,,
 Pyroar,125,move,4,Hyper Voice,41.4%,,,,,,,,
-Pyroar,125,move,5,Scorching Sands,24.9%,,,,,,,,
+Pyroar,125,move,5,Scorching Sands,25.0%,,,,,,,,
 Pyroar,125,move,6,Substitute,19.1%,,,,,,,,
 Pyroar,125,move,7,Dark Pulse,15.2%,,,,,,,,
 Pyroar,125,move,8,Sunny Day,15.1%,,,,,,,,
@@ -28,11 +28,11 @@ Pyroar,125,teammate,6,Mimikyu,,,,,,,,,
 Pyroar,125,teammate,7,Baxcalibur,,,,,,,,,
 Pyroar,125,teammate,8,Meowscarada,,,,,,,,,
 Pyroar,125,teammate,9,Gyarados,,,,,,,,,
-Pyroar,125,teammate,10,Salamence,,,,,,,,,
+Pyroar,125,teammate,10,Basculegion,,,,,,,,,
 Pyroar,125,stat_alignment,1,Timid,58.0%,Speed,Attack,,,,,,
 Pyroar,125,stat_alignment,2,Modest,39.0%,Sp. Atk,Attack,,,,,,
 Pyroar,125,stat_alignment,3,Mild,0.7%,Sp. Atk,Defense,,,,,,
-Pyroar,125,stat_alignment,4,Hasty,0.7%,Speed,Defense,,,,,,
+Pyroar,125,stat_alignment,4,Hasty,0.6%,Speed,Defense,,,,,,
 Pyroar,125,stat_alignment,5,Quiet,0.4%,Sp. Atk,Speed,,,,,,
 Pyroar,125,stat_alignment,6,Bold,0.3%,Defense,Attack,,,,,,
 Pyroar,125,stat_alignment,7,Naive,0.3%,Speed,Sp. Def,,,,,,
@@ -49,6 +49,6 @@ Pyroar,125,stat_points,7,,1.4%,,,0,0,0,32,0,32
 Pyroar,125,stat_points,8,,1.1%,,,32,0,2,32,0,0
 Pyroar,125,stat_points,9,,1.0%,,,14,0,1,32,0,19
 Pyroar,125,stat_points,10,,1.0%,,,6,0,1,32,0,27
-Pyroar,125,ability,1,Unnerve,76.0%,,,,,,,,
+Pyroar,125,ability,1,Unnerve,76.1%,,,,,,,,
 Pyroar,125,ability,2,Moxie,13.7%,,,,,,,,
 Pyroar,125,ability,3,Rivalry,10.2%,,,,,,,,

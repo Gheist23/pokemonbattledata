@@ -620,7 +620,14 @@ export class Solver {
         // its entry Abilities resolved before the person described it. Without this the first
         // searched turn re-ran every one of them, which re-applied Intimidate and let a Drought
         // or Drizzle holder overwrite the Weather chosen in the Field popup.
-        if (i < onField.length) m.entered = true;
+        //
+        // TWO FLAGS, because the sentence above is only true of THIS stay on the field, while
+        // `entered` is also read as "the opponent has seen this Pokemon" (`PlayGame.revealed`)
+        // and must never be taken back. `entryDone` is the one that means "its entry Ability has
+        // already fired where it is standing now", and `applySwitches` clears it on the way out
+        // -- so a Pokemon that goes back and later returns sets its weather again, which is what
+        // the game does and what a single never-cleared flag made impossible.
+        if (i < onField.length) { m.entered = true; m.entryDone = true; }
         // Part-way through a two-turn move. The live board can be in the middle of one, and a
         // rebuilt board that cannot say so hands the opponent a Pokemon that is free to do
         // anything -- and a Fly user that is standing there to be hit. `hidden` is not carried
@@ -991,6 +998,35 @@ export class Solver {
     const evolving = kept
       .filter((a) => a.kind !== SWITCH && !a.wait)
       .map((a) => ({ ...a, mega: true }));
+    if (!evolving.length) return kept;
+    // ...AND IT IS NORMALLY NOT A CHOICE AT ALL. A Mega form is the same Pokemon with a hundred
+    // more base stat points, so for the search "hold the stone back" is an arm that cannot win:
+    // searching it spends half of this slot's budget proving that twice over, and on a close
+    // board the noise of the losing half is what decides between two real moves. Measured, the
+    // base-form arms were still being named on boards where the Mega was plainly better.
+    //
+    // THE ONE REAL DECISION IS TIMING, AND ONLY A FIELD-SETTING MEGA HAS IT. `megaEnter` sets
+    // weather and terrain again, so when and whether to evolve decides whose weather is on the
+    // board -- Mega Charizard Y's Drought over a Drizzle, Mega Tyranitar's Sand refreshed to
+    // five turns -- and that is worth both arms and the depth the forced ones give back. Terrain
+    // is asked beside weather because `megaEnter` treats the two the same; nothing in the game
+    // currently gains a terrain Ability from a stone, and the rule should not have to be found
+    // again if something does.
+    //
+    // The other exception is WHICH of two stone holders gets the one stone. That is a genuine
+    // choice between the two seats, and forcing both would leave `jointsFor` -- which refuses a
+    // joint holding two Mega Evolutions -- with no joint at all for this side.
+    const megaKit = m.mega?.kit;
+    const setsField = Boolean(megaKit?.weather || megaKit?.terrain);
+    const rival = state.active[s].some((other, seat) =>
+      seat !== position && other && !other.out && other.mega);
+    // Only the base-form MOVES go; the switches stay, because a Pokemon leaving the field does
+    // not use its stone and "go back instead" is not the same decision as "evolve or not". The
+    // first version of this returned `evolving` alone and quietly took switching out away from
+    // every stone holder.
+    if (cap > 0 && !setsField && !rival) {
+      return [...kept.filter((a) => a.kind === SWITCH || a.wait), ...evolving];
+    }
     return [...kept, ...evolving];
   }
 
@@ -1228,6 +1264,12 @@ export class Solver {
       // A confusion is a volatile too, and goes with them. The major status does NOT -- that
       // follows a Pokemon to the bench and back, which is why only this one field is wiped.
       if (out.st) out.st.cnf = 0;
+      // IT HAS LEFT THE FIELD, so its entry Ability has not fired where it is going to stand
+      // NEXT. `entered` is deliberately left alone beside this: that flag is also "the opponent
+      // has seen this Pokemon", which is true for the rest of the game however often it goes
+      // back (`PlayGame.revealed`). Without the line below, the one flag meant both things and
+      // the second won: a Tyranitar that had already stood once came back in and set no Sand.
+      out.entryDone = false;
       // ZERO TO HERO: Palafin leaves as Zero and will come back as Hero.
       this.t.leaveField(out);
       // Said at the moment it happens, by the only code that knows both halves of the pair.
@@ -1388,7 +1430,17 @@ export class Solver {
     // one left on the board. Walking the seats instead meant side 1 always won a weather war.
     const arriving = [];
     for (let s = 0; s < 2; s += 1) {
-      for (const m of active[s]) if (m && m.justIn && !m.entered) { m.entered = true; arriving.push(m); }
+      // `entryDone`, not `entered`: the second of those also means "the opponent has seen this
+      // Pokemon" and is never taken back, so asking it here meant a Pokemon that had stood on
+      // the field once could never trigger its Ability again. A Tyranitar switched back in put
+      // up no Sand, a returning Intimidate holder lowered nothing, and a Drizzle holder coming
+      // back out left whatever weather was already there -- none of which is the game.
+      for (const m of active[s]) {
+        if (!m || !m.justIn || m.entryDone) continue;
+        m.entryDone = true;
+        m.entered = true;
+        arriving.push(m);
+      }
     }
     arriving.sort((a, b) => this.t.entrySpeedOf(b.u) - this.t.entrySpeedOf(a.u));
     for (const m of arriving) this.t.enter(m, active, board, events);
@@ -1636,13 +1688,16 @@ export class Solver {
     // A replacement sent out to fill a gap has only just arrived, so it gets what the game gives
     // a Pokemon that has only just arrived: Fake Out and First Impression on the turn it acts.
     //
-    // `entered` is set with it, because `refill` has ALREADY run its entry Ability (it calls
+    // `entryDone` is set with it, because `refill` has ALREADY run its entry Ability (it calls
     // `enter` on everything it brings in). Without this the next turn would see `justIn` with no
-    // `entered` and fire that Ability a second time -- a second Intimidate, a second weather set.
+    // entry recorded and fire that Ability a second time -- a second Intimidate, a second
+    // weather set. `entered` goes on beside it and is the other fact: this Pokemon has now been
+    // seen, which stays true for the rest of the game.
     active.forEach((row, s) => row.forEach((m, i) => {
       if (m && !m.out && before[s][i] !== m.u.id) {
         m.justIn = true;
         m.entered = true;
+        m.entryDone = true;
       }
     }));
   }

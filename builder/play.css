@@ -13,13 +13,40 @@
   gap: 0.9rem;
 }
 
-/* --- the tab strip and the record ------------------------------------------------------- */
+/* --- the three places, and the record ---------------------------------------------------- */
 
 .bd-play-tabs {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
+}
+
+/* Play, Custom and Leaderboard, as three buttons in a row. They used to be a segmented pill,
+   which says "three views of one thing" -- and these are three places to go. */
+.bd-play-tabbar {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+/* `.primary-button` in styles.css is `width: 100%` AT EVERY SIZE -- it is written for the cards
+   and forms it is normally the only thing in -- so the one you are on took the whole row and
+   pushed the other two onto a second line. Three buttons that are three places sit side by
+   side at every width. */
+.bd-play-tabbar :is(.primary-button, .ghost-button) {
+  width: auto;
+  min-width: 0;
+}
+
+/* ...and below 760px the same file forces every `.ghost-button` to `width: 100% !important`,
+   for the site header's own stack. `!important` is answered in kind, because nothing else
+   reaches it; they share the row rather than taking a line each. */
+@media (max-width: 760px) {
+  .bd-play-tabbar :is(.primary-button, .ghost-button) {
+    width: auto !important;
+    flex: 1 1 0;
+  }
 }
 
 .bd-play-record {
@@ -278,15 +305,27 @@
 
 .bd-play-field-wrap { display: grid; gap: 0.7rem; min-width: 0; }
 
+/* THE BOARD SAYS WHAT IS ON IT WITHOUT BEING READ. The weather washes down from the top of the
+   field and the terrain glows up from under the Pokemon, which is where each of them is in the
+   game -- so both can be up at once and stay separately legible. They are set through two
+   variables rather than by re-declaring `background` in each weather class, because the field's
+   own green halo and card colour are the last layers of it and a weather must not replace them.
+   Kept faint on purpose: this is a tint behind sprites and health bars, not a theme.
+   The classes themselves are at "the field's own weather and terrain" further down. */
 .bd-play-field {
+  --sky: transparent;
+  --ground: transparent;
   display: grid;
   gap: 0.55rem;
   padding: 0.9rem 0.9rem 0.7rem;
   border: 1px solid var(--bd-line);
   border-radius: 14px;
   background:
+    linear-gradient(180deg, var(--sky), transparent 62%),
+    linear-gradient(0deg, var(--ground), transparent 48%),
     radial-gradient(120% 80% at 50% 0%, rgba(114, 255, 171, 0.06), transparent 60%),
     var(--bd-card-deep);
+  transition: background-color 320ms ease;
 }
 
 .bd-play-weather {
@@ -1316,11 +1355,86 @@
 .bd-play-pace .bd-select { padding: 0.15rem 1.5rem 0.15rem 0.5rem; font-size: 0.72rem; min-width: 0; }
 .bd-play-hint { margin-left: auto; text-align: right; }
 
-.bd-play-conditions { opacity: 0.75; }
+/* ONE CHIP PER CONDITION, on a line that can hold nine of them. `.bd-play-weather` above is
+   uppercase and 0.72rem, so these inherit that and only add the box; the opacity sits on the
+   chip rather than on the row, because the row's opacity multiplied down into every chip and
+   left the coloured ones no brighter than the grey. */
+.bd-play-conditions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.bd-play-cond {
+  --cond: var(--muted);
+  display: inline-block;
+  padding: 0.12rem 0.44rem;
+  border: 1px solid color-mix(in srgb, var(--cond) 40%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--cond) 12%, transparent);
+  color: var(--cond);
+  opacity: 0.92;
+  white-space: nowrap;
+}
+
+/* Whose it is. A screen or a Tailwind that is OURS is read differently from the same thing on
+   the other side of the field, and the caption row below already uses these two colours for
+   exactly that distinction. */
+.bd-play-cond.ours { --cond: #bfdbfe; }
+.bd-play-cond.theirs { --cond: #fecaca; }
+.bd-play-cond.room { --cond: #e9d5ff; }
+.bd-play-cond.hazard { opacity: 0.8; }
+
+/* The weather and the terrain, each in its own colour, and the same token tints the field
+   behind them (`.bd-play-field.w-*` / `.t-*` below). */
+.bd-play-cond.w-sun { --cond: #fcd34d; }
+.bd-play-cond.w-rain { --cond: #7dd3fc; }
+.bd-play-cond.w-sand { --cond: #e3c08d; }
+.bd-play-cond.w-snow { --cond: #d8f3ff; }
+.bd-play-cond.w-winds { --cond: #a7f3d0; }
+.bd-play-cond.t-electric { --cond: #fde68a; }
+.bd-play-cond.t-grassy { --cond: #86efac; }
+.bd-play-cond.t-psychic { --cond: #f0abfc; }
+.bd-play-cond.t-misty { --cond: #fbcfe8; }
+
+/* --- the field's own weather and terrain --------------------------------------------------- */
+
+/* Set `--sky` and `--ground`; the layers themselves are on `.bd-play-field` above. */
+.bd-play-field.w-sun { --sky: rgba(252, 211, 77, 0.17); }
+.bd-play-field.w-rain { --sky: rgba(56, 189, 248, 0.17); }
+.bd-play-field.w-sand { --sky: rgba(217, 173, 110, 0.19); }
+.bd-play-field.w-snow { --sky: rgba(203, 240, 255, 0.17); }
+.bd-play-field.w-winds { --sky: rgba(110, 231, 183, 0.15); }
+
+.bd-play-field.t-electric { --ground: rgba(250, 204, 21, 0.16); }
+.bd-play-field.t-grassy { --ground: rgba(74, 222, 128, 0.16); }
+.bd-play-field.t-psychic { --ground: rgba(232, 121, 249, 0.16); }
+.bd-play-field.t-misty { --ground: rgba(244, 114, 182, 0.16); }
+
+/* No animation here on purpose. A drifting background was tried and dropped: the layers span
+   the whole field, so moving them is invisible, and it repaints the board every frame of a
+   screen that is already animating sprites. The tint and the coloured chip are the indicator. */
+
 .bd-play-unrated { color: var(--bd-bad); opacity: 0.85; }
 
 /* --- looking a Pokemon up ---------------------------------------------------------------------- */
 .bd-play-info { display: grid; gap: 0.6rem; min-width: min(22rem, 80vw); }
+
+/* THE SIX STATS AS BARS. The rows themselves are `.bd-mini-stat` from builder.css, so a Pokemon
+   looked at here reads exactly like the same Pokemon in the Team Builder's team slot. Only the
+   wrapper is local, because the builder's own wrapper (`.bd-slot-stats`) is display:none below
+   620px -- right for a card in a crowded grid, wrong for the panel that exists to say what this
+   Pokemon is. A little more gap than the slot's 0.12rem: this is read, not glanced at. */
+.bd-play-info-stats {
+  display: grid;
+  gap: 0.22rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--bd-line);
+  border-radius: 10px;
+  background: var(--bd-control);
+}
+.bd-play-info-stats .bd-mini-stat { font-size: 0.72rem; }
 .bd-play-info-head { display: flex; align-items: center; gap: 0.8rem; }
 .bd-play-info-head strong { font-size: 1rem; }
 .bd-play-info-row { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 0.6rem; align-items: start; }

@@ -6642,6 +6642,13 @@ export class TournamentTest {
           out.chargeTarget = -1;
           out.hidden = false;
           if (out.st) out.st.cnf = 0;
+          // Off the field, so its entry Ability has not fired where it stands next. Only the
+          // Solver and the played game read this (`Solver.applyChosenTurn`); `refill` calls
+          // `enter` on arrivals itself and never asks. Cleared here so a Pokemon that pivots or
+          // bails out and is later switched back in sets its weather again, which is what the
+          // game does -- the same defect `applySwitches` had, through the other door off the
+          // field. `entered` is left alone: see the note there.
+          out.entryDone = false;
           this.leaveField(out);
           // The per-TURN bookkeeping the loop below would have done for it. It is on the
           // bench now, so that loop never reaches it, and it must not come back next turn

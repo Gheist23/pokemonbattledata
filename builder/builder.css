@@ -1604,8 +1604,52 @@ body.page-team-builder { --max-width: 1520px; }
   font-size: 0.78rem; opacity: 0.7; text-decoration: underline; cursor: pointer;
 }
 .bd-watch-reset:hover { opacity: 1; }
+
+/* WHICH TEAMS THE WATCH IS FOR. A library is mostly experiments, so this is a
+   list to tick rather than "all of them" -- and it has to stay small enough to
+   sit under the teams without becoming the thing the panel is about. Scrolls
+   past about five rows; twelve is the most there can ever be. */
+.bd-watch-teams {
+  display: grid;
+  gap: 1px;
+  max-height: 11.5rem;
+  overflow-y: auto;
+  border: 1px solid var(--bd-line);
+  border-radius: 9px;
+  background: var(--bd-control);
+}
+
+.bd-watch-team {
+  display: grid;
+  grid-template-columns: auto minmax(0, auto) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.34rem 0.55rem;
+  cursor: pointer;
+}
+
+.bd-watch-team:hover { background: rgba(114, 255, 171, 0.06); }
+.bd-watch-tick { accent-color: var(--bd-good, #72ffab); cursor: pointer; }
+.bd-watch-team-title { font-size: 0.84rem; font-weight: 750; }
+/* The six names, cut off rather than wrapped: this row is a reminder of which
+   team it is, and a title that needs the sprites to be told apart needs a
+   better title. */
+.bd-watch-team-mons {
+  font-size: 0.74rem;
+  opacity: 0.62;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bd-watch-row-actions { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+
 @media (max-width: 560px) {
   .bd-watch-row { grid-template-columns: minmax(0, 1fr); }
+  /* The species names are the first thing to go when there is no room: the
+     title and the tick are what the row is for. */
+  .bd-watch-team { grid-template-columns: auto minmax(0, 1fr); }
+  .bd-watch-team-mons { display: none; }
 }
 
 /* ---- folding the calculator's cards on a phone ------------------------------

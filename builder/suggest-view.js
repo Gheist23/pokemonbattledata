@@ -105,9 +105,12 @@ export function suggestionsView(result, helpers) {
       h("p", { class: "bd-note" }, "The best 14 are then checked one by one against the full Team Evaluation of the team they would make."),
       h("div", { class: "bd-gate-actions" }, controls));
   }
-  const scopeText = result.scope === "box" ? "Pokémon from your Box" : "Pokémon";
   const head = h("div", { class: "bd-checks-head bd-sg-head" },
-    h("p", { class: "bd-section-note" }, `${result.scanned} ${scopeText} tested${result.targets?.filter(Boolean).length ? ` in place of ${result.targets.filter(Boolean).map(one).join(", ")}` : ""}. Open a suggestion for the reasons behind it.`),
+    // WHAT WAS TESTED IS NOT NEWS. This line used to open with "256 Pokemon tested in place of
+    // Salamence-Mega, Corviknight, Indeedee" -- a count nobody acts on, and three names that
+    // read as a verdict on those three members when all they are is where the swaps were tried.
+    // Every row below says what it replaces and why, which is the part worth reading.
+    h("p", { class: "bd-section-note" }, "Open a suggestion for the reasons behind it."),
     controls);
   if (!result.rows.length) {
     return h("div", { class: "bd-list" }, head,

@@ -330,7 +330,7 @@ function pinned(m) {
   return "";
 }
 
-function monView(m, full, record) {
+function monView(m, full, record, engine = null) {
   const held = m.mega || m.u;
   // `m.u` is whatever is STANDING THERE: the base form until it Mega Evolves and the Mega
   // afterwards, because `applyMegas` swaps the two over. So the form is the one to draw and the
@@ -382,6 +382,21 @@ function monView(m, full, record) {
     // panel could not say. `stat_spread_label` is the evaluator's own formatting of the pair.
     nature: full ? held.mon?.nature_name || "" : "",
     spread: full ? held.mon?.stat_spread_label || "" : "",
+    // THE SIX NUMBERS THEMSELVES, so the panel can draw the bars the Team Builder draws. Read
+    // off `m.u`, which is WHATEVER IS STANDING THERE -- not off `held`:
+    //
+    //   * `engine.finalStats` runs its argument through `effectiveMegaMon` first, so handing it
+    //     a stone holder's set returns the MEGA's stats. For a Pokemon that has not evolved yet
+    //     those are not its stats, and the bars would disagree with every number on the field.
+    //   * `m.u` is the base unit while the stone is unspent (and `baseFormUnit` blanks its item
+    //     for exactly that reason, so nothing re-Megas it here) and the Mega afterwards, which
+    //     is the Pokemon the player is looking at in both cases.
+    //
+    // `bonuses` rides along because the bars show what was PUT IN beside what came out, the
+    // same reading order the team slot and the share card use. Behind `full` with the Nature
+    // and the spread above: a Stat spread is never revealed by watching a Pokemon battle.
+    stats: full && engine && m.u.mon ? engine.finalStats(m.u.mon) : null,
+    bonuses: full ? [...(m.u.mon?.bonuses || [])] : [],
     moves: full ? [...(held.mon?.moves || [])] : [],
   };
 }
@@ -485,8 +500,13 @@ export class PlayGame {
       // was lowered before the person described it. A game has not started yet, so here the
       // leads really have NOT entered, and saying so is what puts the first Intimidate, weather
       // and terrain on the board before anybody chooses anything.
-      for (const m of this.state.active[s]) if (m) m.entered = false;
-      for (const m of this.state.active[s]) if (m && !m.entered) { m.entered = true; arriving.push(m); }
+      for (const m of this.state.active[s]) if (m) { m.entered = false; m.entryDone = false; }
+      for (const m of this.state.active[s]) {
+        if (!m || m.entryDone) continue;
+        m.entryDone = true;
+        m.entered = true;
+        arriving.push(m);
+      }
     }
     arriving.sort((a, b) => this.solver.t.entrySpeedOf(b.u) - this.solver.t.entrySpeedOf(a.u));
     for (const m of arriving) this.solver.t.enter(m, this.state.active, this.state.board, events);
@@ -500,8 +520,12 @@ export class PlayGame {
    */
   view() {
     const open = this.sheet === "open";
+    // The damage engine, for the final stats a row carries. `solver.t.ev` is the TeamEvaluator
+    // and `.engine` is the one the whole page's numbers come out of, so the panel's bars and the
+    // damage on the field are computed by the same code.
+    const engine = this.solver.t.ev?.engine || null;
     const sides = this.state.sides.map((list, s) =>
-      list.map((m) => monView(m, s === 0 || open, s === 1 ? this.shown[m.tag] : null)));
+      list.map((m) => monView(m, s === 0 || open, s === 1 ? this.shown[m.tag] : null, engine)));
     const standing = this.state.active.map((row) => row.map((m) => (m ? m.tag : null)));
     const board = this.state.board;
     return {
@@ -644,7 +668,7 @@ export class PlayGame {
     // `tickBoard` marks the arrivals `justIn` and `entered` AFTER it calls `refill`, and that
     // pass already ran -- over an empty seat, because the call was held. So it is done here, the
     // same way and for the same reason: `justIn` is what lets a replacement use Fake Out and
-    // First Impression (`slotCandidates` refuses both without it), and `entered` is what stops
+    // First Impression (`slotCandidates` refuses both without it), and `entryDone` is what stops
     // its entry Ability firing a second time next turn. Measured: without this the Pokemon the
     // player chose arrived unable to use Fake Out.
     const before = this.state.active[0].map((m) => (m && !m.out ? m.u.id : null));
@@ -653,6 +677,10 @@ export class PlayGame {
       if (m && !m.out && before[i] !== m.u.id) {
         m.justIn = true;
         m.entered = true;
+        // `entryDone` is the flag that stops the Ability firing a second time next turn;
+        // `entered` beside it is "the opponent has seen this one", which is a different fact
+        // and is never taken back. See `Solver.applySwitches`.
+        m.entryDone = true;
       }
     });
     return true;
@@ -1052,20 +1080,60 @@ export class PlayGame {
   /**
    * The search's answer, in the game's own terms.
    *
-   * The search names a SEAT (`position`) and a place in its own side list (`into`). Its board is
-   * the seat-ordered one, so a position already means the right seat -- but `into` is an index
-   * into that same re-ordered list, and the live board's `sides[1]` is in its original order.
-   * Applying it untranslated switched in whichever Pokemon happened to sit at that index.
+   * The search names a SEAT (`position`, `target`, `partner`) and a place in its own side list
+   * (`into`). Neither is the live board's own numbering:
+   *
+   *   * `into` indexes the re-ordered list `seatOrder` handed over, while the live `sides[1]` is
+   *     in its original order. Applying it untranslated switched in whichever Pokemon happened
+   *     to sit at that index.
+   *   * AND A SEAT IS NOT A SEAT EITHER, once a side has an empty one. `buildState` seats the
+   *     ones standing at the FRONT and pads with null, while the live board leaves the hole
+   *     where it fell: `refill` puts null in the seat of a Pokemon it cannot replace. So with
+   *     the opponent's first seat empty and its survivor in the second, the search answered
+   *     `position: 0` -- and that is the live board's EMPTY seat, so `planFor` found nothing
+   *     there and the Pokemon did nothing at all. Measured in a real game: the last Pokemon of
+   *     a side stood in the sandstorm for the rest of the match without moving.
+   *
+   * Both are translated here by asking WHICH POKEMON the index named on the board that was
+   * searched, and then where that Pokemon really stands.
    */
   readJoint(joint) {
     const order = this.seatOrder(1);
+    // What `buildState` did with those rows: the standing ones, in order, at the front.
+    const ourSeats = this.state.active[1].filter(Boolean);
+    const theirSeats = this.state.active[0].filter(Boolean);
+    const live = (row, who) => (who ? row.indexOf(who) : -1);
     return (joint || []).map((action) => {
-      if (!action || action.into === null || action.into === undefined) return action;
-      const target = order[action.into];
+      if (!action) return action;
+      let out = action;
+      // OUR OWN SEAT. Nothing can be done with an action whose Pokemon is not on the field, so
+      // it waits rather than being aimed at seat zero.
+      if (out.position !== null && out.position !== undefined) {
+        const seat = live(this.state.active[1], ourSeats[out.position]);
+        if (seat < 0) return { ...out, wait: true };
+        if (seat !== out.position) out = { ...out, position: seat };
+      }
+      // THE FOE IT IS AIMED AT, which has the same hole in it for the same reason -- our side
+      // can be down to one with an empty seat too, and then the opponent's attack was aimed at
+      // the empty one. `-1` is "no single target" (a spread move) and is left alone.
+      if (Number.isInteger(out.target) && out.target >= 0) {
+        const seat = live(this.state.active[0], theirSeats[out.target]);
+        if (seat < 0) return { ...out, wait: true };
+        if (seat !== out.target) out = { ...out, target: seat };
+      }
+      // ITS PARTNER, for a Helping Hand. `planFor` drops the action when the partner is not
+      // alive, so an untranslated seat quietly cost the turn.
+      if (Number.isInteger(out.partner) && out.partner >= 0) {
+        const seat = live(this.state.active[1], ourSeats[out.partner]);
+        if (seat < 0) return { ...out, wait: true };
+        if (seat !== out.partner) out = { ...out, partner: seat };
+      }
+      if (out.into === null || out.into === undefined) return out;
+      const target = order[out.into];
       const at = target ? this.state.sides[1].indexOf(target) : -1;
       // A switch we cannot place is dropped rather than aimed at Pokemon zero.
-      if (at < 0) return { ...action, wait: true, into: null };
-      return { ...action, into: at };
+      if (at < 0) return { ...out, wait: true, into: null };
+      return { ...out, into: at };
     });
   }
 

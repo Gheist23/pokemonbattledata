@@ -15,7 +15,7 @@
 
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -403,6 +403,63 @@ ok("the box only appears once there is a team to watch",
   /if \(!teams\.length\) return null;/.test(watch));
 ok("...and never counts a pristine placeholder team as one",
   /!team\.pristine/.test(watch));
+
+/* ======================================= 7. WHICH teams the watch is for */
+// A library is one or two teams somebody plays and ten they were trying
+// something in. Watching all twelve was the original behaviour and it made the
+// weekly mail worthless: it was mostly about experiments, and the line that
+// mattered was lost among them. So the watch is on the teams that are TICKED.
+//
+// Behaviour, not source text: these call the real functions. `localStorage`
+// does not exist here, which `read()` in watch.js already treats as "nothing
+// stored" -- so this is exactly a first visit.
+const { watchable, watchPayload } = await import(pathToFileURL(join(root, "builder", "watch.js")).href);
+
+const library = {
+  format: "Doubles",
+  selectedTeamId: "b",
+  teams: [
+    { id: "ghost", title: "My Team", pristine: true, team: [["Rillaboom"]] },
+    { id: "blank", title: "Scratch", team: [[""], [null]] },
+    { id: "a", title: "Sand", team: [["Tyranitar"], ["Excadrill"]] },
+    { id: "b", title: "Rain", team: [["Pelipper"], ["Barraskewda"]] },
+  ],
+};
+const ids = (list) => list.map((team) => team.id).join(",");
+ok("a pristine placeholder is not a team to watch", !watchable(library).some((t) => t.id === "ghost"));
+ok("...and neither is one with nothing in it", !watchable(library).some((t) => t.id === "blank"));
+ok("the two real teams are", ids(watchable(library)) === "a,b", ids(watchable(library)));
+ok("an empty library offers nothing at all", watchable({ teams: [] }).length === 0);
+
+// THE DEFAULT IS ONE TEAM, AND IT IS THE ONE BEING WORKED ON. Defaulting to
+// every team is the behaviour this exists to replace; defaulting to none asks
+// the visitor to do two things before they can do the one thing.
+const fresh = watchPayload(library);
+ok("a first visit watches the team being worked on, and only that one",
+  fresh.length === 1 && fresh[0].title === "Rain", JSON.stringify(fresh.map((t) => t.title)));
+
+const picked = (...list) => watchPayload(library, new Set(list));
+ok("ticking two watches two", picked("a", "b").length === 2);
+ok("...ticking one watches that one",
+  picked("a").length === 1 && picked("a")[0].title === "Sand");
+ok("...and ticking nothing watches NOTHING, rather than falling back to all of them",
+  picked().length === 0, String(picked().length));
+ok("a team that is ticked but no longer real is not watched", picked("ghost", "blank").length === 0);
+
+// WHAT LEAVES THE BROWSER. The digest uses the titles and the species names and
+// nothing else, and what is never sent cannot leak.
+ok("a watched team carries its title and its species names, and no other field",
+  Object.keys(picked("a")[0]).sort().join(",") === "members,title",
+  Object.keys(picked("a")[0]).join(","));
+ok("...and the species names are that team's",
+  picked("a")[0].members.join(",") === "Tyranitar,Excadrill", picked("a")[0].members.join(","));
+
+ok("the box asks which teams", /bd-watch-teams/.test(watch) && /bd-watch-tick/.test(watch));
+ok("...refuses to watch nothing", /Tick at least one team to watch/.test(watch));
+ok("...and the list can be changed afterwards without re-entering the address",
+  /Change teams/.test(watch));
+ok("...which re-POSTs the selection, because the endpoint refreshes a live record",
+  /refreshes the watched\n\/\/ teams/.test(watch) || /refreshes the watched/.test(watch));
 
 /* ------------------------------------- the one header without which none of this runs */
 // Cloudflare refuses "Python-urllib/..." on this zone with 403 / error 1010 before the request

@@ -296,19 +296,31 @@ function render() {
   clear(root);
   root.append(
     h("div", { class: "bd-play-tabs" },
-      segmented([["play", "Play"], ["custom", "Custom"], ["leaderboard", "Leaderboard"]], state.tab, (value) => {
-        const was = state.tab;
-        state.tab = value;
-        // Play and Custom are the same three screens with a different opponent, so moving
-        // between them goes back to the setup screen rather than dropping somebody into a team
-        // preview that was dealt for the other one.
-        if (value !== "leaderboard" && was !== "leaderboard" && was !== value && state.screen === "preview") {
-          state.screen = "setup";
-        }
-        if (value === "leaderboard") syncBoardFormat();
-        render();
-        if (value === "leaderboard") loadBoard();
-      }, { "aria-label": "Play, custom or leaderboard" }),
+      // THREE BUTTONS, not a segmented control. These are not three views of one thing, which
+      // is what a pill strip says: Play, Custom and Leaderboard are three places to go, and the
+      // strip read as a filter over the screen below it. Plain buttons, the one you are on
+      // filled in, which is what the rest of the Team Builder's page-level actions look like.
+      h("div", { class: "bd-play-tabbar", role: "group", "aria-label": "Play, custom or leaderboard" },
+        [["play", "Play"], ["custom", "Custom"], ["leaderboard", "Leaderboard"]].map(([value, label]) =>
+          h("button", {
+            type: "button",
+            class: value === state.tab ? "primary-button compact" : "ghost-button compact",
+            "aria-pressed": value === state.tab ? "true" : "false",
+            onclick: () => {
+              if (value === state.tab) return;
+              const was = state.tab;
+              state.tab = value;
+              // Play and Custom are the same three screens with a different opponent, so moving
+              // between them goes back to the setup screen rather than dropping somebody into a
+              // team preview that was dealt for the other one.
+              if (value !== "leaderboard" && was !== "leaderboard" && state.screen === "preview") {
+                state.screen = "setup";
+              }
+              if (value === "leaderboard") syncBoardFormat();
+              render();
+              if (value === "leaderboard") loadBoard();
+            },
+          }, label))),
       h("span", { class: "bd-play-record" }, recordLine())),
     state.tab === "leaderboard" ? renderBoard() : renderPlay());
 }
@@ -1101,6 +1113,12 @@ function showMon(view, side, tag) {
       // Only on an open sheet: a Nature and a Stat spread are never "revealed" by watching.
       known && mon.nature ? row("Nature", mon.nature) : null,
       known && mon.spread ? row("Stat Points", String(mon.spread).replace(/^Current:\s*/, "")) : null,
+      // THE BARS, which this panel never had: the Stat Points row above says what was put in
+      // and nothing said what came out, so "all known info" stopped short of the six numbers
+      // the whole battle is decided by. Read for whatever is standing there, so a Mega shows the
+      // Mega's. The stage line in the head above is what moved during the game; these are the
+      // sheet, which is the thing a Speed tie or a damage roll is actually checked against.
+      known && mon.stats ? statBars(mon) : null,
       row("Moves", moves.length
         ? h("div", { class: "bd-play-info-moves" }, moves.map((move) => h("span", { class: "bd-play-info-move" }, move)))
         : (known ? "—" : unknown())),
@@ -1114,6 +1132,37 @@ function showMon(view, side, tag) {
     actions: [h("button", { class: "primary-button", type: "button", onclick: () => dialog.close() }, "Close")],
     wide: true,
   });
+}
+
+/**
+ * The six stats as bars, the way the Team Builder's team slot draws them.
+ *
+ * Deliberately the same `.bd-mini-stat` row -- name, what was put in, what came out, bar -- so
+ * that a Pokemon looked at mid-battle reads exactly like the same Pokemon in the builder, down
+ * to the colour thresholds and the two scales (HP runs higher than the rest, so it gets its own
+ * denominator or every HP bar would look maxed).
+ *
+ * Its own wrapper class rather than `.bd-slot-stats`, which builder.css hides outright below
+ * 620px -- fine for a card in a grid, wrong for the one panel on a phone that says what this
+ * Pokemon is.
+ */
+function statBars(mon) {
+  const [up, down] = data.natures[mon.nature] || ["", ""];
+  const keys = ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"];
+  const names = ["HP", "ATK", "DEF", "SPA", "SPD", "SPE"];
+  return h("div", { class: "bd-play-info-stats", "aria-label": "Stats" }, keys.map((key, i) => {
+    const value = Number(mon.stats?.[key]) || 0;
+    const color = value >= 180 ? "var(--stat-great)" : value >= 140 ? "var(--stat-good)"
+      : value >= 100 ? "var(--stat-mid)" : "var(--stat-bad)";
+    const mark = names[i] === String(up).toUpperCase() ? "up"
+      : names[i] === String(down).toUpperCase() ? "down" : "";
+    const put = Number(mon.bonuses?.[i]) || 0;
+    return h("span", { class: `bd-mini-stat ${mark}` },
+      h("span", { class: "bd-mini-stat-name" }, names[i]),
+      h("span", { class: "bd-mini-stat-put" }, put ? `+${put}` : ""),
+      h("span", {}, String(value)),
+      h("i", { style: { width: `${Math.min(100, (value / (key === "hp" ? 260 : 230)) * 100)}%`, background: color } }));
+  }));
 }
 
 /** The tag standing in the way of a name, for the fallback stream. */
@@ -1202,6 +1251,7 @@ function renderBattle() {
 function renderStage(view) {
   // Whatever is standing has been seen, and stays seen.
   for (const tag of view.standing[1] || []) if (tag !== null && tag !== undefined) revealed.add(tag);
+  const conditions = conditionsOf(view);
   return h("div", {
     class: `bd-play-stage${state.animating ? " playing" : ""}`,
     // A turn being played out is a thing somebody may have seen enough of.
@@ -1211,7 +1261,7 @@ function renderStage(view) {
   h("div", { class: "bd-play-party-row theirs" },
     h("span", { class: "bd-play-side-name" }, "The Solver"),
     h("div", { class: "bd-play-party" }, partyOf(view, 1))),
-  h("div", { class: "bd-play-field" },
+  h("div", { class: `bd-play-field${fieldTint(view)}` },
     // Nothing stands between the two sides. The turn and the conditions share the line above the
     // field, and the message has a row of its own below our Pokemon -- so the two teams face
     // each other across an empty board, which is the whole point of a battlefield.
@@ -1220,7 +1270,14 @@ function renderStage(view) {
       // Just the field. Which sheet is being played is a setup choice and is said there; on the
       // battlefield it is noise above the Pokemon. A closed sheet still says so, because that
       // one changes whether the game counts.
-      h("span", { class: "bd-play-conditions" }, conditionsOf(view).join(" · ") || "Clear"),
+      //
+      // ONE CHIP PER CONDITION, each carrying how long it has left. Nine of them can be up at
+      // once and a single run of text ran them together; the chips also let the weather and the
+      // terrain be coloured the same way the field behind them is tinted.
+      h("span", { class: "bd-play-conditions" },
+        conditions.length
+          ? conditions.map((cond) => h("span", { class: `bd-play-cond ${cond.cls}` }, cond.label))
+          : h("span", { class: "bd-play-cond" }, "Clear")),
       state.customGame
         ? h("span", { class: "bd-play-unrated" }, "Custom · unrated")
         : state.sheet === "open"
@@ -1241,21 +1298,48 @@ function renderStage(view) {
     h("span", { class: "bd-play-side-name" }, state.teamName || "Your team")));
 }
 
+/**
+ * HOW LONG IT HAS LEFT, in words.
+ *
+ * "Sand" and "Sand, 3 more turns" are two different positions and the banner used to say the
+ * same thing for both. Weather and terrain were left bare because the engine had no count for
+ * them -- it does now (TOURNAMENT_FIELD_TURNS: five turns, eight behind a rock or a Terrain
+ * Extender), and 0 still means "no timer" rather than "ends this turn", which is a pinned field
+ * or a game played with the rule off. Those get no number instead of a wrong one.
+ */
+const turnsLeft = (turns) => (turns > 0 ? `, ${turns} more turn${turns === 1 ? "" : "s"}` : "");
+
+/** The class the field itself is tinted by, so the weather is visible without reading a word. */
+const FIELD_TINT = {
+  Sun: "w-sun", Rain: "w-rain", Sand: "w-sand", Snow: "w-snow", "Strong Winds": "w-winds",
+  Electric: "t-electric", Grassy: "t-grassy", Psychic: "t-psychic", Misty: "t-misty",
+};
+
+/**
+ * Every condition on the board, as one chip each.
+ *
+ * Chips rather than one run of text, because this line can hold nine things at once -- two
+ * weathers' worth of counts, a Trick Room, two Tailwinds, three screens a side and four hazards
+ * a side -- and a single sentence of them is unreadable. `cls` is what colours the chip, and it
+ * is the same token the field is tinted with, so the Sand on the field and the "Sand" on the
+ * line are plainly the same fact.
+ */
 function conditionsOf(view) {
   const out = [];
   // The field arrives already said in words. The page used to translate it from indices with a
   // copy of the engine's lists, and that copy had Psychic and Misty the other way round.
-  if (view.field.weather && view.field.weather !== "None") out.push(view.field.weather);
-  if (view.field.terrain && view.field.terrain !== "None") out.push(`${view.field.terrain} Terrain`);
-  // WITH THE TURNS LEFT, where there are any. A Trick Room that ends after this turn is a
-  // different position from one with four to run, and the banner said the same thing for both.
-  // Weather and terrain get no number because the engine has none for them: an Ability sets
-  // them and nothing ends them, so they last while the setter stands.
-  const left = (turns) => (turns > 0 ? ` (${turns})` : "");
-  if (view.field.trickRoom) out.push(`Trick Room${left(view.field.trickRoomTurns)}`);
+  const weather = String(view.field.weather || "None");
+  const terrain = String(view.field.terrain || "None");
+  if (weather !== "None") {
+    out.push({ cls: `field ${FIELD_TINT[weather] || ""}`, label: `${weather}${turnsLeft(view.field.weatherTurns)}` });
+  }
+  if (terrain !== "None") {
+    out.push({ cls: `field ${FIELD_TINT[terrain] || ""}`, label: `${terrain} Terrain${turnsLeft(view.field.terrainTurns)}` });
+  }
+  if (view.field.trickRoom) out.push({ cls: "room", label: `Trick Room${turnsLeft(view.field.trickRoomTurns)}` });
   const tw = view.field.tailwindTurns || [0, 0];
-  if (view.field.tailwind[0]) out.push(`Your Tailwind${left(tw[0])}`);
-  if (view.field.tailwind[1]) out.push(`Their Tailwind${left(tw[1])}`);
+  if (view.field.tailwind[0]) out.push({ cls: "ours", label: `Your Tailwind${turnsLeft(tw[0])}` });
+  if (view.field.tailwind[1]) out.push({ cls: "theirs", label: `Opposing Tailwind${turnsLeft(tw[1])}` });
   // THE SCREENS. They could not be set at all until the board learnt to carry them, so there
   // was nothing to draw; now a Reflect halves every physical move into the side it is on and
   // the person playing has to be able to see whose it is and how long it has left.
@@ -1264,7 +1348,10 @@ function conditionsOf(view) {
     ["auroraVeil", "Aurora Veil"]]) {
     for (const side of [0, 1]) {
       if (!(view.field[key] || [])[side]) continue;
-      out.push(`${side === 0 ? "Your" : "Their"} ${label}${left((sc[side] || {})[key])}`);
+      out.push({
+        cls: side === 0 ? "ours" : "theirs",
+        label: `${side === 0 ? "Your" : "Opposing"} ${label}${turnsLeft((sc[side] || {})[key])}`,
+      });
     }
   }
   // ...AND THE HAZARDS, which the view has carried all along and the banner never said. A player
@@ -1273,12 +1360,30 @@ function conditionsOf(view) {
   for (const side of [0, 1]) {
     const hz = (view.field.hazards || [])[side] || {};
     const whose = side === 0 ? "Your side" : "Their side";
-    if (hz.stealthRock) out.push(`${whose}: Stealth Rock`);
-    if (hz.spikes) out.push(`${whose}: Spikes${hz.spikes > 1 ? ` x${hz.spikes}` : ""}`);
-    if (hz.toxicSpikes) out.push(`${whose}: Toxic Spikes${hz.toxicSpikes > 1 ? ` x${hz.toxicSpikes}` : ""}`);
-    if (hz.stickyWeb) out.push(`${whose}: Sticky Web`);
+    const cls = side === 0 ? "hazard ours" : "hazard theirs";
+    if (hz.stealthRock) out.push({ cls, label: `${whose}: Stealth Rock` });
+    if (hz.spikes) out.push({ cls, label: `${whose}: Spikes${hz.spikes > 1 ? ` x${hz.spikes}` : ""}` });
+    if (hz.toxicSpikes) out.push({ cls, label: `${whose}: Toxic Spikes${hz.toxicSpikes > 1 ? ` x${hz.toxicSpikes}` : ""}` });
+    if (hz.stickyWeb) out.push({ cls, label: `${whose}: Sticky Web` });
   }
   return out;
+}
+
+/**
+ * The field's own tint: the weather over it and the terrain under it.
+ *
+ * Two classes rather than one, because both can be up at once and they are drawn as two layers
+ * -- the weather washing down from the top of the board, the terrain glowing up from under the
+ * Pokemon, which is where each of them is in the game. A player should be able to glance at the
+ * board and know it is raining without reading the line above it.
+ */
+function fieldTint(view) {
+  const out = [];
+  const weather = FIELD_TINT[String(view.field.weather || "None")];
+  const terrain = FIELD_TINT[String(view.field.terrain || "None")];
+  if (weather) out.push(weather);
+  if (terrain) out.push(terrain);
+  return out.length ? ` ${out.join(" ")}` : "";
 }
 
 /**

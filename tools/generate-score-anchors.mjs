@@ -2,7 +2,7 @@
 // like across the shipped team library, so the panel can say where a score stands instead of
 // only where it sits on an arbitrary 0-100 dial.
 //
-//   node tools/generate-score-anchors.mjs [--sample 240] [--format Doubles]
+//   node tools/generate-score-anchors.mjs [--sample all] [--format Doubles] [--jobs 12]
 //
 // WHY THIS FILE EXISTS. Measured over the 240 library teams the shipped table is cut from
 // (25 Nov 2026), the four scores occupy about a sixth of 0-100 and their ends are structurally
@@ -20,11 +20,14 @@
 // REFRESHING IT. The scores drift with the meta, so re-run this when the meta data is re-cut
 // in a way that moves scores -- NOT daily. A stale table degrades gracefully (percentiles
 // drift by a point or two) and `generated` is shown in the panel's tooltip so staleness is
-// visible. Deliberately not wired into the daily publish: a 13-minute run inside the morning
-// pipeline would be a new way for the publish to fail.
+// visible. Deliberately not wired into the daily publish: an hour-long run inside the morning
+// pipeline would be a new way for the publish to fail, and `--jobs` makes it quick enough to
+// run by hand that it never needs to be.
 
-import { readFileSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { fork } from "node:child_process";
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { dirname, isAbsolute, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { DamageEngine } from "../builder/engine.js";
 import { TeamEvaluator } from "../builder/team-eval.js";
@@ -39,9 +42,20 @@ const arg = (name, fallback) => {
   const i = process.argv.indexOf(`--${name}`);
   return i >= 0 && process.argv[i + 1] ? process.argv[i + 1] : fallback;
 };
-const sample = Math.max(40, Number(arg("sample", 240)) || 240);
+// `all` by default: the shipped table is cut from every complete team in the library, so a
+// percentile read against it is a rank among all of them rather than among a sample of them.
+const sampleArg = arg("sample", "all");
+const sample = sampleArg === "all" ? Infinity : Math.max(40, Number(sampleArg) || 240);
 const format = arg("format", "Doubles");
-const out = join(root, arg("out", "data/builder/score-anchors.json"));
+// An absolute `--out` is left alone, so a trial table can be written somewhere outside the
+// worktree: everything in here is committed and deployed by the morning publish.
+const outArg = arg("out", "data/builder/score-anchors.json");
+const out = isAbsolute(outArg) ? outArg : join(root, outArg);
+const jobs = Math.max(1, Math.min(32, Number(arg("jobs", 1)) || 1));
+// Set by the parent on a worker, never by hand: score this slice of the library and leave the
+// raw scores in a file for the parent to merge.
+const slice = arg("slice", "");
+const scoresOut = arg("scores-out", "");
 
 const appData = JSON.parse(readFileSync(join(root, "data", "builder", "app-data.json"), "utf8"));
 const metaKey = format === "Singles" ? "singles" : "doubles";
@@ -59,7 +73,7 @@ const picked = library.filter((_, i) => i % step === 0).slice(0, sample);
 const scores = Object.fromEntries(AXES.map((axis) => [axis, []]));
 let failed = 0;
 
-for (const [index, team] of picked.entries()) {
+function scoreTeam(team) {
   // A fresh evaluator per team, the way every harness builds one: the evaluator caches damage
   // per (attacker, defender, move) and the Speed layers hold per-run state on the instance.
   const engine = new DamageEngine(appData);
@@ -86,9 +100,59 @@ for (const [index, team] of picked.entries()) {
     scores.speed.push(Number(payload.speed?.score ?? 0));
   } catch (error) {
     failed += 1;
-    process.stderr.write(`\n${team.name}: ${error.message}\n`);
+    process.stderr.write(`
+${team.name}: ${error.message}
+`);
   }
-  if ((index + 1) % 10 === 0) process.stderr.write(`${index + 1}/${picked.length}\n`);
+}
+
+function scoreAll(list, label) {
+  for (const [index, team] of list.entries()) {
+    scoreTeam(team);
+    if ((index + 1) % 25 === 0) process.stderr.write(`${label}${index + 1}/${list.length}
+`);
+  }
+}
+
+// --- one process, or several -------------------------------------------------------------------
+// WHY `--jobs` EXISTS AND WHY IT MOVES NO NUMBER. A team's four scores are a measurement of that
+// team alone: a fresh engine and evaluator per team, nothing shared between teams and nothing
+// accumulated across them. So the library splits across processes and the merged result is the
+// same multiset of scores one process would have produced -- `quantiles` sorts it, so not even
+// the order survives to matter. That is what makes the WHOLE library affordable rather than a
+// 240-team sample of it: at about two seconds a team, 1945 teams is an hour in one process and a
+// few minutes across twelve. Sliced `index % jobs` rather than in contiguous blocks, so every
+// worker draws the same mix of teams and they finish together. Checked rather than argued:
+// `--sample 48 --jobs 4` and `--sample 48 --jobs 1` wrote tables identical on all 101 points of
+// all four axes.
+if (slice) {
+  const [index, count] = slice.split("/").map(Number);
+  scoreAll(picked.filter((_, i) => i % count === index), `slice ${index}: `);
+  writeFileSync(scoresOut, JSON.stringify({ scores, failed }), "utf8");
+  process.exit(0);
+}
+
+if (jobs > 1) {
+  const dir = mkdtempSync(join(tmpdir(), "score-anchors-"));
+  const self = fileURLToPath(import.meta.url);
+  // A worker that dies takes the run down instead of quietly shrinking the population: a table
+  // cut from eleven twelfths of the library would still look exactly like a finished one.
+  const parts = await Promise.all(Array.from({ length: jobs }, (_, index) => new Promise((resolve, reject) => {
+    const file = join(dir, `slice-${index}.json`);
+    const child = fork(self, ["--slice", `${index}/${jobs}`, "--scores-out", file, "--sample", String(sampleArg), "--format", format]);
+    child.on("error", reject);
+    child.on("exit", (code) => {
+      if (code !== 0) return reject(new Error(`worker ${index} exited ${code}`));
+      try { resolve(JSON.parse(readFileSync(file, "utf8"))); } catch (error) { reject(error); }
+    });
+  })));
+  for (const part of parts) {
+    for (const axis of AXES) scores[axis].push(...part.scores[axis]);
+    failed += part.failed;
+  }
+  rmSync(dir, { recursive: true, force: true });
+} else {
+  scoreAll(picked, "");
 }
 
 /** Nearest-rank quantiles, 0..100 inclusive, so `q[p]` is the score at the p-th percentile. */
@@ -128,7 +192,7 @@ const payload = {
   library: library.length,
   source: "known-teams.json, complete sixes, full TeamEvaluation.evaluate",
   spreads: "each Pokemon's most common stat spread (the library records no stat points)",
-  note: "Display only. q[p] is the score at the p-th percentile of the sampled library teams.",
+  note: "Display only. q[p] is the score at the p-th percentile of the library teams scored.",
   axes,
 };
 writeFileSync(out, `${JSON.stringify(payload, null, 1)}\n`, "utf8");

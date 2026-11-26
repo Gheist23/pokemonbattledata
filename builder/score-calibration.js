@@ -1,16 +1,16 @@
 // Where a Team Evaluation score STANDS, next to where it sits on the 0-100 dial.
 //
-// THE PROBLEM THIS SOLVES. Measured over the 240 complete library teams the shipped table is
-// cut from (25 Nov 2026), the four scores occupy about a sixth of 0-100, and their ends are
+// THE PROBLEM THIS SOLVES. Measured over all 1945 complete library teams the shipped table is
+// cut from (26 Nov 2026), the four scores occupy about a sixth of 0-100, and their ends are
 // structurally unreachable rather than merely unoccupied: Offense tops out near 60 because
 // scoring 100 would need every member's two best moves to average 100% damage against all
 // 30 meta Pokemon, and Defense tops out there for the mirror reason. So:
 //
 //   axis      min   p25   med   p75   max      `scoreTone` across that distribution
-//   synergy  46.7  59.9  62.7  65.4  75.8       4% green /  96% amber /   1% red
-//   offense  26.0  45.9  50.2  52.5  60.4       0% green /  51% amber /  50% red
-//   defense  35.1  45.7  48.1  50.0  58.6       0% green /  26% amber /  75% red
-//   speed    43.0  60.0  67.7  72.7  85.9      40% green /  55% amber /   6% red
+//   synergy  30.9  59.8  62.7  65.4  77.7       3% green /  97% amber /   1% red
+//   offense  25.6  46.4  50.3  53.0  63.6       0% green /  53% amber /  48% red
+//   defense  29.1  45.5  48.1  50.2  61.4       0% green /  27% amber /  74% red
+//   speed    33.4  60.6  67.0  72.0  87.9      38% green /  59% amber /   4% red
 //
 // No real team could ever show a green Offense or Defense, three quarters of them were shown a
 // red Defense, and Synergy was amber for 96%. A score's place on the dial and its place among
@@ -18,11 +18,33 @@
 //
 // Those are the numbers in data/builder/score-anchors.json itself rather than a separate
 // measurement -- the shares are over the table's own 101 quantile points, one per percentile of
-// the sampled population, which is what tests/run-score-calibration.mjs recomputes. An earlier
-// version of this header quoted an 80-team pilot while the shipped table was cut from 240; the
-// Companion's installer comment had the same defect in the other direction (it quoted THIS
-// codebase's figures as if they were the app's). A comment carrying measured numbers from a
-// different sample than the file beside it is the one kind of staleness nothing can catch.
+// the library, which is what tests/run-score-calibration.mjs recomputes. An earlier version of
+// this header quoted an 80-team pilot while the shipped table was cut from 240, and then 240
+// while it was cut from all 1945; the Companion's installer comment had the same defect in the
+// other direction (it quoted THIS codebase's figures as if they were the app's). A comment
+// carrying measured numbers from a different population than the file beside it is the one kind
+// of staleness nothing can catch, which is why a suite recomputes this table from the JSON.
+//
+// A SAMPLE NO LONGER. The table was cut from 240 of the library's 1945 complete teams because
+// scoring one team takes about two seconds and 1945 of them is an hour. `--jobs` in the
+// generator splits the library across processes -- a team's score depends on nothing but that
+// team -- so the whole library is a few minutes, and the shipped table is now every complete
+// team in it. The quartiles hardly moved (Offense p25 45.9 -> 46.4, p50 50.2 -> 50.3), which is
+// what a 240-team sample is good at; the ENDS moved a long way (Synergy's floor 46.7 -> 30.9,
+// Speed's 43.0 -> 33.4), because the teams that define them are rare by construction and a
+// sample of one team in eight mostly misses them. The bottom of the scale is real now.
+//
+// What that is worth to a reader, measured rather than assumed: a DISPLAYED percentile moved by
+// a median of 1 point between the two tables, 2-3 at the 90th and at most 6. The ends move a
+// long way precisely because almost nobody is standing out there to be mis-ranked. Worth having
+// -- it costs six minutes -- but it is a sharpening, not a correction.
+//
+// THE RING SHOWS THE STANDING. A card used to show the score in the ring and the standing in
+// small text under it, which is two numbers for one fact with the less useful one drawn big.
+// The ring now shows the percentile and says so underneath; the score it came from is in the
+// hover, with the range and the date. Where there is no standing -- a partial team, a format
+// with no table -- the ring keeps the raw score, so `ring` is null in that case rather than a
+// number that would mean something else in the same place.
 //
 // WHAT THIS IS NOT. It changes no score. `TeamEvaluation.evaluate` is untouched and every
 // recorded vector replays unchanged; this module only reads the numbers it is handed. The
@@ -136,14 +158,37 @@ export function ordinal(value) {
   return `${n}${suffix}`;
 }
 
-/** The compact line under a score card: "75th pct". */
-export function percentileLabel(percentile) {
-  return Number.isFinite(percentile) ? `${ordinal(percentile)} pct` : "";
+/** The word under the ring, because the ring's number is the standing and not the score. */
+export const RING_NOTE = "percentile";
+
+/**
+ * Where the score stands, in one short sentence -- the line a reader actually gets.
+ *
+ * Deliberately short. What it replaced named the population, the range the axis really covers
+ * and the date the table was cut: three sentences of true things, none of which is what anyone
+ * wants in the second it takes to read a card. All of it is still one hover away in
+ * `percentileTitle`, which is where a number that needs defending belongs.
+ */
+export function percentileSentence(table, percentile) {
+  if (!Number.isFinite(percentile)) return "";
+  const teams = Number(table?.teams) || 0;
+  const population = `${teams} complete tournament teams`;
+  // The ends are named rather than computed: "Better than 0%" and "Better than 100%" are both
+  // wrong, the second one twice over, since the top percentile is at-or-above rather than above.
+  if (percentile <= 0) return `Below all ${population}.`;
+  if (percentile >= 100) return `Above all ${population}.`;
+  return `Better than ${percentile}% of ${population}.`;
 }
 
 /**
- * The sentence behind that line. It names the population, the date the table was cut and the
- * range the axis actually covers, because the range is the thing the 0-100 dial hides.
+ * The detail behind that sentence, shown on hover: the score the standing was read from, the
+ * range the axis really covers, and when and how the table was cut.
+ *
+ * Hover-only by design, and `top_meta` is in it for a reason -- the table is cut at the default
+ * Top-30 meta, while a panel set to another Top-X scored the team against that one instead.
+ * Measured over four library teams the gap is under 0.7 of Offense and under 1.2 of Synergy, so
+ * it is drift rather than a different measurement, but it is recoverable here instead of
+ * nowhere.
  */
 export function percentileTitle(table, axis, score, percentile) {
   const q = table?.axes?.[axis];
@@ -160,9 +205,9 @@ export function percentileTitle(table, axis, score, percentile) {
     : percentile >= 100
       ? `at or above all ${population}`
       : `at the ${ordinal(percentile)} percentile of ${population}`;
-  return `${name} ${Math.round(Number(score))} is ${where}.`
+  return `${name} scored ${Number(score).toFixed(1)} of 100, ${where}.`
     + ` Across those teams ${name} runs ${q[0].toFixed(0)} to ${q[QUANTILES - 1].toFixed(0)}, not 0 to 100.`
-    + ` Reference cut ${table.generated || "unknown"}.`;
+    + ` Reference cut ${table.generated || "unknown"} against the Top ${table.top_meta || "?"} Meta.`;
 }
 
 /**
@@ -176,6 +221,7 @@ export function percentileTitle(table, axis, score, percentile) {
  * percentile at all.
  */
 export const PARTIAL_LABEL = "needs 6";
+export const PARTIAL_SENTENCE = "No standing until the team is full.";
 export const PARTIAL_TITLE = "No standing is shown until the team is full."
   + " Offense is measured over the Pokémon present and Defense is 100 minus the meta's pressure"
   + " into them, so both FALL as slots fill, and Speed is scaled by the empty slots — a partial"
@@ -187,16 +233,32 @@ export function calibrate(table, axis, score, teamSize = ANCHOR_TEAM_SIZE) {
   // absolute colour: there is no standing to colour it by yet. Same answer as the Companion's
   // `score_calibration_v563.calibrate`.
   if (Number(teamSize) !== ANCHOR_TEAM_SIZE) {
-    return { percentile: null, tone: "", label: PARTIAL_LABEL, title: PARTIAL_TITLE };
+    return { percentile: null, tone: "", ring: null, note: PARTIAL_LABEL, sentence: PARTIAL_SENTENCE, title: PARTIAL_TITLE };
   }
   const percentile = percentileOf(table, axis, score);
   if (percentile === null) return null;
   return {
     percentile,
     tone: calibratedTone(percentile),
-    label: percentileLabel(percentile),
+    // The number the ring shows. Null above means "show the raw score instead", so every ring
+    // on the page takes its number from one place and nothing has to infer which it is holding.
+    ring: percentile,
+    note: RING_NOTE,
+    sentence: percentileSentence(table, percentile),
     title: percentileTitle(table, axis, score, percentile),
+    aria: standingAria(`${axis[0].toUpperCase()}${axis.slice(1)}`, { percentile }, score),
   };
+}
+
+/**
+ * What a screen reader says for a ring showing a standing: both numbers, each named.
+ *
+ * Without it the ring is read out as "Offense 23 out of 100", which is the old sentence about a
+ * new number -- exactly the misreading this change exists to stop.
+ */
+export function standingAria(label, calibration, score) {
+  if (!calibration || calibration.percentile === null) return "";
+  return `${label}: ${ordinal(calibration.percentile)} percentile of real teams, score ${Math.round(Number(score))} out of 100`;
 }
 
 // --- what the generator may not write ------------------------------------------------------

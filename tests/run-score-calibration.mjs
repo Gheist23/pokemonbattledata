@@ -22,6 +22,12 @@
 // The fourth was a wording drift between the two codebases, which is why section 5 pins the
 // sentence the tooltip says.
 //
+// WHAT CHANGED AFTER THAT. The table is cut from every one of the library's 1945 complete teams
+// rather than 240 of them; the ring draws the STANDING instead of the score; and the panel says
+// it in one short sentence instead of three long ones. Each of those is a thing a later edit
+// could quietly undo, so section 1 pins the population, section 5 pins the length and section 7
+// pins which number reaches the ring.
+//
 // Nothing here loads the engine, the meta or the library: the module is pure and the shipped
 // table is read off disk, so this is a fast suite that can run anywhere.
 
@@ -36,8 +42,10 @@ import {
   MID_AT,
   MIN_ANCHOR_TEAMS,
   PARTIAL_LABEL,
+  PARTIAL_SENTENCE,
   PARTIAL_TITLE,
   QUANTILES,
+  RING_NOTE,
   WEAK_AT,
   anchorTableRefusal,
   calibrate,
@@ -45,10 +53,11 @@ import {
   isAnchorTable,
   loadScoreAnchors,
   ordinal,
-  percentileLabel,
   percentileOf,
+  percentileSentence,
   percentileTitle,
   scoreAnchors,
+  standingAria,
 } from "../builder/score-calibration.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -82,9 +91,18 @@ check("every axis is sorted, so q[p] really is the p-th percentile",
 check("every axis actually spreads, so a percentile distinguishes teams",
   AXES.every((axis) => table.axes[axis][QUANTILES - 1] > table.axes[axis][0]));
 check("the table says what it was cut from",
-  Number(table.teams) >= MIN_ANCHOR_TEAMS && Number(table.library) > Number(table.teams)
+  Number(table.teams) >= MIN_ANCHOR_TEAMS
     && /^\d{4}-\d{2}-\d{2}$/.test(String(table.generated)) && table.format === "Doubles",
   `teams ${table.teams}, library ${table.library}, generated ${table.generated}, format ${table.format}`);
+// Not a sample any more, and that is the point: a percentile off this table is a rank among ALL
+// the complete teams in the library rather than among one team in eight of them. The 240-team
+// sample agreed with the full cut about the quartiles and was far out at the ends, where the
+// teams that define the range are rare by construction -- Synergy's floor was 46.7 against the
+// real 30.9. If this ever fails because the shipped table was cut with `--sample`, re-cut it
+// with the default rather than weakening the check.
+check("the shipped table is the whole library, not a sample of it",
+  Number(table.teams) === Number(table.library),
+  `teams ${table.teams} of library ${table.library} -- run the generator with its default --sample all`);
 check("the table is scored against the Top 30, like the panel's default", Number(table.top_meta) === 30,
   `top_meta ${table.top_meta}`);
 
@@ -197,27 +215,59 @@ check("ordinals read correctly, including the teens",
     [21, "21st"], [22, "22nd"], [23, "23rd"], [100, "100th"], [101, "101st"], [111, "111th"]]
     .every(([value, want]) => ordinal(value) === want),
   [1, 2, 3, 11, 12, 13, 21, 111].map((v) => ordinal(v)).join(" "));
-check("the line under a card is just the standing", percentileLabel(72) === "72nd pct");
-check("no percentile means no line", percentileLabel(null) === "" && percentileLabel(NaN) === "");
+// The ring holds the percentile, so the word under it has to say that is what it is. Without it
+// the card reads "Offense 23" in the same place it used to read "Offense 46".
+check("the word under the ring says what the ring is", RING_NOTE === "percentile");
 
+// THE VISIBLE LINE. One sentence, no date, no range, no clause about stat spreads -- all of
+// which are still in the hover below. Pinned by length as well as by content, because the way
+// this line goes wrong is by growing a clause at a time until it is three sentences again.
+const sentence = percentileSentence(table, 23);
+check("the visible line is one short sentence",
+  sentence === `Better than 23% of ${table.teams} complete tournament teams.`, sentence);
+check("the visible line stays short enough to read in a glance",
+  sentence.length <= 60 && sentence.split(". ").length === 1, `${sentence.length} chars: ${sentence}`);
+check("the visible line carries no date and no range",
+  !sentence.includes(String(table.generated)) && !sentence.includes("not 0 to 100"), sentence);
+check("the ends of the distribution are not described as a percentage of it",
+  percentileSentence(table, 0) === `Below all ${table.teams} complete tournament teams.`
+  && percentileSentence(table, 100) === `Above all ${table.teams} complete tournament teams.`,
+  "\"Better than 0%\" and \"Better than 100%\" are both wrong, the second one twice over");
+check("no percentile means no line",
+  percentileSentence(table, null) === "" && percentileSentence(table, NaN) === "");
+
+// WHAT A SCREEN READER GETS. Both numbers, each named. The ring element itself only knows the
+// number it was handed, so without this it would be read out as "Offense 23 out of 100".
+const spoken = standingAria("Offense", { percentile: 23 }, 46.2);
+check("the spoken label names the standing and the score separately",
+  spoken === "Offense: 23rd percentile of real teams, score 46 out of 100", spoken);
+check("nothing is spoken for a card with no standing",
+  standingAria("Offense", { percentile: null }, 46.2) === "" && standingAria("Offense", null, 46.2) === "");
+
+// THE HOVER. Everything the visible line dropped, still reachable, including the Top-X the
+// table was cut at: a panel set to another Top-X scored the team against a different meta.
 const title = percentileTitle(table, "offense", 52.4, 68);
-check("the tooltip names the axis, the score and the standing",
-  title.startsWith("Offense 52 is at the 68th percentile of"), title);
-check("the tooltip names the population the way the Companion's does",
+check("the hover names the axis, the score it came from and the standing",
+  title.startsWith("Offense scored 52.4 of 100, at the 68th percentile of"), title);
+check("the hover keeps the score unrounded, since that is what was calibrated",
+  title.includes("52.4") && !title.includes("Offense scored 52 "), title);
+check("the hover names the meta the table was cut against",
+  title.includes(`against the Top ${table.top_meta} Meta`), title);
+check("the hover names the population the way the Companion's does",
   title.includes(`${table.teams} complete tournament teams from the team library, on their most common stat spreads`),
   // Pinned on purpose. The app and the site must describe the same population in the same
   // words, and a one-sided reword is invisible to every parity suite: both halves stay
   // internally consistent while telling the reader two different things.
   title);
-check("the tooltip gives the range the axis really covers, not 0 to 100",
+check("the hover gives the range the axis really covers, not 0 to 100",
   title.includes(`Offense runs ${table.axes.offense[0].toFixed(0)} to ${table.axes.offense[QUANTILES - 1].toFixed(0)}, not 0 to 100`),
   title);
-check("the tooltip dates the reference cut, so staleness is visible",
+check("the hover dates the reference cut, so staleness is still visible somewhere",
   title.includes(`Reference cut ${table.generated}`), title);
 check("the ends of the distribution are described as ends",
   percentileTitle(table, "speed", 0, 0).includes("below all")
   && percentileTitle(table, "speed", 99, 100).includes("at or above all"));
-check("no tooltip without a percentile", percentileTitle(table, "speed", 50, null) === "");
+check("no hover without a percentile", percentileTitle(table, "speed", 50, null) === "");
 
 // --- 6. a partial team gets no standing ----------------------------------------------------
 // The anchors describe complete sixes. Offense is a mean over the members present and Defense
@@ -229,11 +279,18 @@ check("the anchors describe a six", ANCHOR_TEAM_SIZE === 6);
 for (const size of [0, 1, 2, 3, 4, 5]) {
   const partial = calibrate(table, "defense", 90, size);
   check(`a team of ${size} is told it needs six instead of being given a percentile`,
-    partial?.percentile === null && partial?.label === PARTIAL_LABEL && partial?.tone === "",
+    partial?.percentile === null && partial?.note === PARTIAL_LABEL && partial?.tone === "",
+    JSON.stringify(partial));
+  // `ring: null` is what sends the raw score to the ring instead of a standing. A number here
+  // would be drawn in the same place a percentile is, meaning something else.
+  check(`a team of ${size} puts no number of its own in the ring`, partial?.ring === null,
     JSON.stringify(partial));
 }
 check("the partial label and sentence are the ones the panel shows",
-  PARTIAL_LABEL === "needs 6" && PARTIAL_TITLE.startsWith("No standing is shown until the team is full."));
+  PARTIAL_LABEL === "needs 6" && PARTIAL_SENTENCE === "No standing until the team is full."
+  && PARTIAL_TITLE.startsWith("No standing is shown until the team is full."));
+check("a partial team gets the short sentence too, with the long one on hover",
+  PARTIAL_SENTENCE.length < PARTIAL_TITLE.length && PARTIAL_SENTENCE.split(". ").length === 1);
 check("a complete team does get a standing",
   calibrate(table, "defense", 90, 6)?.percentile === 100);
 check("no table means no standing at all, not a default one",
@@ -274,6 +331,40 @@ for (const [label, expression] of [["Synergy", "result.synergy_score"], ["Offens
     page.includes(`scoreButton("${label}", ${expression},`) && page.includes(`stand("${label}", ${expression})`),
     `looked for scoreButton("${label}", ${expression}, ...) and stand("${label}", ${expression})`);
 }
+
+// WHICH NUMBER REACHES THE RING. `calibrate` decides, in one place, and `ring` is null exactly
+// when there is no standing -- so a ring is never handed a percentile that the card then labels
+// as a score, or the other way round. This is the check that keeps the two cases apart.
+const standing = calibrate(table, "offense", 46.2, 6);
+check("a complete team's ring is handed the standing, not the score",
+  standing.ring === standing.percentile && standing.ring !== Math.round(46.2),
+  JSON.stringify(standing));
+check("the standing still comes from the unrounded score",
+  standing.percentile === percentileOf(table, "offense", 46.2), JSON.stringify(standing));
+check("the page draws the ring from the calibration and falls back to the raw score",
+  page.includes("scoreRing(standing ? calibration.ring : value, label, {"),
+  "builder-page.js axisRing is the one place that decides which number a score ring holds");
+check("the word under the ring comes from the calibration, not from the score",
+  page.includes("}, calibration.note) : null,"),
+  "builder-page.js scoreText");
+const view = readFileSync(join(root, "builder", "evaluation-view.js"), "utf8");
+check("the dialogs' rings do the same, so a card and its dialog cannot disagree",
+  view.includes("scoreRing(has ? standing.ring : score, label,"),
+  "evaluation-view.js standingRing");
+
+// TWO LINES, NOT THREE. The dialog shows what the number is and where it stands; the formula it
+// was scored with and the per-matchup method are hovers. A payload recorded before V512 has no
+// standing wording to fall back on, so with no standing the first line is still the formula --
+// which is the only place the 70/30 sentence can be read.
+check("the pressure dialog's visible lines are the headline and the standing",
+  view.includes("title: stands ? formula : null }, headline)") && view.includes("standingNote(standing),"),
+  "evaluation-view.js openPressureDialog");
+check("the per-matchup method is kept, on the heading it describes",
+  view.includes("bd-field-label\", title: method }"),
+  "evaluation-view.js openPressureDialog -- dropped rather than demoted would lose it");
+check("the standing note shows the short sentence with the long one on hover",
+  view.includes("title: standing.title || null }, standing.sentence)"),
+  "evaluation-view.js standingNote");
 
 // --- 8. what the generator may not write ----------------------------------------------------
 

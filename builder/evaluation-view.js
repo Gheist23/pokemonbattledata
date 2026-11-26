@@ -345,13 +345,13 @@ export function threatsView(payload, { spriteFor, name }) {
  * and the reference table are known; null when there is none (partial team, no table yet).
  */
 function standingNote(standing) {
-  return standing?.title ? h("p", { class: "bd-note" }, standing.title) : null;
+  return standing?.sentence ? h("p", { class: "bd-note", title: standing.title || null }, standing.sentence) : null;
 }
 
-/** A partial team has a label but no standing, so its ring keeps its old absolute colour. */
+/** No standing means the raw score in the ring and its old absolute colour, as before V563. */
 function standingRing(score, label, standing) {
   const has = standing && standing.percentile !== null;
-  return scoreRing(score, label, { tone: has ? standing.tone : "", note: has ? standing.label : "" });
+  return scoreRing(has ? standing.ring : score, label, { tone: has ? standing.tone : "", aria: has ? standing.aria : "" });
 }
 
 export function openSynergyDialog(payload, { spriteFor, slots, standing = null }) {
@@ -431,11 +431,20 @@ export function openPressureDialog(payload, which, { standing = null } = {}) {
   const rule = Boolean(overview.score_rule_v512);
   const formula = pressureFormula(payload, which);
   const types = Object.entries(pressure?.type_summary || {}).filter(([, v]) => v.count > 0).sort((a, b) => b[1].pressure - a[1].pressure);
+  // TWO LINES, NOT THREE: what the number is, then where it stands. The formula it was scored
+  // with is the hover on the first line, and the per-matchup method the hover on the heading
+  // below -- both a mouse away, neither of them in front of someone who wanted to read a score.
+  // With no standing to show, the first line IS the formula, as it always was, and that is the
+  // only place the 70/30 wording for a payload recorded before V512 can still be read.
+  const stands = standing && standing.percentile !== null;
+  const method = `Per-matchup damage with the real sets, capped at 100% per target before averaging. Average type multiplier ${Number(pressure?.average_type_multiplier ?? 1).toFixed(2)}× · ${Math.round((pressure?.physical_share ?? 0) * 100)}% physical · ${Math.round((pressure?.special_share ?? 0) * 100)}% special.`;
+  const headline = stands
+    ? `${offense ? "Offense" : "Defense"} ${standing.percentile} = where this team's ${offense ? `damage pressure into the Top ${overview.top_x} Meta` : `resistance to the Top ${overview.top_x} Meta's pressure`} stands.`
+    : formula;
   const body = h("div", { class: "bd-list" },
-    h("p", { class: "bd-confirm-text" }, formula),
+    h("p", { class: "bd-confirm-text", title: stands ? formula : null }, headline),
     standingNote(standing),
-    h("p", { class: "bd-note" }, `Per-matchup damage with the real sets, capped at 100% per target before averaging. Average type multiplier ${Number(pressure?.average_type_multiplier ?? 1).toFixed(2)}× · ${Math.round((pressure?.physical_share ?? 0) * 100)}% physical · ${Math.round((pressure?.special_share ?? 0) * 100)}% special.`),
-    h("h3", { class: "bd-field-label" }, offense ? "Your strongest attacks into the meta" : "The meta's strongest attacks into you"),
+    h("h3", { class: "bd-field-label", title: method }, offense ? "Your strongest attacks into the meta" : "The meta's strongest attacks into you"),
     (pressure?.top_moves || []).map((row) => h("div", { class: "bd-row" },
       h("img", { src: `/pokemon_champions_assets/types/${row.type}.png`, alt: row.type, width: 20, height: 20 }),
       h("div", {}, h("h3", {}, `${row.owner_name} · ${row.move}`), h("p", {}, `${row.category} · ${row.target_multiplier.toFixed(2)}× average type multiplier${row.uses_current_set ? " · current set" : ""}`)),

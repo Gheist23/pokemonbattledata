@@ -660,10 +660,14 @@ export function scoreTone(score) {
  * real team, so `scoreTone`'s >=70 green was unreachable and its <50 red covered most of the
  * library. Every other ring (the Speed sub-scores, the tournament head) passes neither and is
  * coloured exactly as before.
+ *
+ * `aria` replaces the spoken label outright, for a ring whose number is not a score out of 100:
+ * the four axes now draw the percentile in the ring, and "Offense 23 out of 100" would be the
+ * old sentence read over a new number.
  */
-export function scoreRing(score, label = "", { tone = "", note = "" } = {}) {
+export function scoreRing(score, label = "", { tone = "", note = "", aria = "" } = {}) {
   const value = Math.max(0, Math.min(100, Math.round(score || 0)));
-  const ring = h("span", { class: `bd-ring bd-ring-${tone || scoreTone(value)}`, style: { "--value": value }, role: "img", "aria-label": `${label ? `${label} ` : ""}${value} out of 100${note ? `, ${note}` : ""}` }, h("b", {}, value));
+  const ring = h("span", { class: `bd-ring bd-ring-${tone || scoreTone(value)}`, style: { "--value": value }, role: "img", "aria-label": aria || `${label ? `${label} ` : ""}${value} out of 100${note ? `, ${note}` : ""}` }, h("b", {}, value));
   return ring;
 }
 

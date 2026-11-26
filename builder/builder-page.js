@@ -1239,30 +1239,40 @@ function ensureScoreAnchors() {
   loadScoreAnchors(format()).then((table) => { if (table) renderMain(); });
 }
 
-/** The percentile line, and the "Details ›" affordance when the card opens something. */
+/** The word under the ring saying what its number is, and the "Details ›" affordance. */
 function scoreText(label, calibration, details) {
   return h("span", { class: "bd-score-text" },
     h("strong", {}, label),
-    calibration ? h("small", { class: "bd-score-pct", title: calibration.title }, calibration.label) : null,
+    calibration ? h("small", { class: "bd-score-pct", title: calibration.title }, calibration.note) : null,
     details ? h("small", {}, "Details ›") : null);
 }
 
-/** A partial team has a label ("needs 6") but no standing, so it gets neither tone nor note. */
-function ringOptions(calibration) {
+/**
+ * The ring for one axis: the STANDING when there is one, the raw score when there is not.
+ *
+ * A partial team and a format with no anchor table both land in the second case, and both keep
+ * exactly the ring they had before any of this existed -- absolute tone, raw number. Which it
+ * is comes from `calibration.ring` rather than from anything worked out here, so one module
+ * decides what every ring on the page is holding.
+ */
+function axisRing(label, value, calibration) {
   const standing = calibration && calibration.percentile !== null;
-  return { tone: standing ? calibration.tone : "", note: standing ? calibration.label : "" };
+  return scoreRing(standing ? calibration.ring : value, label, {
+    tone: standing ? calibration.tone : "",
+    aria: standing ? calibration.aria : "",
+  });
 }
 
 function scoreButton(label, value, onClick, hint, calibration = null) {
   return h("button", { type: "button", class: "bd-score", onclick: onClick, title: `Open ${hint}` },
-    scoreRing(value, label, ringOptions(calibration)),
+    axisRing(label, value, calibration),
     scoreText(label, calibration, true));
 }
 
 /** A score shown without anything behind it (Auto Build's result). */
 function scoreCard(label, value, calibration = null) {
   return h("div", { class: "bd-score static" },
-    scoreRing(value, label, ringOptions(calibration)),
+    axisRing(label, value, calibration),
     scoreText(label, calibration, false));
 }
 

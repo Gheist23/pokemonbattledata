@@ -24,6 +24,13 @@
 //   repair    (Medium/Deep) one member Auto Build added may be swapped for the best
 //             alternative the Auto Build ranking offers, under the same rule. Members
 //             the user kept are never replaced.
+//   climb     with autobuild_balance (builder/autobuild-balance.js) the repair becomes a
+//             climb on the balanced objective: every added member is screened as a swap
+//             against the leader's real Team Evaluation, the best few are evaluated for
+//             real, and the best swap is kept when it wins -- then again from the new team.
+//             T is then the balance of the four STANDINGS among real teams (two thirds of
+//             their average plus a third of the weakest), not the mean of the raw scores,
+//             which let Speed's wider spread decide most comparisons.
 //
 // The work is bounded by counts (beam, children, shortlists, sets, repair sizes), so the
 // same input gives the same team on a fast or a slow machine. The clock is only a safety
@@ -39,6 +46,7 @@ import { compact } from "./engine.js";
 import { archetypeDisplay, topMetaSize } from "./autobuild-archetype.js";
 import { archetypeRequirements } from "./team-checks.js";
 import { AUTOBUILD_META_PRIORITY, metaPriorityOn, objectiveTiers, promoteMetaTier } from "./autobuild-meta-priority.js";
+import { BALANCE_CLIMB, BALANCE_OBJECTIVE, anchorsFit, balanceOf, balanceOption, balanceOn, standingWord } from "./autobuild-balance.js";
 
 const TEAM_SIZE = 6;
 const MAX_DEFENSIVE_WARNINGS = 2;
@@ -57,14 +65,17 @@ const PROGRESS_MS = 120;
  */
 export const SEARCH_PROFILES = {
   fast: { key: "fast", depth: "fast", beam: 2, children: 2, widenLevels: 6, shortlist: 30, narrow: 15, finalistSets: 1, repairTargets: 0, repairCandidates: 0, repairPool: 0, capMs: 24000 },
-  medium: { key: "medium", depth: "medium", beam: 3, children: 3, widenLevels: 6, shortlist: 40, narrow: 20, finalistSets: 2, repairTargets: 2, repairCandidates: 4, repairPool: 60, capMs: 44000 },
+  medium: { key: "medium", depth: "medium", beam: 3, children: 3, widenLevels: 6, shortlist: 40, narrow: 20, finalistSets: 2, repairTargets: 2, repairCandidates: 4, repairPool: 60, capMs: 60000 },
   // Deep's shortlist and repair were cut from 60 / 3 targets / 6 of 100 after a cold build of
   // an empty team took 45-54 s in Node, and on nine warm test builds the kept teams scored no
   // worse (4 better, 5 the same). The sizes have stood since: when the times crept back up
   // (66 s cold in Node on 2026-09-23) the work came off builder/engine.js instead, whose
   // name normalisers, Mega / form lookups and per-move `move_meta` base are now memoised -
   // 41 s cold for the same compared teams and the same scores.
-  deep: { key: "deep", depth: "deep", beam: 4, children: 3, widenLevels: 6, shortlist: 45, narrow: 20, finalistSets: 3, repairTargets: 2, repairCandidates: 5, repairPool: 80, capMs: 66000 },
+  // autobuild_balance's climb (builder/autobuild-balance.js) replaced the repair and added about
+  // 13 s to a cold Deep build (40 -> 53 s in Node) and 3-7 s to Medium, so both caps went up to
+  // stay about twice a cold build: the cap is a safety net, not a budget.
+  deep: { key: "deep", depth: "deep", beam: 4, children: 3, widenLevels: 6, shortlist: 45, narrow: 20, finalistSets: 3, repairTargets: 2, repairCandidates: 5, repairPool: 80, capMs: 100000 },
 };
 
 /**
@@ -115,9 +126,12 @@ export function teamSets(entries, spreads) {
 /**
  * The Team Evaluation numbers a complete team is judged by (kept small; the full payload
  * is 1 MB+). `metaOutside` is the number of members Auto Build added from outside the
- * Top X meta (counted only with Prioritize Meta; 0 otherwise).
+ * Top X meta (counted only with Prioritize Meta; 0 otherwise). With an anchor table
+ * (`anchors`, autobuild_balance) T is the balance of the four standings minus the red-threat
+ * charge, and the summary carries the standings; without one T is the mean of the raw scores
+ * as before.
  */
-export function teamSummary(payload, manualKey = "", objective = SEARCH_OBJECTIVE, { metaOutside = 0 } = {}) {
+export function teamSummary(payload, manualKey = "", objective = SEARCH_OBJECTIVE, { metaOutside = 0, anchors = null } = {}) {
   const rows = (payload?.checks?.rows || []).filter((row) => !["archetype_fit", "checks_disabled"].includes(rowId(row)));
   const scores = {
     synergy: Number(payload?.synergy_score) || 0, offense: Number(payload?.offense_score) || 0,
@@ -135,13 +149,19 @@ export function teamSummary(payload, manualKey = "", objective = SEARCH_OBJECTIV
     }
   }
   const mean = (scores.synergy + scores.offense + scores.defense + scores.speed) / 4;
+  const balance = anchors ? balanceOf(anchors, scores, objective.meanWeight === undefined ? BALANCE_OBJECTIVE : objective) : null;
+  const value = balance ? balance.value : mean;
   return {
     scores: Object.fromEntries(Object.entries(scores).map(([k, v]) => [k, r1(v)])),
     checksRed: rows.filter((row) => severity(row) === "red").length,
     checksYellow: rows.filter((row) => severity(row) === "yellow").length,
     failing: rows.filter((row) => ["red", "yellow"].includes(severity(row))).map((row) => ({ id: rowId(row), label: String(row.check_label || rowId(row)), severity: severity(row) })),
     threatsRed, threatsYellow, critical: threatScores.length, archetypeUnmet, metaOutside: Number(metaOutside) || 0,
-    mean: r1(mean), T: Number((mean - objective.redThreatWeight * threatsRed).toFixed(3)),
+    mean: r1(mean), T: Number((value - objective.redThreatWeight * threatsRed).toFixed(3)),
+    ...(balance ? {
+      standings: Object.fromEntries(Object.entries(balance.standings).map(([k, v]) => [k, r1(v)])),
+      balance: r1(balance.value), weakest: balance.weakestAxis,
+    } : {}),
   };
 }
 
@@ -546,14 +566,14 @@ export class AutoBuildSearch {
     if (quick) return { leaf, label, entries, spreads, log, sets, payload: null, summary: null, quick: true };
     const payload = this.evaluation.evaluate(sets, { checkSelection: ctx.selection });
     this.stats.teams += 1;
-    return { leaf, label, entries, spreads, log, sets, payload, summary: teamSummary(payload, ctx.manual, this.objective, { metaOutside: this.metaOutside(leaf.additions) }) };
+    return { leaf, label, entries, spreads, log, sets, payload, summary: this.summarize(payload, ctx, leaf.additions) };
   }
 
   // --- the run ----------------------------------------------------------------------
 
   async run(sets, {
     selection = null, depth = "deep", cachedPayload = null, cachedScores = null, onlyBox = false, box = [], optimizeStats = false,
-    archetype = "automatic", teamArchetype = "", prioritizeMeta = false, onProgress, shouldStop = null,
+    archetype = "automatic", teamArchetype = "", prioritizeMeta = false, onProgress, shouldStop = null, autobuildBalance,
   } = {}) {
     const b = this.b;
     const search = SEARCH_PROFILES[depth] || SEARCH_PROFILES.deep;
@@ -561,6 +581,15 @@ export class AutoBuildSearch {
     // The Prioritize Meta tier rule, as TeamAutoBuild.run() settled it (its constructor
     // default is production's version); b.order() ranks by the same one.
     this.metaPriority = b.metaPriority ?? AUTOBUILD_META_PRIORITY;
+    // autobuild_balance: rank complete teams by where their scores STAND among real teams, and
+    // climb on that instead of the one-swap repair -- when there is a table for this format
+    // (the worker attaches it as `evaluation.scoreAnchors`; Singles has none and keeps the
+    // raw-score objective). Settled once per run, so every compared team uses one objective.
+    this.balanceRule = balanceOption(autobuildBalance ?? this.evaluation?.autobuildBalance);
+    const table = this.evaluation?.scoreAnchors;
+    this.anchors = balanceOn(this.balanceRule) && anchorsFit(table, this.ev?.format) ? table : null;
+    this.objective = this.anchors ? BALANCE_OBJECTIVE : SEARCH_OBJECTIVE;
+    this.climbSize = this.anchors ? BALANCE_CLIMB[search.depth] || null : null;
     this.started = now();
     this.shouldStop = shouldStop;
     this.stopRequested = false;
@@ -690,8 +719,15 @@ export class AutoBuildSearch {
       if (!leader || beats(result.summary, leader.summary, leader.label === "anchor" ? this.objective.margin : 0.001, this.metaPriority)) leader = result;
     }
 
-    // 4. The repair: one added member swapped, when the Team Evaluation says so.
-    if (leader && search.repairTargets > 0 && !this.stopped() && !this.capped("repair")) {
+    // 4. The repair: one added member swapped, when the Team Evaluation says so -- or, with
+    // autobuild_balance, the climb, which may swap several in turn (every depth climbs, Fast
+    // by one round, since the speed bias is the same at every depth).
+    if (leader && this.climbSize && !this.stopped() && !this.capped("repair")) {
+      for (const step of await this.climb(leader, ctx, progress)) {
+        judged.push(step);
+        leader = step;
+      }
+    } else if (leader && !this.climbSize && search.repairTargets > 0 && !this.stopped() && !this.capped("repair")) {
       const repaired = await this.repair(leader, ctx, progress);
       if (repaired) {
         judged.push(repaired);
@@ -699,6 +735,144 @@ export class AutoBuildSearch {
       }
     }
     return this.finalize(judged, leader, ctx, { error: anchorError, optimizeStats, progress });
+  }
+
+  /** The summary a complete team is judged by, on this run's objective. */
+  summarize(payload, ctx, additions) {
+    return teamSummary(payload, ctx.manual, this.objective, { metaOutside: this.metaOutside(additions), anchors: this.anchors });
+  }
+
+  /**
+   * autobuild_balance's climb (builder/autobuild-balance.js). From the leading complete team:
+   *
+   *   1. every member Auto Build added is screened once as a swap -- `pool` candidates, against
+   *      the leader's REAL Team Evaluation (its threats, checks and scores), with the Auto Build
+   *      context, so Item Clause, the Mega cap and the finished-team filters apply as they do
+   *      everywhere else; the best `perTarget` per member (fewest red checks, then score) are
+   *      that member's candidates for the whole climb;
+   *   2. each round, every candidate not tried against this team yet is put into it and the
+   *      team run through the real Team Evaluation (no finish chain: the other five are already
+   *      finished, so this is the cheap and honest proxy);
+   *   3. the best `finalists` of those that would win are rebuilt from the leader's unfinished
+   *      members, finished and evaluated exactly like every compared team, and the best that
+   *      beats the leader -- by the margin, on the same tiers -- becomes the leader.
+   *
+   * It stops after `rounds` accepted swaps, at the first round that finds none, on Stop, or at
+   * the safety cap. Members the user kept are never swapped. Returns the accepted teams in
+   * order (empty when none won).
+   */
+  async climb(leader, ctx, progress) {
+    const b = this.b;
+    const size = this.climbSize;
+    const added = [...new Set((leader.leaf.additions || []).map((a) => a.slot))].filter((slot) => !ctx.kept.includes(slot)).sort((x, y) => x - y);
+    if (!added.length || !leader.payload) return [];
+    const startSlots = b.slotsFor(leader.entries, leader.spreads);
+    if (startSlots.length < TEAM_SIZE) return [];
+    const began = now();
+    const stats = this.stats.climb = { seconds: 0, screenSeconds: 0, screened: 0, tried: 0, judged: 0, accepted: 0 };
+
+    // 1. One screening per added member, against the leader's real payload.
+    const candidates = new Map();
+    {
+      const teamEntries = startSlots.map((s) => s.entry);
+      const activeNames = b.names(startSlots);
+      for (const [n, slot] of added.entries()) {
+        if (this.stopped() || this.capped("repair")) return [];
+        const target = teamEntries[slot].pokemon;
+        const others = startSlots.filter((_, i) => i !== slot);
+        const pool = b.slotPool(ctx.shared.frozen, others, activeNames, { ...ctx.profile, budget: size.pool }, ctx.shared.options)
+          .filter((row) => this.sg.speciesId(row.name || row.form || row.base_name) !== this.sg.speciesId(target));
+        const context = {
+          payload: leader.payload, teamSlots: startSlots, teamEntries, activeNames, emptySlot: null, selection: ctx.selection, selected: ctx.shared.selected,
+          swapTarget: target, autoBuild: true, fieldEntries: ctx.shared.startEntries, ...ctx.shared.options,
+        };
+        const done = await this.screen({ candidates: pool, context }, (i, total, name) => progress(0.9 + ((n + i / total) / added.length) * 0.03, `Balancing the team: ${target} or ${name}?`));
+        if (done.stopped) return [];
+        const { ranked } = this.filtered(done.rows);
+        candidates.set(slot, sortBy(ranked, (row) => [row._hard_red_checks_v472 ?? 999, -(Number(row.score) || 0), Number(row.position) || 999999, String(row.name || "")]).slice(0, size.perTarget));
+        stats.screened += pool.length;
+      }
+    }
+    stats.screenSeconds = Number(((now() - began) / 1000).toFixed(2));
+
+    // 2 + 3. The rounds.
+    const accepted = [];
+    const lines = [];
+    const tried = new Set();
+    let current = leader;
+    // Round 1 tries every candidate; a later round only the `carry` that came closest last round,
+    // leaving out the slot that was just swapped (its candidates lost to the Pokemon now in it).
+    let queue = [...candidates].flatMap(([slot, rows]) => rows.map((row) => ({ slot, row })));
+    for (let round = 0; round < size.rounds && queue.length; round += 1) {
+      const proxies = [];
+      const onTeam = new Set(current.entries.filter(valid).map((e) => this.sg.speciesId(e.form || e.pokemon)));
+      const teamKey = this.teamKey(current.entries);
+      for (const slot of [...new Set(queue.map((q) => q.slot))]) {
+        for (const { row } of queue.filter((q) => q.slot === slot)) {
+          if (this.stopped() || this.capped("repair")) break;
+          if (onTeam.has(this.sg.speciesId(row.name || row.form || row.base_name))) continue;
+          const key = `${teamKey}#${slot}#${compact(row._search_meta_name || row.name)}`;
+          if (tried.has(key)) continue;
+          tried.add(key);
+          const pick = b.representative(structuredClone(row));
+          pick._search_meta_name = row._search_meta_name;
+          const [entry, spread] = b.completeSelected(pick, current.entries.filter((e, i) => i !== slot && valid(e)));
+          const entries = current.entries.map((e, i) => (i === slot ? entry : e));
+          // The rules a finished team keeps, checked before paying for an evaluation: one of each
+          // item (a candidate screened against an earlier team may now share one) and two stones.
+          const items = entries.filter((e) => valid(e) && e.item).map((e) => compact(e.item));
+          if (items.length !== new Set(items).size || b.megaStoneSlots(entries).length > 2) continue;
+          const spreads = current.spreads.map((s, i) => (i === slot ? spread : s));
+          const payload = this.evaluation.evaluate(teamSets(entries, spreads), { checkSelection: ctx.selection });
+          stats.tried += 1;
+          const additions = current.leaf.additions.map((a) => (a.slot === slot ? { ...a, entry, row: pick } : a));
+          proxies.push({ slot, row, pick, summary: this.summarize(payload, ctx, additions) });
+        }
+        progress(0.93 + (round / size.rounds) * 0.05, `Balancing the team: round ${round + 1}, ${proxies.length} swaps tried`);
+        await tick();
+      }
+      if (this.stopped()) break;
+      const finalists = sortBy(proxies.filter((p) => beats(p.summary, current.summary, 0.001, this.metaPriority)), (p) => [-p.summary.T, p.slot, compact(p.pick.name)]).slice(0, size.finalists);
+      let best = null;
+      for (const { slot, pick } of finalists) {
+        if (this.stopped() || this.capped("repair")) break;
+        const leaf = current.leaf;
+        // the team it joins (without the member it replaces): what its guaranteed moves are judged on
+        const [entry, spread] = b.completeSelected(pick, leaf.entries.filter((e, i) => i !== slot && valid(e)));
+        const entries = leaf.entries.map((e, i) => (i === slot ? entry : e));
+        const spreads = leaf.spreads.map((s, i) => (i === slot ? spread : s));
+        const out = leaf.entries[slot].form || leaf.entries[slot].pokemon;
+        const additions = leaf.additions.map((a) => (a.slot === slot ? { slot, entry, spread, score: pick.score, name: pick.name, row: pick, swapped: out } : a));
+        const swapped = { ...leaf, id: -200 - tried.size, entries, spreads, additions, path: [...leaf.path, `swap ${pick.name}`] };
+        const result = this.judge(swapped, ctx, "swap");
+        stats.judged += 1;
+        if (result.error) continue;
+        result.swap = { slot, out, in: pick.name };
+        if (beats(result.summary, (best || current).summary, best ? 0.001 : this.objective.margin, this.metaPriority)) best = result;
+      }
+      if (!best) break;
+      stats.accepted += 1;
+      queue = sortBy(proxies.filter((p) => p.slot !== best.swap.slot), (p) => [-p.summary.T, p.slot, compact(p.pick.name)])
+        .slice(0, size.carry).map(({ slot, row }) => ({ slot, row }));
+      best.swaps = [...(current.swaps || []), best.swap];
+      // judge() rebuilds the log from the branch's own state, so the earlier rounds' lines are carried.
+      lines.push(this.climbLine(current.summary, best.summary, best.swap));
+      best.log = [...best.log, ...lines];
+      accepted.push(best);
+      current = best;
+    }
+    stats.seconds = Number(((now() - began) / 1000).toFixed(2));
+    return accepted;
+  }
+
+  /** One accepted climb step, as a line of the log: what moved, in standings. */
+  climbLine(a, z, swap) {
+    const moved = ["synergy", "offense", "defense", "speed"]
+      .filter((k) => Math.abs((z.standings?.[k] ?? 0) - (a.standings?.[k] ?? 0)) >= 1)
+      .map((k) => `${k[0].toUpperCase()}${k.slice(1)} ${standingWord(a.standings[k])} → ${standingWord(z.standings[k])}`);
+    const threats = z.threatsRed !== a.threatsRed ? `, threats at 70+ ${a.threatsRed} → ${z.threatsRed}` : "";
+    const checks = z.checksRed + z.checksYellow !== a.checksRed + a.checksYellow ? `, failing checks ${a.checksRed + a.checksYellow} → ${z.checksRed + z.checksYellow}` : "";
+    return `Swapped ${swap.out} for ${swap.in} to balance the team: ${moved.length ? `${moved.join(", ")} percentile` : "standings within a point"}${threats}${checks}.`;
   }
 
   /**
@@ -778,6 +952,9 @@ export class AutoBuildSearch {
     if (reason === "archetypeUnmet") return `${asManyChecks} and misses fewer critical ${archetype || "archetype"} requirements`;
     if (reason === "metaOutside") return `${asManyChecks} and adds fewer Pokémon from outside the Top ${this.metaTop} Meta`;
     const gain = Math.round((chosen.T - anchor.T) * 10) / 10;
+    if (this.anchors) {
+      return `fails as many Team Building Checks and scores ${gain.toFixed(1)} points more on balance (where its four scores stand among real teams: two thirds of the average percentile plus a third of the weakest, minus ${this.objective.redThreatWeight} per threat at ${this.objective.redThreat} or more)`;
+    }
     return `fails as many Team Building Checks and scores ${gain.toFixed(1)} points more (the average of the four scores, minus 1 per threat at 70 or more)`;
   }
 
@@ -789,12 +966,14 @@ export class AutoBuildSearch {
     const compared = judged.filter((j) => !j.error && j.summary).map((j) => ({
       key: this.teamKey(j.entries), label: j.label, chosen: j === chosen, anchor: j.label === "anchor",
       members: j.entries.map((e, i) => (valid(e) ? { species: e.pokemon, form: e.form, item: e.item, added: !ctx.kept.includes(i) } : null)).filter(Boolean),
-      sets: j.sets, summary: j.summary, swap: j.swap || null,
+      sets: j.sets, summary: j.summary, swap: j.swap || null, swaps: j.swaps || (j.swap ? [j.swap] : []),
     }));
     const search = {
       profile: ctx.search.key, teams: compared.length, screenings: this.stats.screenings, seconds: Number((this.elapsed() / 1000).toFixed(2)),
       stoppedEarly: stoppedEarly || this.stopRequested, beatAnchor: Boolean(chosen && anchor?.summary && chosen !== anchor), repaired: chosen?.label === "swap",
       anchor: anchor?.summary || null,
+      // What the balance climb did (autobuild_balance), or null when it did not run.
+      climb: this.stats.climb || null,
       // A team finished in a hurry after an early Stop carries no Team Evaluation (the page runs none either).
       unevaluated: Boolean(chosen?.quick),
       // The steps the safety cap cut short; empty for a run the counts alone bounded.
@@ -807,6 +986,9 @@ export class AutoBuildSearch {
         archetype: ctx.manual ? archetypeDisplay(ctx.manual) : "", metaTop: this.metaKeys ? this.metaTop : 0,
         margin: this.objective.margin, redThreatWeight: this.objective.redThreatWeight, redThreat: this.objective.redThreat,
         tiers: [...objectiveTiers(this.metaPriority)], metaPriority: Number(this.metaPriority) || 0,
+        // "standing" (autobuild_balance, with a table for the format) or "score" (the raw mean).
+        basis: this.anchors ? "standing" : "score", balance: Number(this.balanceRule) || 0,
+        ...(this.anchors ? { meanWeight: this.objective.meanWeight, weakestWeight: this.objective.weakestWeight, anchorTeams: Number(this.anchors.teams) || 0 } : {}),
       },
     };
     if (!chosen) {
@@ -837,7 +1019,7 @@ export class AutoBuildSearch {
       const entry = compared.find((c) => c.chosen);
       if (entry) {
         entry.sets = teamSets(entries, spreads);
-        entry.summary = teamSummary(payload, ctx.manual, this.objective, { metaOutside: this.metaOutside(chosen.leaf.additions) });
+        entry.summary = this.summarize(payload, ctx, chosen.leaf.additions);
       }
     }
     progress(1, "Auto Build finished", true);

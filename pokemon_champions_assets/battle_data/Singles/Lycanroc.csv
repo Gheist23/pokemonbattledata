@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Lycanroc,246,move,1,Accelerock,77.9%,,,,,,,,
-Lycanroc,246,move,2,Close Combat,48.2%,,,,,,,,
-Lycanroc,246,move,3,Stealth Rock,44.5%,,,,,,,,
-Lycanroc,246,move,4,Endeavor,33.9%,,,,,,,,
-Lycanroc,246,move,5,Rock Slide,26.4%,,,,,,,,
-Lycanroc,246,move,6,Taunt,21.4%,,,,,,,,
-Lycanroc,246,move,7,Play Rough,20.0%,,,,,,,,
-Lycanroc,246,move,8,Stone Edge,19.5%,,,,,,,,
-Lycanroc,246,move,9,Drill Run,17.0%,,,,,,,,
-Lycanroc,246,move,10,Psychic Fangs,15.3%,,,,,,,,
-Lycanroc,246,held_item,1,Focus Sash,66.2%,,,,,,,,
-Lycanroc,246,held_item,2,Life Orb,15.6%,,,,,,,,
-Lycanroc,246,held_item,3,Expert Belt,4.1%,,,,,,,,
-Lycanroc,246,held_item,4,Choice Scarf,2.5%,,,,,,,,
-Lycanroc,246,held_item,5,Air Balloon,2.0%,,,,,,,,
-Lycanroc,246,held_item,6,King's Rock,1.9%,,,,,,,,
+Lycanroc,246,move,1,Accelerock,77.7%,,,,,,,,
+Lycanroc,246,move,2,Close Combat,48.1%,,,,,,,,
+Lycanroc,246,move,3,Stealth Rock,44.9%,,,,,,,,
+Lycanroc,246,move,4,Endeavor,33.5%,,,,,,,,
+Lycanroc,246,move,5,Rock Slide,26.6%,,,,,,,,
+Lycanroc,246,move,6,Taunt,21.5%,,,,,,,,
+Lycanroc,246,move,7,Play Rough,20.2%,,,,,,,,
+Lycanroc,246,move,8,Stone Edge,19.2%,,,,,,,,
+Lycanroc,246,move,9,Drill Run,16.8%,,,,,,,,
+Lycanroc,246,move,10,Psychic Fangs,15.4%,,,,,,,,
+Lycanroc,246,held_item,1,Focus Sash,66.0%,,,,,,,,
+Lycanroc,246,held_item,2,Life Orb,15.7%,,,,,,,,
+Lycanroc,246,held_item,3,Expert Belt,4.0%,,,,,,,,
+Lycanroc,246,held_item,4,Choice Scarf,2.4%,,,,,,,,
+Lycanroc,246,held_item,5,King's Rock,2.2%,,,,,,,,
+Lycanroc,246,held_item,6,Air Balloon,1.9%,,,,,,,,
 Lycanroc,246,held_item,7,Hard Stone,1.1%,,,,,,,,
 Lycanroc,246,held_item,8,Smooth Rock,1.1%,,,,,,,,
 Lycanroc,246,held_item,9,Scope Lens,0.8%,,,,,,,,
@@ -25,30 +25,30 @@ Lycanroc,246,teammate,3,Clefable,,,,,,,,,
 Lycanroc,246,teammate,4,Lucario,,,,,,,,,
 Lycanroc,246,teammate,5,Tyranitar,,,,,,,,,
 Lycanroc,246,teammate,6,Swampert,,,,,,,,,
-Lycanroc,246,teammate,7,Dragonite,,,,,,,,,
-Lycanroc,246,teammate,8,Skarmory,,,,,,,,,
+Lycanroc,246,teammate,7,Skarmory,,,,,,,,,
+Lycanroc,246,teammate,8,Dragonite,,,,,,,,,
 Lycanroc,246,teammate,9,Gholdengo,,,,,,,,,
 Lycanroc,246,teammate,10,Charizard,,,,,,,,,
 Lycanroc,246,stat_alignment,1,Jolly,47.4%,Speed,Sp. Atk,,,,,,
-Lycanroc,246,stat_alignment,2,Adamant,39.1%,Attack,Sp. Atk,,,,,,
-Lycanroc,246,stat_alignment,3,Naive,7.2%,Speed,Sp. Def,,,,,,
+Lycanroc,246,stat_alignment,2,Adamant,39.3%,Attack,Sp. Atk,,,,,,
+Lycanroc,246,stat_alignment,3,Naive,7.1%,Speed,Sp. Def,,,,,,
 Lycanroc,246,stat_alignment,4,Hasty,2.4%,Speed,Defense,,,,,,
-Lycanroc,246,stat_alignment,5,Lonely,2.0%,Attack,Defense,,,,,,
+Lycanroc,246,stat_alignment,5,Lonely,2.1%,Attack,Defense,,,,,,
 Lycanroc,246,stat_alignment,6,Naughty,0.7%,Attack,Sp. Def,,,,,,
 Lycanroc,246,stat_alignment,7,Impish,0.4%,Defense,Sp. Atk,,,,,,
 Lycanroc,246,stat_alignment,8,Sassy,0.3%,Sp. Def,Speed,,,,,,
 Lycanroc,246,stat_alignment,9,Brave,0.3%,Attack,Speed,,,,,,
 Lycanroc,246,stat_alignment,10,Relaxed,0.1%,Defense,Speed,,,,,,
-Lycanroc,246,stat_points,1,,46.8%,,,2,32,0,0,0,32
-Lycanroc,246,stat_points,2,,8.6%,,,0,32,0,0,0,32
+Lycanroc,246,stat_points,1,,46.6%,,,2,32,0,0,0,32
+Lycanroc,246,stat_points,2,,8.4%,,,0,32,0,0,0,32
 Lycanroc,246,stat_points,3,,7.0%,,,0,32,2,0,0,32
 Lycanroc,246,stat_points,4,,6.3%,,,1,32,1,0,0,32
 Lycanroc,246,stat_points,5,,4.2%,,,0,32,0,0,2,32
-Lycanroc,246,stat_points,6,,3.2%,,,0,32,32,0,0,2
+Lycanroc,246,stat_points,6,,3.1%,,,0,32,32,0,0,2
 Lycanroc,246,stat_points,7,,2.7%,,,1,32,0,0,1,32
 Lycanroc,246,stat_points,8,,1.9%,,,32,32,0,0,0,2
 Lycanroc,246,stat_points,9,,1.8%,,,1,32,10,0,0,23
-Lycanroc,246,stat_points,10,,1.5%,,,0,32,1,0,1,32
-Lycanroc,246,ability,1,Sand Rush,56.9%,,,,,,,,
-Lycanroc,246,ability,2,Keen Eye,23.5%,,,,,,,,
-Lycanroc,246,ability,3,Steadfast,19.6%,,,,,,,,
+Lycanroc,246,stat_points,10,,1.7%,,,31,0,4,0,1,30
+Lycanroc,246,ability,1,Sand Rush,57.4%,,,,,,,,
+Lycanroc,246,ability,2,Keen Eye,23.3%,,,,,,,,
+Lycanroc,246,ability,3,Steadfast,19.4%,,,,,,,,

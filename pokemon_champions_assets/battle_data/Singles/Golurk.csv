@@ -1,20 +1,20 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
-Golurk,193,move,1,Poltergeist,71.7%,,,,,,,,
-Golurk,193,move,2,Headlong Rush,63.6%,,,,,,,,
-Golurk,193,move,3,Ice Punch,58.7%,,,,,,,,
+Golurk,193,move,1,Poltergeist,71.6%,,,,,,,,
+Golurk,193,move,2,Headlong Rush,63.7%,,,,,,,,
+Golurk,193,move,3,Ice Punch,58.8%,,,,,,,,
 Golurk,193,move,4,Earthquake,29.6%,,,,,,,,
-Golurk,193,move,5,Drain Punch,21.7%,,,,,,,,
+Golurk,193,move,5,Drain Punch,21.8%,,,,,,,,
 Golurk,193,move,6,Dynamic Punch,20.8%,,,,,,,,
-Golurk,193,move,7,Stone Edge,20.3%,,,,,,,,
+Golurk,193,move,7,Stone Edge,20.2%,,,,,,,,
 Golurk,193,move,8,Fire Punch,15.5%,,,,,,,,
-Golurk,193,move,9,Thunder Punch,11.1%,,,,,,,,
-Golurk,193,move,10,Close Combat,9.4%,,,,,,,,
+Golurk,193,move,9,Thunder Punch,11.2%,,,,,,,,
+Golurk,193,move,10,Close Combat,9.6%,,,,,,,,
 Golurk,193,held_item,1,Golurkite,48.3%,,,,,,,,
 Golurk,193,held_item,2,Focus Sash,12.4%,,,,,,,,
 Golurk,193,held_item,3,Life Orb,9.5%,,,,,,,,
 Golurk,193,held_item,4,Choice Scarf,6.6%,,,,,,,,
-Golurk,193,held_item,5,Quick Claw,4.5%,,,,,,,,
-Golurk,193,held_item,6,Sitrus Berry,3.3%,,,,,,,,
+Golurk,193,held_item,5,Quick Claw,4.4%,,,,,,,,
+Golurk,193,held_item,6,Sitrus Berry,3.4%,,,,,,,,
 Golurk,193,held_item,7,Expert Belt,3.0%,,,,,,,,
 Golurk,193,held_item,8,Leftovers,1.6%,,,,,,,,
 Golurk,193,held_item,9,Lum Berry,1.2%,,,,,,,,
@@ -24,14 +24,14 @@ Golurk,193,teammate,2,Garchomp,,,,,,,,,
 Golurk,193,teammate,3,Primarina,,,,,,,,,
 Golurk,193,teammate,4,Charizard,,,,,,,,,
 Golurk,193,teammate,5,Hatterene,,,,,,,,,
-Golurk,193,teammate,6,Golisopod,,,,,,,,,
-Golurk,193,teammate,7,Basculegion,,,,,,,,,
+Golurk,193,teammate,6,Basculegion,,,,,,,,,
+Golurk,193,teammate,7,Golisopod,,,,,,,,,
 Golurk,193,teammate,8,Archaludon,,,,,,,,,
 Golurk,193,teammate,9,Indeedee,,,,,,,,,
 Golurk,193,teammate,10,Hydreigon,,,,,,,,,
-Golurk,193,stat_alignment,1,Adamant,59.6%,Attack,Sp. Atk,,,,,,
-Golurk,193,stat_alignment,2,Brave,21.7%,Attack,Speed,,,,,,
-Golurk,193,stat_alignment,3,Jolly,6.2%,Speed,Sp. Atk,,,,,,
+Golurk,193,stat_alignment,1,Adamant,59.7%,Attack,Sp. Atk,,,,,,
+Golurk,193,stat_alignment,2,Brave,21.6%,Attack,Speed,,,,,,
+Golurk,193,stat_alignment,3,Jolly,6.3%,Speed,Sp. Atk,,,,,,
 Golurk,193,stat_alignment,4,Impish,4.2%,Defense,Sp. Atk,,,,,,
 Golurk,193,stat_alignment,5,Careful,4.0%,Sp. Def,Sp. Atk,,,,,,
 Golurk,193,stat_alignment,6,Relaxed,1.1%,Defense,Speed,,,,,,
@@ -39,16 +39,16 @@ Golurk,193,stat_alignment,7,Naughty,0.9%,Attack,Sp. Def,,,,,,
 Golurk,193,stat_alignment,8,Sassy,0.8%,Sp. Def,Speed,,,,,,
 Golurk,193,stat_alignment,9,Lonely,0.7%,Attack,Defense,,,,,,
 Golurk,193,stat_alignment,10,Modest,0.3%,Sp. Atk,Attack,,,,,,
-Golurk,193,stat_points,1,,17.2%,,,32,32,2,0,0,0
-Golurk,193,stat_points,2,,13.4%,,,32,32,0,0,2,0
+Golurk,193,stat_points,1,,17.3%,,,32,32,2,0,0,0
+Golurk,193,stat_points,2,,13.3%,,,32,32,0,0,2,0
 Golurk,193,stat_points,3,,8.4%,,,32,32,1,0,1,0
-Golurk,193,stat_points,4,,5.8%,,,2,32,0,0,0,32
+Golurk,193,stat_points,4,,5.9%,,,2,32,0,0,0,32
 Golurk,193,stat_points,5,,3.9%,,,1,32,1,0,0,32
 Golurk,193,stat_points,6,,3.2%,,,32,32,0,0,0,2
 Golurk,193,stat_points,7,,2.5%,,,0,32,32,0,2,0
-Golurk,193,stat_points,8,,2.4%,,,2,32,32,0,0,0
+Golurk,193,stat_points,8,,2.3%,,,2,32,32,0,0,0
 Golurk,193,stat_points,9,,1.9%,,,21,32,1,0,0,12
 Golurk,193,stat_points,10,,1.8%,,,1,32,0,0,1,32
-Golurk,193,ability,1,Iron Fist,58.7%,,,,,,,,
-Golurk,193,ability,2,No Guard,36.6%,,,,,,,,
+Golurk,193,ability,1,Iron Fist,58.8%,,,,,,,,
+Golurk,193,ability,2,No Guard,36.5%,,,,,,,,
 Golurk,193,ability,3,Klutz,4.7%,,,,,,,,

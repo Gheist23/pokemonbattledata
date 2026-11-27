@@ -1,14 +1,14 @@
 pokemon,column_position,category,rank,name,percentage,stat_up,stat_down,hp_points,attack_points,defense_points,sp_atk_points,sp_def_points,speed_points
 Indeedee,28,move,1,Expanding Force,99.0%,,,,,,,,
-Indeedee,28,move,2,Trick Room,49.1%,,,,,,,,
+Indeedee,28,move,2,Trick Room,49.0%,,,,,,,,
 Indeedee,28,move,3,Mystical Fire,42.5%,,,,,,,,
 Indeedee,28,move,4,Protect,38.2%,,,,,,,,
-Indeedee,28,move,5,Imprison,34.8%,,,,,,,,
-Indeedee,28,move,6,Hyper Voice,25.9%,,,,,,,,
+Indeedee,28,move,5,Imprison,34.7%,,,,,,,,
+Indeedee,28,move,6,Hyper Voice,25.8%,,,,,,,,
 Indeedee,28,move,7,Trick,21.3%,,,,,,,,
 Indeedee,28,move,8,Dazzling Gleam,20.8%,,,,,,,,
 Indeedee,28,move,9,Helping Hand,11.5%,,,,,,,,
-Indeedee,28,move,10,Shadow Ball,10.7%,,,,,,,,
+Indeedee,28,move,10,Shadow Ball,10.8%,,,,,,,,
 Indeedee,28,held_item,1,Choice Scarf,37.9%,,,,,,,,
 Indeedee,28,held_item,2,Focus Sash,33.0%,,,,,,,,
 Indeedee,28,held_item,3,Psychic Seed,7.4%,,,,,,,,
@@ -30,8 +30,8 @@ Indeedee,28,teammate,8,Excadrill,,,,,,,,,
 Indeedee,28,teammate,9,Milotic,,,,,,,,,
 Indeedee,28,teammate,10,Glimmora,,,,,,,,,
 Indeedee,28,stat_alignment,1,Timid,47.6%,Speed,Attack,,,,,,
-Indeedee,28,stat_alignment,2,Modest,41.5%,Sp. Atk,Attack,,,,,,
-Indeedee,28,stat_alignment,3,Bold,3.3%,Defense,Attack,,,,,,
+Indeedee,28,stat_alignment,2,Modest,41.4%,Sp. Atk,Attack,,,,,,
+Indeedee,28,stat_alignment,3,Bold,3.4%,Defense,Attack,,,,,,
 Indeedee,28,stat_alignment,4,Quiet,2.8%,Sp. Atk,Speed,,,,,,
 Indeedee,28,stat_alignment,5,Relaxed,1.1%,Defense,Speed,,,,,,
 Indeedee,28,stat_alignment,6,Calm,1.0%,Sp. Def,Attack,,,,,,
@@ -46,7 +46,7 @@ Indeedee,28,stat_points,4,,2.4%,,,0,0,0,32,0,32
 Indeedee,28,stat_points,5,,2.0%,,,32,0,2,32,0,0
 Indeedee,28,stat_points,6,,1.2%,,,32,0,0,32,2,0
 Indeedee,28,stat_points,7,,1.0%,,,32,0,32,0,2,0
-Indeedee,28,stat_points,8,,0.9%,,,2,0,32,32,0,0
+Indeedee,28,stat_points,8,,1.0%,,,2,0,32,32,0,0
 Indeedee,28,stat_points,9,,0.9%,,,32,0,0,32,0,2
 Indeedee,28,stat_points,10,,0.7%,,,2,0,0,32,32,0
 Indeedee,28,ability,1,Psychic Surge,99.9%,,,,,,,,

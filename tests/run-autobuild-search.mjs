@@ -11,8 +11,9 @@
 //      switch-in (unless the log records the last-slot fallback)
 //   4. the same input gives the same team, also with the clock running 1.5x slower (the
 //      counts bound the search; only the safety cap may cut it, and a capped run says so)
-//   5. cold timings: Deep on an empty team within ~50 s, Medium within ~25 s, and the
-//      safety cap does not cut a cold build in Node
+//   5. cold timings: Deep on an empty team within ~60 s (the balance climb added about 13 s
+//      to the 40 s it took before), Medium within ~30 s, Fast within 16 s, and the safety cap
+//      does not cut a cold build in Node
 //   6. Stop returns a complete team within about a second
 //   7. Suggestions say "capped at 100" only of a score of 100 (suggest-view.js cappedAt100)
 //
@@ -37,12 +38,14 @@ import { TeamAutoBuild } from "../builder/team-autobuild.js";
 import { SEARCH_OBJECTIVE, beatReason, beats } from "../builder/autobuild-search.js";
 import { topMetaKeys } from "../builder/autobuild-archetype.js";
 import { cappedAt100 } from "../builder/suggest-view.js";
+import { BALANCE_OBJECTIVE } from "../builder/autobuild-balance.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
 const appData = JSON.parse(readFileSync(join(root, "data", "builder", "app-data.json"), "utf8"));
 const metaFor = (format) => JSON.parse(readFileSync(join(root, "data", "builder", `meta-${format.toLowerCase()}.json`), "utf8"));
 const knownPayload = JSON.parse(readFileSync(join(root, "data", "builder", "known-teams.json"), "utf8"));
+const scoreAnchors = JSON.parse(readFileSync(join(root, "data", "builder", "score-anchors.json"), "utf8"));
 
 const set = (species, item, ability, nature, moves, bonuses, form = species) => ({ species, form, item, ability, nature, moves, bonuses });
 const STARTS = {
@@ -77,6 +80,9 @@ function makeEvaluation(format = "Doubles") {
   evaluator.setMetaRecords(metaFor(format).pokemon);
   const evaluation = new TeamEvaluation(evaluator);
   evaluation.knownTeams = new KnownTeams(knownPayload);
+  // As the worker attaches it: with the table, the search ranks by balance and climbs
+  // (builder/autobuild-balance.js); Singles has no table and keeps the raw-score objective.
+  evaluation.scoreAnchors = format === "Doubles" ? scoreAnchors : null;
   return evaluation;
 }
 
@@ -169,7 +175,7 @@ function child(start, depth, stopAfter = 0) {
 }
 if (!process.env.SKIP_COLD) {
   // The counts bound the work; in Node the safety cap (capMs) must not cut a cold build.
-  for (const [start, depth, limit] of [["empty", "deep", 50], ["partial", "deep", 45], ["partial", "medium", 26], ["empty", "fast", 16]]) {
+  for (const [start, depth, limit] of [["empty", "deep", 60], ["partial", "deep", 50], ["partial", "medium", 30], ["empty", "fast", 16]]) {
     const r = child(start, depth);
     console.log(`cold ${depth} ${start}: ${r.seconds?.toFixed(1)} s, ${r.search?.teams} teams compared${r.search?.cut?.length ? `, capped: ${r.search.cut.join("/")}` : ""}${r.error ? ` ERROR ${r.error}` : ""}`);
     check(!r.error && r.seconds <= limit, `cold ${depth} ${start} took ${r.seconds?.toFixed(1)} s (limit ${limit} s)${r.error ? `: ${r.error}` : ""}`);
@@ -296,9 +302,10 @@ if (differ.length) {
   console.log(`  average change where it did: checks red ${d("checksRed").toFixed(2)}, yellow ${d("checksYellow").toFixed(2)}, mean score ${d("mean").toFixed(2)}, threats 70+ ${d("threatsRed").toFixed(2)}, T ${d("T").toFixed(2)}`);
 }
 
-// Other weights on the same compared teams: how the pick would change.
+// Other weights on the same compared teams: how the pick would change. A balanced run's
+// summary carries `balance` (the standings objective) and its score part is that, not the mean.
 function pick(teams, weight, margin) {
-  const T = (t) => t.summary.mean - weight * t.summary.threatsRed;
+  const T = (t) => (t.summary.balance ?? t.summary.mean) - weight * t.summary.threatsRed;
   const withT = teams.map((t) => ({ ...t, summary: { ...t.summary, T: T(t) } }));
   let leader = withT.find((t) => t.anchor) || withT[0];
   for (const t of withT) {
@@ -308,12 +315,18 @@ function pick(teams, weight, margin) {
   return leader;
 }
 console.log("\nweights (red-threat weight / margin): builds that leave the anchor, and their average change");
-for (const weight of [0, 0.5, 1, 1.5, 2]) {
-  for (const margin of [0.5, 1, 2]) {
-    const moved = withAnchor.map((r) => [r, pick(r.compared, weight, margin)]).filter(([, p]) => !p.anchor);
+const balancedRuns = records.some((r) => r.compared.some((t) => t.summary.balance !== undefined));
+// One unit per table: a balanced run's T is in standing points, a run with no anchor table (Singles)
+// in raw points, so the two are never averaged together.
+const weighed = balancedRuns ? withAnchor.filter((r) => r.compared.every((t) => t.summary.balance !== undefined)) : withAnchor;
+if (balancedRuns) console.log(`  (the ${weighed.length} builds ranked by balance; ${withAnchor.length - weighed.length} without an anchor table are left out)`);
+for (const weight of balancedRuns ? [0, 2, 4, 6, 8] : [0, 0.5, 1, 1.5, 2]) {
+  for (const margin of balancedRuns ? [1, 2, 4] : [0.5, 1, 2]) {
+    const moved = weighed.map((r) => [r, pick(r.compared, weight, margin)]).filter(([, p]) => !p.anchor);
     const change = (k) => mean(moved.map(([r, p]) => p.summary[k] - r.compared.find((t) => t.anchor).summary[k]));
     const tour = tourLimit ? ` · tournament ${mean(moved.map(([r, p]) => (p.tour ?? 0) - (r.compared.find((t) => t.anchor).tour ?? 0))).toFixed(2)}` : "";
-    console.log(`  ${weight.toFixed(1)} / ${margin.toFixed(1)}${weight === SEARCH_OBJECTIVE.redThreatWeight && margin === SEARCH_OBJECTIVE.margin ? " (current)" : ""}: ${moved.length}/${withAnchor.length} · mean ${change("mean").toFixed(2)} · threats 70+ ${change("threatsRed").toFixed(2)} · checks ${(change("checksRed") + change("checksYellow")).toFixed(2)}${tour}`);
+    const current = balancedRuns ? BALANCE_OBJECTIVE : SEARCH_OBJECTIVE;
+    console.log(`  ${weight.toFixed(1)} / ${margin.toFixed(1)}${weight === current.redThreatWeight && margin === current.margin ? " (current)" : ""}: ${moved.length}/${weighed.length} · mean ${change("mean").toFixed(2)}${balancedRuns ? ` · balance ${change("balance").toFixed(2)}` : ""} · threats 70+ ${change("threatsRed").toFixed(2)} · checks ${(change("checksRed") + change("checksYellow")).toFixed(2)}${tour}`);
   }
 }
 if (tourLimit) {

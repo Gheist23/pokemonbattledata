@@ -30,7 +30,7 @@ import {
 import { activate, canRun, deactivate, DISCORD_URL, FREE_RUNS, freeRunsLeft, isPro, licenceSummary, portalUrl, recordRun, refreshLicence } from "./pro.js";
 import { resetTournamentView, SNAPSHOT_VERSION, tournamentAnalysis, tournamentExplainer, tournamentProgress } from "./tournament-view.js";
 import { clear, confirmDialog, editSet, h, openDialog, problemCard, scoreRing, searchHelpCard, segmented, select, sprite, switchRow, toast, typeChip } from "./ui.js";
-import { ANCHOR_TEAM_SIZE, calibrate, loadScoreAnchors, scoreAnchors } from "./score-calibration.js";
+import { ANCHOR_TEAM_SIZE, calibrate, loadScoreAnchors, ordinal, scoreAnchors } from "./score-calibration.js";
 import { initSync, openSyncDialog, syncStatus, onSyncStatus } from "./sync.js";
 import { keepPlace } from "./scroll-anchor.js";
 import { cleanCampaignCode, installCampaignTeams } from "./campaign-teams.js";
@@ -466,7 +466,9 @@ function renderLibrary() {
       } }, "Delete")),
     h("div", { class: "bd-team-meta" }, search, filter),
     listHost,
-    watch);
+    // `append(null)` writes the word "null" into the panel, and `watch` IS null for an empty
+    // team -- which is every first-time visitor, so the panel ended in a stray "null".
+    ...(watch ? [watch] : []));
 }
 
 function renderLibraryList(host, teams) {
@@ -1782,8 +1784,8 @@ function restoreEvaluation() {
 // caches; a slower device can take up to about twice as long.
 const AUTO_DEPTHS = [
   ["fast", "Fast", "Screens the 40 most-used Pokémon for each open slot, then builds one other team and compares both with the full Team Evaluation. About 10 seconds for the first build, a few seconds after that."],
-  ["medium", "Medium", "Screens the 100 most-used Pokémon for each slot, then compares up to three complete teams (two sets tried for each other pick) and checks one swap of a Pokémon it added. About 20 seconds for the first build, about 5 after that."],
-  ["deep", "Deep", "Screens every ranked Pokémon for each slot, then compares up to four complete teams (three sets tried for each other pick) and checks one swap of a Pokémon it added. Up to about 45 seconds for the first build and about 10 after that, longer on a slower device; Stop keeps the best team found so far."],
+  ["medium", "Medium", "Screens the 100 most-used Pokémon for each slot, then compares up to three complete teams (two sets tried for each other pick) and swaps up to two Pokémon it added while that balances the four scores better. About 25 seconds for the first build, less after that."],
+  ["deep", "Deep", "Screens every ranked Pokémon for each slot, then compares up to four complete teams (three sets tried for each other pick) and swaps up to three Pokémon it added while that balances the four scores better. Up to about a minute for the first build and less after that, longer on a slower device; Stop keeps the best team found so far."],
 ];
 
 /** What the compared teams are called on the result. */
@@ -1795,7 +1797,7 @@ function renderAuto() {
   const locked = sets().filter((s) => s.species);
   hosts.main.append(h("div", { class: "bd-panel-head" },
     h("div", {}, h("h2", {}, "Auto Build Team"),
-      h("p", {}, "Fills the open slots one at a time: every candidate is scored on the enabled Team Building Checks first and on the Suggestions score second, and the best one is taken. Then other picks are tried for each slot, the complete teams are finished (Megas, weather, speed mode and sets) and compared with the full Team Evaluation, and the best team is kept."))));
+      h("p", {}, "Fills the open slots one at a time: every candidate is scored on the enabled Team Building Checks first and on the Suggestions score second, and the best one is taken. Then other picks are tried for each slot, the complete teams are finished (Megas, weather, speed mode and sets) and compared with the full Team Evaluation, and the best team is kept — judged on where all four scores stand among real tournament teams, so one high score cannot carry three low ones. Medium and Deep then swap Pokémon they added while that balances the team better."))));
   if (auto.running) {
     hosts.main.append(h("div", { class: "bd-progress bd-auto-progress" },
       h("div", { class: "bd-progress-bar", role: "progressbar", "aria-valuemin": "0", "aria-valuemax": "100", "aria-valuenow": String(Math.round(auto.fraction * 100)) }, h("i", { style: { width: `${Math.round(auto.fraction * 100)}%` } })),
@@ -1934,12 +1936,23 @@ function comparedRule(objective = {}, archetype = "") {
   const margin = Number(objective.margin ?? 1);
   const weight = Number(objective.redThreatWeight ?? 1);
   const red = Number(objective.redThreat ?? 70);
-  const steps = ["fewer red Team Building Checks failed", "then fewer yellow ones"];
   const chosenArchetype = objective.archetype ?? archetype;
-  if (chosenArchetype) steps.push(`then fewer unmet critical ${chosenArchetype} requirements`);
-  if (objective.metaTop) steps.push(`then fewer Pokémon added from outside the Top ${objective.metaTop} Meta`);
-  steps.push(`and last a score at least ${margin} point${margin === 1 ? "" : "s"} higher (the average of the four scores, minus ${weight} for every threat scoring ${red} or more)`);
-  return `Each team went through the same finishing steps and the full Team Evaluation. Teams are compared step by step, and the first step where two teams differ decides: ${steps.join(", ")}. The best pick per slot is kept unless another team wins this way.`;
+  // The steps in the order the search really compared them (`tiers`, which
+  // autobuild_meta_priority reorders); a result from before the field falls back to the old order.
+  const words = {
+    checksRed: "fewer red Team Building Checks failed",
+    checksYellow: "fewer yellow Team Building Checks failed",
+    archetypeUnmet: chosenArchetype ? `fewer unmet critical ${chosenArchetype} requirements` : "",
+    metaOutside: objective.metaTop ? `fewer Pokémon added from outside the Top ${objective.metaTop} Meta` : "",
+  };
+  const tiers = Array.isArray(objective.tiers) && objective.tiers.length ? objective.tiers : ["checksRed", "checksYellow", "archetypeUnmet", "metaOutside"];
+  const steps = tiers.map((tier) => words[tier]).filter(Boolean).map((text, i) => (i ? `then ${text}` : text));
+  const balanced = objective.basis === "standing";
+  steps.push(balanced
+    ? `and last a better balance by at least ${margin} point${margin === 1 ? "" : "s"}: where each of the four scores stands among real tournament teams (its percentile), two thirds the average of the four and one third the weakest, minus ${weight} for every threat scoring ${red} or more`
+    : `and last a score at least ${margin} point${margin === 1 ? "" : "s"} higher (the average of the four scores, minus ${weight} for every threat scoring ${red} or more)`);
+  const climb = balanced ? " After that, Pokémon Auto Build added are swapped one at a time while a swap wins the same way, so no score is given up for another one that is already high." : "";
+  return `Each team went through the same finishing steps and the full Team Evaluation. Teams are compared step by step, and the first step where two teams differ decides: ${steps.join(", ")}. The best pick per slot is kept unless another team wins this way.${climb}`;
 }
 
 /** Every complete team the search finished and evaluated, the kept one marked. */
@@ -1947,7 +1960,8 @@ function comparedTeams(result) {
   const compared = result.compared || [];
   if (compared.length < 2) return null;
   const objective = result.search?.objective || {};
-  const scores = (s) => [["Synergy", s.scores.synergy], ["Offense", s.scores.offense], ["Defense", s.scores.defense], ["Speed", s.scores.speed]];
+  const scores = (s) => [["Synergy", "synergy"], ["Offense", "offense"], ["Defense", "defense"], ["Speed", "speed"]]
+    .map(([label, key]) => [label, s.scores[key], s.standings?.[key]]);
   return h("section", { class: "bd-auto-compare" },
     h("div", { class: "bd-section-head" },
       h("h3", { class: "bd-field-label" }, "Compared teams"),
@@ -1964,10 +1978,11 @@ function comparedTeams(result) {
       return h("div", { class: `bd-auto-compare-row ${team.chosen ? "chosen" : ""}` },
         h("div", { class: "bd-auto-compare-main" },
           h("div", { class: "bd-auto-compare-title" },
-            h("strong", {}, AUTO_TEAM_LABELS[team.label] || "Team"),
+            h("strong", {}, team.label === "swap" && (team.swaps?.length || 0) > 1 ? `After ${team.swaps.length} swaps` : AUTO_TEAM_LABELS[team.label] || "Team"),
             team.chosen ? h("span", { class: "bd-pill good" }, "Picked") : null),
           h("p", { class: "bd-auto-compare-team" }, team.members.map((member, i) => [i ? ", " : "", member.added ? h("b", {}, name(member)) : name(member)])),
-          h("p", { class: "bd-auto-compare-scores" }, scores(s).map(([label, value]) => h("span", {}, `${label} ${Number(value).toFixed(1)}`))),
+          h("p", { class: "bd-auto-compare-scores" }, scores(s).map(([label, value, standing]) => h("span", { title: Number.isFinite(standing) ? `${label} ${Number(value).toFixed(1)} of 100, the ${ordinal(Math.floor(standing))} percentile of real tournament teams` : "" },
+            Number.isFinite(standing) ? `${label} ${Number(value).toFixed(1)} · ${ordinal(Math.floor(standing))}` : `${label} ${Number(value).toFixed(1)}`))),
           h("p", { class: "bd-note" }, tiers.join(" · "))),
         team.chosen ? null : h("button", { type: "button", class: "ghost-button compact", onclick: () => useComparedTeam(team, result) }, "Use this team"));
     })),

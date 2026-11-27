@@ -24,6 +24,7 @@ import { TeamEvaluation } from "./team-payload.js";
 import { SpeedTiers } from "./speed-tiers.js";
 import { SUGGESTION_DIVERSITY, SUGGESTION_SCORING, TeamSuggestions } from "./team-suggest.js";
 import { TeamAutoBuild } from "./team-autobuild.js";
+import { loadScoreAnchors } from "./score-calibration.js";
 import { DeepOptimizer } from "./optimize-deep.js";
 import { OPTIMIZE_SPREAD_DEPTH } from "./optimize-spread-depth.js";
 
@@ -463,6 +464,10 @@ self.addEventListener("message", async (event) => {
       // (Stop) returns the best team found so far.
       const { evaluation } = await appEvaluation(payload.format, payload.settings);
       evaluation.knownTeams ||= await knownTeams();
+      // autobuild_balance ranks complete teams by where their scores stand among real teams, so
+      // the search needs the same table the tiles read. Null for a format without one (Singles),
+      // which keeps the raw-score objective; a failed load is null too, never an error.
+      evaluation.scoreAnchors ||= await loadScoreAnchors(payload.format);
       const started = Date.now();
       const selection = payload.checks ?? null;
       let run;
@@ -480,6 +485,8 @@ self.addEventListener("message", async (event) => {
           // Prioritize Meta's tier above the yellow checks (builder/autobuild-meta-priority.js).
           // Left out of the request, production's version; 0 restores the order before the rule.
           autobuildMetaPriority: payload.autobuildMetaPriority,
+          // The balanced objective (builder/autobuild-balance.js). Left out, production's version.
+          autobuildBalance: payload.autobuildBalance,
           box: (payload.box || []).map((set) => (set && set.species ? makeSet(set) : null)).filter(Boolean),
           onProgress: (fraction, message) => progress({ fraction, message }),
           shouldStop: () => cancelled.has(id),
